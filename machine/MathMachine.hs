@@ -2803,23 +2803,126 @@ round1 disp mem logh libh ref = do
       -- that may touch the horizon or the retirement branch.
       grows   = permitted && (stuck' || widenOnly)
       deepens = permitted && stuck'
+  -- ===================================================================
+  -- WIRE 4.  CERTIFY, and it fires in exactly one place: the instant before
+  -- the machine would have widened blindly.  `grows` is that instant -- it is
+  -- the predicate the whole growth ladder below is gated on -- so at
+  -- dCertify = 0, or on any round that was not going to grow anyway, nothing
+  -- below runs, nothing is logged, and the enumeration is never forced.  The
+  -- live loop is unchanged by construction rather than by inspection.
+  --
+  -- The sequence is the one machine/THE_MACHINE.md specifies:
+  --   CLOSE (the round above) -> CERTIFY -> {PORT menu, then GROW}
+  --                                       | {install and continue}
+  -- ===================================================================
+  let syms2 = take (mVocab m2) vocabulary ++ mInvented m2
+      vocabNames = intercalate "," (map symName syms2)
+  certified <- if dCertify disp <= 0 || not grows
+                 then pure Nothing
+                 else pure (Just (certifySeam (dCertify disp) (usableRules m2)))
+  installedCP <- case certified of
+    Nothing -> pure Nothing
+    -- The budget ran out with no divergence.  This proves NOTHING: an
+    -- unexamined critical pair may still diverge.  Say so and let the ladder
+    -- run exactly as it did before the wire existed.
+    Just (Budgeted n) -> do
+      hPrintf logh "  CERTIFY-BUDGET  %d critical pairs examined, none diverged, budget spent; this is NOT a saturation proof, growing as before\n" n
+      pure Nothing
+    -- All critical pairs joined.  Termination is free here (every rewrite
+    -- strictly decreases in `decreases`, a well-founded order), so by Newman
+    -- the system is confluent and normalisation decides its equational
+    -- theory.  That is a theorem about the wall, and the machine now knows
+    -- where its wall is instead of assuming it has hit one.
+    Just (Convergent n) -> do
+      hPrintf logh "  THEOREM  saturation over {%s}: no equation derivable from the %d installed rules remains undecided by normalisation; proof: all %d critical pairs join, and the rewrite relation terminates (every step decreases in LPO-with-size-fallback), so Newman gives confluence.  SCOPE: the equational theory of the installed rules, NOT the inductive theory -- true-but-not-derivable equations are the prover's job, not this certificate's.\n"
+        vocabNames (length (usableRules m2)) n
+      let rep = residualSeam disp m2
+          tag = if rrStubbed rep then "[seam-stub: machine/Residual.hs absent] " else ""
+      forM_ (rrRemainder rep) $ \line ->
+        hPrintf logh "  RESIDUAL  %s%s\n" tag line
+      hPrintf logh "  PORT-MENU  %s%s\n" tag
+        (if null (rrPortMenu rep) then "empty: nothing left to grant at this cap"
+                                  else intercalate " | " (rrPortMenu rep))
+      pure Nothing
+    -- A critical pair that does not join.  Both sides descend from one peak by
+    -- one rewrite each with rules already installed, so they are equal in the
+    -- theory; they are unequal as normal forms, so the equation is not yet
+    -- known.  This is a new equation that generate-and-test did not state --
+    -- and it is found by completion, which is why the response is to install
+    -- it and keep working rather than to widen.
+    Just (Divergent n cp) -> do
+      let eq = cpEquation cp
+          note = "critical pair: " ++ show (fst (cpOuter cp)) ++ " = "
+                 ++ show (snd (cpOuter cp)) ++ " over " ++ show (fst (cpInner cp))
+                 ++ " = " ++ show (snd (cpInner cp)) ++ " at peak " ++ show (cpPeak cp)
+      hPrintf logh "  CERTIFY-DIVERGENT  after %d joined pairs: %s = %s  (%s)\n"
+        n (show (fst eq)) (show (snd eq)) note
+      if fst eq == snd eq || M.member eq (mKnown m2)
+        then do
+          hPrintf logh "  CERTIFY-SKIP  the divergent pair is already known; growing as before\n"
+          pure Nothing
+        else if not (wellFormedTerm syms2 (fst eq) && wellFormedTerm syms2 (snd eq))
+          then do
+            hPrintf logh "  CERTIFY-SKIP  the divergent pair is outside the current well-formed fragment; growing as before\n"
+            pure Nothing
+          -- The same finite firewall every other candidate crosses.  A
+          -- critical pair is valid whenever its parents are, so a failure here
+          -- is a report about the parents, not about completion.
+          else if not (survivesSemanticFirewall syms2 eq)
+            then do
+              hPrintf logh "  CERTIFY-REJECT  the divergent pair has a concrete counterexample below the audit bound; NOT installed, and the rules that produced it are suspect\n"
+              pure Nothing
+            -- and the same kernel, because the invariant is that every rule in
+            -- play was accepted in THIS process.  Completion gets no exemption.
+            else do
+              ok <- kernelAcceptWith (mInvented m2) (M.keys (mKnown m2))
+                      (usableRules m2) logh (mRound m2) (eq, note)
+              if not ok
+                then do
+                  hPrintf logh "  CERTIFY-HOLD  the kernel would not certify the divergent pair; it is NOT installed and the growth ladder runs unchanged\n"
+                  pure Nothing
+                else do
+                  hPrintf logh "  COMPLETE  installing %s = %s as a %s; growth is held this round -- Knuth-Bendix completion is the cheaper move and it is the one the equation asked for\n"
+                    (show (fst eq)) (show (snd eq))
+                    (if isJust (orient eq) then "rule" else "lemma")
+                  hPrintf libh "%-46s = %-24s   [%s]\n" (show (fst eq)) (show (snd eq)) note
+                  hFlush libh
+                  case mem of
+                    Nothing   -> return ()
+                    Just path -> appendFile path
+                      (showTermP (fst eq) ++ "\t" ++ showTermP (snd eq) ++ "\n")
+                  pure (Just eq)
+  let -- The completed state.  When nothing was installed this is `m2` itself,
+      -- so every expression below reads exactly as it did before WIRE 4.
+      m3 = case installedCP of
+        Nothing -> m2
+        Just eq -> m2
+          { mRules  = mRules m2 ++ maybe [] (:[]) (orient eq)
+          , mLemmas = mLemmas m2 ++ [ eq | not (isJust (orient eq)) ]
+          , mKnown  = M.insert eq () (mKnown m2) }
+      -- COMPLETION BEATS GROWTH.  A round that installed a divergent pair is
+      -- not barren any more: it closed something.  Widening on top of that
+      -- would be the old blind move with an extra symbol's cost attached, and
+      -- the next round can now use the equation it just gained.
+      grows'   = grows && not (isJust installedCP)
+      deepens' = deepens && not (isJust installedCP)
       -- Γ↝ over the growth moves whose cost this machine has actually
       -- observed.  No history for a move means no route for it, and the
       -- ladder below decides instead: a weight is recorded or it does not
       -- exist, never estimated.  (In fact there is never a history --
       -- see the unreachability argument at `gammaRoute`.)
-      routed = if grows
-                 then gammaRoute (mCosts m2) (mVocab m2) (mSize m2)
+      routed = if grows'
+                 then gammaRoute (mCosts m3) (mVocab m3) (mSize m3)
                  else Nothing
-      m'' | not grows = m2
+      m'' | not grows' = m3
           -- `dVocabCap disp`, not `length vocabulary`: the arithmetic symbols
           -- exist in the list but are out of reach at the default cap, so the
           -- ladder terminates exactly where it did before (WIRE 1).
-          | Just (Widen,_,_) <- routed, mVocab m2 < dVocabCap disp =
-              m2 { mVocab = mVocab m2 + 1 }
-          | Just (Deepen,_,_) <- routed, deepens
-          , mSize m2 < K.kSizeCap (mKnobs m2) =
-              m2 { mSize = mSize m2 + 1 }
+          | Just (Widen,_,_) <- routed, mVocab m3 < dVocabCap disp =
+              m3 { mVocab = mVocab m3 + 1 }
+          | Just (Deepen,_,_) <- routed, deepens'
+          , mSize m3 < K.kSizeCap (mKnobs m3) =
+              m3 { mSize = mSize m3 + 1 }
           -- WIDEN BEFORE DEEPENING, and the reason is measured rather
           -- than tasteful.  A factorial re-run (machine/LOOP_MEASUREMENT.md,
           -- arm D) held the certificate fixed and varied only the growth
@@ -2841,13 +2944,13 @@ round1 disp mem logh libh ref = do
           -- resonance means the orbit is the point, and recombining the
           -- same symbols at a larger radius is the one move guaranteed
           -- not to move it.
-          | mVocab m2 < dVocabCap disp = m2 { mVocab = mVocab m2 + 1 }
+          | mVocab m3 < dVocabCap disp = m3 { mVocab = mVocab m3 + 1 }
           -- The vocabulary is spent.  At resonance the machine may go on
           -- to the horizon; at branching it may not, and holds -- that is
           -- the FLOW-HOLD below, and it is now the only thing FLOW-HOLD
           -- means.
-          | not deepens = m2
-          | mSize m2 < K.kSizeCap (mKnobs m2) = m2 { mSize = mSize m2 + 1 }
+          | not deepens' = m3
+          | mSize m3 < K.kSizeCap (mKnobs m3) = m3 { mSize = mSize m3 + 1 }
           -- Past this point the given vocabulary is exhausted and the
           -- size horizon is at its cap.  The machine used to answer that
           -- by raising the horizon anyway and then halting — growing the
@@ -2869,16 +2972,16 @@ round1 disp mem logh libh ref = do
           -- bit-identical, 45 seconds each.  A machine spinning on a
           -- state it can prove it cannot leave is worse than one that
           -- halts, because it looks alive.
-          | otherwise = case reverse (mInvented m2) of
+          | otherwise = case reverse (mInvented m3) of
               s:rest -> case conceptRule s of
                 Just (pat,_) ->
-                  m2 { mInvented = reverse rest
-                     , mRetired = mRetired m2 ++ [canonTerm pat] }
-                Nothing -> m2 { mInvented = reverse rest }
+                  m3 { mInvented = reverse rest
+                     , mRetired = mRetired m3 ++ [canonTerm pat] }
+                Nothing -> m3 { mInvented = reverse rest }
               -- Nothing left to withdraw and nothing left to widen: the
               -- machine genuinely needs more room, and saying so by raising
               -- the horizon is now the honest move rather than the lazy one.
-              [] -> m2 { mSize = mSize m2 + 1 }
+              [] -> m3 { mSize = mSize m3 + 1 }
   case routed of
     Just (mv,c,stay) ->
       hPrintf logh "  ROUTE  %s  cost %d < stay %d  (min-plus over observed weights)\n"
@@ -2898,14 +3001,14 @@ round1 disp mem logh libh ref = do
   -- have made the new growth moves invisible to machine/run-loop-ab.sh,
   -- whose `grow` column is parsed off exactly these lines.  Guard on the
   -- state change itself, which cannot drift out of step with it.
-  when (mVocab m'' > mVocab m2) $
+  when (mVocab m'' > mVocab m3) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
-  when (mSize m'' > mSize m2) $
+  when (mSize m'' > mSize m3) $
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
-  when (length (mInvented m'') < length (mInvented m2)) $
+  when (length (mInvented m'') < length (mInvented m3)) $
     hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
-      (case reverse (mInvented m2) of
+      (case reverse (mInvented m3) of
          s:_ -> symName s
          []  -> "<none>")
   hFlush logh
@@ -3019,6 +3122,38 @@ main = do
       exitFailure
     hPrintf stdout "DSO CONTEXT CHECKED: local=true/0 contextual=false/1 routes=4 classes=3 survivors=1 origin-labels=2 continuation-evals=12->8 query-extension-rejected=true/direct\n"
     exitSuccess
+  -- WIRE 4's own self-test: both verdicts, on rule sets whose critical-pair
+  -- structure is settled by hand, so the check is a comparison against known
+  -- mathematics rather than a run whose output defines what is expected.
+  when (args == ["--certify-self-test"]) $ do
+    -- (1) The defining equations of the base vocabulary are ORTHOGONAL: the
+    -- left-hand sides are `f(x,0)` and `f(x,s(y))` shapes, which share no
+    -- non-variable overlap with each other or with themselves, so the critical
+    -- pair set is empty and convergence holds vacuously.  This is the state a
+    -- freshly started machine is in, and the verdict is a theorem about it.
+    let defs = definitionsOf (take 3 vocabulary)
+        defsVerdict = certifySeam 1000 defs
+    -- (2) Associativity of `+` together with its own right-unit equation has
+    -- exactly one interesting overlap: unify the subterm `+(x,y)` of the
+    -- associativity left-hand side with `+(x',0)`.  The peak `+(+(x,0),z)`
+    -- rewrites to `+(x,+(0,z))` by associativity and to `+(x,z)` by the unit,
+    -- and those two are distinct normal forms because `0+z = z` is an
+    -- INDUCTIVE theorem, not a rewrite consequence.  So the pair diverges and
+    -- names the missing equation -- which is the whole point of the branch.
+    let assoc = ( F "+" [F "+" [V 0, V 1], V 2]
+                , F "+" [V 0, F "+" [V 1, V 2]] )
+        unit  = ( F "+" [V 0, F "0" []], V 0 )
+        openVerdict = certifySeam 1000 [assoc, unit]
+    case (defsVerdict, openVerdict) of
+      (Convergent n, Divergent _ cp) -> do
+        let (u,v) = cpEquation cp
+        hPrintf stdout
+          "CERTIFY CHECKED: definitions convergent (%d critical pairs, all join); assoc+unit divergent, completion equation %s = %s\n"
+          n (show u) (show v)
+        exitSuccess
+      other -> do
+        hPutStrLn stderr ("--certify-self-test: unexpected verdicts " ++ show other)
+        exitFailure
   when (args == ["--dso-live-self-test"]) $ do
     let task = boundedDSOTask "square-threshold" squareThresholdSearch
         projection = executeBoundedSearch squareThresholdSearch
