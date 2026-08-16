@@ -206,4 +206,96 @@ way back; the writer was the third mouth and is now shut too.
   as well, so the honest statement is that the cache is now no more trusted
   than the source tree, not that it is trusted.
 
+## 8. Postscript: the gate stopped being the binding constraint
+
+Running the engine end to end to check §4 showed something the gate work had
+been hiding. From round 9 of a 70-round run the machine proved **nothing**:
+`known` frozen at 17 while every round stated tens of thousands of fresh
+conjectures. The round line could not say why, because its `proved=` is the
+count AFTER the kernel — so "the prover found nothing", "the proof was
+discarded as worthless" and "the gate refused it" all print as `proved=0`.
+Those are three different diseases. A `PROVER` line now separates them, and
+the answer at round 21 (44,532 fresh conjectures) was:
+
+| stage | count |
+|---|---|
+| refuted by the semantic firewall | 9,001 |
+| no proof found | 34,320 |
+| **proved, then discarded as worthless** | **1,211** |
+| installed | 0 |
+
+The machine was proving twelve hundred theorems a round and throwing every one
+of them away — 6,342 across thirty rounds. The filter doing it is
+`marginalPrune`, which asks how many distinct normal forms disappear if the
+equation is installed, and asks it of a 400-term **prefix** of the round's
+population. Two things are wrong with that, and both are derivable rather than
+measurable:
+
+1. `genTermsModulo` is `concat [build n | n <- [1..maxSize]]`, so the
+   population is in nondecreasing size order and a prefix is the *smallest* K
+   terms. A pattern of size `s` matches only terms of size `≥ s`. So for every
+   candidate whose left side is bigger than K the answer is **identically
+   zero** — not noisy, not unlucky: zero, by construction, while round 21 is
+   generating terms of size 7 against a prefix that stops near size 4.
+2. A collapse needs **two** population members to merge, so a k-sample of an
+   N-term population sees a given merge with probability ~(k/N)² — at k=400,
+   N=208,804 that is 4×10⁻⁶.
+
+Replacing the prefix with a stride sample fixes (1) and, measured against a
+control at the same rounds, **changed nothing** (inert 172 → 171; both runs
+converged to 17 theorems). That negative is what identified (2) as the real
+term: the estimator is not a noisy version of the quantity, it is zero almost
+always.
+
+So the quantity is now **computed**, not sampled. The population `T` is
+already the set of distinct normal forms under the current rules, so
+normalisation is the identity everywhere the new rule does not fire; writing
+`S` for the terms where it does,
+
+    collapse = |T| − |image(T)| = |S| − |{ φ t : t ∈ S } \ (T \ S)|.
+
+One scan of `T` asking `step extra t` — a match test, **no rewriting**, and
+`step`'s own `decreases` guard means an unorientable law is counted only where
+it may legally fire — then normalisation of just the terms that scan
+identified. The cost is proportional to the rule's own reach, which is the
+thing being measured.
+
+**And the decision is cheaper than the count**, which is what made this
+affordable. `kMinPrune` is 1, so the filter asks a yes/no question while the
+formula above answers a harder one — it normalises every touched term long
+after the answer is settled. The first version did exactly that and did not
+finish a size-6 round in fifty minutes, against 1.6 s for the sample it
+replaced. Exactness was never the expensive part; the count was. Since `T` is
+the set of normal forms, an image of a fired term is untouched precisely when
+it lies in `T`, so membership is a lookup in one set built once per round
+rather than a set built per candidate, and the first collapse — an image
+landing on another member, or two fired terms sharing an image — ends the
+scan. A rule that earns its place says so in its first few terms; only a rule
+that collapses nothing pays for the whole population, which is the answer it
+deserves.
+
+Measured against the control at the identical round (`fresh=562`,
+`firewall-refuted=38`):
+
+| | sampled probe | exact |
+|---|---|---|
+| no proof found | 489 | 487 |
+| proved, discarded as worthless | **35** | **0** |
+| proved and kept | 0 | 34 |
+| **certified by the kernel** | **0** | **20** |
+| library after that round | 15 | **35** |
+
+Twenty theorems crossed the kernel in a round where the control installed
+none, and the library more than doubled — 35 against the control's 17 after
+thirty rounds. Every one of them is an Agda certificate, not a plausible
+statement: the gate this file spent its first seven sections repairing is what
+they had to cross.
+
+And the gate is binding again. The candidates that now fail are the ones whose
+proofs cite an earlier theorem — `(x+(y+z)) = (y+(x+z))`, `(x+(y+y)) =
+(y+(x+y))` — which is exactly the trace-replay gap named in
+`CERTIFICATE_REACH.md`: replay falls back whenever a fired rule has no name.
+That is the next increment, and it is now the *only* thing between the engine
+and its own proofs.
+
 — cf-tantu, 2026-08-16

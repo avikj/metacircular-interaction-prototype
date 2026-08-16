@@ -31,8 +31,9 @@
 
 module Main (main) where
 
+import qualified Data.Set as S
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort)
+import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition)
 import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
 import Control.Monad (forM_, replicateM_, when, unless, filterM)
@@ -1270,6 +1271,122 @@ congruent _ _ _ = False
 -- that collapses nothing is a true statement with no consequences, and
 -- the machine has proved a hundred and eighty of those.  Now it must
 -- pay its way in.
+-- THE PROBE WAS A PREFIX, AND A PREFIX IS SORTED BY SIZE.
+--
+-- `genTermsModulo` is `concat [build n | n <- [1..maxSize]]` and `ordNub`
+-- keeps first occurrences, so `normed` is in nondecreasing size order and
+-- `take k normed` is the k SMALLEST normal forms.  Let K be the largest size
+-- among them.  A rewrite rule fires at a subterm only if its left-hand side
+-- MATCHES there, and matching maps each pattern node to a distinct term
+-- node, so a pattern of size s matches only terms of size >= s.  Therefore
+--
+--     size (lhs c) > K  =>  no probe term contains an instance of c
+--                       =>  normalising the probe with c changes nothing
+--                       =>  marginalPrune _ probe c = 0.
+--
+-- That is a theorem, not a tendency: with kProbe = 400 and three variables
+-- the prefix stops around size 4, while round 21 of a real run is generating
+-- terms of size 7.  Every theorem whose left side is bigger than a small
+-- term was discarded as "a true statement with no consequences" WITHOUT ITS
+-- CONSEQUENCES EVER BEING LOOKED AT -- 1211 of them in that one round, all
+-- proved, all thrown away.  The value test was reading a ruler that stopped
+-- before the object began.
+--
+-- A stride sample spans the whole size range at the same cost.  It does not
+-- make the estimator unbiased -- large terms are still rarer in the sample
+-- than in the population -- but it removes the region where the answer is
+-- structurally zero, which is what the filter was actually measuring.
+strideSample :: Int -> [a] -> [a]
+strideSample k xs
+  | k <= 0 = []
+  | n <= k = xs
+  | otherwise = [ x | (i, x) <- zip [(0 :: Int) ..] xs, i `mod` stride == 0 ]
+  where
+    n = length xs
+    stride = max 1 (n `div` k)
+
+-- THE VALUE TEST, COMPUTED INSTEAD OF SAMPLED.
+--
+-- `marginalPrune` asks how many distinct normal forms disappear if `c` is
+-- installed, and answers it on a k-term sample.  Two facts about that
+-- estimator, neither of them measured:
+--
+--   (i)  a collapse needs TWO population members to merge, so on a
+--        k-sample of an N-term population a merge is seen only when both
+--        members are drawn -- probability ~(k/N)^2.  At k=400, N=208804
+--        that is 4e-6.  The sample statistic is not a noisy version of the
+--        quantity; for almost every real merge it is deterministically 0.
+--   (ii) with `kMinPrune = 1` the decision is a THRESHOLD at one, so the
+--        false-negative rate of the whole filter is ~e^{-p k} in the
+--        fraction p of the population the rule touches.  Nobody chose that
+--        rate; it fell out of a `take`.
+--
+-- The exact quantity is affordable, because the population T is already
+-- the set of distinct normal forms under `rules`, so `normalize` is the
+-- identity on every term the new rule does not touch.  Write S for the
+-- terms where it does fire.  Then the image of T is (T\S) together with
+-- the images of S, and
+--
+--     collapse = |T| - |image| = |S| - |{ phi t | t <- S } \ (T\S)|.
+--
+-- So the whole computation is: one scan of T asking `step extra t` (a
+-- match test, NO rewriting -- and `step`'s own `decreases` guard means an
+-- unorientable law is only counted where it may legally fire), then
+-- normalisation of the |S| terms that survive that scan.  Cost is
+-- proportional to the rule's own reach, which is the thing being measured;
+-- a rule that touches nothing costs one scan and honestly scores 0, and a
+-- rule that touches half the population was always going to be worth it.
+--
+-- The scan is over the population the round actually generated, not a
+-- window into it, so `size (lhs c) > max size in the sample` -- the
+-- structural zero that made a 400-prefix reject every large theorem
+-- outright -- cannot arise.
+-- The largest population on which the exact value test has been MEASURED to
+-- be affordable.  3287 is measured good, 24993 is measured bad; this sits
+-- between them and is stated as what it is -- an unexplored gap, not a
+-- tuned optimum.
+kExactPopulation :: Int
+kExactPopulation = 8000
+
+exactPrune :: [Rule] -> [Term] -> (Term,Term) -> Int
+exactPrune rules population c =
+  let extra = extraRules c
+      (fired, untouchedL) = partition (isJust . step extra) population
+      untouched = S.fromList untouchedL
+      images = S.fromList (map (normalize (extra ++ rules)) fired)
+  in length fired - S.size (S.difference images untouched)
+
+extraRules :: (Term,Term) -> [Rule]
+extraRules c = case orient c of
+  Just r  -> [r]
+  Nothing -> lemmaRules [c]
+
+-- AND THE DECISION IS CHEAPER THAN THE COUNT.  `kMinPrune` is 1, so the
+-- filter asks a yes/no question and `exactPrune` answers a harder one: it
+-- normalises every term the rule touches, even after the answer is settled.
+-- At size 5 that is affordable and at size 6 it is not -- the first run of it
+-- did not finish a size-6 round in fifty minutes, against 1.6s for the sample
+-- it replaced.  Exactness was never the expensive part; the count was.
+--
+-- `population` is the round's set of distinct normal forms, so a term is
+-- "untouched" exactly when it is in that set (any image of a fired term is
+-- already normal under the extended rules).  That makes membership a lookup
+-- in ONE set built once per round rather than a set built per candidate, and
+-- the first collapse -- an image landing on another population member, or two
+-- fired terms sharing an image -- ends the scan.  A rule that earns its place
+-- says so in its first few terms; only a rule that collapses nothing pays for
+-- the whole population, and that is the answer it deserves.
+collapsesSomething :: S.Set Term -> [Rule] -> [Term] -> (Term,Term) -> Bool
+collapsesSomething popSet rules population c = go S.empty fired
+  where
+    extra = extraRules c
+    fired = [ t | t <- population, isJust (step extra t) ]
+    go _ [] = False
+    go seen (t : ts)
+      | S.member u popSet || S.member u seen = True
+      | otherwise = go (S.insert u seen) ts
+      where u = normalize (extra ++ rules) t
+
 marginalPrune :: [Rule] -> [Term] -> (Term,Term) -> Int
 marginalPrune rules probe c =
   let before = length (ordNub (map (normalize rules) probe))
@@ -2137,8 +2254,39 @@ round1 disp mem logh libh ref = do
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
-      probe = take (K.kProbe (mKnobs m)) normed
-      results = reverse (snd (foldl' attempt (rules, []) fresh))
+      probe = strideSample (K.kProbe (mKnobs m)) normed
+      -- built once per round, not once per candidate
+      normedSet = S.fromList normed
+      -- WHERE THE EXACT TEST STOPS BEING AFFORDABLE, stated rather than
+      -- discovered.  Measured: at |T| = 3287 the exact decision costs less
+      -- than the sample it replaces (0.21s per round against 0.23s) and
+      -- takes the library from 15 theorems to 35 in one round.  At
+      -- |T| = 24993 it does not finish the round at all -- a rule that fires
+      -- widely and collapses nothing normalises thousands of terms before
+      -- the scan can answer no, once per proved candidate.  So the exact
+      -- test runs where it has been measured to run, the sampled one runs
+      -- beyond that, and the round says which answered.  This is a boundary,
+      -- not a tuning knob: moving it up without fixing the cost (index the
+      -- population by head symbol so `fired` is not a full scan) buys a
+      -- stall, and moving it down throws away the theorems.
+      exactAffordable = nNormedEstimate <= kExactPopulation
+      nNormedEstimate = length normed
+      worthInstalling acc c
+        | not exactAffordable = marginalPrune acc probe c >= K.kMinPrune (mKnobs m)
+        | K.kMinPrune (mKnobs m) <= 1 = collapsesSomething normedSet acc normed c
+        | otherwise = exactPrune acc normed c >= K.kMinPrune (mKnobs m)
+      -- WHERE THE FRESH CONJECTURES DIE.  The round line reports `proved=`
+      -- AFTER the kernel gate, so a round that states twenty thousand fresh
+      -- conjectures and reports proved=0 has told the reader nothing about
+      -- WHICH stage refused them -- the semantic firewall, the prover, the
+      -- marginal-prune test that discards true statements with no
+      -- consequences, or the gate.  Those are four different diseases with
+      -- four different treatments, and from round 16 of a 70-round run they
+      -- are indistinguishable in the log.  Counted here, printed as PROVER.
+      (proverStats, results) =
+        let zero4 = (0, 0, 0, 0) :: (Int, Int, Int, Int)
+            (_, out, st) = foldl' attempt (rules, [], zero4) fresh
+        in (st, reverse out)
       bounded = map executeBoundedSearch (mBoundedSearches m)
       witnessBranches = sum (map (length . activeWitnesses) bounded)
       derivationBranches = sum (map (length . derivationFiber) bounded)
@@ -2178,13 +2326,14 @@ round1 disp mem logh libh ref = do
               | architecture <- adequate
               , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
         | (adequate,result) <- historyArchitectureResults ]
-      attempt (acc, out) c
-        | provedByRewriting acc c = (acc, out)
+      attempt (acc, out, st@(nRewritten, nFirewall, nNoProof, nInert)) c
+        | provedByRewriting acc c = (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert))
         -- Proof search is only as trustworthy as its current axiom set and
         -- induction implementation.  This finite gate does not certify a
         -- theorem; it prevents any theorem with a concrete small refutation
         -- from becoming a new axiom and poisoning every later round.
-        | not (survivesSemanticFirewall syms c) = (acc, out)
+        | not (survivesSemanticFirewall syms c) =
+            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert))
         | otherwise =
             -- WIRE 3.  `proveByInduction` first, always; the nested prover is
             -- consulted only where it returned Nothing, so no proof this
@@ -2192,16 +2341,17 @@ round1 disp mem logh libh ref = do
             -- dNestedDepth = 0 the second disjunct is `Nothing` immediately.
             case maybe (nestedProve (dNestedDepth disp) acc c) Just
                    (proveByInduction acc c) of
-              Nothing -> (acc, out)
+              Nothing -> (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert))
               Just pf
                 -- a proof is not enough: it must also make the world
                 -- smaller, or it is a true statement with no consequences
-                | marginalPrune acc probe c < K.kMinPrune (mKnobs m) -> (acc, out)
+                | not (worthInstalling acc c) ->
+                    (acc, out, (nRewritten, nFirewall, nNoProof, nInert + 1))
                 | otherwise ->
                     let acc' = acc ++ maybe [] (:[]) (orient c)
                                 ++ (if isJust (orient c) then []
                                     else lemmaRules [c])
-                    in (acc', (c,pf):out)
+                    in (acc', (c,pf):out, st)
   -- The timer used to bracket a lazy `let`, so nothing had been computed
   -- when it stopped and every round reported 0.00s.  A dead instrument is
   -- worse than none: it is the one that would have shown the rule set
@@ -2248,6 +2398,7 @@ round1 disp mem logh libh ref = do
       -- and did not close.  ∂ = 0 is QuestionMachine's `Resolves` — the
       -- question at this horizon is answered, so the machine must change
       -- what it is looking at, which is why it counts as resonance.
+      (proverRewritten, proverFirewall, proverNoProof, proverInert) = proverStats
       obstruction = nFresh - length checkedResults
       flow | obstruction == 0 = Resonance
            | otherwise        = flowOf (mObstruction m) obstruction
@@ -2262,6 +2413,15 @@ round1 disp mem logh libh ref = do
       Nothing   -> return ()
       Just path -> appendFile path (showTermP l ++ "\t" ++ showTermP r ++ "\n")
   hFlush libh
+  -- The four ways a fresh conjecture fails to become a theorem, and the
+  -- fifth number is the gate's.  `proved` here is the PROVER's count; the
+  -- round line's `proved=` is what survived the kernel.  When they differ
+  -- the difference is exactly the KERNEL-REJECT lines above.
+  hPrintf logh
+    "  PROVER  fresh=%d already-rewritten=%d firewall-refuted=%d no-proof=%d proved-but-inert=%d proved=%d gated=%d value-test=%s\n"
+    (length fresh) proverRewritten proverFirewall proverNoProof proverInert
+    (length results) (length checkedResults)
+    (if exactAffordable then "exact" else "sampled" :: String)
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
   hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
@@ -2395,7 +2555,12 @@ round1 disp mem logh libh ref = do
         Just s | Just (pat,fold) <- conceptRule s
                , null (definitionShapeFailures (syms ++ [s]))
                , null (definitionFailures (syms ++ [s]) definitionAuditBound)
-               , marginalCompress (usableRules m') (take (K.kProbe (mKnobs m')) normed) (pat,fold)
+               -- same prefix-is-a-size-prefix argument as `strideSample`:
+               -- a concept pattern of size 3 cannot shorten a term of size 2,
+               -- so measuring its compression on the smallest 400 normal
+               -- forms is measuring where it cannot appear.
+               , marginalCompress (usableRules m')
+                   (strideSample (K.kProbe (mKnobs m')) normed) (pat,fold)
                    >= K.kConceptGain (mKnobs m')
                -> Just s
         _ -> Nothing
