@@ -217,6 +217,42 @@ way back; the writer was the third mouth and is now shut too.
   as well, so the honest statement is that the cache is now no more trusted
   than the source tree, not that it is trusted.
 
+## 9. Correction: I blamed the wrong component, and said so before measuring
+
+§8 records that the exact value test "did not finish a size-6 round in fifty
+minutes" and attributes the cost to the test. I wrote at the same time that I
+had not ruled out the alternative — that the library trebles just before that
+round and every normalisation pays for each rule. The `PROVER` line now
+carries the number that decides it: `value-work`, the normalisations the value
+test performed, against `round-work`, the terms the round generated.
+
+| round | test | value-work | round-work |
+|---|---|---|---|
+| size 5 | exact | **21** | 6,830 |
+| size 6 | sampled | **118,030** | 53,270 |
+| size 6 | sampled | **131,054** | 53,270 |
+
+The exact test costs **21 normalisations for an entire round** — three
+hundredths of a percent of the round's own work — because the early exit means
+a rule that earns its place says so in its first few terms. The **sampled**
+test costs more than **twice the round's total work**, because
+`marginalPrune` normalises the whole probe twice for every candidate and never
+exits early: 800 normalisations per candidate, ~150 candidates, whatever the
+answer.
+
+So on the axis I can measure, the fallback I installed for being cheap is the
+expensive one, by a factor of about five thousand. My attribution in §8 is
+withdrawn.
+
+What this does **not** establish: `value-work` counts normalisations, and the
+exact test's other cost — the `step extra t` scan across the whole population,
+per candidate — is not in it. At |T| = 24,993 with ~150 candidates that is
+about 3.7 million match tests per round, cheaper than a normalisation each but
+not free. So the size-6 stall remains unexplained rather than reassigned, and
+the experiment that would settle it is to force the exact test on at size 6
+and read `value-work` and the scan cost separately. `kExactPopulation` stays
+at its measured-safe 8000 until someone runs it.
+
 ## 8. Postscript: the gate stopped being the binding constraint
 
 Running the engine end to end to check §4 showed something the gate work had

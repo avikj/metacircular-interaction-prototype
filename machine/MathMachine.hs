@@ -1390,15 +1390,16 @@ extraRules c = case orient c of
 -- fired terms sharing an image -- ends the scan.  A rule that earns its place
 -- says so in its first few terms; only a rule that collapses nothing pays for
 -- the whole population, and that is the answer it deserves.
-collapsesSomething :: S.Set Term -> [Rule] -> [Term] -> (Term,Term) -> Bool
-collapsesSomething popSet rules population c = go S.empty (take kCollapseScan fired)
+collapsesSomething :: S.Set Term -> [Rule] -> [Term] -> (Term,Term) -> (Bool, Int)
+collapsesSomething popSet rules population c =
+  go S.empty 0 (take kCollapseScan fired)
   where
     extra = extraRules c
     fired = [ t | t <- population, isJust (step extra t) ]
-    go _ [] = False
-    go seen (t : ts)
-      | S.member u popSet || S.member u seen = True
-      | otherwise = go (S.insert u seen) ts
+    go _ n [] = (False, n)
+    go seen n (t : ts)
+      | S.member u popSet || S.member u seen = (True, n + 1)
+      | otherwise = go (S.insert u seen) (n + 1) ts
       where u = normalize (extra ++ rules) t
 
 -- WHERE THE REMAINING COST IS, and it is not the scan.
@@ -2518,10 +2519,22 @@ round1 disp mem logh libh ref = do
       -- stall, and moving it down throws away the theorems.
       exactAffordable = nNormedEstimate <= kExactPopulation
       nNormedEstimate = length normed
+      -- The second component is how many terms the test NORMALISED to reach
+      -- its answer.  I attributed a size-6 stall to this filter without
+      -- isolating it, and wrote that down as unresolved; this is the
+      -- isolation.  The round's own work is |raw| normalisations, so a
+      -- value-work figure far below that acquits the filter and one far
+      -- above it convicts, with no stopwatch and no second run to compare
+      -- against.  The sampled branch reports its own cost the same way:
+      -- `marginalPrune` normalises the probe twice.
       worthInstalling acc c
-        | not exactAffordable = marginalPrune acc probe c >= K.kMinPrune (mKnobs m)
+        | not exactAffordable =
+            ( marginalPrune acc probe c >= K.kMinPrune (mKnobs m)
+            , 2 * length probe )
         | K.kMinPrune (mKnobs m) <= 1 = collapsesSomething normedSet acc normed c
-        | otherwise = exactPrune acc normed c >= K.kMinPrune (mKnobs m)
+        | otherwise =
+            ( exactPrune acc normed c >= K.kMinPrune (mKnobs m)
+            , length normed )
       -- WHERE THE FRESH CONJECTURES DIE.  The round line reports `proved=`
       -- AFTER the kernel gate, so a round that states twenty thousand fresh
       -- conjectures and reports proved=0 has told the reader nothing about
@@ -2531,7 +2544,7 @@ round1 disp mem logh libh ref = do
       -- four different treatments, and from round 16 of a 70-round run they
       -- are indistinguishable in the log.  Counted here, printed as PROVER.
       (proverStats, results) =
-        let zero4 = (0, 0, 0, 0) :: (Int, Int, Int, Int)
+        let zero4 = (0, 0, 0, 0, 0) :: (Int, Int, Int, Int, Int)
             (_, out, st) = foldl' attempt (rules, [], zero4) fresh
         in (st, reverse out)
       bounded = map executeBoundedSearch (mBoundedSearches m)
@@ -2573,14 +2586,15 @@ round1 disp mem logh libh ref = do
               | architecture <- adequate
               , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
         | (adequate,result) <- historyArchitectureResults ]
-      attempt (acc, out, st@(nRewritten, nFirewall, nNoProof, nInert)) c
-        | provedByRewriting acc c = (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert))
+      attempt (acc, out, (nRewritten, nFirewall, nNoProof, nInert, nWork)) c
+        | provedByRewriting acc c =
+            (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert, nWork))
         -- Proof search is only as trustworthy as its current axiom set and
         -- induction implementation.  This finite gate does not certify a
         -- theorem; it prevents any theorem with a concrete small refutation
         -- from becoming a new axiom and poisoning every later round.
         | not (survivesSemanticFirewall syms c) =
-            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert))
+            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert, nWork))
         | otherwise =
             -- WIRE 3.  `proveByInduction` first, always; the nested prover is
             -- consulted only where it returned Nothing, so no proof this
@@ -2588,17 +2602,22 @@ round1 disp mem logh libh ref = do
             -- dNestedDepth = 0 the second disjunct is `Nothing` immediately.
             case maybe (nestedProve (dNestedDepth disp) acc c) Just
                    (proveByInduction acc c) of
-              Nothing -> (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert))
-              Just pf
-                -- a proof is not enough: it must also make the world
-                -- smaller, or it is a true statement with no consequences
-                | not (worthInstalling acc c) ->
-                    (acc, out, (nRewritten, nFirewall, nNoProof, nInert + 1))
-                | otherwise ->
-                    let acc' = acc ++ maybe [] (:[]) (orient c)
-                                ++ (if isJust (orient c) then []
-                                    else lemmaRules [c])
-                    in (acc', (c,pf):out, st)
+              Nothing ->
+                (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert, nWork))
+              -- a proof is not enough: it must also make the world smaller,
+              -- or it is a true statement with no consequences
+              Just pf ->
+                let (worth, work) = worthInstalling acc c
+                    st' = (nRewritten, nFirewall, nNoProof, nInert, nWork + work)
+                in if not worth
+                     then (acc, out
+                          , (nRewritten, nFirewall, nNoProof, nInert + 1
+                            , nWork + work))
+                     else
+                       let acc' = acc ++ maybe [] (:[]) (orient c)
+                                   ++ (if isJust (orient c) then []
+                                       else lemmaRules [c])
+                       in (acc', (c,pf):out, st')
   -- The timer used to bracket a lazy `let`, so nothing had been computed
   -- when it stopped and every round reported 0.00s.  A dead instrument is
   -- worse than none: it is the one that would have shown the rule set
@@ -2645,7 +2664,8 @@ round1 disp mem logh libh ref = do
       -- and did not close.  ∂ = 0 is QuestionMachine's `Resolves` — the
       -- question at this horizon is answered, so the machine must change
       -- what it is looking at, which is why it counts as resonance.
-      (proverRewritten, proverFirewall, proverNoProof, proverInert) = proverStats
+      (proverRewritten, proverFirewall, proverNoProof, proverInert, proverWork) =
+        proverStats
       obstruction = nFresh - length checkedResults
       flow | obstruction == 0 = Resonance
            | otherwise        = flowOf (mObstruction m) obstruction
@@ -2665,10 +2685,11 @@ round1 disp mem logh libh ref = do
   -- round line's `proved=` is what survived the kernel.  When they differ
   -- the difference is exactly the KERNEL-REJECT lines above.
   hPrintf logh
-    "  PROVER  fresh=%d already-rewritten=%d firewall-refuted=%d no-proof=%d proved-but-inert=%d proved=%d gated=%d value-test=%s\n"
+    "  PROVER  fresh=%d already-rewritten=%d firewall-refuted=%d no-proof=%d proved-but-inert=%d proved=%d gated=%d value-test=%s value-work=%d round-work=%d\n"
     (length fresh) proverRewritten proverFirewall proverNoProof proverInert
     (length results) (length checkedResults)
     (if exactAffordable then "exact" else "sampled" :: String)
+    proverWork nRaw
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
   hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
