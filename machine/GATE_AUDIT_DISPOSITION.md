@@ -323,7 +323,17 @@ close composed two paths to two different terms. That check now exists, up to
 the library's own computation rather than syntactically — demanding syntactic
 equality cost two theorems that had been certifying.
 
-The five remaining misses are the multiplication fragment. A live 20-round run
+The five remaining "misses" turned out not to be replay's. Making the failure
+legible — *which* rule had no name, rather than that one did — showed all five
+report something else entirely: **the clause traces never meet**. Their
+derivations do not close under the rule set this harness can reconstruct (it
+carries only the `{0,s,+,*}` fragment, and the engine had `max`, `le` and
+`gcd` theorems too), so there was no proof to transcribe and declining them is
+correct. Against the honest denominator, replay reaches **8 of the 8
+derivations that close**, one agda call each. "8/13" charges transcription for
+proofs that were never available to it.
+
+A live 20-round run
 with all of this wired stands at 35 theorems, 8 of them admitted by trace
 replay at one agda call each.
 

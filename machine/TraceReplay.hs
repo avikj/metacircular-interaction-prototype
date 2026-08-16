@@ -61,6 +61,7 @@ module TraceReplay
   , addReflLemmas
   , addProvedLemmas
   , inductionClauses
+  , unnamedRules
   , reflProvable
   , libRules
   , deriveByInduction
@@ -443,6 +444,21 @@ inductionClauses lenv self d = do
          , unwords (self : stepPat) ++ " = " ++ stepPf
          ] )
 
+-- WHICH rule had no name.  "A fired rule has no name" is a true report and
+-- an unactionable one: it says a lemma is missing without saying which, so
+-- the reader's next step is to reconstruct the derivation by hand.  This
+-- walks the same four traces `replayClause` walks and returns the rules it
+-- would fail on -- the induction hypothesis excepted, in both directions,
+-- because that one is the recursive call and never needs a name.
+unnamedRules :: LemmaEnv -> Deriv -> [Rule]
+unnamedRules lenv d =
+  [ rl
+  | st <- dBaseL d ++ dBaseR d ++ dStepL d ++ dStepR d
+  , let rl = tsRule st
+  , rl /= dHyp d, rl /= swap (dHyp d)
+  , not (any (`elem` map fst (leLemmas lenv)) [rl, swap rl])
+  ]
+
 unionT :: [Int] -> [Int] -> [Int]
 unionT a b = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) [] (a ++ b)
 
@@ -752,17 +768,30 @@ snapshotFragment =
 -- Replay the fragment the way the engine meets it: in order, with every
 -- theorem already accepted available BOTH as a rewrite rule and as a citable
 -- lemma.  Reports how far transcription reaches where search reached 15/28.
-measureSnapshot :: FilePath -> IO (Int, Int, Int)
-measureSnapshot root = go peanoRules [] 0 0 snapshotFragment
+measureSnapshot :: FilePath -> IO (Int, Int, Int, Int)
+measureSnapshot root = go peanoRules [] 0 0 0 snapshotFragment
   where
-    go _ _ ok calls [] = pure (ok, length snapshotFragment, calls)
-    go rules certs ok calls (((l,r), v) : rest) = do
+    -- `closed` counts the fragment members whose derivation ACTUALLY CLOSES
+    -- under the rule set this harness can reconstruct.  It is the honest
+    -- denominator: a member whose two clause traces never meet was not
+    -- proved here, so replay declining to emit a certificate for it is
+    -- correct behaviour and not a miss.  Reporting only `ok/13` charges
+    -- transcription for derivations that were never available to it.
+    go _ _ ok calls closed [] = pure (ok, length snapshotFragment, calls, closed)
+    go rules certs ok calls closed (((l,r), v) : rest) = do
       let named = [ (rl, "lem" ++ show i) | (i, rl) <- zip [(0::Int)..] certs ]
           d = deriveByInduction rules (l,r) v
       case replayModule (addProvedLemmas rules named peanoEnv) "Candidate" d of
         Nothing -> do
-          printf "  no-replay  %-42s (a fired rule has no name)\n" (show l ++ " = " ++ show r)
-          go rules certs ok calls rest
+          let env = addProvedLemmas rules named peanoEnv
+              missing = unnamedRules env d
+              closes = if dBaseMet d && dStepMet d then 1 else 0
+              why | closes == 0 = "the clause traces do not meet"
+                  | ((a,b) : _) <- missing =
+                      "no name for " ++ show a ++ " -> " ++ show b
+                  | otherwise = "a lemma declaration did not render"
+          printf "  no-replay  %-42s (%s)\n" (show l ++ " = " ++ show r) why
+          go rules certs ok calls (closed + closes) rest
         Just src -> do
           (code, out) <- runAgda root src
           case code of
@@ -773,7 +802,7 @@ measureSnapshot root = go peanoRules [] 0 0 snapshotFragment
                  + length (dStepL d) + length (dStepR d))
               -- accepted: it joins the rule set AND the citable lemmas,
               -- which is the engine's own thesis applied to certificates
-              go (rules ++ [(l,r)]) (certs ++ [(l,r)]) (ok+1) (calls+1) rest
+              go (rules ++ [(l,r)]) (certs ++ [(l,r)]) (ok+1) (calls+1) (closed+1) rest
             ExitFailure _ -> do
               -- keep the module, or the reader is left with a line number
               -- for a file in a temp directory that no longer exists
@@ -783,7 +812,7 @@ measureSnapshot root = go peanoRules [] 0 0 snapshotFragment
                 (show l ++ " = " ++ show r)
                 (take 90 (firstInformative (unlines (drop 1 (lines out)))))
                 path
-              go rules certs ok (calls+1) rest
+              go rules certs ok (calls+1) (closed+1) rest
     firstInformative s = case filter inf (lines s) of
                            (l:_) -> unwords (words l)
                            [] -> "(agda said nothing)"
@@ -812,9 +841,13 @@ main = do
   printf "%d/%d replayed traces type-check\n" ok (length results)
   putStrLn ""
   putStrLn "== the engine's library snapshot, {0,s,+,*} fragment, in order =="
-  (sok, stot, scalls) <- measureSnapshot root
+  (sok, stot, scalls, sclosed) <- measureSnapshot root
   printf "\nreplay reaches %d/%d of the fragment in %d agda calls\n"
     sok stot scalls
+  printf "and %d/%d of the derivations that CLOSE here (the other %d never meet:\n"
+    sok sclosed (stot - sclosed)
+  printf " this harness reconstructs only the {0,s,+,*} rules, so those proofs\n"
+  printf " were not available to transcribe -- declining them is correct)\n"
   putStrLn "(Certificate's shape search on the same file: 15/28 overall,"
   putStrLn " worst case 12 agda calls for ONE candidate.)"
   putStrLn ""
