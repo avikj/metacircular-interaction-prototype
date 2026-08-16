@@ -392,3 +392,37 @@ import R0021FlipOrbit
 -- the module header and the middle-nucleus repair is NOT duplicated.
 -- AWAITING KERNEL — authored without local toolchain.
 import NaturalMachine.DSOFiniteCore
+
+-- Matching pennies as the exact separator (build queue Q10, D0026 §2.9 /
+-- owner Delta 30; `notes/SELECTION_RETAINS_WHAT_VALUE_FORGETS.md` §5.5,
+-- which specifies this module and disclaims having written it).
+-- Payoffs normalized by a per-player positive affine map into {0,1}, so
+-- the whole game is decidable on Bool with ℕ payoffs and no Int.  What
+-- is certified: welfare W ≡ 1 and the Boolean pure-Nash test are each
+-- CONSTANT — one fiber apiece — while the best-response composite
+-- β₂ ∘ π₁ is surjective onto Bool — two fibers — so by the corpus's
+-- level-set theorem (T) the strategic structure descends through
+-- NEITHER summary.  That makes VERIFIER_BLIND_FIBER_REWARD Theorem A
+-- and von Neumann's oldest example the same theorem, which is the
+-- source note's finding.  Deliberately NOT here: the bridge between the
+-- Boolean test and the type-level Nash predicate, mixed strategies, the
+-- harmonic/potential decomposition, and the sibling lens-law module.
+-- AWAITING KERNEL — authored without local toolchain.
+import NaturalMachine.MatchingPenniesSeparator
+
+-- The Gter two-coordinate defect, D0026 §7.3 (build queue Q9, owner
+-- Deltas 37–38; `notes/GTER_REVELATION_AND_THE_TWO_COORDINATE_DEFECT.md`
+-- §§4.1–4.2, shape given in its §4.7).  D0026 asserts that static
+-- observational separation and dynamic compositional sufficiency are
+-- independent and supplies no witness; here the cut system is encoded
+-- relationally (relations as Bool-valued tables on finite index types,
+-- glued realization = relational composition through the cut), and
+-- Theorem 4 — surjectivity of 𝔖 ↦ (sep, comp) onto Bool × Bool at shape
+-- (1,2,1) — is checked, six refls, with both of D0026's requested
+-- witnesses appearing as two of the four cells.  Deliberately NOT here,
+-- and flagged as such by the source note first: Theorem 6 (minimality of
+-- the shape — it quantifies over shapes) and Proposition 7 (the tear is
+-- not truncation-invariant — it needs the Set-valued coend).  Neither is
+-- refl-material; the module certifies the relational coordinate only.
+-- AWAITING KERNEL — authored without local toolchain.
+import NaturalMachine.GterTwoCoordinate
