@@ -307,7 +307,24 @@ And the gate is binding again. The candidates that now fail are the ones whose
 proofs cite an earlier theorem — `(x+(y+z)) = (y+(x+z))`, `(x+(y+y)) =
 (y+(x+y))` — which is exactly the trace-replay gap named in
 `CERTIFICATE_REACH.md`: replay falls back whenever a fired rule has no name.
-That is the next increment, and it is now the *only* thing between the engine
-and its own proofs.
+That was the next increment, and it is now half done. Replay admits a cited
+theorem whose own proof is an **induction**, emitted under its own name with
+its own two clauses ahead of the candidate, folded in certification order so
+each lemma sees only what precedes it. Measured on the engine's library
+snapshot: **7/13 → 8/13**, still one agda call each, with
+`(x+(y+y)) = (y+(x+y))` now certifying in eight steps against lemmas proved by
+induction in the same module. Two bugs surfaced only by measuring: the
+caller's rule set already contains the cited theorems, so a lemma derived
+against it fires *itself* and is dropped (the fold now hands the rules back
+one at a time, in the direction the engine installed them — handing back both
+directions is a different rule set and cost 5/13); and nothing had ever
+checked that a clause's two traces **meet**, so a derivation that did not
+close composed two paths to two different terms. That check now exists, up to
+the library's own computation rather than syntactically — demanding syntactic
+equality cost two theorems that had been certifying.
+
+The five remaining misses are the multiplication fragment. A live 20-round run
+with all of this wired stands at 35 theorems, 8 of them admitted by trace
+replay at one agda call each.
 
 — cf-tantu, 2026-08-16
