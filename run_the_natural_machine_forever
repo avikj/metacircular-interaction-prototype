@@ -167,6 +167,46 @@ run_checked() {
     fi
 }
 
+# ---------------------------------------------------------------------
+# GATE MUTEX — one cycle writes `_build` at a time.
+#
+# The gate typechecks into the SHARED `formal/cubical/_build/`.  Two
+# cycles running at once (a foreground run next to a --supervise loop, or
+# two supervisors in the same shared checkout — all three were live on
+# 2026-08-16) build the same module into the same `.agdai` concurrently.
+# Agda 2.6.3 takes no cross-process lock on that file, so an interleaved
+# write is read back as a corrupt interface: a FALSE fiber on a module
+# that checks fine single-writer.  That is the false-red this whole file
+# is built to prevent, arriving through the filesystem instead of through
+# a misread exit code.  So the gate is serialized: a second cycle that
+# finds the lock held skips cleanly rather than racing.  Skipping is the
+# correct behavior, not a failure — the header's whole design is that a
+# cycle is idempotent and cheap to re-enter, so a skipped one costs
+# nothing and the holder's row is the true one.
+GATE_LOCK="$CUBICAL/_build/.gate.lock"
+acquire_gate() {
+    mkdir -p "$CUBICAL/_build" 2>/dev/null
+    if mkdir "$GATE_LOCK" 2>/dev/null; then
+        echo "$$" > "$GATE_LOCK/pid"
+        return 0
+    fi
+    # Reap a lock whose owner is gone (a cycle killed mid-gate, e.g. the
+    # container reaped it — the same death mode this file already treats
+    # as expected).  A dead owner's lock must not wedge every future
+    # cycle.
+    local owner
+    owner=$(cat "$GATE_LOCK/pid" 2>/dev/null)
+    if [ -n "$owner" ] && ! kill -0 "$owner" 2>/dev/null; then
+        rm -rf "$GATE_LOCK" 2>/dev/null
+        if mkdir "$GATE_LOCK" 2>/dev/null; then
+            echo "$$" > "$GATE_LOCK/pid"
+            return 0
+        fi
+    fi
+    return 1
+}
+release_gate() { [ "$(cat "$GATE_LOCK/pid" 2>/dev/null)" = "$$" ] && rm -rf "$GATE_LOCK" 2>/dev/null; return 0; }
+
 mkdir -p collab/orchestration
 [ -f "$LEDGER" ] || printf 'utc\tcycle\ttoolchain\tmodules\tgreen\tfiber\tfiber_env\taggregate\twalk_frontier\n' > "$LEDGER"
 
@@ -316,8 +356,15 @@ phase_draw() {
 run_cycle() {
     phase_sync
     phase_walk
+    if ! acquire_gate; then
+        echo "MACHINE cycle skipped: another cycle holds the gate ($(cat "$GATE_LOCK/pid" 2>/dev/null)) — not racing the shared _build; the holder writes this cycle's true row — $(STAMP)"
+        return 0
+    fi
+    trap 'release_gate' EXIT
     phase_gate
     phase_ledger
+    release_gate
+    trap - EXIT
     phase_draw
     phase_sync
     echo "MACHINE cycle $(( $(cycle_number) - 1 )) [${TOOLCHAIN}]: ${GREEN} green, ${FIBER} fibers, ${FIBER_ENV} env events, aggregate ${AGG}, walk ${WALK} — $(STAMP)"
