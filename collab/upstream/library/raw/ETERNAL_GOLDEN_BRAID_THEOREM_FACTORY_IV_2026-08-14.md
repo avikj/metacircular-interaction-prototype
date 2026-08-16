@@ -3,14 +3,21 @@
 <!-- Provenance: received verbatim from the human owner in a Claude Code session,
      2026-08-14. Transcription artifacts from the source medium (LaTeX brackets
      rendered as [ ... ], stray line breaks, a dropped "=" in Theorem 58's display)
-     are preserved as received. Lineage: continuation of
-     UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_14_2026-08-13.md (= Factory I).
-     Factories II and III are NOT present in this repository — the same
-     absent-source defect recorded for Deltas 17/18 in msg 0466. Their theorem
-     numbers (50, 54, 55, 62-63, 70-71, 73 and "Factory III radius transfer")
-     are cited here but their full statements are not locally recoverable.
+     are preserved as received.
+     Lineage [CORRECTED per the EGB V3 index, collab/upstream/library/index/]:
+     this is item 119 of the owner's external library, fourth of NINE
+     ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY documents I-IX (all 2026-08-14).
+     ~~continuation of UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_14 (= Factory I)~~
+     — wrong: Delta 14 is the perspective program's factory, a separate lineage
+     (index item 089). EGB Factory I (item 107) is cyclic holonomy / fixed
+     points / prime-pair witness types. Factories I-III and V-IX are indexed
+     but their full texts are NOT yet in this repository; theorem numbers
+     cited here (50, 54, 55, 62-63, 70-71, 73) resolve into II (item 113,
+     819 lines) and III (item 116, 1580 lines, the radius-transfer finish
+     line). Export request standing (msg 0489).
      Receiving audit: notes/FACTORY_IV_CHEN_CORNER_AUDIT.md.
-     Formalized core: formal/cubical/NaturalMachine/ChenProjector.agda. -->
+     Formalized core: formal/cubical/NaturalMachine/ChenProjector.agda,
+     CornerProjectors.agda. -->
 
 The Chen completion, double channel projection, and the two-defect corner
 
