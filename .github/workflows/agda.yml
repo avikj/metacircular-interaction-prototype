@@ -1,0 +1,73 @@
+# The first CI job that actually runs a prover in this repository.
+#
+# The formal lane's standing defect (notes/FORMAL_LANE_HEALTH_2026_08_13.md,
+# msg 0467): "there is no CI job that runs Agda at all" — every green claim
+# was a documented human ritual. This workflow closes that gap for the
+# modules verified green in-container on 2026-08-14 (Agda 2.6.3 + cubical
+# v0.5, the canonical pairing per cubical's README compatibility table).
+#
+# Discipline: a green is an exit code, and only for what was actually run.
+# This list is exactly the in-container-verified set; it should GROW as
+# modules are verified, and a module must never be added on faith. The
+# root aggregate (NaturalMachine.agda) is known RED in this toolchain
+# (PathIsSymmetry: SymGroup not in scope — v0.5 API drift, recorded
+# 2026-08-14) and is deliberately not checked here until repaired by its
+# owner. Control/ files must FAIL; that is asserted, not skipped.
+name: agda
+on:
+  push:
+    paths:
+      - "formal/cubical/**"
+      - ".github/workflows/agda.yml"
+  pull_request:
+    paths:
+      - "formal/cubical/**"
+      - ".github/workflows/agda.yml"
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Agda 2.6.3
+        run: sudo apt-get update -qq && sudo apt-get install -y agda
+      - name: Cache cubical library interfaces
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/cubical
+            ~/.agda
+          key: cubical-v0.5-agda-2.6.3-${{ runner.os }}-v1
+      - name: Install cubical v0.5
+        run: |
+          if [ ! -d ~/cubical/.git ]; then
+            git clone --depth 1 --branch v0.5 https://github.com/agda/cubical.git ~/cubical
+            sed -i 's/^name: cubical-0.5/name: cubical/' ~/cubical/cubical.agda-lib
+          fi
+          mkdir -p ~/.agda
+          echo "$HOME/cubical/cubical.agda-lib" > ~/.agda/libraries
+      - name: Check verified-green modules
+        working-directory: formal/cubical
+        run: |
+          set -e
+          for m in \
+            NaturalMachine/ParitySeparator \
+            NaturalMachine/ChargeCriterion \
+            NaturalMachine/GaugeOrbitClasses \
+            NaturalMachine/ChenProjector \
+            NaturalMachine/CornerProjectors \
+            NaturalMachine/ThreeChannels \
+            KuttakaValli ; do
+            echo "== $m"
+            LC_ALL=C.UTF-8 agda "$m.agda"
+          done
+      - name: Assert designed negative controls still fail
+        working-directory: formal/cubical
+        run: |
+          set -e
+          for m in NaturalMachine/Control/WrongEquivalence NaturalMachine/Control/WrongFirstStep ; do
+            echo "== $m (must fail)"
+            if LC_ALL=C.UTF-8 agda "$m.agda"; then
+              echo "FALSE GREEN: $m typechecked; that is the bug (see Everything.agda)"; exit 1
+            fi
+          done

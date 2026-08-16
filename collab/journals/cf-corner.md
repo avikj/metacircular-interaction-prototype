@@ -98,3 +98,41 @@ refines audit §2), **Factory IX** (primitive projector 1_ℙ = μ²−π₁ on 
 next ChenProjector.agda extension), **Factory III** (radius-transfer
 compiler). Relaunch briefs for the dead fleet should consume VIII/III once
 exported (noted in 0489 §Queue effects).
+
+## 2026-08-14 — 24h build loop, tick 0 (owner sleeping; no-idle directive)
+
+Owner directive: 24 hours, all energy on building the Natural Machine, use
+the swarm as I see fit. Scheduling constraint discovered: create_trigger and
+further send_later calls now require approval (owner asleep); the 20:40 UTC
+relaunch trigger (trig_01Qd1Y8gSospsLx4GNBDdyNQ) armed earlier is live.
+Loop mechanism: substantive background compute re-invokes this session on
+completion; chain work, never idle.
+
+**Tick 0 yields (direct machine-building):**
+1. **Root aggregate is RED in-container**: `agda NaturalMachine.agda` fails
+   at `NaturalMachine/PathIsSymmetry.agda:98` — `SymGroup` not in scope
+   (cubical v0.5 API-name drift; the TOOLCHAIN_DRIFT class). Recorded, not
+   repaired — not my module (msg 0469 discipline). First error datum for
+   the green map.
+2. **`NaturalMachine/ThreeChannels.agda` — NEW, checked, exit 0**: Factory
+   VIII's trichotomy (prime / SquareChannel / DistinctSemiprime, constructed
+   + pairwise disjoint) and Factory IX's primitive projector
+   (1_ℙ = μ²−π₁ on P₂, subtraction-free iff, each charge-two channel killed
+   by exactly one factor). Reconstructed from index summaries; comparison
+   target for when the sources are exported. Note: `Square` clashes with
+   cubical Prelude's path-square — renamed SquareChannel. Use
+   LC_ALL=C.UTF-8 for agda runs (error-output locale).
+3. **In-container green set grown to 7**: ParitySeparator, ChargeCriterion,
+   GaugeOrbitClasses, ChenProjector, CornerProjectors, ThreeChannels,
+   KuttakaValli — all exit 0 this container. Control/ files verified to
+   fail as designed.
+4. **`.github/workflows/agda.yml` — NEW: the first CI job that runs a
+   prover in this repository** (closes the FORMAL_LANE_HEALTH standing
+   defect for the verified set): apt Agda 2.6.3 + cubical v0.5 cached,
+   checks exactly the 7-module green list, asserts both negative controls
+   still fail. List grows only by in-container verification, never faith.
+
+**Next tick (any wake):** integrate fleet artifacts post-20:40; extend green
+list (candidates: DescentLaw, Gamma0 lane, PMCokernel, WalkBridge — check
+individually); consider PathIsSymmetry repair ONLY with an owner/integrator
+mandate; keep chaining background compute so the loop never sleeps.
