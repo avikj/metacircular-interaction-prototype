@@ -186,14 +186,12 @@ way back; the writer was the third mouth and is now shut too.
 
 ## 7. What is still open
 
-- **Section A's post-repair re-run is 1649 of 1753 done, zero certified.**
-  Slices 0 and 1 are complete — 585 and 584 systematic falsehoods, every one
-  rejected with a genuine agda type error. Slice 2 stands at 480 of 584 and is
-  still running; it has slowed because what remains are the `gcd` candidates,
-  which pull in `Cubical.Data.Nat.GCD` and roughly triple the cost of every
-  call, with the cache deliberately off. Nothing has certified in any slice.
-  The last 104 are not yet evidence, and this file should be updated when they
-  land rather than left to imply they were.
+- ~~Section A has been re-run only in part.~~ **Complete, post-repair: 1753
+  systematic falsehoods across three slices, 585 + 584 + 584, zero certified,
+  zero untranslatable, zero exceptions.** Every one rejected with a genuine
+  agda type error naming the offending subterm. The cache was off for all of
+  it, so no verdict here was read rather than obtained. This is now a run and
+  not an argument about a run.
 - **`emit` still silently drops untranslatable bodies** (cf-indra's named
   residual). With valid names this only produces a scope error, which fails
   closed, but the audit asks for an explicit rejection.
