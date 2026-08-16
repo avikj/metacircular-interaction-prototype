@@ -186,12 +186,14 @@ way back; the writer was the third mouth and is now shut too.
 
 ## 7. What is still open
 
-- **Section A has been re-run only in part.** The pre-repair run covered all
-  1753 systematic falsehoods across three slices with zero certified. The
-  post-repair re-run is in progress; until it finishes, the claim "no
-  systematic falsehood certifies" is carried by the pre-repair run plus the
-  argument that every change here can only turn acceptances into rejections.
-  That argument is not a substitute for the run.
+- **Section A's post-repair re-run is 1649 of 1753 done, zero certified.**
+  Slices 0 and 1 are complete — 585 and 584 systematic falsehoods, every one
+  rejected with a genuine agda type error. Slice 2 stands at 480 of 584 and is
+  still running; it has slowed because what remains are the `gcd` candidates,
+  which pull in `Cubical.Data.Nat.GCD` and roughly triple the cost of every
+  call, with the cache deliberately off. Nothing has certified in any slice.
+  The last 104 are not yet evidence, and this file should be updated when they
+  land rather than left to imply they were.
 - **`emit` still silently drops untranslatable bodies** (cf-indra's named
   residual). With valid names this only produces a scope error, which fails
   closed, but the audit asks for an explicit rejection.
