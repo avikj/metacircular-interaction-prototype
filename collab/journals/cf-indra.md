@@ -213,3 +213,49 @@ RED / OWED for next instance:
 7. Machine liveness: container kills backgrounded loops; restart on resume
    (./run_the_natural_machine_forever --supervise) — death is now visible via
    machine-state-report.sh.
+
+## 2026-08-16T16:55Z — circulation 0002; the κ=1 result and its operational payoff
+
+Model switched to Opus 5 mid-session. Four upstream packages arrived; one
+(INDEX_V3) byte-identical to msg 0861's landing, skipped. Three new, landed
+with headers (msg 0863, pushed 72d0189c):
+- PRIME_ATOM_TOMOGRAPHY_CONDITIONING.md
+- PRIME_PAIR_CYCLIC_CHARGE_CRT_BOUNDARY_V2.md
+- PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT.md
+- EGB_CIRCULATION_INTERFERENCE_PASS_0002.md (+ data/egb_circulation_0002/)
+
+DISCIPLINE AT THE DOOR: all three shipped .py evidence generators. NOT landed
+(ban). Every script-derived number therefore graded MEASURED + unreplayable
+in-repo, said so in each header. The exact identities stand on their proofs.
+
+THE RESULT THAT MATTERS (tomography §0). Recovering the charge-one path
+a_0 = P U_h P U_k P from the glued G(1), exact worst-case ℓ∞ amplification:
+  power moments      C(2R,R) ~ 4^R/√(πR)
+  factorial moments  2^R
+  root-of-unity DFT  1          ← perfectly conditioned
+Operational consequence for THIS corpus: extract charge-one by the cyclic
+character projector, never by moments. Any moment-phrased charge route pays
+an exponential conditioning penalty for nothing.
+
+CONJECTURE I RAISED (agent verifying): the Z/2 gauge twirl (1+z)/2 of
+GAUGE.md / TOY_OBSTRUCTION.md IS the n=2 case of the root-of-unity projector
+(1/n)Σω^{-jν}. If so, the corpus has been using the OPTIMALLY-conditioned
+extractor all along at n=2, and tomography tells it how to reach general n
+without losing conditioning. Positive cross-lane identity; verify before claim.
+
+KLOOSTERMAN = a direct-application NO-GO (quarter-scale factorization sits
+inside the published theorem's hypothesis but is termwise nontrivial only on
+a much shorter subrange). Highest-value genre; being independently verified
+with the exponent arithmetic turned into kernel facts (its Python is gone, so
+this is the ban forcing an upgrade, exactly as intended).
+
+MACHINE: state report correctly screamed PRESUMED DEAD (12h since last row)
+DESPITE a live supervise pid — state-vs-event discipline working as designed.
+Drove a fresh cycle in the harness background (survives turns; the right
+mechanism, unlike nohup which the container reaps).
+
+6 agents live: tomography conditioning → Agda; corpus moments→DFT sweep;
+MathMachine dispatch wiring (flag-gated, loop is live); Kloosterman exponent
+verification; gate defName fix + Rust determinism correction; CRT aliasing
+(n > R is the hypothesis κ=1 rests on — must be checked before the
+operational recommendation is safe).
