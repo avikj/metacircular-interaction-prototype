@@ -344,7 +344,25 @@ render _ (F "0" []) = Just "zero"
 render e (F "s" [t]) = (\u -> "suc (" ++ u ++ ")") <$> render e t
 render e (F "+" [a,b]) = bin e "+" a b
 render e (F "*" [a,b]) = bin e "·" a b
+-- THE REST OF THE ENGINE'S VOCABULARY.  Rendering only {0,s,+,*} meant every
+-- theorem mentioning monus, max, le or gcd was unrenderable, so replay could
+-- not even be attempted on it and the shape search -- which cannot close
+-- these either -- got the whole population.  A live size-6 round submitted
+-- 179 proofs to the kernel and got 6 back; most of the rest are here.
+-- Spellings and the local definitions are transcribed from
+-- `Certificate.preambleCore`, so "renders here" and "renders there" mean the
+-- same module.
+render e (F "-" [a,b]) = bin e "∸" a b
+render e (F "max" [a,b]) = app e "max" [a,b]
+render e (F "le" [a,b]) = app e "le" [a,b]
+render e (F "gcd" [a,b]) = app e "gcd" [a,b]
 render _ _ = Nothing
+
+app :: M.Map Int String -> String -> [Term] -> Maybe String
+app e f as = do
+  ss <- mapM (render e) as
+  pure ("(" ++ unwords (f : map paren ss) ++ ")")
+  where paren s = "(" ++ s ++ ")"
 
 bin :: M.Map Int String -> String -> Term -> Term -> Maybe String
 bin e op a b = do
@@ -467,11 +485,44 @@ replayModule :: LemmaEnv -> String -> Deriv -> Maybe String
 replayModule lenv modName d = do
   (_, clauses) <- inductionClauses lenv "candidate" d
   pure $ unlines $
-    [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
-    , "module " ++ modName ++ " where"
-    , "open import Cubical.Foundations.Prelude"
-    , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
-    ] ++ lePreamble lenv ++ clauses
+    moduleHeader modName (symbolsUsed lenv d) ++ lePreamble lenv ++ clauses
+
+-- Every symbol the module will mention: the goal's, plus every cited
+-- lemma's, since a lemma declaration is emitted into the same file.
+symbolsUsed :: LemmaEnv -> Deriv -> [String]
+symbolsUsed lenv d = nubStr (concatMap symsT terms)
+  where
+    (gl, gr) = dGoal d
+    terms = [gl, gr] ++ concat [ [a, b] | ((a, b), _) <- leLemmas lenv ]
+    symsT (V _) = []
+    symsT (F f ts) = f : concatMap symsT ts
+    nubStr = foldl (\acc s -> if s `elem` acc then acc else acc ++ [s]) []
+
+-- DEMAND-DRIVEN, and for the reason `Certificate.preambleCore` gives: a
+-- candidate that never mentions gcd must not pay for typechecking
+-- `Cubical.Data.Nat.GCD`, which roughly triples the cost of the call.  The
+-- local `max` and `le` are transcribed from the same place, in the same
+-- clause order, so a module that renders here renders there.
+moduleHeader :: String -> [String] -> [String]
+moduleHeader modName syms =
+  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  , "module " ++ modName ++ " where"
+  , "open import Cubical.Foundations.Prelude"
+  , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_"
+      ++ (if need "-" then " ; _∸_" else "") ++ ")"
+  ]
+  ++ [ "open import Cubical.Data.Nat.GCD using (gcd)" | need "gcd" ]
+  ++ [ l | need "max"
+         , l <- [ "max : ℕ → ℕ → ℕ"
+                , "max a zero = a"
+                , "max zero b = b"
+                , "max (suc a) (suc b) = suc (max a b)" ] ]
+  ++ [ l | need "le"
+         , l <- [ "le : ℕ → ℕ → ℕ"
+                , "le zero b = suc zero"
+                , "le (suc a) zero = zero"
+                , "le (suc a) (suc b) = le a b" ] ]
+  where need s = s `elem` syms
 
 -- CITING WHAT THE ENGINE ALREADY PROVED.
 --
@@ -637,8 +688,72 @@ addProvedLemmas rs ts base = go base baseRules ts
 replayWithRules :: [((Term, Term), String)] -> [Rule] -> (Term, Term) -> Int
                 -> String -> Maybe String
 replayWithRules certs rs goal v modName =
-  replayModule (addProvedLemmas rs certs peanoEnv) modName
+  replayModule (addProvedLemmas rs certs (vocabEnv goalSymbols)) modName
                (deriveByInduction rs goal v)
+  where
+    goalSymbols = symsOf (fst goal) ++ symsOf (snd goal)
+    symsOf (V _) = []
+    symsOf (F f ts) = f : concatMap symsOf ts
+
+-- THE OTHER FOUR SYMBOLS' DEFINING EQUATIONS, NAMED.
+--
+-- Widening `render` to monus, max, le and gcd let those theorems be
+-- EXPRESSED, and measured on a live size-6 round it changed the number
+-- certified by exactly zero -- because expressing the statement is not the
+-- problem.  Their derivations fire the defining equations of `max` and `le`,
+-- and a fired rule with no name makes the whole replay fall back.  So the
+-- renderer change was necessary and not sufficient, and this is the rest.
+--
+-- Unlike `+` and `*`, these need no proof of their own: the local
+-- definitions the module emits ARE the engine's rules, clause for clause
+-- (both transcribed from the same `symDefs`), so each defining equation
+-- holds by `refl`.  That is the whole reason the argument-order problem that
+-- forced `peanoEnv` to prove `addZero` and friends by induction does not
+-- arise here.
+--
+-- Gated on the goal's symbols, because the declarations mention `max` and
+-- `le`, and those are only in scope when `moduleHeader` emitted them.
+vocabEnv :: [String] -> LemmaEnv
+vocabEnv syms = LemmaEnv
+  { leLemmas = leLemmas peanoEnv ++ extraLemmas
+  , lePreamble = lePreamble peanoEnv ++ extraPreamble
+  }
+  where
+    need s = s `elem` syms
+    a0 = V 0
+    b0 = V 1
+    maxT p q = F "max" [p, q]
+    leT p q = F "le" [p, q]
+    one = sucT zeroT
+    whenNeeded s xs = if need s then xs else []
+    extraLemmas =
+      whenNeeded "max"
+        [ ((maxT a0 zeroT, a0),                    ("maxZeroR", [0]))
+        , ((maxT zeroT b0, b0),                    ("maxZeroL", [1]))
+        , ((maxT (sucT a0) (sucT b0), sucT (maxT a0 b0)), ("maxSuc", [0,1]))
+        ]
+      ++ whenNeeded "le"
+        [ ((leT zeroT b0, one),                    ("leZeroL", [1]))
+        , ((leT (sucT a0) zeroT, zeroT),           ("leSucZero", [0]))
+        , ((leT (sucT a0) (sucT b0), leT a0 b0),   ("leSuc", [0,1]))
+        ]
+    extraPreamble =
+      whenNeeded "max"
+        [ "maxZeroR : (a : ℕ) → (max (a) (zero)) ≡ a"
+        , "maxZeroR a = refl"
+        , "maxZeroL : (b : ℕ) → (max (zero) (b)) ≡ b"
+        , "maxZeroL b = refl"
+        , "maxSuc : (a b : ℕ) → (max (suc (a)) (suc (b))) ≡ suc ((max (a) (b)))"
+        , "maxSuc a b = refl"
+        ]
+      ++ whenNeeded "le"
+        [ "leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)"
+        , "leZeroL b = refl"
+        , "leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero"
+        , "leSucZero a = refl"
+        , "leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))"
+        , "leSuc a b = refl"
+        ]
 
 -- What a caller must supply for the wiring.  Stated as prose because the
 -- types live in two modules that were being edited when this was written.
