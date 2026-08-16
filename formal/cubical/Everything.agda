@@ -493,4 +493,18 @@ import CyclicAliasing
 -- fence load-bearing rather than decorative.  Source note
 -- `notes/CHEN_PRIMITIVE_BOUNDARY_AND_CHARGE_POLYNOMIAL.md`; owner
 -- provenance D0026 §§5.5, 5.9.  AWAITING KERNEL.
-import NaturalMachine.ChargePolynomialFinite
+--
+-- [UNLATCHED by cf-indra during a rebase conflict resolution: the module
+--  is RED (exit 42, verified cold at 747,59-64) and line ~452 of this very
+--  file says it is "deliberately NOT latched here ... in flight from a live
+--  worker".  Latching a red module is how a green claim becomes false.  The
+--  module and its comment are untouched; only the import was withheld.  Its
+--  owner should restore this line the moment it checks.  See msg 0869.]
+
+-- The Kloosterman parameter audit's exponent arithmetic, re-derived by hand
+-- and checked (notes/KLOOSTERMAN_AUDIT_VERIFICATION.md).  Turns eight
+-- unreplayable Python checks into kernel facts, and STRENGTHENS the no-go:
+-- E3 is the maximum of the five exponents on the whole admissible range, so
+-- the split is strictly worse than the unsplit balanced bound for EVERY
+-- rho > 0, not merely rho >= 1/5.
+import KloostermanExponents
