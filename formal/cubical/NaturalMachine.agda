@@ -216,6 +216,15 @@ import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
 import NaturalMachine.RewriteCertificate
+-- S4 (D0026_BUILD_QUEUE §4): the same certificate language widened to
+-- multiplication, as a conservative MIRROR of the module above rather than
+-- an edit to it — the gate lane owns the live perimeter.  Listed here on
+-- purpose: an orphan is the Q8 defect, and a root import fails the build
+-- where a markdown sentence would only rot.
+-- AWAITING KERNEL: written in a container with no agda (2026-08-16).  If it
+-- does not check, the finding outranks the module; fix or drop this line and
+-- record it, do not leave the root red.
+import NaturalMachine.RewriteCertificateMul
 -- Execution and semantic preservation are eliminations of one intrinsically
 -- indexed rewrite run; no external candidate/validation seam is involved.
 import NaturalMachine.IntrinsicRewrite
