@@ -468,3 +468,10 @@ import FactoryVICore
 import MachineLibrary
 import MachineMinted.Everything
 import ObligationMinCut
+
+-- Circulation 0002 (notes/PRIME_ATOM_TOMOGRAPHY_CONDITIONING.md): the exact
+-- conditioning constants of charge-one extraction — Sum|c_m| = R+1,
+-- Sum|c_m|R^m = C(2R,R), Sum C(R,m) = 2^R, and kappa_DFT = 1 — with the
+-- ordering kappa_DFT <= kappa_fac <= kappa_pow proved generally in R.
+-- Operational consequence: extract charge-one cyclically, never by moments.
+import TomographyConditioning

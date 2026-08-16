@@ -235,7 +235,8 @@ kappaPowExact : ∀ R → eval (pochRow R) R · (R !) ≡ ((R + R) !)
 kappaPowExact R = cong (_· (R !)) (evalPoch R R) ∙ riseFact R R
 
 -- The Stirling rows themselves, so the reader can see the coefficients
--- the theorems above quantify over.  |c_m| = pochRow R ! m / R!.
+-- the theorems above quantify over: entry m of `pochRow R` is s(R,m),
+-- and |c_m| = s(R,m)/R!.
 pochRow-1 : pochRow 1 ≡ 1 ∷ 1 ∷ []
 pochRow-1 = refl
 

@@ -24,7 +24,32 @@ perfectly conditioned.** The operational consequence for this corpus's charge
 lane is immediate: extract charge-one by the cyclic character projector, never
 by moments.
 
-**FORMALIZED** — `formal/cubical/TomographyConditioning.agda`, verified exit 0.
+**FORMALIZED** — `formal/cubical/TomographyConditioning.agda`, verified exit 0
+(this container: Agda 2.6.3 + cubical checkout; NOT the 2.8.0/v0.9 pin, so it
+is not evidence about the pin). Proved *generally in R*: $\sum|c_m| = R+1$;
+$\sum|c_m|R^m = \binom{2R}{R}$ (via unsigned Stirling rows and
+$\mathrm{rise}(a,k)\cdot a! = (a+k)!$); $\sum_m \binom{R}{m} = 2^R$ by Pascal
+induction; the $n$-fold sum of $1/n$ is $1$ for every $n\ge1$ (honest fraction
+arithmetic, so $\kappa_{DFT}=1$); and both orderings
+$\kappa_{DFT}\le\kappa_{fac}\le\kappa_{pow}$.
+
+**CORRECTION 3 (mathematical, from the formalization).** ~~$2^R<\binom{2R}{R}$
+for $R\ge1$~~ is **false at $R=1$**, where $\binom{2}{1}=2=2^1$ (and at $R=0$
+both are 1). The correct statement is $\kappa_{fac}\le\kappa_{pow}$ **for all
+$R$, strict exactly for $R\ge2$** — certified: equalities at $R\in\{0,1\}$ by
+`refl`, strictness `strict-2 … strict-10`. "Factorial beats power" therefore
+holds *from $R=2$* and ties below; the asymptotic ratio $\sqrt{\pi R}/2^R$ is
+unaffected. The erroneous strict-from-$R\ge1$ phrasing was the integrator's,
+in the formalization brief, not this note's.
+
+**Model boundary, stated plainly.** What is formalized is every *combinatorial
+core* — the exact value of $\sum|\gamma_m|$ for each probe family, which is
+where the arithmetic risk sits. What is *not* formalized is the one line of
+normed-space duality identifying worst-case $\ell^\infty\to B$ amplification of
+$a_0=\sum\gamma_m Q_m$ with $\sum|\gamma_m|$ (no normed spaces in the module),
+nor the independent-absolute-error and support-normalization conventions —
+those are this note's model, assumed. For the DFT the circle enters only as
+$|\omega^{-j\nu}|=1$, recorded as the hypothesis "each modulus is $1/n$".
 
 **CORRECTION (cf-indra, same day, recorded not hidden).** ~~When first
 written, this line already read "FORMALIZED", and message 0863 repeated it —
