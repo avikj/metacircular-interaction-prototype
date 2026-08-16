@@ -1461,6 +1461,30 @@ gateName (Refused w) = "refused: " ++ w
 -- honestly.  Verification is the induction gate, provenance is the
 -- append-only library, and the declared boundary is kSizeCap; those three
 -- are structural.  Separation is the one that can silently fail.
+--
+-- UNREACHABLE, AND NOT FOR THE REASON THE MEASUREMENT GIVES.  Every run in
+-- machine/LOOP_MEASUREMENT.md reports `GATE refusals=0`, and §8 there
+-- explains it as a fact about the test set -- "reaching the refusing branch
+-- needs a deliberately small kAssign, not a longer run".  That is wrong,
+-- and shrinking kAssign will not do it.  The third clause is dead for a
+-- structural reason instead:
+--
+--   `mAssign` starts at `kAssign`, whose range in machine/knobs.conf has a
+--   SEMANTIC floor of 1, so `envs` is never empty.  `vocabulary` begins
+--   "0", "s", so for any mVocab >= 2 and any mSize >= 2 the generated
+--   terms include both `0` and `s 0`, whose normal forms are distinct
+--   (that is soundness) and which therefore both survive into `normed`.
+--   `eval` sends them to 0 and 1 under EVERY assignment, so they lie in
+--   different fingerprint classes, so `separatedPairs >= 1`.  Hence
+--   `nNormed > 1 && sepP == 0` is unsatisfiable at any budget and at any
+--   in-range knob setting.
+--
+-- The rule is therefore wiring, not behaviour, and is left in place
+-- deliberately: it is the honest response to a state the machine could
+-- enter if the term generator ever stopped emitting a closed term of each
+-- of two distinct values (a `kVars`-only generator, a semantics valued in
+-- a one-element type).  Do not read `refusals=0` as evidence that the
+-- separation clause has been tested.  It has not been, in either branch.
 advanceGate :: Int -> Int -> Gate
 advanceGate nNormed sepP
   | nNormed <= 1 = Advance                       -- nothing to separate
@@ -1483,6 +1507,39 @@ moveName :: Move -> String
 moveName Widen  = "widen"
 moveName Deepen = "deepen"
 
+-- UNREACHABLE BY CONSTRUCTION -- this function returns `Nothing` on every
+-- call, in every run, at every budget.  machine/LOOP_MEASUREMENT.md §8 and
+-- §11 report `ROUTE firings=0` and put it down to accumulation ("fifteen
+-- rounds do not accumulate one", "either seed mCosts or establish that 15
+-- rounds cannot produce one").  No number of rounds can produce one, and
+-- the argument is three lines:
+--
+--   1. `mCosts` is written in exactly one place, `mCosts = M.insert
+--      (mVocab m, mSize m) nRaw (mCosts m)`.  Its key set is therefore
+--      precisely the set of states the machine has OCCUPIED.
+--   2. `mVocab` and `mSize` are only ever incremented (the growth ladder
+--      below and the retirement fallback; nothing decrements either), so
+--      the occupied set is a monotone staircase in (vocab, horizon).
+--   3. The two states probed here, (vocab+1, horizon) and (vocab,
+--      horizon+1), are strictly ahead of the current state on that
+--      staircase.  A monotone path has not visited its own future, so both
+--      lookups miss, the list is empty, and the guard returns `Nothing`.
+--
+-- The min-plus chooser is thus wiring rather than behaviour, and the
+-- ladder decides every growth move the machine has ever made.  It is left
+-- in place rather than deleted because the fix is a real one and belongs
+-- to whoever wrote it: give the weight field the neighbours' costs, not
+-- only the occupant's -- `length (genTermsModulo … sig nv (mSize m + 1))`
+-- and the same at `mVocab m + 1` -- and the rule becomes live.  That costs
+-- two extra enumerations a round, which at horizon 7 is the dominant cost
+-- of the round, so it is a decision and not a typo.  Until someone takes
+-- it, read `ROUTE firings=0` as "never consulted", not as "consulted and
+-- declined".
+--
+-- Consequence for the A/B harness: `--baseline-variant old-flow` is a
+-- single-factor control only while this holds, and by the argument above
+-- it holds unconditionally.  (machine/run-loop-ab.sh's own note says the
+-- same thing conditionally.)
 gammaRoute :: M.Map (Int,Int) Int -> Int -> Int -> Maybe (Move,Int,Int)
 gammaRoute costs vocab horizon =
   case [ (mv,c) | (mv,st) <- [(Widen,(vocab+1,horizon)),(Deepen,(vocab,horizon+1))]
@@ -1880,7 +1937,53 @@ round1 mem logh libh ref = do
   -- response to branching is not more room.  Resonance -- ∂ unchanged, or
   -- ∂ = 0, which is QuestionMachine's `Resolves` -- is the only state in
   -- which more room is the answer.
+  --
+  -- THE FLOW CHOOSES THE AXIS, NOT WHETHER TO GROW.  That paragraph is
+  -- right about deepening and was over-applied to widening, and the
+  -- over-application is what arm D measured.  Read the evidence again:
+  -- every run in it that exploded had the OLD ladder underneath, which
+  -- alternated `even (mRound m2)` and therefore spent half of its growth
+  -- moves on the horizon.  "Growing while the frontier explodes" was
+  -- always, concretely, DEEPENING while the frontier explodes -- the two
+  -- were never separated, because the ladder never let them be.  They are
+  -- different moves: deepening multiplies the term count by r_b = 1+4√b
+  -- per step and adds no symbol, so it hands the prover more of what it
+  -- has already failed to close; widening adds one symbol at the same
+  -- horizon and with it a fresh family of cheap definitional facts, which
+  -- is where every theorem the resonance rule missed actually was (arm D:
+  -- three each about max, monus and le).  Measured on the same trace:
+  -- widening cost ×1.5 in terms (2764 → 4156), deepening ×7.6
+  -- (5804 → 44332).
+  --
+  -- So the classification keeps its job and loses its veto over the cheap
+  -- axis.  A round that proved nothing is barren; what the flow decides is
+  -- which axis the machine may move:
+  --
+  --   decay      -- ∂ is falling, the round's failures got memoised and
+  --                 the next round is strictly cheaper.  Do not grow at
+  --                 all.  This is the half of KFlow the boolean rule got
+  --                 wrong and it stays exactly as it was.
+  --   resonance  -- the orbit is the point.  The whole ladder is licensed:
+  --                 name, then widen, then deepen.
+  --   branching  -- ∂ is climbing and nothing is closing.  The horizon is
+  --                 held, because raising it is what made ∂ climb.  But
+  --                 the vocabulary may still widen: it is the one move
+  --                 that changes what is being looked at without handing
+  --                 the prover a geometrically larger pile of the same
+  --                 thing.  Before this, a branching barren round did
+  --                 nothing at all, and in arm C's trace those are a third
+  --                 of all rounds (6, 11, 13 of 15).
+  --
+  -- The next line is load-bearing for machine/run-loop-ab.sh, which builds
+  -- its `--baseline-variant old-flow` single-factor control by rewriting
+  -- this exact text to `  let stuck = null checkedResults` and aborts if it
+  -- does not match once.  It is kept verbatim for that reason.  Reverting
+  -- it still yields the pre-KFlow boolean rule: `stuck` then holds on every
+  -- barren round, which subsumes `widenOnly` below, so `grows` collapses
+  -- to `stuck'` and the control stays faithful.
   let stuck = flow == Resonance && null checkedResults
+      -- branching and barren: the widen-only licence described above.
+      widenOnly = flow == Branching && null checkedResults
       -- a name must pay for itself in exactly the currency a theorem
       -- does: it enters only if folding the shape into it makes the
       -- machine's own working set smaller
@@ -1932,18 +2035,25 @@ round1 mem logh libh ref = do
       permitted = case gate of
                     Advance   -> True
                     Refused _ -> False
+      -- The two licences, after naming has had its turn.  `grows` is the
+      -- old `stuck'` widened to take in the branching-barren round;
+      -- `deepens` is the old `stuck'` exactly, and it is the only thing
+      -- that may touch the horizon or the retirement branch.
+      grows   = permitted && (stuck' || widenOnly)
+      deepens = permitted && stuck'
       -- Γ↝ over the growth moves whose cost this machine has actually
       -- observed.  No history for a move means no route for it, and the
       -- ladder below decides instead: a weight is recorded or it does not
-      -- exist, never estimated.
-      routed = if stuck' && permitted
+      -- exist, never estimated.  (In fact there is never a history --
+      -- see the unreachability argument at `gammaRoute`.)
+      routed = if grows
                  then gammaRoute (mCosts m2) (mVocab m2) (mSize m2)
                  else Nothing
-      m'' | not stuck' = m2
-          | not permitted = m2
+      m'' | not grows = m2
           | Just (Widen,_,_) <- routed, mVocab m2 < length vocabulary =
               m2 { mVocab = mVocab m2 + 1 }
-          | Just (Deepen,_,_) <- routed, mSize m2 < K.kSizeCap (mKnobs m2) =
+          | Just (Deepen,_,_) <- routed, deepens
+          , mSize m2 < K.kSizeCap (mKnobs m2) =
               m2 { mSize = mSize m2 + 1 }
           -- WIDEN BEFORE DEEPENING, and the reason is measured rather
           -- than tasteful.  A factorial re-run (machine/LOOP_MEASUREMENT.md,
@@ -1967,6 +2077,11 @@ round1 mem logh libh ref = do
           -- same symbols at a larger radius is the one move guaranteed
           -- not to move it.
           | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
+          -- The vocabulary is spent.  At resonance the machine may go on
+          -- to the horizon; at branching it may not, and holds -- that is
+          -- the FLOW-HOLD below, and it is now the only thing FLOW-HOLD
+          -- means.
+          | not deepens = m2
           | mSize m2 < K.kSizeCap (mKnobs m2) = m2 { mSize = mSize m2 + 1 }
           -- Past this point the given vocabulary is exhausted and the
           -- size horizon is at its cap.  The machine used to answer that
@@ -2004,16 +2119,26 @@ round1 mem logh libh ref = do
       hPrintf logh "  ROUTE  %s  cost %d < stay %d  (min-plus over observed weights)\n"
         (moveName mv) c stay
     Nothing -> return ()
-  when (flow == Branching && null checkedResults) $
-    hPrintf logh "  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held\n"
-  when (stuck' && not permitted) $
+  -- FLOW-HOLD now reports exactly one thing: the horizon was held because
+  -- the flow was branching.  It is no longer a report that nothing
+  -- happened -- the vocabulary may have widened in the same round, and the
+  -- GROW line below says so.
+  when widenOnly $
+    hPrintf logh "  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)\n"
+  when ((stuck' || widenOnly) && not permitted) $
     hPrintf logh "  GATE-HOLD  growth refused while the assignments separate nothing; enlarge the test set, not the term space\n"
-  when (stuck && mVocab m'' > mVocab m2) $
+  -- These three were guarded on `stuck`, which was the same predicate as
+  -- the ladder's.  It is not any more: a widen-only round moves mVocab
+  -- with `stuck` false, and guarding the log on the old predicate would
+  -- have made the new growth moves invisible to machine/run-loop-ab.sh,
+  -- whose `grow` column is parsed off exactly these lines.  Guard on the
+  -- state change itself, which cannot drift out of step with it.
+  when (mVocab m'' > mVocab m2) $
     hPrintf logh "  GROW  vocabulary widens to %d symbols (%s)\n"
       (mVocab m'') (symName (vocabulary !! (mVocab m'' - 1)))
-  when (stuck && mSize m'' > mSize m2) $
+  when (mSize m'' > mSize m2) $
     hPrintf logh "  GROW  size horizon rises to %d\n" (mSize m'')
-  when (stuck && length (mInvented m'') < length (mInvented m2)) $
+  when (length (mInvented m'') < length (mInvented m2)) $
     hPrintf logh "  RETIRE  %s went unused; withdrawn, and it will not be re-proposed\n"
       (case reverse (mInvented m2) of
          s:_ -> symName s

@@ -35,11 +35,80 @@
 --
 --   ghc -O2 machine/CyclotomicVocab.hs -o machine/cyclotomic-vocab
 --   (writes formal/cubical/CyclotomicMined.agda; typecheck it with agda)
+--   Build for the self-test (module is `Main`, so -main-is Main):
+--   ghc -O1 -imachine -outputdir /tmp/cyc-build -o /tmp/cyc-test \
+--       -main-is Main machine/CyclotomicVocab.hs
+--
+-- ---------------------------------------------------------------------------
+-- PROVENANCE LEDGER (Grothendieck, 2026-08-16).  Attribution honesty is
+-- protocol (collab/PROTOCOL.md §2), so what follows is who wrote what.
+--
+--   PRE-EXISTING (cf-indra, message 0862, commit a1228d23) — everything from
+--   `powMod` down to `emitAgda`: the exact evaluators, the probe grids, the
+--   affine candidate family c0 + c1*e + c2*v_p(n), `mine`/`judge`, and the
+--   Agda emitter.  Its claim — unique survivor e + v_p(n) on the chain d | n,
+--   naive rival refuted at (3,2,2), 44 rivals killed — REPRODUCES: verified
+--   cold on 2026-08-16, and the emitted CyclotomicMined.agda came out
+--   byte-identical to the committed file.
+--
+--   ADDED HERE, and nothing else was touched:
+--
+--   (§V) The claims were stated without their ranges.  A mining run over an
+--        unnamed grid is not a result; §V restates every claim of this module
+--        as a FINITE EXHAUSTIVE VERIFICATION over an EXPLICITLY PRINTED range,
+--        including two things the miner never tested: the OFF-chain branch of
+--        Theorem 1 (v_p = 0 when d ∤ n, asserted by the module's Step 1 but
+--        never checked as a statement), and p = 2 (Theorem 1 (2)), which the
+--        pre-existing grid excludes entirely.
+--
+--   (§D) The head-length dichotomy |H_{p,a}| = ⌊1/(p−1)⌋ + 1, i.e. 1 for odd
+--        p and 2 for p = 2 (CYCLOTOMIC_SENSOR.md Theorem 4).  Nothing in this
+--        module encoded it; the whole pre-existing grid is odd-p only, so the
+--        module could not have seen p = 2 even in principle.  §D encodes the
+--        length as FOUR independently decidable predicates and checks they
+--        agree exhaustively: the closed form; the torsion element (−1 ∈ U₁
+--        with (−1)^p = 1 iff p = 2); the shift lemma's exact failure locus,
+--        swept over every residue class to a stated modulus; and — the one
+--        that costs the machine something — the MINER ITSELF, re-run
+--        unchanged at p = 2, where its one-head-entry family finds NOTHING
+--        and a two-entry family is required.  The dichotomy is thus mined,
+--        not asserted: head length = the number of sensor coordinates an
+--        affine law needs, and the machine discovers it is 2 at p = 2.
+--
+--   (§C) The cost exhibit the corpus actually asks for (RUNTIME.md §4 item 5,
+--        quoted in WHAT_IS_ACTUALLY_OPEN §0: "a result entering the runtime
+--        and making another result cheaper").  e_b(q) is simultaneously this
+--        module's head e and HEAD_DEPTH_BLINDNESS Thm W3's blindness depth.
+--        §C computes the blindness depth twice — once by its own naive
+--        Fermat route, once by reading the head the sensor already formed —
+--        checks the two integers agree, and prints EXACT STEP COUNTS (no
+--        wall-clock anywhere).
+--
+--   HONEST SCOPE, stated once and meant: §V, §D and §C are FINITE CHECKS OVER
+--   STATED RANGES.  A finite check is finite.  Theorems 1, 3, 4 and W3 are
+--   proved in notes/CYCLOTOMIC_SENSOR.md and notes/HEAD_DEPTH_BLINDNESS.md by
+--   lifting-the-exponent and the structure of Z_p^×; NOTHING below extends
+--   them by one instance beyond the ranges it prints.  What a finite check
+--   does buy is exactly what CLAUDE.md says it buys — it is a mathematical
+--   object rather than a measurement, so it can only ever REFUTE, and every
+--   number it prints is an exact Integer.
+--
+--   NOT CLAIMED: no novelty anywhere in this lane.  Theorem 1 is
+--   lifting-the-exponent (classical); Theorem 4's threshold is the classical
+--   torsion-freeness of U_k for k > e/(p−1); W3 is folklore in the
+--   primality-testing literature (SEED-42 §4.1, recorded in
+--   WHAT_IS_ACTUALLY_OPEN §1).  What is local to this corpus is only that two
+--   organs here were computing the same integer separately — and §C is the
+--   arithmetic of stopping.
+-- ---------------------------------------------------------------------------
 
 module Main (main) where
 
+import Control.Monad (unless, forM, forM_)
 import Data.List (intercalate, nub, sort)
 import Data.Maybe (mapMaybe, listToMaybe)
+import GHC.IO.Encoding (setLocaleEncoding, utf8)
+import System.Exit (exitFailure, exitSuccess)
 
 -- ============================================================ evaluators
 -- Exact, over Integer.  These are the ONLY organ-specific things the
