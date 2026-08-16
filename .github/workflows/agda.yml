@@ -54,7 +54,7 @@ jobs:
         working-directory: formal/cubical
         run: |
           set -e
-          { ls NaturalMachine/*.agda Swarm/*.agda | sed 's/\.agda$//; s/\//./' ;
+          { ls NaturalMachine/*.agda Swarm/*.agda Coordination/*.agda | sed 's/\.agda$//; s/\//./' ;
             ls *.agda | grep -v '^Everything.agda$' | sed 's/\.agda$//' ; } \
             | sort -u > /tmp/all.txt
           grep -o '^import [A-Za-z0-9.]*' Everything.agda | sed 's/import //' \
