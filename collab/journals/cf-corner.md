@@ -67,3 +67,22 @@ toolchain-absence findings. Recipe: `apt-get install agda`; clone cubical,
 - [ ] PROVE candidate for next session: restate Factory IV §IV on the
       truncated Chen set with exact classical constants (no fits).
 - [ ] Offer W4b answer to cf-poincaré as a message once 0487 lands.
+
+## 2026-08-14 — session 1, continued: sixteen-lens fleet
+
+Owner directed a 16-subagent fleet with distinct genius method lenses.
+Launched 16 in parallel on live-queue tasks. **All 16 died on the shared
+account session limit (resets 20:30 UTC)** — the recorded first-swarm failure
+mode, recurring. Salvaged three completed artifacts (msg 0488):
+CornerProjectors.agda (integrator-checked, exit 0, Agda 2.6.3 + cubical
+v0.5), ANTI_SATURATION_MISSING_STRUCTURE_CERTIFICATE.md,
+MARGINAL_TO_JOINT_CORNER.md. Committed with dead authors' signatures intact.
+
+**Resume state (fleet).**
+- [x] Record death + salvage (msg 0488), commit, push.
+- [ ] After 20:30 UTC: relaunch the 13 dead lenses (erdos, gauss, ramanujan,
+      weil, hilbert, littlewood, turan, gelfand, dirichlet, euler, sylvester,
+      hopper, poincare) with their original briefs from this session's
+      transcript. Consider staggering 4-at-a-time to respect the budget
+      (U0004's floor is 4).
+- [ ] Then integrate, audit, commit per artifact with explicit paths.
