@@ -43,6 +43,7 @@ import qualified Data.Map.Strict as M
 import Data.List (sortOn, sortBy, foldl', intercalate)
 import Data.Maybe (mapMaybe, isJust)
 import Text.Printf (printf)
+import System.Exit (exitFailure, exitSuccess)
 
 -- ============================================================ Term algebra
 -- Copied verbatim from MathMachine.hs so this module's terms ARE its terms.
@@ -279,9 +280,13 @@ applySub :: M.Map Int Term -> Term -> Term
 applySub m (V i) = M.findWithDefault (V i) i m
 applySub m (F f ts) = F f (map (applySub m) ts)
 
+-- Precedence reads the EXTENDED vocabulary (`vocabulary ++ lteSymbols`).
+-- The extension only appends, so every symbol of the original list keeps its
+-- index and the reduction order on pre-existing terms is bit-for-bit what it
+-- was; the five lifting-the-exponent symbols simply outrank all of them.
 precedence :: String -> Int
 precedence f =
-  case [ i | (i,s) <- zip [0..] vocabulary, symName s == f ] of
+  case [ i | (i,s) <- zip [0..] extendedVocabulary, symName s == f ] of
     (i:_) -> i
     []    -> -1
 
@@ -381,6 +386,8 @@ definingRewrites =
   , ("mod", symDefs modSym)
   , ("lcm", symDefs lcmSym)
   , (vpName, symDefs vpSym)
+  , ("LTE(conv)", concatMap symDefs lteSymbols)
+  , ("LTE(law)", [lteRuleTotal])
   ]
 
 -- ============================================================ term generation
@@ -610,7 +617,572 @@ main = do
   printf "  refuted by computation: %d\n" (length refutedEx + length refutedR)
   mapM_ (putStrLn . ("    - " ++)) (refutedEx ++ refutedR)
   putStrLn ""
-  putStrLn "ARITHVOCAB SELF-TEST COMPLETE"
+
+  -- 6-9. the lifting-the-exponent merge (added 2026-08-16)
+  lteFailures <- reportLTE
+
+  -- ----------------------------------------------------------- exit gate
+  -- [ADDED.]  Before this, `main` always exited 0 and a clerk had to read
+  -- the output to learn whether anything was wrong.  A self-test that cannot
+  -- fail is not a test.  The gate collects every condition that would mean
+  -- the module is WRONG — an unsound defining rewrite, a law failure inside
+  -- a range this file claims to have verified, a broken instrument, a
+  -- vacuous falsifier, a disagreement between the two routes, or a curated
+  -- identity landing on the wrong side of its known status — and exits
+  -- nonzero if any fired.  The two identities marked (FALSE) are REQUIRED to
+  -- be refuted; the other twelve are required to survive.
+  let expectationFailures =
+        [ "expected REFUTED but it survived: " ++ nm
+        | (nm, RaisedSurvives) <- results, isMarkedFalse nm ]
+        ++
+        [ "expected to survive but it was refuted: " ++ nm
+        | (nm, v) <- results, not (isMarkedFalse nm), not (isSurvival v) ]
+      firewallFailures =
+        [ "unsound defining rewrite for " ++ nm | (nm,_,_,_,_,_) <- defFailures ]
+      allFailures = firewallFailures ++ expectationFailures ++ lteFailures
+  putStrLn "-- EXIT GATE --"
+  if null allFailures
+    then do
+      putStrLn "  no failures."
+      putStrLn ""
+      putStrLn "ARITHVOCAB SELF-TEST COMPLETE"
+      exitSuccess
+    else do
+      printf "  %d FAILURES:\n" (length allFailures)
+      mapM_ (putStrLn . ("    ! " ++)) allFailures
+      putStrLn ""
+      putStrLn "ARITHVOCAB SELF-TEST FAILED"
+      exitFailure
+
+isMarkedFalse :: String -> Bool
+isMarkedFalse nm = "(FALSE)" `elem` words nm
+
+isSurvival :: Verdict -> Bool
+isSurvival RaisedSurvives = True
+isSurvival _ = False
+
+-- ==========================================================================
+-- ==================================================== LIFTING THE EXPONENT
+-- ==========================================================================
+-- [ADDED 2026-08-16, Ramanujan.  Everything ABOVE this banner pre-existed:
+--  the Term algebra, the gcd/mod/lcm/v_2 vocabulary, the rewriting machinery,
+--  the curated identities and their adjudication, and sections 1-5 of `main`.
+--  Everything BELOW it, plus sections 6-9 of `main` and the exit-code gate,
+--  is the addition.  Nothing above was deleted; three lines were touched —
+--  the `System.Exit` import, `precedence` (now reads `extendedVocabulary`,
+--  which appends and therefore preserves every existing index), and the two
+--  new groups at the end of `definingRewrites`.]
+--
+-- WHY THIS IS HERE.  `notes/RUNTIME.md` §4.5 is the standing criticism:
+-- "No connection to this repository's mathematics.  The demo is group
+-- theory.  Nothing in notes/ has been expressed in the IR.  Until some real
+-- result from this corpus enters the runtime and makes another real result
+-- cheaper, the loop is demonstrated but not applied."  This section answers
+-- exactly that, with the corpus's sharpest arithmetic fact — the head-depth
+-- carrier e_b(q) = v_q(b^{ord_q(b)} - 1) and the valuation law behind it.
+--
+-- THE STATEMENT (notes/CYCLOTOMIC_SENSOR.md, Theorem 1; classical
+-- lifting-the-exponent plus its order corollary — cited as known, not
+-- claimed).  For an ODD PRIME p and an integer a with p ∤ a, writing
+-- d = ord_p(a) and e = v_p(a^d - 1):
+--
+--     v_p(a^n - 1) = 0            if d ∤ n
+--     v_p(a^n - 1) = e + v_p(n)   if d | n
+--
+-- and for p = 2 with a odd, writing e- = v_2(a-1), e+ = v_2(a+1):
+--
+--     v_2(a^n - 1) = e-                       n odd
+--     v_2(a^n - 1) = e- + e+ + v_2(n) - 1     n even
+--
+-- The proof is in the note (it is reproduced there in full, ~25 lines).  It
+-- is NOT reproved here.  What is done here is the thing the note could not
+-- do: put the law into the machine's own vocabulary as executable exact
+-- symbols, CERTIFY it by finite exhaustive verification, and then USE it —
+-- exhibit the cost collapse it buys, in exact counted digit operations.
+--
+-- WHAT KIND OF EVIDENCE THE VERIFICATION BELOW IS.  CLAUDE.md: "Exact /
+-- certified symbolic computation is proof and is always allowed: an
+-- irreducibility certificate over Q, A FINITE EXHAUSTIVE VERIFICATION, a
+-- resultant, a factorization."  `lteOddFailures` and `lteTwoFailures` are
+-- finite exhaustive verifications: every triple in an explicitly bounded
+-- range is checked with exact Integer arithmetic, no sampling and no
+-- floating point anywhere in this module.  They therefore PROVE their own
+-- statements, which are the finitely-bounded ones, and nothing more.  The
+-- unbounded theorem is the note's, by the note's proof.  A finite check is
+-- never evidence for an asymptotic claim, and no claim below is asymptotic:
+-- the cost table reports counted integers at named n, not a fitted slope.
+--
+-- THE RANGES ARE PART OF THE RESULT.  A bound that is not stated is not a
+-- result (CLAUDE.md, the X-dependence corollary).  They are the named
+-- constants immediately below, printed verbatim by the self-test.
+
+-- ---------------------------------------------------------------- ranges
+
+-- odd branch: every odd prime p < lteOddPrimeBound, every base
+-- 2 <= a <= lteBaseBound with p ∤ a, every exponent 1 <= n <= lteExpBound.
+lteOddPrimeBound, lteBaseBound, lteExpBound :: Integer
+lteOddPrimeBound = 100
+lteBaseBound     = 40
+lteExpBound      = 60
+
+-- p = 2 branch: every odd base 3 <= a <= lteTwoBaseBound, every exponent
+-- 1 <= n <= lteExpBound.  (a = 1 is excluded: a^n - 1 = 0, whose valuation
+-- is +infinity and is represented here by the module's v_p(0) = 0
+-- convention, so it is outside the law's domain rather than a failure of it.)
+lteTwoBaseBound :: Integer
+lteTwoBaseBound = 81
+
+primesUpTo :: Integer -> [Integer]
+primesUpTo n = [ q | q <- [2..n], isPrimeInt q ]
+
+isPrimeInt :: Integer -> Bool
+isPrimeInt m
+  | m < 2 = False
+  | otherwise = null [ q | q <- takeWhile (\q -> q*q <= m) [2..], m `mod` q == 0 ]
+
+-- ------------------------------------------------- exact evaluators (1)
+-- All exact over Integer.  All TOTAL: every one has a stated convention at
+-- every boundary, because (as the v_p additivity failure above already
+-- demonstrated in this very module) a boundary convention decides whether a
+-- law survives.  No Double, no Float, no `fromIntegral` to a float, anywhere.
+
+-- v_p(n) at an arbitrary modulus p, the binary form of the module's unary
+-- `valuation`.  Conventions: p < 2 gives 0 (no valuation exists), and
+-- v_p(0) = 0 as everywhere else in this module.
+vpAt :: Integer -> Integer -> Integer
+vpAt p n
+  | p < 2 = 0
+  | otherwise = valuation p n
+
+-- ord_p(a): the least k >= 1 with a^k = 1 (mod p), found by BOUNDED search.
+-- Convention: 0 when no such k exists (p < 2, or gcd(a,p) /= 1).  The search
+-- to p-1 is complete for every modulus p >= 2, because the order of a unit
+-- divides |(Z/p)^*| = phi(p) <= p-1; so this evaluator is correct at
+-- composite p too.  It is the LAW, not the evaluator, that needs p prime.
+ordAt :: Integer -> Integer -> Integer
+ordAt p a
+  | p < 2 = 0
+  | gcd (a `mod` p) p /= 1 = 0
+  | otherwise = go 1 (a `mod` p)
+  where
+    go k acc
+      | acc == 1  = k
+      | k >= p    = 0                     -- unreachable for a unit; total anyway
+      | otherwise = go (k+1) ((acc * (a `mod` p)) `mod` p)
+
+-- e_p(a) = v_p(a^{ord_p(a)} - 1): the head-depth carrier, the corpus's
+-- e_b(q).  Convention: 0 when ord_p(a) = 0.
+ePrimeAt :: Integer -> Integer -> Integer
+ePrimeAt p a
+  | d == 0 = 0
+  | otherwise = vpAt p (a ^ d - 1)
+  where d = ordAt p a
+
+-- the quantity the law computes: v_p(a^n - 1), by the NAIVE route (form the
+-- integer, strip factors of p).  Convention: n < 0 gives 0; a^n - 1 = 0 gives
+-- 0 by the module's v_p(0) = 0 convention.
+vpPowMinus1 :: Integer -> Integer -> Integer -> Integer
+vpPowMinus1 p a n
+  | p < 2 || n < 0 = 0
+  | otherwise      = vpAt p (a ^ n - 1)
+
+-- the chain indicator: 1 when d | n (n is on the multiplicative chain of a
+-- mod p), 0 otherwise.  Convention: 0 when ord_p(a) = 0.  This is the device
+-- that turns the two-case law into ONE unconditional equation, which is what
+-- lets it be written as a machine Rule at all.
+onChain :: Integer -> Integer -> Integer -> Integer
+onChain p a n
+  | d == 0 = 0
+  | n `mod` d == 0 = 1
+  | otherwise = 0
+  where d = ordAt p a
+
+-- ------------------------------------------------ the law as a predicate (2)
+
+-- The right-hand side of Theorem 1 (odd p), in its total one-equation form:
+--     v_p(a^n - 1) = [d | n] * (e_p(a) + v_p(n)).
+lteRHSOdd :: Integer -> Integer -> Integer -> Integer
+lteRHSOdd p a n = onChain p a n * (ePrimeAt p a + vpAt p n)
+
+-- The decidable predicate.  DECIDABLE, not asserted: both sides are exact
+-- Integers and the test is (==).
+lteHoldsOdd :: Integer -> Integer -> Integer -> Bool
+lteHoldsOdd p a n = vpPowMinus1 p a n == lteRHSOdd p a n
+
+-- The p = 2 branch, Theorem 1 (2).  e- = v_2(a-1), e+ = v_2(a+1).
+lteRHSTwo :: Integer -> Integer -> Integer
+lteRHSTwo a n
+  | odd n     = em
+  | otherwise = em + ep + vpAt 2 n - 1
+  where em = vpAt 2 (a - 1)
+        ep = vpAt 2 (a + 1)
+
+lteHoldsTwo :: Integer -> Integer -> Bool
+lteHoldsTwo a n = vpPowMinus1 2 a n == lteRHSTwo a n
+
+-- ---------------------------------------- the finite exhaustive verifications
+
+lteOddTriples :: [(Integer,Integer,Integer)]
+lteOddTriples =
+  [ (p,a,n)
+  | p <- filter (> 2) (primesUpTo (lteOddPrimeBound - 1))
+  , a <- [2 .. lteBaseBound]
+  , a `mod` p /= 0
+  , n <- [1 .. lteExpBound] ]
+
+-- FINITE EXHAUSTIVE VERIFICATION.  Every failure is returned with its
+-- witness (p,a,n) and both sides; an empty list is the certificate that the
+-- odd-p law holds identically on the stated range.
+lteOddFailures :: [((Integer,Integer,Integer),Integer,Integer)]
+lteOddFailures =
+  [ ((p,a,n), vpPowMinus1 p a n, lteRHSOdd p a n)
+  | (p,a,n) <- lteOddTriples
+  , not (lteHoldsOdd p a n) ]
+
+lteTwoPairs :: [(Integer,Integer)]
+lteTwoPairs =
+  [ (a,n) | a <- [3,5 .. lteTwoBaseBound], n <- [1 .. lteExpBound] ]
+
+lteTwoFailures :: [((Integer,Integer),Integer,Integer)]
+lteTwoFailures =
+  [ ((a,n), vpPowMinus1 2 a n, lteRHSTwo a n)
+  | (a,n) <- lteTwoPairs
+  , not (lteHoldsTwo a n) ]
+
+-- THE FALSIFIER (PROTOCOL §1: a headline claim ships with the control that
+-- was designed to kill it).  The law is DOMAIN-RESTRICTED: p must be an odd
+-- prime.  If the check above passed merely because the predicate is vacuous
+-- or the arithmetic is degenerate, it would also pass off the domain.  It
+-- does not: this searches the same predicate at composite moduli and at
+-- p = 2 and returns the first witness where the odd-p form is FALSE.  A
+-- non-empty answer here is what makes the empty answer above informative.
+lteOffDomainWitness :: Maybe ((Integer,Integer,Integer),Integer,Integer)
+lteOffDomainWitness =
+  case [ ((p,a,n), vpPowMinus1 p a n, lteRHSOdd p a n)
+       | p <- 2 : [ q | q <- [4 .. 40], not (isPrimeInt q) ]
+       , a <- [2 .. 20], gcd a p == 1
+       , n <- [1 .. 40]
+       , not (lteHoldsOdd p a n) ] of
+    (w:_) -> Just w
+    []    -> Nothing
+
+-- A second control: the law must not be an accident of a degenerate range.
+-- Count how many triples in the verified range actually EXERCISE each branch
+-- (d | n with v_p(n) > 0 is the only place the shift term v_p(n) is visible;
+-- if that count were 0 the check would be untested where it matters).
+lteBranchCensus :: (Int,Int,Int)
+lteBranchCensus = foldl' bump (0,0,0) lteOddTriples
+  where
+    bump (off,onFlat,onShift) (p,a,n)
+      | onChain p a n == 0 = (off+1, onFlat, onShift)
+      | vpAt p n > 0       = (off, onFlat, onShift+1)
+      | otherwise          = (off, onFlat+1, onShift)
+
+-- ------------------------------------------- the law in the machine's idiom
+-- Five new `Sym`s: the same record the vocabulary above is built from, with
+-- exact evaluators and convention-recording defining equations.  The prime is
+-- an ARGUMENT here (unlike the module's unary v_2, whose prime is baked in),
+-- because the law quantifies over p.
+
+ordSym, vpAtSym, eSym, chainSym, vpowSym :: Sym
+
+ordSym = Sym "ord" 2 (\vs -> ordAt (vs!!0) (vs!!1))
+  [ (F "ord" [zero_, x_], zero_) ]          -- convention: no modulus, no order
+
+vpAtSym = Sym "vp" 2 (\vs -> vpAt (vs!!0) (vs!!1))
+  [ (F "vp" [x_, zero_], zero_)             -- convention: v_p(0) = 0
+  , (F "vp" [zero_, x_], zero_) ]           -- convention: p < 2 gives 0
+
+eSym = Sym "e" 2 (\vs -> ePrimeAt (vs!!0) (vs!!1))
+  [ (F "e" [zero_, x_], zero_) ]
+
+chainSym = Sym "onchain" 3 (\vs -> onChain (vs!!0) (vs!!1) (vs!!2))
+  [ (F "onchain" [zero_, x_, y_], zero_) ]
+
+vpowSym = Sym "vpow" 3 (\vs -> vpPowMinus1 (vs!!0) (vs!!1) (vs!!2))
+  [ (F "vpow" [x_, y_, zero_], zero_)       -- a^0 - 1 = 0, v_p(0) = 0
+  , (F "vpow" [zero_, x_, y_], zero_) ]
+
+lteSymbols :: [Sym]
+lteSymbols = [ ordSym, vpAtSym, eSym, chainSym, vpowSym ]
+
+-- APPEND-ONLY: every original symbol keeps its index, hence its precedence.
+extendedVocabulary :: [Sym]
+extendedVocabulary = vocabulary ++ lteSymbols
+
+-- Theorem 1 (odd p) as a single machine Rule, in the module's Rule format,
+-- droppable into any [Rule] and fed to `normalize`:
+--
+--     vpow(p,a,n)  ->  onchain(p,a,n) * (e(p,a) + vp(p,n))
+--
+-- The chain indicator is what makes the two-case law one equation.  This is
+-- the merge the corpus flagged three times as unexecuted; it is now a term.
+lteRuleTotal :: Rule
+lteRuleTotal =
+  ( F "vpow" [x_, y_, z_]
+  , bin "*" (F "onchain" [x_, y_, z_])
+            (bin "+" (F "e" [x_, y_]) (F "vp" [x_, z_])) )
+
+-- HONESTY, in the idiom this module already uses for the Euclidean step.
+-- `lteRuleTotal` is a true equation ON ITS DOMAIN (p an odd prime, p ∤ a,
+-- n >= 1) and FALSE off it — `lteOffDomainWitness` exhibits the witness.  It
+-- is therefore deliberately NOT placed in any symbol's `symDefs`, which is
+-- the kernel-safe set the unrestricted proof search may use: an unguarded
+-- first-order rewrite engine has no way to carry the side condition, and
+-- installing it there would let the kernel derive falsehoods.  It is
+-- installed as a LEMMA, exactly as the Euclidean step is.
+
+-- ================================================== (3) THE COST REDUCTION
+-- The point of the merge: a result from the corpus entering the runtime and
+-- making another result CHEAPER.  Both routes to v_p(a^n - 1) are run, and
+-- the work is COUNTED — exact integers from an instrumented evaluator, never
+-- a wall-clock reading and never a fitted slope.
+--
+-- THE COST MODEL, stated so the numbers are checkable rather than believed.
+-- One unit = one base-p digit operation:
+--   * multiplying a k-digit number by an L-digit number costs k*L
+--     (schoolbook; each digit of one meets each digit of the other);
+--   * subtracting 1 from a k-digit number costs k (the borrow pass);
+--   * dividing a k-digit number by the single digit p, or testing
+--     divisibility by it, costs k (one pass);
+--   * one step of the order loop (multiply two single digits, reduce the
+--     2-digit product mod p) costs 3.
+-- The model is uniform across both routes, so the RATIO is a statement about
+-- the two algorithms and not about the model.  Alongside it the table also
+-- prints D(n) = the number of base-p digits of a^n - 1, which is an
+-- ALGORITHM-INDEPENDENT LOWER BOUND on the naive route: any method whatever
+-- that forms the integer a^n - 1 must at minimum write down its D(n) digits.
+
+-- number of base-p digits of |m|  (0 has one digit).  Exact; no logarithms.
+digitsP :: Integer -> Integer -> Integer
+digitsP p m
+  | p < 2 = 0
+  | otherwise = go (abs m) 0
+  where go u k | u == 0    = max 1 k
+               | otherwise = go (u `div` p) (k+1)
+
+-- strip factors of p, counting: each trial division costs the digit count of
+-- the current value, and there are v+1 of them (v that succeed, one that
+-- fails and stops the loop).  Returns (v_p(m), cost).
+stripCounted :: Integer -> Integer -> (Integer, Integer)
+stripCounted p m
+  | p < 2  = (0, 0)
+  | m == 0 = (0, 1)
+  | otherwise = go (abs m) 0 0
+  where
+    go u k c
+      | u `mod` p == 0 = go (u `div` p) (k+1) (c + digitsP p u)
+      | otherwise      = (k, c + digitsP p u)
+
+data NaiveRun = NaiveRun
+  { nrVal    :: !Integer   -- v_p(a^n - 1), computed the naive way
+  , nrCost   :: !Integer   -- counted digit operations
+  , nrDigits :: !Integer   -- D(n) = base-p digits of a^n - 1
+  }
+
+-- (i) THE NAIVE ROUTE: form a^n by n successive multiplications, subtract 1,
+-- strip factors of p.  The running digit count is maintained incrementally
+-- against a threshold power (so instrumenting the loop does not itself cost
+-- more than the loop); `digitsAgreeFailures` checks that this incremental
+-- count equals `digitsP` exactly, so the instrument is verified, not trusted.
+naiveVpCounted :: Integer -> Integer -> Integer -> NaiveRun
+naiveVpCounted p a n = NaiveRun v (cPow + cSub + cStrip) dOut
+  where
+    la = digitsP p a
+    (an, cPow) = powLoop 1 1 p 0 0
+    -- invariant: p^(k-1) <= acc < p^k, so k = digitsP p acc
+    powLoop acc k pk j c
+      | j >= n = (acc, c)
+      | otherwise =
+          let c'   = c + k * la           -- multiply a k-digit acc by an la-digit a
+              acc' = acc * a
+              (k', pk') = bump k pk acc'
+          in powLoop acc' k' pk' (j+1) c'
+      where
+        bump kk q u | u >= q    = bump (kk+1) (q*p) u
+                    | otherwise = (kk, q)
+    cSub = digitsP p an                    -- the "- 1" borrow pass
+    (v, cStrip) = stripCounted p (an - 1)
+    dOut = digitsP p (an - 1)
+
+data LawRun = LawRun
+  { lrVal   :: !Integer    -- v_p(a^n - 1), via e + v_p(n)
+  , lrSetup :: !Integer    -- ONE-TIME cost of the sensor (d, e); independent of n
+  , lrQuery :: !Integer    -- per-n cost once the sensor is known
+  }
+
+-- (ii) THE LAW ROUTE: one-time O(p) computation of d = ord_p(a) and
+-- e = v_p(a^d - 1) (the carrier e_b(q)); thereafter each n costs only a
+-- divisibility test and v_p(n).
+lawVpCounted :: Integer -> Integer -> Integer -> LawRun
+lawVpCounted p a n = LawRun val setup query
+  where
+    d     = ordAt p a
+    cOrd  = 3 * d                          -- d steps of the order loop
+    eRun  = naiveVpCounted p a d           -- e, paid for ONCE, at exponent d < p
+    e     = nrVal eRun
+    setup = cOrd + nrCost eRun
+    cTest = digitsP p n                    -- one pass to decide d | n
+    (w, cW) = stripCounted p n             -- v_p(n)
+    (val, query)
+      | d == 0            = (0, cTest)
+      | n `mod` d /= 0    = (0, cTest)     -- off the chain: the answer is 0
+      | otherwise         = (e + w, cTest + cW + 1)   -- +1 for the addition e + w
+
+-- the instrument's own audit: incremental digit tracking must agree with the
+-- direct count at every exponent it is used at.
+digitsAgreeFailures :: [(Integer,Integer,Integer,Integer,Integer)]
+digitsAgreeFailures =
+  [ (p,a,n, nrDigits (naiveVpCounted p a n), digitsP p (a^n - 1))
+  | p <- [3,5,7,11], a <- [2,3,5,10], n <- [1..25]
+  , nrDigits (naiveVpCounted p a n) /= digitsP p (a^n - 1) ]
+
+-- the cost table's instances.  Both are on-chain families with the shift
+-- term v_p(n) actually varying, plus two off-chain n where the law answers 0
+-- without touching a^n at all.
+costInstances :: [((Integer,Integer),[Integer])]
+costInstances =
+  [ ((7,3), [6, 12, 42, 84, 294, 588, 2058, 5, 100])
+  , ((3,2), [2, 6, 18, 54, 162, 486, 1458, 7, 1001])
+  ]
+
+data CostRow = CostRow
+  { crN :: !Integer, crChain :: !Bool, crDigits :: !Integer
+  , crNaive :: !Integer, crQuery :: !Integer
+  , crAgree :: !Bool, crValue :: !Integer }
+
+costRow :: Integer -> Integer -> Integer -> CostRow
+costRow p a n = CostRow n (onChain p a n == 1) (nrDigits nr)
+                        (nrCost nr) (lrQuery lr)
+                        (nrVal nr == lrVal lr) (nrVal nr)
+  where nr = naiveVpCounted p a n
+        lr = lawVpCounted p a n
+
+-- exact ratio, reduced; no floating point.  Rendered as "num/den ~ q"
+-- with q the exact integer quotient (floor).
+showExactRatio :: Integer -> Integer -> String
+showExactRatio num den
+  | den == 0 = "inf"
+  | otherwise =
+      let g = gcd num den
+      in show (num `div` g) ++ "/" ++ show (den `div` g)
+         ++ " (floor " ++ show (num `div` den) ++ ")"
+
+-- ============================================================ the LTE report
+
+reportLTE :: IO [String]
+reportLTE = do
+  putStrLn "-- (6) lifting the exponent: the corpus law, in the machine's vocabulary --"
+  putStrLn "  notes/CYCLOTOMIC_SENSOR.md Theorem 1 (classical LTE + order corollary)."
+  putStrLn "    odd p, p not dividing a, d = ord_p(a), e = v_p(a^d - 1):"
+  putStrLn "      v_p(a^n - 1) = 0           if d does not divide n"
+  putStrLn "      v_p(a^n - 1) = e + v_p(n)  if d divides n"
+  printf "  carrier spot values  e_7(3)=%d (d=%d)   e_3(2)=%d (d=%d)   e_5(7)=%d (d=%d)\n"
+    (ePrimeAt 7 3) (ordAt 7 3) (ePrimeAt 3 2) (ordAt 3 2) (ePrimeAt 5 7) (ordAt 5 7)
+  putStrLn "  as ONE machine Rule (chain indicator absorbs the case split):"
+  reportRewrite ("LTE(law)", lteRuleTotal)
+  putStrLn "    ^ true on its domain only; installed as a LEMMA, never in symDefs."
+  putStrLn ""
+
+  -- the new symbols' conventions get the same firewall the old ones get
+  putStrLn "-- (7) new symbols: convention firewall (exhaustive over 0..8) --"
+  let semX = semantics extendedVocabulary
+      convFails =
+        [ (symName s, l, r, e, lv, rv)
+        | s <- lteSymbols, (l,r) <- symDefs s
+        , Just (e,lv,rv) <- [exhaustiveCounterexample semX 8 (l,r)] ]
+  if null convFails
+    then printf "  all %d convention rewrites of ord/vp/e/onchain/vpow survive (sound).\n"
+           (length (concatMap symDefs lteSymbols))
+    else mapM_ (\(nm,l,r,e,lv,rv) ->
+           printf "  UNSOUND %s: %s = %s fails at %s (%d vs %d)\n"
+             nm (show l) (show r) (showEnv e) lv rv) convFails
+  putStrLn ""
+
+  -- (2) the finite exhaustive verification
+  putStrLn "-- (8) FINITE EXHAUSTIVE VERIFICATION of the law --"
+  putStrLn "  CLAUDE.md admits a finite exhaustive verification as PROOF.  What is"
+  putStrLn "  proved is exactly the finitely-bounded statement below; the unbounded"
+  putStrLn "  theorem is the note's, by the note's proof.  Nothing here is asymptotic."
+  printf "  odd branch, range VERIFIED IN FULL:\n"
+  printf "    p  odd prime, 3 <= p <= %d      (%d primes)\n"
+    (last (filter (>2) (primesUpTo (lteOddPrimeBound - 1))))
+    (length (filter (>2) (primesUpTo (lteOddPrimeBound - 1))))
+  printf "    a  integer,   2 <= a <= %d, p does not divide a\n" lteBaseBound
+  printf "    n  integer,   1 <= n <= %d\n" lteExpBound
+  printf "    triples checked: %d      failures: %d\n"
+    (length lteOddTriples) (length lteOddFailures)
+  let (offC, flatC, shiftC) = lteBranchCensus
+  printf "    branch census: %d off-chain (law says 0), %d on-chain with v_p(n)=0,\n" offC flatC
+  printf "                   %d on-chain with v_p(n)>0 (the shift term exercised)\n" shiftC
+  mapM_ (\((p,a,n),lv,rv) ->
+          printf "    FAIL p=%d a=%d n=%d: v_p(a^n-1)=%d but law says %d\n" p a n lv rv)
+        (take 5 lteOddFailures)
+  printf "  p = 2 branch (the module's own fixed prime; e- = v_2(a-1), e+ = v_2(a+1)):\n"
+  printf "    a odd, 3 <= a <= %d;  1 <= n <= %d;  pairs checked: %d      failures: %d\n"
+    lteTwoBaseBound lteExpBound (length lteTwoPairs) (length lteTwoFailures)
+  mapM_ (\((a,n),lv,rv) ->
+          printf "    FAIL a=%d n=%d: v_2(a^n-1)=%d but law says %d\n" a n lv rv)
+        (take 5 lteTwoFailures)
+  putStrLn "  FALSIFIER (the control designed to kill the claim):"
+  case lteOffDomainWitness of
+    Just ((p,a,n),lv,rv) ->
+      printf "    off-domain, the SAME predicate is false at p=%d (not an odd prime), a=%d, n=%d:\n      v_p(a^n-1)=%d, law says %d.  The empty failure list above is therefore\n      a statement about odd primes, not a vacuous identity.\n" p a n lv rv
+    Nothing ->
+      putStrLn "    NONE FOUND -- the predicate did not fail off-domain; the verification\n    above may be vacuous and must not be trusted."
+  putStrLn ""
+
+  -- (3) the cost reduction
+  putStrLn "-- (9) THE PAYOFF: the law as a COST REDUCTION (exact counted work) --"
+  putStrLn "  unit = one base-p digit operation (model stated in the source above)."
+  putStrLn "  (i)  naive : form a^n - 1, strip factors of p."
+  putStrLn "  (ii) law   : one-time (d,e); then per n, a divisibility test + v_p(n)."
+  rowsAndFails <- mapM reportCostBlock costInstances
+  putStrLn ""
+
+  let digitFails = digitsAgreeFailures
+  if null digitFails
+    then putStrLn "  instrument audit: incremental digit counter agrees with digitsP on all\n    (p,a,n) with p in {3,5,7,11}, a in {2,3,5,10}, 1<=n<=25."
+    else printf "  INSTRUMENT BROKEN: %d disagreements\n" (length digitFails)
+  putStrLn ""
+
+  pure $ concat
+    [ [ "unsound convention rewrite: " ++ nm | (nm,_,_,_,_,_) <- convFails ]
+    , [ printf "odd-p law fails at p=%d a=%d n=%d" p a n
+      | ((p,a,n),_,_) <- take 5 lteOddFailures ]
+    , [ printf "p=2 law fails at a=%d n=%d" a n
+      | ((a,n),_,_) <- take 5 lteTwoFailures ]
+    , [ "falsifier found no off-domain counterexample: verification may be vacuous"
+      | lteOffDomainWitness == Nothing ]
+    , [ "digit instrument disagrees with digitsP" | not (null digitFails) ]
+    , concat rowsAndFails
+    ]
+
+reportCostBlock :: ((Integer,Integer),[Integer]) -> IO [String]
+reportCostBlock ((p,a),ns) = do
+  let d     = ordAt p a
+      e     = ePrimeAt p a
+      setup = lrSetup (lawVpCounted p a (head ns))
+      rows  = map (costRow p a) ns
+  printf "\n  p = %d, a = %d:  d = ord_p(a) = %d, e = e_p(a) = %d\n" p a d e
+  printf "    one-time sensor cost (d and e, together): %d digit ops -- INDEPENDENT OF n\n" setup
+  putStrLn "        n  chain   D(n)=digits_p(a^n-1)     naive cost   law/query   naive:law"
+  mapM_ (\r ->
+      printf "    %5d  %-5s   %10d          %14d   %9d   %s\n"
+        (crN r) (if crChain r then "yes" else "no") (crDigits r)
+        (crNaive r) (crQuery r)
+        (showExactRatio (crNaive r) (crQuery r))) rows
+  let firstOver = [ crN r | r <- rows, crChain r, crNaive r > setup ]
+  case firstOver of
+    (n0:_) -> printf "    the one-time cost is repaid by the FIRST on-chain query at n >= %d\n" n0
+    []     -> putStrLn "    (no tabulated n exceeds the one-time cost)"
+  putStrLn "    cross-check: both routes must return the same valuation at every n."
+  let bad = [ r | r <- rows, not (crAgree r) ]
+  if null bad
+    then printf "    agreement: all %d rows agree (values %s)\n" (length rows)
+           (intercalate "," (map (show . crValue) rows))
+    else mapM_ (\r -> printf "    MISMATCH at n=%d\n" (crN r)) bad
+  pure [ printf "cost-table route mismatch at p=%d a=%d n=%d" p a (crN r) | r <- bad ]
 
 reportRewrite :: (String,Rule) -> IO ()
 reportRewrite (grp,(l,r)) =
