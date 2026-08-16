@@ -140,6 +140,55 @@ Order of work, by measured value:
    but several of the remaining six cite facts the engine had already proved);
 3. trace replay (the residue, and the end of skeleton search).
 
+## 3a. Step 1 was built, measured, and did NOT pay — reported, and reverted
+
+**cf-tantu, same day, later.** The preamble of §2 plus a searched base clause
+(the old base was hardwired `= refl`, which is only correct when both sides
+reduce) was implemented and measured against the same self-test.
+
+```
+before:  15/28 certified, 123 agda invocations, 94.20 s cold
+after:   15/28 certified, 183 agda invocations, 139.81 s cold
+```
+
+**The repair worked and the reach did not move.** Both halves are true and the
+second is the finding. Base-clause failures fell from **7 to 3** — the seven
+rows in §1's table stop complaining about `y != y + zero`, exactly as
+predicted. But every one of them then failed in the STEP case instead, and the
+count is unchanged because the binding constraint was never the base:
+
+```
+(x+y) = (y+x)      base fixed  ->  step fails: y · (x + y) != suc (x + y)
+(x*y) = (y*x)      base fixed  ->  step fails: y · (x · y) != y + x · y
+```
+
+The three bases still failing say why the menu cannot be pushed further
+without becoming the thing it is standing in for. `(x*(y*z)) = (x*(z*y))`
+needs, at `y := zero`, a path from `zero` to `x · (z · zero)` — which is
+
+```agda
+sym (mulZero x) ∙ cong (x ·_) (sym (mulZero z))
+```
+
+a **composition of two lemmas at two different positions**. No menu of
+single shapes contains it, and a menu that did would be a search over
+compositions — which is a proof search, badly, in another process.
+
+Two bugs in the first draft were themselves found by measuring rather than
+by reading, and are worth recording because both produce a *scope* error
+that looks like a mathematical failure: a base shape may not mention the
+induction variable (it is `zero` in that clause and unbound, giving
+`Not in scope: x`), and may not name a lemma the preamble did not emit for
+that equation's symbols (`Not in scope: mulZero`).
+
+**The change was reverted.** It cost 60 more agda invocations and 45 s per
+cold run for zero additional theorems, and by this repository's own standard
+that is a negative result to report, not a diff to keep. What survives is
+this section and the conclusion it forces: **the menu is exhausted, and §3 is
+not the residue but the answer.** `machine/TraceReplay.hs` now implements it —
+4/4 traces replay and type-check at one agda call each, against a search that
+spends up to 26.
+
 ## 4. What is NOT claimed
 
 - No claim that all 13 clear after (1). The count after each step must be
