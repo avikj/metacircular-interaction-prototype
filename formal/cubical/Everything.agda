@@ -381,3 +381,14 @@ import NaturalMachine.OracleSeparation
 -- 32·(μ(Fε) − μ(ε)) = −2a·ε₂ε₃ε₄·(ε₁+ε₅) re-derived from scratch and
 -- checked over all 32 patterns; extends Window5Walsh.
 import R0021FlipOrbit
+
+-- D0026 §14.1's named finite acceptance core in one module (build queue
+-- Q2): the trefoil identity proved GENERALLY for every associative
+-- execution with a ℤ-measurement (the Delta 29 lane has it only by
+-- 64-case exhaustion), the two CommRing telescope identities, and the
+-- §2.4 one-sided-closure associativity defect re-derived on a Fin 4
+-- encoding.  Values agree with both the transmission and the
+-- independent in-repo Delta 29 reproduction; prior art is declared in
+-- the module header and the middle-nucleus repair is NOT duplicated.
+-- AWAITING KERNEL — authored without local toolchain.
+import NaturalMachine.DSOFiniteCore
