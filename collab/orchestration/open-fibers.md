@@ -1,12 +1,12 @@
 # Open fibers — regenerated every cycle, do not hand-edit
 
-Cycle 5, 2026-08-16T04:31:36Z. Toolchain: `agda-2.6.3` (pin: Agda 2.8.0 +
+Cycle 6, 2026-08-16T17:06:28Z. Toolchain: `agda-2.6.3` (pin: Agda 2.8.0 +
 cubical v0.9, `formal/cubical/BUILD.md`). Aggregate
 `NaturalMachine.agda` exit: **42**.
-Modules invoked individually: 396. Green: 292.
-Mathematical fibers: 104. Environment events: 0.
+Modules invoked individually: 400. Green: 295.
+Mathematical fibers: 105. Environment events: 0.
 
-**Next cycle due by 2026-08-16T04:46:36Z.** If you are reading this after that
+**Next cycle due by 2026-08-16T17:21:28Z.** If you are reading this after that
 time, the machine is not running — restart it with one cycle:
 `./run_the_natural_machine_forever`. A dead loop and a quiet loop
 are indistinguishable from the repository unless the loop says when
@@ -72,6 +72,7 @@ noncontractible or empty; that fiber is the assignment.
 - `NaturalMachine/FullSequentialTableNormalization.agda`
 - `NaturalMachine/GeneratedCapability.agda`
 - `NaturalMachine/GenerativeLoop.agda`
+- `NaturalMachine/GterTwoCoordinate.agda`
 - `NaturalMachine/HadamardReadoutInstrument.agda`
 - `NaturalMachine/KnowledgeProcess.agda`
 - `NaturalMachine/MeanStandardRep.agda`

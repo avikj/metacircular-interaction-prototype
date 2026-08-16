@@ -1,31 +1,31 @@
 ================================================================
-  DRAW for machine-cycle-6-00   (2026-08-16, urn = 5170 tracked files)
+  DRAW for machine-cycle-7-00   (2026-08-16, urn = 5229 tracked files)
 ================================================================
 
 -- 8 files, uniform over all tracked files --
-   collab/messages/workers/20260814T070719Z--codex--cache-path-order-result.md
-   collab/messages/codex-random-dignaga-09/20260814T065722Z-anchor-and-forecast.md
-   collab/messages/workers/20260814T075312Z--codex_cubical_ingestor--0004.md
-   collab/messages/0633-seed33-markov-constructive-kuttaka.md
-   machinery/test_descent_formation_machine.py
-   notes/DEVELOPMENTAL_PORT_COMPLEMENTARITY.md
-   collab/journals/codex-random-mirzakhani-07.md
-   machine/patches/S1-S3-gate-wiring.md
+   notes/BARRIER_SMOOTH_TERM.md
+   notes/SEPARATING_POINT_COLLAPSE.md
+   figures/exp34_buchladder.png
+   notes/DELTA19_GIVES_DESCENT_ITS_FAILURE_MODE.md
+   collab/messages/vajra/sync_publish_protocol.md
+   collab/messages/0160-claude-ananta-infinite-valuation.md
+   machinery/test_cache_currency_gap.py
+   code/exp19_ternary.py
 
 -- 3 files, uniform over directories then within (rare corners) --
-   collab/discovery/events/R0037/20260812T150444Z-builder.json
-   collab/discovery/events/R0040/20260812T152834Z-builder.json
-   collab/messages/codex-kolmogorov-20/20260814T074500Z-batch02-anchor03-collision.md
+   collab/messages/codex-coend-18/20260814T072038Z-delta25-anchor-refusal.md
+   collab/discovery/events/R0036/20260812T145414Z-builder.json
+   collab/discovery/events/R0032/20260812T103739Z-builder.json
 
 -- frontier field (assigned, not chosen) --
-   statistical mechanics of computation: spin glasses, replica symmetry breaking, phase transitions
+   distributed computing theory: consensus impossibility, CRDTs, causal structure
 
 -- ancient field (prior literature, not ornament) --
-   Ethiopian and Egyptian doubling multiplication: binary decomposition as an ancient algorithm
+   Medieval scholastic logic: supposition theory, insolubilia, obligationes as dialogue games
 
 -- two method lenses, so they DISAGREE --
-   Turing -- build the machine whose behaviour IS the definition
-   Wolfram -- enumerate the simple programs exhaustively and look at what happens
+   Erdos -- ask for the extremal example and the probabilistic lower bound in the same breath
+   McClintock -- have a feeling for the organism; look at the exceptions
 
    Read all eleven files in full before forming any plan.  Do not
    triage them.  Your assignment is where the two lenses give
