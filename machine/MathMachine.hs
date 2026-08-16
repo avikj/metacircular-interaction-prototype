@@ -1282,7 +1282,7 @@ certDefinitions syms =
   ]
 
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAccept = kernelAcceptWith [] []
+kernelAccept = kernelAcceptWith [] [] []
 
 -- TRACE REPLAY, tried before the shape search.
 --
@@ -1310,13 +1310,16 @@ toTR :: Term -> TR.Term
 toTR (V i) = TR.V i
 toTR (F f ts) = TR.F f (map toTR ts)
 
-tryReplay :: [Rule] -> ((Term,Term),String) -> IO (Maybe Int)
-tryReplay rules ((l,r),proofNote) =
+tryReplay :: [(Term,Term)] -> [Rule] -> ((Term,Term),String) -> IO (Maybe Int)
+tryReplay known rules ((l,r),proofNote) =
   case C.inductionVariable proofNote of
     Nothing -> pure Nothing
     Just v ->
-      case TR.replayWithRules (map (\(a,b) -> (toTR a, toTR b)) rules)
-                              (toTR l, toTR r) v "Candidate" of
+      let cited = [ ((toTR a, toTR b), "lem" ++ show i)
+                  | (i, (a,b)) <- zip [(0::Int)..] known ]
+      in case TR.replayWithRules cited
+                                 (map (\(a,b) -> (toTR a, toTR b)) rules)
+                                 (toTR l, toTR r) v "Candidate" of
         Nothing -> pure Nothing
         Just source -> do
           (code, _out, calls) <- C.runAgdaCached "." source
@@ -1324,10 +1327,10 @@ tryReplay rules ((l,r),proofNote) =
             ExitSuccess -> pure (Just calls)
             ExitFailure _ -> pure Nothing
 
-kernelAcceptWith :: [Sym] -> [Rule] -> Handle -> Int
+kernelAcceptWith :: [Sym] -> [(Term,Term)] -> [Rule] -> Handle -> Int
                  -> ((Term,Term),String) -> IO Bool
-kernelAcceptWith invented rules logh roundNo cand@((l,r),proofNote) = do
-  replayed <- tryReplay rules cand
+kernelAcceptWith invented known rules logh roundNo cand@((l,r),proofNote) = do
+  replayed <- tryReplay known rules cand
   case replayed of
     Just calls -> do
       hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls)\n"
@@ -1892,7 +1895,7 @@ round1 mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAcceptWith (mInvented m) rules logh (mRound m)) results
+  checkedResults <- filterM (kernelAcceptWith (mInvented m) (M.keys (mKnown m)) rules logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double

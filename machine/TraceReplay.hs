@@ -58,6 +58,9 @@ module TraceReplay
   , replayClause
   , replayModule
   , replayWithRules
+  , addReflLemmas
+  , reflProvable
+  , libRules
   , deriveByInduction
   , peanoRules
   , replayContract
@@ -432,6 +435,68 @@ replayModule lenv modName d = do
     varsOf (F _ ts) = concatMap varsOf ts
     union' a b = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) [] (a ++ b)
 
+-- CITING WHAT THE ENGINE ALREADY PROVED.
+--
+-- The engine's thesis is that a theorem is an installed transformation: once
+-- proved it becomes a rewrite rule and the next round reasons with it.  Its
+-- certificates did not have that property.  A proof that fires an earlier
+-- theorem hits a rule with no name in the lemma environment, replay returns
+-- Nothing, and the search runs -- which is why the live engine cannot
+-- install `(x+y) = (y+x)`: the proof cites `x = (0+x)`, certified in round 0
+-- and then forgotten by the gate.
+--
+-- So earlier theorems are emitted as named lemmas ahead of `candidate`.  The
+-- question is what proof to give them, and the answer here is deliberately
+-- the narrow one: a theorem is admitted to the environment only when it
+-- holds by the LIBRARY's own computation, i.e. when both sides normalise to
+-- the same term under Cubical's first-argument definitions.  Then its
+-- declaration is `refl` and it cannot be wrong.
+--
+-- `libRules` is those definitions as rewrite rules.  Note they are NOT the
+-- engine's: the engine recurses on the second argument, Cubical on the
+-- first, and that difference is the whole reason this module exists.  Using
+-- the library's orientation here is what makes `= refl` the correct proof.
+libRules :: [Rule]
+libRules =
+  [ (binT "+" zeroT y0,          y0)                              -- zero + n = n
+  , (binT "+" (sucT x0) y0,      sucT (binT "+" x0 y0))           -- suc m + n = suc (m + n)
+  , (binT "*" zeroT y0,          zeroT)                           -- zero · n = zero
+  , (binT "*" (sucT x0) y0,      binT "+" y0 (binT "*" x0 y0))    -- suc m · n = n + m · n
+  ]
+
+-- Does the library compute both sides to the same term?  If so the lemma is
+-- `refl` and needs no proof of its own.  This is an exact syntactic test, not
+-- a heuristic: it either meets or it does not, and a theorem that does not
+-- meet is simply left out of the environment.
+reflProvable :: (Term, Term) -> Bool
+reflProvable (l, r) = fst (normalizeTrace libRules l)
+                   == fst (normalizeTrace libRules r)
+
+-- Extend an environment with certified theorems, each emitted as a named
+-- lemma proved by `refl`.  Anything not `reflProvable` is silently skipped:
+-- the cost of skipping is a fallback to the search, and the cost of guessing
+-- would be an unsound certificate.
+addReflLemmas :: [((Term, Term), String)] -> LemmaEnv -> LemmaEnv
+addReflLemmas ts base = base
+  { leLemmas   = leLemmas base   ++ [ (rl, (nm, vs)) | (rl, nm, vs, _) <- ok ]
+  , lePreamble = lePreamble base ++ concat [ d | (_, _, _, d) <- ok ]
+  }
+  where
+    ok = [ (rl, nm, vs, decl)
+         | (rl, nm) <- ts
+         , reflProvable rl
+         , Just (vs, decl) <- [declFor nm rl] ]
+    declFor nm (l, r) = do
+      let vs = nubOrd (varsOfT l ++ varsOfT r)
+      ns <- mapM agdaVar vs
+      let e = M.fromList (zip vs ns)
+      sl <- render e l
+      sr <- render e r
+      let quant = if null ns then "" else "(" ++ unwords ns ++ " : ℕ) → "
+      pure (vs, [ nm ++ " : " ++ quant ++ sl ++ " ≡ " ++ sr
+                , unwords (nm : ns) ++ " = refl" ])
+    nubOrd = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) []
+
 -- THE ENTRY POINT the engine calls.
 --
 -- `rs` is the engine's OWN rule set at the moment it discharged the
@@ -448,9 +513,10 @@ replayModule lenv modName d = do
 -- engine proved using an EARLIER theorem will fall back until that earlier
 -- theorem is entered in the environment under the name it was emitted with
 -- (see `replayContract`).
-replayWithRules :: [Rule] -> (Term, Term) -> Int -> String -> Maybe String
-replayWithRules rs goal v modName =
-  replayModule peanoEnv modName (deriveByInduction rs goal v)
+replayWithRules :: [((Term, Term), String)] -> [Rule] -> (Term, Term) -> Int
+                -> String -> Maybe String
+replayWithRules certs rs goal v modName =
+  replayModule (addReflLemmas certs peanoEnv) modName (deriveByInduction rs goal v)
 
 -- What a caller must supply for the wiring.  Stated as prose because the
 -- types live in two modules that were being edited when this was written.
