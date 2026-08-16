@@ -426,3 +426,45 @@ import NaturalMachine.MatchingPenniesSeparator
 -- refl-material; the module certifies the relational coordinate only.
 -- AWAITING KERNEL — authored without local toolchain.
 import NaturalMachine.GterTwoCoordinate
+
+------------------------------------------------------------------------
+-- ORPHAN SWEEP 2, 2026-08-17.  AWAITING KERNEL — authored without a
+-- local toolchain.
+--
+-- `scripts/check-agda-closure.sh` returned exit 1 at this commit: 22
+-- modules outside the aggregate's import closure, i.e. covered by no
+-- green claim anyone could make.  The 03:43 sweep recorded in
+-- `notes/AGDA_COVERAGE_INVENTORY.md` was CORRECT WHEN IT RAN and is not
+-- struck; every module below landed AFTER it, from concurrent lanes
+-- (commits 4fe34ea2 "Braid round 1: ten checked EGB strands" and
+-- 459e4d11 "Three engine capabilities").
+--
+-- The finding this makes precise: latching is not a task that completes,
+-- it is a RATE.  Modules land faster than the closure is re-established,
+-- so the aggregate silently stops covering the tree between sweeps, and
+-- the only reason anyone knows is that a checker exists — which nothing
+-- runs (`notes/THE_GATE_IS_A_CLAIM_ABOUT_A_STATE.md`: CI triggers, is
+-- scheduled, and is never dispatched).  Latching by hand is the stopgap;
+-- the standing fix is to make the closure check a gate that runs.
+--
+-- MachineMinted.Everything is itself a machine-regenerated latch, so
+-- importing it covers the four MachineMinted.* modules beneath it.
+-- NaturalMachine.ChargePolynomialFinite is deliberately NOT latched here:
+-- it is in flight from a live worker, which owns its own latch line.
+import CyclotomicMined
+import EGBCycleHolonomy
+import EGBDetConservation
+import EGBFalsifierAsymmetry
+import EGBPairComposition
+import EGBPairConic
+import EGBPhiIdempotent
+import EGBResidueGlue
+import EGBReversalInvariant
+import EGBSpanWeave
+import EGBSuccessorCost
+import EGBTwoFibrations
+import FactoryVICoolingKill
+import FactoryVICore
+import MachineLibrary
+import MachineMinted.Everything
+import ObligationMinCut
