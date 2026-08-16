@@ -57,6 +57,9 @@ module TraceReplay
   , peanoEnv
   , replayClause
   , replayModule
+  , replayWithRules
+  , deriveByInduction
+  , peanoRules
   , replayContract
   , main
   ) where
@@ -428,6 +431,26 @@ replayModule lenv modName d = do
     varsOf (V i) = [i]
     varsOf (F _ ts) = concatMap varsOf ts
     union' a b = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) [] (a ++ b)
+
+-- THE ENTRY POINT the engine calls.
+--
+-- `rs` is the engine's OWN rule set at the moment it discharged the
+-- theorem, so the trace this re-derives is the derivation the engine
+-- actually ran: same rules, same innermost-leftmost strategy, same
+-- reduction order.  It is one deterministic function computed twice, not a
+-- second search -- which is why no proof can appear here that the engine
+-- did not find.
+--
+-- Naming, though, is restricted to `peanoEnv`: a step that fires a rule
+-- with no name in the lemma environment makes the whole replay return
+-- Nothing, and the caller falls back to the shape search.  A certificate
+-- never silently appeals to something it cannot name, and a theorem the
+-- engine proved using an EARLIER theorem will fall back until that earlier
+-- theorem is entered in the environment under the name it was emitted with
+-- (see `replayContract`).
+replayWithRules :: [Rule] -> (Term, Term) -> Int -> String -> Maybe String
+replayWithRules rs goal v modName =
+  replayModule peanoEnv modName (deriveByInduction rs goal v)
 
 -- What a caller must supply for the wiring.  Stated as prose because the
 -- types live in two modules that were being edited when this was written.

@@ -3,35 +3,54 @@
 ------------------------------------------------------------------------
 -- EGBResidueGlue
 --
--- The non-coprime gluing law of notes/CHINESE_REMAINDER_GLUE.md and
--- MATHEMATICS_THAT_LEARNS (`glue-remainders 4 6`, retired Python) made
--- checkable at its smallest honest instance:
+-- The non-coprime gluing law of notes/MATHEMATICS_THAT_LEARNS.md
+-- (`glue-remainders 4 6`, retired Python) made checkable at its
+-- smallest honest instance:
 --
---   m = 4, n = 6, gcd = 2, lcm = 12, working on ℤ/24.
+--   m = 4, n = 6, gcd = 2, lcm = 12, working on Z/24.
 --
--- Two jewels of Indra's net — the residue-mod-4 view and the
--- residue-mod-6 view of a point of ℤ/24 — reflect each other only
+-- Two jewels of Indra's net -- the residue-mod-4 view and the
+-- residue-mod-6 view of a point of Z/24 -- reflect each other only
 -- through their overlap:
 --
---   (a) COMPATIBILITY.  For every x : ℤ/24 the two readings agree
---       after restriction to ℤ/gcd = ℤ/2:
---       π₄₂ (r4 x) ≡ π₆₂ (r6 x).                    [compatibility]
+--   (a) COMPATIBILITY.  For every x : Z/24 the two readings agree
+--       after restriction to Z/gcd = Z/2:
+--       pi42 (r4 x) == pi62 (r6 x).                   [compatibility]
 --
 --   (b) HIDDEN FIBER.  Perfect agreement of the views does not
 --       reconstruct the point: 0 and 12 have equal joint readings
---       (0,0) yet are distinct in ℤ/24.  Reconstruction ≠
---       compatibility; the fiber of size gcd = 2 stays hidden.
---                                     [collision, zero≢twelve]
+--       (0,0) yet are distinct in Z/24.  Reconstruction and
+--       compatibility are different operations; the fiber of size
+--       gcd = 2 stays hidden.        [collision, zero!=twelve,
+--                                     hiddenFiber]
 --
---   (c) EXACT RECONSTRUCTION AT THE LCM.  On ℤ/12 = ℤ/lcm the joint
---       reading is injective — this is the Sun Zi / CRT bound: the
---       two views determine the point exactly up to lcm, never
---       further.                              [jointReading12-inj]
+--   (c) EXACT RECONSTRUCTION AT THE LCM.  On Z/12 = Z/lcm the joint
+--       reading is injective -- the two views determine the point
+--       exactly up to lcm, never further.       [jointReading12-inj]
 --
 -- Everything is finite and closed, so every law is decided by
 -- computation: the quantifiers are discharged by a boolean sweep
 -- (allFin) whose truth is a single refl, then reflected into paths.
 -- No holes, no postulates, imports from Cubical.* only.
+--
+-- NOTE ON THE REPRESENTATION OF Fin.  An earlier draft of this module
+-- used the indexed inductive
+--
+--   data Fin : N -> Type where fz : Fin (suc n); fs : Fin n -> Fin (suc n)
+--
+-- Pattern matching on that family at a *literal* index (Fin 4, Fin 6)
+-- forces the unifier to use injectivity of `suc` on the index, which
+-- Cubical Agda does not support: six clauses raised
+-- UnsupportedIndexedMatch, i.e. those functions would not compute
+-- when applied to transports.  (As a side effect Agda then exited 42
+-- rather than 0 under a non-UTF-8 locale, because it could not encode
+-- the character N in the warning text.)  Defining Fin by recursion on
+-- N instead,
+--
+--   Fin zero = empty, Fin (suc n) = Maybe (Fin n),
+--
+-- removes every index from the picture: all matching is on Maybe,
+-- which is unindexed.  The pattern synonyms fz/fs keep the notation.
 ------------------------------------------------------------------------
 
 module EGBResidueGlue where
@@ -40,26 +59,30 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Bool
 open import Cubical.Data.Sigma
-open import Cubical.Data.Empty as Empty using ()
-open import Cubical.Relation.Nullary
+open import Cubical.Data.Maybe using (Maybe; nothing; just)
+open import Cubical.Data.Empty as Empty using (⊥)
+open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- A self-contained inductive Fin (kept local so the module depends on
--- nothing but Cubical.Data.Nat's numerals and standard lemmas).
+-- Fin by recursion on ℕ: unindexed, so every pattern match below is a
+-- plain match on Maybe and Cubical Agda supports all of them.
 
-data Fin : ℕ → Type₀ where
-  fz : {n : ℕ} → Fin (suc n)
-  fs : {n : ℕ} → Fin n → Fin (suc n)
+Fin : ℕ → Type₀
+Fin zero    = ⊥
+Fin (suc n) = Maybe (Fin n)
+
+pattern fz    = nothing
+pattern fs x  = just x
 
 toℕ : {n : ℕ} → Fin n → ℕ
-toℕ fz     = zero
-toℕ (fs x) = suc (toℕ x)
+toℕ {suc n} fz     = zero
+toℕ {suc n} (fs x) = suc (toℕ x)
 
-toℕ-inj : (n : ℕ) (x y : Fin n) → toℕ x ≡ toℕ y → x ≡ y
-toℕ-inj (suc n) fz     fz     _ = refl
-toℕ-inj (suc n) fz     (fs y) p = Empty.rec (znots p)
-toℕ-inj (suc n) (fs x) fz     p = Empty.rec (snotz p)
-toℕ-inj (suc n) (fs x) (fs y) p = cong fs (toℕ-inj n x y (injSuc p))
+toℕ-inj : {n : ℕ} (x y : Fin n) → toℕ x ≡ toℕ y → x ≡ y
+toℕ-inj {suc n} fz     fz     _ = refl
+toℕ-inj {suc n} fz     (fs y) p = Empty.rec (znots p)
+toℕ-inj {suc n} (fs x) fz     p = Empty.rec (snotz p)
+toℕ-inj {suc n} (fs x) (fs y) p = cong just (toℕ-inj x y (injSuc p))
 
 ------------------------------------------------------------------------
 -- Boolean equality on ℕ, sound and complete — the reflection engine.
@@ -84,7 +107,7 @@ eqFin : {n : ℕ} → Fin n → Fin n → Bool
 eqFin x y = eqℕ (toℕ x) (toℕ y)
 
 eqFin-sound : {n : ℕ} (x y : Fin n) → eqFin x y ≡ true → x ≡ y
-eqFin-sound {n} x y p = toℕ-inj n x y (eqℕ-sound (toℕ x) (toℕ y) p)
+eqFin-sound x y p = toℕ-inj x y (eqℕ-sound (toℕ x) (toℕ y) p)
 
 eqFin-complete : {n : ℕ} (x y : Fin n) → x ≡ y → eqFin x y ≡ true
 eqFin-complete x y p =
@@ -191,7 +214,7 @@ compatibility x =
 ------------------------------------------------------------------------
 -- (b) HIDDEN FIBER: the joint reading identifies 0 and 12, which are
 -- distinct in ℤ/24.  Agreement of all views is not reconstruction —
--- the kernel (multiples of lcm = 12) has gcd = 2 elements.
+-- the kernel (multiples of lcm = 12) has 24/12 = 2 elements.
 
 jointReading : Fin 24 → Fin 4 × Fin 6
 jointReading x = r4 x , r6 x

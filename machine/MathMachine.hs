@@ -47,6 +47,7 @@ import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
 import qualified Certificate as C
+import qualified TraceReplay as TR
 import qualified Knobs as K
 import Data.Char (isAlphaNum, isSpace)
 import System.Directory (doesFileExist)
@@ -1281,10 +1282,61 @@ certDefinitions syms =
   ]
 
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAccept = kernelAcceptWith []
+kernelAccept = kernelAcceptWith [] []
 
-kernelAcceptWith :: [Sym] -> Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAcceptWith invented logh roundNo ((l,r),proofNote) = do
+-- TRACE REPLAY, tried before the shape search.
+--
+-- `Certificate` certifies by emitting an induction skeleton and SEARCHING
+-- the clause bodies, one agda process per attempt.  But the engine already
+-- knew the proof: `proveByInduction` succeeded by normalising both clauses
+-- and watching every rewrite fire.  `TraceReplay` re-runs that same
+-- deterministic normalisation -- same rules, same innermost-leftmost
+-- strategy, same reduction order, so it is one function computed twice and
+-- not a second search -- and compiles the resulting trace into a path:
+-- a rewrite at the root is the rule's lemma instantiated, under a context
+-- it is `cong`, right-to-left it is `sym`, a sequence composes with `∙`,
+-- and the induction hypothesis is the structural recursive call.
+--
+-- It returns Nothing, and the search runs unchanged, whenever a fired rule
+-- has no name in the lemma environment -- which today means anything
+-- outside the defining equations of + and *, including a theorem the
+-- engine proved using an EARLIER theorem.  Widening that environment is
+-- the next increment and is described in TraceReplay.replayContract.
+--
+-- Soundness does not rest on any of this.  The emitted module goes through
+-- the same cached agda invocation as everything else; replay only changes
+-- WHICH module is offered, never whether the kernel is asked.
+toTR :: Term -> TR.Term
+toTR (V i) = TR.V i
+toTR (F f ts) = TR.F f (map toTR ts)
+
+tryReplay :: [Rule] -> ((Term,Term),String) -> IO (Maybe Int)
+tryReplay rules ((l,r),proofNote) =
+  case C.inductionVariable proofNote of
+    Nothing -> pure Nothing
+    Just v ->
+      case TR.replayWithRules (map (\(a,b) -> (toTR a, toTR b)) rules)
+                              (toTR l, toTR r) v "Candidate" of
+        Nothing -> pure Nothing
+        Just source -> do
+          (code, _out, calls) <- C.runAgdaCached "." source
+          case code of
+            ExitSuccess -> pure (Just calls)
+            ExitFailure _ -> pure Nothing
+
+kernelAcceptWith :: [Sym] -> [Rule] -> Handle -> Int
+                 -> ((Term,Term),String) -> IO Bool
+kernelAcceptWith invented rules logh roundNo cand@((l,r),proofNote) = do
+  replayed <- tryReplay rules cand
+  case replayed of
+    Just calls -> do
+      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls)\n"
+        roundNo (show l) (show r) calls
+      pure True
+    Nothing -> kernelAcceptSearch invented logh roundNo ((l,r),proofNote)
+
+kernelAcceptSearch :: [Sym] -> Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
   verdict <- C.certifyWith (certDefinitions invented) "."
                ((toCert l, toCert r), proofNote)
   case verdict of
@@ -1840,7 +1892,7 @@ round1 mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAcceptWith (mInvented m) logh (mRound m)) results
+  checkedResults <- filterM (kernelAcceptWith (mInvented m) rules logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
