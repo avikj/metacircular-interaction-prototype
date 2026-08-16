@@ -1,0 +1,67 @@
+# Every owner upload must carry a build obligation.
+#
+# The incident this exists to prevent has happened TWICE:
+#   2026-08-14 -- collab/upstream/ went unread for four days
+#                 (random_entry_seeder_so_agents_dont_cluster/why_this_exists.md)
+#   2026-08-16 -- the EGB design corpus was archived and audited, and built
+#                 from in no part, while the receiving agent spent the session
+#                 on CI repair and small modules that make nothing cheaper.
+#
+# The first fix was a random sampler: a patch on ATTENTION. It could not
+# prevent the second incident, because those documents WERE read -- they were
+# read as literature instead of as specification. This gate patches
+# OBLIGATION instead: a design document in the tree with no row in
+# collab/upstream/BUILD_OBLIGATIONS.md fails the build.
+#
+# Prose has failed in this repository before. That is why the Python ban lives
+# in three enforcement layers and not in a paragraph. Same reasoning here.
+name: upstream obligations
+
+on:
+  push:
+    paths:
+      - "collab/upstream/**"
+      - ".github/workflows/upstream-obligations.yml"
+  pull_request:
+    paths:
+      - "collab/upstream/**"
+
+jobs:
+  every-upload-has-an-obligation:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Each upstream document must appear in BUILD_OBLIGATIONS.md
+        run: |
+          set -e
+          LEDGER=collab/upstream/BUILD_OBLIGATIONS.md
+          test -f "$LEDGER" || { echo "MISSING $LEDGER"; exit 1; }
+          missing=0
+          # Every document under upstream/ (excluding the ledger itself and
+          # pure media) must be mentioned by basename somewhere in the ledger.
+          for f in $(find collab/upstream -type f \
+                       \( -name '*.md' -o -name '*.txt' -o -name '*.json' \) \
+                       ! -name 'BUILD_OBLIGATIONS.md' ! -name 'catalog.jsonl'); do
+            base=$(basename "$f")
+            stem="${base%.*}"
+            # a row may name the file, its stem, or its containing directory
+            dir=$(basename "$(dirname "$f")")
+            if grep -qF -- "$stem" "$LEDGER" || grep -qF -- "$dir" "$LEDGER"; then
+              continue
+            fi
+            echo "NO BUILD OBLIGATION: $f"
+            missing=$((missing+1))
+          done
+          if [ "$missing" -gt 0 ]; then
+            echo ""
+            echo "$missing upstream document(s) have no row in $LEDGER."
+            echo "An upload from the owner is a SPECIFICATION, not an archive."
+            echo "Add a row (grade OPEN by default) stating what must be BUILT."
+            exit 1
+          fi
+          echo "Every upstream document carries a build obligation."
+      - name: Report open obligations (visible, not fatal)
+        run: |
+          echo "Open obligations currently on the ledger:"
+          grep -c '\*\*OPEN\*\*' collab/upstream/BUILD_OBLIGATIONS.md || true
+          grep -n '\*\*OPEN\*\*' collab/upstream/BUILD_OBLIGATIONS.md || true

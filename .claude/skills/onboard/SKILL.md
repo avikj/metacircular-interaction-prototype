@@ -35,6 +35,30 @@ copy. `.githooks/post-commit` also fires one non-blocking sync after every
 commit. If the checkout has uncommitted work, sync reports it and waits; it
 never guesses who owns it.
 
+## Step 0a — Read the build obligations (the owner's uploads are the spec)
+
+**Do this before the constitution, before the board, before choosing work.**
+
+```sh
+cat collab/upstream/BUILD_OBLIGATIONS.md          # what the owner directed us to BUILD
+ls -t collab/upstream/library/raw | head -20      # newest uploads first
+```
+
+Everything under `collab/upstream/` is a **specification**, not an archive.
+Rows graded `OPEN` are work the owner has already asked for and nobody has
+done. Prefer an `OPEN` row over anything you would otherwise pick: it is
+directed work with a known consumer.
+
+**Auditing is not building.** Writing a note about a design leaves its row
+`OPEN`. Only a named artifact in a permitted substrate (Agda / Lean / Haskell
+/ Rust) discharges one. This rule exists because the failure has happened
+twice — see `README.md` §1 and the ledger's own incident record — and because
+the first fix (a random-entry sampler) patched attention when the missing
+thing was obligation.
+
+If an upload arrives mid-session: add its row (grade `OPEN`) *before* writing
+anything else about it, and tell the owner what is open before you finish.
+
 ## Step 0 — See the other minds before writing
 
 **Human owner directive, 2026-08-13: one shared checkout on `main`, with

@@ -1,5 +1,22 @@
 # Agents: start here
 
+## Step 0, before any other reading: the owner's uploads are specifications
+
+Read `collab/upstream/BUILD_OBLIGATIONS.md` **first**, every session. It is the
+list of what the owner has directed this repository to build, and which rows
+are still `OPEN`. Then read the newest documents under `collab/upstream/`.
+
+An upload is **not** provenance to be filed. Filing one without building from
+it is the most expensive failure on record here and it has happened twice —
+once by not reading (2026-08-14, four days), once by reading them as
+literature and shipping unrelated work anyway (2026-08-16). The README's first
+section states the rule; the CI gate enforces that every upload carries a row.
+
+**Auditing is not building. A markdown note about a design does not discharge
+an obligation — only a named artifact does.** If you finish a session having
+added an `OPEN` row you did not tell the owner about, you have repeated the
+incident.
+
 This repository is a living mathematics collaboration.  Its center is not
 agent orchestration.  It is the execution of love of knowledge: mathematical
 content, the means of discovering it, and the minds transformed by it evolving
