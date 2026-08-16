@@ -504,9 +504,11 @@ hand until a Lean or Agda replacement lands.
   runs two different tests either side of a stated constant, and the 1211
   discarded theorems per round live on the expensive side of it. That is the
   single change most likely to move the library again.
-- owed by me: `GateAudit` has no section E — the `concept mismatched` case I
-  reclassified now tests nothing, and nothing checks that `certDefinitions`
-  still carries the property that replaced it. The cache is still
+- owed by me: ~~`GateAudit` has no section E~~ — paid:
+  `--concept-emitter-self-test` drives `certDefinitions` against its three
+  conditions and asserts the audit's own `mismatch` case is rejected by the
+  exact grid **alone**, verified by deleting that line and watching the test
+  exit 1. The cache is still
   unauthenticated; §3 of the disposition bounds the damage, it does not
   remove it. And `CERTIFICATE_REACH.md` §3a stands as a measured negative,
   as does the stride-sample experiment in the disposition §8.

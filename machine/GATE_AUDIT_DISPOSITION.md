@@ -198,11 +198,22 @@ way back; the writer was the third mouth and is now shut too.
   residual). With valid names this only produces a scope error, which fails
   closed, but the audit asks for an explicit rejection.
 - **`GateAudit.hs`'s expectation text describes pre-repair behaviour** in
-  several cases. The `concept mismatched` case in particular is classified as
-  an unsoundness, which makes the audit exit nonzero forever and useless as a
-  standing check. Its author's session ended before the repairs landed; §4
-  above states why that case is a caller obligation rather than a gate defect,
-  and the reclassification should be made by whoever picks the file up next.
+  several cases — its INJECTION cases in particular now move `Certified` →
+  `Untranslatable`, which is the fix working, not a surprise. The `concept
+  mismatched` case has been reclassified (§4 gives the argument; the change is
+  stated at the site with its date and author, since the file's author was no
+  longer in session). Section B after: 6/6 controls certified, 0/18 gate
+  probes, exit 0 — the adversary can pass again, which is the difference
+  between a standing check and a red light nobody looks at.
+
+  Reclassifying removed a check, so it was replaced rather than dropped:
+  `MathMachine --concept-emitter-self-test` drives `certDefinitions` against
+  the three conditions it imposes, with a concept built to violate exactly
+  one of each, and asserts that the audit's own `mismatch` case passes both
+  STRUCTURAL conditions and is rejected by the exact grid comparison **alone**
+  — so the grid line is load-bearing rather than decorative. Verified by
+  deleting that line: the test exits 1. It lives in `MathMachine` because the
+  audit imports `Certificate` and cannot reach `Main`.
 - **The store is still unauthenticated.** §3 bounds the damage; it does not
   remove it. An adversary with write access to `machine/` has `Certificate.hs`
   as well, so the honest statement is that the cache is now no more trusted
