@@ -475,3 +475,12 @@ import ObligationMinCut
 -- ordering kappa_DFT <= kappa_fac <= kappa_pow proved generally in R.
 -- Operational consequence: extract charge-one cyclically, never by moments.
 import TomographyConditioning
+
+-- The hypothesis kappa_DFT = 1 rests on (notes/PRIME_PAIR_CYCLIC_CHARGE_CRT_
+-- BOUNDARY_V2.md §2): cyclic coefficient extraction is EXACT iff n > R.
+-- General in n, R: injectivity of r -> r mod n on [0,R] under R < n; exact
+-- recovery; the collision at n <= R; and the exact first-shell aliased
+-- functional A(j+n) + A j.  Aliasing is MODEL error, not noise amplification
+-- -- at n <= R the same inverse row is still perfectly conditioned and
+-- returns the wrong functional.
+import CyclicAliasing
