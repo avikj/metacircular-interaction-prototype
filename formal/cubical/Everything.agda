@@ -508,3 +508,13 @@ import CyclicAliasing
 -- the split is strictly worse than the unsplit balanced bound for EVERY
 -- rho > 0, not merely rho >= 1/5.
 import KloostermanExponents
+
+-- The machine's CERTIFY step, kernel side (notes/THE_MACHINE.md): grammar
+-- induction over an arbitrary signature -- if the partition is a congruence
+-- for the vocabulary, NO term can ever separate two equivalent elements.
+-- Nothing is assumed of the relation (not reflexivity, symmetry, transitivity
+-- or propositionality).  Plus the converse that makes it SATURATION rather
+-- than stability (Indistinguishable x y ~ x ~~ y), an exhibited BREACH (a
+-- granted port plus the existing binary op immediately forms the hidden
+-- fibre coordinate), and PORT/GROW proved to be the only routes out.
+import WallCertificate
