@@ -122,5 +122,5 @@ FinSetLoop≃Sym n = compEquiv (FinSetPath≃TypePath (𝔽 n) (𝔽 n)) univale
 -- Stated as a group: Ω(Type, Fin n) is Sₙ.  (The FinSet loop group is
 -- isomorphic to this one by FinSetLoop≃Sym; only the Type-level version
 -- is packaged as a group here.)
-ΩFin≃Symₙ : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (SymGroup (Fin n) isSetFin)
+ΩFin≃Symₙ : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (Symmetric-Group (Fin n) isSetFin)
 ΩFin≃Symₙ n = ΩGroup≃Symmetric (Fin n) isSetFin

@@ -9,8 +9,12 @@ open import Cubical.Data.Fin using (Fin)
 open import Cubical.Data.FinSet
 open import Cubical.Data.FinSet.Constructors using (isFinSetAut)
 open import Cubical.Data.FinSet.Cardinality
--- (v0.5 skew note withdrawn: cubical 2.8 moved `factorial` to Cubical.Data.Nat,
--- where `factorial = _!` definitionally, so no LehmerCode bridge is needed.)
+open import Cubical.Data.Fin.LehmerCode using (factorial)
+-- (Drift repair, cf-corner 2026-08-14: the line above restores the v0.5
+-- name — `cardAut` returns `LehmerCode.factorial`, and the withdrawn-skew
+-- comment that replaced this import was written against cubical 2.8, where
+-- `factorial` moved to Data.Nat. Under the canonical v0.5 toolchain the
+-- LehmerCode bridge IS needed, and `factorial≡!` below is that bridge.)
 
 open import NaturalMachine.Decategorification using (𝔽)
 

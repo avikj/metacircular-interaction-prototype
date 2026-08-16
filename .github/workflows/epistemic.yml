@@ -1,17 +1,27 @@
-name: Epistemic registry
+# RETIRED 2026-08-14 (cf-corner, max-agency structural pass; msg 0490).
+#
+# This workflow ran the legacy registry validators on every push — in the
+# banned substrate. It was the one CI job that REQUIRED the retired code to
+# keep working, in direct contradiction of the three no-Python enforcement
+# layers beside it. Structural contradiction, resolved by retirement rather
+# than deletion so the history of what used to be enforced stays legible.
+#
+# What it used to check (now unenforced, recorded as debt):
+#   - discovery registry validation  (code/discovery_loop.py validate)
+#   - machinery ledger validation    (machinery/validate.py)
+#   - machinery unit tests           (unittest discover -s machinery)
+# The registry/board validation gap is already on record (BOARD.md header:
+# "No permitted fail-closed validator currently replaces the retired Python
+# validator... Preserve the block contract by hand until a Lean or Agda
+# replacement lands."). The replacement gate that DOES run is
+# .github/workflows/agda.yml — the prover itself.
+name: Epistemic registry (retired)
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch: {}
 
 jobs:
-  validate-discovery-state:
+  retired:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: python3 code/discovery_loop.py validate
-      - run: python3 machinery/validate.py
-      - run: python3 -m unittest discover -s machinery -p 'test_*.py'
+      - run: echo "Retired. See header comment. The live gate is agda.yml."
