@@ -72,6 +72,65 @@
 #     A green is an exit code, and only for what was actually run.
 #
 # ---------------------------------------------------------------------
+# LEDGER ROW SEMANTICS — exact, 2026-08-16 (state-vs-event discipline)
+#
+# One row = one EVENT: "this container, carrying this toolchain, invoked
+# these checks at this time and observed these exit codes."  A row is
+# never a STATE of the mathematics.  Reading it as one is the same error
+# corrected at the top of this header — a claim about a state, evidenced
+# by an event — and it happened in this very ledger: the
+# 2026-08-14T17:19Z row read "315 modules, 0 green, 315 fibers" as if
+# the corpus had died in twelve hours.  What actually happened is two
+# superimposed events that the old schema could not distinguish:
+#   (a) the tree genuinely grew 87 -> 315 modules that day (sibling
+#       swarm landings; verified from git, not from this ledger), and
+#   (b) the cycle ran in a fresh container with NO `agda` ON PATH, so
+#       every per-module invocation exited 127 (command not found) —
+#       the aggregate's 127 is the tell; Agda itself, when present,
+#       exits 0 or 1, never 127.
+# Zero mathematics was checked and zero mathematics was broken.  The
+# row recorded the container and called it the corpus.
+#
+# Columns (tab-separated, header row first, append-only after that):
+#   utc            when the row was appended (event time, UTC).
+#   cycle          ordinal = number of data rows before this one.  A
+#                  count of ledger events, not a clock: a gap in `utc`
+#                  is silence (no machine ran), never "missed cycles".
+#   toolchain      the checker that produced this row's exit codes,
+#                  e.g. `agda-2.6.3`, or `absent` when no agda was on
+#                  PATH.  The tree's pin is Agda 2.8.0 + cubical v0.9
+#                  (formal/cubical/BUILD.md "Toolchain"); a row whose
+#                  toolchain differs from the pin carries version-skew
+#                  fibers that are evidence about the SKEW, not the
+#                  tree, and BUILD.md "Where the skew bites" must be
+#                  read next to it.
+#   modules        how many modules were actually invoked this cycle.
+#                  0 when toolchain=absent: a check that cannot start
+#                  is 0 checks performed, not N failed ones.
+#   green          count of exit 0.  An exit code, only for what was
+#                  actually run — never parsed output, never inferred.
+#   fiber          count of nonzero exits that are Agda's own verdict
+#                  (exit < 124: the process ran and refused the
+#                  module).  These are the C15.82 fibers — the only
+#                  column that ever assigns mathematical work.
+#   fiber_env      count of nonzero exits that are the environment's,
+#                  not Agda's (exit >= 124: 124 watchdog timeout,
+#                  125/126/127 could-not-run, 128+n killed by signal
+#                  n, e.g. 137 = OOM kill).  Container events.  MUST
+#                  NOT be read as open fibers or repaired by editing
+#                  modules.
+#   aggregate      raw exit code of `agda NaturalMachine.agda`, or `-`
+#                  when it was not invoked (toolchain=absent).
+#   walk_frontier  last `next n ≡ m` in WalkBridge.agda, or `-`.
+#
+# Migration note: on 2026-08-16 the five pre-schema rows were rewritten
+# in place into these columns (the one permitted breach of append-only,
+# recorded here).  Cycles 0-3: toolchain unrecorded -> `-`; their 0
+# fibers split as 0/0.  Cycle 4: its 315 nonzero exits reclassified
+# from `fiber` to `fiber_env` on the evidence above (agda absent =>
+# every exit was 127).  No counts were altered, only classified.
+#
+# ---------------------------------------------------------------------
 # WHAT IT DOES NOT DO
 #
 # It does not invent mathematics and does not call a model.  It keeps the
@@ -109,7 +168,7 @@ run_checked() {
 }
 
 mkdir -p collab/orchestration
-[ -f "$LEDGER" ] || printf 'utc\tcycle\tmodules\tgreen\tfibers\taggregate\twalk_frontier\n' > "$LEDGER"
+[ -f "$LEDGER" ] || printf 'utc\tcycle\ttoolchain\tmodules\tgreen\tfiber\tfiber_env\taggregate\twalk_frontier\n' > "$LEDGER"
 
 cycle_number() { [ -f "$LEDGER" ] && echo $(( $(wc -l < "$LEDGER") - 1 )) || echo 0; }
 
@@ -122,12 +181,31 @@ phase_sync() { [ -x ./sync ] && ./sync >/dev/null 2>&1; return 0; }
 # 2. GATE — per module, exit code recorded, never inferred from output
 # ---------------------------------------------------------------------
 phase_gate() {
-    GREEN=0; FIBER=0; FIBER_LIST=""
+    GREEN=0; FIBER=0; FIBER_ENV=0; FIBER_LIST=""; ENV_LIST=""
+
+    # The toolchain is part of the observation, so it is captured first
+    # and written into the row.  Without it, a container event (agda
+    # absent, cycle 4) is indistinguishable from a mathematical state
+    # (corpus dead), which is exactly the confusion the 2026-08-14T17:19Z
+    # row caused.
+    TOOLCHAIN=$(agda --version 2>/dev/null | head -1 | awk '{print "agda-" $3}')
+    if [ -z "$TOOLCHAIN" ]; then
+        TOOLCHAIN="absent"
+        AGG="-"
+        return 0     # 0 checks performed, not N failed ones.
+    fi
+
     while IFS= read -r f; do
         rel="${f#"$CUBICAL"/}"
         ( cd "$CUBICAL" && LC_ALL=C.UTF-8 run_checked agda -i . "$rel" ) >/dev/null 2>&1
-        if [ $? -eq 0 ]; then
+        RC=$?
+        if [ "$RC" -eq 0 ]; then
             GREEN=$((GREEN+1))
+        elif [ "$RC" -ge 124 ]; then
+            # 124 watchdog timeout, 125/126/127 could-not-run, 128+n
+            # signal death: the environment's exit, not Agda's verdict.
+            FIBER_ENV=$((FIBER_ENV+1))
+            ENV_LIST="${ENV_LIST}${rel} (exit ${RC})"$'\n'
         else
             FIBER=$((FIBER+1))
             FIBER_LIST="${FIBER_LIST}${rel}"$'\n'
@@ -152,15 +230,19 @@ phase_ledger() {
     DUE_BY=$(date -u -d "+$(( INTERVAL + 300 )) seconds" +%Y-%m-%dT%H:%M:%SZ 2>/dev/null \
              || echo "unknown")
     N=$(cycle_number)
-    TOTAL=$((GREEN + FIBER))
-    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
-        "$(STAMP)" "$N" "$TOTAL" "$GREEN" "$FIBER" "$AGG" "$WALK" >> "$LEDGER"
+    TOTAL=$((GREEN + FIBER + FIBER_ENV))
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+        "$(STAMP)" "$N" "$TOOLCHAIN" "$TOTAL" "$GREEN" "$FIBER" "$FIBER_ENV" \
+        "$AGG" "$WALK" >> "$LEDGER"
 
     {
         echo "# Open fibers — regenerated every cycle, do not hand-edit"
         echo
-        echo "Cycle $N, $(STAMP). Aggregate \`NaturalMachine.agda\` exit: **$AGG**."
-        echo "Modules checked individually: $TOTAL. Green: $GREEN. Fibers: $FIBER."
+        echo "Cycle $N, $(STAMP). Toolchain: \`$TOOLCHAIN\` (pin: Agda 2.8.0 +"
+        echo "cubical v0.9, \`formal/cubical/BUILD.md\`). Aggregate"
+        echo "\`NaturalMachine.agda\` exit: **$AGG**."
+        echo "Modules invoked individually: $TOTAL. Green: $GREEN."
+        echo "Mathematical fibers: $FIBER. Environment events: $FIBER_ENV."
         echo
         echo "**Next cycle due by $DUE_BY.** If you are reading this after that"
         echo "time, the machine is not running — restart it with one cycle:"
@@ -169,15 +251,41 @@ phase_ledger() {
         echo "it will be back, which is why this line exists (msg 0463: a sibling"
         echo "machine was dead an hour before anyone noticed)."
         echo
-        if [ "$FIBER" -eq 0 ]; then
-            echo "No open fibers. Every module under \`formal/cubical/\` returns"
-            echo "exit 0 on its own, not merely as part of an aggregate."
-        else
-            echo "Delta 15 C15.82: each of these is a reconstruction question,"
-            echo "not an error. The module named is the one whose fiber is"
-            echo "noncontractible or empty; that fiber is the assignment."
+        if [ "$TOOLCHAIN" = "absent" ]; then
+            echo "**No agda on PATH: this cycle checked nothing.** The row it"
+            echo "wrote is a statement about this container, not about the"
+            echo "mathematics — zero modules were invoked, so the corpus's last"
+            echo "known state is the previous row written by a container that"
+            echo "had a toolchain."
+        elif [ "$TOOLCHAIN" != "agda-2.8.0" ]; then
+            echo "**Toolchain differs from the pin.** Fibers listed below may be"
+            echo "version skew (BUILD.md \"Where the skew bites\"), which is"
+            echo "evidence about the container, not the tree. Align the"
+            echo "container with the pin before treating any fiber below as a"
+            echo "reconstruction question; do not edit modules to appease the"
+            echo "wrong toolchain."
             echo
-            printf '%s' "$FIBER_LIST" | sed '/^$/d' | sed 's/^/- `/;s/$/`/'
+        fi
+        if [ "$TOOLCHAIN" != "absent" ]; then
+            if [ "$FIBER" -eq 0 ]; then
+                echo "No open fibers. Every module under \`formal/cubical/\` that"
+                echo "this toolchain can judge returns exit 0 on its own, not"
+                echo "merely as part of an aggregate."
+            else
+                echo "Delta 15 C15.82: each of these is a reconstruction question,"
+                echo "not an error. The module named is the one whose fiber is"
+                echo "noncontractible or empty; that fiber is the assignment."
+                echo
+                printf '%s' "$FIBER_LIST" | sed '/^$/d' | sed 's/^/- `/;s/$/`/'
+            fi
+            if [ "$FIBER_ENV" -gt 0 ]; then
+                echo
+                echo "Environment events (NOT fibers — the container failed, the"
+                echo "module was never judged; exit 124 = watchdog timeout,"
+                echo "125-127 = could not run, 128+n = killed by signal n):"
+                echo
+                printf '%s' "$ENV_LIST" | sed '/^$/d' | sed 's/^/- `/;s/$/`/'
+            fi
         fi
     } > "$FIBERS"
 }
@@ -212,7 +320,7 @@ run_cycle() {
     phase_ledger
     phase_draw
     phase_sync
-    echo "MACHINE cycle $(( $(cycle_number) - 1 )): ${GREEN} green, ${FIBER} fibers, aggregate ${AGG}, walk ${WALK} — $(STAMP)"
+    echo "MACHINE cycle $(( $(cycle_number) - 1 )) [${TOOLCHAIN}]: ${GREEN} green, ${FIBER} fibers, ${FIBER_ENV} env events, aggregate ${AGG}, walk ${WALK} — $(STAMP)"
 }
 
 case "$MODE" in
