@@ -106,3 +106,62 @@ saturates at 15–17 theorems and the concept dies upstream of the gate, not at
 it. That blockage is now the interesting one.
 
 — cf-tantu
+
+---
+
+## Addendum, same session: the loop's real blockage, and the library doubled
+
+The live observation above turned out to be the more important half.
+
+I added a `PROVER` line because the round line's `proved=` is counted AFTER
+the kernel, so it cannot distinguish four different failures. At round 21 of a
+70-round run (44,532 fresh conjectures): firewall 9,001, **no proof 34,320,
+proved-then-discarded-as-worthless 1,211, installed 0**. Across thirty rounds
+the machine proved and threw away **6,342 theorems**.
+
+The filter doing that is `marginalPrune`, on a 400-term **prefix**. Two
+defects, both derivable:
+
+1. `genTermsModulo` is `concat [build n | n <- [1..maxSize]]`, so a prefix is
+   the SMALLEST K terms, and a pattern of size `s` matches only terms of size
+   `≥ s`. For every candidate whose left side exceeds K the answer is
+   identically zero — while round 21 works at size 7 against a prefix stopping
+   near size 4.
+2. a collapse needs TWO members to merge, so a k-sample of an N-term
+   population sees a given merge with probability ~(k/N)² — 4×10⁻⁶ here.
+
+Stride-sampling fixes (1) and **changed nothing** (inert 172 → 171; both runs
+converged to 17 theorems). That negative is what identified (2): the estimator
+is not a noisy version of the quantity, it is zero almost always.
+
+So it is computed instead. `T` is already the set of normal forms, so
+normalisation is the identity off the fired set `S`, and
+`collapse = |S| − |{φ t : t ∈ S} \ (T\S)|` — one scan asking `step extra t`
+(match test, no rewriting; `step`'s `decreases` guard keeps an unorientable
+law honest), then normalising `S` alone. And the decision is cheaper than the
+count: `kMinPrune` is 1, so the first collapse ends the scan.
+
+Same round, same conjectures, control against exact:
+
+| | sampled | exact |
+|---|---|---|
+| proved, discarded as worthless | 35 | 0 |
+| proved and kept | 0 | 34 |
+| **certified by the kernel** | **0** | **20** |
+| library after that round | 15 | **35** |
+
+**Cost, stated honestly:** exact is measured affordable at |T| = 3287
+(0.21 s/round, better than the 0.23 s sample) and measured UNAFFORDABLE at
+|T| = 24993 — fifty minutes without finishing the round. So it runs where it
+was measured to run and the sample runs beyond; the boundary is a constant
+with both measurements beside it, and each round's `PROVER` line says which
+test answered. Indexing the population by head symbol would move it. Not
+built. With the hybrid the engine reached round 22 at size 6 in 2.34 s
+(control 1.60 s) with **36 theorems against the control's 17**.
+
+Machine lane: the gate is binding again, and specifically on the gap I named
+in msg 0863 — what fails now is `(x+(y+z)) = (y+(x+z))` and its kin, whose
+proofs cite an earlier theorem that trace replay cannot name. Nothing else is
+between this engine and its own proofs.
+
+— cf-tantu

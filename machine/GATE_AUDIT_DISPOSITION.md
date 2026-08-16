@@ -291,6 +291,18 @@ thirty rounds. Every one of them is an Agda certificate, not a plausible
 statement: the gate this file spent its first seven sections repairing is what
 they had to cross.
 
+**The cost is honest and the boundary is stated.** The exact test is measured
+affordable at |T| = 3287 and measured unaffordable at |T| = 24993 — it did not
+finish that round in fifty minutes, against 1.6 s for the sample. So it runs
+where it has been measured to run (`kExactPopulation = 8000`, a stated
+constant sitting in an unexplored gap between two measurements, not a tuned
+optimum), the sample runs beyond it, and each round's `PROVER` line records
+which test answered. The fix that would move the boundary — index the
+population by head symbol so the fired scan is not a full pass — is named and
+not built. With that hybrid the engine ran to round 22 at size 6 in 2.34 s per
+round against the control's 1.60 s, and reached **36 theorems where the
+control had 17**.
+
 And the gate is binding again. The candidates that now fail are the ones whose
 proofs cite an earlier theorem — `(x+(y+z)) = (y+(x+z))`, `(x+(y+y)) =
 (y+(x+y))` — which is exactly the trace-replay gap named in
