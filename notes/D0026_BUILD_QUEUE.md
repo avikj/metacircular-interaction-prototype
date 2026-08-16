@@ -134,7 +134,45 @@ module (including `Swarm/` and `CarryClassNonzero`), regenerate
 `AGDA_COVERAGE_INVENTORY.md`, and land the check as a gate-runnable script.
 Consumer: every "checked" claim in the corpus.
 
-## 4. What this queue is not
+## 4. S-series — structural fixes (orchestrator's step-back, owner-directed, 2026-08-17)
+
+The owner directed a step-back on the machine's structure with full agency.
+Diagnosis from the 16-region orientation + D0026: **the machine's disease is
+unjoined parts, not missing parts.** Five wires:
+
+- **S1 (the join).** Wire `MathMachineInductionGate.hs` into `round1`: when
+  rewriting+firewall pass but the refl kernel gate rejects, attempt the
+  certificate BFS; install only on kernel accept. Without this the live loop
+  cannot install any inductive theorem (commutativity included) — sound and
+  nearly sterile. Deliverable: a surgical patch + wiring note offered to the
+  gate lane (this container has no ghc/agda; a blind edit to the live
+  Haskell on main is not acceptable). D0026 §8.1 is empty until this lands.
+- **S2 (memory).** Replay-on-start: re-ingest the library through the kernel
+  gate at boot (replay certificates, never trust strings). A machine designed
+  to run forever that forgets its rules on restart contradicts its own first
+  paragraph. Same patch series as S1.
+- **S3 (honest failure taxonomy).** Split `mFailed` into REFUTED (semantic
+  counterexample) vs KERNEL-REJECT (beyond current certificate language).
+  The machine currently cannot distinguish "false" from "unspeakable by me" —
+  a D0026 §1.3 provenance-closure violation inside its own state.
+- **S4 (vocabulary).** Extend the certificate language `Tm`/`Step` beyond
+  0/suc/add — multiplication first (defining equations exist in symDefs),
+  then the demands already queued in thoughts.math (div/mod/min, and the
+  D0026-driven Omega/omega/musq). Blocked consumer: expressing Q3 natively.
+- **S5 (the anti-redundancy organ).** The corpus provably has fewer
+  quantities than names (e_b(q)×3, (p−1)p^{k−1}×3, FutureBehavior×5,
+  Theorem U×2, R0032×2, …). First mechanical version: a NAME→OBJECT index
+  note enumerating every known duplicate cluster with its canonical carrier
+  and the comparison map that merged (or should merge) it — the instrument
+  the journals demanded, seeded from the orientation's findings, maintained
+  as a first-class corpus organ.
+
+D0026's middle-nucleus lesson (§2.5) is the covering principle: a distinction
+may be discarded only after proving every supported insertion context is
+insensitive to it. S1–S5 are the five places the machine currently discards
+distinctions whose insertion contexts are its own next cycle.
+
+## 5. What this queue is not
 
 Not a Rosetta. Not a claim that the two corpora are one theory. Both
 constitutions say the same thing about that: equivalence by proof, not
