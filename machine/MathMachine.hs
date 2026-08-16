@@ -2062,6 +2062,10 @@ isAssociativity f equation = forward equation || forward (swap equation)
 --   dDsoSchedule = 0             -> `fresh` keeps its smallest-first order.
 --   dNestedDepth = 0             -> `proveByInduction` is the only prover.
 --   dRounds      = Nothing       -> the loop does not halt.
+--   dCertify     = 0             -> the barren round widens blindly, exactly
+--                                   as it did before WIRE 4 existed.  Nothing
+--                                   is computed, nothing is logged, and the
+--                                   `criticalPairs` enumeration is not forced.
 --
 -- Nothing here can make an unsound theorem installable: every wire feeds the
 -- same kernel gate, and the gate is the authority.  What the wires change is
@@ -2073,10 +2077,15 @@ data Dispatch = Dispatch
   , dNestedDepth :: Int          -- 0 = off; else NestedInduction budget
   , dRounds      :: Maybe Int    -- Nothing = forever (the live default)
   , dLog         :: Maybe FilePath  -- smoke-mode log sink; Nothing = /dev/null
+  -- WIRE 4.  0 = off, and off is the live default: `round1` then takes the
+  -- blind-widen branch it took yesterday, byte for byte.  Any n > 0 is the
+  -- budget of critical pairs CERTIFY may examine on a barren round before it
+  -- gives up and lets the ladder run anyway.  See the WIRE 4 banner.
+  , dCertify     :: Int
   } deriving (Eq, Show)
 
 defaultDispatch :: Dispatch
-defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing
+defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0
 
 -- 2^n memoised states in `D.optimalSchedule`, and n * 2^n cost evaluations,
 -- each of which normalises two terms.  This is a hard ceiling, not a taste:
@@ -2094,6 +2103,7 @@ parseDispatch = go defaultDispatch []
       ("--dso-schedule", v:ms) -> withNat v ms (\n -> d { dDsoSchedule = min n kDsoScheduleCap })
       ("--nested-depth", v:ms) -> withNat v ms (\n -> d { dNestedDepth = n })
       ("--rounds", v:ms)       -> withNat v ms (\n -> d { dRounds = Just n })
+      ("--certify", v:ms)      -> withNat v ms (\n -> d { dCertify = n })
       ("--log", v:ms)          -> go (d { dLog = Just v }) rest ms
       -- the whole arithmetic vocabulary, in one word
       ("--arith", ms)          -> go (d { dVocabCap = length vocabulary }) rest ms
@@ -2194,6 +2204,209 @@ nestedProve budget rs (l,r)
   | otherwise =
       NI.prove budget 0 [ (toNI a, toNI b) | (a,b) <- rs ] (toNI l, toNI r)
         >>= niProofNote
+
+-- =========================================================== WIRE 4: CERTIFY
+--
+-- WHAT THIS REPLACES.  Until now the barren branch of `round1` was: nothing
+-- proved, flow says grow, therefore widen the vocabulary.  That is a guess
+-- dressed as a decision.  The machine had no way to distinguish
+--
+--   (a) "the current vocabulary really is exhausted -- every equation over it
+--        that follows from what I know is already decided by my own rewrite
+--        system", from
+--   (b) "generate-and-test failed to *state* the remaining equation, because
+--        the equation's two sides are both larger than the size horizon, or
+--        never appeared as a pair of normal forms in the same fingerprint
+--        class",
+--
+-- and it responded to both by widening.  In case (b) widening is strictly
+-- wrong: it adds a symbol before the machine has finished with the ones it
+-- has, and the missing equation stays missing at every later horizon.
+--
+-- Critical-pair analysis decides between (a) and (b) exactly, and it is not a
+-- measurement -- it is the finite check whose success IS the theorem:
+--
+--   Knuth-Bendix / Newman.  A terminating rewrite system is confluent iff
+--   every critical pair joins.  The rewrite relation here terminates by
+--   construction: `step` fires a rule only where `decreases` holds, and
+--   `decreases` is LPO with a (size, precedence, lexicographic) fallback, a
+--   well-founded order.  So termination is free, and confluence -- hence
+--   completeness of normalisation as a decision procedure for the equational
+--   theory the installed rules generate -- reduces to a FINITE enumeration.
+--
+-- Two verdicts, two strictly-better actions than blind widening:
+--
+--   Convergent n  All n critical pairs join.  The machine has PROVED that no
+--                 equation derivable from its current rules over its current
+--                 vocabulary is still undecided by normalisation.  This is the
+--                 licence to grow, and it is a theorem rather than a shrug.
+--   Divergent     A critical pair does not join.  Its two sides are equal in
+--                 the theory (both are one rewrite from a common peak, by
+--                 rules already accepted) and unequal as normal forms.  That
+--                 IS a new equation, and it is exactly the equation
+--                 generate-and-test could not state.  Install it and keep
+--                 working: completion, not growth.
+--
+-- SCOPE, stated here so no log line has to be read charitably.  Convergence is
+-- about the EQUATIONAL theory generated by the installed rules.  It does not
+-- say every true equation of arithmetic over the vocabulary is decided --
+-- inductive theorems are not derivable from the rules by rewriting alone, and
+-- finding those is what the round's prover is for.  The log line says this.
+--
+-- THE SEAM.  machine/Certify.hs is being built by another agent this round.
+-- It is not on disk yet, so `certifySeam` below is the in-file fallback: the
+-- same enumeration, written against this file's own `Term`, `normalize` and
+-- `decreases`, so the wire is exercised end to end rather than described.
+-- When Certify.hs lands, exactly one line changes -- the body of
+-- `certifySeam` -- and the verdict type it must produce is `CertifyVerdict`
+-- below.  Nothing else in `round1` knows where the verdict came from.
+
+-- Syntactic unification with occurs check, kept idempotent so that a single
+-- `applySub` resolves a term completely.  `match` (above) is one-sided and
+-- cannot be reused: a critical pair needs both sides to move.
+unify :: Term -> Term -> Maybe (M.Map Int Term)
+unify a0 b0 = go [(a0,b0)] M.empty
+  where
+    go [] s = Just s
+    go ((u,v):rest) s = case (applySub s u, applySub s v) of
+      (V i, V j) | i == j -> go rest s
+      (V i, t)            -> bind i t rest s
+      (t, V i)            -> bind i t rest s
+      (F f us, F g vs)
+        | f == g, length us == length vs -> go (zip us vs ++ rest) s
+        | otherwise                      -> Nothing
+    bind i t rest s
+      | occurs i t = Nothing
+      | otherwise  = go rest (M.insert i t (M.map (applySub (M.singleton i t)) s))
+    occurs i (V j) = i == j
+    occurs i (F _ ts) = any (occurs i) ts
+
+-- Every NON-VARIABLE subterm of a term, paired with the one-hole context that
+-- puts a replacement back where it came from.  Overlaps at a variable position
+-- are excluded because they never produce a critical pair (the instance is
+-- reachable by the substitution, so the pair joins trivially) -- this is the
+-- standard restriction, not an optimisation.
+redexPositions :: Term -> [(Term, Term -> Term)]
+redexPositions t@(V _) = [(t, id)]
+redexPositions t@(F f ts) = (t, id) : inner
+  where
+    inner = [ (u, \x -> F f (pre ++ [k x] ++ post))
+            | (pre, ti, post) <- splits ts
+            , not (isVar ti)
+            , (u,k) <- redexPositions ti ]
+    isVar (V _) = True
+    isVar _     = False
+    splits xs = [ (take i xs, xs !! i, drop (i+1) xs)
+                | i <- [0 .. length xs - 1] ]
+
+shiftVars :: Int -> Term -> Term
+shiftVars k (V i) = V (i + k)
+shiftVars k (F f ts) = F f (map (shiftVars k) ts)
+
+maxVarIn :: Term -> Int
+maxVarIn (V i) = i
+maxVarIn (F _ ts) = foldl' max (-1) (map maxVarIn ts)
+
+-- A critical pair, carrying the two rules that produced it: the log has to be
+-- able to name the overlap, or the "new equation" is an assertion.
+data CriticalPair = CriticalPair
+  { cpOuter    :: Rule        -- the rule rewritten at the root of the peak
+  , cpInner    :: Rule        -- the rule rewritten at the overlap position
+  , cpPeak     :: Term        -- the term both rewrites start from
+  , cpEquation :: (Term,Term) -- the two results: equal in theory, and the test
+  } deriving (Eq, Show)
+
+-- The critical pairs of a rewrite system, lazily.  Quadratic in the rule count
+-- times the subterm count; the consumer bounds it, and laziness means an early
+-- divergence costs only the pairs before it.
+criticalPairs :: [Rule] -> [CriticalPair]
+criticalPairs rs =
+  [ CriticalPair r1 r2 peak (canonVars (applySub sub rhs1, applySub sub (ctx rhs2)))
+  | r1@(lhs1,rhs1) <- rs
+  , let shift = 1 + max (maxVarIn lhs1) (maxVarIn rhs1)
+  , r2@(lhs20,rhs20) <- rs
+  , let lhs2 = shiftVars shift lhs20
+  , let rhs2 = shiftVars shift rhs20
+  , (u, ctx) <- redexPositions lhs1
+  , not (isVarTerm u)
+  , Just sub <- [unify u lhs2]
+  -- a rule overlapped with itself at the root is the trivial pair (r,r)
+  , not (r1 == r2 && u == lhs1)
+  , let peak = applySub sub lhs1
+  ]
+  where
+    isVarTerm (V _) = True
+    isVarTerm _     = False
+
+-- The verdict.  `Budgeted` is not a weaker `Convergent`: it is the honest
+-- statement that the enumeration was cut off, so NOTHING is proved and the
+-- caller must fall back to the behaviour it had before.  Collapsing the two
+-- would turn a budget into a theorem, which is the exact failure this
+-- repository's protocol file was written about.
+data CertifyVerdict
+  = Convergent !Int              -- all n critical pairs join: saturation proved
+  | Divergent  !Int !CriticalPair -- pairs examined before this one diverged
+  | Budgeted   !Int              -- budget spent, no divergence seen: no theorem
+  deriving (Eq, Show)
+
+-- The fallback implementation.  `budget` bounds pairs EXAMINED; the verdict is
+-- `Convergent` only when the enumeration ran out first.
+certifyLocal :: Int -> [Rule] -> CertifyVerdict
+certifyLocal budget rs = go 0 (criticalPairs rs)
+  where
+    go n cps
+      | n >= budget = Budgeted n
+      | otherwise = case cps of
+          []      -> Convergent n
+          (cp:cs) | joins (cpEquation cp) -> go (n+1) cs
+                  | otherwise             -> Divergent (n+1) cp
+    joins (u,v) = normalize rs u == normalize rs v
+
+-- THE SEAM.  One line to swap when machine/Certify.hs lands; its
+-- `Certify.certify :: Int -> [(Term,Term)] -> Certify.Verdict` is expected to
+-- return the same three cases, and this becomes a translation of them.
+certifySeam :: Int -> [Rule] -> CertifyVerdict
+certifySeam = certifyLocal
+
+-- ------------------------------------------------------- RESIDUAL and PORT
+--
+-- machine/Residual.hs (the annihilator remainder and the port menu) is the
+-- other agent's file and is likewise not on disk.  What follows is a
+-- DELIBERATELY SMALL stub and it is labelled as one in its own output: it
+-- reports the two things this file can compute honestly and claims nothing
+-- about the annihilator.
+--
+--   remainder  the residual lines the machine carried in and never promoted to
+--              equations, plus the count of conjectures it stated and failed.
+--              These are facts about this process, not a torsor.
+--   port menu  the next symbols the vocabulary could be granted, in order.
+--              Each grant is one step of the ladder, which is the only sense
+--              of "one quotient step" this file can justify today.
+--
+-- When Residual.hs lands, `residualSeam` takes its report instead and the
+-- `rrStubbed` flag goes false; the log line already distinguishes the two, so
+-- no note written against today's log becomes wrong tomorrow.
+data ResidualReport = ResidualReport
+  { rrRemainder :: [String]
+  , rrPortMenu  :: [String]
+  , rrStubbed   :: Bool
+  } deriving (Eq, Show)
+
+residualSeam :: Dispatch -> Machine -> ResidualReport
+residualSeam disp m = ResidualReport
+  { rrRemainder =
+      [ "unpromoted-thought: " ++ line | line <- mResiduals m ]
+      ++ [ "failed-conjectures: " ++ show (M.size (mFailed m)) ]
+      ++ [ "invented-unused: " ++ symName s
+         | s <- mInvented m
+         , not (any (\(l,r) -> symName s `elem` (symbolsIn l ++ symbolsIn r))
+                    (M.keys (mKnown m))) ]
+  , rrPortMenu =
+      [ symName s | s <- take 3 (drop (mVocab m) (take (dVocabCap disp) vocabulary)) ]
+      ++ [ "horizon+1 (size " ++ show (mSize m + 1) ++ ")"
+         | mSize m < K.kSizeCap (mKnobs m) ]
+  , rrStubbed = True
+  }
 
 round1 :: Dispatch -> Maybe FilePath -> Handle -> Handle -> IORef Machine -> IO ()
 round1 disp mem logh libh ref = do
