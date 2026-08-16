@@ -46,6 +46,26 @@ jobs:
           fi
           mkdir -p ~/.agda
           echo "$HOME/cubical/cubical.agda-lib" > ~/.agda/libraries
+      - name: Assert Everything.agda is still TOTAL (no new orphans)
+        # The totality latch rots the moment a module is added without an
+        # import line -- which is exactly how the corpus acquired 135 orphans
+        # the first time. BUILD.md publishes this check in prose ("must print
+        # nothing"); nothing ran it. Now the build fails instead.
+        working-directory: formal/cubical
+        run: |
+          set -e
+          { ls NaturalMachine/*.agda Swarm/*.agda | sed 's/\.agda$//; s/\//./' ;
+            ls *.agda | grep -v '^Everything.agda$' | sed 's/\.agda$//' ; } \
+            | sort -u > /tmp/all.txt
+          grep -o '^import [A-Za-z0-9.]*' Everything.agda | sed 's/import //' \
+            | sort -u > /tmp/have.txt
+          if ! comm -23 /tmp/all.txt /tmp/have.txt | tee /tmp/orphans.txt | \
+               grep -q .; then
+            echo "Everything.agda is total."
+          else
+            echo "ORPHANS -- these modules are in no aggregate:"; cat /tmp/orphans.txt
+            echo "Add an import line to Everything.agda for each."; exit 1
+          fi
       - name: Check EVERY module (Everything.agda, total since 2026-08-16)
         # 170 modules: top-level, all of NaturalMachine/, all of Swarm/.
         # Made total by appending the 135 that were in no aggregate; verified
