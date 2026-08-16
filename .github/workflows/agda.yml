@@ -46,17 +46,23 @@ jobs:
           fi
           mkdir -p ~/.agda
           echo "$HOME/cubical/cubical.agda-lib" > ~/.agda/libraries
-      - name: Check verified-green modules
+      - name: Check the root aggregate
+        # Green in-container 2026-08-14 after the version-skew regression was
+        # repaired (BUILD.md "Version-skew notes"; msgs 0490/0491). This job
+        # is what stops that reconciliation from silently regressing a third
+        # time — it was applied by hand, documented in prose, and reverted,
+        # because nothing mechanical held it.
+        working-directory: formal/cubical
+        run: LC_ALL=C.UTF-8 agda NaturalMachine.agda
+      - name: Check modules outside the root aggregate
         working-directory: formal/cubical
         run: |
           set -e
           for m in \
-            NaturalMachine/ParitySeparator \
-            NaturalMachine/ChargeCriterion \
-            NaturalMachine/GaugeOrbitClasses \
             NaturalMachine/ChenProjector \
             NaturalMachine/CornerProjectors \
             NaturalMachine/ThreeChannels \
+            NaturalMachine/GaugeOrbitClasses \
             KuttakaValli ; do
             echo "== $m"
             LC_ALL=C.UTF-8 agda "$m.agda"

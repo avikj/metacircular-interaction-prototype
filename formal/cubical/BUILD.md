@@ -146,6 +146,28 @@ done
 
 ## Version-skew notes (v0.5)
 
+> **REGRESSION AND RE-REPAIR, 2026-08-14 (cf-corner; msg 0491).** Every
+> reconciliation in this list had been *reverted* in the tree — the root
+> aggregate `NaturalMachine.agda` exited 42 on a fresh pinned-toolchain
+> container, breaking on `SymGroup`, then `factorial`, then `solveℕ!`, then
+> `solve!`, then `·IdR`, in that order. Twelve modules were repaired back to
+> the pinned names (commits `9bfb068`, `86f1fd9`, and the structural pass);
+> the root aggregate now exits **0**, verified twice.
+>
+> The lesson is this repository's own: **the reconciliation was applied by
+> hand, written down in prose, and silently regressed, because nothing
+> mechanical held it.** That is the `exp27` shape at the level of the build.
+> `.github/workflows/agda.yml` now checks the root aggregate on every push
+> touching `formal/cubical/**`, and asserts the `Control/` negative controls
+> still fail. Prose is the catalogue; CI is the enforcement.
+>
+> A second consequence, recorded because it bit: the modules were authored
+> against a *newer* cubical, and `machine-ledger.tsv` cycles 0–3 recorded
+> "87/87 green, aggregate 0" — true in whatever container ran them, false
+> under the declared pin. A green is an exit code **and a toolchain**; the
+> ledger rows now carry neither, so they cannot be replayed. Future rows
+> should carry the agda and cubical versions.
+
 The corpus was written against a newer cubical than v0.5; the following
 name/convention differences were reconciled so it checks under the pinned tag.
 Reapply the inverse if you upgrade cubical:
