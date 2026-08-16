@@ -59,6 +59,8 @@ module TraceReplay
   , replayModule
   , replayWithRules
   , addReflLemmas
+  , addProvedLemmas
+  , inductionClauses
   , reflProvable
   , libRules
   , deriveByInduction
@@ -208,6 +210,15 @@ data Deriv = Deriv
   , dBaseR :: [TraceStep]
   , dStepL :: [TraceStep]
   , dStepR :: [TraceStep]
+    -- DID THE TWO SIDES ACTUALLY MEET.  `L ∙ sym R` is a path from the
+    -- clause's left side to its right side ONLY if both traces end at the
+    -- same term.  Nothing checked that: a derivation against a rule set
+    -- that does not close the clause produced two paths to two different
+    -- places, `replayClause` composed them anyway, and agda reported
+    -- `y != x` at a column deep inside a 400-character line.  A trace that
+    -- does not close is not a proof and must not be emitted as one.
+  , dBaseMet :: Bool
+  , dStepMet :: Bool
   } deriving (Eq, Show)
 
 -- One innermost-leftmost rewrite that strictly decreases the term, paired
@@ -398,42 +409,53 @@ replayClause lenv e self selfVars v hyp ltr rtr = do
     [] -> "refl"
     ps -> intercalate " ∙ " ps
 
--- The complete module for one induction.
-replayModule :: LemmaEnv -> String -> Deriv -> Maybe String
-replayModule lenv modName d = do
+-- One induction, as three Agda lines under a chosen name: the signature and
+-- the two clauses.  Factored out of `replayModule` because a CITED theorem
+-- needs exactly the same three lines under its own name -- the only
+-- difference between the thing being certified and the thing it leans on is
+-- which one is called `candidate`.  Also returns the lemma's parameter
+-- order, which is what `stepPath` needs to apply it later.
+inductionClauses :: LemmaEnv -> String -> Deriv -> Maybe ([Int], [String])
+inductionClauses lenv self d = do
+  if not (dBaseMet d && dStepMet d) then Nothing else pure ()
   let (gl, gr) = dGoal d
       v = dVar d
-      ivs = varsOf gl `union'` varsOf gr
+      ivs = varsOfT gl `unionT` varsOfT gr
   vns <- mapM agdaVar ivs
   vn <- agdaVar v
   let envAll = M.fromList (zip ivs vns)
   sigL <- render envAll gl
   sigR <- render envAll gr
   let quant = if null vns then "" else "(" ++ unwords vns ++ " : ℕ) → "
-      sig = "candidate : " ++ quant ++ sigL ++ " ≡ " ++ sigR
+      sig = self ++ " : " ++ quant ++ sigL ++ " ≡ " ++ sigR
       baseEnv = M.delete v envAll
       stepEnv = M.insert (-1) vn (M.delete v envAll)
       basePat = [ if i == v then "zero" else n | (i,n) <- zip ivs vns ]
       stepPat = [ if i == v then "(suc " ++ n ++ ")" else n
                 | (i,n) <- zip ivs vns ]
-  basePf <- replayClause lenv baseEnv "candidate" ivs v (dHyp d)
+  basePf <- replayClause lenv baseEnv self ivs v (dHyp d)
                          (dBaseL d) (dBaseR d)
-  stepPf <- replayClause lenv stepEnv "candidate" ivs v (dHyp d)
+  stepPf <- replayClause lenv stepEnv self ivs v (dHyp d)
                          (dStepL d) (dStepR d)
+  pure ( ivs
+       , [ sig
+         , unwords (self : basePat) ++ " = " ++ basePf
+         , unwords (self : stepPat) ++ " = " ++ stepPf
+         ] )
+
+unionT :: [Int] -> [Int] -> [Int]
+unionT a b = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) [] (a ++ b)
+
+-- The complete module for one induction.
+replayModule :: LemmaEnv -> String -> Deriv -> Maybe String
+replayModule lenv modName d = do
+  (_, clauses) <- inductionClauses lenv "candidate" d
   pure $ unlines $
     [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
     , "module " ++ modName ++ " where"
     , "open import Cubical.Foundations.Prelude"
     , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
-    ] ++ lePreamble lenv ++
-    [ sig
-    , unwords ("candidate" : basePat) ++ " = " ++ basePf
-    , unwords ("candidate" : stepPat) ++ " = " ++ stepPf
-    ]
-  where
-    varsOf (V i) = [i]
-    varsOf (F _ ts) = concatMap varsOf ts
-    union' a b = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) [] (a ++ b)
+    ] ++ lePreamble lenv ++ clauses
 
 -- CITING WHAT THE ENGINE ALREADY PROVED.
 --
@@ -497,6 +519,89 @@ addReflLemmas ts base = base
                 , unwords (nm : ns) ++ " = refl" ])
     nubOrd = foldl (\acc i -> if i `elem` acc then acc else acc ++ [i]) []
 
+-- AND WHAT THE ENGINE PROVED BY INDUCTION, PROVED AGAIN THE SAME WAY.
+--
+-- `addReflLemmas` admits a cited theorem only when the LIBRARY's own
+-- computation closes it, so `x = (0+x)` gets in and `(s(x)+y) = s((x+y))`
+-- does not -- and a candidate whose proof fires the second falls back to the
+-- search, which then cannot close it either.  Measured on the engine's own
+-- library snapshot: replay reached 7 of 13, and every miss was "a fired rule
+-- has no name".
+--
+-- The missing lemmas are not unreachable.  Each is a theorem this same
+-- engine proved by induction, so each has a trace, so each can be replayed
+-- by the machinery already here -- under its own name, with its own two
+-- clauses, ahead of the candidate.  That is what this does: fold over the
+-- certified theorems IN CERTIFICATION ORDER, and admit each one by
+--
+--   * `refl`, if the library computes it; else
+--   * its own replayed induction, using only the lemmas admitted BEFORE it.
+--
+-- The order is the whole safety argument.  A lemma may cite only what
+-- precedes it, so a proof that fires a not-yet-emitted theorem simply fails
+-- to replay and that theorem is left out -- no cycle can form, and nothing
+-- is admitted whose own proof this module could not write down.  It is the
+-- engine's thesis applied to the certificate: a theorem is an installed
+-- transformation, and installation means the next proof may USE it.
+-- EACH LEMMA IS RE-DERIVED FROM WHAT PRECEDED IT, not from the rule set as
+-- it stands now.  The caller's `rs` already CONTAINS the cited theorems --
+-- that is what installing them means -- so deriving lemma i against it lets
+-- the lemma fire itself: the trace closes in one step by the very rule being
+-- proved, `stepPath` looks that rule up, does not find it (it is not in the
+-- environment until after its own declaration), and the lemma is dropped.
+-- Circularity did not produce a bad proof, it produced no proof, which is
+-- the failure mode this module is built to have.  So the fold carries the
+-- rules forward: the theorems, in certification order, are removed from the
+-- base and handed back one at a time, each lemma seeing exactly the engine
+-- state that proved it.  Both directions are handed back, as `usableRules`
+-- does, because `step`'s `decreases` guard is what keeps an unorientable law
+-- honest.
+addProvedLemmas :: [Rule] -> [((Term, Term), String)] -> LemmaEnv -> LemmaEnv
+addProvedLemmas rs ts base = go base baseRules ts
+  where
+    cited = concat [ [rl, swap rl] | (rl, _) <- ts ]
+    baseRules = [ r | r <- rs, r `notElem` cited ]
+    go env _ [] = env
+    go env avail ((rl, nm) : rest) =
+      go (admit env avail rl nm) (avail ++ installed rl) rest
+    -- ORIENTED THE WAY THE ENGINE INSTALLED IT.  Handing back both
+    -- directions unconditionally is not generosity, it is a different rule
+    -- set: the extra direction fires first somewhere and the trace that
+    -- comes back is a derivation the engine never ran.  Measured -- with
+    -- both directions the fifth lemma emitted eight steps that did not
+    -- typecheck, and reach fell from 7/13 to 5/13.  `MathMachine.orient`
+    -- keeps only the decreasing direction where there is one, and
+    -- `lemmaRules` supplies both only for a law that has none.
+    installed rl@(l, r)
+      | decreases l r = [rl]
+      | decreases r l = [swap rl]
+      | otherwise = [rl, swap rl]
+    admit env avail rl nm
+      | reflProvable rl
+      , Just (vs, decl) <- reflDecl nm rl = extend env rl nm vs decl
+      | Just (vs, decl) <- inductive env avail nm rl = extend env rl nm vs decl
+      | otherwise = env
+    extend env rl nm vs decl = env
+      { leLemmas = leLemmas env ++ [(rl, (nm, vs))]
+      , lePreamble = lePreamble env ++ decl }
+    -- every variable is a candidate induction variable, exactly as
+    -- `MathMachine.proveByInduction` tries them; the first that replays wins
+    inductive env avail nm rl@(l, r) =
+      firstJust [ inductionClauses env nm (deriveByInduction avail rl v)
+                | v <- varsOfT l `unionT` varsOfT r ]
+    firstJust xs = case [ x | Just x <- xs ] of
+      (x : _) -> Just x
+      [] -> Nothing
+    reflDecl nm (l, r) = do
+      let vs = varsOfT l `unionT` varsOfT r
+      ns <- mapM agdaVar vs
+      let e = M.fromList (zip vs ns)
+      sl <- render e l
+      sr <- render e r
+      let quant = if null ns then "" else "(" ++ unwords ns ++ " : ℕ) → "
+      pure (vs, [ nm ++ " : " ++ quant ++ sl ++ " ≡ " ++ sr
+                , unwords (nm : ns) ++ " = refl" ])
+
 -- THE ENTRY POINT the engine calls.
 --
 -- `rs` is the engine's OWN rule set at the moment it discharged the
@@ -516,7 +621,8 @@ addReflLemmas ts base = base
 replayWithRules :: [((Term, Term), String)] -> [Rule] -> (Term, Term) -> Int
                 -> String -> Maybe String
 replayWithRules certs rs goal v modName =
-  replayModule (addReflLemmas certs peanoEnv) modName (deriveByInduction rs goal v)
+  replayModule (addProvedLemmas rs certs peanoEnv) modName
+               (deriveByInduction rs goal v)
 
 -- What a caller must supply for the wiring.  Stated as prose because the
 -- types live in two modules that were being edited when this was written.
@@ -593,6 +699,19 @@ deriveByInduction rs goal@(l,r) v =
         , dBaseR = snd (normalizeTrace rs br)
         , dStepL = snd (normalizeTrace (hyps ++ rs) gl)
         , dStepR = snd (normalizeTrace (hyps ++ rs) gr)
+        -- MET, BUT UP TO THE LIBRARY'S OWN COMPUTATION.  Syntactic equality
+        -- of the engine's two normal forms is sufficient and NOT necessary:
+        -- the ends may differ as terms and still be the same type in agda,
+        -- because Cubical's `_+_` and `_·_` compute.  Requiring syntactic
+        -- equality cost two theorems that had been certifying (measured:
+        -- 7/13 -> 5/13, with `(x+y) = (y+x)` among the losses).  So the
+        -- endpoints are compared under `libRules` -- this module's model of
+        -- what agda will unfold on its own -- which is the same test that
+        -- decides whether a cited lemma may be discharged by `refl`.
+        , dBaseMet = reflProvable (fst (normalizeTrace rs bl)
+                                  , fst (normalizeTrace rs br))
+        , dStepMet = reflProvable (fst (normalizeTrace (hyps ++ rs) gl)
+                                  , fst (normalizeTrace (hyps ++ rs) gr))
         }
   where
     eig = F "#" []
@@ -640,7 +759,7 @@ measureSnapshot root = go peanoRules [] 0 0 snapshotFragment
     go rules certs ok calls (((l,r), v) : rest) = do
       let named = [ (rl, "lem" ++ show i) | (i, rl) <- zip [(0::Int)..] certs ]
           d = deriveByInduction rules (l,r) v
-      case replayModule (addReflLemmas named peanoEnv) "Candidate" d of
+      case replayModule (addProvedLemmas rules named peanoEnv) "Candidate" d of
         Nothing -> do
           printf "  no-replay  %-42s (a fired rule has no name)\n" (show l ++ " = " ++ show r)
           go rules certs ok calls rest
@@ -656,8 +775,14 @@ measureSnapshot root = go peanoRules [] 0 0 snapshotFragment
               -- which is the engine's own thesis applied to certificates
               go (rules ++ [(l,r)]) (certs ++ [(l,r)]) (ok+1) (calls+1) rest
             ExitFailure _ -> do
-              printf "  NO         %-42s %s\n" (show l ++ " = " ++ show r)
-                (take 60 (firstInformative out))
+              -- keep the module, or the reader is left with a line number
+              -- for a file in a temp directory that no longer exists
+              let path = "/tmp/trace-replay-fail-" ++ show ok ++ ".agda"
+              writeFile path src
+              printf "  NO         %-42s %s\n    (module kept at %s)\n"
+                (show l ++ " = " ++ show r)
+                (take 90 (firstInformative (unlines (drop 1 (lines out)))))
+                path
               go rules certs ok (calls+1) rest
     firstInformative s = case filter inf (lines s) of
                            (l:_) -> unwords (words l)
