@@ -157,3 +157,59 @@ RESUME ORDER for next cf-indra instance:
    session's transcript; targets unchanged).
 5. Standing: R0021 audit, R0006 tail lemma, Lean W3 general, γ-metric
    message to the collaboration (C112.1 retypes ALL near-prime work).
+
+## 2026-08-16T04:00Z — machine-build swarm; the loop is now APPLIED
+
+Owner directive: all energy on building the natural machine (2026 math
+automation object); 16 genius subagents. Launched a build crew with STRICTLY
+disjoint file ownership (the collision lesson). Usage cap (Fable 5) killed
+~half mid-flight again; salvaged all green work by explicit pathspec.
+
+HEADLINE — RUNTIME.md §4 item 5 (the corpus's #1 gap) is CLOSED, checkably:
+- The machine, given ONLY ord_p + v_p(a^n−1) and no LTE knowledge,
+  autonomously mined v_p(a^n−1)=e+v_p(n) on chain d|n, refuted the naive law
+  + 43 rivals, MATCHING CYCLOTOMIC_SENSOR Thm 1. Emitted CyclotomicMined.agda
+  (exit 0, verified cold). machine/CyclotomicVocab.hs.
+- CandidateGen.hs MINTED 4 fresh certified corpus instances on ranges the
+  corpus never reached: Wieferich pair (29,63), q=29/31 threshold scans, W4
+  counts, Wieferich-clear window 3512-3700, self-regenerated MachineMinted/
+  index. Negative control correctly rejected. All --safe exit 0.
+
+Landed + pushed (through a4d2e11f and after):
+- coverage-regeneration latch (check-everything-coverage.sh); ledger hardened
+  to event-vs-state schema.
+- FactoryVICore.agda: T101 quantifier tear checked (∀m∃x ⇏ ∃x∀m).
+- FactoryVICoolingKill.agda: T110 strategy-kill (cooling alone can't prove
+  twins).
+- DSO self-scheduling: 32→28 steps, peak cut width 7→5, optimum certified.
+- ArithVocab.hs (gcd/mod/lcm/v_p propose-and-refute).
+- AgdaRewriteGate.hs: CRITICAL FIX — gate wrote to bare tempdir where cubical
+  couldn't resolve, so EVERY candidate was silently rejected; now +timeout
+  (no hang) +cache +verdict trichotomy.
+- Certificate.hs + CertReplay.hs: library.txt 100% replay-complete, corrupted
+  cert rejected. Machine's proof library is now a re-checkable ledger.
+- machine-state-report.sh: state-not-event liveness (fails safe to DEAD).
+- TRUTH_GATE_AUDIT.md: gate SOUND, latent unsanitized-defName defect
+  (one-line fix: reject defName ∉ [A-Za-z_][A-Za-z0-9_]*).
+- Rust CPU loop: self-improvement ROBUST (~5.6% unseen, ~5× null) but exact
+  numbers are HashMap-seed artifacts (determinism overclaimed) — CORRECTION
+  OWED to NATURAL_MACHINE_SELF_IMPROVES §2/§3.
+- NestedInduction/ParallelGate/SelfArchitecture.hs (compile clean, authors
+  capped pre-report — behavior unvalidated beyond compilation).
+- DSO_DELTAS_26_27_FROM_INDEX.md: SEARCH flag was STALE — Delta 26/27
+  ORIGINALS are in-repo (DEPENDENT_SYSTEM_OPTIMIZATION.md + _DELTA_27.md).
+
+RED / OWED for next instance:
+1. HeadDepthVocab.hs + BenchHeadDepth.hs DO NOT COMPILE — held back, repair.
+2. TruthGate defName one-line fix (Certificate.hs identifier check).
+3. Rust determinism correction into NATURAL_MACHINE_SELF_IMPROVES note
+   (strike §2/§3 exact numbers; keep the robust ~5× separation).
+4. Wire minted lane + new modules into top-level Everything.agda (coverage
+   latch currently RED: HeadDepthMergeBreaker, R0021FlipOrbit orphaned).
+5. Integrate optimalSchedule/CandidateGen dispatch into MathMachine.hs main
+   (the agents left patches; not applied — MathMachine.hs is single-owner).
+6. Relaunch capped tasks after limit reset: min-cut (OBLIGATION §7),
+   R0021 audit, nested-induction validation, 3-red-module repair.
+7. Machine liveness: container kills backgrounded loops; restart on resume
+   (./run_the_natural_machine_forever --supervise) — death is now visible via
+   machine-state-report.sh.
