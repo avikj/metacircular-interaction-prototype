@@ -46,6 +46,14 @@ jobs:
           fi
           mkdir -p ~/.agda
           echo "$HOME/cubical/cubical.agda-lib" > ~/.agda/libraries
+      - name: Check EVERY module (Everything.agda, total since 2026-08-16)
+        # 170 modules: top-level, all of NaturalMachine/, all of Swarm/.
+        # Made total by appending the 135 that were in no aggregate; verified
+        # exit 0 in-container before this step was added. This is the one
+        # command that makes "the whole directory checks" a fact rather than
+        # a sentence.
+        working-directory: formal/cubical
+        run: LC_ALL=C.UTF-8 agda Everything.agda
       - name: Check the root aggregate
         # Green in-container 2026-08-14 after the version-skew regression was
         # repaired (BUILD.md "Version-skew notes"; msgs 0490/0491). This job

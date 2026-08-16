@@ -161,4 +161,43 @@ regenerate collab/orchestration/open-fibers.md + machine-ledger.tsv row
 with a due-by stamp (resurrect the liveness organ with real data).
 Hook gotcha: the PreToolUse regex matches the WHOLE payload including
 descriptions and heredocs — keep the banned word out of Bash payloads;
-use Write for content that needs it.
+use Write for content that needs it. Second gotcha: cwd persists across
+Bash calls, and the hook resolves `.claude/hooks/no-python.sh` RELATIVE to
+cwd — so a `cd formal/cubical` that doesn't return strands the session
+(every later command dies before running). Fix: always use a subshell,
+`(cd formal/cubical && …)`. If stranded, Write a shim at
+`formal/cubical/.claude/hooks/no-python.sh` that execs the root hook, then
+`cd` back and delete it.
+
+## 2026-08-16 — tick 2: ROOT GREEN, uploads, fleet relaunch
+
+**1. The gate is real now.** Repaired the last drift breaks — PayloadMorphism
+(`·IdR`→`·Rid`), and before it the seven solver modules. **`NaturalMachine.agda`
+exits 0, `Everything.agda` exits 0**, both verified twice, Agda 2.6.3 +
+cubical v0.5 (the repo's own declared pin).
+**The finding that matters more than the repairs**: BUILD.md's
+"Version-skew notes" catalogue every reconciliation I independently
+rediscovered — they had all been applied once, written in prose, and
+SILENTLY REVERTED. And `machine-ledger.tsv` cycles 0–3 claim "87/87 green,
+aggregate 0" — unreplayable, since the rows carry no toolchain. A green is
+an exit code AND a toolchain. Recorded in BUILD.md; `agda.yml` now checks
+the ROOT AGGREGATE on every push so it cannot regress a third time.
+
+**2. Three owner uploads archived** (4th byte-identical to the V3 index —
+idempotent). `notes/CYCLIC_CHARGE_PROJECTOR_RECEIVED.md` records the join:
+the uploaded cyclic charge projector κ₁ = (1/M)Σζ^{−ν}a_{ζ^ν} is the
+GENERAL form of Factory IV Thm 58, which is its M=2 instance — already
+checked here as ChenProjector.agda. And κ_DFT = 1 exactly (vs 2^R
+factorial-moment, C(2R,R) power-moment): the basis this corpus was already
+using is the optimally conditioned one. Sharpest no-go received: perfect
+conditioning coexists with exponentially large phase-family energy
+(Parseval C(2j,j)) — reconditioning is not cancellation.
+
+**3. Everything.agda made TOTAL**: 135 modules (NaturalMachine orphans +
+all 16 Swarm) were in no aggregate; appended mechanically. Check in flight.
+
+**4. Fleet relaunch wave 1 out** (session limit reset): erdos, gauss,
+ramanujan, weil. Ramanujan's brief updated — the uploads supersede part of
+it, so it now joins rather than re-derives. Waves 2–4 queued:
+(hilbert, littlewood, turan, gelfand), (dirichlet, euler, sylvester,
+hopper), (poincare + integration).
