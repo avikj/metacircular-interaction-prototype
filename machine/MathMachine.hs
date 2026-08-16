@@ -49,6 +49,12 @@ import Text.ParserCombinators.ReadP
 import qualified Certificate as C
 import qualified TraceReplay as TR
 import qualified Knobs as K
+-- DISPATCH SEAM (2026-08-16).  Three modules built this session as standalone
+-- programs are wired in below, each behind a knob whose DEFAULT reproduces the
+-- engine that was running before this edit, bit for bit.  See `Dispatch`.
+import qualified ArithVocab as AV
+import qualified DSO as D
+import qualified NestedInduction as NI
 import Data.Char (isAlphaNum, isSpace)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -604,8 +610,21 @@ su t = F "s" [t]
 bin :: String -> Term -> Term -> Term
 bin f a b = F f [a,b]
 
-vocabulary :: [Sym]
-vocabulary =
+-- THE GIVEN VOCABULARY, and the seam where a wider one is dispatched.
+--
+-- `baseVocabulary` is the list this engine ran on before 2026-08-16, in the
+-- order it ran on.  ORDER IS THE PRECEDENCE (`precedence` below reads an index
+-- into `vocabulary`), so anything appended must be appended at the END or the
+-- reduction order on every existing term changes and every normal form in
+-- machine/library.terms becomes a different object.
+--
+-- `vocabulary = baseVocabulary ++ arithVocabulary` therefore leaves the
+-- precedence of 0,s,+,*,max,-,gcd,le exactly where it was (indices 0..7) and
+-- gives mod,lcm,v2 indices 8,9,10.  What keeps the DEFAULT behaviour identical
+-- is not the order but `dVocabCap`: the machine may only ever look at
+-- `take dVocabCap vocabulary`, and its default is `baseVocabCap = 8`.
+baseVocabulary :: [Sym]
+baseVocabulary =
   [ Sym "0"   0 (const 0)      []
   , Sym "s"   1 (\vs -> case vs of
                            [v] -> v + 1
@@ -647,6 +666,66 @@ vocabulary =
       , (bin "le" (su x_) zero_,     zero_)
       , (bin "le" (su x_) (su y_),   bin "le" x_ y_) ]
   ]
+
+-- ---------------------------------------------- the arithmetic vocabulary
+--
+-- WIRE 1 of 3.  machine/ArithVocab.hs was built this session as a standalone
+-- `module ArithVocab` carrying its own byte-for-byte copy of this file's Term
+-- algebra, four exact evaluators (gcd, a TOTAL mod with a mod 0 = a, lcm, and
+-- the 2-adic valuation v2 with v2 0 = 0) and, for each, only the defining
+-- equations that are unconditionally true under those conventions.  Its own
+-- header says it "could be appended to MathMachine's vocabulary list without
+-- translation".  This is that append: the symbols are IMPORTED from the module
+-- that was built and audited, not retyped here, so there is one definition of
+-- `mod` in the repository and not two.
+--
+-- `gcdSym` is deliberately NOT taken: gcd is already at index 6 with the same
+-- two base equations, and a second entry of the same name would give `arities`
+-- and `semantics` a duplicate key and `precedence` a shadowed index.
+--
+-- The conversion is a relabelling of constructors; both modules define
+-- `Term = V !Int | F !String [Term]`.
+fromAV :: AV.Term -> Term
+fromAV (AV.V i)    = V i
+fromAV (AV.F f ts) = F f (map fromAV ts)
+
+avSym :: AV.Sym -> Sym
+avSym s = Sym (AV.symName s) (AV.symArity s) (AV.symSem s)
+              [ (fromAV l, fromAV r) | (l,r) <- AV.symDefs s ]
+
+arithVocabulary :: [Sym]
+arithVocabulary = map avSym [AV.modSym, AV.lcmSym, AV.vpSym]
+
+-- WHAT THIS WIRE DOES NOT DO, measured rather than assumed.  With `--arith`
+-- the engine generates, conjectures over and refutes with mod/lcm/v2 (the term
+-- space at vocab 11, horizon 4 goes 400 -> 956 and the conjecture count 41 ->
+-- 86).  It proves nothing about them, and that is not a defect of the wire:
+--
+--   (a) the only arithmetic equations reaching proof search are the base cases
+--       in `symDefs`, because the recurrence that would make gcd and mod
+--       reasonable -- ArithVocab's `euclideanStep`, gcd x y = gcd y (mod x y),
+--       true unconditionally under the total mod convention -- is NOT
+--       LPO-orientable and so is not a defining equation.  It could be
+--       admitted the way `mLemmas` are, applied only where it decreases; that
+--       is a new axiom for the Haskell search and belongs to whoever audits
+--       it, not to a wiring pass.
+--   (b) even a proved one could not be installed: `Certificate.known` is
+--       ["0","s","+","*","-","max","le","gcd"], so a statement mentioning mod,
+--       lcm or v2 is `Untranslatable` and comes back KERNEL-SKIP.  That is the
+--       gate failing closed, which is the correct behaviour, and it means the
+--       binding constraint on arithmetic is the certificate emitter and not
+--       the vocabulary.  The vocabulary is now the part that is done.
+
+vocabulary :: [Sym]
+vocabulary = baseVocabulary ++ arithVocabulary
+
+-- How far into `vocabulary` the engine is allowed to reach by default.  This
+-- is the whole of the safety argument for WIRE 1: with the cap at the length
+-- of `baseVocabulary`, `take (mVocab m) vocabulary` can never produce a symbol
+-- that did not exist before, the growth ladder stops where it always stopped,
+-- and the startup vocabulary demand is clamped to it.
+baseVocabCap :: Int
+baseVocabCap = length baseVocabulary
 
 definitionsOf :: [Sym] -> [Rule]
 definitionsOf = concatMap symDefs
@@ -780,17 +859,27 @@ parseNaturalInt raw = case reads raw of
   [(n,"")] | n >= 0 -> Just n
   _                  -> Nothing
 
-runSmokeMachine :: Int -> IO Machine
-runSmokeMachine n = do
-  ref <- newIORef start
-  withFile "/dev/null" WriteMode $ \sink -> do
+-- A bounded run with no side effects on the live corpus: no memory file is
+-- written, and the log goes to /dev/null unless `--log` names a sink.  This is
+-- the harness the dispatch wires are exercised through, precisely so that a
+-- test of a new wire cannot append to machine/library.txt.
+runSmokeMachineWith :: Dispatch -> Int -> IO Machine
+runSmokeMachineWith disp n = do
+  ref <- newIORef (case dVocabStart disp of
+                     Nothing -> start
+                     Just v  -> start { mVocab = max 1 (min v (dVocabCap disp)) })
+  withFile (maybe "/dev/null" id (dLog disp)) AppendMode $ \sink -> do
     hSetBuffering sink LineBuffering
-    replicateM_ n (round1 Nothing sink sink ref)
+    hPrintf sink "=== MathMachine smoke ===\n  DISPATCH  %s\n" (show disp)
+    replicateM_ n (round1 disp Nothing sink sink ref)
   readIORef ref
 
-smokeRounds :: Int -> IO ()
-smokeRounds n = do
-  m <- runSmokeMachine n
+runSmokeMachine :: Int -> IO Machine
+runSmokeMachine = runSmokeMachineWith defaultDispatch
+
+smokeRounds :: Dispatch -> Int -> IO ()
+smokeRounds disp n = do
+  m <- runSmokeMachineWith disp n
   putStrLn ("MACHINE SMOKE CHECKED: rounds=" ++ show (mRound m)
     ++ " known=" ++ show (M.size (mKnown m))
     ++ " rules=" ++ show (length (mRules m))
@@ -798,16 +887,23 @@ smokeRounds n = do
     ++ " vocab=" ++ show (mVocab m)
     ++ " horizon=" ++ show (mSize m))
 
-printSmokeDiscoveries :: Int -> IO ()
-printSmokeDiscoveries n = do
-  m <- runSmokeMachine n
+printSmokeDiscoveries :: Dispatch -> Int -> IO ()
+printSmokeDiscoveries disp n = do
+  m <- runSmokeMachineWith disp n
   forM_ (M.keys (mKnown m)) $ \(l,r) ->
     putStrLn (show l ++ " = " ++ show r)
 
+-- OVER `baseVocabulary`, NOT `vocabulary`, and this is load-bearing.  The
+-- emitted module is compared to `expectedDefinitionManifest` by `refl` in
+-- NaturalMachine.HaskellDefinitionManifestGenerated; appending the arithmetic
+-- symbols here would make that Agda check fail, which is the Agda side
+-- correctly reporting that the boundary it certifies has moved.  The manifest
+-- describes the certified fragment, and the certified fragment is the base
+-- vocabulary until Certificate.hs and the boundary module learn mod/lcm/v2.
 definitionManifest :: [String]
 definitionManifest =
   [ symName s ++ " :: " ++ show l ++ " = " ++ show r
-  | s <- vocabulary
+  | s <- baseVocabulary
   , (l,r) <- symDefs s ]
 
 agdaString :: String -> String
@@ -864,6 +960,11 @@ agdaDiscoveryEquation (l,r) = do
   rightRendered <- agdaDiscoveryTerm r
   Right ("(" ++ leftRendered ++ " , " ++ rightRendered ++ ")")
 
+-- Deliberately `runSmokeMachine` (defaultDispatch) and not the caller's
+-- dispatch: the emitted list is compared to `expectedDiscoveries` by `refl` in
+-- NaturalMachine.HaskellDiscoveryManifestGenerated, so it must describe the
+-- engine the boundary module was written against, whatever flags the invoking
+-- shell happened to carry.
 emitAgdaDiscoveryManifest :: Int -> FilePath -> IO ()
 emitAgdaDiscoveryManifest n path = do
   m <- runSmokeMachine n
@@ -1034,6 +1135,19 @@ normalize rs = go (200 :: Int)
     go k t = case step rs t of
                Nothing -> t
                Just t' -> go (k-1) t'
+
+-- The same normalisation, counting the rewrite steps it took.  Not a second
+-- strategy: `normalizeSteps rs t` and `normalize rs t` are the same fold over
+-- the same `step`, so `fst (normalizeSteps rs t) == normalize rs t` by
+-- construction.  The count is what the DSO scheduler charges (WIRE 2), and it
+-- is an EXACT integer about this rewrite engine, not a measurement of one.
+normalizeSteps :: [Rule] -> Term -> (Term, Integer)
+normalizeSteps rs = go (200 :: Int) 0
+  where
+    go 0 n t = (t, n)
+    go k n t = case step rs t of
+                 Nothing -> (t, n)
+                 Just t' -> go (k-1) (n+1) t'
 
 
 
@@ -1766,8 +1880,163 @@ isAssociativity f equation = forward equation || forward (swap equation)
       && length (ordNub [a,b,c]) == 3
     forward _ = False
 
-round1 :: Maybe FilePath -> Handle -> Handle -> IORef Machine -> IO ()
-round1 mem logh libh ref = do
+-- ===================================================================
+-- DISPATCH.  What the engine is allowed to use, as data.
+--
+-- Several modules built in this session (machine/ArithVocab.hs,
+-- machine/DSO.hs, machine/NestedInduction.hs) were written standalone because
+-- this file was owned by another concern.  They are wired in here.  The
+-- governing constraint is that the loop is LIVE: a bad wire must not be able
+-- to change what a running machine does.  So every wire is a field of this
+-- record, and `defaultDispatch` is chosen so that the engine with it is the
+-- engine before this edit -- not approximately, but by inspection:
+--
+--   dVocabCap    = baseVocabCap  -> `take (mVocab m) vocabulary` cannot reach
+--                                   past `le`, and the ladder stops where it
+--                                   stopped.  No new symbol exists.
+--   dVocabStart  = Nothing       -> the startup vocabulary is exactly
+--                                   `requiredVocabulary batch` as before
+--                                   (then clamped, which at the default cap
+--                                   is a no-op: the old value was already
+--                                   <= 8 because `vocabulary` had 8 entries).
+--   dDsoSchedule = 0             -> `fresh` keeps its smallest-first order.
+--   dNestedDepth = 0             -> `proveByInduction` is the only prover.
+--   dRounds      = Nothing       -> the loop does not halt.
+--
+-- Nothing here can make an unsound theorem installable: every wire feeds the
+-- same kernel gate, and the gate is the authority.  What the wires change is
+-- WHAT IS ASKED, never what is believed.
+data Dispatch = Dispatch
+  { dVocabCap    :: Int          -- how far into `vocabulary` the engine reaches
+  , dVocabStart  :: Maybe Int    -- override the initial mVocab
+  , dDsoSchedule :: Int          -- 0 = off; else DSO-order this many conjectures
+  , dNestedDepth :: Int          -- 0 = off; else NestedInduction budget
+  , dRounds      :: Maybe Int    -- Nothing = forever (the live default)
+  , dLog         :: Maybe FilePath  -- smoke-mode log sink; Nothing = /dev/null
+  } deriving (Eq, Show)
+
+defaultDispatch :: Dispatch
+defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing
+
+-- 2^n memoised states in `D.optimalSchedule`, and n * 2^n cost evaluations,
+-- each of which normalises two terms.  This is a hard ceiling, not a taste:
+-- at n = 12 the scheduler already does ~49k normalisations per round.
+kDsoScheduleCap :: Int
+kDsoScheduleCap = 12
+
+parseDispatch :: [String] -> Either String (Dispatch, [String])
+parseDispatch = go defaultDispatch []
+  where
+    go d rest [] = Right (d, reverse rest)
+    go d rest (flag:more) = case (flag, more) of
+      ("--vocab-cap", v:ms)    -> withNat v ms (\n -> d { dVocabCap = min n (length vocabulary) })
+      ("--vocab-start", v:ms)  -> withNat v ms (\n -> d { dVocabStart = Just n })
+      ("--dso-schedule", v:ms) -> withNat v ms (\n -> d { dDsoSchedule = min n kDsoScheduleCap })
+      ("--nested-depth", v:ms) -> withNat v ms (\n -> d { dNestedDepth = n })
+      ("--rounds", v:ms)       -> withNat v ms (\n -> d { dRounds = Just n })
+      ("--log", v:ms)          -> go (d { dLog = Just v }) rest ms
+      -- the whole arithmetic vocabulary, in one word
+      ("--arith", ms)          -> go (d { dVocabCap = length vocabulary }) rest ms
+      _                        -> go d (flag:rest) more
+      where
+        withNat v ms f = case parseNaturalInt v of
+          Just n  -> go (f n) rest ms
+          Nothing -> Left (flag ++ " requires a nonnegative integer, got " ++ show v)
+
+-- ---------------------------------------------------------- WIRE 2: DSO
+--
+-- machine/DSOSchedule.hs measured, on a fixed +/x law family, that the
+-- DSO-ordered schedule discharges the same conjectures in fewer total rewrite
+-- steps than declaration order; its engine is machine/DSO.hs, whose
+-- `optimalSchedule` is the meta-Bellman V(D) = min_a (cost(a|D) + V(D u {a}))
+-- memoised over the whole 2^n dependency lattice -- an exhaustive optimum, not
+-- a heuristic.  That module hard-codes its family.  This wire supplies the
+-- LIVE family instead: the round's own `fresh` conjectures.
+--
+-- WHAT THE COST MODEL IS, EXACTLY.  `spCost i proved` is the number of rewrite
+-- steps `normalize` takes to reduce both sides of conjecture i, given the
+-- current rule set PLUS the rules that the conjectures in `proved` would
+-- install if they were discharged first (`orient`, or the two-way lemma pair
+-- when unorientable -- the same construction the round's own `attempt` fold
+-- uses).  So this is not a stipulated cost table: it is a count of steps this
+-- engine's own `step` function performs, computed twice for the same reason
+-- TraceReplay recomputes a normalisation.
+--
+-- TWO THINGS THE MODEL DOES NOT SAY, stated here rather than discovered later.
+-- (i) It does not model the cost of proof SEARCH or of the agda call, which
+-- dominate a round; ordering by it is a claim about rewrite work only, and the
+-- log line says so.  (ii) `cost(a|D)` charges as if every conjecture in D had
+-- been DISCHARGED, and the round's own fold only installs the ones that
+-- actually prove, kernel included.  So the reported optimum is the optimum of
+-- a schedule in a world where every attempt succeeds; it is an exact number
+-- about that world and a lower bound on rewrite work in this one.  This is why
+-- the wire may only permute the attempt ORDER and can never, by construction,
+-- decide what is believed.
+--
+-- Restricted to the first `k <= 12` conjectures (already the smallest ones,
+-- since `fresh` arrives size-sorted) because the lattice is 2^k.  The tail
+-- keeps its existing order, so the wire is a permutation of a prefix.
+conjectureEnablers :: (Term,Term) -> [Rule]
+conjectureEnablers c = case orient c of
+  Just r  -> [r]
+  Nothing -> lemmaRules [c]
+
+dsoScheduleProblem :: [Rule] -> [(Term,Term)] -> D.SchedProblem
+dsoScheduleProblem rules cs = D.SchedProblem (length cs) cost
+  where
+    arr = cs
+    cost i proved =
+      let enabled = concat [ conjectureEnablers (arr !! j)
+                           | j <- [0 .. length arr - 1]
+                           , j /= i, D.hasItem proved j ]
+          rs = enabled ++ rules
+          (l,r) = arr !! i
+      in snd (normalizeSteps rs l) + snd (normalizeSteps rs r)
+
+-- Returns the reordered conjecture list and, when the wire fired, the
+-- (declaration-order cost, optimal cost) pair for the log.
+dsoReorder :: Int -> [Rule] -> [(Term,Term)] -> ([(Term,Term)], Maybe (Integer,Integer))
+dsoReorder k rules fresh0
+  | k <= 1 || length front <= 1 = (fresh0, Nothing)
+  | otherwise = (map (front !!) order ++ back, Just (naive, best))
+  where
+    (front, back) = splitAt (min k kDsoScheduleCap) fresh0
+    problem = dsoScheduleProblem rules front
+    (best, order) = D.optimalSchedule D.totalSemiring problem
+    naive = fst (D.orderCost D.totalSemiring problem [0 .. length front - 1])
+
+-- ------------------------------------------------ WIRE 3: nested induction
+--
+-- machine/NestedInduction.hs is a standalone prover for the case this file's
+-- `proveByInduction` cannot reach: an equation whose base or step case is
+-- itself an equation needing an induction of its own (the distributivity
+-- class).  It carries its own copy of this Term algebra and rewrite engine,
+-- so the bridge is again a relabelling of constructors.
+--
+-- It is tried only AFTER `proveByInduction` has failed, so with the wire on,
+-- every proof the engine used to find it still finds, by the same route.  A
+-- nested proof is reported with the OUTER induction variable in the standard
+-- note format, because that is what `Certificate.inductionVariable` reads;
+-- whether the kernel can then discharge the resulting skeleton is the
+-- kernel's business, and a failure there is a KERNEL-REJECT, not an install.
+toNI :: Term -> NI.Term
+toNI (V i) = NI.V i
+toNI (F f ts) = NI.F f (map toNI ts)
+
+niProofNote :: NI.Proof -> Maybe String
+niProofNote (NI.Rewrite _) = Nothing   -- rewriting alone; `attempt` already tried it
+niProofNote (NI.Induct v _ _ _) =
+  Just ("induction on " ++ show (V v) ++ " (nested)")
+
+nestedProve :: Int -> [Rule] -> (Term,Term) -> Maybe String
+nestedProve budget rs (l,r)
+  | budget <= 0 = Nothing
+  | otherwise =
+      NI.prove budget 0 [ (toNI a, toNI b) | (a,b) <- rs ] (toNI l, toNI r)
+        >>= niProofNote
+
+round1 :: Dispatch -> Maybe FilePath -> Handle -> Handle -> IORef Machine -> IO ()
+round1 disp mem logh libh ref = do
   m <- readIORef ref
   t0 <- getCPUTime
   let syms = take (mVocab m) vocabulary ++ mInvented m
@@ -1812,12 +2081,16 @@ round1 mem logh libh ref = do
       -- round, and proved late pays for none of them — the difference
       -- between finding x+s(y)=s(x+y) before x+y=y+x and after it.
       -- Smallest first is the only order with that property.
-      fresh = sortOn (\(l,r) -> (size l + size r, l, r))
+      freshSized = sortOn (\(l,r) -> (size l + size r, l, r))
               [ c | c <- conjectures
                   , not (M.member c (mKnown m))
                   , M.lookup c (mFailed m) /= Just nRules
                   , not (provedByRewriting rules c)
                   , not (congruent rules (mKnown m) c) ]
+      -- WIRE 2.  At dDsoSchedule = 0 this is `(freshSized, Nothing)` and the
+      -- smallest-first order above is untouched; otherwise the first k are
+      -- permuted into the meta-Bellman optimum for total rewrite steps.
+      (fresh, dsoStats) = dsoReorder (dDsoSchedule disp) rules freshSized
       -- Proofs must be usable the moment they exist, not next round: a
       -- theorem proved at 10am should already be killing conjectures at
       -- 10:01.  So the round folds its own discoveries back in as it goes.
@@ -1870,7 +2143,12 @@ round1 mem logh libh ref = do
         -- from becoming a new axiom and poisoning every later round.
         | not (survivesSemanticFirewall syms c) = (acc, out)
         | otherwise =
-            case proveByInduction acc c of
+            -- WIRE 3.  `proveByInduction` first, always; the nested prover is
+            -- consulted only where it returned Nothing, so no proof this
+            -- engine used to find is found by a different route now.  At
+            -- dNestedDepth = 0 the second disjunct is `Nothing` immediately.
+            case maybe (nestedProve (dNestedDepth disp) acc c) Just
+                   (proveByInduction acc c) of
               Nothing -> (acc, out)
               Just pf
                 -- a proof is not enough: it must also make the world
@@ -1953,6 +2231,14 @@ round1 mem logh libh ref = do
     architectureRegretStates architectureRegretWork
   hPrintf logh "  DSO-HISTORY  searches=%d retained-history-fibre=%d\n"
     (length historyArchitectureResults) retainedHistoryFibre
+  -- WIRE 2's own instrument.  Both numbers are exact rewrite-step counts under
+  -- the model stated at `dsoScheduleProblem`, over the same conjecture set:
+  -- declaration (smallest-first) order against the meta-Bellman optimum.
+  case dsoStats of
+    Nothing -> return ()
+    Just (naive,best) ->
+      hPrintf logh "  DSO-SCHEDULE  conjectures=%d rewrite-steps size-order=%d dso-optimum=%d saved=%d\n"
+        (min (dDsoSchedule disp) (length freshSized)) naive best (naive - best)
   hPrintf logh
     "round %d  vocab=%d size=%d  terms=%d normed=%d pruned=%.1f%%  conj=%d fresh=%d proved=%d  known=%d  %.2fs\n"
     (mRound m) (mVocab m) (mSize m) (length raw) (length normed)
@@ -2105,7 +2391,10 @@ round1 mem logh libh ref = do
                  then gammaRoute (mCosts m2) (mVocab m2) (mSize m2)
                  else Nothing
       m'' | not grows = m2
-          | Just (Widen,_,_) <- routed, mVocab m2 < length vocabulary =
+          -- `dVocabCap disp`, not `length vocabulary`: the arithmetic symbols
+          -- exist in the list but are out of reach at the default cap, so the
+          -- ladder terminates exactly where it did before (WIRE 1).
+          | Just (Widen,_,_) <- routed, mVocab m2 < dVocabCap disp =
               m2 { mVocab = mVocab m2 + 1 }
           | Just (Deepen,_,_) <- routed, deepens
           , mSize m2 < K.kSizeCap (mKnobs m2) =
@@ -2131,7 +2420,7 @@ round1 mem logh libh ref = do
           -- resonance means the orbit is the point, and recombining the
           -- same symbols at a larger radius is the one move guaranteed
           -- not to move it.
-          | mVocab m2 < length vocabulary = m2 { mVocab = mVocab m2 + 1 }
+          | mVocab m2 < dVocabCap disp = m2 { mVocab = mVocab m2 + 1 }
           -- The vocabulary is spent.  At resonance the machine may go on
           -- to the horizon; at branching it may not, and holds -- that is
           -- the FLOW-HOLD below, and it is now the only thing FLOW-HOLD
@@ -2203,7 +2492,23 @@ round1 mem logh libh ref = do
 
 main :: IO ()
 main = do
-  args <- getArgs
+  rawArgs <- getArgs
+  -- The dispatch flags are consumed wherever they appear and removed; every
+  -- comparison below therefore sees exactly the argument list it saw before
+  -- this seam existed, and an invocation with no dispatch flag runs the engine
+  -- that was running yesterday.
+  (disp, args) <- case parseDispatch rawArgs of
+    Left err        -> hPutStrLn stderr err >> exitFailure
+    Right (d, rest) -> pure (d, rest)
+  when (args == ["--print-dispatch"]) $ do
+    putStrLn ("DISPATCH " ++ show disp)
+    putStrLn ("  base vocabulary: "
+      ++ intercalate " " (map symName baseVocabulary))
+    putStrLn ("  arithmetic extension: "
+      ++ intercalate " " (map symName arithVocabulary))
+    putStrLn ("  reachable now: "
+      ++ intercalate " " (map symName (take (dVocabCap disp) vocabulary)))
+    exitSuccess
   when (args == ["--least-witness-self-test"]) $ do
     let fibre = [0..20 :: Int]
         predicate n = n >= 7 && n `mod` 3 == 1
@@ -2470,13 +2775,13 @@ main = do
     Right () -> pure ()
   case args of
     ["--smoke-rounds", raw]
-      | Just n <- parseNaturalInt raw -> smokeRounds n >> exitSuccess
+      | Just n <- parseNaturalInt raw -> smokeRounds disp n >> exitSuccess
       | otherwise -> hPutStrLn stderr "--smoke-rounds requires a nonnegative integer"
                        >> exitFailure
     _ -> pure ()
   case args of
     ["--print-smoke-discoveries", raw]
-      | Just n <- parseNaturalInt raw -> printSmokeDiscoveries n >> exitSuccess
+      | Just n <- parseNaturalInt raw -> printSmokeDiscoveries disp n >> exitSuccess
       | otherwise -> hPutStrLn stderr
           "--print-smoke-discoveries requires a nonnegative integer"
             >> exitFailure
@@ -2502,10 +2807,10 @@ main = do
       exists <- doesFileExist "machine/thoughts.math"
       batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
                          else pure (ThoughtBatch [] [])
-      runMachine batch
+      runMachine disp batch
 
-runMachine :: ThoughtBatch -> IO ()
-runMachine batch = do
+runMachine :: Dispatch -> ThoughtBatch -> IO ()
+runMachine disp batch = do
   logh <- openFile "machine/machine.log" AppendMode
   libh <- openFile "machine/library.txt" AppendMode
   hSetBuffering logh LineBuffering
@@ -2526,9 +2831,21 @@ runMachine batch = do
   hPrintf logh "  MEMORY  remembered=%d re-admitted=%d dropped=%d\n"
     (length remembered) (length admitted)
     (length remembered - length admitted)
+  hPrintf logh "  DISPATCH  %s\n" (show disp)
+  -- CLAMPED, and the clamp is the safety of WIRE 1 at startup.  `vocabulary`
+  -- now names `mod`, `lcm` and `v2`, and machine/thoughts.math contains the
+  -- residual line "mod(x,y)-wants-a-name:...", whose words `requiredVocabulary`
+  -- scans against the symbol names.  Unclamped, merely appending the symbols
+  -- would have started tomorrow's machine at mVocab = 9 -- a silent change of
+  -- what the loop looks at, produced by a line of prose in a notes file.  With
+  -- the clamp the default start is `min 8 (requiredVocabulary batch)`, which
+  -- is what it was, and `--arith` is the only way past it.
   let seeded = start { mThoughts = thoughtCandidates batch
                      , mResiduals = thoughtResiduals batch
-                     , mVocab = requiredVocabulary batch
+                     , mVocab = maybe (min (dVocabCap disp)
+                                           (requiredVocabulary batch))
+                                      (\v -> max 1 (min v (dVocabCap disp)))
+                                      (dVocabStart disp)
                      , mRules = mapMaybe orient admitted
                      , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
                      , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }
@@ -2542,8 +2859,16 @@ runMachine batch = do
   -- that — concept invention — was gated on a condition no definition can
   -- satisfy (see `marginalCompress`).  With the gate fixed there is a real
   -- reason to keep going, so it keeps going.
+  -- `dRounds = Nothing` is the live default and is the same non-terminating
+  -- loop as before.  A bound exists only so that a wire can be exercised
+  -- against the real path without leaving a process behind.
   let loop :: IO ()
-      loop = round1 (Just memoryPath) logh libh ref >> loop
-  loop
+      loop = round1 disp (Just memoryPath) logh libh ref >> loop
+      bounded :: Int -> IO ()
+      bounded 0 = return ()
+      bounded k = round1 disp (Just memoryPath) logh libh ref >> bounded (k-1)
+  case dRounds disp of
+    Nothing -> loop
+    Just k  -> bounded k
   hClose logh
   hClose libh

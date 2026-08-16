@@ -181,6 +181,16 @@
 -- hits and fresh calls the count is the number of FRESH calls, and the
 -- label is not marked cached — the run did do kernel work.
 --
+-- IDENTIFIER VALIDATION (added 2026-08-16)
+--
+-- `defName` was the one candidate-supplied string that reached the emitted
+-- module verbatim, in three positions.  It is now checked against
+-- [A-Za-z_][A-Za-z0-9_]* at each of them, and a candidate carrying an
+-- ill-formed name produces NO MODULE (`Untranslatable`, 0 agda calls) rather
+-- than an emitted module that agda then declines.  See `validAgdaIdent` for
+-- what was reproducible before the check, including the case that made three
+-- different right-hand sides certify against one left-hand side.
+--
 -- This module deliberately has no dependency on MathMachine: it carries
 -- its own copy of the Term type so it can be compiled, run and tested on
 -- its own.  `main` is that test.  From the repository root:
@@ -209,6 +219,9 @@ module Certificate
   , agdaTerm
   , agdaTermWith
   , agdaVar
+  , validAgdaIdent
+  , agdaReserved
+  , definitionsSafe
   , preamble
   , preambleWith
     -- * certificates
@@ -318,6 +331,86 @@ data Definition = Definition
   , defBody :: Term     -- ^ body, over variables V 0 .. V (defArity - 1)
   } deriving (Eq, Show)
 
+-- ------------------------------------------------- identifier validation
+--
+-- THE HOLE THIS CLOSES (notes/TRUTH_GATE_AUDIT.md §1, machine/GateAudit.hs
+-- §(1), both 2026-08-16).
+--
+-- `defName` is the ONLY candidate-supplied string that reaches the emitted
+-- module, and until this predicate existed it reached it VERBATIM in three
+-- positions: the definition's signature line and its clause line (`emit` in
+-- `preambleWith`), and every occurrence of the concept inside the equation's
+-- own type (`prefixAgda`, via the `lookupDef` fallback in `render`).  A name
+-- is not a token to the emitter, it is a string, so a name may contain
+-- anything — including newlines.  Two consequences were reproduced against
+-- this very file:
+--
+--   * a name containing "\n{-# OPTIONS --no-safe #-}\npostulate evil : …"
+--     put that pragma and that postulate into `Candidate.agda` verbatim
+--     (harmless in the end: the injection lands after the module header, so
+--     the pragma is ignored, `--safe` stays locked at line 1, and the
+--     postulate is refused — verdict `Rejected`); and
+--
+--   * `injName = "suc x) ≡ (suc x) -- "` is worse and is NOT harmless: it
+--     closes the emitter's own parenthesis and comments out the rest of the
+--     line, so the module agda checks is `candidate : (x : ℕ) → (suc x) ≡
+--     (suc x)`, whatever right-hand side was submitted.  GateAudit obtained
+--     `Certified "refl" 1` for three DIFFERENT right-hand sides over one
+--     left-hand side (GateAudit.hs:100–109).  That is a soundness break, not
+--     a defense-in-depth gap.
+--
+-- Neither was reachable from the engine, because `inventConcept`
+-- (MathMachine.hs:1547) names concepts `"c" ++ show n`.  That is safety by
+-- CALLER CONVENTION: the gate did no validation and the convention is not
+-- stated in any type.  It is now enforced here, at the emission site, and
+-- the enforcement FAILS CLOSED — an offending name yields no module at all
+-- (`Nothing` → `Untranslatable`), never an emitted module that agda is asked
+-- to have an opinion about.  A candidate the emitter cannot render honestly
+-- is a rejected candidate.
+--
+-- The grammar is the audit's: [A-Za-z_][A-Za-z0-9_]*, ASCII by construction
+-- and not via `isAlpha`/`isAlphaNum`, whose Unicode generality would readmit
+-- characters Agda's lexer treats specially.  Every character of a legal name
+-- is one Agda lexes as part of a single identifier token, so a legal name
+-- cannot close a parenthesis, open a comment, start a pragma, or reach the
+-- next line — the three positions become splice-proof rather than
+-- splice-audited.
+validAgdaIdent :: String -> Bool
+validAgdaIdent s = case s of
+  [] -> False
+  (c : cs) -> identStart c && all identRest cs && notElem s agdaReserved
+  where
+    identStart c = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_'
+    identRest c = identStart c || (c >= '0' && c <= '9')
+
+-- Strengthening beyond the audit's regex, at no cost to any real name: the
+-- regex alone admits `where`, `module`, `postulate`, `data` …, which lex as
+-- KEYWORDS rather than identifiers and so would still restructure the module
+-- (they cannot make a false equation check — `--safe` is untouched at line 1
+-- and postulates are refused — but a name that changes the module's grammar
+-- has no business reaching agda).  `candidate` is in the list because it is
+-- the name the emitter gives the theorem itself.
+agdaReserved :: [String]
+agdaReserved =
+  [ "abstract", "candidate", "codata", "coinductive", "constructor", "data"
+  , "do", "eta_equality", "field", "forall", "hiding", "import", "in"
+  , "inductive", "infix", "infixl", "infixr", "instance", "interleaved"
+  , "let", "macro", "module", "mutual", "no_eta_equality", "open", "opaque"
+  , "overlap", "pattern", "postulate", "primitive", "private", "public"
+  , "quote", "quoteTerm", "record", "renaming", "rewrite", "syntax", "tactic"
+  , "unquote", "unquoteDecl", "using", "variable", "where", "with"
+  , "Set", "Prop", "Setω"
+  ]
+
+-- The gate's precondition on a definition list, checked once per candidate
+-- before anything is rendered.  ALL supplied names, not merely the ones the
+-- equation happens to mention: a caller that can name one concept
+-- adversarially can name the one the equation uses, and there is no reason
+-- to make the verdict depend on which of its concepts a candidate chose to
+-- exercise.
+definitionsSafe :: [Definition] -> Bool
+definitionsSafe = all (validAgdaIdent . defName)
+
 -- Every symbol of MathMachine's `vocabulary` (0 s + * max - gcd le), plus
 -- whatever invented concepts the caller supplies.  Anything else — the
 -- eigenconstant #, an unsupplied concept — returns Nothing, which the
@@ -347,10 +440,18 @@ render defs nameOf = go
           prefixAgda go f as
     go _ = Nothing
 
+-- EMISSION SITE 1 (terms).  Every path by which a concept name reaches the
+-- rendered module goes through here — `render`'s fallback clause, which then
+-- calls `prefixAgda` and splices the name into the candidate's type; and
+-- `preambleWith`'s `closure`, which decides which definitions get emitted at
+-- all.  Refusing to resolve an ill-formed name therefore removes it from
+-- both, and `render` falls through to `Nothing`: untranslatable, no module.
 lookupDef :: [Definition] -> String -> Maybe Definition
-lookupDef defs f = case [ d | d <- defs, defName d == f ] of
-  (d : _) -> Just d
-  [] -> Nothing
+lookupDef defs f
+  | not (validAgdaIdent f) = Nothing
+  | otherwise = case [ d | d <- defs, defName d == f ] of
+      (d : _) -> Just d
+      [] -> Nothing
 
 infixAgda :: (Term -> Maybe String) -> String -> Term -> Term -> Maybe String
 infixAgda go op a b = do
@@ -390,6 +491,15 @@ preambleWith defs syms =
                                   , f <- symbolsOf (defBody d)
                                   , isJust (lookupDef defs f) ])
       in if length more == length seen then seen else grow more
+    -- EMISSION SITE 2 (the preamble): the signature line and the clause
+    -- line, the two places a name is written as Agda source rather than
+    -- used as a term.  The `validAgdaIdent` guard is redundant given
+    -- `lookupDef` above — an ill-formed name cannot enter `closure`, hence
+    -- cannot enter `used` — and it is kept anyway, because this is where the
+    -- string actually becomes source and a future refactor of `closure`
+    -- must not be able to reopen the channel silently.
+    emit d
+      | not (validAgdaIdent (defName d)) = []
     emit d =
       case render defs defVar (defBody d) of
         Nothing -> []   -- an untranslatable body drops the definition, so
@@ -447,7 +557,17 @@ preambleCore syms =
 agdaCertificate :: Equation -> Maybe String
 agdaCertificate = agdaCertificateWith []
 
+-- EMISSION SITE 3 (the module as a whole), and the fail-closed one.  Sites 1
+-- and 2 already make an ill-formed name unrenderable; this guard makes the
+-- candidate carrying it unemittable, so the failure is a REJECTED CANDIDATE
+-- and not a module that agda is asked to have an opinion about.  The
+-- distinction is the whole point of the fix: `Rejected` after 8 agda calls
+-- means agda examined an injected module and disliked it, which is a fact
+-- about agda; `Untranslatable` with 0 calls means the gate never emitted
+-- one, which is a fact about the gate.  Only the second is a property this
+-- file can guarantee.
 agdaCertificateWith :: [Definition] -> Equation -> Maybe String
+agdaCertificateWith defs _ | not (definitionsSafe defs) = Nothing
 agdaCertificateWith defs eq@(l, r) = do
   lhs <- agdaTermWith defs l
   rhs <- agdaTermWith defs r
@@ -467,6 +587,10 @@ telescope ns = "(" ++ unwords ns ++ " : ℕ) → "
 -- from a step-clause failure without rerunning anything.
 agdaInductionCertificate :: [Definition] -> Equation -> Int -> String
                          -> Maybe (String, Int)
+-- Same fail-closed guard as `agdaCertificateWith`; see EMISSION SITE 3.  It
+-- is repeated rather than factored because these are the two functions that
+-- turn a candidate into a file, and each must be safe when read alone.
+agdaInductionCertificate defs _ _ _ | not (definitionsSafe defs) = Nothing
 agdaInductionCertificate defs eq@(l, r) v step = do
   lhs <- agdaTermWith defs l
   rhs <- agdaTermWith defs r
@@ -934,11 +1058,16 @@ certifyWith defs root (eq, proofNote) =
 
 untranslatableReason :: [Definition] -> Equation -> String
 untranslatableReason defs eq@(l, r) =
-  case [ s | s <- equationSymbols eq, not (known s) ] of
-    (s : _) -> "unknown symbol " ++ show s
-    [] -> case [ i | i <- equationVars eq, not (isJust (agdaVar i)) ] of
-      (i : _) -> "variable index out of range: " ++ show i
-      [] -> "untranslatable: " ++ show l ++ " = " ++ show r
+  -- The identifier check reports first and by name.  A rejected injection
+  -- must be legible as an injection in the log, not disguised as the
+  -- emitter running out of vocabulary.
+  case [ defName d | d <- defs, not (validAgdaIdent (defName d)) ] of
+    (n : _) -> "illegal concept name (not [A-Za-z_][A-Za-z0-9_]*): " ++ show n
+    [] -> case [ s | s <- equationSymbols eq, not (known s) ] of
+      (s : _) -> "unknown symbol " ++ show s
+      [] -> case [ i | i <- equationVars eq, not (isJust (agdaVar i)) ] of
+        (i : _) -> "variable index out of range: " ++ show i
+        [] -> "untranslatable: " ++ show l ++ " = " ++ show r
   where
     known s = s `elem` ["0", "s", "+", "*", "-", "max", "le", "gcd"]
                 || isJust (lookupDef defs s)
