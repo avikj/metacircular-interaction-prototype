@@ -162,10 +162,24 @@ module Certificate
   , certifyWith
   , runAgda
   , main
+    -- * serialisable certificates + replay (the re-checkable ledger)
+  , ProofWitness(..)
+  , SerialCert(..)
+  , mkSerialCert
+  , serTerm
+  , parseSerTerm
+  , serializeCert
+  , parseSerialCert
+  , reconstructModule
+  , certifyCert
+  , replayCert
+    -- * reading machine/library.txt
+  , parseShowTerm
+  , parseLibraryLine
   ) where
 
 import Control.Exception (finally)
-import Data.Char (isDigit, isSpace)
+import Data.Char (isAlphaNum, isDigit, isSpace)
 import Data.List (intercalate, isInfixOf, isPrefixOf, nub, sort)
 import Data.Maybe (isJust, mapMaybe)
 import GHC.IO.Encoding (setLocaleEncoding)
@@ -573,6 +587,296 @@ untranslatableReason defs eq@(l, r) =
   where
     known s = s `elem` ["0", "s", "+", "*", "-", "max", "le", "gcd"]
                 || isJust (lookupDef defs s)
+
+-- --------------------------------------------- serialisable certificates
+--
+-- The corpus wants machine/library.txt to be a re-checkable LEDGER, not a
+-- trust-me list.  `certify` above proves a library equation once, inside
+-- this process, and then the proof term is gone: the file records only the
+-- equation and a prose note ("[induction on x]").  Re-reading the file
+-- therefore re-runs the *search* (agdaCertificate + stepShapes), which is
+-- not the same as re-checking a fixed proof — a change to `stepShapes` could
+-- silently change which library entries are provable.
+--
+-- A `SerialCert` closes that gap.  It records the exact proof WITNESS that
+-- agda accepted (refl, or induction on a named variable with the exact step
+-- term), so:
+--
+--   (a) it RECONSTRUCTS THE PROOF TERM deterministically — `reconstructModule`
+--       emits the one Agda module that carries the accepted proof, with no
+--       search; and
+--   (b) it ROUND-TRIPS — `serializeCert` / `parseSerialCert` are inverses on
+--       the fragment, so a serialised ledger entry parses back to the same
+--       witness, whose reconstructed module agda re-checks to the same
+--       theorem (`replayCert`).
+--
+-- The Agda side these land in is NaturalMachine.RewriteCertificate: a checked
+-- `candidate : lhs ≡ rhs` is exactly the hypothesis of `derivation-sound` /
+-- `induction-sound` there, i.e. the semantic warrant that the endpoints
+-- denote pointwise-equal functions ℕ → ℕ.
+
+-- The proof that a `SerialCert` carries, in a form that reconstructs a
+-- specific Agda module rather than a search.
+data ProofWitness
+  = WRefl                    -- ^ true by definitional unfolding: `refl`
+  | WInduction Int String    -- ^ induction on variable i, with this exact
+                             --   step term (an Agda expression, e.g. the
+                             --   induction hypothesis under `cong suc`)
+  deriving (Eq, Show)
+
+-- A ledger entry: the theorem endpoints, the concept definitions its terms
+-- need in scope, and the witness that discharges it.  Everything needed to
+-- rebuild and re-check the proof, with nothing left to a search.
+data SerialCert = SerialCert
+  { scLhs :: Term
+  , scRhs :: Term
+  , scDefs :: [Definition]
+  , scWitness :: ProofWitness
+  } deriving (Eq, Show)
+
+mkSerialCert :: [Definition] -> Equation -> ProofWitness -> SerialCert
+mkSerialCert defs (l, r) w = SerialCert l r defs w
+
+-- Canonical prefix serialisation of a Term.  Deliberately NOT the machine's
+-- infix `show` (which is ambiguous for word operators like `max`: `(xmaxx)`);
+-- this form is an exact inverse of `parseSerTerm` on the whole Term type.
+serTerm :: Term -> String
+serTerm (V i)    = "v" ++ show i
+serTerm (F f ts) = "(" ++ unwords (f : map serTerm ts) ++ ")"
+
+serTokenize :: String -> [String]
+serTokenize [] = []
+serTokenize (c : cs)
+  | c == '('  = "(" : serTokenize cs
+  | c == ')'  = ")" : serTokenize cs
+  | isSpace c = serTokenize cs
+  | otherwise =
+      let (a, rest) = span (\x -> x /= '(' && x /= ')' && not (isSpace x)) (c : cs)
+      in a : serTokenize rest
+
+parseSerTerm :: String -> Maybe Term
+parseSerTerm s = case pSer (serTokenize s) of
+  Just (t, []) -> Just t
+  _            -> Nothing
+
+pSer :: [String] -> Maybe (Term, [String])
+pSer ("(" : name : rest)
+  | name /= "(" && name /= ")" = do
+      (args, rest') <- pSerArgs rest
+      pure (F name args, rest')
+pSer (tok : rest)
+  | ('v' : ds) <- tok, not (null ds), all isDigit ds = Just (V (read ds), rest)
+pSer _ = Nothing
+
+pSerArgs :: [String] -> Maybe ([Term], [String])
+pSerArgs (")" : rest) = Just ([], rest)
+pSerArgs toks = do
+  (a, r1)  <- pSer toks
+  (as, r2) <- pSerArgs r1
+  pure (a : as, r2)
+
+-- A ledger block.  Line-oriented and self-delimiting so many entries can
+-- share one file.
+serializeCert :: SerialCert -> String
+serializeCert sc = unlines $
+  [ "BEGIN-CERT 1"
+  , "LHS " ++ serTerm (scLhs sc)
+  , "RHS " ++ serTerm (scRhs sc)
+  , "DEFS " ++ show (length (scDefs sc))
+  ]
+  ++ [ "DEF " ++ defName d ++ " " ++ show (defArity d) ++ " " ++ serTerm (defBody d)
+     | d <- scDefs sc ]
+  ++ [ case scWitness sc of
+         WRefl            -> "WITNESS refl"
+         WInduction v stp -> "WITNESS induction " ++ show v ++ " " ++ stp
+     , "END-CERT"
+     ]
+
+parseSerialCert :: String -> Maybe SerialCert
+parseSerialCert = parseSerialFrom . lines
+
+-- Parses the first BEGIN-CERT..END-CERT block in a line list.
+parseSerialFrom :: [String] -> Maybe SerialCert
+parseSerialFrom ls0 = do
+  rest0            <- dropTo "BEGIN-CERT" ls0
+  (lhsL, rest1)    <- takePrefixed "LHS " rest0
+  lhs              <- parseSerTerm lhsL
+  (rhsL, rest2)    <- takePrefixed "RHS " rest1
+  rhs              <- parseSerTerm rhsL
+  (defsN, rest3)   <- takePrefixed "DEFS " rest2
+  n                <- readMaybeInt defsN
+  (defs, rest4)    <- readDefs n rest3
+  (witL, _)        <- takePrefixed "WITNESS " rest4
+  w                <- parseWitness witL
+  pure (SerialCert lhs rhs defs w)
+  where
+    dropTo pfx ls = case dropWhile (not . isPrefixOf pfx) ls of
+      (_ : more) -> Just more
+      []         -> Nothing
+    takePrefixed pfx (l : more)
+      | pfx `isPrefixOf` l = Just (drop (length pfx) l, more)
+    takePrefixed _ _ = Nothing
+    readDefs 0 ls = Just ([], ls)
+    readDefs k ls = do
+      (dl, more) <- takePrefixed "DEF " ls
+      d          <- parseDefLine dl
+      (ds, r)    <- readDefs (k - 1) more
+      pure (d : ds, r)
+    parseDefLine dl = case words dl of
+      (nm : arS : bodyToks) -> do
+        ar   <- readMaybeInt arS
+        body <- parseSerTerm (unwords bodyToks)
+        pure (Definition nm ar body)
+      _ -> Nothing
+    parseWitness w = case words w of
+      ["refl"]                -> Just WRefl
+      ("induction" : v : stp) -> do
+        vi <- readMaybeInt v
+        pure (WInduction vi (unwords stp))
+      _ -> Nothing
+
+readMaybeInt :: String -> Maybe Int
+readMaybeInt s = case reads s of { [(n, "")] -> Just n ; _ -> Nothing }
+
+-- Rebuild the exact Agda module the witness names.  No search: a witness is
+-- reconstructed to one module, and that module is what agda re-checks.
+reconstructModule :: SerialCert -> Maybe String
+reconstructModule sc = case scWitness sc of
+  WRefl            -> agdaCertificateWith (scDefs sc) eq
+  WInduction v stp -> fst <$> agdaInductionCertificate (scDefs sc) eq v stp
+  where eq = (scLhs sc, scRhs sc)
+
+-- Discover the certificate: prove the equation once and RECORD which witness
+-- agda accepted, so it never has to be searched for again.  Same search order
+-- and same budget as `certify`; the only difference is the return value.
+certifyCert :: [Definition] -> FilePath -> (Equation, String)
+            -> IO (Either String SerialCert)
+certifyCert defs root (eq, proofNote) =
+  case agdaCertificateWith defs eq of
+    Nothing -> pure (Left (untranslatableReason defs eq))
+    Just reflSource -> do
+      (code, out) <- runAgda root reflSource
+      case code of
+        ExitSuccess -> pure (Right (mkSerialCert defs eq WRefl))
+        ExitFailure _ ->
+          case inductionVariable proofNote of
+            Nothing -> pure (Left (firstErrorLine out))
+            Just v -> case inductionHypothesis eq v of
+              Nothing -> pure (Left (firstErrorLine out))
+              Just ih ->
+                let ks = take kMaxCongArguments (mapMaybe agdaVar (equationVars eq))
+                in tryShapes v (stepShapes ih ks) (firstErrorLine out)
+  where
+    tryShapes _ [] lastErr = pure (Left lastErr)
+    tryShapes v ((_label, stp) : more) _ =
+      case agdaInductionCertificate defs eq v stp of
+        Nothing -> pure (Left "induction variable outside the equation")
+        Just (source, baseLine) -> do
+          (code, out) <- runAgda root source
+          case code of
+            ExitSuccess -> pure (Right (mkSerialCert defs eq (WInduction v stp)))
+            ExitFailure _
+              | blamedLine out == Just baseLine ->
+                  pure (Left ("base clause: " ++ firstErrorLine out))
+              | otherwise -> tryShapes v more (firstErrorLine out)
+
+-- Replay a serialised certificate: reconstruct the module named by the
+-- witness and re-check it with agda.  This is the operation that makes the
+-- ledger re-checkable — it trusts the witness, never re-searches.
+replayCert :: FilePath -> SerialCert -> IO (Either String ())
+replayCert root sc = case reconstructModule sc of
+  Nothing     -> pure (Left "witness does not reconstruct to a module")
+  Just source -> do
+    (code, out) <- runAgda root source
+    case code of
+      ExitSuccess   -> pure (Right ())
+      ExitFailure _ -> pure (Left (firstErrorLine out))
+
+-- ------------------------------------------------ reading library.txt
+--
+-- library.txt is written with the machine's infix `show`
+-- (MathMachine.hs ~465): variables are x y z u v w / nⁱ, `0` and other
+-- nullary symbols are bare, `+ * ^ gcd max` are infix `(a op b)`, and every
+-- other symbol (`s`, `-`, `le`, invented concepts `c0`…) is prefix
+-- `f(a,b,…)`.  This parser is the exact inverse of that `show`, so a line the
+-- machine wrote parses back to the term it denotes.
+
+-- Operators the machine renders infix (Show instance's list).  Order does
+-- not matter here: their first characters are disjoint.
+showInfixOps :: [String]
+showInfixOps = ["gcd", "max", "+", "*", "^"]
+
+parseShowTerm :: String -> Maybe Term
+parseShowTerm s = case pShow (dropWhile isSpace s) of
+  Just (t, rest) | all isSpace rest -> Just t
+  _                                 -> Nothing
+
+pShow :: String -> Maybe (Term, String)
+pShow ('(' : rest0) = do            -- infix: ( term OP term )
+  (a, r1)   <- pShow rest0
+  (op, r2)  <- pShowOp (dropWhile isSpace r1)
+  (b, r3)   <- pShow r2
+  case dropWhile isSpace r3 of
+    ')' : r4 -> Just (F op [a, b], r4)
+    _        -> Nothing
+pShow s = do                        -- atom, possibly prefix-applied
+  (name, r1) <- pShowName (dropWhile isSpace s)
+  case dropWhile isSpace r1 of
+    '(' : r2 -> do
+      (args, r3) <- pShowArgs r2
+      pure (F name args, r3)
+    r1' -> pure (atom name, r1')
+
+pShowOp :: String -> Maybe (String, String)
+pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf` s ] of
+  (r : _) -> Just r
+  []      -> Nothing
+
+-- A prefix head / atom name: alphanumerics plus `_ #`, or a bare `-` (monus).
+pShowName :: String -> Maybe (String, String)
+pShowName ('-' : rest) = Just ("-", rest)
+pShowName s = case span (\c -> isAlphaNum c || c == '_' || c == '#') s of
+  ("", _)     -> Nothing
+  (nm, rest)  -> Just (nm, rest)
+
+pShowArgs :: String -> Maybe ([Term], String)
+pShowArgs s = case dropWhile isSpace s of
+  ')' : rest -> Just ([], rest)
+  s'         -> do
+    (a, r1) <- pShow s'
+    case dropWhile isSpace r1 of
+      ',' : r2 -> do (as, r3) <- pShowArgs r2; pure (a : as, r3)
+      ')' : r2 -> Just ([a], r2)
+      _        -> Nothing
+
+-- A bare name is a variable if it is one of the six universe letters or the
+-- machine's out-of-range spelling nⁱ; otherwise a nullary symbol like `0`.
+atom :: String -> Term
+atom nm
+  | [c] <- nm, Just i <- lookup c (zip "xyzuvw" [0 ..]) = V i
+  | ('n' : ds) <- nm, not (null ds), all isDigit ds     = V (read ds)
+  | otherwise                                           = F nm []
+
+-- One line of library.txt / library.snapshot.txt: "LHS = RHS [note]".  The
+-- note is returned verbatim (including its brackets) for `inductionVariable`.
+parseLibraryLine :: String -> Maybe (Equation, String)
+parseLibraryLine line0
+  | all isSpace line0 = Nothing
+  | otherwise = do
+      let (lhsS, afterEq) = breakOn '=' line0
+      rhsAndNote <- afterEq
+      let (rhsS, note) = splitNote rhsAndNote
+      l <- parseShowTerm lhsS
+      r <- parseShowTerm rhsS
+      pure ((l, r), note)
+  where
+    breakOn c s = case break (== c) s of
+      (a, _ : b) -> (a, Just b)
+      (a, [])    -> (a, Nothing)
+    -- Split trailing "[...]" note off the RHS.
+    splitNote s = case break (== '[') s of
+      (r, note@('[' : _)) -> (r, note)
+      (r, note)           -> (r, note)
 
 -- ------------------------------------------------------------- self-test
 --
