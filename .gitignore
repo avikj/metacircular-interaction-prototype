@@ -39,3 +39,14 @@ natural_machine_cpu_loop_rust/decic_extend
 natural_machine_cpu_loop_rust/root_singular_series
 machine/library.terms
 formal/cubical/Candidate_*.agda
+
+# Machine build artifacts (reproducible; never source of truth)
+machine/*.hi
+machine/*.o
+machine/arithvocab
+machine/bench-head-depth
+machine/cyclotomic-vocab
+machine/parallel-gate
+machine/library.certs
+machine/self_architecture.tsv
+machine/nested-agda/

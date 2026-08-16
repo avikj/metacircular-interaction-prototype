@@ -403,6 +403,15 @@ emitAgda modName eq@(l,r) proof = unlines $
   , "module " ++ modName ++ " where"
   , "open import Cubical.Foundations.Prelude"
   , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)"
+  , "-- CANDIDATE module for the gate (Certificate.hs owns the checker)."
+  , "-- The `candidate` clause below is the SHAPE the machine's rewrite proof"
+  , "-- induces; the gate confirms it or substitutes a step shape from its menu"
+  , "-- (refl / cong suc ih / ih / cong (k +_) ih ...).  Laws that the machine"
+  , "-- proved using earlier lemmas of the DAG presuppose those lemma modules"
+  , "-- in scope; this text does not claim to typecheck standalone over the raw"
+  , "-- builtins.  Agda's _+_ and _·_ recurse on the first argument, matching"
+  , "-- the axioms the machine used, so the certificate is about the same"
+  , "-- functions."
   , "-- Machine proof: " ++ technique proof
   , "-- Proof tree:" ]
   ++ map ("--   " ++) (renderProof proof)
@@ -433,6 +442,8 @@ plusLemmas =
   , ("+-assoc      (x+y)+z = x+(y+z)", (bin "+" (bin "+" x_ y_) z_,
                                         bin "+" x_ (bin "+" y_ z_)))
   , ("+-comm       x + y = y + x",     (bin "+" x_ y_, bin "+" y_ x_))
+  , ("+-left-swap  x+(y+z) = y+(x+z)", (bin "+" x_ (bin "+" y_ z_),
+                                        bin "+" y_ (bin "+" x_ z_)))
   ]
 
 timesLemmas :: [(String,Equation)]
@@ -474,6 +485,28 @@ main = do
         plusLemmas
   putStrLn "  (STUCK = no single variable closes both base and step by rewriting;"
   putStrLn "   these are the laws that need lemmas / nesting.)"
+  putStrLn ""
+
+  -- ---- capability probe: the nested search, from the raw axioms ---------
+  -- The prover is recursive: a step case is itself handed back to `prove`,
+  -- which may induct on a second variable (nested induction).  This probe
+  -- runs that full search (budget 3) on +-comm with ONLY the two + axioms
+  -- installed, to show what nesting alone can and cannot reach.
+  putStrLn "== capability probe: full nested search on +-comm from raw axioms =="
+  let commEq = (bin "+" x_ y_, bin "+" y_ x_)
+  case prove 3 0 defsPlus commEq of
+    Just p  -> do putStrLn "  nested search CLOSED it:"
+                  mapM_ (\ln -> putStrLn ("    " ++ ln)) (renderProof p)
+    Nothing -> do
+      putStrLn "  nested search does NOT close +-comm from the two + axioms alone."
+      putStrLn "  Reason (a theorem, not a measurement): the step case s#+y = y+s#"
+      putStrLn "  needs y+s# to reduce, i.e. the fact  n + s m = s (n + m), and the"
+      putStrLn "  base needs  n + 0 = n.  Both are single-variable inductions on a"
+      putStrLn "  GENERAL variable; inside a nested step that variable is already"
+      putStrLn "  frozen to a constant, so they cannot be re-derived in place.  Over"
+      putStrLn "  N these facts must be proved as lemmas FIRST — which is exactly the"
+      putStrLn "  'earlier theorems as the step's lemmas' architecture.  The driver"
+      putStrLn "  below supplies that lemma DAG and the prover discharges each."
   putStrLn ""
 
   -- ---- the driver: + lemma DAG ----------------------------------------
@@ -527,8 +560,11 @@ reportRuns rs0 runs = do
           mapM_ (\ln -> putStrLn ("       " ++ ln)) (renderProof p)
 
 agdaModName :: String -> String
-agdaModName = ("Nested_" ++) . map clean . takeWhile (/= ' ')
-  where clean c = if c `elem` ("-·+*()=" :: String) then '_' else c
+agdaModName = ("Nested_" ++) . concatMap clean . takeWhile (/= ' ')
+  where clean '+' = "Plus"
+        clean '*' = "Mul"
+        clean '-' = "_"
+        clean c   = if c `elem` ("·()=" :: String) then "_" else [c]
 
 writeFileUtf8 :: FilePath -> String -> IO ()
 writeFileUtf8 path s = withFile path WriteMode $ \h -> do
