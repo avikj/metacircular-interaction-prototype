@@ -1345,6 +1345,20 @@ strideSample k xs
 -- be affordable.  3287 is measured good, 24993 is measured bad; this sits
 -- between them and is stated as what it is -- an unexplored gap, not a
 -- tuned optimum.
+-- STAYS AT THE MEASURED BOUNDARY.  I raised this to the whole population on
+-- the theory that `kCollapseScan` had removed the reason for it, and the run
+-- that was supposed to confirm that did not get through a size-6 round in
+-- fifteen minutes either -- so the theory is untested, not confirmed, and the
+-- constant goes back to the largest value that has been measured to work.
+-- Bounding the collapse hunt is a strict improvement WITHIN the exact regime
+-- and is kept on those grounds; it is not evidence about the regime beyond.
+--
+-- What the next attempt should measure, since this one did not isolate it:
+-- whether the size-6 cost is the value test at all.  The library trebles
+-- before that round (15 -> 35 rules), and every normalisation in the round --
+-- including the round's own term normalisation, which has nothing to do with
+-- this filter -- pays for each rule.  I attributed the stall to the exact
+-- test without ruling that out.
 kExactPopulation :: Int
 kExactPopulation = 8000
 
@@ -1377,7 +1391,7 @@ extraRules c = case orient c of
 -- says so in its first few terms; only a rule that collapses nothing pays for
 -- the whole population, and that is the answer it deserves.
 collapsesSomething :: S.Set Term -> [Rule] -> [Term] -> (Term,Term) -> Bool
-collapsesSomething popSet rules population c = go S.empty fired
+collapsesSomething popSet rules population c = go S.empty (take kCollapseScan fired)
   where
     extra = extraRules c
     fired = [ t | t <- population, isJust (step extra t) ]
@@ -1386,6 +1400,26 @@ collapsesSomething popSet rules population c = go S.empty fired
       | S.member u popSet || S.member u seen = True
       | otherwise = go (S.insert u seen) ts
       where u = normalize (extra ++ rules) t
+
+-- WHERE THE REMAINING COST IS, and it is not the scan.
+--
+-- The population scan is a match test and cheap.  What is expensive is
+-- NORMALISING the terms the rule fires on, once per proved candidate, with a
+-- rule set that grows as the machine learns -- and a rule that fires on
+-- thousands of terms and collapses none of them pays for every one of them.
+-- That is what did not finish a size-6 round.
+--
+-- So the population scan stays exact and the COLLAPSE HUNT is bounded.  This
+-- is sampling again, and worth being precise about why it is not the sampling
+-- that was just removed.  The old probe sampled the POPULATION, so it asked
+-- "did we happen to draw a term this rule touches?" -- and the answer was
+-- deterministically no whenever the rule's left side was larger than a small
+-- term, and ~(k/N)² otherwise.  This samples only terms the rule ACTUALLY
+-- FIRES ON, so the remaining failure mode is narrower and nameable: a rule
+-- that fires widely and collapses rarely, more than kCollapseScan terms in.
+-- Nothing here is zero by construction.
+kCollapseScan :: Int
+kCollapseScan = 600
 
 marginalPrune :: [Rule] -> [Term] -> (Term,Term) -> Int
 marginalPrune rules probe c =
