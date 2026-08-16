@@ -484,3 +484,13 @@ import TomographyConditioning
 -- -- at n <= R the same inverse row is still perfectly conditioned and
 -- returns the wrong functional.
 import CyclicAliasing
+-- Q3's Agda landing: the divisor-lattice characteristic polynomial
+-- Φ_n(t) = t^{Ω−ω}(t−1)^ω and the Chen-envelope prime projector
+-- 1_P = μ² − (ω−1), as finite refl certificates with the note's exact
+-- instance tables (Φ_360(2)=8, partition-of-unity 2^Ω) plus Lemma B2's
+-- scope fence in both directions — including the two exhibited failures
+-- OUTSIDE the envelope (Ω=3 at 12 and 30), which is what makes the
+-- fence load-bearing rather than decorative.  Source note
+-- `notes/CHEN_PRIMITIVE_BOUNDARY_AND_CHARGE_POLYNOMIAL.md`; owner
+-- provenance D0026 §§5.5, 5.9.  AWAITING KERNEL.
+import NaturalMachine.ChargePolynomialFinite
