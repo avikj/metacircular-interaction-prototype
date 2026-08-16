@@ -604,6 +604,67 @@ deriveByInduction rs goal@(l,r) v =
     (gl, gr) = (subst v (sucT eig) l, subst v (sucT eig) r)
     hyps = [(hypL,hypR),(hypR,hypL)]
 
+-- THE SNAPSHOT, in order, restricted to the {0,s,+,*} fragment this module
+-- renders.  These are exactly the lines of machine/library.snapshot.txt over
+-- those symbols, with the induction variable the engine recorded.  Processed
+-- IN ORDER and accumulating, because that is how the engine met them: each
+-- certified theorem becomes both a rewrite rule for the next proof and a
+-- citable lemma for the next certificate.
+--
+-- The comparable number is Certificate's search on the same file, measured
+-- in machine/CERTIFICATE_REACH.md: 15 of 28 overall.
+snapshotFragment :: [((Term,Term), Int)]
+snapshotFragment =
+  [ ((x0,                                   binT "+" zeroT x0),                 0)
+  , ((sucT x0,                              binT "+" (sucT zeroT) x0),          0)
+  , ((binT "+" (sucT x0) y0,                sucT (binT "+" x0 y0)),             1)
+  , ((binT "+" x0 y0,                       binT "+" y0 x0),                    0)
+  , ((binT "+" x0 (binT "+" x0 y0),         binT "+" y0 (binT "+" x0 x0)),      1)
+  , ((binT "+" x0 (binT "+" y0 y0),         binT "+" y0 (binT "+" x0 y0)),      0)
+  , ((zeroT,                                binT "*" zeroT x0),                 0)
+  , ((x0,                                   binT "*" (sucT zeroT) x0),          0)
+  , ((binT "*" (sucT x0) y0,                binT "+" y0 (binT "*" x0 y0)),      1)
+  , ((binT "*" (sucT x0) y0,                binT "+" y0 (binT "*" y0 x0)),      0)
+  , ((binT "*" x0 (binT "*" x0 y0),         binT "*" x0 (binT "*" y0 x0)),      0)
+  , ((sucT (sucT (binT "*" x0 y0)),         sucT (sucT (binT "*" y0 x0))),      0)
+  , ((binT "*" x0 y0,                       binT "*" y0 x0),                    0)
+  ]
+
+-- Replay the fragment the way the engine meets it: in order, with every
+-- theorem already accepted available BOTH as a rewrite rule and as a citable
+-- lemma.  Reports how far transcription reaches where search reached 15/28.
+measureSnapshot :: FilePath -> IO (Int, Int, Int)
+measureSnapshot root = go peanoRules [] 0 0 snapshotFragment
+  where
+    go _ _ ok calls [] = pure (ok, length snapshotFragment, calls)
+    go rules certs ok calls (((l,r), v) : rest) = do
+      let named = [ (rl, "lem" ++ show i) | (i, rl) <- zip [(0::Int)..] certs ]
+          d = deriveByInduction rules (l,r) v
+      case replayModule (addReflLemmas named peanoEnv) "Candidate" d of
+        Nothing -> do
+          printf "  no-replay  %-42s (a fired rule has no name)\n" (show l ++ " = " ++ show r)
+          go rules certs ok calls rest
+        Just src -> do
+          (code, out) <- runAgda root src
+          case code of
+            ExitSuccess -> do
+              printf "  OK         %-42s %d steps, 1 agda call\n"
+                (show l ++ " = " ++ show r)
+                (length (dBaseL d) + length (dBaseR d)
+                 + length (dStepL d) + length (dStepR d))
+              -- accepted: it joins the rule set AND the citable lemmas,
+              -- which is the engine's own thesis applied to certificates
+              go (rules ++ [(l,r)]) (certs ++ [(l,r)]) (ok+1) (calls+1) rest
+            ExitFailure _ -> do
+              printf "  NO         %-42s %s\n" (show l ++ " = " ++ show r)
+                (take 60 (firstInformative out))
+              go rules certs ok (calls+1) rest
+    firstInformative s = case filter inf (lines s) of
+                           (l:_) -> unwords (words l)
+                           [] -> "(agda said nothing)"
+    inf ln = not (null (dropWhile isSpace ln))
+             && not ("Checking " `isPrefixOf` dropWhile isSpace ln)
+
 cases :: [(String, (Term,Term), Int)]
 cases =
   [ ("x + 0 = x           (definitional, no steps)", (binT "+" x0 zeroT, x0), 0)
@@ -624,6 +685,13 @@ main = do
   putStrLn ""
   let ok = length (filter id results)
   printf "%d/%d replayed traces type-check\n" ok (length results)
+  putStrLn ""
+  putStrLn "== the engine's library snapshot, {0,s,+,*} fragment, in order =="
+  (sok, stot, scalls) <- measureSnapshot root
+  printf "\nreplay reaches %d/%d of the fragment in %d agda calls\n"
+    sok stot scalls
+  putStrLn "(Certificate's shape search on the same file: 15/28 overall,"
+  putStrLn " worst case 12 agda calls for ONE candidate.)"
   putStrLn ""
   putStrLn "Wiring contract:"
   mapM_ (putStrLn . ("  " ++)) replayContract
