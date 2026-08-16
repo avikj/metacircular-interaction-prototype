@@ -316,3 +316,68 @@ import NaturalMachine.TransportCost
 -- predicts, observed inside a single hour).  Run individually under the
 -- pin before being named here: EXIT=0.
 import HomometricPair
+
+------------------------------------------------------------------------
+-- ORPHAN SWEEP, 2026-08-16 (D0026 build queue Q8, the latch).
+-- AWAITING KERNEL — AUTHORED WITHOUT LOCAL TOOLCHAIN.
+--
+-- The closure of this file was recomputed mechanically from the sources
+-- (comment-stripped import scan — `--` and `{- -}` both removed before
+-- matching — then breadth-first reachability from this module; exact
+-- text processing, shell only).  Of 385 `.agda` files under
+-- formal/cubical/, 372 were reached and 13 were not: the 10
+-- `NaturalMachine/Control/` modules, which must NEVER be reached
+-- (re-verified this pass: no non-Control module imports any of them),
+-- and exactly THREE genuine orphans, imported below.
+--
+-- Q8's working figure of ~37 orphans was stale when this pass ran: it
+-- described the tree before the 2026-08-15 fold-in passes above, which
+-- had already latched that set (CarryClassNonzero, Gamma0,
+-- QuadraticRefinement, FutureSeparation, OracleQueries,
+-- RootedGrothendieck, CostGeometryWitness and the rest of the
+-- NaturalMachine/ list sit at the bottom of `NaturalMachine.agda`;
+-- TransportCost, BehavioralApartness, CenterRelative, PrimePairField
+-- and all sixteen Swarm/ modules are named in this file above).  The
+-- three below are newer than all of that: each landed 2026-08-16 in
+-- commit cf2c6f76, a WIP salvage whose own message says UNVERIFIED, NO
+-- GREEN CLAIM.
+--
+-- This container has no Agda, so unlike every block above, these three
+-- imports carry NO individual EXIT=0 record from this pass — not under
+-- the pin, not under anything.  They inherit only their authors'
+-- unverified claims.  That is the latch working as designed rather than
+-- a defect in it: if any of the three is red under the pin, this
+-- aggregate goes red, loudly, on the next toolchain-bearing run of
+-- `check.sh` — which is exactly the adjudication a salvage commit
+-- needs and was not going to receive as an orphan.  A green claim is an
+-- exit code or it is a rumour; this block is the request for the exit
+-- code.
+--
+-- Duplicate-basename note, checked and found harmless: `CenterRelative`
+-- exists both at top level and as `NaturalMachine.CenterRelative`.  The
+-- qualified module names are distinct, both are already imported (here
+-- and via the root respectively), and Agda resolves each against its
+-- own path, so a joint build is unaffected.  No orphan in this sweep
+-- required an owner decision.
+------------------------------------------------------------------------
+
+-- Hostile replication of HeadDepthMerge (cf-indra): independent
+-- reimplementation of every primitive, pointwise agreement on all 1048
+-- triples, edge audit outside the guarded range, and the boundary
+-- attack on strong = Fermat at composite moduli.
+import HeadDepthMergeBreaker
+
+-- W3 split into its two questions with opposite answers (message 0474):
+-- no separation for the unspecialized functional equation, a real
+-- separation for the specialized instance λ(pn) = −λ(n) against the
+-- full-transcript observer.  Imports OracleQueries, ParitySeparator,
+-- ChargeCriterion, GaugeOrbitClasses — all already reached via the
+-- root; this module does not import the root, so it could live in the
+-- root aggregate, but it is latched here where the sweep found it
+-- rather than editing a second unverifiable file without a kernel.
+import NaturalMachine.OracleSeparation
+
+-- Independent audit of R0021 clauses (B) and (D): the flip identity
+-- 32·(μ(Fε) − μ(ε)) = −2a·ε₂ε₃ε₄·(ε₁+ε₅) re-derived from scratch and
+-- checked over all 32 patterns; extends Window5Walsh.
+import R0021FlipOrbit
