@@ -3330,6 +3330,73 @@ main = do
           "CONCEPT INVENTION CHECKED: collision-pattern=x+x primitive=c0/1 semantics(7)=14 definition-installed compression=%d tower=rejected retired=rejected\n"
           compression
         exitSuccess
+  -- THE CALLER'S HALF OF THE GATE'S CONTRACT, tested where it lives.
+  --
+  -- `Certificate.certifyWith` certifies relative to the definitions it is
+  -- HANDED: give it `c0 = id` and `c0(x) = x` and it is right to certify,
+  -- because that equation is true of that definition, and it has no second
+  -- source of truth for `c0`.  `machine/GateAudit.hs` section B submitted
+  -- exactly that and counted the certificate as an unsoundness; it is not
+  -- one, and the case has been reclassified with the argument recorded in
+  -- machine/GATE_AUDIT_DISPOSITION.md §4.
+  --
+  -- But reclassifying it removed a check without adding one, and the audit
+  -- cannot add it back: it imports `Certificate` and cannot reach here,
+  -- because `MathMachine` is `module Main`.  So the check is here, against
+  -- the three conditions `certDefinitions` imposes, each with a concept
+  -- built to violate exactly one of them:
+  --
+  --   honest    -- rule (x+x -> c0(x)), semantics x+x.  Must be emitted.
+  --   mismatch  -- rule (x -> c0(x)) while the semantics are x+x.  This is
+  --                the audit's own case, and the grid catches it at x=1.
+  --   unfolded  -- a rule that does not fold to c0 applied to its own
+  --                parameters, so it is some incidental rewrite and not a
+  --                defining clause.
+  --   outofrange-- a body over V 1 at arity 1, breaking the contract
+  --                `Certificate.render` relies on.
+  --
+  -- Each of the last three must contribute NO Definition, which is what
+  -- makes every candidate mentioning it Untranslatable -- the one outcome
+  -- that cannot be mistaken for a proof.
+  when (args == ["--concept-emitter-self-test"]) $ do
+    let base = take 3 vocabulary          -- 0, s, + : enough to evaluate x+x
+        sem = semantics base
+        double = bin "+" x_ x_
+        conceptWith body fold =
+          Sym "c0" 1 (\as -> eval sem as double) [(body, fold)]
+        honest    = conceptWith double (F "c0" [x_])
+        mismatch  = conceptWith x_ (F "c0" [x_])
+        unfolded  = conceptWith double (bin "+" (F "c0" [x_]) x_)
+        outOfRange = conceptWith (bin "+" y_ y_) (F "c0" [x_])
+        emitted s = map C.defName (certDefinitions (base ++ [s]))
+        -- WHICH CONDITION DOES THE WORK.  Three withholdings prove nothing
+        -- if one condition is doing all of them: a test that cannot say
+        -- what rejected a case cannot notice when the interesting line is
+        -- deleted.  `mismatch` is the audit's own case, and it passes both
+        -- STRUCTURAL conditions -- its rule folds to c0 applied to its own
+        -- parameter, its body's variables are exactly V 0 -- so the only
+        -- thing that can reject it is the exact grid comparison, which
+        -- catches it at x = 1 (body says 1, semantics say 2).  Asserting
+        -- that here is what makes the grid line load-bearing rather than
+        -- decorative.
+        mismatchIsStructurallyFine =
+          case conceptRule mismatch of
+            Just (body, fold) ->
+              fold == F "c0" [V 0]
+                && ordNub (sort (vars body)) == [0]
+                && isJust (ruleCounterexample (vocabulary ++ base ++ [mismatch])
+                             definitionAuditBound (body, fold))
+            Nothing -> False
+    unless (emitted honest == ["c0"]
+            && emitted mismatch == []
+            && emitted unfolded == []
+            && emitted outOfRange == []
+            && mismatchIsStructurallyFine) exitFailure
+    putStrLn ("CONCEPT EMITTER CHECKED: honest=emitted "
+              ++ "mismatch=withheld-by-the-grid-alone unfolded=withheld "
+              ++ "out-of-range=withheld "
+              ++ "(the gate proves what it is handed; this is what hands it)")
+    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw
