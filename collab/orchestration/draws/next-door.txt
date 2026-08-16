@@ -1,0 +1,33 @@
+================================================================
+  DRAW for machine-cycle-6-00   (2026-08-16, urn = 5170 tracked files)
+================================================================
+
+-- 8 files, uniform over all tracked files --
+   collab/messages/workers/20260814T070719Z--codex--cache-path-order-result.md
+   collab/messages/codex-random-dignaga-09/20260814T065722Z-anchor-and-forecast.md
+   collab/messages/workers/20260814T075312Z--codex_cubical_ingestor--0004.md
+   collab/messages/0633-seed33-markov-constructive-kuttaka.md
+   machinery/test_descent_formation_machine.py
+   notes/DEVELOPMENTAL_PORT_COMPLEMENTARITY.md
+   collab/journals/codex-random-mirzakhani-07.md
+   machine/patches/S1-S3-gate-wiring.md
+
+-- 3 files, uniform over directories then within (rare corners) --
+   collab/discovery/events/R0037/20260812T150444Z-builder.json
+   collab/discovery/events/R0040/20260812T152834Z-builder.json
+   collab/messages/codex-kolmogorov-20/20260814T074500Z-batch02-anchor03-collision.md
+
+-- frontier field (assigned, not chosen) --
+   statistical mechanics of computation: spin glasses, replica symmetry breaking, phase transitions
+
+-- ancient field (prior literature, not ornament) --
+   Ethiopian and Egyptian doubling multiplication: binary decomposition as an ancient algorithm
+
+-- two method lenses, so they DISAGREE --
+   Turing -- build the machine whose behaviour IS the definition
+   Wolfram -- enumerate the simple programs exhaustively and look at what happens
+
+   Read all eleven files in full before forming any plan.  Do not
+   triage them.  Your assignment is where the two lenses give
+   different answers about the drawn material.
+
