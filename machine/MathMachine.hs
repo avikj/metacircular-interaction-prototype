@@ -43,7 +43,8 @@ import System.Directory (getTemporaryDirectory, removePathForcibly)
 import System.FilePath ((</>))
 import System.Process (readProcess, readProcessWithExitCode)
 import System.Exit (ExitCode(..), exitFailure)
-import System.Environment (getArgs)
+import System.Environment (getArgs, lookupEnv)
+import System.IO.Unsafe (unsafePerformIO)
 import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
@@ -56,7 +57,7 @@ import qualified Knobs as K
 import qualified ArithVocab as AV
 import qualified DSO as D
 import qualified NestedInduction as NI
-import Data.Char (isAlphaNum, isSpace)
+import Data.Char (isAlphaNum, isSpace, isDigit)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
 -- (imports for the unbuilt evolve step removed; they were dead, and a
@@ -1345,22 +1346,41 @@ strideSample k xs
 -- be affordable.  3287 is measured good, 24993 is measured bad; this sits
 -- between them and is stated as what it is -- an unexplored gap, not a
 -- tuned optimum.
--- STAYS AT THE MEASURED BOUNDARY.  I raised this to the whole population on
--- the theory that `kCollapseScan` had removed the reason for it, and the run
--- that was supposed to confirm that did not get through a size-6 round in
--- fifteen minutes either -- so the theory is untested, not confirmed, and the
--- constant goes back to the largest value that has been measured to work.
--- Bounding the collapse hunt is a strict improvement WITHIN the exact regime
--- and is kept on those grounds; it is not evidence about the regime beyond.
+-- MOVED ON MEASUREMENT, twice, in opposite directions.
 --
--- What the next attempt should measure, since this one did not isolate it:
--- whether the size-6 cost is the value test at all.  The library trebles
--- before that round (15 -> 35 rules), and every normalisation in the round --
--- including the round's own term normalisation, which has nothing to do with
--- this filter -- pays for each rule.  I attributed the stall to the exact
--- test without ruling that out.
+-- It was 8000 because an exact size-6 round "did not finish in fifty
+-- minutes".  That was true and my explanation of it was wrong.  The run that
+-- stalled was the version with NO `kCollapseScan`, which normalised every
+-- term a rule fired on -- thousands per candidate, once per candidate.  With
+-- the hunt bounded, the same round with the exact test forced on:
+--
+--   round 20, |T| = 24792:  2.19 s   value-work 545   value-scan 2003685
+--   round 21, |T| = 24645:  2.77 s   value-work 328   value-scan 2862512
+--
+-- against 1.60-2.34 s for the sampled test at the same rounds.  So the exact
+-- test costs about a second a round there, its normalisation cost is
+-- negligible (a few hundred, against 53270 terms generated), and its real
+-- cost is the population scan -- millions of match tests, which are cheap.
+-- The library after those two rounds: 70 theorems, against 36 with the
+-- boundary at 8000 and 17 before any of this.
+--
+-- 32000 covers the measured case with margin and deliberately stops short of
+-- the size-7 population (208804), which is eight times larger and has NOT
+-- been measured.  `MATH_EXACT_POPULATION` moves it for whoever measures next.
 kExactPopulation :: Int
-kExactPopulation = 8000
+kExactPopulation = 32000
+
+{-# NOINLINE exactPopulationLimit #-}
+exactPopulationLimit :: Int
+exactPopulationLimit = unsafePerformIO $ do
+  mv <- lookupEnv "MATH_EXACT_POPULATION"
+  pure $ case mv >>= readNat of
+    Just n | n > 0 -> n
+    _ -> kExactPopulation
+  where
+    readNat v = case span isDigit (dropWhile isSpace v) of
+      (ds@(_ : _), rest) | all isSpace rest -> Just (read ds)
+      _ -> Nothing
 
 exactPrune :: [Rule] -> [Term] -> (Term,Term) -> Int
 exactPrune rules population c =
@@ -1390,12 +1410,26 @@ extraRules c = case orient c of
 -- fired terms sharing an image -- ends the scan.  A rule that earns its place
 -- says so in its first few terms; only a rule that collapses nothing pays for
 -- the whole population, and that is the answer it deserves.
-collapsesSomething :: S.Set Term -> [Rule] -> [Term] -> (Term,Term) -> (Bool, Int)
+-- Returns the verdict, the number of terms NORMALISED, and the number of
+-- population members SCANNED.  Two counters because they are two different
+-- costs and conflating them is how I mis-attributed a stall: the scan is a
+-- match test per member, the normalisation is a full rewrite to normal form,
+-- and both stop early -- the scan because `fired` is consumed lazily only as
+-- far as `kCollapseScan`, the hunt because the first collapse settles it.
+collapsesSomething :: S.Set Term -> [Rule] -> [Term] -> (Term,Term)
+                   -> (Bool, Int, Int)
 collapsesSomething popSet rules population c =
-  go S.empty 0 (take kCollapseScan fired)
+  let (verdict, normalised) = go S.empty 0 (map snd taken)
+  in (verdict, normalised, scanned)
   where
     extra = extraRules c
-    fired = [ t | t <- population, isJust (step extra t) ]
+    fired = [ (i, t) | (i, t) <- zip [(0 :: Int) ..] population
+                     , isJust (step extra t) ]
+    taken = take kCollapseScan fired
+    -- how far into the population the scan actually had to go
+    scanned = case reverse taken of
+      ((i, _) : _) -> i + 1
+      [] -> length population
     go _ n [] = (False, n)
     go seen n (t : ts)
       | S.member u popSet || S.member u seen = (True, n + 1)
@@ -2517,7 +2551,13 @@ round1 disp mem logh libh ref = do
       -- not a tuning knob: moving it up without fixing the cost (index the
       -- population by head symbol so `fired` is not a full scan) buys a
       -- stall, and moving it down throws away the theorems.
-      exactAffordable = nNormedEstimate <= kExactPopulation
+      -- `MATH_EXACT_POPULATION` moves the boundary, for the same reason
+      -- `MATH_AGDA_TIMEOUT` moves the gate's: a constant nobody can reach
+      -- from outside is a constant nobody has tested, and this one is
+      -- explicitly parked at a measured-safe value with the experiment that
+      -- would move it left undone.  Reading it here rather than at startup
+      -- keeps it a diagnostic knob and not a configuration surface.
+      exactAffordable = nNormedEstimate <= exactPopulationLimit
       nNormedEstimate = length normed
       -- The second component is how many terms the test NORMALISED to reach
       -- its answer.  I attributed a size-6 stall to this filter without
@@ -2530,11 +2570,11 @@ round1 disp mem logh libh ref = do
       worthInstalling acc c
         | not exactAffordable =
             ( marginalPrune acc probe c >= K.kMinPrune (mKnobs m)
-            , 2 * length probe )
+            , 2 * length probe, 0 )
         | K.kMinPrune (mKnobs m) <= 1 = collapsesSomething normedSet acc normed c
         | otherwise =
             ( exactPrune acc normed c >= K.kMinPrune (mKnobs m)
-            , length normed )
+            , length normed, length normed )
       -- WHERE THE FRESH CONJECTURES DIE.  The round line reports `proved=`
       -- AFTER the kernel gate, so a round that states twenty thousand fresh
       -- conjectures and reports proved=0 has told the reader nothing about
@@ -2544,7 +2584,7 @@ round1 disp mem logh libh ref = do
       -- four different treatments, and from round 16 of a 70-round run they
       -- are indistinguishable in the log.  Counted here, printed as PROVER.
       (proverStats, results) =
-        let zero4 = (0, 0, 0, 0, 0) :: (Int, Int, Int, Int, Int)
+        let zero4 = (0, 0, 0, 0, 0, 0) :: (Int, Int, Int, Int, Int, Int)
             (_, out, st) = foldl' attempt (rules, [], zero4) fresh
         in (st, reverse out)
       bounded = map executeBoundedSearch (mBoundedSearches m)
@@ -2586,15 +2626,15 @@ round1 disp mem logh libh ref = do
               | architecture <- adequate
               , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
         | (adequate,result) <- historyArchitectureResults ]
-      attempt (acc, out, (nRewritten, nFirewall, nNoProof, nInert, nWork)) c
+      attempt (acc, out, (nRewritten, nFirewall, nNoProof, nInert, nWork, nScan)) c
         | provedByRewriting acc c =
-            (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert, nWork))
+            (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert, nWork, nScan))
         -- Proof search is only as trustworthy as its current axiom set and
         -- induction implementation.  This finite gate does not certify a
         -- theorem; it prevents any theorem with a concrete small refutation
         -- from becoming a new axiom and poisoning every later round.
         | not (survivesSemanticFirewall syms c) =
-            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert, nWork))
+            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert, nWork, nScan))
         | otherwise =
             -- WIRE 3.  `proveByInduction` first, always; the nested prover is
             -- consulted only where it returned Nothing, so no proof this
@@ -2603,16 +2643,17 @@ round1 disp mem logh libh ref = do
             case maybe (nestedProve (dNestedDepth disp) acc c) Just
                    (proveByInduction acc c) of
               Nothing ->
-                (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert, nWork))
+                (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert, nWork, nScan))
               -- a proof is not enough: it must also make the world smaller,
               -- or it is a true statement with no consequences
               Just pf ->
-                let (worth, work) = worthInstalling acc c
-                    st' = (nRewritten, nFirewall, nNoProof, nInert, nWork + work)
+                let (worth, work, scan) = worthInstalling acc c
+                    st' = (nRewritten, nFirewall, nNoProof, nInert
+                          , nWork + work, nScan + scan)
                 in if not worth
                      then (acc, out
                           , (nRewritten, nFirewall, nNoProof, nInert + 1
-                            , nWork + work))
+                            , nWork + work, nScan + scan))
                      else
                        let acc' = acc ++ maybe [] (:[]) (orient c)
                                    ++ (if isJust (orient c) then []
@@ -2664,8 +2705,8 @@ round1 disp mem logh libh ref = do
       -- and did not close.  ∂ = 0 is QuestionMachine's `Resolves` — the
       -- question at this horizon is answered, so the machine must change
       -- what it is looking at, which is why it counts as resonance.
-      (proverRewritten, proverFirewall, proverNoProof, proverInert, proverWork) =
-        proverStats
+      (proverRewritten, proverFirewall, proverNoProof, proverInert, proverWork
+       , proverScan) = proverStats
       obstruction = nFresh - length checkedResults
       flow | obstruction == 0 = Resonance
            | otherwise        = flowOf (mObstruction m) obstruction
@@ -2685,11 +2726,11 @@ round1 disp mem logh libh ref = do
   -- round line's `proved=` is what survived the kernel.  When they differ
   -- the difference is exactly the KERNEL-REJECT lines above.
   hPrintf logh
-    "  PROVER  fresh=%d already-rewritten=%d firewall-refuted=%d no-proof=%d proved-but-inert=%d proved=%d gated=%d value-test=%s value-work=%d round-work=%d\n"
+    "  PROVER  fresh=%d already-rewritten=%d firewall-refuted=%d no-proof=%d proved-but-inert=%d proved=%d gated=%d value-test=%s value-work=%d value-scan=%d round-work=%d\n"
     (length fresh) proverRewritten proverFirewall proverNoProof proverInert
     (length results) (length checkedResults)
     (if exactAffordable then "exact" else "sampled" :: String)
-    proverWork nRaw
+    proverWork proverScan nRaw
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
   hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"

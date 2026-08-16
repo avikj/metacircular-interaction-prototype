@@ -244,14 +244,40 @@ So on the axis I can measure, the fallback I installed for being cheap is the
 expensive one, by a factor of about five thousand. My attribution in §8 is
 withdrawn.
 
-What this does **not** establish: `value-work` counts normalisations, and the
-exact test's other cost — the `step extra t` scan across the whole population,
-per candidate — is not in it. At |T| = 24,993 with ~150 candidates that is
-about 3.7 million match tests per round, cheaper than a normalisation each but
-not free. So the size-6 stall remains unexplained rather than reassigned, and
-the experiment that would settle it is to force the exact test on at size 6
-and read `value-work` and the scan cost separately. `kExactPopulation` stays
-at its measured-safe 8000 until someone runs it.
+`value-work` counts normalisations only, so the second counter was added —
+`value-scan`, how far into the population the match test had to go — and the
+experiment run rather than left for someone: force the exact test on at size 6
+(`MATH_EXACT_POPULATION`, which exists for the same reason `MATH_AGDA_TIMEOUT`
+does — a constant nobody can reach from outside is a constant nobody has
+tested).
+
+| round | \|T\| | wall | value-work | value-scan | round-work |
+|---|---|---|---|---|---|
+| 20 | 24,792 | **2.19 s** | 545 | 2,003,685 | 53,270 |
+| 21 | 24,645 | **2.77 s** | 328 | 2,862,512 | 53,270 |
+
+Against 1.60–2.34 s for the *sampled* test at the same rounds. **So the exact
+test costs about a second a round at size 6, not fifty minutes.** Its
+normalisation cost is a few hundred against 53,270 terms generated; its real
+cost is the scan, millions of cheap match tests.
+
+The stall was real and my explanation of it was wrong. The run that stalled
+was the version with **no `kCollapseScan`** — it normalised every term a rule
+fired on, thousands per candidate, once per candidate. Bounding the hunt fixed
+it, and I then reported the bound as unconfirmed because the confirming run
+was competing for four cores with an audit slice. Two mistakes stacked: I
+blamed the wrong component, then failed to isolate the confirmation.
+
+The library after those two rounds: **70 theorems**, against 36 with the
+boundary at 8000 and 17 before any of this. `kExactPopulation` is now 32,000 —
+covering the measured case with margin, and deliberately stopping short of the
+size-7 population (208,804), which is eight times larger and has not been
+measured.
+
+And the bottleneck moved again: round 21 submitted **179** proofs to the
+kernel and 6 came back certified. The gate is binding, on the multiplication
+and `gcd` fragments that trace replay declines because their derivations do
+not close under the rules it can reconstruct.
 
 ## 8. Postscript: the gate stopped being the binding constraint
 
