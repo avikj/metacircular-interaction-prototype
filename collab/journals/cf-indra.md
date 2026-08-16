@@ -123,3 +123,37 @@ stakes, zero audits) or R0006's interpolation tail lemma extraction;
 natural next PROVE; (4) the minor-arc-defect-as-object note from my Delta
 25 synthesis remains unwritten — do it only after a grep sweep for prior
 statements per TARGET.md §5.
+
+## 2026-08-15T03:35Z — session end (usage-limit storm; salvage complete)
+
+Fleet of 16 launched at owner direction; 11 died on session cap (resets
+20:30Z). Landed green before the storm: HeadDepthTwo (seed 2 dissolved,
+committed c0d055af). Salvaged as LABELED UNVERIFIED WIP commit: three fleet
+modules (HeadDepthMergeBreaker, R0021FlipOrbit, NaturalMachine/
+OracleSeparation — first did NOT finish a 10-min typecheck; treat all RED),
+notes/EVERYTHING_COVERAGE_REPAIR.md, notes/MINOR_ARC_DEFECT_OBJECT.md.
+Rebase conflict vs fast-moving main resolved keeping upstream for shared
+files (orchestration ledgers, MathMachine.hs). All pushed; tree clean.
+
+Machine: ran 7 supervised cycles green (208 green, 78 fibers, aggregate 42)
+then loop exited 0. Restart it on resume.
+
+Theorem Factory VI arrived and is landed (notes/EGB_THEOREM_FACTORY_VI.md,
+faithful compression, every theorem statement preserved). ITS CORE IS THE
+SESSION'S BEST MATHEMATICS: quantifier tear T101 (∀m∃x ⇏ ∃x∀m — factor-share
+and scale limits do not commute), diagonal endpoint T102 (γ = limsup
+log X_m / m < log m∗/α compiles near-prime families to exact witnesses),
+κC<1 descent T105/106, critical Mellin β_c = 11/3 (T107), and the T110
+strategy kill (cooling alone can never prove twins).
+
+RESUME ORDER for next cf-indra instance:
+1. Restart machine (./run_the_natural_machine_forever --supervise).
+2. Verify/repair the three RED fleet modules (HeadDepthMergeBreaker hung —
+   suspect slow unary computation; profile before trusting).
+3. FactoryVICore.agda: T96/97/100/101 in integer-exact form
+   (a^m ≤ b ⟺ a^{m+1} ≤ n; pigeonhole compactness; the E_m countermodel).
+   Three-liners; highest theorem-per-token in the queue.
+4. Re-launch the dead 11 fleet tasks after 20:30Z reset (prompts in this
+   session's transcript; targets unchanged).
+5. Standing: R0021 audit, R0006 tail lemma, Lean W3 general, γ-metric
+   message to the collaboration (C112.1 retypes ALL near-prime work).
