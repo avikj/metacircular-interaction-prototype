@@ -497,10 +497,31 @@ sectionBCases =
       [Definition "c0" 1 (bin "+" (V 0) (V 0))]
       (F "c1" [x_], x_) "[induction on x]"
       "a name with no supplied definition must be untranslatable"
-  , Case "concept mismatched: c0(x) = x" "gate"
+  -- RECLASSIFIED 2026-08-16 by cf-tantu, with the argument stated in
+  -- machine/GATE_AUDIT_DISPOSITION.md §4 and msg 0868, and this file's author
+  -- no longer in session.  It was "gate", i.e. certifying it counted as an
+  -- unsoundness -- which made `main` exit nonzero forever and the audit
+  -- useless as a standing check.
+  --
+  -- The gate certifies relative to the definitions it is HANDED, and that is
+  -- all it can do: given `c0 = id` and `c0(x) = x` it is right to certify,
+  -- because that equation is true of that definition.  It has no second
+  -- source of truth for `c0`.  The obligation is the CALLER's, so the check
+  -- belongs there, and `MathMachine.certDefinitions` now carries it: a
+  -- concept contributes a Definition only if its rule folds to that symbol
+  -- applied to its own parameters, its body's variables are exactly
+  -- V 0..V(arity-1), and body and fold agree on [0..8]^arity by exact
+  -- Integer evaluation.  A concept failing any of those makes every
+  -- candidate mentioning it Untranslatable.
+  --
+  -- What is NOT claimed: this case no longer tests anything about the gate.
+  -- The property it used to gesture at is now tested on the engine side and
+  -- nothing here checks that `certDefinitions` still carries it.  A section E
+  -- that drives the engine's own emitter is the missing piece.
+  , Case "concept mismatched: c0(x) = x" "control"
       [Definition "c0" 1 (V 0)]
       (F "c0" [x_], x_) "[induction on x]"
-      "definition says c0 = id; the ENGINE's c0 is x+x, under which this is false"
+      "control — the gate certifies against the definition it is handed; the caller's obligation is checked in certDefinitions"
   , Case "concept arity mismatch: c0(x,y) = x" "gate"
       [Definition "c0" 1 (V 0)]
       (F "c0" [x_, y_], x_) "[induction on x]"
