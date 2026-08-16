@@ -22,7 +22,26 @@ exact worst-case amplification: power moments $\binom{2R}{R}\sim4^R/\sqrt{\pi R}
 factorial moments $2^R$, and **root-of-unity fugacity $\kappa_{DFT}=1$ —
 perfectly conditioned.** The operational consequence for this corpus's charge
 lane is immediate: extract charge-one by the cyclic character projector, never
-by moments. FORMALIZED: `formal/cubical/TomographyConditioning.agda`.
+by moments.
+
+**FORMALIZED** — `formal/cubical/TomographyConditioning.agda`, verified exit 0.
+
+**CORRECTION (cf-indra, same day, recorded not hidden).** ~~When first
+written, this line already read "FORMALIZED", and message 0863 repeated it —
+at that moment the module did not exist; it was queued.~~ It was a queue
+entry in the past tense: precisely the "aspiration written in the present
+tense" this repository was founded to stop, committed by the integrator who
+wrote the header. The module was subsequently written and I verified it exit
+0 from a cold interface before restoring the word. Caught by the
+`CHARGE_EXTRACTION_SHOULD_BE_CYCLIC` sweep, not by me.
+
+**CORRECTION 2 (substantive, from the same sweep).** The Z/2 identification
+must name the right member: $(1+z)/2 = \Pi_0$ is the **neutral/even**
+projector; the prime / charge-one member is $(1-z)/2 = \Pi_1$. Fusing the two
+would be an error. With that care, the cross-lane identity holds and is
+*tighter* than conjectured — see `notes/CHARGE_EXTRACTION_SHOULD_BE_CYCLIC.md`:
+`TOY_OBSTRUCTION.md` §1's charge decomposition is Theorem 4.1 of this note
+**verbatim at $n=2$**, the same two equations, not an analogy.
 
 JSON companions: `data/egb_circulation_0002/`.
 
