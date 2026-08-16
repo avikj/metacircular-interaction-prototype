@@ -242,6 +242,14 @@ module Certificate
   , certifyWith
   , runAgda
   , main
+    -- * the two controls (a kernel that accepts a falsehood is not a kernel)
+  , kernelIsChecking
+  , canaryTrue
+  , canaryFalse
+  , successHidesAnError
+  , kEnvironmentFault
+  , kAgdaTimeoutMicros
+  , agdaTimeoutMicros
     -- * the certificate cache (content-addressed, one file per module)
   , kCertCacheDir
   , cacheEnabled
@@ -268,7 +276,8 @@ module Certificate
 import Control.Exception (SomeException, finally, try)
 import Data.Bits (shiftR, xor, (.&.), (.|.))
 import Data.Char (isAlphaNum, isDigit, isSpace, ord, toLower)
-import Data.IORef (IORef, newIORef, readIORef, writeIORef)
+import Control.Monad (when)
+import Data.IORef (IORef, modifyIORef', newIORef, readIORef, writeIORef)
 import Data.List (foldl', intercalate, isInfixOf, isPrefixOf, nub, sort)
 import Data.Maybe (isJust, mapMaybe)
 import Data.Time.Clock (diffUTCTime, getCurrentTime)
@@ -282,6 +291,7 @@ import System.IO.Unsafe (unsafePerformIO)
 import System.Directory
   ( createDirectoryIfMissing, doesFileExist, getTemporaryDirectory
   , removePathForcibly, renameFile )
+import System.Timeout (timeout)
 import System.Process
   (CreateProcess(..), proc, readProcess, readCreateProcessWithExitCode)
 import Text.Printf (printf)
@@ -701,6 +711,57 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 -- state and is set on every call so the seam cannot forget it.
 runAgda :: FilePath -> String -> IO (ExitCode, String)
 runAgda root source = do
+  micros <- agdaTimeoutMicros
+  r <- try (timeout micros (runAgdaRaw root source))
+         :: IO (Either SomeException (Maybe (ExitCode, String)))
+  pure $ case r of
+    Right (Just ok) -> ok
+    -- BOTH OF THESE USED TO ESCAPE.  A missing agda, a `root` that does not
+    -- exist, a mktemp failure: `runAgda` let the IO exception out, past
+    -- `certifyWith`, past `kernelAcceptWith`, and the engine ABORTED where
+    -- the honest answer is "this candidate was not certified".  An agda
+    -- that never returns blocked the gate forever, and `kMaxAgdaCalls`
+    -- bounds processes, not wall clock.  A gate must fail closed on both.
+    Right Nothing ->
+      ( ExitFailure 124
+      , kEnvironmentFault ++ ": agda did not return within "
+          ++ show (micros `div` 1000000) ++ "s\n" )
+    Left e ->
+      ( ExitFailure 127
+      , kEnvironmentFault ++ ": agda invocation raised: " ++ show e ++ "\n" )
+
+-- The wall-clock bound on one agda process.  Generous: the slowest module
+-- the gate emits (a gcd candidate, which pulls in Cubical.Data.Nat.GCD)
+-- checks in single-digit seconds, so a candidate that reaches this bound is
+-- not slow, it is stuck.
+kAgdaTimeoutMicros :: Int
+kAgdaTimeoutMicros = 120 * 1000000
+
+-- `MATH_AGDA_TIMEOUT` overrides it, in whole seconds.  Not a tuning knob:
+-- a bound that cannot be moved cannot be TESTED, and the probe that proves
+-- the gate survives a hung agda has to be able to hang it for less time
+-- than the audit itself is willing to wait.  Anything unparseable, zero or
+-- negative falls back to the default rather than disabling the bound.
+agdaTimeoutMicros :: IO Int
+agdaTimeoutMicros = do
+  mv <- lookupEnv "MATH_AGDA_TIMEOUT"
+  pure $ case mv >>= readSeconds of
+    Just s | s > 0 -> s * 1000000
+    _ -> kAgdaTimeoutMicros
+  where
+    readSeconds v = case span isDigit (dropWhile isSpace v) of
+      (ds@(_ : _), rest) | all isSpace rest -> Just (read ds)
+      _ -> Nothing
+
+-- The marker that says "this non-zero exit is about the environment, not
+-- about the mathematics".  `cacheableFailure` refuses to freeze anything
+-- carrying it, so a broken toolchain cannot leave rejections behind that
+-- outlive the breakage -- the 2026-08-15 fault, kept shut.
+kEnvironmentFault :: String
+kEnvironmentFault = "kernel gate environment fault"
+
+runAgdaRaw :: FilePath -> String -> IO (ExitCode, String)
+runAgdaRaw root source = do
   setLocaleEncoding utf8
   tmp <- getTemporaryDirectory
   dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
@@ -716,6 +777,106 @@ runAgda root source = do
       (code, out, err) <- readCreateProcessWithExitCode cp ""
       pure (code, out ++ err))
     `finally` removePathForcibly dir
+
+-- ------------------------------------------------------- the two controls
+--
+-- WHAT AN EXIT STATUS IS WORTH.  Until 2026-08-16 the gate's entire evidence
+-- that a candidate had been PROVED was `code == ExitSuccess`.  That is not
+-- evidence about mathematics, it is evidence about a number a process
+-- returned, and `machine/GateAudit.hs` section C exhibited three ways to
+-- separate the two.  The cheapest is not exotic: a wrapper of the shape
+--
+--     agda "$@" 2>&1 | cat
+--
+-- has the exit status of `cat`.  Real agda runs, really reports `suc x != x`,
+-- really exits 1 -- and the gate read 0 and returned `Certified "refl" 1`
+-- for `s(x) = x`.  Anyone who has ever piped a compiler through `tee` to
+-- keep its output has built this shim by accident.
+--
+-- The repair is the discipline this repository already applies to its
+-- finite verifications: a positive control is not evidence without a
+-- FALSIFIER.  `ArithVocab`'s lifting-the-exponent law is trusted because
+-- the same harness that accepts 53,760 true triples is watched rejecting a
+-- false one at (p=2,a=3,n=2).  The kernel gets the same treatment.  Two
+-- modules, run once per process, uncached, through the same `runAgda` the
+-- candidates use:
+--
+--   * `canaryTrue` MUST check.  It fails when agda is missing, the library
+--     is unregistered, the include root has moved -- the 2026-08-15 fault,
+--     where every candidate became a KERNEL-REJECT.
+--   * `canaryFalse` MUST NOT.  It is `suc x ≡ x` closed by `refl`.  A
+--     checker that accepts it is not checking, and NOTHING it says can be
+--     read as a proof.
+--
+-- One of the two catches every attack in section C, because each of them
+-- has to make a false module pass in order to make a false candidate pass.
+-- The cost is two agda processes per engine run, paid on the first success
+-- and never again; a run that certifies nothing never pays it at all.
+--
+-- The controls are run UNCACHED on purpose.  A canary served from an
+-- unauthenticated on-disk store would be a canary an attacker can answer.
+
+canaryModule :: String -> String
+canaryModule claim = unlines
+  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  , "module Candidate where"
+  , "open import Cubical.Foundations.Prelude"
+  , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)"
+  , "canary : (x : ℕ) → " ++ claim
+  , "canary x = refl"
+  ]
+
+-- True definitionally: `_+_` recurses on its FIRST argument in cubical, so
+-- `zero + x` reduces to `x` and `refl` closes it with no lemma.
+canaryTrue :: String
+canaryTrue = canaryModule "(zero + x) ≡ x"
+
+-- False for every x, and false in the cheapest possible way -- a
+-- constructor clash, which agda reports without unfolding anything.
+canaryFalse :: String
+canaryFalse = canaryModule "(suc x) ≡ x"
+
+{-# NOINLINE kernelChecksRef #-}
+kernelChecksRef :: IORef (Maybe Bool)
+kernelChecksRef = unsafePerformIO (newIORef Nothing)
+
+-- Does the thing on the far side of this seam actually check proofs?
+-- Memoised per process: the answer is a property of the toolchain, and a
+-- toolchain that changes under a running engine is not a threat this can
+-- address (nor one the cache key can, which is the same admission).
+kernelIsChecking :: FilePath -> IO Bool
+kernelIsChecking root = do
+  cached <- readIORef kernelChecksRef
+  case cached of
+    Just b -> pure b
+    Nothing -> do
+      (posCode, posOut) <- runAgda root canaryTrue
+      (negCode, _) <- runAgda root canaryFalse
+      let positiveHolds = posCode == ExitSuccess && not (successHidesAnError posOut)
+          negativeHolds = negCode /= ExitSuccess
+          ok = positiveHolds && negativeHolds
+      writeIORef kernelChecksRef (Just ok)
+      pure ok
+
+-- The per-call form of the same suspicion, and the one that catches the
+-- `| cat` shim on the very first candidate rather than on the first
+-- success: agda's output is CAPTURED, so under that wrapper the type error
+-- is sitting in the text next to the zero exit status.  A successful agda
+-- run says "Checking Candidate (…)" and nothing else.
+successHidesAnError :: String -> Bool
+successHidesAnError out = any (`isInfixOf` out) markers
+  where
+    markers =
+      [ " != "
+      , "when checking"
+      , "Not in scope"
+      , "Multiple definitions"
+      , "Unsolved"
+      , "Termination checking failed"
+      , "Failed to find source"
+      , "error:"
+      , "Parse error"
+      ]
 
 -- ---------------------------------------------- the certificate cache
 --
@@ -932,39 +1093,140 @@ cacheableFailure out =
       , "Interrupted"
       , "cannot encode character"
       , "invalid argument"
+      , kEnvironmentFault      -- timeout, or an exception out of `runAgda`
       ]
     typeErrorMarkers =
       [ " != "
       , "when checking"
       ]
 
+-- ASYMMETRIC TRUST, which is the only kind an unauthenticated store can
+-- carry.  `machine/.certcache` is a directory of files.  Anything that can
+-- write there can write "VERDICT accepted" beside any module it likes, and
+-- `GateAudit --probe poison` does exactly that: one hand-written file turns
+-- `s(x) = x` into a `Certified` for zero agda invocations.  Signing is not
+-- available (there is no secret here, and an adversary with the filesystem
+-- has `Certificate.hs` too), so the answer is not to authenticate the store
+-- but to stop asking it the question that matters.
+--
+-- The two directions are not symmetric:
+--
+--   a WRONG REJECTION costs a theorem.  The engine misses something true,
+--   the loop continues, the corpus stays sound.
+--
+--   a WRONG ACCEPTANCE installs a false rewrite rule, and every later round
+--   reasons with it.
+--
+-- So rejections are served from disk, and an ACCEPTANCE ON DISK IS A HINT:
+-- the first time this process is asked to honour one it re-runs agda and
+-- believes agda.  Confirmed keys go in an in-memory set, so a candidate
+-- resubmitted a hundred times in one run still costs one call, not a
+-- hundred -- which is where nearly all of the cache's measured win came
+-- from (the same module is re-emitted every round it survives, not once).
+-- An entry agda then contradicts is DELETED, because it is either poisoned
+-- or was written by a toolchain that lied.
+--
+-- Stated as one line: on-disk acceptances are hints, in-memory acceptances
+-- are verdicts, and no acceptance of either kind is honoured by a process
+-- whose kernel has not been watched rejecting a false module.
+
+{-# NOINLINE confirmedRef #-}
+confirmedRef :: IORef [String]
+confirmedRef = unsafePerformIO (newIORef [])
+
+confirmedHere :: String -> IO Bool
+confirmedHere key = elem key <$> readIORef confirmedRef
+
+confirmHere :: String -> IO ()
+confirmHere key = modifyIORef' confirmedRef (key :)
+
+-- Every route by which a success leaves this module passes through here.
+-- A zero exit is upgraded to an acceptance only if agda's own output is
+-- free of complaints AND this process has seen the kernel reject a false
+-- module.  Otherwise the zero exit is reported as what it is: a fault in
+-- the environment, uncacheable, and a rejection at the gate.
+vetSuccess :: FilePath -> String -> IO (ExitCode, String)
+vetSuccess root out
+  | successHidesAnError out =
+      pure ( ExitFailure 125
+           , kEnvironmentFault
+               ++ ": agda exited 0 while reporting an error; the exit status\n"
+               ++ "of this invocation is not agda's.  Original output:\n" ++ out )
+  | otherwise = do
+      checking <- kernelIsChecking root
+      pure $ if checking
+        then (ExitSuccess, out)
+        else ( ExitFailure 126
+             , kEnvironmentFault
+                 ++ ": the kernel accepted `suc x ≡ x` by refl.  It is not\n"
+                 ++ "checking proofs, so nothing it accepts is one.\n" )
+
 -- The cached invocation.  The third component is the number of agda
 -- PROCESSES actually launched: 0 on a hit, 1 on a miss.  Everything that
 -- reports an invocation count counts this, so a cache hit can never be
--- mistaken for kernel work.
+-- mistaken for kernel work.  (The two control modules are not counted:
+-- they are paid once per process and belong to no candidate.)
 runAgdaCached :: FilePath -> String -> IO (ExitCode, String, Int)
 runAgdaCached root source = do
   on <- cacheEnabled
   if not on
     then do
       (code, out) <- runAgda root source
-      pure (code, out, 1)
+      case code of
+        ExitSuccess -> do
+          (code', out') <- vetSuccess root out
+          pure (code', out', 1)
+        _ -> pure (code, out, 1)
     else do
       tc <- toolchainIdentity
       let key = cacheKey tc source
       hit <- lookupCache root tc key source
       case hit of
-        Just (code, out) -> pure (code, out, 0)
+        -- a cached REJECTION: served, as before.  It can only lose a
+        -- theorem, and the stored source is byte-compared, so the worst
+        -- case is a candidate re-derived later at full price.
+        Just (ExitFailure n, out) -> pure (ExitFailure n, out, 0)
+        -- a cached ACCEPTANCE: free only after this process has confirmed
+        -- it against the kernel itself.
+        Just (ExitSuccess, out) -> do
+          seen <- confirmedHere key
+          if seen
+            then pure (ExitSuccess, out, 0)
+            else do
+              (code, out') <- runAgda root source
+              case code of
+                ExitSuccess -> do
+                  (code', out'') <- vetSuccess root out'
+                  case code' of
+                    ExitSuccess -> confirmHere key >> pure (ExitSuccess, out, 1)
+                    _ -> dropEntry root key >> pure (code', out'', 1)
+                _ -> do
+                  dropEntry root key
+                  pure (code, out', 1)
         Nothing -> do
           (code, out) <- runAgda root source
-          let ec = case code of { ExitSuccess -> 0 ; ExitFailure n -> n }
-              entry = CacheEntry ec tc out source
           case code of
-            ExitSuccess -> storeCache root tc key entry
-            ExitFailure _
-              | cacheableFailure out -> storeCache root tc key entry
-              | otherwise -> pure ()
-          pure (code, out, 1)
+            ExitSuccess -> do
+              (code', out') <- vetSuccess root out
+              case code' of
+                ExitSuccess -> do
+                  confirmHere key
+                  storeCache root tc key (CacheEntry 0 tc out source)
+                  pure (ExitSuccess, out, 1)
+                ExitFailure n -> pure (ExitFailure n, out', 1)
+            ExitFailure n -> do
+              when (cacheableFailure out) $
+                storeCache root tc key (CacheEntry n tc out source)
+              pure (ExitFailure n, out, 1)
+
+-- An entry the kernel contradicts is removed rather than left to be
+-- re-tested by every future process.  Failure to remove it is not fatal:
+-- the next process re-tests it and reaches the same answer.
+dropEntry :: FilePath -> String -> IO ()
+dropEntry root key = do
+  r <- try (removePathForcibly (root </> kCertCacheDir </> key))
+         :: IO (Either SomeException ())
+  either (const (pure ())) pure r
 
 -- How a verdict announces provenance.  0 fresh agda calls => the whole
 -- result came out of the cache and says so; any fresh call at all and the
@@ -1020,6 +1282,14 @@ certifyWith defs root (eq, proofNote) =
       (code, out, n0) <- runAgdaCached root reflSource
       case code of
         ExitSuccess -> pure (Certified (cachedShape n0 "refl") n0)
+        -- FAIL CLOSED AND FAIL FAST.  An environment fault says nothing
+        -- about this equation, so the eleven remaining step shapes have
+        -- nothing to add: they will each hang for the same timeout, or
+        -- raise the same exception, and the candidate will be rejected
+        -- anyway twelve invocations later.  Under a hung agda that is the
+        -- difference between one timeout and the whole budget's worth.
+        ExitFailure _ | environmentFault out ->
+          pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
           case inductionVariable proofNote of
             Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
@@ -1048,6 +1318,8 @@ certifyWith defs root (eq, proofNote) =
                             ("induction on " ++ nv ++ ", step = " ++ label))
                          used')
             ExitFailure _
+              | environmentFault out ->
+                  pure (Rejected (firstErrorLine out) used')
               -- Agda blamed the base clause: no step shape can rescue it.
               | blamedLine out == Just baseLine ->
                   pure (Rejected
@@ -1055,6 +1327,15 @@ certifyWith defs root (eq, proofNote) =
                              ("base clause: " ++ firstErrorLine out))
                           used')
               | otherwise -> tryShapes v more used' (firstErrorLine out)
+
+-- Did this non-zero exit come from the environment rather than from the
+-- mathematics?  Only the faults this module synthesises itself count: a
+-- timeout, an exception out of `runAgda`, a zero exit contradicted by its
+-- own output, a kernel that failed its controls.  Agda's own diagnostics
+-- are not searched, because a candidate that merely MENTIONS the phrase
+-- must not be able to shorten its own examination.
+environmentFault :: String -> Bool
+environmentFault out = kEnvironmentFault `isPrefixOf` dropWhile isSpace out
 
 untranslatableReason :: [Definition] -> Equation -> String
 untranslatableReason defs eq@(l, r) =

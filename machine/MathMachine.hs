@@ -33,7 +33,7 @@ module Main (main) where
 
 import qualified Data.Map.Strict as M
 import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort)
-import Data.Maybe (mapMaybe, isJust)
+import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
 import Control.Monad (forM_, replicateM_, when, unless, filterM)
 import Control.Exception (finally)
@@ -870,6 +870,7 @@ runSmokeMachineWith disp n = do
                      Just v  -> start { mVocab = max 1 (min v (dVocabCap disp)) })
   withFile (maybe "/dev/null" id (dLog disp)) AppendMode $ \sink -> do
     hSetBuffering sink LineBuffering
+    hSetEncoding sink utf8
     hPrintf sink "=== MathMachine smoke ===\n  DISPATCH  %s\n" (show disp)
     replicateM_ n (round1 disp Nothing sink sink ref)
   readIORef ref
@@ -1388,11 +1389,53 @@ toCert :: Term -> C.Term
 toCert (V i)    = C.V i
 toCert (F f ts) = C.F f (map toCert ts)
 
+-- THE GATE WAS HANDED THE WRONG HALF OF THE MACHINE'S OWN CONCEPT RULE.
+-- `inventConcept` builds a concept's single rule as `(pattern, F nm args)`:
+-- the PATTERN on the left, the folded name on the right, because that is
+-- the direction a rewrite runs.  A `Definition` is the other object -- the
+-- defining CLAUSE `nm a0 .. = pattern` -- so its body is the rule's FIRST
+-- component.  Reading the second emitted `c0 a0 = (c0 a0)`, which agda
+-- answers with "Termination checking failed", so every candidate mentioning
+-- an invented concept was rejected for a reason that had nothing to do with
+-- whether it was true.  Concept invention is this file's own growth axis
+-- and at the gate that axis was closed.  Found by machine/GateAudit.hs
+-- section B, which submits both halves side by side.
+--
+-- AND THE GATE PROVES THINGS ABOUT THE DEFINITIONS IT IS HANDED.  That is
+-- all it can do: submit `c0(x) = x` together with `Definition "c0" 1 (V 0)`
+-- and agda certifies it by refl, correctly, whatever `c0` means here.  So
+-- the seam is not in the gate, it is in this function, and a comment
+-- promising to be careful is not a check.  Three conditions are imposed,
+-- and a concept failing any of them contributes no Definition -- which
+-- makes every candidate mentioning it UNTRANSLATABLE, the one outcome that
+-- cannot be mistaken for a proof:
+--
+--   * the rule folds to this very symbol applied to its own parameters,
+--     so it is a defining clause and not some incidental rewrite;
+--   * the body's variables are exactly V 0 .. V (arity-1), which is the
+--     `Definition` contract that `Certificate.render` relies on;
+--   * the body and the fold agree on the whole grid [0..8]^arity, by exact
+--     Integer evaluation -- the same `ruleCounterexample` the invention
+--     gate already uses, pointed here at the emitter.  One disagreeing
+--     assignment is a proof of mismatch and costs nothing.
+--
+-- The third is the one that answers GateAudit section B: it is a finite
+-- exhaustive verification that what the kernel is told `c0` means is what
+-- this engine computes when it evaluates `c0`.
 certDefinitions :: [Sym] -> [C.Definition]
 certDefinitions syms =
   [ C.Definition (symName s) (symArity s) (toCert body)
   | s <- syms
-  , Just (_, body) <- [conceptRule s]
+  , Just (body, fold) <- [conceptRule s]
+  , fold == F (symName s) (map V [0 .. symArity s - 1])
+  , ordNub (sort (vars body)) == [0 .. symArity s - 1]
+  -- `vocabulary ++` because a concept's body is built FROM the primitives
+  -- (`mentionsPrimitive` in `bestOf` requires at least one), while the
+  -- caller passes only the invented symbols; evaluating `c0 := x*x` against
+  -- a semantics holding just `c0` reaches eval's fail-loud boundary.  It
+  -- did, on the first run after this check was added, at round 12.
+  , isNothing (ruleCounterexample (vocabulary ++ syms)
+                 definitionAuditBound (body, fold))
   ]
 
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
@@ -2815,6 +2858,15 @@ runMachine disp batch = do
   libh <- openFile "machine/library.txt" AppendMode
   hSetBuffering logh LineBuffering
   hSetBuffering libh LineBuffering
+  -- The gate's rejections are agda's own diagnostics and agda writes ℕ, ≡
+  -- and λ.  Under a non-UTF-8 ambient locale `hPutStr` on these handles
+  -- raises `commitBuffer: invalid argument (cannot encode character
+  -- '\8469')` -- and it raises it in the middle of a run, so a machine that
+  -- had proved twenty theorems dies logging the twenty-first rejection.
+  -- Same fault as `Certificate.writeUtf8` answers on the way out and
+  -- `setLocaleEncoding` on the way back; this is the third mouth of it.
+  hSetEncoding logh utf8
+  hSetEncoding libh utf8
   hPutStrLn logh "=== MathMachine start ==="
   hPrintf logh "  THOUGHTS  candidates=%d residuals=%d required-vocab=%d\n"
     (length (thoughtCandidates batch)) (length (thoughtResiduals batch))
