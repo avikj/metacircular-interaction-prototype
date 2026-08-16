@@ -86,6 +86,7 @@ open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _∸_)
 open import Agda.Builtin.Nat using (_==_; _<_; div-helper; mod-helper; _*_)
 open import Cubical.Data.Bool using (Bool; true; false; if_then_else_; _and_; _or_; not)
 open import Cubical.Data.List using (List; []; _∷_)
+open import Cubical.Data.Sigma using (_×_; _,_)
 
 import HeadDepthMerge as HDM
 
@@ -115,14 +116,29 @@ pow : ℕ → ℕ → ℕ
 pow b n = powAcc 1 b n
 
 -- modular exponentiation, squaring the RESULT of the recursive call
--- (b^e = (b^{e/2})² · b^{e mod 2}), base reduced; fuel 64
+-- (b^e = (b^{e/2})² · b^{e mod 2}), base reduced; fuel 64.
+--
+-- The recursive result is consumed by `pmStep` as a function ARGUMENT,
+-- not an inline `let h = …; (h * h) …`.  This is load-bearing for the
+-- kernel, not cosmetic: the checker's normaliser does not share a
+-- `let`-binding, so squaring a let-bound recursive call `h * h`
+-- re-expands `pmB f …` TWICE per level → 2^{bits e} ≈ 2^18 leaf
+-- evaluations per triple, and the 1048-triple certificates below never
+-- return.  Passing the result as an argument shares it (exactly as
+-- HeadDepthMerge's `powMod` shares its reduced base), giving the honest
+-- O(log e) cost.  The arithmetic is unchanged — `pmStep`'s two branches
+-- are the original `(h²·b)` and `h²` verbatim — so every certified value
+-- is identical; only the reduction cost differs.
+pmStep : ℕ → ℕ → ℕ → ℕ → ℕ           -- m b e h,  h the reduced h = b^{e/2}
+pmStep m b e h =
+  let h2 = (h * h) % m
+  in if e % 2 == 1 then (h2 * (b % m)) % m else h2
+
 pmB : ℕ → ℕ → ℕ → ℕ → ℕ
 pmB zero    m b e = 1 % m
 pmB (suc f) m b e =
   if e == 0 then 1 % m
-  else (let h  = pmB f m b (e / 2)
-            h2 = (h * h) % m
-        in if e % 2 == 1 then (h2 * (b % m)) % m else h2)
+  else pmStep m b e (pmB f m b (e / 2))
 
 powModB : ℕ → ℕ → ℕ → ℕ
 powModB m b e = pmB 64 m b e
@@ -339,8 +355,9 @@ edge-powMod-true-value = refl
 -- n = 17, s = 4, d = 1, and 3 first hits −1 at r = 3 = s−1
 -- (3 → 9 → 13 → 16 mod 17).  A window off-by-one ([0, s−2]) would
 -- have flipped this certified triple; both implementations agree.
-edge-window-top-slot : (HDM.strongBlind 17 1 3 , strongBlindB 17 1 3)
-                     ≡ (true , true)
+edge-window-top-slot : Path (Bool × Bool)
+                          (HDM.strongBlind 17 1 3 , strongBlindB 17 1 3)
+                          (true , true)
 edge-window-top-slot = refl
 
 ------------------------------------------------------------------------
