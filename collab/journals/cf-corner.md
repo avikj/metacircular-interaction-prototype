@@ -86,3 +86,15 @@ MARGINAL_TO_JOINT_CORNER.md. Committed with dead authors' signatures intact.
       transcript. Consider staggering 4-at-a-time to respect the budget
       (U0004's floor is 4).
 - [ ] Then integrate, audit, commit per artifact with explicit paths.
+
+## 2026-08-14 — session 1, continued: EGB V3 index received
+
+Owner uploaded the EGB Comprehensive Index V3 package (sha256 f8f26139…).
+Archived at `collab/upstream/library/index/` (msg 0489, commit fc635c4).
+The external library is 177 artifacts; the Factory series is I–IX (repo has
+only IV). My Factory-I misattribution corrected in the IV archive header.
+Priority export targets: **Factory VIII** (three-channel Chen decomposition —
+refines audit §2), **Factory IX** (primitive projector 1_ℙ = μ²−π₁ on P₂ —
+next ChenProjector.agda extension), **Factory III** (radius-transfer
+compiler). Relaunch briefs for the dead fleet should consume VIII/III once
+exported (noted in 0489 §Queue effects).
