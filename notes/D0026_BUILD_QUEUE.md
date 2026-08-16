@@ -172,6 +172,61 @@ may be discarded only after proving every supported insertion context is
 insensitive to it. S1–S5 are the five places the machine currently discards
 distinctions whose insertion contexts are its own next cycle.
 
+## 4b. Δ RE-PRICING, 2026-08-17 — the queue was aimed at the wrong chapters
+
+**Finding (orchestrator, while latching Q2).** D0026 is not uniformly new to
+this repository. Its §15 source map names the owner-side Deltas behind each
+chapter; a mechanical sweep of `notes/` + `formal/cubical/` for those Delta
+numbers gives:
+
+| owner Delta | D0026 chapter | files here |
+|---|---|---|
+| 25 | §1.2 Braid/Net | 15 |
+| 26–29 | §2 DSO/Isbell/nucleus | 6 / 3 / 3 / 8 |
+| **30** | **§2.9 Chu, lenses, selection, strategic completion** | **0** |
+| **31–33** | **§1.1 Crystal ancestry, jewel-in-field, diamond principle** | **0** |
+| **35** | **§11 self-compressing language** | **0** |
+| **37–38** | **§7 Gter: revelation, separators, tomography** | **0** |
+| 39, 42 | Gter/kairos, prior transmission | 1, 1 |
+
+Consequences, stated plainly:
+
+1. **Q2 was ~60% re-derivation.** D0026 §2.4's counterexample already lives in
+   `DSONucleusOneSidedProduct.agda` (Delta 29 lane) with the same values. The
+   worker declared the prior art and kept only the general trefoil as new —
+   correct behavior — but the *brief* was at fault for not requiring a
+   formal-lane prior-art sweep. **Standing rule for this queue: before any
+   D0026 import item, sweep `notes/` and `formal/cubical/` for the owner
+   Delta number named in §15.**
+2. **The genuinely un-ingested mathematics is Deltas 30–38** — and that is
+   where the build energy belongs. New items:
+   - **Q9 (§7 / Deltas 37–38, Gter).** Highest value, and the evidence is
+     unusual: the repo **independently re-derived** the Gter Galois law
+     (`CHANGING_TESTS_VERSUS_SHRINKING`) *with a uniqueness theorem D0026
+     lacks* — without ever ingesting Deltas 37–38. Ingest properly: the
+     revelation-cost function ρ_P, the probe-filtration/revelation-time
+     apparatus, restricted-Yoneda density as the completeness criterion, and
+     §7.3's two-coordinate defect 𝔤(P,Σ) = (E(P), ⋏_Σ) — the claim that
+     static hiddenness and dynamic gluing-insufficiency are *independent*
+     coordinates is not in this corpus in any dialect.
+   - **Q10 (§2.9 / Delta 30, Chu–lens–selection–strategic).** The repo has
+     the Chu core (Tower III) but not the lens composition law, the
+     proof-relevant selection functional `Sel_K`, or the matching-pennies
+     separator showing equilibrium-only summaries erase semantically
+     relevant structure. Consumer: the machine's reward/verification lane,
+     which `VERIFIER_BLIND_FIBER_REWARD` leaves exactly here.
+   - **Q11 (§1.1 / Deltas 31–33, Crystal ancestry).** The six-question jewel
+     schematic and the self-consistent field ψ = S(Gψ). Lowest formal yield,
+     highest constitutional yield: it is the ancestor the README's own
+     framing descends from, and it is absent as a source here.
+3. **Q3 stands** (Chen/§5.9 and Φ_n/§5.5 verified absent before writing), and
+   **Q4 stands** (the two-wall pincer is precisely the complementarity this
+   sweep confirms: the repo has no Kuznetsov lane at all).
+
+The deeper lesson is the one `NAME_TO_OBJECT_INDEX.md` N2 records: unmerged
+duplication *reproduces*. Here it nearly reproduced across corpora, in a queue
+written by the agent that had just finished cataloguing the disease.
+
 ## 5. What this queue is not
 
 Not a Rosetta. Not a claim that the two corpora are one theory. Both
