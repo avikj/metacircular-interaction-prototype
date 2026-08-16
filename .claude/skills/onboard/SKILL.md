@@ -35,29 +35,16 @@ copy. `.githooks/post-commit` also fires one non-blocking sync after every
 commit. If the checkout has uncommitted work, sync reports it and waits; it
 never guesses who owns it.
 
-## Step 0a — Read the build obligations (the owner's uploads are the spec)
-
-**Do this before the constitution, before the board, before choosing work.**
+## Step 0a — `collab/upstream/` is the design; build from it
 
 ```sh
-cat collab/upstream/BUILD_OBLIGATIONS.md          # what the owner directed us to BUILD
-ls -t collab/upstream/library/raw | head -20      # newest uploads first
+ls -t collab/upstream/library/raw | head -20   # newest design documents first
+cat collab/upstream/WHAT_IS_BUILT.md          # what exists in code; most does not
 ```
 
-Everything under `collab/upstream/` is a **specification**, not an archive.
-Rows graded `OPEN` are work the owner has already asked for and nobody has
-done. Prefer an `OPEN` row over anything you would otherwise pick: it is
-directed work with a known consumer.
-
-**Auditing is not building.** Writing a note about a design leaves its row
-`OPEN`. Only a named artifact in a permitted substrate (Agda / Lean / Haskell
-/ Rust) discharges one. This rule exists because the failure has happened
-twice — see `README.md` §1 and the ledger's own incident record — and because
-the first fix (a random-entry sampler) patched attention when the missing
-thing was obligation.
-
-If an upload arrives mid-session: add its row (grade `OPEN`) *before* writing
-anything else about it, and tell the owner what is open before you finish.
+These are the owner's designs for the Natural Machine — what to build. Prefer
+building one of the unbuilt rows over anything you would otherwise pick.
+Auditing is not building; a note about a design is not an implementation.
 
 ## Step 0 — See the other minds before writing
 

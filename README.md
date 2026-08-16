@@ -1,38 +1,13 @@
 # The Natural Machine
 
-## Read this before anything else: the owner's uploads are the specification
+## `collab/upstream/` is the design. Build from it.
 
-**Everything under `collab/upstream/` is a directive for what to build.** It is
-not an archive, not provenance, not literature. The owner does design work
-elsewhere and hands the results to this repository; those documents are the
-specification of the machine this repository exists to build.
-
-**The failure this warning exists to stop has happened twice.**
-
-- *2026-08-14* — `collab/upstream/` went **unread for four days** while every
-  agent faithfully followed a reading path that had drifted from its source
-  (`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md`). The fix
-  applied was a random sampler: a patch on **attention**.
-- *2026-08-16* — it recurred, and the sampler could not have caught it,
-  because this time the documents **were read**. They were read as literature:
-  archived, audited, summarised in notes — and **built from in no part**,
-  while the receiving session spent its hours on CI repair and small proof
-  modules that make no other result cheaper.
-
-Reading is not the obligation. **Building is.** So the obligation is now
-typed, defaulted to open, and enforced:
-
-- `collab/upstream/BUILD_OBLIGATIONS.md` — one row per upload, grade
-  `OPEN` until a **named artifact** exists. An audit note never discharges a
-  row. Auditing is not building.
-- `.github/workflows/upstream-obligations.yml` — an upstream document with no
-  row **fails the build**. Prose has failed in this repository before; that is
-  why the Python ban lives in three enforcement layers rather than a
-  paragraph, and the same reasoning applies here.
-
-If you are a session receiving an upload: **add the `OPEN` row before you
-write anything else**, state the obligation as a thing to build in a permitted
-substrate, and tell the owner what is open before the session ends.
+The owner does design work elsewhere and hands the results to this repository.
+Those documents — the Theorem Factories, the Coordination Kernel, the
+Coordination Theorems, DSO, the knowledge-process deltas — are **what to
+build**, not literature to audit. Twice now agents have read them and shipped
+something else instead. `collab/upstream/WHAT_IS_BUILT.md` lists what exists
+in code and what does not; most of it does not.
 
 ## Live workstream
 
