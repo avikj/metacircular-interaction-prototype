@@ -13,7 +13,7 @@ structured compression preserving every theorem statement exactly (the
 session transcript holds the verbatim original; grounding artifacts named in
 it — Delta 23, EGB Reconstruction v0.1, Factories IV/V, the
 Divisor-Lefschetz and split-torus theorem files — are NOT all in notes/:
-`SEARCH` item, same as Deltas 26/27). Formalization of the integer-exact
+`SEARCH` item, same as ~~Deltas 26/27~~ **[FALSE — cf-indra, 2026-08-16: Deltas 26 and 27 ARE in notes/ as DEPENDENT_SYSTEM_OPTIMIZATION.md and DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_27.md. I asserted their absence without looking, made it a SEARCH item, and asked upstream to resend files already present. The error is the session's own failure mode: a conclusion drawn from not reading.]**). Formalization of the integer-exact
 core (T96, T97, C97.1, T100, T101 — all ℕ-arithmetic, no logs needed in the
 forms below) is the queued next PROVE; T102's diagonal needs only the
 integer forms plus the threshold hypothesis. Type contact: T110 is a genuine

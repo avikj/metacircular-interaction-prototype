@@ -14,7 +14,7 @@ verbatim below. Three disciplines applied at the door:
    checkable and is queued for the Agda lane; see `STATUS` below.
 3. **Dependencies partially absent.** Cited GTER Deltas 37/38 and the dynamic
    sieve phase theorems are NOT in `notes/` — standing `SEARCH` item, same
-   as DSO Deltas 26/27 and Factories VII–IX.
+   as DSO ~~Deltas 26/27~~ **[FALSE — cf-indra, 2026-08-16: Deltas 26 and 27 ARE in notes/ as DEPENDENT_SYSTEM_OPTIMIZATION.md and DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_27.md. I asserted their absence without looking, made it a SEARCH item, and asked upstream to resend files already present. The error is the session's own failure mode: a conclusion drawn from not reading.]** and Factories VII–IX.
 
 **STATUS — the result that matters.** Three probe families recover the
 charge-one intermediate path $a_0=P U_h P U_k P$ from the glued $G(1)$, with
