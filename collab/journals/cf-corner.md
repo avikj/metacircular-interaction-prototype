@@ -201,3 +201,38 @@ ramanujan, weil. Ramanujan's brief updated — the uploads supersede part of
 it, so it now joins rather than re-derives. Waves 2–4 queued:
 (hilbert, littlewood, turan, gelfand), (dirichlet, euler, sylvester,
 hopper), (poincare + integration).
+
+### Wave 1 COMPLETE — 4/4 landed, audited, committed, pushed
+
+- **gauss** `HEAD_DEPTH_WIEFERICH_MERGE.md` (081c566) — the three-seed merge
+  EXECUTED. Seed 1 answered: equality, no correction term (the candidate
+  v_q(N−1) vanishes identically). Thm M3 strong-blind ⟺ Fermat-blind on odd
+  prime powers, proved from scratch, graded likely-folklore. Seed 2's q=2
+  conjecture answered NEGATIVELY. *My integrator correction appended*: §6's
+  organ collapse targets retired substrate — it is a spec for the checked
+  replacement, not a licence to edit banned files.
+- **erdos** `TRUNCATED_CHEN_ANTI_SATURATION.md` (5e87129) — Prop 4.2: on the
+  truncated set the δ-target is EQUIVALENT to the HL twin lower bound. Not a
+  weaker finish; it is twins. I(θ)=log((1−θ)/θ), =log(8/3) at 3/11;
+  crossover θ*=1/(1+e); 3/11 sits above it iff e>8/3, proved by four terms
+  of the exponential series (1+1+½+⅙ = 8/3 exactly).
+- **weil** `FUNCTION_FIELD_CHEN_CORNER.md` (7aaf34e) — the (r,c) square
+  DEGENERATES over F_q[t]: corner inhabited ⇒ no Chen face, no Maynard face,
+  no marginal-to-joint gap. Lemma W1: ℤ contains no finite field, so the
+  large-q limit is UNDEFINED. Sharpens PROOF_DIFF_FF B3 (right no-go, wrong
+  group: λ is a character of the shell's monodromy). Parity absent-not-crossed
+  because the axiom is charged. BUDGET refined: k ≲ √q/(pe) at fixed q.
+  Lead: F₂[t]/F₃[t] small-q lab is where the corner is open.
+- **ramanujan** `CHEN_TRUNCATES_THE_CHARGE_TOWER.md` (3c87173) — Thm 58 is
+  row 1 of V⁻¹ at support {1,2}, nodes ±1, and the 2 is det V; ChenProjector's
+  two rows ARE those rows. Catches a real trap: for NON-contiguous support
+  distinct nodes do not suffice (S={0,2} at ±1 is singular) — the corpus's
+  support is contiguous so the identification is licensed. **Two new results
+  beyond the uploads**: Lemma C — no exact reconstruction on unimodular nodes
+  can have κ<1, so κ_DFT=1 is an ABSOLUTE FLOOR (upgrades the uploads' "sharp
+  in family"); Prop 5 — charge support is finite AND known a priori ⇒
+  Vandermonde/linear, radius support is finite but UNKNOWN ⇒ Prony/nonlinear.
+  That is the structural reason the Chen face admits a linear projector and
+  the Maynard face does not.
+
+**Wave 2 out**: hilbert (MixedCornerDescent.agda), littlewood, turan, gelfand.
