@@ -49,6 +49,7 @@ import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
 import qualified Certificate as C
+import qualified Certify as CY
 import qualified TraceReplay as TR
 import qualified Knobs as K
 -- DISPATCH SEAM (2026-08-16).  Three modules built this session as standalone
@@ -2135,6 +2136,9 @@ isAssociativity f equation = forward equation || forward (swap equation)
 --                                   as it did before WIRE 4 existed.  Nothing
 --                                   is computed, nothing is logged, and the
 --                                   `criticalPairs` enumeration is not forced.
+--                                   This default is NOT a cost decision; the
+--                                   measurement that says so is on the field
+--                                   itself, below.
 --
 -- Nothing here can make an unsound theorem installable: every wire feeds the
 -- same kernel gate, and the gate is the authority.  What the wires change is
@@ -2146,10 +2150,44 @@ data Dispatch = Dispatch
   , dNestedDepth :: Int          -- 0 = off; else NestedInduction budget
   , dRounds      :: Maybe Int    -- Nothing = forever (the live default)
   , dLog         :: Maybe FilePath  -- smoke-mode log sink; Nothing = /dev/null
-  -- WIRE 4.  0 = off, and off is the live default: `round1` then takes the
-  -- blind-widen branch it took yesterday, byte for byte.  Any n > 0 is the
+  -- WIRE 4.  0 = off, and off is still the live default.  Any n > 0 is the
   -- budget of critical pairs CERTIFY may examine on a barren round before it
-  -- gives up and lets the ladder run anyway.  See the WIRE 4 banner.
+  -- gives up and lets the ladder run anyway.  See the WIRE 4 banner, and
+  -- `certifySeam` for what n now buys that it did not buy before 2026-08-17.
+  --
+  -- WHY 0, RE-DECIDED 2026-08-17 WHEN THE SEAM WAS ACTUALLY CONNECTED, AND
+  -- WHAT THE REASON IS NOT.  It is NOT cost.  Measured on this machine, four
+  -- rounds, `machine/library.terms` restored to a fixed 37-equation state
+  -- before every run so the runs are comparable, wall clock:
+  --
+  --     --rounds 4                    41.27s  41.60s  41.77s  40.92s
+  --     --rounds 4 --certify 20000    42.23s  41.58s  41.09s  41.34s
+  --
+  -- The spread WITHIN the off column is 0.85s and the gap between the column
+  -- means is about 0.5s, so the cost of running CERTIFY on this workload is
+  -- not distinguishable from the noise of not running it.  Anyone who leaves
+  -- this flag off to save time is saving nothing.
+  --
+  -- The reason is that turning it on CHANGES THE LADDER, and the change is
+  -- unmeasured beyond four rounds.  A divergent critical pair that the kernel
+  -- accepts is installed and GROWTH IS HELD for that round (see `COMPLETE` in
+  -- `round1`); that is the intended behaviour and it is the whole point of
+  -- completion-instead-of-widening, but it means the machine visits a
+  -- different sequence of horizons than every log, note and count in this
+  -- repository was written against.  It has been observed to fire: on a
+  -- 15-equation memory it installed `0 = c0(0)` -- true, since c0 := x*x --
+  -- which generate-and-test had not stated at any horizon it had reached.
+  -- On the 37-equation memory it finds `s(x+(y-1)) = x+(y max 1)`, also true,
+  -- every growing round, and the kernel declines it (the note it is given is
+  -- a critical-pair provenance string, and `Certificate.certifyWith` reads
+  -- its induction variable out of that note), so the round ends CERTIFY-HOLD
+  -- and the ladder is unchanged.  Both outcomes are correct.  Neither has
+  -- been run out to the horizon-7 plateau the corpus is written about.
+  --
+  -- So: off is a statement about what has been MEASURED, not about what is
+  -- better.  `--certify 20000` is the measured-harmless way to ask for the
+  -- organ, and the run that flips this default should be the run that has
+  -- the long-horizon A/B in hand.
   , dCertify     :: Int
   } deriving (Eq, Show)
 
@@ -2431,11 +2469,152 @@ certifyLocal budget rs = go 0 (criticalPairs rs)
                   | otherwise             -> Divergent (n+1) cp
     joins (u,v) = normalize rs u == normalize rs v
 
--- THE SEAM.  One line to swap when machine/Certify.hs lands; its
--- `Certify.certify :: Int -> [(Term,Term)] -> Certify.Verdict` is expected to
--- return the same three cases, and this becomes a translation of them.
+-- ---------------------------------------------------- THE SEAM, CONNECTED
+--
+-- 2026-08-17.  machine/Certify.hs landed on 2026-08-14, in commit 634c01d0,
+-- titled "CERTIFY: the machine proves its own saturation".  It was `module
+-- Main`, so no file could import a line of it, and `certifySeam` went on
+-- calling `certifyLocal` -- the in-file fallback the comment above calls a
+-- stub -- for three days, while the commit message said the organ was
+-- connected.  Certify.hs is now `module Certify` and this is the line that
+-- changed.  It is more than one line because the swap has a hypothesis, and
+-- the hypothesis is checked below rather than assumed.
+--
+-- WHAT IS GAINED, precisely.  `certifyLocal` tests joinability with ONE
+-- strategy: `normalize u == normalize v`, innermost-leftmost.  That is the
+-- test that matters operationally -- `normalize` is what the engine runs --
+-- but it is not the mathematical property.  Joinability quantifies over ALL
+-- derivations: u and v are joinable when SOME common reduct exists, in
+-- whatever order the rules fire.  Certify's `joinability` runs the strategy
+-- test first and, only when it fails, builds the full reduct set of each
+-- side (every rule at every non-variable position, each guarded by the same
+-- `decreases` that guards `step`) and intersects them.  Termination makes
+-- both sets finite; `certifyBound` guards against a rule set that is not in
+-- fact terminating, and a bound that is hit is reported as JoinUnknown --
+-- no verdict -- never as a join.
+--
+-- So the swap is monotone in the safe direction.  Every pair `certifyLocal`
+-- joined, this joins: clause (a) of `joinability` IS `certifyLocal`'s whole
+-- test.  Pairs it called Divergent may now join.  Divergences therefore get
+-- FEWER, and `Convergent` -- the verdict that prints THEOREM -- gets
+-- STRICTLY more available, and is now backed by joinability rather than by
+-- one strategy's normal forms.  Nothing here can turn a joined pair into a
+-- divergent one, so no rule the machine would not have installed before
+-- becomes installable now.
+--
+-- WHAT IS DELIBERATELY NOT TAKEN.  `Certify.certify` itself is not called.
+-- It returns `Diverges [(Term,Term)]`: normalised pairs with the provenance
+-- discarded.  The CERTIFY-DIVERGENT log line wants the peak and both parent
+-- rules, and `Budgeted` -- the verdict that proves NOTHING and whose whole
+-- purpose is that it must not be collapsed into Convergent -- has no
+-- counterpart in `CertifyResult` at all.  So the enumeration and the budget
+-- stay here, where the `CriticalPair` record is, and what is imported is the
+-- joinability ORACLE.  That oracle is the entire thing `certifyLocal` was
+-- missing; the rest of Certify.hs is a report generator for standalone use.
+--
+-- THE GUARD, and it is load-bearing.  Certify.hs does not import this file
+-- (this one is `module Main`); it TRANSCRIBES `precedence` from it, as a
+-- bare list of vocabulary names.  `precedence` decides `lpo`, which decides
+-- `decreases`, which decides which rewrites exist at all.  If the two lists
+-- ever drift -- a symbol added here, or reordered -- Certify's reduct sets
+-- are the reduct sets of a DIFFERENT rewrite relation, and its verdict is a
+-- true statement about an object the machine is not running.  That is not a
+-- hypothetical: `arithVocabulary` was appended to `vocabulary` after this
+-- file was first written.  So the lists are compared, here, against this
+-- file's own `vocabulary`, and on a mismatch the seam falls back to
+-- `certifyLocal` and the round says so, rather than certifying under an
+-- order that is not the machine's.
 certifySeam :: Int -> [Rule] -> CertifyVerdict
-certifySeam = certifyLocal
+certifySeam budget rs
+  | not certifyTranscriptionAgrees = certifyLocal budget rs
+  | otherwise                           = go 0 (criticalPairs rs)
+  where
+    crs = [ (toCertifyTerm l, toCertifyTerm r) | (l,r) <- rs ]
+    go n cps
+      | n >= budget = Budgeted n
+      | otherwise = case cps of
+          []      -> Convergent n
+          (cp:cs) | joinsCertify (cpEquation cp) -> go (n+1) cs
+                  | otherwise                    -> Divergent (n+1) cp
+    joinsCertify (u,v) =
+      case CY.joinability CY.certifyBound crs (toCertifyTerm u) (toCertifyTerm v) of
+        CY.JoinsAt _ -> True
+        _            -> False
+
+-- The two `Term` types are the same declaration written twice, in two files
+-- that cannot import each other.  This is the cost of the transcription and
+-- it is one function.
+toCertifyTerm :: Term -> CY.Term
+toCertifyTerm (V i)    = CY.V i
+toCertifyTerm (F f ts) = CY.F f (map toCertifyTerm ts)
+
+toTerm :: CY.Term -> Term
+toTerm (CY.V i)    = V i
+toTerm (CY.F f ts) = F f (map toTerm ts)
+
+-- The hypothesis of the swap above, as a finite exhaustive check rather than
+-- as a hope.
+--
+-- notes/CERTIFY_SCOPE_CORRECTION.md §2 names this exposure and leaves it
+-- open: "Certify.hs transcribes MathMachine's engine and §0 pins it by
+-- recomputing the machine's own published term counts ... But §0 pins the
+-- GENERATOR only.  A change to `lpo`, `decreases`, or `orient` in
+-- MathMachine.hs -- a file another session is editing live -- would pass §0
+-- silently.  That is an open exposure, not a handled one."  It is handled
+-- here, and on the only material that can matter.
+--
+-- Three clauses, and none of them is a sample of a distribution:
+--
+--   (1) the vocabulary lists agree, so `precedence` agrees on every symbol
+--       either file can name.  Invented concepts need no entry: both files
+--       send `c<n>` to -2-n by the same rule and neither list mentions them.
+--   (2) `decreases` -- hence `lpo` and `cmpTerm`, which is all of the
+--       reduction order -- agrees on EVERY ordered pair drawn from the
+--       subterms of the rule set actually being certified.  `oneStepAll`
+--       admits a rewrite exactly when `decreases` does, so if the two files
+--       agree here they generate the same one-step relation on this
+--       material, and `reachable` is then a set of reducts of the machine's
+--       own rewrite relation and not of a neighbouring one.
+--   (3) `normalize` agrees on each of those subterms, which pins `step`
+--       (position order and strategy) on top of the order.
+--
+-- This is exhaustive over the subterms of `rs`, not a random probe, and it
+-- is what CLAUDE.md calls a finite exhaustive verification rather than a
+-- measurement.  It is quadratic in a set that is a few dozen terms wide, so
+-- it costs microseconds against a call that normalises thousands of terms.
+-- On failure the seam degrades to `certifyLocal`, which is correct and
+-- weaker, and the round says so.
+certifyTranscriptionAgrees :: Bool
+certifyTranscriptionAgrees =
+     CY.vocabularyNames == map symName vocabulary
+  && and [ decreases u v == CY.decreases (toCertifyTerm u) (toCertifyTerm v)
+         | u <- certifyProbeTerms, v <- certifyProbeTerms ]
+  && and [ normalize defs t == toTerm (CY.normalize cdefs (toCertifyTerm t))
+         | t <- certifyProbeTerms ]
+  where
+    defs  = definitionsOf vocabulary
+    cdefs = [ (toCertifyTerm l, toCertifyTerm r) | (l,r) <- defs ]
+
+-- The family the check above ranges over: EVERY term of size at most 3 over
+-- the whole vocabulary in two variables.  Two variables are enough -- `lpo`
+-- and `cmpTerm` never compare variable NAMES beyond equality and `compare`,
+-- so a third adds no case -- and size 3 already contains a nested binary
+-- application under every symbol, which is where a lexicographic-path order
+-- can differ from a size order.  It is a fixed list, so GHC computes it (and
+-- the `Bool` above) once per process and the check is free after the first
+-- round that asks for it.
+certifyProbeTerms :: [Term]
+certifyProbeTerms = concat levels
+  where
+    levels = [ level k | k <- [1 .. 3 :: Int] ]
+    at k = levels !! (k - 1)
+    level 1 = [V 0, V 1]
+           ++ [ F (symName s) [] | s <- vocabulary, symArity s == 0 ]
+    level k = [ F (symName s) [t]
+              | s <- vocabulary, symArity s == 1, t <- at (k-1) ]
+           ++ [ F (symName s) [a,b]
+              | s <- vocabulary, symArity s == 2
+              , i <- [1 .. k-2], a <- at i, b <- at (k-1-i) ]
 
 -- ------------------------------------------------------- RESIDUAL and PORT
 --
@@ -2915,7 +3094,17 @@ round1 disp mem logh libh ref = do
       vocabNames = intercalate "," (map symName syms2)
   certified <- if dCertify disp <= 0 || not grows
                  then pure Nothing
-                 else pure (Just (certifySeam (dCertify disp) (usableRules m2)))
+                 else do
+                   -- The guard on `certifySeam` is silent by design -- it
+                   -- degrades to a correct weaker test rather than failing --
+                   -- so the ONLY place it can be seen is here.  A round that
+                   -- certified under the fallback must not read like a round
+                   -- that certified under Certify.hs.
+                   unless certifyTranscriptionAgrees $
+                     hPrintf logh "  CERTIFY-TRANSCRIPTION-DRIFT  machine/Certify.hs no longer agrees with this file on the reduction order or the rewrite strategy over the rules in play (its vocabulary is %s; this file's is %s); the joinability oracle is NOT in use this round, the in-file strategy-join fallback is, and it is strictly weaker\n"
+                       (intercalate "," CY.vocabularyNames)
+                       (intercalate "," (map symName vocabulary))
+                   pure (Just (certifySeam (dCertify disp) (usableRules m2)))
   installedCP <- case certified of
     Nothing -> pure Nothing
     -- The budget ran out with no divergence.  This proves NOTHING: an

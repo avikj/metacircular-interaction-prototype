@@ -71,3 +71,77 @@ terms, hence the same conjectures … fresh=0 forever") and had no way to prove
 it. Rounds 6, 8, 10, 12 … of the live log are bit-identical: 376636 terms →
 139605 normal forms → 34408 conjectures, every time. The engine could observe
 the repetition; it could not certify it. Now it can.
+
+---
+
+## A second correction to the same commit: the organ was never connected
+
+**2026-08-17.** Everything above is about what `634c01d0` *claimed*. This
+section is about what it *ran*, which was nothing.
+
+`machine/Certify.hs` declared `module Main (main) where`. A `module Main`
+cannot be imported. `machine/MathMachine.hs` had written a seam for it —
+`certifySeam`, with a comment promising that "when Certify.hs lands, exactly
+one line changes" — and that line was never changed. Three days of `main`
+carried `certifySeam = certifyLocal`, the in-file fallback that the same
+comment calls a stub. The sentence that closes the section above, *"The engine
+could observe the repetition; it could not certify it. Now it can,"* was false
+when it was written and stayed false until today.
+
+Compounding it, `dCertify` defaults to `0`, so even the fallback never ran
+unless someone passed `--certify`. Nobody did: `machine/machine.log` contains
+no `CERTIFY-*` line before today.
+
+### What changed
+
+- `Certify.hs` is now `module Certify`, with an explicit export list. It is
+  still runnable standalone, with one extra flag:
+  `runghc -imachine --ghc-arg=-main-is --ghc-arg=Certify machine/Certify.hs`.
+- `certifySeam` now runs **MathMachine's own critical-pair enumeration** — it
+  keeps the `CriticalPair` provenance the log line needs, and the `Budgeted`
+  verdict, which `Certify.CertifyResult` has no counterpart for — against
+  **Certify's `joinability` oracle**. That oracle is the one thing the
+  fallback lacked: the fallback tests `normalize u == normalize v`, one
+  strategy; `joinability` runs that first and, when it fails, intersects the
+  full reduct sets of both sides. The swap can only turn `Divergent` into
+  `Convergent`, never the reverse, so no rule becomes installable that was not
+  installable before.
+
+### §2's open exposure is now closed
+
+§2 above says the transcription tripwire "pins the **generator** only. A
+change to `lpo`, `decreases`, or `orient` in `MathMachine.hs` — a file another
+session is editing live — would pass §0 **silently**. That is an open
+exposure, not a handled one."
+
+`certifyTranscriptionAgrees` closes it, in `MathMachine.hs`, as a finite
+exhaustive check rather than a probe: over **every** term of size ≤ 3 over the
+whole vocabulary in two variables, both files must agree on `decreases` for
+every ordered pair, and on `normalize` against the vocabulary's own defining
+equations. Plus the vocabulary name lists themselves, which is what
+`precedence` reads. It is a CAF, so it costs once per process. If it fails,
+the seam falls back to `certifyLocal` and the round logs
+`CERTIFY-TRANSCRIPTION-DRIFT` rather than certifying under an order that is
+not the machine's.
+
+### Measured, and the default stays off
+
+Four rounds, `machine/library.terms` restored to a fixed 37-equation state
+before each run:
+
+| | wall clock |
+|---|---|
+| `--rounds 4` | 41.27s, 41.60s, 41.77s, 40.92s |
+| `--rounds 4 --certify 20000` | 42.23s, 41.58s, 41.09s, 41.34s |
+
+The spread within the off row (0.85s) exceeds the gap between the row means
+(~0.5s). **Running CERTIFY costs nothing measurable.** Separately, the oracle
+and the old fallback produce **byte-identical logs** on this rule set — no
+critical pair here separates them — so the gain is the strength of the
+guarantee, not a behaviour change, and it is stated as such.
+
+`dCertify` nevertheless stays `0` by default, and the reason is written at the
+field in `MathMachine.hs`: turning it on holds growth on any round whose
+divergent pair the kernel accepts, which walks a different horizon ladder than
+the one every count in this corpus was recorded against. That is a change that
+needs a long-horizon A/B, and this session did not run one.
