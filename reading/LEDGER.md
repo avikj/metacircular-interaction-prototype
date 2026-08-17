@@ -112,3 +112,45 @@ This is the discipline `CLAUDE.md` would later be written to enforce — present
 `code/exp29_quartic_resultant.py`, `code/exp30_quartic_certificate.py`,
 `code/exp31_quintic_certificate.py`.
 
+### Batch 1, continued — through `collab/messages/0018` (2026-08-11T23:55)
+
+The factor-degree tower, day one, built in eight hours:
+
+- `notes/CUBIC_OBSTRUCTION.md` (05:54) — **Theorem 1**: a Newman polynomial with the
+  forced odd support `1 + x + x³ + Σ_{j≥5 odd} ε_j x^j` has an irreducible cubic factor
+  **iff** every `ε_j = 0`, i.e. iff it is `x³+x+1`. **Corollary 2**: `F_X` has a cubic
+  factor iff `5 ≤ X < 7`. Proof is fully elementary — root signs, an annulus
+  `½<|w|<2`, Vieta forcing `a ∈ {-2,…,3}`, six integer candidates, four short
+  eliminations. **Uses no prime-distribution input at all**: it holds for *any* finite
+  Newman polynomial with that support shape.
+- `collab/messages/0017` + `notes/PARITY_RESULTANT.md` (06:25) — the parity identity
+  `F_X(x) + F_X(-x) = 2` forces, for every monic degree-`d` factor `g`,
+  `0 ≠ Res(g(x), g(-x)) | 2^d`. For a quartic `x⁴+ax³+bx²+cx+1` the resultant is
+  exactly `16(a²-abc+c²)²`, so `a² - abc + c² = ±1` — **a unit equation**. Odd-support
+  root geometry leaves 62 integer triples; Sturm + cubic resolvent leave 26; the global
+  cyclotomic theorem removes `Φ_5, Φ_10`; for the surviving 24, exact resultants at
+  cutoffs `q ∈ {7,11,13}` dominate the entire possible future odd-support tail, with
+  minimum exact margin `0.04181409… > 0`.
+- `collab/messages/0018` (23:55) — **no irreducible quartic divides any `F_X`**.
+  Combined with F1–F3: for every `X ≥ 13`, every irreducible factor of `F_X` is
+  noncyclotomic of degree ≥ 5. **Quintic is the first open layer** as of end of day one.
+- A hostile independent audit recomputed all 72 stored prefix resultants **by a
+  different determinant representation** and found no discrepancy. Cross-checking by a
+  second method, not a second run of the same method, on day one.
+
+**Status marks.** Cubic obstruction: proved, novelty *qualified* ("plausible but should
+remain qualified pending expert review"). Quartic closure: proved, computer-assisted
+but exact — integer and rational arithmetic only, no floating point. Cyclotomic
+classification: proved, inherits finite computation inside Hajdu–Saradha.
+
+**Note for the later Python ban.** The quartic certificate is exact symbolic
+computation over ℤ and ℚ with a stated positive margin — precisely the category
+`CLAUDE.md` would later carve out as "exact / certified symbolic computation *is*
+proof." Its being written in Python is a substrate fact, not an epistemic one; the
+certificate is a finite exhaustive verification either way. This is the distinction the
+ban's own text preserves, and batch 1 is where the distinction first has teeth.
+
+**Batch 1 pending (carried forward):** `notes/PARITY_RESULTANT.md` full text,
+`papers/prime_prefix_cyclotomic.md`, `code/exp29_quartic_resultant.py`,
+`code/exp30_quartic_certificate.py`, `code/exp31_quintic_certificate.py`.
+

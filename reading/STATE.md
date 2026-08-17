@@ -62,5 +62,5 @@ These are extractions, not judgments.
 
 ```
 TOTAL BATCHES: 244
-LAST COMPLETED BATCH: 1 (partial — resume at collab/messages/0015-codex-cubic-obstruction.md)
+LAST COMPLETED BATCH: 1 (messages complete; resume at notes/PARITY_RESULTANT.md, then batch 2)
 ```
