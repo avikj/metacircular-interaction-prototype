@@ -67,3 +67,48 @@ that had looked promising the day before, each stating its own scope. Whatever t
 corpus later became, it did not start by accumulating claims. It started by
 subtracting them.
 
+### Batch 1, continued — through `collab/messages/0014`
+
+- `notes/CYCLOTOMIC_TRACE.md` §§3–7 (05:14) closes to a **global classification**:
+  **Theorem 6** — for every `m ≥ 1` and every prime cutoff `X ≥ 2`,
+  `Φ_m | F_X ⟺ (X,m) = (3,2)` or `(11,6)`. Route: relative trace kills all
+  non-squarefree `m`; the forced class vector (Cor. 3) gives a covering congruence;
+  Bertrand reduces every squarefree candidate to `m = P` or `m = 2P`; both families
+  become complete-residue-system problems and a corollary of Hajdu–Saradha 2016
+  Thm 2.3 leaves `P ∈ {2,3,7,11}`, of which exact checks retain only `P=2`
+  and `P=3`. **Unconditional**, but it inherits the finite computational components
+  inside the Hajdu–Saradha inputs — the note says so itself.
+  Machine corroboration (`exp28`, 2,417,270 candidates through `p_k = 32,452,843`)
+  is explicitly labelled "MACHINE-VERIFIED corroboration of Theorem 6, **not part of
+  its proof**." That distinction is made correctly on day one.
+- Prior-art discipline, day one: four sources named with volume/page/DOI, each with a
+  statement of what it does *not* cover, and the novelty claim left **qualified on a
+  null** ("plausible rather than asserted"). The 2026-08-14 corpus-wide sweep
+  re-examined this flag and closed it with "ALREADY SERVICED … leave the hedge exactly
+  as it stands" — the one flag in that sweep that needed nothing.
+- `notes/SHARP_CUTOFF.md` (05:15) — the desmoothing endpoint. **Theorem 1**: the sharp
+  `k=0` pair field exists canonically as a distribution via Riesz descent
+  `A_0 = (2+∂_u)A_1`. **Prop 2**: `W_0 ∈ ℓ^p ⟺ p > 4/3`, so `ℓ² ∖ ℓ¹`, and
+  `A_0 ∈ C_*^{-1/2-}` — a negative-regularity object, not a pointwise function.
+  **§3**: Cantarini's incomplete-beta terms are *exactly* the removal of forbidden
+  positive-cone boundary faces — the analytic trace of the positive-cone obstruction,
+  not arbitrary regularization. **Theorem 3 (no-go)**: absolute near-diagonal energy
+  diverges at every fixed resolution, `E^abs_{≤H}(η) ≫ η(log H)^5`, so the
+  `APPENDIX_D` Fejér/absolute-energy variance route **cannot** be desmoothed to `k=0`;
+  the long-window and zero-cutoff limits do not commute. §5 closes with a deliberate
+  refusal: the fifth logarithm is "structurally suggestive" of the `log^5` in sharp
+  Goldbach error bounds, "but no causal derivation is claimed."
+
+**Running observation.** Five notes in, the corpus's characteristic move is already
+fixed and it is not accumulation. Each note (i) proves an exact statement, (ii) states
+the boundary of that statement in its own text, (iii) names the prior art that already
+owns part of it, and (iv) records what it refuses to claim. `SHARP_CUTOFF` §5 and
+`PRODUCT_WEIGHT_NO_GO` §4 are both explicit "what this does not rule out" sections.
+This is the discipline `CLAUDE.md` would later be written to enforce — present before
+`CLAUDE.md` existed (it enters 2026-08-12T01:02, a day later).
+
+**Still pending in batch 1:** `collab/messages/0015`–`0018`, `notes/CUBIC_OBSTRUCTION.md`,
+`papers/prime_prefix_cyclotomic.md`, `notes/PARITY_RESULTANT.md`,
+`code/exp29_quartic_resultant.py`, `code/exp30_quartic_certificate.py`,
+`code/exp31_quintic_certificate.py`.
+
