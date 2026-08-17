@@ -281,8 +281,50 @@ It also carries a center-of-gravity invariant that should be read alongside
 
 U0009 asks for the opposite emphasis — *"we must transfer kernels of
 intelligence down towards traditional programs"* so that CPU rather than
-language models does the work. Both are in the repository. They are recorded
-here as two standpoints, not reconciled.
+language models does the work. Both are in the repository. ~~They are recorded
+here as two standpoints, not reconciled.~~
+
+> **[CORRECTED 2026-08-17, reader pass. THE RECONCILIATION ALREADY EXISTS, IN
+> TWO PLACES, AND BOTH PREDATE THIS ENTRY.]** The strike is not to a reading of
+> either source — the two emphases are stated correctly above — but to
+> "not reconciled," which was true of these two documents and false of the
+> corpus.
+>
+> `notes/COGNITIVE_ORIENTATION.md` §9 divides the labour by *domain type*, and
+> the reconciling words are the first three: **"On compiled domains** it should
+> use CPUs, exact arithmetic, proof kernels, cached derivations, decision
+> procedures, and native transforms instead of regenerating reasoning through
+> an LLM. Humans and language models remain valuable for ambiguous import,
+> radical association, new representations, and frontier encounters."
+> `notes/SEED18_UPSTREAM_DIRECTIVE_INVENTORY.md` reaches the same place from
+> the directive side: *"the CPU lane (U0009) is correctly built as augmentation
+> rather than replacement."*
+>
+> So the standpoints are not rivals; the scope operator between them is
+> **compiled**. A domain is compiled exactly when a reduction has been proved
+> for it, and the agent layer is what produces reductions — which is why
+> MATH_OS's *"CPU kernels only amplify a mathematical reduction the agents
+> already understood"* and U0009's *"real math understanding would lend to
+> that right?"* are the same sentence read from the two ends. Note that
+> U0009's clause is interrogative: the owner asked whether understanding is
+> what enables the transfer. Both documents answer yes.
+>
+> `634c01d0` (CERTIFY) is the first worked instance in this corpus — a
+> confluence theorem deleting 10,089,012 term enumerations with **0 theorems
+> lost** — and `notes/CERTIFY_SCOPE_CORRECTION.md` is the half that makes it
+> an instance rather than an overclaim: the certificate decides the *rewriting*
+> lane, not arithmetic. The lane is not a caveat on the transfer. It is what
+> makes the deletion lossless instead of a gamble, and MATH_OS's own dual
+> failure modes ("scaling CPU without a proved reduction, or scaling agents
+> without extracting reusable invariants") already say so.
+>
+> Kept as a strike rather than a rewrite because the entry's method was sound:
+> it recorded a tension instead of resolving it by taste. The defect was
+> reach — a chronological pass reads forward, and the resolving documents are
+> later than the commit under the cursor. Worth noting for the instrument
+> itself: **a forward-only reader will keep re-deriving unreconciliations that
+> the corpus closed after the date it is standing on.** That is a property of
+> the pass, not a fault of the reader.
 
 <!-- CURSOR: forward pass has reached 2026-08-11T17:42Z, plus the two design
      notes from the 17:20Z commit. Next: collab/messages/0038 onward through the
