@@ -106,6 +106,51 @@ composite $e$ whose mass sits on imprimitive $\chi$. Flatness fails there by
 Gauss-sum degeneracy, §3's mechanism gives nothing, and the reading in this
 section is dead as stated while §2 survives untouched.
 
+### 3.1 The falsifier, run — it fires, and the failure is more informative than the claim ⊢/↳
+
+Stated and then left hanging is how a falsifier becomes decoration, so: run it.
+
+Let $\chi$ mod $e$ be induced by the primitive $\chi^*$ mod $f$, $f\mid e$. The
+classical evaluation (↳; Iwaniec–Kowalski, Montgomery–Vaughan — standard, not
+opened here) is
+$$\tau(\chi)=\mu(e/f)\,\chi^*(e/f)\,\tau(\chi^*),$$
+so for $\gcd(m,e)=1$,
+$$|\mathcal G_e(\chi,m)|=|\mu(e/f)|\sqrt f=\begin{cases}\sqrt f & e/f \text{ squarefree, } \gcd(e/f,f)=1\\ 0&\text{otherwise.}\end{cases}$$
+
+**So the falsifier fires: off the primitive locus the modulus is $\sqrt f<\sqrt e$,
+or exactly $0$.** §3's mechanism does not run there, as predicted.
+
+But read the *direction* of the failure, which I had not anticipated and which
+is the part worth keeping. Imprimitive mass is **suppressed** by the transform
+by a factor $\sqrt{f/e}$, and annihilated when $e/f$ is non-squarefree. It is
+not spread badly — it does not transfer to the additive side **at all**.
+
+That flips the reading of the degenerate locus. Mass on imprimitive $\chi$ is
+mass the additive/Kuznetsov route **cannot see**, because the change of basis
+kills it before any Kloosterman sum is reached. It does not behave like
+uncancelled error; it behaves like a **main term** — the conductor-lowering
+part, living at level $f$ rather than $e$.
+
+Consequences, and they cut both ways:
+
+- **Against §3**: multiplicative concentration is not sufficient. Concentration
+  on *primitive* $\chi$ is what converts to additive spread. Concentration on
+  imprimitive $\chi$ converts to nothing. §3 must be restated with the
+  primitivity hypothesis or it is false, and I restate it: *primitive*
+  multiplicative concentration of $v_D$ is the hypothesis that feeds the
+  additive route.
+- **For the frontier**: this predicts the decomposition D0026 §5.7 needs is not
+  "concentrated vs spread" but **primitive vs induced** — split $v_D$ by
+  conductor, expect the induced part to carry main terms at lower level and the
+  primitive part to carry the cancellation. That is the standard conductor
+  decomposition, which is another way of saying §5.7's obstruction is asking
+  for a tool the subject already has a name for.
+
+**Still not checked, and now the only thing between this and a statement about
+$v_D$:** whether $\kappa_1$'s mass is primitive. Everything above is about the
+transform, not about the vector. I have not computed a single coefficient of
+$v_D$, and nothing here should be read as if I had.
+
 ## 4. What is claimed
 
 | statement | mark |
