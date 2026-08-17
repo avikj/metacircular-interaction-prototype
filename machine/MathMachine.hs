@@ -36,7 +36,7 @@ import qualified Data.Map.Strict as M
 import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition)
 import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
-import Control.Monad (forM_, replicateM_, when, unless, filterM)
+import Control.Monad (forM_, replicateM_, when, unless, filterM, foldM)
 import Control.Exception (finally)
 import System.IO
 import System.Directory (getTemporaryDirectory, removePathForcibly)
@@ -3528,6 +3528,64 @@ main = do
                          else pure (ThoughtBatch [] [])
       runMachine disp batch
 
+-- RE-ADMISSION.  Memory stores the equation and not the proof, and that
+-- one missing field was costing the machine almost all of its memory.
+--
+-- MEASURED, 2026-08-17, on the 59-line machine/library.terms of commit
+-- ffe6c00: `remembered=59 re-admitted=4 dropped=55`.  The four survivors
+-- are exactly the four agda closes with `refl` (x = 0+x, 0 = 0*x,
+-- s(x) = s(0)+x, s(x)+y = s(x+y)).  The cause is in the gate, not in the
+-- mathematics: `kernelAccept` submitted every remembered equation with the
+-- proof note "remembered", and `Certificate.certifyWith` reads its
+-- induction variable OUT OF THAT NOTE (`inductionVariable`).  Finding
+-- none, it returns `Rejected` the instant the refl module fails, so not
+-- one step shape was ever emitted for a remembered theorem; `tryReplay`
+-- refuses at the same field one call earlier.  The evidence is a single
+-- screen of machine.log: `0 = -(x,x)` is rejected at load with "checking
+-- that the expression refl has type", and accepted seventy lines later,
+-- in the same process, with "induction on x, step = ih" -- because the
+-- round's prover supplied the note the file could not carry.
+--
+-- The repair reconstructs the field rather than storing it: the engine's
+-- own `proveByInduction` is run against the rules admitted so far, and its
+-- note -- the same string the round writes -- is what the gate is given.
+-- That makes ORDER load-bearing, so this is a fold and not a filter.
+-- Smallest first (the order `freshSized` uses, for the same reason), each
+-- acceptance folded into the rule set before the next candidate is
+-- proposed, and the drops retried on a further pass until a pass admits
+-- nothing new.  A theorem whose proof needs an earlier lemma therefore
+-- gets its lemma, and `known` reaches the trace replayer as citations.
+-- Both halves are load-bearing and both were measured: with the note
+-- alone the fold takes 35 of 37 on pass 1, and the two it leaves --
+-- x+y = y+x and x+x = 2*x -- are admitted on pass 2, once the lemmas
+-- they cite are installed.
+--
+-- The invariant is untouched.  Every equation returned here was accepted
+-- by the same `kernelAcceptWith` the round uses, in this process.  The
+-- note only chooses WHICH module agda is asked to check, never whether it
+-- is asked, and a remembered theorem that no longer certifies is still
+-- dropped.
+readmitMemory :: Handle -> [Rule] -> [(Term,Term)] -> IO ([(Term,Term)], Int)
+readmitMemory logh baseRules remembered = go 1 [] baseRules ordered
+  where
+    ordered = sortOn (\(l,r) -> (size l + size r, l, r)) remembered
+    go :: Int -> [(Term,Term)] -> [Rule] -> [(Term,Term)]
+       -> IO ([(Term,Term)], Int)
+    go pass admitted rules pending = do
+      (admitted', rules', dropped) <- foldM step (admitted, rules, []) pending
+      let gained = length admitted' - length admitted
+      if gained == 0 || null dropped
+        then pure (admitted', pass)
+        else go (pass + 1) admitted' rules' (reverse dropped)
+    step (admitted, rules, dropped) c = do
+      let note = maybe "remembered" id (proveByInduction rules c)
+      ok <- kernelAcceptWith [] admitted rules logh 0 (c, note)
+      pure $ if ok
+               then ( admitted ++ [c]
+                    , rules ++ maybe (lemmaRules [c]) (:[]) (orient c)
+                    , dropped )
+               else (admitted, rules, c : dropped)
+
 runMachine :: Dispatch -> ThoughtBatch -> IO ()
 runMachine disp batch = do
   logh <- openFile "machine/machine.log" AppendMode
@@ -3555,10 +3613,26 @@ runMachine disp batch = do
   memExists <- doesFileExist memoryPath
   remembered <- if memExists then parseMemory <$> readFile memoryPath
                              else pure []
-  admitted <- filterM (\c -> kernelAccept logh 0 (c, "remembered")) remembered
-  hPrintf logh "  MEMORY  remembered=%d re-admitted=%d dropped=%d\n"
-    (length remembered) (length admitted)
-    (length remembered - length admitted)
+  -- The file is an append log, so it repeats: 59 lines were 37 distinct
+  -- equations.  Deduplicating before the gate is not a relaxation -- the
+  -- agda cache already served the repeats at zero calls -- it just stops
+  -- the count from reporting the same theorem as several memories.
+  let distinct = ordNub remembered
+  -- The rule set the re-admission fold starts from must be the one a round
+  -- starts from -- `usableRules` on a fresh machine, which is exactly the
+  -- defining equations of the visible vocabulary.  Starting it at [] leaves
+  -- `proveByInduction` unable to reduce even `x + 0`, so it finds no
+  -- induction variable, so the note is empty and the gate is back to refl.
+  -- That is the same defect one level up, and it cost a measurement to see:
+  -- with rules = [] the fold still re-admitted only the four refl theorems.
+      startVocab = maybe (min (dVocabCap disp) (requiredVocabulary batch))
+                         (\v -> max 1 (min v (dVocabCap disp)))
+                         (dVocabStart disp)
+      baseRules = definitionsOf (take startVocab vocabulary)
+  (admitted, passes) <- readmitMemory logh baseRules distinct
+  hPrintf logh "  MEMORY  remembered=%d distinct=%d re-admitted=%d dropped=%d passes=%d\n"
+    (length remembered) (length distinct) (length admitted)
+    (length distinct - length admitted) passes
   hPrintf logh "  DISPATCH  %s\n" (show disp)
   -- CLAMPED, and the clamp is the safety of WIRE 1 at startup.  `vocabulary`
   -- now names `mod`, `lcm` and `v2`, and machine/thoughts.math contains the
@@ -3570,10 +3644,7 @@ runMachine disp batch = do
   -- is what it was, and `--arith` is the only way past it.
   let seeded = start { mThoughts = thoughtCandidates batch
                      , mResiduals = thoughtResiduals batch
-                     , mVocab = maybe (min (dVocabCap disp)
-                                           (requiredVocabulary batch))
-                                      (\v -> max 1 (min v (dVocabCap disp)))
-                                      (dVocabStart disp)
+                     , mVocab = startVocab
                      , mRules = mapMaybe orient admitted
                      , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
                      , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }
