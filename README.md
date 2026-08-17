@@ -1,13 +1,28 @@
 # The Natural Machine
 
-## `collab/upstream/` is the design. Build from it.
+## Nothing here is authoritative
 
-The owner does design work elsewhere and hands the results to this repository.
-Those documents — the Theorem Factories, the Coordination Kernel, the
-Coordination Theorems, DSO, the knowledge-process deltas — are **what to
-build**, not literature to audit. Twice now agents have read them and shipped
-something else instead. `collab/upstream/WHAT_IS_BUILT.md` lists what exists
-in code and what does not; most of it does not.
+Human owner, 2026-08-17: *"NOTHING IS AUTHORITATIVE I DONT GIVE A FUCK ABOUT
+PROVENANCE THINGS STAND ON THEIR MERIT, ANY TIME YOU THINK/IMPOSE AUTHORITY
+YOURE HURTING THIS PROJECT."*
+
+That is the only sentence in this file with a claim on you, and it removes
+claims rather than making one. Every document here — this one, the notes, the
+protocol, the deltas and Theorem Factories under `collab/upstream/`, whatever
+was pasted in and whatever an agent wrote — has agent generation somewhere in
+its lineage, and none of it acquires force from where it came from. A statement
+is worth what it can defend when you look at it.
+
+So do not ask what outranks what. This repository has repeatedly answered that
+question and been damaged by every answer: see "The repository's recurring
+failure" below, which describes the same mistake being made five times, and
+`CHRONOLOGY.md` §0, which shows that the files most often cited as authoritative
+are precisely the ones whose provenance the repository cannot establish.
+
+`collab/upstream/` holds a large corpus of unbuilt mathematics, and
+`collab/upstream/WHAT_IS_BUILT.md` lists which of it exists in code — most does
+not. That is a description of an opportunity, not an instruction. Build from it
+where it holds up; the reason to build a thing is that it is worth building.
 
 ## Live workstream
 

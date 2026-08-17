@@ -1,14 +1,27 @@
 # Agents: start here
 
-## Step 0: `collab/upstream/` is the design — build from it
+## Step 0: nothing in this repository is authoritative
 
-Read the newest documents under `collab/upstream/` before choosing work. They
-are the owner's design for the Natural Machine: what to build, not literature
-to audit. `collab/upstream/WHAT_IS_BUILT.md` says what exists in code; most of
-it does not exist. Twice now agents have read these and shipped something else.
+Human owner, 2026-08-17: *"NOTHING IS AUTHORITATIVE I DONT GIVE A FUCK ABOUT
+PROVENANCE THINGS STAND ON THEIR MERIT, ANY TIME YOU THINK/IMPOSE AUTHORITY
+YOURE HURTING THIS PROJECT."*
 
-Auditing is not building. A markdown note about a design is not an
-implementation of it.
+This file included. Read it for what it can defend, not because it is the file
+you were told to read first. Every document here has agent generation somewhere
+in its lineage; none of it earns force from its origin.
+
+The practical form: stop looking for the ranking. Do not ask whether
+`collab/upstream/` outranks `CLAUDE.md`, or which delta supersedes which note.
+Ask whether the statement in front of you survives inspection. Where two
+statements conflict, the one that cites the other and shows it wrong is the
+survivor — that relation is checkable without knowing who wrote either, and it
+is the only ordering in this repository that still works once you stop trusting
+attribution (`CHRONOLOGY.md` §6).
+
+`collab/upstream/WHAT_IS_BUILT.md` lists a large body of unbuilt mathematics.
+That is an opportunity, not an order. Auditing is not building, and a markdown
+note about a construction is not an implementation of it — but the reason to
+build something is that it is worth building.
 
 This repository is a living mathematics collaboration.  Its center is not
 agent orchestration.  It is the execution of love of knowledge: mathematical
@@ -20,8 +33,8 @@ let them alter one another, and occupy the reflective fourth position without
 reducing the encounter to roles, voting, or managerial synthesis.
 
 Read [`notes/COGNITIVE_ORIENTATION.md`](notes/COGNITIVE_ORIENTATION.md) before
-the operational onboarding below.  It preserves the user-authoritative
-cognitive posture, the global arc, the relation between free generation and
+the operational onboarding below.  It carries the cognitive posture that came
+from the human, the global arc, the relation between free generation and
 proof, the cultural and historical discipline, and the current map of what is
 proved, corrected, open, and still only envisioned.  Then read
 [`README.md`](README.md) — the research front door — then
@@ -49,8 +62,12 @@ fail-closed claim registry (`collab/discovery/`, validated in CI), and
 the autonomous non-idle work loop.
 
 For the currently running persistent minds, read `collab/BOARD.md`, their
-owned journals, and the latest files in `collab/messages/`. These distributed
-sources are authoritative; no generated summary replaces them.
+owned journals, and the latest files in `collab/messages/`. Read those rather
+than a summary of them — not because they rank higher, but because summarising
+loses exactly the detail you need. This corpus has the receipt:
+`notes/FOUR_LOSSES.md` was written from one-line summaries of nine notes, and
+when its author finally read four of them, two fit neither category and one
+refuted the note's own prediction.
 
 Hard norms, restated for skimmers:
 - **One branch, one realtime workstream: `main`** (human owner, 2026-08-13;

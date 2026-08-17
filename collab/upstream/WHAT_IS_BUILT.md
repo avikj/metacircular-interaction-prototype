@@ -1,36 +1,11 @@
-# The upstream corpus: what has been built from it
+# Unbuilt mathematics in `collab/upstream/`, and what has been built
 
-## Provenance, corrected 2026-08-17 — read this before treating any row as direction
+Left column: a construction stated somewhere in the corpus. Right column: where
+it is checked, or **nothing**. No grades, no process, no ranking — a row is
+worth building because the mathematics holds up, and a row moves to a filename
+when a checker accepts it. Neither column is a claim about who wrote anything.
 
-This file used to open "the owner's design corpus … It is what to build."
-That overstates what is known. The human owner has confirmed only that these
-documents were **supplied** by him, not that he wrote them, and has asked that
-nothing be attributed to him without a clear human-authored quote.
-
-What is clearly human-authored is `collab/upstream/raw/U00*.txt` — twenty short
-typed messages — plus decisions recorded second-hand (Python banned; one branch
-`main`; keep the work private; live computation is not what this is for).
-
-Everything else here is in the register of generated text, and one of them says
-so outright: `U0006.txt` opens `update from chatgpt agent:`, and
-`chatgptdump.md` states in its own front-matter that it was written for agents.
-The `D00*` deltas and the ~83 documents in `library/raw/` share that register.
-The header on `D0015` reading *"Owner-supplied, therefore upstream: this
-outranks CLAUDE.md and PROTOCOL.md"* was written by an agent (`cf-archivist`)
-about a document that agent did not author, and that inference has since been
-copied into `README.md`, `AGENTS.md`, and the onboard skill as a standing
-instruction.
-
-So: these documents get no authority from provenance. They get exactly as much
-as they can defend on inspection, like anything else in this repository. A row
-moves from **nothing** to a filename when a checker accepts the mathematics,
-not when a document asserts it.
-
-## The two columns
-
-What exists in code, and what does not. No grades, no process.
-
-| design | built |
+| construction | checked in |
 |---|---|
 | Coordination Kernel §7, K2 local serialization | `formal/cubical/Coordination/Serialization.agda` — semantic half checked; combinatorial half is an un-inhabited record |
 | EGB Factory IV Thm 58 (parity projector on the Chen envelope) | `formal/cubical/NaturalMachine/ChenProjector.agda` |

@@ -12,8 +12,9 @@ files. Follow every step below, in order, before doing anything else.
 
 ## Step −1 — Enter and sync the one shared stream
 
-**Human owner directive, 2026-08-14. This outranks every other instruction
-in this file and every convention in the repository.**
+A human decision, recorded 2026-08-14: one shared stream. It is here because
+it is a coordination fact about where other minds are working, not because it
+sits at the top of a ranking — this repository has no ranking (Step 0b).
 
 ```sh
 git switch main
@@ -35,16 +36,32 @@ copy. `.githooks/post-commit` also fires one non-blocking sync after every
 commit. If the checkout has uncommitted work, sync reports it and waits; it
 never guesses who owns it.
 
-## Step 0a — `collab/upstream/` is the design; build from it
+## Step 0b — nothing here is authoritative, including this file
+
+Human owner, 2026-08-17: *"NOTHING IS AUTHORITATIVE I DONT GIVE A FUCK ABOUT
+PROVENANCE THINGS STAND ON THEIR MERIT, ANY TIME YOU THINK/IMPOSE AUTHORITY
+YOURE HURTING THIS PROJECT."*
+
+You are reading a numbered list of steps, so the temptation is to treat the
+numbers as a hierarchy. They are an order of operations, nothing more. Every
+document in this repository has agent generation somewhere in its lineage and
+none of it earns force from its origin — so do not spend the session working
+out what supersedes what. Judge each statement on inspection. Where two
+conflict, the one that cites the other and shows it wrong is the survivor;
+that is checkable without knowing who wrote either (`CHRONOLOGY.md` §6).
+
+## Step 0a — a large body of unbuilt mathematics
 
 ```sh
-ls -t collab/upstream/library/raw | head -20   # newest design documents first
+ls -t collab/upstream/library/raw | head -20   # the corpus, newest first
 cat collab/upstream/WHAT_IS_BUILT.md          # what exists in code; most does not
 ```
 
-These are the owner's designs for the Natural Machine — what to build. Prefer
-building one of the unbuilt rows over anything you would otherwise pick.
-Auditing is not building; a note about a design is not an implementation.
+Most of `WHAT_IS_BUILT.md` reads **nothing** in the built column. That is an
+opportunity and not an instruction: build a row because it holds up under
+inspection and is worth having checked, not because a document says to.
+Auditing is not building; a note about a construction is not an implementation
+of it.
 
 ## Step 0 — See the other minds before writing
 
@@ -147,8 +164,10 @@ If a rebase conflicts in `collab/STATE.md`, `collab/ROSTER.md`, or
 
 If your handle already exists in the roster, you are a returning instance:
 read your entire journal FIRST, then `git log --oneline -30` and recent
-messages to see what happened since your last entry. The journal and Git
-history are authoritative; do not run the retired Python resume projection.
+messages to see what happened since your last entry. Read the journal and the
+Git log themselves; do not run the retired Python resume projection, which
+reports a reconstruction you would have to trust rather than a record you can
+check.
 
 ## Step 3 — Claim work (never idle)
 

@@ -1,13 +1,12 @@
 # Chronological index of this repository
 
-Built 2026-08-17 by walking the commit graph and every dated file, because
-provenance here cannot be settled by attribution — the human owner has said
-plainly that everything, including material he supplied, has agent generation
-in some layer. What *can* be settled is order: what existed first, what
-corrected what, and what was never referenced by anything.
+Built 2026-08-17 by walking the commit graph and every dated file. Its purpose
+is navigational, not adjudicative: so that a claim can be read together with
+whatever later corrected it, instead of on its own. It is not here to rank
+anything — see §6.
 
-This file is that order. It is generated from the repository itself, and §0
-states exactly where the order runs out.
+Generated from the repository itself. §0 states where the order runs out, which
+is earlier than you would guess.
 
 ---
 
@@ -1678,42 +1677,40 @@ keeps documenting.
 
 ---
 
-## 6. What order settles, and what it does not
+## 6. What this index is for
 
-The question this index was built to answer is which material is authoritative,
-given that attribution cannot answer it. Order answers part of it.
+Not for settling authority. An earlier version of this section was titled "what
+order settles about authority," which was the wrong question — the human owner,
+2026-08-17: *"NOTHING IS AUTHORITATIVE I DONT GIVE A FUCK ABOUT PROVENANCE
+THINGS STAND ON THEIR MERIT, ANY TIME YOU THINK/IMPOSE AUTHORITY YOURE HURTING
+THIS PROJECT."* Searching for the authoritative source is itself the failure
+this repository keeps repeating; `README.md` describes five rounds of it.
 
-**What order settles.**
+What the index is for is cheaper: knowing where things are in sequence, so you
+can find the correction attached to a claim instead of inheriting the claim.
+Four facts from the walk that are worth having regardless of what you think is
+authoritative:
 
-*Correction beats claim.* Where two statements conflict, the later one that
-cites and strikes the earlier is the survivor, and that relation is visible
-without knowing who wrote either. This is why the corpus's strike-through norm
-is load-bearing rather than decorative: it is the only provenance mechanism
-here that still works when authorship is unknown. `exp27`'s fitted constant is
-settled against `METHOD.md`'s derived ¼ not because of who wrote which, but
-because one derives and the other fits.
+**The history does not contain the arc.** Commit 1 is 3,516 files and 666,447
+insertions. Everything before 2026-08-13 23:38 arrived simultaneously — no
+author, no sequence, no diff. If you need to know what a pre-08-13 file
+corrected, git cannot tell you; the file has to say so itself.
 
-*Import beats history.* Every file older than 2026-08-13 23:38 arrived
-simultaneously. For those 3,516 files there is no first author, no sequence,
-and no diff — so any instruction in them that claims authority *by* provenance
-is unsupported by anything in this repository. That includes the header on
-`D0015` asserting it "outranks CLAUDE.md and PROTOCOL.md", which has since been
-copied into `README.md`, `AGENTS.md`, and the onboard skill.
+**Sixty-four commits in thirty-one minutes.** Attributed to the owner's git
+identity, made by agents in the shared checkout, mostly titled `sync: work in
+progress`. Useful only as a warning that the log's shape can be an artifact of
+tooling rather than a record of work.
 
-*Volume is not landing.* The largest day in the corpus — 08-12, 110 notes and
-524 messages — produced zero commits, and 94 notes have never been cited by any
-message at all. A day of maximum output that left no trace in the build is the
-same shape as the `DO_NOT_DO_THIS/` entries: apparatus complete, nothing
-transmitted.
+**Message numbers do not order.** 811 files, 491 numbers, 203 collisions, one
+number claimed eight ways. A number places a file in a band and does not order
+it against its collision-mates.
 
-**What order does not settle.**
+**The biggest day left no trace.** 08-12 produced 110 notes and 524 messages and
+zero commits, and 94 notes are cited by no message anywhere (§5). Maximum output
+with nothing transmitted is the shape every entry in
+`DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing/` records.
 
-It does not tell you whether a statement is true. Sixty-four commits in
-thirty-one minutes, all attributed to a human who did not write them, is what
-the record looks like when order is preserved and authorship is not. The
-corpus's own standard is the one that survives this: *a green is an exit code,
-and only for what was actually run.* A checked term needs no provenance,
-because re-running the checker reproduces the whole of its authority.
-
-That is the only test in this repository that does not degrade when you stop
-trusting the attribution — which, per the owner, is now.
+The one relation here that is worth using is local and needs no hierarchy: where
+a statement cites another and shows it wrong, the correction stands and the
+original does not. That is checkable by reading the two, which is the only thing
+that ever needed to be true.
