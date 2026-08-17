@@ -73,7 +73,7 @@ module NestedInduction
   , main
   ) where
 
-import Data.List (intercalate, nub, foldl')
+import Data.List (intercalate, nub)
 import qualified Data.Map.Strict as M
 import System.Directory (createDirectoryIfMissing)
 import System.FilePath ((</>))
@@ -316,7 +316,7 @@ showEq (l,r) = show l ++ " = " ++ show r
 
 evalN :: [Integer] -> Term -> Integer
 evalN env (V i) = env !! i
-evalN env (F "0" []) = 0
+evalN _ (F "0" []) = 0
 evalN env (F "s" [t]) = evalN env t + 1
 evalN env (F "+" [a,b]) = evalN env a + evalN env b
 evalN env (F "*" [a,b]) = evalN env a * evalN env b
@@ -398,7 +398,7 @@ proofVar (Rewrite _) = Nothing
 proofVar (Induct v _ _ _) = Just v
 
 emitAgda :: String -> Equation -> Proof -> String
-emitAgda modName eq@(l,r) proof = unlines $
+emitAgda modName (l,r) proof = unlines $
   [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
   , "module " ++ modName ++ " where"
   , "open import Cubical.Foundations.Prelude"
