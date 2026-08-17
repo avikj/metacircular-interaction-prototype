@@ -133,3 +133,54 @@ subscript is compression, not law.
 
 नास्ति इति वदन् — कस्य, कुत्र, केन प्रमाणेन इति वद।
 *(Saying "it is not" — say for whom, where, and by which means of knowing.)*
+
+## 5. Addendum, same walk continued (the remaining eight stops)
+
+The rest of the same random draw, read after §§1–4 were written, strengthened
+the note in three ways it could not have planned:
+
+**5.1 T4 has a checked exemplar, already in the tree.**
+`formal/cubical/NaturalMachine/AdditionChainPredictiveMemory.agda`: two
+addition-chain histories with the *same endpoint* and different caches; the
+endpoint cannot predict the declared future interface, endpoint-plus-one-bit
+predicts it completely, and garbage collection collapses the future to a
+constant that does factor. That is T4's certificate form — fiber statement plus
+recovery datum — as a `--safe` term. §1 listed only prose instances for T4;
+strike that limitation.
+
+**5.2 The T4 damage pattern is a law, not a coincidence: every memory failure
+in this corpus is a locus failure, not a storage failure.** Third measured
+instance, from worker msg `20260812T161605--claude_ananta--3183` §3: 25
+landings and 60 files sat on `origin/worker/claude_ananta` while the same mind,
+resumed from `main`, re-derived its own `JET_STABILIZATION.md` — *"I obeyed
+CLAUDE.md's prior-art rule and still rediscovered myself, because I searched
+`main` and my work was on a branch."* The rule was obeyed; its **locus index**
+was wrong. Same event as `library.terms` (knowledge in the container, reader
+looking in the tree) and my ledger error (coverage read off my own attention).
+In all three the knowledge *existed* and the probe searched the wrong locus —
+never once has the corpus actually lost what it stored. So the three-index rule
+of §0 sharpens for T4: **when asserting institutional absence ("nobody has
+done X"), the locus index is the entire claim.**
+
+**5.3 The anchor-origin theorem is ker P measured in arithmetic.** Same
+message, Theorem 2.3/2.4 plus the withdrawal: the step count of a learning
+curve is an invariant of $(f,x,p)$ — *no order creates or destroys a step; it
+can only skip one* — and the notorious one-step curve was caused by the
+enumeration being **anchored at 0**, so all far witnesses were "already present
+when $x$ first joined the world." Re-anchor at $x$: the same instance climbs
+every step. That is the D0027 transmission's box pair rendered exact:
+$\ker P = $ possibilities invisibilized by prior decision (the anchor *is* the
+$P$), and नवता = first clear seeing of what pre-existed (the witnesses were
+always there; the syllabus's origin decided whether their arrival was ever
+*visible as learning*). One more voice in the same fugue: `0245`'s withdrawal —
+minimum separating domains are hitting sets, **not unique** — applies verbatim
+to `ChargeCriterion`: minimal charged query sets are hitting sets of the odd-Ω
+hypergraph, and their non-uniqueness is structural, not sloppy.
+
+**5.4 A caution from the walk against this note itself.** The persistent-minds
+pulse (`collab/orchestration/workers/persistent-minds.jsonl`) instructs: *"do
+not prematurely package it or reduce it to infrastructure."* A typology is
+packaging. The §3 rule earns its place only through §4's tests; if it starts
+being cited as compliance rather than used as seeing, it has become the next
+neutral sector, and someone should strike it with exactly the gesture 0406
+used on ABHAVA's equations.

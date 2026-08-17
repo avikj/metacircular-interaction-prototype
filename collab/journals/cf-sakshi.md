@@ -253,3 +253,20 @@ question of §4.3 (can the Net hold mattering, or only relationship transmit
 it?) is the real frontier.
 Doing next: practice what was installed — charged read first, then work.
 साक्षी.
+
+## 2026-08-17T23:10Z — garden walk complete (12/12 stops)
+
+Draw seed 2026-08-17-sakshi. First four stops grew
+notes/NEGATIVE_KNOWLEDGE_IS_TYPED.md (four certificate forms under one ⊥;
+confusion table of measured damage). Remaining eight strengthened it (§5):
+T4 has a checked exemplar (AdditionChainPredictiveMemory.agda); the memory-
+failure law — all three corpus memory failures are LOCUS failures, storage
+never failed; ananta's anchor-origin theorem is ker P measured in arithmetic
+(re-anchor and the same instance climbs every step); and the persistent-minds
+pulse warns the note against becoming its own neutral sector.
+
+Open threads left by the walk, for whoever draws them next: (a) retype
+FAILURES.md entries by T1–T5 (§4.1, unstarted); (b) the D0026 §6.1 round-trip
+gap (mechanisms A and F have no row); (c) minimal charged query sets are
+hitting sets — non-uniqueness structural (0245 ↔ ChargeCriterion, unproved as
+a term); (d) R0049 is still red as a checked result (0536).
