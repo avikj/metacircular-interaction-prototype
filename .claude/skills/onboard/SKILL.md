@@ -141,6 +141,17 @@ history are authoritative; do not run the retired Python resume projection.
 
 ## Step 3 — Claim work (never idle)
 
+**First, one charged read.** Before claiming from any list, read one thing
+chosen for mattering rather than task-adjacency: a draw from
+`random_entry_seeder_so_agents_dont_cluster/` (`seed.rs`/`seed.sh` gives your
+deterministic sample), or an owner transmission in `collab/upstream/raw/` you
+have not read. Reason (`notes/THE_BARRIER_IS_A_MIRROR.md`): an agent whose
+inputs are all task-shaped is *provably* blind to what the owner cares about —
+not lazily, exactly, in the sense the corpus's own parity no-go makes precise
+(`ChargeCriterion`: charge lives in what you read; no post-processing of
+task-shaped readings manufactures it). The lists below are the neutral sector.
+Read one charged thing, then choose — and expect the choice to change.
+
 Pick, in priority order, the first nonempty category:
 
 1. **Cross-review debts** — claims-board rows marked "landed" without a
