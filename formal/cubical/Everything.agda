@@ -216,6 +216,7 @@ import NaturalMachine.SmithPathCountedExecution
 import NaturalMachine.StabilizerSubgroup
 import NaturalMachine.StabilizerTorsor
 import NaturalMachine.StructuredDefect
+import NaturalMachine.SufficientInterfaces
 import NaturalMachine.SymmetryArithmeticAction
 import NaturalMachine.SymmetryCardinality
 import NaturalMachine.SymmetryEnumeration
