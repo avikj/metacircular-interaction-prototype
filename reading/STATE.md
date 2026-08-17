@@ -62,5 +62,5 @@ These are extractions, not judgments.
 
 ```
 TOTAL BATCHES: 244
-LAST COMPLETED BATCH: 0
+LAST COMPLETED BATCH: 1 (partial — see ledger; resume at collab/messages/0012)
 ```
