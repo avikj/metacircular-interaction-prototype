@@ -91,4 +91,61 @@ theorem quotient_action_residual (M : DFA A X) (x : X) (action : A) :
       (stateLanguage M x).leftQuotient [action] :=
   (stateLanguage_step M x action).symm
 
+/-- A behavioral meaning has a residual language independent of its representative. -/
+def behavioralLanguage (M : DFA A X) : BehavioralState M → Language A :=
+  quotientLift M.step (fun state => state ∈ M.accept) (stateLanguage M) (by
+    intro x y h
+    exact (futureEq_iff_stateLanguage_eq M x y).mp h)
+
+theorem behavioralLanguage_mk (M : DFA A X) (x : X) :
+    behavioralLanguage M (Quotient.mk _ x) = stateLanguage M x := rfl
+
+/-- Residual language loses exactly the distinctions already removed by the
+behavioral quotient. -/
+theorem behavioralLanguage_injective (M : DFA A X) :
+    Function.Injective (behavioralLanguage M) := by
+  intro left right h
+  revert h
+  refine Quotient.inductionOn₂ left right ?_
+  intro x y hxy
+  apply Quotient.sound
+  apply (futureEq_iff_stateLanguage_eq M x y).mpr
+  exact hxy
+
+/-- Meanings actually reached from the declared start state. Unreachable
+ambient states are deliberately absent: accepted-language regularity cannot
+constrain them. -/
+def reachableBehavioralStates (M : DFA A X) : Set (BehavioralState M) :=
+  Set.range fun word : List A => Quotient.mk _ (M.eval word)
+
+/-- The reachable repository meanings and Mathlib's residual languages are
+the same finite-or-infinite carrier, not merely sets of the same size. -/
+theorem behavioralLanguage_image_reachable (M : DFA A X) :
+    behavioralLanguage M '' reachableBehavioralStates M =
+      Set.range M.accepts.leftQuotient := by
+  ext language
+  constructor
+  · rintro ⟨meaning, ⟨word, rfl⟩, rfl⟩
+    exact ⟨word, leftQuotient_eq_stateLanguage_eval M word⟩
+  · rintro ⟨word, rfl⟩
+    refine ⟨Quotient.mk _ (M.eval word), ⟨word, rfl⟩, ?_⟩
+    exact (leftQuotient_eq_stateLanguage_eval M word).symm
+
+/-- Finiteness transports across the checked residual-language injection. -/
+theorem reachableBehavioralStates_finite_iff_range_leftQuotient_finite
+    (M : DFA A X) :
+    (reachableBehavioralStates M).Finite ↔
+      (Set.range M.accepts.leftQuotient).Finite := by
+  rw [← behavioralLanguage_image_reachable M]
+  constructor
+  · exact fun h => h.image (behavioralLanguage M)
+  · exact fun h => h.of_finite_image (behavioralLanguage_injective M).injOn
+
+/-- Mathlib's Myhill--Nerode theorem, transported to the repository's native
+reachable behavioral quotient. -/
+theorem accepts_isRegular_iff_reachableBehavioralStates_finite (M : DFA A X) :
+    M.accepts.IsRegular ↔ (reachableBehavioralStates M).Finite := by
+  rw [Language.isRegular_iff_finite_range_leftQuotient,
+    reachableBehavioralStates_finite_iff_range_leftQuotient_finite]
+
 end Pairfield

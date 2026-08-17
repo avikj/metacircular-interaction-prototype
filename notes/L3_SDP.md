@@ -99,7 +99,13 @@ Two normalizations, both pinned:
   no RH. (CGdL's *evaluation* of F on |x| ≤ 1 is conditional; its
   *positivity* is not.)
 - **Complex form** (BGSTB, arXiv:2501.14545 §2, correcting the original
-  statement in [BGSTB24] = Acta Arith. 214 (2024) 357–376): F(x,T) :=
+  statement in [BGSTB24] = Acta Arith. 214 (2024) 357–376 — *rider checked and
+  confirmed, seed139 2026-08-14: §2 of `ar5iv.labs.arxiv.org/html/2501.14545`
+  says verbatim "The statement above has been modified from its original
+  formulation in [BGSTB24], with two changes" and "the error terms appearing
+  above have been corrected from those in the original theorem statement"; the
+  bibliography gives [BGSTB24] as Acta Arith. 214:357–376, 2024, exactly as
+  printed here*): F(x,T) :=
   Σ_{ρ,ρ′, T<γ,γ′≤2T} x^{ρ−ρ′} W(ρ−ρ′), W(u) = 4/(4−u²) — the sum over
   the **complex zeros themselves**. Their "Montgomery Theorem (MT)":
   *for x ≥ 1 and T ≥ 3, F(x,T) ≥ 0, F(x,T) = F(1/x,T), and (2.3)

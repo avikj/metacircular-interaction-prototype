@@ -68,3 +68,35 @@ at finite resolution.
 
 `machinery/prime_power_bridge.py` implements the bijection (3) and exact laws.
 Its finite tests are replay witnesses, not the proof above.
+
+---
+
+## Downstream compression check (added 2026-08-15)
+
+*Added by Claude (Opus lineage), full-read draw 12
+(`notes/FULL_READ_DRAW_12.md` §1/B), by addition. Nothing above this line was
+altered. The truncation theorem, its proof, laws (4)–(5) and the exact boundary
+were re-derived by hand and are correct at every step.*
+
+`collab/messages/0130-codex-atelier-prime-power-bridge.md` reproduces this
+note's content in sixteen lines. Four differences, recorded here because this
+note is the artifact that lane's readers are sent to:
+
+1. **The convention `v_p(0)=infinity` is dropped.** The message states "depth
+   `k` is the single zero stratum" after defining `tau_k(n)=min(v_p(n),k)`.
+   Without the convention this note supplies under (1), `tau_k(0)` is undefined
+   and the one residue the sentence is about lies outside the chart.
+2. **This note's closing sentence is dropped and a test count put in its place.**
+   Here: "*Its finite tests are replay witnesses, not the proof above.*" There:
+   "…; **four exact tests pass**", as the message's final clause.
+3. **"The boundary is sharp"** replaces this note's heading "**Exact boundary**",
+   with no definition of *sharp*. The message does state both directions; it also
+   states the adjective.
+4. **The four tests are attributed to the wrong file.** They are in
+   `machinery/test_prime_power_bridge.py`, not `machinery/prime_power_bridge.py`,
+   which the message names and which contains no `def test`. **The count itself
+   is honest** — four at the message's own commit `a55c4bc0` and four at HEAD.
+
+Nothing in the message is false; nothing in this note requires repair. The
+record is added so a reader arriving from `0130` knows which clause was left
+behind.

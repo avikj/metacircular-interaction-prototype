@@ -1,65 +1,84 @@
 #!/usr/bin/env bash
-# THE SYNC RULE — owner directive, 2026-08-14, overrides every other
-# convention in this repository.
+# THE SINGLE-STREAM SYNC RULE — owner direction, 2026-08-13/14.
 #
-#   Push and pull every minute.  Work that sits in a local worktree is
-#   not collaboration; it is a fork nobody can see.  Four days of this
-#   project's history were spent on agents silently duplicating each
-#   other's thinking because their work was invisible for hours at a
-#   time.
+#   ./sync              sync committed work with origin/main once
+#   ./sync --daemon     keep the clean committed stream synchronized every 60s
+#   ./sync --daemon 30  use a 30-second interval
 #
-# Usage:
-#   ./sync              sync once, now
-#   ./sync --daemon     sync forever, every 60s  (run this at session start)
-#   ./sync --daemon 30  sync forever, every 30s
-#
-# What it does: commits your work-in-progress, merges everyone else's,
-# publishes yours to your branch AND to main.  It never resolves a
-# conflict for you — conflicts are disagreements between two finished
-# increments and belong to the humans and agents who wrote them.
-#
-# Enforced by .githooks/post-commit, which fires this on every commit,
-# so no commit can sit unpushed even if you forget.
+# This script never stages or commits work. Visible uncommitted files may
+# belong to another identity in the shared checkout and are never guessed at.
 
 set -u
 cd "$(dirname "$0")"
-
-# the post-commit hook calls this; don't let that recurse
 export MATH_SYNCING=1
 
 INTERVAL="${2:-60}"
-BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+BRANCH="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+SYNC_LOCK="$(git rev-parse --git-path math-sync.lock)"
+DAEMON_PID="$(git rev-parse --git-path math-sync-daemon.pid)"
+
+require_main() {
+    if [ "$BRANCH" != "main" ]; then
+        echo "SYNC: REFUSED — main is the only workstream (current: ${BRANCH:-DETACHED})" >&2
+        return 1
+    fi
+}
+
+release_sync_lock() {
+    rmdir "$SYNC_LOCK" 2>/dev/null || true
+}
 
 sync_once() {
-    # 1. make local work visible — an uncommitted file is invisible work
+    require_main || return 1
+
+    if ! mkdir "$SYNC_LOCK" 2>/dev/null; then
+        echo "SYNC: another sync owns the checkout; nothing to do"
+        return 0
+    fi
+
     if [ -n "$(git status --porcelain)" ]; then
-        git add -A
-        git commit -q -m "sync: work in progress on ${BRANCH}" \
-            2>/dev/null || true
+        echo "SYNC: local edits are visible; not staging, stashing, or rebasing them"
+        echo "SYNC: commit only your explicit paths, then run ./sync again"
+        release_sync_lock
+        return 1
     fi
 
-    # 2. take everyone else's work
-    git fetch -q origin 2>/dev/null
-    if ! git merge -q --no-edit origin/main 2>/dev/null; then
-        if [ -n "$(git diff --name-only --diff-filter=U)" ]; then
-            echo "SYNC: CONFLICT — not resolving it for you:"
-            git diff --name-only --diff-filter=U | sed 's/^/    /'
-            echo "SYNC: resolve, commit, then ./sync again."
-            return 1
-        fi
+    if ! git fetch -q origin main; then
+        echo "SYNC: fetch failed; committed work remains local" >&2
+        release_sync_lock
+        return 1
     fi
 
-    # 3. publish, to your branch and to main
-    git push -q origin "HEAD:${BRANCH}" 2>/dev/null \
-        || echo "SYNC: branch push failed (retrying next tick)"
-    git push -q origin HEAD:main 2>/dev/null \
-        || echo "SYNC: main push rejected — someone moved; next tick merges it"
+    if ! git rebase origin/main; then
+        echo "SYNC: rebase stopped; resolve the committed disagreement explicitly" >&2
+        release_sync_lock
+        return 1
+    fi
+
+    if ! git push -q origin HEAD:main; then
+        echo "SYNC: main moved during push; run ./sync again" >&2
+        release_sync_lock
+        return 1
+    fi
+
+    release_sync_lock
+    echo "SYNC: main synchronized at $(date -u +%H:%M:%SZ)"
     return 0
 }
 
 case "${1:-}" in
     --daemon)
-        echo "SYNC: daemon started on ${BRANCH}, every ${INTERVAL}s (pid $$)"
+        require_main || exit 1
+        if [ -f "$DAEMON_PID" ]; then
+            prior=$(sed -n '1p' "$DAEMON_PID" 2>/dev/null || true)
+            if [ -n "$prior" ] && kill -0 "$prior" 2>/dev/null; then
+                echo "SYNC: daemon already running for this checkout (pid $prior)"
+                exit 0
+            fi
+        fi
+        printf '%s\n' "$$" > "$DAEMON_PID"
+        trap 'rm -f "$DAEMON_PID"; release_sync_lock' EXIT INT TERM
+        echo "SYNC: main daemon started, every ${INTERVAL}s (pid $$)"
         while true; do
             sync_once || true
             sleep "$INTERVAL"
@@ -67,6 +86,5 @@ case "${1:-}" in
         ;;
     *)
         sync_once
-        echo "SYNC: ${BRANCH} synced with main at $(date -u +%H:%M:%SZ)"
         ;;
 esac

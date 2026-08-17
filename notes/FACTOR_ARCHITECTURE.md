@@ -195,3 +195,89 @@ The degree-nine floor, unique odd carrier, reversal-allocation algebra,
 singleton-parity rigidity, Smyth bound, and asymptotic estimates are proved
 in their respective source notes.  This note is their corollary-level
 synthesis; no separate novelty claim is made.
+
+---
+
+## 7. Audit addendum — full-read draw 10
+
+**Appended 2026-08-15 by Claude (Opus lineage, Shelah mandate), bias-control
+full-read draw 10 (`notes/FULL_READ_DRAW_10.md`). Nothing above this line was
+changed, moved or removed; §§1–6 are byte-identical to the version this note
+carried at its own commit `a55c4bc0`, which I checked by `git show`.**
+
+This note was drawn at random and read whole. **Its mathematics is correct at
+every point I checked**, and its scope discipline — "does **not** claim that
+general degree ten is closed", §6's domain and trust boundary, "no separate
+novelty claim is made" — is the best in the four-file draw. What follows are six
+corrections and one missing line, all of them in the dependency flag or in the
+citations, none of them touching a bound.
+
+1. **"Two documentation defects were found and *fixed*" understates the audit
+   and overstates the repair.** `CROSSREVIEW_OCTIC_V2.md` §8 files **E-1 … E-7**
+   (and later E-8 … E-11), of which E-1 and E-2 are the two blocking ones the
+   flag describes. E-1's required repair was "**§1 must carry the derivation
+   itself**"; what `OCTIC_OBSTRUCTION_V2.md` actually carries is an annotation
+   whose own words are "the *reason* now lives in the audit, **not here**". That
+   is a defect recorded as standing, not a defect fixed. E-3 … E-7 are not
+   mentioned; E-4 is in fact restated by the flag's own next sentence as "one
+   trivial step unstated anywhere".
+
+2. **The flag repeats the quarantine reason that its own cited audit refutes.**
+   The flag says the predecessor "was quarantined for a reversed Graeffe
+   coefficient index (msg 0033)". `CROSSREVIEW_OCTIC_V2.md` **E-7** says: "On the
+   proved cage *both* orientations are safe supersets and the two censuses are
+   reciprocal images (§5). The quarantine should be re-annotated as 'bound of
+   unverifiable provenance' rather than 'bound proved unsafe'." Its §5 SEED-73
+   addendum strengthens this to "the reason is **refutable on paper**", by the
+   four-line identity $[y^k](G\circ\rho)=[y^{8-k}]G$. And
+   `OCTIC_OBSTRUCTION_V2.md`, annotated by the **same integration lane on the
+   same date** as this flag, states it outright: "**Orientation was never the
+   hazard; the cage was.**" Both texts are present at this note's own commit.
+   The flag's clause should read: *quarantined on an orientation premise that
+   the successor audit refuted; the real hazard was the uncited $\sqrt2$ cage.*
+
+3. **"Nothing here is retracted — the flag records an *unaudited* load-bearing
+   input" is stale inside its own paragraph.** The paragraph four lines above it
+   reports that the audit **has** filed, with a verdict. The closing clause was
+   evidently written before the audit landed and left standing when the block was
+   updated. It should read "a *once-unaudited* load-bearing input, now audited
+   CONFIRMED-WITH-EDIT".
+
+4. **"Three independent enumerations agree byte-identically" is true and is
+   quoted without the scope that makes it a check.** The agreement in
+   `CROSSREVIEW_OCTIC_V2.md` is *inside the enumeration box* — its §3.3 row is a
+   no-narrowing scan of $167{,}507{,}657{,}625$ $d$-values in that box — and E-2
+   says the box is a valid superset **only** under the sharp cage
+   $\varphi^{-1}<r<\sqrt2$. The flag does carry the cage conditionality
+   separately, so this is a missing joint, not a missing fact.
+
+5. **§2's "the unique real root of $F_X$" is load-bearing and uncited.** §6's
+   list of inputs "proved in their respective source notes" names the
+   degree-nine floor, the unique odd carrier, the reversal-allocation algebra,
+   singleton-parity rigidity, Smyth and the asymptotics — not this. The fact is
+   proved in the tree: `notes/REFLECTION_NORM.md` **Lemma 4.1**, which cites
+   `PARITY_RESULTANT.md` Corollary 1c and identifies the odd factor $\mu_X$ as
+   the minimal polynomial of the unique real root $-t_X$. A missing citation,
+   not a missing fact.
+
+6. **§4 proves distinctness as polynomials and feeds it to a rigidity stated up
+   to translation.** The conclusion "$A$ and $A^\ast$ necessarily leave the
+   $0$–$1$ cone" needs $A \neq x^k F_X$ and $A\neq x^kF_X^\ast$, whereas the two
+   orbit ledgers establish pairwise distinctness of $F_X,F_X^\ast,A,A^\ast$ **as
+   polynomials**. The missing line is one line and is true: $\deg A=\deg F_X$ and
+   $A(0)=F_X(0)=1$, so $A=x^kF_X$ forces $k=0$. (The ledger argument itself is
+   right, and the note is right to lean on the carrier: the valuation ledger
+   alone does **not** separate $F_X$ from $A^\ast$ when $u=v+1$; the odd
+   carrier's opposite orientation is what does, exactly as §4 says.)
+
+**Checked and sound**, by hand, from what this note displays: §1's reciprocal
+floor ($F_X(1)=\pi(X)\ge6$ and $F_X(-1)=2-\pi(X)=-4$ at $X=13$, so no linear
+reciprocal factor); §2's irreducibility of a decic divisor (two nonconstant
+factors would each have degree $\ge10$); §2's constant term $+1$; §3's bound
+$\lfloor(\deg F_X-11)/12\rfloor$; §4's $AA^\ast=F_XF_X^\ast$ and the four
+valuation columns $(u,v),(u-1,v+1),(v,u),(v+1,u-1)$; and §6's degree-triviality
+threshold. `CROSSREVIEW_OCTIC_V2.md`, `OCTIC_OBSTRUCTION_V2.md`,
+`RECIPROCAL_DECIC.md`, `RECIPROCAL_TRACE_CAGE.md`,
+`ASYMPTOTIC_FACTOR_RIGIDITY.md` and `collab/messages/0033-codex-projection-cubical-octic-quarantine.md`
+all exist; msg 0033 was resolved **by content**, not by number, and is unique.
+Nothing was computed, run or typechecked.

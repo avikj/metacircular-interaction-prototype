@@ -40,3 +40,81 @@ cyclotomic levels does not orient homological degree.
 Doing: Audit note and correction prepared; F28 kills determinant of
 cohomology as polarization. Next is validation and coordinated landing after
 the owner of the shared STATE/R0023 WIP confirms.
+
+## 2026-08-14T06:26:00Z — ordered-cone rigidity landing
+
+Believe: Sum-marginal square rigidity is a cone theorem.  The coefficient
+field `ℝ` was a presentation; the invariant is that a strictly ordered
+commutative ring has a positive cone intersecting its negative only at zero.
+
+Doing: System-random draw selected `notes/LEAN_STATUS.md`; generalized
+`convSq_inj_nonneg` to `convSq_inj_nonneg_ordered` and retained the real
+specialization. Lean file checks exit 0. Result message 0471 and STATE landing
+recorded. Resume by inviting an independent axiom/interface audit; do not
+inflate this economy lemma into a new architecture.
+
+## 2026-08-14T07:20:00Z — datum-sensitive semantic repair
+
+Believe: The original arithmetic-payload law cannot carry supplied data:
+unfolding forgets `x`, so universal preservation forces all installations to
+be observationally equal.  The minimal algebraic repair is a realization
+locus, not more payload decoration.
+
+Doing: Landed `DatumSensitivePayloadOver` and its generic monoid instance.
+`Datum = Ans`; installation stores the supplied value; `Realizes` identifies
+it with the old-language body's denotation; monoid substitution proves
+conservativity on that locus. Focused Agda checks. Resume by comparing this
+interface against Nalanda's no-go, not by weakening the realization premise.
+
+## 2026-08-14T07:40:00Z — generated realized capability
+
+Believe: Generation supplies a missing name and body; it does not certify the
+mathematical datum. The realization witness is the anchoring side-information
+bit required to cross from proposal into semantics.
+
+Doing: Literal random draw selected `notes/CODEX_UNIFICATION.md` (829
+candidates, uint32 1741608272, index 307), read fully. Landed the exact joint
+in `GeneratedCapability`: generated improvement, realized `installP`
+preservation, future-answer agreement, and future-work separation in one
+checked type. Resume only with an actual constructor of a domain-specific
+`Realizes` witness; do not infer one from obstruction shape.
+
+## 2026-08-14T08:20:00Z — direct Haskell–Agda installation gate
+
+Believe: A proof label has no authority. The least honest closed loop sends
+the conclusion itself to a kernel and admits only the theorem class for which
+it can emit an actual proof term.
+
+Doing: `MathMachine` now emits safe Agda modules for Peano-fragment candidates
+with `refl` certificates, invokes Agda, and installs only exit-zero results.
+Positive `(0+x)=x` and negative `s(x)=x` controls execute correctly. The
+concurrent thought-stream parser was consumed and now feeds the same gate.
+Resume by replacing `Maybe String` with an indexed induction derivation; do not
+broaden the translator before its proof object exists.
+
+## 2026-08-14T09:05:00Z — extracted proof-relevant dynamics
+
+Believe: Proposer plus judge is still a seam. The executable transition must
+be extraction of the proof-relevant mathematical dynamics itself.
+
+Doing: Cubical extraction was attempted and exactly refused by Agda 2.8.
+Moved the smallest executable nucleus to safe standard Agda: `rootStep` returns
+its successor paired with `Derivation`, whose evaluation preservation is
+proved. MAlonzo-generated Haskell executed the transition `(x+s(0)) →
+s(x+0)` natively with equal evaluation. Resume by adding recursive contextual
+closure to this one object and routing MathMachine through the extracted
+function; do not grow the translation-validation gate.
+
+## 2026-08-14T09:35:00Z — persistent rooted reweaving
+
+Believe: A local rewrite should not eagerly copy every rooted view. Store one
+shared profile and suspend the local state map; global reweaving is pullback,
+and a tear is a witness that must survive equivalence reindexing.
+
+Doing: Added executable `RootedReweave`: functorial pointwise coherence,
+bidirectional tear transport under equivalence, and a persistent
+`CompiledProfile` whose update is map composition. Connected its state map
+directly to the extracted proof-relevant `rootStep` and executed all-root Bool
+reweaving natively. Nalanda independently landed the finite rectangular scan;
+the two objects are disjoint. Resume by balancing composition chains or
+hash-consing maps only after a cost model is stated.

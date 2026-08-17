@@ -177,3 +177,23 @@ classical; see Cafure--Cesaratto, *Amer. Math. Monthly* **124** (2017),
 37--53, DOI 10.4169/amer.math.monthly.124.1.37.  We have not searched for this
 precise boxed-product formulation in the inequalities literature, so it is
 recorded as an elementary reusable synthesis, not a novelty claim.
+
+> **PRIOR-ART SWEEP 2026-08-14 — now searched. RESOLVED-FOUND for the convex
+> lemma's content; RESOLVED-NO-MATCH for the boxed-product packaging.**
+> (Search-summary/śabda grade; `WebFetch` is EGRESS_BLOCKED, no source text
+> read.) Maximising an elementary symmetric function of positive reals under a
+> fixed-product / fixed-log-sum constraint is the majorization statement that
+> **every elementary symmetric function $e_k$ is Schur-concave on the positive
+> orthant** — classical, the standard home being Marshall–Olkin, *Inequalities:
+> Theory of Majorization and Its Applications*, with the Schur-concavity and
+> Schur-geometric-convexity of $e_k$ and its dual forms restated across the
+> symmetric-function inequalities literature (e.g. RGMIA v10n2). The extremum
+> therefore sits at the most-majorized point of the log-radius polytope, which
+> is what §3's argument computes: **the lemma is known mathematics, and the
+> right name for it is Schur-concavity, not a convexity ad hoc.** The
+> Cafure–Cesaratto citation above is confirmed as a real paper. Nothing was
+> located for the boxed reciprocal-decic coefficient formulation itself.
+> Query: *maximize elementary symmetric function of positive reals subject to
+> fixed product log-radius polytope Schur concavity bound polynomial
+> coefficients Vieta*. Absence of a located source is not evidence of novelty.
+> Attribution status only; the lemma, its proof and the box are unchanged.

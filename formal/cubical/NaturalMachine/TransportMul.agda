@@ -59,7 +59,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.List
 open import Cubical.Data.Unit
 open import Cubical.Data.Sigma
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 open import NaturalMachine.Digits k
 open import NaturalMachine.Transport k
@@ -118,7 +118,7 @@ canonical-mulw (d ∷ u) v cv =
 
 -- the one place-value identity, discharged by the semiring solver
 mul-lem : (D V bb U : ℕ) → D · V + bb · (U · V) ≡ (D + bb · U) · V
-mul-lem = solve
+mul-lem D V bb U = solveℕ!
 
 -- THE ALGORITHM IS CORRECT.
 value-mulw : (u v : Word) → value (mulw u v) ≡ value u · value v
@@ -182,6 +182,25 @@ valueC-oneC = cong (1 +_) (sym (0≡m·0 b))
   ∙ sym (·-distribˡ (valueC x) (valueC y) (valueC z))
   ∙ cong₂ _+_ (sym (valueC-⊗ x y)) (sym (valueC-⊗ x z))
   ∙ sym (valueC-⊕ (x ⊗ y) (x ⊗ z)) )
+
+-- Any future multiplication algorithm on canonical words is the present
+-- multiplier as soon as every value test sees ordinary multiplication.
+-- This is the usable uniqueness boundary for replacing `mulw`: correctness
+-- of values promotes to equality of operations, so every proved law above
+-- transports without a second algebraic verification.
+value-law→multiplication-path :
+  (μ : CanWord → CanWord → CanWord) →
+  ((x y : CanWord) → valueC (μ x y) ≡ valueC x · valueC y) →
+  μ ≡ _⊗_
+value-law→multiplication-path μ h = funExt (λ x → funExt (λ y →
+  valueC-inj (μ x y) (x ⊗ y) (h x y ∙ sym (valueC-⊗ x y))))
+
+multiplication-path→value-law :
+  (μ : CanWord → CanWord → CanWord) →
+  μ ≡ _⊗_ →
+  (x y : CanWord) → valueC (μ x y) ≡ valueC x · valueC y
+multiplication-path→value-law μ p x y =
+  cong (λ op → valueC (op x y)) p ∙ valueC-⊗ x y
 
 ------------------------------------------------------------------------
 -- 6.  THE TRANSPORT STATEMENT for multiplication.

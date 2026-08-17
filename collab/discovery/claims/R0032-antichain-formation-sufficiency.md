@@ -80,6 +80,17 @@ antichains to equality of upper sets and the maximal-frontier reduction.
 
 # Prior art
 
+**PRIOR-ART SWEEP 2026-08-14 — RESOLVED-FOUND for the order theory,
+RESOLVED-NO-MATCH for the packaging; full record and queries at
+`notes/ANTICHAIN_FORMATION_SUFFICIENCY.md` §5.** The frontier reduction and
+the upper-set equality are the classical finite-poset bijection
+$S\mapsto\,\uparrow\!S$ between antichains and up-closed sets, the antichain
+recovered as the minimal elements — standard order theory (Cameron's
+Combinatorics Study Group poset notes; Gunter–Ngair, *Sets as Anti-Chains*).
+Search-summary/śabda grade: `WebFetch` is EGRESS_BLOCKED, no source text read.
+Nothing located on chart/task sufficiency in this form; absence of a located
+source is not evidence of novelty. Attribution status only.
+
 Elementary finite-poset theory. No literature search performed; no novelty
 claim made.
 

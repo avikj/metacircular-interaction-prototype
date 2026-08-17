@@ -1,0 +1,15 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "machinery/mixed_rank_smith_stabilizer.py",
+    "machinery/test_mixed_rank_smith_stabilizer.py"
+  ],
+  "at": "2026-08-12T19:36:08Z",
+  "claim_id": "R0037",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Symbolic proof and five-test exact replay complete, including a brute-force partner-existence iff at (2,1) and the R0032 cross-check; the replay exposed and fixed an empty-matrix determinant base case in the R0036 module.",
+  "role": "builder",
+  "statement_hash": "019ac30e3d06c4ba25a519f127c51741f6ddf253d7a423c5d2ba5d897b94b3e5",
+  "to": "formalizing"
+}

@@ -228,6 +228,25 @@ $\mathrm{clamp}_\top(m)=m$, none of which is $\theta(m)=\top$. $\square$
 Agda: `θ-Adm`, `θ-not-id`, `θ-not-constTop`, `θ-not-clamp`,
 packaged as `modeListIncomplete : ModeListIncomplete`.
 
+> **POINTER, 2026-08-14, ibn-al-haytham — the sentence below marked ~~"all
+> thresholds or threshold-like"~~ is a three-chain artifact, and the census is
+> a rate.** `notes/THRESHOLD_GENERATION_DICHOTOMY.md`
+> (`formal/cubical/ThresholdGenerationDichotomy.agda`, EXIT=0) proves: on
+> $C_n$ there are exactly $\binom{2n-2}{n-1}$ admissible modes, exactly
+> $(n-1)^2+1$ thresholds, and thresholds $\cup\{\mathrm{id}\}=\mathrm{Adm}$
+> **iff $n\le3$** — so "2 of 6" is $2/\binom{2n-2}{n-1}$, which vanishes, and
+> the $n=3$ coincidence is exactly what makes §5's reading look right. At
+> $n=4$ the mode $\psi=(0,0,2,3)$ is admissible and is **no threshold** for
+> any $\chi$ whatever; it *is* the pointwise meet of two thresholds. The
+> repair is therefore correct as a **generating family under pointwise meet**
+> (which §6 already proves $\mathrm{Adm}$ closed under) and false as a list.
+> Two further results there: Prop. O2.3's list is exactly the unary
+> **ACUI-polynomials**, so $\theta$ is definable by *no* term (strengthening
+> Theorem C); and generation by thresholds **fails** on the non-distributive
+> $M_3$ and $N_5$, so Theorem D's finite-lattice setting is not enough —
+> `OBLIGATION.md` Def. 2's unused "product of chains" is what makes it work.
+> Theorems A–D of this note are untouched; only the §5 gloss is struck.
+
 **Census.** On $\mathcal T$, meets are $\min$ and every monotone map
 preserves them, so the admissible modes are exactly the monotone
 $t$ with $t(\top)=\top$: the pairs $(t(\bot),t(m))$ with
@@ -235,8 +254,10 @@ $t(\bot)\le t(m)\le\top$, of which there are $1+2+3=6$. Prop. O2.3's list
 contributes $\mathrm{id}=(\bot,m)$ and $\mathrm{const}_\top=(\top,\top)$;
 both nontrivial clamps are illegal by Theorem A. So the note names
 **2 of 6**. The four unnamed ones — $(\bot,\bot)$, $(m,m)$, $(m,\top)$,
-$(\bot,\top)=\theta$ — are all thresholds or threshold-like, and every one
-of them is a scope rule an auditor would want.
+$(\bot,\top)=\theta$ — are ~~all thresholds or threshold-like~~ **exactly the
+four nontrivial thresholds** (see the pointer above: at $n=3$, and only at
+$n\le3$, thresholds $\cup\{\mathrm{id}\}$ happens to be all of
+$\mathrm{Adm}$), and every one of them is a scope rule an auditor would want.
 
 ---
 

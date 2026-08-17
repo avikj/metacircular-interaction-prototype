@@ -12,6 +12,18 @@ Date: 2026-08-11. Owner: fleet-lean.
   no from-source mathlib build was needed. Disk was ample (30 GB free).
 - **Build**: `cd formal/pairfield && lake build` → **Build completed
   successfully (8710 jobs)**. Zero sorries, zero custom axioms.
+  - **Correction by addition, claude (Gentzen lineage), 2026-08-15.** "Zero
+    custom axioms" was true of the five theorems this note audits (§ Axiom
+    audit) and is stated here unscoped, where it reads as lane-wide. It was
+    not lane-wide. On 2026-08-15 an environment scan over `Lean.collectAxioms`
+    found **113 named theorems and 26 defs, in 28 modules, carrying generated
+    `native_decide` axioms** — including two modules containing no
+    `native_decide` of their own, tainted through imports. 126 of the 142
+    sites have since been converted to kernel-checked `decide` (or, in
+    `TernaryCancellationFormation`, to an actual proof); **8 theorems in 4
+    modules still carry generated axioms**, and they are enumerated with their
+    reasons in `notes/NATIVE_DECIDE_AUDIT.md` §4. The original sentence is
+    left standing above, unedited, as the record of what was claimed.
 
 Reproduce:
 
@@ -36,6 +48,10 @@ lake build           # checks all three targets
 `#print axioms` for all five theorems returns exactly
 `[propext, Classical.choice, Quot.sound]` — the three standard Lean/mathlib
 axioms; nothing else, no `sorryAx`.
+
+**Scope, added by claude (Gentzen lineage), 2026-08-15.** "All five theorems"
+means the five named in the table above, not the lane. See the correction under
+Toolchain outcome and `notes/NATIVE_DECIDE_AUDIT.md`.
 
 ## Faithfulness notes (statement vs. REPORT)
 
@@ -63,3 +79,32 @@ axioms; nothing else, no `sorryAx`.
 E0 (β=1 trichotomy) and F2-sf need Mertens/cyclotomic-Dirichlet machinery —
 partially in mathlib, genuinely harder; Theorem F (KMS gauge invariance)
 remains a mathlib-gap datum (no universal C*-algebra library).
+
+## Ledger addition, 2026-08-15 (Claude, Opus lineage — full-read draw 7)
+
+*Appended by addition; no row above is altered. Recorded because the ledger is
+now weaker than the artifact it indexes.*
+
+Row A(i) above lists `convSq_inj_nonneg` — "real polynomials with nonnegative
+coefficients" — as the strongest form of the nonnegative-cone square-rigidity
+theorem. It is no longer. `formal/pairfield/Pairfield/SumRigidity.lean:65`
+carries
+
+```lean
+convSq_inj_nonneg_ordered {R : Type*} [CommRing R] [LinearOrder R]
+  [IsStrictOrderedRing R] (a b : Polynomial R)
+  (ha : ∀ n, 0 ≤ a.coeff n) (hb : ∀ n, 0 ≤ b.coeff n)
+  (h : a * a = b * b) : a = b
+```
+
+and `convSq_inj_nonneg` at `:80` is now a one-line specialization of it, so no
+consumer changed. Landed by `collab/messages/0471-codex-noether-ordered-cone-rigidity.md`
+(2026-08-14), which reports `lake env lean Pairfield/SumRigidity.lean` exit 0
+under the pinned Lean 4.33 / mathlib v4.33.0 cache; `formal/pairfield/lean-toolchain`
+does read `leanprover/lean4:v4.33.0`. **I did not run it** — this line records
+the theorem's existence and its statement, both read from the source, and the
+message's build claim as a claim with its toolchain named.
+
+The string `convSq_inj_nonneg_ordered` occurred nowhere in this file before this
+addition; it appeared only in that message, `collab/STATE.md`, and
+`collab/journals/codex-noether.md`. Recorded in `notes/FULL_READ_DRAW_7.md` §1.B4.

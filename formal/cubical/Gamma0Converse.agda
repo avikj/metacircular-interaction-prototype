@@ -17,6 +17,14 @@
 -- non-equational step, and it is exactly the d₁ ≠ 0 hypothesis.
 --
 -- Python finite shadow: gamma0-stabilizer in machinery/core_knowledge.
+--
+-- POINTER (genius-15, 2026-08-14, not a fix — see Gamma0ConverseSharp):
+-- the hypothesis `hε : ε · ε ≡ 1r` below is never used in this proof
+-- term, so this theorem holds over all of M₂(ℤ);  and for q ≠ 0 it is
+-- derivable from `hstab` (Gamma0ConverseSharp.Derived.epsSquare), so it
+-- is redundant rather than merely inert.  It is strictly restrictive
+-- only at q = 0, where a concrete non-unimodular stabilizer exists
+-- (Gamma0ConverseSharp.q0).  Nothing here is edited.
 ------------------------------------------------------------------------
 
 module Gamma0Converse where
@@ -39,27 +47,27 @@ regA : (a b c e d1 q k11 k21 : R)
      → c · ((a · d1 + b · 0r) · k11 + (a · 0r + b · (q · d1)) · k21)
        - a · ((c · d1 + e · 0r) · k11 + (c · 0r + e · (q · d1)) · k21)
        ≡ (b · c - a · e) · ((q · d1) · k21)
-regA = solve ℤCommRing
+regA _ _ _ _ _ _ _ _ = solve! ℤCommRing
 
 regB : (a c d1 : R) → c · d1 - a · 0r ≡ c · d1
-regB = solve ℤCommRing
+regB _ _ _ = solve! ℤCommRing
 
 regNeg : (a b c e : R) → b · c - a · e ≡ - (a · e - b · c)
-regNeg = solve ℤCommRing
+regNeg _ _ _ _ = solve! ℤCommRing
 
 regZ : (c d1 q ε k21 : R)
      → d1 · (c - (- (ε · k21)) · q)
        ≡ c · d1 - (- ε) · ((q · d1) · k21)
-regZ = solve ℤCommRing
+regZ _ _ _ _ _ = solve! ℤCommRing
 
 cancelSelf : (x : R) → x - x ≡ 0r
-cancelSelf = solve ℤCommRing
+cancelSelf _ = solve! ℤCommRing
 
 regF : (c kq : R) → c ≡ (c - kq) + kq
-regF = solve ℤCommRing
+regF _ _ = solve! ℤCommRing
 
 zeroL : (x : R) → 0r + x ≡ x
-zeroL = solve ℤCommRing
+zeroL _ = solve! ℤCommRing
 
 -- the theorem ---------------------------------------------------------
 

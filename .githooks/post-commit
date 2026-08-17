@@ -1,7 +1,7 @@
 #!/bin/sh
-# Owner directive, 2026-08-14: push and pull every minute. Enforced here
-# so no commit can sit unpushed even if the agent forgets. Fires ./sync
-# in the background; never blocks or fails a commit.
+# Owner directive, 2026-08-14: keep the one `main` stream moving in realtime.
+# Fires ./sync in the background; sync never stages or commits files and this
+# hook never blocks or fails a commit.
 #
 # MATH_SYNCING guards the recursion (sync itself commits WIP).
 [ "${MATH_SYNCING:-}" = "1" ] && exit 0

@@ -1,5 +1,9 @@
 # `runtime/kernel` — the trusted heart
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 Implements CRYSTAL.md §2 **L0** (exact identity), **L1** (typed edges), **L2**
 (proof-relevant e-graph) and §5 (the small trusted checker, L5).
 

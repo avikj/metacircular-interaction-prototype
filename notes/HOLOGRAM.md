@@ -104,8 +104,44 @@ note creates.
 ## 5. Prediction on record
 
 A span-8.5 window ($X\sim10^8$) reads 9 banded lines; newly readable:
-$f=46.03, 47.07, 50.02, 53.96$ — the gaps $\gamma_3{-}\gamma_2$,
-$\gamma_5{-}\gamma_1$ and the $(3,3)$ diagonal become extractable.
+$f=46.03, 47.07, 50.02, 53.96$ — ~~the gaps $\gamma_3{-}\gamma_2$,
+$\gamma_5{-}\gamma_1$ and the $(3,3)$ diagonal~~ become extractable.
+
+**[CORRECTED — fleet breaker pass (Kolmogorov-method), 2026-08-14; ordinates
+re-derived by hand by opus-ekatva. All four lines are SUMS, and two were
+labelled as differences:**
+$46.033=\gamma_2{+}\gamma_3$ (not $\gamma_3{-}\gamma_2=3.989$);
+$47.070=\gamma_1{+}\gamma_5$ (not $\gamma_5{-}\gamma_1=18.800$);
+$50.022=2\gamma_3$ ✓; $53.957=\gamma_2{+}\gamma_5$ (was unlabelled).
+`BARRIER.md` is correct here — it defines $\sigma_k$ as the $k$-fold **sum**-spectral
+measure — and this note drifted from it in §1(b), §2 and §5.
+
+**This is not a naming slip, because the two spectra have different amplitude
+laws.** With atom weight $w=v_\rho v_{\rho'}\Gamma(\rho)\Gamma(\rho')/\Gamma(\rho{+}\rho'{+}2)$
+and $|\Gamma(\tfrac12+it)|\sim\sqrt{2\pi}e^{-\pi|t|/2}$,
+$|\Gamma(\sigma{+}iu)|\sim\sqrt{2\pi}|u|^{\sigma-1/2}e^{-\pi|u|/2}$:
+
+- **sum atoms** ($u=\gamma+\gamma'$): the exponentials cancel exactly, leaving
+  $|w|\sim\sqrt{2\pi}\,u^{-5/2}$ — polynomial;
+- **difference atoms** ($u=\gamma-\gamma'=O(1)$): nothing cancels, giving
+  $|w|\sim\pi e^{-\pi(\gamma+\gamma')/2}\approx\pi e^{-\pi T}$ — exponentially
+  suppressed.
+
+**Consequence for the boxed depth law.** K′'s threshold is
+$A(\delta L)^{2p-1}\gtrsim\varepsilon=e^{-L/2}$ with $A$ the atom amplitude,
+and this note silently took $A=\Theta(1)$. For sums $\log A=O(\log T)$ is
+negligible and the boxed $X_{\text{needed}}=\exp\Theta(T^{1/2}\log^{3/2}T)$
+**survives**. For differences $\log A\approx-\pi T$, so the condition is
+unsatisfiable unless $L\gtrsim2\pi T$, giving
+$$X_{\text{needed}}^{\text{diff}}(T)=\exp\bigl(\Theta(T)\bigr),$$
+strictly between $\exp\Theta(T^{1/2}\log^{3/2}T)$ and $\exp\Theta(T\log^2T)$.
+So on the subject §§1–2 and §5 say this is about, the note is optimistic by a
+whole power of $T$ in the exponent: at $T=100$ the difference threshold is
+$\log_{10}X\gtrsim273$, not the $5$–$15$ recorded as "reachable".
+
+The density input is unaffected — difference-atom density at fixed $u$ is also
+$\sim T\log^2T/(4\pi^2)$, the same order as $\rho_2(2T)$, which is presumably
+why the conflation survived. **Only the amplitude differs.**]**
 Falsifiable the day anyone sieves to $10^8$.
 
 ## 6. Toy Theorem K0: the provable core is superresolution theory (exp41)

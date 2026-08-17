@@ -117,4 +117,20 @@ number of points realizing them is `|F_X(x)|`.
   task sufficiency. No literature search has been performed, and no novelty
   claim is made. The contribution is the exact answer to the repository's
   stated non-chain formation question.
+  **PRIOR-ART SWEEP 2026-08-14 — searched; RESOLVED-FOUND for the order theory,
+  RESOLVED-NO-MATCH for the packaging** (search-summary/śabda grade; `WebFetch`
+  EGRESS_BLOCKED, no source text read). The frontier reduction and the
+  stronger upper-set equality are instances of the classical finite-poset
+  bijection $S\mapsto\,\uparrow\!S$ between antichains and up-closed subsets
+  (equivalently $S\mapsto\,\downarrow\!S$ for down-sets), with the antichain
+  recovered as the minimal elements — standard order theory, e.g. P. J.
+  Cameron's Combinatorics Study Group poset notes, and used as the working
+  representation in C. A. Gunter and T.-H. Ngair, *Sets as Anti-Chains*. So
+  the row's own reading is right and can be stated flatly: **the order theory
+  here is known mathematics**; what is this note's is the identification of
+  chart-refinement sufficiency with it. Nothing was located on task/chart
+  sufficiency in that form. Query: *antichain of minimal elements upper set
+  finite poset bijection sufficiency frontier obligations equivalence theorem*.
+  Absence of a located source is not evidence of novelty. Attribution status
+  only; the three-way equivalence and both diamond controls are untouched.
 

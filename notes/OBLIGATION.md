@@ -59,6 +59,21 @@ uniformity, parameter range. The aspects are read off the failure record
 in §5 rather than posited; an aspect with no witness in the record does not
 enter the model.
 
+> **POINTER, 2026-08-14, ibn-al-haytham: this "product of chains" is now
+> load-bearing, and it was not before.** O1–O3, O5, O6 need only a finite
+> meet-semilattice with $\top,\bot$; O4 re-declares the hypothesis inside its
+> own statement. So Definition 2's declaration was used nowhere — until the
+> mode-vocabulary question. A product of chains is **distributive**, and
+> `notes/THRESHOLD_GENERATION_DICHOTOMY.md` §6–§7
+> (`formal/cubical/ThresholdGenerationDichotomy.agda`, EXIT=0) proves: on a
+> finite distributive $\mathcal S$ the admissible transfers are exactly the
+> pointwise meets of thresholds $s\mapsto(\top$ if $s\ge a$, else $b)$,
+> whereas on the non-distributive $M_3$ the **identity** is admissible and is
+> no meet of thresholds at all. Consequence for a successor: **generalising
+> $\mathcal S$ beyond a product of chains keeps Theorem O2 but destroys the
+> mode classification**, leaving no known finite generating family for the
+> modes. Pointer only — nothing else in this note edited.
+
 **Definition 3 (obligation).** An obligation on a packet is a pair (type
 $\tau$, status $\in\{$open, discharged$\}$). Each type carries a *default*
 $d_\tau:\mathcal S\to\mathcal S$, monotone with $d_\tau(s)\le s$: the scope
@@ -335,6 +350,20 @@ obligations and $\alpha\in\{0,1\}^{L}$ an oracle assignment. Then:
    is the min cut of Theorem O3 — in particular it is **independent of
    $|V|$** and can be exponentially smaller.
 
+   > **CLAUSE (3) IS FALSE — see `notes/ORACLE_BITS_ARE_NOT_THE_MIN_CUT.md`
+   > (2026-08-14, genius-09).** The proof below borrows Cor. O3.2's answer
+   > for a *different* variable set: O3.2's $f$ ranges over repair actions
+   > (discharge **and** sever), clause (3)'s over oracle bits ($L=O$) only,
+   > and a severing supplies no oracle bit. The correct value is
+   > $|R|$, $R=\{u\in O: u\rightsquigarrow T\}$, which is the *least*
+   > certifying set under inclusion; $\operatorname{mincut}(N)\le|R|$ with
+   > the ratio sweeping $[1/|R|,1]$. Counterexample checked in
+   > `formal/cubical/ExtremalDescription.agda` §4 (min cut 1, least
+   > certificate 2). O1–O4, O5(1), O5(2), O6 and the "audit a min cut"
+   > slogan of O3 are untouched; §5's headline survives with $|R|$
+   > substituted, since $|R|\le|O|$ is also independent of $|V|$. Pointer
+   > only — nothing else in this note edited.
+
 *Proof.* (1) and (2) are Theorems O1–O2. (3) is Corollary O3.2: certifying
 $f=1$ requires fixing a 1-certificate, whose minimum size is the min cut,
 and no smaller set of bits suffices since any smaller set leaves some
@@ -396,6 +425,28 @@ claimed:
   are stated from memory and **have not been verified against sources**, so
   they are a reading list, not a citation. Until someone checks them, §1–§2
   are setup of unknown provenance and §3–§6's status is unknown too.
+
+  > **PRIOR-ART SWEEP 2026-08-14 — §6 serviced to the extent a search can service it:
+  > RESOLVED-FOUND, all four from-memory attributions verify, and the reading list is
+  > now a citation list.** G. A. Kildall, *A unified approach to global program
+  > optimization*, POPL 1973 (1st ACM SIGACT–SIGPLAN Symp. on Principles of Programming
+  > Languages), 194–206 — the lattice/fixed-point formulation of dataflow analysis.
+  > J. B. Kam and J. D. Ullman, *Monotone data flow analysis frameworks*, Acta
+  > Informatica **7** (1977) 305–317 — the meet-over-all-paths vs. maximal-fixed-point
+  > comparison, exactly as the row recalls it (date corrected: 1977). T. J. Green,
+  > G. Karvounarakis and V. Tannen, *Provenance semirings*, PODS 2007, 31–40 —
+  > commutative semirings as annotation algebras. J. de Kleer, *An assumption-based
+  > TMS*, Artificial Intelligence **28** (1986) 127–162. **So the §6-missing conclusion
+  > stands and can now be stated without the hedge: the lattice machinery of §1–§2 is
+  > standard monotone dataflow analysis with semiring-annotated propagation, and no
+  > novelty may be claimed for it.** What this does *not* do is close §6: no source text
+  > was read (`WebFetch` is EGRESS_BLOCKED; search-summary/śabda grade), and no search
+  > was run for the *obligation calculus itself* — discharge cost $c(u)$, the typed
+  > correction taxonomy, Prop. O2.3's mode-vocabulary distributivity — which stay
+  > unsearched and therefore unattributed. §7 and §8 are untouched and remain NOT DONE.
+  > Query: *Kildall 1973 unified approach global program optimization / Kam Ullman meet
+  > over all paths lattice / Green Karvounarakis Tannen provenance semirings PODS 2007 /
+  > de Kleer ATMS 1986*. Attribution status only.
 - **§7 missing ⇒ Corollary O2.4 has no number.** It says the meet-over-all-
   paths ranges over a path set whose cardinality makes manual review
   hopeless. That cardinality was to be computed exactly. It was not, so the
@@ -415,9 +466,26 @@ about whether the model is new or whether it fits this corpus.
 
 Tracked by its own calculus, which is the only honest way to publish it:
 
-1. **Mode-vocabulary distributivity** (Prop. O2.3). Every future mode must
+1. **Mode-vocabulary distributivity** (Prop. O2.3). ~~Every future mode must
    be verified to be identity, constant, or clamp. Open, and permanently
-   so: it is a duty on additions, not a one-time check.
+   so: it is a duty on additions, not a one-time check.~~
+
+   > **DISCHARGED / REDIAGNOSED, 2026-08-14.**
+   > `collab/swarm/2026-08-14/swarm-0814-02-…md` first: admissibility is a
+   > closed condition (preservation of binary meets and $\top$ = being a right
+   > adjoint), closed under composition and pointwise meet, so this was never
+   > a per-addition duty. `notes/THRESHOLD_GENERATION_DICHOTOMY.md` then
+   > identifies **what the obligation was asking**: "identity, constant, or
+   > clamp" is *exactly* the set of unary **ACUI-polynomials** of
+   > $(\mathcal S,\wedge,\top)$ (Thm. A, machine-checked over an arbitrary
+   > meet-semilattice), i.e. the duty was "check that each new mode is
+   > term-definable" — a criterion **no correct mode vocabulary satisfies**,
+   > since Theorem O2 needs the ACUI *endomorphisms*, a strictly larger class.
+   > Replacement, valid because Def. 2 makes $\mathcal S$ a product of chains
+   > (hence distributive): *a transfer is admissible iff it is a pointwise meet
+   > of thresholds $s\mapsto(\top$ if $s\ge a$, else $b)$*, an $O(|\mathcal S|^2)$
+   > check against a two-parameter family, not a list. See the pointer at
+   > Def. 2 for what breaks if $\mathcal S$ is generalised.
 2. **Prior art** (§6). Open. Blocks all novelty language in §1–§2.
 3. **Taxonomy witnesses** (§8). Open. Blocks the §0 claim that
    scope-restriction dominates.

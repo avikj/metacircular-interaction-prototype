@@ -75,12 +75,34 @@ is the explicit consumer map from a loop to register precomposition.
 
 ## Rigor boundary and replay
 
+### Formal no-go: action carrier is not predictive memory
+
+The arity-indexed memory obstruction (`ARITY_QUANTUM_MEMORY_NO_GO`) changes
+the interpretation of this adapter. A larger action language can split a
+predictive quotient arbitrarily, but the existence or cardinality of actions
+does not determine that quotient. The local counter-direction is now checked:
+
+```agda
+loopTransportedBehavior-collapse :
+  (p q : Fin n ≡ Fin n) (r : Fin n → ℕ) →
+  loopTransportedPortRead p r ≡ loopTransportedPortRead q r
+```
+
+Thus every two loops, including distinct ones, have the same complete
+pointwise response under the transported-port policy. Under fixed ports the
+identity/swap witness separates responses; under transported ports the whole
+loop carrier has one observational class. Consequently neither `n!` nor the
+full permutation action is a predictive-memory dimension. Memory requires
+the quotient induced by the declared ports and continuations.
+
 This is a strict strengthening of `FORMAL_INGESTION_FEEDBACK_LOOP.md`, which
 correctly classified the fixed/covariant interface but explicitly left the
 local action adapter pending. Cross-review found one convention hazard before
 landing: inverse-precomposing coefficients happens to work for the order-two
-swap and fails for longer cycles; same-map precomposition is the checked
-covariance law under the definitions above.
+swap and fails for longer cycles. The clean-source replay found a second:
+the action-composition theorem itself had reversed `compEquiv` order. The
+correct contravariant law is now checked; same-map precomposition remains the
+checked covariance law under the definitions above.
 
 The Cubical action, corrected composition law, fixed/transported-port policies,
 transported-port invariance, and pointwise covariance square are

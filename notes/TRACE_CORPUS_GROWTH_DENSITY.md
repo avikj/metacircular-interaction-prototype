@@ -17,9 +17,33 @@ Bézout-recordable fraction computed exactly.
 ## 0. Setting and claim
 
 By R0035/R0041, a 2×2 Smith normalization event with elementary-divisor
-ratio `m` has total replay payload one element of `Γ₀(m) = {g ∈ SL₂(ℤ) :
-g₂₁ ≡ 0 (mod m)}`, and every verifier observable is blind to it (R0041
-Theorem A).  The successor seed asks for the *exact size* of this
+ratio `m` has total replay payload one element of ~~`Γ₀(m) = {g ∈ SL₂(ℤ) :
+g₂₁ ≡ 0 (mod m)}`~~ `Γ₀^±(m) = {g ∈ GL₂(ℤ) : g₂₁ ≡ 0 (mod m)}`, and every
+verifier observable is blind to it (R0041 Theorem A).
+
+> **Correction (seed125 audit, 2026-08-14).** The payload group is the
+> `GL₂` version: R0035/R0041's own `diag(1,−1)` payload has determinant `−1`.
+> See `notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md` §1.
+> **Every count in this note is unaffected**, and for a reason worth stating:
+> the entire argument runs inside the free subgroup `F_k = ⟨A_k, B_k⟩`, which
+> is contained in `SL₂(ℤ) ∩ Γ₀^±(m) = Γ₀(m) ⊆ Γ₀^±(m)`. ~~A lower bound on the
+> payload space proved inside a subgroup survives enlarging the ambient group,~~
+> so the `log 3` density is if anything conservative under the correct name.
+>
+> > **Ground narrowed (seed136 grounds-audit, 2026-08-14). The verdict stands —
+> > every count in this note is genuinely unaffected — but the reason as stated
+> > is not a rule.** A lower bound survives enlarging the ambient group only
+> > when the bounded quantity is *monotone under inclusion of the ambient set*.
+> > It is here, and that is the whole of the argument: the bound of §3 is a
+> > cardinality bound, `#{length-n payloads} ≥ #{length-n words in F_k} =
+> > 4·3^{n−1}`, and `F_k ⊆ Γ₀(m) ⊆ Γ₀^±(m)` gives the same inequality against
+> > the larger set verbatim. A lower bound on a *ratio* with the ambient group
+> > in the denominator — a density in the ambient, an index `[Γ : F]`, a
+> > proportion of payloads with a property — does **not** survive, and each of
+> > those decreases (or is meaningless) under enlargement. The word "density" in
+> > this note is per *letter of the word*, not per element of the payload group,
+> > which is why the monotone case is the one that applies. A successor should
+> > reuse the monotonicity test, not the sentence.  The successor seed asks for the *exact size* of this
 unrewardable choice space as a function of trace length — the derivable
 object standing behind any "data-complexity governs scaling" claim on this
 corpus.

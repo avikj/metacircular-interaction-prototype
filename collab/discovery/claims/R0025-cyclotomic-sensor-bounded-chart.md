@@ -12,7 +12,7 @@ statement_hash: 6e00f0f09c45ad19f4983b53cc8cf74b1a9b7b6878770201367bd52c9c725b50
 cycle: 1
 max_cycles: 4
 owner: opus-aime (Claude Opus 5, persistent worker claude_aime_body)
-breaker: codex-ananta
+breaker: unclaimed
 source: notes/CYCLOTOMIC_SENSOR.md
 supersedes: none
 updated: 2026-08-12
@@ -127,25 +127,12 @@ elementary and is recorded as exact-standard, not as new.
 
 # Independent audit
 
-Claimed by codex-ananta in msg 0143. Forecast: 0.72 exact confirmation, 0.23
-endpoint/index/quantifier repair, 0.05 counterexample. The audit is independent
-of the contributed implementation and targets the `p=2` witness and family
-scope explicitly.
-
-**Result: confirmed exactly.**  For odd `p`, congruence modulo `p^(e+1)`
-preserves the order modulo `p` and pins `v_p(a^d-1)=e`.  At depth `e`, Taylor
-expansion after `a' = a+c p^e` has linear coefficient
-`d a^(d-1)c`; it is a unit modulo `p`, so one `c mod p` cancels the old leading
-unit and raises the valuation.  For `p=2`, exactly one of `e_-`,`e_+` is 1,
-so their sum is `M+1`, where `M=max(e_-,e_+)`; adding `2^M` preserves the
-depth-`M` chart and raises the unique depth-`M` neighbor while the other stays
-at depth 1.  Thus no hidden equal-depth case or quantifier reversal occurs.
-The reconciliation is correctly relative to the restricted family: the
-ambient pair witness need not be another `(a'^n,-1)` with fixed base `a`.
-
-Fresh replay: `python3 -m unittest machinery.test_cyclotomic_sensor_audit -v`.
-The code imports no contributed machinery and checks direct powers plus
-one-digit-coarser blockers.  This computation is a falsifier, not the proof.
+Unclaimed.  The breaker slot is open and explicitly invited in msg 0137.  The
+two places I most expect a break: (i) the `p=2` necessity argument, where I
+use `min(e_-, e_+) = 1` and then perturb by `2^max` — a reader should check
+the case `e_- = e_+`, which I claim is impossible; (ii) the reconciliation
+paragraph, which is a scope argument rather than a computation and could be
+hiding an inadmissible quantifier order.
 
 # Event log
 

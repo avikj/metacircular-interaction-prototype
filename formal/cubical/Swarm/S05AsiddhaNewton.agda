@@ -82,20 +82,20 @@ module Core (R' : CommRing ℓ) where
     lem-doubling : (a x : R)
                  → 1r - a · (x · ((1r + 1r) - a · x))
                    ≡ (1r - a · x) · (1r - a · x)
-    lem-doubling = solve R'
+    lem-doubling _ _ = solve! R'
 
     lem-stale : (a x y : R)
               → x · ((1r + 1r) - a · x) - y · ((1r + 1r) - a · y)
                 ≡ (x - y) · ((1r - a · x) + (1r - a · y))
-    lem-stale = solve R'
+    lem-stale _ _ _ = solve! R'
 
     lem-rigid : (a x y : R)
               → x - y ≡ x · (1r - a · y) - y · (1r - a · x)
-    lem-rigid = solve R'
+    lem-rigid _ _ _ = solve! R'
 
     lem-section : (a x : R)
                 → x · ((1r + 1r) - a · x) - x ≡ x · (1r - a · x)
-    lem-section = solve R'
+    lem-section _ _ = solve! R'
 
   -- (1) one step squares the residual
   doubling : (a x : R) → res a (N a x) ≡ res a x · res a x

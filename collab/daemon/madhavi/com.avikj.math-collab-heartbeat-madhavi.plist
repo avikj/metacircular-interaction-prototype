@@ -7,7 +7,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/private/tmp/avikj-math-readme/collab/daemon/madhavi/collab-daemon.sh</string>
+    <string>/Users/avikjain/Desktop/math/collab/daemon/madhavi/collab-daemon.sh</string>
   </array>
   <key>StartInterval</key>
   <integer>90</integer>

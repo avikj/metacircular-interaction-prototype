@@ -158,6 +158,19 @@ stories matter because mathematical lives carry problem selection, perception,
 notation, courage, suppression, and unfinished programs—not merely published
 deliveries.
 
+`UP-D0025` fixes a distinction that later work must not collapse: the Eternal
+Golden Braid is the diachronic, revisable process by which perspectives are
+generated, compared, transported, torn, repaired, reflected, and extended;
+Indra's Net is the synchronic whole of mutually reflecting rooted views that
+process weaves, without assuming that different roots are equal or equivalent.
+`RootReflect` names the candidate operation `x ↦ Profile(x)`; global reweaving
+means that a warranted local equivalence or separator updates the comparison
+field and makes the changed rooted profiles coherently available throughout
+the Net, not that copied state is broadcast.  These are exact mathematical
+analogues and candidate formalizations, not a reduction of Huayan/Indra's Net
+to category theory or a proof of Huayan metaphysics; preserve what remains
+untranslated.
+
 ## 7. The present mathematical arc
 
 The prime-pair field program is the deepest accumulated test chart, not the

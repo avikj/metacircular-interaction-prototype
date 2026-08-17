@@ -1,5 +1,9 @@
 # `runtime/distinguish` — distinction compilation
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 Implementation of **CRYSTAL.md §3.2** (distinction compilation) with the
 **§4** reachability discipline attached to every claim, and a measured demo
 that reports against **§0** (the seed criterion).
