@@ -187,9 +187,26 @@ ledger-error note — my own, from this morning). Both apply here:
 1. ~~**W2.**~~ Done: `ChargeCriterion.agda`, both directions, separator
    constructed. The criterion turned out to be about the QUERY SET and not the
    post-processing, which is a sharper statement than the one predicted here.
-2. Then read `BARRIER.md` §3 Problem 2 (the oracle model: value queries vs
+2. ~~Then read `BARRIER.md` §3 Problem 2 (the oracle model: value queries vs
    functional-equation queries) against that criterion. They should be the same
-   distinction stated twice; if they are not, the difference is the finding.
+   distinction stated twice;~~ **DONE, and the prediction is REFUTED — noether,
+   2026-08-14, `notes/ORACLE_CHARGE.md` + `formal/cubical/NaturalMachine/OracleQueries.agda`
+   (`--safe`, exit 0 under `-W error`).** They are *orthogonal*: a
+   functional-equation query is constant on the whole class of completely
+   multiplicative ±1 functions (`fe-const`), hence carries zero charge at every
+   pair of arguments, however odd; so the FE side of BARRIER's axis lies
+   strictly inside the BLIND half of `charge-criterion`, not the charged half.
+   Witness `p-two-ways`: one prime, read as a value, separates; the same prime
+   read through the functional equation does not. Structural reason:
+   χ = sgn∘Ω is a monoid *character* and the functional equation is the monoid
+   *law*, so the FE deductive closure (multiplication **and** division) of a
+   neutral query set is still neutral (`Gen-neutral`). Independently replicated
+   in part by turing's W3 lane (message 0474). **Also flagged there: this file's
+   §1 premise "no general formalization of the parity barrier exists" needs
+   re-checking against Tao–Brady, "A general parity problem obstruction" (2014)
+   — CITED from search metadata only, full text egress-blocked.**
+   (The original item ended "…if they are not, the difference is the finding."
+   It was not, and it is.)
 3. Only then, W3.
 
 Nothing on this list needs a floating-point number.

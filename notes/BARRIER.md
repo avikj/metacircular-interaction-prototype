@@ -99,10 +99,26 @@ detection; class C alone ⟹ not" shape this program's Problem 1 asks for.
 **Green–Tao–Ziegler**'s inverse theorems are the one place in the field where
 "what a whole class of observables can and cannot see" is a *theorem*
 (obstructions to uniformity are exactly nilsequences) — the structural
-precedent for Theorem B1. And for the record: **no general formalization of the
-parity barrier exists**; Tao (2007) states it semi-formally and concludes it is
+precedent for Theorem B1. And for the record: ~~**no general formalization of the
+parity barrier exists**~~; Tao (2007) states it semi-formally and concludes it is
 "probably premature ... to try to find a systematic way to get around the
-parity problem in general". So this ground is genuinely open.
+parity problem in general". ~~So this ground is genuinely open.~~
+
+> **[Prior-art correction — noether, 2026-08-14, `notes/ORACLE_CHARGE.md` §6.**
+> Tao, *"A general parity problem obstruction"*, What's New, 21 Nov 2014, from
+> an AIM workshop with **Zeb Brady**, states a general obstruction: problems
+> framed as collections of affine-linear forms, *forbidden sign patterns* in a
+> discrete cube, and the criterion **"if the convex hull of the forbidden sign
+> patterns contains the origin, the sieve-theoretic approach cannot establish
+> existence."** That is, on its face, a general formalization. **Graded CITED
+> from search metadata only — `WebFetch` returned `EGRESS_BLOCKED` on
+> `terrytao.wordpress.com` and I read no full text.** The ground stays open at
+> the *machine-checked* level (a blog criterion is not a checked theorem), but
+> nobody may repeat the sentence above without reading that post. Open and
+> important: origin-in-convex-hull is a separating-hyperplane condition, i.e.
+> "no linear functional detects the forbidden set", which has the shape of "no
+> character detects the charge" — if those coincide, `ChargeCriterion` is a
+> rediscovery and must be labelled one.]**
 
 This is exactly the natural-proofs situation: the structure theorem is the
 easy half (there, "natural properties are constructive and large"), and the
@@ -124,7 +140,7 @@ presentations, and the results align exactly:
 |---|---|---|---|---|
 | **finite-multiplicative** (divisibility) | SIEVE$_d$ (sibling), Ramanujan/BC blocks | exp21/24 fingerprints | singular series, character sectors (one literal deep) | **parity-protected**: $\lambda,\mu$ exactly invisible (gauge no-go) |
 | **additive-windowed** | WL$_d(L,r)$ (this note) | the whole phase-side corpus | the blurred spectral measure: locations cheap, layer structure, amplitudes | **bulk-blind**: correlations cost $\exp(cT\log^2T)$ (Theorem K) |
-| **global-multiplicative** | functional-equation access: $a(np)=a(n)a(p)$ used as a *constraint*, not a value | Tao's entropy decrement (log-Chowla) | the one known access to Chowla-grade (bulk) content | quantitatively weak so far (logarithmic averaging only) |
+| **global-multiplicative** | functional-equation access: $a(np)=a(n)a(p)$ used as a *constraint*, not a value | Tao's entropy decrement (log-Chowla) | ~~the one known access to Chowla-grade (bulk) content~~ **on the PARITY axis this attribution is refuted — see `notes/ORACLE_CHARGE.md` §4 (noether, 2026-08-14): the constraint $a(np)=a(n)a(p)$ is constant on the whole class, so it carries zero charge; entropy decrement's charge enters through $\lambda(p)=-1$, a *value* query at $\Omega=1$. The equation supplies none of it.** | quantitatively weak so far (logarithmic averaging only) |
 
 The alignment is the point: **the sieve parity barrier, the Theorem-K depth
 barrier, and the sum-product philosophy (`REPORT.md` §7c) are the same
@@ -148,6 +164,24 @@ What is missing for a theorem: a proof that no WL post-processing $\Phi$
 can simulate that interface — i.e., a separation, not just a
 classification. That is the barrier program's Problem 1.
 
+> **[Pointer added by the TURING seat, 2026-08-14 — `notes/INTERFACE_SEPARATION.md`,
+> Agda `NaturalMachine/InterfaceSeparation.agda`, exit 0.]** Problem 1 is
+> answered, and the answer is a dichotomy that turns on a choice this
+> paragraph leaves implicit: *what class is the hidden object drawn from?*
+> If it is drawn from the completely multiplicative functions — what
+> $\lambda$ actually is — the separation is **FALSE**: the FE oracle is
+> constant there, and FE *rewriting* is an explicitly constructed
+> post-processing of the value transcript (multiplicative closure does not
+> enlarge the $\mathbb F_2$-span of the exponent vectors read). If it is
+> drawn from arbitrary $\pm1$ sequences — this note's own phrase "black-box
+> sequence" — the separation is **TRUE** but is the Blum–Luby–Rubinfeld
+> fact that a linearity test must read the product point. The sentence
+> above is therefore correct and **cannot** be upgraded to an oracle
+> theorem. What survives, and strengthens this note: FE-augmented WL is
+> still parity-blind on parity-neutral read sets (checked). The
+> arithmetically relevant classes lie strictly between the two endpoints —
+> including this note's residue dressings — and that interior is open.
+
 ## 3. The program (problems this note creates)
 
 1. **Separation:** prove no $O\in$WL$_d(L,\mathrm{poly})$ with
@@ -159,6 +193,24 @@ classification. That is the barrier program's Problem 1.
    (oracle model: queries to $a$'s functional equation vs value queries)
    and re-derive entropy decrement inside it; measure its "bulk bits per
    log-scale" — is logarithmic averaging *forced* by the interface?
+
+   > **[Answered on the parity axis, and negatively — noether, 2026-08-14,
+   > `notes/ORACLE_CHARGE.md`, `formal/cubical/NaturalMachine/OracleQueries.agda`
+   > (`--safe`, exit 0 under `-W error`).** The oracle model is built; the
+   > distinction it draws is **orthogonal** to `ChargeCriterion`'s charge
+   > criterion rather than identical to it, which is the opposite of
+   > `TARGET.md` §6(2)'s prediction. Functional-equation queries are constant
+   > on the class of completely multiplicative ±1 functions, so they carry zero
+   > bits and zero charge at *every* pair of arguments; and the FE deductive
+   > closure — multiplication **and** division — of a neutral query set is
+   > still neutral, because $\chi=\mathrm{sgn}\circ\Omega$ is a monoid
+   > character and the functional equation is the monoid law. So "bulk bits per
+   > log-scale" for this interface is **zero on the parity axis**, and the
+   > logarithmic averaging cannot be forced by *it*. Turing's
+   > `InterfaceSeparation.agda` (message 0474) reaches the same core facts from
+   > Problem 1 and adds the complementary half: the interface *is* nonconstant
+   > on arbitrary ±1 sequences, so its content is the multiplicativity promise.
+   > **Untouched: whether the same holds for the WL class of §1.]**
 3. **Completeness question (the mad one):** are the three presentations
    exhaustive for "natural" methods? A fourth presentation — e.g.
    automorphic summability (the $d(n)$ row's $GL_2$ access, unavailable to

@@ -85,6 +85,33 @@
 --   closure-no-separator      hence FE inference cannot manufacture a
 --                             separator from neutral readings
 --
+-- INDEPENDENT REPLICATION, AND WHO GOT THERE (message 0474, turing).  While
+-- this module was being written, the TURING seat was writing
+-- `NaturalMachine/InterfaceSeparation.agda` for W3 (BARRIER Problem 1) and
+-- arrived at the same core facts from the other assignment: their
+-- `fe-promised-constant` is `fe-const` here, their `fe-simulated-by-nothing`
+-- is `fe-simulated-by-constant`, their `sgn-++` is `charge-++`, and their
+-- `fe-closure-cannot-separate` is the `mul` half of `Gen-neutral`.  Two seats,
+-- two assignments, one answer: that is a replication and it belongs to them as
+-- much as to this file.  Their W3 dichotomy (FE access is nonconstant on
+-- ARBITRARY ±1 sequences, hence its content is the multiplicativity promise
+-- itself) is theirs alone and is not re-derived here.
+--
+-- WHAT IS ONLY HERE, stated so the duplication is priced honestly:
+--   * `Gen` carries a DIVISION rule (`quo`) as well as multiplication.  Their
+--     `Deriv` is `var`/`unit`/`mul` only.  Division is exactly the rule a
+--     hostile reader reaches for — "divide a known argument by a known
+--     divisor and land on an odd one" — and it is the only rule whose
+--     neutrality needs cancellation in F₂ rather than closure under the
+--     product (`·-cancel`).  Closing that case is what makes the
+--     conservation law a statement about the GROUP the functional equation
+--     generates, not just the monoid.
+--   * `Gen-sound`: the closure really is a closure — two sign assignments
+--     agreeing on the basis agree on everything derived, division included —
+--     so `quo` is a licensed inference and not an extra assumption.
+--   * `p-two-ways`: the orthogonality witness that answers TARGET §6 item 2,
+--     which is a different question from W3.
+--
 -- NOT claimed: that this says anything about BARRIER.md's OTHER axis, the
 -- depth/correlation barrier of Theorem K.  The model here is the parity
 -- observable class of `ParitySeparator`, and every statement is about
