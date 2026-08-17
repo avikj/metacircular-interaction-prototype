@@ -187,5 +187,104 @@ the validator, the CI workflow, the Wolfram bridge, and two design notes named
 - **17:42:07Z** — `machinery/cpu_ledger.py`, `machinery/test_cpu_ledger.py`,
   `notes/WOLFRAM_ADOPTION.md`.
 
-<!-- CURSOR: forward pass has reached 2026-08-11T17:42Z. Everything below this
-     line is not yet written. -->
+### What the 17:20Z commit actually contains
+
+Two of the files in that commit state the project's design, on its first day,
+more precisely than anything written about it since.
+
+**`ROSETTA_ENGINE.md`** opens by refusing the obvious reading of its own name:
+
+> The useful denial of "unrelated" is not the claim that everything is
+> isomorphic. It is the stricter claim that **absence of a map is relative to a
+> chosen category of objects and observations**. When two descriptions resist
+> comparison, the first mathematical question is which change of category makes
+> their common structure visible.
+
+It then gives eight moves for building a bridge between two descriptions, and
+for each one the obligation you incur and the way it characteristically fails:
+
+| move | diagram | proof obligation | characteristic failure |
+|---|---|---|---|
+| common lift | A ← L → B | exhibit L and both maps | lift adds unconstrained structure |
+| common quotient | A → Q ← B | compute both kernels/fibers | shared shadow mistaken for equivalence |
+| dualize/transform | A ↔ A^∨ | inversion or full-faithfulness | phase, boundary, or domain is lost |
+| localize | A → A[S⁻¹] | universal property and torsion kernel | local equivalence hides global obstruction |
+| complete | A → Â | topology and density/injectivity | formal limit invents solutions |
+| deform/continue | A_t | control singularities and endpoint | generic truth fails at the critical fiber |
+| take boundary | bulk → boundary class | exact sequence/trace formula | boundary term silently discarded |
+| change observer | state → accessible data | sufficiency and lost charge sectors | positivity or equality survives while truth does not |
+
+Categorification and decategorification are iterated lift and quotient;
+linearization is a representation-valued lift followed by a quotient;
+renormalization is scale-indexed observer change plus a fixed-point question.
+
+Its §2 is the instruction for what to do when two claims conflict: build the
+square, compute the residual, and read the residual as the result rather than
+choosing a side. *"The residual is often the theorem."* With worked readings —
+failure to commute suggests a cocycle or a missing boundary term; a nontrivial
+kernel identifies information destroyed by an observer; agreement locally but
+not globally suggests an obstruction class; equal spectra with unequal objects
+suggests phase or extension data; opposite inequalities often mean an
+indefinite form whose primitive subspace has the correct sign.
+
+And the exact condition under which a transformation survives a change of
+description: `T` is well-defined through a quotient `q` precisely when
+`q(x)=q(y) ⟹ q(Tx)=q(Ty)`. Failure is a noncongruence witness — a
+round-trip defect when the setting is linear. Branches merge *"only under a
+declared exact quotient (normal form, proved equality, finite character data),
+never merely because a general simplifier says the endpoints look alike."*
+
+§3 is seven composition rules, of which the load-bearing ones are: a theorem
+transports only after every hypothesis is translated and checked; a projection
+composes with a cumulative preservation ledger, so lost information never
+reappears without an explicit new observable; an open bridge anywhere in a path
+makes the whole transported conclusion open; analogies generate packets, never
+conclusions. The closing sentence names what the discipline is for:
+
+> This is the epistemic type system missing from an unqualified "Indra's net."
+> The net is generative because every object may illuminate every other; it
+> remains mathematics because every strand declares what it preserves.
+
+**`MATH_OS.md`** states the target as *"a content-addressed mathematical
+operating system in which many imperfect reasoners can generate at full speed
+while a small trusted kernel controls what becomes reusable truth,"* with
+*"language is program state for agents"* as the central retained insight: the
+objects, roles, tensions and obligations stay readable prose, and code enforces
+only the irreversible transitions.
+
+Its authority lattice fixes the maximum status any kind of output can reach on
+its own:
+
+| output | maximum autonomous status |
+|---|---|
+| LLM explanation, analogy, CAS simplification | seed |
+| float experiment or PSLQ relation | formalizing |
+| exact CAS witness independently substituted | proving |
+| finite exhaustive computation without proved reduction | proving |
+| proof accepted by the Lean kernel | formal-verified, **not yet semantically aligned** |
+| formal proof + alignment audit + blind breaker + prior-art manifest | certified internally |
+| negative literature search | searched-not-found, **never novel** |
+
+with the design reason stated: *"generation can be nearly free because promotion
+is expensive and fail-closed."* Kernel verification, agreement with the English
+statement, and novelty are three separate gates.
+
+It also carries a center-of-gravity invariant that should be read alongside
+`collab/upstream/raw/U0009.txt` rather than merged with it:
+
+> The agent layer is the research intelligence, not temporary scaffolding to be
+> compiled away. Frontier models choose important questions, invent languages,
+> read the literature, notice structural tension, and interpret anomalies. CPU
+> kernels only amplify a mathematical reduction the agents already understood.
+> … Scaling CPU without a proved reduction, or scaling agents without extracting
+> reusable invariants, are dual failure modes.
+
+U0009 asks for the opposite emphasis — *"we must transfer kernels of
+intelligence down towards traditional programs"* so that CPU rather than
+language models does the work. Both are in the repository. They are recorded
+here as two standpoints, not reconciled.
+
+<!-- CURSOR: forward pass has reached 2026-08-11T17:42Z, plus the two design
+     notes from the 17:20Z commit. Next: collab/messages/0038 onward through the
+     17:45Z-19:15Z burst, then day 2. -->
+
