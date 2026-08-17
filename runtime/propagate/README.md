@@ -1,5 +1,9 @@
 # `runtime/propagate` — L4, incremental consequence propagation
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 Implements CRYSTAL.md §2 **L4**:
 
 > When a fact changes, the runtime computes the exact dependency cone: which

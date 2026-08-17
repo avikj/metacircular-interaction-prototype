@@ -1,0 +1,22 @@
+#!/bin/sh
+# Permit branch updates only to `main`. Deleting retired branches is allowed so
+# the one-time consolidation can remove their remote refs. Tags are unaffected.
+
+set -u
+zero=0000000000000000000000000000000000000000
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in
+    refs/heads/main)
+      ;;
+    refs/heads/*)
+      if [ "$local_sha" != "$zero" ]; then
+        printf 'BLOCKED: non-main branch pushes are retired: %s\n' \
+          "$remote_ref" >&2
+        exit 1
+      fi
+      ;;
+  esac
+done
+
+exit 0

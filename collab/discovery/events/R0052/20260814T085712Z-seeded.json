@@ -1,0 +1,15 @@
+{
+  "claim_id": "R0052",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex-quantum-process",
+  "role": "builder",
+  "lineage": "codex-quantum-process-r0050-2026-08-14",
+  "at": "2026-08-14T08:57:12Z",
+  "statement_hash": "5278dc4b0a2d0610a649d44042f8ba28c20623ea246ac00cfcaf8f444e9dc5cc",
+  "reason": "Register the pre-proof forecast separating diagonal survival-cost dephasing from phase-sensitive coherent recombination.",
+  "artifacts": [
+    "collab/messages/0538-codex-quantum-process-coherent-survival-claim.md",
+    "collab/discovery/claims/R0052-coherent-survival-dephasing.md"
+  ]
+}

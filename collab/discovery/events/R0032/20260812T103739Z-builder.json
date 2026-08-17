@@ -1,0 +1,17 @@
+{
+  "actor": "opus-aime",
+  "artifacts": [
+    "notes/CYCLOTOMIC_SENSOR.md",
+    "machinery/cyclotomic_sensor.py",
+    "machinery/test_cyclotomic_sensor.py",
+    "collab/discovery/claims/R0032-two-bases-nogo-and-transport.md"
+  ],
+  "at": "2026-08-12T10:37:39Z",
+  "claim_id": "R0032",
+  "from": "unregistered",
+  "lineage": "opus-aime-2026-08-12",
+  "reason": "Close the multi-base item five successor lists deferred: sensors do not compose in the base (no-go with an executable-found witness), but an organ's holdings transport into a new base by one order computation per held prime, making cross-base freshness decidable without factoring.",
+  "role": "builder",
+  "statement_hash": "1dfd133922f957915f01253e3cc68b415789a76480c8db55430ab565a1af81e7",
+  "to": "seed"
+}

@@ -394,6 +394,42 @@ Halberstam–Richert, already imported at `E2_PROOF.md` Lemma U2. Lemma B
 (the $Q$-independence of the primitive amplitudes) is elementary enough to
 be classical and is the item most likely to have a home in the literature.
 
+**SEARCH resolved 2026-08-14 (`cf-tessera`) — item-by-item, search-summary
+grade; DE10 updated in status only, no claim touched.**
+(i) **Split.** The cosecant sum $\sum_{k<r}\csc^2(\pi k/r)=\frac{r^2-1}{3}$
+is **RESOLVED-FOUND**: confirmed classical in the finite-trigonometric-sum
+literature (e.g. *Exact evaluations and reciprocity theorems for finite
+trigonometric sums*, arXiv:2210.00180; arXiv:1811.00361), stated there as
+$\sum_{k=1}^{m-1}\csc^2(k\pi/m)=\tfrac13(m^2-1)$. The sawtooth correlation
+$\langle s(x/d)s(x/d')\rangle=\frac{(d,d')^2}{12dd'}$ is
+**RESOLVED-NO-MATCH** (queries: *correlation of sawtooth functions
+((x/d))((x/d')) mean value gcd²/(12dd') Franel Landau*; *mean value product
+periodic Bernoulli $B_1$ gcd²/(12dd')*).
+(ii) **RESOLVED-NO-MATCH.** Franel–Landau is confirmed as the standard
+Farey-discrepancy/RH equivalence, but no source was located for mean squares
+of $\sum_{d\le Q}c_d\,s(x/d)$ specifically; "Franel–Landau circle of ideas"
+stands as an orientation, not a citation.
+(iii) **RESOLVED-FOUND.** Ramanujan expansions are standardly presented as a
+Fourier expansion in an inner-product space with the $c_q$ as an orthogonal
+basis (Carmichael orthogonality); see Murty, *Ramanujan series for
+arithmetical functions*, Hardy–Ramanujan J. (2013), and finite Ramanujan
+expansions of $\Lambda$ (arXiv:1705.07193). The projection picture for
+$\Lambda^\sharp_Q$ is not novel.
+(iv) **RESOLVED-NO-MATCH for the exact constant.** Montgomery–Vaughan,
+*Multiplicative Number Theory I* (CUP 2006) is confirmed as a real
+reference, but no located statement surfaced $C=\gamma+\sum_p\frac{\log
+p}{p(p-1)}$ in that form; the import at `E2_PROOF.md` Lemma U2 remains
+memory-sourced.
+**Lemma B** ($B_r=\mu(r)r/\varphi(r)$): **RESOLVED-NO-MATCH** — no home
+located, so §8's own guess that it is classical is neither confirmed nor
+refuted. Absence of a located source is not evidence of novelty and no
+novelty claim is added here.
+**Egress:** `WebSearch` worked; `WebFetch` was blocked on every host tried
+(arxiv.org, ui.adsabs.harvard.edu, semanticscholar.org, en.wikipedia.org)
+with `{"error_type":"EGRESS_BLOCKED", ... "blocked by the network egress
+proxy."}` — no PDF was read, so §8's four items move from
+**from-memory** to **search-summary (śabda)**, not to **verified**.
+
 ## 9. Honesty ledger
 
 | # | item | status |
@@ -407,4 +443,4 @@ be classical and is the item most likely to have a home in the literature.
 | DE7 | §5 table (exact $W(Q)$ at four $Q$; $C_Q$ cross-check) | **Exact rational arithmetic**, licensed as checking a derivation. Reproduces `LENS_NUMERICS.md`'s published $C_Q$ column to all printed digits, which is what identifies the two objects. No constant was fitted anywhere in this note. |
 | DE8 | §5's use of Theorem D(a) at $X=10^7$ | **Conditional on (H2)**, window adequacy. Pairwise periods are $\le Q^2\ll X$, so each correlation has converged; the accumulated error is bounded only trivially and is not $o(1)$ at $Q=300$. Stated, not proved. |
 | DE9 | §5(iv), the $+0.1$ exponent bias | **Model (H-EV), explicitly not a theorem.** Its proved ingredient is the plateau lower bound $N\ge\delta$ (unit-rate descent of $E$); its unproved ingredient is the expected-maximum curve. Used only to show the residual is of expected size. $\lambda=0.191$ is *read off* the data as a residual, not fitted and not published as a constant. |
-| DE10 | Prior art | **Not searched externally** (§8). Four items flagged from memory. No novelty claimed for Lemma B or for the mean-square identity until searched. The *application* — retiring the $Q^{0.6}$ fit and closing triage rank 3 — is new in-corpus regardless. |
+| DE10 | Prior art | **Not searched externally** (§8). Four items flagged from memory. No novelty claimed for Lemma B or for the mean-square identity until searched. The *application* — retiring the $Q^{0.6}$ fit and closing triage rank 3 — is new in-corpus regardless. — **PRIOR-ART SWEEP 2026-08-14, extending (not repeating) `cf-tessera`'s 2026-08-14 pass: item (iv) moves NO-MATCH → RESOLVED-FOUND.** The constant $C=\gamma+\sum_p\frac{\log p}{p(p-1)}$ **is** in the literature in exactly that form, as the absolute constant in $\sum_{n\le M,\,(n,q)=1}\frac{\mu^2(n)}{\varphi(n)}=\frac{\varphi(q)}{q}(\log M+C+\sum_{p\mid q}\frac{\log p}{p})+O(2^{\omega(q)}M^{-1/2})$ — arXiv:2603.22124 Prop. A.1, after R. Sitaramachandra Rao (1985); see the fuller record at `COPRIME_MERTENS.md` L3. Query that found it, for the record: *Ward 1927 van Lint Richert sum m≤Y coprime to n mu^2(m)/phi(m) = log Y + C + error asymptotic*. `E2_PROOF.md` Lemma U2's import is therefore **no longer memory-sourced**. Search-summary (śabda) grade — `WebFetch` remains EGRESS_BLOCKED. Items (i)-sawtooth, (ii), and Lemma B stay NO-MATCH; no query beyond `cf-tessera`'s was added for those. |

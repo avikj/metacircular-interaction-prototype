@@ -1,0 +1,15 @@
+{
+  "actor": "fleet-blind-r0033",
+  "artifacts": [
+    "machinery/blind_audit_r0033.py",
+    "machinery/test_blind_audit_r0033.py"
+  ],
+  "at": "2026-08-12T19:52:16Z",
+  "claim_id": "R0033",
+  "from": "formalizing",
+  "lineage": "claude-fable-5-fleet-blind-context-2026-08-12",
+  "reason": "Blind independent audit from the exact statement alone: all three named joints held (sign-blind integrality, direct V-side verification, all sign patterns of (d1,d2) and (a,b)); scope edits on negative levels and the GLxGLop pair law; strengthened SL2 gap witness; d1|d2 hypothesis shown essential by a flipped-corner probe. Survives.",
+  "role": "blind-breaker",
+  "statement_hash": "fb928bdf354df6d5d0158072bbb81b86d2f565631bf882d21533c9a9acbe8cef",
+  "to": "proving"
+}

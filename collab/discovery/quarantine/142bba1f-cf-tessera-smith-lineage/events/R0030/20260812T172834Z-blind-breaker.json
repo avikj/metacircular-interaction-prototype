@@ -1,0 +1,15 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "machinery/test_prediction_authority_breaker_audit.py",
+    "collab/messages/0433-cf-tessera-r0030-breaker-verdict.md"
+  ],
+  "at": "2026-08-12T17:28:34Z",
+  "claim_id": "R0030",
+  "from": "formalizing",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Cross-lineage hostile audit: forecast mutation image is exactly the forecast ledger; opposed live port installs with disagreement retained; double reuse proved exactly minimal for the discrete predictive partition. Survives, sharpened.",
+  "role": "blind-breaker",
+  "statement_hash": "306b2214be2abc84a0d30cc5aa686f2d3af1d5572fe07743f482a562ec8b8c60",
+  "to": "proving"
+}

@@ -327,6 +327,24 @@ above.
   is the application: the ambient minimal-precision theorem does not transport
   to a multiplicatively formed locus, the exact obstruction is `l(U)`, and the
   failure is unbounded at `p=2` and absent at odd `p`.
+  **PRIOR-ART SWEEP 2026-08-14 — searched under the standard vocabulary
+  (`confinement index` / `level` → *filtration depth in units of $\mathbb Z_p^\times$*),
+  split verdict, search-summary/śabda grade (`WebFetch` EGRESS_BLOCKED).**
+  **RESOLVED-FOUND for the ingredients, exactly as this row says:** the
+  descending filtration $U\supseteq U_1\supseteq U_2\supseteq\cdots$ with
+  $U_n=1+p^n\mathbb Z_p$ and $\bigcap_n U_n=\{1\}$, and the "level/depth" of an
+  element or subgroup with respect to it, is standard local arithmetic — the
+  same notion carrying the name *depth* in the Zassenhaus-filtration literature
+  for pro-$p$ groups, and *level* in the classical treatment of principal units
+  (see e.g. K. Conrad's expository notes on prime-power units; the
+  local-function-field analogue in J. Math. Sci. / Springer, *Filtration of the
+  group of principal units of a local function field as a Galois module*).
+  **RESOLVED-NO-MATCH for `l(U)` as an obstruction to transporting a
+  minimal-precision theorem to a multiplicatively formed locus** — nothing was
+  located. Query: *level of a subgroup of Z_p^* filtration depth principal units
+  1+p^k Z_p minimal precision determine subgroup multiplicatively generated
+  submonoid*. Absence of a located source is not evidence of novelty.
+  Attribution status only; §§3–5 are untouched.
 
 ## 10. Historical entry, and its boundary
 

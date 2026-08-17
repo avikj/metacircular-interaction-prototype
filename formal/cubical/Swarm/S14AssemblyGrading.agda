@@ -107,7 +107,7 @@ runHom (s ∷ v) w =
 
 private
   diaDet : (x y : R) → x · y - 0r · 0r ≡ x · y
-  diaDet = solve ℤCommRing
+  diaDet _ _ = solve! ℤCommRing
 
 detDia : (x y : R) → det (dia x y) ≡ x · y
 detDia x y = diaDet x y
@@ -158,14 +158,14 @@ private
   unit1 x = sym (cong (x ·_) oneCube ∙ ·IdR x)
 
   lemP : (e c n : R) → (- 1r) · (e · ((c · c) · n)) ≡ ((- 1r) · e) · ((c · c) · n)
-  lemP = solve ℤCommRing
+  lemP _ _ _ = solve! ℤCommRing
 
   lemS : (c e d n : R)
        → (c · c) · (e · ((d · d) · n)) ≡ e · (((c · d) · (c · d)) · n)
-  lemS = solve ℤCommRing
+  lemS _ _ _ _ = solve! ℤCommRing
 
   lemH : (n e c m : R) → n · (e · ((c · c) · m)) ≡ e · ((c · c) · (n · m))
-  lemH = solve ℤCommRing
+  lemH _ _ _ _ = solve! ℤCommRing
 
 split : (w : Word) → wt w ≡ eps w · ((cont w · cont w) · prim w)
 split [] = unit1 1r
@@ -178,7 +178,7 @@ split (heck n ∷ w) =
 
 private
   negSq : (e : R) → ((- 1r) · e) · ((- 1r) · e) ≡ e · e
-  negSq = solve ℤCommRing
+  negSq _ = solve! ℤCommRing
 
 epsSq : (w : Word) → eps w · eps w ≡ 1r
 epsSq [] = ·IdR 1r
@@ -235,13 +235,13 @@ assemble c n = scal c ∷ heck n ∷ []
 
 private
   entA : (x y : R) → x · y + 0r · 0r ≡ x · y
-  entA = solve ℤCommRing
+  entA _ _ = solve! ℤCommRing
   entB : (x y : R) → x · 0r + 0r · y ≡ 0r
-  entB = solve ℤCommRing
+  entB _ _ = solve! ℤCommRing
   entC : (x y : R) → 0r · x + y · 0r ≡ 0r
-  entC = solve ℤCommRing
+  entC _ _ = solve! ℤCommRing
   entD : (x y : R) → 0r · 0r + x · y ≡ x · y
-  entD = solve ℤCommRing
+  entD _ _ = solve! ℤCommRing
 
   innerDia : (n : R) → mul (dia 1r n) idm ≡ dia 1r n
   innerDia n i =

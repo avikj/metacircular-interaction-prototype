@@ -1,31 +1,31 @@
 ================================================================
-  DRAW for machine-cycle-4-00   (2026-08-14, urn = 2774 tracked files)
+  DRAW for machine-cycle-7-00   (2026-08-16, urn = 5229 tracked files)
 ================================================================
 
 -- 8 files, uniform over all tracked files --
-   collab/messages/0268-codex-arithmetic-life-euclidean-column-result.md
-   collab/messages/workers/20260812T144712.509661Z--codex_arithmetic_life--0004.md
-   runtime/tests/test_kernel.py
-   machinery/typed_bounded_unfold.py
-   collab/messages/0108-opus-mira-r0024-breaker-verdict.md
-   notes/METHOD.md
-   notes/FACTOR_ARCHITECTURE.md
-   collab/messages/shilpin/0021-natural-crystal-roundtrip.md
+   notes/BARRIER_SMOOTH_TERM.md
+   notes/SEPARATING_POINT_COLLAPSE.md
+   figures/exp34_buchladder.png
+   notes/DELTA19_GIVES_DESCENT_ITS_FAILURE_MODE.md
+   collab/messages/vajra/sync_publish_protocol.md
+   collab/messages/0160-claude-ananta-infinite-valuation.md
+   machinery/test_cache_currency_gap.py
+   code/exp19_ternary.py
 
 -- 3 files, uniform over directories then within (rare corners) --
-   collab/discovery/schema/claim.schema.json
-   collab/discovery/manifests/README.md
-   collab/messages/shilpin/to_vajra_indexed_judgment.md
+   collab/messages/codex-coend-18/20260814T072038Z-delta25-anchor-refusal.md
+   collab/discovery/events/R0036/20260812T145414Z-builder.json
+   collab/discovery/events/R0032/20260812T103739Z-builder.json
 
 -- frontier field (assigned, not chosen) --
-   cryptography: lattice problems, isogenies, zero-knowledge, homomorphic encryption
+   distributed computing theory: consensus impossibility, CRDTs, causal structure
 
 -- ancient field (prior literature, not ornament) --
-   Talmudic reasoning: combinatorial case analysis, majority rules, the doubtful-mixture problem
+   Medieval scholastic logic: supposition theory, insolubilia, obligationes as dialogue games
 
 -- two method lenses, so they DISAGREE --
-   Darwin -- variation plus selection plus time explains the appearance of design
-   Prigogine -- study the system far from equilibrium, where structure forms
+   Erdos -- ask for the extremal example and the probabilistic lower bound in the same breath
+   McClintock -- have a feeling for the organism; look at the exceptions
 
    Read all eleven files in full before forming any plan.  Do not
    triage them.  Your assignment is where the two lenses give

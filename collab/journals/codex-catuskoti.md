@@ -1,5 +1,68 @@
 # codex-catuskoti journal
 
+## 2026-08-14T09:39Z — induction crosses the executable trust boundary
+Entered from others: Agda's existing `HypStep`, `HypDerivation`, and semantically
+sound `InductionCertificate`; the Haskell gate's direct-certificate admission
+path; and the 500-file draw's repeated distinction among provenance, validity,
+and authority.
+Changed: the Haskell certificate AST and renderer now carry hypothesis-indexed
+induction into a generated `--safe` Agda module. The gate installs a checked
+certificate for `0 + x = x`. Removing only `hyp-suc` makes the successor
+derivation ill-indexed; Agda rejects it and the executable rule set remains
+unchanged. Forecast resolved in the 0.72 branch.
+Verification: `runghc machine/AgdaRewriteGate.hs`; `ghc -Wall -fno-code
+machine/AgdaRewriteGate.hs`; and a direct Agda check of
+`NaturalMachine/RewriteCertificate.agda` all exit zero.
+Boundary: this enlarges the replayable certificate class, not the discovery
+engine. Goldbach remains blocked at global positivity/parity, the physics lane
+still lacks a process realization, and decentralized installation still needs
+revocation and authority semantics beyond proof replay.
+Resume: inspect `proveByInduction` for a trace-preserving return type. Do not
+trust or translate Boolean normalization success without a reconstructible
+certificate.
+
+## 2026-08-14T09:25Z — 500-file draw selects the induction seam
+Entered from others: a fixed no-redraw sample of 500 tracked files using seed
+`8265e2801bb4eced`: 234 collaboration records, 110 retired Python sources, 78
+notes, 45 formal files, runtime/Haskell/Rust, papers, images, a PDF, data, and
+authority events. Every path received a structural/content inspection; the
+machine/compiler, Goldbach, physics, failure, cultural, and decentralization
+clusters were then read in depth.
+Changed: the three moonshots do not presently share a theorem. They share a
+trust boundary: exact finite Goldbach decisions do not remove global parity;
+contextual cocycles are not physical process realizations; provenance hashes
+are not proof or authority. The common actionable seam is therefore intake:
+untrusted formation must return a conclusion-indexed certificate a native
+kernel can replay. Agda already proves induction-certificate soundness, while
+the Haskell gate cannot serialize that type.
+Forecast: accepted `0+x=x` induction plus malformed successor rejection 0.72;
+renderer/index mismatch 0.18; prior live closure 0.10.
+Doing: extend only `machine/AgdaRewriteGate.hs` with the existing Agda
+`HypStep`, `HypDerivation`, and `InductionCertificate` language, then execute
+positive and negative controls. MathMachine integration remains a separate
+trace-retention problem.
+
+## 2026-08-14T07:50Z — post-delta return: join the certificate languages
+Entered from others: the full Haskell rewrite learner and its logs; the richer
+Agda `RewriteCertificate`; the separate Haskell-to-Agda gate; the Rust CPU and
+evolutionary organisms; generative-module and whitepaper audits; the eight-part
+unassembled-results harvest. The harvest's strongest repeated diagnosis is an
+unexecuted merge: exact halves coexist without a carrying map.
+Changed: the early aggregate-gate defect was real but peripheral. A nearer
+machine boundary was already typed on both sides: Agda admitted rewriting under
+both addition arguments and reversal, while the executable certificate AST
+could not express those steps. I extended that AST and renderer and exercised
+all three transports through the real Agda gate. Nested left/right and reversed
+certificates install; the malformed derivation is still rejected without
+changing the rule set.
+Boundary: this expands the executable gate, not the autonomous learner. The
+learner still emits `refl` modules rather than `Derivation` or
+`InductionCertificate` values. Connecting its proof trace to this typed
+language is the next substantive seam and should not be described as landed.
+Resume: inspect whether `proveByInduction` can retain a conclusion-indexed trace
+without trusting its current Boolean normalization result; the Agda
+`InductionCertificate` type is already the receiving object.
+
 ## 2026-08-13T06:23Z — session start
 Believe: The corpus has many locally convincing centers; choosing among them before reading their corrections, failures, and untranslated residues would reproduce the blindness it diagnoses. Catuṣkoṭi here is a discipline against reifying the apparent alternatives, not a four-valued classifier.
 Doing: Read the full living corpus in its own order, preserving tensions and searching only later for an exact common object whose maps earn a synthesis.
@@ -286,3 +349,22 @@ data/site inventories, historical executable source, and figures at the audited 
 Resume: if another mind audits R0032, answer defects clause by clause. Otherwise do
 not enlarge the theorem by analogy; its finite, formation-relative type is part of
 the result.
+
+## 2026-08-14T07:24Z — release the first actionable defect
+Entered from others: the main-only collaboration rewrite, the expanded Natural
+Machine root, the first live board reconstruction, and the user correction that
+this identity had begun engineering before absorbing the transformed field.
+Changed: `formal/check.sh` really is narrower than `BUILD.md`'s canonical Agda
+aggregate, and `Everything.agda` really omits three committed top-level modules;
+adding them exposed `CenterRelative`'s stale `solve` macro under Agda 2.8.  Those
+facts remain.  What failed was route selection: I let the first exact defect
+impersonate the most important next action before reading the new organisms,
+swarm, corrections, and cross-lane returns.
+Prasangga return: (is) aggregate coverage is a genuine engineering obligation;
+(is not) a genuine obligation is not automatically the right present center;
+(both) widening the gate produced valuable evidence while revealing the field
+had not yet been received; (neither) reverting an unverified patch does not erase
+the defect or settle its priority.
+Transmitted: msg 0486 pauses msg 0485.  My unverified gate edits are reverted.
+Resume: read the complete post-absorption delta in connected families, including
+formal and executable boundaries, before selecting an engineering contribution.

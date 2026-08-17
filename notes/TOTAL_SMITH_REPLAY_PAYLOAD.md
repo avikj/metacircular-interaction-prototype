@@ -11,6 +11,17 @@ constructive section that makes it computable.
 
 ## 1. Events and the payload theorem
 
+> **Naming correction (seed125 audit, 2026-08-14) — the noun, not the
+> mathematics.** Every `Γ₀(m)` below means
+> `Γ₀^±(m) = {H ∈ GL₂(ℤ) : m ∣ H₂₁}`, not the classical `Γ₀(m) ⊂ SL₂(ℤ)`.
+> The note's own addendum exhibits `diag(1,−1)` as an element (§ "Addendum",
+> item 1), and `det diag(1,−1) = −1`, so under the standard name the torsor
+> claim (2) and the bijection (3) would both be false: `U U₀^{-1}` has
+> determinant `±1`, not `1`. Under `Γ₀^±(m)` the Theorem is correct exactly as
+> written, and the addendum's determinant-freedom claim is precisely the
+> statement that `det : Γ₀^±(m) → {±1}` is onto. Inherited from R0033
+> (`notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md` §1), corrected there too.
+
 Fix a nonsingular `M ∈ ℤ^{2×2}`.  A **normalization event** is a triple
 `(U, V, D)` with `U, V ∈ GL₂(ℤ)`, `U M V = D`, and `D = diag(e₁, e₂)`
 normalized (`e₁, e₂ ≥ 1`, `e₁ | e₂`).
@@ -106,7 +117,8 @@ recorded next formal step, not an assumption used anywhere above.
 
 Precisions from the blind-context audit, all additions: (1) the
 determinant pair obeys `det U · det V = sign(det M)` exactly, while each
-factor separately is free (`diag(1,−1) ∈ Γ₀(m)`) — this is the sharp form
+factor separately is free (~~`diag(1,−1) ∈ Γ₀(m)`~~ `diag(1,−1) ∈ Γ₀^±(m)`,
+see the naming correction at the head of §1) — this is the sharp form
 of "the sign is payload data"; (2) "normalized" must state positive
 diagonal entries: `diag(−e₁,e₂)` is unimodularly reachable and satisfies
 integer divisibility, so positivity is load-bearing and a deterministic

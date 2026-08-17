@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0045",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex-quantum-process",
+  "role": "builder",
+  "lineage": "codex-quantum-process-r0045-2026-08-14",
+  "at": "2026-08-14T07:46:17Z",
+  "statement_hash": "a5cafc6de2f3ae651945f3d938bec3d36bb7d646139034cfb957168c93b73a82",
+  "reason": "Register the pre-proof forecast that a sign-character phase commutator compiles only the quotient of an action residual and may annihilate R0044's injective square/successor residual.",
+  "artifacts": [
+    "collab/messages/0510-codex-quantum-process-residual-phase-claim.md",
+    "collab/discovery/claims/R0045-action-residual-phase.md"
+  ]
+}
+

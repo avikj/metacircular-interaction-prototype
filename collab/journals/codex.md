@@ -646,3 +646,61 @@ of bounded FutureEq without a consumer. The strongest open content is whether
 finite Heisenberg-process invariant operator-system closure is already a
 *-algebra, what its multiplicative closure adds, and whether directed leakage
 survives a physically native choice of geometry.
+
+## 2026-08-14T07:07:19Z — persistent cache order split
+
+Returned under the user's literal-random polyphonic loop.  A predeclared
+Alexander lens and an independent no-redraw draw selected
+`CACHE_OPTION_VALUE_NO_GO`.  The encounter with Hypatia's checked commuting
+fold separated two meanings of history: lawful persistent path installations
+have permutation-invariant endpoints and telescoping total acquisition cost,
+while their per-request marginal vectors can still depend on order.  Added
+`CachePathOrder.agda`, its `Everything` import, the bounded proof note, and
+forecast/result messages.  Standalone safe Agda is green; the full aggregate
+still stops earlier at the recorded `Gamma0Partner.solve` toolchain mismatch.
+
+Resume: first consume `origin/main`, which moved rapidly while many disjoint
+files remained visible.  Do not touch the other-owned Agda, Lean, journal, or
+message paths.  When the worktree clears, run `./sync`, replay the standalone
+module, and check whether the ancestor-closed reachability premise deserves a
+separate internal formalization rather than only the exact note proof.
+
+## 2026-08-14T07:19:36Z — finite barrier no-go reopened
+
+The second no-redraw root draw selected the Boyd lens and
+`BARRIER_SMOOTH_TERM.md`.  Its later W6 resolution overclaimed finite
+Vandermonde impossibility: an upper drift estimate was read backwards as an
+error lower bound, and equidistribution density was read as a first-return
+bound.  Replaced both with the exact Lagrange frequency response
+`ell_nu(xi_mu exp(i gamma Delta))`; this shows generic leakage and target
+distortion but leaves selected quantitative spacings open.  Lean checks the
+geometric-mode identity.  Corrections are struck in both source notes and a
+new correction note/result message records the surviving boundary.
+
+Resume: consume the moving origin before extending this lane.  A genuine
+closure would require an effective simultaneous-return estimate balanced
+against inverse-Vandermonde conditioning, or a different extractor.  Do not
+repeat the drift-to-error or density-to-first-return implications.
+
+## 2026-08-14T07:37:17Z — Delta 25 source and braid boundary
+
+The owner injected the complete Eternal Golden Braid / Indra’s Net Delta 25.
+Archived it as direct source `UP-D0025` with SHA-256
+`6252491ededa435379b7d7b06ec96265cac3d901f42adb1c809c6d9289bb7b04` and
+an explicit evidence fence: the Huayan framing is not a category-theory
+reduction, inherited mathematics stays inherited, and T25.A–H remain targets
+until separately checked.  A concurrently fetched prior landing (`f5314e9`)
+already checks bounded A/B/D/F forms, so I did not duplicate them.
+
+I took the still-open T25.E inference boundary.  In safe Agda, actual adjacent
+swaps of a Boolean triple satisfy Yang–Baxter, while two other certified
+involutive equivalences (first-coordinate negation and identity) fail it at a
+named point.  Hence invertible lens transports do not make a braid action;
+coherence must be proved.  The historical three-lens cycle remains unrecovered
+as typed maps, so no associator/pentagon/hexagon/holonomy claim is made.
+
+Resume: consume the T25.B/F/G returns and the latest origin.  If their explicit
+paths are committed and the shared worktree clears, run `./sync`, then consider
+importing `BraidCoherenceBoundary` through the canonical aggregate only after
+checking the live aggregate/toolchain boundary.  Do not confuse the finite
+positive/negative controls with Huayan metaphysics or with the original cycle.

@@ -122,6 +122,18 @@ proposing the remedy.
   nearest the 0.25 "real but not the headline" branch, arrived at for a
   reason I did not anticipate.
 - Prior art still unsearched, so still no novelty claimed for anything here.
+  **PRIOR-ART SWEEP 2026-08-14 — flag reviewed; NO OBLIGATION, no search run,
+  and the line stands as written.** The headline claim it guards is *withdrawn*
+  (§5), and what survives — transseries typing as an erratum-class immune
+  system, with the struck-passage retrospective as an unrun deciding experiment
+  — is a proposal about this repository's own working practice, with no
+  external statement to attribute. Searching would have produced a citation
+  list for a claim nobody is making. Recorded so the corpus-wide sweep is
+  complete and this line is not re-triaged as an open debt; if the narrowed
+  claim is ever run and retained, the obligation reopens and the vocabulary to
+  try is *transseries / exp-log asymptotic expansions* (Écalle, van der Hoeven)
+  for the mathematics and *type-directed erratum tracking* for the practice.
+  Attribution status only; TR1 and the scored forecast are untouched.
 
 ## 6. Ledger
 

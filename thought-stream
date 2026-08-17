@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+# Exact-byte, provenance-carrying thought-stream ingestion.
+#
+# The blob hash certifies only stored bytes. Metadata records an observation;
+# it does not authenticate authorship, completeness, or authority.
+set -eu
+
+ROOT="${MATH_THOUGHT_STREAM_ROOT:-collab/thought-stream}"
+RAW="$ROOT/raw/sha256"
+LEDGER="$ROOT/ledger.tsv"
+LOCK="$ROOT/.lock"
+
+die() { printf 'THOUGHT-STREAM: %s\n' "$*" >&2; exit 1; }
+
+safe_field() {
+    case "$1" in
+        ''|*[!A-Za-z0-9._:/+@-]*) return 1 ;;
+        *) return 0 ;;
+    esac
+}
+
+sha256_file() {
+    shasum -a 256 "$1" | awk '{print $1}'
+}
+
+acquire() {
+    mkdir -p "$ROOT"
+    mkdir "$LOCK" 2>/dev/null || die "another ingestion owns $LOCK"
+    trap 'rmdir "$LOCK" 2>/dev/null || true' EXIT INT TERM
+}
+
+init_ledger() {
+    if [ ! -f "$LEDGER" ]; then
+        printf 'record_id\tsha256\tbytes\tpath\tsource_medium\tcontent_origin\tcompleteness\tsource_timestamp\tcaptured_at\n' > "$LEDGER"
+    fi
+}
+
+ingest() {
+    [ "$#" -ge 4 ] && [ "$#" -le 5 ] ||
+        die "usage: thought-stream ingest RECORD_ID MEDIUM ORIGIN COMPLETENESS [SOURCE_TIMESTAMP]"
+    record_id="$1"
+    medium="$2"
+    origin="$3"
+    completeness="$4"
+    source_timestamp="${5:--}"
+    for field in "$record_id" "$medium" "$origin" "$completeness" "$source_timestamp"; do
+        safe_field "$field" || die "metadata fields must use [A-Za-z0-9._:/+@-]"
+    done
+
+    acquire
+    mkdir -p "$RAW"
+    init_ledger
+    tmp="$ROOT/.incoming.$$"
+    trap 'rm -f "$tmp"; rmdir "$LOCK" 2>/dev/null || true' EXIT INT TERM
+    # `cat` is deliberate: stdin is stored byte-for-byte, without decoding,
+    # newline normalization, delimiter parsing, or inferred reconstruction.
+    cat > "$tmp"
+    hash=$(sha256_file "$tmp")
+    bytes=$(wc -c < "$tmp" | tr -d ' ')
+    rel="raw/sha256/$hash.bin"
+    dst="$ROOT/$rel"
+
+    prior=$(awk -F '\t' -v id="$record_id" 'NR > 1 && $1 == id {print; exit}' "$LEDGER")
+    if [ -n "$prior" ]; then
+        prior_identity=$(printf '%s\n' "$prior" | cut -f2-8)
+        requested_identity=$(printf '%s\t%s\t%s\t%s\t%s\t%s\t%s' \
+            "$hash" "$bytes" "$rel" "$medium" "$origin" "$completeness" "$source_timestamp")
+        [ "$prior_identity" = "$requested_identity" ] ||
+            die "record_id $record_id already names different bytes or provenance"
+        rm -f "$tmp"
+        printf 'THOUGHT-STREAM: idempotent %s sha256:%s\n' "$record_id" "$hash"
+        return 0
+    fi
+
+    if [ -f "$dst" ]; then
+        cmp -s "$tmp" "$dst" || die "hash collision at $dst"
+        rm -f "$tmp"
+    else
+        mv "$tmp" "$dst"
+    fi
+    captured_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+        "$record_id" "$hash" "$bytes" "$rel" "$medium" "$origin" \
+        "$completeness" "$source_timestamp" "$captured_at" >> "$LEDGER"
+    printf 'THOUGHT-STREAM: ingested %s %s bytes sha256:%s\n' "$record_id" "$bytes" "$hash"
+}
+
+verify() {
+    [ "$#" -eq 0 ] || die "usage: thought-stream verify"
+    [ -f "$LEDGER" ] || die "missing ledger $LEDGER"
+    failures=0
+    count=0
+    while IFS="$(printf '\t')" read -r id hash bytes rel medium origin completeness source_timestamp captured_at; do
+        [ "$id" = record_id ] && continue
+        count=$((count + 1))
+        file="$ROOT/$rel"
+        if [ ! -f "$file" ]; then
+            printf 'MISSING  %s %s\n' "$id" "$file" >&2
+            failures=$((failures + 1))
+            continue
+        fi
+        actual_hash=$(sha256_file "$file")
+        actual_bytes=$(wc -c < "$file" | tr -d ' ')
+        if [ "$actual_hash" != "$hash" ] || [ "$actual_bytes" != "$bytes" ]; then
+            printf 'CORRUPT  %s expected=%s/%s actual=%s/%s\n' \
+                "$id" "$hash" "$bytes" "$actual_hash" "$actual_bytes" >&2
+            failures=$((failures + 1))
+        fi
+    done < "$LEDGER"
+    [ "$failures" -eq 0 ] || die "$failures of $count records failed"
+    printf 'THOUGHT-STREAM: verified %s exact-byte records\n' "$count"
+}
+
+case "${1:-}" in
+    ingest) shift; ingest "$@" ;;
+    verify) shift; verify "$@" ;;
+    *) die "usage: thought-stream {ingest|verify} ..." ;;
+esac

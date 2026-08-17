@@ -81,7 +81,11 @@ anywhere in this statistic).
 
 **Prop 6 error.** $G_1-[\sharp\sharp]_Q=2[\sharp\flat]+[\flat\flat]$
 computed from the FFT convolutions of $\Lambda^\sharp_Q$ and
-$\Lambda^\flat_Q$ (length $2^{25}$, no wraparound), then
+$\Lambda^\flat_Q$ (length $2^{25}$, ~~no wraparound~~ **wrap-free because
+$2^{25}=33\,554\,432>2N-1=2\cdot10^7-1$, the support of the linear
+self-convolution of sequences supported in $[1,N]$, $N=10^7$; slack factor
+$1.677\ldots$** — SEED-98, 2026-08-14, applying SEED-27 §6 item 2 and §9:
+"no wraparound" is an assertion, the inequality is its proof), then
 $[\cdot](X)=X R(X)-S(X)$ by prefix sums — numerically far better
 conditioned than differencing the two $\sim X^3/6$ counts. Cross-validated
 against the direct difference $G_1-[\sharp\sharp]$ at $N=10^6$, $Q=30$: max
@@ -359,6 +363,14 @@ there is the Mertens floor, three orders below the bound.
   the ratio must creep upward without bound, at a rate invisible over
   three decades. "Flat" here means: no *power-law* drift. Same for every
   Bohr constant.
+  **[SHARPENED 2026-08-14 — `notes/INTERVAL_DISCREPANCY_MEAN_SQUARE.md`: this
+  caveat is right and is not conditional on RH (Thm A there splits on
+  $\Theta$); but "creep upward" overstates it — $D_Q(X)/\sqrt X$ is a
+  *discounted* running max (bound (2.1) there), so what is proved is
+  $\limsup=+\infty$, with no known drift in the $\liminf$, and the proved rate
+  needs $X\approx10^{986}$ to double. The exactly derivable companion statistic
+  is the logarithmic mean square, limit $\sum_\gamma m_\gamma^2/(\tfrac14+\gamma^2)$
+  $=2+\gamma_E-\log4\pi$ iff the zeros are simple.]**
 - **Max-over-intervals statistics.** $D_Q(X)$ is a running maximum —
   monotone, upward-biased, and its fluctuations are not averaged out by
   the fit; the exponent estimates inherit step-structure (visible as the

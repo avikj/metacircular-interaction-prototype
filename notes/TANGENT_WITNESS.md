@@ -81,7 +81,19 @@ and the search never disagree.
   `alpha + beta = -u` there is now visibly the `n = 2`, `grad = (1,1)` case of
   `(H)`. The earlier result was a shadow of this one.
 
-## 3. The zero locus must be deleted, and this is not bookkeeping
+## 3. The zero locus must be deleted, ~~and this is not bookkeeping~~
+
+> **Superseded (2026-08-12) by [`INFINITE_VALUATION.md`](INFINITE_VALUATION.md)
+> §2, same author.** The deletion is **unnecessary**: admitting
+> `v_p(0) = infinity` as a value of the observable makes the criterion correct
+> with `V(f)` left in, because a zero of `f` then *is* a legitimate witness
+> rather than a false positive. The diagnosis below — that `V(f)` is
+> load-bearing and not a boundary case — survives, and is sharpened: `V(f)`
+> supplies the *nearest* witness (see
+> [`WITNESS_RADIUS_STAIRCASE.md`](WITNESS_RADIUS_STAIRCASE.md) Theorem 3.1,
+> where the deepest rung of the profile is the root itself). This
+> cross-reference was carried on the worker branch and lost until the lineages
+> were merged.
 
 My first implementation omitted `\ V(f)` and the criterion **disagreed with
 the search**. The disagreement is instructive.

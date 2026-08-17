@@ -118,3 +118,65 @@ Action: appended exact line-level replacements to the companion source audit;
 did not edit the shared draft.
 Residual: oral, tacit, care/maintenance, anonymous/collective, restricted, and
 community-governed knowledge remain outside the proposed graph ontology.
+## 2026-08-14T06:42Z — ArithmeticPayloadOver installation no-go
+Believe: compositional semantics can carry coefficients already in a store,
+but the current unconditional unfolding equation erases the datum supplied by
+the installation event itself.
+Doing: landed `PayloadInstallationNoGo`: any two installed data at one body
+have equal semantics on every covered term; next isolate the weakest repaired
+realization-indexed preservation law without changing the old record silently.
+
+## 2026-08-14T06:47Z — realized installation as a typed capability
+Random source selected `Pairfield/CapabilityGraph.lean`; read all 96 lines.
+Its producer/certificate/checker separation transforms the repair: raw
+installation remains total, while the semantics-preserving edge consumes
+`Σ x , Realizes ... x`. Added the checked packaging and preservation theorem
+in `RealizedPayloadCapability.agda`.
+
+## 2026-08-14T06:52Z — exact thought-stream ingress
+Random source selected `notes/VV.md`; read all 105 lines / 6779 bytes. Its
+verification ledger forced a non-escalation invariant: SHA-256 certifies stored
+bytes only, never authorship or authority. Added and tested the Python-free
+`thought-stream` executable: immutable content-addressed bytes, locked TSV
+provenance, exact replay idempotence, conflicting bytes/provenance fail closed,
+and complete digest/length re-verification.
+
+## 2026-08-14T06:57Z — Haskell → Agda installation blocker
+Stopped stream/provenance work on direction correction. Inspected the actual
+rule path: `proveByInduction` returns only an induction-variable `String`, and
+that string is discarded while the candidate is installed immediately. Added
+checked `ProofLabelNoGo`: any collision of distinct claims at a label makes a
+faithful validator/decoder impossible. The missing seam object is therefore a
+conclusion-indexed derivation, not subprocess wiring.
+
+## 2026-08-14T07:00Z — first Haskell → Agda → rule installation
+Added a shared rewrite calculus with endpoint-indexed `Step` and `Derivation`.
+The Haskell mirror renders a temporary checked module, installs its exact rule
+only after Agda exits successfully, and leaves the rule set unchanged for a
+one-constructor mutation with mismatched intermediate endpoint. Both positive
+and negative paths executed; this is a closed minimal seam, not yet the full
+MathMachine induction prover.
+
+## 2026-08-14T07:14Z — controlled grammar and uncollapsed futures
+Installed derivations now form native operations whose applicability remains a
+typed `Control` with soundness to the certified source. Enabled futures retain
+operation identity, control, target, and derivation. Parallel `advance` maps
+without quotienting and has checked branch-count preservation. Haskell mirrors
+the control as exact source matching and executable parallel futures; two
+separately named installations with the same target remain two branches.
+
+## 2026-08-14T07:16Z — one-object generative kernel
+Collapsed the proposal/judgment seam. `Branch` is simultaneously formation
+state and executable future: operation, applicability control, computed target,
+and derivation history remain one Agda value. Kernel-normalized `form` retains
+two equal-target futures with direct versus detour histories; count and target
+execution are both `refl`. Cubical Agda cannot use the Haskell backend, stated
+as an exact extraction limit rather than papered over with a mirror.
+
+## 2026-08-14 — finite rooted Indra scan
+Added an observer×target jewel view and observer-local reweave. Anchor agreement
+is proved equivalent to full pairwise coherence, reducing the finite audit from
+cubic root-pair scanning to one rectangular root×target scan. The executable
+audit returns proof-bearing coherence or a concrete root/target tear. A Bool
+adversary is evaluated by the kernel and finds its tear by `refl`. Coordinated
+scope with the disjoint IntrinsicRewrite and extracted RootedReweave lanes.

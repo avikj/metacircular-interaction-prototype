@@ -1,0 +1,233 @@
+{
+  "title": "EGB Theorem / Claim Graph — Circulation Extension V1.1",
+  "generated_at": "2026-08-16T05:04:28.190335+00:00",
+  "authority": "mechanically combined convenience patch; additive source patches remain provenance",
+  "base_graph": "EGB_THEOREM_CLAIM_GRAPH_V1_2026-08-16.json",
+  "source_patches": [
+    "EGB_THEOREM_CLAIM_GRAPH_CIRCULATION_EXTENSION_V1_2026-08-16.json",
+    "EGB_THEOREM_CLAIM_GRAPH_DYNAMIC_SIEVE_EXTENSION_V1_2026-08-16.json"
+  ],
+  "new_nodes": [
+    {
+      "id": "MACHINE.CIRCULATION_LOOP",
+      "kind": "architecture",
+      "status": "synthesis_compiler",
+      "title": "Library–illumination–separator–writeback circulation",
+      "cluster": "machine",
+      "sources": [
+        "ETERNAL_GOLDEN_BRAID_DIAMOND_PRINCIPLE_DELTA_33_2026-08-14.md",
+        "ETERNAL_GOLDEN_BRAID_JEWELS_IN_A_FIELD_DELTA_32_2026-08-14.md",
+        "SELF_WEAVING_KNOWLEDGE_CIVILIZATION_VISION_2026-08-14.md",
+        "EGB_INFORMATION_SYSTEM_GRAPH_V1_2026-08-16.json"
+      ],
+      "summary": "The operational Braid is closed only when an illumination produces a typed separator, transport, correction, or facet and writes it back so that later routing and proof search actually change."
+    },
+    {
+      "id": "MACHINE.RESPONSE_PROFILE",
+      "kind": "compiler_schema",
+      "status": "synthesis_compiler",
+      "title": "Jewel response profile",
+      "cluster": "machine",
+      "sources": [
+        "ETERNAL_GOLDEN_BRAID_JEWELS_IN_A_FIELD_DELTA_32_2026-08-14.md",
+        "EGB_CANONICAL_SELF_CONTAINED_TRANSMISSION_V1_2026-08-16.md",
+        "EGB_THEOREM_CLAIM_GRAPH_V1_2026-08-16.json"
+      ],
+      "summary": "A living artifact exposes what tests act on it, what responses it returns, which distinctions it preserves or collapses, what defeats it, what it composes with, and which dark channels remain."
+    },
+    {
+      "id": "MACHINE.INDEX_PRISM",
+      "kind": "method",
+      "status": "synthesis_compiler",
+      "title": "Independent indexes as probes; disagreement as separator",
+      "cluster": "machine",
+      "sources": [
+        "00_INDEX.md",
+        "GPT56_PRO_INTERPRETIVE_CORPUS_INDEX.md",
+        "EGB_COMPREHENSIVE_CORPUS_INDEX_GPT56_V3_SECOND_PASS.md",
+        "EGB_CANONICAL_SELF_CONTAINED_TRANSMISSION_V1_2026-08-16.md"
+      ],
+      "summary": "Independent corpus compressions are not averaged into consensus. Their structured disagreement is treated as a probe-generated separator revealing omissions, premature identifications, or different valid entry points."
+    },
+    {
+      "id": "MACHINE.CONTINUATION_GAIN",
+      "kind": "measurement_schema",
+      "status": "proposed_vector_measure",
+      "title": "Continuation gain is vector-valued",
+      "cluster": "machine",
+      "sources": [
+        "SELF_WEAVING_KNOWLEDGE_CIVILIZATION_VISION_2026-08-14.md",
+        "EGB_RESEARCH_FRONTIER_ROUTER_V1_2026-08-16.md",
+        "EGB_INFORMATION_SYSTEM_GRAPH_V1_2026-08-16.json"
+      ],
+      "summary": "An artifact is assessed by a non-scalar vector: exact claims installed, corrections propagated, proof paths shortened, frontiers narrowed, source trace improved, modalities connected, and external validation obtained."
+    },
+    {
+      "id": "OPEN.CIRCULATION_BENCHMARK",
+      "kind": "frontier",
+      "status": "open",
+      "title": "Demonstrate that circulation changes theorem production",
+      "cluster": "machine",
+      "sources": [
+        "EGB_RESEARCH_FRONTIER_ROUTER_V1_2026-08-16.md",
+        "EGB_INFORMATION_SYSTEM_GRAPH_V1_2026-08-16.json"
+      ],
+      "summary": "Run controlled fresh-agent tasks and measure whether response profiles, dirty-cone propagation, and separator writeback reduce time-to-frontier, false theorem upgrades, proof/search cost, or source-trace distance."
+    },
+    {
+      "id": "ARITH.DYN_SIEVE_RECONSTRUCTION",
+      "kind": "theorem",
+      "status": "exact_finite",
+      "title": "Dynamic sieve phase reconstruction equals maximal separator gap",
+      "cluster": "arithmetic",
+      "sources": [
+        "PRIME_PAIR_DYNAMIC_SIEVE_PHASE_THEOREMS_2026-08-16.md",
+        "DESCENT_CURVATURE_PROGRAM_II_2026-08-13.md"
+      ],
+      "summary": "For the squarefree wheel word, the least horizon reconstructing every CRT phase equals the maximum cyclic largest-gap statistic of the separator sets U_M symmetric-difference (U_M-t)."
+    },
+    {
+      "id": "ARITH.SEPARATOR_GEOMETRY_NO_GO",
+      "kind": "no_go",
+      "status": "exact_finite_counterexample",
+      "title": "Separator mass does not determine worst-case reconstruction horizon",
+      "cluster": "arithmetic",
+      "sources": [
+        "PRIME_PAIR_DYNAMIC_SIEVE_PHASE_THEOREMS_2026-08-16.md"
+      ],
+      "summary": "At M=9,699,690 the one-active-prime p=19 separator has smaller support than the p=17 separator but a shorter maximal indistinguishability horizon."
+    },
+    {
+      "id": "OPEN.DYN_SIEVE_ASYMPTOTIC",
+      "kind": "frontier",
+      "status": "open",
+      "title": "Classify asymptotic dynamic wheel-sieve reconstruction geometry",
+      "cluster": "arithmetic",
+      "sources": [
+        "PRIME_PAIR_DYNAMIC_SIEVE_PHASE_THEOREMS_2026-08-16.md"
+      ],
+      "summary": "Determine the order of L*(P(z)), controlling active-prime coordinate, two-slice gap invariant, sparse-task variants, and the joint finite-phase/tail-charge dynamics."
+    }
+  ],
+  "new_edges": [
+    {
+      "from": "CONST.CRYSTAL",
+      "to": "MACHINE.RESPONSE_PROFILE",
+      "type": "GENERATES_CONSTRAINT",
+      "why": "a jewel is a response law, not stored content"
+    },
+    {
+      "from": "CONST.BRAID_NET",
+      "to": "MACHINE.CIRCULATION_LOOP",
+      "type": "CONSTRAINS",
+      "why": "Braid is update law; Net is persistent field"
+    },
+    {
+      "from": "COMP.RDC",
+      "to": "MACHINE.RESPONSE_PROFILE",
+      "type": "DISCIPLINES",
+      "why": "profiles must separate reconstruction, descent, and coherence"
+    },
+    {
+      "from": "GTER.GALOIS",
+      "to": "MACHINE.INDEX_PRISM",
+      "type": "SUPPORTS",
+      "why": "different indexes act as probes inducing different distinguishability relations"
+    },
+    {
+      "from": "MACHINE.NEGATIVE_KNOWLEDGE",
+      "to": "MACHINE.CIRCULATION_LOOP",
+      "type": "SUPPORTS",
+      "why": "failed cuts and no-go results must circulate forward"
+    },
+    {
+      "from": "MACHINE.RESPONSE_PROFILE",
+      "to": "MACHINE.CIRCULATION_LOOP",
+      "type": "SUPPLIES_STATE",
+      "why": "the loop needs test/response interfaces"
+    },
+    {
+      "from": "MACHINE.INDEX_PRISM",
+      "to": "MACHINE.CIRCULATION_LOOP",
+      "type": "SUPPLIES_SEPARATORS",
+      "why": "independent views reveal dark channels"
+    },
+    {
+      "from": "MACHINE.CIRCULATION_LOOP",
+      "to": "MACHINE.CONTINUATION_GAIN",
+      "type": "REQUIRES_MEASUREMENT",
+      "why": "circulation must be evaluated by changed future reach"
+    },
+    {
+      "from": "MACHINE.CONTINUATION_GAIN",
+      "to": "OPEN.CIRCULATION_BENCHMARK",
+      "type": "OPEN_OBLIGATION",
+      "why": "the proposed vector requires empirical validation"
+    },
+    {
+      "from": "OPEN.CIRCULATION_BENCHMARK",
+      "to": "OPEN.COMPLEXITY_GAIN",
+      "type": "CONTRIBUTES_TO",
+      "why": "measured circulation can establish proof/search advantage"
+    },
+    {
+      "from": "OPEN.CIRCULATION_BENCHMARK",
+      "to": "OPEN.EXTERNAL_RESULT",
+      "type": "CONTRIBUTES_TO",
+      "why": "the loop must ultimately return externally validated output"
+    },
+    {
+      "from": "COMP.PERSISTENT_ID",
+      "to": "ARITH.DYN_SIEVE_RECONSTRUCTION",
+      "type": "SPECIALIZES_TO",
+      "why": "future-observation identity specializes to the wheel-sieve word"
+    },
+    {
+      "from": "GTER.GALOIS",
+      "to": "ARITH.DYN_SIEVE_RECONSTRUCTION",
+      "type": "APPLIED_TO",
+      "why": "a growing probe family refines phase indistinguishability to equality"
+    },
+    {
+      "from": "ARITH.DYN_SIEVE_RECONSTRUCTION",
+      "to": "ARITH.SEPARATOR_GEOMETRY_NO_GO",
+      "type": "REFINED_BY",
+      "why": "the separator-gap representation exposes a support-size heuristic failure"
+    },
+    {
+      "from": "ARITH.DYN_SIEVE_RECONSTRUCTION",
+      "to": "OPEN.DYN_SIEVE_ASYMPTOTIC",
+      "type": "OPEN_OBLIGATION",
+      "why": "finite exact geometry leaves asymptotic and task-specific classification open"
+    },
+    {
+      "from": "ARITH.SEPARATOR_GEOMETRY_NO_GO",
+      "to": "OPEN.DYN_SIEVE_ASYMPTOTIC",
+      "type": "NARROWS_FRONTIER",
+      "why": "cardinality-only asymptotics cannot determine the horizon"
+    },
+    {
+      "from": "ARITH.SEPARATOR_GEOMETRY_NO_GO",
+      "to": "MACHINE.NEGATIVE_KNOWLEDGE",
+      "type": "SUPPORTS",
+      "why": "the exact counterexample prunes separator-density-only routing"
+    }
+  ],
+  "invalidated_nodes": [],
+  "status_changes": [],
+  "update_contract": {
+    "required_event_fields": [
+      "event_id",
+      "task",
+      "prism",
+      "claim_nodes_touched",
+      "changes",
+      "separators",
+      "continuation_gain",
+      "open_obligations",
+      "recommended_next_reads",
+      "return_artifacts"
+    ],
+    "rule": "An illumination event does not count as circulation until its return artifacts are written back and its claim-node/edge effects are explicit."
+  }
+}

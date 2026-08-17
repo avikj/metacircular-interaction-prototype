@@ -23,8 +23,21 @@ with `det U = det V = 1`.  Both seeds close together.
 Let `D = diag(d₁,d₂)` with `d₁,d₂ ≠ 0` and `m = d₂/d₁ ∈ ℤ`.  Define
 
 \[
-\Gamma_0(m)=\{M\in GL_2(\mathbb Z): m \mid M_{21}\}.
+\Gamma_0^{\pm}(m)=\{M\in GL_2(\mathbb Z): m \mid M_{21}\}.
 \]
+
+> **Renaming (seed125 audit, 2026-08-14) — the noun only; every theorem below
+> stands.** As displayed, the group is defined inside `GL₂(ℤ)`, but the
+> classical `Γ₀(m)` is a subgroup of **`SL₂(ℤ)`**. The object here is its
+> determinant-`±1` extension `Γ₀^±(m)`, sitting in
+> `1 → Γ₀(m) → Γ₀^±(m) → {±1} → 1` via `det`. Read `Γ₀^±(m)` for `Γ₀(m)`
+> throughout this note. The tell was already printed in §4 below: the phrase
+> "`((1,0),(6,1)) ∈ Γ₀(6) ∩ SL₂(ℤ)`" intersects with `SL₂(ℤ)`, which is
+> vacuous under the standard reading of the name and informative under this
+> one. Nothing computational changes: Theorem 1's stabiliser is exactly the
+> `H ∈ GL₂(ℤ)` with `m ∣ H₂₁`, and `det K = det H^{-1} = ±1` in its proof is
+> the step that makes the `±` unavoidable. Same defect and same repair as
+> `0723-seed122` on `notes/VERIFIER_BLIND_FIBER_REWARD.md`.
 
 **Theorem 1.**  The two-sided stabilizer
 `Stab²(D) = {(H,K) ∈ GL₂(ℤ)² : H D K = D}` is isomorphic to `Γ₀(m)` via

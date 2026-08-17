@@ -36,6 +36,12 @@ identity presentation.
 Lean checks the determinant equations, exact replay, nonnegative/zero Smith
 conventions, divisibility, and Boolean certificate acceptance without
 `native_decide`, Python, `sorry`, or axioms.  The module consumes explicit
-outer-product and Bezout witnesses.  It does **not** yet compute those witnesses
-from a bare hypothesis `det A = 0`; witness acquisition is the remaining total
-producer problem.
+outer-product and Bezout witnesses.  It does **not** itself compute those
+witnesses from a bare hypothesis `det A = 0`.
+
+**Update.**  That producer gap is closed in
+`formal/pairfield/Pairfield/RankOneWitness.lean`; see
+`notes/RANK_ONE_SMITH_PRODUCER.md`.  Witness acquisition needed one gcd for
+the row direction, one for the column direction, and a projection along the
+row Bezout pair for the second row — the vanishing determinant is spent
+exactly once, in showing that projection is exact.

@@ -57,6 +57,20 @@ Write `μ(π) ∈ Δ(P)` for the class marginals.  The map
 `π ↦ (μ(π), (π(\cdot|C))_C)` is a bijection onto
 `Δ°(P) × ∏_C Δ°(C)` (finite chain rule / product factorization).
 
+> **Inverse supplied in place (seed130, 2026-08-14; bijection sweep).** The
+> named ground is correct but only gives one direction; the two-sided inverse
+> is one line and is written here so the claim is not injectivity in disguise.
+> Define `Ψ(m, (κ_C)_C)_w := m_{C(w)} · κ_{C(w)}(w)`, where `C(w)` is the
+> unique class containing `w` (`P` is a partition, so `C(-)` is total and
+> single-valued). Then `Ψ` lands in `Δ°(W)`: the entries are positive since
+> `m ∈ Δ°(P)` and `κ_C ∈ Δ°(C)`, and `Σ_w Ψ(m,κ)_w = Σ_C m_C Σ_{w∈C} κ_C(w)
+> = Σ_C m_C = 1`. `Ψ ∘ Φ = id`: `μ(π)_C = Σ_{w∈C} π_w` and
+> `π(w|C) = π_w / μ(π)_C` (defined because `π > 0` makes every `μ(π)_C > 0`),
+> so the product returns `π_w`. `Φ ∘ Ψ = id`: `μ(Ψ(m,κ))_C = Σ_{w∈C} m_C κ_C(w)
+> = m_C`, whence `Ψ(m,κ)(w|C) = m_C κ_C(w)/m_C = κ_C(w)`. Both composites are
+> the identity, so `Φ` is a bijection, not merely injective. Nothing downstream
+> changes: Theorem 2 and the dimension count already used only this factorization.
+
 **Theorem 2.**  MWU with a P-measurable reward acts on the first factor
 as the MWU of the induced class reward and is the identity on every
 conditional factor.  The tangent kernel of `μ` has dimension

@@ -1,13 +1,22 @@
 #!/bin/sh
+# Reject commits outside the one canonical branch.
+# MATH_ALLOW_NON_MAIN=1 exists only for the one-time branch-consolidation
+# commit that installed this guard; ordinary work must never set it.
+branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || echo "")
+if [ "$branch" != "main" ] && [ "${MATH_ALLOW_NON_MAIN:-}" != "1" ]; then
+  printf 'BLOCKED: main is the only workstream; current branch is %s.\n' \
+    "${branch:-DETACHED}" >&2
+  printf 'Use the canonical shared checkout and run ./sync.\n' >&2
+  exit 1
+fi
+
 # Reject Python at the commit boundary — the layer that catches agents whose
 # harness has no PreToolUse hook (Codex lineage, supervisor-launched minds,
 # anything driving Git directly).
 #
 # Human owner directive, 2026-08-13. Enabled per-repository with
 #     git config core.hooksPath .githooks
-# which is repo-level config and therefore applies to EVERY worktree on this
-# machine at once — the property that makes this enforceable rather than
-# advisory.
+# which is repo-level config and therefore applies to the canonical checkout.
 #
 # Scope: blocks ADDED and MODIFIED .py/.pyi/.ipynb. Deletions are always
 # allowed — migrating away from the 660 existing files is the point.
@@ -39,6 +48,22 @@ if [ -n "$offenders" ]; then
   printf '  (then record it in your journal and a message — otherwise you are\n' >&2
   printf '   lying to the collaboration)\n' >&2
   exit 1
+fi
+
+# Board forecast-citation guard (2026-08-15). Only runs when collab/STATE.md is
+# staged. Rationale, scope and its exercised behaviour: see the script header
+# and notes/FORECAST_LEDGER_AUDIT.md. Fires on the pre-correction row 205 text;
+# 0 hits on the whole corrected board.
+if git diff --cached --name-only --diff-filter=AM | grep -qx 'collab/STATE.md'; then
+  tmp_board=$(git rev-parse --git-dir)/STATE.staged.$$
+  git show :collab/STATE.md > "$tmp_board" 2>/dev/null || true
+  if [ -s "$tmp_board" ] && [ -x .githooks/check-forecast-citations.sh ]; then
+    if ! ./.githooks/check-forecast-citations.sh "$tmp_board"; then
+      rm -f "$tmp_board"
+      exit 1
+    fi
+  fi
+  rm -f "$tmp_board"
 fi
 
 exit 0

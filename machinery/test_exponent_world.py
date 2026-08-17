@@ -20,6 +20,10 @@ from exponent_world import (
     PivotResidualColumnAdvance,
     ResidualCycleClosure,
     ResidualCycleObstruction,
+    LowerResidualRowAdvance,
+    SignedActiveNormalization,
+    ZeroPivotClassification,
+    RankOneDiagonalNormalization,
 )
 
 
@@ -450,6 +454,107 @@ class SmithPathTests(unittest.TestCase):
         )
         result = world.close_residual_cycle_if_pivot_divides(advance)
         self.assertEqual(result, ResidualCycleObstruction(((2, 0), (5, 7)), 2, 5, 1))
+
+    def test_lower_residual_executes_as_oriented_strict_row_descent(self):
+        world = ExponentWorld()
+        obstruction = ResidualCycleObstruction(((2, 0), (5, 7)), 2, 5, 1)
+        result = world.advance_positive_lower_residual(obstruction)
+        self.assertIsInstance(result, LowerResidualRowAdvance)
+        self.assertEqual((result.old_pivot, result.new_pivot), (2, 1))
+        self.assertEqual(result.left, ((-2, 1), (5, -2)))
+        self.assertEqual(result.advanced, ((1, 7), (0, -14)))
+        self.assertEqual(_matmul_for_test(result.left, result.matrix), result.advanced)
+
+    def test_divisible_lower_entry_cannot_enter_residual_row_descent(self):
+        world = ExponentWorld()
+        false_obstruction = ResidualCycleObstruction(((2, 0), (6, 7)), 2, 6, 0)
+        with self.assertRaisesRegex(ValueError, "failed row divisibility"):
+            world.advance_positive_lower_residual(false_obstruction)
+
+    def test_signed_upper_active_pair_normalizes_in_all_four_sign_cells(self):
+        world = ExponentWorld()
+        for pivot_sign in (-1, 1):
+            for companion_sign in (-1, 1):
+                matrix = ((pivot_sign * 6, companion_sign * 16), (0, -70))
+                result = world.normalize_signed_active_pair(matrix, "upper")
+                self.assertIsInstance(result, SignedActiveNormalization)
+                self.assertEqual(result.normalized[0], (6, 16))
+                self.assertEqual(result.normalized[1][0], 0)
+                self.assertEqual(result.pivot_magnitude, 6)
+                self.assertEqual(
+                    _matmul_for_test(
+                        _matmul_for_test(result.left, matrix), result.right
+                    ), result.normalized
+                )
+
+    def test_signed_lower_active_pair_normalizes_in_all_four_sign_cells(self):
+        world = ExponentWorld()
+        for pivot_sign in (-1, 1):
+            for companion_sign in (-1, 1):
+                matrix = ((pivot_sign * 2, 0), (companion_sign * 5, 7))
+                result = world.normalize_signed_active_pair(matrix, "lower")
+                self.assertEqual(
+                    (result.normalized[0][0], result.normalized[1][0]), (2, 5)
+                )
+                self.assertEqual(result.normalized[0][1], 0)
+                self.assertEqual(result.pivot_magnitude, 2)
+
+    def test_zero_active_entry_is_endpoint_not_signed_normalization(self):
+        world = ExponentWorld()
+        with self.assertRaisesRegex(ValueError, "cannot make a zero"):
+            world.normalize_signed_active_pair(((2, 0), (0, 7)), "upper")
+
+    def test_zero_pivot_row_swap_has_canonical_priority(self):
+        world = ExponentWorld()
+        result = world.classify_zero_pivot(((0, 6), (-4, 9)))
+        self.assertIsInstance(result, ZeroPivotClassification)
+        self.assertEqual((result.kind, result.relocated_pivot), ("row-swap", 4))
+        self.assertEqual(result.transformed, ((-4, 9), (0, 6)))
+        self.assertEqual(result.left, ((0, 1), (1, 0)))
+        self.assertEqual(abs(_det_for_test(result.transformed)), 24)
+
+    def test_zero_pivot_uses_column_swap_when_first_column_is_zero(self):
+        world = ExponentWorld()
+        result = world.classify_zero_pivot(((0, -6), (0, 9)))
+        self.assertEqual((result.kind, result.relocated_pivot), ("column-swap", 6))
+        self.assertEqual(result.transformed, ((-6, 0), (9, 0)))
+        self.assertEqual(result.right, ((0, 1), (1, 0)))
+
+    def test_zero_pivot_distinguishes_diagonal_and_zero_endpoints(self):
+        world = ExponentWorld()
+        diagonal = world.classify_zero_pivot(((0, 0), (0, -7)))
+        zero = world.classify_zero_pivot(((0, 0), (0, 0)))
+        self.assertEqual((diagonal.kind, diagonal.relocated_pivot),
+                         ("already-diagonal", None))
+        self.assertEqual((zero.kind, zero.relocated_pivot), ("zero-matrix", None))
+
+    def test_nonzero_pivot_cannot_enter_zero_classifier(self):
+        with self.assertRaisesRegex(ValueError, "zero leading"):
+            ExponentWorld().classify_zero_pivot(((2, 0), (0, 7)))
+
+    def test_rank_one_trailing_entry_moves_to_positive_leading_position(self):
+        world = ExponentWorld()
+        result = world.normalize_rank_one_diagonal(((0, 0), (0, -7)))
+        self.assertIsInstance(result, RankOneDiagonalNormalization)
+        self.assertEqual(result.diagonal, (7, 0))
+        self.assertEqual(
+            _matmul_for_test(
+                _matmul_for_test(result.left, result.matrix), result.right
+            ), ((7, 0), (0, 0))
+        )
+        self.assertEqual(abs(_det_for_test(result.left)), 1)
+        self.assertEqual(abs(_det_for_test(result.right)), 1)
+
+    def test_rank_one_leading_entry_only_needs_sign_normalization(self):
+        result = ExponentWorld().normalize_rank_one_diagonal(((-5, 0), (0, 0)))
+        self.assertEqual(result.diagonal, (5, 0))
+        self.assertEqual(result.right, ((1, 0), (0, 1)))
+
+    def test_zero_and_full_rank_diagonals_are_not_rank_one(self):
+        world = ExponentWorld()
+        for matrix in (((0, 0), (0, 0)), ((2, 0), (0, 7))):
+            with self.assertRaisesRegex(ValueError, "exactly one"):
+                world.normalize_rank_one_diagonal(matrix)
 
 
 def _matmul_for_test(left, right):

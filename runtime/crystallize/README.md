@@ -1,5 +1,9 @@
 # `runtime/crystallize` — derivation crystallization (CRYSTAL.md §3.1)
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 > A mathematical fact enters the runtime; an *independent* problem thereafter
 > solves in strictly fewer kernel steps; the reduction is measured by exact
 > counters, is reproducible, and the post-reduction answer is still

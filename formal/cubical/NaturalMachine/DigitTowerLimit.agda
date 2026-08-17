@@ -6,6 +6,36 @@ module NaturalMachine.DigitTowerLimit where
 -- arguments are themselves transports.  The checked equivalence and its
 -- inverse laws do not claim that stronger computational behavior; the warning
 -- is retained as an explicit implementation boundary rather than suppressed.
+--
+-- DIAGNOSED 2026-08-15 audit, and the retained boundary above is now
+-- explained -- but only PARTLY discharged, so read the two halves apart.
+--
+--   * The WARNING is a `Vec` artefact, not mathematics.
+--     `NaturalMachine.DigitTowerFin` restates the same base-two carry
+--     obstruction with digit words presented as `Fin n → Digit`.  A
+--     function type has no index to match on, and the count goes 28
+--     `UnsupportedIndexedMatch` warnings -> 0 with the two proved facts
+--     unchanged (LSD deletion is not additive; it is a homomorphism for
+--     carry-free XOR).  So nothing here is blocked by Cubical Agda's
+--     lack of index injectivity.
+--
+--   * The INVERSE LIMIT is ported, and only that far.
+--     `NaturalMachine.DigitTowerFinLimit` carries the MSD tower over
+--     `Fin n → A` and proves `MSDLimit A ≃ (ℕ → A)` for any set A, using
+--     `NaturalMachine.FinTopSplit` for the top-splitting eliminator that
+--     `Cubical.Data.Fin` does not supply.
+--
+--   * WHAT IS STILL ONLY HERE, in the `Vec` presentation: `LSDLimit`,
+--     `reverseToLSD`/`reverseToMSD`, `reversalLimitEquiv`,
+--     `limit-reversal-chart-identity` and `transportLawToLSD`, together
+--     with the two-bit `Vec` witnesses at the foot of the file.  Whether
+--     the reversal equivalence and the transported law also become
+--     transport-computable in the `Fin` presentation is open;
+--     `DigitTowerFin`'s own header says so ("the interesting question
+--     ... is open") and this file is where the unported statements live.
+--     So: superseded for the carry obstruction and for the MSD limit,
+--     NOT superseded for reversal.  The warning stays because the code
+--     it is about stays.
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)
@@ -18,7 +48,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ≡Prop)
 open import Cubical.Data.Vec.Base as V using (Vec ; [] ; _∷_ ; _++_)
 import Cubical.Data.Vec.Properties as VecProperties
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 private
   variable
@@ -249,20 +279,20 @@ carry-defect-decomposition base d e r carry x y column =
   ∙ cong (λ z → z + base · x + base · y) column
   ∙ rearrange-right base r carry x y
   where
-    -- v0.5 skew (BUILD.md): the solver macro is `solve`, applied to the
-    -- QUANTIFIED goal — so the helpers are stated over fresh variables and
+    -- cubical 2.8: the solver macro is `solveℕ!`, applied to the INTRO'D goal —
+    -- so the helpers are stated over fresh variables and
     -- instantiated at the enclosing ones.
     rearrange-left
       : (b d′ e′ x′ y′ : ℕ)
       → (d′ + b · x′) + (e′ + b · y′)
       ≡ (d′ + e′) + b · x′ + b · y′
-    rearrange-left = solve
+    rearrange-left b d′ e′ x′ y′ = solveℕ!
 
     rearrange-right
       : (b r′ c′ x′ y′ : ℕ)
       → (r′ + b · c′) + b · x′ + b · y′
       ≡ r′ + b · (x′ + y′ + c′)
-    rearrange-right = solve
+    rearrange-right b r′ c′ x′ y′ = solveℕ!
 
 -- Opposite control: a zero carry makes least-significant deletion preserve
 -- addition exactly at the tail level.

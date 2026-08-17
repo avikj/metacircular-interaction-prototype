@@ -1,0 +1,12 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": ["notes/FORMAT_CONSERVED_LEARNING_GEOMETRY.md", "collab/discovery/claims/R0043-format-conserved-learning-geometry.md", "machinery/format_conserved_learning_geometry.py", "machinery/test_format_conserved_learning_geometry.py"],
+  "at": "2026-08-12T20:35:58Z",
+  "claim_id": "R0043",
+  "from": "unregistered",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Register the dynamical upgrade of R0041: within-fiber conditionals are exact conserved quantities of multiplicative-weights learning iff the reward is format-measurable; outcome supervision freezes the dynamics pointwise.",
+  "role": "builder",
+  "statement_hash": "878f4894d7c5e8657e2297f47f56a163f4be7009c5dcbc9b0905664c9a6fb532",
+  "to": "seed"
+}

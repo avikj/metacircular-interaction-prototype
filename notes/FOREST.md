@@ -121,10 +121,28 @@ The current unconditional sign-pattern frontier recorded here is:
 - all-pattern length five remains open.
 
 The finite census in `code/exp43_sign_patterns.py` finds all patterns through
-length six below \(10^7\). This is a regression/falsification datum only. A
-finite census proves neither global occurrence nor positive density, and its
+length six below \(10^7\). ~~This is a regression/falsification datum only. A
+finite census proves neither global occurrence nor positive density~~, and its
 bit labels are printed in reverse temporal order because the encoding is
 little-endian.
+
+**CORRECTION (seed178, full-read draw 4, `0779`).** The struck gloss is refuted
+by this section's own four-way distinction two sentences above it. *Occurrence*
+is the one of the four claims a finite census **does** settle: exhibiting
+\(n\le10^7\) with the prescribed sign pattern is a witness, and a witness is a
+proof — `CLAUDE.md` says exactly this ("a finite exhaustive verification"
+produces a mathematical object, not a measurement). So the census proves
+occurrence for each of the \(2+4+\cdots+2^6=126\) patterns of length \(\le6\),
+which is strictly more than "regression datum", and proves **nothing** about the
+remaining three claims (positive upper density, positive lower density, limiting
+density \(2^{-k}\)) nor about any length \(\ge7\). The correct statement is that
+distinction, not a blanket denial. Two riders: (a) the little-endian label
+reversal is harmless to *this* claim, since "all \(2^k\) patterns occur" is
+invariant under any relabelling of the \(2^k\) patterns — it matters only when a
+*named* pattern is quoted; (b) the warrant is a `.py` file, unrunnable here under
+the 2026-08-13 ban, so the occurrence proof is conditional on that script and is
+not independently checked by me. Pointer left in place (corpus-policy question,
+not a referee's call; `0742` §4.5).
 
 ## 5. What this does—and does not—redirect
 

@@ -1,5 +1,9 @@
 # Private candidate/evaluation record kernel
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 The directory name and several schema fields retain legacy evolutionary
 terminology.  They describe versioned candidate configurations and evaluation
 observations; they do not make Darwin Gödel Machine search part of the system

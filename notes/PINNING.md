@@ -29,23 +29,43 @@ scheme refutes it.
 
 > **Theorem P.**
 > (i) Every sound anatomy contains the refuter of every pinned $n\in D$.
-> (ii) If every element of $D\cap\neg P$ is pinned, the sound anatomy is unique:
-> no freedom whatever.
-> (iii) If no element of $D\cap\neg P$ is pinned, then $T\setminus\{t\}$ is sound
-> for every $t$: every sensor is individually dispensable.
+> (ii) ~~If every element of $D\cap\neg P$ is pinned, the sound anatomy is
+> unique: no freedom whatever.~~ If every bad element has a chosen pin, sound
+> anatomies are exactly those containing every pinned refuter.  The pins form
+> a least forced core; sensors outside that core may still be added.
+> (iii) ~~If no element of $D\cap\neg P$ is pinned, then
+> $T\setminus\{t\}$ is sound for every $t$.~~ If, after deleting $t$, every bad
+> element has an explicitly exhibited different refuter, then
+> $T\setminus\{t\}$ is sound.  Classically, absence of pins implies this only
+> after adding full-scheme coverage and enough finiteness/decidability to
+> extract the alternative.
 
-*Proof.* (i) If $n$ is pinned by $t$ and $t\notin A$, then no sensor of $A$
-refutes $n$, so $A$ is unsound. (ii) By (i) the sound anatomy contains
-$\{\mathrm{pin}(n)\}$, which already covers. (iii) Each $n$ has $\ge2$ refuters,
-so deleting one sensor leaves a cover. $\square$
+*Corrected proof.* (i) If $n$ is pinned by $t$ and $t\notin A$, then no sensor
+of $A$ refutes $n$, so $A$ is unsound.  Conversely, a family containing every
+chosen pin covers every bad element, proving (ii).  For (iii), the supplied
+alternative refuter is itself the surviving cover witness. $\square$
+
+**Correction (2026-08-14).**  The original clauses (ii) and (iii) silently
+strengthened this cover argument.  For (ii), one pinned bad object and one
+inert sensor already give two distinct sound anatomies: the pin forces a core,
+not exclusion of everything outside it.  For (iii), a bad object with zero
+refuters is not pinned, yet no anatomy is sound.  Both countermodels, Theorem
+P(i), the forced-core characterization, and the constructive deletion repair
+are checked in
+`formal/cubical/NaturalMachine/PinnedSensorForcing.agda` (`--safe`, no holes or
+postulates).
 
 Three lines. Its value is that it separates two things I had conflated.
 
-**T5 is exactly clause (ii).** In the divisibility scheme the composite $q^{2}$
+**T5 is exactly clause (i), and identifies the forced core.** In the
+divisibility scheme the composite $q^{2}$
 is pinned by $q$: the only modulus $m$ with $2\le m\le q$ dividing $q^{2}$ is
-$q$ itself. So every prime below the frontier is forced. That is the entire
-content of T5, and it is now an instance of a general mechanism rather than an
-ad hoc prime-square argument.
+$q$ itself. So every prime below the frontier is forced.  Whole-anatomy
+uniqueness follows only after restricting the admitted sensor universe to
+those prime generators, or imposing an irredundancy convention; optional
+composite or inert sensors are not ruled out by pinning.  The prime-square
+argument remains an instance of the general forcing mechanism rather than an
+ad hoc exception.
 
 ## The counterexample to my own slogan
 

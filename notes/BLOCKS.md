@@ -106,12 +106,32 @@ integrates $\int_0^X(X-u)^{\rho+1}du=X^{\rho+2}/(\rho+2)$, while each $q\ge2$
 part contributes $\sum_m c_q(m)(X-m)^{\rho+1}=O(qX^{\rho+1})$ by partial
 summation. Hence
 $$2[\sharp\flat] \;=\; -2\sum_\rho\frac{X^{\rho+2}}{\rho(\rho+1)(\rho+2)}
-\;+\;O_Q\!\bigl(X^{3/2}\bigr)\;+\;(\text{smooth in }X),$$
+\;+\;O\!\bigl(Q\,X^{3/2}\bigr)\;+\;(\text{smooth in }X),$$
 i.e. the mixed block carries the full single-zero layer with coefficient
-exactly $2$, plus a lower-order finite-$Q$ leakage — accounting for the
-measured $2.08$ at $Q=30$ and predicting the coefficient $\to2$ as
-$Q\to\infty$ with the oscillatory leakage at scale $X^{3/2}/X^{5/2}=X^{-1}$
-relative. Simultaneously this proves the zero block $[\flat\flat]$ contains
+exactly $2$, plus a finite-$Q$ leakage of **relative** size $O(Q/X)$.
+
+> **Correction (SEED-77, 2026-08-14; full argument in
+> `notes/SEED77_BLOCKS_POSTCONDITION.md` §2–§3).** This display previously read
+> $O_Q(X^{3/2})$, with the relative size quoted as
+> "$X^{3/2}/X^{5/2}=X^{-1}$" and the sentence "accounting for the measured
+> $2.08$ at $Q=30$ and predicting the coefficient $\to2$ as $Q\to\infty$". The
+> $Q$-dependence was dropped from a ratio — the `HOLOGRAM.md` §7 failure — and
+> the proof one paragraph above supplies it: each $q\ge2$ term is
+> $O(qX^{\rho+1})$ weighted by $|\mu(q)|/\varphi(q)$, so the total is
+> $\ll X^{3/2}\sum_{q\le Q}\mu^2(q)\,q/\varphi(q)\asymp QX^{3/2}$, relative
+> $\asymp Q/X$. Consequences:
+> - *Good:* the coefficient is exactly $2$ throughout the joint range
+>   $Q=o(X)$, so no interchange of $Q\to\infty$ with $X\to\infty$ is required
+>   and the "$\to2$ as $Q\to\infty$" reading is earned on that range.
+> - *Bad:* at $Q=30$ and $X$ between $10^{4}$ and $2\cdot10^{6}$ the leakage is
+>   at most $3\times10^{-3}$ and typically $\sim10^{-5}$. **The claim that the
+>   $8\%$ excess in the measured $2.08$ is "consistent with finite-$Q$ leakage"
+>   is excluded by this note's own proof, by one to four orders of magnitude.**
+>   The excess belongs to the estimator (zero-sum truncation, band-pass window,
+>   detrending), not to the decomposition; Part I's independent $1.0000$
+>   against the same model, with the $2$ folded in, is consistent with that.
+>   The Lemma itself is untouched — it was always the theorem, and $2.08$ was
+>   never evidence for it. Simultaneously this proves the zero block $[\flat\flat]$ contains
 *no* single-zero layer at leading order: its single-band content is the square
 of fluctuations, of relative order $X^{-1/2}$ — matching the measured
 single/pair power ratio $0.003$.
@@ -296,7 +316,13 @@ measure" — is dead. The corrected target, consistent with everything verified
 here:
 
 > positivity can only enter at the **Hermitian-square level**, where the chirp
-> cancels: $|W|^2=2\pi s^{-5}$ (exactly phase-free, by D‴). The variance object
+> cancels: $|W|^2=2\pi s^{-5}$ (phase-free — and now *exactly* so, but not with
+this right-hand side: by `notes/SEED13_D3PRIME_EXACT.md` Lemma 1 the exact
+identity is $|W|^2=2\pi\sinh(\pi s)\bigl[s(1+s^2)(4+s^2)(\cosh\pi s+\cosh\pi
+\delta)\bigr]^{-1}=2\pi s^{-5}\bigl(1-5s^{-2}+O(s^{-4})\bigr)$ for same-sign
+pairs. D‴ as stated in this section gives only $2\pi s^{-5}(1+O(1/\min))$; the
+word "exactly" was carrying Lemma 1's weight before Lemma 1 existed — SEED-77).
+The variance object
 > of Theorem D″ — the weighted additive energy with diagonal
 > $\sum|W_{12}|^2$ — is the natural positive quantity, and the M–S screw
 > function (a Krein object, i.e. a *conditionally* negative-definite structure)
@@ -322,7 +348,17 @@ explicit constants:
 
 - **Diagonal in closed form.** $D=2\sum_f|c_f|^2=6.036\times10^{-6}$ exactly;
   the D‴ closed form $2\sum_f m_f^2\,(2\pi)f^{-5}$ gives $6.050\times10^{-6}$
-  (ratio 1.0024). And $\sqrt D=0.002457$ reproduces the measured arithmetic
+  (ratio 1.0024). **[SEED-77: that $0.24\%$ is not agreement-within-noise, it
+  is a derivable systematic and should be quoted as such. By Lemma 1 the exact
+  diagonal is $D=2\sum_f m_f^2(2\pi)f^{-5}\bigl[(1+f^{-2})(1+4f^{-2})\bigr]^{-1}$
+  up to $O(e^{-2\pi\gamma_1})<10^{-38}$, so the D‴ form necessarily *over*shoots
+  by the $f^{-5}$-weighted mean of $5/f^{2}+O(f^{-4})$ — positive sign, and of
+  size $5/f^2\in[6.3\times10^{-3},\,1.4\times10^{-3}]$ for $f$ between the
+  smallest atom $2\gamma_1=28.27$ and $f=60$, which is where the $f^{-5}$
+  weighting puts essentially all the mass. The observed $+0.24\%$ sits inside
+  that interval, with the correct sign. So this leg of the "four-way agreement"
+  is not an independent check: replacing D‴ by Lemma 1 makes it an identity,
+  and what was being measured was the term D‴ drops.]** And $\sqrt D=0.002457$ reproduces the measured arithmetic
   band RMS of `APPENDIX_D.md` §D.5 (0.0025): the Parseval chain is now
   **four**-way — zero-pair Parseval, D‴ closed form, synthesized time series,
   and the arithmetic data — agreeing to $\sim1.7\%$ ($0.002457$ vs $0.0025$;
@@ -370,10 +406,40 @@ machinery.
 1. (unchanged) Prime phase rigidity, `REPORT.md` §8.1.
 2. (numerically closed — §3 above) Theorem D″ with explicit constants: the
    diagonal is in D‴ closed form (verified, ratio 1.0024), the separation
-   ingredient is measured linear with $C/D=1.44$ over five decades, and
+   ingredient is measured linear with $C/D=1.44$ ~~over five decades~~
+   **over the $\sim2.5$ decades where statistics exist** (see the strike
+   below), and
    $V/D\to1$ with certified dyadic bounds. Remaining for a *theorem*: an
    unconditional near-diagonal count bound — the Tao–Trudgian–Yang $N^*$
    input with the exact weight $2\pi s^{-5}$.
+> **"Over five decades" struck (SEED-100, 2026-08-14, Rule K3; verdict issued
+> by `notes/SEED40_ORPHANED_RESULT_PROTOCOL.md` §4.2 Lemma 2 and its §5 table,
+> announced there and never applied here; re-flagged as still-standing by
+> `notes/SEED37_FITTED_CONSTANT_SWEEP.md` row A).** There are no five decades,
+> and this is structural rather than a matter of statistics. For any finite
+> band $S$ the atom set $F_S$ is finite, so
+> $\delta_S=\min\{|f-f'|:f\ne f'\in F_S\}>0$ and $E\equiv0$ on $[0,\delta_S)$;
+> $E$ is a nondecreasing right-continuous **step function** with at most
+> $\binom{|F_S|}{2}$ jumps, constant above $\operatorname{diam}F_S$. A log-log
+> slope fitted on $\eta\in[10^{-3},0.3]$ is a statement about the empirical gap
+> distribution in that window, and the small-$\eta$ end is the *unreliable*
+> end: linearity holds for $\eta$ large against the local spacing, not small.
+> §3 above already half-noticed this ("below $10^{-2}$ the ratio wobbles
+> $\sim2\times$; the $\eta=10^{-4}$ point rests on 20 pairs") and corrected the
+> span to $\sim2.5$ decades; this item did not inherit the correction. The
+> measured exponent $1.10\ne1$ is that staircase.
+>
+> Two further amendments from the same source, recorded here because this item
+> is where the numbers are quoted: (a) $C/D=\langle\rho\rangle_{|c|^2}$ is an
+> **identity** (SEED-40 Lemma 1, independently `SEED37` Prop. A), it converges
+> in the band top at rate $O(S^{-2}\log^4S)$ (Thm O), and it is dominated by
+> the lowest few dozen zeros (Thm O′) — so it is a certifiable finite sum, not
+> a measured law, and the honest presentation is a certificate with
+> $s_{\min}$, the atom list and the summation convention fixed; (b) the numeral
+> $1.44$ is determined by this corpus only **up to a factor of $2$**, since the
+> ordered/unordered convention in the $\sum_{f\ne f'}$ loop is not recorded
+> (SEED-40 §4.3, resolvable by reading `code/exp13_energy.py` as text).
+
 3. (replaced) ~~positivity of $\sum W_{ij}\delta_{\gamma_i+\gamma_j}$~~ → identify the
    Matsumoto–Suzuki screw function with a **mixed-block** (first-variation)
    object, and its Krein measure with a Hermitian square carrying
@@ -562,12 +628,32 @@ integrates $\int_0^X(X-u)^{\rho+1}du=X^{\rho+2}/(\rho+2)$, while each $q\ge2$
 part contributes $\sum_m c_q(m)(X-m)^{\rho+1}=O(qX^{\rho+1})$ by partial
 summation. Hence
 $$2[\sharp\flat] \;=\; -2\sum_\rho\frac{X^{\rho+2}}{\rho(\rho+1)(\rho+2)}
-\;+\;O_Q\!\bigl(X^{3/2}\bigr)\;+\;(\text{smooth in }X),$$
+\;+\;O\!\bigl(Q\,X^{3/2}\bigr)\;+\;(\text{smooth in }X),$$
 i.e. the mixed block carries the full single-zero layer with coefficient
-exactly $2$, plus a lower-order finite-$Q$ leakage — accounting for the
-measured $2.08$ at $Q=30$ and predicting the coefficient $\to2$ as
-$Q\to\infty$ with the oscillatory leakage at scale $X^{3/2}/X^{5/2}=X^{-1}$
-relative. Simultaneously this proves the zero block $[\flat\flat]$ contains
+exactly $2$, plus a finite-$Q$ leakage of **relative** size $O(Q/X)$.
+
+> **Correction (SEED-77, 2026-08-14; full argument in
+> `notes/SEED77_BLOCKS_POSTCONDITION.md` §2–§3).** This display previously read
+> $O_Q(X^{3/2})$, with the relative size quoted as
+> "$X^{3/2}/X^{5/2}=X^{-1}$" and the sentence "accounting for the measured
+> $2.08$ at $Q=30$ and predicting the coefficient $\to2$ as $Q\to\infty$". The
+> $Q$-dependence was dropped from a ratio — the `HOLOGRAM.md` §7 failure — and
+> the proof one paragraph above supplies it: each $q\ge2$ term is
+> $O(qX^{\rho+1})$ weighted by $|\mu(q)|/\varphi(q)$, so the total is
+> $\ll X^{3/2}\sum_{q\le Q}\mu^2(q)\,q/\varphi(q)\asymp QX^{3/2}$, relative
+> $\asymp Q/X$. Consequences:
+> - *Good:* the coefficient is exactly $2$ throughout the joint range
+>   $Q=o(X)$, so no interchange of $Q\to\infty$ with $X\to\infty$ is required
+>   and the "$\to2$ as $Q\to\infty$" reading is earned on that range.
+> - *Bad:* at $Q=30$ and $X$ between $10^{4}$ and $2\cdot10^{6}$ the leakage is
+>   at most $3\times10^{-3}$ and typically $\sim10^{-5}$. **The claim that the
+>   $8\%$ excess in the measured $2.08$ is "consistent with finite-$Q$ leakage"
+>   is excluded by this note's own proof, by one to four orders of magnitude.**
+>   The excess belongs to the estimator (zero-sum truncation, band-pass window,
+>   detrending), not to the decomposition; Part I's independent $1.0000$
+>   against the same model, with the $2$ folded in, is consistent with that.
+>   The Lemma itself is untouched — it was always the theorem, and $2.08$ was
+>   never evidence for it. Simultaneously this proves the zero block $[\flat\flat]$ contains
 *no* single-zero layer at leading order: its single-band content is the square
 of fluctuations, of relative order $X^{-1/2}$ — matching the measured
 single/pair power ratio $0.003$.

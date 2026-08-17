@@ -339,6 +339,15 @@ Equivalently,
 (operatorname{im}B\cap\ker A). Rank--nullity gives (11). Applying
 (11) to (B^{\mathsf T}A^{\mathsf T}) gives (12). ∎
 
+**Machine-checked status (2026-08-14).**
+`formal/pairfield/Pairfield/ProcessCutRankAdapter.lean`, imported by the Lean
+root, defines the restriction of (A) to `range B`, checks its range and
+kernel identifications, and proves (11) in additive and subtraction forms.
+It then applies the same theorem to (B^{\mathsf T},A^{\mathsf T}), using
+Mathlib's transpose-product and transpose-rank theorems, to prove (12).
+Focused and aggregate builds pass; the adapter deliberately exports no
+nonnegative-rank, completely-positive, or physical-geometric consequence.
+
 Thus cut rank has an exact gluing law, but it is not a law on the two scalar
 ranks alone.  The missing datum is the relative position of what one side
 transmits and what the other side annihilates.  In site language, this is an
@@ -377,7 +386,8 @@ composition. It neither produces nor distinguishes physical geometries.
 Proved here: the linear cut theorem; rank-one independence for nonzero
 classical tables; exact finite controls (6); predictive-profile quotient
 computation; and the cut-rank gluing defect (11)--(12), a standard
-rank--nullity identity specialized to process contraction.
+rank--nullity identity specialized to process contraction.  Equations
+(11)--(12) additionally have the checked Lean adapter cited in §7.
 
 Cited established frameworks: causal states, reversible computation, quantum
 combs/process tensors, quantum Markov order, causal-set kinematics.
