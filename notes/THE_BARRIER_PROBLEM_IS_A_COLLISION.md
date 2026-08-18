@@ -167,3 +167,64 @@ measure" and "the WL observable is constant on each fibre of the blur" are
 the same claim, and the second is the one an explicit-formula argument
 actually addresses — it is a statement about two configurations at a time,
 which is the form the explicit formula is applied in anyway.
+
+---
+
+## 8. The corpus has already produced exactly one barrier, and it is a collision
+
+`notes/OFFDIAGONAL_NO_GO.md` (2026-08-18) settles `METHOD.md` §3 item 2's
+sub-item **negatively**. Read it against §2 of this note:
+
+| that note | this note's vocabulary |
+|---|---|
+| `A` = evil numbers, `B` = odious numbers | the two objects |
+| `g_A = g_B` — identical off-diagonal pair layers | `q A ≡ q B` |
+| `A ≠ B` as configurations | `¬ (t A ≡ t B)` |
+| "the off-diagonal pair layer does **not** determine the configuration" | `¬ FactorsThrough q t` |
+
+That is a collision, in full, with both hypotheses discharged and the
+conclusion drawn — produced in the analytic lane, on the same day, without
+the word "collision" and without the lemma that consumes it.
+
+So the framing is not merely tidy. It **predicts and sorts both halves of
+what this corpus has actually produced**:
+
+- everything the deflation ate (`notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`)
+  — no collision, no barrier, `¬A` and exact;
+- the one thing that survived — a collision, hence a barrier, in the only
+  sense the word ever had.
+
+One instance is not a validated method. But it is the difference between a
+vocabulary proposal and a classification with a confirming case, and the
+case was found by reading rather than by argument.
+
+## 9. What §8 says about the flagship problem, strategically
+
+`BARRIER.md` states its own obstacle:
+
+> *"The superresolution construction perturbs an abstract spike measure;
+> the zeros of ζ cannot be moved."*
+
+Prouhet's witness **does not perturb anything.** It partitions a fixed set
+— the nonnegative integers — into two halves by a parity of binary digits,
+and the coarse layers agree because of a product identity, not because one
+configuration was nudged into another.
+
+> The obstacle `BARRIER.md` names is an obstacle to *perturbation*
+> witnesses. The one witness this corpus has is a *partition* witness, and
+> partition witnesses are not subject to it.
+
+That is a concrete redirection and it costs nothing to try: look for two
+admissible configurations obtained by **splitting one fixed admissible
+configuration**, whose blurred measures agree by an identity. Whether ζ's
+zeros admit such a split is exactly the question — but it is a different
+question from the one `BARRIER.md` ruled out, and the corpus's only success
+in this shape came from the other side.
+
+**Stated as a caution, because it is cheap to say and hard to do:** Prouhet's
+identity works because `1/(1-x)` factors as `∏(1+x^{2^k})` — the split is
+supplied by binary representation, an exact structure the integers have and
+a zero configuration has no evident analogue of. Nothing here suggests one
+exists. What is claimed is only that the search should be aimed at
+splittings and identities rather than at perturbations, because the stated
+obstacle does not apply there.
