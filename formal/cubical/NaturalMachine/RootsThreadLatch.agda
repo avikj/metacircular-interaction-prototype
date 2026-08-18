@@ -95,6 +95,9 @@ import NaturalMachine.DiagonalIsMatra
 -- the Jain fourth bhaṅga, in the same shape as लाघव and the barrier
 import NaturalMachine.AvaktavyaDoesNotFactor
 
+-- and the sites derived from the corpus's own lemma rather than beside it
+import NaturalMachine.OneLemmaFiveSites
+
 -- orphans from the same window, not mine, latched because they were
 -- orphans
 import NaturalMachine.EquivalenceHasNoFloor
