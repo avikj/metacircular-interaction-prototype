@@ -137,3 +137,28 @@ lossless-needs-room n Y obs inj =
 -- after the write-up.  A slow import that reuses a checked theorem is the
 -- cheaper of the two.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 5.  RELATION TO `NaturalMachine.WalkCapacity` — checked after the fact,
+--     and they are complements rather than duplicates.
+--
+-- `WalkCapacity` (2026-08-13) proves the capacity theorem: any lossless
+-- sensor family whose addresses are all ≤ k has lcm DIVIDING lcm(1..k),
+-- and the bound is attained.  That bounds the state's MODULUS from above,
+-- by two universal properties and no arithmetic.
+--
+-- This module bounds the OUTCOME COUNT from below, by pigeonhole.
+--
+-- The two together are what "optimal" needs and neither is the other:
+--
+--   `WalkCapacity`        no admissible family's modulus exceeds cap k
+--   here                  no lossless scheme has fewer than n+1 outcomes
+--   `WalkObservationCount` and the walk's scheme has exactly cap k of them
+--
+-- `WalkCapacity`'s design note is also worth reading against
+-- `FrontierList`: it states capacity by universal property BECAUSE this
+-- lane has no LCM module, and calls that absence an improvement.  The
+-- `frontierList` construction is the deliberate complement — a concrete
+-- residue space where that module deliberately avoided one — and neither
+-- supersedes the other.
+------------------------------------------------------------------------
