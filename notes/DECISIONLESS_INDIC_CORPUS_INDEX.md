@@ -54,6 +54,18 @@ Deeper prose in `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` and
 | `Brahmagupta` | `भावना-मान`, `चक्रवाल-संयोगः`, `द्विवर्ग-गुणः` | bhāvanā norm-composition; Pell group law; Brahmagupta–Fibonacci identity |
 | `Vargana` | `घात-योग`, `घात-घात` | Jain laws of indices — `a^(m+n)=aᵐ·aⁿ`, `(aᵐ)ⁿ=a^(m·n)` |
 
+## Lane 6 — zero and infinity (Brahmagupta 628, Bhāskara II 1150)
+
+| module | headline | one line |
+|---|---|---|
+| `Shunya` | `सर्वः-भजनफलम्` | Brahmagupta's zero-rules; his `0/0=0` was a durnaya — `0/0` is avaktavya (0·x=0 for all x) |
+| `Khahara` | `भास्कर-नियमः`, `अनन्तत्व-स्थैर्यम्` | Bhāskara's khahara; `n/0`=khahara (∞) but `0/0`=avaktavya — a boolean "undefined" collapses the two |
+
+The division-by-zero arc (Brahmagupta → Bhāskara) lands on the same
+distinction as the whole corpus: a determinate infinite (khahara) and the
+indeterminate un-said (avaktavya) are two different things, not one collapsed
+"undefined."
+
 ## Superseded
 
 `Anekanta.agda` — the first attempt (proclaimed "no checking" yet used
