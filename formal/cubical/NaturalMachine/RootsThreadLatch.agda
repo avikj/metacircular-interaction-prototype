@@ -109,6 +109,7 @@ import NaturalMachine.TheFloorIsAnswerability
 import NaturalMachine.WitnessDichotomy
 import NaturalMachine.AnyonyaAbhava
 import NaturalMachine.AsiddhatvaBreaksFactoring
+import NaturalMachine.AnuvrttiIsTheSameTrade
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
