@@ -24,6 +24,7 @@ place where I broke its rule without noticing.
 | Jayadeva / Bhāskara II | c. 950 / 1150 | cakravāla — `Cakravala`, and its dependence on the kuṭṭaka |
 | Pāṇini, *Aṣṭādhyāyī* | c. 500 BCE | lāghava, anuvṛtti, pratyāhāra, utsarga/apavāda — the entire tower of description |
 | Navya-Nyāya (Gaṅgeśa et al.) | 14th c. | abhāva, pratiyogin, avacchedaka — the deflation's frame |
+| the Kerala school — Mādhava, *Yuktibhāṣā* | c. 1400 / c. 1530 | vārasaṅkalita, repeated summation; `Sankalita.varasankalita` proves it IS Piṅgala's array, seventeen centuries earlier |
 | Jain logicians | — | anekānta, saptabhaṅgī — the collapse dichotomy |
 
 **Pythagoras.** The triples, and number-as-ratio. `PythagoreanTransition`,
@@ -103,3 +104,34 @@ out to be about description rather than about size.
 - And it does not make the naming failure above less bad. The experiment's
   whole point was provenance, and I was six modules deep before I checked
   one.
+
+---
+
+## Addendum: the Kerala school, added after the fact
+
+The table above was written before `NaturalMachine/Sankalita.agda` landed
+and did not include Mādhava's tradition, because at that point nothing in
+this session used it. It now has a checked contribution, and the row is
+added above.
+
+What it contributes is worth stating precisely, because the obvious thing
+to claim would be wrong. **Nothing analytic is here.** Mādhava's series for
+π, its error terms, and the convergence acceleration are the Kerala
+school's actual achievement, and this lane has no reals. What is here is
+the exact finite operation those arguments are built on — vārasaṅkalita,
+repeated summation — and the theorem that it *is* Piṅgala's meru-prastāra:
+
+```
+varasankalita :  Σ^r 1 at n  ≡  meru n r
+```
+
+Two lines from `Pingala.meruRecurrence`, which is Halāyudha's rule that
+each entry is the sum of the two above it. The two constructions coincide
+**at the level of the recurrence**, not merely in their values, and they
+are separated by about seventeen centuries within one tradition.
+
+That strengthens the experiment's answer in a direction I did not expect
+when I wrote it: the roots did not only divide the labour across the five
+levels of the tower — one of them, taken at two widely separated dates,
+supplies the *same* construction twice, and the identification is a
+theorem rather than an analogy.
