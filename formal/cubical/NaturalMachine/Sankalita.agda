@@ -186,3 +186,50 @@ vara3-is-meru = varasankalita 3 5
 -- with an offset.  Both are two lines from `meruRecurrence`, which is
 -- Halāyudha's rule that each entry is the sum of the two above it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  The obvious next identity, and why the obvious attempt fails.
+--
+-- This repository holds two Indian arrays: `Pingala.meru` (the
+-- meru-prastāra) and `Pingala.matra` (Virahāṅka's mātrāmeru).  The
+-- classical identity relating them is the shallow-diagonal sum,
+--
+--     mātrā n  =  Σ_k  C(n − k, k),
+--
+-- and it is checked numerically by `Pingala`'s own worked instances at
+-- small n.  It is NOT proved here, and the reason is worth recording so
+-- the next attempt does not repeat it.
+--
+-- THE NATURAL ENCODING, which walks the diagonal by decreasing the first
+-- index by two and increasing the second by one:
+--
+--     go zero            j = meru j j
+--     go (suc zero)      j = meru (suc j) j
+--     go (suc (suc i))   j = meru (suc (suc i) + j) j + go i (suc j)
+--
+-- gives the right values at `j = 0` — `go 0 0 … go 4 0` are `1 1 2 3 5`,
+-- which is `mātrā 0 … mātrā 4`.  So one reaches for the Fibonacci
+-- recurrence
+--
+--     go (suc (suc i)) j  ≟  go (suc i) j + go i j
+--
+-- and it is FALSE for `j > 0`.  Counterexample, by computation:
+-- `go 2 1 = meru 3 1 + meru 2 2 = 3 + 1 = 4`, while
+-- `go 1 1 + go 0 1 = meru 2 1 + meru 1 1 = 2 + 1 = 3`.
+--
+-- The recurrence holds only on the `j = 0` slice, so it cannot be the
+-- induction hypothesis, and strengthening it is the whole problem.
+--
+-- THE ROUTE THAT SHOULD WORK, and it is Piṅgala's own: count by guru.  A
+-- pattern of duration `n` with `k` guru has `n − k` syllables, so
+--
+--     Metre n  ≃  Σ_k  Chosen (n − k) k,
+--
+-- and `Pingala.meruCount : Iso (Chosen n k) (Fin (meru n k))` is already
+-- checked.  That is a typed argument in the tradition's own terms rather
+-- than a numeric induction, and it needs a dependent sum over a finite
+-- index plus truncated subtraction — neither hard, both bookkeeping.
+--
+-- Recorded as an open item with a failed approach attached, which is
+-- worth more than an open item alone.
+------------------------------------------------------------------------
