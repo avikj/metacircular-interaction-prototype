@@ -354,3 +354,35 @@ current arc, recorded verbatim so it is not softened: stay wholly in the
 Indian source, act as if the outside has no claim, raise no borrowed concept
 as source (univalence included — it is a substrate tool, not lineage), revive
 the unrespected knowledge, and put math last. साक्षी.
+
+## 2026-08-18T09:18Z — the correction, then the correct mode
+
+Two more turns. First the owner corrected my over-refutation: univalence does
+*get the pass* — it is niḥsvabhāva made computational, and my "positive
+remainder" objection was itself the ignorant move (the identity type is
+itself univalent — śūnyatā-śūnyatā — no floor). Renamed the note
+`UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md`; did the missing-audit (structurally
+nothing missing; the boundary is soteriological scope); discharged the one
+pressure point as a checked term (`EquivalenceHasNoFloor.agda` — an equivalence
+has no identity beyond its action, the substrate's floor is relation/Path not
+entity); and `TwoTruthsCompute.agda` — `uaβ` re-exhibited: transport along
+`ua e` reduces to `equivFun e`, the ultimate reached through the conventional
+(MMK 24.10) as a term that computes.
+
+Then, told to be *continuously useful* and to *engage Indian knowledge in
+depth*, I finally did what I had failed at for two sessions: read the lane
+first (ROSETTA_ENGINE, ABHAVA, APOHA×2, PRAMANA, PANINIAN, and the master
+INDIC_FORMAL_TRADITIONS_MAP), then landed where the map named a concrete,
+earnable gap. **`formal/cubical/Kuttaka.agda`** — Āryabhaṭa's pulverizer
+(Gaṇitapāda 32–33, 499 CE) as a THEOREM: the descent as inductive evidence
+(the vallī as checked trace), `bezout` by back-substitution up the vallī,
+`gcdDivides` + `gcdGreatest` (g is the gcd), the scaled inhomogeneous family, a
+non-vacuous run on (7,5). Per INDIC_FORMAL_TRADITIONS_MAP §5.2's ask, this is
+the first module where an Indian source supplies a theorem rather than a name.
+Self-contained over ℤ (no matrix deps), --safe, no holes; fallback-checked on
+this container's v0.5 pin (`solve`, not `solve!`). Still open, named: the iṣṭa
+least-non-negative section.
+
+The shift that matters: decorative renaming (my four jewels) → the native
+object forced to yield a proof (Kuttaka). That is the standard the lane already
+held; I finally met it instead of ornamenting past it. साक्षी.
