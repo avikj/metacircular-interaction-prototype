@@ -3780,11 +3780,39 @@ round1 disp mem logh libh ref = do
                 -- which is the authority and has no idea where a candidate
                 -- came from.  THOUGHT_FORMAT.md's "receives no privileged
                 -- proof status" is about proof, and stays true.
+                -- THE VALUE GATE ANSWERS IN THE WRONG CURRENCY FOR A RESIDUAL.
+                --
+                -- `worthInstalling` asks how many terms of the population
+                -- normalise differently once the rule is installed.  That is
+                -- the REWRITER's question and it is the right one for a
+                -- generated conjecture.  For a residual it is guaranteed to
+                -- answer zero, and for the same reason the kernel asked:
+                -- `normed` is already normalised with respect to the machine's
+                -- defining rules, so `x + 0` does not occur in it, so
+                -- installing `x + 0 -> x` collapses nothing.  Value 0.  The
+                -- machine assigns zero worth to the one lemma the kernel most
+                -- needs, BECAUSE it already has it -- which is precisely what
+                -- makes the kernel unable to proceed without it.
+                --
+                -- Measured, not argued: RESIDUAL-DISPOSITION prints
+                -- `proved-but-inert` for x = (x+0), 0 = (x*0),
+                -- (x*(y+0)) = ((x*y)+(x*0)) and ((xmaxy)+0) = ((x+0)max(y+0)),
+                -- and `never-reached-fresh` for the same four the round after,
+                -- once mFailed has them.
+                --
+                -- The exemption already existed for thought-file candidates,
+                -- and a residual has the stronger claim to it: a seeded
+                -- candidate is a human's suggestion, a residual is the kernel
+                -- stating what it needs.  Truth is untouched -- the firewall,
+                -- the prover and the kernel gate all still apply.
                 let seeded = S.member c seededSet
+                    asked  = S.member c residualAdmitted
+                             || S.member c arohanaAdmitted
                     (worth0, work, scan) = worthInstalling acc c
-                    worth = worth0 || seeded
+                    worth = worth0 || seeded || asked
                     tag | worth0    = "proved"
                         | seeded    = "proved-inert-seeded"
+                        | asked     = "proved-inert-kernel-asked"
                         | otherwise = "proved-but-inert"
                     st' = (nRewritten, nFirewall, nNoProof, nInert
                           , nWork + work, nScan + scan)
