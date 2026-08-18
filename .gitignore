@@ -66,3 +66,4 @@ machine/nested-agda/
 # Certificate gate cache: re-derivable, and every entry stores the exact
 # module source it certified, so it is a rebuildable artifact not a record.
 machine/.certcache/
+formal/cubical/.claude/
