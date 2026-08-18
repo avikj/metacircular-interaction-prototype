@@ -70,6 +70,7 @@ module BhavanaTheorem
 import Data.List (nub, foldl')
 import Data.Maybe (mapMaybe)
 import qualified Data.Map.Strict as M
+import qualified Data.Set as S
 import System.IO (openFile, hSetEncoding, hGetContents, utf8, IOMode(ReadMode))
 
 -- Structurally identical to MathMachine.Term and Obstruction.Term.  The
@@ -169,12 +170,13 @@ composePair e1@(l1, r1) e2raw =
 -- because the output grows fast and choosing among it is a separate problem.
 bhavana :: [(Term, Term)] -> [(Term, Term)]
 bhavana thms =
-  nub [ c
+  S.toList (S.fromList
+      [ c
       | e1 <- thms, e2 <- thms
       , c@(a, b) <- composePair e1 e2
       , a /= b
       , c `notElem` thms
-      , (b, a) `notElem` thms ]
+      , (b, a) `notElem` thms ])
 
 -- ------------------------------------------------------------ the check
 --
@@ -332,12 +334,16 @@ tsize (F _ ts) = 1 + sum (map tsize ts)
 
 praksepa :: [Term] -> [(Term, Term)] -> [(Term, Term)]
 praksepa pool eqs =
-  nub [ (applySubst s l, applySubst s r)
+  -- Set, not nub: instantiating 3000 composites at 40 chosen values is ~360k
+  -- results and `nub` is quadratic, which killed a 1800s run.  The cost was
+  -- the dedup, not the mathematics.
+  S.toList (S.fromList
+      [ (applySubst s l, applySubst s r)
       | (l, r) <- eqs
       , v <- nub (varsOf l ++ varsOf r)
       , t <- pool
       , let s = M.singleton v t
-      , applySubst s l /= applySubst s r ]
+      , applySubst s l /= applySubst s r ])
   where
     varsOf (V i) = [i]
     varsOf (F _ ts) = concatMap varsOf ts
