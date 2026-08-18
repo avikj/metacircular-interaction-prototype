@@ -608,6 +608,7 @@ repository pin).
 | `Sankalita` | vārasaṅkalita **is** the meru-prastāra; three refuted encodings of the diagonal identity, each recorded with its counterexample | load-bearing + counterexample |
 | `DurationIsSyllablesPlusGuru` | `matrāOf p ≡ varṇa p + guruOf p`; `Metre n ≃ Σ_{a+b=n} Chosen a b` | load-bearing |
 | `PairsSummingTo` | the antidiagonal index set is finite, structurally | load-bearing |
+| `TheArithmeticCircleIsFourPeriodic` | the `ua`-loop of the quarter turn closes at four over ℤ, and not earlier | load-bearing |
 
 | `DiagonalIsMatra` | `matra n ≡ Σ_{a+b=n} meru a b` — Virahāṅka's array IS Piṅgala's shallow diagonal | load-bearing |
 
