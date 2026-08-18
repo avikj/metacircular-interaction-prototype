@@ -3941,6 +3941,14 @@ round1 disp mem logh libh ref = do
   forM_ (take 8 (ordNub harvest)) $ \((sl,sr),(pl,pr)) ->
     hPrintf logh "  RESIDUAL  %s = %s   (%s = %s stalled here)\n"
       (show sl) (show sr) (show pl) (show pr)
+  -- WHERE THE RESIDUALS ACTUALLY DIE.  `residualTally` was computed and then
+  -- never used -- a dead binding, in the one diagnostic this file's own
+  -- comment calls "the diagnostic that decides whether the wire can pay at
+  -- all".  781 residuals were harvested across the 239 rounds in machine.log
+  -- and RESIDUAL-THEOREM appears zero times in it, and nothing recorded why,
+  -- because the answer was being computed and thrown away every round.
+  forM_ residualTally $ \(status, n) ->
+    hPrintf logh "  RESIDUAL-FATE  %-26s %d\n" status n
   forM_ residualTheorems $ \(l,r) ->
     hPrintf logh "  RESIDUAL-THEOREM  %s = %s   (this subgoal came out of a kernel refusal)\n"
       (show l) (show r)
