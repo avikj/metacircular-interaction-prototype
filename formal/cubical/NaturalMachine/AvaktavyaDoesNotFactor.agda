@@ -67,7 +67,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; _≟_)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_ ; Dec)
 
-open import Saptabhangi using (Profile ; Vacana ; denotes ; joint ; no-single-vacana)
+open import SaptabhangiNaya using (Profile ; Vacana ; denotes ; joint ; no-single-vacana)
 
 ------------------------------------------------------------------------
 -- 1.  Avaktavya is decidable — it is a Boolean condition
