@@ -26,6 +26,9 @@
 module Punaragamana where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
+open import Cubical.Foundations.Equiv using (_≃_)
+open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
@@ -110,3 +113,55 @@ data विवेक : Type where
 पुनरागमनम् (suc a) (suc b) =
   गभीर-उत्थान (अवतरण a b)
   ∙ cong (λ p → (suc (fst p) , suc (snd p))) (पुनरागमनम् a b)
+
+------------------------------------------------------------------------
+-- अपरं मुखम् — आरोहात् अवरोहः अपि प्रत्यागच्छति : अवतरण (उत्थान v) ≡ v ।
+-- त्रयः सेतवः : समे (तादात्म्ये), वामे, दक्षिणे — प्रत्येकं संरचनया, refl-मूलः ।
+-- (the other face: descent recovers the record from the ascent too —
+-- अवतरण (उत्थान v) ≡ v — via three structural bridges, one per नय.)
+------------------------------------------------------------------------
+
+अवतरण-सम : (d : ℕ) → अवतरण d d ≡ सम d
+अवतरण-सम zero    = refl
+अवतरण-सम (suc d) = cong गभीर (अवतरण-सम d)
+
+अवतरण-वाम : (d k : ℕ) → अवतरण (d + suc k) d ≡ वाम d k
+अवतरण-वाम zero    k = refl
+अवतरण-वाम (suc d) k = cong गभीर (अवतरण-वाम d k)
+
+अवतरण-दक्षिण : (d k : ℕ) → अवतरण d (d + suc k) ≡ दक्षिण d k
+अवतरण-दक्षिण zero    k = refl
+अवतरण-दक्षिण (suc d) k = cong गभीर (अवतरण-दक्षिण d k)
+
+------------------------------------------------------------------------
+-- द्वे नये, एकं तत्त्वम् — युग्मं (परिमाणयोः) विवेकश्च (अवतरणस्य) समौ ।
+-- अवतरणम् समता (equivalence) — न बूलियन्-साम्यम्, किन्तु प्रतिलोमयुक्तः सेतुः,
+-- उभयतः अलुप्तः ।  ततः univalence-द्वारा (Voevodsky, निरहंकारः) पन्थाः :
+-- (ℕ × ℕ) ≡ विवेक ।  एतत् अनेकान्तः प्रमाणेन : एकं सत्, द्वे दर्शने, तयोः
+-- मध्ये समतासेतुः — न "समौ" इति विचारः, किन्तु ≃, वाहितः ।
+--
+-- (two nayas, one reality: the pair of magnitudes and the descent-record
+-- are equivalent — not a boolean sameness but an inverse-carrying bridge,
+-- lossless both ways.  Hence by univalence — Voevodsky, egoless — a path
+-- (ℕ × ℕ) ≡ विवेक.  This is anekānta by pramāṇa: one real, two standpoints,
+-- a समता-bridge between them — held as ≃ and transported, never decided.)
+------------------------------------------------------------------------
+
+युग्म→विवेक : ℕ × ℕ → विवेक
+युग्म→विवेक (a , b) = अवतरण a b
+
+अवतरण-उत्थान : (v : विवेक) → युग्म→विवेक (उत्थान v) ≡ v
+अवतरण-उत्थान (सम d)     = अवतरण-सम d
+अवतरण-उत्थान (वाम d k)  = अवतरण-वाम d k
+अवतरण-उत्थान (दक्षिण d k) = अवतरण-दक्षिण d k
+
+युग्म-Iso-विवेक : Iso (ℕ × ℕ) विवेक
+युग्म-Iso-विवेक = iso युग्म→विवेक उत्थान अवतरण-उत्थान
+                      (λ p → पुनरागमनम् (fst p) (snd p))
+
+युग्म≃विवेक : (ℕ × ℕ) ≃ विवेक
+युग्म≃विवेक = isoToEquiv युग्म-Iso-विवेक
+
+-- अनेकान्तः प्रमाणेन साम्येन न — the path, by univalence, not by decision
+युग्म≡विवेक : (ℕ × ℕ) ≡ विवेक
+युग्म≡विवेक = ua युग्म≃विवेक
