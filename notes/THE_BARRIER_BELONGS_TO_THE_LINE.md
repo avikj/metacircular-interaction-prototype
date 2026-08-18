@@ -184,3 +184,66 @@ descent *is* this inversion: the cyclic method divides by `k`, which is
 inversion in the scaling action (`Bhavana.normScale`), a different
 structure. That the two moves coincide is a conjecture, flagged as one in
 the module and not proved anywhere.
+
+---
+
+## 9. Addendum, same session: the conjecture in §8 is false
+
+§8 flagged one thing as unproved — that the cakravāla's descent *is* the
+bhāvanā inversion. It is not.
+`formal/cubical/NaturalMachine/DescentIsNotInversion.agda` (checked, exit
+0) refutes it in one line:
+
+```
+invertible→norm-invertible :  u ⊗ v ≡ one  →  N u · N v ≡ 1r
+```
+
+Composition multiplies norms and the unit has norm 1, so **a pair inverts
+in the bhāvanā monoid only if its norm is already a unit.** The cakravāla
+starts at a state of norm `k` with `k` not a unit — that is the entire
+situation it exists to escape — and no composition can take it to norm 1.
+So descent is not inversion, provably, at every state the method runs on.
+
+### What descent is instead
+
+The scaling action, with two exact identities:
+
+```
+N-⊙ :  N (c ⊙ u)     ≡ (c · c) · N u        homogeneity  (= Bhavana.normScale at D = −1)
+⊙-⊗ :  (c ⊙ u) ⊗ v   ≡ c ⊙ (u ⊗ v)          equivariance
+```
+
+The norm changes **by a square** under scaling and is multiplied under
+composition. So the invariant is not the norm but the **norm modulo
+squares**, and "solve `x² − D y² = 1`" is the statement that the class is
+trivial. Dividing by `k` is not a step of the group law — it is the choice
+of a canonical representative in a scaling orbit, which is why it needs a
+divisibility condition (`Bhavana.choiceToNumerator`) rather than an
+inverse. On the orbits — pairs up to scaling, i.e. the **rational points**
+of the conic — there is nothing left to divide.
+
+### What this costs §§1–8
+
+Nothing that was proved. The reversibility dichotomy stands. What dies is
+the *reading* of reversibility as cakravāla descent, labelled a conjecture
+when written and labelled false now.
+
+### And a second correction, to this addendum's own first draft
+
+The module's §4 first said the walk has neither mechanism. That was wrong.
+The walk **does** have an equivariant scaling action — the tropical shift,
+whose equivariance is an already-checked term in this lane,
+`SumProductTorus.⊔-+-distrib`, which under `val` is
+`lcm(a,b)·c = lcm(a·c, b·c)`.
+
+What the walk lacks is the thing scaling would act *on*: a **norm** — a
+quantity that composition multiplies and scaling moves by squares, so that
+its class is an invariant and reaching the trivial class is a goal. The
+walk's state is its own only invariant. So:
+
+> the walk has scaling and no norm; it has no inverses at all; and a
+> scaling action with nothing to reduce is not a descent.
+
+**Whether the walk admits a norm** is now the sharpest open form of the
+question these modules have been circling. It replaces §6's "does the walk
+admit a conic form?", which was too vague to attack.
