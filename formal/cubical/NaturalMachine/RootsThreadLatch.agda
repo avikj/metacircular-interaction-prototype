@@ -91,6 +91,7 @@ import NaturalMachine.FuelAdequacyIsACollision
 import NaturalMachine.PowModHasTheSameShape
 import NaturalMachine.ExhaustionIsSystematic
 import NaturalMachine.FrontierMember
+import NaturalMachine.PrimeCofactorCoprime
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
