@@ -197,3 +197,35 @@ occurrence-descends = (λ s → fst s) , (λ _ → refl)
 -- coboundaries, but on the sūtrapāṭha.  The object was always the ordered
 -- text.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  PRIOR ART, and the same repair as `Laghava` §6.
+--
+-- §4's proof is `TranscriptDescent.collisionObstructsDecoder` inlined at
+-- (q, t) = (asSet, cost), against `FiniteInformation.FactorsThrough`.
+-- Three modules of this corpus now carry the same argument —
+-- `CarryBorrowObservation.borrowCountDoesNotDecodeWord`, `Laghava` §3,
+-- and §4 here — and only the first knew the general lemma existed.
+--
+-- The content is isolated below as a collision, which is all any of these
+-- theorems ever is: two objects the coarse map identifies, that the fine
+-- measure separates.
+------------------------------------------------------------------------
+
+anuvrtti-collision :
+  Σ[ p ∈ List Rule ] Σ[ q ∈ List Rule ]
+    ((asSet p ≡ asSet q) × (¬ (cost p ≡ cost q)))
+anuvrtti-collision =
+  abc , cab , same-rules ,
+  (λ h → 3≢2 (sym cost-abc ∙ h ∙ cost-cab))
+
+------------------------------------------------------------------------
+-- Stated once, for the whole tower: every level of it is a collision.
+--
+--   Laghava   :  eval  identifies  short , long   ;  size separates them
+--   Anuvrtti  :  asSet identifies  abc  , cab     ;  cost separates them
+--
+-- and `Pratyahara`'s obstruction is NOT of this shape — it is an
+-- exhaustive impossibility, not a collision — which is why it was the one
+-- thing in the thread that obstructed rather than deflated.
+------------------------------------------------------------------------

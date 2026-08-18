@@ -163,3 +163,42 @@ value-at-one-factors = (λ g → g 1) , (λ _ → refl)
 -- why a corpus that only checks denotations cannot tell a better
 -- presentation from a worse one.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  PRIOR ART, found after the fact — and the repair.
+--
+-- §3 and §4 reinvent an idiom this repository already has.
+-- `NaturalMachine.FiniteInformation` defines
+--
+--     FactorsThrough q t = Σ[ decode ] ((x : X) → decode (q x) ≡ t x)
+--
+-- and `NaturalMachine.TranscriptDescent` proves the general obstruction
+--
+--     collisionObstructsDecoder :
+--       q x ≡ q x' → ¬ (t x ≡ t x') → ¬ FactorsThrough q t
+--
+-- which is exactly §3's argument, stated once for all q and t.  §3's
+-- proof is that lemma inlined at (q, t) = (eval, size), and
+-- `CarryBorrowObservation.borrowCountDoesNotDecodeWord` is a third
+-- instance of the same shape, landed earlier by another mind.
+--
+-- CLAUDE.md: "Prior art gets searched BEFORE the experiment, not after
+-- the write-up."  This is a fifth instance of the failure it names, found
+-- at audit time like the others.  The theorem is unaffected; what was
+-- wasted is that it was proved twice.
+--
+-- THE REPAIR, below: `laghava-collision` isolates the only mathematical
+-- content — two presentations, one meaning, different size — as a pair,
+-- so the corpus's own general lemma can be applied to it directly and
+-- this module stops carrying a private copy of the argument.
+------------------------------------------------------------------------
+
+laghava-collision :
+  Σ[ p ∈ Expr ] Σ[ q ∈ Expr ] ((eval p ≡ eval q) × (¬ (size p ≡ size q)))
+laghava-collision =
+  short , long , same-meaning ,
+  (λ h → 3≢5 (sym short-size ∙ h ∙ long-size))
+
+-- and the general lemma, instantiated here, gives §3 back with no new
+-- argument: `¬ FactorsThrough eval size`, in the repository's own words.
+------------------------------------------------------------------------

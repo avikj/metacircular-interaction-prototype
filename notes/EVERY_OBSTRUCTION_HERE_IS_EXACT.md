@@ -142,3 +142,65 @@ to claim**, not about the mathematics they point at. `¬ (Dec A)` is a
 perfectly respectable thing to prove. It has simply never been proved here,
 and until it is, "barrier" is a description of how the writing felt rather
 than of what was shown.
+
+---
+
+## Audit of falsifier (2), run
+
+The note above named a finite audit nobody had run: are there obstruction
+statements in this corpus outside the stable fragment and outside the
+decidable disjunctions? Run across all 434 `.agda` files in
+`formal/cubical`:
+
+| shape | count |
+|---|---|
+| declarations whose result type is `¬ …` (possibly under `→`/`Π`) | 921 |
+| signatures mentioning `⊎` | 74 |
+| genuine `¬ (Dec A)` claims | **0** |
+
+The single apparent `¬ (Dec …)` hit was
+`CarryBorrowObservation.borrowCountDoesNotDecodeWord`, a name collision
+with the substring `DoesNotDec`. Its type is
+`¬ FactorsThrough borrowCount (λ w → w)` — `¬`-headed, stable by shape.
+
+So falsifier (2) is **not met on the `¬` side**. The 74 `⊎`-sites remain
+the only place a genuine barrier could sit, and spot-checks there
+(`splitℕ-≤`, `discreteℤ`, explicit case splits) keep coming back decidable.
+A full classification of those 74 is the remaining work, and it is finite.
+
+## What the audit turned up instead: a fifth rediscovery
+
+`FiniteInformation.FactorsThrough` and
+`TranscriptDescent.collisionObstructsDecoder` already exist in this
+repository:
+
+```
+collisionObstructsDecoder :  q x ≡ q x' → ¬ (t x ≡ t x') → ¬ FactorsThrough q t
+```
+
+That is exactly the argument `Laghava` §3 and `Anuvrtti` §4 each proved
+from scratch, and `CarryBorrowObservation.borrowCountDoesNotDecodeWord` is
+a third instance landed earlier by another mind — the only one of the three
+that knew the general lemma was there.
+
+CLAUDE.md: *"Prior art gets searched before the experiment, not after the
+write-up."* Fifth instance of that failure, found at audit time like the
+others. The theorems are unaffected; what was wasted is proving one thing
+three times.
+
+**Repaired**, in both modules: the mathematical content is now isolated as
+a *collision* — `laghava-collision`, `anuvrtti-collision` — so the
+corpus's own general lemma applies directly and neither module carries a
+private copy of the argument.
+
+And the isolation says something the three separate proofs did not:
+
+> Every level of the tower is a **collision**. `eval` identifies `short`
+> and `long`, `size` separates them; `asSet` identifies `abc` and `cab`,
+> `cost` separates them. That is the entire content of "the finer level is
+> finer."
+
+`Pratyahara`'s obstruction is **not** of this shape — it is an exhaustive
+impossibility, not a collision. Which is exactly why it was the one thing
+in the thread that obstructed rather than deflated, and the shape
+difference is now visible rather than a matter of feel.
