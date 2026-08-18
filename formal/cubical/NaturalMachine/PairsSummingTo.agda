@@ -140,3 +140,30 @@ pairsFin (suc n) =
 -- this FinSet is `Sankalita.AD` — is a reindexing, and this thread's
 -- record on reindexings is one for one against.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  State of the diagonal-sum thread, facts only.
+--
+-- PROVED, all checked in this repository:
+--
+--   `Sankalita.sankalita-column`      Σ_{m<n} meru m r ≡ meru n (suc r)
+--   `Sankalita.varasankalita`         Σ^r 1 at n ≡ meru n r
+--   `Sankalita.AD2-breaks-the-recurrence`
+--                                     the row-2 antidiagonal sums are not
+--                                     Fibonacci-recurrent
+--   `DurationIsSyllablesPlusGuru.matra-split`
+--                                     matrāOf p ≡ varṇa p + guruOf p
+--   `DurationIsSyllablesPlusGuru.metre-sorts`
+--                                     Metre n ≃ Σ_{a+b=n} Chosen a b
+--   here `pairsFin`                   Pairs n ≃ SumFin (suc n)
+--
+-- NOT PROVED:
+--
+--   mātrā n ≡ Σ_{a+b=n} meru a b, i.e. `matra n ≡ Sankalita.antidiag n`.
+--
+-- The gap is one cardinality computation over `metre-sorts` and
+-- `pairsFin`.  No estimate of its difficulty is offered here: four such
+-- estimates were made in this thread and all four were wrong, and the
+-- rule that came out of that — do not characterise remaining work until
+-- you have looked at it — applies to this sentence too.
+------------------------------------------------------------------------
