@@ -101,22 +101,26 @@ downFrom : ℕ → List ℕ
 downFrom zero    = []
 downFrom (suc n) = suc n ∷ downFrom n
 
+-- lifted out of `primesUpTo`'s `where` so that membership can be proved
+-- about it (`NaturalMachine.FrontierMember`).  Definitionally unchanged:
+-- nothing was captured, so the lift is a rename.
+keepPrimes : List ℕ → List ℕ
+keepPrimes []       = []
+keepPrimes (n ∷ ns) with decIsPrime n
+... | yes _ = n ∷ keepPrimes ns
+... | no  _ = keepPrimes ns
+
 primesUpTo : ℕ → List ℕ
-primesUpTo k = go (downFrom k)
-  where
-  go : List ℕ → List ℕ
-  go []       = []
-  go (n ∷ ns) with decIsPrime n
-  ... | yes _ = n ∷ go ns
-  ... | no  _ = go ns
+primesUpTo k = keepPrimes (downFrom k)
+
+-- likewise lifted; this one does capture `k`, so it takes it explicitly
+entriesAt : ℕ → List ℕ → List Entry
+entriesAt k []       = []
+entriesAt k (p ∷ ps) = (p , logOf p k) ∷ entriesAt k ps
 
 frontierList : ℕ → List Entry
-frontierList k = go (primesUpTo k)
-  where
-  go : List ℕ → List Entry
-  go []       = []
-  go (p ∷ ps) = (p , logOf p k) ∷ go ps
 
+frontierList k = entriesAt k (primesUpTo k)
 ------------------------------------------------------------------------
 -- 3.  Both hypotheses are decidable
 ------------------------------------------------------------------------
