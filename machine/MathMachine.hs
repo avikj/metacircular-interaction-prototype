@@ -3990,7 +3990,20 @@ round1 disp mem logh libh ref = do
   -- and RESIDUAL-THEOREM appears zero times in it, and nothing recorded why,
   -- because the answer was being computed and thrown away every round.
   forM_ residualTally $ \(status, n) ->
-    hPrintf logh "  RESIDUAL-FATE  %-26s %d\n" status n
+    hPrintf logh "  RESIDUAL-FATE  %-40s %d   e.g. %s\n" status n
+      (intercalate " | "
+        [ showTermP (fst c) ++ " = " ++ showTermP (snd c) | c <- take 3 (ordNub (map canonVars (mResidualQueue m)))
+                       , residualStatus (canonVars c) == status ])
+  -- AND WHETHER IT ACTUALLY REACHED THE PROVER.  A tally by status is still a
+  -- claim about what the filter WOULD do; this is what the round did.  Added
+  -- after an hour of inferring from counts why `x = x+0` never appears on a
+  -- KERNEL line despite being harvested ten times in one run -- inference from
+  -- aggregates is exactly the substitute for measurement this protocol
+  -- forbids, and I was doing it.
+  hPrintf logh "  RESIDUAL-REACHED-PROVER  %d of %d queued\n"
+    (length [ () | c <- ordNub (map canonVars (mResidualQueue m))
+                 , c `elem` fresh ])
+    (length (ordNub (map canonVars (mResidualQueue m))))
   forM_ residualTheorems $ \(l,r) ->
     hPrintf logh "  RESIDUAL-THEOREM  %s = %s   (this subgoal came out of a kernel refusal)\n"
       (show l) (show r)
