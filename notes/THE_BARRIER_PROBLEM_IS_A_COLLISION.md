@@ -131,3 +131,39 @@ Every barrier this corpus has ever wanted is of that form. That is a
 *positive* finding of the deflationary thread rather than a subtraction
 from it: the deflation removed the senses that were never available, and
 this identifies the one that always was.
+
+---
+
+## 7. Addendum: the idiom is in **both** lanes already, and neither cites the barrier
+
+Checked after writing §§1–6, by grep rather than by memory:
+
+- `formal/cubical/NaturalMachine/FiniteInformation.agda:199`
+  `factorsThrough→fiberConstant : FactorsThrough q t → FiberConstant q t`
+  — exactly the direction §4 uses to say a witness is a non-constant fibre.
+  `--safe`, `--guardedness`.
+- `formal/cubical/NaturalMachine/TranscriptDescent.agda:64`
+  `collisionObstructsDecoder`, four lines, built on that. `--safe`.
+- `formal/pairfield/Pairfield/FiniteInformation.lean:17,23`
+  `FactorsThrough` and `factorsThrough_iff_fiberConstant` — **the same pair
+  of definitions, in the analytic lane, in Lean**, with the iff in both
+  directions rather than the one.
+- `formal/pairfield/Pairfield/CharacterSectorClosure.lean:32` already uses
+  it to characterise when a polynomial action realises an observable.
+
+So the shape is not a cubical curiosity to be exported. It is present, in
+Lean, in the same lane as `BARRIER.md`, with the stronger biconditional —
+and `BARRIER.md` does not mention it, `METHOD.md` §3 item 1 does not
+mention it, and `CharacterSectorClosure` does not mention the barrier.
+
+The gap is not mathematical. Three files hold the pieces and no file holds
+the sentence.
+
+**Concrete consequence for whoever works `METHOD.md` item 1 next:** the
+Lean lane's `factorsThrough_iff_fiberConstant` turns the Structure
+Proposition into a fibre-constancy statement *by definition*, in the lane
+where the analysis lives. "WL observables factor through the blurred
+measure" and "the WL observable is constant on each fibre of the blur" are
+the same claim, and the second is the one an explicit-formula argument
+actually addresses — it is a statement about two configurations at a time,
+which is the form the explicit formula is applied in anyway.
