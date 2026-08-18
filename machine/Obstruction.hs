@@ -54,11 +54,14 @@ module Obstruction
   , residualOf
   , classify
   , obstructionGoals
+  , Verdict(..)
+  , triage
+  , worthQueueing
   , selfTest
   ) where
 
 import Data.Char (isDigit, isSpace, isAlpha)
-import Data.List (isPrefixOf, foldl')
+import Data.List (isPrefixOf, foldl', nub)
 
 -- Structurally identical to MathMachine.Term, as in the six other modules
 -- that each redefine it.  (That duplication is a real defect in this
@@ -251,6 +254,81 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- character tally against a term size.  It would need both sides parsed in
 -- one syntax to mean anything, and it is not needed for the bound above.)
 
+-- ---------------------------------------------------------------- triage
+--
+-- The census over machine/machine.log found 107 distinct residuals, and they
+-- are NOT one kind of thing.  Three classes are tangled together, and
+-- queueing them undifferentiated is how the feedback loop livelocks:
+--
+--   * genuine missing lemmas -- x = x+0 (23x), x*0 = 0 (31x), 0 = x-x (18x).
+--     These are what the whole exercise is for.
+--   * residuals of FALSE parents -- x*x = s(x) (30x), x*max(x,1) = s(x)
+--     (100x).  Both are false.  Queue them and they fail, regenerate
+--     themselves as residuals, and come back forever.
+--   * degenerate -- x = y (49x), two distinct free variables, no content.
+--
+-- The machine already owns the tool that separates the first from the
+-- second: refutation by computation.  Evaluate both sides on concrete
+-- assignments; ONE disagreement is a proof of falsity.  That is cheap,
+-- exact (Integer arithmetic, no floating point anywhere), and it is the
+-- engine's own cheapest operation.
+--
+-- Note what this does NOT claim.  Agreement on every assignment tried is
+-- NOT a proof of truth -- it is the absence of a refutation.  The verdict is
+-- named `Plausible`, not `True`, for that reason.  The kernel remains the
+-- only thing that can accept a theorem here.
+
+data Verdict
+  = Plausible      -- no refutation found; worth the kernel's time
+  | Refuted [Integer]  -- false, with the assignment that kills it
+  | Degenerate     -- no content (e.g. x = y, distinct free variables)
+  deriving (Eq, Show)
+
+-- Semantics of the fixed vocabulary, over Integer.  Monus is truncated, as
+-- in the engine and as in Agda's ℕ.
+evalT :: [Integer] -> Term -> Integer
+evalT env (V i) = if i < length env then env !! i else 0
+evalT _   (F "0" []) = 0
+evalT env (F "s" [a]) = evalT env a + 1
+evalT env (F "+" [a,b]) = evalT env a + evalT env b
+evalT env (F "*" [a,b]) = evalT env a * evalT env b
+evalT env (F "max" [a,b]) = max (evalT env a) (evalT env b)
+evalT env (F "-" [a,b]) = max 0 (evalT env a - evalT env b)
+evalT env (F "gcd" [a,b]) = gcd (evalT env a) (evalT env b)
+evalT env (F "le" [a,b]) = if evalT env a <= evalT env b then 1 else 0
+evalT _   _ = 0   -- unknown symbol: no opinion, and `triage` refuses to
+                  -- pronounce on a term containing one (see `known`)
+
+known :: Term -> Bool
+known (V _) = True
+known (F f ts) = f `elem` ["0","s","+","*","max","-","gcd","le"] && all known ts
+
+-- deterministic assignments; no system entropy, so a verdict is reproducible
+envs :: Integer -> [[Integer]]
+envs n = [ [ (a * 7 + b * 3 + c) `mod` 11
+           , (a * 5 + b * 2 + 1) `mod` 9
+           , (a + b * 4 + c * 2) `mod` 7 ]
+         | a <- [0 .. n], b <- [0 .. 3], c <- [0 .. 2] ]
+
+triage :: (Term, Term) -> Verdict
+triage (l, r)
+  | degenerate = Degenerate
+  | not (known l && known r) = Plausible   -- no opinion offered
+  | otherwise = case [ e | e <- envs 6, evalT e l /= evalT e r ] of
+      (e:_) -> Refuted e
+      []    -> Plausible
+  where
+    -- a bare variable on one side and a DIFFERENT bare variable on the
+    -- other has no content: it is a failed unification, not a conjecture
+    degenerate = case (l, r) of
+      (V a, V b) -> a /= b
+      _ -> False
+
+-- What should actually enter the conjecture queue.
+worthQueueing :: [Obstruction] -> [(Term, Term)]
+worthQueueing obs =
+  nub [ p | p <- obstructionGoals obs, triage p == Plausible ]
+
 -- ---------------------------------------------------------------- selftest
 --
 -- Every string below is copied verbatim out of machine/machine.log.  A test
@@ -263,8 +341,19 @@ selfTest = do
         run (name, goal, msg, expected) =
           let got = classify goal msg
           in (name, got == expected, got, expected)
+        triChecks = map runT tri
+        -- the refuting assignment is not part of the contract, only the
+        -- verdict's KIND is; compare constructors
+        runT (name, p, expected) =
+          let got = triage p
+          in (name, sameKind got expected, got, expected)
+        sameKind (Refuted _) (Refuted _) = True
+        sameKind a b = a == b
     mapM_ report checks
-    pure (all (\(_, ok, _, _) -> ok) checks)
+    putStrLn "  -- triage --"
+    mapM_ report triChecks
+    pure (all (\(_, ok, _, _) -> ok) checks
+          && all (\(_, ok, _, _) -> ok) triChecks)
   where
     report (name, ok, got, expected)
       | ok = putStrLn ("  ok    " ++ name ++ "  =>  " ++ show got)
@@ -298,4 +387,17 @@ selfTest = do
         , (x, x)
         , "cached: cong (x \183_) p != suc x of type \8469"
         , Unparsed "cached: cong (x \183_) p != suc x of type \8469" )
+      ]
+
+    -- TRIAGE, against the three classes the census actually found.
+    tri =
+      [ ( "real missing lemma  x = x + 0",   (x, F "+" [x, z0]),            Plausible )
+      , ( "real missing lemma  x*0 = 0",     (F "*" [x, z0], z0),           Plausible )
+      , ( "real missing lemma  0 = x - x",   (z0, F "-" [x, x]),            Plausible )
+        -- both of these are FALSE and appear 30 and 100 times in the log.
+        -- Queued undifferentiated they regenerate themselves forever.
+      , ( "false parent  x*x = s(x)",        (F "*" [x, x], suc x),         Refuted [2,1,0] )
+      , ( "false parent  x*max(x,1) = s(x)", (F "*" [x, F "max" [x, suc z0]], suc x)
+                                                                          , Refuted [2,1,0] )
+      , ( "degenerate  x = y",               (x, V 1),                      Degenerate )
       ]
