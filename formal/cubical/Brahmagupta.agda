@@ -32,6 +32,20 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 मान : ℤ → ℤ → ℤ → ℤ
 मान N x y = (x · x) - (N · (y · y))
 
+-- अन्तर-भावना (समास-भावनायाः प्रतिरूपम्) : ऋण-चिह्नेन अपि मानानि गुण्यन्ते ।
+-- (the antara/difference bhāvanā: with the minus signs, norms still multiply.
+-- Brahmagupta gave BOTH compositions — samāsa and antara.)
+अन्तर-प्र : ℤ → ℤ → ℤ → ℤ → ℤ → ℤ
+अन्तर-प्र N x1 y1 x2 y2 = (x1 · x2) - (N · (y1 · y2))
+
+अन्तर-द्वि : ℤ → ℤ → ℤ → ℤ → ℤ
+अन्तर-द्वि x1 y1 x2 y2 = (x1 · y2) - (x2 · y1)
+
+अन्तर-भावना-मान : (N x1 y1 x2 y2 : ℤ)
+                → मान N (अन्तर-प्र N x1 y1 x2 y2) (अन्तर-द्वि x1 y1 x2 y2)
+                ≡ (मान N x1 y1) · (मान N x2 y2)
+अन्तर-भावना-मान = solve ℤCommRing
+
 ------------------------------------------------------------------------
 -- संयोग-प्रथमम्, संयोग-द्वितीयम् — भावनायाः द्वे अङ्गे ।
 --   प्रथमम् = x₁x₂ + N·y₁y₂ ;  द्वितीयम् = x₁y₂ + x₂y₁ ।
