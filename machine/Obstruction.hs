@@ -56,14 +56,29 @@ module Obstruction
   , obstructionGoals
   , Verdict(..)
   , triage
+  , queueable
   , worthQueueing
   , goalOfRejectLine
+  , claimOfAcceptLine
+  , tacticOfAcceptLine
   , curriculum
+    -- the saptabhaṅgī layer (see THE SEVENFOLD POSITIONS below)
+  , Naya(..)
+  , Bhanga(..)
+  , Sthana(..)
+  , Evidence(..)
+  , evidenceOfReject
+  , sthana
+  , showClaim
+  , acceptedClaims
+  , census
+  , crossTab
+  , censusReport
   , selfTest
   ) where
 
 import Data.Char (isDigit, isSpace, isAlpha)
-import Data.List (isPrefixOf, foldl', nub, sortOn)
+import Data.List (isPrefixOf, isInfixOf, foldl', nub, sort, sortOn)
 
 -- Structurally identical to MathMachine.Term, as in the six other modules
 -- that each redefine it.  (That duplication is a real defect in this
@@ -80,6 +95,14 @@ instance Show Term where
   show (F f as) = f ++ "(" ++ concatMap show as ++ ")"
 
 -- What a refusal turned out to be.
+--
+-- STANDPOINT.  Every constructor below is a report of ONE naya, the
+-- `KernelRefl` standpoint — Agda's definitional equality with `refl` as the
+-- whole tactic.  That was true when this type was written and it was
+-- nowhere said, which is precisely the durnaya described under THE SEVENFOLD
+-- POSITIONS: a partial view that has dropped its index and reads as the
+-- verdict.  The index is now carried explicitly by `Evidence`, and this type
+-- is one of its three fields.
 data Obstruction
   -- The residual is the goal restated: computation alone was never going to
   -- close it.  The tactic must escalate (induction), not the vocabulary.
@@ -235,10 +258,22 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- something false.
 --
 -- The argument that DOES hold is finiteness, measured over the whole of
--- machine/machine.log (1092 rejections, 946 residuals recovered):
+-- machine/machine.log.
 --
---     distinct residuals   112
---     residual term size   min 2, max 20   (both sides summed)
+-- FIGURES RE-MEASURED 2026-08-18 by `machine/ObstructionCensus.hs`.  The log
+-- has grown since they were first written and two of them were stale; both
+-- are corrected here rather than left standing, and the originals are kept
+-- so the drift is visible:
+--
+--     rejections           1457     (was recorded as 1092)
+--     residuals recovered  1303     (was recorded as  946)
+--     distinct residuals    112     unchanged -- and this is the number the
+--                                   finiteness argument actually rests on,
+--                                   so the argument is unaffected
+--     residual term size   min 2, max 20   (both sides summed; not re-measured)
+--
+-- That the first two grew by a third while the third did not move is itself
+-- the finiteness claim being confirmed on new data.
 --
 -- The residual set is bounded and small.  Combined with `mFailed` keyed on
 -- the rule count — a conjecture is not retried until the machine knows
@@ -258,8 +293,10 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 
 -- ---------------------------------------------------------------- triage
 --
--- The census over machine/machine.log found 107 distinct residuals, and they
--- are NOT one kind of thing.  Three classes are tangled together, and
+-- The census over machine/machine.log found 112 distinct residuals ("107"
+-- stood here until 2026-08-18 and disagreed with the header's 112 on the
+-- same log; 112 is the re-measured figure), and they are NOT one kind of
+-- thing.  Three classes are tangled together, and
 -- queueing them undifferentiated is how the feedback loop livelocks:
 --
 --   * genuine missing lemmas -- x = x+0 (23x), x*0 = 0 (31x), 0 = x-x (18x).
@@ -280,11 +317,27 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- named `Plausible`, not `True`, for that reason.  The kernel remains the
 -- only thing that can accept a theorem here.
 
+-- STANDPOINT.  This is the report of the `Rewriter` naya — the machine's own
+-- evaluation over Integer.  It is not commensurable with `Obstruction`
+-- above, and the fact that the two were previously compared as if they were
+-- is what `Evidence` fixes.
 data Verdict
   = Plausible      -- no refutation found; worth the kernel's time
   | Refuted [Integer]  -- false, with the assignment that kills it
   | Degenerate     -- no content (e.g. x = y, distinct free variables)
-  deriving (Eq, Show)
+  | Silent         -- this naya declines to speak: the term contains a symbol
+                   -- outside its semantics, so it has no opinion.  SPLIT OUT
+                   -- 2026-08-18.  Previously this returned `Plausible` with
+                   -- the comment "no opinion offered" — i.e. silence and
+                   -- affirmation were the same constructor, which is the same
+                   -- boolean collapse this module was written to undo, one
+                   -- level down.  `queueable` preserves the old BEHAVIOUR
+                   -- exactly (both are queued) while separating the two
+                   -- INFORMATIONALLY, so every number this file documents
+                   -- still holds.
+  -- Ord is derived only so census output has a canonical order; the
+  -- ordering has no semantic content and nothing reads it as a ranking.
+  deriving (Eq, Ord, Show)
 
 -- Semantics of the fixed vocabulary, over Integer.  Monus is truncated, as
 -- in the engine and as in Agda's ℕ.
@@ -326,7 +379,7 @@ envs n = [ [ (a * 7 + b * 3 + c) `mod` 11
 triage :: (Term, Term) -> Verdict
 triage (l, r)
   | degenerate = Degenerate
-  | not (known l && known r) = Plausible   -- no opinion offered
+  | not (known l && known r) = Silent      -- no opinion offered; see Verdict
   | otherwise = case [ e | e <- envs 6, evalT e l /= evalT e r ] of
       (e:_) -> Refuted e
       []    -> Plausible
@@ -337,10 +390,19 @@ triage (l, r)
       (V a, V b) -> a /= b
       _ -> False
 
+-- Both `Plausible` and `Silent` were `Plausible` before the split, and both
+-- were queued.  Routing every former use of `== Plausible` through this
+-- predicate keeps behaviour — and therefore every documented count in this
+-- file — bit-identical.
+queueable :: Verdict -> Bool
+queueable Plausible = True
+queueable Silent    = True
+queueable _         = False
+
 -- What should actually enter the conjecture queue.
 worthQueueing :: [Obstruction] -> [(Term, Term)]
 worthQueueing obs =
-  nub [ p | p <- obstructionGoals obs, triage p == Plausible ]
+  nub [ p | p <- obstructionGoals obs, queueable (triage p) ]
 
 -- ---------------------------------------------------------------- curriculum
 --
@@ -350,9 +412,11 @@ worthQueueing obs =
 -- occurrence count — which over-weights a goal retried across many rounds —
 -- but: HOW MANY DISTINCT PARENT GOALS WOULD THIS ONE LEMMA UNBLOCK.
 --
--- Measured over machine/machine.log:
+-- Measured over machine/machine.log (re-measured 2026-08-18, all three
+-- unchanged; the first is disambiguated because the raw count of distinct
+-- goals on rejection lines is 238 and a reader could take "130" for that):
 --
---     distinct stalled goals        130
+--     distinct stalled goals        130   -- goals with a QUEUEABLE residual
 --     distinct lemmas demanded       78
 --     top 8 lemmas unblock           54 of the 130
 --
@@ -405,9 +469,222 @@ curriculum ls =
       [ (p, length (nub gs)) | (p, gs) <- collect ]
   where
     edges = [ (p, goalOfRejectLine l)
-            | l <- ls, Just p <- [residualOf l], triage p == Plausible ]
+            | l <- ls, Just p <- [residualOf l], queueable (triage p) ]
     collect = [ (p, [ g | (p', g) <- edges, p' == p ])
               | p <- nub (map fst edges) ]
+
+-- ------------------------------------------------- THE SEVENFOLD POSITIONS
+--
+-- SOURCES.  Umāsvāti, Tattvārthasūtra (c. 2nd–5th c. CE) 1.6
+-- `pramāṇanayair adhigamaḥ` and 5.31 `arpitānarpitasiddheḥ`; Siddhasena
+-- Divākara, Sanmatitarka (Prakrit Sammai-suttaṃ, c. 5th c. CE) 1.21 on the
+-- durnaya; Samantabhadra, Āptamīmāṃsā (c. 6th c. CE) for the saptabhaṅgī;
+-- Akalaṅka, Laghīyastraya (c. 720–780 CE) for the argument that the number
+-- is exactly seven.  `formal/cubical/Saptabhangi.agda` checks the parts of
+-- this that are theorems (Agda 2.6.3, --safe, no postulates, no holes,
+-- EXIT=0).  What follows is the measurement.
+--
+-- THE OBSERVATION THAT FORCED THIS.  Two lines of machine/machine.log,
+-- verbatim, both round 0:
+--
+--   146  KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
+--   174  KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
+--
+-- Same claim, same round, denied and affirmed.  The verdict was never a
+-- property of the claim; it is a property of the (claim, standpoint) pair,
+-- and the standpoint was not being recorded.  This module's opening
+-- paragraph already found one level of that collapse (Bool → three
+-- constructors).  It stopped one level too early: `Obstruction` is not
+-- "what the kernel said", it is what ONE naya said, and the log contains at
+-- least three nayas, distinguishable by the tactic it prints:
+--
+--     663  trace replay              480  induction on x, step = refl
+--     420  induction on x, step = ih  255  induction on x, step = cong suc
+--      43  refl
+--
+-- WHAT IS AND IS NOT CLAIMED ABOUT THE DOCTRINE.  In the classical scheme
+-- the seven bhaṅgas are seven legitimate WAYS OF SPEAKING about one object,
+-- all seven true of every object; they are not a partition of objects into
+-- seven bins.  A census therefore asks a question the doctrine does not
+-- itself answer, and the operationalisation below is mine, not Akalaṅka's:
+--
+--   asti       — some naya in the log AFFIRMS the claim (an ACCEPT line).
+--   nāsti      — some naya in the log DENIES it (a REJECT line; kernel-refl
+--                refused), or the rewriter refutes it by evaluation.
+--   avaktavya  — the refusal is not expressible as a standpointed
+--                predication at all: Agda's message yields no term in the
+--                language, so no `Vacana` is even formable.  This is the
+--                §5 notion of Saptabhangi.agda in its degenerate case, and
+--                it is what `Unparsed` was reaching for.
+--
+-- Note the asymmetry, deliberately kept: absence of an ACCEPT line is NOT
+-- recorded as nāsti.  The log records refusals and successes; it does not
+-- record a naya declining to try.  Reading silence as denial is the durnaya.
+
+data Naya
+  = Rewriter    -- the machine's own evaluation over Integer (`triage`)
+  | KernelRefl  -- Agda's definitional equality, `refl` the whole tactic
+  | KernelInd   -- Agda plus induction on a variable, or trace replay
+  deriving (Eq, Ord, Show)
+
+data Bhanga
+  = B1Asti                  -- syād asti
+  | B2Nasti                 -- syād nāsti
+  | B3AstiNasti             -- syād asti nāsti ca        (krama, in succession)
+  | B4Avaktavya             -- syād avaktavyam           (yugapat, at once)
+  | B5AstiAvaktavya         -- syād asti ca avaktavyaṃ ca
+  | B6NastiAvaktavya        -- syād nāsti ca avaktavyaṃ ca
+  | B7AstiNastiAvaktavya    -- syād asti nāsti ca avaktavyaṃ ca
+  deriving (Eq, Ord, Show)
+
+-- Saptabhaṅgī presupposes a dharma predicated of a dharmin — a property of
+-- a subject.  `x = y` with two distinct free variables has no dharmin: it is
+-- a failed unification, not a claim.  It is NOT a bhaṅga and is not forced
+-- into one.  This constructor is the honest residue.
+data Sthana = Position Bhanga | ADharmin
+  deriving (Eq, Ord, Show)
+
+-- The standpoint, carried explicitly.  One field per naya; no field is a
+-- verdict "of the kernel" or "of the machine" unindexed.
+data Evidence = Evidence
+  { evRewriter   :: Maybe Verdict      -- Nothing when there is no term to judge
+  , evKernelRefl :: Obstruction        -- what refl refused, and how
+  , evAffirmed   :: Bool               -- some naya affirmed it (ACCEPT line)
+  } deriving (Eq, Show)
+
+evidenceOfReject :: [String] -> String -> Evidence
+evidenceOfReject accepted line = Evidence
+  { evRewriter   = fmap triage (residualOf line)
+  , evKernelRefl = obs
+  , evAffirmed   = goalOfRejectLine line `elem` accepted
+  }
+  where
+    -- The goal is printed in the machine's notation and the residual in
+    -- Agda's, which the module header calls incomparable.  It is comparable
+    -- in ONE direction: `Term`'s Show instance IS the machine's notation, so
+    -- rendering the parsed residual back and comparing strings decides
+    -- TacticTooWeak vs Residual from a single line, with no second source.
+    obs = case residualOf line of
+      Nothing  -> Unparsed (take 200 line)
+      Just res@(a, b)
+        | showClaim res == goal || showClaim (b, a) == goal -> TacticTooWeak res
+        | otherwise                                        -> Residual res
+    goal = goalOfRejectLine line
+
+sthana :: Evidence -> Sthana
+sthana ev
+  | evRewriter ev == Just Degenerate = ADharmin
+  | otherwise = Position (assemble asti nasti avaktavya)
+  where
+    avaktavya = case evKernelRefl ev of
+      Unparsed _ -> True
+      _          -> False
+    -- the REJECT line itself is kernel-refl denying; the rewriter may deny too
+    nasti = True
+    asti  = evAffirmed ev
+    assemble True  False False = B1Asti
+    assemble False True  False = B2Nasti
+    assemble True  True  False = B3AstiNasti
+    assemble False False True  = B4Avaktavya
+    assemble True  False True  = B5AstiAvaktavya
+    assemble False True  True  = B6NastiAvaktavya
+    assemble True  True  True  = B7AstiNastiAvaktavya
+    -- no evidence at all: the line would not be in the log.  Kept total
+    -- rather than partial, and never reached from `evidenceOfReject` because
+    -- `nasti` is True there by construction.
+    assemble False False False = B2Nasti
+
+-- Render a term pair in the machine's own notation, which is what the log
+-- prints on ACCEPT lines.  (`Term`'s Show instance already agrees with it;
+-- `showClaim (V 0, F "+" [F "0" [], V 0])` is "x = (0+x)", the exact string
+-- at machine.log's first ACCEPT.)
+showClaim :: (Term, Term) -> String
+showClaim (l, r) = show l ++ " = " ++ show r
+
+-- The claim on a KERNEL-ACCEPT line.  The framing is character-identical to
+-- a KERNEL-REJECT line's up to the "  (" that opens the tactic, so the same
+-- extractor is correct; this alias exists so the call site says which.
+claimOfAcceptLine :: String -> String
+claimOfAcceptLine = goalOfRejectLine
+
+-- The tactic named on a KERNEL-ACCEPT line: the text between "  (" and the
+-- ", N agda calls)" tail.  This is what distinguishes KernelRefl from
+-- KernelInd, and it is the only place the log says which naya spoke.
+tacticOfAcceptLine :: String -> String
+tacticOfAcceptLine l = case dropTo "  (" l of
+  Nothing -> ""
+  Just t  -> case reverse (dropWhile (/= ',') (reverse t)) of
+    []  -> t          -- no ", N agda calls)" tail; take it whole
+    s   -> init s     -- drop the tail, then its separating comma
+  where
+    dropTo sep s
+      | sep `isPrefixOf` s = Just (drop (length sep) s)
+      | null s             = Nothing
+      | otherwise          = dropTo sep (tail s)
+
+acceptedClaims :: [String] -> [String]
+acceptedClaims ls = nub [ claimOfAcceptLine l | l <- ls, "KERNEL-ACCEPT" `isInfixOf` l ]
+
+-- The census.  Two populations, deliberately, because they answer different
+-- questions and only reporting one of them would mislead:
+--
+--   * over REJECTION LINES        — every position is reachable
+--   * over DISTINCT RESIDUALS     — `avaktavya` is 0 BY CONSTRUCTION, since
+--                                   being one of the distinct residuals
+--                                   already means the message parsed.
+census :: [String] -> ([(Sthana, Int)], [(Sthana, Int)])
+census ls = (tally overLines, tally overResiduals)
+  where
+    accepted = acceptedClaims ls
+    rejects  = [ l | l <- ls, "KERNEL-REJECT" `isInfixOf` l ]
+    overLines = [ sthana (evidenceOfReject accepted l) | l <- rejects ]
+    -- one entry per DISTINCT residual pair; a residual's own asti is asked
+    -- of the residual as a claim, not of the parent goal
+    overResiduals =
+      [ sthana Evidence { evRewriter   = Just (triage p)
+                        , evKernelRefl = Residual p
+                        , evAffirmed   = showClaim p `elem` accepted }
+      | p <- nub [ p | l <- rejects, Just p <- [residualOf l] ] ]
+    tally xs = [ (k, length [ () | y <- xs, y == k ]) | k <- nub (sort xs) ]
+
+-- The cross-tabulation is the point.  A one-dimensional census would let a
+-- reader conclude that the sevenfold replaces `triage`.  It does not: the
+-- table below shows each carrying information the other discards, which is
+-- the anekāntavāda conclusion applied to the classifier itself rather than
+-- to the classified.
+crossTab :: [String] -> [((Sthana, Maybe Verdict), Int)]
+crossTab ls =
+    [ (k, length [ () | y <- pairs, y == k ]) | k <- nub (sort pairs) ]
+  where
+    accepted = acceptedClaims ls
+    pairs = [ (sthana ev, fmap kind (evRewriter ev))
+            | l <- ls, "KERNEL-REJECT" `isInfixOf` l
+            , let ev = evidenceOfReject accepted l ]
+    -- the refuting assignment is not part of the classification
+    kind (Refuted _) = Refuted []
+    kind v           = v
+
+censusReport :: [String] -> String
+censusReport ls = unlines $
+     [ "saptabhangi census over " ++ show (length ls) ++ " log lines"
+     , ""
+     , "  rejection lines:      " ++ show (sum (map snd byLine))
+     , "  distinct residuals:   " ++ show (sum (map snd byRes))
+     , "  distinct claims accepted by some naya: " ++ show (length (acceptedClaims ls))
+     , ""
+     , "-- over rejection lines --" ]
+  ++ map row byLine
+  ++ [ "", "-- over distinct residuals --" ]
+  ++ map row byRes
+  ++ [ ""
+     , "-- sthana x rewriter-naya verdict, over rejection lines --"
+     , "   (Nothing = no term to judge: the message did not parse)" ]
+  ++ [ "  " ++ pad 32 (show s) ++ pad 18 (show v) ++ show n
+     | ((s, v), n) <- crossTab ls ]
+  where
+    (byLine, byRes) = census ls
+    row (k, n) = "  " ++ pad 32 (show k) ++ show n
+    pad n s = s ++ replicate (max 0 (n - length s)) ' '
 
 -- ---------------------------------------------------------------- selftest
 --
@@ -429,11 +706,16 @@ selfTest = do
           in (name, sameKind got expected, got, expected)
         sameKind (Refuted _) (Refuted _) = True
         sameKind a b = a == b
+        sapChecks = map runS sap
+        runS (name, got, expected) = (name, got == expected, got, expected)
     mapM_ report checks
     putStrLn "  -- triage --"
     mapM_ report triChecks
+    putStrLn "  -- saptabhangi --"
+    mapM_ report sapChecks
     pure (all (\(_, ok, _, _) -> ok) checks
-          && all (\(_, ok, _, _) -> ok) triChecks)
+          && all (\(_, ok, _, _) -> ok) triChecks
+          && all (\(_, ok, _, _) -> ok) sapChecks)
   where
     report (name, ok, got, expected)
       | ok = putStrLn ("  ok    " ++ name ++ "  =>  " ++ show got)
@@ -480,4 +762,49 @@ selfTest = do
       , ( "false parent  x*max(x,1) = s(x)", (F "*" [x, F "max" [x, suc z0]], suc x)
                                                                           , Refuted [2,1,0] )
       , ( "degenerate  x = y",               (x, V 1),                      Degenerate )
+      ]
+
+    -- SAPTABHANGI.  Every line below is copied verbatim out of
+    -- machine/machine.log at the line number named, and the accept-set is
+    -- the two real ACCEPT lines the cases turn on rather than an invented
+    -- one.  The point of testing against the real log twice over is that
+    -- the sevenfold's ONE new axis — asti, "some naya affirmed this" — is
+    -- a cross-stream fact, and a test that fabricated the accept stream
+    -- would be testing nothing.
+    acc =
+      [ claimOfAcceptLine
+          "  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)"
+      , claimOfAcceptLine
+          "  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (induction on x, step = ih, 1 agda calls)"
+      ]
+
+    st = sthana . evidenceOfReject acc
+
+    sap =
+      [ -- THE CASE THE WHOLE THING IS FOR.  machine.log:146 denies it under
+        -- refl; machine.log:174 affirms it under induction, same round.
+        -- syad asti-nasti, taken KRAMA.  Neither line is wrong.
+        ( "krama: x = max x x, denied at 146 and affirmed at 174"
+        , st "  KERNEL-REJECT round=0 x = (xmaxx)  (0 agda calls) cached: x != max x x of type \8469 when checking that the expression refl has type x \8801 max x x"
+        , Position B3AstiNasti )
+
+        -- machine.log:251.  Same shape, but no naya in the log affirms it.
+      , ( "nasti only: no accept line anywhere for this claim"
+        , st "  KERNEL-REJECT round=5 x = -((x+y),y)  (2 agda calls) base clause: x != x + zero of type \8469 when checking that the expression refl has type x \8801 x + zero \8760 zero"
+        , Position B2Nasti )
+
+        -- machine.log:4379.  The refusal mentions a section `cong (x ·_)`,
+        -- which is outside the language of standpointed predication: no
+        -- Vacana is formable, so nothing single-standpointed denotes it.
+        -- This is `Unparsed` read as what it always was.
+      , ( "avaktavya: refusal not expressible as a standpointed predication"
+        , st "  KERNEL-REJECT round=0 le(x,0) = -(s(0),(x*x))  (8 agda calls) x \183 le x zero != zero of type \8469 when checking that the expression cong (x \183_) (candidate x) has"
+        , Position B6NastiAvaktavya )
+
+        -- machine.log:159.  `x != y`: two distinct free variables.  There is
+        -- no dharmin, so there is no bhanga -- and note the claim IS in the
+        -- accept stream, so a careless reading would have made this B3.
+      , ( "adharmin: x != y has no subject, so no bhanga (not forced into one)"
+        , st "  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type \8469 when checking that the expression refl has type x + y \8801 y + x"
+        , ADharmin )
       ]
