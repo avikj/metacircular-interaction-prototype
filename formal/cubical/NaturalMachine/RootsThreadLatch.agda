@@ -92,6 +92,9 @@ import NaturalMachine.DurationIsSyllablesPlusGuru
 import NaturalMachine.PairsSummingTo
 import NaturalMachine.DiagonalIsMatra
 
+-- the Jain fourth bhaṅga, in the same shape as लाघव and the barrier
+import NaturalMachine.AvaktavyaDoesNotFactor
+
 -- orphans from the same window, not mine, latched because they were
 -- orphans
 import NaturalMachine.EquivalenceHasNoFloor
