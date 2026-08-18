@@ -657,3 +657,62 @@ That is a reading, not a theorem. The absorption is proved; the waste is
 not quantified, and §15's gap (`ψ(k) ≈ k` carried versus `log k` needed)
 is exactly as open as it was. This module narrows the space of
 explanations by one class and claims nothing more.
+
+---
+
+## 17. Addendum, same session: the cost is the encoding
+
+§16 removed the lattice's width from the space of explanations for the
+walk's `e^ψ(k)`. `formal/cubical/NaturalMachine/NumberIsExponentialInDerivation.agda`
+(checked, exit 0) supplies the mechanism that is left, **with no
+asymptotics at all**.
+
+The walk's state, honestly described, is a derivation — the exponent
+vector. The number is what `val` makes of it, and `val` exponentiates. So
+at every coordinate:
+
+```
+suc≤^ :  suc e  ≤  b ^ e      for every base b ≥ 2
+```
+
+The exponent the walk needs to record is `e`. The numeric factor it
+records instead is `b^e`, which exceeds `e`. **Coordinatewise, the number
+is exponential in the derivation** — an induction on `e`, with no `ψ`, no
+`π`, no Chebyshev in it. Checked instances: `3 < 2³ = 8` (which is cap 8's
+2-coordinate) and `10 < 2¹⁰ = 1024`.
+
+That is where the size goes: not the lattice, the **encoding**.
+
+### The same sentence `SumProductTorus` already wrote
+
+> Factorisation is hard only for someone who threw the derivation away and
+> is trying to invert `val` from the outside.
+
+This says the state *size* is inflated by the identical act. The walk holds
+its derivation by construction — it *installs* its prime powers — and then
+stores their product. The product is not more informative (`val` is
+injective on a prime basis); it is only bigger, exponentially, at every
+coordinate. Pāṇini's architecture, quoted in that module: a form is not
+stored, it is derived, and the derivation carries the context that produced
+it. The walk derives, then discards, and the discard is the bill.
+
+### The boundary, marked
+
+`ψ(k) ≈ k` is **not** proved here and is not used. Turning "coordinatewise
+exponential" into "`ψ(k)` versus the derivation's size" requires summing
+`⌊log_p k⌋` over `p ≤ k` — Chebyshev, which belongs to the analytic lane
+(`formal/pairfield/`), not this one. HOLOGRAM §7's lesson applies exactly:
+a constant measured at one scale hides its scaling, so the comparison is
+stated at *every coordinate* and at *no particular k*.
+
+### Where the cost question now stands
+
+| candidate explanation | verdict |
+|---|---|
+| overlap between the walk's inputs | **eliminated** — overlap is a saving (§15) |
+| width of the divisor lattice | **eliminated** — the trajectory is a chain (§16) |
+| the numeric encoding of the derivation | **identified** — exponential per coordinate (§17) |
+| its magnitude, i.e. `ψ(k)` vs `log k` | **open** — needs Chebyshev, other lane |
+
+Three classes eliminated, one identified, the magnitude still open. That is
+the honest state of it.
