@@ -51,6 +51,7 @@ module Nalanda
   , tulya
   , compose
   , cakravala
+  , shortcut
   , chooseM
   , chain
   , verify
@@ -181,6 +182,38 @@ step d t@(Triple a b k) = do
       k' = (m * m - d)     `div` k
   pure (Triple (abs a') (abs b') k')
 
+-- ------------------------------------------- Brahmagupta's shortcut (628)
+--
+-- BRAHMAGUPTA does not turn the wheel all the way to k = 1.  He states that
+-- from a solution with k = -1, k = +/-2, or k = 4 the answer follows by
+-- COMPOSITION alone, and this is centuries before the cycle exists -- it is
+-- in the Brahmasphutasiddhanta, and the cakravala is later machinery built
+-- on top of it.  Reproducing it here is not an optimisation bolted on; it is
+-- the earlier and more general rule being used where it applies.
+--
+--   k = -1   compose with itself: (a^2 + D b^2, 2ab) has norm (-1)(-1) = 1.
+--   k = +/-2 compose with itself: norm 4, and both coordinates are then
+--            divisible by 2, giving norm 4/4 = 1.  (a^2 - D b^2 = +/-2 forces
+--            a^2 + D b^2 even, so the halving is exact.)
+--   k = 4    if a and b are both even, (a/2, b/2) has norm 4/4 = 1 directly.
+--
+-- The remaining k = 4 case with a, b not both even needs the parity argument
+-- Brahmagupta gives separately; it is NOT implemented, and `shortcut` returns
+-- Nothing there so the cycle simply keeps turning.  Returning Nothing when a
+-- rule does not apply, rather than guessing, is the whole discipline.
+shortcut :: Integer -> Triple -> Maybe Triple
+shortcut d t@(Triple a b k)
+  | k == 1 = Just t
+  | k == -1 = Just (halveBy 1 (tulya d t))
+  | abs k == 2 = Just (halveBy 2 (tulya d t))
+  | k == 4 && even a && even b = Just (Triple (abs a `div` 2) (abs b `div` 2) 1)
+  | otherwise = Nothing
+  where
+    -- (a', b', k') with a', b' divided by q and the norm by q^2; used only
+    -- where the division is exact, which the guards above ensure.
+    halveBy q (Triple a' b' k') =
+      Triple (abs a' `div` q) (abs b' `div` q) (k' `div` (q * q))
+
 -- THE REACTOR.  Seed with the trivial triple and turn until the norm is 1.
 -- Returns the whole trace, so every intermediate is auditable and the run
 -- is not a number that must be trusted.
@@ -195,6 +228,12 @@ cakravala d
       | not (verify d t) = Left ("invariant broken at step " ++ show n
                                  ++ ": " ++ show t)
       | tK t == 1 = Right (reverse (t : acc))
+      -- Brahmagupta (628) finishes from k = -1, +/-2, 4 by composition, so
+      -- the wheel stops early where his earlier and more general rule
+      -- applies.  The result is checked like everything else: a shortcut that
+      -- broke the form would be caught here rather than trusted.
+      | Just u <- shortcut d t, verify d u, tK u == 1
+        = Right (reverse (u : t : acc))
       | n > 400   = Left ("no convergence in 400 turns; last " ++ show t)
       | otherwise = case step d t of
           Nothing -> Left ("congruence unsolvable at step " ++ show n

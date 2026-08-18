@@ -179,6 +179,7 @@ render d trace t sq = unlines $
   , "" ]
   ++ concat [ bookBlock i a b m p a' b' k'
             | (i, a, b, m, p, a', b', k') <- bookData ]
+  ++ concat [ shortBlock i from to | (i, from, to) <- shortData ]
   ++
   [ ""
   , sep
@@ -244,12 +245,27 @@ render d trace t sq = unlines $
                | (i, N.Triple a b k) <- zip [0 :: Int ..] (init trace)
                , Just m <- [N.chooseM d (N.Triple a b k)] ]
 
-    -- (index, a, b, m, |k|, a', b', |k'|) — the BOOKKEEPING, in the classical
-    -- |k| presentation, which is where the exact divisions live.
+    -- Consecutive pairs, classified.  NOT every transition is a turn of the
+    -- wheel: the reactor finishes by BRAHMAGUPTA'S SHORTCUT (628) wherever it
+    -- applies — from k = −1, ±2, or 4 the answer follows by composition, and
+    -- that rule predates the cycle by five centuries.  Emitting a cakravāla
+    -- bookkeeping line for a shortcut transition produces a false statement,
+    -- and did: the first version of this emitter claimed
+    -- `29718 · 7 + D · 3805 ≡ 1 · 1766319049` and Agda refused it.  The
+    -- kernel caught the generator, which is the entire reason for emitting.
+    transitions = zip [0 :: Int ..] (zip trace (drop 1 trace))
+
+    isShortcut (from, to) = case N.shortcut d from of
+      Just u  -> u == to
+      Nothing -> False
+
     bookData = [ (i, a, b, m, abs k, a', b', abs k')
-               | (i, (N.Triple a b k, N.Triple a' b' k'))
-                   <- zip [0 :: Int ..] (zip trace (drop 1 trace))
+               | (i, (N.Triple a b k, N.Triple a' b' k')) <- transitions
+               , not (isShortcut (N.Triple a b k, N.Triple a' b' k'))
                , Just m <- [N.chooseM d (N.Triple a b k)] ]
+
+    shortData = [ (i, from, to) | (i, (from, to)) <- transitions
+                                , isShortcut (from, to) ]
 
     turnBlock i a b m =
       [ "-- turn " ++ show i ++ ":  a = " ++ show a ++ ",  b = " ++ show b
@@ -299,3 +315,55 @@ render d trace t sq = unlines $
         dA = "divA" ++ show i
         dB = "divB" ++ show i
         dK = "divK" ++ show i
+
+    -- BRAHMAGUPTA'S SHORTCUT, certified by Brahmagupta's own identity.
+    --
+    -- Where the cycle reaches k = −1 or ±2 the finish is tulya-bhāvanā — the
+    -- solution composed with itself — followed by an exact division of both
+    -- coordinates by 1 or 2.  So `cx`/`cy` (Brahmagupta's coordinates, from
+    -- `BhavanaSemiring`) evaluate to q·a′ and q·b′, and `bhavanaℕ` at
+    -- (a, b, a, b) is the law behind it.  Where k = 4 with both coordinates
+    -- even the finish is the halving alone and no composition happens; that
+    -- case is emitted as the two halvings and nothing more, because claiming
+    -- a composition that did not occur is the defect this section exists to
+    -- avoid.
+    shortBlock i (N.Triple a b k) (N.Triple a' b' _) =
+      [ "-- BRAHMAGUPTA'S SHORTCUT at transition " ++ show i
+        ++ ":  k = " ++ show k ++ ",  (" ++ show a ++ ", " ++ show b
+        ++ ")  ->  (" ++ show a' ++ ", " ++ show b' ++ "),  k = 1" ]
+      ++ (if k == 4
+            then [ "-- k = 4 with both coordinates even: halving alone, no composition"
+                 , sA ++ " : " ++ show a ++ " ≡ 2 · " ++ show a'
+                 , sA ++ " = refl"
+                 , sB ++ " : " ++ show b ++ " ≡ 2 · " ++ show b'
+                 , sB ++ " = refl" ]
+            else [ "-- tulya-bhāvanā, then exact division of both coordinates by "
+                     ++ show q
+                 , sA ++ " : cx D " ++ show a ++ " " ++ show b ++ " "
+                     ++ show a ++ " " ++ show b ++ " ≡ " ++ show q ++ " · " ++ show a'
+                 , sA ++ " = refl"
+                 , sB ++ " : cy " ++ show a ++ " " ++ show b ++ " "
+                     ++ show a ++ " " ++ show b ++ " ≡ " ++ show q ++ " · " ++ show b'
+                 , sB ++ " = refl"
+                 , "-- and the law the composition is an instance of"
+                 , sL ++ " : cx D " ++ show a ++ " " ++ show b ++ " " ++ show a
+                     ++ " " ++ show b ++ " · cx D " ++ show a ++ " " ++ show b
+                     ++ " " ++ show a ++ " " ++ show b
+                 , "     + (D · (" ++ show a ++ " · " ++ show a ++ " · ("
+                     ++ show b ++ " · " ++ show b ++ ")) + D · (" ++ show a
+                     ++ " · " ++ show a ++ " · (" ++ show b ++ " · " ++ show b ++ ")))"
+                 , "     ≡ " ++ show a ++ " · " ++ show a ++ " · (" ++ show a
+                     ++ " · " ++ show a ++ ")"
+                 , "     + (D · D · (" ++ show b ++ " · " ++ show b ++ " · ("
+                     ++ show b ++ " · " ++ show b ++ "))"
+                 , "        + D · (cy " ++ show a ++ " " ++ show b ++ " "
+                     ++ show a ++ " " ++ show b ++ " · cy " ++ show a ++ " "
+                     ++ show b ++ " " ++ show a ++ " " ++ show b ++ "))"
+                 , sL ++ " = bhavanaℕ D " ++ show a ++ " " ++ show b ++ " "
+                     ++ show a ++ " " ++ show b ])
+      ++ [ "" ]
+      where
+        q = if abs k == 2 then 2 else 1 :: Integer
+        sA = "shortA" ++ show i
+        sB = "shortB" ++ show i
+        sL = "shortLaw" ++ show i
