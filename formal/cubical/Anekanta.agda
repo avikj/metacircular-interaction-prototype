@@ -180,3 +180,25 @@ data सप्तभङ्गी : Type where
 प्रक्षेपे-जन्म (c ∷ p) x y xs ys ¬xy with discreteℕ c c
 ... | no ¬cc = ⊥-rec (¬cc refl)
 ... | yes _  = cong जन्मन् (प्रक्षेपे-जन्म p x y xs ys ¬xy)
+
+------------------------------------------------------------------------
+-- ध्रौव्यम् — उत्पाद-व्यय-ध्रौव्य-युक्तं सत् (उमास्वाति, तत्त्वार्थसूत्र ५.२९) ।
+--
+-- जन्मनः एकस्मिन् पदे त्रीणि सह : शीर्षं क्षीयते (व्यय), नयः गभीरतरः जायते
+-- (उत्पाद), शेषः/साक्षी अक्षतः ध्रुवः तिष्ठति (ध्रौव्य) — न क्रमेण, युगपत् ।
+-- अत्र ध्रौव्यं सिध्यते : जन्म शेषं न विकरोति ।  (उत्पादः प्रक्षेपे-जन्मनि
+-- length वर्धनेन, व्ययः जननस्य पश्चाद्भागे — त्रयम् एकस्मिन् क्रमे ।)
+--
+-- (arising-ceasing-persisting-endowed is the real.  One step of जन्मन् is
+-- the three at once — never in sequence: the head ceases (व्यय), the नय
+-- deepens (उत्पाद, visible as length-increment in प्रक्षेपे-जन्म), and the
+-- witness/śeṣa persists unscathed (ध्रौव्य, proved here).  Sat is not a
+-- static substance nor a pure flux; it is the loom holding both — which is
+-- exactly why the organism neither freezes (the boolean corpse) nor
+-- dissolves into perpetual novelty without learning.)
+------------------------------------------------------------------------
+
+ध्रौव्यम् : {a b : वल्ली} {x y : ℕ} (β : भङ्ग a b)
+         → शेषः (जन्मन् {x = x} {y = y} β) ≡ शेषः β
+ध्रौव्यम् (अस्ति n ¬pq)      = refl
+ध्रौव्यम् (अवक्तव्यम् सa सb) = refl
