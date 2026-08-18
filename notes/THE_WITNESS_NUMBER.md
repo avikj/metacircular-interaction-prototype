@@ -1,0 +1,207 @@
+# The witness number
+
+*A measure on absences. Every "barrier" in this corpus costs exactly two
+witnesses, and that is a theorem about the decoder space, not an
+observation about the examples.*
+
+Status: every claim is a checked Agda term unless marked otherwise.
+Modules are `--safe`, no postulates, no holes, Agda 2.6.3 / cubical v0.5.
+All latched in `NaturalMachine.RootsThreadLatch` (62 modules, `EXIT=0`).
+
+---
+
+## 1. Where it came from, including the wrong turns
+
+`OneLemmaFiveSites` had distinguished two routes to `¬ FactorsThrough`:
+**collision** (one pair kills every decoder) and **exhaustion** (refute
+each of a small finite decoder set in turn), and filed the Jain
+*avaktavya* site under exhaustion because "no single pair of profiles
+separates the joint content from every utterance."
+
+That reason is false. `TwoProfilesSuffice` gives the pair —
+φ₁ = (⊤,⊤,⊥), φ₂ = (⊥,⊥,⊤). The joint content is false on both and the
+six utterances split three–three by which one they overshoot on;
+agreement sets disjoint, jointly exhaustive. The half that *was* right —
+one profile never suffices — had no proof either, and now does, as
+`every-profile-is-said`.
+
+That correction then made its own error: it concluded "1 for lāghava, 2
+for avaktavya," comparing a count of **pairs** against a count of
+**points**. Three corrections in three commits, all one shape: *a
+quantity named before a measure was fixed.*
+
+## 2. The measure
+
+```agda
+AllHold law d xs   -- every point in xs is answered correctly by d
+Refutes law xs  =  (d : D) → ¬ AllHold law d xs
+```
+
+The **witness number** is the least length of a refuting list.
+
+```agda
+WitnessNumberIs law n = (Σ[ xs ] (length xs ≡ n × Refutes law xs))
+                      × ((ys : List X) → length ys < n → ¬ Refutes law ys)
+```
+
+`law-is-factoring q t = refl` checks, so `FactorsThrough q t` *is*
+`Σ[ d ] ((x : X) → factorLaw q t d x)`. The measure applies to every
+obstruction in this corpus definitionally, not by analogy.
+
+## 3. Two, everywhere — and why
+
+| | |
+|---|---|
+| `singleton-never-refutes` | one point is never enough for **any** `FactorsThrough` obstruction, no hypotheses — the constant decoder `λ _ → t x` answers it |
+| `collision→refutes` | a collision **is** a refuting pair |
+| `avaktavya-witness-number-2` | the six-atom site is 2 as well: floor from `every-profile-is-said`, ceiling from `pair-separates` |
+
+So it is 2 versus 2, not 1 versus 2. What differed between the sites was
+only the *route* to the pair — constructed from a collision, or found by
+looking — which is a fact about obtaining the witness, not about the
+absence.
+
+## 4. It is not the measure's doing: 3 is realised
+
+`WitnessNumberIsUnbounded`. Three standpoints, three points, each
+standpoint wrong at exactly its own:
+
+```agda
+law d x = ⊥ when d ≡ x, Unit otherwise
+```
+
+`three-refute` with all three points; `no-pair-refutes` for **every**
+pair — the nine cases of `missing` are the pigeonhole written out: from
+any two points some standpoint is absent, and an absent standpoint
+survives.
+
+Read as nayavāda this is the plurality condition with a number on it.
+Two standpoints in disagreement are separated by two observations; three
+that disagree pairwise need three, not because the third is hard to find
+but because every pair leaves a survivor. The standing anekānta result
+says plurality blocks collapse; this says what demonstrating plurality
+costs — one witness per standpoint, in general position. A *durnaya* is
+the degenerate case where one witness would have sufficed.
+
+**Consequence.** The corpus's uniform 2 is a property of its sites, not
+of the notion of absence. Before a measure was fixed that could not be
+said.
+
+## 5. Why the sites really are two
+
+`WhyTheSitesAreTwo`, and this is the load-bearing theorem:
+
+```agda
+collisionFree→notRefuting :
+  Discrete Y → CollisionFree q t (x₀ ∷ xs)
+             → ¬ Refutes (factorLaw q t) (x₀ ∷ xs)
+```
+
+Over an **unconstrained** decoder space `Image q → T` with **discrete**
+observations, a list refutes *only* by containing a collision — and a
+collision is already a pair. No refuting list is ever essentially longer
+than two; the extra points are inert.
+
+The construction is a table: walk the list, return the first entry whose
+observation matches. Collision-freeness makes the table consistent;
+discreteness of `Y` is what makes "first matching entry" a computation
+rather than a choice. Nothing is assumed about `T` beyond the values the
+table stores.
+
+Stated as the contrapositive it is constructive. Stated as "extract the
+pair from a refuting list" it would not be — `Refutes` is a negation and
+¬∀ does not give ∃¬ — so `refuting-lists-collide` is the honest form:
+refutation and collision-freeness are incompatible.
+
+Every site in this corpus satisfies both hypotheses: function-space
+decoders, and `Y` one of ℕ, Bool, lists of ℕ. **So 2 was never
+contingent here.** §4's three-atom example is consistent and shows where
+the hypothesis bites — the survivor each pair leaves is a function the
+unconstrained space would have contained anyway. Constrain the decoders
+and the number can rise; leave them unconstrained over discrete `Y` and
+it cannot.
+
+## 6. It survives univalence, where lāghava does not
+
+`Laghava` answered the economy question and answered it no:
+
+```agda
+laghava-is-not-semantic :
+  ¬ Σ[ f ∈ (Denotation → ℕ) ] ((e : Expr) → f (eval e) ≡ size e)
+```
+
+`WitnessNumberIsInvariant` shows the new measure does survive:
+
+- `refutes-reindex` — preserved by **every** reindexing, no hypothesis;
+- `refutes-reflect` — reflected by surjective ones, so it depends only
+  on the image of the decoder space;
+- `refutes-transport` — one `subst` along any path of decoder systems.
+
+The reason is structural, not lucky. `size` is a function **out of** the
+presentation, so two presentations with one denotation give two values —
+`laghava-collision` is that pair, itself a collision in §3's sense.
+Witness number is a quantification **over** the decoder space, so any
+reindexing feeds the same laws to the same points. *A measure defined by
+∀ over a space is invariant under maps into it; a measure defined by a
+function out of a space is not.*
+
+## 7. And it is the potential the transport thread was looking for
+
+`TransportPrice` closed the anekānta thread: every additive transport
+price is a difference of a potential, `c p q ≡ c b q − c b p`. No
+path-dependence, no cheapest route, no holonomy — all the content is in
+the potential. That says where to look, not what to find.
+
+`WitnessNumberIsThePotential` supplies one. Along any surjective
+reindexing the number is unchanged in both directions (`price-is-zero`),
+so its transport price is identically zero.
+
+This is the **degenerate** case of TransportPrice's theorem, not a rich
+instance: it says the nayas related by reindexing are all at one height.
+What makes that unimprovable rather than disappointing is the theorem
+itself — no additive price can do better than a potential.
+
+## 8. What this does to the deflationary thread
+
+It is the strongest form so far, and it changes the claim's status.
+
+Before: *every absence here looks decidable, so nothing lives at level
+three and the barrier language is stronger than the objects warrant* — a
+survey.
+
+Now: over discrete observations and unconstrained decoders, an
+obstruction of this shape **cannot** be expensive. Any barrier stated
+this way is a two-point statement, and there is a theorem saying by how
+much the language exceeds the object.
+
+## 9. Modules
+
+| module | contains |
+|---|---|
+| `TwoProfilesSuffice` | the pair; `every-profile-is-said`; §7 correction |
+| `WitnessNumberIsTwo` | `AllHold`, `Refutes`, floor, collision=pair, §7 correction |
+| `WitnessNumberIsUnbounded` | witness number 3 realised; §8 correction |
+| `WhyTheSitesAreTwo` | the table theorem — why 2 is forced here |
+| `WitnessNumberIsInvariant` | preservation, reflection, transport |
+| `WitnessNumberIsThePotential` | `WitnessNumberIs`, `price-is-zero` |
+
+## 10. Open, named, not estimated
+
+- Whether **discreteness of `Y`** can be weakened. The table walk needs
+  to compare observations; nothing here says a weaker comparison would
+  not do.
+- The same question for decoder spaces that are **constrained but still
+  large**, where neither §5's theorem nor §4's three-atom example
+  applies.
+- Whether witness number is **unbounded**. The n-point version of §4 has
+  the obvious upper bound; the lower bound at general n needs a
+  pigeonhole, and §4 is n = 3 by enumeration.
+- The interesting residue: two decoder systems **not** related by a
+  reindexing can differ (2 and 3 both occur), so the potential is not
+  constant and the price between them is not zero. Missing is a
+  transport general enough to connect them. Nothing here says one
+  exists; if none does, the price question is empty rather than hard.
+
+No estimate is offered for any of these. This thread has produced four
+wrong estimates and three unit-confusions, and the rule that came out of
+them is the one kept above: **name what is open, do not size it.**
