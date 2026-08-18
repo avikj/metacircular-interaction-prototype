@@ -89,3 +89,40 @@ frontier-divides ((p , i) ∷ es) (pp , rest) (fresh , dist) N (d , ds) =
 -- is missing is only that every `m ≤ k` is among the things the prime
 -- powers cover, which is factorisation.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 4.  CORRECTION, appended 2026-08-18: the hard half is closed.
+--
+-- The header above says of half (a) that it "asks that every m ≤ k
+-- factors into primes ≤ k with exponents bounded by ⌊log_p k⌋.  That is
+-- EXISTENCE OF PRIME FACTORISATION, and no amount of
+-- certificate-composition produces it".
+--
+-- The first sentence is right and the second is wrong.  The
+-- certificates do most of the work.  `NaturalMachine.FrontierDividesHard`
+-- proves
+--
+--     frontier-divides-hard :
+--       0 < m → m ≤ k → m ∣ prodOf (frontierList k)
+--
+-- by strong induction on m, peeling one prime at a time with
+-- `CoprimeSplitting.primeDivisor` and `PFreePart`, and closing each step
+-- with `FinCardinality.gauss` — the same Gauss this module's own half
+-- uses — supplied by `PrimeCofactorCoprime`.
+--
+-- What was actually missing was smaller and duller than the sentence
+-- suggests:
+--
+--   * `FrontierList.logOf` had NO SPECIFICATION, and its fuel budget was
+--     unproved (`ExponentBound`);
+--   * membership of (p , logOf p k) in `frontierList k` (`FrontierMember`);
+--   * isGCD (p^a) m' 1 from p ∤ m', which is three lines
+--     (`PrimeCofactorCoprime`).
+--
+-- The asymmetry between the two halves is real — six modules against
+-- one fold — but it is a factor, not a difference in kind.
+--
+-- With both halves in place, `prodOf (frontierList k)` satisfies the
+-- universal property of lcm(1 … k), which is how CLAUDE.md requires lcm
+-- facts be stated in a lane with no LCM module.
+------------------------------------------------------------------------

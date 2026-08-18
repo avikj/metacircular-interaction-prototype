@@ -86,8 +86,9 @@ private
     two-c : 2 · c ≡ c + c
     two-c = cong (c +_) (+-zero c)
 
-  x<p·x : (p x : ℕ) → 1 < p → 0 < x → x < (p · x)
-  x<p·x p x 1<p 0<x = <≤-trans (c<2c x 0<x) (≤-·k 1<p)
+-- exported: `FrontierDividesHard` needs it to see m' < p^a · m'
+x<p·x : (p x : ℕ) → 1 < p → 0 < x → x < (p · x)
+x<p·x p x 1<p 0<x = <≤-trans (c<2c x 0<x) (≤-·k 1<p)
 
 ^-pos : (p a : ℕ) → 0 < p → 0 < (p ^ a)
 ^-pos p zero    _   = ≤-refl
