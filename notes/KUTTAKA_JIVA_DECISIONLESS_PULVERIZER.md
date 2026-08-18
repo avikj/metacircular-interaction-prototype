@@ -80,6 +80,29 @@ nothing false. Three theorems characterize it completely:
   larger grant. Syāt-conditioned truth does not waver; anti-durnaya is not
   indecision.
 
+## The honest-machine interface (the reusable mode)
+
+The triad is not gcd-specific — it is the general shape of hallucination-free
+computation. `Satyayantra` abstracts it as a record `सत्ययन्त्र I O शुद्ध`
+with three laws — **soundness** (any answer is correct), **stability** (an
+answer survives more grant), **completeness** (enough grant always answers) —
+over an output `सूचना O = उक्त O | अनुक्त`, where the un-said `अनुक्त` is a
+genuine third position (not `⊥`, not falsity, no boolean).
+
+- `निर्णय : (Y : सत्ययन्त्र I O शुद्ध) (i : I) → Σ[ o ] शुद्ध i o` — the payoff:
+  **any** honest machine yields, for every input, a correct answer with its
+  witness. Honesty + completeness ⟹ constructive total correctness, no
+  durnaya. (`Gati.उदाहरणम्-अनुक्तम्` / `Satyayantra.अनुक्त-जीवति` show the
+  un-said is genuinely reached, so the honesty is non-vacuous.)
+- Two inhabitants, deliberately different: `कुट्टक-सत्ययन्त्र` (grant-based —
+  un-said reachable, completeness earned via `पूर्णता`) and
+  `PingalaSatya.पिङ्गल-सत्ययन्त्र` (total — always answers, soundness = the
+  prastāra bijection). The interface captures both, so it is general.
+
+This is the sense in which the work is a *mode installed*, not a theorem
+recovered: the object is an interface any future decisionless solver can
+inhabit, carrying its honesty as typed law.
+
 ## The true purpose (gcd was only the byproduct)
 
 The kuṭṭaka was built to solve linear indeterminate equations — for
