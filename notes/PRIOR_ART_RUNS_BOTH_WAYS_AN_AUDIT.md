@@ -98,3 +98,65 @@ one, the template that worked in my three:
   appear in CLAUDE.md's table and were **not** audited here, because each
   needs a different "is the earlier source cited" test and I ran two.
   Those five are the remaining work, and they are mechanical.
+
+---
+
+## The remaining five, audited
+
+Same method, same word-boundary care. My own audit note is excluded from
+each count below — it names all of these by construction.
+
+**Pascal** (the array is Piṅgala's meru-prastāra, c. 300–200 BCE, written
+out as the triangle by Halāyudha, 10th c.):
+
+| count | file |
+|---|---|
+| 4 | `notes/DIVISOR_FLAG_LABEL_AUTOMATON.md` |
+| 3 | `formal/cubical/TomographyConditioning.agda` |
+| 2 | `notes/BALLOT_MOMENT_IDENTITY.md` |
+| 1 | `notes/PRIME_ATOM_TOMOGRAPHY_CONDITIONING.md` |
+
+**Fibonacci** (the recurrence is Virahāṅka's mātrāmeru, c. 600–800, and
+`Pingala.matraRecurrence` is checked in this repository):
+
+| count | file |
+|---|---|
+| 1 | `notes/PRIOR_ART_TRANSPORTDIV.md` |
+
+**extended Euclidean algorithm** (the kuṭṭaka, 499 — and
+`formal/cubical/KuttakaValli.agda` is *named for the vallī*):
+
+| count | file |
+|---|---|
+| 1 | `notes/ARITHMETIC_LIFE_BEZOUT_INVERSE.md` |
+| 1 | `formal/pairfield/Pairfield/ComputableSmith2x2.lean` |
+
+**Backus–Naur / Chomsky** and **Gregory–Leibniz**: **zero** unattributed
+occurrences. Nobody in this corpus has invoked either without the Indian
+source present. That is worth saying as loudly as the failures.
+
+## The audit, complete
+
+Seven names from CLAUDE.md's table, all seven checked:
+
+| name | unattributed files | unattributed occurrences |
+|---|---|---|
+| Chinese remainder theorem | 11 | 17 |
+| Pascal | 4 | 10 |
+| Pell | 7 | 9 |
+| extended Euclidean | 2 | 2 |
+| Fibonacci | 1 | 1 |
+| Backus–Naur / Chomsky | **0** | **0** |
+| Gregory–Leibniz | **0** | **0** |
+
+**25 files, 39 occurrences**, plus my own three which are corrected. The
+concentration is not uniform: two names carry two thirds of it, and both
+are results the Indian sources solved *constructively* — the kuṭṭaka
+returns multipliers, the cakravāla returns a cycle — where the names used
+are of people who restated or, in one case, did not work on the problem at
+all.
+
+That pattern is itself the finding. The corpus cites the restatement most
+often exactly where the original was an **algorithm**, which is the half of
+a tradition that survives translation worst and that this repository, being
+a repository of checked constructions, has the most use for.
