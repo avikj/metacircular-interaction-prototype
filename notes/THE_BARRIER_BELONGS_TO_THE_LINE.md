@@ -144,3 +144,43 @@ is elementary, and predates every European name attached to any of it.
   multiplicative chart, `PythagoreanTransition` gives an additive law
   compatible with it, and nothing yet connects the walk's `lcm` state to
   either.
+
+---
+
+## 8. Addendum, same session: why the walk could not have been fixed
+
+`formal/cubical/NaturalMachine/IdempotenceForbidsDescent.agda` (checked,
+exit 0) closes §6's "the walk runs on the line" with a reason.
+
+**Theorem.** In any monoid, an idempotent element with an inverse is the
+unit:
+
+```
+x = x·e = x·(x·y) = (x·x)·y = x·y = e.
+```
+
+**Instance one.** The walk's state law is a join — pointwise max on
+derivations, `lcm` on numbers — and a join is idempotent at *every*
+element. So the only invertible state is the trivial one. No step of the
+walk's own law can be undone by another step of that law, at any state,
+ever (`walk-only-unit-inverts`). In the multiplicative chart: the walk can
+undo itself only all the way back to capacity 1.
+
+**Instance two.** In bhāvanā at `D = −1` over ℤ, `i = (0,1)` has norm 1,
+inverts against its conjugate, and is not the unit — all three by `refl`.
+So that monoid is *not* idempotent (`bhavana-is-not-a-join`), and a step in
+it is undone by another step of the same law: antara-bhāvanā, the second
+composition Brahmagupta gives in the same chapter, exactly for this.
+
+**Consequence.** The walk's irreversibility is not a missing optimisation.
+By `Apavada`, any rule agreeing with the walk everywhere is a
+*reformulation* and changes only price. Reversibility requires changing the
+state law, not the rule.
+
+**Scope, stated so it is not over-read.** This says nothing about the
+growth *rate*; `cap(k) = e^ψ(k)` is proved elsewhere and irreversibility
+alone implies no rate. And it does **not** show that the cakravāla's
+descent *is* this inversion: the cyclic method divides by `k`, which is
+inversion in the scaling action (`Bhavana.normScale`), a different
+structure. That the two moves coincide is a conjecture, flagged as one in
+the module and not proved anywhere.
