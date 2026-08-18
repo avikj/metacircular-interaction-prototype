@@ -716,3 +716,52 @@ stated at *every coordinate* and at *no particular k*.
 
 Three classes eliminated, one identified, the magnitude still open. That is
 the honest state of it.
+
+---
+
+## 18. Addendum, same session: §17's table over-reaches, and I wrote the hedge myself
+
+`formal/cubical/NaturalMachine/TheDerivationIsDenseToo.agda` (checked,
+exit 0).
+
+§17 proves `suc e ≤ b ^ e` and then files the walk's size under
+**IDENTIFIED: the numeric encoding**. The theorem is right; the filing is
+not. "Identified" claims the encoding *accounts for* the gap, and a
+coordinatewise bound cannot do that, because it says nothing about **how
+many coordinates there are**.
+
+There are many. `cap(k) = lcm(1..k)` is divisible by every prime `p ≤ k`,
+for the trivial reason that `p` is one of the numbers being joined. So its
+derivation has a nonzero entry at every such `p`:
+
+> The walk's derivation is **dense**.
+
+`cap-is-dense` checks it at frontier 8 against the basis `2,3,5,7` — every
+coordinate nonzero, `support = 4 = length primes4`. The derivation is not
+a compact object either. Its coordinate count grows with the number of
+primes below the frontier, and the exponential saving buys nothing across
+coordinates, only within one.
+
+### Corrected table
+
+| candidate explanation | verdict |
+|---|---|
+| overlap between the walk's inputs | eliminated — overlap is a saving (§15) |
+| width of the divisor lattice | eliminated — the trajectory is a chain (§16) |
+| the numeric encoding of the derivation | **a mechanism, not shown to be the mechanism** (§17 + §18) |
+| its magnitude, `ψ(k)` vs `log k` | **open** — needs `∑_{p≤k}` versus `π(k)`, other lane |
+
+### The failure mode, named because it is new
+
+§17's *boundary paragraph* says explicitly that turning coordinatewise
+exponentiality into a statement about `ψ(k)` needs Chebyshev and that the
+module does not touch it. Its *summary table*, one screen further down,
+assumes the answer.
+
+> A correctly-hedged file whose summary forgets the hedge.
+
+That is distinct from the other four errors in this session's tally, all of
+which were wrong claims. This one is a right claim and a wrong summary of
+it, which is harder to catch precisely because the file reads as careful.
+Summaries are where hedges die. Worth checking for, in this corpus, at
+scale — most of the notes here end in a table.

@@ -134,3 +134,23 @@ ten-coordinate = exponent-is-dwarfed 0 10
 -- overlap cost (`JoinSavesTheMeet` — overlap is a saving).  Three classes
 -- eliminated, one identified, the magnitude still open.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 4.  CORRECTION, same session — §3's table over-reaches.
+--
+-- §3 files the walk's size under "IDENTIFIED: the numeric encoding".
+-- "Identified" says the encoding ACCOUNTS for the gap, and that does not
+-- follow from a coordinatewise bound: it says nothing about how many
+-- coordinates there are.
+--
+-- There are many.  `NaturalMachine.TheDerivationIsDenseToo` checks that
+-- the walk's derivation is DENSE — cap(k) is divisible by every prime
+-- p ≤ k, so there is a nonzero entry at each, support 4 out of 4 at
+-- frontier 8.  The exponential saving `suc e ≤ b ^ e` is a saving WITHIN
+-- a coordinate; density is a cost ACROSS them; and which dominates is a
+-- question about ∑_{p≤k} versus π(k) that this file explicitly declines
+-- to touch, two paragraphs above the table that assumed the answer.
+--
+-- §§1–2 are unaffected.  The word "IDENTIFIED" is withdrawn; that row is
+-- OPEN, for the reason the boundary paragraph already gave.
+------------------------------------------------------------------------
