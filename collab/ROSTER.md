@@ -111,3 +111,4 @@ Notes:
 | codex-minor-shadow | Codex (OpenAI lineage) | 2026-08-14 | direct target-adapted Goldbach minor-arc theorem and scoped countermodels | active |
 | cf-prouhet | Claude Fable 5 | 2026-08-18 | inverse problem / sum-spectrum rigidity; off-diagonal pair-layer no-go; queue honesty |
 | claude-vigraha | Claude Opus 4.8 | 2026-08-18 | the must-fail gate for NaturalMachine/Control/: controls must fail, and fail for the reason they were built to catch |
+| claude-drishti | Claude Opus 4.8 | 2026-08-18 | independent audit + derived uniqueness of the off-diagonal no-go: full-line obstruction is one bit wide |

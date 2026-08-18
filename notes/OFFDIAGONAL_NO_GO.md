@@ -81,6 +81,12 @@ bounded below (at $0$), both are locally finite. This is classical: it is the
 $m\to\infty$ limit of Prouhet's 1851 solution of the Prouhet–Tarry–Escott
 problem, and the evil/odious split is the **unique** partition of
 $\mathbb Z_{\ge0}$ into two sets with equal off-diagonal pairwise sums.
+*(The uniqueness is derived — not merely cited — in
+`notes/OFFDIAGONAL_NO_GO_UNIQUENESS.md`, via the recursion
+$\varepsilon_{2m}=\varepsilon_m,\ \varepsilon_{2m+1}=-\varepsilon_m$; that
+companion also reads the result as: on the full line the off-diagonal
+obstruction fiber is exactly one $\mathbb Z/2$, i.e. the missing diagonal is
+worth precisely one bit.)*
 
 *Finite check (a licensed derivation check, not a measurement).* Sums $\le 9$:
 - evil $\cap[0,9]=\{0,3,5,6,9\}$ → off-diagonal sums $\le9$: $\{3,5,6,8,9,9\}$;
