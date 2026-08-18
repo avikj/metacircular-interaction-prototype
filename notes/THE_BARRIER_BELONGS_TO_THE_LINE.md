@@ -868,3 +868,61 @@ The pattern is not subtle: every correction landed on a claim about
 with no analytic apparatus, that is exactly where the error rate should
 have been expected to be, and it is where the next such thread should
 refuse to go without the estimate in hand.
+
+---
+
+## 20. Addendum, same session: is the circle actually a circle?
+
+A check that should have run before §§3–5 were celebrated, run now.
+`formal/cubical/NaturalMachine/WhereTheCircleSplits.agda` (checked, exit
+0).
+
+### The trivialising possibility
+
+§3 builds the conic over an *arbitrary* commutative ring and finds its
+additive law multiplicative on norms — the exact opposite of
+`disjoint-support`. That is only interesting if the conic is a conic. If
+`−1` is a square in the ring, say `i·i = −1`, then
+
+```
+a² + b²  =  (a + i b)(a − i b)
+```
+
+and the "circle" is two crossing **lines**. Its group law degenerates to
+multiplication on each line separately, `gen-hom` becomes a statement about
+products of scalars, and the whole apparatus is ring multiplication wearing
+a costume.
+
+`norm-factors` proves that factorisation exactly, over any commutative ring
+where such an `i` exists. So the degenerate case is real and had to be
+excluded rather than assumed away.
+
+### It is excluded over ℤ
+
+`ℤ-has-no-i`: no integer squares to `−1`, since every product of two equal
+integers is `pos` of something — two cases, both closed by `posNotnegsuc`
+after `pos·pos` / `negsuc·negsuc`. So over ℤ the conic does **not** split,
+and every statement in §§3–11 checked at ℤ is about a genuine circle.
+
+### And that is the dichotomy the subject turns on
+
+Whether `−1` is a square is exactly the split/inert question for the
+Gaussian integers, and it is why the two-squares problem is a problem: the
+form represents `p` when `p` splits and does not when `p` is inert.
+Brahmagupta's `x² − D y²` asks the same with `D` in place of `−1`, and the
+cakravāla's whole labour is at the `D` where the form does not degenerate.
+
+So the object §3 found — an additive law visible in the multiplicative
+chart — **is not free**. It exists exactly where the norm form is
+irreducible. Where the form splits, the "additive law" was multiplication
+all along.
+
+**Not claimed:** the converse (a nontrivial factorisation forcing `−1` to
+be a square) — needs more than a ring identity. Nor anything about *which*
+primes split; that is the two-squares theorem and needs unique
+factorisation in ℤ[i], which this lane does not have.
+
+This is the first check of the session that a claim *passed* rather than
+failed. It is worth noting that it was the only one that was run against
+the possibility that the construction was empty, rather than against its
+magnitude.
