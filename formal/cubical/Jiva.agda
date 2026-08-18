@@ -53,3 +53,4 @@ import Matramerus
 import Brahmagupta
 
 import Satyayantra
+import PingalaSatya
