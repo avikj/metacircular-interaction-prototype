@@ -164,6 +164,28 @@ astronomy (planetary conjunction), not for gcd.
   utpāda-vyaya-dhrauvya) are stated as the structures they formalize, held as
   `≃?` where they are analogy and `≡` only where a path is checked.
 
+## The generative traditions — engaged as systems, not mined for theorems
+
+Two further lanes formalize the *epistemology*, not just the results — the
+half of the directive that matters more:
+
+- `Saptabhangi` — Jain sevenfold predication as checked logic. `क्रम-सह-भेदः`:
+  the simultaneous (yugapad) mode is irreducible to the sequential
+  (`स्यात्-अस्ति-नास्ति ≢ स्यात्-अवक्तव्यम्`) — avaktavya is a genuine fourth
+  position. `दुर्नयः`: any two-valued verdict provably collapses two of the
+  three seeds (pigeonhole) — the boolean *is* durnaya, proved. And *why
+  seven*: `वृत्तम्` shows the sevenfold embeds faithfully into the non-empty
+  combinations of the three seeds (2³−1). Samantabhadra, Akalaṅka, Siddhasena.
+- `Panini` — the Aṣṭādhyāyī (~500 BCE) as a generative rewriting system with
+  conflict resolution. `अपवाद-बलम्`: the apavāda (exception) blocks the
+  utsarga (general rule) where it applies — a rule is option-typed (`Maybe`,
+  generative), *not* a boolean test, and the first firing rule wins. This is
+  the utsarga/apavāda machinery `CLAUDE.md` names as absent from the engine,
+  ~2400 years before Backus–Naur.
+
+Both are the same lesson the kuṭṭaka teaches, read in logic and in grammar:
+**generation and standpoint over the boolean verdict.**
+
 ## Adjacent lane — faithful to the sources, but a DIFFERENT principle
 
 `Brahmagupta` (`formal/cubical/`, `--cubical --safe`) checks the **bhāvanā**
