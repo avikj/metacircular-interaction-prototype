@@ -58,9 +58,11 @@
 module NaturalMachine.Sankalita where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc ; +-comm)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc ; +-comm ; snotz ; injSuc)
+open import Cubical.Data.Sigma using (_×_ ; _,_)
+open import Cubical.Relation.Nullary using (¬_)
 
-open import Pingala using (meru ; meruRecurrence)
+open import Pingala using (meru ; meruRecurrence ; matra)
 
 ------------------------------------------------------------------------
 -- 1.  संकलित: the summation operator
@@ -263,4 +265,124 @@ vara3-is-meru = varasankalita 3 5
 --
 -- Both routes are now specified well enough to be attempted without
 -- rediscovering the obstacle.  That is what this section is for.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 10.  The monus obstacle of §9 is removable, and here is the encoding.
+--
+-- §9 says the long-sum encoding costs truncated subtraction inside a
+-- Pascal step.  It does not have to: the same sum is the ANTIDIAGONAL of
+-- the array, and antidiagonals enumerate structurally.
+--
+--     Σ_{t ≤ n} meru (n ∸ t) t  =  Σ_{a + b = n} meru a b
+--
+-- and the right-hand side needs no subtraction:
+------------------------------------------------------------------------
+
+AD : ℕ → ℕ → ℕ
+AD a zero    = meru a 0
+AD a (suc b) = meru a (suc b) + AD (suc a) b
+
+antidiag : ℕ → ℕ
+antidiag n = AD 0 n
+
+-- the mātrāmeru's values, by computation
+antidiag-0 : antidiag 0 ≡ 1
+antidiag-0 = refl
+
+antidiag-1 : antidiag 1 ≡ 1
+antidiag-1 = refl
+
+antidiag-2 : antidiag 2 ≡ 2
+antidiag-2 = refl
+
+antidiag-3 : antidiag 3 ≡ 3
+antidiag-3 = refl
+
+antidiag-4 : antidiag 4 ≡ 5
+antidiag-4 = refl
+
+antidiag-5 : antidiag 5 ≡ 8
+antidiag-5 = refl
+
+-- and they agree with Virahāṅka's array, at these frontiers
+antidiag-is-matra-4 : antidiag 4 ≡ matra 4
+antidiag-is-matra-4 = refl
+
+antidiag-is-matra-5 : antidiag 5 ≡ matra 5
+antidiag-is-matra-5 = refl
+
+------------------------------------------------------------------------
+-- 11.  What is left, stated exactly.
+--
+--     GOAL :  (n : ℕ) → antidiag (suc (suc n)) ≡ antidiag (suc n) + antidiag n
+--
+-- from which `antidiag n ≡ matra n` follows by two-step induction against
+-- `Pingala.matraRecurrence`, the base cases being the `refl`s above.
+--
+-- Of the two obstacles §§8–9 identified:
+--   * the hard truncation is gone — `AD` runs to the array's own edge and
+--     the zero entries end it;
+--   * the truncated subtraction is gone — `AD` enumerates the
+--     antidiagonal by structural recursion on the second index.
+--
+-- What remains is boundary bookkeeping in the Pascal step:
+-- `meruRecurrence` decomposes by the FIRST index, so applying it to
+-- `meru a b` needs `a` a successor, and the `a = 0` column has to be
+-- handled separately in each of the two reindexed families.  That is a
+-- case analysis, not an obstacle, and it is the whole of what is left.
+--
+-- Three sections of diagnosis to remove two obstacles and name the third
+-- precisely.  Recorded that way because "this is bookkeeping" was said in
+-- §8 and was not yet true.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 12.  CORRECTION to §11: "the whole of what is left" was not checked,
+--      and it is wrong.
+--
+-- §11 says the remaining work is boundary bookkeeping — "a case analysis,
+-- not an obstacle".  I asserted that without trying the induction.  The
+-- induction does not close, and the reason is not a boundary case.
+--
+-- Unfolding the goal at `n = suc m` gives
+--
+--     AD 1 (suc (suc m))  ≡  AD 1 (suc m) + AD 1 m
+--
+-- because `meru 0 (suc _)` is zero.  So one hopes the recurrence holds
+-- for `AD a` at every `a`.  It holds at `a = 1` and FAILS at `a = 2`:
+------------------------------------------------------------------------
+
+AD1-values : (AD 1 0 ≡ 1) × ((AD 1 1 ≡ 2) × ((AD 1 2 ≡ 3) × (AD 1 3 ≡ 5)))
+AD1-values = refl , refl , refl , refl
+
+AD2-values : (AD 2 0 ≡ 1) × ((AD 2 1 ≡ 3) × ((AD 2 2 ≡ 5) × (AD 2 3 ≡ 8)))
+AD2-values = refl , refl , refl , refl
+
+-- 5 ≠ 3 + 1: the row-2 antidiagonal sums are not Fibonacci-recurrent
+AD2-breaks-the-recurrence : ¬ (AD 2 2 ≡ AD 2 1 + AD 2 0)
+AD2-breaks-the-recurrence p = snotz (injSuc (injSuc (injSuc (injSuc p))))
+
+------------------------------------------------------------------------
+-- 13.  What that actually shows, and where the thread stands.
+--
+-- `AD a b` truncates at the `b` end — the antidiagonal from `(a,b)` runs
+-- out of room before the full shallow diagonal of row `a` does — so for
+-- `a ≥ 2` it is not the shallow diagonal at all, and no induction whose
+-- intermediate objects are `AD a _` can work.  `antidiag n = AD 0 n` is
+-- correct; the family it sits in is not closed under the recurrence.
+--
+-- So THREE encodings have now failed, each for a different reason:
+--
+--   §8   two-step descent      hard truncation at ⌊i/2⌋
+--   §9   long sum with monus   subtraction inside the Pascal step
+--   §11  antidiagonal `AD`     the family is not closed under reindexing
+--
+-- and the typed route of §8 — `Metre n ≃ Σ_k Chosen (n−k) k`, using
+-- `Pingala.meruCount` — is the only one still standing.  That is now a
+-- recommendation with three refutations behind it rather than a guess.
+--
+-- Recorded at length because the alternative was to leave §11's "this is
+-- bookkeeping" in place, and it is exactly the kind of sentence that
+-- costs the next reader a day.
 ------------------------------------------------------------------------
