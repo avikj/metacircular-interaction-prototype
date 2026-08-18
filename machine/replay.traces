@@ -1832,3 +1832,477 @@ candidate : (x y : ℕ) → (le (x) (suc (zero))) ≡ (le ((x + y)) (suc (y)))
 candidate x zero = sym (cong (λ h → (le (h) (suc (zero)))) (addZero (x)))
 candidate x (suc y) = sym (sym (candidate (x) (y))) ∙ sym (leSuc ((x + y)) (suc (y))) ∙ sym (cong (λ h → (le (h) (suc (suc (y))))) (addSuc (x) (y)))
 -- END TRACE
+-- TRACE x	+(0,x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+candidate : (x : ℕ) → x ≡ (zero + x)
+candidate zero = sym (addZero (zero))
+candidate (suc x) = sym (cong (λ h → suc (h)) (sym (candidate (x)))) ∙ sym (addSuc (zero) (x))
+-- END TRACE
+-- TRACE 0	*(0,x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+candidate : (x : ℕ) → zero ≡ (zero · x)
+candidate zero = sym (mulZero (zero))
+candidate (suc x) = sym (addZero (zero)) ∙ sym (cong (λ h → (h + zero)) (sym (candidate (x)))) ∙ sym (mulSuc (zero) (x))
+-- END TRACE
+-- TRACE x	*(s(0),x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+candidate : (x : ℕ) → x ≡ (suc (zero) · x)
+candidate zero = sym (mulZero (suc (zero)))
+candidate (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (candidate (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+-- END TRACE
+-- TRACE 0	le(s(x),x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)
+leZeroL b = refl
+leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero
+leSucZero a = refl
+leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))
+leSuc a b = refl
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+candidate : (x : ℕ) → zero ≡ (le (suc (x)) (x))
+candidate zero = sym (leSucZero (zero))
+candidate (suc x) = sym (sym (candidate (x))) ∙ sym (leSuc (suc (x)) (x))
+-- END TRACE
+-- TRACE 0	*(x,le(x,0))
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)
+leZeroL b = refl
+leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero
+leSucZero a = refl
+leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))
+leSuc a b = refl
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+lem6 : (x : ℕ) → zero ≡ (le (suc (x)) (x))
+lem6 zero = sym (leSucZero (zero))
+lem6 (suc x) = sym (sym (lem6 (x))) ∙ sym (leSuc (suc (x)) (x))
+candidate : (x : ℕ) → zero ≡ (x · (le (x) (zero)))
+candidate zero = sym (sym (lem2 ((le (zero) (zero)))))
+candidate (suc x) = sym (mulZero (suc (x))) ∙ sym (cong (λ h → (suc (x) · h)) (leSucZero (x)))
+-- END TRACE
+-- TRACE 0	*(le(x,0),x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)
+leZeroL b = refl
+leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero
+leSucZero a = refl
+leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))
+leSuc a b = refl
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+lem6 : (x : ℕ) → zero ≡ (le (suc (x)) (x))
+lem6 zero = sym (leSucZero (zero))
+lem6 (suc x) = sym (sym (lem6 (x))) ∙ sym (leSuc (suc (x)) (x))
+lem9 : (x : ℕ) → zero ≡ (x · (le (x) (zero)))
+lem9 zero = sym (sym (lem2 ((le (zero) (zero)))))
+lem9 (suc x) = sym (mulZero (suc (x))) ∙ sym (cong (λ h → (suc (x) · h)) (leSucZero (x)))
+candidate : (x : ℕ) → zero ≡ ((le (x) (zero)) · x)
+candidate zero = sym (mulZero ((le (zero) (zero))))
+candidate (suc x) = sym (addZero (zero)) ∙ sym (cong (λ h → (h + zero)) (sym (lem2 (x)))) ∙ sym (mulSuc (zero) (x)) ∙ sym (cong (λ h → (h · suc (x))) (leSucZero (x)))
+-- END TRACE
+-- TRACE 0	le(s(s(x)),x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)
+leZeroL b = refl
+leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero
+leSucZero a = refl
+leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))
+leSuc a b = refl
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+lem6 : (x : ℕ) → zero ≡ (le (suc (x)) (x))
+lem6 zero = sym (leSucZero (zero))
+lem6 (suc x) = sym (sym (lem6 (x))) ∙ sym (leSuc (suc (x)) (x))
+lem9 : (x : ℕ) → zero ≡ (x · (le (x) (zero)))
+lem9 zero = sym (sym (lem2 ((le (zero) (zero)))))
+lem9 (suc x) = sym (mulZero (suc (x))) ∙ sym (cong (λ h → (suc (x) · h)) (leSucZero (x)))
+lem10 : (x : ℕ) → zero ≡ ((le (x) (zero)) · x)
+lem10 zero = sym (mulZero ((le (zero) (zero))))
+lem10 (suc x) = sym (addZero (zero)) ∙ sym (cong (λ h → (h + zero)) (sym (lem2 (x)))) ∙ sym (mulSuc (zero) (x)) ∙ sym (cong (λ h → (h · suc (x))) (leSucZero (x)))
+candidate : (x : ℕ) → zero ≡ (le (suc (suc (x))) (x))
+candidate zero = sym (leSucZero (suc (zero)))
+candidate (suc x) = sym (sym (candidate (x))) ∙ sym (leSuc (suc (suc (x))) (x))
+-- END TRACE
+-- TRACE s(x)	+(s(0),x)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+candidate : (x : ℕ) → suc (x) ≡ (suc (zero) + x)
+candidate zero = sym (addZero (suc (zero)))
+candidate (suc x) = sym (cong (λ h → suc (h)) (sym (candidate (x)))) ∙ sym (addSuc (suc (zero)) (x))
+-- END TRACE
+-- TRACE +(s(x),y)	s(+(x,y))
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+lem13 : (x : ℕ) → suc (x) ≡ (suc (zero) + x)
+lem13 x = refl
+candidate : (x y : ℕ) → (suc (x) + y) ≡ suc ((x + y))
+candidate x zero = addZero (suc (x)) ∙ sym (cong (λ h → suc (h)) (addZero (x)))
+candidate x (suc y) = addSuc (suc (x)) (y) ∙ cong (λ h → suc (h)) (candidate (x) (y)) ∙ sym (cong (λ h → suc (h)) (addSuc (x) (y)))
+-- END TRACE
+-- TRACE le(x,0)	le(+(x,x),0)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)
+leZeroL b = refl
+leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero
+leSucZero a = refl
+leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))
+leSuc a b = refl
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+lem6 : (x : ℕ) → zero ≡ (le (suc (x)) (x))
+lem6 zero = sym (leSucZero (zero))
+lem6 (suc x) = sym (sym (lem6 (x))) ∙ sym (leSuc (suc (x)) (x))
+lem9 : (x : ℕ) → zero ≡ (x · (le (x) (zero)))
+lem9 zero = sym (sym (lem2 ((le (zero) (zero)))))
+lem9 (suc x) = sym (mulZero (suc (x))) ∙ sym (cong (λ h → (suc (x) · h)) (leSucZero (x)))
+lem10 : (x : ℕ) → zero ≡ ((le (x) (zero)) · x)
+lem10 zero = sym (mulZero ((le (zero) (zero))))
+lem10 (suc x) = sym (addZero (zero)) ∙ sym (cong (λ h → (h + zero)) (sym (lem2 (x)))) ∙ sym (mulSuc (zero) (x)) ∙ sym (cong (λ h → (h · suc (x))) (leSucZero (x)))
+lem12 : (x : ℕ) → zero ≡ (le (suc (suc (x))) (x))
+lem12 zero = sym (leSucZero (suc (zero)))
+lem12 (suc x) = sym (sym (lem12 (x))) ∙ sym (leSuc (suc (suc (x))) (x))
+lem13 : (x : ℕ) → suc (x) ≡ (suc (zero) + x)
+lem13 x = refl
+lem28 : (x y : ℕ) → (suc (x) + y) ≡ suc ((x + y))
+lem28 x y = refl
+candidate : (x : ℕ) → (le (x) (zero)) ≡ (le ((x + x)) (zero))
+candidate zero = sym (cong (λ h → (le (h) (zero))) (addZero (zero)))
+candidate (suc x) = leSucZero (x) ∙ sym (leSucZero (suc ((x + x)))) ∙ sym (cong (λ h → (le (suc (h)) (zero))) (lem28 (x) (x))) ∙ sym (cong (λ h → (le (h) (zero))) (addSuc (suc (x)) (x)))
+-- END TRACE
+-- TRACE le(x,0)	le(+(x,y),y)
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+addZero : (a : ℕ) → (a + zero) ≡ a
+addZero zero = refl
+addZero (suc a) = cong suc (addZero a)
+addSuc : (a b : ℕ) → (a + suc b) ≡ suc (a + b)
+addSuc zero b = refl
+addSuc (suc a) b = cong suc (addSuc a b)
+addAssoc : (a b c : ℕ) → ((a + b) + c) ≡ (a + (b + c))
+addAssoc zero b c = refl
+addAssoc (suc a) b c = cong suc (addAssoc a b c)
+mulZero : (a : ℕ) → (a · zero) ≡ zero
+mulZero zero = refl
+mulZero (suc a) = mulZero a
+mulSuc : (a b : ℕ) → (a · suc b) ≡ ((a · b) + a)
+mulSuc zero b = refl
+mulSuc (suc a) b =
+  cong (λ h → suc (b + h)) (mulSuc a b)
+  ∙ cong suc (sym (addAssoc b (a · b) a))
+  ∙ sym (addSuc (b + (a · b)) a)
+leZeroL : (b : ℕ) → (le (zero) (b)) ≡ suc (zero)
+leZeroL b = refl
+leSucZero : (a : ℕ) → (le (suc (a)) (zero)) ≡ zero
+leSucZero a = refl
+leSuc : (a b : ℕ) → (le (suc (a)) (suc (b))) ≡ (le (a) (b))
+leSuc a b = refl
+lem0 : (x : ℕ) → x ≡ (zero + x)
+lem0 x = refl
+lem2 : (x : ℕ) → zero ≡ (zero · x)
+lem2 x = refl
+lem4 : (x : ℕ) → x ≡ (suc (zero) · x)
+lem4 zero = sym (mulZero (suc (zero)))
+lem4 (suc x) = sym (cong (λ h → suc (h)) (addZero (x))) ∙ sym (addSuc (x) (zero)) ∙ sym (cong (λ h → (h + suc (zero))) (sym (lem4 (x)))) ∙ sym (mulSuc (suc (zero)) (x))
+lem6 : (x : ℕ) → zero ≡ (le (suc (x)) (x))
+lem6 zero = sym (leSucZero (zero))
+lem6 (suc x) = sym (sym (lem6 (x))) ∙ sym (leSuc (suc (x)) (x))
+lem9 : (x : ℕ) → zero ≡ (x · (le (x) (zero)))
+lem9 zero = sym (sym (lem2 ((le (zero) (zero)))))
+lem9 (suc x) = sym (mulZero (suc (x))) ∙ sym (cong (λ h → (suc (x) · h)) (leSucZero (x)))
+lem10 : (x : ℕ) → zero ≡ ((le (x) (zero)) · x)
+lem10 zero = sym (mulZero ((le (zero) (zero))))
+lem10 (suc x) = sym (addZero (zero)) ∙ sym (cong (λ h → (h + zero)) (sym (lem2 (x)))) ∙ sym (mulSuc (zero) (x)) ∙ sym (cong (λ h → (h · suc (x))) (leSucZero (x)))
+lem12 : (x : ℕ) → zero ≡ (le (suc (suc (x))) (x))
+lem12 zero = sym (leSucZero (suc (zero)))
+lem12 (suc x) = sym (sym (lem12 (x))) ∙ sym (leSuc (suc (suc (x))) (x))
+lem13 : (x : ℕ) → suc (x) ≡ (suc (zero) + x)
+lem13 x = refl
+lem28 : (x y : ℕ) → (suc (x) + y) ≡ suc ((x + y))
+lem28 x y = refl
+lem31 : (x : ℕ) → (le (x) (zero)) ≡ (le ((x + x)) (zero))
+lem31 zero = sym (cong (λ h → (le (h) (zero))) (addZero (zero)))
+lem31 (suc x) = leSucZero (x) ∙ sym (leSucZero (suc ((x + x)))) ∙ sym (cong (λ h → (le (suc (h)) (zero))) (lem28 (x) (x))) ∙ sym (cong (λ h → (le (h) (zero))) (addSuc (suc (x)) (x)))
+candidate : (x y : ℕ) → (le (x) (zero)) ≡ (le ((x + y)) (y))
+candidate x zero = sym (cong (λ h → (le (h) (zero))) (addZero (x)))
+candidate x (suc y) = sym (sym (candidate (x) (y))) ∙ sym (leSuc ((x + y)) (y)) ∙ sym (cong (λ h → (le (h) (suc (y)))) (addSuc (x) (y)))
+-- END TRACE
