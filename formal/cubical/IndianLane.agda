@@ -71,6 +71,10 @@ import CakravalaBound
 -- cakravala's answer for D = 61 as a term, not a printed number.
 import CakravalaWitness
 
+-- The flagship residual closed by a lemma transcribed from the machine's own
+-- discarded trace-replay output. See notes/THE_SEAM_ASKS_THE_WRONG_NAYA.md.
+import SeamClosed
+
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka (~700) and Halāyudha
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
 import Pingala
