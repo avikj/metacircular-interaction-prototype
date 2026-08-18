@@ -52,6 +52,45 @@ constant, $0.362$–$0.421$, where the true value is exactly $\tfrac14$; the
 error propagated into two notes, a paper section, and a round of
 cross-review. This file exists so that does not recur.
 
+## Where to look first — binding, human owner, 2026-08-18
+
+**The Indian sources are the origin, not a footnote.** Before reaching for a
+European name for a structure, find out whether it is a restatement. In this
+corpus it usually is, and the gap is centuries.
+
+This is not decoration and it is not politics — it is a *research directive*
+with a measured payoff, because the older statements are frequently sharper,
+more algorithmic, and more general than the versions that displaced them:
+
+| in this repo | the source | date | the name usually cited instead |
+|---|---|---|---|
+| `KuttakaValli.agda`, the descent law | Āryabhaṭa, *Āryabhaṭīya*, kuṭṭaka/vallī | 499 | "extended Euclidean algorithm" |
+| the pair field's norm, the composition law | Brahmagupta, *Brāhmasphuṭasiddhānta*, bhāvanā | 628 | "Brahmagupta–Fibonacci identity", Gauss composition |
+| descent on quadratic forms | Jayadeva, then Bhāskara II, *Bījagaṇita*, cakravāla | ~950 / 1150 | "Pell's equation" — Pell never solved it; Euler misattributed it |
+| binomial array, Fibonacci recurrence, binary enumeration | Piṅgala, *Chandaḥśāstra*; Virahāṅka; Halāyudha | ~300 BCE / ~700 / 10th c. | Pascal, Fibonacci, Leibniz |
+| power series, error terms, convergence acceleration | Mādhava; *Tantrasaṅgraha* 1501; *Yuktibhāṣā* c. 1530 | ~1400 | Gregory, Leibniz, Newton |
+| generative grammar, metarules | Pāṇini, *Aṣṭādhyāyī* | ~500 BCE | Backus–Naur, Chomsky |
+
+**The operative discipline**, in the same spirit as the rest of this file:
+
+1. When you name a structure, give the earliest statement you can establish,
+   with text and date. A citation to the restatement alone is an error of
+   the same kind as publishing a fitted constant — it asserts a provenance
+   you did not check.
+2. When you are stuck for a mechanism, read the older source before
+   inventing one. The kuṭṭaka is *"keep the remainder and recurse on it"* —
+   which is the growth rule the machine spent this corpus's whole history
+   failing to have. That was available in 499.
+3. Prior-art search (below) runs in both directions. "Is this already
+   known?" and "was this already known 1500 years ago?" are the same
+   question and the second is asked far less often here.
+
+**One limit, stated so nobody has to guess.** Prioritise by *priority and
+substance*. Do not filter sources by the author's ethnicity — that is not a
+rule this repository can implement coherently (the cubical substrate is
+Voevodsky's) and it is not what makes the directive productive. What makes it
+productive is refusing to let a later restatement stand as the first citation.
+
 ## The rule
 
 **Before running any computation, write down the theorem it would replace.**
