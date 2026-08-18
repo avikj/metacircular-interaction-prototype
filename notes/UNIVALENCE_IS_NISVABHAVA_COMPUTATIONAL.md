@@ -67,10 +67,21 @@ prematurely (the discipline of `APOHA_CHANGES_THE_TYPE_OF_ALIGNMENT.md`):
 
 1. **Does univalence-as-axiom grant *equivalence itself* a svabhāva?** If `≃`
    were treated as a bare positive primitive, the whole thing would smuggle in
-   an own-being at one remove. It does not appear to: `≃` is built from types,
-   functions, and homotopies, all equally empty, no floor. But this is the
-   sharpest place to try to break the identification, and if it holds the
-   identification is clean.
+   an own-being at one remove. **Discharged in checked terms**
+   (`formal/cubical/NaturalMachine/EquivalenceHasNoFloor.agda`): an
+   equivalence's identity is fixed by its underlying function alone
+   (`equivEq`); "being an equivalence" is a proposition, so it carries no data
+   to own (`isPropIsEquiv`); a function's identity is exhausted by its
+   pointwise action (`funExt`). Chase the tower down — equivalence → function →
+   action → identity of the output points — and it bottoms out at a Path,
+   which is a *relation*, not an entity. The substrate's floor is the interval
+   / Path, i.e. dependence itself, not any thing with svabhāva. **One residual
+   frontier remains:** whether the interval-primitive `I` is itself a residual
+   own-being — the exact formal echo of the deepest Madhyamaka question, *is
+   pratītyasamutpāda itself empty?* (the Dzogchen *gzhi*, the ground). That the
+   ground of the substrate is *relation and not entity* is the strongest form
+   the answer can take inside the system; whether the relation-primitive is in
+   turn empty is not statable as a term of the system it grounds.
 2. **Soteriological scope.** Emptiness is asserted of the self (anātman), of
    dukkha, of time, *for liberation*. Univalence is emptiness of *types*.
    Whether that is "missing" or "the formalizable shadow of the whole" turns
