@@ -220,3 +220,80 @@ by grepping aggregate counts and reasoning about what the filter *would* do.
 The answer took four minutes once I added a flag that asks the prover what it
 *does*. `RESIDUAL-REACHED-PROVER` and `--prove-residuals` exist now for that
 reason.
+
+---
+
+## 9. The repair proposed in §8 is refuted, and so is Note A's justification
+
+See `notes/CLAUSE_ORDER_TRADE.md` for the full measurement. Three results, and
+the first one kills §8's fix.
+
+### 9.1 There is no third preamble — and this is a proof, not a measurement
+
+A case tree splits **one** column at the root. So for a binary `f`, at most one
+of
+
+```
+    f x zero ≡ x          f zero x ≡ x
+```
+
+can hold definitionally. This is `Certificate.hs`'s own Note B — stated there
+for `max`, where the machine uses both orientations as unconditional rewrite
+rules and no Agda case tree reproduces it — generalised from `max` to `+` and
+`·`, where it applies for exactly the same reason.
+
+Therefore transcribing MathMachine's `symDefs` does **not** stop the residual
+stream. It **mirrors** it: the 75 artefacts become a different 75. §8 ended
+"either orientation is provable on both sides and the residual stream stops
+being an artefact" — the first half is true and was already true, the second
+half is false, and I did not check it before writing it.
+
+### 9.2 Note A's measurement does not survive reproduction either
+
+Reproduced over the 42 distinct equations of `machine/library.terms`:
+
+| preamble | certified | `refl` alone |
+|---|---|---|
+| first-argument (what the gate emits) | **36 / 42** | 5 / 42 |
+| symDefs transcribed | **35 / 42** | 0 / 42 |
+
+"Strictly more" is one equation. And the two arms are **one gate composed with
+an involution**: run the first-argument preamble against the mirror-image
+library and it certifies 35 — *the same 35*. So 36-vs-35 measures how far
+`library.terms` is from being closed under the mirror, and is not a fact about
+clause orders at all.
+
+### 9.3 Both populations are circular, including mine
+
+`library.terms` is appended only inside the kernel-accepted loop
+(`MathMachine.hs:3948`), and a conjecture the machine's rewriter closes never
+reaches the kernel to begin with. So the file cannot contain the zero-laws:
+
+```
+    grep -c '+(x,0)\|\*(x,0)\|max(x,0)' machine/library.terms   →   0
+```
+
+The 5–0 `refl` split is the file's own construction read back.
+
+**And §8's 75 of 137 is confounded the same way, symmetrically.** Those 137
+lemmas are, by definition, what the first-argument gate stalled on. So the
+honest statement is not "55% of the mathematics the machine needs is an
+artefact". It is: **55% of what this convention causes to stall is caused by
+this convention** — which is nearly a tautology once said plainly, and I
+published it as though it were a discovery about the machine's mathematics.
+The 49 that are definitional under neither reading are the part that survives,
+and they remain the real curriculum.
+
+### 9.4 What is actually left
+
+The lever is the one `machine/KernelContext.hs` already builds: a proved lemma
+emitted as a **named checked definition** the goal can cite. That is orthogonal
+to clause order — once `x + 0 ≡ x` is in scope as a citable term, which
+orientation reduces definitionally stops mattering. Keep the first-argument
+preamble, for compatibility rather than for mathematics: 2126 `.certcache`
+entries, `library.terms` and the whole of `machine.log` were produced under it.
+
+**The largest hole, unmeasured by either arm:** `TraceReplay` accounts for 820
+of the 2362 `KERNEL-ACCEPT` lines and neither preamble exercises it. It is the
+path most likely to behave differently under a transcribed `+`, and nothing
+here says anything about it.
