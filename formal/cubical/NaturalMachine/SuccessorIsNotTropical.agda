@@ -166,3 +166,32 @@ join-does-not-follow p =
 -- what happens between charts.  The object to build is the transition
 -- itself.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 5.  ADDENDUM, 2026-08-18 — scope of §4, added without altering it.
+--
+-- §4 above reads `disjoint-support` as "the parity barrier is a chart
+-- incompatibility" and calls it "its whole content".  That reading is
+-- scoped and the scope was not stated: the theorem is about ℕ **with the
+-- successor**, whose generator 1 is a unit and therefore multiplicatively
+-- invisible by construction.  It is not a theorem about arithmetic
+-- carrying two structures.
+--
+-- `NaturalMachine.PythagoreanTransition` keeps the ring and changes the
+-- additive law to Brahmagupta's composition (bhāvanā at D = −1, 628 CE).
+-- There the successor's analogue satisfies
+--
+--     N (u ⊗ g) ≡ N u · N g
+--
+-- — multiplication by a constant in the very chart where ℕ's successor
+-- has no support at all.  Total locality against zero locality, same
+-- chart.  So the incompatibility measured here belongs to the line.
+--
+-- The closing sentence of §4 — "the object to build is the transition
+-- itself" — is answered there by `gen-hom`: squaring is a monoid
+-- homomorphism from the parameter chart to the triple chart, so Euclid's
+-- parametrisation IS the transition, with no defect.
+--
+-- Everything proved in §§1–3 stands unchanged.  See
+-- notes/THE_BARRIER_BELONGS_TO_THE_LINE.md.
+------------------------------------------------------------------------
