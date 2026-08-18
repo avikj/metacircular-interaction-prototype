@@ -59,6 +59,10 @@ import BhavanaGenerative
 -- the cakravāla step, and why Bhāskara needs only ONE congruence.
 import CakravalaDescent
 
+-- EMITTED BY THE REACTOR (machine/NalandaEmit.hs) and checked here: the
+-- cakravala's answer for D = 61 as a term, not a printed number.
+import CakravalaWitness
+
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka (~700) and Halāyudha
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
 import Pingala

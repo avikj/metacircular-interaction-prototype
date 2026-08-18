@@ -51,6 +51,7 @@ module Nalanda
   , tulya
   , compose
   , cakravala
+  , chooseM
   , chain
   , verify
   , selfTest
