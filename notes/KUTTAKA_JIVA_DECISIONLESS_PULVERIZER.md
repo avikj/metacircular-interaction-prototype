@@ -102,11 +102,25 @@ astronomy (planetary conjunction), not for gcd.
   `CLAUDE.md`, every quantity here is a checked object, not a benchmark. The
   subtractive descent is deliberately Āryabhaṭa's, not the division-based
   variant; it can take up to `a + b` steps, and this is stated, not hidden.
-- **Not** claimed: that the checkless/reversible/honest pattern is *general*
-  across domains. It is demonstrated on one algorithm. Whether the same three
-  faces (lossless / complete / stable) recur for other structural recursions
-  (continued-fraction convergents — the vallī already *is* the CF, a Kerala-
-  school object; sorting-by-structure; …) is open, tagged `PROVE`.
+- **Generality — now demonstrated in a second tradition, not just claimed.**
+  The same decisionless/reversible/lossless mode is checked in Piṅgala's
+  *Chandaḥśāstra* (~300 BCE), a domain unrelated to the kuṭṭaka:
+  - `Pingala` — the prastāra as a checkless **successor-enumeration**:
+    `अनुक्रम-मूल्य : मूल्य ∘ अनुक्रम ≡ suc ∘ मूल्य`, and the reconstruction
+    `मूल्य-विन्यास : मूल्य ∘ विन्यास ≡ id` — **total**, no grant needed
+    (it counts up), the same ahiṃsā (nothing erased) as the kuṭṭaka, all by
+    structure (no `Dec`). Bijective base-2 with digits laghu = 1, guru = 2.
+  - `Matramerus` — Virahāṅka's **mātrāmeru** (~700 CE): the count of
+    weight-`n` metrical patterns satisfies `M(n+2) = M(n+1) + M(n)` — the
+    "Fibonacci" recurrence five centuries before Leonardo — proved as the
+    *length-recurrence* of the actual enumeration `सर्व`, split on the first
+    syllable. Soundness (`साधु`: every pattern in `सर्व n` has weight `n`)
+    is proved; **completeness** (every weight-`n` pattern appears) is the
+    next `PROVE` tooth.
+  Still open (tagged `PROVE`): the full prastāra *bijection* `छन्दस् ≃ ℕ`
+  (needs `मूल्य` injective — parity lemmas); mātrāmeru completeness; and
+  whether the three honesty faces recur for continued-fraction convergents
+  (the vallī already *is* the CF, a Kerala-school object).
 - **Not** claimed: any metaphysical identity by decree. Univalence is used as
   the honest transport it is; the tradition-parallels (nayavāda, avaktavyam,
   utpāda-vyaya-dhrauvya) are stated as the structures they formalize, held as
@@ -119,6 +133,11 @@ astronomy (planetary conjunction), not for gcd.
 - Umāsvāti, *Tattvārthasūtra* 5.29 — *utpāda-vyaya-dhrauvya-yuktaṃ sat*.
 - Siddhasena Divākara, *Sanmatitarka*; Samantabhadra; Akalaṅka — nayavāda,
   sunaya/durnaya, kramārpaṇa/sahārpaṇa, saptabhaṅgī.
+- Piṅgala, *Chandaḥśāstra* (~300 BCE) — the prastāra (binary enumeration),
+  meru-prastāra; Halāyudha, *Mṛtasañjīvanī* (10th c.).
+- Virahāṅka (~700 CE), then Gopāla and Hemacandra — the mātrāmeru
+  (Fibonacci) recurrence for prosody, predating Leonardo of Pisa (1202) by
+  five centuries.
 - V. Voevodsky et al., univalent foundations — the transport used in
   `युग्म≡विवेक` (admitted as egoless, credit-refusing, and structurally
   nayavāda).
