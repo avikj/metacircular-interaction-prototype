@@ -49,11 +49,25 @@
 --                     divisibilities follow, up to the factor b.  This is
 --                     `Bhavana.choiceToNumerator` and
 --                     `choiceToDiscriminant` read as divisibility.
+--   coprimeCancel     k | b·x and gcd(k,b) = 1 give k | x, constructively:
+--                     the cofactor is written out of the hypothesis's
+--                     cofactor and the two Bézout coefficients.
+--   oneCongruenceCoprime
+--                     THE JOIN.  One congruence plus the pulverizer's
+--                     coefficients give ALL THREE exact divisions —
+--                     k | (am + Db) and k | (m² − D) with no b left over.
+--                     Brahmagupta (628) makes the descent a descent;
+--                     Āryabhaṭa (499) makes each step exact.  The cakravāla
+--                     is the two turning together, which is what its name
+--                     says.
 --
--- WHAT IS NOT.  Termination.  Minimality of Bhāskara's choice.  The
--- removal of the factor b in `oneCongruence` — that needs gcd(k, b) = 1,
--- which is a kuṭṭaka (`Kuttaka.agda`), and joining the two is a further
--- step this file does not take.  Existence of solutions is not claimed.
+-- WHAT IS NOT.  Termination.  Minimality of Bhāskara's choice (choose m
+-- minimising |m² − D| subject to the congruence).  Existence of solutions.
+-- And `Coprime` is taken here as the Bézout pair itself rather than
+-- imported from `Kuttaka.bezout`, which produces exactly such a pair over
+-- ℤ; wiring the two modules together is mechanical and is not done here,
+-- so this file does not depend on `Kuttaka` and the claim above is about
+-- what `coprimeCancel` consumes, not about where it comes from.
 ------------------------------------------------------------------------
 
 module CakravalaDescent where
@@ -61,7 +75,7 @@ module CakravalaDescent where
 open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
-open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
+open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 
 open import Bhavana using (module Form)
 
@@ -167,6 +181,78 @@ module Descent (CR : CommRing ℓ) where
                           ∙ sym (·Assoc k c (b · m - a)))
                         (nab ∙ sym (·IdR k))
             ∙ sym (·DistR+ k (c · (b · m - a)) 1r) )
+
+  ----------------------------------------------------------------------
+  -- 3b.  THE FACTOR b REMOVED — the join with the kuṭṭaka.
+  --
+  -- `oneCongruence` above leaves b in the way: it gives k | b·(am + Db) and
+  -- k | b²·(m² − D), not the exactness the step needs.  The commit that
+  -- landed §3 said so and left it open.  Closing it is one lemma, and the
+  -- lemma is Āryabhaṭa's, because what removes b is exactly the pulverizer's
+  -- output: coefficients u, v with u·k + v·b = 1.
+  --
+  -- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32-33 (499) for the coefficients;
+  -- `Kuttaka.bezout` builds them by back-substitution up the vallī.  The
+  -- cancellation below is then three lines of ring algebra, and it is
+  -- CONSTRUCTIVE: the cofactor of the conclusion is written out of the
+  -- cofactor of the hypothesis and the two Bézout coefficients, so nothing
+  -- here needs primality, a domain, or a choice principle.
+  --
+  -- This is the join the two traditions' own chronology already asserts:
+  -- Brahmagupta's composition (628) is what makes the descent a descent, and
+  -- Āryabhaṭa's pulverizer (499) is what makes each step exact.  The
+  -- cakravāla is the two of them turning together, which is what the name
+  -- says.
+  ----------------------------------------------------------------------
+
+  -- Coprimality AS THE PULVERIZER LEAVES IT: not "no common factor", which
+  -- is a negative statement one cannot compute with, but the two
+  -- coefficients themselves.  स्वीकारः साक्षिणम् — the affirmation carries
+  -- its witness, and here the witness is what does all the work.
+  Coprime : R → R → Type ℓ
+  Coprime k b = Σ[ u ∈ R ] Σ[ v ∈ R ] (u · k + v · b ≡ 1r)
+
+  coprimeCancel : (k b x : R) → Coprime k b → k ∣ (b · x) → k ∣ x
+  coprimeCancel k b x (u , v , huv) (c , hc) = x · u + v · c , path
+    where
+    -- x·(u·k) ≡ k·(x·u)
+    e1 : x · (u · k) ≡ k · (x · u)
+    e1 = ·Assoc x u k ∙ ·Comm (x · u) k
+
+    -- x·(v·b) ≡ v·(b·x)
+    e2 : x · (v · b) ≡ v · (b · x)
+    e2 = ·Assoc x v b
+       ∙ cong (λ w → w · b) (·Comm x v)
+       ∙ sym (·Assoc v x b)
+       ∙ cong (λ w → v · w) (·Comm x b)
+
+    -- v·(k·c) ≡ k·(v·c)
+    e3 : v · (k · c) ≡ k · (v · c)
+    e3 = ·Assoc v k c ∙ cong (λ w → w · c) (·Comm v k) ∙ sym (·Assoc k v c)
+
+    path : x ≡ k · (x · u + v · c)
+    path = sym (·IdR x)
+         ∙ cong (λ w → x · w) (sym huv)
+         ∙ ·DistR+ x (u · k) (v · b)
+         ∙ cong₂ _+_ e1 (e2 ∙ cong (λ w → v · w) hc ∙ e3)
+         ∙ sym (·DistR+ k (x · u) (v · c))
+
+  -- ALL THREE EXACT DIVISIONS, from the one congruence Bhāskara asks for
+  -- plus the pulverizer's coefficients.  This is the cakravāla being an
+  -- algorithm: the solver is asked for m with k | (a + bm) and nothing else,
+  -- and the other two exactnesses are then theorems rather than luck.
+  oneCongruenceCoprime : (D a b m k : R)
+                       → Coprime k b
+                       → N D a b ≡ k
+                       → k ∣ (a + b · m)
+                       → (k ∣ (a · m + D · b)) × (k ∣ (m · m - D))
+  oneCongruenceCoprime D a b m k cop nab hdiv =
+      coprimeCancel k b (a · m + D · b) cop (fst both)
+    , coprimeCancel k b (m · m - D) cop
+        (coprimeCancel k b (b · (m · m - D)) cop
+          (subst (k ∣_) (sym (·Assoc b b (m · m - D))) (snd both)))
+    where
+    both = oneCongruence D a b m k nab hdiv
 
 ------------------------------------------------------------------------
 -- 4.  ONE STEP AT D = 13, COMPUTED.
