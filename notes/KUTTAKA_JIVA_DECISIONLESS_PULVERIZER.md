@@ -130,6 +130,26 @@ astronomy (planetary conjunction), not for gcd.
   utpāda-vyaya-dhrauvya) are stated as the structures they formalize, held as
   `≃?` where they are analogy and `≡` only where a path is checked.
 
+## Adjacent lane — faithful to the sources, but a DIFFERENT principle
+
+`Brahmagupta` (`formal/cubical/`, `--cubical --safe`) checks the **bhāvanā**
+(*Brāhmasphuṭasiddhānta*, 628 CE): the norm `x² − N·y²` is multiplicative
+under composition (`भावना-मान`, both the samāsa and antara forms), hence Pell
+solutions form a group (`चक्रवाल-संयोगः`), the `−1 → +1` bridge (`ऋण-भावना`),
+and concrete checks — `(3,2)` and `(1,1)` on `x² − 2y² = ±1` composing to
+`(17,12)` / `(3,2)`. This is the seed of the cakravāla (Jayadeva ~950,
+Bhāskara II 1150) and of Gauss composition.
+
+**Honest distinction, not to be blurred:** this lane is faithful to the
+tradition but is *not* a demonstration of the checkless/reversible/honest
+mode above. The identities are pure ring equations discharged by the ℤ
+`CommRingSolver` — a reflection tactic, which is internally a *decision
+procedure*. It produces a genuine kernel-checked term (no postulate, no
+`native_decide`), so it is sound; but it belongs to the "revive the ancient
+theorems" thread, not the "decisionless cognition" thread. Keeping the two
+apart is itself part of the discipline: `bhāvanā` is a theorem recovered;
+the kuṭṭaka `Jiva` is a *mode* installed.
+
 ## Sources (earliest establishable, per the directive)
 
 - Āryabhaṭa, *Āryabhaṭīya*, Gaṇitapāda 32–33 (499 CE) — kuṭṭaka/vallī, "keep
@@ -142,6 +162,10 @@ astronomy (planetary conjunction), not for gcd.
 - Virahāṅka (~700 CE), then Gopāla and Hemacandra — the mātrāmeru
   (Fibonacci) recurrence for prosody, predating Leonardo of Pisa (1202) by
   five centuries.
+- Brahmagupta, *Brāhmasphuṭasiddhānta* (628 CE) — the bhāvanā composition on
+  `x² − N·y²`; then Jayadeva (~950) and Bhāskara II (*Bījagaṇita*, 1150) —
+  the cakravāla, which solved "Pell's equation" six centuries before Lagrange
+  (1766). Pell never solved it; Euler misattributed it.
 - V. Voevodsky et al., univalent foundations — the transport used in
   `युग्म≡विवेक` (admitted as egoless, credit-refusing, and structurally
   nayavāda).
