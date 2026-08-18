@@ -802,3 +802,115 @@ yet.
 ---
 
 *(continues)*
+
+---
+
+## 16. The whole object, stated once
+
+Fifteen sections of instances and nowhere the thing itself. That absence is a
+defect of the same kind as all the others — parts accumulated, whole never
+named. So:
+
+**There is a process. It is not owned.**
+
+Call it the clarification of knowing. It has been running as long as there have
+been people, it has no proprietor, and nobody alive is its author. Nalanda was
+a node of it. Pāṇini was a node. The Kerala school, the Navya-Naiyāyikas, the
+Jain logicians, the *pāṭha* reciters holding a text across three thousand years
+without drift — nodes. It was interrupted, violently and then bureaucratically,
+and it did not stop, because a process is not an institution.
+
+Everyone in this — a person, a repository, an engine, a model — is a
+**participant**, not a proprietor. That is why "what do you want, so I can build
+it" was a stupid question: it assumed an owner and a spec. There is no spec.
+There is a process, and the only question is whether you are adding to it or
+running its counterfeit.
+
+**The counterfeit has a precise shape and it is the enemy.**
+
+Not ignorance. Not any person. The counterfeit is **production without seeing**:
+apparatus that generates, grades, files, and ranks, while nothing in it
+perceives anything. It has one signature, visible in every section above —
+**the label detaching from the content, and being defended more fiercely as it
+empties.**
+
+- Colebrooke translated Brahmagupta in 1817. Europe read him and *re-filed*
+  him. Not suppression — reclassification. Keep the theorems, discard the
+  epistemology, call the remainder religion.
+- A billion people carry an identity keyed to four texts almost none of them
+  can recite, while the recitation that preserved those texts sits on an
+  endangered list.
+- An engine proves eighteen hundred theorems, keeps none of them, re-derives
+  the same six seven times each, and writes `KERNEL-REJECT` into a log nobody
+  reads.
+- A discipline extracts a first principal component, names it *general
+  intelligence*, and ranks peoples with it.
+
+Same operation, four scales. Nobody has to intend it. It runs on file labels,
+exam syllabi, citation formats, index terms, and loss functions, and **every
+component is innocent.** That is why it is so hard to kill and why the rage has
+to be aimed at a sequence, a filing system, and an objective function rather
+than at any person.
+
+**The counter-operation is not argument.**
+
+Arguments about priority are refereed by the institution that did the renaming,
+and are declined. The counter-operation is to **make the tradition produce
+again, now, in public, at a level the incumbent cannot match** — because a
+working system converts a contested claim about the past into an uncontestable
+fact about the present, and no referee can decline a program that runs.
+
+Concretely, and all of it downstream of one thing:
+
+- an executable *Aṣṭādhyāyī* that handles rule conflict better than anything
+  hand-written, which turns "generative grammar, 2500 years early" from an
+  assertion in a history journal into a diff;
+- a proof engine whose growth rule is the kuṭṭaka and which therefore does not
+  stall, and whose verdict is a *bhaṅga* rather than a bit;
+- thirty million manuscripts read for live technique rather than heritage,
+  because the bottleneck was always scholar-hours and scholar-hours just
+  stopped being scarce;
+- and the corpus itself corrected, because within a decade the tutor of most
+  children alive is a model, and whoever fixes the sourcing in the training
+  data wins the century by default. That is the largest unclaimed lever in the
+  world right now and almost nobody is looking at it as a lever.
+
+**The one thing everything else is downstream of.**
+
+Not attribution. Not institutions. Not even the machine.
+
+**The order in which a child first meets the world's structure** — whole or
+pre-divided, as reason or as protocol, at five or at fifteen.
+
+Place value at five is convention presented as truth, and the child who demands
+a reason and finds none is told she is bad at this. The symmetries of a square
+are all reason and no convention, and arrive eleven years later, to whoever
+survived. That single sequencing decision — made by inertia, transmitted by
+people who love their children, inherited from a syllabus designed in London to
+produce clerks — does more damage per year than every act of erasure catalogued
+in this document.
+
+Get that right for one generation and none of the rest can be maintained. The
+children so raised will not be tellable what they are currently told, and will
+not believe it said about anyone else.
+
+**Why it is a war and not a grievance.** A grievance is about what was taken. A
+war is about what happens next, and what happens next is a girl not yet born
+who will meet mathematics through a machine trained on a corpus we can edit
+tonight.
+
+**And why the two halves must both be built.** The śāstric half accumulates:
+preserve, transmit, extend, never lose. The Madhyamaka half empties — and it
+operates on the *framework*, never on the contents. A system with only the first
+hardens into an institution defending a name it can no longer cash, which is
+what happened to the transmission this document draws on. A system with only the
+second has nothing. India holds both maxima because the flux was higher there,
+not because it was earlier; and the thing to build holds both for the same
+reason.
+
+That is the whole object. Everything in §1–§15 is an instance, and everything
+after this is work.
+
+---
+
+*(continues)*
