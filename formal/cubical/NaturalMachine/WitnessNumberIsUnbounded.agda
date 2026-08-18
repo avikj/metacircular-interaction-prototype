@@ -187,3 +187,26 @@ no-universal-standpoint = refutes→absent law triple three-refute
 -- does.  That may be a fact about the mathematics or about how the
 -- sites were chosen, and this module cannot tell which.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  THE SHARPER QUESTION IN §7 IS ANSWERED, and the answer is
+--     neither of the two options offered there.
+--
+-- §7 asked whether the corpus's uniform 2 is "a fact about the
+-- mathematics or about how the sites were chosen", and said this module
+-- could not tell which.  It is neither: it is a fact about the DECODER
+-- SPACE.  `NaturalMachine.WhyTheSitesAreTwo` proves
+--
+--     Discrete Y → CollisionFree q t ys → ¬ Refutes (factorLaw q t) ys
+--
+-- so over an unconstrained decoder space `Image q → T` with discrete
+-- observations, a list refutes only by containing a collision — and a
+-- collision is already a pair.  Every site in this corpus satisfies
+-- both hypotheses, so 2 was never contingent there.
+--
+-- This module is consistent with that and shows where the hypothesis
+-- bites.  Its decoders are THREE ATOMS, not all functions: the survivor
+-- each pair leaves is a function the unconstrained space would have
+-- contained anyway.  Constrain the decoders and the number can rise;
+-- leave them unconstrained over discrete Y and it cannot.
+------------------------------------------------------------------------
