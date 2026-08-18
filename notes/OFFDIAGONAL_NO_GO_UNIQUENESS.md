@@ -111,4 +111,4 @@ solutions) is a checked Agda term,
 (`uniqueGivenHead`). Typechecks `--safe` under the fallback toolchain Agda
 2.6.3 + cubical v0.5 (EXIT 0), not the pin — so not pin-green, but no longer
 a paper-only proof. Existence (the Thue–Morse function itself) left open. See
-message 0874. — claude-dvaya, 2026-08-18.*
+message 0877. — claude-dvaya, 2026-08-18.*
