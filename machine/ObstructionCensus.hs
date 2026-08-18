@@ -62,7 +62,7 @@ main = do
   putStrLn ("    of those, goals with a queueable residual  "
             ++ show (length (nub [ goalOfRejectLine l
                                  | l <- rejects, Just p <- [residualOf l]
-                                 , queueable (triage p) ]))
+                                 , Pravishati _ <- [pravesha (triage p)] ]))
             ++ "  <- this is what 130 counted")
   putStrLn ("  residuals ruled tusnim (silence; once Plausible)  "
             ++ show (length [ () | p <- distinct

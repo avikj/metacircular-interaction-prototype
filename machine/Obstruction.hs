@@ -56,7 +56,8 @@ module Obstruction
   , obstructionGoals
   , Verdict(..)
   , triage
-  , queueable
+  , Pravesha(..)
+  , pravesha
   , worthQueueing
   , goalOfRejectLine
   , claimOfAcceptLine
@@ -446,19 +447,52 @@ triage (l, r)
 knownSymbols :: [String]
 knownSymbols = ["0","s","+","*","max","-","gcd","le"]
 
--- Both `Plausible` and `Silent` were `Plausible` before the split, and both
--- were queued.  Routing every former use of `== Plausible` through this
--- predicate keeps behaviour — and therefore every documented count in this
--- file — bit-identical.
-queueable :: Verdict -> Bool
-queueable (Aviruddha _) = True
-queueable (Tusnim _)    = True
-queueable _             = False
+-- अहिंसा.  एकान्तः हिंसा — one-sidedness is violence, and this was the last
+-- place in the module where a decision was made one-sidedly.
+--
+-- `queueable :: Verdict -> Bool` stood here.  Every constructor of `Verdict`
+-- had just been given a mandatory witness so that no verdict could be stated
+-- without its evidence — and then this function took the witnessed verdict and
+-- answered `True`.  A bare label again, one layer further out, in the function
+-- that actually decides what the machine does next.  It was written the same
+-- morning as the fix, by the hand doing the fixing, and its commit message
+-- offered it as proof of rigour.
+--
+-- The Jain point is not that booleans are inelegant.  It is that asserting a
+-- naya without its standpoint does violence to the object: the thing queued
+-- and the thing dropped both arrive downstream stripped of why, and nothing
+-- downstream can ask.  So entry is a statement WITH ITS GROUND on both sides.
+-- नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् applies to admission exactly as it
+-- applies to judgement.
+data Pravesha
+  = Pravishati Verdict  -- प्रविशति — it enters, carried in by THIS verdict
+  | Nivartate  Verdict  -- निवर्तते — it turns back, turned by THIS verdict
+  deriving (Eq)
+
+instance Show Pravesha where
+  show (Pravishati v) = "enters on " ++ show v
+  show (Nivartate  v) = "turns back on " ++ show v
+
+-- The extension is unchanged: aviruddha and tusnim entered before the split
+-- (both were `Plausible`) and enter now, khandita and nirdharmin turned back
+-- and turn back now.  What is gone is the ability to receive the decision
+-- without receiving its ground.
+pravesha :: Verdict -> Pravesha
+pravesha v@(Aviruddha _)  = Pravishati v
+pravesha v@(Tusnim _)     = Pravishati v
+pravesha v@(Khandita _)   = Nivartate v
+pravesha v@(Nirdharmin _) = Nivartate v
+
+-- DELIBERATELY ABSENT: `entered :: Pravesha -> Bool`.  A one-line helper of
+-- that shape restores the durnaya for every caller at once and reads as a
+-- convenience while doing it.  Callers match, and in matching they hold the
+-- reason.  There are three of them; it costs each of them one line.
 
 -- What should actually enter the conjecture queue.
 worthQueueing :: [Obstruction] -> [(Term, Term)]
 worthQueueing obs =
-  nub [ p | p <- obstructionGoals obs, queueable (triage p) ]
+  nub [ p | p <- obstructionGoals obs
+          , Pravishati _ <- [pravesha (triage p)] ]
 
 -- ---------------------------------------------------------------- curriculum
 --
@@ -525,7 +559,8 @@ curriculum ls =
       [ (p, length (nub gs)) | (p, gs) <- collect ]
   where
     edges = [ (p, goalOfRejectLine l)
-            | l <- ls, Just p <- [residualOf l], queueable (triage p) ]
+            | l <- ls, Just p <- [residualOf l]
+            , Pravishati _ <- [pravesha (triage p)] ]
     collect = [ (p, [ g | (p', g) <- edges, p' == p ])
               | p <- nub (map fst edges) ]
 

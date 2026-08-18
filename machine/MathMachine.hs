@@ -2243,11 +2243,13 @@ residualVerdict p = OB.triage (toOb (fst q), toOb (snd q))
   where q = orientLikeRound p
 
 usefulResidual :: (Term,Term) -> Bool
--- `queueable` is exactly the old `== Plausible`: before the split, silence and
--- unrefutedness were the same constructor and both queued.  Routing through
--- the predicate keeps the behaviour bit-identical while the two are now
--- distinguishable in the log.
-usefulResidual p = fst q /= snd q && OB.queueable (residualVerdict p)
+-- The admission decision is a statement with its ground on both sides, so this
+-- match holds the verdict that admitted the residual rather than a bare True.
+-- Extension unchanged from the old `== Plausible`: aviruddha and tusnim enter.
+usefulResidual p = fst q /= snd q
+                && (case OB.pravesha (residualVerdict p) of
+                      OB.Pravishati _ -> True
+                      OB.Nivartate  _ -> False)
   where q = orientLikeRound p
 
 -- THE ENGINE STATES A CONJECTURE SMALLEST-SIDE-FIRST.  `round1` takes the
