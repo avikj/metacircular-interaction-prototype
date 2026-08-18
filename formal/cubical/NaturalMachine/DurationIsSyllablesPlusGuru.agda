@@ -161,3 +161,43 @@ metre-sorts n = isoToEquiv (metre-sorts-Iso n)
 --
 -- Four encodings, three refuted, one carried to an equivalence.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  CORRECTION to §6: "a library lemma" was checked and is not the
+--     whole of it.
+--
+-- §6 says the remaining ingredient is `Cubical.Data.FinSet.Cardinality`
+-- and calls it a library lemma rather than a reformulation.  The lemma is
+-- real —
+--
+--     cardΣ : card (Σ X Y) ≡ sum X (λ x → card (Y x))
+--
+-- — but it takes `X` as a **FinSet**, and the index set here,
+-- `Σ[ (a,b) ] (a + b ≡ n)`, does not arrive with a finiteness proof.  So
+-- two ingredients are needed, not one:
+--
+--   (i)  the index set is finite;
+--   (ii) the library's `sum` over that FinSet is the recursive sum
+--        `Sankalita.AD` — a reindexing, and the third refuted encoding of
+--        `Sankalita` §13 was exactly a reindexing going wrong.
+--
+-- (i) IS AVAILABLE, and structurally, which is worth recording because it
+-- was the sticking point everywhere else.  Induct on `n`:
+--
+--     Σ[ (a,b) ] (a + b ≡ 0)        ≃  Unit
+--     Σ[ (a,b) ] (a + b ≡ suc n)    ≃  Unit ⊎ Σ[ (a,b) ] (a + b ≡ n)
+--
+-- — the first summand is the pair `(0 , suc n)`, the rest have `a` a
+-- successor and drop to the previous level.  No subtraction, and the
+-- recursion is the one `AD` already walks, which is a good sign for (ii).
+--
+-- So: one ingredient is a library lemma, one is a short structural
+-- induction that is now written down, and one is a reindexing of the kind
+-- that has failed here before and should not be called routine again.
+--
+-- That is the fourth time in this thread that a "what is left" sentence
+-- needed correcting.  The pattern is consistent enough to state as a
+-- rule: **do not characterise remaining work until you have looked at the
+-- thing you are characterising.**  Every one of the four was cheap to
+-- check and none of them was checked before being written.
+------------------------------------------------------------------------
