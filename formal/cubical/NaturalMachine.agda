@@ -287,6 +287,16 @@ import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
 import NaturalMachine.ChenTwoChargeProjector
+-- Latched 2026-08-17.  Everything.agda carried a comment saying this module
+-- was "deliberately NOT latched ... in flight from a live worker, which owns
+-- its own latch line".  No such latch line ever existed anywhere in the tree,
+-- so the module sat outside every aggregate's closure and nothing rechecked
+-- it -- which is how it came to be committed in a state that does not
+-- typecheck at all (unsolved metas at line 747: a nested tuple whose Σ type
+-- Agda cannot infer, in a file that already uses `Path Triple` for exactly
+-- this at line 531).  Fixed to match the file's own idiom and latched here.
+-- Measured: 5.6s to check under /usr/bin/agda 2.6.3 with --safe.
+import NaturalMachine.ChargePolynomialFinite
 import NaturalMachine.FiniteOccupancyChannelNoGo
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction

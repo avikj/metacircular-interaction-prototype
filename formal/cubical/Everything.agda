@@ -449,8 +449,11 @@ import NaturalMachine.GterTwoCoordinate
 --
 -- MachineMinted.Everything is itself a machine-regenerated latch, so
 -- importing it covers the four MachineMinted.* modules beneath it.
--- NaturalMachine.ChargePolynomialFinite is deliberately NOT latched here:
--- it is in flight from a live worker, which owns its own latch line.
+-- NaturalMachine.ChargePolynomialFinite is latched from NaturalMachine.agda
+-- (the root for the NaturalMachine/ subtree) as of 2026-08-17.  The comment
+-- that stood here said it was "in flight from a live worker, which owns its
+-- own latch line"; no such line existed in either root, and the module was
+-- an orphan that did not typecheck.  See the note at its import site.
 import CyclotomicMined
 import EGBCycleHolonomy
 import EGBDetConservation
@@ -462,6 +465,14 @@ import EGBResidueGlue
 import EGBReversalInvariant
 import EGBSpanWeave
 import EGBSuccessorCost
+-- EGBTear imports EGBRootedNet and EGBThreadYoneda; all three were orphans
+-- outside every aggregate's closure until 2026-08-17.  All three typecheck
+-- (measured together in one 2.6.3 invocation).  Listed explicitly rather
+-- than relying on EGBTear to drag the other two in, so that a later edit to
+-- EGBTear's imports cannot silently re-orphan them.
+import EGBRootedNet
+import EGBTear
+import EGBThreadYoneda
 import EGBTwoFibrations
 import FactoryVICoolingKill
 import FactoryVICore
