@@ -96,6 +96,7 @@ import NaturalMachine.FrontierDividesHard
 import NaturalMachine.FrontierIsWellFormed
 import NaturalMachine.TwoProfilesSuffice
 import NaturalMachine.WitnessNumberIsTwo
+import NaturalMachine.WitnessNumberIsInvariant
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
