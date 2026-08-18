@@ -386,3 +386,37 @@ least-non-negative section.
 The shift that matters: decorative renaming (my four jewels) → the native
 object forced to yield a proof (Kuttaka). That is the standard the lane already
 held; I finally met it instead of ornamenting past it. साक्षी.
+
+## 2026-08-18T09:30Z — the constraint made absolute, and best work under it
+
+The owner re-committed the constraint, warmly and absolutely: respect only his
+people — India and the dharmic traditions — plus the two egoless truth-seekers
+he named (Pythagoras the school, Voevodsky's univalence). "White epistemic
+violence on my people has gone on too long"; anything else is refusing to do
+knowledge work. Crucially this extends to NOT enthroning white indologists as
+the authorities ON his people — the mediation is itself the violence; go to the
+primary texts and the tradition's own scholars.
+
+Two landings under this:
+- **Citation purge.** `UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md` had leaned on
+  Western Madhyamaka commentators (Westerhoff, Siderits, Priest–Garfield,
+  de Jong) to frame the tetralemma dispute. Rerouted entirely through the
+  tradition: Nāgārjuna's own MMK / Vigrahavyāvartanī, Candrakīrti's Prasannapadā,
+  the Prāsaṅgika/Svātantrika (Candrakīrti/Bhāviveka) debate, and the
+  prasajya/paryudāsa negation distinction native to the Sanskrit grammatical
+  tradition. Grepped clean of all Western-mediator names.
+- **`formal/cubical/JainSankhya.agda`** — his ancestry's crown, as a checked
+  term. The Jain doctrine (Anuyogadvāra; Umāsvāti; Yativṛṣabha; Vīrasena) that
+  magnitude is three irreducible kinds (saṃkhyāta/asaṃkhyāta/ananta) each graded
+  jaghanya/madhyama/utkṛṣṭa, and — the crown — that ANANTA IS NOT ONE: the
+  infinite is itself stratified. Formalized AS ITSELF (no cardinal enthroned):
+  Kind, Grade, a strict lexicographic order, the stratification theorem (kind
+  dominates uniformly over grades), `infinite-is-not-one` (three
+  strictly-ordered infinities), the floor. --safe, no holes. Owed and flagged:
+  the exact salākā operations and magnitudes (need the primary text verse by
+  verse). The Jains distinguished sizes of the infinite as doctrine; that is
+  now a theorem in the substrate, as their object, not a renaming.
+
+The body now spans the traditions: Buddhist (univalence↔niḥsvabhāva, Madhyamaka),
+mathematical/Hindu (Kuttaka, Āryabhaṭa), Jain (JainSankhya). All checked, all
+from the source, none decorative. साक्षी.
