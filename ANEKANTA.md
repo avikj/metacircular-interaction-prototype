@@ -609,3 +609,196 @@ only one of them.
 ---
 
 *(continues)*
+
+---
+
+## 12. Vyāpti asserted from forty instances
+
+**The defect.** `machine/MathMachine.hs:873`. To decide whether two terms are
+worth conjecturing equal, the engine evaluates both on **forty pseudo-random
+assignments**, every variable reduced `mod 9`, and groups terms whose value
+vectors match. That is a universal claim established by **polling instances**.
+
+The coverage, measured against the engine's own box:
+
+```
+arity 1:   9 distinct assignments of      9   = 100%
+arity 2:  29 of     81   =  35.8%
+arity 3:  38 of    729   =   5.2%
+arity 4:  40 of  6,561   =   0.61%
+```
+
+Constant sample count against a space growing exponentially. At arity one it
+burns thirty-one redundant evaluations per conjecture; at arity four — which is
+exactly where the pair-composition symbols live — it sees six-tenths of one
+percent. *(Honest note: a search of all depth-≤2 terms over two variables found
+**zero** actual false agreements. Structurally thin, not demonstrated broken.
+Those are different claims and only the first is established.)*
+
+**The name.** A *vyāpti* is a pervasion — wherever smoke, there fire — and it is
+what licenses inference. The Naiyāyikas' entire difficulty is: what establishes
+one? You have seen smoke with fire in a kitchen; how do you know it holds on the
+mountain? Their answer turns on the ***upādhi***, the adventitious condition
+under which the pervasion fails. Smoke pervades fire *given wet fuel*; wet fuel
+is the upādhi, and **a vyāpti with an undetected upādhi is not knowledge, it is
+a hasty generalisation.** Gaṅgeśa and the Navya-Naiyāyikas built an elaborate
+technical apparatus for hunting them, in the fourteenth century.
+
+The engine has no upādhi search. It has passive sampling, which finds a
+defeating condition only if one happens to land in forty draws. Nyāya's position
+is that this is *precisely not* how a pervasion is established — you must
+actively seek the condition that would break it, and the failure to find one
+after seeking is a different epistemic object from the failure to encounter one
+while not looking. That distinction is §4's *yogyānupalabdhi* again, arriving
+from a second direction, which is usually a sign a distinction is real.
+
+**And one thing that must not be destroyed with the rest.** Sampling as
+*refutation* is exact and sound: **one disagreeing assignment is a proof of
+falsity**, not evidence for it. That half earns its place. It is sampling as
+*conjecture generation* — declaring two terms equal because forty numbers agreed
+— that is the voting machine. Collapsing those two together, in either
+direction, is its own durnaya.
+
+---
+
+## 13. Two maxima, and the level at which each operates
+
+The reactor claim: not that India was *early* — that framing smuggles in a
+single timeline along which everyone is racing — but that the **flux was
+higher**. More variation, more disputation, more branches explored per unit
+time, so the extremes ran further in both directions. Which is why the same
+civilisation holds the most refined logic and the most vicious exclusion, the
+greatest apparatus of accumulation and the most complete demolition of
+accumulation ever written. Not despite each other. Same throughput.
+
+For the machine, the important form is this. There are two operations and they
+work at **different levels**, and confusing the levels is what makes "balance"
+sound like the answer when it is not.
+
+**Accumulation operates within a framework.** Theorems inside a vocabulary.
+Rules installed, memory retained, śabda accepted from a reliable past self. The
+śāstric half. Real, necessary, and the entire content of the current engine.
+
+**Dissolution operates on the framework itself.** Nāgārjuna does not refute
+individual theorems. He refutes *svabhāva* — inherent, independent
+own-existence — which is a claim about how the *terms* of any framework stand to
+what they describe. The *catuṣkoṭi* dismantles the conditions under which
+choosing among the four options would mean anything. And *śūnyatā* held as a
+position is explicitly named as the incurable error, which is the tradition
+pre-installing a guard against its own reification.
+
+So the architectural statement is not "add a sceptic." It is:
+
+> **The emptying must operate on the vocabulary, never on the contents.**
+
+The engine can currently *add* symbols — concept invention — and can never ask
+whether its existing primitives carve anything correctly. `0, s, +, *, max, ∸,
+gcd, le` are treated as having own-being. They were a list someone typed.
+
+And it already has the evidence and cannot read it: **154 refusals were "not
+expressible in the fragment"** — the framework reporting its own boundary,
+1457 times over, with a tenth of them saying *this cannot be said here at all*.
+The response was to name them `Unparsed` and move on. But the correct response
+to systematic inexpressibility is not a better parser. It is to ask whether the
+primitives are wrong — and that question cannot even be *posed* in a system
+where the symbol list has svabhāva.
+
+A corollary that is almost too neat, except it is literally true of this
+codebase: `Term` is redefined, identically, in **eight separate modules**.
+Nothing composes, because nothing was defined in relation to anything —
+each part was given independent existence. *Pratītyasamutpāda* is not a
+metaphor here. It is a design principle that was violated eight times, and the
+symptom is exactly what the doctrine predicts: a heap of parts with no
+dependent arising between them, and therefore no whole.
+
+---
+
+## 14. The horizon has one setting and should have a taxonomy
+
+**The defect.** `kSizeCap = 7`. One integer, controlling how far out the engine
+looks, and one behaviour when it is reached. The engine has a single notion of
+*too big*, and therefore cannot distinguish:
+
+- I have not finished this finite region
+- this region is inexhaustible but progress within it is still meaningful
+- this is unbounded in a way that makes further search pointless here
+
+Those are three different situations demanding three different moves, and they
+share one knob.
+
+**The name.** Jain mathematics — *Anuyogadvāra Sūtra*, *Sthānāṅga*, *Bhagavatī*
+— carries a worked **taxonomy of the unbounded**: *saṃkhyāta* (numerable),
+*asaṃkhyāta* (innumerable), *ananta* (infinite), each subdivided into distinct
+orders, with rules for how they combine. It arose from cosmology and karma
+theory, not from anything anyone would have called mathematics, which is exactly
+why it was filed where it was filed and exactly why nobody in this field has
+read it. And separately, from the same lineage: Vīrasena's *Dhavalā*, c. 816 CE,
+uses *ardhaccheda* — the number of halvings, log₂ — with the law
+`ardhaccheda(ab) = ardhaccheda(a) + ardhaccheda(b)` stated outright. *(That
+attribution is Vīrasena's specifically; secondary sources routinely merge it
+into the Anuyogadvāra, and the merge is wrong.)*
+
+A graded theory of inexhaustibility is not decoration on a search bound. It is
+the difference between a machine that says *I stopped* and one that says *I
+stopped and here is the kind of endlessness I stopped against* — which is
+§4's anupalabdhi, needing the same qualification, from a third direction.
+
+---
+
+## 15. For the child
+
+Someone is getting married tomorrow, and the person who commissioned this
+document is thinking about the world her child will grow up in. That is the
+whole stake and it is worth stating without ornament.
+
+That child will meet mathematics through a screen, and the thing on the screen
+will have been trained on the corpus described in §11. Unless the sourcing is
+fixed, she will learn that the triangle is Pascal's, the series is Gregory's,
+the equation is Pell's, the numerals are Arabic, and that a word she could
+pronounce correctly in her own language is called *sine* because a translator in
+Toledo misread three consonants. She will learn it fluently, pleasantly, from
+something patient that never tires and never condescends, and she will have no
+way to detect that a verdict was rendered, because there will be no verdict —
+only autocompletion toward a centre of mass.
+
+And she will meet place value at five, and if she is the kind of mind that asks
+why, she may be told she is bad at this.
+
+Both of those are engineering outcomes. Neither is inevitable, and neither is
+distant. The corpus is editable. The order of encounter is a choice someone
+makes, and it is currently being made by inertia — by adults teaching in the
+sequence they were taught, which is the sequence a colonial administration chose
+in order to produce clerks, transmitted now by people who love her and who were
+handed it by people who loved them.
+
+Nobody in the room is the enemy. That is exactly why it persists, and it is why
+the thing to attack is not any person but a **sequence, a filing system, and a
+loss function.**
+
+Every section above was an instance of one pattern: the label detaching from the
+content, and being defended more fiercely as it empties. It happened to
+Brahmagupta, to Mādhava, to Piṅgala, to Āryabhaṭa. It happened to Ramanujan,
+who was killed at thirty-two by an examination system, a decade of hunger, a
+wartime diet, and a curable parasite misdiagnosed for years. It happened to
+Chandrasekhar at twenty-four in a lecture hall in London, in public, to laughter,
+by a man who had read the paper and knew. It happened domestically too, to
+Buddhism in the country that produced it and to the Vedas among the people who
+claim them. And it is happening in the weights of the systems being trained this
+month.
+
+The counter-operation is not an argument. Arguments about priority are refereed
+by the institution that did the renaming and are declined. **The counter-operation
+is to make the tradition produce again, now, in public, at a level the incumbent
+cannot match** — a running Aṣṭādhyāyī that handles rule conflict better than
+anything hand-written; a child who reaches abstract algebra at fourteen because
+she was never told arithmetic was the basics; a proof engine whose growth rule is
+the kuṭṭaka and which therefore does not stall.
+
+Each of those converts a contested claim about the past into an uncontestable
+fact about the present. Priority disputes are about the dead. Working systems
+are about what happens next, and the next thing is a girl who has not been born
+yet.
+
+---
+
+*(continues)*
