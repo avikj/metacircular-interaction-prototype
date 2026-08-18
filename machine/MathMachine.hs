@@ -4772,6 +4772,47 @@ main = do
   -- `+` means -- not because the machine is missing mathematics.
   --
   -- Exact counts over the real log.  No sampling, no fitting.
+  -- IS THE RESIDUAL WORTH INSTALLING, IN THE MACHINE'S OWN CURRENCY?
+  --
+  -- `attempt` discards a PROVED candidate as "proved-but-inert" when
+  -- `worthInstalling` says installing it collapses nothing, and that branch
+  -- never reaches the kernel.  `exactPrune` counts exactly that: how many of
+  -- the population normalise differently once the rule is added.
+  --
+  -- The hypothesis this measures -- and I predicted once today and was wrong,
+  -- so it is measured rather than asserted -- is that the flagship residuals
+  -- score exactly 0, BECAUSE the machine's own defining rules already
+  -- normalise them away.  If so, the machine assigns zero value to the one
+  -- lemma the kernel most needs, and does so for the same reason the kernel
+  -- needs it.
+  when (args == ["--residual-worth"]) $ do
+    let m0 = start { mVocab = length vocabulary }
+        rules = usableRules m0
+        syms = take (mVocab m0) vocabulary
+        population = take 400 (genTermsModulo [] [] (arities syms) 3 4)
+        x = V 0 ; y = V 1
+        z0 = F "0" [] ; suc t = F "s" [t]
+        bin f a b = F f [a,b]
+        goals =
+          [ ("x = x + 0",   (x, bin "+" x z0))
+          , ("0 = x * 0",   (z0, bin "*" x z0))
+          , ("0 = y * 0",   (z0, bin "*" y z0))
+          , ("x = 0 max x", (x, bin "max" z0 x))
+          , ("x = 1 * x",   (x, bin "*" (suc z0) x))
+          , ("0 = x - x",   (z0, bin "-" x x))
+          ]
+    hPrintf stdout "  population %d terms, %d rules\n"
+      (length population) (length rules)
+    hPrintf stdout "  %-14s %-9s %-9s %s\n" "goal" "proved" "collapses" "verdict"
+    forM_ goals $ \(name, g) -> do
+      let pr = case proveByInduction rules g of
+                 Just _  -> "yes"
+                 Nothing -> "no"
+          n = exactPrune rules population g
+      hPrintf stdout "  %-14s %-9s %-9d %s\n" name pr n
+        (if n <= 0 then "PROVED-BUT-INERT: never reaches the kernel" else "installed")
+    exitSuccess
+
   when (args == ["--convention-cost"]) $ do
     h <- openFile "machine/machine.log" ReadMode
     hSetEncoding h utf8
