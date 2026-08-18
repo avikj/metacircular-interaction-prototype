@@ -473,3 +473,75 @@ The honest form is a conditional, and it is worth having as one:
 Both antecedents are open. Promoting the bridge would be the same error as
 publishing a fitted constant, one level up: a resemblance sold as a
 mechanism.
+
+---
+
+## 14. Addendum, same session: §13's rhyme is dead, and its death is the finding
+
+§13 left a conditional with two open antecedents and warned that promoting
+it would be the fitted-constant error one level up. The second antecedent
+is **false**. `formal/cubical/NaturalMachine/OverlapIsTheCost.agda`
+(checked, exit 0) kills it and keeps what the death exposes.
+
+### The refutation
+
+Sieve weights are multiplicative across **coprime** arguments. In the
+derivation chart coprime means **disjoint support**, and there the two
+operations of this entire thread coincide:
+
+```
+disjoint-agree :  Disjoint u v  →  u ⊔ v ≡ u ⊕ v
+```
+
+The join *is* the sum on that locus. And nothing is disjoint from itself
+except the trivial state:
+
+```
+self-disjoint-is-trivial :  Disjoint u u  →  u ≡ 0
+```
+
+So on the coprime locus idempotence has no purchase — you cannot form
+`u ⋆ u` and stay inside it — and `sign-is-not-accumulable`'s hypothesis is
+unsatisfiable except at the unit. The theorem is true and simply does not
+reach `μ` or `λ`. The rhyme is dead. Recording it as a rhyme is what made
+this cheap to find.
+
+### What the death exposes
+
+`NoNormOnAJoin` proved a join-multiplicative norm is two-valued. But `val`
+**is** multiplicative for the join on disjoint arguments:
+
+```
+val-⊔-disjoint :  Disjoint u v  →  val (u ⊔ v) ≡ val u · val v
+```
+
+— a faithful, wildly-many-valued multiplicative weight for the join,
+defined exactly on the coprime pairs, and checked at a concrete instance
+(`2 ⊔ 3 = 6`). So the earlier theorem's whole strength came from
+quantifying over **all** pairs.
+
+> The obstruction is not the join. **The obstruction is overlap** — and
+> overlap is exactly the locus where the two operations disagree.
+
+Which relocates the walk's cost precisely. A sieve only ever combines
+coprime data, so it lives where join = sum and a faithful weight exists.
+The walk combines `1,2,3,4,…`, and `2, 4, 8` all touch the prime `2`: its
+data overlap constantly. Every overlap is a place where the join discards
+what the sum would have kept, and the discarded amount is the whole
+difference between `k!` and `lcm(1..k)`.
+
+**Not claimed:** any rate. That sentence is a *location*, not a bound.
+Nothing computes how much the join discards; `lcm(1..k)` versus `k!` is
+named as the quantity to compute, and naming it is what the module does.
+
+### Corrected summary of the thread
+
+Five of the six negative results above are now visible as one statement
+with a scope error in the original reading, twice over:
+
+1. §1–2 read `disjoint-support` as arithmetic's barrier; it is the **line's**.
+2. §§8–13 read idempotence as the join's obstruction; it is **overlap's**.
+
+In both cases the theorem was right and the quantifier was wrong. That is
+the failure mode this thread has now produced twice, and it is worth
+naming: *a true theorem, read at a scope it was never proved at.*
