@@ -2070,7 +2070,24 @@ toTR :: Term -> TR.Term
 toTR (V i) = TR.V i
 toTR (F f ts) = TR.F f (map toTR ts)
 
-tryReplay :: [(Term,Term)] -> [Rule] -> ((Term,Term),String) -> IO (Maybe Int)
+-- THE TRACE IS RENDERED AND THEN THROWN AWAY.
+--
+-- `TR.replayWithRules` returns `Just source` — a complete Agda module, the
+-- proof written out. The kernel checks it, the machine records the words
+-- "trace replay" in the log, and the source is dropped on the floor.
+--
+-- That path is 820 of 2362 `KERNEL-ACCEPT` lines, the plurality. It is also
+-- exactly what `machine/KernelContext.hs` cannot render — its `proofOfNaya`
+-- returns `NoTacticRecorded "trace replay"`, because `library.terms` records
+-- THAT a trace was replayed and not the trace. So the largest single block of
+-- the machine's memory is unusable by the organ built to feed the kernel, and
+-- the reason is that the machine already had the answer and did not keep it.
+--
+-- Same defect as the verdicts, the display, the dead `residualTally`: evidence
+-- produced at one boundary and discarded at the next. `tryReplay` now hands
+-- the source back and `kernelAcceptWith` writes it down.
+tryReplay :: [(Term,Term)] -> [Rule] -> ((Term,Term),String)
+          -> IO (Maybe (Int, String))
 tryReplay known rules ((l,r),proofNote) =
   case C.inductionVariable proofNote of
     Nothing -> pure Nothing
@@ -2084,16 +2101,29 @@ tryReplay known rules ((l,r),proofNote) =
         Just source -> do
           (code, _out, calls) <- C.runAgdaCached "." source
           case code of
-            ExitSuccess -> pure (Just calls)
+            ExitSuccess -> pure (Just (calls, source))
             ExitFailure _ -> pure Nothing
+
+-- Append-only, one record per replayed proof, delimited so it can be read back
+-- without a parser for Agda.  The claim is in the machine's own prefix
+-- notation, which is what `library.terms` uses and what `KernelContext`
+-- already parses.
+recordTrace :: (Term, Term) -> String -> IO ()
+recordTrace (l, r) source =
+  appendFile "machine/replay.traces" $
+       "-- TRACE " ++ showTermP l ++ "\t" ++ showTermP r ++ "\n"
+    ++ source
+    ++ (if not (null source) && last source == '\n' then "" else "\n")
+    ++ "-- END TRACE\n"
 
 kernelAcceptWith :: [Sym] -> [(Term,Term)] -> [Rule] -> Handle -> Int
                  -> ((Term,Term),String) -> IO KernelOutcome
 kernelAcceptWith invented known rules logh roundNo cand@((l,r),proofNote) = do
   replayed <- tryReplay known rules cand
   case replayed of
-    Just calls -> do
-      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls)\n"
+    Just (calls, source) -> do
+      recordTrace (l, r) source
+      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls, trace kept)\n"
         roundNo (show l) (show r) calls
       pure (KernelOutcome True Nothing (Just P.NTraceReplay) calls)
     Nothing -> kernelAcceptSearch invented logh roundNo ((l,r),proofNote)
