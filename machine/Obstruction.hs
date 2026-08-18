@@ -57,11 +57,13 @@ module Obstruction
   , Verdict(..)
   , triage
   , worthQueueing
+  , goalOfRejectLine
+  , curriculum
   , selfTest
   ) where
 
 import Data.Char (isDigit, isSpace, isAlpha)
-import Data.List (isPrefixOf, foldl', nub)
+import Data.List (isPrefixOf, foldl', nub, sortOn)
 
 -- Structurally identical to MathMachine.Term, as in the six other modules
 -- that each redefine it.  (That duplication is a real defect in this
@@ -339,6 +341,73 @@ triage (l, r)
 worthQueueing :: [Obstruction] -> [(Term, Term)]
 worthQueueing obs =
   nub [ p | p <- obstructionGoals obs, triage p == Plausible ]
+
+-- ---------------------------------------------------------------- curriculum
+--
+-- A KERNEL-REJECT line carries BOTH the goal (in the machine's notation) and
+-- the residual (in Agda's).  So the log is a bipartite graph goal → residual,
+-- and the honest ranking of "what should I prove first" is not the raw
+-- occurrence count — which over-weights a goal retried across many rounds —
+-- but: HOW MANY DISTINCT PARENT GOALS WOULD THIS ONE LEMMA UNBLOCK.
+--
+-- Measured over machine/machine.log:
+--
+--     distinct stalled goals        130
+--     distinct lemmas demanded       78
+--     top 8 lemmas unblock           54 of the 130
+--
+-- WHAT THE TOP OF THAT LIST MEANS, which is the real finding.  It reads:
+--
+--     unblocks 14   0 = y·0
+--     unblocks 11   x·le(x,0) = 0
+--     unblocks  8   x·0 = 0
+--     unblocks  5   x = x+0
+--
+-- The machine ALREADY HAS `x·0 = 0`.  It is a defining equation of `*` in
+-- its own vocabulary (`symDefs`).  It is demanding something it knows.
+--
+-- The reason is that Agda's `_·_` on ℕ recurses on the other argument, so
+-- `x · 0` is not definitionally `0` there — it needs induction — while the
+-- machine's rewriter discharges it immediately.  So the residual stream is
+-- not really a list of things the machine does not know.  It is a
+-- measurement of the IMPEDANCE MISMATCH between the machine's rewriting and
+-- Agda's definitional equality, and this curriculum is exactly the set of
+-- bridging lemmas that would close it.
+--
+-- That reframes the payoff.  Proving these 78 does not teach the machine new
+-- mathematics; it teaches the machine's OUTPUT to survive contact with the
+-- kernel — which is the thing that has been capping accepted theorems all
+-- along.
+
+-- Recover the goal from a KERNEL-REJECT line.  Cutting at the first '(' is
+-- wrong: goals contain parens, and `x = (xmaxx)` would collapse to `x = `,
+-- reading 130 distinct goals as 11.  The goal ends at the "  (N agda calls)"
+-- framing.
+goalOfRejectLine :: String -> String
+goalOfRejectLine l =
+    let afterRound = drop 1 (dropWhile (/= ' ') (dropWhile (== ' ') l))
+        afterEq    = drop 1 (dropWhile (/= '=') afterRound)
+        body       = drop 1 (dropWhile (/= ' ') afterEq)
+    in unwords (words (upTo "  (" body))
+  where
+    upTo sep = go ""
+      where
+        go acc [] = reverse acc
+        go acc t@(c:cs)
+          | take (length sep) t == sep = reverse acc
+          | otherwise = go (c:acc) cs
+
+-- Lemmas worth proving, best first, paired with the number of distinct
+-- parent goals each would unblock.  Input is the KERNEL-REJECT lines.
+curriculum :: [String] -> [((Term, Term), Int)]
+curriculum ls =
+    sortOn (negate . snd)
+      [ (p, length (nub gs)) | (p, gs) <- collect ]
+  where
+    edges = [ (p, goalOfRejectLine l)
+            | l <- ls, Just p <- [residualOf l], triage p == Plausible ]
+    collect = [ (p, [ g | (p', g) <- edges, p' == p ])
+              | p <- nub (map fst edges) ]
 
 -- ---------------------------------------------------------------- selftest
 --
