@@ -250,3 +250,64 @@ the style used throughout this thread — the norm predates me.
 
 Which does not say the mathematics is easy. `¬ (Dec A)` is a fine thing to
 prove. It has not been.
+
+---
+
+## Correction, immediate: the surviving barrier claim does not survive either
+
+Everything above says the one form of barrier claim left standing is
+`¬ (Dec A)`, and closes with *"`¬ (Dec A)` is a fine thing to prove. It has
+not been."*
+
+That is wrong. `¬ (Dec A)` is **contradictory**, for every `A`,
+constructively:
+
+```
+no-barrier-claim :  (A : Type ℓ) → ¬ (¬ (Dec A))
+no-barrier-claim A k = k (no (λ a → k (yes a)))
+```
+
+Three lines. Assume `k : ¬ (Dec A)`. Then `λ a → k (yes a) : ¬ A`, so
+`no (λ a → k (yes a)) : Dec A`, and `k` applied to it gives `⊥`.
+
+So there is no barrier claim of that form to make, ever — not "none has
+been made here". Undecidability of a *specific* proposition is not
+something a constructive development can assert at all. What genuinely
+undecidable results assert is something else: independence **from a
+theory**, or non-existence of an algorithm **uniform in a parameter**.
+Neither is `¬ (Dec A)` for a fixed `A`.
+
+### The deflation is total
+
+| step | statement |
+|---|---|
+| §2 | every absence is stable, unconditionally |
+| §5 | every obstruction here is `¬`-headed or a `Π` of such |
+| §6 | a gap between `¬¬A` and `A` is contradictory |
+| §8 | every dichotomy is a decision — it had to be built |
+| §10 | the last candidate barrier form is itself contradictory |
+
+> There is **no sense available in this lane** in which any statement here
+> is a barrier, other than "here is a proof of `¬A`" — and that reading is
+> exact. The word has nothing left to mean.
+
+### The boundary, which now matters more than before
+
+This does not say no real barrier exists in the mathematics. Independence
+and algorithmic impossibility are real and are proved elsewhere by other
+means — and they are not of the form `¬ (Dec A)`. Stating one requires a
+theory to be independent *of*, or a uniformity to quantify *over*: objects
+this lane does not carry. `GodelSeparation` is the corpus's one gesture at
+the first, and even it proves a `¬`-headed statement by exhibiting a
+countermodel.
+
+So the honest conclusion is not "there are no barriers." It is:
+
+> **This lane cannot express one.** Every time this repository has written
+> "barrier", it has been describing a proof of a negation — which is exact,
+> decidable in every instance checked, and converts into a statement about
+> size (`Pratyahara`) rather than possibility. If a real barrier is wanted,
+> the lane has to change, and saying which lane is the next question.
+
+Ninth correction of the session, made two commits after the claim it
+corrects, by the same author.

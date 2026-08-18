@@ -274,3 +274,50 @@ dec→sum→dec (no  _) = refl
 -- The one thing this does NOT say: that the mathematics being pointed at
 -- is easy.  `¬ (Dec A)` is a fine thing to prove.  It has not been.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 10.  CORRECTION TO §9, immediate — the surviving barrier claim does
+--      not survive either.
+--
+-- §6 and §9 say the only form of barrier claim left standing is
+-- `¬ (Dec A)`, and §9 adds that it "is a fine thing to prove. It has not
+-- been."  The second sentence is wrong, and the first is misleading.
+--
+-- `¬ (Dec A)` is CONTRADICTORY, for every A, constructively:
+--
+--     no-barrier-claim :  (A : Type ℓ) → ¬ (¬ (Dec A))
+--
+--     assume k : ¬ (Dec A).  Then (λ a → k (yes a)) : ¬ A,
+--     so (no (λ a → k (yes a))) : Dec A, and k applied to it gives ⊥.
+--
+-- Three lines.  So there is no barrier claim of that form to make, ever —
+-- not "none has been made here".  Undecidability of a specific proposition
+-- is not something a constructive development can assert; what genuinely
+-- undecidable results assert is something else entirely (independence
+-- from a theory, or non-existence of an algorithm uniform in a
+-- parameter), and neither is `¬ (Dec A)` for a fixed A.
+--
+-- THE DEFLATION IS THEREFORE TOTAL:
+--
+--   * every absence is stable (§2);
+--   * every obstruction here is ¬-headed or a Π of such (§5);
+--   * a gap between ¬¬A and A is contradictory (§6);
+--   * every dichotomy is a decision, since it had to be built (§8);
+--   * and the last candidate barrier form is itself contradictory (§10).
+--
+-- There is no sense available in this lane in which any statement here is
+-- a barrier, other than "here is a proof of ¬A" — and that reading is
+-- exact.  The word has nothing left to mean.
+--
+-- WHAT THIS DOES NOT SAY, and the boundary now matters more than before:
+-- that no real barrier exists in the mathematics.  Independence and
+-- algorithmic impossibility are real, are proved elsewhere by other
+-- means, and are not of the form `¬ (Dec A)`.  Stating one requires a
+-- theory to be independent OF, or a uniformity to quantify over — objects
+-- this lane does not carry.  `GodelSeparation` is the corpus's one
+-- gesture at the first, and it too proves a ¬-headed statement by
+-- exhibiting a countermodel.
+------------------------------------------------------------------------
+
+no-barrier-claim : (A : Type ℓ) → ¬ (BarrierClaim A)
+no-barrier-claim A k = k (no (λ a → k (yes a)))
