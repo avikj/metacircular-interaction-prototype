@@ -66,6 +66,14 @@ distinction as the whole corpus: a determinate infinite (khahara) and the
 indeterminate un-said (avaktavya) are two different things, not one collapsed
 "undefined."
 
+## Lane 7 — geometry, series, the plural infinite
+
+| module | headline | one line |
+|---|---|---|
+| `Sulba` | `शुल्ब-समिका` | Baudhāyana's Śulba-sūtra (~800 BCE): `c²=a²+b²`, Pythagorean-triple parametrization — before Pythagoras |
+| `Sankalita` | `द्विगुण-सङ्कलितम्`, `घन-सङ्कलितम्` | Āryabhaṭa's series sums (499): `2·∑k=n(n+1)` and the gem `∑k³=(∑k)²` |
+| `Ananta` | `कैण्टर` | Cantor `ℕ ≄ (ℕ→Bool)` as one witness of the Jain plural-infinite (Anuyogadvāra) — with scope honestly stated |
+
 ## Superseded
 
 `Anekanta.agda` — the first attempt (proclaimed "no checking" yet used
