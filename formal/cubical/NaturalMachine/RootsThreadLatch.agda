@@ -110,6 +110,7 @@ import NaturalMachine.WitnessDichotomy
 import NaturalMachine.AnyonyaAbhava
 import NaturalMachine.AsiddhatvaBreaksFactoring
 import NaturalMachine.AnuvrttiIsTheSameTrade
+import NaturalMachine.PratyaharaBuysTotalityWithLocality
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

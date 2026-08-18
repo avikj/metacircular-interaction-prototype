@@ -200,3 +200,36 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 -- repeated ण् is buying locality, and whether that purchase is minimal
 -- is exactly the question that module leaves open.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  CORRECTION to §5's open item, and to the column प्रत्याहार is in.
+--
+-- §5 names as open "whether the two local devices are local
+-- UNCONDITIONALLY", guessing that प्रत्याहार's difficulty would be
+-- locality.  It is not, and प्रत्याहार is not local.
+--
+-- `NaturalMachine.PratyaharaBuysTotalityWithLocality` separates two
+-- costs the header above ran together:
+--
+--   TOTALITY  some needed set has no name at all;
+--   LOCALITY  some name denotes more than one set.
+--
+-- `Pratyahara` studies totality only.  Its repair — repeating a letter,
+-- `x y z x` — buys totality and destroys locality, because the repeated
+-- letter makes `(x , x)` the name of both the run [x] and the run
+-- [x,y,z,x].  That is the smallest instance of the ambiguity at अण्,
+-- whose ण् is an अनुबन्ध in both the first शिवसूत्र and the sixth.
+--
+-- So the split is THREE–ONE, not two–two:
+--
+--     अपवाद       local, total                    buys nothing
+--     प्रत्याहार    total at the cost of locality
+--     अनुवृत्ति     non-local, buys brevity
+--     असिद्धत्व     non-local, buys a distinction
+--
+-- and §5's conclusion shrinks with it: the only device a measure on
+-- presentations is stable under is अपवाद, which is the only one of the
+-- four that adds no expressive power.  A measure stable under every
+-- device that changes the presentation is one that cannot see what the
+-- devices are for.
+------------------------------------------------------------------------
