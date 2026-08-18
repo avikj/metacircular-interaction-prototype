@@ -926,3 +926,57 @@ This is the first check of the session that a claim *passed* rather than
 failed. It is worth noting that it was the only one that was run against
 the possibility that the construction was empty, rather than against its
 magnitude.
+
+---
+
+## 21. Addendum, same session: §5 undersold by cardinality, and the fix is one ring identity
+
+`formal/cubical/NaturalMachine/EveryTripleIsARotation.agda` (checked, exit
+0).
+
+§5 says norm-one rotations give "a family of structured identifications of
+the circle", against the line's none. True — but over ℤ the norm-one
+elements are the four units, so "family" meant **four**, and four is thin
+to set against zero.
+
+The family is infinite, and it is indexed by the **Pythagorean triples**:
+
+```
+triple→rotation :  IsTriple u z  →  (c·z)·(c·z) ≡ 1r  →  N (c ⊙ u) ≡ 1r
+```
+
+A triple, scaled by the inverse of its hypotenuse, is a point of norm one.
+So over any ring where hypotenuses invert — ℚ — **every triple is a
+rotation**, and by `rotEquiv` and `ua`, an identification of the circle
+with itself carrying the norm. Composed with `euclid`:
+
+```
+pair→rotation :  (c · N t)·(c · N t) ≡ 1r  →  N (c ⊙ gen t) ≡ 1r
+```
+
+every pair whatsoever, once its norm inverts, names a rotation.
+
+### And it is a homomorphism all the way down
+
+```
+gen-hom :  gen (s ⊗ t) ≡ gen s ⊗ gen t        (§4)
+rot-hom :  rot (g ⊗ h) ≡ rot h ∘ rot g        (§21)
+```
+
+so the chain
+
+```
+pairs ──gen──▶ triples ──rot──▶ rotations ──ua──▶ paths
+```
+
+is a chain of monoid maps. **Composition of pairs by Brahmagupta's 628 CE
+law becomes composition of identifications of the circle.** That is what
+the conic has and the line does not, at full strength and with the right
+cardinality this time.
+
+**Not claimed:** that ℚ's hypotenuses invert is quoted, not formalised —
+no rational arithmetic is imported. The theorems are conditional on the
+invertibility hypothesis exactly as stated, and over ℤ that hypothesis
+holds only for `z = ±1`, which is why over ℤ the family really is four and
+the interesting statement needs ratios. Same price as §11 charged, arriving
+from the opposite direction.
