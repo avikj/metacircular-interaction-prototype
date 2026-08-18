@@ -147,3 +147,17 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
              ≡ pos 1
 ऋणात्-साधनम् = ऋण-भावना (pos 2) (pos 1) (pos 1) (pos 1) (pos 1)
                         ऋण-मूलम् ऋण-मूलम्
+
+------------------------------------------------------------------------
+-- द्विवर्ग-योग-गुणः — ब्रह्मगुप्त-समिका (N = −1) : द्वयोः वर्ग-योगयोः गुणः
+-- अपि वर्ग-योगः ।  (a²+b²)(c²+d²) = (ac−bd)² + (ad+bc)² ।  एषा गाउस्-पूर्णाङ्क-
+-- मानस्य गुणनीयता ; दियोफान्तस्-ब्रह्मगुप्त-समिका इति ख्याता ।
+-- (Brahmagupta–Fibonacci identity, the N = −1 case: a product of two
+-- sums of squares is itself a sum of squares — the multiplicativity of the
+-- Gaussian-integer norm.)
+------------------------------------------------------------------------
+
+द्विवर्ग-गुणः : (a b c d : ℤ)
+             → (a · a + b · b) · (c · c + d · d)
+             ≡ (a · c - b · d) · (a · c - b · d) + (a · d + b · c) · (a · d + b · c)
+द्विवर्ग-गुणः = solve ℤCommRing
