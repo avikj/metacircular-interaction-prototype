@@ -4674,7 +4674,7 @@ main = do
   -- The goals are the top of the curriculum the kernel's own refusals demand,
   -- read off machine/machine.log rather than invented.
   when (args == ["--prove-residuals"]) $ do
-    let m0 = start
+    let m0 = start { mVocab = length vocabulary }   -- NOT `start`: mVocab is 3
         rules = usableRules m0
         x = V 0 ; y = V 1
         z0 = F "0" [] ; suc t = F "s" [t]

@@ -297,3 +297,59 @@ entries, `library.terms` and the whole of `machine.log` were produced under it.
 of the 2362 `KERNEL-ACCEPT` lines and neither preamble exercises it. It is the
 path most likely to behave differently under a transcribed `+`, and nothing
 here says anything about it.
+
+---
+
+## 10. The whole mechanism on one goal, every link checked
+
+`x ≡ 1 · x` is the flagship case — `Obstruction.hs`'s own header opens with its
+refusal text. Here is what happens to it, end to end, with each step verified
+rather than argued.
+
+**1. The machine proves it.** `--prove-residuals`, full vocabulary, 29 rules:
+
+```
+  x = 1 * x        rewriting=False  induction=induction on x
+```
+
+Not definitional, and the prover finds the induction. Base `0 = 1·0 = 0`; step
+uses the machine's `·`, which is `x · suc y = x·y + x`, and its `+`, which is
+`x + suc y = suc (x + y)`. Both recurse on the **second** argument.
+
+**2. The emitter renders it with Agda's `·`**, which recurses on the **first**:
+
+```
+    _*_ : Nat → Nat → Nat          (Agda/Builtin/Nat.agda:31)
+    zero  * m = zero
+    suc n * m = m + n * m
+```
+
+**3. So Agda unfolds `1 · x` to `x + 0 · x` and stalls**, which is verbatim the
+line the header quotes:
+
+```
+    x != x + 0 · x of type ℕ   when checking that refl has type x ≡ 1 · x
+```
+
+Under the machine's `·` this unfolding does not arise at all: `1 · x` is `·`
+applied to a *variable* second argument and simply does not reduce, so the
+machine never meets this subgoal.
+
+**4. The residual is harvested** — `x ≡ x + 0·x`, 27 occurrences.
+
+**5. And it is dropped**, correctly, because modulo `0·x = 0` it is `x + 0 ≡ x`,
+which is the machine's own defining equation for `+`.
+
+**6. Loop closed. Nothing learned. Repeat.**
+
+Every arrow is checked: the prover's verdict by `--prove-residuals`, the two
+definitions by their source lines, the stall text by the log, the drop by
+`RESIDUAL-FATE`, the count by the census.
+
+**What this shows that §9 did not.** The clause order is not merely generating
+noise alongside real work — it is generating the residual *of a goal the
+machine had already proved*. The machine solved `x = 1·x` and then received,
+from the kernel, a demand for a lemma it regards as an axiom, because the proof
+it had was in a language the kernel reads differently. That is the whole failure
+in one line, and it is why §9.4's remedy is the right shape: the kernel does not
+need a different `·`, it needs `x + 0 ≡ x` in scope as a citable name.
