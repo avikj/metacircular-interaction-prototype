@@ -1,12 +1,19 @@
 # The barrier belongs to the line, not to arithmetic
 
-**Status:** 16 checked Agda modules, one thread, seven corrections — six of
-them to claims made in the same session. All 16 rebuilt from a deleted
-`_build` in one pass, exit 0 each, no postulates, no holes, `--safe`
+**Status:** 18 checked Agda modules, one thread, seven corrections — six of
+them to claims made in the same session. All 18 rebuilt from a deleted
+`_build` in one pass, exit 0 each; `--safe` on every one, which is what
+rules out postulates, and exit 0 is what rules out holes
 (Agda 2.6.3 / cubical v0.5 — the container, not the repository pin).
-**Sources:** Brahmagupta, *Brāhmasphuṭasiddhānta* ch. 18 (kuṭṭakādhyāya),
-628 CE — samāsa-bhāvanā and antara-bhāvanā. Pythagoras, via the triples.
-Voevodsky, via `ua`.
+**Sources are load-bearing, not decorative:** the last two modules are the
+cakravāla step and its dependence on the kuṭṭaka, and the point of the
+second is that Āryabhaṭa 499, Brahmagupta 628 and Jayadeva/Bhāskara
+950/1150 are ONE construction, not three citations.
+**Sources:** Āryabhaṭa, *Āryabhaṭīya* 2.32–33, 499 CE — kuṭṭaka.
+Brahmagupta, *Brāhmasphuṭasiddhānta* ch. 18 (kuṭṭakādhyāya), 628 CE —
+samāsa-bhāvanā and antara-bhāvanā. Jayadeva c. 950 and Bhāskara II,
+*Bījagaṇita*, 1150 — cakravāla. Pythagoras, via the triples. Voevodsky,
+via `ua`.
 
 ---
 
@@ -31,6 +38,8 @@ parity barrier. The first is answered here; the second is retracted.
 | There is no reversible step law on ℕ-exponents at all: join fails by idempotence, `⊕` fails by positivity. **Descent costs the integers** — reversibility is the group completion, and its states are ratios. | `DescentCostsTheIntegers` |
 | A map multiplicative for an *accumulating* law takes no unit value but 1, so **sign is not accumulable** — over any commutative ring, no domain hypothesis. | `SignIsNotAccumulable` |
 | `lcm·gcd = product` is `max + min = x + y`: in the tropical chart every trace of number theory evaporates. | `JoinSavesTheMeet` |
+| The **cakravāla step**, cleared of denominators, over any commutative ring — with Bhāskara's own `D = 61` cycle checked by `refl`. | `Cakravala` |
+| And the cakravāla **calls the kuṭṭaka every cycle**: Bhāskara's choice condition `k | a + bm` is a linear indeterminate equation, and Āryabhaṭa's pulveriser (499) is what makes the choice set non-empty. | `CakravalaNeedsKuttaka` |
 
 **The magnitude half — every claim in it was corrected or dissolved.**
 
