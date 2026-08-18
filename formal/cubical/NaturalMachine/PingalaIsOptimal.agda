@@ -58,9 +58,8 @@
 -- WHAT IS NOT CLAIMED.  That uddiṣṭa is the unique optimal scheme (it is
 -- not — any bijection to `Fin (sankhya n)` attains the bound); that
 -- Piṅgala stated an optimality claim (he did not, and nothing in the
--- Chandaḥśāstra is read here as one); or anything about mātrā-vṛtta,
--- where the count is the mātrāmeru and the same argument would apply
--- verbatim via `matraCount` but is not run.
+-- Chandaḥśāstra is read here as one).  The mātrā-vṛtta case, listed here
+-- as unrun in the first version of this file, is run in §4.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.
@@ -80,7 +79,8 @@ open import Cubical.Data.FinSet.Cardinality using (card↪Inequality')
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.SumFin using () renaming (SumFin≃Fin to sumFin≃Fin)
 
-open import Pingala using (Vak ; sankhya ; uddistaIso)
+open import Cubical.Data.Nat using (suc ; _+_)
+open import Pingala using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount ; matraRecurrence)
 
 ------------------------------------------------------------------------
 -- 1.  The metres of n syllables, as a finite set of size saṅkhyā n
@@ -120,3 +120,40 @@ pingala-optimal n Y obs inj =
 -- `Pingala.sankhya` by definition, so the count is the doubling Piṅgala
 -- states, not a translation of it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 4.  The mātrā-vṛtta case, which §3's "not claimed" listed as unrun.
+--
+-- `Pingala.matraCount : (n : ℕ) → Iso (Metre n) (Fin (matra n))` is the
+-- same shape for metres of fixed DURATION rather than fixed syllable
+-- count, and `Pingala.matraRecurrence` proves
+--
+--     matra (n+2) ≡ matra (n+1) + matra n
+--
+-- which is Virahāṅka's mātrāmeru (c. 600–800 CE), four centuries before
+-- the *Liber Abaci*.  So the bound applies verbatim, and it says:
+--
+--     no lossless observation of the metres of duration n has fewer
+--     than mātrā n outcomes,
+--
+-- with Virahāṅka's number appearing as an information-theoretic minimum
+-- rather than as a count.
+------------------------------------------------------------------------
+
+MetreFinSet : (n : ℕ) → FinSet ℓ-zero
+MetreFinSet n =
+  Metre n , matra n ,
+  ∣ compEquiv (isoToEquiv (matraCount n)) (invEquiv (sumFin≃Fin (matra n))) ∣₁
+
+virahanka-optimal :
+  (n : ℕ) (Y : FinSet ℓ-zero) (obs : MetreFinSet n .fst → Y .fst)
+  → Injective obs
+  → matra n ≤ card Y
+virahanka-optimal n Y obs inj =
+  card↪Inequality' (MetreFinSet n) Y obs
+    (injEmbedding (isFinSet→isSet (Y .snd)) inj)
+
+-- the mātrāmeru recurrence, quoted from `Pingala` so the number in the
+-- bound is visibly Virahāṅka's and not a re-derivation
+matrameru-recurrence : (n : ℕ) → matra (suc (suc n)) ≡ matra (suc n) + matra n
+matrameru-recurrence = matraRecurrence
