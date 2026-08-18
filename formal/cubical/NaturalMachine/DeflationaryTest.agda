@@ -98,6 +98,7 @@ module NaturalMachine.DeflationaryTest where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty as Empty using (⊥)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
 private
@@ -214,4 +215,62 @@ BarrierClaim A = ¬ (Dec A)
 -- `Apavada.kinds-exclude`, `NoNormOnAJoin.two-valued` and `three-collide`
 -- are all disjunctions obtained from decidable sources.  That is the
 -- honest home of the avacchedaka in this corpus.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  The ⊎-sites close too, and for a reason about the SUBSTRATE.
+--
+-- §7 leaves the sum-shaped results as the one place a genuine barrier
+-- could sit, since stability does not pass through ⊎.  An audit of all
+-- 434 `.agda` files under `formal/cubical` found 74 such signatures and
+-- zero `¬ (Dec A)` claims.  But the audit was not needed, and the reason
+-- is stronger than any count:
+--
+--     **in a `--safe`, postulate-free development, every inhabited ⊎ is a
+--     decision, because it was constructed.**
+--
+-- There is no way to write a term of `A ⊎ B` without producing `inl a` or
+-- `inr b`.  A "non-constructive dichotomy" is not expressible in this
+-- lane at all — not hard to find, not absent by luck: unwritable.  So the
+-- 74 sites cannot hide a barrier, and neither could 74 000.
+--
+-- The anchor for that, checked rather than asserted: a dichotomy of the
+-- form `A ⊎ ¬ A` is literally decidability, up to the obvious iso.
+------------------------------------------------------------------------
+
+sum→dec : {A : Type ℓ} → A ⊎ (¬ A) → Dec A
+sum→dec (inl a)  = yes a
+sum→dec (inr ¬a) = no ¬a
+
+dec→sum : {A : Type ℓ} → Dec A → A ⊎ (¬ A)
+dec→sum (yes a)  = inl a
+dec→sum (no ¬a)  = inr ¬a
+
+sum→dec→sum : {A : Type ℓ} (d : A ⊎ (¬ A)) → dec→sum (sum→dec d) ≡ d
+sum→dec→sum (inl _) = refl
+sum→dec→sum (inr _) = refl
+
+dec→sum→dec : {A : Type ℓ} (d : Dec A) → sum→dec (dec→sum d) ≡ d
+dec→sum→dec (yes _) = refl
+dec→sum→dec (no  _) = refl
+
+------------------------------------------------------------------------
+-- 9.  The deflation, closed.
+--
+--   * every absence is stable, unconditionally (§2) — nothing sits at
+--     level three, and the level measures nothing;
+--   * every obstruction in this lane is ¬-headed or a Π of such, hence
+--     stable by shape (§5);
+--   * a gap between ¬¬A and A is contradictory (§6), so the only
+--     surviving barrier claim is ¬ (Dec A);
+--   * and every dichotomy that could have carried one is a decision,
+--     because in a postulate-free development it had to be built (§8).
+--
+-- So no statement in this repository is, or can be, a barrier in any
+-- sense stronger than "here is a proof of ¬A" — unless someone proves
+-- `¬ (Dec A)`, which is a positive claim, has its own burden, and has
+-- never been made here.
+--
+-- The one thing this does NOT say: that the mathematics being pointed at
+-- is easy.  `¬ (Dec A)` is a fine thing to prove.  It has not been.
 ------------------------------------------------------------------------

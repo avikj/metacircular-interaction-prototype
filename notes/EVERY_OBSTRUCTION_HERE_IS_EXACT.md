@@ -204,3 +204,49 @@ And the isolation says something the three separate proofs did not:
 impossibility, not a collision. Which is exactly why it was the one thing
 in the thread that obstructed rather than deflated, and the shape
 difference is now visible rather than a matter of feel.
+
+---
+
+## The `⊎`-sites close too, and the audit was not needed
+
+The remaining work named above — classify the 74 sum-shaped signatures —
+is superseded by a fact about the substrate rather than about this corpus:
+
+> In a `--safe`, postulate-free development, **every inhabited `⊎` is a
+> decision, because it was constructed.**
+
+There is no way to write a term of `A ⊎ B` without producing `inl a` or
+`inr b`. A "non-constructive dichotomy" is not merely absent from this
+repository — it is **unwritable in this lane**. So the 74 sites cannot
+hide a barrier, and neither could 74 000. `DeflationaryTest` §8 anchors it
+with the checked iso `A ⊎ ¬ A ≅ Dec A`.
+
+The audit still earned its keep: it turned up the fifth rediscovery, and
+it confirmed 0 undecidability claims among 921 negation-headed results. But
+the ⊎ half of falsifier (2) was closed by the type theory, not by counting.
+
+Spot-checked before that was noticed: `GodelSeparation.agda` — the file
+most likely to carry a barrier, being about Gödel and Lawvere. Its claims
+are `¬ WkPtSurj sat` and `noHalfTwo`, both `¬`-headed, the second proved by
+exhibiting a countermodel. No undecidability asserted. That file also
+already carries a self-audit correction block from 2026-08-15 in exactly
+the style used throughout this thread — the norm predates me.
+
+## The deflation, closed
+
+1. Every absence is stable, unconditionally — nothing sits at level three,
+   and the level measures nothing.
+2. Every obstruction in this lane is `¬`-headed or a `Π` of such, hence
+   stable by shape.
+3. A gap between `¬¬A` and `A` is contradictory, so the only surviving
+   barrier claim is `¬ (Dec A)`.
+4. Every dichotomy that could have carried one is a decision, because in a
+   postulate-free development it had to be built.
+
+> **No statement in this repository is, or can be, a barrier in any sense
+> stronger than "here is a proof of `¬A`"** — unless someone proves
+> `¬ (Dec A)`, which is a positive claim with its own burden, and has never
+> been made here.
+
+Which does not say the mathematics is easy. `¬ (Dec A)` is a fine thing to
+prove. It has not been.
