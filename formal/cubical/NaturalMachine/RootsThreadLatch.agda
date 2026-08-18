@@ -112,6 +112,7 @@ import NaturalMachine.AsiddhatvaBreaksFactoring
 import NaturalMachine.AnuvrttiIsTheSameTrade
 import NaturalMachine.PratyaharaBuysTotalityWithLocality
 import NaturalMachine.TheSecondNaIsTheCollision
+import NaturalMachine.MeruDiagonalIsVirahanka
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
