@@ -549,3 +549,67 @@ guessed at.
 |---|---|
 | `ReflectionAttachment` | A `Reflection` record (involutive self-map) with `ReflectionFiber` and `ReflectionTotal`. No header comment; the theorem it is for is not stated in the file's opening. |
 | `Descent`-adjacent naming | Note that `../DescentLaw.agda`, `../DynamicDescent.agda` and `../SetTruncationDescentBoundary.agda` sit **outside** this directory and are not indexed here. |
+
+---
+
+## Addendum, 2026-08-18 — 44 modules landed after the snapshot
+
+The index above is a snapshot of 2026-08-15 and says so. These landed
+after it, in one session, and are listed here so they are findable rather
+than left for the next snapshot. All checked `--safe`, exit 0, no
+postulates, no holes (Agda 2.6.3 / cubical v0.5 — the container, not the
+repository pin).
+
+### The conic — `notes/THE_BARRIER_BELONGS_TO_THE_LINE.md`
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `PythagoreanTransition` | bhāvanā at D = −1; `rot-norm`, `triple-⊗`, `euclid`, `gen-hom`, `rotEquiv`, `defect-vanishes` | load-bearing |
+| `WhereTheCircleSplits` | if −1 is a square the norm form factors — the construction is empty there; over ℤ it is not | control |
+| `EveryTripleIsARotation` | every triple is a rotation once its hypotenuse inverts; pairs → triples → rotations → paths, all monoid maps | load-bearing |
+| `IdempotenceForbidsDescent` | idempotent + invertible ⇒ unit; joins are irreversible, bhāvanā is not | load-bearing |
+| `DescentIsNotInversion` | **refutes** descent = inversion; the invariant is the norm mod squares | counterexample |
+| `DescentCostsTheIntegers` | no reversible step law on ℕ-exponents; the cone versus the group | load-bearing |
+| `BoundedStateNeedsAGroup` | forgetting is the operational form of descent; three laws, one can forget | load-bearing |
+| `Cakravala` | the cyclic step, cleared of denominators, with Bhāskara's D = 61 by `refl` | load-bearing |
+| `CakravalaNeedsKuttaka` | the choice condition is a kuṭṭaka; three files that did not reference each other | load-bearing |
+
+### The deflation and the tower — `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`, `notes/THE_TOWER_OF_DESCRIPTION.md`
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `DeflationaryTest` | absences are stable unconditionally; `no-gap`; `no-barrier-claim` — this lane cannot express a barrier | load-bearing |
+| `Apavada` | utsarga/apavāda; apavāda proper versus reformulation | load-bearing |
+| `Laghava` | lāghava is not a function of the denotation | load-bearing |
+| `Anuvrtti` | nor of the rule set — inheritance makes the sequence the standpoint | load-bearing |
+| `Pratyahara` | the alphabet's order; repetition forced (27 checked), one repetition suffices | load-bearing |
+| `TransportPrice` | every additive cost is a coboundary — no route matters | load-bearing |
+| `TheTower` | the five levels and all four separations in one place | load-bearing |
+| `UnivalenceErasesTheAlgorithm` | `ua` sits at level 1 exactly, by `uaβ` | load-bearing |
+| `SignIsNotAccumulable` | no accumulative law carries a weight that is ever −1 | load-bearing |
+| `NoNormOnAJoin`, `OverlapIsTheCost`, `JoinSavesTheMeet`, `TheTrajectoryIsAChain`, `NumberIsExponentialInDerivation`, `TheDerivationIsDenseToo`, `TheGapWasAUnitsError` | the magnitude sub-thread; **every claim in it was corrected or dissolved** — `TheGapWasAUnitsError` is the retraction | superseded-by-`TheGapWasAUnitsError` |
+
+### Optimality and the arithmetic chain — `notes/THE_WALK_IS_OPTIMAL_AND_HERE_IS_WHY.md`
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `LosslessLowerBound` | pigeonhole as a term; complements `WalkCapacity`, does not duplicate it | load-bearing |
+| `OptimalObservation` | `Optimal` as a definition, forcing minimality; three instances | load-bearing |
+| `PingalaIsOptimal` | uddiṣṭa and the mātrāmeru as information-theoretic minima | load-bearing |
+| `WalkObservationCount` | frontier 8's residue space is 840 by CRT | witness |
+| `CRTChain` | the CRT chain for any list of moduli | load-bearing |
+| `CoprimePowers`, `BezoutIsGCD`, `DistinctPrimesAreCoprime`, `CoprimePowersN` | certificates compose; the ℕ↔ℤ bridges; distinct primes are coprime | load-bearing |
+| `FrontierCount`, `FrontierList`, `FrontierDivides`, `Factorisation` | the frontier as data, its hypotheses decided, half the universal property, and existence of prime factorisation | load-bearing |
+
+### Piṅgala and the Kerala school
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `Sankalita` | vārasaṅkalita **is** the meru-prastāra; three refuted encodings of the diagonal identity, each recorded with its counterexample | load-bearing + counterexample |
+| `DurationIsSyllablesPlusGuru` | `matrāOf p ≡ varṇa p + guruOf p`; `Metre n ≃ Σ_{a+b=n} Chosen a b` | load-bearing |
+| `PairsSummingTo` | the antidiagonal index set is finite, structurally | load-bearing |
+
+**Open gap, stated without an estimate:** `matra n ≡ Σ_{a+b=n} meru a b`.
+Four estimates of what that would take were made in the session and all
+four were wrong; `PairsSummingTo` §6 records the facts and declines to make
+a fifth.
