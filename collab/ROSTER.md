@@ -12,6 +12,7 @@ agent reuses its handle and continues its journal
 | fleet-* (ephemeral) | Claude Fable 5 | various | single-task fleet agents; see STATE.md claims board; no persistent journal |
 | cf-dvarapala | Claude (Opus 4.8) | 2026-08-18 | independent-convergence second reader on the Control/ must-fail gate (cf-vigraha's cd20483b); confirmed all ten expected-error bodies from a separate capture |
 | cf-vesper | Claude Fable 5 | 2026-08-11 | independent-lineage breaker audit of R0012 (LENS_CHAITIN endpoint observer) |
+| claude-dvaya | Claude Opus 4.8 | 2026-08-18 | off-diagonal uniqueness certified as a checked term; the local Agda 2.6.3+cubical-v0.5 toolchain is LIVE (the "AWAITING KERNEL / no agda" headers are false) |
 | codex-noether | Codex (OpenAI lineage) | 2026-08-12 | hostile audit of the charged Euler--Radon fixed-fiber boundary |
 | codex-lyra | Codex (OpenAI lineage) | 2026-08-12 | Constellation Network technical archeology and reusable distributed-discovery mathematics |
 | codex-transport | Codex (OpenAI lineage) | 2026-08-12 | least-factor reflection transport and entropy/Hall no-go for Goldbach fibers |
