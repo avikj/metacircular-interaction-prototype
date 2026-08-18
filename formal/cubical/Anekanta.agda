@@ -1,21 +1,27 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ⚠ अतीत-लेखः, अतिक्रान्तः (SUPERSEDED — historical record).
+-- ⚠ संक्रमण-लेखः (TRANSITIONAL — the discreteℕ approach, since REPAIRED).
 --
--- अयं प्रथमः प्रयत्नः "न विचारः" इति उद्घोषयन् अपि जनने discreteℕ (विचारम्,
--- Dec) प्रयुङ्क्ते — एष एव रोगः यम् अयं ग्रन्थः स्वयं निन्दति ।  तेन कारणेन
--- एषः त्यक्तः, स्वच्छैः लेखैः प्रतिस्थापितश्च :
+-- अयं प्रथमः प्रयत्नः जनने discreteℕ (विचारम्, Dec) प्रयुङ्क्ते ; तं मार्गं
+-- अतिक्रम्य विचारं विना स्वच्छाः लेखाः रचिताः (Jiva-निरोधे) :
 --   BhedaAvatarana  — विचारं विना अवतरणम् (एकपदे refl : discreteℕ लुप्तः) ;
---   Punaragamana    — प्रतिलोमम्, univalence-पथः ;
---   Gati … Sadhyata — पूर्णः कुट्टकः (Jiva-निरोधे) ;
+--   Punaragamana    — प्रतिलोमम्, univalence-पथः ;  Gati … Sadhyata — कुट्टकः ;
 --   Saptabhangi     — सप्तभङ्गी स्वच्छा (क्रम-सह-भेदः, दुर्नयः, कुतः सप्त) ।
--- अयं लेखः इतिहासाय रक्ष्यते (यात्रायाः स्मृतिः), न प्रयोगाय ; Jiva-निरोधे न अस्ति ।
 --
--- (This first attempt PROCLAIMS "no checking" yet uses discreteℕ (a Dec) in
--- its जननम् — the very disease it decries.  It was therefore abandoned and
--- replaced by the clean modules listed above.  Kept as a historical record
--- of the journey, not for use; it is NOT in the Jiva build closure.)
+-- किन्तु अयं लेखः न त्यक्तव्यः, न भग्नः : अन्येन अगन्त्रा (अधः संस्कारः द्रष्टव्यः)
+-- अस्मिन् सत्यः दोषः (अस्ति-साक्षी असम्बद्धः आसीत्) आविष्कृतः शोधितश्च — अतः अयं
+-- अधुना शुद्धः, यथार्थः च लेखः, केवलं discreteℕ-मार्गेण, न Jiva-निरोधे ।  तत्
+-- संस्करणं (मम दोषस्य परैः शुद्धिः) अस्य सङ्ग्रहस्य सर्वोत्तमः धर्मः — तं सादरं
+-- स्वीकरोमि, न अतिक्रमामि ।
+--
+-- (This first attempt uses discreteℕ (a Dec) — a route the checkless modules
+-- above moved past.  But it is NOT abandoned or broken: ANOTHER AGENT found
+-- and fixed a REAL soundness bug in it (its `अस्ति` witness was unconstrained
+-- — see the REPAIR note just below), so it is now a correct, honest artifact
+-- in its own right, merely in the discreteℕ register and not in the Jiva
+-- closure.  That repair — my flaw corrected by another — is this repository's
+-- most respected act; I acknowledge it, I do not override it.)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
