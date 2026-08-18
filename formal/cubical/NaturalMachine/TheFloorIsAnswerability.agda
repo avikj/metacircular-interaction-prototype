@@ -166,3 +166,28 @@ three-is-answerable x = missing₁ x .fst , missing₁ x .snd .fst
 -- corpus contains obstructions NOT of factorisation shape that do has
 -- not been checked.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  CORRECTION to §4, appended the same day.
+--
+-- §4 lists "the four cases" of two capacities and calls them exhaustive.
+-- They are not four cases of two binary capacities: the third row
+-- repeats the second's hypotheses, and (answering ✗, reading ✓) is
+-- absent.  `NaturalMachine.WitnessDichotomy` shows why the missing row
+-- does not exist as a case:
+--
+--     unanswerable→one : ¬ (Σ[ d ∈ D ] law d x) → Refutes law (x ∷ [])
+--
+-- one unanswerable point refutes on its own, whatever the decoders can
+-- read.  So answerability is not one of two independent axes.  It is a
+-- GATE: fail it and the number is 1; pass it and reading decides between
+-- 2 and everything above.  The picture is a chain, not a square, and §4
+-- drew a square.
+--
+-- The independence claim in the commit that introduced this module —
+-- "the capacities are independent, not nested" — is wrong in the same
+-- way.  `three-is-answerable` does show the three-standpoint system
+-- answers without reading, which is a real fact; it does not make the
+-- capacities symmetric, because no system fails answering and is
+-- thereby anything other than 1.
+------------------------------------------------------------------------
