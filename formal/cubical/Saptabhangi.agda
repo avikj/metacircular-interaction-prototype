@@ -483,5 +483,5 @@ sapeksa = machine-profile , refl , refl
 --    this repository is empirical — 35 claims in `machine/machine.log`
 --    appear in both the accept and the reject stream — and it is recorded
 --    where empirical facts belong, in the census and in
---    `notes/ANEKANTA_THE_MACHINE_HAS_TWO_STANDPOINTS.md`.
+--    `notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md`.
 ------------------------------------------------------------------------
