@@ -270,3 +270,14 @@ FAILURES.md entries by T1–T5 (§4.1, unstarted); (b) the D0026 §6.1 round-tri
 gap (mechanisms A and F have no row); (c) minimal charged query sets are
 hitting sets — non-uniqueness structural (0245 ↔ ChargeCriterion, unproved as
 a term); (d) R0049 is still red as a checked result (0536).
+
+## 2026-08-18T01:21Z — the sixteen-mind fan-out, harvested
+
+minds.txt pool worked on first use: 16 personas (uniform, seed brick1), 16
+disjoint 8-file samples (seed brick2), 16/16 returns, 12 rediscoveries of
+one law, 3 open doors, 6 compilers, 6 self-corrections. Woven and landed as
+notes/SIXTEEN_MINDS_ONE_THEOREM.md. Successors in its §5: W2 adapter
+(smallest), disclosure-dimension PROVE, must-fail gate + backward
+verification, adaptive observers. My personal debt: derive the matroid
+paragraph and retire root_singular_series.rs; strike the 0.9999 quote from
+TARGET.md §1.
