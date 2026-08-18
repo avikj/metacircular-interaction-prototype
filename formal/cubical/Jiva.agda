@@ -55,3 +55,4 @@ import Brahmagupta
 import Satyayantra
 import PingalaSatya
 import Saptabhangi
+import Panini
