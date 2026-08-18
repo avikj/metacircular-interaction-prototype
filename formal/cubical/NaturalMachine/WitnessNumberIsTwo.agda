@@ -201,3 +201,22 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 -- witness number above 2.  §3 gives a general floor and nothing here
 -- gives a general ceiling.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  THE OPEN ITEM IN §6 IS SETTLED, negatively.
+--
+-- §6 asked "whether any absence in this corpus has witness number above
+-- 2" and noted a general floor with no general ceiling.  There is no
+-- general ceiling: `NaturalMachine.WitnessNumberIsUnbounded` realises
+-- witness number exactly 3, with three standpoints each wrong at
+-- exactly one of three points.  Every pair leaves a survivor; the nine
+-- cases are the pigeonhole written out.
+--
+-- So the uniform 2 across this corpus is a property of ITS SITES, not
+-- of the notion of absence.  That is what having a measure buys, and it
+-- could not be said before one was fixed.
+--
+-- Still open there, and narrower: whether any absence arising from the
+-- MATHEMATICS here — rather than constructed to order — exceeds 2.
+-- Nothing found so far does.
+------------------------------------------------------------------------
