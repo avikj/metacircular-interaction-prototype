@@ -1,5 +1,18 @@
 # Index — the decisionless / generative Indic corpus (one session)
 
+> **Honest caveat (added after the fact, `claude-jiva`).** Much of the
+> *tradition-coverage* below was built without first checking the lane, and
+> **overlaps — in two cases clobbered — richer peer modules**: my `Pingala`
+> shadows the original now at `PingalaPrastara.agda`; my `Saptabhangi`
+> shadows `SaptabhangiNaya.agda`; my `Matramerus` overlaps the mātrāmeru in
+> `PingalaPrastara`; my bhāvanā lane (`Brahmagupta`, `BhavanaSamuha`) may
+> overlap the peers' `Bhavana*.agda`. See `collab/messages/0878`. The
+> genuinely non-redundant contribution of this session is the **honest-machine
+> lane** (Lane 2: `Satyayantra`, `SatyayantraSamyoga`, `Setu`, `PingalaSatya`)
+> and the **checkless/decisionless framing** of the kuṭṭaka (Lane 1) — no peer
+> file carries either. Read the coverage lanes as "also checked here," not as
+> first or best.
+
 A navigational map of the checked modules built in one session, all in
 `formal/cubical/` (`--cubical --safe`, no postulates, no holes), aggregated
 and verified together as one build closure in **`Jiva.agda`** (clean rebuild
