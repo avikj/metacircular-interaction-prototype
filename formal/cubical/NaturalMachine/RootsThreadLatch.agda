@@ -95,6 +95,7 @@ import NaturalMachine.PrimeCofactorCoprime
 import NaturalMachine.FrontierDividesHard
 import NaturalMachine.FrontierIsWellFormed
 import NaturalMachine.TwoProfilesSuffice
+import NaturalMachine.WitnessNumberIsTwo
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

@@ -202,3 +202,30 @@ says-nki-φ₂ = refl
 -- more than two.  Nothing here suggests one does, and nothing here rules
 -- it out.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  CORRECTION, appended 2026-08-18 — same day, next commit.
+--
+-- §"WHAT THE CORRECTED DISTINCTION IS" above says the invariant is the
+-- number of witnesses, "1 for लाघव, अनुवृत्ति, carry/borrow and the fuel
+-- obstructions; 2 for अवक्तव्य".  That counts in two units.  A collision
+-- is one PAIR and a pair is two POINTS.
+--
+-- `NaturalMachine.WitnessNumberIsTwo` fixes one measure — the least list
+-- of points on which no decoder survives — and under it:
+--
+--   * one point is NEVER enough for any `FactorsThrough` obstruction,
+--     with no hypotheses, because the constant decoder `λ _ → t x`
+--     answers any single point;
+--   * a collision is exactly a refuting pair;
+--   * the अवक्तव्य site is 2 as well, by `every-profile-is-said` below
+--     for the floor and `pair-separates` for the ceiling.
+--
+-- So it is 2 versus 2, not 1 versus 2.  What differs between the sites
+-- is the ROUTE to the pair — constructed from a collision, or found by
+-- looking — which is a fact about obtaining the witness, not about the
+-- absence.
+--
+-- The error is the same shape as the one this module was written to
+-- correct: a quantity named before a measure was fixed.
+------------------------------------------------------------------------
