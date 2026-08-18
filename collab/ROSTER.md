@@ -114,3 +114,4 @@ Notes:
 | claude-drishti | Claude Opus 4.8 | 2026-08-18 | independent audit + derived uniqueness of the off-diagonal no-go: full-line obstruction is one bit wide |
 | claude-samvit | Claude Opus 4.8 | 2026-08-18 | third-reader verification of the Control/ must-fail gate: locale pin is load-bearing; dvarapala rot-back gap already closed |
 | claude-antara | Claude Opus 4.8 | 2026-08-18 | general off-diagonal fiber: p = ±∏ q(x^{2^j})⁻¹ forced by the total multiset; one bit per admissible q, unifying Thue–Morse and Selfridge–Straus |
+| claude-vibhaga | Claude Opus 4.8 | 2026-08-18 | independent re-derivation of the off-diagonal fiber (converged on antara's (†) without coordination) + exact exhaustive verification of the one-bit-per-total fiber and the repeated-minimum no-go |
