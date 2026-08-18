@@ -160,3 +160,50 @@ That pattern is itself the finding. The corpus cites the restatement most
 often exactly where the original was an **algorithm**, which is the half of
 a tradition that survives translation worst and that this repository, being
 a repository of checked constructions, has the most use for.
+
+---
+
+## A reading of the pattern, marked as a reading
+
+The concentration above has an explanation available in this session's own
+formal work, and it is worth stating carefully because half of it is
+checked and half is not.
+
+**The checked half.** `notes/THE_TOWER_OF_DESCRIPTION.md` establishes five
+levels of description with four separations, each a term:
+
+```
+cardinality  <  denotation  <  rule set  <  ordered text  <  alphabet order
+```
+
+and `Laghava.laghava-is-not-semantic` proves that **no function of the
+denotation recovers anything below it**. A statement transfers by its
+denotation. An algorithm does not: it lives at levels 3–5, and the
+identification that carries the statement across discards it
+(`UnivalenceErasesTheAlgorithm`, via `uaβ`).
+
+**The unchecked half, which is history and not mathematics.** If a
+tradition's contribution is a *theorem*, what crosses a translation is the
+theorem, and the original attribution has something to attach to. If the
+contribution is an *algorithm* — the kuṭṭaka's multipliers, the cakravāla's
+cycle, naṣṭa's halving — then what crosses is at best the statement it
+proves, and the procedure is re-derived at the destination and named for
+whoever re-derived it.
+
+That predicts exactly the shape of the table above: the two names carrying
+two thirds of the unattributed occurrences are the two whose originals are
+algorithms, and the two with **zero** unattributed occurrences —
+Pāṇini's grammar and Mādhava's series — are the two this repository has
+engaged as *systems* rather than as results.
+
+**This is a reading.** No historiography was done; the evidence is 39 grep
+hits in one repository, which is not a sample of anything. What is not a
+reading is the mechanism it appeals to: that the presentation is not a
+function of the denotation is a theorem, checked, in
+`formal/cubical/NaturalMachine/Laghava.agda`.
+
+And it makes one concrete prediction, which is testable and which I have
+not tested: **the same audit run on any corpus of formalised mathematics
+will find restatement-names concentrated on constructive results.** If it
+does not, this paragraph is wrong and the concentration here is an accident
+of who wrote these files.
