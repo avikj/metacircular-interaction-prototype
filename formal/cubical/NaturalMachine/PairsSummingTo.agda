@@ -157,13 +157,13 @@ pairsFin (suc n) =
 --                                     Metre n ≃ Σ_{a+b=n} Chosen a b
 --   here `pairsFin`                   Pairs n ≃ SumFin (suc n)
 --
--- NOT PROVED:
+-- AND NOW ALSO PROVED, in `NaturalMachine.DiagonalIsMatra`:
 --
---   mātrā n ≡ Σ_{a+b=n} meru a b, i.e. `matra n ≡ Sankalita.antidiag n`.
+--   `diagonal-is-matra : (n : ℕ) → matra n ≡ antidiag n`
 --
--- The gap is one cardinality computation over `metre-sorts` and
--- `pairsFin`.  No estimate of its difficulty is offered here: four such
--- estimates were made in this thread and all four were wrong, and the
--- rule that came out of that — do not characterise remaining work until
--- you have looked at it — applies to this sentence too.
+-- The cardinality computation this section declined to estimate turned
+-- out to need the SHIFTED family `SortedC c n` — the unshifted one does
+-- not close the induction — plus `Σ-contractFst`, `Σ⊎≃`, `SumFin⊎≃` and
+-- `Fin-inj`.  Declining to estimate was right: the shift was the content,
+-- and no sentence written before doing it would have named it.
 ------------------------------------------------------------------------
