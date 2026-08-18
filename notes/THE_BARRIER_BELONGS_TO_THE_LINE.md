@@ -1,12 +1,57 @@
 # The barrier belongs to the line, not to arithmetic
 
-**Status:** two checked Agda modules and one retraction.
-**Artifacts:** `formal/cubical/NaturalMachine/SuccessorIsNotTropical.agda`
-(exists, checks), `formal/cubical/NaturalMachine/PythagoreanTransition.agda`
-(new, checks — Agda 2.6.3 / cubical v0.5, `--safe`, no postulates, no holes,
-exit 0).
-**Sources:** Brahmagupta, *Brāhmasphuṭasiddhānta* ch. 18 (kuṭṭakādhyāya), 628 CE
-— samāsa-bhāvanā and antara-bhāvanā. Voevodsky, univalence.
+**Status:** 16 checked Agda modules, one thread, seven corrections — six of
+them to claims made in the same session. All 16 rebuilt from a deleted
+`_build` in one pass, exit 0 each, no postulates, no holes, `--safe`
+(Agda 2.6.3 / cubical v0.5 — the container, not the repository pin).
+**Sources:** Brahmagupta, *Brāhmasphuṭasiddhānta* ch. 18 (kuṭṭakādhyāya),
+628 CE — samāsa-bhāvanā and antara-bhāvanā. Pythagoras, via the triples.
+Voevodsky, via `ua`.
+
+---
+
+## What this thread found, in one page
+
+`SuccessorIsNotTropical` closes with *"the object to build is the
+transition itself"* and calls `disjoint-support` the whole content of the
+parity barrier. The first is answered here; the second is retracted.
+
+**The structural half — nothing in it was retracted.**
+
+| statement | module |
+|---|---|
+| The conic's successor is *multiplication by a constant* in the chart where the line's successor has no support at all. The obstruction is the line's, not arithmetic's. | `PythagoreanTransition.rot-norm` |
+| Pythagorean triples are **closed under bhāvanā** — a monoid, not a list. `(3,4)⊗(5,12) = (−33,56)`, norm `65²`, by `refl`. | `triple-⊗` |
+| Euclid's parametrisation **is squaring**, and squaring is a monoid homomorphism: the transition map, defect-free. | `euclid`, `gen-hom` |
+| Norm-one rotations are equivalences, inverted by antara-bhāvanā; `ua` makes each an identification, and Delta 15's structured defect for the norm along it **vanishes**. | `rotEquiv`, `defect-vanishes` |
+| **Every Pythagorean triple is a rotation** once its hypotenuse inverts. `pairs → triples → rotations → paths`, every arrow a monoid map. | `EveryTripleIsARotation` |
+| The circle is a genuine circle: if `−1` is a square the norm form splits into two lines and the whole apparatus is ring multiplication in costume. Over ℤ it does not split. | `WhereTheCircleSplits` |
+| Joins are irreversible (idempotence forbids all inverses but the unit); bhāvanā is not. | `IdempotenceForbidsDescent` |
+| Descent is **not** monoid inversion — it is the scaling action, and the invariant is the norm **modulo squares**. | `DescentIsNotInversion` |
+| There is no reversible step law on ℕ-exponents at all: join fails by idempotence, `⊕` fails by positivity. **Descent costs the integers** — reversibility is the group completion, and its states are ratios. | `DescentCostsTheIntegers` |
+| A map multiplicative for an *accumulating* law takes no unit value but 1, so **sign is not accumulable** — over any commutative ring, no domain hypothesis. | `SignIsNotAccumulable` |
+| `lcm·gcd = product` is `max + min = x + y`: in the tropical chart every trace of number theory evaporates. | `JoinSavesTheMeet` |
+
+**The magnitude half — every claim in it was corrected or dissolved.**
+
+§§15–19 chased a "cost gap" for the walk that turned out to be a **units
+error**: `k` is the walk's *frontier*, not its input count, and by the CRT
+criterion in `WALK_FORCING_LAW.md` (in this repository since 2026-08-12)
+the walk at frontier `k` has distinguished `cap(k) = e^{ψ(k)}` inputs. Its
+storage is the logarithm of its workload, attained with no slack. **The
+walk is information-theoretically optimal and there was never a gap.**
+The theorems produced along the way stand; the framing that made them
+answers does not.
+
+The pattern is not subtle, and it is the most useful thing here: **every
+correction landed on a claim about magnitude, and none on a claim about
+structure.** In a lane with no analytic apparatus, that is where the error
+rate should have been expected — and it is where the next such thread
+should refuse to go without the estimate in hand.
+
+Sections 1–7 are the original result; 8–21 are the session's own
+corrections in the order they happened, each keeping the refuted claim
+visible rather than editing it away.
 
 ---
 
