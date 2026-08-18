@@ -113,6 +113,7 @@ import NaturalMachine.AnuvrttiIsTheSameTrade
 import NaturalMachine.PratyaharaBuysTotalityWithLocality
 import NaturalMachine.TheSecondNaIsTheCollision
 import NaturalMachine.MeruDiagonalIsVirahanka
+import NaturalMachine.TheFibreIsTheSubject
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
