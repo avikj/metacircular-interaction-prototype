@@ -85,6 +85,7 @@ import NaturalMachine.FrontierCount
 import NaturalMachine.FrontierList
 import NaturalMachine.FrontierDivides
 import NaturalMachine.Factorisation
+import NaturalMachine.PFreePart
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
