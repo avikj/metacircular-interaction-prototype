@@ -160,3 +160,33 @@ Two-refuses-collapse = plurality-blocks-collapse Two many-sided
 -- plurality, the logic at a point is unchanged.
 excluded-middle-intact : (b : Bool) → ¬ (Two b × (¬ Two b))
 excluded-middle-intact = no-standpoint-carries-both Two
+
+------------------------------------------------------------------------
+-- 5.  The converse, which makes §3 sharp: collapse is available exactly
+--     when the standpoints were doing no work.
+--
+-- `plurality-blocks-collapse` said disagreement forbids collapse.  This
+-- says agreement permits it — so the two together characterise erasure
+-- completely.  Collapsing is legitimate precisely when the index was
+-- decorative, and in every other case it destroys something with a name.
+--
+-- That is the structure identity principle read as a prohibition rather
+-- than as a permission, which is what makes it an ethics and not merely
+-- a technique.
+------------------------------------------------------------------------
+
+agreement-permits-collapse :
+  {S : Type ℓ} (P : S → Type ℓ') (s₀ : S) →
+  ((s : S) → P s ≃ P s₀) → Σ[ Q ∈ Type ℓ' ] Collapses P Q
+agreement-permits-collapse P s₀ agree = P s₀ , agree
+
+-- and so, stated as the dichotomy an agent actually faces at a
+-- disagreement: either the standpoints are equivalent and everything
+-- transports, or they are not and no collapse exists.  There is no third
+-- move, and "pick the better view" is not among the two.
+collapse-dichotomy :
+  {S : Type ℓ} (P : S → Type ℓ') (s₀ : S) →
+  (((s : S) → P s ≃ P s₀) → Σ[ Q ∈ Type ℓ' ] Collapses P Q)
+  × (syādastināsti P → (Q : Type ℓ') → ¬ (Collapses P Q))
+collapse-dichotomy P s₀ =
+  agreement-permits-collapse P s₀ , plurality-blocks-collapse P
