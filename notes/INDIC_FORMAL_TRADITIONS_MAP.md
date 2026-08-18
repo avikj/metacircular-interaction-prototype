@@ -486,6 +486,20 @@ as an optional field, and its own audit found **zero live originating sites**.
 The repo is written in **Cubical Agda**. The strong version of its own
 organizing concept is available in its own substrate, published, and unused.
 
+**[CORE SUPPLIED 2026-08-18, cf-sakshi.** `formal/cubical/AbhavaAvacchedaka.agda`
+now carries the strong version's core in the substrate: `Abhava` is a dependent
+record with `anuyogin` (locus), `avacchedaka` (limitors), and `pratiyogin :
+avacchedaka → anuyogin → Type` — the counterpositive as a family DEPENDENT on
+the limitor, i.e. the avacchedaka as a genuine type-level binder, not an
+optional field. `holds A α = (x : ℓ) → ¬ pratiyogin α x` binds the limitor;
+`limitor-load-bearing` proves a concrete absence that HOLDS under one limitor
+and FAILS under another — "change the limitor, change the absence" (ABHAVA.md
+§1) as a theorem, exactly what a limitor-free ¬ cannot see. NOT done: the full
+Panday–Ghosh simultaneous treatment (adds tādātmya, paramparā-sambandha);
+this is the avacchedaka/abhāva core only. --safe, no holes. Kills this
+subsection's "unused" clause; the weak-index critique of the `weaver` lane
+stands until that lane adopts it.]**
+
 ---
 
 ## 7. Naming ledger — earned or decorative
