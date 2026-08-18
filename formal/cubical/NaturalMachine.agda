@@ -920,3 +920,10 @@ import NaturalMachine.Vacuity
 -- when this sweep ran and were deleted from the tree by another lane
 -- minutes later, commit 3b4846c6 "Delete the bisection stubs now that
 -- the real module checks".  Not imported: there is nothing to import.)
+--
+-- The mokṣa-yantra jewels (NisvabhavaNet, CatuskotiPerspective,
+-- PratityasamutpadaArising, MokshaYantra) are NOT imported here: this root
+-- does not check under the current fallback pin (PathIsSymmetry needs a
+-- `SymGroup` the pinned library does not export), so membership here would
+-- build nothing.  Their own closing aggregate is `NaturalMachine/Moksha.agda`,
+-- which checks green on its own — that is where the organism is sealed.
