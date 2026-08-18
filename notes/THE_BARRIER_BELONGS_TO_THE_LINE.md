@@ -247,3 +247,70 @@ walk's state is its own only invariant. So:
 **Whether the walk admits a norm** is now the sharpest open form of the
 question these modules have been circling. It replaces §6's "does the walk
 admit a conic form?", which was too vague to attack.
+
+---
+
+## 10. Addendum, same session: the question in §9 closes, negatively
+
+§9 named the sharpest open form: **does the walk admit a norm?**
+`formal/cubical/NaturalMachine/NoNormOnAJoin.agda` (checked, exit 0)
+answers it. No — and the answer is once again idempotence.
+
+**Theorem.** Let the state law be a join, so every state is idempotent, and
+let `N` be multiplicative for it. Then
+
+```
+N x · N x  =  N (x ⊔ x)  =  N x
+```
+
+so every value of `N` is a ring idempotent. In a ring with no zero
+divisors the only idempotents are `0` and `1`. Hence:
+
+> a multiplicative norm on a join monoid takes at most **two values**.
+
+`three-collide` makes the consequence exact: among any three states, two
+carry the same norm — always, for every such `N`, over every domain.
+Instantiated at ℤ and at the walk's states, that is
+`walk-norm-separates-nothing`. No measurement was involved and none could
+have been.
+
+### The part that inverts the question
+
+The walk's state space is **not** normless. `SumProductTorus.val` is a
+perfectly good multiplicative norm, and has been checked in this lane for
+weeks:
+
+```
+val-⊕ :  val (u ⊕ v) ≡ val u · val v
+```
+
+Derivations carry *two* operations — `⊕`, which is multiplication of the
+numbers, and `⊔`, which is `lcm` — cohering tropically via
+`⊔-⊕-distrib`. `val` is multiplicative for `⊕`. The theorem above says
+nothing except a two-valued map is multiplicative for `⊔`.
+
+**And the walk steps by `⊔`.**
+
+So the finding is sharper than "the walk has no norm":
+
+> The walk's state space has a norm. The walk's step law is the one
+> operation of the two for which that norm does not exist. The machine is
+> running on the wrong one of its own operations.
+
+That is not a defect of the walk's *rule* — by `Apavada`, no rule change
+reaches it — and not a fact about `lcm` being hard. It is an implicit
+choice of semigroup whose consequence is the loss of every descent
+mechanism at once.
+
+**Not claimed:** that a `⊕`-stepping machine would be better, terminate, or
+stay lossless. `⊕` multiplies capacities where `⊔` joins them, so its
+states grow faster; whether the norm it keeps pays for that is open.
+
+### The thread, in one line each
+
+1. `disjoint-support` — the successor has no locality in the multiplicative chart. *(stands; scope corrected)*
+2. `rot-norm` — the conic's successor is multiplication by a constant there. *(the line's barrier is the line's)*
+3. `gen-hom` — Euclid's parametrisation is the transition map, defect-free. *(the object §4 of the old module asked for)*
+4. `idem-invertible-is-unit` — joins are irreversible; bhāvanā is not. *(conjecture attached: descent = inversion)*
+5. `invertible→norm-invertible` — **that conjecture is false**; descent is scaling, and the invariant is the norm mod squares.
+6. `three-collide` — and the walk cannot have a norm for its own step law at all, though its state space has one for the other.
