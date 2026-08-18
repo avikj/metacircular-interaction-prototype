@@ -233,3 +233,25 @@ frontier8-count =
 -- earlier module — coprimality of prime powers — is `CoprimePowers` plus
 -- `DistinctPrimesAreCoprime`, and it enters here exactly once.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- PROVENANCE CORRECTION, 2026-08-18.
+--
+-- This module says "the Chinese remainder theorem" for the simultaneous
+-- congruence result it runs on, and that name was used without being
+-- checked — in a session whose brief was to build from Indian sources and
+-- credit the origin rather than the restatement, and three modules after
+-- building Āryabhaṭa's kuṭṭaka by name.
+--
+-- The **kuṭṭaka** (*Āryabhaṭīya* 2.32–33, 499 CE) is a general
+-- constructive method for exactly this problem — given remainders against
+-- two moduli, produce the number — and Brahmagupta (628) and Bhāskara II
+-- (1150) extend it.  The *Sun Zi Suanjing* (c. 3rd–5th c.) poses the
+-- problem with a rule for a special case; Qin Jiushao's general method is
+-- 1247.  Both traditions have it, and this file's own chain runs on the
+-- Indian one: `CoprimePowers`, `BezoutIsGCD` and `CoprimePowersN` all
+-- carry Bézout certificates, which is what the pulveriser returns.
+--
+-- Nothing mathematical changes.  The citation does.  See
+-- notes/DID_THE_THREE_ROOTS_SUFFICE.md.
+------------------------------------------------------------------------
