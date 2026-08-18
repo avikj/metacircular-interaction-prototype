@@ -228,3 +228,45 @@ rule that came out of them is: **name what is open, do not estimate its
 size.** It is kept in the module headers above, and it was broken once
 more inside a sentence that was otherwise explaining what remained,
 which is where these keep hiding.
+
+---
+
+## 11. Addendum: the same shape one level up, and a distinction
+
+`FrontierList.countAt` gave the frontier's residue count only at a `k`
+you name, because its two hypotheses were of the form
+
+```agda
+isYes (decAllPrime (frontierList k)) ≡ true
+```
+
+supplied as `refl` at each concrete `k`. Same arrangement: a procedure
+run at one input standing in for a theorem about all of them.
+`NaturalMachine.FrontierIsWellFormed` proves both — the filter admits
+`n` only in the branch where `decIsPrime n` said `yes`, and that
+branch's witness *is* the proof; `downFrom` is strictly descending, so
+its head exceeds every tail element — and gives
+
+```agda
+frontier-count-at : (k : ℕ)
+                  → Fin (prodOf (frontierList k)) ≃ VecOf (frontierList k)
+```
+
+taking only `k`.
+
+**But the severity differs, and the difference is worth keeping.** A
+`Dec` run at one input cannot lie about that input: `countAt 8 refl refl`
+was always a correct statement about `k = 8`. A fuelled bare-ℕ
+computation checked at one input *can* lie about a different input while
+looking identical, which is what §3–§5 prove. Both are stand-ins; only
+one is unsound at the site where it stands.
+
+So the criterion has two tiers:
+
+- **incomplete** — a decision procedure discharged per instance. The
+  statements are true; the generality is missing.
+- **unsound-shaped** — a fuelled computation into bare data. The
+  returned value provably cannot report its own adequacy, so a passing
+  instance is not evidence about any other.
+
+Both are worth closing. Only the second is worth closing first.
