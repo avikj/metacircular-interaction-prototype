@@ -252,3 +252,83 @@ one-repetition-suffices = repaired-XY , repaired-YZ , repaired-XZ
 -- Not carelessness, not corruption — the minimum a real obstruction
 -- allows.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  THE OBSTRUCTION, QUANTIFIED.  Three positions never suffice —
+--     including lists that repeat a letter or omit one.
+--
+-- §3 rules out the six PERMUTATIONS.  That leaves the twenty-one other
+-- three-position lists, and they fail too: a list omitting a letter
+-- cannot name either pair containing it.  All twenty-seven are checked
+-- below, exhaustively, which with §6 pins the obstruction to a number:
+--
+--     minimum list length for this family  =  4,  not 3.
+--
+-- Which is the form `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` predicts
+-- every obstruction in this corpus takes: not "you cannot", but "not at
+-- that size."
+------------------------------------------------------------------------
+
+-- the six non-empty runs of a three-position list
+nameable3 : L → L → L → Set₃ → Bool
+nameable3 a b c S =
+  eqSet (single a) S                          or
+  (eqSet (single b) S                         or
+  (eqSet (single c) S                         or
+  (eqSet (single a ∪ single b) S              or
+  (eqSet (single b ∪ single c) S              or
+   eqSet (single a ∪ (single b ∪ single c)) S))))
+  where open import Cubical.Data.Bool using (_or_)
+
+witness : L → L → L → Pair
+witness a b c with nameable3 a b c (mem XY) | nameable3 a b c (mem YZ)
+... | false | _     = XY
+... | true  | false = YZ
+... | true  | true  = XZ
+
+no-3-list : (a b c : L) → Σ[ p ∈ Pair ] (nameable3 a b c (mem p) ≡ false)
+no-3-list x x x = witness x x x , refl
+no-3-list x x y = witness x x y , refl
+no-3-list x x z = witness x x z , refl
+no-3-list x y x = witness x y x , refl
+no-3-list x y y = witness x y y , refl
+no-3-list x y z = witness x y z , refl
+no-3-list x z x = witness x z x , refl
+no-3-list x z y = witness x z y , refl
+no-3-list x z z = witness x z z , refl
+no-3-list y x x = witness y x x , refl
+no-3-list y x y = witness y x y , refl
+no-3-list y x z = witness y x z , refl
+no-3-list y y x = witness y y x , refl
+no-3-list y y y = witness y y y , refl
+no-3-list y y z = witness y y z , refl
+no-3-list y z x = witness y z x , refl
+no-3-list y z y = witness y z y , refl
+no-3-list y z z = witness y z z , refl
+no-3-list z x x = witness z x x , refl
+no-3-list z x y = witness z x y , refl
+no-3-list z x z = witness z x z , refl
+no-3-list z y x = witness z y x , refl
+no-3-list z y y = witness z y y , refl
+no-3-list z y z = witness z y z , refl
+no-3-list z z x = witness z z x , refl
+no-3-list z z y = witness z z y , refl
+no-3-list z z z = witness z z z , refl
+
+-- so no three-position list names all three pairs, whatever it contains
+three-is-not-enough :
+  ¬ (Σ[ abc ∈ (L × L × L) ]
+       ((p : Pair) → nameable3 (fst abc) (fst (snd abc)) (snd (snd abc)) (mem p) ≡ true))
+three-is-not-enough ((a , b , c) , all) with no-3-list a b c
+... | (p , bad) = true≢false (sym (all p) ∙ bad)
+  where open import Cubical.Data.Bool using (true≢false)
+
+------------------------------------------------------------------------
+-- The obstruction's whole content, as a number:
+--
+--   §7  three positions:  impossible, all 27 checked
+--   §6  four positions:   x y z x works
+--
+-- The śiva-sūtras repeat ह once.  Not carelessness, not corruption: the
+-- exact increment a real obstruction forces.
+------------------------------------------------------------------------
