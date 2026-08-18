@@ -220,3 +220,32 @@ avaktavya-witness-number-2 = avaktavya-two-suffice , avaktavya-one-never
 -- MATHEMATICS here — rather than constructed to order — exceeds 2.
 -- Nothing found so far does.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  CORRECTION to §3's description, appended 2026-08-18.
+--
+-- §3 is headed "ONE POINT IS NEVER ENOUGH — for any factorisation
+-- obstruction" and says the constant decoder answers a single point
+-- "with no hypotheses on q, t, X, Y or T".  The theorem is right and the
+-- description hides a hypothesis.
+--
+-- `NaturalMachine.TheFloorIsAnswerability` names it:
+--
+--     Answerable law = (x : X) → Σ[ d ∈ D ] law d x
+--
+-- The floor is answerability, not constancy.  A function space into an
+-- inhabited type is answerable — `factorLaw-answerable` is the one line
+-- that four modules were each re-deriving by hand — but answerability
+-- can fail, and where it fails the floor drops to 1
+-- (`lonely-witness-number-1`).
+--
+-- So the thread's two bounds are both properties of the DECODER SPACE
+-- and neither is a property of the mathematics obstructed:
+--
+--     floor   ≥ 2   the decoders ANSWER every point
+--     ceiling ≤ 2   the decoders READ a discrete probe
+--
+-- and the capacities are independent: the three-standpoint system of
+-- `WitnessNumberIsUnbounded` answers but does not read, which is why its
+-- number is 3 rather than 1.
+------------------------------------------------------------------------
