@@ -196,3 +196,32 @@ module _ {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
 -- for decoder spaces that are constrained but still large, where
 -- neither this theorem nor the three-atom example applies.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  THE FIRST OPEN ITEM IN §6 IS ANSWERED.
+--
+-- §6 asked whether discreteness of Y can be weakened and declined to
+-- guess.  It can, and `NaturalMachine.LocatingIsEnough` gives exactly
+-- how far: this proof never compares two arbitrary observations.  It
+-- compares the LIST'S observations against an incoming one, and there
+-- are finitely many of those.  The hypothesis it consumes is
+--
+--     Locates q []       = Unit
+--     Locates q (x ∷ xs) = ((y : Y) → Dec (q x ≡ y)) × Locates q xs
+--
+-- and `collisionFree→notRefuting` above is the corollary at
+-- `Discrete Y`, rederived there as `discrete-corollary`.
+--
+-- The shift is from an EQUALITY problem on the whole observation space
+-- to a LOCATION problem on the witnesses: the decoder is handed an
+-- observation and must find which listed point produced it.  That is
+-- all it ever needed.  The measure was already local to the witnesses;
+-- its hypothesis now is too.
+--
+-- So a site whose Y is not discrete is not automatically outside the
+-- deflation — only one whose witnesses cannot be located, which is a
+-- smaller class and a checkable condition.
+--
+-- Still open there, and unestimated: whether `Locates` is minimal, and
+-- the constrained-but-large decoder case, which this does not touch.
+------------------------------------------------------------------------
