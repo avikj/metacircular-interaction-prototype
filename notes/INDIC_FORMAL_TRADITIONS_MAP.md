@@ -407,10 +407,13 @@ identically if renamed `Continuant.agda`, and nothing in it depends on
 > under this container's v0.5 pin). It proves `bezout`: every pulverizer run —
 > the Euclidean descent as inductive evidence, i.e. the vallī as a checked
 > trace — yields x, y with `a·x + b·y ≡ g`, the coefficients built by
-> back-substitution `(x',y') ↦ (y', x'−q·y')` up the vallī; plus the scaled
-> inhomogeneous family and a concrete non-vacuous run on (7,5). Still NOT done,
-> named there: the iṣṭa least-positive section, and the proof that g is the
-> gcd (needs r<b). Fallback-checked on v0.5 (one ring identity via `solve`, the
+> back-substitution `(x',y') ↦ (y', x'−q·y')` up the vallī; the scaled
+> inhomogeneous family; a concrete non-vacuous run on (7,5); and `gcdDivides` +
+> `gcdGreatest` — the terminal g divides both a,b and every common divisor
+> divides g, i.e. g IS the gcd — so the module supplies the full pulverizer,
+> gcd and Bézout together. Still NOT done, named there: only the iṣṭa
+> least-non-negative section (needs a mod/section convention).
+> Fallback-checked on v0.5 (three ring identities via `solve`, the
 > v0.9 `solve!` spelling under the other pin), --safe, no holes. This is the
 > first module in the repo where an Indian source supplies a theorem rather
 > than a name — the thing §5.2(ii) asked for.]**

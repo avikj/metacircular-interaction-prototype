@@ -38,12 +38,16 @@
 --                 CLAUDE.md names as the growth law, made a term.
 --   inhomogeneous  a·x + b·y ≡ g  gives, for the equation ax + by = g·k,
 --                 the solution (k·x, k·y): the scaled solution family.
+--   gcdDivides    the terminal g divides both a and b (g is a COMMON
+--                 divisor), by the same descent read for divisibility.
+--   gcdGreatest   any common divisor of a and b divides g (g is the
+--                 GREATEST).  Together: g is the gcd, and bezout is its
+--                 Bézout identity — the whole pulverizer.
 --
--- NOT done (named honestly, per §5.2): the iṣṭa section — the reduction to
--- the LEAST non-negative solution — which needs a mod/section convention
--- and is not supplied here; and the proof that the terminal g is the gcd
--- (which needs the r's to be genuine least remainders, r < b).  The Bézout
--- identity above holds for any run regardless; those two are separate.
+-- NOT done (named honestly, per §5.2): the iṣṭa section — the reduction of
+-- the solution family to the LEAST non-negative representative — which needs
+-- a mod/section convention and is not supplied here.  (g being the gcd needs
+-- no r < b: gcdDivides/gcdGreatest hold for any genuine-division run.)
 ------------------------------------------------------------------------
 
 module Kuttaka where
@@ -116,6 +120,58 @@ inhomogeneous : (a b g k : ℤ) → Run a b g
 inhomogeneous a b g k run =
   let (x , y , p) = bezout a b g run
   in  (x · k) , (y · k) , (ringStepL a b k x y ∙ cong (_· k) p)
+
+------------------------------------------------------------------------
+-- g is the gcd.  Same descent, read for divisibility: g divides both a
+-- and b, and any common divisor of a and b divides g.  (No r<b needed:
+-- the recurrences carry divisibility regardless; r<b is only for
+-- termination and least-remainder.)
+------------------------------------------------------------------------
+
+_∣_ : ℤ → ℤ → Type
+d ∣ n = Σ[ k ∈ ℤ ] (n ≡ d · k)
+
+private
+  -- a = q·b + r with b = g·kb, r = g·kr  ⟹  a = g·(q·kb + kr)
+  combineId : (g q kb kr : ℤ)
+            → q · (g · kb) + g · kr ≡ g · (q · kb + kr)
+  combineId = solve ℤCommRing
+
+  -- from a ≡ q·b + r, recover r ≡ a + (-(q·b))
+  remId : (b q r a : ℤ) → (q · b + r) + (- (q · b)) ≡ r
+  remId = solve ℤCommRing
+
+  -- a = d·ka, b = d·kb  ⟹  a + (-(q·b)) = d·(ka + (-(q·kb)))
+  descId : (d q ka kb : ℤ)
+         → d · ka + (- (q · (d · kb))) ≡ d · (ka + (- (q · kb)))
+  descId = solve ℤCommRing
+
+-- g divides a and b, along the run.
+gcdDivides : (a b g : ℤ) → Run a b g → (g ∣ a) × (g ∣ b)
+gcdDivides .g .(pos 0) g (stop g) =
+  (pos 1 , sym (·Rid g)) , (pos 0 , sym (·Comm g (pos 0)))
+gcdDivides a b g (div a b q r g eq run) =
+  let ((kb , b≡gkb) , _) = gcdDivides b r g run
+      (kr , r≡gkr)       = snd (gcdDivides b r g run)
+  in  ( (q · kb + kr)
+      , ( eq
+          ∙ cong₂ (λ u v → q · u + v) b≡gkb r≡gkr
+          ∙ combineId g q kb kr ) )
+    , (kb , b≡gkb)
+
+-- any common divisor of a and b divides g.
+gcdGreatest : (a b g d : ℤ) → Run a b g → d ∣ a → d ∣ b → d ∣ g
+gcdGreatest .g .(pos 0) g d (stop g) d∣a _ = d∣a
+gcdGreatest a b g d (div a b q r g eq run) (ka , a≡dka) (kb , b≡dkb) =
+  gcdGreatest b r g d run (kb , b≡dkb) d∣r
+  where
+    r≡ : r ≡ a + (- (q · b))
+    r≡ = sym (cong (_+ (- (q · b))) eq ∙ remId b q r a)
+    d∣r : d ∣ r
+    d∣r = (ka + (- (q · kb)))
+        , ( r≡
+            ∙ cong₂ (λ u v → u + (- (q · v))) a≡dka b≡dkb
+            ∙ descId d q ka kb )
 
 ------------------------------------------------------------------------
 -- Non-vacuity: a concrete vallī.  kuṭṭaka on (7,5):
