@@ -228,3 +228,63 @@ a zero configuration has no evident analogue of. Nothing here suggests one
 exists. What is claimed is only that the search should be aimed at
 splittings and identities rather than at perturbations, because the stated
 obstacle does not apply there.
+
+---
+
+## 10. A fifth site, and the first outside mathematics
+
+`formal/cubical/NaturalMachine/AvaktavyaDoesNotFactor.agda` (checked, exit
+0).
+
+`Saptabhangi.agda` formalises the syādvāda's sevenfold predication, with
+Akalaṅka's 3+3+1 = 7 as an isomorphism, and proves
+
+```
+no-single-vacana : (v : Vacana) → Σ[ φ ] (¬ (denotes v φ ≡ joint φ))
+```
+
+— for every single utterance there is a profile on which it disagrees with
+the joint content. That is **avaktavya**, the fourth bhaṅga, and it is
+exactly a non-factoring statement:
+
+```
+avaktavya-does-not-factor : ¬ Σ[ v ∈ Vacana ] ((φ : Profile) → denotes v φ ≡ joint φ)
+```
+
+Side by side with the other two:
+
+| | statement |
+|---|---|
+| avaktavya | `¬ Σ[ v ] (∀ φ → denotes v φ ≡ joint φ)` |
+| लाघव | `¬ Σ[ f ] (∀ e → f (eval e) ≡ size e)` |
+| the barrier (B3) | `¬ Σ[ d ] (∀ x → d (blur x) ≡ observable x)` |
+
+One shape, three traditions, and only the middle one had been noticed here.
+Counting `CarryBorrowObservation`, `Laghava`, `Anuvrtti` and this, the
+lemma has now been independently reinvented **five** times in this
+repository, four of them within one session.
+
+### And the Jain one is decidable
+
+`avaktavya-decidable : (φ : Profile) → Dec (joint φ ≡ true)` — because
+`joint φ` is a Boolean. `Saptabhangi` had already shown it is not a
+truth-value gap (`joint-realised` and `joint-refuted` are both exhibited).
+So the fourth bhaṅga is **neither a gap nor an undecidability**. It is a
+failure to factor through a single utterance: an expressiveness fact about
+the medium of predication, not a defect in what is predicated of.
+
+Which is what `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` predicts.
+Avaktavya was this corpus's best candidate for something genuinely
+inexpressible, and it is exact.
+
+### The reading, marked as one
+
+> What a tradition calls "inexpressible" is often not a claim about truth
+> at all, but about the **arity of its medium** — one utterance, one
+> denotation, one blur value — and the formal content is the same negation
+> every time.
+
+Avaktavya says it about predication, lāghava about meaning, B3 about
+windowed observation. No historiography backs the generalisation; three
+formalised instances do, and they are in three different files by three
+different hands.
