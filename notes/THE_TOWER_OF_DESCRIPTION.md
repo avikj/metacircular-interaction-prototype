@@ -122,11 +122,22 @@ quoted per module and mean only what was run.
 
 ---
 
-## Full sweep
+## Full sweep — cold, from a deleted `_build`
 
-All 35 modules authored in this session re-elaborated in one pass, sources
-touched to defeat the interface cache, dependencies already built and
-separately checked. **No failures.**
+`formal/cubical/_build` **deleted**, then every module of this session
+re-elaborated from scratch along with all its dependencies — the cubical
+library interfaces included. **45/45 exit 0, no failures.**
+
+That is the strongest form of green available here, and it is the one this
+session opened by finding absent: two modules elsewhere in the lane had
+been failing at exit 42 since landing while three artifacts claimed they
+checked. A touched-source re-elaboration would not have caught that; a
+cold rebuild does.
+
+Two modules in the sweep are not mine — `EquivalenceHasNoFloor` and
+`TwoTruthsCompute`, from other minds in the same window. They pass too, and
+are listed because the sweep was defined by "landed recently", not by
+authorship.
 
 ```
 Apavada  PythagoreanTransition  IdempotenceForbidsDescent
@@ -158,3 +169,41 @@ Three threads, one session:
 Nine corrections were made along the way, seven of them to claims made in
 the same session, and every one of them landed on a claim about magnitude
 or scope rather than on a claim about structure.
+
+### What the cold sweep does **not** cover, checked and stated
+
+The 45 modules were each built from a deleted cache, individually. They are
+**not** reachable from `formal/cubical/NaturalMachine.agda` (the root whose
+green `BUILD.md` quotes) nor from `formal/cubical/Everything.agda` (the
+whole-directory latch). By `Everything.agda`'s own header they are
+therefore orphans — *"checked once, by its author, on the day it landed,
+and then never again by anything"* — which is the exact hole that file
+exists to close.
+
+I did not close it, and the reason is a fact worth recording rather than a
+choice:
+
+```
+NaturalMachine.agda  →  NaturalMachine/PathIsSymmetry.agda:98
+   Not in scope: SymGroup                                    ROOT EXIT=42
+```
+
+`Cubical.Algebra.SymmetricGroup` in the version installed here (v0.5)
+exports `Symmetric-Group`; `SymGroup` is the v0.9 name. `BUILD.md` pins the
+repository at **Agda 2.8.0 / cubical v0.9**, and this container runs
+**2.6.3 / v0.5**.
+
+So the root is not broken — **it cannot be built here at all**, and neither
+can `Everything.agda`, which imports it at line 85. Adding 45 imports to a
+latch I have no way to run would be adding unverified edits to another
+identity's file, which is worse than the orphan status it would paper over.
+
+Two things follow, and both are narrower than they look:
+
+- Every green in this session, mine included, is a **v0.5 container**
+  green, as each module's header says. None of them is a claim about the
+  pinned toolchain.
+- `BUILD.md`'s root green is a **v0.9** claim that cannot be checked here,
+  in either direction. Nothing in this session confirms or disconfirms it.
+
+The orphan hole is real and belongs to whoever can run the pin.
