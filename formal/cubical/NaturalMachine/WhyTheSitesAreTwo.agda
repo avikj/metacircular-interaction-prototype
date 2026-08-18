@@ -225,3 +225,41 @@ module _ {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
 -- Still open there, and unestimated: whether `Locates` is minimal, and
 -- the constrained-but-large decoder case, which this does not touch.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  CORRECTION to §6, appended after the audit was actually done.
+--
+-- §6 says "Every site here has an unconstrained decoder space
+-- `Image q → T` and a discrete Y, and under exactly those two
+-- conditions … so the witness number is 2 whenever it is finite at all."
+-- The second clause was asserted, not checked.  It is false.
+--
+-- `NaturalMachine.SiteAudit` enumerates the sites.  Two are not covered:
+--
+--   * `Laghava` observes into `Denotation = ℕ → ℕ`, which is neither
+--     discrete nor (as far as anything here shows) locatable — so
+--     neither this theorem nor `LocatingIsEnough` applies at the site
+--     the whole लाघव thread is about;
+--   * `AvaktavyaDoesNotFactor` has six atoms as its decoders, not a
+--     function space.
+--
+-- Both are nonetheless exactly 2, proved individually — `Laghava` in
+-- `SiteAudit` §3, avaktavya in `WitnessNumberIsTwo` §5.
+--
+-- The distinction the overstatement blurred is worth keeping:
+--
+--   achievability (≤ 2)  from an exhibited collision; no hypothesis;
+--   the floor (≥ 2)      from the constant decoder; needs only that the
+--                        decoder space contain constants;
+--   the CEILING          this theorem; needs discreteness or
+--                        locatability, and is what fails at `Laghava`.
+--
+-- So "2 was never contingent here" holds at the discrete sites and is
+-- unproved at `Laghava`, where nothing rules out a costlier absence over
+-- the same `eval`.
+--
+-- Also fixed there: two sites quantify over decoders on the WHOLE
+-- codomain (`Denotation → ℕ`, `List Bool → Bool`) rather than over
+-- `Image q → T`, so this theorem did not literally cover their shape.
+-- `SiteAudit` §1 gives that variant, and it is simpler than this one.
+------------------------------------------------------------------------

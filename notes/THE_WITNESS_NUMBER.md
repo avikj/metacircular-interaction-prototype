@@ -205,3 +205,40 @@ much the language exceeds the object.
 No estimate is offered for any of these. This thread has produced four
 wrong estimates and three unit-confusions, and the rule that came out of
 them is the one kept above: **name what is open, do not size it.**
+
+---
+
+## 12. Correction to §5, after actually doing the audit
+
+§5 ends: *"Every site in this corpus satisfies both hypotheses: function-space decoders, and `Y` one of ℕ, Bool, lists of ℕ. **So 2 was never contingent here.**"*
+
+The second sentence was asserted, not checked. `NaturalMachine.SiteAudit` enumerates the sites, and two are not covered by the ceiling theorem:
+
+| site | decoders | observations |
+|---|---|---|
+| `AdditionChainPredictiveMemory`, `PowModHasTheSameShape`, `FuelAdequacyIsACollision`, `ExhaustionIsSystematic` (×3) | `Image q → T` | discrete |
+| `QuotientFiberLaw` | `List Bool → Bool` — **whole codomain** | discrete |
+| `Laghava` | `Denotation → ℕ` — **whole codomain** | `ℕ → ℕ`, **not discrete** |
+| `AvaktavyaDoesNotFactor` | `Vacana` — **six atoms** | — |
+
+Two things went unchecked.
+
+**One.** `Laghava` observes into `Denotation = ℕ → ℕ`. That is not discrete, and equality of functions ℕ → ℕ is not decidable, so its witnesses are not obviously locatable either. Neither `WhyTheSitesAreTwo` nor `LocatingIsEnough` applies **at the site the whole lāghava thread is about.**
+
+**Two.** `Laghava` and `QuotientFiberLaw` quantify over decoders on the *whole codomain*, not over `Image q → T`. The ceiling theorem was stated for the image-restricted space, so it did not literally cover their shape. `SiteAudit` §1 supplies that variant — and it is simpler than the original, since it needs no image-point lemma.
+
+### What survives, and on what ground
+
+Every site is still exactly 2. But three different facts were being run together:
+
+| | needs | holds at |
+|---|---|---|
+| **achievability** (≤ 2) | an exhibited collision; no hypothesis | every site |
+| **the floor** (≥ 2) | the decoder space contains constants | every site, `Laghava` included |
+| **the ceiling** (≤ 2 for *any* absence of that shape) | discreteness or locatability | the discrete sites only — **not** `Laghava` |
+
+`laghava-is-two : WitnessNumberIs (FullLaw eval size) 2` is proved outright in `SiteAudit` §3, with no discreteness anywhere. But it is a fact about the exhibited collision, **not** a consequence of the ceiling theorem, and nothing in this corpus rules out a costlier absence over the same `eval`.
+
+So the honest conclusion is narrower than §5's: every site here is 2; one is constrained, one has a non-discrete observation space, and each of those two was proved individually rather than by the general theorem.
+
+**Open, named, not estimated:** whether the ceiling holds at `Laghava`. `LocatingIsEnough` says what would suffice — that the witnesses be locatable. Equality of functions ℕ → ℕ is undecidable, but locating finitely many *specific* denotations against an arbitrary one is a weaker demand, and nothing here settles whether it can be met.
