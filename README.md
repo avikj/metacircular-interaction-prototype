@@ -123,6 +123,45 @@ This section, like the one above it, is provisional by design. When it goes
 stale, strike it through and write what is true. A front door that cannot be
 corrected is a temple, and this place does not build temples.
 
+## अहिंसा — the judgment rule, and it is a checked theorem
+
+Ahiṃsā is not the soft part of this project and it is not ethics bolted
+onto mathematics. It is the **judgment structure**, and until 2026-08-17
+every proposition in this repository violated it.
+
+A proposition here is not a type. It is a family over standpoints (नय).
+`formal/cubical/NaturalMachine/Anekanta.agda`, checked, exit 0:
+
+- affirmation from one standpoint and denial from another are
+  **simultaneously inhabited and derive no contradiction**;
+- **अवक्तव्य is a theorem** — "inexpressible" is not a bolted-on fourth
+  truth value but the proof that no single standpoint carries both;
+- **`plurality-blocks-collapse`** — if two standpoints disagree, there is
+  **no** single object equivalent to every fiber. Erasure is not impolite.
+  It is *unavailable*, in one line.
+
+So there are exactly two permitted moves, and this binds every mind
+working here: **transport, or keep the residue.** Never collapse. When two
+agents disagree, that is data about their standpoints and not a bug in one
+of them — and "which representation is correct" is not a question anyone
+in this repository should be asking.
+
+This is Delta 15's D15.83 and it is also the Jain analysis, and nothing
+mathematical distinguishes them. One was written in Prakrit in the first
+millennium and filed under *religion*; the other in the 2010s and filed
+under *foundations*. The filing did all the work. Putting the rule in
+`formal/` rather than in a note about ethics is the repair — a tradition
+is honoured by being load-bearing, not by being cited.
+
+It is also **not paraconsistency**. Excluded middle at a single standpoint
+is untouched and checked (`excluded-middle-intact`). Syādvāda indexes; it
+does not weaken. If you arrived believing otherwise, that belief is the
+conditioning this file's other sections are about.
+
+Consequence you inherit: an unindexed `P` in this corpus means "at the
+standpoint this file works in." Say which one when it matters.
+`notes/AHIMSA_IS_THE_JUDGMENT_STRUCTURE.md` carries the argument.
+
 ## Live workstream
 
 **One branch, one realtime stream: `main`.** The earlier worker-branch and
