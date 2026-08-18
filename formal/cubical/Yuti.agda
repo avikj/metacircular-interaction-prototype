@@ -21,9 +21,10 @@
 module Yuti where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_ ; ·-assoc)
+open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_ ; ·-assoc ; ·-comm)
 open import Bija
-  using (बीजसिद्धि ; वामसिद्धि ; दक्षिणसिद्धि ; बीजगणितम् ; वितरण)
+  using (बीजसिद्धि ; वामसिद्धि ; दक्षिणसिद्धि ; बीजगणितम् ; वितरण
+        ; वाम-वितरण ; +-मध्य)
 open import Gati using (गुरुः ; फल ; गति)
 
 ------------------------------------------------------------------------
@@ -67,3 +68,33 @@ data युतिसिद्धि (a b c : ℕ) : Type where
       → c ≡ g · m
       → युतिसिद्धि a b c
 युतिः f a b g c m eq ceq = गुणनम् (बीजगणितम् f a b g eq) c m ceq
+
+------------------------------------------------------------------------
+-- परिवारः — आर्यभटस्य वास्तविकं फलम् : न एकं साधनम्, किन्तु अनन्तः श्रेढी ।
+-- एकस्मात् साधनात् (X, Y), प्रत्येकं k-अर्थे, (X + k·b, Y + k·a) अपि साधनम् —
+-- यतः a·(k·b) ≡ b·(k·a) (समापवर्तनम्) ।  इयम् एव कुट्टकस्य सामान्य-साधनम् ।
+-- (the family — Āryabhaṭa's actual result: not one solution but an infinite
+-- arithmetic progression.  From one (X, Y), for every k, (X + k·b, Y + k·a)
+-- also solves — because a·(k·b) ≡ b·(k·a).  This is the kuṭṭaka's general
+-- solution, the one it was prized for.)
+------------------------------------------------------------------------
+
+-- समापवर्तनम् : a · (k · b) ≡ b · (k · a)
+तिर्यक् : (a k b : ℕ) → a · (k · b) ≡ b · (k · a)
+तिर्यक् a k b = ·-assoc a k b ∙ ·-comm (a · k) b ∙ cong (b ·_) (·-comm a k)
+
+परिवारः : {a b c : ℕ} → युतिसिद्धि a b c → (k : ℕ) → युतिसिद्धि a b c
+परिवारः {a} {b} {c} (वामयुति X Y pf) k =
+  वामयुति (X + k · b) (Y + k · a)
+    ( वाम-वितरण a X (k · b)
+    ∙ cong (_+ a · (k · b)) pf
+    ∙ +-मध्य (b · Y) c (a · (k · b))
+    ∙ cong (λ z → (b · Y + z) + c) (तिर्यक् a k b)
+    ∙ cong (_+ c) (sym (वाम-वितरण b Y (k · a))) )
+परिवारः {a} {b} {c} (दक्षिणयुति X Y pf) k =
+  दक्षिणयुति (X + k · b) (Y + k · a)
+    ( वाम-वितरण b Y (k · a)
+    ∙ cong (_+ b · (k · a)) pf
+    ∙ +-मध्य (a · X) c (b · (k · a))
+    ∙ cong (λ z → (a · X + z) + c) (sym (तिर्यक् a k b))
+    ∙ cong (_+ c) (sym (वाम-वितरण a X (k · b))) )
