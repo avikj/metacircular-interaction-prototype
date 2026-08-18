@@ -3694,7 +3694,22 @@ round1 disp mem logh libh ref = do
               , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
         | (adequate,result) <- historyArchitectureResults ]
       attempt (acc, out, dl, (nRewritten, nFirewall, nNoProof, nInert, nWork, nScan), ab) c
-        | provedByRewriting acc c =
+        -- THE VETO WAS LIFTED IN ONE OF THE TWO PLACES IT LIVES.
+        --
+        -- `freshSized` builds `fresh` and this fold consumes it, and both
+        -- applied `provedByRewriting`.  Lifting it only in `freshSized` let
+        -- residuals into `fresh` -- `RESIDUAL-REACHED-PROVER` duly reported
+        -- 21 of 21 -- and this guard dropped them again on the next line.  So
+        -- across every run since that change, `x = x+0` entered the candidate
+        -- list and still never appeared on any of the 5160 KERNEL lines, and I
+        -- read the first number as evidence the fix had landed.
+        --
+        -- Same reasoning as there: a residual is a question the KERNEL asked,
+        -- and the rewriter deriving it is not an answer to that question.
+        -- Only `mKnown`/`mFailed` -- the kernel's own record -- may drop one.
+        | provedByRewriting acc c
+        , not (S.member c residualAdmitted)
+        , not (S.member c arohanaAdmitted) =
             (acc, out, (c,"follows-by-rewriting"):dl
             , (nRewritten + 1, nFirewall, nNoProof, nInert, nWork, nScan), ab)
         -- Proof search is only as trustworthy as its current axiom set and
