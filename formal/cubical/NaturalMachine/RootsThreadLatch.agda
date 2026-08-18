@@ -93,6 +93,7 @@ import NaturalMachine.ExhaustionIsSystematic
 import NaturalMachine.FrontierMember
 import NaturalMachine.PrimeCofactorCoprime
 import NaturalMachine.FrontierDividesHard
+import NaturalMachine.FrontierIsWellFormed
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
