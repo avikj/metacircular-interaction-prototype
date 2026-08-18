@@ -61,13 +61,15 @@
 --                     is the two turning together, which is what its name
 --                     says.
 --
--- WHAT IS NOT.  Termination.  Minimality of Bhāskara's choice (choose m
--- minimising |m² − D| subject to the congruence).  Existence of solutions.
--- And `Coprime` is taken here as the Bézout pair itself rather than
--- imported from `Kuttaka.bezout`, which produces exactly such a pair over
--- ℤ; wiring the two modules together is mechanical and is not done here,
--- so this file does not depend on `Kuttaka` and the claim above is about
--- what `coprimeCancel` consumes, not about where it comes from.
+--   runToCoprime      the bridge: a `Kuttaka.Run k b 1` — Āryabhaṭa's
+--                     descent as inductive evidence — yields `Coprime k b`
+--                     via `bezout`, so the pair `coprimeCancel` consumes is
+--                     produced by an actual pulverizer run and not assumed.
+--
+-- WHAT IS NOT.  Termination of the cycle.  Minimality of Bhāskara's choice
+-- (choose m minimising |m² − D| subject to the congruence).  Existence of
+-- solutions.  Those are the three open things; everything else the step
+-- needs is here.
 ------------------------------------------------------------------------
 
 module CakravalaDescent where
@@ -273,6 +275,37 @@ module Descent (CR : CommRing ℓ) where
 
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
+
+------------------------------------------------------------------------
+-- 3c.  THE BRIDGE, MADE.  `Coprime` fed by an actual pulverizer run.
+--
+-- The header of this file said wiring `Kuttaka.bezout` to `Coprime` was
+-- "mechanical and is not done here".  Mechanical is not a synonym for
+-- done, and "not done here" is how the two dangling references at the top
+-- of this file started.  So: done.
+--
+-- `Kuttaka.Run k b g` is Āryabhaṭa's descent as inductive evidence — one
+-- constructor per division a ≡ q·b + r, the quotients forming the vallī,
+-- termination carried by the evidence rather than by a measure.  A run
+-- bottoming out at 1 IS coprimality, and `bezout` climbs the vallī to
+-- produce the pair.  Nothing is assumed: hand this a run and it hands back
+-- the witness `coprimeCancel` consumes.
+------------------------------------------------------------------------
+
+open import Kuttaka using (Run ; bezout)
+
+module KuttakaCoprime where
+
+  open Descent ℤCommRing using (Coprime)
+  open CommRingStr (snd ℤCommRing) using (_·_ ; _+_ ; 1r)
+
+  -- A pulverizer run bottoming out at 1 yields the Bézout pair, i.e.
+  -- coprimality in the only form the cancellation lemma can use.
+  runToCoprime : (k b : ℤ) → Run k b 1r → Coprime k b
+  runToCoprime k b run =
+    let (x , y , p) = bezout k b 1r run
+    in x , y , (cong₂ _+_ (·Comm x k) (·Comm y b) ∙ p)
+    where open CommRingStr (snd ℤCommRing) using (·Comm)
 
 module StepAtThirteen where
 
