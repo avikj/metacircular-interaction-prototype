@@ -37,12 +37,29 @@
 -- all naturals.  The constraint and the right form turn out to be the same
 -- discovery, which is the usual shape of these.
 --
--- WHAT IS NOT EMITTED.  A per-turn certificate for the cycle.
+-- EVERY TURN IS CERTIFIED.  An earlier version of this header said a per-turn
+-- certificate was "a real piece of work and is not done here", because
 -- `CakravalaDescent.cakravalaScaled` is stated over a CommRing with genuine
--- subtraction, and the turns carry negative k, so certifying each turn needs
--- ℤ -- which is the arithmetic that does not compute.  Recasting the descent
--- subtraction-free over ℕ is a real piece of work and is not done here.  The
--- cycle's trace is emitted as comments, clearly marked as the generator's
+-- subtraction and the turns carry negative k.  That was true and it was the
+-- wrong conclusion: the answer was not to certify over ℤ but to CLEAR THE
+-- SUBTRACTION, which is what `BhavanaSemiring` had already done for bhāvanā
+-- for exactly the same reason.  `CakravalaNat.cakravalaℕ` is the cycle's step
+-- with both negative terms carried across —
+--
+--     (am + Db)² + D·a² + D·b²m²  ≡  a²m² + D²b² + D·(a + bm)²
+--
+-- — a commutative-semiring identity, true for all naturals, no hypothesis, no
+-- case analysis on the sign of k.  The sign of k was the entire obstacle and
+-- clearing removes it rather than handling it.  Each turn below instantiates
+-- that theorem at its own (a, b, m).
+--
+-- Note what the per-turn lines are NOT: they are not `refl`.  A `refl` per
+-- turn would show only that this generator's arithmetic agrees with the
+-- kernel's.  These are Brahmagupta's law firing, once per turn.
+--
+-- STILL NOT EMITTED: k and k' themselves.  `cakravalaℕ` is the step's
+-- IDENTITY, not its bookkeeping, and the bookkeeping is where the signs live.
+-- The trace of (a, b, k) is emitted as comments, marked as the generator's
 -- word and not the kernel's.
 
 module Main (main) where
@@ -121,10 +138,29 @@ render d trace t sq = unlines $
   , "open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)"
   , "open import Cubical.Data.Sigma using (_×_ ; _,_)"
   , "open import BhavanaSemiring using (cx ; cy ; bhavanaℕ)"
+  , "open import CakravalaNat using (ca ; cb ; cakravalaℕ)"
   , ""
   , "D : ℕ"
   , "D = " ++ show d
   , ""
+  , sep
+  , "-- EVERY TURN OF THE WHEEL, CERTIFIED BY THE GENERAL THEOREM."
+  , "--"
+  , "-- Each line below instantiates `CakravalaNat.cakravalaℕ` — proved for ALL"
+  , "-- naturals as a commutative-semiring identity — at that turn's own"
+  , "-- (a, b, m).  Note what this is NOT: it is not `refl`.  A `refl` per turn"
+  , "-- would show only that this generator's arithmetic agrees with the"
+  , "-- kernel's, and would not tie the run to Brahmagupta's law at all.  These"
+  , "-- are the law firing, once per turn."
+  , "--"
+  , "-- The m on each line is the one BHĀSKARA'S CHOICE RULE selects: among the"
+  , "-- m with k | (a + bm), the one minimising |m² − D|.  The congruence is"
+  , "-- solved by ĀRYABHAṬA's kuṭṭaka (Āryabhaṭīya, Gaṇitapāda 32–33, 499)."
+  , sep
+  , "" ]
+  ++ concat [ turnBlock i a b m | (i, a, b, m) <- turnData ]
+  ++
+  [ ""
   , sep
   , "-- THE FUNDAMENTAL SOLUTION.  `refl`: the kernel recomputes both sides."
   , sep
@@ -177,3 +213,31 @@ render d trace t sq = unlines $
   where
     sep = "------------------------------------------------------------------------"
     pad n s = s ++ replicate (max 0 (n - length s)) ' '
+
+    -- (index, a, b, m) for every turn that has a successor.  The trace's a and
+    -- b are already non-negative — `Nalanda` carries the classical |k|
+    -- presentation — which is exactly what the ℕ statement wants, so no
+    -- re-signing is needed here at all.  That the classical presentation and
+    -- the subtraction-free one agree on the coordinates is not a coincidence:
+    -- clearing the subtraction is what removed the signs in the first place.
+    turnData = [ (i, a, b, m)
+               | (i, N.Triple a b k) <- zip [0 :: Int ..] (init trace)
+               , Just m <- [N.chooseM d (N.Triple a b k)] ]
+
+    turnBlock i a b m =
+      [ "-- turn " ++ show i ++ ":  a = " ++ show a ++ ",  b = " ++ show b
+        ++ ",  m = " ++ show m
+      , nm ++ " : ca D " ++ show a ++ " " ++ show b ++ " " ++ show m
+             ++ " · ca D " ++ show a ++ " " ++ show b ++ " " ++ show m
+      , "     + (D · (" ++ show a ++ " · " ++ show a ++ ") + D · ("
+             ++ show b ++ " · " ++ show b ++ " · (" ++ show m ++ " · "
+             ++ show m ++ ")))"
+      , "     ≡ " ++ show a ++ " · " ++ show a ++ " · (" ++ show m ++ " · "
+             ++ show m ++ ")"
+      , "     + (D · D · (" ++ show b ++ " · " ++ show b ++ ") + D · (cb "
+             ++ show a ++ " " ++ show b ++ " " ++ show m ++ " · cb "
+             ++ show a ++ " " ++ show b ++ " " ++ show m ++ "))"
+      , nm ++ " = cakravalaℕ D " ++ show a ++ " " ++ show b ++ " " ++ show m
+      , ""
+      ]
+      where nm = "turn" ++ show i

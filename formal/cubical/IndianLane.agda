@@ -55,6 +55,10 @@ import Bhavana
 import BhavanaSemiring
 import BhavanaGenerative
 
+-- The cycle's step with every subtraction cleared, so a concrete run is
+-- certifiable in arithmetic the kernel actually computes.
+import CakravalaNat
+
 -- JAYADEVA (~950, via Udayadivākara 1073); BHĀSKARA II, Bījagaṇita (1150):
 -- the cakravāla step, and why Bhāskara needs only ONE congruence.
 import CakravalaDescent

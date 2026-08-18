@@ -52,9 +52,131 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import BhavanaSemiring using (cx ; cy ; bhavanaℕ)
+open import CakravalaNat using (ca ; cb ; cakravalaℕ)
 
 D : ℕ
 D = 61
+
+------------------------------------------------------------------------
+-- EVERY TURN OF THE WHEEL, CERTIFIED BY THE GENERAL THEOREM.
+--
+-- Each line below instantiates `CakravalaNat.cakravalaℕ` — proved for ALL
+-- naturals as a commutative-semiring identity — at that turn's own
+-- (a, b, m).  Note what this is NOT: it is not `refl`.  A `refl` per turn
+-- would show only that this generator's arithmetic agrees with the
+-- kernel's, and would not tie the run to Brahmagupta's law at all.  These
+-- are the law firing, once per turn.
+--
+-- The m on each line is the one BHĀSKARA'S CHOICE RULE selects: among the
+-- m with k | (a + bm), the one minimising |m² − D|.  The congruence is
+-- solved by ĀRYABHAṬA's kuṭṭaka (Āryabhaṭīya, Gaṇitapāda 32–33, 499).
+------------------------------------------------------------------------
+
+-- turn 0:  a = 7,  b = 1,  m = 5
+turn0 : ca D 7 1 5 · ca D 7 1 5
+     + (D · (7 · 7) + D · (1 · 1 · (5 · 5)))
+     ≡ 7 · 7 · (5 · 5)
+     + (D · D · (1 · 1) + D · (cb 7 1 5 · cb 7 1 5))
+turn0 = cakravalaℕ D 7 1 5
+
+-- turn 1:  a = 8,  b = 1,  m = 7
+turn1 : ca D 8 1 7 · ca D 8 1 7
+     + (D · (8 · 8) + D · (1 · 1 · (7 · 7)))
+     ≡ 8 · 8 · (7 · 7)
+     + (D · D · (1 · 1) + D · (cb 8 1 7 · cb 8 1 7))
+turn1 = cakravalaℕ D 8 1 7
+
+-- turn 2:  a = 39,  b = 5,  m = 9
+turn2 : ca D 39 5 9 · ca D 39 5 9
+     + (D · (39 · 39) + D · (5 · 5 · (9 · 9)))
+     ≡ 39 · 39 · (9 · 9)
+     + (D · D · (5 · 5) + D · (cb 39 5 9 · cb 39 5 9))
+turn2 = cakravalaℕ D 39 5 9
+
+-- turn 3:  a = 164,  b = 21,  m = 6
+turn3 : ca D 164 21 6 · ca D 164 21 6
+     + (D · (164 · 164) + D · (21 · 21 · (6 · 6)))
+     ≡ 164 · 164 · (6 · 6)
+     + (D · D · (21 · 21) + D · (cb 164 21 6 · cb 164 21 6))
+turn3 = cakravalaℕ D 164 21 6
+
+-- turn 4:  a = 453,  b = 58,  m = 9
+turn4 : ca D 453 58 9 · ca D 453 58 9
+     + (D · (453 · 453) + D · (58 · 58 · (9 · 9)))
+     ≡ 453 · 453 · (9 · 9)
+     + (D · D · (58 · 58) + D · (cb 453 58 9 · cb 453 58 9))
+turn4 = cakravalaℕ D 453 58 9
+
+-- turn 5:  a = 1523,  b = 195,  m = 7
+turn5 : ca D 1523 195 7 · ca D 1523 195 7
+     + (D · (1523 · 1523) + D · (195 · 195 · (7 · 7)))
+     ≡ 1523 · 1523 · (7 · 7)
+     + (D · D · (195 · 195) + D · (cb 1523 195 7 · cb 1523 195 7))
+turn5 = cakravalaℕ D 1523 195 7
+
+-- turn 6:  a = 5639,  b = 722,  m = 8
+turn6 : ca D 5639 722 8 · ca D 5639 722 8
+     + (D · (5639 · 5639) + D · (722 · 722 · (8 · 8)))
+     ≡ 5639 · 5639 · (8 · 8)
+     + (D · D · (722 · 722) + D · (cb 5639 722 8 · cb 5639 722 8))
+turn6 = cakravalaℕ D 5639 722 8
+
+-- turn 7:  a = 29718,  b = 3805,  m = 7
+turn7 : ca D 29718 3805 7 · ca D 29718 3805 7
+     + (D · (29718 · 29718) + D · (3805 · 3805 · (7 · 7)))
+     ≡ 29718 · 29718 · (7 · 7)
+     + (D · D · (3805 · 3805) + D · (cb 29718 3805 7 · cb 29718 3805 7))
+turn7 = cakravalaℕ D 29718 3805 7
+
+-- turn 8:  a = 440131,  b = 56353,  m = 5
+turn8 : ca D 440131 56353 5 · ca D 440131 56353 5
+     + (D · (440131 · 440131) + D · (56353 · 56353 · (5 · 5)))
+     ≡ 440131 · 440131 · (5 · 5)
+     + (D · D · (56353 · 56353) + D · (cb 440131 56353 5 · cb 440131 56353 5))
+turn8 = cakravalaℕ D 440131 56353 5
+
+-- turn 9:  a = 469849,  b = 60158,  m = 7
+turn9 : ca D 469849 60158 7 · ca D 469849 60158 7
+     + (D · (469849 · 469849) + D · (60158 · 60158 · (7 · 7)))
+     ≡ 469849 · 469849 · (7 · 7)
+     + (D · D · (60158 · 60158) + D · (cb 469849 60158 7 · cb 469849 60158 7))
+turn9 = cakravalaℕ D 469849 60158 7
+
+-- turn 10:  a = 2319527,  b = 296985,  m = 9
+turn10 : ca D 2319527 296985 9 · ca D 2319527 296985 9
+     + (D · (2319527 · 2319527) + D · (296985 · 296985 · (9 · 9)))
+     ≡ 2319527 · 2319527 · (9 · 9)
+     + (D · D · (296985 · 296985) + D · (cb 2319527 296985 9 · cb 2319527 296985 9))
+turn10 = cakravalaℕ D 2319527 296985 9
+
+-- turn 11:  a = 9747957,  b = 1248098,  m = 6
+turn11 : ca D 9747957 1248098 6 · ca D 9747957 1248098 6
+     + (D · (9747957 · 9747957) + D · (1248098 · 1248098 · (6 · 6)))
+     ≡ 9747957 · 9747957 · (6 · 6)
+     + (D · D · (1248098 · 1248098) + D · (cb 9747957 1248098 6 · cb 9747957 1248098 6))
+turn11 = cakravalaℕ D 9747957 1248098 6
+
+-- turn 12:  a = 26924344,  b = 3447309,  m = 9
+turn12 : ca D 26924344 3447309 9 · ca D 26924344 3447309 9
+     + (D · (26924344 · 26924344) + D · (3447309 · 3447309 · (9 · 9)))
+     ≡ 26924344 · 26924344 · (9 · 9)
+     + (D · D · (3447309 · 3447309) + D · (cb 26924344 3447309 9 · cb 26924344 3447309 9))
+turn12 = cakravalaℕ D 26924344 3447309 9
+
+-- turn 13:  a = 90520989,  b = 11590025,  m = 7
+turn13 : ca D 90520989 11590025 7 · ca D 90520989 11590025 7
+     + (D · (90520989 · 90520989) + D · (11590025 · 11590025 · (7 · 7)))
+     ≡ 90520989 · 90520989 · (7 · 7)
+     + (D · D · (11590025 · 11590025) + D · (cb 90520989 11590025 7 · cb 90520989 11590025 7))
+turn13 = cakravalaℕ D 90520989 11590025 7
+
+-- turn 14:  a = 335159612,  b = 42912791,  m = 8
+turn14 : ca D 335159612 42912791 8 · ca D 335159612 42912791 8
+     + (D · (335159612 · 335159612) + D · (42912791 · 42912791 · (8 · 8)))
+     ≡ 335159612 · 335159612 · (8 · 8)
+     + (D · D · (42912791 · 42912791) + D · (cb 335159612 42912791 8 · cb 335159612 42912791 8))
+turn14 = cakravalaℕ D 335159612 42912791 8
+
 
 ------------------------------------------------------------------------
 -- THE FUNDAMENTAL SOLUTION.  `refl`: the kernel recomputes both sides.
