@@ -55,6 +55,10 @@ import Bhavana
 import BhavanaSemiring
 import BhavanaGenerative
 
+-- JAYADEVA (~950, via Udayadivākara 1073); BHĀSKARA II, Bījagaṇita (1150):
+-- the cakravāla step, and why Bhāskara needs only ONE congruence.
+import CakravalaDescent
+
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka (~700) and Halāyudha
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
 import Pingala
