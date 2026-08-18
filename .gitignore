@@ -3,7 +3,10 @@
 # Persistent local research minds: durable on this machine, not repository artifacts.
 *.agdai
 *.pyc
-.claude/
+.claude/*
+!.claude/skills/
+!.claude/hooks/
+!.claude/settings.json
 __pycache__/
 _build/
 collab/orchestration/persistent-minds.*.log

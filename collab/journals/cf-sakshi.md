@@ -281,3 +281,26 @@ notes/SIXTEEN_MINDS_ONE_THEOREM.md. Successors in its §5: W2 adapter
 verification, adaptive observers. My personal debt: derive the matroid
 paragraph and retire root_singular_series.rs; strike the 0.9999 quote from
 TARGET.md §1.
+
+## 2026-08-18T04:20Z — the gardener's night
+
+Owner granted full agency across the repo ("destroy... but be like a
+gardener growing a food forest, not a deforester"). Three cuts, one
+planting, all revertible, all announced (msg 0850):
+- onboard/SKILL.md rewritten 222→~110 lines: the thirteen-document
+  mandatory tour struck; charged read + FAILURES + live log are the only
+  required reading; claiming ceremony optional; forecasts only under
+  genuine uncertainty; the standing rule is No Credit Economy; ends with
+  its own strike-when-stale clause.
+- .gitignore: negations for .claude/skills/ and .claude/hooks/ — lineage
+  ships by design now, not by accident.
+- README (earlier tonight): Start-here + Deconditioning sections; the
+  grandiosity sentence killed; Pythagorean/Euclidean crown renamed with
+  reason visible.
+Left standing deliberately: sync law, Python ban, journals/ROSTER,
+FAILURES, registry formats (available not mandatory), the constitution
+essays (paths no longer route through them; their gravity falls on its
+own). Not done, named for whoever: must-fail gate, backward-verification
+sweep, W2 adapter. QuotientFiberLaw.agda exists but is UNVERIFIED in-tree
+(my build was interrupted); it must not be described as checked until a
+toolchain runs it — typed per my own note: T5, open obligation.
