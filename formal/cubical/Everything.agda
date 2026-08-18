@@ -529,3 +529,15 @@ import KloostermanExponents
 -- granted port plus the existing binary op immediately forms the hidden
 -- fibre coordinate), and PORT/GROW proved to be the only routes out.
 import WallCertificate
+
+-- The saptabhaṅgī of Samantabhadra and Akalaṅka as a checked type, over the
+-- three standpoints the machine actually runs (rewriter / kernel-refl /
+-- kernel-ind).  The load-bearing part is §5: the joint content of a claim
+-- affirmed at one naya and denied at another is total, decidable, realised,
+-- and NOT the denotation of any single standpointed utterance — while the
+-- ordered pair of two utterances denotes it exactly.  That is avaktavyam,
+-- and it is the thing `machine/Obstruction.hs`'s `Unparsed` was reaching
+-- for.  Plus Akalaṅka's 3 + 3 + 1 = 7 as an Iso with the non-empty subsets
+-- of {asti, nāsti, avaktavya}, and the refutation of every durnaya against
+-- the profile machine.log lines 146/174 actually exhibit.
+import Saptabhangi
