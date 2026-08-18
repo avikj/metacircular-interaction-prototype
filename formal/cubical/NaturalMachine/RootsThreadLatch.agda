@@ -104,6 +104,7 @@ import NaturalMachine.LocatingIsEnough
 import NaturalMachine.WitnessNumberCanBeInfinite
 import NaturalMachine.SiteAudit
 import NaturalMachine.TheCeilingIsAboutReading
+import NaturalMachine.BarrierIsTwoWitnesses
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
