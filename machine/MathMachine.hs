@@ -2223,23 +2223,31 @@ kResidualQueueCap = 48
 -- both FALSE, and a false residual that is queued fails, gets its parent
 -- retried, and regenerates itself, forever.
 --
--- TWO LIMITS, so nothing downstream overclaims.  `Plausible` is the ABSENCE
--- OF A REFUTATION, not a proof of truth; the kernel is still the only thing
--- that accepts a theorem, and every residual crosses it like everything else.
--- And `triage` deliberately offers no opinion on a term containing a symbol
--- outside {0,s,+,*,max,-,gcd,le}, returning `Plausible` unexamined.  On THIS
--- wire that branch is unreachable, and it is worth saying why rather than
--- relying on it: a residual only exists here if `parseAgdaTerm` produced it,
--- and that parser accepts exactly zero/suc/numerals/variables and those same
--- eight symbols.  Anything naming an invented concept (`c0`) or a pair symbol
--- comes back `Unparsed` and contributes nothing.  If the parser is ever
--- widened past the triage vocabulary, that stops being true.
+-- TWO LIMITS, so nothing downstream overclaims.  `Aviruddha` is the ABSENCE
+-- OF A REFUTATION OVER A STATED DOMAIN — the domain is in the constructor,
+-- and reading the verdict without reading it is the error the constructor
+-- exists to prevent.  It is not a proof of truth; the kernel is still the only
+-- thing that accepts a theorem, and every residual crosses it like everything
+-- else.  And `triage` deliberately offers no opinion on a term containing a
+-- symbol outside {0,s,+,*,max,-,gcd,le}: that is `Tusnim`, silence, naming the
+-- symbol that caused it.  On THIS wire that branch is unreachable, and it is
+-- worth saying why rather than relying on it: a residual only exists here if
+-- `parseAgdaTerm` produced it, and that parser accepts exactly
+-- zero/suc/numerals/variables and those same eight symbols.  Anything naming
+-- an invented concept (`c0`) or a pair symbol comes back `Unparsed` and
+-- contributes nothing.  If the parser is ever widened past the triage
+-- vocabulary, that stops being true — and then `Tusnim` starts carrying the
+-- name of whatever widened it, which is the report you would want.
 residualVerdict :: (Term,Term) -> OB.Verdict
 residualVerdict p = OB.triage (toOb (fst q), toOb (snd q))
   where q = orientLikeRound p
 
 usefulResidual :: (Term,Term) -> Bool
-usefulResidual p = fst q /= snd q && residualVerdict p == OB.Plausible
+-- `queueable` is exactly the old `== Plausible`: before the split, silence and
+-- unrefutedness were the same constructor and both queued.  Routing through
+-- the predicate keeps the behaviour bit-identical while the two are now
+-- distinguishable in the log.
+usefulResidual p = fst q /= snd q && OB.queueable (residualVerdict p)
   where q = orientLikeRound p
 
 -- THE ENGINE STATES A CONJECTURE SMALLEST-SIDE-FIRST.  `round1` takes the
@@ -3672,9 +3680,9 @@ round1 disp mem logh libh ref = do
                 | (_, ko) <- outcomes
                 , Just (OB.Residual (a,b)) <- [koObstruction ko] ]
       obRefuted = length [ () | p <- obPairs
-                              , OB.Refuted _ <- [residualVerdict p] ]
+                              , OB.Khandita _ <- [residualVerdict p] ]
       obDegenerate = length [ () | p <- obPairs
-                                 , OB.Degenerate <- [residualVerdict p] ]
+                                 , OB.Nirdharmin _ <- [residualVerdict p] ]
       knownAfter = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
       -- The subgoal -> parents index, cumulative.  Kept for every harvested
       -- residual, INCLUDING ones the queue has no room for, because the

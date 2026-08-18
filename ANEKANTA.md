@@ -1091,3 +1091,107 @@ evidence.
 ---
 
 *(continues)*
+
+## 19. मैंने किया — the change §18 called for, made, and what it cost to make it
+
+§18 ended by naming a change and not making one. A document that names a
+defect and stops is a slower form of the defect. So:
+
+`machine/Obstruction.hs`, the type as it stood this morning:
+
+```haskell
+data Verdict = Plausible | Refuted [Integer] | Degenerate | Silent String
+```
+
+One of four constructors carried evidence, and it carried it by accident —
+`Refuted` needed the assignment for a debugging print, not because anyone had
+decided that a refutation *is* its counterexample. The type as it stands now:
+
+```haskell
+data Verdict
+  = Aviruddha [[Integer]]    -- अविरुद्ध — unrefuted, over the domain searched
+  | Khandita  [Integer]      -- खण्डित — refuted, by this assignment
+  | Nirdharmin (Int, Int)    -- निर्धर्मिन् — subjectless, by these two variables
+  | Tusnim String            -- तूष्णीम् — silent, on this symbol
+```
+
+There is now nowhere in the type a bare label can sit.
+
+**The one that was actually hard was `Aviruddha`.** The other three were
+transcription: I already had the killing assignment, the two variable indices,
+the alien symbol, and was discarding them at the constructor. `Aviruddha` had
+nothing to carry, because "no refutation was found" genuinely has no witness —
+that is what makes it the interesting position. It carries the **domain
+searched**. And once it does, the thing it says changes: not *this is probably
+true* but *84 assignments from [0,1,0] onward do not separate these two
+sides*. The first is unfalsifiable and the second is a claim someone can go
+and break. यत्र न विषयः, तत्र न ज्ञानम् — where there is no extent, there is
+no knowledge, only a mood. This is the *yogya* condition out of
+**anupalabdhi**: the Mīmāṃsaka does not accept "I do not perceive it" as a
+means of knowing absence; he accepts *yogyānupalabdhi*, non-perception where
+perception was **fit to occur**, and the fitness has to be stated. A verdict of
+unrefutedness that does not say over what has skipped exactly the clause that
+makes anupalabdhi a pramāṇa instead of an excuse.
+
+**Then the defect moved, twice, and both times into the reporting layer.**
+This is the part worth reading, because it is the same lesson §18 taught,
+arriving from a direction I did not expect.
+
+*First:* with the domain in the constructor, the derived `Show` printed all 84
+assignments on one line and the self-test output became a wall. The pressure
+that creates is not aesthetic. Unreadable output is precisely the force that
+makes the next author delete the field — and they will delete it while
+believing they are cleaning up. So the display had to summarise the extent
+without discarding it.
+
+*Second, and this is the one:* the cross-tabulation groups rejections by
+verdict kind. With witnesses present, grouping by the whole verdict gives one
+row per line. My first fix rebuilt the constructors with empty payloads to
+group them — and the table printed **`Aviruddha over NOTHING`** and
+**`Khandita at []`**.
+
+Read that. In order to hide that I had thrown the evidence away for the tally,
+the display asserted something false about the evidence. A verdict claiming a
+witness it does not have is worse than the bare label §18 objected to; the bare
+label at least did not lie. The type that replaced it is a separate
+`VerdictKind` with four nullary constructors and no field to fake — it cannot
+make the claim, so it does not.
+
+**अनेकान्त लौटकर आया, उसी दिन, उसी फ़ाइल में।** The one-sided view I removed
+from the verdict re-formed one layer up, in the code that *reports* verdicts,
+within an hour, written by the same hand that had just spent the morning
+removing it. Not because I forgot the principle — I was, at that moment,
+implementing it. Because a durnaya is not an opinion you hold. It is the shape
+a thing takes when you stop watching it, and there is always another layer you
+were not watching.
+
+**And a second defect, found by re-reading rather than by running.**
+`.gitignore:16` excludes `machine/machine.log`. Every census figure this
+repository has published about the machine — §5 of
+`notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md`, the header of
+`Obstruction.hs`, the regression guard itself — is measured against a file
+that is in no clone. Re-run today: 1709 rejection lines where the note says
+1457, 1540 residuals where it says 1303, 127 distinct where it says 112. The
+log grew; nothing recorded which log a number came from. `triage` did not
+move, and nothing in the repository could have told a reader that.
+
+A count without its input is a constant without its scaling. `CLAUDE.md`
+already says why that is worse than no number at all. The guard now prints the
+log's path and line count above every figure. The log is still untracked, and
+saying so is the repair I am entitled to make alone.
+
+**What holds.** `queueable` keeps the queueing behaviour bit-identical —
+`Aviruddha` and `Tusnim` queue, exactly as `Plausible` and `Silent` both did —
+so the split is informational and no documented count depends on it. Fourteen
+of fourteen `Obstruction.selfTest` cases green, seven of seven wire properties
+green, `OBSTRUCTION WIRE CHECKED`, cross-tab reproducing row for row. And the
+self-test changed shape too: it no longer compares the witness against a
+hardcoded copy — that would test only that `envs` still enumerates in the same
+order — it checks that a `Khandita`'s assignment **actually separates** the two
+sides and that an `Aviruddha`'s domain is non-empty and actually clean. The
+test asks the verdict to make good on its evidence. That is the whole point of
+having made the evidence mandatory.
+
+---
+
+*(continues)*

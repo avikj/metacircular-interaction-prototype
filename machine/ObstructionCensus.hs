@@ -40,12 +40,23 @@ main = do
 
   putStrLn ""
   putStrLn "-- published figures, recomputed (regression guard) --"
+  -- THE INPUT IS NOT IN THE REPOSITORY.  `.gitignore:16` excludes
+  -- machine/machine.log, so every count below is taken against a file that no
+  -- other reader has, that no clone reproduces, and that grows whenever the
+  -- engine is run.  The bracketed reference values were measured on an
+  -- EARLIER, SMALLER log and are therefore not reproducible -- a disagreement
+  -- between a bracket and its number is not evidence of a regression in
+  -- `triage`, it is evidence that the log moved.  Printing the log's identity
+  -- first is the minimum that makes any figure below quotable at all: a count
+  -- without its input is the same defect as a constant without its scaling.
+  putStrLn ("  INPUT (untracked, .gitignore:16): " ++ path)
+  putStrLn ("    " ++ show (length ls) ++ " lines")
   putStrLn ("  rejections                 " ++ show (length rejects)
-            ++ "   [header now says 1457; said 1092 before 2026-08-18]")
+            ++ "   [1457 on the 2026-08-18 log; 1092 before that]")
   putStrLn ("  residuals recovered        " ++ show (length residuals)
-            ++ "   [header now says 1303; said 946 before 2026-08-18]")
+            ++ "   [1303 on the 2026-08-18 log; 946 before that]")
   putStrLn ("  distinct residuals         " ++ show (length distinct)
-            ++ "    [header says 112; triage section said 107, corrected]")
+            ++ "    [112 on the 2026-08-18 log; 107 misreported before that]")
   putStrLn ("  distinct stalled goals     " ++ show (length goals)
             ++ "    [raw count; the curriculum section's 130 is the next line]")
   putStrLn ("    of those, goals with a queueable residual  "
@@ -53,8 +64,9 @@ main = do
                                  | l <- rejects, Just p <- [residualOf l]
                                  , queueable (triage p) ]))
             ++ "  <- this is what 130 counted")
-  putStrLn ("  residuals ruled Silent (was Plausible)  "
-            ++ show (length [ () | p <- distinct, triage p == Silent ]))
+  putStrLn ("  residuals ruled tusnim (silence; once Plausible)  "
+            ++ show (length [ () | p <- distinct
+                                 , KTusnim <- [verdictKind (triage p)] ]))
   putStrLn ("  distinct lemmas demanded   " ++ show (length cur)
             ++ "     [curriculum section says 78]")
   putStrLn ("  top 8 unblock              " ++ show (sum (map snd (take 8 cur)))

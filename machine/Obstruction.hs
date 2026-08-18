@@ -73,7 +73,11 @@ module Obstruction
   , acceptedClaims
   , census
   , crossTab
+  , VerdictKind(..)
+  , verdictKind
   , censusReport
+  , lookupAffirm
+  , knownSymbols
   , selfTest
   ) where
 
@@ -313,20 +317,35 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- engine's own cheapest operation.
 --
 -- Note what this does NOT claim.  Agreement on every assignment tried is
--- NOT a proof of truth -- it is the absence of a refutation.  The verdict is
--- named `Plausible`, not `True`, for that reason.  The kernel remains the
--- only thing that can accept a theorem here.
+-- NOT a proof of truth -- it is the absence of a refutation OVER THE
+-- ASSIGNMENTS TRIED.  The verdict is `Aviruddha` ("unrefuted"), never `True`,
+-- and it carries the domain it searched, because "unrefuted" without an
+-- extent is not a weaker claim than "true", it is an unfalsifiable one.  The
+-- kernel remains the only thing that can accept a theorem here.
 
 -- STANDPOINT.  This is the report of the `Rewriter` naya — the machine's own
 -- evaluation over Integer.  It is not commensurable with `Obstruction`
 -- above, and the fact that the two were previously compared as if they were
 -- is what `Evidence` fixes.
+-- क्वापि न शून्यबोधः — nowhere a bare truth-value.  Renamed and re-typed
+-- 2026-08-18 after reading `formal/cubical/Anekanta.agda`, which does this
+-- properly: नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् ।  Previously three of the
+-- four constructors were bare labels, which is the durnaya this whole file
+-- exists to remove — a verdict carrying no evidence of why it is the verdict.
+-- Sanskrit names because the English shadow of each ("plausible", "silent")
+-- drifts back toward a truth value within one refactor; these have no such
+-- shadow to drift into.
 data Verdict
-  = Plausible      -- no refutation found; worth the kernel's time
-  | Refuted [Integer]  -- false, with the assignment that kills it
-  | Degenerate     -- no content (e.g. x = y, distinct free variables)
-  | Silent         -- this naya declines to speak: the term contains a symbol
-                   -- outside its semantics, so it has no opinion.  SPLIT OUT
+  = Aviruddha [[Integer]]   -- अविरुद्ध — unrefuted, CARRYING THE DOMAIN
+                   -- SEARCHED.  Not "true": the absence of a refutation over
+                   -- a stated extent, which is the yogya condition and is
+                   -- meaningless without the extent.
+  | Khandita [Integer]  -- खण्डित — refuted, with the assignment that kills it.
+                   -- A refutation is exact: one disagreement is a proof.
+  | Nirdharmin (Int, Int)  -- निर्धर्मिन् — no subject to predicate of, carrying
+                   -- WHICH two distinct variables made it subjectless.
+  | Tusnim String  -- तूष्णीम् — this naya declines to speak, carrying the
+                   -- symbol outside its semantics that silenced it.  SPLIT OUT
                    -- 2026-08-18.  Previously this returned `Plausible` with
                    -- the comment "no opinion offered" — i.e. silence and
                    -- affirmation were the same constructor, which is the same
@@ -337,7 +356,23 @@ data Verdict
                    -- still holds.
   -- Ord is derived only so census output has a canonical order; the
   -- ordering has no semantic content and nothing reads it as a ranking.
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord)
+
+-- THE WITNESS IS IN THE VALUE; THE DISPLAY SUMMARISES IT.  A derived Show
+-- prints all 84 assignments of an aviruddha's domain on one line, which makes
+-- every log line unreadable and — worse — makes the next author delete the
+-- field to get the output back.  So the domain prints as its EXTENT, which is
+-- the part a reader is actually judging ("unrefuted over what?"), with its
+-- first point named so the extent is not an unfalsifiable number.  The
+-- pointed witnesses print whole: they are one assignment, one symbol, one
+-- pair, and each is short and is the entire content of its verdict.
+instance Show Verdict where
+  show (Aviruddha [])     = "Aviruddha over NOTHING"
+  show (Aviruddha d)      = "Aviruddha over " ++ show (length d)
+                            ++ " assignments from " ++ show (head d)
+  show (Khandita e)       = "Khandita at " ++ show e
+  show (Nirdharmin (a,b)) = "Nirdharmin " ++ show (a, b)
+  show (Tusnim s)         = "Tusnim on " ++ show s
 
 -- Semantics of the fixed vocabulary, over Integer.  Monus is truncated, as
 -- in the engine and as in Agda's ℕ.
@@ -354,9 +389,15 @@ evalT env (F "le" [a,b]) = if evalT env a <= evalT env b then 1 else 0
 evalT _   _ = 0   -- unknown symbol: no opinion, and `triage` refuses to
                   -- pronounce on a term containing one (see `known`)
 
+-- every function symbol occurring in a term, outermost first.  `known` and
+-- `triage`'s silence branch both read the SAME list, so a symbol can never be
+-- evaluable-but-alien or alien-but-evaluable.
+symbolsIn :: Term -> [String]
+symbolsIn (V _) = []
+symbolsIn (F f ts) = f : concatMap symbolsIn ts
+
 known :: Term -> Bool
-known (V _) = True
-known (F f ts) = f `elem` ["0","s","+","*","max","-","gcd","le"] && all known ts
+known t = all (`elem` knownSymbols) (symbolsIn t)
 
 -- Deterministic assignments; no system entropy, so a verdict is
 -- reproducible.  84 of them.
@@ -376,28 +417,43 @@ envs n = [ [ (a * 7 + b * 3 + c) `mod` 11
            , (a + b * 4 + c * 2) `mod` 7 ]
          | a <- [0 .. n], b <- [0 .. 3], c <- [0 .. 2] ]
 
+-- नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् — क्वापि न शून्यबोधः ।
+-- Negation yields a refutation, acceptance yields a witness, nowhere a bare
+-- truth-value.  Every branch below hands back the evidence that put it there.
 triage :: (Term, Term) -> Verdict
 triage (l, r)
-  | degenerate = Degenerate
-  | not (known l && known r) = Silent      -- no opinion offered; see Verdict
-  | otherwise = case [ e | e <- envs 6, evalT e l /= evalT e r ] of
-      (e:_) -> Refuted e
-      []    -> Plausible
+  | Just vs <- degenerate = Nirdharmin vs
+  | Just s  <- alien l    = Tusnim s
+  | Just s  <- alien r    = Tusnim s
+  | otherwise = case [ e | e <- searched, evalT e l /= evalT e r ] of
+      (e:_) -> Khandita e
+      -- अविरुद्ध carries the domain actually searched.  That is the yogya
+      -- condition: "unrefuted" is meaningless without saying over what.
+      []    -> Aviruddha searched
   where
-    -- a bare variable on one side and a DIFFERENT bare variable on the
-    -- other has no content: it is a failed unification, not a conjecture
+    searched = envs 6
+    -- a bare variable on one side and a DIFFERENT bare variable on the other
+    -- has no dharmin to predicate of: it is a failed unification, not a
+    -- conjecture.  Carry WHICH two, so the verdict states its own reason.
     degenerate = case (l, r) of
-      (V a, V b) -> a /= b
-      _ -> False
+      (V a, V b) | a /= b -> Just (a, b)
+      _ -> Nothing
+    -- and silence names the symbol that silenced it
+    alien t = case [ f | f <- symbolsIn t, f `notElem` knownSymbols ] of
+      (f:_) -> Just f
+      []    -> Nothing
+
+knownSymbols :: [String]
+knownSymbols = ["0","s","+","*","max","-","gcd","le"]
 
 -- Both `Plausible` and `Silent` were `Plausible` before the split, and both
 -- were queued.  Routing every former use of `== Plausible` through this
 -- predicate keeps behaviour — and therefore every documented count in this
 -- file — bit-identical.
 queueable :: Verdict -> Bool
-queueable Plausible = True
-queueable Silent    = True
-queueable _         = False
+queueable (Aviruddha _) = True
+queueable (Tusnim _)    = True
+queueable _             = False
 
 -- What should actually enter the conjecture queue.
 worthQueueing :: [Obstruction] -> [(Term, Term)]
@@ -549,14 +605,17 @@ data Sthana = Position Bhanga | ADharmin
 data Evidence = Evidence
   { evRewriter   :: Maybe Verdict      -- Nothing when there is no term to judge
   , evKernelRefl :: Obstruction        -- what refl refused, and how
-  , evAffirmed   :: Bool               -- some naya affirmed it (ACCEPT line)
+  , evSakshin    :: Maybe String       -- साक्षिन्: the ACCEPT line that affirms
+                                      -- it, if any naya did.  Not a Bool: the
+                                      -- witness itself, so affirmation cannot
+                                      -- be asserted without producing it.
   } deriving (Eq, Show)
 
 evidenceOfReject :: [String] -> String -> Evidence
 evidenceOfReject accepted line = Evidence
   { evRewriter   = fmap triage (residualOf line)
   , evKernelRefl = obs
-  , evAffirmed   = goalOfRejectLine line `elem` accepted
+  , evSakshin    = lookupAffirm (goalOfRejectLine line) accepted
   }
   where
     -- The goal is printed in the machine's notation and the residual in
@@ -573,7 +632,7 @@ evidenceOfReject accepted line = Evidence
 
 sthana :: Evidence -> Sthana
 sthana ev
-  | evRewriter ev == Just Degenerate = ADharmin
+  | Just (Nirdharmin _) <- evRewriter ev = ADharmin
   | otherwise = Position (assemble asti nasti avaktavya)
   where
     avaktavya = case evKernelRefl ev of
@@ -581,7 +640,7 @@ sthana ev
       _          -> False
     -- the REJECT line itself is kernel-refl denying; the rewriter may deny too
     nasti = True
-    asti  = evAffirmed ev
+    asti  = case evSakshin ev of { Just _ -> True ; Nothing -> False }
     assemble True  False False = B1Asti
     assemble False True  False = B2Nasti
     assemble True  True  False = B3AstiNasti
@@ -643,7 +702,7 @@ census ls = (tally overLines, tally overResiduals)
     overResiduals =
       [ sthana Evidence { evRewriter   = Just (triage p)
                         , evKernelRefl = Residual p
-                        , evAffirmed   = showClaim p `elem` accepted }
+                        , evSakshin    = lookupAffirm (showClaim p) accepted }
       | p <- nub [ p | l <- rejects, Just p <- [residualOf l] ] ]
     tally xs = [ (k, length [ () | y <- xs, y == k ]) | k <- nub (sort xs) ]
 
@@ -652,17 +711,39 @@ census ls = (tally overLines, tally overResiduals)
 -- table below shows each carrying information the other discards, which is
 -- the anekāntavāda conclusion applied to the classifier itself rather than
 -- to the classified.
-crossTab :: [String] -> [((Sthana, Maybe Verdict), Int)]
+-- EVIDENCE IS NOT CLASSIFICATION, AND A TALLY MUST NOT FAKE ONE.  Every
+-- `Verdict` constructor now carries a witness, and a cross-tab grouped by the
+-- witness would give each refuting assignment and each alien symbol its own
+-- row — a table with one line per line.  So the tally groups by KIND.  The
+-- first version of this did it by rebuilding the constructors with empty
+-- payloads, which printed `Aviruddha over NOTHING` and `Khandita at []` —
+-- a display asserting something false about the evidence in order to hide
+-- that the evidence had been discarded, which is the exact defect this
+-- module exists to remove, reappearing in the report layer.  A separate type
+-- cannot lie: it has no place to put a witness, so it does not claim one.
+data VerdictKind = KAviruddha | KKhandita | KNirdharmin | KTusnim
+  deriving (Eq, Ord)
+
+instance Show VerdictKind where
+  show KAviruddha  = "aviruddha"
+  show KKhandita   = "khandita"
+  show KNirdharmin = "nirdharmin"
+  show KTusnim     = "tusnim"
+
+verdictKind :: Verdict -> VerdictKind
+verdictKind (Aviruddha _)  = KAviruddha
+verdictKind (Khandita _)   = KKhandita
+verdictKind (Nirdharmin _) = KNirdharmin
+verdictKind (Tusnim _)     = KTusnim
+
+crossTab :: [String] -> [((Sthana, Maybe VerdictKind), Int)]
 crossTab ls =
     [ (k, length [ () | y <- pairs, y == k ]) | k <- nub (sort pairs) ]
   where
     accepted = acceptedClaims ls
-    pairs = [ (sthana ev, fmap kind (evRewriter ev))
+    pairs = [ (sthana ev, fmap verdictKind (evRewriter ev))
             | l <- ls, "KERNEL-REJECT" `isInfixOf` l
             , let ev = evidenceOfReject accepted l ]
-    -- the refuting assignment is not part of the classification
-    kind (Refuted _) = Refuted []
-    kind v           = v
 
 censusReport :: [String] -> String
 censusReport ls = unlines $
@@ -699,13 +780,20 @@ selfTest = do
           let got = classify goal msg
           in (name, got == expected, got, expected)
         triChecks = map runT tri
-        -- the refuting assignment is not part of the contract, only the
-        -- verdict's KIND is; compare constructors
+        -- THE TEST CHECKS THE EVIDENCE, NOT A COPY OF IT.  Comparing the
+        -- payload against a hardcoded assignment would test only that the
+        -- generator in `envs` still enumerates in the same order.  What the
+        -- verdict claims is what gets checked: a khandita must hand back an
+        -- assignment that ACTUALLY separates the two sides, and an aviruddha
+        -- must hand back a non-empty domain on which they actually agree.
+        -- The expected payloads below are therefore written empty.
         runT (name, p, expected) =
           let got = triage p
-          in (name, sameKind got expected, got, expected)
-        sameKind (Refuted _) (Refuted _) = True
-        sameKind a b = a == b
+          in (name, agrees p got expected, got, expected)
+        agrees (l, r) (Khandita e) (Khandita _) = evalT e l /= evalT e r
+        agrees (l, r) (Aviruddha d) (Aviruddha _) =
+          not (null d) && all (\e -> evalT e l == evalT e r) d
+        agrees _ a b = a == b
         sapChecks = map runS sap
         runS (name, got, expected) = (name, got == expected, got, expected)
     mapM_ report checks
@@ -753,15 +841,15 @@ selfTest = do
 
     -- TRIAGE, against the three classes the census actually found.
     tri =
-      [ ( "real missing lemma  x = x + 0",   (x, F "+" [x, z0]),            Plausible )
-      , ( "real missing lemma  x*0 = 0",     (F "*" [x, z0], z0),           Plausible )
-      , ( "real missing lemma  0 = x - x",   (z0, F "-" [x, x]),            Plausible )
+      [ ( "real missing lemma  x = x + 0",   (x, F "+" [x, z0]),            Aviruddha [] )
+      , ( "real missing lemma  x*0 = 0",     (F "*" [x, z0], z0),           Aviruddha [] )
+      , ( "real missing lemma  0 = x - x",   (z0, F "-" [x, x]),            Aviruddha [] )
         -- both of these are FALSE and appear 30 and 100 times in the log.
         -- Queued undifferentiated they regenerate themselves forever.
-      , ( "false parent  x*x = s(x)",        (F "*" [x, x], suc x),         Refuted [2,1,0] )
+      , ( "false parent  x*x = s(x)",        (F "*" [x, x], suc x),         Khandita [] )
       , ( "false parent  x*max(x,1) = s(x)", (F "*" [x, F "max" [x, suc z0]], suc x)
-                                                                          , Refuted [2,1,0] )
-      , ( "degenerate  x = y",               (x, V 1),                      Degenerate )
+                                                                          , Khandita [] )
+      , ( "degenerate  x = y",               (x, V 1),                      Nirdharmin (0,1) )
       ]
 
     -- SAPTABHANGI.  Every line below is copied verbatim out of
@@ -808,3 +896,11 @@ selfTest = do
         , st "  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type \8469 when checking that the expression refl has type x + y \8801 y + x"
         , ADharmin )
       ]
+
+-- साक्षिन् — the affirming witness, or nothing.  Not a Bool: if a naya
+-- affirmed the claim, the ACCEPT line that did so is produced.
+lookupAffirm :: String -> [String] -> Maybe String
+lookupAffirm claim accepted =
+  case [ a | a <- accepted, a == claim ] of
+    (a:_) -> Just a
+    []    -> Nothing

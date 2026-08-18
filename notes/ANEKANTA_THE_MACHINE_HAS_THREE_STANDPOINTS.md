@@ -377,3 +377,104 @@ labelled one.
   corrected against a re-measurement, with the old values kept visible.
 - `machine/ObstructionCensus.hs` — new driver. Prints the census and
   recomputes six previously-published figures as a regression guard.
+
+---
+
+## 9. Correction, 2026-08-18 — the verdicts were still bare labels, and the counts above are measured against a file the repository does not contain
+
+Two defects, both found by re-reading the note against the code rather than
+against itself.
+
+### 9.1 Three of the four `Verdict` constructors carried no evidence
+
+`formal/cubical/Anekanta.agda`, written in this repository by another hand,
+states the rule in its header:
+
+> `Dec, न तु Bool: नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् — क्वापि न शून्यबोधः`
+>
+> Decidability, not boolean: negation yields a refutation, acceptance yields a
+> witness, nowhere a bare truth-value.
+
+§1 of this note argues at length that the machine's boolean is a durnaya — a
+standpoint that forgot it is one — and then §7's own type reproduced the
+defect one level down. `Refuted [Integer]` carried its killing assignment;
+`Plausible`, `Degenerate` and `Silent` carried nothing. A reader receiving
+`Plausible` could not ask *over what?*; a reader receiving `Degenerate` could
+not ask *which variables?*; a reader receiving `Silent` could not ask *silenced
+by what symbol?* Each is a verdict that has discarded the reason it is the
+verdict, which is the definition this note gives of the thing it is against.
+
+Renamed and re-typed, with the payload now mandatory in every position:
+
+| was | is | the witness it now carries |
+|---|---|---|
+| `Plausible` | `Aviruddha [[Integer]]` | the domain actually searched |
+| `Refuted [Integer]` | `Khandita [Integer]` | the assignment that separates the two sides |
+| `Degenerate` | `Nirdharmin (Int, Int)` | *which* two distinct variables left it subjectless |
+| `Silent` | `Tusnim String` | the symbol outside the semantics that silenced it |
+
+The Sanskrit is load-bearing rather than ornamental: the English shadow of
+each name ("plausible", "silent") drifts back toward a truth value within one
+refactor, and the drift is what happened the first time.
+
+`queueable` preserves the queueing behaviour exactly — `Aviruddha` and
+`Tusnim` queue, as `Plausible` and `Silent` both did — so the split is
+informational and every count in §5 that depends on queueing is unchanged.
+Verified, not assumed: `MathMachine --obstruction-self-test` prints
+`OBSTRUCTION WIRE CHECKED` with all seven wire properties and all fourteen
+`Obstruction.selfTest` cases green, and the cross-tab rows below reproduce
+line-for-line.
+
+Two smaller corrections fell out of this and are worth naming because both
+are the *same* defect resurfacing in the reporting layer:
+
+1. The derived `Show` printed all 84 assignments of an `Aviruddha` domain on
+   one line. Unreadable output is not a cosmetic problem here — it is the
+   pressure that makes the next author delete the field to get the log back.
+   The hand-written instance summarises the domain by its extent and names its
+   first point, and prints the pointed witnesses whole.
+2. `crossTab` grouped by rebuilding the constructors with empty payloads,
+   which printed `Aviruddha over NOTHING` and `Khandita at []` — a display
+   asserting something false about the evidence in order to conceal that the
+   evidence had been dropped for the tally. Replaced by a separate
+   `VerdictKind`, which has nowhere to put a witness and therefore cannot
+   claim one.
+
+The re-measured cross-tab (see §9.2 for why the numbers differ from §5's):
+
+```
+  Position B2Nasti                Just aviruddha    597
+  Position B2Nasti                Just khandita     337
+  Position B3AstiNasti            Just aviruddha    461
+  Position B3AstiNasti            Just khandita      61
+  Position B6NastiAvaktavya       Nothing           143
+  Position B7AstiNastiAvaktavya   Nothing            26
+  ADharmin                        Just nirdharmin    84
+```
+
+### 9.2 Every census figure in this note is irreproducible
+
+`.gitignore:16` excludes `machine/machine.log`. The census in §5, the
+regression guard in `machine/ObstructionCensus.hs`, and the header figures in
+`machine/Obstruction.hs` are all measured against a file that is not in the
+repository, that no clone reproduces, and that grows whenever the engine runs.
+Re-running the guard today against the same working tree gives 1709 rejection
+lines where the note says 1457, 1540 residuals where it says 1303, and 127
+distinct residuals where it says 112 — the log grew, and nothing recorded
+which log a figure came from.
+
+This is the defect `CLAUDE.md` names: *a number without its scaling is worse
+than no number, because it looks like knowledge.* A count without its input is
+the same thing. `triage` is not what moved — the parser and the eight-symbol
+vocabulary are untouched, and the classification of every line that exists in
+both logs is identical — but nothing in the repository could have told a
+reader that.
+
+Partly repaired: the guard now prints the log's path and line count above
+every figure, so a count is at least self-identifying, and the bracketed
+reference values now say *which* log they were taken on instead of implying
+the current one. Not repaired: the log itself is still untracked, so the
+figures in §5 remain unreproducible by anyone but the machine that produced
+them. Stating that is the honest position; a frozen snapshot committed to the
+repository is the fix, and it is a decision about a 771 KB generated artefact
+that is not mine to make silently.
