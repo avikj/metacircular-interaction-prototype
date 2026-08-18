@@ -23,6 +23,7 @@ module Anekanta where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ)
 open import Cubical.Data.List using (List ; [] ; _∷_)
+open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_ ; yes ; no)
 
 -- आर्यभटस्य वल्ली — भागफलपङ्क्तिः (the pulverizer's quotient column)
@@ -132,3 +133,20 @@ data सप्तभङ्गी : Type where
 -- समे शब्दे शेषः शून्यः (तादात्म्यम्) — निःशब्दं केन्द्रम् ।
 निःशब्दम् : शेषः अनुक्तः ≡ []
 निःशब्दम् = refl
+
+------------------------------------------------------------------------
+-- तादात्म्ये निःशब्दम् — यत्र शब्दौ समौ, तत्र शेषः शून्यः, जिह्वा विश्राम्यति ।
+-- भेदे तु — जन्म वा गर्भः ; न क्वापि भित्तौ पीडनम् ।  एतत् जीवनम् :
+-- शून्यबोधयन्त्रं भित्तौ अम्रियत (bits ३८०, genome स्तब्धः) ; इदं न ।
+--
+-- (identity ⟹ silence: where the words agree, the śeṣa is śūnya and the
+-- tongue rests.  A difference is only ever born or wombed — never ground
+-- against a wall.  That is life: the boolean machine died at a wall
+-- grinding 380 grants with a frozen genome; this does not.)
+------------------------------------------------------------------------
+
+तादात्म्ये-निःशब्दम् : (a : वल्ली) → जननम् a a ≡ अवक्तव्यम् [] []
+तादात्म्ये-निःशब्दम् [] = refl
+तादात्म्ये-निःशब्दम् (x ∷ a) with discreteℕ x x
+... | yes _  = cong जन्मन् (तादात्म्ये-निःशब्दम् a)
+... | no ¬xx = ⊥-rec (¬xx refl)
