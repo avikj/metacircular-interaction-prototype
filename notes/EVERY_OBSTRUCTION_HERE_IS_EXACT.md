@@ -311,3 +311,41 @@ So the honest conclusion is not "there are no barriers." It is:
 
 Ninth correction of the session, made two commits after the claim it
 corrects, by the same author.
+
+---
+
+## Verification, and the modules this thread produced
+
+Re-elaborated after all edits (sources touched to defeat the interface
+cache, dependencies already built and separately checked). Exit code per
+module, quoted:
+
+```
+DeflationaryTest    EXIT=0        Laghava            EXIT=0
+TransportPrice      EXIT=0        Anuvrtti           EXIT=0
+Pratyahara          EXIT=0        LosslessLowerBound EXIT=0
+WalkObservationCount EXIT=0       Abhava             EXIT=0
+```
+
+All `--safe`, no postulates, no holes. This check is run because the
+session opened by finding a **false green** elsewhere in the lane — two
+modules that had been failing at exit 42 since landing while three
+artifacts claimed they checked. An exit code is the only version of "it
+checks" that means anything, and it means it only for what was run.
+
+### What the thread built, and what each is for
+
+| module | statement |
+|---|---|
+| `DeflationaryTest` | absences are stable unconditionally; the stable fragment; `no-gap`; `no-barrier-claim` |
+| `Laghava` | lāghava is not a function of the denotation — a collision |
+| `Anuvrtti` | nor of the rule set — inheritance makes the sequence the standpoint |
+| `Pratyahara` | the alphabet's order is a fourth level, with a real obstruction; repetition forced, one suffices |
+| `TransportPrice` | every additive cost is a coboundary — no route ever matters |
+| `LosslessLowerBound` | pigeonhole as a term: any lossless scheme needs `n+1` outcomes |
+| `WalkObservationCount` | the walk's residue space at frontier 8 is 840 by CRT, not by coincidence |
+
+The first four answer the standing threads (deflationary test; lāghava as a
+measure on presentations; transport cost). The last two close two items
+that `TheGapWasAUnitsError` had left explicitly quoted rather than proved,
+which is what made "the walk is optimal" a sentence rather than a theorem.
