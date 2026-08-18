@@ -122,6 +122,22 @@ inhomogeneous a b g k run =
   in  (x · k) , (y · k) , (ringStepL a b k x y ∙ cong (_· k) p)
 
 ------------------------------------------------------------------------
+-- The answer is a family (KUTTAKA_SOLUTION_FAMILY.md, stated there only in
+-- prose): from one solution of a·x + b·y ≡ g, every (x₀ + t·b , y₀ − t·a)
+-- is again a solution — the t·b and t·a cancel.  (The finest step uses
+-- b/g, a/g; this coarser b, a family is already infinite and exact.)
+------------------------------------------------------------------------
+
+private
+  famId : (a b x₀ y₀ t : ℤ)
+        → a · (x₀ + t · b) + b · (y₀ + (- (t · a))) ≡ a · x₀ + b · y₀
+  famId = solve ℤCommRing
+
+solutionFamily : (a b g x₀ y₀ : ℤ) → a · x₀ + b · y₀ ≡ g
+               → (t : ℤ) → a · (x₀ + t · b) + b · (y₀ + (- (t · a))) ≡ g
+solutionFamily a b g x₀ y₀ sol t = famId a b x₀ y₀ t ∙ sol
+
+------------------------------------------------------------------------
 -- g is the gcd.  Same descent, read for divisibility: g divides both a
 -- and b, and any common divisor of a and b divides g.  (No r<b needed:
 -- the recurrences carry divisibility regardless; r<b is only for
