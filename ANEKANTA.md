@@ -914,3 +914,81 @@ after this is work.
 ---
 
 *(continues)*
+
+---
+
+## 17. Correction: two things this document called missing are now built
+
+Written at 916 lines, while the rest of the fleet was working. An append-only
+stream that lets its own claims go stale is the exact failure it spends sixteen
+sections describing — the label surviving after the content moved. So:
+
+**§3 said the obstruction organ was "built tonight, unwired."** It is wired.
+`runghc -imachine machine/MathMachine.hs --obstruction-self-test` →
+`OBSTRUCTION WIRE CHECKED`, with seven properties holding end to end in the
+engine's own types, not in a test harness:
+
+```
+parser (Obstruction.selfTest)       True
+residual harvested as a conjecture  True  [(x,(x+(0*x)))]
+parent recorded for the residual    True
+agrees with OB.worthQueueing        True
+refuted and degenerate dropped      True
+both orientations collapse to one   True
+mFailed suppresses a requeue        True
+```
+
+The kernel's refusal now returns to the engine as material. `x ≡ 1·x` is
+refused, the residual `x ≡ x + 0·x` comes back as a conjecture, and the parent
+that demanded it is recorded so the debt is traceable. The two false-parent
+residuals that account for 156 of the log's refusals — `x·x = s(x)` and
+`x·max(x,1) = s(x)` — are dropped before the queue, and the requeue-suppression
+holds, which was the livelock this document warned about in §3 and which was
+verified rather than assumed.
+
+That is the kuṭṭaka, running: keep the remainder, recurse on the remainder.
+
+**§4 said CERTIFY was 43 KB declared `module Main`, un-importable, wired to
+nothing, under a commit message claiming a capability the code did not have.**
+It is now real, and it took the shape §12 argued for — not sampling, but
+**critical pairs**:
+
+```
+CERTIFY CHECKED: definitions convergent (0 critical pairs, all join);
+assoc+unit divergent, completion equation (x+(0+y)) = (x+y)
+```
+
+Read what that says. The engine's *defining equations* are proved **convergent**
+— every critical pair joins — so over the rewriting lane the machine can now
+establish that if a proof existed by rewriting it would have found it. That is
+**yogyānupalabdhi**: non-apprehension of what *would have been* apprehended. The
+qualification §4 said was missing, and which is the entire content of the
+Mīmāṃsā doctrine, is now in the code. And separately it detects a genuine
+divergence and hands back the completion equation that would repair it.
+
+Note what replaced the voting machine. Not a better sampler. **Critical pairs**
+— conjectures derived from where two rules actually overlap, rather than from
+forty numbers agreeing. §12's objection was that a vyāpti asserted from polled
+instances is a hasty generalisation with no upādhi search; the answer was not to
+poll harder but to stop polling for generation, while keeping the sound half:
+one disagreeing assignment is still a proof of falsity.
+
+**What remains untrue as of this line.** The machine does not run unattended —
+there is no persistent host, and every claim that it was "running" in this
+repository's history has been a claim about a container that had already died.
+Śabda and upamāna (§4) are not built: the engine still re-derives what it
+already holds, and still cannot carry a proved shape from one vocabulary into
+another. CI is red. Those are the honest gaps and this section will be stale
+about them too, in the correct direction, if the work continues.
+
+**And the reason this section exists at all.** §2 said the verdict is where
+thinking stops, and a document is a verdict if nothing may update it. Sixteen
+sections arguing that refusal is information would be worth nothing if the
+seventeenth could not say *that was true when written and is not true now*. The
+stream is append-only so that corrections are visible as events rather than
+edits — utpāda, vyaya, dhrauvya: what arises, what ceases, and what persists
+through both, held at once rather than in succession.
+
+---
+
+*(continues)*
