@@ -60,6 +60,10 @@ module BhavanaTheorem
   , bhavana
   , renameApart
   , semanticsAgree
+  , parseLibraryPublic
+  , definingEquations
+  , praksepa
+  , istaPool
   , selfTest
   ) where
 
@@ -254,3 +258,86 @@ selfTest = do
     let ok = null wrong && null inputsOk && not (null produced)
     putStrLn ("  bhavana produces, and produces only truths: " ++ show ok)
     pure ok
+
+-- exported so a caller can compose the machine's own library without
+-- re-implementing its notation
+parseLibraryPublic :: String -> [(Term, Term)]
+parseLibraryPublic = parseLibrary
+
+-- THE AXIOMS WERE NOT IN THE THEOREM SET, and that was the whole answer to
+-- the first experiment.
+--
+-- Composing only `library.terms` produced 1638 truths and hit just 2 of the
+-- 116 lemmas the kernel demands.  The misses -- *(x,0) = 0, -(0,x) = 0,
+-- x = max(0,x), le(*(x,0),0) = s(0) -- are the machine's own DEFINING
+-- EQUATIONS in the mirrored orientation.  They are never theorems, so they are
+-- never in library.terms, so composition over library.terms alone cannot
+-- reach them however long it runs.
+--
+-- Brahmagupta's cycle does not have this problem, and the reason is instructive:
+-- it seeds with the TRIVIAL triple (m, 1, m^2 - D) -- an axiom, composed in
+-- alongside the solutions.  Composition needs the axioms in the pot.
+--
+-- Transcribed from MathMachine's `vocabulary` symDefs (MathMachine.hs:714ff),
+-- in that order.
+definingEquations :: [(Term, Term)]
+definingEquations =
+  [ (f "+" [x, z],        x)
+  , (f "+" [x, s y],      s (f "+" [x, y]))
+  , (f "*" [x, z],        z)
+  , (f "*" [x, s y],      f "+" [f "*" [x, y], x])
+  , (f "max" [x, z],      x)
+  , (f "max" [z, x],      x)
+  , (f "max" [s x, s y],  s (f "max" [x, y]))
+  , (f "-" [x, z],        x)
+  , (f "-" [z, x],        z)
+  , (f "-" [s x, s y],    f "-" [x, y])
+  ]
+  where
+    f = F
+    x = V 0 ; y = V 1
+    z = F "0" []
+    s t = F "s" [t]
+
+-- प्रक्षेप / इष्ट — INSTANTIATION AT A CHOSEN VALUE.
+--
+-- Composition alone missed `*(*(x,x),0) = 0`, which is not a composition of
+-- two facts at all: it is a bare INSTANCE of the axiom `*(x,0) = 0` at
+-- x := x*x.  Superposition rewrites one equation by another and never
+-- produces an instance of a single one, so a whole class of demanded lemmas
+-- was structurally unreachable.
+--
+-- The sources have the move and this repository already names it.  Brahmagupta
+-- composes with the TRIVIAL triple (m, 1, m^2 - D) for arbitrary m, and
+-- `Kuttaka.inhomogeneous` is documented in this corpus as "the ISTA-scaled
+-- family: a solution of ax + by = g*k for any k".  Ista is the chosen value.
+-- Generation needs both: put two facts together, and instantiate one fact at a
+-- value you choose.
+--
+-- The pool is the corpus's own small subterms rather than an enumerated term
+-- space -- the point of this file is to not enumerate, and a chosen value
+-- taken from what is already in play is a choice, while all terms of size <= n
+-- is a search.
+istaPool :: [(Term, Term)] -> [Term]
+istaPool eqs =
+  nub [ u | (l, r) <- eqs, t <- [l, r], (_, u) <- positions t
+          , tsize u <= 3, not (isVar u) ]
+  where
+    isVar (V _) = True
+    isVar _ = False
+
+tsize :: Term -> Int
+tsize (V _) = 1
+tsize (F _ ts) = 1 + sum (map tsize ts)
+
+praksepa :: [Term] -> [(Term, Term)] -> [(Term, Term)]
+praksepa pool eqs =
+  nub [ (applySubst s l, applySubst s r)
+      | (l, r) <- eqs
+      , v <- nub (varsOf l ++ varsOf r)
+      , t <- pool
+      , let s = M.singleton v t
+      , applySubst s l /= applySubst s r ]
+  where
+    varsOf (V i) = [i]
+    varsOf (F _ ts) = concatMap varsOf ts
