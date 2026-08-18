@@ -46,12 +46,16 @@ Deeper prose in `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` and
 |---|---|---|
 | `Pingala` | `मूल्य-विन्यास`, `छन्दस्≡ℕ` | the prastāra as a checkless reversible enumeration; full bijection to ℕ |
 | `Matramerus` | `मात्रामेरु`, `साधु`, `पूर्णता`, `पङ्क्ति-गणना` | Virahāṅka's Fibonacci recurrence (sound+complete); 2ⁿ meters of length n |
+| `Meru` | `पङ्क्ति-योग` | Halāyudha's meru-prastāra (Pascal's triangle, ~10th c.); each row sums to 2ⁿ |
 
 ## Lane 5 — quadratic forms & Jain indices (Brahmagupta 628; Anuyogadvāra)
 
 | module | headline | one line |
 |---|---|---|
 | `Brahmagupta` | `भावना-मान`, `चक्रवाल-संयोगः`, `द्विवर्ग-गुणः` | bhāvanā norm-composition; Pell group law; Brahmagupta–Fibonacci identity |
+| `BhavanaSamuha` | `साहचर्य-प्र/द्वि` | bhāvanā is associative — the group law (ancestor of Gauss composition) |
+| `Cakravala` | `चक्रीय-पद` | Jayadeva/Bhāskara's cyclic step = bhāvanā with (m,1); form preserved |
+| `PellSreni` | `श्रेढी-मान` | infinitely many Pell solutions from one, by induction (Brahmagupta) |
 | `Vargana` | `घात-योग`, `घात-घात` | Jain laws of indices — `a^(m+n)=aᵐ·aⁿ`, `(aᵐ)ⁿ=a^(m·n)` |
 
 ## Lane 6 — zero and infinity (Brahmagupta 628, Bhāskara II 1150)
