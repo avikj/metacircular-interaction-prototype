@@ -233,3 +233,34 @@ vara3-is-meru = varasankalita 3 5
 -- Recorded as an open item with a failed approach attached, which is
 -- worth more than an open item alone.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 9.  Refinement of §8's diagnosis, after looking further.
+--
+-- §8 says the Fibonacci recurrence for `go` fails off the `j = 0` slice,
+-- and gives the counterexample.  That stands.  What §8 did not say is
+-- WHY, and the reason narrows the next attempt considerably.
+--
+-- The classical proof applies Pascal to each term and reindexes the two
+-- resulting families onto the two smaller sums.  That works because
+-- `C(m,k) = 0` for `k > m`, so the sums are effectively infinite and the
+-- reindexing costs nothing.  `go`'s two-step descent instead truncates at
+-- `⌊i/2⌋` — a HARD bound — and after the shift the two families need
+-- ranges the truncation does not supply.  The failure is the truncation,
+-- not the recurrence.
+--
+-- So the encoding to use runs the sum LONG and lets the zeros do the
+-- work:
+--
+--     D n  =  Σ_{t ≤ n}  meru (n ∸ t) t
+--
+-- which gives `1 1 2 3 5` at `n = 0 … 4` by computation.  The cost of
+-- that encoding is truncated subtraction inside a Pascal step, whose edge
+-- conditions (`n ∸ t = 0`) then need their own case analysis — which is
+-- why this is bookkeeping rather than a two-line proof, and why the typed
+-- route of §8 (count by guru, using `Pingala.meruCount`) may still be the
+-- shorter one.
+--
+-- Both routes are now specified well enough to be attempted without
+-- rediscovering the obstacle.  That is what this section is for.
+------------------------------------------------------------------------
