@@ -609,7 +609,11 @@ repository pin).
 | `DurationIsSyllablesPlusGuru` | `matrāOf p ≡ varṇa p + guruOf p`; `Metre n ≃ Σ_{a+b=n} Chosen a b` | load-bearing |
 | `PairsSummingTo` | the antidiagonal index set is finite, structurally | load-bearing |
 
-**Open gap, stated without an estimate:** `matra n ≡ Σ_{a+b=n} meru a b`.
-Four estimates of what that would take were made in the session and all
-four were wrong; `PairsSummingTo` §6 records the facts and declines to make
-a fifth.
+| `DiagonalIsMatra` | `matra n ≡ Σ_{a+b=n} meru a b` — Virahāṅka's array IS Piṅgala's shallow diagonal | load-bearing |
+
+**On that last row:** it was listed as an open gap when this addendum was
+first written, "without an estimate", because four estimates of what it
+would take had already been made in the session and all four were wrong.
+Declining to estimate was right — the missing piece was a SHIFTED family
+`SortedC c n`, matching `Sankalita.AD`'s two-directional walk, and no
+sentence written before doing the work would have named it.
