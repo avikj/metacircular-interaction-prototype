@@ -105,3 +105,59 @@ roundtrip-pattern n (p , _) = refl
 -- transfer.  Neither is an obstacle of the kind that killed the others,
 -- and saying so this time is backed by the two maps existing.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 5.  The Σ-contraction, and the equivalence.
+--
+-- Both round trips leave the PATTERN untouched — that is what
+-- `roundtrip-pattern` records — so every remaining component is an
+-- equation in ℕ, hence a proposition, hence transported by
+-- `isProp→PathP`.  The contraction is that observation and nothing else.
+------------------------------------------------------------------------
+
+open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
+open import Cubical.Foundations.Equiv using (_≃_)
+open import Cubical.Data.Nat using (isSetℕ)
+
+metre-roundtrip :
+  (n : ℕ) (m : Metre n) → sorted-to-metre n (metre-to-sorted n m) ≡ m
+metre-roundtrip n (p , dur) =
+  ΣPathP (refl , isProp→PathP (λ _ → isSetℕ _ _) _ _)
+
+sorted-roundtrip :
+  (n : ℕ) (s : Sorted n) → metre-to-sorted n (sorted-to-metre n s) ≡ s
+sorted-roundtrip n ((a , b) , sum , (p , va , gu)) =
+  ΣPathP ( ΣPathP (va , gu)
+         , ΣPathP ( isProp→PathP (λ _ → isSetℕ _ _) _ _
+                  , ΣPathP ( refl
+                           , ΣPathP ( isProp→PathP (λ _ → isSetℕ _ _) _ _
+                                    , isProp→PathP (λ _ → isSetℕ _ _) _ _ ) ) ) )
+
+metre-sorts-Iso : (n : ℕ) → Iso (Metre n) (Sorted n)
+Iso.fun      (metre-sorts-Iso n) = metre-to-sorted n
+Iso.inv      (metre-sorts-Iso n) = sorted-to-metre n
+Iso.rightInv (metre-sorts-Iso n) = sorted-roundtrip n
+Iso.leftInv  (metre-sorts-Iso n) = metre-roundtrip n
+
+-- THE STATEMENT.  A metre of duration n IS a choice of syllable count and
+-- guru count summing to n, together with a pattern having those
+-- statistics.  Piṅgala's sorting, as an equivalence.
+metre-sorts : (n : ℕ) → Metre n ≃ Sorted n
+metre-sorts n = isoToEquiv (metre-sorts-Iso n)
+
+------------------------------------------------------------------------
+-- 6.  What is left is now one step, and it is a cardinality.
+--
+-- `metre-sorts` is the typed diagonal identity.  Taking cardinalities
+-- gives the numeric one:
+--
+--     mātrā n  ≡  Σ_{a+b=n} meru a b   ( = `Sankalita.antidiag n` )
+--
+-- via `Pingala.matraCount` on the left, `Pingala.meruCount` inside the
+-- sum on the right, and the cardinality of a Σ over a finite index —
+-- `Cubical.Data.FinSet.Cardinality`.  That last is the only remaining
+-- ingredient, and unlike the three obstacles `Sankalita` §13 records, it
+-- is a library lemma rather than a reformulation.
+--
+-- Four encodings, three refuted, one carried to an equivalence.
+------------------------------------------------------------------------
