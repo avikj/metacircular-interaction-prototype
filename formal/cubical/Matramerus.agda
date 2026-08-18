@@ -84,3 +84,32 @@ length-++ (x ∷ xs) ys = cong suc (length-++ xs ys)
 
 उदाहरणम्-६ : length (सर्व 6) ≡ 13
 उदाहरणम्-६ = refl
+
+------------------------------------------------------------------------
+-- साधुता — सर्व n इति यथार्थतः n-मात्रम् एव वहति (सौन्दर्यम्) ।  अतः गणना
+-- वास्तविका, न केवलं कल्पिता ।  (soundness: every pattern in सर्व n really
+-- has weight n — so the count counts something real, not a mere definition.
+-- Completeness — that ALL weight-n patterns appear — is the next tooth.)
+------------------------------------------------------------------------
+
+data छन्द-All (P : छन्दस् → Type) : List छन्दस् → Type where
+  []  : छन्द-All P []
+  _∷_ : {x : छन्दस्} {xs : List छन्दस्} → P x → छन्द-All P xs → छन्द-All P (x ∷ xs)
+
+All-++ : {P : छन्दस् → Type} {xs ys : List छन्दस्}
+       → छन्द-All P xs → छन्द-All P ys → छन्द-All P (xs ++ ys)
+All-++ []        bs = bs
+All-++ (p ∷ as)  bs = p ∷ All-++ as bs
+
+All-map : {P Q : छन्दस् → Type} {f : छन्दस् → छन्दस्}
+        → ((x : छन्दस्) → P x → Q (f x))
+        → {xs : List छन्दस्} → छन्द-All P xs → छन्द-All Q (map f xs)
+All-map g []       = []
+All-map g (p ∷ as) = g _ p ∷ All-map g as
+
+साधु : (n : ℕ) → छन्द-All (λ ds → मात्रा ds ≡ n) (सर्व n)
+साधु zero          = refl ∷ []
+साधु (suc zero)    = refl ∷ []
+साधु (suc (suc n)) =
+  All-++ (All-map (λ _ pf → cong suc pf)            (साधु (suc n)))
+         (All-map (λ _ pf → cong (λ z → suc (suc z)) pf) (साधु n))
