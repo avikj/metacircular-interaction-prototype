@@ -1079,3 +1079,47 @@ that Bhāskara's minimality rule is well defined or optimal; that `|k'| <
 every non-square `D`. None of those is a ring identity. This file proves
 the invariant survives one step, which is the part that is algebra, and
 says so.
+
+---
+
+## 23. Addendum, same session: the cakravāla calls the kuṭṭaka every cycle
+
+`formal/cubical/NaturalMachine/CakravalaNeedsKuttaka.agda` (checked, exit
+0). §22 lists what it does not prove, first item: *that a suitable `m`
+exists*. It does, and the mechanism was available in 499.
+
+Bhāskara's step needs `k | a + b m` — that is `b m ≡ −a (mod k)`, a linear
+indeterminate equation, which is exactly what Āryabhaṭa's **kuṭṭaka**
+("pulveriser", *Āryabhaṭīya* 2.32–33, 499 CE) computes. Six and a half
+centuries before the method that needs it.
+
+`Kuttaka.agda` already has the pulveriser as a checked theorem — `bezout`
+extracts a Bézout pair from a division run, `inhomogeneous` scales it by
+the iṣṭa. This module points the second at the cakravāla:
+
+```
+cakravala-choice :  Run b k 1  →  Σ m, Σ c,  a + b·m ≡ k·c
+```
+
+Given a division run witnessing `gcd(b,k) = 1`, the set Bhāskara's rule
+ranges over is **non-empty, always, for every `a`**. The rule then selects
+among the solutions (minimising `|m² − D|`); the kuṭṭaka guarantees there
+is something to select from. Checked instance: `gcd(5,3) = 1` by an
+explicit three-step run, so at a state with `b = 5, k = 3` the condition is
+solvable.
+
+### Why this is a weave and not a citation
+
+CLAUDE.md's table lists kuṭṭaka (499), bhāvanā (628) and cakravāla
+(950/1150) as three rows. **They are not three rows.** The third calls the
+first once per cycle and cannot run without it, and the composition it
+descends along is the second. One construction, built over six hundred
+years — and three files in this repository that did not reference each
+other until now.
+
+**Not claimed:** that `gcd(b,k) = 1` holds at a cakravāla state. It does —
+from `gcd(a,b) = 1` and `a² − D b² = k`, any common prime of `b` and `k`
+divides `a²` hence `a` — but that needs primality and Euclid's lemma,
+neither formalised in this lane, so coprimality enters as a hypothesis in
+the form the kuṭṭaka wants: a division run terminating at 1. Four of §22's
+five open items remain open.
