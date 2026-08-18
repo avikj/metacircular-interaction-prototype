@@ -210,3 +210,27 @@ no-universal-standpoint = refutes→absent law triple three-refute
 -- contained anyway.  Constrain the decoders and the number can rise;
 -- leave them unconstrained over discrete Y and it cannot.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 9.  THE UNBOUNDEDNESS ITEM IN §7 IS SETTLED, and more strongly than
+--     it was asked.
+--
+-- §7 said the n-point version has the obvious upper bound but that the
+-- lower bound at general n "needs a pigeonhole this module does not
+-- prove".  No pigeonhole is needed.
+--
+-- `NaturalMachine.WitnessNumberCanBeInfinite` generalises §2 to any
+-- discrete A and CHARACTERISES the refuting lists rather than bounding
+-- them: a list refutes exactly when it contains every point.  At A =
+-- Three that recovers 3.  At A = ℕ it gives
+--
+--     no-finite-list-refutes :
+--       (ys : List ℕ) → ¬ Refutes (diagLaw discreteℕ) ys
+--
+-- while the absence still holds — so the witness number there is not
+-- merely large, it is not a number at all.
+--
+-- Characterising the refuting lists turned out to be easier than
+-- counting them, which is the same lesson as the rest of this thread:
+-- fix what is being measured before reaching for a bound.
+------------------------------------------------------------------------

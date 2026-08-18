@@ -101,6 +101,7 @@ import NaturalMachine.WitnessNumberIsUnbounded
 import NaturalMachine.WhyTheSitesAreTwo
 import NaturalMachine.WitnessNumberIsThePotential
 import NaturalMachine.LocatingIsEnough
+import NaturalMachine.WitnessNumberCanBeInfinite
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
