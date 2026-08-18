@@ -1017,3 +1017,22 @@ round 1  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=0 pro
   FLOW  resonance  d 28 -> 0
   GATE  advance  separated-pairs=28776 terms=241 assignments=40
   CONCEPT  named c0 := (x*x)  (arity 1)
+
+
+### SEED TALLY, exact, ARM B-BARE round 0 (20 researcher candidates).
+### Counted from the log above with:
+###   awk "/^round 0/{exit} /^  SEED /{print \$2}" | sort | uniq -c
+
+      3 THEOREM
+      5 attempted-no-proof
+      8 follows-by-rewriting
+      2 proved-kernel-rejected
+      2 refuted-by-fingerprint
+
+     20 total
+
+### ERRATUM.  Commit 7abb10a6 quoted this tally as "7 follows-by-rewriting
+### ... 6 attempted-no-proof".  It is 8 and 5.  The other three figures in
+### that sentence (2 refuted-by-fingerprint, 3 THEOREM, 2 proved-kernel-
+### rejected) are correct, and the arithmetic in the wrong version does not
+### even add to 20.  Recounted mechanically above.
