@@ -128,3 +128,61 @@ column0-is-column1 = sankalita-is-meru 0 4
 -- Nothing analytic is claimed.  The estimate is the Kerala achievement
 -- and it is not here.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  वारसंकलित as a theorem, not a remark.
+--
+-- §5 asserts in prose that iterating §3 gives the r-fold summation of the
+-- constant column.  Asserting is not proving, so here it is proved — and
+-- the unshifted form of the identity turns out to be the shorter one, and
+-- needs no edge lemma at all.
+------------------------------------------------------------------------
+
+Σ<-cong : (f g : ℕ → ℕ) → ((m : ℕ) → f m ≡ g m) → (n : ℕ) → Σ< f n ≡ Σ< g n
+Σ<-cong f g h zero    = refl
+Σ<-cong f g h (suc n) = cong₂ _+_ (Σ<-cong f g h n) (h n)
+
+-- the unshifted identity: summing column r up to n is entry (n, r+1)
+sankalita-column :
+  (r n : ℕ) → Σ< (λ m → meru m r) n ≡ meru n (suc r)
+sankalita-column r zero    = refl
+sankalita-column r (suc n) =
+    cong (_+ meru n r) (sankalita-column r n)
+  ∙ sym (meruRecurrence n r)
+
+one : ℕ → ℕ
+one _ = 1
+
+meru-col0 : (n : ℕ) → meru n 0 ≡ 1
+meru-col0 zero    = refl
+meru-col0 (suc n) = refl
+
+-- THE STATEMENT.  r-fold summation of the constant 1 is the r-th column.
+varasankalita : (r n : ℕ) → Σ^ r one n ≡ meru n r
+varasankalita zero    n = sym (meru-col0 n)
+varasankalita (suc r) n =
+    Σ<-cong (Σ^ r one) (λ m → meru m r) (varasankalita r) n
+  ∙ sankalita-column r n
+
+------------------------------------------------------------------------
+-- 7.  It runs.
+--
+--   Σ^ 2 1 at 5  =  0+1+2+3+4  =  10  =  C(5,2)
+--   Σ^ 3 1 at 5  =  0+0+1+3+6  =  10  =  C(5,3)
+------------------------------------------------------------------------
+
+vara2 : Σ^ 2 one 5 ≡ 10
+vara2 = refl
+
+vara2-is-meru : Σ^ 2 one 5 ≡ meru 5 2
+vara2-is-meru = varasankalita 2 5
+
+vara3-is-meru : Σ^ 3 one 5 ≡ meru 5 3
+vara3-is-meru = varasankalita 3 5
+
+------------------------------------------------------------------------
+-- So the Kerala school's repeated summation is Piṅgala's array, proved
+-- rather than remarked, and the shifted identity of §3 is the same fact
+-- with an offset.  Both are two lines from `meruRecurrence`, which is
+-- Halāyudha's rule that each entry is the sum of the two above it.
+------------------------------------------------------------------------
