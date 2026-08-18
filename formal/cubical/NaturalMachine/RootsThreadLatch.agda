@@ -108,6 +108,7 @@ import NaturalMachine.BarrierIsTwoWitnesses
 import NaturalMachine.TheFloorIsAnswerability
 import NaturalMachine.WitnessDichotomy
 import NaturalMachine.AnyonyaAbhava
+import NaturalMachine.AsiddhatvaBreaksFactoring
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
