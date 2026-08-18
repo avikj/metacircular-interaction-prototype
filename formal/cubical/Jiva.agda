@@ -54,3 +54,4 @@ import Brahmagupta
 
 import Satyayantra
 import PingalaSatya
+import Saptabhangi
