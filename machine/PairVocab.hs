@@ -413,6 +413,89 @@ pairRules =
 lemmaLegRT :: Rule
 lemmaLegRT = ( F "leglo" [F "centre" [x_,y_], F "radius" [x_,y_]], x_ )
 
+-- ================================================ §3c THE ℕ CHART
+--
+-- WHY THIS SECTION EXISTS.  Everything above lives over ℤ, because
+-- PairCoordinates.agda's theorems are over an arbitrary commutative ring.
+-- MathMachine does not.  Its carrier is ℕ, its `-` is TRUNCATED
+-- (`max 0 (a-b)`), and its proof kernel emits Agda over `Cubical.Data.Nat`
+-- with `∸`.  So a symbol handed to that engine with a ℤ evaluator would
+-- compute one function in Haskell and denote a different one in the emitted
+-- certificate — the engine would refute true statements and, worse, could
+-- certify a statement it had tested against the wrong function.  This
+-- section therefore builds the pair coordinates AS THE ENGINE'S OWN CHART:
+-- `∸` everywhere ℤ used `-`, so the Haskell evaluator and the Agda
+-- definition are the same function by construction.
+--
+--     natLegLo w r      = w ∸ r
+--     natLegHi w r      = w + r
+--     natSplitNorm w r  = (w·w) ∸ (r·r)
+--
+-- WHAT SURVIVES THE PASSAGE, and this is the content, not a technicality.
+-- Of the three ring identities exactly ONE is still unconditionally true
+-- over ℕ, and it is the split norm:
+--
+--     (2)  (w ∸ r) · (w + r)  =  (w·w) ∸ (r·r)        TRUE for all w,r : ℕ
+--     (1)  (w ∸ r) + (w + r)  =  2w                   FALSE off the cone r ≤ w
+--     (3)  disc                                        FALSE off the cone
+--
+-- Identity (2) survives because truncation kills both sides together: on
+-- r ≤ w it is the ring identity, and on r > w the left factor is 0 while
+-- r·r > w·w makes the right side 0 as well.  Identities (1) and (3) have no
+-- such coincidence — at w=1, r=3 identity (1) reads 0 + 4 = 2.  §10 checks
+-- all three exhaustively over a stated ℕ box, in both directions (the two
+-- that fail are their own falsifier controls), so the claim "exactly one
+-- survives" is a finite exhaustive verification and not a remark.
+--
+-- Each symbol carries EXACTLY ONE defining equation, in the UNFOLD
+-- direction `f(x,y) = body`, because that is the shape MathMachine's
+-- `certDefinitions` turns into an Agda local definition; a symbol with two
+-- equations, or with the fold orientation, is emitted as nothing and every
+-- statement mentioning it comes back KERNEL-SKIP.  `centre` and `radius`
+-- are deliberately ABSENT from this chart: they need a halving, `div` is
+-- not in MathMachine's term language and not in the certified Agda
+-- fragment, so a `centre` here could only be a black box the engine tests
+-- and never reasons about.
+
+natLegLo, natLegHi, natSplitNorm :: Integer -> Integer -> Integer
+natLegLo w r = max 0 (w - r)
+natLegHi w r = w + r
+natSplitNorm w r = max 0 (w*w - r*r)
+
+evNatLegLo, evNatLegHi, evNatSplitNorm :: [Integer] -> Integer
+evNatLegLo [w,r] = natLegLo w r
+evNatLegLo _ = error "leglo(N): arity"
+evNatLegHi [w,r] = natLegHi w r
+evNatLegHi _ = error "leghi(N): arity"
+evNatSplitNorm [w,r] = natSplitNorm w r
+evNatSplitNorm _ = error "splitnorm(N): arity"
+
+natLegLoSym, natLegHiSym, natSplitNormSym :: Sym
+natLegLoSym = Sym "leglo" 2 evNatLegLo
+  [ (F "leglo" [x_,y_], bin "-" x_ y_) ]
+natLegHiSym = Sym "leghi" 2 evNatLegHi
+  [ (F "leghi" [x_,y_], bin "+" x_ y_) ]
+natSplitNormSym = Sym "splitnorm" 2 evNatSplitNorm
+  [ (F "splitnorm" [x_,y_], bin "-" (bin "*" x_ x_) (bin "*" y_ y_)) ]
+
+-- The three pair symbols the engine may carry, in the order they are
+-- appended to MathMachine's `vocabulary` (order is precedence there).
+natPairSymbols :: [Sym]
+natPairSymbols = [ natLegLoSym, natLegHiSym, natSplitNormSym ]
+
+-- The ambient ℕ vocabulary these are defined against.  Its {0,s,+,*,-}
+-- evaluators are MathMachine's, verbatim, so `natFirewallFailures` below is
+-- checking the chart against the engine's own arithmetic and not against a
+-- second copy of it.
+natVocabulary :: [Sym]
+natVocabulary =
+  [ Sym "0" 0 (const 0) []
+  , Sym "s" 1 (\vs -> head vs + 1) []
+  , Sym "+" 2 (\vs -> vs!!0 + vs!!1) []
+  , Sym "*" 2 (\vs -> vs!!0 * vs!!1) []
+  , Sym "-" 2 (\vs -> max 0 (vs!!0 - vs!!1)) []
+  ] ++ natPairSymbols
+
 -- ==================================== §4 the identities, finitely verified
 -- CLAUDE.md: "Exact / certified symbolic computation is proof and is always
 -- allowed: ... A FINITE EXHAUSTIVE VERIFICATION ...".  What each check below
@@ -508,6 +591,71 @@ exhaustiveCounterexample sem b (l,r) =
        , lv /= rv ] of
     (w:_) -> Just w
     []    -> Nothing
+
+-- ============ §10 THE ℕ CHART, FINITELY VERIFIED (the wire's own firewall)
+--
+-- Same checker (`failuresOf`) as §4, pointed at the truncated evaluators of
+-- §3c over a ℕ box.  Three statements are made and all three are checked:
+--
+--   N2  the split norm identity SURVIVES truncation, everywhere on the box;
+--   N1  the sum identity DOES NOT, and
+--   N3  the discriminant identity DOES NOT.
+--
+-- N1 and N3 are not decorations: they are the reason `natPairSymbols`
+-- carries exactly one installable identity rather than three, and they are
+-- their own falsifier controls — a checker that reported 0 failures for
+-- them would be vacuous, and the exit gate says so.
+--
+-- The box is 0 ≤ w,r ≤ natBoxB, i.e. it reaches r > w, which is the whole
+-- point: on the cone r ≤ w all three identities hold and the box is what
+-- separates them.
+
+natBoxB :: Integer
+natBoxB = 40
+
+natBoxPoints :: [(Integer,Integer)]
+natBoxPoints = [ (w,r) | w <- [0..natBoxB], r <- [0..natBoxB] ]
+
+natConePoints :: [(Integer,Integer)]
+natConePoints = [ (w,r) | w <- [0..natBoxB], r <- [0..w] ]
+
+chkNatProduct, chkNatSum, chkNatDisc :: PairCheck
+chkNatProduct (w,r) = ( natLegLo w r * natLegHi w r, natSplitNorm w r )
+chkNatSum (w,r)     = ( natLegLo w r + natLegHi w r, 2*w )
+chkNatDisc (w,r)    = ( let sm = natLegLo w r + natLegHi w r
+                            pr = natLegLo w r * natLegHi w r
+                        in max 0 (sm*sm - 4*pr)
+                      , 4*r*r )
+
+-- The defining equations of §3c, audited against the ℕ semantics they will
+-- be handed to the engine with.  This is MathMachine's own definition
+-- firewall (`definitionFailures`) run here, before the wire, so a bad
+-- equation cannot reach the kernel at all.
+natFirewallFailures :: [(String,Term,Term,[Integer],Integer,Integer)]
+natFirewallFailures =
+  [ (symName s, l, r, env, lv, rv)
+  | s <- natPairSymbols
+  , (l,r) <- symDefs s
+  , Just (env,lv,rv) <- [natCounterexample (l,r)] ]
+
+-- over ℕ only: the engine never evaluates at a negative environment
+natCounterexample :: Rule -> Maybe ([Integer],Integer,Integer)
+natCounterexample (l,r) =
+  case [ (env,lv,rv)
+       | env <- sequence (replicate (varCount l r) [0 .. firewallBound])
+       , let lv = eval (semantics natVocabulary) env l
+       , let rv = eval (semantics natVocabulary) env r
+       , lv /= rv ] of
+    (w:_) -> Just w
+    []    -> Nothing
+
+-- The identity as a machine RULE, in the orientation MathMachine will use.
+-- This is the statement the engine is asked to prove; it is stated here so
+-- that the term the wire submits and the term this module verifies are one
+-- object and not two transcriptions.
+natSplitNormLaw :: Rule
+natSplitNormLaw = ( bin "*" (F "leglo" [x_,y_]) (F "leghi" [x_,y_])
+                  , F "splitnorm" [x_,y_] )
 
 -- ============================================ §5 the parity obstruction
 -- PairCoordinates.agda `sumIsDouble`: the sum of the legs is always a double,
@@ -1030,8 +1178,34 @@ main = do
   putStrLn "    factor - 1)/2, with d* the largest divisor of n at most sqrt n."
   putStrLn ""
 
+  -- --------------------------------------------------------------- §10
+  putStrLn "-- (10) THE N CHART: which identities survive truncated subtraction --"
+  putStrLn "  MathMachine's carrier is N and its `-` is truncated, so the wired"
+  putStrLn "  symbols are leglo(w,r)=w-.r, leghi(w,r)=w+r, splitnorm(w,r)=w*w-.r*r"
+  putStrLn "  (-. = monus).  Exactly one of the three ring identities survives."
+  let natBoxName  = printf "N box 0<=w,r<=%d" natBoxB :: String
+      natConeName = printf "N cone 0<=w<=%d, 0<=r<=w" natBoxB :: String
+  n1 <- reportCheck "(N2) p*q = splitnorm  SURVIVES" natBoxName natBoxPoints chkNatProduct True
+  n2 <- reportCheck "(N1) p+q = 2w   must FAIL"      natBoxName natBoxPoints chkNatSum     False
+  n3 <- reportCheck "(N3) disc = 4r^2 must FAIL"     natBoxName natBoxPoints chkNatDisc    False
+  n4 <- reportCheck "(N1) p+q = 2w   on the cone"    natConeName natConePoints chkNatSum   True
+  n5 <- reportCheck "(N3) disc = 4r^2 on the cone"   natConeName natConePoints chkNatDisc  True
+  putStrLn "        ^ the split norm is the ONLY one of the three that needs no"
+  putStrLn "          cone hypothesis over N: truncation kills both of its sides"
+  putStrLn "          together (r>w gives 0*(w+r)=0 and w^2-.r^2=0).  The other"
+  putStrLn "          two are true exactly on the cone, which is why the wire"
+  putStrLn "          installs one identity and not three."
+  printf "  defining-equation firewall over N, every variable in [0..%d]: %d failures\n"
+    firewallBound (length natFirewallFailures)
+  printf "  the law the engine is handed: %s = %s\n"
+    (show (fst natSplitNormLaw)) (show (snd natSplitNormLaw))
+  putStrLn ""
+
   -- ------------------------------------------------------------ exit gate
-  let identityFailures = concat [f1,f2,f3,f4,f5,f6,g1,g2,g3,g4]
+  let natFailures = concat [n1,n2,n3,n4,n5]
+        ++ [ "N chart defining equation unsound: " ++ nm
+           | (nm,_,_,_,_,_) <- natFirewallFailures ]
+      identityFailures = concat [f1,f2,f3,f4,f5,f6,g1,g2,g3,g4] ++ natFailures
       firewallFailures = [ "unsound rule: " ++ nm | (nm,_,_,_,_,_) <- ruleFails ]
       parityFailures =
         [ "round trip fails on a same-parity pair " ++ show p

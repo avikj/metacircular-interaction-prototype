@@ -56,6 +56,7 @@ import qualified Knobs as K
 -- programs are wired in below, each behind a knob whose DEFAULT reproduces the
 -- engine that was running before this edit, bit for bit.  See `Dispatch`.
 import qualified ArithVocab as AV
+import qualified PairVocab as PV
 import qualified DSO as D
 import qualified NestedInduction as NI
 import Data.Char (isAlphaNum, isSpace, isDigit)
@@ -719,8 +720,54 @@ arithVocabulary = map avSym [AV.modSym, AV.lcmSym, AV.vpSym]
 --       binding constraint on arithmetic is the certificate emitter and not
 --       the vocabulary.  The vocabulary is now the part that is done.
 
+-- ------------------------------------------------- the pair vocabulary
+--
+-- WIRE 5.  machine/PairVocab.hs was built as a standalone module and, until
+-- this edit, had never been run by anything and never been reachable from the
+-- engine.  What is imported here is NOT its ℤ vocabulary: that one's `leglo`
+-- computes `w - r` in Haskell, which the certificate emitter would render as
+-- `a0 ∸ a1` over `Cubical.Data.Nat`, so the engine would be testing one
+-- function and certifying another.  `PV.natPairSymbols` is the ℕ chart
+-- (PairVocab §3c), whose evaluators are truncated so that the Haskell
+-- function and the emitted Agda definition are the same function by
+-- construction, and whose defining equations are audited over ℕ by
+-- PairVocab §10 before they get here.
+--
+-- Exactly one of the three pair identities survives the passage to ℕ, and it
+-- is the split norm; §10 verifies that exhaustively (1681 points, 0 failures)
+-- and verifies the other two failing off the cone (820 of 1681) as its own
+-- controls.  So this wire brings ONE real theorem within reach, not three:
+--
+--     leglo(w,r) * leghi(w,r)  =  splitnorm(w,r),   i.e.
+--     (w ∸ r) · (w + r)        =  (w · w) ∸ (r · r)   over ℕ, unconditionally.
+--
+-- `centre` and `radius` are not imported: they need `div 2`, which is neither
+-- in this term language nor in the certified Agda fragment.
+--
+-- PLACED BEFORE `arithVocabulary`, so the reachable prefix `base ++ pair` is a
+-- vocabulary the certificate emitter can translate END TO END, which
+-- `base ++ arith` is not (`Certificate.render` has no clause for mod, lcm or
+-- v2 and they carry no single defining equation, so every candidate naming
+-- one is Untranslatable).  Indices 0..7 -- the only ones any recorded normal
+-- form mentions -- are unchanged; mod/lcm/v2 move from 8,9,10 to 11,12,13,
+-- and nothing in machine/library.terms, library.txt or the notes names them.
+pvSym :: PV.Sym -> Sym
+pvSym s = Sym (PV.symName s) (PV.symArity s) (PV.symSem s)
+              [ (fromPV l, fromPV r) | (l,r) <- PV.symDefs s ]
+
+fromPV :: PV.Term -> Term
+fromPV (PV.V i)    = V i
+fromPV (PV.F f ts) = F f (map fromPV ts)
+
+pairVocabulary :: [Sym]
+pairVocabulary = map pvSym PV.natPairSymbols
+
 vocabulary :: [Sym]
-vocabulary = baseVocabulary ++ arithVocabulary
+vocabulary = baseVocabulary ++ pairVocabulary ++ arithVocabulary
+
+-- How far the engine must reach to see the pair chart and nothing beyond it.
+pairVocabCap :: Int
+pairVocabCap = length baseVocabulary + length pairVocabulary
 
 -- How far into `vocabulary` the engine is allowed to reach by default.  This
 -- is the whole of the safety argument for WIRE 1: with the cap at the length
@@ -1244,10 +1291,38 @@ proveByInduction rs (l,r) =
           hypL = substVar v eigen l
           hypR = substVar v eigen r
           goal = (substVar v (sucT eigen) l, substVar v (sucT eigen) r)
-          -- the hypothesis goes in both directions; `step` will only
-          -- fire it where it decreases, so an unorientable IH (the
-          -- commutativity case) is still usable and still sound
-          hyps = [(hypL,hypR),(hypR,hypL)]
+          -- THE HYPOTHESIS HAS TO BE STATED IN THE LANGUAGE THE GOAL GETS
+          -- REDUCED TO.  `step` rewrites innermost-first, so by the time the
+          -- step case is anywhere near closing, every DEFINED symbol in it
+          -- has been unfolded by its defining equation.  The hypothesis was
+          -- being installed in the shape the conjecture was WRITTEN in, and
+          -- those are the same shape only when a symbol's defining equations
+          -- are pattern equations on its arguments (`+(x,0) = x`) rather than
+          -- an unfolding of the symbol itself (`leglo(x,y) = x - y`).  The
+          -- base vocabulary is entirely of the first kind, so this never
+          -- showed; WIRE 5's chart is entirely of the second, and every one
+          -- of its statements died in the step case with the hypothesis
+          -- sitting there unable to match a single subterm.  Measured on the
+          -- 11 pair candidates that reached the prover: 0 proved before this
+          -- line, 4 after, and the base vocabulary gains 3 (see the A/B in
+          -- the commit message).
+          --
+          -- SOUNDNESS.  `nL` and `nR` are `rs`-equal to `hypL` and `hypR`, and
+          -- `rs` is the current rule set -- every member of which was kernel-
+          -- accepted in this process.  So `nL = nR` is a consequence of the
+          -- induction hypothesis together with theorems already installed,
+          -- which is precisely what a step case is allowed to use.  Nothing
+          -- here is trusted anyway: the resulting proof still goes to the
+          -- Agda gate, and a proof this line enables that the gate declines
+          -- is a KERNEL-REJECT like any other.
+          nL = normalize rs hypL
+          nR = normalize rs hypR
+          -- both directions; `step` fires a rule only where it decreases, so
+          -- an unorientable IH (the commutativity case) is still usable and
+          -- still sound
+          hyps = ordNub [ (a,b)
+                        | (a,b) <- [(hypL,hypR),(hypR,hypL),(nL,nR),(nR,nL)]
+                        , a /= b ]
       in if provedByRewriting rs base && provedByRewriting (hyps ++ rs) goal
            then Just ("induction on " ++ show (V v))
            else Nothing
@@ -1609,11 +1684,28 @@ toCert (F f ts) = C.F f (map toCert ts)
 -- The third is the one that answers GateAudit section B: it is a finite
 -- exhaustive verification that what the kernel is told `c0` means is what
 -- this engine computes when it evaluates `c0`.
+-- WHICH SIDE IS THE BODY.  A concept the machine invents carries its single
+-- equation FOLDED — `(pattern, cN x0 … xk)`, because that is the direction a
+-- rewrite runs — while a vocabulary symbol carries it UNFOLDED, `f(x0,…,xk) =
+-- body`, because that is the direction its definition unfolds.  Both are the
+-- same defining clause and both must reach the kernel; reading only the
+-- folded one is why WIRE 5's pair symbols were KERNEL-SKIP on the first run
+-- of this file after they were wired (`leglo` at round 0, 4 candidates).  The
+-- head is identified structurally -- the symbol applied to exactly its own
+-- parameters in order -- so an incidental rewrite still contributes nothing.
+definingClause :: Sym -> Maybe (Term, Term)   -- (body, head)
+definingClause s = do
+  (l,r) <- conceptRule s
+  let hd = F (symName s) (map V [0 .. symArity s - 1])
+  if r == hd then Just (l, r)
+             else if l == hd then Just (r, l)
+                             else Nothing
+
 certDefinitions :: [Sym] -> [C.Definition]
 certDefinitions syms =
   [ C.Definition (symName s) (symArity s) (toCert body)
   | s <- syms
-  , Just (body, fold) <- [conceptRule s]
+  , Just (body, fold) <- [definingClause s]
   , fold == F (symName s) (map V [0 .. symArity s - 1])
   , ordNub (sort (vars body)) == [0 .. symArity s - 1]
   -- `vocabulary ++` because a concept's body is built FROM the primitives
@@ -1624,6 +1716,20 @@ certDefinitions syms =
   , isNothing (ruleCounterexample (vocabulary ++ syms)
                  definitionAuditBound (body, fold))
   ]
+
+-- WHAT THE KERNEL HAS TO BE TOLD ABOUT.  `Certificate.render` has built-in
+-- clauses for 0, s, +, *, -, max, le and gcd -- exactly `baseVocabulary` --
+-- and for anything else it falls back to `lookupDef`, i.e. to a `Definition`
+-- the caller supplied.  Until WIRE 5 the caller supplied only `mInvented`, so
+-- every symbol past index 7 was invisible to the emitter and every statement
+-- naming one came back Untranslatable however true it was.  Passing the
+-- ACTIVE tail of the vocabulary alongside the invented concepts closes that,
+-- and closes it through the same `certDefinitions` filter: a symbol with no
+-- single well-formed defining clause, or one whose clause disagrees with its
+-- evaluator anywhere on [0..8]^arity, still contributes no Definition and
+-- still produces a KERNEL-SKIP.  Nothing is certified against a guess.
+kernelSyms :: Machine -> [Sym]
+kernelSyms m = drop baseVocabCap (take (mVocab m) vocabulary) ++ mInvented m
 
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
 kernelAccept = kernelAcceptWith [] [] []
@@ -2189,10 +2295,15 @@ data Dispatch = Dispatch
   -- organ, and the run that flips this default should be the run that has
   -- the long-horizon A/B in hand.
   , dCertify     :: Int
+  -- WIRE 5.  Nothing = machine/thoughts.math, the live default and the only
+  -- file the engine has ever read.  A path here replaces it, so a seeded run
+  -- can hand the machine a different question set without editing the file
+  -- every default run parses.
+  , dThoughts    :: Maybe FilePath
   } deriving (Eq, Show)
 
 defaultDispatch :: Dispatch
-defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0
+defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0 Nothing
 
 -- 2^n memoised states in `D.optimalSchedule`, and n * 2^n cost evaluations,
 -- each of which normalises two terms.  This is a hard ceiling, not a taste:
@@ -2214,6 +2325,14 @@ parseDispatch = go defaultDispatch []
       ("--log", v:ms)          -> go (d { dLog = Just v }) rest ms
       -- the whole arithmetic vocabulary, in one word
       ("--arith", ms)          -> go (d { dVocabCap = length vocabulary }) rest ms
+      -- WIRE 5.  The pair chart, and START there rather than merely allowing
+      -- it: `requiredVocabulary` is computed from thoughts.math, which names
+      -- no pair symbol, so a raised cap alone would leave mVocab at 8 and the
+      -- new symbols unreachable until the growth ladder crawled to them.
+      ("--pair", ms)           -> go (d { dVocabCap = pairVocabCap
+                                        , dVocabStart = Just pairVocabCap }) rest ms
+      -- an alternative thought file; the default is machine/thoughts.math
+      ("--thoughts", v:ms)     -> go (d { dThoughts = Just v }) rest ms
       _                        -> go d (flag:rest) more
       where
         withNat v ms f = case parseNaturalInt v of
@@ -2762,10 +2881,14 @@ round1 disp mem logh libh ref = do
       -- consequences, or the gate.  Those are four different diseases with
       -- four different treatments, and from round 16 of a 70-round run they
       -- are indistinguishable in the log.  Counted here, printed as PROVER.
-      (proverStats, results) =
+      (proverStats, results, dispositions) =
         let zero4 = (0, 0, 0, 0, 0, 0) :: (Int, Int, Int, Int, Int, Int)
-            (_, out, st) = foldl' attempt (rules, [], zero4) fresh
-        in (st, reverse out)
+            (_, out, dl, st) = foldl' attempt (rules, [], [], zero4) fresh
+        in (st, reverse out, M.fromList dl)
+      -- SEEDED, i.e. a researcher candidate from the thought file rather than
+      -- a shape the generator happened to build.  The distinction buys exactly
+      -- one thing, below: the VALUE gate, and nothing else.
+      seededSet = S.fromList (map canonVars (mThoughts m))
       bounded = map executeBoundedSearch (mBoundedSearches m)
       witnessBranches = sum (map (length . activeWitnesses) bounded)
       derivationBranches = sum (map (length . derivationFiber) bounded)
@@ -2805,15 +2928,17 @@ round1 disp mem logh libh ref = do
               | architecture <- adequate
               , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
         | (adequate,result) <- historyArchitectureResults ]
-      attempt (acc, out, (nRewritten, nFirewall, nNoProof, nInert, nWork, nScan)) c
+      attempt (acc, out, dl, (nRewritten, nFirewall, nNoProof, nInert, nWork, nScan)) c
         | provedByRewriting acc c =
-            (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert, nWork, nScan))
+            (acc, out, (c,"follows-by-rewriting"):dl
+            , (nRewritten + 1, nFirewall, nNoProof, nInert, nWork, nScan))
         -- Proof search is only as trustworthy as its current axiom set and
         -- induction implementation.  This finite gate does not certify a
         -- theorem; it prevents any theorem with a concrete small refutation
         -- from becoming a new axiom and poisoning every later round.
         | not (survivesSemanticFirewall syms c) =
-            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert, nWork, nScan))
+            (acc, out, (c,"firewall-refuted"):dl
+            , (nRewritten, nFirewall + 1, nNoProof, nInert, nWork, nScan))
         | otherwise =
             -- WIRE 3.  `proveByInduction` first, always; the nested prover is
             -- consulted only where it returned Nothing, so no proof this
@@ -2822,22 +2947,51 @@ round1 disp mem logh libh ref = do
             case maybe (nestedProve (dNestedDepth disp) acc c) Just
                    (proveByInduction acc c) of
               Nothing ->
-                (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert, nWork, nScan))
+                (acc, out, (c,"attempted-no-proof"):dl
+                , (nRewritten, nFirewall, nNoProof + 1, nInert, nWork, nScan))
               -- a proof is not enough: it must also make the world smaller,
               -- or it is a true statement with no consequences
               Just pf ->
-                let (worth, work, scan) = worthInstalling acc c
+                -- THE VALUE GATE AND WHO IT IS FOR.  `worthInstalling` asks
+                -- whether installing this theorem collapses two of the terms
+                -- the generator built this round.  For a shape the generator
+                -- built, that is exactly the right question and it stays the
+                -- question.  For a SEEDED candidate it is the wrong one twice
+                -- over: the researcher already asserted the interest, and --
+                -- measured, WIRE 5, round 0 -- a definitionally eliminable
+                -- symbol cannot pass it even in principle.  `normed` is the
+                -- NORMALISED term population, `leglo`, `leghi` and
+                -- `splitnorm` all unfold, so not one of the 241 normal forms
+                -- at vocab=11 size=4 contains a pair symbol and no pair
+                -- theorem can collapse any pair of them.  Five true, proved
+                -- pair statements died here on the first run after the
+                -- induction fix, with `proved-but-inert=5` the only trace.
+                --
+                -- So the exemption is exactly this gate and exactly for
+                -- thought-file candidates.  Everything that decides TRUTH is
+                -- unchanged and still applies to them: the symbol and
+                -- well-formedness check, fingerprint agreement, the semantic
+                -- firewall above, the prover, and the Agda kernel gate below,
+                -- which is the authority and has no idea where a candidate
+                -- came from.  THOUGHT_FORMAT.md's "receives no privileged
+                -- proof status" is about proof, and stays true.
+                let seeded = S.member c seededSet
+                    (worth0, work, scan) = worthInstalling acc c
+                    worth = worth0 || seeded
+                    tag | worth0    = "proved"
+                        | seeded    = "proved-inert-seeded"
+                        | otherwise = "proved-but-inert"
                     st' = (nRewritten, nFirewall, nNoProof, nInert
                           , nWork + work, nScan + scan)
                 in if not worth
-                     then (acc, out
+                     then (acc, out, (c,tag):dl
                           , (nRewritten, nFirewall, nNoProof, nInert + 1
                             , nWork + work, nScan + scan))
                      else
                        let acc' = acc ++ maybe [] (:[]) (orient c)
                                    ++ (if isJust (orient c) then []
                                        else lemmaRules [c])
-                       in (acc', (c,pf):out, st')
+                       in (acc', (c,pf):out, (c,tag):dl, st')
   -- The timer used to bracket a lazy `let`, so nothing had been computed
   -- when it stopped and every round reported 0.00s.  A dead instrument is
   -- worse than none: it is the one that would have shown the rule set
@@ -2852,7 +3006,7 @@ round1 disp mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAcceptWith (mInvented m) (M.keys (mKnown m)) rules logh (mRound m)) results
+  checkedResults <- filterM (kernelAcceptWith (kernelSyms m) (M.keys (mKnown m)) rules logh (mRound m)) results
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
@@ -2900,6 +3054,31 @@ round1 disp mem logh libh ref = do
       Nothing   -> return ()
       Just path -> appendFile path (showTermP l ++ "\t" ++ showTermP r ++ "\n")
   hFlush libh
+  -- SEED DISPOSITION.  A seeded candidate that never appears in the log is
+  -- indistinguishable from one that was never read, and on the first WIRE 5
+  -- run that ambiguity cost a measurement: 20 pair candidates went in, the
+  -- round line said conj=39 fresh=31 proved=0, and nothing said whether the
+  -- pair statements had been refuted, rewritten away, tried and failed, or
+  -- silently dropped for a missing symbol.  They are four different diseases.
+  -- One line per researcher candidate, naming the stage it stopped at.
+  forM_ (mThoughts m) $ \c0 -> do
+    let c@(l,r) = canonVars c0
+        missing = [ f | f <- symbolsIn l ++ symbolsIn r
+                      , f `notElem` map symName syms ]
+        verdict
+          | not (null missing)             = "out-of-vocabulary:" ++ intercalate "," (ordNub missing)
+          | not (wellFormedTerm syms l && wellFormedTerm syms r) = "ill-formed"
+          | fingerprint sem envs l /= fingerprint sem envs r = "refuted-by-fingerprint"
+          | M.member c (mKnown m)          = "already-known"
+          | provedByRewriting rules c      = "follows-by-rewriting"
+          | congruent rules (mKnown m) c   = "congruent-with-known"
+          | c `elem` map fst checkedResults = "THEOREM"
+          | c `elem` map fst results       = "proved-kernel-rejected"
+          -- the prover's own verdict, recorded by the fold that produced it,
+          -- not re-derived here against a different rule set
+          | Just d <- M.lookup c dispositions = d
+          | otherwise                      = "withheld"
+    hPrintf logh "  SEED  %-22s %s = %s\n" verdict (show l) (show r)
   -- The four ways a fresh conjecture fails to become a theorem, and the
   -- fifth number is the gate's.  `proved` here is the PROVER's count; the
   -- round line's `proved=` is what survived the kernel.  When they differ
@@ -3160,7 +3339,7 @@ round1 disp mem logh libh ref = do
             -- and the same kernel, because the invariant is that every rule in
             -- play was accepted in THIS process.  Completion gets no exemption.
             else do
-              ok <- kernelAcceptWith (mInvented m2) (M.keys (mKnown m2))
+              ok <- kernelAcceptWith (kernelSyms m2) (M.keys (mKnown m2))
                       (usableRules m2) logh (mRound m2) (eq, note)
               if not ok
                 then do
@@ -3313,6 +3492,8 @@ main = do
     putStrLn ("DISPATCH " ++ show disp)
     putStrLn ("  base vocabulary: "
       ++ intercalate " " (map symName baseVocabulary))
+    putStrLn ("  pair extension: "
+      ++ intercalate " " (map symName pairVocabulary))
     putStrLn ("  arithmetic extension: "
       ++ intercalate " " (map symName arithVocabulary))
     putStrLn ("  reachable now: "
@@ -3712,8 +3893,9 @@ main = do
       rejected <- kernelAccept stdout 0 ((su x_, x_), "negative control")
       unless (accepted && not rejected) exitFailure
     _ -> do
-      exists <- doesFileExist "machine/thoughts.math"
-      batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
+      let thoughtsFile = maybe "machine/thoughts.math" id (dThoughts disp)
+      exists <- doesFileExist thoughtsFile
+      batch <- if exists then parseThoughts <$> readFile thoughtsFile
                          else pure (ThoughtBatch [] [])
       runMachine disp batch
 
