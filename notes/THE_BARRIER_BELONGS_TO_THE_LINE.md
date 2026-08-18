@@ -1025,3 +1025,57 @@ invertibility hypothesis exactly as stated, and over ℤ that hypothesis
 holds only for `z = ±1`, which is why over ℤ the family really is four and
 the interesting statement needs ratios. Same price as §11 charged, arriving
 from the opposite direction.
+
+---
+
+## 22. Addendum, same session: the cakravāla, quoted eight times and built once
+
+`formal/cubical/NaturalMachine/Cakravala.agda` (checked, exit 0).
+
+This thread has cited the cyclic method in eight modules and built it in
+none. `Bhavana.agda` already has the composition law and the divisibility
+conversions; what was missing is the **step** — the thing that makes the
+method cyclic.
+
+**Provenance.** Jayadeva, c. 950, reported by Udayadivākara in the
+*Sundarī*; Bhāskara II, *Bījagaṇita*, 1150, where it is worked in full on
+`D = 61` and `D = 67`. It solves `x² − D y² = 1` for every non-square `D`
+in a handful of cycles, six centuries before Brouncker and Lagrange.
+
+**The step**, cleared of denominators so no division appears in the
+statement:
+
+```
+k·a' = am + Db,  k·b' = a + bm,  k·k' = m² − D
+   ⟹  (k·k)·(a'² − D b'²)  ≡  (k·k)·k'
+```
+
+One solver identity does the work — `(am + Db)² − D(a + bm)² ≡ (a² − Db²)(m² − D)`
+— which is Brahmagupta's composition at the trivial triple `(m, 1, m² − D)`,
+the single instance the cakravāla uses.
+
+**Run, over ℤ, by `refl`:** Bhāskara's own `D = 61`. Start `(8, 1, 3)`
+since `64 − 61 = 3`; take `m = 7` (it minimises `|m² − 61| = 12` among
+`m` with `3 | 8 + m`); then `a' = (56+61)/3 = 39`, `b' = 15/3 = 5`,
+`k' = −12/3 = −4`, and `39² − 61·5² = −4`. Note `|k|` **rises**, 3 to 4 —
+the method does not descend monotonically, which is why it needs Bhāskara's
+choice rule and why termination is not the algebra.
+
+### What the cleared form says about this thread
+
+The identity is unconditional. The **descent** — concluding
+`a'² − D b'² = k'` from it — needs cancelling `k²`, i.e. `k` invertible or
+the ring cancellative. That is exactly what §9 found and §11 priced: the
+cakravāla's descent is division by a scalar, not inversion in the
+composition monoid, and dividing is what costs the integers.
+
+> The oldest algorithm in this repository and the newest theorem in it say
+> the same thing, and the algorithm said it first: **the cycle turns on a
+> division.**
+
+**Not claimed, and it is most of the method:** that a suitable `m` exists;
+that Bhāskara's minimality rule is well defined or optimal; that `|k'| <
+|k|`; that the cycle terminates at `k = 1`; or that a solution exists for
+every non-square `D`. None of those is a ring identity. This file proves
+the invariant survives one step, which is the part that is algebra, and
+says so.
