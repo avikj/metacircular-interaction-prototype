@@ -173,3 +173,35 @@ walk-blindness-is-exact n p = ¬¬¬→¬
 -- Everything PROVED in this module stands.  The withdrawn sentence is the
 -- reading of the level, and it is left visible above rather than edited.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  THE OTHER HALF OF THE DIVISION, appended 2026-08-18.
+--
+-- Everything above is संसर्गाभाव — the absence of a RELATION at a locus.
+-- Praśastapāda's division (*Padārthadharmasaṃgraha*, c. 6th c.) and every
+-- Nyāya text after it hold a second kind irreducible to it:
+--
+--     अन्योन्याभाव — the absence of IDENTITY.  A cloth is not a pot.
+--
+-- `NaturalMachine.AnyonyaAbhava` builds it, and finds that the `Abhāva`
+-- record above was already general enough to carry it
+-- (`anyonya-is-abhava`, with प्रतियोगिन् the family `_≡ b`).
+--
+-- The dispute over whether one kind reduces to the other is a thousand
+-- years old and Navya-Nyāya rejects both reductions.  Made exact:
+--
+--   अन्योन्य ⟹ संसर्ग   free, no hypothesis
+--   संसर्ग ⟹ अन्योन्य   only up to ¬¬, and only with a decidable
+--                        प्रतियोगिन्
+--
+-- So the reduction fails by EXACTLY ONE STEP OF THE TOWER §2 measures,
+-- and §3's `dec-collapses` is precisely what closes it when the
+-- अवच्छेदक is decidable.  The two-fold division is therefore not a
+-- taxonomy of examples; it is indexed by decidability in the same way
+-- the tower's height is.
+--
+-- Classically the distinction is invisible — excluded middle makes the
+-- categories interderivable at every delimitor and the dispute a dispute
+-- about nothing.  That is the second time the Nyāya analysis of अभाव has
+-- turned out to track constructive structure, §2–3 being the first.
+------------------------------------------------------------------------

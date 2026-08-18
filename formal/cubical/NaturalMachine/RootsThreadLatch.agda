@@ -107,6 +107,7 @@ import NaturalMachine.TheCeilingIsAboutReading
 import NaturalMachine.BarrierIsTwoWitnesses
 import NaturalMachine.TheFloorIsAnswerability
 import NaturalMachine.WitnessDichotomy
+import NaturalMachine.AnyonyaAbhava
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

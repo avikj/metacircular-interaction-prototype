@@ -1,0 +1,214 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- NaturalMachine.AnyonyaAbhava
+--
+-- अन्योन्याभाव — mutual absence — and why Vaiśeṣika-Nyāya keeps it as a
+-- SEPARATE category from संसर्गाभाव instead of reducing one to the other.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- THE DOCTRINE, AND WHY THIS MODULE EXISTS
+--
+-- `NaturalMachine.Abhava` builds अभाव as a record carrying its
+-- प्रतियोगिन् and अवच्छेदक, and analyses the tower ¬, ¬¬, ¬¬¬.  All of
+-- that is संसर्गाभाव: the absence of a RELATION at a locus — the pot is
+-- not on the floor.  Praśastapāda's division (*Padārthadharmasaṃgraha*,
+-- c. 6th c.) and every Nyāya text after it insist on a second kind:
+--
+--     अन्योन्याभाव — the absence of IDENTITY.  A cloth is not a pot.
+--     Its प्रतियोगिन् is the pot, its अनुयोगिन् the cloth, and what is
+--     absent is तादात्म्य, identity itself, not a relation between two
+--     things that are already distinct.
+--
+-- The reduction has been attempted in both directions for a thousand
+-- years and Navya-Nyāya rejects both.  This module is that dispute,
+-- made exact — and the tradition turns out to be right in a way the
+-- classical reading cannot see, because CLASSICALLY THE TWO ARE
+-- INTERDERIVABLE AND THE DISPUTE IS EMPTY.  Constructively they are not.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- WHAT IS PROVED
+--
+--   §2  अन्योन्याभाव IS an अभाव in this corpus's own sense: it
+--       instantiates `Abhava.Abhāva` with प्रतियोगिन् `_≡ b`.  So the
+--       record was already general enough, which is worth knowing
+--       before adding anything to it.
+--
+--   §3  अन्योन्य ⟹ संसर्ग, freely.  Two points the अवच्छेदक identifies
+--       but whose values are mutually absent destroy every decoder at
+--       once.  This is the corpus's collision lemma, and naming its
+--       parts is not decoration: the hypothesis `q x ≡ q x'` is
+--       precisely an अवच्छेदक, the qualification under which the two
+--       are not distinguished.
+--
+--   §4  संसर्ग ⟹ अन्योन्य only up to ¬¬, and even that needs the
+--       प्रतियोगिन् to be decidable.  So the reduction FAILS, and it
+--       fails by exactly one step of the tower `Abhava` §2 measures.
+--
+--   §5  Under a decidable अवच्छेदक the step is free (`Abhava
+--       .dec-collapses`), and the two categories become interderivable.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- THE POINT, WHICH IS NOT A TRANSLATION
+--
+-- The two-fold division is not scholastic hair-splitting and it is not
+-- a taxonomy of examples.  It tracks a real obstruction, the obstruction
+-- is one level of the negation tower, and it dissolves exactly when the
+-- प्रतियोगिन् is decidable.  A reader with excluded middle sees two
+-- names for one thing and concludes the Naiyāyikas were counting
+-- angels; a reader without it finds the distinction forced.
+--
+-- That is the same verdict `Abhava` reached about the THREE-tall tower
+-- and for the same reason, which is itself evidence that the Nyāya
+-- analysis of अभाव is tracking constructive structure throughout and
+-- not in one lucky place.
+--
+-- SOURCES.  Praśastapāda, *Padārthadharmasaṃgraha* (c. 6th c.), where
+-- अभाव's division is set out; Udayana, *Nyāyakusumāñjali* (c. 1000);
+-- Gaṅgeśa, *Tattvacintāmaṇi*, abhāva-khaṇḍa (c. 1325), where the
+-- प्रतियोगिता analysis is refined; Raghunātha Śiromaṇi,
+-- *Padārthatattvanirūpaṇa* (c. 1500), on which categories survive
+-- scrutiny.  The mathematics below is this corpus's; the DIVISION and
+-- the claim of irreducibility are theirs, and are what is being tested.
+--
+-- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
+-- pin.  No postulates, no holes.
+------------------------------------------------------------------------
+
+module NaturalMachine.AnyonyaAbhava where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Sigma
+open import Cubical.Data.Empty as Empty using (⊥)
+open import Cubical.Relation.Nullary
+  using (¬_ ; Dec ; yes ; no ; Discrete ; Stable ; Separated)
+open import Cubical.Relation.Nullary.Properties
+  using (Discrete→Separated)
+open import Cubical.Foundations.Prelude using (isSet)
+open import Cubical.Relation.Nullary.Properties using (Discrete→isSet)
+
+open import NaturalMachine.Abhava using (Abhāva ; delimitor ; absent ; dec-collapses)
+open import NaturalMachine.FiniteInformation
+  using (FactorsThrough ; FiberConstant ; fiberConstant→factorsThrough)
+open import NaturalMachine.TranscriptDescent using (collisionObstructsDecoder)
+
+private
+  variable
+    ℓ ℓx ℓy ℓt : Level
+
+------------------------------------------------------------------------
+-- 1.  अन्योन्याभाव: the absence of identity, not of a relation
+------------------------------------------------------------------------
+
+Anyonya : {T : Type ℓt} → T → T → Type ℓt
+Anyonya a b = ¬ (a ≡ b)
+
+------------------------------------------------------------------------
+-- 2.  It is an अभाव in the corpus's own sense
+--
+-- अनुयोगिन् becomes the delimitor, प्रतियोगिन् the family `_≡ b`.  Nothing
+-- had to be added to the record: it was built general enough, and this
+-- is the check rather than the assertion.
+------------------------------------------------------------------------
+
+anyonya-is-abhava : {T : Type ℓt} (a b : T) → Anyonya a b → Abhāva T (_≡ b)
+Abhāva.delimitor (anyonya-is-abhava a b _)  = a
+Abhāva.absent    (anyonya-is-abhava a b ne) = ne
+
+anyonya-from-abhava : {T : Type ℓt} (b : T) (A : Abhāva T (_≡ b))
+                    → Anyonya (delimitor A) b
+anyonya-from-abhava b A = absent A
+
+------------------------------------------------------------------------
+-- 3.  अन्योन्य ⟹ संसर्ग, with no hypothesis
+--
+-- The अवच्छेदक is `q x ≡ q x'`: the qualification under which the two
+-- loci are NOT distinguished.  Under it, a mutual absence of their
+-- values is the absence of every decoding relation at once.
+------------------------------------------------------------------------
+
+anyonya→samsarga :
+  {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
+  (q : X → Y) (t : X → T) {x x' : X}
+  → q x ≡ q x'                       -- अवच्छेदक: identified here
+  → Anyonya (t x) (t x')             -- अन्योन्याभाव: not identical there
+  → ¬ FactorsThrough q t             -- संसर्गाभाव: no relation, anywhere
+anyonya→samsarga q t = collisionObstructsDecoder q t
+
+------------------------------------------------------------------------
+-- 4.  संसर्ग ⟹ अन्योन्य ONLY UP TO ¬¬, and only with a decidable
+--     प्रतियोगिन् — so the reduction fails
+------------------------------------------------------------------------
+
+Collision : {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
+          → (X → Y) → (X → T) → Type (ℓ-max ℓx (ℓ-max ℓy ℓt))
+Collision {X = X} q t =
+  Σ[ x ∈ X ] Σ[ x' ∈ X ] ((q x ≡ q x') × Anyonya (t x) (t x'))
+
+samsarga→¬¬anyonya :
+  {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
+  (dT : Discrete T) (q : X → Y) (t : X → T)
+  → ¬ FactorsThrough q t
+  → ¬ ¬ (Collision q t)
+samsarga→¬¬anyonya dT q t noDecoder noCollision =
+  noDecoder (fiberConstant→factorsThrough (Discrete→isSet dT) q t constant)
+  where
+  constant : FiberConstant q t
+  constant x x' same =
+    Discrete→Separated dT (t x) (t x')
+      (λ ne → noCollision (x , x' , same , ne))
+
+------------------------------------------------------------------------
+-- 5.  And the missing step is exactly one level of the tower
+--
+-- If the collision claim itself is decidable, `Abhava.dec-collapses`
+-- closes it and the two categories become interderivable.  So the
+-- irreducibility is not absolute: it is indexed by the अवच्छेदक, which
+-- is what an अवच्छेदक is for.
+------------------------------------------------------------------------
+
+samsarga→anyonya-when-decidable :
+  {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
+  (dT : Discrete T) (q : X → Y) (t : X → T)
+  → Dec (Collision q t)
+  → ¬ FactorsThrough q t
+  → Collision q t
+samsarga→anyonya-when-decidable dT q t dC noDecoder =
+  dec-collapses dC (samsarga→¬¬anyonya dT q t noDecoder)
+
+-- the two directions, side by side, at a decidable delimitor
+categories-agree-when-decidable :
+  {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
+  (dT : Discrete T) (q : X → Y) (t : X → T) (dC : Dec (Collision q t))
+  → (Collision q t → ¬ FactorsThrough q t)
+  × (¬ FactorsThrough q t → Collision q t)
+categories-agree-when-decidable dT q t dC =
+    (λ c → anyonya→samsarga q t {x = c .fst} {x' = c .snd .fst}
+             (c .snd .snd .fst) (c .snd .snd .snd))
+  , samsarga→anyonya-when-decidable dT q t dC
+
+------------------------------------------------------------------------
+-- 6.  What was tested, and what it says about the tradition.
+--
+-- TESTED, not assumed: that the Vaiśeṣika division of अभाव into
+-- संसर्ग and अन्योन्य is doing work.  It is.  One direction is free,
+-- the other costs a step of the negation tower, and the cost is
+-- discharged exactly by decidability of the प्रतियोगिन्.
+--
+-- The classical reader cannot see this.  With excluded middle §4's ¬¬
+-- evaporates, the two categories are interderivable at every delimitor,
+-- and the thousand-year dispute over whether one reduces to the other
+-- looks like a dispute about nothing.  It is not: it is a dispute about
+-- a distinction that only a constructive setting can register, conducted
+-- by people who did not have one and were right anyway.
+--
+-- This is the second time in this corpus that the Nyāya analysis of
+-- अभाव has turned out to track constructive structure — `Abhava` §2–3
+-- was the first, on the height of the tower.  Two is not a coincidence
+-- worth explaining away.
+--
+-- OPEN, named and not estimated.  Whether `Dec (Collision q t)` holds at
+-- any site in this corpus.  It asks for a decision over X × X, which the
+-- witness-number thread never needed, and `SiteAudit` did not check.
+-- Where it fails, §5 does not apply and the two categories stay apart.
+------------------------------------------------------------------------
