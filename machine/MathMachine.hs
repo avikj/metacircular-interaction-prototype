@@ -33,7 +33,7 @@ module Main (main) where
 
 import qualified Data.Set as S
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition, isInfixOf)
+import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition, isInfixOf, isPrefixOf)
 import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
 import Control.Monad (forM_, replicateM_, when, unless, filterM, foldM)
@@ -2108,9 +2108,29 @@ tryReplay known rules ((l,r),proofNote) =
 -- without a parser for Agda.  The claim is in the machine's own prefix
 -- notation, which is what `library.terms` uses and what `KernelContext`
 -- already parses.
+-- LIVE TARGET, TRACKED SNAPSHOT.
+--
+-- The first version appended straight to `machine/replay.traces`, which is
+-- tracked -- and a tracked file that a long-running round loop appends to
+-- means the working tree is never clean while the machine runs, so `./sync`
+-- refuses for the whole run and the operator commits the same file over and
+-- over.  I did that four times before noticing it was the design and not the
+-- day.
+--
+-- So the live append target is `machine/replay.traces.live`, gitignored, and
+-- `--harvest-traces` folds it into the tracked corpus deliberately, deduped by
+-- claim.  That is exactly the relationship `machine.log` (live, ignored) and
+-- `library.terms` (durable, tracked) already have; the traces belong on the
+-- first side while a run is in flight and on the second afterwards.
+--
+-- This is NOT the machine.log mistake in disguise.  The corpus stays tracked
+-- and reproducible; what moved is only where a run writes before harvest.
+liveTraceFile :: FilePath
+liveTraceFile = "machine/replay.traces.live"
+
 recordTrace :: (Term, Term) -> String -> IO ()
 recordTrace (l, r) source =
-  appendFile "machine/replay.traces" $
+  appendFile liveTraceFile $
        "-- TRACE " ++ showTermP l ++ "\t" ++ showTermP r ++ "\n"
     ++ source
     ++ (if not (null source) && last source == '\n' then "" else "\n")
@@ -4813,6 +4833,41 @@ main = do
   -- normalise them away.  If so, the machine assigns zero value to the one
   -- lemma the kernel most needs, and does so for the same reason the kernel
   -- needs it.
+  -- Fold the live trace file into the tracked corpus, deduped by claim, and
+  -- truncate the live file.  Run this between runs, not during one.
+  when (args == ["--harvest-traces"]) $ do
+    let tracked = "machine/replay.traces"
+        readUtf8 p = do
+          ex <- doesFileExist p
+          if not ex then pure "" else do
+            h <- openFile p ReadMode
+            hSetEncoding h utf8
+            s <- hGetContents h
+            length s `seq` pure s
+    old <- readUtf8 tracked
+    new <- readUtf8 liveTraceFile
+    let recs s = go (lines s)
+          where
+            go [] = []
+            go (l : ls)
+              | "-- TRACE " `isPrefixOf` l =
+                  let (b, after) = break (== "-- END TRACE") ls
+                  in (drop (length "-- TRACE ") l, l : b ++ ["-- END TRACE"])
+                     : go (drop 1 after)
+              | otherwise = go ls
+        oldR = recs old
+        newR = recs new
+        keys = map fst oldR
+        added = [ r | r <- newR, fst r `notElem` keys ]
+    h <- openFile tracked AppendMode
+    hSetEncoding h utf8
+    mapM_ (mapM_ (hPutStrLn h) . snd) added
+    hClose h
+    writeFile liveTraceFile ""
+    hPrintf stdout "  harvested %d new records (%d live, %d already tracked); corpus now %d\n"
+      (length added) (length newR) (length oldR) (length oldR + length added)
+    exitSuccess
+
   when (args == ["--residual-worth"]) $ do
     let m0 = start { mVocab = length vocabulary }
         rules = usableRules m0

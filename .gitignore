@@ -67,3 +67,4 @@ machine/nested-agda/
 # module source it certified, so it is a rebuildable artifact not a record.
 machine/.certcache/
 formal/cubical/.claude/
+machine/replay.traces.live
