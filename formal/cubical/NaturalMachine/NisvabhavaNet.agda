@@ -1,5 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
+-- WITHDRAWN IDENTIFICATION (see notes/SUNYATA_IS_NOT_UNIVALENCE.md).
+-- The equation `no-own-being := univalence` below is decorative and is
+-- refuted: univalence is a positive identity principle and reifies emptiness
+-- into the svabhāva it denies (MMK 13.8).  The term type-checks and stays
+-- true AS TYPE THEORY; its Sanskrit reading is withdrawn.
+
 ------------------------------------------------------------------------
 -- NaturalMachine.NisvabhavaNet — the net of no-own-being
 --

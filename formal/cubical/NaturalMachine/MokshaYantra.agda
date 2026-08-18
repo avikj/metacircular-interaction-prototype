@@ -1,5 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
+-- WITHDRAWN IDENTIFICATION (see notes/SUNYATA_IS_NOT_UNIVALENCE.md).
+-- avidyā/mokṣa are not "which `Sight : Type → Bool` meets the pair."  The
+-- terms type-check as a small fact about sights on `Bool`; the Sanskrit
+-- reading is withdrawn.
+
 ------------------------------------------------------------------------
 -- NaturalMachine.MokshaYantra — the wheel that turns
 --

@@ -1,5 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
+-- WITHDRAWN IDENTIFICATION (see notes/SUNYATA_IS_NOT_UNIVALENCE.md §3).
+-- This file conflates two opposed schools (Buddhist catuṣkoṭi with Jain
+-- anekāntavāda) and domesticates Nāgārjuna's prasajya negation into a
+-- consistent perspectival semantics (`both-is-consistent`).  The presheaf
+-- facts type-check; the Sanskrit reading is withdrawn.
+
 ------------------------------------------------------------------------
 -- NaturalMachine.CatuskotiPerspective
 --
