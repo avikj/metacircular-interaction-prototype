@@ -43,6 +43,26 @@ So the two traditions are two disciplined responses to one theorem:
 **still the grasping** (Buddhist) versus **hold all standpoints, speak
 conditionally** (Jain). Emptiness versus retention.
 
+## Even univalence carries both readings
+
+The distinction runs all the way down to Voevodsky's univalence itself,
+which both branches use — and read oppositely:
+
+- **Emptying (Buddhist).** `NaturalMachine/NisvabhavaNet.agda` reads
+  `A ≡ B ≃ (reflect A ≃ reflect B)` (`no-own-being`) as *niḥsvabhāva*, and
+  `liberation` (transport, `subst P (ua e)`) as *the dissolving of the
+  boundary the ego defends* — mokṣa as letting go. Univalence as śūnyatā.
+
+- **Retention (Jain).** `Punaragamana.युग्म≡विवेक` and `Pingala.छन्दस्≡ℕ` use
+  the *same* `ua` on concrete equivalences built to **lose nothing** — the
+  descent and its ascent are exact inverses (`पुनरागमनम्`, `अलोपः`). Here the
+  path is not a boundary dissolved but a lossless bridge *kept* — every
+  standpoint recoverable across it.
+
+So the one construction — a univalent path — is read by one tradition as
+*emptying into equality* and by the other as *retaining across equivalence*.
+Both are checked, on the same `ua`, in the same corpus.
+
 ## Where this lands in the computation
 
 The honest machine (`Satyayantra`) takes the **Jain** branch, and this is now
