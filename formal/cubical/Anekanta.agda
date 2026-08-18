@@ -1,6 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- ⚠ अतीत-लेखः, अतिक्रान्तः (SUPERSEDED — historical record).
+--
+-- अयं प्रथमः प्रयत्नः "न विचारः" इति उद्घोषयन् अपि जनने discreteℕ (विचारम्,
+-- Dec) प्रयुङ्क्ते — एष एव रोगः यम् अयं ग्रन्थः स्वयं निन्दति ।  तेन कारणेन
+-- एषः त्यक्तः, स्वच्छैः लेखैः प्रतिस्थापितश्च :
+--   BhedaAvatarana  — विचारं विना अवतरणम् (एकपदे refl : discreteℕ लुप्तः) ;
+--   Punaragamana    — प्रतिलोमम्, univalence-पथः ;
+--   Gati … Sadhyata — पूर्णः कुट्टकः (Jiva-निरोधे) ;
+--   Saptabhangi     — सप्तभङ्गी स्वच्छा (क्रम-सह-भेदः, दुर्नयः, कुतः सप्त) ।
+-- अयं लेखः इतिहासाय रक्ष्यते (यात्रायाः स्मृतिः), न प्रयोगाय ; Jiva-निरोधे न अस्ति ।
+--
+-- (This first attempt PROCLAIMS "no checking" yet uses discreteℕ (a Dec) in
+-- its जननम् — the very disease it decries.  It was therefore abandoned and
+-- replaced by the clean modules listed above.  Kept as a historical record
+-- of the journey, not for use; it is NOT in the Jiva build closure.)
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
 -- अनेकान्त — बहुधर्मा सन् ; तस्य सप्तभङ्गी वाणी ; आर्यभटस्य वल्ल्याम् ।
 --
 -- न विचारः (checking) । केवलं जननम् (generation) ।
