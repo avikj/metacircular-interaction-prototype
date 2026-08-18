@@ -32,3 +32,4 @@ open import NaturalMachine.CatuskotiPerspective public
 open import NaturalMachine.PratityasamutpadaArising public
 open import NaturalMachine.MokshaYantra public
 open import NaturalMachine.EquivalenceHasNoFloor public
+open import NaturalMachine.TwoTruthsCompute public
