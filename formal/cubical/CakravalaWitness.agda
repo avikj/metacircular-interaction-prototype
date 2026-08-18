@@ -177,6 +177,143 @@ turn14 : ca D 335159612 42912791 8 · ca D 335159612 42912791 8
      + (D · D · (42912791 · 42912791) + D · (cb 335159612 42912791 8 · cb 335159612 42912791 8))
 turn14 = cakravalaℕ D 335159612 42912791 8
 
+------------------------------------------------------------------------
+-- THE BOOKKEEPING: the three divisions came out exact.
+--
+-- The identity above is the step's CONTENT; these are the step's
+-- ACCOUNTS.  Bhāskara's choice rule earns its keep exactly here — it
+-- picks the one m for which all three of these divisions are exact, and
+-- `CakravalaDescent.oneCongruenceCoprime` proves that asking for the
+-- middle one alone suffices, given the pulverizer's coefficients.
+--
+-- Two of the three are subtraction-free as they stand: a·m + D·b and
+-- a + b·m are sums of naturals.  Only m² − D can go negative, and
+-- |m² − D| = |k|·|k'| holds either way, so each line below is emitted in
+-- whichever orientation is true at that turn.  The SIGNS of k and k' are
+-- not recovered here — they are in the trace comments above, and they are
+-- the generator's word, not the kernel's.
+------------------------------------------------------------------------
+
+-- turn 0 bookkeeping:  |k| = 12,  a' = 8,  b' = 1,  |k'| = 3
+divA0 : 7 · 5 + D · 1 ≡ 12 · 8
+divA0 = refl
+divB0 : 7 + 1 · 5 ≡ 12 · 1
+divB0 = refl
+divK0 : 5 · 5 + 12 · 3 ≡ D
+divK0 = refl
+
+-- turn 1 bookkeeping:  |k| = 3,  a' = 39,  b' = 5,  |k'| = 4
+divA1 : 8 · 7 + D · 1 ≡ 3 · 39
+divA1 = refl
+divB1 : 8 + 1 · 7 ≡ 3 · 5
+divB1 = refl
+divK1 : 7 · 7 + 3 · 4 ≡ D
+divK1 = refl
+
+-- turn 2 bookkeeping:  |k| = 4,  a' = 164,  b' = 21,  |k'| = 5
+divA2 : 39 · 9 + D · 5 ≡ 4 · 164
+divA2 = refl
+divB2 : 39 + 5 · 9 ≡ 4 · 21
+divB2 = refl
+divK2 : 9 · 9 ≡ D + 4 · 5
+divK2 = refl
+
+-- turn 3 bookkeeping:  |k| = 5,  a' = 453,  b' = 58,  |k'| = 5
+divA3 : 164 · 6 + D · 21 ≡ 5 · 453
+divA3 = refl
+divB3 : 164 + 21 · 6 ≡ 5 · 58
+divB3 = refl
+divK3 : 6 · 6 + 5 · 5 ≡ D
+divK3 = refl
+
+-- turn 4 bookkeeping:  |k| = 5,  a' = 1523,  b' = 195,  |k'| = 4
+divA4 : 453 · 9 + D · 58 ≡ 5 · 1523
+divA4 = refl
+divB4 : 453 + 58 · 9 ≡ 5 · 195
+divB4 = refl
+divK4 : 9 · 9 ≡ D + 5 · 4
+divK4 = refl
+
+-- turn 5 bookkeeping:  |k| = 4,  a' = 5639,  b' = 722,  |k'| = 3
+divA5 : 1523 · 7 + D · 195 ≡ 4 · 5639
+divA5 = refl
+divB5 : 1523 + 195 · 7 ≡ 4 · 722
+divB5 = refl
+divK5 : 7 · 7 + 4 · 3 ≡ D
+divK5 = refl
+
+-- turn 6 bookkeeping:  |k| = 3,  a' = 29718,  b' = 3805,  |k'| = 1
+divA6 : 5639 · 8 + D · 722 ≡ 3 · 29718
+divA6 = refl
+divB6 : 5639 + 722 · 8 ≡ 3 · 3805
+divB6 = refl
+divK6 : 8 · 8 ≡ D + 3 · 1
+divK6 = refl
+
+-- turn 7 bookkeeping:  |k| = 1,  a' = 440131,  b' = 56353,  |k'| = 12
+divA7 : 29718 · 7 + D · 3805 ≡ 1 · 440131
+divA7 = refl
+divB7 : 29718 + 3805 · 7 ≡ 1 · 56353
+divB7 = refl
+divK7 : 7 · 7 + 1 · 12 ≡ D
+divK7 = refl
+
+-- turn 8 bookkeeping:  |k| = 12,  a' = 469849,  b' = 60158,  |k'| = 3
+divA8 : 440131 · 5 + D · 56353 ≡ 12 · 469849
+divA8 = refl
+divB8 : 440131 + 56353 · 5 ≡ 12 · 60158
+divB8 = refl
+divK8 : 5 · 5 + 12 · 3 ≡ D
+divK8 = refl
+
+-- turn 9 bookkeeping:  |k| = 3,  a' = 2319527,  b' = 296985,  |k'| = 4
+divA9 : 469849 · 7 + D · 60158 ≡ 3 · 2319527
+divA9 = refl
+divB9 : 469849 + 60158 · 7 ≡ 3 · 296985
+divB9 = refl
+divK9 : 7 · 7 + 3 · 4 ≡ D
+divK9 = refl
+
+-- turn 10 bookkeeping:  |k| = 4,  a' = 9747957,  b' = 1248098,  |k'| = 5
+divA10 : 2319527 · 9 + D · 296985 ≡ 4 · 9747957
+divA10 = refl
+divB10 : 2319527 + 296985 · 9 ≡ 4 · 1248098
+divB10 = refl
+divK10 : 9 · 9 ≡ D + 4 · 5
+divK10 = refl
+
+-- turn 11 bookkeeping:  |k| = 5,  a' = 26924344,  b' = 3447309,  |k'| = 5
+divA11 : 9747957 · 6 + D · 1248098 ≡ 5 · 26924344
+divA11 = refl
+divB11 : 9747957 + 1248098 · 6 ≡ 5 · 3447309
+divB11 = refl
+divK11 : 6 · 6 + 5 · 5 ≡ D
+divK11 = refl
+
+-- turn 12 bookkeeping:  |k| = 5,  a' = 90520989,  b' = 11590025,  |k'| = 4
+divA12 : 26924344 · 9 + D · 3447309 ≡ 5 · 90520989
+divA12 = refl
+divB12 : 26924344 + 3447309 · 9 ≡ 5 · 11590025
+divB12 = refl
+divK12 : 9 · 9 ≡ D + 5 · 4
+divK12 = refl
+
+-- turn 13 bookkeeping:  |k| = 4,  a' = 335159612,  b' = 42912791,  |k'| = 3
+divA13 : 90520989 · 7 + D · 11590025 ≡ 4 · 335159612
+divA13 = refl
+divB13 : 90520989 + 11590025 · 7 ≡ 4 · 42912791
+divB13 = refl
+divK13 : 7 · 7 + 4 · 3 ≡ D
+divK13 = refl
+
+-- turn 14 bookkeeping:  |k| = 3,  a' = 1766319049,  b' = 226153980,  |k'| = 1
+divA14 : 335159612 · 8 + D · 42912791 ≡ 3 · 1766319049
+divA14 = refl
+divB14 : 335159612 + 42912791 · 8 ≡ 3 · 226153980
+divB14 = refl
+divK14 : 8 · 8 ≡ D + 3 · 1
+divK14 = refl
+
 
 ------------------------------------------------------------------------
 -- THE FUNDAMENTAL SOLUTION.  `refl`: the kernel recomputes both sides.

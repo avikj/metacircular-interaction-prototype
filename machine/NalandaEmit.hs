@@ -160,6 +160,26 @@ render d trace t sq = unlines $
   , "" ]
   ++ concat [ turnBlock i a b m | (i, a, b, m) <- turnData ]
   ++
+  [ sep
+  , "-- THE BOOKKEEPING: the three divisions came out exact."
+  , "--"
+  , "-- The identity above is the step's CONTENT; these are the step's"
+  , "-- ACCOUNTS.  Bhāskara's choice rule earns its keep exactly here — it"
+  , "-- picks the one m for which all three of these divisions are exact, and"
+  , "-- `CakravalaDescent.oneCongruenceCoprime` proves that asking for the"
+  , "-- middle one alone suffices, given the pulverizer's coefficients."
+  , "--"
+  , "-- Two of the three are subtraction-free as they stand: a·m + D·b and"
+  , "-- a + b·m are sums of naturals.  Only m² − D can go negative, and"
+  , "-- |m² − D| = |k|·|k'| holds either way, so each line below is emitted in"
+  , "-- whichever orientation is true at that turn.  The SIGNS of k and k' are"
+  , "-- not recovered here — they are in the trace comments above, and they are"
+  , "-- the generator's word, not the kernel's."
+  , sep
+  , "" ]
+  ++ concat [ bookBlock i a b m p a' b' k'
+            | (i, a, b, m, p, a', b', k') <- bookData ]
+  ++
   [ ""
   , sep
   , "-- THE FUNDAMENTAL SOLUTION.  `refl`: the kernel recomputes both sides."
@@ -224,6 +244,13 @@ render d trace t sq = unlines $
                | (i, N.Triple a b k) <- zip [0 :: Int ..] (init trace)
                , Just m <- [N.chooseM d (N.Triple a b k)] ]
 
+    -- (index, a, b, m, |k|, a', b', |k'|) — the BOOKKEEPING, in the classical
+    -- |k| presentation, which is where the exact divisions live.
+    bookData = [ (i, a, b, m, abs k, a', b', abs k')
+               | (i, (N.Triple a b k, N.Triple a' b' k'))
+                   <- zip [0 :: Int ..] (zip trace (drop 1 trace))
+               , Just m <- [N.chooseM d (N.Triple a b k)] ]
+
     turnBlock i a b m =
       [ "-- turn " ++ show i ++ ":  a = " ++ show a ++ ",  b = " ++ show b
         ++ ",  m = " ++ show m
@@ -241,3 +268,34 @@ render d trace t sq = unlines $
       , ""
       ]
       where nm = "turn" ++ show i
+
+    -- THE BOOKKEEPING, per turn, as ℕ equations the kernel recomputes.
+    --
+    -- Two of the three divisions are already subtraction-free: a·m + D·b and
+    -- a + b·m are sums of naturals, so `= p · a'` and `= p · b'` say exactly
+    -- that those divisions came out exact, with no signs anywhere.  The third,
+    -- m² − D, is the only one that can go negative, and |m² − D| = p · |k'|
+    -- holds regardless of which way it goes — so it is emitted as whichever
+    -- orientation is true at this turn.
+    bookBlock i a b m p a' b' k' =
+      [ "-- turn " ++ show i ++ " bookkeeping:  |k| = " ++ show p
+        ++ ",  a' = " ++ show a' ++ ",  b' = " ++ show b'
+        ++ ",  |k'| = " ++ show k'
+      , dA ++ " : " ++ show a ++ " · " ++ show m ++ " + D · " ++ show b
+             ++ " ≡ " ++ show p ++ " · " ++ show a'
+      , dA ++ " = refl"
+      , dB ++ " : " ++ show a ++ " + " ++ show b ++ " · " ++ show m
+             ++ " ≡ " ++ show p ++ " · " ++ show b'
+      , dB ++ " = refl"
+      , dK ++ " : " ++ (if m * m >= d
+                         then show m ++ " · " ++ show m ++ " ≡ D + "
+                              ++ show p ++ " · " ++ show k'
+                         else show m ++ " · " ++ show m ++ " + "
+                              ++ show p ++ " · " ++ show k' ++ " ≡ D")
+      , dK ++ " = refl"
+      , ""
+      ]
+      where
+        dA = "divA" ++ show i
+        dB = "divB" ++ show i
+        dK = "divK" ++ show i
