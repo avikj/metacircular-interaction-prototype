@@ -3456,6 +3456,28 @@ round1 disp mem logh libh ref = do
       -- other argument; the machine's rewriter does not.  A tally that hides
       -- that reads as "the residuals were queued" when they were discarded
       -- one filter later.
+      -- KRAMA.  `Saptabhangi.no-single-vacana` proves that for EVERY single
+      -- standpointed utterance there is a profile on which it disagrees with
+      -- the joint content of two standpoints, and `krama-expresses` proves the
+      -- ordered PAIR denotes it exactly.  This function used to return one
+      -- string.  One string is one Vacana, so by that theorem it could not say
+      -- what a residual's situation is — and the string it returned was
+      -- `follows-by-rewriting`, the rewriter's word, standing in for the
+      -- kernel's, which is the naya that asked the question.
+      --
+      -- So the status is two words in succession: what the rewriter says, then
+      -- what the kernel says.  The kernel's side has three values and the third
+      -- is the one that mattered — `kernel-unasked`. `x = x+0` sat there 27
+      -- times over 239 rounds and nothing could see it, because the medium had
+      -- room for one aspect at a time.
+      rewriterSays c
+        | provedByRewriting rules c    = "rewriter-derives"
+        | congruent rules (mKnown m) c = "rewriter-congruent"
+        | otherwise                    = "rewriter-silent"
+      kernelSays c
+        | M.member c (mKnown m)                            = "kernel-accepted"
+        | fmap fst (M.lookup c (mFailed m)) == Just nRules  = "kernel-refused"
+        | otherwise                                        = "kernel-unasked"
       residualStatus c@(l,r)
         | not (all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r))
                                             = "out-of-vocabulary"
@@ -3463,11 +3485,7 @@ round1 disp mem logh libh ref = do
         | not (wellFormedTerm syms l && wellFormedTerm syms r) = "ill-formed"
         | fingerprint sem envs l /= fingerprint sem envs r
                                             = "refuted-by-fingerprint"
-        | M.member c (mKnown m)             = "already-known"
-        | provedByRewriting rules c         = "follows-by-rewriting"
-        | congruent rules (mKnown m) c      = "congruent-with-known"
-        | fmap fst (M.lookup c (mFailed m)) == Just nRules = "failed-at-this-rule-count"
-        | otherwise                         = "stated"
+        | otherwise = rewriterSays c ++ " / " ++ kernelSays c
       residualTally = M.toList (M.fromListWith (+)
         [ (residualStatus (canonVars c), 1 :: Int) | c <- mResidualQueue m ])
       -- rewriting settles the ones already implied by what we know
@@ -3518,8 +3536,32 @@ round1 disp mem logh libh ref = do
                   -- another of its subgoals lands.
                   , S.member c arohanaAdmitted
                       || fmap fst (M.lookup c (mFailed m)) /= Just nRules
-                  , not (provedByRewriting rules c)
-                  , not (congruent rules (mKnown m) c) ]
+                  -- THE REWRITER MAY NOT SPEAK FOR THE KERNEL.  These two
+                  -- tests are the rewriter's naya, and for an ordinary
+                  -- generated conjecture they are the right filter: no point
+                  -- asking the kernel what we can already derive.
+                  --
+                  -- For a RESIDUAL they are the wrong filter, and this is the
+                  -- fault that kept the seam at zero for 239 rounds.  A
+                  -- residual is a question the KERNEL asked — it stalled at
+                  -- `x ≡ x + 0` and said so.  `provedByRewriting` then answers
+                  -- yes, because library.terms holds `x = 0+x` and `x+y = y+x`
+                  -- and the rewriter composes them; the residual is dropped and
+                  -- never submitted.  Both standpoints are right and the
+                  -- question dies between them.  Agda's `_+_` recurses on its
+                  -- first argument, so `x + 0` does not reduce there, and no
+                  -- theorem the rewriter holds can change that — `{-# REWRITE
+                  -- #-}` needs `--rewriting` and this lane is `--safe`.
+                  --
+                  -- So: a residual is vetoed only by the naya that asked it.
+                  -- `mKnown` (the kernel accepted it) and `mFailed` above (the
+                  -- kernel refused it at this rule count) still apply; the
+                  -- rewriter's opinion now buys priority in the sort and
+                  -- nothing else.
+                  , S.member c residualAdmitted || S.member c arohanaAdmitted
+                      || not (provedByRewriting rules c)
+                  , S.member c residualAdmitted || S.member c arohanaAdmitted
+                      || not (congruent rules (mKnown m) c) ]
       -- WIRE 2.  At dDsoSchedule = 0 this is `(freshSized, Nothing)` and the
       -- smallest-first order above is untouched; otherwise the first k are
       -- permuted into the meta-Bellman optimum for total rewrite steps.

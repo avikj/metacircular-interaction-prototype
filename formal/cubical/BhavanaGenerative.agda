@@ -144,6 +144,36 @@ module Generative (CR : CommRing ℓ) where
   _∙₁_ {D} s t = subst (Sol D) (·IdR 1r) (s ⊛ t)
 
   ----------------------------------------------------------------------
+  -- 5b.  THE INVERSE.  Unit-norm solutions are a GROUP, and the reason is
+  -- Brahmagupta's second composition rather than any extra hypothesis.
+  --
+  -- `normNegB` (in `Bhavana`) says the form is even in b: N D a (−b) = N D a b.
+  -- So negating b sends a solution to a solution of the same norm — and
+  -- composing the two gives the unit exactly:
+  --
+  --     (a, b) ⊛ (a, −b) = (a² − D b², −ab + ab) = (1, 0)   when the norm is 1
+  --
+  -- which is antara-bhāvanā read as inversion.  This is what makes the chain
+  -- in §6 a group orbit rather than a one-way orbit, and it is the reason the
+  -- cakravāla may walk its chain in either direction.
+  ----------------------------------------------------------------------
+
+  inv : {D : R} → Sol D 1r → Sol D 1r
+  inv {D} s = mkSol (coefA s) (- coefB s)
+                    (normNegB D (coefA s) (coefB s) ∙ hasNorm s)
+
+  invCoefA : {D : R} (s : Sol D 1r) → coefA (s ⊛ inv s) ≡ 1r
+  invCoefA {D} s =
+      cong (λ w → coefA s · coefA s + D · w) (-DistR· (coefB s) (coefB s))
+    ∙ cong (λ w → coefA s · coefA s + w) (-DistR· D (coefB s · coefB s))
+    ∙ hasNorm s
+
+  invCoefB : {D : R} (s : Sol D 1r) → coefB (s ⊛ inv s) ≡ 0r
+  invCoefB s =
+      cong (λ w → w + coefA s · coefB s) (-DistR· (coefA s) (coefB s))
+    ∙ +InvL (coefA s · coefB s)
+
+  ----------------------------------------------------------------------
   -- 6.  GENERATIVITY.  One seed, an ℕ-indexed family.
   --
   -- This is what "production" names and what the corpus did not have.  The
