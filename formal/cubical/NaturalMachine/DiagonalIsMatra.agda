@@ -58,7 +58,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr ; Σ⊎≃)
 open import Cubical.Data.Unit using (Unit ; tt ; isContrUnit)
 open import Cubical.Data.SumFin using (SumFin⊎≃ ; SumFin≃Fin) renaming (Fin to SFin)
 
-open import Pingala using (Chosen ; meru ; meruCount ; Metre ; matra ; matraCount)
+open import PingalaPrastara using (Chosen ; meru ; meruCount ; Metre ; matra ; matraCount)
 open import NaturalMachine.Sankalita using (AD ; antidiag)
 open import NaturalMachine.PairsSummingTo using (Pairs ; pairsSuc-Iso ; pairs0-Iso)
 open import NaturalMachine.DurationIsSyllablesPlusGuru using (Sorted ; metre-sorts)

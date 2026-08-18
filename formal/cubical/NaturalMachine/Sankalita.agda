@@ -62,7 +62,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc ; +-
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Pingala using (meru ; meruRecurrence ; matra)
+open import PingalaPrastara using (meru ; meruRecurrence ; matra)
 
 ------------------------------------------------------------------------
 -- 1.  संकलित: the summation operator

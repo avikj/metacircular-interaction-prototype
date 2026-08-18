@@ -75,7 +75,7 @@ open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Fin using (Fin)
 
-open import Pingala using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
+open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
 
 ------------------------------------------------------------------------
 -- 1.  Each enumeration is a path

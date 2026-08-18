@@ -59,7 +59,7 @@ open import Cubical.Data.FinSet.Cardinality using (card↪Inequality')
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.SumFin using () renaming (SumFin≃Fin to sumFin≃Fin)
 
-open import Pingala using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
+open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
 open import NaturalMachine.WalkObservationCount using (walk-observation-space)
 
 ------------------------------------------------------------------------

@@ -80,7 +80,7 @@ open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.SumFin using () renaming (SumFin≃Fin to sumFin≃Fin)
 
 open import Cubical.Data.Nat using (suc ; _+_)
-open import Pingala using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount ; matraRecurrence)
+open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount ; matraRecurrence)
 
 ------------------------------------------------------------------------
 -- 1.  The metres of n syllables, as a finite set of size saṅkhyā n
