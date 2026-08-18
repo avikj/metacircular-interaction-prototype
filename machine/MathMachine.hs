@@ -4096,8 +4096,19 @@ round1 disp mem logh libh ref = do
       -- is exactly the order the ladder below already runs -- measured into
       -- place by arm D of machine/LOOP_MEASUREMENT.md -- and it is now derived
       -- from the certificate instead of only measured.
-      grows   = permitted && (stuck' || widenOnly || yogyaSaturated)
-      deepens = permitted && (stuck' || yogyaSaturated)
+      -- THE LICENCE IS DISCHARGED BY ANY CHANGE, NOT ONLY BY GROWTH.  The
+      -- certificate says "something in this region must change".  Coining a
+      -- concept IS that change -- the new symbol arrives with its defining
+      -- equation, so the rule set the certificate quantifies over is not the
+      -- rule set of the next round, and the certificate is void before it can
+      -- be spent again.  Letting it also license a widen in the same round
+      -- would be naming AND widening at once, which is the term-space
+      -- explosion `bestOf`'s own comment measures (25k -> 396k with `proved`
+      -- flat at zero).  `stuck'` already excludes the coining round for the
+      -- same reason; this is that exclusion, kept.
+      yogyaMove = yogyaSaturated && not (isJust invented)
+      grows   = permitted && (stuck' || widenOnly || yogyaMove)
+      deepens = permitted && (stuck' || yogyaMove)
   -- ===================================================================
   -- WIRE 4.  CERTIFY, and it fires in exactly one place: the instant before
   -- the machine would have widened blindly.  `grows` is that instant -- it is
@@ -4334,7 +4345,7 @@ round1 disp mem logh libh ref = do
   -- the heuristic ladder's own trigger, so a round where it is false and the
   -- state still moved is a round the ladder would have spent standing still.
   -- That is the whole measurement, and it is a count of rounds, not a rate.
-  when (yogyaSaturated && not (stuck' || widenOnly)
+  when (yogyaMove && not (stuck' || widenOnly)
         && (mVocab m'' /= mVocab m3 || mSize m'' /= mSize m3
             || length (mInvented m'') /= length (mInvented m3))) $
     hPrintf logh "  GROW-DERIVED  the move above was taken on the saturation certificate, not on the flow classification (flow was %s, which would have held)\n"
