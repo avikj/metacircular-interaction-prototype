@@ -1,0 +1,86 @@
+# machine/thoughts.bhavana.math -- BHAVANA, the composition law on the Pell
+# conic.  BRAHMAGUPTA, Brahmasphutasiddhanta, 628 CE, chapter 18, the rule
+# called bhavana ("production", "composition"):
+#
+#     (x1^2 - D y1^2)(x2^2 - D y2^2)
+#        = (x1 x2 + D y1 y2)^2 - D (x1 y2 + x2 y1)^2
+#
+# i.e. the multiplicativity of the norm form N(x,y) = x^2 - D y^2.  It is a
+# thousand years older than the Brouncker/Wallis/Euler/Lagrange treatments
+# and is not a special case of any of them.  Cited as Brahmagupta's.
+#
+# Read with:
+#   runghc -imachine machine/MathMachine.hs --pair \
+#          --thoughts machine/thoughts.bhavana.math --rounds N
+#
+# EVERY LINE BELOW IS GENERATED, not transcribed: it is printed by
+# machine/PairVocab.hs section 11 through `nativeTerm`, after that section
+# has verified or refuted it exhaustively over the N box [0..12]^arity.  The
+# term this file hands the engine and the term PairVocab verified are one
+# object.  Re-generate with
+#   runghc -imachine machine/PairVocab.hs | grep '^  candidate'
+#
+# THE CHART (PairVocab section 3d), over N, `-` = monus:
+#   splitnorm(x,y) = x*x -. y*y          the D = 1 norm (WIRE 5's symbol)
+#   nrm2(x,y)      = x*x -. 2*(y*y)      the D = 2 norm
+#   bcx1(x,y,z,u)  = x*z + y*u           composed first component, D = 1
+#   bcx2(x,y,z,u)  = x*z + 2*(y*u)       composed first component, D = 2
+#   bcy(x,y,z,u)   = x*u + z*y           composed second component, no D
+# reading (x,y) = (x1,y1) and (z,u) = (x2,y2).  D IS A NUMERAL, not a
+# variable: a variable D would make bhavana a five-variable statement and
+# `Certificate.agdaVar` spells six variables while the prover splits one.
+#
+# LINE 1 AND LINE 2 ARE NEGATIVE CONTROLS, and this is the mathematical
+# content of the file.  Bhavana as Brahmagupta states it is FALSE over N.
+# Monus flattens a negative norm to 0, so where BOTH true norms are negative
+# the left side is 0*0 = 0 while the right side is their (positive) product.
+# PairVocab section 11 finds the first witness by search: (x1,y1,x2,y2) =
+# (0,1,0,1), true norms (-1,-1) at D=1 and (-2,-2) at D=2, giving 0 = 1 and
+# 0 = 4 respectively.  Both lines MUST be dropped by the fingerprint filter
+# before any proof attempt; if either reaches the prover this file is lying.
+# On the cone x^2 >= D y^2 the identity holds -- 8281 of 8281 points at D=1,
+# 3844 of 3844 at D=2, 0 failures -- but the engine's term language has no
+# way to state a hypothesis, so the cone form cannot be handed to it.
+#
+# LINES 3 AND 4 ARE BHAVANA ITSELF, in the only form N can hold: every
+# negative term moved across.  With a = x1^2, b = D y1^2, c = x2^2,
+# d = D y2^2 and t = x1 x2 y1 y2, cx^2 = ac + bd + 2Dt and D cy^2 =
+# ad + bc + 2Dt, so (a-b)(c-d) = cx^2 - D cy^2 is, subtraction-free,
+#
+#     cx^2 + D x1^2 y2^2 + D x2^2 y1^2 = x1^2 x2^2 + D^2 y1^2 y2^2 + D cy^2.
+#
+# Over Z that is bhavana, by adding the same two terms to both sides.  Over
+# N it is true with NO hypothesis: 28561 of 28561 points, 0 failures, at
+# both D = 1 and D = 2.  These are the target.
+#
+# THE REST are the special cases and structural laws that survive monus with
+# all arguments free: the scaling case y2 = 0 (the second norm is a square,
+# hence never negative, and monus is right-distributive over multiplication),
+# composition with the Pell unit (1,0), commutativity of the composition, the
+# relation bcx2 = bcx1 + y*u between the two charts, and the degenerate rows.
+# The last line is a second negative control: the duplication (squaring) case
+# of bhavana, TRUE over Z and FALSE over N for the same reason line 2 is.
+candidate	*(splitnorm(x,y),splitnorm(z,u))	splitnorm(bcx1(x,y,z,u),bcy(x,y,z,u))
+candidate	*(nrm2(x,y),nrm2(z,u))	nrm2(bcx2(x,y,z,u),bcy(x,y,z,u))
+candidate	+(*(bcx1(x,y,z,u),bcx1(x,y,z,u)),+(*(*(x,u),*(x,u)),*(*(z,y),*(z,y))))	+(*(*(x,z),*(x,z)),+(*(*(y,u),*(y,u)),*(bcy(x,y,z,u),bcy(x,y,z,u))))
+candidate	+(*(bcx2(x,y,z,u),bcx2(x,y,z,u)),+(*(s(s(0)),*(*(x,u),*(x,u))),*(s(s(0)),*(*(z,y),*(z,y)))))	+(*(*(x,z),*(x,z)),+(*(s(s(s(s(0)))),*(*(y,u),*(y,u))),*(s(s(0)),*(bcy(x,y,z,u),bcy(x,y,z,u)))))
+candidate	*(splitnorm(x,y),*(z,z))	splitnorm(*(x,z),*(z,y))
+candidate	*(nrm2(x,y),*(z,z))	nrm2(*(x,z),*(z,y))
+candidate	*(splitnorm(x,y),splitnorm(z,0))	splitnorm(bcx1(x,y,z,0),bcy(x,y,z,0))
+candidate	*(nrm2(x,y),nrm2(z,0))	nrm2(bcx2(x,y,z,0),bcy(x,y,z,0))
+candidate	splitnorm(bcx1(x,y,s(0),0),bcy(x,y,s(0),0))	splitnorm(x,y)
+candidate	nrm2(bcx2(x,y,s(0),0),bcy(x,y,s(0),0))	nrm2(x,y)
+candidate	bcx1(x,y,z,u)	bcx1(z,u,x,y)
+candidate	bcx2(x,y,z,u)	bcx2(z,u,x,y)
+candidate	bcy(x,y,z,u)	bcy(z,u,x,y)
+candidate	bcx2(x,y,z,u)	+(bcx1(x,y,z,u),*(y,u))
+candidate	bcx1(x,0,z,0)	*(x,z)
+candidate	bcx2(x,0,z,0)	*(x,z)
+candidate	bcx1(x,y,z,0)	*(x,z)
+candidate	bcx2(x,y,z,0)	*(x,z)
+candidate	bcy(x,y,z,0)	*(z,y)
+candidate	bcy(x,0,z,0)	0
+candidate	bcy(x,y,x,y)	*(s(s(0)),*(x,y))
+candidate	nrm2(x,0)	*(x,x)
+candidate	nrm2(0,y)	0
+candidate	nrm2(bcx2(x,y,x,y),bcy(x,y,x,y))	*(nrm2(x,y),nrm2(x,y))

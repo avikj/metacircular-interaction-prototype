@@ -59,6 +59,11 @@ import qualified ArithVocab as AV
 import qualified PairVocab as PV
 import qualified DSO as D
 import qualified NestedInduction as NI
+-- THE KUTTAKA SEAM.  `Obstruction` parses the kernel's refusal back into
+-- terms; the gate below returns it instead of discarding it, and the round
+-- feeds the genuine residuals into the next round's conjecture queue.  See
+-- `KernelOutcome` and `harvestResiduals`.
+import qualified Obstruction as OB
 import Data.Char (isAlphaNum, isSpace, isDigit)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -573,6 +578,43 @@ requiredVocabulary b = maximum (3 : demanded)
             ++ concatMap residualWords (thoughtResiduals b)
     demanded = [ i + 1 | (i,s) <- zip [0..] vocabulary, symName s `elem` names ]
 
+-- THE VARIABLE HORIZON, and it was missing.  `requiredVocabulary` lets a
+-- thought file raise the SYMBOL horizon; nothing let it raise the VARIABLE
+-- horizon, and `kVars` defaults to 3.  A researcher candidate naming `u`
+-- (V 3) therefore reached `fingerprint`, which evaluates it against
+-- `assignments 3 …`, and `eval`'s `env !! i` died with
+--
+--     MathMachine.hs: Prelude.!!: index too large
+--
+-- -- a Prelude crash, in a file whose entire discipline is to fail loud and
+-- CORRECTLY.  The thought-file path had no guard: a four-variable candidate
+-- did not get rejected, it killed the process.  Measured: WIRE 6's first run
+-- with machine/thoughts.bhavana.math, before this line existed.
+--
+-- The fix is the exact analogue of `requiredVocabulary`: the batch may raise
+-- the environment width, clamped to 6, which is not a chosen ceiling but
+-- `Certificate.agdaVar`'s -- a candidate over seven variables could never be
+-- certified whatever the fingerprint said.
+--
+-- WHY THIS IS INERT FOR EVERY EXISTING MEASUREMENT, and it is a proof and
+-- not a hope.  `assignments nv k` is `take nv (drop 1 (iterate lcg s))` per
+-- environment, so `assignments 4 k` extends each row of `assignments 3 k` by
+-- one coordinate and changes no earlier one.  `eval` reads `env !! i` only
+-- for variables the term actually contains, so a term over x,y,z has a
+-- BYTE-IDENTICAL fingerprint under either width.  Term GENERATION still uses
+-- `kVars` and is untouched: the generator's width and the fingerprint's
+-- width were the same number by accident, not by argument.
+variableHorizon :: [(Term,Term)] -> Int
+variableHorizon cs =
+  min agdaVarCeiling (maximum (1 : [ i + 1 | (l,r) <- cs, i <- vars l ++ vars r ]))
+
+-- Not a chosen number: `Certificate.agdaVar` is Nothing for i >= 6 and
+-- `agdaCertificate` binds exactly (x y z u v w), so a candidate over a
+-- seventh variable is untranslatable however true it is.  It is the same
+-- ceiling `Knobs.kVars` carries, and for the same reason.
+agdaVarCeiling :: Int
+agdaVarCeiling = 6
+
 size :: Term -> Int
 size (V _) = 1
 size (F _ ts) = 1 + sum (map size ts)
@@ -743,6 +785,31 @@ arithVocabulary = map avSym [AV.modSym, AV.lcmSym, AV.vpSym]
 --
 -- `centre` and `radius` are not imported: they need `div 2`, which is neither
 -- in this term language nor in the certified Agda fragment.
+--
+-- WIRE 6 (BHAVANA).  `PV.natPairSymbols` now carries FOUR more, PairVocab
+-- §3d: the D = 2 norm `nrm2(x,y) = x·x ∸ 2·(y·y)` and the two components of
+-- BRAHMAGUPTA'S COMPOSITION RULE (bhavana, Brahmasphutasiddhanta, 628 CE) at
+-- D = 1 and D = 2 --- `bcx1(x,y,z,u) = x·z + y·u`,
+-- `bcx2(x,y,z,u) = x·z + 2·(y·u)`, `bcy(x,y,z,u) = x·u + z·y`.  They are
+-- APPENDED, so leglo/leghi/splitnorm keep indices 8,9,10 and `pairVocabCap`
+-- goes 11 -> 15.  D is a NUMERAL and not a variable: a variable D makes
+-- bhavana a five-variable statement and `Certificate.agdaVar` spells six
+-- variables while `proveByInduction` splits exactly one.
+--
+-- These are the first FOUR-ARY symbols the engine has ever carried.  At the
+-- generator's working size a 4-ary application does not fit (f(a,b,c,d) is
+-- size 5 at minimum), so they enter through the thought file --- the
+-- researcher-input path of THOUGHT_FORMAT.md --- and not through the term
+-- space, and a seeded candidate still gets no privileged proof status.
+--
+-- WHAT THE ℕ CHART COSTS HERE, and it is more than it cost WIRE 5: bhavana
+-- AS BRAHMAGUPTA STATES IT IS FALSE OVER ℕ.  Monus flattens a negative norm
+-- to 0, so where both true norms are negative the left side is 0·0 = 0 and
+-- the right side is their positive product; PairVocab §11 exhibits the first
+-- witness (x1,y1,x2,y2) = (0,1,0,1), 0 = 1 at D=1 and 0 = 4 at D=2.  What
+-- survives with all arguments free is the SUBTRACTION-FREE form (§3d(b)),
+-- verified at 28561 of 28561 points at each D, and the specialisations in
+-- machine/thoughts.bhavana.math.
 --
 -- PLACED BEFORE `arithVocabulary`, so the reachable prefix `base ++ pair` is a
 -- vocabulary the certificate emitter can translate END TO END, which
@@ -1731,8 +1798,52 @@ certDefinitions syms =
 kernelSyms :: Machine -> [Sym]
 kernelSyms m = drop baseVocabCap (take (mVocab m) vocabulary) ++ mInvented m
 
+-- ===================================================================
+-- WHAT THE GATE RETURNS, AND WHY IT IS NOT A BOOLEAN ANY MORE.
+--
+-- The kernel does not answer "no".  It answers `A != B of type ℕ`: the pair
+-- of terms at the exact point where computation stalled.  Collapsing that to
+-- `False` throws away the only new mathematical content a refusal has.  On
+-- the committed machine/machine.log that is 1092 rejections carrying 946
+-- recoverable residuals and 107 DISTINCT subgoals -- the machine stating,
+-- about twelve hundred times a round, which lemmas it needs next, in its own
+-- vocabulary, derived rather than guessed.
+--
+-- THE DECISION IS UNCHANGED.  `koAccepted` is the same Bool the old
+-- `kernelAcceptWith` returned, produced on the same branches from the same
+-- verdict; nothing here can turn a rejection into an acceptance.  The
+-- invariant "every rule installed in this process was kernel-accepted in this
+-- process" is therefore untouched.  What is added is `koObstruction`, which
+-- is read only by the conjecture queue and never by the gate.
+--
+-- THE ANCESTOR.  Aryabhata's kuttaka (Aryabhatiya, 499 CE) solves a linear
+-- Diophantine congruence by dividing, KEEPING THE REMAINDER, and recursing on
+-- the remainder -- the valli, the column of quotients that reconstructs the
+-- answer on the way back up (formal/cubical/KuttakaValli.agda).  The
+-- remainder is not the failure of the division; it is the next problem, and
+-- it is strictly smaller.  Cakravala (Jayadeva ~950, Bhaskara II 1150) is the
+-- same move one level up, at quadratic forms.  "The obstruction is the
+-- material" is that algorithm, not a slogan.
+data KernelOutcome = KernelOutcome
+  { koAccepted    :: !Bool
+    -- ^ exactly the old return value of this function
+  , koObstruction :: Maybe OB.Obstruction
+    -- ^ Nothing when accepted, or when the emitter never produced a module
+    --   (`Untranslatable` says something about the emitter, not about where
+    --   computation stalled, so there is no residual to read).
+  }
+
+toOb :: Term -> OB.Term
+toOb (V i)    = OB.V i
+toOb (F f ts) = OB.F f (map toOb ts)
+
+fromOb :: OB.Term -> Term
+fromOb (OB.V i)    = V i
+fromOb (OB.F f ts) = F f (map fromOb ts)
+
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAccept = kernelAcceptWith [] [] []
+kernelAccept logh roundNo cand =
+  koAccepted <$> kernelAcceptWith [] [] [] logh roundNo cand
 
 -- TRACE REPLAY, tried before the shape search.
 --
@@ -1778,17 +1889,18 @@ tryReplay known rules ((l,r),proofNote) =
             ExitFailure _ -> pure Nothing
 
 kernelAcceptWith :: [Sym] -> [(Term,Term)] -> [Rule] -> Handle -> Int
-                 -> ((Term,Term),String) -> IO Bool
+                 -> ((Term,Term),String) -> IO KernelOutcome
 kernelAcceptWith invented known rules logh roundNo cand@((l,r),proofNote) = do
   replayed <- tryReplay known rules cand
   case replayed of
     Just calls -> do
       hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls)\n"
         roundNo (show l) (show r) calls
-      pure True
+      pure (KernelOutcome True Nothing)
     Nothing -> kernelAcceptSearch invented logh roundNo ((l,r),proofNote)
 
-kernelAcceptSearch :: [Sym] -> Handle -> Int -> ((Term,Term),String) -> IO Bool
+kernelAcceptSearch :: [Sym] -> Handle -> Int -> ((Term,Term),String)
+                   -> IO KernelOutcome
 kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
   verdict <- C.certifyWith (certDefinitions invented) "."
                ((toCert l, toCert r), proofNote)
@@ -1796,15 +1908,144 @@ kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
     C.Certified shape calls -> do
       hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (%s, %d agda calls)\n"
         roundNo (show l) (show r) shape calls
-      pure True
+      pure (KernelOutcome True Nothing)
     C.Rejected err calls -> do
       hPrintf logh "  KERNEL-REJECT round=%d %s = %s  (%d agda calls) %s\n"
         roundNo (show l) (show r) calls (take 160 (filter (/= '\n') err))
-      pure False
+      -- The one line this whole seam exists for: `err` is agda's own
+      -- `A != B of type ℕ`, and `OB.classify` turns it back into the pair of
+      -- terms, against THIS candidate as the goal.  Everything above is
+      -- byte-for-byte what it was.
+      pure (KernelOutcome False (Just (OB.classify (toOb l, toOb r) err)))
     C.Untranslatable why -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s  (%s)\n"
         (show l) (show r) why
-      pure False
+      pure (KernelOutcome False Nothing)
+
+-- ===================================================================
+-- READING THE REFUSALS AS A CURRICULUM.
+--
+-- WHY THIS TERMINATES, stated correctly.  The tempting argument is the
+-- kuttaka's: Aryabhata's remainders strictly decrease, so the recursion
+-- bottoms out.  THAT ARGUMENT DOES NOT APPLY HERE and must not be relied on.
+-- The kuttaka divides; agda UNFOLDS, and an unfolding can grow the term --
+-- the flagship example does exactly that, goal `x = 1·x` stalling at
+-- `x = x + 0·x`, which is bigger.  There is no descent measure.
+--
+-- What bounds the feedback instead is that the residual set is FINITE AND
+-- SMALL.  Over the whole committed machine/machine.log: 112 distinct
+-- residuals, term sizes (both sides summed) from 2 to 20.  Residuals are what
+-- agda's evaluator gets stuck on inside a fixed fragment with a fixed handful
+-- of defining clauses, so the population it can produce is bounded by that
+-- fragment, not by the number of candidates thrown at it.  Three further
+-- brakes, none of them a measure:
+--
+--   * `usefulResidual` below drops the degenerate ones outright;
+--   * a residual entering the queue crosses the SAME filters every other
+--     conjecture crosses -- vocabulary, well-formedness, and the fingerprint
+--     firewall -- so a residual of a FALSE parent (`x·x = s(x)`, 30
+--     occurrences; `x·max(x,1) = s(x)`, 100) is refuted before it costs a
+--     proof attempt, let alone an agda process;
+--   * `mFailed` is keyed on the rule count at failure, so a residual that is
+--     true, queued, and not proved is not retried until the machine knows
+--     something it did not know then.  See `residualFailedContract`, which
+--     is the check and not the assumption.
+--
+-- And the queue takes at most `kResidualQueueCap` per round, with the number
+-- dropped written to the log.  A silent cap reads as "covered everything".
+kResidualQueueCap :: Int
+kResidualQueueCap = 48
+
+-- WHICH RESIDUALS ARE MATERIAL.  Not this file's judgement: `Obstruction`
+-- owns it, as `triage`, and the census behind it is over the whole of
+-- machine/machine.log -- 112 distinct residuals, of which 78 are Plausible
+-- (703 occurrences), 33 are Refuted (320) and one, `x = y`, is Degenerate
+-- (63).  The separator is refutation by computation over Integer on fixed
+-- deterministic assignments: one disagreement is a proof of falsity, and it
+-- costs nothing next to an agda process.
+--
+-- The 33 refuted ones are exactly the livelock this queue could otherwise
+-- create.  `x·max(x,1) = s(x)` (126 occurrences) and `x·x = s(x)` (30) are
+-- both FALSE, and a false residual that is queued fails, gets its parent
+-- retried, and regenerates itself, forever.
+--
+-- TWO LIMITS, so nothing downstream overclaims.  `Plausible` is the ABSENCE
+-- OF A REFUTATION, not a proof of truth; the kernel is still the only thing
+-- that accepts a theorem, and every residual crosses it like everything else.
+-- And `triage` deliberately offers no opinion on a term containing a symbol
+-- outside {0,s,+,*,max,-,gcd,le}, returning `Plausible` unexamined.  On THIS
+-- wire that branch is unreachable, and it is worth saying why rather than
+-- relying on it: a residual only exists here if `parseAgdaTerm` produced it,
+-- and that parser accepts exactly zero/suc/numerals/variables and those same
+-- eight symbols.  Anything naming an invented concept (`c0`) or a pair symbol
+-- comes back `Unparsed` and contributes nothing.  If the parser is ever
+-- widened past the triage vocabulary, that stops being true.
+residualVerdict :: (Term,Term) -> OB.Verdict
+residualVerdict p = OB.triage (toOb (fst q), toOb (snd q))
+  where q = orientLikeRound p
+
+usefulResidual :: (Term,Term) -> Bool
+usefulResidual p = fst q /= snd q && residualVerdict p == OB.Plausible
+  where q = orientLikeRound p
+
+-- THE ENGINE STATES A CONJECTURE SMALLEST-SIDE-FIRST.  `round1` takes the
+-- smallest member of a fingerprint class as the representative and pairs
+-- every other member against it, so `(x, x+0)` is the machine's own spelling
+-- and `(x+0, x)` is a different key in `mKnown` and in `mFailed`.  The log
+-- contains BOTH orientations of the same residual -- `x = x + 0` 23 times and
+-- `x + 0 = x` 19 times -- so a queue that does not normalise orientation asks
+-- for one lemma as two jobs and matches neither against what the round
+-- already knows.  Orientation first, then `canonVars`, because renaming by
+-- first appearance depends on which side is written first.
+orientLikeRound :: (Term,Term) -> (Term,Term)
+orientLikeRound (a,b)
+  | (size a, a) <= (size b, b) = canonVars (a,b)
+  | otherwise                  = canonVars (b,a)
+
+-- The genuine subgoals in a round's refusals, each paired with the parent it
+-- stalled.  `TacticTooWeak` contributes nothing to CONJECTURE (the statement
+-- is already in hand; what has to change is the tactic), `Unparsed`
+-- contributes nothing because the module refuses to guess, and `triage`
+-- removes the refuted and the degenerate.  The subgoal set this produces is
+-- `Obstruction.worthQueueing` of the same refusals -- checked, not asserted,
+-- by `--obstruction-self-test`; the pairing with the parent is the extra this
+-- function carries, and it is what makes "did the residual close its parent?"
+-- an answerable question.
+harvestResiduals :: [(((Term,Term),String), KernelOutcome)]
+                 -> [((Term,Term),(Term,Term))]
+harvestResiduals outcomes =
+  [ (orientLikeRound (fromOb a, fromOb b), parent)
+  | ((parent,_), ko) <- outcomes
+  , Just (OB.Residual (a,b)) <- [koObstruction ko]
+  , usefulResidual (fromOb a, fromOb b)
+  ]
+
+-- THE LIVELOCK CHECK, RUN RATHER THAN ASSUMED.  The hazard the queue creates
+-- is: a residual is queued, fails, its parent is retried, the parent
+-- regenerates the same residual, and the pair cycles forever at no cost to
+-- anybody's counter.  `mFailed` is supposed to stop that, and this is the
+-- statement of why, checked as a finite predicate so a later edit to the
+-- freshness filter breaks a check and not a run:
+--
+--   a conjecture c with `M.lookup c mFailed == Just n` is excluded from
+--   `freshSized` whenever the current rule count is n.
+--
+-- So a requeued residual costs one membership test and nothing else until the
+-- rule set actually changes -- and when it changes, the machine genuinely
+-- knows something it did not know when the residual failed, which is the only
+-- condition under which retrying is not a loop.  The predicate below is
+-- exactly the one `freshSized` applies, evaluated on a residual-shaped
+-- witness, and it is reported in the round-0 log.
+residualFailedContract :: Bool
+residualFailedContract =
+    not (freshAt 7) && freshAt 8 && not (usefulResidual (V 0, V 1))
+                    && usefulResidual witness
+  where
+    -- `x = x + 0*x`, the flagship residual, recorded as having failed at a
+    -- rule count of 7
+    witness = canonVars (x_, bin "+" x_ (bin "*" zero_ x_))
+    failed  = M.singleton witness (7 :: Int)
+    freshAt n = M.lookup witness failed /= Just n
 
 kernelAcceptLegacy :: Handle -> Int -> ((Term,Term),String) -> IO Bool
 kernelAcceptLegacy logh roundNo ((l,r),_) =
@@ -1891,6 +2132,17 @@ data Machine = Machine
   -- machine/Knobs.hs.  The constants at the top of this file are now only
   -- the DEFAULTS, and an absent conf reproduces them exactly.
   , mKnobs :: K.Knobs
+  -- ---- the kernel's refusals, kept.  See `KernelOutcome`. ----
+  -- subgoals harvested from LAST round's refusals, waiting to be stated.
+  -- Capped at `kResidualQueueCap`; what did not fit is logged, not dropped
+  -- quietly.
+  , mResidualQueue :: [(Term,Term)]
+  -- subgoal -> the parents that stalled on it, cumulative.  This is the only
+  -- structure that can answer the question the seam exists for: did a residual
+  -- become a lemma that closed the candidate it came out of?
+  , mResidualFrom :: M.Map (Term,Term) [(Term,Term)]
+  -- residual-sourced subgoals that the kernel later accepted, cumulative
+  , mResidualProved :: S.Set (Term,Term)
   }
 
 -- ===================================================================
@@ -2069,6 +2321,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
   0 (K.kAssign K.defaultKnobs) M.empty K.defaultKnobs
+  [] M.empty S.empty
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -2782,8 +3035,16 @@ round1 disp mem logh libh ref = do
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
+      -- THE GENERATOR'S WIDTH AND THE FINGERPRINT'S WIDTH ARE TWO NUMBERS.
+      -- They were one, and a four-variable researcher candidate consequently
+      -- crashed `eval` (see `variableHorizon`).  `nv` still governs GENERATION
+      -- and is still `kVars`; `nvEnv` governs the ENVIRONMENTS and is widened
+      -- to whatever the thought file demands, clamped at `agdaVarCeiling`.
+      -- Inert on every existing run: `assignments` extends a row rather than
+      -- perturbing it, so a term over x,y,z fingerprints identically.
       nv = K.kVars (mKnobs m)
-      envs = assignments nv (mAssign m)
+      nvEnv = max nv (variableHorizon (mThoughts m))
+      envs = assignments nvEnv (mAssign m)
       rules = usableRules m
       raw = genTermsModulo (provedCommutative m) (provedAssociative m)
               sig nv (mSize m)
@@ -2801,9 +3062,65 @@ round1 disp mem logh libh ref = do
         ++ [ canonVars (l,r)
            | (l,r) <- mThoughts m
            , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+           -- FAIL CORRECTLY, NOT LOUDLY-BY-ACCIDENT.  A candidate over more
+           -- variables than the certificate emitter can spell is dropped
+           -- here, before `fingerprint` indexes an environment that is not
+           -- that wide.  Without this the drop happened as `Prelude.!!:
+           -- index too large` and took the process with it.
+           , all (< nvEnv) (vars l ++ vars r)
            , wellFormedTerm syms l
            , wellFormedTerm syms r
-           , fingerprint sem envs l == fingerprint sem envs r ] )
+           , fingerprint sem envs l == fingerprint sem envs r ]
+        -- THE KERNEL'S OWN QUESTIONS, asked back.  These are the subgoals
+        -- agda stalled on while refusing last round's candidates.  They enter
+        -- through exactly the filters a generated conjecture crosses -- in
+        -- the vocabulary, well-formed, and agreeing on the fingerprint sample
+        -- -- so a residual of a FALSE parent (`x·x = s(x)`, `x·max(x,1) =
+        -- s(x)`) is refuted here and never reaches the prover.  Provenance
+        -- buys priority in `freshSized` and nothing else.
+        ++ residualAdmittedList )
+      -- Same filters, named once so the log can report what survived them: a
+      -- residual dropped by the firewall and a residual never generated look
+      -- identical otherwise, and they are different diseases.  The `nvEnv`
+      -- guard is the one WIRE 6 added for thought-file candidates and it
+      -- belongs here for the same reason -- `fingerprint` on the line below
+      -- indexes the environment, and `Obstruction`'s parser can produce any
+      -- of x..w.
+      residualAdmittedList =
+        [ canonVars (l,r)
+        | (l,r) <- mResidualQueue m
+        , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+        , all (< nvEnv) (vars l ++ vars r)
+        , wellFormedTerm syms l
+        , wellFormedTerm syms r
+        , fingerprint sem envs l == fingerprint sem envs r ]
+      residualAdmitted = S.fromList residualAdmittedList
+      -- WHERE A RESIDUAL ACTUALLY DIES, per round.  This is the diagnostic
+      -- that decides whether the wire can pay at all, and it is here because
+      -- the answer turned out to be structural rather than empirical: the
+      -- highest-leverage lemmas in the curriculum are `x·0 = 0`, `0 = y·0`
+      -- and `x = x+0`, and every one of them is a DEFINING EQUATION of the
+      -- machine's own vocabulary.  `provedByRewriting rules c` therefore
+      -- discharges them, they never reach `fresh`, and even if they did the
+      -- prover's fold tags them `follows-by-rewriting` and never submits them
+      -- to the kernel.  Agda needs them because its `_·_` recurses on the
+      -- other argument; the machine's rewriter does not.  A tally that hides
+      -- that reads as "the residuals were queued" when they were discarded
+      -- one filter later.
+      residualStatus c@(l,r)
+        | not (all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r))
+                                            = "out-of-vocabulary"
+        | not (all (< nvEnv) (vars l ++ vars r)) = "too-many-variables"
+        | not (wellFormedTerm syms l && wellFormedTerm syms r) = "ill-formed"
+        | fingerprint sem envs l /= fingerprint sem envs r
+                                            = "refuted-by-fingerprint"
+        | M.member c (mKnown m)             = "already-known"
+        | provedByRewriting rules c         = "follows-by-rewriting"
+        | congruent rules (mKnown m) c      = "congruent-with-known"
+        | M.lookup c (mFailed m) == Just nRules = "failed-at-this-rule-count"
+        | otherwise                         = "stated"
+      residualTally = M.toList (M.fromListWith (+)
+        [ (residualStatus (canonVars c), 1 :: Int) | c <- mResidualQueue m ])
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
       -- what it wrote down last round is not learning, it is looping
@@ -2821,7 +3138,18 @@ round1 disp mem logh libh ref = do
       -- round, and proved late pays for none of them — the difference
       -- between finding x+s(y)=s(x+y) before x+y=y+x and after it.
       -- Smallest first is the only order with that property.
-      freshSized = sortOn (\(l,r) -> (size l + size r, l, r))
+      -- RESIDUALS GO FIRST, and the reason is the same one the comment above
+      -- gives for smallest-first: the fold feeds each proof back in as it
+      -- goes.  A residual is by construction the subgoal some candidate
+      -- stalled on, so proving it early is precisely what can close the
+      -- parent in the same round -- and residuals are not always small (the
+      -- flagship one, `x = x + 0·x`, is bigger than the goal that produced
+      -- it), so size order alone would schedule them after the thing they are
+      -- supposed to unblock.  The tie-break inside each class is unchanged,
+      -- so with an empty residual queue this is the old order exactly.
+      freshSized = sortOn (\c@(l,r) -> ( if S.member c residualAdmitted
+                                           then 0 else 1 :: Int
+                                       , size l + size r, l, r))
               [ c | c <- conjectures
                   , not (M.member c (mKnown m))
                   , M.lookup c (mFailed m) /= Just nRules
@@ -3006,7 +3334,15 @@ round1 disp mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAcceptWith (kernelSyms m) (M.keys (mKnown m)) rules logh (mRound m)) results
+  -- Was `filterM (kernelAcceptWith ...) results`.  Same call, same order, same
+  -- decision -- `koAccepted` is the Bool `filterM` was reading -- but the
+  -- refusal is kept alongside it instead of being discarded.
+  outcomes <- mapM (\cand -> do
+                      ko <- kernelAcceptWith (kernelSyms m) (M.keys (mKnown m))
+                              rules logh (mRound m) cand
+                      pure (cand, ko))
+                   results
+  let checkedResults = [ cand | (cand, ko) <- outcomes, koAccepted ko ]
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
@@ -3015,9 +3351,82 @@ round1 disp mem logh libh ref = do
                                   / fromIntegral (length raw))
       newRules = mapMaybe (orient . fst) checkedResults
       newLemmas = [ c | (c,_) <- checkedResults, not (isJust (orient c)) ]
+      -- ---- the refusals of THIS round, read back ----
+      harvest = harvestResiduals outcomes
+      obTotal = length [ () | (_, ko) <- outcomes, isJust (koObstruction ko) ]
+      obWeak  = length [ () | (_, ko) <- outcomes
+                            , Just (OB.TacticTooWeak _) <- [koObstruction ko] ]
+      obRaw   = length [ () | (_, ko) <- outcomes
+                            , Just (OB.Residual _) <- [koObstruction ko] ]
+      obUnparsed = length [ () | (_, ko) <- outcomes
+                               , Just (OB.Unparsed _) <- [koObstruction ko] ]
+      -- what triage did to the residuals, per occurrence.  The refuted count
+      -- is the livelock that did NOT enter the queue, and it is the number
+      -- that says whether the filter is earning its place in this run.
+      obPairs = [ (fromOb a, fromOb b)
+                | (_, ko) <- outcomes
+                , Just (OB.Residual (a,b)) <- [koObstruction ko] ]
+      obRefuted = length [ () | p <- obPairs
+                              , OB.Refuted _ <- [residualVerdict p] ]
+      obDegenerate = length [ () | p <- obPairs
+                                 , OB.Degenerate <- [residualVerdict p] ]
+      knownAfter = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
+      -- The subgoal -> parents index, cumulative.  Kept for every harvested
+      -- residual, INCLUDING ones the queue has no room for, because the
+      -- question "did this residual close its parent?" must still be
+      -- answerable if it arrives by another route.
+      residualFrom' = foldl' (\mp (sub,parent) ->
+                                M.insertWith (\new old -> ordNub (new ++ old))
+                                             sub [parent] mp)
+                             (mResidualFrom m) harvest
+      -- A residual that has already been proved, or that is already stated,
+      -- is not material any more.  Everything else queues, newest first,
+      -- capped -- and `residualDropped` below is what did not fit.
+      residualPending = ordNub
+        ( [ sub | (sub,_) <- harvest ]
+          ++ mResidualQueue m )
+      residualLive = [ c | c <- residualPending, not (M.member c knownAfter) ]
+      residualQueue' = take kResidualQueueCap residualLive
+      residualDropped = length residualLive - length residualQueue'
+      -- THE NUMBER THE SEAM EXISTS FOR, in two parts.  A residual-sourced
+      -- theorem is a subgoal the kernel handed back that later came back
+      -- through the kernel as a theorem.  A closed parent is a candidate the
+      -- kernel had REFUSED that is now accepted, and one of the residuals it
+      -- stalled on is among those theorems.  The second is the whole point;
+      -- the first is necessary for it and is reported separately so a partial
+      -- result cannot be read as the full one.
+      residualTheorems = [ c | (c,_) <- checkedResults
+                             , M.member c residualFrom' ]
+      residualProved' = foldl' (flip S.insert) (mResidualProved m) residualTheorems
+      -- The rule set this round ends with.  Used only by the dependence test
+      -- below; nothing installs from it.
+      roundRules = rules ++ concat
+        [ maybe (lemmaRules [c]) (:[]) (orient c) | (c,_) <- checkedResults ]
+      -- IS THE LEMMA LOAD-BEARING, or did the parent merely happen to be
+      -- accepted in the same round?  "Accepted after its residual was proved"
+      -- is a coincidence claim and this repository has been burned by
+      -- coincidence claims.  The dependence claim is checkable and cheap:
+      -- delete the residual's rules from the round's rule set and ask the
+      -- engine's own prover again.  If the parent still goes through, the
+      -- residual was not what closed it and it is not counted.
+      subRules sub = maybe (lemmaRules [sub]) (:[]) (orient sub)
+      dependsOnResidual sub parent =
+        let without = [ rl | rl <- roundRules, rl `notElem` subRules sub ]
+        in isJust (proveByInduction roundRules parent)
+             && isNothing (proveByInduction without parent)
+      closedParents =
+        [ (p, sub)
+        | (p,_) <- checkedResults
+        , (sub, ps) <- M.toList residualFrom'
+        , S.member sub residualProved'
+        , p `elem` ps
+        , dependsOnResidual sub p ]
       m' = m { mRules = mRules m ++ newRules
              , mLemmas = mLemmas m ++ newLemmas
-             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
+             , mKnown = knownAfter
+             , mResidualQueue = residualQueue'
+             , mResidualFrom = residualFrom'
+             , mResidualProved = residualProved'
              , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
                           [ c | c <- fresh, notElem c (map fst checkedResults) ]
              , mRound = mRound m + 1
@@ -3054,6 +3463,34 @@ round1 disp mem logh libh ref = do
       Nothing   -> return ()
       Just path -> appendFile path (showTermP l ++ "\t" ++ showTermP r ++ "\n")
   hFlush libh
+  -- ------------------------------------------------- the kuttaka's remainder
+  --
+  -- What the kernel refused, and what of it was material.  `parsed` counts
+  -- refusals whose `A != B` came back as terms at all; `unparsed` is the
+  -- honest remainder, kept as text by `Obstruction` rather than guessed at.
+  -- `queued-in` is what the PREVIOUS round left, `admitted` how much of it
+  -- survived the same filters every conjecture crosses, and `dropped-by-cap`
+  -- is what did not fit -- a cap that does not say what it dropped reads as
+  -- coverage it did not have.
+  hPrintf logh
+    "  OBSTRUCTION  refusals=%d parsed=%d tactic-too-weak=%d residual=%d unparsed=%d triage-refuted=%d triage-degenerate=%d material=%d distinct=%d queued-in=%d admitted=%d queued-out=%d dropped-by-cap=%d\n"
+    obTotal (obWeak + obRaw) obWeak obRaw obUnparsed
+    obRefuted obDegenerate
+    (length harvest) (length (ordNub (map fst harvest)))
+    (length (mResidualQueue m)) (S.size residualAdmitted)
+    (length residualQueue') residualDropped
+  forM_ (take 8 (ordNub harvest)) $ \((sl,sr),(pl,pr)) ->
+    hPrintf logh "  RESIDUAL  %s = %s   (%s = %s stalled here)\n"
+      (show sl) (show sr) (show pl) (show pr)
+  forM_ residualTheorems $ \(l,r) ->
+    hPrintf logh "  RESIDUAL-THEOREM  %s = %s   (this subgoal came out of a kernel refusal)\n"
+      (show l) (show r)
+  -- The claim this line makes is the strong one and it is checked, not
+  -- inferred from co-occurrence: the parent goes through with the residual's
+  -- rules in the set and does NOT go through without them.
+  forM_ closedParents $ \((pl,pr),(sl,sr)) ->
+    hPrintf logh "  RESIDUAL-CLOSES-PARENT  %s = %s   needs   %s = %s\n"
+      (show pl) (show pr) (show sl) (show sr)
   -- SEED DISPOSITION.  A seeded candidate that never appears in the log is
   -- indistinguishable from one that was never read, and on the first WIRE 5
   -- run that ambiguity cost a measurement: 20 pair candidates went in, the
@@ -3068,6 +3505,9 @@ round1 disp mem logh libh ref = do
         verdict
           | not (null missing)             = "out-of-vocabulary:" ++ intercalate "," (ordNub missing)
           | not (wellFormedTerm syms l && wellFormedTerm syms r) = "ill-formed"
+          -- must precede the fingerprint line: `fingerprint` would index an
+          -- environment narrower than the candidate.  See `variableHorizon`.
+          | any (>= nvEnv) (vars l ++ vars r) = "too-many-variables"
           | fingerprint sem envs l /= fingerprint sem envs r = "refuted-by-fingerprint"
           | M.member c (mKnown m)          = "already-known"
           | provedByRewriting rules c      = "follows-by-rewriting"
@@ -3339,7 +3779,8 @@ round1 disp mem logh libh ref = do
             -- and the same kernel, because the invariant is that every rule in
             -- play was accepted in THIS process.  Completion gets no exemption.
             else do
-              ok <- kernelAcceptWith (kernelSyms m2) (M.keys (mKnown m2))
+              ok <- koAccepted <$> kernelAcceptWith (kernelSyms m2)
+                      (M.keys (mKnown m2))
                       (usableRules m2) logh (mRound m2) (eq, note)
               if not ok
                 then do
@@ -3620,6 +4061,78 @@ main = do
       other -> do
         hPutStrLn stderr ("--certify-self-test: unexpected verdicts " ++ show other)
         exitFailure
+  -- THE SEAM, END TO END, IN THIS FILE'S OWN TYPES.  `Obstruction.selfTest`
+  -- checks the parser against verbatim machine.log strings; this checks the
+  -- WIRE -- that a rejection string plus the goal the engine actually holds
+  -- comes back out as a MathMachine conjecture, and that the junk filter and
+  -- the anti-livelock contract hold on the shapes the log really contains.
+  when (args == ["--obstruction-self-test"]) $ do
+    parserOk <- OB.selfTest
+    let goalOneTimesX = (x_, bin "*" (su zero_) x_)
+        rejectOneTimesX =
+          "cached: x != x + 0 \183 x of type \8469 when checking that the \
+          \expression refl has type x \8801 1 \183 x"
+        goalMaxXX = (x_, bin "max" x_ x_)
+        rejectMaxXX =
+          "cached: x != max x x of type \8469 when checking that the \
+          \expression refl has type x \8801 max x x"
+        -- a residual of a FALSE parent, verbatim from the log: the parent
+        -- `x·max(x,1) = s(x)` is false and so is the residual, and 126 of the
+        -- log's occurrences are this one.  It must not reach the queue.
+        goalFalse = (bin "*" x_ (bin "max" x_ (su zero_)), su x_)
+        rejectFalse =
+          "cached: x \183 max x 1 != suc x of type \8469 when checking that \
+          \the expression refl has type x \183 max x 1 \8801 suc x"
+        outcomes =
+          [ ((goalOneTimesX, "[induction on x]")
+            , KernelOutcome False
+                (Just (OB.classify (toOb (fst goalOneTimesX)
+                                   , toOb (snd goalOneTimesX)) rejectOneTimesX)))
+          , ((goalMaxXX, "[induction on x]")
+            , KernelOutcome False
+                (Just (OB.classify (toOb (fst goalMaxXX), toOb (snd goalMaxXX))
+                                   rejectMaxXX)))
+          , ((goalFalse, "[induction on x]")
+            , KernelOutcome False
+                (Just (OB.classify (toOb (fst goalFalse), toOb (snd goalFalse))
+                                   rejectFalse)))
+          ]
+        harvested = harvestResiduals outcomes
+        -- the reproductive case: `x = 1·x` stalls at `x = x + 0·x`, which is
+        -- a different and more primitive statement
+        wantSub = orientLikeRound (x_, bin "+" x_ (bin "*" zero_ x_))
+        -- `x = max x x` stalls at itself, so it yields no conjecture: the
+        -- tactic has to escalate, the vocabulary does not have to grow
+        harvestOk = map fst harvested == [wantSub]
+        parentOk = map snd harvested == [goalOneTimesX]
+        -- THE FILTER IS OBSTRUCTION'S, NOT THIS FILE'S.  `worthQueueing` is
+        -- the specification; this checks that the harvest agrees with it on
+        -- the same refusals, so the parent-tracking wrapper cannot drift away
+        -- from the triage that was measured over the whole log.
+        spec = OB.worthQueueing [ ob | (_, ko) <- outcomes
+                                     , Just ob <- [koObstruction ko] ]
+        specOk = S.fromList (map (\(a,b) -> (toOb a, toOb b)) (map fst harvested))
+                   == S.fromList spec
+        junkOk = not (usefulResidual (V 0, V 1))
+                   && not (usefulResidual (x_, x_))
+                   && not (usefulResidual (bin "*" x_ x_, su x_))
+                   && usefulResidual wantSub
+        -- both spellings of the same lemma collapse to one queue entry
+        orientOk = orientLikeRound (x_, bin "+" x_ zero_)
+                     == orientLikeRound (bin "+" x_ zero_, x_)
+    hPrintf stdout "  parser (Obstruction.selfTest)       %s\n" (show parserOk)
+    hPrintf stdout "  residual harvested as a conjecture  %s  %s\n"
+      (show harvestOk) (show (map fst harvested))
+    hPrintf stdout "  parent recorded for the residual    %s\n" (show parentOk)
+    hPrintf stdout "  agrees with OB.worthQueueing        %s\n" (show specOk)
+    hPrintf stdout "  refuted and degenerate dropped      %s\n" (show junkOk)
+    hPrintf stdout "  both orientations collapse to one   %s\n" (show orientOk)
+    hPrintf stdout "  mFailed suppresses a requeue        %s\n"
+      (show residualFailedContract)
+    if parserOk && harvestOk && parentOk && specOk && junkOk && orientOk
+         && residualFailedContract
+      then putStrLn "OBSTRUCTION WIRE CHECKED" >> exitSuccess
+      else hPutStrLn stderr "--obstruction-self-test: FAILED" >> exitFailure
   when (args == ["--dso-live-self-test"]) $ do
     let task = boundedDSOTask "square-threshold" squareThresholdSearch
         projection = executeBoundedSearch squareThresholdSearch
@@ -3958,7 +4471,7 @@ readmitMemory logh extraSyms baseRules remembered = go 1 [] baseRules ordered
         else go (pass + 1) admitted' rules' (reverse dropped)
     step (admitted, rules, dropped) c = do
       let note = maybe "remembered" id (proveByInduction rules c)
-      ok <- kernelAcceptWith extraSyms admitted rules logh 0 (c, note)
+      ok <- koAccepted <$> kernelAcceptWith extraSyms admitted rules logh 0 (c, note)
       pure $ if ok
                then ( admitted ++ [c]
                     , rules ++ maybe (lemmaRules [c]) (:[]) (orient c)
@@ -4015,6 +4528,12 @@ runMachine disp batch = do
     (length remembered) (length distinct) (length admitted)
     (length distinct - length admitted) passes
   hPrintf logh "  DISPATCH  %s\n" (show disp)
+  -- The residual feedback's safety condition, checked rather than asserted:
+  -- `mFailed` keyed on the rule count is what stops a requeued residual from
+  -- cycling, and this is that predicate evaluated on a residual-shaped
+  -- witness.  A later edit to the freshness filter breaks the line, not a run.
+  hPrintf logh "  OBSTRUCTION-CONTRACT  mfailed-suppresses-requeue=%s queue-cap=%d\n"
+    (show residualFailedContract) kResidualQueueCap
   -- CLAMPED, and the clamp is the safety of WIRE 1 at startup.  `vocabulary`
   -- now names `mod`, `lcm` and `v2`, and machine/thoughts.math contains the
   -- residual line "mod(x,y)-wants-a-name:...", whose words `requiredVocabulary`
