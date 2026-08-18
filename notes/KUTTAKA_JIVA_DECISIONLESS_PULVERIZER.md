@@ -29,6 +29,17 @@ standpoint-conditioning; Siddhasena Divākara, *Sanmatitarka*). The substrate
 is natively *anekāntavādin*; the boolean overlay was a foreign imposition.
 The cure was **subtraction**, not addition: delete the decision.
 
+That the boolean is durnaya is no longer prose but a **theorem**
+(`Saptabhangi`): `दुर्नयः` proves that any two-valued verdict
+`f : सप्तभङ्गी → द्विपद` necessarily identifies two *distinct* of the three
+seeds asti / nāsti / avaktavya (three into two, by pigeonhole) — a boolean
+mind cannot hold even the threefold, let alone the sevenfold. And
+`क्रम-सह-भेदः` proves `स्यात्-अस्ति-नास्ति ≢ स्यात्-अवक्तव्यम्`: the
+simultaneous (yugapad) mode is irreducible to the sequential (krama) — the
+avaktavya is a genuine fourth position, not "both in turn." So the disease
+and its diagnosis are checked in the same corpus as the cure (Samantabhadra,
+Akalaṅka, Siddhasena, formalized).
+
 - `BhedaAvatarana.एकपदे : भेद (suc a)(suc b) ≡ गभीर (भेद a b)` — **`refl`**.
   The exact statement that was *stuck* on `discreteℕ x x` now holds
   definitionally, because the rule moves by structure (peel both heads),
