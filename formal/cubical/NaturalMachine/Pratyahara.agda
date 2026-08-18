@@ -172,3 +172,83 @@ xyz-names-YZ = refl
 -- untidiness.  It is the only available response, and the smallest
 -- instance of the obstruction is checked above.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  ONE REPETITION SUFFICES — proving what §3's prose asserted.
+--
+-- §3 says "the repair is one repetition and not a redesign" and does not
+-- prove it.  It is proved here.
+--
+-- With a letter allowed to occur twice, "nameable" changes meaning: a set
+-- is nameable when SOME contiguous run of positions has exactly that set
+-- of letters — not when every occurrence of every member is inside one
+-- run.  That distinction is the whole point of repeating a phoneme, and
+-- it is why the naive contiguity test of §2 does not apply here.
+--
+-- The list x y z x names all three pairs:  [x,y] , [y,z] , [z,x].
+------------------------------------------------------------------------
+
+eqL : L → L → Bool
+eqL x x = true
+eqL y y = true
+eqL z z = true
+eqL _ _ = false
+
+single : L → Set₃
+single a = eqL a
+
+_∪_ : Set₃ → Set₃ → Set₃
+(s ∪ t) l = s l or t l
+  where open import Cubical.Data.Bool using (_or_)
+
+eqBool : Bool → Bool → Bool
+eqBool true  true  = true
+eqBool false false = true
+eqBool _     _     = false
+
+eqSet : Set₃ → Set₃ → Bool
+eqSet s t = eqBool (s x) (t x) and (eqBool (s y) (t y) and eqBool (s z) (t z))
+
+-- the ten non-empty runs of a four-position list
+nameable4 : L → L → L → L → Set₃ → Bool
+nameable4 a b c d S =
+  eqSet (single a) S                              or
+  (eqSet (single b) S                             or
+  (eqSet (single c) S                             or
+  (eqSet (single d) S                             or
+  (eqSet (single a ∪ single b) S                  or
+  (eqSet (single b ∪ single c) S                  or
+  (eqSet (single c ∪ single d) S                  or
+  (eqSet (single a ∪ (single b ∪ single c)) S     or
+  (eqSet (single b ∪ (single c ∪ single d)) S     or
+   eqSet (single a ∪ (single b ∪ (single c ∪ single d))) S))))))))
+  where open import Cubical.Data.Bool using (_or_)
+
+-- x y z x — the śiva-sūtra move, at its smallest
+repaired-XY : nameable4 x y z x (mem XY) ≡ true
+repaired-XY = refl
+
+repaired-YZ : nameable4 x y z x (mem YZ) ≡ true
+repaired-YZ = refl
+
+repaired-XZ : nameable4 x y z x (mem XZ) ≡ true
+repaired-XZ = refl
+
+one-repetition-suffices :
+  (nameable4 x y z x (mem XY) ≡ true)
+  × (nameable4 x y z x (mem YZ) ≡ true)
+  × (nameable4 x y z x (mem XZ) ≡ true)
+one-repetition-suffices = repaired-XY , repaired-YZ , repaired-XZ
+
+------------------------------------------------------------------------
+-- So the pair of facts is complete, and they are the two halves of one
+-- design decision:
+--
+--   §3  repetition is FORCED   — no single-occurrence order names all
+--                                three, all six checked;
+--   §6  one repetition SUFFICES — x y z x names all three.
+--
+-- Which is the shape of the śiva-sūtras: ह twice, and not three times.
+-- Not carelessness, not corruption — the minimum a real obstruction
+-- allows.
+------------------------------------------------------------------------
