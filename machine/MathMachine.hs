@@ -33,7 +33,7 @@ module Main (main) where
 
 import qualified Data.Set as S
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition)
+import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition, isInfixOf)
 import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
 import Control.Monad (forM_, replicateM_, when, unless, filterM, foldM)
@@ -4693,6 +4693,69 @@ main = do
       hPrintf stdout "  %-16s rewriting=%-6s induction=%s\n" name
         (show (provedByRewriting rules g))
         (maybe "NO PROOF FOUND" id (proveByInduction rules g))
+    exitSuccess
+
+  -- HOW MUCH OF THE RESIDUAL STREAM IS AN ARTEFACT OF THE CLAUSE ORDER?
+  --
+  -- `Certificate.hs` Note A records that Agda's `+`/`·` recurse on the FIRST
+  -- argument while MathMachine's symDefs recurse on the SECOND, and justifies
+  -- keeping the mismatch: the first-argument order was measured to certify
+  -- strictly more of the machine's library.  That measurement priced one side.
+  -- This prices the other.
+  --
+  -- For every distinct lemma the kernel's own refusals demand, ask whether it
+  -- is already definitional under (a) the machine's clause order and (b) the
+  -- mirrored one.  A lemma definitional on ONE side and not the other is a
+  -- residual that exists only because the two standpoints disagree about what
+  -- `+` means -- not because the machine is missing mathematics.
+  --
+  -- Exact counts over the real log.  No sampling, no fitting.
+  when (args == ["--convention-cost"]) $ do
+    h <- openFile "machine/machine.log" ReadMode
+    hSetEncoding h utf8
+    ls <- fmap lines (hGetContents h)
+    let rejects = [ l | l <- ls, "KERNEL-REJECT" `isInfixOf` l ]
+        demanded = map fst (OB.curriculum rejects)
+        goals = [ (fromOb a, fromOb b) | (a, b) <- demanded ]
+        -- THE FULL VOCABULARY.  A first version of this probe used `start`,
+        -- whose mVocab is 3, so `*`, `max` and `-` had no defining rules at
+        -- all and every goal mentioning them counted as "missing mathematics".
+        -- The number that produced was wrong and nearly got published.
+        m0 = start { mVocab = length vocabulary }
+        theirs = usableRules m0
+        -- the mirrored clause order: Agda's, for + and *
+        mirrored =
+          [ (F "+" [F "0" [], V 0], V 0)
+          , (F "+" [F "s" [V 0], V 1], F "s" [F "+" [V 0, V 1]])
+          , (F "*" [F "0" [], V 0], F "0" [])
+          , (F "*" [F "s" [V 0], V 1], F "+" [V 1, F "*" [V 0, V 1]]) ]
+          ++ [ r | r@(l, _) <- theirs, headSym l `notElem` ["+", "*"] ]
+        headSym (F f _) = f
+        headSym _ = ""
+        defT = length [ () | g <- goals, provedByRewriting theirs g ]
+        defM = length [ () | g <- goals, provedByRewriting mirrored g ]
+        onlyT = [ g | g <- goals, provedByRewriting theirs g
+                    , not (provedByRewriting mirrored g) ]
+        onlyM = [ g | g <- goals, provedByRewriting mirrored g
+                    , not (provedByRewriting theirs g) ]
+        neither = [ g | g <- goals, not (provedByRewriting theirs g)
+                      , not (provedByRewriting mirrored g) ]
+    hPrintf stdout "  distinct lemmas the kernel's refusals demand: %d\n"
+      (length goals)
+    hPrintf stdout "  definitional under the MACHINE's clause order:  %d\n" defT
+    hPrintf stdout "  definitional under AGDA's clause order:        %d\n" defM
+    hPrintf stdout "  definitional under machine ONLY (pure artefact of the split): %d\n"
+      (length onlyT)
+    hPrintf stdout "  definitional under agda ONLY:                  %d\n"
+      (length onlyM)
+    hPrintf stdout "  genuine missing mathematics on both readings:  %d\n"
+      (length neither)
+    putStrLn "  -- machine-only, the first eight --"
+    forM_ (take 8 onlyT) $ \(l, r) ->
+      hPrintf stdout "     %s = %s\n" (showTermP l) (showTermP r)
+    putStrLn "  -- neither, the first eight: this is the real curriculum --"
+    forM_ (take 8 neither) $ \(l, r) ->
+      hPrintf stdout "     %s = %s\n" (showTermP l) (showTermP r)
     exitSuccess
 
   when (args == ["--obstruction-self-test"]) $ do
