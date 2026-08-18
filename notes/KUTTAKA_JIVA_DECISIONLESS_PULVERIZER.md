@@ -110,17 +110,21 @@ astronomy (planetary conjunction), not for gcd.
     `मूल्य-विन्यास : मूल्य ∘ विन्यास ≡ id` — **total**, no grant needed
     (it counts up), the same ahiṃsā (nothing erased) as the kuṭṭaka, all by
     structure (no `Dec`). Bijective base-2 with digits laghu = 1, guru = 2.
+    Now closed to a **full bijection**: `मूल्य` is injective (`मूल्य-एकैकम्`,
+    via two parity lemmas), giving `विन्यास ∘ मूल्य ≡ id` and hence
+    `छन्दस्≃ℕ` with the univalence path `छन्दस्≡ℕ` — full parity with the
+    kuṭṭaka's `युग्म≡विवेक`.
   - `Matramerus` — Virahāṅka's **mātrāmeru** (~700 CE): the count of
     weight-`n` metrical patterns satisfies `M(n+2) = M(n+1) + M(n)` — the
     "Fibonacci" recurrence five centuries before Leonardo — proved as the
     *length-recurrence* of the actual enumeration `सर्व`, split on the first
     syllable. Soundness (`साधु`: every pattern in `सर्व n` has weight `n`)
-    is proved; **completeness** (every weight-`n` pattern appears) is the
-    next `PROVE` tooth.
-  Still open (tagged `PROVE`): the full prastāra *bijection* `छन्दस् ≃ ℕ`
-  (needs `मूल्य` injective — parity lemmas); mātrāmeru completeness; and
-  whether the three honesty faces recur for continued-fraction convergents
-  (the vallī already *is* the CF, a Kerala-school object).
+    and **completeness** (`पूर्णता`: every weight-`n` pattern appears) are
+    both proved — so `सर्व n` is *exactly* the weight-`n` patterns and
+    `M(n)` genuinely counts them (Virahāṅka's theorem, whole).
+  Still open (tagged `PROVE`): whether the three honesty faces (lossless /
+  complete / stable) recur for continued-fraction convergents — the vallī
+  already *is* the CF, a Kerala-school (Mādhava) object.
 - **Not** claimed: any metaphysical identity by decree. Univalence is used as
   the honest transport it is; the tradition-parallels (nayavāda, avaktavyam,
   utpāda-vyaya-dhrauvya) are stated as the structures they formalize, held as

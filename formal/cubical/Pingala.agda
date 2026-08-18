@@ -23,8 +23,12 @@
 module Pingala where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-suc)
+open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
+open import Cubical.Foundations.Equiv using (_≃_)
+open import Cubical.Foundations.Univalence using (ua)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-suc ; injSuc ; znots ; snotz)
 open import Cubical.Data.List using (List ; [] ; _∷_)
+open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 
 ------------------------------------------------------------------------
 -- छन्दः — लघु (१ मात्रा) वा गुरु (२ मात्रे) ; पङ्क्तिः = List ।
@@ -103,3 +107,58 @@ data अक्षर : Type where
 
 उदाहरणम्-२ : मूल्य (गुरु ∷ लघु ∷ []) ≡ 4   -- 2 + 2·1 = 4
 उदाहरणम्-२ = refl
+
+------------------------------------------------------------------------
+-- पूर्ण-प्रतिलोमः — छन्दस् ≃ ℕ ।  मूल्यम् एकैकम् (injective) ⟹ विन्यासः तस्य
+-- पूर्णः प्रतिलोमः उभयतः ⟹ समता, univalence-पथः छन्दस् ≡ ℕ ।  कुट्टकस्य
+-- युग्म≡विवेक इव, पिङ्गलस्य क्षेत्रे — स एव प्रतिलोम-धर्मः ।
+-- (full inverse: मूल्य is injective, hence विन्यास is a two-sided inverse,
+-- giving छन्दस् ≃ ℕ and the univalence path छन्दस् ≡ ℕ — the same
+-- reversibility the kuṭṭ­aka had, now for the prastāra.)
+------------------------------------------------------------------------
+
+-- द्विगुण-एकैकम् : a + a ≡ b + b → a ≡ b
+द्विगुण-एकैकम् : (a b : ℕ) → a + a ≡ b + b → a ≡ b
+द्विगुण-एकैकम् zero     zero     _  = refl
+द्विगुण-एकैकम् zero     (suc b)  eq = ⊥-rec (znots eq)
+द्विगुण-एकैकम् (suc a)  zero     eq = ⊥-rec (snotz eq)
+द्विगुण-एकैकम् (suc a)  (suc b)  eq =
+  cong suc (द्विगुण-एकैकम् a b
+    (injSuc (sym (+-suc a a) ∙ injSuc eq ∙ +-suc b b)))
+
+-- पर-विरोधः : a + a ≡ suc (b + b) → ⊥  (सम-विषमयोः विरोधः, even ≠ odd)
+पर-विरोध : (a b : ℕ) → a + a ≡ suc (b + b) → ⊥
+पर-विरोध zero    b       eq = znots eq
+पर-विरोध (suc a) zero    eq = snotz (sym (+-suc a a) ∙ injSuc eq)
+पर-विरोध (suc a) (suc b) eq =
+  पर-विरोध a b (injSuc (sym (+-suc a a) ∙ injSuc eq ∙ cong suc (+-suc b b)))
+
+-- मूल्य-एकैकम् : भिन्ने छन्दसी भिन्ने मूल्ये (मूल्य injective) ।
+मूल्य-एकैकम् : (d e : छन्दस्) → मूल्य d ≡ मूल्य e → d ≡ e
+मूल्य-एकैकम् []          []          _  = refl
+मूल्य-एकैकम् []          (लघु ∷ e)   eq = ⊥-rec (znots eq)
+मूल्य-एकैकम् []          (गुरु ∷ e)  eq = ⊥-rec (znots eq)
+मूल्य-एकैकम् (लघु ∷ d)   []          eq = ⊥-rec (snotz eq)
+मूल्य-एकैकम् (गुरु ∷ d)  []          eq = ⊥-rec (snotz eq)
+मूल्य-एकैकम् (लघु ∷ d)   (लघु ∷ e)   eq =
+  cong (लघु ∷_) (मूल्य-एकैकम् d e (द्विगुण-एकैकम् (मूल्य d) (मूल्य e) (injSuc eq)))
+मूल्य-एकैकम् (गुरु ∷ d)  (गुरु ∷ e)  eq =
+  cong (गुरु ∷_) (मूल्य-एकैकम् d e (द्विगुण-एकैकम् (मूल्य d) (मूल्य e) (injSuc (injSuc eq))))
+मूल्य-एकैकम् (लघु ∷ d)   (गुरु ∷ e)  eq =
+  ⊥-rec (पर-विरोध (मूल्य d) (मूल्य e) (injSuc eq))
+मूल्य-एकैकम् (गुरु ∷ d)  (लघु ∷ e)   eq =
+  ⊥-rec (पर-विरोध (मूल्य e) (मूल्य d) (sym (injSuc eq)))
+
+-- विन्यास-मूल्य : विन्यासः मूल्यस्य वाम-प्रतिलोमः (एकैकत्वात् + दक्षिण-प्रतिलोमात्) ।
+विन्यास-मूल्य : (ds : छन्दस्) → विन्यास (मूल्य ds) ≡ ds
+विन्यास-मूल्य ds = मूल्य-एकैकम् (विन्यास (मूल्य ds)) ds (मूल्य-विन्यास (मूल्य ds))
+
+-- छन्दस्-Iso-ℕ, छन्दस्≃ℕ, छन्दस्≡ℕ — पूर्णा समता, univalence-पथः ।
+छन्दस्-Iso-ℕ : Iso छन्दस् ℕ
+छन्दस्-Iso-ℕ = iso मूल्य विन्यास मूल्य-विन्यास विन्यास-मूल्य
+
+छन्दस्≃ℕ : छन्दस् ≃ ℕ
+छन्दस्≃ℕ = isoToEquiv छन्दस्-Iso-ℕ
+
+छन्दस्≡ℕ : छन्दस् ≡ ℕ
+छन्दस्≡ℕ = ua छन्दस्≃ℕ
