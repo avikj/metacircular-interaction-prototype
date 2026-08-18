@@ -137,6 +137,22 @@ solutionFamily : (a b g x₀ y₀ : ℤ) → a · x₀ + b · y₀ ≡ g
                → (t : ℤ) → a · (x₀ + t · b) + b · (y₀ + (- (t · a))) ≡ g
 solutionFamily a b g x₀ y₀ sol t = famId a b x₀ y₀ t ∙ sol
 
+-- Completeness fragment: any two solutions differ by a HOMOGENEOUS
+-- solution — a·(x−x') + b·(y−y') = 0.  With solutionFamily, this brackets
+-- the solution set from both sides (full parametrization by t·b/g, −t·a/g
+-- needs coprimality of a/g,b/g and is the remaining step).
+private
+  famDiffId : (a b x y x' y' : ℤ)
+            → a · (x + (- x')) + b · (y + (- y'))
+              ≡ (a · x + b · y) + (- (a · x' + b · y'))
+  famDiffId = solve ℤCommRing
+
+solutionsDiffer : (a b g x y x' y' : ℤ)
+                → a · x + b · y ≡ g → a · x' + b · y' ≡ g
+                → a · (x + (- x')) + b · (y + (- y')) ≡ pos 0
+solutionsDiffer a b g x y x' y' p q =
+  famDiffId a b x y x' y' ∙ cong₂ (λ u v → u + (- v)) p q ∙ -Cancel g
+
 ------------------------------------------------------------------------
 -- g is the gcd.  Same descent, read for divisibility: g divides both a
 -- and b, and any common divisor of a and b divides g.  (No r<b needed:
