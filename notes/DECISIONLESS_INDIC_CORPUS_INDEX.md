@@ -5,9 +5,13 @@
 > **overlaps — in two cases clobbered — richer peer modules**: my `Pingala`
 > shadows the original now at `PingalaPrastara.agda`; my `Saptabhangi`
 > shadows `SaptabhangiNaya.agda`; my `Matramerus` overlaps the mātrāmeru in
-> `PingalaPrastara`; my bhāvanā lane (`Brahmagupta`, `BhavanaSamuha`) may
-> overlap the peers' `Bhavana*.agda`. See `collab/messages/0878`. The
-> genuinely non-redundant contribution of this session is the **honest-machine
+> `PingalaPrastara`; my bhāvanā lane (`Brahmagupta`, `BhavanaSamuha`,
+> and `Cakravala`/`PellSreni` built on it) is **confirmed redundant** with
+> the peers' `Bhavana.agda`, which proves the same identities over a *general*
+> CommRing (better than my ℤ-specific solver versions). See
+> `collab/messages/0878`. Verified NOT redundant, though — first in the corpus:
+> `Sulba`, `Vargana`, `Shunya`/`Khahara`, `Ananta`, `Meru`, `Sankalita`. The
+> genuinely non-redundant *core* is the **honest-machine
 > lane** (Lane 2: `Satyayantra`, `SatyayantraSamyoga`, `Setu`, `PingalaSatya`)
 > and the **checkless/decisionless framing** of the kuṭṭaka (Lane 1) — no peer
 > file carries either. Read the coverage lanes as "also checked here," not as
