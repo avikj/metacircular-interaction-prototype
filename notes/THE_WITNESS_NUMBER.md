@@ -242,3 +242,64 @@ Every site is still exactly 2. But three different facts were being run together
 So the honest conclusion is narrower than §5's: every site here is 2; one is constrained, one has a non-discrete observation space, and each of those two was proved individually rather than by the general theorem.
 
 **Open, named, not estimated:** whether the ceiling holds at `Laghava`. `LocatingIsEnough` says what would suffice — that the witnesses be locatable. Equality of functions ℕ → ℕ is undecidable, but locating finitely many *specific* denotations against an arbitrary one is a weaker demand, and nothing here settles whether it can be met.
+
+---
+
+## 13. The two bounds are both about the decoders, and the picture is a chain
+
+Later work located both bounds precisely, and neither turned out to be about the mathematics being obstructed.
+
+### The ceiling: what the decoder may *read*
+
+`WhyTheSitesAreTwo` asked for `Discrete Y`. `LocatingIsEnough` weakened that to `Locates q ys` — the proof never compares two arbitrary observations, only the *list's* observations against an incoming one. `TheCeilingIsAboutReading` drops the hypothesis from `Y` entirely:
+
+```agda
+ProbeLaw q t p g x = g (p (q x)) ≡ t x                    g : Z → T
+probe-ceiling : Discrete Z → CollisionFree (p ∘ q) t ys → ¬ Refutes (ProbeLaw q t p) ys
+```
+
+No hypothesis on `Y` at all — the table is built over `Z`, so `Y` is never compared with anything. At `Laghava`, whose `Denotation = ℕ → ℕ` is not discrete, one evaluation point suffices (`probe1 d = d 1`), and `laghava-probe-is-two` follows.
+
+The full space `Denotation → ℕ` stays open **for a stated reason**: a decoder there must recognise an arbitrary `d : ℕ → ℕ` as a listed denotation, which is a decision of function equality. This lane builds no such decision and refutes none. That is the one open item in the thread whose openness is a fact rather than a gap.
+
+### The floor: whether the decoders *answer*
+
+Four modules proved the floor by exhibiting a constant decoder and each called it hypothesis-free. Each is right at its site; none is right in general. `TheFloorIsAnswerability` names the hypothesis:
+
+```agda
+Answerable law = (x : X) → Σ[ d ∈ D ] law d x
+```
+
+A function space into an inhabited type happens to be answerable — that accident is what the four proofs were rediscovering. Where it fails, the floor fails: `lonely-witness-number-1` realises witness number exactly 1.
+
+### And answerability is a gate, not an axis
+
+`TheFloorIsAnswerability` §4 then drew these as two independent axes with four cases. That was wrong, and `WitnessDichotomy` corrects it:
+
+```agda
+unanswerable→one : ¬ (Σ[ d ∈ D ] law d x) → Refutes law (x ∷ [])
+```
+
+One unanswerable point refutes on its own, whatever the decoders can read. So the structure is a **chain**:
+
+| | cost |
+|---|---|
+| not answerable | **1** — degenerate: one unreachable point, not two confused ones |
+| answerable, readable | **2** — every site in this corpus, and BARRIER.md's open problem |
+| answerable, not readable | **≥ 2**; 3 and ∞ both occur |
+
+`WitnessDichotomy.collision-witness-number-2` states "collision plus floor gives exactly 2" once, replacing three hand-assembled copies.
+
+**Open, named, not estimated:** whether *reading* admits a converse. A discrete probe **suffices** for the ceiling, and its absence permits 3 and ∞ — but no readability condition has been shown **necessary**. A decoder space with no discrete probe and ceiling 2 would settle it; none is known here.
+
+## 14. Applied: `notes/BARRIER.md`
+
+B3 ("any observable with arbitrary — even non-computable — post-processing factors through the blurred measure") *is* the probe structure, arrived at independently and for analytic reasons. `BarrierIsTwoWitnesses` prices that note's precise open problem:
+
+- `one-config-never-suffices` — **no single configuration can establish a barrier of this kind**, so a programme of the form *construct a single spectrum with property P* is looking at the wrong kind of object;
+- `barrier-from-a-pair` — the pair the note asks for is not evidence for the barrier, it **is** the barrier, killing arbitrary Φ at once;
+- `no-pair-on-a-family` — on a family already checked pairwise, the barrier provably fails.
+
+The note had reached the number 2 from the mathematics, without a reason. B3 supplies the probe structure; the probe structure is what fixes the cost at two.
+
+**Nothing analytic is claimed** — no pair is asserted to exist, and nothing about ζ, admissibility, the counting law, the functional equation, `L`, or resolution. This establishes strictly less than B3.
