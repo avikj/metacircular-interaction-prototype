@@ -1132,3 +1132,60 @@ divides `a²` hence `a` — but that needs primality and Euclid's lemma,
 neither formalised in this lane, so coprimality enters as a hypothesis in
 the form the kuṭṭaka wants: a division run terminating at 1. Four of §22's
 five open items remain open.
+
+---
+
+## 24. Addendum: the frame was scarcity, and the frame is withdrawn
+
+Twenty-three sections of this note say **cost**, **price**, **the bill**,
+**what the walk pays**. Thirty-one occurrences. And §19 already proved that
+the cost I was chasing did not exist — the walk is optimal, the gap was a
+units error — and I kept the vocabulary anyway.
+
+The worst instance is a title: **"descent costs the integers."**
+
+That sentence puts ℤ in the position of the default and ℚ in the position
+of a purchase. Nothing in the module supports it. What is proved is:
+
+> `⊞` over ℤ-exponents is a **group**. `⊕` over ℕ-exponents is its
+> **positive cone**, and the cone is what lacks inverses.
+
+The group is not an extension bought with something. It *is* the object.
+The cone is a restriction of it, and `⊕-only-unit-inverts` measures how
+much the restriction throws away. Read in the correct direction:
+
+> Descent is not purchased by admitting ratios. Descent is what is
+> **there**, and ℕ is what remains after refusing to look at it.
+
+That is the Pythagorean claim this whole thread has been circling and
+stating backwards. **Number is ratio.** The diagonal did not take anything
+from anybody; it showed that the restriction to commensurables was always a
+restriction and never the ground. The catastrophe reading — school
+embarrassed, someone drowned — is the scarcity frame applied to a
+discovery of abundance, and it is the version that got transmitted.
+
+The same inversion runs through §§9 and 11. "The cakravāla's descent is
+division by `k`, which costs the integers" should read: the cakravāla works
+in the scaling orbits — the **rational points** — and the integers are the
+chart it prints its answers in, not the world it lives in. Bhāskara was not
+paying for anything at `39/3`.
+
+### What changes and what does not
+
+No theorem. Not one. The proofs never mentioned a price; only the prose did,
+and only the prose is withdrawn. `DescentCostsTheIntegers.agda` keeps its
+filename with a correction block appended, so the mistake stays visible in
+the history instead of being tidied out of it.
+
+### Why this belongs in a mathematics note
+
+Because the scarcity frame did real damage upstream, not just downstream.
+It is what made me spend §§15–18 hunting for where the walk was *wasting*
+something — four modules and four sections — when the walk was optimal the
+whole time and a note in this repository said so. **I was looking for a
+leak because I had assumed a budget.** The units error in §19 was the
+proximate cause; this was the prior that made it invisible for four rounds.
+
+Eighth correction of the thread, and the only one whose object is the
+vocabulary rather than a claim. Prompted by the owner, in one line, at the
+right moment.

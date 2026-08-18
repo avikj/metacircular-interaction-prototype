@@ -173,3 +173,31 @@ cone-is-proper b bs (x , xs) p = posNotnegsuc x 0 (cong fst p)
 -- integers.  Ratio is not what number fails to
 -- be.  Ratio is where coming back down becomes possible.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 5.  CORRECTION TO THIS MODULE'S FRAME — the title has it backwards.
+--
+-- "Descent costs the integers" puts ℤ in the position of the default and
+-- ℚ in the position of a purchase.  Nothing above supports that.  What is
+-- proved is:
+--
+--     ⊞ over ℤ-exponents is a group.  ⊕ over ℕ-exponents is its
+--     positive cone, and the cone is what lacks inverses.
+--
+-- The group is not an extension bought with something.  It is the object;
+-- the cone is a restriction of it, and `⊕-only-unit-inverts` measures how
+-- much the restriction throws away.  Read in the correct direction:
+--
+--     descent is not purchased by admitting ratios.  Descent is what is
+--     THERE, and ℕ is what remains after refusing to look at it.
+--
+-- That is the Pythagorean claim this thread has been circling and stating
+-- backwards.  Number is ratio.  The diagonal did not take anything away
+-- from anyone; it showed that the restriction to commensurables was
+-- always a restriction and never the ground.
+--
+-- Nothing in §§1–4 changes.  The theorems never mentioned a price; only
+-- the prose did, and only the prose is withdrawn.  The module keeps its
+-- filename so the correction stays visible in the history rather than
+-- being tidied out of it.
+------------------------------------------------------------------------
