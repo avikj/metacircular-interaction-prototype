@@ -16,6 +16,21 @@
 # differ from what was there before.  If the original is recoverable from git
 # history, it should replace this file and this notice should be struck.
 #
+# SECOND DISAPPEARANCE, 2026-08-17.  The same file vanished from the working
+# tree again, in the canonical shared checkout, while tracked and present on
+# origin/main — and produced the identical symptom: every Bash call in the
+# session died on "cannot open .claude/hooks/no-python.sh".  Restored from
+# origin/main via the GitHub API because the shell needed to run `git checkout`
+# was itself blocked by the missing file.  That is the property worth naming:
+# THIS GUARD CAN DISABLE THE ONLY TOOL THAT COULD REPAIR IT.  A session that
+# hits it has no local way out.
+#
+# Twice is a pattern, and the cause is still not established either time.  What
+# is established: the two occurrences bracket merges into the shared checkout,
+# and .claude/ is the one instruction directory no test covers.  Until someone
+# finds the mechanism, treat a sudden total Bash failure in this repo as this
+# bug first and as your own command second.
+#
 # Scope: this layer guards the TOOL CALL.  The commit boundary is guarded by
 # .githooks/pre-commit and CI by .github/workflows/no-python.yml.  The three are
 # independent on purpose; do not collapse them.
