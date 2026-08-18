@@ -81,3 +81,41 @@ anuvrtti-noFactor =
 -- from all of them.  Filing it under "the same lemma" would have been
 -- tidier and wrong.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 4.  CORRECTION, appended 2026-08-18.
+--
+-- §3 above and the header say `AvaktavyaDoesNotFactor` "stays as it is,
+-- and the header says why: its route is exhaustion, not collision,
+-- because its decoder space is six utterances and no single pair of
+-- profiles separates the joint content from all of them."
+--
+-- The DISTINCTION is real.  The REASON is false.
+-- `NaturalMachine.TwoProfilesSuffice` exhibits the pair:
+--
+--     φ₁ = (⊤,⊤,⊥)   φ₂ = (⊥,⊥,⊤)
+--
+-- The joint content is false on both, and the six utterances split
+-- three-three by which profile they overshoot on — agreement sets
+-- disjoint and together exhaustive — so the pair refutes every
+-- utterance and avaktavya follows from two witnesses, not six cases.
+--
+-- What survives, now as theorems rather than as a reading:
+--
+--   * ONE profile never suffices (`every-profile-is-said`,
+--     `no-single-separator`) — that half of the prose was right;
+--   * TWO do (`pair-separates`).
+--
+-- So the invariant is not collision-versus-exhaustion.  It is the
+-- NUMBER OF WITNESSES: 1 for लाघव, अनुवृत्ति, carry/borrow and the fuel
+-- obstructions; 2 for अवक्तव्य.  Six was the size of the decoder space,
+-- which is an upper bound anyone can read off a finite type, not a
+-- measure of the absence.
+--
+-- The error's shape is worth keeping: this file was written to remove a
+-- reinvented lemma, noticed a genuine distinction the "one lemma" story
+-- was flattening, and then asserted a LOWER BOUND on witness count
+-- ("no single pair") by reading an upper bound off the decoder space.
+-- A lower bound needs its own proof.  §2 of the new module is that
+-- proof for the bound 1.
+------------------------------------------------------------------------
