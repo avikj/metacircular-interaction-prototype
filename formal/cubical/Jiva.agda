@@ -51,3 +51,5 @@ import Pingala
 import Matramerus
 -- ब्रह्मगुप्तस्य भावना — वर्ग-प्रकृतेः संयोगः (चक्रवालस्य बीजम्)
 import Brahmagupta
+
+import Satyayantra
