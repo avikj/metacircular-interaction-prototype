@@ -188,3 +188,27 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 -- §5 does not settle it and Pāṇini's recourse to convention is evidence
 -- rather than proof.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  THE अण् CLAIM IS NOW CHECKED, appended 2026-08-18.
+--
+-- §"THE COLLISION" above asserts from memory that the toy order
+-- `x y z x` models the ambiguity at अण्, "whose ण् is an अनुबन्ध in both
+-- the first शिवसूत्र and the sixth".
+--
+-- `NaturalMachine.TheSecondNaIsTheCollision` encodes the first six
+-- सूत्राणि and computes both readings:
+--
+--     collect 0 sivasutra6 ≡ a i u                                 refl
+--     collect 1 sivasutra6 ≡ a i u ṛ ḷ e o ai au h y v r l          refl
+--
+-- and `aṆ-does-not-factor` is the collision, at the actual list rather
+-- than at a three-letter model.  So the toy was faithful — worth knowing,
+-- since a toy that models nothing is only a toy.
+--
+-- Found on the way, and not a defect: `Sivasutra.upto` stops at the
+-- first matching अनुबन्ध, which is exactly right for the four सूत्राणि
+-- that file encodes and silently selects the narrow reading past them.
+-- A convention invisible at the scope where it is introduced — the same
+-- shape as everything else in this thread.
+------------------------------------------------------------------------

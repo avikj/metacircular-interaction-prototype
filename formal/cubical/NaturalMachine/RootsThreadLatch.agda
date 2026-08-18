@@ -111,6 +111,7 @@ import NaturalMachine.AnyonyaAbhava
 import NaturalMachine.AsiddhatvaBreaksFactoring
 import NaturalMachine.AnuvrttiIsTheSameTrade
 import NaturalMachine.PratyaharaBuysTotalityWithLocality
+import NaturalMachine.TheSecondNaIsTheCollision
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

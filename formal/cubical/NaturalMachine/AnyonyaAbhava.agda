@@ -212,3 +212,44 @@ categories-agree-when-decidable dT q t dC =
 -- witness-number thread never needed, and `SiteAudit` did not check.
 -- Where it fails, §5 does not apply and the two categories stay apart.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  CITATION CORRECTION, appended 2026-08-18 on self-audit.
+--
+-- The header says: "Praśastapāda's division (*Padārthadharmasaṃgraha*,
+-- c. 6th c.) and every Nyāya text after it insist on a second kind".
+-- That over-attributes.
+--
+-- What I can establish: अभाव is established as a category in the
+-- Vaiśeṣika-Nyāya tradition with Praśastapāda treating it, and the
+-- fourfold scheme — प्राक्, प्रध्वंस, अत्यन्त, अन्योन्य — is standard in
+-- later Nyāya, with Śivāditya's *Saptapadārthī* (c. 12th c.) a
+-- conventional locus for it and Navya-Nyāya (Gaṅgeśa, c. 1325, and after)
+-- refining the प्रतियोगिता analysis it rests on.
+--
+-- What I did NOT check before writing it: that the TWO-FOLD grouping —
+-- संसर्गाभाव against अन्योन्याभाव, with the first subdividing into three
+-- — is Praśastapāda's own, rather than a later systematisation read back
+-- into him.  I believe it is later.  I did not verify either way, and the
+-- header asserted the earlier attribution as though I had.
+--
+-- This is precisely the defect class `notes/INDIAN_LANE_CITATION_AUDIT.md`
+-- hunts — "a reference whose target exists but whose content is not what
+-- the citing line says" — and CLAUDE.md's directive names it as the same
+-- kind of error as publishing a fitted constant: it asserts a provenance
+-- I did not check.
+--
+-- The MATHEMATICS below is unaffected.  Nothing in §§1–6 depends on who
+-- first drew the division; it depends only on the division being drawn,
+-- which it demonstrably is in the tradition.  What is corrected is the
+-- date and the name attached to it, and the correction is: the division
+-- is Nyāya-Vaiśeṣika, securely attested in the later literature, and I
+-- cannot place it at the 6th century from anything I checked.
+--
+-- The companion claim in `PratyaharaBuysTotalityWithLocality` — about
+-- ण् closing two शिवसूत्राणि — was audited in the same pass and DID hold:
+-- `NaturalMachine.TheSecondNaIsTheCollision` computes both readings of
+-- अण् from the list.  One of two survived, which is about the rate one
+-- should expect from citations written out of memory, and is the reason
+-- the directive exists.
+------------------------------------------------------------------------
