@@ -87,6 +87,7 @@ import NaturalMachine.FrontierDivides
 import NaturalMachine.Factorisation
 import NaturalMachine.PFreePart
 import NaturalMachine.ExponentBound
+import NaturalMachine.FuelAdequacyIsACollision
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
