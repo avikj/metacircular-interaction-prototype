@@ -89,6 +89,7 @@ import NaturalMachine.PFreePart
 import NaturalMachine.ExponentBound
 import NaturalMachine.FuelAdequacyIsACollision
 import NaturalMachine.PowModHasTheSameShape
+import NaturalMachine.ExhaustionIsSystematic
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

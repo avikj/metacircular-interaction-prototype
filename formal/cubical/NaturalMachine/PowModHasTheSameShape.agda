@@ -179,3 +179,31 @@ correct-factors = decode , law
 -- evaluate that claim — it shows only that the claim is load-bearing
 -- and cannot be replaced by inspection of results.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  CORRECTION, appended 2026-08-18.
+--
+-- §1 above says the criterion "finds one more — and only one".  That is
+-- wrong.  It finds at least nine.
+--
+-- The error is instructive and is exactly the one this pair of files is
+-- about.  The search that produced "only one" read top-level SIGNATURES
+-- containing the word `fuel`.  But the whole point of the criterion is
+-- that the risky functions take their fuel as bare, unnamed data —
+-- `expOf : ℕ → ℕ → ℕ → ℕ`, `powMod : ℕ → ℕ → ℕ → ℕ → ℕ` — so that
+-- search was looking for the very property it had just proved absent.
+-- §5 named this limit and then the next paragraph up violated it.
+--
+-- The correct search is over bare arrow chains, and it turns up
+-- `remF`, `quoF`, `gcdF`, `spfF` (TransmissionRefutations), `divF`,
+-- `modF`, `omegaF` (SieveFiber) and `gcdF` (Gamma0Index) alongside these
+-- two.  Every one defaults on exhaustion to a value that is also a
+-- legitimate output — which is forced, not careless, since a total
+-- function into ℕ must return something.
+--
+-- `NaturalMachine.ExhaustionIsSystematic` carries the corrected claim,
+-- the shared packaging, and computed collisions in three subsystems.
+-- It also records that the cheap surrogate — "did more fuel change the
+-- answer?" — fails for `powMod` itself: exhaustion there is stable
+-- across a step, `powMod 1 7 2 4 ≡ powMod 2 7 2 4 ≡ 1`, answer 2.
+------------------------------------------------------------------------
