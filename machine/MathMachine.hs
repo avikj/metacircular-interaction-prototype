@@ -4049,6 +4049,23 @@ round1 disp mem logh libh ref = do
     (length [ () | c <- ordNub (map canonVars (mResidualQueue m))
                  , c `elem` fresh ])
     (length (ordNub (map canonVars (mResidualQueue m))))
+  -- AND WHAT BECAME OF EACH ONE, from the fold's own record rather than
+  -- re-derived here against a different rule set.
+  --
+  -- Added after a PREDICTION FAILED.  Both `provedByRewriting` guards were
+  -- lifted, `RESIDUAL-REACHED-PROVER` reported 21 of 21 and then 40 of 40, and
+  -- `x = x+0` still appeared on none of the kernel lines -- while
+  -- `--prove-residuals` says the prover finds `induction on x` for exactly
+  -- that goal at the full vocabulary.  Those cannot both be true of the same
+  -- rule set, so the rule set differs, and guessing which way is what the last
+  -- three rounds of this investigation were.  This prints the answer.
+  forM_ (take 8 (S.toList residualAdmitted)) $ \c@(rl, rr) -> do
+    let v | c `elem` map fst checkedResults  = "THEOREM"
+          | c `elem` map fst results         = "proved-kernel-rejected"
+          | Just d <- M.lookup c dispositions = d
+          | c `notElem` fresh                = "never-reached-fresh"
+          | otherwise                        = "withheld"
+    hPrintf logh "  RESIDUAL-DISPOSITION  %-24s %s = %s\n" v (show rl) (show rr)
   forM_ residualTheorems $ \(l,r) ->
     hPrintf logh "  RESIDUAL-THEOREM  %s = %s   (this subgoal came out of a kernel refusal)\n"
       (show l) (show r)
