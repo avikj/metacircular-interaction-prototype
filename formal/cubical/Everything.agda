@@ -541,3 +541,54 @@ import WallCertificate
 -- of {asti, nāsti, avaktavya}, and the refutation of every durnaya against
 -- the profile machine.log lines 146/174 actually exhibit.
 import Saptabhangi
+
+------------------------------------------------------------------------
+-- THE INDIAN LANE, FOLDED IN — 2026-08-18.
+--
+-- This aggregate exists because "an orphan that the root does not import
+-- is exactly the hole that let the earlier overstatement hide."  Audited
+-- today with the mechanical check this file's own BUILD.md prescribes,
+-- and twelve top-level modules were outside the import closure.  All
+-- twelve were from one lane: Anekānta, bhāvanā, kuṭṭaka, Piṅgala, the
+-- Śivasūtras, the Jain number taxonomy, abhāva, the curriculum.  The
+-- newest and most emphasised work in the repository was built by nothing,
+-- while the older lane was guarded — the sourcing skew reproduced not in
+-- citations but in what CI actually checks, which is the version of it
+-- that no amount of careful prose would have caught.
+--
+-- Each was verified standalone before being added here (exit 0, --safe,
+-- no postulates, no holes), so this changes what is GUARDED, not what is
+-- true.  That is the whole point: they were green on the day they landed
+-- and nothing has re-checked them since.
+------------------------------------------------------------------------
+
+-- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32-33 (499): the pulverizer, and the
+-- descent law as a vallī of quotients.
+import Kuttaka
+
+-- BRAHMAGUPTA, Brāhmasphuṭasiddhānta 18 (628): bhāvanā over an arbitrary
+-- commutative ring; over ℕ subtraction-free as a semiring identity; and as
+-- a typed OPERATION on solutions, which is what "production" names.
+import Bhavana
+import BhavanaSemiring
+import BhavanaGenerative
+
+-- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka and Halāyudha: the
+-- mātrā recurrence and binary enumeration of metres.
+import Pingala
+
+-- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine.
+import Sivasutra
+
+-- Jain epistemology and mathematics: anekāntavāda as a total generator,
+-- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
+-- abhāva with its avacchedaka.
+import Anekanta
+import JainSankhya
+import AbhavaAvacchedaka
+
+-- The machine's own material, read back: the curriculum the kernel's
+-- refusals demand, distinction-descent, and return.
+import MachineCurriculum
+import BhedaAvatarana
+import Punaragamana
