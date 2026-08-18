@@ -545,3 +545,71 @@ with a scope error in the original reading, twice over:
 In both cases the theorem was right and the quantifier was wrong. That is
 the failure mode this thread has now produced twice, and it is worth
 naming: *a true theorem, read at a scope it was never proved at.*
+
+---
+
+## 15. Addendum, same session: §14 has the sign backwards
+
+§14 concludes "every overlap is a place where the join discards what the
+sum would have kept" and calls that the walk's *cost*. The two halves are
+right and the reading is backwards. **Discarding makes the state smaller.**
+`lcm(1..k) = e^ψ(k) ≈ e^k` while `k! = e^{k log k}`; the join's state is
+exponentially *smaller* than the sum's, and overlap is exactly where that
+saving happens.
+
+> Overlap is not the walk's cost. Overlap is the walk's **saving**.
+
+`formal/cubical/NaturalMachine/JoinSavesTheMeet.agda` (checked, exit 0)
+says how much, exactly.
+
+### The identity
+
+```
+max x y  +  min x y  ≡  x + y
+```
+
+lifted to derivations and pushed through `val`:
+
+```
+lcm-gcd :  val (u ⊔ v) · val (u ⊓ v)  ≡  val u · val v
+```
+
+which is the classical `lcm(a,b)·gcd(a,b) = a·b`. In the tropical chart it
+is not a theorem about divisibility at all — it is `max + min = x + y`, and
+every trace of number theory has evaporated. `⊔≤⊕` gives the consequence
+with an explicit witness: the join's state always divides the sum's, and
+the quotient is the meet.
+
+So **the join's compression ratio against the sum is the gcd**, pointwise
+and exactly. On the coprime locus the meet is trivial and the join saves
+nothing — which recovers §14's `val-⊔-disjoint` as a corollary of an
+identity rather than a separate proof. Checked instance: `4 ⊔ 8 = 8`,
+`4 ⊓ 8 = 4`, `8 · 4 = 32 = 4 · 8`.
+
+### What survives, and what is now open
+
+Everything §14 *proved* stands — `disjoint-agree`,
+`self-disjoint-is-trivial`, `val-⊔-disjoint`, and the refutation of §13's
+parity rhyme. What is withdrawn is the sign of §14's reading, and with it
+that module's name.
+
+And the consequence for the thread: if the join is a saving, then the
+walk's `e^ψ(k)` is what **survives** maximal compression, not what the
+compression costs. Distinguishing `k` inputs needs `log k` bits; the walk
+carries `ψ(k) ≈ k` of them. That gap is not overlap, and this thread has
+not located it. §14's answer was wrong; the question goes back to open.
+
+### Running tally of this session's own errors
+
+| # | claim | fate |
+|---|---|---|
+| 1 | `disjoint-support` is arithmetic's barrier | scope-corrected — it is the line's |
+| 2 | descent = bhāvanā inversion | refuted (§9) |
+| 3 | the walk has neither descent mechanism | caught pre-landing (§9) |
+| 4 | the parity rhyme | refuted (§14) |
+| 5 | overlap is the walk's cost | sign-corrected (§15) — it is the saving |
+
+Five, of which three were mine and made tonight. The corpus's protocol says
+refuting your own claim is the most respected act here; the rate at which
+that is needed is itself the finding, and it is the reason nothing above
+should be read at a scope wider than its own statement.

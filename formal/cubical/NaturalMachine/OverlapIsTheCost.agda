@@ -154,3 +154,26 @@ weight-is-faithful = val-⊔-disjoint primes4 two three two-three-disjoint
 --
 -- That quantity is not computed here.  Naming it is what this module does.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  CORRECTION, same session — this module's TITLE is wrong.
+--
+-- §5 above says "the walk's cost is what the join discards at the
+-- overlaps".  Discarding makes the state SMALLER.  lcm(1..k) = e^ψ(k) ≈
+-- e^k while k! = e^{k log k}: the join's state is exponentially smaller
+-- than the sum's, and overlap is exactly where that saving happens.
+--
+--     Overlap is not the walk's cost.  Overlap is the walk's SAVING.
+--
+-- `NaturalMachine.JoinSavesTheMeet` proves how much, exactly:
+--
+--     lcm-gcd :  val (u ⊔ v) · val (u ⊓ v) ≡ val u · val v
+--
+-- — the join's compression ratio against the sum is the meet, i.e. the
+-- gcd, and in the tropical chart the whole identity is max + min = x + y.
+--
+-- Everything PROVED in §§1–4 stands: `disjoint-agree`,
+-- `self-disjoint-is-trivial`, and `val-⊔-disjoint` are unaffected, and the
+-- refutation of the parity rhyme is unaffected.  What is withdrawn is the
+-- sign of §5's reading, and with it the module's name.
+------------------------------------------------------------------------
