@@ -1,18 +1,22 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- पेल्ल-श्रेढी — एकस्मात् साधनात् अनन्तानि (Brahmagupta's consequence) ।
+-- वर्गप्रकृति-श्रेढी — एकस्मात् साधनात् अनन्तानि (Brahmagupta's consequence) ।
 -- मूल-साधनात् (x₁,y₁), x²−N·y²=1, भावनया श्रेढी जायते ; प्रत्येकं पदं
--- मानं १ इति (आगमनेन, चक्रवाल-संयोगेन सिद्धम्) ।  अतः पेल्ल-समीकरणस्य
+-- मानं १ इति (आगमनेन, चक्रवाल-संयोगेन सिद्धम्) ।  अतः वर्गप्रकृतेः
 -- अनन्तानि साधनानि — ब्रह्मगुप्तस्य दृष्टिः, प्रत्यक्षम् आगमनेन ।
 --
--- (infinitely many Pell solutions from one: from a fundamental (x₁,y₁) with
--- x²−N·y²=1, iterating bhāvanā gives a sequence whose every term has norm 1
--- — proved by induction on चक्रवाल-संयोगः.  Brahmagupta's insight, made
--- an explicit induction.)
+-- (Infinitely many solutions of वर्गप्रकृति (varga-prakṛti, "square-nature",
+-- x²−N·y²=1) from one: from a fundamental (x₁,y₁), iterating bhāvanā gives a
+-- sequence whose every term has norm 1 — proved by induction on चक्रवाल-
+-- संयोगः.  Brahmagupta's insight (Brāhmasphuṭasiddhānta, 628 CE), made an
+-- explicit induction; the cyclic completion is the cakravāla of Jayadeva
+-- (~950) and Bhāskara II (1150).  The European name "Pell's equation" is
+-- Euler's ~1730 misattribution — Pell never solved it, and Lagrange's proof
+-- (1766) is six centuries downstream.  See notes/NOT_PELL_IT_IS_VARGAPRAKRITI.md.)
 ------------------------------------------------------------------------
 
-module PellSreni where
+module VargaprakritiSreni where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

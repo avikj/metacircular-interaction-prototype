@@ -15,8 +15,8 @@ postulates, no holes), clean-rebuilds EXIT 0. In particular these were once
 - The full prastāra bijection `छन्दस् ≃ ℕ` (`Pingala`) — via `मूल्य` injective
   (two parity lemmas), not just the one-sided reconstruction.
 - mātrāmeru soundness *and* completeness (`Matramerus.साधु`, `.पूर्णता`).
-- bhāvanā **associativity** (`BhavanaSamuha`) and the Pell **infinitude**
-  (`PellSreni`).
+- bhāvanā **associativity** (`BhavanaSamuha`) and the वर्गप्रकृति
+  (varga-prakṛti, mis-called "Pell") **infinitude** (`VargaprakritiSreni`).
 
 ## Genuinely open (tagged, honestly)
 

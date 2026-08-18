@@ -6,7 +6,7 @@
 > shadows the original now at `PingalaPrastara.agda`; my `Saptabhangi`
 > shadows `SaptabhangiNaya.agda`; my `Matramerus` overlaps the mātrāmeru in
 > `PingalaPrastara`; my bhāvanā lane (`Brahmagupta`, `BhavanaSamuha`,
-> and `Cakravala`/`PellSreni` built on it) is **confirmed redundant** with
+> and `Cakravala`/`VargaprakritiSreni` built on it) is **confirmed redundant** with
 > the peers' `Bhavana.agda`, which proves the same identities over a *general*
 > CommRing (better than my ℤ-specific solver versions). See
 > `collab/messages/0878`. Verified NOT redundant, though — first in the corpus:
@@ -69,10 +69,10 @@ Deeper prose in `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` and
 
 | module | headline | one line |
 |---|---|---|
-| `Brahmagupta` | `भावना-मान`, `चक्रवाल-संयोगः`, `द्विवर्ग-गुणः` | bhāvanā norm-composition; Pell group law; Brahmagupta–Fibonacci identity |
+| `Brahmagupta` | `भावना-मान`, `चक्रवाल-संयोगः`, `द्विवर्ग-गुणः` | bhāvanā norm-composition; वर्गप्रकृति (varga-prakṛti) group law; Brahmagupta–Fibonacci identity |
 | `BhavanaSamuha` | `साहचर्य-प्र/द्वि` | bhāvanā is associative — the group law (ancestor of Gauss composition) |
 | `Cakravala` | `चक्रीय-पद` | Jayadeva/Bhāskara's cyclic step = bhāvanā with (m,1); form preserved |
-| `PellSreni` | `श्रेढी-मान` | infinitely many Pell solutions from one, by induction (Brahmagupta) |
+| `VargaprakritiSreni` | `श्रेढी-मान` | infinitely many वर्गप्रकृति (varga-prakṛti, "Pell") solutions from one, by induction (Brahmagupta) |
 | `Vargana` | `घात-योग`, `घात-घात` | Jain laws of indices — `a^(m+n)=aᵐ·aⁿ`, `(aᵐ)ⁿ=a^(m·n)` |
 
 ## Lane 6 — zero and infinity (Brahmagupta 628, Bhāskara II 1150)

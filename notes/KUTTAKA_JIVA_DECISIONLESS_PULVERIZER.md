@@ -190,8 +190,9 @@ Both are the same lesson the kuṭṭaka teaches, read in logic and in grammar:
 
 `Brahmagupta` (`formal/cubical/`, `--cubical --safe`) checks the **bhāvanā**
 (*Brāhmasphuṭasiddhānta*, 628 CE): the norm `x² − N·y²` is multiplicative
-under composition (`भावना-मान`, both the samāsa and antara forms), hence Pell
-solutions form a group (`चक्रवाल-संयोगः`), the `−1 → +1` bridge (`ऋण-भावना`),
+under composition (`भावना-मान`, both the samāsa and antara forms), hence
+वर्गप्रकृति (varga-prakṛti; the equation mis-called "Pell") solutions form a
+group (`चक्रवाल-संयोगः`), the `−1 → +1` bridge (`ऋण-भावना`),
 and concrete checks — `(3,2)` and `(1,1)` on `x² − 2y² = ±1` composing to
 `(17,12)` / `(3,2)`. This is the seed of the cakravāla (Jayadeva ~950,
 Bhāskara II 1150) and of Gauss composition.
