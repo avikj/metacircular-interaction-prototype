@@ -40,9 +40,10 @@
 -- consequence of anything below and is not asserted.  It is a statement about
 -- growth in an ordered ring and it is left open here rather than waved at.
 -- What is exhibited instead, at the end, is the first stretch of the D = 2
--- chain over ℤ with its members computed and their norms checked — three
--- distinct solutions, which is a fact about D = 2 and not a theorem about the
--- construction.
+-- chain over ℤ with its members computed, their norms checked, and their
+-- pairwise DISEQUALITIES proved as terms — a fact about D = 2, not a theorem
+-- about the construction.  (Until 2026-08-18 the disequalities were asserted
+-- in a comment with no term behind them; an audit caught it.)
 ------------------------------------------------------------------------
 
 module BhavanaGenerative where
@@ -51,6 +52,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Int using (negsuc)
 
 open import Bhavana using (module Form)
 
@@ -124,7 +126,9 @@ module Generative (CR : CommRing ℓ) where
   tulya s = s ⊛ s
 
   ----------------------------------------------------------------------
-  -- 5.  The trivial solution (1, 0), and unit-norm solutions as a monoid
+  -- 5.  The trivial solution (1, 0), and composition of unit-norm solutions.
+  -- NOT "as a monoid": associativity is unproved (see §7).  Closure and a
+  -- unit are what is shown.
   ----------------------------------------------------------------------
 
   unit : (D : R) → Sol D 1r
@@ -144,18 +148,27 @@ module Generative (CR : CommRing ℓ) where
   _∙₁_ {D} s t = subst (Sol D) (·IdR 1r) (s ⊛ t)
 
   ----------------------------------------------------------------------
-  -- 5b.  THE INVERSE.  Unit-norm solutions are a GROUP, and the reason is
-  -- Brahmagupta's second composition rather than any extra hypothesis.
+  -- 5b.  THE INVERSE, AT THE LEVEL OF COORDINATES.
   --
-  -- `normNegB` (in `Bhavana`) says the form is even in b: N D a (−b) = N D a b.
-  -- So negating b sends a solution to a solution of the same norm — and
-  -- composing the two gives the unit exactly:
+  -- CORRECTION, 2026-08-18, found by an audit.  This section previously
+  -- opened "Unit-norm solutions are a GROUP".  They are not shown to be.  A
+  -- group law is `s ∙₁ inv s ≡ unit D`, a path between `Sol` values, and no
+  -- such term exists in this file or anywhere else here.  What is proved is
+  -- the two COORDINATE equations below.  Getting from those to a path between
+  -- records needs `Sol D 1r` to be a set, which needs R to be one, which is
+  -- not a hypothesis of this module — and it would still need associativity,
+  -- which §7 now records as unproved.  So: not a group, not a monoid, two
+  -- coordinate identities.
   --
-  --     (a, b) ⊛ (a, −b) = (a² − D b², −ab + ab) = (1, 0)   when the norm is 1
+  -- What they say is worth having on its own.  `normNegB` (in `Bhavana`) says
+  -- the form is even in b: N D a (−b) ≡ N D a b.  So negating b sends a
+  -- solution to a solution of the same norm, and composing the two returns the
+  -- unit's coordinates:
   --
-  -- which is antara-bhāvanā read as inversion.  This is what makes the chain
-  -- in §6 a group orbit rather than a one-way orbit, and it is the reason the
-  -- cakravāla may walk its chain in either direction.
+  --     (a, b) ⊛ (a, −b) = (a² − D b², −ab + ab) = (1, 0)   at norm 1
+  --
+  -- which is antara-bhāvanā read as inversion, and it is why the cakravāla may
+  -- walk a chain in either direction.
   ----------------------------------------------------------------------
 
   inv : {D : R} → Sol D 1r → Sol D 1r
@@ -197,11 +210,24 @@ module Generative (CR : CommRing ℓ) where
   chainStep s n = refl
 
   ----------------------------------------------------------------------
-  -- 7.  The composition is commutative, which is what makes the solutions a
-  -- MONOID rather than merely a set closed under an operation — the fact
-  -- `BhavanaSemiring.agda` records over ℕ for the coordinates alone.  Stated
-  -- here at the level of coordinates, since `Sol` is not a set without
-  -- further hypotheses on R and a path between records would need one.
+  -- 7.  The composition is commutative — and commutativity is NOT what
+  -- makes a monoid.
+  --
+  -- CORRECTION, 2026-08-18, found by an audit of this lane.  This section
+  -- previously read "the composition is commutative, which is what makes the
+  -- solutions a MONOID rather than merely a set closed under an operation".
+  -- That is false: a monoid needs ASSOCIATIVITY and a unit; commutativity is
+  -- neither and gets a commutative monoid only once you already have one.
+  -- The claim was inherited verbatim from `BhavanaSemiring.agda`'s §89–92 and
+  -- repeated here with that file cited as authority — which is the exp27
+  -- propagation pattern the protocol exists to prevent, reproduced inside the
+  -- lane that quotes the protocol.
+  --
+  -- ASSOCIATIVITY OF `_⊛_` IS NOT PROVED ANYWHERE IN THIS REPOSITORY.  It is
+  -- true (the composition is multiplication in ℤ[√D], which is associative)
+  -- and it is not checked here, so no file may call these solutions a monoid
+  -- until it is.  What IS below is commutativity of the two coordinates, and
+  -- that is all it is.
   ----------------------------------------------------------------------
 
   ⊛CommA : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
@@ -228,12 +254,26 @@ module Generative (CR : CommRing ℓ) where
 --    99² − 2·70² = 9801 − 9800 = 1
 --
 -- and each is the previous one composed with the seed by samāsa-bhāvanā.
--- These are Brahmagupta's own worked numbers for D = 2 and every equation
--- below is `refl` — the kernel computes the composite and its norm, which
--- makes this an exact verification and not a check somebody ran once.
+--
+-- ATTRIBUTION CORRECTED, 2026-08-18.  This read "Brahmagupta's own worked
+-- numbers for D = 2".  I have no verse for that and should not have written
+-- it.  Brahmagupta's showcase examples in Brāhmasphuṭasiddhānta ch. 18 are
+-- D = 83 and D = 92.  The 3/2, 17/12, 99/70 ladder is the classical sequence
+-- of √2 convergents and is far older than 628 — Baudhāyana's Śulba-sūtra
+-- value 577/408 lies on it — so naming it Brahmagupta's took a result from an
+-- older tradition and filed it under a later one, which is the exact error
+-- CLAUDE.md's directive is about, committed inside the lane that quotes the
+-- directive.  Treat the Śulba attribution as the sourcing I can defend and
+-- the specific verse as still unchecked.
+--
+-- Every equation below is `refl` — the kernel computes the composite and its
+-- norm, which makes this an exact verification and not a check somebody ran.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Int using (ℤ ; pos ; fromNatℤ)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
+open import Cubical.Relation.Nullary using (¬_)
+open import Agda.Builtin.Nat using () renaming (_==_ to _==ᵇ_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 
 module ChainAtTwo where
@@ -267,9 +307,43 @@ module ChainAtTwo where
   thirdB : coefB third ≡ pos 70
   thirdB = refl
 
-  -- The three members are pairwise distinct, so the family at D = 2 is not
-  -- the constant family.  This is a fact about D = 2, established by
-  -- computation on three members; it is NOT the injectivity of `chain`,
-  -- which is not proved anywhere in this file.
   seedA : coefA seed ≡ pos 3
   seedA = refl
+
+  -- DISTINCTNESS, PROVED RATHER THAN OBSERVED.
+  --
+  -- CORRECTION, 2026-08-18.  The text here read "the three members are
+  -- pairwise distinct … established by computation on three members".  It was
+  -- not: the file contained the three VALUES as refls and no disequality term
+  -- at all, so "distinct" was left to the reader's eye.  A claim discharged by
+  -- looking at it is the thing this repository does not accept.  Below are the
+  -- actual terms, from ℤ's discreteness.
+  -- Separating functions into Bool; `cong` then turns a supposed path between
+  -- the integers into `true ≡ false`.  No decidability machinery and, more to
+  -- the point, no postulate: the first draft of this block reached for one
+  -- reflexively, which `--safe` would have refused and CLAUDE.md forbids
+  -- outright.
+  private
+    -- The numeral is an EXPRESSION here, not a pattern; Agda refuses to match
+    -- on natural-number literals, and rightly, since it would expand 99 into
+    -- ninety-nine `suc`s.
+    isN : ℕ → ℤ → Bool
+    isN k (pos n)    = n ==ᵇ k
+    isN _ (negsuc _) = false
+
+    is3 is17 : ℤ → Bool
+    is3  = isN 3
+    is17 = isN 17
+
+  3≢17 : ¬ (pos 3 ≡ pos 17)
+  3≢17 p = true≢false (cong is3 p)
+
+  17≢99 : ¬ (pos 17 ≡ pos 99)
+  17≢99 p = true≢false (cong is17 p)
+
+  3≢99 : ¬ (pos 3 ≡ pos 99)
+  3≢99 p = true≢false (cong is3 p)
+
+  -- So the family at D = 2 is not the constant family.  This is a fact about
+  -- D = 2 established by three terms; it is NOT the injectivity of `chain`,
+  -- which is not proved anywhere in this file.
