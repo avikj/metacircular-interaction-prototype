@@ -213,6 +213,44 @@ classify goal msg = case residualOf msg of
 obstructionGoals :: [Obstruction] -> [(Term, Term)]
 obstructionGoals obs = [ p | Residual p <- obs ]
 
+-- WHY FEEDING RESIDUALS BACK TERMINATES — and why the obvious argument for
+-- it is WRONG.  Read this before building a loop on top of this module.
+--
+-- The tempting story: this is Āryabhaṭa's kuṭṭaka (Āryabhaṭīya, 499), which
+-- divides, keeps the remainder, and recurses on the remainder.  The SHAPE is
+-- exactly that, and `formal/cubical/KuttakaValli.agda` has been in this tree
+-- the whole time.  But the kuṭṭaka terminates because its remainders STRICTLY
+-- DECREASE — Euclidean descent — and the residuals here DO NOT.  Agda unfolds
+-- as it goes, so a residual can be larger than the goal that produced it:
+--
+--     goal  x ≡ 1 · x        residual  x ≡ x + 0 · x     (larger, not smaller)
+--
+-- So there is no decreasing measure and a descent argument is unavailable.
+-- Anyone who writes "it's the kuṭṭaka, so it terminates" has asserted
+-- something false.
+--
+-- The argument that DOES hold is finiteness, measured over the whole of
+-- machine/machine.log (1092 rejections, 946 residuals recovered):
+--
+--     distinct residuals   112
+--     residual term size   min 2, max 20   (both sides summed)
+--
+-- The residual set is bounded and small.  Combined with `mFailed` keyed on
+-- the rule count — a conjecture is not retried until the machine knows
+-- something it did not know when it failed — the feedback cannot run away.
+--
+-- The live hazard is NOT unbounded growth; it is a livelock on residuals of
+-- FALSE parents, which regenerate themselves forever.  Both of these are in
+-- the stream and both are false: `x·x = s(x)` (30 occurrences),
+-- `x·max(x,1) = s(x)` (100 occurrences).  Verify the `mFailed` interaction
+-- explicitly rather than assuming it.
+--
+-- (One number deliberately NOT recorded here: a comparison of residual size
+-- against goal size across the log.  The goal is printed in the machine's
+-- notation and the residual in Agda's, so any such count compares a
+-- character tally against a term size.  It would need both sides parsed in
+-- one syntax to mean anything, and it is not needed for the bound above.)
+
 -- ---------------------------------------------------------------- selftest
 --
 -- Every string below is copied verbatim out of machine/machine.log.  A test
