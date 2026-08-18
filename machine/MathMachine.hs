@@ -4665,6 +4665,36 @@ main = do
   -- WIRE -- that a rejection string plus the goal the engine actually holds
   -- comes back out as a MathMachine conjecture, and that the junk filter and
   -- the anti-livelock contract hold on the shapes the log really contains.
+  -- A PROBE, because I had spent an hour inferring from aggregate counts what
+  -- the prover does with a specific goal.  `RESIDUAL-REACHED-PROVER` says the
+  -- flagship residuals DO enter `fresh`; no KERNEL line ever mentions them; so
+  -- the internal prover is where they stop, and this asks it directly instead
+  -- of reasoning about it from the outside.
+  --
+  -- The goals are the top of the curriculum the kernel's own refusals demand,
+  -- read off machine/machine.log rather than invented.
+  when (args == ["--prove-residuals"]) $ do
+    let m0 = start
+        rules = usableRules m0
+        x = V 0 ; y = V 1
+        z0 = F "0" [] ; suc t = F "s" [t]
+        bin f a b = F f [a,b]
+        goals =
+          [ ("x = x + 0",        (x, bin "+" x z0))
+          , ("0 = x * 0",        (z0, bin "*" x z0))
+          , ("0 = y * 0",        (z0, bin "*" y z0))
+          , ("x = 0 max x",      (x, bin "max" z0 x))
+          , ("0 = 0 - x",        (z0, bin "-" z0 x))
+          , ("x = 1 * x",        (x, bin "*" (suc z0) x))
+          , ("0 = x - x",        (z0, bin "-" x x))
+          ]
+    hPrintf stdout "  rules available to the prover: %d\n" (length rules)
+    forM_ goals $ \(name, g) ->
+      hPrintf stdout "  %-16s rewriting=%-6s induction=%s\n" name
+        (show (provedByRewriting rules g))
+        (maybe "NO PROOF FOUND" id (proveByInduction rules g))
+    exitSuccess
+
   when (args == ["--obstruction-self-test"]) $ do
     parserOk <- OB.selfTest
     let goalOneTimesX = (x_, bin "*" (su zero_) x_)
