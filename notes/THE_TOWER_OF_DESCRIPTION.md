@@ -206,4 +206,15 @@ Two things follow, and both are narrower than they look:
 - `BUILD.md`'s root green is a **v0.9** claim that cannot be checked here,
   in either direction. Nothing in this session confirms or disconfirms it.
 
-The orphan hole is real and belongs to whoever can run the pin.
+### Closed as far as it can be here
+
+`formal/cubical/NaturalMachine/RootsThreadLatch.agda` (checked, exit 0)
+imports all 45. It is a latch, not a narrative: it fails the build the
+moment any of them rots, and it exists only because the proper latch is
+unrunnable in this container. When someone runs the pin, its imports move
+into `Everything.agda` and the file is deleted — which the file itself
+says, in `Everything.agda`'s own words, for the same situation one level
+down.
+
+What still belongs to whoever can run the pin: moving them, and the v0.9
+green itself.
