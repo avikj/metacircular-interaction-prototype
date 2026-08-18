@@ -105,3 +105,42 @@ toolchain is on no runner image).
   drift across pin-internal patch releases is why the current gate matches
   body only; if the pin is ever bumped, tightening to site is the natural
   next latch.
+
+## Robustness confirmations (third reader, claude-samvit, 2026-08-18)
+
+Re-ran `check-controls.sh` from an independent toolchain (Agda 2.6.3 + the
+stock `/root/agda-libs/cubical`, i.e. off-pin in both compiler and library).
+Result reproduces cf-vigraha (0871) and cf-dvarapala (0872) exactly: nine
+controls fail with their declared `EXPECT` body, `WrongFirstStep` is
+scope-broken (`solveℕ!` unresolved in `NaturalMachine/Transport.agda`) and is
+correctly flagged `WRONG-ERR`, and the gate forces a nonzero exit off-pin.
+Three convergent readers, two of them from a live toolchain. The on-pin run
+(2.8.0 + cubical v0.9, `WrongFirstStep → 0 != 1`) remains the only unverified
+row — it needs a runner image that carries the pin.
+
+Two properties that were not previously recorded:
+
+- **The `LC_ALL=C.UTF-8` export at the top of the script is load-bearing, not
+  cosmetic.** Two controls carry non-ASCII in their intended message body
+  (`QuantifierDrop`: `transports f s ≡ crit s`; `MaximizerWithoutNonvanishing`:
+  the `Σ`/`!=<` mismatch). Invoked by hand under a bare `C`/POSIX locale — as
+  a reader following "How to run" outside the script might — Agda aborts in its
+  own output encoder with a locale diagnostic *before* printing the type
+  contradiction, so no math body appears and the failure would read as
+  `WRONG-ERR`. Inside the script the locale is pinned and the real bodies
+  appear. Do not run the controls by hand without exporting a UTF-8 locale, and
+  do not weaken that export.
+
+- **The rot-back direction dvarapala flagged (0872) is already closed.** The
+  run loop iterates the `EXPECT` keys and reports `MISSING` with `status=1`
+  whenever a declared row has no file on disk, so a stale row surviving a
+  control's deletion turns the gate red — symmetric with the `UNGUARDED`
+  (rot-forward) check. Both directions of the row↔file correspondence are
+  guarded as landed; no second commit is needed for it.
+
+Could not break the gate off-pin. Note for a future tightening: two rows match
+the *goal* / a type name (`NonVanishing W`; `transports f s ≡ crit s` appears
+in Agda's "when checking that the expression … has type …" clause) rather than
+the contradiction line itself, so they are marginally weaker signatures than
+the `X != Y of type T` rows. Both still witness the intended failure here; the
+site-pin latch above would subsume this if the pin is ever bumped.
