@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- WITHDRAWN IDENTIFICATION (see notes/SUNYATA_IS_NOT_UNIVALENCE.md).
--- avidyā/mokṣa are not "which `Sight : Type → Bool` meets the pair."  The
--- terms type-check as a small fact about sights on `Bool`; the Sanskrit
--- reading is withdrawn.
+-- THIN MODEL (see notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md §5).
+-- avidyā/mokṣa are not "which `Sight : Type → Bool` meets the pair"; this is
+-- a small fact about sights on `Bool`.  The live identity is univalence ↔
+-- niḥsvabhāva (that note), not this wheel.
 
 ------------------------------------------------------------------------
 -- NaturalMachine.MokshaYantra — the wheel that turns

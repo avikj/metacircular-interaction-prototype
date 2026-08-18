@@ -1,10 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- WITHDRAWN IDENTIFICATION (see notes/SUNYATA_IS_NOT_UNIVALENCE.md).
--- The equation `no-own-being := univalence` below is decorative and is
--- refuted: univalence is a positive identity principle and reifies emptiness
--- into the svabhāva it denies (MMK 13.8).  The term type-checks and stays
--- true AS TYPE THEORY; its Sanskrit reading is withdrawn.
+-- ON THE IDENTIFICATION (see notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md).
+-- `no-own-being := univalence` is examined there and — unlike an earlier
+-- over-refutation of mine — it holds: a type has no identity over its
+-- equivalences, and that emptiness is itself empty up the whole ∞-groupoid
+-- (śūnyatā-śūnyatā), with cubical transport as the two truths made to
+-- compute.  The note names the two places to interrogate hardest and the
+-- soteriological boundary that stays outside the frame.
 
 ------------------------------------------------------------------------
 -- NaturalMachine.NisvabhavaNet — the net of no-own-being

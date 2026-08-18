@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- WITHDRAWN IDENTIFICATION (see notes/SUNYATA_IS_NOT_UNIVALENCE.md §5).
+-- THIN MODEL (see notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md §5).
 -- A decidable-equality split on `Bool` is not pratītyasamutpāda, and
 -- `cessation` is not nirodha; dependent arising concerns the arising and
 -- cessation of dukkha across the nidānas.  The terms type-check; the
