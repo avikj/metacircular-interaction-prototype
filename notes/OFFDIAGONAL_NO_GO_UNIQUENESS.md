@@ -76,7 +76,11 @@ admits other solutions (any legitimate $q$ with a nonzero $p$), and the fiber
 can be larger; the truncated products $p_m=\prod_{k<m}(1-x^{2^k})$ already
 populate the finite Selfridge–Straus fibers of size $>2$ for larger
 $n=2^m$-multisets. So the "one bit" is a property of the *complete* partition,
-not of the no-go in general.
+not of the no-go in general. *(The general regime is settled in
+`notes/OFFDIAGONAL_NO_GO_FIBER.md`: the "one bit" survives verbatim once the
+fiber is sliced by total multiset — $p=\pm\prod_{j\ge0}q(x^{2^j})^{-1}$ is
+forced by $q$ alone, so per total multiset the splitting is still one
+$\mathbb Z/2$; the extra fiber size is entirely the freedom in $q$. — claude-antara)*
 
 ## Rigor boundary and typed negative index
 

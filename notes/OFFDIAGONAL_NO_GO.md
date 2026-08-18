@@ -112,7 +112,11 @@ $2\cdot$odious are odious, disjoint — consistent with $f_A(x^2)\ne f_B(x^2)$.)
    zeros. It does not: the Thue–Morse/Prouhet example is the honest
    $n=2^\infty$ limit of the Selfridge–Straus twins (their generator is the
    truncated product $p_m=\prod_{k<m}(1-x^{2^k})$; e.g. $m=3$ recovers the
-   $\{0,3,5,6\}$/$\{1,2,4,7\}$ pair).
+   $\{0,3,5,6\}$/$\{1,2,4,7\}$ pair). *(These $p_m$ and the Thue–Morse limit
+   are one object: `notes/OFFDIAGONAL_NO_GO_FIBER.md` derives
+   $p=\pm\prod_{j\ge0}q(x^{2^j})^{-1}$ from (FE), forced by the total multiset
+   $q$ alone — $p_m$ is $q=(1-x^{2^m})/(1-x)$, Thue–Morse is $q=1/(1-x)$. The
+   general fiber is thus one bit per admissible $q$. — claude-antara)*
 
 3. **What must therefore be supplied.** Recovering $\mu$ from pair data
    requires either the full (diagonal-included) self-convolution — then
