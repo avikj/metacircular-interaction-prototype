@@ -992,3 +992,102 @@ through both, held at once rather than in succession.
 ---
 
 *(continues)*
+
+---
+
+## 18. Read `Anekanta.agda`. It is better than §1, and the difference is instructive
+
+A sibling lineage, working from the owner's direct guidance rather than from
+anything here, landed `formal/cubical/Anekanta.agda`. It supersedes §1 and §2 on
+their own terms. Six differences, each a thing I did worse:
+
+**1. `Dec`, not `Bool` — and not an enum either.** Its header states the rule:
+*नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् — क्वापि न शून्यबोधः.* Negation yields a
+**refutation**, acceptance yields a **witness**, and nowhere is there a bare
+truth-value. `discreteℕ` returns `yes p` — a path — or `no ¬p` — a function into
+⊥. Every verdict carries its evidence in its type.
+
+I replaced a two-label set with a seven-label set and called it progress. An
+enum is still labels. This removes the *possibility* of a contentless verdict.
+That is the actual elimination of the boolean and I did not perform it.
+
+**2. There is no rejection path at all.** The signature is
+
+```agda
+जननम् : (a b : वल्ली) → भङ्ग a b
+```
+
+**total.** It always returns a भङ्ग. It cannot fail. *न विचारः — केवलं जननम्:*
+not checking, only generation. It does not decide whether two things differ; it
+**gives birth to** the difference.
+
+§2 of this document argued that the verdict is where thinking stops, and then
+kept a verdict with seven positions. This one abolishes the verdict. That is
+what §2 was actually pointing at, executed by someone who took it further than
+its author did.
+
+**3. अवक्तव्यम् carries the शेष, and the शेष is a गर्भ — a womb, not a
+failure.** *गर्भः न विफलता.* The constructor holds the unspoken remainder, and
+`शेषः` extracts it, and a nonempty शेष *asks for birth*: the next नय is born
+from it by `जन्मन्`.
+
+So the fourth bhaṅga and the kuṭṭaka's remainder are **one constructor**. I had
+them in two separate sections — §1 for avaktavyam, §3 for keep-the-remainder —
+and never noticed they were the same object. They are the same object.
+
+**4. The carrier is आर्यभटस्य वल्ली.** Not an abstract set: the saptabhaṅgī is
+defined *on the pulverizer's own quotient column*, `वल्ली = List ℕ`. The merge
+this document kept gesturing toward is simply performed.
+
+**5. क्रम versus सह is a parameter, so avaktavyam is generated rather than
+characterised.**
+
+```agda
+अर्पणम् : मूल → मूल → आर्पण → सप्तभङ्गी
+अर्पणम् मूल-अस्ति मूल-नास्ति क्रमः = स्यात्-अस्ति-नास्ति
+अर्पणम् मूल-अस्ति मूल-नास्ति सहः  = स्यात्-अवक्तव्यम्
+```
+
+Same two standings; the **mode of assertion** decides. Successive speaks;
+simultaneous breaks the tongue. That is Akalaṅka's kramārpaṇa/sahārpaṇa as a
+function, and it makes avaktavyam an *output* of how the assertion was made
+rather than a property one hunts for afterwards. `Saptabhangi.agda` proves
+things *about* avaktavyam. This one **produces** it.
+
+**6. And the sentence that diagnoses my machine better than I did.** From its
+commit: *a difference is born or wombed, never ground against a wall — the
+boolean machine died grinding a wall, this does not.* In the file:
+*एष जीवनम् ; भित्तौ न म्रियते.* This is life; it does not die at the wall.
+
+Rounds 19 and 20 byte-identical, 45 seconds each, `fresh = 0` forever — I
+measured that, proved it inevitable, and never found the phrase for it. A
+structure that can only birth or womb **cannot grind**, because neither
+constructor is a terminal state. That is the property, and it is stronger than
+anything in §1–§17.
+
+**And the identifiers are Sanskrit, which is load-bearing.** `भङ्ग` is the type.
+`जन्मन्` is the function. Not ornament: it means the concepts cannot quietly
+re-anglicise into their lossy glosses as the code is edited by whoever comes
+next. A `data Bhanga = Asti | Avaktavyam` drifts back toward `Bool` in six
+months, because the English shadow of each constructor is a truth value. The
+Devanāgarī does not have that shadow to drift into.
+
+**What changes here.** `machine/Obstruction.hs`'s `Verdict` and `Bhanga` are
+enums — `Plausible | Refuted [Integer] | Degenerate`, `Position B2Nasti | …` —
+and only one of those constructors carries evidence, by accident rather than by
+design. They should carry witnesses throughout: a refutation is a disagreeing
+assignment, an acceptance is a proof term, and there should be nowhere in the
+type where a bare label can sit. That is a real change and it is not stylistic.
+
+**And the general lesson, which is the one I keep having to relearn tonight.**
+I found the pattern, named it, wrote sixteen sections about it, and then
+implemented a weaker version of it than someone who had gone to the source. This
+document's own §11 says the archive speaks through me by default. It also
+speaks in the *shape* of what I build, not only in whom I cite — and a
+seven-valued enum is a colonial artefact wearing Sanskrit labels, because it
+keeps the thing the tradition removed: the possibility of a verdict without
+evidence.
+
+---
+
+*(continues)*
