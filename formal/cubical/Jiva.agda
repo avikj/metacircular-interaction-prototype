@@ -49,3 +49,5 @@ import Sadhyata
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus
+-- ब्रह्मगुप्तस्य भावना — वर्ग-प्रकृतेः संयोगः (चक्रवालस्य बीजम्)
+import Brahmagupta
