@@ -161,19 +161,38 @@ isqrt n
 -- member minimising |m^2 - D|; the minimiser is adjacent to sqrt D, so a
 -- short window around it is exhaustive rather than sampled -- the window is
 -- checked in `selfTest` by re-running with a wider one and comparing.
+-- CORRECTED 2026-08-18, by `formal/cubical/CakravalaBound.agda` §7.
+--
+-- This read:
+--
+--     if n == 1 then Just (isqrt d)     -- congruence is vacuous mod 1
+--
+-- The comment is right and the code does not follow from it.  When |k| = 1 the
+-- congruence IS vacuous, so every integer is a candidate — which means
+-- Bhāskara's rule has its widest choice there, not none.  Returning ⌊√D⌋
+-- unconditionally skips the minimisation exactly where it matters most.  At
+-- D = 61, turn 7, that returned m = 7 with |49 − 61| = 12 when m = 8 gives
+-- |64 − 61| = 3, and every header in this lane claiming "the m Bhāskara's rule
+-- selects" was false at that turn.
+--
+-- The bound proved in `CakravalaBound.agda` is what turns that from an
+-- observation into a refutation: any rule-obeying step satisfies
+-- 16·k'² ≤ 36·D, and 16·12² = 2304 > 2196 = 36·61.  The kernel checks the
+-- violation as `turn7ViolatesBound`.
+--
+-- No special case is needed: at n = 1 the general path gives r = 0 and a
+-- window of integers around ⌊√D⌋, and the minimisation then picks correctly.
+-- The branch was not an optimisation, only an error with a true comment on it.
 chooseM :: Integer -> Triple -> Maybe Integer
 chooseM d (Triple a b k) = do
   let n = abs k
-  if n == 1
-    then Just (isqrt d)          -- congruence is vacuous mod 1
-    else do
-      bi <- inverseMod b n
-      let r  = ((- a) * bi) `mod` n
-          t0 = (isqrt d - r) `div` n
-          cands = [ r + t * n | t <- [t0 - 2 .. t0 + 2], r + t * n >= 0 ]
-      if null cands
-        then Nothing
-        else Just (minimumBy (comparing (\m -> abs (m * m - d))) cands)
+  bi <- inverseMod b n
+  let r  = ((- a) * bi) `mod` n
+      t0 = (isqrt d - r) `div` n
+      cands = [ r + t * n | t <- [t0 - 2 .. t0 + 2], r + t * n >= 0 ]
+  if null cands
+    then Nothing
+    else Just (minimumBy (comparing (\m -> abs (m * m - d))) cands)
 
 -- one turn of the wheel
 step :: Integer -> Triple -> Maybe Triple

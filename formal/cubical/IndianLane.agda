@@ -63,6 +63,10 @@ import CakravalaNat
 -- the cakravāla step, and why Bhāskara needs only ONE congruence.
 import CakravalaDescent
 
+-- The choice rule's PAYLOAD: |k| ≤ 2√D is preserved by the step, so the
+-- wheel turns inside a fixed window.  Termination itself stays open.
+import CakravalaBound
+
 -- EMITTED BY THE REACTOR (machine/NalandaEmit.hs) and checked here: the
 -- cakravala's answer for D = 61 as a term, not a printed number.
 import CakravalaWitness
