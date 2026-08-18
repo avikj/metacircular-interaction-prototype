@@ -75,10 +75,10 @@ import CakravalaWitness
 -- discarded trace-replay output. See notes/THE_SEAM_ASKS_THE_WRONG_NAYA.md.
 import SeamClosed
 
--- The same lemma, GENERATED from machine/replay.traces rather than
--- hand-transcribed: machine/TraceLibrary.hs reads the machine's own
--- discarded trace-replay proofs back and makes them citable.
-import TraceCited
+-- The WHOLE trace corpus in one module, generated: TraceLibrary reads the
+-- machine's own discarded trace-replay proofs back, deduplicates them by
+-- declaration, and makes them citable by name.
+import TraceCorpus
 
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka (~700) and Halāyudha
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
