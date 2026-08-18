@@ -179,3 +179,38 @@ laghava-is-two =
 -- one is a weaker demand, and this module does not settle whether it can
 -- be met.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 5.  THE OPEN ITEM IN §4 IS ANSWERED, and the answer relocates the
+--     hypothesis rather than discharging it.
+--
+-- §4 asked whether the ceiling holds at `Laghava`, noting that locating
+-- finitely many specific denotations against an arbitrary one is weaker
+-- than deciding function equality, and that this module did not settle
+-- whether it can be met.
+--
+-- `NaturalMachine.TheCeilingIsAboutReading` settles the useful half.  The
+-- ceiling was never about discreteness of the OBSERVATIONS; it is about
+-- the decoders having something discrete to READ.  Give them a probe
+-- `p : Y → Z` with Z discrete and restrict them to `Z → T`, and the
+-- ceiling returns with no hypothesis on Y at all — the table is built
+-- over Z, and Y is never compared with anything.
+--
+-- At `Laghava` one evaluation point does it: `probe1 d = d 1`, Z = ℕ.
+-- The लाघव pair survives probing, since `short` and `long` share a
+-- denotation and so agree at 1, and
+--
+--     laghava-probe-is-two :
+--       WitnessNumberIs (ProbeLaw eval size probe1) 2
+--
+-- So over the probed decoders EVERY absence at `Laghava` costs 2.
+-- Probing only removes decoders, so the probed statement is weaker and
+-- `Laghava`'s own theorem implies it.
+--
+-- The unsettled half is now unsettled for a reason.  A decoder in the
+-- full space `Denotation → ℕ` must recognise an arbitrary `d : ℕ → ℕ` as
+-- a listed denotation, which is a decision of function equality.  This
+-- lane builds no such decision and refutes none; the type contains what
+-- it contains.  That is the only open item in this thread whose
+-- openness is itself a fact rather than a gap.
+------------------------------------------------------------------------
