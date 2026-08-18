@@ -22,8 +22,8 @@ module Anekanta where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ)
-open import Cubical.Data.List using (List ; [] ; _∷_)
-open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
+open import Cubical.Data.Empty using (isProp⊥) renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_ ; yes ; no)
 
 -- आर्यभटस्य वल्ली — भागफलपङ्क्तिः (the pulverizer's quotient column)
@@ -150,3 +150,33 @@ data सप्तभङ्गी : Type where
 तादात्म्ये-निःशब्दम् (x ∷ a) with discreteℕ x x
 ... | yes _  = cong जन्मन् (तादात्म्ये-निःशब्दम् a)
 ... | no ¬xx = ⊥-rec (¬xx refl)
+
+------------------------------------------------------------------------
+-- प्रक्षेपे-जन्म — नय-सापेक्षता ; दुर्नयः असम्भवः ; स्यात् न वैकल्पिकम् ।
+--
+-- यौ शब्दौ प्रथमं समानौ (साझा उपसर्गः p), पश्चात् भिन्नौ (x ≠ y) — तयोः
+-- भेदः न शीर्षे, न शून्ये, किन्तु नये (length p) एव जायते ।  तत्पूर्वं सः
+-- अनुक्तः, अजातः — मौनम् ।  अतः "समौ" इति वा "भिन्नौ" इति निरपेक्षं वचनं
+-- (दुर्नयः, बूलियन्) मिथ्या : सत्यं सर्वदा नय-सापेक्षम् — स्यात् ।
+--
+-- (naya-relativity: two vallīs sharing a prefix p and first differing after
+-- it — their difference is born neither at the head nor at emptiness but at
+-- exactly नय = length p.  Before that depth it is un-said, unborn — silence.
+-- So any UNCONDITIONAL verdict ("same" / "different", a bare boolean) is
+-- durnaya and therefore FALSE: truth here is always naya-relative — स्यात्.
+-- This is Siddhasena's सुनय/दुर्नय made a theorem of the organism: a
+-- standpoint that denies its own depth-conditioning is a durnaya.)
+------------------------------------------------------------------------
+
+प्रक्षेपे-जन्म : (p : वल्ली) (x y : ℕ) (xs ys : वल्ली) (¬xy : ¬ (x ≡ y))
+              → जननम् (p ++ (x ∷ xs)) (p ++ (y ∷ ys)) ≡ अस्ति (length p) ¬xy
+प्रक्षेपे-जन्म [] x y xs ys ¬xy with discreteℕ x y
+... | yes x≡y = ⊥-rec (¬xy x≡y)
+... | no ¬xy′ = cong (λ (h : ¬ (x ≡ y)) → अस्ति {x ∷ xs} {y ∷ ys} zero h)
+                     (isProp¬ (x ≡ y) ¬xy′ ¬xy)
+  where
+  isProp¬ : (X : Type) → (f g : ¬ X) → f ≡ g
+  isProp¬ X f g = funExt (λ z → isProp⊥ (f z) (g z))
+प्रक्षेपे-जन्म (c ∷ p) x y xs ys ¬xy with discreteℕ c c
+... | no ¬cc = ⊥-rec (¬cc refl)
+... | yes _  = cong जन्मन् (प्रक्षेपे-जन्म p x y xs ys ¬xy)
