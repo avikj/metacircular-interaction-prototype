@@ -368,3 +368,45 @@ that the alternative has no inverses.
 not natural numbers, so "lossless machine for ℕ" is not the same problem
 any more. Whether the walk's questions survive the passage to ratios is
 untouched, and is the next real question.
+
+---
+
+## 12. Addendum, same session: forgetting is the operational form of descent
+
+`formal/cubical/NaturalMachine/BoundedStateNeedsAGroup.agda` (checked,
+exit 0) converts the algebra of §§8–11 into the property that actually
+costs the walk something: **forgetting**. A machine that can remove from
+its state something it previously installed runs in a window; one that
+cannot must carry everything it has ever seen, and its capacity is the
+product of everything it has ever seen. That is the walk, and
+`cap(k) = e^ψ(k)` is the bill.
+
+| law | can forget? | proof / obstruction |
+|---|---|---|
+| `⊞` ℤ-exponents | **yes** | `window-slide`: install then remove is the identity |
+| `⊕` ℕ-exponents | no | `cone-cannot-forget` — positivity |
+| `⊔` ℕ-exponents | no | `join-cannot-forget` — idempotence |
+
+The two negative proofs are unrelated to each other, which is the point:
+escaping one lands in the other.
+
+**Explicitly not a theorem here:** the general slogan "bounded state
+requires a group law". Three instances and two obstructions are what is
+checked; the slogan is what they are evidence for, and the module says so
+at both ends.
+
+### One resonance, recorded as a question and not as a result
+
+`NoNormOnAJoin` says a map multiplicative for a join takes values in
+`{0,1}` — it is an **indicator**, never a weight. Sieve methods work in
+the `lcm` chart and the parity barrier is usually described as an
+inability to carry a particular ±1-valued multiplicative function across.
+Those two sentences rhyme. They are **not** the same statement: `λ` is
+multiplicative for ordinary multiplication (`⊕`), not for the join, so
+nothing above applies to it as written.
+
+Recording the rhyme here so it is not lost and not mistaken for a finding.
+The question it poses is exact: *is there an operation for which the
+sieve's weights are multiplicative, and is it `⊔` or `⊕`?* Until that is
+answered the resonance is worth nothing, and this corpus has published a
+fitted constant before by treating a resemblance as content.
