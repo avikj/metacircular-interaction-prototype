@@ -146,3 +146,30 @@ no-shared-prime n p =
 walk-blindness-is-exact :
   (n p : ℕ) → ¬ (¬ (¬ (SharedPrime n p)))  →  ¬ (SharedPrime n p)
 walk-blindness-is-exact n p = ¬¬¬→¬
+
+------------------------------------------------------------------------
+-- CORRECTION, 2026-08-18 — §3's reading of the stabilisation level.
+--
+-- This module's header says "the level at which the hierarchy stabilises
+-- measures the decidability of what is absent … the same absence,
+-- delimited by decidability or not, is two different objects."
+--
+-- It does not, and `¬¬¬→¬` above is the proof: it takes no hypothesis.
+-- The absence tower is two-tall for EVERY A, decidable or not, in every
+-- corpus there has ever been.  The level therefore measures nothing and
+-- cannot distinguish an exact obstruction from a genuine barrier.
+--
+-- What decidability governs is `dec-collapses` — a statement about the
+-- PRATIYOGIN A, not about the absence ¬A.  The Navya-Nyāya distinction
+-- survives and lands one place over: the absence is always level-two, and
+-- it is the counterpositive whose own recoverability is at issue.
+--
+-- `NaturalMachine.DeflationaryTest` runs this out: every obstruction in
+-- this lane is stable by SHAPE (¬A, or a Π of ¬A, or those under
+-- hypotheses), stability is closed under ¬ / → / × / Π but NOT under ⊎,
+-- a gap between ¬¬A and A is contradictory, and so the only surviving
+-- form of a barrier claim is ¬(Dec A) — which nothing here asserts.
+--
+-- Everything PROVED in this module stands.  The withdrawn sentence is the
+-- reading of the level, and it is left visible above rather than edited.
+------------------------------------------------------------------------
