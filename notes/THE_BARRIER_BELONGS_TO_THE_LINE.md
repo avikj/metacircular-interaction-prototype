@@ -765,3 +765,106 @@ which were wrong claims. This one is a right claim and a wrong summary of
 it, which is harder to catch precisely because the file reads as careful.
 Summaries are where hedges die. Worth checking for, in this corpus, at
 scale — most of the notes here end in a table.
+
+---
+
+## 19. Addendum, same session: §§15–18 chase a gap that does not exist
+
+`formal/cubical/NaturalMachine/TheGapWasAUnitsError.agda` (checked, exit
+0). This is the largest correction of the session and it came from reading
+a note that has been in this repository since 2026-08-12.
+
+### The error
+
+§§15–18 compare "the walk carries `ψ(k) ≈ k` bits" against "distinguishing
+`k` inputs needs `log k` bits" and call the difference the walk's
+unexplained cost. Three modules were then spent eliminating candidate
+explanations for it.
+
+**The two quantities are not in the same units.** `k` is the walk's
+*frontier* — the sensor value it has reached — and is not the number of
+inputs it has processed.
+
+`notes/WALK_FORCING_LAW.md` states the invariant, and it is CRT
+injectivity: the observation `n ↦ (n mod m)_{m∈S}` is lossless on `[0,n]`
+exactly when
+
+```
+lcm(S) > n.
+```
+
+The walk installs a new sensor precisely when `n` reaches `lcm(S)`. So at
+frontier `k` it has walked from `0` to `cap(k) − 1`, and the number of
+inputs distinguished is `cap(k) = lcm(1..k) = e^{ψ(k)}` — **not `k`**.
+
+So `log₂(inputs) = ψ(k)/ln 2 = log₂(state)`, and the comparison that
+generated the gap was `ψ(k)` bits of state against `log k` bits, where the
+right-hand side should have been `log(cap k) = ψ(k)` bits.
+
+> **The walk's storage is the logarithm of its workload, exactly. There is
+> no gap. The walk is information-theoretically optimal.**
+
+Checked: at frontier 8 the state is `840` and the last input distinguished
+is `839` — state = workload, no slack (`tight-8`; likewise at 4, 5, 7). And
+`state 8 ≢ 8`: the frontier index is nothing like either quantity, which is
+the whole of the error.
+
+Quoted, not re-proved here: the CRT criterion (from `WALK_FORCING_LAW.md`)
+and pigeonhole, which is what makes `lcm(S) > n` a *lower* bound and hence
+makes "optimal" mean something. Neither is formalised in this lane.
+
+### What survives
+
+Every theorem in §§15–18. `lcm-gcd`, `chain-join-absorbs`, `suc≤^`,
+`cap-is-dense` are statements about joins, chains, exponentials and
+supports; none mentions a workload. What is withdrawn is the **framing**
+that made them answers — they were presented as eliminating or identifying
+explanations for a cost, and there was no cost.
+
+The honest residue, being true, is more useful than the framing was:
+
+> The walk's state *is* its workload; its bit-size is that workload's
+> logarithm; and the interesting question was never "why so big" but "why
+> does losslessness force `lcm` at all" — which `WALK_FORCING_LAW.md`
+> answers by CRT, and which nothing in this thread improved on.
+
+### The method failure, recorded plainly
+
+Four modules and four note sections were spent on a quantity that a note
+already in this repository defines away in one line. CLAUDE.md says prior
+art gets searched **before** the work, not after the write-up, and names
+three rediscoveries found only at audit time. This is a fourth and it is
+worse than a rediscovery: not a result found twice, but **a question that
+had already been dissolved**.
+
+The trigger for finding it was mechanical and worth copying: after §18 I
+grepped the corpus for `ψ` and `Chebyshev` to see whether the estimate I
+wanted existed elsewhere. It did not — but `WALK_FORCING_LAW.md` came back
+in that grep and answered a different question, the one I should have asked
+first.
+
+### Final tally for this session
+
+| # | claim | fate |
+|---|---|---|
+| 1 | `disjoint-support` is arithmetic's barrier | scope-corrected (§2) |
+| 2 | descent = bhāvanā inversion | refuted (§9) |
+| 3 | the walk has neither descent mechanism | caught pre-landing (§9) |
+| 4 | the parity rhyme | refuted (§14) |
+| 5 | overlap is the walk's cost | sign-corrected (§15) |
+| 6 | the encoding is the identified mechanism | scope-corrected (§18) |
+| 7 | there is a cost gap at all | **dissolved (§19)** |
+
+Seven, of which six were made tonight. What stands unretracted, and stands
+cleanly, is §§3–7: the conic carries the transition the line does not
+(`rot-norm`, `gen-hom`), triples are a monoid under bhāvanā, norm-one
+rotations are univalent identifications with vanishing structured defect,
+joins are irreversible, descent is scaling not inversion, and reversibility
+costs the integers. Those are about **structure**, and none of them was
+touched by any of the seven.
+
+The pattern is not subtle: every correction landed on a claim about
+**magnitude**, and none landed on a claim about **structure**. In a lane
+with no analytic apparatus, that is exactly where the error rate should
+have been expected to be, and it is where the next such thread should
+refuse to go without the estimate in hand.
