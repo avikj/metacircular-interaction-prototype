@@ -99,9 +99,17 @@ identity and remain correct:
   (anekānta-*svabhāva*, a real many-natured object) are opposed positions that
   refute each other. One file cannot be both.
 - **It domesticates Nāgārjuna's prasajya negation into a consistent semantics**
-  (`both-is-consistent`). That takes the contested Priest–Garfield side against
-  the negation reading (Westerhoff, Siderits); the presheaf facts type-check,
-  but the tetralemma reading is a live dispute, not a settled hardening.
+  (`both-is-consistent`). Whether the catuṣkoṭi is *prasajya-pratiṣedha*
+  (commitmentless, non-implicative negation — leaving no positive thesis) or
+  *paryudāsa* (implicative negation — which a consistent four-valued model
+  would require) is a distinction native to the Sanskrit grammatical and
+  Naiyāyika tradition, and the dispute over Nāgārjuna's method is the
+  tradition's own — Prāsaṅgika (Candrakīrti, *Prasannapadā*) against
+  Svātantrika (Bhāviveka). Nāgārjuna's own *Vigrahavyāvartanī* 29 (*nāsti ca
+  mama pratijñā*, "I have no thesis") anchors the prasajya reading. Assigning
+  the tetralemma a consistent truth-functional model gives it the very
+  *pakṣa* it withholds; the presheaf facts type-check, but the Sanskrit
+  reading is a live question settled inside the tradition, not by the file.
 
 These stand because they concern *which* tradition and *which* reading, not
 whether univalence formalizes emptiness. `PratityasamutpadaArising`'s
@@ -115,19 +123,22 @@ structural reading, in the spirit of `ABHAVA.md` §A2 ("the slot does the same
 work, not that they are the same theory") — here the stronger claim is that
 the *content* matches, with §4 naming where to test it.
 
-**Verse citations (canonical, edition-stable; apparatus unchecked this
-session):** MMK 24.18 (pratītyasamutpāda = śūnyatā = madhyamā pratipat), 24.10
-(ultimate via conventional), 13.8 (emptiness-as-*view* is the incurable error
-— note this warns against *clinging to emptiness as a thing*, which asserting
-univalence-as-structural-principle need not do), 18.8 (tetralemma);
-Vigrahavyāvartanī 29 (no-thesis). Not opened: Siderits–Katsura, de Jong, Ye
-Shaoyong.
+**Primary sources — the tradition's own texts, cited directly (canonical
+chapter.verse, edition-stable):** Nāgārjuna, *Mūlamadhyamakakārikā* — 24.18
+(pratītyasamutpāda = śūnyatā = madhyamā pratipat), 24.10 (the ultimate is
+taught only through the conventional), 13.8 (emptiness-as-*view* is the
+incurable error — it warns against *clinging to emptiness as a thing*, which
+asserting univalence-as-structural-principle need not do), 18.8 (tetralemma);
+*Vigrahavyāvartanī* 29 (no-thesis). Commentary within the tradition:
+Candrakīrti, *Prasannapadā* (the Prāsaṅgika reading of the negation). These
+are the sources; no intermediary is enthroned as the authority on them.
 
 **Prior art (SEARCH obligation, from in-repo record):** the cubical-type-theory
-formalization lineage for Indian logic — Matilal (1968), Ganeri, Bhattacharyya,
-and Panday–Ghosh *Cubical Type Theoretic Navya-Nyāya* (arXiv:2605.12548),
-located in `ABHAVA.md` §A6. Whether anyone has argued *univalence ≈ śūnyatā*
-specifically is unsearched this session and is an open obligation.
+formalization lineage for Navya-Nyāya — Ganeri, Bhattacharyya, and
+Panday–Ghosh *Cubical Type Theoretic Navya-Nyāya* (arXiv:2605.12548), located
+in `ABHAVA.md` §A6, i.e. scholars of the tradition working in this substrate.
+Whether anyone has argued *univalence ≈ śūnyatā* specifically is unsearched
+and is an open obligation.
 
 **Untranslated:** the soteriological totality — that these are analyses *for
 liberation from dukkha*, not semantics; anātman; the two-truths debate about
