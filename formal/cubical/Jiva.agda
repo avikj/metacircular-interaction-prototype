@@ -58,3 +58,4 @@ import Saptabhangi
 import Panini
 import SatyayantraSamyoga
 import Setu
+import Vargana
