@@ -613,3 +613,47 @@ Five, of which three were mine and made tonight. The corpus's protocol says
 refuting your own claim is the most respected act here; the rate at which
 that is needed is itself the finding, and it is the reason nothing above
 should be read at a scope wider than its own statement.
+
+---
+
+## 16. Addendum, same session: along its own trajectory the walk's join is never a join
+
+§15 put "where does `e^ψ(k)` come from?" back to open.
+`formal/cubical/NaturalMachine/TheTrajectoryIsAChain.agda` (checked, exit
+0) does not answer it, but removes a whole class of answers.
+
+```
+chain-join-absorbs :  (t m ⊔ t n) ≡ t n   or   (t m ⊔ t n) ≡ t m
+```
+
+for any step-monotone trajectory `t`. The walk's is step-monotone, so
+along its own path the join **always returns one of its arguments
+unchanged**. It is an absorption, never a construction. The machine's
+state law is a lattice operation and the machine never once uses the
+lattice: it moves up a **chain**.
+
+Checked concretely as well as generally — the walk's first eight states,
+`cap 1..8 = 1, 2, 6, 12, 60, 60, 420, 840`, with each step absorbing the
+last, all by `refl` (finite exhaustive verification, which CLAUDE.md admits
+as proof). And the lattice really is wider than the path: `4` and `3` are
+incomparable with join `12`, a state the walk reaches only later and never
+by that join.
+
+### What this removes
+
+The walk's cost cannot be explained by anything the join does at
+incomparable states, because the walk never visits an incomparable pair.
+Every idempotence consequence in §§8–13 — no inverses, no norm, no
+forgetting, no sign — holds along a path on which the join is pure
+absorption. **Whatever `ψ(k)` is paying for, it is not the width of the
+lattice.**
+
+### Reading, marked as such
+
+> The walk pays for a lattice of dimension `π(k)` with coordinates up to
+> `log k`, in order to move along a totally ordered path of length `k`.
+
+That is a reading, not a theorem. The absorption is proved; the waste is
+not quantified, and §15's gap (`ψ(k) ≈ k` carried versus `log k` needed)
+is exactly as open as it was. This module narrows the space of
+explanations by one class and claims nothing more.
