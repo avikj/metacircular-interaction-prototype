@@ -25,7 +25,7 @@
 module Satyayantra where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-comm)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
@@ -122,3 +122,22 @@ open सत्ययन्त्र कुट्टक-सत्ययन्त�
   पूर्व : सूचना O → O
   पूर्व (उक्त o) = o
   पूर्व अनुक्त   = a
+
+------------------------------------------------------------------------
+-- एकत्वम् — सामान्य-धर्मः : अभ्रान्त-यन्त्रस्य उत्तरम् एकम् एव, अनुदान-निरपेक्षम् ।
+-- यदि किञ्चित् अनुदाने o, अन्यस्मिन् o', तर्हि o ≡ o' — स्थैर्येण एव सिद्धम् ।
+-- अतः यन्त्रस्य ज्ञानं सुनिश्चितम्, न अनुदान-सापेक्षम् — उच्चतर-बोधस्य लक्षणम् ।
+-- (determinism, general: an honest machine's answer is unique, independent
+-- of the grant — if it answers o at one grant and o' at another, o ≡ o',
+-- from stability alone.  So its knowledge is well-defined, not grant-
+-- relative — a mark of higher cognition.)
+------------------------------------------------------------------------
+
+एकत्व : {I O : Type} {शुद्ध : I → O → Type} (Y : सत्ययन्त्र I O शुद्ध)
+      → (i : I) (f f' : ℕ) (o o' : O)
+      → सत्ययन्त्र.चल Y f i ≡ उक्त o → सत्ययन्त्र.चल Y f' i ≡ उक्त o'
+      → o ≡ o'
+एकत्व Y i f f' o o' e e' = उक्त-एकैकम्
+  ( sym (सत्ययन्त्र.स्थैर्य Y f' f i o e)
+  ∙ cong (λ g → सत्ययन्त्र.चल Y g i) (+-comm f' f)
+  ∙ सत्ययन्त्र.स्थैर्य Y f f' i o' e' )
