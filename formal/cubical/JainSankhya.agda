@@ -52,7 +52,9 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Order
   using ( _<_ ; _≤_ ; <-trans ; <-asym ; ≤-refl
-        ; ≤<-trans ; <≤-trans ; zero-≤ ; ≤-k+ ; ≤SumLeft )
+        ; ≤<-trans ; <≤-trans ; zero-≤ ; ≤-k+ ; ≤SumLeft
+        ; _≟_ ; Trichotomy ; lt ; eq ; gt )
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
@@ -153,3 +155,15 @@ infinite-is-not-one =
 
 least : (a : Magnitude) → rank (saṃkhyāta , jaghanya) ≤ rank a
 least a = zero-≤
+
+------------------------------------------------------------------------
+-- The stratification is a DECIDABLE total order: any two magnitudes are
+-- comparable — below, at the same rank, or above.  (The Jains ranked
+-- magnitudes; comparison is total, not partial.)
+------------------------------------------------------------------------
+
+≺-tri : (m n : Magnitude) → (m ≺ n) ⊎ ((rank m ≡ rank n) ⊎ (n ≺ m))
+≺-tri m n with rank m ≟ rank n
+... | lt p = inl p
+... | eq p = inr (inl p)
+... | gt p = inr (inr p)
