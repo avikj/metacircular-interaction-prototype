@@ -3936,8 +3936,16 @@ main = do
 -- note only chooses WHICH module agda is asked to check, never whether it
 -- is asked, and a remembered theorem that no longer certifies is still
 -- dropped.
-readmitMemory :: Handle -> [Rule] -> [(Term,Term)] -> IO ([(Term,Term)], Int)
-readmitMemory logh baseRules remembered = go 1 [] baseRules ordered
+-- THE SYMBOL LIST HAS TO BE THE SAME ONE THE ROUND USES.  Re-admission passed
+-- `[]` where a round passes `kernelSyms m`, so a remembered theorem naming a
+-- symbol past the base vocabulary was Untranslatable at load however it had
+-- been proved.  Measured on the committed 63-line memory: remembered=63
+-- distinct=41 re-admitted=40 dropped=1 -- the dropped one being the pair
+-- theorem the previous run had just certified, which round 0 then proved and
+-- appended all over again.  A memory that cannot hold what the loop puts in it
+-- is not a memory; the caller now passes the startup vocabulary's tail.
+readmitMemory :: Handle -> [Sym] -> [Rule] -> [(Term,Term)] -> IO ([(Term,Term)], Int)
+readmitMemory logh extraSyms baseRules remembered = go 1 [] baseRules ordered
   where
     ordered = sortOn (\(l,r) -> (size l + size r, l, r)) remembered
     go :: Int -> [(Term,Term)] -> [Rule] -> [(Term,Term)]
@@ -3950,7 +3958,7 @@ readmitMemory logh baseRules remembered = go 1 [] baseRules ordered
         else go (pass + 1) admitted' rules' (reverse dropped)
     step (admitted, rules, dropped) c = do
       let note = maybe "remembered" id (proveByInduction rules c)
-      ok <- kernelAcceptWith [] admitted rules logh 0 (c, note)
+      ok <- kernelAcceptWith extraSyms admitted rules logh 0 (c, note)
       pure $ if ok
                then ( admitted ++ [c]
                     , rules ++ maybe (lemmaRules [c]) (:[]) (orient c)
@@ -4000,7 +4008,9 @@ runMachine disp batch = do
                          (\v -> max 1 (min v (dVocabCap disp)))
                          (dVocabStart disp)
       baseRules = definitionsOf (take startVocab vocabulary)
-  (admitted, passes) <- readmitMemory logh baseRules distinct
+  (admitted, passes) <- readmitMemory logh
+                          (drop baseVocabCap (take startVocab vocabulary))
+                          baseRules distinct
   hPrintf logh "  MEMORY  remembered=%d distinct=%d re-admitted=%d dropped=%d passes=%d\n"
     (length remembered) (length distinct) (length admitted)
     (length distinct - length admitted) passes
