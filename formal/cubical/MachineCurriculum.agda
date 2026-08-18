@@ -21,6 +21,40 @@
 --     unblocks  3   0 = 0∸y
 --     unblocks  2   x = x + 0·x
 --
+-- ┌─ AS-OF, added 2026-08-18.  READ THIS BEFORE BELIEVING ANY NUMBER ABOVE
+-- │  OR BELOW.  Every figure in this header — 130 / 78 / 54, the five
+-- │  `unblocks` counts, and the "179 proofs … 6 back" at the end — is an
+-- │  aggregate that `machine/Obstruction.hs` computed from
+-- │  `machine/machine.log` on a run whose date and log size were never
+-- │  recorded.  They were quoted in the present tense, which is what makes
+-- │  them rot; `notes/INDIAN_LANE_CITATION_AUDIT.md` F8(d) is the finding.
+-- │
+-- │  `machine/machine.log` at the time of this edit: `wc -l` = 10700.  It
+-- │  is gitignored (`.gitignore`:16) — NOT present in a fresh clone, so
+-- │  none of these numbers is reproducible from one.  It is append-only
+-- │  across runs (61 `DISPATCH` blocks at that size) and it is LIVE: it
+-- │  grew from 10475 to 10700 lines while this repair was being made.
+-- │
+-- │  The counts are deliberately NOT re-measured and substituted here,
+-- │  for two reasons.  (i) Substituting a fresh number without its log
+-- │  size just re-arms the same trap.  (ii) More seriously, "179 proofs
+-- │  and got 6 back" is no longer even well-defined against this file:
+-- │  it described ONE live round of ONE run, and `round=N` is now reused
+-- │  by all 61 runs, so the log's per-round tallies aggregate across runs
+-- │  and no round matches.  For the record, at 10700 lines the per-round
+-- │  totals are round=0 2142/846, 1 0/112, 2 8/235, 3 2/152, 4 78/453,
+-- │  5 55/363, 6 102/245, 7 14/244, 8 5/98 (accepts/rejects).  The audit
+-- │  found round=4 at 6/165; it is now 78/453.  That is not drift in a
+-- │  measurement, it is a different population.
+-- │
+-- │  WHAT SURVIVES, and it is the whole point of this module: the RANKING
+-- │  is illustrative, the LEMMAS are not.  Nothing proved below depends on
+-- │  any count — `+zero`, `·zero`, `+·zero`, `oneMul` are theorems of ℕ and
+-- │  are checked by the kernel here.  The mechanism claim (§ "WHY THE
+-- │  ENGINE IS ASKING FOR THESE") is an argument about how Agda's `_·_`
+-- │  recurses, not a measurement, and stands on its own.
+-- └─
+--
 -- WHY THE ENGINE IS ASKING FOR THESE, which is the part worth understanding.
 -- It already HAS `x·0 = 0` — it is a defining equation of `*` in its own
 -- vocabulary.  It is demanding a lemma it knows.  The reason is that Agda's
@@ -33,7 +67,11 @@
 -- So this module is not a list of things the machine did not know.  It is
 -- the BRIDGE between the machine's rewriting and the kernel's definitional
 -- equality, and closing it is what raises the acceptance rate — a live round
--- submitted 179 proofs and got 6 back.
+-- submitted 179 proofs and got 6 back.  (That sentence is kept in the past
+-- tense it belongs in: it reports one round of one run, and per the AS-OF
+-- block above it is no longer recoverable from `machine/machine.log`, whose
+-- round numbers are now shared by 61 runs.  It is an anecdote about why the
+-- bridge was built, not a fact the reader can check.)
 --
 -- Everything below is proved by induction, constructively, no postulates.
 ------------------------------------------------------------------------

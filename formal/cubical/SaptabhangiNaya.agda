@@ -94,13 +94,48 @@ private
 --
 -- Not the seven nayas of Tattvārthasūtra 1.33.  Those classify ways of
 -- REFERRING; these are the three provers the machine actually runs, read
--- off `machine/machine.log`'s own tactic vocabulary:
+-- off `machine/machine.log`'s own tactic vocabulary.
 --
---     663  trace replay          (the machine's own rewriter, exported)
---     480  induction on x, step = refl
---     420  induction on x, step = ih
---     255  induction on x, step = cong suc
---      43  refl
+-- AS OF 2026-08-18, at `wc -l machine/machine.log` = 10700 lines
+-- (`grep -cF` on each tactic string, whole log, all rounds, on a snapshot
+-- taken at that line count):
+--
+--     837  trace replay          (the machine's own rewriter, exported)
+--     637  induction on x, step = refl
+--     529  induction on x, step = ih
+--     333  induction on x, step = cong suc
+--      53  refl                  (`(refl, N agda calls)`)
+--
+-- READ THE AS-OF LINE, NOT THE NUMBERS — and prefer not to quote them at
+-- all.  Three things make every figure above perishable, and all three
+-- were observed, not assumed:
+--
+--   * `machine/machine.log` is gitignored (`.gitignore`:16).  It is absent
+--     from a fresh clone, so NOTHING here is reproducible from one.
+--   * It is append-only across runs — 61 `DISPATCH` blocks are in it at
+--     this size — so `round=N` is not a unique event and every count is a
+--     monotone function of a file that keeps growing.
+--   * It is LIVE.  While this block was being re-measured on 2026-08-18
+--     the log went from 10475 to 10700 lines, and the first four counts
+--     moved 820→837, 626→637, 520→529, 327→333 in that interval.  The
+--     numbers above were stale before this comment was saved.
+--
+-- That is the whole reason the earlier text rotted: until 2026-08-18 this
+-- block read 663 / 480 / 420 / 255 / 43 in the present tense with no log
+-- size attached, and `notes/INDIAN_LANE_CITATION_AUDIT.md` F2 read
+-- 778 / 566 / 490 / 305 off the same named file at audit time — a third
+-- set of figures for the same "fact".  Substituting today's would only
+-- re-arm the trap, so what is recorded is the pair (count, log size), and
+-- if you re-measure you must replace both or delete the block.
+--
+-- The numbers are ILLUSTRATIVE ONLY.  Nothing below depends on them:
+-- §1's content is that the three standpoints are pairwise distinct
+-- (`rewriter≢refl` and its two siblings, proved below), not that any one
+-- of them is popular.  This file's own header quotes two individual log
+-- LINES verbatim (146 and 174) instead of an aggregate; because the log is
+-- append-only those two were re-checked on 2026-08-18 and are still exact.
+-- That is the citation form that survives growth — quote the line, never
+-- the total.
 --
 -- Collapsed to the three that disagree with each other in the log.
 -- Siddhasena's 1.28 licenses this: as many nayas as ways of speaking.
@@ -480,10 +515,26 @@ sapeksa = machine-profile , refl , refl
 -- 5. Utpāda-vyaya-dhrauvya (TS 5.29) is NOT formalised here.  A type-level
 --    statement of it would be a function ℕ → Profile that is non-constant,
 --    which is trivially inhabited and would prove nothing.  Its content in
---    this repository is empirical — 35 claims in `machine/machine.log`
---    appear in both the accept and the reject stream — and it is recorded
+--    this repository is empirical — some claims in `machine/machine.log`
+--    appear in BOTH the accept and the reject stream — and it is recorded
 --    where empirical facts belong, in the census and in
 --    `notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md`.
+--
+--    AS OF 2026-08-18, at `wc -l machine/machine.log` = 10700 lines, that
+--    overlap is 40 claims, out of 98 distinct accepted and 432 distinct
+--    rejected.  Extraction: the claim text between `round=N ` and the two
+--    spaces before `(`, `sort -u` per stream, `comm -12`.  This need not
+--    agree with `Obstruction.hs`'s `claimOfAcceptLine`, which is the
+--    authority; it is quoted here only to say the overlap is non-empty.
+--    Until 2026-08-18 this line said "35 claims" in the present tense with
+--    no as-of and no log size; `notes/INDIAN_LANE_CITATION_AUDIT.md` F15
+--    measured 40 by the same extraction at a smaller log.  The number is a
+--    monotone reading of a gitignored (`.gitignore`:16), append-only, and
+--    currently LIVE file — absent from a fresh clone, hence NOT
+--    reproducible from one, and growing while it is read.  Re-measure the
+--    line count together with the number, or quote neither.  The claim
+--    §5 actually rests on is only that the overlap is NON-EMPTY: the same
+--    claim is both accepted and rejected somewhere in the stream.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
