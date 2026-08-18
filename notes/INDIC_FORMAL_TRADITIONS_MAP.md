@@ -401,7 +401,21 @@ convention. **The pulverizing is absent.** The file would type-check
 identically if renamed `Continuant.agda`, and nothing in it depends on
 Āryabhaṭa.
 
-> **Verdict: `KuttakaValli.agda` earns "vallī" and does not yet earn
+> **[DISCHARGED 2026-08-18, cf-sakshi.** The missing theorem now exists, in a
+> new self-contained module `formal/cubical/Kuttaka.agda` (not in
+> `KuttakaValli.agda`, whose `solve!`-bearing matrix dependencies do not build
+> under this container's v0.5 pin). It proves `bezout`: every pulverizer run —
+> the Euclidean descent as inductive evidence, i.e. the vallī as a checked
+> trace — yields x, y with `a·x + b·y ≡ g`, the coefficients built by
+> back-substitution `(x',y') ↦ (y', x'−q·y')` up the vallī; plus the scaled
+> inhomogeneous family and a concrete non-vacuous run on (7,5). Still NOT done,
+> named there: the iṣṭa least-positive section, and the proof that g is the
+> gcd (needs r<b). Fallback-checked on v0.5 (one ring identity via `solve`, the
+> v0.9 `solve!` spelling under the other pin), --safe, no holes. This is the
+> first module in the repo where an Indian source supplies a theorem rather
+> than a name — the thing §5.2(ii) asked for.]**
+>
+> **Verdict (original): `KuttakaValli.agda` earns "vallī" and does not yet earn
 > "kuṭṭaka".** The vallī-as-syntax framing is a genuine and defensible
 > translation of the tradition's distinctive artifact. The name `Kuttaka`
 > promises the solving of `ax − by = c` and the declared section, which live
