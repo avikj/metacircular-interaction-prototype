@@ -88,6 +88,7 @@ import NaturalMachine.Factorisation
 import NaturalMachine.PFreePart
 import NaturalMachine.ExponentBound
 import NaturalMachine.FuelAdequacyIsACollision
+import NaturalMachine.PowModHasTheSameShape
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
