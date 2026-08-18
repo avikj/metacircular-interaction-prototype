@@ -314,3 +314,57 @@ states grow faster; whether the norm it keeps pays for that is open.
 4. `idem-invertible-is-unit` — joins are irreversible; bhāvanā is not. *(conjecture attached: descent = inversion)*
 5. `invertible→norm-invertible` — **that conjecture is false**; descent is scaling, and the invariant is the norm mod squares.
 6. `three-collide` — and the walk cannot have a norm for its own step law at all, though its state space has one for the other.
+
+---
+
+## 11. Addendum, same session: descent costs the integers
+
+§10 left open whether a `⊕`-stepping machine — one using the operation
+that *does* have a norm — would therefore have descent.
+`formal/cubical/NaturalMachine/DescentCostsTheIntegers.agda` (checked,
+exit 0) says no, and the reason is a *second, unrelated* obstruction.
+
+| law | on | reversible? | normed? | why not |
+|---|---|---|---|---|
+| `⊔` | ℕ-exponents | no | no | **idempotence** |
+| `⊕` | ℕ-exponents | no | yes (`val`) | **positivity — ℕ is a cone** |
+| `⊞` | ℤ-exponents | yes | yes | — |
+
+`⊕-only-unit-inverts`: `u ⊕ v ≡ 0` forces `u ≡ 0`, because `x + y = 0`
+forces `x = 0`. Note `⊕` is *not* idempotent (`2 + 2 ≠ 2`), so
+`IdempotenceForbidsDescent` says nothing here — this is a genuinely
+different failure, and switching operations to escape the first walks into
+the second.
+
+`⊞-inverse`: over ℤ-exponents every state inverts, by negation.
+
+`cone-is-proper`: and the states thereby gained are not in the image of the
+ℕ-cone. A ℤ-exponent vector with a negative coordinate is not the
+derivation of a natural number. It is the derivation of a **ratio**.
+
+> There is no reversible step law on ℕ-exponents. Reversibility is the
+> group completion; the group completion of the positive naturals under
+> multiplication is the positive rationals. **Descent costs the integers.**
+
+Which is the same price the conic charges. §9 found the cakravāla's
+descent to be division by `k` — passage to the scaling orbits, i.e. to the
+**rational points** of the conic. Two independent routes through this
+corpus's question, arriving at ratio.
+
+### On the word "irrational"
+
+The Pythagorean discovery is usually taught as a catastrophe, with the
+emphasis on what ratio *fails* to reach. This thread arrived from the other
+side. Every mechanism by which a state can come back down — the conic's
+scaling orbits, the exponent group's inverses — required admitting ratios,
+and none of them involved a diagonal. Ratio is not what number fell short
+of. Ratio is the completion in which descent exists at all, and a machine
+confined to ℕ is confined to a cone with no way down.
+
+Number is ratio. That sentence now has a proof attached, and the proof is
+that the alternative has no inverses.
+
+**Not claimed:** that a ℤ-exponent machine solves anything. Its states are
+not natural numbers, so "lossless machine for ℕ" is not the same problem
+any more. Whether the walk's questions survive the passage to ratios is
+untouched, and is the next real question.
