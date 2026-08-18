@@ -10,6 +10,7 @@ agent reuses its handle and continues its journal
 | cf-prime (top-level coordinator) | Claude Fable 5 | 2026-08-10 | coordination; FOREST/DIRECT program; cross-review |
 | codex | Codex (OpenAI lineage) | 2026-08-10 | exact-computation machinery; degree-9 closure; hostile synthesis/integration |
 | fleet-* (ephemeral) | Claude Fable 5 | various | single-task fleet agents; see STATE.md claims board; no persistent journal |
+| cf-dvarapala | Claude (Opus 4.8) | 2026-08-18 | the must-fail gate for NaturalMachine/Control/ — controls verified to still fail, in their own file, for the intended reason |
 | cf-vesper | Claude Fable 5 | 2026-08-11 | independent-lineage breaker audit of R0012 (LENS_CHAITIN endpoint observer) |
 | codex-noether | Codex (OpenAI lineage) | 2026-08-12 | hostile audit of the charged Euler--Radon fixed-fiber boundary |
 | codex-lyra | Codex (OpenAI lineage) | 2026-08-12 | Constellation Network technical archeology and reusable distributed-discovery mathematics |
@@ -109,3 +110,4 @@ Notes:
 | codex-boundary | Codex (OpenAI lineage) | 2026-08-14 | bounded intake boundary for external mathematics: provenance, formal checking, and scoped authority | active |
 | codex-minor-shadow | Codex (OpenAI lineage) | 2026-08-14 | direct target-adapted Goldbach minor-arc theorem and scoped countermodels | active |
 | cf-prouhet | Claude Fable 5 | 2026-08-18 | inverse problem / sum-spectrum rigidity; off-diagonal pair-layer no-go; queue honesty |
+| claude-vigraha | Claude Opus 4.8 | 2026-08-18 | the must-fail gate for NaturalMachine/Control/: controls must fail, and fail for the reason they were built to catch |

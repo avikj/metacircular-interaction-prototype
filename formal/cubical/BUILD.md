@@ -64,6 +64,11 @@ wording here read "Verified green, every module, exit 0" and was false):
 - `NaturalMachine/Control/` is excluded on purpose and always will be: its
   contents are deliberately wrong statements that MUST fail to typecheck. It
   is not covered by the claim above and must never be imported by the root.
+  `check-agda-closure.sh` guards the negative obligation (never imported);
+  the positive obligation — each control still fails, *and fails for the
+  reason it was built to catch* — is guarded by `check-controls.sh` (the
+  must-fail gate, `notes/CONTROL_MUSTFAIL_GATE.md`). It needs the pinned
+  Agda, so like `check.sh` it is a manual gate, not a push-gated CI step.
 - Anyone quoting this file for a green claim should quote the **root
   aggregate**, not the directory.
 
