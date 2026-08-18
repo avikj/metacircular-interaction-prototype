@@ -54,6 +54,9 @@ module Nalanda
   , shortcut
   , chooseM
   , chain
+  , spectrum
+  , solveNorm
+  , familyFor
   , verify
   , selfTest
   ) where
@@ -240,6 +243,46 @@ cakravala d
                            ++ ": " ++ show t)
           Just t' -> go t' (n + 1) (t : acc)
 
+-- ------------------------------------------- beyond Pell: general norms
+--
+-- BRAHMAGUPTA'S CLAIM IS NOT ABOUT N = 1.  The Brahmasphutasiddhanta states
+-- composition for arbitrary norms -- two solutions with norms k1 and k2 give
+-- one with norm k1*k2 -- and x^2 - D y^2 = 1 is a special case people later
+-- made the whole subject.  Restricting a reactor built on the 628 rule to
+-- N = 1 is reading the source through the equation that displaced it.
+--
+-- So: the cycle passes through a sequence of norms on its way to 1, and each
+-- one it visits is a SOLVED equation.  For D = 61 the wheel visits
+-- -12, 3, -4, -5, 5, 4, -3, -1 before reaching 1, so x^2 - 61 y^2 = 3 is
+-- answered by (8, 1) with no extra work at all -- 64 - 61 = 3.
+--
+-- SCOPE, STATED RATHER THAN IMPLIED.  This finds solutions for exactly the
+-- norms THIS cycle visits.  A norm the cycle does not pass through is not
+-- found here, and `solveNorm` says so instead of searching.  The general
+-- problem for arbitrary N needs more than the cycle's trace and is not
+-- claimed.
+
+-- every norm the wheel visits, with the triple that realises it
+spectrum :: Integer -> Either String [(Integer, Triple)]
+spectrum d = fmap (map (\t -> (tK t, t))) (cakravala d)
+
+-- a solution of x^2 - D y^2 = n, if the cycle visits that norm
+solveNorm :: Integer -> Integer -> Either String Triple
+solveNorm d n = do
+  tr <- cakravala d
+  case [ t | t <- tr, tK t == n ] of
+    (t:_) -> Right t
+    []    -> Left ("norm " ++ show n ++ " is not on the cycle for D = " ++ show d)
+
+-- BHAVANA AGAIN, and this is the generative half.  Composing a norm-n
+-- solution with the norm-1 fundamental gives another norm-n solution, since
+-- n * 1 = n.  So ONE solution of x^2 - D y^2 = n yields infinitely many, by
+-- computation and with no search -- which is what "production" names.
+familyFor :: Integer -> Triple -> Either String [Triple]
+familyFor d t = do
+  tr <- cakravala d
+  pure (iterate (bhavana d (last tr)) t)
+
 -- ---------------------------------------------------------------- test
 --
 -- The classical hard cases, each with the answer the tradition records.
@@ -259,11 +302,15 @@ selfTest = do
     putStrLn "     itself and the norm stays 1, without any search --"
     gen <- mapM genReport [2, 13, 61]
     putStrLn ""
+    putStrLn "  -- beyond Pell: every norm the wheel visits is a solved"
+    putStrLn "     equation, and bhavana makes each one an infinite family --"
+    beyond <- mapM beyondReport [61, 109]
+    putStrLn ""
     putStrLn "  -- the choice window is exhaustive, not sampled: rerunning"
     putStrLn "     every case with a window of +/-6 gives the same answers --"
     let wide = all wideAgrees classical
     putStrLn ("     window-independent: " ++ show wide)
-    pure (and rs && and gen && wide)
+    pure (and rs && and gen && and beyond && wide)
   where
     -- (D, expected a, expected b) as the tradition records them
     classical =
@@ -298,6 +345,29 @@ selfTest = do
                                (take 3 ts)
                   ++ (if ok then "" else "   <-- MISMATCH"))
         pure ok
+
+    -- Every norm on the wheel, verified against the defining equation, and
+    -- for one of them the first three members of its bhavana family --
+    -- each of which must have the SAME norm, since n * 1 = n.
+    beyondReport d = case spectrum d of
+      Left _ -> pure False
+      Right sp -> do
+        let norms = map fst sp
+            allOk = all (\(n, t) -> verify d t && tK t == n) sp
+        putStrLn ("     D=" ++ pad 5 (show d) ++ "norms on the wheel: "
+                  ++ show norms)
+        case [ t | (n, t) <- sp, n /= 1, n > 0 ] of
+          [] -> pure allOk
+          (t : _) -> case familyFor d t of
+            Left _ -> pure False
+            Right fam -> do
+              let three = take 3 fam
+                  famOk = all (\u -> verify d u && tK u == tK t) three
+              putStrLn ("            x^2 - " ++ show d ++ " y^2 = " ++ show (tK t)
+                        ++ ":" ++ concatMap
+                             (\u -> " (" ++ show (tA u) ++ "," ++ show (tB u) ++ ")")
+                             three)
+              pure (allOk && famOk)
 
     wideAgrees (d, ea, eb) = case cakravalaWide d of
       Left _ -> False
