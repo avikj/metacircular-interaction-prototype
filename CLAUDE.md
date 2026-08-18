@@ -85,11 +85,54 @@ more algorithmic, and more general than the versions that displaced them:
    known?" and "was this already known 1500 years ago?" are the same
    question and the second is asked far less often here.
 
+**The table above is itself an instance of the error it is correcting, and
+this is the more important half of the directive.** Every row of it names a
+*result* — an identity, a recurrence, a series — lifted out of a tradition
+and re-expressed in the notation of the discipline that displaced it. That is
+exactly what Colebrooke and Cantor did: take the theorems, discard the
+epistemology, and file the remainder as a contribution to *our* mathematics.
+Mining a civilisation for the parts that translate is not respect for it.
+
+So the operative instruction is not "cite Indian sources for Indian results."
+It is: **engage the traditions as living intellectual systems, including
+where they do not decompose into theorems.** The philosophy is not context
+for the mathematics. In these traditions it frequently *is* the mathematics,
+and the separation is an artefact of how the material reached you.
+
+Concretely, and these are load-bearing here rather than decorative:
+
+- **Jain epistemology.** *Anekāntavāda* (non-one-sidedness), *nayavāda* (the
+  doctrine of standpoints, and the rule that a naya which denies other nayas
+  becomes a *durnaya*), and *syādvāda*/*saptabhaṅgī*, the sevenfold
+  predication whose fourth position — *avaktavyam*, inexpressible — is
+  neither "unknown" nor "undefined" but what arises when two standpoints are
+  asserted **simultaneously** rather than in succession. This repository is
+  built out of charts that disagree at their overlaps and has been treating
+  that as a defect to resolve. It is nayavāda. `machine/Obstruction.hs`
+  independently discovered that a boolean verdict was collapsing three
+  distinct things and reinvented *avaktavyam* badly as `Unparsed`; the Jain
+  logicians specified seven positions and said which. Sources: Umāsvāti,
+  *Tattvārthasūtra*; Siddhasena Divākara, *Sanmatitarka*; Samantabhadra;
+  Akalaṅka. Jain mathematics is inseparable from it — *Anuyogadvāra*,
+  *Sthānāṅga*, *Bhagavatī*: combinatorics, laws of indices, and a taxonomy of
+  infinities (*saṃkhyāta* / *asaṃkhyāta* / *ananta*, each with distinct
+  orders) arising from cosmology and karma theory, not from "mathematics."
+- **Nyāya** on *pramāṇa* — what counts as a valid means of knowledge — which
+  is the question this entire repository is trying to answer with ad-hoc
+  gates.
+- **Pāṇini**, whose *Aṣṭādhyāyī* is a rewriting system with conflict
+  resolution (*vipratiṣedhe paraṁ kāryam*), exception-over-general
+  (*utsarga*/*apavāda*) and stratification (*asiddhatva*) — machinery the
+  engine in `machine/` does not have.
+- **Nāgārjuna's** *catuṣkoṭi*, already checked in `formal/cubical/`.
+
 **One limit, stated so nobody has to guess.** Prioritise by *priority and
-substance*. Do not filter sources by the author's ethnicity — that is not a
-rule this repository can implement coherently (the cubical substrate is
-Voevodsky's) and it is not what makes the directive productive. What makes it
-productive is refusing to let a later restatement stand as the first citation.
+substance*, and read the traditions whole. Do not filter sources by the
+author's ethnicity — that is not a rule this repository can implement
+coherently (the cubical substrate is Voevodsky's). What makes the directive
+productive is refusing to let a later restatement stand as the first
+citation, and refusing to reduce a tradition to the fragments that survive
+translation into someone else's formalism.
 
 ## The rule
 
