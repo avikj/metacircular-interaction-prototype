@@ -434,6 +434,10 @@ import NaturalMachine.WalkInduction
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
 import NaturalMachine.WalkFast
+-- `Dec (IsPrime n)`: the primality decision procedure WalkJumps and
+-- CoprimeSplitting both confessed missing, built from CoprimeSplitting's
+-- own bounded divisor search (no new number theory).
+import NaturalMachine.PrimalityDecision
 -- notes/NUMBER_TOWER_AS_REPAIR.md §4.3 and Prop 9, as terms: repairs of a
 -- defect form a torsor under Aut of the repaired object, so the repair is
 -- canonical iff that group is trivial (and an initial repair is unique up
