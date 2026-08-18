@@ -119,3 +119,42 @@ quoted per module and mean only what was run.
   identifying it is philology this work does not touch. What is shown is
   that consecutive-ones **can** fail, so "why is anything repeated?" has a
   structural answer available and not only a historical one.
+
+---
+
+## Full sweep
+
+All 35 modules authored in this session re-elaborated in one pass, sources
+touched to defeat the interface cache, dependencies already built and
+separately checked. **No failures.**
+
+```
+Apavada  PythagoreanTransition  IdempotenceForbidsDescent
+DescentIsNotInversion  NoNormOnAJoin  DescentCostsTheIntegers
+BoundedStateNeedsAGroup  SignIsNotAccumulable  OverlapIsTheCost
+JoinSavesTheMeet  TheTrajectoryIsAChain  NumberIsExponentialInDerivation
+TheDerivationIsDenseToo  TheGapWasAUnitsError  WhereTheCircleSplits
+EveryTripleIsARotation  Cakravala  CakravalaNeedsKuttaka
+DeflationaryTest  Laghava  TransportPrice  Anuvrtti  Pratyahara
+LosslessLowerBound  WalkObservationCount  PingalaIsOptimal
+OptimalObservation  UnivalenceErasesTheAlgorithm  TheTower
+CRTChain  CoprimePowers  BezoutIsGCD  DistinctPrimesAreCoprime
+CoprimePowersN  FrontierCount
+```
+
+Three threads, one session:
+
+1. **The conic** — the barrier belongs to the line; bhāvanā carries the
+   transition; triples are a monoid; every triple is a rotation; the
+   cakravāla step, and its dependence on the kuṭṭaka.
+   (`notes/THE_BARRIER_BELONGS_TO_THE_LINE.md`)
+2. **The deflation and the tower** — no obstruction here is a barrier and
+   none can be; five levels of description with four separations.
+   (`notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`, this note)
+3. **Optimality** — pigeonhole, CRT at any frontier, and "optimal" as a
+   definition with three instances 2300 years apart.
+   (`notes/THE_WALK_IS_OPTIMAL_AND_HERE_IS_WHY.md`)
+
+Nine corrections were made along the way, seven of them to claims made in
+the same session, and every one of them landed on a claim about magnitude
+or scope rather than on a claim about structure.
