@@ -95,3 +95,39 @@ le(x,+(x,y))	s(0)	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ
 le(+(x,y),+(z,y))	le(x,z)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=0|calls=1
 *(s(x),y)	+(y,*(x,y))	pramana=anumana|naya=refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=3|calls=1
 +(x,y)	max(+(x,y),x)	pramana=anumana|naya=induction on x, step = cong suc|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+x	max(x,le(s(0),x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	-(x,s(+(x,y)))	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	-(x,s(s(s(x))))	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	-(le(x,0),s(x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	le(max(x,s(y)),0)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	le(max(s(x),y),0)	pramana=anumana|naya=induction on y, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	le(s(+(x,y)),x)	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	le(s(s(s(x))),x)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(x)	max(le(x,0),s(x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(x)	max(s(x),le(x,0))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(x)	max(s(x),le(y,0))	pramana=anumana|naya=induction on y, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(0)	le(x,s(+(x,y)))	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(0)	le(x,s(s(s(x))))	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(0)	le(le(x,0),s(x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(0)	le(le(x,0),s(y))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(0)	le(le(s(0),x),x)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+*(x,x)	*(x,max(x,s(0)))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+*(x,x)	*(max(x,s(0)),x)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,0)	le(le(s(0),x),0)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+-(x,s(0))	-(x,le(s(0),x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,0)	le(+(x,*(x,x)),0)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,0)	le(+(x,*(x,y)),0)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,s(y))	le(-(x,s(0)),y)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,s(0))	le(x,le(s(0),x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(x,s(0))	le(-(x,s(0)),0)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(s(0),x)	le(s(0),*(x,x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+le(s(0),x)	le(s(0),+(x,x))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(+(x,y))	max(x,s(+(x,y)))	pramana=anumana|naya=induction on x, step = cong suc|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(+(x,y))	max(s(+(x,y)),x)	pramana=anumana|naya=induction on x, step = cong suc|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(s(s(x)))	max(x,s(s(s(x))))	pramana=anumana|naya=induction on x, step = cong suc|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(s(s(x)))	max(s(s(s(x))),x)	pramana=anumana|naya=induction on x, step = cong suc|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+s(s(s(0)))	-(s(s(s(x))),x)	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
++(x,max(x,s(0)))	max(+(x,x),s(0))	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
++(x,max(y,s(0)))	max(+(x,y),s(x))	pramana=anumana|naya=induction on x, step = cong suc|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
