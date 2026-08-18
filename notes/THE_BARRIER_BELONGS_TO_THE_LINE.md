@@ -410,3 +410,66 @@ The question it poses is exact: *is there an operation for which the
 sieve's weights are multiplicative, and is it `⊔` or `⊕`?* Until that is
 answered the resonance is worth nothing, and this corpus has published a
 fitted constant before by treating a resemblance as content.
+
+---
+
+## 13. Addendum, same session: the rhyme in §12 has a theorem under it
+
+`formal/cubical/NaturalMachine/SignIsNotAccumulable.agda` (checked, exit
+0). Two things came out of looking at §12's rhyme properly, and the second
+is stronger than the statement it came from.
+
+### First: idempotence was never about `lcm`
+
+Every result in this thread turns on idempotence, presented throughout as
+a property of the join. It is more general, and the reason needs no
+arithmetic:
+
+> **Knowing something twice is knowing it once.**
+
+Any state law that *accumulates* — observations, constraints, standpoints,
+congruences, installed primes — is idempotent, because combining a datum
+with itself adds nothing. `lcm` is idempotent for that reason, not for a
+reason about divisibility. So §§8–12 apply to every accumulating machine,
+the walk being one instance.
+
+### Second: the theorem, with no domain hypothesis
+
+If `⋆` is accumulative and `f` is multiplicative for it into a commutative
+ring, then every value `f m` is a ring idempotent, so by
+`IdempotenceForbidsDescent.idem-invertible-is-unit` applied to the ring's
+**multiplicative** monoid:
+
+```
+accumulative-unit-values-are-one :  f m invertible  →  f m ≡ 1r
+```
+
+An accumulative law admits no multiplicative weight taking any unit value
+other than `1`. Over ℤ the units are `±1`, so
+
+```
+sign-is-not-accumulable :  ¬ (f m ≡ −1)
+```
+
+**Sign is not accumulable.** Not hard to accumulate — there is no
+accumulating law and no multiplicative `f` taking the value `−1`, ever.
+That rules out `λ` everywhere and `μ` off the squares, for every
+accumulative law at once.
+
+Note this is strictly stronger than `NoNormOnAJoin`'s two-valuedness and
+needs *less*: no zero divisors hypothesis, no domain, any commutative ring.
+
+### The bridge is a modelling claim and is stated as one
+
+This is **not** a theorem about sieves. "A sieve's state law is
+accumulation of congruence knowledge, and its weight must be
+multiplicative for that law" is a modelling claim, proved nowhere here.
+The honest form is a conditional, and it is worth having as one:
+
+> *If* a sieve's combination law is accumulative and *if* its weight must
+> be multiplicative for that law, *then* the weight is `1` wherever it is a
+> unit, hence cannot be `λ`.
+
+Both antecedents are open. Promoting the bridge would be the same error as
+publishing a fitted constant, one level up: a resemblance sold as a
+mechanism.
