@@ -108,3 +108,33 @@ selfTest = do
   where
     report n = let (e, a) = coverage n
                in putStrLn ("    " ++ show n ++ "   |  " ++ show e ++ "  |  " ++ show a)
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here is a correction to the module.
+--
+-- The sentence "the risk is real and the failure is unobserved, and those
+-- are different statements" is now a checked theorem, in
+-- `formal/cubical/NaturalMachine/TheSecondUpadhiConditionDoesAllTheWork.agda`
+-- (--safe, no postulates, no holes).  What it establishes:
+--
+--   * The Naiyayika pair of conditions on an upadhi is not redundant.
+--     Condition one alone (sadhya-vyapakatva) is met by U = S for EVERY
+--     inference, with no hypothesis — so it carries no information.
+--   * For that trivial candidate, condition two IS the failure of the
+--     pervasion, as the same type (`refl`).
+--   * Hence "some upadhi exists" and "the vyapti fails" are
+--     interderivable.  Asserting that a defeating condition exists is
+--     therefore NOT weaker evidence for the same claim; it is the same
+--     claim.  Only a NAMED upadhi adds anything.
+--
+--   That is why this module's two sentences are genuinely different: the
+--   thin-sampler observation names a candidate condition (agreement
+--   beyond `mod 9`), while "unobserved failure" is the bare existential.
+--
+--   The named upadhi is exhibited there for a nine-point probe: two
+--   functions agreeing on 0..8 and differing at 9.  It is NOT a pair of
+--   engine terms, and this module's own negative search over depth<=2,
+--   arity-2 terms — ZERO such pairs found — is untouched by it and is
+--   restated there as standing.
+-- ---------------------------------------------------------------------

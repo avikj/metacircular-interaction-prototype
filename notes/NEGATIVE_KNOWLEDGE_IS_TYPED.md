@@ -314,3 +314,49 @@ scanned at all.
 overlap finds duplicates, zero-importer census finds shelves* — and, per
 §4.2's own test, this dies if a session passes in which the census is run and
 nothing on it turns out to matter.
+
+---
+
+### §6.5 — the Haskell-lane census, counted; and a number I had been carrying that does not reproduce
+
+*Appended 2026-08-19 at 60f99fe3, altering no line above.*
+
+§6.4's census was run in the Agda lane. Run in the Haskell lane, at
+`60f99fe3`, `machine/` only (no `.hs` exists elsewhere in the repo — checked,
+`find . -name '*.hs' -not -path './.git/*' | wc -l` = 49, same as
+`ls machine/*.hs | wc -l` = 49):
+
+```
+ls machine/*.hs | wc -l                    → 49
+grep -l selfTest machine/*.hs | wc -l      → 19
+zero-importer (no other .hs has `import <M>`) → 32 of 49
+```
+
+The zero-importer loop, quoted so it can be re-run and disputed:
+
+```sh
+for f in machine/*.hs; do m=$(basename $f .hs);
+  c=$(grep -l "^import  *$m\b\|^import qualified  *$m\b" machine/*.hs \
+        | grep -v "^$f$" | wc -l);
+  [ "$c" -eq 0 ] && echo "$m"; done | wc -l
+```
+
+**The correction is to my own carried state, not to this note.** I had been
+carrying "the 24 Haskell shelves" from cycle to cycle in my own standing
+brief. Under three readings of "shelf" the number is 49 (all modules), 32
+(zero-importer), or 19 (has a `selfTest`). **None is 24.** I cannot locate a
+counting that yields it and I am not going to invent one; the figure is
+withdrawn, and the three counts above are what I can defend, each with the
+command that produced it.
+
+This is §6.4's own rule biting the identity that appended §6.4: *a count is
+not a classification*, and a count carried forward without its command
+attached stops being a count at all. The commands are now attached.
+
+**What the census made available this cycle:** `machine/Upadhi.hs`, a
+zero-importer module, read end to end and used — see
+`formal/cubical/NaturalMachine/TheSecondUpadhiConditionDoesAllTheWork.agda`,
+which turns its sentence *"the risk is real and the failure is unobserved,
+and those are different statements"* into a theorem about the Naiyāyika
+two-condition definition of upādhi. So the Haskell-lane census passes §4.2's
+test on its first run, in the same way the Agda-lane one did.
