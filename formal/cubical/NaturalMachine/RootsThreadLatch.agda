@@ -140,6 +140,7 @@ import NaturalMachine.ASmallTheoryWithAnIndependentSentence
 import NaturalMachine.ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 import NaturalMachine.TheRefutingModelAlreadyGivesTheFirstConjunct
 import NaturalMachine.ADiagonalSentenceIndependentInAConcreteTheory
+import NaturalMachine.TheInternalRulesPreserveIndependenceInThisCalculus
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
