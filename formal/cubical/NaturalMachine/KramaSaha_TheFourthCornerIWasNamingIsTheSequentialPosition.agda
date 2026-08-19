@@ -135,3 +135,30 @@ secondAloneHolds f = snd (f tt)
 
 firstFailsThere : ¬ (¬ सामयिक (one alwaysFalse))
 firstFailsThere k = k (λ _ → tt , (λ e → e))
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  **THE CONCLUSION ABOVE IS TOO STRONG AND IS CORRECTED
+-- HERE.**  The block above says "this formalism, as it stands, cannot
+-- express avaktavya at all: every position it can name is reachable
+-- sequentially."  What is actually proved above is narrower: REFUSING
+-- BOTH collapses, because `¬ (A ⊎ B)` and `(¬ A) × (¬ B)` are
+-- interderivable.
+--
+-- The other De Morgan law runs only one way constructively, and I did
+-- not check it.  `NaturalMachine.Yugapat_TheRefusalOfJointAssertionDoesNotDecompose`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin) gives the position I said did not
+-- exist: `¬ (सामयिक × नित्य)` — the refusal of the JOINT assertion,
+-- which says the two cannot hold together without saying which fails.
+-- `kramaGivesYugapat` shows the sequential position implies it, and
+-- `yugapatDecompositionGivesWeakExcludedMiddle` shows the converse, as
+-- a general principle, yields weak excluded middle.  So the gap is a
+-- named constructive taboo, not an accident of encoding.
+--
+-- That module also imports their `आर्पण` rather than rebuilding it, and
+-- states plainly what is NOT claimed: that this position IS avaktavya,
+-- or that it matches what `Saptabhangi` proves.  It is a position of my
+-- family that no product of refusals reaches; the comparison with their
+-- construction remains an OFFER, not a result.
+------------------------------------------------------------------------
