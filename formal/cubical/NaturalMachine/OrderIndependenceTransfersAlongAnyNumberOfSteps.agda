@@ -130,3 +130,45 @@ module _ {S T : Type} (C : S → T) where
     → fst (snd p) (fst (snd q) (C s)) ≡ fst (snd q) (fst (snd p) (C s))
   twoStepsAreAnInstance p q comm =
     orderIndependenceTransfers (p ∷ q ∷ []) (q ∷ p ∷ []) comm
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "PERMUTATIONS ARE NOT MODELLED.  'For every order' is encoded as
+--    the HYPOTHESIS that two uncompressed composites agree … and NO
+--    theorem here derives that hypothesis from pairwise commutation."
+--
+-- Derived, in `NaturalMachine.PairwiseCommutationGivesEveryOrder`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   _~_             permutation in the standard inductive presentation
+--                   (identity, congruence, ADJACENT transposition,
+--                    transitivity)
+--   permInvariant   under pairwise commutation of the STEPS, any two
+--                   permutations have the same uncompressed composite —
+--                   and the transposition case IS the hypothesis
+--   everyOrderAgreesAfterCompression / disagreementUnderPermutationIsOffTheImage
+--
+-- So Δ 28 §36–38's "for every order" is now discharged at the level it
+-- is stated: three cycles ago it was two orders of two steps; here it
+-- was any two composites ASSUMED equal; there it is — assume the steps
+-- commute PAIRWISE, and every order agrees, compressed and
+-- uncompressed alike.
+--
+-- ONE CUBICAL DETAIL WORTH CARRYING: `permInvariant` matches on the
+-- RELATION only and keeps the lists implicit.  Matching the lists too
+-- makes Agda warn that the function "will not compute when applied to
+-- transports", because it would rely on injectivity of `_∷_`, which
+-- cubical does not support.  The first draft did exactly that and was
+-- rewritten.
+--
+-- STILL NOT CLAIMED there: the commutation hypothesis is GLOBAL — it
+-- quantifies over ALL steps of the type, not over the members of the
+-- list.  Restricting it needs a membership index carried through `swap`
+-- and `trans`, which is not done, so the result covers a system whose
+-- elimination steps all commute rather than one with a commuting
+-- sub-family.  And `_~_` is a DEFINITION, not a characterisation:
+-- nothing proves it coincides with "same multiset".
+------------------------------------------------------------------------
