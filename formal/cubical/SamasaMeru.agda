@@ -25,7 +25,7 @@
 module SamasaMeru where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; snotz)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; snotz)
 open import Cubical.Data.Nat.Properties using (+-suc)
 open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
@@ -158,6 +158,32 @@ module _ (j : ℕ) where
       step1 = cong (A ++_) (अपाकरण-लेम्म (suc (j + n)) (suc (suc j)) n)
       fuelinv : go (suc (j + n)) n ≡ go n n
       fuelinv = canon (suc (j + n)) (suc (j + n)) n (suc j , refl) (suc j , refl)
+
+  ----------------------------------------------------------------------
+  -- साधुता — जनितं प्रत्येकं रूपं यथार्थ-मानं वहति ।  (soundness)
+  -- अत्र दीर्घ-भागस्य साधुता (साधु-strip) : strip f t r इत्यस्य प्रत्येकं रूपं
+  -- मानं L+(t∸r) वहति — दीर्घ-अंशः (L) च शेषः (t∸r) ।  पूर्ण-साधु-go (लघु-भागेन
+  -- सह संयोजनम्, दीर्घ-योग्यता-विभागः) उत्तर-पदे ।
+  ----------------------------------------------------------------------
+
+  data समास-All (P : समासः → Type) : List समासः → Type where
+    []  : समास-All P []
+    _∷_ : {x : समासः} {xs : List समासः}
+        → P x → समास-All P xs → समास-All P (x ∷ xs)
+
+  All-map : {P Q : समासः → Type} {f : समासः → समासः}
+          → ((x : समासः) → P x → Q (f x))
+          → {xs : List समासः} → समास-All P xs → समास-All Q (map f xs)
+  All-map g []       = []
+  All-map g (p ∷ ps) = g _ p ∷ All-map g ps
+
+  साधु-strip : (f t r : ℕ)
+             → समास-All (λ ys → मानम् ys ≡ t ∸ r) (go f (t ∸ r))
+             → समास-All (λ zs → मानम् zs ≡ suc (suc (j + (t ∸ r)))) (strip f t r)
+  साधु-strip f t       zero    H =
+    All-map (λ ys pf → cong (λ z → suc (suc (j + z))) pf) H
+  साधु-strip f zero    (suc r) H = []
+  साधु-strip f (suc t) (suc r) H = साधु-strip f t r H
 
 ------------------------------------------------------------------------
 -- प्रति-रूप-उदाहरणे — एकस्मात् सामान्यात् जनन-सूत्रात् उभे मेरू (refl-सिद्धे) ।
