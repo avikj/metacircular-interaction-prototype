@@ -282,3 +282,42 @@ import Punaragamana
 -- fires at the moment of the write.  A gate has to be able to go green to be
 -- a gate -- and on this container, this one is the only Agda gate that can.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, fourth append: two correctors that NO gate reached.
+--
+-- `NaturalMachine/SamayikaAndNityaAreIndependent.agda` and
+-- `NaturalMachine/TheFourthCornerIsRefutedUnderPointwiseStability.agda`
+-- were both written today, both are green under this container's Agda
+-- 2.6.3 / cubical v0.5, and both were reachable from nothing.  They are
+-- under NaturalMachine/ by name only: `NaturalMachine.agda` does not
+-- import either, and the second imports the first, so the pair was a
+-- closed island.
+--
+-- Adding them here is not bookkeeping.  It is the ONLY mechanism by which
+-- `SamayikaAndNityaAreIndependent` can be made load-bearing at all.  It
+-- refutes a claim in `AnuktaAvaktavya.agda`, and to do that it must open
+-- AnuktaAvaktavya for the very definitions it corrects
+-- (`using (सामयिक ; नित्य)`) -- so AnuktaAvaktavya CANNOT import it back.
+-- Agda says so:
+--
+--   cyclic module dependency:
+--     AnuktaAvaktavya → NaturalMachine.SamayikaAndNityaAreIndependent
+--                     → AnuktaAvaktavya
+--
+-- A correction strong enough to use the object it corrects is, for that
+-- same reason, unable to be cited by it.  The gate is where the two meet:
+-- the aggregate imports both, so both are checked, and neither imports the
+-- other.  `AnuktaAvaktavya.agda` §9 records the same fact from the other
+-- side and keeps a pointer there, which is the strongest mechanism
+-- available IN that direction.
+--
+-- General, and it is the reason this is written out rather than just done:
+-- an aggregate is not only a list of what to check.  It is the only place
+-- in a module system where mutually uncitable results can be held
+-- together.  Every pair (claim, refutation-that-uses-the-claim) in this
+-- corpus has this shape and will need this remedy.
+------------------------------------------------------------------------
+
+import NaturalMachine.SamayikaAndNityaAreIndependent
+import NaturalMachine.TheFourthCornerIsRefutedUnderPointwiseStability

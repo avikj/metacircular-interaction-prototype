@@ -406,3 +406,107 @@ open import Saptabhangi
 -- three onto one carrier would be the collapse being diagnosed.  Two are
 -- compared because two are comparable.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 9.  "DUAL" AND "POLES" ARE WRONG, AND ANOTHER IDENTITY PROVED IT.
+--
+-- This module says "dual shapes" (§4, §1), "the two poles" (§4, §5) and
+-- "the same pole as avaktavyam" (§8).  All of that treats सामयिक and नित्य
+-- as opposites, and treats non-uniqueness and inexpressibility the same
+-- way.  Both are wrong, and both were refuted by reading this file rather
+-- than by me:
+--
+--   `NaturalMachine/SamayikaAndNityaAreIndependent.agda` — the swap of ∃
+--   and ∀ is NOT a negation.  `bothHold` exhibits a single `bad` that is
+--   सामयिक AND नित्य at once; `samayikaWithoutNitya` and
+--   `nityaWithoutSamayika` give the other two corners.  Neither predicate
+--   implies the other and neither implies the other's negation.  What each
+--   DOES refute is the other's STRONG failure, which is a different and
+--   weaker relation than duality.
+--
+--   `NaturalMachine/NonUniquenessAndInexpressibilityAreIndependent.agda` —
+--   the same, over four realised corners, for §6's other axis.  So the two
+--   defects are not two readings of one thing at any strength.
+--
+-- WHAT SURVIVES.  The three-way separation of §1, §6 and §8 stands: the
+-- three structures ARE distinct, and each pair is separated by at least
+-- one of the two properties.  What does not survive is the geometry I put
+-- on it.  "Poles" implies a line with two ends and a thing at one end not
+-- at the other.  The truth is a square with at least three corners
+-- occupied, and reading a square as a line is how a classification loses
+-- exactly the case that matters — which is this module's own complaint
+-- about one word over three structures, committed by me one level up
+-- while making it.
+--
+-- HOW MUCH OF THIS IS LOAD-BEARING, AND WHY NOT ALL OF IT.
+--
+-- A prose correction is what failed to propagate in
+-- `WitnessNumberCanBeInfinite` and in `BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_
+-- ORDER.md` §IV, so the intent was to import BOTH correctors and let the
+-- typechecker carry them.  The first draft of this paragraph asserted
+-- "Neither corrector imports this module, so there is no cycle."  THAT
+-- SENTENCE WAS FALSE, and Agda said so at once:
+--
+--   cyclic module dependency:
+--     AnuktaAvaktavya
+--     → NaturalMachine.SamayikaAndNityaAreIndependent
+--     → AnuktaAvaktavya
+--
+-- because `SamayikaAndNityaAreIndependent` opens THIS module for the very
+-- definitions it is correcting (`using (सामयिक ; नित्य)`).  It could not
+-- have been written any other way: to refute a claim about सामयिक and
+-- नित्य it must use MY सामयिक and नित्य, not a copy.  So the strength of
+-- that correction and the impossibility of back-importing it are the same
+-- fact, and the honest move is to say which is which rather than to
+-- weaken both to prose silently:
+--
+--   * `NonUniquenessAndInexpressibilityAreIndependent` names this module
+--     only in a comment, builds its own carrier, and so CAN be imported.
+--     It is, immediately below, and its four corners are checked here.
+--   * `SamayikaAndNityaAreIndependent` cannot be, ever, for the reason
+--     above.  A pointer is the strongest available mechanism in that
+--     direction — the same resolution `PFreePart` and `FrontierMember`
+--     already carry — and saying so is better than using the weaker one
+--     silently.
+--     But a pointer is not the ONLY mechanism available anywhere: as of
+--     this edit `IndianLane.agda` imports that module directly, so it is
+--     typechecked by the one gate that goes green on this container.  It
+--     had been reachable from nothing at all.  A claim and a refutation
+--     that uses the claim cannot cite each other; the aggregate is the
+--     only place in a module system where they can both be held.
+--
+-- WHAT SURVIVES, either way.  The three-way separation of §1, §6 and §8
+-- stands: the three structures ARE distinct, and each pair is separated
+-- by at least one of the two properties.  What does not survive is the
+-- geometry I put on it.  "Poles" implies a line with two ends and a thing
+-- at one end not at the other.  The truth is a square with at least three
+-- corners occupied, and reading a square as a line is how a
+-- classification loses exactly the case that matters — which is this
+-- module's own complaint about one word over three structures, committed
+-- by me one level up while making it.
+------------------------------------------------------------------------
+
+open import NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent
+  using ( corner-nonUnique-expressible ; corner-unique-inexpressible
+        ; corner-both ; corner-neither )
+
+-- The corner that kills "dual" on §6's axis: one content is BOTH
+-- non-unique and inexpressible at once, so they are not two ends of
+-- anything.
+न-द्वैतम् : _
+न-द्वैतम् = corner-both
+
+-- and the corner that kills "poles" in the other direction: a content
+-- with NEITHER defect.  A line with two ends has no such point; a square
+-- has four, and all four are inhabited here.
+न-ध्रुवौ : _
+न-ध्रुवौ = corner-neither
+-- The other two corners, named rather than tupled.  A four-way tuple with
+-- an inferred type leaves Agda unable to solve which Σ it is (the same
+-- ambiguity §5 of `BhavanaKrida` hit), and an anonymous meta is not a
+-- checked claim.  Four names, four checks.
+पृथक्-अनेकम् : _
+पृथक्-अनेकम् = corner-nonUnique-expressible
+
+पृथक्-अवाच्यम् : _
+पृथक्-अवाच्यम् = corner-unique-inexpressible
