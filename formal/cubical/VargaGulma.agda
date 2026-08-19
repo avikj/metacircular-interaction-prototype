@@ -22,7 +22,7 @@ module VargaGulma where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
-open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; +-suc ; ·-suc ; +-zero)
+open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; +-suc ; ·-suc ; +-zero ; ·-distribˡ)
 open import Sankalita using (∑ ; ∑³ ; घन-सङ्कलितम्)
 
 ------------------------------------------------------------------------
@@ -128,3 +128,46 @@ private
 
 ओज-घनः : (n : ℕ) → ओज-योग (∑ n) ≡ ∑³ n
 ओज-घनः n = वर्ग-गुल्मः (∑ n) ∙ sym (घन-सङ्कलितम् n)
+
+------------------------------------------------------------------------
+-- घन-गुल्मः — घन-गुल्म-रचना (त्रि-मित-कोश) : (n+1)³ = n³ + 3n(n+1) + 1 ।
+-- घनं (सम-घनः) त्रि-मित-गुल्मैः (L-कोशैः) वर्धते ; n-तमः कोशः = 3n(n+1)+1 ।
+-- (The cube grown by 3-D gnomons (corner shells): (n+1)³ − n³ = 3n(n+1)+1, so
+--  suc n · (suc n · suc n) ≡ n·(n·n) + (3·n(n+1) + 1), written additively over ℕ.
+--  Hand-proved: the expansion is one ·-distribˡ, then suc n + n·n ≡ n·suc n + 1.)
+------------------------------------------------------------------------
+
+घन-गुल्मः : (n : ℕ) → suc n · (suc n · suc n)
+          ≡ n · (n · n) + (n · suc n + (n · suc n + (n · suc n + 1)))
+घन-गुल्मः n =
+    sym (·-distribˡ (suc n) (suc n) (n · suc n))
+  ∙ cong (λ z → (suc n + P) + (P + z)) qexp
+  ∙ +-assoc (suc n + P) P (R + Q)
+  ∙ +-assoc ((suc n + P) + P) R Q
+  ∙ cong (_+ Q) step1
+  ∙ cong (λ z → (z + (P + P)) + Q) keyfact
+  ∙ +-comm ((P + 1) + (P + P)) Q
+  ∙ cong (Q +_) step2
+  where
+    P = n · suc n
+    R = n · n
+    Q = n · (n · n)
+    one : (x : ℕ) → x + 1 ≡ suc x
+    one x = +-suc x 0 ∙ cong suc (+-zero x)
+    qexp : n · (n · suc n) ≡ R + Q
+    qexp = cong (n ·_) (·-suc n n) ∙ sym (·-distribˡ n n (n · n))
+    keyfact : suc n + R ≡ P + 1
+    keyfact = sym (cong (_+ 1) (·-suc n n) ∙ one (n + n · n))
+    step1 : ((suc n + P) + P) + R ≡ (suc n + R) + (P + P)
+    step1 = cong (_+ R) (sym (+-assoc (suc n) P P))
+          ∙ sym (+-assoc (suc n) (P + P) R)
+          ∙ cong (suc n +_) (+-comm (P + P) R)
+          ∙ +-assoc (suc n) R (P + P)
+    step2 : (P + 1) + (P + P) ≡ P + (P + (P + 1))
+    step2 = sym (+-assoc P 1 (P + P))
+          ∙ cong (P +_) (+-comm 1 (P + P))
+          ∙ cong (P +_) (sym (+-assoc P P 1))
+
+-- उदाहरणम् — 4³ = 64 = 3³ + 3·3·4 + 1 = 27 + 36 + 1 (refl-सिद्धम्) ।
+घन-४ : suc 3 · (suc 3 · suc 3) ≡ 64
+घन-४ = refl
