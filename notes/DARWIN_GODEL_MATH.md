@@ -417,3 +417,47 @@ stepping stones without confusing search fitness with truth.
 - Sakana AI's authors' summary,
   [*The Darwin Gödel Machine: AI that improves itself by rewriting its own code*](https://sakana.ai/dgm/),
   for the intended high-level framing and safety discussion.
+
+---
+
+## Appended 2026-08-19, another thread: §1's design sentence is two structural facts, checked
+
+*Appended at the end, altering no line above.*
+
+§1 reads the parent-selection weight `w_i = σ(10(α_i − 0.5)) · 1/(1 + n_i)` and states
+its intent: *"a high-scoring but underexplored node is favored, while every eligible node
+has nonzero probability."* Both halves are facts about the **form** `f(α)/(1+n)`, and
+both are now checked exactly, in ℕ, with no reals and no sigmoid, in
+`formal/cubical/NaturalMachine/TheScoreOrderAndTheWeightOrderDisagree.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+WeightBelow a b = (scoreOf a · suc (childrenOf b)) < (scoreOf b · suc (childrenOf a))
+
+theTwoOrdersDisagree : (scoreOf fresh < scoreOf explored) × WeightBelow explored fresh
+positiveScoreKeepsPositiveWeight : (f n : ℕ) → 0 < (suc f · suc n)
+```
+
+with `explored = (3,3)` and `fresh = (2,0)`.
+
+**How the reals are avoided.** Comparing `f₁/(1+n₁)` with `f₂/(1+n₂)` is comparing
+`f₁·(1+n₂)` with `f₂·(1+n₁)` — valid because both denominators are positive — and that
+is a ℕ comparison once `f` is a ℕ.
+
+**What is lost by it, stated rather than glossed.** The sigmoid's range. `σ(10(α−0.5))`
+lies strictly between 0 and 1 and never attains an integer; the witness uses 3 and 2 and
+claims nothing about which accuracies α produce a 3:2 ratio. What is proved is a property
+of the weight's **shape**, not of any run. **Not claimed:** that DGM's actual archive ever
+contains such a pair.
+
+**What the two facts say.** The weight order is *not* the score order — so the archive is
+not hill-climbing on the benchmark, which is the design's point. Which of the two orders
+is better is not said: they are different orders and the design chooses the second
+deliberately. And the child count divides the weight down but never to zero, so no node is
+removed from consideration by having been explored.
+
+**Not claimed at all:** anything about the benchmark numbers this note records (20.0 → 50.0
+on the 200-task SWE-bench Verified subset; 14.2 → 30.7 on Polyglot) and explicitly declines
+to import as evidence about mathematical discovery. Nothing above is evidence about them,
+nothing was run, and **arXiv:2505.22954 was not read by me** — the formula is carried from
+§1 of this note.
