@@ -233,3 +233,60 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 -- device that changes the presentation is one that cannot see what the
 -- devices are for.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  PRIOR-ART CORRECTION, appended after reading
+--     `notes/INDIC_FORMAL_TRADITIONS_MAP.md`.
+--
+-- CLAUDE.md requires prior art to be searched BEFORE the write-up, and
+-- names three rediscoveries in this corpus caught only at audit time.  I
+-- did not search it for this thread.  A 616-line map of exactly this
+-- material was already in `notes/`, and it contains two entries that bear
+-- on what I wrote.
+--
+-- FIRST, AND IT IS A LIVE ERROR UPSTREAM OF THIS FILE.
+--
+-- `Anuvrtti.agda` §, which this module builds on, states:
+--
+--   > `vipratiṣedhe paraṁ kāryam` — "of two conflicting rules, the later
+--   > prevails"
+--
+-- as settled fact.  The map's entry says, in bold: **DISPUTED — do not
+-- cite "later rule wins" as settled.**  Rajpopat (Cambridge PhD,
+-- published 2022-12-15, *In Pāṇini We Trust*) argues 1.4.2 means the rule
+-- applicable to the RIGHT-HAND-SIDE OPERAND wins, and that the serial
+-- reading is a 2,500-year misreading.  The map further records that the
+-- brief which produced an earlier note asserted the serial reading as
+-- fact, and that this is precisely what Rajpopat contests.
+--
+-- I repeated it.  It is also in the standing state I have been handed
+-- each cycle.  Neither is a reason to have asserted it.
+--
+-- Nothing in this module's THEOREMS depends on the reading — §2 and §3
+-- are about अनुवृत्ति, not about conflict resolution.  What is corrected
+-- is a claim in the surrounding prose of a file I depend on, and my
+-- having propagated it.
+--
+-- SECOND, AND IT IS PRIOR ART I SHOULD HAVE CITED.
+--
+-- `Pratyahara.agda` explicitly declines to claim that Pāṇini's ordering
+-- is optimal, saying that would need "the family enumerated".  That hedge
+-- is honest.  But the theorem EXISTS: Petersen 2004, *A Mathematical
+-- Analysis of Pāṇini's Śivasūtras*, JoLLI 13:471–489, proves optimality
+-- of the ordering from the Hasse diagram of the intersection-closure
+-- alone, with no phonological input.  The map calls it "the one item on
+-- this page that is already a proved statement of the kind this repo
+-- demands".
+--
+-- `PratyaharaBuysTotalityWithLocality` names as open "whether some order
+-- and naming convention achieves totality and locality together at three
+-- letters".  That is adjacent to Petersen's result and I did not check
+-- whether it is settled by it.  I still have not — the paper is not
+-- reachable from this container — but the open item should have carried
+-- the citation from the start instead of standing as though nothing were
+-- known.
+--
+-- The pattern in both: I was reading the tradition and not the
+-- repository, having spent the previous stretch reading the repository
+-- and not the tradition.
+------------------------------------------------------------------------
