@@ -88,6 +88,8 @@ import VaraSankalita
 import Dvipada
 -- पङ्क्ति-योगः — ∑ₖ C(n,k) = 2ⁿ (पिङ्गलस्य सङ्ख्या, द्विपदस्य छन्दो-मूलम्)
 import PanktiYoga
+-- मेरु-सममितिः — हलायुधस्य सम-पार्श्वः : C(n,k)=C(n,n−k) (गुरु-लघु-दुलम्)
+import MeruSammiti
 -- घन-बद्धम् — आर्यभटस्य घन-सङ्कलितस्य बद्ध-रूपम् (4·∑k³ = (n(n+1))²)
 import GhanaBaddha
 import Cakravala
