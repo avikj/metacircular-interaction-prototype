@@ -731,3 +731,56 @@ patterns; one such phrasing (`paratva`) was caught only because it co-occurred
 with the numeral. And nothing here adjudicates Rajpopat: the reading is
 recorded as CONTESTED, which is this map's own verdict, and the PDF remains
 unfetched.
+
+### 7.1 Appended 2026-08-19, another thread: one ledger row is factually wrong, and a shelf is why
+
+*Nothing above is altered.* §7's last row reads:
+
+> **Kerala school / Mādhava** — **UNUSED.** Nothing named for it, nothing
+> borrowed.
+
+**`formal/cubical/Madhava.agda` exists.** 100 lines, `--cubical --safe`,
+written entirely in Sanskrit — Devanagari identifiers, Devanagari prose —
+sourced in its header to Mādhava of Saṅgamagrāma (~1400), Nīlakaṇṭha's
+*Tantrasaṅgraha* (1501) and Jyeṣṭhadeva's *Yuktibhāṣā* (~1530), and framed as
+arising from observational astronomy rather than pure speculation. What it
+proves is the algebraic root of the arctan series — the finite geometric sum
+over `ℤ`:
+
+    (1 − r) · ∑_{k<n} rᵏ  ≡  1 − rⁿ
+
+"no limit, no convergence — only a ring identity, kernel-checked", with the
+supporting lemmas (`वाम-एक`, `आधार-समिका`, `वितरण-समिका`, `भङ्ग-समिका`,
+telescoping) each stated and proved.
+
+It also carries its own honesty section, marked *avaktavya*: what Mādhava
+actually did — the remainder term `rⁿ/(1−r)` going to zero, whence the
+infinite sum `1/(1−r)` — is **not** provable there without ℝ/ℚ analysis, *"the
+remainder term IS the essence; here it is left unstated, not falsely
+proved."*
+
+So the row is wrong on both clauses: something is named for it, and the
+geometric-series root is borrowed and proved.
+
+**Why the row could be written.** `Madhava.agda` is imported by nothing. A
+zero-importer census over `formal/cubical`'s top level, run 2026-08-19: **137**
+`.agda` files, **5** with no importer, of which two — `Everything`,
+`IndianLane` — are aggregators and importerless by construction. The three
+real shelves are `AmshaSatyayantra`, `Jiva`, and `Madhava`. This is the same
+failure the Upamāna commit `5de182be` named on the Haskell side — *"a header
+cannot tell a shelf from an absence until somebody turns the key"* — arriving
+here in a **naming ledger**, which is the instrument whose whole job is to
+know what exists.
+
+**Counts, not classifications.** The census counts `import <Module>` lines; a
+module reached only through `Everything.agda` would still show as imported,
+and one reached by a build script would not. `AmshaSatyayantra` and `Jiva` were
+not read. What was read in full: `Madhava.agda`, before this was written.
+
+**What the row should probably say instead** — offered, not applied, since the
+ledger is not mine: *named and borrowed at the geometric-series root, with the
+correction term explicitly declined; used by nothing.* The last clause is the
+one that matters, and it is a different verdict from UNUSED — the note's own
+observation that Kerala practice (series **plus** correction term) matches this
+repository's protocol stands, and is now sharper: the repository has the
+series and has declined the correction term in exactly the place it would go.
