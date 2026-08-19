@@ -92,6 +92,16 @@ import Sivasutra
 import Panini
 import ElsewhereCondition
 
+-- PĀṆINI 8.2.1 पूर्वत्रासिद्धम् as a TERMINATION technique, with the
+-- impossibility half: the tripādī's own 8.2.39/8.4.56 cycle admits no
+-- strict order in which every rule decreases -- so no reduction order,
+-- hence no RPO/KBO/polynomial/matrix interpretation, hence no Knuth-Bendix
+-- completion.  Asiddhatva terminates it anyway, by constraining which
+-- rules may OBSERVE which outputs rather than by a decreasing measure.
+-- The witness is not invented: it is what machine/Astadhyayi.hs does
+-- deriving vāk from vāc, and what its asiddhaAudit refuses.
+import Asiddhatva
+
 -- UMĀSVĀTI, Tattvārthasūtra 1.5: नामस्थापनाद्रव्यभावतस्तन्न्यासः -- the
 -- fourfold placing, as an indexed sameness relation.
 import Niksepa
