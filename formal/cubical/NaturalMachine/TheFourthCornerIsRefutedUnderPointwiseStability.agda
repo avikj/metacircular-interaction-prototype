@@ -121,3 +121,36 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- The unconditional question is where it was, and this narrows where to
 -- look rather than answering it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §5's NOT SETTLED paragraph says the hypothesis "is not
+-- shown necessary" and that this "narrows where to look rather than
+-- answering it".  The narrowing is now much sharper, and by
+-- DISCHARGING the hypothesis rather than weakening it:
+--
+--   `NaturalMachine.TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`
+--   (--safe, no postulates, no holes; container green under Agda 2.6.3
+--    + cubical v0.5, NOT the declared pin — check.sh returns 1 and says
+--    so)
+--
+--   Enumerated Ix = Σ[ xs ∈ List Ix ] ((i : Ix) → Any (_≡ i) xs)
+--
+-- — a list of instances plus a proof that nothing is outside it, with
+-- no cardinality, no `Fin`, and no decidable equality on Ix.  Then
+--
+--   decΣOverEnumerated   Σ[ i ] P i is DECIDABLE
+--   fourthCornerRefutedOverEnumerableDecidable
+--                        so §4 applies with NOTHING assumed
+--
+-- §5 read the hypothesis as "finding a surviving instance is not a
+-- genuine search".  Over an enumerable family with decidable badness it
+-- is not a search, it is a scan.  So the fourth corner needs an
+-- instance family that is not enumerable, OR a badness that is not
+-- decidable — which is a much smaller place to look than "some Σ is
+-- unstable".
+--
+-- STILL NOT SETTLED, exactly as §5 says: EXISTENCE.  The new module
+-- gives a second SUFFICIENT condition, sharper and checkable, and no
+-- necessary one; it exhibits no model of `¬ सामयिक × ¬ नित्य` either.
+------------------------------------------------------------------------
