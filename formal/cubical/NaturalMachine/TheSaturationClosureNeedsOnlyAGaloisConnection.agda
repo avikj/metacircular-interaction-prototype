@@ -178,3 +178,42 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
               _⊆_ _⊆_ ⊆-refl ⊆-trans ⊆-refl ⊆-trans
               up dn galFwdPred galBwdPred
     public
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "the min-plus instance itself: neither `galFwd` nor `galBwd` is
+--    proved for a semiring-valued kernel here, and no quantale is
+--    constructed anywhere in this repository."
+--
+-- Paid AT ONE CUT, with real min-plus data, in
+-- `NaturalMachine.MinPlusResiduationIsAGaloisConnectionAtOneCut`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+--   ∸-adjˡ / ∸-adjʳ   K ∸ ψ ≤ φ ⟺ K ≤ φ + ψ, which v0.5 does not ship
+--   galFwd / galBwd   both directions for `u = d = (K ∸_)`, and they
+--                     are the SAME statement once `+` is commuted
+--   MinPlusCut        `module Galois` instantiated — antitonicity,
+--                     unit, counit, triangles, idempotence of
+--                     `c a = K ∸ (K ∸ a)` and the fixed-point
+--                     characterisation, with NOTHING re-proved
+--
+-- THE ORDER HAD TO BE REVERSED, and that is the content, not
+-- bookkeeping.  In min-plus lower cost is better, so the quantale order
+-- is ℕ's `≤` backwards.  Under ℕ's own order the same maps are not a
+-- Galois connection at all: `truncationBreaksTheNaiveOrder` exhibits
+-- `K = 0, φ = 0, ψ = 5`, where one side holds and the other does not,
+-- because `∸` truncates.  The obligation is dischargeable or false
+-- depending on which way the order points.
+--
+-- STILL NOT CLAIMED, and it is the larger half: ONE CUT is one burden
+-- and one residual, `X = Y = Unit`, so no infimum over an index appears.
+-- Δ 28's cut carries a PROFILE on each side and its `↑` takes a meet
+-- over all burdens — that needs `min` over a finite index and its
+-- universal property, not built.  **So what this settles is that the
+-- obstruction is NOT the residuation law; it is the meet.**  No `∞` is
+-- adjoined, so that is ℕ and not the min-plus semiring proper, and
+-- convolution does not appear.
+------------------------------------------------------------------------
