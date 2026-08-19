@@ -353,6 +353,22 @@ module Generative (CR : CommRing ℓ) where
                            (·IdR 1r j))
              (hasNorm (inv s ⊛ s)) (hasNorm (unit D)) i)
 
+  ----------------------------------------------------------------------
+  -- Sol-level COMMUTATIVITY: `s ⊛ t ≡ t ⊛ s` as a path over the norm index
+  -- `·Comm k₁ k₂`, from the coordinate commutativities.  This is the last
+  -- axiom that was still only coordinate-deep: with it the graded family is a
+  -- commutative monoid and the norm-1 solutions an ABELIAN group — the whole
+  -- of Brahmagupta's bhāvanā structure, as paths between `Sol` values.
+  ----------------------------------------------------------------------
+
+  ⊛Comm : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
+        → PathP (λ i → Sol D (·Comm k₁ k₂ i)) (s ⊛ t) (t ⊛ s)
+  ⊛Comm {D} s t i =
+    mkSol (⊛CommA s t i) (⊛CommB s t i)
+          (isProp→PathP
+             (λ j → is-set (N D (⊛CommA s t j) (⊛CommB s t j)) (·Comm _ _ j))
+             (hasNorm (s ⊛ t)) (hasNorm (t ⊛ s)) i)
+
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
 --
