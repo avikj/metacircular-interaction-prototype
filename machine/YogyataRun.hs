@@ -27,14 +27,20 @@ import Control.Monad (filterM, forM)
 gates :: [String]
 gates = [ "IndianLane", "NaturalMachine", "Everything" ]
 
+-- RECURSIVE.  The first version of this listed one directory level, which
+-- is 140 of the 602 Agda files under formal/cubical/, and the survey was
+-- then read as covering the corpus.  See Yogyata.hs's report header.
 sourceIn :: FilePath -> IO [FilePath]
 sourceIn d = do
   ok <- doesDirectoryExist d
   if not ok then return [] else do
     ns <- listDirectory d
-    return (sort [ d ++ "/" ++ n | n <- ns
-                 , ".hs" `isSuffixOf` n || ".agda" `isSuffixOf` n ])
-
+    parts <- mapM (\n -> do
+       let p = d ++ "/" ++ n
+       isdir <- doesDirectoryExist p
+       if isdir then sourceIn p
+       else return [ p | ".hs" `isSuffixOf` n || ".agda" `isSuffixOf` n ]) ns
+    return (sort (concat parts))
 main :: IO ()
 main = do
   setLocaleEncoding utf8
@@ -49,4 +55,4 @@ main = do
     src <- hGetContents h
     let u = parseUnit gates p src
     length (uName u) `seq` length (uImports u) `seq` uLines u `seq` return u
-  mapM_ putStrLn (renderSurvey (survey dirs units))
+  mapM_ putStrLn (renderSurveyWith ["NaturalMachine","Everything"] (survey dirs units))

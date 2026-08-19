@@ -81,7 +81,9 @@ open import Cubical.Foundations.Powerset using (ℙ)
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.Group.Base using (Group)
 open import Cubical.Algebra.Group.Subgroup using (isSubgroup ; Subgroup)
-open import Cubical.Algebra.SymmetricGroup using (SymGroup)
+-- see NaturalMachine/PathIsSymmetry.agda: this name is v0.9-only in cubical
+-- (v0.5 spells it Symmetric-Group), so it is defined there once instead
+open import NaturalMachine.PathIsSymmetry using (SymGroup)
 
 open import NaturalMachine.DefectCalculus using (Stab ; stab-id ; stab-∘ ; stab-inv)
 

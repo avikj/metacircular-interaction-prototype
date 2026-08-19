@@ -32,18 +32,54 @@ open import Cubical.Foundations.Univalence
 open import Cubical.Foundations.GroupoidLaws
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin ; isSetFin)
+import Cubical.Data.SumFin as SumFin
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Group
 open import Cubical.Algebra.Group.Morphisms
 open import Cubical.Algebra.Group.MorphismProperties
-open import Cubical.Algebra.SymmetricGroup
+-- NOT `open import Cubical.Algebra.SymmetricGroup`.  That module names
+-- this group `Symmetric-Group` in cubical v0.5 and `SymGroup` in v0.9,
+-- and this file used the v0.9 spelling.  On a v0.5 container the import
+-- fails at line 98, "Not in scope: SymGroup" -- and because
+-- NaturalMachine.agda imports this file FIRST, the whole aggregate dies
+-- in two seconds and nothing downstream of it is ever typechecked.
+-- Measured 2026-08-19 with machine/Yogyata.hs: 409 modules are reached
+-- only by NaturalMachine.agda or Everything.agda, and this was the FIRST
+-- of several such name skews blocking them.  Fixing it moves the failure
+-- to NaturalMachine/SymmetryCardinality.agda:31 on `factorial`.  So this
+-- is one step of a repair, not the repair; the honest claim is that this
+-- particular blocker is gone, not that the gate is green.
+--
+-- Renaming to `Symmetric-Group` would move the breakage to the other
+-- toolchain.  The group is four lines of primitives stable across both
+-- versions, so it is defined below and the version dependence is gone
+-- rather than swapped.
 
 private
   variable
     ℓ : Level
     A B C : Type ℓ
+
+-- the symmetric group, spelled once, here (see the note above)
+SymGroup : (X : Type ℓ) → isSet X → Group ℓ
+SymGroup X isSetX =
+  makeGroup (idEquiv X) compEquiv invEquiv (isOfHLevel≃ 2 isSetX isSetX)
+    compEquiv-assoc compEquivEquivId compEquivIdEquiv
+    invEquiv-is-rinv invEquiv-is-linv
+
+-- and the finite one, which the pinned v0.5 calls `Sym` and v0.9 calls
+-- `FinSymGroup`.  Same reasoning: named once, here.
+-- and the finite one.  v0.9 calls it `FinSymGroup` and builds it over
+-- Cubical.Data.SumFin.Fin (⊤ ⊎ …), NOT Cubical.Data.Fin (Σ ℕ (_< n));
+-- the pinned v0.5 calls the analogue `Sym` and uses the OTHER carrier.
+-- Getting that wrong typechecks locally and then fails in the module
+-- that uses it, which is how it was found: FiniteNonabelianHolonomy
+-- rejected `isoToEquiv swap01Iso` with `Σ ℕ (λ k → k < 3) != ⊤ ⊎ Fin 2`.
+-- So it is SumFin here, matching v0.9's carrier.
+FinSymGroup : ℕ → Group ℓ-zero
+FinSymGroup n = SymGroup (SumFin.Fin n) SumFin.isSetFin
 
 ------------------------------------------------------------------------
 -- 1.  The statement, in one line.

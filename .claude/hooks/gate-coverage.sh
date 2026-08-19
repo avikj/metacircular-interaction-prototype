@@ -51,10 +51,14 @@ GATES="IndianLane NaturalMachine Everything"
 
 # ---------------------------------------------------------------- Agda side
 agda_path=$(printf '%s' "$payload" \
-  | grep -oE 'formal/cubical/[A-Za-z0-9_]+\.agda' | head -1)
+  | grep -oE 'formal/cubical/[A-Za-z0-9_/]+\.agda' | head -1)
 
 if [ -n "$agda_path" ]; then
-  mod=$(basename "$agda_path" .agda)
+  # The module NAME, not the file's basename: formal/cubical/NaturalMachine/
+  # Foo.agda declares `NaturalMachine.Foo`, and testing "Foo" against the
+  # closure would report a gated module as ungated.
+  mod=$(printf '%s' "$agda_path" \
+        | sed -e 's|^.*formal/cubical/||' -e 's|\.agda$||' -e 's|/|.|g')
 
   # Scratch probes are deliberately ungated (.gitignore: Probe*/Scratch*).
   case "$mod" in Probe*|Scratch*) mod="" ;; esac
@@ -71,7 +75,12 @@ if [ -n "$agda_path" ]; then
       for m in $frontier; do
         case " $seen " in *" $m "*) continue ;; esac
         seen="$seen $m"
-        f="$root/formal/cubical/$m.agda"
+        # a module name like NaturalMachine.Foo lives at
+        # formal/cubical/NaturalMachine/Foo.agda -- the first version of
+        # this looked only at the top level, which is 140 of the 602 Agda
+        # files under that tree, and the survey built on the same
+        # assumption published a wrong verdict on 2026-08-19.
+        f="$root/formal/cubical/$(printf '%s' "$m" | tr '.' '/').agda"
         [ -f "$f" ] || continue
         imports=$(sed 's/--.*//' "$f" \
           | grep -E '^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+' \
@@ -83,8 +92,11 @@ if [ -n "$agda_path" ]; then
       frontier="$next"
     done
 
-    reached_n=$(for s in $seen; do [ -f "$root/formal/cubical/$s.agda" ] && echo "$s"; done | sort -u | wc -l)
-    total_n=$(ls "$root"/formal/cubical/*.agda 2>/dev/null | wc -l)
+    reached_n=$(for s in $seen; do
+                  sp=$(printf '%s' "$s" | tr '.' '/')
+                  [ -f "$root/formal/cubical/$sp.agda" ] && echo "$s"
+                done | sort -u | wc -l)
+    total_n=$(find "$root/formal/cubical" -name "*.agda" 2>/dev/null | wc -l)
     case " $seen " in
       *" $mod "*) : ;;
       *)

@@ -71,6 +71,7 @@ module Yogyata
   , reachable
   , survey
   , renderSurvey
+  , renderSurveyWith
   ) where
 
 import Data.Char (isSpace, isUpper, isAlphaNum)
@@ -82,7 +83,17 @@ import qualified Data.Set as S
 -- 1.  A unit of the corpus.
 ------------------------------------------------------------------------
 
-data Sthiti = Reactor | Shelf | Orphan
+-- CORRECTED 2026-08-19, and the correction is the same species of
+-- error this module was written to catch.  `Reactor` was a bare
+-- constructor, so "something checks it" could not distinguish
+-- BEING REACHED BY A GATE THAT RUNS from BEING REACHED BY A GATE
+-- THAT IS RED.  formal/cubical/IndianLane.agda's own header had
+-- already made that distinction in prose -- "a gate has to be able
+-- to go green to be a gate" -- and the survey collapsed it.  So
+-- Reactor now names the gates, and a module reached only by an
+-- aggregate that cannot typecheck on this toolchain reads
+-- differently from one reached by the aggregate that can.
+data Sthiti = Reactor [String] | Shelf | Orphan
   deriving (Eq, Ord, Show)
 
 data Unit = Unit
@@ -144,8 +155,11 @@ baseName p = reverse (takeWhile (/= '/') (reverse (dropExt p)))
 -- 2.  Reachability -- a finite closure, so the verdict is exact.
 ------------------------------------------------------------------------
 
-reachable :: [Unit] -> S.Set String
-reachable us = go (S.fromList [ uName u | u <- us, uIsEntry u ]) S.empty
+-- Reachability from ONE named root -- a finite closure, so the verdict is
+-- exact.  Kept per-root rather than pooled, because which gate reaches a
+-- module is the thing the pooled version threw away.
+reachableFrom :: [Unit] -> String -> S.Set String
+reachableFrom us root = go (S.singleton root) S.empty
   where
     byName = M.fromList [ (uName u, u) | u <- us ]
     go frontier seen
@@ -159,6 +173,8 @@ reachable us = go (S.fromList [ uName u | u <- us, uIsEntry u ]) S.empty
                              , M.member i byName ]
           in go (S.difference next seen') seen'
 
+reachable :: [Unit] -> S.Set String
+reachable us = S.unions [ reachableFrom us (uName u) | u <- us, uIsEntry u ]
 ------------------------------------------------------------------------
 -- 3.  The survey, with its own fitness attached.
 --
@@ -185,13 +201,17 @@ survey dirs us = Yogya
   , yNoEntry = null [ () | u <- us, uIsEntry u ]
   }
   where
-    live = reachable us
+    gates = [ uName u | u <- us, uIsEntry u ]
+    reachedBy = [ (g, reachableFrom us g) | g <- gates ]
     importedBy = M.fromListWith (+)
       [ (i, 1 :: Int) | u <- us, i <- uImports u ]
     classify u
-      | S.member (uName u) live                = Reactor
+      | not (null gs)                                = Reactor gs
       | M.findWithDefault 0 (uName u) importedBy > 0 = Shelf
-      | otherwise                              = Orphan
+      | otherwise                                    = Orphan
+      where
+        -- WHICH gates reach it, not merely whether any does.
+        gs = sort [ g | (g, s) <- reachedBy, S.member (uName u) s ]
 
 ------------------------------------------------------------------------
 -- 4.  Reporting.  The domain is printed BEFORE the verdicts, not after,
@@ -199,8 +219,16 @@ survey dirs us = Yogya
 -- and none of the fitness.
 ------------------------------------------------------------------------
 
-renderSurvey :: Yogya -> [String]
-renderSurvey y =
+-- Gates that do NOT typecheck on this container, so reaching a module from
+-- them guards nothing.  Declared by the caller with its evidence, not
+-- guessed here: running Agda is not something a survey should do, and
+-- pretending to know without running it would be the exact failure this
+-- module is about.  Measured 2026-08-19: `agda NaturalMachine.agda` exits
+-- 42 in 2s at NaturalMachine/PathIsSymmetry.agda:98, "Not in scope:
+-- SymGroup" -- a cubical v0.9 name against the pinned v0.5 (BUILD.md).
+-- Everything.agda reaches the same file.
+renderSurveyWith :: [String] -> Yogya -> [String]
+renderSurveyWith red y =
   [ "=== YOGYATA ==="
   , "Kumarila Bhatta, Slokavarttika, Abhavapariccheda (c. 7th c.):"
   , "anupalabdhi as a means of knowing an absence -- admitted by the"
@@ -211,39 +239,58 @@ renderSurvey y =
   , "THE LOOKING, stated first, because the verdicts are worth exactly as"
   , "much as it is (yogya-anupalabdhi -- fit non-apprehension):"
   , "  files read        : " ++ show (yScanned y)
-  , "  directories       : " ++ unwords (yDirs y)
+  , "  directories       : " ++ unwords (yDirs y) ++ "  (RECURSIVE)"
   , "  roots (entry pts) : " ++ show (length (yEntries y))
+  , "  roots that are RED on this container: " ++ unwords red
+  , ""
+  , "  On 2026-08-19 this survey read one directory level -- 140 of the 602"
+  , "  Agda files under formal/cubical/ -- and the report was read as"
+  , "  covering the corpus.  Four modules it called orphans are imported"
+  , "  from formal/cubical/NaturalMachine/.  The domain line was accurate"
+  , "  and too narrow, and being accurate did not stop it being misread,"
+  , "  including by its author.  It recurses now."
   ] ++
   (if yNoEntry y
      then [ ""
-          , "NO ROOT FOUND.  Every verdict below would be vacuous -- with no"
-          , "entry point nothing is reachable and everything reads as inert."
+          , "NO ROOT FOUND.  Every verdict below would be vacuous."
           , "Refusing to emit them." ]
      else
-       [ "" ] ++
-       section "IN THE REACTOR" Reactor ++
-       [ "" ] ++
-       section "ON A SHELF -- imported, but only by things that are themselves inert" Shelf ++
-       [ "" ] ++
-       section "ORPHANED -- imported by nothing at all" Orphan ++
        [ ""
-       , "  reactor " ++ show (count Reactor)
-         ++ "   shelf " ++ show (count Shelf)
-         ++ "   orphan " ++ show (count Orphan)
+       , "A gate that cannot typecheck does not guard what it reaches --"
+       , "formal/cubical/IndianLane.agda's own header: a gate has to be able"
+       , "to go green to be a gate.  So the bucket that matters is not"
+       , "\"unreached\" but \"reached only by something red\"."
+       ] ++
+       [ "" ] ++
+       sectionBy "REACHED ONLY BY A RED GATE -- in the import graph, checked by nothing"
+                 redOnly ++
+       [ "" ] ++
+       sectionBy "ON A SHELF -- imported, but only by things that are themselves inert"
+                 (== Shelf) ++
+       [ "" ] ++
+       sectionBy "ORPHANED -- imported by nothing at all" (== Orphan) ++
+       [ ""
+       , "  guarded " ++ show (countBy guarded)
+         ++ "   red-gated only " ++ show (countBy redOnly)
+         ++ "   shelf " ++ show (countBy (== Shelf))
+         ++ "   orphan " ++ show (countBy (== Orphan))
        , ""
        , "An orphan is not a verdict about quality.  machine/Upamana.hs was"
        , "an orphan on 2026-08-19 and was correct, careful and sourced -- and"
        , "carried three defects that no amount of reading would have found,"
-       , "because nothing ran it.  The claim here is only this: nothing in"
-       , "the domain above imports it, so nothing checks it."
+       , "because nothing ran it."
        ])
   where
-    count s = length [ () | (_, s') <- yUnits y, s' == s ]
-    section title s =
+    countBy p = length [ () | (_, s) <- yUnits y, p s ]
+    redOnly (Reactor gs) = not (null gs) && all (`elem` red) gs
+    redOnly _            = False
+    guarded (Reactor gs) = any (`notElem` red) gs
+    guarded _            = False
+    sectionBy title p =
       (title ++ ":") :
-      case sort [ (uPath u, uLines u) | (u, s') <- yUnits y, s' == s ] of
+      case sort [ (uPath u, uLines u) | (u, s) <- yUnits y, p s ] of
         [] -> [ "  (none)" ]
-        xs -> [ "  " ++ pad 44 p ++ show n ++ " lines" | (p, n) <- xs ]
+        xs -> [ "  " ++ pad 52 q ++ show n ++ " lines" | (q, n) <- xs ]
     pad n str = str ++ replicate (max 0 (n - length str)) ' '
 
 -- ---------------------------------------------------------------------
@@ -281,3 +328,6 @@ renderSurvey y =
 -- about this repository's import graph is claimed there -- the three
 -- states Reactor / Shelf / Orphan are this file's object, not that one's.
 -- ---------------------------------------------------------------------
+
+renderSurvey :: Yogya -> [String]
+renderSurvey = renderSurveyWith []

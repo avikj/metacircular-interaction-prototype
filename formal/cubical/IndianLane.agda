@@ -120,29 +120,44 @@ import Anekanta
 import JainSankhya
 import AbhavaAvacchedaka
 
--- ADDED 2026-08-19, AFTER A SURVEY THAT SHOULD NOT HAVE BEEN NEEDED.
+-- ADDED 2026-08-19, AFTER A SURVEY -- AND THE SURVEY'S FIRST VERDICT
+-- WAS WRONG.  Recorded here because the wrong version was published in
+-- this header and in three commit messages.
 --
--- machine/Yogyata.hs computed this file's import closure and found that
--- five green, --safe, fully sourced Indian modules were reachable from NO
--- gate at all, and twenty-six more were reachable only from those five.
--- Thirty-one modules of Indian material that nothing typechecked.
+-- WHAT I CLAIMED: machine/Yogyata.hs found five green Indian modules
+-- "reachable from NO gate at all" and twenty-six more reachable only
+-- from those five -- thirty-one that nothing typechecked -- and I read
+-- that as the Indian material being shelved while the Western lane sat
+-- in the reactor.
 --
--- The dates say what happened, and it is worse than neglect.  This gate was
--- created at 19:19:50 on 2026-08-18, in a commit whose own title is "the
--- lane nothing was building".  Between 19:23 and 21:43 THAT SAME EVENING,
--- seventeen further Indian modules were written -- Bīja, Jīva, Mātrāmerus,
--- Brahmagupta, PiṅgalaPrastāra, SaptabhaṅgīNaya, Vargaṇā, Śūnya, Khahāra,
--- Anantā, Śulba, Saṅkalita, Cakravāla, Meru, AṃśaSatyayantra, Mādhava --
--- and not one was added here.  Nārāyaṇa followed the next morning, also
--- not added.  Today I added Asiddhatva and BhavanaKrida and audited
--- nothing.
+-- WHAT IS TRUE.  The survey read ONE DIRECTORY LEVEL: 140 of the 602
+-- Agda files under formal/cubical/.  It stated its domain honestly and
+-- I read the domain line as "the corpus".  Four of the five are
+-- imported from formal/cubical/NaturalMachine/, which it never opened.
 --
--- So the remedy was invented and then not used, within minutes, by the same
--- hand, seventeen times running.  CLAUDE.md already names this failure and
--- prescribes the answer: when a rule is violated repeatedly the next move
--- is a mechanism that fires at the moment of the act, not a paragraph.
--- That mechanism is now .claude/hooks/gate-coverage.sh.  This paragraph is
--- the record, not the fix.
+-- Recursing, the picture INVERTS.  guarded 104, reached-only-by-a-red-
+-- gate 409, shelf 117, orphan 23.  The 409 is overwhelmingly EGB*,
+-- Gamma0*, FactoryVI, HeadDepth -- the Western lane -- because
+-- NaturalMachine.agda and Everything.agda both die in two seconds at
+-- NaturalMachine/PathIsSymmetry.agda:98 on `SymGroup`, a cubical v0.9
+-- name against the pinned v0.5.  That is the FIRST of several such name
+-- skews, not the only one -- fixing it moves the failure to
+-- NaturalMachine/SymmetryCardinality.agda:31 on `factorial`.  So "one
+-- identifier was why four hundred modules went unchecked" is also wrong,
+-- and is corrected here rather than left standing.  What is established:
+-- 409 modules are reached only by a gate that fails, and after yesterday's gating this
+-- file is the only green Agda gate here, and the Indian modules are
+-- among the few things actually being checked -- the opposite of what
+-- I said.
+--
+-- WHAT SURVIVES.  Adding these modules here was still right: a gate
+-- that cannot go green does not guard what it reaches, which is this
+-- file's own founding argument, and NaturalMachine could not go green.
+-- And the mechanism stands on its own evidence: this gate was created
+-- at 19:19:50 on 2026-08-18 in a commit titled "the lane nothing was
+-- building", and between 19:23 and 21:43 that evening seventeen more
+-- Indian modules were written and none was added to it.
+-- .claude/hooks/gate-coverage.sh now fires at the moment of the write.
 --
 -- PIṄGALA, Chandaḥśāstra ch. 8 (c. 300–200 BCE), the six pratyaya; with
 -- Virahāṅka, Vṛttajātisamuccaya ch. 6 (c. 600–800 CE) for the mātrāmeru
