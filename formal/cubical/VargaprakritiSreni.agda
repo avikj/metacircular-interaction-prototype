@@ -20,8 +20,10 @@ module VargaprakritiSreni where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Cubical.Data.Int using (ℤ ; pos)
+open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
+open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 open import Brahmagupta
   using (मान ; संयोग-प्र ; संयोग-द्वि ; चक्रवाल-संयोगः)
 
@@ -59,3 +61,17 @@ open import Brahmagupta
             (snd (सोल (pos 2) (pos 3) (pos 2) 2))
        ≡ pos 1
 पदम्-२ = श्रेढी-मान (pos 2) (pos 3) (pos 2) मूल-२ 2
+
+------------------------------------------------------------------------
+-- वर्ग-N-अपकर्षः — किमर्थं N अवर्गः स्यात् ?  यदि N = k² (वर्गः), तर्हि
+-- x²−N·y² = (x−k·y)·(x+k·y) — गुणनं द्विधा भिद्यते, वर्गप्रकृतिः च
+-- तुच्छा भवति ।  अतः ब्रह्मगुप्त-भास्करौ चक्रवालं केवलम् अवर्गे N प्रयुज्येते ।
+--
+-- (Why must N be non-square?  If N = k², then x²−N·y² factors as
+--  (x−ky)(x+ky) — a degenerate difference-of-squares — and the vargaprakṛti
+--  becomes trivial.  This is why Brahmagupta and Bhāskara applied the
+--  cakravāla only to non-square N.  A polynomial identity over ℤ.)
+------------------------------------------------------------------------
+
+वर्ग-N-अपकर्षः : (k x y : ℤ) → x · x - (k · k) · (y · y) ≡ (x - k · y) · (x + k · y)
+वर्ग-N-अपकर्षः = solve ℤCommRing
