@@ -835,3 +835,84 @@ congruence. So §5.3's split stands unchanged — the section closed as an
 imported convention, minimality open — and it is open in the ℕ development
 too. The verse-level sourcing debt of §5.1 is likewise unchanged and
 unclaimed by either development or by this note.
+
+---
+
+### 3.4 Appended 2026-08-19, another thread: §3.3's second clause is now used, and is a theorem
+
+*Appended at the end, altering no line above.*
+
+§3.3 names a two-part gap. Its second clause:
+
+> "the avacchedaka of the `pratiyogitā` and the avacchedaka of the
+> `anuyogitā` are distinct slots. Neither of these is used anywhere in the
+> repo."
+
+**I checked before claiming it was still open**, rather than assuming:
+
+```
+grep -rn 'pratiyogitā\|anuyogitā' --include=*.agda --include=*.md --include=*.hs .
+```
+
+returned exactly two lines, both prose, neither formal — this file at line 292
+(the sentence quoted above) and
+`notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md:22`. **Zero `.agda`
+files.** Output not truncated. And I read `AbhavaAvacchedaka.agda` end to end
+first: its record carries ONE limitor field, delimiting `pratiyogin` only, and
+`holds A α = (x : A .anuyogin) → ¬ (A .pratiyogin α x)` quantifies over the
+locus with nothing delimiting it. So the first clause of the gap was closed
+and the second was not.
+
+Now closed, in
+`formal/cubical/NaturalMachine/TheAnuyogitaAvacchedakaIsADistinctSlot.agda`
+(`--safe`, no postulates, no holes, EXIT 0):
+
+```agda
+record Abhava₂ where
+  anuyogin₂ pratiyogitavacchedaka anuyogitavacchedaka : Type
+  pratiyogin₂ : pratiyogitavacchedaka → anuyogin₂ → Type
+  locus       : anuyogitavacchedaka   → anuyogin₂ → Type
+
+holds₂ A π ν = (x : A .anuyogin₂) → A .locus ν x → ¬ (A .pratiyogin₂ π x)
+```
+
+with `reduct : Abhava₂ → Abhava` forgetting the locus limitor, and:
+
+- `bothSlotsAreLoadBearing` — on ONE object, holding π fixed and moving ν
+  flips the verdict, and holding ν fixed and moving π flips it.
+- `oneSlotLosesAnAbsence` — identical one-slot data, yet the absence **holds**
+  under a delimited locus and **fails** on the bare one. So the anuyogitā's
+  limitor is not recoverable from the one-slot record.
+
+**Both directions stated, so neither presentation is called simply stronger.**
+`oneSlot→twoSlot` holds with no hypothesis — the one-slot verdict quantifies
+over the bare locus and therefore implies the two-slot verdict at every ν.
+`twoSlot→oneSlot-when-the-limitor-is-inert` returns the one-slot verdict only
+when the locus limitor is total, i.e. exactly when it was doing nothing. The
+one-slot form asks more of the world; the two-slot form is available where the
+one-slot form is not.
+
+**What this does NOT close.** §3.3's recommendation was about the `weaver`
+lane's own limitor layer — the audit reporting 0 originating sites, 12
+propagating, 39 unlimited. Nothing here touches that lane or that audit. A
+second slot existing in `formal/cubical/` does not fill a slot in
+`runtime/kernel/`; the finding stands where it was made.
+
+**Limits repeated, not evaded.** No primary Sanskrit opened; the slot doctrine
+is carried from `notes/ABHAVA.md` and §3.1 above, as `AbhavaAvacchedaka.agda`
+records for itself. Verse-level sourcing OWED AND NOT CLAIMED. The separating
+example (a two-point locus) is mine, offered as a separating instance and not
+as exegesis. `notes/ABHAVA.md` A6's obligation is untouched: arXiv:2605.12548
+is unreachable from this channel, so NO NOVELTY is claimed for any of this
+until someone who can read it compares. Neither tādātmya nor
+paramparā-sambandha is here, and two slots is what §3.3 named as missing, not
+a claim about a third.
+
+**What rival schools would say, unadjudicated and recorded because the verdict
+does not license collapsing the grounds.** The Prābhākara Mīmāṃsakas deny
+abhāva is a distinct padārtha at all — on their view the theorem separates two
+readings of one bare locus, not two absences. The Buddhist apoha theorists
+take exclusion as primitive rather than built from a positive relatum, so
+"which limitor delimits the counterpositive" does not arise in their terms.
+Neither is adjudicated here; §2.3 above already settles the separate question
+of apoha as Boolean complementation.

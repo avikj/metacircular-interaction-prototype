@@ -107,3 +107,22 @@ limitor-load-bearing :
 limitor-load-bearing =
     (λ x aα → true≢false (sym (aα .fst)))   -- α≡true is false when α=false
   , (λ h → h true (refl , refl))            -- at α=true, x=true bears it
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- This record delimits the pratiyogin and leaves the anuyogin bare.
+-- `INDIC_FORMAL_TRADITIONS_MAP.md` §3.3 names that as half of a gap: in
+-- Navya-Nyāya the pratiyogitā and the anuyogitā carry DISTINCT
+-- avacchedakas.  The second slot is added, and proved not derivable from
+-- the first, in
+-- `NaturalMachine.TheAnuyogitaAvacchedakaIsADistinctSlot`, whose
+-- `reduct : Abhava₂ → Abhava` lands exactly in this record.
+--
+-- That module's `oneSlot→twoSlot` shows `holds` here implies the
+-- two-slot verdict at every locus limitor, with no hypothesis; the
+-- converse needs the locus limitor to be total, i.e. inert.  So this
+-- module's `holds` is not a weaker notion — it is the stronger demand,
+-- and what it lacks is the ability to state the delimited one.
+------------------------------------------------------------------------
