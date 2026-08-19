@@ -158,3 +158,41 @@ scalarisationDecidesAnIncomparablePair :
   × (sum yieldFirst < sum costFirst)
 scalarisationDecidesAnIncomparablePair =
   fst incomparable , snd incomparable , sumOrdersThem
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "it is NOT proved that a Pareto stratification EXISTS
+--    constructively for an arbitrary archive, which would need a
+--    decision on `≼` and is not proved here."
+--
+-- The decision is now proved, in
+-- `NaturalMachine.TheParetoStratumIsDecidableAndTheFilterIsExact`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   dec≤ / dec≼            from `splitℕ-≤` alone
+--   decStrictlyDominates
+--   decIsParetoMaximal     against a finite archive, reusing `decAny`
+--   stratum                the maximal layer, as a COMPUTED list
+--   stratumOnlyKeepsMaximal / stratumKeepsEveryMaximal
+--                          sound and complete, so the computed stratum
+--                          and the specified one have the same members
+--
+-- What that adds to §5.2 is the half this module could not say.  Here:
+-- there is no best to pick.  There: the thing §5.2 picks INSTEAD — "the
+-- controller first selects a Pareto stratum S" — is constructible, and
+-- a controller cannot select what it cannot compute.
+--
+-- STILL NOT CLAIMED, and the word matters: that is ONE STRATUM, the
+-- maximal layer.  A STRATIFICATION is the iterated construction — remove
+-- the layer, repeat — and it needs a termination argument on the
+-- archive's length that is NOT given; nothing there iterates.  So the
+-- sentence quoted above is only half discharged, and the half that
+-- remains is the one with the word "stratification" in it.  Also
+-- unproved: that the stratum is non-empty for a non-empty archive.
+-- `filterDec` preserves multiplicity and order, so a duplicated vector
+-- appears twice — `≼`'s antisymmetry is not used to quotient anything.
+-- Costs remain unflipped.
+------------------------------------------------------------------------
