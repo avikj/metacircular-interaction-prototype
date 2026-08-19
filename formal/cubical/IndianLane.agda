@@ -52,6 +52,13 @@ import Kuttaka
 -- commutative ring; subtraction-free over ℕ as a semiring identity; and as
 -- a typed OPERATION on solutions, which is what "production" names.
 import Bhavana
+-- The same composition made into an OBJECT rather than restated as a law:
+-- the invariant lives in the type, so an unlawful card is not rejected but
+-- UNSAYABLE, and the single move भावना carries the norm in its own type.
+-- Eight moves from the one obvious card at D = 2 reach (577, 408), which is
+-- Baudhāyana's √2 -- Śulbasūtra 1.61–62, c. 800 BCE, older than the
+-- composition law it is reached by.
+import BhavanaKrida
 import BhavanaSemiring
 import BhavanaGenerative
 
