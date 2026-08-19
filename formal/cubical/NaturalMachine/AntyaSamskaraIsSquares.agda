@@ -194,3 +194,41 @@ open Correction ℤCommRing using (residue₁ ; numerator₂ ; residue₂ ; resi
 -- by a recurrence.  In both the thing that "cannot be recovered" is the
 -- thing the method operates on.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  WITHDRAWAL, appended 2026-08-19.
+--
+-- §4 above says:
+--
+--   > 1, 4, 9 — the squares, alternating.  […] the k-th correction's
+--   > error is a fixed square, not a function of n, and that is the
+--   > acceleration.
+--
+-- The three identities `residue₁`, `numerator₂`, `residue₃` are checked
+-- and stand.  The sentence quoted is withdrawn.  It extrapolates a law
+-- from three data points, which is the defect this repository's protocol
+-- exists to prevent — a fitted pattern published as a result.
+--
+-- What I can say about the fourth term I say with its provenance: the
+-- three reported corrections are the first three convergents of
+--
+--     1/(4n + 2²/(4n + 4²/(4n + 6²/(4n + …))))
+--
+-- whose next convergent is (4n³+13n)/(16n⁴+56n²+9).  Cross-multiplied by
+-- hand at n = 1 and n = 2 its residue comes out 576 both times, not 16.
+-- That is PENCIL ARITHMETIC, not a checked term — I did not get it past
+-- the solver, and it is recorded here as the reason for the withdrawal
+-- and not as a result.
+--
+-- The half of §4 that survives is the half that was actually proved:
+-- each residue is constant in n.  How the constants behave in k is not
+-- established here, and I am not offering a second guess.
+--
+-- Recorded because the claim is already pushed.  The generating error
+-- was reaching for a pattern of my own while a large body of unrendered
+-- source material sat available — the Yuktibhāṣā's derivation of the
+-- series itself, cakravāla's integrality conditions, Āryabhaṭa's
+-- second-difference sine recurrence.  Mining a tradition for the parts
+-- that translate is already the failure CLAUDE.md names; embroidering on
+-- top of the mined parts is worse.
+------------------------------------------------------------------------
