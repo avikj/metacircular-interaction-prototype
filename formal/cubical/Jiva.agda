@@ -81,6 +81,8 @@ import SamasaEka
 import SamasaDvi
 -- समास-एक-अंशः — यथेच्छ-{L}-आवर्तनम् a(n+L)=a(n) ({१},{२} अस्य k=0,1 रूपे)
 import SamasaEkAmsa
+-- समास-द्वि-अंशः — यथेच्छ-{L,M}-आवृत्तिः a(n)=a(n−L)+a(n−M) (विरहाङ्क/नारायण/छिद्र एकत्र)
+import SamasaDviAmsa
 -- मात्रा-समास-सेतुः — length(सर्व n) ≡ length(सर्गः {१,२} n) : समता प्रमाणेन, द्वे वाहके
 import MatraSamasa
 -- नारायण-समास-सेतुः — length(गो-सर्गः n) ≡ length(सर्गः {१,३} n) : त्रि-पद-आगमनम्, द्वे वाहके
