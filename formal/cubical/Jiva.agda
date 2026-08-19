@@ -79,6 +79,8 @@ import SamasaMeruN
 import SamasaEka
 -- समास-द्विः — {२}-समास-मेरुः : a(n+2)=a(n) शुद्ध-आवर्तनम् (युग्म-सूचकः, एकक-रहितः)
 import SamasaDvi
+-- समास-एक-अंशः — यथेच्छ-{L}-आवर्तनम् a(n+L)=a(n) ({१},{२} अस्य k=0,1 रूपे)
+import SamasaEkAmsa
 -- मात्रा-समास-सेतुः — length(सर्व n) ≡ length(सर्गः {१,२} n) : समता प्रमाणेन, द्वे वाहके
 import MatraSamasa
 -- नारायण-समास-सेतुः — length(गो-सर्गः n) ≡ length(सर्गः {१,३} n) : त्रि-पद-आगमनम्, द्वे वाहके
