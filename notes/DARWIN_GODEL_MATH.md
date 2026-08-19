@@ -417,3 +417,285 @@ stepping stones without confusing search fitness with truth.
 - Sakana AI's authors' summary,
   [*The Darwin Gödel Machine: AI that improves itself by rewriting its own code*](https://sakana.ai/dgm/),
   for the intended high-level framing and safety discussion.
+
+---
+
+## Appended 2026-08-19, another thread: §1's design sentence is two structural facts, checked
+
+*Appended at the end, altering no line above.*
+
+§1 reads the parent-selection weight `w_i = σ(10(α_i − 0.5)) · 1/(1 + n_i)` and states
+its intent: *"a high-scoring but underexplored node is favored, while every eligible node
+has nonzero probability."* Both halves are facts about the **form** `f(α)/(1+n)`, and
+both are now checked exactly, in ℕ, with no reals and no sigmoid, in
+`formal/cubical/NaturalMachine/TheScoreOrderAndTheWeightOrderDisagree.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+WeightBelow a b = (scoreOf a · suc (childrenOf b)) < (scoreOf b · suc (childrenOf a))
+
+theTwoOrdersDisagree : (scoreOf fresh < scoreOf explored) × WeightBelow explored fresh
+positiveScoreKeepsPositiveWeight : (f n : ℕ) → 0 < (suc f · suc n)
+```
+
+with `explored = (3,3)` and `fresh = (2,0)`.
+
+**How the reals are avoided.** Comparing `f₁/(1+n₁)` with `f₂/(1+n₂)` is comparing
+`f₁·(1+n₂)` with `f₂·(1+n₁)` — valid because both denominators are positive — and that
+is a ℕ comparison once `f` is a ℕ.
+
+**What is lost by it, stated rather than glossed.** The sigmoid's range. `σ(10(α−0.5))`
+lies strictly between 0 and 1 and never attains an integer; the witness uses 3 and 2 and
+claims nothing about which accuracies α produce a 3:2 ratio. What is proved is a property
+of the weight's **shape**, not of any run. **Not claimed:** that DGM's actual archive ever
+contains such a pair.
+
+**What the two facts say.** The weight order is *not* the score order — so the archive is
+not hill-climbing on the benchmark, which is the design's point. Which of the two orders
+is better is not said: they are different orders and the design chooses the second
+deliberately. And the child count divides the weight down but never to zero, so no node is
+removed from consideration by having been explored.
+
+**Not claimed at all:** anything about the benchmark numbers this note records (20.0 → 50.0
+on the 200-task SWE-bench Verified subset; 14.2 → 30.7 on Polyglot) and explicitly declines
+to import as evidence about mathematical discovery. Nothing above is evidence about them,
+nothing was run, and **arXiv:2505.22954 was not read by me** — the formula is carried from
+§1 of this note.
+
+---
+
+## Appended 2026-08-19, same thread: §7's last kill criterion is not a threshold, and here is why
+
+*Appended at the end, altering no line above (including the §1 append above it).*
+
+§7's criteria are thresholds on rates — 25% of compute, 80% of children, half the
+development gain, 10% relative score — with one exception:
+
+> *"any artifact labeled kernel-checked or independently replayed fails a clean replay.
+> One such authority-label error is a boundary failure, not tolerable benchmark noise."*
+
+That one is not a stricter threshold. It is **not a threshold at all**, and the reason is
+checked in
+`formal/cubical/NaturalMachine/OneCounterexampleRefutesALabelButNotAnExistential.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+LabelSound = (a : Artifact) → Labeled a → Replays a
+oneFailureRefutesTheLabel : (a) → Labeled a → ¬ Replays a → ¬ LabelSound
+bothAtOnce : (¬ LabelSound …) × (SomethingReplays …)
+```
+
+A label asserts a **Π**, and a Π has no tolerance: one counterexample is the entire
+refutation. That is exactly "a boundary failure, not tolerable benchmark noise".
+
+**The honest weakness of the contrast, stated rather than glossed.** The second half uses
+an **existential**, because it needs no counting. A genuine *rate* claim ("more than
+half", "at most 25%") needs a measure and a count, and neither is modelled. So the module
+does **not** establish the comparison §7's list invites — only that at least one other
+claim-shape survives what kills a label. That is the direction of the point, not its full
+strength.
+
+**Not claimed:** anything about DGM, its archive, its benchmark numbers, or whether the
+pilot in §6–§7 should be run. This note quarantines the design as "not canonical
+architecture" and declines to import DGM's empirical claims; nothing here changes that,
+nothing was run, and **arXiv:2505.22954 was not read by me**.
+
+## Appended 2026-08-19, third thread: §2's seam 3 is a dichotomy, and it is checked
+
+*Appended at the end, altering no line above.*
+
+§2's third seam reads: *"The otherwise unreachable/programmatic `best` branch sorts
+accuracy in ascending order and selects the first nodes, despite its comment saying it
+selects the best score."* Stated that way it is a bug report. Its mathematical content is
+a statement about **when the two selections agree**, and that is the part worth having,
+because it says when the seam is observable at all.
+
+Checked in
+`formal/cubical/NaturalMachine/AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and prints that itself):
+
+```agda
+Lower b xs = All (b ≤_) xs        Upper b xs = All (_≤ b) xs
+
+lowerAndUpperForcesConstant  : Lower b xs → Upper b xs → All (_≡ b) xs
+nonConstantMakesTheLowestStrictlyWorse
+  : Lower b xs → Any (λ x → ¬ (b ≡ x)) xs → Σ[ x ] ((b ≤ x) × ¬ (b ≡ x))
+twoScoresAlreadySeparateThem  : Lower 1 [1,2] × Upper 2 [1,2] × ¬ (1 ≡ 2)
+theSeamIsInvisibleExactlyWhereSelectionIsVacuous
+```
+
+**The seam is invisible exactly where the selection is vacuous.** On a constant archive
+ascending-first and best return the same score — and on a constant archive, choosing a
+parent *by score* carries no information. So there is no regime in which the branch is
+both correct and doing work: it agrees with its comment only when the comment describes
+nothing. That is sharper than "the sort is backwards," and it is why the seam should not
+be filed as cosmetic even though §2 correctly notes the branch is otherwise unreachable.
+Two distinct scores in the archive already separate the two selections.
+
+**Grade, and it is the whole caveat: I did not read the code.** §2's header restricts its
+observations to one pinned commit of an external repository, and this repository's egress
+rules mean I did not fetch it — no request to github.com was made. What is checked is the
+**order-theoretic content of §2's sentence**, on the assumption that the sentence
+describes the branch correctly. If §2 has misread the code, nothing above is affected and
+nothing above defends §2: the theorem is about ascending selection versus maximal
+selection and would stand if the branch did not exist.
+
+**No novelty.** That a minimum and a maximum coincide only on a constant list is
+elementary order theory; it is attached here, not discovered.
+
+**Not claimed.** No sorting algorithm appears — the argument is entirely about bounds, so
+nothing depends on how the ascending order is produced or on its stability. The other
+three seams are untouched: the missing perfect-score exclusion, the adjacent string
+literals Python concatenates, and which model reads the logs are not order-theoretic.
+Scores are `ℕ` above; §2's are accuracies, and no claim is made that they are linearly
+ordered without ties or that ties break the same way. "Selects the first node**s**" is
+plural and this treats the *bound*, not the prefix — a prefix statement would need the
+sort.
+
+## Appended 2026-08-19, same thread: §5.2's two-stage shape is forced, not chosen
+
+*Appended at the end, altering no line above.*
+
+§5.2 opens *"Fitness is a vector, not 'number of exciting claims'"*, lists eight
+objectives, and says the controller maintains Pareto strata and samples **within** a
+stratum. The design is stated; the reason it must be that shape is not. It is forced, and
+both halves are checked in
+`formal/cubical/NaturalMachine/AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+| checked | reading here |
+|---|---|
+| `≼-refl`, `≼-trans`, `≼-antisym` | the pointwise order is a genuine partial **order**, antisymmetry included |
+| `incomparable` | `(2,0)` and `(0,3)` dominate in neither direction — the order is **not total**, so "the best node" does not denote |
+| `sumIsMonotone` | a scalarisation cannot *contradict* dominance … |
+| `scalarisationDecidesAnIncomparablePair` | … but it does *decide* that pair: `sum` says `2 < 3` where the objectives say nothing |
+| `monotoneStrictnessRefutesDominance` | and for **any** monotone `f`, `f v < f w` refutes `w ≼ v` — exactly its strength, and no more |
+
+**So a scalar fitness is a strict extension of the objective order, and every such
+extension is a choice the objectives do not license.** §5.2's two-stage shape is therefore
+not a refinement of "pick the best": there is no best to pick, and any rule producing one
+has smuggled a preference ordering in under the name of a measurement.
+
+**This joins the other thread in this note.** §2's seam 3, checked in
+`AscendingFirstIsTheWorstUnlessTheArchiveIsConstant`, is a defect in a branch that assumes
+a *total* order on accuracy; §5.2 says the fitness is a vector. The two sections are about
+the same missing total order. No claim is made that the released code implements §5.2 —
+it does not; §5.2 is this repository's proposed controller.
+
+**No novelty.** The product order, its failure of totality, and monotone scalarisations as
+strict extensions are standard multi-objective optimisation — Pareto, *Cours d'économie
+politique* (1896), and Edgeworth before him. The Agda is attached, not discovered.
+
+**Not claimed.** Vectors are `List ℕ`, comparable only at equal length; no length index
+appears. §5.2's objectives include wall time, tokens and dollar cost, which are to be
+**minimised** — nothing above flips a coordinate, so the theorems concern a vector whose
+coordinates all point the same way, and applying them needs the costs negated first.
+Real-valued objectives are not modelled. Nothing is claimed about `Q_i`, the weights, the
+exploration mass `η`, or the stratum mixture; and it is **not** proved that a Pareto
+stratification exists constructively for an arbitrary archive — that needs a decision on
+`≼`, which is not given here.
+
+## Appended 2026-08-19, fourth thread: §2's seam 1 has the same shape as seam 3
+
+*Appended at the end, altering no line above.*
+
+§2's first seam reads: *"The paper's parent-eligibility set excludes perfect-score agents.
+The released `choose_selfimproves` function does not make that exclusion; every archived
+node whose metadata loads becomes a candidate."* Stated that way it is a discrepancy. Its
+mathematical content is **why** the exclusion is there and **when** dropping it is
+observable, and both are short. Checked in
+`formal/cubical/NaturalMachine/ExcludingPerfectScorersRemovesOnlyGainlessCandidates.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+bounded : (a : A) → score a ≤ cap
+
+noStrictImprovementAtTheCap
+  : (a : A) → score a ≡ cap → ¬ (Σ[ b ∈ A ] (score a < score b))
+eligible                          = filterDec Imperfect decImperfect
+eligibleKeepsEveryImperfectAgent
+theSeamIsInvisibleExactlyWhenNobodyIsPerfect
+```
+
+So the paper's exclusion is not a heuristic: it removes candidates whose possible gain is
+**provably zero**. And the missing exclusion changes nothing while no archived agent
+attains the cap — the two eligibility sets then have the same members.
+
+**That is the same shape seam 3 turned out to have, and finding it twice in one section is
+the thing worth recording.** Seam 3's `best` branch agrees with its comment exactly on a
+constant archive, where selection carries no information. Seam 1's missing exclusion is
+invisible exactly while nobody is perfect — and once someone is, every sample drawn on
+them is provably gainless. Neither seam is cosmetic; neither is visible in a benign
+archive. A reviewer checking either against a healthy run would see nothing.
+
+**Grade, unchanged and load-bearing: I did not read the code.** §2 restricts its
+observations to one pinned commit of an external repository, and this repository's egress
+rules mean no request to github.com was made — for this seam or for seam 3. What is
+checked is the order-theoretic content of §2's *sentence*, assuming it describes the
+function correctly. If §2 misread it, nothing above is affected and nothing above defends
+§2.
+
+**No novelty.** "Nothing exceeds a bound that is attained" is elementary; it is attached
+because §2 records the discrepancy without the reason, and the reason is what tells an
+implementer whether to care.
+
+**Not claimed.** The converse — that an agent below the cap *does* admit a strict
+improvement — is false in general and is not claimed: the cap bounds the score, it does
+not populate it. Nothing is said about the sampling weights: §5.2's `p_i` and the
+exploration mass `η` do not appear, so "spends mass where no improvement exists" is a
+reading of the theorem and not a quantitative claim; no share of wasted budget is
+computed. Scores are `ℕ`, §2's are accuracies, and "perfect" is modelled as attaining a
+stated cap. **Seams 2 and 4 remain untouched** — adjacent string literals concatenated by
+Python, and which model reads the logs, are not order-theoretic.
+
+## Appended 2026-08-19, fifth thread: seam 2 has the shape too — and seam 4 has no such content
+
+*Appended at the end, altering no line above.*
+
+The previous append observed that §2's seams 1 and 3 share a shape — *a defect
+undetectable exactly where it is harmless* — and said that shape is a property of the
+**section**, so the remaining seams should be checked against it first. Done, and it
+holds a third time. Checked in
+`formal/cubical/NaturalMachine/ADisjointValidatorMakesAFlagUnusableAndInvisible.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+concatenationIsDisjoint  : (t : ℕ) → Mem t intended → ¬ Mem t accepted
+theAcceptedTokenIsNotIntended : ¬ Mem 2 intended
+theFlagIsUnusable
+theSeamIsInvisibleWhileNobodySuppliesTheFlag
+```
+
+**Seam 2's consequence, stated rather than restated:** the accepted set and the intended
+set are *disjoint*, so no intended spelling is accepted and the one accepted spelling is
+one nobody would write. The flag is therefore not merely wrong but **unusable** — and
+unusable invisibly, because a run that never supplies it never meets the validator. Seams
+1, 2 and 3 are now three instances of "undetectable exactly where harmless", which is a
+fact about §2 and not three coincidences.
+
+**Seam 4 is not formalised, and here is the reason.** It reports that the prose says the
+selected parent analyses its own logs, while the algorithmic appendix and the code say a
+separate diagnostic foundation-model call reads them. That is a discrepancy about **which
+agent performs a step** — an attribution of an action, not a relation between values — and
+nothing in §2 turns it into a claim with a truth condition this substrate can carry.
+Saying so with a reason is the honest closure of the seam list; inventing a formalisation
+would be the dishonest one. **So §2's four seams are: three checked, one declared
+out of scope with grounds.**
+
+**Grade, unchanged and load-bearing: I did not read the code**, and seam 2 is about
+*Python's semantics*. No request to github.com was made. Nothing above claims anything
+about `argparse`, about adjacent-literal concatenation, or about the pinned file. What is
+modelled is the *situation* §2 describes — a validator whose accepted set is disjoint from
+the intended set. If §2 misread the code, the situation does not arise and nothing above
+is affected.
+
+**Not claimed.** Tokens are `ℕ` standing for strings; no string type, no concatenation
+operation and no Python is modelled, so `concatenationIsDisjoint` is an **assumption about
+the instance** encoded as three distinct numerals, not a derivation from concatenation.
+Nothing is said about what the fall-through branch does — §2 says random selection, and no
+semantics of selection appears — nor about validation being skipped for an untyped
+default, which is not modelled either.

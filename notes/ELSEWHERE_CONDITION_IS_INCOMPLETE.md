@@ -271,3 +271,58 @@ column is what makes the induction go through at all.
 `CLAUDE.md`, `notes/INDIC_FORMAL_TRADITIONS_MAP.md`,
 `runtime/panini/conflict.py`, `formal/cubical/BUILD.md`,
 `formal/cubical/KuttakaValli.agda`.
+
+---
+
+## 6.3 Appended 2026-08-19, another thread: §6.1's divisibility instance, mechanised — and it needs no factorisation
+
+*Appended at the end, altering no line above.*
+
+§6.1 says of its own guard family: *"PROVED on paper in one line from unique
+factorisation; **not** mechanised here — the Agda module carries no
+divisibility instance."*
+
+Now mechanised, in
+`formal/cubical/NaturalMachine/DivisibilityGuardsAreMeetClosed.agda`
+(`--safe`, no postulates, no holes, EXIT 0), with the lcm taken by its
+**universal property** rather than constructed — cubical v0.5 has no lcm
+module, and constructing one is not needed for the meet law:
+
+```agda
+record IsLcm (d e l : ℕ) where
+  d∣l e∣l : …
+  least : (m : ℕ) → d divides m → e divides m → l divides m
+
+lcmGuard→both : IsLcm d e l → (x : ℕ) → D l x → (D d x × D e x)
+both→lcmGuard : IsLcm d e l → (x : ℕ) → (D d x × D e x) → D l x
+divisibilityIsDirected : … → (D l x) × ((y : ℕ) → D l y → (D d y × D e y))
+```
+
+**A narrowing offered to §6.1, not applied.** The meet law uses no unique
+factorisation: `both→lcmGuard` *is* the universal property applied, and
+`lcmGuard→both` is two transitivities. Factorisation is needed for a different
+sentence in the same paragraph — that `D_d ⋐ D_e` iff `v_p(e) ≤ v_p(d)` for
+every `p`, which is genuinely about valuations and is **not** proved in the
+module. Suggested replacement wording, for that note's author to take or
+leave: *"the meet law is the lcm's universal property and needs no
+factorisation; unique factorisation is what turns the containment order into
+the valuation coordinate."* Existence of the lcm is a third statement again,
+and none of the three follows from the other two; nothing is constructed.
+
+**What it does NOT do, and that is the interesting half.** It does **not**
+become an instance of `ElsewhereCondition.directedRooted`. I read that module:
+`Guard A = A → Bool`, so a guard there is a *decision*, while `D d` is a Σ — a
+search for the cofactor. Turning `D d` into a `Guard` is exactly the step of
+deciding divisibility: available for ℕ, not free, and not taken. So §6.1's
+family is meet-closed as claimed and is still not plugged in, and what stands
+between them is a decision.
+
+That is the same axis as
+`NaturalMachine.AskingIsNotAPropertyOfTheFunction` and
+`NaturalMachine.PermanentUnsaidIsStableAndTemporaryIsASearch`, reached here
+from a third direction and not by design.
+
+**§6's OPEN conjecture is untouched.** Whether the pratyāhāra system is the
+∩-closure §2 requires needs the external sūtra corpus, which is
+EGRESS_BLOCKED. Petersen 2004 remains NOT proved and NOT read. No claim that
+divisibility guards model any Pāṇinian guard.

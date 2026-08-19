@@ -43,6 +43,35 @@ agda -i "$repo_dir/formal/cubical" \
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine/LawfulContinuationCore.agda"
 
+# ---------------------------------------------------------------------------
+# Everything.agda — the whole-directory latch (formal/cubical/BUILD.md,
+# notes/EVERYTHING_COVERAGE_REPAIR.md).  One command that checks every
+# top-level and Swarm/ module the aggregate imports.
+#
+# ASPIRATIONAL-IF-RED, 2026-08-14: this step is currently EXPECTED TO FAIL
+# on a container pinned to Agda 2.6.3 + cubical v0.5, because part of the
+# tree (the Γ₀ lane, much of NaturalMachine/, five Swarm modules) was
+# migrated to the cubical v0.9 API (`solve!`, `SymGroup`) per BUILD.md's
+# migration section, and the two toolchains cannot both be green at once.
+# Until that schism resolves, a red result here is REPORTED, not fatal —
+# the steps above remain the hard gate.  When Everything.agda goes green
+# under the resolved toolchain, DELETE the fallback and let it hard-fail.
+# Swallowing this failure silently would recreate the exact overstatement
+# BUILD.md documents; hence the loud banner either way.
+# ---------------------------------------------------------------------------
+if (cd "$repo_dir/formal/cubical" && agda Everything.agda); then
+  echo "EVERYTHING: GREEN — the whole Agda lane checked in one command."
+else
+  ev_code=$?
+  echo "=============================================================="
+  echo "EVERYTHING: RED (exit $ev_code) — aspirational until the"
+  echo "BUILD.md-vs-container toolchain schism resolves (v0.5 vs v0.9)."
+  echo "This is a known, documented state, NOT a certification of the"
+  echo "modules Everything.agda imports.  Individual module status:"
+  echo "notes/EVERYTHING_COVERAGE_REPAIR.md"
+  echo "=============================================================="
+fi
+
 (
   cd "$repo_dir/formal/pairfield"
   lake build

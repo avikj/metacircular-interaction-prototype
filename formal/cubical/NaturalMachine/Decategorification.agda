@@ -44,9 +44,10 @@ open import Cubical.HITs.SetTruncation as SetTrunc
   using (∥_∥₂ ; ∣_∣₂ ; squash₂)
 open import Cubical.Algebra.Group
 open import Cubical.Algebra.Group.Morphisms
-open import Cubical.Algebra.SymmetricGroup
+-- see NaturalMachine/PathIsSymmetry.agda for why this is not imported from
+-- Cubical.Algebra.SymmetricGroup (the name differs between v0.5 and v0.9)
 
-open import NaturalMachine.PathIsSymmetry using (ΩGroup ; ΩGroup≃Symmetric)
+open import NaturalMachine.PathIsSymmetry using (ΩGroup ; ΩGroup≃Symmetric ; SymGroup)
 
 ------------------------------------------------------------------------
 -- 1.  The standard finite set as an object of FinSet.

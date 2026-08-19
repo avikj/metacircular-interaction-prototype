@@ -48,6 +48,16 @@ private def runSlot {priorCount : Nat}
   | none => 0
   | some (parent, step) => step.apply (prior parent)
 
+/-- Unit operation cost: an inactive slot emits the already available root and
+so buys nothing, an active slot spends one declared operation. -/
+private def slotCost {priorCount : Nat} : CausalSlot priorCount → Nat
+  | none => 0
+  | some _ => 1
+
+private theorem slotCost_le_one {priorCount : Nat} (slot : CausalSlot priorCount) :
+    slotCost slot ≤ 1 := by
+  cases slot <;> simp [slotCost]
+
 /-- The complete finite type of causal `inc/dec/double` formations using at
 most four operation nodes.  Slot `n` may read only the root or slots `< n`. -/
 structure AtMostFourFormation where
@@ -98,6 +108,22 @@ def values (formation : AtMostFourFormation) : Finset Int :=
 def formsBoth (formation : AtMostFourFormation) : Prop :=
   3 ∈ formation.values ∧ 8 ∈ formation.values
 
+/-- The number of declared operations a formation actually spends. -/
+def cost (formation : AtMostFourFormation) : Nat :=
+  slotCost formation.first + slotCost formation.second +
+    slotCost formation.third + slotCost formation.fourth
+
+/-- The padding convention is sound in the direction the lower bound needs:
+every inhabitant of the four-slot type spends at most four operations, so
+ruling out this whole type rules out every formation of cost `≤ 4`. -/
+theorem cost_le_four (formation : AtMostFourFormation) : formation.cost ≤ 4 := by
+  have first := slotCost_le_one formation.first
+  have second := slotCost_le_one formation.second
+  have third := slotCost_le_one formation.third
+  have fourth := slotCost_le_one formation.fourth
+  unfold cost
+  omega
+
 /-- `formsBoth` is a `def`-wrapped `Prop`, which instance search will not
 unfold on its own; membership in a `Finset Int` is decidable, so the wrapper
 is the only obstruction.  Stated explicitly rather than left to `decide`. -/
@@ -142,6 +168,10 @@ def formsBoth (formation : FiveFormation) : Prop :=
 instance (formation : FiveFormation) : Decidable formation.formsBoth := by
   unfold formsBoth; infer_instance
 
+/-- Cost extends along the embedding: the fifth slot is charged the same way. -/
+def cost (formation : FiveFormation) : Nat :=
+  formation.toAtMostFourFormation.cost + slotCost formation.fifth
+
 end FiveFormation
 
 private def parent {n : Nat} (value : Nat) (bound : value < n) : Fin n :=
@@ -168,14 +198,20 @@ theorem minimalThreeEightFormation_formsBoth :
     minimalThreeEightFormation.formsBoth := by
   decide
 
+theorem minimalThreeEightFormation_cost :
+    minimalThreeEightFormation.cost = 5 := by
+  decide
+
 /-- Five operations suffice, while every causal formation with at most four
 operations fails.  This is global minimality inside the exact
 `inc/dec/double`, root-zero, unit-operation-cost grammar. -/
 theorem threeEight_global_causal_minimum :
     minimalThreeEightFormation.formsBoth ∧
+      minimalThreeEightFormation.cost = 5 ∧
       threeEightFork.sharedCost = 5 ∧
       (∀ formation : AtMostFourFormation, ¬ formation.formsBoth) := by
-  exact ⟨minimalThreeEightFormation_formsBoth, by decide,
+  exact ⟨minimalThreeEightFormation_formsBoth,
+    minimalThreeEightFormation_cost, by decide,
     AtMostFourFormation.noFormationFormsBoth⟩
 
 end KuttakaDoublingFork

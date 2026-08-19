@@ -316,3 +316,283 @@ import NaturalMachine.TransportCost
 -- predicts, observed inside a single hour).  Run individually under the
 -- pin before being named here: EXIT=0.
 import HomometricPair
+
+------------------------------------------------------------------------
+-- ORPHAN SWEEP, 2026-08-16 (D0026 build queue Q8, the latch).
+-- AWAITING KERNEL — AUTHORED WITHOUT LOCAL TOOLCHAIN.
+--
+-- The closure of this file was recomputed mechanically from the sources
+-- (comment-stripped import scan — `--` and `{- -}` both removed before
+-- matching — then breadth-first reachability from this module; exact
+-- text processing, shell only).  Of 385 `.agda` files under
+-- formal/cubical/, 372 were reached and 13 were not: the 10
+-- `NaturalMachine/Control/` modules, which must NEVER be reached
+-- (re-verified this pass: no non-Control module imports any of them),
+-- and exactly THREE genuine orphans, imported below.
+--
+-- Q8's working figure of ~37 orphans was stale when this pass ran: it
+-- described the tree before the 2026-08-15 fold-in passes above, which
+-- had already latched that set (CarryClassNonzero, Gamma0,
+-- QuadraticRefinement, FutureSeparation, OracleQueries,
+-- RootedGrothendieck, CostGeometryWitness and the rest of the
+-- NaturalMachine/ list sit at the bottom of `NaturalMachine.agda`;
+-- TransportCost, BehavioralApartness, CenterRelative, PrimePairField
+-- and all sixteen Swarm/ modules are named in this file above).  The
+-- three below are newer than all of that: each landed 2026-08-16 in
+-- commit cf2c6f76, a WIP salvage whose own message says UNVERIFIED, NO
+-- GREEN CLAIM.
+--
+-- This container has no Agda, so unlike every block above, these three
+-- imports carry NO individual EXIT=0 record from this pass — not under
+-- the pin, not under anything.  They inherit only their authors'
+-- unverified claims.  That is the latch working as designed rather than
+-- a defect in it: if any of the three is red under the pin, this
+-- aggregate goes red, loudly, on the next toolchain-bearing run of
+-- `check.sh` — which is exactly the adjudication a salvage commit
+-- needs and was not going to receive as an orphan.  A green claim is an
+-- exit code or it is a rumour; this block is the request for the exit
+-- code.
+--
+-- Duplicate-basename note, checked and found harmless: `CenterRelative`
+-- exists both at top level and as `NaturalMachine.CenterRelative`.  The
+-- qualified module names are distinct, both are already imported (here
+-- and via the root respectively), and Agda resolves each against its
+-- own path, so a joint build is unaffected.  No orphan in this sweep
+-- required an owner decision.
+------------------------------------------------------------------------
+
+-- Hostile replication of HeadDepthMerge (cf-indra): independent
+-- reimplementation of every primitive, pointwise agreement on all 1048
+-- triples, edge audit outside the guarded range, and the boundary
+-- attack on strong = Fermat at composite moduli.
+import HeadDepthMergeBreaker
+
+-- W3 split into its two questions with opposite answers (message 0474):
+-- no separation for the unspecialized functional equation, a real
+-- separation for the specialized instance λ(pn) = −λ(n) against the
+-- full-transcript observer.  Imports OracleQueries, ParitySeparator,
+-- ChargeCriterion, GaugeOrbitClasses — all already reached via the
+-- root; this module does not import the root, so it could live in the
+-- root aggregate, but it is latched here where the sweep found it
+-- rather than editing a second unverifiable file without a kernel.
+import NaturalMachine.OracleSeparation
+
+-- Independent audit of R0021 clauses (B) and (D): the flip identity
+-- 32·(μ(Fε) − μ(ε)) = −2a·ε₂ε₃ε₄·(ε₁+ε₅) re-derived from scratch and
+-- checked over all 32 patterns; extends Window5Walsh.
+import R0021FlipOrbit
+
+-- D0026 §14.1's named finite acceptance core in one module (build queue
+-- Q2): the trefoil identity proved GENERALLY for every associative
+-- execution with a ℤ-measurement (the Delta 29 lane has it only by
+-- 64-case exhaustion), the two CommRing telescope identities, and the
+-- §2.4 one-sided-closure associativity defect re-derived on a Fin 4
+-- encoding.  Values agree with both the transmission and the
+-- independent in-repo Delta 29 reproduction; prior art is declared in
+-- the module header and the middle-nucleus repair is NOT duplicated.
+-- AWAITING KERNEL — authored without local toolchain.
+import NaturalMachine.DSOFiniteCore
+
+-- Matching pennies as the exact separator (build queue Q10, D0026 §2.9 /
+-- owner Delta 30; `notes/SELECTION_RETAINS_WHAT_VALUE_FORGETS.md` §5.5,
+-- which specifies this module and disclaims having written it).
+-- Payoffs normalized by a per-player positive affine map into {0,1}, so
+-- the whole game is decidable on Bool with ℕ payoffs and no Int.  What
+-- is certified: welfare W ≡ 1 and the Boolean pure-Nash test are each
+-- CONSTANT — one fiber apiece — while the best-response composite
+-- β₂ ∘ π₁ is surjective onto Bool — two fibers — so by the corpus's
+-- level-set theorem (T) the strategic structure descends through
+-- NEITHER summary.  That makes VERIFIER_BLIND_FIBER_REWARD Theorem A
+-- and von Neumann's oldest example the same theorem, which is the
+-- source note's finding.  Deliberately NOT here: the bridge between the
+-- Boolean test and the type-level Nash predicate, mixed strategies, the
+-- harmonic/potential decomposition, and the sibling lens-law module.
+-- AWAITING KERNEL — authored without local toolchain.
+import NaturalMachine.MatchingPenniesSeparator
+
+-- The Gter two-coordinate defect, D0026 §7.3 (build queue Q9, owner
+-- Deltas 37–38; `notes/GTER_REVELATION_AND_THE_TWO_COORDINATE_DEFECT.md`
+-- §§4.1–4.2, shape given in its §4.7).  D0026 asserts that static
+-- observational separation and dynamic compositional sufficiency are
+-- independent and supplies no witness; here the cut system is encoded
+-- relationally (relations as Bool-valued tables on finite index types,
+-- glued realization = relational composition through the cut), and
+-- Theorem 4 — surjectivity of 𝔖 ↦ (sep, comp) onto Bool × Bool at shape
+-- (1,2,1) — is checked, six refls, with both of D0026's requested
+-- witnesses appearing as two of the four cells.  Deliberately NOT here,
+-- and flagged as such by the source note first: Theorem 6 (minimality of
+-- the shape — it quantifies over shapes) and Proposition 7 (the tear is
+-- not truncation-invariant — it needs the Set-valued coend).  Neither is
+-- refl-material; the module certifies the relational coordinate only.
+-- AWAITING KERNEL — authored without local toolchain.
+import NaturalMachine.GterTwoCoordinate
+
+------------------------------------------------------------------------
+-- ORPHAN SWEEP 2, 2026-08-17.  AWAITING KERNEL — authored without a
+-- local toolchain.
+--
+-- `scripts/check-agda-closure.sh` returned exit 1 at this commit: 22
+-- modules outside the aggregate's import closure, i.e. covered by no
+-- green claim anyone could make.  The 03:43 sweep recorded in
+-- `notes/AGDA_COVERAGE_INVENTORY.md` was CORRECT WHEN IT RAN and is not
+-- struck; every module below landed AFTER it, from concurrent lanes
+-- (commits 4fe34ea2 "Braid round 1: ten checked EGB strands" and
+-- 459e4d11 "Three engine capabilities").
+--
+-- The finding this makes precise: latching is not a task that completes,
+-- it is a RATE.  Modules land faster than the closure is re-established,
+-- so the aggregate silently stops covering the tree between sweeps, and
+-- the only reason anyone knows is that a checker exists — which nothing
+-- runs (`notes/THE_GATE_IS_A_CLAIM_ABOUT_A_STATE.md`: CI triggers, is
+-- scheduled, and is never dispatched).  Latching by hand is the stopgap;
+-- the standing fix is to make the closure check a gate that runs.
+--
+-- MachineMinted.Everything is itself a machine-regenerated latch, so
+-- importing it covers the four MachineMinted.* modules beneath it.
+-- NaturalMachine.ChargePolynomialFinite is latched from NaturalMachine.agda
+-- (the root for the NaturalMachine/ subtree) as of 2026-08-17.  The comment
+-- that stood here said it was "in flight from a live worker, which owns its
+-- own latch line"; no such line existed in either root, and the module was
+-- an orphan that did not typecheck.  See the note at its import site.
+import CyclotomicMined
+import EGBCycleHolonomy
+import EGBDetConservation
+import EGBFalsifierAsymmetry
+import EGBPairComposition
+import EGBPairConic
+import EGBPhiIdempotent
+import EGBResidueGlue
+import EGBReversalInvariant
+import EGBSpanWeave
+import EGBSuccessorCost
+-- EGBTear imports EGBRootedNet and EGBThreadYoneda; all three were orphans
+-- outside every aggregate's closure until 2026-08-17.  All three typecheck
+-- (measured together in one 2.6.3 invocation).  Listed explicitly rather
+-- than relying on EGBTear to drag the other two in, so that a later edit to
+-- EGBTear's imports cannot silently re-orphan them.
+import EGBRootedNet
+import EGBTear
+import EGBThreadYoneda
+import EGBTwoFibrations
+import FactoryVICoolingKill
+import FactoryVICore
+import MachineLibrary
+import MachineMinted.Everything
+import ObligationMinCut
+
+-- Circulation 0002 (notes/PRIME_ATOM_TOMOGRAPHY_CONDITIONING.md): the exact
+-- conditioning constants of charge-one extraction — Sum|c_m| = R+1,
+-- Sum|c_m|R^m = C(2R,R), Sum C(R,m) = 2^R, and kappa_DFT = 1 — with the
+-- ordering kappa_DFT <= kappa_fac <= kappa_pow proved generally in R.
+-- Operational consequence: extract charge-one cyclically, never by moments.
+import TomographyConditioning
+
+-- The hypothesis kappa_DFT = 1 rests on (notes/PRIME_PAIR_CYCLIC_CHARGE_CRT_
+-- BOUNDARY_V2.md §2): cyclic coefficient extraction is EXACT iff n > R.
+-- General in n, R: injectivity of r -> r mod n on [0,R] under R < n; exact
+-- recovery; the collision at n <= R; and the exact first-shell aliased
+-- functional A(j+n) + A j.  Aliasing is MODEL error, not noise amplification
+-- -- at n <= R the same inverse row is still perfectly conditioned and
+-- returns the wrong functional.
+import CyclicAliasing
+-- Q3's Agda landing: the divisor-lattice characteristic polynomial
+-- Φ_n(t) = t^{Ω−ω}(t−1)^ω and the Chen-envelope prime projector
+-- 1_P = μ² − (ω−1), as finite refl certificates with the note's exact
+-- instance tables (Φ_360(2)=8, partition-of-unity 2^Ω) plus Lemma B2's
+-- scope fence in both directions — including the two exhibited failures
+-- OUTSIDE the envelope (Ω=3 at 12 and 30), which is what makes the
+-- fence load-bearing rather than decorative.  Source note
+-- `notes/CHEN_PRIMITIVE_BOUNDARY_AND_CHARGE_POLYNOMIAL.md`; owner
+-- provenance D0026 §§5.5, 5.9.  AWAITING KERNEL.
+--
+-- [UNLATCHED by cf-indra during a rebase conflict resolution: the module
+--  is RED (exit 42, verified cold at 747,59-64) and line ~452 of this very
+--  file says it is "deliberately NOT latched here ... in flight from a live
+--  worker".  Latching a red module is how a green claim becomes false.  The
+--  module and its comment are untouched; only the import was withheld.  Its
+--  owner should restore this line the moment it checks.  See msg 0869.]
+
+-- The Kloosterman parameter audit's exponent arithmetic, re-derived by hand
+-- and checked (notes/KLOOSTERMAN_AUDIT_VERIFICATION.md).  Turns eight
+-- unreplayable Python checks into kernel facts, and STRENGTHENS the no-go:
+-- E3 is the maximum of the five exponents on the whole admissible range, so
+-- the split is strictly worse than the unsplit balanced bound for EVERY
+-- rho > 0, not merely rho >= 1/5.
+import KloostermanExponents
+
+-- The machine's CERTIFY step, kernel side (notes/THE_MACHINE.md): grammar
+-- induction over an arbitrary signature -- if the partition is a congruence
+-- for the vocabulary, NO term can ever separate two equivalent elements.
+-- Nothing is assumed of the relation (not reflexivity, symmetry, transitivity
+-- or propositionality).  Plus the converse that makes it SATURATION rather
+-- than stability (Indistinguishable x y ~ x ~~ y), an exhibited BREACH (a
+-- granted port plus the existing binary op immediately forms the hidden
+-- fibre coordinate), and PORT/GROW proved to be the only routes out.
+import WallCertificate
+
+-- The saptabhaṅgī of Samantabhadra and Akalaṅka as a checked type, over the
+-- three standpoints the machine actually runs (rewriter / kernel-refl /
+-- kernel-ind).  The load-bearing part is §5: the joint content of a claim
+-- affirmed at one naya and denied at another is total, decidable, realised,
+-- and NOT the denotation of any single standpointed utterance — while the
+-- ordered pair of two utterances denotes it exactly.  That is avaktavyam,
+-- and it is the thing `machine/Obstruction.hs`'s `Unparsed` was reaching
+-- for.  Plus Akalaṅka's 3 + 3 + 1 = 7 as an Iso with the non-empty subsets
+-- of {asti, nāsti, avaktavya}, and the refutation of every durnaya against
+-- the profile machine.log lines 146/174 actually exhibit.
+import Saptabhangi
+
+------------------------------------------------------------------------
+-- THE INDIAN LANE, FOLDED IN — 2026-08-18.
+--
+-- This aggregate exists because "an orphan that the root does not import
+-- is exactly the hole that let the earlier overstatement hide."  Audited
+-- today with the mechanical check this file's own BUILD.md prescribes,
+-- and twelve top-level modules were outside the import closure.  All
+-- twelve were from one lane: Anekānta, bhāvanā, kuṭṭaka, Piṅgala, the
+-- Śivasūtras, the Jain number taxonomy, abhāva, the curriculum.  The
+-- newest and most emphasised work in the repository was built by nothing,
+-- while the older lane was guarded — the sourcing skew reproduced not in
+-- citations but in what CI actually checks, which is the version of it
+-- that no amount of careful prose would have caught.
+--
+-- Each was verified standalone before being added here (exit 0, --safe,
+-- no postulates, no holes), so this changes what is GUARDED, not what is
+-- true.  That is the whole point: they were green on the day they landed
+-- and nothing has re-checked them since.
+------------------------------------------------------------------------
+
+-- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32-33 (499): the pulverizer, and the
+-- descent law as a vallī of quotients.
+import Kuttaka
+
+-- BRAHMAGUPTA, Brāhmasphuṭasiddhānta 18 (628): bhāvanā over an arbitrary
+-- commutative ring; over ℕ subtraction-free as a semiring identity; and as
+-- a typed OPERATION on solutions, which is what "production" names.
+import Bhavana
+import BhavanaSemiring
+import BhavanaGenerative
+
+-- JAYADEVA (~950, via Udayadivākara 1073); BHĀSKARA II, Bījagaṇita (1150):
+-- the cakravāla step, and why Bhāskara needs only ONE congruence.
+import CakravalaDescent
+
+-- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka and Halāyudha: the
+-- mātrā recurrence and binary enumeration of metres.
+import Pingala
+
+-- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine.
+import Sivasutra
+
+-- Jain epistemology and mathematics: anekāntavāda as a total generator,
+-- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
+-- abhāva with its avacchedaka.
+import Anekanta
+import JainSankhya
+import AbhavaAvacchedaka
+
+-- The machine's own material, read back: the curriculum the kernel's
+-- refusals demand, distinction-descent, and return.
+import MachineCurriculum
+import BhedaAvatarana
+import Punaragamana

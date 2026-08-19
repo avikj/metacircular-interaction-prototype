@@ -64,6 +64,11 @@ wording here read "Verified green, every module, exit 0" and was false):
 - `NaturalMachine/Control/` is excluded on purpose and always will be: its
   contents are deliberately wrong statements that MUST fail to typecheck. It
   is not covered by the claim above and must never be imported by the root.
+  `check-agda-closure.sh` guards the negative obligation (never imported);
+  the positive obligation — each control still fails, *and fails for the
+  reason it was built to catch* — is guarded by `check-controls.sh` (the
+  must-fail gate, `notes/CONTROL_MUSTFAIL_GATE.md`). It needs the pinned
+  Agda, so like `check.sh` it is a manual gate, not a push-gated CI step.
 - Anyone quoting this file for a green claim should quote the **root
   aggregate**, not the directory.
 
@@ -164,6 +169,35 @@ The polynomial statements did not change during this migration.  The explicit
 patterns make the new tactic boundary visible and preserve the kernel-checked
 equalities.  Downgrading to v0.5 requires the inverse source migration; the
 present tree is not claimed to be dual-version compatible.
+
+### Where the skew bites on a 2.6.3 / v0.5 container (measured 2026-08-14)
+
+At least one running container still carries the FORMER pin (Agda 2.6.3,
+cubical v0.5 at `~/agda-libs/cubical`) while checking the PRESENT (migrated)
+tree — note `formal/README.md` describes the v0.9 surface and the top of this
+file pins 2.8.0/v0.9, but nothing forces a container to match.  On such a
+container the natural-machine gate reads every post-migration module as a
+fiber.  The bite points, so nobody re-diagnoses them as mathematics:
+
+- `solveℕ!` absent from `Cubical.Tactics.NatSolver.Reflection` (v0.5 exports
+  `solve`): `IntegerHullMultiplicity` and `NaturalMachine/{Transport,
+  TransportMul, ConeOrder, DigitTowerLimit, RadixSymptoma}` fail at scope
+  checking, exit 42, plus everything importing them — `Transport` and
+  `DigitTowerLimit` sit under the root aggregate, so `NaturalMachine.agda`
+  itself is red here.
+- `solve!` absent from `Cubical.Tactics.CommRingSolver.Reflection`: the whole
+  Γ₀ lane, `M2Unimodular`, `KuttakaValli`, `Rank1DihedralChart`, five
+  `Swarm/` modules, ~14 `NaturalMachine/` modules, and `Everything.agda`.
+- `SymGroup` absent (v0.5 has `Symmetric-Group`):
+  `NaturalMachine/{Decategorification, DefectCalculus, PathIsSymmetry,
+  StabilizerSubgroup}`.
+
+These fibers are TOOLCHAIN SKEW, not reconstruction questions about the
+mathematics (Delta 15 C15.82 classifies the fiber; this note names its
+origin).  The fix is to align the container with the pin above — not to edit
+the modules, and not to "repair" the gate.  The ledger rows written by such a
+container (e.g. `collab/orchestration/machine-ledger.tsv`, 2026-08-14, the
+rows where the fiber count jumps) must be read with this note next to them.
 
 The remaining bullets record historical v0.5 constraints that shaped existing
 proof presentations.  They are retained as provenance, not as the current

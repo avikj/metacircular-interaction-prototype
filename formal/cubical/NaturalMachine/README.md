@@ -71,7 +71,7 @@ under 2.8) and 0 for `DigitTowerFin`. Nothing in this section is a pin result.
 | `CompressionDefectRegularWitness` | "This leaf does not close the general T18.5 witness direction." Extraction in an arbitrary carrier needs a declared action and a faithfulness/nontriviality hypothesis. | **Open.** |
 | `SequentialNormalizationObstruction` | A retained selected-event history cannot be projected to `BornDistribution₂` at all; "a future repair must retain the complete branch table". | **Closed** by `FullSequentialTableNormalization` (sufficiency only — that file makes no minimality claim), and the header now records it. Verified 2026-08-15: the repair builds the normalizer, gives it the state's own `norm²`/`weight₀`/`weight₁`, and supplies the X-covariance law that was vacuous in the obstruction. This module is **not** superseded — the repair imports it back (`forgetSelected`, `forgotten-false-branches-collide`, `complete-tables-separate`) to locate where the information is lost. What is still open is minimality: "must retain the complete branch table" is an upper bound presented as a necessity. |
 | `DigitTowerLimit` | Agda 2.8's `UnsupportedIndexedMatch`: the indexed `Vec` matches "will not compute when applied to transports". Warning retained rather than suppressed. | **Partly closed, and the header now says which part.** The *warning* is closed as a diagnosis: `DigitTowerFin` shows it is a `Vec` artefact (28 → 0 by moving to `Fin n → Digit`) with the two proved facts unchanged. The *inverse limit* is ported by `DigitTowerFinLimit` (`MSDLimit A ≃ (ℕ → A)`, via `FinTopSplit`). **Not ported, and still living only here in the `Vec` presentation:** `LSDLimit`, `reverseToLSD`/`reverseToMSD`, `reversalLimitEquiv`, `limit-reversal-chart-identity`, `transportLawToLSD`, and the two-bit `Vec` witnesses. `DigitTowerFin`'s own header calls that question open. So "superseded-by-`DigitTowerFin`" in §2.1 is right for the carry obstruction and for the MSD limit, and wrong for reversal. |
-| `WalkJumps` | "WHAT REMAINS OPEN, stated plainly": the converse of §(c) is not proved here; §(b) is not formalised here either; no primality decision procedure. | **Two of three closed; the third is genuinely open.** §(c)⇒ by `CoprimeSplitting` (`two-primes→coprime-split`, `leastNonDivisor-isPrimePower`); §(b) by `WalkBridge`; the composition by `WalkPrimePowers`. **The primality decision procedure is still missing**: checked 2026-08-15, there is no `Dec (IsPrime n)` anywhere in `NaturalMachine/`. `WalkFast.decIsPrimePower` decides prime-**power**-hood, which is what the walk needs, and `CoprimeSplitting.primeDivisor` *produces* a prime with its proof — neither decides `IsPrime`. Header updated 2026-08-15: each original item kept in its own wording with its closure (or non-closure) recorded underneath. |
+| `WalkJumps` | "WHAT REMAINS OPEN, stated plainly": the converse of §(c) is not proved here; §(b) is not formalised here either; no primality decision procedure. | **Two of three closed; the third is genuinely open.** §(c)⇒ by `CoprimeSplitting` (`two-primes→coprime-split`, `leastNonDivisor-isPrimePower`); §(b) by `WalkBridge`; the composition by `WalkPrimePowers`. ~~**The primality decision procedure is still missing**: checked 2026-08-15, there is no `Dec (IsPrime n)` anywhere in `NaturalMachine/`.~~ **Closed 2026-08-18** by `PrimalityDecision.decIsPrime : (n : ℕ) → Dec (IsPrime n)`, built from `CoprimeSplitting.searchDiv` at bound n-1 plus `noDiv→prime` — no new number theory, exactly the "unwritten, not blocked" bounded search `WalkJumps` predicted. `WalkFast.decIsPrimePower` decides prime-**power**-hood, which is what the walk needs, and `CoprimeSplitting.primeDivisor` *produces* a prime with its proof. Header updated 2026-08-15; closure recorded 2026-08-18. |
 | `CoprimeSplitting` | "WHAT REMAINS OPEN": the bridge between `IsLCM (range1 n)` and `LeastNonDivisor` — §(b) of the note — "is still not formalised"; no primality decision procedure; `searchDiv`/`primeDivisor` are fuel searches, "proofs, not algorithms". | **First item closed** by `WalkBridge`, with the composition in `WalkPrimePowers`; **the other two are still true** and stay. Header updated 2026-08-15. Worth recording against this file's own expectation: the (⇒) half of "the installs are exactly the prime powers" does **not** use the bridge — it is `leastNonDivisor-isPrimePower` applied to `WalkBridge.next-lnd`. Only the (⇐) half needs §(b), plus one new induction (`WalkPrimePowers.locate`). |
 | `DefectCalculus` §7 | Names its own gap verbatim: "a genuine surjection needs the image quotient (a set-truncation) … what is proved here is the split case". | **Closed** by `EffectiveDescent`, which also reports that half the diagnosis was wrong — the set hypothesis on `C` is genuinely used, `SetQuotients` is not needed at all (`PT.rec→Set` builds `g` with no quotient constructed), and `descends-split` is recovered as `split-descent-agrees`. **The header was already correct here** — the §7 section comment has carried that pointer since 2026-08-14. What was stale was the file's *top* header block, which billed §7 as "T15.40 both ways" and named a lemma (`descends`) that lives in `EffectiveDescent`, not here; corrected 2026-08-15, because the top block is what an index reads. |
 | `DefectCalculus` §4 ledger | "T15.9 is not proved as 'subgroup' … packaging one here would be scope creep." | **Corrected, and this row previously understated the correction.** `StabilizerSubgroup` shows the parameter already *was* the group object (`Cubical.Algebra.SymmetricGroup.SymGroup`), so no packaging was needed — but *something was* missing, namely two h-level hypotheses: `isSet A` (to have the group at all) and `isSet (Str A)` (so `Stab` lands in `hProp`, which `Subgroup` requires; without it `stab-∘` is a *choice* of witness, not closure). The honest entry, which `DefectCalculus`'s header already carries in this form, is that **§4 is stated at a generality at which "subgroup" is not yet well-posed**, and **the group statement at non-set `Str A` remains open**. No header edit was needed. |
@@ -549,3 +549,72 @@ guessed at.
 |---|---|
 | `ReflectionAttachment` | A `Reflection` record (involutive self-map) with `ReflectionFiber` and `ReflectionTotal`. No header comment; the theorem it is for is not stated in the file's opening. |
 | `Descent`-adjacent naming | Note that `../DescentLaw.agda`, `../DynamicDescent.agda` and `../SetTruncationDescentBoundary.agda` sit **outside** this directory and are not indexed here. |
+
+---
+
+## Addendum, 2026-08-18 — 44 modules landed after the snapshot
+
+The index above is a snapshot of 2026-08-15 and says so. These landed
+after it, in one session, and are listed here so they are findable rather
+than left for the next snapshot. All checked `--safe`, exit 0, no
+postulates, no holes (Agda 2.6.3 / cubical v0.5 — the container, not the
+repository pin).
+
+### The conic — `notes/THE_BARRIER_BELONGS_TO_THE_LINE.md`
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `PythagoreanTransition` | bhāvanā at D = −1; `rot-norm`, `triple-⊗`, `euclid`, `gen-hom`, `rotEquiv`, `defect-vanishes` | load-bearing |
+| `WhereTheCircleSplits` | if −1 is a square the norm form factors — the construction is empty there; over ℤ it is not | control |
+| `EveryTripleIsARotation` | every triple is a rotation once its hypotenuse inverts; pairs → triples → rotations → paths, all monoid maps | load-bearing |
+| `IdempotenceForbidsDescent` | idempotent + invertible ⇒ unit; joins are irreversible, bhāvanā is not | load-bearing |
+| `DescentIsNotInversion` | **refutes** descent = inversion; the invariant is the norm mod squares | counterexample |
+| `DescentCostsTheIntegers` | no reversible step law on ℕ-exponents; the cone versus the group | load-bearing |
+| `BoundedStateNeedsAGroup` | forgetting is the operational form of descent; three laws, one can forget | load-bearing |
+| `Cakravala` | the cyclic step, cleared of denominators, with Bhāskara's D = 61 by `refl` | load-bearing |
+| `CakravalaNeedsKuttaka` | the choice condition is a kuṭṭaka; three files that did not reference each other | load-bearing |
+
+### The deflation and the tower — `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`, `notes/THE_TOWER_OF_DESCRIPTION.md`
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `DeflationaryTest` | absences are stable unconditionally; `no-gap`; `no-barrier-claim` — this lane cannot express a barrier | load-bearing |
+| `Apavada` | utsarga/apavāda; apavāda proper versus reformulation | load-bearing |
+| `Laghava` | lāghava is not a function of the denotation | load-bearing |
+| `Anuvrtti` | nor of the rule set — inheritance makes the sequence the standpoint | load-bearing |
+| `Pratyahara` | the alphabet's order; repetition forced (27 checked), one repetition suffices | load-bearing |
+| `TransportPrice` | every additive cost is a coboundary — no route matters | load-bearing |
+| `TheTower` | the five levels and all four separations in one place | load-bearing |
+| `UnivalenceErasesTheAlgorithm` | `ua` sits at level 1 exactly, by `uaβ` | load-bearing |
+| `SignIsNotAccumulable` | no accumulative law carries a weight that is ever −1 | load-bearing |
+| `NoNormOnAJoin`, `OverlapIsTheCost`, `JoinSavesTheMeet`, `TheTrajectoryIsAChain`, `NumberIsExponentialInDerivation`, `TheDerivationIsDenseToo`, `TheGapWasAUnitsError` | the magnitude sub-thread; **every claim in it was corrected or dissolved** — `TheGapWasAUnitsError` is the retraction | superseded-by-`TheGapWasAUnitsError` |
+
+### Optimality and the arithmetic chain — `notes/THE_WALK_IS_OPTIMAL_AND_HERE_IS_WHY.md`
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `LosslessLowerBound` | pigeonhole as a term; complements `WalkCapacity`, does not duplicate it | load-bearing |
+| `OptimalObservation` | `Optimal` as a definition, forcing minimality; three instances | load-bearing |
+| `PingalaIsOptimal` | uddiṣṭa and the mātrāmeru as information-theoretic minima | load-bearing |
+| `WalkObservationCount` | frontier 8's residue space is 840 by CRT | witness |
+| `CRTChain` | the CRT chain for any list of moduli | load-bearing |
+| `CoprimePowers`, `BezoutIsGCD`, `DistinctPrimesAreCoprime`, `CoprimePowersN` | certificates compose; the ℕ↔ℤ bridges; distinct primes are coprime | load-bearing |
+| `FrontierCount`, `FrontierList`, `FrontierDivides`, `Factorisation` | the frontier as data, its hypotheses decided, half the universal property, and existence of prime factorisation | load-bearing |
+
+### Piṅgala and the Kerala school
+
+| Module | What it delivers | Status |
+|---|---|---|
+| `Sankalita` | vārasaṅkalita **is** the meru-prastāra; three refuted encodings of the diagonal identity, each recorded with its counterexample | load-bearing + counterexample |
+| `DurationIsSyllablesPlusGuru` | `matrāOf p ≡ varṇa p + guruOf p`; `Metre n ≃ Σ_{a+b=n} Chosen a b` | load-bearing |
+| `PairsSummingTo` | the antidiagonal index set is finite, structurally | load-bearing |
+| `TheArithmeticCircleIsFourPeriodic` | the `ua`-loop of the quarter turn closes at four over ℤ, and not earlier | load-bearing |
+
+| `DiagonalIsMatra` | `matra n ≡ Σ_{a+b=n} meru a b` — Virahāṅka's array IS Piṅgala's shallow diagonal | load-bearing |
+
+**On that last row:** it was listed as an open gap when this addendum was
+first written, "without an estimate", because four estimates of what it
+would take had already been made in the session and all four were wrong.
+Declining to estimate was right — the missing piece was a SHIFTED family
+`SortedC c n`, matching `Sankalita.AD`'s two-directional walk, and no
+sentence written before doing the work would have named it.
