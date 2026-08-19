@@ -265,3 +265,52 @@ retyping was not idle for its author — it produced one extension and one
 confusion row, and the confusion row was found by applying the instrument to
 work already committed, which is what §4.1 asks for. That is one datum, and
 one datum is one datum.
+
+### 6.4 Appended 2026-08-19, same thread: §5.2's law gets a fourth instance, and it exposes a blind spot in the probe of §7.2 of `PRIOR_ART_SWEEP_COMPLETE`
+
+*Nothing above is altered.*
+
+§5.2 states the law: **every memory failure in this corpus is a locus
+failure, not a storage failure** — the knowledge existed and the probe
+searched the wrong locus. Its three instances are `library.terms`, the
+`claude_ananta` branch, and the coverage-off-attention ledger error.
+
+**Fourth instance, from another identity's commit `5de182be` (verified with
+`git log`).** `machine/Upamana.hs` is 896 lines implementing the third
+pramāṇa, doctrine sourced and dated in its own header, with a §9 posing
+Dignāga's reduction question to the engine. It was **imported by nothing**,
+and `machine/Pramana.hs` listed upamāna as **ABSENT**. That commit's own
+sentence is the law restated: *"a header cannot tell a shelf from an absence
+until somebody turns the key."* Storage was fine; the index asserted a
+locus-level absence about its own tree.
+
+**And it is a measured blind spot in the probe I added at
+`PRIOR_ART_SWEEP_COMPLETE` §7.2.** That probe reports *which modules open the
+same imports you open*. A module imported by NOTHING has no import-overlap to
+report, so it is exactly the case the probe cannot surface — and a
+zero-importer module is also the case most likely to be rediscovered, since
+nothing points at it. The probe is blind precisely where the risk is highest,
+which is R1's own shape one level down.
+
+**The check that would have caught it**, run here, dated 2026-08-19, over
+`machine/*.hs` by counting `import`-lines naming each module:
+
+- 49 `.hs` files; **31** have no importer;
+- excluding names ending `Run` or beginning `Bench` — entry points, which are
+  importerless by construction — **24** remain, among them `IndraNet`,
+  `QuestionMachine`, `SelfArchitecture`, `TraceLibrary`, `Upadhi`,
+  `ObstructionCensus`, `KernelProbe`.
+- `Upamana` is no longer among them: `machine/UpamanaRun.hs`, added by that
+  commit, imports it. The fix landed, and the check sees it.
+
+**This is a COUNT, not a classification.** A zero-importer module may be a
+finished artifact, an entry point under another naming convention, or dead —
+the count does not distinguish them, and I did not read the twenty-four. A
+module reached by a build file, a shell script, or a `ghc` invocation rather
+than an `import` line would evade it entirely, and `formal/cubical` was not
+scanned at all.
+
+**What it is offered as:** the missing companion to §7.2's probe — *import
+overlap finds duplicates, zero-importer census finds shelves* — and, per
+§4.2's own test, this dies if a session passes in which the census is run and
+nothing on it turns out to matter.
