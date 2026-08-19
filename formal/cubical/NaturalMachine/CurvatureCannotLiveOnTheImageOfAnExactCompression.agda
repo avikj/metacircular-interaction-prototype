@@ -105,3 +105,44 @@ module _ {S T : Type}
   curvatureIsOffTheImage t bent (s , e) =
     bent (subst (λ x → f' (g' x) ≡ g' (f' x))
                 e (curvatureVanishesOnTheImage s))
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "ORDERS: two steps are treated … nothing is proved for `n` steps,
+--    and the `n`-step statement needs the two-step case plus an
+--    induction that is not written."
+--
+-- Written, in
+-- `NaturalMachine.OrderIndependenceTransfersAlongAnyNumberOfSteps`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so)
+-- — and it does NOT need the two-step case.  That prediction was wrong
+-- in a useful direction:
+--
+--   Step        a step, its compressed counterpart, and the
+--               intertwining square, packaged so a LIST carries its own
+--               hypotheses
+--   simFold     `C (runS ps s) ≡ runT ps (C s)` — intertwining extends
+--               to composites, by a one-line induction
+--   orderIndependenceTransfers / disagreementIsOffTheImage
+--   twoStepsAreAnInstance   §1–2 here, recovered as `p ∷ q ∷ []` versus
+--                           `q ∷ p ∷ []`
+--
+-- **THE GENERALISATION IS CHEAPER THAN THE SPECIAL CASE.**  The proof
+-- above pastes a simulation square, the commuting square, and a second
+-- simulation square in sequence.  The n-step proof SEPARATES those:
+-- `simFold` is pure simulation and knows nothing about commuting, and
+-- the commuting hypothesis is used exactly once under a single
+-- `cong C`.  Generality removed the interleaving that made this
+-- argument look like a chain.
+--
+-- STILL NOT CLAIMED, and it is now the sharp remainder: PERMUTATIONS
+-- ARE NOT MODELLED.  "For every order" is encoded there as the
+-- HYPOTHESIS that two uncompressed composites agree — which is what
+-- Δ 28 means by "exact elimination commutes" — and nothing derives that
+-- hypothesis from PAIRWISE commutation.  That derivation needs a
+-- permutation relation on lists and an induction, and is the only part
+-- of §36–38's "for every order" still open.
+------------------------------------------------------------------------
