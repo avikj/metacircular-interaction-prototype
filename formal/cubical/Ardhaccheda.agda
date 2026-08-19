@@ -22,11 +22,12 @@ module Ardhaccheda where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
-open import Cubical.Data.Nat.Properties using (+-suc ; snotz ; ·-distribʳ ; ·-identityˡ)
+open import Cubical.Data.Nat.Properties using (+-suc ; snotz ; ·-distribʳ ; ·-identityˡ ; ·-suc ; ·-comm)
 open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤ ; suc-≤-suc ; pred-≤-pred ; ≤-trans ; ≤SumRight)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
 open import PanktiYoga using (द्वि-घात)
+open import Vargana using (घात)
 
 ------------------------------------------------------------------------
 -- अर्ध — निम्न-अर्धम् (floor m/2) ।
@@ -216,3 +217,27 @@ n≤द्विघात (suc n) =
     cong अर्धच्छेद (sym (द्वि-घात-योगः m n))
   ∙ लघुगणकः (m + n)
   ∙ sym (cong₂ _+_ (लघुगणकः m) (लघुगणकः n))
+
+------------------------------------------------------------------------
+-- घात-द्वि-सेतुः — (2ⁿ)ᵏ ≡ 2^(n·k) : घात-द्विगुणन-सेतुः (द्वि-घात-योगेन) ।
+------------------------------------------------------------------------
+
+घात-द्वि-सेतुः : (n k : ℕ) → घात (द्वि-घात n) k ≡ द्वि-घात (n · k)
+घात-द्वि-सेतुः n zero    = sym (cong द्वि-घात (·-comm n zero))
+घात-द्वि-सेतुः n (suc k) =
+    cong (द्वि-घात n ·_) (घात-द्वि-सेतुः n k)
+  ∙ sym (द्वि-घात-योगः n (n · k))
+  ∙ cong द्वि-घात (sym (·-suc n k))
+
+------------------------------------------------------------------------
+-- लघुगणक-घातः — जैन-लघुगणक-नियमः : अर्धच्छेद((2ⁿ)ᵏ) = n·k (घातस्य लघुगणकः गुणः) ।
+-- (लघुगणक-योगस्य (log(xy)=log x+log y) सहचरः : log(xᵏ)=k·log x , २-घातेषु ।
+--  Vargana.घात-गुण (गुण-राशेः घातः) इत्यस्य व्युत्क्रम-पक्षः लघुगणक-लोके ।)
+--
+-- (Log of a power: अर्धच्छेद((2ⁿ)ᵏ) ≡ n·k — the companion of the log-of-product
+--  law, the inverse-world mirror of Vargana's घात-गुण.  The three Jain log laws
+--  (product, iterated log, power) now stand.)
+------------------------------------------------------------------------
+
+लघुगणक-घातः : (n k : ℕ) → अर्धच्छेद (घात (द्वि-घात n) k) ≡ n · k
+लघुगणक-घातः n k = cong अर्धच्छेद (घात-द्वि-सेतुः n k) ∙ लघुगणकः (n · k)
