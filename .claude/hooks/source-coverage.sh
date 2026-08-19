@@ -38,7 +38,7 @@ root="${CLAUDE_PROJECT_DIR:-.}"
 # Does this call write to notes/ or formal/cubical/?  Covers the Write/Edit
 # tools and the `cat > path <<EOF` heredoc form, which is how most prose in
 # this repository is actually written.
-printf '%s' "$payload" | grep -Eq 'notes/[A-Za-z0-9_./-]*\.md|formal/cubical/[A-Za-z0-9_./-]*\.agda' || exit 0
+printf '%s' "$payload" | grep -Eq 'notes/[A-Za-z0-9_./-]*\.md|formal/cubical/[A-Za-z0-9_./-]*\.agda|machine/[A-Za-z0-9_./-]*\.hs' || exit 0
 
 out=""
 
