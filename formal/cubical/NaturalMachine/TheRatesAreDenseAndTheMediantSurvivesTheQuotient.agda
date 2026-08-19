@@ -172,3 +172,40 @@ theRatesAreDense =
                ∣ [ mediant (p , q) (p' , q') ]
                , mediantIsAbove p q p' q' h
                , mediantIsBelow p q p' q' h ∣₁)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "`⊏R` is a relation into `hProp`, not an order: irreflexivity,
+--    transitivity, and its relation to `AtLeastOnRate`/`AboveOnRate`
+--    are unproved on `Rate`."
+--
+-- All three in
+-- `NaturalMachine.TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   ⊏-irrefl-pair / ⊏-trans-pair   at the pair level; transitivity is
+--                                  `⊑⊏-trans` composed with `<-weaken`,
+--                                  so the MIXED transitivity proved
+--                                  here for the lifting is what makes
+--                                  the plain one free
+--   ⊏R-irrefl / ⊏R-trans           the same on `Rate`, by `elimProp`
+--                                  and `elimProp3`
+--   aboveIsAntitoneOnRates         the strict claim is antitone along
+--                                  `⊏R`, stated entirely on `Rate`
+--
+-- NONE OF IT NEEDED A NEW IDEA, and that is the payoff of having lifted
+-- along `rec2`: every statement is a PROPOSITION, so `elimProp` puts it
+-- at representatives where §1's pair-level facts finish it in a line.
+-- The density result above therefore now sits on an ORDER, not a bare
+-- relation.
+--
+-- STILL NOT CLAIMED there: ASYMMETRY and TRICHOTOMY — `⊑-total` was
+-- proved on PAIRS and is not transported, so nothing says two rates are
+-- always comparable.  Only `AboveOnRate` is related to `⊏R`;
+-- `AtLeastOnRate`'s antitonicity along the STRICT order is a different
+-- statement and is not made.  And whether `mediant` descends is still
+-- open, so the density witness above remains truncated.
+------------------------------------------------------------------------
