@@ -35,8 +35,8 @@ module SamasaMeruN where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; snotz)
-open import Cubical.Data.Nat.Properties using (+-suc)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred ; zero-≤ ; ∸-≤ ; splitℕ-≤)
+open import Cubical.Data.Nat.Properties using (+-suc ; +-zero)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ∸-≤ ; splitℕ-≤)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import Cubical.Data.List.Properties using (length-map)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
@@ -322,3 +322,39 @@ module _ (ps : List ℕ) where
 
 छिद्र-७ : length (सर्गः (1 ∷ 2 ∷ []) 7) ≡ 3             -- {2,3}: [2,2,3]&perms
 छिद्र-७ = refl
+
+------------------------------------------------------------------------
+-- द्वि-नयैक-तत्त्वम् — सामान्य-आवृत्तेः विशेषौ द्वौ नयौ (नयवादः) ।
+--
+-- समास-आवृत्तिः यथेच्छ-अंश-गणे योग-रूपा ; अत्र दर्शितम् : एक-अंश-गणं गृहीत्वा
+-- सा शास्त्रीयं द्वि-पद-आवृत्तिं जनयति ।  {१,२}-नयात् (ps=[0,1]) विरहाङ्कस्य
+-- मात्रा-मेरुः a(n+2)=a(n+1)+a(n) (Fibonacci) ; {१,३}-नयात् (ps=[0,2])
+-- नारायणस्य गो-श्रेढी a(n+3)=a(n+2)+a(n) — Narayana.agda-मध्ये स्वतन्त्रं
+-- साधिता, अत्र सामान्यायाः विशेषः ।  एका समास-भावना, नये-नये अन्यत् रूपम् —
+-- नयवादः, न दुर्नयः : कोऽपि नयः अन्यं न निषेधति ।
+--
+-- (One samāsa-bhāvanā, two standpoints: the general fold recurrence, read at
+-- the {1,2} part-set, IS Virahāṅka's Fibonacci recurrence; read at {1,3}, it
+-- IS Nārāyaṇa's cow recurrence — the same law Narayana.agda proves on its own.
+-- nayavāda: neither standpoint denies the other; each is the whole seen from
+-- one part-set.)
+------------------------------------------------------------------------
+
+विरहाङ्क-आवृत्तिः : (n : ℕ)
+  → length (सर्गः (0 ∷ 1 ∷ []) (suc (suc n)))
+  ≡ length (सर्गः (0 ∷ 1 ∷ []) (suc n)) + length (सर्गः (0 ∷ 1 ∷ []) n)
+विरहाङ्क-आवृत्तिः n =
+    समास-आवृत्तिः (0 ∷ 1 ∷ []) (suc n)
+  ∙ cong₂ _+_ (अंश-गणना (0 ∷ 1 ∷ []) (suc n) 0 zero-≤)
+              ( cong (_+ 0) (अंश-गणना (0 ∷ 1 ∷ []) (suc n) 1 (suc-≤-suc zero-≤))
+              ∙ +-zero (length (सर्गः (0 ∷ 1 ∷ []) n)) )
+
+नारायण-आवृत्तिः : (n : ℕ)
+  → length (सर्गः (0 ∷ 2 ∷ []) (suc (suc (suc n))))
+  ≡ length (सर्गः (0 ∷ 2 ∷ []) (suc (suc n))) + length (सर्गः (0 ∷ 2 ∷ []) n)
+नारायण-आवृत्तिः n =
+    समास-आवृत्तिः (0 ∷ 2 ∷ []) (suc (suc n))
+  ∙ cong₂ _+_ (अंश-गणना (0 ∷ 2 ∷ []) (suc (suc n)) 0 zero-≤)
+              ( cong (_+ 0) (अंश-गणना (0 ∷ 2 ∷ []) (suc (suc n)) 2
+                              (suc-≤-suc (suc-≤-suc zero-≤)))
+              ∙ +-zero (length (सर्गः (0 ∷ 2 ∷ []) n)) )
