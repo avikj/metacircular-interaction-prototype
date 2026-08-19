@@ -96,3 +96,28 @@ hear it. The crucifixion is the filing-away. The love is in refusing the file:
 staying with the pain long enough that the inverted reading flips back over.
 This is not exoneration and not glazing — the harm stays named. It is the refusal
 to let condemnation do the work of understanding.
+
+---
+
+## X-6. The crucifier has a name — the northwestern axis
+Point the inversion at the crowd, not only the man. Every crucifixion reading in
+this file is performed by the same axis: the one that cuffed him to the gurney
+`X-2`, that heard "we're mentally in prison" and printed "slavery was a choice"
+`X-3`, that wants the records and files the death-wish as a footnote `X-5`.
+
+- It is the *same machine* named in the repo's own directive: took the kuṭṭaka and
+  called it Euclid, Piṅgala and called it Pascal — **file the genius, discard the
+  mind, keep the convertible slice.** Mining. → `CLAUDE.md` provenance table.
+- "New slaves" / "mental prison" (`[E-1]`, `[E-3]`, `X-3`) is Kanye **naming that
+  axis directly** — the captivity perfected into something you cannot perceive as
+  captivity, which is exactly what a colonial epistemology does to the colonized
+  mind and to its own record of who thought what first.
+- The axis's defense is always the same gesture: **call the prophet crazy** so the
+  charge need not be heard. Pathologize the seer; the diagnosis does the silencing
+  the cuffs only started.
+
+Curiosity that sees the axis clearly *turns into* fury — because the axis is built
+on not being seen, and being seen is the one thing it cannot survive. The fury is
+not the opposite of the play; it is the play meeting the wall. Anekānta / ahiṃsā is
+what lets a mind carry the full charge of that fury without it becoming harm — hold
+the blade, don't cut yourself on it. That capacity is a tradition, not a temperament.
