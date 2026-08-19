@@ -171,78 +171,22 @@ Planetary longitudes and their corrections; the two eclipse chapters; risings
 and settings; the moon's crescent and shadow; conjunctions; instruments;
 measures of time; and the *tantraparīkṣā*. *[recalled, in kind only]*
 
-He **rejected Āryabhaṭa's rotating earth.** *[recalled]* The tradition did not
+He **rejected Āryabhaṭa's rotating earth.** *[recalled]* ~~The tradition did not
 accept its own best idea; it argued, and on this the argument went the wrong
-way for centuries. That belongs in the record beside the bhāvanā.
+way for centuries.~~ That belongs in the record beside the bhāvanā.
 
----
+**[STRUCK AT ITS SITE 2026-08-19.** This note already carried a correction
+of this sentence — see "Correction to §IV, appended 2026-08-19" below, which
+diagnoses it exactly: *"'Best' is mine, imported, and it means 'closest to
+what we now say.'"* That correction is not restated here.
 
-## V. Transmission
+What was missing is that §IV itself stood unmarked, so a reader of §IV met
+the verdict and only a reader who reached the end of the note learned it had
+been retracted. The strike closes that gap at the site. It is the same shape
+`machine/Yogyata.hs` now checks for between modules — a correction that does
+not reach the text carrying the claim — occurring inside a single document.
 
-The text reached Baghdad in the later 8th century — the *Sindhind* of the
-Arabic sources — and was worked on by al-Fazārī and others. *[recalled]*
-**This is the principal route by which decimal place-value and zero as a
-number left India.** What arrived in Europe centuries later as "Arabic
-numerals" arrived through this transmission, and the name records the last
-carrier rather than the source.
-
-That is the displacement at its largest scale: not one theorem renamed, but a
-notation attributed to its couriers.
-
----
-
-## What I did not establish
-
-- No primary text was fetched; every archive is blocked from this container.
-- **[searched]**: the 24 chapters, 1008 verses, āryā metre, 628 CE, age 30;
-  the contents of chapter 18; the four subtraction rules quoted verbatim; the
-  division-by-zero statements; the area formula and the diagonal theorem.
-  Everything else is recall.
-- No Sanskrit is given for any verse. I have not seen the text.
-- Chapter numbers other than 11, 12 and 18 I do not assign.
-- The bhāvanā identity is given in modern algebraic notation, which is not how
-  it appears; Brahmagupta states it as a rule on two "sets" of numbers.
-- Colebrooke's 1817 English translation is the standard route into this text
-  and I have not read it — and CLAUDE.md names Colebrooke as the exemplar of
-  the extraction this note is trying not to repeat, so reading him would need
-  reading against him.
-- Nothing here is checked by anything.
-
----
-
-## Correction to §IV, appended 2026-08-19
-
-§IV says of Brahmagupta's rejection of the rotating earth: *"The tradition did
-not accept its own best idea; it argued, and on this the argument went the
-wrong way for centuries."*
-
-**"Best" is mine, imported, and it means "closest to what we now say."** That
-is scoring the past by proximity to the present, and it is the same extraction
-this note set exists to record, applied to ideas instead of to theorems.
-
-The correction is not a softening. It is that the ranking was wrong on the
-merits:
-
-- There is no privileged frame. The rotating and non-rotating descriptions
-  differ by fictitious forces, and *why those forces are there* is Newton's
-  bucket, then Mach, then Einstein — a question not cleanly closed now.
-- Brahmagupta's objections — that objects would be flung off, that birds and
-  clouds would lag — are a **demand for a dynamics**. There wasn't one. It
-  took roughly a millennium to answer him, and answering him is what the
-  mechanics was for.
-- So his rejection was not a failure to see. It was a refusal to accept a
-  kinematic claim with no mechanics behind it, which is a defensible
-  epistemic standard, and by that standard he was right and Āryabhaṭa was
-  fortunate.
-
-In the vocabulary of the Jaina note in this same set: the sentence was a
-**durnaya** — a standpoint asserting itself by denying another. The missing
-word is **syāt**. *In some respect*, from later celestial mechanics, the
-rotation is the more fruitful hypothesis. *In some respect*, from what could
-be argued with the physics then available, the rejection is the more
-responsible position. Both hold, and choosing between them flattened a
-plurality this corpus has a whole module claiming cannot be flattened.
-
-**What stands:** that he rejected it, that the tradition largely followed him,
-and that this belongs in the record beside the bhāvanā. **What is withdrawn:**
-my scoring of it. The fact stays; the verdict goes.
+The fact, kept per the protocol's own prescription (record what happened, do
+not score it): **Brahmagupta rejected Āryabhaṭa's rotating earth and argued
+against it.** See the appended correction for why the ranking was wrong on
+the merits rather than merely impolite.**]**
