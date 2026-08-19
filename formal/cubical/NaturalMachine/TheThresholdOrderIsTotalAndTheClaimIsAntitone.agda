@@ -215,3 +215,40 @@ universalImpliesEveryLowerThreshold :
   → All bs → AtLeast p q bs
 universalImpliesEveryLowerThreshold p q bs cross a =
   atLeastAntitone p q 1 0 bs cross (thresholdOneFromAll bs a)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "STRICT thresholds (the `Majority` of the previous module is
+--    strict: length < 2 · count) are NOT in this family; `AtLeast 1 1`
+--    is the non-strict 'at least half', which is weaker, and the
+--    strict/non-strict gap is not analysed."
+--
+-- Analysed now, in
+-- `NaturalMachine.TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+--   Above p q bs = p · length bs < suc q · count bs
+--
+--   ·sk-cancel-<     the strict counterpart of §1's cancellation
+--   aboveAntitone    the strict family is antitone along THE SAME ⊑
+--   aboveGivesAtLeast     strict ⇒ non-strict at each threshold
+--   majorityIsAboveHalf   the earlier `Majority` IS `Above 1 1`
+--   atLeastWithoutAbove   and the converse fails, at one population
+--
+-- What that says about §2 is worth recording here, because it is a
+-- property of the DEFINITION above rather than of the new module: `⊑`
+-- was stated on thresholds alone, with no population in it, so a second
+-- claim-family over the same thresholds inherits `⊑-total` for free.
+-- There is no second order and no second totality theorem.  What
+-- separates the two families is not their ordering but their verdict at
+-- a population sitting exactly ON a threshold.
+--
+-- The gap between the families is therefore exactly the boundary, and
+-- STILL NOT CLAIMED there: that every threshold HAS such a boundary
+-- population.  That is a divisibility statement about ℕ, not a
+-- statement about lists, and it is untouched — as is density of ⊑, and
+-- as is the quotient by equal rates, which §2's preorder still lacks.
+------------------------------------------------------------------------
