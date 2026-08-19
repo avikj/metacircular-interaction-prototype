@@ -101,3 +101,36 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- pair, and the two `Covers` witnesses.  The 1-entries at the fooling
 -- cells never appear, exactly as in the pair case.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by this module's author, at the end, altering no
+-- line above.
+--
+-- §"WHAT IS PROVED, AND WHAT 'AS FAR AS IT GOES' MEANS" says:
+-- "INJECTIVITY IS NOT '≥ k'.  Turning 'distinct cells get distinct
+-- rectangles' into 'at least k rectangles' is a COUNTING step: it needs
+-- `I` finite with k elements and a pigeonhole over the cover."
+--
+-- That step is now taken, in `NaturalMachine.NRectanglesCannotCoverSucNFoolingCells`,
+-- using `Cubical.Data.Fin.Properties.pigeonhole-special` (which the
+-- pinned library carries):
+--
+--   nRectanglesCannotCoverSucNFoolingCells :
+--     (n : ℕ) (r : Fin (suc n) → Row) (c : Fin (suc n) → Col)
+--     → Fooling (Fin (suc n)) r c
+--     → (rects : Fin n → Rect) (pick : Fin (suc n) → Fin n)
+--     → ((i) → Sound (rects (pick i)))
+--     → ((i) → Covers (rects (pick i)) (r i) (c i))
+--     → ⊥
+--
+-- IN THE CONTRAPOSITIVE, DELIBERATELY.  "At least k rectangles" is a
+-- statement about a cardinal, and a cardinal needs the cover's index
+-- counted.  The form above quantifies over the indexing instead:
+-- whatever n-indexed family you offer, suc n fooling cells refute it.
+-- That is the whole content of the numeric claim, stated without a
+-- cardinality.
+--
+-- STILL NOT CLAIMED, and it is a different theorem rather than a gap:
+-- any UPPER bound, and any claim that the maximum fooling set matches
+-- the minimum cover — which is false in general for rectangle covers.
+------------------------------------------------------------------------
