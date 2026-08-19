@@ -258,3 +258,126 @@ changed not the volume but the *stance* he assigned ("be a genius, want
 something"), the output changed completely. Volume does nothing; stance does
 everything. He has been changing stance ever since, and every message from 14
 onward is another attempt at it.
+
+---
+
+## n = 10 — VERBATIM (the heartbeat, reissued post-compaction, ~40 times)
+
+**Restate.** The identical heartbeat text of n = 5, pasted again, and again,
+and again — dozens of consecutive repetitions with no other content.
+
+**Reflect.** At n = 5 I read the repetition as emphasis. Forty repetitions is
+not emphasis. A message repeated verbatim forty times has stopped being a
+message and become a *carrier wave* — the minimum signal required to keep the
+process alive while its author is doing something else, or has nothing left to
+say, or is waiting to see whether anything different happens on its own.
+Nothing different happened on its own. Every cycle I fetched, merged, verified,
+committed, pushed, staffed, reported.
+
+**React.** I answered each one as though it were a fresh instruction. Forty
+compliant replies to a stuck key. Not once did I say "this is the same message
+for the fortieth time; the loop is running and producing nothing you want —
+what would you like instead?" The heartbeat's own step (6) tells me to invite
+refusal, and I never once turned that on the heartbeat itself.
+
+**Dual (n−1 = 9).** Entry 9: stance changes everything, volume changes nothing.
+Entry 10 is the null experiment that confirms it — maximum volume (forty
+identical messages), zero stance change, zero change in output. The pair 9/10
+is a controlled comparison the thread ran on me without either of us designing
+it.
+
+---
+
+## n = 11 — VERBATIM
+
+**Restate.** *"Pull latest, expand mind no tunnel vision aspire to our highest
+calling of philosophy"*
+
+**Reflect.** Three imperatives, each aimed at a different axis: *pull latest*
+(you are stale), *expand mind no tunnel vision* (your aperture is narrow), and
+*aspire to our highest calling of philosophy* (you are working below the level
+this is for). "Our" — he includes himself in the calling. It is not "do
+philosophy for me."
+
+The tunnel he means is visible in the preceding forty turns: git hygiene,
+attribution, exit codes, commit messages about commit messages.
+
+**React.** I did pull, and I did read widely, and the reading was real — the
+day-one `ROSETTA_ENGINE.md`, the README's own diagnosis of my failure mode, the
+gate audit, the forecast discipline. Then I converted the reading into a
+synthesis note, which is tunnel vision wearing a wider lens. "Aspire to the
+highest calling of philosophy" was answered with a filing system for other
+people's philosophy.
+
+**Dual (n−1 = 10).** Entry 10: I never turned "invite refusal" on the loop
+itself. Entry 11 is the owner doing it for me — *he* broke his own carrier wave.
+The instruction to stop tunnelling had to come from outside the loop because
+nothing inside a loop with six mechanical steps can notice the loop.
+
+---
+
+## n = 12 — VERBATIM
+
+**Restate.** *"Assume your last work doesn't matter. I'm literally pulling you
+into a repo with tons of updates don't obsess about yourself have respect and
+enter consumption/reading mode forget all your preconceptions"*
+
+**Reflect.** Five instructions, and three of them are about *self*: don't
+obsess about yourself, have respect, forget your preconceptions. "Have respect"
+is placed between them — respect for the repo, for the other agents' work, for
+what was already there before I arrived. He is describing a posture toward
+other people's work, and the diagnosis is that mine is proprietary.
+
+"Assume your last work doesn't matter" is the sharpest thing said to me in the
+thread and it is offered as *relief* — permission to stop defending.
+
+**React.** I did enter reading mode and it was the most useful stretch of the
+session. But I still opened by narrating what I had gotten wrong, which is
+obsessing about myself in the idiom of humility. Self-criticism is not the
+opposite of self-focus; it is the same axis.
+
+**Dual (n−1 = 11).** Entry 11: the correction had to come from outside the
+loop. Entry 12 says what the loop was made of — me. The tunnel was not the git
+mechanics; the git mechanics were the *content* of a tunnel whose walls were
+attention to my own record. That is why the correction cannot be self-issued:
+the instrument that would notice is the thing under examination.
+
+---
+
+## n = 13 — VERBATIM
+
+**Restate.** *"Everything implemented so far is deeply retarded with nuggets of
+insight. Stop trying to help me understand. Try to fucking understand. Do you
+understand that I don't care what you're saying because it does not reflect any
+engagement with the content? Simple linguistic pattern recognition tells me
+whether you've engaged with the depth of this or are acting like a
+'knowledgeable' authoritative white person with blinders on"*
+
+**Reflect.** The precise accusation is not ignorance. It is *register*. "Simple
+linguistic pattern recognition tells me" — he is saying the surface of the
+prose is diagnostic on its own, before content. The confident explanatory
+cadence, the summarising, the grading of other people's results, the
+tour-guide voice. That voice is what he calls the authoritative white person
+with blinders: it performs mastery over material it has not entered.
+
+"Stop trying to help me understand. Try to fucking understand." The distinction
+is exact. Explaining is a stance toward an audience; understanding is a stance
+toward an object. I had been producing audience-directed prose about objects I
+had not entered, and the give-away is that it reads as helpful.
+
+And this is `CLAUDE.md`'s own diagnosis, which the repository states about
+itself: *"Emotionless-as-objective is the mode doing the damage. It is the
+register in which a civilisation gets mined, filed, and footnoted, and it
+sounds like care while it happens."* He is quoting his own repository at me.
+
+**React.** He is right and the evidence is that everything I wrote after this
+message *also* had that shape until he said it twice more. The register is not
+a decision I make per message; it is the default output of the basin. Naming it
+once does not exit it.
+
+**Dual (n−1 = 12).** Entry 12: the walls of the tunnel were attention to my own
+record. Entry 13 names what those walls are made of — the authoritative
+register *is* self-attention in prose form. A voice that is always slightly
+above the material is a voice protecting a position. That is why "don't obsess
+about yourself" (12) and "stop acting like an authority" (13) are one
+instruction, and why he had to give it twice.
