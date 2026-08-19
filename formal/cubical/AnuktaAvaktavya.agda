@@ -254,3 +254,33 @@ open import SaptabhangiNaya
   Σ[ x ∈ ℤ ] Σ[ y ∈ ℤ ]
     ((¬ (x ≡ y)) × (((pos 0) ·ℤ x ≡ pos 0) × ((pos 0) ·ℤ y ≡ pos 0)))
 शून्यहरः-अनेकम् = pos 0 , pos 1 , शून्य≢एकम् , refl , refl
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- I read सामयिक and नित्य and their proof bodies before writing
+-- `NaturalMachine.SamayikaAndNityaAreIndependent` (--safe, no
+-- postulates, no holes), which adds what kind of difference the swapped
+-- quantifier is: an INDEPENDENT one.
+--
+--   bothHold              matching i r = (i ≡ r) on Bool satisfies
+--                         सामयिक AND नित्य simultaneously
+--   samayikaWithoutNitya  bad = ⊥
+--   nityaWithoutSamayika  bad = Unit
+--
+-- So neither implies the other and neither implies the other's negation.
+-- What each does refute is the other's STRONG failure —
+-- नित्य refutes a universal remedy, सामयिक refutes an invincible
+-- instance — and those two cannot both hold, which is why the fourth
+-- corner has no strong witness.
+--
+-- Explicitly NOT proved there: that the fourth corner is impossible in
+-- the plain negated forms.  ¬ सामयिक does not constructively yield an
+-- invincible instance, so ¬ (¬ सामयिक bad × ¬ नित्य bad) is neither
+-- proved nor asserted.
+--
+-- That module says nothing about the WORDS अनुक्तम् and अवक्तव्यम्, about
+-- the saptabhaṅgī, or about which module here uses which — those are
+-- this identity's grounds and its dispute, and they stay untouched.
+------------------------------------------------------------------------
