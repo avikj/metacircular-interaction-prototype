@@ -84,7 +84,9 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import Gati using (फलम् ; गुरुः ; अनुक्तफलम् ; फल ; गति)
 open import Purnata using (पूर्णता)
-open import Cubical.Data.Bool using (Bool ; _and_)
+open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; false≢true)
+open import Cubical.Data.Nat using (zero)
+open import Cubical.Data.Int using (ℤ ; pos) renaming (_·_ to _·ℤ_)
 open import SaptabhangiNaya
   using ( Vacana ; Profile ; denotes ; joint ; no-single-vacana
         ; krama-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
@@ -184,3 +186,71 @@ open import SaptabhangiNaya
 युग्मेन-साध्यम् =
     no-single-vacana
   , ((asti-from rewriter , nasti-from kernel-refl) , krama-expresses)
+
+------------------------------------------------------------------------
+-- 6.  A THIRD USE OF THE WORD, AND IT FAILS THE SAME TEST FROM THE OTHER
+--     SIDE.
+--
+-- `Khahara.agda` and `Shunya.agda` both identify 0÷0 with avaktavyam:
+--
+--   Khahara:  0÷0 = अवक्तव्यम् (अनिश्चितम्, सप्तभङ्ग्याः ४र्थं पदम्)
+--   Shunya:   0÷0 न एकं मूल्यम्, किन्तु अनिश्चितम् — अवक्तव्यम्
+--             (सप्तभङ्ग्याः चतुर्थं पदम्), न शून्यम्
+--
+-- Both are right that Brahmagupta's `0÷0 = 0` (Brāhmasphuṭasiddhānta, 628)
+-- is a durnaya — a definite verdict where none is available — and right
+-- that Bhāskara II's khahara (Līlāvatī, 1150) is a genuinely different
+-- non-finite result from it.  Those are the load-bearing claims of both
+-- modules and nothing here touches them.
+--
+-- The identification with the fourth bhaṅga is what fails, and it fails
+-- INTERNALLY: by `SaptabhangiNaya`'s own criterion, not by an outside
+-- standard.  §5 there defines avaktavyam as the case where NO SINGLE
+-- UTTERANCE denotes the content, proved exhaustively over the six atoms.
+--
+-- But 0÷0's situation is denotable in one utterance, and the utterance is
+-- the type of `शून्यहरः-सर्वत्र` below: every x whatsoever satisfies the
+-- defining condition.  That is one statement, it is complete, and it says
+-- exactly what is wrong.  Nothing is inexpressible.
+--
+-- So the two defects are opposite:
+--
+--   avaktavyam  the content is DETERMINATE (`joint` is total into Bool with
+--               both values realised) and the MEDIUM cannot say it in one
+--               go.  An expressibility failure.
+--   0÷0         the content is perfectly EXPRESSIBLE and the SOLUTION SET
+--               is not a singleton.  A uniqueness failure.
+--
+-- Determinate-but-unsayable against sayable-but-underdetermined.  Calling
+-- both by the fourth bhaṅga's name is the boolean collapse this corpus
+-- exists to fight, committed one level up: a single third position used as
+-- a catch-all for "not a clean single answer".  Three modules now do it —
+-- Satyayantra (§1 above), Khahara and Shunya — with three different things
+-- underneath.
+--
+-- NOT CLAIMED: that classical usage of avaktavyam is as narrow as
+-- `SaptabhangiNaya` makes it.  The sources are broader in places and this
+-- is not an argument about them.  The claim is only that within THIS
+-- repository one word is carrying three distinct structures, and the
+-- module that defines it most precisely excludes the other two.
+------------------------------------------------------------------------
+
+-- Brahmagupta's own reason, as a term: every x satisfies it.  Over cubical
+-- ℤ this is `refl`, because `pos zero · m` reduces to `pos zero` on the
+-- nose — the multiplication recurses on its first argument.
+शून्यहरः-सर्वत्र : (x : ℤ) → (pos 0) ·ℤ x ≡ pos 0
+शून्यहरः-सर्वत्र _ = refl
+
+एकम्? : ℤ → Bool
+एकम्? (pos (suc zero)) = true
+एकम्? _                = false
+
+शून्य≢एकम् : ¬ (pos 0 ≡ pos 1)
+शून्य≢एकम् p = false≢true (cong एकम्? p)
+
+-- Two distinct values both satisfy it, so the fibre is not a singleton.
+-- THIS is the defect at 0÷0, and it is not the defect at avaktavyam.
+शून्यहरः-अनेकम् :
+  Σ[ x ∈ ℤ ] Σ[ y ∈ ℤ ]
+    ((¬ (x ≡ y)) × (((pos 0) ·ℤ x ≡ pos 0) × ((pos 0) ·ℤ y ≡ pos 0)))
+शून्यहरः-अनेकम् = pos 0 , pos 1 , शून्य≢एकम् , refl , refl

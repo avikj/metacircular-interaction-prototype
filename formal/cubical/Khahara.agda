@@ -18,6 +18,31 @@
 -- non-finite results that a boolean "undefined" collapses into one.)
 ------------------------------------------------------------------------
 
+-- [CORRECTED 2026-08-19.  The identification of 0÷0 with अवक्तव्यम्,
+--  the saptabhaṅgī's fourth position, does not hold — and it fails by
+--  SaptabhangiNaya.agda's own criterion, in this same directory, not
+--  by an outside standard.  §5 there defines avaktavyam as the case
+--  where NO SINGLE UTTERANCE denotes the content, proved exhaustively
+--  over the six atoms of its language.  0÷0's situation IS denotable
+--  in one utterance: every x whatsoever satisfies 0·x = 0, which is
+--  one complete statement saying exactly what is wrong.
+--
+--  The two defects are opposite.  avaktavyam: the content is
+--  determinate and the medium cannot say it in one go — an
+--  EXPRESSIBILITY failure.  0÷0: the content is perfectly expressible
+--  and the solution set is not a singleton — a UNIQUENESS failure.
+--
+--  Everything else in this module stands.  Brahmagupta's 0÷0 = 0
+--  (Brāhmasphuṭasiddhānta, 628) is a durnaya; Bhāskara II's khahara
+--  (Līlāvatī, 1150) is a genuinely different non-finite result from
+--  it; and a boolean "undefined" collapsing them is the disease.
+--  Only the name of the second thing is wrong.  See
+--  AnuktaAvaktavya.agda §6, where 0÷0's defect is checked.
+--
+--  Three modules here now call three different structures
+--  avaktavyam — Satyayantra, Khahara, Shunya.  Using one third
+--  position as a catch-all for "not a clean single answer" is the
+--  boolean collapse this corpus exists to fight, one level up.]
 module Khahara where
 
 open import Cubical.Foundations.Prelude
