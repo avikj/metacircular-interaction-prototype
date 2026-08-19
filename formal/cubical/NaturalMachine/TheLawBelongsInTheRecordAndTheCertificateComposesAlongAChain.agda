@@ -197,3 +197,25 @@ anUnlawfulFourComponentCertificate = refl , costImproves , not , []
 theLawIsIndependentOfTheOtherFour :
   ¬ (Lawful stateB obsB true false not)
 theLawIsIndependentOfTheOtherFour l = false≢true (l true)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  `LCertified` is unchanged and this module is not
+-- amended.  Recorded here only because this record is the one the
+-- later work compares against:
+--
+-- `NaturalMachine.TheReachableLawDoesNotComposeWithoutPreservation`
+-- shows that relativising the fifth component to reachable states
+-- costs its free composition, and
+-- `NaturalMachine.TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose`
+-- adds the sixth component that buys it back — with
+-- `aFullFiveComponentCertificateThatDoesNotPreserveTheInvariant`, an
+-- element of the `LCertified` DEFINED ABOVE that fails only the new
+-- component.  So this five-component record still admits certificates
+-- whose migration leaves the invariant, exactly as the four-component
+-- one admits certificates whose migration destroys the observation.
+--
+-- The chain construction above is NOT repeated there: the same
+-- induction goes through verbatim with `composeRCertified` in place of
+-- `composeLCertified`.
+------------------------------------------------------------------------

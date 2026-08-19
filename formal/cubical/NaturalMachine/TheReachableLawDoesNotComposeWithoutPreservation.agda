@@ -166,3 +166,22 @@ theCompositeIsNot l = false≢true (l true refl)
 
 preservationIsNecessary : ¬ (Preserves State look Inv 0 1 mg₁)
 preservationIsNecessary p = false≢true (p true refl)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The next step named above — "extending the record with
+-- preservation" — is taken in
+-- `NaturalMachine.TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+-- `RCertified`, `composePreserves`, `composeRCertified`,
+-- `noSelfRCertified`, and the independence witness.
+--
+-- Two things there were not visible from here.  `Preserves` COMPOSES
+-- FOR NOTHING, so the sixth component is free to carry — the price is
+-- entirely in having to establish it per rewrite, not in sequencing.
+-- And it is INDEPENDENT of the other five: the witness is a full
+-- five-component `LCertified` whose observation type is `Unit`, so its
+-- migration is globally lawful — the strongest form of the fifth
+-- component — and it still leaves the invariant.
+------------------------------------------------------------------------
