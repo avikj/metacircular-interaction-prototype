@@ -51,6 +51,8 @@ import Pingala
 import Matramerus
 -- पिङ्गलस्य शून्य-द्वि-विधिः — 2ⁿ log-पदैः (प्रथमा binary exponentiation)
 import PingalaGhata
+-- सामान्य-घातः — पिङ्गल-विधेः सामान्य-आधारे विस्तारः (aⁿ log-पदैः, Vargana-आश्रितः)
+import SamanyaGhata
 -- नारायणस्य गोसर्गः — मेरु-कुलस्य {१,३}-रूपम् (गणितकौमुदी, १३५६)
 import Narayana
 -- समास-मेरुः — नारायणस्य समास-भावना, {१,L}-कुलं जनन-सूत्रेण (विरहाङ्कः+नारायणः एकत्र)
