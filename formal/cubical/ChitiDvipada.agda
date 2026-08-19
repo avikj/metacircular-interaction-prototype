@@ -24,9 +24,22 @@ module ChitiDvipada where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_)
+open import Sankalita using (∑)
 open import Citighana using (चिति)
-open import VaraSankalita using (वार-२)
+open import VaraSankalita using (वार-१ ; वार-२)
 open import Dvipada using (C ; वार-बद्धम्)
+
+------------------------------------------------------------------------
+-- सङ्कलित-द्विपदः — प्रथम-सङ्कलितम् (त्रिकोण-सङ्ख्या) = द्वितीय-मेरु-कर्णः :
+-- ∑ n ≡ C(n+1, 2) ।  (चिति-द्विपदस्य मूल-रूपम् — त्रिकोणम् द्वितीयः, वृन्दं
+-- तृतीयः मेरु-कर्णः ; सामान्यतया V_r = (r+1)-तमः कर्णः, वार-बद्धेन ।)
+-- (First saṅkalita (triangular number) is the second meru diagonal:
+--  ∑ n ≡ C(n+1,2) — the base case of चिति-द्विपदः.  Triangular = 2nd diagonal,
+--  vṛnda = 3rd; in general V_r is the (r+1)-th, by वार-बद्धम्.)
+------------------------------------------------------------------------
+
+सङ्कलित-द्विपदः : (n : ℕ) → ∑ n ≡ C (n + 1) 2
+सङ्कलित-द्विपदः n = sym (वार-१ n) ∙ वार-बद्धम् 1 n
 
 ------------------------------------------------------------------------
 -- चिति-द्विपदः — वृन्दम् = C(n+2, 3) (द्वे परम्परे एकत्र) ।
