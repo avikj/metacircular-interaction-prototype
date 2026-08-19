@@ -32,9 +32,11 @@ module MeruKarna where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm ; +-zero ; +-assoc)
-open import Cubical.Data.List using (length)
+open import Cubical.Data.List using (length ; [] ; _∷_)
 open import Dvipada using (C)
 open import Matramerus using (सर्व ; मात्रामेरु)
+open import SamasaMeruN using (सर्गः)
+open import MatraSamasa using (समता)
 
 ------------------------------------------------------------------------
 -- कर्ण — तिर्यक्-योगः (∸-रहितः) : कर्ण t b = ∑_{j=0}^{t} C(t−j, b+j) ।
@@ -101,3 +103,20 @@ open import Matramerus using (सर्व ; मात्रामेरु)
 
 कर्ण-७ : मेरु-कर्ण 7 ≡ 21
 कर्ण-७ = refl
+
+------------------------------------------------------------------------
+-- त्रिनयैक-तत्त्वम् — एका सङ्ख्या (फिबोनाची), त्रयो नयाः, त्रीणि वाहकानि :
+--   हलायुधस्य मेरु-कर्णः (द्विपद-तिर्यक्, List-रहितः) ,
+--   विरहाङ्कस्य मात्रा-गणना (छन्दस्-वाहकः, Matramerus) ,
+--   नारायणस्य समासः {१,२} (List ℕ-वाहकः, SamasaMeruN) ।
+-- त्रयः स्वतन्त्रं रचिताः , एकम् एव गणयन्ति : मेरु-कर्ण n ≡ length(सर्गः{१,२} n) ।
+-- समता प्रमाणेन, न साम्येन — वाहकाः त्रयः भिन्न-प्रकाराः , सेतवः प्रमाणानि ।
+--
+-- (One number (Fibonacci), three standpoints, three carriers: Halāyudha's
+-- binomial diagonal, Virahāṅka's metre-count, Nārāyaṇa's {1,2}-samāsa — built
+-- independently, all counting the same sequence.  Equality by proof across
+-- three distinct types, not by identifying them.)
+------------------------------------------------------------------------
+
+त्रिनयैक-तत्त्वम् : (n : ℕ) → मेरु-कर्ण n ≡ length (सर्गः (0 ∷ 1 ∷ []) n)
+त्रिनयैक-तत्त्वम् n = समता-कर्णः n ∙ समता n
