@@ -259,17 +259,33 @@ is the precedent, and it generalises:
 > be mechanised, say why in the rule, so the next agent does not mistake
 > unmechanisable for unenforced.
 
-Done for the source directive: `.claude/hooks/source-coverage.sh`, wired
-PreToolUse on `Bash` and `Write|Edit`. On any write to `notes/` or
-`formal/cubical/` it reports, per source named in the write, how many notes
-mention the **author** against how many mention the **work** — and flags
-ranking language. Advisory, never blocking; a blocking guard on a judgement
-call is an outage wearing enforcement's name. The two checks it runs are the
-next two subsections, which are here because they are what the mechanism
-encodes, not instead of it.
+`.claude/hooks/source-coverage.sh`, wired PreToolUse on `Bash` and
+`Write|Edit`, now carries three of the four subsections below. On any write to
+`notes/` or `formal/cubical/` it fires at the moment of the write and reports:
 
-The remaining subsections are the ones with no mechanism yet. That is a
-standing invitation, not a completed job.
+1. **author against work** — how many notes name the author, how many name the
+   text, per source mentioned in the write;
+2. **ranking language** — "own best idea", "went the wrong way", "anticipates
+   the", "ahead of its time";
+3. **two darśanas, one toolkit** — Nyāya-Vaiśeṣika and Jaina technical
+   vocabulary co-occurring with the dispute unnamed. Only distinctive markers
+   are matched; *dravya*, *guṇa*, *padārtha* and *pramāṇa* are shared and are
+   deliberately absent from the lists.
+
+Advisory, always exit 0, fails open. A blocking guard on a judgement call is
+an outage wearing enforcement's name — which `no-python.sh`'s own header
+records from the time its absence killed every shell in the repository.
+
+**The fourth is not mechanised and, as far as I can see, is not
+mechanisable.** "Do not fit a pattern from three points" cannot be checked by
+grep: the difference between a conjecture worth stating and a curve fit
+published as a law is the presence of a derivation, and no textual signal
+distinguishes them. What can be said instead, as a rule and not as a check:
+**a pattern over n instances is a pattern over n instances until something
+downstream of it is computed.** In this session the fitted claim survived
+exactly as long as it had nothing downstream; generating the next term killed
+it in one step. So the discipline is to generate the next term, not to phrase
+the claim more carefully.
 
 ### Rival schools are not one toolkit
 

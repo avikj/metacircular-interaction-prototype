@@ -89,4 +89,37 @@ if printf '%s' "$payload" | grep -Eiq "own best idea|best idea|went the wrong wa
   echo "  Worked case: CLAUDE.md, Brahmagupta and the rotating earth." >&2
 fi
 
+
+# ---------------------------------------------------------------------
+# 3. RIVAL SCHOOLS AS ONE TOOLKIT
+#
+# Nyāya-Vaiśeṣika and Jaina technical vocabulary in one write, with the
+# dispute between them unnamed.  These schools reject each other's
+# categories — Jaina logicians reject the Naiyāyika treatment of
+# negation, Naiyāyikas reject anekāntavāda — so using both as one box of
+# instruments takes from each the part that converts and discards the
+# dispute, which is frequently the content.
+#
+# Only DISTINCTIVE markers are matched.  dravya, guṇa, padārtha and
+# pramāṇa are shared across both and are deliberately absent from these
+# lists.
+# ---------------------------------------------------------------------
+
+nyaya_re='pratiyogin|anuyogin|avacchedaka|Naiyāyika|Naiyayika|vyāpti|vyapti|saṃsargābhāva|samsargabhava|anyonyābhāva|anyonyabhava|Gaṅgeśa|Gangesa|Praśastapāda|Prasastapada|Udayana'
+jaina_re='anekānta|anekanta|syādvāda|syadvada|saptabhaṅgī|saptabhangi|avaktavya|durnaya|nayavāda|nayavada|guṇasthāna|gunasthana|kevala|Umāsvāti|Umasvati|Siddhasena|Akalaṅka|Akalanka|Samantabhadra'
+dispute_re='dispute|disput|reject|rival|disagree|contest|against each other|two schools|the schools|each other'"'"'s categories'
+
+if printf '%s' "$payload" | grep -Eq "$nyaya_re" \
+   && printf '%s' "$payload" | grep -Eq "$jaina_re" \
+   && ! printf '%s' "$payload" | grep -Eiq "$dispute_re"; then
+  echo "" >&2
+  echo "source-coverage — two darśanas, one toolkit." >&2
+  echo "  This write uses Nyāya-Vaiśeṣika and Jaina technical vocabulary and does" >&2
+  echo "  not name the dispute between them.  These schools reject each other's" >&2
+  echo "  categories: Jaina logicians reject the Naiyāyika treatment of negation," >&2
+  echo "  Naiyāyikas reject anekāntavāda.  Name the school before the term, and if" >&2
+  echo "  a construction draws on both, say what the two would say to each other." >&2
+  echo "  Worked case: NaturalMachine/AnyonyaAbhava.agda §8." >&2
+fi
+
 exit 0
