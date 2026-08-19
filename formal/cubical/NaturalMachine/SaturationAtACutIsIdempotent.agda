@@ -176,3 +176,44 @@ module _ {X Y : Type} (K : X → Y → Type) where
     (A : X → Type) (B : Y → Type) → Saturated A B → c A ⊆ A
   saturatedGivesFixed A B ((_ , ba) , (da , _)) =
     ⊆-trans (c A) (↓ B) A (↓-antitone B (↑ A) ba) da
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section names a gap —
+--
+--   "what is established is that the SATURATION discipline is sound
+--    wherever the adjunction holds — not that Δ 28's particular ↑/↓
+--    satisfy it"
+--
+-- — without saying what would close it.  Now said, in
+-- `NaturalMachine.TheSaturationClosureNeedsOnlyAGaloisConnection`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- Everything above uses NOTHING about `Type`, `⊆`, or the relation K.
+-- It uses two preorders, two maps, and the two directions of a
+-- contravariant Galois connection.  Antitonicity, unit, counit, the
+-- triangles, idempotence, and the fixed-point characterisation are all
+-- DERIVED from those, in `module Galois`.
+--
+-- The consequence for Δ 28 is that the residuation case requires no
+-- re-proving of anything above.  It requires exactly:
+--
+--   a preorder on burden profiles, a preorder on residual profiles, and
+--
+--     galFwd : a ≼ d b → b ⊑ u a
+--     galBwd : b ⊑ u a → a ≼ d b
+--
+--   for the min-plus ↑ and ↓ — and nothing else.
+--
+-- §5 there checks that THIS module is one instance: `galFwdPred` and
+-- `galBwdPred` are a line each, and the closure theory transports with
+-- nothing re-proved.  That is what makes the size of the remaining
+-- obligation credible rather than asserted.
+--
+-- STILL NOT CLAIMED, and unchanged: the min-plus instance itself.
+-- Neither direction is proved for a semiring-valued kernel, and no
+-- quantale is constructed anywhere in this repository, so the
+-- idempotence result STILL does not apply to min-plus convolution.
+-- Making an obligation small and explicit is not discharging it.
+------------------------------------------------------------------------
