@@ -144,3 +144,25 @@ layerIsDisjoint :
   → Mem v (stratum xs) → Mem v (remainder xs) → ⊥
 layerIsDisjoint xs =
   noMemberInBoth (λ u → IsParetoMaximal u xs) (λ u → decIsParetoMaximal u xs) xs
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The first item of the remainder named above — "the
+-- ITERATED coverage/disjointness (thread the one-step facts through the
+-- recursion alongside `theStratificationTerminates`)" — is done in
+-- `NaturalMachine.TheStratificationCoversAndItsStrataArePairwiseDisjoint`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+-- `theStratificationCovers` and `theStrataArePairwiseDisjoint`.
+--
+-- The threading turned out ASYMMETRIC, which was not visible from one
+-- step: coverage needs `theStratificationTerminates` to kill the
+-- leftover branch, and disjointness needs no measure at all — it holds
+-- at every fuel, so a stratification cut short is still a partition of
+-- what it reached.  The joint is `strataSound` (every member of every
+-- later stratum was already a member of the remainder), which is what
+-- makes the head-vs-all-later case a consequence of `layerIsDisjoint`.
+--
+-- The second item — ORDER's second half — is untouched and still needs
+-- a well-founded measure on ⊏ over a finite list.
+------------------------------------------------------------------------
