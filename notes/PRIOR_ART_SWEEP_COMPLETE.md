@@ -214,3 +214,78 @@ search was part of the audit method).
   apparatus — obligation calculi, honesty ledgers, the three-verdict lens scheme — has
   prior art. `OBLIGATION.md` §6 now half-answers this for the lattice part and leaves
   the calculus itself open.
+
+---
+
+## 7. Appended 2026-08-19, another thread: three fresh instances of R1, and a probe that does not need a flag
+
+*Nothing above is altered. This bears on the SEED-83 correction's **R1** and on
+the diagnosis attached to it — "the bottleneck is one step earlier —
+flag-raising" — and on §6's last bullet only by declining it.*
+
+**Scope, stated first because the two kinds are easy to run together.** This
+note's subject is prior art in the **literature**. What follows is about prior
+art **inside the corpus**. R1 as stated is about the selection mechanism —
+"membership requires the author to have already suspected a rediscovery" — and
+that mechanism is the same in both cases, which is why this is appended here
+rather than filed separately. No claim is made about the fifteen rows of §3,
+and §6's meta-object search remains undone: egress is still blocked, so no
+literature search was attempted.
+
+### 7.1 R1 predicted these and they happened, unflagged, in one session
+
+| rediscovered | prior art, in the corpus the whole time | commit recording it |
+|---|---|---|
+| closure of stability under `¬`, `→`, `×`, `Π`, and their instantiation at obstruction shapes | `NaturalMachine.DeflationaryTest` §§4–5 — imported by `RootsThreadLatch` at line 53, typechecked every cycle | `beb8d4c6` |
+| `¬ FactorsThrough eval size` and `¬ FactorsThrough asSet cost` from the general collision lemma | `NaturalMachine.OneLemmaFiveSites` §§1–2 | `f5fb30ee` |
+| an entire three-thread agenda | `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`, which closes all three with modules and quoted exit codes | `3b2e9756` |
+
+No flag existed for any of the three. In each case the author — me — had no
+suspicion to declare, which is R1 exactly: **coverage is anti-correlated with
+the risk being managed.** The third is the sharpest: the thread name and the
+module name were the same word for many cycles and neither was ever grepped
+against the other.
+
+The overlap in the first case is not argued but **checked**: each closure lemma
+on the rediscovering side is `refl`-equal to the prior module's, because they
+are the same term
+(`NaturalMachine.TheDeflationaryTestWasAlreadyRun`).
+
+### 7.2 A probe that does not depend on flag-raising
+
+R1 says the selection is by self-declaration. The repair has to fire on **every**
+write, not on writes whose author is already worried. Two checks were added to
+`.claude/hooks/source-coverage.sh` — advisory, `exit 0`, fail open, in the same
+style as the checks already there:
+
+1. **the audit behind the term** — for each Sanskrit technical term in a write,
+   which `notes/` files carry it *and* which of those already carry a correction
+   marker. A term whose note has been audited is where the trap is.
+2. **modules that share your imports** — which existing modules open the modules
+   this write opens. Duplicate work nearly always opens the same things.
+
+Measured, not asserted: on a dry run against the file whose cycle had just
+missed it, check 2 put `OneLemmaFiveSites` in its top three.
+
+**Why imports and not names.** Grepping the latch for a *thread's name* was
+tried and failed at `f5fb30ee`: `OneLemmaFiveSites` contains none of "Laghava",
+"Anuvrtti", "Pratyahara", "Apavada", the four names that thread was working
+under. Worse, a duplicated proof of a **negation** is invisible in the
+conclusion — negations are propositions, so any two proofs of one are equal, and
+that equality is itself a checked term in this corpus. Imports and statements
+are the only places such a duplicate can show.
+
+### 7.3 The honest limits of the probe
+
+- It finds duplicates that **share imports**. A duplicate reached from different
+  modules — or written before the module it duplicates — is invisible to it.
+- It is advisory and its output must be read. Nothing enforces reading it, and
+  the same R1 logic applies one level up: an advisory that only worried authors
+  read is selected the same way a flag is.
+- It says nothing about literature prior art, which is this note's actual
+  subject. §6's meta-object bullet is untouched.
+- Two checks, three instances, one measured hit. That is not evidence that the
+  probe works in general, and §4.2 of `NEGATIVE_KNOWLEDGE_IS_TYPED.md` names the
+  matching failure mode: an instrument can be true and idle. It should be struck
+  if a session passes in which it fires and nothing is caught, or in which a
+  rediscovery lands that it could have seen and did not.
