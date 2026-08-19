@@ -49,7 +49,10 @@
 module BhavanaGenerative where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.HLevels using (isSetΣ ; isOfHLevelRetract)
+open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Algebra.CommRing
+open import Cubical.Algebra.Group.Base using (Group ; makeGroup)
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Int using (negsuc)
@@ -434,6 +437,30 @@ module Generative (CR : CommRing ℓ) where
         ∙ sym (cong₂ (λ x y → bhB D (coefA s) (coefB s) x y)
                      (substCoefA (·IdR 1r) (t ⊛ u)) (substCoefB (·IdR 1r) (t ⊛ u)))
         ∙ sym (substCoefB (·IdR 1r) (s ⊛ (t ∙₁ u)))
+
+  ----------------------------------------------------------------------
+  -- The AbGroup packages: `Sol D 1r` is a set (a retract of a Σ of sets — R
+  -- is a set, and each `hasNorm` fibre is a prop), and with every `_∙₁_` group
+  -- law now in hand, `makeGroup` assembles the group object.  So the norm-1
+  -- bhāvanā solutions ARE a group, `SolGroup D`, not just a list of laws —
+  -- Brahmagupta's structure as a first-class algebraic object over abstract R.
+  ----------------------------------------------------------------------
+
+  isSetSol : {D k : R} → isSet (Sol D k)
+  isSetSol {D} {k} =
+    isOfHLevelRetract 2 f g (λ _ → refl)
+      (isSetΣ is-set (λ _ → isSetΣ is-set (λ _ → isProp→isSet (is-set _ _))))
+    where
+      f : Sol D k → Σ[ a ∈ R ] Σ[ b ∈ R ] (N D a b ≡ k)
+      f s = coefA s , coefB s , hasNorm s
+      g : (Σ[ a ∈ R ] Σ[ b ∈ R ] (N D a b ≡ k)) → Sol D k
+      g (a , b , p) = mkSol a b p
+
+  SolGroup : (D : R) → Group ℓ
+  SolGroup D =
+    makeGroup (unit D) _∙₁_ inv isSetSol
+              (λ x y z → sym (∙₁-assoc x y z))
+              ∙₁-idR ∙₁-idL ∙₁-invR ∙₁-invL
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
