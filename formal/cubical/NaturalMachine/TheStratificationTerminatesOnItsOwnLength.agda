@@ -140,3 +140,34 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 -- undominated in the archive it was dropped from.  (1) COVERAGE and
 -- (2) DISJOINTNESS remain untouched.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §"WHAT IS STILL NOT CLAIMED" names three output
+-- properties; the appended note above closed the first half of (3)
+-- ORDER, and this closes (1) COVERAGE and (2) DISJOINTNESS AT ONE STEP,
+-- in `NaturalMachine.OneStepCoverageAndDisjointnessOfTheLayer`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   memberOfFilterSatisfies / memberOfFilterOutFails
+--   memberSplits       every member of `xs` is in the filter or its
+--                      complement
+--   noMemberInBoth     and never in both
+--   layerCovers / layerIsDisjoint   the same at `stratum` / `remainder`
+--
+-- One step is the right unit here, because `strata` peels a layer and
+-- recurses on EXACTLY the complement these two are about.  Both are
+-- proved for an arbitrary decidable predicate and instantiated once —
+-- nothing about Pareto maximality is used, only that the two filters
+-- are complementary, which is why each is three lines.
+--
+-- STILL NOT CLAIMED: THE ITERATED VERSIONS.  Nothing says a member of
+-- the archive appears in some layer of `strata n xs`, nor that two
+-- DIFFERENT layers share no member; both need these facts threaded
+-- through the recursion alongside `theStratificationTerminates`, and
+-- that threading is not written.  One-step disjointness is between a
+-- layer and ITS OWN remainder — weaker than pairwise disjointness of
+-- the layers.  Duplicates are untouched: the filters preserve
+-- multiplicity and these are statements about membership, not counts.
+------------------------------------------------------------------------
