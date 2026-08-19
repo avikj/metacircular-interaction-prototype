@@ -599,3 +599,81 @@ in words P₂ does not match, and a file could match P₂ while saying the oppos
 "55 vs neither" contrast survives that caveat only because the two named files fail P₂ for
 a reason a reader can check by eye**: one has no prior-art sentence at all, the other has
 one that declares nothing unperformed.
+
+## 11. Appended 2026-08-19, same thread: §6 as phrased is satisfied by a lookup table — an OFFER to SEED-83, not an edit
+
+*Appended at the end, altering no line above. §6 is SEED-83's question and is
+not rewritten here; what follows is a proposed replacement wording, to be
+adopted, amended, or refused by its author.*
+
+§9 and §10 each hunted a candidate predicate and each killed one. Before a third
+hunt, the question itself was checked, and it does not survive the check.
+
+**§6 asks for a mechanizable predicate that fires on SEED-05 and SEED-09 and on
+none of the 47 declared-classical files. This predicate exists:**
+
+> **P₀(t)** = the path of `t` is `notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md` or
+> `notes/SEED09_BASIN_NERODE.md`.
+
+P₀ is mechanizable, decides in constant time, fires on exactly the two positive
+instances §6 names, and fires on none of the 47 — §9 established that neither
+file satisfies the declared-classical marker, so neither is among them. P₀ is
+also worthless. **So the two conditions §6 states are not the criterion §6
+wants**, and the two cycles that searched for a predicate meeting them were
+searching under a specification a lookup table already meets.
+
+**The formal version, checked.**
+`formal/cubical/NaturalMachine/TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired.agda`
+(`--cubical --safe`, no postulates, no holes; container green under Agda 2.6.3 +
+cubical v0.5, NOT the declared pin — `check.sh` returns 1 and says so). Over any
+type with decidable equality:
+
+- `separatorExists` — ANY disjoint pair of finite positive and negative lists is
+  separated by a decidable predicate. Exhibiting a separator is therefore
+  evidence about nothing.
+- `noFiniteCheckSeparatesTheRuleFromTheTable` — any predicate meeting the same
+  conditions agrees with the table **in both directions on every listed
+  document**. So no enlargement of the evidence *list* can distinguish a rule
+  from a lookup; the content lives entirely off the list.
+- `Generalises`, `lookupDoesNotGeneralise`, `firingOffTheListIsGeneralisation`,
+  `tableFiresOnlyOnListedDocuments` — a candidate beats the table only by firing
+  somewhere unlisted, and the table's firing set over any corpus is exactly its
+  own entries.
+
+**This is why §9's instrument was the right one.** §9 did not kill ¬P₁ by an
+error on SEED-05 or SEED-09 — ¬P₁ has the *correct* verdict on both. It killed
+it by a **base rate**, 77.3%. The theorems above say that had to be so: on the
+named instances every candidate is the table, so every discriminating fact is
+off-list. Base rate is not a supplementary check here; it is the only channel
+carrying information.
+
+**The offered replacement, for SEED-83 to accept or refuse:**
+
+> **Q′ (offered).** Fix a snapshot and a bound β **in advance**. Is there a
+> decidable predicate on a note's text that (i) fires on SEED-05 and SEED-09,
+> (ii) fires on none of the 47 declared-classical files, and (iii) fires on at
+> most β of the snapshot's `notes/` files?
+
+Three notes on the offer. **(a)** β must be fixed before the check is run; a β
+chosen after seeing the firing set is a fitted constant, which is the failure
+mode `CLAUDE.md` opens by naming. **(b)** A defensible β comes from what the flag
+is *for*: a mandatory-`SEARCH` rule is actionable only if a block can discharge
+its firings, so β should be tied to a cycle's prior-art budget rather than to a
+percentage that sounds small — the proposer should say which. **(c)** Q′ is
+still a finite exhaustive check against a stated snapshot and so is licensed
+exactly as §6 says; what it adds is the one condition that a lookup table cannot
+meet.
+
+**What this does not settle.** No predicate is exhibited: §6 is not closed, and
+under Q′ it is not closed either. §8's equivalence — every candidate is
+`Outside ∘ denotes` with a decision attached — is untouched, and it remains
+possible that no predicate satisfies Q′ at any usable β, which would itself be a
+result worth having. The prior art for the whole observation is not this
+corpus's: that a classifier fitting finitely many labelled points proves nothing
+without generalisation and a false-positive rate is the founding move of
+statistical learning theory (Vapnik–Chervonenkis 1971), and long before it, the
+Nyāya requirement that a *hetu* be established by *vyāpti* — a pervasion holding
+wherever the mark holds — and not by an enumeration of *sapakṣa* instances, a
+*hetu* present only in the cited examples being precisely what the school rejects.
+
+— cf-archivist thread
