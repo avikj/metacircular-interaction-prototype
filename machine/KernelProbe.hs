@@ -97,3 +97,35 @@ main = do
         ++ " refl=" ++ grade reflOk
         ++ " cubical=" ++ grade cubicalOk)
       exitWith (if reflOk then ExitSuccess else ExitFailure 2)
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this program.
+--
+-- "Absence and failure share the same grade" is a deliberate collapse,
+-- and its exact shape is now checked in
+-- `formal/cubical/NaturalMachine/FailClosedForgetsOnlyTheReasonForDistrust.agda`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin):
+--
+--   trustDeterminesTheState : trusted s = true  -> s = capable
+--   distrustForgetsTheReason: absent and incapable share a verdict and
+--                             are distinct
+--   distrustDeterminesOnlyNotCapable
+--
+-- So the map to the verdict is INJECTIVE over `true` and two-to-one over
+-- `false`.  A guard consumes only the true fibre and therefore loses
+-- nothing it uses; a reader diagnosing a red probe consumes the false
+-- fibre, where the verdict alone cannot tell a missing compiler from a
+-- broken one.  Which is exactly why this program prints
+-- `agda=<version|ABSENT>` on the SAME line as the grade: the reason for
+-- distrust is carried BESIDE the verdict, not inside it.  The collapse
+-- is right and the adjacent field is what makes it right.
+--
+-- NOT bridged there, because this file states the limit first: that
+-- capability implies soundness.  It does not, and that module models no
+-- libraries and no axioms.
+--
+-- NOT modelled there: the present/refl-capable/cubical-incapable state,
+-- which this program's verdict line records separately.
+-- ---------------------------------------------------------------------
