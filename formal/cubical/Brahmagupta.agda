@@ -179,3 +179,23 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 मान-संयुग्म : (N x y : ℤ) → मान N x (pos 0 - y) ≡ मान N x y
 मान-संयुग्म N x y = cong (λ t → (x · x) - (N · t)) (वर्ग-ऋण y)
+
+------------------------------------------------------------------------
+-- अन्तर-संयुग्मः — अन्तर-भावना = संयुग्म-समास-भावना (शीर्षस्थ-प्रोक्तेः प्रमाणम्) ।
+-- अन्तरः (x₁,y₁)(x₂,y₂) = समासः (x₁,y₁)(x₂,−y₂) : प्रथमे निर्देशांके यथावत् ,
+-- द्वितीये संयुग्म-चिह्न-व्यत्ययेन (अन्तर-द्वि = −संयोग-द्वि संयुग्मे) ।  अनेन
+-- ब्रह्मगुप्तस्य द्वे भावने एक-मूले , मान-संयुग्मेन (N(x,−y)=N(x,y)) समान-मानम् ।
+--
+-- (Brahmagupta's antara bhāvanā IS the samāsa bhāvanā against the conjugate
+-- (x₂,−y₂): the first coordinate matches outright, the second up to the sign
+-- conjugation introduces.  With मान-संयुग्म this is why both compositions share
+-- one norm — the prose claim of the previous section, now a checked term.)
+------------------------------------------------------------------------
+
+अन्तर-संयुग्म-प्र : (N x1 y1 x2 y2 : ℤ)
+                 → अन्तर-प्र N x1 y1 x2 y2 ≡ संयोग-प्र N x1 y1 x2 (pos 0 - y2)
+अन्तर-संयुग्म-प्र = solve ℤCommRing
+
+अन्तर-संयुग्म-द्वि : (N x1 y1 x2 y2 : ℤ)
+                 → अन्तर-द्वि x1 y1 x2 y2 ≡ (pos 0 - संयोग-द्वि x1 y1 x2 (pos 0 - y2))
+अन्तर-संयुग्म-द्वि = solve ℤCommRing
