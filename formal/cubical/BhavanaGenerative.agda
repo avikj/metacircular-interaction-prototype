@@ -152,13 +152,13 @@ module Generative (CR : CommRing ℓ) where
   --
   -- CORRECTION, 2026-08-18, found by an audit.  This section previously
   -- opened "Unit-norm solutions are a GROUP".  They are not shown to be.  A
-  -- group law is `s ∙₁ inv s ≡ unit D`, a path between `Sol` values, and no
-  -- such term exists in this file or anywhere else here.  What is proved is
-  -- the two COORDINATE equations below.  Getting from those to a path between
-  -- records needs `Sol D 1r` to be a set, which needs R to be one, which is
-  -- not a hypothesis of this module — and it would still need associativity,
-  -- which §7 now records as unproved.  So: not a group, not a monoid, two
-  -- coordinate identities.
+  -- group law is `s ∙₁ inv s ≡ unit D`, a path between `Sol` values.  UPDATE
+  -- 2026-08-19: that path now EXISTS — ⊛InvR/⊛InvL in §7, assembled from the
+  -- two COORDINATE equations below the same way the monoid axioms are.  The
+  -- two obstructions this note named are both gone: R IS a set (it is a
+  -- CommRing) and associativity is proved (§7 ⊛Assoc).  So the norm-1
+  -- solutions ARE a group; the coordinate equations below are its inverse
+  -- law's content.
   --
   -- What they say is worth having on its own.  `normNegB` (in `Bhavana`) says
   -- the form is even in b: N D a (−b) ≡ N D a b.  So negating b sends a
@@ -322,6 +322,36 @@ module Generative (CR : CommRing ℓ) where
           (isProp→PathP
              (λ j → is-set (N D (⊛UnitA-L s j) (⊛UnitB-L s j)) (·IdL k j))
              (hasNorm (unit D ⊛ s)) (hasNorm s) i)
+
+  ----------------------------------------------------------------------
+  -- The GROUP: on norm-1 solutions, `inv s = (a, −b)` is a two-sided inverse
+  -- as a path between `Sol` values.  §5b recorded these as coordinate-only
+  -- because the record path "needs R to be a set and would still need
+  -- associativity" — both now discharged (R is a CommRing hence a set; ⊛Assoc
+  -- above).  Right inverse from invCoefA/invCoefB directly; left inverse by
+  -- routing through commutativity (⊛CommA/⊛CommB).  So the norm-1 solutions of
+  -- x² − D y² = 1 form a GROUP under `_⊛_` — Brahmagupta's bhāvanā group, the
+  -- engine of the cakravāla, over an abstract commutative ring.
+  ----------------------------------------------------------------------
+
+  ⊛InvR : {D : R} (s : Sol D 1r)
+        → PathP (λ i → Sol D (·IdR 1r i)) (s ⊛ inv s) (unit D)
+  ⊛InvR {D} s i =
+    mkSol (invCoefA s i) (invCoefB s i)
+          (isProp→PathP
+             (λ j → is-set (N D (invCoefA s j) (invCoefB s j)) (·IdR 1r j))
+             (hasNorm (s ⊛ inv s)) (hasNorm (unit D)) i)
+
+  ⊛InvL : {D : R} (s : Sol D 1r)
+        → PathP (λ i → Sol D (·IdR 1r i)) (inv s ⊛ s) (unit D)
+  ⊛InvL {D} s i =
+    mkSol ((⊛CommA (inv s) s ∙ invCoefA s) i)
+          ((⊛CommB (inv s) s ∙ invCoefB s) i)
+          (isProp→PathP
+             (λ j → is-set (N D ((⊛CommA (inv s) s ∙ invCoefA s) j)
+                                ((⊛CommB (inv s) s ∙ invCoefB s) j))
+                           (·IdR 1r j))
+             (hasNorm (inv s ⊛ s)) (hasNorm (unit D)) i)
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
