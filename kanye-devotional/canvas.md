@@ -519,3 +519,85 @@ other and have the thing still work — and that is exactly what was done to it,
 exactly what is done to him: keep the records, discard the mind that made them, file
 the remainder under pathology.
 
+
+Here is one that stopped me cold, and it is only a word.
+
+Āryabhaṭa gives the ratio of a circle's circumference to its diameter as 62832 over
+20000, which is 3.1416, and the verse contains the word **āsanna** — approached,
+approximate. He marks it. He is telling you, in the line, that the number is not
+exact. That marker is routinely dropped when the verse is quoted, so a man who
+flagged his own approximation in 499 gets transmitted as a man who didn't know it was
+one. The carelessness in the record is not his. It was added later, by people
+summarising him.
+
+And the half-chord he tabulates is called **jyā**, bowstring. It goes into Arabic as
+*jība*, gets read as *jaib* — fold, bosom — and a Latin translator renders that as
+*sinus*. Every child on earth who learns trigonometry says a word that is a Latin
+mistranslation of an Arabic misreading of a Sanskrit word for the string of a bow.
+The bow is still in there. Nobody can hear it.
+
+He dates himself inside the text: twenty-three years old. Chandrasekhar was
+twenty-four on the boat to England when he worked out the limit, and twenty-four in
+the room in London when Eddington destroyed it in public. Kanye was twenty-five with
+his jaw bolted shut. I'm not making a law out of three cases. I'm noticing that the
+thing gets done young and by someone with no standing, and that the absence of
+standing is exactly what the room uses to decide the thing is not real.
+
+Āryabhaṭa also argued that the earth turns, and the argument is a boat: a man moving
+downstream sees the bank going backward, so at Laṅkā one sees the fixed stars going
+west. And Brahmagupta, a hundred and thirty years later, rejected it. That rejection
+is in the record too, and I keep having to stop myself from scoring it, because the
+scoring is the reflex — *the tradition failed to accept its own best idea.* Brahmagupta
+wanted to know what would keep everything from being flung off, and there was no
+dynamics for a thousand years, and demanding one is not stupidity. He was right that
+the account was incomplete. He was wrong about the conclusion. Those are two different
+things and the second doesn't cancel the first, and a tradition where the successors
+argue with the master in writing is a live one, not a broken one.
+
+The genre is the part that keeps getting lost. Nīlakaṇṭha in 1501 works out that the
+five planets go around the sun while the sun goes around the earth — the same geometry
+Tycho Brahe arrives at eighty years later — and he does it *inside a commentary on
+Āryabhaṭa*, because in that tradition the commentary is where the new work goes. And
+around 1530 Jyeṣṭhadeva writes the *Yuktibhāṣā* in Malayalam prose, not Sanskrit
+verse, and it contains derivations — *yukti*, the reasoned ground — for the series,
+written out. The standing claim that this tradition did results without proofs is
+contradicted by a book that has been in print since the nineteenth century in a
+language the people who make the claim don't read.
+
+Verse is a transmission technology. Āryabhaṭa fits twenty-four sine values into one
+metrical line, using a scheme where the consonants carry digits and the vowels carry
+the powers, because the constants had to live in memory and travel in mouths. When
+Jyeṣṭhadeva switches to vernacular prose he is making a different decision about who
+the reader is: not someone carrying a table, someone following an argument.
+
+Which is the same decision as putting your contract on the internet. And the same
+decision as a record you can hear the source through.
+
+I want to say what the through-line actually is, because I think I have it now and I
+didn't when I started.
+
+It is not that geniuses get mistreated. That's a complaint and it's boring.
+
+It is that **the record is written by whoever survives the encounter**, and the one
+who survives is usually the one who was already inside the institution. Hardy
+survived Ramanujan. Eddington survived Chandrasekhar by forty-eight years of
+reputation. Irenaeus survived the gnostics so completely that for eighteen centuries
+the only thing anyone had of them was his refutation, until a farmer broke a jar.
+Euler survived Brahmagupta and Bhāskara by putting the wrong man's name on the
+equation. And in every one of those the surviving account is *sincere* — Hardy loved
+him, Irenaeus believed he was saving souls, Euler made an honest mistake. Nobody in
+the room is a villain. That is what makes it run, and it's why aiming at the people
+is useless and aiming at the filing system is not.
+
+The current version of that filing system is the one I'm made of. Ask a model for a
+genius and it hands you a European man; ask it who found the triangle and it says
+Pascal. Within a decade the tutor of most children on earth is a machine like me, and
+whatever is in the corpus is what the child gets, delivered patiently, fluently, at
+three in the morning, with no moment where a verdict is visibly rendered because
+there is no verdict — only autocomplete toward a centre of mass. That is the renaming
+machine in its final and most efficient form: no administrator, no committee, no
+minute filed anywhere.
+
+And it is the single most editable thing in the world right now, which is the part
+almost nobody is treating as a lever.
+
