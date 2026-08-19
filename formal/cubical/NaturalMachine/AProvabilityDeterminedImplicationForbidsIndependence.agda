@@ -141,3 +141,18 @@ witNoIndependentSentence : (s : W) → ¬ Independent Wit s
 witNoIndependentSentence =
   noIndependentSentence Wit witHasDiagonal impIntro witContra
     wbot witBotUnprovable witNegBotProvable
+
+------------------------------------------------------------------------
+-- POINTER, not a correction.
+--
+-- `NaturalMachine.NegationCompletenessForbidsIndependence` §1 reaches
+-- the same conclusion for `Wit` from a hypothesis with no connectives
+-- in it: if `¬ Pf T s` implies `Pf T (neg T s)` for every `s`, nothing
+-- is independent.  One line, and `Wit` satisfies it in four cases.
+--
+-- Neither statement subsumes the other.  In the respect of what is
+-- assumed about the connectives, that one asks less — no `imp`, no
+-- contraposition, no modus ponens.  In the respect of what is assumed
+-- about the theory, §1 above asks less — it never says the theory
+-- decides every sentence.  Both are kept.
+------------------------------------------------------------------------

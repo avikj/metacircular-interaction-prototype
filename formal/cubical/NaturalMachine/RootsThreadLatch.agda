@@ -135,6 +135,7 @@ import NaturalMachine.TheDiagonalLemmaDischargesGoedelFix
 import NaturalMachine.RepresentabilityIsNotEnoughForIndependence
 import NaturalMachine.WitSatisfiesEveryHypothesisButOmegaConsistency
 import NaturalMachine.AProvabilityDeterminedImplicationForbidsIndependence
+import NaturalMachine.NegationCompletenessForbidsIndependence
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
