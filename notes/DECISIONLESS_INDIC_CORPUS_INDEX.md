@@ -128,6 +128,27 @@ handle suc-of-variable products (`suc n · suc n` → wrapped opaque) — it
 normalises `1+n` back to `suc n` and gives up. For those: hand-proof, or an
 additive reduction (as `Vargacitighana` does via `Citighana`).
 
+## Lane 9 — same run, continued (binomial closure, meru symmetry, modular/CRT)
+
+The binomial thread completed from prosody; Nārāyaṇa's figurate operator; and
+the kuṭṭaka reaching its astronomical application (CRT) across ℕ and ℤ.
+
+| module | headline | one line |
+|---|---|---|
+| `SamanyaGhata` | `सामान्य-घातः` | Piṅgala's śūnya-dvi method generalized: `aⁿ` in log steps, any base — the fast algorithm proved against Vargana's Jain index law `घात-योग` |
+| `VaraSankalita` | `वार-१`, `वार-२` | Nārāyaṇa's repeated-summation operator: `V₁ ≡ ∑k` (triangular), `V₂ ≡ चिति` (tetrahedral) — Āryabhaṭa's piles are orders of one operator |
+| `Dvipada` | `C`, `वार-बद्धम्` | indexed binomial `C(n,k)` by Pascal alone (no factorials); the figurate closed form `V_r(n)=C(n+r,r+1)` (hockey-stick) — retires VaraSankalita's avaktavya |
+| `PanktiYoga` | `पङ्क्ति-योगः` | `∑ₖ C(n,k) = 2ⁿ` — the binomial's prosodic root (Piṅgala's saṅkhyā), from the Pascal telescope |
+| `MeruSammiti` | `सममितिः` | Halāyudha's meru symmetry `C(n,k)=C(n,n−k)` — the guru↔laghu (metre-complement) duality, double induction on Pascal |
+| `Samasesha` | `_≈_[_]`, `संक्रमः` | the kuṭṭaka's subtraction-free congruence mod m: an equivalence, compatible with + and ·, multiples vanish |
+| `Yugapat` | `प्रक्षेप-b/c` | CRT projection (mod `b·c` ⟹ mod `b`, mod `c`) in ℕ + a worked conjunction; existence recorded as ℤ-bound |
+| `YugapatZ` | `चीन-शेषः`, `एकत्वम्` | CRT existence AND uniqueness over ℤ from a Bézout witness — the bijection `ℤ/bc ≅ ℤ/b × ℤ/c`; retires Yugapat's recorded obstruction |
+
+Open, honestly scoped: the ℕ→ℤ bridge that would feed `Bija`'s kuṭṭaka Bézout
+directly into `YugapatZ.चीन-शेषः` (making CRT constructive end-to-end from the
+pulverizer) — fiddly ℤ-embedding with the recurring `pos 1`-in-solver problem;
+not yet built.
+
 ## Superseded
 
 `Anekanta.agda` — the first attempt (proclaimed "no checking" yet used
