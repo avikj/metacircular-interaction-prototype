@@ -218,3 +218,43 @@ minimalDoesNotDescend =
 -- no Stern–Brocot enumeration and no claim that every intermediate
 -- threshold is reachable.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §5's NOT-CLAIMED says "no quotient TYPE is formed — `≈`
+-- is a relation, with no set-quotient, no truncation and no
+-- univalence".  The mediant module ends at the same wall.  When one
+-- limitation ends two results it is the object, so it is built now:
+-- `NaturalMachine.TheRateQuotientExistsAndMinimalityCannotLiveOnIt`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+--   Rate = (ℕ × ℕ) / _≈_        the set-quotient
+--   AtLeastOnRate / AboveOnRate both predicates LIFT, by
+--                               `SetQuotients.rec`; §3 above is exactly
+--                               the respectfulness the lift needs
+--   atLeastOnRateComputes       the lift agrees with the old definition
+--                               on representatives, by `refl`
+--   noMinimalityOnTheRate       NO function on `Rate` agrees with
+--                               `Minimal` on all representatives
+--
+-- THE LAST ONE IS STRONGER THAN §4 HERE.  §4 exhibits a pair where
+-- minimality holds of one representative and fails of another, which
+-- refutes ONE definition.  With the quotient, `[ oneHalf ] ≡
+-- [ twoQuarters ]` is a PATH, `cong` transports along it, and no
+-- definition whatsoever can agree with `Minimal` on both — an
+-- impossibility rather than an absence.
+--
+-- The univalence is in the lift's target: `hProp` is a set
+-- (`isSetHProp`), and `⇔toPath` turns the two-way implication §3 proves
+-- into a PATH.  `AtLeast` is a proposition because cubical's `≤` is, so
+-- nothing needed truncating.
+--
+-- STILL NOT CLAIMED: DENSITY OF THE RATES.  The mediant module's `⊏`
+-- is not lifted, and lifting it needs `⊏` to respect `≈` on both sides,
+-- which is unchecked — so of the two sentences this closes only the
+-- one quoted at the top.  No arithmetic on `Rate` is defined, no normal
+-- form or lowest-terms section is constructed, `≈` is not shown
+-- decidable, and `Rate` is not related to any independently defined type
+-- of rationals.
+------------------------------------------------------------------------
