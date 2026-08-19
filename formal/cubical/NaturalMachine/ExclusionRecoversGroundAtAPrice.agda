@@ -440,3 +440,115 @@ module _ {Y : Type ℓy} (q : Bool → Y) where
     ((x x' : Bool) → Stable (Ground q x x')) → CoIdentify shadow q
   stable→shadowCoIdentify st =
     coExclude→coIdentify-stable q shadow st coExclude-shadow
+
+------------------------------------------------------------------------
+-- 9.  The other price is the SAME price
+--
+-- §6 bought transfer at the target with `Discrete T`.  §8 showed the
+-- price at the counterpositive was `Stable`, not `Dec`.  The same
+-- correction applies here, and the consequence is not bookkeeping.
+--
+--   9a  §6 needs only that PATHS IN THE TARGET BE STABLE — pointwise,
+--       for the pairs actually compared.  `Discrete→Separated` makes §6
+--       a corollary.
+--
+--   9b  and stability of the target is NECESSARY, by the same shadow,
+--       with the observable taken to be the target itself.  Put
+--       `q := t`.  Then `FiberConstant t t` is the identity, and
+--       transfer along `shadow t` says exactly `(¬ G → G) → G` for
+--       `G = (t true ≡ t false)`.
+--
+-- So the two prices of this module are ONE PROPERTY AT TWO OBJECTS:
+--
+--       recover the ground        ⇔  Stable (paths in the observable)
+--       transfer without it       ⇔  Stable (paths in the target)
+--
+-- and neither is decidability.  That is what live thread (1) —
+-- transport PRICE, not possibility — asks for at this site: the
+-- transport between the two nayas is always available, and what it
+-- costs is one double-negation elimination, charged either to what is
+-- being observed or to what is being read.
+--
+-- SAYING THIS CAREFULLY, BECAUSE THE CARELESS VERSION IS A COLLAPSE.
+-- "One quantity in two locations" would assert that the two
+-- hypotheses are the same thing, and anekānta is precise about when
+-- that move is licensed: agreement permits collapse, plurality blocks
+-- it.  Here there is plurality.  `Stable` applied to the ground of `q`
+-- and `Stable` applied to the paths of `t` are two different
+-- hypotheses about two different objects; a target can be separated
+-- while the observable is not, and nothing in this file derives either
+-- from the other.  What recurs is the SHAPE — the same schema, and the
+-- same shadow refuting the unpriced form of each.  A price with an
+-- own-nature, one object appearing twice, is not what was found; a
+-- pattern that recurs is.
+--
+-- SCOPE, as in §8.  §9b refutes the GENERAL rule "co-exclusion
+-- transfers factoring", by exhibiting a pair it cannot survive.  It
+-- does not say every individual (q, q', t) satisfying transfer has a
+-- stable target.
+--
+-- IT ALSO DEFLATES SOMETHING.  Thread (2), the deflationary test, says:
+-- if every absence in this corpus is decidable then nothing here lives
+-- above the second level and the barrier language is stronger than the
+-- objects warrant.  §8–§9 sharpen the test rather than answering it.
+-- The relevant hypothesis is not decidability but stability, which is
+-- strictly weaker, so the level is set lower than the test assumed —
+-- and `Stable` is exactly the property under which an absence and its
+-- counterpositive collapse into each other.  A corpus whose absences
+-- are all stable has no third level, whether or not they are decidable.
+-- Checking that against the corpus is not done here and is not claimed.
+------------------------------------------------------------------------
+
+open import Cubical.Relation.Nullary.Properties using (Discrete→Separated)
+
+-- 9a.  Sufficiency, with `Discrete` weakened to pointwise stability.
+
+fiberConstant-transfer-stableTarget :
+  {X : Type ℓx} {Y : Type ℓy} {Y' : Type ℓy'} {T : Type ℓt}
+  (q : X → Y) (q' : X → Y') (t : X → T)
+  → ((x x' : X) → Stable (t x ≡ t x'))
+  → CoExclude q q' → FiberConstant q t → FiberConstant q' t
+fiberConstant-transfer-stableTarget q q' t st ce fc x x' g' =
+  st x x' (λ n → ce x x' (λ g → n (fc x x' g)) g')
+
+-- §6 is a corollary: a discrete type is separated.
+fiberConstant-transfer-fromDiscrete :
+  {X : Type ℓx} {Y : Type ℓy} {Y' : Type ℓy'} {T : Type ℓt}
+  (discT : Discrete T) (q : X → Y) (q' : X → Y') (t : X → T)
+  → CoExclude q q' → FiberConstant q t → FiberConstant q' t
+fiberConstant-transfer-fromDiscrete discT q q' t =
+  fiberConstant-transfer-stableTarget q q' t
+    (λ x x' → Discrete→Separated discT (t x) (t x'))
+
+factorsThrough-transfer-stableTarget :
+  {X : Type ℓx} {Y : Type ℓy} {Y' : Type ℓy'} {T : Type ℓt}
+  (isSetT : isSet T) (q : X → Y) (q' : X → Y') (t : X → T)
+  → ((x x' : X) → Stable (t x ≡ t x'))
+  → CoExclude q q' → FactorsThrough q t → FactorsThrough q' t
+factorsThrough-transfer-stableTarget isSetT q q' t st ce ft =
+  fiberConstant→factorsThrough isSetT q' t
+    (fiberConstant-transfer-stableTarget q q' t st ce
+      (factorsThrough→fiberConstant q t ft))
+
+-- 9b.  Necessity, by the shadow of the target on itself.
+
+module _ {T : Type ℓt} (t : Bool → T) where
+
+  -- fiber constancy of a map along ITSELF is the identity
+  selfFiberConstant : FiberConstant t t
+  selfFiberConstant _ _ p = p
+
+  -- so transfer along `shadow t` is exactly the stability of the one
+  -- path the two states can disagree on.
+  shadowTransfer→stableTarget :
+    (FiberConstant t t → FiberConstant (shadow t) t)
+    → Stable (t true ≡ t false)
+  shadowTransfer→stableTarget tr nn =
+    tr selfFiberConstant true false
+       (shadowGround← t true false (λ a → ⊥.rec (nn a)))
+
+  stableTarget→shadowTransfer :
+    ((x x' : Bool) → Stable (t x ≡ t x'))
+    → FiberConstant t t → FiberConstant (shadow t) t
+  stableTarget→shadowTransfer st =
+    fiberConstant-transfer-stableTarget t (shadow t) t st (coExclude-shadow t)
