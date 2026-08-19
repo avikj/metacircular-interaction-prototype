@@ -146,3 +146,41 @@ main = do
   putStrLn ("chu (defect0, separates)  : " ++ show chuDemo)
   putStrLn ("hidden curvature          : " ++ show hiddenCurvature)
   putStrLn ("horner (value,mod7,ok,steps,unary): " ++ show hornerDemo)
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only.
+--
+-- This file's header says every function here has a checked counterpart
+-- and that "nothing is measured: the output is a replay of statements
+-- that are already proved".  `flowVerdict` is the exception, and the two
+-- halves of why are checked in
+-- `formal/cubical/NaturalMachine/OneStepDecidesResonanceAndNoPrefixDecidesDecay.agda`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).
+--
+-- I read NaturalMachine.KFlow's signatures and proof bodies first.  Its
+-- decay / resonance / branching theorems are each conditional on a
+-- GLOBAL property of f (Contracting / Stationary / Expanding).
+-- `flowVerdict` takes no such hypothesis: it inspects 64 iterates.
+--
+--   RESONANCE is exact, and cheaper than the test.  Stationary f n IS
+--   iterate f 1 n = n, so ONE comparison decides the whole orbit
+--   (oneStepIsStationary / oneStepGivesTheWholeOrbit).  Sixty-three of
+--   the sixty-four comparisons buy nothing.
+--
+--   DECAY is not decided by any prefix.  noPrefixDecidesDecay is
+--   quantified over N: for EVERY prefix length there is a CONTRACTING
+--   map (the predecessor) and a start whose orbit shows no zero within N
+--   and is zero at N+1.  So `any (== 0)` is sound and incomplete at
+--   every length, and the "otherwise -> branching" catch-all mislabels
+--   that witness.
+--
+-- THE REPAIR IS NOT A BIGGER CONSTANT -- the statement is quantified
+-- over N.  What decides it is the hypothesis KFlow actually assumes,
+-- Contracting f, which a run cannot check for arbitrary f.  That is the
+-- honest reason this one verdict is a report rather than a replay.
+--
+-- NOT a criticism of KFlow, which proves exactly what it states; and no
+-- claim about the other functions here, which were not checked.
+-- ---------------------------------------------------------------------
