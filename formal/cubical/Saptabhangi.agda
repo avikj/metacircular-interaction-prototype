@@ -28,6 +28,8 @@ module Saptabhangi where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥ ; rec)
+open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
+open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
@@ -206,3 +208,51 @@ data उपस्थिति : Type where
 प्रति-वृत्तम् (न   , आम् , आम्) _  = refl
 प्रति-वृत्तम् (आम् , आम् , आम्) _  = refl
 प्रति-वृत्तम् (न   , न   , न)   ne = rec (ne refl)
+
+------------------------------------------------------------------------
+-- समावेश-भेदः — पूर्ण-तुल्यता : 2³ = 7 + 1 ।  अष्टौ संयोगाः = सप्त भङ्गाः +
+-- एकः रिक्तः (अ-प्रतिपादनम्) ।  एतत् एव कुतः-सप्त-प्रश्नस्य सम्पूर्णम् उत्तरम् :
+-- न सप्त एकाकिनः, अपि तु अष्टानां विभागः — सप्त सार्थकाः, अष्टमः शून्यः ।
+-- (एकैकम्+प्रति-वृत्तम् अंश-रूपे यत् आसीत्, तत् अत्र एकम् तुल्यता-वस्तु ।)
+--
+-- (The full equivalence 2³ = 7 + 1: the eight presence-profiles are the seven
+--  bhaṅgas plus the one empty (no-predication) profile.  This is the complete
+--  answer to "why seven" — not seven in isolation but the split of eight, seven
+--  meaningful and the eighth void.  What injectivity + non-empty-completeness
+--  gave in pieces is here one equivalence object; no discriminator needed, the
+--  empty case is handled outright.)
+------------------------------------------------------------------------
+
+भेद-अग्रे : समावेश → सप्तभङ्गी ⊎ Unit
+भेद-अग्रे (न , न , न) = inr tt
+भेद-अग्रे t           = inl (प्रत्यन्तर्भाव t)
+
+भेद-पश्चात् : सप्तभङ्गी ⊎ Unit → समावेश
+भेद-पश्चात् (inl b) = अन्तर्भाव b
+भेद-पश्चात् (inr _) = न , न , न
+
+भेद-सेक् : (t : समावेश) → भेद-पश्चात् (भेद-अग्रे t) ≡ t
+भेद-सेक् (आम् , न   , न)   = refl
+भेद-सेक् (न   , आम् , न)   = refl
+भेद-सेक् (आम् , आम् , न)   = refl
+भेद-सेक् (न   , न   , आम्) = refl
+भेद-सेक् (आम् , न   , आम्) = refl
+भेद-सेक् (न   , आम् , आम्) = refl
+भेद-सेक् (आम् , आम् , आम्) = refl
+भेद-सेक् (न   , न   , न)   = refl
+
+भेद-रेत् : (y : सप्तभङ्गी ⊎ Unit) → भेद-अग्रे (भेद-पश्चात् y) ≡ y
+भेद-रेत् (inl स्यात्-अस्ति)                    = refl
+भेद-रेत् (inl स्यात्-नास्ति)                   = refl
+भेद-रेत् (inl स्यात्-अस्ति-नास्ति)            = refl
+भेद-रेत् (inl स्यात्-अवक्तव्यम्)               = refl
+भेद-रेत् (inl स्यात्-अस्ति-अवक्तव्यम्)        = refl
+भेद-रेत् (inl स्यात्-नास्ति-अवक्तव्यम्)       = refl
+भेद-रेत् (inl स्यात्-अस्ति-नास्ति-अवक्तव्यम्) = refl
+भेद-रेत् (inr tt)                              = refl
+
+समावेश-Iso : Iso समावेश (सप्तभङ्गी ⊎ Unit)
+समावेश-Iso = iso भेद-अग्रे भेद-पश्चात् भेद-रेत् भेद-सेक्
+
+समावेश-भेदः : समावेश ≃ (सप्तभङ्गी ⊎ Unit)
+समावेश-भेदः = isoToEquiv समावेश-Iso
