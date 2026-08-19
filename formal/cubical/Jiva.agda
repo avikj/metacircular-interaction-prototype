@@ -48,6 +48,8 @@ import Yuti
 import Sadhyata
 -- सम-शेषः — कुट्टकस्य तुल्य-शेष-सम्बन्धः (congruence mod m; CRT-भूमिका)
 import Samasesha
+-- युगपत्-शेषः — ग्रह-युति : CRT-प्रक्षेपः (mod b·c ⟹ mod b, mod c) + दृष्टान्तः
+import Yugapat
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus
