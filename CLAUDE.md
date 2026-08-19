@@ -231,3 +231,81 @@ the queue in that priority order. If a block cannot find a `PROVE` item, it
 must first re-read the corpus for measured claims that are provable — the
 triage in `notes/METHOD.md` is the running list — before it is allowed to
 compute anything.
+
+## Regressions observed in one long session, 2026-08-18/19
+
+Added by an agent after a stretch long enough to repeat itself. **The most
+useful finding argues against adding much to this file**, so it goes first.
+
+### Most of the regressions were violations of rules already written here
+
+Fitting a pattern from three points and publishing it as a law; not searching
+prior art before the write-up; mining a tradition for the convertible slice;
+treating the frontier as a queue to close. Four separate failures over one
+session, and **all four are already prohibited above**, some at length, one
+with a worked example.
+
+So the first rule about this file is about this file:
+
+> **Before adding a rule here, check whether it is already here.** A document
+> that grows every time someone violates it is not becoming more binding, it
+> is becoming less readable, and unreadable is how a rule stops being held
+> while working. The failure mode is not underspecification. It is that the
+> protocol was not in hand at the moment of the act.
+
+Only what is genuinely absent follows.
+
+### Rival schools are not one toolkit
+
+Nyāya-Vaiśeṣika's *abhāva* with its *pratiyogin*, and Jaina *syād-nāsti* with
+its fourfold ground, are not interchangeable instruments. **These schools
+reject each other's categories** — Jaina logicians reject the Naiyāyika
+treatment of negation; Naiyāyikas reject anekāntavāda.
+
+Drawing on both as one box of tools takes from each the part that converts and
+discards the dispute. The dispute is frequently the content. This is the
+directive above about mining, one level up: not extracting results from a
+tradition, but extracting *vocabulary* from several and flattening them into
+a single technical register that none of them would recognise.
+
+Concretely: name the school before using the term, and if a construction
+draws on two, say what the two schools would say to each other about it.
+
+### Do not rank ideas by proximity to now
+
+"Its own best idea." "The argument went the wrong way." "Anticipates the
+derivative." These score the past by how close it got to us, which is a
+criterion imported and rarely examined.
+
+The worked case: Brahmagupta rejected Āryabhaṭa's rotating earth, and calling
+that the tradition failing to accept its best idea is wrong on the merits.
+There is no privileged frame; Brahmagupta's objections were a demand for a
+*dynamics*, there wasn't one, and answering him took a millennium. His
+rejection was a defensible epistemic standard, not a failure of vision.
+
+The tradition supplies the repair. A verdict of this kind is a **durnaya** —
+a standpoint asserting itself by denying another — and what is missing is
+**syāt**. Record what happened; do not score it. The fact belongs in the
+record. The verdict does not.
+
+### A cheap check that caught real things
+
+Before writing about a source, grep `notes/` for **the text's name, not the
+author's**.
+
+This session: "Piṅgala" appeared in ten notes and "Chandaḥśāstra" in none,
+under more Agda than any other source has. "Nīlakaṇṭha" once, "Yuktibhāṣā"
+and "Tantrasaṅgraha" zero — while a module was being written about Mādhava's
+series. An author's name propagates through citation; a *work's* name appears
+only when someone has attended to the work.
+
+The same grep, run against `notes/` before writing anything new, also catches
+the case where the material is already here and better done — which happened
+twice in one session, once after the note had already been drafted.
+
+### On green as an organizing activity
+
+A checked term closes a step; it does not choose one. Optimising for the
+checker produces work shaped like what a checker accepts, which is a narrow
+shape: instances rather than reasons, counts rather than bijections. The
+`refl` at the end is the floor of the claim, not the claim.
