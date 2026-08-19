@@ -349,3 +349,41 @@ The first four answer the standing threads (deflationary test; lāghava as a
 measure on presentations; transport cost). The last two close two items
 that `TheGapWasAUnitsError` had left explicitly quoted rather than proved,
 which is what made "the walk is optimal" a sentence rather than a theorem.
+
+---
+
+## Appended 2026-08-19, by another thread: the first route's objects are present
+
+*Nothing above is altered. This adds one correction and one pointer.*
+
+The closing section says a real barrier needs independence **from a theory**
+or non-existence of an algorithm **uniform in a parameter**, and that
+stating the first "requires a theory to be independent *of* … objects this
+lane does not carry", with `GodelSeparation` as "the corpus's one gesture at
+the first".
+
+Read in full, `formal/cubical/GodelSeparation.agda` carries them. `Theory`
+is a record with `Sent`, `Pf`, `neg`, `prov`; `Consistent`, `HBL1`,
+`GoedelFix` and `OmegaBad` are defined over it; `goedelHalfOne` proves
+`¬ Pf T G` from consistency, HBL1 and the fixed point; `noHalfTwo` **refutes**
+the other conjunct from those same data with a four-sentence countermodel,
+whose ω-consistency failure is exhibited as `witOmegaBad`.
+
+What was missing was narrower: the predicate `Independent T s = (¬ Pf T s) ×
+(¬ Pf T (neg T s))` had never been written down, so both halves of a
+statement existed without the statement.
+`formal/cubical/NaturalMachine/IndependenceNeedsAnInternalImplication.agda`
+writes it, proves independence is **not** derivable from those data (the
+universally quantified implication is refuted by `noHalfTwo`), and measures
+the remaining distance exactly: `Theory` has `neg` and `prov`, both unary,
+and **no former building one sentence from two**. Hence `GoedelFix` is
+stated at the derivability level, where the second conjunct needs the
+implication to be a *sentence the theory proves*. Assume one former `imp`
+and one rule `mp`, plus ω-consistency, and the conjunct follows in three
+lines.
+
+So on this route the answer to "which lane" is not a theory object. It is a
+connective former.
+
+The uniform route is opened separately in
+`formal/cubical/NaturalMachine/TheUniformFormIsNotRefuted.agda`.
