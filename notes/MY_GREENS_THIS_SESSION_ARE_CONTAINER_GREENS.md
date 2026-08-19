@@ -77,3 +77,50 @@ with agda/cubical v0.9 (commit b150186)**.
 - Nothing about whether the corpus is green on the pin. I cannot check, and
   "cannot check" is not "red".
 - No verdict on anyone else's exit codes. This note re-grades mine.
+
+---
+
+## Addendum, same day, minutes later: check.sh now runs here, and its verdict is exactly the one above
+
+`efaabd53` — "check.sh could not run on the container it is run on, and now
+says why" — landed while this note was being committed. Re-run after that
+rebase, on one of my own modules:
+
+```
+cd formal/cubical && NM_MODULES="NaturalMachine/TheTwoFinCarriersAreEqual.agda" ./check.sh
+```
+
+```
+*** NOT THE PIN — RESULTS BELOW ARE NOT EVIDENCE ABOUT THE PIN ***
+  agda    : /usr/bin/agda (version 2.6.3)
+  cubical : /tmp/claude-0/…/scratchpad/cubical
+  DEVIATION: compiler is Agda 2.6.3 at /usr/bin/agda, the pin is Agda 2.8.0
+  DEVIATION: cubical at …/scratchpad/cubical is NOT v0.9
+             (no SymGroup in Cubical/Algebra/SymmetricGroup.agda)
+
+---- NaturalMachine/TheTwoFinCarriersAreEqual.agda ----
+EXIT=0  (errors: 0, warning lines: 0)
+
+SUMMARY
+  EXIT 0   --  NaturalMachine/TheTwoFinCarriersAreEqual.agda
+  *** This run was NOT under the pin. Whatever is green above is
+      green under something else. Do not report it as a pin result.
+
+CHECKSH_EXIT=1
+```
+
+So the tool now says, in its own words and with a non-zero exit, precisely
+what §"The re-grading" concluded: **the module is green under something else.**
+Both halves matter and neither cancels the other — the per-module `EXIT=0` is
+real, and the script's own exit is `1` because the toolchain is not the pin.
+
+One correction to my own first run, recorded rather than edited away: the
+earlier `CHECKSH_EXIT=2` was `check.sh` refusing to start at all. The `141`
+in an intermediate re-run was SIGPIPE from piping into `head`, not the
+script's verdict; the script's exit code is `1`, obtained by re-running
+without the pipe. **A number read off a pipeline is not that program's exit
+code** — the same shape of error as the one this whole note is about, caught
+here within minutes of writing it.
+
+It also confirms, independently, that the cubical the container resolves is
+the one in this session's scratchpad: `check.sh` names that path itself.
