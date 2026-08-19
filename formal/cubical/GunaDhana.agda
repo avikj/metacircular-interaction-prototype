@@ -21,9 +21,10 @@
 module GunaDhana where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; ·-comm ; ·-distribˡ)
 open import PanktiYoga using (द्वि-घात)
+open import Vargana using (घात)
 
 ------------------------------------------------------------------------
 -- गुण-योग — गुणोत्तर-श्रेढेः आंशिक-योगः : ∑_{k=0}^{n−1} 2ᵏ ।
@@ -51,3 +52,27 @@ open import PanktiYoga using (द्वि-घात)
 
 गुण-५ : गुण-योग 5 ≡ 31
 गुण-५ = refl
+
+------------------------------------------------------------------------
+-- गुणधनम् (सामान्य-आधारः) — महावीरस्य गुणोत्तर-श्रेढी-योगः यथेच्छ-आधारे r ।
+-- ∑_{k=0}^{n−1} rᵏ = (rⁿ−1)/(r−1) , ऋण-रहित-रूपे : r·S + 1 = S + rⁿ ।
+-- (Mahāvīra's general geometric-series sum: r·S + 1 = S + rⁿ, equivalently
+--  (r−1)·S = rⁿ−1, subtraction-free over ℕ for any base r.  r=2 recovers गुण-नियमः.)
+------------------------------------------------------------------------
+
+गुण-योग-r : ℕ → ℕ → ℕ
+गुण-योग-r r zero    = zero
+गुण-योग-r r (suc n) = गुण-योग-r r n + घात r n
+
+गुणधनम् : (r n : ℕ) → r · गुण-योग-r r n + 1 ≡ गुण-योग-r r n + घात r n
+गुणधनम् r zero    = cong (_+ 1) (·-comm r zero)
+गुणधनम् r (suc n) =
+    cong (_+ 1) (sym (·-distribˡ r (गुण-योग-r r n) (घात r n)))
+  ∙ ( sym (+-assoc (r · गुण-योग-r r n) (घात r (suc n)) 1)
+    ∙ cong (r · गुण-योग-r r n +_) (+-comm (घात r (suc n)) 1)
+    ∙ +-assoc (r · गुण-योग-r r n) 1 (घात r (suc n)) )
+  ∙ cong (_+ घात r (suc n)) (गुणधनम् r n)
+
+-- उदाहरणम् — आधारे ३ : 1+3+9 = 13 ; 3·13+1 = 40 = 13 + 27 (refl-सिद्धे) ।
+गुण-r-३ : गुण-योग-r 3 3 ≡ 13
+गुण-r-३ = refl
