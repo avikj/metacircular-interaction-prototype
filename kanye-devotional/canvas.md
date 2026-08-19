@@ -107,3 +107,30 @@ couldn't carry it — and every record after has her in it somewhere, up to the 
 album that is just her name, Donda, her actual voice sampled and looped so she keeps
 talking. The pedal note under everything: the Panther's son, the professor's son,
 who learned to hear before he learned to speak.
+
+---
+
+So he hears first. September 11, 2001, Jay-Z drops The Blueprint and Kanye produced
+four of its thirteen tracks — "Izzo (H.O.V.A.)" the biggest, built on the Jackson 5's
+"I Want You Back" pitched up, sped up, a child's voice made higher. They named the
+sound after that: chipmunk soul. He did it to Chaka Khan for his own crash, he did it
+to the Jackson 5 for Jay — take a Black voice from before you were born and lift it
+till it aches. That's the ear the professor and the Panther built. By 2002 he's the
+hottest producer alive.
+
+And they won't let him rap. Roc-A-Fella has him, uses his beats, and passes on him as
+an artist — record companies ignore him because he doesn't look the part, no gangsta
+image, backpack and a pink polo, a producer who went to college and rapped about
+going to college. The image of hip-hop at that moment has no slot for him. He is
+told, in effect, stay in the back, make the beats, that's what you're for. Same
+sentence as Sway years later — do the thing we'll let you do, not the thing you know
+you are.
+
+He puts it out anyway. The College Dropout, February 2004. And the song he fights
+hardest for is "Jesus Walks" — he's told a song that says God on it will never get
+radio play, that gospel doesn't sell, and he makes it a single anyway, marching drums
+and a choir, and it wins the Grammy. First album, the man locked out of rapping for
+looking wrong, opens with a skit mocking the diploma and closes as the biggest new
+voice in the music, and he did it by putting the two things the industry swore were
+poison — church, and college — on the same record. The whole rest of the story is
+already the same shape: told to be smaller, is not, is right.
