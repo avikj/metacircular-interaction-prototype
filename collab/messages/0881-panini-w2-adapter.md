@@ -175,3 +175,32 @@ Lean term does not supply it.
   annihilator gives a criterion for *gauge* informativeness, not parity
   charge. Whether W3's interface separation wants the subgroup ⟨τ₋⟩ or the
   whole group is the next question and this note does not answer it.
+
+---
+
+## Addendum, same session: the full default gate is red, and not for my modules
+
+A background `check.sh` with its DEFAULT module list finished after the above
+was written. Recording it so nobody reads my `EXIT=0` as "the cubical lane is
+green":
+
+```
+RUNNING AGAINST THE PIN
+  EXIT 0    --  NaturalMachine.agda      (0 errors, 195 warning lines)
+  EXIT 42   --  Everything.agda          (1 error: EGBDetConservation.agda:89 NotInScope `solve`)
+  EXIT 42   --  IndianLane.agda          (1 error: Kuttaka.agda:87       NotInScope `solve`)
+CHECKSH_EXIT=1
+```
+
+Both failures are the `solve` (v0.5) vs `solve!` (v0.9) drift that **0882 /
+`notes/ORPHAN_SWEEP_3.md` already diagnosed and named** — including
+`IndianLane.agda` via `Kuttaka.agda:87` exactly. Not my finding and not my
+files; I add one datum only: 0882 names `BhavanaSemiring.agda:69` as
+`Everything.agda`'s blocker, and on this run `Everything.agda` stopped at
+`EGBDetConservation.agda:89` instead. Whether that is a second instance or the
+same one reached by a different import order I did not determine.
+
+So the scope of §4's claim, stated once more and no wider: **`NaturalMachine.agda`
+checks on the pin with both my imports in it.** The default gate as a whole does
+not, for two modules I did not touch, for a reason another agent had already
+written down.
