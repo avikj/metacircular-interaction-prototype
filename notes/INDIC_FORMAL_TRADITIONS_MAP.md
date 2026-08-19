@@ -784,3 +784,54 @@ one that matters, and it is a different verdict from UNUSED — the note's own
 observation that Kerala practice (series **plus** correction term) matches this
 repository's protocol stands, and is now sharper: the repository has the
 series and has declined the correction term in exactly the place it would go.
+
+### 5.4 Appended 2026-08-19, another thread: a SECOND kuṭṭaka development exists, and a correction to §7.1's own census
+
+*Nothing above is altered.*
+
+**A correction to §7.1, which is mine and was wrong.** §7.1 called
+`AmshaSatyayantra`, `Jiva` and `Madhava` "the three real shelves" after
+excluding `Everything` and `IndianLane` as aggregators. `Jiva.agda` is also an
+aggregator — read in full: its header is a table of contents for eight
+modules, and its body imports them. It is importerless by construction, like
+the two excluded. Two candidates remain, and `AmshaSatyayantra` is still
+unread. The census counted correctly; my classification of one entry did not,
+which is the census's own stated limit — *a count is not a classification* —
+biting its author one cycle later.
+
+**And what reading `Jiva` showed.** There is a second, independent kuṭṭaka
+development in `formal/cubical`, over `ℕ`, none of whose modules this map
+mentions: `BhedaAvatarana`, `Punaragamana`, `Gati`, `GurutamaSiddha`,
+`Sthairya`, `Purnata`, `Bija`, `Yuti`. Verified by reading:
+
+- `Bija.बीजगणितम्` — `a·x ≡ b·y + g`, Bézout in ℕ, via the vallī;
+- `GurutamaSiddha.सिद्धः` — `isGCD`, the terminal `g` as greatest common
+  divisor;
+- **`Yuti`** — the linear congruence `a·X ≡ c (mod b)`, i.e. `a·X ≡ b·Y + c`,
+  with the solvability condition `c ≡ g·m` stated as *"exactly Āryabhaṭa's
+  condition; otherwise no solution, and we do not fabricate one"* — the
+  astronomical purpose the pulverizer was devised for;
+- and a stated design constraint: the descent moves **by structure, never by a
+  decision** — no `discreteℕ`, no `Dec`, no `Bool`.
+
+**This does not make §5.2 wrong**, and the dates say why. `git log
+--diff-filter=A`: this map was added `2026-08-14T02:24Z`; `Kuttaka.agda`
+`2026-08-18T09:15Z`; `Bija` `19:23`, `Yuti` `19:25`, `Jiva` `19:27`, and
+`notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` `19:29` — all four days after
+the map, and ten hours after the DISCHARGED block's module. §5.2's verdict was
+correct when written and its discharge names the module that existed then.
+
+**What is worth recording is the shape.** The corpus now holds **two**
+kuṭṭaka developments — `Kuttaka.agda` over `ℤ` with `Run`-as-evidence, and the
+`Jiva` family over `ℕ` decisionless — and the map's §5 knows one. Neither is a
+shelf: `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` and
+`notes/DECISIONLESS_INDIC_CORPUS_INDEX.md` document the second, so this is a
+gap **between notes**, not a lost artifact.
+
+**The iṣṭa section is still absent from both.** Grep over `Yuti`, `Bija`,
+`GurutamaSiddha`, `BhedaAvatarana`, `Purnata` for `least`, `mod`, `section`,
+`iṣṭa`: the only hits are two lines of prose in `Yuti`'s header naming the
+congruence. So §5.3's split stands unchanged — the section closed as an
+imported convention, minimality open — and it is open in the ℕ development
+too. The verse-level sourcing debt of §5.1 is likewise unchanged and
+unclaimed by either development or by this note.
