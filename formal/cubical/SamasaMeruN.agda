@@ -387,3 +387,29 @@ module _ (ps : List ℕ) where
           ( cong (_+ 0) (अंश-गणना (0 ∷ 1 ∷ 2 ∷ []) (suc (suc n)) 2
                           (suc-≤-suc (suc-≤-suc zero-≤)))
           ∙ +-zero (length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) n)) ) )
+
+------------------------------------------------------------------------
+-- छिद्र-आवृत्तिः — {२,३}-नयः (ps=[1,2], अ-एकक-अंश-गणः) : a(n+3)=a(n+1)+a(n) ।
+--
+-- पूर्व-नयेषु (विरहाङ्क, नारायण, त्रिमेरु) एकः अंशः मानेन १ आसीत् — अतः प्रति n
+-- साधनम् आसीत् ।  अत्र अंश-गणः {२,३} , एकक-रहितः , अतः श्रेढी छिद्रवती
+-- (१,०,१,१,१,२,२,३,…) : n=1 इति मानाय न किमपि साधनम् (छिद्रम्) ।  सामान्य-योगः
+-- तथापि आवर्तते : a(n) = a(n−2) + a(n−3) — २-अंशः a(n−2), ३-अंशः a(n−3) ।  एवं
+-- समास-भावना अ-एकक-अंश-गणे अपि (यत्र श्रेढी शून्य-युक्ता) सम्यक् चलति ।
+--
+-- (The {2,3} standpoint: a part-set with NO size-1 part, so the sequence has
+-- genuine gaps (1,0,1,1,1,2,2,3,…) — nothing of value 1.  The general fold still
+-- gives the recurrence a(n)=a(n−2)+a(n−3): the size-2 part contributes a(n−2),
+-- the size-3 part a(n−3).  The samāsa-bhāvanā works over a gapped, unit-free set
+-- exactly as over the classical ones.)
+------------------------------------------------------------------------
+
+छिद्र-आवृत्तिः : (n : ℕ)
+  → length (सर्गः (1 ∷ 2 ∷ []) (suc (suc (suc n))))
+  ≡ length (सर्गः (1 ∷ 2 ∷ []) (suc n)) + length (सर्गः (1 ∷ 2 ∷ []) n)
+छिद्र-आवृत्तिः n =
+    समास-आवृत्तिः (1 ∷ 2 ∷ []) (suc (suc n))
+  ∙ cong₂ _+_ (अंश-गणना (1 ∷ 2 ∷ []) (suc (suc n)) 1 (suc-≤-suc zero-≤))
+              ( cong (_+ 0) (अंश-गणना (1 ∷ 2 ∷ []) (suc (suc n)) 2
+                              (suc-≤-suc (suc-≤-suc zero-≤)))
+              ∙ +-zero (length (सर्गः (1 ∷ 2 ∷ []) n)) )
