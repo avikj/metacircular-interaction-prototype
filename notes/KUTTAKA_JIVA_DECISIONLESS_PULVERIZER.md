@@ -396,3 +396,35 @@ it — a fact about the kuṭṭaka, not about this recurrence. The tag stays op
 Toolchain: `EXIT=0` on the **container** (Agda 2.6.3 + cubical v0.5);
 `check.sh` returns `CHECKSH_EXIT=1` under *"NOT THE PIN"*. Declared pin: Agda
 2.8.0 + cubical v0.9.
+
+### The third face: attempted, not obtained, and here is exactly what it needs
+
+`formal/cubical/NaturalMachine/EveryCommonDivisorOfAConvergentDividesTheDeterminant.agda`
+is what the attempt on **complete** produced, and it is a corollary of the
+first face, not progress on the third.
+
+```agda
+commonDivisorDividesDet  : d divides N k → d divides D k → d divides det k
+commonDivisorDividesAUnit: … → d divides signed k (pos 1)      -- standard seeds
+```
+
+**Why complete does not come from the recurrence.** `Purnata.पूर्णतया-गुरुतमः`
+says enough grant always resolves. At the convergents that reads: the vallī of
+a rational terminates, and the last convergent cross-multiplies back to it —
+`num K · b ≡ a · den K` at the terminal index `K`. Everything in that except
+the cross-multiplication is about how the quotients are **produced** and that
+the production **stops**, which is the kuṭṭaka (`Gati`, `Purnata`,
+`GurutamaSiddha`) and not the two-step recurrence the convergent modules
+study. Anyone continuing should start there, not from those two.
+
+**Not claimed: that the convergents are in lowest terms.** That needs "a
+divisor of ±1 in ℤ is ±1" — a classification of units which is neither proved
+nor imported. The module stops where the algebra stops: the common divisor
+divides a unit. Calling that *coprime* would be asserting the missing step.
+
+So the tag stands at **two of three answered, one attempted and reported
+open**, with the obstruction named rather than left as "future work".
+
+Toolchain: `EXIT=0` on the **container** (Agda 2.6.3 + cubical v0.5);
+`check.sh` → `CHECKSH_EXIT=1` under *"NOT THE PIN"*. Declared pin: Agda 2.8.0
++ cubical v0.9.
