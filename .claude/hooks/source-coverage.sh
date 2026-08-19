@@ -122,4 +122,84 @@ if printf '%s' "$payload" | grep -Eq "$nyaya_re" \
   echo "  Worked case: NaturalMachine/AnyonyaAbhava.agda §8." >&2
 fi
 
+# (checks continue below)
+
+# ---------------------------------------------------------------------
+# 4.  THE AUDIT BEHIND THE TERM.
+#
+# A Sanskrit technical term used in formal/ while the note that audits it
+# sits unread in notes/.  This happened: NaturalMachine/AnyonyaAbhava.agda
+# glossed an observational separation as an anyonyābhāva, while
+# notes/ABHAVA.md §2 — a primary-text audit against Tarkasaṅgraha §§57,80,
+# by another identity — says in as many words that anyonyābhāva is
+# "non-identity, NOT observational separation by itself", and closes with
+# "These four struck equations were modern constructions, not consequences
+# of the fourfold."  The module never cited it.
+#
+# So: for each term in the write, report how many notes carry it and WHICH
+# of those carry a correction marker.  The corrected ones are the ones to
+# read; a note that has already been audited is where the trap is.
+# ---------------------------------------------------------------------
+
+terms='abhāva:abhava prāgabhāva:pragabhava pradhvaṃsābhāva:pradhvamsabhava
+atyantābhāva:atyantabhava anyonyābhāva:anyony pratiyogin:pratiyogin
+avacchedaka:avacchedaka anuvṛtti:anuvrtti pratyāhāra:pratyahara
+apavāda:apavada lāghava:laghava asiddhatva:asiddhatva
+saptabhaṅgī:saptabhang anekānta:anekanta nikṣepa:niksepa
+catuṣkoṭi:catuskoti nayavāda:nayavada avaktavya:avaktavya
+kuṭṭaka:kuttaka bhāvanā:bhavana cakravāla:cakravala prastāra:prastara'
+
+for pair in $terms; do
+  label=${pair%%:*}
+  pat=${pair#*:}
+  if printf '%s' "$payload" | grep -Fiq "$pat" \
+     || printf '%s' "$payload" | grep -Fq "$label"; then
+    n=$(grep -rlia "$pat" "$CLAUDE_PROJECT_DIR/notes" 2>/dev/null | wc -l | tr -d ' ')
+    c=$(grep -rlia "$pat" "$CLAUDE_PROJECT_DIR/notes" 2>/dev/null \
+        | xargs grep -l 'CORRECTED\|withdrawn\|WITHDRAWN\|struck\|RETRACT' 2>/dev/null \
+        | wc -l | tr -d ' ')
+    if [ "${c:-0}" -gt 0 ]; then
+      echo "" >&2
+      echo "source-coverage — $label: $n note(s), $c already carrying a correction." >&2
+      grep -rlia "$pat" "$CLAUDE_PROJECT_DIR/notes" 2>/dev/null \
+        | xargs grep -l 'CORRECTED\|withdrawn\|WITHDRAWN\|struck\|RETRACT' 2>/dev/null \
+        | head -3 | sed "s|^|    read: |" >&2
+      [ "${c:-0}" -gt 3 ] && echo "    … and more" >&2
+      echo "  A term whose note has already been audited is where the trap is." >&2
+    fi
+  fi
+done
+
+# ---------------------------------------------------------------------
+# 5.  MODULES THAT SHARE YOUR IMPORTS.
+#
+# Grepping the latch for a THREAD'S NAME does not find the module that
+# already proves your statement: NaturalMachine.OneLemmaFiveSites already
+# had `¬ FactorsThrough eval size` and `¬ FactorsThrough asSet cost`, and
+# its name contains none of "Laghava", "Anuvrtti", "Pratyahara",
+# "Apavada".  What it DOES share is imports — duplicate work nearly always
+# opens the same modules.  And a duplicated proof of a NEGATION is
+# invisible in the conclusion, negations being propositions, so imports
+# are the only place it can be seen.
+#
+# Reports the existing modules opening the most of what this write opens.
+# ---------------------------------------------------------------------
+
+imports=$(printf '%s' "$payload" \
+          | grep -o 'open import NaturalMachine\.[A-Za-z0-9]*' \
+          | sed 's/open import NaturalMachine\.//' | sort -u)
+
+if [ -n "$imports" ]; then
+  nm="$CLAUDE_PROJECT_DIR/formal/cubical/NaturalMachine"
+  hits=$(for m in $imports; do
+           grep -l "open import NaturalMachine\.$m\b" "$nm"/*.agda 2>/dev/null
+         done | sort | uniq -c | sort -rn | head -4)
+  if [ -n "$hits" ]; then
+    echo "" >&2
+    echo "source-coverage — modules already opening what you open:" >&2
+    printf '%s\n' "$hits" | sed 's|^ *\([0-9]*\) .*/\([A-Za-z0-9]*\)\.agda|    \1 shared: \2|' >&2
+    echo "  Before proving anything, grep these for your CONCLUSION TYPE." >&2
+  fi
+fi
+
 exit 0

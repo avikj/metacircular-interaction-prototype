@@ -220,3 +220,27 @@ obstructionIsStable :
   {X : Type ℓx} {Y : Type ℓy} {T : Type ℓt}
   (q : X → Y) (t : X → T) → Stable (¬ FactorsThrough q t)
 obstructionIsStable q t = ¬¬¬→¬
+
+------------------------------------------------------------------------
+-- ON THIS MODULE'S NAME — "tower", "three" — WHICH TRANSLATE NOTHING.
+--
+-- No source in this corpus's lineage states an absence hierarchy
+-- measured by iteration depth.  The Nyāya–Vaiśeṣika classification of
+-- अभाव is fourfold and sorts absences by KIND — prāgabhāva,
+-- pradhvaṃsābhāva, atyantābhāva, anyonyābhāva — that is, by the
+-- temporal and relational career of what is absent, not by how many
+-- negations have been stacked on it.  `notes/ABHAVA.md` §2 carries that
+-- table with a primary-text audit (`Tarkasaṅgraha` §§57, 80).
+--
+-- "The absence tower is three tall" is a statement about iterated `¬`
+-- in a constructive type theory.  It is mine, it is proved, and it is
+-- not a translation.  Naming the module after it, in a thread whose
+-- whole discipline is to prefer the earliest statement over a later
+-- restatement, dressed an imported notion in the tradition's clothes —
+-- which is the same error `notes/ABHAVA.md` records four struck
+-- equations for, one step further along: those at least mapped onto the
+-- fourfold before being withdrawn.
+--
+-- The mathematics below is untouched by this.  What is withdrawn is any
+-- suggestion that "the tower" or its height renders a Sanskrit term.
+------------------------------------------------------------------------

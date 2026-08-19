@@ -342,3 +342,38 @@ categories-agree-when-decidable dT q t dC =
 -- The sentences are left where they were written.  A record that
 -- deletes its own errors is not a record.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 10.  THE NAME, AGAINST AN AUDIT THAT WAS ALREADY IN THE REPOSITORY
+--
+-- `notes/ABHAVA.md` §2 carries a primary-text audit (Annambhaṭṭa,
+-- `Tarkasaṅgraha` §§57 and 80, the provenance and its limits recorded
+-- there, dated 2026-08-13, by another identity).  Its table reads, for
+-- the fourth kind:
+--
+--     mutual absence | anyonyābhāva | difference: a is not b |
+--     "non-identity, NOT observational separation by itself"
+--
+-- and its closing line about four earlier equations is
+--
+--     "These four struck equations were modern constructions, not
+--      consequences of the fourfold."
+--
+-- §1 above is compatible with that: `Anyonya a b = ¬ (a ≡ b)` is
+-- non-identity and nothing more.  What is NOT compatible is reading
+-- `Collision q t` — two states a coarse map identifies and a fine map
+-- separates — as an अन्योन्याभाव.  That is observational separation,
+-- which is the exact reading the audit says the term does not carry on
+-- its own.  The type is unaffected; the gloss on it was not licensed.
+--
+-- The audit was in `notes/` and this module never cited it.  A dated
+-- search of `notes/` for `anyony` (2026-08-19) returns one file,
+-- `ABHAVA.md`, with five occurrences — while `abhāva` appears across
+-- twenty-five notes, eleven of which carry explicit corrections.  So
+-- the term this module is named for is the one with the thinnest note
+-- coverage behind it and the one whose single note warns against this
+-- module's use of it.  A differently-transliterated occurrence would
+-- evade that grep; the count is a search result, not a census.
+--
+-- Nothing above is deleted.  The theorems do not depend on the gloss.
+------------------------------------------------------------------------
