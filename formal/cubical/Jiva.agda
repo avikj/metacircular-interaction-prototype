@@ -69,6 +69,8 @@ import Narayana
 import SamasaMeru
 -- बहु-समास-मेरुः — यथेच्छ-अंश-गणः (त्रि-मेरु {१,२,३} आदि), जनन-सूत्रम्
 import SamasaMeruN
+-- मात्रा-समास-सेतुः — length(सर्व n) ≡ length(सर्गः {१,२} n) : समता प्रमाणेन, द्वे वाहके
+import MatraSamasa
 -- ब्रह्मगुप्तस्य भावना — वर्ग-प्रकृतेः संयोगः (चक्रवालस्य बीजम्)
 import Brahmagupta
 
