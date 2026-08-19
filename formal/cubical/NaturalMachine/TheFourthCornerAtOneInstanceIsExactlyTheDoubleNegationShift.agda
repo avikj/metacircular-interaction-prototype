@@ -154,3 +154,38 @@ fourthCornerRefutesPointwiseStability Q corner stab =
   where
     d : DNSFailure Q
     d = fourthCornerGivesDNSFailure Q corner
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §"WHAT IS STILL NOT CLAIMED" says existence needs a
+-- model, and the appended note at the earlier module says the
+-- `Enumerated` hypothesis on the INSTANCE set was INERT here, since
+-- `Enumerated Unit` is immediate.
+--
+-- Enumerability of the REMEDY set is a different matter and is NOT
+-- inert.  In `NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   finiteDNSList   `All (¬¬ P) xs → ¬ ¬ All P xs`, by induction — no
+--                   decidability, no choice
+--   finiteDNS       hence `((r) → ¬¬ Q r) → ¬ ¬ ((r) → Q r)` for an
+--                   ENUMERATED remedy set
+--   theFourthCornerNeedsANonEnumerableRemedySet
+--                   so the corner refutes `Enumerated R`
+--
+-- **THE TWO ENUMERABILITY HYPOTHESES ARE NOT SYMMETRIC.**  Enumerating
+-- the INSTANCES buys nothing — one instance suffices for the corner and
+-- one instance is enumerable.  Enumerating the REMEDIES buys
+-- everything: DNS becomes a theorem and the corner cannot exist.  An
+-- earlier module reached for `Enumerated` on the wrong side of the pair;
+-- that is now said, with the right side identified.
+--
+-- WHERE THE CORNER CAN LIVE, as narrow as it has been: a
+-- NON-ENUMERABLE remedy set with a badness that is not stable.
+--
+-- STILL NOT CLAIMED: EXISTENCE.  `Enumerated` carries a CHOSEN list, so
+-- "non-enumerable" means "no such list and covering proof is given",
+-- not a cardinality claim.  `finiteDNSList` yields `¬ ¬ All`, never
+-- `All` — no decidability is used or smuggled in.
+------------------------------------------------------------------------
