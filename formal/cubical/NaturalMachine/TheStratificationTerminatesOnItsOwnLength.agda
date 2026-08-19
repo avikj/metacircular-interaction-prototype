@@ -105,3 +105,38 @@ fuelSuffices (suc n) (x ∷ xs) h =
 theStratificationTerminates :
   (xs : List (List ℕ)) → leftover (lengthL xs) xs ≡ []
 theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §"WHAT IS STILL NOT CLAIMED" reduces this line to three
+-- properties of the output and names (3) ORDER as the one that would
+-- make "stratification" mean what §5.2 wants.  Its FIRST HALF is now
+-- proved, in
+-- `NaturalMachine.EveryRemainderMemberIsStrictlyDominated`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   filterOutOnlyKeepsNonSatisfiers   the complement keeps exactly what
+--                                     fails the predicate
+--   anyToMember                       an `Any` yields its witness WITH
+--                                     the membership `anyToΣ` discards
+--   everyRemainderMemberIsStrictlyDominated
+--                                     every member of `remainder xs` is
+--                                     strictly dominated by a member OF
+--                                     `xs`
+--
+-- THE DOUBLE NEGATION IS THE WHOLE DIFFICULTY AND IT IS DECIDED AWAY.
+-- `IsParetoMaximal v xs` is `¬ Any (StrictlyDominates v) xs`, so failing
+-- it gives `¬ ¬ Any …`.  The dominator is recovered only because
+-- `decAny decStrictlyDominates` makes that `Any` decidable, hence
+-- stable — the fourth cycle on this line to turn on the same decision.
+--
+-- STILL NOT CLAIMED, and the SECOND half of (3) is the real one: the
+-- dominator lies in `xs`, NOT necessarily in `stratum xs`.
+-- Strengthening it needs a RELATIVISED maximality lemma — for any `v`
+-- in `xs` there is a maximal `m` in `xs` with `v ≼ m` — which is
+-- `maximalExists` threaded through an extra parameter and is not
+-- proved.  Until then, what holds is: nothing dropped from a layer was
+-- undominated in the archive it was dropped from.  (1) COVERAGE and
+-- (2) DISJOINTNESS remain untouched.
+------------------------------------------------------------------------
