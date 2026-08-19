@@ -217,3 +217,76 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- adjoined, so that is ℕ and not the min-plus semiring proper, and
 -- convolution does not appear.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above — including the 2026-08-19 append above it, half of which
+-- is what is being corrected.  TWO items, and they are of different
+-- kinds.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- (1)  THE TITLE IS EARNED, AND SAYING SO IS PART OF THE AUDIT.
+--
+-- All six of `module Galois`'s hypotheses are consumed: `≼-refl` in
+-- `counit`; `≼-trans` in `u-antitone` and `saturatedGivesFixed`;
+-- `⊑-refl` in `unit` and `fixedGivesSaturated`; `⊑-trans` in
+-- `d-antitone`; both adjunction directions throughout.  Nothing is
+-- assumed and unused.  This was checked by a sweep whose four previous
+-- findings were all overclaims, and a sweep that only ever finds faults
+-- is not auditing — so the negative result is recorded here rather than
+-- left silent.
+--
+-- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY
+-- sufficient one**, which is what "needs only X" invites a reader to
+-- conclude.  §"WHAT IS STILL NOT CLAIMED" above lists the min-plus
+-- instance, antisymmetry and tractability, and does not mention the
+-- alternative presentation.  At commit 10c5bca1,
+-- `NaturalMachine.TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms`:
+-- `FromUnitCounit` derives `galFwd`/`galBwd` from `u-antitone`,
+-- `d-antitone`, `unit`, `counit` — one line each — and then transports
+-- this entire module by `open Galois … public`, nothing re-proved;
+-- `RoundTrip` shows out-and-back is the identity when the order
+-- relations are proposition-valued.
+--
+-- **AND THE TWO PACKAGES NEED DIFFERENT AXIOMS.**  unit/counit ⟹
+-- adjunction uses ONLY the two transitivities.  Adjunction ⟹
+-- unit/counit is exactly where reflexivity enters, above.  So they are
+-- interderivable over a preorder and NOT interderivable over a bare
+-- transitive relation.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- (2)  A CORRECTION THAT WAS RECORDED AT ONE SITE AND NOT AT THIS ONE.
+--
+-- The append above ends: *"its `↑` takes a meet over all burdens — that
+-- needs `min` over a finite index and its universal property, not
+-- built."*  **Both halves of that are now wrong.**
+--
+--   THE OPERATION.  The min-plus order is ℕ's `≤` REVERSED — the same
+--   append says so three lines earlier — so a meet in it is a JOIN in
+--   ℕ.  The operation is `max`, not `min`.  That correction was made in
+--   `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection`, whose header
+--   states it as its own finding, and it was recorded THERE AND NOWHERE
+--   ELSE.  The wrong word survived here, in a file that had already
+--   written down the reversal that refutes it.
+--
+--   "NOT BUILT".  Built.  The meet with its universal property is in
+--   that module; the two-sided profile cut is at 89c9b7f0 and then,
+--   over an ARBITRARY residual index list with no `∞` and no
+--   restriction, at 8f3acebb.  The intermediate claim that the empty
+--   meet forced `ℕ ⊎ ∞` was mine and was itself wrong; retracted at
+--   819e0a57.
+--
+-- **THIS IS A DIFFERENT FAILURE MODE FROM THE OTHERS THIS SWEEP HAS
+-- FOUND, AND WORTH NAMING.**  Nothing here was ever an overclaim: the
+-- sentence was true when written and was corrected elsewhere later.
+-- What failed is PROPAGATION — a correction recorded at one of the two
+-- sites carrying the same wrong word.  Grepping for the word, not for
+-- the module, is what catches it.
+--
+-- WHAT IS NOT RETRACTED.  Everything else above.  §1–§5 are unaltered
+-- and true; the reduction of Δ 28 §31–32's obligation to two lines
+-- stands; the reversal paragraph in the earlier append is correct and
+-- is what convicts the sentence three lines below it.  CONVOLUTION is
+-- still absent everywhere, so Δ 28's COMPOSITION step remains untouched
+-- by any of this.
+------------------------------------------------------------------------
