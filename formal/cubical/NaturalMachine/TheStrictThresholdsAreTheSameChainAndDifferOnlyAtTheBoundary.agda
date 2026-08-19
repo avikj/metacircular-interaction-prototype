@@ -181,3 +181,42 @@ boundaryIsNotAboveHalf = ¬m<m
 atLeastWithoutAbove :
   (AtLeast 1 1 onTheBoundary) × (¬ Above 1 1 onTheBoundary)
 atLeastWithoutAbove = boundaryMeetsHalf , boundaryIsNotAboveHalf
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "that every threshold has such a population is NOT proved, and
+--    would need a construction of a population realising an arbitrary
+--    p/(suc q), which is a divisibility statement about ℕ and not a
+--    statement about lists."
+--
+-- Proved now, in
+-- `NaturalMachine.EveryThresholdHasABoundaryPopulationOfItsOwnDenominator`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- It is a statement about ℕ, and the guess that divisibility enters it
+-- was wrong: the DENOMINATOR IS THE LENGTH.  For p ≤ suc q the
+-- population `pop p k` — p trues then k falses, where cubical's `≤`
+-- hands over the k with `k + p ≡ suc q` — has length exactly suc q and
+-- count exactly p, so `p · length ≡ suc q · count` on the nose.  No
+-- subtraction, no gcd, no lowest terms.
+--
+-- One thing the earlier statement did not notice and the new module
+-- makes load-bearing: the EMPTY population meets every threshold and
+-- refutes every strict one, since `p · 0 ≡ 0 ≡ suc q · 0`.  So the
+-- sentence quoted above is TRUE VACUOUSLY as stated, and a proof of it
+-- in that form would say nothing about the gap between the families.
+-- The new theorem therefore returns `length bs ≡ suc q` as part of the
+-- claim, which the empty witness fails.  `emptyMeetsEveryThreshold` and
+-- `emptyIsAboveNoThreshold` are checked there too, precisely so the
+-- vacuous reading cannot be mistaken for the theorem.
+--
+-- STILL NOT CLAIMED: MINIMALITY.  The length produced is suc q, and
+-- whether a SHORTER boundary population exists is the divisibility
+-- question after all — for p/(suc q) in lowest terms it does not — and
+-- that is unproved, because lowest terms are not defined anywhere here.
+-- Uniqueness is not claimed either: `pop p k` is one boundary
+-- population, not the only one.
+------------------------------------------------------------------------
