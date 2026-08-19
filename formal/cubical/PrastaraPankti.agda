@@ -24,9 +24,11 @@ module PrastaraPankti where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm)
-open import PingalaPrastara using (sankhya ; meru)
+open import Cubical.Data.List using (length)
+open import PingalaPrastara using (sankhya ; meru ; matra)
 open import PanktiYoga using (द्वि-घात ; पूर्व ; पङ्क्ति-योगः)
 open import Dvipada using (C)
+open import Matramerus using (सर्व ; मात्रामेरु)
 
 ------------------------------------------------------------------------
 -- संख्या-द्विघात — संख्या-प्रत्ययः पिङ्गलस्य 2ⁿ (द्वि-घात) एव (तुल्य-आवृत्ती) ।
@@ -62,3 +64,24 @@ open import Dvipada using (C)
 मेरु-द्विपदः (suc n) (suc k) =
     cong₂ _+_ (मेरु-द्विपदः n (suc k)) (मेरु-द्विपदः n k)
   ∙ +-comm (C n (suc k)) (C n k)
+
+------------------------------------------------------------------------
+-- मात्रा-सर्वः — पिङ्गलस्य मात्रा-प्रत्ययः = विरहाङ्कस्य सर्ग-गणना (फिबोनाची) ।
+-- PingalaPrastara.matra (Metre n ≃ Fin(matra n) : n-मात्रा-छन्दांसि) च
+-- Matramerus.सर्व (length : विरहाङ्क-जननम्) उभौ तुल्य-द्वि-पद-आवृत्ती (M₀=M₁=१) ,
+-- अतः matra n ≡ length(सर्व n) (द्वि-पद-आगमनेन) ।  एवं त्रयः प्रत्ययाः मूलिताः :
+-- संख्या=2ⁿ, मेरु=C(n,k), मात्रा=सर्ग-गणना — पिङ्गलस्य त्रि-गणना कोश-सिद्धा ।
+--
+-- (Piṅgala's mātrā pratyaya — the count of n-mātrā metres, Metre n ≃ Fin(matra n)
+-- — equals Virahāṅka's enumeration length(सर्व n): both the Fibonacci recurrence
+-- with M₀=M₁=1, so matra n ≡ length(सर्व n) by two-step induction from मात्रामेरु.
+-- With saṅkhyā=2ⁿ and meru=C(n,k), all three of Piṅgala's counting pratyayas are
+-- now grounded in the corpus's explicit enumerations.)
+------------------------------------------------------------------------
+
+मात्रा-सर्वः : (n : ℕ) → matra n ≡ length (सर्व n)
+मात्रा-सर्वः zero          = refl
+मात्रा-सर्वः (suc zero)    = refl
+मात्रा-सर्वः (suc (suc n)) =
+    cong₂ _+_ (मात्रा-सर्वः (suc n)) (मात्रा-सर्वः n)
+  ∙ sym (मात्रामेरु n)
