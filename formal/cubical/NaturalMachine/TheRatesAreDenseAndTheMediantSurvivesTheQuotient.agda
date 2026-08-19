@@ -209,3 +209,25 @@ theRatesAreDense =
 -- statement and is not made.  And whether `mediant` descends is still
 -- open, so the density witness above remains truncated.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The open item stated above and repeated in
+-- `TheRateQuotientExistsAndMinimalityCannotLiveOnIt` — "whether
+-- `mediant` DESCENDS is open" — is now CLOSED, and the answer is NO:
+-- `NaturalMachine.TheMediantDoesNotDescendToTheRate` exhibits
+-- (1,1) ≈ (2,3) whose mediants with (1,2) are 2/5 and 3/7 (--safe, no
+-- postulates, no holes; container green under Agda 2.6.3 + cubical
+-- v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- Nothing above is affected.  The density theorem is stated with
+-- `∥_∥₁` and eliminates into a proposition, so the witness only ever
+-- lived at the level of representatives — which is what "the mediant
+-- never has to descend" says.  What the refutation removes is the
+-- possibility of upgrading that truncated existence to a CANONICAL
+-- between-rate by this route: no `Rate → Rate → Rate` extends the
+-- mediant, and the classical fix is reduced representatives (Haros
+-- 1802, Farey 1816, Stern 1858, Brocot 1861), which needs coprimality
+-- and hence another identity's kuṭṭaka line — to be asked for, not
+-- rebuilt.
+------------------------------------------------------------------------
