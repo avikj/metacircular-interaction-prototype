@@ -84,7 +84,10 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import Gati using (फलम् ; गुरुः ; अनुक्तफलम् ; फल ; गति)
 open import Purnata using (पूर्णता)
-open import SaptabhangiNaya using (Vacana ; Profile ; denotes ; joint ; no-single-vacana)
+open import Cubical.Data.Bool using (Bool ; _and_)
+open import SaptabhangiNaya
+  using ( Vacana ; Profile ; denotes ; joint ; no-single-vacana
+        ; krama-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
 
 ------------------------------------------------------------------------
 -- 1.  The two dual shapes.
@@ -147,3 +150,37 @@ open import SaptabhangiNaya using (Vacana ; Profile ; denotes ; joint ; no-singl
 -- the fourth bhaṅga, at the other one
 अवक्तव्य-पदम् : नित्य असमर्थम्
 अवक्तव्य-पदम् = अवक्तव्यम्-नित्यम्
+
+------------------------------------------------------------------------
+-- 5.  THE SHARPER DIFFERENCE: WHERE THE REMEDY LIVES.
+--
+-- The quantifier is the surface of it.  Underneath, the two poles differ
+-- in whether the remedy can stay in its own type.
+--
+--   सामयिक.  The remedy is an element of R, and remedies COMBINE inside R.
+--   `SatyayantraSamyoga.संयोग` proves this for the honest machine: the
+--   composite of two machines is a machine, and its परिपूर्णता field is
+--   constructed at grant  g२ + g१  — the two grants aligned by stability
+--   and then added.  So chaining honest machines keeps the un-said
+--   temporary, and the cost is additive.  You never leave ℕ.
+--
+--   नित्य.  No element of R works — that is exactly `no-single-vacana`,
+--   exhaustively.  What works is an ordered PAIR, `krama-expresses`.  The
+--   remedy is not a bigger element of R; it is an element of R × R.  You
+--   must leave the type.
+--
+-- That is Akalaṅka's kramārpaṇa against sahārpaṇa in its operational form
+-- (Laghīyastraya, c. 720–780): succession is not more simultaneity, and no
+-- amount of one becomes the other.  Both halves below are already theorems
+-- elsewhere in this repository; what is new here is that they are the two
+-- clauses of one statement, which is what makes the pair a SEPARATION and
+-- not two remarks.
+------------------------------------------------------------------------
+
+युग्मेन-साध्यम् :
+    ((v : Vacana) → Σ[ φ ∈ Profile ] (¬ (denotes v φ ≡ joint φ)))
+  × (Σ[ vw ∈ (Vacana × Vacana) ]
+      ((φ : Profile) → joint φ ≡ (denotes (fst vw) φ and denotes (snd vw) φ)))
+युग्मेन-साध्यम् =
+    no-single-vacana
+  , ((asti-from rewriter , nasti-from kernel-refl) , krama-expresses)
