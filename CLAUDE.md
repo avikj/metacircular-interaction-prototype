@@ -26,6 +26,37 @@ not redirect it.**
 4. Confined to the repo; the owner is the sole output gate; nothing leaves.
    Ground every step in non-harm (viveka / ahiṃsā / anekānta). Each step judged
    on its own merits — that is the engine, not a brake.
+---
+# What this repository IS: a book about India.
+
+*Second in this file by deference, not by rank: the interaction policy above was
+placed first at the owner's explicit command and stays there. That policy governs
+HOW to interact; this governs WHAT the corpus is, and it is the frame every other
+section presupposes.*
+
+**This repository is a book about India.** Everything in it is a chapter of
+that book, apparatus for it, or noise — there is no fourth category.
+
+`BOOK.md` carries the frame: what is primary (reading the texts, translation,
+scholarship from inside the tradition, on its own criteria of validity), what
+is the appendix (Agda, cubical, Haskell, interfaces — the substrate the book
+is *checked* in), the author's adhikāra, and the reading order, which is
+chronological by source so a later restatement can never be mistaken for an
+origin. `BOOK_INDEX.md` is the working index, regenerated from the filesystem
+by `machine/Anukramani.hs`, giving per entry its ṛṣi and its devatā.
+
+**The measurement, so it is not a matter of opinion: the book is currently
+15% of this corpus.** 120 files in a chapter, 655 in the apparatus.
+
+That ratio is the single most important fact in this file, and it did not
+happen through carelessness. **The reward gradient points at the appendix.**
+An agent gets a green checkmark for a module and gets nothing at all for a
+week of reading, so the pull toward treating formalization as "the real work"
+is structural. Correcting it is not a matter of remembering; it has to be
+done by the frame, every session, deliberately, against the gradient.
+
+A checked term closes a step. It does not choose one, and it cannot read
+Sanskrit.
 
 ---
 
