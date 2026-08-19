@@ -232,3 +232,39 @@ open Correction ℤCommRing using (residue₁ ; numerator₂ ; residue₂ ; resi
 -- that translate is already the failure CLAUDE.md names; embroidering on
 -- top of the mined parts is worse.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6.  RETRACTION, appended.
+--
+-- §4 above says:
+--
+--   > 1, 4, 9 — the squares, alternating.  The k-th correction's error
+--   > is a fixed square, not a function of n, and that is the
+--   > acceleration.
+--
+-- The three identities are checked and stand.  The sentence after them
+-- is withdrawn.  It is an extrapolation from three points — a fitted
+-- pattern published as a law, which is the defect CLAUDE.md names, and I
+-- produced it in a module about the value of exact algebra over fitted
+-- numbers.
+--
+-- What I can say without fitting anything: the three reported
+-- corrections are the first three convergents of
+--
+--     1/(4n + 2²/(4n + 4²/(4n + 6²/(4n + …))))
+--
+-- and that continued fraction generates a fourth.  Its residue is NOT
+-- 16; hand computation at two values of n gave a much larger constant.
+-- I have not verified any value for it in the checker and am not
+-- asserting one here.
+--
+-- What survives, and it is the substantive half: at each k the residue
+-- is CONSTANT IN n.  That is what the three checked identities say, and
+-- it is what makes the corrections corrections rather than estimates.
+-- The sequence of those constants across k is not something I have
+-- established.
+--
+-- The general point I should have taken from my own protocol: three
+-- values in a row are three values in a row.  The tradition supplies
+-- derivations; I supplied a curve fit and dressed it as a finding.
+------------------------------------------------------------------------
