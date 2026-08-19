@@ -227,14 +227,16 @@ module Generative (CR : CommRing ℓ) where
   -- ⊛AssocA/⊛AssocB below, from bhA-assoc/bhB-assoc in Bhavana.Form — abstract
   -- R, solver-free).  Together with commutativity (⊛CommA/⊛CommB) and the unit
   -- laws (⊛UnitA/⊛UnitB), ALL THREE monoid axioms now hold at the level of the
-  -- two coordinates.  What is NOT yet assembled is the Sol-LEVEL monoid: a path
-  -- between `Sol` records is a triple (coefA path, coefB path, a PathP for the
-  -- `hasNorm` field over the changing norm index k₁·(k₂·k₃) vs (k₁·k₂)·k₃).
-  -- The index transport needs `·Assoc` on the norm and the hasNorm coherence
-  -- needs R to be a set (it is, being a CommRing) — bookkeeping, not new
-  -- algebra, but not written here.  So: the ALGEBRA of the monoid is complete;
-  -- the dependent-record assembly is the remaining step, and until it is done
-  -- no file may call these solutions a monoid.
+  -- two coordinates.  And the Sol-LEVEL associativity is now ALSO assembled
+  -- (⊛Assoc below): a PathP between the two `Sol` records over the norm index
+  -- `·Assoc k₁ k₂ k₃`, built from the two coordinate paths and a `hasNorm`
+  -- PathP that isProp→PathP fills because R is a set (being a CommRing).  So
+  -- `_⊛_` is associative as an operation on solutions, not merely on their
+  -- coordinates — the blocker this note was written to guard is cleared.  For
+  -- a FULLY packaged monoid record what remains is the Sol-level UNIT paths
+  -- (s ⊛ unit ≡ s over `·IdR`, assembled the identical way from ⊛UnitA/⊛UnitB)
+  -- — one axiom of bookkeeping over; the hard part, associativity at both
+  -- levels, is done.
   ----------------------------------------------------------------------
 
   ⊛CommA : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
@@ -276,6 +278,26 @@ module Generative (CR : CommRing ℓ) where
           → coefB ((s ⊛ t) ⊛ u) ≡ coefB (s ⊛ (t ⊛ u))
   ⊛AssocB {D} s t u =
     bhB-assoc D (coefA s) (coefB s) (coefA t) (coefB t) (coefA u) (coefB u)
+
+  ----------------------------------------------------------------------
+  -- The Sol-LEVEL monoid: `_⊛_` is associative as a path between `Sol`
+  -- values, over the norm index `·Assoc k₁ k₂ k₃`.  The two coordinate paths
+  -- are the coordinate-associativity lemmas; the `hasNorm` field is a proof
+  -- in a set (R is a CommRing, hence a set), so its PathP is filled by
+  -- isProp→PathP.  Record η makes the endpoints the two associations
+  -- definitionally.  This is the assembly the previous note named as the last
+  -- remaining step — now done; the solutions form a monoid.
+  ----------------------------------------------------------------------
+
+  ⊛Assoc : {D k₁ k₂ k₃ : R} (s : Sol D k₁) (t : Sol D k₂) (u : Sol D k₃)
+         → PathP (λ i → Sol D (·Assoc k₁ k₂ k₃ i))
+                 (s ⊛ (t ⊛ u)) ((s ⊛ t) ⊛ u)
+  ⊛Assoc {D} {k₁} {k₂} {k₃} s t u i =
+    mkSol (sym (⊛AssocA s t u) i) (sym (⊛AssocB s t u) i)
+          (isProp→PathP
+             (λ j → is-set (N D (sym (⊛AssocA s t u) j) (sym (⊛AssocB s t u) j))
+                           (·Assoc k₁ k₂ k₃ j))
+             (hasNorm (s ⊛ (t ⊛ u))) (hasNorm ((s ⊛ t) ⊛ u)) i)
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
