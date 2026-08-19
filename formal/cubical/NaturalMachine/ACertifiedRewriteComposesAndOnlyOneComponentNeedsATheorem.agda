@@ -159,3 +159,29 @@ module _ {Sys B Prov : Type}
 -- there: any relation between `obs` and `sem`, and the reachable-states
 -- version of the law that a real compiler would use.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The next step named in the block above — "adding the law
+-- to the record is this module's own next step" — is taken in
+-- `NaturalMachine.TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+-- The Σ above is STILL unchanged: the five-component `LCertified` is a
+-- separate definition there, and this record continues to admit
+-- certificates with a lawless migration.
+--
+-- That module also settles the question this one could not ask, since
+-- it had no `obs`: the law is INDEPENDENT of the other four components.
+-- `anUnlawfulFourComponentCertificate` is an element of THIS `Certified`
+-- — `refl` semantics, strictly improving cost, a migration, provenance —
+-- whose migration is `not` and therefore destroys every observation.
+-- So requiring the law removes certificates; it does not merely name
+-- what four components already forced.
+--
+-- Still not done anywhere on this line: any relation between `obs` and
+-- `sem`, the reachable-states version of the law, associativity of
+-- composition (certified rewrites are a semicategory — strict cost
+-- improvement removes the identities), and any relation between the
+-- length of a chain and the length of its provenance.
+------------------------------------------------------------------------
