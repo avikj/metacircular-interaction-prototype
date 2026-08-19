@@ -185,3 +185,24 @@ everyRemainderMemberIsBeatenByAStratumMember :
 everyRemainderMemberIsBeatenByAStratumMember xs v mem
   with everyRemainderMemberIsStrictlyDominated xs v mem
 ... | (u , mu , vu) = theDominatorCanBeChosenMaximal xs v u mu vu
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The block above records the transitive ordering as the
+-- honest remaining gap and says it "does NOT follow from the one-step
+-- fact" and "needs a statement relating maximality in `remainder xs`
+-- to domination in `xs`; that is a real object, not a rearrangement."
+--
+-- **THAT WAS WRONG.**  The argument never needs the later strata's
+-- maximality — only their MEMBERSHIP in the remainder, which
+-- `strataSound` already supplies.
+-- `NaturalMachine.TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma`
+-- proves `theStrataAreOrdered` by composing `strataSound` with
+-- `everyRemainderMemberIsBeatenByAStratumMember` and the same
+-- recursive bookkeeping used for pairwise disjointness — no new lemma
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- With coverage and disjointness, DARWIN §5.2's three output
+-- properties are now all checked.
+------------------------------------------------------------------------
