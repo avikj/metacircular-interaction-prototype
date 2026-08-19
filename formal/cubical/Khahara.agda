@@ -99,3 +99,38 @@ _⊖_ : खहर → खहर → खहर
 -- अतः यत् किञ्चित् ससीमं तेन योजितं खहरं न ससीमं करोति (अनन्तत्वं स्थिरम्) ।
 अनन्तत्व-स्थैर्यम् : (n a : ℤ) → (शून्य-हरः n ⊕ ससीम a) ≡ शून्य-हरः n
 अनन्तत्व-स्थैर्यम् n a = refl
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above, including the CORRECTED block.  Pointer only.
+--
+-- THIS APPEND EXISTS BECAUSE A CHECK CAUGHT ITS ABSENCE.  b397fe48 made
+-- correction-propagation a standing check: a module that corrects X is
+-- unreachable from X unless X names it.  Run against my own pairs, 18 of
+-- 20 carried the back-reference and this file was one of the two that
+-- did not.
+--
+-- The CORRECTED block above separates two defects and warns that using
+-- one third position as a catch-all is the boolean collapse this corpus
+-- fights, one level up.  Their INDEPENDENCE is checked, over four
+-- realised corners, in
+-- `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin):
+--
+--   nonUnique ∧ expressible     all,  constants
+--   unique    ∧ inexpressible   self, constants
+--   nonUnique ∧ inexpressible   all,  onlyFalse
+--   unique    ∧ expressible     self, onlyId
+--
+-- so neither defect implies the other and neither implies the other's
+-- negation.  The types say why: non-uniqueness is a property of the
+-- CONTENT alone, inexpressibility of the content AND the MEDIUM — which
+-- is the asymmetry that makes one word for both lossy.
+--
+-- That module deliberately does NOT bring Satyayantra's अनुक्तम् onto
+-- the same carrier: it is temporal, and d909db0d already says the two
+-- third-positions' remedies live in different types.  And it offers no
+-- verdict on which module should keep the word अवक्तव्यम् — that is this
+-- lane's dispute, untouched.
+------------------------------------------------------------------------

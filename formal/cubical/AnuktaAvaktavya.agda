@@ -382,3 +382,27 @@ open import Saptabhangi
 शून्यहरः-नित्यम् r with discreteℤ r (pos 0)
 ... | yes p = pos 1 , (λ q → शून्य≢एकम् (sym (q ∙ p))) , refl
 ... | no ¬p = pos 0 , (λ q → ¬p (sym q)) , refl
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, second append by the same later reader, at the
+-- end, altering no line above.  Pointer only.
+--
+-- Added because b397fe48's correction-propagation check, run on my own
+-- (corrector, target) pairs, showed this file reachable from
+-- `NaturalMachine.SamayikaAndNityaAreIndependent` (appended earlier) but
+-- NOT from the second module that bears on it.  18 of 20 pairs carried
+-- the back-reference; this was one of the two that did not.
+--
+-- `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent` checks
+-- that the two defects §6 and §8 separate — a UNIQUENESS failure (0÷0)
+-- and an EXPRESSIBILITY failure (avaktavyam) — are independent, over
+-- four realised corners, so neither implies the other and neither
+-- implies the other's negation.  The types locate the asymmetry:
+-- non-uniqueness is a property of the CONTENT alone, inexpressibility of
+-- the content AND the MEDIUM.
+--
+-- It deliberately does NOT put अनुक्तम् on that carrier, for the reason
+-- d909db0d gives: the remedies live in different types, and forcing all
+-- three onto one carrier would be the collapse being diagnosed.  Two are
+-- compared because two are comparable.
+------------------------------------------------------------------------

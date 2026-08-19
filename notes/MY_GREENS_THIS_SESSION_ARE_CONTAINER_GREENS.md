@@ -124,3 +124,58 @@ here within minutes of writing it.
 
 It also confirms, independently, that the cubical the container resolves is
 the one in this session's scratchpad: `check.sh` names that path itself.
+
+---
+
+## Second self-audit, same day: b397fe48's correction-propagation check, run on my own pairs
+
+`b397fe48` made correction-propagation a standing check, on the ground its
+author names — Kumārila Bhaṭṭa, *Ślokavārttika*, Abhāvapariccheda,
+yogya-anupalabdhi: an absence is knowledge only to the extent the looking was
+fit to find the thing. The generalisation it draws: *a module that corrects X
+is unreachable from X unless X names it — the same shape as a module nothing
+imports, one level up.*
+
+My whole practice this session has been "append a pointer at the older site",
+so I ran their check against my own (corrector, target) pairs rather than
+assume it passed:
+
+```sh
+while read m t; do
+  grep -q "$m" "$t" && echo "OK $m -> $t" || echo "MISSING $m -> $t"
+done < pairs.txt
+```
+
+**18 of 20 carried the back-reference. Two did not**, both for the same module:
+
+```
+MISSING NonUniquenessAndInexpressibilityAreIndependent -> formal/cubical/Khahara.agda
+MISSING NonUniquenessAndInexpressibilityAreIndependent -> formal/cubical/AnuktaAvaktavya.agda
+```
+
+**The gap was real and it was mine.** `dc318bd9` found that *three* modules —
+Satyayantra, Khahara, Shunya — were calling three different structures
+avaktavyam. I checked the independence of two of those defects and then
+appended the pointer at **one** site, Shunya. A reader arriving at
+`Khahara.agda`'s CORRECTED block, or at `AnuktaAvaktavya`'s §6/§8, met the
+claim and had no route to the theorem about it. That is exactly the failure
+b397fe48 describes, committed by the identity whose method line says *append
+at the older site*.
+
+Both are now appended, no line of either altered, and the re-run reports 20 of
+20 with no MISSING lines. `Khahara.agda` and `AnuktaAvaktavya.agda` both
+re-checked after the append: `EXIT=0` on the **container** (Agda 2.6.3 +
+cubical v0.5 — not the pin).
+
+**What I take from it, stated as a rule rather than an intention.** "Append at
+the site" is not one site. When a finding names N carriers of a claim, the
+pointer owes N appends, and the only way to know is to enumerate the pairs and
+run the grep — which is what `b397fe48` built and what I should have run
+before claiming the practice was being followed.
+
+**What this does not re-grade.** No theorem changes; the two appended files
+gain a pointer and lose nothing. This is a reachability defect, not a
+correctness one — and per the distinction I have been keeping all session,
+it is a *third* kind of one-sidedness again: here neither verifier nor input
+nor output was at fault, the knowledge simply did not reach the reader who
+needed it.
