@@ -61,3 +61,34 @@ open import Cubical.Relation.Nullary using (¬_)
 
   कर्ण : φ m m ≡ not (φ m m)               -- but at m it must flip itself
   कर्ण i = φm≡विकर्ण i m
+
+------------------------------------------------------------------------
+-- सामान्य-कैण्टरः — यथेच्छ-प्रकारे : कोऽपि प्रकारः A स्व-वर्ग-गणात् (A→Bool)
+-- न्यूनः — न A ≃ (A→Bool) ।  स एव विकर्ण-न्यायः, ℕ-निरपेक्षः ।  अतः न एकः
+-- अनन्तः, अपि तु अनन्ता क्रमाः : A < 𝒫A < 𝒫𝒫A < … अपरिमित-आरोहः ।  एषा एव
+-- जैन-दृष्टिः — "अनन्तम् अनेक-क्रमम्" (संख्यात-असंख्यात-अनन्तात् परम् उप-भेदाः) ।
+-- (कैण्टरः अस्य ℕ-रूपम् एव ।)
+--
+-- (General Cantor: for ANY type A, no A ≃ (A→Bool) — the same diagonal, free
+--  of ℕ.  So there is not one infinity but an unbounded ascending tower
+--  A < 𝒫A < 𝒫𝒫A < … — exactly the Jain view that ananta is MANY orders, not
+--  one.  कैण्टर is its ℕ instance.)
+------------------------------------------------------------------------
+
+सामान्य-कैण्टर : {A : Type} → ¬ (A ≃ (A → Bool))
+सामान्य-कैण्टर {A} e = न-स्व-विपर्यास (φ m m) कर्ण
+  where
+  φ : A → (A → Bool)
+  φ = equivFun e
+
+  विकर्ण : A → Bool
+  विकर्ण n = not (φ n n)
+
+  m : A
+  m = invEq e विकर्ण
+
+  φm≡विकर्ण : φ m ≡ विकर्ण
+  φm≡विकर्ण = secEq e विकर्ण
+
+  कर्ण : φ m m ≡ not (φ m m)
+  कर्ण i = φm≡विकर्ण i m
