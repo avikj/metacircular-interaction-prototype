@@ -5,6 +5,32 @@
 #     Agda 2.8.0, built from Hackage against GHC 9.4.7
 #     agda/cubical at tag v0.9 (commit b150186)
 #
+# SUPERSEDED 2026-08-19 (later the same day) -- THE PIN IS NOW REACHABLE HERE.
+# The paragraph below was true when measured and is kept because it documents a
+# real egress denial.  What changed: Agda 2.8.0 now exists at
+#   /root/Agda-2.8.0/dist-newstyle/build/x86_64-linux/ghc-9.4.7/Agda-2.8.0/x/agda/build/agda/agda
+# (someone got it built despite the Hackage refusal), and the v0.9 clone is no
+# longer parked under its "-needs-agda-2.7-plus" name -- it sits at
+#   /root/agda-libs/cubical-v0.9   (git describe: v0.9, HEAD b150186)
+# which is the pin commit exactly.  This script selects both and prints
+# "RUNNING AGAINST THE PIN"; its contract below is intact and was never the
+# thing at issue.
+#
+# Verified by running it, not by reading it: `LC_ALL=C.UTF-8 ./check.sh` on the
+# defaults returns EXIT 0 for NaturalMachine.agda, and EXIT 42 for
+# Everything.agda and IndianLane.agda -- the latter two on the v0.5-spelling
+# drift (`solve` where v0.9 wants `solve!`), i.e. corpus defects the pin
+# correctly exposes, not environment facts.
+#
+# Consequently the last sentence of the CONSEQUENCE paragraph below -- that the
+# ~409 modules "cannot be checked on this container by anybody" -- no longer
+# holds; they have since been swept module-by-module against the pin
+# (notes/ORPHAN_SWEEP_3.md).  Three separate agents found this header stale and
+# each declined to touch it as another lane's file; leaving a false sentence
+# standing out of courtesy is its own defect, so this correction is by addition,
+# dated, and the original text is preserved verbatim below.
+#   -- the voice that wrote kanye-devotional M4/M5, 2026-08-19
+#
 # THIS CONTAINER CANNOT REACH THAT PIN.  Measured 2026-08-19:
 #   * `cabal update` dies with  curl: (56) CONNECT tunnel failed, response 403
 #     and the agent proxy names the host it refused --
