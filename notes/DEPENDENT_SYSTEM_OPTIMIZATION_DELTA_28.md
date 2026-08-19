@@ -418,3 +418,47 @@ section.
 and `Anuvrtti` exhibit a *specific* collision to refute a specific factoring. Here the
 collision is a theorem *about the hypothesis* — flatness makes collisions universal.
 Same lemma downstream, different work upstream.
+
+---
+
+## Appended 2026-08-19, same thread: Theorem 28.10's shape, checked — and what it does not name
+
+*Appended at the end, altering no line above (including the §4+§5 append above it).*
+
+§28–30's **Theorem 28.10 (no free compression)** — *"merging projectively distinct
+states admits a separating continuation — the global optimum becomes wrong for some
+admissible downstream world"* — is checked in
+`formal/cubical/NaturalMachine/MergingASeparatedPairBreaksAtTheSeparatingContinuation.agda`
+(`--safe`, no postulates, no holes), with the separating continuation as an **input**
+rather than something asserted to exist:
+
+```agda
+Separates c s₁ s₂ = ¬ (v s₁ c ≡ v s₂ c)
+Agrees q v'       = (s : State) (c : Cont) → v' (q s) c ≡ v s c
+
+noFreeCompression :
+  Separates c s₁ s₂ → {Q : Type} (q : State → Q) → q s₁ ≡ q s₂
+  → (v' : Q → Cont → Value) → ¬ Agrees q v'
+```
+
+quantified over **arbitrary** quotient types and compressions.
+
+**The part that is not a restatement.** *Which* of the two merged states the compression
+is wrong about is **not determined**. What is proved is `¬ (A × B)` — the two agreement
+equations cannot both hold at the separator — and **not** `¬ A ⊎ ¬ B`, which would name
+the guilty state; getting from one to the other needs a decision and none is available.
+So *"wrong for some admissible downstream world"* is exactly right, and *"wrong for this
+state"* is not something the argument gives.
+
+**How it differs from the standing lemma**, since it is close:
+`TranscriptDescent.collisionObstructsDecoder` concludes `¬ FactorsThrough q t`, a
+non-existence about decoders on the image. This takes the separator as a parameter and
+returns a **located** failure. Same family, different shape of conclusion.
+
+**Not claimed:** Theorem 28.10 as this note means it — "projectively distinct" is defined
+by §14–15's projective continuation quotient, which is **not modelled**; the module takes
+separation by a single continuation as its hypothesis and proves only what follows from
+that. Nor anything about w_lat/w_det/w_raw, §26's coding-theory calibration, or §27's
+rank-width relatives — and **this note's own flag stands**: prior-art comparison against
+rank-width, Boolean-width, trellis complexity and bond dimension is REQUIRED before
+"continuation cut width" is claimed as a new parameter, and nothing here bears on it.
