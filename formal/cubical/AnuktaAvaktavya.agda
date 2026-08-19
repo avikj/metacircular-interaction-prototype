@@ -86,7 +86,8 @@ open import Gati using (फलम् ; गुरुः ; अनुक्तफ�
 open import Purnata using (पूर्णता)
 open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; false≢true)
 open import Cubical.Data.Nat using (zero)
-open import Cubical.Data.Int using (ℤ ; pos) renaming (_·_ to _·ℤ_)
+open import Cubical.Data.Int using (ℤ ; pos ; discreteℤ) renaming (_·_ to _·ℤ_)
+open import Cubical.Relation.Nullary using (yes ; no)
 open import SaptabhangiNaya
   using ( Vacana ; Profile ; denotes ; joint ; no-single-vacana
         ; krama-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
@@ -350,3 +351,34 @@ open import Saptabhangi
              → joint φ ≡ (denotes (asti-from rewriter) φ
                           and denotes (nasti-from kernel-refl) φ)
 अर्थ-साम्यम् = krama-expresses
+
+------------------------------------------------------------------------
+-- 8.  THE THREE-WAY SEPARATION, COMPLETED.
+--
+-- §1 and §6 asserted three distinct structures wearing one name, and
+-- proved two of the three separations.  A pattern over n instances is a
+-- pattern over n instances until something downstream of it is computed,
+-- so here is the third, and it changes the shape of the claim.
+--
+-- 0÷0 is NOT सामयिक.  No resource resolves it: for EVERY candidate value
+-- there is a competing value satisfying the same defining condition.  In
+-- the vocabulary of §1 that makes it नित्य -- the same pole as avaktavyam.
+--
+-- So the सामयिक/नित्य axis does NOT separate 0÷0 from the fourth bhaṅga,
+-- and my §6 was right for the wrong reason.  What separates them is the
+-- other axis, the one §6 actually exhibited: 0÷0's whole situation is
+-- denotable in a single utterance (`शून्यहरः-सर्वत्र`), and avaktavyam's is
+-- not (`no-single-vacana`).  Two axes, three structures, each pair
+-- separated by at least one:
+--
+--                        सामयिक?    sayable in one utterance?
+--   अनुक्तम् (Satyayantra)   yes             --
+--   0÷0                     no             yes
+--   अवक्तव्यम् (4th bhaṅga)  no             no
+------------------------------------------------------------------------
+
+शून्यहरः-नित्यम् :
+  (r : ℤ) → Σ[ i ∈ ℤ ] ((¬ (i ≡ r)) × ((pos 0) ·ℤ i ≡ pos 0))
+शून्यहरः-नित्यम् r with discreteℤ r (pos 0)
+... | yes p = pos 1 , (λ q → शून्य≢एकम् (sym (q ∙ p))) , refl
+... | no ¬p = pos 0 , (λ q → ¬p (sym q)) , refl
