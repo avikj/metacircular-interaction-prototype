@@ -144,10 +144,12 @@ the kuṭṭaka reaching its astronomical application (CRT) across ℕ and ℤ.
 | `Yugapat` | `प्रक्षेप-b/c` | CRT projection (mod `b·c` ⟹ mod `b`, mod `c`) in ℕ + a worked conjunction; existence recorded as ℤ-bound |
 | `YugapatZ` | `चीन-शेषः`, `एकत्वम्` | CRT existence AND uniqueness over ℤ from a Bézout witness — the bijection `ℤ/bc ≅ ℤ/b × ℤ/c`; retires Yugapat's recorded obstruction |
 
-Open, honestly scoped: the ℕ→ℤ bridge that would feed `Bija`'s kuṭṭaka Bézout
-directly into `YugapatZ.चीन-शेषः` (making CRT constructive end-to-end from the
-pulverizer) — fiddly ℤ-embedding with the recurring `pos 1`-in-solver problem;
-not yet built.
+Now closed: the ℕ→ℤ bridge feeding `Bija`'s kuṭṭaka Bézout into
+`YugapatZ.चीन-शेषः` is built — `KuttakaCRT.सेतुः`/`कुट्टक-चीन` — so CRT is
+constructive end-to-end from the pulverizer (Āryabhaṭa's actual pipeline:
+`pulverize → Bézout → conjunction`). The `pos 1`-in-solver problem was avoided
+by using Int lemmas (`pos·pos`, `pos+`, `-DistR·`, `plusMinus`) instead of the
+ring solver for the unit-bearing steps.
 
 ## Superseded
 

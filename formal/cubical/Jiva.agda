@@ -52,6 +52,8 @@ import Samasesha
 import Yugapat
 -- युगपत्-शेषः (ℤ) — चीन-शेषस्य सत्ता-दिक् : कुट्टक-साक्षिणा युगपत्-समाधानम्
 import YugapatZ
+-- कुट्टक-चीन-शेषः — सेतुः : Bija-कुट्टक-साक्षिं ℤ-वल्लीं परिणम्य CRT-प्रवाहः पूर्णः
+import KuttakaCRT
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus
