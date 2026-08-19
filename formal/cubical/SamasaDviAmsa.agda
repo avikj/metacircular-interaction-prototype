@@ -30,7 +30,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_)
 open import Cubical.Data.Nat.Properties using (+-zero)
 open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤ ; suc-≤-suc)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import SamasaMeruN using (सर्गः ; समास-आवृत्तिः ; अंश-गणना)
+open import SamasaMeruN using (सर्गः ; समास-आवृत्तिः ; अंश-गणना ; रिक्त-अपाकरणम्)
 
 ------------------------------------------------------------------------
 -- द्वि-अंश-आवृत्तिः — सामान्य-द्वि-पद-आवृत्तिः (उभयोः अंशयोः योग्यत्वे) ।
@@ -66,3 +66,26 @@ open import SamasaMeruN using (सर्गः ; समास-आवृत्त
   → length (सर्गः (1 ∷ 2 ∷ []) (suc (suc (suc n))))
   ≡ length (सर्गः (1 ∷ 2 ∷ []) (suc n)) + length (सर्गः (1 ∷ 2 ∷ []) n)
 छिद्र-रूपम् n = द्वि-अंश-आवृत्तिः 1 2 (suc (suc n)) (suc-≤-suc zero-≤) (suc-≤-suc (suc-≤-suc zero-≤))
+
+------------------------------------------------------------------------
+-- एक-योग्य-आवृत्तिः — सीमा-भागः : यत्र लघु-अंशः (L) योग्यः किन्तु गुरु-अंशः (M)
+-- न (L ≤ suc N ≤ ... , M > suc N) , तत्र आवृत्तिः एक-पदा भवति : a(suc N)=a(N−j) ।
+-- गुरु-अंशस्य भागः रिक्तः (रिक्त-अपाकरणम्) , केवलं लघु-अंशः योगदानं करोति ।
+-- (द्वि-पद-आवृत्तेः सीमा-रूपम् : यावत् M न योग्यः, तावत् श्रेढी {L}-मात्रवत् चलति ।)
+--
+-- (The boundary segment where the smaller part L fits but the larger part M
+--  does not (j ≤ N, suc N ≤ k): the recurrence degrades to a single term,
+--  a(suc N) = a(N−j) — the M-part's contribution is empty (रिक्त-अपाकरणम्),
+--  only L contributes.  Below M the {L,M} sequence runs like the {L}-only one;
+--  the two-part recurrence proper begins only once M fits too.)
+------------------------------------------------------------------------
+
+एक-योग्य-आवृत्तिः : (j k N : ℕ) → j ≤ N → suc N ≤ k
+  → length (सर्गः (j ∷ k ∷ []) (suc N))
+  ≡ length (सर्गः (j ∷ k ∷ []) (N ∸ j))
+एक-योग्य-आवृत्तिः j k N j≤N N<k =
+    समास-आवृत्तिः (j ∷ k ∷ []) N
+  ∙ cong₂ _+_ (अंश-गणना (j ∷ k ∷ []) N j j≤N)
+              (cong (_+ 0) (cong length
+                (रिक्त-अपाकरणम् (j ∷ k ∷ []) N (suc N) (suc k) (suc-≤-suc N<k))))
+  ∙ +-zero (length (सर्गः (j ∷ k ∷ []) (N ∸ j)))
