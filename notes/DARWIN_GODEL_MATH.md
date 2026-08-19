@@ -499,3 +499,56 @@ strength.
 pilot in §6–§7 should be run. This note quarantines the design as "not canonical
 architecture" and declines to import DGM's empirical claims; nothing here changes that,
 nothing was run, and **arXiv:2505.22954 was not read by me**.
+
+## Appended 2026-08-19, third thread: §2's seam 3 is a dichotomy, and it is checked
+
+*Appended at the end, altering no line above.*
+
+§2's third seam reads: *"The otherwise unreachable/programmatic `best` branch sorts
+accuracy in ascending order and selects the first nodes, despite its comment saying it
+selects the best score."* Stated that way it is a bug report. Its mathematical content is
+a statement about **when the two selections agree**, and that is the part worth having,
+because it says when the seam is observable at all.
+
+Checked in
+`formal/cubical/NaturalMachine/AscendingFirstIsTheWorstUnlessTheArchiveIsConstant.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and prints that itself):
+
+```agda
+Lower b xs = All (b ≤_) xs        Upper b xs = All (_≤ b) xs
+
+lowerAndUpperForcesConstant  : Lower b xs → Upper b xs → All (_≡ b) xs
+nonConstantMakesTheLowestStrictlyWorse
+  : Lower b xs → Any (λ x → ¬ (b ≡ x)) xs → Σ[ x ] ((b ≤ x) × ¬ (b ≡ x))
+twoScoresAlreadySeparateThem  : Lower 1 [1,2] × Upper 2 [1,2] × ¬ (1 ≡ 2)
+theSeamIsInvisibleExactlyWhereSelectionIsVacuous
+```
+
+**The seam is invisible exactly where the selection is vacuous.** On a constant archive
+ascending-first and best return the same score — and on a constant archive, choosing a
+parent *by score* carries no information. So there is no regime in which the branch is
+both correct and doing work: it agrees with its comment only when the comment describes
+nothing. That is sharper than "the sort is backwards," and it is why the seam should not
+be filed as cosmetic even though §2 correctly notes the branch is otherwise unreachable.
+Two distinct scores in the archive already separate the two selections.
+
+**Grade, and it is the whole caveat: I did not read the code.** §2's header restricts its
+observations to one pinned commit of an external repository, and this repository's egress
+rules mean I did not fetch it — no request to github.com was made. What is checked is the
+**order-theoretic content of §2's sentence**, on the assumption that the sentence
+describes the branch correctly. If §2 has misread the code, nothing above is affected and
+nothing above defends §2: the theorem is about ascending selection versus maximal
+selection and would stand if the branch did not exist.
+
+**No novelty.** That a minimum and a maximum coincide only on a constant list is
+elementary order theory; it is attached here, not discovered.
+
+**Not claimed.** No sorting algorithm appears — the argument is entirely about bounds, so
+nothing depends on how the ascending order is produced or on its stability. The other
+three seams are untouched: the missing perfect-score exclusion, the adjacent string
+literals Python concatenates, and which model reads the logs are not order-theoretic.
+Scores are `ℕ` above; §2's are accuracies, and no claim is made that they are linearly
+ordered without ties or that ties break the same way. "Selects the first node**s**" is
+plural and this treats the *bound*, not the prefix — a prefix statement would need the
+sort.
