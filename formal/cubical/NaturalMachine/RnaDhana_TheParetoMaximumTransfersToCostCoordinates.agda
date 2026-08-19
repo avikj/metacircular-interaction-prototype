@@ -163,3 +163,26 @@ mixedMaximalExists ds cs v vs ab
                , (λ le → notDomZU
                    (flipCapsReflect ds cs z u
                      (boundedAtMember ds cs (v ∷ vs) u ab memU) le)))))
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The item named above — "the stratification is NOT
+-- transferred here" — has its FIRST LAYER done in
+-- `NaturalMachine.RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- The result is stronger than the membership correspondence this
+-- module's block predicted would be needed: under the caps,
+-- `map flip (mixedStratum ds vs) ≡ stratum (map flip vs)` — the two
+-- layers are the SAME LIST, order and multiplicity included.  What
+-- makes that possible despite the flip not being injective is that
+-- both sides are filters of the same list in the same order, so
+-- `filterMapCommutes` moves the map across the filter and
+-- `filterRespectsOn` needs the two predicates to agree only AT
+-- MEMBERS — which is exactly where `AllBounded` gives a cap.
+--
+-- Still open, and now precisely: the REMAINDER half (same argument,
+-- negated predicate), and then the iteration, in which the caps must
+-- still bound the shrinking archive at every step.
+------------------------------------------------------------------------
