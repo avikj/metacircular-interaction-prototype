@@ -112,3 +112,32 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- that is how the method is used, and discards them in the proof, which
 -- is where the sharper statement shows.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by this module's author, at the end, altering no
+-- line above.
+--
+-- §"WHAT IS NOT CLAIMED" says: "Nor a general lower bound: §2 gives
+-- 'at least two' from a fooling PAIR; a fooling set of size k giving
+-- k rectangles needs a distinctness argument over the whole set and is
+-- not done here."
+--
+-- That is now done, in `NaturalMachine.AFoolingSetForcesDistinctRectangles`:
+--
+--   Fooling I r c = (i j) → ¬ (i ≡ j)
+--     → (M (r i) (c j) ≡ false) ⊎ (M (r j) (c i) ≡ false)
+--
+--   foolingSetForcesDistinctRectangles :
+--     Fooling I r c → (assign : I → Rect) → ((i) → Sound (assign i))
+--     → ((i) → Covers (assign i) (r i) (c i))
+--     → (i j) → ¬ (i ≡ j) → ¬ (assign i ≡ assign j)
+--
+-- The generalisation costs exactly one thing: for a SET, which exchanged
+-- corner carries the 0 may differ per pair, so the hypothesis is a `⊎`
+-- and both cases are done.
+--
+-- STILL NOT PROVED, and still not claimed: the numeric form.  Turning
+-- "distinct cells get distinct rectangles" into "at least k rectangles"
+-- is a pigeonhole over a finite index; neither finiteness nor counting
+-- appears in that module.  Injectivity is what is proved.
+------------------------------------------------------------------------
