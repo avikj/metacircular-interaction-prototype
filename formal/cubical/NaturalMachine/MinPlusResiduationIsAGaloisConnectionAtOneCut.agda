@@ -145,3 +145,39 @@ naiveFails (k , e) = snotz (sym (+-comm k 5) ∙ e)
 truncationBreaksTheNaiveOrder :
   (0 ≤ (0 ∸ 5)) × (¬ (5 ≤ (0 ∸ 0)))
 truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says the remaining obstruction
+-- "is not the residuation law; it is the meet", and adds that the meet
+-- "needs `min` over a finite index and its universal property".
+--
+-- The meet is built and the profile cut is done, in
+-- `NaturalMachine.TheMeetIsMaxAndTheProfileCutIsAGaloisConnection`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- AND THE OPERATION NAMED ABOVE IS WRONG.  **The meet is `max`, not
+-- `min`.**  §2 here had to reverse ℕ's order because lower cost is
+-- better; a meet in a reversed order is a JOIN in the original, so `⋀`
+-- over burdens is `max` in ℕ.  Writing "min-plus, so take a min" names
+-- the operation by its role in the semiring rather than by its role in
+-- the order — which is exactly the error §2's reversal was supposed to
+-- have taught, made one level up and two cycles later.
+--
+--   max / max-≤ˡ / max-≤ʳ / max-least   the meet, with its universal
+--                                       property
+--   Profile ks                          profiles as a RECURSIVE FAMILY
+--                                       over the kernel, so a length
+--                                       mismatch is not representable
+--   up ks φ = ⋀ᵢ (kᵢ ∸ φᵢ) ,  dn ks ψ = (kᵢ ∸ ψ)ᵢ
+--   goFwd / goBwd                       both directions
+--   ProfileCut                          `module Galois` instantiated
+--
+-- STILL NOT CLAIMED there: one side is still SCALAR — burdens form a
+-- profile, residuals are one value, which is what makes `up` land in ℕ.
+-- Profiles on BOTH sides need a meet per residual index and are not
+-- built.  No `∞`, so the empty meet is `0` by ℕ's bottom rather than by
+-- choice.  CONVOLUTION is absent, so nothing there speaks to Δ 28's
+-- COMPOSITION step — only to re-saturation.
+------------------------------------------------------------------------
