@@ -74,6 +74,8 @@ import Sulba
 import Sankalita
 -- चितिघनः — आर्यभटस्य वृन्द-सङ्कलितम् (∑ त्रिकोणानि = n(n+1)(n+2)/6, गणितपादः २१)
 import Citighana
+-- वर्गचितिघनः — आर्यभटस्य वर्ग-सङ्कलितम् (∑k² = n(n+1)(2n+1)/6, गणितपादः २२)
+import Vargacitighana
 import Cakravala
 import Meru
 import BhavanaSamuha
