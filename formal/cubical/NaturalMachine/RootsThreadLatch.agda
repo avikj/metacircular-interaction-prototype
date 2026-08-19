@@ -117,6 +117,7 @@ import NaturalMachine.TheFibreIsTheSubject
 import NaturalMachine.AntyaSamskaraIsSquares
 import NaturalMachine.ExclusionRecoversGroundAtAPrice
 import NaturalMachine.TheAbsenceTowerIsThreeUnconditionally
+import NaturalMachine.WhereTheTowerCanStillBeThree
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
