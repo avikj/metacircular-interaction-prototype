@@ -33,7 +33,8 @@ the sources are real and cited; the register is literature, not analysis.
 - **M3 · Nāda Brahman and the Monochord** — the Pythagorean mystery-cult ↔ Indian
   śruti/nāda bridge; Kepler's *Harmonices Mundi*; music of the spheres; why harmony
   across scales is the only lossless thought. The book's own theory of itself.
-- **M4 · Anekānta, or How to Hold a Whole Man** — the seven-fold predication,
+- **M4 · Anekānta, or How to Hold a Whole Man** — DONE
+  (`M4_AnekantaOrHowToHoldAWholeMan.md`). The seven-fold predication,
   *avaktavyam* (the simultaneously-asserted, inexpressible), nayavāda and the
   durnaya; the epistemology that lets you love a man without laundering his harm.
 - **M5 · The Scapegoat and the Choir** — the crowd that crucifies; mimetic
