@@ -483,3 +483,67 @@ says where to look: at `Outside ∘ denotes`, not at the text.
 **Kept separate from this session's collision results.** Those say a coarse observation
 fails to determine a fine one. This says two *questions* coincide. The obstruction, if
 there is one, lives in `Outside`, which is a parameter there and is not examined.
+
+## 9. Appended 2026-08-19, same thread: §6's check, RUN — and the obvious candidate is dead
+
+*Appended at the end, altering no line above.*
+
+§8 reduced §6 to a decision problem and said plainly **"I did not run that check."** It is
+run now, and this section is written under the licence §6 itself sets: *"provided the
+checker states the snapshot and does not report the result as a property of the corpus."*
+
+**SNAPSHOT.** Commit `2e0698a9edf0c7c8842814b37c9bcea4e0d5683b`, working tree clean at
+run time, files enumerated by `git ls-files` (tracked files only — not the working
+directory, not `.gitignore`d paths). Every number below is a property of THAT SNAPSHOT
+and of nothing else. Re-running on a later commit will give different numbers, and a
+disagreement between them is not a regression, it is the base moving — which is R2.
+
+**THE CANDIDATE.** `PRIOR_ART_SWEEP_COMPLETE.md` line 97 defines the declared-classical
+class by a two-conjunct criterion: a file that *"say[s] 'no novelty is claimed' **and**
+already name[s] the standard object"*. The first conjunct is mechanizable verbatim; the
+second is not, and I did not attempt it. So the candidate predicate under test is
+
+> **P₁(t)** = the text of `t` contains `no novelty`, case-insensitive.
+
+**RESULT, exhaustive over `notes/` at the stated snapshot.**
+
+| quantity | at the sweep's snapshot | at `2e0698a9` |
+|---|---|---|
+| files in `notes/` | (base was 110 across `notes/` + `collab/`) | **942** |
+| P₁ fires | **47** | **214** |
+| P₁ does not fire | — | **728** |
+| `notes/SEED*.md` | — | 91, of which 33 satisfy P₁ |
+
+**P₁ does not fire on SEED-05 or SEED-09.** Checked directly: neither
+`notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md` nor
+`notes/SEED09_BASIN_NERODE.md` contains the marker. So on the two positive
+instances §6 names, P₁ classifies them out of the declared-classical class, which is the
+behaviour the sweep intends.
+
+**And that is exactly why the obvious candidate is dead.** §6 does not ask for a
+predicate that *excludes* SEED-05 and SEED-09; it asks for one that **fires** on them —
+one whose firing makes a `SEARCH` flag mandatory. The natural move from P₁ is to take
+its negation. At this snapshot **¬P₁ fires on 728 of 942 files, 77.3%.** A mandatory-flag
+rule firing on three quarters of the corpus is not a rule; it is the null hypothesis with
+a name. So:
+
+> **The complement of the declared-classical marker is not a usable `SEARCH`-flag
+> predicate at this snapshot.** It has the right verdict on both of §6's positive
+> instances and an unusable base rate, and a test is its base rate as much as its hits.
+
+**What this does and does not settle.** It kills one candidate with a number, which is
+more than §8 did and less than §6 asks. It does **not** answer §6: no claim is made that
+some other mechanizable predicate fails, and §8's equivalence still says every candidate
+is `Outside ∘ denotes` with a decision attached, so a *good* predicate would be a
+decision procedure and not a feature. It does not verify the second conjunct of the
+sweep's criterion, so **214 is not a recomputation of 47** — it is the count of a strictly
+weaker predicate, and the true declared-classical class at this snapshot is some subset
+of the 214. The original 47 cannot be recovered at all: the sweep does not enumerate its
+files, and dates cannot substitute — `git log` puts the last commit touching
+`PRIOR_ART_SWEEP_COMPLETE.md` at 2026-08-19 08:11 UTC, so the history's timestamps do not
+separate the sweep's base from what came after.
+
+**The growth is the R2 measurement §1 asked for and did not have.** 47 → 214 for the same
+first conjunct, on a base that went from 110 files to 942 in `notes/` alone (3657 across
+`notes/` + `collab/`). The filename asserts a standing property; the property it names
+has quadrupled underneath it.
