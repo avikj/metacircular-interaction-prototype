@@ -374,3 +374,47 @@ semantics, projective behavioral quotienting, Isbell-nucleus interfaces,
 proof-relevant witness preservation, architecture curvature, self-modifying
 certified dependency compilation, and the Prime-Pair / Knowledge Process
 applications.
+
+---
+
+## Appended 2026-08-19, another thread: what §4 and §5 give when put together
+
+*Appended at the end, altering no line above.*
+
+§4 (Theorem 28.2, extensional flatness) and §5 (*"semantic flatness does not imply
+computational flatness"*) pair into one exact statement, checked in
+`formal/cubical/NaturalMachine/UnderExtensionalFlatnessOneCostDifferenceSuffices.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+Flat = (o o' : Order) → result o ≡ result o'
+
+oneCostDifferenceSuffices :
+  Flat → (o o' : Order) → ¬ (cost o ≡ cost o') → ¬ FactorsThrough result cost
+```
+
+**Why this is sharper than the standing non-factoring lemma.**
+`TranscriptDescent.collisionObstructsDecoder` normally needs a *hunted* collision — two
+objects the observation identifies and the transcript separates. Flatness supplies the
+first half **at every pair, for free**. So a single observed cost difference, anywhere,
+refutes the existence of any decoder from result to cost.
+
+**The operative reading for order selection:** if the result is flat, correctness
+constrains the choice of order *not at all*, and every scrap of information about which
+order to pick lives in the cost model. That is §5's sentence approached from the other
+side — the semantics has, by §4, nothing left to say.
+
+**The limit, so §2 is not read as more than it is.** Flatness alone refutes nothing: if
+the cost is *also* constant the decoder exists (the constant function), and the
+hypothesis `¬ (cost o ≡ cost o')` is unsatisfiable. §2 converts any observed cost
+difference into an obstruction; it supplies no obstruction on its own.
+
+**Not claimed:** Theorem 28.2 itself — flatness is a *hypothesis* named `Flat`, and
+nothing there proves it for elimination orders or anything else. Nor anything about
+PeakScope, PeakEntries, fill-in, treewidth, the tropical Schur complement, or any other
+section.
+
+**Kept apart** from two earlier modules of the same family: `AskingIsNotAPropertyOfTheFunction`
+and `Anuvrtti` exhibit a *specific* collision to refute a specific factoring. Here the
+collision is a theorem *about the hypothesis* — flatness makes collisions universal.
+Same lemma downstream, different work upstream.
