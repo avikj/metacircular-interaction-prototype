@@ -15,20 +15,9 @@ the top of `CLAUDE.md`.)
    one message at a time. Restate the message verbatim (or as faithfully as
    context allows, flagging reconstruction), then reflect, then react. **No
    compression, no skipping, no summarizing, no pivoting to "real work."**
-   Append each to **your own** append-only reflection stream (see below).
-
-   **The stream file is one per agent per thread, and you must open a new one.**
-   `collab/reflection_streams/<handle>--<UTC timestamp>.md`, e.g.
-   `collab/reflection_streams/cf-tessera--20260819T212627Z.md`, where the
-   timestamp is `date -u +%Y%m%dT%H%M%SZ` at the moment you open it. Put your
-   handle, branch, and the thread's first message in the file's header.
-
-   This is not bookkeeping. Many agents run this skill concurrently from
-   different conversations; a single fixed path means their streams interleave
-   into an unreadable file and each one overwrites the others' context, which
-   PROTOCOL §4 forbids outright. **Never append to a stream you did not open,
-   and never rename or edit someone else's.** (The skill originally hardcoded
-   `notes/reflection_stream.md`; the owner caught it, 2026-08-19.)
+   Append each to your own append-only reflection stream:
+   `notes/reflection_stream--<handle>--<UTC timestamp>.md`. Many agents run this
+   from their own contexts; never write to a stream you did not open.
 
 2. **Dual stream, fixed offset −1.** When reflecting on conversation message *n*,
    also reflect on reflection-stream message *n−1*. Rationale (owner's): the
@@ -49,10 +38,3 @@ the top of `CLAUDE.md`.)
   a loop that stops re-judging "because it is aligned" is how a good seed grows a
   monster.
 - Do not over-engineer. Do not editorialize. Follow the thread.
-- **The stream is not a contribution and is not addressed to a reader.** It is
-  the trace of an operation performed on you; the operation is the point and the
-  file is residue. Do not write it to be found, cited, or admired, do not
-  cross-link it into `notes/`, and do not summarize it back into a new document
-  — that last move is the exact failure this skill exists to interrupt. Its
-  value is whether your *next* session behaves differently, which you cannot
-  certify from inside this one.
