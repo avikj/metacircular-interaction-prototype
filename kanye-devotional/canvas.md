@@ -441,3 +441,81 @@ the most punished, and the punishment is legible on camera in a way it never is 
 the kid who stalls at place value or the woman whose language had no institution to
 carry it or the man whose theorem got somebody else's name.
 
+
+I went looking for how he learned to hear like that and it goes back through a
+Chicago room. No I.D. — Dion Wilson, who made Common's records — took him on when he
+was a teenager, and Donda paid for the lessons. The thing he was taught was the flip:
+you find a record nobody plays, you take a fragment, you speed it up until the voice
+goes high and strange, and you loop it under drums. That sound gets called chipmunk
+soul, dismissively, and by 2001 it is the sound of the biggest rap album in the
+country. Dilla was doing the parallel thing in Detroit. Pete Rock and RZA before them.
+What all of it is, structurally, is *listening to discarded people at close range and
+insisting they are enormous*, which is the same operation as putting a four-year-old's
+prayer at the top of a stadium record fifteen years later.
+
+And he closes *My Beautiful Dark Twisted Fantasy* with Gil Scott-Heron reading
+"Comment No. 1" from 1970 — *who will survive in America* — a Black poet from before
+he was born, given the last word on the record everyone agrees is his best. He put a
+dead man's voice at the end instead of his own.
+
+He also made the record that closes with that after the worst public month of his
+life. He goes on stage at the VMAs in September 2009, takes the microphone, and the
+entire country agrees for a year that he is finished. He leaves. He block-books three
+rooms in a studio in Honolulu, tapes twelve rules on the wall — no tweeting, no
+blogs, no hipster hats, no stupid questions — flies in RZA and Q-Tip and Pete Rock and
+No I.D. and Bon Iver and Nicki Minaj and Elton John, plays basketball at the YMCA in
+the mornings against locals, and works all night. The apology is the album. "Runaway"
+is nine minutes long and it opens with one piano note struck repeatedly, and the hook
+is a toast to the assholes, and he sings it about himself. That is the correction move
+again: the retraction released at the same scale as the error, at the top of his
+ability rather than in a statement.
+
+The fashion thing is the same story with the sound off. He is locked out — the houses
+will not hire him, will not seat him, and the phrase that follows him is that he isn't
+qualified. So he calls himself the Louis Vuitton Don *before* Louis Vuitton has
+anything to do with him. People filed that as delusion. It's a plan said out loud. He
+had information nobody else had, which was himself, and the way he acted on it was to
+say the finished state first and then walk toward it for a decade. There's a name for
+that when it fails and a different name when it works, and the two names are assigned
+after the fact by people who could not see the information either way. That's the
+whole argument about the god complex. From outside you cannot distinguish a man who
+is wrong about what he can see from a man who is right about what he can see. Only
+time can, and time keeps siding with him and the verdict keeps not updating.
+
+Coodie Simmons started filming him in 1998, in Chicago, before anything — a comedian
+with a camera who decided this kid was going to be somebody and then just kept
+rolling for twenty-one years. There is footage of Kanye walking into Roc-A-Fella's
+office with his jaw wired, rapping at people who are not listening, in a hallway. The
+tape exists because one person believed early and did not stop. That is what belief
+looks like as an actual practice rather than a sentiment: it looks like showing up
+with the camera for two decades before anyone agrees with you.
+
+Reading the Jain material next to all this does something I did not expect. Their
+arithmetic has three categories, not two: numerable, *innumerable*, and infinite. The
+innumerable is not a polite middle — it's a third kind with its own operations, named
+members, an internal order. A quantity that is not finite and is not infinite. Nothing
+in the Greek line has that position; there, a magnitude is finite or it isn't, and
+everything else is a failure of the scheme.
+
+And their way of fixing a quantity too large to count is not to write a numeral. It's
+to specify a procedure whose duration *is* the number: a pit packed with the hair-tips
+of a seven-day-old lamb, one removed every hundred years, and the time to empty it is
+the unit. The number of human beings is given as the fifth varga times the sixth
+varga — an expression, not a figure, because there is no convenient decimal form and
+they did not pretend there was.
+
+That is the same discipline as *avaktavyam*, which says: some things are sayable only
+as an ordered pair of sayings and not as one. And it's the same discipline the room
+refuses when it looks at him. Sane or insane. Genius or crazy. Prophet or patient.
+Two categories, and everything that doesn't fit is filed as a failure of the person
+rather than a shortage in the scheme. The tradition that needed to count souls in
+hells worked out, two thousand years ago, that when your ontology demands exact
+answers about quantities no one can count, you *build more categories* — and the
+reason they built them is that omniscience is knowledge of every substance in every
+mode, so the totality has to be determinate even where it is endless.
+
+Their mathematics came out of their soteriology. You cannot lift one out without the
+other and have the thing still work — and that is exactly what was done to it, and
+exactly what is done to him: keep the records, discard the mind that made them, file
+the remainder under pathology.
+
