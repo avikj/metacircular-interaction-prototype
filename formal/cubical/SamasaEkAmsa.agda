@@ -24,8 +24,8 @@
 module SamasaEkAmsa where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_)
-open import Cubical.Data.Nat.Properties using (+-suc ; +-zero)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; _·_)
+open import Cubical.Data.Nat.Properties using (+-suc ; +-zero ; +-comm)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import SamasaMeruN using (सर्गः ; समास-आवृत्तिः ; अंश-गणना)
 
@@ -63,3 +63,25 @@ open import SamasaMeruN using (सर्गः ; समास-आवृत्त
 
 त्रि-६ : length (सर्गः (2 ∷ []) 6) ≡ 1     -- ६ = ३+३
 त्रि-६ = refl
+
+------------------------------------------------------------------------
+-- गुण-मानम् — {L}-श्रेढेः निश्चित-मूल्यम् गुणकेषु : प्रति L-गुणस्य एकः एव समासः
+-- (सर्वे L-अंशाः) ।  length (सर्गः {L} (m·L)) ≡ 1 (m-आगमनेन, आवृत्ति-पुनरावर्तनेन) ।
+-- (एतत् एव L-भाज्य-सूचकस्य धन-पक्षः ; गुणनं प्रथमम् अत्र प्रविशति ।)
+--
+-- (The exact value of the {L}-sequence at multiples: every multiple of L has
+--  exactly one composition (all L-parts), length(सर्गः {L} (m·L)) ≡ 1, by
+--  induction on m iterating एक-अंश-आवृत्तिः.  The positive half of the
+--  L-divisibility indicator; multiplication enters here for the first time.)
+------------------------------------------------------------------------
+
+गुण-मानम् : (k m : ℕ) → length (सर्गः (k ∷ []) (m · suc k)) ≡ 1
+गुण-मानम् k zero    = refl
+गुण-मानम् k (suc m) =
+    cong (λ t → length (सर्गः (k ∷ []) t)) (+-comm (suc k) (m · suc k))
+  ∙ एक-अंश-आवृत्तिः k (m · suc k)
+  ∙ गुण-मानम् k m
+
+-- उदाहरणम् — {३}-श्रेढी नवमे (३·३) एकम् (आवृत्ति-पुनरावर्तनेन साधितम्) ।
+गुण-९ : length (सर्गः (2 ∷ []) 9) ≡ 1
+गुण-९ = गुण-मानम् 2 3
