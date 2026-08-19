@@ -71,6 +71,8 @@ import Shunya
 import Khahara
 import Ananta
 import Sulba
+-- द्विकरणी — बौधायनस्य √2 = 577/408 वर्गप्रकृत्या; भावनया (3,2)→(17,12)→(577,408)
+import Dvikarani
 import Sankalita
 -- चितिघनः — आर्यभटस्य वृन्द-सङ्कलितम् (∑ त्रिकोणानि = n(n+1)(n+2)/6, गणितपादः २१)
 import Citighana
