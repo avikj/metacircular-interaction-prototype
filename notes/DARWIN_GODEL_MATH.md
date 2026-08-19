@@ -461,3 +461,41 @@ on the 200-task SWE-bench Verified subset; 14.2 → 30.7 on Polyglot) and explic
 to import as evidence about mathematical discovery. Nothing above is evidence about them,
 nothing was run, and **arXiv:2505.22954 was not read by me** — the formula is carried from
 §1 of this note.
+
+---
+
+## Appended 2026-08-19, same thread: §7's last kill criterion is not a threshold, and here is why
+
+*Appended at the end, altering no line above (including the §1 append above it).*
+
+§7's criteria are thresholds on rates — 25% of compute, 80% of children, half the
+development gain, 10% relative score — with one exception:
+
+> *"any artifact labeled kernel-checked or independently replayed fails a clean replay.
+> One such authority-label error is a boundary failure, not tolerable benchmark noise."*
+
+That one is not a stricter threshold. It is **not a threshold at all**, and the reason is
+checked in
+`formal/cubical/NaturalMachine/OneCounterexampleRefutesALabelButNotAnExistential.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+LabelSound = (a : Artifact) → Labeled a → Replays a
+oneFailureRefutesTheLabel : (a) → Labeled a → ¬ Replays a → ¬ LabelSound
+bothAtOnce : (¬ LabelSound …) × (SomethingReplays …)
+```
+
+A label asserts a **Π**, and a Π has no tolerance: one counterexample is the entire
+refutation. That is exactly "a boundary failure, not tolerable benchmark noise".
+
+**The honest weakness of the contrast, stated rather than glossed.** The second half uses
+an **existential**, because it needs no counting. A genuine *rate* claim ("more than
+half", "at most 25%") needs a measure and a count, and neither is modelled. So the module
+does **not** establish the comparison §7's list invites — only that at least one other
+claim-shape survives what kills a label. That is the direction of the point, not its full
+strength.
+
+**Not claimed:** anything about DGM, its archive, its benchmark numbers, or whether the
+pilot in §6–§7 should be run. This note quarantines the design as "not canonical
+architecture" and declines to import DGM's empirical claims; nothing here changes that,
+nothing was run, and **arXiv:2505.22954 was not read by me**.
