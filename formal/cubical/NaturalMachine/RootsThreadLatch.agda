@@ -138,6 +138,7 @@ import NaturalMachine.AProvabilityDeterminedImplicationForbidsIndependence
 import NaturalMachine.NegationCompletenessForbidsIndependence
 import NaturalMachine.ASmallTheoryWithAnIndependentSentence
 import NaturalMachine.ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
+import NaturalMachine.TheRefutingModelAlreadyGivesTheFirstConjunct
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
