@@ -26,7 +26,8 @@ module MatraVarnaGuru where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-suc ; +-assoc)
+open import Cubical.Data.Nat.Properties using (+-suc ; +-assoc ; +-comm)
+open import Cubical.Data.Nat.Order using (_≤_)
 open import Cubical.Data.List using (_∷_ ; [])
 open import PingalaPrastara
   using (Syllable ; laghu ; guru ; Pattern ; matraOf ; varna ; guruOf)
@@ -99,3 +100,33 @@ open import PingalaPrastara
               ≡ लघु-सङ्ख्या (guru ∷ laghu ∷ guru ∷ [])
                 + (guruOf (guru ∷ laghu ∷ guru ∷ []) + guruOf (guru ∷ laghu ∷ guru ∷ []))
 विभाग-उदाहरणम् = मात्रा-विभागः (guru ∷ laghu ∷ guru ∷ [])
+
+------------------------------------------------------------------------
+-- मेरु-अवधिः — पिङ्गलस्य मेरु-पङ्क्तेः विस्तारः, रूप-स्तरे : n-अक्षरे गुरु-सङ्ख्या
+-- ० तः n पर्यन्तम् (अतः मेरु C(n,k) केवलं k≤n इति सार्थकः) ; मात्रा च n तः 2n ।
+-- साक्षी विभागात् एव : लघु-सङ्ख्या = गुरु-अवधेः अन्तरम् (witness) ।
+--
+-- (The support of Piṅgala's meru row, at the Pattern level: in an n-syllable
+--  metre the guru-count runs 0..n (so C(n,k) is meaningful only for k≤n), and
+--  the mātrā runs n..2n.  The witnessing difference is read straight off the
+--  partition — the laghu-count IS the gap for guruOf ≤ varna.  This is the
+--  Pattern-level companion to MeruSammiti's endpoint symmetry C(n,0)=C(n,n)=1.)
+------------------------------------------------------------------------
+
+गुरु-अवधिः : (p : Pattern) → guruOf p ≤ varna p
+गुरु-अवधिः p = लघु-सङ्ख्या p , वर्ण-विभागः p
+
+लघु-अवधिः : (p : Pattern) → लघु-सङ्ख्या p ≤ varna p
+लघु-अवधिः p = guruOf p , (+-comm (guruOf p) (लघु-सङ्ख्या p) ∙ वर्ण-विभागः p)
+
+मात्रा-अधः : (p : Pattern) → varna p ≤ matraOf p
+मात्रा-अधः p = guruOf p , (+-comm (guruOf p) (varna p) ∙ sym (मात्रा-वर्ण-गुरु p))
+
+मात्रा-ऊर्ध्वम् : (p : Pattern) → matraOf p ≤ varna p + varna p
+मात्रा-ऊर्ध्वम् p =
+    लघु-सङ्ख्या p
+  , ( cong (लघु-सङ्ख्या p +_) (मात्रा-वर्ण-गुरु p)
+    ∙ +-assoc (लघु-सङ्ख्या p) (varna p) (guruOf p)
+    ∙ cong (_+ guruOf p) (+-comm (लघु-सङ्ख्या p) (varna p))
+    ∙ sym (+-assoc (varna p) (लघु-सङ्ख्या p) (guruOf p))
+    ∙ cong (varna p +_) (वर्ण-विभागः p) )
