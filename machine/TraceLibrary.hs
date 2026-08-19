@@ -327,3 +327,35 @@ selfTest = do
                  && bodied == length recs
         putStrLn ("  all records usable: " ++ show ok)
         pure ok
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- `sharedPreamble = foldr1 lcp` is not a conservative guess, and the
+-- alternative it replaced does not exist as an object.  Checked in
+-- `formal/cubical/NaturalMachine/TheSharedPreambleIsACommonPrefixNotACommonSet.agda`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin):
+--
+--   lcpPrefixLeft / lcpPrefixRight / lcpGreatest
+--       the longest common prefix IS the GREATEST common prefix -- a
+--       meet, not a heuristic.
+--
+--   commonPrefixIsEmpty / neitherOrderingServesBoth
+--       two records carrying exactly the same declarations in opposite
+--       orders share NO prefix, and neither ordering of the shared pair
+--       is a prefix of both.  So "take the declarations both records
+--       share" is not a preamble at all: a preamble is a SEQUENCE whose
+--       later lemmas may cite earlier ones, and a set must be ordered
+--       before it can be one.
+--
+-- Which is why the selfTest's "records disagree on the helper preamble:
+-- 16 of 17" was a symptom of a notion that does not exist, not merely of
+-- an optimistic assumption -- and why lcp is forced rather than chosen.
+--
+-- The declaration names in that module (addZero, addSuc) are this file's
+-- own.  NOT restated there: the 16-of-17 figure, which is a count over
+-- machine/replay.traces and belongs to this module.  NOT claimed there:
+-- anything about how MUCH lcp finds in practice -- only about order.
+-- ---------------------------------------------------------------------
