@@ -60,3 +60,23 @@ length-++ (x ∷ xs) ys = cong suc (length-++ xs ys)
 
 एक-९ : length (सर्गः (0 ∷ []) 9) ≡ 1
 एक-९ = refl
+
+------------------------------------------------------------------------
+-- शून्य-अंश-गणः — रिक्तः अंश-गणः {} : कुलस्य शून्यम् ।  न कश्चित् अंशः, अतः
+-- केवलं शून्य-मानस्य रिक्तः समासः जायते ; धन-मानस्य किमपि न ।  अतः
+--     length (सर्गः {} 0) ≡ 1 ,  length (सर्गः {} (n+1)) ≡ 0 ।
+-- ({१}-गणः ध्रुव-श्रेढी, {}-गणः शून्य-सूचकः — कुलस्य द्वौ अन्तौ ।  जनकः एतत्
+-- साक्षात् गणयति, आगमनं विना ।)
+--
+-- (The empty part-set {}: the zero of the family.  With no parts, only the
+--  empty composition of 0 arises, nothing of any positive value — so
+--  length(सर्गः {} 0) ≡ 1 and length(सर्गः {} (n+1)) ≡ 0.  Where {1} is the
+--  constant line, {} is the 0-indicator: the two degenerate ends.  The
+--  generator decides both outright, no induction.)
+------------------------------------------------------------------------
+
+शून्य-अंश-० : length (सर्गः [] 0) ≡ 1
+शून्य-अंश-० = refl
+
+शून्य-अंश-सुक् : (n : ℕ) → length (सर्गः [] (suc n)) ≡ 0
+शून्य-अंश-सुक् n = refl
