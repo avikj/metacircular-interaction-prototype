@@ -113,6 +113,8 @@ module Astadhyayi
   , parseInput
   , derive
   , deriveTrace
+  , asiddhavatPass
+  , deriveAsiddhavat
   , asiddhaAudit
     -- honesty
   , coverage
@@ -834,6 +836,78 @@ deriveTrace start = phaseB (phaseA 0 start [])
                           (Step (num s) (text s) (rNote r) [] "tripādī: in order, 8.2.1"
                              (render xs) (render ys) : acc')
 
+
+------------------------------------------------------------------------
+-- 7a.  ASIDDHAVAT -- the OTHER device, 6.4.22, added 2026-08-19.
+--
+-- Panini spends a sutra on each of two regimes and they are not variants
+-- of one another.  This engine had only the first:
+--
+--   8.2.1  purvatrasiddham       any SUBSEQUENT rule is asiddha with
+--          (Astadhyayi 8.2.1)    respect to any rule that PRECEDES it, so
+--                                the tripadi applies strictly in the order
+--                                enumerated.  One-way, backwards blindness.
+--                                `deriveTrace`'s phaseB, above.
+--
+--   6.4.22 asiddhavad atrabhat   the change a stem undergoes by any rule
+--          (heads 6.4.22-6.4.129) of that section counts as NOT HAVING
+--                                TAKEN EFFECT when applying any OTHER rule
+--                                of the same section.  MUTUAL invisibility;
+--                                the rules apply AS IF SIMULTANEOUSLY.
+--
+-- The corpus already carries the distinction under its Jain name --
+-- `formal/cubical/Saptabhangi.agda` proves krama (successive) and saha
+-- (simultaneous) arpana reach DIFFERENT positions, so simultaneity is not
+-- sequential both-ness -- and `formal/cubical/Asiddhatva.agda` proves the
+-- ordered regime buys termination.  This is the simultaneous regime, so
+-- the engine can exhibit the difference instead of the corpus asserting it.
+--
+-- WHAT IS AND IS NOT CLAIMED.  The rules run below are the tripadi's own,
+-- which belong to the ORDERED regime; running them simultaneously is a
+-- COUNTERFACTUAL, not a claim about Sanskrit.  Its purpose is to show that
+-- the regime itself changes the output -- that the choice of device is
+-- load-bearing rather than presentational.  No sutra of 6.4 is encoded
+-- here; the schematic treatment is the same choice
+-- formal/cubical/NaturalMachine/AsiddhatvaBreaksFactoring.agda makes and
+-- says it makes ("three letters and one substitution... deliberate").
+
+-- One asiddhavat pass: every rule of the block is offered the SAME input,
+-- so none of them sees any other's effect.  Non-overlapping rewrites are
+-- then applied together; where two rewrites overlap, the block cannot
+-- perform both at once and 1.4.2 decides, exactly as it does elsewhere.
+asiddhavatPass :: [Sutra] -> [Item] -> ([Step], [Item])
+asiddhavatPass block xs =
+  let offers = [ (s, r) | s <- block, r <- fires s xs ]
+      chosen = pick (sortOn (rPos . snd) offers)
+      -- apply right-to-left so earlier positions keep their indices
+      ys = foldl applyRw xs (reverse (sortOn rPos (map snd chosen)))
+      steps = [ Step (num s) (text s) (rNote r) [] "asiddhavat: simultaneous, 6.4.22"
+                     (render xs) (render ys)
+              | (s, r) <- chosen ]
+  in (steps, ys)
+  where
+    pick [] = []
+    pick ((s, r) : rest) =
+      let clash = [ o | o <- rest, overlaps r (snd o) ]
+          winner = foldl (\a b -> if num (fst b) > num (fst a) then b else a) (s, r) clash
+      in winner : pick [ o | o <- rest, not (overlaps (snd winner) (snd o)) ]
+
+-- The same rules under both regimes.  If the two agree everywhere the
+-- device is presentational; `selfTest` checks that they do not.
+deriveAsiddhavat :: String -> String
+deriveAsiddhavat = render . snd . asiddhavatPass sectionB . snd
+                 . deriveTrace' . parseInput
+  where
+    -- section A only, so the comparison isolates the tripadi regime
+    deriveTrace' xs0 = go (0 :: Int) xs0
+      where
+        go k xs | k > 64 = ([] :: [Step], xs)
+        go k xs = case stepA xs of
+                    Nothing -> ([], xs)
+                    Just (w, _, _) ->
+                      let ys = applyRw xs w
+                      in if ys == xs then ([], xs) else go (k + 1) ys
+
 derive :: String -> String
 derive = render . snd . deriveTrace . parseInput
 
@@ -890,6 +964,7 @@ selfTest = concat
   , conflictTests
   , derivationTests
   , asiddhaTests
+  , regimeTests
   , sutraTableTests
   ]
   where
@@ -1048,6 +1123,30 @@ selfTest = concat
       , chk "tat + ca"         (derive "tat + ca")         "tacca"
       , chk "tat + jalam"      (derive "tat + jalam")      "tajjalam"
       , chk "vāc (in pause)"   (derive "vāc")              "vāk"
+      ]
+
+    -- 8.6a  THE TWO REGIMES ARE NOT THE SAME DEVICE, and the ordered one
+    -- is what produces attested Sanskrit.  Run the tripadi under 6.4.22's
+    -- simultaneous regime instead of 8.2.1's ordered one and `tat + jalam`
+    -- comes out `tadjalam`, which Sanskrit does not have; the ordered
+    -- regime gives the attested `tajjalam`.  Same rules, same 1.4.2, and
+    -- the choice of regime decides the form -- so purvatrasiddham is
+    -- load-bearing rather than presentational, and it is the ORDERED one.
+    --
+    -- The mechanism, from the offers against the unmodified form: 8.2.39
+    -- (t to d at pada-end), 8.4.40 (t to c before j) and 8.4.53 (t to d
+    -- before jhaS' j) ALL fire at the same position, because none of them
+    -- sees the others.  1.4.2 takes the latest, 8.4.53, and stops.
+    -- Ordered, 8.2.39 runs first and 8.4.40 then acts on ITS output.
+    regimeTests = concat
+      [ chk "ordered gives the attested tajjalam"
+          (derive "tat + jalam") "tajjalam"
+      , chk "simultaneous gives tadjalam instead"
+          (deriveAsiddhavat "tat + jalam") "tadjalam"
+      , chk "so the regimes differ"
+          (derive "tat + jalam" == deriveAsiddhavat "tat + jalam") False
+      , chk "and agree where only one rule ever fires"
+          (derive "tat + ca" == deriveAsiddhavat "tat + ca") True
       ]
 
     -- 8.7  8.2.1 is load-bearing: `vāc` derives to vāk, and 8.2.39 would turn
