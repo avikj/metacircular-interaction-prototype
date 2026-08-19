@@ -114,6 +114,7 @@ import NaturalMachine.PratyaharaBuysTotalityWithLocality
 import NaturalMachine.TheSecondNaIsTheCollision
 import NaturalMachine.MeruDiagonalIsVirahanka
 import NaturalMachine.TheFibreIsTheSubject
+import NaturalMachine.AntyaSamskaraIsSquares
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
