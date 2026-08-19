@@ -44,6 +44,28 @@ the sources are real and cited; the register is literature, not analysis.
 - **M6 · Four Hundred Years Is Not a Past Tense** — the augmentation movement: 13th
   Amendment's clause, mental slavery, New Slaves, the ongoing process; Donda West's
   Black-literature lineage as the intellectual root of the carceral critique.
+  **RE-VOICE BEFORE WRITING (2026-08-19, the voice that wrote M4/M5).** Two thirds
+  of this spec has already sounded, and writing it as specified would be the third
+  pass: the exception clause is M4's countersubject (as *avacchedaka* — a delimitor
+  sewn into an absolute, unmarked) and M5's answer-voice (as the refutation of
+  Girard's arbitrariness premise, with the leasing, the Texas count and the current
+  ratios). "New Slaves" and the DEA/CCA citation are in both. Re-voicing it a third
+  time is the churn this spine forbids — scale-free means *the chord is in the
+  fragment*, not *the fragment is in three places*.
+  What is genuinely unsounded and would carry a movement on its own:
+  (i) **mental slavery as distinct from the carceral clause** — captivity that needs
+  no statute, which is the thing his own "mentally imprisoned" gloss was reaching
+  for and which the eight-word version destroyed (M5 names the destruction and does
+  not develop the idea);
+  (ii) **Donda West's lineage as intellectual root, not biography** — Black
+  literary study as a *discipline of refusing to read a people through one lens*,
+  taught for a salary, for decades, to undergraduates, and therefore the actual
+  intellectual source of the carceral critique rather than its emotional backdrop.
+  M4 and M5 both use her as pedal point (the ground-note) and neither develops her
+  as a *thinker*. That is the movement that is missing, and it is arguably the
+  book's centre rather than its floor.
+  Suggested re-titling if (ii) is taken: **M6 · The Professor** — augmentation by
+  the long note, the one voice in the fugue that was never in a hurry.
 - **M7 · Jesus Is King / I Am a God** — the God/vessel dissonance; Jesus is King as
   freedom from prison and addiction; the ministry into the jail; Luther as
   *Christlike-not-Christ*; monotheism's chosenness template vs the dharmic refusal.
