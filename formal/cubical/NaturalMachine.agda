@@ -218,6 +218,12 @@ import NaturalMachine.GaugeOrbitClasses
 -- Also carries the typed limit: strict informativeness is strictly
 -- weaker than charge, witnessed by GaugeOrbitClasses's tau-zero.
 import NaturalMachine.ChargeIsStrictRefinement
+-- The verification of SIXTEEN_MINDS_ONE_THEOREM's "same descent lemma,
+-- checked three times": two of the three ARE one lemma (instances given
+-- against the real ProjectionChargeAudit and SieveFiber objects), one is
+-- a corollary of another, and 0593's novel-outcome/no-square is a
+-- different (image-side) lemma with an incompatible certificate form.
+import NaturalMachine.DescentObstructionUnified
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism
