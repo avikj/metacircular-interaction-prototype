@@ -245,20 +245,45 @@ modPow b e m =
   let h = modPow ((b*b) `mod` m) (e `div` 2) m
   in if odd e then (b*h) `mod` m else h
 
--- multiplicative order of b modulo prime q (b not divisible by q)
+-- TOTALITY GUARDS ADDED 2026-08-19.  These three functions were written for
+-- the certified range below (q an odd prime ≤ 23, 2 ≤ b < 3q with q ∤ b,
+-- 1 ≤ a ≤ 4) and are correct on it.  Off it, two of them DID NOT TERMINATE:
+--
+--   ordMod q b  with q | b:  the running power is 0 for ever and never 1.
+--   vq q 0:                  0 is divisible by q, for ever.
+--
+-- That was found by feeding them from machine/Upamana.hs, whose adjudicator
+-- evaluates transported statements over a box of small integers and has no
+-- way to know which of them are legal arguments here.  A non-terminating
+-- function is worse than a wrong one: it reports nothing at all, and the
+-- caller cannot tell it apart from a slow one.  So each is total now, and
+-- returns 0 exactly where the quantity is undefined.  Behaviour ON the
+-- certified range is unchanged -- `selfTest` covers it.
+
+-- multiplicative order of b modulo prime q (b not divisible by q); 0 when
+-- that condition fails, since there is then no such order
 ordMod :: Integer -> Integer -> Integer
-ordMod q b = go 1 (b `mod` q)
+ordMod q b
+  | q <= 1            = 0
+  | b `mod` q == 0    = 0
+  | otherwise         = go 1 (b `mod` q)
   where go k acc | acc == 1  = k
                  | otherwise = go (k+1) ((acc*b) `mod` q)
 
--- q-adic valuation of a positive integer
+-- q-adic valuation of a positive integer; 0 at 0 and below, where it is not
+-- defined (v_q(0) is conventionally infinite, and this returns a number)
 vq :: Integer -> Integer -> Integer
-vq q n | n `mod` q /= 0 = 0
+vq q n | q <= 1         = 0
+       | n <= 0         = 0
+       | n `mod` q /= 0 = 0
        | otherwise      = 1 + vq q (n `div` q)
 
 -- e_b(q) = v_q(b^{ord_q(b)} − 1)
 headDepth :: Integer -> Integer -> Integer
-headDepth q b = vq q (b ^ ordMod q b - 1)
+headDepth q b
+  | q <= 1         = 0
+  | b `mod` q == 0 = 0
+  | otherwise      = vq q (b ^ ordMod q b - 1)
 
 -- b is Fermat-blind on n = q^a  :  b^{n−1} ≡ 1 (mod n)
 fermatBlind :: Integer -> Integer -> Integer -> Bool

@@ -43,7 +43,22 @@
 --   śabda          testimony: its own kernel-checked certificates  THIS FILE
 --   arthāpatti     postulate what would explain the residual      Obstruction
 --   anupalabdhi    yogya-anupalabdhi: warranted non-apprehension  Certify
---   upamāna        knowledge by likeness across vocabularies      ABSENT
+--   upamāna        knowledge by likeness across vocabularies      Upamana
+--
+-- CORRECTED 2026-08-19.  That last line read ABSENT until today, and it was
+-- wrong: `machine/Upamana.hs` had implemented it — 896 lines, with
+-- Nyāyasūtra 1.1.6 and Vātsyāyana's gavaya in its header, transport across
+-- stated similarities, an audit, and a §9 posing Dignāga's reduction
+-- question to the engine.  What was true, and worse than absence, is that
+-- NOTHING IMPORTED IT.  It had never been run.  The first run
+-- (`machine/UpamanaRun.hs`, today) found two defects that had been sitting
+-- in it since it was written: `adjudicate` crashed on a symbol its own audit
+-- had already flagged, and `spaceSize` memoised into a strict map that
+-- forced itself, so it could not terminate.  Both are fixed at their sites.
+--
+-- The lesson is not about that file.  A shelf reports the same as an
+-- absence, and this header could not tell the difference for as long as
+-- nobody turned the key.
 --
 -- WHAT ŚABDA IS AND IS NOT HERE — the line this file will not cross.
 --

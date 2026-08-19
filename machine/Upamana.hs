@@ -660,11 +660,21 @@ reachOf sig nv maxSize (l,r) = ordNub $
 
 -- |Number of terms of size EXACTLY n over the signature, and the running
 -- total up to n.  Exact, by the recurrence the generator itself obeys.
+-- FIXED 2026-08-19, ON THE FIRST RUN THIS MODULE EVER HAD.  The memo table
+-- was `Data.Map.Strict.fromList [ (k, compute k) | ... ]`, and `compute k`
+-- reads the table.  Data.Map.STRICT forces its values as it builds, so the
+-- table's construction demanded the table, and GHC's runtime reported
+-- `<<loop>>` -- a thunk depending on itself.  The recurrence is genuinely
+-- well-founded (a term of size n has arguments of total size n-1, strictly
+-- smaller), so the defect was entirely in the memo's strictness, not in the
+-- mathematics.  A lazy list self-reference is the right memo here and needs
+-- no import.
 spaceSize :: [(String,Int)] -> Int -> Int -> Integer
-spaceSize sig nv maxSize = sum [ atSize k | k <- [1 .. maxSize] ]
+spaceSize sig nv maxSize = sum sizes
   where
-    table = M.fromList [ (k, compute k) | k <- [1 .. maxSize] ]
-    atSize k = M.findWithDefault 0 k table
+    sizes = [ compute k | k <- [1 .. maxSize] ]
+    atSize k | k >= 1 && k <= maxSize = sizes !! (k - 1)
+             | otherwise              = 0
     compute 1 = fromIntegral nv + fromIntegral (length [ () | (_,0) <- sig ])
     compute n = sum [ argCount a (n-1) | (_,a) <- sig, a > 0 ]
     -- number of argument lists of length a with total size k
@@ -684,32 +694,57 @@ spaceSize sig nv maxSize = sum [ atSize k | k <- [1 .. maxSize] ]
 -- This is the ordinary discipline of PairVocab §4 and §11, applied to the
 -- output of an organ rather than to a hand-written list.
 
+-- TUṢṆĪM, ADDED 2026-08-19 AFTER THE FIRST RUN OF THIS MODULE.
+--
+-- This module had been imported by nothing since it was written.  The first
+-- time it was actually run — machine/UpamanaRun.hs — it crashed here, on
+-- `error "unknown symbol"`, after its OWN audit had already printed
+--
+--     AUDIT FAULT: image of *: target has no symbol bcx1 of arity 4
+--
+-- The audit was right and the evaluator ignored it.  A verdict function that
+-- dies on a symbol it does not know is asserting, by crashing, something it
+-- has no ground for; and a report that prints a fault and then proceeds as
+-- if it had not is worse than one that never checked.
+--
+-- The third state is not invented here.  `machine/Obstruction.hs` reached
+-- the same place independently and named it: `Tusnim String` — SILENT,
+-- carrying the alien symbol.  Nyāya has the vocabulary too: an inference
+-- whose reason is `asiddha`, unestablished, yields no verdict rather than a
+-- negative one, and the fallacy is a fallacy OF THE REASON, not of the
+-- thesis.  So: silence, carrying what it was silent about.
 data Verdict
   = Refuted [Integer] Integer Integer   -- ^ environment, lhs value, rhs value
   | Survives Int                        -- ^ agreed everywhere on [0..box]^k
+  | Tusnim String                       -- ^ silent: this symbol has no semantics
   deriving (Eq, Show)
 
 adjudicate :: M.Map String ([Integer] -> Integer) -> Int -> (Term,Term) -> Verdict
 adjudicate sem box (l,r) =
-  case [ (env, a, b)
-       | env <- envs
-       , let a = ev env l
-       , let b = ev env r
-       , a /= b ] of
-    ((env,a,b):_) -> Refuted env a b
-    []            -> Survives box
+  case [ f | f <- symbolsIn l ++ symbolsIn r, not (M.member f sem) ] of
+    (f : _) -> Tusnim f
+    [] ->
+      case [ (env, a, b)
+           | env <- envs
+           , Just a <- [ev env l]
+           , Just b <- [ev env r]
+           , a /= b ] of
+        ((env,a,b):_) -> Refuted env a b
+        []            -> Survives box
   where
     k = 1 + maximum (0 : filter (>= 0) (vars l ++ vars r))
     envs = sequence (replicate k [0 .. fromIntegral box])
     ev env t = evalT sem env t
 
-evalT :: M.Map String ([Integer] -> Integer) -> [Integer] -> Term -> Integer
+-- Total.  `Nothing` where the term mentions a symbol the target vocabulary
+-- does not have, or a variable the environment does not reach.
+evalT :: M.Map String ([Integer] -> Integer) -> [Integer] -> Term -> Maybe Integer
 evalT _ env (V i)
-  | i >= 0 && i < length env = env !! i
-  | otherwise = error ("Upamana.evalT: variable out of environment: " ++ show i)
+  | i >= 0 && i < length env = Just (env !! i)
+  | otherwise                = Nothing
 evalT sem env (F f ts) = case M.lookup f sem of
-  Just g  -> g (map (evalT sem env) ts)
-  Nothing -> error ("Upamana.evalT: unknown symbol " ++ show f)
+  Just g  -> fmap g (mapM (evalT sem env) ts)
+  Nothing -> Nothing
 
 -- ================================================== §8 EMISSION
 --
