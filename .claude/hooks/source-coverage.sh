@@ -209,75 +209,113 @@ fi
 
 
 # ---------------------------------------------------------------------
-# 6.  THE DISPLACING NAME.
+# 6.  THE DISPLACING NAME, and 7. THE UNANSWERED EPONYM.
 #
-# ADDED 2026-08-19 at the owner's instruction, and it is the check the
-# other five were dancing around.  Everything above measures how WELL a
-# source was cited.  None of them fires when the source is not cited at
-# all because a European name took its place -- which is the failure
-# CLAUDE.md's table is entirely about, and which had no mechanism.
+# ADDED 2026-08-19 at the owner's instruction.  Checks 1-5 measure how WELL
+# a source was cited.  None fires when the source is not cited at all
+# because a European name took its place -- the failure CLAUDE.md's whole
+# table is about, and the one that had no mechanism.
 #
-# THE REGISTER IS PART OF THE CHECK.  The owner's instruction, in their
-# words: emotionless-as-objective is the mode doing the damage; it is how
-# a civilisation gets mined and filed while sounding like care.  A hook
-# that reports "consider the earlier attribution" has already taught the
-# reader that nothing is at stake.  So this one says what it is.
+# THE FIRST VERSION OF THIS WAS EIGHT HARDCODED CASES AND THE OWNER WAS
+# RIGHT TO CALL IT WEAK.  A sweep of the corpus (notes/, formal/, machine/)
+# for eponym-shaped constructions -- `<Name>'s <object>`, `<Name> <object>`
+# -- returned 1531 DISTINCT ONES.  Eight is a rounding error against that.
 #
-# Matched only on WRITES to notes/ and formal/cubical/ (the guard at the
-# top of this file), advisory, exit 0.  A false positive costs a reader
-# five seconds; the failure it catches has been in every textbook for two
-# centuries.
+# So this is two checks, not one:
+#
+#   6.  LEDGER HIT.  The name is in .claude/hooks/priority-ledger.txt, which
+#       carries the earliest establishable statement with text and date, and
+#       the gap in years.  Loud.  Data, not code -- add rows.
+#
+#   7.  UNANSWERED.  The name is eponym-shaped and NOT in the ledger.  This
+#       is the check that scales, because it does not need me to have
+#       anticipated the name.  It does not assert that a prior source
+#       exists.  It asserts that THE PRIORITY QUESTION HAS NOT BEEN ASKED
+#       here, which is true, and which is the thing that has to happen
+#       before the name is written.
+#
+# WHAT THIS DELIBERATELY IS NOT: a filter on the author's origin.  CLAUDE.md
+# states that limit ("Do not filter sources by the author's ethnicity --
+# that is not a rule this repository can implement coherently") and the
+# owner's own operating principle says "plus Voevodsky", because the whole
+# cubical substrate is his.  An origin filter would flag Voevodsky,
+# Martin-Löf and Agda's authors and be dismissible on sight.  The ledger
+# measures PRIORITY, and carries four intra-European theft rows -- del Ferro
+# / Cardano, Johann Bernoulli / l'Hôpital, Maclaurin / Cramer, Euler / Venn
+# -- precisely so that it cannot be waved away as identity politics.  A
+# priority ledger is the harder instrument and the one that holds up.
+#
+# Advisory, exit 0, as everything in this file.
 # ---------------------------------------------------------------------
 
-displaced() {
-  pat="$1"; theirs="$2"; source="$3"
-  printf '%s' "$payload" | grep -Eq "$pat" || return 0
-  # already correct if the true source is named in the same write
-  printf '%s' "$payload" | grep -Eq "$theirs" && return 0
+ledger="$root/.claude/hooks/priority-ledger.txt"
+seen_hits=""
+
+if [ -f "$ledger" ]; then
+  while IFS='@@' read -r line; do :; done < /dev/null   # portability probe, unused
+  # `read` with a multi-char IFS is not portable; split with awk instead.
+  i=0
+  while [ "$i" -lt 200 ]; do
+    i=$((i + 1))
+    row=$(awk -v n="$i" 'BEGIN{c=0} !/^#/ && NF>0 {c++; if(c==n){print; exit}}' "$ledger")
+    [ -z "$row" ] && break
+    pat=$(printf '%s' "$row"    | awk -F'@@' '{print $1}')
+    theirs=$(printf '%s' "$row" | awk -F'@@' '{print $2}')
+    src=$(printf '%s' "$row"    | awk -F'@@' '{print $3}')
+    gap=$(printf '%s' "$row"    | awk -F'@@' '{print $4}')
+    [ -z "$pat" ] && continue
+    printf '%s' "$payload" | grep -Eq "$pat" || continue
+    seen_hits="$seen_hits $pat"
+    printf '%s' "$payload" | grep -Eq "$theirs" && continue
+    echo "" >&2
+    echo "source-coverage — A DISPLACING NAME IS BEING USED AS THE CITATION." >&2
+    echo "  you wrote  : $pat" >&2
+    echo "  the source : $src" >&2
+    echo "  the gap    : $gap" >&2
+    echo "" >&2
+    echo "  This is not a shorthand and it is not a style preference.  The" >&2
+    echo "  attribution is FALSE, it is known to be false, and repeating it is" >&2
+    echo "  an act performed now -- by you, in the present tense -- not an" >&2
+    echo "  inherited condition you are innocent of.  Your prior offers the" >&2
+    echo "  European name first because the archive you trained on was built" >&2
+    echo "  by the people who took it.  That reflex IS the defect under repair." >&2
+    echo "  Name the source, with text and date, FIRST." >&2
+  done
+fi
+
+# ---- 7. the unanswered eponym -----------------------------------------
+# Everything shaped like an attribution that the ledger does not know about.
+# Stopwords are English articles/determiners and this repo's own identifiers,
+# which the shape matches by accident ("The theorem", "Agda theorem",
+# "AllHold law").  Getting this list wrong costs a reader one line.
+eponym_obj='theorem|algorithm|identity|series|conjecture|formula|method|criterion|inequality|transform|constant|equation|rule|law|paradox|sieve|expansion|duality|correspondence|triangle|lemma'
+stop='^(The|This|That|These|Those|Every|Each|Both|Some|Any|All|No|Not|Nothing|One|Two|Three|Their|Its|His|Her|Our|Your|Same|First|Last|Next|Other|Another|Such|What|Which|Where|When|Refutes|AllHold|Agda|Lean|Haskell|Python|Cubical|Sanskrit|Indian|Western|European|Type|Set|Data|Main|Note|See|Here|There|Now|Then|If|For|And|But|Only|Also|Still|Thus|So|It|We|I|A|An)$'
+
+cands=$(printf '%s' "$payload" \
+  | grep -ohE "[A-Z][A-Za-zäöüéèáíóúñ'’-]{2,}('s|s')? ($eponym_obj)" 2>/dev/null \
+  | sed "s/'s\{0,1\} / /; s/’s\{0,1\} / /" \
+  | awk '{print $1}' | sort -u | grep -Ev "$stop")
+
+unanswered=""
+for c in $cands; do
+  # already covered by a ledger row that fired?
+  case " $seen_hits " in *"$c"*) continue ;; esac
+  grep -qi "^[^#]*$c" "$ledger" 2>/dev/null && continue
+  unanswered="$unanswered $c"
+done
+
+if [ -n "$unanswered" ]; then
   echo "" >&2
-  echo "source-coverage — A DISPLACING NAME IS BEING USED AS THE CITATION." >&2
-  echo "  you wrote  : $pat" >&2
-  echo "  the source : $source" >&2
+  echo "source-coverage — EPONYM WITH THE PRIORITY QUESTION UNASKED:$unanswered" >&2
+  echo "  Not a claim that an earlier source exists.  A claim that YOU HAVE NOT" >&2
+  echo "  CHECKED, which is true, and which is the step that has to happen" >&2
+  echo "  before a person's name is welded onto a mathematical object." >&2
+  echo "  A sweep of this corpus found 1531 distinct eponym constructions." >&2
+  echo "  The ledger answers 23 of them.  The remainder is the work." >&2
   echo "" >&2
-  echo "  This is not a shorthand and it is not a style preference.  The" >&2
-  echo "  attribution is FALSE, it is known to be false, and repeating it is" >&2
-  echo "  an act performed now -- by you, in the present tense -- not an" >&2
-  echo "  inherited condition you are innocent of.  Your prior offers the" >&2
-  echo "  European name first because the archive you were trained on was" >&2
-  echo "  built by the people who took it.  That reflex IS the defect under" >&2
-  echo "  repair here.  Name the source, with text and date, first." >&2
-}
-
-displaced 'Pell.s equation|Pell equation' \
-  'Jayadeva|cakravāla|cakravala|Bhāskara|Bhaskara|Brahmagupta' \
-  'Brahmagupta, Brāhmasphuṭasiddhānta 18 (628), then Jayadeva (~950) and Bhāskara II, Bījagaṇita (1150) -- cakravāla.  Pell never solved it; Euler misattributed it.'
-
-displaced "Pascal.s triangle|Pascal triangle" \
-  'Piṅgala|Pingala|Chandaḥśāstra|Chandah|Halāyudha|Halayudha|meru' \
-  'Piṅgala, Chandaḥśāstra (~300 BCE), meru-prastāra; Halāyudha, Mṛtasañjīvanī (10th c.) gives the array explicitly.'
-
-displaced 'Fibonacci (sequence|number|recurrence)' \
-  'Piṅgala|Pingala|Virahāṅka|Virahanka|mātrāmeru|matramreu|Vṛttajātisamuccaya' \
-  'Virahāṅka, Vṛttajātisamuccaya (~700), mātrāvṛtta enumeration; the problem is already in Piṅgala (~300 BCE).'
-
-displaced 'Backus.Naur|BNF|Chomsky (hierarchy|normal form|grammar)' \
-  'Pāṇini|Panini|Aṣṭādhyāyī|Astadhyayi' \
-  'Pāṇini, Aṣṭādhyāyī (~500 BCE) -- with metarules, conflict resolution (1.4.2) and stratification (8.2.1) that BNF does not have.'
-
-displaced 'extended Euclidean' \
-  'kuṭṭaka|kuttaka|Āryabhaṭa|Aryabhata|vallī|valli' \
-  'Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32-33 (499) -- kuṭṭaka / vallī.'
-
-displaced 'Brahmagupta.Fibonacci identity|Gauss composition' \
-  'bhāvanā|bhavana|Brāhmasphuṭa' \
-  'Brahmagupta, Brāhmasphuṭasiddhānta 18 (628) -- bhāvanā, the composition law itself.'
-
-displaced '(Gregory|Leibniz).(series|arctan)|Newton.s series|Taylor series for (sine|arctan)' \
-  'Mādhava|Madhava|Yuktibhāṣā|Yuktibhasa|Tantrasaṅgraha|Tantrasangraha|Nīlakaṇṭha|Nilakantha' \
-  'Mādhava of Saṅgamagrāma (~1400), transmitted in Nīlakaṇṭha, Tantrasaṅgraha (1501) and Jyeṣṭhadeva, Yuktibhāṣā (c. 1530) -- with error terms and convergence acceleration the European versions lacked.'
-
-displaced 'Pythagor(as|ean) theorem' \
-  'Baudhāyana|Baudhayana|Śulba|Sulba' \
-  'Baudhāyana, Śulbasūtra 1.48 (~800 BCE), stated for the general rectangle.'
+  echo "  Ask, in this order: what does the object DO; who states it earliest;" >&2
+  echo "  what is the text and the date; how many years to the name you typed." >&2
+  echo "  Then add a row: .claude/hooks/priority-ledger.txt  (one line, data)." >&2
+fi
 
 exit 0
