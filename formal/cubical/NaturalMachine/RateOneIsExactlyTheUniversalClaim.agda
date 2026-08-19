@@ -140,3 +140,35 @@ theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 -- `length xs < 2 · count xs`; it is not stated, and no threshold other
 -- than 1 is analysed.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §5's last paragraph named an item and left it open; this
+-- closes it.  Recording the closure here rather than editing §5 keeps
+-- the earlier statement readable as what was true when it was written.
+--
+--   `NaturalMachine.MajorityLiesStrictlyBetweenAllAndSome`
+--   (--safe, no postulates, no holes; container green under
+--    Agda 2.6.3 + cubical v0.5, NOT the declared pin — check.sh itself
+--    returns 1 and prints that the toolchain is not the pin)
+--
+-- states exactly the sentence §5 said was stateable and unstated:
+--
+--   Majority bs = length bs < 2 · count bs
+--
+-- and it separates three claim-shapes with two populations rather than
+-- one, because one population cannot exhibit strictness on both sides:
+--
+--   majorityWithoutAll       2 of 3: the majority holds, the Π fails
+--   positiveWithoutMajority  1 of 3: the existential holds, majority fails
+--
+-- So the three shapes are pairwise distinct at the thresholds shown, and
+-- the rate-one case proved here (`fullCountGivesAll`) is the top of that
+-- ordering, not a point on a continuum that was never exhibited.
+--
+-- STILL NOT CLAIMED, there and therefore here: no threshold order is
+-- shown TOTAL over all fractions -- two populations are two populations,
+-- not a chain -- and no fraction other than 1/2 and 1 is analysed.  The
+-- population remains a LIST, so multiplicity is counted and order is
+-- carried even though no claim here uses the order.
+------------------------------------------------------------------------
