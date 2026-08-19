@@ -157,3 +157,48 @@ fourthCornerRefutedOverEnumerableDecidable :
 fourthCornerRefutedOverEnumerableDecidable bad e d =
   fourthCornerRefutedUnderPointwiseStability bad
     (enumerableDecidableGivesPointwiseStability bad e d)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "Existence.  … this is a second SUFFICIENT condition, sharper and
+--    checkable, not a necessary one."
+--
+-- A NECESSARY one now exists, for one family, in
+-- `NaturalMachine.TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- Take the instance set to be ONE instance (`Unit`), remedies
+-- arbitrary, `bad _ r = Q r`.  Then, both directions checked:
+--
+--   ¬ सामयिक  ≃  (r : R) → ¬ ¬ Q r
+--   ¬ नित्य    ≃  ¬ ((r : R) → Q r)
+--
+-- so the fourth corner IS a counterexample to the DOUBLE-NEGATION SHIFT
+-- (Spector 1962; Kreisel), and
+--
+--   fourthCornerRefutesPointwiseStability
+--       the corner implies ¬ ((r) → Stable (Q r))
+--
+-- — the converse of §3 here, so at that family the stability hypothesis
+-- is necessary as well as sufficient.
+--
+-- WHAT THAT SAYS ABOUT THIS MODULE, and it is not flattering.  A ONE-
+-- ELEMENT instance family is enumerable — `Enumerated Unit` is
+-- immediate.  So the whole `Enumerated` apparatus above cannot be what
+-- separates the corner from its absence: at Unit the enumeration is
+-- free and the entire question is whether the BADNESS is stable.  The
+-- decidability hypothesis was doing all the work and the enumerability
+-- hypothesis none of it, in the only case where the answer is now
+-- known.  This module is still correct — it covers families where
+-- BOTH matter — but the sentence "the fourth corner needs an instance
+-- family that is not enumerable OR a badness that is not decidable"
+-- reads as offering two routes, and the first is not a route at all
+-- when one instance suffices.
+--
+-- STILL NOT CLAIMED: EXISTENCE.  DNS is neither provable nor refutable
+-- in this substrate; exhibiting a failure needs a model, and none is
+-- constructed. What changed is the question's status, not its answer.
+------------------------------------------------------------------------
