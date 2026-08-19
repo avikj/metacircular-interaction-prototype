@@ -84,8 +84,17 @@ import TraceCorpus
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
 import Pingala
 
--- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine.
+-- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine,
+-- and the rule-conflict machinery -- utsarga/apavāda, the elsewhere
+-- condition, asiddhatva, anuvṛtti.  Green, and until now gated only by
+-- Everything.agda, which cannot go green on this container.
 import Sivasutra
+import Panini
+import ElsewhereCondition
+
+-- UMĀSVĀTI, Tattvārthasūtra 1.5: नामस्थापनाद्रव्यभावतस्तन्न्यासः -- the
+-- fourfold placing, as an indexed sameness relation.
+import Niksepa
 
 -- Jain epistemology and mathematics.  Anekāntavāda as a TOTAL generator
 -- (no rejection path); the taxonomy of the unbounded, saṃkhyāta /
