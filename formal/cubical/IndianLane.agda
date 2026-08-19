@@ -177,6 +177,8 @@ import AbhavaAvacchedaka
 -- recurrences are FORCED by the counting problem for an arbitrary counting
 -- function, not read off a definition.
 import PingalaPrastara
+-- संख्या-पङ्क्ति-सेतुः — पिङ्गलस्य संख्या-प्रत्ययः = मेरु-पङ्क्ति-योगः (sankhya n = ∑ₖ C(n,k))
+import PrastaraPankti
 
 -- The saptabhaṅgī: Bhagavatī Sūtra (pre-CE strata, redacted c. 5th c.);
 -- Umāsvāti, Tattvārthasūtra 1.6, 1.33, 5.29, 5.31; Siddhasena Divākara,
