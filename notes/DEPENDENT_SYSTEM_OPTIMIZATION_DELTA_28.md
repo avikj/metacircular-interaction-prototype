@@ -612,3 +612,55 @@ claim that *flat* architectures can still carry holonomy — only to what holono
 present. No claim that Δ 28's "boundary semantics" *is* invariant: that is a hypothesis
 here and a modelling question there. Nothing about composing loops — no group structure, no
 fundamental group, no claim that holonomies compose.
+
+## Appended 2026-08-19, sixth thread: §39–47's certificate composes, and only one component costs anything
+
+*Appended at the end, altering no line above.*
+
+§39–47 opens: *"A certified rewrite carries: boundary-semantics preservation, complexity
+improvement (peak semantic width / Pareto), state migration, provenance."* Four components,
+listed. A compiler applies rewrites in sequence, so the question the list leaves unanswered
+is whether the certificate **composes** — and if so, which component costs anything.
+Checked in
+`formal/cubical/NaturalMachine/ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5, which
+is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+Certified d e = (sem e ≡ sem d)
+              × StrictlyDominates (cost d) (cost e)
+              × (M d → M e)
+              × List Prov
+
+composeCertified : Certified d e → Certified e f → Certified d f
+noSelfRewrite    : ¬ Certified d d
+```
+
+**Three of the four compose for free.** Boundary preservation is a path and paths compose;
+migration is a function and functions compose; provenance is a list and lists append. Only
+**complexity improvement** needs a theorem — transitivity of strict Pareto domination — and
+that theorem already exists in this corpus, proved on the DARWIN §5.2 stratum line for an
+unrelated purpose (`⊏-trans`, needed there because a maximal element of a list's tail might
+be beaten by its head). `noSelfRewrite` is `⊏-irrefl` from the same module, and it is what
+makes a rewrite sequence progress rather than mark time.
+
+**So the two notes are joined by a lemma neither asked for:** §5.2's parent selection and
+§39–47's compiler need the same fact about the Pareto order, and it was proved once.
+
+**On the cost convention, a live hazard here.** The cost vector is compared with
+`StrictlyDominates`, the *benefit* reading — higher is better. §39–47's "complexity" is a
+cost, so applying this requires the flip, and the flip is **sound but not faithful**: it
+needs a cap above every cost ever compared and identifies costs above it
+(`FlippingACostCoordinateIsSoundButNotFaithful`). That obligation is inherited and not
+discharged.
+
+**No novelty.** Composing certificates componentwise is what certificates are for; the
+content is the count — three free, one earned.
+
+**Not claimed.** "Peak semantic width" is **not** modelled — the cost is an abstract vector,
+not anything computed from a cut. **Migration is a bare function with no law**: nothing says
+it preserves the boundary semantics, which a compiler would need, so the composite's
+migration is only as meaningful as its components'. Provenance is an opaque list and append
+is not claimed to be the right combination. **Nothing here is a compiler**: no rewrite
+search, no strategy, and no meta-Bellman `V(D) = min_a (K(D,a,D′) + V(D′))` — §39–47's
+self-referential planner is untouched and would need a fixpoint.
