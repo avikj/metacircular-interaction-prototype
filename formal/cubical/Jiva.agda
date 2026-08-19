@@ -50,6 +50,8 @@ import Sadhyata
 import Samasesha
 -- युगपत्-शेषः — ग्रह-युति : CRT-प्रक्षेपः (mod b·c ⟹ mod b, mod c) + दृष्टान्तः
 import Yugapat
+-- युगपत्-शेषः (ℤ) — चीन-शेषस्य सत्ता-दिक् : कुट्टक-साक्षिणा युगपत्-समाधानम्
+import YugapatZ
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus

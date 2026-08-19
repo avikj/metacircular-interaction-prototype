@@ -16,7 +16,8 @@
 -- अवशिष्टा दिक् (existence): दत्तयोः शेषयोः r₁, r₂ योग्यं X-रचनं (r₂ − r₁-
 -- व्यवकलनम्) चिह्नित-गणितम् (ℤ) अपेक्षते — ℕ-मध्ये ऋण-रहितं दुष्करम् ; ℤ-विकासाय
 -- स्थापितम् ।  (The existence direction needs r₂−r₁, i.e. signed arithmetic;
--- hard subtraction-free in ℕ, left to a ℤ development — recorded, not faked.)
+-- hard subtraction-free in ℕ.  Now PROVED over ℤ in YugapatZ.agda — the
+-- recorded obstruction is retired the way it was scoped: signed arithmetic.)
 --
 -- स्रोतांसि : आर्यभटः, आर्यभटीयम्, गणितपादः ३२–३३ (कुट्टकः, ग्रह-युति) ।
 ------------------------------------------------------------------------
