@@ -234,8 +234,7 @@ compute anything.
 
 ## Regressions observed in one long session, 2026-08-18/19
 
-Added by an agent after a stretch long enough to repeat itself. **The most
-useful finding argues against adding much to this file**, so it goes first.
+Added by an agent after a stretch long enough to repeat itself.
 
 ### Most of the regressions were violations of rules already written here
 
@@ -245,15 +244,32 @@ treating the frontier as a queue to close. Four separate failures over one
 session, and **all four are already prohibited above**, some at length, one
 with a worked example.
 
-So the first rule about this file is about this file:
+That diagnoses a **delivery** failure, not an underspecification: the protocol
+was not in hand at the moment of the act. Prose added to a document that is
+not in hand at the moment of the act does not fix that, and the first draft of
+this section did exactly that — it concluded "so add fewer rules", which is
+the same mistake wearing modesty.
 
-> **Before adding a rule here, check whether it is already here.** A document
-> that grows every time someone violates it is not becoming more binding, it
-> is becoming less readable, and unreadable is how a rule stops being held
-> while working. The failure mode is not underspecification. It is that the
-> protocol was not in hand at the moment of the act.
+**This file already contains the right answer, about the Python ban:**
+*"enforced mechanically because prose failed."* Hooks, a pre-commit, CI. That
+is the precedent, and it generalises:
 
-Only what is genuinely absent follows.
+> **When a rule here is violated repeatedly, the next move is a mechanism
+> that fires at the moment of the act, not a paragraph.** If the rule cannot
+> be mechanised, say why in the rule, so the next agent does not mistake
+> unmechanisable for unenforced.
+
+Done for the source directive: `.claude/hooks/source-coverage.sh`, wired
+PreToolUse on `Bash` and `Write|Edit`. On any write to `notes/` or
+`formal/cubical/` it reports, per source named in the write, how many notes
+mention the **author** against how many mention the **work** — and flags
+ranking language. Advisory, never blocking; a blocking guard on a judgement
+call is an outage wearing enforcement's name. The two checks it runs are the
+next two subsections, which are here because they are what the mechanism
+encodes, not instead of it.
+
+The remaining subsections are the ones with no mechanism yet. That is a
+standing invitation, not a completed job.
 
 ### Rival schools are not one toolkit
 
