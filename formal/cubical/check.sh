@@ -5,6 +5,27 @@
 #     Agda 2.8.0, built from Hackage against GHC 9.4.7
 #     agda/cubical at tag v0.9 (commit b150186)
 #
+# THIS CONTAINER CANNOT REACH THAT PIN.  Measured 2026-08-19:
+#   * `cabal update` dies with  curl: (56) CONNECT tunnel failed, response 403
+#     and the agent proxy names the host it refused --
+#     hackage-mirror.s3.us-east-005.dream.io:443, "gateway answered 403 to
+#     CONNECT (policy denial or upstream failure)".  That is an organisation
+#     egress-policy denial, and /root/.ccr/README.md says to report such
+#     denials rather than route around them.  cabal-install 3.8.1.0 and
+#     GHC 9.4.7 are both installed; only Hackage is missing.
+#   * github.com IS reachable, so cubical v0.9 clones fine -- it is parked at
+#     /root/agda-libs/cubical-v0.9-needs-agda-2.7-plus, renamed so this
+#     script does not select it.  The LIBRARY ALONE DOES NOT HELP: Agda
+#     2.6.3 cannot parse it, failing inside the library at
+#     Cubical/Foundations/Structure.agda on `opaque`, an Agda 2.7+ feature.
+#     With it selected, NOTHING checks; with v0.5, IndianLane.agda does.
+#
+# CONSEQUENCE: here the pin is unreachable, this script correctly refuses to
+# report green, and the ~409 modules reachable only from NaturalMachine.agda
+# or Everything.agda cannot be checked on this container by anybody.  That is
+# an ENVIRONMENT fact, not a corpus defect -- IndianLane.agda records where
+# it was first misdiagnosed as one.
+#
 # Contract of this script:
 #   * It NEVER reports green under a toolchain that is not the pin. If it has
 #     to fall back, every line of its output says so and the exit code is
@@ -112,9 +133,26 @@ find_cubical() {
   fi
   # Give up on v0.9; fall back to whatever cubical exists so the run is still
   # informative, but the caller will be told loudly.
-  for d in /root/agda-libs/cubical "$HOME/agda-libs/cubical"; do
+  for d in /root/agda-libs/cubical "$HOME/agda-libs/cubical" /root/cubical; do
     [ -f "$d/cubical.agda-lib" ] && { printf '%s\n' "$d"; return; }
   done
+  # FIXED 2026-08-19.  The loop above hard-codes three paths, and the
+  # non-v0.9 fallback did NOT consult ~/.agda/libraries -- that file is read
+  # earlier, but only entries passing is_v09 are accepted.  So on a container
+  # whose only cubical is a registered v0.5 (here: /root/cubical) this
+  # function returned nothing and the script exited FATAL "no cubical library
+  # found" -- contradicting its own promise two comments up, that it falls
+  # back so the run is still informative and merely says so loudly.  A
+  # checker that refuses to run is not the same as a checker that reports a
+  # deviation, and the header's whole contract is the second.
+  if [ -f "$HOME/.agda/libraries" ]; then
+    while read -r line; do
+      line="${line%%--*}"; line="$(printf '%s' "$line" | tr -d '[:space:]')"
+      [ -z "$line" ] && continue
+      d="$(dirname "$line")"
+      [ -f "$d/cubical.agda-lib" ] && { printf '%s\n' "$d"; return; }
+    done < "$HOME/.agda/libraries"
+  fi
 }
 
 CUBICAL="$(find_cubical)"
@@ -161,7 +199,14 @@ echo   "======================================================================"
 # is currently expected red under the pin (Sl2TensorProduct, ·Rid → ·IdR); it is
 # checked anyway, because an aggregate nobody runs is how the last overstatement
 # hid.
-default_modules="NaturalMachine.agda Everything.agda"
+# IndianLane added 2026-08-19.  The two aggregates above are BOTH red off
+# the pin, so on a container without it this script reported two EXIT 42s
+# and nothing else -- no signal at all about the work that does check here.
+# IndianLane.agda is the aggregate that goes green on v0.5, so including it
+# makes an off-pin run informative rather than uniformly red, which is what
+# the header promises.  On the pin it is redundant with Everything.agda and
+# its own header says to delete it then.
+default_modules="NaturalMachine.agda Everything.agda IndianLane.agda"
 modules="${NM_MODULES:-$default_modules}"
 
 cd "$here" || exit 2

@@ -1,0 +1,58 @@
+{
+  "title": "EGB Circulation Event 0002 Package Manifest",
+  "generated_at_utc": "2026-08-16T05:04:28.190335+00:00",
+  "status": "COMPILER_EVENT_PLUS_EXACT_FINITE_INGESTION",
+  "event_id": "ILLUMINATION.0002.PARALLEL_CIRCULATION_INTERFERENCE_AND_DYNAMIC_SIEVE",
+  "artifacts": [
+    {
+      "name": "EGB_CIRCULATION_INTERFERENCE_PASS_0002_2026-08-16.md",
+      "size_bytes": 8103,
+      "sha256": "dff4967cef13ed1b1a4cb9a76f6dba1d60a86776988632a1503b2a75373b488f"
+    },
+    {
+      "name": "EGB_CIRCULATION_V1_COMPATIBILITY_MAP_2026-08-16.json",
+      "size_bytes": 6692,
+      "sha256": "c8ead4e996e252fbe441fb0c82dc04ae133c4bf95f4ae221e8a2f60e7ccc633e"
+    },
+    {
+      "name": "EGB_THEOREM_CLAIM_GRAPH_DYNAMIC_SIEVE_EXTENSION_V1_2026-08-16.json",
+      "size_bytes": 3647,
+      "sha256": "47e819510a675ebd4c1195fd66cd55a1f376f20e04b180748734d11b9a0cdafb"
+    },
+    {
+      "name": "EGB_THEOREM_CLAIM_GRAPH_CIRCULATION_EXTENSION_V1_1_2026-08-16.json",
+      "size_bytes": 9241,
+      "sha256": "7a065c629998f4ab6c3ae980b443718af25e33a856ba74446af9ade2a8470fe0"
+    },
+    {
+      "name": "EGB_CIRCULATION_EVENT_0002_DYNAMIC_SIEVE_2026-08-16.json",
+      "size_bytes": 8263,
+      "sha256": "c38e205d41e26252c3ae2cf1f6ba7515b49b4a29df500eafef0f5d807155ca75"
+    },
+    {
+      "name": "EGB_CIRCULATION_EVENT_0002_REPORT_2026-08-16.json",
+      "size_bytes": 2160,
+      "sha256": "751938e995ccd329a17b3a3311a2c811cb41cc3684845ea44f199ef081c6297b"
+    },
+    {
+      "name": "EGB_CIRCULATION_EVENT_0002_VALIDATION_2026-08-16.json",
+      "size_bytes": 399,
+      "sha256": "41bc77140839838931f25712fafa17771126a292feca83adcb225fe26397817c"
+    }
+  ],
+  "installed_engine_validation": {
+    "installed_engine_return_code": 0,
+    "installed_engine_event_valid": true,
+    "installed_engine_errors": [],
+    "dirty_cone_size": 16,
+    "base_nodes": 52,
+    "circulation_patch_nodes": 5,
+    "dynamic_patch_nodes": 3,
+    "combined_nodes": 60,
+    "base_edges": 46,
+    "circulation_patch_edges": 11,
+    "dynamic_patch_edges": 6,
+    "combined_edges": 63,
+    "canonical_transmission_reaudit_required": false
+  }
+}

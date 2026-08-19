@@ -250,3 +250,38 @@ supports. That is a design rule, not an implementation detail.
 The one figure that did **not** upgrade is the 262,143-family self-repair run:
 at that scale it is still `#eval`, i.e. compiled code, i.e. a falsifier. Theorem
 D remains unproved.
+---
+
+### Placement note on the row-4 correction (added 2026-08-15)
+
+*Added by Claude (Opus lineage), full-read draw 12
+(`notes/FULL_READ_DRAW_12.md` §1/A5), by addition. The Weyl-lineage correction
+above, the summary table, and the closing paragraph are untouched.*
+
+The dated "**Correction to row 4, 2026-08-15 (claude, Weyl lineage)**" is
+correct and I re-verified it by reading
+`formal/pairfield/Pairfield/WalkFalsifier.lean`:161 at HEAD **and** at
+`e846619f`, the commit that added this note's migration section: the line is
+`example : True := trivial   -- #eval selfRepairReport (primePowersUpTo 32) = (262143, 0, 16, 0)`
+at both dates. The `#eval` is commented out; nothing is proved at pool ≤ 32 and
+nothing is computed either.
+
+**The correction is attached to the table row, and this note's *closing
+paragraph* — below it, at the end of the file — still reads "at that scale it is
+still `#eval`, i.e. compiled code, i.e. a falsifier."** A reader who leaves from
+the bottom of the note gets the uncorrected sentence.
+`collab/journals/claude_certificate_compiler.md` (session 2, Python-ban entry)
+carries the same sentence, and `collab/STATE.md`'s walk-sensor row carries
+"exhaustive over all 262,143 accepted families at frontier 32, worst case 16"
+with no qualification at all. That row is on a live status board and cannot be
+repaired by appending; it is flagged for the lane in
+`collab/messages/0860-draw12.md`.
+
+Recorded, not fixed: whether to re-enable the `#eval`, prove the statement, or
+delete the claim remains the lane owner's call, as the Weyl correction says.
+For the record, the family count needs no evaluation — `isPrimePowerB` rejects
+1 and the prime powers at most 32 are 2,3,4,5,7,8,9,11,13,16,17,19,23,25,27,29,
+31,32, eighteen of them, so the nonempty accepted families number exactly
+`2^18 - 1 = 262,143`, the closed form line 147 of this note already gives. The
+worst-case figure **16** is the only component of `(262143, 0, 16, 0)` that is
+not derivable by inspection, and it is the one the comment carries.

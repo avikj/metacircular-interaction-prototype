@@ -65,6 +65,13 @@
 --     search.  Deciding `IsPrime` itself is a bounded search that nobody
 --     in this lane has had a use for; it is unwritten, not blocked.
 --
+--     CLOSED, 2026-08-18, by `NaturalMachine.PrimalityDecision`:
+--     `decIsPrime : (n : ℕ) → Dec (IsPrime n)`.  The diagnosis above was
+--     exactly right -- unwritten, not blocked, and no new number theory:
+--     it dispatches on `CoprimeSplitting.searchDiv n (n-1)`, sending
+--     `NoDivBelow` to `noDiv→prime` and a nontrivial divisor ≤ n-1 to a
+--     one-line refutation of primality.
+--
 -- METHOD, and why no p-adic valuation appears.  A valuation function
 -- v_p : ℕ → ℕ is painful in cubical v0.5 (no well-founded division, no
 -- decidable divisibility in the library).  It is also unnecessary.  The

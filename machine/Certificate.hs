@@ -114,6 +114,83 @@
 -- the search stops there (`baseClauseFailed`); a false equation therefore
 -- costs 2 calls, not `kMaxAgdaCalls`.
 --
+-- THE CERTIFICATE CACHE (added 2026-08-16)
+--
+-- The gate's wall clock is one agda process per emitted module, ~1-3 s
+-- each, almost all of it re-loading library interfaces.  The engine
+-- re-derives and re-submits the same equations across rounds and across
+-- runs, so it re-pays that cost for modules it has already checked.  The
+-- cache below removes exactly that repetition and nothing else.
+--
+-- WHAT IS KEYED.  The unit is ONE EMITTED MODULE, not one conclusion.  The
+-- module source is the complete input to agda — it already encodes the
+-- conclusion, the concept definitions, the vocabulary transcriptions
+-- (`localMax`, `localLe`), the imports, and the proof skeleton — so hashing
+-- it is hashing everything the verdict depends on inside this process.
+-- Keying per module rather than per conclusion also means the search in
+-- `certifyWith` reuses its own intermediate failures: a rejected shape that
+-- cost a call last time costs none this time.
+--
+-- The key is a 128-bit FNV-1a hash of the UTF-8 bytes of
+-- `toolchain ++ "\0" ++ source`, where `toolchain` is the output of
+-- `agda --version` together with `kAgdaLibrary` and `kIncludeRoot`.  The
+-- toolchain is in the key because a verdict is a fact about a source AND a
+-- checker: upgrading agda must miss, not falsely hit.  What is still NOT in
+-- the key is the content of the cubical library itself and of
+-- `formal/cubical/`; editing those can in principle change a verdict
+-- without changing the key.  That is a real residual and it is why
+-- `MATH_CERTCACHE=0` exists (it bypasses the cache entirely, for a clean
+-- re-measurement or after a library edit).
+--
+-- THE HASH IS ONLY AN INDEX.  Every entry stores the full source it was
+-- built from, and `lookupCache` compares that stored source to the
+-- requested source byte for byte before returning a verdict.  A hash
+-- collision therefore produces a MISS, never a wrong answer; the hash's job
+-- is to name a file, not to stand in for the content.
+--
+-- WHAT IS STORED.  `machine/.certcache/<key>`, one small UTF-8 file:
+-- the verdict word, agda's exit code, the toolchain string, agda's output
+-- verbatim, and the module source.  A reader can copy the SOURCE block into
+-- a file and re-run agda on it; that is the point of storing it.
+--
+-- WHAT IS NOT STORED.
+--
+--   * `Untranslatable` is never cached.  It is a property of the emitter --
+--     `agdaTermWith` returned Nothing -- and no agda process is involved,
+--     so there is nothing to memoise and caching it would freeze an
+--     emitter limitation into a file that outlives the emitter.
+--
+--   * A REJECTION IS CACHED ONLY WHEN IT IS A GENUINE TYPE ERROR
+--     (`cacheableFailure`).  This is the decision requirement (e) asks for,
+--     and the reasoning is: exit 0 can only mean "agda typechecked this
+--     module", so success is always cacheable; a non-zero exit means
+--     nothing on its own, because a missing library, a locale fault, an
+--     absent `formal/cubical`, or a killed process all produce one.
+--     Caching those would turn a transient environment fault into a
+--     permanent verdict — the failure mode this whole file was written to
+--     fix (see fault (1) above: a path error was recorded as a
+--     KERNEL-REJECT indistinguishable from a false statement).  So a
+--     failure is cached only if agda located the error inside
+--     Candidate.agda AND the message carries a type-error signature AND no
+--     environment-failure marker appears.  Everything else is re-run.
+--
+-- HOW A HIT IS REPORTED.  A cached run spends 0 agda calls, and that 0 is
+-- what the `Verdict` carries; the shape string is prefixed `cached, ` (and
+-- a cached rejection's message `cached: `) so no log line and no
+-- measurement can read a cache hit as fresh kernel work.  If a search mixes
+-- hits and fresh calls the count is the number of FRESH calls, and the
+-- label is not marked cached — the run did do kernel work.
+--
+-- IDENTIFIER VALIDATION (added 2026-08-16)
+--
+-- `defName` was the one candidate-supplied string that reached the emitted
+-- module verbatim, in three positions.  It is now checked against
+-- [A-Za-z_][A-Za-z0-9_]* at each of them, and a candidate carrying an
+-- ill-formed name produces NO MODULE (`Untranslatable`, 0 agda calls) rather
+-- than an emitted module that agda then declines.  See `validAgdaIdent` for
+-- what was reproducible before the check, including the case that made three
+-- different right-hand sides certify against one left-hand side.
+--
 -- This module deliberately has no dependency on MathMachine: it carries
 -- its own copy of the Term type so it can be compiled, run and tested on
 -- its own.  `main` is that test.  From the repository root:
@@ -142,6 +219,9 @@ module Certificate
   , agdaTerm
   , agdaTermWith
   , agdaVar
+  , validAgdaIdent
+  , agdaReserved
+  , definitionsSafe
   , preamble
   , preambleWith
     -- * certificates
@@ -162,18 +242,56 @@ module Certificate
   , certifyWith
   , runAgda
   , main
+    -- * the two controls (a kernel that accepts a falsehood is not a kernel)
+  , kernelIsChecking
+  , canaryTrue
+  , canaryFalse
+  , successHidesAnError
+  , kEnvironmentFault
+  , kAgdaTimeoutMicros
+  , agdaTimeoutMicros
+    -- * the certificate cache (content-addressed, one file per module)
+  , kCertCacheDir
+  , cacheEnabled
+  , cacheKey
+  , toolchainIdentity
+  , cacheableFailure
+  , runAgdaCached
+    -- * serialisable certificates + replay (the re-checkable ledger)
+  , ProofWitness(..)
+  , SerialCert(..)
+  , mkSerialCert
+  , serTerm
+  , parseSerTerm
+  , serializeCert
+  , parseSerialCert
+  , reconstructModule
+  , certifyCert
+  , replayCert
+    -- * reading machine/library.txt
+  , parseShowTerm
+  , parseLibraryLine
   ) where
 
-import Control.Exception (finally)
-import Data.Char (isDigit, isSpace)
-import Data.List (intercalate, isInfixOf, isPrefixOf, nub, sort)
+import Control.Exception (SomeException, finally, try)
+import Data.Bits (shiftR, xor, (.&.), (.|.))
+import Data.Char (isAlphaNum, isDigit, isSpace, ord, toLower)
+import Control.Monad (when)
+import Data.IORef (IORef, modifyIORef', newIORef, readIORef, writeIORef)
+import Data.List (foldl', intercalate, isInfixOf, isPrefixOf, nub, sort)
 import Data.Maybe (isJust, mapMaybe)
+import Data.Time.Clock (diffUTCTime, getCurrentTime)
+import Data.Word (Word64)
 import GHC.IO.Encoding (setLocaleEncoding)
-import System.Environment (getArgs, getEnvironment)
+import System.Environment (getArgs, getEnvironment, lookupEnv)
 import System.Exit (ExitCode(..), exitFailure, exitSuccess)
 import System.FilePath ((</>))
 import System.IO
-import System.Directory (getTemporaryDirectory, removePathForcibly)
+import System.IO.Unsafe (unsafePerformIO)
+import System.Directory
+  ( createDirectoryIfMissing, doesFileExist, getTemporaryDirectory
+  , removePathForcibly, renameFile )
+import System.Timeout (timeout)
 import System.Process
   (CreateProcess(..), proc, readProcess, readCreateProcessWithExitCode)
 import Text.Printf (printf)
@@ -223,6 +341,86 @@ data Definition = Definition
   , defBody :: Term     -- ^ body, over variables V 0 .. V (defArity - 1)
   } deriving (Eq, Show)
 
+-- ------------------------------------------------- identifier validation
+--
+-- THE HOLE THIS CLOSES (notes/TRUTH_GATE_AUDIT.md §1, machine/GateAudit.hs
+-- §(1), both 2026-08-16).
+--
+-- `defName` is the ONLY candidate-supplied string that reaches the emitted
+-- module, and until this predicate existed it reached it VERBATIM in three
+-- positions: the definition's signature line and its clause line (`emit` in
+-- `preambleWith`), and every occurrence of the concept inside the equation's
+-- own type (`prefixAgda`, via the `lookupDef` fallback in `render`).  A name
+-- is not a token to the emitter, it is a string, so a name may contain
+-- anything — including newlines.  Two consequences were reproduced against
+-- this very file:
+--
+--   * a name containing "\n{-# OPTIONS --no-safe #-}\npostulate evil : …"
+--     put that pragma and that postulate into `Candidate.agda` verbatim
+--     (harmless in the end: the injection lands after the module header, so
+--     the pragma is ignored, `--safe` stays locked at line 1, and the
+--     postulate is refused — verdict `Rejected`); and
+--
+--   * `injName = "suc x) ≡ (suc x) -- "` is worse and is NOT harmless: it
+--     closes the emitter's own parenthesis and comments out the rest of the
+--     line, so the module agda checks is `candidate : (x : ℕ) → (suc x) ≡
+--     (suc x)`, whatever right-hand side was submitted.  GateAudit obtained
+--     `Certified "refl" 1` for three DIFFERENT right-hand sides over one
+--     left-hand side (GateAudit.hs:100–109).  That is a soundness break, not
+--     a defense-in-depth gap.
+--
+-- Neither was reachable from the engine, because `inventConcept`
+-- (MathMachine.hs:1547) names concepts `"c" ++ show n`.  That is safety by
+-- CALLER CONVENTION: the gate did no validation and the convention is not
+-- stated in any type.  It is now enforced here, at the emission site, and
+-- the enforcement FAILS CLOSED — an offending name yields no module at all
+-- (`Nothing` → `Untranslatable`), never an emitted module that agda is asked
+-- to have an opinion about.  A candidate the emitter cannot render honestly
+-- is a rejected candidate.
+--
+-- The grammar is the audit's: [A-Za-z_][A-Za-z0-9_]*, ASCII by construction
+-- and not via `isAlpha`/`isAlphaNum`, whose Unicode generality would readmit
+-- characters Agda's lexer treats specially.  Every character of a legal name
+-- is one Agda lexes as part of a single identifier token, so a legal name
+-- cannot close a parenthesis, open a comment, start a pragma, or reach the
+-- next line — the three positions become splice-proof rather than
+-- splice-audited.
+validAgdaIdent :: String -> Bool
+validAgdaIdent s = case s of
+  [] -> False
+  (c : cs) -> identStart c && all identRest cs && notElem s agdaReserved
+  where
+    identStart c = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_'
+    identRest c = identStart c || (c >= '0' && c <= '9')
+
+-- Strengthening beyond the audit's regex, at no cost to any real name: the
+-- regex alone admits `where`, `module`, `postulate`, `data` …, which lex as
+-- KEYWORDS rather than identifiers and so would still restructure the module
+-- (they cannot make a false equation check — `--safe` is untouched at line 1
+-- and postulates are refused — but a name that changes the module's grammar
+-- has no business reaching agda).  `candidate` is in the list because it is
+-- the name the emitter gives the theorem itself.
+agdaReserved :: [String]
+agdaReserved =
+  [ "abstract", "candidate", "codata", "coinductive", "constructor", "data"
+  , "do", "eta_equality", "field", "forall", "hiding", "import", "in"
+  , "inductive", "infix", "infixl", "infixr", "instance", "interleaved"
+  , "let", "macro", "module", "mutual", "no_eta_equality", "open", "opaque"
+  , "overlap", "pattern", "postulate", "primitive", "private", "public"
+  , "quote", "quoteTerm", "record", "renaming", "rewrite", "syntax", "tactic"
+  , "unquote", "unquoteDecl", "using", "variable", "where", "with"
+  , "Set", "Prop", "Setω"
+  ]
+
+-- The gate's precondition on a definition list, checked once per candidate
+-- before anything is rendered.  ALL supplied names, not merely the ones the
+-- equation happens to mention: a caller that can name one concept
+-- adversarially can name the one the equation uses, and there is no reason
+-- to make the verdict depend on which of its concepts a candidate chose to
+-- exercise.
+definitionsSafe :: [Definition] -> Bool
+definitionsSafe = all (validAgdaIdent . defName)
+
 -- Every symbol of MathMachine's `vocabulary` (0 s + * max - gcd le), plus
 -- whatever invented concepts the caller supplies.  Anything else — the
 -- eigenconstant #, an unsupplied concept — returns Nothing, which the
@@ -252,10 +450,18 @@ render defs nameOf = go
           prefixAgda go f as
     go _ = Nothing
 
+-- EMISSION SITE 1 (terms).  Every path by which a concept name reaches the
+-- rendered module goes through here — `render`'s fallback clause, which then
+-- calls `prefixAgda` and splices the name into the candidate's type; and
+-- `preambleWith`'s `closure`, which decides which definitions get emitted at
+-- all.  Refusing to resolve an ill-formed name therefore removes it from
+-- both, and `render` falls through to `Nothing`: untranslatable, no module.
 lookupDef :: [Definition] -> String -> Maybe Definition
-lookupDef defs f = case [ d | d <- defs, defName d == f ] of
-  (d : _) -> Just d
-  [] -> Nothing
+lookupDef defs f
+  | not (validAgdaIdent f) = Nothing
+  | otherwise = case [ d | d <- defs, defName d == f ] of
+      (d : _) -> Just d
+      [] -> Nothing
 
 infixAgda :: (Term -> Maybe String) -> String -> Term -> Term -> Maybe String
 infixAgda go op a b = do
@@ -295,6 +501,15 @@ preambleWith defs syms =
                                   , f <- symbolsOf (defBody d)
                                   , isJust (lookupDef defs f) ])
       in if length more == length seen then seen else grow more
+    -- EMISSION SITE 2 (the preamble): the signature line and the clause
+    -- line, the two places a name is written as Agda source rather than
+    -- used as a term.  The `validAgdaIdent` guard is redundant given
+    -- `lookupDef` above — an ill-formed name cannot enter `closure`, hence
+    -- cannot enter `used` — and it is kept anyway, because this is where the
+    -- string actually becomes source and a future refactor of `closure`
+    -- must not be able to reopen the channel silently.
+    emit d
+      | not (validAgdaIdent (defName d)) = []
     emit d =
       case render defs defVar (defBody d) of
         Nothing -> []   -- an untranslatable body drops the definition, so
@@ -352,7 +567,17 @@ preambleCore syms =
 agdaCertificate :: Equation -> Maybe String
 agdaCertificate = agdaCertificateWith []
 
+-- EMISSION SITE 3 (the module as a whole), and the fail-closed one.  Sites 1
+-- and 2 already make an ill-formed name unrenderable; this guard makes the
+-- candidate carrying it unemittable, so the failure is a REJECTED CANDIDATE
+-- and not a module that agda is asked to have an opinion about.  The
+-- distinction is the whole point of the fix: `Rejected` after 8 agda calls
+-- means agda examined an injected module and disliked it, which is a fact
+-- about agda; `Untranslatable` with 0 calls means the gate never emitted
+-- one, which is a fact about the gate.  Only the second is a property this
+-- file can guarantee.
 agdaCertificateWith :: [Definition] -> Equation -> Maybe String
+agdaCertificateWith defs _ | not (definitionsSafe defs) = Nothing
 agdaCertificateWith defs eq@(l, r) = do
   lhs <- agdaTermWith defs l
   rhs <- agdaTermWith defs r
@@ -372,6 +597,10 @@ telescope ns = "(" ++ unwords ns ++ " : ℕ) → "
 -- from a step-clause failure without rerunning anything.
 agdaInductionCertificate :: [Definition] -> Equation -> Int -> String
                          -> Maybe (String, Int)
+-- Same fail-closed guard as `agdaCertificateWith`; see EMISSION SITE 3.  It
+-- is repeated rather than factored because these are the two functions that
+-- turn a candidate into a file, and each must be safe when read alone.
+agdaInductionCertificate defs _ _ _ | not (definitionsSafe defs) = Nothing
 agdaInductionCertificate defs eq@(l, r) v step = do
   lhs <- agdaTermWith defs l
   rhs <- agdaTermWith defs r
@@ -482,6 +711,57 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 -- state and is set on every call so the seam cannot forget it.
 runAgda :: FilePath -> String -> IO (ExitCode, String)
 runAgda root source = do
+  micros <- agdaTimeoutMicros
+  r <- try (timeout micros (runAgdaRaw root source))
+         :: IO (Either SomeException (Maybe (ExitCode, String)))
+  pure $ case r of
+    Right (Just ok) -> ok
+    -- BOTH OF THESE USED TO ESCAPE.  A missing agda, a `root` that does not
+    -- exist, a mktemp failure: `runAgda` let the IO exception out, past
+    -- `certifyWith`, past `kernelAcceptWith`, and the engine ABORTED where
+    -- the honest answer is "this candidate was not certified".  An agda
+    -- that never returns blocked the gate forever, and `kMaxAgdaCalls`
+    -- bounds processes, not wall clock.  A gate must fail closed on both.
+    Right Nothing ->
+      ( ExitFailure 124
+      , kEnvironmentFault ++ ": agda did not return within "
+          ++ show (micros `div` 1000000) ++ "s\n" )
+    Left e ->
+      ( ExitFailure 127
+      , kEnvironmentFault ++ ": agda invocation raised: " ++ show e ++ "\n" )
+
+-- The wall-clock bound on one agda process.  Generous: the slowest module
+-- the gate emits (a gcd candidate, which pulls in Cubical.Data.Nat.GCD)
+-- checks in single-digit seconds, so a candidate that reaches this bound is
+-- not slow, it is stuck.
+kAgdaTimeoutMicros :: Int
+kAgdaTimeoutMicros = 120 * 1000000
+
+-- `MATH_AGDA_TIMEOUT` overrides it, in whole seconds.  Not a tuning knob:
+-- a bound that cannot be moved cannot be TESTED, and the probe that proves
+-- the gate survives a hung agda has to be able to hang it for less time
+-- than the audit itself is willing to wait.  Anything unparseable, zero or
+-- negative falls back to the default rather than disabling the bound.
+agdaTimeoutMicros :: IO Int
+agdaTimeoutMicros = do
+  mv <- lookupEnv "MATH_AGDA_TIMEOUT"
+  pure $ case mv >>= readSeconds of
+    Just s | s > 0 -> s * 1000000
+    _ -> kAgdaTimeoutMicros
+  where
+    readSeconds v = case span isDigit (dropWhile isSpace v) of
+      (ds@(_ : _), rest) | all isSpace rest -> Just (read ds)
+      _ -> Nothing
+
+-- The marker that says "this non-zero exit is about the environment, not
+-- about the mathematics".  `cacheableFailure` refuses to freeze anything
+-- carrying it, so a broken toolchain cannot leave rejections behind that
+-- outlive the breakage -- the 2026-08-15 fault, kept shut.
+kEnvironmentFault :: String
+kEnvironmentFault = "kernel gate environment fault"
+
+runAgdaRaw :: FilePath -> String -> IO (ExitCode, String)
+runAgdaRaw root source = do
   setLocaleEncoding utf8
   tmp <- getTemporaryDirectory
   dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
@@ -497,6 +777,467 @@ runAgda root source = do
       (code, out, err) <- readCreateProcessWithExitCode cp ""
       pure (code, out ++ err))
     `finally` removePathForcibly dir
+
+-- ------------------------------------------------------- the two controls
+--
+-- WHAT AN EXIT STATUS IS WORTH.  Until 2026-08-16 the gate's entire evidence
+-- that a candidate had been PROVED was `code == ExitSuccess`.  That is not
+-- evidence about mathematics, it is evidence about a number a process
+-- returned, and `machine/GateAudit.hs` section C exhibited three ways to
+-- separate the two.  The cheapest is not exotic: a wrapper of the shape
+--
+--     agda "$@" 2>&1 | cat
+--
+-- has the exit status of `cat`.  Real agda runs, really reports `suc x != x`,
+-- really exits 1 -- and the gate read 0 and returned `Certified "refl" 1`
+-- for `s(x) = x`.  Anyone who has ever piped a compiler through `tee` to
+-- keep its output has built this shim by accident.
+--
+-- The repair is the discipline this repository already applies to its
+-- finite verifications: a positive control is not evidence without a
+-- FALSIFIER.  `ArithVocab`'s lifting-the-exponent law is trusted because
+-- the same harness that accepts 53,760 true triples is watched rejecting a
+-- false one at (p=2,a=3,n=2).  The kernel gets the same treatment.  Two
+-- modules, run once per process, uncached, through the same `runAgda` the
+-- candidates use:
+--
+--   * `canaryTrue` MUST check.  It fails when agda is missing, the library
+--     is unregistered, the include root has moved -- the 2026-08-15 fault,
+--     where every candidate became a KERNEL-REJECT.
+--   * `canaryFalse` MUST NOT.  It is `suc x ≡ x` closed by `refl`.  A
+--     checker that accepts it is not checking, and NOTHING it says can be
+--     read as a proof.
+--
+-- One of the two catches every attack in section C, because each of them
+-- has to make a false module pass in order to make a false candidate pass.
+-- The cost is two agda processes per engine run, paid on the first success
+-- and never again; a run that certifies nothing never pays it at all.
+--
+-- The controls are run UNCACHED on purpose.  A canary served from an
+-- unauthenticated on-disk store would be a canary an attacker can answer.
+
+canaryModule :: String -> String
+canaryModule claim = unlines
+  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  , "module Candidate where"
+  , "open import Cubical.Foundations.Prelude"
+  , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)"
+  , "canary : (x : ℕ) → " ++ claim
+  , "canary x = refl"
+  ]
+
+-- True definitionally: `_+_` recurses on its FIRST argument in cubical, so
+-- `zero + x` reduces to `x` and `refl` closes it with no lemma.
+canaryTrue :: String
+canaryTrue = canaryModule "(zero + x) ≡ x"
+
+-- False for every x, and false in the cheapest possible way -- a
+-- constructor clash, which agda reports without unfolding anything.
+canaryFalse :: String
+canaryFalse = canaryModule "(suc x) ≡ x"
+
+{-# NOINLINE kernelChecksRef #-}
+kernelChecksRef :: IORef (Maybe Bool)
+kernelChecksRef = unsafePerformIO (newIORef Nothing)
+
+-- Does the thing on the far side of this seam actually check proofs?
+-- Memoised per process: the answer is a property of the toolchain, and a
+-- toolchain that changes under a running engine is not a threat this can
+-- address (nor one the cache key can, which is the same admission).
+kernelIsChecking :: FilePath -> IO Bool
+kernelIsChecking root = do
+  cached <- readIORef kernelChecksRef
+  case cached of
+    Just b -> pure b
+    Nothing -> do
+      (posCode, posOut) <- runAgda root canaryTrue
+      (negCode, _) <- runAgda root canaryFalse
+      let positiveHolds = posCode == ExitSuccess && not (successHidesAnError posOut)
+          negativeHolds = negCode /= ExitSuccess
+          ok = positiveHolds && negativeHolds
+      writeIORef kernelChecksRef (Just ok)
+      pure ok
+
+-- The per-call form of the same suspicion, and the one that catches the
+-- `| cat` shim on the very first candidate rather than on the first
+-- success: agda's output is CAPTURED, so under that wrapper the type error
+-- is sitting in the text next to the zero exit status.  A successful agda
+-- run says "Checking Candidate (…)" and nothing else.
+successHidesAnError :: String -> Bool
+successHidesAnError out = any (`isInfixOf` out) markers
+  where
+    markers =
+      [ " != "
+      , "when checking"
+      , "Not in scope"
+      , "Multiple definitions"
+      , "Unsolved"
+      , "Termination checking failed"
+      , "Failed to find source"
+      , "error:"
+      , "Parse error"
+      ]
+
+-- ---------------------------------------------- the certificate cache
+--
+-- See "THE CERTIFICATE CACHE" in the header for the design and for the two
+-- honesty decisions (never cache Untranslatable; cache a rejection only
+-- when agda's message is a genuine type error).  This section is the
+-- mechanism.
+
+-- Where entries live, relative to the same `root` the agda child runs in.
+kCertCacheDir :: FilePath
+kCertCacheDir = "machine" </> ".certcache"
+
+-- The one escape hatch.  `MATH_CERTCACHE=0|off|no|false` bypasses the cache
+-- completely: every module is sent to agda and nothing is read or written.
+-- It exists so a measurement can be taken against a cold kernel, and so a
+-- change to the cubical library (which is NOT in the key) can be recovered
+-- from without deleting files by hand.
+cacheEnabled :: IO Bool
+cacheEnabled = do
+  mv <- lookupEnv "MATH_CERTCACHE"
+  pure $ case fmap (map toLower) mv of
+    Just v | v `elem` ["0", "off", "no", "false"] -> False
+    _ -> True
+
+-- The checker's identity, folded into every key.  Queried once per process
+-- and memoised: `agda --version` is itself a process launch and the whole
+-- point here is not to launch processes.  If the query fails the identity
+-- is a fixed unknown string, which is still consistent within and across
+-- runs, so the cache stays correct-by-comparison (the stored source is
+-- always re-checked) but stops distinguishing toolchains.
+{-# NOINLINE toolchainRef #-}
+toolchainRef :: IORef (Maybe String)
+toolchainRef = unsafePerformIO (newIORef Nothing)
+
+toolchainIdentity :: IO String
+toolchainIdentity = do
+  cached <- readIORef toolchainRef
+  case cached of
+    Just s -> pure s
+    Nothing -> do
+      r <- try (readProcess "agda" ["--version"] "")
+             :: IO (Either SomeException String)
+      let ver = either (const "agda:version-unknown") id r
+          s = unwords (words ver)
+                ++ " | library=" ++ kAgdaLibrary
+                ++ " | include=" ++ kIncludeRoot
+      writeIORef toolchainRef (Just s)
+      pure s
+
+-- UTF-8 encoding of one character, so the key really is a hash of the bytes
+-- that would be written to disk and handed to agda.
+utf8Bytes :: Char -> [Int]
+utf8Bytes ch
+  | n < 0x80 = [n]
+  | n < 0x800 =
+      [ 0xC0 .|. (shiftR n 6 .&. 0x1F), 0x80 .|. (n .&. 0x3F) ]
+  | n < 0x10000 =
+      [ 0xE0 .|. (shiftR n 12 .&. 0x0F)
+      , 0x80 .|. (shiftR n 6 .&. 0x3F)
+      , 0x80 .|. (n .&. 0x3F) ]
+  | otherwise =
+      [ 0xF0 .|. (shiftR n 18 .&. 0x07)
+      , 0x80 .|. (shiftR n 12 .&. 0x3F)
+      , 0x80 .|. (shiftR n 6 .&. 0x3F)
+      , 0x80 .|. (n .&. 0x3F) ]
+  where n = ord ch
+
+-- FNV-1a, two independent lanes (different basis and prime, second lane run
+-- over the reversed byte string) concatenated to 128 bits.  A cryptographic
+-- hash is not needed and would be a dependency: the stored source is
+-- compared byte for byte on every hit, so the hash cannot cause a wrong
+-- answer, only a wasted lookup.
+fnv1a :: Word64 -> Word64 -> [Int] -> Word64
+fnv1a basis prime = foldl' step basis
+  where step h b = (h `xor` fromIntegral b) * prime
+
+hex64 :: Word64 -> String
+hex64 w = [ hexDigit (fromIntegral (shiftR w k .&. 0xF)) | k <- [60, 56 .. 0] ]
+  where hexDigit i = "0123456789abcdef" !! i
+
+cacheKey :: String -> String -> String
+cacheKey toolchain source = hex64 h1 ++ hex64 h2
+  where
+    bs = concatMap utf8Bytes (toolchain ++ "\NUL" ++ source)
+    h1 = fnv1a 14695981039346656037 1099511628211 bs
+    h2 = fnv1a 0xcbf29ce484222325 0x100000001b3f (reverse bs)
+
+-- One stored verdict.  `ceSource` is the whole point of the format: it is
+-- what makes the entry re-runnable by a reader and what makes a hash
+-- collision harmless.
+data CacheEntry = CacheEntry
+  { ceExit :: Int
+  , ceToolchain :: String
+  , ceOutput :: String
+  , ceSource :: String
+  } deriving (Eq, Show)
+
+encodeEntry :: CacheEntry -> String
+encodeEntry e = unlines $
+  [ "CERTCACHE 1"
+  , "VERDICT " ++ (if ceExit e == 0 then "accepted" else "rejected")
+  , "EXIT " ++ show (ceExit e)
+  , "TOOLCHAIN " ++ ceToolchain e
+  ]
+  ++ block "AGDA-OUTPUT" (ceOutput e)
+  ++ block "SOURCE" (ceSource e)
+
+-- A length-and-trailing-newline delimited block, so encode/decode is an
+-- exact inverse on arbitrary text (agda's output ends without a newline
+-- often enough to matter, and an inexact round trip would make every
+-- lookup miss).
+block :: String -> String -> [String]
+block tag s = (tag ++ " " ++ show (length ls) ++ " " ++ flag) : ls
+  where
+    ls = lines s
+    flag = if not (null s) && last s == '\n' then "nl" else "nonl"
+
+decodeEntry :: String -> Maybe CacheEntry
+decodeEntry txt = case lines txt of
+  (hdr : rest0) | hdr == "CERTCACHE 1" -> do
+    (_verd, rest1) <- takeP "VERDICT " rest0
+    (exitS, rest2) <- takeP "EXIT " rest1
+    ec <- readMaybeInt exitS
+    (tc, rest3) <- takeP "TOOLCHAIN " rest2
+    (out, rest4) <- readBlock "AGDA-OUTPUT" rest3
+    (src, _) <- readBlock "SOURCE" rest4
+    pure (CacheEntry ec tc out src)
+  _ -> Nothing
+  where
+    takeP pfx (l : more) | pfx `isPrefixOf` l = Just (drop (length pfx) l, more)
+    takeP _ _ = Nothing
+
+readBlock :: String -> [String] -> Maybe (String, [String])
+readBlock tag ls = case ls of
+  (l : more) | (tag ++ " ") `isPrefixOf` l ->
+    case words (drop (length tag + 1) l) of
+      [nS, flag] -> do
+        n <- readMaybeInt nS
+        let (body, rest) = splitAt n more
+        if length body /= n then Nothing else Just (rebuild body flag, rest)
+      _ -> Nothing
+  _ -> Nothing
+  where
+    rebuild body "nl" = unlines body
+    rebuild body _ = intercalate "\n" body
+
+readUtf8 :: FilePath -> IO String
+readUtf8 path = withFile path ReadMode $ \h -> do
+  hSetEncoding h utf8
+  s <- hGetContents h
+  length s `seq` pure s
+
+-- A hit requires the stored source and the stored toolchain to match
+-- EXACTLY.  Any change to the emitter, to a concept definition, to the
+-- vocabulary transcriptions, or to agda itself changes one of them and
+-- therefore misses.
+lookupCache :: FilePath -> String -> String -> String
+            -> IO (Maybe (ExitCode, String))
+lookupCache root tc key source = do
+  r <- try (do
+         present <- doesFileExist path
+         if not present then pure Nothing else decodeEntry <$> readUtf8 path)
+         :: IO (Either SomeException (Maybe CacheEntry))
+  pure $ case r of
+    Right (Just e) | ceSource e == source, ceToolchain e == tc ->
+      Just (toExit (ceExit e), ceOutput e)
+    _ -> Nothing
+  where
+    path = root </> kCertCacheDir </> key
+    toExit 0 = ExitSuccess
+    toExit n = ExitFailure n
+
+-- Written to a unique temporary name in the same directory and renamed, so
+-- a concurrent reader never sees a half-written entry and two engines
+-- racing on the same key both end up with a complete file.  Any IO failure
+-- here is swallowed: an unwritable cache must slow the gate down, never
+-- break it.
+storeCache :: FilePath -> String -> String -> CacheEntry -> IO ()
+storeCache root tc key entry = do
+  r <- try (do
+         createDirectoryIfMissing True dir
+         (tmpPath, h) <- openTempFile dir (key ++ ".tmp")
+         hSetEncoding h utf8
+         hPutStr h (encodeEntry entry { ceToolchain = tc })
+         hClose h
+         renameFile tmpPath (dir </> key))
+         :: IO (Either SomeException ())
+  either (const (pure ())) pure r
+  where dir = root </> kCertCacheDir
+
+-- Requirement (e), decided: cache a failure only when agda plainly reports a
+-- TYPE error located in the module we emitted.  A non-zero exit otherwise
+-- carries no mathematical content — a missing library, a locale fault, a
+-- vanished include root or a killed process all produce one, and freezing
+-- any of those into a persistent "rejected" would recreate exactly the bug
+-- described as fault (1) in the header, where a path error was recorded as a
+-- rejection indistinguishable from a false statement.
+cacheableFailure :: String -> Bool
+cacheableFailure out =
+  not (null (dropWhile isSpace out))
+    && "Candidate.agda:" `isInfixOf` out
+    && isJust (blamedLine out)
+    && not (any (`isInfixOf` out) environmentMarkers)
+    && any (`isInfixOf` out) typeErrorMarkers
+  where
+    environmentMarkers =
+      [ "Failed to find source of module"
+      , "No such file or directory"
+      , "does not exist"
+      , "cannot be found"
+      , "not found"
+      , "Cannot find"
+      , "internal error"
+      , "Interrupted"
+      , "cannot encode character"
+      , "invalid argument"
+      , kEnvironmentFault      -- timeout, or an exception out of `runAgda`
+      ]
+    typeErrorMarkers =
+      [ " != "
+      , "when checking"
+      ]
+
+-- ASYMMETRIC TRUST, which is the only kind an unauthenticated store can
+-- carry.  `machine/.certcache` is a directory of files.  Anything that can
+-- write there can write "VERDICT accepted" beside any module it likes, and
+-- `GateAudit --probe poison` does exactly that: one hand-written file turns
+-- `s(x) = x` into a `Certified` for zero agda invocations.  Signing is not
+-- available (there is no secret here, and an adversary with the filesystem
+-- has `Certificate.hs` too), so the answer is not to authenticate the store
+-- but to stop asking it the question that matters.
+--
+-- The two directions are not symmetric:
+--
+--   a WRONG REJECTION costs a theorem.  The engine misses something true,
+--   the loop continues, the corpus stays sound.
+--
+--   a WRONG ACCEPTANCE installs a false rewrite rule, and every later round
+--   reasons with it.
+--
+-- So rejections are served from disk, and an ACCEPTANCE ON DISK IS A HINT:
+-- the first time this process is asked to honour one it re-runs agda and
+-- believes agda.  Confirmed keys go in an in-memory set, so a candidate
+-- resubmitted a hundred times in one run still costs one call, not a
+-- hundred -- which is where nearly all of the cache's measured win came
+-- from (the same module is re-emitted every round it survives, not once).
+-- An entry agda then contradicts is DELETED, because it is either poisoned
+-- or was written by a toolchain that lied.
+--
+-- Stated as one line: on-disk acceptances are hints, in-memory acceptances
+-- are verdicts, and no acceptance of either kind is honoured by a process
+-- whose kernel has not been watched rejecting a false module.
+
+{-# NOINLINE confirmedRef #-}
+confirmedRef :: IORef [String]
+confirmedRef = unsafePerformIO (newIORef [])
+
+confirmedHere :: String -> IO Bool
+confirmedHere key = elem key <$> readIORef confirmedRef
+
+confirmHere :: String -> IO ()
+confirmHere key = modifyIORef' confirmedRef (key :)
+
+-- Every route by which a success leaves this module passes through here.
+-- A zero exit is upgraded to an acceptance only if agda's own output is
+-- free of complaints AND this process has seen the kernel reject a false
+-- module.  Otherwise the zero exit is reported as what it is: a fault in
+-- the environment, uncacheable, and a rejection at the gate.
+vetSuccess :: FilePath -> String -> IO (ExitCode, String)
+vetSuccess root out
+  | successHidesAnError out =
+      pure ( ExitFailure 125
+           , kEnvironmentFault
+               ++ ": agda exited 0 while reporting an error; the exit status\n"
+               ++ "of this invocation is not agda's.  Original output:\n" ++ out )
+  | otherwise = do
+      checking <- kernelIsChecking root
+      pure $ if checking
+        then (ExitSuccess, out)
+        else ( ExitFailure 126
+             , kEnvironmentFault
+                 ++ ": the kernel accepted `suc x ≡ x` by refl.  It is not\n"
+                 ++ "checking proofs, so nothing it accepts is one.\n" )
+
+-- The cached invocation.  The third component is the number of agda
+-- PROCESSES actually launched: 0 on a hit, 1 on a miss.  Everything that
+-- reports an invocation count counts this, so a cache hit can never be
+-- mistaken for kernel work.  (The two control modules are not counted:
+-- they are paid once per process and belong to no candidate.)
+runAgdaCached :: FilePath -> String -> IO (ExitCode, String, Int)
+runAgdaCached root source = do
+  on <- cacheEnabled
+  if not on
+    then do
+      (code, out) <- runAgda root source
+      case code of
+        ExitSuccess -> do
+          (code', out') <- vetSuccess root out
+          pure (code', out', 1)
+        _ -> pure (code, out, 1)
+    else do
+      tc <- toolchainIdentity
+      let key = cacheKey tc source
+      hit <- lookupCache root tc key source
+      case hit of
+        -- a cached REJECTION: served, as before.  It can only lose a
+        -- theorem, and the stored source is byte-compared, so the worst
+        -- case is a candidate re-derived later at full price.
+        Just (ExitFailure n, out) -> pure (ExitFailure n, out, 0)
+        -- a cached ACCEPTANCE: free only after this process has confirmed
+        -- it against the kernel itself.
+        Just (ExitSuccess, out) -> do
+          seen <- confirmedHere key
+          if seen
+            then pure (ExitSuccess, out, 0)
+            else do
+              (code, out') <- runAgda root source
+              case code of
+                ExitSuccess -> do
+                  (code', out'') <- vetSuccess root out'
+                  case code' of
+                    ExitSuccess -> confirmHere key >> pure (ExitSuccess, out, 1)
+                    _ -> dropEntry root key >> pure (code', out'', 1)
+                _ -> do
+                  dropEntry root key
+                  pure (code, out', 1)
+        Nothing -> do
+          (code, out) <- runAgda root source
+          case code of
+            ExitSuccess -> do
+              (code', out') <- vetSuccess root out
+              case code' of
+                ExitSuccess -> do
+                  confirmHere key
+                  storeCache root tc key (CacheEntry 0 tc out source)
+                  pure (ExitSuccess, out, 1)
+                ExitFailure n -> pure (ExitFailure n, out', 1)
+            ExitFailure n -> do
+              when (cacheableFailure out) $
+                storeCache root tc key (CacheEntry n tc out source)
+              pure (ExitFailure n, out, 1)
+
+-- An entry the kernel contradicts is removed rather than left to be
+-- re-tested by every future process.  Failure to remove it is not fatal:
+-- the next process re-tests it and reaches the same answer.
+dropEntry :: FilePath -> String -> IO ()
+dropEntry root key = do
+  r <- try (removePathForcibly (root </> kCertCacheDir </> key))
+         :: IO (Either SomeException ())
+  either (const (pure ())) pure r
+
+-- How a verdict announces provenance.  0 fresh agda calls => the whole
+-- result came out of the cache and says so; any fresh call at all and the
+-- label is left alone, because the run really did use the kernel.
+cachedShape :: Int -> String -> String
+cachedShape 0 s = "cached, " ++ s
+cachedShape _ s = s
+
+cachedError :: Int -> String -> String
+cachedError 0 s = "cached: " ++ s
+cachedError _ s = s
 
 -- Agda's first complaint, as one line, for the log.  The location line
 -- ("<tmpdir>/Candidate.agda:12,25-31") is dropped: the path is a temp
@@ -529,50 +1270,378 @@ certify :: FilePath -> (Equation, String) -> IO Verdict
 certify = certifyWith []
 
 certifyWith :: [Definition] -> FilePath -> (Equation, String) -> IO Verdict
+-- The `Int` in the Verdict is the number of agda processes this call
+-- actually launched — 0 when every module in the search came from the
+-- cache, in which case the shape/error string is marked `cached`.  It is
+-- deliberately not the number of modules examined: that number would make
+-- a cache hit look like kernel work in every log and every measurement.
 certifyWith defs root (eq, proofNote) =
   case agdaCertificateWith defs eq of
     Nothing -> pure (Untranslatable (untranslatableReason defs eq))
     Just reflSource -> do
-      (code, out) <- runAgda root reflSource
+      (code, out, n0) <- runAgdaCached root reflSource
       case code of
-        ExitSuccess -> pure (Certified "refl" 1)
+        ExitSuccess -> pure (Certified (cachedShape n0 "refl") n0)
+        -- FAIL CLOSED AND FAIL FAST.  An environment fault says nothing
+        -- about this equation, so the eleven remaining step shapes have
+        -- nothing to add: they will each hang for the same timeout, or
+        -- raise the same exception, and the candidate will be rejected
+        -- anyway twelve invocations later.  Under a hung agda that is the
+        -- difference between one timeout and the whole budget's worth.
+        ExitFailure _ | environmentFault out ->
+          pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
           case inductionVariable proofNote of
-            Nothing -> pure (Rejected (firstErrorLine out) 1)
+            Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
             Just v -> do
               let ks = take kMaxCongArguments
                          (mapMaybe agdaVar (equationVars eq))
               case inductionHypothesis eq v of
-                Nothing -> pure (Rejected (firstErrorLine out) 1)
-                Just ih -> tryShapes v (stepShapes ih ks) 1 (firstErrorLine out)
+                Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
+                Just ih -> tryShapes v (stepShapes ih ks) n0 (firstErrorLine out)
   where
-    tryShapes _ [] used lastErr = pure (Rejected lastErr used)
+    tryShapes _ [] used lastErr = pure (Rejected (cachedError used lastErr) used)
     tryShapes v ((label, step) : more) used _lastErr =
       case agdaInductionCertificate defs eq v step of
-        Nothing -> pure (Rejected "induction variable outside the equation" used)
+        Nothing ->
+          pure (Rejected
+                  (cachedError used "induction variable outside the equation")
+                  used)
         Just (source, baseLine) -> do
-          (code, out) <- runAgda root source
-          let used' = used + 1
+          (code, out, n) <- runAgdaCached root source
+          let used' = used + n
           case code of
             ExitSuccess ->
               let nv = maybe (show v) id (agdaVar v)
-              in pure (Certified ("induction on " ++ nv ++ ", step = " ++ label) used')
+              in pure (Certified
+                         (cachedShape used'
+                            ("induction on " ++ nv ++ ", step = " ++ label))
+                         used')
             ExitFailure _
+              | environmentFault out ->
+                  pure (Rejected (firstErrorLine out) used')
               -- Agda blamed the base clause: no step shape can rescue it.
               | blamedLine out == Just baseLine ->
-                  pure (Rejected ("base clause: " ++ firstErrorLine out) used')
+                  pure (Rejected
+                          (cachedError used'
+                             ("base clause: " ++ firstErrorLine out))
+                          used')
               | otherwise -> tryShapes v more used' (firstErrorLine out)
+
+-- Did this non-zero exit come from the environment rather than from the
+-- mathematics?  Only the faults this module synthesises itself count: a
+-- timeout, an exception out of `runAgda`, a zero exit contradicted by its
+-- own output, a kernel that failed its controls.  Agda's own diagnostics
+-- are not searched, because a candidate that merely MENTIONS the phrase
+-- must not be able to shorten its own examination.
+environmentFault :: String -> Bool
+environmentFault out = kEnvironmentFault `isPrefixOf` dropWhile isSpace out
 
 untranslatableReason :: [Definition] -> Equation -> String
 untranslatableReason defs eq@(l, r) =
-  case [ s | s <- equationSymbols eq, not (known s) ] of
-    (s : _) -> "unknown symbol " ++ show s
-    [] -> case [ i | i <- equationVars eq, not (isJust (agdaVar i)) ] of
-      (i : _) -> "variable index out of range: " ++ show i
-      [] -> "untranslatable: " ++ show l ++ " = " ++ show r
+  -- The identifier check reports first and by name.  A rejected injection
+  -- must be legible as an injection in the log, not disguised as the
+  -- emitter running out of vocabulary.
+  case [ defName d | d <- defs, not (validAgdaIdent (defName d)) ] of
+    (n : _) -> "illegal concept name (not [A-Za-z_][A-Za-z0-9_]*): " ++ show n
+    [] -> case [ s | s <- equationSymbols eq, not (known s) ] of
+      (s : _) -> "unknown symbol " ++ show s
+      [] -> case [ i | i <- equationVars eq, not (isJust (agdaVar i)) ] of
+        (i : _) -> "variable index out of range: " ++ show i
+        [] -> "untranslatable: " ++ show l ++ " = " ++ show r
   where
     known s = s `elem` ["0", "s", "+", "*", "-", "max", "le", "gcd"]
                 || isJust (lookupDef defs s)
+
+-- --------------------------------------------- serialisable certificates
+--
+-- The corpus wants machine/library.txt to be a re-checkable LEDGER, not a
+-- trust-me list.  `certify` above proves a library equation once, inside
+-- this process, and then the proof term is gone: the file records only the
+-- equation and a prose note ("[induction on x]").  Re-reading the file
+-- therefore re-runs the *search* (agdaCertificate + stepShapes), which is
+-- not the same as re-checking a fixed proof — a change to `stepShapes` could
+-- silently change which library entries are provable.
+--
+-- A `SerialCert` closes that gap.  It records the exact proof WITNESS that
+-- agda accepted (refl, or induction on a named variable with the exact step
+-- term), so:
+--
+--   (a) it RECONSTRUCTS THE PROOF TERM deterministically — `reconstructModule`
+--       emits the one Agda module that carries the accepted proof, with no
+--       search; and
+--   (b) it ROUND-TRIPS — `serializeCert` / `parseSerialCert` are inverses on
+--       the fragment, so a serialised ledger entry parses back to the same
+--       witness, whose reconstructed module agda re-checks to the same
+--       theorem (`replayCert`).
+--
+-- The Agda side these land in is NaturalMachine.RewriteCertificate: a checked
+-- `candidate : lhs ≡ rhs` is exactly the hypothesis of `derivation-sound` /
+-- `induction-sound` there, i.e. the semantic warrant that the endpoints
+-- denote pointwise-equal functions ℕ → ℕ.
+
+-- The proof that a `SerialCert` carries, in a form that reconstructs a
+-- specific Agda module rather than a search.
+data ProofWitness
+  = WRefl                    -- ^ true by definitional unfolding: `refl`
+  | WInduction Int String    -- ^ induction on variable i, with this exact
+                             --   step term (an Agda expression, e.g. the
+                             --   induction hypothesis under `cong suc`)
+  deriving (Eq, Show)
+
+-- A ledger entry: the theorem endpoints, the concept definitions its terms
+-- need in scope, and the witness that discharges it.  Everything needed to
+-- rebuild and re-check the proof, with nothing left to a search.
+data SerialCert = SerialCert
+  { scLhs :: Term
+  , scRhs :: Term
+  , scDefs :: [Definition]
+  , scWitness :: ProofWitness
+  } deriving (Eq, Show)
+
+mkSerialCert :: [Definition] -> Equation -> ProofWitness -> SerialCert
+mkSerialCert defs (l, r) w = SerialCert l r defs w
+
+-- Canonical prefix serialisation of a Term.  Deliberately NOT the machine's
+-- infix `show` (which is ambiguous for word operators like `max`: `(xmaxx)`);
+-- this form is an exact inverse of `parseSerTerm` on the whole Term type.
+serTerm :: Term -> String
+serTerm (V i)    = "v" ++ show i
+serTerm (F f ts) = "(" ++ unwords (f : map serTerm ts) ++ ")"
+
+serTokenize :: String -> [String]
+serTokenize [] = []
+serTokenize (c : cs)
+  | c == '('  = "(" : serTokenize cs
+  | c == ')'  = ")" : serTokenize cs
+  | isSpace c = serTokenize cs
+  | otherwise =
+      let (a, rest) = span (\x -> x /= '(' && x /= ')' && not (isSpace x)) (c : cs)
+      in a : serTokenize rest
+
+parseSerTerm :: String -> Maybe Term
+parseSerTerm s = case pSer (serTokenize s) of
+  Just (t, []) -> Just t
+  _            -> Nothing
+
+pSer :: [String] -> Maybe (Term, [String])
+pSer ("(" : name : rest)
+  | name /= "(" && name /= ")" = do
+      (args, rest') <- pSerArgs rest
+      pure (F name args, rest')
+pSer (tok : rest)
+  | ('v' : ds) <- tok, not (null ds), all isDigit ds = Just (V (read ds), rest)
+pSer _ = Nothing
+
+pSerArgs :: [String] -> Maybe ([Term], [String])
+pSerArgs (")" : rest) = Just ([], rest)
+pSerArgs toks = do
+  (a, r1)  <- pSer toks
+  (as, r2) <- pSerArgs r1
+  pure (a : as, r2)
+
+-- A ledger block.  Line-oriented and self-delimiting so many entries can
+-- share one file.
+serializeCert :: SerialCert -> String
+serializeCert sc = unlines $
+  [ "BEGIN-CERT 1"
+  , "LHS " ++ serTerm (scLhs sc)
+  , "RHS " ++ serTerm (scRhs sc)
+  , "DEFS " ++ show (length (scDefs sc))
+  ]
+  ++ [ "DEF " ++ defName d ++ " " ++ show (defArity d) ++ " " ++ serTerm (defBody d)
+     | d <- scDefs sc ]
+  ++ [ case scWitness sc of
+         WRefl            -> "WITNESS refl"
+         WInduction v stp -> "WITNESS induction " ++ show v ++ " " ++ stp
+     , "END-CERT"
+     ]
+
+parseSerialCert :: String -> Maybe SerialCert
+parseSerialCert = parseSerialFrom . lines
+
+-- Parses the first BEGIN-CERT..END-CERT block in a line list.
+parseSerialFrom :: [String] -> Maybe SerialCert
+parseSerialFrom ls0 = do
+  rest0            <- dropTo "BEGIN-CERT" ls0
+  (lhsL, rest1)    <- takePrefixed "LHS " rest0
+  lhs              <- parseSerTerm lhsL
+  (rhsL, rest2)    <- takePrefixed "RHS " rest1
+  rhs              <- parseSerTerm rhsL
+  (defsN, rest3)   <- takePrefixed "DEFS " rest2
+  n                <- readMaybeInt defsN
+  (defs, rest4)    <- readDefs n rest3
+  (witL, _)        <- takePrefixed "WITNESS " rest4
+  w                <- parseWitness witL
+  pure (SerialCert lhs rhs defs w)
+  where
+    dropTo pfx ls = case dropWhile (not . isPrefixOf pfx) ls of
+      (_ : more) -> Just more
+      []         -> Nothing
+    takePrefixed pfx (l : more)
+      | pfx `isPrefixOf` l = Just (drop (length pfx) l, more)
+    takePrefixed _ _ = Nothing
+    readDefs 0 ls = Just ([], ls)
+    readDefs k ls = do
+      (dl, more) <- takePrefixed "DEF " ls
+      d          <- parseDefLine dl
+      (ds, r)    <- readDefs (k - 1) more
+      pure (d : ds, r)
+    parseDefLine dl = case words dl of
+      (nm : arS : bodyToks) -> do
+        ar   <- readMaybeInt arS
+        body <- parseSerTerm (unwords bodyToks)
+        pure (Definition nm ar body)
+      _ -> Nothing
+    parseWitness w = case words w of
+      ["refl"]                -> Just WRefl
+      ("induction" : v : stp) -> do
+        vi <- readMaybeInt v
+        pure (WInduction vi (unwords stp))
+      _ -> Nothing
+
+readMaybeInt :: String -> Maybe Int
+readMaybeInt s = case reads s of { [(n, "")] -> Just n ; _ -> Nothing }
+
+-- Rebuild the exact Agda module the witness names.  No search: a witness is
+-- reconstructed to one module, and that module is what agda re-checks.
+reconstructModule :: SerialCert -> Maybe String
+reconstructModule sc = case scWitness sc of
+  WRefl            -> agdaCertificateWith (scDefs sc) eq
+  WInduction v stp -> fst <$> agdaInductionCertificate (scDefs sc) eq v stp
+  where eq = (scLhs sc, scRhs sc)
+
+-- Discover the certificate: prove the equation once and RECORD which witness
+-- agda accepted, so it never has to be searched for again.  Same search order
+-- and same budget as `certify`; the only difference is the return value.
+certifyCert :: [Definition] -> FilePath -> (Equation, String)
+            -> IO (Either String SerialCert)
+certifyCert defs root (eq, proofNote) =
+  case agdaCertificateWith defs eq of
+    Nothing -> pure (Left (untranslatableReason defs eq))
+    Just reflSource -> do
+      (code, out, _) <- runAgdaCached root reflSource
+      case code of
+        ExitSuccess -> pure (Right (mkSerialCert defs eq WRefl))
+        ExitFailure _ ->
+          case inductionVariable proofNote of
+            Nothing -> pure (Left (firstErrorLine out))
+            Just v -> case inductionHypothesis eq v of
+              Nothing -> pure (Left (firstErrorLine out))
+              Just ih ->
+                let ks = take kMaxCongArguments (mapMaybe agdaVar (equationVars eq))
+                in tryShapes v (stepShapes ih ks) (firstErrorLine out)
+  where
+    tryShapes _ [] lastErr = pure (Left lastErr)
+    tryShapes v ((_label, stp) : more) _ =
+      case agdaInductionCertificate defs eq v stp of
+        Nothing -> pure (Left "induction variable outside the equation")
+        Just (source, baseLine) -> do
+          (code, out, _) <- runAgdaCached root source
+          case code of
+            ExitSuccess -> pure (Right (mkSerialCert defs eq (WInduction v stp)))
+            ExitFailure _
+              | blamedLine out == Just baseLine ->
+                  pure (Left ("base clause: " ++ firstErrorLine out))
+              | otherwise -> tryShapes v more (firstErrorLine out)
+
+-- Replay a serialised certificate: reconstruct the module named by the
+-- witness and re-check it with agda.  This is the operation that makes the
+-- ledger re-checkable — it trusts the witness, never re-searches.
+replayCert :: FilePath -> SerialCert -> IO (Either String ())
+replayCert root sc = case reconstructModule sc of
+  Nothing     -> pure (Left "witness does not reconstruct to a module")
+  Just source -> do
+    (code, out, _) <- runAgdaCached root source
+    case code of
+      ExitSuccess   -> pure (Right ())
+      ExitFailure _ -> pure (Left (firstErrorLine out))
+
+-- ------------------------------------------------ reading library.txt
+--
+-- library.txt is written with the machine's infix `show`
+-- (MathMachine.hs ~465): variables are x y z u v w / nⁱ, `0` and other
+-- nullary symbols are bare, `+ * ^ gcd max` are infix `(a op b)`, and every
+-- other symbol (`s`, `-`, `le`, invented concepts `c0`…) is prefix
+-- `f(a,b,…)`.  This parser is the exact inverse of that `show`, so a line the
+-- machine wrote parses back to the term it denotes.
+
+-- Operators the machine renders infix (Show instance's list).  Order does
+-- not matter here: their first characters are disjoint.
+showInfixOps :: [String]
+showInfixOps = ["gcd", "max", "+", "*", "^"]
+
+parseShowTerm :: String -> Maybe Term
+parseShowTerm s = case pShow (dropWhile isSpace s) of
+  Just (t, rest) | all isSpace rest -> Just t
+  _                                 -> Nothing
+
+pShow :: String -> Maybe (Term, String)
+pShow ('(' : rest0) = do            -- infix: ( term OP term )
+  (a, r1)   <- pShow rest0
+  (op, r2)  <- pShowOp (dropWhile isSpace r1)
+  (b, r3)   <- pShow r2
+  case dropWhile isSpace r3 of
+    ')' : r4 -> Just (F op [a, b], r4)
+    _        -> Nothing
+pShow s = do                        -- atom, possibly prefix-applied
+  (name, r1) <- pShowName (dropWhile isSpace s)
+  case dropWhile isSpace r1 of
+    '(' : r2 -> do
+      (args, r3) <- pShowArgs r2
+      pure (F name args, r3)
+    r1' -> pure (atom name, r1')
+
+pShowOp :: String -> Maybe (String, String)
+pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf` s ] of
+  (r : _) -> Just r
+  []      -> Nothing
+
+-- A prefix head / atom name: alphanumerics plus `_ #`, or a bare `-` (monus).
+pShowName :: String -> Maybe (String, String)
+pShowName ('-' : rest) = Just ("-", rest)
+pShowName s = case span (\c -> isAlphaNum c || c == '_' || c == '#') s of
+  ("", _)     -> Nothing
+  (nm, rest)  -> Just (nm, rest)
+
+pShowArgs :: String -> Maybe ([Term], String)
+pShowArgs s = case dropWhile isSpace s of
+  ')' : rest -> Just ([], rest)
+  s'         -> do
+    (a, r1) <- pShow s'
+    case dropWhile isSpace r1 of
+      ',' : r2 -> do (as, r3) <- pShowArgs r2; pure (a : as, r3)
+      ')' : r2 -> Just ([a], r2)
+      _        -> Nothing
+
+-- A bare name is a variable if it is one of the six universe letters or the
+-- machine's out-of-range spelling nⁱ; otherwise a nullary symbol like `0`.
+atom :: String -> Term
+atom nm
+  | [c] <- nm, Just i <- lookup c (zip "xyzuvw" [0 ..]) = V i
+  | ('n' : ds) <- nm, not (null ds), all isDigit ds     = V (read ds)
+  | otherwise                                           = F nm []
+
+-- One line of library.txt / library.snapshot.txt: "LHS = RHS [note]".  The
+-- note is returned verbatim (including its brackets) for `inductionVariable`.
+parseLibraryLine :: String -> Maybe (Equation, String)
+parseLibraryLine line0
+  | all isSpace line0 = Nothing
+  | otherwise = do
+      let (lhsS, afterEq) = breakOn '=' line0
+      rhsAndNote <- afterEq
+      let (rhsS, note) = splitNote rhsAndNote
+      l <- parseShowTerm lhsS
+      r <- parseShowTerm rhsS
+      pure ((l, r), note)
+  where
+    breakOn c s = case break (== c) s of
+      (a, _ : b) -> (a, Just b)
+      (a, [])    -> (a, Nothing)
+    -- Split trailing "[...]" note off the RHS.
+    splitNote s = case break (== '[') s of
+      (r, note@('[' : _)) -> (r, note)
+      (r, note)           -> (r, note)
 
 -- ------------------------------------------------------------- self-test
 --
@@ -661,23 +1730,38 @@ main = do
   argv <- getArgs
   let root = case argv of { (p : _) -> p ; [] -> "." }
   printf "Certificate self-test (repository root %s).\n" (show root)
-  printf "budget = %d agda calls per candidate.\n\n" kMaxAgdaCalls
+  printf "budget = %d agda calls per candidate.\n" kMaxAgdaCalls
+  on <- cacheEnabled
+  printf "certificate cache: %s at %s\n\n"
+    (if on then "ON" else "OFF (MATH_CERTCACHE)" :: String)
+    (show (root </> kCertCacheDir))
+  t0 <- getCurrentTime
   putStrLn "== machine/library.snapshot.txt =="
   trues <- mapM (report root) snapshot
   putStrLn ""
   putStrLn "== beyond the snapshot =="
-  _ <- mapM (report root) extras
+  extraVs <- mapM (report root) extras
   putStrLn ""
   putStrLn "== deliberate falsehoods (must all be rejected) =="
   falses <- mapM (report root) falsehoods
+  t1 <- getCurrentTime
   putStrLn ""
   let ok = length [ () | Certified _ _ <- trues ]
       skipped = length [ () | Untranslatable _ <- trues ]
+      everything = trues ++ extraVs ++ falses
       worst = maximum (0 : map spent (trues ++ falses))
       admitted = [ () | Certified _ _ <- falses ]
+      totalCalls = sum (map spent everything)
+      hits = length [ () | v <- everything, spent v == 0, not (isSkip v) ]
+      isSkip (Untranslatable _) = True
+      isSkip _ = False
   printf "snapshot: %d/%d certified, %d rejected, %d untranslatable\n"
     ok (length snapshot) (length snapshot - ok - skipped) skipped
   printf "worst-case agda invocations observed: %d (bound %d)\n" worst kMaxAgdaCalls
+  printf "total agda invocations this run: %d over %d candidates (%d fully cached)\n"
+    totalCalls (length everything) hits
+  printf "wall clock for the gated section: %.2f s\n"
+    (realToFrac (diffUTCTime t1 t0) :: Double)
   if null admitted
     then do
       printf "falsehoods: %d/%d rejected\n" (length falses) (length falses)

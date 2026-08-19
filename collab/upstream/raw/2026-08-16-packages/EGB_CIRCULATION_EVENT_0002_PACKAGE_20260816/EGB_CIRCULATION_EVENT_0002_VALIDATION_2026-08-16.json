@@ -1,0 +1,15 @@
+{
+  "installed_engine_return_code": 0,
+  "installed_engine_event_valid": true,
+  "installed_engine_errors": [],
+  "dirty_cone_size": 16,
+  "base_nodes": 52,
+  "circulation_patch_nodes": 5,
+  "dynamic_patch_nodes": 3,
+  "combined_nodes": 60,
+  "base_edges": 46,
+  "circulation_patch_edges": 11,
+  "dynamic_patch_edges": 6,
+  "combined_edges": 63,
+  "canonical_transmission_reaudit_required": false
+}

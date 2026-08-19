@@ -95,6 +95,11 @@
 --     `two-primes→¬prime-power`.  So prime-POWER-hood is now decidable
 --     at size n; primality itself is not decided anywhere.
 --
+--     CLOSED, 2026-08-18: primality IS now decided, by
+--     `NaturalMachine.PrimalityDecision.decIsPrime`, and it is built from
+--     THIS file -- `searchDiv` at bound n-1 plus `noDiv→prime` -- with no
+--     new number theory.
+--
 --   * `searchDiv` and `primeDivisor` are linear searches with fuel; they
 --     are proofs, not algorithms, and nothing here claims otherwise.
 --
