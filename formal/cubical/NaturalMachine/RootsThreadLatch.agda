@@ -133,6 +133,7 @@ import NaturalMachine.TheUniformFormIsNotRefuted
 import NaturalMachine.IndependenceNeedsAnInternalImplication
 import NaturalMachine.TheDiagonalLemmaDischargesGoedelFix
 import NaturalMachine.RepresentabilityIsNotEnoughForIndependence
+import NaturalMachine.WitSatisfiesEveryHypothesisButOmegaConsistency
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
