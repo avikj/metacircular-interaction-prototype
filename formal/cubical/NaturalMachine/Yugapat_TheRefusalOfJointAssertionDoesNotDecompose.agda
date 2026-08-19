@@ -120,3 +120,28 @@ yugapatDecompositionGivesWeakExcludedMiddle :
   → (A : Type) → (¬ A) ⊎ (¬ (¬ A))
 yugapatDecompositionGivesWeakExcludedMiddle dec A =
   dec A (¬ A) (λ p → snd p (fst p))
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The question this module left — whether there is a
+-- THIRD position between the sequential pair and the refusal of the
+-- joint assertion — is answered in
+-- `NaturalMachine.Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).  There is:
+--
+--   Krama = (¬ सामयिक) × (¬ नित्य)
+--     ⇒ Vikalpa = (¬ सामयिक) ⊎ (¬ नित्य)
+--       ⇒ Yugapat = ¬ (सामयिक × नित्य)
+--
+-- **and the two gaps are of different KINDS.**  Krama ⊊ Vikalpa is
+-- settled outright by an example — at the trivially-true family
+-- `¬ सामयिक` holds while `¬ नित्य` fails — so it is a fact about my
+-- instance family.  Vikalpa ⇐ Yugapat is not about the family at all:
+-- it is the constructive taboo proved here, and no example can settle
+-- it inside `--safe`.
+--
+-- That distinction is the useful part.  A count of positions says less
+-- than the character of the gaps between them: one is refutable, one is
+-- only reducible.
+------------------------------------------------------------------------
