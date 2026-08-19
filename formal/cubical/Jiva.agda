@@ -82,6 +82,8 @@ import Sankalita
 import Citighana
 -- वर्गचितिघनः — आर्यभटस्य वर्ग-सङ्कलितम् (∑k² = n(n+1)(2n+1)/6, गणितपादः २२)
 import Vargacitighana
+-- वार-सङ्कलितम् — नारायणस्य पुनः-सङ्कलनम् : V₀=n, V₁=∑k, V₂=चिति (आयत-सङ्ख्याः)
+import VaraSankalita
 -- घन-बद्धम् — आर्यभटस्य घन-सङ्कलितस्य बद्ध-रूपम् (4·∑k³ = (n(n+1))²)
 import GhanaBaddha
 import Cakravala
