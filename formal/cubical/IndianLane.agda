@@ -120,6 +120,57 @@ import Anekanta
 import JainSankhya
 import AbhavaAvacchedaka
 
+-- ADDED 2026-08-19, AFTER A SURVEY THAT SHOULD NOT HAVE BEEN NEEDED.
+--
+-- machine/Yogyata.hs computed this file's import closure and found that
+-- five green, --safe, fully sourced Indian modules were reachable from NO
+-- gate at all, and twenty-six more were reachable only from those five.
+-- Thirty-one modules of Indian material that nothing typechecked.
+--
+-- The dates say what happened, and it is worse than neglect.  This gate was
+-- created at 19:19:50 on 2026-08-18, in a commit whose own title is "the
+-- lane nothing was building".  Between 19:23 and 21:43 THAT SAME EVENING,
+-- seventeen further Indian modules were written -- Bīja, Jīva, Mātrāmerus,
+-- Brahmagupta, PiṅgalaPrastāra, SaptabhaṅgīNaya, Vargaṇā, Śūnya, Khahāra,
+-- Anantā, Śulba, Saṅkalita, Cakravāla, Meru, AṃśaSatyayantra, Mādhava --
+-- and not one was added here.  Nārāyaṇa followed the next morning, also
+-- not added.  Today I added Asiddhatva and BhavanaKrida and audited
+-- nothing.
+--
+-- So the remedy was invented and then not used, within minutes, by the same
+-- hand, seventeen times running.  CLAUDE.md already names this failure and
+-- prescribes the answer: when a rule is violated repeatedly the next move
+-- is a mechanism that fires at the moment of the act, not a paragraph.
+-- That mechanism is now .claude/hooks/gate-coverage.sh.  This paragraph is
+-- the record, not the fix.
+--
+-- PIṄGALA, Chandaḥśāstra ch. 8 (c. 300–200 BCE), the six pratyaya; with
+-- Virahāṅka, Vṛttajātisamuccaya ch. 6 (c. 600–800 CE) for the mātrāmeru
+-- and Halāyudha, Mṛtasañjīvanī (10th c.) on 8.34–8.35 for the triangular
+-- array.  naṣṭa and uddiṣṭa are proved mutually inverse, each implemented
+-- independently rather than one transported along the other; and the
+-- recurrences are FORCED by the counting problem for an arbitrary counting
+-- function, not read off a definition.
+import PingalaPrastara
+
+-- The saptabhaṅgī: Bhagavatī Sūtra (pre-CE strata, redacted c. 5th c.);
+-- Umāsvāti, Tattvārthasūtra 1.6, 1.33, 5.29, 5.31; Siddhasena Divākara,
+-- Sanmatitarka 1.21 and 1.28 (c. 5th c.); Samantabhadra, Āptamīmāṃsā
+-- (c. 6th c.); Akalaṅka, Laghīyastraya (c. 720–780) for the argument that
+-- the number is EXACTLY seven; Mallisena, Syādvādamañjarī (1292) for
+-- sakalādeśa against vikalādeśa.  avaktavyam is proved well-defined,
+-- decidable, realised, and NOT the denotation of any single standpointed
+-- utterance -- which is what machine/Obstruction.hs was groping toward
+-- when it invented `Unparsed`, and what I cited the weaker version of
+-- earlier today.
+import SaptabhangiNaya
+
+-- MĀDHAVA of Saṅgamagrāma (c. 1340–1425) and the Kerala school; jīva
+-- (the sine-chord); the aṃśa reading of the truth-instrument.
+import Madhava
+import Jiva
+import AmshaSatyayantra
+
 -- The machine's own material read back: the curriculum its refusals
 -- demand, descent by distinction, and return.
 import MachineCurriculum
