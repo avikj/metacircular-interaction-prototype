@@ -177,3 +177,42 @@ three-offers = refl
 -- and after the first, only one remains — the ordered regime's second step
 one-offer-after : offers d ≡ (s8-4-40 , j) ∷ []
 one-offer-after = refl
+
+------------------------------------------------------------------------
+-- 6.  AND THE OBVIOUS NEXT CLAIM IS FALSE, so it is recorded rather than
+--     left implied.
+--
+-- Having proved the regimes differ, the tempting extension is that the
+-- simultaneous one is defective — that it fails to terminate, or cannot
+-- reach the attested form at all.  Neither holds here.  ITERATE सह and it
+-- converges, and it converges to the SAME form क्रम gives:
+--
+--     saha t = d ,  saha d = j ,  saha j = j
+--
+-- So the difference between the devices at this site is a difference
+-- between ONE PASS and a fixpoint, not between reaching the answer and
+-- failing to.  That matters for what may be said about 6.4.22: its block
+-- applies once, and the single application is where its content lies.  A
+-- claim that simultaneity "cannot get there" would be false.
+--
+-- What survives from §4 is exact and narrower than it sounded: A SINGLE
+-- SIMULTANEOUS PASS over these rules does not give the attested form,
+-- while the ordered regime does so in one traversal.  पूर्वत्रासिद्धम् is
+-- still load-bearing — the tripādī is traversed once, not iterated — but
+-- the reason is that ordering buys the right answer IN ONE PASS, not that
+-- simultaneity is incapable.
+------------------------------------------------------------------------
+
+saha-once  : saha t ≡ d
+saha-once  = refl
+
+saha-twice : saha (saha t) ≡ j
+saha-twice = refl
+
+saha-fixed : saha (saha (saha t)) ≡ saha (saha t)
+saha-fixed = refl
+
+-- iterated, the simultaneous regime reaches exactly what the ordered one
+-- reaches in a single traversal
+saha-converges-to-krama : saha (saha t) ≡ krama t
+saha-converges-to-krama = refl
