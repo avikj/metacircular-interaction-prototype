@@ -171,6 +171,14 @@ import Madhava
 import Jiva
 import AmshaSatyayantra
 
+-- अनुक्तम् is not अवक्तव्यम्, and the difference is a swapped quantifier.
+-- Satyayantra.agda glossed its third position as avaktavyam; Purnata
+-- proves that position सामयिक (for every instance SOME grant removes
+-- it) and SaptabhangiNaya proves the fourth bhaṅga नित्य (for every
+-- single utterance SOME profile survives it).  Dual shapes, one word.
+-- Akalaṅka's kramārpaṇa against sahārpaṇa, Laghīyastraya c. 720–780.
+import AnuktaAvaktavya
+
 -- The machine's own material read back: the curriculum its refusals
 -- demand, descent by distinction, and return.
 import MachineCurriculum

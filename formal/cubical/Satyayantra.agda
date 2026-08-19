@@ -7,7 +7,20 @@
 --   साधुता  — उक्तं यत्, तत् शुद्धम् (sound: any answer is correct) ।
 --   स्थैर्यम् — उक्तम् अधिकानुदानेन न परावर्तते (stable) ।
 --   पूर्णता  — पर्याप्तानुदाने अवश्यम् उक्तम् (complete) ।
--- अनुक्तं न मिथ्या, न ⊥ — तृतीयं पदम् (avaktavyam), बूलियन्-रहितम् ।
+-- अनुक्तं न मिथ्या, न ⊥ — तृतीयं पदम्, बूलियन्-रहितम् ।
+--
+-- [CORRECTED 2026-08-19.  This line read "तृतीयं पदम् (avaktavyam)".
+--  The third position is real and is neither falsity nor ⊥ — that much
+--  stands.  The parenthesis does not.  `Purnata.agda` proves this
+--  un-said is सामयिक, temporary: पूर्णता gives, for every instance, a
+--  grant at which it is gone.  `SaptabhangiNaya.no-single-vacana`
+--  proves the fourth bhaṅga is नित्य, permanent under single
+--  utterances: for every utterance there is a profile that survives
+--  it, and the remedy is a SECOND utterance in succession, not more
+--  of anything.  Same shape with ∃ and ∀ exchanged, which is why one
+--  word covered both and hid it.  `AnuktaAvaktavya.agda` exhibits
+--  the two poles; Akalaṅka's kramārpaṇa/sahārpaṇa is the classical
+--  name for the difference.]
 --
 -- (the honest machine — the general shape of hallucination-free
 -- computation.  A machine that runs on a grant and returns either an
