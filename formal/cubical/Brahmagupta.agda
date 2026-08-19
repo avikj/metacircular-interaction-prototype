@@ -161,3 +161,21 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
              → (a · a + b · b) · (c · c + d · d)
              ≡ (a · c - b · d) · (a · c - b · d) + (a · d + b · c) · (a · d + b · c)
 द्विवर्ग-गुणः = solve ℤCommRing
+
+------------------------------------------------------------------------
+-- मान-संयुग्म — मानं y-मध्ये सम-रूपम् : N(x, −y) = N(x, y) ।  संयुग्म-रचना
+-- (x,y)↦(x,−y) मानं रक्षति , यतः मानम् y-वर्गे एव अपेक्षते (y² = (−y)²) ।
+--
+-- एतत् एव हेतुः यत् व्युत्क्रमः (a,−b) तस्मिन् एव मान-वर्गे तिष्ठति (BhavanaSamuha.
+-- व्युत्क्रम) — समूहः मान-अनुगतः (norm-graded) ।  ब्रह्मगुप्तस्य द्वे भावने
+-- (समास-अन्तर) अनेन एक-मूले : अन्तरः = संयुग्म-समासः , समानं मानम् ।
+--
+-- (The norm is even in y: N(x,−y)=N(x,y), because it depends on y only
+-- through y².  This is exactly why the conjugate inverse (a,−b) lands in the
+-- same norm class — the group is graded by the norm.  Brahmagupta's two
+-- bhāvanās, samāsa and antara, share this root: the antara is composition
+-- with the conjugate, and conjugation preserves the norm.)
+------------------------------------------------------------------------
+
+मान-संयुग्म : (N x y : ℤ) → मान N x (pos 0 - y) ≡ मान N x y
+मान-संयुग्म N x y = cong (λ t → (x · x) - (N · t)) (वर्ग-ऋण y)
