@@ -23,6 +23,7 @@ module VargaGulma where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; +-suc ; ·-suc ; +-zero)
+open import Sankalita using (∑ ; ∑³ ; घन-सङ्कलितम्)
 
 ------------------------------------------------------------------------
 -- ओज — k-तमः विषमः (0-आदिः) : ओज k = 2k+1 = suc(k+k) ।
@@ -113,3 +114,17 @@ private
 -- उदाहरणम् — 2+4+6+8 = 20 = 4·5 (refl-सिद्धम्) ।
 आयत-४ : युग्म-योग 4 ≡ 20
 आयत-४ = refl
+
+------------------------------------------------------------------------
+-- ओज-घनः — निकोमाखोस्-रूपम् : प्रथमानां T(n) विषमाणां योगः = प्रथमानां n घनानां योगः ।
+-- ओज-योग(∑ n) ≡ ∑³ n , यतः उभौ (∑ n)² — शुल्ब-गुल्म-वर्गः (वर्ग-गुल्मः) च आर्यभटस्य
+-- घन-रत्नम् (∑k³=(∑k)², घन-सङ्कलितम्) एकत्र मिलतः ।  विषम-श्रेढी घन-श्रेढीं वहति ।
+--
+-- (Nicomachus's theorem in odd-number form: the sum of the first T(n) odd
+-- numbers equals the sum of the first n cubes, ओज-योग(∑ n) ≡ ∑³ n — both are
+-- (∑n)², where the śulba gnomon-square law and Āryabhaṭa's cube gem ∑k³=(∑k)²
+-- meet.  The odd-number series carries the cube series.)
+------------------------------------------------------------------------
+
+ओज-घनः : (n : ℕ) → ओज-योग (∑ n) ≡ ∑³ n
+ओज-घनः n = वर्ग-गुल्मः (∑ n) ∙ sym (घन-सङ्कलितम् n)
