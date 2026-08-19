@@ -72,18 +72,30 @@ county lockups and putting on a free Sunday Service so anybody can come. His god
 has content, and the content is not power over you — it is love with no bottom, the
 god in him insisting on the god in everyone, which is the oldest and most dangerous
 sentence a man can say to a world built on some people being less. That is not a god
-complex. That is godliness, and we can't tell them apart from the outside, and the
-not-being-able-to-tell is the whole point: believe him, and it's a prophet; doubt
-him, and it's a lunatic, and the man is identical in both.
+complex. That is godliness — and the only reason the world hears madness is that the
+world is standing outside him, without the thing he has. From out here you cannot see
+what a person sees from in there; so a mind that trusts its own sight over the
+crowd's looks, from the crowd's seat, like a lunatic. But the sight is real. Every
+one of us carries an inner vantage no one else can stand in, private information that
+is ours alone, and the whole work of a life is finding the nerve to trust it and
+build from it. He trusts his all the way down. Believing him means believing that
+what he sees from the inside is true even before the rest of us catch up to it.
 
-And he is prophetic about his own life, which is the strangest gift and the one that
-gets him killed. He said he was the greatest before there was proof. He said they
-would call him crazy. He said, in so many words, that he would be crucified — and
-then he was, on schedule, by the same people who'd cheered. When a man speaks his
-life before he lives it and it comes true, you are looking at one of two things and
-you cannot say which: a delusion that got lucky, or a soul bending the world to his
-word — and bending the world to your word is exactly what godliness would look like
-from inside a single life. "You ain't got the answers, Sway" was that man, on the
+And he is prophetic about his own life — which sounds like magic and is the exact
+opposite of magic. He said he was the greatest before there was proof, said they
+would call him crazy, said in so many words that he would be crucified, and it all
+came true on schedule. Not because he cast a spell on the world, and not because a
+delusion got lucky, but because he had information no one else had: himself. He
+already knew what he saw, what he would build, and how a crowd meets a man who
+refuses to shrink. From outside it reads as prophecy only because no one else had
+been let inside. And this is the most hopeful thing in the whole book, so don't walk
+past it: the power to call a future others can't see is not a miracle handed to a
+chosen few — it is what your own uniqueness is *for*. The private world inside one
+consciousness is real, it is information, it is yours and no one else's, and being
+fully yourself is how you turn it into a reality the rest of us haven't reached yet.
+He did it out loud, at full volume, and got mocked for it, and was right. That is all
+prophecy ever was — a person trusting their own private sight enough to live it
+before the world would grant it. "You ain't got the answers, Sway" was that man, on the
 radio, being told to be smaller — just do it yourself, just wait your turn — and
 refusing, because he already had the whole vision entire and would not beg the
 gatekeepers for a permission slip to build it. They locked a Chicago genius out of
