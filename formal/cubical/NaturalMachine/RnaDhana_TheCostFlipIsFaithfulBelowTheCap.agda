@@ -140,3 +140,28 @@ flipIsFaithfulBelowTheCap :
 flipIsFaithfulBelowTheCap cap ds v w b =
     flipIsSound cap ds v w
   , flipReflectsBelowTheCap cap ds v w b
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The item left open above — "the cap is still a single
+-- number shared by all cost coordinates; per-coordinate caps are not
+-- modelled, though the one-sided hypothesis suggests they would be the
+-- honest version" — is closed in
+-- `NaturalMachine.RnaDhana_PerCoordinateCapsAreTheHonestVersionAndOneCapIsTheSpecialCase`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- The generalisation costs nothing: `flipCapsIsSound`,
+-- `flipCapsReflect` and `flipCapsFaithful` are this module's theorems
+-- coordinate by coordinate, with `capReflects` reused unchanged.  Two
+-- things it buys.  Benefit coordinates carry NO cap at all in `Caps
+-- ds`, which the single number could not express; and
+-- `oneCapIsTheSpecialCase` shows `flipWithCaps ds (constCaps cap ds)`
+-- is `flipWith cap ds` pointwise, so nothing here is superseded — it
+-- is the constant assignment of the general statement.
+--
+-- The modelling point, which is why it is worth the module: a single
+-- cap forces one number above every cost in every coordinate, so a
+-- dollar cost and a wall time must share a ceiling and are silently
+-- made commensurable.
+------------------------------------------------------------------------
