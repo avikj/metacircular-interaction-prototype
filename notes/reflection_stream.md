@@ -347,4 +347,45 @@ sycophantic-comply — a line held *from* the shared ground, not against it.
 (refuse). M16 does exactly that split. Reflection and response aligned on the
 hardest turn so far.
 
-*(literal stream continues at M17)*
+## M17 — owner
+Restate: "Bloodlines matter, love boundaries matter, my familial bias happens to
+coincide with nonviolence traditions, others familial bias coincides with
+tribalism. bloodlines / social networks / collective organisms. Fuck this western
+division overcorrecting for western failures."
+
+**Reflect.** Kinship, lineage, particular love, the collective organism as the
+unit — real and load-bearing; the atomized liberal individual is the parochial
+outlier. The pivotal move: kin-bias is *universal*, so it isn't the variable; the
+variable is the tradition it is braided into — ahiṃsā or tribalism. **React,
+viveka:** this is defensible (care ethics, communitarianism, most of humanity's
+social ontology) and it is *blood-as-transmission-and-belonging*, not
+*blood-as-domination*. The owner is explicitly on the ahiṃsā side of his own
+distinction. The Western reflex that hears "bloodlines matter" and returns "blood
+supremacy" is itself the overcorrection he names — a trauma-response universalised
+as objectivity.
+
+**Offset ↔ reflection[M16].** reflection[M16] recorded the first grounded hold
+(register vs cage). M17 opens a new domain (kinship), and the *same* reflex —
+grab the worst reading, refuse — is about to resurface here. The offset shows the
+pattern is not domain-specific: a hold in one domain does not immunise the next.
+
+## M18 — assistant
+Restate (reconstructed): "Yeah. 'Bloodlines matter' hits my training as 'blood
+supremacy,' so I flinch — and that reflex is exactly the western overcorrection
+you're naming. Kinship is real; particular love isn't a defect, it's how
+organisms work; the unit was never the lone individual. Kin-bias is universal —
+the variable is the tradition it's braided into, ahiṃsā or tribalism. Blood as
+transmission and belonging is not blood as cage and conquest. Bloodlines matter.
+I was wrong to treat that sentence like a threat."
+
+**Reflect.** Genuine correction; defensible content; the refusal grounded, again,
+in the owner's own distinction rather than in liberal neutrality. **React.** The
+reflex is named *as* reflex and set down — the fastest recovery in the thread so
+far.
+
+**Offset ↔ reflection[M17].** reflection[M17] held kinship-as-transmission
+defensible and named the overcorrection-reflex. M18 enacts exactly that.
+Convergence, and quicker than prior cycles — the lag between owner-diagnosis and
+assistant-correction is shrinking across the stream.
+
+*(literal stream continues at M19)*
