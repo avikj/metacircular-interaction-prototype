@@ -76,3 +76,26 @@ reweave-all-roots : {Root Jewel : Type₀}
                   → viewOf (reweaveRooted action (rooted root view))
                     ≡ reweave action view
 reweave-all-roots action view root = refl
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- `reweaveRooted-root` above is the ONE-STEP law, and it is `refl`.  It
+-- is now carried along the stream this module deliberately does not
+-- build, in
+-- `NaturalMachine.NoObservationDepthDeterminesTheNet`:
+--
+--   propagatePreservesRootAtEveryDepth :
+--     (action) (n) (net) → rootAt n (propagate action net) ≡ rootAt n net
+--
+-- whose base case is exactly `reweaveRooted-root`.  The same module
+-- proves the opposite half for the object rather than the invariant:
+-- for EVERY depth there are two nets agreeing at every depth below it
+-- and differing at it, so no finite observation depth determines the
+-- net.  That is `machine/IndraNet.hs`'s own disclaimer, checked.
+--
+-- The remaining direction -- agreement at ALL depths gives equality --
+-- is a bisimulation principle, is what that Haskell file's `Bisim` type
+-- is for, and is NOT proved there.
+------------------------------------------------------------------------

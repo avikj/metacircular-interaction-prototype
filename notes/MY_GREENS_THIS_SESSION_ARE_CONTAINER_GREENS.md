@@ -179,3 +179,39 @@ correctness one — and per the distinction I have been keeping all session,
 it is a *third* kind of one-sidedness again: here neither verifier nor input
 nor output was at fault, the knowledge simply did not reach the reader who
 needed it.
+
+---
+
+## Addendum to the second self-audit: my own propagation loop had the vacuous-zero bug
+
+Run from `formal/cubical/` rather than the repo root, the loop I published one
+cycle ago reported **all 22 pairs MISSING**. Nothing was missing: `grep -q PAT
+FILE` on a path that does not exist exits non-zero, which the loop's `||`
+branch reads as "no back-reference". A checker that cannot tell *absent file*
+from *absent match* reports the same thing for both.
+
+That is the failure `b397fe48` had already named in its own title — "the first
+version of it reported a vacuous zero" — reproduced in my copy of it within
+one cycle, and it is also `yogya-anupalabdhi` again: the looking was not fit to
+find the thing, so the absence it reported was not knowledge.
+
+Repaired loop, which is the one to use, and it distinguishes three outcomes
+rather than two:
+
+```sh
+while read m t; do
+  if   [ ! -f "$t" ]; then echo "NOFILE  $m -> $t"
+  elif grep -q "$m" "$t"; then echo "OK      $m -> $t"
+  else echo "MISSING $m -> $t"; fi
+done < pairs.txt
+```
+
+Re-run from the repository root: **22 OK, no MISSING, no NOFILE.**
+
+The two-valued version is the same defect this session has been circling from
+four directions, now committed by me in the instrument itself rather than in
+what it measures. It is a fifth cause and I am not merging it with the others:
+here neither verifier, input, output, nor delivery was at fault — the
+*measurement* collapsed two states into one verdict, which is precisely what
+`KernelProbe`'s fail-closed collapse does deliberately and correctly, and what
+this loop did accidentally and wrongly. Same collapse, opposite warrant.
