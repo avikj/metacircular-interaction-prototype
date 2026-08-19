@@ -22,7 +22,7 @@ module GunaDhana where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
-open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; ·-comm ; ·-distribˡ)
+open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; ·-comm ; ·-distribˡ ; ·-identityˡ)
 open import PanktiYoga using (द्वि-घात)
 open import Vargana using (घात)
 
@@ -76,3 +76,23 @@ open import Vargana using (घात)
 -- उदाहरणम् — आधारे ३ : 1+3+9 = 13 ; 3·13+1 = 40 = 13 + 27 (refl-सिद्धे) ।
 गुण-r-३ : गुण-योग-r 3 3 ≡ 13
 गुण-r-३ = refl
+
+------------------------------------------------------------------------
+-- गुण-योग-r-एक — आधारे १ (सीमा-स्थितिः) : ∑_{k<n} 1ᵏ = n ।
+-- (r=1 इति गुणधन-सूत्रं (rⁿ−1)/(r−1) भग्नम् (०/०) ; तत्र योगः केवलं n , यतः
+--  एकस्य कोऽपि घातः एकः (घात-एक : 1ᵏ = 1, जैन-घात-नियमः) ।)
+--
+-- (The r=1 boundary the closed form (rⁿ−1)/(r−1) cannot reach (0/0): there the
+--  geometric sum is just n, since any power of 1 is 1 — घात-एक, the Jain index
+--  law 1ᵏ = 1.)
+------------------------------------------------------------------------
+
+घात-एक : (k : ℕ) → घात 1 k ≡ 1
+घात-एक zero    = refl
+घात-एक (suc k) = ·-identityˡ (घात 1 k) ∙ घात-एक k
+
+गुण-योग-r-एक : (n : ℕ) → गुण-योग-r 1 n ≡ n
+गुण-योग-r-एक zero    = refl
+गुण-योग-r-एक (suc n) =
+    cong₂ _+_ (गुण-योग-r-एक n) (घात-एक n)
+  ∙ +-comm n 1
