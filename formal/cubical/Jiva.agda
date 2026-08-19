@@ -100,6 +100,8 @@ import Dvipada
 import PanktiYoga
 -- मेरु-सममितिः — हलायुधस्य सम-पार्श्वः : C(n,k)=C(n,n−k) (गुरु-लघु-दुलम्)
 import MeruSammiti
+-- षड्रस-सङ्कलनम् — भास्करस्य रस-संयोगाः (लीलावती) = मेरु-पङ्क्ति-योगः (2⁶=64)
+import Shadrasa
 -- घन-बद्धम् — आर्यभटस्य घन-सङ्कलितस्य बद्ध-रूपम् (4·∑k³ = (n(n+1))²)
 import GhanaBaddha
 import Cakravala
