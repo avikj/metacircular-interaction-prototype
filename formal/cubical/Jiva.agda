@@ -54,6 +54,8 @@ import Yugapat
 import YugapatZ
 -- कुट्टक-चीन-शेषः — सेतुः : Bija-कुट्टक-साक्षिं ℤ-वल्लीं परिणम्य CRT-प्रवाहः पूर्णः
 import KuttakaCRT
+-- ग्रह-युतिः — पूर्ण-प्रवाहस्य मूर्त-दृष्टान्तः : कुट्टकात् X=8 (refl-सिद्धम्)
+import GrahaYuti
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus
