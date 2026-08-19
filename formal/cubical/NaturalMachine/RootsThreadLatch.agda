@@ -121,6 +121,7 @@ import NaturalMachine.WhereTheTowerCanStillBeThree
 import NaturalMachine.RefutingLaghavaIsASearch
 import NaturalMachine.TheUnstableGroundCannotBeExhibited
 import NaturalMachine.TheDomainThatIsAnAbsence
+import NaturalMachine.TheDeflationaryTestIsVacuous
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
