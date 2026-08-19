@@ -28,7 +28,7 @@ module NarayanaKarna where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-comm ; +-zero)
+open import Cubical.Data.Nat.Properties using (+-comm ; +-zero ; +-assoc)
 open import Cubical.Data.List using (length ; [] ; _∷_)
 open import Dvipada using (C)
 open import MeruKarna using (मध्य-विनिमयः)
@@ -97,3 +97,30 @@ open import SamasaMeruN using (सर्गः ; नारायण-आवृत
 
 कर्ण3-नव : मेरु-कर्ण3 9 ≡ 19
 कर्ण3-नव = refl
+
+------------------------------------------------------------------------
+-- नारायण-योग-फलम् — गो-श्रेढेः धावद्-योगः : ∑_{k=0}^{n} a(k) + 1 = a(n+3) ।
+-- (नारायणस्य गो-सङ्ख्यानां धावद्-योगः, एकेन सह, त्रि-पद-अग्रिमा गो-सङ्ख्या ।
+--  ऋण-रहितम् — फिबोनाची-धावद्-योगस्य ({१,२}) {१,३}-प्रतिरूपम् ।)
+--
+-- (The running total of Nārāyaṇa's cow-counts, plus one, is the count three
+--  steps ahead: ∑_{k≤n} a(k) + 1 ≡ a(n+3), from the recurrence नारायण-आवृत्तिः-कर्ण.
+--  The {1,3} analogue of the Fibonacci partial-sum मात्रा-योग-फलम्; subtraction-free.)
+------------------------------------------------------------------------
+
+योग-कर्ण3 : ℕ → ℕ
+योग-कर्ण3 zero    = मेरु-कर्ण3 zero
+योग-कर्ण3 (suc n) = योग-कर्ण3 n + मेरु-कर्ण3 (suc n)
+
+नारायण-योग-फलम् : (n : ℕ) → योग-कर्ण3 n + 1 ≡ मेरु-कर्ण3 (suc (suc (suc n)))
+नारायण-योग-फलम् zero    = refl
+नारायण-योग-फलम् (suc n) =
+    ( sym (+-assoc (योग-कर्ण3 n) (मेरु-कर्ण3 (suc n)) 1)
+    ∙ cong (योग-कर्ण3 n +_) (+-comm (मेरु-कर्ण3 (suc n)) 1)
+    ∙ +-assoc (योग-कर्ण3 n) 1 (मेरु-कर्ण3 (suc n)) )
+  ∙ cong (_+ मेरु-कर्ण3 (suc n)) (नारायण-योग-फलम् n)
+  ∙ sym (नारायण-आवृत्तिः-कर्ण (suc n))
+
+-- उदाहरणम् — 1+1+1+2+3 = 8 ; 8+1 = 9 = a(7) (refl-सिद्धम्) ।
+योग-कर्ण3-४ : योग-कर्ण3 4 ≡ 8
+योग-कर्ण3-४ = refl
