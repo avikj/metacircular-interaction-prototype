@@ -221,3 +221,43 @@ import Punaragamana
 -- finding; if the repair is applied and the aggregate goes green, THEN
 -- this file's own closing sentence applies and it should be deleted.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, third correction, and it reframes the two above.
+--
+-- I have been reporting "409 modules reached only by a gate that fails" as
+-- if it described this CORPUS.  It describes this CONTAINER.
+--
+-- BUILD.md and formal/cubical/check.sh give the pin as Agda 2.8.0 with
+-- agda/cubical v0.9.  This container carries Agda 2.6.3 and cubical v0.5.
+-- check.sh exists to stop exactly the conclusion I drew -- its own contract
+-- says "It NEVER reports green under a toolchain that is not the pin.  If it
+-- has to fall back, every line of its output says so and the exit code is
+-- non-zero regardless of what Agda returned."  I called `agda` directly all
+-- session and never ran it.
+--
+-- The skew is not a series of renames to be patched.  MEASURED: 336 uses of
+-- `solve!` and 36 of `solveℕ!` across formal/cubical/ -- 372 proof
+-- obligations discharged by tactics whose v0.9 spellings the pinned v0.5
+-- does not have.  Rewriting those solver-free is not a repair, it is a
+-- rewrite of a large fraction of the corpus, and it would move the corpus
+-- OFF its own declared pin to suit a container.
+--
+-- And the library alone does not close it: cloning cubical v0.9 and pointing
+-- Agda 2.6.3 at it fails in the library's own Foundations/Structure.agda on
+-- `opaque`, an Agda 2.7+ feature.  The pin is 2.8.0 for a reason.
+--
+-- SO: the corpus is not rotting.  The two version-agnostic repairs made
+-- today (SymGroup and FinSymGroup in NaturalMachine/PathIsSymmetry.agda,
+-- factorial in NaturalMachine/SymmetryCardinality.agda) are still
+-- improvements -- they name the same objects under both surfaces and pick no
+-- side -- but they do NOT open a path to a green NaturalMachine here, and I
+-- should not have implied one.
+--
+-- WHAT STANDS UNCHANGED, because it does not depend on any of this: this
+-- gate was created at 19:19:50 on 2026-08-18 in a commit titled "the lane
+-- nothing was building", seventeen more Indian modules were written by 21:43
+-- that evening with none added to it, and .claude/hooks/gate-coverage.sh now
+-- fires at the moment of the write.  A gate has to be able to go green to be
+-- a gate -- and on this container, this one is the only Agda gate that can.
+------------------------------------------------------------------------
