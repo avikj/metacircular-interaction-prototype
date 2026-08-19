@@ -46,7 +46,10 @@
 module Khahara where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Int using (ℤ ; _+_ ; _-_)
+open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _-_)
+open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Unit using (Unit ; tt)
+open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
 -- खहर — ससीमः (finite ℤ) वा अनन्तः (khahara) ।
@@ -99,6 +102,26 @@ _⊖_ : खहर → खहर → खहर
 -- अतः यत् किञ्चित् ससीमं तेन योजितं खहरं न ससीमं करोति (अनन्तत्वं स्थिरम्) ।
 अनन्तत्व-स्थैर्यम् : (n a : ℤ) → (शून्य-हरः n ⊕ ससीम a) ≡ शून्य-हरः n
 अनन्तत्व-स्थैर्यम् n a = refl
+
+------------------------------------------------------------------------
+-- खहरः न ससीमः — भास्करस्य ब्रह्मगुप्त-शोधनम्, पदी-कृतम् : n÷0 (अनन्तः) कस्मादपि
+-- ससीमात् भिन्नः — विशेषतः शून्यात् न ।  ब्रह्मगुप्तः 0÷0=0 (दुर्नयः) आह ;
+-- भास्करः खहरम् अनन्तं पृथक् अस्थापयत् ।  विवेचकेन (अनन्त?) सिद्धम् ।
+-- (Bhāskara's correction of Brahmagupta, made a term: n÷0 (khahara) differs
+--  from EVERY finite — in particular it is not zero.  Brahmagupta's 0÷0=0 is
+--  a durnaya; Bhāskara set the infinite khahara apart.  Via a discriminator.)
+------------------------------------------------------------------------
+
+अनन्त? : खहर → Type
+अनन्त? (ससीम _) = ⊥
+अनन्त? अनन्त     = Unit
+
+अनन्त-न-ससीमः : (a : ℤ) → ¬ (अनन्त ≡ ससीम a)
+अनन्त-न-ससीमः a eq = subst अनन्त? eq tt
+
+-- ब्रह्मगुप्त-दोषः — n÷0 ≠ 0 : खहरः शून्यः न (ब्रह्मगुप्तस्य दुर्नयस्य निरासः) ।
+ब्रह्मगुप्त-दोषः : (n : ℤ) → ¬ (शून्य-हरः n ≡ ससीम (pos 0))
+ब्रह्मगुप्त-दोषः n = अनन्त-न-ससीमः (pos 0)
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19 by a later reader, at the end, altering no line
