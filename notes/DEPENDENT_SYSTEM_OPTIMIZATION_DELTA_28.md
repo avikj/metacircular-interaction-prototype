@@ -462,3 +462,52 @@ that. Nor anything about w_lat/w_det/w_raw, §26's coding-theory calibration, or
 rank-width relatives — and **this note's own flag stands**: prior-art comparison against
 rank-width, Boolean-width, trellis complexity and bond dimension is REQUIRED before
 "continuation cut width" is claimed as a new parameter, and nothing here bears on it.
+
+## Appended 2026-08-19, third thread: §31–32's "re-saturate" is idempotent, and that is all it is
+
+Appended at the end, altering no line above. §31–32 states the elimination
+procedure as *"compute, cover, pass generator coefficients, compose by
+min-plus convolution, re-saturate"*, and says — correctly — that no
+tractability theorem is claimed. What is also not claimed there, and what an
+implementer needs before writing the loop, is that **re-saturation terminates,
+and terminates after one application.**
+
+It does, at the level of generality where it is a theorem:
+`formal/cubical/NaturalMachine/SaturationAtACutIsIdempotent.agda` (`--safe`,
+no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and prints that
+itself).
+
+For an arbitrary `K : X → Y → Type`, with `↑ A y = (x) → A x → K x y` and
+`↓ B x = (y) → B y → K x y`:
+
+| checked | reading here |
+|---|---|
+| `↑-antitone`, `↓-antitone` | the two polarities reverse inclusion |
+| `unit`, `counit` | `A ⊆ ↓(↑ A)`, `B ⊆ ↑(↓ B)` |
+| `triangle↑`, `triangle↑'` | saturating a profile that came from a saturation changes nothing |
+| `c-idempotent-in/out` | `c = ↓ ∘ ↑` is a closure operator — re-saturate once, then stop |
+| `fixedGivesSaturated`, `saturatedGivesFixed` | §31's saturated dual pairs are **exactly** the fixed points of `c` |
+
+So "saturated pair" is not a side condition the procedure must maintain; it is
+what being a fixed point of the closure means, and the loop in §31–32 has
+length one.
+
+**No novelty is claimed for any of it.** This is the Galois connection of a
+relation: Birkhoff's polarities (*Lattice Theory*, 1940), the concept lattice
+of formal concept analysis (Ganter & Wille, *Formale Begriffsanalyse*, 1996),
+and Isbell's conjugation (*Adequate subcategories*, 1960) — which is the name
+§31 is already using. The contribution is only that the step is checked.
+
+**What this does not say, and the note should not be read as if it did.**
+§31–32's `↑`/`↓` are min-plus *residuations* over a semiring-valued kernel;
+the ones checked are the two-valued polarities of a relation. That the former
+instantiate the latter is **not proved** — it would need the kernel's values
+to form a quantale with the residuations as its adjoints, and nothing in this
+repository sets that up. So the saturation discipline is sound *wherever the
+adjunction holds*; whether Δ 28's own `↑`/`↓` hold it is open, and is the
+next exact object on this thread. Reading the table above as a theorem about
+min-plus convolution would be the same defect as quoting a figure without its
+input. Inclusion is also used throughout rather than equality — `A ⊆ B` and
+`B ⊆ A` are never combined into a path, which would need the predicates to be
+proposition-valued and `funExt`.
