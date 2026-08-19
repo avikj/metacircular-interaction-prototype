@@ -29,7 +29,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_)
 open import Cubical.Data.Nat.Properties using (+-zero)
 open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤ ; suc-≤-suc)
-open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import SamasaMeruN using (सर्गः ; समास-आवृत्तिः ; अंश-गणना ; रिक्त-अपाकरणम्)
 
 ------------------------------------------------------------------------
@@ -89,3 +89,31 @@ open import SamasaMeruN using (सर्गः ; समास-आवृत्त
               (cong (_+ 0) (cong length
                 (रिक्त-अपाकरणम् (j ∷ k ∷ []) N (suc N) (suc k) (suc-≤-suc N<k))))
   ∙ +-zero (length (सर्गः (j ∷ k ∷ []) (N ∸ j)))
+
+------------------------------------------------------------------------
+-- द्वि-न्यून-शून्यम् — निम्न-सीमा : यदा उभौ अंशौ (L,M) न योग्यौ (suc n ≤ j,
+-- suc n ≤ k) , तत् मानं न रच्यते : length (सर्गः {L,M} (suc n)) ≡ 0 ।
+-- (लघुतम-अंशात् अधः श्रेढी शून्य-सूचिका — उभौ भागौ रिक्तौ ।  एक-अंश-न्यून-शून्यस्य
+-- द्वि-अंश-रूपम् ; अनेन द्वि-पद-कुलस्य त्रयः प्रान्ताः पूर्णाः : अधः शून्यम्,
+-- मध्ये एक-योग्या, उभयोः योग्ययोः पूर्ण-आवृत्तिः ।)
+--
+-- (Below the smaller part: when neither L nor M fits (suc n ≤ j, suc n ≤ k)
+--  the value cannot be built — length(सर्गः {L,M} (suc n)) ≡ 0, both parts'
+--  contributions empty.  The two-part form of न्यून-शून्यम्; with it the {L,M}
+--  family's three regimes are complete: zero below min, single-term between,
+--  full recurrence once both fit.)
+------------------------------------------------------------------------
+
+द्वि-न्यून-शून्यम् : (j k n : ℕ) → suc n ≤ j → suc n ≤ k
+  → length (सर्गः (j ∷ k ∷ []) (suc n)) ≡ 0
+द्वि-न्यून-शून्यम् j k n j-le k-le =
+    cong₂ धृ
+      (रिक्त-अपाकरणम् (j ∷ k ∷ []) n (suc n) (suc j) (suc-≤-suc j-le))
+      (रिक्त-अपाकरणम् (j ∷ k ∷ []) n (suc n) (suc k) (suc-≤-suc k-le))
+  where
+    धृ : List (List ℕ) → List (List ℕ) → ℕ
+    धृ A B = length (map (j ∷_) A ++ (map (k ∷_) B ++ []))
+
+-- उदाहरणम् — {३,५}-श्रेढी m=2 शून्यम् (2 ≤ 3 = L, 2 ≤ 5 = M) ।
+द्वि-न्यून-५ : length (सर्गः (2 ∷ 4 ∷ []) 2) ≡ 0
+द्वि-न्यून-५ = द्वि-न्यून-शून्यम् 2 4 1 (0 , refl) (2 , refl)
