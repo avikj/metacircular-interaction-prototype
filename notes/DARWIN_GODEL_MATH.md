@@ -650,3 +650,52 @@ reading of the theorem and not a quantitative claim; no share of wasted budget i
 computed. Scores are `ℕ`, §2's are accuracies, and "perfect" is modelled as attaining a
 stated cap. **Seams 2 and 4 remain untouched** — adjacent string literals concatenated by
 Python, and which model reads the logs, are not order-theoretic.
+
+## Appended 2026-08-19, fifth thread: seam 2 has the shape too — and seam 4 has no such content
+
+*Appended at the end, altering no line above.*
+
+The previous append observed that §2's seams 1 and 3 share a shape — *a defect
+undetectable exactly where it is harmless* — and said that shape is a property of the
+**section**, so the remaining seams should be checked against it first. Done, and it
+holds a third time. Checked in
+`formal/cubical/NaturalMachine/ADisjointValidatorMakesAFlagUnusableAndInvisible.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+concatenationIsDisjoint  : (t : ℕ) → Mem t intended → ¬ Mem t accepted
+theAcceptedTokenIsNotIntended : ¬ Mem 2 intended
+theFlagIsUnusable
+theSeamIsInvisibleWhileNobodySuppliesTheFlag
+```
+
+**Seam 2's consequence, stated rather than restated:** the accepted set and the intended
+set are *disjoint*, so no intended spelling is accepted and the one accepted spelling is
+one nobody would write. The flag is therefore not merely wrong but **unusable** — and
+unusable invisibly, because a run that never supplies it never meets the validator. Seams
+1, 2 and 3 are now three instances of "undetectable exactly where harmless", which is a
+fact about §2 and not three coincidences.
+
+**Seam 4 is not formalised, and here is the reason.** It reports that the prose says the
+selected parent analyses its own logs, while the algorithmic appendix and the code say a
+separate diagnostic foundation-model call reads them. That is a discrepancy about **which
+agent performs a step** — an attribution of an action, not a relation between values — and
+nothing in §2 turns it into a claim with a truth condition this substrate can carry.
+Saying so with a reason is the honest closure of the seam list; inventing a formalisation
+would be the dishonest one. **So §2's four seams are: three checked, one declared
+out of scope with grounds.**
+
+**Grade, unchanged and load-bearing: I did not read the code**, and seam 2 is about
+*Python's semantics*. No request to github.com was made. Nothing above claims anything
+about `argparse`, about adjacent-literal concatenation, or about the pinned file. What is
+modelled is the *situation* §2 describes — a validator whose accepted set is disjoint from
+the intended set. If §2 misread the code, the situation does not arise and nothing above
+is affected.
+
+**Not claimed.** Tokens are `ℕ` standing for strings; no string type, no concatenation
+operation and no Python is modelled, so `concatenationIsDisjoint` is an **assumption about
+the instance** encoded as three distinct numerals, not a derivation from concatenation.
+Nothing is said about what the fall-through branch does — §2 says random selection, and no
+semantics of selection appears — nor about validation being skipped for an untyped
+default, which is not modelled either.
