@@ -253,3 +253,56 @@ categories-agree-when-decidable dT q t dC =
 -- should expect from citations written out of memory, and is the reason
 -- the directive exists.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  CORRECTION FROM READING, appended.
+--
+-- `notes/JAINA_PRAMANA_NAYA_NIKSEPA.md` sets down the Jaina scheme in
+-- its own order, and reading it end to end makes two defects in this
+-- module visible that no amount of checking would have caught.
+--
+-- FIRST: TWO DARŚANAS ARE BEING USED AS ONE TOOLKIT.
+--
+-- अन्योन्याभाव with its प्रतियोगिन् and अनुयोगिन् is Nyāya-Vaiśeṣika.
+-- The सप्तभङ्गी with syāt-qualified asti/nāsti is Jaina.  These are
+-- rival schools that dispute each other's categories — Jaina logicians
+-- reject the Naiyāyika treatment of negation, and the Naiyāyikas reject
+-- anekāntavāda.  This thread has been drawing on both as though they
+-- were one box of instruments, which is precisely the selection habit
+-- the corpus's own directive warns against: taking from each tradition
+-- the part that converts, and never the dispute.
+--
+-- SECOND, AND SPECIFIC: THE GROUND IS MISSING.
+--
+--     Anyonya a b = ¬ (a ≡ b)
+--
+-- is bare negation.  The Jaina नास्ति is never that.  Every नास्ति is
+-- relative to a stated fourfold ground —
+--
+--     स्व-द्रव्य / पर-द्रव्य    own substance / another's
+--     स्व-क्षेत्र / पर-क्षेत्र    own field / another's
+--     स्व-काल / पर-काल        own time / another's
+--     स्व-भाव / पर-भाव        own state / another's
+--
+-- — and carries स्यात्.  A pot IS with respect to its own substance,
+-- place, time and state, and IS NOT with respect to another's; that is
+-- why the first two भङ्गs are not contradictory.  Unqualified negation
+-- is not a भङ्ग at all.
+--
+-- What this module actually defines is the Naiyāyika mutual absence,
+-- for which bare negation with a प्रतियोगिन् is right.  The `Abhāva`
+-- record supplies ONE delimitor; the Jaina scheme specifies FOUR, and I
+-- never said which — or whether any — of the four my `q` is standing
+-- for.  Downstream, `TheFibreIsTheSubject`, `AsiddhatvaBreaksFactoring`,
+-- `AnuvrttiIsTheSameTrade`, `PratyaharaBuysTotalityWithLocality` and
+-- `TheSecondNaIsTheCollision` all use `Anyonya` and inherit this.
+--
+-- The theorems are unaffected: they are about bare negation and they
+-- prove what they say.  The NAMING is what is wrong, and in a thread
+-- whose whole subject is that a coarse label loses a distinction the
+-- finer object carries, that is not a small thing to have done.
+--
+-- What I am not doing: renaming, or building a four-ground version.
+-- Reading one document is not grounds for a new construction, and the
+-- error above came from converting before reading.
+------------------------------------------------------------------------
