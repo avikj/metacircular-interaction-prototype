@@ -562,3 +562,53 @@ context *family*, and no context family appears; what is proved is weaker in hyp
 so "for every order" is here just the two orders of two steps; the `n`-step statement
 needs an induction that is not written. **Holonomy** — §36–38's `h : Z ≃ Z` around loops
 in architecture space — is untouched, as are caches, provenance and optimizer state.
+
+## Appended 2026-08-19, fifth thread: §36–38's holonomy sentence is one theorem, not two
+
+*Appended at the end, altering no line above.*
+
+§36–38 closes: *"Even flat architectures can carry interface holonomy `h : Z ≃ Z` around
+loops in architecture space — harmless for boundary semantics, load-bearing for caches,
+provenance, optimizer state, proofs."* That reports two observations. They are one, and
+saying which one needs the loop to be an actual **path** rather than a metaphor — the one
+place in this section where the cubical substrate earns its keep rather than merely
+hosting the argument. Checked in
+`formal/cubical/NaturalMachine/HolonomyIsInvisibleExactlyToAnInvariantSemantics.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+invariantSemanticsIsUnmoved
+  : (h : Z ≃ Z) (sem : Z → B) → ((z : Z) → sem (equivFun h z) ≡ sem z)
+  → (z : Z) → sem (transport (ua h) z) ≡ sem z
+
+nonTrivialHolonomyMovesTheRawInterface
+  : (h : Z ≃ Z) (z : Z) → ¬ (equivFun h z ≡ z) → ¬ (transport (ua h) z ≡ z)
+
+theCacheIsMoved : ¬ (transport (ua notEquiv) true ≡ true)
+```
+
+**The two halves are one theorem read at two consumers.** Holonomy is invisible exactly to
+consumers invariant under it; and "caches, provenance, optimizer state, proofs" is a list
+of consumers that are *not* — they are keyed by the raw interface, which is the identity
+consumer, and the identity consumer is invariant only when the holonomy is trivial. There
+is no separate fact about caches to establish.
+
+**Where univalence does the work.** Without it, `h : Z ≃ Z` and a loop in architecture
+space are different objects and the sentence is an analogy. `ua` makes the loop a path,
+`uaβ` computes transport along it back to `h`, and the two theorems are then about the
+*same* `h` — the invariance hypothesis and the transport are connected rather than merely
+parallel. `notEquiv` witnesses that the content is not vacuous.
+
+**No novelty whatsoever.** `ua`, `uaβ` and the `not` automorphism of `Bool` are the first
+examples in every cubical development. What is contributed is the identification of the
+two clauses as one statement.
+
+**Not claimed.** **Architecture space is not modelled** — there is no type of architectures
+and no loop in one; `h` is given directly as a self-equivalence, which is what §36–38 says
+such a loop *yields*, not what it is. The step from "loop in architecture space" to
+`h : Z ≃ Z` is assumed, not built. **Flatness is not used**, so nothing here speaks to the
+claim that *flat* architectures can still carry holonomy — only to what holonomy does once
+present. No claim that Δ 28's "boundary semantics" *is* invariant: that is a hypothesis
+here and a modelling question there. Nothing about composing loops — no group structure, no
+fundamental group, no claim that holonomies compose.
