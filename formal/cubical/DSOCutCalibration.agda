@@ -247,3 +247,31 @@ oneRectangleImpossible ρ γ sound p q =
   off : (ρ r₁ and γ c₂) ≡ true
   off = cong₂ _and_ (and-true-l (ρ r₁) (γ c₁) p)
                     (and-true-r (ρ r₂) (γ c₂) q)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- The lower-bound argument this header states — "a rectangle through
+-- (r₁,c₁) and (r₂,c₂) must contain (r₁,c₂), where the matrix is 0" — is
+-- carrier-free, and is now a term for arbitrary row and column types in
+-- `NaturalMachine.AFoolingPairForcesTwoRectangles`:
+--
+--   foolingPairNotInOneRectangle :
+--     (r₁ r₂ : Row) (c₁ c₂ : Col) → M r₁ c₂ ≡ false
+--     → (rect : Rect) → Sound rect
+--     → ¬ (Covers rect r₁ c₁ × Covers rect r₂ c₂)
+--
+-- One thing that surfaced in making it a term, and it sharpens the
+-- method rather than this instance: the proof uses NEITHER 1-entry.  It
+-- needs only `R r₁`, `C c₂`, and the 0 at the exchanged corner.  The two
+-- 1-entries are what make a pair worth CHOOSING as a fooling pair; they
+-- are not what makes the argument run.
+--
+-- NOT claimed there: that r_e = 2 for this matrix — the matching UPPER
+-- bound is this module's exhibited 2-rectangle cover, certified
+-- entrywise, and that module constructs no cover.  Nor anything about
+-- d_e, raw width, the min-plus closure, the two elimination orders, or
+-- Delta 28 §18/§24.  Nor a general k-fooling-set bound: "at least two"
+-- from a PAIR is all that is proved.
+------------------------------------------------------------------------
