@@ -26,6 +26,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties using (+-zero)
 open import PanktiYoga using (द्वि-घात)
 open import Vargana using (घात ; घात-घात)
+open import Ardhaccheda using (अर्धच्छेद ; लघुगणकः)
 
 ------------------------------------------------------------------------
 -- द्विघात≡घात२ — योग-रूपः गुण-रूपश्च समौ : द्वि-घात n ≡ घात 2 n ।
@@ -46,3 +47,20 @@ open import Vargana using (घात ; घात-घात)
     द्विघात≡घात२ (m · n)
   ∙ sym (घात-घात 2 m n)
   ∙ cong (λ z → घात z n) (sym (द्विघात≡घात२ m))
+
+------------------------------------------------------------------------
+-- लघुगणक-घातः — जैन-लघुगणक-नियमः (घात-रूपः) : अर्धच्छेद(xⁿ) = n · अर्धच्छेद(x) ।
+-- २-घातयोः : अर्धच्छेद((2ᵐ)ⁿ) = m · n = अर्धच्छेद(2^(m·n)) ।  पूर्व-सिद्धेन
+-- लघुगणक-योगेन (गुणः → योगः) सह अयं (घातः → गुणः) अर्धच्छेदं पूर्ण-लघुगणकं करोति :
+-- द्वौ लघुगणक-मूल-नियमौ (उत्पाद-घात) उभौ साधितौ ।
+--
+-- (The power-law for the Jain logarithm: ardhaccheda of a power is the
+-- exponent times the ardhaccheda.  For powers of two, ardhaccheda((2ᵐ)ⁿ)=m·n.
+-- With last step's log-of-a-product law (× → +), this (power → ×) makes
+-- ardhaccheda a full logarithm — both of the two defining identities checked.)
+------------------------------------------------------------------------
+
+लघुगणक-घातः : (m n : ℕ) → अर्धच्छेद (घात (द्वि-घात m) n) ≡ m · n
+लघुगणक-घातः m n =
+    cong अर्धच्छेद (sym (द्विघात-घातघातः m n))
+  ∙ लघुगणकः (m · n)
