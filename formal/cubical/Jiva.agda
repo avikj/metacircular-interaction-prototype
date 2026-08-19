@@ -72,6 +72,8 @@ import Khahara
 import Ananta
 import Sulba
 import Sankalita
+-- चितिघनः — आर्यभटस्य वृन्द-सङ्कलितम् (∑ त्रिकोणानि = n(n+1)(n+2)/6, गणितपादः २१)
+import Citighana
 import Cakravala
 import Meru
 import BhavanaSamuha
