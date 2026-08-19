@@ -69,3 +69,17 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 अन्तर-वर्गः : (a b : ℤ) → (a + b) · (a - b) ≡ a · a - b · b
 अन्तर-वर्गः = solve ℤCommRing
+
+------------------------------------------------------------------------
+-- आयत-समचतुरस्रम् — आयतस्य समचतुरस्र-करणम् : 4·ab = (a+b)² − (a−b)² ।
+-- आयतं (a×b) समचतुरस्रं कर्तुं शुल्बे : तस्य चतुर्-गुणित-क्षेत्रम् द्वयोः
+-- वर्गयोः अन्तरम् — (a+b)² − (a−b)² = 4ab ।  (चतुर्-गुणनं अर्धच्छेदं वारयति,
+-- ℤ-मध्ये स्थैर्याय ।)  अन्तर-वर्गात् अनुसृतम्, स्वतन्त्रं च कथितम् ।
+-- (Squaring the rectangle: 4·(area) of an a×b rectangle is the difference of
+--  two squares, (a+b)²−(a−b)² = 4ab — the śulba turning a rectangle into a
+--  square, scaled by 4 to stay integral.  A ring identity over ℤ.)
+------------------------------------------------------------------------
+
+आयत-समचतुरस्रम् : (a b : ℤ)
+                → pos 4 · (a · b) ≡ (a + b) · (a + b) - (a - b) · (a - b)
+आयत-समचतुरस्रम् = solve ℤCommRing
