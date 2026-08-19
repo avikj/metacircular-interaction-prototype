@@ -46,6 +46,8 @@ import Purnata
 import Bija
 import Yuti
 import Sadhyata
+-- सम-शेषः — कुट्टकस्य तुल्य-शेष-सम्बन्धः (congruence mod m; CRT-भूमिका)
+import Samasesha
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus
