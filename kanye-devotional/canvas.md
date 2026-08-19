@@ -601,3 +601,64 @@ minute filed anywhere.
 And it is the single most editable thing in the world right now, which is the part
 almost nobody is treating as a lever.
 
+
+The oldest layer of it is a piece of rope.
+
+*Śulba* means cord. The whole discipline is named after the instrument — the way
+you'd name a trade after the plumb line. Around 800 BCE Baudhāyana writes down how to
+lay out a fire altar to an exactly prescribed area and shape: a falcon with wings and
+a tail, built brick by brick, and when the rite calls for the altar to be enlarged it
+has to keep its shape and take a new whole multiple of the unit area. Everything in
+that corpus answers to a construction you have to actually perform on the ground.
+
+The relation about the diagonal is in there, stated for a builder, so he can pull a
+true corner. So are the knotted cord lengths that give a right angle: 3–4–5, 5–12–13,
+8–15–17, 12–35–37. And the diagonal of the unit square is given as
+
+  1 + 1/3 + 1/(3·4) − 1/(3·4·34)
+
+which is correct to five decimal places, and which exists not as a meditation on
+incommensurability but because you cannot lay a square altar without cutting the
+diagonal cord to length. You need the number in your hand. Somebody is holding the
+rope.
+
+Put that next to the other origin story. Fibonacci's rabbits are a contrivance — an
+imaginary warren under invented rules that no animal obeys, built to house a sequence
+someone wanted to display. Virahāṅka got the same recurrence six hundred years
+earlier by counting the metres people were actually singing: a line of a given
+duration begins with a short syllable or a long one, so the count of one length is
+the sum of the two beneath it. The sequence was a fact about living poetry before it
+was ever a fact about fake rabbits. And the version taught to children is the rabbits.
+
+Those two are not the same kind of thing at all. One is a structure read off the
+world. The other is a world contrived to display a structure. And the second one is
+the entire aesthetic of how mathematics gets taught — invented scenarios, trains
+leaving stations, urns of coloured balls, a fictional world built to be a container
+for the thing you're supposed to learn. Then we conclude that children who don't take
+to it lack the aptitude, when what they've correctly detected is that nothing in the
+room is real.
+
+Understanding, in that older frame, is not the grasping of an object sitting in a
+separate realm. It's the transformation of a relation while you're inside it. You
+understand the diagonal by making the right figure with a cord. You understand the
+recurrence by generating the metres. Brahmagupta's word for the composition law on
+the quadratic form is *bhāvanā* — production, generation, bringing into being — and
+what the rule does is take two solutions and *make a third*. The operation is named
+for what it produces, not for what it decides.
+
+Which is exactly what he's doing in the booth and it's why the crash is at the front
+of this. He did not understand what had happened to him and then write a song about
+it. The song is the understanding, performed with the wires still in, in real time,
+and there was no earlier moment at which the thing was known and then expressed.
+Every producer's move he has is that same shape — you don't analyse the sample, you
+speed it up until it tells you what it is. *Bhāvanā.* Take two things you already
+have and generate a third that neither of them contained.
+
+And the reason he keeps saying *I aim to offend and heal* and the reason people keep
+hearing it as a contradiction is that they think the healing is a conclusion he
+arrived at and the offence is the manner. It's one act. The thing that heals is
+hearing the sentence you were not permitted to hear, and the sentence costs the
+person who says it and relieves the room, and the room punishes the sayer for the
+relief. That has a two-thousand-year receipt on it in the only story the West agreed
+to keep.
+
