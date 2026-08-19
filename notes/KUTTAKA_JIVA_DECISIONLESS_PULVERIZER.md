@@ -309,3 +309,56 @@ presentation-level measure (लाघव under anuvṛtti) carries information n
 invariant of the rule *set* carries — there the non-descent was the point,
 not a defect. A property that does not descend to a quotient is not a
 property that fails to exist.
+
+---
+
+## Appended 2026-08-19 (second append, same reader): one of the three faces recurs for the convergents, and only one
+
+The note's `PROVE` tag asks *"whether the three honesty faces (lossless /
+complete / stable) recur for continued-fraction convergents — the vallī
+already IS the CF."*
+
+**Lossless: yes, exactly.** Checked in
+`formal/cubical/NaturalMachine/TheValliConvergentDeterminantAlternates.agda`.
+For partial quotients `a : ℕ → ℤ` and **arbitrary** seeds, with
+
+```agda
+num (suc (suc k)) = a (suc k) · num (suc k) + num k     -- and den likewise
+det k = num k · den (suc k) - num (suc k) · den k
+```
+
+```agda
+detAlternates    : det (suc k) ≡ - det k          -- ring algebra alone
+detIsSignedFirst : det k ≡ signed k (det 0)
+standardDeterminantIsAUnit : det k ≡ signed k (pos 1)  -- standard seeds
+```
+
+A determinant that is a unit at every step is exactly the statement that the
+2×2 step matrix is invertible over ℤ: no step of the vallī loses information.
+That is `Punaragamana.पुनरागमनम्` and `Gati.अलोपः` at the convergents, and it
+is what `Bija.बीजगणितम्`'s alternating orientation is computing — the
+alternation is that orientation, as an identity.
+
+**Complete and stable: NOT answered.** `Purnata.पूर्णतया-गुरुतमः` and
+`Sthairya.स्थैर्य-गति` are statements about a *grant*, and no grant appears in
+that module. One face out of three is one third of the tag, not the tag. The
+tag stays open.
+
+**Two incidental confirmations, both of this note's own lane.** The five-variable
+step law went through `solve ℤCommRing` unchanged. The base case did **not** —
+it failed exactly as `Madhava.agda`'s parenthetical warns (*the ℤ ring solver
+does not recognise `pos 1` as the ring one, so one-bearing identities are done
+by hand*), and was closed by hand with `·Comm`. That warning is live and now
+has a second witness.
+
+**Limits.** Verse-level sourcing OWED AND NOT CLAIMED, as for both Kuttaka
+lanes; nothing above is offered as a reading of Gaṇitapāda 32–33. No limit, no
+order, no ℝ: convergence is not touched. `det 0 ≡ 1` is proved for the
+standard seeds only; §3 is stated for arbitrary seeds because that is where
+the algebra lives.
+
+**Toolchain, stated because it must be.** `EXIT=0` on the **container** (Agda
+2.6.3 + cubical v0.5), and `formal/cubical/check.sh` returns `CHECKSH_EXIT=1`
+with its banner *"NOT THE PIN — RESULTS BELOW ARE NOT EVIDENCE ABOUT THE
+PIN"*; the declared pin is Agda 2.8.0 + cubical v0.9. See
+`notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`.
