@@ -127,6 +127,7 @@ import NaturalMachine.AnswerabilityIsFreeAtTheFactoringLaw
 import NaturalMachine.TheDelimitorNeedsOnlyStability
 import NaturalMachine.WhyTheSamePriceKeepsAppearing
 import NaturalMachine.TheDeflationaryTestWasAlreadyRun
+import NaturalMachine.WhatTheSubstrateArgumentCovers
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
