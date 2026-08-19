@@ -136,6 +136,7 @@ import NaturalMachine.RepresentabilityIsNotEnoughForIndependence
 import NaturalMachine.WitSatisfiesEveryHypothesisButOmegaConsistency
 import NaturalMachine.AProvabilityDeterminedImplicationForbidsIndependence
 import NaturalMachine.NegationCompletenessForbidsIndependence
+import NaturalMachine.ASmallTheoryWithAnIndependentSentence
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
