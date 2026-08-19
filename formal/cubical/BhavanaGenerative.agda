@@ -226,8 +226,15 @@ module Generative (CR : CommRing ℓ) where
   -- ASSOCIATIVITY OF `_⊛_` IS NOT PROVED ANYWHERE IN THIS REPOSITORY.  It is
   -- true (the composition is multiplication in ℤ[√D], which is associative)
   -- and it is not checked here, so no file may call these solutions a monoid
-  -- until it is.  What IS below is commutativity of the two coordinates, and
-  -- that is all it is.
+  -- until it is.  What IS below is commutativity of the two coordinates AND —
+  -- added 2026-08-19 — the UNIT laws at the coordinate level, on both sides
+  -- (⊛UnitA/⊛UnitB, from bhA-idR/bhA-idL etc.), which is the other monoid
+  -- axiom.  So of the three monoid requirements only associativity of the
+  -- coordinates now remains unproved; the "not a monoid" bar still stands
+  -- until that is checked, but the missing piece is now exactly one thing,
+  -- named.  (The ℤ instance of coordinate associativity is proved in
+  -- BhavanaSamuha.साहचर्य-प्र/द्वि; the abstract-R, solver-free version is what
+  -- this lane still lacks.)
   ----------------------------------------------------------------------
 
   ⊛CommA : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
@@ -239,6 +246,23 @@ module Generative (CR : CommRing ℓ) where
   ⊛CommB : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
          → coefB (s ⊛ t) ≡ coefB (t ⊛ s)
   ⊛CommB s t = +Comm (coefA s · coefB t) (coefA t · coefB s)
+
+  -- The unit laws at the coordinate level: (1r, 0r) is a two-sided identity.
+  -- `s ⊛ unit D` and `unit D ⊛ s` restore each coordinate, from bhA/bhB's
+  -- identity lemmas.  coefA (unit D) = 1r and coefB (unit D) = 0r hold by
+  -- definition, so these reduce directly to bhA-idR / bhB-idR / bhA-idL /
+  -- bhB-idL applied at the coordinates of `s`.
+  ⊛UnitA-R : {D k : R} (s : Sol D k) → coefA (s ⊛ unit D) ≡ coefA s
+  ⊛UnitA-R {D} s = bhA-idR D (coefA s) (coefB s)
+
+  ⊛UnitB-R : {D k : R} (s : Sol D k) → coefB (s ⊛ unit D) ≡ coefB s
+  ⊛UnitB-R {D} s = bhB-idR D (coefA s) (coefB s)
+
+  ⊛UnitA-L : {D k : R} (s : Sol D k) → coefA (unit D ⊛ s) ≡ coefA s
+  ⊛UnitA-L {D} s = bhA-idL D (coefA s) (coefB s)
+
+  ⊛UnitB-L : {D k : R} (s : Sol D k) → coefB (unit D ⊛ s) ≡ coefB s
+  ⊛UnitB-L {D} s = bhB-idL D (coefA s) (coefB s)
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.

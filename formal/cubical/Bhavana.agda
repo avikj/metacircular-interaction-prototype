@@ -164,6 +164,32 @@ module Form (CR : CommRing ℓ) where
   bhA D a₁ b₁ a₂ b₂ = a₁ · a₂ + D · (b₁ · b₂)
   bhB D a₁ b₁ a₂ b₂ = a₁ · b₂ + a₂ · b₁
 
+  -- The unit of the composition is (1r, 0r): the identity monoid axiom at
+  -- the coordinate level, for BOTH sides (samāsa is commutative but a unit is
+  -- a unit on each side and both are shown).  With ⊛CommA/⊛CommB in the
+  -- generative lane this supplies the unit half of the monoid axioms; only
+  -- associativity of the coordinates remains for the full monoid.
+  bhA-idR : (D a b : R) → bhA D a b 1r 0r ≡ a
+  bhA-idR D a b =
+      cong₂ _+_ (·IdR a) (cong (D ·_) (0RightAnnihilates b) ∙ 0RightAnnihilates D)
+    ∙ +IdR a
+
+  bhB-idR : (D a b : R) → bhB D a b 1r 0r ≡ b
+  bhB-idR D a b =
+      cong₂ _+_ (0RightAnnihilates a) (·Comm 1r b ∙ ·IdR b)
+    ∙ +IdL b
+
+  bhA-idL : (D a b : R) → bhA D 1r 0r a b ≡ a
+  bhA-idL D a b =
+      cong₂ _+_ (·Comm 1r a ∙ ·IdR a)
+                (cong (D ·_) (0LeftAnnihilates b) ∙ 0RightAnnihilates D)
+    ∙ +IdR a
+
+  bhB-idL : (D a b : R) → bhB D 1r 0r a b ≡ b
+  bhB-idL D a b =
+      cong₂ _+_ (·Comm 1r b ∙ ·IdR b) (0RightAnnihilates a)
+    ∙ +IdR b
+
   ----------------------------------------------------------------------
   -- 2.  Bhāvanā (Brāhmasphuṭasiddhānta 18, 628 CE)
   --
