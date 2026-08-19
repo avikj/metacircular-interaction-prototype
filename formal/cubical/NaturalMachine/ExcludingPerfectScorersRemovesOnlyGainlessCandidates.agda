@@ -81,7 +81,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import NaturalMachine.Avaktavya_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import NaturalMachine.KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 open import NaturalMachine.TheParetoStratumIsDecidableAndTheFilterIsExact
   using (decNeg ; filterDec ; filterDecKeepsEverySatisfier)

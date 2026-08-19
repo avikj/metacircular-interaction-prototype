@@ -73,7 +73,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
+module NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)
@@ -188,4 +188,17 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- "non-enumerable" means "no such list and covering proof is given",
 -- not a cardinality claim.  `finiteDNSList` yields `¬ ¬ All`, never
 -- `All` — no decidability is used or smuggled in.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
+-- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
+-- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
+-- this line's "fourth corner" is a product of two independent
+-- negations and that simultaneous refusal collapses into the
+-- sequential pair, so the position is the THIRD bhaṅga —
+-- स्यात्-अस्ति-नास्ति, asserted क्रमेण — and not avaktavya.  The full
+-- correction is recorded at
+-- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
+-- Only the `module` line changed here; no statement was touched.
 ------------------------------------------------------------------------

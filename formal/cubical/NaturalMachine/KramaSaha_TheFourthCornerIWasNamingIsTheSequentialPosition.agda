@@ -82,7 +82,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import AnuktaAvaktavya using (सामयिक ; नित्य)
-open import NaturalMachine.Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+open import NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
 
 ------------------------------------------------------------------------

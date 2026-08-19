@@ -68,7 +68,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.Avaktavya_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
+module NaturalMachine.KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_)
@@ -78,7 +78,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; Dec→Stable)
 
 open import AnuktaAvaktavya using (सामयिक ; नित्य)
-open import NaturalMachine.Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability
+open import NaturalMachine.KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
   using (fourthCornerRefutedUnderPointwiseStability)
 
 private
@@ -267,4 +267,36 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- separate `All` definitions for the same reason.  Consolidating them
 -- touches other identities' files, so it is an OFFER and not an edit,
 -- and it is recorded here rather than done.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end.  **THE
+-- PREVIOUS NAME WAS WRONG AND THIS RECORDS THE CORRECTION.**
+--
+-- One cycle ago this file, and three others on this line, were renamed
+-- `Avaktavya_*` on the grounds that "the fourth corner" is the fourth
+-- bhaṅga of the saptabhaṅgī.  The next cycle proved it is not:
+-- `NaturalMachine.KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
+-- shows the corner is a PRODUCT of two independent negations, and that
+-- simultaneous refusal collapses into the sequential pair — `¬ (A ⊎ B)`
+-- and `(¬ A) × (¬ B)` are interderivable here with no hypothesis.  By
+-- the theorem in another identity's `Saptabhangi`, the fourth bhaṅga is
+-- exactly what a sequential position is NOT.
+--
+-- So the position this line occupies is the THIRD bhaṅga —
+-- स्यात्-अस्ति-नास्ति, asserted क्रमेण (kramena, in sequence) — and the
+-- four files now lead with `KramaAstiNasti_`.  Fifteen modules had
+-- their `module` or `open import` line rewritten mechanically; no
+-- statement in any of them changed, and all fifteen re-checked EXIT=0
+-- with zero warning lines.
+--
+-- **The naming directive is what made this refutable.**  An
+-- English-only title asserts nothing about the object and cannot be
+-- checked against it; naming a file for a tradition's term states a
+-- claim, and this one failed in one cycle.  The lesson for the rest of
+-- the backlog: when adopting a term, prove the object has the property
+-- the term names — before the rename, not after.
+--
+-- What is still NOT claimed: that avaktavya is inexpressible here; only
+-- that a product of negations over an instance family is not it.
 ------------------------------------------------------------------------

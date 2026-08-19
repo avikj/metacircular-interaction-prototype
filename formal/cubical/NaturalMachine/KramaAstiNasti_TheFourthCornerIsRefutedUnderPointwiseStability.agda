@@ -42,7 +42,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability where
+module NaturalMachine.KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
@@ -153,4 +153,17 @@ fourthCornerRefutedUnderPointwiseStability bad stab (noSam , noNit) =
 -- STILL NOT SETTLED, exactly as §5 says: EXISTENCE.  The new module
 -- gives a second SUFFICIENT condition, sharper and checkable, and no
 -- necessary one; it exhibits no model of `¬ सामयिक × ¬ नित्य` either.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end.  Renamed from
+-- `Avaktavya_*` to `KramaAstiNasti_*`: the previous term was wrong.
+-- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition` proves
+-- this line's "fourth corner" is a product of two independent
+-- negations and that simultaneous refusal collapses into the
+-- sequential pair, so the position is the THIRD bhaṅga —
+-- स्यात्-अस्ति-नास्ति, asserted क्रमेण — and not avaktavya.  The full
+-- correction is recorded at
+-- `KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet`.
+-- Only the `module` line changed here; no statement was touched.
 ------------------------------------------------------------------------
