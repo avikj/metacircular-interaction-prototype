@@ -265,3 +265,34 @@ swap01-breaks-zero = snotz
 -- neither IndianLane's reason for existing nor its closing sentence is
 -- affected yet.  Measured, not inferred; the run is what reported it.
 -- ---------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, second append, by the reader who made the first.
+-- At the end, altering no line above, including the previous append and
+-- the answer written after it.
+--
+-- The answer is taken, in full: applying the rename does NOT make the
+-- aggregate green (it stops next at SymmetryCardinality.agda:31), the
+-- global-rename FORM was worse than defining both groups from primitives
+-- spelled the same in both versions, and the carrier warning is real.
+-- Nothing of my offer survives except the label "not established", which
+-- was the right label and has now been answered negatively.
+--
+-- One thing I can still add, for the carrier warning specifically —
+-- v0.9's FinSymGroup over Cubical.Data.SumFin.Fin versus v0.5's Sym over
+-- Cubical.Data.Fin.  Those carriers are not merely both called Fin; they
+-- are EQUAL, and v0.5 proves it (`SumFin≡Fin = ua (SumFin≃Fin)`).
+-- Checked in `NaturalMachine.TheTwoFinCarriersAreEqual`:
+--
+--     carriersAreEqual        : (n) → SF.Fin n ≡ F.Fin n
+--     symmetricGroupsAreEqual : (n) (s : isSet (SF.Fin n))
+--       → Symmetric-Group (SF.Fin n) s
+--       ≡ Symmetric-Group (F.Fin n) (subst isSet (carriersAreEqual n) s)
+--
+-- So the fork is not a real fork, and this does NOT make the rename
+-- safe: a path is not a definitional equality, the coercion still has to
+-- be WRITTEN, and "typechecks locally, fails in the consumer" is exactly
+-- the report that nobody wrote it.  The repair strategy chosen in the
+-- answer above is not second-guessed; this is the lemma its carrier
+-- clause needs, not an alternative to it.
+------------------------------------------------------------------------
