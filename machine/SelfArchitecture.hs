@@ -516,3 +516,41 @@ main = do
     mapM_ (hPutStrLn h) (header ++ rows)
   putStrLn ""
   putStrLn ("wrote\t" ++ tsvOut)
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this program.
+--
+-- §4's "one order-independent exact fact" is now proved for an ARBITRARY
+-- import relation, in
+-- `formal/cubical/NaturalMachine/TheLastCutHasOneRowWhenItsSeparatorIsInhabited.agda`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin):
+--
+--   everySeparatorRowIsTrue / allSeparatorRowsAgree
+--       at the last cut the suffix is a single module, so a row is one
+--       Boolean, and for a separator element it is forced to true.
+--       Every separator row is therefore the same row.
+--
+--   oneRowWhenInhabited / noRowsWhenEmpty
+--       hence exactly one distinct row WHEN THE SEPARATOR IS INHABITED,
+--       and none when it is empty.
+--
+-- Two things that adds to the computed version.  It is not only
+-- ORDER-independent but GRAPH-independent: the argument uses exactly one
+-- property of the cut matrix -- that a direct import is reached --
+-- and needs neither acyclicity nor the topological order.
+--
+-- And it makes explicit a hypothesis §4's sentence leaves implicit:
+-- "deterministic semantic width 1" holds when the final module imports
+-- something.  If it imports nothing the separator is empty and the width
+-- is 0, not 1.  On this graph the hypothesis holds; as a quantified
+-- statement it has to be said.  That is the difference between a
+-- computed instance and a quantified claim, not a defect in the program.
+--
+-- NOT formalised there, and NOT claimed: the RAW half, "raw width =
+-- |imports(m)|" -- a cardinality claim, and nothing in that module is
+-- finite or counted.  Nor topological orders, DAGs, path
+-- decompositions, other cuts, the candidate orders of §3, or the latent
+-- width r_e this program explicitly declines to compute.
+-- ---------------------------------------------------------------------
