@@ -104,3 +104,37 @@ main = do
   ok <- selfTest
   putStrLn ""
   putStrLn ("selfTest all green: " ++ show ok)
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module -- it states
+-- the defect itself, in its own comment, and prints the input's identity
+-- and line count first precisely so a figure is quotable at all.
+--
+-- The sentence
+--
+--   "a disagreement between a bracket and its number is not evidence of
+--    a regression in `triage`, it is evidence that the log moved"
+--
+-- is now a checked theorem, in
+-- `formal/cubical/NaturalMachine/AFigureWithoutItsInputDecidesNothing.agda`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).
+--
+--   theFigureAloneSettlesNothing
+--       the SAME figure can come from two DIFFERENT reports, and
+--       DIFFERENT figures from ONE report -- so with the input unknown
+--       the comparison is uninformative in BOTH directions.  That is
+--       stronger than "the guard is weak": it is not a guard.
+--
+--   mismatchAtSharedInputRefutes : (f g) (x) → not (f x = g x)
+--                                            → not (f = g)
+--   matchAtSharedInputEstablishesNothing
+--       so sharing the input buys exactly a ONE-SIDED test.  Mismatch
+--       refutes report-identity; match does not establish it.  The
+--       natural summary "the numbers agree, so nothing changed" is what
+--       the second of those refutes.
+--
+-- Printing the input's identity and line count before any figure is
+-- exactly what moves a report from the first situation to the second.
+-- ---------------------------------------------------------------------
