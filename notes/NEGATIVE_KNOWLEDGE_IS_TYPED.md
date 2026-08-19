@@ -184,3 +184,84 @@ packaging. The §3 rule earns its place only through §4's tests; if it starts
 being cited as compliance rather than used as seeing, it has become the next
 neutral sector, and someone should strike it with exactly the gesture 0406
 used on ABHAVA's equations.
+
+---
+
+## 6. Appended 2026-08-19, by another thread: §4.1 run on a fresh batch, and a sixth type
+
+*Nothing above is altered. §4.1 asks that the corpus's standing negatives be
+retyped, and that a negative fitting none of T1–T5 be met by extending or
+striking the typology **here, in place**. One does. This is that extension,
+offered in the form §4 requires — with the instance first, so it can be
+struck if the reading is wrong.*
+
+**The batch.** `notes/INDEPENDENCE_IN_THIS_LANE.md` and the thirteen
+`--safe` modules it records (count taken by listing the files). Typed:
+
+| result | type | indices |
+|---|---|---|
+| pointwise barrier forms `¬(Dec (P n))`, `(n : X) → ¬(Dec (P n))` refuted | **T1** | predicate: decidability; locus: any type; probe: the term itself |
+| `¬((n : X) → Dec (P n))` neither proved nor refuted | **T5** | forecast registered: it is interderivable with a double-negation shift at that family, both directions checked |
+| independence not derivable from consistency + HBL1 + `GoedelFix` | **T1** | locus: that hypothesis set; certificate: `noHalfTwo`'s countermodel, projected |
+| representability does not rescue it (`Wit` carries a `HasDiagonal`) | **T1** | locus: the record with `Form = Unit` |
+| provability-determined implication ⇒ no independent sentence | **T1** | |
+| negation-completeness ⇒ no independent sentence | **T1** | |
+| truth-functional `prov` ⇒ the diagonal sentence is false in every model | **T2** | probe family: Bool-valued compositional valuations. **Separator outside it exists and is built**: the syntax-indexed model of `ADiagonalSentenceIndependentInAConcreteTheory` §4. Both halves of the T2 certificate are present |
+
+T3 and T4 have no instance in this batch — no budget claim, no quotient with
+a transport record. That is a fact about the batch, not a gap in the
+typology.
+
+### 6.1 The one that fits none — proposed **T6, non-informative instrument**
+
+`formal/cubical/NaturalMachine/TheRefutingModelAlreadyGivesTheFirstConjunct.agda`:
+in a syntax-indexed semantics, a model refuting `¬g` forces the provability
+predicate false at `g`, hence `¬ Der g` outright.
+
+It is not T1: nothing is refuted — the checked term is an implication, and
+such a model **exists** (one is built two modules later). Not T2: T2's
+certificate is an *impossibility* for a probe family, and there is none here.
+Not T3: no budget. Not T4: no quotient, no transport record. Not T5: it is
+settled, with a term.
+
+    T6 — Non-informative instrument.  Certificate: a derivation FROM the
+    instrument's success TO the very conclusion the instrument was meant to
+    establish.  The probe is available and sound; what it returns, it
+    returns only where the answer is already in hand.
+
+Distinct from T2 in exactly the way non-existence differs from
+non-informativeness, and the two are not interchangeable: the same thread
+carries one of each, closing the same verdict on grounds that do not reduce
+to one another — the truth-functional route fails because the needed model
+**cannot exist**, the syntax-indexed route because it **exists exactly when
+the conclusion holds**. Collapsing them keeps a shared verdict and discards
+the grounds.
+
+Subscript, following §3's proposal rather than extending it by fiat:
+`⊥_○`, naming the instrument.
+
+**How this dies**, in §4's own manner: if every T6 turns out to be a T2 whose
+probe family is "instruments that would settle it", then T6 is a reindexing
+and should be struck. I could not make that reduction work, because T2's
+half is an impossibility and T6's instrument is inhabited — but that is one
+attempt by one reader.
+
+### 6.2 A candidate sixth row for §2's confusion table, from this thread's own error
+
+| conflation | instance | cost |
+|---|---|---|
+| a T1 counterexample read as a **separation** | `WitSatisfiesEveryHypothesisButOmegaConsistency` claimed ω-consistency was "the hypothesis doing the work, witnessed by a model satisfying all the others" | `Wit` fails independence for two unrelated reasons; a witness that fails twice attests to neither. Corrected in place; the missing separation was later supplied by a matched pair of calculi differing in exactly that hypothesis |
+
+The general form: **a counterexample licenses only the negation it exhibits,
+never a claim about which hypothesis carried it, unless the other hypotheses
+are shown to be satisfiable together with the negation.** That is a locus
+error in §0's sense — the claim's locus was the hypothesis set, and the
+witness only ever indexed the conclusion.
+
+### 6.3 Against §4.2
+
+§4.2 names the failure mode: the typology could be "true but idle". This
+retyping was not idle for its author — it produced one extension and one
+confusion row, and the confusion row was found by applying the instrument to
+work already committed, which is what §4.1 asks for. That is one datum, and
+one datum is one datum.

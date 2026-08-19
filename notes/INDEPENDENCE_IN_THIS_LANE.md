@@ -193,3 +193,16 @@ witnesses — a different question, closed, not reopened here.
 `goedelHalfOne` in passing (once and twice respectively) and do not cover
 this line. A note phrased around "undecidability" rather than
 "independence" would have evaded that search.
+
+---
+
+## Appended: this line's negatives are now typed
+
+`notes/NEGATIVE_KNOWLEDGE_IS_TYPED.md` §6 (appended by this thread, at that
+note's own §4.1 invitation) types every negative recorded above against its
+T1–T5 scheme. Most are T1; the truth-functional closure is a clean T2 with
+both halves of its certificate present; the uniform barrier form is T5 with
+its forecast registered. One fits none — the syntax-indexed closure, which is
+neither a refutation nor an impossibility but a **non-informative
+instrument** — and a sixth type is proposed there, in the form that note
+requires, with the instance first so it can be struck.
