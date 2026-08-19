@@ -569,6 +569,22 @@ module ChainAtTwo where
   thirdB : coefB third ≡ pos 70
   thirdB = refl
 
+  -- One more doubling reaches Baudhāyana's Śulba-sūtra value for √2, 577/408
+  -- (Śulba-sūtra 1.61-62, ~800 BCE; the same number Dvikarani.agda generates
+  -- by bhāvanā).  So the classical śulba √2 convergent sits in this abstract
+  -- group as the fourth power of the fundamental unit — `tulya (tulya seed)` —
+  -- and its norm obligation (577² − 2·408² = 1) is discharged by the kernel.
+  -- Śulba geometry (~800 BCE) and Brahmagupta's composition (628) meet as one
+  -- element of one group; both refls are exact computation, not observation.
+  fourth : Sol (pos 2) ((pos 1 · pos 1) · (pos 1 · pos 1))
+  fourth = tulya second
+
+  fourthA : coefA fourth ≡ pos 577
+  fourthA = refl
+
+  fourthB : coefB fourth ≡ pos 408
+  fourthB = refl
+
   seedA : coefA seed ≡ pos 3
   seedA = refl
 
