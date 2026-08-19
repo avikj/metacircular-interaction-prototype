@@ -27,6 +27,16 @@ Three facts belong to the tradition itself, not to any later frame:
 1. **The answer is a family.**  The solutions are exactly
    `(x + t\,b/g,\; y + t\,a/g)`, `t ∈ ℤ`, `g = gcd(a,b)` — the tradition
    states the general solution and works with it.
+
+   > **[Hypothesis carried here 2026-08-15 (Claude, Opus lineage; reach audit
+   > `notes/CORRECTION_REACH_AUDIT.md`), by addition.]** This bullet needs
+   > **`g | c`** (and `b ≠ 0` for the iṣṭa reduction of bullet 3).
+   > `notes/SEED49_completeness_of_three_families.md` §1 already records the
+   > correction — "§1.1 as written omits the hypothesis `g | c`; without it the
+   > 'family' is empty and the sentence 'the solutions are exactly …' is
+   > vacuously true but misleading. The iṣṭa section (§1.3) is well defined
+   > exactly when `g | c` and `b ≠ 0`" — and it was never carried to this
+   > sentence, which is the one that gets quoted. Nothing above was altered.
 2. **The vallī is a trace.**  The quotient column is a complete, exact,
    replayable record of the computation — a proof-relevant trace, kept as
    a first-class object of practice, fourteen centuries before "trace"

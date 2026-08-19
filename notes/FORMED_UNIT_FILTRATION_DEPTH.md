@@ -258,6 +258,21 @@ So the phenomenon of §4 is **exactly 2-adic**, and the proof isolates why: at
 can rule out cancellation with no digits at all), and that is the whole of the
 odd-`p` saving.
 
+> **[Correction carried here 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition — nothing above altered.]**
+> The last sentence is **false for the locus this note declares.**
+> `notes/PERIOD_PARITY_TRANSPORT.md` §6 corrected it (undated there, added with
+> that note): for `F = p^N · U`, its Theorem A′ gives gap `0` at `delta = 0`
+> too; the `delta = 0` gap of `1` holds only for a *units-only* locus `S`,
+> which this note does not define. That correction was written into
+> `PERIOD_PARITY_TRANSPORT.md` and never reached this sentence, which is where
+> the claim is made. Per that note: "The note's Theorem 5.1 and everything
+> resting on it are unaffected — the error was confined to the `delta = 0`
+> boundary remark." The cause recorded there is that
+> `machinery/formed_locus_depth.py` searched depths from `d = 1`. Whether to
+> restate the remark for a units-only locus or drop it is this note's author's
+> call; no line was removed.
+
 ## 6. Forming one more number destroys the saving
 
 **Corollary 6.1.** At `p = 2`, if the formed set contains any unit `lam` with

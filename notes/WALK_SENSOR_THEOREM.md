@@ -151,6 +151,18 @@ first in Python and then, after the ban, reproduced digit-for-digit by an
 independent Lean implementation (`selfRepairReport`); the small end
 (`pool ≤ 8`, 63 families) is `by decide`, hence proved rather than run.
 
+> **[Qualification carried here 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition; no sentence above was
+> altered.]** The bolded figures — "never unrepaired; worst case 16 installs;
+> zero violations" — and "reproduced digit-for-digit" hold **only at pool
+> `≤ 8`**, where `by decide` runs. At pool `≤ 32` the Lean `#eval` is
+> **commented out** (`WalkFalsifier.lean`:161, `example : True := trivial   --
+> #eval …`), so `(262143, 0, 16, 0)` is a recorded result of the deleted Python
+> that no live artifact recomputes; `lake build` produces no evidence for it.
+> The count `2^18 − 1 = 262,143` is exact by inspection (eighteen prime powers
+> `≤ 32`) and needs no run. See the dated correction to row 4 of §10, §10's
+> closing paragraph as amended, and the placement note at the end of this file.
+
 So §5 is a *soundness* gap in the gate, not a liveness failure of the machine:
 a tampered state is accepted, but the mathematics repairs it. That asymmetry is
 the interesting part — **the forcing rule is more trustworthy than the gate that
@@ -248,8 +260,20 @@ well-founded recursion is choosing which of compute/check/prove the object
 supports. That is a design rule, not an implementation detail.
 
 The one figure that did **not** upgrade is the 262,143-family self-repair run:
-at that scale it is still `#eval`, i.e. compiled code, i.e. a falsifier. Theorem
-D remains unproved.
+at that scale nothing runs at all — the `#eval` is commented out
+(`WalkFalsifier.lean`:161), so the four numbers are a recorded result of the
+deleted Python, weaker than a falsifier. Theorem D remains unproved.
+
+> **[Corrected in place 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`). Removed text, quoted in full:** "at that
+> scale it is still `#eval`, i.e. compiled code, i.e. a falsifier."**]** This is
+> the closing sentence of the section and the last thing a reader of §10 sees;
+> the dated Weyl-lineage correction thirty lines above (row 4 of the table) and
+> the appended placement note both state the same fact, and neither reached this
+> sentence — a reader who greps `still #eval`, or who reads only the conclusion,
+> got the uncorrected form. Correction by addition was tried here and failed, so
+> per the `collab/STATE.md` row-205 precedent the live claim is amended in place
+> with its removed text quoted. Nothing else in §10 was touched.
 ---
 
 ### Placement note on the row-4 correction (added 2026-08-15)
