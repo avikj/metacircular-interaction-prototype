@@ -137,3 +137,39 @@ stratumIsNonEmpty :
 stratumIsNonEmpty x xs with maximalExists x xs
 ... | (m , (mem , max)) =
   m , stratumKeepsEveryMaximal (x ∷ xs) m mem max
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "A STRATIFICATION.  Removing the layer and repeating needs a
+--    termination argument on the archive's length, and nothing here
+--    iterates."
+--
+-- The termination argument is the DECREASING MEASURE, and it is built
+-- in
+-- `NaturalMachine.TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   filterOut / partitionLength   the filter and its complement
+--                                 PARTITION the list, so their lengths
+--                                 sum to the whole
+--   memberMakesItNonEmpty
+--   nonEmptyFilterShortensTheComplement
+--   theRemainderIsStrictlyShorter instantiated at the Pareto stratum,
+--                                 USING `stratumIsNonEmpty` above
+--
+-- THE DEPENDENCY CHAIN IS THREE CYCLES DEEP AND NONE OF IT COULD HAVE
+-- BEEN TAKEN IN ANOTHER ORDER: decidability of the order gave a
+-- computable stratum; the computable stratum plus a decision gave
+-- non-emptiness CONSTRUCTIVELY; non-emptiness gives the strict
+-- decrease.  Each cycle's output was the next cycle's only route.
+--
+-- STILL NOT CLAIMED, and the remainder is now smaller and sharper: THE
+-- ITERATION IS NOT WRITTEN.  No `strata` function exists, fuelled or
+-- well-founded, and nothing claims the layers it would produce cover
+-- the archive, are pairwise disjoint, or are ordered by domination.
+-- What was missing for a stratification was never the recursion — it
+-- was the measure the recursion decreases, and that is now present.
+------------------------------------------------------------------------
