@@ -14,8 +14,9 @@
 module Meru where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-assoc ; +-comm)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-assoc ; +-comm ; snotz ; injSuc)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
+open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
 
 ------------------------------------------------------------------------
 -- योगः (sum), zipWith, अग्रिम-पङ्क्तिः (Pascal step) ।
@@ -107,3 +108,33 @@ length-++० xs = sym (लen xs)
 
 उदाहरणम् : योग (मेरु-पङ्क्ति 4) ≡ 16
 उदाहरणम् = refl
+
+------------------------------------------------------------------------
+-- मेरु-त्रिकोणम् — मेरुः त्रिकोण-आकारः : n-तमा पङ्क्तिः (n+1) पदानि वहति ।
+-- (length (मेरु-पङ्क्ति n) ≡ suc n) ।  अग्रिम-पदे एकम् अधिकम् (0-प्रक्षेपेण) —
+-- अतः त्रिकोणम् (१, ११, १२१, १३३१, …) क्रमेण विस्तृतम् ।
+--
+-- (The meru is a triangle: the n-th row has n+1 entries, length(मेरु-पङ्क्ति n)
+--  ≡ suc n.  Each Pascal step (अग्रिम) adds one via the 0-padding, so the rows
+--  widen 1, 2, 3, … — the triangular shape.)
+------------------------------------------------------------------------
+
+length-स्नोक् : (xs : List ℕ) → length (xs ++ (zero ∷ [])) ≡ suc (length xs)
+length-स्नोक् []       = refl
+length-स्नोक् (x ∷ xs) = cong suc (length-स्नोक् xs)
+
+length-zip : (as bs : List ℕ) → length as ≡ length bs
+           → length (zipWith+ as bs) ≡ length as
+length-zip []       []       _ = refl
+length-zip []       (y ∷ ys) _ = refl
+length-zip (x ∷ xs) []       p = ⊥-rec (snotz p)
+length-zip (x ∷ xs) (y ∷ ys) p = cong suc (length-zip xs ys (injSuc p))
+
+length-अग्रिम : (xs : List ℕ) → length (अग्रिम xs) ≡ suc (length xs)
+length-अग्रिम xs =
+  length-zip (zero ∷ xs) (xs ++ (zero ∷ [])) (sym (length-स्नोक् xs))
+
+मेरु-त्रिकोणम् : (n : ℕ) → length (मेरु-पङ्क्ति n) ≡ suc n
+मेरु-त्रिकोणम् zero    = refl
+मेरु-त्रिकोणम् (suc n) =
+  length-अग्रिम (मेरु-पङ्क्ति n) ∙ cong suc (मेरु-त्रिकोणम् n)
