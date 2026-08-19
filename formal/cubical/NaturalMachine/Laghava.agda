@@ -202,3 +202,19 @@ laghava-collision =
 -- and the general lemma, instantiated here, gives §3 back with no new
 -- argument: `¬ FactorsThrough eval size`, in the repository's own words.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- THE REPAIR THIS MODULE ASKED FOR WAS MADE IN
+-- `NaturalMachine.OneLemmaFiveSites`, which derives this module's
+-- non-factoring theorem from `TranscriptDescent.collisionObstructsDecoder`
+-- applied to the collision isolated above.
+--
+-- `NaturalMachine.TheTwoCollisionsAreOneInstantiation` adds a second
+-- route, through `AnyonyaAbhava.anyonya→samsarga`, notes that the
+-- isolated collision is already a term of the parametric type
+-- `AnyonyaAbhava.Collision` at this module's own presentation type, and
+-- proves the two routes equal — negations being propositions.
+--
+-- The private proof above is not removed.  It is the record of how the
+-- result was first obtained.
+------------------------------------------------------------------------
