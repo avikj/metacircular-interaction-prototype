@@ -306,3 +306,39 @@ categories-agree-when-decidable dT q t dC =
 -- Reading one document is not grounds for a new construction, and the
 -- error above came from converting before reading.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 9.  CORRECTIONS TO §5 AND §6, made in
+--     `NaturalMachine.TheDelimitorNeedsOnlyStability` and pointed to
+--     here rather than applied by deletion.
+--
+-- (1) §5's hypothesis is stronger than §5's use.  `dec-collapses` is
+--     applied only as `¬ ¬ A → A`, which is `Stable`.  The gap between
+--     the two categories closes under `Stable (Collision q t)`, and the
+--     decidable form is a corollary by `Dec→Stable`.  §6's sentence
+--     "the cost is discharged exactly by decidability of the
+--     प्रतियोगिन्" should read: by STABILITY of it.  Decidability is
+--     sufficient and is not what is used.
+--
+-- (2) §6's open item — "whether `Dec (Collision q t)` holds at any site
+--     in this corpus" — is answered on a class of sites: for a
+--     two-point state space with `Discrete Y` and `Discrete T` it
+--     holds, by exhaustion over four pairs.
+--
+-- (3) §6 says "Two is not a coincidence worth explaining away."  Two
+--     instances are two instances, and nothing downstream of that
+--     sentence was ever computed.  The observation stands; the
+--     inference drawn from it does not.
+--
+-- (4) §6 says the dispute was "conducted by people who did not have
+--     one and were right anyway."  That scores the past by proximity
+--     to a constructive setting — a दुर्नय.  What is sayable: the
+--     Nyāya division of अभाव into संसर्ग and अन्योन्य is a distinction,
+--     it is registered in this formalism, and the two directions cost
+--     differently here.  Whether the Naiyāyikas were tracking what
+--     this formalism tracks is a question about them that this corpus
+--     has no means to settle.
+--
+-- The sentences are left where they were written.  A record that
+-- deletes its own errors is not a record.
+------------------------------------------------------------------------
