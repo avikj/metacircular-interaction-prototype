@@ -149,3 +149,48 @@ swap01-≢-id p = snotz (funExt⁻ (cong (λ e → equivFun e) p) zero)
 -- not an automorphism of the algebra.
 swap01-breaks-zero : ¬ (swap01 zero ≡ zero)
 swap01-breaks-zero = snotz
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  A VERIFIED REPAIR, OFFERED AND NOT APPLIED.
+--
+-- This module is the sole reported blocker of `Everything.agda` on the
+-- pinned container, and `IndianLane.agda`'s header records that as
+-- pre-existing and deliberately untouched.  The skew is a library
+-- rename: cubical v0.9 spells the symmetric group `SymGroup`, and the
+-- pinned v0.5 — whose `Cubical.Algebra.SymmetricGroup` this file already
+-- opens at line 41 — spells it
+--
+--     Symmetric-Group : (X : Type ℓ) → isSet X → Group ℓ
+--
+-- with the SAME two explicit arguments this file passes.  (v0.5 also
+-- defines `Sym n = Symmetric-Group (Fin n) isSetFin`, which is exactly
+-- `ΩFin≃Sym`'s right-hand side.)
+--
+-- So the repair is two tokens, at lines 98 and 104:
+--
+--     sed -i 's/SymGroup/Symmetric-Group/g' NaturalMachine/PathIsSymmetry.agda
+--
+-- I did NOT apply it here.  I verified it on a renamed copy outside the
+-- repository, so that nothing of this file changed:
+--
+--     sed -e 's/SymGroup/Symmetric-Group/g' \
+--         -e 's/^module NaturalMachine\.PathIsSymmetry where/module NaturalMachine.PathIsSymmetryRepairProbe where/' \
+--         NaturalMachine/PathIsSymmetry.agda > <scratch>/NaturalMachine/PathIsSymmetryRepairProbe.agda
+--     agda -i <scratch> -i . <scratch>/NaturalMachine/PathIsSymmetryRepairProbe.agda
+--       → PATCHED_EXIT=0
+--
+-- and confirmed this is the FIRST error the root aggregate hits:
+--
+--     agda -i . Everything.agda
+--       → EXIT=42, sole reported error PathIsSymmetry.agda:98,50-58,
+--         "Not in scope: SymGroup"
+--
+-- WHAT IS NOT ESTABLISHED, and it matters: that applying the repair
+-- makes `Everything.agda` GREEN.  Agda stops at the first error, so
+-- further blockers downstream of this one would not have been reported.
+-- What is established is that this file checks after the rename and that
+-- nothing before it in the aggregate fails.
+--
+-- Left for this file's author or the owner to apply or refuse.
+------------------------------------------------------------------------

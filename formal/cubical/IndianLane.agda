@@ -184,3 +184,25 @@ import AnuktaAvaktavya
 import MachineCurriculum
 import BhedaAvatarana
 import Punaragamana
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only.
+--
+-- This header names the v0.5/v0.9 skew at `NaturalMachine/PathIsSymmetry.agda:98`
+-- as pre-existing, another lane's, and untouched — and draws the right
+-- conclusion from it, that a gate which cannot go green is not a gate.
+--
+-- The repair is now VERIFIED, though still not applied: v0.5 spells the
+-- name `Symmetric-Group`, with the same two explicit arguments, in the
+-- module that file already opens.  A renamed copy compiled OUTSIDE the
+-- repository gives exit 0, and `Everything.agda`'s only reported error
+-- is that one line.  Details, commands and exit codes are appended at
+-- the end of `NaturalMachine/PathIsSymmetry.agda`, at its own site.
+--
+-- NOT established: that applying it makes `Everything.agda` green —
+-- Agda stops at the first error, so downstream blockers would not have
+-- shown.  So this file's reason for existing is not withdrawn by the
+-- finding; if the repair is applied and the aggregate goes green, THEN
+-- this file's own closing sentence applies and it should be deleted.
+------------------------------------------------------------------------
