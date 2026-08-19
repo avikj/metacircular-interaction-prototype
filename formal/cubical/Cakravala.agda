@@ -21,7 +21,7 @@
 module Cakravala where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
+open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; ·Rid)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 open import Brahmagupta using (मान ; संयोग-प्र ; संयोग-द्वि ; भावना-मान)
@@ -40,3 +40,26 @@ open import Brahmagupta using (मान ; संयोग-प्र ; संय
 -- k · (m² − N) — रूपं रक्षितम्, k नवः हरः ।
 -- (so the new triple's "k-times form" is k·(m²−N): the form is preserved,
 -- with k the new divisor — the heart of the cakravāla's cycle.)
+
+------------------------------------------------------------------------
+-- अन्तर्वेशक-मानम् — अन्तर्वेशकस्य (m,1) मानम् = m² − N (वलय-साधकेन) ।
+------------------------------------------------------------------------
+
+अन्तर्वेशक-मानम् : (N m : ℤ) → मान N m (pos 1) ≡ (m · m) - N
+अन्तर्वेशक-मानम् N m =
+    cong (λ z → (m · m) - (N · z)) (·Rid (pos 1))
+  ∙ cong (λ z → (m · m) - z) (·Rid N)
+
+------------------------------------------------------------------------
+-- चक्रीय-पद-रूपम् — चक्रवालस्य हृदयम्, बद्ध-रूपे : संयोगस्य मानम् = k·(m²−N) ,
+-- यत्र k = पूर्व-मानम् (मान N a b) ।  रूपं रक्षितम् ; m² − N नवः गुणकः ।
+-- (The cakravāla cycle's heart in closed form: the composite's norm is
+--  k·(m²−N), k the previous norm.  The form is preserved and m²−N is the new
+--  factor — चक्रीय-पद with the interpolator's norm substituted.)
+------------------------------------------------------------------------
+
+चक्रीय-पद-रूपम् : (N a b m : ℤ)
+              → मान N (संयोग-प्र N a b m (pos 1)) (संयोग-द्वि a b m (pos 1))
+              ≡ (मान N a b) · ((m · m) - N)
+चक्रीय-पद-रूपम् N a b m =
+    चक्रीय-पद N a b m ∙ cong ((मान N a b) ·_) (अन्तर्वेशक-मानम् N m)
