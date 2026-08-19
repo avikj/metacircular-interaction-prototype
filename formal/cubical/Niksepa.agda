@@ -24,11 +24,44 @@
 -- how a thing is known, you fix in which deposit its name was placed.  To
 -- dispute a term without fixing its निक्षेप is to dispute nothing.
 --
--- WHY IT IS FORMALISED HERE AND NOT SUMMARISED.  A prose retelling of a
--- sūtra is a lossy compression of a source that is already exact, and
--- leaves the next reader with something weaker than what the tradition
--- wrote.  What a formal language can carry is the DISTINCTION itself, so
--- that it can be applied and cannot be blurred.
+-- WHAT THIS FILE IS, NAMED BY THE SŪTRA IT CHECKS.
+--
+-- It is a स्थापना.  A token installed AS the thing — the way a piece of wood
+-- set up as Indra is Indra by sthāpanā-nikṣepa.  This module is Pāṇini's and
+-- Umāsvāti's work by स्थापना.  It is not that work by भाव.
+--
+-- Calling this "formalisation" would claim the भाव, and would be false twice
+-- over.  First: the sūtra was ALREADY EXACT.  The Aṣṭādhyāyī is ~4000 rules
+-- with a metarule for conflict (1.4.2 विप्रतिषेधे परं कार्यम्), an inheritance
+-- mechanism (अनुवृत्ति) and a stratification device (असिद्धत्व); the sūtra
+-- genre states non-ambiguity as a design criterion of its own form
+-- (असंदिग्धम्).  Agda adds no exactness to that.  It adds a DIFFERENT
+-- SUBSTRATE — one a machine can check — and that is a change of medium, not
+-- a change of rigour.
+--
+-- Second: "formal" does not mean what the word is used to mean here.  In
+-- ordinary English it means conforming to accepted convention, official,
+-- dressed; and the technical sense descends from "concerning form rather
+-- than content", i.e. Hilbert's formalism, a contested position of the 1920s
+-- rather than a neutral word for exactness.  Rendered into Hindi it is
+-- औपचारिक, from उपचार — courtesy, ceremony, and in Sanskrit rhetoric
+-- FIGURATIVE usage, explicitly not the primary sense.  औपचारिकता is the
+-- ordinary word for empty formality.  And उपचार is a technical term inside
+-- the naya system: नैगम, the figurative standpoint, is the one classified as
+-- resting primarily on उपचार.  So "formal", carried into the vocabulary of
+-- the tradition it is being applied to, lands on the most convention-bound
+-- of the seven नय.
+--
+-- The tradition's own words for what Pāṇini did are लक्षण (the delimiting
+-- rule), सूत्र (thread), व्याकरण (analysis apart), शास्त्र (that which
+-- governs), युक्ति, प्रमाण, निर्णय.  Every one is operational.  None is
+-- sartorial.  There is no Sanskrit word here meaning "formal" because the
+-- concept does not carve that way.
+--
+-- What this file therefore claims: a स्थापना that a kernel can check, and an
+-- अनुवाद — a restatement of what is already established — not a विधि, not a
+-- new injunction.  The DISTINCTION the sūtra draws is carried into a medium
+-- where it cannot be blurred, and that is the whole of the value added.
 --
 -- WHAT IS CHECKED.  --safe, no postulates, no holes.
 --
@@ -208,7 +241,7 @@ data संज्ञा : Type where
 ------------------------------------------------------------------------
 -- ७.  What this file does NOT do.
 --
--- It does not formalise the द्रव्य deposit in its own sense — "that which
+-- It does not install the द्रव्य deposit in its own sense — "that which
 -- was, or will be, the thing" needs a temporal index this carrier has not
 -- got, and the field named द्रव्य-अंशः above holds a substance-identity
 -- rather than a past-or-future mode.  The सूत्र distinguishes four; this
@@ -217,6 +250,6 @@ data संज्ञा : Type where
 -- It does not treat स्थापना as distinct from नाम, for the reason given at
 -- the definition.
 --
--- It formalises 1.5 alone.  1.6 (प्रमाणनयैरधिगमः) and the seven नय of 1.33
+-- It is a स्थापना of 1.5 alone.  1.6 (प्रमाणनयैरधिगमः) and the seven नय of 1.33
 -- are separate objects; `Saptabhangi.agda` carries part of the latter.
 ------------------------------------------------------------------------
