@@ -29,6 +29,7 @@ open import PingalaPrastara using (sankhya ; meru ; matra)
 open import PanktiYoga using (द्वि-घात ; पूर्व ; पङ्क्ति-योगः)
 open import Dvipada using (C)
 open import Matramerus using (सर्व ; मात्रामेरु)
+open import MeruKarna using (मेरु-कर्ण ; समता-कर्णः)
 
 ------------------------------------------------------------------------
 -- संख्या-द्विघात — संख्या-प्रत्ययः पिङ्गलस्य 2ⁿ (द्वि-घात) एव (तुल्य-आवृत्ती) ।
@@ -85,3 +86,18 @@ open import Matramerus using (सर्व ; मात्रामेरु)
 मात्रा-सर्वः (suc (suc n)) =
     cong₂ _+_ (मात्रा-सर्वः (suc n)) (मात्रा-सर्वः n)
   ∙ sym (मात्रामेरु n)
+
+------------------------------------------------------------------------
+-- मात्रा-कर्णः — पिङ्गलस्य मात्रा-गणना = हलायुधस्य तिर्यक्-कर्णः (∑ₖ C(n−k,k)) ।
+-- हलायुधः द्वे अकरोत् : छन्दांसि अगणयत् (matra), मेरोः तिर्यक्-रेखासु मात्रा-
+-- सङ्ख्याः अपश्यत् (मेरु-कर्ण = ∑ₖ C(n−k,k)) ।  ते एके : matra n ≡ मेरु-कर्ण n ,
+-- यत्र matra कोश-गणना (Metre n ≃ Fin(matra n)) , मेरु-कर्ण द्विपद-तिर्यक्-योगः ।
+--
+-- (Halāyudha did two things: counted the metres (matra) and read the mātrā-
+-- counts off the shallow diagonals of the meru (मेरु-कर्ण = ∑ₖ C(n−k,k)).  They
+-- are one — matra n ≡ मेरु-कर्ण n — the type-theoretic metre cardinality equal to
+-- the binomial diagonal sum, through the enumeration length(सर्व n).)
+------------------------------------------------------------------------
+
+मात्रा-कर्णः : (n : ℕ) → matra n ≡ मेरु-कर्ण n
+मात्रा-कर्णः n = मात्रा-सर्वः n ∙ sym (समता-कर्णः n)
