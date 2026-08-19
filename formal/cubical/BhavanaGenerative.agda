@@ -53,6 +53,7 @@ open import Cubical.Foundations.HLevels using (isSetΣ ; isOfHLevelRetract)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Group.Base using (Group ; makeGroup)
+open import Cubical.Algebra.AbGroup.Base using (AbGroup ; makeAbGroup)
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Int using (negsuc)
@@ -461,6 +462,29 @@ module Generative (CR : CommRing ℓ) where
     makeGroup (unit D) _∙₁_ inv isSetSol
               (λ x y z → sym (∙₁-assoc x y z))
               ∙₁-idR ∙₁-idL ∙₁-invR ∙₁-invL
+
+  -- Commutativity of `_∙₁_` (from ⊛CommA/⊛CommB through the substs), and then
+  -- the ABELIAN group: `SolAbGroup D`.  Brahmagupta's bhāvanā group is abelian
+  -- — one solution and its conjugate commute — the fact that lets the cakravāla
+  -- walk its chain in either direction.
+  ∙₁-comm : {D : R} (s t : Sol D 1r) → s ∙₁ t ≡ t ∙₁ s
+  ∙₁-comm {D} s t i =
+    mkSol (caPath i) (cbPath i)
+          (isProp→PathP (λ j → is-set (N D (caPath j) (cbPath j)) 1r)
+                        (hasNorm (s ∙₁ t)) (hasNorm (t ∙₁ s)) i)
+    where
+      caPath : coefA (s ∙₁ t) ≡ coefA (t ∙₁ s)
+      caPath = substCoefA (·IdR 1r) (s ⊛ t) ∙ ⊛CommA s t
+             ∙ sym (substCoefA (·IdR 1r) (t ⊛ s))
+      cbPath : coefB (s ∙₁ t) ≡ coefB (t ∙₁ s)
+      cbPath = substCoefB (·IdR 1r) (s ⊛ t) ∙ ⊛CommB s t
+             ∙ sym (substCoefB (·IdR 1r) (t ⊛ s))
+
+  SolAbGroup : (D : R) → AbGroup ℓ
+  SolAbGroup D =
+    makeAbGroup (unit D) _∙₁_ inv isSetSol
+                (λ x y z → sym (∙₁-assoc x y z))
+                ∙₁-idR ∙₁-invR ∙₁-comm
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
