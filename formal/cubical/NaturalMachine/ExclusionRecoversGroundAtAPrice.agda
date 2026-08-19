@@ -563,3 +563,35 @@ module _ {T : Type ℓt} (t : Bool → T) where
     → FiberConstant t t → FiberConstant (shadow t) t
   stableTarget→shadowTransfer st =
     fiberConstant-transfer-stableTarget t (shadow t) t st (coExclude-shadow t)
+
+------------------------------------------------------------------------
+-- 11.  THE APOHA GLOSS IS DEFEATED BY A NOTE THAT WAS ALREADY HERE.
+--
+-- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §2.2, read after this module was
+-- written, states the finding:
+--
+--     "Apoha is not Boolean complementation.  The popular gloss is
+--      double negation — 'cow' = not-(non-cow) — and that gloss is what
+--      Dignāga's own scope analysis DEFEATS: a Boolean complement is
+--      taken in a fixed universe with a fixed partition, and
+--      Pramāṇasamuccaya V.25cd–38 says the exclusion class varies with
+--      the term's position in a taxonomy."
+--
+-- `Excludes q x x' = ¬ (q x ≡ q x')` is a negation in a fixed universe
+-- with a fixed partition — `Y` is given, `q` is given, the partition is
+-- the fibres of `q`.  It is the defeated gloss, exactly.
+--
+-- WITHDRAWN: any reading of §1–§9 as carrying apoha's shape, including
+-- the phrase "individuated negatively by what `q` fails to distinguish"
+-- in this thread's earlier notes.  The theorems are untouched: they are
+-- statements about observables and their fibres, and they never needed
+-- the gloss.
+--
+-- NOT WITHDRAWN: §7's citation of the DISPUTE.  Naming Uddyotakara's and
+-- Kumārila's circularity objection, and refusing to adjudicate it, is
+-- reporting a disagreement, not claiming a formal counterpart.  The same
+-- note records that no rigorous formal reconstruction of apoha has been
+-- located — "this absence is itself the finding" — so a module that
+-- supplies one in passing would be the error, and this one now says it
+-- does not.
+------------------------------------------------------------------------

@@ -614,3 +614,36 @@ appearing in `KuttakaValli.agda` (kills §5.2); a live originating limitor site
 with a dependent avacchedaka (kills §3.3); a located rigorous lattice or type
 theoretic reconstruction of apoha (kills the "none located" in §2.2 —
 and would be very welcome).
+
+---
+
+## 10. Appended 2026-08-19, another thread: §7's ledger run on thirteen new modules
+
+*Nothing above is altered. §7 is a ledger and this is new material for it,
+in its own vocabulary. The occasion was the repository owner striking two of
+these names on 2026-08-19 for the failure this map exists to catch —
+dressing an imported notion in a tradition's clothes.*
+
+| repo object | verdict |
+|---|---|
+| `NaturalMachine.TheAbsenceTowerIsThreeUnconditionally`, `…WhereTheTowerCanStillBeThree` | **NOT EARNED, withdrawn in place.** "Tower" and "three" translate nothing: no source measures absence by iteration depth, and the Nyāya–Vaiśeṣika classification is fourfold and sorts by KIND. Corrections appended at both sites; the theorems (`¬¬¬A ≃ ¬A`, the collapse iff, `¬((¬A) ≃ (¬¬A))`) are untouched and never needed the gloss |
+| `NaturalMachine.AnyonyaAbhava` §1 | **EARNED.** `Anyonya a b = ¬ (a ≡ b)` is non-identity and nothing more, which is what `ABHAVA.md` §2's Tarkasaṅgraha audit says the term carries |
+| `NaturalMachine.AnyonyaAbhava`'s `Collision` gloss | **NOT EARNED.** Two states a coarse map identifies and a fine map separates is *observational separation*, which that same audit says anyonyābhāva is **not** "by itself". Corrected in an appended §10 there |
+| `NaturalMachine.ExclusionRecoversGroundAtAPrice`, apoha reading | **NOT EARNED, withdrawn today on reading §2.2 above.** `Excludes q x x' = ¬ (q x ≡ q x')` is a negation in a fixed universe with a fixed partition — the defeated Boolean gloss, exactly. Withdrawal appended at the module as §11 |
+| the same module's §7, naming the Naiyāyika/Mīmāṃsaka circularity objection and refusing to adjudicate | **EARNED.** Reporting a live disagreement is not claiming a formal counterpart, which §2.2 says has not been located |
+| `NaturalMachine.TheDelimitorNeedsOnlyStability` | **EARNED, by refusal.** It says in as many words that `Dec (Ground q x x')` is *not* the Naiyāyika condition on अभाव — the school's requirement is on the specification of the absence, decidability is on what can be settled about it, and the two come apart. Weaker resolution than §6.3's dependent-binder treatment, and it does not claim otherwise |
+| `NaturalMachine.TheUniformFormIsNotRefuted`, avacchedaka paragraph | **EARNED as a flagged resemblance.** States the resemblance and its limit in the same breath, and declines to name the object after it |
+| `NaturalMachine.TheDomainThatIsAnAbsence` | **EARNED.** Two incompatible readings of the same two theorems — Vaiśeṣika abhāva-as-padārtha, Madhyamaka niḥsvabhāva — both recorded, neither adjudicated, the one-toolkit option explicitly refused |
+| the remaining six modules of `notes/INDEPENDENCE_IN_THIS_LANE.md` | **NO INDIC NAME AND NO INDIC CONTENT.** Nothing to strike. Recorded so that no later note relabels their negations as apoha, which §7's `Obstruction.agda` row already warns against |
+
+**What the ledger caught that this thread did not.** Two of these three
+NOT-EARNED verdicts were found by the owner and by `ABHAVA.md`'s audit before
+this map was read; the third — apoha — was found only by reading §2.2 here.
+That is one measured instance of §8's ordering claim: the map changes work
+that has already been done, not only work that is planned.
+
+**A caution against this row-block.** A ledger that grows a row per module
+becomes a compliance artifact, which is the failure `NEGATIVE_KNOWLEDGE_IS_TYPED`
+§4.2 names for typologies and §5.4 names for packaging generally. These nine
+rows earn their place only if a later verdict is *changed* by them. If a
+session passes in which rows are added and none is consulted, strike the block.
