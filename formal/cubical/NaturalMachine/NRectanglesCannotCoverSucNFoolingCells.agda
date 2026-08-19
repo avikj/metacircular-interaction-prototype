@@ -108,3 +108,59 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- the line but a different theorem: any UPPER bound, and any claim that
 -- the maximum fooling set matches the minimum cover.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  Recording site: commit 083dfbd2,
+-- `NaturalMachine.NRectanglesCannotCoverSucNFoolingCellsEvenWhenTheCoveringIsOnlyAProperty`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).
+--
+-- **THE COVERING HYPOTHESIS ABOVE IS STRUCTURE, NOT A PROPERTY.**  This
+-- module is titled as an impossibility about COVERING, and covering is
+-- naturally a property: a cell is covered when SOME sound rectangle of
+-- the family contains it.  What §2 takes instead is a `pick : Fin (suc
+-- n) → Fin n` together with pointwise `Sound (rects (pick i))` and
+-- `Covers (rects (pick i)) (r i) (c i)` — a cover ALREADY EQUIPPED with
+-- a choice of which rectangle serves each cell.  §"WHAT IS NOT CLAIMED"
+-- above disclaims upper bounds, r_e, d_e, raw width and the
+-- min-cover/max-fooling equality, and says nothing about the shape of
+-- its own hypothesis.
+--
+-- **IT IS A PRICE, NOT A HOLE, AND BOTH FORMS ARE NOW PROVED.**
+--
+--   cannotCoverSigma      hypothesis `(i) → Σ[ k ] (Sound × Covers)`.
+--                         FREE: a Π of Σ already contains its own
+--                         choice function, so `pick i` is `fst (h i)`
+--                         and the rest is projection.
+--   cannotCoverTruncated  hypothesis `(i) → ∥ Σ[ k ] (Sound × Covers) ∥₁`,
+--                         which is the honest reading of "is covered".
+--                         No `pick` can be projected out — the
+--                         conclusion for a single cell is not a
+--                         proposition — and it goes through anyway, paid
+--                         for by `finChoiceFin`, choice over a FINITE
+--                         index into a truncation, proved by induction
+--                         on the BOUND with `fsplit` and `subst`.  The
+--                         final goal being `⊥`, a proposition, is what
+--                         lets the truncation be eliminated at the end.
+--
+-- Neither repair restates anything here: both END at
+-- `nRectanglesCannotCoverSucNFoolingCells`, handing it the same
+-- `pick`/`sound`/`covers` triple built from the weaker hypothesis.
+--
+-- **AND FINITENESS IS NOW LOAD-BEARING FOR A SECOND, DIFFERENT REASON.**
+-- Up to here `Fin` appeared on this line only because the pigeonhole
+-- needs it.  `finChoiceFin` needs it for choice, which is unavailable
+-- over an arbitrary index; so the line's use of finiteness is not one
+-- fact but two, and §3's summary above — which presents the line as
+-- three steps each naming what it did not do — is missing that.
+--
+-- NOTHING ABOVE IS RETRACTED.  §2 is true as stated and is the theorem
+-- both repairs end at; §3's account of the three steps is correct as
+-- far as it goes.  The name is NOT changed: renaming would break
+-- importers and erase the record.
+--
+-- Still not done, as before, and not a gap in the line: any UPPER
+-- bound, and the min-cover/max-fooling equality, which is false in
+-- general for rectangle covers.
+------------------------------------------------------------------------
