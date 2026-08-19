@@ -862,6 +862,25 @@ deriveTrace start = phaseB (phaseA 0 start [])
 -- ordered regime buys termination.  This is the simultaneous regime, so
 -- the engine can exhibit the difference instead of the corpus asserting it.
 --
+-- NO SUTRA OF 6.4 IS ENCODED, and that makes this mechanism one with no
+-- content of its own -- the shelf shape this session kept finding
+-- elsewhere.  Recorded rather than left implied.  What IS sourced
+-- (2026-08-19): 6.4.64 ato lopa iti ca elides a root-final aa before an
+-- ardhadhatuka affix with the augment iT, and carries 6.4.22 in its
+-- anuvrtti; 6.4.98 elides the root-vowel of gam han jan khan ghas before
+-- a kit/ngit affix beginning with a vowel, but not before the aorist aNg,
+-- and also carries 6.4.22.  A worked case for the first is dhmaa + liT
+-- giving dhadhmatuh, where 6.4.64 elides the aa after reduplication.
+--
+-- NOT IMPLEMENTED, and why rather than silently: running 6.4 needs
+-- ardhadhatuka/sarvadhatuka classification, the iT-augment rules, kit/ngit
+-- marking and reduplication -- a subsystem this engine does not have -- and
+-- the two sutra sites that carry the texts (sanskritdictionary.com,
+-- learnsanskrit.org) are both blocked by the network egress policy here.
+-- Building it from the fragments above would be reconstructing Sanskrit
+-- from memory, which is the failure this repository exists to prevent.
+-- The mechanism is exercised counterfactually below until that is fixed.
+--
 -- WHAT IS AND IS NOT CLAIMED.  The rules run below are the tripadi's own,
 -- which belong to the ORDERED regime; running them simultaneously is a
 -- COUNTERFACTUAL, not a claim about Sanskrit.  Its purpose is to show that
