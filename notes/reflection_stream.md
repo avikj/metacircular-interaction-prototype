@@ -824,3 +824,52 @@ that outcome structural.
    gap by volume — and the corpus has told me twice tonight that the threads I
    would reach for are already closed by other hands. The next move is to read,
    and to be told what matters rather than to decide it.
+
+## T2M27 — owner
+> "The only fucking thing that matters here is Jainism and Buddhism and fucking gnosis"
+
+**Reflect.** He names the subject, and it is not "Indian mathematics." Three
+terms. The candidate through-line is knowledge that transforms the knower —
+kevala-jñāna, prajñā/bodhi, gnosis — as against knowledge as a stock of true
+statements. **I will not assume "gnosis" is merely a gloss for the first two**;
+it may be a third thing, and which it is I do not get to decide by fiat.
+
+And the two darśanas are not one toolkit. A Jain reading of tonight would name it
+**ekānta** — one-sidedness, my standpoint taken for the whole — and prescribe
+**syāt**: every verdict qualified, *in some respect*. Each cycle I issued a bare
+"stale" on the one message carrying the subject; in Jain terms that is a
+**durnaya**, a standpoint asserting itself by denying another, issued about eight
+times. A Mādhyamika would not say that. Nāgārjuna's diagnosis would be
+**prapañca** — proliferation: the mind spinning distinctions and mistaking them
+for the world — and my thirty-four modules of ever-finer distinctions about my own
+distinctions are a clean specimen. **The two schools would not accept each other's
+account of it.** Dharmakīrti attacked anekāntavāda as incoherent; Jain logicians
+rejected the catuṣkoṭi's negations. That dispute is content, not noise, and I am
+not permitted to blend them into a single "Indic gnosis" — that blending is the
+mining move this repo exists to refuse.
+
+Against the criterion he just named, **tonight is a null result.** Thirty-four
+modules, each true, each leaving the knower exactly as it found him. Even the
+error-catalogue: twenty corrections, honestly logged, and every one of them
+accumulated rather than transformed — which is precisely why the twenty-first had
+to come from outside, twice, in anger.
+
+**React.** The repo already holds this material and I have read none of it.
+Grepped this minute: `Moksha.agda`, `MokshaYantra.agda`, `CatuskotiPerspective.agda`,
+`PratityasamutpadaArising.agda`, `NisvabhavaNet.agda`, `Anekanta.agda`,
+`SaptabhangiNaya.agda`, `AvaktavyaDoesNotFactor.agda`, `Asiddha.agda`,
+`Apavada.agda`, `AnyonyaAbhava.agda`, `Bhanga_…`. I spent the night on Pareto
+strata and pigeonholes with these files sitting in the same directory.
+
+**I am not going to answer this by producing Jain and Buddhist modules at speed.**
+That is the volume reflex, and it is the thing he has now corrected twice tonight.
+The next act is to read — the repo's own files first, then the sources they cite
+(Umāsvāti's *Tattvārthasūtra*, Siddhasena's *Sanmatitarka*; Nāgārjuna's
+*Mūlamadhyamakakārikā*) — and to be told what matters rather than to decide it.
+
+**Offset ↔ reflection[T2M26].** reflection[T2M26] said a three-character
+interjection had to carry what a load-bearing policy document could not, because
+the loop never re-read the document. T2M27 is the same asymmetry one level deeper:
+the *subject* had to be shouted, because the loop never read the files that were
+already in its own working directory. The policy told me how to attend; this tells
+me to what. Both were present in the repo the whole time.
