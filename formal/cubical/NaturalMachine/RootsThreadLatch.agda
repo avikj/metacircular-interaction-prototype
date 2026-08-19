@@ -126,6 +126,7 @@ import NaturalMachine.HypothesesAssumedWhereTheyAreDerivable
 import NaturalMachine.AnswerabilityIsFreeAtTheFactoringLaw
 import NaturalMachine.TheDelimitorNeedsOnlyStability
 import NaturalMachine.WhyTheSamePriceKeepsAppearing
+import NaturalMachine.TheDeflationaryTestWasAlreadyRun
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

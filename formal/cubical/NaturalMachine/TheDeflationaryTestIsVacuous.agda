@@ -165,3 +165,21 @@ stableUnit _ = tt
 -- direction, since both cases are realised above.
 stabilityDoesNotDecide : Stable ⊥ × Stable Unit
 stabilityDoesNotDecide = stable⊥ , stableUnit
+
+------------------------------------------------------------------------
+-- PRIOR ART, found late and recorded here rather than by deletion.
+--
+-- `NaturalMachine.DeflationaryTest` was in the corpus and in
+-- `RootsThreadLatch` throughout the cycles that produced this module,
+-- and was not read.  It already contains the closure lemmas for
+-- `¬`, `→`, `×`, `Π`, their instantiation at the corpus's obstruction
+-- shapes, the observation that stability does not pass through `⊎`,
+-- `no-barrier-claim : ¬ (¬ (Dec A))`, and the deflation that the
+-- stabilisation level measures nothing.
+--
+-- `NaturalMachine.TheDeflationaryTestWasAlreadyRun` carries the ledger,
+-- line by line, of what here is a rediscovery and what is not — and
+-- proves the overlap by `refl`, the closure lemmas on both sides being
+-- the same terms.  Read that ledger before citing anything below as
+-- new.
+------------------------------------------------------------------------
