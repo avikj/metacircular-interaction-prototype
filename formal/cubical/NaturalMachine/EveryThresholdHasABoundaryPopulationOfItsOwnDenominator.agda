@@ -159,3 +159,51 @@ emptyMeetsEveryThreshold p q = subst2 _≤_ (0≡m·0 p) (0≡m·0 (suc q)) ≤-
 emptyIsAboveNoThreshold : (p q : ℕ) → ¬ Above p q []
 emptyIsAboveNoThreshold p q h =
   ¬m<m (subst (p · 0 <_) (sym (0≡m·0 (suc q)) ∙ 0≡m·0 p) h)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "MINIMALITY.  The length produced is suc q, and whether a SHORTER
+--    boundary population exists is the divisibility question after all
+--    — for p/(suc q) in lowest terms it does not — and that is
+--    unproved, because lowest terms are not defined anywhere here."
+--
+-- The parenthesis in that sentence was an assertion.  Its
+-- CONTRAPOSITIVE is now checked, in
+-- `NaturalMachine.MinimalityOfABoundaryPopulationNeedsLowestTerms`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so),
+-- and it is the half that decides whether the parenthesis was doing any
+-- work.  It was:
+--
+--   twoOverFourHasAShortBoundaryPopulation / soMinimalityFailsWithoutLowestTerms
+--       at 2/4 the population `true ∷ false ∷ []` is a boundary
+--       population — 2 · 2 ≡ 4 ≡ 4 · 1 — of length 2 < 4.
+--
+-- So "in lowest terms" is not a convenience.  Dropping it makes the
+-- minimality statement FALSE, and `pop p k` above is then not minimal.
+--
+-- The positive half is proved only at numerator one:
+--
+--   boundaryDividesAtNumeratorOne   suc q ∣ length bs
+--   minimalityAtNumeratorOne        hence suc q ≤ length bs, for a
+--                                   non-empty boundary population
+--
+-- because at p = 1 there is nothing to cancel.
+--
+-- 2/4 and 1/2 are the same RATE and different PAIRS, and this is the
+-- first place the missing quotient has a visible consequence:
+-- MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the pair.  That
+-- sharpens the standing open item about `⊑` being a preorder — it is
+-- not merely untidy, it separates statements that are true of one
+-- representative and false of another.
+--
+-- STILL NOT CLAIMED: the general coprime case, which needs exactly
+-- Euclid's lemma (gcd a b ≡ 1 → a ∣ b · c → a ∣ c).  cubical v0.5 ships
+-- the Euclidean ALGORITHM and divisibility cancellation but not that
+-- lemma, and it does not follow from them without Bézout — which is
+-- what the kuṭṭaka computes (Āryabhaṭa, *Āryabhaṭīya*, gaṇitapāda
+-- 32–33, 499 CE), and which is another identity's line here
+-- (`KuttakaValli.agda`).  Named, not rebuilt.
+------------------------------------------------------------------------
