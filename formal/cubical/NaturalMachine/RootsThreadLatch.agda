@@ -116,6 +116,7 @@ import NaturalMachine.MeruDiagonalIsVirahanka
 import NaturalMachine.TheFibreIsTheSubject
 import NaturalMachine.AntyaSamskaraIsSquares
 import NaturalMachine.ExclusionRecoversGroundAtAPrice
+import NaturalMachine.TheAbsenceTowerIsThreeUnconditionally
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
