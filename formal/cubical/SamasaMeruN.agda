@@ -31,7 +31,7 @@ module SamasaMeruN where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; snotz)
 open import Cubical.Data.Nat.Properties using (+-suc)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-suc ; pred-≤-pred ; zero-≤ ; splitℕ-≤)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred ; zero-≤ ; splitℕ-≤)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 import Cubical.Data.Empty as ⊥
@@ -147,6 +147,45 @@ module _ (ps : List ℕ) where
 
   साधु : (n : ℕ) → समास-All (λ ys → मानम् ys ≡ n) (सर्गः n)
   साधु n = साधु-go n n ≤-refl
+
+  ----------------------------------------------------------------------
+  -- इन्धन-अनपेक्षता (canon) : पर्याप्तेन्धनं go न परिणमयति ।  यथेच्छ-अंश-गणे
+  -- विभागः-अपाकरण-संगतिभ्याम् — SamasaMeru-रीत्या, बद्ध-प्रबल-आगमनेन ।
+  ----------------------------------------------------------------------
+
+  go-शून्य : (f : ℕ) → go f zero ≡ [] ∷ []
+  go-शून्य zero    = refl
+  go-शून्य (suc f) = refl
+
+  अपाकरणम्-संगतिः : (a₁ a₂ t r : ℕ)
+              → (H : (x : ℕ) → x ≤ t → go a₁ x ≡ go a₂ x)
+              → अपाकरणम् a₁ t r ≡ अपाकरणम् a₂ t r
+  अपाकरणम्-संगतिः a₁ a₂ t       zero    H = H t ≤-refl
+  अपाकरणम्-संगतिः a₁ a₂ zero    (suc r) H = refl
+  अपाकरणम्-संगतिः a₁ a₂ (suc t) (suc r) H =
+    अपाकरणम्-संगतिः a₁ a₂ t r (λ x x≤t → H x (≤-trans x≤t (≤-suc ≤-refl)))
+
+  विभागः-संगतिः : (a₁ a₂ n : ℕ) (qs : List ℕ)
+              → (H : (x : ℕ) → x ≤ n → go a₁ x ≡ go a₂ x)
+              → विभागः a₁ (suc n) qs ≡ विभागः a₂ (suc n) qs
+  विभागः-संगतिः a₁ a₂ n []       H = refl
+  विभागः-संगतिः a₁ a₂ n (p ∷ qs) H =
+    cong₂ _++_ (cong (map (p ∷_)) (अपाकरणम्-संगतिः a₁ a₂ n p H))
+               (विभागः-संगतिः a₁ a₂ n qs H)
+
+  canon : (b f n : ℕ) → n ≤ b → n ≤ f → go f n ≡ go n n
+  canon b       f       zero    le lf = go-शून्य f
+  canon zero    f       (suc n) le lf = ⊥.rec (¬s≤z le)
+  canon (suc b) zero    (suc n) le lf = ⊥.rec (¬s≤z lf)
+  canon (suc b) (suc f) (suc n) le lf = विभागः-संगतिः f n n ps Hs
+    where
+      n≤b : n ≤ b
+      n≤b = pred-≤-pred le
+      n≤f : n ≤ f
+      n≤f = pred-≤-pred lf
+      Hs : (x : ℕ) → x ≤ n → go f x ≡ go n x
+      Hs x x≤n = canon b f x (≤-trans x≤n n≤b) (≤-trans x≤n n≤f)
+               ∙ sym (canon b n x (≤-trans x≤n n≤b) x≤n)
 
 ------------------------------------------------------------------------
 -- प्रति-रूप-उदाहरणे — यथेच्छ-अंश-गणात् नाना-मेरवः (refl-सिद्धाः) ।
