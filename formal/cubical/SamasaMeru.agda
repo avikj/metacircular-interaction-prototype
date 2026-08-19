@@ -13,9 +13,11 @@
 -- (SAMASA_MERU_TERMINATION_FINDING.md : सरल-अपाकरणः SCT-परीक्षां न सहते ;
 --  well-founded refl-गणनां हन्ति ; इन्धन/परम्परा एव धर्म्या ।)
 --
--- अस्मिन् पदे सिद्धम् : एकं जनन-सूत्रम्, यस्मात् उभे मेरू (विरहाङ्कः, नारायणः)
--- गणनया एव उदेते (refl-उदाहरणे) ।  आवृत्तिः (a(m)=a(m−1)+a(m−L)) साधुता
--- पूर्णता च — इन्धन-अनपेक्षत्व-लेम्मया — उत्तर-पदेषु ।
+-- अस्मिन् पदे सिद्धम् : (१) एकं जनन-सूत्रम्, यस्मात् उभे मेरू (विरहाङ्कः,
+-- नारायणः) च {१,४}-कुलं गणनया एव उदेन्ति (refl-उदाहरणे) ; (२) सामान्या
+-- आवृत्तिः a(m)=a(m−1)+a(m−L) सर्व-कुले (समास-आवृत्तिः), इन्धन-अनपेक्षत्व-
+-- लेम्मया (canon) साधिता — यत् well-founded-आवर्तनं refl-गणनां हनिष्यत् ।
+-- साधुता पूर्णता च उत्तर-पदे (समास-मानस्य आधारेण) ।
 --
 -- स्रोतांसि : नारायणपण्डितः, गणितकौमुदी, अङ्कपाशः (१३५६) ; विरहाङ्कः (मेरुः) ।
 ------------------------------------------------------------------------
@@ -23,8 +25,12 @@
 module SamasaMeru where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; snotz)
+open import Cubical.Data.Nat.Properties using (+-suc)
+open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
+open import Cubical.Data.List.Properties using (length-map)
+import Cubical.Data.Empty as ⊥
 
 ------------------------------------------------------------------------
 -- गणः — अंशः : ह्रस्वः (=१) वा दीर्घः (=L=2+j) ।  (j-निरपेक्षा संरचना ।)
@@ -36,6 +42,11 @@ data गणः : Type where
 
 समासः : Type
 समासः = List गणः
+
+length-++ : {A : Type} (xs ys : List A)
+          → length (xs ++ ys) ≡ length xs + length ys
+length-++ []       ys = refl
+length-++ (x ∷ xs) ys = cong suc (length-++ xs ys)
 
 ------------------------------------------------------------------------
 -- j-आश्रितं जननम् : L = 2+j ।  इन्धन-आवर्तनेन संरचनया समाप्तम् ।
@@ -66,6 +77,87 @@ module _ (j : ℕ) where
 
   सर्गः : ℕ → List समासः
   सर्गः n = go n n
+
+  L : ℕ
+  L = suc (suc j)
+
+  ----------------------------------------------------------------------
+  -- go-शून्य : शून्य-मानस्य सर्गः सर्वेन्धने एकः (रिक्तः समासः) ।
+  ----------------------------------------------------------------------
+
+  go-शून्य : (f : ℕ) → go f zero ≡ [] ∷ []
+  go-शून्य zero    = refl
+  go-शून्य (suc f) = refl
+
+  ----------------------------------------------------------------------
+  -- अपाकरण-लेम्म : strip f (p+q) p = दीर्घ-आदिकाः (go f q) — शुद्धं जननम् ।
+  ----------------------------------------------------------------------
+
+  अपाकरण-लेम्म : (f p q : ℕ)
+              → strip f (p + q) p ≡ map (दीर्घः ∷_) (go f q)
+  अपाकरण-लेम्म f zero    q = refl
+  अपाकरण-लेम्म f (suc p) q = अपाकरण-लेम्म f p q
+
+  ----------------------------------------------------------------------
+  -- strip-संगतिः : इन्धन-भेदेऽपि strip समः, यदि go तेषु मानेषु समः ।
+  ----------------------------------------------------------------------
+
+  strip-संगतिः : (a₁ a₂ t r : ℕ)
+              → (H : (x : ℕ) → x ≤ t → go a₁ x ≡ go a₂ x)
+              → strip a₁ t r ≡ strip a₂ t r
+  strip-संगतिः a₁ a₂ t       zero    H = cong (map (दीर्घः ∷_)) (H t ≤-refl)
+  strip-संगतिः a₁ a₂ zero    (suc r) H = refl
+  strip-संगतिः a₁ a₂ (suc t) (suc r) H =
+    strip-संगतिः a₁ a₂ t r (λ x x≤t → H x (≤-trans x≤t (≤-suc ≤-refl)))
+
+  ¬s≤z : {m : ℕ} → suc m ≤ zero → ⊥.⊥
+  ¬s≤z {m} (k , p) = snotz (sym (+-suc k m) ∙ p)
+
+  ----------------------------------------------------------------------
+  -- इन्धन-अनपेक्षता (canon) : पर्याप्तेन्धनं go न परिणमयति ।  बद्ध-प्रबल-
+  -- आगमनेन (b-संरचनया) : go f n = go n n यदा n ≤ f (न ≤ b च) ।
+  ----------------------------------------------------------------------
+
+  canon : (b f n : ℕ) → n ≤ b → n ≤ f → go f n ≡ go n n
+  canon b       f       zero    le lf = go-शून्य f
+  canon zero    f       (suc m) le lf = ⊥.rec (¬s≤z le)
+  canon (suc b) zero    (suc m) le lf = ⊥.rec (¬s≤z lf)
+  canon (suc b) (suc f) (suc m) le lf =
+    cong₂ _++_
+      (cong (map (ह्रस्वः ∷_)) (canon b f m m≤b m≤f))
+      (strip-संगतिः f m m (suc j) Hs)
+    where
+      m≤b : m ≤ b
+      m≤b = pred-≤-pred le
+      m≤f : m ≤ f
+      m≤f = pred-≤-pred lf
+      Hs : (x : ℕ) → x ≤ m → go f x ≡ go m x
+      Hs x x≤m = canon b f x (≤-trans x≤m m≤b) (≤-trans x≤m m≤f)
+               ∙ sym (canon b m x (≤-trans x≤m m≤b) x≤m)
+
+  ----------------------------------------------------------------------
+  -- समास-आवृत्तिः — a(m) = a(m−1) + a(m−L), m = L+n : जनन-दैर्घ्ये ।
+  -- L+n-मानस्य पूर्वः = suc j + n ; m−L = n (इन्धन-अनपेक्षतया) ।
+  ----------------------------------------------------------------------
+
+  समास-आवृत्तिः : (n : ℕ)
+              → length (सर्गः (L + n))
+              ≡ length (सर्गः (suc j + n)) + length (सर्गः n)
+  समास-आवृत्तिः n =
+      cong length step1
+    ∙ length-++ A M
+    ∙ cong₂ _+_ (length-map (ह्रस्वः ∷_) (go (suc (j + n)) (suc (j + n))))
+                ( length-map (दीर्घः ∷_) (go (suc (j + n)) n)
+                ∙ cong length fuelinv )
+    where
+      A : List समासः
+      A = map (ह्रस्वः ∷_) (go (suc (j + n)) (suc (j + n)))
+      M : List समासः
+      M = map (दीर्घः ∷_) (go (suc (j + n)) n)
+      step1 : go (L + n) (L + n) ≡ A ++ M
+      step1 = cong (A ++_) (अपाकरण-लेम्म (suc (j + n)) (suc (suc j)) n)
+      fuelinv : go (suc (j + n)) n ≡ go n n
+      fuelinv = canon (suc (j + n)) (suc (j + n)) n (suc j , refl) (suc j , refl)
 
 ------------------------------------------------------------------------
 -- प्रति-रूप-उदाहरणे — एकस्मात् सामान्यात् जनन-सूत्रात् उभे मेरू (refl-सिद्धे) ।
