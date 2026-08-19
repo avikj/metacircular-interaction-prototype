@@ -112,3 +112,33 @@ bothAtOnce = theLabelIsRefuted , theExistentialSurvives
 -- for this one.  Which claims, and with what tolerance, is a question
 -- about rates and is not answered here.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by this module's author, at the end, altering no
+-- line above.
+--
+-- §"WHAT IS NOT MODELLED" above says: "a genuine RATE claim ('more than
+-- half', 'at most 25%') … needs a measure and a count, neither of which
+-- appears below.  §3 therefore does NOT establish the comparison §7's
+-- list invites."
+--
+-- The count is now supplied, in
+-- `NaturalMachine.RateOneIsExactlyTheUniversalClaim`, over a finite
+-- population as a `List Bool`:
+--
+--   countIsAtMostLength : count bs ≤ length bs
+--   allGivesFullCount   : All bs → count bs ≡ length bs
+--   fullCountGivesAll   : count bs ≡ length bs → All bs
+--
+-- So the universal claim and rate one are THE SAME CLAIM, and the label
+-- criterion is not a different KIND of criterion from a threshold — it
+-- is the threshold at 1, where a single failure moves the count off the
+-- length and there is nothing left to tolerate.  A strictly lower
+-- threshold surviving that same failure is exhibited there.
+--
+-- STILL ABSENT, and still said: percentages.  "More than half" is
+-- stateable as `length xs < 2 · count xs`; it is not stated there, and
+-- no threshold other than 1 is analysed.  The population is a LIST, so
+-- multiplicity is counted and order carried — neither matters to the
+-- equivalence and both would matter to a finer measure.
+------------------------------------------------------------------------
