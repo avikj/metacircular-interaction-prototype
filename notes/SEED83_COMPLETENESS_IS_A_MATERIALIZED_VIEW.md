@@ -445,3 +445,41 @@ general; the theorem is about the degenerate case, which is the case §3.2 ident
 reachability for a human reader arriving at a file. This is about a delivery order among
 concurrent writers. They coincide only in that both are repaired by writing an edge down;
 neither derives the other.
+
+---
+
+## 8. Appended 2026-08-19, same thread: §6's question, relocated rather than closed
+
+*Appended at the end, altering no line above.*
+
+§6 asks whether there is a **mechanizable predicate on a note's text** deciding whether
+its principal object is outside arithmetic. Checked in
+`formal/cubical/NaturalMachine/ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+Correct p = (t : Text) → (Outside (denotes t) → p t ≡ true)
+                       × (p t ≡ true → Outside (denotes t))
+
+decisionGivesPredicate : ((t) → Dec (Outside (denotes t))) → Σ[ p ] Correct p
+predicateGivesDecision : Σ[ p ] Correct p → (t) → Dec (Outside (denotes t))
+```
+
+**An equivalence, so the two questions are one.** Set-theoretically §6 has a trivial
+affirmative answer — `Outside ∘ denotes` *is* a predicate on texts — and the word doing
+the work is **mechanizable**. The equivalence makes that word exact in the one form this
+substrate has for it, `Dec`, and shows feature engineering on the text cannot answer it:
+the text enters only through `denotes`, and every candidate predicate is
+`Outside ∘ denotes` with a decision attached.
+
+**This does not close §6, and does not pretend to.** §6 licenses *"a finite exhaustive
+check against a fixed, stated corpus snapshot — provided the checker states the snapshot
+and does not report the result as a property of the corpus."* **I did not run that
+check.** Nothing above is evidence about SEED-05, SEED-09, or the 47 declared-classical
+files; no corpus was scanned, and no snapshot is stated because none was taken. A
+reduction is not an answer. Nor does it claim the property is or is not decidable — it
+says where to look: at `Outside ∘ denotes`, not at the text.
+
+**Kept separate from this session's collision results.** Those say a coarse observation
+fails to determine a fine one. This says two *questions* coincide. The obstruction, if
+there is one, lives in `Outside`, which is a parameter there and is not examined.
