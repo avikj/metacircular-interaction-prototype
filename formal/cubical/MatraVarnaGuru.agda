@@ -26,7 +26,7 @@ module MatraVarnaGuru where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-suc)
+open import Cubical.Data.Nat.Properties using (+-suc ; +-assoc)
 open import Cubical.Data.List using (_∷_ ; [])
 open import PingalaPrastara
   using (Syllable ; laghu ; guru ; Pattern ; matraOf ; varna ; guruOf)
@@ -59,3 +59,43 @@ open import PingalaPrastara
 उदाहरणम्-सम्बन्धः : matraOf (guru ∷ laghu ∷ guru ∷ [])
                  ≡ varna (guru ∷ laghu ∷ guru ∷ []) + guruOf (guru ∷ laghu ∷ guru ∷ [])
 उदाहरणम्-सम्बन्धः = मात्रा-वर्ण-गुरु (guru ∷ laghu ∷ guru ∷ [])
+
+------------------------------------------------------------------------
+-- लघु-सङ्ख्या — गुरु-प्रतिपक्षः : अक्षराणि लघु-गुरु-भेदेन द्विधा विभक्तानि ।
+-- (The laghu counter, the complement of guruOf: syllables split into the two
+--  kinds.  MeruSammiti names this complement in prose (guru↔laghu reversal,
+--  C(n,k)=C(n,n−k)) but at the number level only; here it is a Pattern
+--  statistic, and the partition वर्ण = लघु + गुरु is a checked term.)
+------------------------------------------------------------------------
+
+लघु-सङ्ख्या : Pattern → ℕ
+लघु-सङ्ख्या []          = 0
+लघु-सङ्ख्या (laghu ∷ p) = suc (लघु-सङ्ख्या p)
+लघु-सङ्ख्या (guru  ∷ p) = लघु-सङ्ख्या p
+
+------------------------------------------------------------------------
+-- वर्ण-विभागः — अक्षर-विभागः : लघु-सङ्ख्या + गुरु-सङ्ख्या ≡ वर्ण-सङ्ख्या ।
+------------------------------------------------------------------------
+
+वर्ण-विभागः : (p : Pattern) → लघु-सङ्ख्या p + guruOf p ≡ varna p
+वर्ण-विभागः []          = refl
+वर्ण-विभागः (laghu ∷ p) = cong suc (वर्ण-विभागः p)
+वर्ण-विभागः (guru  ∷ p) = +-suc (लघु-सङ्ख्या p) (guruOf p) ∙ cong suc (वर्ण-विभागः p)
+
+------------------------------------------------------------------------
+-- मात्रा-विभागः — मात्रा = १·(लघु) + २·(गुरु) : mora-नियमः (लघु=१ गुरु=२) पूर्ण-छन्दसि ।
+-- मात्रा = वर्ण + गुरु = (लघु + गुरु) + गुरु = लघु + (गुरु + गुरु) ।
+------------------------------------------------------------------------
+
+मात्रा-विभागः : (p : Pattern)
+             → matraOf p ≡ लघु-सङ्ख्या p + (guruOf p + guruOf p)
+मात्रा-विभागः p =
+    मात्रा-वर्ण-गुरु p
+  ∙ cong (_+ guruOf p) (sym (वर्ण-विभागः p))
+  ∙ sym (+-assoc (लघु-सङ्ख्या p) (guruOf p) (guruOf p))
+
+-- उदाहरणम् — गुरु-लघु-गुरु : लघु=1, गुरु=2 ; मात्रा = 1 + (2+2) = 5 (refl) ।
+विभाग-उदाहरणम् : matraOf (guru ∷ laghu ∷ guru ∷ [])
+              ≡ लघु-सङ्ख्या (guru ∷ laghu ∷ guru ∷ [])
+                + (guruOf (guru ∷ laghu ∷ guru ∷ []) + guruOf (guru ∷ laghu ∷ guru ∷ []))
+विभाग-उदाहरणम् = मात्रा-विभागः (guru ∷ laghu ∷ guru ∷ [])
