@@ -62,7 +62,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.AnEnumerableRemedySetKillsTheFourthCorner where
+module NaturalMachine.Avaktavya_AnEnumerableRemedySetKillsTheFourthCorner where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_)
@@ -75,7 +75,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import AnuktaAvaktavya using (सामयिक ; नित्य)
 open import NaturalMachine.TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any ; Enumerated)
-open import NaturalMachine.TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+open import NaturalMachine.Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one ; DNSFailure ; fourthCornerGivesDNSFailure)
 
 private

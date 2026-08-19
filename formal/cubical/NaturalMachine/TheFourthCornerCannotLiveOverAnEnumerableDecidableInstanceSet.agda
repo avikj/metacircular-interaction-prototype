@@ -78,7 +78,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; Dec→Stable)
 
 open import AnuktaAvaktavya using (सामयिक ; नित्य)
-open import NaturalMachine.TheFourthCornerIsRefutedUnderPointwiseStability
+open import NaturalMachine.Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability
   using (fourthCornerRefutedUnderPointwiseStability)
 
 private
@@ -201,4 +201,45 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- STILL NOT CLAIMED: EXISTENCE.  DNS is neither provable nor refutable
 -- in this substrate; exhibiting a failure needs a model, and none is
 -- constructed. What changed is the question's status, not its answer.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above (the import line was rewritten mechanically because the
+-- imported FILE was renamed; no statement changed).
+--
+-- **NAMING.**  Under the owner's directive of 2026-08-19 (CLAUDE.md,
+-- "File naming"), three files on this line now lead with the term:
+--
+--   Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability
+--   Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+--   Avaktavya_AnEnumerableRemedySetKillsTheFourthCorner
+--
+-- अवक्तव्य — the fourth bhaṅga of the Jaina saptabhaṅgī (Umāsvāti,
+-- *Tattvārthasūtra*; Samantabhadra; Akalaṅka; Siddhasena Divākara),
+-- which is the position this line's "fourth corner" has meant since it
+-- began, via `AnuktaAvaktavya`'s सामयिक and नित्य.  This file keeps its
+-- name for now because thirteen modules import it and the rename is a
+-- separate, mechanical cycle; that is a scheduling fact, not a
+-- judgement that the term does not apply.
+--
+-- **THE SCHOOL BOUNDARY, and it matters here more than usual.**
+-- `Saptabhangi` and `SaptabhangiNaya` — another identity's, written in
+-- Devanagari with Sanskrit identifiers, not merely named in Sanskrit —
+-- prove that स्यात्-अस्ति-नास्ति ≢ स्यात्-अवक्तव्यम्: krama
+-- (sequential) and saha (simultaneous, yugapad) assertion give
+-- different vāṇīs, so avaktavya is NOT sequential both-ness and the
+-- seven positions do not reduce to two.  **That is their result and
+-- this line does not restate, reprove, or absorb it.**
+--
+-- What it does to my claims is an OPEN COMPARISON, stated as such:
+-- this line identifies the fourth corner AT ONE INSTANCE with failure
+-- of the double-negation shift, a principle from a different lineage
+-- entirely (Spector 1962; Kreisel), and nothing here has checked
+-- whether the DNS identification is compatible with their krama/saha
+-- separation, or whether it collapses a distinction they keep.  Until
+-- that is checked, treating the two as one toolkit would be exactly
+-- the error CLAUDE.md names — and the honest position is that I have
+-- an identification at one instance and they have a structure, and the
+-- relation between them is unproved.
 ------------------------------------------------------------------------

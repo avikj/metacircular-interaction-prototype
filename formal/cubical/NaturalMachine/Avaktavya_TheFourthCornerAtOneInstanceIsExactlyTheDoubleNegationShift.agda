@@ -73,7 +73,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
+module NaturalMachine.Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)

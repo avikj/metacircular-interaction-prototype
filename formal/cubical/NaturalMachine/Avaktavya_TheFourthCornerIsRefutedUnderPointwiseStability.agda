@@ -42,7 +42,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.TheFourthCornerIsRefutedUnderPointwiseStability where
+module NaturalMachine.Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
