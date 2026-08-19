@@ -222,3 +222,42 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
   ∙ मान-संयुग्म N (संयोग-प्र N x1 y1 x2 (pos 0 - y2)) (संयोग-द्वि x1 y1 x2 (pos 0 - y2))
   ∙ भावना-मान N x1 y1 x2 (pos 0 - y2)
   ∙ cong ((मान N x1 y1) ·_) (मान-संयुग्म N x2 y2)
+
+------------------------------------------------------------------------
+-- तुल्य-भावना — भास्करस्य "समयोः भावना" (बीजगणितम्, चक्रवालम्) : साधनं स्वेन
+-- भावितम् ।  अतुल्य-भावना (द्वयोः असमयोः साधनयोः, उपरिष्टात् भावना-मान) इति
+-- भिन्ना ; तुल्य-भावना तु एकस्य एव आत्म-संयोगः ।  पदे द्विगुणिते :
+--   तुल्य-प्रथमम् = x² + N·y² ,  तुल्य-द्वितीयम् = x·y + x·y (= 2xy) ,
+-- मानं च वर्गितम् : N(तुल्य) = (N(x,y))² ।  यत् क्षेपः k, तत् तुल्ये k² भवति —
+-- अनेन भास्करः चक्रवाले क्षेपं वर्ग-रूपेण नयति, ततः विभजनेन आरोहति ।
+--
+-- (Bhāskara's tulya-bhāvanā, "composition of equals" (Bījagaṇita, cakravāla):
+--  a solution composed with ITSELF, as opposed to atulya-bhāvanā of two
+--  UNEQUAL solutions (भावना-मान above).  The doubled coordinates are
+--  (x²+Ny², 2xy) and the kṣepa squares: N(tulya) = (N(x,y))².  A kṣepa k
+--  becomes k², which is how the cakravāla drives the additive term to a
+--  square and then descends by division.  The closed coordinate forms are
+--  definitional here; the norm-square is the general lemma at x₁=x₂, y₁=y₂.)
+------------------------------------------------------------------------
+
+तुल्य-प्रथमम् : (N x y : ℤ) → संयोग-प्र N x y x y ≡ (x · x) + (N · (y · y))
+तुल्य-प्रथमम् N x y = refl
+
+तुल्य-द्वितीयम् : (x y : ℤ) → संयोग-द्वि x y x y ≡ (x · y) + (x · y)
+तुल्य-द्वितीयम् x y = refl
+
+तुल्य-भावना-मान : (N x y : ℤ)
+               → मान N (संयोग-प्र N x y x y) (संयोग-द्वि x y x y)
+               ≡ (मान N x y) · (मान N x y)
+तुल्य-भावना-मान N x y = भावना-मान N x y x y
+
+-- उदाहरणम् — क्षेपः वर्ग-रूपं भवति : N=3, (1,1) क्षेपः −2 ; तुल्य-भावनया
+-- (4,2), क्षेपः 16−12 = 4 = (−2)² ।  (a non-±1 kṣepa squaring under tulya.)
+तुल्य-मूलम् : मान (pos 3) (pos 1) (pos 1) ≡ (pos 0 - pos 2)     -- 1 − 3 = −2
+तुल्य-मूलम् = refl
+
+तुल्य-क्षेप-वर्गः : मान (pos 3)
+                    (संयोग-प्र (pos 3) (pos 1) (pos 1) (pos 1) (pos 1))
+                    (संयोग-द्वि (pos 1) (pos 1) (pos 1) (pos 1))
+                 ≡ pos 4                                        -- 16 − 12 = 4 = (−2)²
+तुल्य-क्षेप-वर्गः = refl
