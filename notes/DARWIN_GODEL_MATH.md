@@ -596,3 +596,57 @@ Real-valued objectives are not modelled. Nothing is claimed about `Q_i`, the wei
 exploration mass `η`, or the stratum mixture; and it is **not** proved that a Pareto
 stratification exists constructively for an arbitrary archive — that needs a decision on
 `≼`, which is not given here.
+
+## Appended 2026-08-19, fourth thread: §2's seam 1 has the same shape as seam 3
+
+*Appended at the end, altering no line above.*
+
+§2's first seam reads: *"The paper's parent-eligibility set excludes perfect-score agents.
+The released `choose_selfimproves` function does not make that exclusion; every archived
+node whose metadata loads becomes a candidate."* Stated that way it is a discrepancy. Its
+mathematical content is **why** the exclusion is there and **when** dropping it is
+observable, and both are short. Checked in
+`formal/cubical/NaturalMachine/ExcludingPerfectScorersRemovesOnlyGainlessCandidates.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+bounded : (a : A) → score a ≤ cap
+
+noStrictImprovementAtTheCap
+  : (a : A) → score a ≡ cap → ¬ (Σ[ b ∈ A ] (score a < score b))
+eligible                          = filterDec Imperfect decImperfect
+eligibleKeepsEveryImperfectAgent
+theSeamIsInvisibleExactlyWhenNobodyIsPerfect
+```
+
+So the paper's exclusion is not a heuristic: it removes candidates whose possible gain is
+**provably zero**. And the missing exclusion changes nothing while no archived agent
+attains the cap — the two eligibility sets then have the same members.
+
+**That is the same shape seam 3 turned out to have, and finding it twice in one section is
+the thing worth recording.** Seam 3's `best` branch agrees with its comment exactly on a
+constant archive, where selection carries no information. Seam 1's missing exclusion is
+invisible exactly while nobody is perfect — and once someone is, every sample drawn on
+them is provably gainless. Neither seam is cosmetic; neither is visible in a benign
+archive. A reviewer checking either against a healthy run would see nothing.
+
+**Grade, unchanged and load-bearing: I did not read the code.** §2 restricts its
+observations to one pinned commit of an external repository, and this repository's egress
+rules mean no request to github.com was made — for this seam or for seam 3. What is
+checked is the order-theoretic content of §2's *sentence*, assuming it describes the
+function correctly. If §2 misread it, nothing above is affected and nothing above defends
+§2.
+
+**No novelty.** "Nothing exceeds a bound that is attained" is elementary; it is attached
+because §2 records the discrepancy without the reason, and the reason is what tells an
+implementer whether to care.
+
+**Not claimed.** The converse — that an agent below the cap *does* admit a strict
+improvement — is false in general and is not claimed: the cap bounds the score, it does
+not populate it. Nothing is said about the sampling weights: §5.2's `p_i` and the
+exploration mass `η` do not appear, so "spends mass where no improvement exists" is a
+reading of the theorem and not a quantitative claim; no share of wasted budget is
+computed. Scores are `ℕ`, §2's are accuracies, and "perfect" is modelled as attaining a
+stated cap. **Seams 2 and 4 remain untouched** — adjacent string literals concatenated by
+Python, and which model reads the logs, are not order-theoretic.
