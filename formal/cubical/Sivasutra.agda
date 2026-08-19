@@ -123,3 +123,19 @@ aC = refl
 -- class is a prefix of the longer, since they share the same left endpoint
 -- `a` and only the right marker moves outward).  That the class is named by
 -- moving ONE endpoint along ONE linear order is the śiva-sūtra device.
+
+------------------------------------------------------------------------
+-- EXTENDED 2026-08-19, another thread:
+-- `NaturalMachine.NonInitialPratyaharasAndOneIntersectionInstance` adds
+-- the start-search this module says it does not need — "All pratyāhāras
+-- here begin at `a`, the head, so no start-search is needed" — and with
+-- it the two-endpoint extractor `between`.  It checks `iK`, `eṄ`, `aiC`,
+-- `iC` by refl, verifies `between a C ≡ upto C` so the extension agrees
+-- with `upto` at the head, and gives one intersection instance:
+-- `aK ∩ iC ≡ iK`, a named class again.
+--
+-- Nothing here is altered, and this module's own NOT-claimed list is
+-- inherited there unchanged — in particular Petersen's optimality theorem
+-- is still not proved, and is still unread: egress is blocked from that
+-- environment.
+------------------------------------------------------------------------
