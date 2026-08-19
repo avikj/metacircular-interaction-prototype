@@ -158,3 +158,41 @@ noMinimalityOnTheRate M agrees =
 
     chain : Minimal oneHalf short ≡ Minimal twoQuarters short
     chain = sym (agrees oneHalf short) ∙ step ∙ agrees twoQuarters short
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "DENSITY OF THE RATES is NOT proved: the mediant module's `⊏` is
+--    not lifted here, and lifting it needs `⊏` to respect `≈` on BOTH
+--    sides, which is unchecked."
+--
+-- Both halves closed in
+-- `NaturalMachine.TheRatesAreDenseAndTheMediantSurvivesTheQuotient`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so),
+-- and the sentence above named the harder half correctly: the LIFTING
+-- is the work.
+--
+--   ⊑⊏-trans / ⊏⊑-trans   mixed transitivities, by the same
+--                         multiply–rearrange–cancel as `⊑-trans`
+--   ⊏-respects-≈          hence `⊏` respects `≈` on both sides
+--   _⊏R_                  `⊏` lifted by `SetQuotients.rec2` into hProp
+--   theRatesAreDense      between two rates lies a third
+--
+-- **AND THE MEDIANT NEVER HAS TO DESCEND.**  `mediant` is a function on
+-- PAIRS and nothing shows it respects `≈`.  It does not need to:
+-- density is a MERE EXISTENCE, so its target is a proposition, so
+-- `elimProp2` puts the whole claim at representatives, where the
+-- pair-level mediant is already a witness.  A witness that need not be
+-- canonical need not be well-defined on the quotient — which is worth
+-- keeping, because the instinct after building a quotient is to lift
+-- everything in sight.
+--
+-- STILL NOT CLAIMED: whether `mediant` descends is OPEN, and returns
+-- the moment a canonical between-rate is wanted.  The existence is
+-- TRUNCATED, so no function producing one is constructed and none can
+-- be extracted without the mediant descending or some other choice.
+-- `⊏R` is a relation, not an order: irreflexivity, transitivity, and
+-- its relation to `AtLeastOnRate`/`AboveOnRate` are unproved on `Rate`.
+------------------------------------------------------------------------
