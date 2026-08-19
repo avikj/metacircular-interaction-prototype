@@ -321,3 +321,122 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 --   is the successive reading wearing the simultaneous one's name, and
 --   the fourth bhaṅga is not delivered by relabelling the third.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  The price named exactly: it is stability, and it is NECESSARY
+--
+-- §5 bought the recovery with decidability of the ground.  That was too
+-- much, and — worse for a module whose subject is what an absence can
+-- be argued from — it was the wrong shape.  What the proof of §5 used
+-- was only this: from `¬ ¬ (q x ≡ q x')` conclude `q x ≡ q x'`.  That
+-- is `Stable`, and `Dec→Stable` shows §5 is a corollary.
+--
+-- §8b then shows stability is not merely sufficient but NECESSARY, with
+-- no counterexample, no classical principle and no undecidable
+-- proposition assumed.  The witness is built from `q` itself.
+--
+--     Given q : Bool → Y, put A := ¬ (q true ≡ q false) — the exclusion
+--     of the one pair that can be excluded — and define the SHADOW
+--
+--         shadow q : Bool → (A → Y)     shadow q b = λ _ → q b .
+--
+--     By funext, `Ground (shadow q) true false` is `A → Ground q true
+--     false`: the shadow identifies exactly when the exclusion would
+--     force the identification.  The shadow co-excludes with q (§8b,
+--     `coExclude-shadow`) — on the diagonal vacuously, off it because
+--     an inhabitant of A refutes any `A → Ground q`.
+--
+--     So if co-exclusion gave co-identification unpriced, we would have
+--     `(¬ G → G) → G`, and that is interderivable with `¬ ¬ G → G`
+--     (§8b, both directions).  The unpriced implication IS stability.
+--
+-- SCOPE OF THE NECESSITY.  What §8b refutes is the GENERAL implication
+-- "co-exclusion gives co-identification", by exhibiting an instance it
+-- cannot survive.  It does not say that every individual pair q, q'
+-- satisfying the implication has a stable ground; particular pairs can
+-- and do satisfy it for their own reasons.  The claim is about the
+-- unquantified rule, which is the thing §5 was hedging.
+--
+-- Read against §7: the Naiyāyika insistence that an absence does not
+-- argue by itself is not answered by making the counterpositive
+-- decidable — nothing here needs that — and the Buddhist §6 route does
+-- not touch this at all, since it never recovers the ground.  What is
+-- exhibited is the exact quantity that separates the two routes.
+--
+-- ONE THING THE CONSTRUCTION ASSUMES, AND WHICH IS DISPUTED.  `shadow`
+-- uses `Excl` as a DOMAIN: it forms functions out of an absence.  That
+-- is available here because in this type theory `¬ G` is a type like
+-- any other.  It is not neutral ground.  Vaiśeṣika counts अभाव among
+-- the पदार्थs — absence is a category of the real, with its own
+-- perceptual मान — while the Buddhist position denies there is any such
+-- entity, absence being at most a construction of thought.  The type
+-- theory sides with neither by argument; it simply builds the object,
+-- and §8b shows that once you may quantify over an absence you can
+-- extract from it exactly the stability that reasoning from absences
+-- was going to need.  A reader who rejects the first step is entitled
+-- to reject §8b, and should say so at the step rather than at the
+-- theorem.
+------------------------------------------------------------------------
+
+open import Cubical.Relation.Nullary.Properties using (Dec→Stable)
+open import Cubical.Relation.Nullary using (Stable)
+open import Cubical.Data.Bool using (Bool ; true ; false)
+
+-- 8a.  Sufficiency, with the hypothesis weakened from Dec to Stable.
+
+coExclude→coIdentify-stable :
+  {X : Type ℓx} {Y : Type ℓy} {Y' : Type ℓy'} (q : X → Y) (q' : X → Y')
+  → ((x x' : X) → Stable (Ground q x x'))
+  → CoExclude q q' → CoIdentify q' q
+coExclude→coIdentify-stable q q' st ce x x' g' =
+  st x x' (λ n → ce x x' n g')
+
+-- and §5 is now a corollary, not an independent statement.
+coExclude→coIdentify-fromDec :
+  {X : Type ℓx} {Y : Type ℓy} {Y' : Type ℓy'} (q : X → Y) (q' : X → Y')
+  → ((x x' : X) → Dec (Ground q x x'))
+  → CoExclude q q' → CoIdentify q' q
+coExclude→coIdentify-fromDec q q' dec =
+  coExclude→coIdentify-stable q q' (λ x x' → Dec→Stable (dec x x'))
+
+-- 8b.  Necessity.  The shadow of an observable on two states.
+
+module _ {Y : Type ℓy} (q : Bool → Y) where
+
+  Excl : Type ℓy
+  Excl = Excludes q true false
+
+  shadow : Bool → (Excl → Y)
+  shadow b = λ _ → q b
+
+  -- The shadow identifies a pair exactly when the exclusion of the
+  -- distinguishable pair would force that identification.
+  shadowGround→ : (x x' : Bool)
+                → Ground shadow x x' → (Excl → Ground q x x')
+  shadowGround→ x x' p a i = p i a
+
+  shadowGround← : (x x' : Bool)
+                → (Excl → Ground q x x') → Ground shadow x x'
+  shadowGround← x x' f i a = f a i
+
+  -- Co-exclusion holds outright: no hypothesis on Y, none on q.  On the
+  -- diagonal the hypothesis is already absurd; off it, the hypothesis IS
+  -- the exclusion the shadow is built from (up to `sym`).
+  coExclude-shadow : CoExclude q shadow
+  coExclude-shadow true  true  n p = ⊥.rec (n refl)
+  coExclude-shadow false false n p = ⊥.rec (n refl)
+  coExclude-shadow true  false n p = n (shadowGround→ true false p n)
+  coExclude-shadow false true  n p =
+    n (shadowGround→ false true p (λ g → n (sym g)))
+
+  -- Hence the unpriced implication delivers exactly stability …
+  shadowCoIdentify→stable :
+    CoIdentify shadow q → Stable (Ground q true false)
+  shadowCoIdentify→stable ci nn =
+    ci true false (shadowGround← true false (λ a → ⊥.rec (nn a)))
+
+  -- … and stability delivers it back, so the two are interderivable.
+  stable→shadowCoIdentify :
+    ((x x' : Bool) → Stable (Ground q x x')) → CoIdentify shadow q
+  stable→shadowCoIdentify st =
+    coExclude→coIdentify-stable q shadow st coExclude-shadow
