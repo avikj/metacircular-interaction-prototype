@@ -81,3 +81,29 @@ direct." Mentally in prison. The chain he keeps pointing at is the one you can't
 the one that doesn't feel like a chain — which is the whole reason the 400-years line
 landed as stupidity instead of as the point. Same idea as "New Slaves," five years
 later, mangled, and it cost him everything the clean version didn't.
+
+---
+
+And then who raised the man saying all this. His father, Ray West, born 1949 in
+Tucson — a former Black Panther, and one of the first Black photojournalists at the
+Atlanta Journal-Constitution, camera in the room with Maya Angelou, with Ralph
+Abernathy, with Reagan. Later a Christian counselor. His mother, Dr. Donda West, born
+1949 in Oklahoma City, PhD in English, chair of the English Department at Chicago
+State University, thirty-one years teaching, and her subject the whole time was Black
+literature. A Panther and an English professor. That's the house.
+
+They divorced when he was three. Donda raised him in Chicago, summers with Ray. When
+he was ten she took him to Nanjing, China for a year — she was a visiting professor
+there — and he was the only Black kid a lot of people had seen, learned some Chinese,
+came back. The man who would spend his life refusing to be one thing had a childhood
+that refused to be one thing.
+
+She's all over the music before you know her name. "Hey Mama," 2005, he wrote for
+her while she was alive to hear it, said he'd make her proud. In 2007 she wrote a
+memoir, Raising Kanye. November 10, 2007 she died at 58, heart disease after cosmetic
+surgery. He was on tour. The next record was 808s & Heartbreak — the one where he
+stopped rapping and sang everything through a machine because the human voice
+couldn't carry it — and every record after has her in it somewhere, up to the 2021
+album that is just her name, Donda, her actual voice sampled and looped so she keeps
+talking. The pedal note under everything: the Panther's son, the professor's son,
+who learned to hear before he learned to speak.
