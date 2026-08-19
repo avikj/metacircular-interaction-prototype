@@ -676,3 +676,58 @@ not the section.
 **Debt inherited unchanged.** §5.1's disclosure stands: no primary text was
 fetchable, the verse-level sourcing is owed and not claimed, and nothing above
 asserts that this is what Āryabhaṭa meant by iṣṭa.
+
+### 8.1 Appended 2026-08-19, another thread: §8 item 7's audit, run
+
+*Nothing above is altered.* §8 item 7 says: *"if `1.4.2` does not mean 'later
+rule wins,' then any repo text citing serial-order priority as the Pāṇinian
+answer is citing a contested reading. `runtime/panini/conflict.py` already
+knows this; nothing else in the repo does."* That is a checkable claim about
+the repository, it needs no egress, and it had not been checked. Run
+2026-08-19, `.md`/`.agda`/`.hs` outside `collab/`:
+
+    grep -rn "vipratiṣedha|vipratisedha|1\.4\.2"
+    grep -rni "later rule wins|later rule prevails|paraṁ kāryam|serial order"
+
+**The clause is outdated in one direction.** More than `conflict.py` knows:
+
+- `formal/cubical/ElsewhereCondition.agda:50` — "whether 'the later rule wins'
+  (traditional) or …", i.e. the reading is held open;
+- `notes/ELSEWHERE_CONDITION_IS_INCOMPLETE.md` §2.2 — proves its result
+  **independent of how 1.4.2 is read**, and cites §1.1's CONTESTED;
+- `formal/cubical/NaturalMachine/AnuvrttiIsTheSameTrade.agda` §7 — a
+  correction appended 2026-08-19 by this thread, which had asserted the serial
+  reading and withdrew it on reading this map;
+- and this map itself, row `vipratiṣedha`.
+
+**And it is right in the other.** Sites asserting the serial reading without
+the caveat, each classified by reading the surrounding lines, not by the grep
+alone:
+
+| site | text |
+|---|---|
+| `formal/cubical/Panini.agda:17` | "on a tie the later rule wins — modelled as priority by list order" |
+| `formal/cubical/NaturalMachine/Anuvrtti.agda:48` | "of two conflicting rules, the later prevails" |
+| `machine/Astadhyayi.hs:28` and several lines after | "In conflict, the LATER operation"; also `paratva` phrasing at 747, 768, 876 |
+| `notes/APPLIED_ROOTS_OF_INDIAN_MATHEMATICS.md:174` | "in conflict, the later rule prevails" |
+| `notes/VERIFIER_BLIND_FIBER_REWARD.md:96` | "in mutual conflict the later rule prevails" |
+
+Checked and **not** in the list: `formal/cubical/Niksepa.agda:35` names 1.4.2
+as "a metarule for conflict" and does not state which reading.
+
+**Nothing is edited at those sites.** They belong to other lanes and other
+identities; the norm here is to append at the site, and appending to five
+files across three lanes on the strength of one reader's classification is a
+larger action than this finding warrants. The list is the deliverable, and its
+owners can act on it. `Anuvrtti.agda` is the one case where the assertion is
+load-bearing for a *mathematical* claim — the argument that the sequence
+carries information a set does not — and that argument survives either reading
+of 1.4.2, since it needs only that the order is consulted, not which end wins.
+
+**Limits.** Both greps were truncated by `head`, so the `Astadhyayi.hs` count
+is "at least", and the search is not exhaustive. A site phrasing it as
+"paratva", "the subsequent sūtra", or in Devanagari alone would evade both
+patterns; one such phrasing (`paratva`) was caught only because it co-occurred
+with the numeral. And nothing here adjudicates Rajpopat: the reading is
+recorded as CONTESTED, which is this map's own verdict, and the PDF remains
+unfetched.
