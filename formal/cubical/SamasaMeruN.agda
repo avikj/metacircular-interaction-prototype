@@ -358,3 +358,32 @@ module _ (ps : List ℕ) where
               ( cong (_+ 0) (अंश-गणना (0 ∷ 2 ∷ []) (suc (suc n)) 2
                               (suc-≤-suc (suc-≤-suc zero-≤)))
               ∙ +-zero (length (सर्गः (0 ∷ 2 ∷ []) n)) )
+
+------------------------------------------------------------------------
+-- त्रिमेरु-आवृत्तिः — {१,२,३}-नयः (ps=[0,1,2]) : सामान्य-योगः त्रि-पदम् जनयति ।
+--
+-- द्वि-अंश-नयौ (विरहाङ्क, नारायण) स्थगित-द्वि-पदम् आवर्तनं दर्शयतः ; त्रि-अंश-
+-- गणे तु योगः यथार्थतः त्रीणि पदानि रक्षति : a(n+3)=a(n+2)+a(n+1)+a(n)
+-- (त्रि-सोपान-श्रेढी, "tribonacci") ।  एतत् एव यथेच्छ-अंश-गणस्य सारः — न
+-- स्थगनम् अपि तु अंश-गण-परिमाणेन पद-सङ्ख्या ।  शीर्षे १,१,२,४,७,१३-दृष्टान्तः
+-- refl-मात्रः आसीत् ; इयम् आवृत्तिः तस्य हेतुः ।
+--
+-- (The {1,2,3} standpoint: the general fold keeps THREE surviving terms,
+-- a(n+3)=a(n+2)+a(n+1)+a(n) — a genuine tribonacci, not a shifted two-term.
+-- This is the substance of an arbitrary part-set: the number of terms tracks
+-- the size of the set, not merely a shift.  The header's 1,1,2,4,7,13 example
+-- was a single refl; this is the recurrence behind it.)
+------------------------------------------------------------------------
+
+त्रिमेरु-आवृत्तिः : (n : ℕ)
+  → length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) (suc (suc (suc n))))
+  ≡ length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) (suc (suc n)))
+  + ( length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) (suc n))
+    + length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) n) )
+त्रिमेरु-आवृत्तिः n =
+    समास-आवृत्तिः (0 ∷ 1 ∷ 2 ∷ []) (suc (suc n))
+  ∙ cong₂ _+_ (अंश-गणना (0 ∷ 1 ∷ 2 ∷ []) (suc (suc n)) 0 zero-≤)
+      ( cong₂ _+_ (अंश-गणना (0 ∷ 1 ∷ 2 ∷ []) (suc (suc n)) 1 (suc-≤-suc zero-≤))
+          ( cong (_+ 0) (अंश-गणना (0 ∷ 1 ∷ 2 ∷ []) (suc (suc n)) 2
+                          (suc-≤-suc (suc-≤-suc zero-≤)))
+          ∙ +-zero (length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) n)) ) )
