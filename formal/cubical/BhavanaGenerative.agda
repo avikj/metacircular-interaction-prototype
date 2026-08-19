@@ -391,6 +391,50 @@ module Generative (CR : CommRing ℓ) where
   ∙₁-invL : {D : R} (s : Sol D 1r) → inv s ∙₁ s ≡ unit D
   ∙₁-invL s = fromPathP (⊛InvL s)
 
+  ----------------------------------------------------------------------
+  -- Associativity of `_∙₁_` — the last group law in `_∙₁_` form, and the one
+  -- that packages the AbGroup record.  `subst (Sol D) p` leaves the two
+  -- coordinates fixed (they do not depend on the norm index), so `_∙₁_` and
+  -- `_⊛_` agree coordinate-wise; the coordinate associativity then routes
+  -- through ⊛AssocA/⊛AssocB, and `hasNorm` (a prop, R being a set) closes the
+  -- record path.
+  ----------------------------------------------------------------------
+
+  substCoefA : {D k k' : R} (p : k ≡ k') (x : Sol D k)
+             → coefA (subst (Sol D) p x) ≡ coefA x
+  substCoefA {D} p x = sym (λ i → coefA (subst-filler (Sol D) p x i))
+
+  substCoefB : {D k k' : R} (p : k ≡ k') (x : Sol D k)
+             → coefB (subst (Sol D) p x) ≡ coefB x
+  substCoefB {D} p x = sym (λ i → coefB (subst-filler (Sol D) p x i))
+
+  ∙₁-assoc : {D : R} (s t u : Sol D 1r)
+           → (s ∙₁ t) ∙₁ u ≡ s ∙₁ (t ∙₁ u)
+  ∙₁-assoc {D} s t u i =
+    mkSol (caPath i) (cbPath i)
+          (isProp→PathP (λ j → is-set (N D (caPath j) (cbPath j)) 1r)
+                        (hasNorm ((s ∙₁ t) ∙₁ u)) (hasNorm (s ∙₁ (t ∙₁ u))) i)
+    where
+      caPath : coefA ((s ∙₁ t) ∙₁ u) ≡ coefA (s ∙₁ (t ∙₁ u))
+      caPath =
+          substCoefA (·IdR 1r) ((s ∙₁ t) ⊛ u)
+        ∙ cong₂ (λ x y → bhA D x y (coefA u) (coefB u))
+                (substCoefA (·IdR 1r) (s ⊛ t)) (substCoefB (·IdR 1r) (s ⊛ t))
+        ∙ ⊛AssocA s t u
+        ∙ sym (cong₂ (λ x y → bhA D (coefA s) (coefB s) x y)
+                     (substCoefA (·IdR 1r) (t ⊛ u)) (substCoefB (·IdR 1r) (t ⊛ u)))
+        ∙ sym (substCoefA (·IdR 1r) (s ⊛ (t ∙₁ u)))
+
+      cbPath : coefB ((s ∙₁ t) ∙₁ u) ≡ coefB (s ∙₁ (t ∙₁ u))
+      cbPath =
+          substCoefB (·IdR 1r) ((s ∙₁ t) ⊛ u)
+        ∙ cong₂ (λ x y → bhB D x y (coefA u) (coefB u))
+                (substCoefA (·IdR 1r) (s ⊛ t)) (substCoefB (·IdR 1r) (s ⊛ t))
+        ∙ ⊛AssocB s t u
+        ∙ sym (cong₂ (λ x y → bhB D (coefA s) (coefB s) x y)
+                     (substCoefA (·IdR 1r) (t ⊛ u)) (substCoefB (·IdR 1r) (t ⊛ u)))
+        ∙ sym (substCoefB (·IdR 1r) (s ⊛ (t ∙₁ u)))
+
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
 --
