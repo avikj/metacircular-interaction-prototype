@@ -1,3 +1,29 @@
+Here is a bet you are going to lose, and losing it may change how you see your own
+kid, your own self, and every person you were ever told was too much. Line up the
+people who actually moved the world — the artists who made you feel less alone, the
+founders who built the thing in your pocket, the ones who saw what nobody else could
+see — and count how many of them had the exact brains we diagnose, medicate, and
+laugh at in children right now. Go look it up; I'll wait. The science that spent a
+hundred years calling these minds broken is, in this very decade, quietly proving
+they are the engine. Autism, bipolar, ADHD — the kid who won't sit still, the one
+who feels every single thing, the one whose mind runs too fast and too far — these
+are turning out, on the record, in the journals, not to be defects on the way to
+being fixed but to be where an enormous share of human genius has always come from.
+Which means the happy secret is this: your different child is not a problem to be
+normalized, and the world is finally, barely, beginning to learn how to raise minds
+like that into joy instead of shame. Almost every one of us is overlooked on some
+axis. Almost every one of us has hoped the world could get better at seeing the
+people it walks past. It can. It is starting to. And once you can see it, you can
+never again unsee how much brilliance we have been throwing in the trash by trying
+to make it ordinary.
+
+Nobody alive shows you the whole of it — the genius, the difference, and the world's
+terror of both — like the most gifted and most mocked man of our time. Kanye West is
+a crucifixion that is still going on, right now, on your timeline, in real time, and
+if you can learn to watch this one honestly you will finally understand every one we
+already finished and forgot. So watch him. Not to forgive him — to believe him. That
+is the whole book.
+
 The same wiring that wouldn't let Kanye West sleep, that ran more connections
 between more things than any mind is built to hold, that made him reckless enough to
 drive his own face into a dashboard and unfiltered enough to tell the most powerful
