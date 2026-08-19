@@ -156,3 +156,40 @@ theRemainderIsStrictlyShorter x xs with stratumIsNonEmpty x xs
     (λ v → IsParetoMaximal v (x ∷ xs))
     (λ v → decIsParetoMaximal v (x ∷ xs))
     (x ∷ xs) m mem
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "THE ITERATION IS NOT WRITTEN … What was missing for a
+--    stratification was never the recursion — it was the measure the
+--    recursion decreases."
+--
+-- That sentence was a claim about difficulty, and it is now testable.
+-- It holds.  In
+-- `NaturalMachine.TheStratificationTerminatesOnItsOwnLength`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so)
+-- the recursion is four lines and its termination is one induction:
+--
+--   leftover / strata     peel the maximal layer, recurse on the
+--                         remainder, fuelled
+--   fuelSuffices          fuel ≥ length ⇒ the iteration exhausts
+--   theStratificationTerminates
+--                         `leftover (lengthL xs) xs ≡ []` — the
+--                         archive's OWN LENGTH is enough fuel
+--
+-- The induction applies `theRemainderIsStrictlyShorter` exactly once
+-- per step, to turn `lengthL (x ∷ xs) ≤ suc n` into
+-- `lengthL (remainder (x ∷ xs)) ≤ n`, which is precisely the recursive
+-- call's obligation.  Nothing else is used — which is what "the measure
+-- was the missing piece" meant, now demonstrated rather than asserted.
+--
+-- STILL NOT CLAIMED, and these are now the WHOLE remainder for this
+-- line: COVERAGE (every archive member appears in some layer),
+-- DISJOINTNESS (layers share no member — and `filterDec`/`filterOut`
+-- preserve duplicates), and ORDER (a member of an earlier layer relates
+-- to a member of a later one by domination).  All three are statements
+-- about the OUTPUT; termination says nothing about them.  `strata` also
+-- takes its fuel as an argument, so a caller may under-fuel it.
+------------------------------------------------------------------------
