@@ -123,6 +123,7 @@ import NaturalMachine.TheUnstableGroundCannotBeExhibited
 import NaturalMachine.TheDomainThatIsAnAbsence
 import NaturalMachine.TheDeflationaryTestIsVacuous
 import NaturalMachine.HypothesesAssumedWhereTheyAreDerivable
+import NaturalMachine.AnswerabilityIsFreeAtTheFactoringLaw
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
