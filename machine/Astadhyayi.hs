@@ -116,6 +116,15 @@ module Astadhyayi
   , asiddhavatPass
   , deriveAsiddhavat
   , asiddhaAudit
+    -- the karaka layer (2.3.1, 2.3.2, 2.3.18)
+  , Karaka(..)
+  , Vibhakti(..)
+  , Vacya(..)
+  , abhihita
+  , vibhaktiOf
+  , Drshya
+  , pacatiScene
+  , assign
     -- honesty
   , coverage
   , selfTest
@@ -714,6 +723,91 @@ sutras =
 -- 6.  TOKENIZER AND RENDERER
 ------------------------------------------------------------------------
 
+------------------------------------------------------------------------
+-- 5a.  THE KARAKA LAYER, 2026-08-19 -- the SEMANTIC entry point.
+--
+-- Everything above this is phonology: forms meeting forms.  `coverage`
+-- has been saying "nothing of the karaka system" since this file was
+-- written, and that is the half where the Astadhyayi stops describing
+-- sound and starts computing FROM MEANING.
+--
+-- THE ARCHITECTURE, which is not the Western one.  Panini does not go
+-- meaning -> syntax -> sound.  He goes
+--
+--     karaka (semantic role)  ->  vibhakti (case)  ->  sandhi
+--
+-- and there is no constituent-structure layer at all; Sanskrit word order
+-- is free because the endings already carry who did what to whom.
+--
+-- THE SUTRAS, sourced 2026-08-19 rather than recalled:
+--
+--   2.3.1  अनभिहिते  anabhihite -- a governing ADHIKARA: the rules below
+--          apply only if the information has NOT ALREADY BEEN EXPRESSED.
+--          It is what makes the karaka layer and the case layer separable
+--          at all, and the term contrasts with `abhihite`: anabhihite
+--          governs karma-vacya (passive), abhihite the kartr-vacya
+--          (active) subject.
+--   2.3.2  कर्मणि द्वितीया  karmani dvitiya -- when not otherwise
+--          expressed, the SECOND vibhakti in the sense of karman.
+--   2.3.18 कर्तृकरणयोस्तृतीया  kartrkaranayos trtiya -- the THIRD for
+--          kartr and karana.
+--
+-- WHAT THE ENDING EXPRESSES.  In the active the verbal ending expresses
+-- the kartr; in the passive it expresses the karman.  Whatever it
+-- expresses is thereby `abhihita`, 2.3.1 withdraws, and the nominative
+-- appears instead.
+--
+-- SOURCING LIMIT, stated because it is a real one: the precise sutra
+-- locus for the nominative on the abhihita karaka is NOT confirmed by the
+-- sources reached here (both sutra sites carrying the texts are blocked
+-- by the network egress policy).  The PRINCIPLE -- what is already
+-- expressed takes prathama -- is what the 2.3.1 contrast states, and is
+-- what is encoded; the number is left unclaimed rather than guessed.
+--
+-- WHY THIS IS THE INTERESTING HALF.  The same scene under two voices has
+-- THE SAME KARAKAS and DIFFERENT VIBHAKTIS.  Devadatta is the kartr in
+-- both `devadattah odanam pacati` and `devadattena odanah pacyate`; the
+-- world did not change and the roles did not change.  Only the mapping
+-- did, because 2.3.1 withdrew a rule when the ending already carried the
+-- fact.  That is two levels coming apart, and it is why the karaka layer
+-- cannot be collapsed into the case layer -- the thing Fillmore's "The
+-- Case for Case" (1968) proposed, with no anabhihite, 2400 years later.
+------------------------------------------------------------------------
+
+data Karaka = Kartr | Karman | Karana
+  deriving (Eq, Show)
+
+data Vibhakti = Prathama | Dvitiya | Trtiya
+  deriving (Eq, Show)
+
+data Vacya = Kartari | Karmani          -- active, passive
+  deriving (Eq, Show)
+
+-- what the verbal ending itself expresses, and is therefore `abhihita`
+abhihita :: Vacya -> Karaka
+abhihita Kartari = Kartr
+abhihita Karmani = Karman
+
+-- 2.3.1 as a GATE, not an annotation: the assignment rules below are
+-- consulted only for a karaka the ending has not already expressed.
+vibhaktiOf :: Vacya -> Karaka -> (Vibhakti, String)
+vibhaktiOf v k
+  | k == abhihita v = (Prathama, "abhihita: the ending already expresses it, so 2.3.1 withdraws")
+  | k == Karman     = (Dvitiya,  "2.3.2 कर्मणि द्वितीया")
+  | otherwise       = (Trtiya,   "2.3.18 कर्तृकरणयोस्तृतीया")
+
+-- a scene: which participants fill which roles.  This is the INPUT to the
+-- Astadhyayi, and it is not a string.
+type Drshya = [(Karaka, String)]
+
+pacatiScene :: Drshya
+pacatiScene = [ (Kartr, "devadatta"), (Karman, "odana") ]
+
+-- the case each participant receives, under a chosen voice
+assign :: Vacya -> Drshya -> [(String, Karaka, Vibhakti, String)]
+assign v scene =
+  [ (who, k, vb, why) | (k, who) <- scene, let (vb, why) = vibhaktiOf v k ]
+
 -- longest-match over the phoneme inventory: `dh` before `d`, `ai` before `a`
 tokenize :: String -> [String]
 tokenize [] = []
@@ -970,7 +1064,18 @@ coverage =
   , "A SAMPLE here: the vidhi rules -- 6.1 vowel sandhi and the tripādī --"
   , "  chosen to be enough to run derivations end to end and to make each"
   , "  mechanism do visible work.  Nothing of morphology, nothing of the"
-  , "  kāraka system, nothing of the dhātupāṭha."
+  , "  dhātupāṭha."
+  , ""
+  , "THE KĀRAKA LAYER now has its entry point: 2.3.1 anabhihite as a GATE,"
+  , "  with 2.3.2 karmaṇi dvitīyā and 2.3.18 kartṛkaraṇayos tṛtīyā under it."
+  , "  That is three sūtras of ~3983 and it is not morphology -- no affix is"
+  , "  selected, no stem is built.  What it does carry is the ARCHITECTURE:"
+  , "  a scene of semantic roles is the input, and the case each role"
+  , "  receives depends on what the verbal ending already expressed."
+  , "  Checked: the same scene under two voices has the same kārakas and"
+  , "  different vibhaktis, so the two layers provably do not collapse."
+  , "  The sūtra locus for the nominative on an abhihita kāraka is NOT"
+  , "  confirmed by sources reachable here and is left unclaimed."
   ]
 
 -- Every claim this file makes, checked exhaustively.  Returns [] on success.
@@ -984,6 +1089,7 @@ selfTest = concat
   , derivationTests
   , asiddhaTests
   , regimeTests
+  , karakaTests
   , sutraTableTests
   ]
   where
@@ -1175,6 +1281,45 @@ selfTest = concat
           (derive "tat + jalam" == deriveAsiddhavat "tat + jalam") False
       , chk "and agree where only one rule ever fires"
           (derive "tat + ca" == deriveAsiddhavat "tat + ca") True
+      ]
+
+    -- 8.9  THE KARAKA LAYER: 2.3.1 anabhihite withdrawing a rule.
+    --
+    -- The load-bearing check is the LAST one.  The roles are identical
+    -- under both voices and the cases are not: the karaka layer and the
+    -- vibhakti layer come apart, which is the whole reason Panini has two
+    -- of them.  If they could be collapsed this test would fail.
+    karakaTests = concat
+      [ chk "active: the ending expresses the kartr"
+          (abhihita Kartari) Kartr
+      , chk "passive: the ending expresses the karman"
+          (abhihita Karmani) Karman
+      -- active: devadattah odanam pacati
+      , chk "active kartr takes prathama (abhihita, 2.3.1 withdraws)"
+          (fst (vibhaktiOf Kartari Kartr)) Prathama
+      , chk "active karman takes dvitiya (2.3.2)"
+          (fst (vibhaktiOf Kartari Karman)) Dvitiya
+      -- passive: devadattena odanah pacyate
+      , chk "passive karman takes prathama (abhihita)"
+          (fst (vibhaktiOf Karmani Karman)) Prathama
+      , chk "passive kartr takes trtiya (2.3.18)"
+          (fst (vibhaktiOf Karmani Kartr)) Trtiya
+      -- karana is never expressed by the ending in either voice
+      , chk "karana takes trtiya under both voices"
+          (map (\v -> fst (vibhaktiOf v Karana)) [Kartari, Karmani])
+          [Trtiya, Trtiya]
+      -- THE POINT
+      , chk "same scene, same karakas under both voices"
+          (map (\(_, k, _, _) -> k) (assign Kartari pacatiScene)
+             == map (\(_, k, _, _) -> k) (assign Karmani pacatiScene)) True
+      , chk "same scene, DIFFERENT vibhaktis under the two voices"
+          (map (\(_, _, vb, _) -> vb) (assign Kartari pacatiScene)
+             == map (\(_, _, vb, _) -> vb) (assign Karmani pacatiScene)) False
+      , chk "and the cases are exactly the attested ones"
+          (map (\(w, _, vb, _) -> (w, vb)) (assign Kartari pacatiScene)
+          ,map (\(w, _, vb, _) -> (w, vb)) (assign Karmani pacatiScene))
+          ( [("devadatta", Prathama), ("odana", Dvitiya)]
+          , [("devadatta", Trtiya),  ("odana", Prathama)] )
       ]
 
     -- 8.7  8.2.1 is load-bearing: `vāc` derives to vāk, and 8.2.39 would turn
