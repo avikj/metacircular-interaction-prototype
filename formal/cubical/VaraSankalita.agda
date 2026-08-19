@@ -14,7 +14,9 @@
 -- V_{r+1}(n−1) + V_r(n) is the samāsa-bhāvanā in another domain.  Orders:
 -- V₀(n)=n, V₁=∑k (Āryabhaṭa's triangular, Sankalita), V₂=citighana (his
 -- tetrahedral, Citighana) — the general operator UNIFIES both, proved here.
--- The closed form V_r(n) = C(n+r, r+1) needs binomials; left avaktavya.)
+-- The closed form V_r(n) = C(n+r, r+1) — the hockey-stick — is proved in
+-- Dvipada.agda from the Pascal recurrence alone (no factorials); once
+-- avaktavya, now retired.)
 --
 -- स्रोतांसि : नारायणपण्डितः, गणितकौमुदी (वार-सङ्कलितम्) ; आर्यभटः (त्रिकोण/वृन्दम्) ।
 ------------------------------------------------------------------------
