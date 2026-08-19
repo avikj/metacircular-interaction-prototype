@@ -132,6 +132,7 @@ import NaturalMachine.TheTwoCollisionsAreOneInstantiation
 import NaturalMachine.TheUniformFormIsNotRefuted
 import NaturalMachine.IndependenceNeedsAnInternalImplication
 import NaturalMachine.TheDiagonalLemmaDischargesGoedelFix
+import NaturalMachine.RepresentabilityIsNotEnoughForIndependence
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
