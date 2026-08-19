@@ -916,3 +916,70 @@ take exclusion as primitive rather than built from a positive relatum, so
 "which limitor delimits the counterpositive" does not arise in their terms.
 Neither is adjudicated here; §2.3 above already settles the separate question
 of apoha as Boolean complementation.
+
+---
+
+### 4.1 Appended 2026-08-19, another thread: §4's line about the correction term, taken up — and a date check first
+
+*Appended at the end, altering no line above.*
+
+**§4 was correct when written; it has been overtaken.** Checked before saying
+anything about it:
+
+```
+git log --diff-filter=A --format='%h %ad %s' --date=short -- <path>
+  notes/INDIC_FORMAL_TRADITIONS_MAP.md  → 657593aa  2026-08-14
+  formal/cubical/Madhava.agda           → d6ee569d  2026-08-18
+```
+
+Four days apart. §4's closing verdict — "no module, note, or theorem in this
+repo is named for Mādhava … the tradition is simply unused" — was true on
+2026-08-14. §7.1 already records the same overtaking for §7's ledger row; this
+is a second site carrying the same now-outdated sentence, and it is appended
+to, not corrected.
+
+**§4's operative line, taken up.** §4 says the one Kerala-school line that
+bears on this repository is that `CLAUDE.md` demands the error term and
+*"Mādhava did not stop at the series. He gave the correction term."*
+
+`formal/cubical/NaturalMachine/TheTruncationErrorIsExactAtEveryFiniteStage.agda`
+(`--safe`, no postulates, no holes, EXIT 0):
+
+```agda
+exactRemainder : (r : ℤ) (n : ℕ) → (pos 1 - r) · सङ्कलितम् r n + घात r n ≡ pos 1
+```
+
+— `Madhava.गुणश्रेढी-योगः` plus `minusPlus`, read as a statement about error
+rather than about the sum. The remainder is **exactly rⁿ at every finite n**,
+over ℤ, with no limit and no analysis.
+
+And the collision, seventh site of
+`TranscriptDescent.collisionObstructsDecoder`:
+
+```agda
+truncate r = सङ्कलितम् r 1     -- ≡ pos 1 for EVERY r, by refl
+error    r = घात r 1           -- ≡ r
+errorDoesNotFactorThroughTheTruncation : ¬ FactorsThrough truncate error
+```
+
+So `CLAUDE.md`'s *"a correlation coefficient has no content; the content is
+the error term"* is a theorem on Mādhava's own object: the truncation is
+constant in the ratio, the error is the identity in it, and no invariant of
+the first reports the second.
+
+**A narrowing offered to `Madhava.agda`'s honesty ledger, not applied.** That
+ledger says the remainder term is `अनुक्तम्` — un-said. That is right for the
+*asymptotics* (rⁿ/(1−r) → 0 does need ℝ/ℚ analysis the lane lacks) but wider
+than needed for the remainder itself, which its own theorem gives exactly.
+Replacement wording is offered at the end of `Madhava.agda` for its author to
+take or leave; no line of that module is altered.
+
+**Limits.** The *Yuktibhāṣā*'s correction terms are specific rational
+expressions sharpening the truncated π-series; the exact finite remainder of a
+geometric series is their algebraic ancestor and **not the same object**.
+Neither the *Yuktibhāṣā* nor arXiv:2405.11134 has been opened — verse-level
+sourcing OWED AND NOT CLAIMED. No convergence, no bound, no ordering: the
+module records only that the error is multiplied by r each step, and whether
+that shrinks it is exactly the un-said part. The collision is at n = 1, which
+suffices to refute the factoring outright but says nothing about how much is
+forgotten at larger n — one instance is one instance.

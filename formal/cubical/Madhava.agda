@@ -98,3 +98,40 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 उदाहरणम् : (pos 1 - pos 2) · सङ्कलितम् (pos 2) 3 ≡ pos 1 - घात (pos 2) 3
 उदाहरणम् = गुणश्रेढी-योगः (pos 2) 3
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  A pointer, and one piece of REPLACEMENT WORDING OFFERED, NOT
+-- APPLIED — the ledger above is this module's author's and I do not
+-- edit it.
+--
+-- I read गुणश्रेढी-योगः's signature and proof body before importing it.
+--
+-- The ledger (lines 17–20) says the remainder term is the essence and is
+-- here अनुक्तम् — un-said, not falsely proved.  The un-said part is
+-- exactly right for the ASYMPTOTICS: rⁿ/(1−r) → 0 does need ℝ/ℚ
+-- analysis this lane does not have, and nothing has changed about that.
+--
+-- But the remainder ITSELF is not un-said, because this module's own
+-- theorem plus `Int.Properties.minusPlus` gives it exactly, at every
+-- finite n, with no limit:
+--
+--     (1 − r) · ∑_{k<n} rᵏ  +  rⁿ  ≡  1
+--
+-- checked as `exactRemainder` in
+-- `NaturalMachine.TheTruncationErrorIsExactAtEveryFiniteStage`
+-- (--safe, no postulates, no holes).
+--
+-- OFFERED WORDING, for this module's author to take or leave — narrower
+-- than the present sentence and, as far as I can check, still true:
+--
+--     शेष-पदस्य *गमनम्* इह अनुक्तम् ; शेष-पदम् एव तु सान्तं
+--     प्रत्येकस्मिन् n — (1−r)·∑ + rⁿ ≡ 1 ।
+--
+--     "the remainder term's *tendency* is un-said here; the remainder
+--      term itself is exact at every finite n."
+--
+-- Nothing above is changed, and if the author judges the present wording
+-- correct as it stands, this paragraph is the whole of my disagreement
+-- and it stays here.
+------------------------------------------------------------------------
