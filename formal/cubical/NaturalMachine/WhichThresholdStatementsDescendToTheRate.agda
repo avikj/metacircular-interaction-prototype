@@ -181,3 +181,40 @@ minimalDoesNotDescend :
 minimalDoesNotDescend =
   oneHalfIsTwoQuarters , shortIsMinimalAtOneHalf ,
   shortIsNotMinimalAtTwoQuarters
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  "Density of ⊑ remains untouched" is the last line of the
+-- NOT-CLAIMED section here, and it was the last line of two earlier
+-- modules on this line as well.  Touched now, in
+-- `NaturalMachine.TheThresholdChainIsDenseAndTheMediantWitnessesIt`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- The chain is DENSE, and the witness is not found by a search: it is
+-- the MEDIANT.  Between p/(suc q) and p'/(suc q') lies
+--
+--   (p + p') / (suc q + suc q')
+--
+-- and both halves of the betweenness reduce, after distributing, to the
+-- SAME strict inequality that was assumed — one is a left additive
+-- shift of it and the other a right additive shift.  No case analysis.
+-- The denominator needs no arithmetic either: `suc q + suc q'` IS
+-- `suc (q + suc q')`, definitionally, so the mediant is visibly a
+-- threshold pair.
+--
+-- `⊏-gives-⊑` is checked there too, so this is density OF THIS CHAIN
+-- and not of a strict relation introduced for the occasion.
+--
+-- NO NOVELTY: the mediant's betweenness is classical — the Farey
+-- dissection (Haros 1802; Farey 1816) and the Stern–Brocot tree (Stern
+-- 1858; Brocot 1861).
+--
+-- STILL NOT CLAIMED, and it is this module's own gap showing again:
+-- density is proved for pairs, and ⊑ is a preorder, so nothing is said
+-- about density of the RATES — that needs the quotient §4 above
+-- explicitly does not form.  The mediant is one witness, not the only
+-- one, and is not claimed to be in lowest terms.  Nothing iterates it:
+-- no Stern–Brocot enumeration and no claim that every intermediate
+-- threshold is reachable.
+------------------------------------------------------------------------
