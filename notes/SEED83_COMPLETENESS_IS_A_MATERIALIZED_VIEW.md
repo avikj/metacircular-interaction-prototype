@@ -547,3 +547,55 @@ separate the sweep's base from what came after.
 first conjunct, on a base that went from 110 files to 942 in `notes/` alone (3657 across
 `notes/` + `collab/`). The filename asserts a standing property; the property it names
 has quadrupled underneath it.
+
+## 10. Appended 2026-08-19, same thread: R1 measured, not asserted
+
+*Appended at the end, altering no line above.*
+
+§1's **R1** says selection by self-declaration makes the sweep's coverage *"anti-correlated
+with the risk it exists to manage: it is densest where the author knew the literature and
+empty where the author did not."* That is an argument, and §9 established that a candidate
+classifier is refuted or supported by its **base rate**, not only by its errors. So R1
+gets a number.
+
+**SNAPSHOT.** Commit `5f6c8bbf22667d90b8a3cc44448fad11b4b872ba`, tracked files via
+`git ls-files`, `notes/` only. Every number is a property of THAT SNAPSHOT and of nothing
+else; a later disagreement is the base moving, which is R2.
+
+**THE PREDICATE.** §1 defines the completeness class **C** as claims *"whose own author
+wrote a sentence declaring a prior-art search unperformed"*. Mechanised as the conjunction
+of two greps, both case-insensitive:
+
+> **P₂(t)** = `t` matches `prior[- ]art` **and** matches `not run|unsearched|not searched|no search`.
+
+**RESULT, exhaustive over `notes/` at the stated snapshot.**
+
+| quantity | at `5f6c8bbf` |
+|---|---|
+| files in `notes/` | **942** |
+| mention prior art at all | **304** |
+| satisfy P₂ (self-declared unrun search) | **55** |
+| of those, `notes/SEED*.md` | 9 |
+
+**And P₂ fires on neither SEED-05 nor SEED-09.** Checked directly:
+`notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md` mentions prior art but declares no unrun search;
+`notes/SEED09_BASIN_NERODE.md` does not mention prior art at all.
+
+**That is R1, measured.** §4 identifies SEED-05 and SEED-09 as the corpus's actual
+prior-art failures — one charge standing, one real but misclassified. The
+self-declaration class contains **55 of 942 files and neither of them.** The sweep's
+selection rule is not merely *anti-correlated* with the risk in the abstract; at this
+snapshot it misses **both** of the two cases the audit itself found. R1 predicted the
+shape and the shape is there.
+
+**What this does and does not settle.** It measures R1 and nothing more. It does **not**
+answer §6 — a predicate that fires on SEED-05 and SEED-09 is still not exhibited, and §9's
+argument stands that any such predicate is `Outside ∘ denotes` with a decision attached.
+P₂ is a **strictly weaker** mechanisation of **C** than §1's prose: "wrote a sentence
+declaring a search unperformed" is a semantic condition, and two greps are a proxy for it,
+so 55 is a lower bound on nothing and an upper bound on nothing — it is the count of a
+different, mechanical predicate that overlaps **C**. A file could declare an unrun search
+in words P₂ does not match, and a file could match P₂ while saying the opposite. **The
+"55 vs neither" contrast survives that caveat only because the two named files fail P₂ for
+a reason a reader can check by eye**: one has no prior-art sentence at all, the other has
+one that declares nothing unperformed.
