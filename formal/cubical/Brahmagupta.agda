@@ -199,3 +199,26 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 अन्तर-संयुग्म-द्वि : (N x1 y1 x2 y2 : ℤ)
                  → अन्तर-द्वि x1 y1 x2 y2 ≡ (pos 0 - संयोग-द्वि x1 y1 x2 (pos 0 - y2))
 अन्तर-संयुग्म-द्वि = solve ℤCommRing
+
+------------------------------------------------------------------------
+-- अन्तर-मानः-भावनातः — अन्तर-भावना-मानः न स्वतन्त्रः , अपि तु समास-भावना-मानात्
+-- संयुग्मेन जायते ।  पूर्वं (अन्तर-भावना-मान) वलय-साधकेन स्वतन्त्रं साधितम् ;
+-- अत्र दर्शितम् : सः एव भावना-मानस्य (संयुग्म-सहितस्य) परिणामः — द्वौ मान-नियमौ
+-- एकः एव ।  मार्गः : अन्तरः = संयुग्म-समासः (अन्तर-संयुग्म) , मानं y-सम-रूपम्
+-- (मान-संयुग्म) , अतः भावना-मानं संयुग्म-पदे प्रयुज्य अन्तर-मानं लभ्यते ।
+--
+-- (The antara norm-law is not independent: it follows from the samāsa
+-- norm-law by conjugation.  अन्तर-भावना-मान was proved by the ring solver on
+-- its own; here it is re-derived from भावना-मान — via अन्तर = conjugate-samāsa
+-- and the norm's evenness in y — exhibiting the two as ONE theorem.  This
+-- reduces two facts to one, the collision resolved rather than left doubled.)
+------------------------------------------------------------------------
+
+अन्तर-मानः-भावनातः : (N x1 y1 x2 y2 : ℤ)
+                  → मान N (अन्तर-प्र N x1 y1 x2 y2) (अन्तर-द्वि x1 y1 x2 y2)
+                  ≡ (मान N x1 y1) · (मान N x2 y2)
+अन्तर-मानः-भावनातः N x1 y1 x2 y2 =
+    cong₂ (मान N) (अन्तर-संयुग्म-प्र N x1 y1 x2 y2) (अन्तर-संयुग्म-द्वि N x1 y1 x2 y2)
+  ∙ मान-संयुग्म N (संयोग-प्र N x1 y1 x2 (pos 0 - y2)) (संयोग-द्वि x1 y1 x2 (pos 0 - y2))
+  ∙ भावना-मान N x1 y1 x2 (pos 0 - y2)
+  ∙ cong ((मान N x1 y1) ·_) (मान-संयुग्म N x2 y2)
