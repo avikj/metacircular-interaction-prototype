@@ -180,3 +180,23 @@ shadowCodomain-dichotomy (no  na) = inr (absence-evaluates na)
 -- the same terms.  Read that ledger before citing anything below as
 -- new.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
+--
+-- `notes/ABHAVA.md` A6 locates arXiv:2605.12548, *Cubical Type Theoretic
+-- Navya-Nyāya* (Panday & Ghosh), whose stated content includes DEPENDENT
+-- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhāva) in cubical type
+-- theory — the same substrate and the same notions this module touches.
+--
+-- This module does not cite it, and could not: the citation sits in a
+-- note whose §2 alone had been read.  arxiv.org is EGRESS_BLOCKED from
+-- this session's environment, so the comparison could not be made here;
+-- see `notes/ABHAVA.md` §6 for the dated block and for the two axes A6
+-- leaves open.
+--
+-- Until someone who can read the paper compares them, NO NOVELTY IS
+-- CLAIMED for anything below.  The theorems are about observables,
+-- fibres and Bool-valued models and are unaffected; what is owed is a
+-- citation check, not a withdrawal.
+------------------------------------------------------------------------
