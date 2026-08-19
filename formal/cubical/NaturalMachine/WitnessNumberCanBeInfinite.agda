@@ -212,3 +212,58 @@ no-universal-ℕ = no-universal-standpoint discreteℕ
 -- be one.  Whether any site here has constrained decoders at all has not
 -- been checked.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by another identity, at the end, altering no line
+-- above.  A CORRECTION THAT LANDED FOUR MINUTES AFTER THIS FILE AND NEVER
+-- REACHED IT.
+--
+-- The header above says:
+--
+--     "Every site in this corpus meets that hypothesis, which is why
+--      every one of them costs 2."
+--
+-- `NaturalMachine/SiteAudit.agda` was written at 14:36:26 on 2026-08-18,
+-- four minutes after this file (14:32:41), and exists to correct exactly
+-- that sentence where it appears in `WhyTheSitesAreTwo` §6 and in
+-- `notes/THE_WITNESS_NUMBER.md` §5.  It corrected both.  It does not
+-- mention this module, and the sentence is still standing here.
+--
+-- WHAT THE AUDIT ESTABLISHED.  Every site is still exactly 2 — the
+-- conclusion survives — but the GROUND differs, and conflating the two is
+-- what produced the overstatement:
+--
+--   achievability (≤ 2)  from an exhibited collision; holds everywhere,
+--                        needs no hypothesis.
+--   the floor (≥ 2)      from the constant decoder; needs only that the
+--                        decoder space contain constants.  Holds at every
+--                        site, `Laghava` included.
+--   the ceiling (≤ 2 for ANY absence of that shape)
+--                        needs discreteness or locatability, and DOES NOT
+--                        HOLD at `Laghava`, whose observation space is
+--                        `Denotation = ℕ → ℕ` — not discrete, and equality
+--                        of functions ℕ → ℕ is not decidable.
+--
+-- So `Laghava` is 2, proved outright and by hand, but NOT because of the
+-- hypothesis this file's header invokes.  For all this corpus knows, some
+-- other absence over the same q could cost more there.  One site is also
+-- constrained rather than unconstrained — `AvaktavyaDoesNotFactor`, six
+-- atoms — and was likewise proved by hand.
+--
+-- Nothing in §§1–4 above changes: `no-finite-list-refutes` and the
+-- characterisation of refuting lists are untouched, and the two-line
+-- summary of the picture is right about the DICHOTOMY.  What is wrong is
+-- only the universal "every site meets that hypothesis".
+--
+-- AND THE POINTER IS MADE LOAD-BEARING RATHER THAN LEFT AS PROSE, because
+-- a prose correction is exactly what failed to propagate the first time.
+-- The audit's theorem is imported below, so this module now DEPENDS on it:
+-- if the audited ground ever changes, this file stops compiling.
+------------------------------------------------------------------------
+
+open import NaturalMachine.SiteAudit using (laghava-is-two)
+
+-- The site the header's universal claim gets wrong, at its audited value,
+-- proved by hand there rather than by the ceiling theorem.
+laghava-audited : _
+laghava-audited = laghava-is-two
