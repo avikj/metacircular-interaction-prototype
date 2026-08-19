@@ -61,6 +61,8 @@ import Pingala
 import Matramerus
 -- पिङ्गलस्य शून्य-द्वि-विधिः — 2ⁿ log-पदैः (प्रथमा binary exponentiation)
 import PingalaGhata
+-- अक्षर-द्विगुणः — Vak (suc n) ≃ Vak n ⊎ Vak n : संख्या-द्विगुणस्य वस्तु-स्तरीयं मूलम्
+import AksaraDviguna
 -- सामान्य-घातः — पिङ्गल-विधेः सामान्य-आधारे विस्तारः (aⁿ log-पदैः, Vargana-आश्रितः)
 import SamanyaGhata
 -- द्वि-घात-वर्गणा-सेतुः — योग-रूप द्वि-घात ≡ गुण-रूप घात 2 ; अतः 2^(m·n)=(2ᵐ)ⁿ द्वि-घाते
