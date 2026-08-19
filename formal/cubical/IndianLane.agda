@@ -320,7 +320,7 @@ import Punaragamana
 ------------------------------------------------------------------------
 
 import NaturalMachine.SamayikaAndNityaAreIndependent
-import NaturalMachine.Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability
+import NaturalMachine.KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, fifth append.
