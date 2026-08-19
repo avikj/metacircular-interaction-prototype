@@ -647,3 +647,32 @@ becomes a compliance artifact, which is the failure `NEGATIVE_KNOWLEDGE_IS_TYPED
 §4.2 names for typologies and §5.4 names for packaging generally. These nine
 rows earn their place only if a later verdict is *changed* by them. If a
 session passes in which rows are added and none is consulted, strike the block.
+
+### 5.3 Appended 2026-08-19, another thread: §5.2's remaining item is now two, one of them closed
+
+*Nothing above is altered.* The 2026-08-18 DISCHARGED block leaves one item:
+*"Still NOT done, named there: only the iṣṭa least-non-negative section
+(needs a mod/section convention)."*
+
+`formal/cubical/NaturalMachine/TheIstaSectionIsAnImportedConvention.agda`
+takes §5.2(ii)'s wording literally — "the iṣṭa reduction as an explicitly
+**imported** section". A section is a **parameter**: any `sec` with, for each
+`x`, a shift `t` and `sec x ≡ x + t·b`. The theorem is that importing one
+costs nothing — the reduced solution still solves `a·x + b·y ≡ g`, with the
+`y` produced explicitly. The type is shown inhabited so the theorem is not
+vacuous. `--safe`, no holes, latched.
+
+That is the *convention* half, and it is the half `KUTTAKA_SOLUTION_FAMILY.md`
+assigns to the tradition — "the section is a declared convention". Declared,
+not derived, so the honest formalisation makes it a parameter and proves the
+equation indifferent to it.
+
+**Still open, narrowed:** the LEAST-NON-NEGATIVE property. Nothing there says
+the section lands in `[0,b)`; that needs an order and a division algorithm on
+`ℤ`, which `Kuttaka` does not carry. So §5.2's one remaining item is now two —
+the section, closed; its minimality, open — and the open one is minimality,
+not the section.
+
+**Debt inherited unchanged.** §5.1's disclosure stands: no primary text was
+fetchable, the verse-level sourcing is owed and not claimed, and nothing above
+asserts that this is what Āryabhaṭa meant by iṣṭa.
