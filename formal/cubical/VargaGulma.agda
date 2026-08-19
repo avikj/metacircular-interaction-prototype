@@ -22,7 +22,7 @@ module VargaGulma where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
-open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; +-suc ; ·-suc)
+open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; +-suc ; ·-suc ; +-zero)
 
 ------------------------------------------------------------------------
 -- ओज — k-तमः विषमः (0-आदिः) : ओज k = 2k+1 = suc(k+k) ।
@@ -67,3 +67,49 @@ private
 
 गुल्म-५ : ओज-योग 5 ≡ 25
 गुल्म-५ = refl
+
+------------------------------------------------------------------------
+-- युग्म-गुल्मः — आयतचतुरस्रस्य गुल्म-रचना : युग्म-योगः = ओज-योगः + n = n(n+1) ।
+--
+-- शुल्बे द्वे रूपे गुल्मैः वर्धेते : समचतुरस्रः (वर्गः, विषम-गुल्मैः, वर्ग-गुल्मः) च
+-- आयतचतुरस्रः (n×(n+1)-आयतः, युग्म-गुल्मैः) ।  प्रति युग्म-गुल्मः तत्-संगत-ओज-गुल्मात्
+-- एकेन अधिकः (युग्म k = suc(ओज k) = 2k+2) , अतः n गुल्मेषु युग्म-योग = ओज-योग + n ।
+-- ततः वर्ग-गुल्मेन युग्म-योग n = n·n + n = n·(n+1) — आयत-सङ्ख्या (oblong) ।
+--
+-- (The śulba grows two figures by gnomons: the square (samacaturaśra, odd
+-- gnomons — वर्ग-गुल्मः) and the oblong n×(n+1) (āyatacaturaśra, even gnomons).
+-- Each even gnomon exceeds its odd counterpart by one (युग्म k = suc(ओज k)), so
+-- over n gnomons युग्म-योग n ≡ ओज-योग n + n, and with the square law that is
+-- n(n+1) — the oblong number.  The genuinely new content is the odd↔even gnomon
+-- relation; the value n(n+1) also follows from Sankalita's 2·∑k.)
+------------------------------------------------------------------------
+
+युग्म : ℕ → ℕ
+युग्म k = suc (suc (k + k))
+
+युग्म-योग : ℕ → ℕ
+युग्म-योग zero    = zero
+युग्म-योग (suc n) = युग्म-योग n + युग्म n
+
+-- आयत-वर्ग-अन्तरम् — युग्म-योग n ≡ ओज-योग n + n (युग्म-गुल्मः ओज-गुल्मात् एकाधिकः) ।
+आयत-वर्ग-अन्तरम् : (n : ℕ) → युग्म-योग n ≡ ओज-योग n + n
+आयत-वर्ग-अन्तरम् zero    = refl
+आयत-वर्ग-अन्तरम् (suc n) =
+    cong (_+ युग्म n) (आयत-वर्ग-अन्तरम् n)
+  ∙ +-suc (ओज-योग n + n) (ओज n)
+  ∙ cong suc (sym (+-assoc (ओज-योग n) n (ओज n)))
+  ∙ cong suc (cong (ओज-योग n +_) (+-comm n (ओज n)))
+  ∙ cong suc (+-assoc (ओज-योग n) (ओज n) n)
+  ∙ sym (+-suc (ओज-योग n + ओज n) n)
+
+-- आयत-नियमः — युग्म-योग n ≡ n · suc n (आयत-सङ्ख्या) , वर्ग-गुल्मात् ।
+आयत-नियमः : (n : ℕ) → युग्म-योग n ≡ n · suc n
+आयत-नियमः n =
+    आयत-वर्ग-अन्तरम् n
+  ∙ cong (_+ n) (वर्ग-गुल्मः n)
+  ∙ +-comm (n · n) n
+  ∙ sym (·-suc n n)
+
+-- उदाहरणम् — 2+4+6+8 = 20 = 4·5 (refl-सिद्धम्) ।
+आयत-४ : युग्म-योग 4 ≡ 20
+आयत-४ = refl
