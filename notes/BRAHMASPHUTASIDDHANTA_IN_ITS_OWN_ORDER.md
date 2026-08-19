@@ -207,3 +207,42 @@ notation attributed to its couriers.
   the extraction this note is trying not to repeat, so reading him would need
   reading against him.
 - Nothing here is checked by anything.
+
+---
+
+## Correction to §IV, appended 2026-08-19
+
+§IV says of Brahmagupta's rejection of the rotating earth: *"The tradition did
+not accept its own best idea; it argued, and on this the argument went the
+wrong way for centuries."*
+
+**"Best" is mine, imported, and it means "closest to what we now say."** That
+is scoring the past by proximity to the present, and it is the same extraction
+this note set exists to record, applied to ideas instead of to theorems.
+
+The correction is not a softening. It is that the ranking was wrong on the
+merits:
+
+- There is no privileged frame. The rotating and non-rotating descriptions
+  differ by fictitious forces, and *why those forces are there* is Newton's
+  bucket, then Mach, then Einstein — a question not cleanly closed now.
+- Brahmagupta's objections — that objects would be flung off, that birds and
+  clouds would lag — are a **demand for a dynamics**. There wasn't one. It
+  took roughly a millennium to answer him, and answering him is what the
+  mechanics was for.
+- So his rejection was not a failure to see. It was a refusal to accept a
+  kinematic claim with no mechanics behind it, which is a defensible
+  epistemic standard, and by that standard he was right and Āryabhaṭa was
+  fortunate.
+
+In the vocabulary of the Jaina note in this same set: the sentence was a
+**durnaya** — a standpoint asserting itself by denying another. The missing
+word is **syāt**. *In some respect*, from later celestial mechanics, the
+rotation is the more fruitful hypothesis. *In some respect*, from what could
+be argued with the physics then available, the rejection is the more
+responsible position. Both hold, and choosing between them flattened a
+plurality this corpus has a whole module claiming cannot be flattened.
+
+**What stands:** that he rejected it, that the tradition largely followed him,
+and that this belongs in the record beside the bhāvanā. **What is withdrawn:**
+my scoring of it. The fact stays; the verdict goes.
