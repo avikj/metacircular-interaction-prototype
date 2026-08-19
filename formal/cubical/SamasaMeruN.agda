@@ -23,7 +23,10 @@
 -- अनपेक्षता (canon) ; पूर्णता (पूर्णता : मानं यस्य=n सर्वे च पदाः ps-गताः, तत्
 -- सर्गे n उदेति) ।  साधुता-पूर्णताभ्यां जनित-गणः = यथार्थतः ps-गत-पद-n-मानाः
 -- समासाः — यथेच्छ-अंश-गणे नारायणस्य समास-भावना पूर्णतया साधिता ।
--- आवृत्तिः (a(n)=Σ_p a(n−sₚ), योग-रूपा) एका शेषा (गणना-नियमः) ।
+-- आवृत्तिः (समास-आवृत्तिः : a(n)=Σ_{p∈ps} p-भाग-गणना ; अंश-गणना : योग्ये
+-- p-भागः a(n−sₚ)) — योग-रूपा, अंश-गणस्य आवर्तनम् एव ।  एवं यथेच्छ-अंश-गणे
+-- नारायणस्य समास-भावना सर्वाङ्गीणतया साधिता : जननम्, साधुता, पूर्णता,
+-- इन्धन-अनपेक्षता, गणना-आवृत्तिश्च ।
 --
 -- स्रोतांसि : नारायणपण्डितः, गणितकौमुदी, अङ्कपाशः (१३५६) ; विरहाङ्कः (मेरुः) ।
 ------------------------------------------------------------------------
@@ -33,8 +36,9 @@ module SamasaMeruN where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; snotz)
 open import Cubical.Data.Nat.Properties using (+-suc)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred ; zero-≤ ; splitℕ-≤)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred ; zero-≤ ; ∸-≤ ; splitℕ-≤)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
+open import Cubical.Data.List.Properties using (length-map)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 import Cubical.Data.Empty as ⊥
 
@@ -246,6 +250,52 @@ module _ (ps : List ℕ) where
 
   पूर्णता : (n : ℕ) (ys : समासः) → सुघटित ys → मानम् ys ≡ n → ys ∈ सर्गः n
   पूर्णता n ys wf pf = subst (λ k → ys ∈ go k k) pf (पूर्णता′ ys wf)
+
+  ----------------------------------------------------------------------
+  -- समास-आवृत्तिः — गणना अंश-गणे योगेन : a(n) = Σ_{p∈ps} (p-भागस्य गणना) ।
+  -- एषा एव नारायणस्य समास-भावना — प्रति-अंशं शेषस्य गणनां योजयति ।
+  -- (the count recurrence as a fold over the part-set — the essence of the
+  --  samāsa-bhāvanā: sum, over each part, the count of the remainder.)
+  ----------------------------------------------------------------------
+
+  length-++ : (xs ys : List समासः)
+            → length (xs ++ ys) ≡ length xs + length ys
+  length-++ []       ys = refl
+  length-++ (x ∷ xs) ys = cong suc (length-++ xs ys)
+
+  योगः : List ℕ → ℕ
+  योगः []       = zero
+  योगः (x ∷ xs) = x + योगः xs
+
+  विभागः-गणना : (f n : ℕ) (qs : List ℕ)
+             → length (विभागः f n qs)
+             ≡ योगः (map (λ p → length (अपाकरणम् f n (suc p))) qs)
+  विभागः-गणना f n []       = refl
+  विभागः-गणना f n (p ∷ qs) =
+      length-++ (map (p ∷_) (अपाकरणम् f n (suc p))) (विभागः f n qs)
+    ∙ cong₂ _+_ (length-map (p ∷_) (अपाकरणम् f n (suc p)))
+                (विभागः-गणना f n qs)
+
+  समास-आवृत्तिः : (n : ℕ)
+              → length (सर्गः (suc n))
+              ≡ योगः (map (λ p → length (अपाकरणम् n (suc n) (suc p))) ps)
+  समास-आवृत्तिः n = विभागः-गणना n (suc n) ps
+
+  ----------------------------------------------------------------------
+  -- अंश-गणना — प्रति-अंश-भागस्य गणना = a(n − sₚ) (योग्ये) ; suc p ≤ suc n चेत्
+  -- p-भागः a(n∸p) आनयति (इन्धन-अनपेक्षतया) ।  एवं आवृत्तिः शास्त्रीय-रूपम्
+  -- a(n) = Σ_{p : sₚ≤n} a(n−sₚ) लभते ।
+  ----------------------------------------------------------------------
+
+  अंश-गणना : (n p : ℕ) → p ≤ n
+           → length (अपाकरणम् n (suc n) (suc p)) ≡ length (सर्गः (n ∸ p))
+  अंश-गणना n p p≤n =
+      cong (λ t → length (अपाकरणम् n t (suc p))) (sym cancel)
+    ∙ cong length (अपाकरण-मूल्य n p (n ∸ p))
+    ∙ cong length (canon n n (n ∸ p) (∸-≤ n p) (∸-≤ n p))
+    where
+      cancel : suc p + (n ∸ p) ≡ suc n
+      cancel = cong suc (शेष-रद्दनम् p n p≤n)
 
 ------------------------------------------------------------------------
 -- प्रति-रूप-उदाहरणे — यथेच्छ-अंश-गणात् नाना-मेरवः (refl-सिद्धाः) ।
