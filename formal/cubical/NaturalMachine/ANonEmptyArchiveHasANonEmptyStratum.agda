@@ -173,3 +173,36 @@ stratumIsNonEmpty x xs with maximalExists x xs
 -- What was missing for a stratification was never the recursion — it
 -- was the measure the recursion decreases, and that is now present.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The admission this line has carried since it began —
+-- that its theorems are about a vector all of whose coordinates point
+-- the same way, while §5.2's objectives include quantities to be
+-- MINIMISED — is DISCHARGED for `maximalExists` in
+-- `NaturalMachine.RnaDhana_TheParetoMaximumTransfersToCostCoordinates`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- `mixedMaximalExists` proves that a non-empty archive of MIXED
+-- benefit/cost vectors has a member nothing beats, by calling
+-- `maximalExists` above on the flipped archive and pulling the result
+-- back.  Nothing about maximality is re-proved there.
+--
+-- Two things that cycle established about the price:
+--
+--   * The bound is needed only in the NEGATIVE half — soundness of the
+--     flip is unconditional, and it is turning "the flipped z does not
+--     beat the flipped u" back into "z does not beat u" that needs a
+--     cap on u.  Since u is a member, an archive-wide bound suffices.
+--   * The pull-back cannot go through the flipped element, because the
+--     flip is not injective; it goes through `anyMapBack`, which
+--     recovers a member of the ORIGINAL archive whose flip is the
+--     maximal element found.
+--
+-- STILL NOT TRANSFERRED: the stratification itself — `strata`,
+-- `theStratificationCovers`, `theStrataArePairwiseDisjoint`,
+-- `theStrataAreOrdered`.  Those need the peeling run on flipped
+-- vectors and pulled back layer by layer, and that is a separate
+-- cycle, not a corollary of this one.
+------------------------------------------------------------------------
