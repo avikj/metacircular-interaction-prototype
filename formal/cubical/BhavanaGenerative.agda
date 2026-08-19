@@ -223,18 +223,18 @@ module Generative (CR : CommRing ℓ) where
   -- propagation pattern the protocol exists to prevent, reproduced inside the
   -- lane that quotes the protocol.
   --
-  -- ASSOCIATIVITY OF `_⊛_` IS NOT PROVED ANYWHERE IN THIS REPOSITORY.  It is
-  -- true (the composition is multiplication in ℤ[√D], which is associative)
-  -- and it is not checked here, so no file may call these solutions a monoid
-  -- until it is.  What IS below is commutativity of the two coordinates AND —
-  -- added 2026-08-19 — the UNIT laws at the coordinate level, on both sides
-  -- (⊛UnitA/⊛UnitB, from bhA-idR/bhA-idL etc.), which is the other monoid
-  -- axiom.  So of the three monoid requirements only associativity of the
-  -- coordinates now remains unproved; the "not a monoid" bar still stands
-  -- until that is checked, but the missing piece is now exactly one thing,
-  -- named.  (The ℤ instance of coordinate associativity is proved in
-  -- BhavanaSamuha.साहचर्य-प्र/द्वि; the abstract-R, solver-free version is what
-  -- this lane still lacks.)
+  -- ASSOCIATIVITY OF `_⊛_` at the coordinate level is now PROVED (2026-08-19,
+  -- ⊛AssocA/⊛AssocB below, from bhA-assoc/bhB-assoc in Bhavana.Form — abstract
+  -- R, solver-free).  Together with commutativity (⊛CommA/⊛CommB) and the unit
+  -- laws (⊛UnitA/⊛UnitB), ALL THREE monoid axioms now hold at the level of the
+  -- two coordinates.  What is NOT yet assembled is the Sol-LEVEL monoid: a path
+  -- between `Sol` records is a triple (coefA path, coefB path, a PathP for the
+  -- `hasNorm` field over the changing norm index k₁·(k₂·k₃) vs (k₁·k₂)·k₃).
+  -- The index transport needs `·Assoc` on the norm and the hasNorm coherence
+  -- needs R to be a set (it is, being a CommRing) — bookkeeping, not new
+  -- algebra, but not written here.  So: the ALGEBRA of the monoid is complete;
+  -- the dependent-record assembly is the remaining step, and until it is done
+  -- no file may call these solutions a monoid.
   ----------------------------------------------------------------------
 
   ⊛CommA : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
@@ -263,6 +263,19 @@ module Generative (CR : CommRing ℓ) where
 
   ⊛UnitB-L : {D k : R} (s : Sol D k) → coefB (unit D ⊛ s) ≡ coefB s
   ⊛UnitB-L {D} s = bhB-idL D (coefA s) (coefB s)
+
+  -- Associativity of the two coordinates, straight from bhA-assoc/bhB-assoc.
+  -- coefA ((s ⊛ t) ⊛ u) and coefA (s ⊛ (t ⊛ u)) reduce definitionally to the
+  -- two nested bhA/bhB terms that bhA-assoc equates; likewise for coefB.
+  ⊛AssocA : {D k₁ k₂ k₃ : R} (s : Sol D k₁) (t : Sol D k₂) (u : Sol D k₃)
+          → coefA ((s ⊛ t) ⊛ u) ≡ coefA (s ⊛ (t ⊛ u))
+  ⊛AssocA {D} s t u =
+    bhA-assoc D (coefA s) (coefB s) (coefA t) (coefB t) (coefA u) (coefB u)
+
+  ⊛AssocB : {D k₁ k₂ k₃ : R} (s : Sol D k₁) (t : Sol D k₂) (u : Sol D k₃)
+          → coefB ((s ⊛ t) ⊛ u) ≡ coefB (s ⊛ (t ⊛ u))
+  ⊛AssocB {D} s t u =
+    bhB-assoc D (coefA s) (coefB s) (coefA t) (coefB t) (coefA u) (coefB u)
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.

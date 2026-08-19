@@ -190,6 +190,67 @@ module Form (CR : CommRing ℓ) where
       cong₂ _+_ (·Comm 1r b ∙ ·IdR b) (0RightAnnihilates a)
     ∙ +IdR b
 
+  -- Associativity of the two coordinates — the last monoid axiom for the
+  -- bhāvanā composition ℤ[√D] over an ABSTRACT commutative ring, solver-free.
+  -- Each side expands (distributivity) to the same four monomials; they are
+  -- matched by ·Assoc/·Comm/·CommAssocl and one four-term sum reordering.
+  private
+    -- (w+x)+(y+z) ≡ (w+y)+(x+z): swap the inner two summands.
+    reassoc4 : (w x y z : R) → (w + x) + (y + z) ≡ (w + y) + (x + z)
+    reassoc4 w x y z =
+        sym (+Assoc w x (y + z))
+      ∙ cong (w +_) (+Assoc x y z)
+      ∙ cong (w +_) (cong (_+ z) (+Comm x y))
+      ∙ cong (w +_) (sym (+Assoc y x z))
+      ∙ +Assoc w y (x + z)
+
+  bhA-assoc : (D a b c d e f : R)
+            → bhA D (bhA D a b c d) (bhB D a b c d) e f
+            ≡ bhA D a b (bhA D c d e f) (bhB D c d e f)
+  bhA-assoc D a b c d e f =
+      cong₂ _+_ (·DistL+ (a · c) (D · (b · d)) e)
+                (cong (D ·_) (·DistL+ (a · d) (c · b) f)
+                  ∙ ·DistR+ D ((a · d) · f) ((c · b) · f))
+    ∙ cong₂ _+_
+        (cong₂ _+_ (sym (·Assoc a c e))
+                   (sym (·Assoc D (b · d) e) ∙ cong (D ·_) (sym (·Assoc b d e))))
+        (cong₂ _+_ (cong (D ·_) (sym (·Assoc a d f)))
+                   (cong (D ·_) (cong (_· f) (·Comm c b) ∙ sym (·Assoc b c f))))
+    ∙ reassoc4 (a · (c · e)) (D · (b · (d · e)))
+               (D · (a · (d · f))) (D · (b · (c · f)))
+    ∙ cong ((a · (c · e) + D · (a · (d · f))) +_)
+           (+Comm (D · (b · (d · e))) (D · (b · (c · f))))
+    ∙ sym
+      ( cong₂ _+_ (·DistR+ a (c · e) (D · (d · f)))
+                  (cong (D ·_) (·DistR+ b (c · f) (e · d))
+                    ∙ ·DistR+ D (b · (c · f)) (b · (e · d)))
+      ∙ cong₂ _+_
+          (cong₂ _+_ refl (·CommAssocl a D (d · f)))
+          (cong₂ _+_ refl (cong (λ w → D · (b · w)) (·Comm e d))) )
+
+  bhB-assoc : (D a b c d e f : R)
+            → bhB D (bhA D a b c d) (bhB D a b c d) e f
+            ≡ bhB D a b (bhA D c d e f) (bhB D c d e f)
+  bhB-assoc D a b c d e f =
+      cong₂ _+_ (·DistL+ (a · c) (D · (b · d)) f)
+                (·DistR+ e (a · d) (c · b))
+    ∙ cong₂ _+_
+        (cong₂ _+_ (sym (·Assoc a c f))
+                   (sym (·Assoc D (b · d) f) ∙ cong (D ·_) (sym (·Assoc b d f))))
+        (cong₂ _+_ (·CommAssocl e a d)
+                   (·CommAssocl e c b ∙ ·Assoc c e b))
+    ∙ reassoc4 (a · (c · f)) (D · (b · (d · f)))
+               (a · (e · d)) ((c · e) · b)
+    ∙ cong ((a · (c · f) + a · (e · d)) +_)
+           (+Comm (D · (b · (d · f))) ((c · e) · b))
+    ∙ sym
+      ( cong₂ _+_ (·DistR+ a (c · f) (e · d))
+                  (·DistL+ (c · e) (D · (d · f)) b)
+      ∙ cong₂ _+_
+          refl
+          (cong₂ _+_ refl
+                     (sym (·Assoc D (d · f) b) ∙ cong (D ·_) (·Comm (d · f) b))) )
+
   ----------------------------------------------------------------------
   -- 2.  Bhāvanā (Brāhmasphuṭasiddhānta 18, 628 CE)
   --
