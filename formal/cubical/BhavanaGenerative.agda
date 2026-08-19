@@ -369,6 +369,28 @@ module Generative (CR : CommRing ℓ) where
              (λ j → is-set (N D (⊛CommA s t j) (⊛CommB s t j)) (·Comm _ _ j))
              (hasNorm (s ⊛ t)) (hasNorm (t ⊛ s)) i)
 
+  ----------------------------------------------------------------------
+  -- The group laws in the form §5b names: PLAIN paths in `Sol D 1r` for the
+  -- retyped operation `_∙₁_` (= subst along ·IdR 1r of `_⊛_`).  Each is the
+  -- corresponding ⊛-path read through `fromPathP`, since `subst B p` is exactly
+  -- `transport (λ i → B (p i))`.  `s ∙₁ inv s ≡ unit D` — the very statement
+  -- §5b said "no such term exists" — is now this one line.
+  ----------------------------------------------------------------------
+
+  ∙₁-idR : {D : R} (s : Sol D 1r) → s ∙₁ unit D ≡ s
+  ∙₁-idR s = fromPathP (⊛IdR s)
+
+  ∙₁-idL : {D : R} (s : Sol D 1r) → unit D ∙₁ s ≡ s
+  ∙₁-idL {D} s =
+      cong (λ p → subst (Sol D) p (unit D ⊛ s)) (is-set (1r · 1r) 1r (·IdR 1r) (·IdL 1r))
+    ∙ fromPathP (⊛IdL s)
+
+  ∙₁-invR : {D : R} (s : Sol D 1r) → s ∙₁ inv s ≡ unit D
+  ∙₁-invR s = fromPathP (⊛InvR s)
+
+  ∙₁-invL : {D : R} (s : Sol D 1r) → inv s ∙₁ s ≡ unit D
+  ∙₁-invL s = fromPathP (⊛InvL s)
+
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
 --
