@@ -17,7 +17,8 @@
 -- नारायणः) च {१,४}-कुलं गणनया एव उदेन्ति (refl-उदाहरणे) ; (२) सामान्या
 -- आवृत्तिः a(m)=a(m−1)+a(m−L) सर्व-कुले (समास-आवृत्तिः), इन्धन-अनपेक्षत्व-
 -- लेम्मया (canon) साधिता — यत् well-founded-आवर्तनं refl-गणनां हनिष्यत् ।
--- साधुता पूर्णता च उत्तर-पदे (समास-मानस्य आधारेण) ।
+-- (३) साधुता (साधु) : जनितं प्रत्येकं रूपं यथार्थं n-मानं वहति — दीर्घ-योग्यता-
+-- विभागेन (splitℕ-≤) ।  पूर्णता उत्तर-पदे (समास-मानस्य आधारेण) ।
 --
 -- स्रोतांसि : नारायणपण्डितः, गणितकौमुदी, अङ्कपाशः (१३५६) ; विरहाङ्कः (मेरुः) ।
 ------------------------------------------------------------------------
@@ -27,9 +28,10 @@ module SamasaMeru where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; snotz)
 open import Cubical.Data.Nat.Properties using (+-suc)
-open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; pred-≤-pred ; ∸-≤ ; splitℕ-≤)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import Cubical.Data.List.Properties using (length-map)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 import Cubical.Data.Empty as ⊥
 
 ------------------------------------------------------------------------
@@ -184,6 +186,59 @@ module _ (j : ℕ) where
     All-map (λ ys pf → cong (λ z → suc (suc (j + z))) pf) H
   साधु-strip f zero    (suc r) H = []
   साधु-strip f (suc t) (suc r) H = साधु-strip f t r H
+
+  All-++ : {P : समासः → Type} {xs ys : List समासः}
+         → समास-All P xs → समास-All P ys → समास-All P (xs ++ ys)
+  All-++ []       bs = bs
+  All-++ (p ∷ ps) bs = p ∷ All-++ ps bs
+
+  -- शेष-रद्दनम् : b ≤ a → b + (a ∸ b) ≡ a (दीर्घ-योग्यतायां मानं यथार्थम्) ।
+  शेष-रद्दनम् : (b a : ℕ) → b ≤ a → b + (a ∸ b) ≡ a
+  शेष-रद्दनम् zero    a       le = refl
+  शेष-रद्दनम् (suc b) zero    le = ⊥.rec (¬s≤z le)
+  शेष-रद्दनम् (suc b) (suc a) le = cong suc (शेष-रद्दनम् b a (pred-≤-pred le))
+
+  -- रिक्त-strip : समासः त-मात्रात् अल्पः (त < र) चेत् दीर्घ-भागः रिक्तः ।
+  रिक्त-strip : (f t r : ℕ) → suc t ≤ r → strip f t r ≡ []
+  रिक्त-strip f t       zero    le = ⊥.rec (¬s≤z le)
+  रिक्त-strip f zero    (suc r) le = refl
+  रिक्त-strip f (suc t) (suc r) le = रिक्त-strip f t r (pred-≤-pred le)
+
+  ----------------------------------------------------------------------
+  -- पूर्ण-साधुता (साधु-go) : पर्याप्तेन्धने जनितं प्रत्येकं रूपं मानं n वहति ।
+  -- दीर्घ-योग्यता-विभागः (≤Dec) : L ≤ suc m चेत् दीर्घ-भागः मानं (शेष-रद्दनेन)
+  -- suc m आनयति ; अन्यथा (suc m < L) दीर्घ-भागः रिक्तः (रिक्त-strip) ।
+  ----------------------------------------------------------------------
+
+  साधु-go : (f n : ℕ) → n ≤ f → समास-All (λ xs → मानम् xs ≡ n) (go f n)
+  साधु-go zero    zero    le = refl ∷ []
+  साधु-go (suc f) zero    le = refl ∷ []
+  साधु-go zero    (suc m) le = ⊥.rec (¬s≤z le)
+  साधु-go (suc f) (suc m) le with splitℕ-≤ (suc (suc j)) (suc m)
+  ... | inl p =
+        All-++ shorts
+          (subst (λ w → समास-All (λ zs → मानम् zs ≡ w) (strip f (suc m) (suc (suc j))))
+                 (शेष-रद्दनम् (suc (suc j)) (suc m) p)
+                 (साधु-strip f (suc m) (suc (suc j))
+                   (साधु-go f (suc m ∸ suc (suc j)) (≤-trans (∸-≤ m (suc j)) m≤f))))
+    where
+      m≤f : m ≤ f
+      m≤f = pred-≤-pred le
+      shorts : समास-All (λ xs → मानम् xs ≡ suc m) (map (ह्रस्वः ∷_) (go f m))
+      shorts = All-map (λ xs pf → cong suc pf) (साधु-go f m m≤f)
+  ... | inr q =
+        All-++ shorts
+          (subst (समास-All (λ zs → मानम् zs ≡ suc m))
+                 (sym (रिक्त-strip f (suc m) (suc (suc j)) q))
+                 [])
+    where
+      m≤f : m ≤ f
+      m≤f = pred-≤-pred le
+      shorts : समास-All (λ xs → मानम् xs ≡ suc m) (map (ह्रस्वः ∷_) (go f m))
+      shorts = All-map (λ xs pf → cong suc pf) (साधु-go f m m≤f)
+
+  साधु : (n : ℕ) → समास-All (λ xs → मानम् xs ≡ n) (सर्गः n)
+  साधु n = साधु-go n n ≤-refl
 
 ------------------------------------------------------------------------
 -- प्रति-रूप-उदाहरणे — एकस्मात् सामान्यात् जनन-सूत्रात् उभे मेरू (refl-सिद्धे) ।
