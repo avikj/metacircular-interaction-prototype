@@ -194,3 +194,33 @@ module ProfileCut (ks : List ℕ) where
               ⊑r-refl ⊑r-trans (up ks) (dn ks)
               (goFwd ks) (goBwd ks)
     public
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The item named above — "a cut with profiles on BOTH
+-- sides needs `up` to produce a residual profile … and is not built" —
+-- has its enabling step built in
+-- `NaturalMachine.TheTwoSidedProfileCutNeedsTheBurdensAsAProfile`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).
+--
+-- The step is `upV`/`dnV`: the SAME cut with the burdens taken as a
+-- PROFILE instead of read off the index list.  That is what frees the
+-- index list to be pure shape, so a matrix of burdens is a profile of
+-- profiles (`Rows`) and `UpP` produces a residual PROFILE.  The Galois
+-- connection survives verbatim — same two monus adjunctions.
+--
+-- **AND THE OBSTRUCTION TO THE REST IS THE EMPTY ROW SET.**  The right
+-- adjoint must send a residual profile to the largest burden profile
+-- below it, componentwise `maxᵢ (bᵢⱼ ∸ ψᵢ)`; with no rows the
+-- constraint is vacuous and that maximum is unbounded — the empty meet
+-- is `∞`, which ℕ does not have.  The paragraph above recorded this
+-- from the LEFT adjoint's side as a convention about `up ks φ = 0` on
+-- the empty burden list; it is the same fact, and on the right it is
+-- not a convention but an obstruction.  A two-sided cut therefore
+-- exists over a non-empty residual index set, or over `ℕ ⊎ ∞`, and not
+-- over ℕ with an arbitrary index set.
+--
+-- Still absent, as before: CONVOLUTION, hence nothing about Δ 28's
+-- COMPOSITION step.
+------------------------------------------------------------------------
