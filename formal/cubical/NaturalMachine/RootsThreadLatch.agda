@@ -115,6 +115,7 @@ import NaturalMachine.TheSecondNaIsTheCollision
 import NaturalMachine.MeruDiagonalIsVirahanka
 import NaturalMachine.TheFibreIsTheSubject
 import NaturalMachine.AntyaSamskaraIsSquares
+import NaturalMachine.ExclusionRecoversGroundAtAPrice
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
