@@ -552,3 +552,47 @@ Scores are `ℕ` above; §2's are accuracies, and no claim is made that they are
 ordered without ties or that ties break the same way. "Selects the first node**s**" is
 plural and this treats the *bound*, not the prefix — a prefix statement would need the
 sort.
+
+## Appended 2026-08-19, same thread: §5.2's two-stage shape is forced, not chosen
+
+*Appended at the end, altering no line above.*
+
+§5.2 opens *"Fitness is a vector, not 'number of exciting claims'"*, lists eight
+objectives, and says the controller maintains Pareto strata and samples **within** a
+stratum. The design is stated; the reason it must be that shape is not. It is forced, and
+both halves are checked in
+`formal/cubical/NaturalMachine/AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+| checked | reading here |
+|---|---|
+| `≼-refl`, `≼-trans`, `≼-antisym` | the pointwise order is a genuine partial **order**, antisymmetry included |
+| `incomparable` | `(2,0)` and `(0,3)` dominate in neither direction — the order is **not total**, so "the best node" does not denote |
+| `sumIsMonotone` | a scalarisation cannot *contradict* dominance … |
+| `scalarisationDecidesAnIncomparablePair` | … but it does *decide* that pair: `sum` says `2 < 3` where the objectives say nothing |
+| `monotoneStrictnessRefutesDominance` | and for **any** monotone `f`, `f v < f w` refutes `w ≼ v` — exactly its strength, and no more |
+
+**So a scalar fitness is a strict extension of the objective order, and every such
+extension is a choice the objectives do not license.** §5.2's two-stage shape is therefore
+not a refinement of "pick the best": there is no best to pick, and any rule producing one
+has smuggled a preference ordering in under the name of a measurement.
+
+**This joins the other thread in this note.** §2's seam 3, checked in
+`AscendingFirstIsTheWorstUnlessTheArchiveIsConstant`, is a defect in a branch that assumes
+a *total* order on accuracy; §5.2 says the fitness is a vector. The two sections are about
+the same missing total order. No claim is made that the released code implements §5.2 —
+it does not; §5.2 is this repository's proposed controller.
+
+**No novelty.** The product order, its failure of totality, and monotone scalarisations as
+strict extensions are standard multi-objective optimisation — Pareto, *Cours d'économie
+politique* (1896), and Edgeworth before him. The Agda is attached, not discovered.
+
+**Not claimed.** Vectors are `List ℕ`, comparable only at equal length; no length index
+appears. §5.2's objectives include wall time, tokens and dollar cost, which are to be
+**minimised** — nothing above flips a coordinate, so the theorems concern a vector whose
+coordinates all point the same way, and applying them needs the costs negated first.
+Real-valued objectives are not modelled. Nothing is claimed about `Q_i`, the weights, the
+exploration mass `η`, or the stratum mixture; and it is **not** proved that a Pareto
+stratification exists constructively for an arbitrary archive — that needs a decision on
+`≼`, which is not given here.
