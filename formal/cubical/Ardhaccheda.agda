@@ -21,8 +21,8 @@
 module Ardhaccheda where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-suc ; snotz)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+open import Cubical.Data.Nat.Properties using (+-suc ; snotz ; ·-distribʳ ; ·-identityˡ)
 open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤ ; suc-≤-suc ; pred-≤-pred ; ≤-trans ; ≤SumRight)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
@@ -190,3 +190,29 @@ n≤द्विघात (suc n) =
 
 वर्ग-षोडश : वर्गशलाका 16 ≡ 2
 वर्ग-षोडश = refl
+
+------------------------------------------------------------------------
+-- द्वि-घात-योगः — जैन-घात-नियमः (आधारे २) : 2^(m+n) = 2ᵐ · 2ⁿ ।
+-- (योगे घाताः गुण्यन्ते — Vargana.घात-योग तस्य सामान्य-आधारे ; अत्र द्वि-घातस्य
+--  योग-रूपे पुनः, अर्धच्छेद-लाने प्रयोगाय ।)
+------------------------------------------------------------------------
+
+द्वि-घात-योगः : (m n : ℕ) → द्वि-घात (m + n) ≡ द्वि-घात m · द्वि-घात n
+द्वि-घात-योगः zero    n = sym (·-identityˡ (द्वि-घात n))
+द्वि-घात-योगः (suc m) n =
+    cong₂ _+_ (द्वि-घात-योगः m n) (द्वि-घात-योगः m n)
+  ∙ ·-distribʳ (द्वि-घात m) (द्वि-घात m) (द्वि-घात n)
+
+------------------------------------------------------------------------
+-- लघुगणक-योगः — जैन-लघुगणक-नियमः : अर्धच्छेद(x·y) = अर्धच्छेद(x)+अर्धच्छेद(y) ।
+-- (गुणस्य लघुगणकः योगः — अनुयोगद्वार-धवला-परम्परा ; अत्र २-घातयोः सिद्धः ।)
+-- अर्धच्छेदः घात-वर्गात् (2ᵐ, ×) योग-वर्गं (ℕ, +) प्रति समरूपता (homomorphism) ।
+------------------------------------------------------------------------
+
+लघुगणक-योगः : (m n : ℕ)
+           → अर्धच्छेद (द्वि-घात m · द्वि-घात n)
+           ≡ अर्धच्छेद (द्वि-घात m) + अर्धच्छेद (द्वि-घात n)
+लघुगणक-योगः m n =
+    cong अर्धच्छेद (sym (द्वि-घात-योगः m n))
+  ∙ लघुगणकः (m + n)
+  ∙ sym (cong₂ _+_ (लघुगणकः m) (लघुगणकः n))
