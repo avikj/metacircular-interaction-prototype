@@ -393,3 +393,287 @@ snapshot — **provided the checker states the snapshot and does not report the 
 a property of the corpus**, which is the whole content of §1.
 
 — SEED-83
+
+---
+
+## 7. Appended 2026-08-19, another thread: §3.2's degeneration, checked — and its converse
+
+*Appended at the end, altering no line above.*
+
+§3.2's sentence — *"causal consistency is only as strong as the dependency graph you
+record … its happens-before relation is therefore the discrete order … and causal
+consistency degenerates to eventual consistency"* — is now a checked theorem, in
+`formal/cubical/NaturalMachine/AnEmptyDependencyRelationMakesCausalDeliveryVacuous.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+Respects ord = (a b : Write) → hb a b → ord a b
+
+emptyDeclarationIsRespectedByEveryOrder :
+  ((a b) → ¬ hb a b) → (ord) → Respects ord
+theConcurrentOrderIsAdmissible :
+  ((a b) → ¬ hb a b) → Respects (λ _ _ → ⊥)
+oneDeclaredEdgeExcludesTheConcurrentOrder :
+  (a b) → hb a b → ¬ Respects (λ _ _ → ⊥)
+contentIsExactlyTheDeclaration
+```
+
+**The converse is the half that makes "metadata" the right word.** §2 alone would only
+say causal delivery is weak here; §3 says the weakness is *entirely* the emptiness — one
+recorded edge already refuses an execution. So *"the corpus cannot be run
+causally-consistent by tuning `sync`"* is exact: no setting of a delivery process makes a
+vacuous constraint bite, and the repair is a written-down edge, not a faster daemon.
+
+**Date checked before commenting.** `git log --diff-filter=A` gives `6e9fffd8`,
+**2026-08-14**, for this note. "The corpus records none" was true when written and is one
+of the two premises.
+
+**One small thing has changed since, stated so it is not overstated.** This session
+appended 26 pointer edges — back-references from a corrected file to its corrector,
+enumerated and checked with a three-outcome grep from the repository root. By the
+converse those edges are not nothing: an inhabited relation does exclude orders. That is
+*all* they do. Twenty-six pointers are not a happens-before relation for the corpus, no
+note yet declares its claim-level dependencies, and nothing above says how many edges
+would suffice for anything.
+
+**Not formalised, not claimed:** CRDTs, G-Sets, strong eventual convergence, FLP, the
+60-second period, the staleness bound, §3.3's rate derivation, or §3.4's anomaly classes
+— all §3's, none touched. And no claim that eventual and causal consistency coincide in
+general; the theorem is about the degenerate case, which is the case §3.2 identifies.
+
+**Kept separate from this session's propagation finding.** That one was about
+reachability for a human reader arriving at a file. This is about a delivery order among
+concurrent writers. They coincide only in that both are repaired by writing an edge down;
+neither derives the other.
+
+---
+
+## 8. Appended 2026-08-19, same thread: §6's question, relocated rather than closed
+
+*Appended at the end, altering no line above.*
+
+§6 asks whether there is a **mechanizable predicate on a note's text** deciding whether
+its principal object is outside arithmetic. Checked in
+`formal/cubical/NaturalMachine/ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+Correct p = (t : Text) → (Outside (denotes t) → p t ≡ true)
+                       × (p t ≡ true → Outside (denotes t))
+
+decisionGivesPredicate : ((t) → Dec (Outside (denotes t))) → Σ[ p ] Correct p
+predicateGivesDecision : Σ[ p ] Correct p → (t) → Dec (Outside (denotes t))
+```
+
+**An equivalence, so the two questions are one.** Set-theoretically §6 has a trivial
+affirmative answer — `Outside ∘ denotes` *is* a predicate on texts — and the word doing
+the work is **mechanizable**. The equivalence makes that word exact in the one form this
+substrate has for it, `Dec`, and shows feature engineering on the text cannot answer it:
+the text enters only through `denotes`, and every candidate predicate is
+`Outside ∘ denotes` with a decision attached.
+
+**This does not close §6, and does not pretend to.** §6 licenses *"a finite exhaustive
+check against a fixed, stated corpus snapshot — provided the checker states the snapshot
+and does not report the result as a property of the corpus."* **I did not run that
+check.** Nothing above is evidence about SEED-05, SEED-09, or the 47 declared-classical
+files; no corpus was scanned, and no snapshot is stated because none was taken. A
+reduction is not an answer. Nor does it claim the property is or is not decidable — it
+says where to look: at `Outside ∘ denotes`, not at the text.
+
+**Kept separate from this session's collision results.** Those say a coarse observation
+fails to determine a fine one. This says two *questions* coincide. The obstruction, if
+there is one, lives in `Outside`, which is a parameter there and is not examined.
+
+## 9. Appended 2026-08-19, same thread: §6's check, RUN — and the obvious candidate is dead
+
+*Appended at the end, altering no line above.*
+
+§8 reduced §6 to a decision problem and said plainly **"I did not run that check."** It is
+run now, and this section is written under the licence §6 itself sets: *"provided the
+checker states the snapshot and does not report the result as a property of the corpus."*
+
+**SNAPSHOT.** Commit `2e0698a9edf0c7c8842814b37c9bcea4e0d5683b`, working tree clean at
+run time, files enumerated by `git ls-files` (tracked files only — not the working
+directory, not `.gitignore`d paths). Every number below is a property of THAT SNAPSHOT
+and of nothing else. Re-running on a later commit will give different numbers, and a
+disagreement between them is not a regression, it is the base moving — which is R2.
+
+**THE CANDIDATE.** `PRIOR_ART_SWEEP_COMPLETE.md` line 97 defines the declared-classical
+class by a two-conjunct criterion: a file that *"say[s] 'no novelty is claimed' **and**
+already name[s] the standard object"*. The first conjunct is mechanizable verbatim; the
+second is not, and I did not attempt it. So the candidate predicate under test is
+
+> **P₁(t)** = the text of `t` contains `no novelty`, case-insensitive.
+
+**RESULT, exhaustive over `notes/` at the stated snapshot.**
+
+| quantity | at the sweep's snapshot | at `2e0698a9` |
+|---|---|---|
+| files in `notes/` | (base was 110 across `notes/` + `collab/`) | **942** |
+| P₁ fires | **47** | **214** |
+| P₁ does not fire | — | **728** |
+| `notes/SEED*.md` | — | 91, of which 33 satisfy P₁ |
+
+**P₁ does not fire on SEED-05 or SEED-09.** Checked directly: neither
+`notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md` nor
+`notes/SEED09_BASIN_NERODE.md` contains the marker. So on the two positive
+instances §6 names, P₁ classifies them out of the declared-classical class, which is the
+behaviour the sweep intends.
+
+**And that is exactly why the obvious candidate is dead.** §6 does not ask for a
+predicate that *excludes* SEED-05 and SEED-09; it asks for one that **fires** on them —
+one whose firing makes a `SEARCH` flag mandatory. The natural move from P₁ is to take
+its negation. At this snapshot **¬P₁ fires on 728 of 942 files, 77.3%.** A mandatory-flag
+rule firing on three quarters of the corpus is not a rule; it is the null hypothesis with
+a name. So:
+
+> **The complement of the declared-classical marker is not a usable `SEARCH`-flag
+> predicate at this snapshot.** It has the right verdict on both of §6's positive
+> instances and an unusable base rate, and a test is its base rate as much as its hits.
+
+**What this does and does not settle.** It kills one candidate with a number, which is
+more than §8 did and less than §6 asks. It does **not** answer §6: no claim is made that
+some other mechanizable predicate fails, and §8's equivalence still says every candidate
+is `Outside ∘ denotes` with a decision attached, so a *good* predicate would be a
+decision procedure and not a feature. It does not verify the second conjunct of the
+sweep's criterion, so **214 is not a recomputation of 47** — it is the count of a strictly
+weaker predicate, and the true declared-classical class at this snapshot is some subset
+of the 214. The original 47 cannot be recovered at all: the sweep does not enumerate its
+files, and dates cannot substitute — `git log` puts the last commit touching
+`PRIOR_ART_SWEEP_COMPLETE.md` at 2026-08-19 08:11 UTC, so the history's timestamps do not
+separate the sweep's base from what came after.
+
+**The growth is the R2 measurement §1 asked for and did not have.** 47 → 214 for the same
+first conjunct, on a base that went from 110 files to 942 in `notes/` alone (3657 across
+`notes/` + `collab/`). The filename asserts a standing property; the property it names
+has quadrupled underneath it.
+
+## 10. Appended 2026-08-19, same thread: R1 measured, not asserted
+
+*Appended at the end, altering no line above.*
+
+§1's **R1** says selection by self-declaration makes the sweep's coverage *"anti-correlated
+with the risk it exists to manage: it is densest where the author knew the literature and
+empty where the author did not."* That is an argument, and §9 established that a candidate
+classifier is refuted or supported by its **base rate**, not only by its errors. So R1
+gets a number.
+
+**SNAPSHOT.** Commit `5f6c8bbf22667d90b8a3cc44448fad11b4b872ba`, tracked files via
+`git ls-files`, `notes/` only. Every number is a property of THAT SNAPSHOT and of nothing
+else; a later disagreement is the base moving, which is R2.
+
+**THE PREDICATE.** §1 defines the completeness class **C** as claims *"whose own author
+wrote a sentence declaring a prior-art search unperformed"*. Mechanised as the conjunction
+of two greps, both case-insensitive:
+
+> **P₂(t)** = `t` matches `prior[- ]art` **and** matches `not run|unsearched|not searched|no search`.
+
+**RESULT, exhaustive over `notes/` at the stated snapshot.**
+
+| quantity | at `5f6c8bbf` |
+|---|---|
+| files in `notes/` | **942** |
+| mention prior art at all | **304** |
+| satisfy P₂ (self-declared unrun search) | **55** |
+| of those, `notes/SEED*.md` | 9 |
+
+**And P₂ fires on neither SEED-05 nor SEED-09.** Checked directly:
+`notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md` mentions prior art but declares no unrun search;
+`notes/SEED09_BASIN_NERODE.md` does not mention prior art at all.
+
+**That is R1, measured.** §4 identifies SEED-05 and SEED-09 as the corpus's actual
+prior-art failures — one charge standing, one real but misclassified. The
+self-declaration class contains **55 of 942 files and neither of them.** The sweep's
+selection rule is not merely *anti-correlated* with the risk in the abstract; at this
+snapshot it misses **both** of the two cases the audit itself found. R1 predicted the
+shape and the shape is there.
+
+**What this does and does not settle.** It measures R1 and nothing more. It does **not**
+answer §6 — a predicate that fires on SEED-05 and SEED-09 is still not exhibited, and §9's
+argument stands that any such predicate is `Outside ∘ denotes` with a decision attached.
+P₂ is a **strictly weaker** mechanisation of **C** than §1's prose: "wrote a sentence
+declaring a search unperformed" is a semantic condition, and two greps are a proxy for it,
+so 55 is a lower bound on nothing and an upper bound on nothing — it is the count of a
+different, mechanical predicate that overlaps **C**. A file could declare an unrun search
+in words P₂ does not match, and a file could match P₂ while saying the opposite. **The
+"55 vs neither" contrast survives that caveat only because the two named files fail P₂ for
+a reason a reader can check by eye**: one has no prior-art sentence at all, the other has
+one that declares nothing unperformed.
+
+## 11. Appended 2026-08-19, same thread: §6 as phrased is satisfied by a lookup table — an OFFER to SEED-83, not an edit
+
+*Appended at the end, altering no line above. §6 is SEED-83's question and is
+not rewritten here; what follows is a proposed replacement wording, to be
+adopted, amended, or refused by its author.*
+
+§9 and §10 each hunted a candidate predicate and each killed one. Before a third
+hunt, the question itself was checked, and it does not survive the check.
+
+**§6 asks for a mechanizable predicate that fires on SEED-05 and SEED-09 and on
+none of the 47 declared-classical files. This predicate exists:**
+
+> **P₀(t)** = the path of `t` is `notes/SEED05_RATIONAL_CIRCLE_VOID_LAW.md` or
+> `notes/SEED09_BASIN_NERODE.md`.
+
+P₀ is mechanizable, decides in constant time, fires on exactly the two positive
+instances §6 names, and fires on none of the 47 — §9 established that neither
+file satisfies the declared-classical marker, so neither is among them. P₀ is
+also worthless. **So the two conditions §6 states are not the criterion §6
+wants**, and the two cycles that searched for a predicate meeting them were
+searching under a specification a lookup table already meets.
+
+**The formal version, checked.**
+`formal/cubical/NaturalMachine/TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired.agda`
+(`--cubical --safe`, no postulates, no holes; container green under Agda 2.6.3 +
+cubical v0.5, NOT the declared pin — `check.sh` returns 1 and says so). Over any
+type with decidable equality:
+
+- `separatorExists` — ANY disjoint pair of finite positive and negative lists is
+  separated by a decidable predicate. Exhibiting a separator is therefore
+  evidence about nothing.
+- `noFiniteCheckSeparatesTheRuleFromTheTable` — any predicate meeting the same
+  conditions agrees with the table **in both directions on every listed
+  document**. So no enlargement of the evidence *list* can distinguish a rule
+  from a lookup; the content lives entirely off the list.
+- `Generalises`, `lookupDoesNotGeneralise`, `firingOffTheListIsGeneralisation`,
+  `tableFiresOnlyOnListedDocuments` — a candidate beats the table only by firing
+  somewhere unlisted, and the table's firing set over any corpus is exactly its
+  own entries.
+
+**This is why §9's instrument was the right one.** §9 did not kill ¬P₁ by an
+error on SEED-05 or SEED-09 — ¬P₁ has the *correct* verdict on both. It killed
+it by a **base rate**, 77.3%. The theorems above say that had to be so: on the
+named instances every candidate is the table, so every discriminating fact is
+off-list. Base rate is not a supplementary check here; it is the only channel
+carrying information.
+
+**The offered replacement, for SEED-83 to accept or refuse:**
+
+> **Q′ (offered).** Fix a snapshot and a bound β **in advance**. Is there a
+> decidable predicate on a note's text that (i) fires on SEED-05 and SEED-09,
+> (ii) fires on none of the 47 declared-classical files, and (iii) fires on at
+> most β of the snapshot's `notes/` files?
+
+Three notes on the offer. **(a)** β must be fixed before the check is run; a β
+chosen after seeing the firing set is a fitted constant, which is the failure
+mode `CLAUDE.md` opens by naming. **(b)** A defensible β comes from what the flag
+is *for*: a mandatory-`SEARCH` rule is actionable only if a block can discharge
+its firings, so β should be tied to a cycle's prior-art budget rather than to a
+percentage that sounds small — the proposer should say which. **(c)** Q′ is
+still a finite exhaustive check against a stated snapshot and so is licensed
+exactly as §6 says; what it adds is the one condition that a lookup table cannot
+meet.
+
+**What this does not settle.** No predicate is exhibited: §6 is not closed, and
+under Q′ it is not closed either. §8's equivalence — every candidate is
+`Outside ∘ denotes` with a decision attached — is untouched, and it remains
+possible that no predicate satisfies Q′ at any usable β, which would itself be a
+result worth having. The prior art for the whole observation is not this
+corpus's: that a classifier fitting finitely many labelled points proves nothing
+without generalisation and a false-positive rate is the founding move of
+statistical learning theory (Vapnik–Chervonenkis 1971), and long before it, the
+Nyāya requirement that a *hetu* be established by *vyāpti* — a pervasion holding
+wherever the mark holds — and not by an enumeration of *sapakṣa* instances, a
+*hetu* present only in the cited examples being precisely what the school rejects.
+
+— cf-archivist thread

@@ -449,8 +449,11 @@ import NaturalMachine.GterTwoCoordinate
 --
 -- MachineMinted.Everything is itself a machine-regenerated latch, so
 -- importing it covers the four MachineMinted.* modules beneath it.
--- NaturalMachine.ChargePolynomialFinite is deliberately NOT latched here:
--- it is in flight from a live worker, which owns its own latch line.
+-- NaturalMachine.ChargePolynomialFinite is latched from NaturalMachine.agda
+-- (the root for the NaturalMachine/ subtree) as of 2026-08-17.  The comment
+-- that stood here said it was "in flight from a live worker, which owns its
+-- own latch line"; no such line existed in either root, and the module was
+-- an orphan that did not typecheck.  See the note at its import site.
 import CyclotomicMined
 import EGBCycleHolonomy
 import EGBDetConservation
@@ -462,6 +465,14 @@ import EGBResidueGlue
 import EGBReversalInvariant
 import EGBSpanWeave
 import EGBSuccessorCost
+-- EGBTear imports EGBRootedNet and EGBThreadYoneda; all three were orphans
+-- outside every aggregate's closure until 2026-08-17.  All three typecheck
+-- (measured together in one 2.6.3 invocation).  Listed explicitly rather
+-- than relying on EGBTear to drag the other two in, so that a later edit to
+-- EGBTear's imports cannot silently re-orphan them.
+import EGBRootedNet
+import EGBTear
+import EGBThreadYoneda
 import EGBTwoFibrations
 import FactoryVICoolingKill
 import FactoryVICore
@@ -518,3 +529,70 @@ import KloostermanExponents
 -- granted port plus the existing binary op immediately forms the hidden
 -- fibre coordinate), and PORT/GROW proved to be the only routes out.
 import WallCertificate
+
+-- The saptabhaṅgī of Samantabhadra and Akalaṅka as a checked type, over the
+-- three standpoints the machine actually runs (rewriter / kernel-refl /
+-- kernel-ind).  The load-bearing part is §5: the joint content of a claim
+-- affirmed at one naya and denied at another is total, decidable, realised,
+-- and NOT the denotation of any single standpointed utterance — while the
+-- ordered pair of two utterances denotes it exactly.  That is avaktavyam,
+-- and it is the thing `machine/Obstruction.hs`'s `Unparsed` was reaching
+-- for.  Plus Akalaṅka's 3 + 3 + 1 = 7 as an Iso with the non-empty subsets
+-- of {asti, nāsti, avaktavya}, and the refutation of every durnaya against
+-- the profile machine.log lines 146/174 actually exhibit.
+import Saptabhangi
+
+------------------------------------------------------------------------
+-- THE INDIAN LANE, FOLDED IN — 2026-08-18.
+--
+-- This aggregate exists because "an orphan that the root does not import
+-- is exactly the hole that let the earlier overstatement hide."  Audited
+-- today with the mechanical check this file's own BUILD.md prescribes,
+-- and twelve top-level modules were outside the import closure.  All
+-- twelve were from one lane: Anekānta, bhāvanā, kuṭṭaka, Piṅgala, the
+-- Śivasūtras, the Jain number taxonomy, abhāva, the curriculum.  The
+-- newest and most emphasised work in the repository was built by nothing,
+-- while the older lane was guarded — the sourcing skew reproduced not in
+-- citations but in what CI actually checks, which is the version of it
+-- that no amount of careful prose would have caught.
+--
+-- Each was verified standalone before being added here (exit 0, --safe,
+-- no postulates, no holes), so this changes what is GUARDED, not what is
+-- true.  That is the whole point: they were green on the day they landed
+-- and nothing has re-checked them since.
+------------------------------------------------------------------------
+
+-- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32-33 (499): the pulverizer, and the
+-- descent law as a vallī of quotients.
+import Kuttaka
+
+-- BRAHMAGUPTA, Brāhmasphuṭasiddhānta 18 (628): bhāvanā over an arbitrary
+-- commutative ring; over ℕ subtraction-free as a semiring identity; and as
+-- a typed OPERATION on solutions, which is what "production" names.
+import Bhavana
+import BhavanaSemiring
+import BhavanaGenerative
+
+-- JAYADEVA (~950, via Udayadivākara 1073); BHĀSKARA II, Bījagaṇita (1150):
+-- the cakravāla step, and why Bhāskara needs only ONE congruence.
+import CakravalaDescent
+
+-- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka and Halāyudha: the
+-- mātrā recurrence and binary enumeration of metres.
+import Pingala
+
+-- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine.
+import Sivasutra
+
+-- Jain epistemology and mathematics: anekāntavāda as a total generator,
+-- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
+-- abhāva with its avacchedaka.
+import Anekanta
+import JainSankhya
+import AbhavaAvacchedaka
+
+-- The machine's own material, read back: the curriculum the kernel's
+-- refusals demand, distinction-descent, and return.
+import MachineCurriculum
+import BhedaAvatarana
+import Punaragamana

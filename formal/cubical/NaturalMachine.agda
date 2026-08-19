@@ -287,6 +287,16 @@ import NaturalMachine.ReflectionAttachment
 import NaturalMachine.DependentOptimizationFibration
 import NaturalMachine.ChargeTwoHistories
 import NaturalMachine.ChenTwoChargeProjector
+-- Latched 2026-08-17.  Everything.agda carried a comment saying this module
+-- was "deliberately NOT latched ... in flight from a live worker, which owns
+-- its own latch line".  No such latch line ever existed anywhere in the tree,
+-- so the module sat outside every aggregate's closure and nothing rechecked
+-- it -- which is how it came to be committed in a state that does not
+-- typecheck at all (unsolved metas at line 747: a nested tuple whose Σ type
+-- Agda cannot infer, in a file that already uses `Path Triple` for exactly
+-- this at line 531).  Fixed to match the file's own idiom and latched here.
+-- Measured: 5.6s to check under /usr/bin/agda 2.6.3 with --safe.
+import NaturalMachine.ChargePolynomialFinite
 import NaturalMachine.FiniteOccupancyChannelNoGo
 import NaturalMachine.GeneratedCapability
 import NaturalMachine.AtomicSatisfaction
@@ -424,6 +434,10 @@ import NaturalMachine.WalkInduction
 -- the least PRIME POWER above m, so the Theta(e^psi(m)) divisibility test
 -- is replaced by a test at size ~m.  The theorem is the speedup.
 import NaturalMachine.WalkFast
+-- `Dec (IsPrime n)`: the primality decision procedure WalkJumps and
+-- CoprimeSplitting both confessed missing, built from CoprimeSplitting's
+-- own bounded divisor search (no new number theory).
+import NaturalMachine.PrimalityDecision
 -- notes/NUMBER_TOWER_AS_REPAIR.md §4.3 and Prop 9, as terms: repairs of a
 -- defect form a torsor under Aut of the repaired object, so the repair is
 -- canonical iff that group is trivial (and an initial repair is unique up
@@ -906,3 +920,10 @@ import NaturalMachine.Vacuity
 -- when this sweep ran and were deleted from the tree by another lane
 -- minutes later, commit 3b4846c6 "Delete the bisection stubs now that
 -- the real module checks".  Not imported: there is nothing to import.)
+--
+-- The mokṣa-yantra jewels (NisvabhavaNet, CatuskotiPerspective,
+-- PratityasamutpadaArising, MokshaYantra) are NOT imported here: this root
+-- does not check under the current fallback pin (PathIsSymmetry needs a
+-- `SymGroup` the pinned library does not export), so membership here would
+-- build nothing.  Their own closing aggregate is `NaturalMachine/Moksha.agda`,
+-- which checks green on its own — that is where the organism is sealed.

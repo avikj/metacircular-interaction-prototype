@@ -72,7 +72,6 @@ module TraceReplay
 
 import Data.List (intercalate, isPrefixOf)
 import qualified Data.Map.Strict as M
-import Data.Maybe (mapMaybe, isJust)
 import Control.Exception (finally)
 import System.Directory (removePathForcibly, getTemporaryDirectory)
 import System.Environment (getArgs, getEnvironment)

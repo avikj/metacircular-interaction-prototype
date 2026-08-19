@@ -17,7 +17,9 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.Group.Base using (GroupStr)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
-open import Cubical.Algebra.SymmetricGroup using (FinSymGroup)
+-- see NaturalMachine/PathIsSymmetry.agda: v0.9 calls this FinSymGroup and
+-- the pinned v0.5 calls it Sym, so it is defined there once instead
+open import NaturalMachine.PathIsSymmetry using (FinSymGroup)
 
 open import NaturalMachine.RelationalHolonomyRefinement
   using (closedLoopGaugeInvariant)

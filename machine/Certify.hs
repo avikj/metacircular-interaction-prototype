@@ -127,7 +127,64 @@
 -- mismatch aborts before a certificate is printed.
 -- ===================================================================
 
-module Main (main) where
+-- ===================================================================
+-- WHY THIS IS NOT `module Main` ANY MORE (2026-08-17).
+--
+-- It was, from the commit that landed it ("CERTIFY: the machine proves
+-- its own saturation") until today.  `module Main` cannot be imported,
+-- so MathMachine.hs could not reach a line of it, and the seam that
+-- file wrote for this one -- `certifySeam`, with a comment promising
+-- "exactly one line changes when Certify.hs lands" -- kept calling its
+-- own in-file fallback for three days while the commit message said
+-- the organ was connected.  The fallback is a strictly weaker test:
+-- see `joinability` below, whose clause (b) is the whole reason this
+-- file exists and which the fallback does not have.
+--
+-- So: `module Certify`, with `main` still exported.  Standalone use is
+-- unchanged except for one flag --
+--
+--     ghc -main-is Certify -o certify machine/Certify.hs
+--     runghc -imachine -- -main-is Certify machine/Certify.hs
+--
+-- and MathMachine.hs now imports `joinability`/`certifyBound` and runs
+-- them over its own critical pairs.  The export list is explicit so
+-- that what the engine is allowed to depend on is a decision recorded
+-- here rather than an accident of what happens to be top-level.
+-- ===================================================================
+module Certify
+  ( -- the transcribed term language, so a caller can translate into it
+    Term(..)
+  , Rule
+  , Sub
+    -- the rewrite relation this file certifies about
+  , normalize
+  , step
+  , decreases
+  , lpo
+  , precedence
+  , orient
+  , cmpTerm
+  , size
+  , vars
+  , subsetOf
+    -- the transcription's own witness: a caller MUST check this against
+    -- its own vocabulary before trusting a verdict, because `precedence`
+    -- above is computed from it and `precedence` decides `decreases`.
+  , vocabularyNames
+    -- critical pairs and the confluence organ
+  , Overlap(..)
+  , criticalPairs
+  , oneStepAll
+  , reachable
+  , Join(..)
+  , joinability
+  , certifyBound
+  , CertifyResult(..)
+  , certify
+  , terminationCheck
+    -- the standalone certificate report
+  , main
+  ) where
 
 import qualified Data.Map.Strict as M
 import qualified Data.Set as S

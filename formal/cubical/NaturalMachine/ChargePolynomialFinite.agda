@@ -744,7 +744,7 @@ f2 = (2 , 0) ∷ []
 f4 = (2 , 1) ∷ []
 f6 = (2 , 0) ∷ (3 , 0) ∷ []
 
-envelope-values : (value f2 , value f4 , value f6) ≡ (2 , 4 , 6)
+envelope-values : Path Triple (value f2 , value f4 , value f6) (2 , 4 , 6)
 envelope-values = refl
 
 chen-2 : chen f2 ≡ pos 1

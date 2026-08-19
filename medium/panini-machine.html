@@ -1,0 +1,1075 @@
+<title>Pāṇini's Machine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+
+<style>
+:root {
+  /* light ground: the palm-leaf side */
+  --ink:      #F3EFE6;
+  --leaf:     #FFFFFF;
+  --edge:     #DDD5C4;
+  --bone:     #16191F;
+  --ash:      #5E6470;
+  --haldi:    #A96C05;
+  --haldi-dim:#F0DCB4;
+  --kumkum:   #A62E20;
+  --kumkum-dim:#F2D6D0;
+  --glow:     rgba(169,108,5,0.14);
+
+  --f-dev: "Noto Serif Devanagari", "Noto Sans Devanagari", serif;
+  --f-body: "Gentium Book Plus", "Gentium Plus", "Charis SIL", Georgia, serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --step--1: 0.82rem;
+  --step-0:  1.0625rem;
+  --step-1:  1.35rem;
+  --step-2:  1.85rem;
+  --step-3:  2.6rem;
+  --step-4:  3.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink:      #0E1116;
+    --leaf:     #171C23;
+    --edge:     #2A313C;
+    --bone:     #EDE6D8;
+    --ash:      #868D99;
+    --haldi:    #E8A33D;
+    --haldi-dim:#3A2E19;
+    --kumkum:   #E0604D;
+    --kumkum-dim:#39211C;
+    --glow:     rgba(232,163,61,0.10);
+  }
+}
+:root[data-theme="dark"] {
+  --ink:      #0E1116;
+  --leaf:     #171C23;
+  --edge:     #2A313C;
+  --bone:     #EDE6D8;
+  --ash:      #868D99;
+  --haldi:    #E8A33D;
+  --haldi-dim:#3A2E19;
+  --kumkum:   #E0604D;
+  --kumkum-dim:#39211C;
+  --glow:     rgba(232,163,61,0.10);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+.narrow { max-width: 66ch; }
+
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 700; }
+p { margin: 0; }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+/* ───────────────────────── masthead ───────────────────────── */
+
+.masthead {
+  padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2rem, 5vw, 3.5rem);
+  display: flex; flex-direction: column; gap: 1.6rem;
+}
+.masthead h1 {
+  font-size: var(--step-4);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.masthead .dev {
+  font-family: var(--f-dev);
+  font-size: var(--step-2);
+  color: var(--haldi);
+  line-height: 1.5;
+  font-weight: 400;
+}
+.lede { font-size: var(--step-1); line-height: 1.5; max-width: 60ch; }
+.lede em { color: var(--haldi); font-style: normal; }
+
+/* ───────────────────────── the tape ───────────────────────── */
+
+.tape-zone {
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  background: var(--leaf);
+  padding: clamp(1.6rem, 4vw, 2.6rem) 0;
+  margin: 2rem 0 0;
+}
+.tape-scroll { overflow-x: auto; padding-bottom: 0.75rem; }
+.tape {
+  display: flex; align-items: stretch; gap: 0;
+  font-family: var(--f-mono);
+  min-width: max-content;
+  position: relative;
+}
+.slot {
+  position: relative;
+  min-width: 2.35rem;
+  padding: 0.85rem 0.35rem 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--bone);
+  border-bottom: 2px solid var(--edge);
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+.slot.marker { color: var(--kumkum); font-weight: 600; }
+.slot .idx {
+  position: absolute; left: 0; right: 0; bottom: 0.35rem;
+  font-size: 0.58rem; color: var(--ash); letter-spacing: 0.04em;
+}
+.slot.lit { background: var(--haldi-dim); color: var(--haldi); border-bottom-color: var(--haldi); }
+.slot.lit.marker { background: var(--kumkum-dim); color: var(--kumkum); border-bottom-color: var(--kumkum); }
+.slot.stop { border-bottom-color: var(--kumkum); background: var(--kumkum-dim); color: var(--kumkum); }
+.sutra-break { width: 1px; background: var(--edge); margin: 0.4rem 0.25rem; flex: none; }
+
+.tape-legend {
+  display: flex; flex-wrap: wrap; gap: 1.25rem;
+  margin-top: 1rem; font-family: var(--f-mono); font-size: var(--step--1);
+  color: var(--ash);
+}
+.tape-legend b { font-weight: 500; }
+.swatch { display: inline-block; width: 0.7rem; height: 0.7rem; vertical-align: -1px; margin-right: 0.4rem; border-radius: 2px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.4rem; }
+.chip {
+  font-family: var(--f-mono); font-size: 0.83rem;
+  padding: 0.32rem 0.62rem;
+  background: transparent;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  color: var(--bone);
+  cursor: pointer;
+  transition: all 130ms ease;
+}
+.chip:hover, .chip:focus-visible { border-color: var(--haldi); color: var(--haldi); }
+/* pressed chip inverts onto the accent; --ink is the page ground in either
+   theme, so this stays legible without a per-theme override */
+.chip[aria-pressed="true"] { background: var(--haldi); border-color: var(--haldi); color: var(--ink); }
+
+.chip-readout {
+  margin-top: 1rem; font-family: var(--f-mono); font-size: var(--step--1);
+  color: var(--ash); min-height: 3.2em; line-height: 1.7;
+}
+.chip-readout b { color: var(--bone); font-weight: 500; }
+.chip-readout .members { color: var(--haldi); }
+
+/* ───────────────────────── sections ───────────────────────── */
+
+section { padding: clamp(3rem, 8vw, 5.5rem) 0; border-bottom: 1px solid var(--edge); }
+.sec-head { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2.2rem; }
+.sec-head h2 { font-size: var(--step-3); line-height: 1.1; letter-spacing: -0.015em; }
+.sec-head .sub { color: var(--ash); max-width: 62ch; }
+
+/* derivation */
+.runner { display: grid; gap: 1.4rem; }
+.input-row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+input[type=text] {
+  font-family: var(--f-mono); font-size: 1.05rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--leaf); color: var(--bone);
+  border: 1px solid var(--edge); border-radius: 4px;
+  min-width: 20rem; flex: 1 1 20rem;
+}
+input[type=text]:focus-visible { outline: 2px solid var(--haldi); outline-offset: 1px; }
+button.go {
+  font-family: var(--f-mono); font-size: 0.95rem;
+  padding: 0.65rem 1.3rem; border-radius: 4px; cursor: pointer;
+  background: var(--haldi); color: var(--ink); border: 1px solid var(--haldi);
+  font-weight: 600;
+}
+button.go:hover { filter: brightness(1.08); }
+.presets { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.preset {
+  font-family: var(--f-mono); font-size: 0.8rem;
+  padding: 0.28rem 0.55rem; border-radius: 3px; cursor: pointer;
+  background: transparent; border: 1px dashed var(--edge); color: var(--ash);
+}
+.preset:hover { border-color: var(--haldi); color: var(--haldi); border-style: solid; }
+
+.result {
+  font-family: var(--f-mono);
+  background: var(--leaf); border: 1px solid var(--edge); border-radius: 6px;
+  overflow: hidden;
+}
+.result-head {
+  padding: 1.1rem 1.2rem; display: flex; flex-wrap: wrap; gap: 0.8rem;
+  align-items: baseline; border-bottom: 1px solid var(--edge);
+}
+.result-head .in { color: var(--ash); font-size: 1.05rem; }
+.result-head .arrow { color: var(--ash); }
+.result-head .out { color: var(--haldi); font-size: 1.5rem; font-weight: 600; }
+.steps { display: flex; flex-direction: column; }
+.step { padding: 1rem 1.2rem; border-bottom: 1px solid var(--edge); display: grid; gap: 0.45rem; }
+.step:last-child { border-bottom: none; }
+.step-ref {
+  display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: baseline;
+}
+.step-ref .num { color: var(--haldi); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.03em; }
+.step-ref .dev { font-family: var(--f-dev); font-size: 1.15rem; color: var(--bone); }
+.step-ref .iast { color: var(--ash); font-style: italic; font-family: var(--f-body); }
+.step-note { color: var(--ash); font-size: 0.88rem; }
+.step-xform { font-size: 1rem; }
+.step-xform .from { color: var(--ash); }
+.step-xform .to { color: var(--bone); }
+.beat {
+  margin-top: 0.2rem; font-size: 0.85rem;
+  color: var(--kumkum); background: var(--kumkum-dim);
+  border-left: 2px solid var(--kumkum);
+  padding: 0.5rem 0.75rem; border-radius: 0 3px 3px 0;
+}
+.tri-badge {
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ash); border: 1px solid var(--edge); padding: 0.1rem 0.4rem; border-radius: 2px;
+}
+.refusal {
+  padding: 1rem 1.2rem; font-size: 0.88rem; color: var(--kumkum);
+  background: var(--kumkum-dim); border-top: 1px solid var(--edge);
+}
+.err { padding: 1rem 1.2rem; color: var(--kumkum); font-size: 0.9rem; }
+
+/* the loop demo */
+.loop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.2rem; }
+.panel { background: var(--leaf); border: 1px solid var(--edge); border-radius: 6px; padding: 1.3rem; display: grid; gap: 0.8rem; }
+.panel h3 { font-size: var(--step-1); }
+.panel .state { font-family: var(--f-mono); font-size: 0.9rem; color: var(--ash); }
+.chain { font-family: var(--f-mono); font-size: 0.95rem; line-height: 1.9; word-break: break-word; }
+.chain .tick { color: var(--ash); }
+.chain .now { color: var(--haldi); font-weight: 600; }
+.panel.bad { border-color: var(--kumkum); }
+.panel.bad .chain .now { color: var(--kumkum); }
+.counter { font-family: var(--f-mono); font-size: var(--step-2); font-variant-numeric: tabular-nums; }
+.counter.bad { color: var(--kumkum); }
+.counter.good { color: var(--haldi); }
+
+/* mechanisms */
+.mechs { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
+.mech { background: var(--leaf); border: 1px solid var(--edge); border-radius: 6px; padding: 1.3rem; display: grid; gap: 0.6rem; align-content: start; }
+.mech .num { font-family: var(--f-mono); font-size: 0.82rem; color: var(--haldi); letter-spacing: 0.05em; }
+.mech .dev { font-family: var(--f-dev); font-size: 1.3rem; line-height: 1.5; }
+.mech .iast { font-style: italic; color: var(--ash); font-size: 0.95rem; }
+.mech p { font-size: 0.95rem; }
+
+/* ledger */
+table { width: 100%; border-collapse: collapse; font-family: var(--f-mono); font-size: 0.88rem; }
+.table-scroll { overflow-x: auto; }
+th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--edge); vertical-align: top; }
+th { color: var(--ash); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+td.yes { color: var(--haldi); }
+td.no { color: var(--ash); }
+
+footer { padding: clamp(3rem, 7vw, 5rem) 0 6rem; color: var(--ash); font-size: 0.95rem; display: grid; gap: 1.2rem; }
+footer a { color: var(--haldi); }
+.cite { font-family: var(--f-mono); font-size: 0.82rem; line-height: 1.8; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">Aṣṭādhyāyī · c. 500 BCE · running</div>
+    <h1>Pāṇini's Machine</h1>
+    <div class="dev">इको यणचि</div>
+    <p class="lede">
+      Four thousand rules that <em>compute</em> Sanskrit rather than describe it.
+      Below, the actual thing runs: give it two words and it returns the joined
+      form, naming every rule that fired and — when two rules wanted the same
+      spot — which one won, and by which meta-rule.
+    </p>
+  </header>
+</div>
+
+<!-- ───────────────────────── THE TAPE ───────────────────────── -->
+
+<div class="tape-zone">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:1.1rem">The varṇasamāmnāya — every sound of Sanskrit, in one line</div>
+    <div class="tape-scroll">
+      <div class="tape" id="tape"></div>
+    </div>
+    <div class="tape-legend">
+      <span><span class="swatch" style="background:var(--haldi)"></span><b>sound</b> — 42 distinct, and <i>h</i> seated twice</span>
+      <span><span class="swatch" style="background:var(--kumkum)"></span><b>anubandha</b> — 14 markers, boundaries, never members</span>
+      <span>| = end of one of the fourteen śiva&#8203;sūtras</span>
+    </div>
+
+    <div class="narrow" style="margin-top:2rem">
+      <p>
+        Every rule in the grammar needs to name a <em>group</em> of sounds — "any vowel",
+        "the voiced stops", "the semivowels". Pāṇini's device: lay all 42 sounds in
+        this one order, punctuate it with 14 markers, and then a group is simply
+        <b>the stretch from a sound up to a marker</b>. Two characters name any class
+        the grammar will ever need. Press one.
+      </p>
+    </div>
+
+    <div class="chips" id="chips"></div>
+    <div class="chip-readout" id="chipReadout">
+      Hover or press a name above and its span lights up on the line.
+    </div>
+  </div>
+</div>
+
+<!-- ───────────────────────── RUN IT ───────────────────────── -->
+
+<div class="wrap">
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Instrument 01</div>
+    <h2>Run a derivation</h2>
+    <p class="sub">
+      <code>+</code> is a boundary between two words. <code>-</code> is a juncture
+      <i>inside</i> one word — root and suffix. The distinction is not cosmetic:
+      the same two vowels give different answers on either side of it, because
+      rule 6.1.109 is conditioned on <i>padāntāt</i>, "at the end of a word".
+    </p>
+  </div>
+
+  <div class="runner">
+    <div class="input-row">
+      <input type="text" id="inp" value="dadhi + indra" spellcheck="false" aria-label="Sanskrit input">
+      <button class="go" id="run">Derive</button>
+    </div>
+    <div class="presets" id="presets"></div>
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<!-- ───────────────────────── THE LOOP ───────────────────────── -->
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Instrument 02</div>
+    <h2>Take away 8.2.1 and it never stops</h2>
+    <p class="sub">
+      The last three quarter-chapters (8.2, 8.3, 8.4) are <i>asiddha</i> — "as if not
+      having taken effect" — for everything before them. Rules there produce output
+      their predecessors cannot see. Here is why that is not bookkeeping. Deriving
+      <b>vāc</b> ("speech"): 8.2.39 turns a final <i>k</i> into <i>g</i>; 8.4.56 turns
+      <i>g</i> back into <i>k</i>.
+    </p>
+  </div>
+
+  <div class="loop-grid">
+    <div class="panel">
+      <h3>8.2.1 in force</h3>
+      <div class="state">each quarter runs once, in order, blind to its successors</div>
+      <div class="chain" id="chainOn"></div>
+      <div class="counter good" id="cntOn">3 steps</div>
+      <div class="state">Stops at <b style="color:var(--haldi)">vāk</b>. 8.2.39 applies to that
+        <i>k</i> and is refused — it precedes the rule that made it.</div>
+    </div>
+    <div class="panel bad">
+      <h3>8.2.1 removed</h3>
+      <div class="state">every rule may see every output</div>
+      <div class="chain" id="chainOff"></div>
+      <div class="counter bad" id="cntOff">0 steps</div>
+      <div class="state">Never reaches a normal form. Not slow — <b style="color:var(--kumkum)">non-terminating</b>.</div>
+      <div><button class="go" id="loopBtn">Run it</button></div>
+    </div>
+  </div>
+
+  <div class="narrow" style="margin-top:2.2rem">
+    <p>
+      There is no measure that decreases here, and that is provable rather than
+      observed: any termination proof by a decreasing order needs an order that is
+      irreflexive and transitive with <i>k</i> &gt; <i>g</i> and <i>g</i> &gt; <i>k</i>,
+      which gives <i>k</i> &gt; <i>k</i>. So every order-based method fails — recursive
+      path orders, the Knuth–Bendix order, polynomial and matrix interpretations, and
+      Knuth–Bendix completion itself, which is parameterised by exactly such an order.
+      Pāṇini terminates it anyway, by constraining what each rule may <em>observe</em>.
+    </p>
+  </div>
+</section>
+
+<!-- ───────────────────────── MECHANISMS ───────────────────────── -->
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">The four mechanisms</div>
+    <h2>Rule interaction, solved</h2>
+    <p class="sub">
+      Name a programming language with four ways of resolving what happens when two
+      rules want the same place. Most have one — top to bottom, first match wins — or
+      none at all.
+    </p>
+  </div>
+  <div class="mechs">
+    <div class="mech">
+      <div class="num">1.4.2</div>
+      <div class="dev">विप्रतिषेधे परं कार्यम्</div>
+      <div class="iast">vipratiṣedhe paraṃ kāryam</div>
+      <p>"In conflict, the later operation." Later meaning <b>later in the book</b>.
+      The position of a rule in the text is part of its meaning — so the ordering of
+      four thousand rules is itself a specification, and you cannot reorder them.</p>
+    </div>
+    <div class="mech">
+      <div class="num">utsarga / apavāda</div>
+      <div class="dev">अपवाद</div>
+      <div class="iast">the exception blocks the general</div>
+      <p>A narrower rule defeats the wider one it is an exception to, regardless of
+      position. Rediscovered in 1973 and named the Elsewhere Condition after its
+      rediscoverer.</p>
+    </div>
+    <div class="mech">
+      <div class="num">6.1.84</div>
+      <div class="dev">एकः पूर्वपरयोः</div>
+      <div class="iast">ekaḥ pūrvaparayoḥ</div>
+      <p>A heading that governs a <i>range</i> of later rules and injects a condition
+      into each: "one substitute, for the preceding and the following together." Rules
+      inside its scope replace two sounds by one. Rules outside it do not — 6.1.78 sits
+      below 84 and turns one sound into <i>two</i>.</p>
+    </div>
+    <div class="mech">
+      <div class="num">8.2.1</div>
+      <div class="dev">पूर्वत्रासिद्धम्</div>
+      <div class="iast">pūrvatrāsiddham</div>
+      <p>Stratification. What follows is as-if-not-effected for what precedes, so the
+      grammar runs in phases and later output is invisible backwards. This is a
+      termination technique, and it is not the one in the textbook.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── LEDGER ───────────────────────── -->
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Honest ledger</div>
+    <h2>What is here and what is not</h2>
+    <p class="sub">
+      The Aṣṭādhyāyī has about 3,983 sūtras — recensions differ, 3,959 to 3,996.
+      This page runs the number in the table. Complete means complete; sample means
+      sample.
+    </p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Component</th><th>Status</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>the fourteen śivasūtras</td><td class="yes">complete</td><td>all 43 slots, all 14 anubandhas</td></tr>
+        <tr><td>pratyāhāra extraction</td><td class="yes">complete</td><td>every class below checked against its traditional value</td></tr>
+        <tr><td>savarṇa — 1.1.9, 1.1.10, 1.1.69</td><td class="yes">complete</td><td>place, effort, the vowel/consonant override, the aṆ-udit extension</td></tr>
+        <tr><td>the four metarule mechanisms</td><td class="yes">complete</td><td>1.4.2 · utsarga/apavāda · adhikāra scope · 8.2.1</td></tr>
+        <tr><td>vidhi rules (the operations)</td><td class="no">sample</td><td id="ruleCount">—</td></tr>
+        <tr><td>morphology, affix selection</td><td class="no">absent</td><td>the lakāras, the dhātupāṭha</td></tr>
+        <tr><td>kāraka → case, <i>anabhihite</i></td><td class="no">absent</td><td>the semantic layer; the harder and more interesting half</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="narrow" style="margin-top:2rem">
+    <p style="color:var(--ash)">
+      What the sample is chosen for: enough of 6.1 (vowel sandhi) and 8.2–8.4 (the
+      tripādī) to run derivations end to end and make each of the four mechanisms do
+      visible work. Nothing on this page is a stored answer — every form above is
+      computed by the rules, in your browser, when you press the button.
+    </p>
+  </div>
+</section>
+</div>
+
+<div class="wrap">
+<footer>
+  <div class="narrow">
+    <p><b>Sources.</b> Pāṇini, <i>Aṣṭādhyāyī</i>, c. 500 BCE. Kātyāyana's <i>vārttikas</i>,
+    c. 250 BCE. Patañjali, <i>Mahābhāṣya</i>, c. 150 BCE. Sūtra text and numbering follow
+    the vulgate.</p>
+  </div>
+  <div class="cite">
+    1.1.1 वृद्धिरादैच् · 1.1.2 अदेङ् गुणः · 1.1.9 तुल्यास्यप्रयत्नं सवर्णम् ·
+    1.1.10 नाज्झलौ · 1.1.51 उरण् रपरः · 1.1.69 अणुदित्सवर्णस्य चाप्रत्ययः ·
+    1.4.2 विप्रतिषेधे परं कार्यम् · 6.1.72 संहितायाम् · 6.1.77 इको यणचि ·
+    6.1.78 एचोऽयवायावः · 6.1.84 एकः पूर्वपरयोः · 6.1.87 आद्गुणः ·
+    6.1.88 वृद्धिरेचि · 6.1.101 अकः सवर्णे दीर्घः · 6.1.109 एङः पदान्तादति ·
+    8.2.1 पूर्वत्रासिद्धम् · 8.2.30 चोः कुः · 8.2.39 झलां जशोऽन्ते ·
+    8.2.66 ससजुषो रुः · 8.3.15 खरवसानयोर्विसर्जनीयः · 8.4.40 स्तोः श्चुना श्चुः ·
+    8.4.41 ष्टुना ष्टुः · 8.4.53 झलां जश् झशि · 8.4.55 खरि च · 8.4.56 वावसाने
+  </div>
+</footer>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════ 1. the fourteen śivasūtras ═══════════════════ */
+
+const SS = [
+  { n: 1,  s:["a","i","u"],                          m:"ṇ",  dev:"अ इ उ ण्" },
+  { n: 2,  s:["ṛ","ḷ"],                              m:"k",  dev:"ऋ ऌ क्" },
+  { n: 3,  s:["e","o"],                              m:"ṅ",  dev:"ए ओ ङ्" },
+  { n: 4,  s:["ai","au"],                            m:"c",  dev:"ऐ औ च्" },
+  { n: 5,  s:["h","y","v","r"],                      m:"ṭ",  dev:"ह य व र ट्" },
+  { n: 6,  s:["l"],                                  m:"ṇ",  dev:"ल ण्" },
+  { n: 7,  s:["ñ","m","ṅ","ṇ","n"],                  m:"m",  dev:"ञ म ङ ण न म्" },
+  { n: 8,  s:["jh","bh"],                            m:"ñ",  dev:"झ भ ञ्" },
+  { n: 9,  s:["gh","ḍh","dh"],                       m:"ṣ",  dev:"घ ढ ध ष्" },
+  { n:10,  s:["j","b","g","ḍ","d"],                  m:"ś",  dev:"ज ब ग ड द श्" },
+  { n:11,  s:["kh","ph","ch","ṭh","th","c","ṭ","t"], m:"v",  dev:"ख फ छ ठ थ च ट त व्" },
+  { n:12,  s:["k","p"],                              m:"y",  dev:"क प य्" },
+  { n:13,  s:["ś","ṣ","s"],                          m:"r",  dev:"श ष स र्" },
+  { n:14,  s:["h"],                                  m:"l",  dev:"ह ल्" }
+];
+
+// flat tape: {kind:'snd'|'it', v, sutra}
+const TAPE = [];
+SS.forEach(r => {
+  r.s.forEach(x => TAPE.push({ kind:"snd", v:x, sutra:r.n }));
+  TAPE.push({ kind:"it", v:r.m, sutra:r.n });
+});
+
+// interval from first occurrence of `start` up to the first marker `m`
+// at or after it. Markers in between are skipped: a boundary, not a member.
+function span(start, marker) {
+  let i = TAPE.findIndex(t => t.kind === "snd" && t.v === start);
+  if (i < 0) return null;
+  for (let j = i; j < TAPE.length; j++) {
+    if (TAPE[j].kind === "it" && TAPE[j].v === marker) return { from:i, to:j };
+  }
+  return null;
+}
+function pratyahara(start, marker) {
+  const sp = span(start, marker);
+  if (!sp) return [];
+  const out = [];
+  for (let j = sp.from; j < sp.to; j++) if (TAPE[j].kind === "snd") out.push(TAPE[j].v);
+  return out;
+}
+const uniq = a => [...new Set(a)];
+
+/* ═══════════════════ 2. phonetics: 1.1.9, 1.1.10, 1.1.69 ═══════════════════ */
+
+// [name, place, effort, isVowel]
+const PH = [
+  ["a","kaṇṭha","vivṛta",1],      ["ā","kaṇṭha","vivṛta",1],
+  ["i","tālu","vivṛta",1],        ["ī","tālu","vivṛta",1],
+  ["u","oṣṭha","vivṛta",1],       ["ū","oṣṭha","vivṛta",1],
+  ["ṛ","mūrdhan","vivṛta",1],     ["ṝ","mūrdhan","vivṛta",1],
+  ["ḷ","danta","vivṛta",1],
+  ["e","kaṇṭhatālu","vivṛta",1],  ["ai","kaṇṭhatālu","vivṛtatara",1],
+  ["o","kaṇṭhoṣṭha","vivṛta",1],  ["au","kaṇṭhoṣṭha","vivṛtatara",1],
+  ["k","kaṇṭha","spṛṣṭa",0],  ["kh","kaṇṭha","spṛṣṭa",0],  ["g","kaṇṭha","spṛṣṭa",0],  ["gh","kaṇṭha","spṛṣṭa",0],  ["ṅ","kaṇṭha","spṛṣṭa",0],
+  ["c","tālu","spṛṣṭa",0],    ["ch","tālu","spṛṣṭa",0],    ["j","tālu","spṛṣṭa",0],    ["jh","tālu","spṛṣṭa",0],    ["ñ","tālu","spṛṣṭa",0],
+  ["ṭ","mūrdhan","spṛṣṭa",0], ["ṭh","mūrdhan","spṛṣṭa",0], ["ḍ","mūrdhan","spṛṣṭa",0], ["ḍh","mūrdhan","spṛṣṭa",0], ["ṇ","mūrdhan","spṛṣṭa",0],
+  ["t","danta","spṛṣṭa",0],   ["th","danta","spṛṣṭa",0],   ["d","danta","spṛṣṭa",0],   ["dh","danta","spṛṣṭa",0],   ["n","danta","spṛṣṭa",0],
+  ["p","oṣṭha","spṛṣṭa",0],   ["ph","oṣṭha","spṛṣṭa",0],   ["b","oṣṭha","spṛṣṭa",0],   ["bh","oṣṭha","spṛṣṭa",0],   ["m","oṣṭha","spṛṣṭa",0],
+  ["y","tālu","īṣatspṛṣṭa",0], ["r","mūrdhan","īṣatspṛṣṭa",0], ["l","danta","īṣatspṛṣṭa",0], ["v","dantoṣṭha","īṣatspṛṣṭa",0],
+  ["ś","tālu","īṣadvivṛta",0], ["ṣ","mūrdhan","īṣadvivṛta",0], ["s","danta","īṣadvivṛta",0], ["h","kaṇṭha","īṣadvivṛta",0],
+  ["ḥ","kaṇṭha","īṣadvivṛta",0]
+];
+const PHM = Object.fromEntries(PH.map(p => [p[0], p]));
+
+// 1.1.9 tulyāsyaprayatnaṃ savarṇam, with the 1.1.10 nājjhalau override
+function savarna(x, y) {
+  const p = PHM[x], q = PHM[y];
+  if (!p || !q) return false;
+  if (p[3] !== q[3]) return false;             // 1.1.10: never across the divide
+  return p[1] === q[1] && p[2] === q[2];
+}
+const savarnasOf = x => PH.filter(p => savarna(x, p[0])).map(p => p[0]);
+
+// 1.1.69 aṇudit savarṇasya cāpratyayaḥ — the aṆ here is read with the
+// śivasūtra-6 marker: the vowels together with h y v r l.
+const AN_UDIT = (() => {
+  const i = TAPE.findIndex(t => t.kind === "snd" && t.v === "a");
+  let seen = 0, out = [];
+  for (let j = i; j < TAPE.length; j++) {
+    if (TAPE[j].kind === "it" && TAPE[j].v === "ṇ") { seen++; if (seen === 2) break; }
+    else if (TAPE[j].kind === "snd") out.push(TAPE[j].v);
+  }
+  return out;
+})();
+const denotes = xs => uniq(xs.flatMap(x => AN_UDIT.includes(x) ? savarnasOf(x) : [x]));
+
+const aC   = denotes(pratyahara("a","c"));
+const iK   = denotes(pratyahara("i","k"));
+const aK   = denotes(pratyahara("a","k"));
+const eC   = pratyahara("e","c");
+const eN   = pratyahara("e","ṅ");
+const jhaL = uniq(pratyahara("jh","l"));
+const khaR = uniq(pratyahara("kh","r"));
+const jhaS = pratyahara("jh","ś");
+const sTu  = ["s","t","th","d","dh","n"];
+const sCu  = ["ś","c","ch","j","jh","ñ"];
+const sTuR = ["ṣ","ṭ","ṭh","ḍ","ḍh","ṇ"];
+
+/* ═══════════════════ 3. substitution tables ═══════════════════ */
+
+const GUNA   = { i:["e"], "ī":["e"], u:["o"], "ū":["o"],
+                 "ṛ":["a","r"], "ṝ":["a","r"], "ḷ":["a","l"] };   // 1.1.51 raparaḥ
+const VRDDHI = { e:"ai", o:"au", ai:"ai", au:"au" };
+const DIRGHA = { a:"ā", "ā":"ā", i:"ī", "ī":"ī", u:"ū", "ū":"ū", "ṛ":"ṝ", "ṝ":"ṝ" };
+const YAN    = { i:"y", "ī":"y", u:"v", "ū":"v", "ṛ":"r", "ṝ":"r", "ḷ":"l" };
+const AYAV   = { e:["a","y"], o:["a","v"], ai:["ā","y"], au:["ā","v"] };
+const JAS = { k:"g",kh:"g",g:"g",gh:"g", c:"j",ch:"j",j:"j",jh:"j",
+              "ṭ":"ḍ","ṭh":"ḍ","ḍ":"ḍ","ḍh":"ḍ", t:"d",th:"d",d:"d",dh:"d",
+              p:"b",ph:"b",b:"b",bh:"b" };
+const CAR = { k:"k",kh:"k",g:"k",gh:"k", c:"c",ch:"c",j:"c",jh:"c",
+              "ṭ":"ṭ","ṭh":"ṭ","ḍ":"ṭ","ḍh":"ṭ", t:"t",th:"t",d:"t",dh:"t",
+              p:"p",ph:"p",b:"p",bh:"p" };
+const KU  = { c:"k", ch:"kh", j:"g", jh:"gh", "ñ":"ṅ" };
+const SCU = { s:"ś", t:"c", th:"ch", d:"j", dh:"jh", n:"ñ" };
+const STU = { s:"ṣ", t:"ṭ", th:"ṭh", d:"ḍ", dh:"ḍh", n:"ṇ" };
+
+/* ═══════════════════ 4. items, tokenizer, renderer ═══════════════════ */
+
+const P  = v => ({ t:"P", v });
+const PADA = { t:"Pada" }, MORPH = { t:"Morph" }, AV = { t:"Av" };
+
+const NAMES = PH.map(p => p[0]).sort((a,b) => b.length - a.length);
+function tokenize(w) {
+  const out = [];
+  let i = 0;
+  while (i < w.length) {
+    const hit = NAMES.find(n => w.startsWith(n, i));
+    if (hit) { out.push(hit); i += hit.length; }
+    else { out.push(w[i]); i++; }
+  }
+  return out;
+}
+function parseInput(str) {
+  const out = [];
+  for (const tok of str.trim().split(/\s+/)) {
+    if (tok === "+") out.push(PADA);
+    else if (tok === "-") out.push(MORPH);
+    else tokenize(tok).forEach(p => out.push(P(p)));
+  }
+  return out;
+}
+const render = xs => xs.map(x =>
+  x.t === "P" ? x.v : x.t === "Pada" ? " " : x.t === "Av" ? "'" : "").join("");
+
+function nextPh(xs, i) {
+  for (let j = i + 1; j < xs.length; j++) if (xs[j].t === "P") return [j, xs[j].v];
+  return null;
+}
+const atPadanta = (xs, i) => {
+  for (let j = i + 1; j < xs.length; j++) {
+    if (xs[j].t === "Pada") return true;
+    if (xs[j].t === "Morph" || xs[j].t === "P") return false;
+  }
+  return true;                                   // avasāna counts as pada-end
+};
+const atAvasana = (xs, i) => !xs.slice(i + 1).some(z => z.t === "P");
+
+/* ═══════════════════ 5. the sūtras ═══════════════════ */
+
+const R = (a,b,c) => a * 1e6 + b * 1e3 + c;
+const refStr = r => `${Math.floor(r/1e6)}.${Math.floor(r/1e3)%1e3}.${r%1e3}`;
+
+// each: {ref, dev, iast, fire(items) -> [{pos,len,rep,note}]}
+function scanRule(xs, f) {
+  const out = [];
+  xs.forEach((it, i) => { if (it.t === "P") { const r = f(i, it.v); if (r) out.push(...r); } });
+  return out;
+}
+
+const RULES = [
+  { ref:R(6,1,77), dev:"इको यणचि", iast:"iko yaṇ aci",
+    fire: xs => scanRule(xs, (i,s) => {
+      if (!iK.includes(s)) return null;
+      const nx = nextPh(xs,i); if (!nx || !aC.includes(nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i, rep:[P(YAN[s])],
+                note:`iK ${s} → yaṆ ${YAN[s]} before the vowel ${nx[1]}` }];
+    })},
+
+  { ref:R(6,1,78), dev:"एचोऽयवायावः", iast:"eco 'yavāyāvaḥ",
+    fire: xs => scanRule(xs, (i,s) => {
+      if (!eC.includes(s)) return null;
+      const nx = nextPh(xs,i); if (!nx || !aC.includes(nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i, rep:AYAV[s].map(P),
+                note:`eC ${s} → ${AYAV[s].join("")} before the vowel ${nx[1]}` }];
+    })},
+
+  { ref:R(6,1,87), dev:"आद्गुणः", iast:"ād guṇaḥ", scope:"6.1.84",
+    fire: xs => scanRule(xs, (i,s) => {
+      if (s !== "a" && s !== "ā") return null;
+      const nx = nextPh(xs,i); if (!nx || !iK.includes(nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i+1, rep:GUNA[nx[1]].map(P),
+                note:`a + iK ${nx[1]} → guṇa ${GUNA[nx[1]].join("")}` +
+                     (GUNA[nx[1]].length > 1 ? " (1.1.51 ur aṇ raparaḥ adds the r)" : "") }];
+    })},
+
+  { ref:R(6,1,88), dev:"वृद्धिरेचि", iast:"vṛddhir eci", scope:"6.1.84",
+    fire: xs => scanRule(xs, (i,s) => {
+      if (s !== "a" && s !== "ā") return null;
+      const nx = nextPh(xs,i); if (!nx || !eC.includes(nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i+1, rep:[P(VRDDHI[nx[1]])],
+                note:`a + eC ${nx[1]} → vṛddhi ${VRDDHI[nx[1]]}` }];
+    })},
+
+  { ref:R(6,1,101), dev:"अकः सवर्णे दीर्घः", iast:"akaḥ savarṇe dīrghaḥ", scope:"6.1.84",
+    fire: xs => scanRule(xs, (i,s) => {
+      if (!aK.includes(s)) return null;
+      const nx = nextPh(xs,i);
+      if (!nx || !aC.includes(nx[1]) || !savarna(s, nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i+1, rep:[P(DIRGHA[s])],
+                note:`${s} + savarṇa ${nx[1]} → the long vowel ${DIRGHA[s]}, for both` }];
+    })},
+
+  { ref:R(6,1,109), dev:"एङः पदान्तादति", iast:"eṅaḥ padāntād ati", scope:"6.1.84",
+    fire: xs => scanRule(xs, (i,s) => {
+      if (!eN.includes(s) || !atPadanta(xs,i)) return null;
+      const nx = nextPh(xs,i); if (!nx || nx[1] !== "a") return null;
+      return [{ pos:i, len:nx[0]-i+1, rep:[P(s), AV],
+                note:`word-final ${s} + a → ${s} alone; the a is elided (avagraha)` }];
+    })},
+
+  /* ───── the tripādī: 8.2.1 pūrvatrāsiddham applies from here ───── */
+
+  { ref:R(8,2,30), dev:"चोः कुः", iast:"coḥ kuḥ", tri:1,
+    fire: xs => scanRule(xs, (i,s) =>
+      KU[s] && atPadanta(xs,i)
+        ? [{ pos:i, len:1, rep:[P(KU[s])], note:`cU ${s} → kU ${KU[s]} at word end` }] : null)},
+
+  { ref:R(8,2,39), dev:"झलां जशोऽन्ते", iast:"jhalāṃ jaśo 'nte", tri:1,
+    fire: xs => scanRule(xs, (i,s) =>
+      jhaL.includes(s) && JAS[s] && JAS[s] !== s && atPadanta(xs,i)
+        ? [{ pos:i, len:1, rep:[P(JAS[s])], note:`jhaL ${s} → jaŚ ${JAS[s]} at word end` }] : null)},
+
+  { ref:R(8,2,66), dev:"ससजुषो रुः", iast:"sasajuṣo ruḥ", tri:1,
+    fire: xs => scanRule(xs, (i,s) =>
+      s === "s" && atPadanta(xs,i)
+        ? [{ pos:i, len:1, rep:[P("r")], note:"word-final s → ru" }] : null)},
+
+  { ref:R(8,3,15), dev:"खरवसानयोर्विसर्जनीयः", iast:"kharavasānayor visarjanīyaḥ", tri:1,
+    fire: xs => scanRule(xs, (i,s) => {
+      if (s !== "r" || !atPadanta(xs,i)) return null;
+      const nx = nextPh(xs,i);
+      if (nx && !khaR.includes(nx[1])) return null;
+      return [{ pos:i, len:1, rep:[P("ḥ")], note:"r → visarga (before khaR, or in pause)" }];
+    })},
+
+  { ref:R(8,4,40), dev:"स्तोः श्चुना श्चुः", iast:"stoḥ ścunā ścuḥ", tri:1,
+    fire: xs => {
+      const out = [];
+      xs.forEach((it,i) => {
+        if (it.t !== "P") return;
+        const nx = nextPh(xs,i); if (!nx) return;
+        const [j,t] = nx;
+        if (sTu.includes(it.v) && sCu.includes(t))
+          out.push({ pos:i, len:j-i, rep:[P(SCU[it.v])],
+                     note:`stu ${it.v} → ścu ${SCU[it.v]} in contact with ${t}` });
+        else if (sCu.includes(it.v) && sTu.includes(t))
+          out.push({ pos:j, len:1, rep:[P(SCU[t])],
+                     note:`stu ${t} → ścu ${SCU[t]} in contact with ${it.v}` });
+      });
+      return out;
+    }},
+
+  { ref:R(8,4,41), dev:"ष्टुना ष्टुः", iast:"ṣṭunā ṣṭuḥ", tri:1,
+    fire: xs => {
+      const out = [];
+      xs.forEach((it,i) => {
+        if (it.t !== "P") return;
+        const nx = nextPh(xs,i); if (!nx) return;
+        const [j,t] = nx;
+        if (sTu.includes(it.v) && sTuR.includes(t))
+          out.push({ pos:i, len:j-i, rep:[P(STU[it.v])],
+                     note:`stu ${it.v} → ṣṭu ${STU[it.v]} in contact with ${t}` });
+        else if (sTuR.includes(it.v) && sTu.includes(t))
+          out.push({ pos:j, len:1, rep:[P(STU[t])],
+                     note:`stu ${t} → ṣṭu ${STU[t]} in contact with ${it.v}` });
+      });
+      return out;
+    }},
+
+  { ref:R(8,4,53), dev:"झलां जश् झशि", iast:"jhalāṃ jaś jhaśi", tri:1,
+    fire: xs => scanRule(xs, (i,s) => {
+      if (!jhaL.includes(s) || !JAS[s] || JAS[s] === s) return null;
+      const nx = nextPh(xs,i); if (!nx || !jhaS.includes(nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i, rep:[P(JAS[s])],
+                note:`jhaL ${s} → jaŚ ${JAS[s]} before the voiced stop ${nx[1]}` }];
+    })},
+
+  { ref:R(8,4,55), dev:"खरि च", iast:"khari ca", tri:1,
+    fire: xs => scanRule(xs, (i,s) => {
+      if (!jhaL.includes(s) || !CAR[s] || CAR[s] === s) return null;
+      const nx = nextPh(xs,i); if (!nx || !khaR.includes(nx[1])) return null;
+      return [{ pos:i, len:nx[0]-i, rep:[P(CAR[s])],
+                note:`jhaL ${s} → caR ${CAR[s]} before ${nx[1]}` }];
+    })},
+
+  { ref:R(8,4,56), dev:"वावसाने", iast:"vāvasāne", tri:1,
+    fire: xs => scanRule(xs, (i,s) =>
+      jhaL.includes(s) && CAR[s] && CAR[s] !== s && atAvasana(xs,i)
+        ? [{ pos:i, len:1, rep:[P(CAR[s])], note:`jhaL ${s} → caR ${CAR[s]} in pause` }] : null)}
+];
+
+const SEC_A = RULES.filter(r => !r.tri);
+const SEC_B = RULES.filter(r =>  r.tri).sort((a,b) => a.ref - b.ref);
+document.getElementById("ruleCount").textContent =
+  RULES.length + " operational rules of ~3983 sūtras";
+
+/* ═══════════════════ 6. the engine ═══════════════════ */
+
+const apply = (xs, w) => [...xs.slice(0, w.pos), ...w.rep, ...xs.slice(w.pos + w.len)];
+const overlap = (a,b) => a.pos < b.pos + b.len && b.pos < a.pos + a.len;
+
+function stepA(xs) {
+  const all = [];
+  SEC_A.forEach(r => r.fire(xs).forEach(w => all.push({ ...w, rule:r })));
+  if (!all.length) return null;
+  const left = Math.min(...all.map(w => w.pos));
+  const anchor = all.find(w => w.pos === left);
+  const here = all.filter(w => overlap(w, anchor));
+  // utsarga/apavāda would go first; with these rules the domains are disjoint,
+  // so what decides is 1.4.2 — the later sūtra wins.
+  const win = here.reduce((a,b) => (b.rule.ref > a.rule.ref ? b : a));
+  return { win, beaten: here.filter(w => w.rule.ref !== win.rule.ref).map(w => w.rule) };
+}
+
+function derive(xs0) {
+  const steps = [];
+  let xs = xs0, guard = 0;
+  while (guard++ < 64) {
+    const s = stepA(xs);
+    if (!s) break;
+    const ys = apply(xs, s.win);
+    if (render(ys) === render(xs)) break;
+    steps.push({ rule:s.win.rule, note:s.win.note, beaten:s.beaten,
+                 from:render(xs), to:render(ys), tri:false });
+    xs = ys;
+  }
+  // the tripādī: each rule once, in order, blind to its successors
+  for (const r of SEC_B) {
+    let n = 0;
+    while (n++ < 16) {
+      const ws = r.fire(xs);
+      if (!ws.length) break;
+      const ys = apply(xs, ws[0]);
+      if (render(ys) === render(xs)) break;
+      steps.push({ rule:r, note:ws[0].note, beaten:[],
+                   from:render(xs), to:render(ys), tri:true });
+      xs = ys;
+    }
+  }
+  // 8.2.1 made visible: rules that would fire on the finished form, refused
+  const refused = [];
+  RULES.forEach(r => r.fire(xs).forEach(w => {
+    if (render(apply(xs, w)) !== render(xs)) refused.push({ rule:r, note:w.note });
+  }));
+  return { steps, final:render(xs), refused };
+}
+
+/* ═══════════════════ 7. the tape, drawn ═══════════════════ */
+
+const tapeEl = document.getElementById("tape");
+let lastSutra = 1;
+TAPE.forEach((t, i) => {
+  if (t.sutra !== lastSutra) {
+    const b = document.createElement("div"); b.className = "sutra-break"; tapeEl.appendChild(b);
+    lastSutra = t.sutra;
+  }
+  const d = document.createElement("div");
+  d.className = "slot" + (t.kind === "it" ? " marker" : "");
+  d.dataset.i = i;
+  d.innerHTML = `${t.v}<span class="idx">${i + 1}</span>`;
+  tapeEl.appendChild(d);
+});
+const slots = [...tapeEl.querySelectorAll(".slot")];
+
+function lightSpan(sp) {
+  slots.forEach(s => s.classList.remove("lit","stop"));
+  if (!sp) return;
+  for (let j = sp.from; j < sp.to; j++) slots[j].classList.add("lit");
+  slots[sp.to].classList.add("stop");
+}
+
+/* ═══════════════════ 8. the pratyāhāra chips ═══════════════════ */
+
+const CHIPS = [
+  ["aṆ","a","ṇ","the three simple vowels"],
+  ["aK","a","k","the vowels with consonant twins"],
+  ["iK","i","k","what turns into a semivowel"],
+  ["eṄ","e","ṅ","e, o"],
+  ["aC","a","c","every vowel"],
+  ["eC","e","c","the diphthong-ish four"],
+  ["aṬ","a","ṭ","vowels plus h y v r"],
+  ["yaṆ","y","ṇ","the semivowels"],
+  ["ñaM","ñ","m","the nasals"],
+  ["yaM","y","m","semivowels and nasals"],
+  ["jhaṢ","jh","ṣ","the voiced aspirated stops"],
+  ["jhaŚ","jh","ś","the voiced stops"],
+  ["jaŚ","j","ś","voiced unaspirated stops"],
+  ["baŚ","b","ś","those minus j"],
+  ["khaY","kh","y","the voiceless stops"],
+  ["jhaY","jh","y","every stop"],
+  ["śaR","ś","r","the sibilants"],
+  ["caR","c","r","voiceless unaspirated plus sibilants"],
+  ["śaL","ś","l","sibilants and h"],
+  ["jhaL","jh","l","stops, sibilants, h"],
+  ["haL","h","l","every consonant"],
+  ["aL","a","l","every sound there is"]
+];
+
+const chipsEl = document.getElementById("chips");
+const readout = document.getElementById("chipReadout");
+let pinned = null;
+
+function showChip(c) {
+  const sp = span(c[1], c[2]);
+  lightSpan(sp);
+  const mem = pratyahara(c[1], c[2]);
+  const dis = uniq(mem);
+  const dup = mem.length !== dis.length;
+  readout.innerHTML =
+    `<b>${c[0]}</b> — ${c[3]}. From <b>${c[1]}</b> up to marker <b>${c[2]}</b>: ` +
+    `<span class="members">${dis.join("&nbsp; ")}</span> ` +
+    `<br>${dis.length} sound${dis.length === 1 ? "" : "s"}` +
+    (dup ? `, spanning ${mem.length} slots — <i>h</i> is seated twice, in śivasūtra 5 and again in 14. `
+         + `That repetition is one of only two devices Pāṇini needs to make every class an interval.` : "") +
+    `. The markers inside the span are skipped: an anubandha is a boundary, never a member.`;
+}
+
+CHIPS.forEach(c => {
+  const b = document.createElement("button");
+  b.className = "chip"; b.textContent = c[0];
+  b.setAttribute("aria-pressed","false");
+  b.addEventListener("mouseenter", () => { if (!pinned) showChip(c); });
+  b.addEventListener("focus",      () => { if (!pinned) showChip(c); });
+  b.addEventListener("click", () => {
+    const on = pinned === c;
+    chipsEl.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed","false"));
+    if (on) { pinned = null; lightSpan(null); }
+    else { pinned = c; b.setAttribute("aria-pressed","true"); showChip(c); }
+  });
+  chipsEl.appendChild(b);
+});
+tapeEl.addEventListener("mouseleave", () => { if (!pinned) lightSpan(null); });
+
+/* ═══════════════════ 9. the derivation UI ═══════════════════ */
+
+const PRESETS = [
+  ["dadhi + indra", "two rules collide; 1.4.2 decides"],
+  ["su + ukta",     "same collision, different vowel"],
+  ["deva + indra",  "a + i → e"],
+  ["mahā + ṛṣi",    "and 1.1.51 supplies the r"],
+  ["madhu + ari",   "u becomes v"],
+  ["te + api",      "6.1.109 beats 6.1.78"],
+  ["ne - ana",      "same sounds, inside a word: 6.1.78 wins"],
+  ["deva + aiśvarya","vṛddhi"],
+  ["tat + jalam",   "two tripādī rules in sequence"],
+  ["tat + ca",      "three"],
+  ["rāmas",         "s → ru → visarga"],
+  ["vāc",           "the loop 8.2.1 cuts"]
+];
+
+const inp = document.getElementById("inp");
+const resEl = document.getElementById("result");
+const presetsEl = document.getElementById("presets");
+
+PRESETS.forEach(([txt, why]) => {
+  const b = document.createElement("button");
+  b.className = "preset"; b.textContent = txt; b.title = why;
+  b.addEventListener("click", () => { inp.value = txt; run(); });
+  presetsEl.appendChild(b);
+});
+
+const esc = s => s.replace(/[&<>]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]));
+
+function run() {
+  const src = inp.value.trim();
+  if (!src) { resEl.innerHTML = `<div class="err">Type something — try <code>deva + indra</code>.</div>`; return; }
+  let out;
+  try { out = derive(parseInput(src)); }
+  catch (e) { resEl.innerHTML = `<div class="err">That input hit a rule this sample does not cover.</div>`; return; }
+
+  let html = `<div class="result-head">
+      <span class="in">${esc(src)}</span>
+      <span class="arrow">⟶</span>
+      <span class="out">${esc(out.final)}</span>
+    </div><div class="steps">`;
+
+  if (!out.steps.length) {
+    html += `<div class="step"><div class="step-note">No rule in this sample applies.
+      The form is already in sandhi, or the juncture needs a rule outside 6.1 and 8.2–8.4.</div></div>`;
+  }
+
+  out.steps.forEach(s => {
+    html += `<div class="step">
+      <div class="step-ref">
+        <span class="num">${refStr(s.rule.ref)}</span>
+        <span class="dev">${s.rule.dev}</span>
+        <span class="iast">${s.rule.iast}</span>
+        ${s.tri ? `<span class="tri-badge">tripādī</span>` : ``}
+      </div>
+      <div class="step-note">${esc(s.note)}</div>
+      <div class="step-xform"><span class="from">${esc(s.from)}</span>
+        &nbsp;⇒&nbsp; <span class="to">${esc(s.to)}</span></div>`;
+    if (s.beaten.length) {
+      html += `<div class="beat"><b>1.4.2 विप्रतिषेधे परं कार्यम्</b> — ` +
+        s.beaten.map(r => refStr(r.ref) + " " + r.iast).join(", ") +
+        ` also applied here and lost. The later sūtra wins.</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `</div>`;
+
+  if (out.refused.length) {
+    html += `<div class="refusal"><b>8.2.1 पूर्वत्रासिद्धम्</b> — ` +
+      uniq(out.refused.map(r => refStr(r.rule.ref) + " " + r.rule.iast)).join(", ") +
+      ` would fire on this finished form and ${out.refused.length === 1 ? "is" : "are"} refused. ` +
+      `The result is deliberately not a fixpoint of the whole rule set; that refusal is what makes the grammar stop.</div>`;
+  }
+  resEl.innerHTML = html;
+}
+document.getElementById("run").addEventListener("click", run);
+inp.addEventListener("keydown", e => { if (e.key === "Enter") run(); });
+run();
+
+/* ═══════════════════ 10. the loop demo ═══════════════════ */
+
+const chainOn = document.getElementById("chainOn");
+const chainOff = document.getElementById("chainOff");
+const cntOn = document.getElementById("cntOn");
+const cntOff = document.getElementById("cntOff");
+
+(function drawStratified() {
+  const out = derive(parseInput("vāc"));
+  chainOn.innerHTML = [ "vāc", ...out.steps.map(s => s.to) ]
+    .map((f,i,arr) => `<span class="${i === arr.length-1 ? "now" : "tick"}">${esc(f)}</span>`)
+    .join(` <span class="tick">→</span> `);
+  cntOn.textContent = out.steps.length + " steps, then it stops";
+})();
+
+// unstratified: 8.2.39 (k→g at word end) and 8.4.56 (g→k in pause), both free
+let loopState = "k", loopN = 0, loopTimer = null;
+const loopHist = ["vāc", "vāk"];
+function paintLoop() {
+  const tail = loopHist.slice(-7);
+  chainOff.innerHTML = tail.map((f,i,arr) =>
+    `<span class="${i === arr.length-1 ? "now" : "tick"}">${esc(f)}</span>`).join(` <span class="tick">→</span> `);
+  cntOff.textContent = loopN + (loopN === 1 ? " step" : " steps");
+}
+paintLoop();
+document.getElementById("loopBtn").addEventListener("click", function () {
+  if (loopTimer) {
+    clearInterval(loopTimer); loopTimer = null; this.textContent = "Run it"; return;
+  }
+  this.textContent = "Stop (it will not stop on its own)";
+  loopTimer = setInterval(() => {
+    loopState = loopState === "k" ? "g" : "k";     // 8.2.39 ⇄ 8.4.56
+    loopN++;
+    loopHist.push("vā" + loopState);
+    paintLoop();
+  }, 320);
+});
+</script>

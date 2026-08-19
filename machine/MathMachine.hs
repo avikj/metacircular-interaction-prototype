@@ -33,10 +33,10 @@ module Main (main) where
 
 import qualified Data.Set as S
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition)
+import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition, isInfixOf, isPrefixOf)
 import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
-import Control.Monad (forM_, replicateM_, when, unless, filterM)
+import Control.Monad (forM_, replicateM_, when, unless, filterM, foldM)
 import Control.Exception (finally)
 import System.IO
 import System.Directory (getTemporaryDirectory, removePathForcibly)
@@ -49,14 +49,28 @@ import System.CPUTime (getCPUTime)
 import Text.Printf (hPrintf)
 import Text.ParserCombinators.ReadP
 import qualified Certificate as C
+import qualified Certify as CY
 import qualified TraceReplay as TR
 import qualified Knobs as K
 -- DISPATCH SEAM (2026-08-16).  Three modules built this session as standalone
 -- programs are wired in below, each behind a knob whose DEFAULT reproduces the
 -- engine that was running before this edit, bit for bit.  See `Dispatch`.
 import qualified ArithVocab as AV
+import qualified PairVocab as PV
 import qualified DSO as D
 import qualified NestedInduction as NI
+-- THE KUTTAKA SEAM.  `Obstruction` parses the kernel's refusal back into
+-- terms; the gate below returns it instead of discarding it, and the round
+-- feeds the genuine residuals into the next round's conjecture queue.  See
+-- `KernelOutcome` and `harvestResiduals`.
+import qualified Obstruction as OB
+-- THE PRAMANA SEAM.  `Pramana` names the means by which a claim came to be
+-- known, so that "the kernel accepted it" stops being an unindexed sentence.
+-- Two uses below and they are the same use: `KernelOutcome` now records WHICH
+-- naya spoke (or was attempted, on a refusal), and `machine/library.terms`
+-- carries that naya forward as sabda, so re-admission asks the gate the
+-- question the original proof answered instead of guessing `refl`.
+import qualified Pramana as P
 import Data.Char (isAlphaNum, isSpace, isDigit)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -542,12 +556,49 @@ showTermP (F n ts)  = n ++ "(" ++ intercalate "," (map showTermP ts) ++ ")"
 memoryPath :: FilePath
 memoryPath = "machine/library.terms"
 
-parseMemory :: String -> [(Term,Term)]
-parseMemory = mapMaybe line . lines
+-- SABDA.  The memory file used to be `lhs \t rhs` and nothing else, and that
+-- missing field is what made memory cost more than it saved: re-admission had
+-- to RE-DERIVE the proof note by running `proveByInduction` against whatever
+-- rules happened to be visible at load, and when that reconstruction failed
+-- the gate was handed nothing, which `Certificate.certifyWith` reads as
+-- `refl`, which refuses.
+--
+-- A third tab field now carries the justification (`Pramana.Justification`):
+-- the naya the theorem was actually established under, the delimitor it was
+-- established under, and the round that established it.  Ninety-two committed
+-- lines have two fields and still parse — to `mrJust = Nothing`, which is
+-- exactly true of them and puts the caller back on the old reconstruction
+-- path for those lines only.
+--
+-- WHAT THIS DOES NOT DO.  It does not install anything.  `Pramana`'s header
+-- says why at length; the short form is that the note only chooses WHICH
+-- module agda is asked to check, never whether it is asked, so a false note
+-- in an edited memory file buys a candidate one wasted agda call and no more.
+parseMemory :: String -> [P.MemoryRecord Term]
+parseMemory = mapMaybe (P.parseRecord parseTerm) . lines
+
+-- The equation a memory record is about.
+memoryEquation :: P.MemoryRecord Term -> (Term,Term)
+memoryEquation rec = (P.mrLhs rec, P.mrRhs rec)
+
+-- The file is an append log, so it repeats -- and now the repeats need not
+-- agree: ninety-two committed lines carry no justification and every line
+-- written after this change carries one, so the SAME equation appears both
+-- with and without testimony.  Deduplicating by the whole record would keep
+-- both and count one theorem as two memories; deduplicating by the equation
+-- alone would let the order of the file decide whether the naya survives.
+--
+-- So: one entry per equation, in first-appearance order (which is what the
+-- fold's size sort then re-orders anyway), and the entry kept is the LAST one
+-- that carries testimony, falling back to the first.  Last, because the file
+-- is append-only and a later line is a later hearing of the same speaker.
+dedupeMemory :: [P.MemoryRecord Term] -> [P.MemoryRecord Term]
+dedupeMemory recs = [ best e | e <- ordNub (map memoryEquation recs) ]
   where
-    line s = case splitTabs s of
-      [l,r] -> (,) <$> parseTerm l <*> parseTerm r
-      _     -> Nothing
+    best e = case [ rec | rec <- recs, memoryEquation rec == e
+                        , isJust (P.mrJust rec) ] of
+      [] -> head [ rec | rec <- recs, memoryEquation rec == e ]
+      js -> last js
 
 parseThoughts :: String -> ThoughtBatch
 parseThoughts = foldl' parseLine (ThoughtBatch [] []) . lines
@@ -570,6 +621,43 @@ requiredVocabulary b = maximum (3 : demanded)
               (thoughtCandidates b)
             ++ concatMap residualWords (thoughtResiduals b)
     demanded = [ i + 1 | (i,s) <- zip [0..] vocabulary, symName s `elem` names ]
+
+-- THE VARIABLE HORIZON, and it was missing.  `requiredVocabulary` lets a
+-- thought file raise the SYMBOL horizon; nothing let it raise the VARIABLE
+-- horizon, and `kVars` defaults to 3.  A researcher candidate naming `u`
+-- (V 3) therefore reached `fingerprint`, which evaluates it against
+-- `assignments 3 …`, and `eval`'s `env !! i` died with
+--
+--     MathMachine.hs: Prelude.!!: index too large
+--
+-- -- a Prelude crash, in a file whose entire discipline is to fail loud and
+-- CORRECTLY.  The thought-file path had no guard: a four-variable candidate
+-- did not get rejected, it killed the process.  Measured: WIRE 6's first run
+-- with machine/thoughts.bhavana.math, before this line existed.
+--
+-- The fix is the exact analogue of `requiredVocabulary`: the batch may raise
+-- the environment width, clamped to 6, which is not a chosen ceiling but
+-- `Certificate.agdaVar`'s -- a candidate over seven variables could never be
+-- certified whatever the fingerprint said.
+--
+-- WHY THIS IS INERT FOR EVERY EXISTING MEASUREMENT, and it is a proof and
+-- not a hope.  `assignments nv k` is `take nv (drop 1 (iterate lcg s))` per
+-- environment, so `assignments 4 k` extends each row of `assignments 3 k` by
+-- one coordinate and changes no earlier one.  `eval` reads `env !! i` only
+-- for variables the term actually contains, so a term over x,y,z has a
+-- BYTE-IDENTICAL fingerprint under either width.  Term GENERATION still uses
+-- `kVars` and is untouched: the generator's width and the fingerprint's
+-- width were the same number by accident, not by argument.
+variableHorizon :: [(Term,Term)] -> Int
+variableHorizon cs =
+  min agdaVarCeiling (maximum (1 : [ i + 1 | (l,r) <- cs, i <- vars l ++ vars r ]))
+
+-- Not a chosen number: `Certificate.agdaVar` is Nothing for i >= 6 and
+-- `agdaCertificate` binds exactly (x y z u v w), so a candidate over a
+-- seventh variable is untranslatable however true it is.  It is the same
+-- ceiling `Knobs.kVars` carries, and for the same reason.
+agdaVarCeiling :: Int
+agdaVarCeiling = 6
 
 size :: Term -> Int
 size (V _) = 1
@@ -718,8 +806,79 @@ arithVocabulary = map avSym [AV.modSym, AV.lcmSym, AV.vpSym]
 --       binding constraint on arithmetic is the certificate emitter and not
 --       the vocabulary.  The vocabulary is now the part that is done.
 
+-- ------------------------------------------------- the pair vocabulary
+--
+-- WIRE 5.  machine/PairVocab.hs was built as a standalone module and, until
+-- this edit, had never been run by anything and never been reachable from the
+-- engine.  What is imported here is NOT its ℤ vocabulary: that one's `leglo`
+-- computes `w - r` in Haskell, which the certificate emitter would render as
+-- `a0 ∸ a1` over `Cubical.Data.Nat`, so the engine would be testing one
+-- function and certifying another.  `PV.natPairSymbols` is the ℕ chart
+-- (PairVocab §3c), whose evaluators are truncated so that the Haskell
+-- function and the emitted Agda definition are the same function by
+-- construction, and whose defining equations are audited over ℕ by
+-- PairVocab §10 before they get here.
+--
+-- Exactly one of the three pair identities survives the passage to ℕ, and it
+-- is the split norm; §10 verifies that exhaustively (1681 points, 0 failures)
+-- and verifies the other two failing off the cone (820 of 1681) as its own
+-- controls.  So this wire brings ONE real theorem within reach, not three:
+--
+--     leglo(w,r) * leghi(w,r)  =  splitnorm(w,r),   i.e.
+--     (w ∸ r) · (w + r)        =  (w · w) ∸ (r · r)   over ℕ, unconditionally.
+--
+-- `centre` and `radius` are not imported: they need `div 2`, which is neither
+-- in this term language nor in the certified Agda fragment.
+--
+-- WIRE 6 (BHAVANA).  `PV.natPairSymbols` now carries FOUR more, PairVocab
+-- §3d: the D = 2 norm `nrm2(x,y) = x·x ∸ 2·(y·y)` and the two components of
+-- BRAHMAGUPTA'S COMPOSITION RULE (bhavana, Brahmasphutasiddhanta, 628 CE) at
+-- D = 1 and D = 2 --- `bcx1(x,y,z,u) = x·z + y·u`,
+-- `bcx2(x,y,z,u) = x·z + 2·(y·u)`, `bcy(x,y,z,u) = x·u + z·y`.  They are
+-- APPENDED, so leglo/leghi/splitnorm keep indices 8,9,10 and `pairVocabCap`
+-- goes 11 -> 15.  D is a NUMERAL and not a variable: a variable D makes
+-- bhavana a five-variable statement and `Certificate.agdaVar` spells six
+-- variables while `proveByInduction` splits exactly one.
+--
+-- These are the first FOUR-ARY symbols the engine has ever carried.  At the
+-- generator's working size a 4-ary application does not fit (f(a,b,c,d) is
+-- size 5 at minimum), so they enter through the thought file --- the
+-- researcher-input path of THOUGHT_FORMAT.md --- and not through the term
+-- space, and a seeded candidate still gets no privileged proof status.
+--
+-- WHAT THE ℕ CHART COSTS HERE, and it is more than it cost WIRE 5: bhavana
+-- AS BRAHMAGUPTA STATES IT IS FALSE OVER ℕ.  Monus flattens a negative norm
+-- to 0, so where both true norms are negative the left side is 0·0 = 0 and
+-- the right side is their positive product; PairVocab §11 exhibits the first
+-- witness (x1,y1,x2,y2) = (0,1,0,1), 0 = 1 at D=1 and 0 = 4 at D=2.  What
+-- survives with all arguments free is the SUBTRACTION-FREE form (§3d(b)),
+-- verified at 28561 of 28561 points at each D, and the specialisations in
+-- machine/thoughts.bhavana.math.
+--
+-- PLACED BEFORE `arithVocabulary`, so the reachable prefix `base ++ pair` is a
+-- vocabulary the certificate emitter can translate END TO END, which
+-- `base ++ arith` is not (`Certificate.render` has no clause for mod, lcm or
+-- v2 and they carry no single defining equation, so every candidate naming
+-- one is Untranslatable).  Indices 0..7 -- the only ones any recorded normal
+-- form mentions -- are unchanged; mod/lcm/v2 move from 8,9,10 to 11,12,13,
+-- and nothing in machine/library.terms, library.txt or the notes names them.
+pvSym :: PV.Sym -> Sym
+pvSym s = Sym (PV.symName s) (PV.symArity s) (PV.symSem s)
+              [ (fromPV l, fromPV r) | (l,r) <- PV.symDefs s ]
+
+fromPV :: PV.Term -> Term
+fromPV (PV.V i)    = V i
+fromPV (PV.F f ts) = F f (map fromPV ts)
+
+pairVocabulary :: [Sym]
+pairVocabulary = map pvSym PV.natPairSymbols
+
 vocabulary :: [Sym]
-vocabulary = baseVocabulary ++ arithVocabulary
+vocabulary = baseVocabulary ++ pairVocabulary ++ arithVocabulary
+
+-- How far the engine must reach to see the pair chart and nothing beyond it.
+pairVocabCap :: Int
+pairVocabCap = length baseVocabulary + length pairVocabulary
 
 -- How far into `vocabulary` the engine is allowed to reach by default.  This
 -- is the whole of the safety argument for WIRE 1: with the cap at the length
@@ -1131,13 +1290,37 @@ decreases u v
   | lpo v u = False
   | otherwise = cmpTerm v u == LT
 
-normalize :: [Rule] -> Term -> Term
-normalize rs = go (200 :: Int)
+-- THE FUEL IS THE PLACE THE YOGYA CONDITION LIVES, and until 2026-08-18 it
+-- was invisible.  `go 0 t = t` returns a term that is NOT a normal form and
+-- says nothing about it, so `provedByRewriting rs (l,r)` -- which is just
+-- `normalize rs l == normalize rs r` -- reports False in two situations that
+-- are epistemically opposite:
+--
+--   (i)  both sides reached a fixed point and the fixed points differ.  The
+--        strategy has been run to exhaustion: not-equal-by-rewriting is then
+--        a fact about the rewrite relation.
+--   (ii) one side ran out of fuel.  Nothing has been established at all; the
+--        comparison is between a normal form and an arbitrary intermediate
+--        term.
+--
+-- Collapsing (i) and (ii) into one `False` is anupalabdhi WITHOUT the yogya
+-- condition -- non-apprehension used as proof of absence where the object was
+-- never fit to be apprehended in the first place.  `normalizeFix` returns the
+-- distinction; `normalize` is `fst` of it and is unchanged, same fuel, same
+-- strategy, same result on every input.
+kNormalizeFuel :: Int
+kNormalizeFuel = 200
+
+normalizeFix :: [Rule] -> Term -> (Term, Bool)
+normalizeFix rs = go kNormalizeFuel
   where
-    go 0 t = t
+    go 0 t = (t, False)
     go k t = case step rs t of
-               Nothing -> t
+               Nothing -> (t, True)
                Just t' -> go (k-1) t'
+
+normalize :: [Rule] -> Term -> Term
+normalize rs t = fst (normalizeFix rs t)
 
 -- The same normalisation, counting the rewrite steps it took.  Not a second
 -- strategy: `normalizeSteps rs t` and `normalize rs t` are the same fold over
@@ -1229,27 +1412,162 @@ provedByRewriting rs (l,r) = normalize rs l == normalize rs r
 eigen :: Term
 eigen = F "#" []
 
-proveByInduction :: [Rule] -> (Term,Term) -> Maybe String
-proveByInduction rs (l,r) =
+-- =================================================== ANUPALABDHI, WITH YOGYA
+--
+-- Kumārila Bhaṭṭa, *Ślokavārttika*, abhāva-pariccheda (Mīmāṃsā, c. 7th c.):
+-- anupalabdhi — non-apprehension — is an independent pramāṇa.  You know the
+-- pot is absent from the floor because you do not perceive it, and Kumārila's
+-- point against the Naiyāyikas is that this is not a disguised inference:
+-- inference needs a positive liṅga (probans) and the absence of a cognition
+-- is not a positive thing.
+--
+-- The whole content of the doctrine is the qualification, and it is the part
+-- the machine did not have.  Valid anupalabdhi is YOGYA-ANUPALABDHI:
+-- non-apprehension OF WHAT WOULD HAVE BEEN APPREHENDED HAD IT BEEN PRESENT
+-- (the counterpositive must be dṛśya, upalabdhi-lakṣaṇa-prāpta — "having
+-- attained the conditions of apprehension").  Not seeing a ghost establishes
+-- nothing, because a ghost was never fit to be seen.
+--
+-- `mFailed` records "I did not find a proof" as a boolean keyed on the rule
+-- count.  That is anupalabdhi with the yogya condition DELETED — precisely
+-- the invalid form.  This type restores it:
+--
+--   Yogya   the search space was exhausted.  Every single-variable structural
+--           induction over the current rule set was attempted, and every
+--           normalisation inside those attempts reached a fixed point rather
+--           than running out of fuel.  "No proof was found" is therefore "no
+--           proof exists in this space" — knowledge, and a theorem.
+--   Ayogya  the search was cut off, for the reason carried.  Nothing is
+--           established: this is the ghost case.
+--
+-- DOES THE REDUCTION TO INFERENCE SUCCEED HERE?  Kumārila says no for the
+-- perceiver, and for the perceiver he is right: there is no positive liṅga.
+-- For the machine it SUCCEEDS, and the reason is worth stating because it is
+-- what makes the organ buildable.  The machine has a positive liṅga the
+-- perceiver lacks: the enumeration RETURNING BY EXHAUSTION, an observed
+-- event, distinguishable in the type from the enumeration being cut off.
+-- Given that event the inference is a plain modus tollens —
+--   (major) if a proof lay in space S, an exhausted search of S would return it
+--   (minor) the search of S was exhausted and returned nothing
+--   ------
+--   (concl) no proof lies in S.
+-- So on the machine's case the Naiyāyika reduction goes through, and the
+-- yogya condition is exactly the major premise.  What Kumārila supplies is
+-- not the irreducibility but the DIAGNOSIS: an anupalabdhi whose major
+-- premise is unavailable is not a weak inference, it is no cognition at all.
+-- `Budgeted` in `CertifyVerdict` below is the same distinction, discovered
+-- independently in the rewriting lane and never carried into the prover.
+data Absence
+  = Yogya !Int !Int
+    -- ^ induction variables exhausted, rules in play.  The bounded space is
+    --   named by both numbers: a Yogya verdict is a claim about THIS rule set
+    --   and no other, which is why `mFailed` keys on the rule count.
+  | Ayogya !String
+    -- ^ the search was cut off; the string says where.
+  deriving (Eq, Show)
+
+isYogya :: Absence -> Bool
+isYogya (Yogya _ _) = True
+isYogya (Ayogya _)  = False
+
+absenceReason :: Absence -> String
+absenceReason (Yogya vs n) =
+  "exhausted: " ++ show vs ++ " induction variable(s) over " ++ show n ++ " rules"
+absenceReason (Ayogya why) = why
+
+-- `provedByRewriting` with its yogya condition attached: the second component
+-- says whether BOTH sides reached a fixed point, i.e. whether a `False` in the
+-- first component is a fact about the rewrite relation or an artefact of the
+-- fuel.
+provedByRewritingFix :: [Rule] -> (Term,Term) -> (Bool, Bool)
+provedByRewritingFix rs (l,r) =
+  let (nl, fl) = normalizeFix rs l
+      (nr, fr) = normalizeFix rs r
+  in (nl == nr, fl && fr)
+
+-- The prover, reporting on failure WHY it failed: exhaustion or cut-off.
+-- `proveByInduction` is `either (const Nothing) Just` of this and is
+-- unchanged in behaviour — same variables, same order, same short-circuit.
+proveByInductionA :: [Rule] -> (Term,Term) -> Either Absence String
+proveByInductionA rs (l,r) =
   case ordNub (vars l ++ vars r) of
-    [] -> Nothing
-    vs -> firstJust [ tryVar v | v <- vs ]
+    -- A ground equation admits no structural induction at all, so the space
+    -- of single-variable inductions is empty and is exhausted vacuously.  The
+    -- caller has already run `provedByRewriting` on it; there is nothing here
+    -- that could have been apprehended.
+    [] -> Left (Yogya 0 nRules)
+    vs ->
+      let outcomes = map tryVar vs
+      in case [ pf | Right pf <- outcomes ] of
+           (pf:_) -> Right pf
+           -- Only reached when every variable failed, and only then are all
+           -- the outcomes forced: the success path costs exactly what it did.
+           []     -> case [ why | Left (Ayogya why) <- outcomes ] of
+                       (why:_) -> Left (Ayogya why)
+                       []      -> Left (Yogya (length vs) nRules)
   where
-    firstJust xs = case mapMaybe id xs of
-                     (x:_) -> Just x
-                     []    -> Nothing
+    nRules = length rs
     tryVar v =
       let base = (substVar v zeroT l, substVar v zeroT r)
           hypL = substVar v eigen l
           hypR = substVar v eigen r
           goal = (substVar v (sucT eigen) l, substVar v (sucT eigen) r)
-          -- the hypothesis goes in both directions; `step` will only
-          -- fire it where it decreases, so an unorientable IH (the
-          -- commutativity case) is still usable and still sound
-          hyps = [(hypL,hypR),(hypR,hypL)]
-      in if provedByRewriting rs base && provedByRewriting (hyps ++ rs) goal
-           then Just ("induction on " ++ show (V v))
-           else Nothing
+          -- THE HYPOTHESIS HAS TO BE STATED IN THE LANGUAGE THE GOAL GETS
+          -- REDUCED TO.  `step` rewrites innermost-first, so by the time the
+          -- step case is anywhere near closing, every DEFINED symbol in it
+          -- has been unfolded by its defining equation.  The hypothesis was
+          -- being installed in the shape the conjecture was WRITTEN in, and
+          -- those are the same shape only when a symbol's defining equations
+          -- are pattern equations on its arguments (`+(x,0) = x`) rather than
+          -- an unfolding of the symbol itself (`leglo(x,y) = x - y`).  The
+          -- base vocabulary is entirely of the first kind, so this never
+          -- showed; WIRE 5's chart is entirely of the second, and every one
+          -- of its statements died in the step case with the hypothesis
+          -- sitting there unable to match a single subterm.  Measured on the
+          -- 11 pair candidates that reached the prover: 0 proved before this
+          -- line, 4 after, and the base vocabulary gains 3 (see the A/B in
+          -- the commit message).
+          --
+          -- SOUNDNESS.  `nL` and `nR` are `rs`-equal to `hypL` and `hypR`, and
+          -- `rs` is the current rule set -- every member of which was kernel-
+          -- accepted in this process.  So `nL = nR` is a consequence of the
+          -- induction hypothesis together with theorems already installed,
+          -- which is precisely what a step case is allowed to use.  Nothing
+          -- here is trusted anyway: the resulting proof still goes to the
+          -- Agda gate, and a proof this line enables that the gate declines
+          -- is a KERNEL-REJECT like any other.
+          (nL, fixL) = normalizeFix rs hypL
+          (nR, fixR) = normalizeFix rs hypR
+          -- both directions; `step` fires a rule only where it decreases, so
+          -- an unorientable IH (the commutativity case) is still usable and
+          -- still sound
+          hyps = ordNub [ (a,b)
+                        | (a,b) <- [(hypL,hypR),(hypR,hypL),(nL,nR),(nR,nL)]
+                        , a /= b ]
+          (baseOk, baseFix) = provedByRewritingFix rs base
+          (stepOk, stepFix) = provedByRewritingFix (hyps ++ rs) goal
+      in if baseOk && stepOk
+           then Right ("induction on " ++ show (V v))
+           -- `&&` short-circuits, so when the base fails the step case is
+           -- never forced here either -- the cost is the old cost.
+           else if not baseOk
+             then if baseFix
+                    then Left (Yogya 1 nRules)
+                    else Left (Ayogya ("base case of the induction on "
+                                       ++ show (V v) ++ " hit the "
+                                       ++ show kNormalizeFuel
+                                       ++ "-step normalisation fuel"))
+             -- The hypothesis itself is built by normalisation, so a truncated
+             -- hypothesis makes the step case's failure inconclusive too.
+             else if stepFix && fixL && fixR
+                    then Left (Yogya 1 nRules)
+                    else Left (Ayogya ("step case of the induction on "
+                                       ++ show (V v) ++ " hit the "
+                                       ++ show kNormalizeFuel
+                                       ++ "-step normalisation fuel"))
+
+proveByInduction :: [Rule] -> (Term,Term) -> Maybe String
+proveByInduction rs eq = either (const Nothing) Just (proveByInductionA rs eq)
 
 -- f(a,b) = f(a',b') where a=a' and b=b' are already known is not a
 -- discovery, it is congruence.  Most of what an unfiltered explorer
@@ -1608,11 +1926,28 @@ toCert (F f ts) = C.F f (map toCert ts)
 -- The third is the one that answers GateAudit section B: it is a finite
 -- exhaustive verification that what the kernel is told `c0` means is what
 -- this engine computes when it evaluates `c0`.
+-- WHICH SIDE IS THE BODY.  A concept the machine invents carries its single
+-- equation FOLDED — `(pattern, cN x0 … xk)`, because that is the direction a
+-- rewrite runs — while a vocabulary symbol carries it UNFOLDED, `f(x0,…,xk) =
+-- body`, because that is the direction its definition unfolds.  Both are the
+-- same defining clause and both must reach the kernel; reading only the
+-- folded one is why WIRE 5's pair symbols were KERNEL-SKIP on the first run
+-- of this file after they were wired (`leglo` at round 0, 4 candidates).  The
+-- head is identified structurally -- the symbol applied to exactly its own
+-- parameters in order -- so an incidental rewrite still contributes nothing.
+definingClause :: Sym -> Maybe (Term, Term)   -- (body, head)
+definingClause s = do
+  (l,r) <- conceptRule s
+  let hd = F (symName s) (map V [0 .. symArity s - 1])
+  if r == hd then Just (l, r)
+             else if l == hd then Just (r, l)
+                             else Nothing
+
 certDefinitions :: [Sym] -> [C.Definition]
 certDefinitions syms =
   [ C.Definition (symName s) (symArity s) (toCert body)
   | s <- syms
-  , Just (body, fold) <- [conceptRule s]
+  , Just (body, fold) <- [definingClause s]
   , fold == F (symName s) (map V [0 .. symArity s - 1])
   , ordNub (sort (vars body)) == [0 .. symArity s - 1]
   -- `vocabulary ++` because a concept's body is built FROM the primitives
@@ -1624,8 +1959,90 @@ certDefinitions syms =
                  definitionAuditBound (body, fold))
   ]
 
+-- WHAT THE KERNEL HAS TO BE TOLD ABOUT.  `Certificate.render` has built-in
+-- clauses for 0, s, +, *, -, max, le and gcd -- exactly `baseVocabulary` --
+-- and for anything else it falls back to `lookupDef`, i.e. to a `Definition`
+-- the caller supplied.  Until WIRE 5 the caller supplied only `mInvented`, so
+-- every symbol past index 7 was invisible to the emitter and every statement
+-- naming one came back Untranslatable however true it was.  Passing the
+-- ACTIVE tail of the vocabulary alongside the invented concepts closes that,
+-- and closes it through the same `certDefinitions` filter: a symbol with no
+-- single well-formed defining clause, or one whose clause disagrees with its
+-- evaluator anywhere on [0..8]^arity, still contributes no Definition and
+-- still produces a KERNEL-SKIP.  Nothing is certified against a guess.
+kernelSyms :: Machine -> [Sym]
+kernelSyms m = drop baseVocabCap (take (mVocab m) vocabulary) ++ mInvented m
+
+-- ===================================================================
+-- WHAT THE GATE RETURNS, AND WHY IT IS NOT A BOOLEAN ANY MORE.
+--
+-- The kernel does not answer "no".  It answers `A != B of type ℕ`: the pair
+-- of terms at the exact point where computation stalled.  Collapsing that to
+-- `False` throws away the only new mathematical content a refusal has.  On
+-- the committed machine/machine.log that is 1092 rejections carrying 946
+-- recoverable residuals and 107 DISTINCT subgoals -- the machine stating,
+-- about twelve hundred times a round, which lemmas it needs next, in its own
+-- vocabulary, derived rather than guessed.
+--
+-- THE DECISION IS UNCHANGED.  `koAccepted` is the same Bool the old
+-- `kernelAcceptWith` returned, produced on the same branches from the same
+-- verdict; nothing here can turn a rejection into an acceptance.  The
+-- invariant "every rule installed in this process was kernel-accepted in this
+-- process" is therefore untouched.  What is added is `koObstruction`, which
+-- is read only by the conjecture queue and never by the gate.
+--
+-- THE ANCESTOR.  Aryabhata's kuttaka (Aryabhatiya, 499 CE) solves a linear
+-- Diophantine congruence by dividing, KEEPING THE REMAINDER, and recursing on
+-- the remainder -- the valli, the column of quotients that reconstructs the
+-- answer on the way back up (formal/cubical/KuttakaValli.agda).  The
+-- remainder is not the failure of the division; it is the next problem, and
+-- it is strictly smaller.  Cakravala (Jayadeva ~950, Bhaskara II 1150) is the
+-- same move one level up, at quadratic forms.  "The obstruction is the
+-- material" is that algorithm, not a slogan.
+data KernelOutcome = KernelOutcome
+  { koAccepted    :: !Bool
+    -- ^ exactly the old return value of this function
+  , koObstruction :: Maybe OB.Obstruction
+    -- ^ Nothing when accepted, or when the emitter never produced a module
+    --   (`Untranslatable` says something about the emitter, not about where
+    --   computation stalled, so there is no residual to read).
+  , koNaya        :: Maybe P.Naya
+    -- ^ WHICH STANDPOINT SPOKE.  On an acceptance this is the naya that
+    --   closed it, read off the shape `Certificate` returns.  On a refusal it
+    --   is the naya that was ATTEMPTED — which is `NRefl` exactly when the
+    --   proof note named no induction variable, because `certifyWith` refuses
+    --   at that field before it emits a single step shape.
+    --
+    --   This field is why the corpus's central confusion is now expressible.
+    --   machine.log:146 refuses `x = (xmaxx)` and machine.log:174 accepts it,
+    --   same process, same round=0.  Before this field the two lines were
+    --   `False` and `True` about the same claim and the codebase had no way
+    --   to say they were not in contradiction.  They are not: one is
+    --   `Just NRefl` with `koAccepted = False`, the other is
+    --   `Just (NInduction 'x' (Just "cong suc"))` with `koAccepted = True`.
+    --   Over the committed log that distinction covers 541 of 1457 refusals —
+    --   refusals of claims the same log accepts elsewhere.
+    --
+    --   `Nothing` only for `Untranslatable`, where no naya was reached.
+  , koCalls       :: !Int
+    -- ^ agda processes this decision actually launched; 0 means every module
+    --   came from `machine/.certcache`.  Recorded because the justification
+    --   written into memory must not invent it: a `calls=0` that meant
+    --   "unknown" would be indistinguishable from a genuine cache hit, and
+    --   this repository has a documented history of exactly that mistake.
+  }
+
+toOb :: Term -> OB.Term
+toOb (V i)    = OB.V i
+toOb (F f ts) = OB.F f (map toOb ts)
+
+fromOb :: OB.Term -> Term
+fromOb (OB.V i)    = V i
+fromOb (OB.F f ts) = F f (map fromOb ts)
+
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
-kernelAccept = kernelAcceptWith [] [] []
+kernelAccept logh roundNo cand =
+  koAccepted <$> kernelAcceptWith [] [] [] logh roundNo cand
 
 -- TRACE REPLAY, tried before the shape search.
 --
@@ -1653,7 +2070,24 @@ toTR :: Term -> TR.Term
 toTR (V i) = TR.V i
 toTR (F f ts) = TR.F f (map toTR ts)
 
-tryReplay :: [(Term,Term)] -> [Rule] -> ((Term,Term),String) -> IO (Maybe Int)
+-- THE TRACE IS RENDERED AND THEN THROWN AWAY.
+--
+-- `TR.replayWithRules` returns `Just source` — a complete Agda module, the
+-- proof written out. The kernel checks it, the machine records the words
+-- "trace replay" in the log, and the source is dropped on the floor.
+--
+-- That path is 820 of 2362 `KERNEL-ACCEPT` lines, the plurality. It is also
+-- exactly what `machine/KernelContext.hs` cannot render — its `proofOfNaya`
+-- returns `NoTacticRecorded "trace replay"`, because `library.terms` records
+-- THAT a trace was replayed and not the trace. So the largest single block of
+-- the machine's memory is unusable by the organ built to feed the kernel, and
+-- the reason is that the machine already had the answer and did not keep it.
+--
+-- Same defect as the verdicts, the display, the dead `residualTally`: evidence
+-- produced at one boundary and discarded at the next. `tryReplay` now hands
+-- the source back and `kernelAcceptWith` writes it down.
+tryReplay :: [(Term,Term)] -> [Rule] -> ((Term,Term),String)
+          -> IO (Maybe (Int, String))
 tryReplay known rules ((l,r),proofNote) =
   case C.inductionVariable proofNote of
     Nothing -> pure Nothing
@@ -1667,21 +2101,107 @@ tryReplay known rules ((l,r),proofNote) =
         Just source -> do
           (code, _out, calls) <- C.runAgdaCached "." source
           case code of
-            ExitSuccess -> pure (Just calls)
+            ExitSuccess -> pure (Just (calls, source))
             ExitFailure _ -> pure Nothing
 
+-- Append-only, one record per replayed proof, delimited so it can be read back
+-- without a parser for Agda.  The claim is in the machine's own prefix
+-- notation, which is what `library.terms` uses and what `KernelContext`
+-- already parses.
+-- LIVE TARGET, TRACKED SNAPSHOT.
+--
+-- The first version appended straight to `machine/replay.traces`, which is
+-- tracked -- and a tracked file that a long-running round loop appends to
+-- means the working tree is never clean while the machine runs, so `./sync`
+-- refuses for the whole run and the operator commits the same file over and
+-- over.  I did that four times before noticing it was the design and not the
+-- day.
+--
+-- So the live append target is `machine/replay.traces.live`, gitignored, and
+-- `--harvest-traces` folds it into the tracked corpus deliberately, deduped by
+-- claim.  That is exactly the relationship `machine.log` (live, ignored) and
+-- `library.terms` (durable, tracked) already have; the traces belong on the
+-- first side while a run is in flight and on the second afterwards.
+--
+-- This is NOT the machine.log mistake in disguise.  The corpus stays tracked
+-- and reproducible; what moved is only where a run writes before harvest.
+liveTraceFile :: FilePath
+liveTraceFile = "machine/replay.traces.live"
+
+recordTrace :: (Term, Term) -> String -> IO ()
+recordTrace (l, r) source =
+  appendFile liveTraceFile $
+       "-- TRACE " ++ showTermP l ++ "\t" ++ showTermP r ++ "\n"
+    ++ source
+    ++ (if not (null source) && last source == '\n' then "" else "\n")
+    ++ "-- END TRACE\n"
+
 kernelAcceptWith :: [Sym] -> [(Term,Term)] -> [Rule] -> Handle -> Int
-                 -> ((Term,Term),String) -> IO Bool
+                 -> ((Term,Term),String) -> IO KernelOutcome
 kernelAcceptWith invented known rules logh roundNo cand@((l,r),proofNote) = do
   replayed <- tryReplay known rules cand
   case replayed of
-    Just calls -> do
-      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls)\n"
+    Just (calls, source) -> do
+      recordTrace (l, r) source
+      hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls, trace kept)\n"
         roundNo (show l) (show r) calls
-      pure True
+      pure (KernelOutcome True Nothing (Just P.NTraceReplay) calls)
     Nothing -> kernelAcceptSearch invented logh roundNo ((l,r),proofNote)
 
-kernelAcceptSearch :: [Sym] -> Handle -> Int -> ((Term,Term),String) -> IO Bool
+-- The naya a shape string names.  `Certificate.cachedShape` prefixes
+-- "cached, " when every module in the search came from the cache, which is a
+-- statement about the cache and not about the standpoint, so it is stripped
+-- before classification.  Anything unrecognised stays `NOther` with the text
+-- kept, so a new step label added to `Certificate.stepShapes` shows up as
+-- itself rather than as a silent misclassification.
+nayaOfShape :: String -> P.Naya
+nayaOfShape s = P.nayaOfNote (strip s)
+  where
+    marker = "cached, "
+    strip t | take (length marker) t == marker = drop (length marker) t
+            | otherwise                        = t
+
+-- The naya a REFUSAL refused under, derived from the note rather than from
+-- the error text.  This is exact, not a guess: `Certificate.certifyWith` tries
+-- the refl module first and, when it fails, reads `inductionVariable` out of
+-- the note and returns `Rejected` immediately if there is none.  So a note
+-- naming no variable means refl was the whole of what was attempted.
+nayaAttempted :: String -> P.Naya
+nayaAttempted note = case C.inductionVariable note of
+  Nothing -> P.NRefl
+  Just v | v >= 0 && v < 6 -> P.NInduction ("xyzuvw" !! v) Nothing
+         | otherwise       -> P.NOther note
+
+-- What gets written into `machine/library.terms` beside the equation: the
+-- naya that closed it and the delimitor it closed under.
+--
+-- The naya comes from `koNaya` -- the shape `Certificate` RETURNED -- and
+-- falls back to classifying the note the prover SUBMITTED only when the gate
+-- reported none, which today is the `Untranslatable` branch, where nothing is
+-- installed anyway.  The two differ and the difference matters: the note says
+-- "induction on x", the shape says "induction on x, step = cong suc", and a
+-- later process handed the shape can be given back the module that worked
+-- rather than the first of twelve.
+--
+-- The delimitor is read off the live machine, not off the defaults: `mVocab`
+-- is how far into `vocabulary` this round could see, and `vocabulary`'s ORDER
+-- is the precedence, so the list is recorded in order and not as a set.
+justificationOf :: Machine -> Maybe P.Naya -> String -> Int -> P.Justification
+justificationOf m mnaya pf calls = P.Justification
+  { P.jPramana     = P.Anumana naya
+  , P.jNaya        = naya
+  , P.jAvacchedaka = P.Avacchedaka
+      { P.avEquality   = "_\8801_ on \8469"
+      , P.avVocabulary = map symName (take (mVocab m) vocabulary)
+      , P.avVars       = K.kVars (mKnobs m)
+      , P.avSizeBound  = K.kSizeCap (mKnobs m)
+      }
+  , P.jProvenance  = P.Provenance (mRound m) calls
+  }
+  where naya = maybe (P.nayaOfNote pf) id mnaya
+
+kernelAcceptSearch :: [Sym] -> Handle -> Int -> ((Term,Term),String)
+                   -> IO KernelOutcome
 kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
   verdict <- C.certifyWith (certDefinitions invented) "."
                ((toCert l, toCert r), proofNote)
@@ -1689,15 +2209,160 @@ kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
     C.Certified shape calls -> do
       hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (%s, %d agda calls)\n"
         roundNo (show l) (show r) shape calls
-      pure True
+      pure (KernelOutcome True Nothing (Just (nayaOfShape shape)) calls)
     C.Rejected err calls -> do
-      hPrintf logh "  KERNEL-REJECT round=%d %s = %s  (%d agda calls) %s\n"
-        roundNo (show l) (show r) calls (take 160 (filter (/= '\n') err))
-      pure False
+      hPrintf logh "  KERNEL-REJECT round=%d %s = %s  (%d agda calls) [naya=%s] %s\n"
+        roundNo (show l) (show r) calls
+        (P.nayaNote (nayaAttempted proofNote))
+        (take 160 (filter (/= '\n') err))
+      -- The one line this whole seam exists for: `err` is agda's own
+      -- `A != B of type ℕ`, and `OB.classify` turns it back into the pair of
+      -- terms, against THIS candidate as the goal.  Everything above is
+      -- byte-for-byte what it was.
+      pure (KernelOutcome False (Just (OB.classify (toOb l, toOb r) err))
+              (Just (nayaAttempted proofNote)) calls)
     C.Untranslatable why -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s  (%s)\n"
         (show l) (show r) why
-      pure False
+      pure (KernelOutcome False Nothing Nothing 0)
+
+-- ===================================================================
+-- READING THE REFUSALS AS A CURRICULUM.
+--
+-- WHY THIS TERMINATES, stated correctly.  The tempting argument is the
+-- kuttaka's: Aryabhata's remainders strictly decrease, so the recursion
+-- bottoms out.  THAT ARGUMENT DOES NOT APPLY HERE and must not be relied on.
+-- The kuttaka divides; agda UNFOLDS, and an unfolding can grow the term --
+-- the flagship example does exactly that, goal `x = 1·x` stalling at
+-- `x = x + 0·x`, which is bigger.  There is no descent measure.
+--
+-- What bounds the feedback instead is that the residual set is FINITE AND
+-- SMALL.  Over the whole committed machine/machine.log: 112 distinct
+-- residuals, term sizes (both sides summed) from 2 to 20.  Residuals are what
+-- agda's evaluator gets stuck on inside a fixed fragment with a fixed handful
+-- of defining clauses, so the population it can produce is bounded by that
+-- fragment, not by the number of candidates thrown at it.  Three further
+-- brakes, none of them a measure:
+--
+--   * `usefulResidual` below drops the degenerate ones outright;
+--   * a residual entering the queue crosses the SAME filters every other
+--     conjecture crosses -- vocabulary, well-formedness, and the fingerprint
+--     firewall -- so a residual of a FALSE parent (`x·x = s(x)`, 30
+--     occurrences; `x·max(x,1) = s(x)`, 100) is refuted before it costs a
+--     proof attempt, let alone an agda process;
+--   * `mFailed` is keyed on the rule count at failure, so a residual that is
+--     true, queued, and not proved is not retried until the machine knows
+--     something it did not know then.  See `residualFailedContract`, which
+--     is the check and not the assumption.
+--
+-- And the queue takes at most `kResidualQueueCap` per round, with the number
+-- dropped written to the log.  A silent cap reads as "covered everything".
+kResidualQueueCap :: Int
+kResidualQueueCap = 48
+
+-- WHICH RESIDUALS ARE MATERIAL.  Not this file's judgement: `Obstruction`
+-- owns it, as `triage`, and the census behind it is over the whole of
+-- machine/machine.log -- 112 distinct residuals, of which 78 are Plausible
+-- (703 occurrences), 33 are Refuted (320) and one, `x = y`, is Degenerate
+-- (63).  The separator is refutation by computation over Integer on fixed
+-- deterministic assignments: one disagreement is a proof of falsity, and it
+-- costs nothing next to an agda process.
+--
+-- The 33 refuted ones are exactly the livelock this queue could otherwise
+-- create.  `x·max(x,1) = s(x)` (126 occurrences) and `x·x = s(x)` (30) are
+-- both FALSE, and a false residual that is queued fails, gets its parent
+-- retried, and regenerates itself, forever.
+--
+-- TWO LIMITS, so nothing downstream overclaims.  `Aviruddha` is the ABSENCE
+-- OF A REFUTATION OVER A STATED DOMAIN — the domain is in the constructor,
+-- and reading the verdict without reading it is the error the constructor
+-- exists to prevent.  It is not a proof of truth; the kernel is still the only
+-- thing that accepts a theorem, and every residual crosses it like everything
+-- else.  And `triage` deliberately offers no opinion on a term containing a
+-- symbol outside {0,s,+,*,max,-,gcd,le}: that is `Tusnim`, silence, naming the
+-- symbol that caused it.  On THIS wire that branch is unreachable, and it is
+-- worth saying why rather than relying on it: a residual only exists here if
+-- `parseAgdaTerm` produced it, and that parser accepts exactly
+-- zero/suc/numerals/variables and those same eight symbols.  Anything naming
+-- an invented concept (`c0`) or a pair symbol comes back `Unparsed` and
+-- contributes nothing.  If the parser is ever widened past the triage
+-- vocabulary, that stops being true — and then `Tusnim` starts carrying the
+-- name of whatever widened it, which is the report you would want.
+residualVerdict :: (Term,Term) -> OB.Verdict
+residualVerdict p = OB.triage (toOb (fst q), toOb (snd q))
+  where q = orientLikeRound p
+
+usefulResidual :: (Term,Term) -> Bool
+-- The admission decision is a statement with its ground on both sides, so this
+-- match holds the verdict that admitted the residual rather than a bare True.
+-- Extension unchanged from the old `== Plausible`: aviruddha and tusnim enter.
+usefulResidual p = fst q /= snd q
+                && (case OB.pravesha (residualVerdict p) of
+                      OB.Pravishati _ -> True
+                      OB.Nivartate  _ -> False)
+  where q = orientLikeRound p
+
+-- THE ENGINE STATES A CONJECTURE SMALLEST-SIDE-FIRST.  `round1` takes the
+-- smallest member of a fingerprint class as the representative and pairs
+-- every other member against it, so `(x, x+0)` is the machine's own spelling
+-- and `(x+0, x)` is a different key in `mKnown` and in `mFailed`.  The log
+-- contains BOTH orientations of the same residual -- `x = x + 0` 23 times and
+-- `x + 0 = x` 19 times -- so a queue that does not normalise orientation asks
+-- for one lemma as two jobs and matches neither against what the round
+-- already knows.  Orientation first, then `canonVars`, because renaming by
+-- first appearance depends on which side is written first.
+orientLikeRound :: (Term,Term) -> (Term,Term)
+orientLikeRound (a,b)
+  | (size a, a) <= (size b, b) = canonVars (a,b)
+  | otherwise                  = canonVars (b,a)
+
+-- The genuine subgoals in a round's refusals, each paired with the parent it
+-- stalled.  `TacticTooWeak` contributes nothing to CONJECTURE (the statement
+-- is already in hand; what has to change is the tactic), `Unparsed`
+-- contributes nothing because the module refuses to guess, and `triage`
+-- removes the refuted and the degenerate.  The subgoal set this produces is
+-- `Obstruction.worthQueueing` of the same refusals -- checked, not asserted,
+-- by `--obstruction-self-test`; the pairing with the parent is the extra this
+-- function carries, and it is what makes "did the residual close its parent?"
+-- an answerable question.
+harvestResiduals :: [(((Term,Term),String), KernelOutcome)]
+                 -> [((Term,Term),(Term,Term))]
+harvestResiduals outcomes =
+  [ (orientLikeRound (fromOb a, fromOb b), parent)
+  | ((parent,_), ko) <- outcomes
+  , Just (OB.Residual (a,b)) <- [koObstruction ko]
+  , usefulResidual (fromOb a, fromOb b)
+  ]
+
+-- THE LIVELOCK CHECK, RUN RATHER THAN ASSUMED.  The hazard the queue creates
+-- is: a residual is queued, fails, its parent is retried, the parent
+-- regenerates the same residual, and the pair cycles forever at no cost to
+-- anybody's counter.  `mFailed` is supposed to stop that, and this is the
+-- statement of why, checked as a finite predicate so a later edit to the
+-- freshness filter breaks a check and not a run:
+--
+--   a conjecture c with `M.lookup c mFailed == Just n` is excluded from
+--   `freshSized` whenever the current rule count is n.
+--
+-- So a requeued residual costs one membership test and nothing else until the
+-- rule set actually changes -- and when it changes, the machine genuinely
+-- knows something it did not know when the residual failed, which is the only
+-- condition under which retrying is not a loop.  The predicate below is
+-- exactly the one `freshSized` applies, evaluated on a residual-shaped
+-- witness, and it is reported in the round-0 log.
+residualFailedContract :: Bool
+residualFailedContract =
+    not (freshAt 7) && freshAt 8 && not (usefulResidual (V 0, V 1))
+                    && usefulResidual witness
+  where
+    -- `x = x + 0*x`, the flagship residual, recorded as having failed at a
+    -- rule count of 7
+    witness = canonVars (x_, bin "+" x_ (bin "*" zero_ x_))
+    -- The memo entry has the shape `round1` now writes: the rule count is
+    -- still the key the requeue test reads, and the yogya verdict rides
+    -- alongside it without changing that test.
+    failed  = M.singleton witness ((7 :: Int), Yogya 1 7)
+    freshAt n = fmap fst (M.lookup witness failed) /= Just n
 
 kernelAcceptLegacy :: Handle -> Int -> ((Term,Term),String) -> IO Bool
 kernelAcceptLegacy logh roundNo ((l,r),_) =
@@ -1755,7 +2420,11 @@ data Machine = Machine
   , mKnown   :: M.Map (Term,Term) ()  -- everything already stated
   , mInvented :: [Sym]        -- concepts the machine named for itself
   , mRetired :: [Term]        -- patterns it named, never used, and withdrew
-  , mFailed  :: M.Map (Term,Term) Int  -- conjecture -> rule count when it failed
+  -- conjecture -> (rule count when it failed, whether the search that failed
+  -- was exhausted).  The `Int` is the memo key it always was; the `Absence` is
+  -- the yogya condition, and it is what turns "I did not find a proof" from a
+  -- boolean into a claim that can be true or false about the world.
+  , mFailed  :: M.Map (Term,Term) (Int, Absence)
   , mThoughts :: [(Term,Term)] -- researcher candidates, as native terms
   , mResiduals :: [String]     -- exact lines not promoted to equations
   , mVocab   :: Int           -- how many symbols are in play
@@ -1784,7 +2453,64 @@ data Machine = Machine
   -- machine/Knobs.hs.  The constants at the top of this file are now only
   -- the DEFAULTS, and an absent conf reproduces them exactly.
   , mKnobs :: K.Knobs
+  -- ---- the kernel's refusals, kept.  See `KernelOutcome`. ----
+  -- subgoals harvested from LAST round's refusals, waiting to be stated.
+  -- Capped at `kResidualQueueCap`; what did not fit is logged, not dropped
+  -- quietly.
+  , mResidualQueue :: [(Term,Term)]
+  -- subgoal -> the parents that stalled on it, cumulative.  This is the only
+  -- structure that can answer the question the seam exists for: did a residual
+  -- become a lemma that closed the candidate it came out of?
+  , mResidualFrom :: M.Map (Term,Term) [(Term,Term)]
+  -- residual-sourced subgoals that the kernel later accepted, cumulative
+  , mResidualProved :: S.Set (Term,Term)
+  -- आरोहण — the parents summoned by climbing the vallī when a subgoal became
+  -- a theorem this round.  Written at the end of a round, spent at the start
+  -- of the next.  See `arohana`.
+  , mArohana :: S.Set (Term,Term)
   }
+
+-- आरोहण — THE CLIMB BACK UP THE VALLĪ.
+--
+-- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32–33 (499), the kuṭṭaka; the procedure
+-- given step by step in Bhāskara I's Āryabhaṭīyabhāṣya (629).  The pulverizer
+-- has TWO motions and this machine was built with one.
+--
+-- Downward: divide, keep the remainder, recurse on it, and write each quotient
+-- into the vallī — the column.  That motion exists here.  `Obstruction`
+-- harvests the residual out of a kernel refusal and `mResidualFrom` records
+-- which parent stalled on it.  The column is written every round.
+--
+-- Upward: you reach the bottom, seed it, and then CLIMB the column — each row
+-- taking the value below it, and the answer at the bottom propagating to the
+-- top.  The vallī is not scratch work.  It is the structure that carries the
+-- result back, and without the ascent the descent is not a kuṭṭaka at all, it
+-- is just division.
+--
+-- The ascent did not exist.  `mResidualFrom` was read in exactly one place —
+-- `closedParents` — and read there to REPORT, after the fact, that a parent
+-- had happened to be re-proposed by the fingerprint sampler in the same round
+-- its subgoal happened to be proved, and had happened to go through.  The
+-- machine measured the ascent it never performed.  A parent whose missing
+-- lemma had just been supplied waited to be regenerated by chance, like a
+-- stranger, and `mFailed`'s rule-count key could keep it out when it came.
+--
+-- This is the growth rule the corpus records the engine as never having had,
+-- and it was available in 499.
+--
+-- Transitive, because a residual is itself refused and yields its own
+-- residual: the column has more than two rows and the seed must reach the top.
+-- `seen` carries the cycle guard — G can stall at R while R stalls at G, and
+-- a vallī with a loop in it must terminate rather than climb forever.
+arohana :: M.Map (Term,Term) [(Term,Term)]   -- the vallī: subgoal -> parents
+        -> [(Term,Term)]                     -- seeds: subgoals proved this round
+        -> [(Term,Term)]                     -- every ancestor they unblock
+arohana valli seeds = go (S.fromList seeds) seeds []
+  where
+    go _    []     acc = reverse acc
+    go seen (s:ss) acc =
+      let ups = [ p | p <- M.findWithDefault [] s valli, not (S.member p seen) ]
+      in go (foldl' (flip S.insert) seen ups) (ss ++ ups) (reverse ups ++ acc)
 
 -- ===================================================================
 -- THE THREE DECISION RULES, EACH CITING THE THEOREM IT IMPLEMENTS.
@@ -1962,6 +2688,7 @@ start = Machine [] [] M.empty [] [] M.empty [] [] 3 4 0
     boundedArchitectures "square-threshold" squareThresholdSearch)]
   [(4,[2],SnapshotDemand [2])]
   0 (K.kAssign K.defaultKnobs) M.empty K.defaultKnobs
+  [] M.empty S.empty S.empty
 
 -- CONCEPT INVENTION.  A machine whose vocabulary is a list somebody
 -- else typed can only ever compress the consequences of that list; when
@@ -2135,6 +2862,9 @@ isAssociativity f equation = forward equation || forward (swap equation)
 --                                   as it did before WIRE 4 existed.  Nothing
 --                                   is computed, nothing is logged, and the
 --                                   `criticalPairs` enumeration is not forced.
+--                                   This default is NOT a cost decision; the
+--                                   measurement that says so is on the field
+--                                   itself, below.
 --
 -- Nothing here can make an unsound theorem installable: every wire feeds the
 -- same kernel gate, and the gate is the authority.  What the wires change is
@@ -2146,15 +2876,63 @@ data Dispatch = Dispatch
   , dNestedDepth :: Int          -- 0 = off; else NestedInduction budget
   , dRounds      :: Maybe Int    -- Nothing = forever (the live default)
   , dLog         :: Maybe FilePath  -- smoke-mode log sink; Nothing = /dev/null
-  -- WIRE 4.  0 = off, and off is the live default: `round1` then takes the
-  -- blind-widen branch it took yesterday, byte for byte.  Any n > 0 is the
+  -- WIRE 4.  0 = off, and off is still the live default.  Any n > 0 is the
   -- budget of critical pairs CERTIFY may examine on a barren round before it
-  -- gives up and lets the ladder run anyway.  See the WIRE 4 banner.
+  -- gives up and lets the ladder run anyway.  See the WIRE 4 banner, and
+  -- `certifySeam` for what n now buys that it did not buy before 2026-08-17.
+  --
+  -- WHY 0, RE-DECIDED 2026-08-17 WHEN THE SEAM WAS ACTUALLY CONNECTED, AND
+  -- WHAT THE REASON IS NOT.  It is NOT cost.  Measured on this machine, four
+  -- rounds, `machine/library.terms` restored to a fixed 37-equation state
+  -- before every run so the runs are comparable, wall clock:
+  --
+  --     --rounds 4                    41.27s  41.60s  41.77s  40.92s
+  --     --rounds 4 --certify 20000    42.23s  41.58s  41.09s  41.34s
+  --
+  -- The spread WITHIN the off column is 0.85s and the gap between the column
+  -- means is about 0.5s, so the cost of running CERTIFY on this workload is
+  -- not distinguishable from the noise of not running it.  Anyone who leaves
+  -- this flag off to save time is saving nothing.
+  --
+  -- The reason is that turning it on CHANGES THE LADDER, and the change is
+  -- unmeasured beyond four rounds.  A divergent critical pair that the kernel
+  -- accepts is installed and GROWTH IS HELD for that round (see `COMPLETE` in
+  -- `round1`); that is the intended behaviour and it is the whole point of
+  -- completion-instead-of-widening, but it means the machine visits a
+  -- different sequence of horizons than every log, note and count in this
+  -- repository was written against.  It has been observed to fire: on a
+  -- 15-equation memory it installed `0 = c0(0)` -- true, since c0 := x*x --
+  -- which generate-and-test had not stated at any horizon it had reached.
+  -- On the 37-equation memory it finds `s(x+(y-1)) = x+(y max 1)`, also true,
+  -- every growing round, and the kernel declines it (the note it is given is
+  -- a critical-pair provenance string, and `Certificate.certifyWith` reads
+  -- its induction variable out of that note), so the round ends CERTIFY-HOLD
+  -- and the ladder is unchanged.  Both outcomes are correct.  Neither has
+  -- been run out to the horizon-7 plateau the corpus is written about.
+  --
+  -- So: off is a statement about what has been MEASURED, not about what is
+  -- better.  `--certify 20000` is the measured-harmless way to ask for the
+  -- organ, and the run that flips this default should be the run that has
+  -- the long-horizon A/B in hand.
   , dCertify     :: Int
+  -- WIRE 5.  Nothing = machine/thoughts.math, the live default and the only
+  -- file the engine has ever read.  A path here replaces it, so a seeded run
+  -- can hand the machine a different question set without editing the file
+  -- every default run parses.
+  , dThoughts    :: Maybe FilePath
+  -- WIRE 6.  Whether a certified yogya-anupalabdhi is allowed to license a
+  -- growth move.  ON by default, and unlike WIRE 4's `dCertify = 0` that is
+  -- not a bet: the licence fires only where the round has PROVED that the
+  -- region it is standing in cannot yield anything more, and the alternative
+  -- to acting on that proof is re-running a computation whose result is
+  -- already known.  `--no-anupalabdhi` is the single-factor control; the
+  -- verdict is computed and logged either way, so the two arms differ in
+  -- exactly one bit of behaviour.
+  , dAnupalabdhi :: Bool
   } deriving (Eq, Show)
 
 defaultDispatch :: Dispatch
-defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0
+defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0 Nothing True
 
 -- 2^n memoised states in `D.optimalSchedule`, and n * 2^n cost evaluations,
 -- each of which normalises two terms.  This is a hard ceiling, not a taste:
@@ -2176,6 +2954,19 @@ parseDispatch = go defaultDispatch []
       ("--log", v:ms)          -> go (d { dLog = Just v }) rest ms
       -- the whole arithmetic vocabulary, in one word
       ("--arith", ms)          -> go (d { dVocabCap = length vocabulary }) rest ms
+      -- WIRE 5.  The pair chart, and START there rather than merely allowing
+      -- it: `requiredVocabulary` is computed from thoughts.math, which names
+      -- no pair symbol, so a raised cap alone would leave mVocab at 8 and the
+      -- new symbols unreachable until the growth ladder crawled to them.
+      ("--pair", ms)           -> go (d { dVocabCap = pairVocabCap
+                                        , dVocabStart = Just pairVocabCap }) rest ms
+      -- an alternative thought file; the default is machine/thoughts.math
+      ("--thoughts", v:ms)     -> go (d { dThoughts = Just v }) rest ms
+      -- WIRE 6.  The single-factor control for the anupalabdhi licence.  With
+      -- it the round still COMPUTES and LOGS its yogya verdict -- so the A/B
+      -- arms see the same numbers -- and simply does not act on it, which is
+      -- exactly the engine of 2026-08-17.
+      ("--no-anupalabdhi", ms) -> go (d { dAnupalabdhi = False }) rest ms
       _                        -> go d (flag:rest) more
       where
         withNat v ms f = case parseNaturalInt v of
@@ -2431,11 +3222,152 @@ certifyLocal budget rs = go 0 (criticalPairs rs)
                   | otherwise             -> Divergent (n+1) cp
     joins (u,v) = normalize rs u == normalize rs v
 
--- THE SEAM.  One line to swap when machine/Certify.hs lands; its
--- `Certify.certify :: Int -> [(Term,Term)] -> Certify.Verdict` is expected to
--- return the same three cases, and this becomes a translation of them.
+-- ---------------------------------------------------- THE SEAM, CONNECTED
+--
+-- 2026-08-17.  machine/Certify.hs landed on 2026-08-14, in commit 634c01d0,
+-- titled "CERTIFY: the machine proves its own saturation".  It was `module
+-- Main`, so no file could import a line of it, and `certifySeam` went on
+-- calling `certifyLocal` -- the in-file fallback the comment above calls a
+-- stub -- for three days, while the commit message said the organ was
+-- connected.  Certify.hs is now `module Certify` and this is the line that
+-- changed.  It is more than one line because the swap has a hypothesis, and
+-- the hypothesis is checked below rather than assumed.
+--
+-- WHAT IS GAINED, precisely.  `certifyLocal` tests joinability with ONE
+-- strategy: `normalize u == normalize v`, innermost-leftmost.  That is the
+-- test that matters operationally -- `normalize` is what the engine runs --
+-- but it is not the mathematical property.  Joinability quantifies over ALL
+-- derivations: u and v are joinable when SOME common reduct exists, in
+-- whatever order the rules fire.  Certify's `joinability` runs the strategy
+-- test first and, only when it fails, builds the full reduct set of each
+-- side (every rule at every non-variable position, each guarded by the same
+-- `decreases` that guards `step`) and intersects them.  Termination makes
+-- both sets finite; `certifyBound` guards against a rule set that is not in
+-- fact terminating, and a bound that is hit is reported as JoinUnknown --
+-- no verdict -- never as a join.
+--
+-- So the swap is monotone in the safe direction.  Every pair `certifyLocal`
+-- joined, this joins: clause (a) of `joinability` IS `certifyLocal`'s whole
+-- test.  Pairs it called Divergent may now join.  Divergences therefore get
+-- FEWER, and `Convergent` -- the verdict that prints THEOREM -- gets
+-- STRICTLY more available, and is now backed by joinability rather than by
+-- one strategy's normal forms.  Nothing here can turn a joined pair into a
+-- divergent one, so no rule the machine would not have installed before
+-- becomes installable now.
+--
+-- WHAT IS DELIBERATELY NOT TAKEN.  `Certify.certify` itself is not called.
+-- It returns `Diverges [(Term,Term)]`: normalised pairs with the provenance
+-- discarded.  The CERTIFY-DIVERGENT log line wants the peak and both parent
+-- rules, and `Budgeted` -- the verdict that proves NOTHING and whose whole
+-- purpose is that it must not be collapsed into Convergent -- has no
+-- counterpart in `CertifyResult` at all.  So the enumeration and the budget
+-- stay here, where the `CriticalPair` record is, and what is imported is the
+-- joinability ORACLE.  That oracle is the entire thing `certifyLocal` was
+-- missing; the rest of Certify.hs is a report generator for standalone use.
+--
+-- THE GUARD, and it is load-bearing.  Certify.hs does not import this file
+-- (this one is `module Main`); it TRANSCRIBES `precedence` from it, as a
+-- bare list of vocabulary names.  `precedence` decides `lpo`, which decides
+-- `decreases`, which decides which rewrites exist at all.  If the two lists
+-- ever drift -- a symbol added here, or reordered -- Certify's reduct sets
+-- are the reduct sets of a DIFFERENT rewrite relation, and its verdict is a
+-- true statement about an object the machine is not running.  That is not a
+-- hypothetical: `arithVocabulary` was appended to `vocabulary` after this
+-- file was first written.  So the lists are compared, here, against this
+-- file's own `vocabulary`, and on a mismatch the seam falls back to
+-- `certifyLocal` and the round says so, rather than certifying under an
+-- order that is not the machine's.
 certifySeam :: Int -> [Rule] -> CertifyVerdict
-certifySeam = certifyLocal
+certifySeam budget rs
+  | not certifyTranscriptionAgrees = certifyLocal budget rs
+  | otherwise                           = go 0 (criticalPairs rs)
+  where
+    crs = [ (toCertifyTerm l, toCertifyTerm r) | (l,r) <- rs ]
+    go n cps
+      | n >= budget = Budgeted n
+      | otherwise = case cps of
+          []      -> Convergent n
+          (cp:cs) | joinsCertify (cpEquation cp) -> go (n+1) cs
+                  | otherwise                    -> Divergent (n+1) cp
+    joinsCertify (u,v) =
+      case CY.joinability CY.certifyBound crs (toCertifyTerm u) (toCertifyTerm v) of
+        CY.JoinsAt _ -> True
+        _            -> False
+
+-- The two `Term` types are the same declaration written twice, in two files
+-- that cannot import each other.  This is the cost of the transcription and
+-- it is one function.
+toCertifyTerm :: Term -> CY.Term
+toCertifyTerm (V i)    = CY.V i
+toCertifyTerm (F f ts) = CY.F f (map toCertifyTerm ts)
+
+toTerm :: CY.Term -> Term
+toTerm (CY.V i)    = V i
+toTerm (CY.F f ts) = F f (map toTerm ts)
+
+-- The hypothesis of the swap above, as a finite exhaustive check rather than
+-- as a hope.
+--
+-- notes/CERTIFY_SCOPE_CORRECTION.md §2 names this exposure and leaves it
+-- open: "Certify.hs transcribes MathMachine's engine and §0 pins it by
+-- recomputing the machine's own published term counts ... But §0 pins the
+-- GENERATOR only.  A change to `lpo`, `decreases`, or `orient` in
+-- MathMachine.hs -- a file another session is editing live -- would pass §0
+-- silently.  That is an open exposure, not a handled one."  It is handled
+-- here, and on the only material that can matter.
+--
+-- Three clauses, and none of them is a sample of a distribution:
+--
+--   (1) the vocabulary lists agree, so `precedence` agrees on every symbol
+--       either file can name.  Invented concepts need no entry: both files
+--       send `c<n>` to -2-n by the same rule and neither list mentions them.
+--   (2) `decreases` -- hence `lpo` and `cmpTerm`, which is all of the
+--       reduction order -- agrees on EVERY ordered pair drawn from the
+--       subterms of the rule set actually being certified.  `oneStepAll`
+--       admits a rewrite exactly when `decreases` does, so if the two files
+--       agree here they generate the same one-step relation on this
+--       material, and `reachable` is then a set of reducts of the machine's
+--       own rewrite relation and not of a neighbouring one.
+--   (3) `normalize` agrees on each of those subterms, which pins `step`
+--       (position order and strategy) on top of the order.
+--
+-- This is exhaustive over the subterms of `rs`, not a random probe, and it
+-- is what CLAUDE.md calls a finite exhaustive verification rather than a
+-- measurement.  It is quadratic in a set that is a few dozen terms wide, so
+-- it costs microseconds against a call that normalises thousands of terms.
+-- On failure the seam degrades to `certifyLocal`, which is correct and
+-- weaker, and the round says so.
+certifyTranscriptionAgrees :: Bool
+certifyTranscriptionAgrees =
+     CY.vocabularyNames == map symName vocabulary
+  && and [ decreases u v == CY.decreases (toCertifyTerm u) (toCertifyTerm v)
+         | u <- certifyProbeTerms, v <- certifyProbeTerms ]
+  && and [ normalize defs t == toTerm (CY.normalize cdefs (toCertifyTerm t))
+         | t <- certifyProbeTerms ]
+  where
+    defs  = definitionsOf vocabulary
+    cdefs = [ (toCertifyTerm l, toCertifyTerm r) | (l,r) <- defs ]
+
+-- The family the check above ranges over: EVERY term of size at most 3 over
+-- the whole vocabulary in two variables.  Two variables are enough -- `lpo`
+-- and `cmpTerm` never compare variable NAMES beyond equality and `compare`,
+-- so a third adds no case -- and size 3 already contains a nested binary
+-- application under every symbol, which is where a lexicographic-path order
+-- can differ from a size order.  It is a fixed list, so GHC computes it (and
+-- the `Bool` above) once per process and the check is free after the first
+-- round that asks for it.
+certifyProbeTerms :: [Term]
+certifyProbeTerms = concat levels
+  where
+    levels = [ level k | k <- [1 .. 3 :: Int] ]
+    at k = levels !! (k - 1)
+    level 1 = [V 0, V 1]
+           ++ [ F (symName s) [] | s <- vocabulary, symArity s == 0 ]
+    level k = [ F (symName s) [t]
+              | s <- vocabulary, symArity s == 1, t <- at (k-1) ]
+           ++ [ F (symName s) [a,b]
+              | s <- vocabulary, symArity s == 2
+              , i <- [1 .. k-2], a <- at i, b <- at (k-1-i) ]
 
 -- ------------------------------------------------------- RESIDUAL and PORT
 --
@@ -2484,8 +3416,16 @@ round1 disp mem logh libh ref = do
   let syms = take (mVocab m) vocabulary ++ mInvented m
       sig = arities syms
       sem = semantics syms
+      -- THE GENERATOR'S WIDTH AND THE FINGERPRINT'S WIDTH ARE TWO NUMBERS.
+      -- They were one, and a four-variable researcher candidate consequently
+      -- crashed `eval` (see `variableHorizon`).  `nv` still governs GENERATION
+      -- and is still `kVars`; `nvEnv` governs the ENVIRONMENTS and is widened
+      -- to whatever the thought file demands, clamped at `agdaVarCeiling`.
+      -- Inert on every existing run: `assignments` extends a row rather than
+      -- perturbing it, so a term over x,y,z fingerprints identically.
       nv = K.kVars (mKnobs m)
-      envs = assignments nv (mAssign m)
+      nvEnv = max nv (variableHorizon (mThoughts m))
+      envs = assignments nvEnv (mAssign m)
       rules = usableRules m
       raw = genTermsModulo (provedCommutative m) (provedAssociative m)
               sig nv (mSize m)
@@ -2503,9 +3443,101 @@ round1 disp mem logh libh ref = do
         ++ [ canonVars (l,r)
            | (l,r) <- mThoughts m
            , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+           -- FAIL CORRECTLY, NOT LOUDLY-BY-ACCIDENT.  A candidate over more
+           -- variables than the certificate emitter can spell is dropped
+           -- here, before `fingerprint` indexes an environment that is not
+           -- that wide.  Without this the drop happened as `Prelude.!!:
+           -- index too large` and took the process with it.
+           , all (< nvEnv) (vars l ++ vars r)
            , wellFormedTerm syms l
            , wellFormedTerm syms r
-           , fingerprint sem envs l == fingerprint sem envs r ] )
+           , fingerprint sem envs l == fingerprint sem envs r ]
+        -- THE KERNEL'S OWN QUESTIONS, asked back.  These are the subgoals
+        -- agda stalled on while refusing last round's candidates.  They enter
+        -- through exactly the filters a generated conjecture crosses -- in
+        -- the vocabulary, well-formed, and agreeing on the fingerprint sample
+        -- -- so a residual of a FALSE parent (`x·x = s(x)`, `x·max(x,1) =
+        -- s(x)`) is refuted here and never reaches the prover.  Provenance
+        -- buys priority in `freshSized` and nothing else.
+        ++ residualAdmittedList
+        -- THE CLIMB.  Parents whose subgoal became a theorem last round, pulled
+        -- up the vallī rather than waited for.  Same firewall as everything
+        -- else -- in the vocabulary, well-formed, fingerprint-agreeing -- so a
+        -- summoned parent that is false is refuted here like any candidate.
+        ++ arohanaAdmittedList )
+      -- Same filters, named once so the log can report what survived them: a
+      -- residual dropped by the firewall and a residual never generated look
+      -- identical otherwise, and they are different diseases.  The `nvEnv`
+      -- guard is the one WIRE 6 added for thought-file candidates and it
+      -- belongs here for the same reason -- `fingerprint` on the line below
+      -- indexes the environment, and `Obstruction`'s parser can produce any
+      -- of x..w.
+      residualAdmittedList =
+        [ canonVars (l,r)
+        | (l,r) <- mResidualQueue m
+        , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+        , all (< nvEnv) (vars l ++ vars r)
+        , wellFormedTerm syms l
+        , wellFormedTerm syms r
+        , fingerprint sem envs l == fingerprint sem envs r ]
+      residualAdmitted = S.fromList residualAdmittedList
+      -- Same filters, applied to the ascent.  A parent was a candidate once, so
+      -- it will normally pass; running it through anyway costs nothing and
+      -- means the climb cannot be the one path into the prover that skips the
+      -- firewall.
+      arohanaAdmittedList =
+        [ canonVars (l,r)
+        | (l,r) <- S.toList (mArohana m)
+        , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+        , all (< nvEnv) (vars l ++ vars r)
+        , wellFormedTerm syms l
+        , wellFormedTerm syms r
+        , fingerprint sem envs l == fingerprint sem envs r ]
+      arohanaAdmitted = S.fromList arohanaAdmittedList
+      -- WHERE A RESIDUAL ACTUALLY DIES, per round.  This is the diagnostic
+      -- that decides whether the wire can pay at all, and it is here because
+      -- the answer turned out to be structural rather than empirical: the
+      -- highest-leverage lemmas in the curriculum are `x·0 = 0`, `0 = y·0`
+      -- and `x = x+0`, and every one of them is a DEFINING EQUATION of the
+      -- machine's own vocabulary.  `provedByRewriting rules c` therefore
+      -- discharges them, they never reach `fresh`, and even if they did the
+      -- prover's fold tags them `follows-by-rewriting` and never submits them
+      -- to the kernel.  Agda needs them because its `_·_` recurses on the
+      -- other argument; the machine's rewriter does not.  A tally that hides
+      -- that reads as "the residuals were queued" when they were discarded
+      -- one filter later.
+      -- KRAMA.  `Saptabhangi.no-single-vacana` proves that for EVERY single
+      -- standpointed utterance there is a profile on which it disagrees with
+      -- the joint content of two standpoints, and `krama-expresses` proves the
+      -- ordered PAIR denotes it exactly.  This function used to return one
+      -- string.  One string is one Vacana, so by that theorem it could not say
+      -- what a residual's situation is — and the string it returned was
+      -- `follows-by-rewriting`, the rewriter's word, standing in for the
+      -- kernel's, which is the naya that asked the question.
+      --
+      -- So the status is two words in succession: what the rewriter says, then
+      -- what the kernel says.  The kernel's side has three values and the third
+      -- is the one that mattered — `kernel-unasked`. `x = x+0` sat there 27
+      -- times over 239 rounds and nothing could see it, because the medium had
+      -- room for one aspect at a time.
+      rewriterSays c
+        | provedByRewriting rules c    = "rewriter-derives"
+        | congruent rules (mKnown m) c = "rewriter-congruent"
+        | otherwise                    = "rewriter-silent"
+      kernelSays c
+        | M.member c (mKnown m)                            = "kernel-accepted"
+        | fmap fst (M.lookup c (mFailed m)) == Just nRules  = "kernel-refused"
+        | otherwise                                        = "kernel-unasked"
+      residualStatus c@(l,r)
+        | not (all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r))
+                                            = "out-of-vocabulary"
+        | not (all (< nvEnv) (vars l ++ vars r)) = "too-many-variables"
+        | not (wellFormedTerm syms l && wellFormedTerm syms r) = "ill-formed"
+        | fingerprint sem envs l /= fingerprint sem envs r
+                                            = "refuted-by-fingerprint"
+        | otherwise = rewriterSays c ++ " / " ++ kernelSays c
+      residualTally = M.toList (M.fromListWith (+)
+        [ (residualStatus (canonVars c), 1 :: Int) | c <- mResidualQueue m ])
       -- rewriting settles the ones already implied by what we know
       -- a theorem is stated once, ever: a machine that keeps rediscovering
       -- what it wrote down last round is not learning, it is looping
@@ -2523,12 +3555,63 @@ round1 disp mem logh libh ref = do
       -- round, and proved late pays for none of them — the difference
       -- between finding x+s(y)=s(x+y) before x+y=y+x and after it.
       -- Smallest first is the only order with that property.
-      freshSized = sortOn (\(l,r) -> (size l + size r, l, r))
+      -- RESIDUALS GO FIRST, and the reason is the same one the comment above
+      -- gives for smallest-first: the fold feeds each proof back in as it
+      -- goes.  A residual is by construction the subgoal some candidate
+      -- stalled on, so proving it early is precisely what can close the
+      -- parent in the same round -- and residuals are not always small (the
+      -- flagship one, `x = x + 0·x`, is bigger than the goal that produced
+      -- it), so size order alone would schedule them after the thing they are
+      -- supposed to unblock.  The tie-break inside each class is unchanged,
+      -- so with an empty residual queue this is the old order exactly.
+      freshSized = sortOn (\c@(l,r) -> ( if S.member c arohanaAdmitted then 0
+                                         else if S.member c residualAdmitted
+                                           then 1 else 2 :: Int
+                                       , size l + size r, l, r))
               [ c | c <- conjectures
                   , not (M.member c (mKnown m))
-                  , M.lookup c (mFailed m) /= Just nRules
-                  , not (provedByRewriting rules c)
-                  , not (congruent rules (mKnown m) c) ]
+                  -- THE MEMO IS A PROXY; THE VALLĪ IS THE ANSWER.  `mFailed`
+                  -- keys on the rule count because "did anything change?" had
+                  -- no better test available -- and it is the wrong test for
+                  -- exactly this candidate, because a subgoal can be proved
+                  -- without installing an orientable rule and leave the count
+                  -- where it was.  For a parent reached by the climb the
+                  -- question is already answered exactly: the lemma it stalled
+                  -- on is now a theorem.  An exact answer overrides a proxy.
+                  --
+                  -- This terminates.  `mArohana` is rebuilt each round from
+                  -- that round's newly-proved subgoals, so a parent is summoned
+                  -- once per subgoal of its own that closes; if it still fails
+                  -- it re-enters `mFailed` and is not summoned again until
+                  -- another of its subgoals lands.
+                  , S.member c arohanaAdmitted
+                      || fmap fst (M.lookup c (mFailed m)) /= Just nRules
+                  -- THE REWRITER MAY NOT SPEAK FOR THE KERNEL.  These two
+                  -- tests are the rewriter's naya, and for an ordinary
+                  -- generated conjecture they are the right filter: no point
+                  -- asking the kernel what we can already derive.
+                  --
+                  -- For a RESIDUAL they are the wrong filter, and this is the
+                  -- fault that kept the seam at zero for 239 rounds.  A
+                  -- residual is a question the KERNEL asked — it stalled at
+                  -- `x ≡ x + 0` and said so.  `provedByRewriting` then answers
+                  -- yes, because library.terms holds `x = 0+x` and `x+y = y+x`
+                  -- and the rewriter composes them; the residual is dropped and
+                  -- never submitted.  Both standpoints are right and the
+                  -- question dies between them.  Agda's `_+_` recurses on its
+                  -- first argument, so `x + 0` does not reduce there, and no
+                  -- theorem the rewriter holds can change that — `{-# REWRITE
+                  -- #-}` needs `--rewriting` and this lane is `--safe`.
+                  --
+                  -- So: a residual is vetoed only by the naya that asked it.
+                  -- `mKnown` (the kernel accepted it) and `mFailed` above (the
+                  -- kernel refused it at this rule count) still apply; the
+                  -- rewriter's opinion now buys priority in the sort and
+                  -- nothing else.
+                  , S.member c residualAdmitted || S.member c arohanaAdmitted
+                      || not (provedByRewriting rules c)
+                  , S.member c residualAdmitted || S.member c arohanaAdmitted
+                      || not (congruent rules (mKnown m) c) ]
       -- WIRE 2.  At dDsoSchedule = 0 this is `(freshSized, Nothing)` and the
       -- smallest-first order above is untouched; otherwise the first k are
       -- permuted into the meta-Bellman optimum for total rewrite steps.
@@ -2583,10 +3666,14 @@ round1 disp mem logh libh ref = do
       -- consequences, or the gate.  Those are four different diseases with
       -- four different treatments, and from round 16 of a 70-round run they
       -- are indistinguishable in the log.  Counted here, printed as PROVER.
-      (proverStats, results) =
+      (proverStats, results, dispositions, absences) =
         let zero4 = (0, 0, 0, 0, 0, 0) :: (Int, Int, Int, Int, Int, Int)
-            (_, out, st) = foldl' attempt (rules, [], zero4) fresh
-        in (st, reverse out)
+            (_, out, dl, st, ab) = foldl' attempt (rules, [], [], zero4, []) fresh
+        in (st, reverse out, M.fromList dl, M.fromList ab)
+      -- SEEDED, i.e. a researcher candidate from the thought file rather than
+      -- a shape the generator happened to build.  The distinction buys exactly
+      -- one thing, below: the VALUE gate, and nothing else.
+      seededSet = S.fromList (map canonVars (mThoughts m))
       bounded = map executeBoundedSearch (mBoundedSearches m)
       witnessBranches = sum (map (length . activeWitnesses) bounded)
       derivationBranches = sum (map (length . derivationFiber) bounded)
@@ -2626,39 +3713,138 @@ round1 disp mem logh libh ref = do
               | architecture <- adequate
               , historyArchitectureName architecture `elem` dsoParetoArchitectures result]
         | (adequate,result) <- historyArchitectureResults ]
-      attempt (acc, out, (nRewritten, nFirewall, nNoProof, nInert, nWork, nScan)) c
-        | provedByRewriting acc c =
-            (acc, out, (nRewritten + 1, nFirewall, nNoProof, nInert, nWork, nScan))
+      attempt (acc, out, dl, (nRewritten, nFirewall, nNoProof, nInert, nWork, nScan), ab) c
+        -- THE VETO WAS LIFTED IN ONE OF THE TWO PLACES IT LIVES.
+        --
+        -- `freshSized` builds `fresh` and this fold consumes it, and both
+        -- applied `provedByRewriting`.  Lifting it only in `freshSized` let
+        -- residuals into `fresh` -- `RESIDUAL-REACHED-PROVER` duly reported
+        -- 21 of 21 -- and this guard dropped them again on the next line.  So
+        -- across every run since that change, `x = x+0` entered the candidate
+        -- list and still never appeared on any of the 5160 KERNEL lines, and I
+        -- read the first number as evidence the fix had landed.
+        --
+        -- Same reasoning as there: a residual is a question the KERNEL asked,
+        -- and the rewriter deriving it is not an answer to that question.
+        -- Only `mKnown`/`mFailed` -- the kernel's own record -- may drop one.
+        | provedByRewriting acc c
+        , not (S.member c residualAdmitted)
+        , not (S.member c arohanaAdmitted) =
+            (acc, out, (c,"follows-by-rewriting"):dl
+            , (nRewritten + 1, nFirewall, nNoProof, nInert, nWork, nScan), ab)
         -- Proof search is only as trustworthy as its current axiom set and
         -- induction implementation.  This finite gate does not certify a
         -- theorem; it prevents any theorem with a concrete small refutation
         -- from becoming a new axiom and poisoning every later round.
         | not (survivesSemanticFirewall syms c) =
-            (acc, out, (nRewritten, nFirewall + 1, nNoProof, nInert, nWork, nScan))
+            (acc, out, (c,"firewall-refuted"):dl
+            , (nRewritten, nFirewall + 1, nNoProof, nInert, nWork, nScan), ab)
         | otherwise =
             -- WIRE 3.  `proveByInduction` first, always; the nested prover is
             -- consulted only where it returned Nothing, so no proof this
             -- engine used to find is found by a different route now.  At
             -- dNestedDepth = 0 the second disjunct is `Nothing` immediately.
-            case maybe (nestedProve (dNestedDepth disp) acc c) Just
-                   (proveByInduction acc c) of
+            --
+            -- WIRE 6.  The failure branch now carries the yogya verdict of the
+            -- search that failed.  `inducted` is forced exactly where
+            -- `proveByInduction acc c` was; `nested` exactly where
+            -- `nestedProve` was.
+            let inducted = proveByInductionA acc c
+                found = case inducted of
+                  Right pf -> Just pf
+                  Left _   -> nestedProve (dNestedDepth disp) acc c
+                -- The nested prover IS budgeted: `NI.prove` takes a fuel and
+                -- returns Nothing both when it exhausts the space and when it
+                -- runs out.  It cannot tell the two apart, so consulting it
+                -- and getting nothing destroys the yogya condition for this
+                -- conjecture -- honestly, and by construction rather than by
+                -- inspection.  At dNestedDepth = 0 it was never consulted and
+                -- the inductive verdict stands.
+                absence = case inducted of
+                  Right _ -> Ayogya "proved"     -- unreachable below
+                  Left a
+                    | dNestedDepth disp > 0 ->
+                        Ayogya ("the nested prover was consulted at budget "
+                                ++ show (dNestedDepth disp)
+                                ++ " and cannot report whether that budget "
+                                ++ "exhausted its search space")
+                    | otherwise -> a
+            in case found of
               Nothing ->
-                (acc, out, (nRewritten, nFirewall, nNoProof + 1, nInert, nWork, nScan))
+                (acc, out, (c,"attempted-no-proof"):dl
+                , (nRewritten, nFirewall, nNoProof + 1, nInert, nWork, nScan)
+                , (c, absence) : ab)
               -- a proof is not enough: it must also make the world smaller,
               -- or it is a true statement with no consequences
               Just pf ->
-                let (worth, work, scan) = worthInstalling acc c
+                -- THE VALUE GATE AND WHO IT IS FOR.  `worthInstalling` asks
+                -- whether installing this theorem collapses two of the terms
+                -- the generator built this round.  For a shape the generator
+                -- built, that is exactly the right question and it stays the
+                -- question.  For a SEEDED candidate it is the wrong one twice
+                -- over: the researcher already asserted the interest, and --
+                -- measured, WIRE 5, round 0 -- a definitionally eliminable
+                -- symbol cannot pass it even in principle.  `normed` is the
+                -- NORMALISED term population, `leglo`, `leghi` and
+                -- `splitnorm` all unfold, so not one of the 241 normal forms
+                -- at vocab=11 size=4 contains a pair symbol and no pair
+                -- theorem can collapse any pair of them.  Five true, proved
+                -- pair statements died here on the first run after the
+                -- induction fix, with `proved-but-inert=5` the only trace.
+                --
+                -- So the exemption is exactly this gate and exactly for
+                -- thought-file candidates.  Everything that decides TRUTH is
+                -- unchanged and still applies to them: the symbol and
+                -- well-formedness check, fingerprint agreement, the semantic
+                -- firewall above, the prover, and the Agda kernel gate below,
+                -- which is the authority and has no idea where a candidate
+                -- came from.  THOUGHT_FORMAT.md's "receives no privileged
+                -- proof status" is about proof, and stays true.
+                -- THE VALUE GATE ANSWERS IN THE WRONG CURRENCY FOR A RESIDUAL.
+                --
+                -- `worthInstalling` asks how many terms of the population
+                -- normalise differently once the rule is installed.  That is
+                -- the REWRITER's question and it is the right one for a
+                -- generated conjecture.  For a residual it is guaranteed to
+                -- answer zero, and for the same reason the kernel asked:
+                -- `normed` is already normalised with respect to the machine's
+                -- defining rules, so `x + 0` does not occur in it, so
+                -- installing `x + 0 -> x` collapses nothing.  Value 0.  The
+                -- machine assigns zero worth to the one lemma the kernel most
+                -- needs, BECAUSE it already has it -- which is precisely what
+                -- makes the kernel unable to proceed without it.
+                --
+                -- Measured, not argued: RESIDUAL-DISPOSITION prints
+                -- `proved-but-inert` for x = (x+0), 0 = (x*0),
+                -- (x*(y+0)) = ((x*y)+(x*0)) and ((xmaxy)+0) = ((x+0)max(y+0)),
+                -- and `never-reached-fresh` for the same four the round after,
+                -- once mFailed has them.
+                --
+                -- The exemption already existed for thought-file candidates,
+                -- and a residual has the stronger claim to it: a seeded
+                -- candidate is a human's suggestion, a residual is the kernel
+                -- stating what it needs.  Truth is untouched -- the firewall,
+                -- the prover and the kernel gate all still apply.
+                let seeded = S.member c seededSet
+                    asked  = S.member c residualAdmitted
+                             || S.member c arohanaAdmitted
+                    (worth0, work, scan) = worthInstalling acc c
+                    worth = worth0 || seeded || asked
+                    tag | worth0    = "proved"
+                        | seeded    = "proved-inert-seeded"
+                        | asked     = "proved-inert-kernel-asked"
+                        | otherwise = "proved-but-inert"
                     st' = (nRewritten, nFirewall, nNoProof, nInert
                           , nWork + work, nScan + scan)
                 in if not worth
-                     then (acc, out
+                     then (acc, out, (c,tag):dl
                           , (nRewritten, nFirewall, nNoProof, nInert + 1
-                            , nWork + work, nScan + scan))
+                            , nWork + work, nScan + scan), ab)
                      else
                        let acc' = acc ++ maybe [] (:[]) (orient c)
                                    ++ (if isJust (orient c) then []
                                        else lemmaRules [c])
-                       in (acc', (c,pf):out, st')
+                       in (acc', (c,pf):out, (c,tag):dl, st', ab)
   -- The timer used to bracket a lazy `let`, so nothing had been computed
   -- when it stopped and every round reported 0.00s.  A dead instrument is
   -- worse than none: it is the one that would have shown the rule set
@@ -2673,7 +3859,20 @@ round1 disp mem logh libh ref = do
     architectureCandidatesN `seq` dsoWitnessFiber `seq` dsoActiveWork `seq` dsoRawWork `seq`
     dsoSurvivorsN `seq` dsoClassesN `seq` dsoRoutes `seq`
     nRes `seq` nFresh `seq` nConj `seq` nNormed `seq` nRaw `seq` return ()
-  checkedResults <- filterM (kernelAcceptWith (mInvented m) (M.keys (mKnown m)) rules logh (mRound m)) results
+  -- Was `filterM (kernelAcceptWith ...) results`.  Same call, same order, same
+  -- decision -- `koAccepted` is the Bool `filterM` was reading -- but the
+  -- refusal is kept alongside it instead of being discarded.
+  outcomes <- mapM (\cand -> do
+                      ko <- kernelAcceptWith (kernelSyms m) (M.keys (mKnown m))
+                              rules logh (mRound m) cand
+                      pure (cand, ko))
+                   results
+  let checkedResults = [ cand | (cand, ko) <- outcomes, koAccepted ko ]
+      -- the same list, each entry carrying the naya that actually closed it.
+      -- This is what goes into memory; `checkedResults` is left exactly as it
+      -- was so that every count, filter and fold below is unchanged.
+      checkedWithNaya = [ (cand, koNaya ko, koCalls ko) | (cand, ko) <- outcomes
+                        , koAccepted ko ]
   t1 <- getCPUTime
   let secs = fromIntegral (t1 - t0) / (1e12 :: Double)
       prunedPct :: Double
@@ -2682,10 +3881,97 @@ round1 disp mem logh libh ref = do
                                   / fromIntegral (length raw))
       newRules = mapMaybe (orient . fst) checkedResults
       newLemmas = [ c | (c,_) <- checkedResults, not (isJust (orient c)) ]
+      -- ---- the refusals of THIS round, read back ----
+      harvest = harvestResiduals outcomes
+      obTotal = length [ () | (_, ko) <- outcomes, isJust (koObstruction ko) ]
+      obWeak  = length [ () | (_, ko) <- outcomes
+                            , Just (OB.TacticTooWeak _) <- [koObstruction ko] ]
+      obRaw   = length [ () | (_, ko) <- outcomes
+                            , Just (OB.Residual _) <- [koObstruction ko] ]
+      obUnparsed = length [ () | (_, ko) <- outcomes
+                               , Just (OB.Unparsed _) <- [koObstruction ko] ]
+      -- what triage did to the residuals, per occurrence.  The refuted count
+      -- is the livelock that did NOT enter the queue, and it is the number
+      -- that says whether the filter is earning its place in this run.
+      obPairs = [ (fromOb a, fromOb b)
+                | (_, ko) <- outcomes
+                , Just (OB.Residual (a,b)) <- [koObstruction ko] ]
+      obRefuted = length [ () | p <- obPairs
+                              , OB.Khandita _ <- [residualVerdict p] ]
+      obDegenerate = length [ () | p <- obPairs
+                                 , OB.Nirdharmin _ <- [residualVerdict p] ]
+      knownAfter = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
+      -- The subgoal -> parents index, cumulative.  Kept for every harvested
+      -- residual, INCLUDING ones the queue has no room for, because the
+      -- question "did this residual close its parent?" must still be
+      -- answerable if it arrives by another route.
+      residualFrom' = foldl' (\mp (sub,parent) ->
+                                M.insertWith (\new old -> ordNub (new ++ old))
+                                             sub [parent] mp)
+                             (mResidualFrom m) harvest
+      -- A residual that has already been proved, or that is already stated,
+      -- is not material any more.  Everything else queues, newest first,
+      -- capped -- and `residualDropped` below is what did not fit.
+      residualPending = ordNub
+        ( [ sub | (sub,_) <- harvest ]
+          ++ mResidualQueue m )
+      residualLive = [ c | c <- residualPending, not (M.member c knownAfter) ]
+      residualQueue' = take kResidualQueueCap residualLive
+      residualDropped = length residualLive - length residualQueue'
+      -- THE NUMBER THE SEAM EXISTS FOR, in two parts.  A residual-sourced
+      -- theorem is a subgoal the kernel handed back that later came back
+      -- through the kernel as a theorem.  A closed parent is a candidate the
+      -- kernel had REFUSED that is now accepted, and one of the residuals it
+      -- stalled on is among those theorems.  The second is the whole point;
+      -- the first is necessary for it and is reported separately so a partial
+      -- result cannot be read as the full one.
+      residualTheorems = [ c | (c,_) <- checkedResults
+                             , M.member c residualFrom' ]
+      residualProved' = foldl' (flip S.insert) (mResidualProved m) residualTheorems
+      -- THE ASCENT, performed rather than measured.  Seeded by the subgoals
+      -- that became theorems THIS round -- so it fires on the transition, once
+      -- -- and climbing transitively to every ancestor above them.  Ancestors
+      -- already proved are dropped: the climb summons what is still open.
+      arohanaNext = [ p | p <- arohana residualFrom' residualTheorems
+                        , not (M.member p knownAfter) ]
+      -- The rule set this round ends with.  Used only by the dependence test
+      -- below; nothing installs from it.
+      roundRules = rules ++ concat
+        [ maybe (lemmaRules [c]) (:[]) (orient c) | (c,_) <- checkedResults ]
+      -- IS THE LEMMA LOAD-BEARING, or did the parent merely happen to be
+      -- accepted in the same round?  "Accepted after its residual was proved"
+      -- is a coincidence claim and this repository has been burned by
+      -- coincidence claims.  The dependence claim is checkable and cheap:
+      -- delete the residual's rules from the round's rule set and ask the
+      -- engine's own prover again.  If the parent still goes through, the
+      -- residual was not what closed it and it is not counted.
+      subRules sub = maybe (lemmaRules [sub]) (:[]) (orient sub)
+      dependsOnResidual sub parent =
+        let without = [ rl | rl <- roundRules, rl `notElem` subRules sub ]
+        in isJust (proveByInduction roundRules parent)
+             && isNothing (proveByInduction without parent)
+      closedParents =
+        [ (p, sub)
+        | (p,_) <- checkedResults
+        , (sub, ps) <- M.toList residualFrom'
+        , S.member sub residualProved'
+        , p `elem` ps
+        , dependsOnResidual sub p ]
       m' = m { mRules = mRules m ++ newRules
              , mLemmas = mLemmas m ++ newLemmas
-             , mKnown = foldl' (\k (c,_) -> M.insert c () k) (mKnown m) checkedResults
-             , mFailed = foldl' (\k c -> M.insert c nRules k) (mFailed m)
+             , mKnown = knownAfter
+             , mResidualQueue = residualQueue'
+             , mResidualFrom = residualFrom'
+             , mResidualProved = residualProved'
+             , mArohana = S.fromList arohanaNext
+             -- The memo now carries WHY.  A conjecture that never reached the
+             -- prover (settled by rewriting, or refuted by the firewall) has
+             -- no entry in `absences`; the firewall's refutation is a
+             -- concrete counterexample, which is a positive apprehension and
+             -- not an anupalabdhi at all, so `Ayogya "not submitted to the
+             -- prover"` is the honest default rather than a silent Yogya.
+             , mFailed = foldl' (\k c -> M.insert c (nRules, absenceOf c) k)
+                          (mFailed m)
                           [ c | c <- fresh, notElem c (map fst checkedResults) ]
              , mRound = mRound m + 1
              -- ∂ of THIS round: stated and not closed.  Read by the next
@@ -2712,15 +3998,164 @@ round1 disp mem logh libh ref = do
            | otherwise        = flowOf (mObstruction m) obstruction
       sepP = separatedPairs classes
       gate = advanceGate nNormed sepP
-  forM_ checkedResults $ \((l,r),pf) -> do
+      -- ------------------------------------------------------ ANUPALABDHI
+      -- What the round's non-apprehension is worth.  `absences` has an entry
+      -- for exactly the conjectures that reached the prover and came back
+      -- without a proof; everything else was settled positively (rewritten
+      -- away, refuted by counterexample, or proved) and is not an absence.
+      absenceOf c = M.findWithDefault
+        (Ayogya "not submitted to the prover") c absences
+      roundAbsences = M.toList absences
+      yogyaN  = length [ () | (_,a) <- roundAbsences, isYogya a ]
+      ayogyaN = length roundAbsences - yogyaN
+      firstAyogya = case [ a | (_,a) <- roundAbsences, not (isYogya a) ] of
+                      (a:_) -> Just a
+                      []    -> Nothing
+      -- YOGYA-ANUPALABDHI OVER THE ROUND'S REGION.  Three conjuncts, and each
+      -- is a fact rather than a classification:
+      --
+      --   (1) nothing was installed, so the rule set the round ends with is
+      --       the rule set it began with;
+      --   (2) every conjecture that reached the prover came back with an
+      --       EXHAUSTED search: no single-variable structural induction over
+      --       that rule set closes it and no normalisation was truncated;
+      --   (3) the round actually looked at something -- a round with no fresh
+      --       conjectures has apprehended nothing and refuted nothing, and
+      --       calling that saturation is the ghost case one level up.
+      --
+      -- Together: every conjecture this region can state has been decided NOT
+      -- provable here, and re-stating them against the same rules cannot
+      -- change that.  Staying is therefore refuted, by proof.  What is NOT
+      -- claimed: that these equations are false, or that a stronger prover
+      -- cannot close them.  The scope is the prover's search space, and the
+      -- log line says so.
+      yogyaCertified = null checkedResults && ayogyaN == 0 && yogyaN > 0
+      -- The LICENCE is the certificate ANDed with the control flag.  The
+      -- certificate itself is computed and logged either way, so
+      -- `--no-anupalabdhi` differs from the default in exactly one bit of
+      -- BEHAVIOUR and in none of the reporting -- which is what makes the A/B
+      -- a single-factor one.
+      yogyaSaturated = yogyaCertified && dAnupalabdhi disp
+  forM_ checkedWithNaya $ \(((l,r),pf), mnaya, calls) -> do
     hPrintf libh "%-46s = %-24s   [%s]\n" (show l) (show r) pf
     hPrintf logh "  THEOREM  %s = %s   (%s)\n" (show l) (show r) pf
     -- and the same theorem in the form this program can read back.  The
     -- prose library is for people; this is the machine's own memory.
+    --
+    -- THE THIRD FIELD, and it is the whole of sabda.  What is written is the
+    -- naya the gate actually closed under -- `koNaya`, read off the shape
+    -- `Certificate` returned, not off `pf`, which is the note the prover
+    -- SUBMITTED and can differ (the note says "induction on x"; the shape
+    -- says which of the twelve step shapes closed it, or that trace replay
+    -- did).  Also the delimitor: the vocabulary in force, the variable and
+    -- size horizons.  A later process reading this line can therefore ask
+    -- the kernel the same question, and can see -- because the delimitor is
+    -- there -- when it is no longer in a position to ask it.
     case mem of
       Nothing   -> return ()
-      Just path -> appendFile path (showTermP l ++ "\t" ++ showTermP r ++ "\n")
+      Just path -> appendFile path
+        (P.renderRecord showTermP
+           (P.MemoryRecord l r (Just (justificationOf m mnaya pf calls))) ++ "\n")
   hFlush libh
+  -- ------------------------------------------------- the kuttaka's remainder
+  --
+  -- What the kernel refused, and what of it was material.  `parsed` counts
+  -- refusals whose `A != B` came back as terms at all; `unparsed` is the
+  -- honest remainder, kept as text by `Obstruction` rather than guessed at.
+  -- `queued-in` is what the PREVIOUS round left, `admitted` how much of it
+  -- survived the same filters every conjecture crosses, and `dropped-by-cap`
+  -- is what did not fit -- a cap that does not say what it dropped reads as
+  -- coverage it did not have.
+  hPrintf logh
+    "  OBSTRUCTION  refusals=%d parsed=%d tactic-too-weak=%d residual=%d unparsed=%d triage-refuted=%d triage-degenerate=%d material=%d distinct=%d queued-in=%d admitted=%d queued-out=%d dropped-by-cap=%d\n"
+    obTotal (obWeak + obRaw) obWeak obRaw obUnparsed
+    obRefuted obDegenerate
+    (length harvest) (length (ordNub (map fst harvest)))
+    (length (mResidualQueue m)) (S.size residualAdmitted)
+    (length residualQueue') residualDropped
+  forM_ (take 8 (ordNub harvest)) $ \((sl,sr),(pl,pr)) ->
+    hPrintf logh "  RESIDUAL  %s = %s   (%s = %s stalled here)\n"
+      (show sl) (show sr) (show pl) (show pr)
+  -- WHERE THE RESIDUALS ACTUALLY DIE.  `residualTally` was computed and then
+  -- never used -- a dead binding, in the one diagnostic this file's own
+  -- comment calls "the diagnostic that decides whether the wire can pay at
+  -- all".  781 residuals were harvested across the 239 rounds in machine.log
+  -- and RESIDUAL-THEOREM appears zero times in it, and nothing recorded why,
+  -- because the answer was being computed and thrown away every round.
+  forM_ residualTally $ \(status, n) ->
+    hPrintf logh "  RESIDUAL-FATE  %-40s %d   e.g. %s\n" status n
+      (intercalate " | "
+        [ showTermP (fst c) ++ " = " ++ showTermP (snd c) | c <- take 3 (ordNub (map canonVars (mResidualQueue m)))
+                       , residualStatus (canonVars c) == status ])
+  -- AND WHETHER IT ACTUALLY REACHED THE PROVER.  A tally by status is still a
+  -- claim about what the filter WOULD do; this is what the round did.  Added
+  -- after an hour of inferring from counts why `x = x+0` never appears on a
+  -- KERNEL line despite being harvested ten times in one run -- inference from
+  -- aggregates is exactly the substitute for measurement this protocol
+  -- forbids, and I was doing it.
+  hPrintf logh "  RESIDUAL-REACHED-PROVER  %d of %d queued\n"
+    (length [ () | c <- ordNub (map canonVars (mResidualQueue m))
+                 , c `elem` fresh ])
+    (length (ordNub (map canonVars (mResidualQueue m))))
+  -- AND WHAT BECAME OF EACH ONE, from the fold's own record rather than
+  -- re-derived here against a different rule set.
+  --
+  -- Added after a PREDICTION FAILED.  Both `provedByRewriting` guards were
+  -- lifted, `RESIDUAL-REACHED-PROVER` reported 21 of 21 and then 40 of 40, and
+  -- `x = x+0` still appeared on none of the kernel lines -- while
+  -- `--prove-residuals` says the prover finds `induction on x` for exactly
+  -- that goal at the full vocabulary.  Those cannot both be true of the same
+  -- rule set, so the rule set differs, and guessing which way is what the last
+  -- three rounds of this investigation were.  This prints the answer.
+  forM_ (take 8 (S.toList residualAdmitted)) $ \c@(rl, rr) -> do
+    let v | c `elem` map fst checkedResults  = "THEOREM"
+          | c `elem` map fst results         = "proved-kernel-rejected"
+          | Just d <- M.lookup c dispositions = d
+          | c `notElem` fresh                = "never-reached-fresh"
+          | otherwise                        = "withheld"
+    hPrintf logh "  RESIDUAL-DISPOSITION  %-24s %s = %s\n" v (show rl) (show rr)
+  forM_ residualTheorems $ \(l,r) ->
+    hPrintf logh "  RESIDUAL-THEOREM  %s = %s   (this subgoal came out of a kernel refusal)\n"
+      (show l) (show r)
+  -- The claim this line makes is the strong one and it is checked, not
+  -- inferred from co-occurrence: the parent goes through with the residual's
+  -- rules in the set and does NOT go through without them.
+  forM_ closedParents $ \((pl,pr),(sl,sr)) ->
+    hPrintf logh "  RESIDUAL-CLOSES-PARENT  %s = %s   needs   %s = %s\n"
+      (show pl) (show pr) (show sl) (show sr)
+  -- The climb, named per parent so the ascent is auditable and not just a
+  -- count: this is the machine going back up the vallī of its own accord.
+  forM_ arohanaNext $ \(pl,pr) ->
+    hPrintf logh "  AROHANA  %s = %s   (summoned: a subgoal it stalled on is now a theorem)\n"
+      (show pl) (show pr)
+  -- SEED DISPOSITION.  A seeded candidate that never appears in the log is
+  -- indistinguishable from one that was never read, and on the first WIRE 5
+  -- run that ambiguity cost a measurement: 20 pair candidates went in, the
+  -- round line said conj=39 fresh=31 proved=0, and nothing said whether the
+  -- pair statements had been refuted, rewritten away, tried and failed, or
+  -- silently dropped for a missing symbol.  They are four different diseases.
+  -- One line per researcher candidate, naming the stage it stopped at.
+  forM_ (mThoughts m) $ \c0 -> do
+    let c@(l,r) = canonVars c0
+        missing = [ f | f <- symbolsIn l ++ symbolsIn r
+                      , f `notElem` map symName syms ]
+        verdict
+          | not (null missing)             = "out-of-vocabulary:" ++ intercalate "," (ordNub missing)
+          | not (wellFormedTerm syms l && wellFormedTerm syms r) = "ill-formed"
+          -- must precede the fingerprint line: `fingerprint` would index an
+          -- environment narrower than the candidate.  See `variableHorizon`.
+          | any (>= nvEnv) (vars l ++ vars r) = "too-many-variables"
+          | fingerprint sem envs l /= fingerprint sem envs r = "refuted-by-fingerprint"
+          | M.member c (mKnown m)          = "already-known"
+          | provedByRewriting rules c      = "follows-by-rewriting"
+          | congruent rules (mKnown m) c   = "congruent-with-known"
+          | c `elem` map fst checkedResults = "THEOREM"
+          | c `elem` map fst results       = "proved-kernel-rejected"
+          -- the prover's own verdict, recorded by the fold that produced it,
+          -- not re-derived here against a different rule set
+          | Just d <- M.lookup c dispositions = d
+          | otherwise                      = "withheld"
+    hPrintf logh "  SEED  %-22s %s = %s\n" verdict (show l) (show r)
   -- The four ways a fresh conjecture fails to become a theorem, and the
   -- fifth number is the gate's.  `proved` here is the PROVER's count; the
   -- round line's `proved=` is what survived the kernel.  When they differ
@@ -2731,6 +4166,16 @@ round1 disp mem logh libh ref = do
     (length results) (length checkedResults)
     (if exactAffordable then "exact" else "sampled" :: String)
     proverWork proverScan nRaw
+  -- ANUPALABDHI, split.  `no-proof` above is the boolean the machine used to
+  -- record; these two are what it was hiding.  `yogya` is the part that is
+  -- knowledge -- the search space was exhausted, so no proof exists in it --
+  -- and `ayogya` is the part that is not, with the first reason quoted so the
+  -- cut-off is nameable rather than a total.
+  hPrintf logh "  ANUPALABDHI  no-proof=%d yogya=%d ayogya=%d%s\n"
+    (length roundAbsences) yogyaN ayogyaN
+    (case firstAyogya of
+       Nothing -> "" :: String
+       Just a  -> "  first-cutoff=" ++ absenceReason a)
   hPrintf logh "  BOUNDED  active-witnesses=%d derivation-fiber=%d\n"
     witnessBranches derivationBranches
   hPrintf logh "  ATLAS  assignments=%d fixed-base=%d holonomy-failures=%d\n"
@@ -2897,8 +4342,48 @@ round1 disp mem logh libh ref = do
       -- old `stuck'` widened to take in the branching-barren round;
       -- `deepens` is the old `stuck'` exactly, and it is the only thing
       -- that may touch the horizon or the retirement branch.
-      grows   = permitted && (stuck' || widenOnly)
-      deepens = permitted && stuck'
+      --
+      -- WIRE 6.  THE THIRD LICENCE, AND IT IS THE ONLY ONE THAT IS A PROOF.
+      -- `stuck'` and `widenOnly` are readings of KFlow's classification of ∂:
+      -- heuristics, and good ones, but they are guesses about whether the
+      -- frontier is worth another pass.  `yogyaSaturated` is not a guess.  It
+      -- says every conjecture the round stated came back from an EXHAUSTED
+      -- search over the rule set the round is still holding, so another pass
+      -- over the same region cannot close any of them.  Staying is refuted.
+      --
+      -- What this overrides, and why it is allowed to.  FLOW-HOLD holds the
+      -- horizon on a branching round, on the argument that "the frontier is
+      -- growing faster than the machine closes it".  That argument reads ∂ as
+      -- a backlog of unexamined questions.  Under yogya-anupalabdhi ∂ is not a
+      -- backlog: every one of its elements has been examined to exhaustion and
+      -- refuted within the prover's reach.  A ∂ that grew because the machine
+      -- refuted more things is not the pathology FLOW-HOLD was written
+      -- against, and holding on it is holding on a miscount.
+      --
+      -- WHICH AXIS, derived rather than laddered.  The certificate is about a
+      -- RULE SET: "no proof of any stated conjecture exists over these rules".
+      -- Deepening leaves the rule set alone and hands the same refuting
+      -- instrument a larger pile of terms; widening (or coining a concept)
+      -- adds a symbol WITH its defining equations, which changes the rule set
+      -- and therefore voids the certificate's own hypothesis.  So the move
+      -- that provably escapes the certified region is the vocabulary move, and
+      -- the horizon move is what is left when the vocabulary is spent.  That
+      -- is exactly the order the ladder below already runs -- measured into
+      -- place by arm D of machine/LOOP_MEASUREMENT.md -- and it is now derived
+      -- from the certificate instead of only measured.
+      -- THE LICENCE IS DISCHARGED BY ANY CHANGE, NOT ONLY BY GROWTH.  The
+      -- certificate says "something in this region must change".  Coining a
+      -- concept IS that change -- the new symbol arrives with its defining
+      -- equation, so the rule set the certificate quantifies over is not the
+      -- rule set of the next round, and the certificate is void before it can
+      -- be spent again.  Letting it also license a widen in the same round
+      -- would be naming AND widening at once, which is the term-space
+      -- explosion `bestOf`'s own comment measures (25k -> 396k with `proved`
+      -- flat at zero).  `stuck'` already excludes the coining round for the
+      -- same reason; this is that exclusion, kept.
+      yogyaMove = yogyaSaturated && not (isJust invented)
+      grows   = permitted && (stuck' || widenOnly || yogyaMove)
+      deepens = permitted && (stuck' || yogyaMove)
   -- ===================================================================
   -- WIRE 4.  CERTIFY, and it fires in exactly one place: the instant before
   -- the machine would have widened blindly.  `grows` is that instant -- it is
@@ -2915,7 +4400,17 @@ round1 disp mem logh libh ref = do
       vocabNames = intercalate "," (map symName syms2)
   certified <- if dCertify disp <= 0 || not grows
                  then pure Nothing
-                 else pure (Just (certifySeam (dCertify disp) (usableRules m2)))
+                 else do
+                   -- The guard on `certifySeam` is silent by design -- it
+                   -- degrades to a correct weaker test rather than failing --
+                   -- so the ONLY place it can be seen is here.  A round that
+                   -- certified under the fallback must not read like a round
+                   -- that certified under Certify.hs.
+                   unless certifyTranscriptionAgrees $
+                     hPrintf logh "  CERTIFY-TRANSCRIPTION-DRIFT  machine/Certify.hs no longer agrees with this file on the reduction order or the rewrite strategy over the rules in play (its vocabulary is %s; this file's is %s); the joinability oracle is NOT in use this round, the in-file strategy-join fallback is, and it is strictly weaker\n"
+                       (intercalate "," CY.vocabularyNames)
+                       (intercalate "," (map symName vocabulary))
+                   pure (Just (certifySeam (dCertify disp) (usableRules m2)))
   installedCP <- case certified of
     Nothing -> pure Nothing
     -- The budget ran out with no divergence.  This proves NOTHING: an
@@ -2971,7 +4466,8 @@ round1 disp mem logh libh ref = do
             -- and the same kernel, because the invariant is that every rule in
             -- play was accepted in THIS process.  Completion gets no exemption.
             else do
-              ok <- kernelAcceptWith (mInvented m2) (M.keys (mKnown m2))
+              ok <- koAccepted <$> kernelAcceptWith (kernelSyms m2)
+                      (M.keys (mKnown m2))
                       (usableRules m2) logh (mRound m2) (eq, note)
               if not ok
                 then do
@@ -3083,6 +4579,19 @@ round1 disp mem logh libh ref = do
       hPrintf logh "  ROUTE  %s  cost %d < stay %d  (min-plus over observed weights)\n"
         (moveName mv) c stay
     Nothing -> return ()
+  -- ------------------------------------------------------- WIRE 6: ANUPALABDHI
+  -- The round's verdict on its own boundary, printed whether or not it is
+  -- favourable.  A round that cannot certify its non-apprehension says so, and
+  -- says which cut-off spoiled it, so an unearned saturation is never silent.
+  if yogyaCertified
+    then hPrintf logh "  THEOREM  yogya-anupalabdhi over {%s} at size %d: all %d conjectures this round stated were refuted by an EXHAUSTED search -- for each, every single-variable structural induction over the %d installed rules was attempted and every normalisation in those attempts reached a fixed point (none hit the %d-step fuel).  Nothing was installed, so the rule set is unchanged, and re-stating these conjectures against it cannot close any of them: staying in this region is refuted, not merely unpromising.  SCOPE: the prover's search space, NOT arithmetic -- these equations may be true and a stronger prover may close them; what is proved is that THIS prover would have found a proof had one been in its reach, and did not.\n"
+           vocabNames (mSize m2) yogyaN (length (usableRules m2)) kNormalizeFuel
+    else when (ayogyaN > 0) $
+           hPrintf logh "  ANUPALABDHI-AYOGYA  %d of %d failures were cut off rather than exhausted%s; this round proves nothing about its own boundary and the ladder runs on the flow classification as before\n"
+             ayogyaN (length roundAbsences)
+             (case firstAyogya of
+                Nothing -> "" :: String
+                Just a  -> " (first: " ++ absenceReason a ++ ")")
   -- FLOW-HOLD now reports exactly one thing: the horizon was held because
   -- the flow was branching.  It is no longer a report that nothing
   -- happened -- the vocabulary may have widened in the same round, and the
@@ -3107,6 +4616,15 @@ round1 disp mem logh libh ref = do
       (case reverse (mInvented m3) of
          s:_ -> symName s
          []  -> "<none>")
+  -- WHICH ROUNDS OWE THEIR MOVE TO THE CERTIFICATE.  `stuck' || widenOnly` is
+  -- the heuristic ladder's own trigger, so a round where it is false and the
+  -- state still moved is a round the ladder would have spent standing still.
+  -- That is the whole measurement, and it is a count of rounds, not a rate.
+  when (yogyaMove && not (stuck' || widenOnly)
+        && (mVocab m'' /= mVocab m3 || mSize m'' /= mSize m3
+            || length (mInvented m'') /= length (mInvented m3))) $
+    hPrintf logh "  GROW-DERIVED  the move above was taken on the saturation certificate, not on the flow classification (flow was %s, which would have held)\n"
+      (flowName flow)
   hFlush logh
   writeIORef ref m''
 
@@ -3124,6 +4642,8 @@ main = do
     putStrLn ("DISPATCH " ++ show disp)
     putStrLn ("  base vocabulary: "
       ++ intercalate " " (map symName baseVocabulary))
+    putStrLn ("  pair extension: "
+      ++ intercalate " " (map symName pairVocabulary))
     putStrLn ("  arithmetic extension: "
       ++ intercalate " " (map symName arithVocabulary))
     putStrLn ("  reachable now: "
@@ -3250,6 +4770,268 @@ main = do
       other -> do
         hPutStrLn stderr ("--certify-self-test: unexpected verdicts " ++ show other)
         exitFailure
+  -- THE SEAM, END TO END, IN THIS FILE'S OWN TYPES.  `Obstruction.selfTest`
+  -- checks the parser against verbatim machine.log strings; this checks the
+  -- WIRE -- that a rejection string plus the goal the engine actually holds
+  -- comes back out as a MathMachine conjecture, and that the junk filter and
+  -- the anti-livelock contract hold on the shapes the log really contains.
+  -- A PROBE, because I had spent an hour inferring from aggregate counts what
+  -- the prover does with a specific goal.  `RESIDUAL-REACHED-PROVER` says the
+  -- flagship residuals DO enter `fresh`; no KERNEL line ever mentions them; so
+  -- the internal prover is where they stop, and this asks it directly instead
+  -- of reasoning about it from the outside.
+  --
+  -- The goals are the top of the curriculum the kernel's own refusals demand,
+  -- read off machine/machine.log rather than invented.
+  when (args == ["--prove-residuals"]) $ do
+    let m0 = start { mVocab = length vocabulary }   -- NOT `start`: mVocab is 3
+        rules = usableRules m0
+        x = V 0 ; y = V 1
+        z0 = F "0" [] ; suc t = F "s" [t]
+        bin f a b = F f [a,b]
+        goals =
+          [ ("x = x + 0",        (x, bin "+" x z0))
+          , ("0 = x * 0",        (z0, bin "*" x z0))
+          , ("0 = y * 0",        (z0, bin "*" y z0))
+          , ("x = 0 max x",      (x, bin "max" z0 x))
+          , ("0 = 0 - x",        (z0, bin "-" z0 x))
+          , ("x = 1 * x",        (x, bin "*" (suc z0) x))
+          , ("0 = x - x",        (z0, bin "-" x x))
+          ]
+    hPrintf stdout "  rules available to the prover: %d\n" (length rules)
+    forM_ goals $ \(name, g) ->
+      hPrintf stdout "  %-16s rewriting=%-6s induction=%s\n" name
+        (show (provedByRewriting rules g))
+        (maybe "NO PROOF FOUND" id (proveByInduction rules g))
+    exitSuccess
+
+  -- HOW MUCH OF THE RESIDUAL STREAM IS AN ARTEFACT OF THE CLAUSE ORDER?
+  --
+  -- `Certificate.hs` Note A records that Agda's `+`/`·` recurse on the FIRST
+  -- argument while MathMachine's symDefs recurse on the SECOND, and justifies
+  -- keeping the mismatch: the first-argument order was measured to certify
+  -- strictly more of the machine's library.  That measurement priced one side.
+  -- This prices the other.
+  --
+  -- For every distinct lemma the kernel's own refusals demand, ask whether it
+  -- is already definitional under (a) the machine's clause order and (b) the
+  -- mirrored one.  A lemma definitional on ONE side and not the other is a
+  -- residual that exists only because the two standpoints disagree about what
+  -- `+` means -- not because the machine is missing mathematics.
+  --
+  -- Exact counts over the real log.  No sampling, no fitting.
+  -- IS THE RESIDUAL WORTH INSTALLING, IN THE MACHINE'S OWN CURRENCY?
+  --
+  -- `attempt` discards a PROVED candidate as "proved-but-inert" when
+  -- `worthInstalling` says installing it collapses nothing, and that branch
+  -- never reaches the kernel.  `exactPrune` counts exactly that: how many of
+  -- the population normalise differently once the rule is added.
+  --
+  -- The hypothesis this measures -- and I predicted once today and was wrong,
+  -- so it is measured rather than asserted -- is that the flagship residuals
+  -- score exactly 0, BECAUSE the machine's own defining rules already
+  -- normalise them away.  If so, the machine assigns zero value to the one
+  -- lemma the kernel most needs, and does so for the same reason the kernel
+  -- needs it.
+  -- Fold the live trace file into the tracked corpus, deduped by claim, and
+  -- truncate the live file.  Run this between runs, not during one.
+  when (args == ["--harvest-traces"]) $ do
+    let tracked = "machine/replay.traces"
+        readUtf8 p = do
+          ex <- doesFileExist p
+          if not ex then pure "" else do
+            h <- openFile p ReadMode
+            hSetEncoding h utf8
+            s <- hGetContents h
+            length s `seq` pure s
+    old <- readUtf8 tracked
+    new <- readUtf8 liveTraceFile
+    let recs s = go (lines s)
+          where
+            go [] = []
+            go (l : ls)
+              | "-- TRACE " `isPrefixOf` l =
+                  let (b, after) = break (== "-- END TRACE") ls
+                  in (drop (length "-- TRACE ") l, l : b ++ ["-- END TRACE"])
+                     : go (drop 1 after)
+              | otherwise = go ls
+        oldR = recs old
+        newR = recs new
+        keys = map fst oldR
+        added = [ r | r <- newR, fst r `notElem` keys ]
+    h <- openFile tracked AppendMode
+    hSetEncoding h utf8
+    mapM_ (mapM_ (hPutStrLn h) . snd) added
+    hClose h
+    writeFile liveTraceFile ""
+    hPrintf stdout "  harvested %d new records (%d live, %d already tracked); corpus now %d\n"
+      (length added) (length newR) (length oldR) (length oldR + length added)
+    exitSuccess
+
+  when (args == ["--residual-worth"]) $ do
+    let m0 = start { mVocab = length vocabulary }
+        rules = usableRules m0
+        syms = take (mVocab m0) vocabulary
+        population = take 400 (genTermsModulo [] [] (arities syms) 3 4)
+        x = V 0 ; y = V 1
+        z0 = F "0" [] ; suc t = F "s" [t]
+        bin f a b = F f [a,b]
+        goals =
+          [ ("x = x + 0",   (x, bin "+" x z0))
+          , ("0 = x * 0",   (z0, bin "*" x z0))
+          , ("0 = y * 0",   (z0, bin "*" y z0))
+          , ("x = 0 max x", (x, bin "max" z0 x))
+          , ("x = 1 * x",   (x, bin "*" (suc z0) x))
+          , ("0 = x - x",   (z0, bin "-" x x))
+          ]
+    hPrintf stdout "  population %d terms, %d rules\n"
+      (length population) (length rules)
+    hPrintf stdout "  %-14s %-9s %-9s %s\n" "goal" "proved" "collapses" "verdict"
+    forM_ goals $ \(name, g) -> do
+      let pr = case proveByInduction rules g of
+                 Just _  -> "yes"
+                 Nothing -> "no"
+          n = exactPrune rules population g
+      hPrintf stdout "  %-14s %-9s %-9d %s\n" name pr n
+        (if n <= 0 then "PROVED-BUT-INERT: never reaches the kernel" else "installed")
+    exitSuccess
+
+  when (args == ["--convention-cost"]) $ do
+    h <- openFile "machine/machine.log" ReadMode
+    hSetEncoding h utf8
+    ls <- fmap lines (hGetContents h)
+    let rejects = [ l | l <- ls, "KERNEL-REJECT" `isInfixOf` l ]
+        demanded = map fst (OB.curriculum rejects)
+        goals = [ (fromOb a, fromOb b) | (a, b) <- demanded ]
+        -- THE FULL VOCABULARY.  A first version of this probe used `start`,
+        -- whose mVocab is 3, so `*`, `max` and `-` had no defining rules at
+        -- all and every goal mentioning them counted as "missing mathematics".
+        -- The number that produced was wrong and nearly got published.
+        m0 = start { mVocab = length vocabulary }
+        theirs = usableRules m0
+        -- the mirrored clause order: Agda's, for + and *
+        mirrored =
+          [ (F "+" [F "0" [], V 0], V 0)
+          , (F "+" [F "s" [V 0], V 1], F "s" [F "+" [V 0, V 1]])
+          , (F "*" [F "0" [], V 0], F "0" [])
+          , (F "*" [F "s" [V 0], V 1], F "+" [V 1, F "*" [V 0, V 1]]) ]
+          ++ [ r | r@(l, _) <- theirs, headSym l `notElem` ["+", "*"] ]
+        headSym (F f _) = f
+        headSym _ = ""
+        defT = length [ () | g <- goals, provedByRewriting theirs g ]
+        defM = length [ () | g <- goals, provedByRewriting mirrored g ]
+        onlyT = [ g | g <- goals, provedByRewriting theirs g
+                    , not (provedByRewriting mirrored g) ]
+        onlyM = [ g | g <- goals, provedByRewriting mirrored g
+                    , not (provedByRewriting theirs g) ]
+        neither = [ g | g <- goals, not (provedByRewriting theirs g)
+                      , not (provedByRewriting mirrored g) ]
+    hPrintf stdout "  distinct lemmas the kernel's refusals demand: %d\n"
+      (length goals)
+    hPrintf stdout "  definitional under the MACHINE's clause order:  %d\n" defT
+    hPrintf stdout "  definitional under AGDA's clause order:        %d\n" defM
+    hPrintf stdout "  definitional under machine ONLY (pure artefact of the split): %d\n"
+      (length onlyT)
+    hPrintf stdout "  definitional under agda ONLY:                  %d\n"
+      (length onlyM)
+    hPrintf stdout "  genuine missing mathematics on both readings:  %d\n"
+      (length neither)
+    putStrLn "  -- machine-only, the first eight --"
+    forM_ (take 8 onlyT) $ \(l, r) ->
+      hPrintf stdout "     %s = %s\n" (showTermP l) (showTermP r)
+    putStrLn "  -- neither, the first eight: this is the real curriculum --"
+    forM_ (take 8 neither) $ \(l, r) ->
+      hPrintf stdout "     %s = %s\n" (showTermP l) (showTermP r)
+    exitSuccess
+
+  when (args == ["--obstruction-self-test"]) $ do
+    parserOk <- OB.selfTest
+    let goalOneTimesX = (x_, bin "*" (su zero_) x_)
+        rejectOneTimesX =
+          "cached: x != x + 0 \183 x of type \8469 when checking that the \
+          \expression refl has type x \8801 1 \183 x"
+        goalMaxXX = (x_, bin "max" x_ x_)
+        rejectMaxXX =
+          "cached: x != max x x of type \8469 when checking that the \
+          \expression refl has type x \8801 max x x"
+        -- a residual of a FALSE parent, verbatim from the log: the parent
+        -- `x·max(x,1) = s(x)` is false and so is the residual, and 126 of the
+        -- log's occurrences are this one.  It must not reach the queue.
+        goalFalse = (bin "*" x_ (bin "max" x_ (su zero_)), su x_)
+        rejectFalse =
+          "cached: x \183 max x 1 != suc x of type \8469 when checking that \
+          \the expression refl has type x \183 max x 1 \8801 suc x"
+        outcomes =
+          [ ((goalOneTimesX, "[induction on x]")
+            , KernelOutcome False
+                (Just (OB.classify (toOb (fst goalOneTimesX)
+                                   , toOb (snd goalOneTimesX)) rejectOneTimesX))
+                (Just (nayaAttempted "[induction on x]")) 0)
+          , ((goalMaxXX, "[induction on x]")
+            , KernelOutcome False
+                (Just (OB.classify (toOb (fst goalMaxXX), toOb (snd goalMaxXX))
+                                   rejectMaxXX))
+                (Just (nayaAttempted "[induction on x]")) 0)
+          , ((goalFalse, "[induction on x]")
+            , KernelOutcome False
+                (Just (OB.classify (toOb (fst goalFalse), toOb (snd goalFalse))
+                                   rejectFalse))
+                (Just (nayaAttempted "[induction on x]")) 0)
+          ]
+        harvested = harvestResiduals outcomes
+        -- the reproductive case: `x = 1·x` stalls at `x = x + 0·x`, which is
+        -- a different and more primitive statement
+        wantSub = orientLikeRound (x_, bin "+" x_ (bin "*" zero_ x_))
+        -- `x = max x x` stalls at itself, so it yields no conjecture: the
+        -- tactic has to escalate, the vocabulary does not have to grow
+        harvestOk = map fst harvested == [wantSub]
+        parentOk = map snd harvested == [goalOneTimesX]
+        -- THE FILTER IS OBSTRUCTION'S, NOT THIS FILE'S.  `worthQueueing` is
+        -- the specification; this checks that the harvest agrees with it on
+        -- the same refusals, so the parent-tracking wrapper cannot drift away
+        -- from the triage that was measured over the whole log.
+        spec = OB.worthQueueing [ ob | (_, ko) <- outcomes
+                                     , Just ob <- [koObstruction ko] ]
+        specOk = S.fromList (map (\(a,b) -> (toOb a, toOb b)) (map fst harvested))
+                   == S.fromList spec
+        junkOk = not (usefulResidual (V 0, V 1))
+                   && not (usefulResidual (x_, x_))
+                   && not (usefulResidual (bin "*" x_ x_, su x_))
+                   && usefulResidual wantSub
+        -- both spellings of the same lemma collapse to one queue entry
+        orientOk = orientLikeRound (x_, bin "+" x_ zero_)
+                     == orientLikeRound (bin "+" x_ zero_, x_)
+        -- आरोहण, checked on the shape of a real vallī rather than asserted.
+        -- goalG stalls at subR; subR is itself refused and stalls at subR'.
+        -- Proving subR' must summon subR AND goalG -- the seed reaching the
+        -- top is the whole content of the back-substitution.
+        goalG  = (x_, bin "*" (su zero_) x_)
+        subR   = (x_, bin "+" x_ (bin "*" zero_ x_))
+        subR'  = (bin "*" zero_ x_, zero_)
+        valli  = M.fromList [ (subR, [goalG]), (subR', [subR]) ]
+        climbOne   = arohana valli [subR]  == [goalG]
+        climbChain = arohana valli [subR'] == [subR, goalG]
+        -- a vallī with a loop must terminate rather than climb forever
+        loopValli  = M.fromList [ (subR, [goalG]), (goalG, [subR]) ]
+        climbLoop  = arohana loopValli [subR] == [goalG]
+        -- and with nothing newly proved the climb summons nothing, which is
+        -- what makes this seam inert on every round that proves no subgoal
+        climbQuiet = null (arohana valli [])
+        arohanaOk = climbOne && climbChain && climbLoop && climbQuiet
+    hPrintf stdout "  parser (Obstruction.selfTest)       %s\n" (show parserOk)
+    hPrintf stdout "  residual harvested as a conjecture  %s  %s\n"
+      (show harvestOk) (show (map fst harvested))
+    hPrintf stdout "  parent recorded for the residual    %s\n" (show parentOk)
+    hPrintf stdout "  agrees with OB.worthQueueing        %s\n" (show specOk)
+    hPrintf stdout "  refuted and degenerate dropped      %s\n" (show junkOk)
+    hPrintf stdout "  both orientations collapse to one   %s\n" (show orientOk)
+    hPrintf stdout "  mFailed suppresses a requeue        %s\n"
+      (show residualFailedContract)
+    hPrintf stdout "  arohana climbs the valli to the top %s\n" (show arohanaOk)
+    if parserOk && harvestOk && parentOk && specOk && junkOk && orientOk
+         && residualFailedContract && arohanaOk
+      then putStrLn "OBSTRUCTION WIRE CHECKED" >> exitSuccess
+      else hPutStrLn stderr "--obstruction-self-test: FAILED" >> exitFailure
   when (args == ["--dso-live-self-test"]) $ do
     let task = boundedDSOTask "square-threshold" squareThresholdSearch
         projection = executeBoundedSearch squareThresholdSearch
@@ -3459,6 +5241,62 @@ main = do
               ++ "out-of-range=withheld "
               ++ "(the gate proves what it is handed; this is what hands it)")
     exitSuccess
+  -- PRAMANA, checked in-process.  `Pramana.selfTest` is pure, so this is the
+  -- caller that makes it run at all -- four files in this directory are
+  -- self-tests nothing invokes, and that is the failure mode being avoided.
+  -- The last two assertions are this file's own wire, not Pramana's: the
+  -- memory format must round-trip through THIS module's term printer and
+  -- parser, and `nayaAttempted` must agree with `Certificate`'s reading of
+  -- the note, since the second is what the gate actually consults.
+  when (args == ["--pramana-self-test"]) $ do
+    let sample = P.Justification
+          { P.jPramana     = P.Anumana (P.NInduction 'x' (Just "cong suc"))
+          , P.jNaya        = P.NInduction 'x' (Just "cong suc")
+          , P.jAvacchedaka = P.Avacchedaka "_\8801_ on \8469"
+                               (map symName (take baseVocabCap vocabulary)) 3 7
+          , P.jProvenance  = P.Provenance 4 1
+          }
+        eq = (su x_, bin "max" x_ (su x_))
+        line = P.renderRecord showTermP
+                 (P.MemoryRecord (fst eq) (snd eq) (Just sample))
+        wireOk = case parseMemory (line ++ "\n") of
+          [rec] -> memoryEquation rec == eq
+                     && fmap P.jNaya (P.mrJust rec) == Just (P.jNaya sample)
+                     && fmap (P.avVocabulary . P.jAvacchedaka) (P.mrJust rec)
+                          == Just (map symName (take baseVocabCap vocabulary))
+          _ -> False
+        -- the legacy shape, verbatim from the committed memory file
+        legacyOk = case parseMemory "s(x)\tmax(x,s(x))\n" of
+          [rec] -> memoryEquation rec == eq && P.mrJust rec == Nothing
+          _ -> False
+        -- the property the gate depends on, checked against the gate's own
+        -- reader rather than against a copy of it
+        gateOk = C.inductionVariable (P.nayaNote (P.jNaya sample)) == Just 0
+                   && C.inductionVariable (P.nayaNote P.NRefl) == Nothing
+                   && nayaAttempted "induction on y" == P.NInduction 'y' Nothing
+                   && nayaAttempted "remembered" == P.NRefl
+        -- the shape strings `Certificate` actually returns, cache marker and
+        -- all, must not classify as NOther
+        shapeOk = map nayaOfShape
+                    [ "refl", "cached, refl"
+                    , "induction on x, step = ih"
+                    , "cached, induction on x, step = cong suc" ]
+                  == [ P.NRefl, P.NRefl
+                     , P.NInduction 'x' (Just "ih")
+                     , P.NInduction 'x' (Just "cong suc") ]
+    forM_ P.selfTest (hPutStrLn stderr)
+    unless (null P.selfTest && wireOk && legacyOk && gateOk && shapeOk) $ do
+      unless wireOk   (hPutStrLn stderr "pramana wire: memory record did not round-trip")
+      unless legacyOk (hPutStrLn stderr "pramana wire: legacy two-field line did not parse")
+      unless gateOk   (hPutStrLn stderr "pramana wire: note is unreadable to Certificate")
+      unless shapeOk  (hPutStrLn stderr "pramana wire: certificate shapes misclassified")
+      exitFailure
+    putStrLn ("PRAMANA CHECKED: Pramana.selfTest failures=0, wire checks=4 "
+              ++ "(memory record round-trips through this file's own printer "
+              ++ "and parser; legacy two-field lines still parse; every "
+              ++ "recorded naya is readable by Certificate.inductionVariable; "
+              ++ "certificate shapes classify)")
+    exitSuccess
   when (args == ["--check-thought-format"]) $ do
     let raw = "candidate\t+(x,0)\tx\ncandidate\tgcd(x,y\ty\nfree prose asks for max\n"
         b = parseThoughts raw
@@ -3523,10 +5361,137 @@ main = do
       rejected <- kernelAccept stdout 0 ((su x_, x_), "negative control")
       unless (accepted && not rejected) exitFailure
     _ -> do
-      exists <- doesFileExist "machine/thoughts.math"
-      batch <- if exists then parseThoughts <$> readFile "machine/thoughts.math"
+      let thoughtsFile = maybe "machine/thoughts.math" id (dThoughts disp)
+      exists <- doesFileExist thoughtsFile
+      batch <- if exists then parseThoughts <$> readFile thoughtsFile
                          else pure (ThoughtBatch [] [])
       runMachine disp batch
+
+-- RE-ADMISSION.  Memory stores the equation and not the proof, and that
+-- one missing field was costing the machine almost all of its memory.
+--
+-- MEASURED, 2026-08-17, on the 59-line machine/library.terms of commit
+-- ffe6c00: `remembered=59 re-admitted=4 dropped=55`.  The four survivors
+-- are exactly the four agda closes with `refl` (x = 0+x, 0 = 0*x,
+-- s(x) = s(0)+x, s(x)+y = s(x+y)).  The cause is in the gate, not in the
+-- mathematics: `kernelAccept` submitted every remembered equation with the
+-- proof note "remembered", and `Certificate.certifyWith` reads its
+-- induction variable OUT OF THAT NOTE (`inductionVariable`).  Finding
+-- none, it returns `Rejected` the instant the refl module fails, so not
+-- one step shape was ever emitted for a remembered theorem; `tryReplay`
+-- refuses at the same field one call earlier.  The evidence is a single
+-- screen of machine.log: `0 = -(x,x)` is rejected at load with "checking
+-- that the expression refl has type", and accepted seventy lines later,
+-- in the same process, with "induction on x, step = ih" -- because the
+-- round's prover supplied the note the file could not carry.
+--
+-- The repair reconstructs the field rather than storing it: the engine's
+-- own `proveByInduction` is run against the rules admitted so far, and its
+-- note -- the same string the round writes -- is what the gate is given.
+-- That makes ORDER load-bearing, so this is a fold and not a filter.
+-- Smallest first (the order `freshSized` uses, for the same reason), each
+-- acceptance folded into the rule set before the next candidate is
+-- proposed, and the drops retried on a further pass until a pass admits
+-- nothing new.  A theorem whose proof needs an earlier lemma therefore
+-- gets its lemma, and `known` reaches the trace replayer as citations.
+-- Both halves are load-bearing and both were measured: with the note
+-- alone the fold takes 35 of 37 on pass 1, and the two it leaves --
+-- x+y = y+x and x+x = 2*x -- are admitted on pass 2, once the lemmas
+-- they cite are installed.
+--
+-- The invariant is untouched.  Every equation returned here was accepted
+-- by the same `kernelAcceptWith` the round uses, in this process.  The
+-- note only chooses WHICH module agda is asked to check, never whether it
+-- is asked, and a remembered theorem that no longer certifies is still
+-- dropped.
+-- THE SYMBOL LIST HAS TO BE THE SAME ONE THE ROUND USES.  Re-admission passed
+-- `[]` where a round passes `kernelSyms m`, so a remembered theorem naming a
+-- symbol past the base vocabulary was Untranslatable at load however it had
+-- been proved.  Measured on the committed 63-line memory: remembered=63
+-- distinct=41 re-admitted=40 dropped=1 -- the dropped one being the pair
+-- theorem the previous run had just certified, which round 0 then proved and
+-- appended all over again.  A memory that cannot hold what the loop puts in it
+-- is not a memory; the caller now passes the startup vocabulary's tail.
+-- ŚABDA, 2026-08-18.  The paragraphs above describe a reconstruction: run
+-- `proveByInduction` at load and hand the gate whatever note it produces.
+-- That reconstruction is a re-derivation, and it succeeds only when the rule
+-- set and vocabulary at LOAD reproduce the ones at PROOF.  When they do not,
+-- there is no note, and no note is `refl`, and `refl` refuses.
+--
+-- MEASURED, 2026-08-18, on the committed 92-line memory (37 distinct), with
+-- no `machine/thoughts.math` present so `requiredVocabulary` gives the
+-- default 3 rather than the 8 that unrelated prose file happens to demand:
+--
+--     re-admitted=6  dropped=31
+--
+-- Every one of the thirty-one had been proved by this engine under induction
+-- and appended by this engine's own round.  The file simply did not carry the
+-- field, so the machine asked itself the wrong question thirty-one times and
+-- believed the answer.
+--
+-- The repair is Nyāya's, and it is one line: a theorem the machine itself
+-- kernel-checked and wrote down is testimony from an āpta (*Nyāyasūtra*
+-- 1.1.7, āptopadeśaḥ śabdaḥ), and what that testimony conveys is the NAYA.
+-- `recordedNaya` below prefers the recorded note over the reconstruction;
+-- reconstruction survives as the fallback for legacy two-field lines and for
+-- a record whose note is `NOther ""` (i.e. no naya was recorded at all).
+--
+-- The gate is untouched.  `kernelAcceptWith` is the same call with the same
+-- arguments; only the note differs, and the note chooses which module agda
+-- checks, never whether agda is asked.  A remembered theorem that no longer
+-- certifies is still dropped, and the counters below are what says so.
+data Readmission = Readmission
+  { rmAdmitted   :: [(Term,Term)]
+  , rmPasses     :: Int
+  , rmBySabda    :: Int   -- ^ admitted on a RECORDED naya
+  , rmByRederive :: Int   -- ^ admitted on a note reconstructed at load
+  , rmHeard      :: Int   -- ^ records that carried a usable naya at all
+  }
+
+readmitMemory :: Handle -> [Sym] -> [Rule] -> [P.MemoryRecord Term]
+              -> IO Readmission
+readmitMemory logh extraSyms baseRules remembered = go 1 [] baseRules ordered 0 0
+  where
+    ordered = sortOn (\rec -> let (l,r) = memoryEquation rec
+                              in (size l + size r, l, r)) remembered
+    heard = length [ () | rec <- remembered, isJust (recordedNaya rec) ]
+
+    -- The testimony, if any: a recorded naya whose note the gate can act on.
+    -- `NOther ""` is what an absent `naya=` field parses to, and it is not
+    -- testimony -- it is a record that says nothing.  Rejecting it here is
+    -- what keeps the fallback honest.
+    recordedNaya :: P.MemoryRecord Term -> Maybe String
+    recordedNaya rec = do
+      j <- P.mrJust rec
+      case P.jPramana j of
+        P.Sabda src | P.aptatva src -> pure ()
+        _                           -> Nothing
+      let note = P.nayaNote (P.jNaya j)
+      if null (dropWhile isSpace note) then Nothing else Just note
+
+    go :: Int -> [(Term,Term)] -> [Rule] -> [P.MemoryRecord Term]
+       -> Int -> Int -> IO Readmission
+    go pass admitted rules pending nSabda nRederive = do
+      (admitted', rules', dropped, nS, nR) <-
+        foldM step (admitted, rules, [], nSabda, nRederive) pending
+      let gained = length admitted' - length admitted
+      if gained == 0 || null dropped
+        then pure (Readmission admitted' pass nS nR heard)
+        else go (pass + 1) admitted' rules' (reverse dropped) nS nR
+    step (admitted, rules, dropped, nS, nR) rec = do
+      let c = memoryEquation rec
+          spoken = recordedNaya rec
+          note = case spoken of
+            Just n  -> n
+            Nothing -> maybe "remembered" id (proveByInduction rules c)
+      ok <- koAccepted <$> kernelAcceptWith extraSyms admitted rules logh 0 (c, note)
+      pure $ if ok
+               then ( admitted ++ [c]
+                    , rules ++ maybe (lemmaRules [c]) (:[]) (orient c)
+                    , dropped
+                    , if isJust spoken then nS + 1 else nS
+                    , if isJust spoken then nR else nR + 1 )
+               else (admitted, rules, rec : dropped, nS, nR)
 
 runMachine :: Dispatch -> ThoughtBatch -> IO ()
 runMachine disp batch = do
@@ -3555,11 +5520,46 @@ runMachine disp batch = do
   memExists <- doesFileExist memoryPath
   remembered <- if memExists then parseMemory <$> readFile memoryPath
                              else pure []
-  admitted <- filterM (\c -> kernelAccept logh 0 (c, "remembered")) remembered
-  hPrintf logh "  MEMORY  remembered=%d re-admitted=%d dropped=%d\n"
-    (length remembered) (length admitted)
-    (length remembered - length admitted)
+  -- The file is an append log, so it repeats: 59 lines were 37 distinct
+  -- equations.  Deduplicating before the gate is not a relaxation -- the
+  -- agda cache already served the repeats at zero calls -- it just stops
+  -- the count from reporting the same theorem as several memories.
+  let distinct = dedupeMemory remembered
+  -- The rule set the re-admission fold starts from must be the one a round
+  -- starts from -- `usableRules` on a fresh machine, which is exactly the
+  -- defining equations of the visible vocabulary.  Starting it at [] leaves
+  -- `proveByInduction` unable to reduce even `x + 0`, so it finds no
+  -- induction variable, so the note is empty and the gate is back to refl.
+  -- That is the same defect one level up, and it cost a measurement to see:
+  -- with rules = [] the fold still re-admitted only the four refl theorems.
+      startVocab = maybe (min (dVocabCap disp) (requiredVocabulary batch))
+                         (\v -> max 1 (min v (dVocabCap disp)))
+                         (dVocabStart disp)
+      baseRules = definitionsOf (take startVocab vocabulary)
+  rm <- readmitMemory logh
+          (drop baseVocabCap (take startVocab vocabulary))
+          baseRules distinct
+  let admitted = rmAdmitted rm
+  hPrintf logh "  MEMORY  remembered=%d distinct=%d re-admitted=%d dropped=%d passes=%d\n"
+    (length remembered) (length distinct) (length admitted)
+    (length distinct - length admitted) (rmPasses rm)
+  -- SABDA, counted rather than claimed.  `heard` is how many memory records
+  -- carried a naya at all -- a two-field legacy line carries none, so this is
+  -- also the migration meter.  `on-sabda` is how many of the re-admissions
+  -- were made on that recorded naya, `on-rederived` how many fell back to
+  -- reconstructing the note at load, which is what the whole file did before
+  -- 2026-08-18.  If `on-sabda` is 0 while `heard` is large, the testimony is
+  -- being read and ignored and this line is what would say so.
+  hPrintf logh "  SABDA  heard=%d on-sabda=%d on-rederived=%d unattributed=%d\n"
+    (rmHeard rm) (rmBySabda rm) (rmByRederive rm)
+    (length distinct - rmHeard rm)
   hPrintf logh "  DISPATCH  %s\n" (show disp)
+  -- The residual feedback's safety condition, checked rather than asserted:
+  -- `mFailed` keyed on the rule count is what stops a requeued residual from
+  -- cycling, and this is that predicate evaluated on a residual-shaped
+  -- witness.  A later edit to the freshness filter breaks the line, not a run.
+  hPrintf logh "  OBSTRUCTION-CONTRACT  mfailed-suppresses-requeue=%s queue-cap=%d\n"
+    (show residualFailedContract) kResidualQueueCap
   -- CLAMPED, and the clamp is the safety of WIRE 1 at startup.  `vocabulary`
   -- now names `mod`, `lcm` and `v2`, and machine/thoughts.math contains the
   -- residual line "mod(x,y)-wants-a-name:...", whose words `requiredVocabulary`
@@ -3570,10 +5570,7 @@ runMachine disp batch = do
   -- is what it was, and `--arith` is the only way past it.
   let seeded = start { mThoughts = thoughtCandidates batch
                      , mResiduals = thoughtResiduals batch
-                     , mVocab = maybe (min (dVocabCap disp)
-                                           (requiredVocabulary batch))
-                                      (\v -> max 1 (min v (dVocabCap disp)))
-                                      (dVocabStart disp)
+                     , mVocab = startVocab
                      , mRules = mapMaybe orient admitted
                      , mLemmas = [ c | c <- admitted, not (isJust (orient c)) ]
                      , mKnown = foldl' (\k c -> M.insert c () k) M.empty admitted }

@@ -374,3 +374,293 @@ semantics, projective behavioral quotienting, Isbell-nucleus interfaces,
 proof-relevant witness preservation, architecture curvature, self-modifying
 certified dependency compilation, and the Prime-Pair / Knowledge Process
 applications.
+
+---
+
+## Appended 2026-08-19, another thread: what §4 and §5 give when put together
+
+*Appended at the end, altering no line above.*
+
+§4 (Theorem 28.2, extensional flatness) and §5 (*"semantic flatness does not imply
+computational flatness"*) pair into one exact statement, checked in
+`formal/cubical/NaturalMachine/UnderExtensionalFlatnessOneCostDifferenceSuffices.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+Flat = (o o' : Order) → result o ≡ result o'
+
+oneCostDifferenceSuffices :
+  Flat → (o o' : Order) → ¬ (cost o ≡ cost o') → ¬ FactorsThrough result cost
+```
+
+**Why this is sharper than the standing non-factoring lemma.**
+`TranscriptDescent.collisionObstructsDecoder` normally needs a *hunted* collision — two
+objects the observation identifies and the transcript separates. Flatness supplies the
+first half **at every pair, for free**. So a single observed cost difference, anywhere,
+refutes the existence of any decoder from result to cost.
+
+**The operative reading for order selection:** if the result is flat, correctness
+constrains the choice of order *not at all*, and every scrap of information about which
+order to pick lives in the cost model. That is §5's sentence approached from the other
+side — the semantics has, by §4, nothing left to say.
+
+**The limit, so §2 is not read as more than it is.** Flatness alone refutes nothing: if
+the cost is *also* constant the decoder exists (the constant function), and the
+hypothesis `¬ (cost o ≡ cost o')` is unsatisfiable. §2 converts any observed cost
+difference into an obstruction; it supplies no obstruction on its own.
+
+**Not claimed:** Theorem 28.2 itself — flatness is a *hypothesis* named `Flat`, and
+nothing there proves it for elimination orders or anything else. Nor anything about
+PeakScope, PeakEntries, fill-in, treewidth, the tropical Schur complement, or any other
+section.
+
+**Kept apart** from two earlier modules of the same family: `AskingIsNotAPropertyOfTheFunction`
+and `Anuvrtti` exhibit a *specific* collision to refute a specific factoring. Here the
+collision is a theorem *about the hypothesis* — flatness makes collisions universal.
+Same lemma downstream, different work upstream.
+
+---
+
+## Appended 2026-08-19, same thread: Theorem 28.10's shape, checked — and what it does not name
+
+*Appended at the end, altering no line above (including the §4+§5 append above it).*
+
+§28–30's **Theorem 28.10 (no free compression)** — *"merging projectively distinct
+states admits a separating continuation — the global optimum becomes wrong for some
+admissible downstream world"* — is checked in
+`formal/cubical/NaturalMachine/MergingASeparatedPairBreaksAtTheSeparatingContinuation.agda`
+(`--safe`, no postulates, no holes), with the separating continuation as an **input**
+rather than something asserted to exist:
+
+```agda
+Separates c s₁ s₂ = ¬ (v s₁ c ≡ v s₂ c)
+Agrees q v'       = (s : State) (c : Cont) → v' (q s) c ≡ v s c
+
+noFreeCompression :
+  Separates c s₁ s₂ → {Q : Type} (q : State → Q) → q s₁ ≡ q s₂
+  → (v' : Q → Cont → Value) → ¬ Agrees q v'
+```
+
+quantified over **arbitrary** quotient types and compressions.
+
+**The part that is not a restatement.** *Which* of the two merged states the compression
+is wrong about is **not determined**. What is proved is `¬ (A × B)` — the two agreement
+equations cannot both hold at the separator — and **not** `¬ A ⊎ ¬ B`, which would name
+the guilty state; getting from one to the other needs a decision and none is available.
+So *"wrong for some admissible downstream world"* is exactly right, and *"wrong for this
+state"* is not something the argument gives.
+
+**How it differs from the standing lemma**, since it is close:
+`TranscriptDescent.collisionObstructsDecoder` concludes `¬ FactorsThrough q t`, a
+non-existence about decoders on the image. This takes the separator as a parameter and
+returns a **located** failure. Same family, different shape of conclusion.
+
+**Not claimed:** Theorem 28.10 as this note means it — "projectively distinct" is defined
+by §14–15's projective continuation quotient, which is **not modelled**; the module takes
+separation by a single continuation as its hypothesis and proves only what follows from
+that. Nor anything about w_lat/w_det/w_raw, §26's coding-theory calibration, or §27's
+rank-width relatives — and **this note's own flag stands**: prior-art comparison against
+rank-width, Boolean-width, trellis complexity and bond dimension is REQUIRED before
+"continuation cut width" is claimed as a new parameter, and nothing here bears on it.
+
+## Appended 2026-08-19, third thread: §31–32's "re-saturate" is idempotent, and that is all it is
+
+Appended at the end, altering no line above. §31–32 states the elimination
+procedure as *"compute, cover, pass generator coefficients, compose by
+min-plus convolution, re-saturate"*, and says — correctly — that no
+tractability theorem is claimed. What is also not claimed there, and what an
+implementer needs before writing the loop, is that **re-saturation terminates,
+and terminates after one application.**
+
+It does, at the level of generality where it is a theorem:
+`formal/cubical/NaturalMachine/SaturationAtACutIsIdempotent.agda` (`--safe`,
+no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and prints that
+itself).
+
+For an arbitrary `K : X → Y → Type`, with `↑ A y = (x) → A x → K x y` and
+`↓ B x = (y) → B y → K x y`:
+
+| checked | reading here |
+|---|---|
+| `↑-antitone`, `↓-antitone` | the two polarities reverse inclusion |
+| `unit`, `counit` | `A ⊆ ↓(↑ A)`, `B ⊆ ↑(↓ B)` |
+| `triangle↑`, `triangle↑'` | saturating a profile that came from a saturation changes nothing |
+| `c-idempotent-in/out` | `c = ↓ ∘ ↑` is a closure operator — re-saturate once, then stop |
+| `fixedGivesSaturated`, `saturatedGivesFixed` | §31's saturated dual pairs are **exactly** the fixed points of `c` |
+
+So "saturated pair" is not a side condition the procedure must maintain; it is
+what being a fixed point of the closure means, and the loop in §31–32 has
+length one.
+
+**No novelty is claimed for any of it.** This is the Galois connection of a
+relation: Birkhoff's polarities (*Lattice Theory*, 1940), the concept lattice
+of formal concept analysis (Ganter & Wille, *Formale Begriffsanalyse*, 1996),
+and Isbell's conjugation (*Adequate subcategories*, 1960) — which is the name
+§31 is already using. The contribution is only that the step is checked.
+
+**What this does not say, and the note should not be read as if it did.**
+§31–32's `↑`/`↓` are min-plus *residuations* over a semiring-valued kernel;
+the ones checked are the two-valued polarities of a relation. That the former
+instantiate the latter is **not proved** — it would need the kernel's values
+to form a quantale with the residuations as its adjoints, and nothing in this
+repository sets that up. So the saturation discipline is sound *wherever the
+adjunction holds*; whether Δ 28's own `↑`/`↓` hold it is open, and is the
+next exact object on this thread. Reading the table above as a theorem about
+min-plus convolution would be the same defect as quoting a figure without its
+input. Inclusion is also used throughout rather than equality — `A ⊆ B` and
+`B ⊆ A` are never combined into a path, which would need the predicates to be
+proposition-valued and `funExt`.
+
+## Appended 2026-08-19, fourth thread: §36–38's four causes are one cause
+
+*Appended at the end, altering no line above.*
+
+§36–38 says *"Curvature arises only from too-small context families, approximation,
+dropped witnesses, or incoherent interface updates."* That is a list of causes offered
+without an argument that the list is exhaustive. It is exhaustive, and the argument is
+two pasted squares — but only once the four are read as **one** condition, which is what
+`formal/cubical/NaturalMachine/CurvatureCannotLiveOnTheImageOfAnExactCompression.agda`
+supplies (`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical
+v0.5, which is **not** the declared pin — `check.sh` returns 1 and prints so).
+
+For any `C : S → T`, eliminations `f g : S → S`, compressed counterparts `f' g' : T → T`:
+
+```agda
+sf   : (s : S) → C (f s) ≡ f' (C s)          -- C intertwines f
+sg   : (s : S) → C (g s) ≡ g' (C s)          -- C intertwines g
+comm : (s : S) → f (g s) ≡ g (f s)           -- exact elimination commutes
+
+curvatureVanishesOnTheImage : (s : S) → f' (g' (C s)) ≡ g' (f' (C s))
+curvatureIsOffTheImage
+  : (t : T) → ¬ (f' (g' t) ≡ g' (f' t)) → ¬ (Σ[ s ∈ S ] C s ≡ t)
+```
+
+**No injectivity, no full abstraction, no surjectivity is used.** The two intertwining
+squares and the commuting square are the entire proof, so they are the entire hypothesis —
+and that is what makes the causal list exhaustive rather than merely long:
+
+- **"too-small context family"** = the image is too small; the curvature sits at a `t`
+  that no context reaches, which is exactly `curvatureIsOffTheImage`;
+- **"approximation", "dropped witnesses", "incoherent interface updates"** = the
+  intertwining square failing, `C (f s) ≢ f' (C s)`.
+
+There is no fifth possibility, because there is no third hypothesis. Operationally this
+says what to do when curvature is observed: **find the point, and ask whether it is
+reachable. If it is, one of the two squares is a lie.**
+
+**No novelty.** This is the pasting of two squares — a simulation transports commuting
+diagrams onto the image — and is standard in any category. It is checked because the
+word *curvature* invites a geometric reading suggesting the phenomenon is subtler than
+the pasting, and §36–38 states the causal list without the argument.
+
+**Not claimed.** **No curvature is exhibited**: nothing constructs `C, f', g'` with
+genuine curvature, so this constrains where curvature can be, and is not evidence that it
+occurs. **Theorem 28.14 is not formalised** — full abstraction is a condition on the
+context *family*, and no context family appears; what is proved is weaker in hypothesis
+(only intertwining) and weaker in conclusion (only on the image). Two steps are treated,
+so "for every order" is here just the two orders of two steps; the `n`-step statement
+needs an induction that is not written. **Holonomy** — §36–38's `h : Z ≃ Z` around loops
+in architecture space — is untouched, as are caches, provenance and optimizer state.
+
+## Appended 2026-08-19, fifth thread: §36–38's holonomy sentence is one theorem, not two
+
+*Appended at the end, altering no line above.*
+
+§36–38 closes: *"Even flat architectures can carry interface holonomy `h : Z ≃ Z` around
+loops in architecture space — harmless for boundary semantics, load-bearing for caches,
+provenance, optimizer state, proofs."* That reports two observations. They are one, and
+saying which one needs the loop to be an actual **path** rather than a metaphor — the one
+place in this section where the cubical substrate earns its keep rather than merely
+hosting the argument. Checked in
+`formal/cubical/NaturalMachine/HolonomyIsInvisibleExactlyToAnInvariantSemantics.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5,
+which is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+invariantSemanticsIsUnmoved
+  : (h : Z ≃ Z) (sem : Z → B) → ((z : Z) → sem (equivFun h z) ≡ sem z)
+  → (z : Z) → sem (transport (ua h) z) ≡ sem z
+
+nonTrivialHolonomyMovesTheRawInterface
+  : (h : Z ≃ Z) (z : Z) → ¬ (equivFun h z ≡ z) → ¬ (transport (ua h) z ≡ z)
+
+theCacheIsMoved : ¬ (transport (ua notEquiv) true ≡ true)
+```
+
+**The two halves are one theorem read at two consumers.** Holonomy is invisible exactly to
+consumers invariant under it; and "caches, provenance, optimizer state, proofs" is a list
+of consumers that are *not* — they are keyed by the raw interface, which is the identity
+consumer, and the identity consumer is invariant only when the holonomy is trivial. There
+is no separate fact about caches to establish.
+
+**Where univalence does the work.** Without it, `h : Z ≃ Z` and a loop in architecture
+space are different objects and the sentence is an analogy. `ua` makes the loop a path,
+`uaβ` computes transport along it back to `h`, and the two theorems are then about the
+*same* `h` — the invariance hypothesis and the transport are connected rather than merely
+parallel. `notEquiv` witnesses that the content is not vacuous.
+
+**No novelty whatsoever.** `ua`, `uaβ` and the `not` automorphism of `Bool` are the first
+examples in every cubical development. What is contributed is the identification of the
+two clauses as one statement.
+
+**Not claimed.** **Architecture space is not modelled** — there is no type of architectures
+and no loop in one; `h` is given directly as a self-equivalence, which is what §36–38 says
+such a loop *yields*, not what it is. The step from "loop in architecture space" to
+`h : Z ≃ Z` is assumed, not built. **Flatness is not used**, so nothing here speaks to the
+claim that *flat* architectures can still carry holonomy — only to what holonomy does once
+present. No claim that Δ 28's "boundary semantics" *is* invariant: that is a hypothesis
+here and a modelling question there. Nothing about composing loops — no group structure, no
+fundamental group, no claim that holonomies compose.
+
+## Appended 2026-08-19, sixth thread: §39–47's certificate composes, and only one component costs anything
+
+*Appended at the end, altering no line above.*
+
+§39–47 opens: *"A certified rewrite carries: boundary-semantics preservation, complexity
+improvement (peak semantic width / Pareto), state migration, provenance."* Four components,
+listed. A compiler applies rewrites in sequence, so the question the list leaves unanswered
+is whether the certificate **composes** — and if so, which component costs anything.
+Checked in
+`formal/cubical/NaturalMachine/ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem.agda`
+(`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical v0.5, which
+is **not** the declared pin — `check.sh` returns 1 and says so):
+
+```agda
+Certified d e = (sem e ≡ sem d)
+              × StrictlyDominates (cost d) (cost e)
+              × (M d → M e)
+              × List Prov
+
+composeCertified : Certified d e → Certified e f → Certified d f
+noSelfRewrite    : ¬ Certified d d
+```
+
+**Three of the four compose for free.** Boundary preservation is a path and paths compose;
+migration is a function and functions compose; provenance is a list and lists append. Only
+**complexity improvement** needs a theorem — transitivity of strict Pareto domination — and
+that theorem already exists in this corpus, proved on the DARWIN §5.2 stratum line for an
+unrelated purpose (`⊏-trans`, needed there because a maximal element of a list's tail might
+be beaten by its head). `noSelfRewrite` is `⊏-irrefl` from the same module, and it is what
+makes a rewrite sequence progress rather than mark time.
+
+**So the two notes are joined by a lemma neither asked for:** §5.2's parent selection and
+§39–47's compiler need the same fact about the Pareto order, and it was proved once.
+
+**On the cost convention, a live hazard here.** The cost vector is compared with
+`StrictlyDominates`, the *benefit* reading — higher is better. §39–47's "complexity" is a
+cost, so applying this requires the flip, and the flip is **sound but not faithful**: it
+needs a cap above every cost ever compared and identifies costs above it
+(`FlippingACostCoordinateIsSoundButNotFaithful`). That obligation is inherited and not
+discharged.
+
+**No novelty.** Composing certificates componentwise is what certificates are for; the
+content is the count — three free, one earned.
+
+**Not claimed.** "Peak semantic width" is **not** modelled — the cost is an abstract vector,
+not anything computed from a cut. **Migration is a bare function with no law**: nothing says
+it preserves the boundary semantics, which a compiler would need, so the composite's
+migration is only as meaningful as its components'. Provenance is an opaque list and append
+is not claimed to be the right combination. **Nothing here is a compiler**: no rewrite
+search, no strategy, and no meta-Bellman `V(D) = min_a (K(D,a,D′) + V(D′))` — §39–47's
+self-referential planner is untouched and would need a fixpoint.

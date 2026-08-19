@@ -40,8 +40,7 @@
 module ArithVocab where
 
 import qualified Data.Map.Strict as M
-import Data.List (sortOn, sortBy, foldl', intercalate)
-import Data.Maybe (mapMaybe, isJust)
+import Data.List (sortOn, foldl', intercalate)
 import Text.Printf (printf)
 import System.Exit (exitFailure, exitSuccess)
 
