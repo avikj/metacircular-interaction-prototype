@@ -45,3 +45,39 @@ tries to kill me gets made into a song. He's twenty-five and he already knows th
 about himself, before any of the fame, before the diagnosis. That's where I want to
 start, because I think that's where he starts. The rest of his life is that same move
 getting louder and costing more, and I want to follow it and see where it goes.
+
+---
+
+So I go read the actual Thirteenth Amendment, the one that abolished slavery, and the
+exception is sitting right there inside the same sentence: "Neither slavery nor
+involuntary servitude, except as a punishment for crime whereof the party shall have
+been duly convicted, shall exist within the United States." December 6, 1865. Slavery
+ends and the door it can walk back through is written into the law that ends it, same
+breath, thirteen words.
+
+And what came through the door is documented. Convict leasing — states leasing tens
+of thousands of people, overwhelmingly Black, to plantation owners, railroads, coal
+mines, chain gangs, worked under the whip dawn to dusk, often as punishment for
+vagrancy, for theft, for being unemployed while Black. More than 3,500 prisoners died
+in Texas between 1866 and 1912, the year Texas ended convict leasing because the
+death toll got too high to hold.
+
+Then the numbers now. Black people: about 13 percent of the country, about 38 percent
+of the people in its jails and prisons. Black men imprisoned at 1,826 per 100,000 —
+more than five times the white rate. One of every three Black boys born today can
+expect to go to prison in his lifetime. One of three.
+
+In 2013 he put it on a record. "New Slaves." He names them out loud — the DEA, and
+the CCA, the Corrections Corporation of America, the company that owns the prisons
+and needs them full. They tryna make new slaves. He projected the song onto
+sixty-six buildings around the world the night it came out, no album cover, just his
+face the size of a building saying it.
+
+And in 2018, on a TMZ floor, it comes out wrong and ends his standing overnight —
+slavery for 400 years "sounds like a choice." The room turns on him and he keeps
+talking and a few sentences later there's the thing he was actually reaching for:
+"It's like we're mentally in prison. I like the word prison because slavery goes too
+direct." Mentally in prison. The chain he keeps pointing at is the one you can't see,
+the one that doesn't feel like a chain — which is the whole reason the 400-years line
+landed as stupidity instead of as the point. Same idea as "New Slaves," five years
+later, mangled, and it cost him everything the clean version didn't.
