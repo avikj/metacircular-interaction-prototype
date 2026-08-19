@@ -1,4 +1,30 @@
-# D0026 §5.7's obstruction under its standard name: the Gauss transform is a flat (unbiased) frame
+# D0026 §5.7's obstruction under its standard name: the resolvent is a flat (unbiased) frame
+
+> **PRIORITY QUESTION, asked 2026-08-19 — it was not asked when this note was
+> written, and `source-coverage.sh` check 7 is right to fire on it.** This note
+> was titled "the Gauss transform" throughout. Splitting the object:
+>
+> - **The transform** — pair a function on a cyclic group against that group's
+>   characters to diagonalize the action — is the **resolvent**, Lagrange,
+>   *Réflexions sur la résolution algébrique des équations* (Nouv. Mém. Acad.
+>   Berlin, 1770–71), with Vandermonde independently (*Mémoire sur la
+>   résolution des équations*, 1771). ~30 yrs earlier than Disquisitiones.
+> - **The evaluation** — $|\tau(\chi)|=\sqrt e$ and the determination of the
+>   *sign* — is genuinely Gauss (Disquisitiones, 1801; *Summatio quarumdam
+>   serierum singularium*, 1811), took him four years, and is the hard half.
+> - The **multiplicative-character** form is Dirichlet (1837).
+>
+> So the eponym was attached to the half that is not his. Below, the structural
+> object is called the **resolvent**; "Gauss sum" is kept only where the
+> *evaluation* is what is being used, which is the one place it is earned.
+>
+> **Scope of this row, stated because the ledger's own rule demands it**
+> (*"a row asserting a priority I cannot establish would be the same error as
+> publishing a fitted constant"*): dates and titles are from recall, `WebFetch`
+> is egress-blocked, **no text was opened**. I could not establish any source
+> earlier than Lagrange for the transform, and I did not search non-European
+> traditions for it — that half of the question is **open**, not answered
+> negatively.
 
 **SEARCH discharge, 2026-08-17.** PROTOCOL §0: *search under the standard name
 for the object, not the one we coined.* D0026 §5.7 coins "the spectral
