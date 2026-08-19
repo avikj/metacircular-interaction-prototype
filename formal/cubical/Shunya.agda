@@ -85,3 +85,34 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 -- उदाहरणम् : 0·1 = 0 च 0·7 = 0 — भिन्नौ "फलौ" 1, 7 उभौ योग्यौ ⟹ अवक्तव्यम् ।
 भिन्न-साक्षिणौ : (pos 0 · pos 1 ≡ pos 0) × (pos 0 · pos 7 ≡ pos 0)
 भिन्न-साक्षिणौ = सर्वः-भजनफलम् (pos 1) , सर्वः-भजनफलम् (pos 7)
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module or its
+-- CORRECTED block.
+--
+-- That block separates two defects — expressibility (avaktavyam) versus
+-- uniqueness (0÷0) — and names the risk: one third position used as a
+-- catch-all for "not a clean single answer" is the boolean collapse this
+-- corpus exists to fight, one level up.
+--
+-- The independence is now checked, over four realised corners, in
+-- `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent`
+-- (--safe, no postulates, no holes):
+--
+--   nonUnique ∧ expressible     all,  constants
+--   unique    ∧ inexpressible   self, constants
+--   nonUnique ∧ inexpressible   all,  onlyFalse
+--   unique    ∧ expressible     self, onlyId
+--
+-- so neither defect implies the other and neither implies the other's
+-- negation — they are not two readings of one thing at any strength.
+-- The types also show WHY: non-uniqueness is a property of the content
+-- alone, inexpressibility of the content AND the medium.
+--
+-- The third structure, Satyayantra's अनुक्तम्, is deliberately NOT
+-- brought onto that carrier: it is temporal, and d909db0d already says
+-- the two third-positions' remedies live in different types.  No verdict
+-- is offered there on which module should keep the word अवक्तव्यम्, nor
+-- on the saptabhaṅgī, nor on Brahmagupta's or Bhāskara II's texts.
+------------------------------------------------------------------------
