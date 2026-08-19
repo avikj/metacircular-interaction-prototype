@@ -49,6 +49,55 @@ root="${CLAUDE_PROJECT_DIR:-.}"
 
 GATES="IndianLane NaturalMachine Everything"
 
+# ---- the closure walk, as a function so it can be run per gate set --------
+# `closure_of <gate names…>` prints the transitive import closure.
+closure_of() {
+  seen=""
+  frontier="$*"
+  i=0
+  while [ -n "$frontier" ] && [ "$i" -lt 40 ]; do
+    i=$((i + 1))
+    next=""
+    for m in $frontier; do
+      case " $seen " in *" $m "*) continue ;; esac
+      seen="$seen $m"
+      # a module name like NaturalMachine.Foo lives at
+      # formal/cubical/NaturalMachine/Foo.agda
+      f="$root/formal/cubical/$(printf '%s' "$m" | tr '.' '/').agda"
+      [ -f "$f" ] || continue
+      imports=$(sed 's/--.*//' "$f" \
+        | grep -E '^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+' \
+        | sed -E 's/^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+//' \
+        | awk '{print $1}' \
+        | grep -vE '^Cubical|^Agda|^Data\.' )
+      next="$next $imports"
+    done
+    frontier="$next"
+  done
+  printf '%s' "$seen"
+}
+
+# ---- which gates actually RUN here ---------------------------------------
+# A gate that cannot typecheck does not guard what it reaches -- that is
+# formal/cubical/IndianLane.agda's founding argument, and the hook ignored
+# it until 2026-08-19: it counted NaturalMachine and Everything as gates
+# and therefore stayed SILENT for the ~409 modules reached only by them,
+# which is precisely where it mattered.  Verdicts must carry the fitness of
+# their looking; this one did not.
+#
+# Derived, not hardcoded, and cheap: those two aggregates reach the cubical
+# v0.9 surface (336 uses of solve!, 36 of solveN!, plus SymGroup and
+# factorial), so they can only go green under the pin, Agda 2.8.0.  Off the
+# pin they are red and this test self-corrects on a pinned container.
+agda_ver=$(agda --version 2>/dev/null | head -1 | sed 's/^Agda version //;s/ .*//')
+if [ "$agda_ver" = "2.8.0" ]; then
+  GREEN_GATES="$GATES"
+  RED_NOTE=""
+else
+  GREEN_GATES="IndianLane"
+  RED_NOTE="NaturalMachine and Everything are RED here (Agda ${agda_ver:-unknown}, pin is 2.8.0)"
+fi
+
 # ---------------------------------------------------------------- Agda side
 agda_path=$(printf '%s' "$payload" \
   | grep -oE 'formal/cubical/[A-Za-z0-9_/]+\.agda' | head -1)
@@ -64,48 +113,41 @@ if [ -n "$agda_path" ]; then
   case "$mod" in Probe*|Scratch*) mod="" ;; esac
 
   if [ -n "$mod" ]; then
-    # Transitive import closure of the gates, textually.  Bounded at 40
-    # rounds; the corpus is ~190 modules and its depth is far under that.
-    seen=""
-    frontier="$GATES"
-    i=0
-    while [ -n "$frontier" ] && [ "$i" -lt 40 ]; do
-      i=$((i + 1))
-      next=""
-      for m in $frontier; do
-        case " $seen " in *" $m "*) continue ;; esac
-        seen="$seen $m"
-        # a module name like NaturalMachine.Foo lives at
-        # formal/cubical/NaturalMachine/Foo.agda -- the first version of
-        # this looked only at the top level, which is 140 of the 602 Agda
-        # files under that tree, and the survey built on the same
-        # assumption published a wrong verdict on 2026-08-19.
-        f="$root/formal/cubical/$(printf '%s' "$m" | tr '.' '/').agda"
-        [ -f "$f" ] || continue
-        imports=$(sed 's/--.*//' "$f" \
-          | grep -E '^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+' \
-          | sed -E 's/^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+//' \
-          | awk '{print $1}' \
-          | grep -vE '^Cubical|^Agda|^Data\.' )
-        next="$next $imports"
-      done
-      frontier="$next"
-    done
-
-    reached_n=$(for s in $seen; do
+    all_seen=$(closure_of $GATES)
+    green_seen=$(closure_of $GREEN_GATES)
+    reached_n=$(for s in $green_seen; do
                   sp=$(printf '%s' "$s" | tr '.' '/')
                   [ -f "$root/formal/cubical/$sp.agda" ] && echo "$s"
                 done | sort -u | wc -l)
     total_n=$(find "$root/formal/cubical" -name "*.agda" 2>/dev/null | wc -l)
-    case " $seen " in
-      *" $mod "*) : ;;
-      *)
-        cat >&2 <<EOF
+
+    in_green=no; in_all=no
+    case " $green_seen " in *" $mod "*) in_green=yes ;; esac
+    case " $all_seen "   in *" $mod "*) in_all=yes ;; esac
+
+    if [ "$in_green" = no ] && [ "$in_all" = yes ]; then
+      cat >&2 <<EOF
+
+GATE COVERAGE: $mod is reached only by a gate that does not run here.
+
+  searched : formal/cubical/, transitively, recursively
+  green    : $GREEN_GATES  -- reaches $reached_n of $total_n modules
+  red      : $RED_NOTE
+  verdict  : $mod IS in the import graph, and nothing typechecks it on this
+             container, so nothing will notice when it breaks
+
+  A gate that cannot go green does not guard what it reaches -- that is
+  IndianLane.agda's founding argument.  This is not a defect in $mod and
+  not something to fix by editing it; see formal/cubical/check.sh, which
+  records that the pin is unreachable here by organisation egress policy.
+EOF
+    elif [ "$in_all" = no ]; then
+      cat >&2 <<EOF
 
 GATE COVERAGE: $mod is not in any gate's import closure.
 
-  searched : formal/cubical/, transitive closure of $GATES
-  reached  : $reached_n of $total_n modules in formal/cubical/
+  searched : formal/cubical/, transitively, recursively
+  reached  : $reached_n of $total_n modules from the gates that run here
   verdict  : nothing typechecks $mod, so nothing will notice when it breaks
 
   Add \`import $mod\` to formal/cubical/IndianLane.agda (or whichever gate
@@ -116,11 +158,9 @@ GATE COVERAGE: $mod is not in any gate's import closure.
   green Indian material that no gate reached.  Run machine/Yogyata.hs for
   the full survey.
 EOF
-        ;;
-    esac
+    fi
   fi
 fi
-
 # ------------------------------------------------------------- Haskell side
 hs_path=$(printf '%s' "$payload" \
   | grep -oE 'machine/[A-Za-z0-9_]+\.hs' | head -1)
