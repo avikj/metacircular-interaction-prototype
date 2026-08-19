@@ -30,8 +30,8 @@
 module MeruKarna where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
-open import Cubical.Data.Nat.Properties using (+-comm ; +-zero ; +-assoc)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
+open import Cubical.Data.Nat.Properties using (+-comm ; +-zero ; +-assoc ; ·-comm ; ·-distribˡ)
 open import Cubical.Data.List using (length ; [] ; _∷_)
 open import Dvipada using (C)
 open import Matramerus using (सर्व ; मात्रामेरु)
@@ -145,3 +145,31 @@ open import MatraSamasa using (समता)
     ∙ +-assoc (योग-सर्व n) 1 (length (सर्व (suc n))) )
   ∙ cong (_+ length (सर्व (suc n))) (मात्रा-योग-फलम् n)
   ∙ sym (मात्रामेरु (suc n))
+
+------------------------------------------------------------------------
+-- मात्रा-वर्ग-योगः — विरहाङ्क-वर्गाणां योगः = क्रमागत-गुणः : ∑_{k≤n} M(k)² = M(n)·M(n+1) ।
+-- (मात्रा-सङ्ख्यानां वर्गयोगः द्वयोः क्रमागत-मात्रा-सङ्ख्ययोः गुणः — फिबोनाची-
+--  वर्ग-योग-नियमः , मात्रामेरु-आवृत्तेः ।  आकृति-नियमः, न विशेष-श्लोकः ।)
+--
+-- (The sum of squares of Virahāṅka's mātrā-counts equals the product of two
+--  consecutive counts: ∑_{k≤n} M(k)² ≡ M(n)·M(n+1), from the recurrence मात्रामेरु.
+--  The Fibonacci sum-of-squares identity; no specific verse claimed.)
+------------------------------------------------------------------------
+
+वर्ग-योग : ℕ → ℕ
+वर्ग-योग zero    = length (सर्व zero) · length (सर्व zero)
+वर्ग-योग (suc n) = वर्ग-योग n + length (सर्व (suc n)) · length (सर्व (suc n))
+
+मात्रा-वर्ग-योगः : (n : ℕ) → वर्ग-योग n ≡ length (सर्व n) · length (सर्व (suc n))
+मात्रा-वर्ग-योगः zero    = refl
+मात्रा-वर्ग-योगः (suc n) =
+    cong (_+ length (सर्व (suc n)) · length (सर्व (suc n))) (मात्रा-वर्ग-योगः n)
+  ∙ cong (_+ length (सर्व (suc n)) · length (सर्व (suc n)))
+         (·-comm (length (सर्व n)) (length (सर्व (suc n))))
+  ∙ ·-distribˡ (length (सर्व (suc n))) (length (सर्व n)) (length (सर्व (suc n)))
+  ∙ cong (length (सर्व (suc n)) ·_)
+         (+-comm (length (सर्व n)) (length (सर्व (suc n))) ∙ sym (मात्रामेरु n))
+
+-- उदाहरणम् — 1²+1²+2²+3² = 15 = 3·5 = M(3)·M(4) (refl-सिद्धम्) ।
+वर्ग-योग-३ : वर्ग-योग 3 ≡ 15
+वर्ग-योग-३ = refl
