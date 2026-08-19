@@ -129,6 +129,7 @@ import NaturalMachine.WhyTheSamePriceKeepsAppearing
 import NaturalMachine.TheDeflationaryTestWasAlreadyRun
 import NaturalMachine.WhatTheSubstrateArgumentCovers
 import NaturalMachine.TheTwoCollisionsAreOneInstantiation
+import NaturalMachine.TheUniformFormIsNotRefuted
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
