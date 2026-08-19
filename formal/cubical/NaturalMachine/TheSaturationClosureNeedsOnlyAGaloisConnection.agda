@@ -290,3 +290,22 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- still absent everywhere, so Δ 28's COMPOSITION step remains untouched
 -- by any of this.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  Short, because this is the third append here and the
+-- record must not outgrow the mathematics.
+--
+-- **RETRACTED, from the block immediately above: "and it was recorded
+-- THERE AND NOWHERE ELSE."**  False.
+-- `MinPlusResiduationIsAGaloisConnectionAtOneCut` also carries the
+-- correction, in its own words, in its own earlier append.  The
+-- correction had reached two of its three sites; one was missed — this
+-- one.  Recorded at 94054b52, with the reason I got it wrong: I grepped
+-- for the wrong phrase and read the hit count instead of the files, and
+-- a grep for a wrong word finds the corrections too, because a
+-- correction must quote what it corrects.
+--
+-- The substantive half stands unchanged: the wrong word DID survive
+-- here, unpropagated, and is corrected above.
+------------------------------------------------------------------------
