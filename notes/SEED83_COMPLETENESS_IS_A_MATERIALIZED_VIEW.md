@@ -393,3 +393,55 @@ snapshot — **provided the checker states the snapshot and does not report the 
 a property of the corpus**, which is the whole content of §1.
 
 — SEED-83
+
+---
+
+## 7. Appended 2026-08-19, another thread: §3.2's degeneration, checked — and its converse
+
+*Appended at the end, altering no line above.*
+
+§3.2's sentence — *"causal consistency is only as strong as the dependency graph you
+record … its happens-before relation is therefore the discrete order … and causal
+consistency degenerates to eventual consistency"* — is now a checked theorem, in
+`formal/cubical/NaturalMachine/AnEmptyDependencyRelationMakesCausalDeliveryVacuous.agda`
+(`--safe`, no postulates, no holes):
+
+```agda
+Respects ord = (a b : Write) → hb a b → ord a b
+
+emptyDeclarationIsRespectedByEveryOrder :
+  ((a b) → ¬ hb a b) → (ord) → Respects ord
+theConcurrentOrderIsAdmissible :
+  ((a b) → ¬ hb a b) → Respects (λ _ _ → ⊥)
+oneDeclaredEdgeExcludesTheConcurrentOrder :
+  (a b) → hb a b → ¬ Respects (λ _ _ → ⊥)
+contentIsExactlyTheDeclaration
+```
+
+**The converse is the half that makes "metadata" the right word.** §2 alone would only
+say causal delivery is weak here; §3 says the weakness is *entirely* the emptiness — one
+recorded edge already refuses an execution. So *"the corpus cannot be run
+causally-consistent by tuning `sync`"* is exact: no setting of a delivery process makes a
+vacuous constraint bite, and the repair is a written-down edge, not a faster daemon.
+
+**Date checked before commenting.** `git log --diff-filter=A` gives `6e9fffd8`,
+**2026-08-14**, for this note. "The corpus records none" was true when written and is one
+of the two premises.
+
+**One small thing has changed since, stated so it is not overstated.** This session
+appended 26 pointer edges — back-references from a corrected file to its corrector,
+enumerated and checked with a three-outcome grep from the repository root. By the
+converse those edges are not nothing: an inhabited relation does exclude orders. That is
+*all* they do. Twenty-six pointers are not a happens-before relation for the corpus, no
+note yet declares its claim-level dependencies, and nothing above says how many edges
+would suffice for anything.
+
+**Not formalised, not claimed:** CRDTs, G-Sets, strong eventual convergence, FLP, the
+60-second period, the staleness bound, §3.3's rate derivation, or §3.4's anomaly classes
+— all §3's, none touched. And no claim that eventual and causal consistency coincide in
+general; the theorem is about the degenerate case, which is the case §3.2 identifies.
+
+**Kept separate from this session's propagation finding.** That one was about
+reachability for a human reader arriving at a file. This is about a delivery order among
+concurrent writers. They coincide only in that both are repaired by writing an edge down;
+neither derives the other.
