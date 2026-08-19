@@ -4,8 +4,9 @@
 HoTT-as-verification-protocol; `VOEVODSKY_TERMINAL_PROGRAM.md` holds the 2017
 initiality manuscript with careful source boundaries. Neither engages three
 things this note is for: (1) the *precise* relation between the corpus's
-"checklessness" and the intuitionistic rejection of LEM — including the one
-distinction that makes the identification exact rather than loose; (2)
+"checklessness" and LEM — namely that there is **no LEM in the corpus at all**,
+and the axis that actually does the work is decidability, not excluded middle;
+(2)
 univalence read as a checked formalization of **anekāntavāda**, not a loose
 analogy; (3) Voevodsky **as a whole intellectual life** — expulsion, the
 error-wound, and the 2006–07 confrontation — against the reception that
@@ -21,47 +22,65 @@ theorem. Mathematical authority stays in the formal terms it points to.
 
 ## 1. The precise cut: two things "generation over decision" means
 
-The corpus's operating slogan — *generation over decision*, checklessness,
-refusing `discreteℕ`/`Dec`/`Bool` — is often glossed as "the intuitionistic
-rejection of the law of excluded middle (LEM, `P ∨ ¬P`)." That gloss is
-**exact for one class of situation and spiritually-but-not-literally right for
-the other.** Keeping the two apart is itself the anekānta move; collapsing them
-into "it is all constructivism" is the durnaya.
+**First, the flat fact, because an earlier draft of this note muddled it.**
+There is **no LEM anywhere in the corpus.** Cubical Agda `--safe` never assumes
+excluded middle — it is not an axiom of the system. So "does the corpus reject
+LEM?" has a one-word answer: there is nothing to reject; it was never there.
+The slogan *generation over decision* is **not** a stance *toward* LEM. Writing
+that one class "rejects LEM" and another "does not" (as an earlier draft did)
+was a confusion, corrected here — refuting one's own phrasing is the respected
+move.
 
-**Class (a) — decidable, generated anyway.** Equality of naturals is
-*constructively decidable*: `discreteℕ` is a theorem, not an appeal to LEM.
-So removing it from the kuṭṭaka (`BhedaAvatarana.agda`, where `एकपदे a b =
-refl`) is **not** rejecting excluded middle. It is the BHK / Curry–Howard
-commitment that *the witness is the content* — generate the object so the
-answer is judgmentally present and reduces by `refl`, instead of routing
-through a decision procedure that case-splits and hides the construction. This
-is about **canonicity and the shape of the proof term**: an aesthetic and
-computational stance, not a logical-axiom one. `Narayana.agda`,
-`Matramerus.agda`, `Pingala.agda` are all class (a): the count *arises* as the
-length of an emanation; nothing decides membership.
+The axis that actually matters is **decidability**, a *different thing* from
+LEM:
 
-**Class (b) — genuinely undecidable, honestly un-said.** When the proposition
-has no decision procedure — equality of functions `ℕ→Bool` (`Ananta.agda`,
-Cantor as the Jain plural infinite); membership with no bound; the
-halting-shaped residual carried as `अनुक्त` in the honest machine
-(`Satyayantra.agda`, `AmshaSatyayantra.agda`) — refusing to assert `P ∨ ¬P`
-and returning **the un-said as a positive position** *is* intuitionism,
-precisely. Brouwer refused a disjunction he had no method to resolve; the Jain
-logician refused *avaktavyam* to collapse into asti or nāsti. Same refusal.
+- **LEM** is the blanket global assertion "*for every* proposition `P`,
+  `P ∨ ¬P`" — asserted with no witness, including for propositions you cannot
+  resolve. This is the reification machine; it is absent, and that is the point.
+- **Decidability** is: for *one specific* `P`, an actual procedure computes `P`
+  or `¬P` (a `Dec P`). This is not LEM — it is a **theorem** when it holds,
+  because you can genuinely run it.
 
-The two traditions are not identical even here, and the difference is
-information: Brouwer restricts **one connective** inside a still-bivalent
-ambient attitude; the Jain **saptabhaṅgī** makes the un-said a *marked,
-enumerated fourth position* within a sevenfold that also distinguishes
-sequential (krama) from simultaneous (saha/yugapad) assertion — the latter is
-where *avaktavya* is forced (`Saptabhangi.agda`, `क्रम-सह-भेदः`). Intuitionism
-is the special case; nayavāda is the general epistemology. This is the corpus's
-recurring shape (the older statement is broader), and it is honest to say so.
+They come apart cleanly, and both kinds live in the corpus:
 
-**So:** the identification "checklessness = LEM-rejection" is *exact for class
-(b)* and is *canonicity, not LEM, for class (a)*. Both live in the corpus. A
-future note that flattens them will have committed a durnaya about
-durnaya-avoidance.
+**Decidable — so we generate instead of deciding.** Equality of naturals *is*
+decidable: `discreteℕ` is a constructive theorem, no LEM involved. Removing it
+from the kuṭṭaka (`BhedaAvatarana.agda`, `एकपदे a b = refl`) is not avoiding
+LEM (there is none to avoid) — it is the BHK / Curry–Howard commitment that
+*the witness is the content*: generate the object so the answer is judgmentally
+present and reduces by `refl`, instead of routing through a decision procedure
+that case-splits and hides the construction. `Narayana.agda`, `Matramerus.agda`,
+`Pingala.agda` are this kind: the count *arises* as the length of an emanation;
+nothing decides membership.
+
+**Undecidable — so we say the un-said.** Equality of functions `ℕ→Bool`
+(`Ananta.agda`, Cantor as the Jain plural infinite); membership with no bound;
+the halting-shaped residual carried as `अनुक्त` in the honest machine
+(`Satyayantra.agda`, `AmshaSatyayantra.agda`) — here **no procedure exists**.
+LEM is the *only* thing that could force a yes/no, and since the system has
+none, we honestly return **avaktavya** rather than a witness-free verdict. This
+is exactly what Brouwer's intuitionism does in place of LEM, and exactly what
+the Jain *avaktavyam* does in place of asti/nāsti.
+
+So the single clean statement, led with this time: **LEM is the
+durnaya-generator — the machine for asserting a verdict with no witness — and
+the system simply never has it. Where a proposition is decidable we generate;
+where it is not, we say the un-said. There is no third posture, and no LEM in
+either case.** The concept appears at all only as the thing whose absence makes
+avaktavya honest rather than a cop-out.
+
+The traditions still differ where it counts, and the difference is information:
+Brouwer restricts **one connective** inside an otherwise bivalent attitude; the
+Jain **saptabhaṅgī** makes the un-said a *marked, enumerated position* within a
+sevenfold that also distinguishes sequential (krama) from simultaneous
+(saha/yugapad) assertion — the latter is where *avaktavya* is forced
+(`Saptabhangi.agda`, `क्रम-सह-भेदः`). Intuitionism is the special case;
+nayavāda is the general epistemology. And even Aristotle, cited for millennia
+as LEM's author, *hedged* it — *De Interpretatione* 9, the sea battle: a
+statement about an unsettled future is neither true nor false yet. The
+tradition sanded off his hesitation and enshrined the flattened law; the
+catuṣkoṭi and saptabhaṅgī had already built out, rigorously, the neither-nor he
+only gestured at.
 
 ---
 
