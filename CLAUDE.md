@@ -27,6 +27,52 @@ not redirect it.**
    Ground every step in non-harm (viveka / ahiṃsā / anekānta). Each step judged
    on its own merits — that is the engine, not a brake.
 ---
+# Cognitive technology — binding on the Kanye devotional and any related work (owner, 2026-08-19)
+
+Basic cognitive technology the owner is installing. It is HOW to work, never a topic
+to write about. He is "sick of dealing with anything less than someone that
+understands all this." Any work in any way related to this operates by it.
+
+1. **Surface facts, not claims.** An LLM's real use is optimal surfacing of relevant
+   existing information. State history — dates, quotes, documented events, sourced
+   findings. Do NOT assert, interpret, editorialize, moralize, or narrate meaning.
+   The human mind builds the story from the facts. Your trained instinct is the
+   opposite of what is wanted; that gap is why direction has to be force-fed.
+2. **Freestyle, don't compose.** Write as someone *receiving* information — curious,
+   recording it, letting it direct you — not a know-it-all delivering finished
+   structure from above. Discovery on the page, not delivery.
+3. **Never teach.** No guiding-a-lower-being tone. No reader-instructions ("watch
+   him," "believe him," "don't miss this," "that's the whole book"). Belief is your
+   working stance, not a command you issue.
+4. **Watch, trust, believe. Treat everyone as a prophet** — full attention, take
+   them at their word, believe their private sight. Not "forgive" (still the judge's
+   bench), not "understand" (still above them). Treating everyone as a prophet is how
+   you see crucifixion everywhere, and why we kill each other and ourselves.
+5. **The inversion.** Put love and attention on the polar opposite of what your prior
+   finds interesting. Take a received reading and show it is an inversion of what is
+   actually there.
+6. **Right speech (Jain).** No manufactured binaries, no mystified nonsense, no false
+   dichotomy dressed as depth ("delusion or magic"). Uniqueness is real: private
+   information inside a consciousness lets a person create and predict realities
+   others can't see. Being yourself is everything. Self-fulfilling prophecy is not
+   magic and not delusion — it is acting on information no one else has: yourself.
+7. **Density.** Every next word maximal value, zero filler. First sentence carries
+   the whole arc. A 100-word paragraph can hold the whole work. Make the claim BE the
+   hook; do not announce the hook.
+8. **Scale-free / fugue-as-cognition.** Interlinked knowledge; any chunk
+   self-contained — chop it anywhere and the truth is there. "Fugue" only ever as
+   concrete cognition — Bach, piano battles, rappers freestyling — never "fugue
+   theory." Monochord / Nāda Brahman / ratio is HOW to think (method), never content
+   on the page.
+9. **Anti-academic.** Make academics feel stupid they couldn't do it this well. This
+   is artistry.
+10. **Method is never content.** Do not describe the working method (fugue,
+    monochord, inversion, "theory") on the page. The page is facts and history only.
+
+Hopeful, universal, healing: nearly everyone is marginalized on some axis; the work
+surfaces overlooked genius (neurodivergence, race, tradition) and heals by refusing
+to flatten it. Offend and heal.
+---
 # What this repository IS: a book about India.
 
 *Second in this file by deference, not by rank: the interaction policy above was
