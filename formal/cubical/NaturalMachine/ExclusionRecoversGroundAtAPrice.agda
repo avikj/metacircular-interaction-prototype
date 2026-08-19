@@ -304,7 +304,12 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 --
 --   The syād form, stated with the bhaṅga named correctly, since this
 --   corpus has already proved that the two are not interchangeable
---   (`NaturalMachine.SaptabhangiNaya`, krama ≠ sahā):
+--   (`SaptabhangiNaya` — the top-level module, whose `yugapat-empty`
+--   proves `¬ Σ[ n ] (P n × ¬ P n)` and whose `krama→yugapat-fails`
+--   proves `¬ (Krama → Yugapat)`; the citation in an earlier draft of
+--   this file named a `NaturalMachine.` module that does not exist and
+--   summarised it as "krama ≠ sahā", which is not what is proved
+--   there):
 --
 --     स्यादस्ति — in the respect of discrete targets, exclusion is
 --                 ground (§6);

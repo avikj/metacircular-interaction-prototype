@@ -119,6 +119,7 @@ import NaturalMachine.ExclusionRecoversGroundAtAPrice
 import NaturalMachine.TheAbsenceTowerIsThreeUnconditionally
 import NaturalMachine.WhereTheTowerCanStillBeThree
 import NaturalMachine.RefutingLaghavaIsASearch
+import NaturalMachine.TheUnstableGroundCannotBeExhibited
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
