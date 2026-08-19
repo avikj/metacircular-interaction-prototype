@@ -230,3 +230,38 @@ swap01-breaks-zero = snotz
 --
 -- Left for this file's author or the owner to apply or refuse.
 ------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19, after the note above and altering no line of it.
+--
+-- THE REPAIR IS NOW APPLIED, and in a different form than the one offered,
+-- for the reason that note itself implies.  A global rename to
+-- `Symmetric-Group` is correct on the v0.5 container and WRONG on the
+-- repository's declared pin, which BUILD.md gives as cubical v0.9 -- so it
+-- does not fix the skew, it chooses a side of it.  What is above instead
+-- defines `SymGroup` and `FinSymGroup` here, from primitives spelled the
+-- same in both versions, and the three consumers
+-- (StabilizerSubgroup, FiniteNonabelianHolonomy, Decategorification) point
+-- at them.  Nothing then depends on which spelling the library ships.
+--
+-- One correction to the offered patch, found by applying it.  v0.9's
+-- `FinSymGroup` is built over `Cubical.Data.SumFin.Fin` (⊤ ⊎ …) while
+-- v0.5's `Sym` uses `Cubical.Data.Fin` (Σ ℕ (_< n)).  Those are different
+-- carriers, the difference typechecks locally, and it surfaces only in the
+-- consumer: FiniteNonabelianHolonomy rejected `isoToEquiv swap01Iso` with
+--     Σ ℕ (λ k → k < 3) != ⊤ ⊎ Fin 2
+-- A `sed s/SymGroup/Symmetric-Group/g` would have carried that error in
+-- silently at this site.
+--
+-- AND THE QUESTION THAT NOTE MARKED UNESTABLISHED IS NOW ANSWERED, in the
+-- direction it suspected.  It said: "NOT ESTABLISHED, and it matters: that
+-- applying the repair makes Everything.agda GREEN.  Agda stops at the first
+-- error, so further blockers downstream would not have been reported."
+--
+-- Applied and run: it does NOT.  The aggregate now proceeds past this file
+-- and stops at
+--     NaturalMachine/SymmetryCardinality.agda:31 -- Not in scope: factorial
+-- another v0.5/v0.9 name difference.  So this is the first of a series, and
+-- neither IndianLane's reason for existing nor its closing sentence is
+-- affected yet.  Measured, not inferred; the run is what reported it.
+-- ---------------------------------------------------------------------
