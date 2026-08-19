@@ -618,3 +618,17 @@ source was opened for this note and none is quoted.**
 *Owner's framework and all of §7's objects: D0026 §7 (Deltas 37–38), 2026-08-16.
 Theorems 1, 2, 4, 6, Propositions 3, 7, 8, Definitions 4.1–4.2, the witnesses and
 the corrections: this note. No experiment was run.*
+
+---
+
+*Appended 2026-08-19.* Scope-fence item 5 ("**The adaptive quantity is named,
+not built**") is now built, in this note's own register:
+`formal/cubical/NaturalMachine/AdaptiveProbeCollapse.agda` (`--cubical --safe`,
+checked on the pin) proves for a bare pool `out : O → X → Y` — no dynamics, no
+finiteness, arbitrary outcome type — that the kernel of every finite adaptive
+strategy EQUALS `E(𝒪)`, hence that no adaptive observer recovers a charged
+functional. Corollary 1.2 is thereby vindicated rather than patched: `ρ_P`
+cannot see adaptivity **because adaptivity does not move the quotient**; it is
+a gain on the budget coordinate only, and the same module carries a checked
+four-state three-probe witness of that gain. Write-up:
+`notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md`.

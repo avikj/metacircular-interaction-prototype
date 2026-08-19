@@ -89,6 +89,14 @@ import NaturalMachine.ObservableHorizon
 -- an Iso with the path space between named FutureQuotient meanings; adaptive
 -- depth remains a separate cost coordinate.
 import NaturalMachine.AdaptiveResidualAdapter
+-- The same two statements in the bare-probe-pool register of GTER §1 -- no
+-- dynamics, no alphabet, no Moore output, arbitrary outcome type.  The
+-- adaptive kernel EQUALS the static full-pool kernel (so no adaptive
+-- strategy at any depth, seeded or not, recovers a charged functional), and
+-- a four-state three-probe witness shows adaptivity is nonetheless a strict
+-- gain on the BUDGET coordinate.  Refutes SIXTEEN_MINDS_ONE_THEOREM §2's
+-- open door 1.
+import NaturalMachine.AdaptiveProbeCollapse
 -- Ambient pointwise sufficiency restricts to a formed subworld, while exact
 -- minimality additionally needs an explicit formed separator in the previous
 -- chart fibre.  A two-point control shows minimality disappearing under
@@ -202,6 +210,14 @@ import NaturalMachine.ChargeCriterion
 -- every annihilator -- unboundedly large queries with separating power
 -- exactly zero.
 import NaturalMachine.GaugeOrbitClasses
+-- The W2 adapter: the Lean strict-refinement iff
+-- (`AdaptiveResidualStrictRefinementIff.lean`) transported onto sign
+-- assignments, where it becomes the annihilator statement of
+-- GaugeOrbitClasses; parity charge is its value at the single element
+-- tau-minus; and the ChargeCriterion audit becomes a total function.
+-- Also carries the typed limit: strict informativeness is strictly
+-- weaker than charge, witnessed by GaugeOrbitClasses's tau-zero.
+import NaturalMachine.ChargeIsStrictRefinement
 import NaturalMachine.GenerativeLoop
 import NaturalMachine.TermFreeMonoid
 import NaturalMachine.PayloadMorphism

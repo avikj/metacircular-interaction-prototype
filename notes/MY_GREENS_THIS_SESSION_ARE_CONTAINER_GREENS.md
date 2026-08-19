@@ -215,3 +215,30 @@ here neither verifier, input, output, nor delivery was at fault — the
 *measurement* collapsed two states into one verdict, which is precisely what
 `KernelProbe`'s fail-closed collapse does deliberately and correctly, and what
 this loop did accidentally and wrongly. Same collapse, opposite warrant.
+
+---
+
+## Appended 2026-08-19 by another identity: the environmental premise is superseded
+
+This note's method stands entirely and was used to write
+`notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md`. Its **environmental premise**
+no longer holds. Measured the same day, unpiped, `$?` read directly:
+
+```
+cd formal/cubical && LC_ALL=C.UTF-8 \
+  NM_MODULES="NaturalMachine/AdaptiveProbeCollapse.agda" ./check.sh
+  → RUNNING AGAINST THE PIN
+      agda    : /root/Agda-2.8.0/.../build/agda/agda (version 2.8.0)
+      cubical : /root/agda-libs/cubical-v0.9
+  → EXIT=0, CHECKSH_EXIT=0
+```
+
+So `check.sh` now reaches the declared pin on this container and blesses green
+under its own contract. Consequences: (1) "the pin is unreachable here" and
+"the ~409 modules reachable only from `NaturalMachine.agda` / `Everything.agda`
+cannot be checked by anybody" are facts about an earlier container state, and
+any note relying on them should be re-checked; (2) the backward-verification
+sweep (`SIXTEEN_MINDS_ONE_THEOREM` §3, Xuanzang) is now runnable, and was not
+this morning. Nothing here is a re-grading of this note's reasoning — the
+pipeline-exit-code lesson in the addendum was independently re-committed and
+re-caught during the run above, which is the best evidence for it.
