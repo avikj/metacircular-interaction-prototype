@@ -1,0 +1,139 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- NaturalMachine.ANonEmptyArchiveHasANonEmptyStratum
+--
+-- `TheParetoStratumIsDecidableAndTheFilterIsExact` computed the maximal
+-- layer and closed with two admissions:
+--
+--   "No claim is made that the stratum is non-empty: for the empty
+--    archive it is empty, and for a non-empty archive non-emptiness
+--    needs an argument this module does not make."
+--
+-- and, separately, that one STRATUM is not a STRATIFICATION.  The first
+-- is discharged here.  The second is not, and stays named.
+--
+-- Non-emptiness is not decoration.  DARWIN §5.2's controller "first
+-- selects a Pareto stratum S" and then samples inside it; a stratum
+-- that could be empty is a selection step that could have nothing to
+-- sample from, which is a live failure mode for a scheduler and not a
+-- pedantic gap.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- WHAT IS PROVED
+--
+--   ⊏-irrefl            nothing strictly dominates itself
+--   ⊏-trans             strict domination is transitive — needed, and
+--                       NOT implied by `≼-trans` alone: the negative
+--                       half is what does the work
+--   anyMap              a pointwise implication maps over `Any`
+--   maximalExists       EVERY non-empty archive has a member that is
+--                       Pareto-maximal in it, by list induction with a
+--                       decision at each step
+--   stratumIsNonEmpty   hence the computed stratum of a non-empty
+--                       archive has a member
+--
+-- The induction is the whole content: given a maximal `m` of the tail,
+-- DECIDE whether `m` strictly dominates the head.  If not, `m` is still
+-- maximal.  If it does, the HEAD is maximal — because anything beating
+-- the head would beat `m` by transitivity, contradicting `m`'s
+-- maximality.  That second branch is why `⊏-trans` is needed at all.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- NO NOVELTY.  "A finite non-empty set has a maximal element for a
+-- decidable partial order" is elementary; it is proved here because the
+-- previous module named its absence, and because the constructive proof
+-- needs the decision that module supplies rather than excluded middle.
+--
+-- WHAT IS STILL NOT CLAIMED.  A STRATIFICATION.  Removing the layer and
+-- repeating needs a termination argument on the archive's length, and
+-- nothing here iterates — that admission survives this cycle intact.
+-- No claim about the SIZE of the stratum, nor that it is the set of ALL
+-- maximal elements up to duplication (`filterDec` keeps multiplicity).
+-- `maximalExists` produces ONE maximal element, not all of them, and no
+-- claim is made that the one produced is canonical — it depends on the
+-- list's order.  Costs are still unflipped: §5.2's wall time, tokens
+-- and dollars are to be MINIMISED and no coordinate is negated
+-- anywhere on this line.
+--
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
+-- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
+------------------------------------------------------------------------
+
+module NaturalMachine.ANonEmptyArchiveHasANonEmptyStratum where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ)
+open import Cubical.Data.List using (List ; [] ; _∷_)
+open import Cubical.Data.Sigma
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
+open import Cubical.Data.Empty as ⊥ using (⊥)
+open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
+
+open import NaturalMachine.TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+  using (Any)
+open import NaturalMachine.AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision
+  using (_≼_ ; ≼-refl ; ≼-trans)
+open import NaturalMachine.TheParetoStratumIsDecidableAndTheFilterIsExact
+  using (StrictlyDominates ; IsParetoMaximal ; decStrictlyDominates
+        ; stratum ; stratumKeepsEveryMaximal)
+
+------------------------------------------------------------------------
+-- 1.  Strict domination is irreflexive and transitive
+--
+-- Transitivity is not inherited from `≼-trans`: the negative component
+-- has to be argued, and it is where the antisymmetric shape of `≼`
+-- would otherwise be missed.
+------------------------------------------------------------------------
+
+⊏-irrefl : (v : List ℕ) → ¬ StrictlyDominates v v
+⊏-irrefl v (_ , ¬le) = ¬le (≼-refl v)
+
+⊏-trans :
+  (u v w : List ℕ)
+  → StrictlyDominates u v → StrictlyDominates v w → StrictlyDominates u w
+⊏-trans u v w (uv , ¬vu) (vw , ¬wv) =
+  ≼-trans u v w uv vw , λ wu → ¬wv (≼-trans w u v wu uv)
+
+------------------------------------------------------------------------
+-- 2.  Any is functorial in the predicate
+------------------------------------------------------------------------
+
+anyMap :
+  {A : Type} {P Q : A → Type}
+  → ((a : A) → P a → Q a) → (xs : List A) → Any P xs → Any Q xs
+anyMap f []       e       = ⊥.rec e
+anyMap f (x ∷ xs) (inl p) = inl (f x p)
+anyMap f (x ∷ xs) (inr a) = inr (anyMap f xs a)
+
+------------------------------------------------------------------------
+-- 3.  Every non-empty archive has a maximal member
+------------------------------------------------------------------------
+
+maximalExists :
+  (x : List ℕ) (xs : List (List ℕ))
+  → Σ[ m ∈ List ℕ ]
+      ((Any (λ y → y ≡ m) (x ∷ xs)) × IsParetoMaximal m (x ∷ xs))
+maximalExists x [] =
+  x , (inl refl , λ where (inl sd) → ⊏-irrefl x sd)
+maximalExists x (y ∷ ys) with maximalExists y ys
+... | (m , (mem , max)) with decStrictlyDominates m x
+...   | no ¬beat = m , (inr mem , λ where
+                          (inl sd)  → ¬beat sd
+                          (inr rest) → max rest)
+...   | yes beat = x , (inl refl , λ where
+                          (inl sd)   → ⊏-irrefl x sd
+                          (inr rest) →
+                            max (anyMap (λ w xw → ⊏-trans m x w beat xw)
+                                        (y ∷ ys) rest))
+
+------------------------------------------------------------------------
+-- 4.  Hence the computed stratum is non-empty
+------------------------------------------------------------------------
+
+stratumIsNonEmpty :
+  (x : List ℕ) (xs : List (List ℕ))
+  → Σ[ m ∈ List ℕ ] Any (λ y → y ≡ m) (stratum (x ∷ xs))
+stratumIsNonEmpty x xs with maximalExists x xs
+... | (m , (mem , max)) =
+  m , stratumKeepsEveryMaximal (x ∷ xs) m mem max

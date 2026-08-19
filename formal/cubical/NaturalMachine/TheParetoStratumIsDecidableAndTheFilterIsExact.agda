@@ -178,3 +178,39 @@ stratumKeepsEveryMaximal :
 stratumKeepsEveryMaximal xs v =
   filterDecKeepsEverySatisfier (λ u → IsParetoMaximal u xs)
                                (λ u → decIsParetoMaximal u xs) xs v
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §"WHAT IS STILL NOT CLAIMED" makes two admissions.  One
+-- is discharged, the other is not, and this says which is which.
+--
+-- DISCHARGED: "No claim is made that the stratum is non-empty … for a
+-- non-empty archive non-emptiness needs an argument this module does
+-- not make."  The argument is made, in
+-- `NaturalMachine.ANonEmptyArchiveHasANonEmptyStratum`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   ⊏-irrefl / ⊏-trans   strict domination; transitivity is NOT
+--                        inherited from `≼-trans`, the negative half
+--                        has to be argued
+--   anyMap               `Any` is functorial in its predicate
+--   maximalExists        every non-empty archive has a member maximal
+--                        in it — list induction, DECIDING at each step
+--                        whether the tail's maximum beats the head; if
+--                        it does, the HEAD is maximal, because anything
+--                        beating the head would beat it by transitivity
+--   stratumIsNonEmpty    hence `stratum (x ∷ xs)` has a member
+--
+-- The decision that makes the induction constructive is
+-- `decStrictlyDominates` above; without it this would need excluded
+-- middle, which is the point of having proved decidability first.
+--
+-- NOT DISCHARGED, and unchanged: one STRATUM is not a STRATIFICATION.
+-- Removing the layer and repeating still needs a termination argument
+-- on the archive's length, and nothing iterates anywhere yet.  Also
+-- still open: the SIZE of the stratum, whether it lists all maximal
+-- elements up to the duplication `filterDec` preserves, and whether the
+-- element `maximalExists` produces is canonical — it depends on the
+-- list's order.
+------------------------------------------------------------------------
