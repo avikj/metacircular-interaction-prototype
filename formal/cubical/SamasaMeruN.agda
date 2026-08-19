@@ -35,7 +35,7 @@ module SamasaMeruN where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; snotz)
-open import Cubical.Data.Nat.Properties using (+-suc ; +-zero)
+open import Cubical.Data.Nat.Properties using (+-suc ; +-zero ; +-assoc ; +-comm)
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ∸-≤ ; splitℕ-≤)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import Cubical.Data.List.Properties using (length-map)
@@ -413,3 +413,60 @@ module _ (ps : List ℕ) where
               ( cong (_+ 0) (अंश-गणना (1 ∷ 2 ∷ []) (suc (suc n)) 2
                               (suc-≤-suc (suc-≤-suc zero-≤)))
               ∙ +-zero (length (सर्गः (1 ∷ 2 ∷ []) n)) )
+
+------------------------------------------------------------------------
+-- त्रि-योग-फलम् — {१,२,३}-त्रि-मेरोः धावद्-योगः : 2·∑_{k≤n} T(k) + 1 = T(n+2) + T(n) ।
+--
+-- द्वि-पद-नयेषु ({१,२},{१,३}) धावद्-योग-नियमः सरलः (∑+1 = a(n+L)) ; त्रि-पद-नये
+-- (tribonacci, त्रि-आवृत्तिः a(n+3)=a(n+2)+a(n+1)+a(n)) रूपम् भिन्नम् : द्वि-गुणित-
+-- योगः एकेन सह द्वयोः पदयोः योगः (T(n+2)+T(n)) — त्रि-पद-आवृत्तेः लक्षणम् ।  ऋण-रहितम् ।
+--
+-- (The running total of the {1,2,3} tribonacci counts: 2·∑_{k≤n} T(k) + 1 =
+--  T(n+2)+T(n).  Where the two-part nayas give the simple ∑+1 = a(n+L), the
+--  three-term recurrence gives this doubled form — a genuinely different shape,
+--  proved from त्रिमेरु-आवृत्तिः, subtraction-free.)
+------------------------------------------------------------------------
+
+private
+  T : ℕ → ℕ
+  T k = length (सर्गः (0 ∷ 1 ∷ 2 ∷ []) k)
+
+त्रि-योग : ℕ → ℕ
+त्रि-योग zero    = T zero
+त्रि-योग (suc n) = त्रि-योग n + T (suc n)
+
+त्रि-योग-फलम् : (n : ℕ) → (त्रि-योग n + त्रि-योग n) + 1 ≡ T (suc (suc n)) + T n
+त्रि-योग-फलम् zero    = refl
+त्रि-योग-फलम् (suc n) =
+    -- ((S+u)+(S+u)) + 1  ≡  (S+S)+(u+u) + 1
+    cong (_+ 1) मध्य
+    -- ((S+S)+(u+u)) + 1  ≡  ((S+S)+1) + (u+u)
+  ∙ ( sym (+-assoc (S + S) (u + u) 1)
+    ∙ cong ((S + S) +_) (+-comm (u + u) 1)
+    ∙ +-assoc (S + S) 1 (u + u) )
+    -- ((S+S)+1) + (u+u)  ≡  (T(n+2)+T(n)) + (u+u)
+  ∙ cong (_+ (u + u)) (त्रि-योग-फलम् n)
+    -- (A+B)+(C+C)  ≡  T(n+3) + T(n+1)
+  ∙ folded
+  where
+    S = त्रि-योग n
+    u = T (suc n)
+    A = T (suc (suc n))
+    B = T n
+    C = T (suc n)
+    मध्य : (S + u) + (S + u) ≡ (S + S) + (u + u)
+    मध्य = sym (+-assoc S u (S + u))
+         ∙ cong (S +_) (+-assoc u S u)
+         ∙ cong (S +_) (cong (_+ u) (+-comm u S))
+         ∙ cong (S +_) (sym (+-assoc S u u))
+         ∙ +-assoc S S (u + u)
+    folded : (A + B) + (C + C) ≡ T (suc (suc (suc n))) + T (suc n)
+    folded = sym (+-assoc A B (C + C))
+           ∙ cong (A +_) (+-assoc B C C)
+           ∙ cong (A +_) (cong (_+ C) (+-comm B C))
+           ∙ +-assoc A (C + B) C
+           ∙ cong (_+ C) (sym (त्रिमेरु-आवृत्तिः n))
+
+-- उदाहरणम् — 1+1+2+4 = 8 ; 2·8+1 = 17 = T(5)+T(3) = 13+4 (refl-सिद्धम्) ।
+त्रि-योग-३ : त्रि-योग 3 ≡ 8
+त्रि-योग-३ = refl
