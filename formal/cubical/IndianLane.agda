@@ -109,6 +109,16 @@ import ElsewhereCondition
 -- deriving vāk from vāc, and what its asiddhaAudit refuses.
 import Asiddhatva
 
+-- The OTHER device, 6.4.22 असिद्धवदत्राभात् (mutual invisibility inside
+-- 6.4.22–6.4.129, rules applying as if simultaneously), against 8.2.1's
+-- ordered regime at the one site where the difference is visible: three
+-- tripādī rules offer at the same position in tat + jalam, and क्रम gives
+-- the attested tajjalam while सह gives tadjalam, which Sanskrit has not.
+-- Both regimes COMPUTED from one act table.  So पूर्वत्रासिद्धम् is
+-- load-bearing and is the ordered device -- evidence reached from the
+-- rules, not from the sūtra text.
+import AsiddhavatRegime
+
 -- UMĀSVĀTI, Tattvārthasūtra 1.5: नामस्थापनाद्रव्यभावतस्तन्न्यासः -- the
 -- fourfold placing, as an indexed sameness relation.
 import Niksepa
