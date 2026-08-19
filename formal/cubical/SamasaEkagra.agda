@@ -24,7 +24,7 @@ module SamasaEkagra where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm)
-open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤)
+open import Cubical.Data.Nat.Order using (_≤_ ; zero-≤ ; ≤-refl ; ≤-trans)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; map ; length)
 open import SamasaMeruN
   using (सर्गः ; समास-आवृत्तिः ; अंश-गणना ; योगः ; अपाकरणम्)
@@ -65,3 +65,18 @@ open import SamasaMeruN
 
 विरहाङ्क-वर्धनम् : length (सर्गः (0 ∷ 1 ∷ []) 3) ≤ length (सर्गः (0 ∷ 1 ∷ []) 4)
 विरहाङ्क-वर्धनम् = एकक-अग्र-वर्धनम् (1 ∷ []) 3
+
+------------------------------------------------------------------------
+-- धनात्मकता — एकक-युक्त-श्रेढी सर्वत्र धना (a(n) ≥ 1) : आधारः a(0)=1, वर्धनेन ।
+-- अतः विरहाङ्क, नारायण आदयः (येषु एककम् अस्ति) कदापि न शून्यम् — छिद्र-रहिताः ।
+-- (Positivity: a unit-front samāsa sequence is ≥ 1 at every n — base a(0)=1,
+--  carried up by monotonicity.  So the unit-containing nayas never gap.)
+------------------------------------------------------------------------
+
+धनात्मकता : (qs : List ℕ) (n : ℕ) → 1 ≤ length (सर्गः (0 ∷ qs) n)
+धनात्मकता qs zero    = ≤-refl
+धनात्मकता qs (suc n) = ≤-trans (धनात्मकता qs n) (एकक-अग्र-वर्धनम् qs n)
+
+-- उदाहरणम् — नारायण-गो-श्रेढी {१,३} (ps = 0 ∷ 2 ∷ []) सर्वत्र धना ।
+नारायण-धना : (n : ℕ) → 1 ≤ length (सर्गः (0 ∷ 2 ∷ []) n)
+नारायण-धना = धनात्मकता (2 ∷ [])
