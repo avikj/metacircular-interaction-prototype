@@ -245,3 +245,39 @@ renderSurvey y =
         [] -> [ "  (none)" ]
         xs -> [ "  " ++ pad 44 p ++ show n ++ " lines" | (p, n) <- xs ]
     pad n str = str ++ replicate (max 0 (n - length str)) ' '
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- The condition this file is built on -- yogya-anupalabdhi, an absence
+-- is knowledge to the extent the looking was fit to find it -- is now a
+-- checked theorem, with its converse, in
+-- `formal/cubical/NaturalMachine/FitnessIsNecessaryUpToDoubleNegation.agda`
+-- (--safe, no postulates, no holes).
+--
+--   fitAbsenceIsAbsolute  Yogya D P -> AbsenceOn D P -> (x) -> not (P x)
+--   unfitAbsenceIsUnwarranted
+--                         a clean search over an unfit domain, with the
+--                         sought thing demonstrably present
+--   fitnessIsNecessaryUpToDoubleNegation
+--                         if a domain licenses EVERY absence, it is
+--                         total -- but only under not-not
+--   stableDomainMakesItTotal
+--                         and the residue is stability OF THE DOMAIN,
+--                         not of the thing sought
+--
+-- The last two are the half this file's prose does not state, and they
+-- say something operational about it: "the domain searched" cannot be
+-- upgraded to "everything" by any amount of clean searching; what closes
+-- that gap is a decidability/stability fact about the domain itself --
+-- here, that the file set is finite and enumerable.  This module already
+-- relies on that (the import graph is read off the text and reachability
+-- is a finite closure); the theorem says that reliance is load-bearing
+-- and not incidental.
+--
+-- The Bhatta / Prabhakara dispute is untouched there, as here: both
+-- sides accept the fitness condition and only that is used.  No verdict
+-- about this repository's import graph is claimed there -- the three
+-- states Reactor / Shelf / Orphan are this file's object, not that one's.
+-- ---------------------------------------------------------------------
