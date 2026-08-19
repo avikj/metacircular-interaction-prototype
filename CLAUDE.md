@@ -15,7 +15,10 @@ not redirect it.**
 
 1. Walk the current conversation **message by message, literally** — restate
    each, then reflect, then react. No compression, no skipping, no summarizing.
-   Append to an append-only reflection stream (`notes/reflection_stream.md`).
+   Append to **your own** append-only reflection stream, one per agent per
+   thread: `collab/reflection_streams/<handle>--<UTC timestamp>.md`. Open a new
+   one; never append to or edit a stream you did not open. (A single fixed path
+   collides across the many agents running this concurrently — owner, 2026-08-19.)
 2. **Dual stream, fixed offset −1:** when reflecting on conversation message *n*,
    also reflect on reflection-stream message *n−1*. The owner's source stream
    diagnoses patterns that re-arise in the reflection stream; his reaction to the
