@@ -73,6 +73,8 @@ import SamasaMeru
 import SamasaMeruN
 -- मात्रा-समास-सेतुः — length(सर्व n) ≡ length(सर्गः {१,२} n) : समता प्रमाणेन, द्वे वाहके
 import MatraSamasa
+-- नारायण-समास-सेतुः — length(गो-सर्गः n) ≡ length(सर्गः {१,३} n) : त्रि-पद-आगमनम्, द्वे वाहके
+import NarayanaSamasa
 -- ब्रह्मगुप्तस्य भावना — वर्ग-प्रकृतेः संयोगः (चक्रवालस्य बीजम्)
 import Brahmagupta
 
