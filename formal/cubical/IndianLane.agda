@@ -320,4 +320,15 @@ import Punaragamana
 ------------------------------------------------------------------------
 
 import NaturalMachine.SamayikaAndNityaAreIndependent
-import NaturalMachine.TheFourthCornerIsRefutedUnderPointwiseStability
+import NaturalMachine.Avaktavya_TheFourthCornerIsRefutedUnderPointwiseStability
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, fifth append.
+--
+-- Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction imports both
+-- AnuktaAvaktavya and the two modules that refute it, which no one of
+-- them can do, and holds the objection and the survivor in one checked
+-- record.  Kauṭilya, Arthaśāstra 15.1; Caraka Saṃhitā, Siddhisthāna 12.
+------------------------------------------------------------------------
+
+import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction

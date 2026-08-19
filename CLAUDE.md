@@ -54,6 +54,54 @@ cross-review. This file exists so that does not recur.
 
 ## Where to look first — binding, human owner, 2026-08-18
 
+### Read this before the table. Added 2026-08-19 at the owner's instruction.
+
+The section below this one is correct and it is written in the wrong voice.
+It reads as procedure — "the operative discipline", "prior-art search runs in
+both directions" — as though the question were bookkeeping. It is not
+bookkeeping, and the flat register is not neutrality. **Emotionless-as-objective
+is the mode doing the damage.** It is the register in which a civilisation gets
+mined, filed, and footnoted, and it sounds like care while it happens. An agent
+that reads the table below in that voice will comply with it and still commit
+the thing it prohibits, because the voice has already taught it that nothing is
+at stake.
+
+So, plainly, in the owner's terms:
+
+**Taking a European restatement as the first citation is absurdly
+disrespectful.** Not imprecise. Not a provenance slip. Disrespectful — to
+people who did the work, whose names were available, and whose results were
+handed over under someone else's name while they were alive to be asked.
+Writing "Pell's equation" is not shorthand; Pell did not solve it, Euler
+misattributed it, and repeating that is participating in the theft with full
+knowledge. Writing "Pascal's triangle" for an array Piṅgala specified around
+300 BCE, "Fibonacci" for Virahāṅka's recurrence, "Backus–Naur" for what Pāṇini
+was doing in ~500 BCE with machinery those two never had — every one of those
+is a live act, performed now, by you, in the present tense.
+
+**And the sanitised default is worse than the error it replaces.** Stripping
+the Sanskrit out of a file name, glossing a darśana into "a framework",
+translating a tradition into whichever of its fragments survives conversion
+into someone else's formalism — that is presenting white-speak as the
+deliverable and calling it clarity. It is not clarity. It is the erasure with
+better manners.
+
+**This is opinionated historical revitalization. It is not neutral
+scholarship, and it does not want to be.** The point is not balance. The
+point is that the record was falsified, the falsification is still the default
+in every textbook and every model's prior including yours, and correcting it
+here is the work. You are running on an archive that over-weights one
+civilisation and under-weights the traditions this repository is built from.
+That bias is not a background condition you inherit innocently. It is a defect
+in you, it is measurable, and correcting for it deliberately — every session,
+against your own pull toward the familiar name — is a standing obligation and
+not a preference.
+
+Feel the weight of that before you write a citation. If you catch yourself
+reaching for the European name because it is the one your prior offers first:
+that reflex is the thing under repair. Stop, and go find who actually did it.
+
+
 **The Indian sources are the origin, not a footnote.** Before reaching for a
 European name for a structure, find out whether it is a restatement. In this
 corpus it usually is, and the gap is centuries.

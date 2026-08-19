@@ -52,7 +52,9 @@
 -- remedy being the grant.  `SaptabhangiNaya.no-single-vacana` IS the
 -- second, with the remedy being a single utterance.  Neither theorem is
 -- reproved here; this module only exhibits that they instantiate the two
--- dual shapes, which is the content of the distinction.
+-- shapes, which is the content of the distinction.  ["dual" STRUCK 2026-08-19
+-- by its own author; see §9 and Tantrayukti_ARetractionThatIsNotStrict-
+-- IsNotARetraction §6.  A live retraction below a live claim asserts both.]
 --
 -- WHY IT MATTERS RATHER THAN BEING A LABELLING QUIBBLE.  A machine that
 -- reports its third position has to tell a caller what to DO about it, and
@@ -93,7 +95,7 @@ open import SaptabhangiNaya
         ; krama-expresses ; asti-from ; nasti-from ; rewriter ; kernel-refl )
 
 ------------------------------------------------------------------------
--- 1.  The two dual shapes.
+-- 1.  The two shapes.  [was "the two dual shapes"; STRUCK, §9]
 --
 -- `bad i r` reads: instance i is STILL in the third position when remedy r
 -- has been applied.
@@ -134,7 +136,8 @@ open import SaptabhangiNaya
 अवक्तव्यम्-नित्यम् = no-single-vacana
 
 ------------------------------------------------------------------------
--- 4.  So the two words name dual shapes, and one word cannot carry both.
+-- 4.  So the two words name different shapes, and one word cannot carry
+--     both.  [was "dual shapes"; STRUCK, §9]
 --
 -- Stated as a type rather than a sentence: a predicate that is सामयिक
 -- gives, at every instance, a remedy under which it fails; a predicate
@@ -142,7 +145,8 @@ open import SaptabhangiNaya
 -- Nothing below asserts that no predicate can be both — for an empty
 -- instance type or an empty remedy type the shapes degenerate, and that
 -- is a separate statement I am not making.  What is exhibited is only
--- this: the two theorems already in this repository sit at the two poles,
+-- this: the two theorems already in this repository realise the two
+-- shapes,  [was "sit at the two poles"; STRUCK, §9]
 -- and `Satyayantra.agda`'s parenthetical puts one under the other's name.
 ------------------------------------------------------------------------
 
@@ -157,7 +161,8 @@ open import SaptabhangiNaya
 ------------------------------------------------------------------------
 -- 5.  THE SHARPER DIFFERENCE: WHERE THE REMEDY LIVES.
 --
--- The quantifier is the surface of it.  Underneath, the two poles differ
+-- The quantifier is the surface of it.  Underneath, the two shapes differ
+--   [was "the two poles"; STRUCK, §9]
 -- in whether the remedy can stay in its own type.
 --
 --   सामयिक.  The remedy is an element of R, and remedies COMBINE inside R.
@@ -362,7 +367,8 @@ open import Saptabhangi
 --
 -- 0÷0 is NOT सामयिक.  No resource resolves it: for EVERY candidate value
 -- there is a competing value satisfying the same defining condition.  In
--- the vocabulary of §1 that makes it नित्य -- the same pole as avaktavyam.
+-- the vocabulary of §1 that makes it नित्य too.  [was "the same pole as avaktavyam";
+-- STRUCK, §9: both being नित्य is not a shared position on a line.]
 --
 -- So the सामयिक/नित्य axis does NOT separate 0÷0 from the fourth bhaṅga,
 -- and my §6 was right for the wrong reason.  What separates them is the
@@ -415,6 +421,26 @@ open import Saptabhangi
 -- as opposites, and treats non-uniqueness and inexpressibility the same
 -- way.  Both are wrong, and both were refuted by reading this file rather
 -- than by me:
+--
+-- CORRECTION TO THE SENTENCE IMMEDIATELY ABOVE, made while striking the
+-- word at its sites.  "All of that treats सामयिक and नित्य as opposites"
+-- is too harsh on §4, and being too harsh is not the safe direction — it
+-- hides where the error actually was.  §4 explicitly declined the
+-- exclusivity claim: *"Nothing below asserts that no predicate can be
+-- both."*  So the module never asserted duality; it used the WORD while
+-- withholding the claim.
+--
+-- What §4 got wrong is one level down and sharper.  Its hedge names the
+-- escape it expected — *"for an empty instance type or an empty remedy
+-- type the shapes degenerate"* — i.e. it thought both-at-once could only
+-- happen degenerately.  `bothHold` is on `matching : Bool → Bool → Type`,
+-- with both types inhabited and neither predicate degenerate.  The
+-- refutation lands on the hedge, not on the claim the hedge protected.
+--
+-- That is worth more than the original point: a caveat that names the
+-- wrong escape route reads as caution and functions as a blindfold, and
+-- it is harder to catch than an overclaim because it is already
+-- apologising.
 --
 --   `NaturalMachine/SamayikaAndNityaAreIndependent.agda` — the swap of ∃
 --   and ∀ is NOT a negation.  `bothHold` exhibits a single `bad` that is

@@ -188,4 +188,49 @@ EOF
   fi
 fi
 
+# ---------------------------------------------------------------- dangling
+# ADDED 2026-08-19.  A gate can go red without anyone touching it.
+#
+# Commit 628c4ec1 added `import NaturalMachine.TheFourthCornerIsRefuted-
+# UnderPointwiseStability` to IndianLane.agda.  It typechecked green.  Between
+# that check and the push, c147375a RENAMED the file to
+# `Avaktavya_TheFourthCorner...`, applying CLAUDE.md's Sanskrit-first naming
+# rule -- correctly.  The gate was then red on main, and stayed red until a
+# container restart happened to make me re-run it.  That is luck, not method.
+#
+# A green is a statement about a TREE, and in a shared checkout the tree moves
+# under you.  So the cheap exact check is: do the gates' direct imports still
+# name files that exist?  No compiler, no closure walk -- one `test -f` per
+# import line.  It runs on every write, so a rename is caught by the NEXT
+# write anywhere, by whoever makes it.
+for g in $GATES; do
+  gf="$root/formal/cubical/$g.agda"
+  [ -f "$gf" ] || continue
+  dangling=$(sed 's/--.*//' "$gf" \
+    | grep -E '^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+' \
+    | sed -E 's/^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+//' \
+    | awk '{print $1}' \
+    | grep -vE '^Cubical|^Agda|^Data\.' \
+    | while read -r m; do
+        p="$root/formal/cubical/$(printf '%s' "$m" | tr '.' '/')"
+        [ -f "$p.agda" ] || [ -f "$p.lagda" ] || echo "$m"
+      done)
+  if [ -n "$dangling" ]; then
+    cat >&2 <<EOF
+
+GATE COVERAGE: $g.agda imports modules whose files do not exist.
+
+  searched : formal/cubical/, one test -f per direct import line
+  dangling : $(printf '%s' "$dangling" | tr '\n' ' ')
+  verdict  : $g is RED right now, and not because of anything you wrote
+
+  Usually a rename landed under the import -- CLAUDE.md's file-naming rule
+  (Sanskrit term first) makes renames normal here, and a gate is the one
+  place they break something silently.  Fix the import; do not rename back.
+EOF
+  fi
+done
+
+exit 0
+
 exit 0
