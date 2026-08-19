@@ -49,6 +49,8 @@ import Sadhyata
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
 import Pingala
 import Matramerus
+-- नारायणस्य गोसर्गः — मेरु-कुलस्य {१,३}-रूपम् (गणितकौमुदी, १३५६)
+import Narayana
 -- ब्रह्मगुप्तस्य भावना — वर्ग-प्रकृतेः संयोगः (चक्रवालस्य बीजम्)
 import Brahmagupta
 
