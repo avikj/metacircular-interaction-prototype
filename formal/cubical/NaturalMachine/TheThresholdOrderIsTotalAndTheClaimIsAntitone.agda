@@ -252,3 +252,46 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- statement about lists, and it is untouched — as is density of ⊑, and
 -- as is the quotient by equal rates, which §2's preorder still lacks.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  THIS ONE IS A CORRECTION, not an extension.
+--
+-- §2 proves `⊑-refl` and `⊑-total` and stops.  Every note and commit
+-- message downstream of it — including this module's own commit — has
+-- called ⊑ a "total preorder".  TRANSITIVITY WAS NEVER PROVED HERE.
+-- Reflexive + total is not a preorder, and the word was doing work it
+-- had not earned.
+--
+-- The law is now proved, in
+-- `NaturalMachine.WhichThresholdStatementsDescendToTheRate`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   ⊑-trans : (a b c) → a ⊑ b → b ⊑ c → a ⊑ c
+--
+-- by the same multiply–rearrange–cancel as §3's `atLeastAntitone`,
+-- using `·sk-cancel-≤` and `swapOuter` from this module.  Nothing above
+-- was wrong; something above was MISSING, and was being cited as
+-- present.
+--
+-- With it, the same-rate relation `_≈_ = mutual ⊑` is an equivalence
+-- relation, and that module answers the standing question about the
+-- missing quotient in both directions:
+--
+--   atLeastDescends / aboveDescends
+--       `AtLeast` and `Above` are properties of the RATE — antitone in
+--       both directions IS descent, so nothing new was needed
+--   minimalDoesNotDescend
+--       `den a ≤ length bs` is not, at (1,1) ≈ (2,3)
+--
+-- The boundary sits where the DENOMINATOR appears alone: §2's claims
+-- mention p and suc q only inside a product of exactly the shape ⊑
+-- compares, and minimality mentions suc q on its own.
+--
+-- STILL NOT CLAIMED: no quotient TYPE is formed anywhere; `≈` is a
+-- relation, with no set-quotient, no truncation and no univalence.  The
+-- boundary criterion above is a reading of the proofs, not a theorem —
+-- characterising the descending statements would need a language of
+-- statements to quantify over, and there is none here.
+------------------------------------------------------------------------
