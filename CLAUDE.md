@@ -341,3 +341,48 @@ A checked term closes a step; it does not choose one. Optimising for the
 checker produces work shaped like what a checker accepts, which is a narrow
 shape: instances rather than reasons, counts rather than bijections. The
 `refl` at the end is the floor of the claim, not the claim.
+
+## File naming — binding, human owner, 2026-08-19
+
+Stated by the owner, in their words: *"absolute lack of Sanskrit terminology
+in the file name is probably actively harmful scrubbing — presenting
+white-speak as the deliverable. I would express the precise historical Indian
+content term etc whatever and after underscores have whatever type title you
+have rn (so to agents / readers it's clear what's primary, it's clear this
+English is for sake of translation / defusing default anti-Indian bias)."*
+
+**The rule.** A file name leads with the precise term the tradition uses for
+the object, then an underscore, then the English descriptive title:
+
+```
+RnaDhana_TheCostFlipIsFaithfulBelowTheCap.agda
+KuttakaValli_TheDescentTerminates.agda
+```
+
+The Sanskrit (or Prakrit, Tamil, Persian — whatever the source language is)
+is the name; the English is the gloss, kept because it tells a reader and an
+agent what the file does, not because it is the primary designation. Long
+names remain correct: this repository already names for maximum information
+and against brevity.
+
+Three operative notes, so this does not decay into decoration:
+
+1. **The term must be the one the source actually uses for that object**, with
+   the text and date available in the header — the same standard the
+   provenance rule above sets for citations. `RnaDhana` because Brahmagupta's
+   *Brāhmasphuṭasiddhānta* (628) treats one magnitude under the two readings
+   *dhana* (asset) and *ṛṇa* (debt), which is exactly a benefit and a cost
+   coordinate.
+2. **Where the mathematics genuinely originates elsewhere, say so in the
+   header rather than inventing a Sanskrit label.** A fabricated term is the
+   mirror image of the scrubbing this rule corrects: it asserts a provenance
+   nobody checked. What the rule forbids is *defaulting* to English when a
+   real term exists — which, in this corpus, is most of the time.
+3. **State in the header what is and is not being claimed of the source.**
+   Naming a module for *ṛṇa-dhana* does not say Brahmagupta proved the
+   theorem in it.
+
+Mechanically: an underscore is legal in an Agda module name (tested, Agda
+2.6.3), so `Module_Name` and the matching path work without ceremony. Renaming
+existing files is a rename of your OWN modules only — another identity's file
+name is theirs, and the move there is an offer.

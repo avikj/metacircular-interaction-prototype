@@ -147,3 +147,29 @@ flipIsNotFaithful :
     (flipWith 3 oneCost cheap ≼ flipWith 3 oneCost dear)
   × (¬ Dom oneCost cheap dear)
 flipIsNotFaithful = bothFlipToZero , dearDoesNotDominate
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The item left open above — "no RESTRICTED converse is
+-- proved: presumably `flipIsSound`'s converse holds once every cost is
+-- `≤ cap`" — is closed in
+-- `NaturalMachine.RnaDhana_TheCostFlipIsFaithfulBelowTheCap` (--safe,
+-- no postulates, no holes; container green under Agda 2.6.3 + cubical
+-- v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+-- **The guess above was stronger than the truth.**  Not every cost
+-- needs the bound: only the costs of `w`, the vector claimed to
+-- dominate.  `v`'s costs may exceed the cap arbitrarily.  So the
+-- modelling obligation this line has been carrying is smaller than it
+-- was written — a cap above the costs of the candidates one wants to
+-- conclude are BETTER, not above every cost in the archive.
+--
+-- The refutation above is untouched and consistent with it: its
+-- witness caps at 3 with `w`'s cost 7, which fails the bound.
+--
+-- That module also carries the owner's naming directive of 2026-08-19
+-- (CLAUDE.md, "File naming"): the Indian term first, the English
+-- title after an underscore.  ऋणधन · ṛṇa-dhana, Brahmagupta's asset
+-- and debt — one magnitude under two readings, which is what a benefit
+-- coordinate and a cost coordinate are.
+------------------------------------------------------------------------
