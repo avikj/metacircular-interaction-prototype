@@ -191,3 +191,33 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 -- forms, ¬ (¬ सामयिक bad × ¬ नित्य bad).  Only the strong-form version
 -- is proved.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, second append by this module's author, at the
+-- end, altering no line above (including the first append).
+--
+-- The item left open above — "NOT PROVED and NOT ASSERTED: that the
+-- fourth corner is impossible in the PLAIN negated forms" — is now
+-- refuted UNDER ONE NAMED HYPOTHESIS, in
+-- `NaturalMachine.TheFourthCornerIsRefutedUnderPointwiseStability`:
+--
+--   noUniversalRemedyGivesPointwiseDoubleNegation :
+--     ¬ UniversalRemedy bad → (r : R) → ¬ ¬ (Σ[ i ∈ I ] bad i r)
+--   pointwiseStabilityGivesNitya :
+--     ((r) → Stable (Σ[ i ] bad i r)) → ¬ UniversalRemedy bad → नित्य bad
+--   fourthCornerRefutedUnderPointwiseStability :
+--     ((r) → Stable (Σ[ i ] bad i r)) → ¬ ((¬ सामयिक bad) × (¬ नित्य bad))
+--
+-- WHERE THE CONSTRUCTIVE ARGUMENT STOPS: the first of those is
+-- unconditional and is a one-line contrapositive; it delivers `¬ ¬ Σ`
+-- where `नित्य` wants the Σ.  The double negation IS the gap, and
+-- pointwise stability — which a decision at each remedy supplies — is
+-- exactly what fills it.
+--
+-- STILL NOT CLAIMED: that the fourth corner is impossible WITHOUT the
+-- hypothesis.  The stability is not shown necessary and no model
+-- realising `¬ सामयिक × ¬ नित्य` is exhibited.  What is now known is
+-- where such a model would have to live: at a `bad` and a remedy `r`
+-- where `Σ[ i ] bad i r` is not stable — where finding a surviving
+-- instance is a genuine search.
+------------------------------------------------------------------------
