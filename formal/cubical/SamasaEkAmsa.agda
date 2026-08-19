@@ -26,8 +26,9 @@ module SamasaEkAmsa where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _∸_ ; _·_)
 open import Cubical.Data.Nat.Properties using (+-suc ; +-zero ; +-comm)
-open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import SamasaMeruN using (सर्गः ; समास-आवृत्तिः ; अंश-गणना)
+open import Cubical.Data.Nat.Order using (_≤_ ; suc-≤-suc)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
+open import SamasaMeruN using (सर्गः ; समास-आवृत्तिः ; अंश-गणना ; रिक्त-अपाकरणम्)
 
 ------------------------------------------------------------------------
 -- अन्तर-रद्दनम् — (n+k) ∸ k ≡ n (k-आगमनेन, विचारहीनम्) ।
@@ -85,3 +86,24 @@ open import SamasaMeruN using (सर्गः ; समास-आवृत्त
 -- उदाहरणम् — {३}-श्रेढी नवमे (३·३) एकम् (आवृत्ति-पुनरावर्तनेन साधितम्) ।
 गुण-९ : length (सर्गः (2 ∷ []) 9) ≡ 1
 गुण-९ = गुण-मानम् 2 3
+
+------------------------------------------------------------------------
+-- न्यून-शून्यम् — {L}-श्रेढी शून्यम् L-अधः : यदि 0 < m < L (अर्थात् suc n ≤ k),
+-- तर्हि m न रच्यते — अंशः (मानेन L) न योग्यः, अतः रिक्त-अपाकरणम् ।
+--     length (सर्गः {L} (suc n)) ≡ 0   (suc n ≤ k, L = suc k) ।
+-- गुण-मानेन सह पूर्णः L-भाज्य-सूचकः : गुणकेषु १, अन्तराले (L-अधः) ० ।
+--
+-- (The {L}-sequence is zero below L: for 0 < m < L (suc n ≤ k) the value m
+--  cannot be built — the sole part, of size L, does not fit — via SamasaMeruN's
+--  रिक्त-अपाकरणम्.  With गुण-मानम् (one at multiples) this is the full
+--  L-divisibility indicator: 1 at multiples of L, 0 in the gaps below.)
+------------------------------------------------------------------------
+
+न्यून-शून्यम् : (k n : ℕ) → suc n ≤ k → length (सर्गः (k ∷ []) (suc n)) ≡ 0
+न्यून-शून्यम् k n le =
+  cong (λ z → length (map (k ∷_) z ++ []))
+       (रिक्त-अपाकरणम् (k ∷ []) n (suc n) (suc k) (suc-≤-suc le))
+
+-- उदाहरणम् — {४}-श्रेढी (L=4) : m=2 शून्यम् (suc 1 = 2 ≤ 3 = k) ।
+न्यून-४ : length (सर्गः (3 ∷ []) 2) ≡ 0
+न्यून-४ = न्यून-शून्यम् 3 1 (1 , refl)
