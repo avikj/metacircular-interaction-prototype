@@ -64,3 +64,25 @@ x ≈ y [ m ] = Σ ℤ (λ k → x - y ≡ k · m)
   where
     X : ℤ
     X = r₁ · (c · v) + r₂ · (b · u)
+
+------------------------------------------------------------------------
+-- एकत्वम् — CRT-एकैकत्वम् : परस्पर-प्रथमे (b,c) युगपत्-तुल्यता b·c-तुल्यताम् ।
+-- (uniqueness: coprime moduli combine — X≈Y[b] ∧ X≈Y[c] ⟹ X≈Y[b·c].
+--  with चीन-शेषः this is the bijection ℤ/bc ≅ ℤ/b × ℤ/c.)
+------------------------------------------------------------------------
+
+वितरण-D : (D b u c v : ℤ) → D · (b · u + c · v) ≡ D · (b · u) + D · (c · v)
+वितरण-D = solve ℤCommRing
+
+समिका-bc : (k₁ k₂ b c u v : ℤ)
+         → (k₂ · c) · (b · u) + (k₁ · b) · (c · v) ≡ (k₂ · u + k₁ · v) · (b · c)
+समिका-bc = solve ℤCommRing
+
+एकत्वम् : (b c u v X Y : ℤ) → b · u + c · v ≡ pos 1
+       → X ≈ Y [ b ] → X ≈ Y [ c ] → X ≈ Y [ b · c ]
+एकत्वम् b c u v X Y bz (k₁ , p₁) (k₂ , p₂) =
+    k₂ · u + k₁ · v ,
+    ( sym (·Rid (X - Y)) ∙ cong ((X - Y) ·_) (sym bz)
+    ∙ वितरण-D (X - Y) b u c v
+    ∙ cong₂ _+_ (cong (_· (b · u)) p₂) (cong (_· (c · v)) p₁)
+    ∙ समिका-bc k₁ k₂ b c u v )
