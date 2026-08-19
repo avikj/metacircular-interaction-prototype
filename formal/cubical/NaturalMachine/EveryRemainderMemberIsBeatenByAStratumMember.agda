@@ -85,7 +85,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import NaturalMachine.TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import NaturalMachine.Avaktavya_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any ; memberToAny)
 open import NaturalMachine.TheParetoStratumIsDecidableAndTheFilterIsExact
   using (filterDec ; StrictlyDominates ; decStrictlyDominates

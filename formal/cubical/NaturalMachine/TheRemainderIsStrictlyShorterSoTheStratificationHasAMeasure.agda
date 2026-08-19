@@ -72,7 +72,7 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 
-open import NaturalMachine.TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import NaturalMachine.Avaktavya_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 open import NaturalMachine.TheParetoStratumIsDecidableAndTheFilterIsExact
   using (filterDec ; IsParetoMaximal ; decIsParetoMaximal ; stratum)

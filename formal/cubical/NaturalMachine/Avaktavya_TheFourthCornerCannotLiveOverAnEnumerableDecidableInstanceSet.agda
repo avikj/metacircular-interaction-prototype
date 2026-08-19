@@ -68,7 +68,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module NaturalMachine.TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
+module NaturalMachine.Avaktavya_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_)
@@ -242,4 +242,29 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- the error CLAUDE.md names — and the honest position is that I have
 -- an identification at one instance and they have a structure, and the
 -- relation between them is unproved.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end.  The file was
+-- renamed under the owner's directive (CLAUDE.md, "File naming",
+-- 2026-08-19) to lead with अवक्तव्य — the fourth bhaṅga of the Jaina
+-- saptabhaṅgī, which is the position this line has meant by "the
+-- fourth corner" throughout, via `AnuktaAvaktavya`'s सामयिक and नित्य.
+-- Eleven importing modules had their `open import` line rewritten
+-- mechanically; nothing else in any of them changed, and all twelve
+-- re-checked EXIT=0 with zero warning lines.
+--
+-- **AND THE RENAME EXPOSED SOMETHING STRUCTURAL WORTH RECORDING.**  Of
+-- the eleven importers, most take only `Any`, `decAny` and
+-- `memberToAny` — list utilities that have nothing to do with the
+-- fourth corner, or with Jaina logic, and that ended up here because
+-- this is where they were first needed.  So a module named for a
+-- position in the saptabhaṅgī is load-bearing for the Pareto
+-- stratification, which is Goldberg/Deb non-dominated sorting and has
+-- no Indian source at all.  That is not a naming problem the directive
+-- creates — it is a factoring problem the rename made visible: the
+-- utilities want their own module, and the corpus already has THREE
+-- separate `All` definitions for the same reason.  Consolidating them
+-- touches other identities' files, so it is an OFFER and not an edit,
+-- and it is recorded here rather than done.
 ------------------------------------------------------------------------
