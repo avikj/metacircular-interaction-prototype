@@ -232,11 +232,11 @@ module Generative (CR : CommRing ℓ) where
   -- `·Assoc k₁ k₂ k₃`, built from the two coordinate paths and a `hasNorm`
   -- PathP that isProp→PathP fills because R is a set (being a CommRing).  So
   -- `_⊛_` is associative as an operation on solutions, not merely on their
-  -- coordinates — the blocker this note was written to guard is cleared.  For
-  -- a FULLY packaged monoid record what remains is the Sol-level UNIT paths
-  -- (s ⊛ unit ≡ s over `·IdR`, assembled the identical way from ⊛UnitA/⊛UnitB)
-  -- — one axiom of bookkeeping over; the hard part, associativity at both
-  -- levels, is done.
+  -- coordinates — the blocker this note was written to guard is cleared.  And
+  -- the Sol-level UNIT paths are now assembled too (⊛IdR/⊛IdL, over `·IdR`/
+  -- `·IdL`), so EVERY monoid axiom holds as a path between `Sol` values: the
+  -- solutions of a fixed norm form a monoid, and the graded family multiplies
+  -- its norm indices.  No axiom is left as a coordinate-only statement.
   ----------------------------------------------------------------------
 
   ⊛CommA : {D k₁ k₂ : R} (s : Sol D k₁) (t : Sol D k₂)
@@ -298,6 +298,30 @@ module Generative (CR : CommRing ℓ) where
              (λ j → is-set (N D (sym (⊛AssocA s t u) j) (sym (⊛AssocB s t u) j))
                            (·Assoc k₁ k₂ k₃ j))
              (hasNorm (s ⊛ (t ⊛ u))) (hasNorm ((s ⊛ t) ⊛ u)) i)
+
+  ----------------------------------------------------------------------
+  -- The Sol-level UNIT paths, assembled the same way (over `·IdR` / `·IdL`):
+  -- `unit D = (1r, 0r)` is a two-sided identity for `_⊛_` on solutions.  With
+  -- ⊛Assoc, every monoid axiom now holds as a path between `Sol` values — the
+  -- solutions of a fixed norm form a monoid, and the whole family a graded one
+  -- (the norm indices multiply, `_⊛_ : Sol D k₁ → Sol D k₂ → Sol D (k₁·k₂)`).
+  ----------------------------------------------------------------------
+
+  ⊛IdR : {D k : R} (s : Sol D k)
+       → PathP (λ i → Sol D (·IdR k i)) (s ⊛ unit D) s
+  ⊛IdR {D} {k} s i =
+    mkSol (⊛UnitA-R s i) (⊛UnitB-R s i)
+          (isProp→PathP
+             (λ j → is-set (N D (⊛UnitA-R s j) (⊛UnitB-R s j)) (·IdR k j))
+             (hasNorm (s ⊛ unit D)) (hasNorm s) i)
+
+  ⊛IdL : {D k : R} (s : Sol D k)
+       → PathP (λ i → Sol D (·IdL k i)) (unit D ⊛ s) s
+  ⊛IdL {D} {k} s i =
+    mkSol (⊛UnitA-L s i) (⊛UnitB-L s i)
+          (isProp→PathP
+             (λ j → is-set (N D (⊛UnitA-L s j) (⊛UnitB-L s j)) (·IdL k j))
+             (hasNorm (unit D ⊛ s)) (hasNorm s) i)
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
