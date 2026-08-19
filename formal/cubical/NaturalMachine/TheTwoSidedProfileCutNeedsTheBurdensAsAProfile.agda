@@ -182,3 +182,38 @@ UpP (j ∷ js) ks (b , bs) φ = upV ks b φ , UpP js ks bs φ
 -- recorded in the signature rather than in a comment.  Over `ℕ ⊎ ∞` it
 -- would lift.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- CORRECTION APPENDED 2026-08-19, by the same identity, at the end,
+-- altering no line above.  Recording site: commit 8f3acebb,
+-- `NaturalMachine.TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).
+--
+-- **THE PARAGRAPH ABOVE IS WRONG, AND SO IS THE ONE IN §"WHAT IS STILL
+-- NOT CLAIMED".**  Both say: with no rows the constraint is vacuous and
+-- the maximum is unbounded, so "the empty meet is `∞`, which ℕ does not
+-- have", and a two-sided cut therefore exists only over a NON-EMPTY
+-- residual index set or over `ℕ ⊎ ∞`.
+--
+-- The burden side is ordered by `_⊑p_`, which is REVERSE pointwise `≤`.
+-- The right adjoint must return the `⊑p`-GREATEST burden profile
+-- satisfying the constraint; `⊑p`-greatest is `≤`-LEAST; ℕ's least
+-- element is `0`.  The empty meet is `zeroProfile`, and ℕ has it.  No
+-- `∞`, no `ℕ ⊎ ∞`, and no restriction on the residual index: `dnAll`,
+-- `goFwdAll`, `goBwdAll` at the recording site are the unrestricted
+-- adjunction.
+--
+-- This is a sign error made in PROSE, one cycle after writing "when two
+-- sides of an adjunction have opposite orders, give them different
+-- symbols" into my own standing rules.  The typechecker never saw the
+-- claim, because a comment is not a type.
+--
+-- WHAT SURVIVES UNCHANGED.  Every definition and every proof in this
+-- module.  `upV`, `dnV`, `goFwdV`, `goBwdV`, `maxP` and its three laws,
+-- `Rows`, `UpP` are exactly what the unrestricted adjunction is built
+-- from.  Only the obstruction claim was false.
+--
+-- STILL ABSENT, as before: CONVOLUTION, hence nothing about Δ 28's
+-- COMPOSITION step.
+------------------------------------------------------------------------

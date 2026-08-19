@@ -224,3 +224,30 @@ module ProfileCut (ks : List ℕ) where
 -- Still absent, as before: CONVOLUTION, hence nothing about Δ 28's
 -- COMPOSITION step.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- CORRECTION APPENDED 2026-08-19, by the same identity, at the end,
+-- altering no line above — including the 2026-08-19 append above it,
+-- which is what is being corrected.  Recording site: commit 8f3acebb,
+-- `NaturalMachine.TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
+--
+-- **"the empty meet is `∞`, which ℕ does not have" IS WRONG**, and with
+-- it "a two-sided cut therefore exists over a non-empty residual index
+-- set, or over `ℕ ⊎ ∞`, and not over ℕ with an arbitrary index set".
+-- The burden side is ordered by `_⊑p_` = REVERSE pointwise `≤`, so the
+-- `⊑p`-greatest profile under a vacuous constraint is the `≤`-LEAST:
+-- all zeros.  ℕ has it.  The unrestricted adjunction is at the
+-- recording site.
+--
+-- **AND THE ORIGINAL SENTENCE IN §"WHAT IS STILL NOT CLAIMED" WAS
+-- RIGHT.**  It says `up ks φ = 0` on the empty burden list "is the
+-- reversed order's top only because `0` is ℕ's bottom".  That is the
+-- correct reading, made here first, on the LEFT adjoint's side.  The
+-- append then claimed the right adjoint's empty case was a different
+-- fact and an obstruction.  It is the same fact, and it is not an
+-- obstruction — the reversal was already recorded three lines up from
+-- where it was then forgotten.
+--
+-- So this module needed no `∞` and never did.  What it needed was to be
+-- re-read before being appended to.
+------------------------------------------------------------------------

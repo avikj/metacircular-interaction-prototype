@@ -117,3 +117,30 @@ goBwdNE j (i ∷ js) ks (b , bs) φ (ψ , ψs) (le , rest) =
   maxP-least ks (dnV ks b ψ) (dnNE i js ks bs ψs) φ
     (goBwdV ks b φ ψ le)
     (goBwdNE i js ks bs φ ψs rest)
+
+------------------------------------------------------------------------
+-- CORRECTION APPENDED 2026-08-19, by the same identity, at the end,
+-- altering no line above.  Recording site: commit 8f3acebb,
+-- `NaturalMachine.TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
+--
+-- **THE NON-EMPTINESS HYPOTHESIS THIS MODULE PUTS IN ITS SIGNATURES IS
+-- NOT NEEDED.**  `dnNE`, `goFwdNE`, `goBwdNE` take their rows as
+-- `Rows (j ∷ js) ks` because the module it was built on claimed the
+-- empty meet was `∞`.  That claim is false: `_⊑p_` is reverse pointwise
+-- `≤`, so the `⊑p`-greatest profile under a vacuous constraint is the
+-- `≤`-least, i.e. all zeros, which ℕ has.  `dnAll`/`goFwdAll`/
+-- `goBwdAll` at the recording site are the same adjunction over an
+-- ARBITRARY residual index list.
+--
+-- The irony is exact and is worth leaving in place: method shape (lxix)
+-- — "when a restriction is real, put it in the SIGNATURE, not in a
+-- comment" — was applied correctly to a restriction that was not real.
+-- Encoding a hypothesis in a type makes it unforgettable; it does not
+-- make it true.  The shape stands; what it needed alongside it was a
+-- check that the restriction was an obstruction and not a sign error.
+--
+-- NOTHING HERE IS RETRACTED.  Every proof in this module is true; they
+-- are the special case of the unrestricted ones, and they are left
+-- unaltered so the recording site has something to be the general case
+-- OF.
+------------------------------------------------------------------------
