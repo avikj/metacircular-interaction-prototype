@@ -27,6 +27,8 @@ module Matramerus where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
+open import Cubical.Data.Nat.Properties using (+-comm)
+open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import Cubical.Data.List.Properties using (length-map)
 open import Pingala using (अक्षर ; लघु ; गुरु ; छन्दस्)
@@ -180,3 +182,23 @@ data छन्द-∈ (x : छन्दस्) : List छन्दस् → Typ
 
 उदाहरणम्-२घात : length (पङ्क्ति 3) ≡ 8     -- 2³ = 8
 उदाहरणम्-२घात = refl
+
+------------------------------------------------------------------------
+-- मात्रा-धना — मात्रामेरुः सर्वत्र धनः : M(n) ≥ 1 (प्रति n-मात्राय किमपि छन्दः) ।
+-- (सर्व n रिक्तं न — प्रति दैर्घ्याय किमपि छन्दः अस्ति ; आगमनेन मात्रामेरु-आवृत्त्या
+--  (M(n+2)=M(n+1)+M(n) ≥ M(n+1)), आधारौ M(0)=M(1)=1 ।)  छिद्र-रहिता श्रेढी ।
+--
+-- (The mātrā-meru never vanishes: length(सर्व n) ≥ 1 for all n — there is always
+--  at least one metre of each duration.  By induction on the Fibonacci
+--  recurrence (M(n+2) ≥ M(n+1)) from M(0)=M(1)=1; a gapless sequence.)
+------------------------------------------------------------------------
+
+मात्रा-धना : (n : ℕ) → 1 ≤ length (सर्व n)
+मात्रा-धना zero          = ≤-refl
+मात्रा-धना (suc zero)    = ≤-refl
+मात्रा-धना (suc (suc n)) = ≤-trans (मात्रा-धना (suc n)) पद
+  where
+    पद : length (सर्व (suc n)) ≤ length (सर्व (suc (suc n)))
+    पद = length (सर्व n)
+       , ( +-comm (length (सर्व n)) (length (सर्व (suc n)))
+         ∙ sym (मात्रामेरु n) )
