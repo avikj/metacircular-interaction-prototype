@@ -511,3 +511,54 @@ min-plus convolution would be the same defect as quoting a figure without its
 input. Inclusion is also used throughout rather than equality — `A ⊆ B` and
 `B ⊆ A` are never combined into a path, which would need the predicates to be
 proposition-valued and `funExt`.
+
+## Appended 2026-08-19, fourth thread: §36–38's four causes are one cause
+
+*Appended at the end, altering no line above.*
+
+§36–38 says *"Curvature arises only from too-small context families, approximation,
+dropped witnesses, or incoherent interface updates."* That is a list of causes offered
+without an argument that the list is exhaustive. It is exhaustive, and the argument is
+two pasted squares — but only once the four are read as **one** condition, which is what
+`formal/cubical/NaturalMachine/CurvatureCannotLiveOnTheImageOfAnExactCompression.agda`
+supplies (`--safe`, no postulates, no holes; container green under Agda 2.6.3 + cubical
+v0.5, which is **not** the declared pin — `check.sh` returns 1 and prints so).
+
+For any `C : S → T`, eliminations `f g : S → S`, compressed counterparts `f' g' : T → T`:
+
+```agda
+sf   : (s : S) → C (f s) ≡ f' (C s)          -- C intertwines f
+sg   : (s : S) → C (g s) ≡ g' (C s)          -- C intertwines g
+comm : (s : S) → f (g s) ≡ g (f s)           -- exact elimination commutes
+
+curvatureVanishesOnTheImage : (s : S) → f' (g' (C s)) ≡ g' (f' (C s))
+curvatureIsOffTheImage
+  : (t : T) → ¬ (f' (g' t) ≡ g' (f' t)) → ¬ (Σ[ s ∈ S ] C s ≡ t)
+```
+
+**No injectivity, no full abstraction, no surjectivity is used.** The two intertwining
+squares and the commuting square are the entire proof, so they are the entire hypothesis —
+and that is what makes the causal list exhaustive rather than merely long:
+
+- **"too-small context family"** = the image is too small; the curvature sits at a `t`
+  that no context reaches, which is exactly `curvatureIsOffTheImage`;
+- **"approximation", "dropped witnesses", "incoherent interface updates"** = the
+  intertwining square failing, `C (f s) ≢ f' (C s)`.
+
+There is no fifth possibility, because there is no third hypothesis. Operationally this
+says what to do when curvature is observed: **find the point, and ask whether it is
+reachable. If it is, one of the two squares is a lie.**
+
+**No novelty.** This is the pasting of two squares — a simulation transports commuting
+diagrams onto the image — and is standard in any category. It is checked because the
+word *curvature* invites a geometric reading suggesting the phenomenon is subtler than
+the pasting, and §36–38 states the causal list without the argument.
+
+**Not claimed.** **No curvature is exhibited**: nothing constructs `C, f', g'` with
+genuine curvature, so this constrains where curvature can be, and is not evidence that it
+occurs. **Theorem 28.14 is not formalised** — full abstraction is a condition on the
+context *family*, and no context family appears; what is proved is weaker in hypothesis
+(only intertwining) and weaker in conclusion (only on the image). Two steps are treated,
+so "for every order" is here just the two orders of two steps; the `n`-step statement
+needs an induction that is not written. **Holonomy** — §36–38's `h : Z ≃ Z` around loops
+in architecture space — is untouched, as are caches, provenance and optimizer state.
