@@ -196,3 +196,43 @@ scalarisationDecidesAnIncomparablePair =
 -- appears twice — `≼`'s antisymmetry is not used to quotient anything.
 -- Costs remain unflipped.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "§5.2's objectives include wall time, tokens, and dollar cost,
+--    which are to be MINIMISED; nothing below flips any coordinate, so
+--    the theorems are about a vector all of whose coordinates point the
+--    same way, and applying them needs the costs negated first."
+--
+-- Every module on this line repeated that sentence, and the min-plus
+-- line then showed twice that reversing an order is load-bearing.  So
+-- the flip was given its own theorem, in
+-- `NaturalMachine.FlippingACostCoordinateIsSoundButNotFaithful`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so).
+--
+--   Vec ds / Dom ds   vectors over a DIRECTION list, and MIXED
+--                     dominance: `≤` at a benefit coordinate, `≥` at a
+--                     cost coordinate — what §5.2 actually means
+--   ∸-antitone        from the monus adjunction on the min-plus line
+--   flipWith cap      `cap ∸ x` at a cost coordinate
+--   flipIsSound       mixed dominance IMPLIES ordinary `≼` of the
+--                     flipped vectors, so §§1–4 above transfer
+--   flipIsNotFaithful and the CONVERSE FAILS: at `cap = 3` the costs
+--                     `5` and `7` both flip to `0`
+--
+-- **The sentence quoted above is half true.**  Flipping suffices to
+-- APPLY these theorems — soundness is the only direction that needs.
+-- It does NOT suffice to transport a conclusion back, because the cap
+-- identifies every cost above it.  The honest form is "negate the
+-- costs, and pick a cap above every cost you will ever compare", which
+-- is a modelling obligation and not a rewriting step.
+--
+-- STILL NOT CLAIMED there: the RESTRICTED converse — presumably sound
+-- once every cost is `≤ cap` — is not checked, only the unrestricted
+-- one refuted.  The cap is one number shared by all cost coordinates.
+-- And nothing transports `stratum` or `maximalExists` along the flip;
+-- that is a further step.
+------------------------------------------------------------------------
