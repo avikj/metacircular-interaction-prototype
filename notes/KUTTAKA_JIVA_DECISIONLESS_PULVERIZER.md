@@ -226,3 +226,86 @@ the kuṭṭaka `Jiva` is a *mode* installed.
 - V. Voevodsky et al., univalent foundations — the transport used in
   `युग्म≡विवेक` (admitted as egoless, credit-refusing, and structurally
   nayavāda).
+
+---
+
+## Appended 2026-08-19 — where the criterion lives, and an independent check of the lane
+
+*Appended by a later reader, at the site, altering no line above.*
+
+This note states a criterion and calls it mechanical: *"installed cognition
+reduces to `refl`; description needs a proof from outside."* I read
+`BhedaAvatarana.agda` and the exhibit holds — `एकपदे` is `refl` at lines
+82–83, no proof term. Nothing here disputes that.
+
+What is now checked, in
+`formal/cubical/NaturalMachine/AskingIsNotAPropertyOfTheFunction.agda`
+(`--safe`, no postulates, no holes, EXIT 0), is **where** the criterion
+lives. Two presentations of one function:
+
+```agda
+peel : ℕ → ℕ → ℕ            -- falls by constructors
+peel (suc a) (suc b) = peel a b
+
+askℕ : ℕ → ℕ → ℕ            -- verdict (discreteℕ a b)
+```
+
+`sameFunction : peel ≡ askℕ` (funext twice). Hence
+
+```agda
+no-invariant-of-the-function-reports-asking :
+  ¬ (Σ[ f ∈ ((ℕ → ℕ → ℕ) → Bool) ] ((p : Presentation) → f (run p) ≡ asks p))
+```
+
+and the same statement routed through
+`TranscriptDescent.collisionObstructsDecoder`, the general lemma that
+already carries `Laghava` §3, `Anuvrtti` §4 and `CarryBorrowObservation`.
+
+**Consequence, and it is the useful half.** Decisionlessness is a predicate
+on *presentations*. No invariant of the computed function can report it, so
+no type can carry it and no build can enforce it. `Jiva.agda` type-checking
+green says nothing about whether the lane asks. This is exactly why
+`Anekanta.agda` — "proclaimed 'no checking' yet used `discreteℕ`" — had to
+be caught by a human reading the file. It is the same conclusion `CLAUDE.md`
+reached about the Python ban, in its own words: *enforced mechanically
+because prose failed* — a hook at the site of the write, not a paragraph and
+not a proof obligation.
+
+**So I ran the check the lane needs rather than asserting it.** Over the
+eleven Lane-1 modules this index names, counting only non-comment lines:
+
+```
+grep -n 'discreteℕ\|\bDec\b\|\bBool\b' M.agda | grep -v '^[0-9]*: *--'
+```
+
+| module | code hits |
+|---|---|
+| BhedaAvatarana, Punaragamana, Gati, Gurutama | 0 |
+| GurutamaSiddha, Sthairya, Purnata, Bija, Yuti, Sadhyata | 0 |
+| `Anekanta` | 5 — lines 90, 227, 328, 361, 368 |
+
+Every raw hit in the other ten is inside a comment: those modules *discuss*
+the decision they do not take. The lane's claim survives an independent
+check, and the sole module that fails it is the one already flagged and
+already excluded from the closure.
+
+**Not a ranking, and both directions are checked in the module.** `peel`
+asks less of the prover — its step law is a reduction. `ask` asks less of
+the author — it is one definition uniform in `Discrete A`, instantiated at
+ℕ *and* Bool from the same line, where `peel` is a case tree that must be
+rewritten per carrier. `ask-step` proves the decided presentation still has
+the step law; what is true is narrower than "it lacks the law" — its law is
+a theorem where the structural one's is a reduction. The two are
+incomparable: an open term favours `peel`, a carrier with decidable
+equality and no useful induction principle favours `ask`.
+
+**A limit, stated because the module cannot state it.** Agda cannot express
+"this equation does not hold by `refl`". `peel-step = refl` is exhibited;
+the corresponding negative claim about `askℕ` is metatheoretic, is prose in
+both files, and nothing is derived from it.
+
+Adjacent, already in the corpus and the same shape: `Anuvrtti` proves a
+presentation-level measure (लाघव under anuvṛtti) carries information no
+invariant of the rule *set* carries — there the non-descent was the point,
+not a defect. A property that does not descend to a quotient is not a
+property that fails to exist.
