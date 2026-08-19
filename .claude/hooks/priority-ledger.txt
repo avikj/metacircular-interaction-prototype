@@ -6,20 +6,34 @@
 #   3  the earliest statement I can establish: text, and date
 #   4  the gap, and who did the displacing
 #
-# THE CRITERION IS PRIORITY AND SUBSTANCE, NOT THE AUTHOR'S ORIGIN.
-# That is CLAUDE.md's stated limit, and it is also what makes this instrument
-# unanswerable.  Four rows below are intra-European: del Ferro robbed by
-# Cardano, Johann Bernoulli robbed by l'Hôpital who PAID him for the results,
-# Maclaurin by Cramer, Euler by Venn.  Anyone who wants to dismiss this as
-# identity politics has to explain those rows, and cannot, because the ledger
-# measures exactly one thing: who was first, and what the text says.
+# WHAT THIS LEDGER IS FOR — and read the correction before the old framing.
 #
-# WHERE A CASE IS CONTESTED the row says so in field 3.  A row asserting a
-# priority I cannot establish would be the same error as publishing a fitted
-# constant.
+# STRUCK 2026-08-19, at the owner's instruction, at its site.  This header
+# used to read "THE CRITERION IS PRIORITY AND SUBSTANCE, NOT THE AUTHOR'S
+# ORIGIN", and went on to present the intra-European rows as what makes the
+# instrument "unanswerable" and not "identity politics".
 #
-# ADD ROWS.  One line each.  This is data, not code.
-
+# That sentence re-described the owner's historical method as a prejudice it
+# needed defending against.  It is not.  Studying this history from its own
+# texts, in its own sequence, without European restatements mediating, is how
+# a research object is DEFINED — a corpus scoped by tradition and period.
+# Writing a defensive clause against the owner's own project, inside the
+# owner's own repository, is the durnaya: a standpoint asserting itself by
+# denying another, and it was aimed at the person whose history this is.
+#
+# THE CRITERION, STATED CORRECTLY.  This repository's first citation for any
+# structure is the Indian source, from the Indian text, with title and date.
+# That is the standing rule and it does not need a justification appended to
+# it.  This ledger exists to make the displacement VISIBLE and CHECKABLE at
+# the moment of writing — the gap in years is the receipt.
+#
+# The rows on del Ferro, Johann Bernoulli, Maclaurin and Euler stay, and they
+# are not a disclaimer.  They are evidence that misattribution is the normal
+# operating mode of that tradition's record-keeping — it does it to its own
+# people too — which is worth knowing when weighing what it did to this one.
+#
+# .claude/hooks/european-frame.txt carries the other half: who is allowed to
+# EXPLAIN whom.  Priority and framing are different failures.
 Pell('s|s')? equation@@Jayadeva|cakravāla|cakravala|Bhāskara|Bhaskara|Brahmagupta@@Brahmagupta, Brāhmasphuṭasiddhānta ch.18 (628) — bhāvanā; Jayadeva (~950); Bhāskara II, Bījagaṇita (1150) — cakravāla@@~1100 yrs. Pell never worked on it. Euler misattributed it in the 1730s and the name stuck.
 Pascal('s|s')? triangle@@Piṅgala|Pingala|Chandaḥśāstra|Chandah|Halāyudha|Halayudha|meru@@Piṅgala, Chandaḥśāstra (~300 BCE) — meru-prastāra; Halāyudha, Mṛtasañjīvanī (10th c.) gives the array explicitly@@~1950 yrs to Pascal, Traité du triangle arithmétique (1654)
 Fibonacci (sequence|number|recurrence|series)@@Piṅgala|Pingala|Virahāṅka|Virahanka|mātrāmeru|Vṛttajātisamuccaya|Gopāla|Hemacandra@@Virahāṅka, Vṛttajātisamuccaya (~700) — mātrāvṛtta enumeration; the problem is posed in Piṅgala (~300 BCE); Gopāla (~1135) and Hemacandra (~1150) state the recurrence@@~500 yrs to Liber Abaci (1202)

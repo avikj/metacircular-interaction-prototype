@@ -194,3 +194,60 @@ module ProfileCut (ks : List ℕ) where
               ⊑r-refl ⊑r-trans (up ks) (dn ks)
               (goFwd ks) (goBwd ks)
     public
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The item named above — "a cut with profiles on BOTH
+-- sides needs `up` to produce a residual profile … and is not built" —
+-- has its enabling step built in
+-- `NaturalMachine.TheTwoSidedProfileCutNeedsTheBurdensAsAProfile`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin).
+--
+-- The step is `upV`/`dnV`: the SAME cut with the burdens taken as a
+-- PROFILE instead of read off the index list.  That is what frees the
+-- index list to be pure shape, so a matrix of burdens is a profile of
+-- profiles (`Rows`) and `UpP` produces a residual PROFILE.  The Galois
+-- connection survives verbatim — same two monus adjunctions.
+--
+-- **AND THE OBSTRUCTION TO THE REST IS THE EMPTY ROW SET.**  The right
+-- adjoint must send a residual profile to the largest burden profile
+-- below it, componentwise `maxᵢ (bᵢⱼ ∸ ψᵢ)`; with no rows the
+-- constraint is vacuous and that maximum is unbounded — the empty meet
+-- is `∞`, which ℕ does not have.  The paragraph above recorded this
+-- from the LEFT adjoint's side as a convention about `up ks φ = 0` on
+-- the empty burden list; it is the same fact, and on the right it is
+-- not a convention but an obstruction.  A two-sided cut therefore
+-- exists over a non-empty residual index set, or over `ℕ ⊎ ∞`, and not
+-- over ℕ with an arbitrary index set.
+--
+-- Still absent, as before: CONVOLUTION, hence nothing about Δ 28's
+-- COMPOSITION step.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- CORRECTION APPENDED 2026-08-19, by the same identity, at the end,
+-- altering no line above — including the 2026-08-19 append above it,
+-- which is what is being corrected.  Recording site: commit 8f3acebb,
+-- `NaturalMachine.TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`.
+--
+-- **"the empty meet is `∞`, which ℕ does not have" IS WRONG**, and with
+-- it "a two-sided cut therefore exists over a non-empty residual index
+-- set, or over `ℕ ⊎ ∞`, and not over ℕ with an arbitrary index set".
+-- The burden side is ordered by `_⊑p_` = REVERSE pointwise `≤`, so the
+-- `⊑p`-greatest profile under a vacuous constraint is the `≤`-LEAST:
+-- all zeros.  ℕ has it.  The unrestricted adjunction is at the
+-- recording site.
+--
+-- **AND THE ORIGINAL SENTENCE IN §"WHAT IS STILL NOT CLAIMED" WAS
+-- RIGHT.**  It says `up ks φ = 0` on the empty burden list "is the
+-- reversed order's top only because `0` is ℕ's bottom".  That is the
+-- correct reading, made here first, on the LEFT adjoint's side.  The
+-- append then claimed the right adjoint's empty case was a different
+-- fact and an obstruction.  It is the same fact, and it is not an
+-- obstruction — the reversal was already recorded three lines up from
+-- where it was then forgotten.
+--
+-- So this module needed no `∞` and never did.  What it needed was to be
+-- re-read before being appended to.
+------------------------------------------------------------------------

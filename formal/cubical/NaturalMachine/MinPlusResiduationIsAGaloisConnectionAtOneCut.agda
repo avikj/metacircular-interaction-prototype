@@ -181,3 +181,69 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 -- choice.  CONVOLUTION is absent, so nothing there speaks to Δ 28's
 -- COMPOSITION step — only to re-saturation.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above — including the 2026-08-19 append above it, which is
+-- correct and is what convicts a later claim of mine.  TWO items.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- (1)  A FALSE CLAIM OF MINE, MADE ONE CYCLE AGO, REFUTED BY THIS FILE.
+--
+-- Commit 3aa3c78c appended a correction to
+-- `TheSaturationClosureNeedsOnlyAGaloisConnection` and said of the
+-- `min`/`max` meet correction:
+--
+--   "That correction was made in `TheMeetIsMaxAndTheProfileCutIsAGaloisConnection`
+--    … and it was recorded THERE AND NOWHERE ELSE."
+--
+-- **That is false, and the counterexample is the paragraph directly
+-- above this one.**  The 2026-08-19 append in THIS file states the
+-- correction in its own words — *"AND THE OPERATION NAMED ABOVE IS
+-- WRONG.  The meet is `max`, not `min`"* — with the reason, the
+-- reversal, and the diagnosis that naming an operation by its role in
+-- the semiring rather than in the order is the error.  So the
+-- correction was propagated to two of its three sites; exactly one site
+-- was missed.
+--
+-- **AND THE WAY I GOT IT WRONG IS THE SAME SHAPE AS THE THING I WAS
+-- REPORTING.**  I grepped for the wrong phrase, saw three files, and
+-- read all three hits as uncorrected without opening them — when one
+-- was the correction itself and one was this file quoting the wrong
+-- sentence in order to refute it.  **A grep for the wrong word finds
+-- the corrections too, because a correction has to quote what it
+-- corrects.  Counting hits is not reading them.**  That is the
+-- operative repair, and it is narrower and more useful than "grep for
+-- the word, not the module", which is what 3aa3c78c concluded and which
+-- remains true but insufficient.
+--
+-- The substantive half of 3aa3c78c stands: the wrong word DID survive
+-- unpropagated in `TheSaturationClosureNeedsOnlyAGaloisConnection`, and
+-- is now corrected there.  Only the scope claim was wrong.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- (2)  AND ONE SENTENCE ABOVE IS NOW STALE.
+--
+-- The append above ends: *"Profiles on BOTH sides need a meet per
+-- residual index and are not built."*  Built —
+-- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile` (83d6edb8) takes the
+-- burdens as a profile so `UpP` produces a residual PROFILE;
+-- `TheTwoSidedCutExistsOverANonEmptyResidualIndex` (89c9b7f0) gives the
+-- adjunction over a non-empty index; and `TheTwoSidedCutNeedsNoInfinityBecauseTheEmptyMeetIsZero`
+-- (8f3acebb) removes the restriction entirely, over an ARBITRARY
+-- residual index list with no `∞`.
+--
+-- **AND THIS FILE HAD THE REASON RIGHT BEFORE I LOST IT.**  The
+-- paragraph above already says *"the empty meet is `0` by ℕ's bottom
+-- rather than by choice."*  That is exactly the fact I later denied —
+-- claiming the empty meet forced `ℕ ⊎ ∞` (89c9b7f0's signature),
+-- retracted at 819e0a57 — and it was written here, correctly, before I
+-- made the error.  Nothing was needed to fix it except reading my own
+-- file.
+--
+-- WHAT IS NOT RETRACTED.  Everything else in this module and in the
+-- append above.  `∸-adjˡ`/`∸-adjʳ`, the two adjunction directions,
+-- `MinPlusCut`, and `truncationBreaksTheNaiveOrder` are unaltered and
+-- true.  CONVOLUTION is still absent everywhere, so Δ 28's COMPOSITION
+-- step is untouched by any of this.
+------------------------------------------------------------------------

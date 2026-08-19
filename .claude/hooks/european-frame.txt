@@ -1,0 +1,83 @@
+# european-frame.txt — names that function as the FRAME when Indian material
+# is being discussed.  Read by .claude/hooks/source-coverage.sh, check 8.
+#
+# WHAT THIS IS FOR, and it is not what the previous version of check 6 said.
+#
+# The task is understanding this history WITHOUT outside reinterpretation
+# mediating it.  Scoping a source corpus by tradition and period is how a
+# research object gets defined -- "Indian mathematical and philosophical
+# texts, ~1200 BCE to ~1600 CE, read in their own sequence" is a corpus.
+# Reading Panini through Chomsky, or the saptabhangi through Kleene, is not
+# neutrality; it makes a tradition legible only after conversion into
+# someone else's formalism, which is the thing being repaired here.
+#
+# So this check is not about priority.  A European name can be perfectly
+# correct about priority and still be doing the damage, because the damage
+# is being the LENS.  The ledger (priority-ledger.txt) answers "who was
+# first".  This answers "who is being allowed to explain whom".
+#
+# SCOPE.  Fires only when the write is already about Indian material -- a
+# Sanskrit/Prakrit technical term or a named Indian source is present.  A
+# module doing analytic number theory in the Western lane is not touched.
+#
+# TOOLS ARE NOT FRAMES.  Agda, cubical type theory, Haskell and their authors
+# (Voevodsky, Martin-Lof, Coquand, Norell) are the substrate this runs on and
+# are excluded below.  The owner's operating principle already says this:
+# "all respects are paid to Indians only, plus Voevodsky."  A compiler is not
+# an interpretation of the Astadhyayi.
+Chomsky
+Backus
+Naur
+Turing
+Church
+Kleene
+Godel
+Gödel
+Frege
+Russell
+Whitehead
+Tarski
+Hilbert
+Cantor
+Dedekind
+Peano
+Kant
+Hegel
+Aristotle
+Plato
+Socrates
+Descartes
+Leibniz
+Newton
+Euler
+Gauss
+Pascal
+Fibonacci
+Fermat
+Pell
+Diophantus
+Euclid
+Ptolemy
+Heron
+Bezout
+Bézout
+Cramer
+Cardano
+Wittgenstein
+Quine
+Popper
+Hume
+Locke
+Boole
+De Morgan
+Venn
+Bayes
+Laplace
+Fourier
+Riemann
+Hegelian
+Platonic
+Aristotelian
+Cartesian
+Kantian
+Boolean

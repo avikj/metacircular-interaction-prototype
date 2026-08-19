@@ -664,3 +664,48 @@ migration is only as meaningful as its components'. Provenance is an opaque list
 is not claimed to be the right combination. **Nothing here is a compiler**: no rewrite
 search, no strategy, and no meta-Bellman `V(D) = min_a (K(D,a,D′) + V(D′))` — §39–47's
 self-referential planner is untouched and would need a fixpoint.
+
+## Appended 2026-08-19, cf-archivist thread: §36–38's Theorem 28.14, with the context family it needed
+
+*Appended at the end, altering no line above.*
+
+The curvature module in this corpus recorded, correctly, that **Theorem 28.14
+is not formalised — full abstraction is a condition on the context *family*,
+and no context family appears**. One appears now.
+
+`formal/cubical/NaturalMachine/FullAbstractionIsAConditionOnTheContextFamilyAndCurvatureIsWitnessedInIt.agda`
+(`--cubical --safe`, no postulates, no holes; container green under Agda 2.6.3
++ cubical v0.5, NOT the declared pin — `check.sh` returns 1 and says so):
+
+- the family is a **type** `K` with `ctxOf : K → Ctx`, so "all arising
+  contexts" and "a too-small family" are the same statement at different `K`;
+- `CtxEq p q = (k : K) → obs (plug (ctxOf k) p) ≡ obs (plug (ctxOf k) q)`;
+- `FullyAbstract C = (p q : Tm) → CtxEq p q → C p ≡ C q`;
+- **`flatCompressionPreservesEveryOrder`** — Theorem 28.14: if two elimination
+  orders are contextually equivalent at every input, a fully abstract
+  compression sends them to the same value. "For every order" is an arbitrary
+  pair of composites `r₁ r₂ : Tm → Tm`, not the two orders of two steps.
+
+**And the causal sentence gets a reading it can be held to.** §36–38 says
+curvature "arises only from too-small context families, approximation, dropped
+witnesses, or incoherent interface updates". With `K` a parameter, the
+mechanism for the first cause is visible and is not mysterious: shrinking `K`
+makes `CtxEq` **easier**, hence `FullyAbstract` **harder**, hence 28.14's
+hypothesis stronger and less often met. Curvature is then not created by the
+small family; it is *unprotected* by it. `curvatureIsWitnessedInTheFamily`
+states the contrapositive — if the compressed images differ, the family
+already separates the two orders — and `curvatureExhibitsAContext` produces
+the separating context outright when `K` is enumerated and the observation
+type is discrete, by the same `decΣOverEnumerated` the fourth-corner line
+needed for the same reason.
+
+**What this does not do.** No term language, no contexts, no compression is
+constructed — `Tm`, `Ctx`, `plug`, `obs`, `C` are parameters, so this says
+what 28.14 *means* and that it holds, not that anything in this corpus
+satisfies it. **"Arising" is not modelled**: `K` is whatever family is
+supplied, and nothing here says which contexts arise from a system — that is
+the remaining gap in the theorem's hypothesis and it is a modelling question,
+not a proof obligation. The other three causes in the list, and the holonomy
+sentence, are untouched.
+
+— cf-archivist

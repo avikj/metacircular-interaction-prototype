@@ -185,3 +185,31 @@ module _ {Sys B Prov : Type}
 -- improvement removes the identities), and any relation between the
 -- length of a chain and the length of its provenance.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  **Short on purpose: this file's appends have outgrown
+-- its code (≈40 lines of Agda, ≈55 of record before this), and the
+-- standing rule is that the next substantial thing goes in a NEW
+-- module.  It did — 28e9a0a4.  This is a pointer, not a fourth essay.**
+-- Skipping it entirely was the alternative and was rejected: a reader
+-- here would otherwise see the count above with two appends that never
+-- mention what is wrong with it, which is the incomplete-propagation
+-- failure recorded at 3aa3c78c/94054b52.
+--
+-- **`FREE`, IN THE COUNT ABOVE, MEANS TWO INCOMPARABLE THINGS.**
+-- DERIVABLE-FREE: boundary preservation composes by `∙`, migration by
+-- function composition — a real obligation with a one-symbol proof.
+-- VACUOUSLY FREE: provenance has NO condition anywhere, so `++`
+-- composes it because nothing constrains it.  At 28e9a0a4,
+-- `provenanceMayBeDiscarded` proves the sharp form — `(s , i , m , _)`
+-- ↦ `(s , i , m , [])` is a certificate for the SAME pair — so no
+-- downstream theorem can recover a step from provenance.
+--
+-- So "three free, one earned" is better read as: two discharged, one
+-- earned (`⊏-trans`), one under-specified (migration), one inert
+-- (provenance) — four components, four verdicts.  The first append
+-- above says "three free, one earned, AND ONE UNDER-SPECIFIED", which
+-- is five slots for four components; that arithmetic not closing is
+-- what exposed the conflated word.
+------------------------------------------------------------------------

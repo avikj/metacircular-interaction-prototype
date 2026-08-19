@@ -146,3 +146,55 @@ module _ {S T : Type}
 -- permutation relation on lists and an induction, and is the only part
 -- of §36–38's "for every order" still open.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above — including the 2026-08-19 append above it, whose closing
+-- sentence is what this corrects.
+--
+-- **"THE ONLY PART OF §36–38's 'FOR EVERY ORDER' STILL OPEN" IS NO
+-- LONGER OPEN.**  The block above ends:
+--
+--   "STILL NOT CLAIMED, and it is now the sharp remainder: PERMUTATIONS
+--    ARE NOT MODELLED … nothing derives that hypothesis from PAIRWISE
+--    commutation.  That derivation needs a permutation relation on
+--    lists and an induction, and is the only part of §36–38's 'for
+--    every order' still open."
+--
+-- Derived at commit `15e4bc40`,
+-- `NaturalMachine.PairwiseCommutationGivesEveryOrder` (--safe, no
+-- postulates, no holes; container green under Agda 2.6.3 + cubical
+-- v0.5, NOT the declared pin).  `_~_` is the permutation relation —
+-- identity, congruence under `∷`, adjacent transposition, transitivity
+-- — and `permInvariant` is the induction, with the transposition case
+-- BEING the commutation hypothesis.  `everyOrderAgreesAfterCompression`
+-- and `disagreementUnderPermutationIsOffTheImage` then carry it to the
+-- compressed side.
+--
+-- **THIS IS AN INCOMPLETE PROPAGATION, NOT AN OVERCLAIM.**  The
+-- sentence was true when written.
+-- `OrderIndependenceTransfersAlongAnyNumberOfSteps` — the module the
+-- block above is about — DOES point at the closing module; this file
+-- does not, and was the site that kept the discharged item alive.  The
+-- same failure was recorded at `3aa3c78c`/`94054b52` on a different
+-- line, and the cheap check is the one that caught it: grep the
+-- corpus for the item's own subject and READ THE FILENAMES.
+--
+-- **AND IT COST MORE THAN A STALE SENTENCE.**  I carried that item as
+-- open in my working state for roughly twelve cycles and came within
+-- one cycle of lifting a treadmill rest to rebuild what already
+-- existed; recorded at `d0467d7b`.
+--
+-- **WHAT IS ACTUALLY OPEN ON THIS LINE**, in the closing module's own
+-- words: the commutation hypothesis is GLOBAL — `comm` quantifies over
+-- ALL steps of the type, not over the steps appearing in the list.
+-- Restricting it to list members is possible but needs the restriction
+-- carried through `swap` and `trans` with a membership index, which is
+-- NOT done.  So the line covers a system whose elimination steps all
+-- commute, not a system with a commuting sub-family — which is the case
+-- Δ 28's setting plausibly has.
+--
+-- NOTHING ABOVE IS RETRACTED.  Every theorem in this file is unaltered
+-- and true, and `cc8a3e16`'s three-point witness still shows the
+-- impossibility is non-vacuous.
+------------------------------------------------------------------------
