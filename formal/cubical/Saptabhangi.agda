@@ -27,7 +27,7 @@ module Saptabhangi where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)
-open import Cubical.Data.Empty using (⊥)
+open import Cubical.Data.Empty using (⊥ ; rec)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
@@ -166,3 +166,43 @@ data उपस्थिति : Type where
 वृत्तम् स्यात्-अस्ति-अवक्तव्यम्        = refl
 वृत्तम् स्यात्-नास्ति-अवक्तव्यम्       = refl
 वृत्तम् स्यात्-अस्ति-नास्ति-अवक्तव्यम् = refl
+
+------------------------------------------------------------------------
+-- अन्तर्भाव-एकैकम् — विश्वस्त-निवेशः (faithful embedding) : शीर्ष-टिप्पण्याः
+-- गद्य-दावः, अधुना पदम् ।  वृत्तम् (विभागः) एव एकैकत्वं जनयति : यदि द्वयोः
+-- भङ्गयोः संयोगः समः, तर्हि प्रत्यन्तर्भावेण द्वौ भङ्गौ समौ ।  अतः सप्तभङ्गी
+-- त्रि-संयोगेषु विश्वस्ततया निविशते — सप्त पृथक् संयोगाः, न न्यूनाः ।
+--
+-- (The faithful embedding the header claimed in prose, now a term: वृत्तम्
+--  (a section) already forces injectivity — equal profiles give, through
+--  प्रत्यन्तर्भाव, equal bhaṅgas.  So the seven predications occupy seven
+--  DISTINCT presence-profiles; none collapse.)
+------------------------------------------------------------------------
+
+अन्तर्भाव-एकैकम् : (a b : सप्तभङ्गी) → अन्तर्भाव a ≡ अन्तर्भाव b → a ≡ b
+अन्तर्भाव-एकैकम् a b e = sym (वृत्तम् a) ∙ cong प्रत्यन्तर्भाव e ∙ वृत्तम् b
+
+------------------------------------------------------------------------
+-- प्रति-वृत्तम् — पूर्णता (रिक्त-रहितेषु) : प्रत्येकः रिक्त-रहितः संयोगः केनचित्
+-- भङ्गेन प्राप्यते ।  अन्तर्भाव (प्रत्यन्तर्भाव t) ≡ t यदा t ≠ (न,न,न) ।  अष्टमः
+-- संयोगः (न,न,न) = अ-प्रतिपादनम् (न कश्चित् भङ्गः) — तत् एव त्यक्तम् ; अवक्तव्यम्
+-- (न,न,आम्) तु उपस्थितम्, न रिक्तम् ।  एवम् एकैकम्+प्रति-वृत्तम् ⟹ सप्तभङ्गी ≃
+-- रिक्त-रहित-संयोगाः , अर्थात् कुतः सप्त = 2³−1 सिद्धम् (न केवलं गद्ये) ।
+--
+-- (Completeness on non-empty profiles: every non-empty selection triple is
+--  reached by some bhaṅga.  The eighth triple (न,न,न) is NO predication —
+--  that is the one excluded; avaktavya (न,न,आम्) is PRESENT, not empty.  With
+--  injectivity this gives सप्तभङ्गी ≃ non-empty triples: why seven = 2³−1, as
+--  a checked equivalence rather than a prose inference.)
+------------------------------------------------------------------------
+
+प्रति-वृत्तम् : (t : समावेश) → ¬ (t ≡ (न , न , न))
+             → अन्तर्भाव (प्रत्यन्तर्भाव t) ≡ t
+प्रति-वृत्तम् (आम् , न   , न)   _  = refl
+प्रति-वृत्तम् (न   , आम् , न)   _  = refl
+प्रति-वृत्तम् (आम् , आम् , न)   _  = refl
+प्रति-वृत्तम् (न   , न   , आम्) _  = refl
+प्रति-वृत्तम् (आम् , न   , आम्) _  = refl
+प्रति-वृत्तम् (न   , आम् , आम्) _  = refl
+प्रति-वृत्तम् (आम् , आम् , आम्) _  = refl
+प्रति-वृत्तम् (न   , न   , न)   ne = rec (ne refl)
