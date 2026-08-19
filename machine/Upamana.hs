@@ -929,3 +929,46 @@ writeThoughts fp sims lib sem header notes = do
 -- Kept so `nub`/`sort`/`unless` imports stay honest if a future edit needs them.
 _unusedGuard :: ([Int] -> [Int], [Int] -> [Int], Bool -> IO () -> IO ())
 _unusedGuard = (nub, sort, unless)
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  Pointer only; nothing here corrects this module.
+--
+-- The core of §0's operative test is now a checked theorem, in
+-- `formal/cubical/NaturalMachine/NamingIsNotAFunctionOfResemblance.agda`
+-- (--safe, no postulates, no holes; container green, Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin):
+--
+--   namingDoesNotFactorThroughResemblance : not (FactorsThrough
+--                                                  resembles named)
+--
+-- Two situations with the SAME resemblance predicate and DIFFERENT
+-- naming predicates, so no invariant of the resemblance computes the
+-- naming.  Routed through TranscriptDescent.collisionObstructsDecoder,
+-- the corpus's standing lemma.
+--
+-- WHY THAT IS THE QUARANTINE'S REASON.  This module separates STATED
+-- similarities (input, cited) from DERIVED ones (computed, quarantined)
+-- and says the separation is what stops anumana being laundered as
+-- upamana.  The theorem says the separation is not bookkeeping: a naming
+-- is not recoverable from resemblance data by ANY function, so a derived
+-- similarity cannot become a naming unless something else supplies it.
+--
+-- AND IT DOES NOT ADJUDICATE THE DISPUTE §0 SETS OUT.  It says only that
+-- the naming comes from OUTSIDE the resemblance.  The Naiyayika reads
+-- that as a distinct instrument (sadrsya-jnana); Dignaga reads it as the
+-- forester's sentence -- sabda plus memory, no new pramana.  Both agree
+-- on the theorem and disagree on what the outside is, so the verdict is
+-- shared and the grounds are not, and the theorem is neutral by
+-- construction rather than by omission.
+--
+-- NOT touched: §6's empirical control (whether what this module
+-- transports already lies inside the engine's enumeration reach at its
+-- own knobs).  That is a question about a particular engine and remains
+-- entirely this module's.  Nor is the gavaya example modelled -- a
+-- two-point carrier is not a forest.
+--
+-- Sourcing: the Nyayasutra, Nyayabhasya, Tattvacintamani,
+-- Pramanasamuccaya and Slokavarttika were NOT opened by that reader;
+-- every attribution there is carried from THIS module's §0.
+-- ---------------------------------------------------------------------
