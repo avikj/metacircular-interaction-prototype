@@ -117,3 +117,45 @@ module _ {Sys B Prov : Type}
 
   noSelfRewrite : (d : Sys) → ¬ Certified d d
   noSelfRewrite d (_ , imp , _ , _) = ⊏-irrefl (cost d) imp
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  §"WHAT IS NOT CLAIMED" says:
+--
+--   "MIGRATION is a bare function with no law — nothing says it
+--    preserves the boundary semantics, and a compiler would need
+--    exactly that, so the composite's migration is only as meaningful
+--    as its components'."
+--
+-- The law is stated and tested in
+-- `NaturalMachine.MigrationNeedsALawAndTheLawIsNotFree`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+--
+--   Lawful obs mig   `obs e (mig m) ≡ obs d m`
+--   composeLawful    lawful migrations compose — as free as the three
+--                    components that were already free
+--   lawTransportsEveryInvariant
+--                    ANY function of the observation is preserved, by
+--                    one `cong` — so a lawful migration moves no
+--                    derived quantity, which is what state migration
+--                    must mean for provenance and caches to survive it
+--   unlawfulMigrationExists
+--                    `not` on `Bool` under the identity observation is
+--                    a migration and is NOT lawful
+--
+-- **THE LAST ONE IS WHY THE COUNT CHANGES.**  Everything else here
+-- composed for free and it would be easy to read migration the same
+-- way.  A bare function is exactly a migration with no guarantee, and
+-- the witness is one line.  So §39–47's four components are better
+-- counted as THREE FREE, ONE EARNED (complexity, by `⊏-trans`), AND
+-- ONE UNDER-SPECIFIED — migration, which needs the law added before it
+-- means anything.
+--
+-- THIS MODULE IS NOT AMENDED.  The four-component Σ above is unchanged
+-- and `composeCertified` still composes a bare function; adding the law
+-- to the record is this module's own next step and is deliberately not
+-- taken in the same cycle that discovered the gap.  Also unstated
+-- there: any relation between `obs` and `sem`, and the reachable-states
+-- version of the law that a real compiler would use.
+------------------------------------------------------------------------
