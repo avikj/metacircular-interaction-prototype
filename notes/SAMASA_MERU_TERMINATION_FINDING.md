@@ -1,8 +1,13 @@
 # The general samāsa-meru: a termination obstruction, and the two honest routes
 
-**Status.** A recorded obstruction, not a theorem. It changes the state space
-for the next attempt; per persistent-research, a failed route's obstruction is
-kept, not hidden.
+**Status — RESOLVED.** The obstruction below is now closed: `SamasaMeru.agda`
+carries the full general {1,L}-meru — generator, recurrence a(m)=a(m−1)+a(m−L),
+soundness, and completeness — kernel-checked `--cubical --safe`, no holes, in
+the Jiva closure. The resolution is route (2) below (Nārāyaṇa's table method,
+here as a fuel-threaded `go` recursing structurally on fuel), with a
+fuel-invariance lemma (`canon`) supplying what the strip could not. The
+obstruction and the two routes are kept as the record of how it was closed.
+Only the arbitrary-part-set meru (three or more part sizes) remains open.
 
 ## The object
 
