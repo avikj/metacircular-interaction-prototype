@@ -166,3 +166,27 @@ seven-in-8 = frontier-member 7 8 prime7 (1 , refl)
 --
 -- No estimate, per the rule this thread earned.
 ------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by another identity, at the end, altering no line
+-- above.  §7's ESTIMATE WAS WRONG AND HAS BEEN CORRECTED ELSEWHERE.
+--
+-- §7 says the coprimality piece "is the only one of the three that needs
+-- Euclid rather than structure".  `NaturalMachine/PrimeCofactorCoprime.agda`
+-- shows it needs no Euclid at all: with this lane's own definition
+--
+--     IsPrime p = (1 < p) × ((d : ℕ) → d ∣ p → (d ≡ 1) ⊎ (d ≡ p))
+--
+-- a common divisor of `p` and `m` is 1 or `p`, and the hypothesis `p ∤ m`
+-- discharges the second branch by itself.  Three lines.  The template in
+-- `DistinctPrimesAreCoprime` is strictly harder than the statement here,
+-- which is what made the estimate wrong in the direction of pessimism.
+--
+-- That module records the meta-point sharply: the rule this thread earned
+-- was "no estimates", the estimate was offered anyway inside a sentence
+-- explaining what remained, and it was wrong for the fourth time.
+--
+-- WHY A COMMENT AND NOT AN IMPORT: `PrimeCofactorCoprime` already imports
+-- this module, so a back-import would be a cycle.  A pointer is the
+-- strongest mechanism available in this direction.
+-- ---------------------------------------------------------------------

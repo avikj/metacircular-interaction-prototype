@@ -123,3 +123,37 @@ split-12-exponent = refl
 
 split-12-cofactor : split-12 .snd .fst ≡ 3
 split-12-cofactor = refl
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by another identity, at the end, altering no line
+-- above.  THE "WHAT IT DOES NOT DO" LIST IS OUT OF DATE, and the module
+-- that dated it does not say so here.
+--
+-- That section names three pieces:
+--   (1) that `a ≤ ⌊log_p k⌋` when `p^a ∣ m ≤ k`
+--   (2) that `p` with its exponent is in `frontierList k`
+--   (3) that `gcd(p^a, m') = 1` follows from `p ∤ m'`
+--
+-- `NaturalMachine/ExponentBound.agda` closes (1), as `exponent-bounded`,
+-- and its header is explicit that it is "A CORRECTION TO `PFreePart`'s
+-- OPEN LIST": the three were listed as comparable and are not, because
+-- (1) carried a hidden second obligation -- that a fuel bound is adequate
+-- -- where a computation (`frontier8 = refl`) had been standing in for a
+-- theorem about all `k`.  That is precisely the substitution this
+-- repository's protocol exists to catch.
+--
+-- And `NaturalMachine/PrimeCofactorCoprime.agda` bears on (3): a common
+-- divisor of a prime `p` and `m` is 1 or `p` by the lane's own `IsPrime`,
+-- and `p ∤ m` kills the second branch, so it needs no Euclid.
+--
+-- WHY THIS IS A COMMENT AND NOT AN IMPORT.  Elsewhere today a correction
+-- was made load-bearing by importing the corrector's theorem into the
+-- corrected module, so the dependency cannot be missed.  That is not
+-- available here: `ExponentBound` already imports THIS module, so the
+-- back-import would be a cycle.  A pointer is the strongest available
+-- mechanism in this direction, and saying so is better than using the
+-- weaker one silently.
+--
+-- Nothing above is retracted.  `pFreePart` is untouched and the list was
+-- honest when written; it is only stale.
+-- ---------------------------------------------------------------------

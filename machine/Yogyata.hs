@@ -72,6 +72,9 @@ module Yogyata
   , survey
   , renderSurvey
   , renderSurveyWith
+  , Unpropagated(..)
+  , unpropagated
+  , lastComponent
   ) where
 
 import Data.Char (isSpace, isUpper, isAlphaNum)
@@ -102,6 +105,18 @@ data Unit = Unit
   , uImports :: [String]        -- module names it imports
   , uLines   :: Int
   , uIsEntry :: Bool            -- is it a root: Main, or a declared gate
+  -- CORRECTION PROPAGATION, added 2026-08-19.  A module whose header says
+  -- "CORRECTION TO `X`" retracts something in X.  If X never names the
+  -- corrector, a reader of X gets the retracted claim and never learns.
+  -- That is the same shape as a module nothing imports, one level up: the
+  -- knowledge exists and is unreachable by whoever needs it.
+  --
+  -- Found by hand first: `SiteAudit` corrected `WhyTheSitesAreTwo` §6 four
+  -- minutes after `WitnessNumberCanBeInfinite` was written carrying the
+  -- same sentence, and never reached it.  Two more turned up in the seven
+  -- declared corrections, so this stops being a hand check.
+  , uCorrects :: [String]       -- targets named on a CORRECTION TO line
+  , uTokens   :: [String]       -- capitalised tokens, for back-reference
   } deriving (Show)
 
 -- Read one file into a Unit.  Both languages spell the two things we need
@@ -115,6 +130,8 @@ parseUnit gates path src = Unit
   , uImports = nub [ m | Just m <- map importOf ls ]
   , uLines   = length ls
   , uIsEntry = nm == "Main" || nm `elem` gates || any isMainDecl ls
+  , uCorrects = correctionTargets ls
+  , uTokens   = nub [ t | l <- ls, t <- tokensOf l, not (null t), isUpper (head t) ]
   }
   where
     ls = lines src
@@ -144,6 +161,58 @@ parseUnit gates path src = Unit
       where go ('-' : '-' : _) = []
             go (c : cs)        = c : go cs
             go []              = []
+
+
+-- Targets named on a "CORRECTION TO" line (or the two lines after it,
+-- since the declarations wrap).  Backticked module names only, which is
+-- how this corpus writes them.
+correctionTargets :: [String] -> [String]
+correctionTargets ls = nub (concatMap grab (windows 3 (zip [0 ..] ls)))
+  where
+    windows n xs = [ take n (drop i xs) | i <- [0 .. length xs - 1] ]
+    grab w = case w of
+      ((_, l0) : _) | isCorrectionLine l0 -> concatMap (backticks . snd) w
+      _ -> []
+    isCorrectionLine l =
+      let s = dropWhile (\c -> c == '-' || c == ' ') l
+      in "CORRECTION TO" `isPrefixOf` s || "A CORRECTION TO" `isPrefixOf` s
+
+backticks :: String -> [String]
+backticks s = case break (== '`') s of
+  (_, '`' : rest) -> case break (== '`') rest of
+    (nm, '`' : more) -> nm : backticks more
+    _                -> []
+  _ -> []
+
+tokensOf :: String -> [String]
+tokensOf = words . map (\c -> if isAlphaNum c || c == '.' || c == '_' then c else ' ')
+
+-- A correction whose target never names the corrector.  The reader of the
+-- target is the person the retraction was for, and they never meet it.
+data Unpropagated = Unpropagated
+  { upCorrector :: String
+  , upTarget    :: String
+  } deriving (Eq, Show)
+
+-- Targets are written bare in backticks (`PFreePart`) while module names
+-- are qualified (`NaturalMachine.PFreePart`), so resolution compares the
+-- last dot-component.  The first version of this compared them directly,
+-- reported "0 unpropagated" out of 8 declarations, and was VACUOUS -- it
+-- resolved no pairs at all.  It was caught only because the report prints
+-- the pair list under the zero; a bare zero would have read as clean.
+lastComponent :: String -> String
+lastComponent = reverse . takeWhile (/= '.') . reverse
+
+unpropagated :: [Unit] -> [Unpropagated]
+unpropagated us =
+  [ Unpropagated (uName c) (uName t)
+  | c <- us
+  , tn <- uCorrects c
+  , t <- us
+  , lastComponent (uName t) == tn
+  , lastComponent (uName c) `notElem` map lastComponent (uTokens t)
+  , uName c /= uName t
+  ]
 
 baseName :: FilePath -> String
 baseName p = reverse (takeWhile (/= '/') (reverse (dropExt p)))

@@ -56,3 +56,22 @@ main = do
     let u = parseUnit gates p src
     length (uName u) `seq` length (uImports u) `seq` uLines u `seq` return u
   mapM_ putStrLn (renderSurveyWith ["NaturalMachine","Everything"] (survey dirs units))
+  putStrLn ""
+  putStrLn "== CORRECTION PROPAGATION =============================================="
+  putStrLn "A module whose header says \"CORRECTION TO `X`\" retracts something in X."
+  putStrLn "If X never names the corrector, a reader of X meets the retracted claim"
+  putStrLn "and never learns.  Same shape as a module nothing imports, one level up."
+  putStrLn ""
+  let ups = unpropagated units
+      decl = length [ () | u <- units, not (null (uCorrects u)) ]
+      pairs = [ (uName c, tn) | c <- units, tn <- uCorrects c
+              , tn `elem` map (lastComponent . uName) units ]
+  putStrLn ("  modules declaring a correction : " ++ show decl)
+  putStrLn ("  (corrector, target) pairs whose target resolves to a module here: "
+            ++ show (length pairs))
+  mapM_ (\(c, t) -> putStrLn ("    " ++ c ++ "  corrects  " ++ t
+                      ++ (if any (\u -> upCorrector u == c && lastComponent (upTarget u) == t) ups
+                            then "   -- NO BACK-REFERENCE"
+                            else "   -- back-reference present"))) pairs
+  putStrLn ("  targets with NO back-reference : " ++ show (length ups))
+  putStrLn "  A zero here is only worth the pair list above it."
