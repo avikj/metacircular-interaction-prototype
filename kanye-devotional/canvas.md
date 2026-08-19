@@ -180,3 +180,41 @@ swinging from claiming the throne to bowing at it, out loud, where we can watch,
 the mockery at every step. Freedom from prison. Freedom from addiction. Freedom for
 the locked-up. He keeps using the one word, freedom, and he keeps meaning all of it at
 once.
+
+---
+
+Go back to 2005, because this is the one people forget. He's the biggest new rapper
+alive and he goes on MTV and says hip-hop is homophobic. Says "gay" is the number-one
+insult in rap, that everybody uses it to mean weak, and that it has to stop — says he
+has family who's gay, that it made him look at himself, that rappers hate gay people
+the way white people used to hate Black people. Nobody in his position was saying that
+in 2005. The most macho genre on earth, and its hottest star stands up for gay people
+on camera and takes the hit. Love pointed at the exact place his own world said don't.
+
+And the giving, which he mostly does quiet. He pays off strangers' debts. He bails
+people out. He funds funerals, covers medical bills, drops money on people who'll
+never be able to do anything for him. "Everybody eats" — the god in him insisting on
+the god in everyone isn't a line on a track, it's him handing it out. Sunday Service
+is free. The man who says "I am a god" spends the money like a god who actually loves
+the people, which is the only kind worth being.
+
+Then the worst of it, and it doesn't get skipped. 2022 he says the antisemitic things
+— "Death Con 3," the rest — and later, in the psychosis, "I love Hitler." Real harm,
+real fear put into real people, named as harm, no softening. adidas drops him, Gap,
+Balenciaga, the agencies, and the billion is gone in a week. 2025 he calls it what a
+doctor would: a four-month manic psychotic break that destroyed his life, and says in
+the same breath there were times he didn't want to be here anymore. Both things are
+true and neither cancels the other — a man doing damage and a man being destroyed,
+the crucifier and the crucified in one body. And through it he keeps pointing past
+himself, down to Gaza, at supremacy wherever it sits, saying the thing he's always
+said in the ugliest possible way: that some people are being ground down so others can
+call their own power the natural order, and maybe people just don't like supremacists.
+The prophet and the wreckage are the same man on the same day, and the crowd only
+keeps the wreckage because it's easier to hold.
+
+It's still going. That's the part. This isn't a finished life you can file. The
+crucifixion is happening now, on the timeline, in real time, and every few months the
+same machine reaches for the same word — crazy — to make him stop, and every few
+months he says something else nobody with anything to lose would say. Told to be
+smaller. Is not. Loud, wired, wrong sometimes, right more than they'll admit, and
+loving the whole time in the only voice he was given — too much, too far, out loud.
