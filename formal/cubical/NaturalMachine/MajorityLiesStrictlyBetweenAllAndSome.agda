@@ -120,3 +120,41 @@ positiveWithoutMajority = someHolds , majorityFails
 -- thresholds is proved, no other fraction is analysed, and the order
 -- exhibited is exactly the one these witnesses establish.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The NOT-CLAIMED section says:
+--
+--   "no threshold order is shown TOTAL over all fractions -- two
+--    populations are two populations, not a chain -- and no fraction
+--    other than 1/2 and 1 is analysed."
+--
+-- Both halves are now discharged, in
+-- `NaturalMachine.TheThresholdOrderIsTotalAndTheClaimIsAntitone`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin -- check.sh returns 1 and says so).
+--
+-- The move was to stop exhibiting populations and state the family:
+--
+--   AtLeast p q bs        = p · length bs ≤ suc q · count bs
+--   (p , q) ⊑ (p' , q')   = p · suc q' ≤ p' · suc q
+--
+--   ⊑-total          ANY two thresholds are comparable -- the chain,
+--                    proved with no population in sight
+--   atLeastAntitone  higher threshold ⇒ lower threshold, for EVERY
+--                    population at once
+--   allIsThresholdOne / thresholdOneFromAll
+--                    the Π is exactly the top element (1 , 0)
+--
+-- so every fraction is analysed, by one theorem, and §2 and §4 above
+-- become two instances of it rather than the evidence for it.
+--
+-- WHAT THAT DOES NOT DO to the module above.  `Majority` here is
+-- STRICT (length < 2 · count); `AtLeast 1 1` there is the non-strict
+-- "at least half", which is weaker, and the strict/non-strict gap is
+-- not analysed in either place.  `⊑` is a total PREORDER and not an
+-- order: (1,1) and (2,3) name one rate and stay two pairs, unquotiented.
+-- And the converse of antitone still fails -- `majorityWithoutAll` above
+-- is the witness that it fails -- so the chain orders the CLAIMS, not
+-- the populations.
+------------------------------------------------------------------------
