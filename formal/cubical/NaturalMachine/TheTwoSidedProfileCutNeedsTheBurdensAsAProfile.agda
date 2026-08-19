@@ -154,3 +154,31 @@ Rows (_ ∷ js) ks = Profile ks × Rows js ks
 UpP : (js ks : List ℕ) → Rows js ks → Profile ks → Profile js
 UpP []       ks _        φ = tt
 UpP (j ∷ js) ks (b , bs) φ = upV ks b φ , UpP js ks bs φ
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no
+-- line above.  The step named above — "assemble the non-empty-row right
+-- adjoint: fold `maxP` over `Rows (j ∷ js)` and prove the two halves
+-- against `UpP`" — is done in
+-- `NaturalMachine.TheTwoSidedCutExistsOverANonEmptyResidualIndex`
+-- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
+-- cubical v0.5, NOT the declared pin): `dnNE`, `goFwdNE`, `goBwdNE`.
+--
+-- Three things that cycle settled and this one could not:
+--
+--   * The residual side needs its OWN order, `_≼p_`, pointwise `≤` —
+--     NOT `_⊑p_`, which is reverse pointwise `≤` because more burden
+--     absorbed is lower.  Writing both with one symbol is how the sign
+--     error on this line happened once before.
+--   * No accumulator is needed: structural recursion on `Rows` gives
+--     the fold, and with it the obvious induction.
+--   * `maxP`'s three laws do all the work — the two bounds split a
+--     hypothesis about the fold into per-row hypotheses, leastness
+--     reassembles the conclusion, and each row is `goFwdV`/`goBwdV`
+--     unchanged.
+--
+-- The empty residual index remains the only gap, and it is a type-level
+-- one: `dnNE` takes its rows in `j ∷ js` form, so the restriction is
+-- recorded in the signature rather than in a comment.  Over `ℕ ⊎ ∞` it
+-- would lift.
+------------------------------------------------------------------------
