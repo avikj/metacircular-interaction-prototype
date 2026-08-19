@@ -24,7 +24,7 @@
 module Panini where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.List using (List ; [] ; _∷_)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
 open import Cubical.Data.Maybe using (Maybe ; just ; nothing)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
@@ -129,3 +129,26 @@ data चिह्न : Type where
 -- उदाहरणम् — केवल-अपवाद-सूचौ उ अक्षतम् (अपवादः उ-स्थाने तूष्णीम्) ।
 उ-अक्षतम् : प्रयोग (अपवाद ∷ []) उ ≡ उ
 उ-अक्षतम् = अक्षतम् (अपवाद ∷ []) उ (refl , tt)
+
+------------------------------------------------------------------------
+-- तूष्णीं-उपसर्गः — तूष्णीम्-उपसर्गः पारदर्शकः : यदि सूच्याः पूर्व-खण्डः (rs)
+-- सर्वः तूष्णीम्, तर्हि प्रयोगः तं लङ्घयित्वा पश्चात्-खण्डे (ss) प्रवर्तते ।
+-- अतः प्रयोगः प्रथम-प्रवर्तमानं नियमं याति — अ-प्रवर्तमानाः अग्रे लुप्ताः ।
+-- (अक्षतस्य सामान्य-रूपम् : तत्र ss = [], अत्र यथेच्छः ss ।)
+--
+-- (A silent prefix of rules is transparent: if the leading block rs is all
+--  silent at c, प्रयोग skips it and continues in the tail ss.  So प्रयोग scans
+--  to the first firing rule — a leading run of inapplicable rules is
+--  invisible.  The general form of अक्षतम् (there ss = [], here arbitrary ss),
+--  and with अपवाद-बलम् the complete operational reading of the engine.)
+------------------------------------------------------------------------
+
+तूष्णीं-उपसर्गः : (rs ss : List नियम) (c : चिह्न)
+              → सर्वे-तूष्णीम् rs c → प्रयोग (rs ++ ss) c ≡ प्रयोग ss c
+तूष्णीं-उपसर्गः []       ss c _        = refl
+तूष्णीं-उपसर्गः (r ∷ rs) ss c (h , hs) =
+    उत्सर्ग-अनुवृत्तिः r (rs ++ ss) c h ∙ तूष्णीं-उपसर्गः rs ss c hs
+
+-- उदाहरणम् — तूष्णीं-पूर्वः (अपवादः उ-स्थाने) लङ्घ्यते ⟹ उत्सर्गे प्रवृत्तिः (→ अ) ।
+उ-लङ्घनेन : प्रयोग (अपवाद ∷ उत्सर्ग ∷ []) उ ≡ प्रयोग (उत्सर्ग ∷ []) उ
+उ-लङ्घनेन = तूष्णीं-उपसर्गः (अपवाद ∷ []) (उत्सर्ग ∷ []) उ (refl , tt)
