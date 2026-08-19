@@ -122,6 +122,7 @@ import NaturalMachine.RefutingLaghavaIsASearch
 import NaturalMachine.TheUnstableGroundCannotBeExhibited
 import NaturalMachine.TheDomainThatIsAnAbsence
 import NaturalMachine.TheDeflationaryTestIsVacuous
+import NaturalMachine.HypothesesAssumedWhereTheyAreDerivable
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita

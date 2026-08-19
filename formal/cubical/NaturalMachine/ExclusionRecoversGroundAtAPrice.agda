@@ -256,6 +256,12 @@ fiberConstant-transfer-discreteTarget discT q q' t ce fc x x' g'
 ... | yes p = p
 ... | no  n = ⊥.rec (ce x x' (λ g → n (fc x x' g)) g')
 
+-- REDUNDANT HYPOTHESIS, recorded rather than removed: `isSet T` here is
+-- derivable from `Discrete T` by `Discrete→isSet`.  The lean form is
+-- `NaturalMachine.HypothesesAssumedWhereTheyAreDerivable`
+-- `factorsThrough-transfer-discreteTarget′`.  This statement is kept
+-- because it is true and because importers depend on it; it is simply
+-- weaker than it needed to be.
 factorsThrough-transfer-discreteTarget :
   {X : Type ℓx} {Y : Type ℓy} {Y' : Type ℓy'} {T : Type ℓt}
   (isSetT : isSet T) (discT : Discrete T)
