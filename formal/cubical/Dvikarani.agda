@@ -26,6 +26,7 @@ module Dvikarani where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
+open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 ------------------------------------------------------------------------
 -- वर्गप्रकृति-समाधानानि — x² = 2y² + 1 (√2-सन्निकर्ष-अंश-हराः) ।
@@ -65,3 +66,20 @@ open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 
 चक्रम्-२-हर : भावना-हर 17 12 17 12 ≡ 408     -- 204 + 204
 चक्रम्-२-हर = refl
+
+------------------------------------------------------------------------
+-- वृद्धि-मानम् — भावना-चक्रस्य मान-रक्षा (यथेच्छ-अंश-हरे) : मूल-साधनेन (3,2)
+-- संयोजनं x²−2y² मानं रक्षति ।  ऋण-रहित-रूपे : (नव-अंश)² + 2y² = 2·(नव-हर)² + x² ।
+-- (अतः x²=2y²+1 इति साधनात् नव-साधनम् अपि x²=2y²+1 — √2-अंश-हराः क्रमेण जायन्ते ।)
+--
+-- (The bhāvanā cycle preserves the norm for ANY (x,y): composing with the
+--  fundamental (3,2) keeps x²−2y², in subtraction-free form (new-num)²+2y² =
+--  2·(new-den)²+x².  So from a solution of x²=2y²+1 the next is one too — the
+--  √2 convergents (3,2)→(17,12)→(577,408) breed by this, not just the checked
+--  instances above.  A polynomial identity, Nat-solver-सिद्धा.)
+------------------------------------------------------------------------
+
+वृद्धि-मानम् : (x y : ℕ)
+            → भावना-अंश x y 3 2 · भावना-अंश x y 3 2 + 2 · (y · y)
+            ≡ 2 · (भावना-हर x y 3 2 · भावना-हर x y 3 2) + x · x
+वृद्धि-मानम् = solve
