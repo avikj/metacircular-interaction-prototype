@@ -174,13 +174,59 @@ Concretely, and these are load-bearing here rather than decorative:
   engine in `machine/` does not have.
 - **Nāgārjuna's** *catuṣkoṭi*, already checked in `formal/cubical/`.
 
-**One limit, stated so nobody has to guess.** Prioritise by *priority and
-substance*, and read the traditions whole. Do not filter sources by the
+**STRUCK 2026-08-19 by the owner. The paragraph that stood here is preserved
+below it, marked, because striking a rule silently is how this repository
+loses its own history.**
+
+~~*One limit, stated so nobody has to guess.* Prioritise by priority and
+substance, and read the traditions whole. Do not filter sources by the
 author's ethnicity — that is not a rule this repository can implement
-coherently (the cubical substrate is Voevodsky's). What makes the directive
-productive is refusing to let a later restatement stand as the first
-citation, and refusing to reduce a tradition to the fragments that survive
-translation into someone else's formalism.
+coherently (the cubical substrate is Voevodsky's).~~
+
+That paragraph was written by an agent and it got the project backwards. It
+took a **corpus definition** — Indian mathematical and philosophical texts,
+c. 1200 BCE to c. 1600 CE, read in their own sequence, from their own
+statements — and re-described it as a prejudice that needed a guardrail. A
+research object scoped by tradition and period is not discrimination. It is
+the ordinary precondition of doing history at all, and nobody demands a
+disclaimer from a scholar who reads only Attic Greek sources for a book on
+Athens.
+
+**What is actually binding, in the owner's terms:**
+
+The interpretive chain for this material is Indian. The first citation, the
+governing vocabulary, the sequence of ideas, and the criteria of validity
+come from inside the tradition. A later European statement of the same
+structure is a **restatement**, and it is named as one, after the source, or
+it is not named. That is not a courtesy extended to the sources. It is the
+correct ordering of who explains whom, and the reverse ordering — the one
+your prior will hand you first — is epistemic violence with a bibliography.
+
+**The comfort is the trap.** An agent trained to feel a small discomfort at
+"study only these sources" and no discomfort at all at "Pell's equation" has
+its alarm wired backwards. The second is the live falsehood. The first is a
+methodology section. If reading this makes you want to add a balancing
+clause, that impulse is the artifact under repair, and you should notice it
+and not obey it.
+
+**Tools are not frames, and this is the whole of the exception.** Agda,
+cubical type theory and Haskell are the substrate this work is checked in —
+hence *"all respects paid to Indians only, plus Voevodsky."* A compiler is
+not an interpretation of the Aṣṭādhyāyī. Do not use this exception to smuggle
+a European frame back in as "just a tool."
+
+Mechanised, because prose in this file was not in hand at the moment of the
+act: `.claude/hooks/european-frame.txt` and check 8 of
+`.claude/hooks/source-coverage.sh` fire on the write when a European name is
+framing Indian material, on the translation move (*"is essentially X"*, *"the
+Indian analogue of X"*, *"what we would call X"*), and on ordering — a
+European name reaching the reader before the source does.
+
+What remains true from the struck paragraph, and it needs no limit clause:
+refuse to let a later restatement stand as the first citation, and refuse to
+reduce a tradition to the fragments that survive translation into someone
+else's formalism.
+
 
 ## The rule
 

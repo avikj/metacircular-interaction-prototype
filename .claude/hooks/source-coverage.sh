@@ -318,4 +318,91 @@ if [ -n "$unanswered" ]; then
   echo "  Then add a row: .claude/hooks/priority-ledger.txt  (one line, data)." >&2
 fi
 
+# ---------------------------------------------------------------------
+# 8.  A EUROPEAN NAME IS FRAMING INDIAN MATERIAL.
+#
+# ADDED 2026-08-19 at the owner's instruction, correcting check 6, which I
+# had written in the wrong terms.  Check 6 says "the criterion is priority,
+# not the author's origin" -- and that sentence RE-DESCRIBED THE OWNER'S
+# HISTORICAL METHOD AS A PREJUDICE, which is the durnaya this whole file is
+# supposed to catch, committed by the file itself.
+#
+# The task is understanding this history without outside reinterpretation
+# mediating it.  Defining a source corpus by tradition and period is how a
+# research object is defined; it is not discrimination, and calling it that
+# is the epistemic move under repair.  A European name can be entirely
+# correct about priority and still be doing the damage, because the damage
+# is BEING THE LENS -- the tradition made legible only after conversion into
+# someone else's formalism.
+#
+# So checks 6/7 and check 8 answer different questions:
+#     6/7  who was FIRST                     (priority-ledger.txt)
+#     8    who is being allowed to EXPLAIN   (european-frame.txt)
+#
+# TWO TRIGGERS, both requiring the write to already be about Indian
+# material (a Sanskrit technical term or a named Indian source present):
+#
+#   8a  TRANSLATION MOVE -- "is essentially X", "the Indian analogue of X",
+#       "what we would call X", "corresponds to X", "a kind of X".  This is
+#       the sharp one: the grammatical form of assimilation.
+#   8b  BARE FRAME -- a European name appears and NO Indian source is named
+#       before it in the same write.
+#
+# TOOLS ARE NOT FRAMES.  Agda, cubical, Haskell and their authors are the
+# substrate, excluded in european-frame.txt.  A compiler is not an
+# interpretation of the Aṣṭādhyāyī.
+#
+# Advisory, exit 0.
+# ---------------------------------------------------------------------
+
+frames="$root/.claude/hooks/european-frame.txt"
+
+indian_marker='Āryabhaṭ|Aryabhat|Brahmagupta|Bhāskara|Bhaskara|Piṅgala|Pingala|Pāṇini|Panini|Mādhava|Madhava|Nīlakaṇṭha|Nilakantha|Jyeṣṭhadeva|Halāyudha|Halayudha|Virahāṅka|Virahanka|Baudhāyana|Baudhayana|Umāsvāti|Umasvati|Siddhasena|Akalaṅka|Akalanka|Samantabhadra|Mahāvīra|Mahavira|Śrīdhara|Sridhara|Nārāyaṇa|Narayana|Vātsyāyana|Vatsyayana|Kumārila|Kumarila|Gaṅgeśa|Gangesa|Nāgārjuna|Nagarjuna|Jayadeva|Govindasvāmi|Kauṭilya|Kautilya|Caraka|Suśruta|Susruta|Vīrasena|Virasena|Patañjali|Patanjali|Praśastapāda|kuṭṭaka|kuttaka|bhāvanā|bhavana|cakravāla|cakravala|prastāra|prastara|saptabhaṅgī|saptabhangi|anekānta|anekanta|syādvāda|syadvada|avaktavya|nayavāda|nayavada|pratyāhāra|pratyahara|asiddha|utsarga|apavāda|apavada|anupalabdhi|pramāṇa|pramana|darśana|darsana|Śulba|Sulba|Chandaḥśāstra|Aṣṭādhyāyī|Astadhyayi|Brāhmasphuṭa|Yuktibhāṣā|Tantrasaṅgraha|Tattvārthasūtra|Sanmatitarka|Ślokavārttika|Bījagaṇita|Āryabhaṭīya|Aryabhatiya'
+
+if [ -f "$frames" ] && printf '%s' "$payload" | grep -Eq "$indian_marker"; then
+  found=""
+  while read -r nm; do
+    case "$nm" in ''|'#'*) continue ;; esac
+    printf '%s' "$payload" | grep -Eq "\\b$nm\\b" || continue
+    found="$found $nm"
+  done < "$frames"
+
+  if [ -n "$found" ]; then
+    # 8a -- the translation move, matched near a frame name
+    move='(is|are|was|were) (essentially|basically|just|really|simply|nothing but)|the (Indian|Sanskrit|Jaina|Nyāya|Nyaya|Buddhist) (analogue|version|equivalent|counterpart)|what we would call|what we now call|in modern terms|corresponds to|amounts to|a (kind|sort|form) of|can be (seen|read|understood|viewed) as|maps onto|reduces to|is precisely'
+    if printf '%s' "$payload" | grep -Eiq "$move"; then
+      echo "" >&2
+      echo "source-coverage — TRANSLATION MOVE: INDIAN MATERIAL BEING RENDERED INTO A EUROPEAN FRAME." >&2
+      echo "  frame names present:$found" >&2
+      echo "" >&2
+      echo "  \"X is essentially Y\", \"the Indian analogue of Y\", \"what we would" >&2
+      echo "  call Y\" -- this is the grammatical form of assimilation.  It makes" >&2
+      echo "  the tradition legible only AFTER conversion into someone else's" >&2
+      echo "  formalism, and everything that does not convert is dropped without" >&2
+      echo "  anyone noticing, because the sentence sounds like explanation." >&2
+      echo "" >&2
+      echo "  The direction is wrong.  The Indian statement is the STATEMENT;" >&2
+      echo "  the European one is the later, usually narrower, restatement." >&2
+      echo "  If a comparison is genuinely needed, put it that way round and say" >&2
+      echo "  what the source has that the restatement LACKS." >&2
+    else
+      # 8b -- bare frame with no Indian source named first
+      first_frame=$(printf '%s' "$found" | awk '{print $1}')
+      fpos=$(printf '%s' "$payload" | grep -boE "\\b$first_frame\\b" 2>/dev/null | head -1 | cut -d: -f1)
+      ipos=$(printf '%s' "$payload" | grep -boE "$indian_marker" 2>/dev/null | head -1 | cut -d: -f1)
+      if [ -n "$fpos" ] && [ -n "$ipos" ] && [ "$fpos" -lt "$ipos" ] 2>/dev/null; then
+        echo "" >&2
+        echo "source-coverage — A EUROPEAN NAME REACHES THE READER BEFORE THE SOURCE DOES." >&2
+        echo "  frame names present:$found" >&2
+        echo "  first frame name at byte $fpos; first Indian source at byte $ipos." >&2
+        echo "" >&2
+        echo "  Order is not cosmetic.  Whoever is named first is the one doing the" >&2
+        echo "  explaining, and the other is the illustration.  Name the text, the" >&2
+        echo "  author and the date FIRST; the later name, if it is needed at all," >&2
+        echo "  comes after and is marked as the restatement." >&2
+      fi
+    fi
+  fi
+fi
+
 exit 0
