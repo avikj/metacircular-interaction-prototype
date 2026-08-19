@@ -57,3 +57,15 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
         × (तिर्यक् (pos 2) (pos 1) ≡ pos 4)
         × (कर्ण (pos 2) (pos 1) ≡ pos 5)
 जनक-३४५ = refl , refl , refl
+
+------------------------------------------------------------------------
+-- अन्तर-वर्गः — वर्गान्तर-करणस्य बीजम् : (a+b)(a−b) = a² − b² ।
+-- बौधायनः (शुल्बसूत्रम्) यत् वर्गं द्वयोः वर्गयोः अन्तरं तत् रचयति ; तस्य
+-- आयत-रूपम् (a+b)×(a−b) वर्गान्तरं a²−b² ददाति — इदम् एव तत् बीजम् ।
+-- (Baudhāyana's caturaśra-karaṇa for the DIFFERENCE of two squares: the
+--  rectangle (a+b)×(a−b) has area a²−b², the algebra behind turning a
+--  difference of squares into one square.  A ring identity, solve-सिद्धा.)
+------------------------------------------------------------------------
+
+अन्तर-वर्गः : (a b : ℤ) → (a + b) · (a - b) ≡ a · a - b · b
+अन्तर-वर्गः = solve ℤCommRing
