@@ -55,7 +55,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Group.Base using (Group ; makeGroup)
 open import Cubical.Algebra.AbGroup.Base using (AbGroup ; makeAbGroup)
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
-open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc) renaming (_+_ to _+ℕ_)
 open import Cubical.Data.Int using (negsuc)
 
 open import Bhavana using (module Form)
@@ -485,6 +485,22 @@ module Generative (CR : CommRing ℓ) where
     makeAbGroup (unit D) _∙₁_ inv isSetSol
                 (λ x y z → sym (∙₁-assoc x y z))
                 ∙₁-idR ∙₁-invR ∙₁-comm
+
+  ----------------------------------------------------------------------
+  -- "One solution breeds all" (Brahmagupta), made a group law: the chain
+  -- `chain s n = sⁿ` under `_∙₁_` is a monoid homomorphism (ℕ, +) → SolGroup.
+  -- `chain s (m + n) ≡ chain s m ∙₁ chain s n` — composing the m-th and n-th
+  -- generated solutions of x² − D y² = 1 gives the (m+n)-th.  So the cakravāla
+  -- orbit of a seed is exactly the cyclic sub-structure it generates; the
+  -- Pell solutions are the powers of a fundamental one.
+  ----------------------------------------------------------------------
+
+  chain-add : {D : R} (s : Sol D 1r) (m n : ℕ)
+            → chain s (m +ℕ n) ≡ chain s m ∙₁ chain s n
+  chain-add s zero    n = sym (∙₁-idL (chain s n))
+  chain-add s (suc m) n =
+      cong (s ∙₁_) (chain-add s m n)
+    ∙ sym (∙₁-assoc s (chain s m) (chain s n))
 
 ------------------------------------------------------------------------
 -- 8.  THE CHAIN AT D = 2, COMPUTED.
