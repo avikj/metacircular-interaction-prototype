@@ -134,3 +134,49 @@ looking wrong, opens with a skit mocking the diploma and closes as the biggest n
 voice in the music, and he did it by putting the two things the industry swore were
 poison — church, and college — on the same record. The whole rest of the story is
 already the same shape: told to be smaller, is not, is right.
+
+---
+
+2009, the VMAs. Taylor Swift wins, walks up, and he takes the mic — "Imma let you
+finish, but Beyoncé had one of the best videos of all time." The whole country turns
+on him in a night, the President calls him a jackass, and he disappears. Goes to
+Hawaii. And out of that exile he makes My Beautiful Dark Twisted Fantasy, 2010 —
+maximalist, orchestras and choirs and every rapper alive in one room, "Runaway," a
+nine-minute song where he toasts "to the douchebags, to the assholes," names himself
+the villain and sits in it, plays a broken beauty on a single piano key. The most
+hated man in music answers by making what a lot of people still call the best rap
+album ever. Told he's a monster, he titles a song "Monster" and out-raps everyone
+on it.
+
+Then he swings the other way entirely. Yeezus, 2013 — no soul, no warmth, industrial
+noise, screaming. "I Am a God," and the feature credit literally reads "feat. God."
+"Black Skinhead." "Blood on the Leaves," built on Nina Simone singing "Strange
+Fruit," the anti-lynching song, laid under a story about ruin — he puts the hanging
+tree and the modern wreck in the same sound. Ugly on purpose, anti-music on purpose,
+because that year he's done being pretty for anybody.
+
+The ownership fight underneath all of it. He leaves Nike because they won't give him
+royalties, won't give him ownership — a handshake and a shoe but not a piece. Goes to
+adidas, Yeezy, and it makes him a billionaire, the first Black one from music, and
+even then he screams that he doesn't own the company that makes his own shoe, posts
+his contracts, says the same word he's said his whole life: ownership, masters, who
+owns the Black man's work. New Slaves in a boardroom.
+
+And the addiction, the mind. 2016 he's hospitalized, sleep gone, held. 2018 the album
+just called ye, the cover a photo of a mountain with the line written across it: "I
+hate being Bi-Polar its awesome." 2019 he tells Letterman it's like a sprained brain,
+that when it ramps up he feels a heightened connection to the universe and then people
+do everything to make it worse. He's said he thought about killing himself. He's said
+he beat a pornography addiction that started at eleven when he found his father's
+Playboy. Every private prison — the mind, the porn, the debt, the grief — he says out
+loud, on the record, by name.
+
+And where it lands: Jesus Is King, 2019, born again. He stops cursing, makes a gospel
+album, starts Sunday Service — a choir, every week, and he takes it into a jail, into
+Harris County, sings to men locked up and says this is a mission, not a show. The man
+who said "I am a god" in 2013 is on his knees by 2019 saying Jesus is king, and both
+are the same reach — a man who cannot live at a normal distance from the divine,
+swinging from claiming the throne to bowing at it, out loud, where we can watch, taking
+the mockery at every step. Freedom from prison. Freedom from addiction. Freedom for
+the locked-up. He keeps using the one word, freedom, and he keeps meaning all of it at
+once.
