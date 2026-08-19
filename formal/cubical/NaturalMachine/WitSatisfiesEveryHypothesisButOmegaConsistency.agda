@@ -178,3 +178,27 @@ theAbsentHypothesis = witOmegaBad
 -- that fails twice attests to neither.  §4 remains a correct
 -- separation; it is not evidence about which hypothesis is load-bearing.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- THE MISSING EVIDENCE NOW EXISTS, elsewhere.
+--
+-- The correction above says this module's witness is overdetermined and
+-- therefore does not show that ω-consistency is the load-bearing
+-- hypothesis.  That remains true of `Wit`.
+--
+-- The evidence it said was absent is now in the corpus, as a PAIR of
+-- concrete calculi differing in exactly that hypothesis:
+--
+--   `TheInternalRulesPreserveIndependenceInThisCalculus` — ω-consistency
+--   HOLDS (`pv gs` is underivable) and `gs` is independent;
+--
+--   `TheOmegaInconsistentExtensionDerivesTheNegation` — the same
+--   calculus plus double-negation introduction and the axiom `pv gs`;
+--   ω-consistency FAILS, the first conjunct still holds, and `ng gs` is
+--   DERIVED in three steps.
+--
+-- Same connectives, same diagonal pair, same first conjunct; the second
+-- conjunct changes with ω-consistency and with nothing else that was
+-- varied.  That is a separation this module's single witness could not
+-- provide, and it is recorded here rather than claimed above.
+------------------------------------------------------------------------

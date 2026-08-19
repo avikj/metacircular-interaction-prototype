@@ -141,6 +141,7 @@ import NaturalMachine.ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 import NaturalMachine.TheRefutingModelAlreadyGivesTheFirstConjunct
 import NaturalMachine.ADiagonalSentenceIndependentInAConcreteTheory
 import NaturalMachine.TheInternalRulesPreserveIndependenceInThisCalculus
+import NaturalMachine.TheOmegaInconsistentExtensionDerivesTheNegation
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
