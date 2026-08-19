@@ -80,3 +80,17 @@ open import SamasaMeruN
 -- उदाहरणम् — नारायण-गो-श्रेढी {१,३} (ps = 0 ∷ 2 ∷ []) सर्वत्र धना ।
 नारायण-धना : (n : ℕ) → 1 ≤ length (सर्गः (0 ∷ 2 ∷ []) n)
 नारायण-धना = धनात्मकता (2 ∷ [])
+
+------------------------------------------------------------------------
+-- वर्ध-श्रेढी — पूर्ण-वर्धनम् : m ≤ n ⟹ a(m) ≤ a(n) (न केवलं एक-पदम्, समग्रम्) ।
+-- एक-पद-वर्धनस्य श्रेढी-रूपम्, अन्तर k = n − m इति आगमनेन ।
+-- (Full monotonicity: a(m) ≤ a(k+m) for every k — the one-step एकक-अग्र-वर्धनम्
+--  iterated along the whole gap.  So a unit-front samāsa sequence is
+--  non-decreasing across any interval, not merely at adjacent points.)
+------------------------------------------------------------------------
+
+वर्ध-श्रेढी : (qs : List ℕ) (m k : ℕ)
+          → length (सर्गः (0 ∷ qs) m) ≤ length (सर्गः (0 ∷ qs) (k + m))
+वर्ध-श्रेढी qs m zero    = ≤-refl
+वर्ध-श्रेढी qs m (suc k) =
+  ≤-trans (वर्ध-श्रेढी qs m k) (एकक-अग्र-वर्धनम् qs (k + m))
