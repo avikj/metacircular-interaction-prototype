@@ -261,3 +261,40 @@ refusedBecauseEarlier = refl
 
 producedByLater : pāda vāvasāne ≡ 4
 producedByLater = refl
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19.  WHICH SŪTRA THIS MODULE IS ABOUT, AND WHICH IT IS
+-- NOT -- because the corpus contains a second module about "asiddhatva"
+-- that models the other one.
+--
+-- This file is 8.2.1 पूर्वत्रासिद्धम्: any SUBSEQUENT rule is asiddha with
+-- respect to any rule that PRECEDES it, so the tripādī applies strictly in
+-- the order enumerated and the later output is invisible backwards.  That
+-- one-way, backwards blindness is exactly what `tripādī` implements above
+-- and exactly what `asiddhaLoadBearing` shows is doing the work: without
+-- it, 8.2.39 and 8.4.56 cycle k → g → k forever, and §5 proves no strict
+-- order can stop them.
+--
+-- `NaturalMachine/AsiddhatvaBreaksFactoring.agda` proves a different and
+-- also correct thing -- that a rule reading a form ERASURE has already
+-- destroyed does not factor through the current form -- but attributes it
+-- to 8.2.1.  That behaviour, "sees the form as it was, not as it now is",
+-- is 6.4.22 असिद्धवदत्राभात्: inside the block 6.4.22-6.4.129 the rules are
+-- asiddhavat with respect to EACH OTHER and apply as if simultaneously.
+-- Mutual and simultaneous, not one-way and ordered.  The correction is
+-- appended at that file, with sources, altering none of its lines.
+--
+-- THE TWO ARE THE TWO POLES OF ONE DISTINCTION, and the corpus already
+-- names it in Jain terms: `Saptabhangi.क्रम-सह-भेदः` proves that krama
+-- (successive) and saha (simultaneous) arpaṇa reach different positions,
+-- so simultaneity is not sequential both-ness.  Read across:
+--
+--     8.2.1  krama   ordered, one-way blindness   buys TERMINATION (here)
+--     6.4.22 saha    mutual, simultaneous         buys INFORMATION
+--                                                 (AsiddhatvaBreaksFactoring)
+--
+-- Pāṇini spends a sūtra on each.  They are not variants of one device, and
+-- reading them as one is what produced the misattribution.  The
+-- correspondence is offered as a reading, not proved; the sūtra
+-- identification is sourced.
+------------------------------------------------------------------------

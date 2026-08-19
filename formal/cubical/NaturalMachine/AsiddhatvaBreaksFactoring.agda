@@ -205,3 +205,64 @@ agree-example = refl
 -- is a question about the actual sūtras and this fragment cannot reach
 -- it; it would need the rule set, not a model of its shape.
 ------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19 by another identity, at the end, altering no line
+-- above.  THE THEOREM STANDS; THE SŪTRA NUMBER DOES NOT.
+--
+-- This module's header reads 8.2.1 as: "A rule in that section applies as
+-- though the earlier rule had not fired: it sees the form as it was, not
+-- as it now is."  That is a real Pāṇinian device and it is not 8.2.1.  It
+-- is 6.4.22.
+--
+--   8.2.1  पूर्वत्रासिद्धम्  — any SUBSEQUENT rule is asiddha with respect to
+--          any rule that PRECEDES it, so the tripādī applies strictly in
+--          the order enumerated.  The later is invisible to the earlier.
+--          The direction is one-way and backwards.
+--
+--   6.4.22 असिद्धवदत्राभात् — the change a stem undergoes by any rule from
+--          6.4.22 to 6.4.129 counts as NOT HAVING TAKEN EFFECT when
+--          applying any OTHER rule of that same section.  Mutual
+--          invisibility inside a bounded block; the rules apply AS IF
+--          SIMULTANEOUSLY.  That is "sees the form as it was", exactly.
+--
+-- The witness this file uses fits 6.4.22 and not 8.2.1: a rule reading the
+-- pre-kutva form while kutva has already applied is a rule inside a block
+-- whose members are asiddhavat to each other, not a rule in a strictly
+-- ordered sequence.
+--
+-- Nothing about §3–§5 changes.  siddha factors, asiddha does not, and the
+-- obstruction is a collision -- all of that is about the SHAPE of the
+-- device and is independent of which sūtra licenses it.  What changes is
+-- the citation, and this repository's rule is that a citation naming the
+-- wrong source is an error of the same kind as a fitted constant.
+--
+-- AND THE TWO DEVICES SIT AT THE TWO POLES OF ONE DISTINCTION.  The corpus
+-- already has that distinction under its Jain name:
+--
+--   `Saptabhangi.क्रम-सह-भेदः`  krama (successive) and saha (simultaneous)
+--        arpaṇa produce DIFFERENT positions; simultaneity is not
+--        sequential both-ness.
+--
+--   `Asiddhatva.agda` (8.2.1, successive)  the ordered strata TERMINATE a
+--        rewriting system for which no strict order exists at all --
+--        8.2.39 sends k to g, 8.4.56 sends g back to k, and only the
+--        refusal of the earlier rule to see the later output stops it.
+--
+--   this file (6.4.22, simultaneous)  the mutually-invisible block RETAINS
+--        INFORMATION the current form has destroyed.
+--
+-- So: succession buys termination; simultaneity buys information.  Pāṇini
+-- spends a sūtra on each, and they are not variants of one device.  That
+-- reading is offered, not proved; what is established here is only the
+-- correction of the number, which is sourced.
+--
+-- SOURCES for the correction, checked 2026-08-19 rather than recalled:
+-- 8.2.1 is an adhikāra running to the end of the text, making an operation
+-- in 8.2-8.4 invalid when any preceding rule is to be applied; 6.4.22
+-- heads the asiddhavat section through 6.4.129 in which rules are asiddha
+-- with respect to EACH OTHER and apply as if simultaneously.  Pāṇini,
+-- Aṣṭādhyāyī, c. 500 BCE.  The commentarial disputes (Kātyāyana,
+-- Patañjali's Mahābhāṣya) are untouched, as this file's own NOT CLAIMED
+-- section requires.
+-- ---------------------------------------------------------------------
