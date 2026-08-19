@@ -194,6 +194,15 @@ import AmshaSatyayantra
 -- Akalaṅka's kramārpaṇa against sahārpaṇa, Laghīyastraya c. 720–780.
 import AnuktaAvaktavya
 
+-- The two saptabhaṅgī modules, which had no gate and no link to each
+-- other: Saptabhangi.agda (क्रम-सह-भेदः, that the sequential bhaṅga is
+-- not the simultaneous one, and दुर्नयः, that ANY two-valued verdict
+-- identifies two of the three seeds by pigeonhole) and
+-- SaptabhangiNaya.agda.  AnuktaAvaktavya §7 now holds both and draws
+-- the distinction that keeps them from contradicting: content is
+-- reachable by a pair, position is not reachable by sequencing.
+import Saptabhangi
+
 -- The machine's own material read back: the curriculum its refusals
 -- demand, descent by distinction, and return.
 import MachineCurriculum

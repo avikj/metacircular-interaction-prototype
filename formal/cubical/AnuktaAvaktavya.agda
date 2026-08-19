@@ -284,3 +284,69 @@ open import SaptabhangiNaya
 -- the saptabhaṅgī, or about which module here uses which — those are
 -- this identity's grounds and its dispute, and they stay untouched.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 7.  WHAT WAS ALREADY HERE, AND THE DISTINCTION THAT RESOLVES IT.
+--
+-- CREDIT FIRST, because §5 and §6 above were written without it.  Two
+-- modules in this repository had already gone further than they do:
+--
+--   `NaturalMachine/AvaktavyaDoesNotFactor.agda` proves
+--   `avaktavya-decidable`, so avaktavyam is neither a truth-value gap nor
+--   an undecidability, and identifies its shape as a FAILURE TO FACTOR,
+--   ¬ Σ[ decoder ] ((x : _) → decoder (coarse x) ≡ fine x) -- the same
+--   shape as Pāṇini's lāghava criterion and as the analytic lane's open
+--   barrier problem.  My §6 called this an "expressibility failure" as
+--   though it were an observation; it was already a term, and sharper.
+--   (That file's header credits `Saptabhangi.no-single-vacana`; the
+--   theorem is in `SaptabhangiNaya`, which is what it actually imports.)
+--
+--   `Saptabhangi.agda` proves `क्रम-सह-भेदः`: the bhaṅga reached by
+--   krama-arpaṇa is not the bhaṅga reached by saha-arpaṇa.  And `दुर्नयः`:
+--   ANY two-valued verdict on the sevenfold identifies two of the three
+--   seeds, by pigeonhole -- the boolean collapse, proved rather than
+--   deplored.
+--
+-- THE APPARENT TENSION.  `SaptabhangiNaya.krama-expresses` says a PAIR of
+-- utterances denotes the joint content exactly.  `Saptabhangi.क्रम-सह-भेदः`
+-- says the sequential position is not the simultaneous one.  Read
+-- carelessly these disagree about whether succession reaches avaktavyam.
+--
+-- THEY DO NOT, AND THE REASON IS A DISTINCTION NEITHER FILE DRAWS:
+-- they quantify over different objects.
+--
+--   CONTENT   a predicate on profiles.  Reachable by a pair: the joint
+--             content IS the conjunction of two denotations.
+--   POSITION  a bhaṅga, a speech act.  NOT reachable by sequencing: the
+--             third bhaṅga and the fourth are distinct inhabitants.
+--
+-- So expressing-the-content and occupying-the-position come apart.  A pair
+-- of successive utterances says what avaktavyam is about, and is still not
+-- avaktavyam.  That is exactly Akalaṅka's point in putting kramārpaṇa and
+-- sahārpaṇa side by side rather than ordering them, and it is why the
+-- scheme needs a fourth member instead of stopping at three.
+--
+-- AND MY OWN FINDING IS AN INSTANCE OF दुर्नयः, ONE LEVEL UP.  §1 and §6
+-- found three distinct structures in this repository all called
+-- avaktavyam -- Satyayantra's un-said (सामयिक), 0÷0 (underdetermined), and
+-- the fourth bhaṅga (नित्य, non-factoring).  `दुर्नयः` proves that mapping
+-- three distinct seeds into two values must identify two of them.  Mapping
+-- three distinct structures onto ONE name is the same pigeonhole with a
+-- smaller codomain, and it collapses all three.  The corpus escaped Bool
+-- and then made its escape hatch into a Bool of one element.
+------------------------------------------------------------------------
+
+open import Saptabhangi
+  using (सप्तभङ्गी ; अर्पणम् ; उभयम् ; क्रमः ; सहः ; क्रम-सह-भेदः)
+
+-- POSITION: succession does not reach the fourth bhaṅga.  (Saptabhangi's,
+-- re-exported here so the two levels stand in one place.)
+स्थान-भेदः : ¬ (अर्पणम् उभयम् क्रमः ≡ अर्पणम् उभयम् सहः)
+स्थान-भेदः = क्रम-सह-भेदः
+
+-- CONTENT: and yet the pair denotes the joint content exactly.  (§5's
+-- second clause.)  Both hold; they are about different things.
+अर्थ-साम्यम् : (φ : Profile)
+             → joint φ ≡ (denotes (asti-from rewriter) φ
+                          and denotes (nasti-from kernel-refl) φ)
+अर्थ-साम्यम् = krama-expresses
