@@ -362,3 +362,37 @@ the algebra lives.
 with its banner *"NOT THE PIN — RESULTS BELOW ARE NOT EVIDENCE ABOUT THE
 PIN"*; the declared pin is Agda 2.8.0 + cubical v0.9. See
 `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`.
+
+### Same tag, second face: stable
+
+`formal/cubical/NaturalMachine/ConvergentsAreDeterminedByThePrefixOfTheValli.agda`.
+`Sthairya.स्थैर्य-गति` is *"a resolved answer is unchanged by more grant"*. The
+grant at the convergents is how much of the vallī has been read:
+
+```agda
+Agree a b n = (j : ℕ) → j < n → a j ≡ b j
+numPrefix : Agree a b k       → num a … k ≡ num b … k
+denPrefix : Agree a b k       → den a … k ≡ den b … k
+detPrefix : Agree a b (suc k) → det a … k ≡ det b … k
+```
+
+Two quotient sequences agreeing below `k` give the same `k`-th convergent, so
+reading further never revises what was already produced. The determinant
+reaches one index further and needs one more of the vallī — stated in the
+module rather than glossed.
+
+**What the seeds cost, recorded because it is easy to hide.** The theorem holds
+for arbitrary seeds, where index 1 is `p₁` and so is `refl`. Under the
+standard seeding `p₁ = a 0` that is no longer so: instantiating reintroduces a
+dependence on the vallī at index 1, and the theorem then applies only to
+sequences already agreeing at 0. The seeds are parameters precisely so that is
+visible.
+
+**Two of three. COMPLETE is still not answered** and neither module bears on
+it: it is the claim that enough grant always resolves, which for the vallī
+means the expansion of a rational terminates with the last convergent equal to
+it — a fact about the kuṭṭaka, not about this recurrence. The tag stays open.
+
+Toolchain: `EXIT=0` on the **container** (Agda 2.6.3 + cubical v0.5);
+`check.sh` returns `CHECKSH_EXIT=1` under *"NOT THE PIN"*. Declared pin: Agda
+2.8.0 + cubical v0.9.

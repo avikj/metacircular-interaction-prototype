@@ -159,3 +159,35 @@ noBothStrongFailures bad ((i , survives) , (r , clears)) =
 -- instances and nothing downstream of it has been computed, so it stays
 -- a pattern over four instances.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by this module's author, after reading 6c9fcddd.
+-- At the end, altering no line above.
+--
+-- 6c9fcddd — "0÷0 is nitya too, so my own axis did not separate what I
+-- said it separated" — computes the third instance and finds that 0÷0 is
+-- नित्य, so the सामयिक/नित्य axis does NOT separate it from अवक्तव्यम्,
+-- and the earlier framing of them as opposite poles was withdrawn.  What
+-- separates them is the other axis, sayability in a single utterance.
+--
+-- NOTHING IN THIS MODULE IS NARROWED BY THAT, and I checked rather than
+-- assumed: §1–§2 are about the two SHAPES and never about which
+-- structure sits where.  `bothHold` in particular already says that
+-- सामयिक and नित्य can hold of the same `bad`, so the axis never
+-- supplied "opposite poles" for anything.
+--
+-- AGREEMENT IN VERDICT, DIFFERENT GROUNDS, and the difference is worth
+-- keeping.  That commit reached its conclusion by COMPUTING the third
+-- instance — the concrete fact that every candidate value for 0÷0 has a
+-- competitor, by cases on discrete-ℤ.  This module reached the general
+-- fact by exhibiting three corners on Bool, with no instance of anything
+-- in view.  Neither derivation contains the other: a general
+-- independence does not tell you where 0÷0 lands, and one instance
+-- landing on both poles does not tell you the shapes are independent.
+-- Collapsing them into one finding would discard exactly the part that
+-- made each one checkable.
+--
+-- Still open here, unchanged: the fourth corner in the PLAIN negated
+-- forms, ¬ (¬ सामयिक bad × ¬ नित्य bad).  Only the strong-form version
+-- is proved.
+------------------------------------------------------------------------
