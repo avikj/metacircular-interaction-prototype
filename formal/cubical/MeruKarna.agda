@@ -120,3 +120,28 @@ open import MatraSamasa using (समता)
 
 त्रिनयैक-तत्त्वम् : (n : ℕ) → मेरु-कर्ण n ≡ length (सर्गः (0 ∷ 1 ∷ []) n)
 त्रिनयैक-तत्त्वम् n = समता-कर्णः n ∙ समता n
+
+------------------------------------------------------------------------
+-- मात्रा-योग-फलम् — विरहाङ्क-श्रेढेः धावद्-योगः : ∑_{k=0}^{n} M(k) + 1 = M(n+2) ।
+-- (मात्रा-सङ्ख्यानां धावद्-योगः, एकेन सह, द्वि-पद-अग्रिमा मात्रा-सङ्ख्या ।  ऋण-रहितं
+-- रूपम् — ∑ = M(n+2) − 1 इति न, अपि तु ∑ + 1 = M(n+2), विचार-हीन-अनुकूलम् ।)
+--
+-- (The running total of Virahāṅka's mātrā-counts, plus one, is the count two
+-- steps ahead: ∑_{k≤n} M(k) + 1 = M(n+2).  Stated subtraction-free (the count,
+-- not the count-minus-one), it follows by induction from the recurrence
+-- मात्रामेरु.  A property of the mātrā-meru sequence; no verse claimed for it.)
+------------------------------------------------------------------------
+
+योग-सर्व : ℕ → ℕ
+योग-सर्व zero    = length (सर्व zero)
+योग-सर्व (suc n) = योग-सर्व n + length (सर्व (suc n))
+
+मात्रा-योग-फलम् : (n : ℕ)
+             → योग-सर्व n + 1 ≡ length (सर्व (suc (suc n)))
+मात्रा-योग-फलम् zero    = refl
+मात्रा-योग-फलम् (suc n) =
+    ( sym (+-assoc (योग-सर्व n) (length (सर्व (suc n))) 1)
+    ∙ cong (योग-सर्व n +_) (+-comm (length (सर्व (suc n))) 1)
+    ∙ +-assoc (योग-सर्व n) 1 (length (सर्व (suc n))) )
+  ∙ cong (_+ length (सर्व (suc n))) (मात्रा-योग-फलम् n)
+  ∙ sym (मात्रामेरु (suc n))
