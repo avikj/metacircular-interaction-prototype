@@ -83,3 +83,20 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 आयत-समचतुरस्रम् : (a b : ℤ)
                 → pos 4 · (a · b) ≡ (a + b) · (a + b) - (a - b) · (a - b)
 आयत-समचतुरस्रम् = solve ℤCommRing
+
+------------------------------------------------------------------------
+-- वर्ग-समुच्चयः — शुल्ब-समुच्चय-करणम् : (a+b)²-समचतुरस्रं द्वयोः वर्गयोः द्वयोश्च
+-- आयतयोः समुच्चयः — (a+b)² = (a² + b²) + (ab + ab) ।  महत्-समचतुरस्रं (पार्श्वे
+-- a+b) चतुर्धा विभक्तम् : a-वर्गः, b-वर्गः, द्वे a×b-आयते ।  अन्तर-वर्गस्य
+-- (योग-रहित-पक्षस्य) समुच्चय-प्रतिपक्षः — शुल्बे क्षेत्र-संयोजनम् ।
+--
+-- (The śulba's samuccaya construction: the square on (a+b) is the assembly of
+--  two squares and two rectangles — (a+b)² = (a²+b²) + (ab+ab).  The big
+--  square (side a+b) is cut into the a-square, the b-square, and two a×b
+--  rectangles.  The addition-side complement of the difference identities:
+--  combining regions rather than subtracting them.)
+------------------------------------------------------------------------
+
+वर्ग-समुच्चयः : (a b : ℤ)
+            → (a + b) · (a + b) ≡ (a · a + b · b) + (a · b + a · b)
+वर्ग-समुच्चयः = solve ℤCommRing
