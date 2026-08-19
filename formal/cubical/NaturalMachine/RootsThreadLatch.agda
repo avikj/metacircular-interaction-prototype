@@ -137,6 +137,7 @@ import NaturalMachine.WitSatisfiesEveryHypothesisButOmegaConsistency
 import NaturalMachine.AProvabilityDeterminedImplicationForbidsIndependence
 import NaturalMachine.NegationCompletenessForbidsIndependence
 import NaturalMachine.ASmallTheoryWithAnIndependentSentence
+import NaturalMachine.ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 
 -- Piṅgala, Virahāṅka, and the Kerala school
 import NaturalMachine.Sankalita
