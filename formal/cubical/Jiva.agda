@@ -63,6 +63,8 @@ import Matramerus
 import PingalaGhata
 -- अक्षर-द्विगुणः — Vak (suc n) ≃ Vak n ⊎ Vak n : संख्या-द्विगुणस्य वस्तु-स्तरीयं मूलम्
 import AksaraDviguna
+-- मात्रा-वर्ण-गुरु — पिङ्गलस्य त्रि-मान-सम्बन्धः : matraOf ≡ varna + guruOf (मात्रा=वर्ण+गुरु)
+import MatraVarnaGuru
 -- सामान्य-घातः — पिङ्गल-विधेः सामान्य-आधारे विस्तारः (aⁿ log-पदैः, Vargana-आश्रितः)
 import SamanyaGhata
 -- द्वि-घात-वर्गणा-सेतुः — योग-रूप द्वि-घात ≡ गुण-रूप घात 2 ; अतः 2^(m·n)=(2ᵐ)ⁿ द्वि-घाते
