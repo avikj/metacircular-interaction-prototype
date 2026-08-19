@@ -155,3 +155,26 @@ omegaConsistencyIsTheSeparatingHypothesis f =
 -- and the hypothesis that is absent, as a term rather than as prose
 theAbsentHypothesis : OmegaBad Wit wg
 theAbsentHypothesis = witOmegaBad
+
+------------------------------------------------------------------------
+-- CORRECTION, made in
+-- `NaturalMachine.AProvabilityDeterminedImplicationForbidsIndependence`
+-- and recorded here rather than by deletion.
+--
+-- §4 above is unaffected as a statement: the derivation of independence
+-- does require ω-consistency, and `Wit` is a counterexample when it is
+-- dropped.
+--
+-- What is withdrawn is the reading offered in this module's header and
+-- in its commit message — that ω-consistency is thereby "the one
+-- hypothesis doing the work", "witnessed by a model satisfying all the
+-- others".  That other module proves: ANY theory whose internal
+-- implication is provability-determined (`impIntro` here) and which has
+-- contraposition and an unprovable sentence with provable negation has
+-- NO independent sentence at all, whatever its ω-status.  `Wit` is in
+-- that class — by `impIntro` and `witContra`, both proved above.
+--
+-- So `Wit` fails independence for two unrelated reasons, and a witness
+-- that fails twice attests to neither.  §4 remains a correct
+-- separation; it is not evidence about which hypothesis is load-bearing.
+------------------------------------------------------------------------
