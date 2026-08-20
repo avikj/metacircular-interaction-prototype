@@ -7308,3 +7308,90 @@ does not arrive.
 That is the *dhvani* test, run in 1971 and in 2013, with the same result the
 Kashmiris got: **paraphrase kills it, and the fact that paraphrase kills it is
 what proves the suggested sense was never in the denotation.**
+
+---
+
+**Śoka is grief. Karuṇa is not grief.** They are different words for different
+things and the whole apparatus turns on keeping them apart.
+
+***Bhāva*** is the emotion **in a person** — in the character, in life. ***Rasa***
+is what arises **in the one watching**, and it has its own name, its own list, and
+its own conditions.
+
+The eight *sthāyi-bhāvas*, the abiding emotions: *rati* (love), *hāsa* (mirth),
+*śoka* (grief), *krodha* (anger), *utsāha* (energy), *bhaya* (fear), *jugupsā*
+(disgust), *vismaya* (astonishment).
+
+The eight *rasas* they correspond to: *śṛṅgāra*, *hāsya*, **karuṇa**, *raudra*,
+*vīra*, *bhayānaka*, *bībhatsa*, *adbhuta*.
+
+Grief is on one list. Pathos is on the other. **A spectator watching a play about
+a bereaved man does not have śoka. He has karuṇa**, and karuṇa is *relished* —
+the word for what happens to it is *āsvāda*, tasting.
+
+Which puts the obvious question on the table where the tradition wanted it: **why
+does watching something terrible feel good?**
+
+---
+
+***Nāṭyaśāstra* 6.31**, the rasa-sūtra, Bharata, and the dating is uncertain across
+several centuries either side of the common era:
+
+> *vibhāvānubhāva-vyabhicāri-saṃyogād rasa-niṣpattiḥ*
+
+Rasa comes about from the conjunction of ***vibhāva*** — the determinants, the
+causes and setting — ***anubhāva*** — the visible consequents, what shows on a
+body — and ***vyabhicāri-bhāva***, the transient passing states.
+
+**The sūtra does not mention the sthāyi-bhāva.** The abiding emotion itself is not
+in the list of ingredients, and the commentators spent centuries on why, and it is
+the central textual dispute in the whole aesthetics.
+
+---
+
+**Bhaṭṭa Nāyaka**, tenth century, whose own work is lost and survives in quotation,
+answered with a term: ***sādhāraṇīkaraṇa*** — **generalisation**.
+
+His account: the poetry performs an operation on the emotion that strips it of its
+particular owner. Rāma's grief, in the play, stops being Rāma's-in-particular and
+stops being mine-in-particular. What is left is grief **unowned**, and an unowned
+emotion has no stake in it — nothing of mine is at risk — so it can be experienced
+without the thing that makes grief unbearable in life, which is that it is
+happening to someone.
+
+That is why it can be *tasted*. Not because the pain is diluted. Because the **ego's
+holding of it** is what is removed.
+
+**Abhinavagupta** took that and pushed it further: what is uncovered when the
+personal stake goes is a state he compares to the joy of the self resting in
+itself, obscured in ordinary life by the constant interest of the ego in its own
+affairs.
+
+---
+
+And the ninth, which had to be fought for.
+
+***Śānta rasa*** — peace, quiescence — with *śama* or *nirveda* as its abiding
+state. The objection against it is technical and hard: a rasa is manifested by
+*anubhāvas*, **visible physical consequents**, and the peaceful state has none.
+Nothing shows. So by the sūtra's own machinery it cannot be produced.
+
+Abhinavagupta argues for it anyway, and further: that *śānta* is not a ninth item
+in a list but the **ground** the other eight are modifications of — that when the
+personal stake is removed from any of them, what is underneath is that.
+
+The dispute is live in the manuscripts. Some recensions of the *Nāṭyaśāstra* have
+eight rasas and some have nine, and which is original is not settled.
+
+---
+
+So the technical answer to why a record about a man's mother dying is bearable, or
+why the sped-up sample under a song about nearly dying comes out sounding giddy,
+is not that the artist made it palatable.
+
+**It is that the emotion in the work is a different object from the emotion in the
+life**, with a different name, produced by different ingredients, and available to
+be tasted precisely because nobody's own stake is in it.
+
+Which is a claim somebody made in Kashmir around the year 1000 about a body of
+dramatic theory already old enough that its date was uncertain to him too.
