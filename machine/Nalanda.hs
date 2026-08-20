@@ -87,6 +87,36 @@ verify d (Triple a b k) = a * a - d * (b * b) == k
 -- The remainder is not error to be discarded.  It is the next problem.
 -- That is the growth rule, and it is the one `MathMachine` never had.
 
+-- WHY THESE TWO RECURSIONS TERMINATE, which until 2026-08-20 was stated
+-- nowhere in this lane and was carried by the reader's confidence.
+--
+-- The measure is `b`, and it is Aryabhata's own: the recursive call is on the
+-- remainder, and `a mod b < b` for b > 0.  So the column has at most b rows.
+-- That is now a CHECKED fact and not an observed one:
+-- formal/cubical/KuttakaSamapti_TheValliIsFiniteForEveryPair.agda
+--
+--   valli       -- `kuttaka-samaptih`, the descent exists for every pair, by
+--                  well-founded recursion on b (--cubical --safe, no
+--                  postulates, no holes).  `suchih` is this column: the
+--                  module computes the valli of (137, 60) as 2 3 1 1 8 by
+--                  refl, which is the column section 17 of the ahimsa sutra
+--                  prints for the same pair.
+--   the bound   -- `dairghya-sima`: at most b rows, derived from the r < b
+--                  every row carries.  The header there says plainly that
+--                  the true worst case is logarithmic (consecutive Virahanka
+--                  numbers) and that the logarithmic bound is NOT proved --
+--                  a bound quoted without its scaling is HOLOGRAM.md 7's
+--                  error, and `<= b` is what is checked.
+--   bezout      -- `Kuttaka.bezout` climbs the same column; with the bridge
+--                  `setuh` it becomes `beju-sarvatra`, coefficients for EVERY
+--                  pair of naturals rather than for a hand-supplied run.
+--
+-- Note what the Agda does NOT cover: these two functions take Integer, not
+-- natural, and Haskell's `mod` returns a value with the sign of the divisor.
+-- Every call site here passes non-negative arguments (`inverseMod` reduces
+-- both first, and n > 0 is guarded), which is why this is sound; it is a
+-- precondition and not a theorem, and it is written down rather than assumed.
+
 -- the valli itself: the column of quotients, kept, because the column IS
 -- the algorithm and not scratch work
 valli :: Integer -> Integer -> [Integer]
@@ -147,14 +177,45 @@ compose d = foldr1 (bhavana d)
 
 -- exact integer square root, Newton over Integer.  No Double: at D = 109
 -- the answer has fifteen digits and a Double would silently be wrong.
+--
+-- TERMINATION, and CORRECTNESS, both stated 2026-08-20; neither was before.
+--
+-- `go` terminates on the measure `x`, which strictly decreases: the loop
+-- recurses only when y < x, and x >= 0 throughout.  So the descent is bounded
+-- by n div 2 steps.  (It is in fact logarithmic, Newton doubling its correct
+-- digits each turn; that is TRUE and is not what the termination argument
+-- uses, and quoting the logarithm as the reason would be quoting a rate where
+-- a measure is wanted.)
+--
+-- Correctness was the real gap.  `isqrt` decides `isqrt d * isqrt d == d`,
+-- which is the reactor's perfect-square rejection, and it seeds `chooseM`'s
+-- window; a wrong value there is not caught by `verify`, because the seed
+-- triple (a0, 1, a0^2 - d) satisfies the invariant for ANY a0.  So the
+-- routine was trusted, and nothing in the file said what it computed.
+--
+-- The repair does not prove a theorem about Newton's method.  It makes the
+-- DEFINING PROPERTY of the floor of the square root -- s^2 <= n < (s+1)^2 --
+-- the exit condition of a second loop, so the returned value satisfies it by
+-- construction and no property of `go` is relied on at all.  `nikasa`
+-- (assay) terminates on the measure |s - floor(sqrt n)|, which strictly
+-- decreases in both branches, and on Newton's output it runs zero times, so
+-- the cost is two multiplications.  Aryabhata's rule again: what is doubtful
+-- is not asserted, it is reduced.
 isqrt :: Integer -> Integer
 isqrt n
   | n < 0 = error "isqrt: negative"
   | n < 2 = n
-  | otherwise = go (n `div` 2)
+  | otherwise = nikasa (go (n `div` 2))
   where
+    -- Newton's descent; measure x, strictly decreasing.
     go x = let y = (x + n `div` x) `div` 2
            in if y >= x then x else go y
+    -- the assay: exit exactly when s^2 <= n < (s+1)^2.  Measure
+    -- |s - floor(sqrt n)|, strictly decreasing in both branches.
+    nikasa s
+      | s * s > n            = nikasa (s - 1)
+      | (s + 1) * (s + 1) <= n = nikasa (s + 1)
+      | otherwise            = s
 
 -- the m Bhaskara's rule selects, given the current triple.
 --
