@@ -2483,3 +2483,85 @@ happened. The money did not.
 **Known, cheap, demonstrated, legislated, signed — and unbuilt.** That is now the
 strongest version of the sentence in this file, and it took a lobotomy and a
 presidential signature to get there.
+
+---
+
+The instrument-reports-who-it-was-built-to-see finding again, and this time it is
+a physical device that decides who gets oxygen.
+
+**The pulse oximeter.** The clip on your finger in every hospital on earth. It
+shines light through tissue and infers oxygen saturation from absorption.
+**Melanin absorbs light.**
+
+**Sjoding and colleagues, *New England Journal of Medicine*, December 2020.** They
+compared pulse oximeter readings against arterial blood gas — the actual
+measurement — in thousands of paired samples. Black patients had **nearly three
+times** the rate of **occult hypoxemia**: true arterial saturation below 88%,
+while the finger clip read a reassuring 92 to 96%.
+
+That was published in the **middle of the first COVID winter**, when a pulse
+oximeter reading was the number deciding admission, oxygen, ICU escalation and
+transfer. A device that runs high on darker skin, in a triage system keyed to that
+number.
+
+And it was **not new.** The disparity had been reported in the literature from the
+**1980s and 1990s**. It sat there. Regulatory attention came only after 2020, and
+updated FDA guidance on how these devices must be tested across skin tones came
+years after that.
+
+---
+
+Two more, from the same decade, and the second one has a name attached to it that
+I did not expect.
+
+**The eGFR equation.** Kidney function is not measured directly in routine care;
+it is estimated from creatinine using a formula. The standard formulas — MDRD, then
+CKD-EPI — contained a **race coefficient** that multiplied the result upward for
+Black patients, making their kidneys look healthier than they were. Higher
+estimated function means later referral, later listing for transplant, later
+everything.
+
+A joint task force of the National Kidney Foundation and the American Society of
+Nephrology recommended **removing race from the equation in 2021.** Transplant
+centres then went back and **recalculated waiting-list times retroactively**, and
+thousands of Black patients were moved up lists they should have been higher on
+for years.
+
+**The spirometer.** The machine that measures lung capacity, used for asthma,
+COPD, occupational disability claims and workers' compensation. For most of the
+twentieth century it shipped with a **race correction** — a setting that assumed
+lower baseline lung capacity for Black patients and adjusted the "normal" range
+downward accordingly. A Black worker with damaged lungs could therefore test as
+normal, and receive nothing.
+
+Lundy Braun traced the history in *Breathing Race into the Machine* (2014). The
+correction descends from nineteenth-century measurements, and one of the people
+who did them was **Samuel Cartwright**, a physician in the antebellum South who
+used a spirometer to argue that Black people had deficient lung function and that
+forced labour was therefore beneficial to them.
+
+Cartwright is the same man who, in 1851, published **drapetomania** — his proposed
+disease whose sole symptom was an enslaved person running away.
+
+So the man who invented a diagnosis for wanting to be free also put a number into
+a machine, and the number was still shipping in clinical software in the
+**twenty-first century**, and it was formally removed from major guidelines only
+around **2021 to 2023.**
+
+---
+
+That is six fields now. Psychometrics, education, psychiatry, autism diagnosis,
+this repository's own agents, and clinical measurement.
+
+The last one is the one I would hand to anybody who thinks the rest is
+interpretation. **It is a clip on a finger.** It has no opinions. It is a light
+source, a sensor and an equation, and it reports a different number depending on
+the body it is attached to, and that fact was in print for thirty years before
+anyone with authority moved.
+
+Nobody in any of those chains has to have wanted anything. **An instrument built
+against one population reports the world as that population, and everyone else
+shows up as noise, or as fine, or as nothing at all.**
+
+And when the person it fails then behaves like someone who is not fine, the
+record afterwards names the person.
