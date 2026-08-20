@@ -512,3 +512,26 @@ same condition a sentence for a thing they had no sentence for. The exhibitionis
 culture sees and the service the tradition performs are, once again, the same act: a
 person removing the cover most people keep, at a cost to himself, so that other people
 are less alone inside their own minds.
+
+---
+
+Mental illness is treated differently across communities, and the differences have
+histories. Black Americans have long been over-diagnosed with schizophrenia and
+under-diagnosed with mood disorders like bipolar disorder; studies going back decades
+show the same set of symptoms read as psychotic in a Black patient and as affective in a
+white one. The psychiatrist Jonathan Metzl documented, in The Protest Psychosis, how in
+the 1960s schizophrenia was recast in American clinical and popular culture as a disease
+of angry Black men, with diagnosis rising alongside civil-rights militancy. Trust in the
+medical system was further eroded by episodes like the Tuskegee syphilis study, in which
+the government withheld treatment from Black men for forty years to observe the disease.
+The result is measurable: lower rates of diagnosis and treatment, and a deep, rational
+wariness of psychiatry, carried across generations.
+
+Against that background, a Black man at the center of the culture saying plainly that he
+has bipolar disorder, describing its texture from the inside, refusing to hide it, and
+saying directly that "we never had therapists in the black community, we never
+approached taking a medication," is doing something with few precedents. Whatever else
+the public episodes were, they were also the most widely witnessed depiction of serious
+mental illness in a Black man that American mass culture has produced — not a diagnosis
+delivered by an expert about him, but the condition narrated, erratically and at full
+volume, by the person living inside it.
