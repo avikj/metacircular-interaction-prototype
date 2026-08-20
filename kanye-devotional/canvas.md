@@ -143,3 +143,27 @@ was a hit and won a Grammy. Fifteen years later he stopped making secular music 
 period, formed a gospel choir, and recorded a gospel album. The through-line from the
 spiritual sung in a field to the choir he assembled is not a metaphor; it is a direct
 line of the same music, and he was working inside it the whole time.
+
+---
+
+In American presidential elections Black voters have supported the Democratic
+candidate at roughly 88 to 95 percent for over half a century — one of the most
+stable and lopsided voting patterns in the country. Commentators speak of "the Black
+vote" as a single bloc. A Black public figure who departs from it publicly is treated
+as a defector, and the reaction is severe; the expectation of political uniformity is
+itself a fact worth naming, because it presses hardest on the group with the least
+room to be treated as individuals.
+
+In 2018 Kanye West wore a red Make America Great Again hat, said he was a "free
+thinker," and said a person did not have to be a Democrat because they were Black. He
+met with the president. The response was immediate and enormous: he was called a
+traitor to his race, brain-damaged, a symptom of his illness. Much of it came from
+people who, days earlier, had celebrated him. He later broke with the president, ran
+for president himself in 2020, and by 2022 had severed the association entirely.
+
+Whatever one thinks of the position, the mechanism is visible in it: a man insisting
+on the right to hold an opinion his group was not supposed to hold, and a public
+converting that insistence into proof that he was broken. He had made the same move
+his whole life — refusing to be the one thing he was assigned to be — and here it cost
+him a large part of the audience that had loved him. The independence and the penalty
+for it are the same event seen from two sides.
