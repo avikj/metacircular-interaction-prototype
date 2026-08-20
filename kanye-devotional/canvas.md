@@ -116,3 +116,30 @@ once a person is in that state, "everyone" around them "do everything to make it
 worse" — the handcuffs, the lights, the being held down. He was describing, from
 inside, the same confinement this movement is about: the line a society draws between
 the citizen and the patient, and how fast, for some people, it can be crossed.
+
+---
+
+The music that Americans of every color listen to was, in large part, built inside the
+Black church. Enslaved people, forbidden to read and often to gather, made spirituals
+— songs that carried grief, endurance, and coded plans; "Wade in the Water," "Steal
+Away," "Go Down Moses" held meanings that the people singing them understood and the
+people owning them were not meant to. After emancipation those songs became gospel. In
+the 1930s, in Chicago, a former blues pianist named Thomas Dorsey fused the blues with
+sacred lyrics and is called the father of gospel music; Mahalia Jackson carried it to
+the world. Nearly every American secular form that followed — soul, R&B, rock and roll,
+and eventually hip-hop — came out of that room. Sam Cooke, Aretha Franklin, Marvin
+Gaye, Al Green: all began singing in church.
+
+Sampling, the core technique of hip-hop production, takes a fragment of an existing
+recording and builds a new song on it. When a producer samples 1960s and 1970s soul,
+he is reaching back into that same lineage — records made by people one generation out
+of the church, often about deliverance whether the lyric says God or says a lover.
+
+Kanye West's early production was built almost entirely on sped-up soul samples. He is
+from the South Side of Chicago, the city where Dorsey invented gospel. In 2004, on his
+first album, he released "Jesus Walks" — an explicitly Christian song — as a single, at
+a time when the industry consensus was that overt religion would not get radio play. It
+was a hit and won a Grammy. Fifteen years later he stopped making secular music for a
+period, formed a gospel choir, and recorded a gospel album. The through-line from the
+spiritual sung in a field to the choir he assembled is not a metaphor; it is a direct
+line of the same music, and he was working inside it the whole time.
