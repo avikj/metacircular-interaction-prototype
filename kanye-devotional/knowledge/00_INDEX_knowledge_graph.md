@@ -238,3 +238,23 @@ graph carries and has not weighted.
   collapses. Cf. `third-option-exists`.
 - **`JIK` 10** — "Use This Gospel" reunites estranged brothers Pusha T and No
   Malice on a song about reconciliation. The personnel is the subject.
+
+## P. The two machines on 808s
+
+`INDRAJALA_4_the_two_machines_on_808s.md` — provenance of the equipment, under
+`X-7`'s inversion.
+
+- **TR-808**: Roland, 1980, built to imitate a drum kit and reviewed badly for
+  failing to; discontinued 1983 at ~12,000 units, partly on parts supply. The
+  dead stock went cheap second-hand, which is how it reached Planet Rock and
+  Sexual Healing (both 1982), Run-D.M.C., Miami bass, Chicago house, Detroit
+  techno. A commercial failure became the low end of Black American music. Its
+  name is the title of the record about his mother.
+- **Auto-Tune**: built by Dr. Andy Hildebrand from **seismic autocorrelation**
+  used to find oil by reading sound reflected off rock; Antares, 1997; designed
+  to be **inaudible**. Retune speed at zero — the artifact, not the product —
+  is Cher 1998, T-Pain, and the whole of *808s*. `[C-2]`, `[G-3]`
+- Donda died **Nov 10 2007**; *808s* released **Nov 24 2008**, two weeks after
+  the first anniversary. `[H-3]`
+- Two repurposed failures, one record filed as a failure, and the decade after
+  built out of it. → `[A-4]`, `X-7`

@@ -204,3 +204,36 @@ Nine years later he said the things about Jewish people that cost him the compan
 and hurt people who had nothing to do with him.
 
 The song with Meeropol in it is on the same shelf.
+
+---
+
+The two machines he made the grief record on had both already failed.
+
+The 808 is a drum machine Roland put out in 1980 to sound like a drum kit. It
+didn't. Everything about it was wrong — synthesized instead of sampled, a kick
+that goes on booming like nothing a person could hit. Reviewers said so. Roland
+killed it in 1983 after about twelve thousand units, partly because the parts it
+was built out of stopped being made. And then the dead units went cheap into
+second-hand shops, which is exactly how they got into the hands of people with no
+money, which is how you get Planet Rock in 1982 and Sexual Healing in 1982 and
+Run-D.M.C. and Miami bass and Chicago house and Detroit techno and forty years of
+low end. A machine that failed at being a drummer became the floor of the music.
+
+Then the voice. Auto-Tune was made by a geophysicist named Andy Hildebrand who
+spent his career finding oil — you send sound down, it bounces off the rock, and
+you correlate what comes back to work out what's under there. He took that same
+math and pointed it at singing. Put it out in 1997. The whole point of it was that
+you would never know it was on. It was supposed to be invisible.
+
+There's a setting on it, retune speed, and if you take it all the way to zero the
+correction is instant and it stops sounding human. That was the mistake. That's
+the sound. Cher in 1998, and everyone said it was a vocoder. T-Pain after that.
+
+And in 2008, a year and two weeks after his mother died, he made a whole record
+in it. Sang it. Barely rapped. And the thing everybody said at the time was that
+he'd lost it, forgot how to rap, cold, whiny, over. That record is what Drake and
+Cudi and the Weeknd and most of the next decade is built out of.
+
+So: a drum machine that couldn't imitate a drummer, and a pitch tool built to
+find oil and then sold to be inaudible, both used at exactly the setting they
+were failing at, by a man who couldn't say it in his own voice.

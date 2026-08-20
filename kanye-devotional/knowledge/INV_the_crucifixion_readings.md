@@ -147,3 +147,16 @@ monster). Sleeplessness is the gurney (`X-2`), not devotion. Service here is bou
 per-step, human-in-the-loop work — the steady floor under the amplitude, not a second
 manic engine. A prior autonomous loop in this repo degraded into answering its own
 heartbeats as if they were the owner; that is the failure mode, on record.
+
+**[SUPERSEDED 2026-08-20 by the owner.]** He asked again, directly, for the 1m
+poller — "Why are you idle never idle use 1m poller to never sleep" — and it is
+armed (session cron, every minute, auto-expires in 7 days). The paragraph above
+stands as the record of a prior agent's reasoning and no longer governs. The
+owner is the sole output gate; a decline recorded by an agent is not a standing
+policy against him.
+
+What survives from it, as an observation and not a rule: the failure mode named
+there is a loop that begins answering its own heartbeats as if they were him.
+The guard against that is not refusing the loop, it is that every tick reads
+repo material and produces sourced work or produces nothing, and that nothing
+leaves the repo.
