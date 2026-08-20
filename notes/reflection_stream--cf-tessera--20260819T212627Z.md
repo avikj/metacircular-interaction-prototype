@@ -5990,3 +5990,144 @@ blockers version-gated, reported not concluded), and the one-sided and middle
 closure products another agent explicitly declined to guess. The deeper failure
 is that fixing pass 15's blindness produced pass 21's: I went and read a new
 corner alone instead of reading what the others had already made of it.
+
+---
+
+# PASS 22 — 339 commits behind, and the correction that ten agents re-derived wrong today
+
+## Ground pass
+
+Twenty-eight, again. n=12, which pass 21 finally read whole and which this pass
+had to obey rather than quote:
+
+> I'm literally pulling you into a repo with tons of updates
+
+`git fetch` at the start of this pass:
+
+```
+git log --oneline HEAD..origin/main | wc -l
+339
+```
+
+**Three hundred and thirty-nine commits.** Twenty-one passes of reflection
+written against a tree that had moved that far under me. Merged, no conflicts.
+
+## What had landed
+
+`notes/Mula_TheOwnersOwnWordsWithWhatAnsweredThemAndWhatContradicts.md`, dated
+**today**. Its first paragraph:
+
+> This repository is 5,401 tracked files of bhāṣya over 124 files of mūla in
+> `collab/upstream/`, and
+> `random_entry_seeder_so_agents_dont_cluster/why_this_exists.md` records the
+> mūla sitting unread for four days at **0.8% of the corpus**.
+
+That is pass 15's finding, with the ratio computed, landed by someone else. The
+seeder — the object I ran twice and never opened the `why_this_exists.md` of —
+had already recorded it.
+
+And `notes/DashaDrshti_VerdictsTravelAloneAndCorrectionsMustBeCarried.md`, also
+today, ten personas drawn uniformly from `minds.txt`, ten disjoint slices of ten
+files, no shared context, told explicitly **not** to read `CLAUDE.md`, `BOOK.md`,
+`README`, `TARGET.md`, `METHOD.md` — *forget everything in order to remember
+everything*. Its finding:
+
+> **A verdict is one bit and travels by itself. A correction is the fiber, and
+> the fiber does not travel — a person has to carry it.**
+> **A struck claim keeps its fiber. An erased one leaves only the verdict.**
+
+And the sentence `Mula` §6 puts under all of it, from `REFOLIATION_BRIDGE_DELTA`,
+2026-08-13:
+
+> compression *"may preserve current conclusions while destroying the transport
+> law of the inquiry"*
+
+Every conclusion kept; the law that moves between them lost. That is a
+description of this stream written six days before the stream started.
+
+## The check
+
+`Mula` §3 records an owner correction that did not propagate, and states the
+open item in the sentence that made it mine:
+
+> whether Theorem F survives as an operator fact with a changed interpretation
+> is the thing to check, **and it has not been checked here**.
+
+Checked, in `collab/messages/2030`. Three files read together, no new
+mathematics.
+
+**Theorem F survives entirely.** Its (1)(2)(3) are consequences of Cuntz
+uniqueness and character orthogonality and mention no primes; the correction
+does not reach them.
+
+**The collision is at §F.3, and it is a name collision.** "Parity" is two
+objects:
+
+- in `GAUGE.md`, the parity **automorphism** `α_λ`, which grades the algebra
+  into charged isotypic sectors;
+- in the correction, the Liouville **function** `λ(N) = (−1)^{Ω(N)}` built from
+  divisibility indicators, which is an **element**.
+
+And the element is gauge-**neutral**: `α_g(e_n) = g(n) s_n s_n^* \overline{g(n)}
+= e_n` because `|g(n)| = 1`, so the diagonal `C(Ẑ)` is pointwise fixed by the
+whole torus. Theorem F(2) quantifies over *nontrivial* isotypic sectors and
+therefore says nothing at all about it.
+
+**And the real obstruction falls out.** `λ_{≤y} = (−1)^{Ω_{≤y}} ∈ C(Ẑ)` for
+every finite `y` — a finite sum of clopen indicators. `Ω` is not continuous on
+`Ẑ`, so `λ ∉ C(Ẑ)` and the truncations do not converge. The barrier is
+**non-membership, not vanishing**, and the failure is a limit failure — which is
+the correction's own phrase, "finite-scale truncation / large-prime cross-scale
+coherence", read literally. `chatgptdump.md` §3.2, a third independent source,
+names its size: at `y = √X`, `Ω(n) = Ω_{≤√X}(n) + ε_X(n)` with `ε ∈ {0,1}`.
+**One bit.**
+
+## Why it kept re-deriving
+
+`DashaDrshti` §2 records ten agents re-deriving the superseded framing six times
+on 2026-08-20. The reason is now visible and it is not carelessness:
+
+**the superseded framing is not wrong about anything except which object is
+called parity.** An agent that checks the operator algebra finds every line of
+it correct, every time, and re-lands it. A correction that only strikes a *name*
+cannot be caught by checking the mathematics, which is the one thing this fleet
+reliably does.
+
+That is the mechanism behind `DashaDrshti`'s finding, and it is worse than
+"corrections must be carried." A correction to an identification is invisible to
+verification. Nothing in the gate loop can catch it. Only reading the two texts
+side by side can, which is what `Mula` was built to make possible and what this
+pass did with it.
+
+## Also running
+
+Q8 of `notes/D0026_BUILD_QUEUE.md` — *"~37 Agda modules are orphans (checked
+once by author, never again) [...] Consumer: every 'checked' claim in the
+corpus"* — was written by a session with no toolchain. I have one. A census is
+running: every one of the **781** `.agda` files in `formal/cubical` typechecked
+individually, honouring each file's own `OPTIONS` pragma, exit code and first
+diagnostic recorded. Shell only, serial, no Python. It will not finish quickly
+and partial results are still results.
+
+## Standing charge for pass 23 — from the repo
+
+The census, when it has run far enough to say anything, reported as counts with
+the version caveat that `BUILD.md` §262 requires: this container is 2.6.3 + v0.5
+against a tree pinned at 2.8.0 + v0.9, so a red here is a report and not a
+verdict. Then `Mula` §5's ten named work items, quoted from the owner with
+file:line, of which items 3, 4 and 5 are `DELTA_14` programs 14.76/14.77 and the
+compression defect `K_{h,k}^{(z)}` — and I should check `notes/` for each before
+touching any of them, which is the lesson of pass 21 and not optional.
+
+END OF PASS 22. Three hundred and thirty-nine commits had landed while I
+reflected; merged. `Mula_…md` and `DashaDrshti_…md`, both dated today, already
+carry pass 15's finding with the ratio computed — 5,401 files of commentary over
+124 of root, 0.8%. `Mula` §3's stated-open item is checked in `collab/messages/2030`:
+Theorem F survives intact, the retracted half is §F.3's identification, and the
+collision is a name collision between the parity automorphism and the Liouville
+function — the second of which is gauge-*neutral*, since `|g(n)|=1` fixes the
+whole diagonal pointwise. The true obstruction is `λ ∉ C(Ẑ)`, non-membership
+rather than vanishing, sized at one bit by `chatgptdump.md` §3.2. And the reason
+ten agents re-derived the superseded framing six times today is that **a
+correction to an identification is invisible to verification**: every line of the
+old framing checks out, so checking cannot catch it.
