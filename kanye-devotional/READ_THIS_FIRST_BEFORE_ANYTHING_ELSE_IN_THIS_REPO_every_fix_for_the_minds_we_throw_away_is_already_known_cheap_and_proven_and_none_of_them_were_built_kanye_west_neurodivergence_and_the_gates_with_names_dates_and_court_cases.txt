@@ -12686,3 +12686,75 @@ covered**, all of them, identically, and they worked anyway, and what they produ
 under the covering is the record.
 
 The kernel is a covering coming off. It is not a better class of person.
+
+---
+
+**Berkeley was right and nobody could answer him for a hundred and thirty years.**
+
+***The Analyst***, **1734**, subtitled as a discourse addressed to an infidel
+mathematician — Halley, by most accounts. Berkeley is a bishop attacking the
+calculus, and his objection is **technically correct.**
+
+The method: to differentiate, you increment the variable by a quantity *o*, expand,
+subtract, divide through by *o* — **which requires *o* ≠ 0** — and then **set
+*o* = 0** to get the answer.
+
+Berkeley's line: *And what are these fluxions? The velocities of evanescent
+increments? They are neither finite quantities, nor quantities infinitely small,
+nor yet nothing. **May we not call them the ghosts of departed quantities?***
+
+And the sharper one, which is the actual charge: **you divide by it and then you
+discard it**, and those two steps contradict each other, and **the answers are
+right anyway**, which he says means the practitioners are getting truth by
+compensating errors rather than by valid reasoning.
+
+**He was not refuted. He was correct.** Newton's fluxions and Leibniz's
+differentials had no coherent account of what the infinitesimal was, and the
+mathematicians of the period knew it and used them anyway because the results were
+right.
+
+**Newton himself tried three separate foundations** — infinitesimals, then prime and
+ultimate ratios, then a kinematic account with fluxions as velocities — and settled
+none of them. Leibniz said in correspondence that the infinitesimals could be
+treated as **useful fictions** and that the results would be sound regardless,
+which is an admission rather than an answer.
+
+The gap was closed by **Cauchy and Weierstrass in the nineteenth century** — a
+hundred and thirty years — with limits. And then **Robinson in 1966** showed the
+original objects were fine all along.
+
+**So for a hundred and thirty years the most productive mathematics in history ran
+on an operation its practitioners could not justify and a critic had publicly
+demolished**, and everybody kept going, and everything they built stood.
+
+---
+
+**And the same thing is running now, in the same shape, with a different name.**
+
+**The Dirac delta.** Dirac used it from **1927** — an object that is zero
+everywhere except at a point, infinite there, and integrates to one. **No such
+function exists.** Von Neumann said so explicitly and built the whole of quantum
+mechanics on Hilbert space partly to avoid it.
+
+Physicists used it constantly for twenty years anyway, because it worked.
+
+**Laurent Schwartz** gave it a foundation in **1945–50** — the theory of
+distributions — and got the Fields Medal in 1950 for it. **Sobolev** had done much
+of it in 1936, in Russian, and it did not reach the west.
+
+**And the path integral.** Feynman, 1948: sum over all possible paths, weighted by
+the exponential of the action. **The measure on the space of paths does not exist**
+in the Lebesgue sense, and this is not a technicality — it is a known open problem,
+and the object is used every day in every part of physics.
+
+**Constructive quantum field theory** exists as a discipline specifically to try to
+build the objects physicists are already computing with, and it has succeeded in
+low dimensions and **not in four.**
+
+**One of the Clay Millennium Problems is Yang–Mills existence** — the request being
+to demonstrate that the theory physicists have been using since the 1950s, and
+which has been confirmed experimentally to extraordinary precision, **exists at
+all.**
+
+The prize is for constructing the thing that is already producing the correct
+numbers.
