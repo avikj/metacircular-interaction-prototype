@@ -6912,3 +6912,75 @@ If you had a forecaster with that record you would stop asking them. We have not
 asking them. We are asking them right now, about him, in the present tense, with the same
 confidence.
 
+
+---
+
+Two objects that were unreadable and stopped being unreadable, which is the counterweight
+to the quipu and it is happening now.
+
+**The Antikythera mechanism.** Pulled off a wreck near a Greek island in 1901, in
+corroded lumps, dated to roughly the second or first century BCE. For decades it was a
+curiosity in a case in Athens, because the thing it appeared to be — a device with dozens
+of precisely cut bronze gears, including a differential arrangement, computing the
+positions of the sun and moon, the phases, eclipse cycles, and the schedule of the games —
+was held to be **impossible for the period.** The received story had Greek astronomy as
+geometrical and theoretical and Greek engineering as unable to produce fine gearing, and
+the object contradicted the story, so the object was the problem.
+
+Derek de Solla Price worked on it from the 1950s and published *Gears from the Greeks* in
+1974, using gamma radiography. Then in **2005–06** a team put it through purpose-built
+X-ray computed tomography and surface imaging and read the tooth counts and the inscribed
+text on the fragments, and the reconstruction went from speculative to detailed.
+
+Note that even the tradition the West most identifies with had its own capability denied
+when an artefact contradicted the received account. The denial was not colonial and not
+racial. It was **narrative**: a story about what that period could do, defended against
+its own physical evidence, for most of a century, by scholars in the field.
+
+**The Herculaneum scrolls**, and this one is live.
+
+About eight hundred papyrus scrolls were carbonised by Vesuvius in AD 79 in a villa
+library at Herculaneum and dug out in the eighteenth century. They are lumps of charcoal.
+Every attempt to unroll them physically destroyed them — one early method involved
+scraping, another gutting; hundreds were wrecked in the attempt to read them. The
+consensus for two hundred years was that the unopened ones were **permanently lost
+content**: intact objects containing a library nobody could ever read.
+
+Then: micro-CT scanning to get the internal geometry, **virtual unwrapping** to
+computationally flatten the rolled surfaces, and — the hard part — machine learning trained
+to detect the near-invisible difference between carbon ink and carbonised papyrus, which
+have almost the same density. In **2023 and 2024** the Vesuvius Challenge produced the
+first substantial passages read from a scroll that has never been opened. Text, in Greek,
+from a sealed lump of charcoal, read by a model.
+
+The library is thought to be largely Epicurean philosophy, and there is a real chance that
+what is in the unopened ones includes works lost since antiquity. And a larger part of the
+villa has never been excavated.
+
+---
+
+I want that sitting directly next to the quipu section, because I ended that one saying
+the erasure worked and there may be no Rosetta.
+
+**Sometimes the erasure works. And sometimes an object that was unreadable for two hundred
+years becomes readable in eighteen months because the right instrument arrives.** Both are
+true and neither is the general case, and the only honest position is that you cannot tell
+in advance which one you are holding — which is an argument for *keeping the unreadable
+thing*, in a case, in a warehouse, uncatalogued, for centuries, on the chance.
+
+Every institution that stored something it could not read, at cost, with no idea what it
+was, was making that bet. The Naples museum with the charcoal. The Athens museum with the
+lumps of bronze. Trinity with Watson's boxes. Whoever kept the Nag Hammadi codices moving
+through the antiquities trade instead of burning the rest for kindling.
+
+And the instrument that finally opened the scrolls is, specifically, the same class of
+thing as the one writing this — a model trained on a large corpus, detecting a
+distinction a human eye cannot make.
+
+So the machine that is currently flattening the record of who found what is also, at this
+exact moment, the thing recovering a library nobody has read since Vesuvius. Both, from
+the same technology, in the same decade.
+
+That is not a reassurance and it is not an indictment. It is the actual situation, and the
+variable is what it gets pointed at and who is holding it.
+
