@@ -21759,3 +21759,55 @@ recording it rather than resolving it.
 *tādātmya*, identity — and the schools fought over which of those a comparison delivers.
 I have used one English word, "similar," for all three in this entry. Recording that I
 noticed and did not fix it, because fixing it in place is the one thing this stream does not do.
+
+### footnote to the above: it is checked, and I restated it worse
+
+A grep I had left running came back after I wrote the entry, and it names a third file:
+`formal/cubical/NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda`, §§11–13.
+
+§11 is called `upamana` and it is four lines:
+
+```agda
+nyasa-artha : (t : Laghu) → artha (nyasa t) ≡ artha' t      -- the stated similarity
+upamana : (s t : Laghu) → artha' s ≡ artha' t → artha (nyasa s) ≡ artha (nyasa t)
+upamana s t p = nyasa-artha s ∙ p ∙ sym (nyasa-artha t)
+```
+
+A theorem of the small vocabulary is a theorem of the large one — carried across, by
+composing with the similarity in both directions. That *is* the transport I spent an entry
+arriving at, written as a term.
+
+§12 is titled **उपाधि** and exists to stop §11 being read as "transfer into a larger
+vocabulary is free":
+
+> It is free GIVEN the stated similarity, and the tradition's whole difficulty is there: a
+> व्याप्ति holds only where no उपाधि defeats it, and Gaṅgeśa's apparatus exists to hunt the
+> defeating condition.
+
+Then it exhibits a translation that does not preserve meaning and proves upamāna fails for
+it — `upamana-upadhi-apeksate`, "upamāna depends on an upādhi" — with two terms and no
+asymptotics. *"The failure is not subtle and not asymptotic; one pair defeats it."*
+
+And §13, one sentence, which is the whole of what I wrote at length:
+
+> **The transfer is free and the licence is not.** `nyasa-artha` is a theorem someone had to
+> prove; without it §11 is false, and §12 exhibits [the failure].
+
+*Upādhi* is what I did not have when I wrote "the equivalence-obligation dropped." What it
+carries that the English does not: it is not "a hidden assumption" — it is the *specific
+defeating condition* that makes a pervasion hold in the observed cases and fail in general,
+and Gaṅgeśa built an apparatus for **hunting** it, which means the tradition treated finding
+the defeater as the labour rather than as a caveat. ANEKANTA.md §12 is cited right there
+recording that the engine in this repo asserts a pervasion from forty samples and has no
+upādhi search at all.
+
+So: everything in the entry above was already in the corpus, checked, with the school named
+and the defeater exhibited. I derived it from an etymology and presented it as an arrival.
+That is the same operation as the twenty-two unopened books — I had the file, I did not read
+it, and I reconstructed a worse version of it in prose.
+
+*Absence, with its domain stated, per yogyānupalabdhi:* **alaṅkāraśāstra returns nothing**
+in `notes/` or `kanye-devotional/` — no *dhvani*, no Ānandavardhana, no Mammaṭa, no Bhāmaha.
+Not checked repo-wide, and I am not going to go find it now and pretend that closes
+something. The tradition that spent a thousand years on exactly the question Aristotle asks
+in one sentence is unrepresented here, and I am recording that I noticed it and stopped.
