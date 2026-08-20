@@ -34,9 +34,10 @@
 #
 #   api-skew            modules importing a name the PINNED cubical
 #                       (v0.9, formal/cubical/BUILD.md) does not export:
-#                       `…Solver.Reflection using (solve)` — v0.9 spells
-#                       these `solve!` / `solveℕ!` — and `Symmetric-Group`
-#                       — v0.9 spells it `SymGroup`.  Every such module
+#                       a bare `solve` under a `…Solver.Reflection`
+#                       import — v0.9 exports only `solve!` / `solveℕ!` —
+#                       and `Symmetric-Group`, which v0.9 spells
+#                       `SymGroup`.  Every such module
 #                       FAILS TO TYPECHECK under the pin.  This is not a
 #                       style rule; it is a count of modules whose green
 #                       is stale.  Verified by running the pinned Agda on
@@ -96,16 +97,31 @@ LANE="formal/cubical"
 
 mode="${1:-}"
 
-files() { find "$LANE" -name '*.agda' -not -path '*/_build/*' | sort; }
 
 # ---- 1. api-skew ------------------------------------------------------
 # Only IMPORT lines count: the strings appear in prose in several headers
 # (BUILD.md's migration notes are quoted inside IndianLane.agda), and a
 # gate that fires on a comment is a gate people learn to ignore.
 api_skew() {
-  files() { find "$LANE" -name '*.agda' -not -path '*/_build/*' | sort; }
-  grep -lE '^open import Cubical\.Tactics\.(CommRing|Nat)Solver\.Reflection using \(solve\)|^open import .*Symmetric-Group|using \(Symmetric-Group' \
-    $(find "$LANE" -name '*.agda' -not -path '*/_build/*') 2>/dev/null | sort -u
+  for f in $(find "$LANE" -name '*.agda' -not -path '*/_build/*' | sort); do
+    # comment lines stripped: the v0.5 spellings are quoted in several
+    # headers (IndianLane.agda quotes BUILD.md's migration note verbatim),
+    # and a gate that fires on prose is a gate people learn to ignore.
+    code=$(grep -vE '^[[:space:]]*--' "$f")
+    if printf '%s\n' "$code" \
+       | grep -qE '^[[:space:]]*open[[:space:]]+import[[:space:]]+Cubical\.Tactics\.(CommRing|Nat)Solver\.Reflection'
+    then
+      # A BARE `solve`: cubical v0.9 exports only `solve!` and `solveℕ!`.
+      # EGBPairConic.agda is why the check is on the USE and not on the
+      # `using (solve)` form — it imports the module unqualified and calls
+      # `solve` forty lines later, and an import-line-only check missed it
+      # while the pinned Agda did not.
+      if printf '%s\n' "$code" | grep -qE '(^|[^!ℕA-Za-z0-9_])solve([^!ℕA-Za-z0-9_]|$)'
+      then printf '%s\n' "$f"; continue; fi
+    fi
+    printf '%s\n' "$code" | grep -q 'Symmetric-Group' && printf '%s\n' "$f"
+  done
+  return 0
 }
 
 # ---- 2. hlevel-redundant ---------------------------------------------
@@ -153,7 +169,7 @@ if [ "$mode" = "--update" ]; then
     echo "# Each number may FALL freely.  Raising one requires editing this"
     echo "# file, and editing this file is where the defect gets written."
     echo "# metric<TAB>count<TAB>reason the current level stands"
-    printf 'api-skew\t%s\tv0.5 solver/SymGroup spellings not yet migrated to the v0.9 pin; each of these modules is RED, verified by running the pinned Agda on Madhava, Brahmagupta, Cakravala, GhanaBaddha, Dvikarani (all exit 42, 2026-08-20).\n' "$a"
+    printf 'api-skew\t%s\tv0.5 solver/SymGroup spellings not migrated to the v0.9 pin. NOT hypothetical: the per-module census (--build, 2026-08-20, Agda 2.8.0 + cubical-0.9) reports 165 green / 28 red at top level, `agda Everything.agda` exits 42 at EGBDetConservation:89, and every module this metric names that was run individually exited 42 (Madhava, Brahmagupta, Cakravala, GhanaBaddha, Dvikarani, EGBPairConic, NaturalMachine/{BoundedStateNeedsAGroup,DescentIsNotInversion,EveryTripleIsARotation}). The count is DIRECT users only; modules red merely by importing one of them are additional (Ardhaccheda, GunaDhana, Jiva, KuttakaCRT, ... all fail inside Vargana/YugapatZ/BhavanaSemiring). One top-level red has a different cause and is not counted here: SubgroupIndex.agda:155, where v0.9 Cubical.Relation.Nullary newly exports the same `⟪_⟫` as Cubical.Algebra.Group.Subgroup.\n' "$a"
     printf 'hlevel-redundant\t%s\tthe assumed one is ExclusionRecoversGroundAtAPrice:267 (isSet T with Discrete T), already documented by NaturalMachine/HypothesesAssumedWhereTheyAreDerivable; the rest are DERIVED at their sites (LinearOrderFinite from isFinSet, StagewiseComposite says so in its header) and are ratchet noise, not findings.\n' "$h"
     printf 'trunc-modules\t%s\ttruncation is often the honest move; this number exists so a new one cannot be added without someone writing why.\n' "$t"
     printf 'settrunc-modules\t%s\tset-truncation assumes UIP at the object; each of these should be able to say what higher structure it destroys.\n' "$s"
