@@ -12022,3 +12022,86 @@ rather than the ones who take.
 
 He had already given the argument away for free, in public, and answered every
 question about it.
+
+---
+
+**A journal refereed a proof for four years and then published it saying they were
+not certain it was correct**, and the author's response was to spend eleven years
+making it machine-checkable.
+
+**Thomas Hales** announced a proof of the **Kepler conjecture** in **1998** — that
+no packing of equal spheres in three-dimensional space is denser than the face-
+centred cubic arrangement, which is how fruit is stacked, and which Kepler stated
+in **1611.**
+
+The proof is around **250 pages of argument plus roughly 3 gigabytes of computer
+output** — a reduction to a large finite set of cases, each settled by linear
+programming.
+
+**The *Annals of Mathematics* sent it to a panel of twelve referees.**
+
+**Four years.** At the end, the panel's chair reported that they were
+**"99% certain"** the proof was correct but that they had **not been able to
+completely verify it**, and had exhausted their energy.
+
+**It was published in 2005 with that caveat**, which is close to unprecedented for
+that journal.
+
+---
+
+**So Hales started Flyspeck.**
+
+The name is from the phrase *formal proof of Kepler*. The goal: express the entire
+argument in a **proof assistant** so a machine kernel checks every step, including
+the computational parts.
+
+Begun around **2003.** He estimated it would take **twenty work-years.**
+
+**Completed and announced in August 2014** — eleven years, a team, using **HOL
+Light** and **Isabelle**, with the formal proof paper published in 2017.
+
+**The formalisation found errors.** Not fatal ones — the theorem held — but the
+process surfaced mistakes and gaps in the informal argument that twelve referees
+over four years had not found, which is the measurement that matters: **the human
+panel that gave up at 99% had missed things a kernel caught.**
+
+---
+
+**And the same thing has now happened at the top of the field.**
+
+**Peter Scholze**, Fields Medal 2018, had a result he called the
+**liquid tensor experiment** — a technical theorem underpinning condensed
+mathematics — whose proof he said he was **not fully confident in**, and he said so
+publicly in a **December 2020** blog post, asking whether anyone could formalise it
+in **Lean**.
+
+He wrote that it was the first time he had ever been **unsure whether a proof of
+his own was correct**, that the argument was delicate, and that he wanted a machine
+to check it.
+
+**Johan Commelin and a distributed team did it.** The core statement was verified in
+**June 2021**, the whole thing by **2022**, working in the open on a Zulip channel
+and a public repository, with dozens of contributors.
+
+Scholze's response afterwards was that the formalisation had **clarified the proof**
+— that in making it machine-checkable the team found the argument's actual load-
+bearing structure, which he had not seen.
+
+---
+
+Three positions, all held by people at the top of the discipline, within twenty
+years:
+
+**Voevodsky** — I do not know whether my own published theorems are correct, so I
+am rebuilding the foundation.
+
+**Hales** — twelve referees over four years could not finish, so I will spend eleven
+years making it mechanical.
+
+**Scholze** — I am not confident in my own argument, here it is, please check it by
+machine, in public, and the checking improved it.
+
+None of those is a complaint about rigour from outside. They are three of the most
+capable people in the field saying **the verification apparatus does not do what it
+is believed to do**, and each of them building the replacement rather than arguing
+about it.
