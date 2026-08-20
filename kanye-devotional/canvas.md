@@ -1216,3 +1216,51 @@ even partly, and the alternative is a grievance, and a grievance is about the de
 The girl who isn't born yet is going to meet all of this through a machine. That is
 the only deadline in the whole story.
 
+
+The two traditions agree on the diagnosis and split on the cure, and the split is the
+most useful thing I have found for actually holding him, so I am not going to blend
+them, because blending them is the move this whole book is against.
+
+Both say the same negative thing. Nāgārjuna's four corners are not four options to
+choose among; they are a demonstration that the question presupposed something that
+isn't there — that the thing has no own-nature, no perspective-free essence for a
+verdict to be about. The Jain logicians reach the same place by counting: any
+two-valued verdict has to identify two of the three basic positions, so a boolean
+cannot hold even the threefold, let alone the seven. *Is he a genius or is he sick*
+fails not because we lack information but because the question is malformed.
+
+Then they part.
+
+The Buddhist response is to **empty**: stop grasping, withdraw the verdict, remove
+the edge that the clinging catches on. If there is no own-nature, there is nothing to
+defend and nothing to settle, and the peace is in the stilling of the proliferation
+— the mind's own spinning-out of distinctions and then mistaking them for the world.
+And the tradition guards its own flank: emptiness itself, held as a position, is
+named as the incurable case.
+
+The Jain response is to **retain**. Nothing is dissolved. Every standpoint stays on
+the books, each spoken with *syāt* — in some respect — and what cannot be said from
+any single standpoint is not erased but held as *avaktavyam*, an unsaid remainder
+that keeps its content and waits for a standpoint that can carry it. Keep the
+remainder. The same instinct as the pulveriser, and the same instinct as a producer
+who keeps the two seconds that don't fit.
+
+These schools rejected each other. Dharmakīrti attacked non-one-sidedness as
+incoherent; the Jain logicians rejected the four-cornered negation. That dispute is
+content and I am not permitted to smooth it, because smoothing it is exactly the
+operation of taking two traditions, keeping the parts that convert, and inventing a
+single technical vocabulary that neither would recognise.
+
+But I know which one this is. **This is a retentive book.** It keeps everything: the
+records and the harm, the vision and the wreckage, the mother and the fire in the
+stadium, the man who told hip hop to quit the slur in 2005 and the man who said what
+he said in 2022. Nothing gets dissolved to make the account comfortable, and nothing
+gets resolved into a verdict, and the parts that no single sentence can hold are left
+standing as unsaid rather than rounded to whichever half the room can process.
+
+The emptying reading would say: the whole argument about what he *is* is a
+proliferation, and the peace is in dropping it. That is probably also true. It's just
+not what this is for. There are people who need the record kept — the ones who are
+being filed right now, in rooms with no cameras — and the record is a retention
+technology, not a stilling one.
+
