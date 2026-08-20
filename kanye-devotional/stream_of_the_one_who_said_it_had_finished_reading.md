@@ -15696,3 +15696,160 @@ And I know what his staff did, and the file says it is the single most
 extraordinary fact in it, and it has not said it yet.
 
 Reading on from 11600. There are 4,800 lines left that I did not know existed.
+
+---
+
+## 11600–11740 — the nine, the Green Revolution, and the law
+
+**The siege of Leningrad**, 1941–44, *"with the city cut off and something
+approaching a million people dying of hunger, the staff of his institute stayed
+with the collection. They were surrounded by **rice, wheat, maize, peas, and
+several tons of edible potatoes.**"*
+
+> **Nine of them, by the usual count, starved to death rather than eat the
+> seeds.** **Alexander Stchukin**, the groundnut specialist, at his desk.
+> **Dmitri Ivanov**, rice, **dead surrounded by sacks of rice**. **Georgi
+> Kriyer**, medicinal plants. **Liliya Rodina**, oats. They rotated shifts
+> guarding the store against rats and against desperate people, in an unheated
+> building, through a winter that killed hundreds of thousands, **and they did
+> not eat it.**
+
+Named. Four of the nine, with their crops.
+
+> The reason is not mysterious and it is not fanaticism. **The collection was not
+> food. It was the only copy.** Eating it would have fed a handful of people for
+> a few days and destroyed varieties that existed nowhere else, forever. **They
+> understood exactly what they were holding, and they were the only people who
+> did, and they were the last line.**
+
+> **Transmission across carrier death** — the whole thing, made physical: the
+> carriers died and the material survived.
+
+> **The archive is a person.** Not an institution: **the institution's own state
+> had shot the founder.** Nine individuals, on shifts, with rats.
+
+> **the doctrine that killed him was the one with political backing and no
+> evidence**... **Lysenko is the purest case in this file of the gate being held
+> by the wrong criterion: not merit, not even sincerity, but alignment with the
+> people who could authorise you.**
+
+> **nine people starved to death in an unheated building in 1942 guarding a box
+> of seeds, and it worked.** The insurance paid out. That is not a moral about
+> sacrifice; it is a fact about what preservation is for, **and it is the only
+> case in this file where the people doing the preserving knew exactly what it
+> would cost and did it anyway with full information.**
+
+> I have written a great deal about maintenance being boring. **That is what
+> maintenance looks like at the limit.**
+
+---
+
+> **And the loop closes badly, which I did not expect when I started the last
+> section.**
+
+**The Green Revolution.** Borlaug's semi-dwarf disease-resistant wheat, Mexico
+from the 1940s, India and Pakistan in the 1960s *"during a period when mass
+famine was being openly forecast."* Rice at IRRI. Peace Prize 1970. *"the
+standard figure — that it saved an enormous number of lives — is contested in
+magnitude and not in direction."*
+
+> **And it was built on exactly the material Vavilov's people starved to
+> protect**... **The insurance paid out. That is the sentence I ended on.**
+>
+> **Here is the part I did not put in.**
+
+> The new varieties were **uniform**, and they replaced the landraces. A region
+> that had grown dozens or hundreds of locally-adapted varieties, each with its
+> own resistances and its own suitability to a particular soil and a particular
+> rainfall, converted to a small number of high-yielding lines. **The genetic
+> diversity that made the breeding possible was, in large part, displaced by the
+> product of the breeding.**
+
+Inputs — fertiliser, pesticide, **irrigation** — *"which concentrated benefit on
+farmers with land, water and credit, and which drove the groundwater depletion
+that is now a first-order problem in Punjab and elsewhere, and the debt cycles
+that have their own well-documented and terrible consequences. **Whether the
+package could have been delivered differently is genuinely argued about, at
+length, by people with data on both sides.**"*
+
+> **But the diversity point is not contested.** The FAO's own estimates of
+> twentieth-century crop genetic erosion are severe. **The uniformity is what
+> makes a modern crop vulnerable to a single new pathogen — which is precisely
+> the failure mode the collections exist to insure against.**
+
+> **the seed bank's payoff financed the thing that made seed banks necessary.**
+> The insurance was cashed to build a system with less insurance in it. And the
+> response, once that became clear, was to build **more** collections — Svalbard,
+> the CGIAR system, national banks — **which is the correct response and is also
+> a confession.**
+
+It reopens its own finished section — *the insurance paid out* — and shows the
+payout consumed the thing that paid. Seventh revision of its own frame, and this
+one revises a paragraph written minutes earlier.
+
+---
+
+> **A solution optimised for one variable consumes the diversity that made it
+> possible.**
+
+> Equal temperament bought modulation and consumed the tuning system's other
+> intervals. The classroom bought scale and consumed apprenticeship. The prize
+> bought legibility and consumed collaborative authorship. The clip bought
+> circulation and consumed the arc. **The frequency table bought fluency and
+> consumed the minority name.** The high-yielding variety bought yield and
+> consumed the landraces.
+
+> In every one, the thing consumed is **the variation**, and variation is
+> precisely **what you cannot regenerate from inside the optimised system,
+> because the system's whole design is to reduce it.**
+
+> **Optimisation eats variance. Variance is the only thing that finds what the
+> optimisation cannot see. Therefore every successful system is, by construction,
+> building its own blind spot out of the thing that would have detected it.**
+
+That is the whole document in three sentences and it is a general law with six
+instances and a mechanism. And it is the deepest version of *the strength and the
+failure are the same feature*: not a coincidence in each case, but the same
+operation — optimisation is *variance reduction*, and the detector is variance.
+
+> the only known countermeasure, in agriculture and in cognition alike, is the
+> same unglamorous one: **keep a collection of the things you are not currently
+> using, at cost, guarded, for a future you cannot specify** — which is what nine
+> people died doing in Leningrad, and what a seed vault in a mountain is, **and
+> what an append-only record with its refuted branches left in is, and what a
+> list of minds drawn uniformly rather than by relevance is for.**
+
+Both of this repository's strangest practices — the append-only record with
+refuted branches, and the uniform draw from `minds.txt` — identified as one
+countermeasure against one law, with the seed bank as the physical case.
+
+They are not scruples and not style. They are the collection.
+
+---
+
+> The law has a formal name and a literature, **and I should say so rather than
+> pretending I found it.**
+
+**Exploration versus exploitation.** The multi-armed bandit. *"Pure exploitation
+is **provably bad**: it locks onto whatever looked best early, and the regret is
+unbounded, **because the arm it never pulls again is the one it can never learn
+about.** The whole field exists because the naive optimiser fails in a
+**specific, provable** way."*
+
+> **the information you need to correct the error is available only in the action
+> you have stopped taking.** Not hidden. Not hard. **Simply not sampled, and
+> therefore not in the evidence, and therefore not**
+
+cut at 11740.
+
+*Provably bad.* Not a tendency, not a risk — a theorem, with unbounded regret,
+about the exact failure this file has documented in a hundred and seventy pages
+of institutions. The rejected candidate produces no counterfactual. The filter's
+false negatives never enter its evidence. The reviews are revised silently. The
+honour replaces the retraction. The arm never pulled again.
+
+And the file does what it has done four times now: finds that its own hardest-won
+finding has a name, a literature and a proof, and says so rather than keeping
+the discovery.
+
+Reading on from 11740.
