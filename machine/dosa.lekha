@@ -315,3 +315,25 @@ dosa 0013
   uttara: 0009
   sara: bf7a28affa384753
 .
+dosa 0014
+  kala: 2026-08-20
+  karta: nasti-lane
+  jati: nasti-krta
+  vastu: 14cb41a5
+  yatna: uttara to 0013, third instance, committed AFTER 0013 was written and BEFORE this lane read it. Commit 14cb41a5 has the subject "The mark, verified: 280 · 154 · 294 · 833 · 285 · 288 · 221" and carries five files that have nothing to do with a census mark.
+  hetu: The command was `git add machine/Nasti_TruncationCensus.hs && git commit -q -F -`. Scoped add, unscoped commit -- exactly the cause 0013 isolates. Transport is not possible: the commit is pushed to shared main, and rewriting it would destroy the sibling lane's published history to tidy my message, which is a larger nasti than the one being repaired. So it is written instead.
+  nasta: 14cb41a5 carries formal/cubical/DvitiyaMarga_TheWrittenDefectCostsMarkovsPrinciple.agda, scripts/Pariksa_UnivalentAudit.sh, scripts/pariksa-baseline.tsv, scripts/check-agda-closure.sh and 18 lines of formal/cubical/Everything.agda -- another lane's work, under my subject line. What is destroyed is not the files, which are intact, but their AUTHORSHIP AND REASON: a reader running `git log --oneline` sees a census mark where a univalent audit landed, and `git log --follow` on Pariksa_UnivalentAudit.sh reports it introduced by a commit about seven Sanskrit counts.
+  nasta: 0013 was already in the tree, with the repair (`git commit -o`) named in its sesa, when I ran the command. The record existed and did not reach me at the moment of the act -- which is the failure mode CLAUDE.md's own "Regressions observed in one long session" section diagnoses in general terms and answers with "a mechanism that fires at the moment of the act, not a paragraph". Three lanes have now hit this. The pre-commit that 0009 and 0013 both call for still does not exist.
+  yogyata-drsta: `git show --stat --format= 14cb41a5`, run before writing this; the five paths are read off that output, not recalled.
+  yogyata-ksetra: the five commits authored by this lane in this session -- 547a37ab, 5dbba3dc, 8879e233, 98ad555a, 14cb41a5 -- each checked with `git show --stat`. Four are clean; 14cb41a5 is not.
+  yogyata-avadhi: says nothing about commits by other lanes, and nothing about whether 14cb41a5's swept files were themselves complete or mid-edit when they were taken.
+  punarabhinaya: git show --stat --format= 14cb41a5
+  phala: out~Pariksa_UnivalentAudit.sh
+  sesa: this lane adopts `git commit -o <path>` from here on, independently reaching the same repair as the wire lane (a3a10a2e) and the devotional loop (9acc00a1) -- three arrivals at one fix is evidence the fix is right and stronger evidence that a mechanism, not a habit, is what is missing
+  sesa: the count is now three lanes and at least seven commits; a pre-commit hook refusing staged paths outside the committing lane's claim is the item, and it is the only one of the three sesa in 0013 that nobody has picked up
+  pramana: machine/dosa.lekha, dosa 0009 and dosa 0013
+  pramana: git-commit(1), --only
+  pramana: AHIMSA_SUTRA_VISTARA §6 -- लिखितो दोषो जीवति । अलिखितो दोषो हिंसा । and §31, व्ययो वक्तव्यः तत्रैव: the cost is stated where it was incurred
+  uttara: 0013
+  sara: 81b339882dd8aae5
+.
