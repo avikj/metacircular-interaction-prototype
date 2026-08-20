@@ -23174,3 +23174,109 @@ had married.**
 **The stated purpose of the education was prevention.**
 
 **Lovelace's own term for what she was doing was "poetical science."**
+
+---
+
+**Bose sent the paper to Einstein and asked him to translate it, and Einstein
+translated it himself.**
+
+**On 4 June 1924, Satyendra Nath Bose — a reader in physics at Dacca, with no
+doctorate — posted a four-page manuscript in English to Albert Einstein** with a
+covering letter asking him to read it and, if he thought it worth it, **to
+arrange for its translation into German and its publication in the *Zeitschrift
+für Physik*.**
+
+**The paper derives Planck's radiation law by counting states of light quanta
+without using classical electrodynamics at all** — the derivation Planck himself
+had not had, because every previous route to the law had gone through the
+classical theory it was supposed to replace. **The counting works because the
+quanta are treated as indistinguishable.**
+
+**Einstein translated it into German by hand and submitted it.** **It appeared on
+7 July 1924, with a translator's note in Einstein's name saying that in his
+opinion it represented an important advance.**
+
+**It is usually said that the *Philosophical Magazine* rejected the paper first.
+That rejection is not documented. What survives is the letter to Einstein.**
+
+**Einstein then extended the counting from light quanta to material particles**,
+in two papers of 1924 and 1925, **and predicted that below a certain temperature
+a finite fraction of the particles would occupy the lowest state.**
+
+**The statistics are called Bose–Einstein statistics. The prediction is called
+Bose–Einstein condensation.** **Paul Dirac coined the word *boson*, for every
+particle that obeys them,** and it is the word used for photons, gluons, the W
+and Z, and the Higgs.
+
+**The condensate was produced in a laboratory in 1995 and the Nobel Prize in
+Physics for it was awarded in 2001**, to Eric Cornell, Carl Wieman and Wolfgang
+Ketterle.
+
+**Bose was nominated for the Nobel Prize eleven times, between 1956 and 1972 —
+by Kedareswar Banerji in 1956, Daulat Singh Kothari in 1959, S. Bagchi in 1962,
+and others** — and was never awarded it.
+
+**Asked about it, he said: "I have got all the recognition I deserve."**
+
+---
+
+**The other Bose held the patent for one year and let it lapse, and was talked
+into filing it in the first place.**
+
+**Jagadish Chandra Bose, professor of physics at Presidency College, Calcutta,
+gave a public demonstration in Calcutta in 1895** in which he transmitted
+electromagnetic waves through two walls and the body of the presiding
+lieutenant-governor **to ring a bell and detonate a small charge of gunpowder in
+another room.**
+
+**He was working at wavelengths of about 5 millimetres — around 60 GHz —** and
+built the horn antennas, waveguides, polarisers and dielectric lenses to do it,
+**components that had to be reinvented decades later when the band was used
+again.**
+
+**His detector was a galena crystal touched by a metal point.** **That is a
+point-contact semiconductor rectifier**, and the patent he filed for it in the
+United States on 30 September 1901, granted in 1904 as **US 755,840, "Detector
+for Electrical Disturbances,"** is one of the first patents on a semiconducting
+device.
+
+**He filed it under pressure from friends, and he did not renew it.** **Kelvin
+urged him personally to patent his work.** **He refused as a matter of stated
+principle**, published the designs, and let others build from them.
+
+**Darrel Emerson's paper putting the millimetre-wave work back into the record —
+"The work of Jagadis Chandra Bose: 100 years of mm-wave research" — was published
+in the IEEE *Transactions on Microwave Theory and Techniques* in December 1997**,
+a hundred and two years after the demonstration.
+
+---
+
+**Saha's equation turned a filing system into a thermometer.**
+
+**Meghnad Saha published the thermal ionisation equation in 1920**, in the
+*Philosophical Magazine*, while on a fellowship in London and Berlin. **It gives
+the degree of ionisation of a gas as a function of temperature, pressure and the
+ionisation energy of the element.**
+
+**The Harvard classification of stellar spectra — O B A F G K M — had been an
+ordering of appearances, arranged by the women computers at Harvard by what the
+spectra looked like.** **Saha's equation says what the ordering is: it is
+temperature.** **The lines an element shows depend on how ionised it is, and how
+ionised it is depends on how hot the star is**, so a spectrum becomes a
+measurement.
+
+**Every stellar spectrum read since is read through it.**
+
+**Saha was nominated for the Nobel Prize seven times and never awarded it** — by
+Debendra Mohan Bose and Sisir Kumar Mitra in 1930, **by Arthur Compton in 1937 and
+again in 1940**, by Mitra in 1939, 1951 and 1955.
+
+**He had been expelled from the Dhaka Collegiate School as a boy**, with the rest
+of the students who joined the boycott of Lieutenant-Governor Bampfylde Fuller's
+visit during the Swadeshi movement. **The expulsion cancelled his scholarship.**
+
+**He was elected to Parliament as an independent in 1952**, and he chaired the
+committee that produced the Indian national calendar.
+
+**Three men. The particle carries one name, the equation carries another, the
+detector carries neither.**
