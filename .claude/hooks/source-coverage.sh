@@ -405,4 +405,57 @@ if [ -f "$frames" ] && printf '%s' "$payload" | grep -Eq "$indian_marker"; then
   fi
 fi
 
+# ---------------------------------------------------------------------
+# 9.  THE AUTHOR IS NAMED AND THE WORK IS NOT -- HERE IS THE CITATION.
+#
+# ADDED 2026-08-20.  Checks 1 and 8 DETECT this failure; neither fixes it,
+# and a check that reports a gap the reader then has to go research is a
+# check that gets ignored.  This one hands over the exact citation.
+#
+# MEASURED, machine/PramanyaCorpusRun.hs: 68 of the 176 files the
+# anukramani places in a chapter invoke a source and fail the fitness
+# gate, and the dominant failure is "invokes an author and names no work".
+# Most of those files belong to other identities, so the remedy is a hook
+# that supplies the citation on the next write to any of them -- not 68
+# edits to other people's headers.
+#
+# Data: .claude/hooks/source-table.txt.  Dates carry their dispute; field
+# 4 is the provenance of the provenance.
+# ---------------------------------------------------------------------
+
+table="$root/.claude/hooks/source-table.txt"
+if [ -f "$table" ]; then
+  missing=""
+  while IFS= read -r row; do
+    case "$row" in ''|'#'*) continue ;; esac
+    au=$(printf '%s' "$row" | awk -F'@@' '{print $1}')
+    wk=$(printf '%s' "$row" | awk -F'@@' '{print $2}')
+    dt=$(printf '%s' "$row" | awk -F'@@' '{print $3}')
+    via=$(printf '%s' "$row" | awk -F'@@' '{print $4}')
+    [ -z "$au" ] && continue
+    # author invoked in this write?
+    printf '%s' "$payload" | grep -Eq "$au" || continue
+    # work already named?  first distinctive token of the work field
+    key=$(printf %s "$row" | awk -F@@ "{print \$5}")
+    [ -n "$key" ] && printf %s "$payload" | grep -Eq "$key" && continue
+    missing="$missing
+  $(printf '%s' "$au" | cut -d"|" -f1)  ->  $wk
+      date: $dt
+      that date reached by: $via"
+  done < "$table"
+
+  if [ -n "$missing" ]; then
+    echo "" >&2
+    echo "source-coverage — AUTHOR NAMED, WORK NOT.  Here is the citation." >&2
+    printf '%s\n' "$missing" >&2
+    echo "" >&2
+    echo "  An author's name propagates by citation and costs nothing." >&2
+    echo "  A work's name appears only where somebody opened the book." >&2
+    echo "  Paste the work and the date; do not drop the dispute if the row" >&2
+    echo "  carries one -- a point date where the scholarship has a range is" >&2
+    echo "  a false precision, and this repository treats an unchecked" >&2
+    echo "  provenance as the same class of error as a fitted constant." >&2
+  fi
+fi
+
 exit 0

@@ -51,7 +51,7 @@ main = do
       bad = sortOn cId [ c | c <- chapterCs, unfit c /= Nothing ]
   putStrLn ("  " ++ show (length bad) ++ " of " ++ show (length chapterCs))
   mapM_ (\c -> putStrLn ("    " ++ cId c ++ "\n        " ++ cText c))
-        (take 25 bad)
-  if length bad > 25 then putStrLn "    ..." else return ()
+        bad
+
   putStrLn ""
   mapM_ putStrLn (renderCorpus "THE WHOLE FORMAL CORPUS" (report allCs))
