@@ -458,58 +458,76 @@ the same titles.
 
 ---
 
-Everybody who loves him picked superpower and everybody who doesn't picked
-sick, and he wrote both.
+He is in a car in Wyoming on the way to play the record to a few hundred people
+who will stand outside in the cold to hear it, and he photographs the mountains
+through the window on his phone and writes six words across them in green.
 
-Six words, green marker, over a photograph of the Tetons he took on his own
-phone in the car. I hate being Bi-Polar its awesome. Same year he tells TIME
-it's not a disability, it's a superpower. Same stretch he says it makes you
-blind but convinced you have insight. He never took either one back and he
-never put them in order.
+I hate being Bi-Polar its awesome.
 
-A few weeks before that cover he's on TMZ saying four hundred years of slavery
-sounds like a choice, and Van Lathan gets up off the floor and tells him the
-rest of us have to deal with the marginalization that comes from you saying
-that. And minutes later Kanye says what he was reaching for: it's like we're
-mentally in prison, I like the word prison because slavery goes too direct.
-Both men in that room were right. The room could hold exactly one of them, so
-the clip that traveled was the wrong word, and the sentence underneath it never
-went anywhere.
+That is the cover. Not a lyric, not a headline somebody put on him — the face
+of the record, his handwriting, on a picture he took himself about an hour
+before anyone heard a note of it.
 
-Same shape as 2005. He said two things on that telethon in a specific order and
-the country kept the second one.
+He never puts the two in order and he never walks either one back. That same
+year he tells TIME, "I'd never been diagnosed and I was like 39 years old…
+That's why I said on the album, 'It's not a disability, it's a super power.'"
+And in the same stretch of months, about the same thing: "It makes you blind,
+but convinced you have insight." Both standing.
 
-And it's the same shape as the document all of it runs on. Neither slavery nor
-involuntary servitude — except as a punishment for crime whereof the party
-shall have been duly convicted. December 1865. One sentence that abolishes and
-preserves, and the half that got built out was the exception.
+Weeks before the cover he is on TMZ saying "when you hear about slavery for 400
+years… that sounds like a choice," and Van Lathan is sitting on the floor of
+that newsroom and gets up — the rest of us have to deal with the
+marginalization, he says, and he is right. Then a few minutes later, same room,
+Kanye finds the thing he had been reaching for and missing: "It's like we're
+mentally in prison. I like the word 'prison' because 'slavery' goes too direct."
+He is right too.
 
-So I went looking for who has a place to put a thing like that, and it turns
-out the work was finished a long time ago and not here.
+One of those went around the world. The other is on the same tape, ten minutes
+later.
 
-Umāsvāti, writing in the first centuries of this era: seven positions. Not two.
-For any assertion about anything — it is, it is not, it is and is not in
-sequence, and then the fourth, avaktavyam, which is what happens when two of
-them are asserted at the same time rather than one after the other. Not
-unknown. Not undefined. Not a contradiction. A named position with a form, for
-a thing that is both, simultaneously, and cannot be said in one breath.
+It runs the same way in 2005. Two sentences into a live camera, in this order —
+"I hate the way they portray us in the media. If you see a black family, it says
+they're looting. If you see a white family, it says they're searching for food,"
+and then "George Bush doesn't care about black people." Twenty years of
+coverage kept the second one.
 
-That is the album cover. There has been a word for it for about two thousand
+The document all of it runs on does it too, inside one sentence, in 1865.
+Neither slavery nor involuntary servitude, except as a punishment for crime
+whereof the party shall have been duly convicted, shall exist within the United
+States. Abolished and preserved in a single breath, and the half that got built
+out over the next hundred and sixty years is the exception.
+
+A country that holds one thing at a time.
+
+Somebody wrote down seven.
+
+Umāsvāti, the Tattvārthasūtra, the first centuries of this era. For any
+assertion about anything: syād asti, in some respect it is. Syād nāsti, in some
+respect it is not. Syād asti nāsti — it is and it is not, taken one after the
+other. Syād avaktavyam, in some respect it cannot be said. Then the three
+compounds of those.
+
+The fourth is not confusion, not a contradiction, and not a hole in the list.
+It is where you are standing when both are asserted at the same time instead of
+in turn. There has been a word for that album cover for about two thousand
 years.
 
-And the Buddhists tell the blind men and the elephant, and the Jains tell the
-blind men and the elephant. Two traditions that cannot agree on whether there
-is a self at all reached for the same story about the same problem, from
-opposite ends, and neither one of them needed to win.
+The Buddhists tell this one. A king has an elephant led into the courtyard and
+blind men brought up to it. The man who got the head said an elephant is like a
+water jar. The ear, a winnowing basket. The tusk, a plowshare. The trunk, a
+plow pole. The body, a granary. The foot, a pillar. The back of the foot, a
+mortar. The tail, a pestle. The tuft at the end of the tail, a broom. Every one
+of them had his hands on the animal. Then they beat each other with their
+fists. The Jains tell it too — and those two cannot agree on whether there is a
+self at all, and they reached for the same elephant.
 
-The people who wrote the Thirteenth Amendment had access to none of it. By 1817
-the mathematics had been translated into English and by 1835 the rest was
-filed, on the record, as a shelf not worth a single shelf of a good European
-library — written by a man who says in the same document that he cannot read
-either language.
+In 1817 Colebrooke published Algebra, with Arithmetic and Mensuration, from the
+Sanscrit of Brahmegupta and Bháscara, in London, and the mathematics came over.
+On the second of February 1835 Thomas Babington Macaulay sat down to write a
+memo about what Indians should be taught, and put this in it: "I have no
+knowledge of either Sanscrit or Arabic… I have never found one among them who
+could deny that a single shelf of a good European library was worth the whole
+native literature of India and Arabia." Both halves are in the same paragraph.
 
-A country with two positions gets a man who is both and has to pick one. His
-mother was nine years old at a lunch counter in Oklahoma City in 1958. She
-spent thirty-one years teaching how a thing gets printed. He said the true
-thing first and the loud thing second and they printed the second one, and then
-for twenty years everyone who wrote about him picked a half.
+Everybody who loves him took the superpower. Everybody who doesn't took the
+sick. He wrote both, and nobody carried both.
