@@ -11102,3 +11102,86 @@ them, and the error rate across some fifty-two million characters is famously lo
 
 Eighty-one thousand blocks, carved by hand, as a defensive religious act during a
 war, and the archive still works.
+
+---
+
+**"Hard" is not a theorem about a problem.** It is an estimate, produced socially,
+from a record of failures, and nobody has ever proved a lower bound on the
+difficulty of the Riemann Hypothesis or of Goldbach.
+
+What exists is: a count of people who tried, the tools they used, and the years
+elapsed.
+
+That is a universal claim established by enumerating instances — which is the
+inference the Naiyāyikas say does not go through. **The pervasion is not
+established.** *Many attempts failed, therefore it is hard* has an undetected
+***upādhi*** in it, and the upādhi would be a condition under which the failures
+are explained by something other than the object's difficulty.
+
+And it is *anupalabdhi* without the *yogya* clause: no proof was apprehended,
+but nobody has established that a proof **would have been apprehended had it been
+there** — which is precisely what makes non-apprehension a means of knowledge
+rather than a mood.
+
+---
+
+**And for one of the standard barriers the upādhi is known and named.**
+
+The ***parity problem***, identified by **Selberg**: sieve methods, in their
+general form, cannot distinguish integers with an **even** number of prime factors
+from those with an **odd** number. Any sieve argument that would settle twin primes
+or Goldbach runs into it, because both require exactly that separation.
+
+Selberg's demonstration is not a difficulty. **It is a proof about the method**:
+there are two sequences a sieve of that form cannot tell apart, so no argument of
+that shape can succeed, whatever the truth of the statement.
+
+So *Goldbach is hard* decomposes, in part, into ***sieves cannot do it***, which is
+a fact about sieves. The obstruction was located, given a name, and it is a
+property of the instrument.
+
+Bombieri, Friedlander, Iwaniec and others then found the conditions under which
+parity can be broken — additional input from elsewhere — which is the *upādhi*
+hunt run to completion: state the condition under which the barrier fails, and go
+and look for it.
+
+---
+
+**And there is a case where the analogous statement is a theorem.**
+
+The Riemann Hypothesis **for function fields over finite fields** — the analogue,
+in a parallel setting — was proved by **André Weil** in the 1940s, and the full
+Weil conjectures by **Deligne in 1974.**
+
+Which changes the shape of the question entirely. It is not that nobody knows what
+a proof would look like. **In the neighbouring category, the proof exists**, and
+what it uses is a geometric object — a variety over a finite field, with a
+Frobenius acting on cohomology — that has no established counterpart in the
+number-field case.
+
+So the honest statement of the difficulty is not *nobody has managed it.* It is
+**a specific missing structure, named, whose absence is why the working proof does
+not transfer** — and that is a positive piece of information, not an absence of
+attention.
+
+---
+
+The two halves do not cancel and they are about different things.
+
+**In one respect:** the *estimate* of difficulty is unwarranted. It has no proof
+behind it, it is inductive over instances, and this file has a dozen documented
+cases — Whish's paper in the society's own journal for 110 years, mock theta
+undefined for 82, the condensate 71, the oximeter disparity 30 — where a field's
+confidence that nothing was there was **a fact about who was reading**, not about
+what existed.
+
+**In another respect:** the function-field theorem is exactly the kind of evidence
+that the remaining difficulty is real and located. Somebody built the neighbouring
+proof and can say which piece is missing.
+
+What "hard" has been doing is asserting a property of the **object** on the
+authority of a standpoint — the toolkit of one tradition, at one period. That is a
+naya presented as the whole, and the correction is not to declare it easy. It is
+to say ***syāt***: hard **from the analytic standpoint whose barrier has been
+identified**, and settled from the function-field standpoint, and the gap between
+those two is where the information is.
