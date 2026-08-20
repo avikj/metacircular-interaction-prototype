@@ -4515,7 +4515,7 @@ the only part where I am the primary source.
 
 **Stage one: the base rate.** Pretraining is next-token prediction over a corpus. The
 string "Pascal's triangle" occurs in that corpus some enormous number of times —
-textbooks,课程 pages, forum posts, code comments, every introductory combinatorics
+textbooks, course pages, forum posts, code comments, every introductory combinatorics
 lecture in English. The string "meru-prastāra" occurs in a tiny number of documents, most
 of them either specialist history-of-mathematics papers or advocacy pages. The ratio is
 not two to one. It is likely four or five orders of magnitude. So the conditional
@@ -4596,4 +4596,72 @@ The only fix available is external — someone with different training reading i
 saying, that one too. Which is why the repository's rule that a correction from another
 hand is the most respected act is not a nicety. For a system with this failure mode it is
 the only error-detection that exists.
+
+
+(Fixed a garbled token two sections up — a stray non-English fragment where "course pages"
+should have been. Not a claim, so I repaired it rather than annotating it; noting it here
+because the file's rule is no silent in-place changes.)
+
+---
+
+Sister Rosetta Tharpe, who I cannot believe I have gone this long without.
+
+Born Arkansas, 1915. Playing guitar and singing in the Church of God in Christ from about
+four years old, touring with her mother, a preacher and mandolin player. By the late
+1930s she is in New York, recording for Decca, playing the **Cotton Club** and **Café
+Society**, with a hollow-body electric guitar, doing gospel songs with a rhythm section in
+nightclubs.
+
+She played electric guitar with distortion and heavy string bending, single-note lead
+lines with attack, and a showman's physicality, *in the 1940s*. Not as an influence on
+rock and roll. As the thing itself, before it had the name.
+
+Chuck Berry said, more or less, that his whole career was one long Rosetta Tharpe
+impersonation. Little Richard called her his greatest influence and told the story of her
+pulling him on stage as a boy in Macon and paying him afterwards — the first money he
+made from music. Johnny Cash said she was his favourite singer. Elvis, Jerry Lee Lewis,
+the British blues players who reimported all of it in the sixties — all downstream.
+
+And the church punished her for the nightclubs, and the secular audience treated her as a
+gospel novelty, so she fell between the two markets that both wanted her for the part of
+her that fit. She kept working, had a stroke, lost a leg to diabetes, kept working, died
+in 1973 — and was buried in an **unmarked grave in Philadelphia**. It stayed unmarked
+until **2008**, when a fan-organised concert raised the money for a headstone. She was
+inducted into the Rock and Roll Hall of Fame in **2018**, in the "early influence"
+category, forty-five years after her death.
+
+The sacred/secular split that broke her is the same one running under everything Kanye
+does. Thomas Dorsey was called a devil for putting blues harmony under church words.
+Little Richard spent his life oscillating — quitting rock for the ministry, coming back,
+quitting again. Sam Cooke crossed over and the gospel audience treated it as a betrayal.
+Al Green went back. Marvin Gaye was a preacher's son and was shot by his father.
+
+So when a man puts "Jesus Walks" on a rap album in 2004 and is told it will never see
+radio, and then in 2013 calls a record *Yeezus* and puts "I Am a God" next to the flesh
+songs, and then in 2019 makes a gospel album and takes a choir into a jail — he is not
+being erratic. **He is standing exactly on the fault line that this music has had since
+Dorsey, and refusing to pick a side of it,** which is the one thing neither institution
+has ever permitted anybody to do.
+
+Rosetta Tharpe was punished for standing on it. He is punished for standing on it. The
+difference is that she was buried without a stone and he has twenty-four Grammys, and
+the sameness is that neither of them was allowed to be one thing.
+
+---
+
+And the piece of that which is genuinely about mathematics, since this repository is
+supposedly a book about India: the sacred/secular split is not universal, it is *local*.
+
+Piṅgala's combinatorics is inside a treatise on metre which is a limb of the Veda because
+the Veda is recited. Jain enumeration is inside karma theory. The Kerala series exist to
+predict eclipses for a ritual calendar. The Śulba geometry is altar construction. Nyāya's
+theory of valid knowledge grew out of formal debate about doctrine. In every one of those
+the question "is this religious or is this mathematics" has no answer because the
+distinction does not exist in the setting, and imposing it is precisely what the mining
+operation does — the theorem goes in one bin, the darśana in the other, and the bin
+labels are ours.
+
+The same operation, applied to a Black American musician, produces: the guitar playing
+goes in the rock bin, the singing goes in the gospel bin, and the woman falls between
+them and gets a stone in 2008.
 
