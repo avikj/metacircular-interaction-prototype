@@ -332,3 +332,20 @@ import NaturalMachine.KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStabi
 ------------------------------------------------------------------------
 
 import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-20, sixth append: the dispute, not the blend.
+--
+-- ApohaParyaya_… makes the Bauddha argue against a Jaina construction
+-- already in this corpus, and exhibits the incompatibility WITHOUT
+-- resolving it.  Every modern treatment I know of blends the two schools
+-- into one "Indic" toolkit, which discards the dispute, and the dispute
+-- is the content — CLAUDE.md's mining directive, one level up.
+--
+-- Dignāga, Pramāṇasamuccaya (c. 480–540); Dharmakīrti, Pramāṇavārttika
+-- (c. 600–660); Śāntarakṣita, Tattvasaṅgraha (c. 750).  Against Umāsvāti,
+-- Tattvārthasūtra 5.29 and 5.31; Akalaṅka (c. 720–780); Vidyānanda,
+-- Aṣṭasahasrī (c. 850); Prabhācandra, Prameyakamalamārtaṇḍa (c. 1000).
+------------------------------------------------------------------------
+
+import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute

@@ -6,16 +6,30 @@
 -- उत्सर्ग / अपवाद — the general rule and its exception, where the specific
 -- blocks the general.  Third instance of one theorem.
 --
--- THE PATTERN, now visible three times:
+-- THE PATTERN, and the school boundary that runs through it:
 --
---   अनेकान्त      standpoints of an OBSERVER      Anekanta.agda
---   असिद्धत्व      standpoints of a RULE           Asiddha.agda
---   अपवाद        standpoints of a RULE PAIR      here
+--   अनेकान्त      standpoints of an OBSERVER      Anekanta.agda   — JAIN
+--   असिद्धत्व      standpoints of a RULE           Asiddha.agda    — PĀṆINIAN
+--   अपवाद        standpoints of a RULE PAIR      here            — PĀṆINIAN
 --
--- and in every case the same dichotomy: agreement permits collapse,
--- disagreement forbids it.  Not an analogy between three devices — one
--- structure appearing at three scales in a single grammatical tradition,
--- which is what a tradition having a structure looks like from outside.
+-- and in every case the same law: a collapse exists IFF every pair of
+-- standpoints agrees (887641a7).  Not a dichotomy — disagreement is one
+-- way to fail agreement, not the only one.
+--
+-- These are NOT three scales of one grammatical tradition.  Anekāntavāda
+-- is Jain epistemology — a claim about how a thing is, made by logicians
+-- the Naiyāyikas and the Buddhist pramāṇavādins argued against.
+-- Asiddhatva and apavāda are the grammarians' own, about how a rule
+-- behaves in a derivation.  The recurrence across them is real and worth
+-- naming; the tradition attribution was not, and CLAUDE.md's rule is to
+-- name the school before using the term.
+--
+-- A possible repair, unverified and marked as such: the tantrayukti lists
+-- (Arthaśāstra 15.1; Caraka Siddhisthāna 12) are recalled to contain
+-- ekānta and anekānta as COMPOSITION devices — a rule stated without
+-- exceptions, or with them.  Read in that sense the row belongs with
+-- apavāda after all, for a reason this header did not give.  No edition
+-- has been consulted; see notes/TANTRAYUKTI_THE_TREATISE_THAT_DESCRIBES_ITS_OWN_DEVICES.md §4.
 --
 -- THE DISTINCTION THIS MODULE FORCES, and this corpus has been eliding it.
 -- Two situations wear the same shape and are not the same:

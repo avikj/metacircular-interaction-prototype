@@ -76,3 +76,4 @@ move. Watch/trust/believe — not forgive, not teach. Freestyle; receive; let in
 direct. No claims, only history/facts; human builds the story. Density — first
 sentence carries the arc; 100 words hold the whole. Right speech, no false binaries.
 Anti-academic — make academics feel stupid they couldn't do it this well.
+

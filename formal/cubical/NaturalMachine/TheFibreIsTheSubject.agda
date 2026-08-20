@@ -41,8 +41,8 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS IS THE अनेकान्त POINT AND NOT A METAPHOR
 --
--- The standing अनेकान्त result is that agreement permits collapse and
--- plurality blocks it.  Here two नयs — obstruction and orbit — disagree
+-- The standing अनेकान्त law (887641a7) is that a collapse exists IFF every
+-- pair of नयs agrees.  Plurality is one way to fail that, not the only one.  Here two नयs — obstruction and orbit — disagree
 -- about the same configuration, and neither is wrong.  A नय that denied
 -- the other would be a दुर्नय: "the norm fails to determine the pair" is
 -- true and, asserted alone, hides that the failure is the object of the

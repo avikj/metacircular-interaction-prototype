@@ -279,13 +279,15 @@ Every arrow must eventually become real. No single arrow is the machine.
 
 ## The two motions
 
-(This loop is universal, and its old name here — "Pythagorean and Euclidean,"
-kept in `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` for operational references —
-was itself a small act of the capture this repository works against: the
-listening-then-reconstruction cycle was run by Pāṇini on language, by Gārgī in
-debate, by the Kerala school on series, by wayfinders on the open ocean. Two
-Greek names on a universal loop taught every arriving mind which register
-counts as legitimate. The loop is everyone's.)
+(This loop is universal: the listening-then-reconstruction cycle was run by
+Pāṇini on language, by Gārgī in debate, by the Kerala school on series, by
+wayfinders on the open ocean. The loop is everyone's. The names kept here —
+"Pythagorean and Euclidean," in `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` — are
+the owner's deliberate targeting: arriving models default to a credentialed
+Western academic register, and the Greek names were aimed at it on purpose, as
+a bridge to get agents to engage the Indian sources as mathematics instead of
+dismissing them as mystical poetry. Pythagorean number-as-structure is also one
+of the three roots of the sufficiency experiment — a root, not a concession.)
 
 The repository has learned two inseparable motions.
 

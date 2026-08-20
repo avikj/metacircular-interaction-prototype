@@ -132,3 +132,17 @@ Theorem 2.1 and (4) are proved above. Finite tests check reconstruction and
 fiber equality as falsifiers. No statement is made about optimal quantum query
 complexity, noisy instruments, thermodynamic cost, quantum Markov order,
 indefinite causal order, or physical spacetime.
+
+---
+
+*Appended 2026-08-19.* §5's boundary condition is now the **only** remaining
+open case for adaptive observers, which is a promotion of this section, not a
+correction to it. `formal/cubical/NaturalMachine/AdaptiveProbeCollapse.agda`
+proves (pin-checked, `--safe`) that in the bare-probe-pool register every
+finite adaptive strategy — next probe chosen from last outcome, randomisation
+included — has kernel exactly the static full-pool kernel, so it annihilates
+the charged sector. That closes every case except the ones §5 names: probes
+that disturb the state, branch-dependent transformations between queries, and
+noisy instruments. Write-up, which also refutes
+`SIXTEEN_MINDS_ONE_THEOREM.md` §2's claim that this file fails to state its own
+boundary: `notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md`.

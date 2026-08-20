@@ -181,6 +181,24 @@ $S\mapsto\;\sim_S$ is antitone and is the polar; the pair
 $(\operatorname{Sep},\;\sim)$ is the standard Birkhoff polarity. Nothing here is
 new — see §7.
 
+> **[Correction carried here 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition — the remark above is
+> unaltered.]** The last claim is **imprecise as stated**, per
+> `notes/CHANGING_TESTS_VERSUS_SHRINKING.md` §0.4: "A Birkhoff polarity is a
+> pair of **antitone** maps; $\operatorname{Sep}$ is monotone, so
+> $(\operatorname{Sep},\sim)$ is not one. What is true, and is what the note
+> needed: $\sim_S$ is the polar of $S$ **for the complementary relation**
+> $R^{c}$ …; $\operatorname{Sep}$ is the *complement* of that polar, not a
+> polar." That note adds: "No theorem of the predecessor depends on the
+> misstatement — Theorem 1 is proved directly from Def. 1.6, not from Rmk 2.2 —
+> so the verdict stands and only the ground is repaired," and its §3 supplies
+> the **monotone** Galois connection that is the correct structural home for
+> Theorem 1. This is carried here because the correction had not reached the
+> remark: `notes/APOHA_AND_POLARITY.md` §3 records a later pointer that cites
+> this remark as *the* polarity and notes that doing so "repeats the corrected
+> error". The correct target for that citation is
+> `CHANGING_TESTS_VERSUS_SHRINKING.md` Prop. 6.3.
+
 ---
 
 ## 3. The exact strictness criterion — the content

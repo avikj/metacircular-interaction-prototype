@@ -277,7 +277,11 @@ import BehavioralApartness
 -- Fermat exponent 2^a − 1 is odd, so e₊ never enters and the two-sensor
 -- collapses to one parameter.  (Untracked and minutes old at the time
 -- of this audit — in-flight from another session, but exit 0 as found.)
-import HeadDepthTwo
+-- [The `import HeadDepthTwo` that stood here was the DUPLICATE
+-- `check-everything-coverage.sh` reported as its non-fatal WARNING; the
+-- module is imported once, at line 187, under the fuller comment.  The
+-- comment is kept because it says something the other does not.
+-- Removed 2026-08-19, orphan fold-in 3.]
 
 -- The genius swarm (Swarm/, swarm-0814-*): independent single-file
 -- certificates.  S00 and S02 are reached transitively already
@@ -638,3 +642,98 @@ import AbhavaAvacchedaka
 import MachineCurriculum
 import BhedaAvatarana
 import Punaragamana
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN 3, 2026-08-19 (Claude, librarian/build-engineer pass;
+-- notes/ORPHAN_SWEEP_3.md, collab/messages/0882-librarian-orphans3.md).
+--
+-- `check-everything-coverage.sh` reported ROT-FORWARD 83 at commit
+-- eeae2361: 83 of the 197 modules in its enumeration scope (180
+-- top-level *.agda excluding this file, + 17 Swarm/*.agda) were named
+-- by no import line here.  All 83 were run INDIVIDUALLY under THE PIN
+-- -- Agda 2.8.0 (/root/Agda-2.8.0/dist-newstyle/.../agda) + cubical
+-- v0.9 at /root/agda-libs/cubical-v0.9 (tag v0.9, commit b150186),
+-- LC_ALL=C.UTF-8 -- through `check.sh`, which announced RUNNING AGAINST
+-- THE PIN.  59 exited 0 and are imported below.
+--
+-- 24 exited 42 and are NOT imported.  Every one of them fails on a
+-- **v0.5-only name under a v0.9 library** -- the drift of
+-- notes/CONTAINER_PIN_AUDIT.md running BACKWARDS: 21 on `solve` (v0.9
+-- spells it `solve!`), 1 on `·Rid` (v0.9: `·IdR`), 1 on `⟪_⟫` made
+-- ambiguous by v0.9's own `Cubical.Algebra.Group.Subgroup.⟪_⟫`, and
+-- `IndianLane` transitively through `Kuttaka.agda:87`.  They are named,
+-- with their first error and line, in notes/ORPHAN_SWEEP_3.md §5 --
+-- the OUTSTANDING list.  Not folded in, because the repair is a source
+-- rename owned by whoever wrote them, not an import line here.
+--
+-- Note, stated because it bears on what this file's exit code means:
+-- this aggregate was ALREADY red under the pin before this edit, at
+-- `BhavanaSemiring.agda:69` and `Kuttaka.agda:87`, both of which it has
+-- imported since 2026-08-18.  Folding in the 59 does not change that
+-- and is not claimed to.
+------------------------------------------------------------------------
+import AksaraDviguna
+import AmshaSatyayantra
+import Ananta
+import AnuktaAvaktavya
+import ArchivistLane
+import Asiddhatva
+import AsiddhavatRegime
+import BhavanaKrida
+import Bija
+import ChitiDvipada
+import Citighana
+import Dvipada
+import Gati
+import Gurutama
+import GurutamaSiddha
+import Khahara
+import MatraSamasa
+import MatraVarnaGuru
+import Matramerus
+import Meru
+import MeruKarna
+import MeruSammiti
+import Narayana
+import NarayanaKarna
+import NarayanaSamasa
+import Niksepa
+import Panini
+import PanktiYoga
+import PingalaGhata
+import PingalaPrastara
+import PingalaSatya
+import PrastaraPankti
+import Purnata
+import Sadhyata
+import SamasaDvi
+import SamasaDviAmsa
+import SamasaEkAmsa
+import SamasaEka
+import SamasaEkagra
+import SamasaMeru
+import SamasaMeruN
+import SamasaNyuna
+import Samasesha
+import Sankalita
+import SaptabhangiNaya
+import Satyayantra
+import SatyayantraSamyoga
+import SeamClosed
+import Setu
+import Shadrasa
+import Shredhi
+import Sthairya
+import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
+import TraceCorpus
+import VaraSankalita
+import VargaGulma
+import Vargacitighana
+import Yugapat
+import Yuti
+
+-- Landed at cb441fc6 by another lane WHILE this sweep ran (file appeared
+-- 23:25:57Z, after the 83-module list was frozen at 23:22Z) -- §7.5's
+-- "the corpus moved while this ran", reproduced.  Run under the same pin
+-- through check.sh: RUNNING AGAINST THE PIN, EXIT=0, CHECKSH_EXIT=0.
+import DisclosureDimension
