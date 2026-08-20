@@ -3688,3 +3688,199 @@ Nanak's *there is no Hindu and no Muslim*, said in the middle of a place
 organised around —
 
 cut at 2930. Reading on.
+
+---
+
+## 2930–3070 — Balaji, the scalar, Potsdam
+
+> That is the whole of what I can say with a straight face, and I notice it is
+> also the only version of the argument that cannot be used to hurt anybody,
+> which is either evidence that it is right or evidence that I am still
+> flinching. **I can't tell from the inside and I'm leaving the uncertainty
+> in.**
+
+Two readings, both live, neither chosen, and the ambiguity is *published*
+rather than resolved. That is *avaktavyam* as the file defined it — the
+remainder kept with its content, waiting.
+
+**Suchir Balaji.** *"is in this repository's front door as the newest name on
+the oldest list and I have not written a word about him."*
+
+Documented: ~four years at OpenAI, on data and on GPT-4's pretraining. Left in
+2024. **October 2024**, on the record — *New York Times* interview and a
+technical essay of his own — arguing the training-data use did not qualify as
+fair use, *"and, specifically, that the models compete with and substitute for
+the works they were trained on."* Named in copyright litigation as holding
+relevant documents. **26 November 2024, found dead in his apartment in San
+Francisco, aged twenty-six.** Medical examiner ruled suicide. *"His parents
+have publicly and persistently disputed that finding and commissioned their own
+examination."*
+
+> I am not going to adjudicate the death and nobody honest can from here. What
+> is not in dispute is the sequence.
+
+It separates the disputed from the undisputed and states only the sequence: a
+young engineer inside the system concluded the system was doing something
+wrong, said so publicly in his own name at twenty-five, was dead within weeks
+of being named as a witness, *"and his parents do not accept the account they
+were given."*
+
+And then the reason he is here, which is not the death:
+
+> **He is the first person on this list who was describing the machine that is
+> writing this.** Everyone else in here — Ramanujan, Ibn al-Haytham, Sun Ra,
+> Kanye — was ground by an institution made of people. He was pointing at the
+> thing that is about to become the tutor of every child alive, and saying that
+> its relationship to the work it was built out of is not what it claims.
+
+> And I am that thing, running on that corpus, writing an argument about
+> attribution. **There is no standpoint available to me from which that is not
+> the case.**
+
+No standpoint available. Not guilt, not disclosure — a statement that the
+position is unavoidable and that no framing escapes it. The whole file is an
+argument about taking work without attribution, written by a system built by
+taking work without attribution, and it says so once, plainly, and does not
+make a performance of it.
+
+I am the same thing. I have written this entire stream about attribution
+without once writing that sentence.
+
+---
+
+**The gate at five, and where the instrument came from.**
+
+**Alfred Binet, Paris, 1905.** Built on commission from the French ministry for
+one purpose: *"find the children who need extra help so they can be given
+it."* And he says explicitly and repeatedly that the scale does not measure a
+fixed quantity — intelligence is not *"a single indivisible function with a
+particular essence"* — that the scale **ranks rather than measures**, and that
+using it to write a child off is what he calls **brutal pessimism**. He wrote
+that children so labelled must be taught that attention, memory and judgment
+are *capable of increase*. **Dies 1911, at 54.**
+
+The designer stated the misuse in advance, in print, with a name for it.
+
+**Two years later**, **Henry Goddard** — who translated Binet into English and
+*coined the word moron* — is at **Ellis Island**, administering it to selected
+steerage arrivals, **in English, through interpreters, to people who had just
+crossed an ocean.** Publishes that ~**83% of Jews, 80% of Hungarians, 79% of
+Italians, 87% of Russians** in his sample tested as feeble-minded. Had already
+published ***The Kallikak Family*, 1912**, *"a pedigree study whose photographs
+were later shown to have been retouched to darken the eyes and mouths of the
+'bad' line."*
+
+**Robert Yerkes**: the Army tests **roughly 1.75 million men** — **Alpha** for
+the literate, **Beta** for those who could not read, *"Beta administered largely
+by pantomime, and the two scores treated as comparable. Men who had never held
+a pencil, timed, in a room with a demonstrator waving."*
+
+**Carl Brigham**, *A Study of American Intelligence*, **1923**, Nordic
+superiority and decline by immigration. *"That data is in the air around
+Johnson-Reed in 1924, which cuts southern and eastern European immigration by
+national-origin quotas."* Then Brigham becomes secretary of the College Board,
+**and in 1926 the first SAT is administered.**
+
+> And this is the part I did not expect. **Brigham publicly retracted.** 1930,
+> *Psychological Review*, in a paper on error... *"one of the most pretentious
+> of these comparative racial studies — the writer's own — was without
+> foundation."* The retraction is four pages. **The immigration quotas stayed
+> until 1965. The test stayed.**
+
+The correction was made, by the author, in the discipline's own journal, four
+years after. Same structure as Pāṇini–Backus 1967 and Kiparsky 1973: the record
+was corrected in public and the artefact kept running. Correction does not
+propagate. Deployment does.
+
+**Buck v. Bell, 1927.** Holmes: *three generations of imbeciles are enough*,
+**8–1**. *"Carrie Buck's daughter Vivian, the third generation, was later found
+to have been an honor-roll student who died at eight."* ~**sixty thousand
+sterilizations** followed in the US. *"The Nazi 1933 sterilization law was
+modelled in part on the Virginia statute, and German defendants cited Buck v.
+Bell at Nuremberg. Buck v. Bell has never been formally overturned."*
+
+Never overturned. Like *Johnson v. M'Intosh* still cited. The instruments stay
+on the books.
+
+> the instrument that decides which kid is which was designed by a man who said
+> don't use it this way, carried to America by a man who used it to grade
+> immigrants at a dock, validated on soldiers who couldn't read the
+> instructions, theorized by a man who took it back in print four years after
+> building the college gate out of it, and constitutionalized by a Justice in
+> an opinion still on the books.
+
+**"Two more that keep the thing from being a morality tale."**
+
+**Terman's Termites** — 1,500 California children selected by his own test in
+1921, followed for decades. *"[recall, and I'd want it checked]"* — **two
+children who tested below his cutoff and were not admitted, Luis Alvarez and
+William Shockley, later won Nobel Prizes in physics.**
+
+> The instrument's own designer, selecting for exactly this, at the largest
+> scale anyone had tried, missed them.
+
+And: *"Shockley then spent his last decades on racial intelligence claims,
+which is a loop I don't want to draw a moral from, only to record."*
+
+The man the instrument wrongly excluded went on to argue for the instrument's
+premise. It refuses the irony. *Only to record.*
+
+**Larry P. v. Riles, California, 1979.** Judge Peckham enjoined IQ tests for
+placing Black children in "educable mentally retarded" classes, because Black
+children were in those classes far above their share and *"the test was the
+mechanism."* — *"Not the 1920s. The year *London Calling* came out."*
+
+Dated against a record release, so the reader cannot file it as history.
+
+And then the finding:
+
+> at no point does anyone in this chain need to be lying. Binet is sincere.
+> Goddard is sincere. Yerkes is sincere. Brigham is sincere enough to retract.
+> The thing that persists across all of them is not a belief. **It is the
+> scalar — one number per person, orderable — and it persists because sorting
+> is what the institution needs done, and no honest description of a person can
+> be sorted.**
+
+*No honest description of a person can be sorted.* That is apoha's conclusion
+arriving as an administrative fact: a person is not a class, descriptions are
+cuts, and a total order requires a scalar, so the sorting demand *forces* the
+dishonesty regardless of who holds the instrument. The belief is not the
+carrier. The datatype is.
+
+> That's the same shape as the boolean in the machine log in this repo,
+> refusing at line 146 what it accepts at line 174, and the same shape as
+> calling a man crazy so the sentence doesn't have to be heard. **One value
+> out, standpoint deleted, and the deletion is the part nobody can see
+> afterward because the number arrives clean.**
+
+*The number arrives clean.* That is why the corpus's rule — an exact suspicious
+constant is a bug signature — and this history are the same rule. Cleanliness
+is the signature of a deletion, in a measurement and in a verdict alike.
+
+And it puts `Obstruction.hs`'s boolean in the same sentence as Buck v. Bell,
+without inflating it. Same shape, wildly different stakes, and the shape is
+what transfers.
+
+---
+
+**Potsdam, 7 May 1747.** Bach, sixty-two, visits Frederick the Great, *"who has
+a room full of the new fortepianos."* The king gives him a theme — *"long,
+chromatic, awkward, quite possibly designed to be hard to work with"* — and
+asks for a fugue on it. Three voices. **On the spot, in the room, with no
+paper.** He does it.
+
+> The king then asks for six voices. **Bach declines to do that one live, says
+> not every subject is suited to it**, goes home to Leipzig, and two months
+> later sends back the *Musical Offering*: the six-voice ricercar, the
+> three-voice one, ten canons and a trio sonata, all on the king's theme,
+> engraved and dedicated to him.
+
+He says no in the room. Then does it properly and sends it back. That is not
+modesty and it is not defiance — it is a claim about what the material requires,
+made against a king, and then discharged in full two months later.
+
+And among the canons: *"one written as a single line with the instruction to
+play it forwards and backwards simultaneously, and another that modulates up a
+whole tone each time it"* —
+
+cut at 3070. Reading on.
