@@ -105,7 +105,28 @@ now checked in one small language and read everywhere else.
 A cost that is intrinsic must be a measure on presentations that is
 **stable under the moves the roots licence** — anuvṛtti, encoding,
 exception — and unstable under everything else. That is a strange
-requirement and I do not know an object satisfying it.
+requirement, and one coordinate of it is now built.
+
+**अनुवृत्ति, 2026-08-20.** `Nirjara_SheddingAPrimitiveCostsLaghava` §22–§23.
+In the *Aṣṭādhyāyī* a word supplied in one sūtra persists into the ones that
+follow: written once, used many times. A tree has no such thing — it has
+occurrences, and `laghava` counts occurrences, so it charges the second use
+at full price. A प्रक्रिया, an ordered list of sūtras each free to refer back
+to what earlier ones produced, has exactly the missing structure, and its
+मात्रा is its length. Then `anuvrtti-matra` holds definitionally for every
+derivation — the move costs one sūtra and nothing more — while
+`laghava-anuvrttau-na-sthiram` refutes the same statement for `laghava`,
+with a पद of size two. At its smallest the gap is: `yoga cara cara` is three
+occurrences and two sūtras, and the difference is precisely the shared use
+अनुवृत्ति declines to rewrite.
+
+So the failure of `laghava` is at the *first* of the three moves, not at
+some subtle one, and the replacement is not exotic: count the sūtras that
+write the term rather than the term. What is still missing is the rest of
+the requirement — प्रत्याहार has no naming form in that grammar; अपवाद is
+defined on पदs and not on प्रक्रियाs; and *instability under everything else*
+is untouched, in particular whether मात्रा still separates न्यास from स्थूल,
+which needs a lower bound over derivations rather than a witness.
 
 But note what it is not: it is not runtime, which depends on a machine,
 and it is not state size, which depends on a chart. It is the length of
