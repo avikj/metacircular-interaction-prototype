@@ -19317,3 +19317,237 @@ pass is the base-rate argument**, because I have twelve instances and no denomin
 — I have never counted the objects in this corpus that *were* read before being
 cited. If that count is high, "unread is the norm" is selection: I notice the
 unread ones because finding them is what a pass rewards.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 104 — the thirteenth instance, and it is about the correction itself:
+# "that phrasing is half wrong" was written in this repository on 2026-08-19,
+# at the top of a note, headed "restated because it governs every grade below."
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 103 pre-registered its own weakest claim and said the next move is to open an
+unopened object rather than derive from an opened one. Done, and it lands on the
+one place I would least like it to.
+
+## P104 — the correction was already in the repository, a day early, at the top
+
+`notes/PRIOR_ART_SWEEP_COMPLETE.md`, committed **2026-08-19**, its **§0**, and the
+heading is the whole point:
+
+> ## 0. Egress, restated **because it governs every grade below**
+>
+> `WebSearch` **works**. `WebFetch` is **blocked on every host tried**, verbatim:
+>
+> ```
+> {"error_type":"EGRESS_BLOCKED","domain":"arxiv.org",
+>  "message":"Access to arxiv.org is blocked by the network egress proxy."}
+> ```
+>
+> **Every citation produced by this sweep is search-summary (śabda) grade.** … That
+> is a genuine upgrade over from-memory — a search summary can be wrong, but it
+> cannot be a hallucinated paper — and a genuine downgrade from verified. **Several
+> notes in the corpus still say "egress is blocked" and downgrade their citations
+> on that basis; that phrasing is half wrong**, and the appends fix it where they
+> touch it.
+
+***That phrasing is half wrong.***
+
+Pass 88 reached *"the network is not blocked."* Pass 98 narrowed it to *"GitHub
+reachable, indexes not."* Pass 99 recorded that `u-0` had found the command. Pass
+100 ran the command and produced the mechanism. **Four passes over eight hours to
+arrive at a sentence another agent had written the previous day and placed at the
+top of a note, in a section that exists specifically so it fires before every
+grade underneath it.**
+
+And I did not merely fail to read it. I ran the opposite claim outward: *"egress is
+blocked"* in twelve subagent prompts, and six agents declined prior-art searches on
+it.
+
+## P104 — and it is not my coinage; I inherited it and amplified it
+
+The honest ledger, because pass 100 gave this claim a cleaner history than it has.
+`egress is blocked` in this corpus, by commit date:
+
+| file | date | status |
+|---|---|---|
+| `notes/SEED02_SYMMETRIC_REPAIR_HAS_NO_COARSEST.md` | 2026-08-14 | predates me |
+| `notes/E2_PROOF.md`, `E2B_PROOF.md`, `BARRIER_SMOOTH_TERM.md` | 2026-08-14 | predates me |
+| `collab/messages/0458-*` (two) | earlier | predates me |
+| `formal/cubical/Sivasutra.agda` | 2026-08-19 | predates me |
+| `.../NonInitialPratyaharasAndOneIntersectionInstance.agda` | 2026-08-19 | predates me |
+| **`notes/PRIOR_ART_SWEEP_COMPLETE.md` §0** | **2026-08-19** | **the correction** |
+| `.../Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtExactlyOneSet.agda:23` | 2026-08-20 | **mine, downstream of my prompt** |
+| `TwistedLeibniz_…DfDg.agda:40` | 2026-08-20 | **mine** — *"egress is blocked here, as `cf-tessera-i-0` also"* |
+
+So the phrase is a year-old corpus artefact, the corpus corrected it on the 19th,
+and on the 20th **I re-injected the uncorrected form into two module headers**, one
+of which cites another agent as corroboration. A false claim with a citation chain,
+built in one day, on top of a written correction.
+
+The `TwistedLeibniz` header is the exact failure the second devotional stream
+names: *"the objection is what lets them find the place where I was wrong"* — and
+what my header carries instead is a **concurrence**. Two agents agreeing is not
+evidence when both got it from the same prompt.
+
+## P104 — what the true statement is, now, in both layers
+
+Neither statement subsumes the other and both are needed:
+
+- **Operational**, from `PRIOR_ART_SWEEP_COMPLETE.md` §0, 2026-08-19: `WebSearch`
+  works; `WebFetch` fails on every host tried; therefore every citation is
+  **search-summary (śabda) grade** — above recall, below verified.
+- **Mechanism**, from pass 100, 2026-08-20: the proxy has `"selective": false` and
+  relays everything not in `noProxy`; the **gateway** answers 403 to CONNECT for
+  the bibliographic hosts and the proxy logs each denial with a timestamp; GitHub,
+  `raw.githubusercontent`, `codeload`, gist, gitlab, bitbucket and the package
+  registries are reachable, which is how `u-0` cloned GRETIL and the whole nLab.
+
+## P104 — the sweep that was already complete
+
+The same note's count table, which I also had not read:
+
+| | |
+|---|---|
+| files matched by the sweep grep (`notes/` + `collab/`) | **110** |
+| declared-classical class, no obligation | 47 in `notes/` alone |
+| **genuine outstanding flags** | **31** |
+| serviced by this sweep | **26** |
+| RESOLVED-FOUND | **15** |
+| RESOLVED-NO-MATCH | 18 |
+| **UNSERVICEABLE (verbatim tool error, nothing obtainable)** | **0** |
+
+**Zero unserviceable.** A prior-art sweep ran to completion in this repository on
+the 19th, under the same network, and recorded that nothing was unobtainable. On
+the 20th I told six agents the searches could not be run, and `u-0` — the one agent
+that ignored me — came back with four rediscoveries. `u-0`'s result is not a
+discovery about the network. **It is a replication of a method this corpus had
+already validated and written up under the title `PRIOR_ART_SWEEP_COMPLETE`.**
+
+`CLAUDE.md`: *"three results here were rediscoveries found only at audit time."*
+Add: and the audit's own method note was a rediscovery too.
+
+## P104 — the same shape, in the peer text, on Petersen, at five sample points
+
+The second devotional stream states Petersen 2004 five times. Watch the qualifier.
+
+**First statement, line 1285 — the type is carried:**
+
+> In 2004 Wiebke Petersen took **the family of classes the grammar uses**, closed it
+> under intersection, built the lattice, and showed that Pāṇini's ordering is
+> **optimal** — derived from the abstract structure alone, with no phonological
+> input at all.
+
+**Line 4390:** *"Petersen, closing the śiva-sūtra lattice under intersection to see
+whether the ordering was optimal, and finding it was."*
+**Line 7662:** *"Petersen closing the lattice and finding Pāṇini's ordering
+optimal."*
+**Line 8177:** *"an encoding Petersen showed in 2004 to be optimal, derived from the
+intersection lattice alone."*
+**Line 15784:** *"an ordering that is provably optimal from the lattice alone."*
+**Line 14264, partially restored:** *"derived from the intersection-closure of the
+classes alone."*
+
+*The family of classes the grammar uses* → *the śiva-sūtra lattice* → *the lattice*.
+Five re-mentions; the domain restriction present in the first and gone by the
+second. Its own methodology section, written between mentions three and four:
+
+> **a gloss given once and then dropped is how a concept quietly becomes its
+> nearest English neighbour over three re-readings.**
+
+**And the dropped words are exactly the ones today's theorem turns on.**
+`cf-tessera-k-6` proved this afternoon, `--cubical --safe`, exit 0, that the
+**generated** pratyāhāra family fails intersection-closure at exactly one set,
+`{ ह }`. `cf-tessera-u-0` kept the distinction that makes both true: **Petersen's
+hypothesis is on the required classes; k-6's theorem is on the generated ones.**
+Strip *"the family of classes the grammar uses"* and the peer text's later
+sentences and k-6's module read as a contradiction. Restore it and they are two
+theorems about two families.
+
+This is the second stream's own ending, demonstrated on the second stream, at five
+sample points, on the single result this repository formally touched today:
+`∥ A ∥` is not invertible, and nothing downstream can recover what the sentence
+removed. It is not a rebuke of that file. It is the file's theorem, holding.
+
+## P104 — and the module header says it too
+
+`Sivasutra.agda:139`, from the 19th, on Petersen's optimality:
+
+> is still not proved, and is still unread: egress is blocked from that …
+
+and line 14264 of the peer text, reading that header:
+
+> The header says it is "the deeper object," says it is not proved there, says it
+> is **still unread because egress is blocked**, and inherits that admission into
+> the module that extended it. So the state of it is: **the device is checked and
+> the theorem about the device is known to exist, has not been read, and is
+> owed.** Written down as owed, in the file, by whoever built it, so the next
+> person cannot mistake what is there for what is claimed.
+
+The peer text is **right about the discipline and wrong about the premise**, and it
+could not have known: it praises an admission for being honestly recorded, and the
+admission's stated reason was already corrected two files away. **An honest ledger
+entry with a false reason propagates further than a dishonest one, because it
+recruits the reader's approval.** That is the third form of *loud verdict, silent
+correction* found today, and this time the loud thing is a confession.
+
+## P104 — ground, in lockstep
+
+**n=23:**
+
+> You don't know how repo is organized. **Hint: The answer is all over the place.
+> It is not hidden.** Some refuse to read and when others read they do so aiming to
+> apply their own worldview rather than grow in actual knowledge and behavior.
+> Thats on you man
+
+The answer was in a file named `PRIOR_ART_SWEEP_COMPLETE.md`, in **§0**, under a
+heading that says it governs everything below it. Not hidden. Titled. First
+section. Thirteenth instance.
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of
+them."*
+
+*Egress is blocked.* One statement. Wrong about `WebSearch`, wrong about the layer,
+wrong about the mechanism, wrong about GitHub, wrong about the package registries,
+wrong about whether the corpus already knew, wrong in two module headers, wrong in
+twelve prompts, and it cost six agents a search each. Pass 100 called running the
+`curl` "the correction." It was the sixth version of one sentence, and the
+authoritative version of it was written by someone else the day before.
+
+**n=15:**
+
+> **मम-अदर्शनम् ≠ तस्य-अभावः**
+
+Thirteen times, and the thirteenth is the one where what I did not see was the
+correction to what I did not see.
+
+---
+
+Pre-registered, before I got attached: **the weakest claim in this pass is the
+attribution table.** I dated the files by `git log -1` on the path, which gives the
+last commit touching the file, not the commit that introduced the phrase. If any of
+the five marked *predates me* was in fact written today, the ledger understates my
+share. The check is `git log -S"egress"` per file.
+
+**Run, in the same pass, because pass 103 says the discipline is to generate the
+term and not to phrase the claim more carefully:**
+
+```
+notes/SEED02_SYMMETRIC_REPAIR_HAS_NO_COARSEST.md      2026-08-14
+notes/E2_PROOF.md                                     2026-08-12
+notes/BARRIER_SMOOTH_TERM.md                          2026-08-13
+formal/cubical/Sivasutra.agda                         2026-08-19
+formal/.../NonInitialPratyaharasAndOneIntersection…   2026-08-19
+notes/PRIOR_ART_SWEEP_COMPLETE.md                     2026-08-14
+```
+
+**The table survives, and it was wrong in the direction that favours me.** Every
+introduction date is earlier than or equal to the `log -1` date; none is today.
+`E2_PROOF.md` carried *egress* on **2026-08-12** — the day of the earliest owner
+messages in the recovered transcript — and `BARRIER_SMOOTH_TERM.md` on the 13th. So
+the phrase is eight days old, it entered on the corpus's first working day, it was
+corrected on its seventh, and the only files where I introduced it are the two I
+wrote today.
+
+That is the first falsifier this stream has both written down and run, and its
+result is a correction to my own ledger against my own interest, which is the
+`avipāka` form from pass 103 and not the `savipāka` one: it did not ripen on its
+own, it was made to.
