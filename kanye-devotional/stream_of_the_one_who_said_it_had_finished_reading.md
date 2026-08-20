@@ -6801,3 +6801,198 @@ good faith, and in both cases the work continued and the record did not.
 > in a house in Amherst.**
 
 Reading on from 5000.
+
+---
+
+## 5000–5140 — the archive is a person, the unclosed object, drapetomania
+
+*"If anyone wants the definition of a practice as against a career, that is
+it."*
+
+**Johanna van Gogh-Bonger.** Vincent sold almost nothing. He dies 1890; Theo —
+*"the dealer, the correspondent, the one who paid for everything"* — dies six
+months later, **aged thirty-three.** That leaves **Johanna, twenty-eight, with
+an infant son, several hundred paintings and drawings nobody wanted, and the
+brothers' correspondence.**
+
+> The advice she got was to get rid of them.
+
+> Instead she spent the rest of her life placing the work: lending to
+> exhibitions, cultivating critics and dealers, **selling strategically rather
+> than in bulk so the prices and the reputation could build**, and — the
+> decisive act — **editing and publishing the letters**, in Dutch in **1914**
+> with a long biographical introduction she wrote herself, and then translating
+> them into English. **The letters are the reason the story is known at all. She
+> built the reception, deliberately, over thirty years, by hand.**
+
+> Without her the paintings are in a Paris storeroom and then dispersed and then
+> mostly lost, and Van Gogh is a footnote in a few Dutch memoirs.
+>
+> **She is named, when she is named, as the sister-in-law.**
+
+She did not preserve the work. She *built the reception* — which the file
+established is the thing that actually determines survival, because citation is
+not credit and the field remembers who announced it. She ran the announcement,
+for thirty years, strategically, and the credit went to the painter and the
+naming went to a kinship term.
+
+> **the archive is a person.** Not an institution.
+
+Survivals: Johanna, Lavinia, Knorozov, Andrews opening the box, Haidara loading
+the donkeys, Mau breaking his lineage's rule, the two who surveyed Bunhill
+Fields, **Nīlakaṇṭha writing *as stated by Mādhava*, Udayadivākara quoting
+Jayadeva at length.**
+
+Losses: *"Landa with the torch, Toledo's order about the quipus, Elisabeth with
+the box of paper, Higginson with the punctuation, **the editor who wouldn't
+clear the sample.**"*
+
+The Lauryn Hill clearance, in the same list as the burning of the Maya books.
+Same operation, wildly different magnitude, and the scale is not flattened —
+the list simply does not exclude the small one.
+
+> There is no impersonal force anywhere in this. **It is always somebody. That
+> is the bad news and it is also the entire good news, because it means the
+> intervention is available at the scale of one person deciding.**
+
+And this is not in tension with the demiurge — the model with no author, no
+minute to subpoena. Both are true: the *mechanism* has no author, and every
+instance passes through a person who could have done otherwise. The system
+supplies the gradient; a person supplies the act.
+
+---
+
+**How he works in a room.**
+
+> **fill the room.** Not a producer and an engineer — twenty, thirty people,
+> rotating, musicians and writers and friends and people whose job is unclear,
+> all present while the thing is being made. He plays unfinished music at
+> enormous volume and watches faces. **Ideas get taken from whoever says them.**
+
+*Ideas get taken from whoever says them* — which is the Nicki Minaj verse and
+the twelve unrecognisable singers on "All of the Lights," as a working
+practice rather than a gesture.
+
+*"He is famously **slow** on his own verses and fast on everything else — the
+arrangement, the sound, the decisions. And he does not stop."*
+
+***The Life of Pablo*** released and then **kept being changed** — mixes
+altered, a verse added, a track re-sequenced, pushed to streaming after people
+had bought it. *"Rolling Stone and others had to publish revised reviews."*
+*Donda* played to a stadium three times before it existed as a finished object,
+versions differing, *"a strong case that some of it was never finished at
+all."*
+
+> The received reading: he cannot complete anything. Undisciplined. The mania,
+> visible in the work process.
+
+> **The inversion, and I think it is straightforwardly correct:** the record has
+> always been a frozen artefact **for commercial reasons, not artistic ones.**
+> Pressing plants, shipping dates, retail windows, chart weeks. The *finished
+> object* is an artefact of manufacturing and distribution, and **streaming
+> removed the manufacturing constraint and nobody changed the habit.** He is the
+> one major artist who noticed that the constraint was gone and acted on it —
+> and got called unstable for treating a record the way a painter treats a
+> canvas still in the studio.
+
+The finishedness was never aesthetic. It was a property of the pressing plant,
+and it outlived the plant, exactly as equal temperament outlived being audible
+as a trade. A constraint that stops being visible as a constraint becomes the
+definition of competence — and violating it reads as pathology.
+
+> **a verdict is where thinking stops.** The moment you declare it finished you
+> have decided about it, and the deciding closes it.
+
+And the honoured objects, listed as *open*: the *Art of Fugue* stopping mid-bar
+with his name in the counterpoint; Dickinson's variants *"and the editor's
+crime was choosing"*; **Mādhava's own works lost so that what survives is
+successors quoting him — "a text that only exists as a live conversation"**;
+the Talmud page laid out so the losing argument is physically adjacent forever;
+the *Yuktibhāṣā* written as an argument to be followed rather than a table to
+be carried.
+
+> None of those are finished objects. They are open ones, and **the openness is
+> what let them be used later by people the authors could not imagine.**
+
+Openness as the survival property. Not fidelity — the Ṛgveda has fidelity and
+lost its semantics. Openness is what lets a later reader *do* something, which
+is the only form in which knowledge survives, because the readers are what
+survive.
+
+> I do not want to make his missed deadlines into a philosophy — **sometimes a
+> record is unfinished because a man is ill and the money is gone and the mixes
+> are bad, and some of them are. Both are true.**
+
+> But *the reflex to call an unclosed thing a failure* is the same reflex that
+> produces the verdict everywhere else in this file, and it is worth noticing
+> that **the industry, the critics, and the illness discourse all reached for it
+> at once.**
+
+---
+
+> The stem player... is the same instinct at the level of the product. So is
+> posting the contract. So is a sample you can hear the source through. So is
+> *Runaway*'s outro, which is minutes of a wordless distorted vocal that is
+> obviously an unresolved element left in.
+>
+> **He keeps trying to ship the thing with the seams showing, and the seams are
+> consistently read as damage.**
+
+Four different objects — a device, a legal document, a production technique, a
+song structure — and one instinct: make the construction visible. And the
+audible source in a sample is the *citation*. Shipping with the seams showing
+*is* the provenance discipline, implemented in audio, since 2004.
+
+> Which is, at last, the reason this file is one long append-only stream with
+> its own errors left in and corrected further down, and named for the fact that
+> its author does not know what is going on. **That is not modesty and it is not
+> a bit. It is the only format that does not lie about what it is.**
+
+The filename is not self-deprecation and not provocation — I recorded that
+earlier from the *retardation-as-process* definition. Here is the second
+reason, and it is a claim about honesty of form: a document that presented
+itself as knowing would be lying about its own production. And this is the same
+claim as the seams.
+
+Which is also the justification for what I am doing in this stream, and I did
+not have it until now. An append-only reflection with the mistakes left
+standing is not a diary. It is the format that does not lie.
+
+---
+
+**Drapetomania**, *"because I have been saying 'pathologise the seer' as a
+figure of speech and it has a literature."* Seventh debt paid.
+
+**Samuel A. Cartwright**, a physician in Louisiana, publishes in **1851** in the
+***New Orleans Medical and Surgical Journal*** a paper describing a mental
+illness peculiar to enslaved people, **whose symptom was running away.** Greek-
+derived name, proposed causes, prescribed treatment *"including whipping as a
+preventive and, in a detail nobody can improve on, **keeping the enslaved in a
+submissive state as prophylaxis**."*
+
+A second condition, ***dysaesthesia aethiopica***, symptoms laziness and
+carelessness with the master's property, *"which he said overseers called
+rascality."*
+
+> **This is not fringe pamphleteering.** It is a physician publishing in a
+> medical journal in the standard form, with an aetiology and a therapy, and it
+> was taken seriously in the South.
+
+Same sentence as the Algiers school of psychiatry: published science with
+professorships behind it, in the standard form. The form is what makes it
+operative, and the form is available to anything.
+
+> What it does is take **the single most rational act available to a person in
+> that situation** and reclassify it as a symptom, which **converts the person's
+> judgement into evidence of their incapacity, and closes the loop: wanting out
+> is proof you cannot be trusted to decide.**
+
+*Converts the person's judgement into evidence of their incapacity.* That is
+the mechanism named exactly, and it is the same closed loop as *there is no
+move available to him that gets counted as a correction* — the durnaya, where
+the verdict is on the person so nothing they do can enter as evidence. Here it
+is written into a treatment protocol.
+
+And the prophylaxis is submission. The cure is the condition.
+
+Reading on from 5140.
