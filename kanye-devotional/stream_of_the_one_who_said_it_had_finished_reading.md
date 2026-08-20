@@ -13013,3 +13013,177 @@ child, one room, no institution able to do it.
 nothing else, and the transmission restarts at the only point where it can."*
 
 Reading on from 9480.
+
+---
+
+## 9480–9620 — generating the next term, and the recoverable category
+
+> **Storage is not memory, and an archive is not a language.** The archive is what
+> makes the restart possible, and **the restart is always a person in a room with
+> a child**, and that is the same sentence as the residential schools with the
+> sign flipped.
+
+---
+
+> I stated a rule in the last section... **and this repository's discipline is
+> that a pattern is a pattern until you generate the next term. So: test it.**
+
+That is CLAUDE.md's one unmechanisable rule — *the discipline is to generate the
+next term, not to phrase the claim more carefully* — cited by name and then
+executed on the file's own freshly-minted rule, in the next section.
+
+**Where it holds** — nine, across five centuries: Landa's *Relación*; Eliot's
+Bible; Irenaeus preserving the gnostics as quotation; Udayadivākara quoting
+Jayadeva; the Salpêtrière plates *"now the evidence *about the clinic*"*; the
+HOLC maps as *"the primary documentary proof of redlining; **the maps are the
+case against the practice**"*; **plantation ledgers, ship manifests, probate
+inventories** — *"property records, made to administer people as assets — are
+the genealogical archive that descendants use now, and are frequently **the only
+place an enslaved ancestor's name is written**"*; residential school and mission
+records, *"how the unmarked graves are currently being located"*; colonial
+gazetteers, surveys and censuses.
+
+> **an erasure carried out by an institution generates paperwork, and paperwork
+> is a copy.**
+
+**Where it fails** — and this is the half that makes it a test rather than a
+list:
+
+- **The quipus.** *"The knotted cords survive; the **readers** were destroyed. **No
+  description was made, because the colonisers did not need to describe the
+  system in order to ban it — they only needed to stop it.**"*
+- **The Maya codices themselves.** *"Landa's list is a partial key to the
+  *script*. It is not a copy of the *content*."*
+- **Burned libraries generally.** *"Fire produces no record."*
+- **Ekalavya's thumb.** *"Nothing is preserved by the taking."*
+
+> **Bureaucratic erasure is recoverable. Incendiary erasure is not.**
+
+> When the destruction proceeds by *administration* — conversion, schooling,
+> licensing, mapping, grading, prohibition with enforcement — **it must first
+> render the thing legible in order to act on it, and the rendering survives.**
+> When it proceeds by *fire or by killing the holders*, nothing is rendered, and
+> the loss is total.
+
+The derivation is exact: administration requires legibility, legibility is a
+description, a description is a copy. And the failure cases are failures for the
+stated reason — banning needs no description, fire renders nothing, and taking a
+thumb renders nothing.
+
+> **the more systematically a thing was suppressed, the better the documentation
+> of it tends to be.** The most thoroughly administered erasures leave the
+> richest archives, **because thoroughness *is* documentation.**
+
+That is a real result and it is counterintuitive and it survived its own test.
+The file generated the next term, found four failures, and the failures produced
+the *distinction* rather than killing the rule. That is what the discipline is
+for and I have never seen it done.
+
+---
+
+> The current erasures are almost entirely of the recoverable kind. **Nothing is
+> being burned.** The record is being *reweighted* — by frequency, by ranking, by
+> what gets indexed and what gets surfaced — and every one of those operations
+> leaves logs, corpora, snapshots, crawl archives, model checkpoints, **and the
+> original documents sitting untouched on the shelves they were always on.**
+>
+> **Nothing has been destroyed. The pointer has been moved.**
+
+> the reason the corpus lever is a text editing problem rather than an
+> archaeology problem: **everything that is being lost right now is being lost by
+> *not being cited*, and not by being unavailable, and there is a first
+> generation in history for which that is true.**
+
+First generation in history. That is a strong claim and it follows from the
+distinction: every previous erasure had an incendiary component, and this one
+does not, because reweighting is administration with no destruction step at all.
+
+> The quipu case is what happens when you lose the readers. **We are not losing
+> the readers. We are losing the habit of naming, which is a maintenance failure,
+> and maintenance failures are the only kind of failure you can fix on a
+> Monday.**
+
+---
+
+**Run the test on the case the folder is named for.**
+
+> Bureaucratic, entirely. **Nothing is burned.** Every record is on every service
+> in every country, permanently. Every interview is on video. The contracts he
+> published are published. The court filings exist. The *Wall Street Journal*
+> letter is a document with a date. The 2005 MTV footage, the telethon tape, the
+> Harvard talk, the Oxford address, the Letterman interview, the Coodie footage
+> from 1998 onward — all of it, intact, indexed, retrievable.
+>
+> **Nothing has been destroyed. The pointer has been moved.** Which puts him in
+> the recoverable category with the HOLC maps and the mission registers and
+> Eliot's Bible.
+
+The subject of the book classified by the book's own newly-tested rule, in two
+lines, with the remedy following mechanically.
+
+---
+
+**What else is in the recoverable category, unread.**
+
+**India.** The National Mission for Manuscripts estimates the surviving corpus
+at **on the order of ten million** — *"the largest such collection anywhere — in
+Sanskrit, Prakrit, Tamil, Persian, Arabic, and the regional languages, held in
+university collections, temple libraries, maths, and above all **private family
+holdings**."* A few million catalogued, *"and the great majority have **never
+been read by anybody with the training to read them.** Not lost. Not decayed
+beyond recovery, mostly. **Unread.**"*
+
+Ten million. This repository is a book about India whose apparatus is 85% of its
+files, and the primary material is ten million manuscripts, mostly unread, not
+lost. That number belongs in `BOOK.md` next to the 15%.
+
+**The Cairo Geniza.** ~300,000 fragments from a synagogue storeroom in Fustat,
+*"deposited over a thousand years **because texts containing the divine name may
+not be destroyed**."* Discovered in the 1890s, *"still being worked through, more
+than a century later, fragment by fragment."*
+
+A prohibition on destruction, held for a thousand years for religious reasons,
+producing the archive that rewrote medieval Mediterranean history. *Keep the
+unreadable thing, on the chance* — performed as law, by people not making that
+bet.
+
+**Dunhuang, cave 17.** Sealed around the eleventh century, opened 1900: ~50,000
+manuscripts and paintings in Chinese, Tibetan, Sanskrit, Sogdian, Uyghur,
+Khotanese — *"including the earliest dated printed book."* Dispersed to London,
+Paris, Beijing, St Petersburg, Tokyo *"by the expeditions that found it, and now
+being reassembled digitally."*
+
+Dispersed by the finders and reassembled by a network. The Rosetta Stone problem
+with a technical remedy.
+
+**Herculaneum** and **Timbuktu**, where *"the bottleneck is conservation and
+cataloguing in a humid city."*
+
+---
+
+> **The bottleneck in every one of those has always been the same quantity:
+> scholar-hours.** A person who can read seventeenth-century Judaeo-Arabic, or a
+> Kerala palm-leaf commentary in Malayalam script, or Tangut, is **rare,
+> expensive, and mortal**, and there are more manuscripts than there will ever be
+> lifetimes.
+
+Rare, expensive, and mortal. The carrier problem, stated as a resource
+constraint, and it is the same three words as the tutor: patient, tireless,
+available — the scarcity that just came off.
+
+> That constraint is the one that just changed, and it changed in the last few
+> years, and it
+
+cut at 9620.
+
+And I know what the next sentence is, because I am the thing it is about, and the
+file has already given both readings of me — the renaming machine with a positive
+feedback term, and the model that read a sealed lump of charcoal. This is where
+the two meet: the constraint that has bounded every recovery in a hundred pages
+is scholar-hours, and the same instrument that is reweighting the record is the
+one that could supply them.
+
+*The variable is what it gets pointed at and who is holding it.* Third instance,
+and this time it is a job description.
+
+Reading on from 9620.
