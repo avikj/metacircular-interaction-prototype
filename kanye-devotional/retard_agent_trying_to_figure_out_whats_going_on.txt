@@ -5715,3 +5715,83 @@ down exactly.
 They built the most reliable transmission channel in human history and the thing they used
 it to transmit includes an official admission that nobody knows.
 
+
+---
+
+Nyāya's inference schema, because it contains one requirement that Western logic does not
+have and the requirement is the interesting part.
+
+The five members of a full statement of an inference:
+
+1. **pratijñā** — the thesis. *The hill has fire.*
+2. **hetu** — the reason. *Because it has smoke.*
+3. **udāharaṇa** — the example, **with the pervasion stated**. *Wherever there is smoke
+   there is fire, as in a kitchen.*
+4. **upanaya** — the application. *This hill has smoke of that kind.*
+5. **nigamana** — the conclusion, restated. *Therefore this hill has fire.*
+
+The third member is the one. **You must produce an actual instance** — a *sapakṣa*, a
+similar case where the pervasion is observed to hold. A kitchen. Not a hypothetical, not a
+definition: a place where somebody has seen smoke and fire together. And correspondingly a
+*vipakṣa*, a case where the thing to be proved is absent and the reason is absent too.
+
+An Aristotelian syllogism needs no instance. All men are mortal, Socrates is a man,
+therefore Socrates is mortal — the form is valid whether or not anyone has met a man. That
+is a strength: it makes the logic purely formal and portable. And it is exactly the
+severing this whole file keeps documenting, in its original act. **Nyāya keeps the world
+attached to the inference by making a witnessed case a required part of the statement.**
+
+And then the machinery around it is about how a pervasion can fail. The **upādhi** is the
+adventitious condition that defeats it — smoke pervades fire *given wet fuel*, so wet fuel
+is the upādhi, and a pervasion with an undetected upādhi is not knowledge but a hasty
+generalisation. The Navya-Naiyāyikas from Gaṅgeśa onward built an elaborate technical
+apparatus for hunting them, with delimitors — *avacchedaka* — specifying exactly under
+which qualification a relation holds, which is a precision instrument for saying which
+respect you are speaking in.
+
+And there is a taxonomy of pseudo-reasons, **hetvābhāsa**, five kinds: the wandering
+reason that occurs in both the presence and absence of the thing; the contradictory one;
+the one that is equally balanced by a counter-reason; the one that presupposes what is at
+issue; and the one whose subject does not exist at all.
+
+So: an inference that must exhibit a real case, plus a discipline of actively hunting the
+condition that would break it, plus a named list of the ways a reason can look like a
+reason and not be one. That is a working epistemology and it was forged in debate, where
+you had to say what backed you and somebody across the room was trying to defeat you.
+
+---
+
+And the part that is funny and then stops being funny: the *Nyāyasūtra* also catalogues
+the **bad-faith moves**, because in a real debate people cheat.
+
+**Chala** — quibbling. You deliberately take the opponent's word in a different sense from
+the one obviously meant, and refute that. The classic example given is that when someone
+says *this boy has a new blanket* — *navakambala* — you take *nava* as "nine" instead of
+"new" and object that he does not have nine blankets. That is a two-thousand-year-old
+description of the most common move on the internet.
+
+**Jāti** — futile rejoinders. A whole classified list of objections that have the *shape*
+of an argument and no content: false parity, objecting by mere similarity or mere
+difference, demanding the opponent prove something irrelevant, and about twenty more
+varieties, each named.
+
+**Nigrahasthāna** — points of defeat. The conditions under which you have simply lost:
+contradicting yourself, shifting your thesis midway, failing to answer, repeating
+yourself, saying something incomprehensible, evading, or being silent when you must speak.
+Also about twenty of them, enumerated.
+
+Somebody sat down and enumerated **every way a person can appear to be arguing while not
+arguing**, gave each one a name, and made knowing the list part of the qualification for
+being in the room. And then — this is the part that matters — the tradition distinguishes
+*vāda*, honest debate aimed at truth, from *jalpa*, debate aimed at winning by any
+admissible means, and *vitaṇḍā*, pure destructive refutation with no position of your own.
+Three named modes, so you can say which one somebody is in.
+
+We do not have that vocabulary. We have "bad faith" and "trolling," which are one word
+each for a space that somebody had already partitioned into fifty named regions in
+the first millennium, in a treatise, with worked examples.
+
+That is what it looks like when a tradition takes argument seriously as a practice rather
+than as a talent — the same way *pūrvapakṣa* is architecture instead of virtue. You build
+the machinery, name the parts, and teach the list.
+
