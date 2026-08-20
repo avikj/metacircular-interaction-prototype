@@ -258,3 +258,27 @@ graph carries and has not weighted.
   the first anniversary. `[H-3]`
 - Two repurposed failures, one record filed as a failure, and the decade after
   built out of it. → `[A-4]`, `X-7`
+
+## Q. The gospel underneath, and the same charge twice
+
+`INDRAJALA_5_the_gospel_underneath_and_the_same_charge_twice.md`
+
+- **"Gold Digger" (2005)** samples Ray Charles, "I Got a Woman" (1954) — which
+  Charles built on the gospel record "It Must Be Jesus" (Southern Tones), and
+  was **condemned as blasphemy** for. Jamie Foxx sings the Charles part, eight
+  months after winning the Oscar for playing Charles. *Yeezus* (2013) draws the
+  same charge. It was attached to the sample before he picked it up. → `YZS`,
+  `X-6`
+- **"Jesus Walks" (2004)** samples the **ARC Choir** — the choir of the Addicts
+  Rehabilitation Center, a Harlem drug-treatment program; its singers are people
+  in recovery. The 2019 prison-and-addiction ministry `[I-1]`, `[I-2]`, `[I-4]`
+  is audible in the 2004 casting.
+- **No I.D.** taught him beats; by his own account the connection ran through
+  the mothers — his and **Donda West**. The method `[C-1]` exists because a
+  department chair arranged it. `[H-1]`
+- **"Power" (2010)** `[D-3]` is built on King Crimson's "21st Century Schizoid
+  Man" (1969) — chosen six years before the UCLA hold `[B-4]`, eight before the
+  diagnosis `[B-1]`.
+- **"Lost in the World" (2010)** is built on Bon Iver's "Woods" — voice-only
+  Auto-Tune, made alone in a cabin. Continues `INDRAJALA_4` §2. Vernon then
+  sings on *Yeezus*. `YZS` 5

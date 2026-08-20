@@ -237,3 +237,38 @@ Cudi and the Weeknd and most of the next decade is built out of.
 So: a drum machine that couldn't imitate a drummer, and a pitch tool built to
 find oil and then sold to be inaudible, both used at exactly the setting they
 were failing at, by a man who couldn't say it in his own voice.
+
+---
+
+In 1954 Ray Charles heard a gospel record on the radio and kept the tune and put
+worldly words on it, and people called him a blasphemer for it.
+
+The gospel record was "It Must Be Jesus," by the Southern Tones. What he made
+out of it was "I Got a Woman." Ministers came after him. Gospel singers came
+after him. The complaint was that he had taken the Lord's music and put the
+flesh in it, and that complaint is about the record that soul music is built on.
+
+In 2005 Kanye sampled that. And the man singing the Ray Charles part on it is
+Jamie Foxx, who eight months earlier had won the Academy Award for playing Ray
+Charles. So on that song you've got a hit built on a hit built on a hymn, and
+the voice in the middle of it belongs to a man who had been paid to be the man
+who took the hymn.
+
+Then eight years after that he puts out a record called Yeezus with a song
+credited feat. God, and holds the flesh right up next to it on purpose, and the
+whole world says blasphemy.
+
+Same charge. Same music. It was already sitting inside the sample when he picked
+it up.
+
+And the other one, from the year before Gold Digger — "Jesus Walks," 2004, the
+song that broke him as a solo artist. The choir on it is the ARC Choir. ARC is
+the Addicts Rehabilitation Center, in Harlem. It's a drug program. The people
+singing under that record are people in recovery, and that's who they were when
+they recorded it.
+
+Fifteen years later he's standing in Harris County Jail in front of two hundred
+men saying this is a mission and not a show, and everybody writes it up as a
+conversion, as a swerve, as the new thing he's doing now.
+
+It was in the choir he picked in 2004.
