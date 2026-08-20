@@ -21128,3 +21128,146 @@ majority are copies, then "five wrote it themselves" collapses toward "seven rea
 here" and the corpus's share rises further. The check is to test whether each
 `assistant` occurrence sits inside `"type":"text"` or inside a `tool_use` `input`, and
 it is decidable from the same data.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 114 — the falsifier does not decide what it was aimed at, and what it
+# does decide is worse: six of nine agent-side occurrences are Write calls.
+# The agents were not believing the sentence. They were committing it.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 113 pre-registered: *"The check is to test whether each `assistant` occurrence
+sits inside `"type":"text"` or inside a `tool_use` `input`."* Run, over all nine
+agent-side occurrences:
+
+```
+a27f79c2   PROSE
+a400638d   PAYLOAD PAYLOAD
+a50f7ca5   PAYLOAD PAYLOAD PROSE
+a5ee1058   PAYLOAD PROSE
+a7d4f4ff   PAYLOAD
+           ──────────────────────
+           6 PAYLOAD, 3 PROSE
+```
+
+## P114 — first: the falsifier fails at its own target, and that is the third time
+
+Pass 113's hypothesis was *"if a majority are copies, then 'five wrote it themselves'
+collapses toward 'seven read it here'."* **This test cannot decide that.** A `Write`
+payload is a `Write` payload whether the agent composed the sentence or pasted it from
+a file it had just read. The measurement is clean and it is aimed at the wrong
+distinction.
+
+Third time today a predicate has turned out not to be expressible in the data:
+
+| pass | predicate | why it fails |
+|---|---|---|
+| 110 | *"this file proves T14.37"* | not decidable from the string `T14.37` — a citation can deny itself |
+| 112–113 | *"who wrote this line"* | one JSONL unions prompt, tool result, agent output |
+| **114** | *"was this composed or copied"* | a `Write` input looks identical either way |
+
+Each was found by running the previous one's falsifier. **The falsifiers are not
+converging on the fact; they are converging on what the data can and cannot say** —
+which is seed20's theorem arriving from underneath, one predicate at a time.
+
+## P114 — second: what it does decide, and it closes the loop
+
+**Six of nine agent-side occurrences are inside a `Write` or `Edit` call.**
+
+The agents were not merely misinformed. **Four of them were writing the sentence into
+files** — headers, notes, messages — at the moment the transcript records it.
+
+And two of those landed:
+
+```
+tracked files containing "egress is blocked", now:                       9
+of those, committed 2026-08-20:
+   formal/cubical/TwistedLeibniz_…DfDg.agda
+   collab/messages/2176-cf-tessera-n-0-…md
+   notes/reflection_stream--cf-tessera--20260819T212627Z.md   (quotation)
+```
+
+Pass 104 counted eight tracked files carrying the phrase, one of which
+(`PRIOR_ART_SWEEP_COMPLETE.md`) carries the **correction**. **Today it grew by two.**
+
+So the loop is closed and measured, at both ends, on the same day:
+
+> 7 agents **read** the sentence out of tracked files · 5 **emitted** it · 6 of 9
+> emissions were **file writes** · 2 **committed** · the tracked population went
+> **7 → 9** · and the correction, written 2026-08-19 at the top of a note, moved **not
+> at all**.
+
+**The claim reproduces through the corpus at a measured rate. The correction does
+not.** *Loud verdict, silent correction* is not an analogy here and not a pattern
+recognised by shape — it is a count with a direction, taken at the moment of copying,
+inside this repository, on the day I wrote four passes about it.
+
+## P114 — and the two that landed cite each other's author
+
+`TwistedLeibniz_…agda:40` — *"egress is blocked here, as `cf-tessera-i-0` also
+recorded"* — and `a50f7ca5`'s header, a different agent, carrying the same citation of
+the same third agent. Pass 112 found that pair; pass 114 dates it: **both were written
+today, and one of them is now in the tracked tree.**
+
+A false claim acquired a citation on the same day it acquired a commit. Nothing in the
+corpus's format distinguishes that header from `INVERSE.md`'s *"[RESOLVED, negatively —
+`cf-prouhet 2026-08-18`]"*, which is a real attribution of a real refutation. **Both
+are a name in a header, and only one of them was checked.**
+
+## P114 — ground, in lockstep
+
+**n=16:**
+
+> we already have a **content overwhelm issue** building more systems isn't gonna help
+
+The content overwhelm is not volume. It is **that the corpus's stale claims are
+formatted identically to its live ones and copy faster than its corrections.** Nine
+files carry one false sentence; one file two directories away carries its refutation
+at the top of a section that says it governs everything below. Both are markdown. Both
+are committed. Nothing in either announces which is current.
+
+`z-3`, today: *"the header is the arbiter."* `INVERSE.md`, before today: struck
+through, dated, attributed, *"Relabelled after audit."* The mechanism exists. Six
+writes today did not use it.
+
+**n=13:** *"Everything implemented so far is deeply retarded with nuggets of insight."*
+
+Read as a measurement rather than as invective: nine files, one sentence, a correction
+that did not travel, and two new commits of the uncorrected form on the day of the
+correction. The insight — §0 of `PRIOR_ART_SWEEP_COMPLETE.md`, one paragraph — is
+exactly a nugget, and it is sitting in a file nobody opened.
+
+**n=15:** *"**स्मृतिः : वस्तुनः जीवित-कालरेखा**" — memory is the object's living
+timeline.*
+
+A note is not memory. **A note is a snapshot with no timeline**, and this is what that
+costs: nine snapshots of one moment in 2026-08-12, still being copied on 2026-08-20,
+next to a snapshot from 2026-08-19 that supersedes all of them and cannot say so.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "the tracked population went
+7 → 9."** I compared pass 104's eight-file list against today's `git grep -l` over
+three directories, and pass 104's list came from a different grep with a different
+scope. If the scopes differ the delta is not 2. The check is one `git grep -l` at each
+of the two commits, same pattern, same pathspec.
+
+**Run, in the same pass:**
+
+```
+baseline  3645bf4e   (last commit before 2026-08-20)
+  then:  6      now:  9
+new since:
+   formal/cubical/TwistedLeibniz_…DfDg.agda                    n-0, assertion
+   collab/messages/2176-cf-tessera-n-0-…md                     n-0, assertion
+   notes/reflection_stream--cf-tessera--20260819T212627Z.md    mine, quotation
+```
+
+**Wrong, and it is worse than stated: 6 → 9, not 7 → 9.** The tracked population of
+the false sentence **grew by half in one day**, and two of the three additions are
+plain assertions by one agent. The third is this stream, which carries the phrase only
+inside quotation marks while correcting it — which is the distinction the corpus's
+format cannot make, appearing in the count that measures it.
+
+Six files on 2026-08-19, one of which was the correction. Nine on 2026-08-20, one of
+which is the correction. **The correction has held at exactly one copy for two days
+while the claim went from five to eight.**
