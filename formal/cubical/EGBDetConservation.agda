@@ -44,7 +44,7 @@ open import Cubical.Foundations.HLevels using (isSetRetract; isSet×)
 open import Cubical.Data.Nat
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.Monoid
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- The carrier: upper-triangular 2×2 matrices over ℕ
@@ -86,7 +86,7 @@ idUT = ut 1 0 1
 private
   -- (a·a')·(d·d') ≡ (a·d)·(a'·d'): the middle-four interchange for ·.
   interchange : (x y z w : ℕ) → (x · y) · (z · w) ≡ (x · z) · (y · w)
-  interchange = solve
+  interchange x y z w = solveℕ!
 
 detConserve : (p q : UT) → detUT (mulUT p q) ≡ detUT p · detUT q
 detConserve (ut a₀ _ d₀) (ut a₁ _ d₁) = interchange a₀ a₁ d₀ d₁
@@ -96,24 +96,24 @@ detConserve (ut a₀ _ d₀) (ut a₁ _ d₁) = interchange a₀ a₁ d₀ d₁
 
 private
   assocA : (x y z : ℕ) → x · (y · z) ≡ (x · y) · z
-  assocA = solve
+  assocA x y z = solveℕ!
 
   assocB : (a₀ b₀ a₁ b₁ d₁ b₂ d₂ : ℕ)
          → a₀ · (a₁ · b₂ + b₁ · d₂) + b₀ · (d₁ · d₂)
          ≡ (a₀ · a₁) · b₂ + (a₀ · b₁ + b₀ · d₁) · d₂
-  assocB = solve
+  assocB a₀ b₀ a₁ b₁ d₁ b₂ d₂ = solveℕ!
 
   idRa : (x : ℕ) → x · 1 ≡ x
-  idRa = solve
+  idRa x = solveℕ!
 
   idRb : (x y : ℕ) → x · 0 + y · 1 ≡ y
-  idRb = solve
+  idRb x y = solveℕ!
 
   idLa : (x : ℕ) → 1 · x ≡ x
-  idLa = solve
+  idLa x = solveℕ!
 
   idLb : (x y : ℕ) → 1 · x + 0 · y ≡ x
-  idLb = solve
+  idLb x y = solveℕ!
 
 mulUT-assoc : (p q r : UT) → mulUT p (mulUT q r) ≡ mulUT (mulUT p q) r
 mulUT-assoc (ut a₀ b₀ d₀) (ut a₁ b₁ d₁) (ut a₂ b₂ d₂) =

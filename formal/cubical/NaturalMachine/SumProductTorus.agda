@@ -69,7 +69,7 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.List
 open import Cubical.Data.Sigma
 open import Cubical.Data.Unit
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- 1.  Derivations over a basis
@@ -111,7 +111,7 @@ _⊕_ {b ∷ bs} (x , xs) (y , ys) = (x + y) , (xs ⊕ ys)
 
 -- the rearrangement, by the semiring solver
 shuffle : (P Q U V : ℕ) → (P · Q) · (U · V) ≡ (P · U) · (Q · V)
-shuffle = solve
+shuffle P Q U V = solveℕ!
 
 -- SUM BECOMES PRODUCT.  This is the cover.
 val-⊕ : (bs : List ℕ) (u v : Exp bs) → val bs (u ⊕ v) ≡ val bs u · val bs v

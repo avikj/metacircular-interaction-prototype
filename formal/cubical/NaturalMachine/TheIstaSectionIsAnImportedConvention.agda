@@ -6,7 +6,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _·_ ; _+_ ; -_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Kuttaka using (solutionFamily)
 
 ------------------------------------------------------------------------
@@ -71,7 +71,7 @@ open import Kuttaka using (solutionFamily)
 
 private
   shiftByZero : (x b : ℤ) → x ≡ x + pos 0 · b
-  shiftByZero = solve ℤCommRing
+  shiftByZero x b = solve! ℤCommRing
 
 IstaSection : ℤ → Type
 IstaSection b =

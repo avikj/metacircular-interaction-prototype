@@ -127,7 +127,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥rec)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- 0.  Polynomial identities.  Each is a commutative-semiring identity in
@@ -138,88 +138,88 @@ open import Cubical.Tactics.NatSolver.Reflection using (solve)
 
 private
   idAmGmL : (x d : ℕ) → x · x + (d + x) · (d + x) ≡ 2 · (x · (d + x)) + d · d
-  idAmGmL = solve
+  idAmGmL x d = solveℕ!
 
   idAmGmR : (y d : ℕ) → (d + y) · (d + y) + y · y ≡ 2 · ((d + y) · y) + d · d
-  idAmGmR = solve
+  idAmGmR y d = solveℕ!
 
   idMulSq : (K S : ℕ) → (K · S) · (K · S) ≡ (K · K) · (S · S)
-  idMulSq = solve
+  idMulSq K S = solveℕ!
 
   idFourSq : (E : ℕ) → (4 · E) · (4 · E) ≡ 16 · (E · E)
-  idFourSq = solve
+  idFourSq E = solveℕ!
 
   idFinal : (K D : ℕ) → (K · K) · (36 · D) ≡ 36 · (D · (K · K))
-  idFinal = solve
+  idFinal K D = solveℕ!
 
   -- (2m + K)² + 4E ≡ (4m² + 4E) + K·(4m + K)
   idHi : (m K E : ℕ) → (2 · m + K) · (2 · m + K) + 4 · E
                      ≡ (4 · (m · m) + 4 · E) + K · (4 · m + K)
-  idHi = solve
+  idHi m K E = solveℕ!
 
   -- (A + K)² ≡ A² + K·(2A + K)
   idLo : (A K : ℕ) → (A + K) · (A + K) ≡ A · A + K · (2 · A + K)
-  idLo = solve
+  idLo A K = solveℕ!
 
   -- (A + 2m)² ≡ (A² + 4Am) + 4m²
   idAlt : (A m : ℕ) → (A + 2 · m) · (A + 2 · m) ≡ (A · A + 4 · (A · m)) + 4 · (m · m)
-  idAlt = solve
+  idAlt A m = solveℕ!
 
   idSsqA : (A K : ℕ) → (2 · A + K) · (2 · A + K)
                      ≡ 4 · (A · A) + (4 · (A · K) + K · K)
-  idSsqA = solve
+  idSsqA A K = solveℕ!
 
   idSsqB : (m K : ℕ) → (4 · m + K) · (4 · m + K)
                      ≡ 16 · (m · m) + (8 · (m · K) + K · K)
-  idSsqB = solve
+  idSsqB m K = solveℕ!
 
   id36 : (D : ℕ) → 16 · D + (16 · D + 4 · D) ≡ 36 · D
-  id36 = solve
+  id36 D = solveℕ!
 
   id4·4 : (D : ℕ) → 4 · (4 · D) ≡ 16 · D
-  id4·4 = solve
+  id4·4 D = solveℕ!
 
   idFourDist : (D E : ℕ) → 4 · (D + E) ≡ 4 · D + 4 · E
-  idFourDist = solve
+  idFourDist D E = solveℕ!
 
   idTwoM : (m : ℕ) → (2 · m) · (2 · m) ≡ 4 · (m · m)
-  idTwoM = solve
+  idTwoM m = solveℕ!
 
   id2·8 : (x : ℕ) → 2 · (2 · x) ≡ 4 · x
-  id2·8 = solve
+  id2·8 x = solveℕ!
 
   id2·4 : (x : ℕ) → 2 · (4 · x) ≡ 8 · x
-  id2·4 = solve
+  id2·4 x = solveℕ!
 
   id2·2m : (m K : ℕ) → 2 · ((2 · m) · K) ≡ 4 · (m · K)
-  id2·2m = solve
+  id2·2m m K = solveℕ!
 
   id2·8D : (D : ℕ) → 2 · (8 · D) ≡ 16 · D
-  id2·8D = solve
+  id2·8D D = solveℕ!
 
   id4+4 : (D : ℕ) → 4 · D + 4 · D ≡ 8 · D
-  id4+4 = solve
+  id4+4 D = solveℕ!
 
   id64 : (D : ℕ) → 16 · (4 · D) ≡ 64 · D
-  id64 = solve
+  id64 D = solveℕ!
 
   id4to36 : (D : ℕ) → 32 · D + 4 · D ≡ 36 · D
-  id4to36 = solve
+  id4to36 D = solveℕ!
 
   idSuc· : (r K x : ℕ) → r + (K + x) ≡ (r + x) + K
-  idSuc· = solve
+  idSuc· r K x = solveℕ!
 
   idStrad : (m K : ℕ) → (2 · (m + K) ) ≡ (2 · m + K) + K
-  idStrad = solve
+  idStrad m K = solveℕ!
 
   idSeed : (n : ℕ) → (n + 1) · (n + 1) ≡ n · n + (2 · n + 1)
-  idSeed = solve
+  idSeed n = solveℕ!
 
   idPull16 : (K x : ℕ) → 16 · ((K · K) · x) ≡ (K · K) · (16 · x)
-  idPull16 = solve
+  idPull16 K x = solveℕ!
 
   idTwoN : (n : ℕ) → (2 · n) · (2 · n) ≡ 4 · (n · n)
-  idTwoN = solve
+  idTwoN n = solveℕ!
 
 ------------------------------------------------------------------------
 -- 1.  Order toolkit.  Cubical ships ≤-·k but not its mirror, the square
@@ -404,10 +404,10 @@ straddleBound D K m A E hK hA (inr hAK) hHi (inl hD) =
 
 private
   idMul1 : (x : ℕ) → x · 1 ≡ x
-  idMul1 = solve
+  idMul1 x = solveℕ!
 
   idTwoK : (K : ℕ) → 2 · K ≡ K + K
-  idTwoK = solve
+  idTwoK K = solveℕ!
 
   data FirstHit (P : ℕ → Type₀) : Type₀ where
     hit0   : P 0 → FirstHit P

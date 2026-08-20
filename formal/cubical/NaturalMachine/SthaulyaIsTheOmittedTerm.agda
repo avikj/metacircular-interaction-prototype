@@ -109,7 +109,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Algebra.CommRing
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 private variable ℓ : Level
 
 module Sthaulya (R : CommRing ℓ) where
@@ -164,14 +164,14 @@ module Sthaulya (R : CommRing ℓ) where
         ⊖ (((x · q) + (a · Q)) · kj))
     ≡ (x · ((m · ((p · kj) + (hj · q))) ⊖ (q · kj)))
       + (a · ((m · ((P · kj) + (hj · Q))) ⊖ (Q · kj)))
-  bilin-l = solve R
+  bilin-l m x a p P q Q hj kj = solve! R
 
   bilin-r : (m y a hi ki p' P' q' Q' : A) →
       ((m · ((hi · ((y · q') + (a · Q'))) + (((y · p') + (a · P')) · ki)))
         ⊖ (ki · ((y · q') + (a · Q'))))
     ≡ (y · ((m · ((hi · q') + (p' · ki))) ⊖ (ki · q')))
       + (a · ((m · ((hi · Q') + (P' · ki))) ⊖ (ki · Q')))
-  bilin-r = solve R
+  bilin-r m y a hi ki p' P' q' Q' = solve! R
 
   W-left : (i j : ℕ) (n : A) →
       W (suc (suc i)) j n
@@ -203,14 +203,14 @@ module Sthaulya (R : CommRing ℓ) where
       + (((two · κ) · (two · κ)) · ((s · L) · (((two · n) + 1r) + (two · κ))))
     ≡ ((- s) · (L · ((two · κ) · (two · κ))))
       · (((two · n) + 1r) ⊖ (two · (κ + 1r)))
-  step10 = solve R
+  step10 n s L κ = solve! R
 
   step01 : (n s L κ : A) →
       ((four · (n + 1r)) · ((- s) · (L · ((two · κ) · (two · κ)))))
       + (((two · κ) · (two · κ)) · ((s · L) · (((two · n) + 1r) ⊖ (two · κ))))
     ≡ ((- s) · (L · ((two · κ) · (two · κ))))
       · (((two · n) + 1r) + (two · (κ + 1r)))
-  step01 = solve R
+  step01 n s L κ = solve! R
 
   step11 : (n s L κ : A) →
       ((four · (n + 1r))
@@ -221,18 +221,18 @@ module Sthaulya (R : CommRing ℓ) where
             + (((two · κ) · (two · κ)) · (s · L))))
     ≡ (- (- s)) · ((L · ((two · κ) · (two · κ)))
                     · ((two · (κ + 1r)) · (two · (κ + 1r))))
-  step11 = solve R
+  step11 n s L κ = solve! R
 
   ---------------------------------------------------------------- base
 
   base00 : (n : A) → W 0 0 n ≡ C00 0 n
-  base00 = solve R
+  base00 n = solve! R
   base10 : (n : A) → W 1 0 n ≡ C10 0 n
-  base10 = solve R
+  base10 n = solve! R
   base01 : (n : A) → W 0 1 n ≡ C01 0 n
-  base01 = solve R
+  base01 n = solve! R
   base11 : (n : A) → W 1 1 n ≡ C11 0 n
-  base11 = solve R
+  base11 n = solve! R
 
   ---------------------------------------------------------------- the induction
 
@@ -295,10 +295,10 @@ module Sthaulya (R : CommRing ℓ) where
   Λshift : (F f μ : A) →
       (F · (f · f)) · ((two · μ) · (two · μ))
     ≡ (four · F) · ((f · μ) · (f · μ))
-  Λshift = solve R
+  Λshift F f μ = solve! R
 
   base-Λ : Λ 1 · pn 2 ≡ fourPow 1 · (fct 1 · fct 1)
-  base-Λ = solve R
+  base-Λ = solve! R
 
   Λ-closed : (k : ℕ) →
       Λ (suc k) · pn (suc (suc k)) ≡ fourPow (suc k) · (fct (suc k) · fct (suc k))
@@ -327,7 +327,7 @@ module Sthaulya (R : CommRing ℓ) where
 
   ratioLemma : (s L a A : A) →
       (- (- s)) · ((L · a) · A) ≡ (- A) · ((- s) · (L · a))
-  ratioLemma = solve R
+  ratioLemma s L a A = solve! R
 
   sthaulya-ratio :
     (k : ℕ) (n : A) →

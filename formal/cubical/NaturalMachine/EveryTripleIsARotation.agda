@@ -88,7 +88,7 @@ module Rotations (R : CommRing ℓ) where
 
   private
     regroup : (c z : A) → (c · c) · (z · z) ≡ (c · z) · (c · z)
-    regroup = solve R
+    regroup c z = solve! R
 
   ----------------------------------------------------------------------
   -- 1.  A triple, scaled by the inverse of its hypotenuse, is a rotation

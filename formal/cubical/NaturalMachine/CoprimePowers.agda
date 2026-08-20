@@ -73,7 +73,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 
 ------------------------------------------------------------------------
@@ -104,20 +104,20 @@ module Bezout (R : CommRing ℓ) where
 
   private
     symId : (a b x y : A) → (b · y) + (a · x) ≡ (a · x) + (b · y)
-    symId = solve R
+    symId a b x y = solve! R
 
     oneId : (a : A) → (a · 0r) + (1r · 1r) ≡ 1r
-    oneId = solve R
+    oneId a = solve! R
 
     -- (ax + by)(au + cv) = a(axu + cxv + byu) + (bc)(yv)
     mulId : (a b c x y u v : A) →
         (a · (((a · x) · u) + (((c · x) · v) + ((b · y) · u))))
         + ((b · c) · (y · v))
       ≡ ((a · x) + (b · y)) · ((a · u) + (c · v))
-    mulId = solve R
+    mulId a b c x y u v = solve! R
 
     unitId : (1r · 1r) ≡ 1r
-    unitId = solve R
+    unitId = solve! R
 
   ----------------------------------------------------------------------
   -- 3.  The three closure laws

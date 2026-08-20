@@ -42,7 +42,7 @@ private
   -- The polynomial core, with the hypothesis already substituted:
   -- writing w = k + r, the identity is pure semiring algebra.
   key : (k r : ℕ) → ((k + r) + r) · k + r · r ≡ (k + r) · (k + r)
-  key = solve
+  key k r = solveℕ!
 
 -- Truncated subtraction under the hypothesis: w ∸ r recovers the
 -- witness k of r ≤ w.

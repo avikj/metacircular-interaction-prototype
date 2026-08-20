@@ -60,7 +60,7 @@ module CakravalaNat where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 -- Brahmagupta's two composed coordinates at the trivial triple (m, 1, m²−D),
 -- which is the composition the cycle performs at every turn.
@@ -81,7 +81,7 @@ cb a b m = a + b · m
 cakravalaℕ : (D a b m : ℕ)
            → ca D a b m · ca D a b m + (D · (a · a) + D · (b · b · (m · m)))
            ≡ a · a · (m · m) + (D · D · (b · b) + D · (cb a b m · cb a b m))
-cakravalaℕ = solve
+cakravalaℕ D a b m = solveℕ!
 
 ------------------------------------------------------------------------
 -- The two instances a run actually needs, so a certificate can name them
@@ -93,7 +93,7 @@ cakravalaℕ = solve
 cakravalaSeedℕ : (D a m : ℕ)
                → ca D a 1 m · ca D a 1 m + (D · (a · a) + D · (m · m))
                ≡ a · a · (m · m) + (D · D + D · (cb a 1 m · cb a 1 m))
-cakravalaSeedℕ = solve
+cakravalaSeedℕ D a m = solveℕ!
 
 -- At m = 0 — composition with (0, 1, −D), the degenerate turn.  Stated
 -- because a reader checking the general identity at a boundary should not
@@ -101,4 +101,4 @@ cakravalaSeedℕ = solve
 cakravalaZeroℕ : (D a b : ℕ)
                → ca D a b 0 · ca D a b 0 + (D · (a · a) + 0)
                ≡ 0 + (D · D · (b · b) + D · (cb a b 0 · cb a b 0))
-cakravalaZeroℕ = solve
+cakravalaZeroℕ D a b = solveℕ!

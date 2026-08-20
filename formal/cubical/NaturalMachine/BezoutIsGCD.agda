@@ -54,7 +54,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- 1.  The kuṭṭaka's output, cleared of subtraction
@@ -69,7 +69,7 @@ BezN a b = Σ[ x ∈ ℕ ] Σ[ y ∈ ℕ ] (a · x ≡ b · y + 1)
 
 private
   shuffle : (α d x : ℕ) → (α · d) · x ≡ (α · x) · d
-  shuffle = solve
+  shuffle α d x = solveℕ!
 
 unit-from-step : (u v d : ℕ) → u · d ≡ v · d + 1 → d ∣ 1
 unit-from-step u v d p = go (splitℕ-≤ u v)
