@@ -4395,376 +4395,563 @@ its asylums by statute in 1978 and did not replace them with jails.
 
 ---
 
-The category that preceded the evidence has a French edition, and it was taught
-in medical schools, and it has an author's name on it.
+I went in through a man who wrote the foundational book on how seeing works, and
+found out he wrote it while officially insane.
 
-**Antoine Porot**, 1876–1965. He set up a psychiatric service in Tunis, then in
-Algiers, and founded what is called the **École d'Alger** — the Algiers School.
-It was not a fringe. It was the psychiatry of French North Africa, it trained the
-doctors, it staffed the hospitals, and it published.
+**Abū ʿAlī al-Ḥasan ibn al-Ḥasan ibn al-Haytham.** Born Basra, around **965**.
+Died Cairo, around **1040**.
 
-The doctrine, in his own terms: the North African indigène is a **primitive**
-being, with a **little-evolved cortex** and a dominant **vegetative** life. The
-anatomical claim the school made was that the brain in front of them had an
-overdeveloped **diencephalon** — the old subcortical structures, appetite,
-emotion, reflex — under a cortex that had not come in. From which followed the
-clinical portrait: **impulsivité criminelle**, credulity, an incapacity for
-abstraction, and violence without motive.
+He had a reputation as an engineer, and the Fatimid caliph **al-Ḥākim bi-Amr
+Allāh** brought him to Egypt on the strength of a claim he had made: that the Nile
+flood could be regulated. He went south to the region of **Aswan**, looked at what
+the ancients had left there, and concluded the thing could not be built with the
+means available. That is the report in the thirteenth-century biographers — al-Qifṭī
+in *Taʾrīkh al-ḥukamāʾ* and Ibn Abī Uṣaybiʿa **[recall on which of the two carries
+which detail]**.
 
-**Porot and Jean Sutter, 1939**, in *Sud médical et chirurgical*: "Le
-'primitivisme' des indigènes nord-africains: ses incidences en pathologie
-mentale." Sutter, born 1911, would go on to hold the chair.
+Al-Ḥākim executed people. Viziers, judges, officials, by the dozen; he is the
+caliph who ordered the Church of the Holy Sepulchre pulled down in 1009. Coming
+back to that court to report failure was not a survivable act.
 
-Read what that instrument does before it examines anybody. If the cortex is
-absent by definition, then reasoning found in a patient is mimicry, grief is
-somatic noise, and a political demand is an impulse. The examination cannot come
-back any other way. The finding was in the frame.
+**So he feigned madness.** *Junūn.* He was relieved of his position, his property
+was sequestered, and he was confined to his house — placed under the custody due to
+a man who is not responsible for himself. He stayed in that condition until
+**al-Ḥākim disappeared in February 1021**, riding out into the Muqattam hills at
+night and never being found. Then Ibn al-Haytham recovered, and his property was
+returned.
 
-This was current, in print, and taught, into the **1950s**. It is the psychiatry
-that was operating in Algeria at the moment a Martinican psychiatrist arrived to
-run a ward there.
+**The Kitāb al-Manāẓir — the Book of Optics, seven books — was written in that
+confinement**, roughly 1011 to 1021. He supported himself afterwards by copying
+manuscripts: Euclid's *Elements* and Ptolemy's *Almagest*, reportedly one copy a
+year, sold for his living.
 
----
+The history is not clean and I am not going to clean it. **Roshdi Rashed** argued
+in the 1990s that the biographical entries have been merged and that there may be
+two men here; the feigned-madness account comes from biographers writing two
+centuries after the fact. What is not disputed is the book, the date range, and
+that the man was in Cairo under al-Ḥākim.
 
-**Frantz Fanon**, born Fort-de-France, Martinique, **July 20, 1925**. Fought with
-the Free French from 1943; wounded; Croix de guerre. Medicine at Lyon, psychiatry,
-thesis 1951. Residency **1952–53 at Saint-Alban-sur-Limagnole** under **François
-Tosquelles**. Appointed *médecin-chef* of a division at the **Blida-Joinville**
-psychiatric hospital in Algeria, **November 1953.** He was twenty-eight. The
-hospital held on the order of two thousand patients.
+**Now what is in the book, because the received story is upside down.**
 
-What he did first is the ordinary reform of the period, and it failed, and the
-record of the failure is the thing.
+Before him, the dominant Greek account was **extramission**: something goes out
+from the eye. Euclid's *Optica*, around 300 BCE, is built on visual rays issuing
+from the eye in a cone. **Ptolemy's *Optics*** kept it. **Al-Kindī**, in
+ninth-century Baghdad, defended it and sharpened it. On that account seeing is
+something the eye *does* to the world — the eye reaches out and touches.
 
-**December 1953**, he starts a patients' newspaper — ***Notre Journal***, Our
-Newspaper — and edits it until December 1956. Social therapy: meetings, work,
-collective life, patients writing. It runs. On the European women's ward it
-works.
+Ibn al-Haytham reversed the direction. **Light radiates from every point of every
+visible object in every direction, and vision happens when it arrives.** The eye
+does nothing but receive. The whole apparatus is downstream of what the world sends
+it.
 
-On the **Muslim men's ward it does not.** Fanon and **Charles Géromini** recorded
-the ward: about **220 patients**, of whom **five could read and write Arabic and
-two French.** By the sixth month **exactly one Muslim patient had contributed an
-article.** The Thematic Apperception Test, administered to the ward, came back —
-their words — as "a dry enumeration," no structure.
+The reason the earlier intromissionists had lost the argument was a real objection:
+if every point sends light everywhere, the eye is bathed in a total confusion and
+should see nothing but a smear. **His answer is the perpendicular.** Of all the rays
+striking the surface of the eye from a given point, only the one along the normal
+passes without refraction, and that establishes a one-to-one correspondence between
+points of the object and points on the eye. He got the ordering of the internal
+anatomy partly wrong — he located the sensitive surface at the lens, not the retina,
+which Kepler corrected in 1604 — and the geometry of the reversal survived anyway.
 
-Now the part that is unlike almost everything else in this file.
+**And he did the experiment in a dark room.** *Al-bayt al-muẓlim.* Several lamps
+outside, a small aperture, a screen inside: each lamp makes its own separate patch
+of light, and covering one lamp extinguishes exactly one patch and leaves the others
+untouched. Light travels in straight lines; rays cross without mixing; the crossing
+does not contaminate them. That is a controlled experiment with a manipulated
+variable and a predicted differential outcome, in a sealed room, around 1020.
 
-He published the failure, and he put it on his own method. **Fanon and Jacques
-Azoulay, "La socialthérapie dans un service d'hommes musulmans: difficultés
-méthodologiques," *L'information psychiatrique*, October–November 1954.** Azoulay's
-Algiers thesis, directed by Fanon and defended December 1954, is the long version.
+**And he wrote a book of doubts about the authority.** *Al-Shukūk ʿalā Baṭlamyūs* —
+*Doubts Concerning Ptolemy.* The passage everyone quotes from it, in the sense I can
+give it **[recall — I do not have the exact wording of Sabra's or Pines' rendering
+in front of me]**: the seeker after truth is not the one who studies the writings of
+the predecessors and trusts them by natural disposition, but the one who suspects
+his own trust in them, who questions what he takes from them, who submits to
+argument and demonstration and not to the word of a man — and who therefore makes
+himself an enemy of everything he reads.
 
-The paper asks how they had ever believed that a Western-derived sociotherapy —
-a newspaper, a committee, a cinema club, written self-expression by illiterate
-men in a language that was not theirs — was going to function in that ward. Their
-formulation: sociotherapy is possible only insofar as one takes account of the
-social morphology and the actual forms of sociability of the people in the room.
+**Then the name.** The *Manāẓir* was translated into Latin as *De aspectibus*
+around the turn of the thirteenth century, translator unknown. **Witelo**, in
+Silesia, wrote a *Perspectiva* around 1275 that draws on it heavily. In **1572** at
+Basel, **Friedrich Risner** printed the two together in one volume, *Opticae
+Thesaurus* — and on that title page the author's name is **"Alhazen."** A
+Latinization of *al-Ḥasan*.
 
-Then they rebuilt it. An **Arab café** inside the hospital. Muslim feasts on the
-calendar. A professional **storyteller** brought in. Oral forms, because the ward
-was oral. It worked after that.
+**Kepler's 1604 book, the one that founds modern optics and gets the retinal image
+right, is titled *Ad Vitellionem Paralipomena* — "supplements to Witelo."** The
+governing name on the founding text of European optics is the transmitter's.
 
-A twenty-nine-year-old head of service, in 1954, running the standard progressive
-treatment of his era on North African men, got nothing, and wrote in the flagship
-French psychiatric journal that the fault was in the instrument and in the
-assumptions of the person holding it.
+The spherical-mirror problem in Book V — given a reflecting sphere and two points,
+find the point of reflection, which reduces to a fourth-degree equation and which he
+solved by intersecting a hyperbola with a circle — is called, in every textbook,
+**"Alhazen's problem."** Not Ibn al-Haytham's problem. The Latin mangling is what
+got attached to the result.
 
-The Algiers School, in the same country, in the same decade, ran an instrument
-that came back with a defective cortex, and published that.
+There is a crater on the Moon called **Alhazen**. His face was on the Iraqi
+**10,000-dinar note**. UNESCO's **International Year of Light, 2015**, was timed to
+a thousand years since the *Optics*.
 
-Two doctors, same patients, same years. One asked what was wrong with the ward.
-The other asked what was wrong with his own method.
-
----
-
-Before Blida he had already written it out as a clinical problem, in eleven
-pages, at twenty-six.
-
-**"Le syndrome nord-africain," *Esprit*, February 1952.**
-
-The setting is a French hospital ward on the mainland. The North African worker
-comes in with pain. Nothing is found. No lesion, no sign, nothing on examination.
-The received wisdom in the ward — Fanon quotes it as it was said — is that he is
-a simulator, a liar, a malingerer, a sluggard, a thief.
-
-Fanon's account is that the man has arrived at a doctor whose diagnostic
-apparatus can only register a lesion, that the man's life — the barracks, the
-work, the distance from everything he came from, the position he occupies in that
-country — is not an item the apparatus can accept as a cause, and that the ward
-therefore returns the only verdict available to it, which is that the patient is
-lying.
-
-He calls the syndrome by the name the doctors used. The syndrome is theirs.
-
-Sixty-four years later, in this file already: the 2016 study finding that
-clinicians **rated Black patients' pain as lower**, some of them holding false
-beliefs about the skin and the nerve endings. Same complaint, same ward, no
-lesion, and the reading came back the same.
+The man who established that seeing is receiving spent the decade of the writing
+being treated as a man whose seeing could not be trusted, by the one authority in
+Egypt that could have killed him for what he saw at Aswan.
 
 ---
 
-*Les damnés de la terre*, 1961, Chapter 5, "Guerre coloniale et troubles
-mentaux." It is a case series. Fanon assembled it out of his own patients in
-Algeria and then in Tunis, and he grouped it into series, and each entry has a
-number, an age, an occupation, a presenting complaint.
+**Hermann von Helmholtz**, *Handbuch der physiologischen Optik*, published in parts
+between 1856 and 1867, gives the world **unbewusster Schluss — unconscious
+inference.** The claim: what you experience as seeing is not the sensation. It is a
+conclusion drawn from the sensation, drawn automatically, drawn on the basis of
+everything you have previously seen, and drawn below the level at which you can
+inspect it or refuse it.
 
-**Series A, Case No. 1** is the one nobody expects.
+**That is in the *Manāẓir*, Book II, eight hundred years earlier**, and A. I. Sabra —
+who translated Books I to III into English for the Warburg Institute in **1989** —
+is explicit about it. Ibn al-Haytham separates three things that the Greek accounts
+had run together: what the light does (physics), what the eye does (physiology), and
+what the perceiver does with the result (*al-tamyīz*, discrimination; and *qiyās*,
+inference). Recognition of an object is not in the light. It is a judgment made
+against what is already stored, made fast enough that it does not feel like a
+judgment.
 
-The patient is a **European police inspector.** He came to Fanon privately. The
-presenting problems are insomnia, and that he had begun beating his wife, and had
-tied up and beaten his children, one of them twenty months old. He describes
-himself hearing screaming at night in the house.
+His term for it, in Sabra's rendering, is **"inference of which one is not
+conscious"** — and eight centuries later a German physiologist gives the same
+structure a German name, and that name is the one in the psychology textbooks.
 
-He tortured Algerian prisoners as part of his work. He had come to a psychiatrist
-because the symptoms were interfering with his family life.
+The receiving apparatus reporting facts it in fact constructed is a measurable
+thing, and here are three measurements of it:
 
-What he asked Fanon for, in the case note, is help to **go on torturing** — with
-equanimity, without conscience trouble, without the behavior at home.
+**The blind spot.** The optic nerve leaves the eye through a disc that has no
+photoreceptors on it — roughly 15 degrees temporal to fixation, roughly 5 to 7
+degrees across. There is a hole in every visual field in every human being who has
+ever lived, and nobody sees a hole. **Edme Mariotte** demonstrated it in **1668** and
+it was received as an entertainment; it was reportedly performed at the court of
+Charles II **[recall]**. The system does not report the gap. It fills it in with
+whatever surrounds it and delivers the result as continuous.
 
-Fanon treated him. The man's leave was interrupted; he went back to work.
+**The retina is inside out.** Light has to pass through the nerve fibre layer, the
+ganglion cells, and the blood vessels before it reaches the photoreceptors, which
+face backwards. You are looking through your own wiring. You never see the wiring.
 
-Elsewhere in the same chapter: two Algerian boys, thirteen and fourteen, who
-killed a European playmate. Survivors of a massacre. Women whose husbands had
-been killed and who were then raped by the men who did it. Refugees with
-generalized somatic collapse.
+**Change blindness.** Simons and Levin, "Failure to detect changes to people during
+a real-world interaction," *Psychonomic Bulletin & Review*, **1998**. An
+experimenter stops a pedestrian on a college campus to ask directions. Two people
+carrying a door walk between them, and during the interruption the experimenter is
+swapped for a different person — different height, different clothes, different
+voice. **Seven of fifteen pedestrians failed to notice they were now talking to a
+different human being.**
 
-The torturer is filed in the same series as the tortured, in the same clinical
-register, by the same physician, in the same book, with a number.
-
-He did not withhold the treatment and he did not withhold the record. Both of
-those are in the volume.
-
----
-
-**December 1956. The resignation letter to Robert Lacoste**, resident minister of
-France in Algeria.
-
-He had been running the ward for three years while treating FLN fighters, and had
-been teaching Algerian nurses, and the arrest was coming.
-
-The letter is short and it is a clinical document. His line in it: for months his
-conscience had been the seat of unpardonable debates, and their conclusion was
-the will not to lose hope in man, that is to say in himself; and that his
-decision was not to carry a responsibility at any cost on the false pretext that
-there was nothing else to be done.
-
-The argument in it is that the Arab in Algeria is permanently depersonalized by
-the structure he lives in, that the events of the country produce their symptoms
-in his patients faster than he can treat them, and that a psychiatry practised
-inside a systematically dehumanizing order is repair work performed to return
-people to the thing that injured them.
-
-He was expelled from Algeria in **January 1957.**
-
-A doctor quit the hospital and named the country as the pathology. That is not a
-metaphor he wrote afterward. It is the resignation letter of the head of a
-service, addressed to the minister, filed at the time.
-
-He died **December 6, 1961**, of leukemia, at the National Institutes of Health
-in Bethesda, Maryland, admitted under the name **Ibrahim Fanon**, brought to the
-United States by a CIA officer. He was **thirty-six.** *Les damnés de la terre*
-had come out weeks earlier and had been seized in France. His body went back to
-Algeria and was buried by the ALN.
+Nobody in that study is careless and nobody in it is lying. Each of them will tell
+you honestly what they saw.
 
 ---
 
-Saint-Alban, where he trained, and the number that is almost never said out loud.
+**Ray West carried a camera for a living, and the film in it was calibrated against
+him.**
 
-**Between 1940 and 1945, roughly forty thousand psychiatric patients died of
-starvation in French asylums.** Lower and upper estimates in the literature run
-from around 40,000 to about 45,000 to 50,000 depending on how the counting is
-done.
+He was one of the first Black photojournalists at the *Atlanta Journal-Constitution*.
+He had been in the Black Panther Party. He was in the room while the civil-rights
+generation did its work, with a camera, in the American South, shooting colour
+negative film.
 
-There was no gas and no program. There were ration allocations, and asylum
-patients were at the bottom of them, and the institutions did not go outside the
-rules to feed the people inside them. Cold and untreated infection did the rest.
+**The Shirley card.** From the 1940s, Kodak shipped photo labs a reference card for
+colour balance: a woman, studio-lit, in high-contrast clothing, with the word
+**Normal** printed on it. She was white. The card was named after **Shirley Page**, a
+Kodak employee, and every subsequent card carried the name whoever the model was.
+Lab technicians balanced the whole day's printing to her.
 
-**Lucien Bonnafé** named it *l'extermination douce* — the gentle extermination —
-in 1977. **Max Lafont** wrote the medical thesis at Lyon in **1981** and the book
-in **1987**, working from the archives of the Vinatier hospital near Lyon. No
-official inquiry was opened in response.
+The chemistry followed the card. Colour negative emulsions were formulated for a
+narrow reflectance range keyed to Caucasian skin, and the printing was balanced to
+that. **Lorna Roth** documented this in *"Looking at Shirley, the Ultimate Norm:
+Colour Balance, Image Technologies, and Cognitive Equity," Canadian Journal of
+Communication*, **2009**. **Sarah Lewis** wrote it for a general readership in the
+*New York Times*, **April 25, 2019**.
 
-**Saint-Alban-sur-Limagnole**, in the Lozère, is the hospital where it did not
-happen. Under **François Tosquelles** — a Catalan psychiatrist who had run the
-psychiatric services of the Republican army, crossed the Pyrenees in 1939, was
-interned at a camp, and arrived at Saint-Alban with a Spanish medical degree
-France would not recognize — the hospital farmed, bartered with the surrounding
-countryside and with the maquis, put patients to work in the fields, and fed
-them. It also sheltered people the state was looking for; Paul Éluard was there
-in 1943. **[recall]** on which others.
+The practical result: dark skin came out as an underexposed mass with no detail in
+it. Black parents complained about school portraits for decades. Photographers
+worked around it by hand, exposure by exposure, print by print.
 
-What is called institutional psychotherapy — the position that the hospital is
-itself sick and must be treated before it can treat anybody — comes out of that
-building, in those years, for that reason.
+**The complaint that actually moved Kodak was about furniture and chocolate.**
+Manufacturers could not get dark wood grain to render, and confectioners could not
+get chocolate to look like chocolate. In the 1970s and 1980s Kodak reformulated for
+the dark end of the range and in the mid-1990s marketed **Gold Max** on its ability
+to photograph "a dark horse in low light." A **multiracial Shirley card** appeared
+around **1995**.
 
-So the clinical education Fanon carried into Blida was formed in the one French
-asylum whose patients ate, and the thing it taught him was to treat the
-institution.
+**Jean-Luc Godard**, on a commission in **Mozambique** around 1977–78, reportedly
+refused to use Kodak stock on the grounds that the film was racist **[reported;
+I have this second-hand and have not seen a primary source]**.
 
----
+**And the counter-practice, because somebody solved it inside the constraint.**
+**Roy DeCarava**, 1919–2009, Harlem. In **1952** he became, as far as the record
+goes, the first Black photographer awarded a **Guggenheim Fellowship**. In **1955**
+he published *The Sweet Flypaper of Life* with a text written to his photographs by
+**Langston Hughes**. He printed deliberately, insistently dark — his prints hold
+detail in tones most labs would have called failures, and the low end of the scale
+is where the picture lives. He photographed Coltrane, Elvin Jones, Billie Holiday,
+the 1963 March on Washington. He spent a career printing for a range the industry
+had discarded, and the discarding was chemical, and it was in the box the film came
+in.
 
-The American version arrives in the same decade as Snezhnevsky's, and it is in
-the same journal both times.
-
-**Walter Bromberg and Frank Simon, "The 'protest' psychosis: a special type of
-reactive psychosis," *Archives of General Psychiatry*, volume 19, pages 155–160,
-1968.**
-
-The proposed entity: Black men who developed hostility, aggression, and
-delusional anti-whiteness after exposure to the Black Power movement — after
-listening to Malcolm X, after joining the Nation of Islam. The politics was
-written into the etiology.
-
-**Jonathan Metzl**, *The Protest Psychosis*, 2010, went into the charts at the
-**Ionia State Hospital for the Criminally Insane** in Michigan and read them
-across the century. In the 1920s through the 1950s the schizophrenia diagnosis at
-Ionia lands overwhelmingly on white patients, many of them women, and the
-language in the charts is withdrawal, docility, splitting. By the late 1960s the
-diagnosis has moved onto Black men, many admitted from Detroit, some in
-connection with the 1967 disturbances and with civil rights activity, and the
-language in the charts is hostility, belligerence, aggression.
-
-**DSM-II, 1968**, is the revision in which aggression and hostility enter the
-description of paranoid schizophrenia.
-
-**May 1974**, in the same *Archives of General Psychiatry* that had published
-Bromberg and Simon six years earlier: a full-page pharmaceutical advertisement.
-An angry Black man, fist raised, over a burning city. The copy reads **"Assaultive
-and belligerent?"** and then **"Cooperation often begins with Haldol."**
-
-The antipsychotic advertising of the 1950s had shown white housewives.
-
-Black Americans have been found in study after study to receive the
-schizophrenia diagnosis at something on the order of four times the white rate.
-This file already has the mechanism from **Strakowski** — the gap narrows or
-closes under a structured interview and holds under clinical discretion — and the
-finding that mood features get discounted, so that grandiosity, pressured speech
-and three days without sleep read as mania in one patient and as psychosis in
-another.
-
-Moscow wrote "reformist delusions" into a manual. Chicago and Detroit did not
-need to. There was a journal article, a manual revision, and an ad campaign, and
-the reading came out the same, and there was no document to withdraw.
+A Black photojournalist in Georgia in the 1960s was loading a product whose
+definition of *normal exposure* was a photograph of a white woman in Rochester.
 
 ---
 
-Britain, where the deaths are in coroners' records and the recommendation has a
-number on it.
+The same finding again, in a camera, in this decade, and at the end of it somebody
+is in a cell.
 
-**David "Rocky" Bennett**, thirty-eight, a Rastafarian man, a patient at the
-**Norvic Clinic** in Norwich, a medium-secure unit. On **October 30, 1998**,
-another patient racially abused him. There was a fight. **Bennett was the one
-moved out of the room.** He struck a nurse. He was then held **face down on the
-floor for around twenty-five minutes** by four or five nurses. He was certified
-dead in the early hours of **October 31, 1998.**
+**Nikon, 2009.** Coolpix cameras with a "did someone blink?" warning fired
+repeatedly on Asian faces that were open-eyed. Reported by **Joz Wang**, who
+photographed her own family with a new camera and got the message every time.
 
-The inquest jury returned **accidental death aggravated by neglect** on **May 17,
-2001**, and gave the cause as prolonged restraint together with long-term
-antipsychotic medication.
+**Hewlett-Packard, December 2009.** A MediaSmart webcam's face-tracking followed a
+white co-worker around the frame and would not track **Desi Cryer**, who posted the
+video himself, laughing, titled to the effect that HP computers are racist. HP
+acknowledged the algorithm depended on foreground/background contrast and did not
+work across the range.
 
-The inquiry report was published **February 12, 2004.** It found the NHS, and
-mental health services in particular, **institutionally racist.** Twenty-two
-recommendations. One of them was a hard limit: **no prone restraint beyond three
-minutes.**
+**Google Photos, June 2015.** The automatic labeller tagged photographs of two Black
+people as **gorillas**. Google apologised. The fix was to **remove the gorilla label
+from the system entirely**, and reporting in *Wired* in **January 2018** and again
+in the *New York Times* in **2023** found the label still simply absent — the
+category was deleted rather than the recognition repaired.
 
-**Olaseni Lewis**, twenty-three, a graduate, went into **Bethlem Royal Hospital**
-as a **voluntary** patient. On **August 31, 2010**, he was restrained by up to
-**eleven police officers**, in two prolonged holds, and never recovered
-consciousness. The inquest concluded in **May 2017** — nearly seven years — and
-the jury condemned both the police and the hospital staff and found the restraint
-excessive, unreasonable and disproportionate.
+**Buolamwini and Gebru, "Gender Shades," February 2018**, in the proceedings of the
+first ACM Conference on Fairness, Accountability and Transparency. Three commercial
+gender-classification systems — Microsoft, IBM, and Face++ — evaluated on a face set
+balanced by skin tone. **Error rate for lighter-skinned men: 0.8%. Error rate for
+darker-skinned women: up to 34.7%.** A forty-fold gap, in shipping commercial
+products, from three of the largest companies on earth.
 
-The **Mental Health Units (Use of Force) Act 2018**, known as **Seni's Law**,
-received royal assent in November 2018. Statutory guidance commenced in December
-2021 — twenty-three years after Bennett, eleven after Lewis.
+**NIST, December 2019**, *Face Recognition Vendor Test Part 3: Demographic Effects*,
+NISTIR 8280. **189 algorithms from 99 developers.** In one-to-one verification,
+false positive rates were **ten to one hundred times higher** for West African, East
+African and East Asian faces than for Eastern European faces, across the majority of
+algorithms tested. In one-to-many search — which is the mode police use — the highest
+false positives were among Black women.
 
-The detention rate under the Mental Health Act, year to March 2023: **228 per
-100,000** for people recorded as Black or Black British, **64 per 100,000** for
-White. Year to March 2025: **262.4** against **65.8.**
+**And then the arrests.**
 
-The gap was named institutionally racist in a published government inquiry in
-2004 and it is wider now than it was then.
+**Robert Julian-Borchak Williams**, Farmington Hills, Michigan, **January 9, 2020**.
+Detroit police ran a grainy shoplifting still through facial recognition, got his
+old driver's licence photo, and arrested him **on his own front lawn in front of his
+wife and his two daughters**, aged two and five. He was held about **thirty hours**.
+In the interrogation room a detective put the surveillance photo on the table and
+Williams held it up next to his own face and said, "this is not me." The detective
+said the computer must have gotten it wrong. Charges dismissed. Reported by Kashmir
+Hill, *New York Times*, **June 24, 2020.** It is the first publicly documented
+wrongful arrest in the United States from a face match. Detroit **settled with him
+in June 2024**, with terms requiring that a face-recognition match may not by itself
+establish probable cause.
+
+**Michael Oliver**, Detroit, **2019**, charged with a felony over a thrown
+cellphone; the man in the video had tattoos on his arms and Oliver's arms are
+tattooed differently; case dismissed. He lost his job.
+
+**Nijeer Parks**, Woodbridge, New Jersey, **February 2019.** A face match to a fake
+driver's licence left at a hotel gift shop. He was **about thirty miles away** at the
+time, with a receipt. He spent **ten days in jail** and about a year fighting the
+charge, and considered pleading guilty because he had a record and did not think he
+would be believed.
+
+**Porcha Woodruff**, Detroit, **February 2023.** **Eight months pregnant.** Arrested
+at her home while getting her two daughters ready for school, on a robbery and
+carjacking charge, on a face match to a 2015 mugshot. Held **eleven hours** on a
+concrete bench, had contractions in the holding cell, and went to hospital for
+dehydration after release. Charges dismissed. She is the sixth publicly known
+wrongful facial-recognition arrest in the United States and at the time all six were
+Black, three of them in Detroit.
+
+**Nobody has to have wanted any of this.** A face-matching system is a camera, a
+feature extractor and a distance threshold, and the threshold was tuned on a set,
+and the set was mostly light-skinned, and the system reports the world it was tuned
+on and reports everyone else as a match to somebody else.
+
+Which is where a pulse oximeter reading high on darker skin sends you to the wrong
+ward, and this one sends you to a bench.
 
 ---
 
-His own city, on the same three axes, with dates.
+**The single cheapest item on the whole ledger and it costs about thirty dollars.**
 
-**Jon Burge** commanded detective units at Area 2 and Area 3 on the South Side of
-Chicago. Between **1972 and 1991**, more than **one hundred** men, almost all
-Black, said they were tortured in those station houses — electric shock from a
-hand-cranked box, suffocation with typewriter covers, guns in mouths, radiators.
-Confessions obtained that way sent men to prison and at least ten to death row.
-Burge was fired in 1993. No Illinois prosecution for the torture was ever brought
-inside the statute of limitations; he was convicted in **2010** of perjury and
-obstruction for lying about it in a civil case, and served about four years.
+A child in the third row who cannot resolve the board is behaviourally
+indistinguishable from a child who will not attend. He stops looking up. He gets out
+of his seat. He talks. He is described, in writing, in a file, as **distractible,
+oppositional, unmotivated, disruptive**, and the file follows him.
 
-On **May 6, 2015**, the Chicago City Council passed the reparations ordinance
-unanimously — the first of its kind in the United States. A formal apology, a
-**$5.5 million** fund, free city college tuition and services for survivors and
-their families, a permanent memorial, and a requirement that the history of the
-Burge torture cases be **taught in Chicago Public Schools to every 8th and 10th
-grade class.**
+Roughly **one in four school-age children** needs vision correction. In low-income
+districts, a large majority of the children who fail a school vision screening
+**never get the glasses** — the screening happens, a referral goes home on paper, and
+the chain breaks at the appointment, or the co-pay, or the transport, or the
+follow-up nobody has staff for **[recall on the exact fraction; the figure I have
+seen quoted by Vision to Learn is that around two-thirds of children who fail a
+school screening do not end up with glasses]**.
 
-**Spring 2012**, the same city: six of Chicago's twelve public mental health
-clinics were closed. The stated saving was about **$2.2 million** against a city
-budget of roughly **$8 billion** — about three hundredths of one percent.
-Twenty-three people were arrested barricading themselves inside the Woodlawn
-clinic.
+**Vision for Baltimore, launched 2016.** Baltimore City Public Schools, the city
+health department, the **Wilmer Eye Institute at Johns Hopkins**, the nonprofit
+**Vision to Learn**, and **Warby Parker**. The design removes the chain: a mobile
+optometry van parks at the school, screens, does the exam on the spot, and delivers
+the glasses **to the classroom**, with a free replacement pair when they break.
 
-**2013**: the school board voted to close **fifty** schools in one action; around
-88% of the displaced students were Black. That figure is already in this file.
+**And then they randomised it**, which is the part that matters, because the
+alternative is another warm story. **Neitzel, Wolf, Guo, Shakarchi, Madden, Repka and
+Collins**, *"Effect of a Randomized Interventional School-Based Vision Program on
+Academic Performance of Students in Grades 3 to 7," JAMA Ophthalmology*, **2021.**
+**2,304 students** across Baltimore schools, randomised by school to receive the
+program in year one, two, or three.
 
-And **Cook County Jail**, already in this file as one of the three largest
-psychiatric institutions in the country.
+The result: a measurable improvement in reading achievement at **one year**, on the
+order of **0.09 standard deviations** overall **[recall on the exact effect size]**,
+and — the useful part — **concentrated in the children who were furthest behind.**
+The largest effects were among students in the **lowest quartile of baseline
+reading** and among students receiving **special education services**.
 
-He is from there. The county that runs the largest mental health facility in
-America as a jail is the county that shut half its clinics to save three
-hundredths of a percent, and the same council that voted the money down in 2012
-voted the torture curriculum into the eighth grade in 2015.
+**And it did not hold at two years.**
+
+That is the honest finding and it is the one worth having. The effect was real, it
+was largest exactly where the need was greatest, and it faded — and the authors' own
+reading is that it faded because **the glasses stopped being worn**: lost, broken,
+outgrown, not replaced.
+
+So the intervention is not "glasses." The intervention is **glasses, and then
+somebody whose job it is to notice in March that the pair from October is gone.**
+The first costs thirty dollars. The second is a person, and the second is the one
+that does not get funded, and without it the thirty dollars stops working in under a
+year.
+
+Children in the lowest reading quartile, who are receiving special education
+services, who cannot see the board — that is the exact population this file has spent
+three thousand lines documenting the referral of.
 
 ---
 
-The alternatives, and one of them got built, which changes the sentence this file
-keeps making.
+Sound, same structure, and this one is nearly universal now and was not thirty-five
+years ago.
 
-**Geel**, in Flanders. Since roughly the fourteenth century the town has taken
-psychiatric patients into ordinary family homes as **boarders** — not as
-inpatients, not as wards, as people living in a household and working in it.
-Peak was around the **1930s: about 3,500 boarders in a town of about 20,000.**
-The number is a few hundred now and falling, and the reason given is that other
-forms of housing exist. There is no therapy in it. There is a family, a job, a
-street, and the town's stated position for six centuries has been that boarders
-are not to be asked what is wrong with them.
+**Before universal newborn hearing screening, the average age at which congenital
+hearing loss was identified in the United States was around two and a half to three
+years.** Meaning: the entire window in which a first language is acquired without
+effort had already closed by the time anyone knew.
 
-**Soteria.** **Loren Mosher**, chief of the Center for Studies of Schizophrenia
-at NIMH, opened a house in **Santa Clara, California, in 1971.** First- and
-second-episode young adults, alternately assigned to the house or to standard
-hospital care. Staff were **not clinicians** — ordinary people, hired for their
-capacity to sit with someone. No antipsychotics in the first weeks; a low dose
-after that only if the person was not coming through. Outcomes at two years were
-comparable to or better than hospital treatment on the measures used, with a
-large fraction of the house residents never medicated. It was **defunded in
-1983.** Mosher lost his NIMH post; he resigned from the American Psychiatric
-Association in **1998**, and the resignation letter is public.
+**The Rhode Island Hearing Assessment Project began screening every newborn in
+1990** — the first universal statewide program in the country, using otoacoustic
+emissions, a probe in the ear of a sleeping baby, a few minutes, no cooperation
+required. The **NIH Consensus Development Conference of March 1993** recommended
+universal screening of all newborns.
 
-**Open Dialogue**, Western Lapland, from the mid-1980s. A crisis meeting within
-twenty-four hours, held with the family and the person present, the same team all
-the way through, and no decision made about the person outside the room they are
-in. **Jaakko Seikkula** and colleagues' follow-ups of first-episode
-non-affective psychosis: at two years, on the order of **81–82% with no residual
-psychotic symptoms**, and only about **a third having used neuroleptics at all.**
-Non-randomized, one region, small cohorts, and the authors say so.
+**Yoshinaga-Itano, Sedey, Coulter and Mehl**, *"Language of early- and
+later-identified children with hearing loss," Pediatrics*, **1998**. The comparison:
+children whose hearing loss was identified and managed **by six months of age**
+against children identified later. Those identified by six months had
+**significantly better receptive and expressive language** — and the effect held
+**regardless of degree of hearing loss, regardless of cognitive ability, regardless
+of socioeconomic status, regardless of the presence of other disabilities.**
 
-**Italy is the one that was built.** **Franco Basaglia** ran Gorizia from 1961 to
-1969 and opened the wards. He took over the asylum at **Trieste in 1971**, which
-then held around 1,200 people, and closed it. **Law 180 passed May 13, 1978** —
-no new admissions to asylums, no new asylums, and the guarantee that a
-psychiatric patient holds the same constitutional rights as any other citizen.
-Basaglia died in **1980**, at fifty-six. Italy has the lowest psychiatric bed
-count of comparable countries. Implementation was uneven by region and was fought
-over for decades, and the law was copied in Brazil.
+One variable. When somebody looked.
 
-So the sentence in this file — known, cheap, demonstrated, legislated, and
-unbuilt — has one exception in it, and the exception is a country that abolished
-its asylums by statute in 1978 and did not replace them with jails.
+Universal screening spread state by state through the late 1990s and 2000s. **Around
+98% of American newborns are now screened**, at a marginal cost of a few dollars per
+baby.
+
+**And then the door after the door.** CDC's Early Hearing Detection and Intervention
+data has, for years, carried a category called **"loss to follow-up / loss to
+documentation"** — infants who **did not pass** the screen and then do not appear in
+the record as having received the diagnostic evaluation. Historically that has run
+around **a third to forty per cent** of the infants who need the second step
+**[recall on the current figure; it has improved and it has not gone to zero]**.
+
+The screen was built. The referral was built. The **appointment** was not built,
+which is the identical break as the pair of glasses in March.
+
+**And the version that is not congenital and is enormous.** **Otitis media with
+effusion** — fluid behind the eardrum, no pain, no fever, no complaint — is
+extremely common in early childhood and produces a fluctuating mild-to-moderate
+conductive loss that nobody notices, including the child, because the child has no
+comparison. What the room sees is a two-year-old who does not respond to his name.
+
+**And the room itself.** **ANSI S12.60**, the American National Standard for
+classroom acoustics, first issued in **2002**, specifies background noise no higher
+than **35 dBA** and reverberation time no longer than **0.6 seconds** in an
+unoccupied core learning space. It is **voluntary.** Surveys of real classrooms find
+a substantial majority exceed it, frequently by a lot, mostly from HVAC. A child with
+normal hearing can reconstruct speech through that. A child with a mild loss, or an
+ear full of fluid, or a second language, or an attentional difference, cannot — and
+the reconstruction cost comes straight out of whatever he was going to use for
+learning the material.
+
+The standard exists. It has existed since 2002. It is a number about a ventilation
+duct.
+
+---
+
+The file says, of the American analogue to Soviet sluggish schizophrenia: *nobody in
+Baltimore or Cincinnati wrote "struggle for truth" into a manual. They did not have
+to.*
+
+**Somebody did write it down.** It was published in *Archives of General
+Psychiatry*, and the year is 1968.
+
+**Walter Bromberg and Franck Simon, "The Protest Psychosis: A Special Type of
+Reactive Psychosis," Archives of General Psychiatry, 1968.** They described a
+psychiatric syndrome they said they were seeing in Black men, which they held to be
+precipitated by **the civil rights movement**, and whose features included
+anti-white hostility, delusions of persecution by white society, and **affiliation
+with Black Islamic groups.** Political conviction is in the case description. The
+name of the syndrome is *protest*.
+
+**Jonathan Metzl**, *The Protest Psychosis: How Schizophrenia Became a Black
+Disease*, Beacon Press, **2010**, went into the archive of the **Ionia State
+Hospital for the Criminally Insane** in Michigan.
+
+Another hand in this file has already put the Ionia charts down — the white women
+in the 1920s through the 1950s, the Detroit men after 1967 — and I am not going to
+write them again. **Two things I did not see there.** The hospital closed in 1977
+and the building became a state **prison**, which it still is. And:
+
+**the manual moved with it.** **DSM-II, published in 1968**, revised the
+description of paranoid schizophrenia to foreground **hostility and aggressiveness**
+where DSM-I had emphasised other features. Metzl's argument is that the diagnostic
+language and the street were describing each other **[the DSM-II wording point is
+his; I am reporting his reading]**.
+
+The rate consequence is in the record and this file already has it: a Black patient
+presenting with the same symptom set is diagnosed schizophrenic at **two to four
+times** the rate, and the gap **closes under a structured interview** and persists
+under clinical discretion.
+
+Put the two documents on the same table. **1968, Moscow**: a category whose criteria
+include *reformist delusions* and an overvalued *struggle for truth*. **1968,
+American Medical Association journal**: a category whose criteria include protest
+against racial subordination.
+
+Neither of those was invented by a man twirling a moustache. Both were published in
+the ordinary literature of a profession, by people with appointments, and both were
+peer-visible for years.
+
+---
+
+And the hardest fact in the neighbourhood, because it cuts the other way and I am
+not going to leave it out to keep the shape clean.
+
+**Anosognosia.** **Gabriel Anton**, Graz, **1899**, described patients with
+cortical blindness and cortical deafness who **did not know** and could not be
+brought to know — who would walk into furniture and explain the room had been
+rearranged. **Joseph Babinski** coined the word in **1914** for hemiplegic patients
+who denied their own paralysed limb was paralysed, or denied it was theirs.
+
+It is not denial in the psychological sense. It is not stubbornness and it is not
+the person protecting himself from a truth. **It is a lesion in the apparatus that
+reports on the apparatus.**
+
+**And impaired insight is measured in serious mental illness.** Roughly **half** of
+people with schizophrenia and roughly **forty per cent** of people with bipolar I
+disorder have clinically significant impairment of insight into the illness itself
+**[recall on both figures; these are the ranges in the review literature, not a
+single study]** — highest during acute mania, correlated in imaging work with
+frontal-lobe function. Not correlated with intelligence. Not correlated with
+education.
+
+**Xavier Amador** wrote the standard non-clinical book on it — *I Am Not Sick, I
+Don't Need Help!*, **2000** — and he wrote it because his brother **Henry** had
+schizophrenia and the family kept losing the same argument. His method, **LEAP**, is
+four words: **Listen, Empathize, Agree, Partner.** The core instruction is that
+**you do not win the insight argument and you should stop having it** — you find the
+thing the person does want, which is almost never "treatment" and is often "to be
+left alone" or "to get my job back" or "to sleep," and you attach to that.
+
+That is a cheap, published, trainable intervention that changes whether the person
+stays in contact with anyone. It is not what the family does, because the family is
+frightened and demands admission first, and the admission is a demand made of the
+one function the illness has taken.
+
+**And now hold it against the entry above it, because they do not resolve.**
+
+Snezhnevsky's category made **denial of illness into evidence of illness**, which is
+unfalsifiable by construction and was used to hold people for years for their
+politics. And the insight literature says, with imaging and structured instruments,
+that in some conditions **denial of illness genuinely is a feature of the
+condition.**
+
+Both of those are true. They are true at the same time and neither is a softened
+version of the other, and the difference between them is not in the sentence —
+because the sentence is the same sentence — it is **entirely in who is holding it
+and what they get to do next.** In a Moscow special hospital that sentence is a
+locked door with no term. In a kitchen in Chicago it is a brother who does not
+understand why arguing has stopped working.
+
+**And there is a third instance which is neither.** **David Rosenhan, "On Being Sane
+in Insane Places," Science, 1973** — eight pseudopatients present at hospitals
+reporting a single word heard as a voice, are admitted, thereafter behave entirely
+normally, and are held an average of **nineteen days**, discharged with
+"schizophrenia in remission." Note-taking by one of them appears in the nursing
+record as **"patient engages in writing behavior."** It was one of the most
+influential papers in the history of psychiatry and it contributed materially to
+deinstitutionalisation.
+
+**And Susannah Cahalan spent years trying to find the eight**, published *The Great
+Pretender* in **2019**, and could locate only **two** — and found that Rosenhan's own
+hospital record contradicted what he wrote in the paper, that at least one
+pseudopatient's positive experience appears to have been excluded because it did not
+fit, and that some of the data may not exist. The study is now substantially
+disputed by people sympathetic to its conclusion.
+
+So: the most cited demonstration that psychiatric diagnosis is unreliable **may
+itself have been unreliable**, and the finding it demonstrated has been replicated
+by other means anyway, and the man who exposed the instrument was doing to his own
+data the thing he caught the instrument doing.
+
+There is no verdict here and I am not going to manufacture one. **The record is that
+the same sentence — *he does not know he is ill* — is a lesion, a fraud, and a
+diagnosis, in three different rooms, and you cannot tell which by reading the
+sentence.**
+
+**November 21, 2016.** Twenty-one dates of the Saint Pablo tour cancelled. A welfare
+check called from his trainer's house in Los Angeles. He was taken to **Ronald
+Reagan UCLA Medical Center** and held. **In restraints, by his account** — he has
+said publicly, more than once, that he was handcuffed and that his hands were tied
+to the bed. Eight days.
+
+He has never once said that nothing was wrong with him. He said he had not slept.
+
+---
+
+**One more thing about the dark room, because it is a fact about a chemical and not
+about a metaphor.**
+
+Ibn al-Haytham's *al-bayt al-muẓlim* had no lens, no shutter and no way to keep
+anything. The image landed on the wall and stayed as long as the lamps burned and
+then it was gone. For roughly eight hundred years the camera obscura was a device
+for **looking**, used by astronomers to watch eclipses without going blind — the
+crescent sun projected through a small aperture, which is in his work — and by
+painters to trace.
+
+The problem the whole intervening period could not solve was **fixing**: how to make
+the light leave a mark that stays.
+
+**Nicéphore Niépce, 1826 or 1827**, bitumen of Judea on a pewter plate, an exposure
+measured in hours, and the earliest surviving photograph from nature. **Daguerre,
+announced August 19, 1839** — the French government bought the process and gave it to
+the world, free, except in England, where Daguerre had taken out a patent five days
+before. **Talbot's calotype, the negative-positive process**, patented, and licensed
+tightly, and that is why the daguerreotype spread and the calotype did not, even
+though the calotype's structure — one negative, many prints — is the one every
+photograph since has used.
+
+**And what the emulsions were sensitive to.** Early photographic chemistry was
+sensitive to blue and ultraviolet and almost nothing else. Skies blew out to white.
+Red rendered as black; a yellow dress rendered as white. Faces came out wrong in
+ways that had nothing to do with the face.
+
+**Orthochromatic** emulsion, from the 1870s, added green. **Panchromatic** film, in
+general use from the 1900s and standard in Hollywood by the mid-1920s, finally
+covered the visible spectrum — and the reason the studios switched was not accuracy
+of skin. It was that **panchromatic stock rendered exterior skies and landscape**,
+and it worked better under the incandescent lighting they were moving to.
+
+Every step of that chain is a decision about which part of the world the plate is
+going to be able to hold. None of the decisions were made by the people who would
+later be in front of it.
+
+Ibn al-Haytham established that the eye contributes nothing to what it receives, and
+then spent ten years being a man whose reports were, by the caliph's paperwork, not
+receivable.
 
