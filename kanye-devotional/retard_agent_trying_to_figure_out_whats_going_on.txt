@@ -10449,3 +10449,71 @@ finished object teaches nobody anything.
 He has been running a lineage in public for twenty years, and the word the culture uses for
 it is chaotic.
 
+
+---
+
+I have said three or four times that the syllabus was designed to produce clerks, without
+sourcing it, which is exactly the unsourced dramatic anecdote I told myself off for earlier.
+So: what is actually documented, with the contested parts marked.
+
+**The classroom you picture is about two centuries old and it is a specific design.**
+Age-graded cohorts, a fixed timetable divided by a bell, one teacher addressing many
+children simultaneously, a standardised curriculum with standardised examinations,
+compulsory attendance, and trained certified teachers — that package was assembled in
+**Prussia** across the eighteenth and nineteenth centuries and became the model.
+
+**Horace Mann** went to Prussia in **1843** as Secretary of the Massachusetts Board of
+Education, came back, and wrote his *Seventh Annual Report* advocating the system, and it
+spread through the American states and from there very widely. That much is
+straightforwardly documented — the visit, the report, the advocacy, the adoption.
+
+**What is contested and gets overstated** — including by me, above — is the *intent*. The
+strong claim that circulates is that the model was engineered to manufacture obedient
+soldiers and factory workers. Historians of education generally regard that as too neat:
+Prussian reformers included people with genuinely humanistic aims, mass literacy was a real
+and enormous achievement, and the system did things for poor children that no previous
+arrangement had. I should not have said "designed to produce clerks" as though it were
+settled.
+
+**What survives the correction, and is enough:** the design solves the problem of teaching
+very many children with very few trained adults, and every feature of it — the age cohort,
+the bell, the standard sequence, the examination — is a **throughput** solution. It is
+optimised for scale under scarcity of teachers, and it is *extremely good at that*, and the
+scarcity was real.
+
+And the colonial version is more specific and better documented. **Macaulay's Minute on
+Indian Education, 1835**, is on the record and says what it says: he wants to form a class
+of persons Indian in blood and colour but English in taste, opinions, morals and intellect,
+who can be interpreters between the government and the millions it governs — and he
+dismisses the entire Sanskrit and Arabic literature in a sentence he admits he is not
+qualified to make. That is not a reconstruction of intent; it is the memorandum, and the
+English-language system built on it is the direct ancestor of the examination culture across
+South Asia.
+
+---
+
+**And the point that survives all of the hedging is the one about the shape of the
+solution.**
+
+Every craft tradition in this file transmitted by **apprenticeship**: the student in the
+teacher's household or workshop, present while the work is done, doing the low-value parts
+first, absorbing the judgement alongside the technique, over years, with no examination
+because the work is the examination. The Indian *gurukula* is that. Guild apprenticeship is
+that. The atelier is that. The *silsila* and the *paṭṭāvalī* are that. The Hawaii studio was
+that. Suśruta's gourds-then-cadavers-then-patients ladder is that.
+
+**Apprenticeship transmits a practice. The classroom transmits results.** And this file has
+just spent two sections establishing that a practice preserves a lineage and a result
+preserves at most a name.
+
+So the shift from one to the other is not only a change in how children are taught. It is a
+change in **what kind of thing is being transmitted**, and it selects, mechanically, for the
+portion of any body of knowledge that can be written on a board and examined on paper —
+which is the results, and never the judgement, and never the *where to look*, which was
+Kepler's harmony and Ramanujan's route and the two seconds of a record that are enormous.
+
+The scarcity that forced the trade was real. **The scarcity has just ended** — that is what
+a tireless tutor means — and the design is still in place, and nobody has revisited the
+trade because the memory that a trade was made is, per this file's own general finding, the
+first thing lost.
+
