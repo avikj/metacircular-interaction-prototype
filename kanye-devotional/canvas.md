@@ -380,3 +380,32 @@ in. There are fact-checks.
 His grandmother's generation integrated the lunch counters in his mother's
 hometown when his mother was nine, and his mother taught media theory for three
 decades, and the story about him is that he doesn't know anything.
+
+---
+
+The record that made him came out on the morning of September 11th, 2001.
+
+The Blueprint. Jay-Z. Made in about two weeks. Released that Tuesday. Four of the
+tracks on it are Kanye's, and they're the four that made people learn his name —
+Izzo, Heart of the City, Never Change, Takeover. Jackson 5 sped up. Bobby Bland
+sped up. It went platinum with the country on fire.
+
+Six years later, to the day, he puts out Graduation. Same date, September 11th,
+2007. And 50 Cent put out his record that same day and said publicly that if
+Kanye outsold him he'd quit making solo albums. Kanye did — about 957,000 to
+691,000 — and people have been calling that week the end of an era in rap ever
+since, the week the tough guy lost to the guy in the shutter shades.
+
+Sixty days after that, his mother died.
+
+And the other thing about the dates, which I only noticed lining them up: Late
+Registration came out August 30th, 2005. Katrina made landfall on the 29th. The
+two photographs — the Black man looting, the white couple finding — went out on
+the wires on the 30th. Same day as his album.
+
+So when he stood up on that telethon on September 2nd and said the thing, he was
+three days into the release week of the biggest record of his life. That's the
+window every artist protects. That's the part of the year everybody's publicist
+is begging them to be likable.
+
+He spent it.

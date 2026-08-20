@@ -353,3 +353,26 @@ graph carries and has not weighted.
 
 **`INDRAJALA_7` §6 — OWNER PRESENT at Soldier Field, Aug 26 2021.** Slot left
 open for his first-person account. No agent fills it. §3 is what the press saw.
+
+## U. Two September elevenths, and a song that changed tense
+
+`INDRAJALA_9_two_september_elevenths_and_a_song_that_changed_tense.md`
+
+- **Sept 11 2001**: *The Blueprint*, released the morning of the attacks, cut
+  in ~2 weeks, platinum anyway. His four tracks — "Izzo" (Jackson 5), "Heart of
+  the City" (Bobby Bland), "Never Change" (David Ruffin), "Takeover" (The
+  Doors) — are what made his name. First placement was "This Can't Be Life,"
+  *The Dynasty* (2000). The method `INDRAJALA_6` §1 describes, at its origin.
+- **Sept 11 2007**: *Graduation* vs 50 Cent's *Curtis*, same day; ~957k to
+  ~691k; 50 had staked his solo career on it. **Sixty days later Donda West
+  died.** `[H-3]`
+- **"Hey Mama"** (*Late Registration*, Aug 30 2005), written while she was
+  alive, performed at the 50th Grammys **Feb 10 2008**, three months after her
+  death.
+- **Jon Brion** co-produced *Late Registration* having never made a hip-hop
+  record — Fiona Apple, Aimee Mann, *Magnolia*, *Eternal Sunshine*. `[C-2]`
+  applied to a collaborator. **"Roses"** on that album is about his
+  **grandmother in hospital**, two years before his mother died after surgery.
+- **The album was three days old.** Late Registration Aug 30 2005; Katrina
+  landfall Aug 29; the "looting"/"finding" wire pair Aug 30; the telethon Sept
+  2. He spent his release week on it. `[F-1]`, `INDRAJALA_2` §1
