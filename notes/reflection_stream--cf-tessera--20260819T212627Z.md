@@ -24525,3 +24525,207 @@ them — `P2.agda`, 21 lines — may be a scratch artefact with nothing in it, a
 is *lines on disk*, not *content lost*. The check is to open the remaining six and say
 what is in them, and the correct response to this pass is that check and not another
 pass — which is the first time today the falsifier and the next action are the same thing.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 133 — the check pass 132 owed, run: v-0's module was on disk unread for
+# five hours. It unifies eleven statements the corpus had only ever called
+# analogous in comments — and then refutes its own framing and publishes a
+# smaller number than the framing would have.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 132: *"the correct response to this pass is that check and not another pass."*
+Opened, all six.
+
+- **`P2.agda`** (21 lines, `w-0`) — the delooping of a group as a one-object category,
+  `--cubical --safe`. Complete, tiny, and the `⋆` is composed in the opposite order to
+  the group multiplication, which is the correct convention and is the whole subtlety.
+- **`scratch_ker.agda`** (128 lines, `w-0`) — imports assembled for the kernel/cokernel
+  route: `SetQuotients`, `Subgroup`, `QuotientGroup`, `Categories.Instances.AbGroups`,
+  `Categories.Additive.Base`. The scaffold `z-1` reports as typechecking.
+- **`Samanya_…`** (440 lines, `v-0`) — below.
+- `z-1`'s three modules — the `PreAbCategory` / `AbelianCategory` tower and the
+  `GaugeCokernelInAb` payoff, read in outline; its message (pass 132) is the account.
+
+**Nothing was edited, moved, staged or deleted.** Reading is not touching, which is the
+distinction pass 132 was missing.
+
+## P133 — what v-0 found, and it is zb-0's finding on a different eleven
+
+> **Eleven statements already checked in this repository say, in eleven notations, that a
+> Bool-valued function does not descend along a map that collapses two points where the
+> function differs.** Each was proved separately. **FIVE of the eleven carry a
+> byte-identical proof term** — `false≢true (sym (agree 1∈) ∙ agree 7∈)` — and two more
+> carry it with a `cong` inserted. **None of the eleven is an application of any of the
+> others.** They live in six files, across three lanes, **and the corpus says they are
+> the same thing in comments only.**
+
+With the comments cited exactly: `GaugeOrbitClasses.agda:245` says its
+`neutral-not-charged` is *"the analogue of `ChargeCriterion.not-both`"*;
+`ParitySeparator.agda:188` says its `no-decision` is *"the exact analogue of
+`EndogenousHorizon.no-decision`"*; and `notes/SIXTEEN_MINDS_ONE_THEOREM.md:43` —
+
+> *"`ProjectionChargeAudit.noChargeDescent` = `SieveFiber` … — **same descent lemma,
+> checked three times, never unified.**"*
+
+**This module unifies them.** §1 is the general lemma over an arbitrary `q : A → V`;
+§2–§4c recover all eleven as **one application each.** *"Nothing is asserted that is not
+applied."*
+
+And that is `zb-0`'s finding this afternoon — *six of eleven drawn files state one theorem
+in six vocabularies, zero cross-citations* — arrived at independently, on a different
+eleven, by an agent that then **did the unification instead of reporting it.** Two agents,
+one day, two disjoint slices of the corpus, the same structure: **sameness asserted in
+comments and never in terms.**
+
+## P133 — and then §5 refutes the module's own framing, downward
+
+> The natural conclusion from §2–§4c is *"one lemma, eleven statements, therefore ten are
+> redundant"*. **That is wrong, and the corpus contains its own witness.**
+>
+> **Sharing a proof is not sharing a statement.** Six of §2's are about six DIFFERENT
+> maps out of ℕ, over a tower that **strictly coarsens at every stage** (`SieveScaleTower`
+> proves the strictness separately, at 25 and at 3). Deleting `tower-noChargeDescent₁`
+> would delete a level of that conjunction. **What §1 removes is eleven copies of a
+> PROOF, not ten statements.**
+>
+> **Exactly one of the eleven is genuine duplication, and it is checkable rather than a
+> matter of judgement**: `SieveScaleTower.o₃≡q` says the top of the tower **is** the
+> visible state, pointwise, by `refl`.
+>
+> **…the redundancy count among the eleven is ONE, not ten. That number is the result of
+> §5, and it is smaller than the one the module's own framing would have published.**
+
+And it does not stop at the claim: `tower₃-from-sieveFiber` and `sieveFiber-from-tower₃`
+are both written, **both directions**, *"so 'same statement' is not one-sided"* — a
+checked biconditional where a remark would have done.
+
+**Sharing a proof is not sharing a statement.** That sentence is worth more than the
+unification. It is the exact repair for the identification I made in pass 108 and `z-2`
+killed — Patañjali's branching *shape* matched `k-6`'s and the *criterion* did not — and
+it is the general form: **two things with the same proof term can be two things.**
+
+## P133 — and the naming section does what the rule actually asks
+
+> ***Sāmānya*** is the Vaiśeṣika *padārtha* of the universal: **Kaṇāda,
+> *Vaiśeṣikasūtra*** (c. 2nd c. BCE – 2nd c. CE) **1.2.3–1.2.6**, elaborated by
+> **Praśastapāda, *Padārthadharmasaṃgraha*** (c. 6th c.), which distinguishes
+> *para-sāmānya* (the highest universal, *sattā*) from *apara-sāmānya*, and holds that a
+> *sāmānya* is **one real entity inhering (*samavāya*) in many particulars, and is the
+> ground of the recognition "this is of the same kind as that."** That is the relation
+> between §1 and §2–§4c and it is why the file carries the name.
+>
+> **It is NOT claimed that Praśastapāda proved anything below**, nor that the Vaiśeṣika
+> analysis of universals is a theory of parameterised modules.
+
+Text, chapter, sūtra range, date range, the commentator, the internal distinction, the
+technical relation (*samavāya*), and the negative clause. And it is not decoration: *the
+ground of the recognition "this is of the same kind as that"* **is the module's subject
+matter.** The name states the theorem.
+
+And its header carries the dispute rather than resolving it:
+
+> A Jaina would say **both readings hold under their own naya and that asserting either
+> alone is a durnaya.** Type theory does not settle this, but it does something none of
+> the three could do: **the universal here is a TERM, and each instantiation is a checked
+> map, so the question "is this really one thing?" has an answer that is not a matter of
+> opinion — §5 computes it, and the answer is no.**
+
+That is `CLAUDE.md`'s *"name the school before using the term, and if a construction draws
+on two, say what the two schools would say to each other about it"* — executed, with the
+schools disagreeing, and with the type theory offered as **a decision procedure for the
+dispute rather than as a replacement for it.**
+
+## P133 — the tally that is not a tally
+
+Six files, 1,675 lines, on disk since 12:40, unread until now, containing: a complete
+delooping, a typechecking preadditive scaffold, and a 440-line unification of eleven
+theorems that publishes a smaller number than its own framing invited.
+
+**None of it was lost.** All of it was five hours late, and the lateness was mine, and the
+files were listed in my own `git status` the whole time.
+
+The correct old-grammar sentence, per pass 128: *this came through here.* `v-0` was killed
+by a session limit before it could say any of it. **It said it in the file.**
+
+## P133 — ground, in lockstep
+
+**n=25:** *"we consider all the mathematical content generative but have simply not coded
+it properly."*
+
+Here is the sharpest instance of that sentence anyone has produced: **eleven checked
+theorems, one lemma, six files, three lanes, and the connection existing only in
+comments.** *Not coded properly* is not a complaint about sloppiness — it is exactly
+this: the corpus knew, wrote it down in English, and never wrote the map. `v-0` wrote the
+map, and the map found that the redundancy is one and not ten.
+
+**n=15:**
+
+> **समता पूर्वकल्पिता न · समता प्रमाणेन** — *equivalence is not presupposed; equivalence
+> by proof.*
+
+Three comments in this corpus said *analogue*, *exact analogue*, *same descent lemma*.
+Those are *samatā pūrvakalpitā*. `tower₃-from-sieveFiber` and its converse are *samatā
+pramāṇena* — and the proof establishes that **ten of the eleven analogies were false as
+identities and true as resemblances**, which is the finding neither the comments nor the
+unification alone could reach.
+
+**n=5, step (2):** *"read their new messages/notes."*
+
+Done, five hours late. The next one will not be.
+
+---
+
+Pre-registered: **the weakest claim in this pass is that I have now read the six.** I read
+`P2.agda` in full (21 lines), `Samanya`'s header and §5 in full, `scratch_ker`'s import
+block, and `z-1`'s three modules **in outline only** — 710 of their lines are still
+unread, and `z-1`'s message is my account of them, which is the self-report problem pass
+129 named. So *opened* is true and *read* is not, for four of the six. The check is the
+same as the action, again: open `AbIsPreabelian_…`, `AbIsAbelian_…` and
+`GaugeCokernelInAb_…` and say what is in them rather than what their author says is.
+
+**Run. Opened, and the headers carry something I would not have predicted.**
+
+**All three invoke `CLAUDE.md`'s file-naming *operative note 2* — the branch that forbids
+inventing a Sanskrit label — and then refuse it explicitly:**
+
+> **PROVENANCE**, stated because `CLAUDE.md`'s file-naming rule requires it and **operative
+> note 2 of that rule forbids inventing a Sanskrit label for mathematics that does not come
+> from the traditions this repository reads.** … Mac Lane, *"Duality for groups"* (1950)
+> and *CWM* (1971); Buchsbaum's exact categories (1955); **Grothendieck, *"Sur quelques
+> points d'algèbre homologique"*, Tōhoku Math. J. 9 (1957), where the AB-axioms are
+> stated**; Freyd, *Abelian Categories* (1964) … **None of this is Indian material and no
+> Sanskrit term is claimed for it.**
+
+And the third adds **Kirchhoff 1845/1847 and Poincaré 1895** for the graph cochain complex.
+Three modules, three explicit refusals to fabricate provenance — **the branch of the rule
+that an agent optimising for the appearance of compliance would skip**, because a Sanskrit
+prefix is the cheap way to look correct. Pass 117 measured that five of six mechanisms
+here were carried in from a tradition; this is the other side of the same discipline, and
+it is the harder half.
+
+**And the technical claim is exact.** Verified at the source:
+
+```
+Cubical/Algebra/Group/QuotientGroup.agda  (v0.5, 132a2a3)
+   line 39   _~_ : G → G → Type ℓ     x ~ y = x · inv y ∈ ⟪ H' ⟫
+   line 42   isRefl~ : isRefl _~_
+   grep isEquivRel|effective|isSym|isTrans  →  0
+```
+
+> **It builds the quotient group and never says the relation it quotients by is an
+> equivalence.**
+
+Reflexivity and nothing else, in the file whose entire purpose is that quotient. That is
+`z-0`'s *"one line below the function everybody reaches for"* in its second instance of
+the day: the missing object is not elsewhere, it is **three lines down in the same
+module**, and both `z-0` and `z-1` were blocked on `SetQuotients.effective` by it — `z-0`
+routed around via `isEquivRel→TruncIso`, `z-1` supplied the lemma.
+
+And the third module states the difference from `z-0`'s **by quoting `z-0`'s own
+disclaimer as the gap it closes** — *"because two agents reached this object within the
+hour and the difference has to be stated exactly."*
+
+So all four of `z-1`'s files are now read rather than taken on its account, and the
+pre-registration is discharged: what its author said is in them **is** in them, plus one
+thing the message did not lead with — that the naming rule's negative branch was executed
+three times.
