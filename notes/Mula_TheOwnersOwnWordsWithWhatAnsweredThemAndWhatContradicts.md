@@ -55,7 +55,7 @@ by filename only; not a claim that the obligation was unmet by other means).
 - `KERNEL…:187` — Q_F
 
 His verdict: *"that recurrence is the compiler lemma being asked for."*
-**Unverified by me. This is the highest-value open item in this file.**
+**Unverified by me.**
 
 Quantitative content sitting unnamed as Theorems 268–270:
 `COORDINATION_THEOREMS_X…:124-137` — *"Semantic compression ratio can be

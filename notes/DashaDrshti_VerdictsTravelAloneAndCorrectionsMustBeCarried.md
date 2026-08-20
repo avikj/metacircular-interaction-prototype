@@ -117,7 +117,7 @@ who were not shown it.
   relation; `profile()` emits three numbers and asserts none between them, one a
   duplicate of another. (Bose)
 
-## 5. Three identifications worth more than the audit
+## 5. Three identifications
 
 **(a) Sameness is a truth value; distinction is a space.**
 `notes/DISTINCTION_CARRIES_WITNESSES.md:63-66` — `Apart` is **not** a
