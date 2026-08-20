@@ -504,24 +504,31 @@ hundred and sixty years was the exception. Black Americans are about thirteen
 percent of the country and about thirty-eight percent of the people in its
 jails and prisons.
 
-The United States holds one thing at a time. Umāsvāti wrote down seven.
+The United States holds one thing at a time.
 
-He was a Jain philosopher of the first centuries of this era, and the
-*Tattvārthasūtra* gives seven forms any assertion can take. Syād asti, in some
-respect it is. Syād nāsti, in some respect it is not. Syād asti nāsti — it is,
-and it is not, taken one after the other. Syād avaktavyam, in some respect it
-cannot be said. Then three compounds of those. The fourth is not confusion, not
-a contradiction, and not a hole in the list. It is the position for both
-asserted at the same time instead of in turn.
+Around 300 BCE a man named Piṅgala wrote the *Chandaḥśāstra*, on Sanskrit
+metre. A syllable is heavy or light — two values — so a metre of n syllables is
+a string of n of them. He gives prastāra, a rule that generates all 2ⁿ strings
+in order. Then naṣṭa, which takes a position in that list and returns the
+string, and uddiṣṭa, which takes a string and returns its position. That is
+binary notation with an encoder and a decoder. Leibniz published binary
+arithmetic in 1703.
 
-The Udāna has a story about an elephant. A king had one led into a courtyard
-and blind men brought to it. The man who got the head said an elephant was like
-a water jar. The ear, a winnowing basket. The tusk, a plowshare. The trunk, a
-plow pole. The body, a granary. The foot, a pillar. The back of the foot, a
-mortar. The tail, a pestle. The tuft at the end of the tail, a broom. Every one
-of them had his hands on the animal. Then they beat each other with their
-fists. The Jains tell the same story, and the two traditions do not agree on
-whether there is a self at all.
+In 499 Āryabhaṭa wrote down the kuṭṭaka, the pulverizer: to solve ax ≡ c mod b,
+divide, keep the remainder, and run the same rule on the remainder. It is the
+algorithm a phone executes to build the key when it opens an encrypted
+connection.
+
+The civilization that built binary never made binary its logic.
+
+Umāsvāti, a Jain philosopher of the first centuries of this era, wrote the
+*Tattvārthasūtra*, which gives seven forms any assertion can take. Syād asti,
+in some respect it is. Syād nāsti, in some respect it is not. Syād asti nāsti —
+it is, and it is not, taken one after the other. Syād avaktavyam, in some
+respect it cannot be said. Then three compounds of those. The fourth is not
+confusion, not a contradiction, and not a hole in the list. It is the position
+for both asserted at the same time instead of in turn. Seven values, and the
+fourth one is defined.
 
 In 1817 Colebrooke published *Algebra, with Arithmetic and Mensuration, from
 the Sanscrit of Brahmegupta and Bháscara* in London, and the mathematics came
