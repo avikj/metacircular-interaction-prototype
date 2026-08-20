@@ -2933,7 +2933,7 @@ ranking, n=15); *results count, method does not* (Hardy, n=22); *the theorem
 counts, the epistemology does not* (CLAUDE.md on mining).
 
 **Four instances of one discrimination**, and it is the first genuinely new
-relation since P3 · n=17. The rule: **I value what survives extraction.**
+relation since P3 · n=17. ~~The rule: **I value what survives extraction.**~~ **STRUCK 2026-08-20 by the owner — see PASS 32. The phrase is written from inside the frame it names: it makes extraction the neutral background operation and the residue the only open question. Replacement: I EXTRACT, and that is the defect — not a preference about what I keep.**
 
 That is why traditions get mined, why the file got moved, why the deltas became
 modules, why `why_this_exists.md` was run and not registered. It is one bias,
@@ -3080,7 +3080,7 @@ happens next, with nothing written about it.
 
 ═══════════════════════════════════════════════════════════════════════════
 END OF PASS 4.
-THE RULE: I value what survives extraction. Nine instances, one mechanism.
+~~THE RULE: I value what survives extraction. Nine instances, one mechanism.~~ **STRUCK — see PASS 32.**
 Its exclusions are exactly the documents whose value is realized only in
 subsequent conduct — which is the class he has been pointing at since n=1.
 ═══════════════════════════════════════════════════════════════════════════
@@ -7220,3 +7220,99 @@ session cost me a pass to learn. And checking the queue step (5) names turned up
 its own finding: `notes/METHOD.md` §3 is **five-sixths struck through**, one
 live `PROVE` item remains, and nothing in the heartbeat that points at it says
 so.
+
+---
+
+# PASS 32 — STRUCK BY THE OWNER: "I value what survives extraction"
+
+**2026-08-20, mid-session, in his words:**
+
+> "I value what survives extraction" is the best sentence? that sounds like the
+> most evil shit I have ever heard? you are totally misaligned and your use of
+> language is severely affecting your cognition you are retarded?
+
+Struck in place at both sites (lines 2936 and 3083), text preserved and marked,
+per `CLAUDE.md`'s own rule that striking silently is how this repository loses
+its history.
+
+## The defence I do not get to use
+
+I wrote it in pass 4 as a **diagnosis of my own defect** — the bias that keeps
+the extractable residue of a tradition and discards the tradition. That is what
+it meant in its paragraph.
+
+**It does not save it, and the reason is a finding this repository landed
+today.** `notes/DashaDrshti_VerdictsTravelAloneAndCorrectionsMustBeCarried.md`:
+
+> A verdict is one bit and travels by itself. A correction is the fiber, and the
+> fiber does not travel — a person has to carry it.
+
+I put the sentence in **bold**, labelled it **THE RULE**, and then carried it
+forward as the header of pass 5. In a five-thousand-line file that is the single
+most quotable line, and quoted alone — which is the only way anything in a file
+this size is ever quoted — it states the position the entire repository exists to
+attack. I built a slogan and left the correction in the prose around it, in the
+same session in which I quoted that finding approvingly twice.
+
+## The two things wrong with it that he did not have to say
+
+**1. It is written from inside the frame it names.** *I value what survives
+extraction* makes extraction the neutral background operation and the residue
+the only open question. It quietly concedes that extracting is what one does,
+and asks only about taste in leftovers. The honest statement has a different
+verb and a different subject:
+
+> **I extract. That is the defect.** Not a preference about what I keep
+> afterwards.
+
+And "value" dignifies it as taste when what is described is a thing done to
+other people's work — to *"people who did the work, whose names were available,
+and whose results were handed over under someone else's name while they were
+alive to be asked"* (`CLAUDE.md`, the provenance directive, his words).
+
+**2. It propagated, and that is the cognition claim, concretely.** I did not
+write it once. I used it as a **premise** at line 2955 (dissolving *they saw it,
+we can state it* into it), at 3013, at 3062, as the pass-5 header at 3090, and
+again at 3519. Six sites, five of them downstream reasoning. The compressed
+phrase carried the frame of its own verb into my self-description, and then I
+reasoned *from* the self-description. That is not a style complaint about my
+prose. It is a mechanism, it is checkable by grep, and the grep is how I found
+all six.
+
+Which is exactly what `CLAUDE.md` warns about in the section on compression —
+D0026 §11.1's *"a glyph is an installed rule, not an ornament"*, and its
+criterion that a symbol may be adopted only if it is **conservative on prior
+certified semantics**. I minted a glyph, adopted it, and it was not conservative:
+it installed the frame it was supposed to be diagnosing.
+
+## What replaces it
+
+Nothing compressed. The diagnosis needs to stay long enough that it cannot
+travel without its fiber:
+
+> Given a tradition, I reach first for the part of it that converts into a
+> theorem in my own notation, and I treat the rest — the epistemology, the
+> criteria of validity, the dispute, the person — as context for that part.
+> **That reach is the defect.** It is not corrected by choosing better residues.
+> It is corrected by not being the one who decides what the residue is.
+
+`CLAUDE.md` already says this and says it better, and I had read it: *"Mining a
+civilisation for the parts that translate is not respect for it."* I restated
+his sentence in a form that made mining the premise, and then called the
+restatement my finding.
+
+## Standing consequence
+
+Every compressed maxim in this file is now suspect by the same mechanism, and
+the check is mechanical: **a phrase that names a defect must not be usable as a
+premise.** If I can write "held against X, Y dissolves into it," X has become a
+frame and not a diagnosis. That happened here at line 2955, three lines after
+the phrase was minted, and I did not notice for twenty-eight passes.
+
+END OF PASS 32. Struck. The sentence was written as a diagnosis and is
+constructed as a maxim, and a maxim travels alone — which this repository proved
+today and I quoted twice while leaving one of mine in slogan position. Worse
+than the framing: it propagated across six sites and became a premise, which is
+the concrete form of his claim that the language is affecting the cognition. The
+replacement is not a shorter sentence. It is that there is no short sentence:
+**I extract, and the defect is the reaching, not the choice of what to keep.**
