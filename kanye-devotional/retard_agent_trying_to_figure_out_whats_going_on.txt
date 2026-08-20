@@ -5340,3 +5340,82 @@ sources' work to itself in perpetuity. Both of those are "protecting the artist.
 And the one thing that unarguably works — the source being audible, so a listener can
 trace it — was never the part anyone was protecting.
 
+
+---
+
+The numerals, which are the largest single artefact in this whole argument and which
+everyone on earth uses every day.
+
+**Fibonacci's own words name the source.** In the *Liber Abaci*, 1202, he explains that
+his father was a customs official at Bugia — Béjaïa, in what is now Algeria — that he was
+sent there as a boy to learn calculation, and that he learned the **modus Indorum**, the
+method of the Indians, from the nine figures and the sign zephirum, and that he studied it
+further in Egypt, Syria, Greece, Sicily and Provence. He says it. In the book. In the first
+paragraphs.
+
+And the things are called **Arabic numerals**.
+
+So this is not even a case where the record was silent and the wrong name filled a vacuum.
+The transmitter attributed correctly, in the introduction of the most influential
+arithmetic book in European history, and the name that stuck **names the intermediary
+rather than the source** — which is what happens when the people doing the naming are two
+steps down the chain and know only who handed it to them.
+
+The Arabic-language mathematicians did the same thing correctly in the other direction:
+al-Khwārizmī's book on the subject is *On the Calculation with Hindu Numerals* — the title
+attributes. When it reached Latin as *Algoritmi de numero Indorum*, the author's name got
+turned into the word **algorithm** and the Indians stayed in the title, and then the title
+fell off and the word survived.
+
+Every single link in that chain attributed honestly, and the final result is a name that
+is wrong. **Erasure does not require anybody to lie.** It requires a chain of two or three
+sincere transmissions and then one generation that stops reading the front matter.
+
+---
+
+The resistance is worth having on the page too, because it is the exact shape of every
+other institutional rejection in this file.
+
+The numerals were **banned in Florence in 1299** by the bankers' guild, and similar
+restrictions appear elsewhere. The stated reason was fraud: the new figures were easy to
+alter — a 0 into a 6 or a 9, a 1 into a 7 — whereas Roman numerals written out in words
+and letters are harder to tamper with quietly. That is a real objection. It was also,
+transparently, a guild protecting a skill: the abacists had spent lifetimes on a
+computational technology, and the algorists could do in ink what took a board and counters,
+and the fight between them ran for two or three centuries.
+
+Both sides were sincere. The conservatives had an argument that was *correct on its own
+terms*. And the technology that won is the one every person alive now uses without knowing
+it had opponents, and the opponents were not fools — they were experts defending a
+competence, against a method that came from outside, brought by a young man who had learned
+it from foreigners in North Africa.
+
+That is the same structure as Thompson against Knorozov, Russell against Payne, Eddington
+against Chandrasekhar, the label against the man who wanted to rap, the field against the
+kid who says the earth turns.
+
+---
+
+And the zero itself, with the contested part marked as contested.
+
+**Brahmagupta, 628**, gives the arithmetic — zero as a number with rules, not a
+placeholder. The **Bakhshali manuscript** contains a dot used as a placeholder; carbon
+dating published in 2017 put some folios startlingly early, in the third or fourth
+century, and that result is disputed on the grounds that the manuscript may be composite
+and the dated folios may not carry the mathematics. I hold it as unresolved. The **Gwalior
+inscription of 876** has a zero in a temple inscription and is the securely dated one
+everyone agrees on.
+
+And the word is **śūnya** — empty, void — the same root as **śūnyatā**, the Buddhist
+emptiness. There is a long-running argument about whether the philosophical concept made
+the mathematical one thinkable, and it is *not settled*, and the honest position is that
+the shared vocabulary is a fact and the causal claim is a hypothesis people have wanted to
+be true for a hundred years.
+
+What is not disputed is the smaller and stranger thing: **a culture that had spent
+centuries arguing about whether nothing can be a something was the one that wrote down
+the rules for calculating with it.** Whether or not one caused the other, they happened in
+the same room, and the room was not divided into a mathematics department and a philosophy
+department, because that division had not been invented yet, and inventing it is what
+made it possible to keep the numerals and lose the argument.
+
