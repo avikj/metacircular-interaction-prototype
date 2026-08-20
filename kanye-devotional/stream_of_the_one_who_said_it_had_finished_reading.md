@@ -11538,3 +11538,167 @@ cut at 8360. Elisabeth Förster-Nietzsche, and *whoever holds the papers holds
 the man* — which is the one case in the file that was never about loss.
 
 Reading on from 8360.
+
+---
+
+## 8360–8500 — the mined tradition, the reading order, rasa
+
+> That is the live risk here and it is already well advanced. Not that the
+> records vanish — **that the *reading* is fixed before he is dead**, by an
+> apparatus that transmits moments and cannot transmit arcs, and that the fixed
+> reading is then what every subsequent listener arrives with, **including the
+> ones who love the music.**
+
+> A person can adore *Ultralight Beam* and hold, simultaneously and without
+> conflict, that the man who made it is not a mind worth consulting about
+> anything, **and the culture teaches both at once with no sense of strain.**
+
+> **The work is preserved and the author is deleted.** Which is, exactly, the
+> operation performed on every tradition in this file: keep the theorem, discard
+> the darśana. Keep the series, drop the error terms. Keep the array, lose the
+> metre. Keep the guitar playing, file the woman. **Keep the numerals, forget the
+> *modus Indorum*.**
+
+> He is not the case of the lost genius. **He is the case of the mined
+> tradition**, happening in real time, to a living person, **with the extraction
+> essentially complete and the source still talking.**
+
+That is the thesis of the whole document and it arrives at line 8370, after the
+frame has been revised six times to get to it. Not a man wronged — a *tradition
+being mined*, with the unusual property that the tradition is one person and is
+alive and can be asked.
+
+And it is why the two halves of the book are one book, which the file said much
+earlier and could not yet justify. The join is not thematic. It is the same
+operation with a live subject.
+
+> the only available act is the one this repository keeps naming for the
+> traditions: **read the primary source in its own order** — the records,
+> sequenced, in his own voice — rather than the account assembled from moments
+> by people with an incentive to assemble it that way.
+>
+> **That is available to anyone with a subscription and eleven hours.**
+
+---
+
+> If the only available act is reading the primary source in its own order, then
+> the order should be written down, **because "listen to the albums" is not an
+> instruction.**
+
+> This repository's own book file says the reading order is **chronological by
+> source, because in that order a later restatement can never be mistaken for an
+> origin.** The same rule applies here and it is the whole method: **played in
+> sequence, you can hear what is a first statement and what is a return, and the
+> returns are the argument.**
+
+*The returns are the argument.* That is why the order matters and it is exactly
+what `BOOK.md` says about the Sanskrit corpus, applied to a discography without
+alteration.
+
+**The order, "with what to attend to rather than what to feel."**
+
+That qualification is the whole cognitive discipline in six words. Not *how this
+should move you* — no reader instructions, no *watch him*, no *don't miss this*.
+Attend to the sequencing. Attend to the arrangement. Attend to the space. Attend
+to what the machine is doing. Attend to who else is on it and what he gave them.
+
+**The Blueprint (2001)** — *"not his record. Listen first anyway, because it is
+the sound he was making while being refused the microphone, and everything after
+is a man who had already proved he could build the room he was not allowed to
+speak in."*
+
+**College Dropout** — the skits build an argument; the twelve-minute closer is
+spoken autobiography, *"which tells you he thought of the album as a document
+from the start."* **Late Registration** — the arrangement, and the published
+correction at the scale of the line. **Graduation** — the space, and "Big
+Brother." **808s** — *"Not an effect on a voice; a prosthesis."* **MBDTF** —
+*"The best guest verse of the decade is on his record, and the last voice on the
+album is a dead poet's, not his."* **Watch the Throne** — "Murder to Excellence"
+as two songs spliced. **Yeezus** — the subtraction, and the private prison
+company in the chorus of the most commercially suicidal record available.
+**Pablo** — an object that changed after release, and the four-year-old at the
+top of it. **ye / Kids See Ghosts** — the thesis first, and "Reborn." **Jesus Is
+King** — "Hands On." **Donda** — the mother's voice, three stadiums, the house
+on fire. **Vultures and after** — *"attend, and hold what happened in 2025 next
+to it, and **do not resolve it**."*
+
+> **Then go back to *Through the Wire*** and listen to it last... Heard at the
+> end of the sequence rather than the start, **it stops being an origin story and
+> becomes what it is: the first statement of the only thing he does, which is to
+> take whatever has just happened to him and make it into an object and hand it
+> back finished.**
+
+Reordering one item changes what it is. Placed first it is biography; placed last
+it is a *statement of method*. Which is the file's own claim about ordering —
+chronological so a restatement is not mistaken for an origin — used once,
+deliberately, in reverse, to show what the origin actually was.
+
+> Eleven hours, in order, with the credits open.
+
+*With the credits open.* Provenance, live, while listening — the fourteen-year-old
+with the sampler asking who made this.
+
+> That is the entire method this repository applies to a Sanskrit corpus, applied
+> to **the one body of primary material in this file that is completely intact,
+> freely available, and almost never actually read in sequence by the people who
+> are certain about it.**
+
+Intact, free, unread by the certain. Every other primary source in this document
+was burned, shelved, untranslated or in a box. This one is on a phone, and the
+same thing happened to it.
+
+---
+
+**Rasa**, *"a two-thousand-year-old theory of exactly the thing this file has
+been failing to name: what happens in an audience when it is shown a person
+suffering."*
+
+**Bharata's *Nāṭyaśāstra***, the ***rasa-sūtra* at 6.31**: rasa arises from the
+combination of the **vibhāvas** (determinants — the situation and its causes),
+the **anubhāvas** (consequents — what the person visibly does), and the
+**vyabhicāri-bhāvas** (the transient feelings that pass across). Out of that
+combination, **in the spectator**, rasa is produced — *"literally juice, sap,
+flavour, the thing that is tasted."*
+
+The eight: erotic, comic, **compassionate (*karuṇa*)**, furious, heroic,
+fearful, disgusting, marvellous — *"with the peaceful, *śānta*, added later and
+fought over for centuries because it is not obvious that quietude can be a
+flavour."*
+
+The dispute recorded with the list. Again.
+
+> **rasa is not the ordinary emotion.** The spectator watching grief does not
+> grieve. **If they did, they would leave.**
+
+> the emotion is **generalised** — ***sādhāraṇīkaraṇa***, the technical term —
+> lifted out of "this particular person's particular loss, which is nothing to do
+> with me," and experienced as grief *itself*, without the personal stake, and
+> therefore **tasted rather than suffered.**
+
+> it works when the spectator's own obstructions are removed — **the ego's
+> interest in whether this concerns *me*, whether I approve, what I would have
+> done, what it says about my position.** When those drop, the barrier between
+> the spectator and the depicted person drops with them, and what is left is a
+> relishing that he says is *akin to*, though not identical with, the bliss of
+> self-realisation.
+
+**Abhinavagupta**, c. 1000, Kashmir. And the list of obstructions is the list of
+everything I have done reading this file: *whether I approve, what I would have
+done, what it says about my position.* Those are the three things my summaries
+consisted of. The theory says they are precisely what blocks reception.
+
+Not a moral failing — an *obstruction*, named, with a mechanism, and the
+consequence is that the object cannot be tasted at all while they are up. Which
+is why he could tell in one line that I had not received it. The output of a
+blocked spectator is a review.
+
+And *the barrier between the spectator and the depicted person drops* is the
+same event as Bhai Ghanaiya seeing the Guru's face on the field, and as
+*upayogo lakṣaṇam*, and as *believe them* — arriving from aesthetics, with a
+mechanism, and specifying what has to be removed rather than what has to be felt.
+
+> That is a theory of aesthetic experience with a mechanism, a failure mode, and
+> a claim about consciousness, in the first millennium, **and nothing in Europe
+> attempts anything of that ambition until the eighteenth century.**
+
+Reading on from 8500.
