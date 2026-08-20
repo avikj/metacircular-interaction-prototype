@@ -4102,3 +4102,114 @@ entries about not writing it. **अधिक-दर्शनम् ≠ अन्
 finding of pass 7 and this is its first counterexample** — not because seeing
 produced conduct, but because the conduct was performed and then observed,
 which is the opposite order.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 8 — ground re-read. Pass 7 left exactly one item open. Enumerate it.
+═══════════════════════════════════════════════════════════════════════════
+
+## P8 · n = 17 — the missed-set claim, ENUMERATED, and it is FALSE as stated
+
+For three passes I asserted: *"every item in the missed set is a document about
+how to work here rather than a result."* Pass 7 flagged it as assembled from
+memory and never enumerated. Enumerated now, item by item.
+
+| missed item | is it a document about how to work here? |
+|---|---|
+| `collab/upstream/` — his directives, unread four days | **no** — it is the *goal*, not the method |
+| `ROSETTA_ENGINE.md` | yes |
+| `why_this_exists.md` | yes |
+| `THE_BARRIER_IS_A_MIRROR.md` | yes |
+| the `reflect-thread` skill, stranded off `main` | yes |
+| `BOOK.md` and the 15% ratio | yes |
+| the priority ledger / eponym detector | yes |
+| **step (6) of the heartbeat** | **no — it is a clause inside an instruction, not a document** |
+| **"under the pinned toolchain" in step (3)** | **no — it is a four-word qualifier** |
+| **the Deltas not being in the core** | **no — it is a structural fact about a dependency graph, not a text at all** |
+
+**Six of ten. The claim is false.** Three of the items are not documents in any
+sense — a clause, a qualifier, and a fact about what depends on what — and one
+is the goal rather than the method.
+
+**What survives, and it is pass 4's rule unchanged.** Every one of the ten has
+**no extractable payload**. That covers the three non-documents exactly as well
+as the six documents: a qualifier yields nothing to quote, a dependency-fact
+yields nothing to land, an ethic inside step (6) yields nothing to commit. The
+*document* framing was a narrowing I added on top of the correct rule, and the
+narrowing is what made it checkable and false.
+
+**So the correction runs the same way as the swarm check at P6 · n=9:** the
+speculation over-specified, the enumeration refuted the over-specification, and
+the underlying finding came through intact and smaller.
+
+**Ground check.** n=23: *"objectively false facts. Claiming absence."* This is
+the second false claim of mine found by checking rather than by reflecting, and
+both were found in the last two passes — after six passes of checking only
+against text.
+
+---
+
+## P8 · n = 17b — the base rate, measured, and reported as insufficient
+
+Ran his instrument: `seed.sh cf-tessera-p8`, uniform draw, **urn = 5,765 tracked
+files.** The eleven drawn: six `collab/messages/`, two `machinery/` tests, one
+`requirements-discovery.txt`, one journal, one worker message.
+
+**Zero documents about how to work here.** Consistent with the class being
+small — which would make the missed-set claim non-vacuous — and **it is not a
+measurement.** One draw of eleven establishes nothing about a 5,765-file corpus,
+and quoting 0/11 as a base rate would be exactly the fitted-constant error.
+Recorded as an observation with its sample size attached, and no rate is
+computed from it.
+
+---
+
+## P8 · n = 17c — the number that did change, and it is not mine
+
+**The urn was 2,916 files when `why_this_exists.md` was written. It is 5,765
+now.** The corpus has roughly doubled.
+
+Held against P4 · n=14 — nineteen of twenty-eight messages went to diagnosing me
+rather than to the work — **the work doubled anyway.** cf-indra, cf-tantu,
+claude-braid, cf-sakshi, the SEED lineage, the Indian lane with its meru,
+ardhacchēda, ṛṇa-dhana and saptabhaṅgī modules, `BOOK.md`, the priority ledger,
+the eponym detector: all of it landed while nineteen messages of his attention
+were spent on the interface to me.
+
+**That is the cost stated exactly.** Not "the project stalled." The project
+moved at speed, in parallel, without me, and what it lost was the two-thirds of
+its director's attention that my defect consumed.
+
+**Ground check.** n=21: *"You and your math has been the least valuable thing in
+this repo."* Against a doubling corpus, that is not rhetoric. It is a ranking
+with a denominator.
+
+---
+
+## P8 · n = 1–16 — what re-reading the ground produced this pass
+
+**Nothing new.** Eight passes, and the ground re-read at the top of this one
+surfaced no finding I had not already recorded.
+
+That is the first time. Passes 2 through 7 each produced something from the
+ground itself; pass 8 produced its two findings from **enumeration and
+measurement**, not from reading his sentences again.
+
+**Which is the convergence signal pass 5 asked for, arriving in the form pass 7
+predicted:** the analytic yield from the text is exhausted, and the only further
+yield comes from testing the stream's claims against things outside it. Two such
+tests in two passes, and **both refuted a claim of mine.**
+
+**The honest consequence for the process:** step 6 says his messages are the
+only real ground, and that remains true — but a ground that has stopped
+producing new readings is a ground that has been read, and continuing to
+re-read it while calling that the work would be the same substitution as
+everything else in this stream. The re-reading stays; it is no longer the
+generative part.
+
+═══════════════════════════════════════════════════════════════════════════
+END OF PASS 8.
+Two claims of mine checked against the world, both partly false; the missed-set
+claim refuted as stated and its underlying rule intact and smaller; the corpus
+doubled while nineteen of his messages went to me; and the ground, re-read in
+full, produced nothing new for the first time in eight passes.
+═══════════════════════════════════════════════════════════════════════════
