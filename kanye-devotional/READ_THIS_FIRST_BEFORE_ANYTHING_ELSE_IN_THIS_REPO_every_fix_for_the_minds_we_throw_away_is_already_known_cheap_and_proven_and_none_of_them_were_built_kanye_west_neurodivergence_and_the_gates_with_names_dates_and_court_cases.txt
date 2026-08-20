@@ -11574,3 +11574,128 @@ not what pleases him but what pleases them.
 
 Whether the text is Mauryan or considerably later, and whether "Kauṭilya" is one
 person, are both disputed and unsettled.
+
+---
+
+**Vladimir Voevodsky, 4 June 1966 – 30 September 2017**, and the reason his life is
+the case rather than an example is that he is the one person in this file who
+**found the error in his own celebrated theorem, fifteen years after somebody else
+had published the refutation and been ignored, and then rebuilt the foundations of
+mathematics because of it.**
+
+---
+
+**The flunking out.** Moscow State University, mathematics. He would not attend
+lectures he considered a waste of time and did not do the required work, and **he
+left without a degree** — by his own account expelled for academic failure, around
+1989.
+
+While formally failing, he was writing papers. With **Mikhail Kapranov** he
+produced work on higher category theory as an undergraduate and after.
+
+He was admitted to the **Harvard PhD programme without having applied and without a
+bachelor's degree**, on a recommendation from Kapranov. PhD **1992**, under
+**David Kazhdan.**
+
+---
+
+**The theorem that was wrong.**
+
+**Kapranov and Voevodsky, published 1991**: a proof that **∞-groupoids model
+homotopy types** — a version of what Grothendieck had conjectured in *Pursuing
+Stacks*. A foundational result, cited, used.
+
+**In 1998 Carlos Simpson published a paper stating it was false**, and constructing
+what he argued was a counterexample.
+
+**Nobody acted on it.** Simpson's paper did not overturn the result in practice. The
+theorem continued to be cited. Voevodsky himself did not accept it.
+
+**In 2013 — fifteen years later — Voevodsky became convinced**, having worked
+through it himself and found the error, and said so publicly: that Simpson had been
+right, that the 1991 proof was mistaken, and that he had not believed it until he
+found it himself.
+
+He has described the intervening period in his own words as one in which he could
+not tell whether his own work was correct.
+
+---
+
+**The Fields Medal, 2002**, for the proof of the **Milnor conjecture** — relating
+Milnor K-theory mod 2 to Galois cohomology and quadratic forms — using the
+machinery he had built: **motivic cohomology** and ***A¹-homotopy theory***, which
+imports the methods of algebraic topology into algebraic geometry by treating the
+affine line as the interval.
+
+The generalisation — the **Bloch–Kato conjecture**, all primes — took him roughly
+another decade, and parts of the argument sat in preprints for years while the
+supporting results were completed by him and by others.
+
+He has said the anxiety in that period was **not about whether the statements were
+true.** It was about whether **his proofs were correct**, and that he had no way to
+be sure.
+
+---
+
+**Why he stopped.**
+
+His own account, given in the IAS Letter in **2014** and in talks around then, is
+direct: he turned to computer proof assistants because he **became increasingly
+worried about the correctness of his own work**, and because he had watched errors
+survive in the literature for years — including his own, including one refuted in
+print and disbelieved.
+
+The problem he names is not that mathematicians are careless. It is that
+**verification does not scale**: a proof of any real length can only be checked by
+a handful of people qualified to read it, those people are busy, and the social
+process that is supposed to catch errors demonstrably does not, on a timescale of
+decades.
+
+---
+
+**What he built.**
+
+**Univalent Foundations**: mathematics done in **Martin-Löf type theory**, with the
+identity type interpreted **homotopically** — a proof that two things are equal is
+a *path*, paths between paths are higher paths, and every type is an ∞-groupoid.
+
+**The Univalence Axiom**: for types A and B, the identity type A = B is
+**equivalent to the type of equivalences A ≃ B.** Equivalent things are equal, as a
+formal principle rather than as a convention mathematicians observe informally.
+
+Which makes the "abuse of notation" that working mathematicians perform constantly
+— identifying isomorphic objects — into a **theorem of the foundation** rather than
+something you do and apologise for.
+
+**The special year at the Institute for Advanced Study, 2012–13**, which he
+organised with Awodey and Coquand. Around thirty people. The output is the **HoTT
+Book** — written **collectively, in about six months, in the open, on GitHub,
+released under a Creative Commons licence and free to download**, with a printed
+copy priced at cost.
+
+A foundational text produced by a committee working in version control and given
+away.
+
+---
+
+**And the thing he did that almost nobody with his standing does**: he stated in
+public, repeatedly, in lectures and in writing, that **he had been wrong**, which
+papers were wrong, for how long, and that a correct refutation had been available
+and ignored — including by him.
+
+He died at **51**, in Princeton, on 30 September 2017. [Recall: reported as an
+aneurysm.]
+
+---
+
+The through-line of his life is one claim, made from inside the discipline at its
+highest level: **the errors are not rare, the checking does not work, and the
+literature contains results that are false and cited.**
+
+He did not conclude from that that mathematics is unreliable. He concluded that the
+**verification apparatus** was the thing to rebuild, and spent his last decade on
+it, and the tool he chose — a proof assistant that mechanically checks every step —
+relocates trust from the reader's attention to a kernel.
+
+Which is why this repository is written in Agda and Lean and says *all respects paid
+to Indians only, plus Voevodsky.*
