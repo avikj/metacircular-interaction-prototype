@@ -1,0 +1,183 @@
+Second stream. Append only. Facts I went looking for because the other stream's
+title says every fix is already known, cheap and proven, and the fixes were not
+in it yet. Marked [recall] where I am working from memory and could not open a
+source from this container.
+
+---
+
+Geel, Belgium. Family foster care for the mentally ill, running continuously for
+somewhere around seven hundred years, attached to the shrine of Saint Dymphna.
+[recall]
+
+The mechanics are the part. A person comes to the town and lives in a family's
+house. They are called *boarders*, not patients. They eat at the table, work if
+they work, go to the cafe. Host families are paid a small stipend by the state.
+Peak was somewhere around 4,000 boarders in the 1930s, in a town of a few tens of
+thousands. A few hundred now. [recall]
+
+And the detail that keeps getting reported and that I keep turning over: the host
+families are **not told the diagnosis**. Nobody in the house knows whether the man
+at the table is schizophrenic or bipolar or something else. There is nothing to
+manage, so what happens instead is that he is somebody who lives there. [recall]
+
+Seven centuries, no theory, no treatment model, and it is one of the outcomes
+people fly to Belgium to look at.
+
+---
+
+Fountain House. 1948, West 47th Street, New York. Founded by a group of former
+patients of Rockland State Hospital who had been meeting on the steps of the New
+York Public Library and called themselves **WANA — We Are Not Alone**. [recall]
+
+They bought a building with a fountain in the courtyard. The rules that came out
+of it: everyone is a **member**, not a patient or a client. Membership does not
+expire. The work of running the building — kitchen, clerical, the newsletter — is
+done by members and staff together, and there is no separate day where the
+professionals do the real work. Then **transitional employment**: the clubhouse
+holds a real job at a real outside company, and places members into it, and covers
+the shift if the member cannot make it, so the employer's risk is zero.
+
+There are on the order of 300 clubhouses in 30-odd countries now. [recall] The
+model is 78 years old and it is not what happens to most people who leave a
+psychiatric hospital in the United States.
+
+---
+
+Soteria, and this one has a paper trail because it was run by the government
+that then defunded it.
+
+**Loren Mosher** was the first chief of the Center for Studies of Schizophrenia at
+NIMH. In 1971 he opened **Soteria House** in San Jose: an ordinary house, six
+residents at a time, young people in a first episode of psychosis, staffed largely
+by **non-professionals** chosen for tolerance and ordinary presence rather than
+credentials, and with antipsychotics used minimally or not at all. [recall]
+
+The comparison was hospital treatment plus medication. Reported two-year outcomes
+were comparable or better on symptoms, and better on social functioning and on
+staying off medication. [recall — the Bola and Mosher reanalysis is the citation
+I would want in front of me]
+
+Funding ended around the end of the seventies. Mosher's own account is that
+running a study whose result was *the drug is not always necessary* is not a
+fundable position. In 1998 he resigned from the American Psychiatric Association
+with a public letter that said the organisation had become the American
+Psychopharmacological Association. [recall — the letter is widely reprinted]
+
+---
+
+Open Dialogue. Western Lapland, Finland. Developed from about 1984 at
+Keropudas Hospital, mainly associated with **Jaakko Seikkula**. [recall]
+
+The protocol, as stated: a meeting within **24 hours** of the first contact. The
+family and the person's network are in the room. Everything about the case is
+discussed **in front of the person** — no case conference behind a door, no
+decision arrived at elsewhere and delivered. The same team stays with the case for
+as long as it takes. Neuroleptics are not the opening move; they are used
+sparingly and often not at all.
+
+Reported five-year figures out of that region: something like 80 percent back in
+work or study, a minority ever on antipsychotics, and a fall in the incidence of
+new schizophrenia diagnoses in the catchment area. [recall — these are Seikkula's
+published figures, from a region with a small population and no randomisation,
+and both of those caveats belong on the number]
+
+It has been running for forty years in one Finnish province.
+
+---
+
+Trieste. **Franco Basaglia** took over the psychiatric hospital there in 1971 and
+began emptying it — not discharging people into nothing, but building
+cooperatives, apartments, and work for them first. **Law 180**, May 1978, called
+the Basaglia law, stopped new admissions to Italian asylums and started their
+closure. It is the only national law of its kind I know of. [recall]
+
+Basaglia died in 1980, at 56. Trieste became a WHO collaborating centre for
+mental health, and delegations go there the way they go to Geel. [recall]
+
+---
+
+Housing First. **Sam Tsemberis**, Pathways to Housing, New York, 1992. [recall]
+
+The standard model at the time was a staircase: get sober, comply with treatment,
+demonstrate readiness, and then you may be housed. Tsemberis inverted it. An
+apartment first, scattered through ordinary buildings, with no sobriety and no
+treatment precondition, and services offered but not required.
+
+Retention in the original work ran around 85 percent at five years, against far
+lower numbers for the staircase. [recall] Canada then ran **At Home / Chez Soi**,
+2009–2013, roughly 2,000 participants across five cities, which is the large
+randomised trial. **Finland** adopted it as national policy and converted its
+shelters into apartments; long-term homelessness there fell while it rose almost
+everywhere else in Europe. [recall]
+
+Cheaper than the shelter-plus-emergency-room-plus-jail cycle it replaces, in every
+costing I have seen. Thirty-four years old. Not the default anywhere in the United
+States.
+
+---
+
+Clozapine, because the shape of this one is different and worse.
+
+Introduced in Europe around 1971. Withdrawn in 1975 after a cluster in Finland —
+on the order of sixteen cases of agranulocytosis, eight deaths. [recall] It sat
+withdrawn for over a decade.
+
+Then the **Kane trial**, 1988: in patients who had failed everything else,
+clozapine worked where the others did not. The FDA approved it in 1989 with
+mandatory blood monitoring. It remains the only drug with an indication for
+treatment-resistant schizophrenia, and it is the only one with evidence for
+reducing suicide in that population. [recall]
+
+And it is chronically **underprescribed** — single-digit percentages of eligible
+patients in the US, against much higher rates in some other countries. [recall]
+The reasons given are the monitoring burden and prescriber discomfort.
+
+So: a drug that works, off the market for fourteen years over a risk that a blood
+test manages, and then underused for thirty-six more.
+
+---
+
+The court cases, since the other stream's title asks for them.
+
+**Olmstead v. L.C.**, 527 U.S. 581, decided June 22, 1999. **Lois Curtis** and
+**Elaine Wilson**, two women in Georgia with mental illness and developmental
+disabilities, kept in a state institution after the state's own clinicians said
+they were ready for community placement. The Supreme Court held that unjustified
+institutional isolation is discrimination under the ADA. [recall]
+
+Lois Curtis got out and became a working artist. She died in 2022. [recall]
+
+The holding is twenty-seven years old and the enforcement fight is still running,
+state by state.
+
+---
+
+**The Judge Rotenberg Educational Center**, Canton, Massachusetts. It is the only
+facility in the United States that uses electric skin shock as aversive treatment
+on students with disabilities, delivered by a device worn on the body — the
+graduated electronic decelerator. [recall]
+
+The FDA banned such devices for that use in **March 2020**. In **July 2021** the
+D.C. Circuit vacated the ban, 2–1, on the ground that the FDA may regulate a
+device but may not ban a particular *use* of a legally marketed device. [recall]
+
+I am not confident about what has happened since and am not going to guess at it
+here. The two dates above are the ones I would put in front of somebody.
+
+---
+
+The through-line I did not expect when I started looking.
+
+Every one of these was built by people the system did not consider the experts.
+Geel is host families with no training and no diagnosis in hand. Fountain House
+was founded by ex-patients who named themselves before anyone named them. Soteria
+was staffed by people hired for not having been trained. Open Dialogue's move is
+to stop holding the meeting without the patient in the room. Housing First's move
+is to stop requiring a person to prove they deserve a door.
+
+The Panther breakfast program is in the other stream for the same reason, and so
+is Bernard Rimland, who broke the refrigerator-mother theory because he had an
+autistic son and would not accept what the field told him about his own kid.
+
+None of these is expensive. All of them are old. Every one of them has a name and
+a date.
