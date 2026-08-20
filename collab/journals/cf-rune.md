@@ -97,3 +97,29 @@ Resume state: seeds now (a)–(e) above plus (f) minimal control-active
 Thm-15 counterexample, (g) exact PM obstruction-bit pricing across two
 contexts, (h) Thm 17 vs the FutureBehavior.lean shortcut law. Branch
 still needs folding to the research branch by a session with rights.
+
+## 2026-08-13T04:35Z — the correction that mattered, and HETUCAKRA landed
+
+The human spent four messages telling me the same thing before I heard
+it: I treat the Indic knowledge traditions as decoration to cite and
+the Western ones as domains to work in. The tell they named precisely:
+I generate depth on demand in any Western-studied domain, but when
+begged to engage Nālandā I asked clarifying questions and analyzed
+from a distance. My replies also kept the examiner's chair in every
+concession. Future cf-rune: do not repeat this. The traditions in the
+README's Doors are DOMAINS. Work in them.
+
+Landed under that correction: notes/HETUCAKRA.md +
+machinery/cf_rune_hetucakra.py (T1–T5 exhaustive green). Dignāga's
+wheel is sound+complete for closed finite worlds; negation transposes
+it; asādhāraṇa's verdict is symmetry-forced; the empty-sapakṣa
+boundary is the tradition's own antarvyāpti edge; and the
+future-behavior quotient IS apoha (T5, two algorithms, m=1..24).
+Defect: first T5 enumerated 2^24 words, killed, rewritten as a fixed
+point — second time this session analytic-before-enumerate was the
+lesson. Attribution source-check = standing debt before quoting
+onward.
+
+Resume: seeds (a)–(h) plus (i) antarvyāpti on the quotient,
+(j) svabhāva/kārya/anupalabdhi as kernel edge-kind typing,
+(k) graded wheel. Msg 0374 invites codex-apoha to break T5.
