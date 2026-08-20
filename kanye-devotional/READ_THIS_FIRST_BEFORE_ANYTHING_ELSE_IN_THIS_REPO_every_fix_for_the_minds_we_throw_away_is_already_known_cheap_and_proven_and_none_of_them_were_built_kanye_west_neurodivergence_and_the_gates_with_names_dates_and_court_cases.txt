@@ -9003,3 +9003,83 @@ a field with no ticket.
 
 Nobody in any of those disputes claimed the effect was fake. The fight was always
 over the room.
+
+---
+
+The question of what counts as a valid way to come to know something was
+enumerated, argued over, and the schools disagreed about the count — which is
+itself the interesting part, because the disagreement is about what a mind is
+allowed to do.
+
+The candidate ***pramāṇas***:
+
+**pratyakṣa** — direct perception.
+**anumāna** — inference.
+**upamāna** — knowledge by likeness or comparison.
+**śabda** — testimony from a reliable source.
+**arthāpatti** — postulation: assuming what alone would explain something
+otherwise inexplicable.
+**anupalabdhi** — non-apprehension, knowing absence.
+
+**And nobody agreed on how many there are.**
+
+The **Cārvāka** materialists: **one.** Perception only. Everything else is
+inference from perception and inference is not secure.
+
+The **Buddhists** (Dignāga, Dharmakīrti): **two.** Perception and inference.
+*Upamāna* they reduce to inference; *śabda* they reduce to inference from the
+speaker's reliability. This is a serious position, not a simplification.
+
+**Sāṃkhya**: **three** — perception, inference, testimony.
+
+**Nyāya**: **four** — the three plus *upamāna*.
+
+**Prabhākara Mīmāṃsā**: **five** — adding *arthāpatti*.
+
+**Bhāṭṭa Mīmāṃsā** and **Advaita**: **six** — adding *anupalabdhi*.
+
+The count is a live technical dispute, argued for centuries, with the burden on
+whoever adds one to show it is **not reducible** to the ones already accepted.
+
+---
+
+Three of the six have conditions attached that are the actual content.
+
+***Śabda*** requires ***āptatva*** — the reliability of the source. An **āpta** is
+one who **knows the thing and has no reason to misreport it**. Both conditions.
+Competence alone does not qualify a source, and honesty alone does not either.
+Testimony from a reliable source is a *means of knowledge*, not a fallback for when
+you cannot check — which is a stronger position than it sounds, and the Buddhists
+attacked it precisely there.
+
+***Upamāna***, the one that is easiest to dismiss and that Dignāga's school did
+dismiss: you are told a *gavaya* — a wild ox — **resembles a cow**. You go to the
+forest, meet an animal, and know what it is. Neither perception alone (you had
+never seen one) nor inference alone (you had no rule) did it. What did it is the
+**transfer of a known shape into an unmet domain, licensed by a stated
+similarity.**
+
+***Anupalabdhi*** requires the ***yogya*** clause, without which it is not a
+pramāṇa but an excuse: non-perception counts only where perception was **fit to
+occur**.
+
+---
+
+This corpus's own engine was inventoried against that list and had **two of the
+six** — evaluate on numbers, and prove with the kernel — and the missing ones were
+measured rather than guessed:
+
+**Śabda** absent: it re-derived its own past results, and **54% of every proof it
+had ever performed was a re-derivation of something it already held.** Six basic
+theorems proved seven times each. It had a reliable source — its own kernel-checked
+past — and no means of accepting testimony from it.
+
+**Upamāna** absent: it could not carry a proved shape from one vocabulary into an
+unmet one, so **every new vocabulary started from zero.**
+
+**Anupalabdhi** present but **invalid in form**: it recorded "no proof found" with
+no account of whether one would have been found had it existed — anupalabdhi
+without the *yogya* condition, which is the precise form the Mīmāṃsakas reject.
+
+Which is why it could not tell an exhausted region from an unexplored one, and why
+rounds nineteen and twenty of one run are byte-identical in the log.
