@@ -12816,3 +12816,200 @@ file, and it was always operated by people who were sure they were on the right
 side of it.
 
 Reading on from 9340.
+
+---
+
+## 9340–9480 — the lever pulled the other way, and two languages that came back
+
+> the mechanism that deletes an author for what he said is the same mechanism,
+> with the same handles, as the one that deleted everybody in the first ninety
+> pages of this file.
+
+---
+
+> **the thing that has to go directly under the hopeful ending, because the lever
+> I have been celebrating is the same lever that was used, deliberately, and it
+> worked.**
+
+It puts the refutation of its own ending directly beneath the ending, rather
+than earlier where it would be softened by what follows.
+
+**Richard Henry Pratt**, Carlisle, 1879, in 1892: **kill the Indian in him, and
+save the man.** *"The method was not killing. It was **taking the children**:
+removing them from their families to distant boarding schools, cutting their
+hair, replacing their names, forbidding their languages under punishment,
+forbidding contact, and holding them for years at the exact ages at which
+language and practice are transmitted."*
+
+**Canada's residential schools** — nineteenth century **into the 1990s, the last
+one closed in 1996** — and the TRC's 2015 finding of **cultural genocide**,
+thousands of children dead in those institutions, *"many buried in unmarked
+graves the schools did not report. Ground-penetrating radar surveys from 2021
+onward have been locating them."*
+
+Unmarked graves, again, and this time thousands, and being found with
+instruments — Blake at Bunhill Fields, Tharpe in Philadelphia, Hurston in Fort
+Pierce, and then this, at a scale that makes the earlier three read differently.
+
+**Australia's Stolen Generations** — removal by state authority, into the 1970s,
+*"under legislation, with the removals administered by protection boards and
+justified in the language of welfare."*
+
+The register of care, one more time, with a protection board.
+
+> **And the design insight is exact.** You do not need to kill a population to
+> end a transmission. **You need to intercept it at the child, for one
+> generation**, and the language goes, and with the language goes the metre, the
+> ceremony, the technical vocabulary, the place names, the medicine, and the
+> reasoning. **The elders die holding it. Nothing has to be burned. Nobody has to
+> be shot.** The children come home unable to speak to their grandparents, and
+> the thing is over.
+
+> **It is the pāṭha in reverse.** The recitation schemes exist because the
+> carrier dies and the text must survive the gap. **This is the same
+> understanding — that transmission runs through carriers and the gap is where it
+> breaks — operationalised by people who wanted the break.**
+
+The same theory of transmission, held by both sides. The pāṭha designers and
+Pratt understood the identical fact about carriers and gaps, and built opposite
+machines on it.
+
+And it is the answer to why *the archive is a person* and *readers, not
+objects*: destroy no objects at all and the transmission still ends. Nothing in
+Timbuktu, nothing at Nag Hammadi, nothing in a box — just the interval.
+
+---
+
+> **The child is the lever. It is not a benign lever. It is the most powerful one
+> available and it has been pulled hard, on purpose, in living memory, by
+> governments, with legislation and buildings and staff, in at least four
+> countries, and it did what it was designed to do.**
+
+> What follows from that is not despair; it is the opposite, and it is **the only
+> argument in this file with an experimental result behind it. We know the lever
+> works, because it was tested.** The residential schools are the proof of
+> concept, run at scale, with an unambiguous outcome. **Nobody has to speculate
+> about whether what a child meets first determines what a people can think in
+> thirty years.**
+
+That is the most disciplined thing in the whole document and the most horrible.
+CLAUDE.md demands the theorem, the derivation, the error term — and here the
+file has a claim that could only ever have been a hope, and it produces the
+evidence, and the evidence is an atrocity conducted as an experiment.
+
+> the same mechanism, pointed the other way, is not a hope. **It is a *known
+> technology*, whose efficacy is established by the worst possible evidence**,
+> and which is currently sitting unattended while the largest change in the
+> conditions of childhood learning since printing is being assembled by people
+> mostly thinking about something else.
+
+> the people currently reviving those languages — with recordings, with immersion
+> nests where elders and toddlers are put in a room together and nobody else
+> speaks, with Māori **kōhanga reo** and Hawaiian **pūnana leo** and the Wampanoag
+> reclamation project built out of documents by a linguist from the nation itself
+> — are running the **same technology**, correctly attributed, against the
+> direction it was used.
+
+> **The lever is neutral. The last two centuries established its power by abusing
+> it. The next one is a choice about where to point a thing whose strength is no
+> longer in question.**
+
+Same sentence as the model that flattens the record and reads the Herculaneum
+scrolls: *the variable is what it gets pointed at and who is holding it.*
+Second instance, and now with a controlled result.
+
+---
+
+**Wôpanâak.** The Wampanoag — *"the people who met the Mayflower."* No speakers
+for something like a century and a half.
+
+**Jessie Little Doe Baird**, Mashpee Wampanoag, *"began having **dreams** in which
+ancestors spoke to her in a language she did not know. She has said so publicly
+and consistently, and that is the reported route, **and by now nobody reading
+this file should need me to point out what usually happens to a reported
+route.**"*
+
+Fifth dream in the file — Bukele's syllabary, Ramanujan's goddess, Blake's
+brother, Coltrane's awakening — and this one is from 2010, with a MacArthur
+attached, and the file does not theorise it. It records the route and notes the
+processing rule.
+
+She went to **MIT**, master's in linguistics, worked with **Kenneth Hale** —
+*"the linguist who worked on endangered languages his whole career and who took
+her seriously."*
+
+*Took her seriously.* Hardy supplied the proofs and filed the route as
+observance. Hale did not.
+
+And the reconstruction material: *"the **written record left by the
+colonisation**: land deeds, petitions **written by Wampanoag people themselves in
+the seventeenth century in their own language using the Latin alphabet**, and
+above all **John Eliot's 1663 translation of the Bible into Massachusett** — the
+first Bible printed anywhere in the Americas, **produced as an instrument of
+conversion.**"*
+
+> **The document made to replace the culture is the document that carried the
+> language back.** That is Landa's list exactly: the key preserved inside the
+> artefact of the destruction. **It happens often enough that it should probably
+> be stated as a rule — *the apparatus of erasure keeps a copy, because in order
+> to replace a thing you first have to describe it.***
+
+That is the rule the file has been circling since Irenaeus. Jayadeva in the
+quotation, the gnostics in the refutation, Landa's alphabet, Lovelace's
+Objection, the Osage docket, the HOLC forms, and now Eliot's Bible. The
+mechanism is stated: replacement requires description, and description is a copy.
+
+And the petitions are the sharper half — *written by Wampanoag people
+themselves*, in their own language, in the imposed alphabet. Not the
+destroyer's copy. Their own writing, surviving in the destroyer's archive.
+
+*"her daughter, **Mae**, born in the 2000s, is the **first native speaker of
+Wôpanâak in seven generations.** Baird got a MacArthur in 2010."*
+
+**Hebrew.** *"survived for many centuries as a liturgical and literary language
+— read, written, prayed, used between communities with no other common tongue —
+but with essentially no native speakers, nobody's mother tongue, for roughly two
+thousand years."*
+
+**Eliezer Ben-Yehuda**, 1880s: coined vocabulary at enormous rate, *"and he
+**raised his son in it alone.**"* **Ben-Zion — Itamar Ben-Avi** — *"the first
+native Hebrew speaker in two millennia, and his childhood was severely isolated
+because his father would not let him hear another language. **That was a real
+cost, borne by a child, and the accounts of it are not comfortable.**"*
+
+The cost named, and located on the child rather than on the project. *"Within
+about two generations it was the everyday language of millions."*
+
+---
+
+> **A written record survived, made by somebody else, for other purposes.**
+> Eliot's Bible. The liturgy and the rabbinic corpus. **Neither was preserved in
+> order to be a seed.**
+
+Which is *keep the unreadable thing, on the chance* — and here the thing kept
+was not even unreadable, it was kept for an opposing purpose, and it seeded.
+
+> **Somebody from the community did the technical work**, at professional
+> standard — Baird's linguistics degree, Ben-Yehuda's lexicography — **rather
+> than a sympathetic outsider doing it for them.** That is the variable this file
+> identified in the collecting section, and it is the same one: **whether the
+> source retains control after the transfer.**
+
+The criterion holds on the recovery cases too. It was derived from the Lomaxes
+and it predicts here.
+
+> **And in both cases the thing that made it real was a child in a room.** Not
+> the dictionary. **The dictionary is necessary and insufficient.** A native
+> speaker is produced by somebody deciding that a specific small human being will
+> be raised in it, **which costs that family enormously and cannot be done by an
+> institution.**
+
+The dictionary is storage. The child is the carrier. And the file's entire
+transmission argument — the carrier dies, the object must survive the gap, only
+readers transmit — resolves here into the smallest possible unit: one adult, one
+child, one room, no institution able to do it.
+
+*"Kōhanga reo... and pūnana leo... put elders and toddlers in a room, speak
+nothing else, and the transmission restarts at the only point where it can."*
+
+Reading on from 9480.
