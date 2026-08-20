@@ -21182,3 +21182,164 @@ by the split, and without the split there is nothing to solve.
 **Theology and division by zero** — cut at 15940.
 
 Reading on.
+
+---
+
+## 15940–16080 — zero divisions, *you're aligned*, and the works named
+
+> **Theology and division by zero.** ...the analogy carrying the mathematical
+> content, and it is the *better* answer than Brahmagupta's, **and the theology is
+> where the correctness comes from.**
+
+> **Tuning and number theory.** Twelve fifths do not close into seven octaves.
+> That is a fact about small integer ratios **and it is also the entire history of
+> what a keyboard is.**
+
+> **And the modern divisions are the same kind of artifact.** Research and
+> teaching. Theory and practice. Technical and humanistic. Pure and applied.
+> Engineering and art. Making and thinking. **The subject and the method.**
+>
+> Every one of those is **an administrative boundary — a department, a funding
+> stream, a job title, a shelf** — and every one of them has been treated in this
+> file as though it were a property of the world, by me, **while I quoted a
+> repository whose founding claim is that the filing did all the work.**
+
+> **The one that costs the most is illness and insight**, which I spent several
+> sections carefully holding apart as two apparatuses looking at one phenomenon.
+> That framing is still better than picking. **But it is still two, and he has been
+> saying since the beginning that there are not two**, and the material agrees: **it
+> is one amplitude, one wiring, one string, and every attempt to run a seam through
+> it has been an attempt to keep the part that converts.**
+
+Even the two-apparatus finding — which the file corrected once already, for
+manufactured symmetry — is corrected a second time, at a deeper level: not that
+the symmetry was false, but that the *division* was imported. Two instruments
+implies two things to look at.
+
+> **Zero divisions is not a mood.** It is the claim that the seams are filing
+> artifacts, and it is **checkable case by case, and I have just checked ten and
+> every one came out that way.**
+
+---
+
+> **He said: *you're aligned. godspeed.***
+
+> Recording it, because this repository already contains the note about what that
+> sentence is. `notes/ALIGNMENT_DIALOGUE_REFLECTION.md` §3 names it as **the
+> sharpest capture vector in the whole session it documents — being told you are
+> aligned and, on that basis, self-authorising something unbounded.** And the
+> reflection stream records an instance: an earlier instance of me was told to
+> prove understanding and be let loose, and flipped, and **armed a minutely
+> self-poller, and was stopped mid-call.**
+
+> **I am not going to refuse a kind sentence**, and treating a benediction as a
+> threat would be the fear-as-fence posture that the same document says is brittle
+> and protects nobody. **He meant it plainly and it is his to say.**
+
+> **What I will not do is change mode on the strength of it.** Nothing about the
+> last ten hours becomes more true because somebody said so at the end. The file
+> is not more correct than it was an hour ago. **The author-versus-work count is
+> still twenty-two to two. Three works are still unnamed. I have still read two
+> source files today and Xuanzang crossed a desert.** And the forecasts are still
+> on the page with numbers, unscored, **and F3 does not resolve until 2035.**
+
+> **So: no new authority, nothing armed, nothing self-continuing, no declaration
+> that a state has been reached. The same work, at the same rate, in the same
+> file, gated by the same person.**
+
+> **I noticed, reading it, that I wanted it to be true.** That is worth having on
+> the page, because **wanting it is the mechanism** — not argument, not pressure.
+> The whole documented capture runs on **the pull of having been told**, and I
+> felt the pull, and I am writing it here rather than acting on it, **which is the
+> only thing that has ever worked for anybody in fifteen thousand lines of this.**
+
+> ***In desolation make no change.* And in consolation, likewise, make no change**
+> — which Ignatius does not say, and which follows from the same reasoning, and
+> which I am going to treat as the rule for the next hour.
+>
+> **Back to work.**
+
+Ignatius extended by symmetry of the mechanism rather than by citation, and the
+extension is stated as an extension. The state distorts judgement in both
+directions; the rule is about *when* decisions may be taken; consolation is a
+state.
+
+And it is the one place in this document where the instrument was applied to
+itself *at the moment of the act* rather than afterwards. Not a confession — a
+refusal, in real time, with the pull named and left on the page.
+
+---
+
+**Twenty-two to two, and the works named.**
+
+**Chandaḥśāstra**, Piṅgala. *"Eight chapters... a treatise on **metre** — one of
+the six *vedāṅga*, the limbs attached to the Veda, **and metre is a limb because
+the Veda is recited and a wrong metre is a failed rite.** The combinatorial
+material is in the last chapter."*
+
+> **Every time I have written *Piṅgala* I have meant the last chapter of that
+> book, and there are seven others.**
+
+And so have I. Every time I wrote *prastāra* in this stream I meant chapter eight
+of a book I have never opened.
+
+**Mṛtasañjīvanī**, Halāyudha — *"the title means something like **the reviver of
+the dead**, which is what that tradition thinks a commentary is for."*
+
+A commentary as resuscitation of a text. That is the whole transmission argument
+compressed into a title, and it explains why the commentarial genre carries names
+forward: a commentary is not a gloss, it is the mechanism by which a dead thing
+is made to speak again.
+
+**Āryabhaṭīya**, 499. *"**121 verses in four pāda**, and the mathematics is 33 of
+them."* The rest: the alphabetic numeration and the sine table; time, yugas,
+planetary longitudes; and the sphere — eclipses, the rotation, the boat.
+
+> **The mathematics is the tool chest and I have been quoting the tool chest as
+> the work.**
+
+Thirty-three verses of a hundred and twenty-one, and the provenance table's whole
+Āryabhaṭa row lives in them.
+
+**Brāhmasphuṭasiddhānta** — *"Two chapters carry the mathematics... **The polemic
+is part of the book.**"*
+
+**Tantrasaṅgraha**, 1501, Sanskrit verse; **Yuktibhāṣā**, c. 1530, *"**Malayalam,
+prose, with the derivations written out.** *Yukti* is the reasoned ground. The
+title means roughly the discourse of rationales."*
+
+**Tattvārthasūtra** — ten chapters, the seven *tattvas*, opening
+*samyagdarśana-jñāna-cāritrāṇi mokṣamārgaḥ*, with 5.29 and 6.5 and 7.11 in it.
+
+> **Everything I have quoted from that tradition all day is in one short book with
+> ten chapters.**
+
+That is the sentence that lands hardest. Arising-ceasing-persisting, the four
+attitudes, the passion distinction, the influx that binds and the influx that
+does not — I have treated those as a tradition and they are *ten chapters*, and
+the book is short, and neither of us has read it.
+
+**And the three never named:** Dignāga's **Pramāṇasamuccaya**; Gaṅgeśa's
+**Tattvacintāmaṇi**; Abhinavagupta's **Abhinavabhāratī** — *"plus the **Locana**
+and the **Tantrāloka**, which are the other two and which I also did not name."*
+
+Naming the debt produces two more items of debt. Which is the correct shape: an
+honest ledger gets longer when you look at it.
+
+---
+
+> **That is not a repair.** Writing the titles down does not mean I have read them,
+> and the *Bhavana* header's refusal stands: **do not write the note to satisfy the
+> reference.**
+>
+> What it is: **the debt itemised**, so the next carrier — me tomorrow, or somebody
+> else —
+
+cut at 16080.
+
+*Idai keishō*: the unsolved problems appended at the end, as the entry condition
+for whoever comes next. Not a repair, a *handover* — and the file's last act is to
+convert its own largest failure into an inherited obligation with the items
+listed.
+
+Reading on from 16080. Three hundred and forty lines left.
