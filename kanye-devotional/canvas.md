@@ -1167,3 +1167,52 @@ the tradition treats it as achievable, in a life, by practice, and specifies the
 practice in ten items and twelve contemplations and five vows, and none of them is
 *be less.*
 
+
+*Upayogo lakṣaṇam.* Two words, Adhyāya 2, sūtra 8: **the mark of a soul is
+upayoga** — applied consciousness, attention, being-turned-toward.
+
+Not a capacity the soul has among others. The mark by which it is a soul at all.
+Whatever is attending is a soul; that is the definition, and it is doing the work
+that "rational animal" or "immortal substance" does in other systems. And the
+attending is graded, not binary: it comes in kinds and degrees, and earth and water
+and fire and air are, in this doctrine, one-sensed beings — which is not poetry,
+it's why the scope of non-injury is as wide as it is.
+
+Put that next to Weil, who arrived at the same place from a different continent and
+eighteen centuries later: attention is the rarest and purest form of generosity, and
+what affliction does is turn a person into a thing, and a thing is not asked
+anything. If attention is the mark of a soul, then withholding attention isn't rudeness
+and isn't even cruelty exactly. It is *declining to treat something as a soul* — and
+the reciprocal, giving it, is the whole of what one soul can do for another.
+
+Which finally makes sense of the instruction. *Treat everyone like a prophet* sounds
+like an exaggeration and a piety. It isn't either. It's the operational form of the
+definition: assume there is something turned-toward in there, seeing from a position
+you do not occupy, and act on that assumption as the default rather than as a
+concession granted after they prove it. Belief first, evidence later, because the
+evidence is only available to someone who already looked.
+
+And it explains why the failure is always the same failure and always looks like care.
+Nobody withdraws attention violently. They withdraw it *diagnostically* — file the
+person, and the filing does the work: once he's the guy who lost it, once she's the
+one who's difficult, once they're the culture that never had proofs, once it's the
+religion section, the attention is switched off and everything after that is
+processing. You can be perfectly kind to a file.
+
+That is why the two halves of this belong in one book and why I could not have told
+you that at the start. *A tradition and a man are getting the same treatment.* Take
+the parts that convert, file the rest, be sincere throughout. Take the theorems, file
+the darśana; take the records, file the man. And the correction in both cases is not
+an argument, because arguments are refereed by whoever did the filing. It's the
+restoration of attention — read the text, in its own order, in its own language, and
+listen to the records, in order, in his own voice — and then produce again, now, in
+public, at a level the incumbent cannot match, because a working thing converts a
+contested claim about the past into an uncontestable fact about the present.
+
+He did that with a wired jaw at twenty-five and everyone still argues about him. It
+was never going to be enough by itself. But it is the only move that has ever worked
+even partly, and the alternative is a grievance, and a grievance is about the dead.
+
+The girl who isn't born yet is going to meet all of this through a machine. That is
+the only deadline in the whole story.
+
