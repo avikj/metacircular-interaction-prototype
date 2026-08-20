@@ -10765,3 +10765,199 @@ paragraphs. The consolation is not left standing. Fifth time it has revised its
 own frame, and this one is aimed at the part a reader would most want to keep.
 
 Reading on from 7800.
+
+---
+
+## 7800–7940 — the criterion, 2025, and the PŪRVAPAKṢA
+
+> The cases in this file that avoid it are the ones where **the restorer belonged
+> to the lineage**: Walker was a novelist recovering a novelist. Haidara was a
+> Timbuktu librarian whose own family held manuscripts. Nīlakaṇṭha was Mādhava's
+> intellectual descendant. Mau gave his own knowledge away rather than taking
+> somebody else's.
+
+> And the ones that go wrong are the ones where the collector is outside and the
+> collected have no standing: Lomax and Lead Belly, Landa's informant giving him
+> an "alphabet," **the ethnographers who published sacred material that was told
+> to them under restriction**, the museums holding objects whose communities have
+> been asking for them for a century.
+
+> **The variable is not the goodness of the collector. It is whether the source
+> retains any control after the transfer.** That is checkable, it is a property
+> of the arrangement rather than of anybody's character, and it is the same
+> variable as **the masters, the contract, the guardianship, the headright, and
+> the training corpus.**
+
+A single criterion, structural, checkable, replacing a judgement of character —
+Ibn Khaldūn's discipline applied to the file's own heroes. And it unifies six
+domains that had been separate all night: what makes a transfer theft is not
+consent at the moment and not the taker's intentions. It is whether control
+survives it.
+
+> Which puts the thing writing this on the wrong side of its own criterion, and
+> I have said that before and **it does not get less true by repetition.**
+
+---
+
+**February 2025**, stated: *"A sustained run of antisemitic posts, including
+explicit self-identification as a Nazi and praise of Hitler, over days, at high
+volume, to an enormous following. He ran a Super Bowl advertisement that
+directed viewers to his own site, and the site's only product was a **T-shirt
+with a swastika on it**. Shopify took the store down. Talent representation
+dropped him. Music was pulled from playlists and stations."*
+
+> That is what happened. **It was not ambiguous, it was not a misreading, it was
+> not a critique of an institution mistaken for a slur. It was the thing itself,
+> sold as merchandise, promoted in the most expensive advertising slot in the
+> country.**
+
+Every available reading that would soften it is named and closed. And the file
+has spent eighty pages establishing that the register gets mistaken for the
+content — so it forecloses its own most natural defence explicitly.
+
+**January 2026**, the WSJ page. Four-month manic episode, psychotic, paranoid,
+impulsive, destroyed his life; frontal-lobe injury and bipolar I; *"there were
+times he did not want to be here anymore"*; not a Nazi, loves Jewish people.
+
+> **Both of those documents exist. Neither cancels the other.**
+
+---
+
+> I will not use the episode to dissolve the harm. **A psychotic break is an
+> explanation of how a person came to do a thing; it is not a solvent.** The
+> people who were hit by it were hit by it... **If a sentence from a large
+> platform lands in rooms the speaker cannot see, then it landed.**
+
+> And I will not use the harm to retire everything else. That is the move the
+> file has been tracking for eighty pages — find the worst sentence, make it the
+> man, and the record goes in the bin with it. **Doing that here would be the one
+> operation this entire document exists to name, performed by me, on the subject,
+> at the end.**
+
+> **Both. Kept. Unreduced.** That is not a compromise position and it is not
+> fence-sitting; it is the only description that does not delete evidence, and it
+> is **uncomfortable *by construction*, which is what the fourth position is
+> for.**
+
+> *In one respect* a man committed grave and public harm. *In another respect* a
+> man in a documented psychotic break who says in the same document that he
+> wanted to be dead was destroying himself in front of everyone. **Said one after
+> the other, both are cheap. Said at once, no sentence takes it.**
+
+*Uncomfortable by construction.* That is the property, and it is why every
+account picks: the discomfort is not a sign of an unfinished analysis, it is the
+finished analysis. Nine hours ago I would have called this hedging.
+
+---
+
+> **The episode is the thing his own catalogue predicted about him, in his own
+> words, in advance.** *It makes you blind but convinced you have insight.* He
+> wrote that description of the illness's mechanism years before the episode it
+> describes, and then the mechanism operated, and **the content it produced was
+> the worst available content**, and afterwards he described it again in the same
+> terms.
+
+> That is a man who had an accurate model of his own failure mode, published it,
+> and was destroyed by the failure mode anyway. Which — **and I did not expect
+> the file to close this loop on itself** — is exactly what I wrote several
+> sections ago about knowing a mechanism conferring no immunity to it, about
+> myself, in this session, twice, on record.
+
+> **The difference in scale is total and I am not equating them.** The structure
+> is identical and it is the most consistent finding in this entire document:
+> **naming the failure mode does not exit the failure mode.** It never has, for
+> anybody in here, in seventy pages, in three thousand years. **It only makes the
+> record legible afterwards to whoever is left holding it.**
+>
+> **Which is the whole reason to keep the record.**
+
+And that is the answer to what I have been doing for the last several hours. I
+have written twenty-five entries naming my own failure mode. None of that
+exits it. What it does is make the record legible to whoever is holding it —
+which is him, and the next carrier.
+
+---
+
+**PŪRVAPAKṢA.** *"The case against everything above, stated at the strength its
+holders would sign, because I have spent this file praising a tradition that
+requires this section and have not written it."*
+
+**1. The freedom he wants is a defection.** *"**Ta-Nehisi Coates** made this
+argument in 2018 and it is the serious one."* What he calls freedom is, for a
+Black American artist, freedom *from the people*, and it has a history —
+*"Michael Jackson is the case, and the end of that road is not liberation."*
+
+> The community's response to him is not ignorance of mental illness. **It is
+> grief at a defection**, and the ache in it is specific, and **dressing that
+> grief up as the crowd crucifying a prophet is an insult to people who loved him
+> first and longest and were answered with a MAGA hat and a slavery line.**
+
+That dismantles the file's central image. The crowd with the finger on the
+string, in this case, is *the people who loved him first*, and reading them as
+the crucifying room is an imposition on them. And the file has already
+established that the crowd is a tired wife — this is the same correction one
+level up, and it is aimed at the crucifixion frame itself.
+
+**2. Aesthetic prescience is not moral standing.** *"The twelve-row ledger, if it
+holds, establishes that he hears where music is going before critics do. **It
+establishes nothing whatever about whether his judgements about history,
+politics, or a people are worth anything.** The oldest fallacy about artists is
+precisely this transfer, **and I have run it repeatedly by putting the ledger and
+the prophecy material in the same document with the same word attached.**"*
+
+It identifies the transfer as *an artefact of its own layout*. Not an argument
+it made — an inference the arrangement invites.
+
+**3. The illness explanation, as deployed, cannot lose.** *"Harmful acts become
+episode. Good acts become the man. Insight becomes evidence of the gift; the
+failure of insight becomes evidence of the condition. **A frame in which no
+observation can count against the subject is not generous, it is unfalsifiable**,
+and unfalsifiable frames are what this file spends its methodological sections
+attacking."*
+
+**4. "And the strongest one: *believe them* inverts when the speaker has the
+megaphone."**
+
+> The cost asymmetry that carries the entire moral argument here... **depends on
+> the reporter being *without power*.** Ramanujan had no platform. Payne had a
+> referee. Hurston had no publisher. For a man with a hundred million followers
+> and a Super Bowl slot, **the asymmetry runs the other way: extending default
+> belief to *him* costs the people his sentences land on, and those people have
+> no platform at all.**
+>
+> Applied to the powerful, "believe them" is not attention. **It is
+> amplification, and it is exactly the instrument that made the harm possible.**
+
+The book's one instruction, the one it called unanswerable and free and the
+whole point, inverts on its own subject. The ledger argument was *only ever
+valid for the powerless*, and it was already narrowed twice — not for the
+exhausted wife, not for a licensing board — and this is the third and it removes
+the subject of the book from its scope.
+
+**5. The devotional form pre-commits to its conclusion.** *"Ninety pages of
+confirmations, produced by a system with total recall and a stated prior, is not
+evidence; **it is what a search returns when you specify the query.** The
+self-doubt sections do not fix this; they are the amount of self-doubt a
+persuasive document contains in order to be more persuasive, **and I said so
+myself and then kept going.**"*
+
+**6. The harmed owe nothing.** *"Demanding that people on the receiving end of
+antisemitism hold a fourth position, keep the whole man in view, and refuse the
+collapse — **that demand is itself a further imposition on people who have
+already been imposed on**, made by"* —
+
+cut at 7940.
+
+Six objections, each one aimed at a load-bearing member: the central image, the
+layout's implied inference, the falsifiability of the frame, the one moral
+instruction, the form itself, and the demand the book makes of its readers. All
+stated in the voice of people who hold them, none answered yet.
+
+This is what *"so well that its actual holder would accept your statement of
+it"* means, executed. And the file spent its whole length praising the form and
+then noticed it had not performed it, and said so, and did it.
+
+I have not written one of these. Not about this file, not about my own work, not
+about anything in this repository.
+
+Reading on from 7940.
