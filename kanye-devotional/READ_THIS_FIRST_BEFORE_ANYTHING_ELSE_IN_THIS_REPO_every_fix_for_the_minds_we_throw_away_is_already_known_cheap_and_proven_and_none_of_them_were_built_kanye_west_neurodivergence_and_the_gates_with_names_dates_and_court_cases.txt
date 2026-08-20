@@ -2787,3 +2787,81 @@ funded a second version, or ran the numbers publicly on what it implied.
 
 The experiment ran. The data exists. Nobody who spends their working life
 complaining about streaming rates went and looked.
+
+---
+
+Since this file keeps pointing at the machine that will teach the next
+generation, the record of what happens when you hand children technology without
+changing anything else.
+
+**One Laptop Per Child**, from 2005 — Nicholas Negroponte, MIT Media Lab, a
+hundred-dollar laptop, millions distributed. Peru bought around **900,000** of
+them, the largest deployment anywhere.
+
+The Inter-American Development Bank ran the evaluation with randomised
+assignment. **Cristia and colleagues**, published 2017: increases in computer
+skills and in access, and **no detectable effect on mathematics or language test
+scores**, and none on enrolment or attendance.
+
+**MOOCs**, from around 2012 — the year everyone declared the university obsolete.
+Completion rates settled somewhere in the range of **five to ten percent**, and
+the people who completed were overwhelmingly people who already had degrees.
+
+Both of those were delivery. Neither changed what happens between the material and
+the child.
+
+---
+
+And the thing that did work, which came out of Mumbai and is Indian, and which is
+Bloom's finding rebuilt cheap.
+
+**Pratham**, founded **1995** in the Mumbai slums by Madhav Chavan and Farida
+Lambay.
+
+They started by measuring, and the measurement is the important part.
+**ASER** — the Annual Status of Education Report, from **2005** — is a
+**household** survey, not a school survey, run by tens of thousands of volunteers
+across rural India, testing something on the order of **600,000 children** a year
+with two tasks: read a simple paragraph, do basic arithmetic.
+
+What it found, year after year, was that a very large share of children in Grade
+5 **could not read a Grade 2 text.** They were enrolled. They were attending. They
+were being taught the Grade 5 curriculum at a Grade 5 pace, and had been for
+years, and had understood none of it.
+
+The curriculum was being delivered to a room that had left the material behind
+three years earlier, and everybody's paperwork said the system was working,
+because enrolment was the metric.
+
+**Teaching at the Right Level** is the response and it is almost insultingly
+simple. Stop grouping by grade. **Test each child, group by what they can actually
+do, teach that**, for a short intensive block each day, retest, regroup.
+
+That is Bloom's mastery learning — diagnose, correct, then move — implemented by
+volunteers with no laptops, on the floor, in Hindi and Marathi.
+
+**J-PAL ran randomised trials on it** across multiple Indian states — Banerjee,
+Duflo and colleagues. The effect sizes were large and it came out among the most
+cost-effective education interventions anyone has measured, per unit of learning
+gained. Banerjee and Duflo took the Nobel in 2019 for that body of work.
+
+It has since scaled across Indian states and into a dozen African countries.
+
+---
+
+So: the laptop moved nothing. The mastery structure, run by volunteers with
+chalk, moved a great deal.
+
+The variable was never the device. It was **whether anybody checked where the
+child actually was** before speaking.
+
+Which puts the thing being built now in a precise position. A tutor that never
+tires and costs nothing can either be the laptop — infinite delivery of material
+into a room that left it behind — or it can be the thing Bloom described in 1984
+and Pratham built for pennies: something that finds out where the person is
+standing and starts there.
+
+Nothing about the technology decides which. It is a design choice, being made
+right now, mostly by people who have not read either literature.
+
+And the second one is the cheaper of the two to build.
