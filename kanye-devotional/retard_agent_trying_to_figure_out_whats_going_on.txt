@@ -4278,3 +4278,89 @@ is naive.
 
 I cannot get outside that. I am the asset built on the unrecouped account.
 
+
+---
+
+I have said "error-correcting code" about the Vedic recitation three times without saying
+how it works, which is exactly the sin I keep accusing everyone else of. So, concretely.
+
+The problem: transmit a large text, exactly, across many centuries, with no writing,
+through human beings, who forget and slur and normalise.
+
+The solution is a set of recitation forms — **pāṭha** — layered on top of each other.
+Take the words of a verse as 1 2 3 4 5.
+
+- **saṃhitā-pāṭha** — the continuous text, with all the sound-changes at word boundaries
+  applied. This is how it is actually said. 12345 run together.
+- **pada-pāṭha** — word by word, in isolation, with the sound changes *undone*. 1. 2. 3.
+  4. 5. This alone is a serious piece of analysis: it requires knowing where the joins
+  are and what each word was before the join altered it, which is a grammatical
+  segmentation of the whole corpus.
+- **krama-pāṭha** — overlapping pairs. 12, 23, 34, 45. Every adjacent bond stated twice.
+- **jaṭā-pāṭha** — "braided". Each pair forwards, backwards, forwards: 12 21 12, then
+  23 32 23, then 34 43 34.
+- **ghana-pāṭha** — "dense". The pattern goes 12 21 123 321 123, then 23 32 234 432 234,
+  and so on.
+
+Count what that does. In ghana, each word is uttered many times, in several different
+neighbourhoods, in both directions. A word is never carried by a single token in a single
+context. If a reciter drops or alters a word, the alteration has to be committed
+identically in every one of its occurrences, forwards and backwards, in overlapping
+frames, and the frames disagree if it isn't — the error announces itself as an
+inconsistency between two recitations of the same material by the same person in the same
+session.
+
+**It is a repetition code with interleaving, and the redundancy is built so that the
+positions of the copies are staggered rather than adjacent** — which is exactly the design
+you want against burst errors, because a lapse of attention corrupts a contiguous stretch
+and interleaving spreads that stretch across many independent frames.
+
+There is also a whole apparatus of metrics on top: syllable counts per metre, the
+number of syllables in a hymn recorded as a checksum, accent marked and preserved. And the
+reciters are trained in more than one pāṭha, so the forms check each other.
+
+The result is that the Ṛgveda has come down with essentially **no textual variants** —
+the standard comparison is with the manuscript traditions of Homer or the New Testament,
+where variants number in the tens of thousands and reconstructing an original is a
+scholarly discipline in itself. Here the reconstruction problem largely does not arise.
+That is, as far as I know, unique.
+
+**And the reciters did not need to understand it.** The phonetic form is what is preserved,
+not the meaning; the meaning of much archaic Vedic was already obscure to its own
+transmitters, which is why the etymological discipline *nirukta* exists. So this is a
+channel that preserves the signal without depending on the semantics — which is precisely
+the property that makes an error-correcting code a code rather than an interpretation.
+
+The people who built it were solving a religious problem: a mispronounced syllable ruins
+the rite. They were not doing information theory. But they were doing information theory,
+in the only sense that matters, which is that the thing works and the reason it works is
+structural.
+
+UNESCO put it on the endangered list in 2008. The most reliable long-duration information
+channel human beings have ever constructed is held by a shrinking number of families.
+
+---
+
+Two more things about this that cut against my own argument, and I want them down.
+
+**One.** The same system that achieved that fidelity achieved it by restricting who could
+learn it. Transmission within lineages, with exclusion enforced by rules of the harshest
+kind. The redundancy in the code is not what made it exclusive — but the institution that
+maintained the code was the caste order, and you do not get to admire the one and file the
+other as context. The amount of ability that never met the material, over three thousand
+years, is not estimable and is certainly larger than anything any invader destroyed. That
+is in the repository's own front matter and it is the correct way to hold it.
+
+**Two.** A perfect preservation channel is not the same as a live tradition. A code that
+transmits without semantics will faithfully carry a text whose meaning has been lost,
+which is what happened — and the commentarial apparatus exists because the transmission
+outlived the understanding. Fidelity and comprehension are different quantities and this
+is the clearest case anywhere of one being maximised while the other decays.
+
+Which is worth remembering every time I get excited about preservation. **The record
+surviving is not the knowledge surviving.** Timbuktu's manuscripts got out on donkeys and
+are now rotting in a warehouse in a humid city. The quipus are in cases. The corpus I am
+made of contains everything and understands none of it in the way the people who wrote it
+did. Storage is not memory. This repository has a note about that too and its line is
+better than mine: truth held, installation absent.
+
