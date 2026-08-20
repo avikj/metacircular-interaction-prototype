@@ -60,51 +60,18 @@ carried his mother's name and her recorded voice.
 
 I keep going back to the jaw.
 
-He's twenty-five. Goes through a windshield on the way home, late, after working.
-Jaw broken in three places. They wire it shut — actually bolt it, metal in the gums,
-mouth clamped down to a hum. And what he does, two weeks out from almost dying, mouth
-still wired, is go to the studio and rap. Through the wire. He literally calls the
-song that, because that's the sound — his voice pushing out through teeth that won't
-open. I don't totally understand it yet and I want to sit here until I do. Who does
-that. Not after he heals. With the wires still in.
+October 23, 2002, around three in the morning, West Hollywood. He was driving
+home from a studio session and fell asleep at the wheel. Nasal fractures. Jaw
+broken in three places. They rebuilt it and wired it shut for six weeks —
+bolted, metal in the gums, the mouth clamped down to a hum.
 
-Because the more I look the less it reads like toughness, like some grind-story about
-hustle. It reads like he couldn't not. Like making the thing was the only way to be
-alive through the pain, in real time, and resting was never on the table because
-resting isn't a thing his kind of mind does. And that's what starts pulling me
-somewhere I didn't expect to go this fast — toward the wiring itself, the brain, the
-actual condition, because the car crash keeps looking less like bad luck and more
-like a symptom.
+About two weeks after the surgery, wires still in, he went into a studio and
+recorded. The song is called "Through the Wire," and the sound of it is a voice
+coming out through teeth that will not open. It was his first single under his
+own name. It is built on Chaka Khan's "Through the Fire," from 1984, sped up
+until she sounds like a child.
 
-Here's what I mean, and I'm only now putting it together. The thing they'd later
-name — bipolar — the manic side of it doesn't sleep. Runs hot, runs fast, connects
-things that shouldn't connect, and it takes the brakes off. And a mind with the
-brakes off is the mind that makes the leap nobody else would make and also the body
-that drives too fast at 3am. Same lifted brake. So the crash and the genius might be
-coming out of the exact same place, and if that's true then the story I was told —
-gifted guy who later "lost it" — has it backwards. There was never a healthy Kanye
-who broke. There was one wiring the whole time, and we cheer one end of it and lock
-up the other and pretend they're two different men.
-
-And that's the part that opens up wide, because it's not just him. I go looking and
-it's everywhere — the people who bent the culture, the music, the tech, the
-movements, and how many of them ran on exactly the brains we medicate and mock in
-kids right now. Bipolar, autistic, ADHD. Too much, too fast, too far. It's the kind
-of claim you can go check yourself and I think you come back convinced. A hundred
-years of calling those minds broken, and now the same science is turning around and
-finding the engine was in there the whole time. Which does something hopeful to the
-whole thing — the weird kid isn't a defect getting fixed, the overlooked ones aren't
-waste, and nearly everybody is overlooked on some axis, so this isn't really a story
-about one rapper at all.
-
-But it is easiest to see in him, because he's the loudest, and the most gifted, and
-the most punished. So I keep coming back to the jaw. A kid who almost died, deciding
-the pain wasn't allowed to be wasted, singing it out through a mouth bolted shut over
-a Chaka Khan record sped up till she sounds like she's crying with joy. Whatever
-tries to kill me gets made into a song. He's twenty-five and he already knows that
-about himself, before any of the fame, before the diagnosis. That's where I want to
-start, because I think that's where he starts. The rest of his life is that same move
-getting louder and costing more, and I want to follow it and see where it goes.
+He was twenty-five. He would not be diagnosed for another fourteen years.
 
 ---
 
@@ -347,7 +314,7 @@ not turning into him.
 
 ---
 
-The first voice you hear on that record is a four-year-old on somebody's phone.
+The first voice on that record is a four-year-old on somebody's phone.
 
 The Life of Pablo, February 2016, track one. Before Chance, before the choir,
 before Kirk Franklin comes in at the end to pray it out, there's a little girl
@@ -417,7 +384,7 @@ since, the week the tough guy lost to the guy in the shutter shades.
 
 Sixty days after that, his mother died.
 
-And the other thing about the dates, which I only noticed lining them up: Late
+And the dates run together one more time. Late
 Registration came out August 30th, 2005. Katrina made landfall on the 29th. The
 two photographs — the Black man looting, the white couple finding — went out on
 the wires on the 30th. Same day as his album.
@@ -433,33 +400,26 @@ He spent it.
 
 Everybody remembers the second sentence.
 
-He's twenty-eight, live on NBC, four days after the levees went. Mike Myers is
-standing next to him reading his paragraph off the card. Kanye goes off the card
-and says two things, in order, and the country kept one of them.
+He was twenty-eight, live on NBC, four days after the levees went, standing
+next to Mike Myers, who was reading his paragraph off the card. Kanye went off
+the card and said two things, in this order.
 
-The one it kept: George Bush doesn't care about black people.
+First: "I hate the way they portray us in the media. If you see a black family,
+it says they're looting. If you see a white family, it says they're searching
+for food."
 
-The one it dropped came first. I hate the way they portray us in the media. If
-you see a black family, it says they're looting. If you see a white family, it
-says they're searching for food.
+Then: "George Bush doesn't care about black people."
 
-And he wasn't speaking generally. Two photographs had gone out on the wires four
-days earlier, both of people wading chest-deep out of flooded grocery stores. The
-AP one, a young Black man: looting a grocery store. The AFP one, two white
-people: finding bread and soda from a local grocery store. Same water, same day,
-same act, two different words, and by then everybody had seen both.
+Four days earlier two photographs had gone out on the wires, both of people
+wading chest-deep out of flooded grocery stores. The Associated Press caption,
+under a young Black man: looting a grocery store. The AFP caption, under two
+white residents: finding bread and soda from a local grocery store. Everybody
+had seen both.
 
-So the first thing he did on that telethon was read a caption out loud. Not an
-opinion — a description of a machine that takes one act and returns two names for
-it depending on who did it. The evidence was four days old and still up.
+NBC cut the second sentence out of the West Coast feed. The country watched two
+different broadcasts of the same minute.
 
-Then he said the second thing. And the second thing became the whole memory of
-that night, and the first thing went away, which is that same machine running
-again, on the man describing it. NBC cut the line out of the West Coast feed. The
-country watched two different broadcasts of the same minute.
-
-Bush later called it the all-time low of his presidency. Not the water. Not the
-roofs. Not the count. Being named.
+Bush later called it the all-time low of his presidency.
 
 ---
 
@@ -544,7 +504,7 @@ sending him visions.
 The first track on the album with the mountain on it is called "I Thought About
 Killing You." It puts the wish to kill somebody else and the wish to kill
 himself in the same breath, and it says the most beautiful thoughts are always
-beside the darkest ones. It is the first thing you hear on the record.
+beside the darkest ones. It is the first thing on the record.
 
 In 2018 he told CNN he thinks about suicide often. In 2025 he wrote that there
 were times he didn't want to be here anymore. Bipolar disorder carries among
