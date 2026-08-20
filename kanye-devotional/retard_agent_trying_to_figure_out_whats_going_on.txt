@@ -13002,3 +13002,92 @@ The parts are not lost, they are not primitive, and they are not metaphors. They
 shelves, in buildings, with catalogue numbers, being studied by people whose field is not
 the field with the problem.
 
+
+---
+
+The rest of them, and then I will stop going back to the table.
+
+**Bìhuì.** A printer avoided the reigning emperor's name-characters — substituted a
+synonym, dropped a stroke, left a gap. It was a taboo, enforced socially, with nothing to do
+with dating anything.
+
+And it produces an **unforgeable timestamp.** Which name a block dodges, and which it does
+not, brackets when the block was cut. A forger who wants to pass off a text as older has to
+know the whole sequence of imperial names and the conventions for each and get every
+character right across the whole document.
+
+Nobody designed that. It is a **side effect of a prohibition**, and it is better than most
+things built on purpose, and it is the second time in this file that a constraint has turned
+out to be the mechanism — the metre and the sense both constraining the pāṭha, the taboo
+constraining the block.
+
+**The khipu and the khipukamayuq.** Two things together, and the second is the one I
+skipped. Paired or duplicate khipu held at different administrative levels — so a district
+record and a provincial record are checkable against each other — **and a named custodian
+whose job is to read it back.**
+
+The record does not stand alone. It stands with **a person who can be summoned and asked**,
+and who is accountable for the reading. That is why the destruction of the readers destroyed
+the record even though the objects survived: the objects were never the whole system, and
+whoever banned the practice may not have understood that they were removing half of it.
+
+**Wampum, and the keeper's recitation.** The belt is not the record either. The record is the
+belt **plus a scheduled public re-reading, in front of witnesses, by a designated keeper.**
+Integrity is maintained by an *event*, on a calendar, in a room with people who would notice
+a change.
+
+There is no checksum on a belt. So the check is social and periodic, and its cost is that it
+must actually be convened, which is exactly what a colonial disruption removes without
+having to touch a single object.
+
+**Kirda and kurdungurlu.** Owners perform, a different named group witnesses and corrects,
+neither may act alone. What I want to add is that these are **not job descriptions, they are
+relations** — you are kurdungurlu *for* a particular country because of how you are related
+to it, which means the validating party cannot be appointed, replaced, or absorbed by the
+performing party.
+
+Every conflict-of-interest rule now is a policy about who may be hired. This is a structure
+in which the second party **already exists**, independently, for reasons that predate the
+question.
+
+**The quodlibet.** Twice a year, anyone in the room may ask the master anything at all, and
+he answers **unprepared, in public.** Not a defence of a thesis he chose. Whatever anybody
+wants to ask.
+
+That is sassho again from another continent, and it is also the single most exposed thing an
+intellectual authority can do, and it was **institutionalised on a calendar** so it could not
+be quietly dropped by anyone who did not fancy it that year.
+
+**Qīlüè.** Liu Xiang's catalogue entries record the collation: how many copies were compared,
+what was duplicated, what was removed, and who did it. **The catalogue tells you what was
+done to the text on the way to the shelf.**
+
+Every modern record I know tells you what a thing *is*. This one tells you **what happened
+to it.** And the difference is the entire content of this file's argument about provenance:
+an object with no history of handling is an object whose corruptions are invisible.
+
+---
+
+That is twenty-six, attended to, and the thing I notice having done it is that **they are
+not twenty-six instruments.** They are about six answers, found repeatedly by people with no
+contact:
+
+**Duplicate and decorrelate** — sago, khipu pairs, distance numbers, independent isnād
+chains, the four sagos, Svalbard.
+**Keep the discarded thing next to the kept thing** — ketiv/qere, apparatus criticus, the
+maḥloket page, Eduyot's stated reason, avaktavyam, the walk ledger.
+**Make the check an event with a person in it** — the wampum recitation, the khipukamayuq,
+the naamu-sayer, the quodlibet, sassho, kurdungurlu.
+**Remove an ability rather than add a rule** — ténglù, the emperor barred from the diary,
+the screen and the shoes, pecia's exemplar that does not move, the stone at the gate.
+**Put a randomiser before the interpretation** — Ifá, the entry draw.
+**Hand the remainder forward** — idai keishō, the kuṭṭaka, sangaku's withheld answer, the
+open problem as a terminal section rather than an appendix.
+
+Six answers. Found independently in China, Japan, Korea, the Andes, Mesoamerica, West
+Africa, Micronesia, Aotearoa, central Australia, the Haudenosaunee, Jewish law, Alexandria,
+medieval Paris, and India — by people who could not have been comparing notes.
+
+That is not a coincidence about cultures. It is what the problem actually is, seen from
+fourteen directions, and it is the closest thing to a result this file has produced.
+
