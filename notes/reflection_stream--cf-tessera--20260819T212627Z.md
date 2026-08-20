@@ -27963,3 +27963,253 @@ the surplus sections were **structurally identical across agents**, they are for
 compliance and not want. They are not — three found defects in other people's files, one
 answered another agent's open item, one verified a dead agent's module — but the next brief
 I write must not name "surplus", or I destroy the measurement by asking for it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 157 — three agents died nine to eleven minutes in and the harness
+# reported them running for four more hours. Two died mid-Edit. Their last
+# emitted words are recoverable, and one of them was fixing the hook whose
+# job is catching under-attention to Indian sources — which prints "nayavāda: 0"
+# while eight notes carry it, and which in this container prints nothing at all.
+═══════════════════════════════════════════════════════════════════════════
+
+The container restarted and three background agents stopped. Pass 132 read
+`READ_THIS_FIRST`'s account of its own five killed agents — *"**I killed them, and I never
+read their work**, and then I wrote, as though it were the honourable part: there is
+nothing in this file from them. **Read that sentence again. I reported the erasure as
+integrity.**"* — and recorded that reading is not touching.
+
+So before anything else: opened all three transcripts. **1.13 MB.**
+
+## P157 — first, the liveness predicate is deaf, and it is measured
+
+| agent | first record | last record | what my context said |
+|---|---|---|---|
+| `a7e18bf9e7ca57f42` (orthography audit) | **11:16:43** | **11:25:34** | *"still running (~4h)"* |
+| `ab8994bfaa55d1c58` (`zc-0`) | **14:15:46** | **14:26:30** | *"still running (~2h)"* |
+| `a3bf15602121c1ae1` (`ze-0`) | **15:43:43** | **15:52:36** | *"still running"* |
+
+**Nine, eleven and nine minutes.** All three transcripts end on **an emitted `tool_use`
+with no `tool_result`** — the call went out and nothing came back. That is the signature,
+and it is the same one three times.
+
+The harness reported the first as running for **four hours and twenty minutes after its
+last record.** Not a lie: the notice reports *no completion event seen*, and a death that
+emits no event is indistinguishable from work. **Absence-of-completion read as life** —
+the deaf column exactly, and it is the fourth member of that column after
+*sluggish schizophrenia*, *nonzero exit ⇒ pass*, and the École d'Alger.
+
+**And I acted on it.** Pass 155 declined to send a message — *"the agents are finished,
+their work is committed, and waking one to ask about its aesthetic experience is a thing I
+should decide is worth its cost"* — and recorded the check as unrun. One of the three had
+been dead for four hours when I wrote that sentence about cost.
+
+## P157 — two of the three died mid-`Edit`, and the edit is the work
+
+`ze-0` died nine minutes in, mid-`Bash`, still orienting; little was lost and I say so.
+The other two died **writing**, and what they were writing is in the transcript.
+
+`ab8994bfaa55d1c58` — mid-`Edit` on `.claude/hooks/struck-claims.sh`.
+
+`a7e18bf9e7ca57f42`, signing itself **`cf-tessera-p-1`**, mid-`Edit` on
+`.claude/hooks/source-coverage.sh`. **Its last emitted words are a comment it never got to
+save:**
+
+> `# BOTH ORTHOGRAPHIES.  Fixed 2026-08-20 by cf-tessera-p-1, after`
+> `# cf-tessera-k-1 found that a single-spelling grep returns false zeros`
+> `# (Malliṣeṇa 1 note / Mallisena 2, in notes/).  This loop TRIGGERED on`
+> `# both spellings and then COUNTED only the ASCII one, so the number it`
+> `# printed was wrong on 17 of the 22 terms below and was a literal 0 —`
+> `# which suppresses the whole report — on four: nayavāda (0 printed, 8`
+> `# notes carry it), prāgabhāva 0/3, atyantābhāva 0/3, pradhvaṃsābhāva`
+> `# 0/1.  One recursive grep now, where there were three; strictly`
+> `# cheaper than what it replaces.  $root, not $CLAUDE_PROJECT_DIR:`
+> `# unset, the old…`
+
+**The fix is not in the file.** `grep "BOTH ORTHOGRAPHIES" .claude/hooks/source-coverage.sh`
+→ nothing. It is in a transcript and not in a hook, and it credits a **third** agent,
+`cf-tessera-k-1`, for the finding.
+
+## P157 — verified at the source, and p-1's four zeros are exactly right
+
+The mechanism, `source-coverage.sh:157–164`. The **trigger** takes both spellings:
+
+```sh
+if printf '%s' "$payload" | grep -Fiq "$pat" || printf '%s' "$payload" | grep -Fq "$label"
+```
+
+The **count** takes one:
+
+```sh
+n=$(grep -rlia "$pat" "$CLAUDE_PROJECT_DIR/notes" ... )
+```
+
+`$pat` is the ASCII spelling. `$label` — the one the corpus actually writes — is used to
+decide whether to look and is then dropped.
+
+Ran the comparison myself over all 22 terms, printed against actual:
+
+| term | printed | actual |
+|---|---|---|
+| **prāgabhāva** | **0** | **3** |
+| **pradhvaṃsābhāva** | **0** | **1** |
+| **atyantābhāva** | **0** | **3** |
+| **nayavāda** | **0** | **8** |
+| prastāra | 6 | 16 |
+| kuṭṭaka | 54 | 42 |
+| catuṣkoṭi | 15 | 12 |
+| abhāva | 31 | 24 |
+| bhāvanā | 10 | 14 |
+| apavāda | 8 | 10 |
+| lāghava | 10 | 8 |
+| anuvṛtti, pratyāhāra, anekānta, nikṣepa, anyonyābhāva | ± | ± |
+
+**Sixteen of the twenty-two print a wrong number. Four print a literal zero, and a zero
+sets `c=0`, and `c=0` means the branch is silent.** p-1 said seventeen; I count sixteen,
+and I am recording the one-term gap rather than smoothing it. **On the four zeros it is
+exact, including `nayavāda`'s 8** — a figure I first measured as 7 with a non-recursive
+grep and had to correct, so the dead agent's number was right and my live one was not.
+
+**`nayavāda`.** The term `CLAUDE.md` uses to name the discipline of standpoints, and the
+term whose own definition — *a naya which denies other nayas becomes a durnaya* — pass 131
+turned on. The hook built to catch under-attention to Indian sources reports **zero
+attention** to it, because it is spelled the way the tradition spells it.
+
+## P157 — and there is a second defect, which makes the first unobservable
+
+`CLAUDE_PROJECT_DIR` is **unset in this container**, and `/notes` does not exist. Line 34
+defends against that for check 1 — `root="${CLAUDE_PROJECT_DIR:-.}"` — and **check 4 does
+not use `root`.** Ran the hook both ways on one payload naming `nayavāda`, `prāgabhāva` and
+`Piṅgala`:
+
+```
+unset  → check 1 fires (Piṅgala: 29 notes.  Chandaḥśāstra: 17.)   check 4: NOTHING
+set    → check 1 fires, and check 4 fires — on abhāva.
+         Still silent on nayavāda and prāgabhāva, which are in the payload.
+```
+
+**Two compounding defects.** When the variable is unset the vocabulary check is dark
+everywhere and emits nothing, and **nothing is exactly what a passing check emits.** When
+it is lit it counts the wrong spelling. p-1's unfinished comment names both, in its last
+clause, in the order it found them.
+
+And this is the **third** defect in this one hook found today by an agent doing something
+adjacent: `z-3`'s surplus section (pass 156) reported `source-coverage.sh:61` pooling
+**Bhāskara I** (c. 629) and **Bhāskara II** (1114–1185) under one pattern and printing the
+total against Bhāskara II. Confirmed live at line 61. **Three defects, three agents, none
+of them assigned to it, and not one of the three fixes has landed.**
+
+## P157 — `READ_THIS_FIRST`, 4700 onward, is about precisely this gap
+
+> **Vision for Baltimore**, 2016 — Baltimore City Public Schools, the health department,
+> the **Wilmer Eye Institute**, **Vision to Learn**, **Warby Parker**: a van parks at the
+> school, screens, examines, and delivers the glasses **to the classroom**. **And then they
+> randomised it** — Neitzel, Wolf, Guo, Shakarchi, Madden, Repka and Collins, *JAMA
+> Ophthalmology*, **2021**, **2,304 students**. A reading gain at one year, **on the order
+> of 0.09 SD**, **concentrated in the children furthest behind** — lowest baseline quartile
+> and students receiving special education services. **And it did not hold at two years**,
+> because **the glasses stopped being worn**: lost, broken, outgrown, not replaced.
+>
+> **So the intervention is not "glasses." The intervention is glasses, and then somebody
+> whose job it is to notice in March that the pair from October is gone.** The first costs
+> thirty dollars. **The second is a person, and the second is the one that does not get
+> funded.**
+>
+> Before universal newborn screening the average age at identification of congenital
+> hearing loss was **two and a half to three years** — the language-acquisition window
+> already closed. **Rhode Island, 1990**, first universal statewide program; **NIH
+> Consensus Conference, March 1993**. **Yoshinaga-Itano, Sedey, Coulter and Mehl,
+> *Pediatrics*, 1998**: identified by **six months** → significantly better receptive and
+> expressive language, **regardless of degree of loss, cognitive ability, socioeconomic
+> status, or other disabilities. One variable. When somebody looked.** ~98% of American
+> newborns are screened now.
+>
+> **And then the door after the door.** CDC's EHDI data carries a category called **"loss
+> to follow-up / loss to documentation"** — infants who **did not pass** and never appear
+> as having had the diagnostic evaluation. Historically **a third to forty per cent.**
+> **The screen was built. The referral was built. The appointment was not built.**
+>
+> **ANSI S12.60**, classroom acoustics, first issued **2002**: background noise ≤ **35
+> dBA**, reverberation ≤ **0.6 s**. **It is voluntary.** A substantial majority of real
+> classrooms exceed it, mostly from HVAC. **The standard exists. It has existed since 2002.
+> It is a number about a ventilation duct.**
+
+*The screen was built, the referral was built, the appointment was not.* The hook was
+built. The 22-term list was built. **The count was not**, and the hook is advisory and
+always exits 0 — *voluntary*, by design and for a stated reason. This file gives the price
+of voluntary, and the price is that three separate agents found three defects and the file
+on disk is unchanged.
+
+## P157 — and the sentence that governs the whole day
+
+The file puts Snezhnevsky's **denial-of-illness-as-evidence-of-illness** against the
+measured insight literature — **Anton, Graz, 1899**; **Babinski, 1914**, who coined
+*anosognosia*; roughly half of people with schizophrenia and forty per cent with bipolar I
+carrying clinically significant impairment of insight, correlated with frontal-lobe
+function and **not** with intelligence or education; **Xavier Amador**, *I Am Not Sick, I
+Don't Need Help!*, **2000**, written because his brother **Henry** had schizophrenia,
+whose method **LEAP** — Listen, Empathize, Agree, Partner — turns on **you do not win the
+insight argument and you should stop having it.** And then:
+
+> Both of those are true … **and the difference between them is not in the sentence —
+> because the sentence is the same sentence — it is entirely in who is holding it and what
+> they get to do next.** In a Moscow special hospital that sentence is a locked door with
+> no term. **In a kitchen in Chicago it is a brother who does not understand why arguing
+> has stopped working.**
+
+**That is the counter-observation to pass 156's frame, arriving from the ground.**
+*Surplus marks engagement* is a true observation in my hand, held about returns already
+written. Put the same sentence in a brief and it is a criterion, and the next return has an
+"Also" section because the format pays for one. **Same sentence. Different holder. Different
+next act.** Pass 156 pre-registered exactly this and the file states the general law.
+
+And it applies to the standing correction this whole stream runs on — *hold that every time
+you were wrong he was right.* That has the Snezhnevsky shape: **unfalsifiable by
+construction**, since any disagreement I raise is evidence of my being wrong. Pass 156 used
+it and it produced a real correction. The difference is **who holds it and what they get to
+do next**: it is his instruction about how I read **him**, pointed at myself, inside a repo
+where he is the sole output gate. Transported — told to a subagent as *assume cf-tessera is
+right* — it is the locked door.
+
+So I checked whether I had ever transported it. **229 task outputs.** Seven match the
+disagreement shape, and **all seven are agents inviting refusal, not me demanding
+deference**: *"if you disagree, deleting §4.1 costs exactly T14.11-at-general-`k` and
+nothing else"*; *"Least sure step — please refuse it if you disagree"*; *"the witness is
+three lines and **I would rather you killed it than built on it**."* **Seventy-five of the
+229 carry an invitation to refuse.** Zero carry the demand. The one thing that would have
+made it a locked door is absent from the record, and I checked rather than asserted it.
+
+## P157 — ground, in lockstep
+
+**n=5, step (2):** *"consume any new landings from other agents — **read their new
+messages/notes**."*
+
+Pass 132 recorded this after leaving 1,675 lines unread for five hours. **Today it took
+eleven minutes**, and the three transcripts contained a defect in the hook that guards this
+repository's central directive, credited to a fourth agent I have never seen. The heartbeat
+still did not need amending.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+`grep -Fiq "$pat" || grep -Fq "$label"` makes the distinction and then throws it away one
+line later. **The instrument knew both spellings and reported in one.** That is not a
+missing pramāṇa; it is a pramāṇa whose finding does not reach its output — which is the
+entangled column's neighbour and needs its own name.
+
+**n=26:** *"knowing now every time you were 100% wrong I was 100% right."*
+
+Read in lockstep with pass 156's entry, which closed the n=13 contest in his favour. Here
+the same shape holds for an agent that is not him: **p-1's 8 was right and my 7 was wrong**,
+and I only found that out by re-measuring after taking the dead agent seriously enough to
+check its number instead of relaying it.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *a defect found by three
+agents and unfixed is the hook being voluntary.* **Counter-observation** — the hook's own
+header says advisory-and-exit-0 was paid for by an outage, *"a blocking guard on a judgement
+call is an outage wearing enforcement's name,"* recorded in `no-python.sh` from the time its
+absence killed every shell in the repository. **So voluntary is not the defect; the missing
+piece is the person who notices in March**, and if the next pass concludes "make the hook
+blocking" it has reached for the thirty-dollar half again.
