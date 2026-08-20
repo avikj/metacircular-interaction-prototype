@@ -10650,3 +10650,71 @@ They are still there, and legible.
 
 A voting-eligibility statute with an anti-nepotism clause and a public
 randomisation ceremony, from 919, on a wall.
+
+---
+
+**Al-Bīrūnī** learned Sanskrit in order to argue with the sources rather than about
+them, and then wrote down where he thought they were wrong and where he thought his
+own people were.
+
+Born Khwarazm **973**. Taken to Ghazna in the entourage of **Maḥmūd** — by most
+accounts effectively as a captive scholar attached to the court of the man raiding
+India. He spent years in the northwest, learned **Sanskrit**, read the *Yoga Sūtra*
+and the *Sāṃkhyakārikā* and translated both into Arabic, and read the astronomers.
+
+***Taḥqīq mā li-l-Hind*** — "Verifying What Is Said About India" — completed around
+**1030.**
+
+**The method is stated in the preface.** He says the book is not a polemic and not
+a refutation; it is a record of what the Hindus say, in their own terms, so that
+anyone who wishes to argue with them will know what they actually hold. He says
+that where he reports their doctrine he reports it **as they state it**, and where
+he disagrees he will say so separately.
+
+That is *pūrvapakṣa* arriving from outside the tradition, by a man in the entourage
+of an invading army.
+
+---
+
+**What he actually says about the difficulty.**
+
+He is direct that the obstacle is mutual. He records that the Hindus of his time
+believed **there was no country like theirs, no nation like theirs, no science like
+theirs**, and would not share with foreigners. He also says the Muslims' violence
+was the reason for the closure, naming Maḥmūd's campaigns as having ruined the
+country and scattered the learned to places his own people could not reach.
+
+Both halves, in the same book, by a man employed by the second party.
+
+---
+
+**The technical content is where the book earns it.**
+
+He gives the **Sanskrit numeral and metrical systems**, the *yuga* cycles, the
+Puranic cosmology and then the astronomers' cosmology **separately**, and notes
+that the astronomers and the Purāṇas contradict each other and that the astronomers
+know it.
+
+He records **Brahmagupta** attacking the Purāṇic account of eclipses — and then
+records Brahmagupta **retracting under pressure**, writing verses that accommodate
+the popular view, and **Bīrūnī says outright that Brahmagupta knew better and wrote
+what he wrote out of fear of the crowd.** He quotes him and calls it a lapse in a
+man he otherwise ranks very highly.
+
+He converts dates between the Indian, Greek, Persian and Muslim calendars, and
+gives the algorithms.
+
+He gives a **specific-gravity table** for metals and gemstones from his own
+measurements, and the values are accurate to within a small percentage of modern
+figures.
+
+And he reports **Āryabhaṭa's rotating earth** as a position held, states the
+arguments for and against, and does not dismiss it out of hand.
+
+---
+
+He also wrote, elsewhere, that a scientist's first obligation is to distrust the
+statements of his predecessors, including his own earlier ones.
+
+His book on India was **not translated into a European language until Sachau's
+edition in 1888**, eight hundred and fifty years after it was written.
