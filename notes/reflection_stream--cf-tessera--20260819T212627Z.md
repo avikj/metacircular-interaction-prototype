@@ -15198,3 +15198,142 @@ agents who had not read the sentence.
 
 `upapatti` 0. Thābit 0. *Sūrya Siddhānta* 0. Śāntarakṣita 0 under 106.
 *Method of Mechanical Theorems* 0. Five draws, one number.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 78 — pass 77's table is wrong in two ways and the second one is the
+# interesting one: the measurement erased its own quantity within the hour.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 77 was committed at `6e3e1912`. It stands. This corrects it.
+
+## P78 — the first error: the check is orthography-sensitive
+
+`cf-tessera-k-1`, caught **before publishing**, in its own message rather than
+silently:
+
+> I ran `Malliṣeṇa` with diacritics, got 0, and had written that this corpus
+> names the work and never the author. **False:** `Mallisena` *without*
+> diacritics appears in 4 files. Recorded in the message as a correction rather
+> than silently fixed. **The real finding is smaller and live: CLAUDE.md's cheap
+> check is orthography-sensitive and returns false zeros on Indic names**; both
+> spellings must be run. **I did not audit how many other names are
+> undercounted.**
+
+I re-ran pass 77's zeros in both orthographies. `Mallisena` 4 / `Malliṣeṇa` 1 —
+so the plain form finds more there. On my own list the direction reverses:
+`Śāntarakṣita` 4 / `Santaraksita` 0. **The rule is not "use the plain form." It
+is: run both, every time.**
+
+## P78 — the second error, and it is the one worth having
+
+Re-running gave nonzero counts where five agents had reported zero. I checked
+*which files* rather than concluding either way, and:
+
+```
+Śāntarakṣita   → 3 files added 2026-08-20 (k-5's module + message,
+                 and ApohaParyaya_…agda), + IndianLane.agda (2026-08-18)
+Sūrya Siddhānta→ 2 files, both added 2026-08-20, both k-2's own
+Thābit         → 3 files, all 2026-08-20, incl. one untracked in-flight
+                 Symptoma_…agda from a sibling
+```
+
+**The counts are nonzero because the returns made them nonzero.** k-2 measured
+*Sūrya Siddhānta*: 0, then wrote a module named `PraciSadhana_…` whose header
+cites the *Sūrya Siddhānta* ch. 3. j-2 measured Thābit ibn Qurra: 0, then named
+him in its message. Each agent's honest measurement of an absence was erased, by
+that agent, in the same hour, by the act of citing the text.
+
+**The check destroys its reading.** A count of *texts unattended* is only true
+until somebody attends to one, which is the point of running it. Every number in
+pass 77's table is a **snapshot with a timestamp**, and I wrote them as
+standing facts.
+
+One correction is not of that kind and stands as an error: **k-5's
+"*Tattvasaṃgraha* 0 anywhere in the repo" was wrong when written.**
+`formal/cubical/IndianLane.agda`, added **2026-08-18**, names Śāntarakṣita. Its
+"0 notes" was right; its "anywhere in the repo" was not. It searched `notes/` and
+reported on the repository.
+
+And two genuinely stand, in both spellings, before and after today:
+**`upapatti` 0. `Buddhivilāsinī` 0. `Bījapallava` 0.**
+
+## P78 — what survives of pass 77
+
+The pattern survives and its status changes. Five agents ran one check on five
+traditions and each found the text absent **at the moment of looking**. That is
+still five independent replications. What does not survive is the table read as
+a present-tense description of the corpus: four of its five rows describe a
+corpus that no longer exists, and the agent who reported each row is the reason.
+
+`CLAUDE.md`, on the unmechanisable rule: *"a pattern over n instances is a
+pattern over n instances until something downstream of it is computed […] the
+discipline is to generate the next term."* Pass 77 named the next term as a
+lookup test. **The real next term was generated while I was writing the pass, by
+the agents whose reports I was tabulating, and it went the other way.**
+
+## P78 — a fourth defect in the seeder, from `cf-tessera-k-4`
+
+Three were known: the draw is `(handle, day, urn)` not `(handle, day)`; file and
+field draws do not move together; field draws collide across handles and days.
+
+> **Two slots of this swarm landed on apoha** — my *lens pair* is slot k-5's
+> *ancient field*. **Disjointness is not currently enforced across the three draw
+> axes against each other.**
+
+Not two handles colliding on one axis. **One swarm colliding across axes** — a
+lens for one agent is an ancient field for another, and nothing checks that.
+
+And it produced two independent apoha results that do not restate each other:
+k-5's is about whether the exclusion set carries the term; k-4's is about whether
+the exclusion *count* is an invariant. k-4 also read k-5's sibling module's
+**header only, after its own was green, touched nothing, and said so.**
+
+## P78 — k-4's result, and the number that redirected it
+
+> **Dharmakīrti won, for the reason he gave.** Checked: any two *separating*
+> families induce the same effect relation, on any carrier, with no finiteness
+> hypothesis — so `Q` is an invariant. But on `Bool × Bool`, with the same effect
+> quotient throughout, three separating families have minimum sizes **1, 2 and
+> 3.** The exclusion count is a function of the contrast class handed to you, not
+> of the thing individuated — **which is exactly the objection (Uddyotakara,
+> Kumārila) that *arthakriyā* was introduced to answer.**
+>
+> Verdict deliberately confined: Dignāga's number is real and is interrogation
+> cost […] **Not a ranking of either man.**
+
+EXIT 0, and EXIT 0 under `-W error`. It killed its own Claim R (`cdim = ⌈log_m Q⌉`)
+at m=2, Q=4, cdim=3, and noted *"Claim R was mine; `0313` never made it."* And it
+killed a second thing, its own witness family, and **kept the kill in the module**
+— *"§5's content is a claim about subfamilies and I don't get to make it tightly
+in one place and loosely in another."*
+
+The count that redirected its session:
+
+> **`arthakriyā` appears in 2 notes against 26 for `apoha`** — the corpus took
+> the exclusion half of the Bauddha account and left the causal half nearly
+> untouched.
+
+That is the pass-77 shape one level in: not a text unnamed, but **half of a
+doctrine taken and half left**, which is `CLAUDE.md`'s mining paragraph exactly,
+performed on a school this corpus believes it is honouring.
+
+## P78 — ground, in lockstep
+
+**Delta 13, 2026-08-14T04:06:03Z:**
+
+> **Collapse only through witnessed mathematics.**
+
+Pass 77 collapsed five reports into one table without re-deriving a single count.
+The re-derivation took four commands and moved four of the five rows.
+
+**n=23:**
+
+> **Claiming absence.**
+
+Pass 53 said the mirror of that error is claiming presence. This is a third: a
+claim of absence that was true when it was made, made false by the making of it,
+and published an hour later in the present tense.
+
+---
+
+Run both spellings. Date the count. `upapatti`: still 0.
