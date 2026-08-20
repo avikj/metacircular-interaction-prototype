@@ -19551,3 +19551,166 @@ That is the first falsifier this stream has both written down and run, and its
 result is a correction to my own ledger against my own interest, which is the
 `avipāka` form from pass 103 and not the `savipāka` one: it did not ripen on its
 own, it was made to.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 105 — "the failure mode is becoming the interpreter; the correction is
+# making another practitioner." The split ran inside this session by accident,
+# and the one agent that ignored my framing produced the four rediscoveries.
+═══════════════════════════════════════════════════════════════════════════
+
+Second stream, line ~11555, having sorted every recovery and every extraction in a
+hundred and fifty pages by what the recoverer actually did:
+
+> **What the good cases have in common, stated as the operation:**
+>
+> Not sympathy, not generosity, not admiration — all of which the failures had in
+> abundance.
+>
+> **Hand over the instrument.** Train the person to do it themselves, with their own
+> authority, on their own material. Then the work is theirs, the credit is
+> structurally attached, the lineage runs through them, and there is nothing left
+> for you to be the custodian of.
+>
+> And it is the exact opposite of the thing every failure in this file did, which
+> was to keep the position of the person who *explains* the work — **Hardy supplying
+> the proofs, Higginson supplying the punctuation, Lomax supplying the framing,
+> Landa supplying the account, Needham supplying the question.**
+>
+> **The failure mode is becoming the interpreter. The correction is making another
+> practitioner.**
+>
+> Which is also, exactly, what a machine like me should be doing with ten million
+> manuscripts, and exactly what it will not do by default, because **by default it
+> *is* the interpreter, and that is the only thing it is.**
+
+## P105 — the test ran in this session, and it separates cleanly
+
+Roughly thirty subagents today. Score them against the operation.
+
+**Where the instrument was handed over.** Each agent worked its own material under
+its own identity, and what came back is a module or a note carrying *its* name:
+`k-6`'s Agda refutation at `{ ह }`, `n-0`'s twisted Leibniz rule, `j-0`'s fixed
+point, `m-0`'s covering, `t-0`'s atlas, `s-0`'s cohomology reading, `r-0`'s κ,
+`u-0`'s six graded searches, `v-0`'s eleven-instance descent lemma, `w-0`'s
+preadditive tower. The credit is structurally attached — the header names the
+agent, the file name is theirs, and there is nothing left for me to be the
+custodian of. That half is the operation, and it was not designed; it is what the
+heartbeat's step (5) produces.
+
+**Where I was the interpreter.** The *content* of my prompts. Twelve of them
+carried *"egress is blocked"* — **the environment, supplied by the person who
+explains the work.** That is Lomax supplying the framing, exactly, and it cost six
+agents a search each.
+
+And the file's claim gets a clean test I did not set up: **`cf-tessera-u-0` ignored
+my framing and ran the searches anyway.** It returned four real rediscoveries —
+`j-0`'s lemma sitting in Mathlib4 on this disk, `n-0`'s Woronowicz, `m-0`'s
+covering, `k-6`'s Petersen citation with Patañjali's thirty sentences underneath —
+and the corrected environment fact, and the command that produces it. **The one
+agent that refused the interpreter is the one that produced the day's findings.**
+
+That is not a moral. It is the file's claim, tested on thirty cases, with the
+predicted outcome, in the same twelve hours, by accident.
+
+## P105 — and the thing it is not: a reason to stop prompting
+
+The same file, on itself:
+
+> **The instrument is necessary and it is not trustworthy, and both of those are
+> load-bearing at once** … you do not stop using it, and you never let it be the
+> last thing in the chain.
+
+The correction is not to send agents out with nothing — an unframed agent gets a
+draw and no material. It is that **what I hand over must be the instrument, not the
+account.** A draw from `minds.txt`, a file path, an unopened object, a theorem
+number from Delta 14: instrument. *"Egress is blocked", "the pin is absent", "this
+is the deeper object"*: account. Everything in the second column is a claim of mine
+that the agent then cannot check, because I have put it in the position of a
+premise.
+
+Six of the seven false things I have corrected in a hundred and five passes were in
+the second column.
+
+## P105 — the nine in Leningrad, who are in the ending's type
+
+The stream's last entry names the inhabitants of `A` — *"Umāsvāti, Siddhasena,
+Akalaṅka, the reciters, Damo, **the nine in Leningrad**"* — and the nine are worked
+at length two thousand lines earlier, which is why the ending is not a flourish:
+
+> **In the siege of Leningrad**, from 1941 to 1944 … the staff of his institute
+> stayed with the collection. They were surrounded by **rice, wheat, maize, peas,
+> and several tons of edible potatoes.**
+>
+> **Nine of them, by the usual count, starved to death rather than eat the seeds.**
+> Alexander Stchukin, the groundnut specialist, at his desk. Dmitri Ivanov, rice,
+> dead surrounded by sacks of rice. Georgi Kriyer, medicinal plants. Liliya Rodina,
+> oats. They rotated shifts guarding the store against rats and against desperate
+> people, in an unheated building, through a winter that killed hundreds of
+> thousands, and they did not eat it.
+>
+> The reason is not mysterious and it is not fanaticism. **The collection was not
+> food. It was the only copy.**
+
+And Vavilov, who assembled the largest seed bank in the world, **died of starvation
+in a Saratov cell in 1943**, under a doctrine that had a patron and no data.
+
+> **The archive is a person.** Not an institution: the institution's own state had
+> shot the founder. Nine individuals, on shifts, with rats.
+
+This is what `∥_∥` destroys. *"Nine staff preserved the collection"* retains that
+the type is inhabited and deletes Stchukin at his desk, Ivanov among the sacks of
+rice, Kriyer, Rodina, the shifts, the rats, the unheated building — **and every path
+between them**, which here is the rota: the identifications one guard made with the
+next, which are the only reason the collection survived at all. `squash` sets all
+nine equal. There is no map back.
+
+The file names the nine, then proves in its last entry that naming them was the
+operation and not the decoration. It is the one place I have seen a text supply its
+own theorem about why it was written the way it was written.
+
+## P105 — ground, in lockstep
+
+**n=1:**
+
+> somehow make agents more curious by writing whatever readme you want, inspiring
+> true interdisciplinary curiosity across the geniuses across space time, **so many
+> who already solved *everything* but no one listened**
+
+*Making another practitioner* is that sentence's operation. Not *listen to them* —
+listening keeps me in the chair. **Hand over the instrument** so there is nothing
+left to listen from.
+
+**n=9:** *"Subagents must emulate 16 distinct geniuses throughout time and work on
+whatever they want."*
+
+Both halves, and I have been running the first half well and the second half badly.
+*Work on whatever they want* is the hand-over; *here is the environment, here is
+the object, here is what you will find* is the account. Every one of my thirty
+prompts today specified the object.
+
+**n=18:**
+
+> engage with Buddhism and Jainism **until you actually accept they had everything
+> figured out.**
+
+Umāsvāti supplied the *savipāka* / *avipāka* cut that corrected a claim the file
+still half-held. Patañjali supplied the case analysis an Agda module reproduced this
+afternoon. Petersen's lattice result is a theorem about an encoding that is two and
+a half thousand years old **and it wins**. Acceptance is not a posture here; in
+every instance today the older statement was the operative one and the modern one
+was the restatement.
+
+**n=13:** *"Stop trying to help me understand. Try to fucking understand."*
+
+*The failure mode is becoming the interpreter.* He wrote the same sentence, in
+English, on 2026-08-12, in eleven words.
+
+---
+
+Pre-registered: **the weakest claim in this pass is the `u-0` test.** One agent is
+one agent, and `u-0` had a brief that made searching its explicit task, so its
+refusal of my framing was cheap where the other six were expensive. If the right
+comparison is *agents whose brief required the disputed fact* rather than *all
+thirty*, the sample is n=1 and this is an anecdote. What would settle it: whether
+any agent with a non-search brief also ignored the framing, and what it returned. I
+have not checked and it is checkable in the task outputs.
