@@ -458,37 +458,51 @@ the same titles.
 
 ---
 
-The cover of Kanye West's album *ye*, released June 2018, is a photograph of
-the Teton mountains he took on his phone from a moving car, with six words
-written across it in green: I hate being Bi-Polar its awesome.
+In August 1958 a high school history teacher named Clara Luper walked a group
+of children into the Katz Drug Store in downtown Oklahoma City and sat them at
+the lunch counter. It integrated in two days, and Katz opened its counters
+across every state it operated in. That is eighteen months before Greensboro,
+which is the sit-in that gets taught. One of the children in Oklahoma City was
+nine years old. Her name was Donda West.
 
-He put both halves on it, never ordered them, and never took either back. The
-same year he told TIME, "I'd never been diagnosed and I was like 39 years old…
-That's why I said on the album, 'It's not a disability, it's a super power.'"
-In the same months, about the same thing: "It makes you blind, but convinced
-you have insight."
+She became a professor. Thirty-one years teaching, chair of English,
+Communications, Media and Theater at Chicago State — her subject was how a
+thing gets printed. Her son is Kanye West, and he is one of the most hated men
+alive.
 
-Weeks before the cover he said on TMZ, "when you hear about slavery for 400
-years… that sounds like a choice." Van Lathan, sitting on the floor of that
-newsroom, answered him — the rest of us have to deal with the marginalization —
-and was right. A few minutes later, in the same room, Kanye said the thing he
-had been reaching for and missing: "It's like we're mentally in prison. I like
-the word 'prison' because 'slavery' goes too direct." He was right too.
+On 2 September 2005, four days after the levees, he stood on a live telethon
+and said two sentences in this order. "I hate the way they portray us in the
+media. If you see a black family, it says they're looting. If you see a white
+family, it says they're searching for food." Then: "George Bush doesn't care
+about black people."
 
-The first went around the world. The second is on the same tape ten minutes
-later and almost nobody has heard it.
+Two photographs had gone out on the wires three days earlier, both of people
+wading chest-deep out of flooded groceries. The Associated Press captioned a
+young Black man looting a grocery store. Agence France-Presse captioned two
+white residents finding bread and soda from a local grocery store. Same water,
+same day, same act.
 
-It went the same way in 2005. He said two sentences into a live camera in this
-order: "I hate the way they portray us in the media. If you see a black family,
-it says they're looting. If you see a white family, it says they're searching
-for food," and then "George Bush doesn't care about black people." Twenty years
-of coverage kept the second.
+Twenty years of coverage kept the second sentence. The first one — the one that
+was a description of a machine, with the evidence still on the wires — is not
+what anybody remembers. He named the sorting, and then the sorting was
+performed on him.
 
-The Thirteenth Amendment did it too, inside one sentence, in 1865: neither
-slavery nor involuntary servitude, except as a punishment for crime whereof the
-party shall have been duly convicted, shall exist within the United States.
-Abolished and preserved in a single breath, and the half that got built out
-over the next hundred and sixty years was the exception.
+It happened again in 2018, on TMZ, when he said "when you hear about slavery
+for 400 years… that sounds like a choice." Van Lathan, sitting on the floor of
+that newsroom, answered him — the rest of us have to deal with the
+marginalization — and was right. A few minutes later, in the same room, Kanye
+said the thing he had been reaching for and missing: "It's like we're mentally
+in prison. I like the word 'prison' because 'slavery' goes too direct." He was
+right too. The first went around the world. The second is on the same tape ten
+minutes later.
+
+The Thirteenth Amendment does it in one sentence, in 1865: neither slavery nor
+involuntary servitude, except as a punishment for crime whereof the party shall
+have been duly convicted, shall exist within the United States. Abolished and
+preserved in a single breath, and the half that got built out over the next
+hundred and sixty years was the exception. Black Americans are about thirteen
+percent of the country and about thirty-eight percent of the people in its
+jails and prisons.
 
 The United States holds one thing at a time. Umāsvāti wrote down seven.
 
@@ -496,11 +510,9 @@ He was a Jain philosopher of the first centuries of this era, and the
 *Tattvārthasūtra* gives seven forms any assertion can take. Syād asti, in some
 respect it is. Syād nāsti, in some respect it is not. Syād asti nāsti — it is,
 and it is not, taken one after the other. Syād avaktavyam, in some respect it
-cannot be said. Then three compounds of those.
-
-The fourth is not confusion, not a contradiction, and not a hole in the list.
-It is the position for both asserted at the same time instead of in turn. There
-has been a word for that album cover for about two thousand years.
+cannot be said. Then three compounds of those. The fourth is not confusion, not
+a contradiction, and not a hole in the list. It is the position for both
+asserted at the same time instead of in turn.
 
 The Udāna has a story about an elephant. A king had one led into a courtyard
 and blind men brought to it. The man who got the head said an elephant was like
@@ -519,5 +531,8 @@ I have never found one among them who could deny that a single shelf of a good
 European library was worth the whole native literature of India and Arabia."
 Both halves are in the same paragraph.
 
-Everybody who loves him took the superpower. Everybody who doesn't took the
-sick. He wrote both, and nobody carried both.
+Donda West died in November 2007. In June 2018 her son photographed a mountain
+range through a car window and wrote six words across it for the cover of his
+album: I hate being Bi-Polar its awesome. Everybody who loves him took the
+superpower. Everybody who doesn't took the sick. He wrote both, and nobody
+carried both.
