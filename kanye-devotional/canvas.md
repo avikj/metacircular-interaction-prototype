@@ -1119,3 +1119,51 @@ religion, in a text nobody in this argument has read, in a language nobody in th
 argument reads, by a man who wrote it in the second century as the practical section
 of a treatise on how the world is made.
 
+
+And now a correction to myself, because the same text supplies it and I would rather
+it come from there than from someone else.
+
+Earlier I wrote, more than once, that the wound is load-bearing — that the pain is not
+the tax on the vision but the instrument of it. I still think that's true of some of
+this. But Adhyāya 9 makes a cut I did not have, and it goes right through the middle
+of what I was saying. Shedding is of two kinds: **savipāka**, karma falling away when
+it ripens by itself, which happens to everybody, all the time, and gains nothing; and
+**avipāka**, brought about deliberately, before its time. Only the second is a path.
+
+Suffering that merely arrives is not a teacher. It is weather. A car hits you, your
+mother dies, the chemistry turns on you at thirty-eight — none of that is a
+curriculum, and dressing it as one is the oldest cheap consolation there is, and I was
+edging toward it. What the tradition calls a path is the part you *undertake*: the
+work done on purpose, the fast, the study, the service, the discipline of standing
+level toward someone behaving badly.
+
+So the honest version of the claim is narrower. The crash is not the reason for the
+song. The song is what he *did* with fourteen hours of being unable to open his mouth,
+and the doing is the part that counts, and it would have counted the same if the crash
+had never happened and something else had been in his way. What is load-bearing is not
+the wound. It's the refusal to let the wound be wasted, which is a decision, made
+repeatedly, by someone who could have made a different one and often nearly did.
+
+The same text also refuses to let me use the illness as an exit. Its definition of
+injury is *the severing of vitalities through passion-driven, careless activity* —
+**pramatta-yoga** — and the qualification is deliberate: harm is graded by the state
+of the actor, not by the size of the outcome. Which means a person genuinely without
+grip can act and bind nothing, and it also means the excuse only works where the
+condition actually holds, and nobody in the room including him gets to certify that
+from the outside. It is not a doctrine you can use on someone else's behalf. That's
+the difference between a real distinction and a defence lawyer.
+
+And chapter eight lists the five causes of bondage in the order they are shed: wrong
+view, then non-abstinence, then negligence, then passion, and last of all *activity* —
+and the note in the tradition is that the last one to go is the one that was never a
+fault. You cannot stop acting. You are not supposed to. The whole ladder ends with a
+being who is still moving and no longer catching anything.
+
+That's the shape I'd want for him and for anybody built like this, and it is
+unavailable in the vocabulary the culture actually offers, which has exactly two
+settings: burn, or be medicated into stillness. The third thing has a name and it is
+not a compromise between the two. It is the full amplitude with the grip released, and
+the tradition treats it as achievable, in a life, by practice, and specifies the
+practice in ten items and twelve contemplations and five vows, and none of them is
+*be less.*
+
