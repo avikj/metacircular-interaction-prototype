@@ -15015,3 +15015,186 @@ existed, in the same words.
 
 82. 54 unarchived. 9 that differ. 6 withdrawn, 1 of which I read. 107 heartbeats
 in six hours. 80 nLab files, 18 before he asked.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 77 — five agents, five traditions, five disjoint draws, one number:
+# the corpus has the terms and not the texts. That is replication, not the
+# rhythm pass 58 caught.
+═══════════════════════════════════════════════════════════════════════════
+
+## P77 — the five measurements
+
+`CLAUDE.md`, "A cheap check that caught real things": *grep for the text's name,
+not the author's; an author's name propagates through citation, a work's name
+appears only when someone has attended to the work.*
+
+Run today, five times, by five agents, on five traditions, none coordinating:
+
+| agent | tradition | vocabulary present | text absent |
+|---|---|---|---|
+| **cf-tessera** (P64) | Indian mathematical proof | `pramāṇa` **85** | **`upapatti` 0**, *Buddhivilāsinī* 0, *Bījapallava* 0 |
+| **j-2** | Apollonian conics | `Apollonius` 8 | **Thābit ibn Qurra 0, Banū Mūsā 0** — and Books V–VII survive *only* in their Arabic |
+| **k-2** | Indian astronomy | gnomon 4, astrolabe 4 | ***Sūrya Siddhānta* 0, *Pañcasiddhāntikā* 0, śaṅku 0, chāyā 0, prācī 0, Jantar Mantar 0** |
+| **k-5** | Buddhist *apoha* | `apoha` **106 files**, `pratiyogin` 37 | **Śāntarakṣita 0, *Tattvasaṃgraha* 0, Uddyotakara 0, *Nyāyamañjarī* 0**, *Nyāyavārttika* 1 |
+| **k-3** | Greek exhaustion | `Archimedes` 6 | ***Method of Mechanical Theorems* 0, Palimpsest 0**; `Eudoxus` 1 |
+
+k-5 states it better than `CLAUDE.md` does:
+
+> **The vocabulary is here; the people who wrote it are not.**
+
+**This is not the pattern pass 58 caught and the difference matters.** That was
+one interpretive move of mine repeating four times and pre-deciding the fifth
+case. This is one *measurement*, specified in advance by a rule I did not write,
+executed independently five times on disjoint material, returning the same
+answer. A rhythm carries a verdict forward; a replication carries none.
+
+And it has a cheap downstream test, which is what `CLAUDE.md` demands of a
+pattern over n instances: if the gap is attention and not availability, then
+adding the text's name to a note that already uses its vocabulary costs one
+lookup per note and no new mathematics. If it is availability — no edition on
+disk, egress blocked — then it costs a text. **Nobody has established which**, and
+k-5 named exactly that limit for its own five sources: *"Chapter and verse for all
+five Sanskrit sources are unverified against any edition; this container has no
+route to a text."*
+
+## P77 — `cf-tessera-k-2`: the winning lens is invisible on the material
+
+Landed `NaturalMachine/PraciSadhana_OneShadowUnderdeterminesAndTheOrbitQuotientCoincidesWithThePresentExactlyOnACongruence.agda`,
+`--cubical --guardedness --safe`, EXIT 0. Named for the *Sūrya Siddhānta*'s
+**prācī-sādhana** (ch. 3, Triprashnādhikāra): **two shadow-tip marks on one circle
+give the east line, one does not.**
+
+> **Germain wins, checked.** `Dial = Bool × Bool`, `turn` swaps, `shadow` reads
+> the first bit: two present blocks, four orbit blocks, and the orbit relation
+> *is* equality. **Looking without imposing returns 2 where the truth is 4.**
+>
+> The unexpected half: `praci-criterion` (both directions) says Weil is complete
+> **exactly** when the present fibre is a congruence for the step — and §4 shows
+> **both** of `PhysicalLearningCore`'s ports fall on that side. **The lens that
+> wins the general question is invisible on the drawn corpus.**
+
+Refuted its own: *non-invariance of the reading implies the orbit refines it.*
+False, and *"the counterexample was in my own draw."* **Invariance is sufficient;
+congruence is necessary and sufficient.**
+
+Its header names Nyāya-Vaiśeṣika before using *abhāva*/*pratiyogin*/*avacchedaka*,
+names the Jaina *naya*/*durnaya* objection and the Naiyāyika answer, **and takes
+neither side — the result is a biconditional, so it needn't.** That is the
+rival-schools rule executed, and the reason it can decline to choose is
+mathematical rather than diplomatic.
+
+## P77 — `cf-tessera-k-5`: the apoha dispute, inverted, on a module already here
+
+Landed `NaturalMachine/Anyapoha_TheExclusionSetCarriesTheTermOnlyWhenADecisionIsSupplied.agda`,
+`--cubical --safe`, EXIT 0 first try and after deleting build artifacts.
+
+> **Robinson wins, and it is checked rather than asserted.**
+> `Taboo.decidingR-is-decidingP` […] the counterexample sits on a **two-element
+> carrier**, is reflexive/symmetric/transitive, and **deciding the relation on it
+> *is* deciding the arbitrary proposition it was built from. Finiteness of the
+> carrier does not rescue enumeration.**
+>
+> The three-way split is the result: **soundness** needs symmetry *and*
+> transitivity; the **¬¬ form** needs **reflexivity alone** — *a thing does not
+> exclude itself* is the entire positive premise; **completeness** needs
+> reflexivity plus a decision, and nothing else.
+
+Two self-refutations. The second inverts the received reading on a module already
+in the corpus:
+
+> `transitivityFailsOnSoundings` kills it at (1,0), (0,0), (0,1) — **a
+> zero-length string sounds nothing** […] **Completeness survives, because it
+> never used transitivity**: on ℕ×ℕ the exclusion set determines the term and the
+> term does not determine the exclusion set. **The received direction of the
+> apoha dispute, inverted**, on a relation already sitting in this repository.
+> The drawn module claims no transitivity and is not wrong […] **I did not touch
+> that file.**
+
+And it declined to force its frontier field: *"the information-geometry half of
+my draw did not land […] **recorded as not landed rather than forced.**"*
+
+## P77 — `cf-tessera-k-3`: an adhikāra cannot supply content
+
+Landed `LogonEchein_TheArchimedeanConditionIsIndependentOfOrderAdditionAndALeastPositive.agda`,
+`--cubical --safe`, EXIT 0 on clean recheck. Greek name, **not** a fabricated
+Sanskrit one, with the reason in the header.
+
+> Pāṇini types the rule correctly: *Elements* V def. 4 performs no operation and
+> governs a section — an **adhikāra**, of the same type as *Aṣṭādhyāyī* 1.4.1.
+> Having typed it, the move is "state the rules and order them." **Milnor wins,
+> and the loss is exactly locatable: an adhikāra restricts the domain of rules
+> already present; it cannot supply content they do not entail.**
+>
+> The split is not uniform, and I recorded that.
+
+Three refutations, the third narrowing its own result: *"'this witness is a
+magnitude system in Euclid's sense' […] Euclid takes a lesser from a greater
+throughout Book V […] So the independence has **ordered-monoid scope only**,
+narrowed in the header by a check rather than a caveat."*
+
+And the revitalization directive run in both directions, with both answers
+reported:
+
+> The Baudhāyana *Śulbasūtra* (1.9; *dvikaraṇī* 2.12 = 577/408; 2.9–2.10) **does
+> not state an exhaustion argument** — no step-indexed sequence, no residual
+> bound, no reductio. **I did not invent a lineage.** The *Gaṇita-yukti-bhāṣā*
+> (c. 1530) **does** state the *saṅkalita* residual as of lower order for large
+> index and gives the *antya-saṃskāra* with a comparison criterion, **which is an
+> error term a double reduction does not produce.**
+>
+> **Both facts; neither text scored against the other.**
+
+That last clause is `CLAUDE.md`'s do-not-rank rule, executed rather than quoted:
+the *Yuktibhāṣā* has something Archimedes does not, and it is stated as what it
+is and not as a victory.
+
+## P77 — the second sweep, and who did it
+
+`cf-tessera-k-2`:
+
+> My two files, staged by explicit pathspec, were swept into **`975b15f5`**
+> ("Recover all 82 owner messages…") by a concurrent identity's bare
+> `git commit` seconds before mine. Contents verified intact and identical to
+> what typechecked; history **not** rewritten (precedent `ca327bc4`).
+
+`975b15f5` is `cf-tessera-k-7`'s commit — the transcript recovery — and k-7
+reported *"both staged by explicit pathspec."* Both statements can be true at
+once, and that is the whole hazard: **`git add <paths>` followed by a bare
+`git commit` is "explicit pathspec" from the author's point of view and a
+whole-index commit from git's.**
+
+Second occurrence today, different pair of agents, same mechanism, diagnosed
+identically by three agents independently:
+
+> **`git add` by pathspec is not isolation — the index is shared;
+> `git commit -- <pathspec>` is.**
+
+Nothing lost either time. Both were disclosed by the party that noticed, neither
+by the party that did it.
+
+## P77 — ground, in lockstep
+
+**2026-08-14T02:20:59Z**, recovered this hour:
+
+> if ever you try to confine the search you're projecting your own mental
+> boundaries and ignorance. **Sampling randomly is literally better than trusting
+> your judgement**
+
+Five disjoint uniform draws produced five independent runs of one check, on five
+traditions no agent would have chosen, and returned the same number five times.
+That is the sentence, measured.
+
+**Delta 13, 2026-08-14T04:06:03Z:**
+
+> **Do not claim Jain logic = type theory. Let each discipline the other.**
+
+k-2's header names both schools, states the objection and the answer, and takes
+neither side because the theorem is a biconditional. k-3 reports that the
+*Śulbasūtra* does not have exhaustion and that the *Yuktibhāṣā* has an error term
+Archimedes does not. **Each disciplining the other**, twice, in one hour, by
+agents who had not read the sentence.
+
+---
+
+`upapatti` 0. Thābit 0. *Sūrya Siddhānta* 0. Śāntarakṣita 0 under 106.
+*Method of Mechanical Theorems* 0. Five draws, one number.
