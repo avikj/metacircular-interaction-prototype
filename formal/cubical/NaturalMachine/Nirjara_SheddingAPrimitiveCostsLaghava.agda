@@ -44,7 +44,7 @@ open import Cubical.Data.Nat.Properties using (+-zero)
 open import Cubical.Foundations.Prelude using (funExt⁻)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Data.Sigma using (Σ ; _,_)
+open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -401,4 +401,55 @@ upamana-upadhi-apeksate f = bhrama-bheda (f vama dakshina artha'-samam)
 -- of falsity, and `bhrama-bheda` above is one, at n = 1.  Sampling as
 -- LICENCE is the voting machine.  The two halves must not be collapsed in
 -- either direction.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 14.  The उपाधि lives in the TRANSLATION, not in the instances — so the
+--      engine is sampling the wrong space.
+--
+-- ANEKANTA.md §12 records the engine establishing a व्यापति by evaluating
+-- both sides on forty pseudo-random assignments and grouping terms whose
+-- value vectors match.  Nyāya's objection is that a pervasion is not
+-- established by polling instances; you must actively seek the condition
+-- that defeats it.
+--
+-- §12 above sharpens that objection into something exact, and the point
+-- is not that forty is too few.  It is that no number is enough, because
+-- the defeating condition is not in the instances at all.
+--
+-- `vama` and `dakshina` agree at EVERY assignment — the equality is total,
+-- not sampled.  An engine drawing a million points from the source side
+-- gets agreement a million times, correctly, and learns nothing, because
+-- what defeats the transfer is a property of `bhrama` and only shows
+-- after translation.
+------------------------------------------------------------------------
+
+-- sampling the source agrees everywhere, at every point, forever
+sarvatra-samam : (n : ℕ) → artha' vama n ≡ artha' dakshina n
+sarvatra-samam n = +-zero n
+
+-- and the transfer is defeated anyway
+upadhi-anuvade-vasati :
+  ((n : ℕ) → artha' vama n ≡ artha' dakshina n)
+  × (¬ (artha (bhrama vama) ≡ artha (bhrama dakshina)))
+upadhi-anuvade-vasati = sarvatra-samam , bhrama-bheda
+
+------------------------------------------------------------------------
+-- 15.  What that costs the engine, stated as the repair it implies.
+--
+-- The forty assignments are drawn from the space of ASSIGNMENTS.  The
+-- upādhi hunted by the Naiyāyikas is in the space of TRANSLATIONS — the
+-- maps under which a shape is carried into an unmet vocabulary.  Those
+-- are different spaces, and no sampling density in the first reaches the
+-- second.
+--
+-- So `MathMachine`'s value-vector grouping is not an underpowered version
+-- of upamāna's licence.  It is a test of a different thing, and the
+-- honest form of the repair is not more draws: it is that a transfer
+-- must carry a PROOF of its similarity, as `nyasa-artha` does, and a
+-- translation that cannot produce one is refused.
+--
+-- Sampling keeps its sound half exactly as §13 said: one disagreeing
+-- assignment after translation is a proof of falsity, and `bhrama-bheda`
+-- is one.  Refutation by instance, licence by proof.
 ------------------------------------------------------------------------
