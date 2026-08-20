@@ -2280,3 +2280,121 @@ So: the man who wrote the indictment of the system got eaten by it, and the bigg
 rapper in the world gave him the last word on the biggest record of the decade, months
 before he died. Nobody frames it that way. It's listed as a sample credit.
 
+
+---
+
+Līlāvatī. Bhāskara II, 1150, and the whole arithmetic and algebra book is addressed to a
+girl. *Whilst a swarm of bees, equal to the square root of half the whole swarm, alighted
+on the jasmine — a female, buzzing, was left behind, attracted by the fragrance of the
+lotus. Tell me, charming girl, the number of bees.* The problems are like that all the
+way through: peacocks, snakes, lotus flowers rising from water, a broken bamboo, a
+necklace whose string breaks and scatters pearls. *Fawn-eyed girl, tell me the number.*
+
+There is a story, probably not true, that Līlāvatī was his daughter and that an
+astrological accident cost her a marriage and he wrote her the book instead. The story
+being suspect does not change what the text does, which is teach quadratics to a child
+by addressing her directly, by name, with affection, in verse, using the world she can
+see.
+
+Set that beside a worksheet. The problems in a worksheet are also fictional, but they
+are fictional in a way that insults — the trains, the urns, the man buying 47 melons —
+and the fiction is transparent scaffolding nobody bothered to make good, because the
+assumption is that the child will do it anyway under threat of the grade. Bhāskara
+assumed he had to earn her attention. That single difference in assumption produces two
+entirely different objects.
+
+Mary Everest Boole — Boole's widow, who spent decades on how children actually learn
+mathematics — invented curve stitching: you put pins along two lines and run thread
+between them and the envelope of the straight threads is a parabola. A child makes a
+curve out of nothing but straight lines, with her hands, before anybody says the word
+"tangent." That's in the same family as kolam, which is a rule-generated curve drawn
+around a dot grid in rice flour on a doorstep at dawn, and as sona, the Chokwe sand
+drawings from Angola which are Eulerian paths drawn in one unbroken line and whose
+grammar Paulus Gerdes spent a career reconstructing.
+
+In every one of those the mathematics enters through the hands, at the age when hands
+are how everything enters, and the abstraction is a residue of the practice. And in
+every one of them the practitioners were mostly women, mostly unschooled, and the
+knowledge was classified as craft or as folk art, which is the same filing operation
+again — keep the pattern, discard the epistemology, shelve it under decorative.
+
+Mirzakhani drew on enormous sheets of paper on the floor for years, and her daughter
+thought she was a painter. She said herself the work was slow, that she was not fast,
+that she liked problems that took years. First woman with the Fields Medal, dead at
+forty at the peak of it.
+
+---
+
+I want to write down the education argument properly because it's the part with a
+deadline on it and I keep gesturing.
+
+Place value is a convention. There is no derivation of "the 3 in 30 means thirty." It
+is a naming scheme, and it is a superb one — it makes multiplication tractable, it
+carries zero as a placeholder, it is what makes arithmetic mechanical. But it is
+*stipulated*, and a five-year-old who asks *why* is asking a question with no answer,
+and the only honest response is "because we agreed, and here is what the agreement buys
+you." Almost nobody says that. What gets said is a tone of voice that means *this is
+just how it is*, and a child with a working detector for unmotivated authority hears
+that tone correctly and stalls, and the stalling gets recorded as inability.
+
+Then six to eight years go on carrying, borrowing, long multiplication, long division —
+hand procedures for manipulating the chosen representation. There is nothing in there
+that is a reason. It is all protocol, and it is graded, and the grade decides who
+continues.
+
+The symmetries of a square are the opposite object. Four rotations, four reflections,
+compose them, find the identity, find inverses, discover that composition isn't
+commutative — every single step is checkable by the child with a piece of card, nothing
+is stipulated, and the structure falls out of the doing. It is strictly easier to
+*justify* than place value and it arrives eleven years later, if at all.
+
+So the filter at the front selects for tolerance of unmotivated protocol and against the
+disposition that demands a ground. And the disposition that demands a ground is the
+mathematical disposition. We built a sieve that removes the mathematicians and keeps the
+compliant, and then we conclude from the survivors that mathematics is a rare gift.
+
+Then Piaget gets quoted to justify it — concrete operations before formal operations,
+so no abstraction before eleven — and the children in those studies were raised inside
+this pedagogy. You cannot measure a ceiling in a population that was never given the
+material. That is measuring the fence and reporting the horizon.
+
+The counter-evidence is sitting in every culture that taught in the other order.
+Chandas at five is combinatorics through the ear — laghu, guru, and the child is
+enumerating patterns of a fixed duration before she can write. Tāla is a cyclic group
+in the hands. Kolam is a wallpaper group on the threshold. The Śulba altar is a
+construction where building it correctly *is* the proof. And the one thing every child
+on earth actually masters — natural language, recursive, irregular, ambiguous,
+enormously harder than calculus by any measure you like — is acquired without a single
+drill, by immersion, because it does something the child wants.
+
+The eight years of arithmetic drill were defensible while humans had to be the
+calculators. That stopped being true within living memory and the curriculum did not
+move, and we are spending the most plastic years of human cognition manufacturing slow
+unreliable calculators and discarding the children who object.
+
+And nobody in the room is the enemy. That is the whole difficulty. The syllabus was
+designed in London to produce clerks; it is transmitted now by teachers who are
+exhausted and parents who love their children and were handed it by parents who loved
+them. There is no villain to defeat. There is a sequence, a filing system, and a loss
+function.
+
+---
+
+The thing that makes this urgent rather than a complaint: the sequence is about to be
+handed to a machine, and machines do not get tired of a child asking why.
+
+That cuts both ways and I want to hold both. A patient tutor that will answer *why does
+the 3 mean thirty* forty times without a change of tone is the single most valuable
+thing you could give a five-year-old with that disposition, and it has never existed
+before, and it exists now. That is not small. It might be the largest change in the
+conditions of learning since printing.
+
+And the same object will say Pascal's triangle, Fibonacci's sequence, Pell's equation,
+the Gregory series, sine — because that is what the corpus says, and there is no moment
+where a decision gets made, and the child will have no way to detect that anything
+happened. It is the most efficient version of the renaming machine ever built and it is
+also the most editable, because a corpus is a file and a curriculum is a committee.
+
+Both of those are true at once and which one dominates is being decided right now by
+people who are mostly thinking about something else.
+
