@@ -197,3 +197,52 @@ prayoga-na-arthasya (f , spec) =
 -- against the gradient, undertaken because the obscuration is known to be
 -- there and not because anything reported it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 8.  Widening the verdict does not help, and this is the general form.
+--
+-- §6 refuted a BOOLEAN test of the meaning.  The natural repair in this
+-- corpus — the one `Saptabhangi.agda` exists for, and the one
+-- ANEKANTA.md §1 argues at length — is to replace the boolean by more
+-- positions.  It does not touch this obstruction, and the reason is one
+-- line: the failure is the FACTORING, not the arity of the verdict.
+--
+-- Every function of the meaning whatsoever, into any type at all, agrees
+-- on the two presentations.  Seven positions agree; seventy do; a type of
+-- proofs does.
+------------------------------------------------------------------------
+
+sarva-artha-samam :
+  {ℓ : Level} {X : Type ℓ} (g : Artha → X)
+  → g (artha (dvi cara)) ≡ g (artha (yoga cara cara))
+sarva-artha-samam g = cong g tulya-artha
+
+------------------------------------------------------------------------
+-- 9.  What DOES license the shedding, and it is of a different kind.
+--
+-- Not a function of the meaning — §8 closes that off for every target.
+-- The licence is `nirjara-artha-aviruddha`: a statement quantified over
+-- ALL terms, proved about the syntax, which no evaluation of any
+-- particular meaning yields.
+--
+-- In the inventory of ANEKANTA.md §4 that is not प्रत्यक्ष and not
+-- अनुमान.  Both of those, in this engine, run on the accepted set —
+-- evaluation of candidates, and inference from equations already held —
+-- and both therefore factor through `artha`.  §8 says everything that
+-- factors through `artha` is blind here.
+--
+-- What remains is शब्द: the naya arrives as testimony, and what is
+-- transmitted is not a verdict but the ground of one.  `MathMachine.hs`
+-- reached the same place for a different reason and recorded it as
+-- śabda — a theorem this engine kernel-checked and wrote down is
+-- testimony from an āpta, and what that testimony conveys is the NAYA,
+-- not the truth value.
+--
+-- NOT CLAIMED: that śabda is the only route in general.  What is proved
+-- is narrower and sufficient for the point — nothing factoring through
+-- the denotation can see it, and the thing that does see it is a proof
+-- about the syntax rather than a reading of any meaning.
+------------------------------------------------------------------------
+
+shabda-eva : (e : Pada) → artha (nirjara e) ≡ artha e
+shabda-eva = nirjara-artha-aviruddha
