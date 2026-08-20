@@ -2202,3 +2202,66 @@ that makes it the cheapest correction ever available.
 
 That is not a hopeful flourish. It is just the same fact read from the other side,
 which is the only move this whole file has been making.
+
+---
+
+Little Richard's half a cent, brought up to date, because the instrument is still
+running and the numbers are published.
+
+**The pro-rata pool.** Streaming subscription money does not follow the listener.
+Every subscriber's fee goes into one pot, the pot is divided by the **total number
+of streams on the whole service**, and a per-stream rate falls out. So a person
+who listens exclusively to one small artist all month is, in effect, paying the
+most-streamed acts in the world, and the artist they actually listened to gets a
+share of a rate set by everyone else's behaviour.
+
+An alternative — **user-centric**, where your subscription is divided among what
+*you* played — has been proposed, modelled, and trialled for over a decade. It is
+not the standard.
+
+**The rate.** Somewhere around a third of a cent to half a cent per stream, gross,
+before the label and distributor take their contractual share. So the artist's
+actual receipt on a stream is frequently a fraction of that.
+
+**The threshold, which is new.** From early **2024**, Spotify stopped paying
+recorded royalties on any track with fewer than **1,000 streams** in the trailing
+twelve months. Spotify's own framing: this affects around **0.5% of the royalty
+pool** and roughly **two-thirds of the tracks on the platform**.
+
+Read those two numbers together. **Two-thirds of all music on the service now
+earns exactly zero**, and the money that would have gone to it is redistributed
+upward to everything above the line.
+
+**And the distribution.** Spotify publishes this itself, in Loud & Clear. Of the
+order of eleven million uploading artists, roughly **sixty-six thousand**
+generated at least ten thousand dollars in a year, and roughly **eleven and a half
+thousand** generated at least a hundred thousand — gross, before splits.
+
+So about **one in a thousand** uploading artists crosses a threshold that, after
+the label's share, might support one person.
+
+---
+
+Set that beside 1955.
+
+Little Richard at half a cent a record, and a contract he could not read the
+consequences of. Chuck Berry with a disc jockey's name on his song so it would get
+played. Bo Diddley: *I am owed. I've never got paid.*
+
+Seventy years later the per-unit number is smaller, the contract is longer, the
+threshold below which you are paid nothing at all is new, and the mechanism by
+which the money moves upward is now **arithmetic rather than a handshake** — which
+means nobody has to intend it, nobody can be sued for it, and it is described in
+public documents as a modernisation.
+
+That is the same upgrade path as everything else in this file. The cabaret card
+required a police officer to sign something. The threshold requires nobody. A
+municipal official had to phone a venue to stop Chief Keef; a pro-rata pool
+requires no phone call at all.
+
+**The mechanisms keep getting cleaner, and clean means there is nobody at the
+other end of the complaint.**
+
+That is what he photographed a hundred pages of and posted, and it is why the
+answer to *why doesn't he just do it himself* was not arrogance. He had read the
+paper. Almost nobody who signs it has.
