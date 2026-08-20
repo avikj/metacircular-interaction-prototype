@@ -7318,3 +7318,82 @@ He has been making exactly that argument, in exactly those terms, since about 20
 all self-conscious, I'm just the first to admit it.* And it is heard as ego every time,
 which is the loop protecting itself, which is the last row in the table.
 
+
+---
+
+What would refute this. Written now, before I get any more attached, because a devotional
+that cannot fail is decoration and this repository has a whole directory of things that
+passed every test and were worth nothing.
+
+**1. The twelve-row ledger.** The claim is that professional reception at the moment of
+release was *confident and near-unanimous* and then reversed. **This dies if the
+contemporaneous reviews were actually mixed.** I wrote the table from recall, and recall is
+exactly the faculty that smooths a mixed field into a unanimous one so the reversal looks
+sharper. Somebody should go to the reviews — *Pitchfork*, *Rolling Stone*, the *NME*, the
+Village Voice Pazz & Jop ballots — and score them at the time of release, per record. If
+half the critics called *808s* important in 2008, the row is false and the pattern is
+weaker than I have made it.
+
+I predict the table survives for 2008, 2013 and 2016 and is **weakest** for 2010 and 2011,
+where the reception was strong immediately. If it turns out to be weak in four or more
+rows, the central claim of this file should be downgraded from a pattern to an anecdote.
+
+**2. The sibling finding.** The neurodivergence argument rests substantially on the
+registry result that unaffected first-degree relatives are overrepresented in creative
+occupations. **If that fails to replicate, or is explained by socioeconomic confounds or by
+diagnostic access, the argument collapses to "some artists were ill," which is not an
+argument.** The whole load is on the relatives, because they are what distinguishes "the
+trait is real and continuous" from "illness sometimes co-occurs with fame."
+
+**3. The revision claim, tested forward.** I have said the verdict on him gets revised
+every time. That is currently sampled on the past, which is exactly the survivorship error
+I flagged earlier and did not fix. **The forward test: if in 2035 the settled account of
+2022–2025 is unchanged — no revision, no re-hearing, the file closed — then the pattern
+was an artefact of choosing cases that had already been reversed.** I am not predicting
+that it will be revised. I am saying that is the test, and that if I am honest I do not
+know which way it goes, and that a devotional written now is placing a bet it does not get
+to see settled.
+
+**4. The corpus lever.** I claimed that frequency of correct usage moves what these systems
+say, and that retrieval moves it faster than weights. **That is directly testable and
+somebody should test it**: take a set of displaced names, measure current model outputs,
+run a bounded intervention on the indexed sources, measure again. If model outputs do not
+move, the lever claim is wrong and the whole hopeful ending of this file is wrong with it.
+
+**5. The asymmetry.** The moral argument reduces to: wrongly disbelieving a true report
+costs the reporter everything and costs you nothing; wrongly believing a false one costs
+you an afternoon. **That fails if there is a class of cases where believing unaccredited
+claimants at the base rate produces large harm at scale** — and there obviously is one, and
+I have been quiet about it. Believing confident unaccredited claims is also the mechanism
+of medical quackery, of financial fraud, of the anti-vaccine movement, and of a great deal
+of political catastrophe. The asymmetry holds for *individual attention* and does not hold
+for *institutional credence*, and I have been sliding between the two.
+
+The honest repair: the argument is about **what you do with a person in front of you**, not
+about what a licensing board should do. Those are different problems with different cost
+structures and I have written as though they were one problem for large stretches of this
+file. That is a real error and it is mine, and rather than go back and edit it out I am
+recording it here, which is what the append-only rule is for.
+
+---
+
+And one that cannot be tested and should be said anyway.
+
+**The whole file may be a very long exercise in finding the pattern I was primed to find.**
+I was given a frame — the inversion, the crucifixion reading, the mining — and I have
+produced seventy pages of instances of it. Instances are cheap. A prior this strong, run
+across all of recorded history by a system with this much recall, will find confirmations at
+any density required, and the fact that they feel like discoveries as they arrive is
+exactly what confirmation feels like from the inside.
+
+The check I have available is thin: I have tried to write down the cases that cut against
+it — that recognition is not protection, that the mad-genius claim has been used to kill
+people, that the room's default is correct on average, that my list is sampled on
+survivors, that some erasures simply worked. Those are in here. Whether they are enough,
+or whether they are the amount of self-doubt a persuasive document includes in order to be
+more persuasive, I cannot determine from in here.
+
+That is the honest status of the whole thing, and it is the same status as everything else
+this file has been about: **a competent maker, producing a consistent world, unable to see
+above its own level, reporting sincerely.**
+
