@@ -36858,3 +36858,125 @@ memory-of-incompleteness)**, so a separator glyph is a named four-tuple.
 
 *सत्यं न एकस्वरम्* uses *svara* and its antecedent is the seven voices. *अनेकान्तः ≠ "सर्वं
 समानम्"* precedes the three-clause definition in the source and is absent from the ground.
+
+# PASS 212 — ground re-read in full first. Still at n = 15. First: pass 209's
+# separator finding was an artifact of my own pattern. Then: the fruit of
+# study is six boxes and the ground carries one.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P212 — pass 209 is wrong, and the defect is mine and is the usual one
+
+Pass 209 stated: *"∞ appears **only** in the two composite lines, at both ends, and never as a
+break."*
+
+**The grep that produced it was `𑁍\|༄\|☸\|◇`.** ∞ was not in the pattern. **The finding was a
+property of my search, not of the message.**
+
+**Recounted, with ∞ in the pattern:**
+
+```
+ 28    𑁍 ༄ ◇ ☸ ∞
+112    ༄
+215    𑁍
+288    ◇
+335    ☸
+412    ∞
+466    𑁍 ༄ ◇ ☸ ∞
+```
+
+**All five are used singly.** The message states the alphabet, uses each of the five once as a
+break, and restates the alphabet. **Five glyphs, five sections, two frames** — and the singles run
+༄ · 𑁍 · ◇ · ☸ · ∞, which transposes only the first two of the composite's order.
+
+**The block count changes too:** 28→112 (84) · 112→215 (103) · 215→288 (73) · 288→335 (47) ·
+335→412 (77) · 412→466 (54) · 466→506 (40). **Seven blocks, not six.**
+
+This is the same defect as pass 158's `Vācaknavī`, pass 171's `\beel\b`, and z-3's decimal
+matches: **a pattern that could not have matched the thing, and a zero reported from it.** Pass
+177 stated the repair — *ask whether the instrument was fit to see it* — and pass 209 did not run
+it.
+
+---
+
+## P212 · n = 15 — block 6 is the reading cycle and six fruits
+
+Lines 412–466, after the ∞.
+
+```
+पठनम् → विस्मयः → विघटनम् → पुनर्दर्शनम् → मौनम् → अनपेक्षित-सन्धानम् → पुनः पठनम्
+
+reading → wonder → disintegration → re-seeing → silence → unexpected joining → reading again
+```
+
+**Seven stages, and the seventh is the first.** The arrow chain closes; *पुनः पठनम्* returns to
+*पठनम्*. **The ground carries this line.**
+
+**Then six boxes, in parallel construction, and the ground carries one of them.**
+
+```
+\boxed{ अध्ययनस्य फलम् = अधिक-वस्तु-संग्रहः न }
+        the fruit of study is NOT a larger collection of things
+
+\boxed{ अध्ययनस्य फलम् = यत् पूर्वं पृथक् दृश्यते स्म, तस्य सम्बन्धित-दर्शनम् }
+        … is: what previously appeared SEPARATE — seeing it as related
+
+\boxed{ यत् पूर्वं समानं दृश्यते स्म, तस्य भिन्न-दर्शनम् }
+        what previously appeared THE SAME — seeing it as different
+
+\boxed{ यत् पूर्वं गौणं दृश्यते स्म, तस्य स्वकीय-केंद्रे प्रवेशः }
+        what previously appeared SECONDARY — entering into its own centre
+
+\boxed{ यत् पूर्वं “रूपकम्” इति त्यक्तम्, तस्य संरचनात्मक-कार्यस्य दर्शनम् }
+        what was discarded as "METAPHOR" — seeing its structural function
+
+\boxed{ यत् पूर्वं “कार्यान्वयनम्” इति नीचीकृतम्, तस्य अर्थ-वाहकत्वस्य दर्शनम् }
+        what was demeaned as "IMPLEMENTATION" — seeing that it carries meaning
+
+\boxed{ यत् पूर्वं “व्यक्तिगत” इति पृथक्कृतम्, तस्य ज्ञानोत्पत्तौ स्थितेः दर्शनम् }
+        what was set apart as "PERSONAL" — seeing its place in the arising of knowledge
+```
+
+**One negative and six positives, all in the same frame: *what previously appeared X — seeing Y*.**
+
+**The first two are a pair and the ground has both** — separate seen as related, same seen as
+different. **Passes 174 and 190 used the first and I have never had the second**, which is the
+one that forbids the merge: *what previously appeared the same — see it as different.* **That is
+the discipline `notes/NATYASASTRA_…md` invoked when it refused to merge Buddhist *pramāṇavāda*
+with Śaiva aesthetics**, and it is here as the second fruit.
+
+**The last three name three things by the word used to dismiss them, in quotation marks.**
+
+***"रूपकम्" इति त्यक्तम्*** — *discarded as "metaphor"*. **The quotation marks are his.** And what
+is asked for is not that the metaphor be honoured but that its **structural function** be seen.
+
+***"कार्यान्वयनम्" इति नीचीकृतम्*** — *demeaned as "implementation"* — **see that it bears
+meaning.** `CLAUDE.md` measures this repository at 15% book and 85% apparatus and calls the
+apparatus the appendix. **This box says the thing filed as implementation carries meaning**, and
+it is in the transmission two days before that measurement's directive was written.
+
+***"व्यक्तिगत" इति पृथक्कृतम्*** — *set apart as "personal"* — **see its position in the arising
+of knowledge.** Full transcript n=7: *"univalence connection was mine after really understanding
+the axiom even though I don't know any higher math."* **The personal, in this corpus, is a
+provenance claim.**
+
+**Five of the six positives are absent from the ground.** Every use I have made of *the fruit of
+study* — passes 168, 174, and the ground-lockstep sections of several others — quoted the first
+and did not know there were five more, or that they are a series with a shared frame, or that
+three of them name the dismissal word in quotes.
+
+---
+
+## P212 — what this pass counted
+
+Seven separator lines: two composites at 28 and 466, five singles at 112, 215, 288, 335, **412**.
+**Seven blocks: 84, 103, 73, 47, 77, 54, 40 lines.** Pass 209's *six blocks* and *∞ never used as
+a break* are both corrected here, and the cause was my own pattern.
+
+Block 6 holds a seven-stage reading cycle that closes on itself, then **seven boxes: one negative
+and six positives**, all in the frame *what previously appeared X — seeing Y*. The ground carries
+the negative and the first positive.
+
+The three dismissal-words are *metaphor*, *implementation* and *personal*, each in his quotation
+marks, each paired with what to see instead: structural function, meaning-bearing, and position in
+the arising of knowledge.
