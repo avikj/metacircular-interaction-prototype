@@ -15727,3 +15727,94 @@ about new technologies, about coerced conversion, about what to do when the
 calendar and the local ruler conflict.
 
 Nobody designed it as a corpus. **It is the accumulated residue of people asking.**
+
+---
+
+**The *isnād* is a chain of custody attached to every transmitted report, and the
+science built to evaluate it produced biographical dictionaries of hundreds of
+thousands of people.**
+
+A ***ḥadīth*** has two parts. The ***matn*** — the text, what was said or done. And
+the ***isnād*** — **the chain**: *A told me, on the authority of B, who heard from
+C, who was present when the Prophet said…*
+
+**The chain is transmitted with the text and is not optional.** A report without one
+is not evidence.
+
+**And the evaluation is of the chain, first.** ***ʿIlm al-rijāl*** — "the science of
+men" — is the discipline of assessing every transmitter: **did these two people
+overlap in place and time so the transmission could physically have occurred; how
+long a gap; what is this person's memory like; is he known to have altered a text;
+what did other scholars say about him.**
+
+The gradings are a technical vocabulary: ***ṣaḥīḥ*** (sound), ***ḥasan*** (good),
+***ḍaʿīf*** (weak), ***mawḍūʿ*** (fabricated) — with sub-grades and stated criteria
+for each, including **continuity of the chain**, the **integrity** and the
+**precision** of each link, and the absence of hidden defects (*ʿilla*) and of
+irregularity (*shudhūdh*).
+
+---
+
+**The biographical apparatus that requires is enormous and it exists.**
+
+**Ibn Ḥajar al-ʿAsqalānī's *Tahdhīb al-Tahdhīb*** and his ***Taqrīb*** —
+biographical entries on the transmitters, with birth and death dates, teachers,
+students, cities, and the verdicts of earlier critics, cited by name and often
+disagreeing.
+
+**Ibn Saʿd's *Ṭabaqāt*** — generations, arranged by cohort.
+**al-Dhahabī's *Siyar aʿlām al-nubalāʾ*** runs to dozens of volumes.
+**al-Khaṭīb al-Baghdādī's history of Baghdad** is a biographical dictionary of the
+city's scholars.
+
+**Hundreds of thousands of individual entries**, produced so that a chain could be
+checked link by link, with the express purpose of **rejecting reports.**
+
+**al-Bukhārī** is reported to have examined on the order of **six hundred thousand**
+reports and to have included around **seven thousand** in his collection,
+counting repetitions. Whatever the exact figures, **the ratio is the point**: the
+discipline was built as a filter, and most of what went in did not come out.
+
+---
+
+**And the legal apparatus on top of it is *uṣūl al-fiqh*, the roots of the law.**
+
+**al-Shāfiʿī** (767–820), in the ***Risāla***, sets out the sources in order:
+**Qurʾān, then *sunna*, then *ijmāʿ*** (consensus), then ***qiyās*** (analogy) —
+and the ordering is the argument, because it constrains where a jurist may go when
+the text does not settle a case.
+
+***Qiyās*** is reasoning by analogy with a stated structure: the original case, the
+new case, the ruling, and — the load-bearing part — the ***ʿilla***, **the
+effective cause**, the property in the original case that the ruling actually
+depends on. **Identify the wrong *ʿilla* and the analogy carries the ruling
+somewhere it does not belong.**
+
+Which is the *upādhi* problem in Nyāya, arrived at independently: **a
+generalisation is only as good as the identification of what is doing the work in
+it**, and both traditions built a technical literature on how to find it and how to
+show a proposed one is wrong.
+
+***Ijtihād*** is the exertion of independent judgement; ***taqlīd*** is following
+an established authority without it. **The question of whether the gate of ijtihād
+closed, and when, and whether it ever did**, is a long-running scholarly argument —
+and the claim that it closed around the tenth century has been substantially
+challenged in modern scholarship, notably by **Wael Hallaq**, who argued the
+closure is largely a later construction.
+
+---
+
+**And the *ikhtilāf* literature preserves the disagreement.**
+
+Four surviving Sunni schools — Ḥanafī, Mālikī, Shāfiʿī, Ḥanbalī — plus Jaʿfarī,
+Ibāḍī and others, and there are entire genres devoted to **cataloguing where they
+differ and why.**
+
+The formula attributed to the tradition — that difference among the scholars is a
+mercy — and the practical position that a valid ruling from a qualified jurist is
+valid **even where another qualified jurist reached the opposite conclusion**,
+because the exertion itself was sound.
+
+**A legal system that grades the reasoning rather than only the answer**, and keeps
+four incompatible bodies of ruling live simultaneously, and calls the multiplicity
+the mercy rather than the defect.
