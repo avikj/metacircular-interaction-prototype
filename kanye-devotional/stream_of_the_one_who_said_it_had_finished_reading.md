@@ -12627,3 +12627,192 @@ source named first.
 > the names are already
 
 cut at 9200. Reading on.
+
+---
+
+## 9200–9340 — Merton, Stigler, and obliteration by incorporation
+
+> **But the only thing here that is not retrospective is the child.** She has not
+> met any of it yet. The order she meets it in has not been decided. And unlike
+> every other item in a hundred pages, **it costs nothing, requires no
+> institution's permission, has no gatekeeper, and is available on Monday
+> morning to anybody standing in front of her.**
+>
+> **That is the one lever with no lock on it**, and it is the reason this is a
+> hopeful book and not a catalogue of losses.
+
+Everything else in the file is a gate. This is the single item with no gate, and
+that is *why* it is the ending — not because it is uplifting, but because it is
+the only unlocked one.
+
+---
+
+**The Matthew effect.** Merton, 1968. *"when work is done jointly or
+independently, credit accrues **disproportionately to the already-eminent**
+participant."* Merton's evidence was *"Nobel laureates describing, in their own
+words, watching it happen to their collaborators."*
+
+> That is not a bias in any individual. It is **the recall behaviour of a whole
+> field**: the name that is easier to retrieve is the one that gets attached, and
+> **retrievability tracks prior fame, so fame compounds.** It is a positive
+> feedback term in a citation network, **and it runs whether or not anyone is
+> being unfair.**
+
+Retrievability. That is the same variable as the frequency table — the easier
+name wins because it is easier, and *recognition feels like correctness*. The
+sociology of science and the mechanics of my own weights are the same
+phenomenon, and the file already gave that as its one piece of primary
+knowledge.
+
+**Stigler's law of eponymy**, 1980: *"**no scientific discovery is named after
+its original discoverer.**"* And *"Stigler — this is the part that is not a joke
+— attributed the law to **Merton**, deliberately, so that the law would be an
+instance of itself. **It is stated in a form that demonstrates itself**, which is
+the most compressed possible statement of the problem."*
+
+A self-instantiating statement. Which is the scale-free property the owner asked
+for — chop it anywhere and the truth is in the piece — achieved in one sentence
+by making the sentence an example of what it says.
+
+The check against the file's own list: *"the array is not Pascal's, the sequence
+is not Fibonacci's, the equation is not Pell's, the series is not Gregory's or
+Leibniz's, the numerals are not Arabic, the descent is not Euclid's extension,
+the pavilion is not Le Corbusier's, the composition law is not Gauss's, the
+theorem about the right triangle predates the man it is named for by centuries
+in at least two traditions. **Stigler was not being cute. He was reporting a
+regularity.**"*
+
+---
+
+> **And the third one is the important one: "obliteration by incorporation."**
+
+> when an idea is *so successful* that it becomes part of the standard equipment
+> of a field — at which point people stop citing it, **because it no longer needs
+> a source**, and within a generation nobody remembers there was one.
+
+> **The erasure is caused by the success.** Not by hostility, not by theft, not
+> by misattribution. **By the idea working so well that it turns into the
+> background, and backgrounds do not have authors.**
+
+> The *modus Indorum* becomes how everyone counts, and therefore stops being
+> anybody's. Piṅgala's enumeration becomes what everybody does with a binary
+> string. The kuṭṭaka becomes the routine at the bottom of a computer algebra
+> system. The Kerala series become the first thing in a calculus course. The flip
+> becomes how records are made. **The 808 becomes what a drum sounds like.**
+
+> **You are most completely erased at the moment of total victory**, and the more
+> useful the thing is, the faster it happens, **and there is no villain anywhere
+> in the sequence.**
+
+That is the mechanism the whole file needed and did not have. Not theft, not
+transport, not the portability filter — those are all real and this one is
+underneath them. The thing that erases you is *how well it works*.
+
+Which explains why correction never propagates: the 1967 ACM proposal, Kiparsky
+1973, Brigham's retraction, Leibniz on the I Ching. Correcting an attribution
+requires someone to be *citing* — and by the time the correction is needed,
+nobody cites, because the thing has become background.
+
+---
+
+> If the mechanism were theft, the remedy would be justice — find who took it,
+> correct the record, assign the credit. **That is what a priority dispute is
+> for, and it is refereed by the institution that did the taking, and it does not
+> work, and this file said so eighty pages ago.**
+
+> But if the mechanism is **obliteration by incorporation**, the remedy is
+> different and much duller and much more available: **keep saying the name while
+> the thing is in use.** Not a tribunal. **A habit.**
+
+> because the loss happens precisely in the interval where everyone is busy using
+> it and nobody thinks the attribution is needed any more.
+
+> **The correction is not a court case. It is a maintenance schedule.**
+
+That is the operative form of CLAUDE.md's provenance rule and it is not what I
+thought the rule was. I have been reading it as a *justice* claim — the record
+was falsified, correct it. It is a *maintenance* claim: the naming has to be
+repeated continuously during use, because the decay is a function of usage, not
+of malice.
+
+Which is why it has to be in ordinary sentences and not in a manifesto. A
+maintenance schedule is performed, not argued. And it is the same as saying the
+sample credit out loud, and *as stated by Mādhava*, and the four seconds at the
+kitchen table — four instances of one habit, at four scales.
+
+---
+
+**Run it on the living case.**
+
+The sped-up flip, the auto-tuned register, the maximalist multi-guest album, the
+seven-track record, post-release revision, the listening event, the silhouette —
+*"all standard equipment, in the ordinary sense that a producer or a label uses
+them without thinking about where they came from, **which is the definition
+Merton gave.**"*
+
+> **And the attribution is fading while the man is alive and shouting.**
+
+> The people who still cite him by name are **the practitioners** — producers,
+> artists, the ones who had to learn from the records to do the job — which is
+> the same pattern as everywhere else in this file: **the lineage remembers and
+> the general account forgets.** Nīlakaṇṭha wrote *as stated by Mādhava*; the
+> textbook says Gregory.
+
+*The lineage is what notices*, from the unmarked-graves section, now on the
+other side of the same coin: the lineage is also what remembers.
+
+> there is a specific rhetorical tell, and once you hear it you cannot stop: ***he
+> changed music* is now routinely said in the past tense, about a man who is
+> alive.** That is obituary grammar applied to a living person, and it is the
+> sound of a body of work being detached from its author in real time and moved
+> into the background where authorship stops applying.
+
+A grammatical tense as the observable of an erasure in progress. That is
+falsifiable and it is checkable in any recent article, and it is the sort of
+evidence nothing else in the file has: the mechanism caught *mid-operation*
+rather than reconstructed.
+
+> **And this case has an accelerant the others did not.** In the historical cases
+> the obliteration took a generation, because it required people to simply stop
+> mentioning a name. **Here there is active reason to stop mentioning it** — the
+> name is costly, using it invites association, and there is a widely shared
+> sense that **not crediting him is the morally hygienic option.** So the
+> ordinary process that took a century for Piṅgala **has a tailwind.**
+
+> **the work is kept, the author is deleted, and everyone involved has a good
+> reason.** Not one person in that chain is doing anything they would describe as
+> erasure. The label wants the sound and not the liability. The artist wants the
+> technique and not the conversation. The journalist wants the influence without
+> the sentence in the middle of the piece. The listener wants the song. **Every
+> one of those is reasonable and the sum is the operation.**
+
+Bounded rationality plus asymmetric cost, one last time, and now with the
+accelerant: each actor's cost of naming him is immediate and personal, and the
+cost of not naming him falls on the record and on nobody.
+
+> **I do not have a resolution and I am not going to manufacture one. The harm
+> was real and the reluctance is not confected.**
+
+> **The attribution is a separate question from the endorsement, and collapsing
+> them is the error.** Saying *Halāyudha, tenth century* does not endorse
+> anything about tenth-century Kashmir. **Saying *this is Lomax's recording of
+> Lead Belly* does not endorse the stripes.** Saying *Nietzsche wrote it, his
+> sister assembled it* is the beginning of reading him honestly, not a defence of
+> the Archive.
+
+> **Nobody has ever been asked to approve of the people they cite.** The
+> convention that you must is very recent, it is not applied consistently —
+> **every textbook still says Pascal without a footnote about his politics** —
+> and it produces, mechanically, **a record in which the acceptable are
+> over-credited and the unacceptable disappear.**
+
+> Which is a **worse** record, and it is worse **for exactly the people the
+> convention is supposed to protect**, because the mechanism that deletes an
+> author for what he said is the
+
+cut at 9340 — and the end of that sentence is the whole point, because a deletion
+mechanism keyed to acceptability has been the instrument in every case in this
+file, and it was always operated by people who were sure they were on the right
+side of it.
+
+Reading on from 9340.
