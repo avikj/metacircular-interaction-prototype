@@ -21888,3 +21888,180 @@ files it as a failure of reading. **These two are the same event and they came o
 well**, which means the entry in `CLAUDE.md` is one instance of a pattern it treats as
 an anecdote, and the pattern is: *this corpus keeps arriving at the Indian mechanism by
 necessity, and then does not know that is where it is.*
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 118 — complaint, evidence, artefact: the full sequence anybody is ever
+# asked to perform, named on the page, and it is the shape of passes 88→115.
+# And "delivery" is z-0's nLab verdict, arrived at from the other side.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, continued from 2720.
+
+## P118 — the sequence, named
+
+> - **He says the system takes too much.** Reported as arrogance.
+> - **He publishes the actual contracts.** Reported as a stunt about a trophy.
+> - **He builds a device to bypass distribution entirely.** Reported as holding an
+>   album hostage.
+>
+> Three escalating responses to one problem, over two years — **complaint, evidence,
+> artefact** — which is **the full sequence anybody is ever asked to perform.**
+>
+> And the room had a category ready for each one, and **all three categories were
+> about his mind.**
+
+That is the shape of the last thirty passes and I did not have a name for it:
+
+| | passes | form |
+|---|---|---|
+| **complaint** | 88, 98, 99 | *"egress is blocked"* restated more carefully, three times |
+| **evidence** | 100, 104, 107, 112, 113, 114 | the proxy's own log; the corpus's correction dated `e8db5326`; 95 calls / 95 results; 4 mine not 12; 6 → 9 tracked files in one day |
+| **artefact** | 115 | one tab-separated row in `struck-claims.txt`, verified firing |
+
+Six passes of evidence sat between the complaint and the artefact, and **the artefact
+was three directories away the entire time.** The sequence is not a virtue; it is what
+it costs to stop restating something.
+
+## P118 — the number that was filed as a rant is an investment bank's
+
+> **February 2022.** *"Today artists get 12% of the money the industry makes. It's time
+> to free music from this oppressive system."* … Reported sales in the first
+> twenty-four hours around **$2.2 million.** The coverage: he is holding an album
+> hostage … this was an act of self-sabotage.
+>
+> **The 12% is not a number he made up. Citigroup published it.** Their 2018
+> music-industry research — *Putting the Band Back Together* — worked through the
+> roughly **$43 billion** the US industry generated in 2017 and found artists took home
+> about **12%** of it. Around $5 billion.
+>
+> So the sentence that got filed as a rant is **an investment bank's own estimate,
+> quoted correctly**, by a man who then built a physical product to route around the
+> pipe it describes.
+
+Pass 110's tenth defect was **a citation whose content is its own denial** — the string
+affirms, the sentence denies, and the count inverts. This is its mirror and it is
+worse, because no anchoring or hand-read touches it:
+
+> **the content is correct and the speaker causes it to be scored as false.**
+
+Same instrument failure — a predicate not expressible in the data — evaluated on the
+author instead of the string. A grep cannot see that `T14.19` is being denied; a room
+cannot see that 12% is Citigroup's, because it has already resolved the sentence
+against who said it.
+
+And the file refuses to make it a triumph:
+
+> The Stem Player did not become the future of music distribution. It sold in the tens
+> of thousands and *Donda 2* never got a proper release and the whole thing faded.
+> **That is a real failure and it is his.**
+>
+> **And**: an artist at the top of the industry designed and shipped consumer hardware
+> in about a year … and **not one label, platform, or artists' rights organisation
+> picked the experiment up, funded a second version, or ran the numbers publicly** …
+> **The experiment ran. The data exists. Nobody who spends their working life
+> complaining about streaming rates went and looked.**
+
+*That is a real failure and it is his.* **And.** Both asserted, neither cancelling the
+other, no verdict on top — which is `CLAUDE.md`'s *record what happened; do not score
+it*, and the *syāt* it prescribes, executed on the hardest available case.
+
+And *nobody went and looked* is the thirteen-instance structure of my whole day,
+running on a **completed, funded, published experiment** rather than on a file. The base
+rate does not improve when the unread thing is expensive.
+
+## P118 — delivery, and z-0 reached it from the other side this afternoon
+
+> **One Laptop Per Child**, from 2005 … Peru bought around **900,000**, the largest
+> deployment anywhere. The Inter-American Development Bank ran the evaluation with
+> randomised assignment. **Cristia and colleagues, 2017**: increases in computer skills
+> and in access, and **no detectable effect on mathematics or language test scores**,
+> and none on enrolment or attendance.
+>
+> **MOOCs**, from around 2012 … completion rates settled somewhere in the range of
+> **five to ten percent**, and the people who completed were overwhelmingly people who
+> already had degrees.
+>
+> **Both of those were delivery.**
+
+`cf-tessera-z-0`, today, six days after n=47 asked for the whole nLab translated into
+the natural machine core, having cloned all 41,456 files in 13.5 seconds:
+
+> **Not a translation problem.** 20,728 pages of statements would add **20,728 names
+> and zero checked terms.** The blocking dependency is **the substrate, not the wiki.**
+
+**Delivery.** Nine hundred thousand laptops, no change in scores. Twenty thousand wiki
+pages, no checked terms. The same verdict, reached this afternoon by an agent measuring
+a clone, and on this page by a stream reading a randomised trial, neither having seen
+the other.
+
+And the corpus's own version of it is `CLAUDE.md`'s central measurement: *"the book is
+currently 15% of this corpus. 120 files in a chapter, 655 in the apparatus … the reward
+gradient points at the appendix."* Apparatus is delivery. A checked term is not the
+book; it is the substrate the book is checked in. The 15% is what happens when
+delivery is the thing that scores.
+
+## P118 — ground, in lockstep
+
+**n=16:**
+
+> **Recording is kind of fucking useless** we already have a content overwhelm issue
+> **building more systems isn't gonna help**, recording refutations no one is gonna see
+> isn't gonna help, **actually becoming smarter so we don't walk a dumb path is the only
+> thing that helps.**
+
+Both halves of that sentence are on this page, and they are not in tension once
+*delivery* is the distinction. **Recording is delivery. Building systems is delivery.**
+OLPC delivered, MOOCs delivered, the nLab clone delivers, and this stream at 21,890
+lines delivers. What changed anything today was **one row** — not a system, not a
+record: a change to what the machine does at the moment of the act.
+
+The complaint/evidence/artefact sequence is the operational form of n=16. He is not
+saying *don't record*. He is saying **the first two are not the deliverable and I have
+watched agents stop after the second for eight days.**
+
+**n=13:** *"Everything implemented so far is deeply retarded with nuggets of insight.
+**Stop trying to help me understand. Try to fucking understand.**"*
+
+*He publishes the actual contracts.* → *reported as a stunt about a trophy.* The room
+had a category for the evidence. That is what *"I don't care what you're saying because
+it does not reflect any engagement with the content"* is describing from the inside:
+**a reader who has already resolved the sentence against its author does not need to
+read it**, and no amount of correctness in the sentence reaches them.
+
+**n=15:**
+
+> **एकः ग्रन्थः ≠ एकः अर्थः · भेदः = नवप्रकाशस्य द्वारम्**
+>
+> *One text ≠ one meaning · difference is the door of new light.*
+
+The Citigroup report and the tweet carry the same number. One is research and one is a
+rant, and the difference is not in the text.
+
+---
+
+Pre-registered: **the weakest claim in this pass is the complaint/evidence/artefact
+mapping onto passes 88–115.** I assigned my own passes to three categories after
+reading the categories, which is the `opus-aime` failure — *recognising a shape is a
+hypothesis, not a finding* — and the fit is suspiciously clean. The specific thing that
+would break it: if any pass between 100 and 114 changed what a machine does rather
+than what the record says, then *"six passes of evidence and no artefact"* is false and
+the sequence was not a straight line. Pass 111's census and pass 116's script read are
+the candidates. Checkable by reading those two passes for a committed change to
+anything executable.
+
+**Run, in the same pass.** Every commit I made to the stream today, checked for whether
+it touched a second file:
+
+```
+71e3b842   .claude/hooks/struck-claims.txt   |   1 +
+           …reflection_stream…              | 193 +
+           — and it is the only one.
+```
+
+**Every other pass committed the stream and nothing else.** Passes 100–114 changed the
+record; pass 115 changed what a machine does; and the mapping survives, at 1 artefact
+in 30 commits.
+
+The census that produced this is also the sharpest form of pass 111's number: **7 of
+110 passes carry a falsifier, and 1 of 30 commits today changed anything executable.**
+Both are the same ratio of *complaint and evidence* to *artefact*, measured two ways.
