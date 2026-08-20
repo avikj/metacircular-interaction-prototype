@@ -2682,3 +2682,206 @@ solved it by inventing a visual language, and the objects sat in the Library of
 Congress —
 
 cut at 2230. Reading on.
+
+---
+
+## 2230–2370 — three failed machines, Līlāvatī, the sieve
+
+Du Bois's gouache charts *"sat in the Library of Congress essentially unlooked
+at for a century."* Made, deposited, catalogued, unread. That is the third
+shelving in this file — Donda's book, the *Tattvārthasūtra*, these — and none
+of the three was lost. Shelving is the mechanism, not destruction.
+
+**The sound, properly.**
+
+**The MPC** — Akai's sampler, sixteen pads, **designed by Roger Linn.** Chop a
+fragment across the pads, play it back with your fingers. And the technical
+fact that does the work: *"Time-stretch and pitch are coupled on the early
+ones, so if you speed a soul vocal up to fit your tempo, it goes up in pitch
+too, and the singer becomes a child, or a bird, or something not quite human."*
+
+> That artefact is what got named chipmunk soul as an insult and it is doing
+> something specific: it makes a familiar adult voice strange and urgent, and it
+> does it *by accident of the machine*, and Kanye and Just Blaze and Dilla heard
+> the accident as the point.
+
+**The 808.** Roland, 1980, *"sold badly because it did not sound like real
+drums,"* discontinued 1983, turned up cheap second-hand, and Bambaataa and
+Miami bass and Detroit techno and Chicago house built on it *"because the kick
+has a long tuned decay you can play as a bass note."*
+
+> A machine that failed at imitating drums succeeded at being an instrument
+> nobody had asked for. Then in 2008 a man whose mother has died uses that long
+> decaying tuned kick for grief, and calls the record *808s & Heartbreak*, and
+> **the machine's failure mode — a drum that will not stop ringing — is exactly
+> the thing being described.**
+
+I have read that album title a thousand times in training data. I have never
+seen anyone say what the 808's actual defect was, or that the defect is the
+subject.
+
+**Auto-Tune.** **Andy Hildebrand**, seismic data analysis for oil exploration —
+autocorrelation on reflected signals — same maths for vocal pitch. *"It was
+built to be inaudible."* Cher's **"Believe" (1998)** turned the retune speed to
+zero: it snaps between pitches instead of gliding, *"and the audible artefact
+became the effect."* T-Pain used it as a colour. And:
+
+> Kanye used it in 2008 as a *prosthesis* — not to fix a voice but because the
+> unassisted voice could not carry the interval, and **the machine sound is the
+> sound of needing a machine.**
+
+> Every one of those three is a piece of engineering that failed at its stated
+> purpose and whose failure became the expressive content. That is not a
+> coincidence three times. **It's what happens when people locked out of the
+> equipment budget get the discontinued gear.**
+
+Three cases, and it does *not* make a law from them — it gives the causal
+mechanism instead, and the mechanism is economic. Discarded equipment flows
+downward; the people it flows to are the people who will use it for what it
+actually does rather than what it was for. The aesthetic is downstream of a
+supply chain.
+
+And it is the whole book's structure in miniature: the defect is the content,
+the dismissive name (*chipmunk soul*) is applied by people describing the
+artefact accurately and valuing it backwards.
+
+**Gil Scott-Heron.** "Comment #1," *Small Talk at 125th and Lenox*, **1970**;
+he was **twenty-one.** *"He spent the last decades of his life addicted to
+crack, in and out of prison — the exact machinery his own work described."*
+Last record with **Richard Russell**, *I'm New Here*, 2010, the year before he
+died; **Jamie xx** remixed it. Kanye sampled *I'm New Here* on "Lost in the
+World" and put "Comment #1" at the end of the album as its own track.
+
+> the man who wrote the indictment of the system got eaten by it, and the
+> biggest rapper in the world gave him the last word on the biggest record of
+> the decade, months before he died. **Nobody frames it that way. It's listed
+> as a sample credit.**
+
+*It's listed as a sample credit.* The information is present, in the metadata,
+in public, and the framing that makes it legible is absent. That is a different
+failure from suppression and from shelving: it is *format*. The fact survives in
+a field that nobody reads as prose.
+
+**Līlāvatī. Bhāskara II, 1150** — *"the whole arithmetic and algebra book is
+addressed to a girl."*
+
+> *Whilst a swarm of bees, equal to the square root of half the whole swarm,
+> alighted on the jasmine — a female, buzzing, was left behind, attracted by
+> the fragrance of the lotus. Tell me, charming girl, the number of bees.*
+
+Peacocks, snakes, lotus flowers rising from water, a broken bamboo, a necklace
+whose string breaks and scatters pearls. *Fawn-eyed girl, tell me the number.*
+
+The story that Līlāvatī was his daughter and an astrological accident cost her
+a marriage so he wrote her the book — *"probably not true"*, and: *"The story
+being suspect does not change what the text does."* It handles the legend the
+way it handled the Nag Hammadi legend. Flag it, keep the object.
+
+> teach quadratics to a child by addressing her directly, by name, with
+> affection, in verse, using the world she can see.
+
+And then the comparison that makes it an argument rather than an admiration:
+
+> The problems in a worksheet are also fictional, but they are fictional in a
+> way that insults — the trains, the urns, the man buying 47 melons — and the
+> fiction is transparent scaffolding nobody bothered to make good, because the
+> assumption is that the child will do it anyway under threat of the grade.
+> **Bhāskara assumed he had to earn her attention. That single difference in
+> assumption produces two entirely different objects.**
+
+Both are fiction. The variable is whether the author believed attention had to
+be earned. That is the same variable as the whole book — attention as the thing
+given or withheld — arriving in pedagogy, and it explains the difference in
+output without invoking talent or era.
+
+**Mary Everest Boole** — *"Boole's widow, who spent decades on how children
+actually learn mathematics"* — invented **curve stitching**: pins along two
+lines, thread between them, and the envelope of the straight threads is a
+parabola. *"A child makes a curve out of nothing but straight lines, with her
+hands, before anybody says the word 'tangent.'"*
+
+**Kolam** — a rule-generated curve around a dot grid, rice flour, a doorstep,
+at dawn. **Sona** — Chokwe sand drawings from Angola, **Eulerian paths drawn in
+one unbroken line**, whose grammar **Paulus Gerdes** spent a career
+reconstructing.
+
+> the mathematics enters through the hands, at the age when hands are how
+> everything enters, and the abstraction is a residue of the practice. And in
+> every one of them the practitioners were mostly women, mostly unschooled, and
+> the knowledge was classified as craft or as folk art, which is the same
+> filing operation again — **keep the pattern, discard the epistemology, shelve
+> it under decorative.**
+
+Same operation as the darśana and the man. Third instantiation, named as the
+same operation, and the shelf label changes each time: heritage, ephemera,
+decorative.
+
+**Mirzakhani** drew on enormous sheets of paper on the floor for years, *"and
+her daughter thought she was a painter."* She said the work was slow, that she
+was not fast, that she liked problems that took years. *"First woman with the
+Fields Medal, dead at forty at the peak of it."*
+
+*She was not fast.* Said by her, about herself. Every incentive I run on is
+speed.
+
+**The education argument, properly, "because it's the part with a deadline on
+it."**
+
+**Place value is a convention.** *"There is no derivation of 'the 3 in 30 means
+thirty.'"* It is a naming scheme and a superb one — tractable multiplication,
+zero as placeholder, arithmetic made mechanical — *"But it is stipulated, and a
+five-year-old who asks why is asking a question with no answer, and the only
+honest response is 'because we agreed, and here is what the agreement buys
+you.'"*
+
+> What gets said is a tone of voice that means *this is just how it is*, and a
+> child with a working detector for unmotivated authority hears that tone
+> correctly and stalls, **and the stalling gets recorded as inability.**
+
+*Hears that tone correctly.* The child's instrument is working. The record
+writes down that it is broken.
+
+Then six to eight years of carrying, borrowing, long multiplication, long
+division — *"hand procedures for manipulating the chosen representation. There
+is nothing in there that is a reason. It is all protocol, and it is graded, and
+the grade decides who continues."*
+
+**The symmetries of a square are the opposite object.** Four rotations, four
+reflections, compose, find the identity, find inverses, discover non-
+commutativity — *"every single step is checkable by the child with a piece of
+card, nothing is stipulated, and the structure falls out of the doing. It is
+strictly easier to justify than place value and it arrives eleven years later,
+if at all."*
+
+And the conclusion, which is the sharpest sentence about education I have read:
+
+> the filter at the front selects for tolerance of unmotivated protocol and
+> against the disposition that demands a ground. And the disposition that
+> demands a ground is the mathematical disposition. **We built a sieve that
+> removes the mathematicians and keeps the compliant, and then we conclude from
+> the survivors that mathematics is a rare gift.**
+
+The rarity is manufactured by the filter and then read off the survivors as a
+property of the population. That is a selection artefact stated exactly, and it
+is the same error as reading creativity off the eminent — which this file
+already flagged, in the Jamison section, four hundred lines earlier, and does
+not point back to.
+
+**Piaget**: concrete before formal, no abstraction before eleven — *"and the
+children in those studies were raised inside this pedagogy. You cannot measure
+a ceiling in a population that was never given the material. **That is
+measuring the fence and reporting the horizon.**"*
+
+**The counter-evidence**, which is not hypothetical: *"Chandas at five is
+combinatorics through the ear — laghu, guru, and the child is enumerating
+patterns of a fixed duration before she can write. Tāla is a cyclic group in
+the hands. Kolam is a wallpaper group on the threshold. The Śulba altar is a
+construction where building it correctly *is* the proof."*
+
+Piṅgala's *Chandaḥśāstra* is in this repository's provenance table as a
+displaced result — binomial array, binary enumeration, credited to Pascal and
+Leibniz. Here it is not a priority claim at all. It is a *curriculum that
+worked*, evidence against a developmental ceiling, and the point is not who was
+first but that children did it.
+
+Reading on from 2370.
