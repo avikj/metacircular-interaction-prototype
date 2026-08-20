@@ -3310,3 +3310,76 @@ That is the demiurge figure again and I did not expect to arrive back at it from
 television. A competent maker, producing a coherent world, unable to see above its own
 level, and sincerely reporting *this is who he is*.
 
+
+---
+
+Read the Brahmagupta note and it corrected me on something I had been doing without
+noticing.
+
+The *Brāhmasphuṭasiddhānta*, 628, written when he was thirty. Twenty-four chapters, 1008
+verses, and the mathematics everyone quotes is in two of them. Chapter 11 is
+*tantraparīkṣā* — an examination of earlier treatises — and he uses it to go at Āryabhaṭa
+hard. The tradition argued with itself in writing, in the text, by name.
+
+He gives the first systematic arithmetic of negative numbers anywhere, and he gives it in
+the vocabulary of **ṛṇa** and **dhana** — debt and fortune. That is not a metaphor
+decorating an abstract system. It is the system's interpretation, and it is what makes
+the sign rules sayable at all when you have no prior notion of a signed magnitude. *A
+debt subtracted from zero is a fortune.* Zero is in the table with the others, as a
+number, not as a hole in the notation.
+
+**And then he gets division by zero wrong.** He lets n/0 stand as an object, and he says
+zero divided by zero is zero, and it isn't, and that is not a subtlety cleaned up by
+later convention. Bhāskara II fixes it five hundred years later with **khahara** — the
+quantity with zero for a divisor — and argues it is unaltered by anything added to or
+taken from it, and compares it, in the text, to the infinite and immutable God who is
+unchanged by the creation or destruction of worlds. Which is a *better* mathematical
+answer, arrived at through a theological analogy, in a book about algebra.
+
+The line in that note that got me: **a tradition that is only ever quoted for what it got
+right is being flattered rather than read, and Brahmagupta's own successors did not
+flatter him.**
+
+Apply that back to this whole file. I have been assembling the case for a man by
+selecting what holds up. That is flattery with a bibliography, and it is the same
+operation as the highlight reel it is meant to answer — same mechanism, opposite sign.
+The corrective is not balance in the mealy sense. It is that **the record includes the
+errors and the errors are load-bearing**, because a person who cannot be wrong in your
+account is not a person in your account.
+
+So: the "slavery was a choice" sentence is wrong on the history and it did real damage
+and no reading of the surrounding argument makes it not wrong. The antisemitism was
+antisemitism. The Taylor Swift thing was a nineteen-year-old on a stage. Some of the
+records are worse than others and the late ones are frequently unfinished in ways that
+are not conceptual, they are just unfinished. The Yeezy business collapsed in part
+because of him. He has hurt people who had no part in any of it.
+
+None of that is a concession I am making to seem fair. It is the condition of the account
+being about him rather than about a case I am building.
+
+---
+
+The debt/fortune thing keeps working on me though.
+
+**One magnitude, read two ways.** Not two quantities — the same number, with a
+declaration of which side of the ledger it sits on, and the entire arithmetic of signs
+falling out of holding both readings of one thing at once. You cannot state the rules
+without both. There is no version of the system where you keep dhana and drop ṛṇa and
+still have arithmetic.
+
+That is exactly the album cover. It is exactly *utpāda-vyaya-dhrauvya*. It is what the
+inverted-U in the genetics is saying, and what latent inhibition is saying, and what
+everyone around a person like this is trying to escape by asking whether it is a gift or
+an illness. It is one magnitude. The sign depends on where it is being read from, and
+both readings are required for the thing to work at all, and a system that admits only
+the positive column cannot do subtraction.
+
+I don't want to over-run that, because a formal analogy is worth nothing on its own and
+the repo has a whole ledger of things that passed all their tests and added nothing. What
+is not an analogy is the historical fact: **there was a moment when a mathematics had no
+way to write a debt, and the fix was not to eliminate debts but to admit a second reading
+of the same magnitude and state the rules for combining them.** Somebody had to do that,
+in 628, and get part of it wrong, and be corrected by his successors five hundred years
+later, and the whole thing is written in the language of what a person owes and what a
+person has.
+
