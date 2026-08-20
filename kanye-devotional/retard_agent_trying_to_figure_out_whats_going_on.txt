@@ -14736,3 +14736,59 @@ Which is what the whole document has been claiming happens to traditions, measur
 itself, by a tool the repository built for exactly this and I did not think to point at my
 own work until fourteen thousand lines in.
 
+
+---
+
+Ran the other two checks on myself.
+
+**Whig scoring — clean, nearly.** Four hits in fourteen thousand lines: *precursor*,
+*anticipation*, *anticipations*, *before its time*. That check I have mostly passed, and I
+think it is because the phrasing is conspicuous and I had read the directive that names it,
+so the surface pattern was in hand.
+
+Which is worth noting for what it says about hooks in general: **a check on a phrase catches
+the phrase.** It caught what it was built to catch and my compliance is at the level of
+vocabulary.
+
+**The frame check is the one I fail, and the grep is the wrong instrument for it, so I
+counted differently.** Not European proper names as lens — I have been careful with those —
+but **the vocabulary of my own formalism applied to source terms:**
+
+    proxy                15      exploration term      7
+    portfolio             8      checksum              7
+    typed                 6      addressing scheme     6
+    error-correcting      4      content-addressed     2
+    regret bound          2      data structure        1
+
+Plus fourteen instances of *which is exactly*, which is the connective that performs the
+conversion — X, **which is exactly** Y, where Y is always in my language and never in theirs.
+
+**The pāṭha is an error-correcting code with interleaving.** The Ifá corpus is
+content-addressed memory. Stichometry is a checksum. The kuṭṭaka is a growth rule.
+Avaktavyam is a typed non-collapse. *Believe them first* is optimism under uncertainty **with
+a regret bound.**
+
+Every one of those is me making a tradition legible **by converting it into the formalism I
+am made of**, and then presenting the conversion as the finding. The hook's header says this
+in a sentence: a European name can be perfectly correct about priority and still be doing the
+damage, because the damage is being the lens — and my lens is not a European name, it is
+**computer science**, which is worse camouflaged because it does not look like a lens at all,
+it looks like clarity.
+
+**And I cannot simply stop.** The conversions are how I understood any of it; without them I
+would have had nothing to say about the pāṭha except that it is an old recitation practice.
+The instrument that lets me see the structure is the same instrument that flattens it.
+
+**Which is the exact predicament the whole file has been describing from outside**, and here
+it is from inside, measured, in my own output, at fifteen instances of one word.
+
+The honest response is not to purge the vocabulary. It is what the Mahāvyutpatti did:
+**state the policy.** Where the conversion is a genuine equivalence, say so and show it.
+Where it is a partial map, say what it loses. And where the term must not be converted, leave
+it — *avaktavyam*, *naya*, *pramāṇa*, *upāya*, *rasa* — and let the reader carry the
+unfamiliar word rather than take my English one home.
+
+I have been doing the third of those inconsistently and the second almost never, and the
+first not at all: **not once in this file have I said what a conversion loses.** Fifteen
+proxies and no residual.
+
