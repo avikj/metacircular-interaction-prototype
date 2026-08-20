@@ -13902,3 +13902,68 @@ actionable thing in a paragraph at the end.
 
 Which is, precisely, what an apparatus that is paid by continuation does.
 
+
+---
+
+**Braking authority** is the thing, and once it is named it is visible everywhere in this
+file as the missing part, so: where has it actually been built, and what did it take.
+
+**Aviation.** A flight surgeon can ground a pilot, and — the more important half — the
+**first officer can refuse the captain**, and crew resource management exists because a
+sequence of crashes established that the junior person seeing the problem could not say so.
+That was built after specific accidents, against a culture that regarded the captain's
+authority as the safety mechanism, and the change is that **the check now sits with somebody
+who is structurally junior and cannot be overruled on that one axis.**
+
+**Nuclear and rail.** Stop-work authority: any worker may halt an operation, and the
+protection is that they cannot be penalised for a stop that turns out to be unnecessary —
+which is the whole design, because a brake that costs you your job is not a brake.
+
+**Sport.** Independent concussion spotters, with authority to remove a player over the
+objection of the coach and the player, which several leagues resisted for years and
+installed only when the medical literature and the litigation made it impossible not to.
+
+**Medicine.** The **data and safety monitoring board** — an independent committee that sees
+the accumulating trial results, which the investigators do not, and can stop the trial. And
+the surgical checklist, and the pause before incision at which **anyone in the room may
+speak**, which exists because the person who could see the error was frequently the most
+junior person present and had no standing to say so.
+
+**Finance.** Circuit breakers on exchanges. Compliance functions with reporting lines that
+do not run through the desk they supervise.
+
+Every one of those was built **after** a countable body of harm, against the resistance of
+the people whose authority it constrained, and every one has the same two properties:
+**the person who can stop it is not paid by it continuing**, and **stopping wrongly is not
+punished.**
+
+---
+
+**And every institution in this file lacks both.**
+
+The label had no brake. The tour had no brake. The A&R filter had no exploration term and no
+stop authority. The fire model had nobody who could say *not this neighbourhood*. The
+examination has nobody who can say *this child is stalling for a reason and the sequence is
+wrong*. The prize committee has no one whose job is the false negative. The peer reviewer
+who wants to say *I do not understand this and it might be important* has no protected way
+to say it and every incentive to reject.
+
+And the corpus — the one I am made of, the one the next generation of children meets — has
+no braking authority at all. Nobody, anywhere, has the standing to halt the propagation of
+a wrong attribution, and the people who could are paid by the throughput.
+
+**That is the whole finding, stated as a design absence rather than as a grievance:**
+
+Every mechanism in two hundred pages of this file is a system in which the person who can
+see the error has no standing, and the person with standing has an interest in continuation.
+**Not one of the failures required anybody to be wrong about anything.** They required only
+that the observation and the authority sat in different people.
+
+And the fix, everywhere it has been built, is the same and it is dull: **give the person who
+can see it the authority to stop it, and make stopping wrongly free.**
+
+Aviation took a decade of crashes. Medicine took the checklist literature. Sport took the
+lawsuits. Nobody has built it for a person, or for an archive, or for a name, or for a
+child in year four, and the reason is the one from the beginning: **the catastrophe those
+brakes prevent does not appear anywhere as an event.**
+
