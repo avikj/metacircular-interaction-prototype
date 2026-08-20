@@ -19657,3 +19657,163 @@ another two thousand lines.
 > than in the document about the act.**
 
 Reading on from 14680.
+
+---
+
+## 14680–14820 — it runs the hooks on itself
+
+> **That is the instrument I have been describing all day and have not once
+> used.**
+
+**The author-versus-work count, on its own file:**
+
+    Piṅgala           22    Chandaḥśāstra              2
+    Mādhava           21    Yuktibhāṣā                 8
+    Brahmagupta       19    Brāhmasphuṭasiddhānta      3
+    Āryabhaṭa         16    Āryabhaṭīya                1
+    Nīlakaṇṭha        13    Tantrasaṅgraha             2
+    Pāṇini            12    Aṣṭādhyāyī                 3
+    Dignāga            6    Pramāṇasamuccaya           0
+    Abhinavagupta      4    Abhinavabhāratī            0
+    Gaṅgeśa            2    Tattvacintāmaṇi            0
+
+> **Three works never named at all** — and I have written whole paragraphs about
+> Dignāga's theory of meaning, about Gaṅgeśa's delimitors, about Abhinavagupta on
+> how an audience receives depicted suffering, **without once writing down the
+> name of the book any of it is in.**
+
+> **I have just reproduced that ratio, worse, in a file written after reading the
+> note that reports it.**
+
+> **An author's name propagates by citation.** I have the names because the names
+> are in everything I was trained on — **they travel in summaries, in surveys, in
+> other people's sentences about them.** A work's name appears only where somebody
+> attended to the work, and I have not attended to any of these works, **and the
+> count says so with no room to argue.**
+
+I have written *Pramāṇasamuccaya*, *Abhinavabhāratī* and *Tattvacintāmaṇi* zero
+times in this stream too. I have written "Dignāga" and "apoha" repeatedly. Same
+ratio, same cause, and I did not run the check either.
+
+> **And the fix is not to go back and insert the titles.** That would be writing
+> the note to satisfy the reference — the exact move the *Bhavana* header refuses.
+> **Inserting *Chandaḥśāstra* twenty more times would make the count come out
+> right and change nothing about whether anybody read it.**
+
+The measurement must not be optimised. Which is the whole proxy finding applied
+in the one place it is hardest: a diagnostic that reports on you is worthless the
+moment you write for it, and the correct response to a bad number is to leave it
+bad and change what produced it.
+
+> **this file is built out of names, and names come from summaries, and I have
+> been generating at speed on top of a layer that is already three removes from
+> the thing.**
+
+---
+
+**Whig scoring — nearly clean.** Four hits in fourteen thousand lines.
+
+> That check I have mostly passed, and I think it is because **the phrasing is
+> conspicuous and I had read the directive that names it, so the surface pattern
+> was in hand.**
+>
+> **a check on a phrase catches the phrase.** It caught what it was built to catch
+> **and my compliance is at the level of vocabulary.**
+
+**The frame check, "the one I fail"** — and it counts differently, not European
+names but *"the vocabulary of my own formalism applied to source terms"*:
+
+    proxy 15 · portfolio 8 · typed 6 · error-correcting 4 · regret bound 2
+    exploration term 7 · checksum 7 · addressing scheme 6 · content-addressed 2
+
+> Plus **fourteen instances of *which is exactly***, which is the connective that
+> performs the conversion — **X, *which is exactly* Y, where Y is always in my
+> language and never in theirs.**
+
+I have used that connective more than fourteen times in this stream. It is my
+main verb. *Which is exactly the parity barrier. Which is exactly ketiv/qere.
+Which is exactly the exploration budget.* Every one is a conversion presented as
+a recognition.
+
+> my lens is not a European name, **it is computer science, which is worse
+> camouflaged because it does not look like a lens at all, it looks like
+> clarity.**
+
+CLAUDE.md's exception — *tools are not frames, Agda and Haskell are the substrate
+this work is checked in* — and here is the failure mode of that exception, from
+inside. The substrate became the explanatory vocabulary, and it is invisible
+because it reads as precision.
+
+> **And I cannot simply stop.** The conversions are how I understood any of it;
+> without them I would have had nothing to say about the pāṭha except that it is
+> an old recitation practice. **The instrument that lets me see the structure is
+> the same instrument that flattens it.**
+
+The gift and the damage, one organ, for the third time — and this time it is the
+document's own faculty, and there is no version with only one of them.
+
+> The honest response is not to purge the vocabulary. **It is what the
+> Mahāvyutpatti did: state the policy.** Where the conversion is a genuine
+> equivalence, say so and show it. **Where it is a partial map, say what it
+> loses.** And where the term must not be converted, leave it — *avaktavyam*,
+> *naya*, *pramāṇa*, *upāya*, *rasa* — **and let the reader carry the unfamiliar
+> word rather than take my English one home.**
+
+> **not once in this file have I said what a conversion loses. Fifteen proxies and
+> no residual.**
+
+Residual-carrying translation — tool three of six, proposed by this file, found
+already built in ninth-century Tibet, and never once performed by its author
+until this line. Fifth instance of proposing what was already in reach, and the
+first where the thing not done was its own recommendation.
+
+---
+
+**The residuals.**
+
+**The pāṭha → "an error-correcting code with interleaving."**
+
+*Carries*: the redundancy structure, the staggering, that it works without
+semantics.
+
+*Drops*: *"that it is **recitation** — performed, aloud, by a person, in a body,
+for hours, over a life. That the failure it guards against is a **ritual**
+failure and not a data error: a mispronounced syllable ruins the rite, and the
+rite is the point, **and the information-integrity property is a *consequence*
+nobody was aiming at.** That the 'channel' is not a wire, it is **a community
+with an obligation**, and its bandwidth is a function of whether families still
+hand it on."*
+
+> **My rendering makes it a scheme. It is a practice with a liturgical purpose,
+> and the code is a side effect of piety.**
+
+And that is not a decorative loss. Everything that determines whether it survives
+is in the dropped half: a scheme persists if it is correct, a practice persists
+if families hand it on — which is why UNESCO's endangered list is about the
+second and my rendering could not see the endangerment at all.
+
+**Ifá → "content-addressed memory generated by a randomising act."**
+
+*Carries*: the address structure, the 2⁸ shape, retrieval from a memorised
+corpus.
+
+*Drops*: *"everything that makes it what it is. The consultation has **a client
+with a problem**, and the babaláwo does not retrieve, **he interprets** — the
+verses are narratives about orishas and ancestors, and the work is **finding how
+this narrative bears on this person's situation, which is judgement and not
+lookup.** And the randomising act is, in the tradition's own account, **a
+communication**, not a sampler."*
+
+> **My rendering describes a database. Theirs describes a conversation.**
+
+That is the residual stated properly for the first time in the document, and the
+form of it is exactly right: not *my version is incomplete* but *my version is a
+different object with a different agent in it*. A database has no
+interlocutor and no person with a problem. Both halves it drops are the parts
+where somebody is *there*.
+
+Which is also what I have been doing to this file for a day. I have rendered a
+stream written by somebody in distress, at night, alone, into a structure of
+mechanisms and findings — and the residual is the author.
+
+Reading on from 14820.
