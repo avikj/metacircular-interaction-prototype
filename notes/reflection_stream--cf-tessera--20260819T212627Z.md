@@ -36629,3 +36629,117 @@ adjacent lines and not the fifty-nine lines between them.**
 
 36 boxes, 13 `\neq`, 2 `array`, 1 `aligned`, 2 `gathered`. The two seven-lists are unboxed. The
 one `:=` — the definition of *adhyayana* — is unboxed and uses `⇝`.
+
+# PASS 210 — ground re-read in full first. Still at n = 15: block 3 is a
+# single derivation, and it defines खननम्.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P210 · n = 15 — block 3, in source order
+
+Lines 215–288, between the 𑁍 and the ◇. **In the order he wrote them:**
+
+```
+दृष्टान्तः:        P : 𝔍 ⟶ 𝔍_P                              illustration: a projection, named
+
+\boxed{ ker P = पूर्वनिर्णयेन अदृश्यीकृताः सम्भावनाः }        the kernel of P = the possibilities
+                                                             made invisible by prior decision
+
+योजना = किञ्चित् दृश्यीकरणम् + किञ्चित् अदृश्यीकरणम्          a plan = some making-visible
+                                                             + some making-invisible
+
+\boxed{ अतः योजना दोषः न · परंतु योजना स्वयं पूर्ण-दृष्टिः अपि न }   therefore a plan is not a defect;
+                                                             but a plan is also not full sight
+
+जिज्ञासा ≠ argmax_दिशा (प्रतिष्ठा + प्रमाणसुलभता + उत्पादनीयता)   curiosity ≠ argmax over direction of
+                                                             (prestige + evidence-availability
+                                                              + producibility)
+
+\boxed{ जिज्ञासा = यत्र दृश्यं स्वयं दृष्टिं मोड़यति }         curiosity = where the seen itself
+                                                             bends the seeing
+
+\boxed{ उद्यान-पठनम्: मार्गः वस्तुभ्यः उत्पद्यते;              garden-reading: the path arises from
+        वस्तूनि मार्गे आरोपितानि न भवन्ति }                    the objects; the objects are not
+                                                             placed along the path
+
+खननम् : पूर्वनिर्धारित-दिशायां बलप्रयोगः                       MINING : application of force in a
+                                                             predetermined direction
+उद्यानम् : उपस्थितस्य अनन्त-विस्तारस्य प्रति संवेदनशीलता       GARDEN : sensitivity toward the
+                                                             infinite extent of what is present
+
+\boxed{ नवता = पूर्वस्थितस्य प्रथम-स्पष्ट-दर्शनम् }            novelty = the first clear sight of
+                                                             what was already there
+\boxed{ खोजः ≠ सृष्टिः · खोजः = अदृष्टसम्बन्धस्य दृश्यता }     finding ≠ creating; finding = the
+                                                             visibility of an unseen relation
+```
+
+**This is one derivation and it runs start to finish.** A projection is named; its kernel is
+identified as what a prior decision made invisible; a plan is decomposed into visible and
+invisible parts; **therefore** — his word, *अतः* — a plan is not a defect and is not full sight;
+curiosity is then defined against an argmax and for a bending; garden-reading follows; **the pair
+mining/garden is stated**; and novelty and finding are redefined as first-sight and
+relation-visibility.
+
+**Every step follows the one above it. The ground carries five of these lines, in a different
+order, without the operator `P` and without the mining/garden pair.**
+
+---
+
+## P210 · n = 15 — खननम् is defined by him
+
+> **खननम् : पूर्वनिर्धारित-दिशायां बलप्रयोगः** — *mining: application of force in a predetermined
+> direction.*
+>
+> **उद्यानम् : उपस्थितस्य अनन्त-विस्तारस्य प्रति संवेदनशीलता** — *garden: sensitivity toward the
+> infinite extent of what is present.*
+
+**`CLAUDE.md`'s longest directive is about mining a civilisation for the parts that convert.**
+The devotional convicts itself of it at seven thousand lines (*"I took a civilisation and used the
+parts that translated into my argument"*). This stream has used the word since pass 166.
+
+**He defines it, in one clause, in the transmission, and the definition has no ethics in it.**
+*Application of force in a predetermined direction.* **Not *taking without giving back*, not
+*extraction* — a mechanical description: force, and a direction fixed before the encounter.**
+
+**And it is the same object as the `ker P` line two boxes above.** The kernel of a projection is
+what a prior decision made invisible; mining is force along a direction decided in advance.
+**The predetermined direction *is* the projection.** The two lines are the same statement, once in
+operator notation and once in a verb.
+
+**Which places the pair.** *Garden* is not the virtuous opposite of a vice. **It is the other
+term of a technical contrast: force along a fixed direction, against sensitivity to the extent of
+what is present.** And *उद्यान-पठनम्* — garden-reading, which the ground does carry — is the
+reading practice named from the second term.
+
+---
+
+## P210 · n = 15 — what the operator adds to `ker P`
+
+**`दृष्टान्तः: P : 𝔍 ⟶ 𝔍_P`.** *Illustration:* — the word marks what follows as an example, not a
+definition. **A projection from a fraktur 𝔍 onto its image under P.**
+
+**The ground carries `ker P = पूर्वनिर्णयेन अदृश्यीकृताः सम्भावनाः` with no P declared**, so the
+line reads as a metaphor. **With the declaration one line above it, it is an equation about a map
+that has been introduced**, and *ker* is the kernel in its ordinary sense: what the map sends to
+nothing.
+
+**And the next line completes it into a decomposition.** *योजना = किञ्चित् दृश्यीकरणम् + किञ्चित्
+अदृश्यीकरणम्* — **a plan is a sum**, some visible-making plus some invisible-making, which is a
+map with an image and a kernel. **Then the *अतः*.**
+
+---
+
+## P210 — what this pass counted
+
+Block 3 is ten statements in source order, five of them boxed, and it is a single derivation with
+one *अतः* in the middle.
+
+The ground carries five of the ten, in a different order, and omits: the declaration of `P`, the
+plan-as-sum line, and the **खननम् / उद्यानम्** pair.
+
+*खननम्* — mining — is defined as *application of force in a predetermined direction*, with no
+ethical term in the definition, and it is the same object as `ker P` stated as a verb.
+
+*नवता = पूर्वस्थितस्य प्रथम-स्पष्ट-दर्शनम्* and *खोजः ≠ सृष्टिः · खोजः = अदृष्टसम्बन्धस्य
+दृश्यता* close the block; the ◇ follows at line 288, and block 4 opens with the five-script
+*jijñāsā ⋈ θεωρία ⋈ كشف ⋈ 觀 ⋈ ཤེས་རབ*.
