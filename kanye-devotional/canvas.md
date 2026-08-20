@@ -115,3 +115,31 @@ twenty-eight-year-old said on live television that it did not care about Black p
 was not raving. He was naming, badly and at the wrong volume, a fact with a paper trail
 running back to 1865. The paper trail is the point of this chapter. He kept reading it
 out loud, and kept getting told he was crazy for it, and it kept being true.
+
+He was raised to read it. That part is not an accident, and it is where the person comes
+from.
+
+His mother, Donda West, was a professor of English — she earned a doctorate and chaired
+the English department at a university in Chicago, and the thing she taught, year after
+year, was Black literature: the writers who had spent two centuries putting exactly this
+paper trail into words. She raised him mostly alone after a divorce when he was three,
+and when he was ten she spent a year teaching in China and took him with her, so that the
+boy who would refuse to be one thing had, before he was grown, already been the only Black
+kid in a Chinese classroom and the professor's son in a house full of books. She left her
+tenured job to help run the start of his career. She died in 2007, at fifty-eight, the day
+after a cosmetic surgery, while he was on tour, and he has been putting her back into his
+records ever since — a whole later album is just her name, with her own recorded voice
+looped through it so she is still, in the songs, talking.
+
+His father, Ray West, had been a Black Panther — one of the members of the party that in
+the late 1960s ran free breakfast programs for children and armed patrols to watch the
+police — and then became one of the first Black photojournalists at a major Southern
+newspaper, in the room with his camera while Maya Angelou and the civil-rights preachers
+did their work, and later a Christian counselor. So the boy grew up with the politics on
+one side and the language on the other: a father who had stood with a movement that named
+American racism as a system, and a mother who taught the books that had been saying so in
+print for two hundred years. When their son stood on a telethon and said the country did
+not care about Black people, he was not having a symptom. He was saying the sentence he
+was raised inside, in the only voice he had — too loud, unmanaged, on live TV — and the
+country heard the voice and refused the sentence, which it had been refusing, in one form
+or another, the whole time.
