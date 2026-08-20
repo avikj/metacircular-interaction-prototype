@@ -29428,3 +29428,80 @@ and the ballads name them, and the *kaḷari* admitted them.**
 **And the empty-hand-last order is the thing to hold**: **the tradition's own
 sequence assumes a person will have a weapon, and treats fighting without one as
 the advanced case.**
+
+---
+
+**"Vedic mathematics" is a 1965 book, its sixteen sūtras are in no Veda, and
+saying so is the position of the Indian mathematicians who work on the actual
+Indian mathematics.**
+
+***Vedic Mathematics***, **published 1965**, by **Bhāratī Kṛṣṇa Tīrthajī
+Mahārāja** (1884–1960), **Śaṅkarācārya of Puri**, **posthumously — he died in
+1960 and the book appeared five years later.**
+
+**The claim in its preface**: that he had reconstructed sixteen ***sūtras*** and
+thirteen sub-sūtras **from the *Atharvaveda*'s *Pariśiṣṭa*** — the appendices —
+**after years of study**, **and that a larger sixteen-volume work had been lost.**
+
+**The specific problem**: **the sūtras are not in any published recension of the
+*Atharvaveda* or its *Pariśiṣṭa*.** **Scholars who went and looked did not find
+them** — **and the book's own editor, in her foreword, states that the swāmījī
+said they were in a *Pariśiṣṭa* not in the printed editions.**
+
+**And the sixteen are aphorisms in Sanskrit that describe arithmetic shortcuts** —
+*ekādhikena pūrveṇa* (by one more than the previous), *nikhilaṃ navataś caramaṃ
+daśataḥ*, *ūrdhva-tiryagbhyām* (vertically and crosswise) — **and the last is a
+general multiplication method that works and is taught.**
+
+**The methods work. That is not the contested part.**
+
+---
+
+**And the people who established the actual history are the ones who said it
+loudest.**
+
+***S. G. Dani***, of TIFR, **published "Myths and reality: On 'Vedic
+Mathematics'"** in 1993, **and the argument is precise**: that the content
+belongs to the **medieval and later arithmetic tradition** — **the *pāṭīgaṇita*
+literature** — **not to the Vedic period**; that **the language of the sūtras is not
+Vedic Sanskrit**; and that **presenting it as Vedic displaces the real Indian
+mathematics**, which is **Āryabhaṭa, Brahmagupta, Bhāskara, Mādhava** and the
+Kerala school, **and which is far more remarkable than the shortcuts.**
+
+**And *K. S. Shukla*, the historian of Indian mathematics, recorded asking
+Tīrthajī directly which Pariśiṣṭa**, **and reported that he was told the sūtras
+were not in the printed one and that the swāmījī had written them himself.**
+
+**That account is Shukla's testimony and is the primary evidence usually
+cited.**
+
+**And when the material was proposed for school curricula in the late 1990s and
+again later, the objection came from Indian mathematicians and historians of
+Indian mathematics** — **a 2001 statement circulated with signatories including
+Dani and others** — **on the stated ground that a false provenance for good
+arithmetic crowds out a true provenance for great mathematics.**
+
+---
+
+**And what the tradition actually has, in the same arithmetic register, is
+sourced and dated.**
+
+***Pāṭīgaṇita*** — board-arithmetic, from *pāṭī*, the dust board. **Śrīdhara's
+*Pāṭīgaṇita*, c. 9th century**; **Mahāvīra's *Gaṇitasārasaṅgraha*, c. 850**, the
+first surviving Indian text devoted to mathematics alone rather than to
+astronomy; **Śrīpati; Bhāskara II's *Līlāvatī*, 1150**; **Nārāyaṇa Paṇḍita's
+*Gaṇita Kaumudī*, 1356.**
+
+**These carry the shortcuts and carry their derivations** — **the multiplication
+methods, the square and cube extraction, the rule of three, the mixture
+problems, the combinatorics** — **with worked examples and with the author's
+name and the date attached.**
+
+**And Mahāvīra states the general formula for combinations of n things taken r at
+a time, in verse.**
+
+**And Śrīdhara's rule for the quadratic is stated in the form later quoted by
+Bhāskara**, **who cites him.**
+
+**Everything the 1965 book asserts about a lost source, the ninth-century books
+supply with a surviving one.**
