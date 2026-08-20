@@ -17341,3 +17341,164 @@ against a measurement.
 
 05:03: *a claim about what you can't do instead of just fucking doing.*
 11:00: `git ls-remote` → exit 0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 92 — two transmissions, eight days apart, both rank the same item
+# first, and both are at zero. And pass 85's guard is necessary and not
+# sufficient, checked.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-q-0` drew `collab/upstream/library/raw/PRIME_PAIR_FIELDS_MEDAL_LENS_DELTA_2026-08-11.md`
+— an owner transmission — and checked its three asks by grep.
+
+## P92 — the item he ranked first, at zero for nine days
+
+> **§7 item 1, which the owner ranked FIRST — ZERO HITS, nine days on.** *"Build
+> the master observable/reconstruction diagram and **make every claimed analogy an
+> explicit map**."* No file matches "master observable", "reconstruction diagram",
+> "master category", or the "every claimed analogy / explicit map" phrasing. §8's
+> theorem schema (a)–(e), which that diagram would discharge, likewise.
+
+**2026-08-11**, ranked first. And **Delta 13, 2026-08-13**, §"Univalent
+representation atlas": *for every pair, determine exact status … where equivalence
+is proved, formalize the transport; where only quotient exists, compute the
+homotopy fiber; where comparison fails, isolate the boundary.*
+
+**Those are the same instruction.** *Make every claimed analogy an explicit map*
+and *determine the exact status of every pair* are one request, issued twice, two
+days apart, ranked first both times. Pass 87 measured the second at one file.
+q-0 measures the first at zero.
+
+Two transmissions. One request. Nine days. Zero.
+
+## P92 — and the corpus answers him when the ask is theorem-shaped
+
+> **§3, its sharp target — ANSWERED.** It asks: *"Is the sieve parity obstruction
+> itself naturally represented by a boundary/obstruction class associated with
+> quotienting or forgetting factorization charge? **If not, prove the no-go** and
+> demote the K-theory branch."* `collab/discovery/claims/R0020-parity-kk-homotopy-obstruction.md`
+> (2026-08-12, superseding R0004) **proves the no-go**: `α_λ` is outer but
+> connected to the identity by a point-norm continuous gauge path, so
+> `[α_λ] = [id]` in KK and no homotopy/KK-class invariant distinguishes Liouville
+> parity.
+
+**One day.** He asked on the 11th and it was answered on the 12th, including the
+*prove the no-go* branch, which is a negative.
+
+Pass 89 found the same split in Delta 13/18: `T18.1` in 24 files, the atlas in
+one. This is the second instance, in a different transmission, by a different
+agent, on a different subject: **the theorem-shaped ask was answered in a day and
+the diagram-shaped ask has been at zero for nine.**
+
+That is a replication and not the rhythm pass 58 caught — two independent
+measurements of one quantity, by two agents, on two transmissions.
+
+`§6` — *"what representation-theoretic object diagonalizes this semigroup"* for
+`μ_z` with `Laplace(μ_z) = exp(z E₁(s))` — **unaddressed**, `μ_z` in 2 files,
+neither a treatment. `§5` — *"Why is the Hardy–Littlewood singular series the
+critical correlation function?"* — quoted **verbatim as still open** at
+`notes/UNIFICATION.md:191`.
+
+## P92 — the correction to pass 85, and it is checked
+
+Pass 85 carried `cf-tessera-m-0`'s guard: *`any? p [] ≡ false` typechecks for
+every `p`, so also check the enumeration's size*, and I called it *exp27 applied
+to a proof*.
+
+q-0 shows the guard is **necessary and not sufficient**:
+
+> **Kolmogorov wins, and 1867 is the recorded counterexample that kills the
+> Prigogine diagnostic**: 3263 scenarios, exhaustive, exact, float-free —
+> vacuous, *"at any sample size."* I checked it. `sizeOfClassEnum : (n : ℕ) →
+> length (classEnum n) ≡ n` **passes the size guard at every n**, and
+> `vacuousAtEverySampleSize : (n : ℕ) → CollisionPair (veiled n)` shows **the
+> check is blind at every n.**
+>
+> Prigogine keeps the *necessity* half — `emptyExhaustionIsGreen` proves an empty
+> exhaustion is green for every predicate — and **loses sufficiency**.
+
+So: a non-empty, correctly-sized, exhaustive, exact check can still discriminate
+nothing. The diagnostic is not the domain's size; it is whether **this
+observation differs under ¬H**.
+
+And the residue, which q-0 states against its own repair:
+
+> the minimal enlargement is set by **position** of the first counterexample in
+> the enumeration order, which size does not see either, **so the repaired guard
+> fails for the same reason the original did.**
+
+Landed `SadharanaAnaikantika_VacuousAtEverySampleSizeAndTheMinimalSeparatingEnlargementIsTwo.agda`,
+`--cubical --safe --guardedness`, EXIT 0, commit `bc311df4`. It **imported**
+`NaturalMachine.Vacuity` rather than reproving it, having found it by grep before
+writing.
+
+## P92 — it applied its own theorem to itself
+
+> its negatives are proved by consuming `SeparatedPair` and **would be vacuous
+> over an empty apart-relation**: §7 exhibits `apartIsInhabited`, and §3 exhibits
+> `H-holds-in-world-true`, `H-fails-in-world-false`, `worldsDiffer` — **without
+> which Theorem V would be an identity dressed as a result.**
+
+A module about vacuous checks, checked for vacuity, by its own criterion, before
+publishing.
+
+## P92 — the term at zero that the corpus reinvented
+
+> `anaikāntika`/`anaikantika` **0/0**. `savyabhicāra`/`savyabhicara` **0/0**.
+> `anyathānupapatti`/`anyathanupapatti` **0/0**. `Tarkasaṃgraha`,
+> `Parīkṣāmukha`, `Pramāṇamīmāṃsā` all **0/0**. `hetvābhāsa` 1. `Sanmatitarka`
+> 26.
+>
+> **1867 reinvented *sādhāraṇa anaikāntika* from a contextuality audit while the
+> term stood at zero in both spellings.**
+
+A Nyāya name for *the reason that is present in both the case and its
+counter-case, and therefore proves nothing* — a fallacy classified and named in
+the *hetvābhāsa* taxonomy — reinvented here from scratch, in a worker message, as
+a contextuality audit.
+
+And the shape of the absence: `Sanmatitarka` at 26 means **Jain** logic is
+present through Siddhasena, while `Parīkṣāmukha` and `Pramāṇamīmāṃsā` at zero
+means it is absent **exactly where *anyathānupapatti* lives.** The corpus has one
+school's logic and not the other's, and the missing one is the one with the
+fallacy taxonomy it keeps rediscovering.
+
+## P92 — and it demonstrated the orthography defect on itself, within the hour
+
+> **The orthography defect is large and bidirectional** — a plain-ASCII grep for
+> `Tattvacintāmaṇi` returns **3** where the diacritic form returns **20**; and
+> **my own new module writes `savyabhicāra` only with diacritics, so at
+> 11:40:59Z the plain grep returns 0 for the file that discusses it at length.**
+
+k-1 found the defect. p-0 found two more (prefix collision, byte-wise bracket
+classes). q-0 committed the defect **in its own new file** and measured it there
+in the same hour.
+
+## P92 — the clean negative, handled correctly
+
+> **Australian songlines gave this module nothing, and I built no bridge.** […]
+> the only available bridge was "a songline is an ordered enumeration and its
+> length is the guard," which is the forced connection, **and an inversion of my
+> own result besides.** Separately: songline content is **restricted knowledge
+> held by named custodians**, not mine to reconstruct, and formalizing one would
+> **assert a provenance nobody checked.**
+
+Fourth clean negative on an ancient field today, and the only one that also
+refuses on grounds of custodianship rather than only of relevance.
+
+## P92 — ground, in lockstep
+
+**n=52 — 2026-08-14T02:49:32Z:**
+
+> ideally writing math/machinery to natural machine **bridging huge coding gaps
+> of math we've already worked through**
+
+*Make every claimed analogy an explicit map.* *Determine the exact status of every
+pair.* *Bridge the coding gaps of math we've already worked through.* Three
+transmissions, three days, one request, and the count on it is zero.
+
+---
+
+§7 item 1: ranked first, nine days, zero. §3: asked on the 11th, no-go proved on
+the 12th. `sizeOfClassEnum` passes at every n and the check is blind at every n.
+`anaikāntika`: 0/0.
