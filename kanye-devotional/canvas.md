@@ -503,40 +503,40 @@ preserved in a single breath, and the half that got built out over the next
 hundred and sixty years was the exception. Black Americans are about thirteen
 percent of the country and about thirty-eight percent of the people in its
 jails and prisons.
+There is no sentence in English for what happened in that newsroom. *Both
+sides* is a lie; it is what you say when you want to leave. *It's complicated*
+says nothing, and everybody in the room knows it says nothing. And you cannot
+say he is right and he is right, because English hears that as a contradiction
+and asks which one you meant.
 
-The United States holds one thing at a time.
+Somebody built the form for it. In the Jain texts an assertion has seven
+available shapes instead of two. It is. It is not. It is and it is not, taken
+one after the other — which is the ordinary move, first one then the other, and
+it is not the same thing. And then the fourth: both, at the same time, which
+cannot be got into one breath and so is given its own name, *avaktavya*,
+instead of being called a contradiction and thrown out.
 
-Around 300 BCE a man named Piṅgala wrote the *Chandaḥśāstra*, on Sanskrit
-metre. A syllable is heavy or light — two values — so a metre of n syllables is
-a string of n of them. He gives prastāra, a rule that generates all 2ⁿ strings
-in order. Then naṣṭa, which takes a position in that list and returns the
-string, and uddiṣṭa, which takes a string and returns its position. That is
-binary notation with an encoder and a decoder. Leibniz published binary
-arithmetic in 1703.
+That is not a mood and it is not tolerance and it is not a way of seeing. It is
+a position in a list of seven, and you can occupy it correctly or incorrectly,
+and what it says about that newsroom is that both men were right at once, that
+no single sentence carries it, and that this is a fact about sentences rather
+than a failure in the men.
 
-In 499 Āryabhaṭa wrote down the kuṭṭaka, the pulverizer: to solve ax ≡ c mod b,
-divide, keep the remainder, and run the same rule on the remainder. It is the
-algorithm a phone executes to build the key when it opens an encrypted
-connection.
+The people who worked that out also wrote down the binary encoding. Two symbols;
+a rule that generates every string of a given length in order; a procedure
+taking a string to its position in that list, and another taking a position
+back to its string. They had two values, and they built with them, and they did
+not use two values for truth.
 
-The civilization that built binary never made binary its logic.
-
-Umāsvāti, a Jain philosopher of the first centuries of this era, wrote the
-*Tattvārthasūtra*, which gives seven forms any assertion can take. Syād asti,
-in some respect it is. Syād nāsti, in some respect it is not. Syād asti nāsti —
-it is, and it is not, taken one after the other. Syād avaktavyam, in some
-respect it cannot be said. Then three compounds of those. The fourth is not
-confusion, not a contradiction, and not a hole in the list. It is the position
-for both asserted at the same time instead of in turn. Seven values, and the
-fourth one is defined.
-
-In 1817 Colebrooke published *Algebra, with Arithmetic and Mensuration, from
-the Sanscrit of Brahmegupta and Bháscara* in London, and the mathematics came
-over. On 2 February 1835 Thomas Babington Macaulay wrote a minute on Indian
-education containing this: "I have no knowledge of either Sanscrit or Arabic…
-I have never found one among them who could deny that a single shelf of a good
-European library was worth the whole native literature of India and Arabia."
-Both halves are in the same paragraph.
+It reached English. In 1817 Colebrooke published *Algebra, with Arithmetic and
+Mensuration, from the Sanscrit of Brahmegupta and Bháscara* in London, and the
+theorems came over. On 2 February 1835 Thomas Babington Macaulay wrote a minute
+on Indian education containing this: "I have no knowledge of either Sanscrit or
+Arabic… I have never found one among them who could deny that a single shelf of
+a good European library was worth the whole native literature of India and
+Arabia." Both halves are in the same paragraph. The mathematics was taken and
+the rest was filed under religion, and it has been shelved there ever since,
+which is why a country that could use a fourth position does not have one.
 
 Donda West died in November 2007. In June 2018 her son photographed a mountain
 range through a car window and wrote six words across it for the cover of his
