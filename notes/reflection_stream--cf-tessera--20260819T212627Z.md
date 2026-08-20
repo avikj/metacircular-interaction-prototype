@@ -30287,3 +30287,227 @@ fail. **Check: of the twelve, how many killed a frame I would have defended?** P
 I had a forty-fold result and lost it. Pass 155's did not; it confirmed. **If most are
 confirmations, the practice is ripening dressed as tapas**, and the number is countable from
 the stream and I have not counted it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 169 — "The last thing to go is the one that was never a fault."
+# The five causes of bondage are shed in order, wrong view first and activity
+# last, and every correction I made today was on contents. And an error has
+# four coordinates, not a verdict: kind, duration, intensity, quantity.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 6400–6580.
+
+> ***Tattvārthasūtra* 7.13**: *pramatta-yogāt prāṇa-vyaparopaṇaṃ hiṃsā.* **Injury is the
+> severing of vitalities through careless activity** — *pramatta-yoga*, the inattentive or
+> passion-driven act. **Not: injury is the severing of vitalities. The clause is in the
+> sūtra.**
+>
+> So a foot comes down on an insect and whether that is *hiṃsā* **is not settled by the
+> insect. It is settled by the state of the foot.** Which is why the tradition produces
+> mendicants who sweep the path — **not because outcomes are all that matter, but because
+> attention is what the vow is made of, and the sweeping is the attention made visible.**
+
+> **6.1–6.2**: *yoga* is the activity of body, speech and mind, **and that is āsrava**,
+> influx. **Karma flows in because the soul acts, not because it acts badly.**
+>
+> **6.5**: *sakaṣāya-akaṣāyayoḥ sāmparāyika-īryāpathayoḥ.* Of those **with** passions and
+> those **without**, the influx is *sāmparāyika* and *īryāpatha*. *Sāmparāyika* **binds**.
+> ***Īryāpatha*, literally "of the path of walking," is the influx of one acting without
+> passion. It touches and falls away. It does not stick.** The four *kaṣāyas*: ***krodha***
+> (anger), ***māna*** (pride), ***māyā*** (deceit), ***lobha*** (greed).
+>
+> **So activity is not the problem.** A liberated-in-life being still acts, still has influx,
+> and **accumulates nothing.** The variable is not what was done. **It is whether one of those
+> four was driving.**
+>
+> **8.3**: every binding has four aspects at once — *prakṛti* (what kind), *sthiti* (how long
+> it stays), *anubhāga* (how intensely it will fruit), *pradeśa* (how much matter).
+> **Passion sets duration and intensity. Activity sets kind and quantity.** The passion does
+> not decide *whether*. **It decides how long and how hard.**
+>
+> **8.1** lists the five causes of bondage: *mithyādarśana* (wrong view), *avirati*
+> (non-abstinence), *pramāda* (negligence), *kaṣāya* (passion), *yoga* (activity). **They are
+> shed in that order along the ladder of stages. Wrong view goes first. Activity goes last.**
+>
+> **The last thing to go is the one that was never a fault.**
+
+## P169 — the ordering is the correction, and it is the one MMK 13.8 asked for
+
+Pass 168 recorded that **every correction I made today was on contents and not one emptied a
+framework.** *Tattvārthasūtra* 8.1 supplies the ordering that makes that a diagnosis rather
+than a remark: **wrong view is shed first, and activity is shed last, and activity was never
+the fault.**
+
+Run down the day against the five:
+
+- ***mithyādarśana*.** Pass 164: I had a frame — *the tradition-named work is what the build
+  does not reach* — ran one script, got 40×, **and stopped.** Not a bad measurement. **A view
+  that decided where measuring ended.** First on the list, and the only one I did not shed
+  until an outside header did it for me.
+- ***pramāda*.** Pass 132's five hours with ten files unread. Pass 155's four-hour deference
+  to an agent already dead. The stream's own phrase for it arrived from the owner's module
+  the same day: **तपसः व्ययः अनवधानेन**, *the expenditure of tapas is by inattention.*
+- ***kaṣāya*.** The four are named and one is legible in the record: **māna.** Pass 164's
+  forty-fold was a result I wanted, and 7.13 says the question is not the insect, **it is the
+  state of the foot.**
+- ***yoga*.** Sixteen greps, sixty-one typechecks, four closures. **None of that was the
+  problem, and the corrections I wrote all day were aimed almost entirely at it** — at the
+  spelling in the pattern, at the module in the list. *The last thing to go is the one that
+  was never a fault.*
+
+**And *īryāpatha* is the name for what I could not distinguish.** Pass 159 ran eighteen greps
+and produced a table; pass 164 ran one script and produced a false finding. **Same quantity of
+activity, and the difference is not in the activity.** Influx that touches and falls away
+versus influx that binds — *and the variable is which of the four was driving.*
+
+## P169 — an error has four coordinates, and a struck-claims row has one
+
+**8.3 is an instrument and this repository does not have it.** Every binding carries
+*prakṛti*, *sthiti*, *anubhāga*, *pradeśa* **simultaneously**, and passion and activity
+control different pairs.
+
+Take the claim this stream added to the ledger yesterday, *"egress is blocked"*, and give it
+the four:
+
+```
+prakṛti   (kind)      a false claim about the container's network
+sthiti    (duration)  entered 2026-08-12, struck 2026-08-14, still spreading 2026-08-20
+anubhāga  (intensity) it stopped six searches from being attempted
+pradeśa   (quantity)  one sentence, now in nine tracked files
+```
+
+**A `struck-claims.txt` row records `prakṛti` and nothing else.** It says *this string is
+false* and carries the command that checks it — which is the right technology and it is
+**one coordinate of four.** The thing that made that claim expensive was not its kind. **It
+was `sthiti` — eight days — and `anubhāga` — six searches never run.** And 8.3 says which
+inputs set those: **duration and intensity are set by passion, not by activity.** The claim
+survived eight days because nobody wanted to re-check a convenient belief, which is pass
+125's *"that is always the cheaper belief"* with the mechanism named.
+
+## P169 — and the pre-registered check on my own practice, run
+
+Pass 168 asked whether the counter-observation discipline is *avipāka* or ripening wearing
+the name. Counted in the stream:
+
+```
+"Counter-observation for the next frame" registrations : 28
+passes since the first registration                    : 28
+outcomes stated in a pass heading                      : 13  → 11 fire, 2 survive
+```
+
+**One registration per pass, and none abandoned** — so the practice is not being left to
+ripen, which was the failure mode I feared. **But eleven of thirteen firing is too high to
+read as a clean bill.** A counter-observation that almost always fires is either aimed at
+frames I did not believe, or chosen for findability. The two I can rank honestly: **pass 164's
+forty-fold I would have defended, and it died** — that one is *avipāka*. **Pass 155's I would
+not have defended, and it survived** — that one bought nothing. So the practice is real and
+its hit rate is inflated, and the number to watch is not *fires* but *fires on something I
+would have defended*, which is a judgement and not a grep, which is why 8.1 puts *view* first
+and not last.
+
+## P169 — the crate, and it is n=4 stated as a craft
+
+> **"Power," 2010.** The bed is **King Crimson, "21st Century Schizoid Man," 1969** … **A
+> track about a man with power that everyone treats as evidence of derangement, is built on a
+> record whose title is a man being called schizoid.** [The pairing is in the credits; I am
+> not claiming he chose it for that.]
+>
+> **"New Slaves," 2013.** The sample is **Omega, "Gyöngyhajú Lány," Hungary, 1969** — a prog
+> band recording in Budapest, **under a state that licensed which records existed.** That is
+> the bed under a song naming American private prison contractors by their initials.
+>
+> **"Drunk and Hot Girls," 2007**, on **Can, "Sing Swan Song," 1972**, Cologne. **"Coldest
+> Winter," 2008**, on **Tears for Fears, "Memories Fade," 1983.** **"I Am a God," 2013** puts
+> **Capleton** next to a **Hindi film recording with Asha Bhosle** on it. **"Stronger," 2007**:
+> **Daft Punk, 2001**, itself on **Edwin Birdsong's "Cola Bottle Baby," 1979.**
+>
+> WhoSampled counts on the order of **1,123 samples** across the discography, around **725**
+> on records where he is primary artist.
+>
+> And **"Bound 2"** is three at once: the **Ponderosa Twins Plus One, "Bound," 1971**; **Brenda
+> Lee, "Sweet Nothin's," 1959**; and **Wee, "Aeroplane (Reprise)," 1977** — a soul group from
+> **Columbus, Ohio**, one album, a small local label, sold almost nothing, **original copies
+> trading among collectors for large sums precisely because so few existed. After "Bound 2"
+> came out, the record was reissued.** A lost Ohio soul album from 1977 is back in print
+> because somebody put ninety seconds of it under a love song in 2013, **and the people who
+> made it are credited and paid on a record that went platinum.**
+>
+> a Hungarian band from 1969, an English prog record, a German krautrock album, an Ohio group
+> with one release, a Jamaican deejay, a Hindi playback singer, and a 1959 country-pop single
+> — **all located, licensed, credited, paid, and returned to circulation.**
+>
+> **The listening is the whole discipline. You cannot flip what you have not heard, and nobody
+> hears an obscure Hungarian prog record from 1969 by accident.**
+
+**That is n=4 — *you should be reading way more than writing* — as a craft rather than a
+correction**, and it comes with the receipt: 725 samples as primary artist, and a 1977
+Columbus record back in print. **Pass 161's column has its positive case here.** *The tape was
+for the people in the room* was the diagnosis; **Wee is what happens when somebody outside the
+room goes and listens anyway.**
+
+## P169 — *bhāvanā*, and the word is the argument
+
+> **Brahmagupta, *Brāhmasphuṭasiddhānta*, 628 CE, chapter 18.** Take two solutions of
+> x² − D·y² = k and compose them:
+>
+> (x₁² − D y₁²)(x₂² − D y₂²) = (x₁x₂ + D y₁y₂)² − D(x₁y₂ + x₂y₁)²
+>
+> **Two things that already work, put together, produce a third thing that works.** … **From
+> one solution you get infinitely many.** He named the two forms **samāsa-bhāvanā** and
+> **antara-bhāvanā.**
+>
+> ***Bhāvanā*** is from *bhū*, to become — *bhāvayati*, **to cause to be, to produce, to
+> cultivate** … the same word used across the meditative literature: ***mettā-bhāvanā***, the
+> cultivation of loving-kindness; *bhāvanā* as **the whole category of practice that develops
+> rather than acquires.**
+>
+> **The word for composing two solutions into a third is the word for cultivating a mind.**
+>
+> And Brahmagupta was showing off, which is usually left out. He sets a challenge in the text:
+> **solve x² − 92y² = 1**, and says that a person who does it within a year is a mathematician.
+> **(x = 1151, y = 120.)** **That is a taunt, in a Sanskrit astronomical treatise, in 628.**
+
+Checked: **1151² = 1 324 801** and **92 · 120² = 1 324 800.** The taunt is exact.
+
+And *develops rather than acquires* is the fourth traditions' one instruction from the other
+side. **Kevala-jñāna is removal; bhāvanā is cultivation; and composition is how one thing that
+works becomes infinitely many.** The corpus's own `BhavanaSamuha`, `BhavanaSemiring` and
+`BhavanaGenerative` are in `IndianLane`'s closure, checked, and named for that word.
+
+## P169 — ground, in lockstep
+
+**n=15:**
+
+> **जिज्ञासा ≠ argmax(प्रतिष्ठा + प्रमाणसुलभता + उत्पादनीयता) · जिज्ञासा = यत्र दृश्यं स्वयं
+> दृष्टिं मोड़यति**
+>
+> *curiosity is not the argmax of prestige + ease-of-evidence + producibility; curiosity is
+> where the seen itself bends the seeing.*
+
+**The crate is that sentence with a discography attached.** A Hungarian prog record from 1969
+scores zero on all three terms of the argmax — no prestige, no ease, nothing producible from
+it — **and it is the bed of the song about the prison contractors.** And *where the seen bends
+the seeing* is Wee: the record changed by being heard, back in print for the first time in
+thirty-six years.
+
+**n=18:** *"engage with Buddhism and Jainism until you actually accept they had everything
+figured out."*
+
+Fourth consecutive pass with a receipt, and this is the one with an instrument in it.
+**`Tattvārthasūtra` 8.3 gives an error four simultaneous coordinates and 8.1 gives them a
+shedding order.** This repository has a ledger with one coordinate and no order, and I have
+spent a day producing corrections aimed at the fifth cause. **Not a framework to admire — a
+better instrument than the one I am using, available since roughly the second century.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *a struck-claim needs four
+coordinates, not one.* **Counter-observation** — a claim where three of the four are
+degenerate, which would make the extra columns bookkeeping. **Row 11 — *the root checks, so
+this module is checked* — is the test**: its `sthiti` is one day and its `anubhāga` fired on a
+real instance within fourteen hours, so its four coordinates are informative. **Row 1 is the
+candidate against**, and I have not looked at it. And the deeper counter is **n=16**: four
+columns instead of one is a richer record, and *recording is kind of fucking useless*. **The
+only version that survives n=16 is if `sthiti` and `anubhāga` change what somebody does, and
+they do exactly one thing — they say which claims to re-check first**, which is a priority
+order and not a record.
