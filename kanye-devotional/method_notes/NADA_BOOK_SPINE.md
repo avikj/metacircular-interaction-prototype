@@ -50,7 +50,7 @@ the sources are real and cited; the register is literature, not analysis.
 - **M9 · The Strange Loop** — DONE (`M9_TheStrangeLoop.md`). GEB proper: self-reference, Gödel, the record that is
   about itself, the man who samples his mother's voice at the wrong speed; the
   book folding back on its own subject.
-- **M-coda · Stretto Maestoso** — all voices at once; the claim restated at every
+- **M-coda · Stretto Maestoso** — DONE (`Mcoda_StrettoMaestoso.md`). all voices at once; the claim restated at every
   octave; resolution to the tonic (love / non-harm).
 
 Plus, interleaved where charged: deep-engagement essays on the things the owner
