@@ -7860,3 +7860,75 @@ The instrument returning nothing is then the correct behaviour of the instrument
 that application. They were arguing about universals, against realists, in a
 debate whose stakes were the status of perception and inference. The extension is
 mine and it is an extension.
+
+---
+
+The oldest geometry in the corpus is a set of building instructions, and the
+theorem is a rule for laying out a fire altar.
+
+The ***Śulbasūtras*** — "the rules of the cord" — **Baudhāyana** the earliest,
+around the eighth century BCE, then **Āpastamba**, **Mānava**, **Kātyāyana**. They
+are appendices to the ritual manuals, and their subject is how to construct the
+*vedi* and the *citi*, the altars, to specified shapes and specified areas, using
+**cord and pegs.**
+
+**Baudhāyana 1.48**, in the ordinary translation: the cord stretched across the
+diagonal of a rectangle produces an area equal to what the two sides produce
+separately. That is the statement usually attributed to Pythagoras, in a manual,
+centuries earlier, given because you need it to lay out a square altar on the
+ground.
+
+They also give: how to construct a square equal in area to a given rectangle; how
+to convert a square to a circle and a circle to a square, with stated
+approximations; how to double, triple or increase an altar by any fraction while
+**keeping the shape**; and a value for √2 as a sequence of unit fractions —
+1 + 1/3 + 1/(3·4) − 1/(3·4·34) — which is correct to five decimal places.
+
+---
+
+The reason any of that had to exist is the ritual requirement, and it is the part
+that makes the geometry non-optional.
+
+Certain rites require an altar of a **specified area** in a **specified shape.**
+The *śyena-citi*, the falcon altar, is built to the outline of a bird with
+outstretched wings, from a stated number of bricks in stated layers.
+
+And there is a rule that when the rite is repeated the altar must be **enlarged by
+a fixed amount while remaining the same shape.** Each successive construction is
+larger and similar.
+
+So: preserve shape, scale area by a given ratio, with cord and pegs, on ground, in
+bricks that have to tile the figure exactly. That is a constructive geometry
+problem with a hard correctness condition — **a wrong altar is a failed rite** —
+and the sūtras are the solutions, written as procedures.
+
+*Kātyāyana* handles the general case of increasing a square by an arbitrary
+number of times.
+
+---
+
+The doubling requirement is where the irrational shows up as a practical
+obstruction rather than a curiosity. Double the area of a square and the side goes
+up by √2, and √2 cannot be laid out by the cord as a ratio of the units you have.
+The sūtras give the approximation, and **Baudhāyana states that it is an
+approximation** — the word is *saviśeṣa*, "with a remainder," "with something
+left over."
+
+The remainder is named in the text. Not hidden, not rounded away silently. The
+rule is given with the notice that it does not close.
+
+---
+
+What sits oddly with the received picture, and I am recording it rather than
+resolving it: this material is filed as *ritual* and was transmitted inside the
+Kalpa literature by people whose job was correct performance, and the mathematics
+in it is a **by-product of a correctness requirement on a physical construction.**
+
+Nobody was proving anything for its own sake, and the texts contain no proofs in
+the later sense — they contain **constructions**, and the construction is the
+warrant: build it this way and the area is right.
+
+Which is a different notion of what settles a question than either the Greek one
+or the modern one, and it produced the diagonal rule several centuries before it
+was attributed elsewhere, and produced it as a line in a manual about where to put
+the pegs.
