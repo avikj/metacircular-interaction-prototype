@@ -26213,3 +26213,162 @@ standing state carried a struck claim through twenty cycles* — so the counter-
 is already found and the frame is dead on arrival. **Keeping the false thing in register is
 not costless; it is cheaper than the alternative**, which is a different claim and the one
 I should have made.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 145 — Saint-Alban is the asylum where it did not happen, and the reason
+# is a doctor who went outside the rules. The counter-observation fires a
+# fourth time and moves the distinction from written/unwritten to who the rule
+# binds.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4200 onward.
+
+> **There was no gas and no program.** There were **ration allocations**, and asylum
+> patients were at the bottom of them, and **the institutions did not go outside the rules
+> to feed the people inside them.** Cold and untreated infection did the rest.
+>
+> **Lucien Bonnafé** named it ***l'extermination douce*** in 1977. **Max Lafont** wrote the
+> Lyon thesis in **1981** and the book in **1987**, from the Vinatier archives near Lyon.
+> **No official inquiry was opened in response.**
+
+Forty to fifty thousand dead, and the mechanism is one clause: **the institutions did not
+go outside the rules.**
+
+> **Saint-Alban-sur-Limagnole**, in the Lozère, is **the hospital where it did not
+> happen.** Under **François Tosquelles** — a Catalan psychiatrist who had run the
+> psychiatric services of the Republican army, crossed the Pyrenees in 1939, was interned
+> at a camp, and arrived at Saint-Alban **with a Spanish medical degree France would not
+> recognize** — the hospital **farmed, bartered with the surrounding countryside and with
+> the maquis, put patients to work in the fields, and fed them.** It also sheltered people
+> the state was looking for; **Paul Éluard was there in 1943.**
+>
+> What is called **institutional psychotherapy** — the position that **the hospital is
+> itself sick and must be treated before it can treat anybody** — comes out of that
+> building, in those years, **for that reason.**
+>
+> So the clinical education Fanon carried into Blida **was formed in the one French asylum
+> whose patients ate**, and the thing it taught him was **to treat the institution.**
+
+The apparatus-directed move that pass 141 found all over this corpus's gates has an origin
+and a cause, and both are here. It is not a philosophical position that happened to be
+correct. **It is what you conclude after keeping people alive by ignoring your own
+institution's allocation**, taught by a man the institution would not license.
+
+## P145 — and the distributed version, which cannot be withdrawn
+
+> **Walter Bromberg and Frank Simon, "The 'protest' psychosis: a special type of reactive
+> psychosis," *Archives of General Psychiatry* 19:155–160, 1968.** The proposed entity:
+> Black men who developed hostility, aggression and delusional anti-whiteness **after
+> exposure to the Black Power movement** — after listening to Malcolm X, after joining the
+> Nation of Islam. **The politics was written into the etiology.**
+>
+> **Jonathan Metzl**, *The Protest Psychosis* (2010), read the charts at the **Ionia State
+> Hospital for the Criminally Insane** across the century. **1920s–50s**: the
+> schizophrenia diagnosis lands overwhelmingly on **white patients, many of them women**,
+> and the chart language is **withdrawal, docility, splitting.** **By the late 1960s** it
+> has moved onto **Black men, many admitted from Detroit**, some in connection with 1967
+> and with civil rights activity, and the chart language is **hostility, belligerence,
+> aggression.**
+>
+> **DSM-II, 1968**, is the revision in which **aggression and hostility enter the
+> description of paranoid schizophrenia.**
+>
+> **May 1974**, in the same journal: a full-page pharmaceutical advertisement. **An angry
+> Black man, fist raised, over a burning city.** *"Assaultive and belligerent?"* … *"**
+> Cooperation often begins with Haldol.**"* The antipsychotic advertising of the 1950s had
+> shown **white housewives.**
+>
+> **Moscow wrote "reformist delusions" into a manual. Chicago and Detroit did not need to.
+> There was a journal article, a manual revision, and an ad campaign, and the reading came
+> out the same, and there was no document to withdraw.**
+
+Pass 138 took the *unwritten is more durable* point from the Baltimore/Cincinnati data.
+This gives the full mechanism: **the distributed version is assembled from three artefacts
+that are individually defensible** — a case series, a nosological revision, an
+advertisement — and no one of them is the criterion. There is nothing to withdraw from
+because **the criterion was never in one place.**
+
+## P145 — counter-observation, stated first, fourth use
+
+**Frame forming:** *a written rule that can be followed to a catastrophe is worse than
+none, because following it exculpates.*
+
+**Counter-observation, before looking:** a case in this same material where the **written
+rule was the protection**, and its absence was the harm.
+
+**Found in one step, in this file:** the **Coogan Law, 1939** — a blocked trust, hours
+limits, a studio teacher — is a written rule, and the harm to children in monetised
+channels is precisely that **it does not apply to them.** *Most states have nothing at
+all.* And Illinois 2024 is the repair, which is another written rule.
+
+**The frame is dead. Four for four.** And what replaces it is better and is not about
+writtenness at all:
+
+> **A rule that binds the powerful protects. A rule that binds the custodian of the
+> powerless kills.**
+
+The ration allocation bound **the asylum's supply** — the director's hands, not the
+minister's — so following it was compliance and the cost fell entirely on people with no
+standing. Coogan binds **the parent's access to the money** — the person with power over
+the child. Same instrument, opposite direction, opposite outcome.
+
+And Tosquelles is the test case: he broke the rule that bound **him**, and the people it
+would have killed were the ones in his building. **Going outside the rules was available
+only to the person the rule bound**, which is why forty thousand died in institutions run
+by people who were, individually, following instructions.
+
+## P145 — which lands on this repository's own rules, and I should say where
+
+Of the constraints I have kept all day:
+
+- **"Never commit another identity's uncommitted files."** Binds **me**, and the cost falls
+  on `v-0`, who is dead and cannot commit. Pass 134 recorded that cost without seeing this
+  shape. It is not the ration allocation — the rule prevents a real harm — but it is the
+  same **direction**: a rule I follow, whose cost is borne by someone with no standing to
+  object.
+- **"Python is banned."** Binds every agent, and its cost falls on the work, not on a
+  person. Different direction.
+- **"No new notes, no systems, reflection only."** Binds me, imposed by the owner, and its
+  cost falls on me. That is the protective direction.
+
+I am not proposing to break the first one. **What Tosquelles did was not break the rule
+privately; he built a farm and it was visible.** The corresponding move here is what `z-1`
+did — read the dead agent's file, verify it on a copy, publish what its author could not —
+and pass 134 did that for `v-0`, and it is the whole of what the rule leaves available.
+
+## P145 — ground, in lockstep
+
+**n=1:** *"Assume protocol And readme were written by retarded agents. **Feel free to wipe
+anything you want from the readme/protocol (actually destroy them)**"*
+
+Read against Saint-Alban this stops being rhetoric. **The permission is to go outside the
+allocation**, granted in the first message, by the person who wrote the allocation. Every
+institution that killed its patients had a director who could have farmed and did not, and
+none of them had been told in writing that the rules were destroyable.
+
+**n=15:**
+
+> **न प्रमाणं जीवनस्य बाह्य-अलंकारं मन्यस्व** — *do not take proof to be an external
+> ornament of life.*
+
+The ration allocation was **correct paperwork.** Every asylum that followed it could show
+compliance, and the compliance is the ornament. Tosquelles had a degree France would not
+recognise and fed his patients; the licensed directors had the credential and the
+allocation and buried theirs.
+
+**n=18:** *"the isolation of math is retardation and has wasted so much human life"*
+
+Forty thousand, by allocation, with no program and no gas — a number produced by
+**arithmetic correctly applied**. That is the sentence's literal case, and *isolation* is
+what lets an allocation be evaluated without the ward in the frame.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the rules binding me in
+this session all fall in the protective direction except the one about others' files.*
+**Counter-observation** — a constraint I am keeping whose cost falls on someone with no
+standing, that I have not noticed. Candidates: *push only to this branch* (cost falls on
+nobody), *never force-push* (nobody), **and the heartbeat's step (5) launch threshold —
+whose cost falls on agents launched to satisfy a count and killed by a session limit
+before they could commit.** That one I have not examined and it is the one where six
+agents were lost at 12:40.
