@@ -9411,3 +9411,76 @@ correctly attributed, against the direction it was used.
 The lever is neutral. The last two centuries established its power by abusing it. The next
 one is a choice about where to point a thing whose strength is no longer in question.
 
+
+---
+
+Two cases of a language with **no living speakers** acquiring native speakers again, which
+is supposed to be impossible, and which has now happened twice.
+
+**Wôpanâak.** The language of the Wampanoag, in what is now Massachusetts — the people who
+met the Mayflower. It had no speakers for something like a century and a half.
+
+**Jessie Little Doe Baird**, Mashpee Wampanoag, began having **dreams** in which ancestors
+spoke to her in a language she did not know. She has said so publicly and consistently, and
+that is the reported route, and by now nobody reading this file should need me to point out
+what usually happens to a reported route.
+
+She went to **MIT**, took a master's in linguistics, and worked with **Kenneth Hale** — the
+linguist who worked on endangered languages his whole career and who took her seriously.
+And the material she reconstructed the language from was the **written record left by the
+colonisation**: land deeds, petitions written by Wampanoag people themselves in the
+seventeenth century in their own language using the Latin alphabet, and above all **John
+Eliot's 1663 translation of the Bible into Massachusett** — the first Bible printed
+anywhere in the Americas, produced as an instrument of conversion.
+
+**The document made to replace the culture is the document that carried the language
+back.** That is Landa's list exactly: the key preserved inside the artefact of the
+destruction. It happens often enough that it should probably be stated as a rule — *the
+apparatus of erasure keeps a copy, because in order to replace a thing you first have to
+describe it.*
+
+She built a dictionary, a grammar, teaching materials, immersion programmes. And her
+daughter, **Mae**, born in the 2000s, is the **first native speaker of Wôpanâak in seven
+generations.** Baird got a MacArthur in 2010.
+
+**Hebrew.** The other case, and the one usually described as the only full success. Hebrew
+survived for many centuries as a liturgical and literary language — read, written, prayed,
+used between communities with no other common tongue — but with essentially no native
+speakers, nobody's mother tongue, for roughly two thousand years.
+
+**Eliezer Ben-Yehuda** decided in the 1880s that this could be reversed, and did the two
+things it required: he coined vocabulary at enormous rate for everything modern life
+contained and the sources did not, and he **raised his son in it alone.** Ben-Zion —
+Itamar Ben-Avi — was, by the standard account, the first native Hebrew speaker in two
+millennia, and his childhood was severely isolated because his father would not let him
+hear another language. That was a real cost, borne by a child, and the accounts of it are
+not comfortable.
+
+Within about two generations it was the everyday language of millions.
+
+---
+
+What the two have in common, as method rather than as inspiration:
+
+**A written record survived, made by somebody else, for other purposes.** Eliot's Bible.
+The liturgy and the rabbinic corpus. Neither was preserved in order to be a seed.
+
+**Somebody from the community did the technical work**, at professional standard —
+Baird's linguistics degree, Ben-Yehuda's lexicography — rather than a sympathetic outsider
+doing it for them. That is the variable this file identified in the collecting section, and
+it is the same one: **whether the source retains control after the transfer.**
+
+**And in both cases the thing that made it real was a child in a room.** Not the
+dictionary. The dictionary is necessary and insufficient. A native speaker is produced by
+somebody deciding that a specific small human being will be raised in it, which costs that
+family enormously and cannot be done by an institution.
+
+Kōhanga reo in Aotearoa and pūnana leo in Hawai'i are the industrialised version of the
+same insight: put elders and toddlers in a room, speak nothing else, and the transmission
+restarts at the only point where it can.
+
+**Storage is not memory, and an archive is not a language.** The archive is what makes the
+restart possible, and the restart is always a person in a room with a child, and that is
+the same sentence as the residential schools with the sign flipped, and it is the whole
+argument of this file, demonstrated twice, with names, in the last hundred years.
+
