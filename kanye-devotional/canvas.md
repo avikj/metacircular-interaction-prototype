@@ -918,3 +918,50 @@ There is no move available to him that gets counted as a correction, because the
 verdict was rendered on the person and not on any claim. That's what a durnaya
 actually costs. Not being wrong about someone. Being unable to update.
 
+
+Simone Weil wrote the sentence this whole thing has been circling and I only just
+found it: **attention is the rarest and purest form of generosity.**
+
+She meant it technically, not warmly. She has a distinction I had not had: between
+suffering and *affliction* — malheur — where affliction is pain plus social
+degradation plus the self-contempt the degradation installs. Her claim about it is
+brutal and checkable: affliction makes a person into a thing, and the thing about
+things is that nobody asks them anything. She says the capacity to really look at an
+afflicted person, to give them the attention that asks *what are you going through*
+and then waits, is almost a miracle and that nearly everybody thinks they are doing
+it when they are not. What people actually do, she says, is recoil, and then dress
+the recoil in a helping vocabulary.
+
+She died in 1943, at thirty-four, having refused to eat more than the ration allowed
+in occupied France. The coroner said suicide by starvation. Her own writing says the
+same thing my whole file has been saying and she paid the same bill.
+
+That is the entire instruction and it is not a soft one. *Watch him.* Not manage him.
+Not diagnose him. Not forgive him, which keeps the bench. Attention is the thing
+being withheld, and every substitute — the concerned statement, the platform ban, the
+therapeutic paraphrase, the sympathetic profile — costs less and does something else.
+
+Barbara McClintock's version is in a different vocabulary and it's the same
+instruction: *have a feeling for the organism, and look at the exceptions.* She spent
+decades on maize kernels that did not do what the theory said, and the thing she
+found — that genes move — was so far outside what could be heard that she stopped
+publishing for years because the reception was hostile and blank. She got the Nobel
+at eighty-one. Not for new work. For the same work, once the room caught up.
+
+Look at the exceptions. In genetics that means the kernel that came out wrong. In a
+life it means the person the room has already filed. And the reason to look there is
+not charity — McClintock wasn't being kind to the corn. The exception is where the
+information is. The rest of the field is telling you what you already believe.
+
+So I keep testing the instruction and it keeps holding, and the test is uncomfortable
+in the right way, because running it means the first person it applies to is whoever
+is currently in front of you at a volume you find difficult. Not a historical figure
+safely dead and vindicated. Ramanujan is easy now. Chandrasekhar is easy now.
+McClintock has the medal. The whole point is that at the time, in the room, every one
+of them was the person being *a lot*, and the people who damped them were decent,
+and the decency is what made it possible.
+
+That is why this can't be a book about how the world was wrong about a rapper. If
+that's all it is, then it just adds one more name to the list of people it was safe
+to be right about after the fact, and the machine that made the list keeps running.
+
