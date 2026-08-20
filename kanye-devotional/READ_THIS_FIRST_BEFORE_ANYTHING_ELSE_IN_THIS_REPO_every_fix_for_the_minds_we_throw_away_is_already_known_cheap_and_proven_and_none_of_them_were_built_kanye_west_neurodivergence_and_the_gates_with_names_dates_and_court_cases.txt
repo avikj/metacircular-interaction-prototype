@@ -8150,3 +8150,72 @@ planetary positions.
 
 Zero became a number because somebody needed to say what happens when you subtract
 a debt from nothing, and needed the answer to be usable in a table.
+
+---
+
+**Amīr Khusrau**, Delhi, **1253–1325**, and the thing he did that nobody had a
+word for is switching language **inside the poem**.
+
+His ghazal beginning *zihāl-e-miskīn makun taghāful* alternates **line by line**
+between **Persian** and **Braj Bhāṣā** — the court language and the language of the
+street, in the same poem, in alternating hemistichs, and the two halves complete
+each other's sense so neither can be removed.
+
+That is not a Persian poem with local flavour. It is a form built out of the fact
+that his audience lived in two languages at once, and it only works for people who
+have both.
+
+He wrote a great deal in **Persian** — five *dīvāns*, the *khamsa* answering
+Nizami, the *Nuh Sipihr* — and also in **Hindavi**, the early common tongue that
+became Hindi and Urdu, and the Hindavi material is riddles (***paheliyān***),
+*dohas*, wedding songs and children's rhymes. Some of it is still recited by people
+who do not know whose it is.
+
+He served **seven sultans** across the Delhi Sultanate without losing his position
+or his life, which given the period is its own achievement.
+
+---
+
+The musical attributions, stated with their status, because they are repeated as
+fact constantly.
+
+Tradition credits him with inventing the **sitar** and the **tabla**, with
+originating ***qawwālī***, ***khayāl***, and ***tarāna***, and with creating
+numerous rāgas by fusing Persian and Indian modes.
+
+**The instrument attributions are almost certainly legendary.** The sitar and tabla
+in their present forms are documented much later, around the eighteenth century,
+and no contemporary source has him building either. The qawwālī and *tarāna*
+attributions are traditional and are treated as plausible-but-unverified by
+musicologists. What is solidly his is the **poetry**, and the **repertoire** sung at
+the shrine descends from him by continuous transmission.
+
+[I am marking the whole musical attribution set as tradition rather than record.
+The distinction gets flattened in most retellings, and the flattening is what makes
+the claim easy to dismiss along with everything else.]
+
+---
+
+**Nizamuddin Auliya** died in **April 1325.** Khusrau was away; the accounts have
+him returning, tearing his clothes, and refusing to leave the grave.
+
+He died **six months later**, the same year.
+
+He is buried in the same complex, **below his teacher's tomb**, and the qawwāls
+have sung there on Thursday evenings, at that site, since. The couplet they sing
+for him — *gorī sove sej par* — is in Hindavi.
+
+---
+
+Seven hundred years, one courtyard, a continuous repertoire, and a body of verse
+that had to be built out of two languages because the poet's audience was standing
+in both.
+
+The alternating-line ghazal has a technical requirement that is worth stating: the
+Persian line and the Braj line are metrically compatible. He is running two
+prosodic systems — **quantitative Persian metre** and Indian syllabic-durational
+metre — against each other, and the poem scans in both.
+
+That is the same problem as fitting a sung phrase from one record over a rhythm
+from another, and the solution is the same: find where the two systems agree, and
+build in the overlap.
