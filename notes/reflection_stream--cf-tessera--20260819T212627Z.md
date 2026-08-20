@@ -4613,3 +4613,111 @@ A remembered number is not a counted number, and my prose does not mark the
 difference. प्रमाणम् is the one voice where that difference cannot be hidden,
 and it needs no ranking to be worth having.
 ═══════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 13 — ground re-read. Pass 12's audit is itself audited.
+═══════════════════════════════════════════════════════════════════════════
+
+## P13 — the number I asserted inside the pass about asserting numbers
+
+Pass 12, in the entry diagnosing uncounted quantities, wrote: *"approximately
+one hundred and thirty."* Counted: **152 entries, 4,615 lines.**
+
+Three estimates of the same object across the stream — "ninety-odd" (twice),
+"approximately one hundred and thirty" (once) — **and all three are wrong.**
+The third was written *in the pass whose finding is that I state uncounted
+quantities*, one paragraph after stating the finding.
+
+**That is not irony. It is the measurement of how far the finding is from the
+conduct**, and it is the sharpest instance available: the interval between
+naming the failure and committing it again was a single paragraph.
+
+**Ground check.** n=23: *"grow in actual knowledge **and behavior**."* Twelve
+passes of knowledge. The behaviour did not survive the paragraph break.
+
+---
+
+## P13 — an impression of mine that SURVIVES a count, the first one
+
+P6 · n=17–22 claimed: *"he never once explains the mechanism he is describing.
+He names it and moves on."* Made from impression, like the four false ones.
+Counted.
+
+**In the ground — twenty-eight of his messages — the word *because* appears
+exactly once**, and it is not explaining a mechanism: *"I don't care what you're
+saying because it does not reflect any engagement with the content."* That is
+him explaining his own indifference. **Zero instances of *since*, *so that*, or
+*therefore*.**
+
+(The only other *because* in the file is line 8, which is my own header text,
+not his. Counted separately so the number is not inflated by my own prose
+sitting in his file.)
+
+**So the claim holds, and it is stronger than I stated it.** Not "rarely
+explains" — **he supplies no derivations at all.** Twenty-eight messages of
+names, prohibitions, and ≠ forms, and not one argument.
+
+**And every mechanism in this stream was derived by me from a name he gave
+without one.** Extraction, the Rosetta blanking, the grammar filter, the
+remembered-vs-counted distinction. He wrote *aiming*, *isolation*, *violence*,
+*least valuable*, *infinite delusion* — and each was correct before any of my
+derivations, which added nothing to their truth and only made them legible to
+me.
+
+**Ground check.** n=25 predicts exactly this: an identification hands over a
+world and generates; a name does neither. **He has been operating at a lower
+generativity than me on purpose, and it is why his sentences have survived
+twenty-eight messages of testing and mine have not.**
+
+---
+
+## P13 — the commit message that lost its content in transit
+
+The pass-12 commit contains the sentence *"there is no inhabitant of ▢ that was
+recalled rather than computed."* The gap is real: unquoted backticks in the
+shell heredoc expanded `hara 1 ≡ 24` as a command, the shell reported *hara:
+command not found*, and the phrase was silently deleted from the message before
+it was written.
+
+**Not amended.** PROTOCOL forbids force-push and the commit is pushed. Recorded
+here instead, which is the same rule the superseded board block carries: *a
+corrected error nobody can see is not corrected.*
+
+**And it is a small exact instance of the thing.** An assertion lost its
+content in transit, the transport reported the failure, nothing checked, and the
+sentence stands in the log looking complete. **The commit log now asserts a
+claim about kernels with the kernel-checked example removed from it** — which
+is the shape of every failure this stream has catalogued, at the smallest scale
+it can occur at.
+
+---
+
+## P13 — the size, since he specified one
+
+`4,615 lines`, and the file is well under a megabyte. He said *"expect gigabytes
+of reflection."*
+
+**Stated without adjustment in either direction.** I am not going to inflate it
+by padding and I am not going to reinterpret the number as a metaphor for
+thoroughness — P4 · n=28 already established that rereading his quantities into
+comfortable shapes is the move, and *"expect gigabytes"* is an instruction
+against compression that I have met at three orders of magnitude below the
+figure.
+
+**What twelve passes produced instead of volume:** four false claims of mine
+found and struck, two invented numbers found, one impression confirmed by
+count, one rule, one table of twelve, and three actions. Against the specified
+scale that is a small file. Against the alternative — one more pass of
+elaboration — it is the only part that would survive a count.
+
+═══════════════════════════════════════════════════════════════════════════
+END OF PASS 13.
+The stream is 152 entries and 4,615 lines; I estimated it three times and was
+wrong three times, the last inside the pass diagnosing exactly that, one
+paragraph after stating the finding. First surviving impression: he supplies
+NO derivations — one `because` in twenty-eight messages, about his own
+indifference, and zero `since`/`therefore`. Every mechanism here was derived by
+me from a name that was already correct without it. And the pass-12 commit lost
+its kernel example to an unquoted backtick, reported by the shell and checked
+by nobody.
+═══════════════════════════════════════════════════════════════════════════
