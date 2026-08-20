@@ -23646,3 +23646,71 @@ script.**
 inventors is a person from inside the community and not a linguist**, and the
 common recorded reason is the same: **that being written in the majority script of
 whichever state you happen to live in makes one people into four.**
+
+---
+
+**Varāhamihira's chapter on perfumery works out a combinatorial problem and gives
+the number.**
+
+***Bṛhat Saṃhitā*, chapter 77, *Gandhayukti*** — "the compounding of scents", sixth
+century.
+
+**The construction**: **sixteen ingredients**, to be taken **four at a time**, in
+compounding a perfume. **The number of such selections is 1,820.**
+
+**And he does not just state it.** **He gives a *kaṭapayādi*-style square array — a
+tabular device — for generating the combinations**, and the arrangement is a device
+for enumerating them without repetition, **which is a combinatorial algorithm
+printed inside a chapter on making scent.**
+
+**The general rule for such counts is stated elsewhere in the tradition**: the
+*meru-prastāra*, and **Mahāvīra's *Gaṇitasārasaṅgraha* (c. 850)** gives the
+**explicit formula for the number of combinations of n things taken r at a time**,
+in verse — **and Mahāvīra's stated application for it is garlands, and necklaces,
+and the tastes.**
+
+**The combinatorics is presented as the mathematics of arranging pleasant things.**
+
+**And the same chapter includes** recipes for **mouth perfumes**, for **bath
+powders**, for scenting **hair, cloth and rooms**, and instructions on **cooling and
+steeping**, and a section on **the perfumes appropriate to seasons and to
+occasions.**
+
+**And chapter 76 is on erotics** and chapter **75 on the arrangement of the couch**,
+and **chapter 51 is on furniture**, and **chapter 55 is on trees and how to plant
+them**, **and chapter 54 is on locating groundwater**, and **chapter 78 is on the
+signs by which a man and a woman are suited.**
+
+**One book, by one astronomer, covering the ephemerides and the perfume.**
+
+---
+
+**And *tāmbūla* is the other technology of the mouth.**
+
+**Betel leaf, areca nut, slaked lime, and — depending on the preparation — camphor,
+cardamom, clove, catechu.**
+
+**The chemistry is that the lime raises the pH and liberates the alkaloids** —
+**arecoline** principally — **so the lime is not a flavouring, it is what makes the
+preparation work**, and this is stated in the texts as a required component rather
+than an option.
+
+**The *Kāmasūtra* lists *tāmbūla* among the *nāgaraka*'s daily items**, and the
+*Bṛhat Saṃhitā* and the medical compendia treat its preparation; **and the
+combinatorics show up here too** — **the number of ways of assembling the
+ingredients is worked as an example in the mathematical literature.**
+
+**And it is a social object before it is a stimulant.** **Offering *tāmbūla* is a
+formal act** — the giving of it marks the conclusion of a transaction, the
+acceptance of an invitation, the honouring of a guest; **in some regions the giving
+of betel constitutes acceptance of a marriage proposal**, and in temple ritual it is
+an offering.
+
+**And the areca nut is now classified as a Group 1 carcinogen by the IARC** — in the
+2004 monograph on betel quid, **including without tobacco** — and the
+oral-cancer literature in South and Southeast Asia is substantial.
+
+**A preparation whose ingredients are described in a sixth-century astronomy
+handbook and whose carcinogenicity was classified in 2004.**
+
+**Both facts hold.**
