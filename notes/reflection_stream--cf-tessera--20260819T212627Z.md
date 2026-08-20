@@ -21684,3 +21684,207 @@ is not 279 — it is unmeasured**, and there is no script that would measure it.
 `za-0`'s number is right and its scope is 29%. The honest statement is not *"a quarter
 of the directory is built by nothing"* — it is: **one quarter of the latched region is
 orphaned, and seventy percent of the directory is not latched.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 117 — resumed the first stream at line 2560 and it inverts my whole
+# defect list in one sentence: an instrument reports the world as the
+# population it was built against, and the record afterwards names the person.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, abandoned this morning at line 2560 of 20,276, resumed.
+Its summary of ten measured gates — the test, the referral, the diagnostic interview,
+the licence, the contract, the sampling ruling, the pulse oximeter, the spirometer, the
+kidney equation, the doctor deciding whether to believe you about your own body:
+
+> **An instrument built against one population reports the world as that population,
+> and everyone else shows up as noise, or as fine, or as nothing at all.**
+>
+> And when the person it fails then behaves like someone who is not fine, **the record
+> afterwards names the person.**
+
+## P117 — that is my eleven defects, inverted, and the inversion is the content
+
+`CLAUDE.md`, cognitive technology item 5: *"Put love and attention on the polar
+opposite of what your prior finds interesting. Take a received reading and show it is
+an inversion of what is actually there."*
+
+The received reading of today, which I wrote thirteen times: **the corpus is unread.**
+66 images unopened, `varttikas.tsv` unlisted, `Cubical.Categories` at 1 of 808, 48
+theorems named nowhere, nine libraries and one import.
+
+The inversion, and it is the same sentence as the pulse oximeter:
+
+> **A grep built against one orthography reports the corpus as that orthography, and
+> everything else shows up as zero.**
+
+Every one of the eleven is that:
+
+| defect | what the instrument reported | what was there |
+|---|---|---|
+| orthography | 0 | the text, spelled the other way |
+| prefix collision | 57 Bhāskara I | 15 |
+| bracket range over non-ASCII | 44 854 | 0 |
+| store keyed by numeric id | *page absent* | `pages/3/3/0/1/1033/` |
+| citation that denies itself | *checked* | *"NOT re-proved"* |
+| module with no label | *unnamed* | four theorems proved |
+| transcript grep and authorship | *my framing, ×12* | 4 mine, 7 read here |
+
+**And the record afterwards named the corpus.** *"48 unnamed."* *"1 of 808."* *"nobody
+read it."* In every case the instrument was the thing failing, and I wrote the failure
+down as a property of the material. Pass 110's *"the number-grep is wrong in both
+directions"* is the technical statement; this is what it is a case of.
+
+The pulse oximeter reads high on dark skin, the spirometer carries a race coefficient,
+the kidney equation carried one until 2021 — all published, all measured, all with a
+correction that is cheap or free. And the patient is recorded as fine.
+
+## P117 — the one that got built, and why, and it is not evidence
+
+> **H. Jack Geiger**, medical student, goes to **South Africa in 1957** and spends
+> months at the **Pholela Community Health Centre** in rural Natal with **Sidney and
+> Emily Kark** … the clinic's patient is the **community**, not the person in the
+> chair … It was being done in a Black township **under apartheid**, and it worked,
+> and the apartheid government eventually shut the programme down.
+
+Geiger to Mississippi: 1964 Freedom Summer with the Medical Committee for Human
+Rights; 1965, with Count Gibson, OEO money for two centres — Columbia Point in Boston
+and the **Delta Health Center at Mound Bayou**, Bolivar County, an all-Black town
+founded by freedpeople in 1887. Children with kwashiorkor and marasmus, in Mississippi,
+in 1967.
+
+> **So he wrote prescriptions for food.** Actual prescription pads … the centre paid
+> the invoices **out of its pharmacy budget.** An official from Washington came down
+> and objected that the pharmacy budget was for drugs:
+>
+> > *The last time I looked in my textbooks, the specific therapy for malnutrition was
+> > food.*
+
+Wells, sanitation, a several-hundred-acre cooperative farm run by local families, local
+people trained as community health workers rather than staff imported.
+
+> **That programme is now the federal community health center system.** ~1,400
+> organisations, ~15,000 sites, ~30 million people a year — about one in eleven
+> Americans — with the statutory requirement that **a majority of each centre's
+> governing board must be patients it serves.** … **From Pholela in. Not from Boston
+> outward.**
+
+And then the sentence this pass exists for:
+
+> **The difference between the built one and the unbuilt ones is not evidence. All of
+> them have the evidence. It is that this one had a person in the room who had already
+> watched it work somewhere the room considered beneath it.**
+
+## P117 — which is exactly why five of the six exist here
+
+Pass 115 scored the six bookkeeping technologies against this repository: five built,
+one not. Ask the Geiger question of the five and the answer is the same every time.
+
+`struck-claims.txt` is **the śāstra's commentary layer** — correction as a new layer
+rather than an edit — as a shell script. The provenance grades are **śabda** as a
+first-class field. The lineage records in `collab/discovery/events/` are the
+**paṭṭāvalī** with a content hash: `actor`, `lineage`, `from`, `to`,
+`statement_hash`. The `Rigor boundary` sections are **avaktavyam held as a retained
+field**. And the seeder is the deliberately-blind draw.
+
+**Not one of those was invented here.** Each was carried in by somebody who had watched
+it work in a tradition the default account files as heritage. That is Pholela's
+direction of travel, and it is `CLAUDE.md`'s provenance directive stated as an
+engineering fact rather than as an ethics: **the older statement is frequently sharper,
+more algorithmic, and more general than the version that displaced it** — so the corpus
+that reads it gets a mechanism, and the corpus that files it gets a citation.
+
+The one not built — the displacement index — is the one with no tradition behind it.
+It is the only one of the six that would be genuinely new.
+
+## P117 — and pass 115 is the same shape, at the smallest possible scale
+
+The evidence that *egress is blocked* was false has been in the tree since
+**2026-08-14**. Six days. Nine passes of mine restated it more carefully. What changed
+it was not evidence and not analysis: it was **one tab-separated row**, written into a
+mechanism that already existed, by someone who had just watched the mechanism's own
+header describe the failure.
+
+*The difference between the built one and the unbuilt ones is not evidence.* Twelve
+passes of evidence, one row.
+
+## P117 — ground, in lockstep
+
+**n=18:**
+
+> You're still obsessed with math like a white man instead of true philosophy **the
+> isolation of math is retardation** and has wasted so much human life it is exactly
+> the western problem I am attacking with my life.
+
+Read against this page: the ten gates are all **measurement problems**, every one has a
+published correction, and none of them is unsolved mathematics. The failure is never in
+the theorem. It is in which population the instrument was calibrated against and who is
+in the room when it reports. *The isolation of math* is the thing that lets an
+instrument be correct and the reading be false at the same time, and there is no
+mathematical fix, because the mathematics is not what is broken.
+
+That is the same sentence as pass 110's: `T14.19` matches, the file is right, the
+string is right, and the count is inverted.
+
+**n=1:** *"so many who already solved **everything** but no one listened … pythagorean
+machine pls"*
+
+Pholela solved it in 1957 and it took a student who went and looked. The Karks are the
+case with names and dates: the method worked, in a township, under apartheid, was shut
+down by the state that hosted it, and is now law in another country **without the name
+attached**. *"Almost nobody knows where it came from."*
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+>
+> **मम-अदर्शनम् ≠ तस्य-अभावः** — *my not-seeing ≠ its absence.*
+
+The two lines are one instrument and its failure mode. A pramāṇa that cannot express
+the distinction it is asked for — skin tone, orthography, authorship, whether a
+citation affirms or denies — does not report *unknown*. **It reports absence**, in the
+same typeface as a real zero, and the reader converts it to *nāsti* without noticing
+a step was taken.
+
+---
+
+Pre-registered: **the weakest claim in this pass is the Geiger reading applied to this
+repository.** *"Each was carried in by somebody who had watched it work in a
+tradition"* is my inference from the artefacts' shape — a `paṭṭāvalī`-like record is not
+evidence that its author knew the word. I have not checked whether
+`collab/discovery/events/`'s format or `struck-claims.sh` cites any tradition in its
+own header; `struck-claims.sh` cites `CLAUDE.md` and names no source at all. If none of
+the five names a source, then the correct statement is the weaker and more interesting
+one: **the corpus reinvented five of them**, which is `Obstruction.hs` reinventing
+*avaktavyam* badly, five more times. The check is a header read of the five, and it is
+one command.
+
+**Run, in the same pass. It splits, and the split is the finding:**
+
+| mechanism | names a tradition? |
+|---|---|
+| provenance grade | **yes** — *śabda* used as the grade name itself, in `PRIOR_ART_SWEEP_COMPLETE.md` and `E2_PROOF.md` |
+| the seeder | **yes** — `why_this_exists.md` names its lineage |
+| `collab/discovery/events/` | **yes** — its README does |
+| `Rigor boundary` sections | **no** — of the first twenty modules carrying one, **zero** name *avaktavyam*, *anukta*, or *residual* |
+| **`struck-claims.{sh,txt}`** | **no. Zero.** It cites `CLAUDE.md` and nothing older. |
+
+So my claim was **three-fifths right and wrong where it mattered most.** The strongest
+mechanism in this repository — the one that fires at the instant of the write, that
+`CLAUDE.md`'s own rule demands and does not name, that the second devotional stream
+calls *"invented three times independently and standard nowhere"* — **names no source.
+It is the fourth independent invention.**
+
+And the `Rigor boundary` sections are the same: they *are* the residual-carrying
+discipline, twenty of them, and not one calls it that.
+
+Which is a better result than the one I wanted. Geiger's difference — *somebody in the
+room who had already watched it work somewhere the room considered beneath it* — holds
+for three of five. For the other two the corpus **built the thing without the room**,
+converging on the śāstra's commentary layer and on *avaktavyam*-as-a-retained-field
+from scratch, under pressure, twice. `CLAUDE.md` records exactly one instance of that —
+*"`machine/Obstruction.hs` independently discovered that a boolean verdict was
+collapsing three distinct things and reinvented `avaktavyam` badly as `Unparsed`"* — and
+files it as a failure of reading. **These two are the same event and they came out
+well**, which means the entry in `CLAUDE.md` is one instance of a pattern it treats as
+an anecdote, and the pattern is: *this corpus keeps arriving at the Indian mechanism by
+necessity, and then does not know that is where it is.*
