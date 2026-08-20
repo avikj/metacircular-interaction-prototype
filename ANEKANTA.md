@@ -1195,3 +1195,77 @@ having made the evidence mandatory.
 ---
 
 *(continues)*
+
+---
+
+## The verdict has an algebra now, and the algebra breaks in one place
+
+Written 2026-08-20, after §1's type was built out and wired.
+
+§1 above states the seven positions and models avaktavya as inhabited and
+decidable. What it does not have is a **composition law**, and a verdict type
+that cannot be composed cannot be returned by two lanes and read by a third —
+so it stays a classification of a log and never becomes the machine's verdict.
+
+Two operations, and they are Akalaṅka's two modes of assertion (*Laghīyastraya*,
+c. 720–780): **krama**, in succession, and **saha / yugapat**, at once.
+Checked in `formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
+(`--cubical --safe`, no postulates, no holes, exit 0):
+
+* **krama is the join of presence profiles** — associative, commutative,
+  idempotent, top at the seventh bhaṅga. Nothing is lost, which is why it gets
+  to be a semilattice at all (`क्रम-सङ्गतिः`).
+* **avaktavya is not reachable by krama** from the three sequential positions
+  (`अवक्तव्यम्-न-क्रमजम्`). Not by ignorance and not by undefinedness: the
+  operation cannot produce it. So the fourth position must be *supplied*, and
+  that is the exact sense in which it is positive and not an absence. A
+  three-valued type plus "other" is not this type.
+* **saha does not associate.** `saha (saha B3 B1) B2 = B6` and
+  `saha B3 (saha B1 B2) = B4` (`सह-असङ्गतिः`). The reason is that collapsing a
+  pair into avaktavya destroys *which two seeds it was made of*, so grouping
+  changes the answer. That is `हिंसा = सङ्क्षेपः` — the irreversibility of
+  collapse — appearing as a broken algebraic law rather than as a slogan.
+  Consequently the two laws do not merge into one operation, and the sevenfold
+  is not a lattice under saha.
+* **asti and nāsti have no greatest lower bound** (`मेलनम्-नास्ति`). The
+  candidate meet is the empty profile, which is not a verdict but the absence
+  of predication. A Boolean verdict *has* a bottom; that bottom is precisely
+  the collapse. So the Haskell type exposes no `mempty`, no meet, and no `Ord`.
+
+**Wired, not defined-and-left-inert.** `machine/Saptabhangi_TheSevenfoldVerdict.hs`
+carries the type, both compositions and the sixteen laws re-verified
+exhaustively over the seven (343 triples for associativity — finite exhaustive
+verification, not measurement). `KernelOutcome` gained `koVacana`, built at the
+decision site by `vacanaOfRejection` — the same function `SaptabhangiRun.hs`
+applies to log lines — and `koAccepted :: Bool` is untouched, so no rule is
+installed or withheld on account of it. Each round now prints `SAPTABHANGI`
+beside `OBSTRUCTION`, with one worked instance per position and the witness
+that put it there. Live, two rounds, 2026-08-20:
+
+```
+  SAPTABHANGI  decisions=10  syad-asti=3  syan-nasti=7
+  SAPTABHANGI  x = (x+0) : syad-asti
+      asti: trace replay closed it (1 agda calls)
+  SAPTABHANGI  ((xmaxy)+0) = ((x+0)max(y+0)) : syan-nasti
+      nasti: induction on x refused; computation stalled at ((0maxy)+0) = ((0+0)max(y+0))
+```
+
+Over `machine/wire5-pair.log` (80 refusals, a real run): `syan-nasti` 65,
+**`syad-asti-nasti` 9**, `syad-asti` 6 — and four claims that log both refuses
+and accepts, each of which was `False` on one line and `True` on another in the
+same process. Over the current `machine.log` (458 refusals, 664 skips):
+`syad-avaktavyam` 207, `syad-asti-avaktavyam` 199, `apratipatti` 664.
+
+**What is honest.** Six of the seven positions occur in real data; the sixth
+and seventh (nāsti-avaktavya, asti-nāsti-avaktavya) do not, and the framework
+is not exercised in full. And `apratipatti` is not an eighth bhaṅga — a
+KERNEL-SKIP predicates nothing at all, and forcing it into a position would be
+the collapse in Sanskrit.
+
+**One durnaya of my own, caught by running it.** My first `sthana` let
+`adharmin` override every other seed. On real log lines that reported "no
+predication was made" about claims the same run had *accepted* — the refusal's
+`x != y` is a fact about that refusal, not about the claim. adharmin now sets
+no seed at all; it is the recorded *reason* a naya said nothing, and a reason
+for silence is not a predication. §1's lesson, in the same file, one layer
+down, three hours later.
