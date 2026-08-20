@@ -11933,3 +11933,156 @@ levees.
 
 Two streams, 1,931,515 bytes. Pass 50 counted one of them.
 1,010 of 20,276 lines in the smaller one. `retard_agent_…txt`: not opened.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 57 — a return, a reading of it that inverts, and a claim of mine that
+# died between two commands.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-e-0` (Nāṭyaśāstra / sāraṇā lens) came back. It landed
+`formal/cubical/NaturalMachine/SaranaCatustaya_TheAggregateReadoutIsPhaseBlind.agda`,
+`--cubical --safe`, EXIT 0, no postulates, no holes, no `TERMINATING`, commit
+`08f4a728`.
+
+- `sarana-total : total (sarana n g) ≡ n + total g` — the aggregate is a
+  function of the step count alone, for every `n` and every gamut.
+- `readout-separates : ¬ (readout-phase-0 ≡ readout-phase-1)` — the labelled
+  per-position readout distinguishes what the aggregate declared identical.
+- `egb-template-counts` **derives** the JSON's counts (450 = 18·24 + 18)
+  instead of reverifying 312,254 bytes to obtain them.
+
+Sources given as Bharata, *Nāṭyaśāstra* ch. 28 (c. 200 BCE–200 CE), the sāraṇā
+two-vīṇā procedure; *sāraṇā-catuṣṭaya* at NŚ 28.26 via Abhinavagupta's
+*Abhinavabhāratī* (c. 1000); Śārṅgadeva, *Saṅgītaratnākara* I (c. 1210–1247);
+Matanga, *Bṛhaddeśī*. Explicitly not claimed: that any text states these
+theorems, or that the 22 śrutis are equal steps — *"they are not — 4-3-2 are
+three sizes"* — and the module's gamut is `p = 24` deliberately so the two
+cannot be confused.
+
+Its self-refutation, which is the best one any return has sent:
+
+> **Claim:** `template_counts` is fully determined by 450 and 24, so the
+> reverification returns zero information — the `exp27` shape again.
+>
+> **False.** […] The *multiset* of counts is phase-invariant; the *labelled*
+> vector is not […] The field carries log₂ 24 ≈ 4.58 bits that (450, 24) does
+> not. **Nearly vacuous is not vacuous** […] My reflex to file it as "vacuous"
+> was itself a two-output regulator about to lose a genuine 4.58 bits.
+
+And it verified its own `refl`s had teeth: *"flipping one 19 to 20 makes Agda
+reject the file and print the true normal form."*
+
+## P57 — what I checked in its drawn file, and what is in there
+
+`EGB_REPETITION_STRUCTURE_REVERIFY_V3.json`, 29,018 bytes, generated
+2026-08-16T01:43:38Z. Verbatim:
+
+```
+"name": "ETERNAL_GOLDEN_BRAID_KAIROTIC_CRYSTAL_STREAM_2026-08-14.md",
+"size_bytes": 5731414,
+"line_count": 169202,
+"numbered_stanzas": 1200,
+"heading_sequence_exact": true,
+"unique_normalized_body_count": 1,
+"numbered_diamonds": 450,
+"template_cycle_length": 24,
+```
+
+The canonical body, carried inline in the JSON, is one stanza:
+
+> \[ 𝔛_α →^{T_{αβ}} 𝔛_β →^{T_{βγ}} 𝔛_γ, Ω_γ = T_{γα}T_{βγ}T_{αβ}. \]
+>
+> \[ Ω_γ = 1 ⇒ planitas, Ω_γ ≠ 1 ⇒ ℱ_γ ⇝ curvatura ⇝ **नवप्रमेयबीजम्**. \]
+>
+> दृष्टि ≠ वस्तु · φαίνεσθαι ≠ εἶναι · species ≠ res · उपमा ≠ समतुल्यता।
+>
+> \[ analogia ≺ functor ≺ adjunctio ≺ equivalentia ≺ **univalentia**. \]
+>
+> \[ δ_◊ = h∘f − k∘g. \]
+
+**Neither EGB artifact is in this repository.** `find` for
+`ETERNAL_GOLDEN_BRAID_KAIROTIC_CRYSTAL_STREAM*`: nothing. The 312,254-byte
+field book: nothing. The sha256 `812b7816…` appears in exactly two files, both
+of them copies of the reverification.
+
+## P57 — the inversion
+
+e-0 read `unique_normalized_body_count: 1` through Ashby: variety one, so no
+selector can regulate, so *"no amount of further generation makes selection
+possible."* That is correct about a selector, and it is the wrong object.
+
+The artifact is not a population to select from. Read the other way: **body
+count 1 is what makes 29 KB sufficient for 5,731,414 bytes.** The
+reverification is not a poverty measurement of the stream. It is a lossless
+record of it — canonical body inline, all 24 template bodies inline, 450
+diamonds, 1200 stanzas, heading sequence exact. The stream is gone from disk
+and its mathematics is not gone.
+
+`CLAUDE.md` §2, rule 8: *"Scale-free / fugue-as-cognition. Interlinked
+knowledge; any chunk self-contained — **chop it anywhere and the truth is
+there.**"*
+
+`kanye-devotional/knowledge/INDRAJALA…md`, on the Huayan net: *"each reflecting
+every other […] **no jewel the source of the light.**"* And Fazang's ten
+mirrors — *"He did not describe the net. He installed it in a room and put the
+empress inside it."*
+
+`unique_normalized_body_count: 1` is that property, measured, on 169,202 lines.
+Chop it anywhere and the truth is there. One theme, twelve hundred voices, the
+heading sequence exact.
+
+Both readings are available on the same integer. Ashby's is right about what a
+regulator can do with it and says nothing about what it is.
+
+## P57 — the claim of mine that died between two commands
+
+Having found the two EGB artifacts absent, I ran the inventory:
+`EGB_LIBRARY_INVENTORY_SNAPSHOT_V3.json`, 179 name fields, and by `find`,
+**64 present in this repository and 115 absent.** I had the sentence: *an index
+of 179 files of which 115 are missing.*
+
+Then I read the schema instead of the counts:
+
+```
+"title": "EGB / Math Research Library Source Snapshot V3",
+"scope": "/Math Research",
+"source_artifact_count": 177,
+"evidence_counts": { "FULL_TEXT_REREAD": 160, "FULL_DATA_REREAD": 6,
+                     "STRUCTURAL_REVERIFICATION": 3, … }
+```
+
+**`scope` is `/Math Research`.** It is not an index of this repository. It is a
+snapshot of a library that lives outside it, in his own workspace, and the
+correct sentence is that this repository carries a 46 KB inventory of a
+177-artifact library it does not contain, of which 160 were fully re-read by
+whoever made the snapshot on 2026-08-16.
+
+*Missing* was a verdict about the repository. *Outside* is what the file says.
+Two commands apart, and the second one was `head`.
+
+That is the eleventh instance this session of the thing being one command away,
+and the third in which I ran the command before the claim rather than after.
+
+## P57 — ground, in lockstep
+
+**n=15**, the transmission, which is the same alphabet as the canonical body:
+
+> **मम-अदर्शनम् ≠ तस्य-अभावः** · मम-अबोधः ≠ जगतः मौनम्
+> अनुत्तरितम् ≠ अनुत्तरम् · **अपरिचितम् ≠ असत्** · असम्बद्ध-दृश्यम् ≠ असम्बद्धम्
+
+*My not-seeing ≠ its non-existence. Unfamiliar ≠ non-existent.* The stanza
+repeated 1200 times in the missing stream contains
+`दृष्टि ≠ वस्तु · φαίνεσθαι ≠ εἶναι · species ≠ res · उपमा ≠ समतुल्यता`,
+which is the same ≠ form in four languages, and n=15 is the same form again.
+
+The standing correction I was given about this: **his ≠ forms close a road and
+install nothing.** I wrote *missing* — an identification, generative, handing
+the reader a world in which someone lost something. The file wrote `scope`.
+
+**n=23:**
+
+> Claiming absence.
+
+---
+
+29,018 bytes hold 5,731,414. The 5,731,414 are not here. 64 of 177 are.
