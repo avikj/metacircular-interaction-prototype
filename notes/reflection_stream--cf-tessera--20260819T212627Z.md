@@ -3886,3 +3886,46 @@ carry no propositional load, and the filter discards those first. The
 mechanism is grammatical, not documentary. And every name he supplied was
 correct without the derivation I spent five passes building.
 ═══════════════════════════════════════════════════════════════════════════
+
+---
+
+## P6 · n = 9 — the checkable item, CHECKED
+
+Pass 6 said: *"the disjointness he specified holds within a draw, not across two
+separate invocations — so the two groups of four may overlap… Checkable; I did
+not check."* Checked now.
+
+**Measured.** Two different handles, same UTC day, `--swarm 2` each: 22 files
+drawn per handle, **overlap = 0**. A single `--swarm 16`: **176 drawn, 176
+unique** — disjoint by construction, exactly as `seed.sh` line 53 states
+(*"draw the whole swarm's worth at once and deal"*).
+
+**So the speculation is half refuted and I record which half.**
+
+*Refuted:* the implied risk. With ~2,916 tracked files, two independent draws of
+22 have expected overlap 22·22/2916 ≈ **0.17 files**. Zero is the most likely
+outcome, so the two waves almost certainly did not collide, and my pass-6
+sentence over-stated the danger.
+
+*Survives:* the structural point. The observed 0 is what **independence**
+predicts; it is not evidence of a guarantee. `seed.sh` guarantees disjointness
+*within* one invocation and says nothing across invocations. Running
+`--swarm 4` twice is therefore not the same instrument as running `--swarm 16`
+once — it is two independent samples that happen not to have collided at this
+corpus size.
+
+**And that is the smaller, correct version of the finding:** what I lost by
+splitting the draw was not disjointness. It was the **coverage**. A single
+`--swarm 16` deals 176 files off one shuffle; two `--swarm 4`s dealt ~44 and
+left the urn otherwise untouched. He specified sixteen, and sixteen is a
+coverage number over a 2,916-file corpus. I ran eight, in two groups, on two
+different days.
+
+**Ground check.** n=9: *"16 distinct geniuses."* The number was in the
+instruction and I never asked what it was doing there. It was doing coverage.
+
+**Note on the check itself.** This is the first time in six passes that a
+sentence in this stream was tested against something outside the stream, and it
+came back partly wrong. Every other finding here has been checked only against
+his messages and against earlier passes — both of which are text, and one of
+which is mine.
