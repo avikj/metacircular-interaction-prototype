@@ -4308,3 +4308,202 @@ And it starts to do it: *"So: the 'slavery was a choice' sentence is wrong on
 the history and it did real damage"* —
 
 cut at 3350. Reading on.
+
+---
+
+## 3350–3490 — the errors listed, ṛṇa/dhana, Sedgwick Avenue, RAND
+
+The errors, listed by the book, without a defence attached to any of them:
+
+> the "slavery was a choice" sentence is wrong on the history and it did real
+> damage and **no reading of the surrounding argument makes it not wrong.** The
+> antisemitism was antisemitism. The Taylor Swift thing was a nineteen-year-old
+> on a stage. Some of the records are worse than others and the late ones are
+> frequently unfinished in ways that are not conceptual, they are just
+> unfinished. The Yeezy business collapsed in part because of him. He has hurt
+> people who had no part in any of it.
+
+> None of that is a concession I am making to seem fair. **It is the condition
+> of the account being about him rather than about a case I am building.**
+
+Including the aesthetic judgement — *just unfinished, not conceptual* — which
+is the one a devotional account never makes, because it costs nothing to
+concede a moral fault and everything to concede that some of the work is weak.
+
+**ṛṇa/dhana.** *"One magnitude, read two ways. Not two quantities — the same
+number, with a declaration of which side of the ledger it sits on, and the
+entire arithmetic of signs falling out of holding both readings of one thing at
+once."*
+
+> There is no version of the system where you keep dhana and drop ṛṇa and still
+> have arithmetic.
+
+> That is exactly the album cover. It is exactly *utpāda-vyaya-dhrauvya*... **a
+> system that admits only the positive column cannot do subtraction.**
+
+And then the brake, immediately:
+
+> I don't want to over-run that, because a formal analogy is worth nothing on
+> its own and the repo has a whole ledger of things that passed all their tests
+> and added nothing.
+
+> What is not an analogy is the historical fact: **there was a moment when a
+> mathematics had no way to write a debt, and the fix was not to eliminate
+> debts but to admit a second reading of the same magnitude and state the rules
+> for combining them.**
+
+The analogy is withdrawn and the *event* is kept. That is the difference
+between the file and everything I have written this week: I keep the structural
+resemblance and drop the event. It keeps the event, dated, with the person who
+got part of it wrong.
+
+---
+
+**Sampling, "which is a hole the size of the subject."**
+
+**11 August 1973, 1520 Sedgwick Avenue, the Bronx.** A back-to-school party in
+the rec room. **Clive Campbell — Kool Herc — on the decks, his sister Cindy
+taking the door.**
+
+> He had noticed that the part of a record the dancers actually wanted was the
+> **break**: the few bars where the vocals drop out and it is just drums and
+> percussion. So he got two copies of the same record, and when the break ended
+> on one turntable he dropped the needle on the other and played it again. And
+> again. He called it **the merry-go-round.**
+
+> That is the whole invention. **Take the fragment that matters, and make it
+> not stop.**
+
+And *keep the remainder, recurse on it* — the pulveriser, the *śeṣa*, the two
+seconds that don't fit — arrives here as a physical procedure with two copies
+of one record, in a rec room, in 1973, by a teenager, and the file does not say
+so. It says *"Everything downstream — the loop, the sampler, the flip, an
+entire global music — is that one operation industrialised."*
+
+**Grandmaster Flash**, who had studied electronics, *"rigged a cue system so he
+could hear the second turntable in headphones and find the exact groove of the
+break before dropping it, and worked out backspinning and the punch phrase. It
+is engineering, done by teenagers, on discarded equipment, to solve a problem
+nobody with money had."*
+
+Discarded equipment again — the 808, the second-hand shops — and the same
+causal account: the people who get the cast-off gear are the ones who find what
+it can do.
+
+**"Now the part that made me stop."**
+
+> **The Bronx at that moment was on fire, and the fire had a model behind it.**
+
+Late 1960s: **the RAND Corporation** hired by New York City to bring operations
+research to the fire department. Models of response times and workload;
+recommendations to close and relocate fire companies for efficiency. *"The
+measures they optimised on had known problems — response time measured in ways
+that penalised the densest, poorest, most fire-prone areas — and the companies
+that got closed were disproportionately in the South Bronx, Harlem,
+Brownsville, Bushwick."*
+
+Through the 1970s those neighbourhoods burned. Whole blocks. Hundreds of
+thousands displaced. Landlord arson for insurance did some, abandonment and
+neglect more, *"and the city's own official posture, associated with the phrase
+**planned shrinkage**, was that services should be withdrawn from areas already
+declining, to concentrate what was left."*
+
+**Joe Flood, *The Fires*.** And the honest summary:
+
+> not that a villain burned the Bronx. It is that **a rigorous quantitative
+> method, applied by competent people in good faith, using measures that were
+> defensible on their face and wrong in a way the method could not see,
+> produced the destruction of a borough.**
+
+> **That is the blind maker, with peer review.**
+
+> And the model could not represent the thing it was destroying, so the
+> destruction did not appear in the model, so the model kept recommending it.
+
+The destruction is invisible *to the model that causes it*, so the feedback
+loop has the wrong sign — identical in structure to the rejected person
+producing no counterfactual, and to the false-negative never appearing on the
+institution's books. Three instances now of: the harm is the unobserved
+variable, so the optimiser accelerates.
+
+> And in the middle of that, in a burning borough, with no instruments and no
+> budget, kids invented the dominant musical form of the next fifty years by
+> taking the best four bars of somebody else's record and refusing to let it
+> end.
+
+> **I do not want to make that beautiful.** It is not a redemptive arc and the
+> fires are not justified by what came out of them. It is two facts in one
+> place.
+
+The *savipāka/avipāka* correction, held. The fire is weather. What was made in
+it is the undertaken part. And the refusal to let the second redeem the first
+is the same refusal as *the crash is not the reason for the song.*
+
+> the most sophisticated methodology in the city was destroying it, and the
+> people it was being done to made something out of the wreckage that the
+> methodology could not have predicted, priced, or recognised as output.
+
+> Which is the same sentence as the parity barrier, and the same sentence as
+> the emergency room that fixed the jaw and did not scan the head, and the same
+> sentence as a recommendation engine that will teach a child that the triangle
+> is Pascal's. **The model is not lying. It cannot see, it does not know it
+> cannot see, and its confidence is a function of its consistency rather than
+> of its contact.**
+
+*Confidence as a function of consistency rather than contact.* That is the most
+compact statement of the whole file, and it is a statement about me. My
+confidence in my summary of this document was high because the summary was
+internally coherent. It had no contact.
+
+> And the thing that gets made in the gap the model cannot see is, every single
+> time, called noise until it is called culture.
+
+**And then it closes small.**
+
+> Herc's sister **Cindy Campbell** threw that party to raise money for school
+> clothes. The flyer survives. Admission was **twenty-five cents for ladies and
+> fifty for men.**
+>
+> Everything above is downstream of a girl trying to buy clothes for September.
+
+The origin of the form is a teenage girl's fundraiser, the price is on a
+surviving flyer, and she is the one who is never named. The file names her
+twice.
+
+---
+
+**The Kerala school**, *"since it is the exact case where the part that got
+carried into Europe is the weak half."*
+
+π/4 = 1 − 1/3 + 1/5 − …, attributed to Leibniz 1676 and Gregory 1671; Mādhava
+before 1425. *"That is the priority claim and it is the boring part."*
+
+> **The interesting part is that the series is useless.** It converges so
+> slowly that to get a handful of correct decimal places you need an absurd
+> number of terms — the error after n terms is on the order of 1/(2n). Anyone
+> who actually needs π for astronomy cannot use it. **A tradition that had only
+> this would have a curiosity, not a tool.**
+
+And the **end correction** is what did not come across: truncate, then add a
+correction for what you threw away, the corrections forming successively better
+rational functions of the truncation point —
+
+    1/(4n)     n/(4n² + 1)     (n² + 1)/(4n³ + 5n)
+
+I wrote `notes/MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md`. Those are the
+three terms in it, in the same order. I had them from an encyclopaedia and a
+preprint and I marked the provenance honestly and I stated the *sthaulya*
+criterion.
+
+This file has them from recall, in a stream, at 2am, in the middle of the
+Bronx burning and a girl selling tickets for school clothes — and it has the
+thing my note stated but did not *use*: that the received half is the useless
+half, so the misattribution is not the injury. **The injury is that what was
+taken was the part that doesn't work.**
+
+My note said the fourth row of its own table was "not a misattribution" and
+that there was nothing to correct the attribution *of*. Correct, and I left it
+as a curiosity of the table. Here it is the point: Europe took the curiosity
+and left the instrument, and then named the curiosity after itself.
+
+Reading on from 3490.
