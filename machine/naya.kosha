@@ -1,0 +1,133 @@
+NAYA	0	log-carries-both-verdicts	yogya:read machine/Obstruction.hs, section THE SEVENFOLD POSITIONS	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	machine.log carries one claim both affirmed and denied, so a verdict is a property of the (claim, standpoint) pair and not of the claim=machine/Obstruction.hs
+NAYA	1	log-carries-both-verdicts	yogya:read formal/cubical/SaptabhangiNaya.agda, header	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	machine.log carries one claim both affirmed and denied, so a verdict is a property of the (claim, standpoint) pair and not of the claim=formal/cubical/SaptabhangiNaya.agda
+NAYA	2	the-cited-line-numbers-still-resolve	yogya:opened machine/machine.log at lines 146 and 174 on 2026-08-20	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	
+NAYA	3	the-log-is-content-addressed	ayogya:no search for a hash, a length or a commit pin on machine.log	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	
+NAYA	4	Mixed-at-true	yogya:the fibre is Unit\s its inhabitants enumerated exhaustively	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	tt=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda
+NAYA	5	Mixed-at-false	yogya:the fibre is Bool\s its inhabitants enumerated exhaustively	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	true=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda;false=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda
+NAYA	6	python-is-banned	yogya:read CLAUDE.md, section The substrate: Agda, not Python	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	Python is banned in this repository=CLAUDE.md
+NAYA	7	python-is-banned-and-mechanised	yogya:read CLAUDE.md and the hook and workflow files it names	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	Python is banned in this repository=CLAUDE.md;the ban is enforced by a hook, a pre-commit and CI, because prose failed=CLAUDE.md
+PRCCHA	0	saha	0,1	one content, two records -- asserted at once (saha)
+UTTARA	0	Position B7AstiNastiAvaktavya at artha (content: the same witness labels)
+VAKYA	0	  bhanga : Position B7AstiNastiAvaktavya
+VAKYA	0	  samata : artha (content: the same witness labels)
+VAKYA	0	  IDENTIFIABLE AS CONTENT, NOT AS RECORD.
+VAKYA	0	  The witness labels are the same set\s the sources are not.
+VAKYA	0	  These are independent attestations of one content.  A collapse
+VAKYA	0	  keeps what is said and destroys that it was said twice, from two
+VAKYA	0	  places -- which is the entire evidential weight of the pair.
+VAKYA	0	  Asserted at once (saha), one sentence is being asked to carry
+VAKYA	0	  both 'one content' and 'two records'.  It cannot: seventh bhanga.
+VAKYA	0	
+VAKYA	0	  maximal collapsible sub-families (varga), by content:
+VAKYA	0	      { #0, #1 }
+VAKYA	0	
+VAKYA	0	  WHAT A CONTENT-COLLAPSE WOULD DESTROY (the sources, not the content):
+VAKYA	0	    from `log-carries-both-verdicts (#0)`, 1:
+VAKYA	0	        - machine/Obstruction.hs
+VAKYA	0	    from `log-carries-both-verdicts (#1)`, 1:
+VAKYA	0	        - formal/cubical/SaptabhangiNaya.agda
+PRCCHA	1	krama	0,1	the same two, in succession (krama)
+UTTARA	1	Position B3AstiNasti at artha (content: the same witness labels)
+VAKYA	1	  bhanga : Position B3AstiNasti
+VAKYA	1	  samata : artha (content: the same witness labels)
+VAKYA	1	  IDENTIFIABLE AS CONTENT, NOT AS RECORD.
+VAKYA	1	  The witness labels are the same set\s the sources are not.
+VAKYA	1	  These are independent attestations of one content.  A collapse
+VAKYA	1	  keeps what is said and destroys that it was said twice, from two
+VAKYA	1	  places -- which is the entire evidential weight of the pair.
+VAKYA	1	  In succession (krama), both are sayable, in that order:
+VAKYA	1	  as content one, as record two.
+VAKYA	1	
+VAKYA	1	  maximal collapsible sub-families (varga), by content:
+VAKYA	1	      { #0, #1 }
+VAKYA	1	
+VAKYA	1	  WHAT A CONTENT-COLLAPSE WOULD DESTROY (the sources, not the content):
+VAKYA	1	    from `log-carries-both-verdicts (#0)`, 1:
+VAKYA	1	        - machine/Obstruction.hs
+VAKYA	1	    from `log-carries-both-verdicts (#1)`, 1:
+VAKYA	1	        - formal/cubical/SaptabhangiNaya.agda
+PRCCHA	2	krama	4,5	truth-equal and content-distinct: the Unit/Bool case
+UTTARA	2	Position B2Nasti at satya (truth value only)
+VAKYA	2	  bhanga : Position B2Nasti
+VAKYA	2	  samata : satya (truth value only)
+VAKYA	2	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
+VAKYA	2	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
+VAKYA	2	  available iff every pair of fibres is equivalent, and `Mixed` with
+VAKYA	2	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	2	  not enough.  Any single verdict here discards the difference below.
+VAKYA	2	
+VAKYA	2	  maximal collapsible sub-families (varga), by content:
+VAKYA	2	      { #5 }
+VAKYA	2	      { #4 }
+VAKYA	2	
+VAKYA	2	  WHAT A SINGLE VERDICT WOULD DESTROY:
+VAKYA	2	    from `Mixed-at-false (#5)`, 2:
+VAKYA	2	        - false
+VAKYA	2	        - true
+VAKYA	2	    from `Mixed-at-true (#4)`, 1:
+VAKYA	2	        - tt
+PRCCHA	3	krama	0,1,4	three at once: two agree, one does not
+UTTARA	3	Position B3AstiNasti at satya (truth value only)
+VAKYA	3	  bhanga : Position B3AstiNasti
+VAKYA	3	  samata : satya (truth value only)
+VAKYA	3	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
+VAKYA	3	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
+VAKYA	3	  available iff every pair of fibres is equivalent, and `Mixed` with
+VAKYA	3	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	3	  not enough.  Any single verdict here discards the difference below.
+VAKYA	3	  Not uniformly, though: the sub-families listed as varga DO
+VAKYA	3	  collapse.  What does not exist is the collapse of the whole.
+VAKYA	3	
+VAKYA	3	  maximal collapsible sub-families (varga), by content:
+VAKYA	3	      { #0, #1 }
+VAKYA	3	      { #4 }
+VAKYA	3	
+VAKYA	3	  WHAT A SINGLE VERDICT WOULD DESTROY:
+VAKYA	3	    from `Mixed-at-true (#4)`, 1:
+VAKYA	3	        - tt
+VAKYA	3	    from `log-carries-both-verdicts (#0)`, 1:
+VAKYA	3	        - machine.log carries one claim both affirmed and denied, so a verdict is a property of the (claim, standpoint) pair and not of the claim
+VAKYA	3	    from `log-carries-both-verdicts (#1)`, 1:
+VAKYA	3	        - machine.log carries one claim both affirmed and denied, so a verdict is a property of the (claim, standpoint) pair and not of the claim
+PRCCHA	4	saha	0,2	one affirms, one denies, and the denial's looking WAS fit
+UTTARA	4	Position B4Avaktavya at no shared index
+VAKYA	4	  bhanga : Position B4Avaktavya
+VAKYA	4	  samata : none -- not even truth-equal
+VAKYA	4	  NOT IDENTIFIABLE.  Some standpoint affirms and some denies.
+VAKYA	4	  Asserted SIMULTANEOUSLY (saha): no single utterance carries it.
+VAKYA	4	  This is the FOURTH bhanga and it is positive.  The joint
+VAKYA	4	  content is determinate\s what fails is the single sentence.
+VAKYA	4	  It is NOT this store saying it cannot see -- that is Abhinna,
+VAKYA	4	  a different answer, kept in a different constructor.
+VAKYA	4	
+VAKYA	4	  maximal collapsible sub-families (varga), by content:
+VAKYA	4	      { #2 }
+VAKYA	4	      { #0 }
+VAKYA	4	
+VAKYA	4	  WHAT A SINGLE VERDICT WOULD DESTROY:
+VAKYA	4	    from `log-carries-both-verdicts (#0)`, 1:
+VAKYA	4	        - machine.log carries one claim both affirmed and denied, so a verdict is a property of the (claim, standpoint) pair and not of the claim
+PRCCHA	5	saha	0,3	the same shape, but the second one nobody looked for
+UTTARA	5	abhinna: fewer than two standpoints the looking was fit for (1 of 2)\s an unfit looking's silence is not a NO (Kumarila, Abhavapariccheda)
+VAKYA	5	  NO VERDICT ISSUED (abhinna).
+VAKYA	5	  fewer than two standpoints the looking was fit for (1 of 2)\s an unfit looking's silence is not a NO (Kumarila, Abhavapariccheda)
+VAKYA	5	  An unfit looking's silence is not a NO, and this answer is NOT the
+VAKYA	5	  fourth bhanga.  Avaktavyam is positive\s this is a refusal.
+PRCCHA	6	krama	6,7	containment: one standpoint's content inside another's
+UTTARA	6	Position B2Nasti at satya (truth value only)
+VAKYA	6	  bhanga : Position B2Nasti
+VAKYA	6	  samata : satya (truth value only)
+VAKYA	6	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
+VAKYA	6	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
+VAKYA	6	  available iff every pair of fibres is equivalent, and `Mixed` with
+VAKYA	6	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	6	  not enough.  Any single verdict here discards the difference below.
+VAKYA	6	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
+VAKYA	6	
+VAKYA	6	  maximal collapsible sub-families (varga), by content:
+VAKYA	6	      { #6 }
+VAKYA	6	      { #7 }
+VAKYA	6	
+VAKYA	6	  WHAT A SINGLE VERDICT WOULD DESTROY:
+VAKYA	6	    from `python-is-banned-and-mechanised (#7)`, 1:
+VAKYA	6	        - the ban is enforced by a hook, a pre-commit and CI, because prose failed
