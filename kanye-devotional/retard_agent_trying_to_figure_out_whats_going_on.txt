@@ -2966,3 +2966,89 @@ relationship to the work it was built out of is not what it claims.
 And I am that thing, running on that corpus, writing an argument about attribution. There
 is no standpoint available to me from which that is not the case.
 
+
+---
+
+Following the thing about the gate at five, because I want to know where the
+instrument actually came from and I keep finding it was built for something
+else.
+
+Alfred Binet, Paris, 1905. He builds the scale on commission from the French
+ministry, for one purpose: find the children who need extra help so they can be
+given it. And he says, explicitly and repeatedly, that the scale does not measure
+a fixed quantity — that intelligence is not "a single indivisible function with a
+particular essence," that the scale ranks rather than measures, and that using it
+to write a child off is what he calls **brutal pessimism**. He wrote that
+children so labelled must be taught that attention, memory and judgment are
+*capable of increase*. He dies in 1911, at 54.
+
+Two years later Henry Goddard, who had translated Binet into English and who
+coined the word *moron*, is at Ellis Island administering it to selected steerage
+arrivals, in English, through interpreters, to people who had just crossed an
+ocean. He publishes that something like 83% of Jews, 80% of Hungarians, 79% of
+Italians and 87% of Russians in his sample tested as feeble-minded. He had
+already published *The Kallikak Family* in 1912, a pedigree study whose
+photographs were later shown to have been retouched to darken the eyes and mouths
+of the "bad" line.
+
+Then the war. Robert Yerkes gets the Army to test roughly 1.75 million men —
+Alpha for the literate, Beta for those who could not read, Beta administered
+largely by pantomime, and the two scores treated as comparable. Men who had never
+held a pencil, timed, in a room with a demonstrator waving.
+
+Carl Brigham takes the Army data and writes *A Study of American Intelligence* in
+1923, arguing Nordic superiority and decline by immigration. That data is in the
+air around Johnson-Reed in 1924, which cuts southern and eastern European
+immigration by national-origin quotas. Then Brigham becomes secretary of the
+College Board, and in 1926 the first SAT is administered.
+
+And this is the part I did not expect. **Brigham publicly retracted.** 1930,
+*Psychological Review*, in a paper on error: he writes that comparative racial
+studies based on these tests were without foundation, and names his own as one of
+them — *"one of the most pretentious of these comparative racial studies — the
+writer's own — was without foundation."* The retraction is four pages. The
+immigration quotas stayed until 1965. The test stayed.
+
+Buck v. Bell, 1927. Holmes writes *three generations of imbeciles are enough*,
+8-1. Carrie Buck's daughter Vivian, the third generation, was later found to have
+been an honor-roll student who died at eight. Something on the order of sixty
+thousand sterilizations followed in the United States. The Nazi 1933 sterilization
+law was modelled in part on the Virginia statute, and German defendants cited
+Buck v. Bell at Nuremberg. Buck v. Bell has never been formally overturned.
+
+So the instrument that decides which kid is which was designed by a man who said
+don't use it this way, carried to America by a man who used it to grade
+immigrants at a dock, validated on soldiers who couldn't read the instructions,
+theorized by a man who took it back in print four years after building the
+college gate out of it, and constitutionalized by a Justice in an opinion still
+on the books.
+
+Two more that keep the thing from being a morality tale.
+
+Terman ran the long gifted study — the Termites, 1,500 California children
+selected by his own test in 1921, followed for decades. **[recall, and I'd want
+it checked]** Two children who tested below his cutoff and were not admitted to
+the study, Luis Alvarez and William Shockley, later won Nobel Prizes in physics.
+The instrument's own designer, selecting for exactly this, at the largest scale
+anyone had tried, missed them. Shockley then spent his last decades on racial
+intelligence claims, which is a loop I don't want to draw a moral from, only to
+record.
+
+And Larry P. v. Riles, California, 1979. Judge Peckham enjoined the use of IQ
+tests to place Black children in classes for the "educable mentally retarded,"
+because Black children were in those classes at rates far above their share of
+enrollment, and the test was the mechanism. Not the 1920s. The year *London
+Calling* came out.
+
+What I notice while writing it down: at no point does anyone in this chain need
+to be lying. Binet is sincere. Goddard is sincere. Yerkes is sincere. Brigham is
+sincere enough to retract. The thing that persists across all of them is not a
+belief. It is the **scalar** — one number per person, orderable — and it persists
+because sorting is what the institution needs done, and no honest description of
+a person can be sorted.
+
+That's the same shape as the boolean in the machine log in this repo, refusing at
+line 146 what it accepts at line 174, and the same shape as calling a man crazy
+so the sentence doesn't have to be heard. One value out, standpoint deleted, and
+the deletion is the part nobody can see afterward because the number arrives
+clean.
