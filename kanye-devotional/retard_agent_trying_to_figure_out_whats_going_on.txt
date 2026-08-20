@@ -11199,3 +11199,46 @@ been, and it is still going.
 The maintenance schedule is just this. Say the names while the thing is in use. Repeat as
 required, indefinitely, by hand, forever.
 
+
+---
+
+Same act, other side. **A first-pass displacement table** — tool number two from the list of
+six, built small rather than described. Source first, restatement named as one. Recall
+throughout; every row should be checked against a critical edition and struck where wrong.
+
+| the thing | the source, with date | commonly called |
+|---|---|---|
+| binary enumeration of metres, with index-to-pattern and pattern-to-index algorithms (*prastāra*, *naṣṭa*, *uddiṣṭa*) | **Piṅgala**, *Chandaḥśāstra*, c. 300 BCE | "binary numbers", Leibniz 1703 |
+| the binomial array (*meru-prastāra*) | **Halāyudha**, *Mṛtasañjīvanī*, 10th c., as commentary on Piṅgala | "Pascal's triangle", 1654 |
+| the additive recurrence (*mātrāmeru*) | **Virahāṅka**, c. 600–800; **Gopāla**; **Hemacandra**, c. 1150 | "Fibonacci", 1202 |
+| exponentiation by repeated squaring (*saṅkhyā*) | **Piṅgala** / commentators | "binary exponentiation" |
+| systematic combinatorics, partitions, magic squares | **Nārāyaṇa Paṇḍita**, *Gaṇitakaumudī*, **1356** | — mostly unattributed |
+| linear indeterminate solution by descent (*kuṭṭaka*, *vallī*) | **Āryabhaṭa**, *Āryabhaṭīya* 2.32–33, **499** | "extended Euclidean algorithm" |
+| simultaneous congruences | **Āryabhaṭa**; **Sunzi**; **Qin Jiushao**, 1247 | "Chinese remainder theorem" (one of three names for one object) |
+| the half-chord (*jyā*) and its table by second differences | **Āryabhaṭa**, 499 | "sine" — via *jība* → *jaib* → *sinus* |
+| the approximation marker on π | **Āryabhaṭa** writes **āsanna** in the verse | usually quoted with the marker dropped |
+| arithmetic of zero and of negative quantities (*śūnya*, *ṛṇa*, *dhana*) | **Brahmagupta**, *Brāhmasphuṭasiddhānta* ch. 18, **628** | — usually unattributed; his 0/0 error is also his |
+| composition law on the quadratic form (*bhāvanā*, *varga-prakṛti*) | **Brahmagupta**, 628 | "Brahmagupta–Fibonacci identity"; Gauss composition |
+| the cyclic method (*cakravāla*) | **Jayadeva**, c. 950, surviving only in **Udayadivākara**'s quotation; **Bhāskara II**, 1150 | "Pell's equation" — Pell never solved it; Euler misattributed Brouncker |
+| n/0 as an unaltered magnitude (*khahara*) | **Bhāskara II**, *Bījagaṇita*, 1150 | — |
+| instantaneous rate, the sine difference quotient, vanishing rate at a turning point | **Bhāskara II**, 1150 | "differential calculus", 17th c. |
+| the arctangent, sine and cosine power series **with end corrections and convergence acceleration** | **Mādhava**, before 1425; recorded by **Nīlakaṇṭha**, *Tantrasaṅgraha*, 1501; derived in **Jyeṣṭhadeva**, *Yuktibhāṣā*, c. 1530 | "Gregory series" 1671, "Leibniz series" 1676, "Newton series" — and the corrections did not travel at all |
+| planets orbiting the sun which orbits the earth | **Nīlakaṇṭha**, 1501 | "Tychonic system", c. 1583 |
+| log base 2 (*ardhaccheda*) with ardhaccheda(ab)=ardhaccheda(a)+ardhaccheda(b) | **Vīrasena**, *Dhavalā*, c. 816 | — |
+| a graded taxonomy of the unbounded (*saṃkhyāta* / *asaṃkhyāta* / *ananta*) | **Anuyogadvāra**, c. 1st c. CE | — no equivalent; usually not mentioned |
+| generative grammar with metarules, conflict resolution, stratification, scoped inheritance | **Pāṇini**, *Aṣṭādhyāyī*, c. 500 BCE | "Backus–Naur Form", 1959 — a renaming was formally proposed in CACM in 1967 and declined |
+| the elsewhere condition | **Pāṇini**'s *utsarga/apavāda*; named **from** Pāṇini by Kiparsky, 1973 | "the Elsewhere Condition" — attribution made and then detached |
+| meaning by exclusion (*apoha*) | **Dignāga**, c. 500; **Dharmakīrti**, c. 600 | "differential/structural theories of meaning", 20th c. |
+| standpoint-indexed predication, the inexpressible fourth position (*saptabhaṅgī*, *avaktavya*) | **Umāsvāti**; **Siddhasena**; **Samantabhadra**; **Akalaṅka**, 2nd–8th c. | — usually filed as religion |
+| pervasion, the defeating condition (*vyāpti*, *upādhi*), and a taxonomy of pseudo-reasons | **Gautama**, *Nyāyasūtra*; **Vātsyāyana**; **Gaṅgeśa**, 14th c. | — |
+| the pedicled forehead flap | **Suśruta Saṃhitā** | **"the Indian rhinoplasty"** — the one case where the name survived, because it transmitted as a demonstrated practice |
+| the aesthetic emotion as generalised and distinct from the ordinary emotion (*rasa*, *sādhāraṇīkaraṇa*) | **Bharata**, *Nāṭyaśāstra* 6.31; **Abhinavagupta**, c. 1000 | — no equivalent before the 18th c. |
+| the decimal place-value numerals | Indian, transmitted via al-Khwārizmī; **Fibonacci calls them the *modus Indorum* in his own opening paragraphs**, 1202 | "Arabic numerals" |
+
+**Twenty-six rows.** Every one is a lookup, none requires an argument, and none of them
+asks anybody to stop saying Pascal.
+
+That is what the tool would be, at scale, machine-readable, and somebody could build the
+serious version for the few thousand cases that matter in about a year. This is the
+demonstration that it is a *bookkeeping* problem and not a political one.
+
