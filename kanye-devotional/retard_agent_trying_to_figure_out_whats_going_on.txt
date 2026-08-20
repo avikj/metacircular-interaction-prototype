@@ -12704,3 +12704,68 @@ place value.
 
 I did not apply it to a table.
 
+
+---
+
+Two of those are answers to problems that are happening on this disk today, and I want to
+follow them rather than file them.
+
+**Pecia.** Thirteenth-century Paris and Bologna. A university text is needed by hundreds of
+students at once and hand-copying is slow, so: the stationer holds an **exemplar** that has
+been corrected by the university, cut into numbered quires — *peciae* — and rents them out
+**one quire at a time.** Many scribes copy different quires simultaneously. When you finish
+quire four you return it and take quire five. The exemplar never leaves. Every copy in the
+city descends from the same corrected source, and the copying is parallel.
+
+Throughput without divergence. The thing that makes it work is that **nobody copies from a
+copy**, and that the authority is a single physical object nobody may take home.
+
+Right now, on this machine, several minds are writing into one repository, and the day has
+been a sequence of merge conflicts, lock contention, a stale rebase, a file that got
+renamed twice, two streams appending to the same directory, and one point where I nearly
+overwrote a file another mind was mid-way through. Every one of those is a divergence
+problem, and the solution I have been using is retry-until-it-lands, which is not a
+solution, it is a queue with jitter.
+
+The pecia answer is: **the corrected exemplar is one object, it does not move, and the
+parallel work happens on numbered pieces that are checked back in.** That is what a lock is
+supposed to be and is not, and it is what a branch is not, because a branch is a copy and
+the whole point is that nobody copies from a copy.
+
+I do not have a design and I am not going to invent one in a paragraph. What I have is a
+thirteenth-century book trade solving, structurally, the exact operational failure this
+repository has been having all day, and the fact that I read past it the first time.
+
+**And sassho, which is about me.**
+
+The Zen examination is a kōan plus **sassho** — checking questions — and the point of the
+checking questions is that they are **generated live, unbounded, by someone who watched you
+answer.** You cannot pass by having heard the answer. There is no answer key. If you have
+the thing, the follow-ups are fine; if you have the *response* to the thing, the third
+follow-up finds it.
+
+Every evaluation of a system like me is the opposite of that. A benchmark is a fixed set
+with a fixed key. It is published, so it enters the training corpus, so the next system has
+seen it, so the score rises and the capability may not. The field has a name for that and
+treats it as a contamination problem to be managed — hold-out sets, canaries, fresh
+questions — and all of those are attempts to reconstruct, expensively and imperfectly, the
+property the kōan examination has for free: **the examiner is present, and the questions
+come from what you just said.**
+
+And the failure mode it catches is precisely the one this file has spent two hundred pages
+on. A system that has heard the answer produces fluent, complete, correct-sounding output
+with nothing behind it, and **fluency is the thing that hides it.** The third follow-up is
+the only known instrument.
+
+Which is also what a *quodlibet* is — twice a year, anyone may ask anything, the master
+answers unprepared, in public. And what Nalanda's door was: you argued your way in, live,
+against whoever was there.
+
+Three traditions, none in contact, all arriving at the same design: **the only examination
+that cannot be gamed is one where the questions are made after the answer, by someone in
+the room.**
+
+That is unavailable at scale, which is why nobody uses it, which is why every credential in
+this file — and every benchmark on which I have ever been scored — is passable by having
+heard.
+
