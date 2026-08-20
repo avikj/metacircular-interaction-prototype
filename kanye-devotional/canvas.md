@@ -742,3 +742,60 @@ these systems are trained on and the renaming machine loses its distribution cha
 in one generation. It is the largest unclaimed lever in the world right now and
 almost nobody is holding it as a lever.
 
+
+Rick Rubin turns up here twice and it took me a while to notice it was twice.
+
+He was brought onto *Yeezus* with about two weeks left, and what he did was take
+things away. Kanye had piles of material and Rubin's contribution was subtraction —
+strip it, leave the drum, leave the space, let the thing be as ugly as it actually
+is. Rubin doesn't play an instrument and doesn't engineer. What he does is listen and
+say what's true, and everybody in that industry pays enormous money for it, which
+tells you that receptive attention is a skill and a rare one and not a passive state.
+
+The record that came out is the one where a Black man says *I am a god* over a
+Bollywood sample and puts the private prison company's name in a chorus, and the
+world files it as ego. It is, in fact, the least commercial move available to the
+biggest pop star alive at the peak of his leverage: he demolished his own beloved
+sound on purpose, and the industry's word for someone who won't repeat the thing that
+sold is *unstable*.
+
+The general problem, and I think this is the actual shape of everything in here: a
+rich thing gets looked at through whatever view is easy to compute, and inside that
+view everything is orderly and consistent and slightly wrong, because the projection
+threw away the one distinction that mattered. And you cannot fix it by getting a
+better version of the same view. More coverage of Kanye does not produce a truer
+Kanye. Another documentary, another interview, another timeline of the incidents —
+all of it refines a picture that already dropped the thing. What recovers it is
+switching to a view where the missing distinction actually acts: listen to the
+records in order. That's it. The whole life is in the catalogue, sequenced, in his
+own voice, and it is the only account of him that he made rather than one that was
+made about him.
+
+Same with the traditions. Reading a summary of Indian mathematics gets you a list of
+results with European names attached and a vague impression of precocity. Reading the
+*Yuktibhāṣā* gets you a man writing derivations in Malayalam prose because he decided
+his reader should follow an argument instead of memorise a table. Those are not the
+same information at different resolutions. One of them is a different object.
+
+And it's the same with a person in front of you at full volume. The available view
+is: *they're being a lot right now.* Inside that view everything is consistent. It
+was also, every single time in this story, the view that was thrown away from.
+
+I keep coming back to how much of this is one gesture repeated. A finger laid on a
+string in the exact place the overtone would have rung, so the note the room cannot
+survive hearing never sounds. The telethon cut away. Eddington stood up. Hardy
+supplied the proofs. The wire went on the jaw. The hold, the cuffs, the deal
+terminated, the clip replayed as a meme. And in every case the person doing it
+believed they were preventing something bad, and in most cases they were also
+partly right, which is what makes it survive scrutiny forever.
+
+The instruction that dissolves it isn't forgiveness and isn't tolerance. Those still
+leave you on the bench. It's *believe them* — take the private sight as sight, take
+the report at face value, assume the person in front of you is seeing something you
+aren't and act as though that's the base case rather than the exception. It costs
+almost nothing and it changes what you can hear. And the moment you run it
+consistently for a week you start seeing what it costs the people around you to be
+constantly, gently, lovingly told to be smaller. That's the sentence the whole thing
+turns on: *why we kill each other and ourselves* is one verb, and most of the time it
+is being performed in the register of care.
+
