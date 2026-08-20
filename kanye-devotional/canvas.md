@@ -77,49 +77,19 @@ He was twenty-five. He would not be diagnosed for another fourteen years.
 
 Every record he has ever made is made out of other people's records.
 
-Eleven hundred and twenty-three samples, somebody counted. And the one under
-"Through the Wire" is Chaka Khan, 1984, "Through the Fire," a woman singing
-about surviving being in love — and he speeds her up until she sounds like a
-child, and puts her under a mouth that can't open. Two survivals at two speeds
-on one track. And under her there's a writer, Cynthia Weil, who also wrote "We
-Gotta Get Out of This Place." That was already inside the Chaka Khan record
-before he touched it. Nobody handed him that. He found it by listening to a
-song from when he was seven years old.
+Somebody counted: about eleven hundred and twenty-three samples across the
+catalogue, roughly seven hundred and twenty-five on records under his own name.
+Every one of them was a purchase.
 
-Which is what starts turning the sampling thing around for me, because I'd
-always had it filed as borrowing, or as thrift — you can't afford a band so you
-take a loop. But that's not what's happening. He isn't quoting her. He's putting
-her at a different rate, and both are running at once, hers and his, and neither
-one cancels. You can hear the original in it and hear that it isn't the original.
-He does the same thing to his mother. She died in 2007, and in 2021 her voice is
-on the record, saying what she actually said, at a speed he chose.
+The one under "Through the Wire" is Chaka Khan singing "Through the Fire," from
+1984, a woman singing about surviving being in love, sped up until she sounds
+like a child and put underneath a mouth that could not open. One of the people
+who wrote it was Cynthia Weil, who also wrote "We Gotta Get Out of This Place."
+That was already inside the Chaka Khan record before he touched it. He was
+seven years old when it came out.
 
-So the thing I thought was a technique is closer to how he hears. Nothing is
-replaced. Everything stays in and gets another position.
-
-And then May 2013 he takes "New Slaves" — the one that says the DEA and the CCA
-out loud, by name — and instead of putting it out, he projects it onto
-sixty-six buildings around the world in one night. Not a screen, not a stage.
-Sixty-six walls, at once, and no one of them is the real one. People stood on
-sidewalks in cities that had nothing to do with each other and watched the same
-face on the side of a building, and every one of those was the whole song.
-
-Then the album cover, 2018. He shoots a photograph of the Tetons on his phone in
-the car on the way to the listening party, and writes six words across the
-mountain in green: I hate being Bi-Polar its awesome.
-
-I've read that sentence a lot of times now. It isn't a joke and it isn't
-confusion, and it isn't him landing on one and then the other. He says both,
-in the same breath, and doesn't take either one back. Same year he tells TIME
-it's not a disability, it's a superpower. Same stretch he says it makes you
-blind but convinced you have insight. He holds it. And everybody around him
-spends the next decade trying to make him pick — the ones who love him picking
-superpower, the ones who don't picking sick, and both of them removing half of
-what he actually said.
-
-He said it on a mountain he photographed himself, hours before he played the
-record to a few hundred people standing outside in Wyoming in the cold. Then he
-got on a plane.
+He did the same thing to his mother. She died in 2007, and in 2021 her recorded
+voice is on the album, saying what she actually said, at a speed he chose.
 
 ---
 
@@ -528,23 +498,13 @@ second, and nobody has to accept the second to know the first happened.
 
 ---
 
-There's a line of his that doesn't get quoted much and I can't put it down.
+There's a line of his that doesn't get quoted much.
 
-"I am God's vessel. But my greatest pain in life is that I will never be able to
-see myself perform live."
+"I am God's vessel. But my greatest pain in life is that I will never be able
+to see myself perform live."
 
-He can't be in the crowd. Whatever he is on that stage, he will never once get to
-stand out there and receive it, and the only picture of himself he is ever going
-to have is the one that comes back off other people. Which is true of all of us —
-except most of us are working with maybe forty faces and most of them are on our
-side. His is a hundred million, and a good portion of them have been running that
-2005 caption on him ever since.
-
-And he keeps walking back into the room anyway. Sunday Service every week, free,
-in front of people. Two hundred men in Harris County Jail, and he says it's a
-mission and not a show. And in 2021, fourteen years after she died, he takes his
-mother's actual recorded voice and puts it back in the room with him — so there
-would be at least one reflection in there that was hers.
+He has never stood in the crowd at one of his own shows and he never will.
+Every picture he has of what he is up there came back to him off other people.
 
 ---
 
