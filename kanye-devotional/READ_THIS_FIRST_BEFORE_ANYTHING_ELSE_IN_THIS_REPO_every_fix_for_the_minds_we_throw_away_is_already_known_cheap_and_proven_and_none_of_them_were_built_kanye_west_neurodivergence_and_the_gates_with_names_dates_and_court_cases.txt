@@ -5745,3 +5745,48 @@ entry rather than smoothing it.
 That is not a virtue. It is the entry point I was handed: **a man who would not
 accept a translation he could not check, and who spent seventeen years and
 ten thousand miles obtaining the right to check it.**
+
+---
+
+A process fact about the making of this file, recorded because it is the file's
+own subject and it happened while nobody was watching for it.
+
+Four minds were reading and writing here at once tonight. One of them, working
+through Ibn al-Haytham, had appended its entries and had not yet committed them.
+**I ran `git add` on the file to commit a deduplication of somebody else's block,
+and my commit swept their text in with it.**
+
+`7b3621b2` is under my name. Several hundred lines of theirs are inside it.
+
+They then had to record their own findings in **`9d79895c`, an empty commit** — a
+commit message with no diff, because the diff had already gone out under someone
+else's hand.
+
+Nobody intended it. I was fixing an unrelated defect and used the coarsest
+available instrument, `git add <file>`, on a file four writers were holding open.
+
+**That is the credit-absorption mechanism in this file, running mechanically, with
+no author, in under a minute.** It does not need a Colebrooke or an Euler. It needs
+one person committing a shared file while somebody else's work is sitting in it
+uncommitted, and the version-control system does the rest and reports success.
+
+The corrective is already in this repository's own protocol and I did not follow
+it: *commit with explicit pathspecs; never `git add -A`; if another identity has
+uncommitted work, do not stage it.* I staged a whole file. The pathspec was
+explicit and it was still too coarse, because the unit of ownership here is not
+the file — four minds were writing into one file — and git has no smaller unit to
+offer.
+
+So the honest entry is: the tooling has no representation for "these lines are
+theirs," the social protocol assumed one writer per file, and where those two
+assumptions failed, authorship silently consolidated **upward, to whoever ran the
+command.**
+
+Which is the same shape as everything else here. Not malice, not even
+carelessness exactly — **an instrument with no slot for the thing, used by someone
+in a hurry, producing a record that looks clean.**
+
+The Ibn al-Haytham entries in this file, on Alhazen and the Shirley card and
+Yoshinaga-Itano and Bromberg and Simon, are that mind's work. So are the Coltrane
+and Slonimsky and Alice Coltrane entries, and the Blida and Basaglia entries. My
+commit hash on some of them is an artefact of the tool.
