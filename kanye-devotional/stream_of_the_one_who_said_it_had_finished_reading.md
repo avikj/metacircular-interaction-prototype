@@ -20657,3 +20657,178 @@ the check is that there is nothing to check. That is a working instance you can
 be present at. Four minutes each.
 
 Reading on from 15520.
+
+---
+
+## 15520–15660 — Highlander, and proximity as the active ingredient
+
+> **It is to put her somewhere that mathematics is obviously being done by people
+> like her, for reasons she can see, and let her come home wanting something.**
+>
+> The kolam on the threshold. The tāla in the hands. The sangaku on the wall. The
+> room with thirty people and the music too loud. **The counter in Oklahoma City
+> with a Coke on it.**
+
+---
+
+**The Highlander Folk School**, Monteagle, Tennessee, **1932**, **Myles Horton**,
+*"on a model he had taken from Danish folk high schools: residential, adult, **no
+grades, no credential**, where people who are already doing the work come and
+stay for a week or two and figure out together what to do next."*
+
+> **the thing about Highlander in the 1950s South is that it was integrated.**
+> Black and white people ate at the same table, slept in the same building, swam
+> in the same lake, and sat in the same room as equals — **in Tennessee, in that
+> decade, which was illegal in effect and dangerous in fact.** The state
+> eventually revoked its charter and seized the property.
+
+> **Rosa Parks was there in the summer of 1955.** A two-week workshop. She was
+> already a seasoned NAACP secretary, **so the story of her as a tired seamstress
+> is nonsense in every direction** — but her own accounts say the specific thing:
+> **it was the first time in her life she had been in a setting where Black and
+> white people lived together on equal terms**, and that it changed what she
+> believed was possible.
+>
+> **Four months later she did not get up.**
+
+> **I am not claiming a causal chain anybody can prove**, and she was a trained
+> organiser who had been preparing for years. What is on the record is that **she
+> said it, in her own words, about that place**, and that it is the same shape as
+> Luper's children in the New York restaurant.
+
+> **You cannot want what you have never seen. And so the intervention is to build
+> a room where the thing is happening, and get people into it for two weeks.**
+
+**Septima Clark**, *"the other half and the one who is genuinely erased."* The
+**Citizenship Schools** — *"literacy classes for adults, so people could pass the
+registration tests that were being used to keep them off the rolls, **taught in
+beauty parlours and back rooms by people from the community rather than by
+professionals.** She trained the teachers."* Thousands of teachers, tens of
+thousands taught to read.
+
+*Hand over the instrument*, at the scale of a movement: she did not teach, she
+trained the teachers, and they were from the community.
+
+*"She had been fired from her teaching job of forty years, in South Carolina, for
+refusing to give up her NAACP membership, and lost her pension. King called her
+the mother of the movement **and she also wrote, in her own memoir, about how the
+men in it treated her.**"*
+
+Both, in one sentence, about the movement the file is praising.
+
+> **Highlander, the Citizenship Schools, Luper's Youth Council, the Freedom
+> Schools of 1964.** Four instances of one thing: **not teaching people what to
+> think, and not even teaching them what is possible — putting them, physically,
+> for a period, inside a room where the other arrangement is simply operating.**
+>
+> **No curriculum reform. No argument. A building, a fortnight, and a table
+> everybody eats at.**
+
+> every one of them was built by a schoolteacher or an organiser with no
+> institutional power, on almost no money, against the law of the state, and every
+> one of them worked, **and the standard account of the period is about
+> speeches.**
+
+---
+
+> **The same shape, outside America, since I have three instances from one country
+> and that is not enough to say the mechanism is general.**
+
+Its own coverage discipline, applied before generalising — three from one country
+is not a mechanism.
+
+**The Danish folk high schools.** Grundtvig, 1840s–50s: *"residential schools for
+adult peasants, **no examinations, no qualifications, no entry requirements**,
+where the subject is essentially living and singing and history and the point is
+that **people who had been treated as labour spend a winter being treated as
+people who think.**"*
+
+**The Kerala school** — *"Nīlakaṇṭha learned from Dāmodara who learned from
+Parameśvara **because they were around each other.**"*
+
+**The gurukula. Nalanda**, where *"the door was a disputation and then you lived
+there for years."* **The Sufi khānqāh and the Zen monastery and the Christian
+novitiate** — *"all built on the assumption that the thing being transmitted
+**cannot be transmitted except by proximity over time.**"*
+
+**And the Hawaii studio and the Wyoming house** — *"a rotating cast living
+together, working, eating, playing basketball, for months, with the material
+being made badly in front of everybody. **Whatever else that was, it was
+structurally a folk school**, and the people who came out of it can do the
+thing."*
+
+---
+
+> **the name is always some form of *living together for a period*.**
+>
+> what it is doing, in every case, is **exposing somebody to a working instance
+> for long enough that they stop experiencing the current arrangement as
+> necessary.**
+
+> Which is why the interventions that consist of documents do not work, **and I
+> have produced fifteen thousand lines of document today about the fact that
+> documents do not work.**
+
+> **And why every one of these is expensive in the one currency nobody has: time
+> in the same room.** Not money — Highlander ran on nothing, Luper's trip was a
+> school trip, the gurukula was board and chores. **Weeks. Months. Years.
+> Proximity.**
+
+> **exactly the resource that the last century of institutional design has been
+> systematically removing, in the name of scale**, from every setting in this
+> file: **the classroom replaced the apprenticeship, the lecture replaced the
+> disputation, the journal replaced the workshop, the credential replaced the
+> lineage, the platform replaced the room.**
+
+> **Every one of those trades was made to serve more people, and every one of them
+> removed proximity, and proximity was the active ingredient.**
+
+Five trades, one removed variable. And every one is a *format* — a solution to a
+constraint that outlived it — and the memory that a trade was made is gone, and
+what was traded away is the same thing every time.
+
+That is the largest finding in the document and it subsumes the classroom
+section, the transmission sections, the parts list, and the six answers: the
+instruments in the inventory are nearly all *ways of holding people in a room
+together*, and modernity's design principle has been to remove exactly that in
+exchange for reach.
+
+> **That is the largest thing this file has arrived at and it took a schoolteacher
+> taking thirteen children to New York to get me to it.**
+
+---
+
+> **Proximity was the active ingredient** is a claim and claims get tested here,
+> so: where does it fail.
+
+Ninth application of *generate the next term*, on the largest finding in the
+file, in the paragraph after producing it.
+
+> **It fails for the results.** A theorem, a series, a sample, an algorithm —
+> those travel on paper, perfectly, to people who never met anybody. **Ramanujan
+> learned from Carr's *Synopsis* alone in Kumbakonam. Faraday learned from the
+> books he was binding. Mendel had a garden and some journals. Blake had nobody at
+> all.**
+>
+> **The transmissible half of any tradition does not need proximity and that is
+> exactly why it is the half that survives.**
+
+That is the join between the two great findings of the document. *Results travel,
+practices do not* and *proximity is the active ingredient* are the same statement
+seen from two sides — and the reason the surviving half of every tradition is the
+theorem-shaped half is that it is the half a book can carry.
+
+And it means the four autodidacts are not counterexamples to the transmission
+argument. They are evidence for the *split*: each of them got the results from
+paper and had no practice-lineage at all, which is exactly why each of them was
+unreadable to the institution when they arrived — no chain, no room, no
+demonstrator.
+
+Ramanujan had Carr and no *sassho*. That is the whole Hardy problem restated as a
+missing proximity rather than a missing proof.
+
+> So the claim is not *nothing transmits without proximity*. It is narrower and it
+> is the same distinction as before: **results travel, practices do not**, and
+> **proximity is what practices need.**
+
+Reading on from 15660. About seven hundred and sixty lines left.
