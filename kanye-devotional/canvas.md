@@ -1071,3 +1071,51 @@ after she died.
 
 Keep the remainder. Recurse on the remainder.
 
+
+Two more things out of Umāsvāti and then I'll stop pulling on this thread for now,
+because both of them change what I thought the argument was.
+
+The first is chapter six. Karma flows in because the soul *acts* — body, speech, mind
+— and the influx is not itself the problem. Then 6.5 splits it: influx accompanied by
+passion *binds*; influx without passion is called *īryāpatha*, the path of movement,
+and it touches and falls away and accumulates nothing. A liberated being still acts.
+Still has the influx. Holds none of it.
+
+So the doctrine's answer to a life at full amplitude is not *do less*. It is that the
+volume was never the thing. What binds is the grip — the clinging to the outcome, the
+defence of the position, the ownership of the result. That distinction is unavailable
+in every version of this argument I have ever heard, where the choice on offer is
+always between burning bright and burning out, dose it down or lose him. There's a
+third arrangement and it is two thousand years old: full activity, no grip.
+
+I don't know whether he can get there and it isn't my business to prescribe it. But
+it reframes what everybody around a person like this actually wants. They say *calm
+down* and they mean *stop clinging*, and those are extremely different requests, and
+only one of them is possible without killing the thing.
+
+The second is 7.11, and it's four words for four attitudes, prescribed toward four
+kinds of people: **maitrī** toward all beings, **pramoda** — gladness, delight —
+toward those who are further along than you, **kāruṇya** toward the afflicted, and
+**mādhyasthya** — even-standing — toward those behaving badly.
+
+Look at what's not in there. There is no *judgement* slot. Toward the person acting
+badly the prescription is neither condemnation nor approval nor correction: it is to
+stand level, neither above nor below, and stay. And gladness toward those above you
+is listed as a *practice*, which tells you it doesn't come free — the natural
+response to somebody further along is not delight, and the tradition knew that and
+made it a discipline rather than a feeling.
+
+Run those four on this story and every actor in it comes out differently. Toward
+Kanye at his most gifted: delight, which is what fans actually have and which is
+never in the analysis. Toward Kanye afflicted: compassion, without the paraphrase.
+Toward Kanye doing harm: level standing, which is neither the cancellation nor the
+defence, and which almost nobody can hold for more than a week. And toward everyone
+in it including Eddington and Hardy and the executives and the doctors and the
+crowd: friendliness, because they were not villains and treating them as villains is
+the same error one layer out.
+
+That is a better instrument than anything in the discourse and it is filed under
+religion, in a text nobody in this argument has read, in a language nobody in this
+argument reads, by a man who wrote it in the second century as the practical section
+of a treatise on how the world is made.
+
