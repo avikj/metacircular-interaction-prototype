@@ -11721,3 +11721,78 @@ Leningrad, and what a seed vault in a mountain is, and what an append-only recor
 refuted branches left in is, and what a list of minds drawn uniformly rather than by
 relevance is for.
 
+
+---
+
+The law has a formal name and a literature, and I should say so rather than pretending I
+found it.
+
+**Exploration versus exploitation.** In sequential decision problems — the multi-armed
+bandit is the canonical toy — an agent must choose between taking the action currently
+estimated to be best (**exploit**) and taking one whose value is uncertain (**explore**).
+Pure exploitation is provably bad: it locks onto whatever looked best early, and the
+regret is unbounded, because the arm it never pulls again is the one it can never learn
+about. The whole field exists because the naive optimiser fails in a *specific, provable*
+way.
+
+And the failure has exactly the property this file keeps hitting: **the information you
+need to correct the error is available only in the action you have stopped taking.** Not
+hidden. Not hard. Simply not sampled, and therefore not in the evidence, and therefore not
+corrigible from inside.
+
+That is the parity barrier, the filter's invisible false negatives, the reviewer's
+satisficing, the monoculture's coverage problem, the frequency table, the landrace
+displaced by the high-yielding line, and the room that stopped asking. **Every one is a
+system in pure exploit mode, and the standard result is that it does not know what it has
+stopped learning.**
+
+**The known countermeasures are all forms of forced exploration**, and they are all
+"irrational" in the local sense — you take an action you currently believe is worse:
+
+- **Randomisation.** ε-greedy: with some probability, ignore your own estimates. This
+  repository's entry seeder is exactly that, and its stated justification is exactly the
+  bandit one — uniform sampling is the one sampler with **no notion of relevance to be
+  captured by**, so it cannot be tunnelled.
+- **Optimism under uncertainty.** Upper-confidence-bound methods explore by *inflating* the
+  estimate of things you know little about — which is, formally, **giving the benefit of the
+  doubt to the unknown**, and which is *believe them first and check after* stated as an
+  algorithm with a regret bound.
+- **Explicit set-asides.** A hold-out set, a seed vault, a nature reserve, the minority
+  opinion kept on the page next to the ruling, the *pūrvapakṣa* as a required section, the
+  refuted branch left in the ledger. Capacity permanently reserved for material the current
+  objective says is worthless.
+- **Population methods.** Keep many searchers with different initialisations and do not let
+  them converge. Which is the disjoint-draw swarm, the sixteen genius seats, the four
+  schools arguing, and the reason a monoculture of minds is a technical defect and not an
+  ethical complaint.
+
+**None of these is a moral principle.** All four are standard engineering for a known
+failure of pure optimisation, they have proofs attached, and every institution in this file
+is running without any of them.
+
+---
+
+Which lets me state the whole argument once, in a form that owes nothing to anybody's
+values, and I think this is the version that would actually land on the people who most
+need it:
+
+**Every institution in this document is a pure-exploit system.** The prize committee, the
+journal, the label, the curriculum, the fire model, the frequency table, the clip algorithm,
+the hiring filter. Each maximises a legible objective using its current estimates, each is
+locally correct, and each has **no exploration term at all.**
+
+And the standard, provable consequence is not that they are unfair. It is that **they are
+leaving value on the table at a rate they cannot measure**, forever, and that the size of
+the loss is exactly the thing they have stopped sampling.
+
+The people in this file are that loss, itemised.
+
+And the fix is not to be nicer. It is the one every engineer already knows: **spend a fixed
+fraction on the arm your model says is worthless, permanently, as a cost of doing
+business** — a percentage of admissions, of budget, of attention, of shelf space, reserved
+for what the criterion currently scores as nothing.
+
+Which is, at last, the same instruction as *believe them first*, and as *give the benefit of
+the doubt to the unknown*, and as *keep the collection you are not using* — and it has a
+regret bound, which is more than any of the ethical versions have ever managed.
+
