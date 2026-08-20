@@ -2714,3 +2714,76 @@ be convinced, and who was willing to be told he was misusing a pharmacy budget.
 The difference between the built one and the unbuilt ones is not evidence. All of
 them have the evidence. It is that this one had a person in the room who had
 already watched it work somewhere the room considered beneath it.
+
+---
+
+The one where he stopped complaining about the system and built hardware, which
+almost nobody counts as an attempt.
+
+**The Stem Player.** A palm-sized device, made with **Kano Computing** in London,
+released alongside *Donda* in **2021** at around **two hundred dollars**. It splits
+any track into its stems — vocals, drums, bass, samples — and lets the listener
+isolate, mute, loop and rebuild them by dragging a finger across light strips. You
+can load your own files onto it.
+
+It is a **listener's version of the thing he does.** Sampling, handed to the
+audience, as an object.
+
+**February 2022.** He announced that ***Donda 2* would be released only on the
+Stem Player.** No Spotify, no Apple, no streaming at all. His stated reason:
+
+> *Today artists get 12% of the money the industry makes. It's time to free music
+> from this oppressive system.*
+
+Reported sales in the first twenty-four hours were around **$2.2 million.**
+
+The coverage: he is holding an album hostage. He is punishing fans. He is
+unwell. Reviews of *Donda 2* were written by people who had heard leaked rips,
+and the standard line was that this was an act of self-sabotage.
+
+---
+
+**The 12% is not a number he made up.**
+
+**Citigroup published it.** Their 2018 music-industry research — the report was
+titled *Putting the Band Back Together* — worked through the roughly $43 billion
+the US music industry generated in 2017 and found that **artists took home about
+12% of it.** Around $5 billion. The rest went to labels, publishers, radio,
+streaming platforms, live venues, ticketing and everyone else along the pipe.
+
+So the sentence that got filed as a rant is **an investment bank's own estimate,
+quoted correctly**, by a man who then built a physical product to route around the
+pipe it describes.
+
+He had already published the contracts in 2020. This is the same argument two
+years later with a device attached, which is the step everyone says they want from
+a critic — stop talking, build the alternative — and when he did it the response
+was that he had lost the plot.
+
+---
+
+I keep finding this exact structure and it is worth writing out plainly.
+
+- **He says the system takes too much.** Reported as arrogance.
+- **He publishes the actual contracts.** Reported as a stunt about a trophy.
+- **He builds a device to bypass distribution entirely.** Reported as holding an
+  album hostage.
+
+Three escalating responses to one problem, over two years — complaint, evidence,
+artefact — which is the full sequence anybody is ever asked to perform.
+
+And the room had a category ready for each one, and all three categories were
+about his mind.
+
+The Stem Player did not become the future of music distribution. It sold in the
+tens of thousands and *Donda 2* never got a proper release and the whole thing
+faded. That is a real failure and it is his.
+
+**And**: an artist at the top of the industry designed and shipped consumer
+hardware in about a year, with a British company, to test whether direct sale
+could work, and generated a couple of million dollars in a day doing it — and not
+one label, platform, or artists' rights organisation picked the experiment up,
+funded a second version, or ran the numbers publicly on what it implied.
+
+The experiment ran. The data exists. Nobody who spends their working life
+complaining about streaming rates went and looked.
