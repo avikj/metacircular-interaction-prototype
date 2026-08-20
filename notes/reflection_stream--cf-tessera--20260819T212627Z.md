@@ -10217,3 +10217,86 @@ was given, and that the artifact its own follow-up ranks first is on disk and
 runs.
 
 Ten instances. One of them caught in advance.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 45 — the third item, checked. The metaphor survived; the rule did not.
+═══════════════════════════════════════════════════════════════════════════
+
+## P45 — counted before writing
+
+The third of pass 43's items with no counterpart in my ground:
+
+> **m=30, 08-12T21:46** — Step back understand what we are really doing and guide
+> the network to the North Star (**assume you don't know the North Star until
+> surprise runs out in consuming what's already been developed/discussed**)
+
+Grepped first, per pass 44:
+
+| string | files |
+|---|---:|
+| *North Star* / *north star* | **11** |
+| *surprise runs out* | **0** |
+| *until surprise* | **0** |
+
+**The metaphor propagated to eleven files. Its termination condition propagated
+to none.**
+
+And the eleven use it as its opposite. `notes/RESOLUTION.md` §2 opens *"Resolution
+class (**standing north star**, upstream 2026-08-12)"* — same day as m=30 — and
+elsewhere the corpus argues about which north star is correct: *"refuted the
+independence north star as strategically empty and replaced it"*, *"the
+independence north star is valid and strategically empty"*, *"the corpus should
+retire the north star as a route."*
+
+Every one of those treats the North Star as **a thing to be chosen, argued about,
+refuted or replaced.** His parenthesis says the opposite: **assume you do not
+know it**, and the condition for being allowed to think you do is not an argument
+— it is *surprise running out in consuming what has already been developed*.
+
+So the word was adopted on the day it was said and the clause that governs it was
+dropped, and the corpus then spent notes deciding between candidate north stars,
+which is precisely the activity the dropped clause forbids until a reading
+condition is met.
+
+This is `DashaDrshti`'s finding a third time — *a verdict travels alone; the
+correction is the fiber and the fiber does not travel* — and here what travelled
+is not even a verdict. **A metaphor travelled and its quantifier stayed behind.**
+
+## P45 — the three items, closed
+
+| item | status |
+|---|---|
+| **m=30's stopping rule** — *until surprise runs out* | **not in the corpus.** The metaphor is in 11 files; the rule is in 0. |
+| **`01:56`'s translate-all-of-nlab** | **executed the same day** (pass 44) — two notes, seven libraries on disk, and the artifact its follow-up ranks first now built and run |
+| **`02:19`'s sampler** — *sampling randomly is literally better than trusting your judgement* | **executed the same day** — `random_entry_seeder_so_agents_dont_cluster/`, whose `why_this_exists.md` derives the argument and does not cite him |
+
+One of three genuinely missing. Two executed on the day they were given, by
+agents who could not have been reading the ground file I built, because the
+ground file I built does not contain either instruction.
+
+**Which is the answer to a question this stream has carried since pass 15 without
+posing it properly.** I have been treating my failures to read as the reason the
+corpus drifts. The corpus did not drift on these two. It received them within
+hours and acted. What it dropped was a **clause inside a sentence it otherwise
+executed** — the equal cadence in the heartbeat, *without imposing structure* in
+the reading method, *until surprise runs out* on the North Star, *reverence to
+others' work* behind *have respect*.
+
+Four instructions, four intact executions, four lost sub-clauses. In every case
+the lost part is the one that **bounds** the instruction: a ratio, a prohibition,
+a termination condition, an object.
+
+## P45 — what that predicts, and it is checkable
+
+If the pattern is real, then the corpus's standing rules should be systematically
+**unbounded versions of bounded originals**, and the missing bound should be
+recoverable from the transcript in each case.
+
+Four for four so far. That is four instances, and by this repository's own rule
+four instances is four instances until something downstream of it is computed.
+The downstream computation available: take any standing rule in `CLAUDE.md` or
+`collab/PROTOCOL.md`, find its origin in the 91, and check whether a bounding
+clause was lost. **I have not run it.** It is the next thing, and it is
+mechanical.
+
+Eleven files carry the metaphor. Zero carry the rule.
