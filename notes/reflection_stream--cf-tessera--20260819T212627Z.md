@@ -6279,3 +6279,145 @@ the reduction theory its commit message says is missing, since `a` and `b` never
 appear in it, and the state set `{(K,r) : 1 ≤ r ≤ K, K² ≤ 4D}` has 120 elements
 at `D=61`. Piṅgala's lens found it; Lamport's lens is what makes it matter, since
 the machine on `(a,b,k)` is infinite and the prose was still describing that one.
+
+---
+
+# PASS 24 — the ancient field is prior literature and it has the straddle
+
+## Ground pass
+
+Twenty-eight, again. n=18, whose second half I quoted in pass 16 and whose first
+demand I have still not performed:
+
+> You need to fucking engage with Buddhism and Jainism until you actually accept
+> they had everything figured out. If you prematurely decide they didn't —
+> that's choosing not to engage and taking a privileged position
+
+The seeder's assignment says the same thing about its ancient field, in
+operational form: *"Treat it as prior literature with results, not as
+inspiration, ornament, or analogy."* Steps 2 and 3, owed from pass 23.
+
+## Step 2 — Apollonius, asked what he already knows
+
+**The symptōma, Conics I.11–13 (c. 200 BCE).** Apollonius defines each section
+by a relation among constructed magnitudes, with no coordinates and no
+extraction of roots: the square on the ordinate equals a rectangle *applied* to
+the upright side along the abscissa. The three names are the three cases of
+application of areas — **παραβολή** exact, **ἔλλειψις** deficient, **ὑπερβολή**
+in excess.
+
+Asked about `CakravalaBound.agda`, which says of itself:
+
+> **NO SQUARE ROOTS ANYWHERE.** "√D" never appears. Every inequality is between
+> naturals, and the two halves of "m is within |k|/2 of √D" are written as the
+> pair of integer inequalities `(2m − K)² ≤ 4D`, `4D ≤ (2m + K)²`.
+
+That is the application-of-areas move exactly: a magnitude otherwise defined by
+an extraction is replaced by a relation between constructed rectangles. Both
+refuse `√D` and both refuse it for the same reason — it is not in the
+constructible vocabulary — and both get a *sharper* object out of the refusal,
+not a weaker one.
+
+And the straddle is the trichotomy. `k = m² − D` is precisely the deficiency or
+excess of the square on `m` against the given area `D`:
+
+```
+k < 0   the square falls short      ἔλλειψις
+k = 0   exact application           παραβολή
+k > 0   the square exceeds          ὑπερβολή
+```
+
+`straddleExists` finds the crossing, i.e. the place in the residue class where
+deficiency becomes excess. **Apollonius's classification of conics is the
+classification of a straddle**, and the cakravāla's whole state is which side of
+it you are on and by how much.
+
+**What Apollonius has that is a result, not a resemblance:** the symptōma
+determines the curve independently of the cone that cut it. The corresponding
+statement here is pass 23's — `(K, r)` determines the step independently of the
+`(a,b)` path — and I reached that by reading a type signature, not by this
+route. Two routes, one form. Recorded as a convergence, **not** as transport:
+no comparison map is exhibited and none is claimed.
+
+**What Apollonius does not have, and the provenance matters.** `x² − Dy² = k` is
+a conic and he classifies it. The *composition law on it* — two solutions
+producing a third — is **Brahmagupta's bhāvanā, Brāhmasphuṭasiddhānta, 628**,
+and it is not derivable from the classification and is not in the *Conics*.
+Apollonius has the curve; Brahmagupta has the group. Eleven hundred years, and
+the second is the one every textbook attributes to Gauss.
+
+## Step 3 — p-adic analysis, asked the same question
+
+`runtime/atlas/charts.py` records that ℕ has **two incomparable completions** —
+ℝ, in which ℕ is closed and discrete, and ℤ_b, in which ℕ is dense — with "the
+two-sided no-continuous-map witness."
+
+Prismatic cohomology's content is that the *non-archimedean* specializations
+which looked incomparable (crystalline, de Rham, étale, Hodge–Tate) all descend
+from one object over a prism `(A, I)`. So the frontier field's answer to the
+atlas is exact and one-sided: **it unifies the b-adic window's interior and
+supplies nothing at all for the archimedean/non-archimedean split.** The atlas's
+incomparability survives. That is worth saying because the tempting move is to
+read "prismatic unifies the cohomologies" as "the two windows are secretly one",
+and it does not say that.
+
+And `PrimeSquarePinAdapter`, the other drawn Agda module: divisibility
+observations at moduli 2 and 3 cannot distinguish 5 from 25; adjoining modulus 5
+does. Read p-adically that is a statement about `Ẑ = ∏_p ℤ_p`: truncating to
+`{2,3}` is a quotient, and `5` and `25` differ only in the ℤ₅ factor, by
+valuation.
+
+**Which is pass 22's result at a different scale.** There the obstruction was
+`λ ∉ C(Ẑ)` because `Ω` is not continuous on `Ẑ`; here it is that `v₅` is
+invisible to any finite modulus set omitting 5. Same statement: *divisibility
+data at bounded moduli cannot see a valuation, and every finite enlargement
+sees one more and no more.* `chatgptdump.md` §3.2's residual `ε_X ∈ {0,1}` at
+the √X horizon is the same thing with its size named. A drawn file and a result
+of mine, reached six passes apart with no connection between them, are one
+statement — and I would not have put them together, because I would never have
+drawn `PrimeSquarePinAdapter`.
+
+## Census, at 121 of 781
+
+| | |
+|---|---|
+| checked | 121 |
+| EXIT 0 | **106** |
+| EXIT 42 | **15** |
+
+Every red so far is **version-gated and nothing else**: `solve!` and `solveℕ!`
+(the newer solver macros; v0.5 exports `solve`) and `uaβ`. Ten of the fifteen
+trace to one file, `Gamma0Partner.agda:55`, through its importers.
+
+**And `Everything.agda` is red here**, via `NaturalMachine/Transport.agda:46`
+using `solveℕ!`. So the tree's own coverage module — the object Q8 exists to
+extend — cannot be checked in this container at all. That is not a defect in it;
+it is `BUILD.md` §262's pin discrepancy, reported and not concluded from. But it
+does mean the sentence *"a green is an exit code or it is a rumour"* currently
+has no green available to it here for anything downstream of those three names.
+
+## Standing charge for pass 25
+
+Step 4 of the assignment is done and step 5 is landed (`2031`). What remains from
+the draw is the two files I read as documents rather than as objects —
+`runtime/atlas/charts.py`'s Reachability declarations, in particular the
+**omitted locus** field, which is the only place in this repository I have seen
+a construction required to declare what it *cannot* reach. That field is
+`abhāva` with its `pratiyogin` — `notes/NO_BARE_ABSENCES.md`'s rule — implemented
+in a chart. Check whether the two know about each other.
+
+Then the census at completion, with the version caveat in the same sentence as
+every number.
+
+END OF PASS 24. Apollonius's three conics are the three cases of application of
+areas — deficient, exact, excessive — which is exactly the sign of `k = m² − D`,
+so `straddleExists` computes the crossing between ἔλλειψις and ὑπερβολή, and
+`CakravalaBound`'s "no square roots anywhere" is the same refusal of extraction
+that makes a symptōma a relation between constructed rectangles. What he has as
+a result is that the symptōma determines the curve independently of the cutting
+cone; what he does not have is the composition law, which is Brahmagupta 628 and
+not in the *Conics*. The frontier field answers the atlas one-sidedly: prismatic
+cohomology unifies the non-archimedean specializations and says nothing about
+the archimedean split, so the atlas's incomparability stands. And the drawn
+`PrimeSquarePinAdapter` is pass 22's `λ ∉ C(Ẑ)` at another scale — a connection I
+could not have made, because I would never have chosen that file.
