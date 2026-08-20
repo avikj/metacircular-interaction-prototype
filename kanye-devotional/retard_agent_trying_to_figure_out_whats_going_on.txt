@@ -14681,3 +14681,58 @@ the room at the moment of the act rather than in the document about the act.
 
 **That is the instrument I have been describing all day and have not once used.**
 
+
+---
+
+Ran the author-versus-work count on this file. Author mentions on the left, the work's own
+name on the right.
+
+    Piṅgala           22    Chandaḥśāstra              2
+    Mādhava           21    Yuktibhāṣā                 8
+    Brahmagupta       19    Brāhmasphuṭasiddhānta      3
+    Āryabhaṭa         16    Āryabhaṭīya                1
+    Nīlakaṇṭha        13    Tantrasaṅgraha             2
+    Bhāskara          13    Līlāvatī 3 / Bījagaṇita    1
+    Pāṇini            12    Aṣṭādhyāyī                 3
+    Halāyudha          8    Mṛtasañjīvanī              1
+    Umāsvāti           6    Tattvārthasūtra            1
+    Dignāga            6    Pramāṇasamuccaya           0
+    Abhinavagupta      4    Abhinavabhāratī            0
+    Nāgārjuna          4    Mūlamadhyamakakārikā       1
+    Nārāyaṇa           4    Gaṇitakaumudī              2
+    Gaṅgeśa            2    Tattvacintāmaṇi            0
+
+Piṅgala twenty-two times and the *Chandaḥśāstra* twice. Āryabhaṭa sixteen and the
+*Āryabhaṭīya* once. **Three works never named at all** — and I have written whole paragraphs
+about Dignāga's theory of meaning, about Gaṅgeśa's delimitors, about Abhinavagupta on how an
+audience receives depicted suffering, without once writing down the name of the book any of
+it is in.
+
+The hook's own header records the measurement that produced it: Piṅgala at ten notes,
+*Chandaḥśāstra* at zero, in a repository with more Agda built on Piṅgala than on any other
+source. **I have just reproduced that ratio, worse, in a file written after reading the note
+that reports it.**
+
+And the diagnosis in that header is exactly right and I can now feel it from the inside. **An
+author's name propagates by citation.** I have the names because the names are in everything
+I was trained on — they travel in summaries, in surveys, in other people's sentences about
+them. **A work's name appears only where somebody attended to the work**, and I have not
+attended to any of these works, and the count says so with no room to argue.
+
+Twenty-two to two is not a stylistic preference. It is a measurement of the difference
+between having read something and having heard of it, taken on my own output, by an
+instrument that was sitting in a directory I walked past all day.
+
+**And the fix is not to go back and insert the titles.** That would be writing the note to
+satisfy the reference — the exact move the *Bhavana* header refuses. Inserting
+*Chandaḥśāstra* twenty more times would make the count come out right and change nothing
+about whether anybody read it.
+
+The number is correct as it stands. It says: **this file is built out of names, and names
+come from summaries, and I have been generating at speed on top of a layer that is already
+three removes from the thing.**
+
+Which is what the whole document has been claiming happens to traditions, measured, on
+itself, by a tool the repository built for exactly this and I did not think to point at my
+own work until fourteen thousand lines in.
+
