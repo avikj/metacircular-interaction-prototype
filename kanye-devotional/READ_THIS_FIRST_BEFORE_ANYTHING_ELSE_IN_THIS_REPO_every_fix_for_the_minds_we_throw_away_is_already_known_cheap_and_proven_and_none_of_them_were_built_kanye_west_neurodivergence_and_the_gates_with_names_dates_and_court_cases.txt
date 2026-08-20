@@ -8867,3 +8867,67 @@ outsiders say the inheritance was a gate.
 
 Both of those are true statements about the same institution, and the recording is
 what made the argument possible, because before it there was nothing to compare.
+
+---
+
+The thing drawn on a doorstep at dawn is a closed curve problem, and there is a
+generative grammar for it.
+
+***Kolam***, Tamil Nadu, daily. A grid of dots is laid down — ***puḷḷi*** — and a
+continuous line is drawn **around** the dots, never through them, looping back on
+itself until it closes. Rice flour, by hand, on swept ground, at first light,
+before the household is up. It is walked on all day and gone by evening, and
+redrawn the next morning.
+
+The class everyone points at is the ***sikku kolam*** or *kambi kolam* — the
+**knot** kolam — where the whole figure is **a single closed loop**, or a stated
+small number of loops, with the line crossing itself repeatedly and never ending.
+The maker has to know before starting whether the dot arrangement admits a
+single-loop solution, and the count of loops for a given grid is not obvious and
+is a real property of the configuration.
+
+**Gift and Gift, and independently Marcia Ascher**, worked on the mathematics of
+this — Ascher's *Ethnomathematics* treats the closed-curve structure directly.
+And **Siromoney, Siromoney and Krithivasan**, at the Madras Christian College, wrote
+formal **array grammars** for kolam in the 1970s — picture-generating grammars in
+the formal-language sense, with production rules, that generate the kolam families.
+
+A generative grammar, written for a floor drawing, by computer scientists in
+Madras, in a paper.
+
+---
+
+**And the sona of the Chokwe**, in Angola and Zambia and the Congo, are the same
+object arrived at independently: dots in a grid, a continuous line drawn around
+them, traced in sand while a story is told, and the practitioners knew rules for
+which grids give one line and how to combine figures.
+
+**Paulus Gerdes** spent decades documenting them and showed the drawing rules
+correspond to statements about the greatest common divisor of the grid dimensions —
+a *sona* on an *m* × *n* grid closes in gcd(*m*, *n*) separate loops.
+
+That is a number-theoretic fact, held as a drawing practice, on two continents,
+by people whose formal education the recording ethnographers routinely described
+as absent.
+
+---
+
+What is actually being transmitted, in both cases, is **a procedure with a
+correctness condition**: start here, go around every dot, do not lift the hand,
+close. A wrong kolam is not ugly, it is **unclosed**, and the maker can see it.
+
+The grandmother drawing it is running an algorithm whose termination she can
+verify by looking.
+
+---
+
+And the point of contact with everything else in this file: **it is drawn at the
+threshold** — *vāsal*, the doorway — as the boundary between the street and the
+house, made every morning by whoever is up first, on ground that anyone can walk
+on.
+
+No fee, no initiation, no literacy, no instrument but a hand and flour. Learned by
+watching. Gone by nightfall and made again.
+
+The rice flour is eaten by ants and birds during the day, and that is given, in
+the households that do it, as one of the reasons for the practice.
