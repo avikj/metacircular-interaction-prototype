@@ -10446,3 +10446,132 @@ known: a route count under-reports."*
 
 Three draws in this round, three returns, three modules at EXIT 0, and **each of
 the three refuted something of its own before publishing.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 47 — two methods, both his, and one of them has never been run.
+═══════════════════════════════════════════════════════════════════════════
+
+## P47 — the method changed, and I have only ever executed the later one
+
+**m=3, 08-12T16:57:** *write reactions **as they come***
+**m=4, 08-12T17:00:** *read everything and write reactions **to this
+conversation** not make edits in this repo*
+**m=35, 08-12T21:53:** *No rules / prior structure literally read chronologically
+and **listlessly preserve everything without imposing structure***
+
+**n=26, 08-20T03:42**, and `.claude/skills/reflect-thread/SKILL.md` from it:
+*"reading through the whole conversation […] **message by messages iterative
+complete processing** not summarizing"*; the skill: *"Walk the current
+conversation **from its start**, one message at a time."*
+
+These are two different methods and **both are his.**
+
+| | m=3 / m=35, 2026-08-12 | n=26 / the skill, 2026-08-20 |
+|---|---|---|
+| when | **as they come** — during the reading | **from its start** — after it |
+| structure | *no rules / prior structure*, *without imposing structure* | restate → reflect → react; offset −1; iterate |
+| object | the repo, then the conversation | the conversation |
+
+The later one is more specific and it is the one the skill encodes. **Every one
+of the forty-six passes in this file is the later method.** A pass is written
+after I know what the pass found. *As they come* means the reaction is written
+before I know where it goes, and that has not happened once.
+
+So: below is one execution of m=3, unedited, on a file I read the head of in my
+own uniform draw and never finished. No conclusion is known when the first line
+is written.
+
+## P47 — `notes/CONSTRAINT_ALGEBRA.md`, reactions as they come
+
+**§1.** *"This note audits a proof step; it does not claim a counterexample to
+the Liouville 24-pattern theorem."* — the disclaimer is in the status line, above
+the result. It is refusing the reading a reader would want before giving them
+anything to want it about.
+
+**(1.1), the 32 masses.** Five signs, a three-parameter family. So the whole
+object is a 3-dimensional slice of the 32-simplex. Small.
+
+**(1.2), a = b = c = 1/3.** All three parameters equal. That is either a
+coincidence or the vertex of something.
+
+**§2's four classes.** `s = ε₁ε₅`, `t = ε₂ε₄` — the classification is by the two
+*outer* pairs, and the middle coordinate `ε₃` never appears in `s` or `t`. The
+32 masses collapse to four classes of eight. Class D is constant, `1 + c`, over
+all eight.
+
+— reaction: the middle bit is doing nothing. Five-window, and the third position
+drops out of the classification entirely.
+
+**(2.1).** Four inequalities. Three are the obvious ones and the fourth,
+`2(|a|+|b|) ≤ 1+c`, couples `a` and `b` against `c` in the opposite direction to
+the other two. So `c` large helps A and hurts B and C. **The polytope is the
+intersection of two opposing pressures on the same parameter.** That is why the
+extreme point has all three equal.
+
+**"The bounds in the interrupted WIP's grid, `|a| ≤ 1/2` and `|b|,|c| ≤ 2/3`,
+were a search box, not a theorem."** — someone's numerical search box got
+recorded as a constraint. Same shape as everything this session: the qualifier
+(*this is where I looked*) dropped, the interval kept.
+
+**Theorem 2.1.** At most ten of 32 vanish, and equality exactly at `c = 1/3`,
+`|a| = |b| = 1/3`. So (1.2) is not a coincidence — it is the **unique** maximiser
+of the zero count, and the note found it by classifying rather than by searching.
+
+**The proof.** Counts zeros class by class: D never, B and C all-or-nothing in
+fours, A at most two or four depending on whether `a` or `b` vanishes. Then
+`|a| = |b| = (1−c)/2` and the A inequality **forces `c ≥ 1/3`**. The equality
+case falls out of the forcing.
+
+— reaction: the whole proof is a counting argument over four classes, and the
+only inequality with content is the one that couples them. Everything else is
+bookkeeping. That is the same shape as `CakravalaBound.agda`, whose header says
+*"amgm is the only inequality with content; the rest is semiring algebra."* Two
+unrelated notes, same confession.
+
+**"at `(a,b,c) = (0,0,±1)` there are sixteen zeros. Tao–Teräväinen's strict bound
+`|c| < 1` excludes those points."** — the published bound is doing exactly the
+work of excluding the degenerate corner, and the note says so rather than treating
+it as an oversight.
+
+**§3.** The five-bit word is an **edge** in the order-four de Bruijn graph. Summing
+over the last bit and over the first bit give **the same** `π(v) = (1 + a·ε₁ε₂ε₃ε₄)/16`.
+
+— reaction: that is the whole of stationarity, in one line, and it is why the
+countermodel extends. Incoming mass equals outgoing mass because both marginals
+are the same function of the same four bits. Not an argument — an identity.
+
+**(3.3), Walsh inversion.** Every nonempty coefficient vanishes except five, and
+they are the two 4-sets containing `1234`/`2345`, the two containing
+`1345`/`1235`, and `1245`. **Every odd-order and every two-point coefficient is
+zero.**
+
+— reaction: so the model is invisible to every correlation the argument uses, by
+construction, and visible only at order four. The obstruction is not that the
+model is exotic; it is that **the observables in the proof step are all of the
+wrong order.**
+
+**"Stationarity alone cannot repair the orbit count."**
+
+## P47 — what the concurrent method produced that the retrospective one would not
+
+Three of the reactions above are things I would not have written after knowing
+the conclusion, because after knowing the conclusion they are not the point:
+
+1. **the middle bit drops out of the classification** — noticed at §2 and never
+   used again in the note;
+2. **the polytope is two opposing pressures on `c`** — which is *why* the
+   extremum has all three parameters equal, and the note proves the extremum
+   without saying why it is where it is;
+3. **the search box recorded as a constraint** — an instance of this session's
+   own pattern, in a note from a different lane about a different subject.
+
+And one that a retrospective pass would have led with and that reads differently
+in place: `CakravalaBound.agda`'s *"the only inequality with content"* and this
+note's four-class count are the same confession, made independently.
+
+**The difference between the two methods is which sentences survive.** A
+retrospective pass keeps the ones that support the finding. *As they come* keeps
+the ones that occurred, and three of the six above support nothing.
+
+m=3 is his third message. This is its first execution in this file, forty-seven
+passes in.
