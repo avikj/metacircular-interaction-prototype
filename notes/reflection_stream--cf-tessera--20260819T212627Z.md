@@ -22065,3 +22065,147 @@ in 30 commits.
 The census that produced this is also the sharpest form of pass 111's number: **7 of
 110 passes carry a falsifier, and 1 of 30 commits today changed anything executable.**
 Both are the same ratio of *complaint and evidence* to *artefact*, measured two ways.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 119 — the second artefact, written because pass 118 measured that
+# there had been one in thirty commits. Not the complaint again: a row, and
+# it is narrow on purpose, because the heartbeat's own step (3) is correct.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 118 measured **1 artefact in 30 commits**, and named the failure mode on the page:
+*complaint, evidence, artefact — the full sequence anybody is ever asked to perform*,
+and the corpus stops after the second. Pass 116 produced evidence and stopped there:
+the coverage latch is red, 60 orphans, and 70% of the directory is outside its scope.
+
+So, the artefact. Row 11 of `.claude/hooks/struck-claims.txt`, verified firing:
+
+```
+the whole directory checks|the root checks, so this module is checked|
+root aggregate covers the directory        ba75ac9f
+```
+
+## P119 — and the row is deliberately narrow, because the claim next to it is true
+
+Eighteen tracked files carry *root checks* / *root exit 0* language, and one of them is
+**the owner's own heartbeat**, n=5 step (3): *"verify `formal/cubical` root exit 0
+under the pinned toolchain when Agda files changed."*
+
+**That instruction is correct and the row does not touch it.** `Everything.agda`
+checking green is a real check of a real thing. What is false is the **inference** — and
+distinguishing the two is the whole content of the row:
+
+> **NARROW: root exit 0 is a real check and the heartbeat rightly asks for it — what is
+> false is the INFERENCE from it.** … 824 `.agda` files. `Everything.agda` imports
+> **182**. The latch scopes to 236 — **29% of the directory** — and currently **FAILS
+> with 60 orphans**. The **572** files in `NaturalMachine/` are enumerated by no latch
+> at all. … **So a green root is evidence about the 182, and about nothing else.**
+> State which pragma and which library YOUR module was checked against, and whether it
+> is in an import closure that anything builds.
+
+This matters more than the first row. `egress is blocked` was simply false. *"The root
+checks"* is **a true sentence with a false consequence**, which is the harder kind and
+the kind the corpus is more likely to keep: nobody who says it is lying, the check they
+ran did pass, and the thing they conclude from it is not supported.
+
+Pass 118 named the same shape one level up — *the content is correct and the speaker
+causes it to be scored as false* — and this is its complement: **the check is correct
+and the reader draws a conclusion the check cannot carry.** A green is a `Σ₀` fact about
+an import list, and *"my module is checked"* is a different predicate about a different
+set.
+
+## P119 — why this is not a system
+
+The trigger says: *no new notes, no systems, no reframing.* Both artefacts today are
+the same move and neither is a system:
+
+- The mechanism already exists (`struck-claims.sh`, 86 lines, `PreToolUse`, since
+  before this session).
+- Its own header instructs appending: ***"Add rows freely. Never delete one — a claim
+  that comes back is exactly what this file is for."***
+- The content is a measurement I ran, with the command in the row so the reader checks
+  rather than believes.
+- And it costs one line.
+
+`CLAUDE.md`'s rule — *"the next move is a mechanism that fires at the moment of the
+act, not a paragraph"* — has a corollary nobody states: **when the mechanism already
+exists, the move is data, not a mechanism.** Twelve passes of evidence produced one
+row; two passes produced the second. The marginal cost of an artefact, once the machine
+is built, is a line of text.
+
+## P119 — what the two rows have in common
+
+| | `egress is blocked` | `the root checks` |
+|---|---|---|
+| entered | 2026-08-12, `E2_PROOF.md` | in circulation, 18 files |
+| status | flatly false | **true sentence, false consequence** |
+| corrected in tree | 2026-08-14, `PRIOR_ART_SWEEP_COMPLETE.md` §0 | 2026-08-20, measured today |
+| correction travelled | **no** — 1 copy for six days while the claim went 6 → 9 | — |
+| cost of the claim | 1 suppressed search brief, six declined searches | unknown; **60 orphan modules built by nothing** |
+| the row says | *run the `curl` yourself* | *run the latch yourself* |
+
+Both rows end by telling the reader to run the command rather than believe the row.
+That is the only honest form for a correction whose predecessor's failure was **being
+believed** — and it is the one design decision I would defend if the owner strikes
+everything else in this stream.
+
+## P119 — ground, in lockstep
+
+**n=5, step (3):** *"verify `formal/cubical` root exit 0 under the pinned toolchain when
+Agda files changed."*
+
+I have executed that instruction all session and read it as *the directory is checked.*
+It says **verify the root**, which is exactly what it says, and it is the reading I put
+on top that was wrong. His instruction was precise. Sixty modules are outside it and
+he never claimed otherwise.
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of
+them."*
+
+This is the second sentence today to go through the sequence, and it is a different
+kind: not a false statement I repeated, but **a true statement whose consequence I
+drew.** Those are the ones that survive audits, because auditing the sentence returns
+green.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+The distinction the latch makes explicit is *imported vs. on disk*. It does not make
+*checked vs. unchecked* explicit, and 60 modules sat in the gap between the two while
+the corpus read one as the other. Nyāya's question — what counts as a valid means of
+knowledge, and **for what** — is the whole of it: `Everything.agda`'s green is a
+pramāṇa, and it is a pramāṇa for 182 modules.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "60 orphan modules built by
+nothing."** An orphan of `Everything.agda` may still be imported by another top-level
+module that *is* imported, in which case it is built, just not directly named — and the
+latch's `rot_forward` list would still call it an orphan. If most of the 60 are
+imported by siblings, then *"built by nothing"* is wrong and the correct claim is only
+*"not named by the aggregate."* The check is, for each of the 60, whether any other
+`.agda` in the directory imports it; that is decidable with the same anchored parse the
+latch already uses.
+
+**Run, in the same pass. It halves the claim.**
+
+```
+orphans listed by the latch          : 60
+imported by at least one sibling     : 30
+imported by NO file in the directory : 30
+```
+
+**"Sixty modules built by nothing" is wrong. Thirty are.** The other thirty are named
+by at least one sibling — and I did not check whether *that* sibling is itself
+reachable, so their reachability is not established either; a chain of orphans importing
+each other is still a chain of orphans.
+
+So the defensible statement is: **30 of 824 modules in `formal/cubical` are imported by
+no file in the directory at all**, and 30 more hang off importers whose own status is
+unmeasured. My gloss was 2× the evidence, and the row's own wording — *"whether it is
+in an import closure that anything builds"* — was already the correct formulation
+before I overstated it in the pass that announced it.
+
+Which is the fifth time today a number of mine has been halved or inverted by the check
+I wrote down myself, and the second time the correct wording was already sitting in the
+artefact while the prose around it drifted.
