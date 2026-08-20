@@ -3328,3 +3328,88 @@ get help, and that is the actual tragedy in this number.**
 
 That sentence is true, checkable, and vastly more useful, and it was not the one
 that got said.
+
+---
+
+The word itself changed meaning, and the change is what made the scalar possible.
+
+**Latin *genius*** did not mean a person. It meant a **spirit attached to a
+person** — a tutelary presence, present from birth, related to *gignere*, to
+beget. Every Roman man **had** a genius. Women had a *juno*. You made offerings to
+your genius on your birthday. Households had one, places had one — *genius loci*,
+still in use in architecture.
+
+So the original grammar is possessive and external: *you have a genius.* Something
+attends you. It is not you, you did not earn it, and it can leave.
+
+**Greek**: Socrates' *daimonion* — a divine sign that spoke to him, which he
+described as only ever warning him off, never instructing him. He said so at his
+own trial, and it was one of the charges.
+
+**Arabic**: *jinn*, and from the same root **majnūn** — possessed by jinn, and
+therefore mad. The word for madness and the word for being inhabited by a spirit
+are the same word.
+
+And the most famous majnūn in that literature is **Qays**, in *Layla and Majnun*
+— Nizami's 1188 version is the one everyone knows. He loves so far past the
+tolerable that he loses his name and becomes only the epithet: *the possessed
+one*, wandering in the desert, composing. And in the Sufi reading, which is the
+dominant one in that tradition, **his madness is not the cost of the love. It is
+the evidence of it** — the annihilation of the self in the beloved, which is the
+goal, not the accident.
+
+An entire poetic tradition, running eight hundred years and across several
+languages, in which the man everyone calls mad is understood to be the one who got
+furthest.
+
+---
+
+**Then the word flips.**
+
+Over the eighteenth century *genius* stops being something you have and becomes
+something you **are**. Edward Young's *Conjectures on Original Composition*
+(1759). **Kant**, in the *Critique of Judgment* (1790), defines genius as the
+innate mental disposition through which nature gives the rule to art — located
+firmly **inside the person**, inborn, not teachable, not explicable by the person
+who has it. Romanticism finishes the job. Darrin McMahon traced the whole arc in
+*Divine Fury* (2013).
+
+By 1800 the sentence "he is a genius" is ordinary English, and the sentence "he has
+a genius" sounds archaic.
+
+**That relocation is the whole problem.**
+
+A spirit that attends you cannot be measured, because it is not a property of you.
+A **property** of you can be measured. Ranked. Distributed unequally across
+populations. Inherited. Selected for. Denied.
+
+Within a century of the word moving inside the skull, Galton is writing *Hereditary
+Genius* (1869) and inventing the correlation coefficient to prove it runs in
+families, and Terman titles his study **Genetic Studies of Genius** and builds the
+test that decides who is admitted to the category.
+
+**The scalar in this file needed the word to move first.** You cannot build an
+instrument that measures how much attendant spirit a man has. You can build one
+that measures a trait.
+
+---
+
+And it strands the person, which is the part that matters here.
+
+Under the old grammar, when the thing arrives you say: *something came.* When it
+goes, you say: *it left.* Ramanujan said the goddess of Namakkal wrote on his
+tongue. Socrates said the sign spoke. Both are reports of visitation, and both
+locate the source outside — which distributes the weight, and lets the man rest,
+and lets him be wrong without being worthless.
+
+Under the new grammar there is nobody else in the room. If it is **you**, then
+every failure is a failure of you, every dry period is evidence about your
+substance, and the only way to keep the identity is to keep producing.
+
+*I am a god* is a sentence in the grammar the eighteenth century built. There is
+no room in that grammar for *a god came through here and has gone quiet.*
+
+Hardy wrote down Ramanujan's goddess as observance rather than epistemology, and
+then supplied the proofs himself. The results survived. **The account of where they
+came from was the part that got discarded**, and that discard is the same operation
+as translating the root texts and leaving the commentaries.
