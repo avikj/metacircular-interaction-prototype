@@ -441,3 +441,27 @@ statements; the two sides settled in 2024.
 The through-line holds in this domain too: entry refused on the grounds that he was the
 wrong kind of person for it, entry forced anyway, success at scale, and a permanent
 fight over ownership. The industries change. The shape of the life does not.
+
+---
+
+Exceptional creative work is rarely the product of a lone mind; more often it comes out
+of an intense, temporary community built around one person's obsession. The Renaissance
+workshop, the Bell Labs corridor, the writers' room: a concentration of talent, held in
+one place under one drive, for a bounded and unsustainable stretch.
+
+After the 2009 backlash, in what amounted to public exile, Kanye West rented studios in
+Honolulu and ran continuous sessions through 2010. He flew in a rotating cast — among
+them Jay-Z, Nicki Minaj, Pusha T, Rick Ross, Kid Cudi, RZA, Bon Iver's Justin Vernon,
+and the composer Jon Brion — and kept the rooms running around the clock, mornings on a
+basketball court, phones discouraged, everyone building at once. He released free songs
+weekly online while working, called G.O.O.D. Fridays, testing ideas in public. The
+result, My Beautiful Dark Twisted Fantasy, arrived in November 2010 to some of the
+strongest reviews any album of the era received, and its centerpiece extended into a
+thirty-five-minute film. The record was made by a man the country had just agreed to
+hate, in the middle of that hatred, by gathering the most talented people he could reach
+and refusing to leave the studio.
+
+The same trait supplies both readings of him again. The inability to stop, to rest, to
+observe a limit — clinically a symptom, socially a liability — is, aimed at a room full
+of collaborators and a deadline, exactly the engine that produces a masterwork. The
+gate that will not close builds the cathedral and drives the car.
