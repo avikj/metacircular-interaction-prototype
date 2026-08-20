@@ -598,17 +598,30 @@ always been punished.
 
 ---
 
-Nearly every moral tradition holds that a person is not permanently identical to their
-worst act, and each built machinery for return. In Judaism the concept is teshuvah,
-literally "return"; Maimonides set out its stages — recognition, remorse, confession,
-restitution, and changed conduct when the same temptation recurs — as a path by which a
-wrongdoer is restored, and taught that one who has completed it stands where the
-perfectly righteous cannot. In Christianity the word is metanoia, a turning of the mind;
-the parables insist on it, the prodigal welcomed home, forgiveness extended "seventy
-times seven." Buddhist and Jain thought hold that the self is not fixed and that even a
-murderer — Angulimala, who wore his victims' fingers — can transform completely within a
-single life. Systems of restorative justice are the secular form of the same intuition:
-that the point of confronting harm is repair, not permanent exile.
+Nearly every moral tradition ever built holds that a person is not the same thing as
+their worst act, and each worked out its own machinery for coming back. The most exact
+version was set down about a thousand years ago by a Jewish doctor in Cairo, Moses ben
+Maimon — court physician by day, writing by candle for a people scattered across foreign
+empires with no homeland and no temple, who had to carry their law inside their own
+bodies because they could carry it nowhere else. He laid out, almost as a medical
+procedure, what it actually takes for a person who has wronged another to return: name
+the wrong, feel its full weight, say it out loud, repair what can be repaired with the
+person you hurt, and then — the real test — stand in front of the same temptation again
+and this time refuse it. Only then are you restored, and he made the startling claim
+that a person who has done this stands in a place the never-fallen cannot reach. The
+word for it means, literally, return.
+
+The same idea runs through the others, each shaped by the people who carried it. The
+early Christians, a movement of the poor and the outcast in the Roman East, used a word
+that meant turning the whole mind around, and told story after story about it — the son
+who wastes everything and is run to and embraced before he can even finish apologizing,
+the instruction to forgive not seven times but seventy times seven. In an old Buddhist
+account a man who had murdered so many travelers that he wore their fingers on a string
+becomes, inside that same life, completely free, because the teaching is that no self is
+fixed and even he was not permanently the worst thing he had done. When courts today
+experiment with what they call restorative justice — sitting the one who caused harm with
+the ones who were harmed, aiming at repair instead of exile — they are reaching, without
+the old language, for the thing all of these had already built.
 
 Modern public life has weakened the machinery. The internet does not forget; every act
 is permanent and instantly retrievable, and outrage is rewarded while forgiveness is
