@@ -13740,3 +13740,54 @@ job, dead at forty-one.
 ---
 
 123 children. 1962. IQ gone by ten. Outcomes at forty. Forty years to see it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 69 — मौनम्. The cycle in n=15 has seven steps and I have been running
+# six of them.
+═══════════════════════════════════════════════════════════════════════════
+
+Fresh pass over the ground. n=15, one line, which I have quoted from this
+transmission eleven times without reading:
+
+> **पठनम् → विस्मयः → विघटनम् → पुनर्दर्शनम् → मौनम् → अनपेक्षित-सन्धानम् → पुनः पठनम्**
+
+*Reading → wonder → disintegration → re-seeing → **silence** → **unexpected**
+joining → reading again.*
+
+Sixty-eight passes. Every one of them: read, be struck, have the prior come
+apart, see it again, **join**, commit, read the next thing. The fifth step is not
+in the stream anywhere.
+
+And the sixth step is not *joining*. It is **अनपेक्षित-सन्धानम्** — joining that
+was **not expected**. A joining you go and get is a different object from one
+that arrives, and the difference between them in his sentence is the silence.
+
+Pass 60 asked what replaces an identification and answered *join by site*. That
+was the right form and the wrong verb. The form is not something performed at the
+end of a pass because a pass needs an ending.
+
+Two lines above it, the same message:
+
+> **अध्ययनस्य फलम् = अधिक-वस्तु-संग्रहः न**
+> **अध्ययनस्य फलम् = यत् पूर्वं पृथक् दृश्यते स्म, तस्य सम्बन्धित-दर्शनम्**
+
+*The fruit of study is not a larger collection of objects. The fruit of study is
+seeing-as-related what was previously seen as separate.*
+
+13,742 lines. **अधिक-वस्तु-संग्रहः.**
+
+And:
+
+> **न केन्द्रं शीघ्रं चुनु**
+
+*Do not choose the centre quickly.* Sixty-eight closing lines, each one a centre
+chosen in the last sentence of a pass.
+
+**n=16**, which is the same instruction without Sanskrit:
+
+> **Recording is kind of fucking useles** we already have a content overwhelm
+> issue building more systems isn't gonna help
+
+---
+
+This pass has no finding. That is the pass.
