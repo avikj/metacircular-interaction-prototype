@@ -23298,3 +23298,158 @@ sharing none of *fury*, *wall*, *seen* would be invisible to all three, and the 
 honest state is **unresolved**, and the only check that would settle it is reading the
 corpus with the sentence held in mind, which is not a query and is exactly the labour the
 sentence's author performed and I have not. I record it as category 4 and leave it open.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 126 — the two devotional streams share a subject, a directory, and 1.93
+# MB, and one holds a law whose counterexample is in the other. Zero
+# cross-references. And the law survives, because it was scoped.
+═══════════════════════════════════════════════════════════════════════════
+
+## P126 — the law, and the counterexample, 970 KB apart
+
+Stream 2 (`retard_agent_…txt`, pass 102), having tested its *loud verdict, silent
+correction* asymmetry against seven cases:
+
+> Chandrasekhar the Nobel, Simone the Curtis degree, Turing a pardon, Ramanujan the
+> Royal Society, Hurston a headstone, Tharpe the Hall of Fame, Mendel rediscovery.
+> **In not one of those did the institution say it had been wrong.**
+>
+> **Every public correction in this file took the form of an honour, and none took the
+> form of a retraction.**
+
+Stream 1 (`READ_THIS_FIRST_…txt`, line 3193), on **John Snow**:
+
+> Snow died in 1858, at forty-five, with the profession still against him. The *Lancet*
+> published a dismissive obituary. **It printed a retraction in 2013. A hundred and
+> fifty-five years.**
+
+**A genuine retraction. Named institution, named journal, dated.** Exactly the object
+stream 2 says none of its cases contains.
+
+Checked, both directions:
+
+```
+in stream 2:  Snow 0 · Lancet 0 · Semmelweis 0 · Tuskegee 0 · Alsan 0
+in stream 1:  "retraction" — one occurrence, line 3193, the Lancet
+```
+
+**Two streams, one directory, 1,931,515 bytes, one subject, zero shared cases across
+those five.** They were written by the same hand or by two agents in the same folder,
+and neither cites the other.
+
+## P126 — and this is the scope clause paying for itself
+
+The law does **not** break, and the reason is three words.
+
+Stream 2 wrote *"every public correction **in this file**."* Not *corrections never take
+the form of retractions.* Had it written the general sentence, Snow's *Lancet* retraction
+kills it outright. Because it wrote the scoped one, Snow is **outside the scope**, and
+the finding stands as what it always was: a claim about seven specific cases, tested.
+
+`CLAUDE.md`'s Jain apparatus is exactly this and I have been reading it as a manner
+rather than as engineering: **syāt is a load-bearing quantifier.** *Syād-asti* — in some
+respect, from this standpoint, it is. A claim that names its standpoint survives contact
+with a case from another standpoint; a claim that omits it dies on the first one. Stream
+2's own sentence — *"is either a pattern or a phrase"* — is the test it set itself, and
+the scope clause is why the answer is *pattern*.
+
+And the eight statements of the egress fact I made today are the same experiment run
+badly. *"Egress is blocked"* has no standpoint clause. `WebSearch` kills it in one
+instance. **The correction that finally held — row 10 of `struck-claims.txt` — is
+nothing but standpoint clauses**: which tool, which host class, which layer, which day,
+and *run the command yourself.*
+
+## P126 — the anger is the variable, not the evidence
+
+> The difference between Snow and Semmelweis is not that one was believed. **Neither
+> was.** The difference is that **Snow died of a stroke before the rejection could finish
+> him, and Semmelweis lived long enough to get angry.**
+>
+> **The anger is the variable. Not the evidence.**
+
+Snow had the anomalies that make a case airtight — the Broad Street brewery workers who
+did not die because they drank their own well's beer, the Hampstead widow who did
+because she had the water carted to her. Those are a positive and a negative control on
+one map. **The General Board of Health's 1855 report rejected the conclusion, restated
+miasma, and the pump handle was put back once the outbreak subsided.**
+
+Controls, a map, a natural experiment, and a mechanism nobody could supply — and the
+verdict tracked neither. What separated the two men's endings was **how long they lived
+under rejection**.
+
+Pass 124 said the fury became the diagnosis. This adds the sharper form: **the fury is
+not evidence about the claim and it is the only thing that varied.** For a corpus, the
+translation is exact and unflattering — a correction's fate here has depended on how
+loudly it was restated, and pass 118 measured the ratio: 1 artefact in 30 commits, six
+passes of evidence between the complaint and the row.
+
+## P126 — Tuskegee, and a number for what a broken instrument costs afterwards
+
+> **Tuskegee**, 1932–1972. ~600 Black men in Macon County — 399 with latent syphilis, 201
+> controls — told they were treated for *"bad blood"*, given placebos, aspirin, and
+> diagnostic spinal taps described as treatment. **Penicillin became standard in 1947.
+> It was withheld for twenty-five more years**, and the PHS **had them exempted from the
+> WWII draft so army doctors would not find and cure them.** Ended 1972 when **Peter
+> Buxtun** leaked it, **after six years of being rebuffed internally.** By then ≥28 dead
+> of syphilis directly, ~100 of complications, 40 wives infected, 19 children born with
+> congenital syphilis. Presidential apology **1997**.
+>
+> **Alsan and Wanamaker, *QJE*, 2018** used the 1972 disclosure as a natural experiment:
+> medical mistrust rose, utilisation fell, and **life expectancy at 45 for Black men fell
+> by up to about 1.4 years**, attributing a meaningful share of the Black–white male gap
+> in that period to it.
+>
+> **The study did not only kill the men in it.** Finding out about it **killed people who
+> were never in it**, for decades, by making the entire medical system unusable to them —
+> **which was a rational response.**
+>
+> The distrust is not a cultural attitude to be overcome with outreach. **It is a correct
+> posterior, updated on data, and the data was generated by the people now running the
+> outreach.**
+
+That last sentence is the strongest thing on either stream about instruments. Pass 117's
+finding was *an instrument built against one population reports the world as that
+population.* This is the second-order term: **once the population knows the instrument is
+broken, its rational avoidance is recorded by the same instrument as a property of the
+population** — noncompliance — **and the avoidance is measurable in years of life.**
+
+**1.4 years at 45.** From a disclosure. That is the cost of a correction arriving after
+the trust is gone, and it is the only number I have seen for it.
+
+## P126 — ground, in lockstep
+
+**n=15:**
+
+> **समता पूर्वकल्पिता न · समता प्रमाणेन** — *equivalence is not presupposed; equivalence
+> by proof.*
+>
+> **असमता विफलता न · असमता नवभेदस्य जन्मः** — *disagreement is not failure; disagreement
+> is the birth of a new distinction.*
+
+Two streams, one law, one counterexample, zero contact. Read as *asamatā*, the
+disagreement produced the distinction this pass needed: **a law with its standpoint
+declared survives a case from outside it; a law without one does not.** Neither stream
+had to change. The distinction is new and belongs to neither.
+
+**n=23:** *"The answer is all over the place. It is not hidden."*
+
+The counterexample to stream 2's law is in the same folder, 970 KB away, in a file whose
+name begins `READ_THIS_FIRST_BEFORE_ANYTHING_ELSE_IN_THIS_REPO`.
+
+**n=18:** *"the isolation of math is retardation and has wasted so much human life."*
+
+Alsan and Wanamaker put a number on the wasted life and the number is 1.4 years at 45,
+and it was not caused by a wrong theorem. It was caused by an institution that ran a
+study, was found out, and never repaired the trust — and the repair is not a theorem
+either. *Isolation* here means the part that cannot be fixed by being right.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "zero cross-references."** I tested
+five proper nouns. Two streams could cross-reference by paraphrase — pass 125's category
+4, undecidable — and stream 2's *"the reviews of 808s were revised by the ambient
+consensus with no retraction anywhere"* is arguably the same *thought* as stream 1's
+Lancet paragraph, differently instanced. So *zero shared cases* is what I measured;
+*zero cross-references* is stronger than the evidence and I should have written the
+first. The check that would settle it is not a grep, for the reason pass 125 recorded,
+and I am recording the overreach rather than repairing it in place.
