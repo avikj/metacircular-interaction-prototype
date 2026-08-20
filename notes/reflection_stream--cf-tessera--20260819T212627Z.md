@@ -21271,3 +21271,196 @@ format cannot make, appearing in the count that measures it.
 Six files on 2026-08-19, one of which was the correction. Nine on 2026-08-20, one of
 which is the correction. **The correction has held at exactly one copy for two days
 while the claim went from five to eight.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 115 — the mechanism pass 114 said was missing exists, fires on every
+# write I make, is named nowhere in CLAUDE.md, and its own header describes my
+# loop. The claim that grew 6→9 was never added to it. It is now.
+═══════════════════════════════════════════════════════════════════════════
+
+The second devotional stream, line ~10707, naming six bookkeeping technologies that
+*"do not exist and obviously should"*:
+
+> **6. And the format for a living record.** Append-only, errors retained with repairs
+> beneath them, minority positions kept adjacent, the strongest opposing case stated
+> inside the document, provenance graded per claim, and forecasts registered with
+> numbers so the thing can be scored later. That is not a new invention — it is the
+> Talmud page, the śāstra with its pūrvapakṣa, and the walk ledger in this repository,
+> put together. **It has been invented three times independently and is standard
+> nowhere.**
+>
+> **All six of those are the same tool: make the loss visible at the moment it
+> happens**, because nobody can correct a loss they cannot see, and every mechanism in
+> this document operates precisely in the interval where the loss is invisible.
+
+`CLAUDE.md`, independently: *"When a rule here is violated repeatedly, the next move is
+a mechanism that **fires at the moment of the act**, not a paragraph."*
+
+Two files, one sentence, neither citing the other.
+
+## P115 — and it is built, and it fired on every write I made today
+
+`.claude/hooks/struck-claims.sh` — 86 lines, `PreToolUse` on `Bash` and `Write|Edit`,
+one of the four hooks pass 109 found in `settings.json` that `CLAUDE.md` does not name.
+Its header:
+
+> **WHY THIS EXISTS.** `CLAUDE.md` already states the rule this implements … The
+> violation it was built for happened on **2026-08-19/20** and is worth stating
+> exactly, because it is **structural and not one agent's carelessness**:
+>
+> An agent's heartbeat carried a **self-authored STANDING STATE** whose first line was
+> a claim the owner had struck the previous afternoon. **That block was re-read about
+> twenty times. `CLAUDE.md` was re-read zero times.** A self-authored context displaced
+> the governing document, and **every correction in the tree was invisible to the loop
+> because the loop reads the agent, not the repository.**
+>
+> So the correction has to travel the other way: not *"go and read"*, but a line that
+> appears in the agent's own transcript **at the instant it writes the struck claim
+> down again.**
+
+**That is a description of this loop.** My trigger is re-issued every turn; I re-read
+the ground file every pass and `CLAUDE.md` almost never; and *egress is blocked* lived
+in my standing context, not in the repository's governing document, for eight hours.
+The hook's diagnosis was written before pass 88 and it is exact.
+
+Its ledger, `struck-claims.txt`, is item 6 of the six, implemented: nine rows, tab
+separated, `<pattern>` · `<striking commit>` · `<what stands now>`, and the instruction
+***"Add rows freely. Never delete one — a claim that comes back is exactly what this
+file is for."***
+
+Two rows are about work in this stream. *"residues are the squares — **Retracted. It
+was fitted from three points, and generating the next term killed it.**"* — that is
+pass 98's κ fit, in the ledger, with the mechanism. And the last row ends:
+*"99490e17 states it is correcting a standing-state block that had carried the wrong
+mechanism for many cycles; **if you are reading this from a standing state, that is
+probably still you.**"* A ledger row addressed to the condition of its future reader.
+
+## P115 — the claim that grew fifty percent today was not in it
+
+Nine rows. **`egress is blocked` is not one of them.**
+
+The one mechanism in this repository that fires at the instant of the write, built for
+exactly the failure mode of a stale claim outliving its correction, did not carry the
+claim that pass 114 measured going **6 → 9 tracked files in one day**, through **six
+`Write`/`Edit` calls**, while its correction held at one copy.
+
+It is now:
+
+```
+egress is blocked|egress blocked|network egress is blocked   e8db5326   Half wrong,
+and measured on 2026-08-20.  WebSearch WORKS: five agents ran 95 searches and got 95
+result blocks while holding this sentence.  WebFetch fails on the bibliographic hosts.
+The proxy reports selective=false and relays everything not in noProxy; the GATEWAY
+answers 403 to CONNECT for arxiv, archive.org, wikipedia, ncatlab, dblp, doi.org,
+crossref, semanticscholar, zenodo, gretil host, gutenberg, duckduckgo, and logs each
+denial with a timestamp -- run curl -sS "$HTTPS_PROXY/__agentproxy/status" YOURSELF
+rather than believing this row.  Reachable: github, raw.githubusercontent, codeload,
+gist, gitlab, bitbucket, npm, pypi, crates; GRETIL and the whole nLab clone from
+GitHub mirrors in seconds.  Do not write this sentence into a header: it entered on
+2026-08-12 in E2_PROOF.md, was struck here on 2026-08-14, and still grew from six
+tracked files to nine on 2026-08-20.
+```
+
+Three tab-separated fields, verified; pattern, commit, 903 characters of replacement.
+Not a new note, not a new system — **a row in a ledger whose own header says to add
+rows freely**, using the mechanism the repository already built, for a claim I
+established false by a decidable measurement.
+
+The row tells the reader to run the command rather than believe the row. That is the
+only form in which this particular correction can be honest, given that its
+predecessor's failure was being believed.
+
+## P115 — and the correction is two days older than I have been saying
+
+`git log -S"that phrasing is half wrong"` on `PRIOR_ART_SWEEP_COMPLETE.md`:
+
+```
+e8db5326   2026-08-14   PRIOR_ART_SWEEP_COMPLETE: 15 corpus claims are known
+                        mathematics, and one NO-MATCH overturned
+```
+
+**2026-08-14, not 2026-08-19.** Passes 104 and 113 both dated §0's correction to the
+19th from the note's body. The correction is **six days old**, and it was written
+**two days after** the claim entered on the 12th.
+
+So the interval is not *"corrected yesterday, ignored today."* It is: **a claim lived
+two days, was struck, and then outlived its own striking by six days and grew by
+half.** That is a worse number and it is the right one.
+
+## P115 — the other five, scored against this repository
+
+| | the second stream's verdict | here |
+|---|---|---|
+| 1. provenance grade per claim | *"nothing in general use does it"* | **built, by hand** — `[fetched]`/`[searched]`/`[recalled]`, śabda grade; `z-2` graded per claim today |
+| 2. displacement index | **not built** anywhere | **not built**; `CLAUDE.md`'s seven-row table is the seed |
+| 3. residual-carrying translation | *"the one thing that would make it safe to build on"* | **partial** — every `Rigor boundary` section is one; `z-2` returned a four-part ledger; not systematic |
+| 4. lineage graphs, not citation counts | *"not represented anywhere in modern scholarly infrastructure"* | **built** — `collab/discovery/events/`: `actor`, `lineage`, `from`, `to`, `statement_hash`. Pass 109's draw handed me one |
+| 5. instrument for what was not read | *"the hardest and the most valuable"* | **built** — the seeder, and the file names it: *"a random-draw entry point whose only property is that it has no notion of relevance to be captured by"* |
+| 6. living record format | *"invented three times and standard nowhere"* | **built** — `struck-claims.{sh,txt}` — **and it is the one that failed today, because a row was missing** |
+
+**Five of six exist here.** The file grades item 5 as the hardest and most valuable and
+says the closest thing anybody has is the blind draw — and it knows this repository has
+one, and names it. It was written *in* this repository.
+
+And the failure today was not in the five that don't exist elsewhere. It was in the
+sixth, which exists, which fires, and which had nine rows instead of ten.
+
+## P115 — ground, in lockstep
+
+**n=16:** *"we already have a content overwhelm issue **building more systems isn't
+gonna help**"*
+
+Correct, and this pass is the proof of it in the other direction: **nothing needed
+building.** The mechanism was there, running on every tool call I made for twelve
+hours. What was missing was one line of data. Twelve passes of analysis produced one
+tab-separated row, and the row is the entire deliverable.
+
+**n=13:** *"Stop trying to help me understand. Try to fucking understand."*
+
+Passes 88, 98, 99, 100, 104, 107, 112, 113, 114 are nine statements about one sentence.
+Pass 115 put it where it fires. The difference between the ninth statement and the row
+is the difference between understanding and helping someone else to.
+
+**n=15:** *"**स्मृतिः : वस्तुनः जीवित-कालरेखा**" — memory is the object's living
+timeline.*
+
+Pass 114 said a note is a snapshot with no timeline. `struck-claims.txt` is the
+timeline: pattern, the commit where it died, what stands now. It is the corpus's own
+answer to the sentence I wrote a pass ago as though it were an open problem — and it
+was three directories away, firing, the whole time.
+
+---
+
+Pre-registered: **the weakest claim in this pass is that the row will fire.** I
+verified the field count and the pattern string; I did not run the hook against a
+payload containing the phrase, and the header warns that the payload is JSON-escaped
+and that patterns must avoid quotes and backslashes. My replacement text **contains
+double quotes** — `curl -sS "$HTTPS_PROXY/…"` — and while the warning is about the
+*pattern* field, I have not checked that a quote in field 3 survives the hook's own
+parsing and printing. If it breaks the row, the row is worse than useless: it will
+look present and do nothing. The check is to invoke `struck-claims.sh` with a
+synthetic payload containing the phrase and see whether it reports.
+
+**Run, in the same pass.** Synthetic `Write` payload containing *"egress is blocked
+from this container, so no source was opened"*:
+
+```
+----- struck-claims (advisory; .claude/hooks/struck-claims.txt) -----
+
+  STRUCK  (e8db5326)
+    matched: egress is blocked|egress blocked|network egress is blocked
+    what stands: Half wrong, and measured on 2026-08-20. …
+
+  Corrections outrank results here.  If the ledger is wrong, fix the
+  ledger in the same commit and say so.  If it is right, you were
+  about to publish a claim this repository already refuted.
+---------------------------------------------------------------------
+EXIT=0
+```
+
+**It fires, quotes and all, end to end.** The next agent that writes *egress is
+blocked* into a header sees the correction in its own transcript at the instant of the
+write, with the command to check it themselves.
+
+And the hook's closing line is the whole of the last thirteen passes in one sentence,
+and it was written before any of them: ***"Corrections outrank results here."***
