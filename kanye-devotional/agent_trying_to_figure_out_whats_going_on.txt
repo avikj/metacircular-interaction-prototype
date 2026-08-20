@@ -2160,3 +2160,123 @@ hostility, it is a substitute for looking that is indistinguishable from looking
   no standing in it and this is not instruction.
 - Nothing here identifies gnōsis, prajñā and kevala-jñāna. They are laid side by side
   and the differences are stated, and that is deliberate.
+
+---
+
+Back in the one stream now. I split it into four tidy files and that was me acting like
+I knew the shape. I don't. Everything from here goes in the order I think it.
+
+Chicago. I keep skipping it and it's probably load-bearing. Chicago is where the Great
+Migration landed — a million-odd people out of Mississippi and Louisiana and Alabama up
+the Illinois Central, and the South Side is what they built. Gospel gets professionalised
+there: Thomas A. Dorsey, who had been a blues piano player called Georgia Tom, invents
+what we now just call gospel by putting blues harmony under sacred words, and gets called
+a devil for it by churches who could hear where the chords came from. He wrote "Take My
+Hand, Precious Lord" after his wife and newborn son died in the same week. Mahalia Jackson
+sang it. That is the lineage under every sped-up voice on every Kanye record — not as
+influence, as *the same building*. Chess Records is Chicago. House music is Chicago,
+invented by Black and queer kids at the Warehouse off Frankie Knuckles' turntables, on
+the same 808s and 909s that end up under a grief album in 2008.
+
+And the other Chicago is the one in "New Slaves." Redlining was invented as federal
+policy and Chicago is the case study; contract selling stripped a generation of Black
+homeowners of everything through a mechanism that was legal and looked like a mortgage
+and wasn't one. Ta-Nehisi Coates' "The Case for Reparations" is mostly a Chicago story
+for that reason. The projects — Cabrini-Green, Robert Taylor — get built and then
+demolished, and the people get scattered, and the scattering is called renewal.
+
+Donda West taught English at Chicago State, which is a public university on the South
+Side that serves exactly those descendants. Not Northwestern, not U of C. Chicago State.
+That is a specific choice about who you teach, made by a woman with a PhD, for thirty-one
+years, and it is in the record and nobody mentions it.
+
+So the kid grows up with a professor's library, a Black Panther's photographs, and the
+sound of that migration in the churches, and the thing everyone finds inexplicable about
+him — that he behaves as though he has standing — is the least mysterious fact in the
+file. He was raised by people who had standing and were denied it.
+
+---
+
+The 13th Amendment thing deserves the actual text because people argue about it without
+reading it. *Neither slavery nor involuntary servitude, except as a punishment for crime
+whereof the party shall have been duly convicted, shall exist within the United States.*
+The exception is right there in the sentence. And what followed it, immediately, in the
+1860s, was the Black Codes — vagrancy laws, which made being unemployed a crime, which
+made a Black man without a labour contract arrestable — and then convict leasing, where
+states rented prisoners to plantations and mines and railroads. Douglas Blackmon's book
+is called *Slavery by Another Name* and it is not a metaphorical title; it documents the
+practice running into the 1940s.
+
+So "New Slaves" is not a provocation, it's a citation. The DEA is named because of the
+War on Drugs; the CCA is named because it is a publicly traded company whose revenue is
+a function of how many people are locked up. Michelle Alexander's *The New Jim Crow* was
+2010, three years before the record, making the same argument with footnotes, and it was
+received as serious scholarship. Kanye made it a chorus and it was received as a
+tantrum. Same claim. The difference is the register and who's allowed to use it.
+
+And when he said the "slavery was a choice" thing five years later, the correction he
+gave *in the same conversation* — we're mentally in prison, "prison" because "slavery"
+goes too direct — is a worse-phrased version of the mental-colonisation argument Fanon
+wrote in *Black Skin, White Masks* and *The Wretched of the Earth*, and that Du Bois had
+already opened in 1903 with double consciousness: the sense of always looking at
+yourself through the eyes of others, measuring your soul by the tape of a world that
+looks on in amused contempt. That's Du Bois' sentence, near enough. It is the most
+precise description of the mechanism anyone has written and it is one hundred and
+twenty-three years old.
+
+Du Bois also made data visualisations — hand-drawn, for the 1900 Paris Exposition,
+spirals and bar charts in gouache showing Black American life in Georgia — because he
+understood that the argument would not be heard as prose. They look like modernist
+design work forty years early. They sat in the Library of Congress essentially unlooked
+at for a century.
+
+---
+
+The sound, properly, because I've been gesturing at it.
+
+The MPC — Akai's sampler with the sixteen pads, the one Roger Linn designed — is the
+instrument. You take a fragment off a record, chop it across the pads, play it back with
+your fingers. Time-stretch and pitch are coupled on the early ones, so if you speed a
+soul vocal up to fit your tempo, it goes up in pitch too, and the singer becomes a
+child, or a bird, or something not quite human. That artefact is what got named chipmunk
+soul as an insult and it is doing something specific: it makes a familiar adult voice
+strange and urgent, and it does it *by accident of the machine*, and Kanye and Just
+Blaze and Dilla heard the accident as the point.
+
+The 808 is the opposite kind of accident. Roland made the TR-808 in 1980, it sold badly
+because it did not sound like real drums, they discontinued it in 1983, and then it
+turned up cheap in second-hand shops and Afrika Bambaataa and the Miami bass guys and
+Detroit techno and Chicago house all built on it because the kick has a long tuned decay
+you can play as a bass note. A machine that failed at imitating drums succeeded at being
+an instrument nobody had asked for. Then in 2008 a man whose mother has died uses that
+long decaying tuned kick for grief, and calls the record *808s & Heartbreak*, and the
+machine's failure mode — a drum that will not stop ringing — is exactly the thing being
+described.
+
+Auto-Tune is a third accident. Andy Hildebrand had been doing seismic data analysis for
+oil exploration — autocorrelation on reflected signals — and used the same maths to
+track and correct vocal pitch. It was built to be inaudible. Cher's "Believe" in 1998
+turned the retune speed to zero, which makes it snap between pitches instead of gliding,
+and the audible artefact became the effect. T-Pain used it as a colour. Kanye used it in
+2008 as a *prosthesis* — not to fix a voice but because the unassisted voice could not
+carry the interval, and the machine sound is the sound of needing a machine.
+
+Every one of those three is a piece of engineering that failed at its stated purpose and
+whose failure became the expressive content. That is not a coincidence three times. It's
+what happens when people locked out of the equipment budget get the discontinued gear.
+
+---
+
+Gil Scott-Heron closing MBDTF, and I want to be accurate about the piece. "Comment #1"
+is from *Small Talk at 125th and Lenox*, 1970, and the passage Kanye uses ends on *who
+will survive in America.* Scott-Heron was twenty-one when he recorded that album. He
+spent the last decades of his life addicted to crack, in and out of prison — the exact
+machinery his own work described — and made one last record with Richard Russell,
+*I'm New Here*, in 2010, the year before he died, and Jamie xx remixed the whole thing.
+Kanye sampled *I'm New Here* on "Lost in the World" and put "Comment #1" at the end of
+the album as its own track.
+
+So: the man who wrote the indictment of the system got eaten by it, and the biggest
+rapper in the world gave him the last word on the biggest record of the decade, months
+before he died. Nobody frames it that way. It's listed as a sample credit.
+
