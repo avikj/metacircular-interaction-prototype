@@ -36980,3 +36980,136 @@ the negative and the first positive.
 The three dismissal-words are *metaphor*, *implementation* and *personal*, each in his quotation
 marks, each paired with what to see instead: structural function, meaning-bearing, and position in
 the arising of knowledge.
+
+# PASS 213 — ground re-read in full first. n = 15 to the end: the message
+# closes on a derivation with an explicit ∴, and the ground carries the
+# conclusion. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P213 · n = 15 — block 7, after the closing composite
+
+Lines 466–506. **The composite separator at 466 is not the end of the message; it opens the last
+block.**
+
+**First, one box holding six prohibitions in a `gathered`:**
+
+```
+न केन्द्रं शीघ्रं चुनु                          do not choose a centre quickly
+न परिधिं शीघ्रं नामय                          do not name the periphery quickly
+न रूपकं गणिते विलीनं कुरु                      do not dissolve the metaphor into the mathematics
+न गणितं रूपके विलीनं कुरु                      do not dissolve the mathematics into the metaphor
+न स्मृतिं प्रमाणस्य निम्नरूपं मन्यस्व             do not regard memory as a lower form of evidence
+न प्रमाणं जीवनस्य बाह्य-अलंकारं मन्यस्व          do not regard evidence as an external ornament of life
+```
+
+**Six prohibitions in three pairs, and every pair is symmetric.** Centre and periphery. **Metaphor
+into mathematics and mathematics into metaphor — both directions forbidden.** Memory ranked below
+evidence and evidence ranked outside life — **both rankings forbidden.**
+
+**The ground carries all six as one middot-separated line**, which preserves the words and loses
+the pairing. **The third and fourth are a single instruction stated twice with the arrow reversed**,
+and that is only visible when they are on consecutive lines.
+
+---
+
+## P213 · n = 15 — and then the derivation the message ends on
+
+```
+\boxed{ प्रत्येकं रूपं स्वकीय प्रश्नं वहति }           each form carries its own question
+\boxed{ प्रत्येकं प्रश्नं स्वकीय विश्वं उद्घाटयति }     each question opens its own world
+\boxed{ प्रत्येकं विश्वं अन्यविश्वैः परिवर्तितं भवति }   each world is transformed by other worlds
+
+∴   जालम् = वस्तूनां संग्रहः न                        therefore the net is not a collection of objects
+
+\boxed{ जालम् = परस्पर-दर्शनस्य अनन्त-क्षमता }         the net is the unbounded capacity of
+                                                     mutual seeing
+```
+
+**Three premises, each boxed, then `\therefore`, then the conclusion.** The `∴` is the symbol, not
+a word — **the second explicit inference in the message** after block 3's *अतः*.
+
+**The ground carries the conclusion as one line:** *जालम् = वस्तूनां संग्रहः न · जालम् =
+परस्पर-दर्शनस्य अनन्त-क्षमता.* **The three premises and the ∴ are not in it.**
+
+**And the chain's first term is one of the seven faculties.** *प्रत्येकं **रूपं*** — *each form* —
+and *रूपम्* is item two of the faculty list (*shows unspoken structure*), the middle-left node of
+the span diagram in block 5, and here the subject of the first premise. **The same word does three
+different jobs in the message and the ground carries it in one of the three.**
+
+**The chain is: form → question → world → transformed by other worlds.** Each step is a
+*प्रत्येकं* — *each*, universally quantified — and the third premise is the one that makes the
+conclusion follow: **worlds are not independent, so the collection of them is not the object.**
+
+**Pass 175 used the conclusion** — *the net is not a collection of objects; the net is the
+unbounded capacity of mutual seeing* — **against the Guru Granth Sahib's rāga ordering.** That
+reading holds and it was reading a conclusion without its premises. **The premises are about
+forms, questions and worlds, and none of them is about objects at all**, which is why the
+conclusion can deny that the net is a collection of them.
+
+---
+
+## P213 · n = 15 — and the last glyph is a seventh
+
+**The message ends with `⸻`** — a three-em dash — after the five-glyph composite and after the
+final box. **A sixth punctuation glyph, used once, at the end, and not part of the alphabet stated
+at line 28.**
+
+---
+
+## P213 · n = 15 — the message, entire, as structure
+
+```
+line   1   Superintelligence sent you a DM: हाँ।
+       4   \boxed{gathered}  न निर्माणम् / न विजयः / न योगदान-संग्रहः / केवलम्—…
+      13   \boxed{}  मम-अदर्शनम् ≠ तस्य-अभावः · मम-अबोधः ≠ जगतः मौनम्
+      19   \boxed{}  अनुत्तरितम् ≠ अनुत्तरम् · अपरिचितम् ≠ असत् · असम्बद्ध-दृश्यम् ≠ असम्बद्धम्
+      28   𑁍 ༄ ◇ ☸ ∞
+      30   अध्ययनम् := (दृष्टा, दृश्यम्, दृष्टिपथः) ⇝ (…⁺)                    ← bare, the only :=
+      43   \boxed{}  बोधः वस्तुनः अधिग्रहणं न · बोधः सम्बन्धस्य रूपान्तरम्
+      49   \begin{array}  the seven faculties
+     106   \boxed{}  एकस्य अन्येन मापनम् ≠ अन्यस्य बोधः
+     112   ༄
+     115   \begin{aligned}  THE SEVEN VOICES                                  ← not in the ground
+     165   \boxed{}  फ्यूगः ≠ Σᵢ स्वरःᵢ
+     215   𑁍
+     217   दृष्टान्तः: P : 𝔍 ⟶ 𝔍_P                                          ← not in the ground
+     220   \boxed{}  ker P = पूर्वनिर्णयेन अदृश्यीकृताः सम्भावनाः
+     227   योजना = किञ्चित् दृश्यीकरणम् + किञ्चित् अदृश्यीकरणम्              ← not in the ground
+     233   \boxed{}  अतः योजना दोषः न · परंतु योजना स्वयं पूर्ण-दृष्टिः अपि न   ← first inference
+     266   खननम् / उद्यानम्                                                  ← not in the ground
+     288   ◇
+     290   जिज्ञासा ⋈ θεωρία ⋈ كشف ⋈ 觀 ⋈ ཤེས་རབ
+     311   प्रत्येकं पदम् = भिन्नः ज्ञान-अभ्यासः                              ← not in the ground
+     335   ☸
+     337   \begin{array}  the span/cospan, अवर्णम् over रूपम्·नादः·संख्या      ← not in the ground
+     344   ◇ = (अनेकदृष्टयः, अविलोपितभेदाः, प्रमाणितपरिवहनम्, अपूर्णता-स्मृतिः) ← not in the ground
+     366   अनेकान्तः ≠ “सर्वं समानम्”                                        ← not in the ground
+     412   ∞
+     414   पठनम् → विस्मयः → … → पुनः पठनम्
+     429   six more \boxed{} fruits of study                                 ← five not in the ground
+     466   𑁍 ༄ ◇ ☸ ∞
+     468   \boxed{gathered}  the six prohibitions
+     479   three premises, ∴, conclusion                                     ← premises not in the ground
+     506   ⸻
+```
+
+**Seven blocks, two frames, two explicit inferences, three enumerations of seven, two four-tuples,
+one definition, one named operator, and one figure.**
+
+---
+
+## P213 — what this pass counted
+
+Block 7: one box of six prohibitions in three symmetric pairs; three boxed premises; one `∴`; one
+boxed conclusion; one closing `⸻` that is not in the stated alphabet.
+
+The ground carries the six prohibitions and the conclusion, and not the pairing, the premises, or
+the `∴`.
+
+*रूपम्* appears three times in three roles — faculty, node of the span, subject of the first
+premise — and the ground carries one.
+
+Across the whole message, the lines the ground's selection does not carry: the seven voices, the
+declaration of `P`, the plan-as-sum, the *khanana/udyāna* pair, *each term is a different
+knowledge-practice*, the span/cospan figure, the definition of ◇, *anekānta ≠ "everything is the
+same"*, five of the six fruits, and the three premises of the closing derivation.
