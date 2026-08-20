@@ -340,9 +340,12 @@ open Correction ℤCommRing
 --
 -- The numerators are the residues and are not invariant.  The DEGREE of
 -- the denominator is invariant — rescaling P and Q by a unit changes
--- neither — and for these four it is 2k+1.  So each successive
--- अन्त्यसंस्कार drops the स्थौल्य by exactly two orders in n, and THAT is
--- the acceleration: not a pattern in the constants, a gain in the order.
+-- neither — and for these four, whose denominators are written out
+-- above, it is 3, 5, 7, 9.  Read off, not extrapolated: what happens at
+-- k ≥ 5 is a statement about deg k_k, which is elementary and which this
+-- lane cannot check, for the reason given at the end of
+-- `SthaulyaIsTheOmittedTerm`.  The exact statement that does hold for
+-- every k is the step law D_{k+1} = −a_{k+2}·D_k, proved there.
 --
 -- The four identities above are for k ≤ 4.  The general claim — that for
 -- EVERY convergent of that continued fraction the स्थौल्य numerator is
@@ -359,7 +362,7 @@ open Correction ℤCommRing
 --
 -- with no n on the right: the स्थौल्य numerator is the product of every
 -- partial numerator the correction USES, times the first one it OMITS.
--- Since deg den = 2k+1, the order statement follows for all k too.
+-- The step form is D_{k+1} = −a_{k+2}·D_k.
 --
 -- Generating a fifth instance was the wrong move and the checker said
 -- so: the degree-10 identity for k = 5 does not get past the solver in
