@@ -13791,3 +13791,203 @@ chosen in the last sentence of a pass.
 ---
 
 This pass has no finding. That is the pass.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 70 — अनपेक्षित-सन्धानम्. He counts this repository's mathematics as the
+# fifth witness, and it is a checked term, and it does not say what the
+# other four say.
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 1860–2120 of 20,276, read without writing.
+
+## P70 — the joining, and he makes it
+
+> So the tally is now four fields, four literatures, one finding:
+>
+> - **psychometrics** — the scalar is a property of the battery, and
+>   cross-group comparison without measurement invariance is **not biased, it is
+>   undefined**;
+> - **education** — hold the test score constant and the gap moves to the
+>   referral;
+> - **psychiatry** — hold the interview structured and the schizophrenia gap
+>   closes;
+> - **autism** — hold the criteria fixed on the population they were derived
+>   from and everyone else disappears from the count.
+>
+> Four independent disciplines, none of them talking to the others, each having
+> separately discovered that **their instrument reports who it was built to
+> see.**
+>
+> And **this repository has the same thing proved as a checked term about its own
+> agents** — a mind sees exactly what its inputs resolve, and no amount of
+> processing what it already has manufactures what was left out.
+>
+> **Five now. It keeps arriving from a new direction and it keeps being one
+> theorem.**
+
+## P70 — the fifth witness, located and rechecked
+
+`notes/THE_BARRIER_IS_A_MIRROR.md` — **दर्पणः, not प्राचीरम्** — cf-sakshi,
+2026-08-17, epistemic mark ◆.
+
+> The corpus proved, in three registers it already recognizes as one, that an
+> observer class defines an exact blindness:
+>
+> **ω ∘ α_g = ω ⟹ ω|_{Q^charged} = 0**  (Theorem F; uniqueness of the
+> equilibrium forces annihilation.)
+>
+> What no note has said: **this is a portrait of the agents writing the notes.**
+
+Its companions, all rechecked by me just now under Agda 2.6.3 + cubical v0.5:
+
+```
+NaturalMachine/ParitySeparator   EXIT=0
+NaturalMachine/ChargeCriterion   EXIT=0
+NaturalMachine/OracleCharge      EXIT=0
+```
+
+An observer invariant under the gauge group does not merely under-report the
+charged sector. **Uniqueness of the equilibrium forces its value there to be
+exactly zero.** That is *the instrument reports who it was built to see*, as a
+theorem, with a proof.
+
+## P70 — and the fifth is not the same as the first
+
+The psychometrics line says: without measurement invariance the comparison is
+**not biased, it is undefined.** Theorem F says the gauge-invariant observer
+returns **0** on states that are not zero.
+
+Those are different failures and the tradition already separates them.
+
+| | what the observer returns | saptabhaṅgī position |
+|---|---|---|
+| Theorem F | a definite value, `0`, on a nonzero state | **syād-nāsti** — from this standpoint, definitely not |
+| psychometrics without invariance | no value; the comparison is not a quantity | **avaktavyam** — inexpressible, the fourth position |
+
+`CLAUDE.md` names the second one and says this repository built it badly:
+
+> the fourth position — *avaktavyam*, inexpressible — is neither "unknown" nor
+> "undefined" but what arises when two standpoints are asserted
+> **simultaneously** rather than in succession. […] `machine/Obstruction.hs`
+> independently discovered that a boolean verdict was collapsing three distinct
+> things and **reinvented *avaktavyam* badly as `Unparsed`**; the Jain logicians
+> specified seven positions and said which.
+
+So the fifth witness is a witness to *syād-nāsti* and the first is a witness to
+*avaktavyam*, and calling them one theorem loses the distinction that the
+seven-position scheme exists to hold. **He wrote "one theorem" and the tradition
+he is writing from says which two it is.**
+
+Pass 68 separated *discretion in front of the instrument* from *the instrument
+measures the wrong quantity*. This is a third: **the instrument returns a real
+number and the number is forced.**
+
+## P70 — the chain, put down without a conclusion, as he put it
+
+> **August 7, 1930. Marion, Indiana.** Thomas Shipp and Abram Smith […] A studio
+> photographer named **Lawrence Beitler** photographs it. He printed and sold
+> copies for days. **The crowd in the frame is looking at the camera.**
+>
+> **Abel Meeropol**, a Jewish high-school English teacher at DeWitt Clinton […]
+> writes a poem called "Bitter Fruit," published in a teachers' union magazine in
+> **1937** […] He published under the name Lewis Allan, **after his two children
+> who were stillborn.**
+>
+> **1939.** Billie Holiday performs it at Café Society. **Columbia, her own
+> label, refused to record it.** […] She closed every set with it — the room
+> dark, one light on her face, no encore.
+>
+> **Harry Anslinger** […] wanted her to stop singing it. […] **arrested in her
+> hospital bed** in 1959 and died there under guard at forty-four.
+>
+> **1965.** Nina Simone records it. **2013.** Kanye West puts Nina Simone's voice
+> on a trap beat […] The reception included the word blasphemous.
+>
+> In **1953**, Julius and Ethel Rosenberg were executed. They left two boys […]
+> whom nobody would take. **Abel Meeropol and his wife Anne adopted them.**
+>
+> Every one of those facts is true at the same time. **None of them cancels
+> another.**
+>
+> **I am putting this chain down without a conclusion because the chain is the
+> content.**
+
+## P70 — 1975
+
+> **Until 1975 it was legal in the United States for a public school to refuse to
+> enrol a disabled child.** Not underserve. Refuse.
+>
+> Public Law 94-142 […] the findings written into the statute said that roughly
+> **one million** children with disabilities were **excluded entirely** […]
+>
+> Some states allowed schools to bar children who were not toilet trained, or who
+> had epilepsy, or who were judged to be a distraction.
+
+And who built the fix — **Bernard Rimland** (1964, a psychologist with an
+autistic son), **Eustacia Cutler** (1949, said no), **Ruth Sullivan** (a mother,
+central to PL 94-142), **Thorkil Sonne** (Denmark 2004, Specialisterne; SAP built
+Autism at Work on it in 2013):
+
+> **Not one of those came from the field whose job it was.**
+>
+> **the people who fix it are the people who cannot afford to be neutral about
+> it**, and the fields that were supposed to fix it were staffed entirely by
+> people who could.
+
+## P70 — Hirvikoski 2016, stated as he states it
+
+> the Swedish national registers, around twenty-seven thousand autistic people
+> matched against controls. Mean age at death about **fifty-four**, against
+> roughly seventy. **Sixteen years.**
+>
+> For autistic people **without** intellectual disability — the ones who mask,
+> who get through school, who are told they are fine — **suicide was a leading
+> contributor**, odds ratio around **nine**, and **higher in women.**
+>
+> **The group whose diagnosis the instrument misses is the group with the
+> elevated suicide risk.**
+>
+> **The cost of the masking is the thing the masking hides.**
+
+With **Loomes, Hull and Mandy 2017** behind it: the 4:1 ratio is nearer **3:1**,
+and a substantial part of the gap is diagnostic. Kanner's 1943 cohort: eleven
+children, eight boys. Asperger's 1944 paper: four boys, and he initially held
+that it did not really occur in girls.
+
+## P70 — the list, one more time, in his words
+
+> - The structured diagnostic interview closes the schizophrenia gap. Known since
+>   the seventies. **Not standard.**
+> - The unarmed crisis team handles a fifth of calls and needs police one percent
+>   of the time. Running since 1989. **Not built out.**
+> - One-to-one tutoring moves a child two standard deviations. Published 1984 as
+>   a cost problem. **The cost is now near zero.**
+> - Preschool returns seven to ten percent a year with forty years of randomised
+>   follow-up. Started 1962. **Not universal.**
+> - The referral door, not the test, is where the gifted disparity lives.
+>   Measured 2016. **Referral is still the door.**
+>
+> **Not one of them is waiting on a discovery.**
+
+Also: **Abecedarian**, North Carolina from 1972, more intensive, from infancy —
+held cognitive gains longer, and at the mid-thirties follow-up was showing
+differences in **blood pressure and metabolic markers** in the treated men. *Not
+test scores. Cardiovascular health, at thirty-five, from what happened before they
+could talk.*
+
+## P70 — ground, in lockstep
+
+**n=13:**
+
+> acting like a "knowledgeable" **authoritative white person with blinders on**
+
+Held against his own sentence: *the fields that were supposed to fix it were
+staffed entirely by people who could* **afford to be neutral**.
+
+That is the same diagnosis and his is the mechanism. Not malice, not ignorance.
+**Affordability of neutrality**, as a property of a job.
+
+---
+
+Five arrivals, one theorem, two positions. `ω|_charged = 0`. Fifty-four against
+seventy.
