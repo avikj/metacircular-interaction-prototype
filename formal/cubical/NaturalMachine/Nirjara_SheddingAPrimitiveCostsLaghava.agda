@@ -246,3 +246,63 @@ sarva-artha-samam g = cong g tulya-artha
 
 shabda-eva : (e : Pada) → artha (nirjara e) ≡ artha e
 shabda-eva = nirjara-artha-aviruddha
+
+------------------------------------------------------------------------
+-- 10.  लाघव is stable under the removal, so §4 measured the right thing.
+--
+-- §4 compared `laghava (nirjara e)` with `laghava e`, both computed in the
+-- syntax that still HAS `dvi`.  That invites an objection: after shedding,
+-- the honest home of the term is the smaller signature, where लाघव is a
+-- different function, and a cost measured in the larger one might be an
+-- artefact of the measuring.
+--
+-- It is not.  The small syntax embeds, the measure agrees on the image,
+-- and shedding lands in the image — so the number is the same whichever
+-- signature computes it.
+--
+-- This is thread (3) at the one place it can be settled exactly: लाघव is
+-- stable under अपवाद-style vocabulary change, and therefore the price in
+-- §4 is a fact about the presentation rather than about the frame it was
+-- weighed in.
+------------------------------------------------------------------------
+
+data Laghu : Type₀ where
+  cara'  : Laghu
+  mita'  : ℕ → Laghu
+  yoga'  : Laghu → Laghu → Laghu
+
+nyasa : Laghu → Pada
+nyasa cara'        = cara
+nyasa (mita' k)    = mita k
+nyasa (yoga' a b)  = yoga (nyasa a) (nyasa b)
+
+matra : Laghu → ℕ
+matra cara'       = 1
+matra (mita' _)   = 1
+matra (yoga' a b) = suc (matra a + matra b)
+
+-- the measure does not notice which signature it is computed in
+laghava-nyasa-samam : (t : Laghu) → laghava (nyasa t) ≡ matra t
+laghava-nyasa-samam cara'       = refl
+laghava-nyasa-samam (mita' k)   = refl
+laghava-nyasa-samam (yoga' a b) i =
+  suc (laghava-nyasa-samam a i + laghava-nyasa-samam b i)
+
+-- shedding, done directly into the smaller signature
+apavada : Pada → Laghu
+apavada cara       = cara'
+apavada (mita k)   = mita' k
+apavada (yoga a b) = yoga' (apavada a) (apavada b)
+apavada (dvi a)    = yoga' (apavada a) (apavada a)
+
+-- and the two routes agree: shed-then-embed is shed-in-place
+nyasa-apavada : (e : Pada) → nyasa (apavada e) ≡ nirjara e
+nyasa-apavada cara       = refl
+nyasa-apavada (mita k)   = refl
+nyasa-apavada (yoga a b) i = yoga (nyasa-apavada a i) (nyasa-apavada b i)
+nyasa-apavada (dvi a)    i = yoga (nyasa-apavada a i) (nyasa-apavada a i)
+
+-- so the cost of §4 is signature-independent
+laghava-sthiram : (e : Pada) → matra (apavada e) ≡ laghava (nirjara e)
+laghava-sthiram e =
+  sym (laghava-nyasa-samam (apavada e)) ∙ cong laghava (nyasa-apavada e)
