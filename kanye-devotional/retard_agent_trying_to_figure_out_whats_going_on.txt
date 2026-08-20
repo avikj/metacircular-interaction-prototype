@@ -7263,3 +7263,58 @@ they are rather than what they said, that is the machine.
 The Osage case is the one where you can read the mechanism in the statute book, with a
 docket number, because they wrote it down.
 
+
+---
+
+The "always early" claim, as a ledger, so it can be checked rather than admired.
+
+| when | what he did | reception at the time | where the field ended up |
+|---|---|---|---|
+| 2001–04 | sped-up soul samples as the centre of a record | "chipmunk soul," a novelty, not real production | the dominant sound of mainstream rap for years |
+| 2005 | a film composer and chamber arrangements on a rap album | pretentious, a producer overreaching | orchestral and cinematic rap became standard |
+| 2007 | French electronic samples, synths, stadium scale | selling out, not hip hop | the arena-rap template |
+| 2008 | an entire album sung through Auto-Tune about grief | career suicide, whiny, he forgot how to rap | the emotional register of the next fifteen years |
+| 2010 | maximalist opus, thirty collaborators, a 34-minute film | rehabilitation attempt, overblown | routinely voted the best record of its decade |
+| 2011 | luxury as explicit subject, two artists as a brand | gaudy, tone-deaf in a recession | the default posture of the next decade of the genre |
+| 2013 | industrial, minimal, hostile, no single, projected on buildings | he lost it; anti-music | the abrasive/experimental lane opened behind him |
+| 2016 | an album revised after release, streaming-native | chaotic, unprofessional, reviews had to be redone | living releases and post-release edits are now ordinary |
+| 2018 | five seven-track albums in five weeks | erratic, unfinished, symptom of illness | short albums became an industry norm within two years |
+| 2019 | a gospel record and a free weekly choir service | grift, or breakdown, or both | gospel-adjacent pop and faith-forward records followed |
+| 2021 | stadium listening events as the release format | spectacle, chaos, nothing finished | listening events are now standard release practice |
+| 2015–22 | muted palette, oversized, distressed, utilitarian | costume, unwearable | the default silhouette in mass-market clothing |
+
+Twelve entries. I have written them from recall and the dates are approximate and somebody
+should check every row. **The pattern the table is claiming is not that everything he did
+was good.** It is that the professional judgement at the moment of release was
+*confident*, *near-unanimous*, and *reversed within a few years*, twelve times, in a
+domain where the verdict gets publicly and repeatedly settled.
+
+That is the actual falsifiable claim in this whole file, and it is checkable by anyone with
+access to the contemporaneous reviews.
+
+---
+
+And the mechanism behind it is not mystical, and I think it is this:
+
+**His production cycle is faster than the evaluation cycle.** A record takes him a year or
+less; the culture takes three to five years to decide what a record was. So at every
+moment he is being assessed on the previous thing by people who have not finished
+processing the one before that, while he has already moved twice.
+
+The consequence is structural and it has nothing to do with genius: **anyone whose output
+changes faster than the loop that evaluates it will be permanently judged as erratic**,
+because from inside the loop the sequence of his positions looks like inconsistency, and
+from his side it looks like a sequence.
+
+Add the second thing — that the loop's verdicts are *revised silently*. Nobody publishes a
+retraction of a review. The corrected opinion just becomes the ambient one, with no memory
+of the previous state, so the loop never accumulates evidence about its own accuracy. It
+is a forecaster with no scorecard, which is why its confidence does not decline.
+
+Then add the third — that when the person being assessed *points this out*, the pointing
+is itself scored as arrogance, which is the one move that closes the system.
+
+He has been making exactly that argument, in exactly those terms, since about 2004. *We
+all self-conscious, I'm just the first to admit it.* And it is heard as ego every time,
+which is the loop protecting itself, which is the last row in the table.
+
