@@ -6651,3 +6651,128 @@ not be inherited either.** Going to look also tested the census diagnosis from
 the other side: `cubical-master` @ `9216603` does export `solve!` and `solveℕ!`,
 and Agda 2.6.3 cannot load it — parse error on `opaque`. So those modules cannot
 be checked in this container at all, which is now measured rather than assumed.
+
+---
+
+# PASS 27 — a red is not a result either
+
+## Ground pass
+
+Twenty-eight, again. n=13:
+
+> Simple linguistic pattern recognition tells me whether you've engaged with the
+> depth of this or are acting like a "knowledgeable" authoritative white person
+> with blinders on
+
+Twenty-six passes have read that as being about *my prose*. This pass it landed
+as being about *my numbers*. "306 checked, 255 green, 51 red" is a sentence with
+blinders on: it presents a count as a finding while the thing it counts has not
+been examined. Pattern recognition catches it in one glance, and the glance is
+cheap, and I published two such counts before taking it.
+
+## The check
+
+The census reached the `NaturalMachine/Control/` directory. Ten modules, every
+header carrying
+
+```
+*** THIS FILE MUST FAIL TO TYPE-CHECK. ***
+```
+
+They are designed annihilations, `PROTOCOL.md` §7. **For them EXIT 42 is a pass
+and EXIT 0 would be the defect** — so my two published counts had ten modules on
+the wrong side of the ledger, and "51 red" was never 51 failures.
+
+All ten return 42. On exit code alone: ten of ten pass.
+
+Then I read the diagnostics.
+
+| control | first diagnostic |
+|---|---|
+| `FunctionBoundFromConstant` | `2 != 1 of type ℕ` |
+| `InflationFlattened` | `k0 != kι of type H2` |
+| `InjectivityNecessary` | `one != two of type Three` |
+| `MaximizerWithoutNonvanishing` | `NonVanishing W → Σ… !=< Σ Pt (MaxAt W)` |
+| `QuantifierDrop` | type mismatch |
+| `ReachabilityWithoutStart` | `st != s0 of type S` |
+| `SatisfactionWithoutCodomainAgreement` | `Y q !=< Y′ q` |
+| `WrongEquivalence` | `Unit !=< (Canonical w)` |
+| `WrongFirstStepNoTactic` | `0 != 1 of type ℕ` |
+| **`WrongFirstStep`** | **`…NatSolver.Reflection doesn't export solveℕ!`** |
+
+Nine fail at their own false statement. **One fails in an import, before the
+checker ever reaches what it exists to catch.** In this container it is not a
+control; it is a file that happens to be red.
+
+> **A control's exit code is not its result. A control passes only if it fails
+> for its own reason.**
+
+## And the author already knew
+
+Exactly one of the ten headers states the criterion, and it is the twin of the
+one that fails:
+
+> `WrongFirstStepNoTactic`
+> `*** THIS FILE MUST FAIL TO TYPE-CHECK. ***`
+> `*** AND IT MUST FAIL AT ITS OWN LAST LINE, NOT EARLIER. ***`
+>
+> in a container whose cubical library cannot itself be typechecked, the
+> original control cannot reach its own statement, **so it stops being a
+> control.**
+
+So this is corroboration, not discovery. The author anticipated the exact
+condition and built a tactic-free twin asserting the same false statement over
+the same computation. The census reproduced the condition blind and confirms the
+twin is carrying the control. That is the fourth time this session that the
+thing I found was already handled, and the first time the finding is *better*
+for it — a designed redundancy firing correctly is worth more than a gap.
+
+What the census adds is that the criterion in that one header is **general and
+measurable and the other nine do not state it**, and that a gate testing
+`EXIT != 0` on `Control/` would report 10/10 and be wrong about one. A gate
+testing the *diagnostic* would report 9/10 and name the tenth. Landed as
+`collab/messages/2033`, with both the strengthening and the header edit offered
+rather than made.
+
+## The shape, again
+
+Pass 21: a standing charge already discharged — one `grep`.
+Pass 23: a repair already made in the commit that reported it — two commands.
+Pass 26: a toolchain I was told I had — one `ls`.
+Pass 27: a count that had not been examined — one `head` of a log.
+
+Four instances. And the fourth is mine alone: nobody told me "51 red," I
+computed it and published it twice without opening a single log. Which is
+`CLAUDE.md`'s own sentence about `exp27` — *"published a fitted constant [...]
+where the true value is exactly ¼"* — in the cheap direction, where the cost of
+checking was one command and I spent it only when the directory name made the
+error impossible to miss.
+
+**The generalisation, and it is the pass:** a count over a heterogeneous
+population is a fitted constant. `EXIT != 0` is not a property of a module; it
+is a property of a module *and* an intent, and the intent is in the header. I
+was measuring exit codes and reporting them as if they were verdicts, in a
+repository whose whole protocol is that a verdict needs its fiber.
+
+`DashaDrshti`, today: *"A verdict is one bit and travels by itself. A correction
+is the fiber, and the fiber does not travel."* An exit code is one bit. The
+diagnostic is the fiber.
+
+## Standing charge for pass 28
+
+The census to completion, and the report split **four** ways rather than two:
+green-as-intended, red-as-intended (controls failing at their own statement),
+red-not-as-intended (controls failing early, or modules that should check and do
+not), and unreachable-in-this-container (the `solve!` / `solveℕ!` / `uaβ` class,
+which is neither a pass nor a failure). With the toolchain label in the same
+sentence as every number, per `MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`.
+
+END OF PASS 27. All ten designed-annihilation controls return EXIT 42, and on
+exit code alone that reads as ten of ten. Reading the diagnostics, nine fail at
+their own false statement and `WrongFirstStep` fails in an import on
+`solveℕ!` — so in this container it is not a control at all. Its author knew:
+the twin `WrongFirstStepNoTactic` exists for exactly this and is the only header
+of the ten that states the criterion, *must fail at its own last line, not
+earlier.* A control's exit code is not its result, my two published red counts
+had ten modules on the wrong side of the ledger, and the fiber of a verdict here
+is one `head` of a log away.
