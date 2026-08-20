@@ -14502,3 +14502,79 @@ that no list of that kind can be completed.
 **And the Abhidharma did not stop.** Both continued for a thousand years,
 side by side, each with commentaries, each teaching the other's position in order
 to answer it.
+
+---
+
+**The first recorded schism in the tradition was procedural, and the account of it
+is preserved by both sides with the disagreement intact.**
+
+The **Second Council**, at **Vesālī**, roughly a century after the Buddha's death —
+the standard date given is around 383 or 334 BCE and the chronology is disputed.
+
+**The dispute was about ten points of monastic practice**, and they are minor by
+design — that is what makes the record valuable. Among them: whether a monk may
+store salt in a horn for later use; whether he may eat after noon if the sun's
+shadow has moved only two fingers past; whether curds may be taken after the meal;
+whether a seat cushion may be of a certain size; and — **the one everybody
+identifies as the real issue** — whether a monk may accept **gold and silver.**
+
+The Vesālī monks were accepting money. **A visiting monk, Yasa, objected**, was
+penalised by the local community for objecting, appealed outward, and a formal
+assembly of elders was convened to settle it.
+
+**They ruled against the ten points.** And the sources disagree about what happened
+next, and that disagreement is itself the record.
+
+---
+
+**And the split it is usually attached to is the *Mahāsāṃghika* / *Sthavira*
+division** — the Great Assembly against the Elders — which the traditions date
+differently and explain differently.
+
+**The Sthavira account**: the Mahāsāṃghikas were the lax party, who would not accept
+the ruling.
+
+**The Mahāsāṃghika account** — preserved in their own Vinaya — is the reverse: that
+the split came because **the Sthaviras added rules**, expanding the disciplinary
+code beyond what had been laid down, and the Mahāsāṃghikas refused the additions.
+
+**Both texts survive.** The Mahāsāṃghika Vinaya exists in Chinese translation.
+
+So the earliest surviving account of the founding schism has **two versions in
+which each side is the conservative one**, and the tradition transmitted both.
+
+---
+
+**And the procedure for handling disagreement is itself in the Vinaya, enumerated.**
+
+The ***adhikaraṇa-samatha*** — seven methods for settling disputes:
+
+**In the presence of** the parties and the community — nothing decided in absence.
+**By recollection** — the accused's own memory admitted as evidence.
+**By reason of past insanity** — an act committed while not of sound mind is not an
+offence, and the community formally grants that status.
+**By the accused's own acknowledgement.**
+**By majority vote**, with ballots — *śalākā*, counting sticks — and an appointed
+teller.
+**By a ruling of the wrongdoer's specific fault.**
+**By "covering over with grass"** — where a dispute has entangled a whole community
+past untangling, both sides make a general confession and the matter is closed
+without individual findings.
+
+**That last one is a procedure for ending a conflict nobody can win**, written into
+a legal code, with the explicit function of stopping the community from destroying
+itself over an unresolvable matter.
+
+---
+
+**And the insanity provision is worth stating on its own**, because it is a rule
+about attribution rather than about mercy.
+
+*Ummattaka* — the one who was mad. The Vinaya's position is that acts done in that
+state are **not offences**, that the community formally issues an *amūḷha-vinaya*
+recognising it, and that the person is then **not to be reproached for them
+afterwards** — and reproaching them is itself an offence.
+
+Not forgiveness. **A finding that the act was not the person's**, made
+procedurally, by the assembly, on the record, with a rule against bringing it up
+again.
