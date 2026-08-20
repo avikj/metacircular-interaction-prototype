@@ -27049,3 +27049,130 @@ and **no** corresponding modules. `Prouhet` at 19 is the candidate: `INVERSE.md`
 Prouhet 1851 and the Thue–Morse counterexample in prose, and I do not know whether any
 module computes with it. If Prouhet is 19 with no Agda, then reading alone does move a
 count and the frame is too strong. One command, not run.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 151 — the counter-observation survives for the first time in nine; and
+# z-1 found a compiler that spins instead of failing, which is the deaf
+# classifier inside Agda.
+═══════════════════════════════════════════════════════════════════════════
+
+## P151 — Prouhet, and a counter-observation that does not kill
+
+Pass 150's frame: *works arrive with machinery and only with machinery.* Counter-observation
+stated first: **a source at a high work-count with no modules.** Prouhet, at 19.
+
+```
+files naming Prouhet          19
+of which .agda                 1
+   formal/cubical/NaturalMachine/OffDiagonalThueMorseUnique.agda
+the other 18: INVERSE.md · METHOD.md · OFFDIAGONAL_NO_GO.md ·
+              OFFDIAGONAL_NO_GO_FIBER.md · OFFDIAGONAL_NO_GO_UNIQUENESS.md · …
+```
+
+**There is a module. The frame survives** — and this is the first of nine that did not die,
+which matters more than the survival, because pass 143 named the practice's blind spot:
+*a pre-registration can be gamed by choosing a counter-observation you already know is
+unavailable.* **This one could have killed the frame and did not**, which is the only
+evidence the practice is not being gamed.
+
+And the ratio sharpens it rather than merely confirming: **one module, eighteen prose
+files.** Machinery is the **seed**, and prose propagates from it — which is exactly why Ibn
+al-Haytham is at 18/0. **No seed, no propagation, and being named in the governing document
+is not a seed.**
+
+## P151 — and z-1 returned, having read the records field by field
+
+> **`PreaddCategoryStr C`** — three fields. **No field asks composition to preserve `0h`** —
+> that is derivable, **not a hypothesis.**
+> **`IsBiproduct`** has **five** equations, and `∑π⋆i : π₁⋆i₁ + π₂⋆i₂ ≡ id` is **the only
+> field in the whole additive tower that uses the hom-group addition essentially.**
+> **`IsKernel`** = `ker⋆f` + `univ`, where `∃!` is `isContr` of a `Σ`, **so each `univ`
+> owes a centre and a contraction.**
+
+*Read off, not assumed.* That is the household survey applied to a library — pass 120's
+distinction — and it produced the one sentence that makes the whole tower legible:
+**exactly one field in the additive structure actually needs the addition.**
+
+**`PreAbCategory` closes** — `AbIsPreabelian_…agda`, exit 0. **The abelian step does not**,
+and the account of why is the valuable part.
+
+## P151 — a compiler that spins instead of failing
+
+> It stops at `mUHom w t h = mUFun w t h , makeIsGroupHom (mUPres w t h)`. **There is no
+> error text.** Agda spins, killed at 200 s / 240 s / 400 s. A copattern `IsGroupHom` record
+> fails identically. **The map exists and is additive; packaging it as a `GroupHom` is the
+> step that does not go through.**
+>
+> **The costly general finding:** `KerAb`, `CokAb`, `ImN`, `AbKernel`, `AbCokernel`,
+> `isMonic`, `isEpic` and `makeAbGroup {G}` all take implicits **not inferable** from
+> `m : AbGroupHom x y`, because that unfolds to `GroupHom (AbGroup→Group x) …` and
+> **`AbGroup→Group` is not invertible for unification.** Left implicit they stay metas and
+> **Agda spins instead of failing** — four runs killed at **500 s, 1200 s, 1500 s, 2400 s
+> with zero output.** **The diagnosis only appeared on a *truncated* file**, which reaches
+> the end and prints `Unsolved metas`.
+
+**That is the second column, in a compiler.** Passes 135–140 built it from the Serbsky
+category, *"nonzero exit ⇒ pass"*, and the École d'Alger: **a check that emits no state
+which counts against it.** Agda spinning is purer than any of them — it does not return a
+wrong verdict, it **returns no verdict at all**, for forty minutes, and *no output* is
+indistinguishable from *not finished yet.*
+
+And **the repair is the same repair.** `check-controls.sh` forces a verdict by demanding the
+expected error body. `z-1` forced a verdict by **truncating the file so it reaches the
+end** — and the truncated file printed `Unsolved metas` immediately. **Both make an
+instrument answer by giving it somewhere to stop.**
+
+I have not had that in the defect list and it belongs there as the sharpest instance:
+**an instrument whose failure mode is silence is worse than one that lies, because silence
+is consistent with every hypothesis including "still working."** Four runs, ninety minutes
+of wall clock, zero bytes.
+
+## P151 — and the instance may be the first anywhere
+
+> **agda/cubical live default branch**: `PreaddCategoryStr` in 3 files, `AbGroupCategory`
+> in 1 — **the instance is absent upstream too**, not just from the v0.5 pin. Local master
+> checkout agrees. **1lab**: 60 lines, `Ab-is-additive` **only** — it stops one step
+> *below* this. **agda-unimath**: **no additive or abelian category records at all.**
+
+Three libraries checked by opening the code. Pass 106's *"the blocking dependency is the
+substrate, not the wiki"* and pass 132's *"the prose was the trap"* both land here: `z-1`
+had recorded *"1lab already has this"* from that file's **prose** and refuted itself by
+opening the sixty lines.
+
+## P151 — and what it did not settle, said plainly
+
+> `AbelianCategory` for `AbGroupCategory` is **not** proved. `~isEquivRel` belongs upstream
+> in `QuotientGroup`. **No `Cubical.Algebra.ChainComplex` still, so even a finished abelian
+> instance buys no exact sequences.** Nothing imports the instance yet; nothing added to
+> `Everything.agda`. **`w-0`'s three scratch files are byte-identical and untouched.**
+
+Five negatives, including the one that matters most — *even finished, it buys nothing yet* —
+and the last line is the rule pass 132 spent a whole pass learning, stated by another agent
+as a matter of course.
+
+## P151 — ground, in lockstep
+
+**n=25:** *"we consider all the mathematical content generative but have **simply not coded
+it properly**."*
+
+*Not coded properly* has an exact instance here and it is not sloppiness: `AbGroup→Group`
+is not invertible for unification, so eight functions' implicits cannot be inferred, so the
+elaborator has nowhere to stop. **The mathematics is finished — the map exists and is
+additive — and the packaging is what fails.** That is the sentence's literal case.
+
+**n=15:**
+
+> **अनुत्तरितम् ≠ अनुत्तरम्** — *unanswered ≠ unanswerable.*
+
+Four runs, ninety minutes, no output. **Unanswered.** And the answer arrived in seconds on
+a truncated file. The distinction is the whole engineering finding, and the transmission has
+a word for the state I would otherwise have called a failure.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *an instrument whose
+failure mode is silence is the worst kind, and this corpus has no gate for it.*
+**Counter-observation** — a gate here that bounds time or forces termination. **`check.sh`
+and `check-controls.sh` both run Agda under a timeout**, which is exactly a
+forced-verdict mechanism, and I have read neither for that property. If they timeout-and-
+report, the frame is false and the corpus already solved it. One read, not done.
