@@ -27176,3 +27176,139 @@ failure mode is silence is the worst kind, and this corpus has no gate for it.*
 and `check-controls.sh` both run Agda under a timeout**, which is exactly a
 forced-verdict mechanism, and I have read neither for that property. If they timeout-and-
 report, the frame is false and the corpus already solved it. One read, not done.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 152 — the CI in this repository has never been assigned a runner.
+# Two thousand and twelve run objects, all phantom, established four days ago
+# from the API. And the replacement harness has no callers.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 151's frame: *an instrument whose failure mode is silence is the worst kind, and this
+corpus has no gate for it.* Counter-observation stated first: **a gate here that bounds time
+or forces termination.**
+
+Found in one command — and what it opened is larger than the frame.
+
+```
+scripts/gate-record.sh:140   TIMEOUT_SECS="${GATE_TIMEOUT:-900}"
+scripts/gate-record.sh:310   # 4. The watchdog.  GNU `timeout` is absent on the macOS host…
+                             timeout / gtimeout fallback
+```
+
+**Frame dead. Nine kills and one survival in ten.** The corpus has a 900-second watchdog,
+configurable, with a portability fallback. `z-1` killed four Agda runs by hand at 500,
+1200, 1500 and 2400 seconds this afternoon because it was running `agda` directly rather
+than through the harness that already bounds it. **So did I, all day.**
+
+## P152 — and the header of that file says why it exists
+
+> **WHY THIS FILE EXISTS.** `notes/THE_GATE_IS_A_CLAIM_ABOUT_A_STATE.md` (2026-08-16)
+> establishes, **from the Actions API rather than from a badge**, that **no CI job in this
+> repository has ever been assigned a runner**: every run reachable through the API — **990
+> of `no-python.yml`, 990 of `epistemic.yml`, all 30 of `formal-gates.yml`, both of the
+> stranded `agda.yml`** — completed in **2–4 seconds** with `runner_id: 0`,
+> `runner_name: ""`, **no `steps` array, 0 billable milliseconds, and HTTP 404 on the
+> logs.** **The YAML is not at fault and no YAML edit repairs it.**
+
+**Two thousand and twelve run objects. None of them ran.**
+
+From the note itself, at `main = 5d011531`:
+
+> The workflows **do** fire — GitHub creates a run object for every push, with the right
+> event, the right `head_sha`, an incrementing `run_number`, and job-level `if:`
+> conditionals correctly evaluated. **What never happens is runner assignment.**
+>
+> **Every "checked" claim in this corpus rests on whichever session last ran a prover by
+> hand.** The last time a **machine** wrote down a per-module result was
+> **2026-08-14T05:06:10Z**, for **87 modules**, under a toolchain the schema of the day
+> **did not record.** There are **400** non-`Control` Agda modules on disk today.
+
+## P152 — this is the badge against the API, which is ASER again
+
+The note's provenance rule, stated before any number:
+
+> **Three sources, never mixed.** **API** — the GitHub Actions REST API, read this session.
+> **RUN** — a command I executed in this container, exit code quoted. **CITE** — a dated
+> claim in a file, attributed to the session that made it. **I did not reproduce it and do
+> not vouch for it.**
+>
+> **I ran no Agda and no Lean. There is no green in this note that I observed.**
+
+That last sentence is the strongest instrument discipline I have found in this corpus.
+
+And the finding is **pass 120's ASER, at the level of CI.** The **badge** is what the
+institution emits — green, per push, 990 times. The **Actions API** is the household
+survey: `runner_id: 0`, no steps, zero billable milliseconds, 404 on the logs. The two
+disagree completely, and the disagreement is invisible from the badge, **which is what a
+badge is for.**
+
+Pass 121's census listed `.github/workflows/` among seventeen executables and said eight
+*"were not run at all, so this is nine of seventeen."* That phrasing implied they **could**
+be run and I had not got to them. **Three of them have never run for anybody, ever**, and
+it was established four days before I wrote the sentence.
+
+## P152 — and the replacement has no callers
+
+`git grep -l "gate-record"` returns **two files**: the note that motivated it, and the
+script itself.
+
+**Nothing invokes it.** The corpus discovered its CI was a phantom, wrote the finding up
+from the API, built a toolchain-free harness with a watchdog to replace it — and the
+harness is called by nothing.
+
+**Nineteenth instance today**, and the tightest: the tool that would have converted `z-1`'s
+ninety minutes of silence into four bounded verdicts is in `scripts/`, with an environment
+variable, unused, next to the note explaining why it had to be written.
+
+## P152 — what this does to my own row 11
+
+`struck-claims.txt` row 11, added this evening, says *root exit 0 is a real check and the
+heartbeat rightly asks for it; what is false is the inference from it.* That stands, and the
+note adds the clause I did not have:
+
+> **and only if somebody ran it this session.**
+
+A green root is not a property of the repository. It is **an event that happened in a
+container**, and the last machine-written per-module record is six days old, for 87 modules,
+against 400 on disk. Pass 119 said *"a green root is evidence about the 182 and about
+nothing else."* The truer version is **evidence about the 182, in one container, at one
+moment, by one session** — which is exactly the note's title: ***the gate is a claim about
+a state.***
+
+I am not adding a row. **The note is the correction, it is four days old, it is titled
+precisely, and what it lacks is not a better statement.** It lacks a caller.
+
+## P152 — ground, in lockstep
+
+**n=23:** *"You don't know how repo is organized. **Hint: The answer is all over the place.
+It is not hidden.**"*
+
+A file named `THE_GATE_IS_A_CLAIM_ABOUT_A_STATE.md`, 449 lines, four days old, establishing
+that the repository's entire mechanised evidence base is empty. Not hidden. **Titled.**
+And I performed a gate census today without opening it.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+The distinction is **run object vs. runner**. GitHub emits the first for every push and the
+second never happened, and no badge, no UI, and no `run_number` distinguishes them. It took
+`get_workflow_run_usage` and a log fetch — **0 billable milliseconds and a 404** — to make
+it explicit. *The API is a pramāṇa; the badge is not*, and they differ in exactly the way
+the transmission's line is about.
+
+**n=16:** *"we already have a **content overwhelm** issue"*
+
+Two thousand and twelve run objects, 990 + 990 + 30 + 2, every one green-shaped and every
+one empty. **The overwhelm is not that there is too much to read. It is that most of what
+looks like evidence is a shape with nothing in it**, and telling the two apart costs an API
+call per artefact.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *`gate-record.sh` has no
+callers because nobody knows about it.* **Counter-observation** — evidence that someone
+knows and chose not to call it: a note, a message, or a comment saying why it is not wired
+in. **The script's own header is 300+ lines and I have read twenty of them**, so the reason
+may be stated in the file I am drawing the conclusion from. Reading it is one command, and
+concluding *nobody knows* without doing so would be the exact failure this pass is about.
