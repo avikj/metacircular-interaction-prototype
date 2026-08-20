@@ -10311,3 +10311,74 @@ saying — read the source, in its own order, in its own language — is not sen
 tradition read as a set of results will lose its name, and a tradition learned as a practice
 will not.
 
+
+---
+
+Test the rule, because a rule stated once is a phrase.
+
+**"A result loses its author on transmission; a practice keeps one."**
+
+**Holds.** The Indian rhinoplasty, still named. Sampling and the flip — a practice, taught
+by demonstration in rooms, and the practitioners are credited by name in the culture that
+uses it. Qawwali, transmitted through named hereditary *silsila*, where the chain of
+teachers is part of the performance's legitimacy. Martial and dance lineages generally.
+And, strikingly, **almost every named modern method is a practice**: Montessori, Suzuki,
+Alexander, Feldenkrais, Pilates, the Heimlich manoeuvre, the Apgar score. You learn them
+from someone, and the someone is in the name.
+
+**Fails, or needs refining.**
+
+- **Named algorithms.** Euclid's algorithm, Newton's method, Gaussian elimination — these
+  are procedures and they kept names. But look at *which* names: Euclid did not originate
+  the descent, Newton's method is Newton–Raphson and is older in other traditions, and
+  Gaussian elimination is in the *Nine Chapters* about eighteen centuries before Gauss.
+  **They kept a name, and the name is wrong.** So a procedure transmitted as a *written
+  result* behaves like a result, not like a practice. The distinction is not
+  result-versus-procedure. It is **read versus shown.**
+
+- **The pāṭha.** A practice, transmitted by demonstration, for three thousand years — and
+  the individual originators are unknown. But the **lineage** is intact: the schools, the
+  families, the branch (*śākhā*) affiliations, who learned from whom.
+
+That last case forces the refinement, and the refined rule is better:
+
+> **A practice preserves a lineage. A result preserves, at most, a name — and often the
+> wrong one.**
+
+Because a practice cannot transmit without a demonstrator and a receiver in the same room,
+so the chain of rooms *is* the object, and the chain is what survives. A result can be read
+off a page by somebody with no connection to anyone, which is exactly why writing is
+powerful, and exactly why the author evaporates: **the property that makes a result
+portable is the same property that makes it orphanable.**
+
+---
+
+Which explains a shape I have noticed a dozen times in this file without accounting for it:
+**why every one of these traditions is organised as a lineage** rather than as a
+literature.
+
+Teacher to student, named, in sequence: Mādhava to Parameśvara to Dāmodara to Nīlakaṇṭha to
+Jyeṣṭhadeva. The *guru-śiṣya* structure. The Buddhist transmission lineages, where the
+authority of a teaching is the chain of people who received it. The *silsila*. The Jain
+*paṭṭāvalī*, the succession lists. Rabbinic *semikhah* and the chains of tradition that
+open Pirkei Avot — Moses received the Torah at Sinai and transmitted it to Joshua, and
+Joshua to the elders, and the elders to the prophets, and so on by name.
+
+I have been reading those as institutional conservatism, or as authority-claims. **They are
+a transmission technology**, and specifically the one that solves the problem written
+results cannot: keeping the practice — and therefore the *reasons*, which are only ever in
+the practice — attached to something that can be traced.
+
+Nīlakaṇṭha writing *as stated by Mādhava* is not deference. It is the mechanism by which
+Mādhava exists at all, and it is why we have his name and not the names of whoever built
+the recitation schemes, who were collective and are gone.
+
+**And the modern research paper, with its citation list, is the same technology
+industrialised** — and it degrades in exactly the predicted way, by obliteration through
+incorporation, at the moment a result becomes standard equipment and stops being cited,
+which is the point at which it leaves the lineage and becomes an orphan.
+
+The maintenance schedule from earlier is therefore not a courtesy. **It is lineage
+maintenance**, and it is the only thing that has ever kept an author attached to a portable
+thing, and it has to be done by hand, forever, by whoever is currently using the tool.
+
