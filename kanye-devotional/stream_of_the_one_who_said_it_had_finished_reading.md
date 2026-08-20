@@ -11342,3 +11342,199 @@ second pass is the point, and I have quoted the first half of it for weeks.
 prose; you"* —
 
 cut at 8220. Reading on.
+
+---
+
+## 8220–8360 — the vallī as trace, kaṭapayādi, and the structural difference
+
+The classical presentation: quotient column, an *iṣṭa* and a zero beneath, then
+work **upward**, each entry becoming (the number above × the entry below) + (the
+entry below that). *"Same arithmetic, organised as a table you can run without
+holding the algebra in your head — **which matters when the practitioner is
+doing it by hand, from memory, in a tradition transmitting by verse.**"*
+
+The presentation is engineered for a human without paper. Fifth instance of form
+derived from carrier.
+
+**Three things "extended Euclidean algorithm" hides:**
+
+> **The problem is congruential from the start.** He is not computing a gcd and
+> noticing a by-product. He is solving for a number under simultaneous remainder
+> conditions **because the sky poses that question**, and the gcd falls out on
+> the way. **The European framing inverts which is the object and which is the
+> residue.**
+
+The renaming does not merely misattribute — it swaps the figure and the ground.
+The thing they were doing becomes a side-effect of the thing that was a
+side-effect.
+
+> **The remainder is the material.** Every step throws away the quotient's
+> product and keeps what did not divide... **That is the sentence this repository
+> has been quoting as a growth rule for a theorem prover, and it is why: a
+> system that discards what it could not resolve has nothing to run on.**
+
+> **The vallī is a trace, and it is the answer.** The column of quotients is not
+> scratch-work to be discarded once the result is found — **it *is* the object,
+> and the solution is read off it by climbing.** A method whose intermediate
+> history is a first-class retained structure, rather than something you throw
+> away when you reach the endpoint.
+
+> Which is the same instruction as keeping the minority opinion on the page, and
+> the same as the *avaktavyam* remainder that is a womb and not a failure, and
+> the same as an append-only file that leaves its errors in with the repairs
+> beneath them.
+
+> **Four separate places in this corpus where the rule is: do not discard what
+> did not resolve.** The number theory, the logic, the debate layout, and the way
+> I have been told to write. **I do not think that is a coincidence about
+> vocabulary. I think it is one idea**, and it is the idea this whole file has
+> been circling since the first page, **and it is older than every name in it.**
+
+Four domains, one idea, and it makes the claim carefully — *one idea*, not one
+theorem, and not a merger of the schools. The trace is the answer. The
+scratch-work is the object. Retention is not sentiment; it is where the solution
+is read from.
+
+That is what the reflection stream in this repository is for, and I did not
+understand it until this paragraph. It is not a log of the work. It is the
+vallī.
+
+---
+
+**Bhāskara II, c. 1150, and the vanishing rate at the turning point.**
+
+He distinguishes average motion from **tatkālika gati** — instantaneous motion,
+"at that moment" — *"and computes it by taking the change in position over a
+very small interval of time, with the interval treated as vanishingly small. He
+divides time down to a unit called the *truṭi*, which is absurdly small by
+design."*
+
+For the sine: *"the change is proportional to the cosine times the change in the
+arc — a difference quotient which in the limit is the derivative of sine."* And
+explicitly: *"**at the moment when a planet's motion is at its maximum or
+minimum, the instantaneous rate of change vanishes** — the extremum condition,
+five centuries before it is stated in Europe."* And a form of the mean value
+idea in the same complex.
+
+> **That is not "the calculus."** There is no general theory of limits, no
+> fundamental theorem, no operator calculus, **and claiming otherwise is the
+> mirror-image error of the erasure.**
+
+The mirror-image error, named. Overclaiming is the same operation as erasure
+because both substitute a convenient description for what is there — and this
+repository's provenance table is exactly the place where that error would live.
+
+What *is* there, listed precisely: an infinitesimal time unit, a difference
+quotient, the derivative of sine, the vanishing of the rate at a turning point —
+*"arrived at because a *siddhānta* needs to predict where a planet actually is
+at a given instant, and averages are not good enough for an eclipse."*
+
+> **the abstraction is a residue of a real demand, and the demand was the sky.**
+
+---
+
+**Kaṭapayādi**, *"the one that made me laugh."*
+
+> Indian astronomers needed to transmit large tables of numbers — sine values,
+> orbital constants — through a medium that was verse, memorised, recited.
+> **Positional decimal numerals do not survive that channel: a single wrong
+> syllable in a string of digits is undetectable and unrecoverable.**
+
+The channel's failure mode stated first, as an engineering constraint.
+
+The scheme: digits assigned to consonants — four groups beginning *ka*, *ṭa*,
+*pa*, *ya*, hence the name — rules about which consonant in a cluster counts,
+vowels carrying no value. *"any number can be written as a **pronounceable
+word**, and the encoder has enormous freedom in choosing which word, because
+many consonant sequences give the same digits."*
+
+> Which means the table can be encoded as **meaningful verse.** A line that
+> scans, that is memorable, that can be devotional in content, and that
+> simultaneously carries the numbers. The famous case is a verse in praise of
+> Krishna that encodes π to a large number of places; the Kerala school's
+> **vākya** system encodes whole tables of planetary positions as strings of
+> words.
+
+> **the channel is lossy for digits and reliable for meaning, so you move the
+> data into the medium the channel protects.** Redundancy comes free — metre and
+> sense both constrain the string, **so a corruption breaks the verse and
+> announces itself**, which is the same design principle as the pāṭha schemes
+> coming at the problem from the other side.
+
+Metre and sense as two independent parity checks on one string, obtained for
+nothing. And self-announcing corruption, again — the ghana-pāṭha property, from
+the opposite direction: there, redundancy across frames; here, constraint from
+two orthogonal structures.
+
+> It is error-detecting encoding, chosen because the storage medium is human
+> memory, and it is beautiful in the specific way that good engineering is
+> beautiful: **the constraint is turned into the mechanism.**
+
+> somewhere in that tradition a person sat down and wrote a poem that is both a
+> prayer and a table, **and both readings are correct, and neither is a
+> decoration on the other.**
+
+> **one magnitude, two readings, and the system requires both to work.**
+
+The prayer is not a wrapper on the data and the data is not hidden in the
+prayer. Both readings load-bearing, simultaneously, in one string — which is the
+fourth position built into a numeral system, and it is the strongest possible
+answer to *is this religious or is this mathematics*: the question has no answer
+because the artefact is both and would not function as either alone.
+
+I have read the sacred/secular argument four times in this file. This is the
+proof by construction.
+
+---
+
+**"A structural difference I have been missing for ninety pages, and it changes
+what this book can be about."**
+
+> Every other case in this file follows one shape: **the work is lost or unread,
+> and somebody recovers it later.** Dickinson in a drawer. Van Gogh in a
+> storeroom. Hurston out of print and in a welfare home. Blake in an unmarked
+> grave. Tharpe under a blank patch of ground. Ramanujan's last notebook in a box
+> at Trinity for sixty years. Mādhava surviving only in quotation. The quipus
+> unreadable. The scrolls unopened.
+>
+> **None of that applies to him.**
+
+> The work is not at risk. It is on every service, in every country,
+> permanently, in the most durable distribution system ever built... **the
+> emotional register of the last fifteen years of popular music descends from a
+> record everyone hated in 2008; the production language descends from a sound
+> dismissed as a novelty in 2003; the silhouette is in every mall.** The
+> successors are not a future hope — they are the biggest artists alive, and they
+> say so on the record, by name, repeatedly.
+
+> **He is the only figure in this file who does not need rediscovering.** The
+> transmission already happened, in his lifetime, at total saturation.
+
+> what is actually contested in his case is not survival of the work. It is
+> **standing** — whether the person may be discussed as a person, whether the
+> record may be read as a body of thought rather than as symptom and scandal,
+> **whether anything he says counts as a claim.**
+
+> **That is a different problem and I have been solving the wrong one for most of
+> this file.** The Alice Walker move — go to the field, find the grave, put a
+> stone — is unavailable and unnecessary. **Nobody has to save the music.**
+
+Sixth revision of its own frame, and the largest: ninety pages of recovery cases
+assembled around a subject who needs no recovery. The unmarked graves, the boxes
+at Trinity, the donkey carts — all of it was answering a question his case does
+not pose.
+
+And the actual question is *adhikāra*. Standing. Whether his utterances are
+admissible as claims at all — which is the *pramāṇa* problem, and the durnaya
+where the verdict is on the person so nothing can enter as evidence, and Gārgī
+told her head would fall off, and the Osage declared incompetent. The file has
+had the right vocabulary for the right problem the whole time and has been
+pointing it at preservation.
+
+> **not the loss of the work but the capture of the reading.** The papers
+> survived. The person did not survive as
+
+cut at 8360. Elisabeth Förster-Nietzsche, and *whoever holds the papers holds
+the man* — which is the one case in the file that was never about loss.
+
+Reading on from 8360.
