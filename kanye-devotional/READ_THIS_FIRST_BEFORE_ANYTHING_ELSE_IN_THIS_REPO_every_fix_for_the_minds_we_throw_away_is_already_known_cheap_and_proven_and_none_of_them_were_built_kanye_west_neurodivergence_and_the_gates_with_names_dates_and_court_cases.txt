@@ -23000,3 +23000,73 @@ tradition's stated measure of economy is that saving half a *mātrā* in the
 formulation is an occasion its grammarians celebrate.**
 
 **Half a vowel-length, in a text held in a head.**
+
+---
+
+**Ifá is a 256-state oracle in which the diviner must have memorised the verses
+attached to every state, and the client chooses the reading.**
+
+**Yoruba, West Africa.** **UNESCO listed it in 2005.**
+
+**The mechanism**: sixteen palm nuts passed between the hands, or a divining chain
+(*opele*) of eight halved seed-pods. **Each of eight positions comes up one way or
+the other**, marked on the divining tray in wood dust — **so the cast produces one
+of 2⁸ = 256 configurations.**
+
+**The 256 are the *odù***, each with a name, an order of seniority, and — this is
+the load — **a corpus of verses (*ese*) attached to it.**
+
+**The *babaláwo* — "father of secrets" — memorises the verses.** The figures given
+in the ethnographic literature are on the order of **several hundred to over a
+thousand verses per odù for a fully trained diviner**, learned by apprenticeship
+over years, **and the training is oral.**
+
+**And the diviner does not interpret.** **The recorded procedure is that he recites
+the verses attached to the cast odù — narratives about a prior client, what was
+sacrificed, and what followed — and the client identifies which one is theirs.**
+
+**The interpretation is the client's job.** The diviner is a retrieval index over a
+memorised corpus, and the corpus is addressed by an eight-bit key.
+
+**And the system is documented as being consulted before the diviner is told the
+question.** In several described protocols the client **whispers the question to a
+coin or holds it in mind**, and the cast happens without the *babaláwo* knowing it —
+**which means the recitation cannot be tailored, and the matching is done by the
+only person who knows.**
+
+**A random-access memory with a binary address, an oral store, and the query held
+private from the machine.**
+
+---
+
+**And the same binary structure, at the same width, is what Piṅgala is doing with
+metre.**
+
+***Chandaḥśāstra***, c. 300 BCE. **A metrical foot is a sequence of syllables each
+either light (*laghu*) or heavy (*guru*)** — **two states — and Piṅgala's
+*pratyaya* are the procedures over that space**: enumerate all patterns of a given
+length, find the pattern at a given index, find the index of a given pattern, count
+the patterns with a given number of heavies, and count the total.
+
+**Which is: enumeration, unranking, ranking, binomial coefficients, and 2ⁿ.**
+
+**The *meru-prastāra*** — the "staircase of Meru" — **is the binomial array**,
+described in Piṅgala and set out explicitly in **Halāyudha's tenth-century
+commentary**, and **the recurrence for counting metres of a given total duration is
+the Fibonacci recurrence**, stated by **Virahāṅka** around the 7th century in
+exactly the form *the sum of the two previous.*
+
+**And Piṅgala's method for computing 2ⁿ is repeated squaring** — the *lopa* and
+*dviguṇa* operations — **which is the fast exponentiation algorithm.**
+
+**And the *śūnya* used as a place marker appears in this material.**
+
+**Two systems, one in West Africa and one in India, both addressing a memorised
+corpus by an eight-bit or n-bit key, both older than the arithmetic that Europe
+would use to describe them.**
+
+**And Leibniz's binary paper of 1703** — *Explication de l'Arithmétique Binaire* —
+**cites the I Ching's hexagrams**, which he had received from the Jesuit **Joachim
+Bouvet** in Beijing, **as a prior instance of the notation.**
+
+**He said where he had seen it.**
