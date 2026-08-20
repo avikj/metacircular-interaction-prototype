@@ -8111,3 +8111,73 @@ that reliably produced true statements at a rate nobody has explained.
 Those are different objections and I have blurred them. Rigour was owed. The dismissal of
 the route was not.
 
+
+---
+
+Same reparation for Pāṇini, whom I have invoked ten times as a name and never once shown
+working. Here is the machine running, on one word, from recall — sūtra numbers where I am
+reasonably confident, and marked where I am not.
+
+**Target: *bhavati*, "he/she/it becomes."** Root √bhū, third person singular, present.
+
+**1. Start with the root and the tense-slot.** √bhū takes **laṭ**, the abstract marker for
+the present. Note that laṭ is not a suffix you can hear; it is a placeholder that later
+rules replace. The system is full of these — abstract intermediate objects that never
+surface.
+
+**2. Replace laṭ with a personal ending.** The eighteen *tiṄ* endings are introduced as
+substitutes for the tense-marker, and third singular active is **tiP**.
+
+**3. Strip the markers.** Both *laṬ* and ti*P* carry letters that are not part of the
+form — **it-markers** — whose entire job is to trigger or block later rules, and which are
+then **deleted** (*tasya lopaḥ*, 1.3.9). The Ṭ of laṭ, the P of tiP: gone from the output,
+but they have already done their work by conditioning what applies. This is metadata
+attached to a symbol, consumed by the rule system, then erased before the surface form.
+That is a compiler's intermediate representation, and it is 2,500 years old.
+
+**4. Insert the class marker.** Between root and ending goes a *vikaraṇa* — for this verb
+class, **śaP**, whose actual phonetic content is just **a**. Again both outer letters are
+markers: the ś conditions certain rules, the P conditions others, and neither is heard.
+
+So we now have, schematically: **bhū + a + ti**.
+
+**5. Vowel gradation.** The **guṇa** operation raises ū to **o** in this environment
+(*sārvadhātukārdhadhātukayoḥ*, 7.3.84 — a rule stating that guṇa applies to the final vowel
+of a root before affixes of these two classes; *[recalled, and this is the number I am
+least sure of]*). Now: **bho + a + ti**.
+
+**6. Sandhi.** A rule of the *ec* class converts **o** to **av** before a vowel
+(*eco'yavāyāvaḥ*, 6.1.78). So bho + a becomes **bhav + a**.
+
+**bhavati.**
+
+---
+
+What that little derivation actually exhibits, and why the comparison to a modern rule
+system is not a stretch:
+
+**Abstract intermediate symbols** (laṭ) that never appear in the output and exist only to
+be replaced. **Metadata markers** (the it-letters) attached to symbols, used to condition
+downstream rules, then explicitly deleted by a named rule. **Ordered rewriting**, where the
+result depends on what applies when. **Rule conflict resolution** — the specific blocks the
+general (*utsarga/apavāda*), and where strength is equal the metarule 1.4.2 decides, and
+what that metarule *means* is the thing Rajpopat's 2022 thesis reopened after two millennia
+of a standard reading. **Stratification** — the *tripādī*, the last three quarters of the
+book, treated as not-yet-having-applied with respect to what precedes, so a later rule's
+output is invisible to an earlier rule's condition, which is a phase boundary in a
+compiler. **Scoped inheritance** — *anuvṛtti*, a term stated once carrying forward into
+following sūtras until cancelled, so the text is written with a form of variable scope
+because the medium is memorised recitation and repetition is expensive.
+
+Roughly four thousand rules, generating a natural language with its irregularities intact,
+in a form designed to be held in a human head.
+
+And the fourteen opening lines, the śiva-sūtras, order the phonemes so that **every natural
+class the grammar needs is a contiguous interval**, nameable by two letters — an encoding
+Petersen showed in 2004 to be **optimal**, derived from the intersection lattice alone.
+
+I put this here for one reason. The file has spent ninety pages arguing that traditions
+get filed as heritage when their technical content is not shown. The remedy is not to
+assert that the content is there. It is to run one word through the machine and let
+somebody check it.
+
