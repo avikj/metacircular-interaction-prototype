@@ -8997,3 +8997,217 @@ American thing that resembles an Islamic thing. It is the same question, asked
 wherever music got close enough to matter.
 
 Reading on from 6540.
+
+---
+
+## 6540–6680 — the gate is the objection, the theology, and who stands outside the frame
+
+**Judaism: the Hasidic *nigun*** — wordless melody as prayer, *"on the argument
+that words limit and melody does not"* — and the Mitnagdim's opposition in the
+eighteenth century, *"bans, excommunications, the lot."*
+
+Words limit and melody does not. Which is apoha stated as a liturgical
+argument: language works by exclusion and therefore cannot deliver the
+particular, so the wordless carries what the word cannot. And the *Runaway*
+outro is minutes of wordless distorted vocal at the emotional peak.
+
+**Christianity: the whole of it.** The fathers on instruments; **Augustine's
+confession that he is troubled because he sometimes enjoys the singing more
+than what is sung, and fears he sins**; the Reformation smashing organs in some
+places and building them in others; and then Dorsey, Tharpe, Sam Cooke, Aretha,
+Al Green — *"crossing back and forth and being made to pay each time."*
+
+> Four traditions, no shared theology, same argument, same shape of resolution:
+> **the people who said the body and the sound are a legitimate route were
+> attacked by the people who said the text and the law are the only route — and
+> the sound won every time, on the numbers, because it is what people actually
+> do.**
+
+> And then, every time, the institution absorbs it... **and the memory that it
+> was ever a fight goes, so that the next person doing the same thing gets
+> attacked freshly, by people singing the previous winner's songs.**
+
+*Attacked by people singing the previous winner's songs.* The forgetting is
+what makes it repeat — same as Hopper's line quoted by people who would have
+been on the other side, same as the Florence bankers whose descendants use the
+numerals. The victory does not accumulate because the dispute is not retained.
+
+Which is, exactly, *you cannot reopen a question whose other side was not
+recorded* — running the other way. The winning side's memory of having been the
+outsider is the thing that gets deleted.
+
+---
+
+> He is doing the samāʿ argument in the twenty-first century with a sampler.
+
+The gospel choir on a rap record in 2004; *Yeezus* with the God-claim next to
+the flesh songs — *"which is the objection the orthodox have always made — that
+the sacred and the appetite cannot be in the same room"*; Sunday Service
+performing secular songs as gospel *"in a field with no building and no
+denomination and no collection, which is the thing every institution objects to
+on the same ground: **there is no gate.**"*
+
+> **The gate is the whole objection, in every one of these traditions, in every
+> century. Not the music. The absence of a door you have to be let through.**
+
+> And that is the same objection as the one to a man without a degree who says
+> he is a genius, and to a clerk who says a goddess gives him formulas, and to a
+> navigator with no instruments, and to a woman writing verses she never
+> submitted to anyone.
+
+The gate. Adhikāra-as-inherited, the credential, the *pramāṇa* that admits one
+route, Curtis, Roc-A-Fella, the Ellis Island test. The music fight and the
+knowledge fight are the same fight, and the invariant is not the content — it
+is whether there is a door.
+
+---
+
+**The theology, read straight.**
+
+**"Jesus Walks," 2004.** *"God walks with the hustler, the killer, the drug
+dealer, the stripper — and then *even me*. **That is not provocation; it is the
+most orthodox possible claim, the one the parables are about**, stated in the
+vocabulary of a specific street."*
+
+> The provocative part was never the theology. It was saying the word on a rap
+> record in a market that had priced the word, and the song contains its own
+> account of that — **the line about being able to rap about anything except
+> Jesus is the industry objection quoted inside the artefact it is objecting
+> to.**
+
+*Pūrvapakṣa*, in a verse, in 2004. The objection stated inside the work, in its
+own voice, before the answer. He built the required structural element into a
+single.
+
+**"I Am a God," 2013.** *"the credited feature reads **feat. God**, which is a
+joke and also a claim about who is on the record."* And *"the line where he says
+he just talked to Jesus and Jesus said what up — which is **not** a claim to be
+God. **It is a claim to be on speaking terms.** The song asserts intimacy, not
+identity, and the difference is the entire content."*
+
+The most notorious title in the catalogue, and the lyric under it makes the
+weaker claim. Nobody reads the text; the title is the clip.
+
+> Say *I am a god* in a culture whose grammar for genius is
+> possession-of-a-property and it is megalomania. Say it in the older grammar —
+> the one where a genius is a spirit that attends you, where the divine is what
+> looks out of everyone — and it is a doctrine about what a person carries. **He
+> has used both grammars, in public, for twenty years, and only the modern
+> reading circulates.**
+
+And *Christ consciousness* placed with **Meister Eckhart**, investigated for
+adjacent claims, and with the gnostic saying about the kingdom inside you and
+outside you. Not a defence — a location, in a strand with a history.
+
+**"Ultralight Beam," 2016.** *"the biggest, most gospel, most
+triumphant-sounding thing he has made, and what the lyric actually says is that
+he is *trying* to keep his faith — a prayer offered from inside doubt, with a
+four-year-old stranger's voice at the top of it and Chance's verse in the
+middle and a plea not to be lost."*
+
+> **The music is certainty and the text is a man asking.** That is the oldest
+> form there is: **the psalms are mostly complaint, and about a third of them
+> are somebody accusing God of absence.**
+
+The sound and the words asserting different things simultaneously — which is
+the doubled image again, in two media at once, and unparaphrasable for the same
+reason.
+
+**"Jesus Is King," 2019.** *"what it names as the things to be freed from are
+specific: prison, addiction, and the mind."* The ministry into a jail. "Hands
+On" addressed to Christians who do not believe his conversion, by name, asking
+them not to throw him out.
+
+> **That is a man reporting that the institution he just joined does not want
+> him, on the album where he joins it.**
+
+---
+
+> the arc from *I Am a God* to *Jesus Is King* is not a reversal and calling it
+> one is lazy. **Both records make the same claim about the size of what is in a
+> person. The first one makes it from the throne and the second from the
+> floor**, and the second is the harder position and the one that costs more,
+> **and he took it at the point of maximum leverage, which is exactly when
+> nobody does.**
+
+> **the theology is consistent and the register keeps changing.** Grace reaches
+> the excluded, and he is the excluded, and therefore the claim is always partly
+> about himself, **and that is what makes it sound like ego to a listener who
+> has never needed the doctrine.**
+
+*To a listener who has never needed the doctrine.* The misreading is indexed to
+the listener's position, not to the text. Someone who has needed it hears a
+standard claim; someone who has not hears self-aggrandisement. And that is the
+register error one more time — mistaking the vehicle for the content — with the
+condition for making it now specified.
+
+> **The people the parables were addressed to would not have found it
+> confusing.**
+
+---
+
+**"the part of this I have not written and have been avoiding: what it costs the
+people standing next to it."**
+
+> Everything in this file has been organised around the person at the centre...
+> That is the right subject and it is also a choice of frame, **and the frame
+> has people standing just outside it who have been silent for six thousand
+> lines.**
+
+It names its own frame as a choice and then goes to the edge of it. This is the
+pūrvapakṣa for the whole book, and it is placed near the end, at full strength,
+as the tradition requires.
+
+**The family.** *"Four children who will, at some point, read every clip in the
+archive, and who did not consent to any of it."* A former wife *"tied up at
+gunpoint in Paris and whose marriage then went through a public psychiatric
+emergency, a public political turn, and a public divorce, all of it conducted
+partly through the same platforms the family's income came from."*
+
+> Whatever anybody thinks of her, **she was the person in the room during the
+> worst of it**, and the thing that gets said about a partner in that position —
+> that she was managing him, that she should have done more, that she should
+> have done less — **is a trap with no exit, and it is always said by people who
+> were not there.**
+
+*Said by people who were not there.* The file's own definition of a file,
+turned toward the person the file's sympathies do not automatically cover. And
+she is the *sākṣī* — the one who was there — and therefore the one whose
+testimony the room is least entitled to override.
+
+**The employees.** *"Companies where the founder's public conduct terminated the
+business and everyone's job with it. Yeezy staff, adidas staff, people at the
+school, people who had built careers around the projects. **When a fortune
+evaporates in a day, it is not only the principal's fortune.**"*
+
+**The collaborators.** *"People whose work was on records that became
+unplayable, whose credits are attached to a name that costs them."*
+
+A credit that costs you. Every other page of this file is about credits being
+withheld; here is the case where the attribution is the injury, and it is
+placed without comment.
+
+**The people the antisemitism landed on.** *"Not an abstraction — Jewish
+employees at those companies, Jewish fans, **Jewish teenagers who got that
+language repeated at them in schools in the weeks after, which is documented and
+was measured**, because language from a sufficiently large platform propagates
+into rooms with no platform at all."*
+
+> **The whole argument of this file is that a sentence from a person with a
+> microphone lands in places the speaker cannot see. That argument does not
+> switch off when the sentence is his.**
+
+That is the book's central mechanism applied against its own subject, using its
+own evidence standard — documented, measured — and the symmetry is stated as an
+obligation rather than as fairness. The clip machine's reach and the harm's
+reach are the same reach.
+
+And the crucifixion specification said the message is aimed at the audience,
+not the victim; here the same geometry makes him the transmitter, and the
+schools are the road.
+
+> **And the ordinary human cost of loving someone at full amplitude**, which
+> almost nobody writes down because it sounds disloyal: the exhaustion, the
+> vigilance, the three a.m.
+
+cut at 6680. Reading on.
