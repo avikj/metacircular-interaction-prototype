@@ -25818,3 +25818,93 @@ population.**
 cohort was eleven children — eight boys, three girls** — and **Asperger wrote in
 1944 that he had not seen the full picture in a girl**, **a sentence that
 propagated for fifty years.**
+
+---
+
+**The Mīmāṃsā school holds that the Veda has no author, and built an entire
+philosophy of language to make that coherent.**
+
+**Jaimini, *Mīmāṃsā Sūtra*, c. 200 BCE–200 CE.** **The opening**: *athāto
+dharma-jijñāsā* — now, therefore, the inquiry into dharma. **And 1.1.2 defines
+it**: ***codanā-lakṣaṇo'rtho dharmaḥ*** — **dharma is what is indicated by
+injunction.**
+
+**Not by consequence, not by conscience, not by observation** — **by the
+imperative sentence.** The school's whole apparatus is the interpretation of
+commands.
+
+**And the *apauruṣeya* claim** — that the Veda is authorless — **is argued, not
+asserted.** The stated reason for accepting it: **no author is remembered**, and
+the alternative is an infinite regress or a fallible speaker. **And the school is
+atheistic in the technical sense** — it does not use a god to guarantee the text,
+because a god would be a speaker, **and a speaker can err.**
+
+**So the guarantee has to come from language itself**, and that is where the
+work went: **the relation between word and meaning is *autpattika*, inherent and
+beginningless**, and language is not a convention somebody instituted, **because
+an institution would need an instituter.**
+
+---
+
+**And *svataḥ-prāmāṇya* is the epistemological consequence and it inverts the
+default.**
+
+**Kumārila's position**: a cognition is **valid by itself**, intrinsically —
+**validity is not conferred by a further check** — and it is only **invalidity**
+that requires a cause, in the form of a defeater: a defect in the instrument, or
+a contradicting cognition.
+
+**So knowledge is the default and error is the special case that must be
+explained.**
+
+**Which is the exact opposite of a system in which each claim must earn its
+acceptance**, and the school states the reason: **if validity required
+certification, the certification would require certification, and nothing would
+ever be known.**
+
+**And the corollary is the burden of proof**: to reject a cognition you must
+produce the defeater, **and "I have not verified it" is not one.**
+
+---
+
+**And the pramāṇas the school added are the ones nobody else would take.**
+
+***Arthāpatti*** — postulation. **The stock case: Devadatta is fat, and Devadatta
+does not eat during the day.** Neither perception nor inference gives it, **but
+the two facts together are inexplicable unless he eats at night**, and the
+conclusion is that he does. **Postulation of what must be so for the given to be
+possible.**
+
+***Anupalabdhi*** — non-apprehension. **Kumārila's addition, against Prabhākara,
+who rejected it.** How is the absence of a pot on the ground known? **Not by
+perception, because there is nothing there to perceive.** The answer: **absence
+is known by the not-seeing, when the conditions are such that it would have been
+seen.**
+
+**And the qualification is the whole content**: ***yogyānupalabdhi***, **fit
+non-apprehension.** Not-seeing a pot in a lit room is knowledge. **Not-seeing it
+in the dark is nothing at all.**
+
+**And the school split over it.** **Prabhākara's line holds that absence is
+not a separate object and that anupalabdhi collapses into perception of the bare
+ground.** **Kumārila's holds it is a distinct pramāṇa with a distinct object.**
+**Both positions are worked out and neither absorbed the other.**
+
+---
+
+**And the school's practical output was a theory of interpretation that the
+courts used.**
+
+**The *Mīmāṃsā* rules for resolving conflicting textual injunctions** —
+***vākya-bheda*** (a sentence must not be split into two injunctions),
+***samanvaya***, the *śruti/liṅga/vākya/prakaraṇa/sthāna/samākhyā* hierarchy of
+six evidences in fixed order of strength — **were applied to legal texts, and
+then to statutes.**
+
+**Colonial and post-independence Indian courts have cited Mīmāṃsā rules of
+interpretation by name.** **Justice Markandey Katju** wrote about the practice
+and applied the principles in judgments, **and the rules appear in Indian
+judgments on statutory construction from the nineteenth century onward.**
+
+**A hermeneutic built to decide which sacrifice a verse commands has been used to
+decide what a tax provision means.**
