@@ -8219,3 +8219,89 @@ metre — against each other, and the poem scans in both.
 That is the same problem as fitting a sung phrase from one record over a rhythm
 from another, and the solution is the same: find where the two systems agree, and
 build in the overlap.
+
+---
+
+The Kerala derivation, laid out, because this file has said the *Yuktibhāṣā*
+contains proofs and has never shown one.
+
+**The problem**: the arc of a circle in terms of the tangent. **The obstacle**: no
+notion of a limit as a defined object.
+
+**What the *Yuktibhāṣā* actually does**, around 1530, in Malayalam prose:
+
+Take a quarter arc. Divide the side of the circumscribed square into ***n*** equal
+parts. Each little segment of the side subtends a small piece of the arc at the
+centre. Compute, geometrically, the ratio between the segment on the tangent and
+the arc-piece it subtends, using similar triangles — this is where the *r²/(r² +
+x²)* factor comes from, and it is derived from the figure, not assumed.
+
+Sum over all *n* pieces. That gives a finite sum for the arc.
+
+Then **let *n* grow**, and the sum turns into an infinite series. The expansion of
+the ratio into a geometric series is done term by term, and the series is summed
+term by term.
+
+**And the step that decides everything is the sum of powers.** To get the answer
+you need, for each *k*,
+
+    1^k + 2^k + 3^k + … + n^k   for large n
+
+and specifically you need it accurate enough to know that the **sum behaves like
+n^(k+1)/(k+1)** when *n* is large, with everything else negligible.
+
+That is the ***saṅkalita*** — the "heaping." The text derives it, for general *k*,
+by an inductive argument on the earlier cases: the sum of the first powers gives
+the second, the sum of the sums gives the third, and so on up. The lower-order
+terms are shown to be **too small to matter at large *n***, and the text says why
+rather than dropping them silently.
+
+Term-by-term integration of x^k, in prose, in a vernacular, obtained by
+successive summation and an explicit argument about which parts vanish.
+
+---
+
+**The correction terms**, which are the part the European restatement never had.
+
+The bare series for π/4 is unusable — you need on the order of 10⁵ terms for five
+decimals. So the text gives, after truncating at *n* terms, a **rational function
+of *n*** to add back, and gives **successively better ones**, and the improvement
+from each is stated.
+
+The forms, in the usual modern transcription:
+
+    first:    1/(4n)
+    second:   n / (4n² + 1)
+    third:    (n² + 1) / (4n³ + 5n)
+
+Those are not guesses. Each is derived, and the third is good enough that a few
+dozen terms land eleven correct decimal places, which is where **3.14159265359**
+comes from.
+
+**A truncated series plus a quantified remainder is an algorithm. A truncated
+series alone is a curiosity.** Gregory and Leibniz have the series. The
+end-corrections are not in them.
+
+---
+
+And separately, **Nārāyaṇa Paṇḍita**, ***Gaṇita Kaumudī***, **1356** — a
+combinatorics text with rules for **permutations with repetition**, for
+**partitions**, for figurate numbers and higher-order sums (*saṅkalita* again),
+and a systematic treatment of **magic squares** including a general construction
+method.
+
+It also contains a problem about a cow producing a calf every year, each calf
+producing from its fourth year, asked as: **how many cattle in twenty years** — a
+linear recurrence, posed as animal husbandry, with the sequence written out.
+
+---
+
+The Kerala texts were **not lost.** They were in Malayalam and in manuscript, in a
+region, read by the people who used them for calendrical work, for centuries.
+
+Whish read them and published in **1834** and was ignored for a hundred and ten
+years. **Rajagopal and Rangachari** went back to the manuscripts in the 1940s and
+50s. The *Yuktibhāṣā* got a full English edition with mathematical commentary —
+Sarma, Ramasubramanian, Srinivas and Sriram — in **2008.**
+
+Four hundred and seventy-eight years after it was written.
