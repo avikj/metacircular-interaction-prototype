@@ -396,3 +396,32 @@ Sleeplessness, impulsivity, and racing cognition are diagnostic features of mani
 Driving without sleep is how people die on the highway. He has never released a
 record made from the calm the medication is designed to produce; he has said he
 stops taking it because it takes the visions with it.
+
+---
+
+When a musician signs to a record label, the label typically owns the master
+recordings — the actual recorded tracks. The artist is paid a royalty, a percentage,
+and only after the label recoups its advances and costs. The artist can write and
+sing the song and never own the recording of it. This is the standard structure of
+the industry.
+
+In the 1990s Prince, in dispute with Warner Bros. over ownership of his masters,
+appeared in public with the word SLAVE written on his cheek, and changed his name to
+an unpronounceable symbol to stop the label from marketing new music under the name
+it controlled. He said: "If you don't own your masters, your master owns you."
+
+In September 2020 Kanye West posted photographs of his own recording contracts to
+the public — page after page — and wrote that he would not stop until artists owned
+their masters, until the system changed. He wrote that record labels and streaming
+services and the structures around them were built so that the artist, whose labor
+makes the value, does not own the result of it.
+
+"New Slaves," 2013, names this in its second verse alongside the prison companies: a
+line about how the control used to be crude and is now total, reaching the rich as
+well as the poor. The song sets two ownership systems beside each other — the prison
+that profits from incarcerated Black bodies, and the industry that owns the Black
+artist's work — and uses one word for both.
+
+The Thirteenth Amendment abolished ownership of a person "except as a punishment for
+crime." It did not address ownership of a person's labor, image, name, or recorded
+voice by contract. Those remained, and remain, legal.
