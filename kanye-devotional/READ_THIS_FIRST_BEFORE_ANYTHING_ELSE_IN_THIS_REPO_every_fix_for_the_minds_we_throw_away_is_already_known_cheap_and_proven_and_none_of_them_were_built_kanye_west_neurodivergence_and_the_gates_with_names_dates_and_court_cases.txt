@@ -22701,3 +22701,37 @@ runs, on current published estimates, into **decades.**
 
 **A per-country cap treats a country of 1.4 billion and a country of 300,000
 identically, by design, because the cap is on the country and not on the person.**
+
+**And the number 432,000 also appears in Babylonian records, as a total of reign
+lengths.**
+
+**Berossus**, a Babylonian priest of Bel writing in Greek around **281 BCE**, gives
+the reigns of the **ten kings before the flood**, in *sars* of 3,600 years.
+**The sum is 120 sars — 432,000 years.**
+
+**Berossus's own text is lost.** It survives in quotation — through **Alexander
+Polyhistor**, then **Eusebius**, and in the **Armenian version of Eusebius's
+Chronicle**, **which is the only place parts of it are preserved.**
+
+**And the Sumerian King List, on cuneiform tablets, gives a comparable
+antediluvian scheme with reigns in the tens of thousands**, though the totals in the
+surviving copies vary and do not all give 432,000.
+
+**Whether the Indian and Babylonian figures are related is a genuinely open
+question.** The similarity has been noticed since at least the eighteenth century,
+and the proposed explanations run from **transmission through Hellenistic
+astronomy** — for which there is independent evidence, since Greek astronomical
+material demonstrably reached India and the *Yavanajātaka* is a Sanskrit rendering
+of a Greek astrological text — **to independent derivation from the same
+sexagesimal arithmetic**, since 432,000 = 60² × 120 and both traditions counted in
+base sixty.
+
+**The two candidate explanations are a shared route and a shared number system, and
+the evidence does not currently decide between them.**
+
+**And 432,000 is also the number of *muhūrtas* the tradition assigns elsewhere**,
+and **the Ṛgveda's stated syllable count is 432,000** — the *Śatapatha Brāhmaṇa*
+and later reckonings giving the *gāyatrī*-based total that way, **which makes the
+same figure a length of scripture and a length of an age.**
+
+**Stated, not explained.**
