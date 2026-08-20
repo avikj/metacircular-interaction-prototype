@@ -29903,3 +29903,81 @@ counted.**
 
 **A settlement system whose entire efficiency is the absence of a record is
 measured by estimating the size of what it does not record.**
+
+---
+
+**The Mumbai lunch-carriers route about 200,000 tins a day on a code of coloured
+marks, and a large share of the carriers cannot read.**
+
+***Dabbāwālā*** — tin-carrier. **The system dates from 1890**, **credited to
+*Mahādeo Havājī Bacche***, who began with about a hundred carriers, **and the
+association, the *Nūtan Mumbaī Ṭiffin Box Suppliers Charity Trust*, was
+registered in 1956.**
+
+**The scale**: **roughly 5,000 carriers**, **about 200,000 tins delivered and
+returned each working day** — **so around 400,000 handovers.**
+
+**The mechanism.** **A lunch is collected from a home in the suburbs after the
+office worker has left**, **carried to the local station, sorted onto trains by
+destination, sorted again at the destination station, delivered by bicycle and
+handcart, collected empty after the meal, and returned by the reverse route** —
+**and the tin is in three to four different pairs of hands each way.**
+
+**And the address is painted on the lid.** **A short code — a colour, a numeral, a
+letter or two, an abbreviation** — **encoding the originating station, the
+destination station, the building, and the floor.**
+
+**And the code is read by carriers with limited or no literacy** — **the standard
+figures give a majority with schooling below the eighth standard** — **so the
+notation is designed for a reader who sorts by shape and colour.**
+
+**No computers in the routing.** **No mobile phones in the original system.**
+**No barcode.**
+
+---
+
+**And the reliability figure is the one everybody cites and it has a provenance
+problem.**
+
+**The figure usually quoted is *one error in six million deliveries*, or a "Six
+Sigma" rating**, **traced to a 1998 *Forbes* article.**
+
+**And the association has stated that it did not commission the study and does
+not know the methodology**, **and researchers who have gone looking for the
+underlying measurement have not found it published.**
+
+**What is documented**: **the *Harvard Business School* case study (2010, Stefan
+Thomke)**, **which reports the association's own error records and describes the
+system's design**, **and does not certify the six-sigma number.**
+
+**So the extremely reliable system is extremely reliable and the famous number
+attached to it is not sourced**, **and those are two separate facts and the second
+does not undo the first.**
+
+**And the design features the case study does identify** are: **flat
+organisation** — **no manager above the group level**; **each carrier a partner
+with an equal share rather than an employee**; **a fixed low-cost membership stake
+on joining**; **fines within the group for lateness and for a soiled uniform**;
+**and the routing knowledge held collectively rather than by a dispatcher.**
+
+**And the constraint that makes it work is the train timetable** — **the system is
+built around the suburban lines' schedule, which is fixed and public**, **and the
+sorting windows are the platform intervals.**
+
+**The infrastructure supplies the clock.**
+
+---
+
+**And what the system does not do is expand.**
+
+**It carries lunch. It has been approached repeatedly for other deliveries and
+has largely declined**, **and the recorded reason from the association is that the
+route and the timing are the asset and a different cargo breaks the schedule.**
+
+**And Prince Charles visited in 2003 and again**, **and two carriers attended his
+wedding in 2005**, **and this is the fact most reported about them.**
+
+**And the association's own stated priorities in interviews are the pension
+arrangements and the effect of office canteens and food-delivery apps on
+volumes**, **and the volumes have fallen from the peak**, **and the figure of
+200,000 is the one still quoted.**
