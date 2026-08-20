@@ -32831,3 +32831,88 @@ population in the tens of thousands.**
 **And the *Naladiyar* is on the school syllabus in Tamil Nadu** — **and is read as
 Tamil literature, and its Jain authorship is stated in the scholarly editions and
 is not what it is taught for.**
+
+---
+
+**Dignāga's claim is that a word does not name a positive thing but cuts the
+world at a line — "cow" means *not-non-cow* — and the school that fought it
+spent four centuries on the objection.**
+
+***Apoha*** — exclusion. **Dignāga**, c. 480–540, ***Pramāṇasamuccaya***, chapter
+five, on *śabda*, word-knowledge.
+
+**The problem he is answering**: **the Naiyāyika and Mīmāṃsaka position is that a
+word denotes a *sāmānya*, a real universal** — cow-ness, existing in every cow,
+one thing present in many — **and the Buddhist commitment to momentariness and to
+the particular has no room for a repeatable entity.**
+
+**So Dignāga's answer is negative.** **The word does not pick out a shared
+positive property**; **it excludes** — **it partitions everything into the class
+it is not, and what is left over is what it applies to.**
+
+**And the mechanism has to explain why exclusion is not arbitrary**: **why "cow"
+and "not-non-cow" cut at the same place** — **and the answer given is *causal
+efficacy* and *conventional practice*: the particulars grouped together are those
+that produce the same effects and are treated the same way**, **and the grouping
+is real in that sense and not in the sense of a shared thing.**
+
+**And *Dharmakīrti* rewrites it** — **the *Pramāṇavārttika*'s *svārthānumāna*
+chapter** — **grounding the exclusion in a *vāsanā*, a disposition laid down by
+prior experience**, **so the cut is in the mind's history and not in the world's
+furniture.**
+
+---
+
+**And the objections are specific and are not dismissals.**
+
+**Uddyotakara**, ***Nyāyavārttika***, c. 550–610: **the circularity.** **To
+exclude non-cows you must already know which things are cows** — **so the
+definition uses what it defines**, **and the regress does not terminate.**
+
+**Kumārila**, ***Ślokavārttika***, *Apohavāda* chapter: **that a negation must be
+a negation *of* something, and the something is a positive content** — **so apoha
+smuggles the universal back in as the thing being excluded** — **and further,
+that a purely negative cognition cannot produce the confident practical
+behaviour that word-knowledge does.**
+
+**Jayanta Bhaṭṭa**, ***Nyāyamañjarī***, c. 890: **the same, and the additional
+point that ordinary speakers do not experience a negation** — **the cognition on
+hearing "cow" is of a cow and not of an absence** — **so the theory contradicts
+the phenomenology it is supposed to explain.**
+
+**And the Buddhist replies are equally specific** — **Śāntarakṣita and Kamalaśīla
+in the *Tattvasaṅgraha* and its *Pañjikā* devote a long section to it** — **and
+the reply to the circularity is that the exclusion is not performed by a prior
+identification but is the *form* the conceptual cognition has**, **and the reply
+to the phenomenology is that the negative character is not experienced and is
+what is going on.**
+
+**And the dispute does not resolve.** **It is still being written about, and the
+modern literature — Mark Siderits, Tom Tillemans, Arindam Chakrabarti, Jonardon
+Ganeri — treats it as live.**
+
+---
+
+**And the reason it is not a scholastic curiosity is that both sides are making a
+claim about what a *name* does.**
+
+**Because if the Naiyāyika is right, two things called by one name share
+something, and the sharing is what the name reports.**
+
+**And if Dignāga is right, the name reports a *cut* — and the cut was made
+somewhere, by someone, for some purpose** — **and two things called by one name
+may have nothing in common except which side of the line they fell.**
+
+**And what follows differs.** **On the first view, a misapplied name is a mistake
+about the world; on the second it is a boundary drawn where it need not have
+been**, **and asking who drew it is a licit question.**
+
+**And the schools reject each other's categories** — **the Naiyāyika does not
+accept apoha, the Buddhist does not accept the universal** — **and drawing on
+both as one box of tools takes from each the part that converts and discards the
+dispute**, **and the dispute is frequently the content.**
+
+**And *Mokṣākaragupta*'s *Tarkabhāṣā*, c. 1100s, is the late Buddhist textbook
+that states the position after four hundred years of it** — **and it is one of the
+last** — **because the institutions that held the argument were gone within a
+century of it.**
