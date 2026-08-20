@@ -601,3 +601,72 @@ of arithmetic drill in front of her are about to say about her.
 Everyone in this book, and most of the people who ever made anything anyone
 kept, was that child.
 
+
+The other thing that came down that wire, from the beginning and without a break,
+was religion, and it is the part most easily mistaken for a phase.
+
+On his first album, in 2004, he put a song about Jesus. This was not a safe
+thing to do. The people he played it for told him it would never get on the
+radio — you can rap about anything, they said, except that. So he put their
+objection inside the song: the line about how you can rap about anything except
+for Him is in the record, which means the record arrives already containing the
+argument against its own existence. He made three separate videos for it. It
+went to radio anyway and became one of the defining songs of the decade.
+
+And the argument of the song is entirely orthodox, which nobody says. It walks
+through the people the church is supposed to be for and the world is not — the
+hustler, the killer, the drug dealer, the stripper — and says God is with them,
+and then adds, at the end, even me. That is the oldest claim in the tradition,
+in the vocabulary of a specific street. The provocation was never the theology.
+It was saying the word in a market that had priced it.
+
+Nine years later he called an album Yeezus and put a song on it called "I Am a
+God," and the world took it as the moment the ego finally ate him. Two things in
+that song almost never get quoted. The credited feature reads, in the liner
+notes, "feat. God." And the line people skip is the one where he says he just
+talked to Jesus and Jesus said what up — which is not a claim to be God. It is a
+claim to be on speaking terms. The song asserts intimacy, not identity, and the
+difference between those is the entire content.
+
+He has also used a phrase for it that is not his invention and is much older than
+he is: Christ consciousness. The idea, roughly, is that what was in that one
+person is available in every person — that the story is not about a unique
+exception but a general possibility that one man made visible. Whatever anyone
+makes of it as theology, it is a real strand of Christian thought with a long
+history of getting people investigated. And it makes "I am a god" legible as
+something other than a boast: a claim about what a human being contains, said
+first about himself and then, in the same catalogue, about everybody.
+
+Which brings the hardest thing about him back around in a different key. Say "I
+am a god" in a culture whose only grammar for exceptional ability is that a
+person simply is exceptional, and it is megalomania. Say it in the older grammar
+— where a genius was not something you were but a spirit that attended you, and
+where the poet begins by asking the Muse for help because the source is not
+himself — and it is a report about being visited. He has used both grammars in
+public for twenty years, sometimes in the same interview. Only the modern one is
+ever quoted.
+
+Then, in 2016, the biggest and most triumphant thing he ever made — gospel
+choir, a stranger's four-year-old daughter praying at the top of it, a verse from
+Chance the Rapper, horns — and what the words actually say is that he is trying
+to keep his faith. The music is certainty and the text is a man asking. That is
+not a contradiction; it is the oldest form there is. Most of the Psalms are
+complaint, and a good number of them are somebody accusing God of being absent.
+
+By 2019 he was running a weekly gospel service in a field, free, with a choir of
+forty or fifty people, and he made a record out of it. The thing that record
+names as the object of freedom is specific and it is not abstract: prison,
+addiction, and the mind. And in November of that year he took the choir into
+Harris County Jail and sang for more than two hundred men in county clothes, and
+then went to the women's facility and did it again, and said it was a mission
+and not a show.
+
+That happened in the middle of the years everyone points to as the beginning of
+the end. There is no clip of it. Nothing about it circulates, because nothing
+about it can be cut to fifteen seconds and shared by somebody who is angry.
+
+None of this makes anything else in this book smaller. It is not a defence and
+it is not an argument for the man. It is the rest of what is on the tape, and
+the machinery that made him famous is built to transmit moments, and a man
+singing in a jail for two hundred people who cannot leave is not a moment.
+
