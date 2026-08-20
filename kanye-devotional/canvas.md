@@ -576,3 +576,61 @@ titles and in the same breath as their husbands.
 There is also a song on it where both men write letters to sons who have not
 been born. Jay-Z's is about not being his own father. Kanye's is about his son
 not turning into him.
+
+---
+
+In November 2016 he played San Jose and told the crowd he would have voted for
+Trump. Two nights later in Sacramento he played four songs, then talked for
+about ten minutes — Beyoncé, Jay-Z, Hillary Clinton, Mark Zuckerberg — and
+walked off. He cancelled the rest of the tour the next day. That same day an
+ambulance took him to UCLA. The words on the record are temporary psychosis,
+dehydration, sleep deprivation. There were reports he was handcuffed to the
+gurney, which is disputed. He was released on November 30.
+
+He was thirty-nine. "I'd never been diagnosed and I was like 39 years old."
+
+Three years later he told David Letterman what it is: "I feel a heightened
+connection with the universe when I'm ramping up… it's like a sprained brain,
+like having a sprained ankle… once our brain gets to a point of spraining,
+people do everything to make it worse."
+
+He has also said, about being in the hospital, that God was there with him,
+sending him visions.
+
+---
+
+The first track on the album with the mountain on it is called "I Thought About
+Killing You." It puts the wish to kill somebody else and the wish to kill
+himself in the same breath, and it says the most beautiful thoughts are always
+beside the darkest ones. It is the first thing you hear on the record.
+
+In 2018 he told CNN he thinks about suicide often. In 2025 he wrote that there
+were times he didn't want to be here anymore. Bipolar disorder carries among
+the highest suicide rates in medicine.
+
+---
+
+In October 2022 he said things about Jewish people in public that were vile,
+and he kept saying them. adidas ended the partnership. The company had been
+paying him something like two hundred million dollars a year against roughly
+one and a half billion in revenue, and it was most of what made him a
+billionaire, and it went. People who had nothing to do with him were frightened
+in their own cities because of what he said.
+
+In January 2026 he wrote this: "In early 2025, I fell into a four-month long
+manic episode of psychotic, paranoid and impulsive behavior that destroyed my
+life… there were times I didn't want to be here anymore."
+
+Both of those are on the record. He has not withdrawn the first by writing the
+second, and nobody has to accept the second to know the first happened.
+
+---
+
+In November 2019 he took the Sunday Service choir into the Harris County jail
+in Houston and performed for more than two hundred men, and then to Baker
+Street for the women. He said it was a mission and not a show.
+
+The song that broke him as a solo artist, fifteen years before that, was "Jesus
+Walks." The choir on it is the ARC Choir. ARC is the Addicts Rehabilitation
+Center, in Harlem. It is a drug program, and the people singing on that record
+are people in recovery, and that is who they were when it was recorded in 1999.
