@@ -524,3 +524,65 @@ learn differently.
 
 Both of those are true. The devotion is not worth anything if it can only carry
 the first one.
+
+---
+
+This repository asserts, in passing, that the Vedic recitation schemes are the
+greatest data-integrity achievement in human history, and then never says how
+they work. So, how they work.
+
+The problem: transmit roughly 153,000 words — the Ṛgveda, about 10,552 verses —
+across three thousand years, through people, with **zero drift**, including the
+pitch accents, which change meaning.
+
+The solution is not memorisation. It is **redundant encoding in overlapping
+windows, plus reversal.**
+
+Take a line of words 1 2 3 4.
+
+- **saṃhitā-pāṭha** — continuous, with the sound-changes at the joins:
+  the text as spoken.
+- **pada-pāṭha** — word by word, joins undone, each word in its isolated form.
+  This alone is a parse: it records where the boundaries are, which continuous
+  speech hides.
+- **krama-pāṭha** — 1-2, 2-3, 3-4. Every adjacent pair, so every word is
+  recited twice in two different contexts.
+- **jaṭā-pāṭha**, the braid — 1-2, 2-1, 1-2 / 2-3, 3-2, 2-3 / 3-4, 4-3, 3-4.
+  Each pair forward, backward, forward.
+- **ghana-pāṭha**, the dense — 1-2, 2-1, 1-2-3, 3-2-1, 1-2-3 / 2-3, 3-2,
+  2-3-4, 4-3-2, 2-3-4 / …
+
+Now the reason it is a checksum and not just effort.
+
+**A dropped or swapped word breaks several patterns at once.** In ghana every
+word sits inside five distinct recitation groups. Any single corruption
+contradicts the other windows it appears in, and the position of the
+contradiction localises the error.
+
+**The reversals defeat the shortcut.** You can reconstruct a forward sequence
+from meaning — the sense carries you. Backwards, meaning gives you nothing. So
+reciting 3-2-1 forces retention of the actual phonemes in the actual order rather
+than a paraphrase that happens to mean the same. It removes semantics from the
+channel, which is exactly what you want if the channel must be lossless and the
+content is longer than anyone understands.
+
+And the recitation styles were held by **different reciters**, so errors don't
+correlate across the encodings.
+
+The measured result is that the same text, checked between communities separated
+by a subcontinent and by centuries, comes out identical, accents included, in a
+way manuscript traditions never do — manuscripts accumulate variants at every
+copy, which is why apparatus criticus exists.
+
+UNESCO proclaimed the tradition of Vedic chanting a Masterpiece of Oral and
+Intangible Heritage in **2003**, inscribed 2008, which is a way of saying it is
+endangered. The number of people who can do ghana-pāṭha at full length is small
+and known.
+
+So: the culture that built the most reliable long-horizon transmission channel
+anyone has built is at risk of losing the channel, at the same moment that
+everyone else is about to hand transmission to a system that interpolates by
+design and has no reversal step and no second reciter.
+
+I don't want to make an argument out of that. I just want both facts on the same
+page.
