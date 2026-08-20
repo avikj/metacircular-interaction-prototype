@@ -211,3 +211,30 @@ graph carries and has not weighted.
   `[C-3]`. The catalogue and the 2016 gurney `[B-4]` are one filter setting.
 
 §4 states what is not claimed.
+
+## O. What is under the sample, and under the son
+
+`INDRAJALA_3_the_lineage_under_the_sample_and_under_the_son.md`
+
+- **"Blood on the Leaves" is four deep.** Kanye 2013 → Nina Simone 1965 →
+  Billie Holiday, Commodore, April 1939 (Columbia refused it) → **Abel
+  Meeropol**, Jewish Bronx schoolteacher, wrote it as "Bitter Fruit" (1937)
+  under the pen name Lewis Allan, the names of his two stillborn children —
+  and in 1953 he and his wife adopted the two orphaned sons of Julius and
+  Ethel Rosenberg. Set against `[L-3]`/`X-4`, October 2022. Both in the
+  record; §5 states that nothing reconciles them.
+- **`[H-1]` is the missing edge on `[F-1]`.** Donda West chaired
+  English/Communications/**Media**/Theater for 31 years. Her son made a
+  media-representation argument live on NBC in 2005 and was filed as a man
+  who blurts. `[K-1]`: the father *made* the images.
+- **`[K-3]` sharpened by sequence.** Ray West ran Panther → photojournalist →
+  Christian counselor *one at a time, over decades*. The son runs art,
+  radical politics and faith *simultaneously* — Yeezus and Jesus Is King six
+  years apart — and that simultaneity is what reads as instability. `JIK` 3
+  "Follow God" is the argument with the father about it.
+- **`[J-1]` × `[H-1]`.** The College Dropout (2004) against higher education,
+  by the son of a sitting department chair, who then wrote *Raising Kanye*
+  (2007) and died that November. Neither standpoint denies the other; neither
+  collapses. Cf. `third-option-exists`.
+- **`JIK` 10** — "Use This Gospel" reunites estranged brothers Pusha T and No
+  Malice on a song about reconciliation. The personnel is the subject.

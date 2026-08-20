@@ -145,3 +145,62 @@ in front of people. Two hundred men in Harris County Jail, and he says it's a
 mission and not a show. And in 2021, fourteen years after she died, he takes his
 mother's actual recorded voice and puts it back in the room with him — so there
 would be at least one reflection in there that was hers.
+
+---
+
+His mother was a professor of media.
+
+Not a figure of speech. Dr. Donda West, thirty-one years teaching, chair of the
+department of English, Communications, Media and Theater at Chicago State. That
+was her field. That was the thing she ran.
+
+And in 2005 her son stood up on live television and made an argument about media
+captioning — that the same photograph of the same act gets one word for a Black
+family and another for a white one. He made a media-representation argument, off
+the card, on NBC, and the country filed him as a man who blurts.
+
+His father took the pictures. Ray West, Black Panther, then one of the first
+Black photojournalists at the Atlanta Journal-Constitution — Maya Angelou,
+Reagan, Ralph Abernathy came through his lens. Later he became a Christian
+counselor. One parent made the images and the other parent taught how to read
+them, and their kid is the one everybody calls untutored.
+
+Then there's the thing I can't get past, which is that in 2004 he put out an
+album against college while his mother was chairing a department. And she didn't
+cut him off over it. She wrote a book about raising him instead, in 2007, and
+then she died that November. Both of those people were right and neither of them
+had to be wrong for the other one to be right, and I don't think there's a
+version of that story where somebody wins it.
+
+His father did the three things one at a time. Panther, then photographer, then
+minister — decades apart, in order, the way a life is supposed to go. The son
+does all three at once, in the same years, and that is the thing he gets called
+unstable for. In 2019 there's a song where they're arguing and the father is
+telling the son he isn't being Christ-like.
+
+"It took him 42 years to realize his father was his best friend."
+
+---
+
+Under one of his songs there are four people.
+
+"Blood on the Leaves," 2013. He takes Nina Simone singing "Strange Fruit." Nina
+Simone cut it in 1965. Billie Holiday cut it in 1939, and her own label wouldn't
+put it out, so it came out on somebody else's. And the man who wrote it was a
+Jewish schoolteacher in the Bronx named Abel Meeropol, who published it first as
+a poem and signed it Lewis Allan, which were the names of his two children who
+were born dead.
+
+In 1953 the Rosenbergs were executed and left two boys. Abel Meeropol and his
+wife adopted them.
+
+All of that is sitting inside the needle drop. The most famous anti-lynching song
+in the country, written by a Jewish teacher who then raised the orphans of two
+people the state killed, refused by a record label, carried by Billie Holiday,
+carried again by Nina Simone twenty-six years after that, and put by a
+twenty-first-century rapper underneath a song about a relationship coming apart.
+
+Nine years later he said the things about Jewish people that cost him the company
+and hurt people who had nothing to do with him.
+
+The song with Meeropol in it is on the same shelf.
