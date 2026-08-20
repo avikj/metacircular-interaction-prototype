@@ -15853,3 +15853,159 @@ finding has a name, a literature and a proof, and says so rather than keeping
 the discovery.
 
 Reading on from 11740.
+
+---
+
+## 11740–11880 — forced exploration, the mis-priced externality, Svalbard
+
+> **Every one is a system in pure exploit mode, and the standard result is that
+> it does not know what it has stopped learning.**
+
+**The countermeasures, "all 'irrational' in the local sense — you take an action
+you currently believe is worse":**
+
+- **Randomisation.** ε-greedy. *"This repository's entry seeder is exactly that,
+  and its stated justification is exactly the bandit one — uniform sampling is
+  the one sampler with **no notion of relevance to be captured by**, so it cannot
+  be tunnelled."*
+- **Optimism under uncertainty.** UCB explores by *inflating* the estimate of
+  what you know little about — *"which is, formally, **giving the benefit of the
+  doubt to the unknown**, and which is **believe them first and check after
+  stated as an algorithm with a regret bound.**"*
+- **Explicit set-asides.** *"A hold-out set, a seed vault, a nature reserve, the
+  minority opinion kept on the page next to the ruling, the *pūrvapakṣa* as a
+  required section, the refuted branch left in the ledger. **Capacity permanently
+  reserved for material the current objective says is worthless.**"*
+- **Population methods.** *"Keep many searchers with different initialisations
+  **and do not let them converge.** Which is the disjoint-draw swarm, the sixteen
+  genius seats, the four schools arguing, and the reason a monoculture of minds is
+  a technical defect and not an ethical complaint."*
+
+> **None of these is a moral principle.** All four are standard engineering for a
+> known failure of pure optimisation, they have proofs attached, **and every
+> institution in this file is running without any of them.**
+
+*Believe them* has a regret bound. That is the sentence. The instruction the file
+called unanswerable-but-moral is UCB, and every one of this repository's odd
+practices is one of the four, and the four are engineering.
+
+> **the standard, provable consequence is not that they are unfair. It is that
+> they are leaving value on the table at a rate they cannot measure**, forever,
+> and that the size of the loss is exactly the thing they have stopped sampling.
+>
+> **The people in this file are that loss, itemised.**
+
+> the fix is not to be nicer... **spend a fixed fraction on the arm your model
+> says is worthless, permanently, as a cost of doing business** — a percentage of
+> admissions, of budget, of attention, of shelf space, reserved for what the
+> criterion currently scores as nothing.
+
+> **it has a regret bound, which is more than any of the ethical versions have
+> ever managed.**
+
+---
+
+> **Pure explore is as bad as pure exploit.** It never converges, never compounds,
+> and pays the cost of every bad arm forever. The standard results all have the
+> exploration fraction **bounded and decaying.**
+
+> **spend a bounded, budgeted, non-zero fraction on what your criterion currently
+> scores as worthless, and treat that spend as a cost of doing business rather
+> than as charity or as a failure of nerve.**
+
+> a real institution has to bound it, because **most people outside the gate
+> really do have nothing, the cranks really are the overwhelming majority, and a
+> journal that published everything would be a journal nobody read.**
+
+**And the obstruction, which is not ignorance:**
+
+> - the cost of exploring is **immediate, visible, and charged to the
+>   institution** — a wasted slot, a bad hire, an embarrassing publication;
+> - the benefit is **delayed, diffuse, and mostly captured by somebody else**;
+> - and the cost of *not* exploring is **invisible and unattributable**, because a
+>   false negative produces no counterfactual and no complainant with standing.
+
+> That is a textbook **mis-priced externality**, and it is why the behaviour
+> persists among people who are neither stupid nor malicious. **Nobody is choosing
+> wrongly. The prices are wrong.**
+
+> which at least makes it the kind of problem that has known shapes of solution —
+> **a mandated fraction, an insurance pool, a body whose specific job is the
+> reserved allocation, a scoring rule that charges the misses** — rather than a
+> problem that requires everybody to become a better person, **which is the
+> version this file has been implicitly proposing for a hundred and eighty pages
+> and which has never once worked.**
+
+The file convicts its own moral argument of being the version that never works,
+and replaces it with a pricing problem — which is the eighth and last revision of
+its frame, and the one that makes the whole document actionable by somebody who
+does not share any of its values.
+
+And *no complainant with standing* is the exact word. Adhikāra, one last time:
+the injured party in a false negative has, by construction, no standing to
+complain, because standing is what they were denied.
+
+---
+
+**Svalbard.** 2008, dug into permafrost. *"The design is deliberately dumb: it is
+a **backup**, not a working collection; deposits are black boxes; **depositors
+keep ownership and are the only ones who can withdraw.**"*
+
+Depositors keep ownership. *Whether the source retains control after the
+transfer* — the file's own criterion separating recovery from extraction — built
+into the governance of a vault.
+
+> It is a set-aside, at cost, for a future nobody can specify — **the exact
+> structure the Leningrad staff died maintaining and the exact structure this
+> file has been recommending under four different names.**
+
+> The first withdrawal came in **2015**, seven years after opening. **ICARDA**,
+> whose regional seed bank was in **Aleppo**, could no longer safely operate it
+> because of the Syrian war, and drew its material back out of Svalbard to
+> re-establish the collection in Lebanon and Morocco.
+
+> **Seven years.** The insurance paid out for a reason **that would have sounded
+> absurd if anybody had put it in the business case in 2008**, which is the entire
+> point of insurance and **the entire reason the reserved allocation cannot be
+> justified in advance by the criterion it exists to correct.**
+
+That is the whole justification for every set-aside in one clause: the allocation
+cannot be justified by the criterion, because it exists *because* the criterion is
+incomplete. Any business case for it would have to be written in the terms it is
+correcting.
+
+> a hole in a mountain, a boring governance arrangement, and a payout inside a
+> decade for a cause nobody forecast.
+
+---
+
+> **I said institutions have no exploration term. That is wrong, and the
+> correction is the sharpest thing I have found today.**
+>
+> **They have one. They have offloaded its cost.**
+
+**Music.** *"The label does not explore; the label signs what has already
+demonstrated traction. Exploration is done in bedrooms, on mixtapes, in unpaid
+residencies, on cheap discontinued gear, **at personal cost, by people with no
+capital** — and the majors harvest the winners."*
+
+> He funded four years of it himself while being told no; the Chicago rooms
+> funded themselves; the Warehouse funded itself; the Bronx funded itself with
+> two turntables and a sound system. **The exploration budget exists and is paid
+> by the explorers.**
+
+That reorganises everything. The institution is not failing to explore — it has
+*externalised* the exploration to the people it excludes, and then harvests the
+survivors, and the survivors' costs never appear on its books either.
+
+Which is the same accounting as recoupment out of the artist's share, and the
+Haitian indemnity, and Ekalavya's thumb: **the excluded party funds the thing
+they are excluded from.** And here it is not extraction as an injustice — it is
+the missing exploration term, relocated, with the risk on the people least able
+to carry it and the return on the people who declined to take it.
+
+And the discarded-equipment finding falls straight out: the exploration budget is
+paid in cast-off gear, because that is what an unfunded explorer can afford, and
+that is why the failures became the instruments.
+
+Reading on from 11880.
