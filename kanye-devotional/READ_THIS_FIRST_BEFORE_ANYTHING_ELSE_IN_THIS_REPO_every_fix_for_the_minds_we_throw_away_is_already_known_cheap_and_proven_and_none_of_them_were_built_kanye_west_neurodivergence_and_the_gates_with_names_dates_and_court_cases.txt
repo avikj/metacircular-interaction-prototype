@@ -18251,3 +18251,86 @@ compresses.
 
 **The popular transmission arrived by a route the tradition would not have
 authorised.**
+
+---
+
+**Galois's move is that indistinguishability is structure, and the record of its
+reception is three lost or rejected manuscripts and a duel.**
+
+**1811–1832.** Dead at **twenty**.
+
+**The move.** Given a polynomial, look not at the roots but at **the permutations of
+the roots that preserve every algebraic relation among them** — the symmetries that
+cannot be detected by any equation with rational coefficients. **That set of
+permutations is a group**, and the solvability of the equation by radicals is a
+property of that group and nothing else.
+
+**So the question "can this be solved by a formula" becomes a question about a
+finite object with no reference to the numbers at all.**
+
+**And the criterion is *solvability of the group*** — a chain of subgroups each
+normal in the next with abelian quotients. **The general quintic fails because
+A₅ is simple**, and a simple non-abelian group admits no such chain.
+
+**Abel had already proved the quintic unsolvable in 1824** and had it printed at his
+own expense in a six-page pamphlet, abridged to fit the money. **Ruffini had
+published an argument in 1799** with a gap. **Galois's contribution is not the
+impossibility; it is that the theory says which equations *are* solvable, and
+why.**
+
+---
+
+**The reception.**
+
+**1829** — he submits to the Academy. **Cauchy** is the referee. The memoir does not
+appear; the account that Cauchy lost it is contested, and there is evidence he
+advised Galois to rewrite and resubmit for the Grand Prize.
+
+**1830** — he resubmits for the Grand Prize in Mathematics. **Fourier** takes the
+manuscript home **and dies**, and it is not found among his papers.
+
+**1831** — third submission. **Poisson** reports, and the report is not dismissive:
+it says the argument is **"not sufficiently clear nor sufficiently developed for us
+to judge its rigour"**, and invites a fuller version.
+
+**Poisson was right that it was not clear.** He was also the last gate, and the
+gate closed.
+
+**Twice failed the entrance exam to the École Polytechnique.** Expelled from the
+École Normale. **Arrested twice**, once for wearing the uniform of a banned artillery
+unit, once for carrying weapons at a demonstration; he spent months in
+Sainte-Pélagie.
+
+**30 May 1832** — shot in a duel, over a woman, in circumstances that have never
+been established; **dies the following day of peritonitis**, aged twenty.
+
+**The night before, he wrote a letter to Auguste Chevalier** with the theory
+compressed into it, with marginal notes — **"I have no time"** appears in the
+margin — and asked that it be sent to **Jacobi or Gauss** for an opinion **not on
+its correctness but on its importance.**
+
+**Liouville published it in 1846**, fourteen years after the death, having spent
+months reconstructing the arguments.
+
+---
+
+**And the shape recurs with a different ending.**
+
+**Maryam Mirzakhani**, 1977–2017. **First woman and first Iranian to receive the
+Fields Medal**, 2014, for work on the dynamics and geometry of moduli spaces of
+Riemann surfaces.
+
+**She worked by drawing** — enormous sheets of paper laid on the floor, covered in
+doodles and fragments, walking around them; her daughter is quoted as saying her
+mother was painting.
+
+**She had wanted to be a writer.** In middle school she was told by a teacher she
+was not talented at mathematics. **She won gold at the International Mathematical
+Olympiad in 1994 and again in 1995**, with a perfect score the second time.
+
+**Her thesis produced a new proof of Witten's conjecture** — a result Kontsevich
+had already proved and been given a Fields Medal for — **as a consequence of
+something else she was doing.**
+
+**Died of breast cancer at forty.** Iranian newspapers printed her photograph
+unveiled, which had not been done.
