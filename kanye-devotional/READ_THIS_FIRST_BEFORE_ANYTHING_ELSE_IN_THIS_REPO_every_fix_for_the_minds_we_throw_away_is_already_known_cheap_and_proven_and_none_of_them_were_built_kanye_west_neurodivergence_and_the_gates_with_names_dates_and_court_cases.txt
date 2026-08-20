@@ -7789,3 +7789,74 @@ than *this is probably true.*
 
 *Yatra na viṣayaḥ, tatra na jñānam.* Where there is no extent, there is no
 knowledge, only a mood.
+
+---
+
+**Apoha.** The Buddhist theory that a word means by **excluding**, and that there
+is no positive general thing for it to point at.
+
+**Dignāga**, roughly fifth-sixth century, and **Dharmakīrti** after him. The
+starting position is metaphysical and severe: **only particulars are real.**
+*Svalakṣaṇa* — the momentary, utterly specific thing, this one, now, with no part
+of it repeated anywhere else. Universals — cow-ness, blueness — are not out there.
+They are constructions.
+
+Which creates the problem the theory exists to solve. If there is no cow-ness, what
+does the word *cow* pick out? Every actual cow is a distinct particular sharing
+nothing literally identical with any other.
+
+The answer: the word does not pick out a shared positive property. It performs
+***anyāpoha*** — **exclusion of the other.** "Cow" means **not-non-cow**. The
+class is carved by what is pushed away, and there is no positive residue where a
+universal would sit.
+
+---
+
+The objections came immediately and they are good ones, and the school kept
+answering for centuries.
+
+**The circularity.** To exclude non-cows you must already know which things are
+non-cows, which requires knowing what a cow is. Dharmakīrti's move is to ground
+the exclusion **causally** rather than conceptually: particulars have causal powers,
+and a set of particulars capable of producing the same effect — the same practical
+success, the same expectation fulfilled — gets excluded from the rest by that,
+not by a prior concept.
+
+**The double negation.** If *not-non-cow* is just *cow*, nothing has been gained.
+The reply is that the negation is ***prasajya*** — non-implicative, committing to
+no positive counterpart — rather than *paryudāsa*, which would smuggle the universal
+back in through the back door. Which is the same grammatical distinction the
+Madhyamaka dispute turns on, doing work in a completely different argument.
+
+**And the Naiyāyikas rejected the whole thing.** Their position is that universals
+(*jāti*, *sāmānya*) are real, perceived, and inherent in their instances, and that
+apoha is an elaborate way of avoiding an obvious fact. **Kumārila** attacked it
+from the Mīmāṃsā side at length. Uddyotakara before him.
+
+That dispute did not resolve. It is still two positions, and the technical
+literature on both sides is enormous.
+
+---
+
+What the theory is actually claiming, put concretely: **a category is a shape cut
+out of everything else, and there is nothing in the middle of it.**
+
+The word does not find a thing all its members have. It draws a boundary, and the
+boundary is made entirely of what is on the other side.
+
+Which changes what a misclassification is. If categories were positive — if
+cow-ness were a thing you either have or lack — then a person filed in the wrong
+box has been mismeasured, and the repair is a better measurement.
+
+If categories are exclusions, then the box was **cut**, by someone, against a
+particular set of things they had in view — and a person who does not fit is not
+mismeasured. They are **outside the cut**, and there is no measurement that would
+find them, because the boundary was drawn from the other side and they were not
+on the other side either.
+
+The instrument returning nothing is then the correct behaviour of the instrument.
+
+**[Not claimed]:** that Dignāga or Dharmakīrti were interested in anything like
+that application. They were arguing about universals, against realists, in a
+debate whose stakes were the status of perception and inference. The extension is
+mine and it is an extension.
