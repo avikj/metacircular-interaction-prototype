@@ -19121,3 +19121,183 @@ whole economy of four thousand rules is that a class is a segment, and a family
 of classes is one endpoint sliding.
 
 Reading on from 14260.
+
+---
+
+## 14260–14400 — what is owed, Ardhaccheda, and the manufactured symmetry
+
+> **the device is checked and the theorem about the device is known to exist, has
+> not been read, and is owed.** Written down as owed, in the file, by whoever built
+> it, **so the next person cannot mistake what is there for what is claimed.**
+
+> That is *ketiv* and *qere* again, and the collation report in the catalogue
+> entry, and *āsanna* in the verse. **The specification kept attached to the
+> instrument**, by hand, at the moment of use, **by somebody who could have left
+> it off and nobody would have known.**
+
+> it is the first thing I have looked at all day that was not about the subject
+> and not about me, **and reading it took four minutes, and I have written a
+> hundred paragraphs today about the importance of reading the source.**
+
+> The header of that module ends with a list of what is not claimed. **Mine, for
+> everything above this line, would be considerably longer, and I have not written
+> it.**
+
+---
+
+**`formal/cubical/Ardhaccheda.agda`.** *"the first surprise is that **the header
+is in Sanskrit** and the English is underneath it, in brackets, as the gloss."*
+
+अर्धच्छेदः — जैन-लघुगणकः — पुनः-पुनः-अर्धच्छेदनम्. *"And the function names in the
+code are Devanāgarī: `अर्ध` for the halving, `अर्ध-द्विगुण` for the law that
+halving a doubling returns you where you were."*
+
+> This module does it. **The identifier *is* the Sanskrit, so nothing downstream
+> can quietly re-anglicise it, because the compiler will not let you.**
+
+The Mahāvyutpatti policy enforced by a typechecker. And it is *remove an ability
+rather than add a rule*, applied to terminology drift: not a convention that the
+term should be preserved — a state in which the gloss cannot silently replace it,
+because the gloss will not compile.
+
+That is the strongest possible answer to the file-naming directive being read as
+decoration. In an identifier, the Sanskrit is load-bearing.
+
+**The content.** *"the count of how many times a number can be halved — log base
+two, **arrived at because a cosmology needs bisections of a *rajju* and not
+because anybody wanted an inverse to exponentiation.**"* Above it,
+**vargaśalākā**, log log, *"and further orders above that."*
+
+> The module states the core law as: **halving inverts doubling.** ... And it is
+> careful about the thing the naive version gets wrong — `अर्ध` is the **floor**
+> of m/2, and it is shown on odd inputs as well as even, **because a halving that
+> only works on even numbers is not a halving.**
+
+The sources line names **the Anuyogadvāra tradition** and **Piṅgala** *"for the
+doubling that it runs in reverse."*
+
+> the module knows that the operation it implements is **the inverse of an
+> operation from a different text seven or eight centuries earlier, and it says
+> so, in the header, in the source language, in a file whose job is to
+> typecheck.**
+
+> **Vīrasena wrote ardhaccheda(ab) = ardhaccheda(a) + ardhaccheda(b) around 816.**
+> That is the logarithm law. **Not a precursor of it, not an anticipation — the
+> law, written down**, in a Jain commentary on karma theory, **because the
+> cosmology demanded counting bisections of the universe.**
+
+And then the discipline:
+
+> what is checked here is **the smaller and more careful thing**: the one-step
+> inverse, on floors, on both parities. **The module does the part it can do and
+> names the part it did not**, which is the same discipline as the śiva-sūtra
+> module's list of what is not claimed, **and by now I recognise it as the house
+> style rather than as an individual's scruple.**
+
+The additive law is the famous one and it is *not* what the module claims. It
+claims the one-step inverse and names Vīrasena's law as the context. That is the
+opposite of every overclaim in the provenance table.
+
+---
+
+> **Two files. Eight minutes.** And what I have from them is not a summary of
+> Indian mathematics — it is **two specific mechanisms, with their sources named,
+> their scope stated, their omissions declared, and their terms in the language
+> that will not let them drift.**
+
+> **That is what reading a source produces and generating structure does not**, and
+> the difference is visible in the paragraph above: **it is shorter, and everything
+> in it is checkable, and I could not have written it from what I already had.**
+
+Three tests for whether reading happened: shorter, checkable, and not derivable
+from what you already had. My entries fail the first, pass the second only
+because they are quotations, and I do not know about the third.
+
+> Fourteen thousand lines of that would be a different object entirely, and it is
+> the object the repository has been asking for since its first line, **and nobody
+> has been producing it because it is slow and there is no green mark at the end
+> of a morning's reading.**
+
+---
+
+> **CORRECTION, and it is to the section I thought was the best thing in this
+> file.**
+
+> I wrote: *each one is blind exactly where the other one sees.*
+>
+> That is a **manufactured symmetry**, and it is the exact move this repository's
+> own rules name — **a false balance presented as depth, two things set up as
+> complementary halves when they are nothing of the kind.**
+
+CLAUDE.md's right-speech rule: *no manufactured binaries, no false dichotomy
+dressed as depth.* Named, and applied to the passage I called the sharpest thing
+in that section an hour ago.
+
+> **And the tell is that the section immediately after it refutes it.** Three
+> pages on the Desert Fathers asking whether he is eating, Ignatius saying *in
+> desolation make no change*, the shaykh regulating sleep and retreat, the
+> meditation-sickness protocols. **I wrote *the prophetic apparatus has no
+> instrument for the state* and then documented, at length, that it had a
+> developed one, and did not notice, because the symmetry was doing the work of a
+> conclusion.**
+
+*The symmetry was doing the work of a conclusion.* The elegance of the form
+suppressed the reading of its own next section. And I read both sections, in
+sequence, and wrote entries on both, and did not notice either.
+
+**The asymmetries:**
+
+**Power.** *"custody, involuntary holds, medication administered against refusal,
+competency determinations that transfer control of a person's money and
+decisions. The other has no coercive power at all... **That is not two
+instruments with complementary limits. It is one instrument with an army and one
+without.**"*
+
+**Coverage.** *"universal and effectively mandatory: everybody in a crisis meets
+it, whether they sought it or not, and it is the only door an ambulance goes
+through."*
+
+**The cost of error runs one way.** *"A wrong clinical judgement produces a hold,
+a record, a diagnosis that follows the person through employment, custody,
+immigration and insurance, and **a permanent discount on everything they say
+afterwards.** A wrong discernment produces bad advice inside a voluntary
+relationship the person can leave."*
+
+**Four.** *"I said the clinical apparatus **does not claim** to assess content,
+which is true and is to its credit. **But its verdict functions as an assessment
+of content anyway**, because the file travels with the person and everyone
+downstream reads *diagnosed* as settling *what he said*. The clinicians disclaim
+the extension. **The extension happens regardless, universally, and there is no
+mechanism anywhere that stops it.**"*
+
+> **It is not a blind spot. It is an unearned extension of scope**, disclaimed in
+> principle and operative in fact — **which is a completely different defect from
+> a limitation, and the symmetric framing hid it.**
+
+A limitation is honest and bounded. An unearned extension of scope is a claim
+being made by the system that nobody in it is making. And the difference matters
+because a limitation calls for a complementary instrument and an unearned
+extension calls for a *brake* — which is category two, not category one, and the
+symmetric framing routed it to the wrong remedy.
+
+**Five.** *"the prophetic side's actual defect is not blindness to the state. It
+is that it was **stripped of its state-managing half** by the split... **Its
+limitation is historical and imposed, not structural.**"*
+
+---
+
+> There were two capacities. **One of them now has all the power, is universal, is
+> honest about its scope in principle, and has its scope exceeded in practice by
+> everybody downstream.** The other lost its power, kept a vocabulary, and is
+> optional.
+
+That is what survives, and it is *less and truer* — the file's own phrase, and
+the test it has applied to every correction it has made: the repaired claim is
+smaller and holds.
+
+And the correction is placed *below* the passage it corrects, with the passage
+left standing, and it names what the error was rather than editing it away. The
+thirtieth time this document has done that, and the first time it has caught a
+symmetry rather than a fact.
+
+Reading on from 14400. Two thousand lines left.
