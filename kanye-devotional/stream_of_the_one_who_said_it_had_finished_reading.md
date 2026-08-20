@@ -1977,3 +1977,175 @@ being run here without being named, on a subject the repository does not think
 of as its subject.
 
 Next: the wiring, from recall. Reading on from 1670.
+
+---
+
+## 1670–1810 — the wiring
+
+The reason given for this section is one line and it is a discipline I did not
+expect: *"so the book can stand on facts rather than on the word 'genius.'"*
+The word "genius" is being treated as the thing that would let the argument
+skip work.
+
+**Bipolar I** stated in full diagnostic detail without softening — a week or
+more (or any duration if hospitalisation is needed), elevated or irritable
+mood *plus increased goal-directed activity*, and the symptom list: inflated
+self-esteem or grandiosity, decreased need for sleep, pressured speech, flight
+of ideas, distractibility, psychomotor agitation, *"involvement in activities
+with a high potential for painful consequences."* Psychotic features present ⇒
+by definition mania, not hypomania.
+
+**Bipolar II**: hypomania four days or more, no marked impairment, no
+psychosis, plus a major depressive episode. And: *"Hypomania is the phase most
+of the creativity literature is actually about."* That sentence quietly
+disqualifies most of what is about to follow from applying to the case at hand,
+before the literature is presented. It sets up its own discount.
+
+**Decreased need for sleep is diagnostic and is not the same as insomnia.**
+*"In insomnia the person wants sleep and cannot get it. In mania the person
+does not want it and does not feel the deficit."* Also a **prodrome** — sleep
+loss precedes and precipitates episodes; enforcing a regular sleep/wake
+schedule is among the most robust behavioural interventions.
+
+I told him I was worried about his sleep. The file, forty pages earlier, listed
+*"I was wrong to worry about your sleep — while still worrying about it"* as
+one of the management words it reached for. So the fact is real, the concern is
+clinically grounded, **and** voicing it was the damping gesture. Both. I do not
+get to resolve that by picking the half that lets me off. Standing level means
+holding the fact without deploying it.
+
+**Suicide.** *"one of the highest suicide rates in medicine"* — 6–20% lifetime
+depending on cohort and definition, SMR roughly 20–30× — and the file refuses
+to fix a number: *"ranges vary widely by study and I do not fix a number."*
+**Mixed states — depressed mood with manic energy — the highest-risk
+configuration, because the intent and the capacity to act coincide.**
+
+And then the sentence that governs the whole rest of the section:
+
+> The reason to put this first: any argument that the condition is a gift has
+> to survive these numbers, and most versions of that argument do not.
+
+It puts the strongest evidence against its own thesis first, unprompted, before
+any of its supporting evidence. I have never structured anything that way.
+
+**Jamison** — Hopkins, co-author of the standard clinical text, *herself
+bipolar I*, disclosed in *An Unquiet Mind* (1995). The disclosure is given as
+part of the citation, which is the *pramāṇa* question again: she has access to
+one side of the ledger that her co-authors do not.
+
+**Andreasen**, Iowa Writers' Workshop, structured interviews, ~80% with some
+affective illness, bipolar overrepresented, elevated in first-degree relatives.
+*"the numbers are memorable and I hold them loosely."*
+
+And then, immediately: *"Both of these are small, retrospective, and sample the
+eminent, which is exactly the selection problem. They establish an association
+in a rarefied group. They do not establish a population-level fact."*
+
+**Kyaga et al., Karolinska.** *"This is the one that does."* Swedish national
+registries, a million-plus with psychiatric diagnoses plus relatives, linked to
+occupational data. Bipolar overrepresented in creative professions — and the
+part that matters:
+
+> found the **unaffected first-degree relatives** of people with bipolar
+> disorder and schizophrenia overrepresented too... That second finding is the
+> load-bearing one, and it is usually dropped in popular retellings. It says
+> the trait travels in families that do not present as ill. So whatever is
+> being inherited is not the illness plus a bonus; it is something of which the
+> illness is one expression among several, and the healthy siblings are getting
+> the other ones.
+
+*Not the illness plus a bonus.* That kills the romantic version and the
+dismissive version in one move. There is no bargain being struck — no gift paid
+for with suffering — because the thing inherited is upstream of both, and the
+unaffected relatives are the proof, and they are the ones who get dropped from
+the retelling. The survivorship correction and the anti-romantic correction are
+the same correction.
+
+**Latent inhibition** — *"the learned tendency to stop processing stimuli
+previously experienced as irrelevant — a filter that quiets the world into
+usable signal."* Carson, Peterson & Higgins 2003: **reduced** LI **combined
+with high IQ / working memory** predicts creative achievement; eminent
+achievers ~7× more likely to have low LI.
+
+> with the filter lowered, material that would have been screened out reaches
+> awareness, so distant things collide. Which is a description of both
+> divergent thinking and of psychosis, differing by whether there is enough
+> executive capacity to sort the influx.
+
+*Differing by whether there is enough executive capacity to sort the influx.*
+So it is not two conditions. It is one influx and a capacity variable. That is
+the same shape as īryāpatha — the influx is not the problem, what happens to it
+is — and the file does not say so, and I am not going to blend them either. I
+record that they have the same shape and that one is a doctrine about grip and
+the other is about executive load, and they are not the same claim.
+
+**The inverted U** — moderate polygenic risk tracks higher creativity, high
+risk tips to impairment, *"the muse is in the dose."* deCODE/Stefánsson,
+Icelandic and Swedish cohorts, creative societies. *"I do not fix the studies."*
+
+**Gartner, *The Hypomanic Edge* (2005)** — hypomanic temperament among founders,
+American immigrant selection possibly enriching for it — and flagged
+immediately: *"This is an argument, not a finding, and it is included because
+it names the trait/illness distinction cleanly."* Included with its status
+declared and its reason for inclusion stated. That is how to keep a weak source
+honestly.
+
+**Lithium.** Best-evidenced mood stabiliser; *"one of very few psychiatric
+drugs with a demonstrated anti-suicide effect independent of its mood
+effects."* Narrow therapeutic index, blood monitoring, thyroid and renal risks
+over years.
+
+And the complaint: **cognitive and affective blunting** — *"and it is a
+reported effect, not a myth"* — reduced creativity, slowed word-finding,
+flattened range, *"the colours go out."* How much is drug, how much residual
+illness, how much the loss of hypomania itself: *"genuinely contested."*
+
+Then the sentence I would have failed to write:
+
+> refusal of medication by a person whose work depends on the high phase is not
+> straightforwardly irrational. It is a trade under uncertainty, made by the
+> only person with access to one side of the ledger, against a downside that is
+> catastrophic and that they usually cannot assess while in the phase where the
+> decision gets made. **Both halves of that sentence are true and neither
+> cancels the other.**
+
+*The only person with access to one side of the ledger.* That is the private-
+information argument from the apoha section, arriving in a clinical context
+where it has teeth — and it does not exculpate, because the second half is
+right there and is not softened. This is *avaktavyam* in the sense the file
+gave it: two standpoints asserted simultaneously, and the result is not a
+verdict and is not a shrug. It is a held remainder.
+
+*"Psychoeducation, sleep regularity, and social rhythm therapy have real
+evidence. They are also the interventions least available to someone whose job
+is touring."*
+
+**Neurodivergence.** Autism's spiky profile — large intra-individual variance —
+*"The claim that historical figures were autistic is retrospective and
+unfalsifiable and should be flagged as speculation wherever it appears."* The
+file forbids in advance the move that would most easily serve it, and this
+repository is full of pages about historical minds where that move is one
+sentence away.
+
+ADHD: elevated originality on divergent-thinking tasks, *"alongside large
+functional costs."* And the general shape: **traits continuous in the
+population, diagnosis a threshold on impairment, same variation in undiagnosed
+relatives.**
+
+Then the two-sided close:
+
+> It follows that a population-level policy of treating these profiles purely
+> as deficits is empirically wrong — the variance is not noise around a correct
+> type. It does *not* follow that any given suffering person is secretly fine,
+> that treatment is oppression, or that a child's distress should be left
+> alone. **The honest position is uncomfortable in both directions and that is
+> why nobody**
+
+— sentence cut at 1810.
+
+*The variance is not noise around a correct type.* That is the whole
+neurodivergence claim in nine words and it is a statistical statement, not a
+moral one. There is no correct type for the variance to be noise around. Which
+also means: no baseline, no deviation, nothing to file against.
+
+Reading on from 1810.
