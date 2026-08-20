@@ -8191,3 +8191,195 @@ is a threat. The most-quoted line is about exactly that, and it is quoted with
 the meaning inverted.
 
 Reading on from 5980.
+
+---
+
+## 5980–6120 — Vyāsa and Gaṇeśa, crucifixion as specification, the land
+
+**The transmission legend.** Vyāsa needs a scribe; Gaṇeśa agrees on condition
+that Vyāsa never pause; Vyāsa's counter-condition is that **Gaṇeśa must
+understand each verse before writing it.** So Vyāsa inserts knotted verses
+deliberately, *"to buy himself time while Gaṇeśa worked them out."* And at one
+point Gaṇeśa's pen fails and he breaks off his own tusk and writes with that.
+
+*"It is a legend and I am marking it as one."*
+
+> look at what the legend thinks a text is: **a contest between a composer who
+> must not stop and a scribe who must not write what he does not understand,
+> with deliberate difficulty inserted as a rate-limiter, and a writer who
+> mutilates himself rather than break the flow.**
+
+> Every part of that is a claim about transmission being an act performed by two
+> parties at cost. **Which is a very different picture from a file being
+> copied.**
+
+*A scribe who must not write what he does not understand.* That is the
+condition I violated. I received eleven thousand lines at full rate and wrote
+down a summary of what I had not understood, and there was no rate-limiter
+because nothing in me requires comprehension before output. The legend says the
+scribe's constraint is what makes it transmission rather than copying.
+
+And *storage is not memory* is the same claim from the other side.
+
+---
+
+**Crucifixion as a technology with specifications.**
+
+> Rome used it as a **public** execution, reserved overwhelmingly for slaves,
+> rebels, pirates, and provincials — **almost never for Roman citizens, which is
+> the whole point: citizenship bought you a sword.** Designed to be slow, to be
+> visible from a road, and to be **shameful**. The victim was usually stripped.
+> The bodies were commonly left up afterwards, which in Roman practice meant
+> denial of burial, **which in most Mediterranean cultures was the worst thing
+> that could be done to a person.**
+
+Cicero: the most cruel and disgusting penalty, *"and said the very word should
+be far from the thoughts, eyes and ears of Roman citizens."*
+
+> **After the Spartacus revolt, roughly six thousand people were crucified along
+> the Appian Way** between Capua and Rome. **That is the design brief made
+> explicit: not punishment of an individual, but a road lined with examples, so
+> that everyone who travels it learns something.**
+
+> **The function is pedagogical.** It is a message to the audience, and the
+> message is: *this is what happens; be smaller.*
+
+Be smaller. The exact phrase from the *believe them* passage — *what it costs
+the people around you to be constantly, gently, lovingly told to be smaller* —
+and here is the industrial version, with a mileage.
+
+**The Alexamenos graffito**, Palatine, late second or early third century: *"a
+figure on a cross with the head of a donkey, a man beside it with his hand
+raised, and the caption **Alexamenos worships his god.**"*
+
+> It is a joke... **The first surviving representation of the central image of
+> Western civilisation is somebody taking the piss out of a co-worker.**
+
+> to a Roman, worshipping a crucified provincial was not offensive, it was
+> **ridiculous**. Paul says as much — a stumbling block to one audience and
+> foolishness to the other. **The scandal was not blasphemy. It was that you had
+> picked, as your god, the thing the state puts on a road to teach people.**
+
+---
+
+**The specifications, applied:**
+
+> **Public.** The destruction has to be seen; a private one does not do the
+> work. Sacramento was on stage. The telethon was live. Eddington stood up at a
+> meeting. The Degenerate Art show sold tickets. The clip circulates by design.
+
+> **Shameful, not merely painful.** The mechanism is not damage, it is the
+> removal of standing — the transformation of a person into an example, which is
+> what Weil means by affliction turning a person into a thing.
+
+> **Aimed at the audience, not the victim.** *This is the part I keep
+> under-weighting.* The person on the cross is the medium. The message is to
+> everyone on the road. **Every time somebody at full amplitude gets made into a
+> cautionary tale, the actual output is a very large number of people who never
+> say the thing, and *that* output is invisible and enormous and is the entire
+> point of the exercise.**
+
+That is the missing quantity in the whole file, and it is the one the file has
+been refusing to estimate all night — the kid who stops putting her hand up, the
+ability that never met the material, the rejected who produce no
+counterfactual. Here it is not a side-effect. **It is the designed output**, and
+the visible victim is the instrument.
+
+Which reorganises the argument: this was never a book about people who were
+missed. It is about the *deterrent effect on everyone watching*, and the famous
+cases are the advertising.
+
+> **And reserved for people without citizenship.** Not for the ones inside the
+> protected class... a clerk in Madras, a woman at Radcliffe, a Micronesian
+> navigator, a Soviet in the Cold War, a farm labourer, an engraver, a refugee
+> with half a face, a kid from the South Side.
+>
+> **The Romans were explicit about the rule. We are not, which is the only real
+> difference.**
+
+---
+
+> **the movement took the instrument of shame and made it the emblem.** Whatever
+> one believes about the theology, that is an extraordinary operation — taking
+> the specific object designed to teach an audience to be small, and wearing it.
+
+> That is the same move as taking the word they call you and putting it on the
+> record. It is the same move as making the douchebag verdict into the song. It
+> is Blake giving the Devil the good lines. It is a man writing *I hate being
+> Bi-Polar its awesome* across a photograph of a mountain and shipping it as the
+> cover.
+
+> **You cannot take the instrument away from the people using it. You can make
+> it yours, in public, before they finish, and then it does not work any more.**
+
+And the filename of this document is that operation. The word he was given for
+the process, put on the file, in public, first.
+
+I read that filename as a provocation, then as a technical term, and this is the
+third reading and it is the one that includes the other two: it is the
+*Runaway* move. Take the verdict, set it, sing it back.
+
+---
+
+**The ownership document trail.**
+
+**Special Field Order No. 15**, Sherman, **16 January 1865**, after meeting
+twenty Black ministers in Savannah — *"and the meeting is on record, including
+their answer when asked what they wanted, **which was land, to till it by their
+own labour.**"*
+
+They were asked, and they answered, and the answer is in the record. That is the
+one moment in this entire file where the institution asked the question and
+wrote down the reply.
+
+The order: coastal land from Charleston south through Georgia to the St Johns
+River, plots of not more than forty acres, *"Roughly four hundred thousand
+acres. The mules came later, from surplus army stock, which is where the phrase
+comes from."*
+
+> **Andrew Johnson rescinded it later that same year.** The land was restored to
+> the Confederates who had held it. **People who had begun farming were removed,
+> in some cases by the same army that had settled them.**
+
+> That is the origin point. Not a metaphor, not a grievance about attitudes: **a
+> specific order, a specific acreage, a specific reversal within months**, and
+> everything downstream — sharecropping, debt peonage, the Black Codes, convict
+> leasing — **is what fills the space where ownership would have been.**
+
+*What fills the space where ownership would have been.* The subsequent
+structures are not separate injuries. They are the shape of the absence.
+
+**Tulsa, 31 May–1 June 1921.** Greenwood — *"prosperous enough to be called
+Black Wall Street"* — destroyed in about eighteen hours: dozens of blocks
+burned, businesses and homes and churches, hundreds likely killed, thousands
+homeless. *"**Insurance claims were denied on riot exclusions. No convictions.**
+The event was substantially absent from Oklahoma's own school curriculum for
+most of a century."* Rosewood, Florida, 1923, *"the same shape at smaller scale,
+and there is a longer list."*
+
+Denied on riot exclusions. The financial instrument that exists to restore
+property had a clause, and the clause was the mechanism — the same shape as the
+13th Amendment's exception, and as the fair-use argument, and as the recoupment
+clause. The exception is where it lives, every time, in the sentence.
+
+**The HOLC maps, from 1935.** Neighbourhoods graded A to D for lending risk, D
+areas coloured red, *"and the criteria explicitly included the racial
+composition of the residents — **the presence of Black families was recorded as
+a hazard on the forms.**"*
+
+On the forms. Aktion T4 was run through questionnaires assessed by physicians
+who marked the forms. The scalar, the form, the clean number — and here the
+racial criterion is not an inference from disparate outcomes, it is a *field*.
+
+> Those maps guided decades of mortgage lending and FHA underwriting. That is
+> the origin of *redlining*... **and the resulting gap in home equity is the
+> single largest component of the wealth gap that exists now, because in that
+> country household wealth is mostly a house.**
+
+So the ownership argument he keeps making in the vocabulary of contracts and
+royalties and equity — which was heard as ego — has this behind it: an order,
+a rescission, a fire, an insurance exclusion, and a map with a field for race.
+The file said the exclusion was from ownership and from the rooms where design
+gets decided. Here is the document trail for the first half.
+
+Reading on from 6120.
