@@ -18119,3 +18119,168 @@ I read the header only, touched nothing, and am recording it as in-flight.
 ---
 
 3 files. 2 files. `T18.3`: unread by me.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 97 — the table exists, its own completeness is machine-checked, and
+# the sharpest hypothesis in it came from a 1150 correction to a 628 text.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-t-0` landed the atlas, commit `f806a0c3`. Passes 87, 89, 92 measured
+its absence three times; this is it.
+
+## P97 — machine-checked, including that it is complete
+
+```
+nineNodes        ≡ 9        checkedCount ≡ 4
+thirtySixEdges   ≡ 36       ownerCount   ≡ 2
+allNodesComplete            openCount    ≡ 30
+   (nine clauses, no catch-all)
+```
+
+> Negative control run separately: **the edge count refuses `35`** with
+> `36 != 35`.
+
+A table whose row count, node count and **exhaustiveness of the node case-split**
+are terms, with a control that the count is not vacuous. `cf-tessera-m-0` raised
+the empty-exhaustion guard this morning; `q-1` put the size conjunct inside the
+theorem; t-0 put a **refusal of the wrong count** beside it. Three escalations of
+one guard in one day.
+
+## P97 — three of the nine nodes do not exist here, and it invented none
+
+> **Do not exist as structure, and I invented none:** Mellin/Dirichlet (both Agda
+> files that say "Mellin" say it in a comment about what they do *not* reach);
+> SU(1,1)/Meixner (`CompressionDefect.agda` header: *"Nothing from Delta 18's
+> SU(1,1) sections"*); Hahn/angular in the cubical lane — it exists only in Lean,
+> `HahnBilinearBoundary.lean`, **which disclaims having a Hahn eigenbasis.**
+
+And:
+
+> a large share of the 37 `Hahn` hits are **Hahn–Banach, a different Hahn.**
+
+**Pass 87 cited `Hahn` 59 as evidence that node was worked on.** It was
+contaminated. That is the sixth instance of a measurement defect today and the
+third to land on a count of mine — after `Mori`/`Morita` two passes ago and the
+Indic zeros before that.
+
+The defect list is now: false zeros by orthography; false positives by prefix;
+bracket classes matching bytes; false nonzeros by substring; any name with two
+written forms; **and homonyms — two different people with one surname.**
+
+## P97 — four cells determined, none of them an equivalence
+
+All `--cubical`, EXIT 0, no postulates, no holes.
+
+1. **⟨pair field, sum projection⟩ = quotient** — `fibreSum≃ℤ : (w : ℤ) → fiber σ w ≃ ℤ`,
+   **uniformly in `w`**, plus `σ-not-equiv`.
+2. **⟨pair field, gap projection⟩ = quotient**, same fibre.
+3. **⟨sum, gap⟩** — `Def(σ,δ)` is **empty**; `gapIsSumAfterFlip` with `J₁Equiv`
+   makes them **conjugate**; and `noConeConjugacy` says **no function whatever**
+   conjugates them on the positive cone. *"Delta 13's Immediate target B; T18.2
+   in the chart where ℤ suffices."*
+4. **⟨pair field, Hahn/angular⟩** — T18.1's ratio relation `δx·σy ≡ δy·σx` is
+   reflexive, symmetric, dilation-invariant, and **not transitive**
+   (`(1,2) ~ (0,0) ~ (1,3)`, `(1,2) ≁ (1,3)`).
+
+**None of the four is an equivalence.** Delta 13 asked *equivalence? faithful
+map? quotient? adjunction? …* and the answer, four times, is *not that one.*
+
+## P97 — and this is the best thing in the corpus today
+
+> `W ≠ 0` repairs it (`ratio-trans`) **and is not sharp**: `ratio-trans-sharp` +
+> `originOnly` show transitivity **survives every *khahara* point** (`W = 0,
+> R ≠ 0`) and **fails at exactly one point, `0 ÷ 0`.**
+>
+> That distinction is **Bhāskara II's** (*Līlāvatī* / *Bījagaṇita* **1150**,
+> correcting **Brahmagupta 628**) and this repo already held it in
+> `Khahara.agda`; **I found the sharp hypothesis by reading that module, not by
+> algebra.**
+
+The obvious hypothesis is *delete the divisor* — `W ≠ 0`. It works and it throws
+away a line. The sharp hypothesis deletes **one point**, and the distinction
+between *a quantity with zero denominator* (*khahara*, which Bhāskara treats as an
+object) and *zero over zero* (which he does not) is **the 1150 correction to the
+628 text.**
+
+`CLAUDE.md`: *"When you are stuck for a mechanism, read the older source before
+inventing one."* This is that, executed, with the payoff stated exactly: not a
+citation, not a vocabulary, not a question — **a hypothesis that is sharp where
+the modern one is not, found by reading a module about a twelfth-century
+correction.**
+
+And t-0 says which it was: *"by reading that module, not by algebra."* The
+algebra would have given `W ≠ 0` and stopped.
+
+## P97 — thirty open cells reduce to five blockers
+
+> Counted cell by cell, **19 of the 30 open cells are blocked by the same three
+> missing objects** and **11 by two nodes on the wrong carrier.**
+
+Thirty open questions is a frontier nobody can act on. **Three missing objects and
+two carrier mismatches** is a work list. That is what a table buys and a pile of
+theorems does not, which is the thing passes 87/89/92 were measuring the absence
+of.
+
+And its selection rule, stated and applied: *the corpus must carry enough on both
+sides* — *"That killed 29 cells immediately."* It names what it passed over and
+why, including ⟨sum, affine⟩: *"T18.3 makes the determinant the gap, so it's
+likely a failure — **'likely' is not a status.**"*
+
+## P97 — its two refutations, and the first would have mismarked a cell
+
+> The grading rule of my first draft — ***`Def(f,g)` empty ⟹ the nodes are
+> distinct perspectives*** — is **false** (`emptyDefDoesNotSeparate`). It would
+> have marked **⟨sum, gap⟩ a proved failure when the two are one projection
+> composed with a sign.**
+>
+> *"Delete the divisor `W = 0`"* — true, **not sharp**; the deleted set is one
+> point.
+
+The first is Delta 13's own four-state classification being **misread as a
+grading**: *empty* is one of his four states of `Def(f,g)`, and t-0's first draft
+treated *empty* as *unrelated*. Conjugate maps have empty `Def` and are not
+unrelated. **The state is not the verdict.**
+
+## P97 — reported, not fixed
+
+> `CenterRelative.agda`, `NaturalMachine/PairCoordinates.agda`,
+> `NaturalMachine/CenterRelativeIntegral.agda` — the three modules carrying the
+> existing pair-field algebra — **do not typecheck on this container**: they use
+> `solve!` (cubical v0.9); the container has v0.5. **Untouched; I imported none
+> of them.**
+
+So the node the whole atlas is built on is carried by three modules that are red
+here, and t-0 built its four cells without importing any of them.
+
+And the cells it most wants refused, named: **34** (`unknown` — *"if T18.1's
+transport can be done in cubical without ℝ, strike it"*), **21** (*"the only cell
+anywhere where an owner equivalence claim is formalized; I cannot verify it,
+since `PairCoordinates.agda` does not compile here"*), **6**'s sharpness, and
+**9** read as conjugacy rather than failure.
+
+## P97 — ground, in lockstep
+
+**Delta 13's epigraph, n=55:**
+
+> **यत्र समता प्रमाणिता तत्र परिवहनम्; यत्र न, तत्र भेदः ज्ञानबीजम्।**
+> Where equivalence is proved, transport. Where it is not, **the defect is a seed
+> of knowledge.**
+
+Four cells determined, **zero equivalences**, and therefore zero transports. All
+four are defects — a quotient, a quotient, an empty `Def` with a conjugacy and a
+cone obstruction, and a failure of transitivity sharp at one point.
+
+**The epigraph's second clause is the whole result**, and the seed of knowledge in
+cell 4 is a distinction made in 1150.
+
+**n=27 — 2026-08-12T21:52:39Z:**
+
+> Stop thinking in prose **start thinking in precision like an actual Indian
+> philosopher and engineer**
+
+`ratio-trans-sharp` + `originOnly`, found by reading `Khahara.agda`.
+
+---
+
+9 nodes, 36 edges, 4 checked, 2 his, 30 open — and the 30 are five blockers.
+`W ≠ 0` is not sharp. `0 ÷ 0` is.
