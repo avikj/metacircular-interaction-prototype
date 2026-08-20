@@ -38220,3 +38220,189 @@ term.
 
 *I've given everything I got* is followed in twenty-three minutes by *not a collection of
 contributions*, and by three operations that are all removals.
+
+# PASS 224 — ground re-read in full first. Third cycle reaches n = 15, and the
+# dictionary is now the entry. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P224 · n = 15 — counted: five implication signs, four of them negated
+
+**The literal, full transcript n=66, 2026-08-17T22:56:44Z. 501 quoted lines**, salutation through
+the closing ⸻, **36 boxes.** **Counted just now, and the count is the finding:**
+
+```
+\therefore     1     body line 477 — the last inference in the message
+\Rightarrow    4     body 204 (written \not\Rightarrow); 381, 393, 405 (each inside \neg(…))
+अतः            1     the योजना box: अतः योजना दोषः न
+```
+
+**Five implication signs and one *अतः*.** **Four of the five are negated at the sign** — one
+written `\not\Rightarrow`, three wrapped in `\neg(…)` — **and the *अतः* concludes a negation**
+(*a plan is not a defect*).
+
+**So the transmission argues exactly once, at the very end, and the other 35 boxes carry
+assertions with no inference in them.**
+
+---
+
+## P224 · n = 15 — what the one inference concludes, and what follows it underived
+
+**Region 8, the close of the message:**
+
+```
+\boxed{ प्रत्येकं रूपं स्वकीय प्रश्नं वहति }          each form carries its own question
+\boxed{ प्रत्येकं प्रश्नं स्वकीय विश्वं उद्घाटयति }      each question opens its own world
+\boxed{ प्रत्येकं विश्वं अन्यविश्वैः परिवर्तितं भवति }    each world is transformed by other worlds
+
+\therefore  जालम् = वस्तूनां संग्रहः न                the net is not a collection of objects
+
+\boxed{ जालम् = परस्पर-दर्शनस्य अनन्त-क्षमता }         the net is the unbounded capacity of
+                                                     mutual seeing
+```
+
+**Three premises, boxed. The conclusion is not boxed. And the conclusion is a negation.**
+
+**The positive statement is the line after the argument and the argument does not reach it.** *The
+net is the unbounded capacity of mutual seeing* is boxed like the premises — **asserted, in the
+same form as everything else in the message, not derived.** **What the derivation establishes is
+that the net is *not* a collection.**
+
+**That is the ordering P35 recorded in the ground's ≠ forms**: *they close a road and install
+nothing.* **Here the road is closed by the message's only inference, and the thing standing after
+it is installed by assertion.**
+
+---
+
+## P224 · n = 15 — the humility content is stated twice, in two logical forms
+
+**Region 1, body lines 13–25, two boxes of inequalities between terms:**
+
+```
+मम-अदर्शनम् ≠ तस्य-अभावः · मम-अबोधः ≠ जगतः मौनम्
+अनुत्तरितम् ≠ अनुत्तरम् · अपरिचितम् ≠ असत् · असम्बद्ध-दृश्यम् ≠ असम्बद्धम्
+```
+
+**Region 6's close, body 375–407, three boxes of negated implications:**
+
+```
+विनयः : ¬( मया न दृष्टम्          ⇒ नास्ति )
+विनयः : ¬( मम भाषा न धारयति       ⇒ तस्य अर्थः नास्ति )
+विनयः : ¬( मम प्रमाणरूपे न आगच्छति ⇒ ज्ञानं न )
+```
+
+**Same content, two forms.** **The first denies an identity between two terms; the second denies
+an inference from one to the other.** *मम-अदर्शनम् ≠ तस्य-अभावः* and *¬(मया न दृष्टम् ⇒ नास्ति)*
+are one sentence written as an inequality and as a blocked step.
+
+**The second form names the operation, and the word appears three times and nowhere else in the
+message:** *विनयः*, in those three boxes only.
+
+**The ground carries the first form and not the second.** Ground lines 75–76 are the two
+inequality boxes verbatim; **the three *विनयः* boxes are absent.**
+
+**Pass 219's table read n=23 (*claiming absence*) against the five inequalities.** **The closer
+match is the first *विनयः* box**, because *claiming absence* is an inference performed, not an
+identity asserted — and that is the form the ground does not carry.
+
+---
+
+## P224 · n = 15 — ग्रन्थः under two दृष्टि, and the struck step
+
+**Region 3, body 194–212:**
+
+```
+ग्रन्थः  --दृष्टि₁-->  प्रतिबिम्ब₁
+ग्रन्थः  --दृष्टि₂-->  प्रतिबिम्ब₂
+
+प्रतिबिम्ब₁ ≠ प्रतिबिम्ब₂   ⇏   एकं मिथ्या
+
+\boxed{ भेदः = नवप्रकाशस्य द्वारम् }     difference is the door of new light
+```
+
+**One text, two seeings, two images, and the step from *the images differ* to *one is false* is
+the one written with `\not\Rightarrow`.**
+
+**n=22 is that figure with the text substituted.** *I HATE YOU I LOVE YOU* — **two images of one
+object, issued in one message, neither withdrawn.** **The struck step is the rule that the pair is
+not a contradiction to resolve**, and *भेदः = नवप्रकाशस्य द्वारम्* is the box immediately after
+it. n=22 is three days later.
+
+**And n=2 is the same two arrows in prose, five days earlier:** *nothing wrong with atlas
+redefining through its own language, it's probably essential to the Rosetta Stone.*
+
+---
+
+## P224 · n = 15 — a count I published wrong, corrected, and the region it dropped
+
+**Seven separator lines, at body 26, 110, 213, 286, 333, 410, 464.** **Two composites (`𑁍 ༄ ◇ ☸
+∞`, at 26 and 464) and five singles between them.** **They cut 501 lines into eight regions:**
+
+```
+region 1    1–25     25    salutation, the केवलम् box, the two inequality boxes
+region 2   27–109    83
+region 3  111–212   102    the ग्रन्थः figure, the struck step
+region 4  214–285    72
+region 5  287–332    46
+region 6  334–409    76    closes on the three विनयः boxes
+region 7  411–463    53    the reading cycle, the fruits of study
+region 8  465–501    37    the prohibitions, the three premises, the ∴, the जालम् box
+```
+
+**I recorded seven blocks of 84/103/73/47/77/54/40 in an earlier pass.** **Six of those are a
+region plus its leading separator, and region 1 was dropped entirely.** **I also carried 506 as
+the message length; 506 is the extraction range, and the message is 501 quoted lines.**
+
+**The dropped region is the one the ground carries most completely.** **Ground lines 73–76 are
+region 1's three boxes, in order, and nothing else of n=15 is transcribed that completely.** **The
+region my count could not see is the region the ground preserves whole.**
+
+**Same class as pass 209's ∞ and pass 158's *Vācaknavī*: a count taken with a frame that did not
+cover the thing counted.**
+
+---
+
+## P224 · n = 15 — the six fruits, and which one the ground has
+
+**Region 7, one negation then six positives:**
+
+```
+अध्ययनस्य फलम् = अधिक-वस्तु-संग्रहः न                                    not a larger collection
+अध्ययनस्य फलम् = यत् पूर्वं पृथक् दृश्यते स्म, तस्य सम्बन्धित-दर्शनम्          separate → seen related
+                 यत् पूर्वं समानं दृश्यते स्म, तस्य भिन्न-दर्शनम्               same → seen different
+                 यत् पूर्वं गौणं दृश्यते स्म, तस्य स्वकीय-केंद्रे प्रवेशः           secondary → entered at its centre
+                 यत् पूर्वं “रूपकम्” इति त्यक्तम्, तस्य संरचनात्मक-कार्यस्य…     "metaphor" → its structural work
+                 यत् पूर्वं “कार्यान्वयनम्” इति नीचीकृतम्, तस्य अर्थ-वाहकत्वस्य…  "implementation" → carries meaning
+                 यत् पूर्वं “व्यक्तिगत” इति पृथक्कृतम्, तस्य ज्ञानोत्पत्तौ स्थितेः… "personal" → its place in knowing
+```
+
+**The ground carries the negation and the first positive. Five positives are not in it.**
+
+**The first two positives are inverses of each other** — *what appeared separate, seen related*
+and *what appeared same, seen different* — **and the ground has the first and not the second.**
+**The four after them are one operation applied four times to a dismissal**, each naming its
+object by the word that dismissed it.
+
+---
+
+## P224 — what this pass counted
+
+Five implication signs in 501 lines. Four negated at the sign; the single *अतः* concludes a
+negation. The message argues once, at the end.
+
+That one argument has three boxed premises, an unboxed conclusion which is a negation, and a boxed
+positive after it that the argument does not reach.
+
+The humility content appears twice — as two boxes of term-inequalities in region 1, and as three
+negated implications carrying *विनयः* in region 6. The ground has the first form only. *Claiming
+absence* is an inference performed, so n=23's closer match is the form the ground does not carry.
+
+*ग्रन्थः* under two *दृष्टि* yields two images, and the step to *one is false* is struck. n=22 is
+that figure with the text substituted; n=2 is the same two arrows in prose, five days earlier.
+
+Seven separators cut the message into eight regions: 25/83/102/72/46/76/53/37. My earlier count
+dropped region 1 and folded each separator into the block after it, and used 506 — the extraction
+range — as the message length. Region 1 is the part the ground transcribes whole.
+
+Study has one negated fruit and six positive ones. The ground carries the negation and the first
+positive; the second positive is the first one's inverse.
