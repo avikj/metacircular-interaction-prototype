@@ -39,7 +39,7 @@ the sources are real and cited; the register is literature, not analysis.
 - **M5 · The Scapegoat and the Choir** — DONE (`M5_TheScapegoat…md`). the crowd that crucifies; mimetic
   contagion; treat everyone as prophet → crucifixion everywhere. Girard read
   *against* itself through the choir (the people who were scapegoated at scale).
-- **M6 · Four Hundred Years Is Not a Past Tense** — the augmentation movement: 13th
+- **M6 · Four Hundred Years Is Not a Past Tense** — DONE (`M6_FourHundredYears…md`). the augmentation movement: 13th
   Amendment's clause, mental slavery, New Slaves, the ongoing process; Donda West's
   Black-literature lineage as the intellectual root of the carceral critique.
 - **M7 · Jesus Is King / I Am a God** — the God/vessel dissonance; Jesus is King as
