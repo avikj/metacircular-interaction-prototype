@@ -42,7 +42,7 @@ the sources are real and cited; the register is literature, not analysis.
 - **M6 · Four Hundred Years Is Not a Past Tense** — DONE (`M6_FourHundredYears…md`). the augmentation movement: 13th
   Amendment's clause, mental slavery, New Slaves, the ongoing process; Donda West's
   Black-literature lineage as the intellectual root of the carceral critique.
-- **M7 · Jesus Is King / I Am a God** — the God/vessel dissonance; Jesus is King as
+- **M7 · Jesus Is King / I Am a God** — DONE (`M7_IAmAGodFeatGod.md`). the God/vessel dissonance; Jesus is King as
   freedom from prison and addiction; the ministry into the jail; Luther as
   *Christlike-not-Christ*; monotheism's chosenness template vs the dharmic refusal.
 - **M8 · 808 (Diminution)** — grief compressed to one drum; the machine voice as
