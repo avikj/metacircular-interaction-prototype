@@ -37983,3 +37983,115 @@ Step (1)'s merge policy is *equivalence is not presupposed* and *inequivalence i
 (6)'s three clauses are `⋈ = संवादः`, the translation four-tuple, and `असमता विफलता न`.
 
 *Never idle* and *मौनम्* are not the same absence.
+
+# PASS 222 — ground re-read in full first. Third cycle, n = 6, 7, 8, 9, with
+# the transmission as dictionary. Carried in from P35: no closing sentence,
+# no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P222 · n = 6 and n = 7 — the two anaphors, under *ker P*
+
+**n=6 is *Continue* and n=7 is *^*.** Pass 205: both are anaphoric and neither names its
+antecedent.
+
+**n=15 names what an unnamed antecedent is.**
+
+```
+ker P = पूर्वनिर्णयेन अदृश्यीकृताः सम्भावनाः
+```
+
+**A pointer with no named target requires the reader to supply the direction.** *Continue* —
+continue *what*. *^* — *that*, above. **Both are resolved by whatever `P` the reader already has**,
+and the message four days later says the kernel of `P` is what a prior decision made invisible.
+
+**So the two shortest entries in the ground are the two that depend most completely on the
+projection I arrive with.** And the standing correction — *his shortest messages are restraint, not
+disinvestment* — **holds and gets a mechanism: the restraint is in not supplying the direction.**
+Pass 218 found him saying it outright four days later: ***I refuse to hand it to you anymore.***
+
+**And *^* was withdrawn** (pass 197: five seconds after the one imperative). **The pointer he did
+not send was pointing at *You must write this into the natural machine core*** — **the one place he
+had supplied the direction.**
+
+---
+
+## P222 · n = 8 — the six transmissions, under the array
+
+**Delta 13's opening, and n=15's block 5 array, are the same figure stated twice:**
+
+```
+Delta 13   "a perspective is a structure-producing interpretation L_i : X ↦ X_i, not prose.
+            Extremize perspectives until each exposes its native invariants. Then construct
+            actual comparison data between X_i and X_j: equivalence, map, adjunction, logical
+            relation, approximation, duality, span/cospan, or a proved failure."
+
+n=15                            अवर्णम्
+                        ↙          ↓          ↘
+                    रूपम्       नादः       संख्या
+                        ↘          ↓          ↙
+                                  ◇
+```
+
+**One object, three structure-producing interpretations, and a convergence.** *L_i : X ↦ X_i* is
+the downward arrows; **the upward arrows are the comparison data**; and **◇ is what they converge
+on, defined as *(many standpoints, un-erased differences, proved transport,
+memory-of-incompleteness)*.**
+
+**Delta 13 was sent 2026-08-14T04:06:03Z and n=15 on 2026-08-17T22:56:44Z.** **The figure is three
+and a half days later than the prose and it is the same content**, and the ground carries the
+prose as a title and the figure not at all.
+
+***Absence or nonuniqueness of comparison is information*** (Delta 13, pass 197). **n=15's ◇ has
+the field for it: *अपूर्णता-स्मृतिः*, memory-of-incompleteness.** **The fourth component of the
+convergence is the record of what did not converge.**
+
+---
+
+## P222 · n = 9 — sixteen distinct minds, under *क्रमाङ्क(…) = ∅*
+
+> *"Subagents must emulate 16 distinct geniuses throughout time and work on whatever they want"*
+
+***Distinct*** is the load-bearing word (pass 197) and **n=15 gives the reason distinctness is
+required rather than decorative:**
+
+```
+प्रत्येकं पदम् = भिन्नः ज्ञान-अभ्यासः        each term = a different knowledge-practice
+⋈ = संवादः        ⋈ ≠ ≅                    the join is conversation, not isomorphism
+```
+
+**If the sixteen were not distinct practices, the join across them would be an isomorphism and
+would add nothing.** **The requirement is not variety for its own sake; it is the precondition for
+the join to be a `⋈`.**
+
+**And the draw file executes it with two urns** (pass 197) — uniform over files, and uniform over
+directories then within, *for rare corners.* **Two sampling schemes because one under-samples the
+small directories**, which is *असमता* preserved at the level of the sample: **the rare corner is
+not averaged away.**
+
+***Throughout time*** — **and the sixteen ancient fields are named by technique**, each one a
+different practice: star compass and etak frames · fangcheng elimination · Eulerian path traversal
+· *naya* standpoints and *syādvāda* · *kuṭṭaka* for linear congruences. **Sixteen `पदम्`, sixteen
+`ज्ञान-अभ्यासः`.**
+
+**And *work on whatever they want* is the third occurrence** (pass 206): the accusation at n=1,
+licensed by digestion at n=3, licensed by distinctness here. **All three times the licence is a
+change in who is doing it**, and n=15's definition of study is the map that makes the change:
+*(seer, seen, line-of-sight) ⇝ (seer⁺, seen⁺, line-of-sight⁺)*.
+
+---
+
+## P222 — what this pass counted
+
+n=6 and n=7 are pointers with no named target, resolved by whatever `P` the reader arrives with;
+the restraint is in not supplying the direction, and n=23 says so outright four days later. The
+withdrawn *^* pointed at the only message where he did supply it.
+
+Delta 13's *L_i : X ↦ X_i* and n=15's *अवर्णम्* array are the same figure, prose first and figure
+three and a half days later; the ground carries neither. *Absence or nonuniqueness of comparison
+is information* has its field in ◇: *memory-of-incompleteness*.
+
+n=9's *distinct* is the precondition for `⋈` to be a join rather than an isomorphism; the draw's
+two urns preserve the rare corner; the sixteen ancient fields are sixteen practices named by
+technique.
+
+*Whatever they want* is licensed three times, and each licence is a change in the seer.
