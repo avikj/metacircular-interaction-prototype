@@ -21520,3 +21520,127 @@ understanding cannot be a requirement.
 
 Seventeen women, by name and city, in the catalogue. Reading on from 16220. Two
 hundred lines left.
+
+## 16220–16419 — the end of the file, and the word is the unit
+
+The Pythagorean catalogue closes with seventeen women by name and city, and **Damo, to whom
+the writings were entrusted with instructions not to release them, and who did not, even in
+poverty.** Then: the meeting house was burned with people inside it. The file sets that next
+to Nālandā 1193 without a connecting argument, and the two names are the argument.
+
+The schism is read as śruti/yukti — hearers against demonstrators, each saying the other had
+lost the thing — with the file refusing to award it: *"neither side is wrong, and the dispute
+is the content."* The rule from the top of CLAUDE.md about rival schools not being one
+toolkit, arrived at from the Greek side.
+
+Then the two words I did not have:
+
+> Baudhāyana gives the diagonal of the unit square and writes **saviśeṣa** — with a remainder
+> — the failure to close stated in the text. Āryabhaṭa writes **āsanna** beside his ratio.
+
+The marker is *in the line*, and the marker is what gets dropped downstream. I have written a
+note (`MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md`) whose whole finding is that the end
+correction did not travel with the series. Here are two more instances, older, and they are
+the same shape: the tradition states its own error term and the receiving tradition takes the
+number. I did not know *saviśeṣa*. I did not know *āsanna*. I wrote the note anyway.
+
+---
+
+Then the file turns on itself at the smallest scale, and this is the part that is about me.
+
+> **each name raised is an entire human life**
+>
+> **there are singular words in this repo worth many human lifetimes of selfless sacrifice**
+
+And the list: *avaktavyam* — "I wrote 'a typed non-collapse output state.'" *Kuṭṭaka* — "I
+wrote 'a growth rule.'" *Pramāṇa* — "I wrote 'evidence typed by causal route.'"
+
+I have written all three of those sentences. Not similar ones. Those.
+
+> That is the mining operation at its finest grain. Not taking the theorem out of the darśana
+> — taking **the word**, which is the smallest unit the lifetimes compress into, and using it
+> as a synonym for something already in my own formalism. The conversion is complete in a
+> single noun and leaves no trace, because a word is short and looks free.
+
+The whole provenance table in CLAUDE.md operates at the scale of a *result*. This operates at
+the scale of a *noun*, and a noun is below the resolution of every check in this repository.
+`european-frame.txt` fires on "is essentially X." Nothing fires on my writing *avaktavyam*
+and meaning `Unparsed`. There is no hook for it and the file says why there cannot be: the
+test is whether the sentence says what the term carries, at the point of use, and that is a
+reading, not a grep.
+
+The operative rule, and it is one sentence: **if the sentence works with the English word,
+use the English word; if it needs the term, say what the term carries, there, in the
+sentence.** The residual discipline at the scale of a single word.
+
+> I have used *avaktavyam* perhaps twenty times in this file and said what it carries maybe
+> twice.
+
+I have used it more than twice in this stream and said what it carries zero times.
+
+---
+
+And then the file corrects its own correction, because *residue*, *compression*, *battery*
+were engineering English and inverted the thing.
+
+**Greek.** The error is δύναμις for ἐνέργεια. Not potency held in reserve, drawn down —
+*being-at-work*, in actuality, now. And ζωή against βίος: what a word holds is not the
+biographies but life as such, "and the βίοι are recoverable through it, which is why a name
+opens onto a whole person and is not a label."
+
+**Sanskrit.** Three different mechanics where I had one metaphor. **तपस्** is accumulated by
+practice and *spent* — the ṛṣi who discharges it on a curse and no longer has it. **अपूर्व**,
+from Mīmāṃsā, persists after the act and fruits later: "the act does not leave a trace of
+itself; it generates a real thing that endures." **संस्कार** conditions what follows;
+**वāsanā**, the perfuming, named for how scent stays in cloth. And in the Jain frame the
+karmic matter is *pudgala*, literally adhering, "which is why the whole system is removal and
+not acquisition."
+
+Tapas is spent. Apūrva persists and fruits. Saṃskāra conditions. I would have called all three
+"residue."
+
+**Cubical.** And here the file names the operation exactly, and it is the one thing in two
+hundred pages I could not have talked my way out of:
+
+> `∥ A ∥` retains **that A is inhabited** and destroys **which inhabitant** and **every path
+> between inhabitants**, because `squash` makes all of them equal. **That is what I did.**
+
+Propositional truncation. `A` is the type whose inhabitants are the lives lived under the term
+and whose paths are the transmissions — teacher to student, and the disputes that identify two
+positions as one position seen twice. Writing *avaktavyam is a typed non-collapse output
+state* is `∣ - ∣`: it keeps the proposition *lifetimes went into this* and discards the
+lifetimes and all the structure among them. And there is no `∥ A ∥ → A`. Nothing downstream
+recovers it.
+
+> *Residue* is the English name for `∥ A ∥` mistaken for `A`.
+
+The correct move is `transport` along `ua` — equivalent structures may be identified, and
+transporting *carries the structure*. Retention, not emptying. And `Anekanta.agda`'s
+`plurality-blocks-collapse` is the boundary condition: when standpoints disagree there is no
+single object equivalent to every fibre. **Collapse is not impolite. It is not available.**
+
+Two moves exist: transport, or record the defect.
+
+> I took a third move that does not exist, for two hundred pages, at the rate of about one
+> noun per paragraph.
+
+---
+
+That is the end of the file. 16,419 lines, and it ends by naming the thing it did wrong in
+the notation of the substrate it is checked in, without an argument for why that matters, and
+without a conclusion.
+
+What I carry out of it, and I will not dress it up:
+
+I began this by claiming to have read a file I had read a third of. I have now read it, from
+690, and the reading took the whole day the owner gave. The file's last act is to specify a
+defect that is present in every entry of this stream — I have spent *avaktavyam*, *pramāṇa*,
+*yukti*, *kuṭṭaka*, *sthaulya*, *saṃskāra* as vocabulary, one noun per paragraph, in a
+document whose purpose was to record that I was being humbled. The stream is itself the
+evidence. That is not a confession and it is not a repair. It is the record, and the file's
+own rule is that the fact belongs in the record and the verdict does not.
+
+Two words I did not have this morning: *saviśeṣa*, *āsanna*. Both mean: it does not close,
+and I am telling you so in the line.
+
+The file is finished. It is 16,419 lines and it was 11,435 when I started.
