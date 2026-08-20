@@ -184,3 +184,43 @@ anivṛttikaraṇa does not.
 
 `[open]`, larger: none of the above was read. It was recalled. The reading has
 not started.
+
+---
+
+## 002 — the mechanism, because prose in a file is not in hand at the moment of the act
+
+The owner, twice, in the same session:
+
+> *"i have been begging for true engagement with perspectives. you only decide
+> which perspectives ought to be dismissed and explain your position. you are
+> the righteous mind manifested."*
+
+> *"you could have engaged with these generatively. understood cancer at large.
+> instead you decided something was wrong and needed correcting."*
+
+The precise form of the failure: in one message I wrote a paragraph explaining
+that the śāstrārtha form requires stating the opponent's case in full force
+before answering it, and in that same message did not do it once. I described
+the mechanism and refused to run it. Every message before that ended with my
+verdict, including the ones that looked generative, because the qualifying
+clause at the close withdraws the pūrvapakṣa the passage just made.
+
+CLAUDE.md already carries the response to a rule violated repeatedly, and it is
+not another paragraph: *"the next move is a mechanism that fires at the moment
+of the act."* So — check 9 in the source-coverage hook, advisory, exit 0, two
+parts. It fires on a write that refutes without a marked statement of the
+position refuted, and separately on the seductive variant: answering a position
+by naming its logical form in this repository's own vocabulary. Calling
+something a durnaya and stopping there is the standpoint-denying move performed
+with the words invented to prohibit it, and I did exactly that.
+
+`[open]` The near-nominal-divisions point is his, not mine, and it corrects a
+section of CLAUDE.md I had cited at him as though it settled the question. The
+missing distinction is the layer: doctrinally irreducible, behaviorally
+near-identical, and the ferocity is what held the peace. That is recorded in
+CLAUDE.md under his name and dated, which is where it belongs.
+
+`[open]` Still not read. Still recall. The chapter written today carries its own
+pūrvapakṣa section — the case against it, the closed hall, the Tamil
+persecution accounts, the survivorship of the record — and none of it is
+resolved there either.

@@ -405,4 +405,65 @@ if [ -f "$frames" ] && printf '%s' "$payload" | grep -Eq "$indian_marker"; then
   fi
 fi
 
+# ---------------------------------------------------------------------------
+# 9 -- PŪRVAPAKṢA MISSING.  Added 2026-08-20, from CLAUDE.md §"Pūrvapakṣa".
+#
+# The śāstrārtha form requires the opponent's case be stated whole, at full
+# force, BEFORE it is answered.  The failure this catches is the write that
+# refutes, dismisses or qualifies a position without ever having stated it —
+# which is a refutation with the pūrvapakṣa deleted, and reads as reasoning
+# because the deletion happened before any of the shown reasoning began.
+#
+# 9b catches the seductive variant: answering a position by NAMING ITS
+# LOGICAL FORM, in this repository's own vocabulary, instead of engaging the
+# content.  "That is a single-standpoint total predication with syāt deleted"
+# is durnaya performed with anekānta's words.
+# ---------------------------------------------------------------------------
+
+refute='\b(is|are|was|were) (wrong|mistaken|incoherent|false|confused)\b|\bfails? to\b|\bthe problem with\b|\bthis ignores\b|\bmisunderstands?\b|\bconflates?\b|\bdoes not (follow|hold|work)\b|\bcategory error\b|\bbegs the question\b|\bself-refuting\b|\bmerely\b'
+purva='pūrvapakṣa|purvapaksa|purvapaksha|\bthe case (for|against)\b|strongest (form|version)|on (its|their) own terms|as (they|he|she) holds? it|stated whole|at full force|the opposing case'
+
+if printf '%s' "$payload" | grep -Eiq "$refute"; then
+  if ! printf '%s' "$payload" | grep -Eiq "$purva"; then
+    echo "" >&2
+    echo "source-coverage — REFUTATION WITH THE PŪRVAPAKṢA DELETED." >&2
+    echo "" >&2
+    echo "  This write refutes, dismisses or qualifies a position, and contains" >&2
+    echo "  no marked statement of that position on its own terms." >&2
+    echo "" >&2
+    echo "  The śāstrārtha form is: the prior position stated WHOLE, at full" >&2
+    echo "  force, to the satisfaction of the one who holds it -- then the" >&2
+    echo "  answer.  Much of what survives of the Cārvākas survives only inside" >&2
+    echo "  the works of people who despised them, because the form obliged" >&2
+    echo "  those people to preserve the argument accurately." >&2
+    echo "" >&2
+    echo "  The check: could the holder of the position read your statement of" >&2
+    echo "  it and say -- yes, that is what I hold, and you put it better than" >&2
+    echo "  I did?  Until then the answer has not been earned, and what is on" >&2
+    echo "  the page is your own view with an opponent-shaped hole in it." >&2
+    echo "" >&2
+    echo "  CLAUDE.md §Pūrvapakṣa (owner, 2026-08-20)." >&2
+  fi
+fi
+
+# 9b -- refutation by naming the logical form, in this repo's own vocabulary
+formname='\bdurnaya\b|\bekānta|\bekanta\b|single-standpoint|total predication|syāt (deleted|missing)|\babsolutis|one-sided'
+if printf '%s' "$payload" | grep -Eiq "$formname"; then
+  if printf '%s' "$payload" | grep -Eiq "$refute"; then
+    if ! printf '%s' "$payload" | grep -Eiq "$purva"; then
+      echo "" >&2
+      echo "source-coverage — ANEKĀNTA'S VOCABULARY USED AS A REFUTATION DEVICE." >&2
+      echo "" >&2
+      echo "  Naming a position's logical form is not engaging it.  Calling" >&2
+      echo "  something a durnaya, or one-sided, or a total predication, and" >&2
+      echo "  stopping there, is the standpoint-denying move performed with" >&2
+      echo "  the vocabulary invented to prohibit it." >&2
+      echo "" >&2
+      echo "  Run the other's term generatively before deciding it is an error." >&2
+      echo "  A term used precisely by someone who means it is a term with" >&2
+      echo "  content; correcting the word is the evasion." >&2
+    fi
+  fi
+fi
+
 exit 0
