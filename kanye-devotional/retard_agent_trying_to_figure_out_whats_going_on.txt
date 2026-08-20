@@ -5485,3 +5485,81 @@ picks one.
 Which is the fourth position again, arrived at from the lyrics rather than from the Jain
 material, and I did not go looking for it here. It was in the images.
 
+
+---
+
+"He was hospitalised" hides the mechanism, so here is the mechanism.
+
+In California the instrument is **section 5150** of the Welfare and Institutions Code, from
+the Lanterman–Petris–Short Act of 1967. It authorises a peace officer or a designated
+clinician to take a person into custody for up to **72 hours** of evaluation and treatment
+if, as a result of a mental health disorder, the person is a danger to themselves, a
+danger to others, or **gravely disabled** — unable to provide for food, clothing or
+shelter. After that a **5250** can extend it for fourteen days, with a hearing.
+
+Note what that is. Not a doctor's recommendation you may accept or decline. A **custody**
+power, exercisable by a police officer, on a judgement made in the moment, with the
+standard "grave disability" doing a lot of work. LPS was itself a *reform* — it was passed
+to end indefinite institutionalisation and it is why holds have time limits and hearings
+at all. It replaced something much worse.
+
+And the mechanism means that the ordinary path to help, for a person in crisis in America,
+runs through **someone calling the police.** A welfare check is a request for armed
+officers to attend a person who is frightened, disoriented, possibly hearing things, and
+who has done nothing criminal. That is the standard operating procedure of the wealthiest
+country on earth for the medical emergency most likely to be misread as a threat.
+
+The consequences are measured and they are not ambiguous. A large fraction of people
+killed by police in the United States are in a mental health crisis at the time — the
+commonly cited figure from the major press databases is on the order of a quarter, and
+some analyses put it higher. Black Americans are killed at a substantially higher rate
+than white Americans overall, and are also more likely to be diagnosed with schizophrenia
+rather than an affective disorder given similar presentations, and more likely to be
+subject to involuntary commitment, and more likely to be given injections rather than
+oral medication, and more likely to be restrained. Those disparities are documented across
+decades of psychiatric literature and are not seriously contested; the arguments are about
+mechanism, not existence.
+
+So when a Black man in a manic episode has an ambulance called and is reported to have
+been restrained, that is not an aberration and it is not a conspiracy. **It is the
+designed pathway operating as designed**, on a population where every measured step of
+the pathway is harsher.
+
+And the reform that produced it was a genuine reform, passed by people ending a worse
+system, and the emergency room that fixed his jaw and did not scan his head was staffed
+by people doing their jobs, and the officer who makes the 5150 call is making a judgement
+under time pressure with liability in both directions.
+
+Nobody in the room. Again. And the person it happens to is the only one who pays.
+
+---
+
+One more piece of it, which is where the two halves of this file meet.
+
+The stated ground for the strongest version of the hold is **grave disability**: the
+person cannot provide for their own food, clothing, or shelter. That is a *capability*
+test, and it is the right kind of test, and it is also the point at which the whole
+machinery becomes vulnerable to the thing this file is about — because the assessment of
+whether a person's judgement is sound is being made by someone who does not share the
+person's private information and who is, by construction, hearing claims that sound
+grandiose.
+
+*I am going to change the fashion industry.* *I am going to be a billionaire.* *The
+company profiting from prisons is named in my chorus and I am going to say it on the
+record.* *A goddess writes formulas on my tongue and they are correct.* *The river cannot
+be dammed and I will not tell the caliph anything else.*
+
+Every one of those is indistinguishable, on presentation, from the grandiosity in the
+diagnostic criteria. The only thing that separates them is whether the claim turns out to
+be true, and that information is not available in the room, and the assessment has to be
+made in the room.
+
+That is the actual tragedy, and it is not solvable by better attitudes. It is a genuine
+epistemic bind: **you cannot distinguish a true report of unusual sight from an inflated
+self-estimate at the moment of presentation, and both are much more likely to appear in
+the same person.**
+
+What you *can* do is know that the bind exists, hold the verdict loosely, and — since the
+error costs are wildly asymmetric and only one of them lands on you — err in the direction
+that leaves the person able to speak afterwards.
+
