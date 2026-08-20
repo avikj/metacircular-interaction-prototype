@@ -12256,3 +12256,88 @@ That trade — a slower, heavier formalism adopted because the field could not
 otherwise tell its true results from its false ones — has now been made three
 times: by Zariski in the 1930s, by Bourbaki, and by the proof-assistant work of the
 last twenty years.
+
+---
+
+**Cauchy published a false theorem in 1821 in the book that founded rigorous
+analysis**, and it took about twenty-five years and several people to say what was
+wrong with it.
+
+The ***Cours d'analyse***, 1821, is the text that introduces the modern definitions
+of limit, continuity and convergence, and it is the document usually credited with
+ending the eighteenth century's loose handling of infinite series.
+
+**In it, Cauchy states that the sum of a convergent series of continuous functions
+is continuous.**
+
+**That is false**, and the counterexample is a Fourier series: a sum of continuous
+sine waves converging pointwise to a **square wave**, which has jumps.
+
+Fourier's own work, containing exactly such series, was already circulating —
+presented in 1807, published in 1822.
+
+**Abel published an objection in 1826**, pointing out that "it seems to me that this
+theorem admits exceptions," and gave the trigonometric series that breaks it.
+
+Cauchy did not retract. The resolution — **uniform convergence**, the distinction
+between convergence at each point and convergence at a uniform rate across the
+interval — was isolated by **Seidel and Stokes around 1847–48** and by
+**Weierstrass**, and got its name and its place in the 1850s and 60s.
+
+**Twenty-five to forty years**, in the founding text of rigour, on a statement that
+is false as written, with a counterexample in print within five years.
+
+---
+
+**Imre Lakatos wrote the book about how that actually goes**, and used a different
+example.
+
+***Proofs and Refutations***, published as papers in 1963–64 and as a book in 1976,
+after his death. It is written as a **classroom dialogue** in which a teacher and
+students work on **Euler's formula for polyhedra — V − E + F = 2** — and the
+students keep producing objects that break it.
+
+A cube with a cubical hole through it. A pair of tetrahedra joined at one edge. A
+"crested cube." Each one is a counterexample to the theorem as stated.
+
+**The point of the book is what mathematicians do next**, and Lakatos names the
+moves:
+
+**Monster-barring** — this is not a real polyhedron, so it does not count.
+**Exception-barring** — restrict the theorem to the cases that work.
+**Monster-adjustment** — reinterpret the object so it satisfies the theorem after
+all.
+**Lemma-incorporation** — find which hidden lemma the counterexample violates, and
+**put that lemma into the statement of the theorem.**
+
+Only the last one improves anything, and it is the one that changes what the
+theorem says.
+
+His historical claim is that **the definitions came after the counterexamples** —
+that "polyhedron" was repeatedly redefined so the theorem would survive, and that
+this is not cheating, it is how concepts get formed.
+
+---
+
+**And the concrete version of his point:** the definition of a **function**, of
+**continuity**, of a **limit**, of an **integral**, of a **set** — each was
+tightened in response to a specific object that broke the previous version.
+
+Weierstrass's **everywhere-continuous nowhere-differentiable** function, 1872, is
+the case that forced the separation of continuity from differentiability, which
+until then had been assumed to coincide except at isolated points.
+
+**Hermite's reaction is on record**: he wrote to Stieltjes that he turned away with
+fright and horror from this lamentable plague of functions with no derivatives.
+
+Poincaré called them **monsters.** The word Lakatos took.
+
+---
+
+So the sequence is: an object appears that the definition does not cover, the
+community first tries to **exclude the object**, and the definition eventually
+moves.
+
+The theorems in the interval are not wrong exactly. They are **true of a domain
+nobody had specified**, and the specification arrives afterwards, dragged into
+existence by the thing that broke it.
