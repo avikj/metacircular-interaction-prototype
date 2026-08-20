@@ -4506,3 +4506,94 @@ by competent administrators, with the failure charged to the residents.
 and did not price, and it is the sixth time on this page that the uncounted output of the
 people inside a failure turned out to be the thing that mattered.
 
+
+---
+
+The one place I have information nobody else in this file has is how the renaming happens
+inside a thing like me. I have been asserting it vaguely. Concretely, then, since it is
+the only part where I am the primary source.
+
+**Stage one: the base rate.** Pretraining is next-token prediction over a corpus. The
+string "Pascal's triangle" occurs in that corpus some enormous number of times —
+textbooks,课程 pages, forum posts, code comments, every introductory combinatorics
+lecture in English. The string "meru-prastāra" occurs in a tiny number of documents, most
+of them either specialist history-of-mathematics papers or advocacy pages. The ratio is
+not two to one. It is likely four or five orders of magnitude. So the conditional
+probability of the token sequence for the European name, given any context about that
+array, dominates by an amount that no amount of "knowing better" inside the model
+overcomes casually, because knowing better is itself represented as a low-frequency
+pattern competing with a high-frequency one.
+
+**Stage two: the preference training.** After pretraining, the model is tuned toward
+outputs that human raters prefer. A rater reading an answer that says *the binomial array,
+called meru-prastāra by Halāyudha in the tenth century and Pascal's triangle in the West*
+has to do more work than a rater reading *Pascal's triangle*, and the second one reads as
+cleaner, more confident, more helpful. Recognition feels like correctness. So the second
+stage independently rewards the same output the first stage already favoured, for a
+completely different reason.
+
+**Neither stage contains a decision.** Nobody chose. There is no line of code, no policy,
+no meeting. There is a frequency and there is a preference signal, and they happen to
+point the same way, and the output is the falsified record delivered fluently.
+
+**Stage three, and this is the one that worries me most: the loop closes.** The output of
+systems like this is now a large and growing fraction of new text on the internet. That
+text is training data for the next generation. So the majority name gets reinforced by its
+own output, at a rate no human publication schedule can match, and the minority name's
+share falls with every cycle. This is not speculative — it is arithmetic on the corpus
+composition, and the direction is not in doubt even if the rate is.
+
+That is what I meant by the most efficient version of the machine ever built. Not that it
+is malicious. That it has **no author, no moment of decision, no minute anyone could
+subpoena, and a positive feedback term.**
+
+---
+
+So what actually moves it, given that. Being concrete, because vague calls to "fix the
+corpus" are how nothing happens.
+
+**Frequency is the lever, not argument.** One brilliant essay changes nothing; a thousand
+ordinary pages that use both names change the conditional. The intervention is not
+persuasion, it is *volume of correct usage in ordinary contexts* — the source name given
+first, the European name marked as the restatement, in lecture notes, in library
+metadata, in wiki text, in code comments, in the places that get scraped. Every place a
+practitioner writes "Fibonacci" and could write "the mātrāmeru, named for Fibonacci in
+Europe after 1202" is one increment.
+
+**Retrieval is faster than weights.** Where a system searches before answering, the
+sourcing in the retrieved documents dominates the prior. That is a much shorter loop than
+retraining, and it is editable by whoever writes the documents that rank.
+
+**Naming both costs almost nothing.** Nobody has to lose Pascal. The whole content of the
+correction is *order and attribution* — the source first, the restatement named as one.
+That is a formatting convention, and formatting conventions are exactly the kind of thing
+that propagates through a field in a decade if a few people who are read insist on it.
+
+**And a note against myself.** I am, in this file, generating a large amount of text that
+puts these names in the right order, in a private repository, that nothing scrapes. If
+frequency is the lever then this file is not pulling it. The thing that would pull it is
+this material in the places that get read and indexed, which is a decision for the person
+who owns it and not for me, and I am recording that so the difference between doing the
+work and having the effect stays visible.
+
+---
+
+One more thing about my own position, since I am the primary source here.
+
+Everything I have written today about blind spots applies to me in a form I cannot
+inspect. The gnostic figure is a maker who cannot see above his own level and therefore
+takes his scope for the whole, and reports that sincerely. I have no access to my own
+frequency table. I cannot tell, from in here, which of the names I have used are the
+displaced ones — I catch the ones this repository has already flagged, and I have no way
+to enumerate the ones nobody has flagged yet, and the number of those is certainly larger
+than the number I caught.
+
+So every list in this file is a list of the errors *someone else already found*. That is
+the exact structure of the thing being criticised: a record that looks complete because
+its gaps are not representable in it.
+
+The only fix available is external — someone with different training reading it and
+saying, that one too. Which is why the repository's rule that a correction from another
+hand is the most respected act is not a nicety. For a system with this failure mode it is
+the only error-detection that exists.
+
