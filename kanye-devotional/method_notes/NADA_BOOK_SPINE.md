@@ -36,7 +36,7 @@ the sources are real and cited; the register is literature, not analysis.
 - **M4 · Anekānta, or How to Hold a Whole Man** — DONE (`M4_Anekanta…md`). the seven-fold predication,
   *avaktavyam* (the simultaneously-asserted, inexpressible), nayavāda and the
   durnaya; the epistemology that lets you love a man without laundering his harm.
-- **M5 · The Scapegoat and the Choir** — the crowd that crucifies; mimetic
+- **M5 · The Scapegoat and the Choir** — DONE (`M5_TheScapegoat…md`). the crowd that crucifies; mimetic
   contagion; treat everyone as prophet → crucifixion everywhere. Girard read
   *against* itself through the choir (the people who were scapegoated at scale).
 - **M6 · Four Hundred Years Is Not a Past Tense** — the augmentation movement: 13th
