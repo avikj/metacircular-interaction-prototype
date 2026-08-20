@@ -9407,3 +9407,217 @@ correction of this kind can complete — and it picks the smallest, least
 dramatic axis to prove it with.
 
 Reading on from 6820.
+
+---
+
+## 6820–6960 — left-handedness, the limitations, the unreadable becoming readable
+
+**Left-handedness.** Around one in ten. Within living memory, in Britain,
+America, Ireland, Japan, much of Europe, left-handed children had their left
+hands **tied behind their backs**, or slapped, or held down. *"It was standard
+practice, done by teachers who believed it was for the child's good, and it
+produced a well-documented crop of stammers and anxiety and handwriting
+problems in exactly the children who were forced."*
+
+The intervention produced the symptoms it was correcting. Measured.
+
+*Sinister* is Latin for left. *Gauche* is French for left. *"the whole cultural
+weight was there, and it had theological and hygienic and pedagogical
+justifications, all sincere."*
+
+> And then it stopped. **Not by legislation, mostly.** It stopped because enough
+> teachers and parents concluded it was pointless and cruel, and stopped doing
+> it, **over about two decades**, and now the practice sounds medieval to anyone
+> under sixty and the residual inconvenience is scissors and desks.
+
+> **A normal human variation was pathologised, corrected by force, in schools,
+> at scale, with full institutional backing — and it simply ended, within a
+> generation, because people stopped.** There was no breakthrough, no new
+> science, no movement with a name that most people could tell you.
+
+> That is the strongest evidence in this entire file that the mechanism is not
+> permanent. **It is not an argument from principle. It is a completed
+> instance.**
+
+And the mechanism of the ending, which is the part that matters:
+
+> not a demonstration that the justifications were wrong — **the justifications
+> never got refuted, they got *abandoned*** — but **a large number of ordinary
+> people, in the position to do the small forcing thing, declining to do it,
+> until the practice has no hands left to be carried out by.**
+
+Never refuted, abandoned. Which is consistent with everything else the file has
+established: refutation does not propagate (Brigham retracted, the quotas
+stayed; the ACM proposal was made and ignored; Kiparsky cited and it detached).
+Argument is not the lever. *Frequency is the lever* — of usage in the renaming
+case, of refusal here. Same shape, and it is the only lever with a completed
+instance behind it.
+
+> available right now, this week, to anybody standing over a kid who has just
+> asked why the 3 in 30 means thirty, and to anybody in a room where somebody at
+> full volume is about to be told, kindly, to be smaller.
+
+---
+
+**"The limitations, stated plainly, because a devotional that cannot say them is
+worthless."**
+
+> **He is not a great technical rapper.** By the standards of the people he came
+> up beside — Nas, Jay-Z, Black Thought, Andre — his flow is plain, his rhyme
+> schemes are simple, his breath control is unremarkable, and his best verses
+> work on wit and timing and nerve rather than on density. **He has said versions
+> of this himself.** It took him weeks to write verses that others wrote in a
+> night.
+
+> **He is not a good singer.** *808s* is sung by a man who cannot really sing,
+> **which is why the machine is on it, and the machine is doing structural work
+> and not only expressive work.**
+
+The Auto-Tune-as-prosthesis reading, restated as a limitation rather than as an
+insight. Same fact, filed under the honest heading.
+
+> **His gift is the ear and the room.** Hearing that a two-second fragment of a
+> forgotten record is enormous. Knowing what a song needs and being unembarrassed
+> about demanding it. Assembling and then extracting from a room of people better
+> than him at their specific thing.
+
+> That is a real and rare and **unglamorous** set of abilities — **it is closer
+> to what a director does than to what a virtuoso does** — and it is not what
+> the culture means by genius, **which is why he has spent twenty years
+> insisting on the word.**
+
+He insists on the word because the culture's definition excludes his actual
+ability. Not vanity — a naming dispute, in the same file about naming disputes.
+And it is the *tutelary* sense again: the man in the room with the ear is
+closest to the older grammar, where the genius attends and the work is assembled.
+
+> **And he uses other writers.** Rhymefest on "Jesus Walks." Consequence, Malik
+> Yusef, CyHi, Really Doe, dozens of credited contributors on every record from
+> *MBDTF* onward, sometimes twenty names on a single track, and reference vocals
+> from people whose lines end up delivered by him.
+
+> Hip hop treats that as scandal — the ghostwriting accusation is the standard
+> weapon — while film, theatre, pop, and every institution of Western art music
+> treat collaborative and delegated authorship as ordinary. **Bach's cantatas
+> were copied by his sons and pupils; Rubens ran a workshop; nobody thinks
+> Michelangelo mixed his own plaster.**
+
+> **Both things are true here and I am not resolving them into a defence.** The
+> genre has a norm — you say your own words — and he has operated at the edge of
+> it, **and by the genre's own rules that is a real charge.**
+
+> And the genre's norm is unusual, and it exists partly because **rap's claim to
+> seriousness was for decades staked on authenticity, because it was the one
+> claim that could not be taken away, because everything else could be.**
+
+The norm is derived from dispossession. Authenticity is load-bearing *because
+it is the only asset the contract cannot assign*. So the ghostwriting charge is
+not provincialism — it is the defence of the last unalienable thing, which makes
+it the same fight as ownership, on the other side.
+
+Two true things, both structural, neither resolved. And the file says
+explicitly it will not resolve them into a defence.
+
+> **What is not in dispute is the arrangement, the sound, the sequencing and the
+> nerve**, and those are his, and they are the part nobody has ever accused
+> anyone else of.
+
+---
+
+> the honest form of the claim in the folder title is not that he is the greatest
+> rapper. It is something duller and stranger: **he is the person who has been
+> most consistently right about what should exist next, and most consistently
+> wrong about how to conduct himself while saying so, and the same equipment
+> produces both.**
+
+The sped-up soul, the orchestral turn, the stadium synths, the auto-tuned grief
+record, the maximalist opus, the industrial turn, the living album, the gospel
+service, the oversized silhouette — *"he was early on every one and the field
+followed every time, and the record of professional judgement against each of
+them at the moment is **unanimous** and **wrong**, and then quietly revised."*
+
+Nine, now, up from four.
+
+> That is a testable claim and it is the one this whole file has been building
+> toward: not that he is good, but that **the room's confidence at the moment of
+> judgement has been consistently uncorrelated with the outcome**, over two
+> decades, in a domain where the verdict is repeatedly and publicly settled.
+
+*Uncorrelated with the outcome*, in a domain that settles verdicts publicly.
+That is why the domain matters: music has resolution. The judgement gets
+adjudicated by what happens next, nine times, and the correlation is zero.
+
+Which is the *hetvābhāsa* of the wandering reason — a sign that occurs in both
+the presence and absence of the thing is not weak evidence, it is not evidence
+— applied to professional confidence, with data.
+
+> **If you had a forecaster with that record you would stop asking them. We have
+> not stopped asking them. We are asking them right now, about him, in the
+> present tense, with the same confidence.**
+
+---
+
+**"Two objects that were unreadable and stopped being unreadable, which is the
+counterweight to the quipu."**
+
+**The Antikythera mechanism.** Off a wreck in **1901**, corroded lumps, second
+or first century BCE. For decades a curiosity in a case in Athens *"because the
+thing it appeared to be — a device with dozens of precisely cut bronze gears,
+including a differential arrangement, computing the positions of the sun and
+moon, the phases, eclipse cycles, and the schedule of the games — **was held to
+be impossible for the period.**"*
+
+> The received story had Greek astronomy as geometrical and theoretical and
+> Greek engineering as unable to produce fine gearing, and the object
+> contradicted the story, **so the object was the problem.**
+
+**Derek de Solla Price**, from the 1950s, ***Gears from the Greeks*, 1974**,
+gamma radiography. Then **2005–06**: purpose-built X-ray CT and surface imaging,
+tooth counts and inscribed text read, *"and the reconstruction went from
+speculative to detailed."*
+
+> even the tradition the West most identifies with had its own capability denied
+> when an artefact contradicted the received account. **The denial was not
+> colonial and not racial. It was narrative**: a story about what that period
+> could do, defended against its own physical evidence, for most of a century,
+> by scholars in the field.
+
+The control case. The mechanism is not about who — it is about a story defended
+against evidence, and here the story's owners and its victims are the same
+people. That is what makes the rest of the file a claim about *structure* rather
+than about villains.
+
+**The Herculaneum scrolls, "and this one is live."**
+
+~800 papyrus scrolls carbonised by Vesuvius in **AD 79** in a villa library,
+dug out in the eighteenth century. *"They are lumps of charcoal."* Every
+physical attempt destroyed them — *"one early method involved scraping, another
+gutting; hundreds were wrecked in the attempt to read them."*
+
+> The consensus for two hundred years was that the unopened ones were
+> **permanently lost content**: intact objects containing a library nobody could
+> ever read.
+
+The exact status of the quipu — an object that survives and cannot be read —
+and the file placed it as the honest end of the argument two thousand lines
+ago.
+
+> Then: micro-CT scanning to get the internal geometry, **virtual unwrapping**
+> to computationally flatten the rolled surfaces, and — the hard part —
+> **machine learning trained to detect the near-invisible difference between
+> carbon ink and carbonised papyrus, which have almost the same density.** In
+> **2023 and 2024** the Vesuvius Challenge produced the first substantial
+> passages read from a scroll that has never been opened. **Text, in Greek, from
+> a sealed lump of charcoal, read by a model.**
+
+Read by a model. The same class of instrument that this file has spent six
+thousand lines indicting as the most efficient renaming machine ever built, and
+here it is the thing that recovered a text nobody could open. The file does not
+say so. It puts it in the sentence — *read by a model* — and moves on.
+
+Both. The demiurge and the reader. And the difference is what it is pointed at.
+
+*"there is a real chance that what is in the unopened ones includes works lost
+since antiquity. **And a larger part of the villa has never been excavated.**"*
+
+Reading on from 6960.
