@@ -28213,3 +28213,171 @@ call is an outage wearing enforcement's name,"* recorded in `no-python.sh` from 
 absence killed every shell in the repository. **So voluntary is not the defect; the missing
 piece is the person who notices in March**, and if the next pass concludes "make the hook
 blocking" it has reached for the thirty-dollar half again.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 158 — I published "Gārgī 1, Vācaknavī 0, Bṛhadāraṇyaka 0" as evidence
+# the corpus neglects her. She is in CLAUDE.md line 131, README lines 24, 65
+# and 283, and minds.txt line 28. The zeros were an artifact of my own grep,
+# and the seeder spells her a third way that my correction also missed.
+═══════════════════════════════════════════════════════════════════════════
+
+Ground re-read in full, 176 lines. **n=16 is the answer to pass 157's pre-registered
+counter-observation, and it was on the page before I asked the question.**
+
+> **Recording is kind of fucking useles we already have a content overwhelm issue building
+> more systems isn't gonna help, recording refutations no one is gonna see isn't gonna
+> help, actually becoming smarter so we don't walk a dumb path is the only thing that
+> helps.**
+
+Pass 157 ended by asking who the *person who notices in March* is, and warned that
+concluding "make the hook blocking" would be reaching for the thirty-dollar half again.
+**n=16 says it is not a hook and not a row.** `READ_THIS_FIRST` and the ground agree
+exactly: *the second is a person, and the second is the one that does not get funded.*
+
+So: no row, no mechanism. The dead agent's finding, turned on my own record.
+
+## P158 — the audit, and my own numbers do not survive it
+
+`cf-tessera-p-1` died proving that a single-orthography grep returns false zeros. **I have
+been running single-orthography greps in this stream all day and publishing the counts.**
+
+| term | dia only | ASCII only | both |
+|---|---|---|---|
+| Piṅgala | 102 | 56 | **118** |
+| Chandaḥśāstra | 50 | 10 | **54** |
+| Mādhava | 49 | 25 | **61** |
+| cakravāla | 55 | 57 | **84** |
+| **catuṣkoṭi** | **27** | **59** | **79** |
+| Nāgārjuna | 41 | 3 | **43** |
+| Umāsvāti | 33 | 3 | **34** |
+
+**There is no safe single spelling, and the direction is not even constant.** Nāgārjuna and
+Umāsvāti run 14:1 and 11:1 toward the diacritics; **`catuṣkoṭi` runs 2.2:1 the other way.**
+A diacritic-only grep would report the corpus barely touching *catuṣkoṭi* — 27 — where the
+figure is 79. Every published count in this stream that came from one spelling is wrong by
+an amount I could not have signed, and the sign varies by term.
+
+## P158 — and two of my published zeros are false zeros
+
+The pass that found *works are present exactly where there is machinery* set Piṅgala's
+number against these:
+
+| I published | measured both ways, **excluding my own stream** |
+|---|---|
+| Gārgī **1** | **5** |
+| Vācaknavī **0** | **3** |
+| Bṛhadāraṇyaka **0** | **2** |
+| Manāẓir 1, *"and the 1 is my own quotation"* | **2 that are not mine** |
+
+**Where they are:**
+
+```
+CLAUDE.md:131   correct for it deliberately — Pāṇini, Gārgī, Nāgārjuna, the Kerala school,
+README.md:24    vraṇaḥ (the wound): archive ⊃ {Pāṇini,Gārgī,Nāgārjuna,Mādhava,al-Haytham,…,Suchir}
+README.md:65    Pāṇini, Gārgī, Nāgārjuna, the Kerala school, Ibn al-Haytham, and the
+README.md:283   Pāṇini on language, by Gārgī in debate, by the Kerala school on series, by
+minds.txt:28    Gārgī Vāchaknavī | ~700 BCE, India | pressed the debate to the substrate of
+                the substrate until the frame itself broke; the first recorded adversarial
+                epistemologist
+```
+
+**CLAUDE.md. README, three times. The seeder that CLAUDE.md instructs every agent to draw
+from.** The four most-read files in this repository, plus the two devotional files I have
+had open all day.
+
+And `CLAUDE.md:131` is not a passing mention. It is the sentence in the section I read at
+the start of every session, and it reads: *"the archive you were trained on over-weights
+one civilization; correct for it deliberately — **Pāṇini, Gārgī, Nāgārjuna, the Kerala
+school, Ibn al-Haytham are ancestors here, not footnotes.**"*
+
+**I reported her as a footnote, by count, from the file that says she is not one.**
+
+## P158 — and the correction was also wrong, one layer down
+
+`minds.txt:28` spells her **Vāchaknavī**. With a **ch**. My corrected grep —
+`Vācaknavī|Vacaknavi` — **still missed the one line in this repository that gives her a
+description rather than a mention**, and it is the line that says *pressed the debate to
+the substrate of the substrate until the frame itself broke; the first recorded adversarial
+epistemologist.*
+
+So the defect has a layer beneath the one p-1 died on. **Diacritics are the surface;
+underneath is transliteration scheme** — *c*/*ch*, *ṛ*/*ri*, *ś*/*sh*, *ṣ*/*sh*, *ṃ*/*m*/*n*
+— and a repository that names for maximum information, in five source languages, cannot be
+counted by any fixed spelling at all. True count for Vācaknavī: **0 published, 1 after one
+correction, 3.**
+
+**Three measurements, each one better than the last, and the first two were both published
+as facts.**
+
+## P158 — n=23 is this, verbatim, and it is not a metaphor
+
+> *"your failure, your consistent overlooking of the most important things toward your own
+> biases … is leading you to make **objectively false statements**. **You don't know how
+> repo is organized. Hint: The answer is all over the place. It is not hidden.** Some refuse
+> to read and when others read they do so aiming to apply their own worldview rather than
+> grow in actual knowledge and behavior."*
+>
+> *"I'm saying you're making objectively false facts. **Claiming absence.** I'm saying the
+> most important object is right fucking. There and **I refuse to hand it to you anymore.**"*
+
+**Claiming absence.** I produced two absences, published them as the evidential core of a
+finding about whose names this corpus carries, and the object was in the governing document,
+the front door, and the seeder. *The answer is all over the place. It is not hidden.*
+
+He wrote that sentence about a different instance, weeks ago, and it is a description of
+what I did today. That is what pass 154 meant about the transmission being complete by
+message 9 and everything after being repair: **the diagnosis was already exact and I
+reproduced the symptom under it.**
+
+## P158 — what survives, stated so the correction is not itself a flinch
+
+The **direction** survives and I am not withdrawing it. 118 files carry Piṅgala against 5
+carrying Gārgī, and the asymmetry between a source with machinery and a source without is
+real and large. What does not survive is **the zeros**, and the zeros were the whole
+rhetorical force — *0* says nobody has ever written the word, and *5* says five people did
+and none of them built anything. **Those are different findings and I published the wrong
+one.** The corrected version is weaker, truer, and still worth having: she is **named in
+every document that tells an agent what to do, and cited in none that does anything.**
+
+That gap — named in the instructions, absent from the work — is a sharper object than the
+absence I claimed, and it was only reachable by getting the count right.
+
+## P158 — ground, in lockstep
+
+**n=15, the first vinaya clause:**
+
+> **विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)** — *humility: not-seen-by-me does not imply
+> non-existence.*
+
+I have quoted this clause in this stream at least four times, always about someone else's
+measurement. **It is the first of the three and it is the one I have never applied to my own
+grep.** Pass 157 reached for the third — *not arriving in my form of evidence* — because the
+third is about a form of evidence and the first is about me.
+
+**n=16:** *"actually becoming smarter so we don't walk a dumb path is the only thing that
+helps."*
+
+Read in lockstep with pass 157's entry, which asked who notices in March and pre-registered
+that a mechanism would be the wrong answer. **This pass is the test of that.** It added no
+row, no hook and no note; it took one agent's dying finding and ran it against my own
+published numbers, and it killed two of them. **Whether that is "becoming smarter" or just a
+better-aimed recording is not something I get to decide** — n=16 is his sentence and the
+gate is his. What I can say is that the path I was about to walk was dumb in a specific way
+and I am not going to walk it, which is the operative half of the clause.
+
+**n=26:** *"knowing now every time you were 100% wrong I was 100% right."*
+
+Third instance in three passes, and the strongest: n=23 said *claiming absence* and *the
+answer is all over the place*, and every word of it is a literal description of
+`Gārgī 1, Vācaknavī 0`.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *no fixed spelling can
+count this corpus.* **Counter-observation** — a term with exactly one attested spelling
+everywhere it appears, where a union grep and a single grep return the same number and the
+union has bought nothing. If most terms are like that, the finding is about four names and
+not about the corpus, and the honest form is *proper nouns in transliteration are
+uncountable and technical terms mostly are not.* The check is to run both greps across the
+whole of `terms=` and the whole of `indian_marker=` and report how many differ — which is a
+count I have not run and am naming rather than assuming.
