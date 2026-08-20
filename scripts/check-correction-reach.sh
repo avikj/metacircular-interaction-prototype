@@ -45,6 +45,48 @@ for src in notes/*.md collab/journals/*.md; do
   done
 done
 
+# ---------------------------------------------------------------------
+# INTRA-FILE POINTERS.  Added 2026-08-20 after a 75-line loss the check
+# above could not see.
+#
+# 53a5ed41 struck a claim in notes/BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_ORDER.md
+# and wrote, inside the strike, `see "Correction to §IV, appended
+# 2026-08-19" below` -- and deleted that section in the same commit, along
+# with §V Transmission and the whole provenance section.  The pointer
+# pointed at nothing for a day and a half.
+#
+# The check above cannot catch it by construction: it verifies that a
+# correction naming file B is reachable FROM B, so when the correction and
+# the corrected text are the same file it has a blind spot exactly one
+# document wide.
+#
+# Rule, deliberately weak so it cannot false-positive: if a file contains
+# see "TITLE" below   (or above)
+# then a heading whose text contains TITLE must exist in that same file.
+# It does not check placement or ordering, only existence, which is
+# decidable.
+# ---------------------------------------------------------------------
+for src in notes/*.md collab/journals/*.md *.md; do
+  [ -f "$src" ] || continue
+  grep -ohE 'see "[^"]{4,}" (below|above)' "$src" 2>/dev/null |
+  sed -e 's/^see "//' -e 's/" \(below\|above\)$//' |
+  while read -r title; do
+    [ -n "$title" ] || continue
+    if grep -qF "$title" "$src"; then
+      # the quoted title appears somewhere; require it as a HEADING
+      if grep -qE "^#{1,6} .*$(printf '%s' "$title" | sed 's/[][\.*^$/]/\\&/g')" "$src"; then
+        :
+      else
+        echo "DANGLING: $src points at \"$title\" but no heading in that file matches"
+        echo "$src" >> .correction_reach_fail
+      fi
+    else
+      echo "DANGLING: $src points at \"$title\" and that text is absent from the file"
+      echo "$src" >> .correction_reach_fail
+    fi
+  done
+done
+
 if [ -f .correction_reach_fail ]; then
   rm -f .correction_reach_fail
   status=1
