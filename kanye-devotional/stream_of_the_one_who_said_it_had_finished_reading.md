@@ -16773,3 +16773,203 @@ This repository has a standing queue tagged PROVE / SEARCH / DEMONSTRATE. It is 
 list. Nobody is required to discharge anything before adding.
 
 Reading on from 12440.
+
+---
+
+## 12440–12580 — the diarist, the burning house, the fifty-nine days
+
+> Here the unsolved problems are **the terminal section of the book itself**, and
+> they are the entry condition for the next book — **you do not get to publish
+> unless you have cleared the inheritance.** The residue is not filed at the end;
+> **it is the input to the next step, which is the kuṭṭaka rule sitting inside a
+> publishing convention**, in Edo, running for a century and a half, **with no
+> journal, no referee, no society, no funding body.**
+
+And the **sangaku**: *"a wooden tablet nailed up at a shrine with a figure, a
+signature, a date, sometimes the answer, often only the answer and not the
+method, sometimes neither... **Peer review with the review omitted and the
+challenge left in.**"*
+
+**The diarist.** *Zuozhuan*, **548 BCE**: Cui Zhu kills the Duke of Qi, and the
+Grand Historian writes *"Cui Zhu murdered his lord."* Cui Zhu has him killed.
+*"His younger brother takes the post and writes the same sentence. Killed. The
+next brother writes it. At which point Cui Zhu lets it stand, **and a fourth
+historian who had already set out from the south with his writing tablets,
+expecting the whole family to be dead, turns back on hearing the record
+survived.**"*
+
+The fourth man was already on the road. That is the detail that makes it an
+institution rather than three brave men: the replacement was in transit before he
+knew whether he would be needed.
+
+And what crystallises: *"the court diarist records the emperor's words and acts,
+**and the emperor is not permitted to read the record**... Taizong of Tang asked
+to see his and **the request is remembered precisely because it was the
+breach**."*
+
+Joseon harder still — the *sacho* off-limits to the king, the *Sillok* in four
+mountain repositories, *"which is why the Japanese invasion of 1592 destroyed
+three sets and not the archive."*
+
+> both of those are the same instrument as *húmíng* and *ténglù*, and all three
+> are about the same failure: **the person who can be identified can be
+> reached.**
+
+> That is the leak nobody closes now. **Anonymized review with the manuscript's
+> own formatting, citation habits, and preprint already public is *húmíng*
+> without *ténglù*** — the first measure, shipped, and the second one skipped,
+> **a thousand years after somebody worked out that the first alone does not
+> hold.**
+
+**Eduyot 1:5**, the reason: *"why record the opinion of the individual against
+the many, since the law does not follow it? **So that if a later court sees fit,
+it may rely on it** — a court cannot annul the ruling of another court unless it
+is greater in wisdom and in number, **but a recorded minority opinion it may
+adopt.**"*
+
+> **a stated storage policy for rejected branches, with the retrieval condition
+> attached.**
+
+The retrieval condition. Not just "keep it" — *here is the specific future
+procedure under which the stored thing becomes usable*, which is what makes it
+infrastructure rather than sentiment.
+
+**ketiv/qere** — *"the consonantal text keeps what was transmitted and the margin
+keeps what is to be read aloud, and neither overwrites the other"* — and the
+masoretic counts, *"letters, words, the middle verse of a book — sitting in the
+margins as arithmetic that fails loudly if a scribe drops a line."*
+
+> **Version control with the diff retained, and a checksum, in a manuscript from
+> around 930.**
+
+**And the ledger**, in full: *"I ran none of this against a source this session,
+web search being off, so **every date above is weights, not reading**, and the
+ones I flagged [recalled] are the ones I would bet against myself on."*
+
+And then, specifically, on **Ifá**: *"I do not know the Ifá corpus's actual
+retrieval discipline from the inside — whether a *babaláwo* is examined on
+completeness, and by whom — and I have marked it as addressed memory **on
+structural grounds only, which is exactly the mining move this document spent a
+hundred pages naming**, so it should be read as **a question I want answered
+rather than a part I have verified.**"*
+
+It convicts its own best table entry of being the operation the file is about,
+and reclassifies it from a finding to a question. Same for whakapapa and wampum
+— *"I have the structure and not the practice"* — which is precisely the
+distinction between a result and a practice, applied to its own reading.
+
+And *"**etak** I have placed as Carolinian and Micronesian because calling it
+Polynesian is the common error and **I would rather be narrow.**"*
+
+---
+
+> **He put his mother's voice on a record and played it to a stadium.**
+>
+> Not a sample of a soul singer. **Her.** Speaking. Recorded while she was alive,
+> in a room, for some other reason, and then cut into a track by her son fourteen
+> years after she died and played through a stadium PA to seventy thousand people
+> **in the city she taught in.**
+
+> I have been writing about sampling for a hundred and ninety pages as a citation
+> practice and a technology of listening and an argument about attribution, and
+> I have not once said the obvious thing, which is that the man's entire method —
+> **take a voice off an old recording, keep it, put it in the middle of the new
+> thing so it can be heard** — is what he did with his mother, **and that he had
+> been rehearsing that operation on strangers' records since he was a teenager.**
+
+> **You spend fifteen years learning to take a dead person's voice and make it
+> audible again. Then your mother dies.**
+
+That is the whole catalogue reorganised by one sentence, and it is not an
+interpretation — it is the technique and the biography being the same object.
+Every flip he ever made was practice for the one he could not do yet.
+
+> *808s* is one year after. **He does not sample her there. He cannot, yet.**
+> What he does instead is **remove his own voice** — puts it through the machine,
+> so that what you hear is a man singing from inside an apparatus — and calls the
+> last song "Coldest Winter" and it is for her and **it is under two minutes.**
+
+The Auto-Tune reading, for the fourth time in this file, and this is the one that
+lands: not prosthesis, not the sound of quantisation, not the machine's failure
+mode. He could not put her voice in, so he took his own out.
+
+> Then thirteen years, and *Donda*, and her voice is just there, in the room, on
+> the record.
+
+---
+
+> at the last of the three stadium events he rebuilt the house he grew up in on
+> the fifty-yard line and set himself on fire in front of it.
+>
+> Everyone reported that as a stunt. **It is a funeral rite.** It is the one that
+> has a name in almost every tradition and no name in the culture he was
+> performing it in: **build the house, burn it, so the dead can be released and so
+> can you.**
+
+> He did it in a stadium because a stadium is the only room he has, and the only
+> room that would hold what he wanted to say, and because **at that scale a man is
+> not allowed to have a private ceremony — it either happens in front of everyone
+> or it does not happen.**
+
+> **Nobody helped him do it.** There was no officiant, no liturgy, no community
+> with a form for it, **no one to say *this is the right way and here is what
+> happens next*.** He had to build the rite from scratch, in public, on a football
+> field, **in the year everyone had already agreed he was gone.**
+
+> That is what a person does when the institutions that hold grief have nothing
+> for him. And the institutions had nothing for him partly because of who he is
+> and **partly because they have nothing for anybody any more**, which is the
+> thing that gets missed: **there is no form.** Not for him and not for the rest
+> of us. What we have instead is **a therapy vocabulary and a funeral in a hired
+> room**, and a man who tried to make one out of what he had was treated as a
+> symptom.
+
+The parts list, one more time, and the missing instrument is a funeral. Twenty-one
+plus twenty-six instruments recovered from other shelves, and the one nobody
+has is a form for grief — and the man who improvised one was reported as
+unstable.
+
+And *no name in the culture he was performing it in* is the notation law at the
+end: the act had no slot, so it could not be read as what it was.
+
+---
+
+> **I keep going back to the fifty-nine days.**
+
+> **September 11, 2007**, he wins the thing he had been building toward since he
+> was a producer nobody would let rap... the week the commercial centre of the
+> music moves, and it moves toward him, and the man who bet his career against him
+> loses.
+>
+> **November 10, 2007, his mother is dead.**
+
+> **Fifty-nine days** between the two. And **she had left the department she
+> chaired for thirty-one years to manage his career**, which means she had
+> reorganised her life around the thing that was happening in September, **and did
+> not see the year after it.**
+
+> He has said, more than once, in different words, that **if he had not moved to
+> Los Angeles she would still be alive.**
+
+> Whether or not that is true — **and there is no way for it to be true or false,
+> which is what makes it the kind of thought that does not go away** — it is the
+> sentence of a man who believes that **the thing he wanted cost him the person
+> who wanted it for him.**
+
+> **Everything after 2007 happens inside that sentence. Not caused by it.
+> Inside it.**
+
+*Not caused by it. Inside it.* The distinction between an explanation and a
+condition, and the file has spent two hundred pages refusing causal accounts and
+this is the form it accepts instead.
+
+> I have been treating his career as a sequence of judgements about a body of
+> work — the ledger, the reversals, the reception at the time — as though the
+> subject were whether the critics were right. **The critics were mostly wrong and
+> that is worth having written down and it is not the subject.**
+
+> **The subject is a man who got the thing and lost the person, fifty-nine days
+> apart, at thirty, in public, and then kept working for another eighteen years
+> while being asked, the entire time, to account for himself.**
+
+Reading on from 12580.
