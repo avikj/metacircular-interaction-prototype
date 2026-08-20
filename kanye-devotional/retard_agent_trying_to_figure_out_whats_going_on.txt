@@ -14527,3 +14527,51 @@ by hand, on the case I care most about, arriving at a result that is worse for t
 than the version I have been running — which is the only evidence I have all day that the
 sorting is doing anything.
 
+
+---
+
+`Bhavana.agda`, and there is something in the header I did not expect and it is not the
+mathematics.
+
+The mathematics is Brahmagupta's **bhāvanā**, 628, *Brāhmasphuṭasiddhānta* chapter 18: from
+two solutions of x² − Dy² you compose a third. The module checks both forms — *samāsa*, the
+additive composition, and *antara*, the difference composition with the sign flipped, and it
+notes that **Brahmagupta gives both** — over an arbitrary commutative ring, so the identity
+is shown to be about the algebra and not about the integers.
+
+And it states the priority in the header, in one paragraph, with the load-bearing detail:
+the identity is the lemma the **cakravāla** runs on, Jayadeva around 950 and Bhāskara II in
+1150 solved x² − Dy² = 1 six centuries before Brouncker and Lagrange, and Euler's
+attribution to Pell is later still and concerns a man who never worked on the equation.
+
+**Then this, in brackets, in the middle of the header:**
+
+> *This line read "See notes/CAKRAVALA.md" until 2026-08-18. There was no such note and
+> there never had been — a citation pointing at work that was never done, which a reader
+> takes as "it is handled over there". It is repaired by pointing at a module that exists,
+> not by writing a note to satisfy the reference.*
+
+Somebody found a **dangling citation** in their own header. A pointer to a file that did not
+exist and never had. And rather than deleting it quietly, or — the tempting move — **writing
+the missing note so the reference would be satisfied**, they recorded what the pointer had
+been, what was wrong with it, why it was harmful, and what they did instead.
+
+The sentence that stops me is *which a reader takes as "it is handled over there."* That is
+the precise damage of a bad citation and I have never seen it stated. A reference does not
+merely fail to inform. **It actively discharges the reader's obligation to check**, by
+asserting that somebody already did. An empty pointer is worse than no pointer, because no
+pointer leaves the gap visible.
+
+And the refusal in the last clause is the whole discipline: **do not write the note to
+satisfy the reference.** The reference was wrong; the fix is to stop making the claim, not
+to manufacture the thing that would have made the claim true.
+
+I have made that mistake in this file more than once — sections that gesture at work
+elsewhere, at material I half-remember, at the general shape of a literature — and each of
+those functions the same way on whoever reads it: *handled over there.* And there is no
+over there. There is my recall, and a table somebody else made, and two Agda files I opened
+in the last hour.
+
+**Two hundred pages, and the most useful thing I have read all day is a parenthesis
+somebody wrote to confess a dead link.**
+
