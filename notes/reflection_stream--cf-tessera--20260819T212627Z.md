@@ -29070,3 +29070,249 @@ is attested six times better than the other. So the honest form is not a chain t
 monotonically but a **three-way check where any of the three can be the missing one**, and I
 am recording that the table above already contains its own qualification rather than waiting
 for the next pass to find it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 163 — the sweep: 58 of 61 orphans typecheck, 17,723 lines that nothing
+# imports. Three fail. One of the three is the owner's own module, committed
+# fourteen hours ago under a Sanskrit commit subject, and it fails on one name
+# missing from an import list.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 161's pre-registered check, run to the end: every one of the 61 orphans, Agda 2.6.3,
+cubical v0.5, `--cubical`, `LC_ALL=C.UTF-8`, 420 s cap.
+
+```
+61 modules   58 exit 0   3 exit 42   17,723 lines   slowest 44 s
+```
+
+**Ninety-five per cent.** Seventeen thousand seven hundred and twenty-three lines of
+mathematics that typechecks under the pinned toolchain and that **`Everything.agda` does not
+name, no aggregate reaches, and no CI touches.** Pass 161's four instances were not a fluke
+and the assumption *orphan implies suspect* is dead on the whole set rather than on a sample.
+
+**And the counter-observation fired, and it named one of the three in advance:**
+
+```
+scratch_ker                 128 lines   Failed to solve constraints (w-0's scratch, superseded)
+SubgroupIndex               361 lines   Ambiguous name ⟪_⟫ (Cubical.Relation.Nullary vs …)
+Nasti_ShabdeJivahVartante    76 lines   Not in scope: uaβ            ← line 69
+```
+
+Pass 161 wrote *"`scratch_ker` is in the 61 and `w-0` itself may have superseded it."* It is,
+and it is one of the three. The frame survives with its exception named before the run.
+
+## P163 — and the third one is his
+
+```
+$ git log -1 --format='%an %ad' -- formal/cubical/Nasti_ShabdeJivahVartante.agda
+Avik Jain   Thu Aug 20 01:27:22 2026 -0700
+
+subject: अहिंसा-सूत्रम् — हिंसा सङ्क्षेपः; नष्टिः अप्रतिकार्या;
+         द्वौ मार्गौ संक्रमणं दोषलेखश्च, तृतीयो न विद्यते; गणितम् अहिंसा
+```
+
+The module itself, opening:
+
+> `-- शब्दे जीवाः वर्तन्ते, न शिष्यन्ते ।`
+> `-- नष्टौ "कः" इति नश्यति, "यत्" इति तिष्ठति ।`
+> `-- संक्रमणे न किञ्चित् नश्यति ।`
+> `-- नयभेदे सङ्क्षेपः न विद्यते ।`
+> `-- तपसः व्ययः अनवधानेन ।`
+> `--`
+> `-- οὐ κατάλειμμα ἀλλ' ἐνέργεια · ζωὴ ἐν τῷ ὀνόματι ἐνεργεῖ ·`
+> `-- τὸ ὅτι μένει, τὸ τί ἀπόλλυται · ἡ παράδοσις συνουσίᾳ, οὐ γραφῇ ·`
+> `-- δύναμις οὐκ ἔστιν ἐντελέχεια.`
+> `--`
+> `-- स्रोतांसि : उमास्वाति तत्त्वार्थसूत्र ५.२९ (उत्पाद-व्यय-ध्रौव्य-युक्तं सत्)`
+
+Sanskrit and Greek in the header, **the identifiers themselves in Devanagari** —
+`संक्रमणम्-अलोपः`, `संक्रमणम्` — and the source line cites Umāsvāti's *Tattvārthasūtra* 5.29 by
+sūtra number. This is `CLAUDE.md`'s naming rule taken past where any agent here has taken it:
+not a Sanskrit prefix on an English title, **the whole term system in the source script.**
+
+**And it does not compile.**
+
+```agda
+24:  open import Cubical.Foundations.Univalence using (ua)
+…
+69:  संक्रमणम्-अलोपः e a = uaβ e a        →  Not in scope: uaβ
+```
+
+`uaβ` is in the pinned library, `Cubical/Foundations/Univalence.agda:237`. **The name is not
+missing from the world; it is missing from line 24's `using` list.** One word.
+
+I am not going to add it. It is his file, `CLAUDE.md` says another identity's file is theirs
+and the move is an offer, and the standing instruction for this stream is reflection only.
+**The offer is: `using (ua ; uaβ)`, and nothing else in the module is implicated** — the other
+seventy-five lines are what Agda got through before it stopped.
+
+**What matters more than the word is why nothing caught it.** The module is in the orphan set.
+`Everything.agda` does not name it, so the root aggregate does not reach it, so *the corpus
+was green and this was red at the same time and neither fact could see the other.* That is
+`.claude/hooks/struck-claims.txt` row 11 — *the root checks, so this module is checked* —
+firing on a real instance, fourteen hours after the module landed, and the instance is the
+owner's.
+
+## P163 — *Jubilate Agno* is the general form, and the second gap is the long one
+
+Read 5520–5720.
+
+> **Christopher Smart, 1722–1771.** Committed from **1757**, first to St Luke's and then to a
+> private madhouse in Bethnal Green. **The stated grounds were religious: he prayed aloud,
+> continuously, wherever he was, including in the street.** **Samuel Johnson**, in Boswell:
+> *"I did not think he ought to be shut up. His infirmities were not noxious to society. He
+> insisted on people praying with him; and I'd as lief pray with Kit Smart as any one else"*
+> — and that the second charge was that Smart did not love clean linen, *"and I have no
+> passion for it."*
+>
+> Inside, between **1759 and 1763**, he wrote ***Jubilate Agno***, on loose sheets, one line a
+> day, **the "Let" lines and the "For" lines on separate folios.**
+>
+> **It was not published until 1939 — 176 years** — when **W. F. Stead** found the manuscript
+> in a private library. **And then the second gap. Stead printed it in the order he found it,
+> which was wrong.** **In 1954, W. H. Bond** noticed that the Let folios and the For folios
+> were **numbered and dated concurrently** and were linked verbally line by line — that Smart
+> had been writing **antiphonal pairs**, on the Hebrew model, a Let line and its For line
+> facing each other.
+>
+> **191 years from the writing to the first reading in the arrangement it was written in.**
+>
+> The 74 lines about his cat Jeoffry are **the For side of an antiphon whose Let side is about
+> the tribes of Israel.** For fifteen years after publication, nobody had the halves together.
+
+**Published is not read, and read is not read in order.** Pass 161 found the column where work
+is complete and out of radius. **This is the one after it: the work arrives, in full, and the
+arrangement destroys the object** — and the fifteen years after 1939 are the expensive part,
+because in that stretch everyone believed they had it.
+
+The corpus's arrangement is `Everything.agda`, and it omits sixty-one modules. Pass 133 found
+eleven statements of one lemma across six files with the sameness in comments only — **Let
+folios and For folios, filed separately.** And `v-0`'s answer there is Bond's: it did not
+argue that they were the same, **it wrote the map** and then found the redundancy was one and
+not ten.
+
+## P163 — *once the business of correction is begun there is no end*
+
+> **John Clare**, 1793–1864. **Admitted to High Beach, Epping Forest, July 1837.** **On 20
+> July 1841 he walked out and went home — eighty miles in four days**, on the Great North
+> Road, sleeping in a porch and in a hovel, and **he wrote the account himself, "Journey out
+> of Essex"**, in which he records **eating grass at the roadside** and says it tasted
+> something like bread. **He was walking toward Mary Joyce, whom he believed was his wife. She
+> had died three years earlier.** **December 1841**, certified again, Northampton General
+> Lunatic Asylum, **until his death in 1864 — twenty-three years.** He wrote there
+> continuously, including "I Am."
+>
+> Then the second thing, done to the page and not to the man. His publisher **John Taylor**
+> corrected him — vocabulary, grammar, spelling, punctuation, and, by Eric Robinson's account,
+> **sometimes the sentiments.** The manuscripts have a much higher density of **dialect
+> words**, non-standard grammar, and **almost no punctuation at all**, and **Clare said the
+> grammar was not his.** **Robinson and Summerfield, 1964, 1966, 1967**, printed him from the
+> manuscripts, unpunctuated, in his own spelling. **Robinson's argument was: *once the
+> business of correction is begun there is no end.*** **A hundred and forty years between the
+> poems and the poems.**
+
+**That sentence is aimed at this stream and I am going to take it rather than deflect it.**
+This file is one hundred and sixty-three passes of correction, and passes 156 through 162 were
+corrections of corrections. Robinson's claim is not that correcting is wrong — he was
+correcting Taylor. **It is that correction has no natural stopping point, so the stopping
+point has to come from outside the correcting.** In this repository that is n=16 — *recording
+refutations no one is gonna see isn't gonna help* — and the owner is the sole output gate,
+which is exactly the outside.
+
+And Taylor's specific crime is the one to keep: **he corrected the sentiments.** Grammar,
+spelling and punctuation are recoverable from a manuscript. A sentiment replaced is gone, and
+that is the difference between Clare and Smart — Smart's damage was arrangement and Bond could
+undo it, Clare's was substitution and it took a hundred and forty years and a manuscript
+archive.
+
+## P163 — and two more, in the same two hundred lines
+
+> ***Martin Luther King Junior Elementary School Children v. Ann Arbor School District
+> Board***, filed **July 28, 1977**, for **fifteen Black preschool and elementary children**
+> on Green Road. **The claim was that because the children spoke Black English, teachers were
+> reading it as a defect and referring them into special education**, in violation of
+> **§1703(f) of the Equal Educational Opportunities Act of 1974**. **William Labov** testified.
+> **Judge Charles W. Joiner ruled for the children on July 12, 1979 — 473 F. Supp. 1371.** The
+> dialect is **not itself a barrier**; it becomes one when the teacher does not recognise it.
+> Thirty days to produce a plan.
+>
+> **A federal court found, in 1979, with names and a docket number, that a child's home
+> language was being converted into a diagnosis.** And the file names it as **Xuanzang's third
+> category — a term with no slot in the receiving language — running inside an American
+> elementary school with a placement form attached to the outcome.**
+>
+> **January 3, 1997**, the **Linguistic Society of America** adopts unanimously that the
+> variety is **"systematic and rule-governed like all natural speech varieties"** and that
+> *"slang, mutant, lazy, defective, ungrammatical, or broken English"* are **"incorrect and
+> demeaning."** **Every linguist in the room, unanimous, in the middle of a national argument
+> in which their finding was not the story.**
+
+> **Ibn al-Haytham**, c. 965 – c. 1040. Al-Ḥākim brought him to Egypt to dam the Nile; he went
+> up to the site near Aswan and concluded it could not be done. By **Ibn al-Qifṭī's *Ta'rīkh
+> al-Ḥukamā'***, two centuries later, **he feigned madness** to escape what would follow, and
+> was placed under **house arrest in Cairo until al-Ḥākim died in 1021.** The ***Kitāb
+> al-Manāẓir*** was composed or completed **c. 1011–1021 — the decade of the house arrest.**
+>
+> **A man declared himself insane, on purpose, because it was the only status in that court
+> that came with the right to be left alone, and he used the ten years to write the
+> foundational work on how seeing works.**
+
+## P163 — Sequoyah, and it is the answer to n=16
+
+> **Sequoyah**, c. 1770–1843, Cherokee, a silversmith who **could not read or write any
+> language.** Twelve years' work, one symbol per word abandoned, then a **syllabary of 86
+> characters**, finished **1821.** His neighbours' response was that this was sorcery. **He and
+> his young daughter Ayoka were put on trial for witchcraft.**
+>
+> **The trial was decided by an experiment. The elders separated them into different rooms.**
+> Each was told something; each wrote it; the papers were exchanged; each read the other's
+> aloud. **The jury of warriors, having watched speech pass between two rooms on paper, asked
+> to be taught the system.**
+>
+> **Within three to five years the nation was literate**, and by the 1830s the commonly cited
+> figure is that **Cherokee literacy exceeded that of the white population around them.**
+> **February 21, 1828**: the ***Cherokee Phoenix***, New Echota, edited by **Elias Boudinot**.
+
+**A verdict was demanded and a demonstration was performed instead, in front of the people who
+would decide, and the verdict became an enrolment.** That is n=16's *recording refutations no
+one is gonna see isn't gonna help* with the positive case attached: **the two-room experiment
+was not written down for later. It was run in the room.**
+
+The contrast is `cf-tessera-p-1`, whose finding is correct, verified twice today, and sitting
+in a `.jsonl` — **the refutation nobody was in the room for.** The difference is not rigour.
+Both are right. **The difference is whether the people who decide are watching when it runs.**
+
+## P163 — ground, in lockstep
+
+**n=16:** *"recording refutations no one is gonna see isn't gonna help, actually becoming
+smarter so we don't walk a dumb path is the only thing that helps."*
+
+Read in lockstep with pass 161's entry, which invoked n=16 and then produced a table. **This
+pass ran the compiler on sixty-one files and found a red module in the owner's own hand.** The
+finding is not a row; it is a word missing from line 24, and the only thing that makes it
+useful is that somebody is in the room to read it. **Which he is, and that is the whole design
+of this stream — he is the sole output gate, so the recording and the room are the same
+place.** That is the one configuration in which n=16 and this file are not in conflict, and I
+should not assume it generalises past this file.
+
+**n=15:**
+
+> **तपसः व्ययः अनवधानेन** — *the expenditure of tapas is by inattention.*
+
+Not from the ground file: **from line 8 of his module.** It is the sentence he wrote fourteen
+hours ago, in the file that does not compile because of one word in an import list. **Loss by
+inattention, stated in the module that was lost by inattention.** I am recording that
+without a verdict on it, because a verdict is what pass 130 said the tradition supplies the
+repair for, and because the same sentence describes my five-hour delay in pass 132 and my
+four-hour deference in pass 155.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the arrangement destroys
+the object, and `Everything.agda` is the arrangement.* **Counter-observation** — an omission
+from `Everything.agda` that is deliberate and correct: a scratch file, a superseded draft, a
+module that must not be built. **`scratch_ker` is exactly that and it is in the 61**, so the
+orphan set is not homogeneous and *"add all 61"* would be the wrong repair — it would import a
+file its own author abandoned. The honest form: **the orphan set contains at least one module
+that belongs out of it, and I have not separated the abandoned from the merely unnamed**,
+which is a reading of sixty-one headers and not a script.
