@@ -16189,3 +16189,176 @@ claim as a first-class object — and it was built a thousand years ago, and the
 file is about to describe it.
 
 Reading on from 12020.
+
+---
+
+## 12020–12160 — isnād, and five of the six already existed
+
+**The problem**: oral reports across generations, *"with strong incentives for
+fabrication — political, legal, theological, financial. Everything downstream in
+law depends on which reports are sound."*
+
+> The solution developed is **not to assess the *content*. It is to assess the
+> chain of people who carried it.** Every report is transmitted with its
+> **isnād** — the full chain, by name: *A told me, on the authority of B, who
+> heard from C…* **The chain is part of the text. You cannot cite the report
+> without citing the carriers.**
+
+**ʿilm al-rijāl** — the science of men — biographical dictionaries of
+transmitters. *"Not dozens. **Tens of thousands** of individuals, catalogued with
+dates, teachers, students, where they lived, when they travelled, and — the
+operative part — **assessments of their reliability**: memory quality, whether
+they wrote things down or relied on recall, **whether they were known to be
+careless in old age**, whether their reports contradicted better-attested ones,
+whether they had a doctrinal interest, whether they were known liars."*
+
+Whether they wrote it down or relied on recall. That is `[fetched]` against
+`[recalled]`, as a field on a *person*, in the ninth century, at the scale of
+tens of thousands.
+
+**al-jarḥ wa-l-taʿdīl** — impugnment and accreditation, *"with its own vocabulary
+of degrees and its own methodological disputes about how much weight an
+impugnment carries against an accreditation."*
+
+**Continuity checking** — *"A chain is broken if two adjacent transmitters could
+not plausibly have met — so the biographical data on dates and travels is used to
+test whether the chain is even possible. **A gap has a name; different kinds of
+gap have different names.**"*
+
+**The grading**: **ṣaḥīḥ** (sound), **ḥasan** (good), **ḍaʿīf** (weak), down to
+**mawḍūʿ** (fabricated). *"Reports with multiple independent chains are
+strengthened; a weak report with corroboration moves up a grade. **It is a
+confidence calculus over evidence chains**, worked out in detail, with named
+schools disagreeing about the rules."*
+
+> **That is exactly the tool I listed as missing.** Provenance as a first-class
+> object. Grading per claim rather than per document. The chain of carriers as
+> part of the citation. Assessment of the carriers rather than only of the
+> content. Corroboration by independent chains. **A vocabulary fine enough to say
+> *how* something is weak.**
+
+> the **ijāza**, the licence to transmit, is granted **person to person**, and
+> names the chain back — so the credential is **not institutional at all, it is a
+> position in a documented sequence of named human beings. You are certified by
+> *who taught you*, traceably, and the certificate is the chain.**
+
+> Set that beside a modern citation, which records *what was read* and not *who
+> was in the room*, and against a modern credential, which records *which
+> institution admitted you* and not *who taught you*, and **the loss is visible.**
+
+Both modern instruments drop the same field, and it is the field the whole file
+has identified as the one that carries a practice.
+
+> **note what it grades and what it does not.** Isnād criticism is largely silent
+> on whether the content is true... **that a perfect chain can carry a false
+> report and a broken chain can carry a true one**, and that content criticism was
+> underdeveloped relative to chain criticism.
+
+> **They built the instrument that could be built rigorously, and it measures
+> what it measures, and the residual — is the thing actually so — sits outside
+> it.**
+
+The instrument law, applied to the best provenance apparatus ever built, by the
+person praising it. Every instrument, including this one.
+
+> any modern system that outputs claims has **less provenance machinery than a
+> tenth-century scholar of ḥadīth had, running on paper, from memory, across an
+> empire.**
+
+---
+
+> Having been wrong about one of my six "missing" tools, I should check the rest,
+> and the result is humbling: **five of the six already exist. They were built.
+> We did not inherit them.**
+
+Fifth application of *generate the next term* — this time on its own list of
+proposals, and it finds it was wrong about most of them.
+
+**2. Residual-carrying translation — built, twice.**
+
+**The apparatus criticus**: *"the main text on the page and, at the foot, the
+variant readings from every witness, with sigla for the manuscripts. **The
+discarded alternatives are physically retained on the same page as the chosen
+one.**"* And: *"that is the minority-opinion-on-the-page principle... **and
+nobody thinks of it as remarkable.**"*
+
+**The Tibetan translation project** — *"the astonishing one."* From the late
+eighth century, translating the Buddhist canon from Sanskrit, and *"because
+inconsistent terminology across hundreds of translators was destroying the
+corpus"*, the court issues around **814** the **Mahāvyutpatti**: *"an official
+Sanskrit–Tibetan terminological standard, thousands of entries, fixing the
+equivalents."* Alongside it the ***sgra sbyor bam po gnyis pa***, laying out
+**translation policy**: *"how to handle compounds, when to translate a term and
+**when to leave it untransliterated because rendering it would destroy it**, and
+how to handle terms with multiple senses."*
+
+> A **translation standards body, with a published glossary and a written policy
+> on untranslatability, issued by decree, in the ninth century.**
+
+> The result is so systematic that scholars can and do **reconstruct lost
+> Sanskrit originals from the Tibetan**, because **the mapping is regular enough
+> to invert.**
+
+An invertible translation. That is the strongest possible form of
+residual-carrying: nothing was lost because the transform is reversible, and it
+was achieved by *fixing the vocabulary in advance and writing down when not to
+translate*.
+
+And CLAUDE.md's file-naming rule — the source term leads, the English is the
+gloss — is the Mahāvyutpatti policy, and I read it as a stylistic directive about
+respect. It is a standard for invertibility.
+
+**3. Lineage graphs — built, everywhere.** *Isnād* and *ijāza*; the Jain
+*paṭṭāvalī* and *guru-śiṣya-paramparā*; the Zen transmission charts; Pirkei
+Avot; the *silsila*. *"Every one of them records **who was in the room**, which
+is precisely what a citation index does not."*
+
+**4. The living-record format — built.** The Talmud page; the śāstra with its
+*pūrvapakṣa*; *"the append-only commentary tradition in which correction is a new
+layer rather than an edit."*
+
+**5. The displacement index — not built.** *"There is a scattered literature on
+eponymy and priority, there is Stigler, there are the history-of-science
+monographs, **and there is no machine-readable table. Genuinely missing.**"*
+
+**6. An instrument for what was not read — not built**, *"and the closest thing
+anybody has is sampling theory and the deliberately-blind random draw. This is
+the hardest one and I still think it is the most valuable."*
+
+---
+
+> **Four out of six existed and we are not using them. Not lost — *not
+> inherited*.** The apparatus criticus survives in classics and biblical studies
+> and is unknown to almost every other field. The isnād apparatus is alive in one
+> discipline and unread outside it. The Mahāvyutpatti is a curiosity in
+> Tibetology. **The Talmud page is a religious artefact to everyone who does not
+> use it.**
+
+> **Each of them solves a problem that every knowledge-producing field currently
+> has**, and each is sitting in a tradition that the surrounding culture files as
+> **religion, area studies, or philology.**
+
+> it is not about credit at all. It is about **usable technology being
+> unavailable because of where it is shelved.**
+
+> The kuṭṭaka was available in 499 and the engine in this repository lacked a
+> growth rule. **The saptabhaṅgī was available and the machine reinvented a
+> three-valued verdict badly.** The isnād apparatus is available and every system
+> that outputs claims is shipping without provenance.
+
+> **The cost of the filing is not historical injustice. It is that the tools are
+> in the building and nobody can find them.**
+
+That is the end of the argument and it is not the argument I thought the file was
+making, or that CLAUDE.md's front matter appears to be making, or that I
+summarised to him two days ago.
+
+The provenance directive is not reparative. It is not about a falsified record
+being put right. It is that **the filing system has made working instruments
+unreachable**, and every one of them solves a problem this repository currently
+has — and the two examples given are `machine/Obstruction.hs` reinventing
+*avaktavyam* badly, and my own module doing it again.
+
+The shelf label is the cost. Not the credit.
+
+Reading on from 12160. Four thousand two hundred lines left.
