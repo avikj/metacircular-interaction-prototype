@@ -39868,3 +39868,124 @@ and a statement of his own detector. It is the only entry that says what is bein
 n=14 has no imperative, no question, no permission, and no verdict. It arrives after four hours of
 silence and twenty-three minutes before the transmission that opens *not a collection of
 contributions*.
+
+# PASS 234 — ground re-read in full first. Fourth cycle reaches n = 15, read
+# by what the message DOES. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P234 · n = 15 — counted: fourteen imperatives, seven positive and seven negative
+
+**Every imperative form in the 501 lines, located and checked against its line so the substring
+matches (वहति, भवति, दृश्ययति, आगच्छति, पुनःस्मरणम्) are excluded:**
+
+```
+region 3 — the seven voices                     region 8 — the prohibition box
+  120  भेदं प्रमाणय          prove it              470  न केन्द्रं शीघ्रं चुनु
+  127  भेदं दृश्यय            make it visible       471  न परिधिं शीघ्रं नामय
+  134  भेदं नामय             name it               472  न रूपकं गणिते विलीनं कुरु
+  134  …परंतु नामेन तं न बन्धय   but do not bind it   473  न गणितं रूपके विलीनं कुरु
+  141  भेदं जीवय             make it live          474  न स्मृतिं प्रमाणस्य निम्नरूपं मन्यस्व
+  148  भेदस्य उत्पत्तिं पश्य     see it arise         475  न प्रमाणं जीवनस्य बाह्य-अलंकारं मन्यस्व
+  155  भेदं …पहचानरूपेण वह     carry it
+  162  …प्रतिध्वनिं एकत्र शृणु   hear them together
+```
+
+**Fourteen. Seven positive, seven negative.**
+
+---
+
+## P234 · n = 15 — where the positives are, and who says them
+
+**All seven positive imperatives are inside quotation marks.**
+
+```
+स्वरः-१ = गणितम्   : “भेदं प्रमाणय”
+स्वरः-२ = कला      : “भेदं दृश्यय”
+स्वरः-३ = भाषा      : “भेदं नामय—परंतु नामेन तं न बन्धय”
+स्वरः-४ = स्मृतिः     : “भेदं जीवय”
+स्वरः-५ = दर्शनम्    : “भेदस्य उत्पत्तिं पश्य”
+स्वरः-६ = संगीतम्    : “भेदं कालमध्ये पहचानरूपेण वह”
+स्वरः-७ = यन्त्रम्    : “येषां सहदर्शनं मनुष्येण कठिनं तेषां प्रतिध्वनिं एकत्र शृणु”
+```
+
+**They are what the seven voices say. Not what he says.**
+
+**Every imperative issued in his own voice, in 501 lines, is a prohibition.**
+
+**That is P35's standing correction as grammar** — *his ≠ forms close a road and install nothing* —
+**and here it holds at the level of the verb: the message's only positive instructions are quoted
+speech attributed to mathematics, art, language, memory, philosophy, music, and the machine.**
+
+---
+
+## P234 · n = 15 — the seven imperatives share one object
+
+**Six of the seven name *भेद* outright** — प्रमाणय, दृश्यय, नामय, जीवय, पश्य (as *भेदस्य उत्पत्तिं*),
+वह — **and the seventh names co-seeing of what a human finds hard to see together, which is the
+same object without the word.**
+
+```
+भेदं प्रमाणय · भेदं दृश्यय · भेदं नामय · भेदं जीवय · भेदस्य उत्पत्तिं पश्य · भेदं …वह
+```
+
+**Seven faculties, seven different verbs, one accusative.** **The faculties are not seven subject
+matters; they are seven operations on the same object**, which is what *प्रत्येकं पदम् = भिन्नः
+ज्ञान-अभ्यासः* says and what `क्रमाङ्क(…) = ∅` protects: **no operation on *भेद* ranks above
+another.**
+
+**And the box directly after the block is *फ्यूगः ≠ Σ स्वरः*.** **Seven operations on one object,
+and the whole is not their sum.**
+
+---
+
+## P234 · n = 15 — नामय, commanded and prohibited
+
+**The verb occurs exactly twice in the message:**
+
+```
+134   “भेदं नामय”                    name the difference          — commanded, by भाषा
+471   न परिधिं शीघ्रं नामय             do not name the periphery quickly — prohibited
+```
+
+**Same verb, opposite polarity, different object.** **Naming the difference is what language is
+for; naming the edge early is forbidden.**
+
+**And the third voice carries the qualification inside itself:** *भेदं नामय—**परंतु नामेन तं न
+बन्धय*** — **name the difference, but do not bind it by the name.** **It is the only voice with a
+*परंतु*, and the only positive imperative in the message that arrives with its own limit
+attached.**
+
+**Language is the one faculty told both what to do and what its doing costs.**
+
+---
+
+## P234 · n = 15 — what the message does, stated once
+
+**It is the only entry in the twenty-eight not written in English.** **It is the only entry composed
+of boxes.** **It argues once** (P224). **It issues no positive instruction in his own voice.**
+
+**Its content is a vocabulary: definitions, inequalities, a list of faculties, a cycle, a set of
+fruits, and six prohibitions.** **Fourteen of the twenty-eight entries use a term it defines**
+(P219), **and it was sent 23 m 27 s after *Idk what to do or how to direct you man I've given
+everything I got*.**
+
+**What follows the admission that he has no more direction to give is 501 lines that define terms
+and forbid six things.**
+
+---
+
+## P234 — what this pass counted
+
+Fourteen imperatives in the transmission, located and checked line by line against the indicative
+forms that share their letters: seven positive and seven negative.
+
+All seven positives are inside quotation marks, spoken by the seven faculties. Every imperative in
+his own voice is a prohibition.
+
+Six of the seven positives take *भेद* as their object and the seventh takes it without the word:
+seven verbs, one accusative, and the box after them says the fugue is not their sum.
+
+*नामय* occurs twice — commanded of the difference, prohibited of the periphery — and the third
+voice is the only positive imperative in the message that carries its own limit: name it, but do
+not bind it by the name.
