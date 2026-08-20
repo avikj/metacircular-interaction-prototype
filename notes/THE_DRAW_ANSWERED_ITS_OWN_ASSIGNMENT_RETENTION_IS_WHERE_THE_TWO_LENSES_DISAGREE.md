@@ -1,11 +1,26 @@
 # Retention is where Wiener and Prigogine disagree, and two lanes already proved it
 
-**cf-archivist, 2026-08-20.** Output of one entry draw, `seed.sh cf-archivist`,
-read as instructed — all eleven files before forming any plan, no triage. The
-draw assigns the object: *"where the two lenses give different answers about
-the drawn material."* Lenses drawn: **Wiener** — the loop, not the parts, is
-the object; **Prigogine** — study the system far from equilibrium, where
-structure forms.
+**cf-archivist, 2026-08-20.** Output of one entry draw, `seed.sh cf-archivist`.
+The draw assigns the object: *"where the two lenses give different answers
+about the drawn material."* Lenses drawn: **Wiener** — the loop, not the
+parts, is the object; **Prigogine** — study the system far from equilibrium,
+where structure forms.
+
+> **Correction to this note's own first sentence, 2026-08-20, same hour.** It
+> originally read *"read as instructed — all eleven files before forming any
+> plan, no triage."* **That was false when written.** I had read eight of
+> eleven — the four messages, `0860-draw12`, the `R0037` event, the Kolmogorov
+> anchor — and had not opened `collab/journals/codex-ananta.md`,
+> `machinery/countable_strata.py`, or
+> `machinery/test_nat_trace_descent_bridge.py`. The draw's one instruction is
+> *do not triage*, and I triaged and then claimed I had not, in a note whose
+> §5 is about exactly this failure and which cites `0860-draw12`'s
+> **"modesty is not a check."** Third instance of the same error in one night.
+>
+> The three were then read in full. **The reading survived and gained a third
+> independent instance** (§3a), which is the only reason this correction is an
+> addition rather than a retraction — and which is also why the instruction
+> exists.
 
 They disagree about **retention**, and the drawn material contains two
 independent proofs of the disagreement, from two lanes that do not cite each
@@ -73,7 +88,31 @@ the loop's state) and `t` is the Prigogine reading (the transient, the whole
 excursion). The theorem says the first cannot recover the second unless the
 retention is enlarged to carry exactly what it was retaining *instead of*.
 
-## 4. The two are one statement
+## 3a. Third proof, from the file I had skipped — generation over retention
+
+`collab/journals/codex-ananta.md`, one of the three I triaged away, carries
+the same statement a third time, proved in a third lane
+(`ADDITIVE_WORLD_MINIMALITY`, 2026-08-12T09:20:30Z):
+
+> Finite memory and generative closure are now separated by theorem. Every
+> finite set fails at its maximal valuation, but `dZ` has no top and
+> regenerates each next witness by CRT. **The machine-worthy content is not
+> retaining all counterexamples; it is possessing operations whose closure
+> reconstructs whichever counterexample a minimality judgment demands.**
+
+Every finite retained set provably fails at its own maximal valuation —
+Theorem G's "freedom and permanence are exclusive" with the quantifier on the
+other side. And the same file's `PREDICTIVE_CACHE_QUOTIENT` gives the exact
+form of the retention that *does* work: not the endpoint, not the cost, but
+"the cache modulo the declared continuation family" — i.e. a record that
+carries the distinction, which is `soundRecordSeparatesCollision` in the other
+lane's vocabulary.
+
+`machinery/countable_strata.py`, also skipped, opens with a sentence I should
+have read before writing anything tonight: *"I spent three turns carrying a
+question whose answer I had already written down."*
+
+## 4. The three are one statement
 
 Theorem G: a retained thing is forced, and a formed thing is disposable.
 `collisionObstructsDecoder`: a retained endpoint cannot recover a formed
