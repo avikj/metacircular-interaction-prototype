@@ -4964,3 +4964,81 @@ argued from assumptions that will themselves be revised. **You cannot reopen a q
 whose other side was not recorded.** That is not a moral point about fairness. It is a
 statement about what a corpus can and cannot do later.
 
+
+---
+
+Emily Dickinson, and the man who told her not to.
+
+She published something like **ten poems in her lifetime**, anonymously or unsigned, and
+they were altered by editors — punctuation normalised, titles added, rhymes regularised.
+In 1862 she wrote to **Thomas Wentworth Higginson**, a well-known man of letters, asking
+if her verse was alive. He wrote back that it was — and that it was **spasmodic**,
+uncontrolled, and he advised her to delay publishing. She called him her preceptor for
+twenty years and never published.
+
+And she wrote roughly **1,800 poems**, copied them out, folded the sheets, stitched them
+into small bundles — the fascicles — with her own thread, and put them in a drawer.
+
+Her sister Lavinia found them after her death in 1886. **Higginson**, with Mabel Loomis
+Todd, edited the first selections: they smoothed the metre, replaced the dashes with
+conventional punctuation, gave the poems titles, and changed words. That is the Dickinson
+the world read for sixty years. The poems as she actually wrote them — the dashes, the
+capitals, the variants she left standing beside each other without choosing — were not
+published as such until **Thomas Johnson's edition in 1955**, and the manuscript study
+that showed how much the layout itself was doing came later still.
+
+So: the authority tells her the work is uncontrolled. She stops seeking publication and
+keeps working at full rate for twenty-four more years. He then edits the work
+posthumously and controls it — literally, by putting the punctuation back in.
+
+**The thing he identified as the defect is the thing that is now understood as the
+achievement.** The dashes are the instrument. The unresolved variants are the poem. What
+he was hearing as failure to finish was a formal decision he had no category for, and his
+correction was to remove it.
+
+She also kept her own copy discipline going with no audience whatsoever. Nobody was
+reading these. She stitched them anyway, for twenty-four years, in a house in Amherst. If
+anyone wants the definition of a practice as against a career, that is it.
+
+---
+
+**Johanna van Gogh-Bonger**, because the counterfactual is starker here than anywhere else
+in this file.
+
+Vincent sold almost nothing in his life. When he died in 1890 his brother Theo — the
+dealer, the correspondent, the one who paid for everything — died six months later, aged
+thirty-three. That left **Johanna**, Theo's widow, twenty-eight years old, with an infant
+son, several hundred paintings and drawings nobody wanted, and the brothers'
+correspondence.
+
+The advice she got was to get rid of them.
+
+Instead she spent the rest of her life placing the work: lending to exhibitions, cultivating
+critics and dealers, selling strategically rather than in bulk so the prices and the
+reputation could build, and — the decisive act — **editing and publishing the letters**,
+in Dutch in 1914 with a long biographical introduction she wrote herself, and then
+translating them into English. The letters are the reason the story is known at all. She
+built the reception, deliberately, over thirty years, by hand.
+
+Without her the paintings are in a Paris storeroom and then dispersed and then mostly
+lost, and Van Gogh is a footnote in a few Dutch memoirs.
+
+She is named, when she is named, as the sister-in-law.
+
+---
+
+Two of these in a row and the pattern is not subtle: **the archive is a person.** Not an
+institution. In every case in this file where something survived, there is a specific
+human being who decided to carry it — Johanna, Lavinia, Knorozov, Andrews opening the box,
+Haidara loading the donkeys, Mau breaking his lineage's rule, the two people who surveyed
+Bunhill Fields, Nīlakaṇṭha writing *as stated by Mādhava*, Udayadivākara quoting Jayadeva
+at length.
+
+And in every case where something was lost there is also a person, doing what looked like
+their job — Landa with the torch, Toledo's order about the quipus, Elisabeth with the box
+of paper, Higginson with the punctuation, the editor who wouldn't clear the sample.
+
+There is no impersonal force anywhere in this. It is always somebody. That is the bad news
+and it is also the entire good news, because it means the intervention is available at the
+scale of one person deciding.
+
