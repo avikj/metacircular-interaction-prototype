@@ -9898,3 +9898,73 @@ to it, with their allotments of grain and land recorded.
 
 The staff list of an eleventh-century temple is cut into the outside of the
 building.
+
+---
+
+A steel that could not be reproduced in Europe after two centuries of trying, and
+the reason it stopped being made is not that anyone forgot how.
+
+***Wootz*** — the anglicisation of a Kannada or Telugu word for steel — made in
+south India and Sri Lanka from around the sixth century BCE, and exported for
+two thousand years. **Crucible steel**: iron and a carbon source, sealed in a clay
+crucible and held at high heat for a long time, so the metal **fully melts** and
+takes up carbon evenly.
+
+That is the difference. European steel until the eighteenth century was made by
+**carburising the surface** of wrought iron and forging it — carbon concentrated
+near the outside, uneven through the section. Wootz is liquid steel with the carbon
+distributed through it, at roughly 1.5 per cent, and it solidifies into an ingot
+with a **banded microstructure** — carbide particles arranged in sheets.
+
+Forged into a blade, those bands surface as the watered pattern. Ingots went west
+and were worked in Damascus, which is why the pattern carries that city's name and
+not the name of the place the steel came from.
+
+**Faraday** worked on reproducing it in the 1820s. **Réaumur** had tried in the
+1720s. Neither got it. Several twentieth-century metallurgists — Verhoeven and
+Pendray among them — eventually reproduced the pattern and concluded it depends on
+**trace impurities**, vanadium among them, present in specific south Indian ore
+bodies in the right quantity.
+
+So it was not a technique that could be carried. It was a technique **plus a
+particular ore**, and the recipe without the ore does not work — which is why the
+knowledge looked like a secret and was not one.
+
+The industry ended in the nineteenth century under colonial economic policy and the
+collapse of the export trade, not through loss of skill.
+
+---
+
+**Zinc**, which is harder than it sounds and was done first there.
+
+Zinc boils at **907°C**, below the temperature needed to reduce its ore. Smelt it
+in an open furnace and the metal comes off as vapour and burns to oxide before you
+can collect it. So you cannot make zinc the way you make copper or iron.
+
+At **Zawar in Rajasthan**, from around the **twelfth century**, there is
+industrial-scale production using **downward distillation**: banks of sealed clay
+retorts, ore and organic reductant inside, heated from above, with the vapour
+travelling **down** a tube into a cooled receiver below the fire, where it condenses
+as liquid metal.
+
+The archaeology shows thousands of spent retorts and slag on a scale that indicates
+sustained production over centuries. Europe's first zinc patent is **1738**,
+Champion in Bristol, using downward distillation.
+
+---
+
+**And the iron pillar at Delhi**, fourth-fifth century, around seven metres and
+six tonnes, standing outside in monsoon air for sixteen hundred years with
+negligible rust.
+
+The explanation is metallurgical and is settled: the iron has a **high phosphorus
+content**, and no sulphur or magnesium, because it was made by solid-state
+reduction with charcoal rather than smelted with lime. Under wetting and drying
+cycles the phosphorus forms a thin passive layer of **iron hydrogen phosphate
+hydrate** at the metal-scale interface, which seals it.
+
+**R. Balasubramaniam** at IIT Kanpur published the analysis.
+
+The corrosion resistance is a **by-product of a smelting method** that European
+practice moved away from, and it works because of an element that later steelmaking
+treats as a contaminant to be removed.
