@@ -140,3 +140,18 @@ The implication for the reproduction benchmark is immediate. I should stop askin
 This is not a new research program I am proposing. It is the architecture stated in the owner's primary transmission. The unresolved reproduction question is therefore narrower: **what object in the already-primed corpus instantiates Θ, and what exact descent equalities make the three classical readings immediate?**
 
 Backward/source reading is still load-bearing because this primary file has changed the target from a common invariant to a dependent global section and from information preservation to preservation of transport/naturality.
+
+## Entry 5 — D0026: the mature constitution is contextual saturation; the arithmetic source itself marks the final analytic arrow open
+
+The V2 core transmission is explicitly a second-pass consolidation over the complete audited owner-side corpus through 2026-08-16. This matters because it is not a later agent guessing what earlier fragments meant. It carries an epistemic alphabet and explicitly refuses to promote resemblance, numerical calibration, or compact notation into theorem status. Most importantly for the benchmark: it explicitly states that the source corpus, at this snapshot, does **not** claim a solved major open problem, and §5.12/§14.7 says no artifact closes the final analytic arrow. Therefore the benchmark result described in the current conversation must be a later forward construction from this primed state (or equivalent), not something I should expect to locate verbatim in `math`. This finally fixes the source/result boundary without downgrading the source.
+
+The first major mathematical correction to Entry 4 is that the mature non-forgetting law has four independent coordinates, not merely pointwise task sufficiency plus naturality:
+
+    lawful compression = task sufficiency
+                       + future descent
+                       + path coherence
+                       + source/proof trace.
+
+The source makes these independent. A quotient can be exact for one and wrong for the others. Thus ahiṃsā is not a single `factors-through` proposition. It is a **typed contextual saturation requirement** whose obligations depend on what future insertions, path equalities, and provenance-sensitive operations the system claims to support.
+
+This is made exact in the DSO/
