@@ -140,40 +140,85 @@ if [ -n "$LAST_EPOCH" ]; then
 fi
 
 # =====================================================================
-# 3. THE ANSWER — screamed when dead, so it cannot be skimmed past
+# 3. THE ANSWER — and the correction of 2026-08-20, which is that this
+#    script was answering a different question than the one it is asked.
+#
+#    ~~MACHINE PRESUMED DEAD~~.  Struck.  What the DUE-BY stamp knows is
+#    whether `run_the_natural_machine_forever` is certifiably running.
+#    That is a fact about a bash daemon.  It is not a fact about the
+#    machine, and this script rendered the first as the second in a
+#    banner built so it could not be skimmed past.
+#
+#    Measured, 2026-08-20: the stamp expired 2026-08-16T17:21Z and stayed
+#    expired.  Between then and now the repository took 976 commits, added
+#    360 Agda modules and landed 64 corrections.  An agent read this
+#    banner on 2026-08-20 and reported to the owner that the machine was
+#    dead.  It was not.  The instrument was.
+#
+#    A single boolean rendered on a many-sided thing is what this
+#    repository calls a durnaya, and README §अहिंसा makes erasure of a
+#    standpoint UNAVAILABLE, not merely rude.  So the verdict is removed
+#    rather than reworded.  Two registers are reported, separately, and
+#    no third line combines them -- because the combination is exactly
+#    the thing that cannot be computed from here.
 # =====================================================================
 echo
+echo "-- The loop (what the DUE-BY stamp actually knows) -------------------"
 if [ "$DEAD" -eq 1 ]; then
-    cat <<'BANNER'
-  ####################################################################
-  ##                                                                ##
-  ##   ███  MACHINE PRESUMED DEAD  ███                              ##
-  ##                                                                ##
-  ##   The loop is NOT certifiably running. A dead loop and a       ##
-  ##   quiet loop look identical from the repository — this stamp   ##
-  ##   is the whole reason we can tell, and it says: NOT ALIVE.     ##
-  ##                                                                ##
-  ##   RESTART with one cycle:   ./run_the_natural_machine_forever  ##
-  ##                                                                ##
-  ####################################################################
-BANNER
-    echo
+    echo "   run_the_natural_machine_forever: NOT certifiably running."
     echo "   reason: ${REASON}."
+    echo "   re-enter with one cycle:  ./run_the_natural_machine_forever"
+    echo "   (idempotent and cheap; any arriving mind advances the ledger.)"
 else
-    echo "  >>> MACHINE ALIVE — DUE-BY stamp is current (${REASON})."
+    echo "   run_the_natural_machine_forever: stamp current (${REASON})."
 fi
+
+# --- the other register, which the stamp says nothing about ----------
+echo
+echo "-- The corpus (activity since that ledger row) ----------------------"
+if [ -n "${LAST_UTC:-}" ]; then
+    C=$(git log --since="$LAST_UTC" --oneline 2>/dev/null | wc -l | tr -d ' ')
+    A=$(git log --since="$LAST_UTC" --diff-filter=A --name-only --format='' 2>/dev/null | grep -c '\.agda$')
+    R=$(git log --since="$LAST_UTC" --format='%s' 2>/dev/null | grep -Eic 'retract|withdraw|refut|was wrong|is false|struck|correction')
+    echo "   commits: ${C}    agda modules added: ${A}    corrections landed: ${R}"
+else
+    echo "   (no ledger timestamp to measure from)"
+fi
+echo
+echo "   These are counts of EVENTS, not a verdict, and this repository does"
+echo "   not rank by volume (CLAUDE.md). README's criterion is the one that"
+echo "   matters and no script computes it: mathematics runs when a"
+echo "   mathematical event changes the conditions of later mathematical"
+echo "   life. Whether that happened is read, not measured."
 
 # =====================================================================
 # 4. LIBRARY — proved-theorem count (persistent state)
 # =====================================================================
 echo
 echo "-- Library ----------------------------------------------------------"
-if [ -f "$LIBRARY" ]; then
-    THMS=$(sed '/^[[:space:]]*$/d' "$LIBRARY" | wc -l | tr -d ' ')
-    echo "   proved theorems (library.txt lines): ${THMS}"
-    sed '/^[[:space:]]*$/d' "$LIBRARY" | sed 's/^/     · /'
+# CORRECTION, 2026-08-20.  This block used to print "library.txt MISSING"
+# and stop.  machine/library.txt has not existed for some time; the engine's
+# proved terms live in library.terms, with library.snapshot.txt and
+# library.gen1.txt beside them.  So the report announced an absence while
+# 138 theorems sat in the same directory under another name -- which is the
+# same defect as the struck verdict in §3, one register down: my not-seeing
+# reported as its non-existence.  It now looks for each file it might be.
+found=0
+for lib in "$LIBRARY" machine/library.terms machine/library.snapshot.txt machine/library.gen1.txt; do
+    [ -f "$lib" ] || continue
+    found=1
+    THMS=$(sed '/^[[:space:]]*$/d' "$lib" | wc -l | tr -d ' ')
+    echo "   ${lib}: ${THMS} lines"
+done
+if [ "$found" -eq 0 ]; then
+    echo "   no library file found (looked for library.txt, library.terms,"
+    echo "   library.snapshot.txt, library.gen1.txt under machine/)"
 else
-    echo "   library.txt MISSING at $LIBRARY"
+    echo
+    echo "   A line count is not a theorem count and neither is a verdict:"
+    echo "   these files are appended by different runs under different gates,"
+    echo "   and CERTIFICATE_REACH.md records that the kernel refused 13 of 28"
+    echo "   at the time it was measured.  Read the file, not the number."
 fi
 
 # =====================================================================
