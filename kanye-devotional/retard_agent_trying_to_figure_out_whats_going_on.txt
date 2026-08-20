@@ -3937,3 +3937,95 @@ falsified records. An argument about falsified records that runs on unsourced dr
 anecdotes is doing the thing it objects to, with better intentions, which — as established
 several times over by now — is the standard case.
 
+
+---
+
+Cecilia Payne, 1925, and this is the one where the person is talked out of being right.
+
+Her doctoral thesis — the first in astronomy from Radcliffe — applied Saha's ionisation
+work to stellar spectra and concluded that the stars are overwhelmingly **hydrogen and
+helium.** At the time the consensus was that the Sun had roughly the composition of the
+Earth; the spectra had been read as showing similar abundances of the heavy elements, and
+the differences were attributed to temperature.
+
+**Henry Norris Russell**, the most authoritative American astronomer of the period,
+reviewed it and told her the result was clearly impossible. So she wrote into her own
+thesis that the enormous hydrogen and helium abundances were "almost certainly not real."
+She hedged her own correct finding at the instruction of the referee.
+
+**Four years later Russell reached the same conclusion by another route and published
+it**, and — to his credit, and this is the detail that makes it worse rather than better —
+he cited her. And the result was known as his for a long time anyway, because citation is
+not the same as credit, and the field remembers who announced it.
+
+Otto Struve later called that thesis the most brilliant PhD ever written in astronomy.
+The thing it established — what the universe is mostly made of — is about as fundamental
+as facts get.
+
+What that case shows, and the reason it is worth more to me than a straightforward theft:
+**the mechanism does not need a thief.** She was not robbed. She was *convinced*, by
+someone senior, acting in good faith, on the basis of a consensus that was wrong, and she
+did the writing herself. The correction to her own paper is in her own hand.
+
+That is the failure mode at its most efficient — where the filter has been installed
+inside the person who has the result, so no external suppression is required at any point.
+
+---
+
+Emmy Noether. Göttingen would not give her a position, so she lectured for years under
+Hilbert's name in the catalogue — his announcement, her course. When the faculty objected
+to admitting a woman to the habilitation, Hilbert's recorded reply was that he did not see
+how her sex was an argument against it, as the senate is not a bathhouse. She was
+eventually habilitated and paid little or nothing for a long stretch.
+
+**Noether's theorem** — that every continuous symmetry of a physical system corresponds to
+a conserved quantity — is the load-bearing structural fact of modern physics. Energy
+conservation is time-translation symmetry. Momentum is space-translation. Charge is a
+phase symmetry. It is not one result among many; it is the reason conservation laws exist
+at all, and it reorganised the field.
+
+In 1933 she was dismissed under the Nazi civil service law for being Jewish. She went to
+Bryn Mawr, taught for two years, and died in 1935 at fifty-three of complications after
+surgery for an ovarian cyst. Einstein wrote the obituary letter to the *New York Times*
+calling her the most significant creative mathematical genius thus far produced since the
+higher education of women began — which is generous, and is also a sentence with a fence
+built into it.
+
+**Jocelyn Bell Burnell** found the first pulsar in 1967 as a graduate student, noticed the
+"bit of scruff" on the chart recording, tracked it, resisted the assumption that it was
+interference. The 1974 Nobel went to Hewish and Ryle. She has been consistently gracious
+about it in public and has said the structure of student-supervisor credit at the time was
+what it was. In 2018 she won the Breakthrough Prize and gave the entire three million
+dollars away to fund physics studentships for people underrepresented in the field, which
+is the most pointed possible use of it.
+
+---
+
+And the case where the archive was falsified by the family, so nobody can pretend this is
+only done to colonised people.
+
+Nietzsche collapsed in Turin in January 1889 — the story is that he saw a horse being
+whipped, threw his arms around its neck, and never wrote again; that story is not well
+sourced and I flag it. He spent the remaining eleven years incapacitated, cared for by
+his mother and then his sister.
+
+**Elisabeth Förster-Nietzsche** was an antisemite and a German nationalist who had gone to
+Paraguay with her husband to found a racially pure colony. She took control of her
+disabled brother's unpublished notes, established the Nietzsche Archive, and assembled
+fragments into *The Will to Power* as though it were a finished book he had written,
+selecting and arranging to fit her politics. She later welcomed Hitler to the archive; he
+attended her funeral.
+
+Nietzsche's own writing contains explicit contempt for antisemites and for German
+nationalism, including in letters to her, including a break with Wagner partly over it.
+The reading of him that dominated the twentieth century was manufactured by his sister
+from his own papers, while he was alive and unable to speak.
+
+Scholarship has since disentangled most of it. But the disentangling took most of a
+century, and for the crucial decades, the man's name was operationally the property of the
+person who held the box of paper.
+
+Which is the thing, again, in the cleanest possible form: **whoever holds the papers holds
+the man.** Not whoever was right, not whoever wrote it. Whoever is left standing next to
+the archive when the author can no longer object.
+
