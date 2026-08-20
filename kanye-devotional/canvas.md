@@ -425,3 +425,30 @@ artist's work — and uses one word for both.
 The Thirteenth Amendment abolished ownership of a person "except as a punishment for
 crime." It did not address ownership of a person's labor, image, name, or recorded
 voice by contract. Those remained, and remain, legal.
+
+---
+
+In 2019 Kanye West started Sunday Service: a weekly gathering with a large gospel
+choir performing arrangements of hymns, gospel standards, and his own songs rewritten
+without profanity. In October 2019 he released Jesus Is King, a gospel album; he
+stopped cursing in his music for it and said he had been born again.
+
+In November 2019 he brought Sunday Service into the Harris County Jail in Houston,
+Texas, and performed for incarcerated men. The choir sang; he spoke. He did the same
+at other detention facilities. He described it as a mission, not a concert.
+
+Harris County Jail is one of the largest county jails in the United States. Its
+population, like the national one, is disproportionately Black. The Thirteenth
+Amendment's exception clause is the legal ground beneath the labor performed inside
+American prisons; the "New Slaves" verse names the companies that profit from keeping
+them full. In 2019 the man who recorded that verse walked into one of those buildings
+to sing to the people held in it.
+
+He has said the addiction he fought longest was to pornography, which he encountered
+at eleven in a magazine of his father's, and that his faith is what he used to break
+it. Jesus Is King repeats one word more than any other: freedom. Freedom from prison.
+Freedom from addiction. He does not separate them. In interviews around the album he
+said his only mission was to spread the gospel and to free people — from the literal
+cell, from the compulsion, from what he calls mental slavery — and he used the same
+word for all of it, the way the earlier records used one word, slaves, for the prison
+and the industry at once.
