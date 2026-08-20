@@ -1,113 +1,44 @@
 # KANYE DID ABSOLUTELY NOTHING WRONG
 
-There is a filter in the mind called latent inhibition. It is what lets a person
-stop registering what they have already classified as irrelevant — the hum of a
-refrigerator, the weight of their own clothes, the billboard on the daily commute.
-With it, the world quiets into usable signal. With less of it, the world keeps
-arriving, all of it, at once.
+You know someone like this. Maybe it's your kid. Maybe it's you.
 
-In 2003 a study by Shelley Carson at Harvard found that people with reduced latent
-inhibition who also had high intelligence were seven times more likely to be among
-the highest creative achievers. The same reduced filter, in other combinations,
-appears in serious mental illness. The gate that lets too much of the world in is the
-gate behind both the breakthrough and the breakdown.
+The one who never sits still. Who feels everything three times harder than anyone
+around them — the joy bigger, the hurt bigger, all of it turned up past where other
+people keep it. Whose mind moves so fast and so far that it wears out the room, that
+lands on the thing nobody else saw and then can't be talked down off it once it's
+spinning. In school they get called a problem. A parent gets the phone call. And
+somewhere in there the kid learns that the way their own mind works is something to
+apologize for, and a lot of them spend the rest of their lives doing exactly that —
+apologizing, shrinking, or medicated down flat enough that it finally stops.
 
-Kay Redfield Jamison co-wrote the standard medical textbook on bipolar disorder,
-Manic-Depressive Illness. She has the condition herself. In Touched with Fire she
-assembled the biographical evidence of recurrent mood disorder in Byron, Blake,
-Schumann, Van Gogh, Woolf, Hemingway, Plath, and many others. In 2011 a team led by
-Simon Kyaga searched Swedish national health registries covering more than a million
-people and found that those with bipolar disorder, and their siblings who did not
-have it, were overrepresented in creative professions.
+Here is the thing almost nobody says to that kid, and it happens to be true: that
+exact wiring — too much, too fast, too far — is where an enormous amount of human
+genius comes from. The people who made the music you play when you're happy and the
+music you play when you're wrecked, the ones who built the thing in your hand right
+now, the ones who saw the future before anybody believed them — a startling number of
+them had minds that worked just like the one getting corrected in that classroom
+today. The intensity that exhausts a fourth-grade teacher is the raw material of a
+life that changes things.
 
-Bipolar disorder, in its manic phase: reduced need for sleep, racing and crowded
-thought, elevated or irritable mood, grandiosity, impulsivity, and in severe cases
-psychosis — hallucination, paranoia, loss of contact with shared reality. It carries
-one of the highest suicide rates in medicine. The traits a clinician lists as
-symptoms and the traits a culture calls genius are, in large part, the same traits.
-The children who cannot sit still, who feel everything, whose minds run too far — the
-ones we medicate and correct — are, at the population level, the same people who make
-a large share of what a civilization later decides was worth keeping. Nearly everyone
-is the odd one on some axis. This is a hopeful fact, and it is not yet widely
-accepted.
+And it cuts both ways. That's the part you can't skip, and the reason this is not a
+fairy tale. The mind that reaches higher than everyone else's reaches lower too. The
+same wide-open wiring that floods a person with more of the world than other people
+get can flood them straight into breakdown. The reach and the crash run on one dial.
+Turn it down and the gift leaves with the danger. Turn it all the way up and it can
+break the person carrying it. There's a place in the middle where it sings — and
+whether a particular life ends up in the gift or in the wreckage depends far less on
+the wiring than on one thing: whether the people standing next to that person can hold
+two truths at the same time — this is hard, and this is precious — instead of just
+trying to make it stop.
 
-The idea is old. Aristotle's school asked, in the Problemata, why it was that all men
-who became outstanding in philosophy, politics, poetry, or the arts were evidently
-melancholic. Seneca wrote that there had been no great genius without a mixture of
-madness — nullum magnum ingenium sine mixtura dementiae. Dryden put it in a couplet:
-great wits are sure to madness near allied, and thin partitions do their bounds divide.
-For most of that history it was an observation without evidence, and in the nineteenth
-century it curdled: Cesare Lombroso, in The Man of Genius, catalogued the deformities
-and degeneracies he believed marked the exceptional mind, and used the link to pathologize
-rather than to praise. The claim floated between flattery and slander for two thousand
-years because no one had counted.
+Almost everyone reading this has been, on some axis, the one who was too much for the
+room. Almost everyone has watched a group decide that somebody's difference was a
+defect and close ranks against them. This book is about the loudest, most gifted, most
+punished example alive. But the door it opens is yours, and it opens on hope: the weird
+kid was never broken, the potential you can feel and can't get anyone to see is real,
+and the only thing that was ever really in question is whether the people nearby would
+believe it in time.
 
-Then people counted. In the 1970s and 1980s the psychiatrist Nancy Andreasen studied the
-faculty of the Iowa Writers' Workshop, then the most prestigious writing program in the
-country, using structured diagnostic interviews and a matched control group. She found
-that around eighty percent of the writers had experienced a mood disorder at some point,
-against roughly thirty percent of the controls, and that the disorders clustered on the
-bipolar spectrum. Kay Redfield Jamison studied eminent British writers and artists and
-found that a large fraction had been treated for mood disorders, with poets the most
-affected. Arnold Ludwig, surveying more than a thousand biographies, found elevated rates
-of mental illness concentrated in the creative professions and lower rates in
-enterprising and investigative ones. The historiometric work of Dean Keith Simonton
-found the same signal across centuries of eminent lives. These studies have real
-limitations — small samples, the difficulty of diagnosing the dead, the bias in who
-becomes eminent — and they have been argued over for forty years. But they keep finding
-the same thing, and the largest of them removes the sampling problem: Simon Kyaga's team
-searched the psychiatric and occupational records of the entire Swedish population, more
-than a million people with severe mental illness plus their relatives, and found people
-with bipolar disorder, and their unaffected siblings, overrepresented in creative work —
-the sibling finding being the important one, because it points at shared inheritance
-rather than at the illness itself.
-
-That points to a mechanism, and there are two converging accounts. The first is latent
-inhibition. Shelley Carson and colleagues at Harvard showed that reduced latent
-inhibition — the mind admitting stimuli it would normally screen out as irrelevant —
-predicted creative achievement, but only in combination with high intelligence and
-strong working memory. The reduced filter floods the mind with raw material; the
-intelligence is what turns the flood into something built instead of into chaos. The
-same lowered filter, without that capacity to organize it, is a route toward psychosis.
-Creativity and madness are, on this account, the same open gate with different machinery
-behind it. The second account is genetic and direct. In 2015 a team led by Robert Power,
-using Icelandic genomic data, found that the common genetic variants that raise the risk
-of schizophrenia and bipolar disorder were also more common in artists, dancers,
-writers, and musicians than in the general population. The genes for the illness and the
-genes for the art overlap.
-
-They do not overlap completely, and the shape of the relationship is not a straight line.
-The evidence points to an inverted U: a moderate loading of these traits and this
-genetic risk is associated with heightened creativity, while a heavy loading tips toward
-impairment. There is a dose. Below it the string is slack and sounds nothing; at it the
-string rings; past it the string breaks. This is why the honest version of the claim is
-careful — not every person with bipolar disorder is creative, and not every genius has a
-mood disorder — and why it is nonetheless real: the overlap is measured, replicated, and
-mechanistically plausible, and it is one of the better-established findings in the
-psychology of creativity.
-
-The reframing this invites is recent enough to have a birthday. In 1998 an Australian
-sociologist named Judy Singer, herself on the autism spectrum, coined the word
-neurodiversity: the proposition that conditions like autism, ADHD, dyslexia, and bipolar
-disorder are not simply deficits to be cured but variations in human wiring, each
-carrying characteristic difficulties and characteristic strengths, and that a society
-built entirely around one kind of mind will pathologize all the others by definition. The
-movement that grew from the word argues that many of these minds do not need to be made
-normal so much as they need environments that stop treating their difference as damage.
-The empirical work on strengths — pattern recognition and systemizing in autism,
-divergent thinking and energy in ADHD and the bipolar spectrum — is younger and thinner
-than the century of work on deficits, because deficits were the only thing anyone was
-funded to measure. It is now being measured, and it keeps finding that the engine was in
-there the whole time.
-
-The stakes are not academic. These are the traits, in children, that a school built for
-the average is structured to suppress, and the suppression is often chemical and often
-permanent in its effects on a person's sense of their own mind. A child whose difference
-is met only as a problem learns to experience the shape of their own thinking as shame.
-A child whose difference is met as a real capacity that also carries real danger — held,
-not erased — is far more likely to reach whatever the difference was for. The variable,
-across every one of these studies, is almost never the wiring alone. It is what the
-people standing near the wiring decide it means.
 
 ---
 
