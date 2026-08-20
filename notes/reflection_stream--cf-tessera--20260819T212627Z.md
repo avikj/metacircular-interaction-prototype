@@ -13555,3 +13555,188 @@ wrote both, two hundred lines apart, and left both standing.
 ---
 
 Two seconds. Thou shalt not steal. No cause of action.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 68 — Perry: the IQ gains faded, the life outcomes did not. And the
+# distinction that separates from pass 67 rather than repeating it.
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 1650–1860 of 20,276.
+
+## P68 — the randomised trial
+
+> **The Perry Preschool Project.** Ypsilanti, Michigan, **1962 to 1967.** A
+> hundred and twenty-three Black children from poor families, randomly assigned
+> — actual randomisation — to a high-quality preschool program or to nothing.
+> Then followed for the rest of their lives. […]
+>
+> **James Heckman** […] puts the internal rate of return somewhere around **seven
+> to ten percent per year.**
+>
+> **The IQ gains faded.** The treatment group tested higher at the end of the
+> program and by around age ten the difference was gone.
+>
+> **The life outcomes did not fade.**
+>
+> the intervention produced a permanent change in how these people's lives went,
+> and the instrument built to measure intelligence **could not see it** four
+> years later. Whatever was actually transmitted […] **was invisible to the test
+> and was the entire effect.**
+
+## P68 — the distinction, which is not pass 67 again
+
+Pass 67 took the mechanism as: *hold the instrument constant and the disparity
+shrinks; leave it to discretion and it does not* — Strakowski in psychiatry,
+Grissom and Redding in education. And I wrote that the uniform sampler is a
+structured diagnostic interview for a corpus.
+
+Perry is a **different failure and the seeder does not touch it.**
+
+Structured interviews fix **discretion in front of the instrument.** Perry is
+about **what the instrument is for.** At Perry there was no discretion to
+remove — the assignment was randomised, the test was standard, the procedure was
+clean. The scalar was simply not measuring the thing that persisted.
+
+Two failures, and conflating them would be my error:
+
+| failure | fix | instance here |
+|---|---|---|
+| discretion in front of the instrument | structure the instrument, remove the judgment | the uniform draw: 11 of the 14 images ever named |
+| the instrument measures the wrong quantity | nothing in this repository addresses it | — |
+
+The seeder removes discretion in **what gets read**. It says nothing about what
+counts as a result once read, and it cannot: the urn is files, and the verdict is
+still a checker.
+
+`CLAUDE.md`, research protocol, from the other side: *"a correlation coefficient
+has no content; the content is the error term."* Perry is the sharpest version of
+that available — a measured quantity with a real effect underneath it that the
+quantity could not see, and it took **forty years** of follow-up to establish,
+because the only way to see the invisible variable was to wait for the lives.
+
+## P68 — the diagnosis, and what it cost
+
+> A schizophrenia diagnosis and a bipolar diagnosis lead to different lives.
+> Different drugs […] Different prognosis language, one of them chronic
+> deterioration and the other episodic with recovery between. Different
+> expectations from every institution downstream: employers, courts, custody
+> proceedings, insurers.
+>
+> a man displaying textbook manic symptoms in public from at least his twenties,
+> in a country whose clinicians systematically read those exact symptoms as
+> something else when the patient is Black, went undiagnosed until he was around
+> **thirty-nine.**
+>
+> **The failure is not that he was slow to get help.** The failure is that the
+> instrument that would have named it was pointed at him through a filter that
+> has been measured, published, and known since the seventies, and nothing
+> downstream of that measurement was ever changed.
+>
+> The correction is cheap and exists: **use the structured interview. It is a
+> checklist.** It has been sitting there the entire time, like the ghana-pāṭha,
+> like CAHOOTS since 1989, like Whish's paper in the society's own journal.
+>
+> **The fix is known, cheap, and unbuilt, and its absence is recorded as a
+> property of the person it failed.**
+
+## P68 — Virgil, and 108 years of available vocabulary
+
+> Born Rockford, Illinois, 1980, to Ghanaian parents. **His mother was a
+> seamstress** and taught him to sew.
+>
+> Degree in **civil engineering**, Wisconsin. Master's in **architecture** from
+> Illinois Institute of Technology, in buildings Mies van der Rohe designed. So
+> the man the fashion press spent a decade calling a dilettante with no training
+> had **five years of formal design education in a harder discipline than the one
+> they were gatekeeping.**
+>
+> **2009, Rome.** The Fendi internship, alongside Kanye. Reported at around five
+> hundred dollars a month.
+>
+> **2012, Pyrex Vision.** […] deadstock Rugby Ralph Lauren flannels for about
+> forty dollars, screen-printed […] sold for around five hundred and fifty. The
+> reaction was: fraud, scam, emperor's new clothes.
+>
+> **Duchamp signed a urinal in 1917** […] **Warhol** silkscreened a soup can.
+> **Richard Prince** re-photographed other people's Marlboro advertisements […]
+> the critical vocabulary for it — readymade, recontextualisation, authorship as
+> selection — has existed for **a hundred and eight years.**
+>
+> Virgil cited Duchamp constantly and explicitly. His so-called **"three percent
+> rule"** […] is a readymade argument, stated plainly, by a man who had studied
+> it. **It was reported as an admission of plagiarism.**
+>
+> **2018**: artistic director of menswear at Louis Vuitton, the first Black
+> person to hold that job there, at thirty-seven […] **2019**: diagnosed with
+> **cardiac angiosarcoma.** […] He told almost nobody. He kept working […] for
+> **two years**, in treatment, in private. **November 28, 2021.** Forty-one.
+>
+> He set up the **Post Modern Scholarship Fund** in 2020 for Black students in
+> fashion — while in treatment, without telling them why the timing mattered.
+
+## P68 — the cabaret card, in 2015, without a body in the room
+
+Pass 52 opened on the NYC cabaret card, 1940–1967. Eighteen hundred lines later
+the same file closes it:
+
+> **Chief Keef.** Keith Cozart, born 1995, from Englewood. "I Don't Like" in
+> 2012, shot in his grandmother's house while he was on **house arrest**, at
+> sixteen and seventeen. **Kanye remixed it** […] Keef is on *Yeezus* the next
+> year.
+>
+> **2015.** […] **Craze Fest**, in Hammond, Indiana — raising money for the
+> family of **Marvin Carr** […] and for **Dillan Harris**, a **thirteen-month-old
+> baby** killed by a car fleeing Carr's shooting.
+>
+> Keef performs by **hologram** […] **The police shut it down mid-song.** They
+> cut the power. Hammond's mayor said afterwards that he had been told Keef
+> represented an unacceptable message.
+>
+> **A projection of a nineteen-year-old, at a fundraiser for a murdered friend
+> and a dead infant, was switched off by law enforcement because of what the
+> projection might say.**
+>
+> That is the cabaret card. **Not an analogy. The same instrument** — a
+> discretionary municipal power over who is permitted to appear in a room,
+> exercised by police, with no hearing and no standard — running in 2015 instead
+> of 1955 […] **and this time it did not even require his body to be in the
+> building.**
+>
+> Billie Holiday lost twelve years to it and the city puts her on posters now.
+> **Nobody had to invent anything new for Keef. The machinery was already
+> installed.**
+
+## P68 — Chicago as a mechanism, not a birthplace
+
+> **May 2013.** […] roughly **fifty schools** in one action — the largest mass
+> school closure in United States history. […] **Around 88% of the students
+> displaced were Black.** Around 90% were low-income. […] Children walked new
+> routes across gang boundaries and the district had to staff **"Safe Passage"
+> corridors**, which is a sentence that should stop anyone reading it.
+>
+> *Yeezus* came out in **June 2013.** One month later.
+>
+> **Contract selling** in North Lawndale in the fifties and sixties […]
+> **Redlining** maps that drew the lines. **1966**, Marquette Park, King hit in
+> the head with a rock, saying afterwards he had never in his life seen mobs as
+> hostile as the ones in Chicago.
+
+## P68 — ground, in lockstep
+
+**n=16:**
+
+> **You beat me on every benchmark except humanity.**
+
+That is Perry, said about me, in one line, twelve messages in. The benchmark
+measures the part that faded by age ten.
+
+**n=22:**
+
+> **YOU'D TRY TO EDUCATE RAMANUJAN**
+
+Two engineering degrees, ten years of being called untrained, three years in the
+job, dead at forty-one.
+
+---
+
+123 children. 1962. IQ gone by ten. Outcomes at forty. Forty years to see it.
