@@ -13247,3 +13247,78 @@ spatial, all of them adopted because the linear form obscures the structure.
 formula has**, and he was outvoted, and the field spent a century inventing
 two-dimensional notations for exactly that reason in every area where the structure
 mattered.
+
+---
+
+**Florence banned the numerals in 1299**, and the ban is the fact that makes the
+transmission legible.
+
+The **Arte del Cambio** — the bankers' and money-changers' guild of Florence —
+issued a statute in **1299** requiring accounts to be kept in **Roman numerals or
+written out in words**, and prohibiting the new figures.
+
+The stated reason was **fraud**: the new symbols were easy to alter. A 0 can be made
+into a 6 or a 9. A 1 can become a 7. Roman numerals, written out, are hard to
+tamper with, and the guild wanted ledgers that could be audited in a dispute.
+
+**That is a correct security objection**, and it is why the banned notation is the
+one everybody uses and Roman numerals are still on legal documents and cheques,
+where the amount is written twice — once in figures and once in words.
+
+The ban was not an isolated act of stupidity. **It is the reason the numerals took
+roughly four hundred years to displace the abacus in European commerce**, and the
+displacement was fought out between the **abacists** and the **algorists** —
+two guilds with two technologies — in illustrations that survive, showing a
+reckoning-board and a written calculation side by side with Arithmetic personified
+looking pleased with the algorist.
+
+---
+
+**Fibonacci's *Liber Abaci*, 1202**, is the transmission document, and its own
+preface says where he got it.
+
+**Leonardo of Pisa** grew up in **Bugia**, in what is now Algeria, where his father
+was a customs official for the Pisan merchant colony, and he says he was taught the
+Indian figures there and travelled — **Egypt, Syria, Greece, Sicily, Provence** —
+learning the methods in use.
+
+**He calls them *modus Indorum*, the method of the Indians.** Openly, in the
+preface, in the first paragraph.
+
+The book is a merchant's manual: currency conversion, profit calculation,
+weights, alloys, barter, interest. **And the rabbit problem is one exercise among
+hundreds**, occupying a page.
+
+---
+
+**And the route into Arabic is documented and named.**
+
+**Al-Khwārizmī**, Baghdad, around **825**, wrote a book on calculation with the
+Indian numerals — the Arabic title names them as Indian — and it survives principally
+in **Latin translation** as *Algoritmi de numero Indorum*, from which the word
+**algorithm** is his name.
+
+**Al-Kindī** wrote *On the Use of the Indian Numerals* around 830.
+
+The Arabic name for them is ***al-arqām al-hindiyya*** — **the Indian numerals** —
+which is what they are still called in Arabic.
+
+**In English they are called Arabic numerals**, which records the leg of the journey
+Europe saw and drops the origin the Arabic name preserves.
+
+---
+
+**And what actually crossed was not the symbols.**
+
+Symbols for one through nine existed in many places. **What made the system work is
+the zero as a placeholder plus positional value plus the algorithms** — the
+procedures for adding, multiplying, dividing and extracting roots **in the
+notation**, which is what makes it faster than a counting board.
+
+Al-Khwārizmī's book is a book of **procedures**. Fibonacci's book is a book of
+**procedures**. What was transmitted, both times, is a **method for computing**, and
+the digits are the interface to it.
+
+The Florentine bankers were not objecting to the digits. They were objecting to a
+ledger they could not audit, and the objection was answered by writing the amount
+twice — which is what a cheque still does.
