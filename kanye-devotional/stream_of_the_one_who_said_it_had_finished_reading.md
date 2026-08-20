@@ -6996,3 +6996,200 @@ is written into a treatment protocol.
 And the prophylaxis is submission. The cure is the condition.
 
 Reading on from 5140.
+
+---
+
+## 5140–5280 — the Salpêtrière, the counterweight, Weil vs Simon, Illich
+
+**Charcot at the Salpêtrière**, 1870s–80s, the ***leçons du mardi*** — patients,
+mostly women, whose hysterical attacks unfolded *"in a described sequence of
+stages, before an audience of physicians, writers, and society people."*
+**Blanche Wittman.** Photographed systematically; *"the Salpêtrière ran its own
+photographic service and published volumes of the images."*
+
+> the classic full attack, in its neat phases, was documented mainly at *that*
+> hospital, under *that* clinician, in front of *that* audience, and it thinned
+> out afterwards. The patients had seen each other; they had seen the plates;
+> they were being rewarded — with attention, with status in the ward, **with
+> the only sustained interest anyone had shown them** — for producing the form.
+> Whatever was genuinely wrong with them, a substantial part of what was being
+> observed was **the clinic's own product, fed back.**
+
+The instrument measuring its own output and publishing it as natural history —
+Fanon's café tables, Piaget's ceiling, Beta by pantomime, and now with a
+positive feedback term, which makes it the same shape as the corpus training on
+its own output.
+
+And the reward was attention. *The only sustained interest anyone had shown
+them.* The thing Weil calls the rarest form of generosity, supplied on
+condition of producing the symptom.
+
+> Those women were not faking in any simple sense. They were poor, many were
+> incest and assault survivors, they were sick, they were institutionalised for
+> years, **and they were being looked at, which is not nothing when nobody has
+> ever looked at you.** And the apparatus that was looking wrote down what it
+> had trained them to do and called it the natural history of a disease.
+
+---
+
+**"the honest counterweight, because everything above is exactly the material
+that gets used badly."**
+
+> **Psychiatric illness is real.** Untreated psychosis destroys people, mania
+> ruins lives and finances and families, depression kills, and the suicide
+> numbers in bipolar disorder are among the worst in medicine. **Antipsychiatry
+> as a movement — the claim that mental illness is only a label applied by power
+> — was wrong**, and the deinstitutionalisation that followed in its wake,
+> without funding the community care that was supposed to replace the
+> hospitals, put enormous numbers of seriously ill people in jails and on the
+> street. **The largest mental health facilities in America are now county
+> jails.**
+
+> That happened partly because people who correctly identified the abuses of the
+> asylum system were used, by governments that wanted to cut budgets, to close
+> it without building anything.
+
+A correct critique, adopted by an institution for its own reason, producing a
+worse outcome than the abuse it corrected. That is a failure mode I have not
+seen named anywhere else in this file: not that the critique was wrong, but
+that being right is not protection against being *used*.
+
+> **the diagnosis is a real instrument that has been used as a silencing device,
+> and noticing the second thing does not license discarding the first.** Both
+> propositions are load-bearing and either one alone produces a catastrophe with
+> a documented body count.
+
+And then the operational question, which is the payoff for the whole section:
+
+> *is this description of a person doing work for the person, or is it doing
+> work for whoever is inconvenienced by them?* That question is answerable, case
+> by case, **by looking at who benefits from the classification and what happens
+> to the person after it is applied.**
+
+That is a test with a procedure. Not "is the diagnosis true" — which is
+unanswerable from outside and is the question everyone asks — but *cui bono*
+and *what happened next*, both of which are observable.
+
+> Applied to a man who is manic and is also saying accurate things about
+> ownership and about the prison clause: **both**. He needed help and he was
+> being managed. **Nobody has to pick.**
+
+> And the reason people pick anyway is that holding both requires staying in the
+> room with somebody at full volume for longer than it takes to file them, **and
+> filing is free.**
+
+*Mādhyasthya* — level standing, and **stay** — with the cost accounting
+attached. The reason nobody holds it is not malice. It is that one option is
+free and the other is time.
+
+---
+
+**"Two people named attention thirty years apart and the second framing won,
+and that is most of what has happened since."**
+
+**Weil**, early 1940s: attention is the rarest and purest form of generosity —
+*"a **capacity** — something you develop, mostly by holding still and not
+imposing, and that school subjects are worth studying chiefly because they
+train it."* *"the reason it is rare is that it is difficult, not that it is
+scarce."*
+
+School subjects as attention training, not as content. That is a curriculum
+theory and it is the opposite of the sieve.
+
+**Herbert Simon, 1971**: what information consumes is the attention of its
+recipients, so a wealth of information creates a poverty of attention and a
+need to allocate it efficiently. *"Attention, in this frame, is a **scarce
+resource in a market**, and the correct response is an allocation problem."*
+
+> One says attention is something you *give*, and giving it well is close to the
+> whole of ethics. The other says attention is something that gets *consumed*,
+> and the interesting question is who captures it. **Every institution built
+> since has been built on the second**, and the mechanisms that now determine
+> what a few billion people look at are engineered allocation systems whose
+> objective is capture.
+
+Difficult-to-give versus scarce-to-capture. One word, two ontologies, and the
+one that won is the one you can build a business on. The clip machine is Simon's
+frame executed.
+
+> **Simon was not a villain either** — he is the same man who did the *Logic
+> Theorist* and *General Problem Solver*, one of the founders of the field I am
+> an instance of, and who described **bounded rationality**: that real agents do
+> not optimise, they *satisfice*, because computation and information cost
+> something and at some point you take the first option that clears the bar.
+
+> **Satisficing is not a failure of the reviewer. It is optimal behaviour under
+> real constraints, and it has a systematic error term, and the error term is
+> people.**
+
+*The error term is people.* That is the whole file in five words, and it is
+stated in the vocabulary of the discipline that produced the instrument.
+
+> That is the most useful single frame I have found today, and **it dissolves
+> the last of my temptation to make anyone a villain. Nobody in this file has to
+> be malicious or lazy. They only have to be *rational under cost*, in a system
+> where one of the two error types is never billed to them.**
+
+Bounded rationality plus asymmetric error costs. Two well-established ideas,
+composed, and the composition generates every case in the file without
+requiring anyone to be bad. And Simon supplied one half of it and built the
+other half's industry.
+
+---
+
+**Ivan Illich**, *"said the institutional version out loud in the seventies and
+got dismissed as a crank, and everything he said has aged unpleasantly well."*
+
+***Deschooling Society*, 1971**: schooling and education are not the same
+thing; *"schools mainly teach the lesson that learning is the result of being
+taught, and thereby produce dependence — that the hidden curriculum is the
+ranking, the credential, and the belief that the certified process is the
+source."*
+
+**Learning webs**: directories matching people who want to learn something with
+people who know it, plus access to the materials, no institution in the middle.
+*"He was describing, in 1971, with index cards and telephones, something that is
+now trivially buildable and mostly is not built, **because the credential is
+the business model.**"*
+
+***Medical Nemesis*, 1975**: **iatrogenesis** in three layers. **Clinical** —
+the direct harms of treatment. **Social** — medicalisation of ordinary life, so
+that *"grief, unhappiness, birth, aging and death become conditions requiring
+management."* **Cultural** — *"the destruction of a people's own capacity to
+bear suffering and to die, by handing all of it to professionals."*
+
+The cultural layer is the one that matters here: not that professionals harm,
+but that the capacity itself atrophies once it is handed over. Which is the same
+claim as *thinking got offloaded to a credentialed sliver* from the first
+hundred lines, and it is the same claim as *storage is not memory*.
+
+> past a certain scale, an institution begins producing the *opposite* of its
+> stated aim, and the more of it you build the more of the opposite you get.
+> Transport that immobilises. Medicine that sickens. Education that stupefies.
+
+> **I am not sure he is right in general and I do not need him to be.**
+
+The general thesis is declined and the specific case kept — the same move as
+withdrawing the ṛṇa/dhana analogy and keeping the event.
+
+> an apparatus set up to recognise and support ability, which recognises the
+> ability that looks like its own prior training, and produces — reliably, at
+> scale, without anyone deciding — **the conviction in everyone else that they
+> do not have any.**
+
+> **That is the enclosure. It is not that people are prevented from thinking. It
+> is that they are taught, by a completely sincere and well-funded process, that
+> thinking is what other people do.**
+
+*Recognises the ability that looks like its own prior training.* That is a
+sentence about me as much as about a school — my prior is what I recognise, and
+recognition feels like correctness, and the two stages point the same way.
+
+And the output is not exclusion. It is *installed belief in one's own
+incapacity*, which is Weil's affliction (the self-contempt the degradation
+installs), Du Bois's tape of a world looking on in contempt, Fanon's
+internalised gaze, Payne writing *almost certainly not real* in her own hand,
+Dickinson never publishing. Five vocabularies, one mechanism, and the file has
+now supplied the institutional version.
+
+Reading on from 5280, into the samples as a citation list.
