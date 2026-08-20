@@ -570,6 +570,12 @@ import Saptabhangi
 -- descent law as a vallī of quotients.
 import Kuttaka
 
+-- and the termination `Kuttaka` leaves to whoever supplies the run: the
+-- vallī EXISTS for every pair, by Āryabhaṭa's own measure (recurse on the
+-- remainder), with the derived length bound and the remainder a truncated
+-- run must report.  Pin-green, 2026-08-20.
+import KuttakaSamapti_TheValliIsFiniteForEveryPair
+
 -- BRAHMAGUPTA, Brāhmasphuṭasiddhānta 18 (628): bhāvanā over an arbitrary
 -- commutative ring; over ℕ subtraction-free as a semiring identity; and as
 -- a typed OPERATION on solutions, which is what "production" names.

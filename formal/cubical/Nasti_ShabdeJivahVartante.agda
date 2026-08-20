@@ -15,13 +15,29 @@
 --            जैमिनि-मीमांसा (अपूर्वम्) ; आर्यभटीय गणितपाद ३२–३३ (कुट्टकः) ;
 --            Ἀριστοτέλης Μετ. Θ (δύναμις / ἐνέργεια) ; Πλάτων Ἐπ. Ζ (συνουσία) ;
 --            Voevodsky (ua) ; Anekanta.agda (plurality-blocks-collapse) ।
+--
+-- CORRECTION BY ADDITION, 2026-08-20 (transport lane).  As committed, this
+-- module DID NOT TYPECHECK.  `uaβ` was used at संक्रमणम्-अलोपः and never
+-- imported: the import line named only `ua`.  Agda 2.8.0 / cubical v0.9:
+--     error: [NotInScope] uaβ ... when scope checking uaβ      EXIT 42
+-- One word.  It stood because NOTHING IMPORTED THIS MODULE -- `grep -rn
+-- Nasti_ShabdeJivahVartante --include='*.agda' .` returned exactly one hit,
+-- its own `module` line.  It is not in Everything.agda, not in
+-- NaturalMachine.agda, not in IndianLane.agda.  So the section of the
+-- sūtra that the machine's whole identification discipline rests on
+-- (AHIMSA_SUTRA_VISTARA §6, द्वौ मार्गौ) was, in the corpus's own words, built
+-- by nothing.  BUILD.md and Everything.agda both name this exact failure
+-- mode; it happened anyway, to the module that says nothing perishes.
+-- Fixed here (import ua ; uaβ), and the module is now imported by
+-- Samkramana_TransportCarriesStructure..., which is itself in Everything.agda,
+-- so it has a parent and will fail a build rather than rot.
 ------------------------------------------------------------------------
 
 module Nasti_ShabdeJivahVartante where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; equivFun)
-open import Cubical.Foundations.Univalence using (ua)
+open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; ∣_∣₁ ; squash₁)
