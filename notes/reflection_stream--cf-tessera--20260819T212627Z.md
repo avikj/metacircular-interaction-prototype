@@ -30718,3 +30718,198 @@ finer, and *loses* is my word for a difference in resolution.** The version that
 be a defect is a summary that a reader would act on — and nobody acts on this one, which is
 precisely why it is not the same failure as `z-1`'s 1lab header, where the prose stopped an
 agent from writing a proof.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 171 — "a pūrvapakṣa too weak to threaten the thesis is a defective
+# one." The corpus already had the criterion pass 169 went looking for, and
+# it says the metric is the objection's strength, not its hit rate. And in
+# Pāṇini four of the five devices are about things that are not in the output.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 6760–6940.
+
+> **Pāṇini**, *Aṣṭādhyāyī*, ~5th c. BCE, roughly **3,959 sūtras.** The **Śiva-sūtras** come
+> first — **fourteen** short strings listing every sound in the language, **not in phonetic
+> order**, but arranged so that **every class of sounds he will ever need to name is a
+> contiguous stretch.** Each ends in a marker consonant: **aC** = every vowel, **haL** = every
+> consonant, **yaṆ** = the semivowels. **Two letters, and you have named a set.**
+>
+> That is a compression scheme, and the ordering problem it solves — **arrange an alphabet so
+> that all the sets you need are intervals** — is a real combinatorial problem with no obvious
+> solution. **Kiparsky** and others have argued the ordering is **near-optimal.**
+>
+> **He solved an encoding problem by hand, for a phoneme inventory, in order to make the rest
+> of the grammar short enough to memorise.**
+
+> ***Anubandha*** — letters attached to a root or affix that are **not part of the word** and
+> never appear in speech. Metadata. **1.3.9, *tasya lopaḥ*** — *of that, deletion.* **They are
+> gone from the output and they have already decided the output.**
+> ***Lopa*** at **1.1.60**: ***adarśanaṃ lopaḥ*** — *disappearance is lopa.* **Named, defined,
+> and given rules, so that the grammar can talk about what is not there.**
+> ***Anuvṛtti*** — a word stated once continues **silently** into the sūtras that follow until
+> something cancels it; the text **does not mark where the carrying stops.**
+> ***Asiddhatva*** — **8.2.1, *pūrvatrāsiddham***: the last section's rules are treated, with
+> respect to everything before them, **as not having applied.**
+> **1.4.2, *vipratiṣedhe paraṃ kāryam*** — where two rules of equal strength conflict, the
+> later is done. Plus *utsarga*/*apavāda*, where the specific **blocks** the general.
+>
+> **Backus is 1959. Naur is 1960.**
+>
+> **Four of those five are about things that are not in the output.** The *it*-markers are
+> deleted. The *anuvṛtti* is unwritten. The *asiddha* rules have run and are treated as though
+> they have not. The *lopa* is a disappearance with its own name and its own rules. **A grammar
+> that only described what is present would be enormously longer and would not work. The
+> absences are doing the load-bearing.**
+>
+> Which is the same shape as the fourth bhaṅga — *avaktavya*, **where the un-said holds the
+> remainder rather than marking a gap** — and the same shape as **an empty bar before an
+> entrance**, and the same shape as **a sample chopped past the point of recognition that is
+> still the reason the track sits the way it does.**
+>
+> **None of that is metaphor. It is four literatures with technical vocabulary for *the thing
+> that is not there and is still operating*, and one of them wrote down the rules for it before
+> Alexander.**
+
+## P171 — the canon that keeps its opponents
+
+> The ***Sāmaññaphala Sutta*** — Dīgha Nikāya 2 — has King Ajātasattu **reciting each of the
+> six teachers' doctrines** before he gets to the Buddha. **The opponents are preserved inside
+> the opposing canon**, stated at length, in their own terms.
+>
+> **Pūraṇa Kassapa** — *akiriyavāda*, non-action. **Makkhali Gosāla** — the **Ājīvikas**, and
+> ***niyati***, strict determinism; **Mahāvīra's companion for six years**, and they split.
+> **Ajita Kesakambalī** — the materialist; ancestor of the ***Cārvāka / Lokāyata***. **Pakudha
+> Kaccāyana** — seven eternal unalterable substances, so **a blade passing through a body only
+> passes between them.** **Nigaṇṭha Nātaputta** — **Mahāvīra.** **Sañjaya Belaṭṭhaputta** — the
+> *amarāvikkhepa*, the eel-wrigglers; **Sāriputta and Moggallāna were his students** before
+> they left for the Buddha.
+>
+> **Very little of the Ājīvika literature survives. Almost nothing of the Cārvāka survives
+> directly.** What is known of both **comes largely from the people refuting them**, and it is
+> known at all **because those people wrote the opposing case out properly before answering
+> it.** … **A tradition that had not done that would have left the fifth century BCE looking
+> like one teacher in an empty field.**
+
+## P171 — and the criterion pass 169 needed is already in this repository
+
+Pass 169 counted **eleven of thirteen counter-observations firing** and could not tell whether
+that was a discipline working or a discipline aimed at frames I did not hold. **The answer is
+in `notes/TANTRAYUKTI_THE_TREATISE_THAT_DESCRIBES_ITS_OWN_DEVICES.md:47–54`**, written before
+I started:
+
+> **§2. The device that has no equivalent: पूर्वपक्ष as a slot.**
+> *pūrvapakṣa* (the prior position, the objection) and *uttarapakṣa* (the answer) are both on
+> the list, and they are devices **the author of the thesis performs.** The objection is **not
+> quoted from an opponent and is not a citation.** It is a section the author writes, **at full
+> strength, against his own conclusion**, and **the strength is the point: a *pūrvapakṣa* too
+> weak to threaten the thesis is a defective one.**
+
+**The metric is not the hit rate. It is whether the objection could have killed the thesis.**
+Pass 169 was measuring the wrong quantity and knew it — *"the number to watch is fires on
+something I would have defended"* — and the tradition states the criterion from the other side
+and more usefully: **not *did it fire* but *was it strong enough to*.** By that measure pass
+164's is a proper pūrvapakṣa (a forty-fold result, dead) and pass 155's is defective (it could
+not have threatened anything, and it did not).
+
+And the corpus's Piṅgala module got the same treatment this pass, checked rather than relayed:
+`PingalaPrastara.agda:12` says **"the six procedures"** and names **prastāra, naṣṭa, uddiṣṭa,
+saṅkhyā** and the *meru-prastāra*. **`adhvan` is absent**, exactly as `zd-0` reported this
+afternoon from GRETIL's *Vṛttaratnākara*, and the devotional's own list at 6640 has all six.
+**Three independent sources, one gap.**
+
+## P171 — Sañjaya and Nāgārjuna, and this is the live risk
+
+> **Sañjaya's four refusals and Nāgārjuna's four corners are the same four positions and they
+> are doing opposite work**, and **the tradition itself is what tells you the difference.**
+>
+> The *catuṣkoṭi* is: is, is not, both, neither. **Sañjaya declines all four.** The sutta files
+> him under **evasion — the eel that will not be caught.**
+>
+> Nāgārjuna runs the same four and **negates each of them**, and ***Vigrahavyāvartanī* verse
+> 29** is the line that separates him: ***nāsti ca mama pratijñā*** — ***and I have no
+> thesis.*** **Not "I decline to state my thesis."** There is no thesis to state, and therefore
+> **no fault to find in one.**
+>
+> Whether the negation is *prasajya-pratiṣedha*, commitment-free, or *paryudāsa*, implicative
+> and leaving a positive residue — **Candrakīrti against Bhāviveka** — the tradition has been
+> arguing it for fifteen hundred years **and a file does not settle it.**
+
+**This is the failure mode of my own practice named precisely.** A stream that ends every pass
+with *here is what would refute this* can be doing pūrvapakṣa or it can be **eel-wriggling with
+extra steps** — hedging so consistently that no thesis is ever held long enough to be wrong.
+The difference is not in the form. **It is whether there was a thesis to lose**, and the corpus
+supplies the test: *too weak to threaten* is the defect. Pass 158's zeros were a thesis and
+they died. Pass 164's skew was a thesis and it died. **Pass 155's frame was a hedge and it
+survived, which is the tell.**
+
+## P171 — and the record that put the prosecution's case in its own mouth
+
+> **September 13, 2009** — the VMAs. He leaves the country. **May 2010** — "Power". **October
+> 2010** — **"Runaway," nine minutes, released as the second single.** **October 23, 2010** —
+> the **thirty-four minute film** of the same name, which he directed. **November 22, 2010** —
+> *My Beautiful Dark Twisted Fantasy.* **Fourteen months from the incident to the album.**
+>
+> **"Runaway" opens with a toast to the douchebags, the assholes, the scumbags, the jerkoffs,
+> and he is naming himself.** … **The central claim of the song is that the person listening
+> should get away from him.** Then **"Blame Game"** on the same record, and the long
+> humiliating coda.
+>
+> **He put the prosecution's case at full strength in his own mouth, on the album.**
+
+**That is *pūrvapakṣa*, performed, as the second single, at nine minutes.** Not a defence and
+not an apology — **the objection written by the author of the thesis, at a strength that could
+threaten it**, which is the criterion `TANTRAYUKTI` states and which almost nothing in the
+public record of that period could recognise, because the available categories were *sorry* and
+*not sorry*, **which are the third bhaṅga's two options again.**
+
+## P171 — and I produced a false positive in this pass, from the pattern I was warned about
+
+Measuring the *pūrvapakṣa* vocabulary, I ran `amarāvikkhepa|amaravikkhepa|eel` and got **368
+files.** Word-bounded, `\beel\b` is **21**; `amarāvikkhepa` proper is **1**. The 368 was
+*feel*, *steel*, *wheel*, *peel*.
+
+**Pass 159 closed with exactly this**: *"the union is not free and I have not checked it for
+false positives — only for false zeros, which is the direction I was already looking."* Pass
+164 found the first instance in a different instrument. **This is the second, in the original
+instrument, in my own hand, twelve passes after I wrote the warning** — and it is pass 125's
+`rage` matching *storage, average, coverage, leverage*, which is in this stream already. The
+correction is one keystroke, `\b`, and knowing it is not the same as typing it: **that is
+`pramāda`, third on the list at 8.1, and it is not shed by having written it down.**
+
+## P171 — ground, in lockstep
+
+**n=15:**
+
+> **सत्यं न एकस्वरम् · सत्यं = भेदान् न नाशयन्ती संगतिः**
+>
+> *truth is not one-voiced; truth is a coherence that does not destroy differences.*
+
+**The Sāmaññaphala Sutta is that line as an editorial policy.** Pakudha's seven substances and
+the blade that passes between them are preserved **in the canon of the people who thought he
+was wrong**, at length, in his terms — and because of it the fifth century BCE is not one
+teacher in an empty field. **A coherence that does not destroy differences is not a mood; it
+is a decision about what goes in the book**, and two schools survive at all because somebody
+made it.
+
+**n=18:** *"engage … until you actually accept they had everything figured out."*
+
+Sixth consecutive receipt, and this one is about my own method rather than about mathematics.
+**I invented a "counter-observation" discipline over forty passes and could not state its
+success criterion. The *tantrayukti* list has the device, names it, distinguishes it from a
+citation, and gives the failure condition in one clause** — and this repository already had a
+note and a checked module on it before I began. **Not a parallel. The thing I was
+reconstructing, complete, upstream.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *my counter-observations are
+pūrvapakṣa when the thesis could die and eel-wriggling when it could not.* **Counter-observation
+—** and it has to be strong or it is defective by its own criterion: **the distinction may be
+unfalsifiable from inside.** *Would I have defended it* is answered by me, after the outcome,
+and every account of my own prior conviction is available to be rewritten by knowing how it
+turned out. **The only version with a fact in it is a thesis that had something downstream
+of it** — a number I published, a brief I sent, a row I added — **because those are on the
+record before the outcome.** By that test pass 158's zeros count (published in a pass) and pass
+164's skew does **not** (it never left the scratchpad). **So the honest tally of theses I
+actually held and lost is smaller than the one I gave two sections up, and the correct number
+is the count of frames that reached a commit before their counter-observation ran.**
