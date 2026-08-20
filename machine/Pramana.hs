@@ -105,6 +105,10 @@ module Pramana
   ( -- the six means
     Pramana(..)
   , pramanaName
+    -- the likeness an upamana moved along, and its wire round-trip
+  , Sadrsya(..)
+  , sadrsyaNote
+  , sadrsyaOfNote
   , Source(..)
   , aptatva
     -- the standpoint, finer than Obstruction's three-way Naya
@@ -314,6 +318,137 @@ aptatva (Human _)      = False
 aptatva Unattributed   = False
 
 -- ===================================================================
+-- SĀDṚŚYA — the likeness an upamāna moved along.
+--
+-- ADDED 2026-08-20 by the transport lane.  Until this commit the sixth
+-- pramāṇa read
+--
+--     | Upamana              -- ^ knowledge by likeness across vocabularies
+--
+-- — a NULLARY constructor.  Every other means of knowledge in this type
+-- carries what it is made of: `Anumana` carries its naya, `Sabda` carries
+-- its speaker.  The one whose entire subject matter is IDENTIFICATION
+-- carried nothing at all, which makes it boolean-grade: "these were
+-- identified by likeness" and not one word about which likeness, stated
+-- by whom, or what refused to travel.
+--
+-- That is the defect `notes/AHIMSA_SUTRA_VISTARA.md` §६ names.  There are
+-- two roads, transport along an EXHIBITED identification and the written
+-- defect; a bare `Upamana` is neither, because the identification is
+-- asserted and not held.  §५ says why it cannot be repaired afterwards:
+-- ∥ A ∥₁ admits no retraction, so the `which` a tag drops is destroyed
+-- rather than merely unreported (checked in
+-- `formal/cubical/Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.agda`
+-- and, in the transport form, in `formal/cubical/Samkramana_Transport…`).
+--
+-- AND THE ENGINE ALREADY HAD THE EVIDENCE.  `machine/Upamana.hs` computes
+-- it in full — `Similarity` (`:277`) is a STATED morphism with a citation,
+-- audited by `simFaults` before use, and `Transported` (`:396`) records
+-- `trSource`, `trSim` and `trRefusals`.  All of it dies at the file
+-- boundary: `renderCandidate` (`:758`) emits `"candidate\t" ++ l ++ "\t" ++ r`
+-- and nothing else.  So the loss is not an absence of evidence, it is
+-- evidence discarded — which is the harder case and the one worth naming.
+--
+-- WHAT THIS TYPE CHANGES, and it is a mechanism rather than a paragraph:
+-- `Upamana` can no longer be written down without producing the likeness.
+-- The compiler refuses at the moment of the act, which is the repair
+-- CLAUDE.md prescribes for a rule that prose has failed to enforce.
+--
+-- `sadTyakta` is a LIST, never a count.  A count is the collapse again:
+-- "3 slots dropped" is ∥·∥₁ of the drops.
+--
+-- ───────────────────────────────────────────────────────────────────
+-- दोषलेखः — WHAT IS *NOT* DONE HERE, AND EXACTLY WHY.  Written down
+-- because §६'s second road is to write the defect, and an unwritten one
+-- is the thing it forbids.  This is a defect, not a plan.
+--
+-- The likeness now cannot be omitted from a `Pramana` value, and it
+-- round-trips through 'sadrsyaNote' / 'sadrsyaOfNote' (checked in
+-- 'selfTest').  IT STILL DOES NOT REACH THE WIRE.  The path from
+-- `Upamana.hs` to the engine is `machine/thoughts.upamana.*.math`, and
+-- `MathMachine.parseThoughts` reads it with
+--
+--     ["candidate", l, r] | Just lt <- parseTerm l, … -> …candidate…
+--     _                                               -> …residual…
+--
+-- (MathMachine.hs:611).  The pattern is a THREE-field tab split with no
+-- catch-all for a wider line, so appending a fourth field would not be
+-- ignored — every upamāna candidate would fall through to
+-- `thoughtResiduals` and be silently reclassified.  The trick that makes
+-- `library.terms` extensible (a third field the old reader drops) does
+-- NOT transfer, because that reader has the fallback and this one has an
+-- exact match.  So the wire cannot be widened from this file; it takes
+-- one edit to `parseThoughts` and one to `Upamana.renderCandidate`.
+--
+-- Why that edit is not in this commit: `machine/MathMachine.hs` and five
+-- other files carried ANOTHER LANE'S UNCOMMITTED, UNSTAGED work at the
+-- time of writing, and `git commit -o <path>` commits the working-tree
+-- version of the path — so touching it would have swept that agent's
+-- work into this commit under this commit's message.  That harm was
+-- committed once already today and is recorded in
+-- `collab/messages/0900-dosalekha-my-commit-swept-another-agents-staged-files.md`.
+-- Refusing to repeat it is the whole reason the remainder is written here
+-- instead of done.  शेषो गर्भः, न विफलता (§३): the remainder is handed
+-- forward, not dropped — which is also the kuṭṭaka's rule.
+-- ───────────────────────────────────────────────────────────────────
+--
+-- स्रोतांसि : उपमानम् as a distinct pramāṇa is Nyāya's — Gautama,
+--   *Nyāyasūtra* 1.1.6 (प्रसिद्धसाधर्म्यात् साध्यसाधनम् उपमानम्, "upamāna is
+--   the establishing of what is to be established from a well-known
+--   likeness"), c. 2nd c. CE, with Vātsyāyana's *Nyāyabhāṣya*.  What is
+--   taken from it is the insistence that the likeness be PRASIDDHA —
+--   already established, and therefore nameable and citable — which is
+--   exactly `sadName` and `sadCite`.  NOT CLAIMED: that Gautama wrote
+--   this record, or that the Naiyāyika analysis is settled — the Jaina
+--   and Bauddha schools both dispute whether upamāna is irreducible to
+--   anumāna, and this type takes no side on that; it only refuses to let
+--   the likeness go unstated whichever way the dispute goes.
+data Sadrsya = Sadrsya
+  { sadName   :: String
+    -- ^ what the likeness is called, in its own tradition — `bhavana`,
+    --   `pair-ring`.  The name the engine's `Similarity.simName` holds.
+  , sadCite   :: String
+    -- ^ who stated it, and where.  Not decoration: an upamāna whose
+    --   likeness nobody stated is a resemblance the machine noticed, and
+    --   Nyāya's प्रसिद्ध- is precisely the requirement that it not be.
+  , sadMula   :: String
+    -- ^ the source claim, as it stood BEFORE transport.  Without it the
+    --   carried claim cannot be replayed, only re-asserted.
+  , sadTyakta :: [String]
+    -- ^ what did NOT carry, named one by one.  Empty means nothing was
+    --   dropped and is a claim, not a default.
+  } deriving (Eq, Ord, Show)
+
+-- The likeness as one wire-safe string, and back.  Same discipline as
+-- 'nayaNote' / 'nayaOfNote': total in both directions, round-tripping on
+-- everything it produces, and 'Nothing' rather than a guess on anything
+-- it does not recognise.  `|`, tab and newline are stripped because the
+-- justification field is `|`-separated; `~` and `;` are the internal
+-- separators and are stripped from the parts for the same reason.
+sadrsyaNote :: Sadrsya -> String
+sadrsyaNote s = intercalate "~"
+  [ "upamana along " ++ w (sadName s)
+  , "cite "  ++ w (sadCite s)
+  , "mula "  ++ w (sadMula s)
+  , "tyakta " ++ intercalate ";" (map w (sadTyakta s))
+  ]
+  where
+    w = filter (\c -> c `notElem` "|~;\t\n\r")
+
+sadrsyaOfNote :: String -> Maybe Sadrsya
+sadrsyaOfNote str = case splitOn '~' str of
+  [a, b, c, d]
+    | Just n <- after "upamana along " a
+    , Just ct <- after "cite " b
+    , Just ml <- after "mula " c
+    , Just tk <- after "tyakta " d
+    -> Just (Sadrsya n ct ml (if null tk then [] else splitOn ';' tk))
+  _ -> Nothing
+  where
+    after pre s | pre `isPrefixOf` s = Just (drop (length pre) s)
+                | otherwise          = Nothing
+
+-- ===================================================================
 -- THE SIX.
 data Pramana
   = Pratyaksa            -- ^ fingerprint evaluation on instances
@@ -321,7 +456,9 @@ data Pramana
   | Sabda Source         -- ^ testimony from an āpta
   | Arthapatti           -- ^ postulation of what would explain a residual
   | Anupalabdhi          -- ^ warranted non-apprehension (yogya-anupalabdhi)
-  | Upamana              -- ^ knowledge by likeness across vocabularies
+  | Upamana Sadrsya      -- ^ knowledge by likeness across vocabularies,
+                         --   CARRYING the likeness it moved along.  See
+                         --   'Sadrsya' for why this is not nullary.
   deriving (Eq, Show)
 
 pramanaName :: Pramana -> String
@@ -330,7 +467,7 @@ pramanaName (Anumana _)  = "anumana"
 pramanaName (Sabda _)    = "sabda"
 pramanaName Arthapatti   = "arthapatti"
 pramanaName Anupalabdhi  = "anupalabdhi"
-pramanaName Upamana      = "upamana"
+pramanaName (Upamana _)  = "upamana"
 
 data Provenance = Provenance
   { provRound     :: Int   -- ^ the round that established it; -1 unknown
@@ -489,6 +626,27 @@ selfTest = concat
        && nayaVariable (NInduction 'w' (Just "ih")) == Just 5
        && nayaVariable NRefl == Nothing
        && nayaVariable NTraceReplay == Nothing)
+  , -- THE UPAMĀNA GATE.  The sixth pramāṇa was nullary until 2026-08-20;
+    -- these three checks are what a payload buys, stated as properties
+    -- rather than as a comment about the type.
+    check "a likeness round-trips through its note"
+      (sadrsyaOfNote (sadrsyaNote sampleSadrsya) == Just sampleSadrsya)
+  , check "a dropped slot survives by name, not as a count"
+      (case sadrsyaOfNote (sadrsyaNote sampleSadrsya) of
+         Just s  -> sadTyakta s == ["norm slot 2", "unit"]
+         Nothing -> False)
+  , -- Wire safety: the justification field is `|`-separated and the naya
+    -- note is split on the FIRST `=`, so a likeness carrying either must
+    -- not be able to corrupt the line.  Checked, because "no name contains
+    -- them" is an assumption about data this module does not own.
+    check "a likeness carrying wire separators cannot corrupt the field"
+      (let nasty = Sadrsya "a|b" "c\td~e" "f;g" ["h|i"]
+           note  = sadrsyaNote nasty
+       in all (`notElem` note) "|\t\n\r"
+          && sadrsyaOfNote note == Just (Sadrsya "ab" "cde" "fg" ["hi"]))
+  , check "an unrecognised likeness note is refused, not guessed at"
+      (sadrsyaOfNote "induction on x" == Nothing
+       && sadrsyaOfNote "" == Nothing)
   , check "coarse map lands in Obstruction's three names"
       (map nayaCoarse [NRefl, NInduction 'x' Nothing, NTraceReplay, NRewriter]
          == ["KernelRefl","KernelInd","KernelInd","Rewriter"])
@@ -548,6 +706,16 @@ selfTest = concat
       , "induction on y, step = ih"
       , "trace replay"
       ]
+    -- A real one: `bhavana` is the similarity `machine/Upamana.hs` actually
+    -- carries, and the citation is Brahmagupta's composition law, so the
+    -- fields are exercised on the shape they will hold rather than on
+    -- placeholders.  Brahmagupta, Brāhmasphuṭasiddhānta 18, bhāvanā, 628 CE.
+    sampleSadrsya = Sadrsya
+      { sadName   = "bhavana"
+      , sadCite   = "Brahmagupta, Brahmasphutasiddhanta 18 (628 CE)"
+      , sadMula   = "x*(y+z) = x*y + x*z"
+      , sadTyakta = ["norm slot 2", "unit"]
+      }
     sample = Justification
       { jPramana     = Anumana (NInduction 'x' (Just "cong suc"))
       , jNaya        = NInduction 'x' (Just "cong suc")
