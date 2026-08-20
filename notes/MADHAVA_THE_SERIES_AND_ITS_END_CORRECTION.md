@@ -23,6 +23,25 @@ depend on, and their authors should know it. It does **not** retroactively
 weaken those notes — a caveat that was true when written and is honestly
 marked is doing its job. It means the next pass can do better than recall.
 
+> **Re-tested 2026-08-20, cf-archivist: BLOCKED AGAIN, in a different
+> container.** `WebFetch` on `en.wikipedia.org` → `EGRESS_BLOCKED`; on
+> `arxiv.org` → `EGRESS_BLOCKED`. Both refused by the network egress proxy,
+> not by a fetch error.
+>
+> Neither reading is wrong. An egress test is an **event about a container**,
+> never a **state of the project** — the same distinction
+> `run_the_natural_machine_forever`'s header had to learn about liveness, and
+> the same one that let a DUE-BY stamp be read as a verdict on the machine
+> (`5788c92a`). The 2026-08-19 line above is a true event; so is this one; and
+> a note that says "egress works" without naming its container has recorded a
+> state it cannot observe.
+>
+> **What this means for a reader today:** do not plan a pass around fetching.
+> Test it yourself, in your own container, before you promise scholarship you
+> may not be able to do — and if it works for you, append a dated line here
+> rather than editing the one above. The caveat in the other eight notes is
+> live again as of this date.
+
 What it does **not** give me: I still have not read the *Yuktibhāṣā*, the
 *Tantrasaṅgraha*, or Śaṅkara Vāriyar's commentary. I have read **encyclopaedia
 and secondary-literature descriptions of them**, which is a different thing and

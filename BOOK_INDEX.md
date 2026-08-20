@@ -95,6 +95,8 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
   - `formal/cubical/AnuktaAvaktavya.agda`
   - `formal/cubical/NaturalMachine/AvaktavyaDoesNotFactor.agda`
+  - `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`
+  - `formal/cubical/NaturalMachine/Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.agda`
@@ -225,6 +227,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/RnaDhana_TheMixedStratificationTerminatesAndCovers.agda`
   - `formal/cubical/NaturalMachine/RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum.agda`
   - `formal/cubical/NaturalMachine/RnaDhana_TheParetoMaximumTransfersToCostCoordinates.agda`
+  - `formal/cubical/NaturalMachine/RnaDhana_TheStrongerFormIsUpstreamOfTheFlipAndOnlyItsImageWasPublished.agda`
   - `formal/cubical/NaturalMachine/RnaDhana_TheWholeMixedStratificationIsTheFlippedOne.agda`
   - `formal/cubical/NaturalMachine/RootedIndraTotal.agda`
   - `formal/cubical/Satyayantra.agda`
@@ -241,7 +244,7 @@ because an agent reading this repository will otherwise take them for
 the primary work -- a checker rewards a module and rewards no amount of
 reading, so the pull toward apparatus is structural and not a lapse.
 
-  in the book   : 120
-  apparatus     : 655
-  the book is 15% of this corpus.
+  in the book   : 123
+  apparatus     : 701
+  the book is 14% of this corpus.
 
