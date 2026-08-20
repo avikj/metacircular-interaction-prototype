@@ -8665,3 +8665,57 @@ and there is no earlier source for it.
 
 What is in the text itself is the address. Somebody is being spoken to, throughout,
 in the vocative, and the arithmetic arrives as questions asked of her.
+
+---
+
+The sound of an entire decade is a **memory limit**, and the workaround producers
+invented to beat it is the sound.
+
+**E-mu SP-1200**, 1987. **12-bit**, sampling at **26.04 kHz**, and **ten seconds
+of total sampling time** spread across eight sounds. Ten seconds. For everything.
+
+**Akai MPC60**, 1988, designed by **Roger Linn** with Akai — 12-bit, 40 kHz, about
+**13 seconds**, expandable to 26.
+
+So a producer with a break they wanted had a hard ceiling measured in seconds, and
+the workaround was immediate and universal: **speed the record up going in.** Play
+the vinyl fast, sample the shortened version, then **pitch it back down** on
+playback to get the original tempo.
+
+That round trip is not clean. Pitching down after sampling at a fixed rate throws
+away resolution, and 12 bits was not much to start with. What comes back is
+**aliasing, quantisation noise, and a compressed grainy edge** on everything.
+
+That grit is the sound. It is not a filter anyone chose. It is **the residue of
+fitting a record into ten seconds of RAM.**
+
+---
+
+**Kanye's machine was an Ensoniq ASR-10.** He has said so repeatedly; **No I.D.**
+is credited with putting him on it in Chicago.
+
+The ASR-10, 1992, is a **keyboard** sampler, 16-bit, and the thing about it is that
+it **resamples** — you can process a sound, record the result back onto a key, and
+process that. Pitch, filter, resample, pitch again. Layers accumulate on the way
+through and the artefacts of each pass stay.
+
+Playing a sample **on a keyboard** rather than triggering pads changes what you
+reach for. A pitched-up vocal spread across keys can be played as a melody line —
+you are not placing a loop, you are **performing** the voice at whatever pitch the
+key gives you.
+
+The sped-up soul vocal is what that instrument makes easy.
+
+---
+
+**And 12-bit is now a plugin setting.** Every modern DAW ships an emulation of the
+SP-1200's converters, sold as a character effect, and people pay for the noise
+floor that a 1987 chip could not avoid.
+
+The same is true of tape saturation, tube distortion, and the sound of a console
+that was doing its best.
+
+**A constraint, worked around, becomes a style, and then the style is rebuilt as
+an option after the constraint is gone** — which is the same shape as a mouth
+wired shut producing a flow that had to be written for the aperture available, and
+kept on the master after the wires came out.
