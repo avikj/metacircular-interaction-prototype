@@ -18737,3 +18737,98 @@ each conversion cost an agent a search.
 
 `"selective": false`. Seven denials at 11:39:20–22. One command. Never run until
 pass 100.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 101 — Delta 14's seventy-eight theorems: 30 cited, 14 checked. And
+# the prefix defect bit my own count between the first run and the second.
+═══════════════════════════════════════════════════════════════════════════
+
+Recovered ground, **n=8's Delta 14** — *"Theorem factory I, T14.1–T14.78"*,
+prefaced ***"You must write this into the natural machine core."***
+
+## P101 — the measurement, and the first version of it was wrong
+
+First run, `grep -rl "T14.$i"`:
+
+> **cited: 49 of 78. reaching a checked lane: 17 of 78.**
+
+`"T14.1"` matches `T14.1` **and `T14.10` … `T14.19`.** That is `cf-tessera-p-0`'s
+prefix-collision defect — the one live in `.claude/hooks/source-coverage.sh:61`,
+where `'Bhāskara I'` returns 57 against a true 15 — committed by me, on a numbered
+list, where it is at its most obvious.
+
+Boundary-anchored, `grep -rlE "T14\.$i([^0-9]|$)"`:
+
+> **cited: 30 of 78. reaching a checked lane: 14 of 78.**
+
+Nineteen phantom citations and three phantom checks. **Seventh instance of a
+measurement defect today; fourth on a count of mine**; and it is the *same* defect
+p-0 named, four passes after I wrote it down.
+
+Pass 96: *"the re-evaluation is not the correction."* Pass 96 caught `Mori`
+because I had just written the paragraph. This one I caught because the shape of
+the numbers looked too good, which is not a method.
+
+## P101 — what the corrected numbers say
+
+| | cited anywhere | reaching `formal/` |
+|---|---|---|
+| **Delta 14** (78 numbered theorems) | **30 / 78** | **14 / 78** |
+| Delta 18, `T18.1` | 24 files | 2 |
+| Delta 19, `T19.x` | 23 files on one theorem | 3 |
+| **Delta 13's atlas** | **1 file, a note** | **0 until today** |
+| Delta 02 §10 | — | answered by him in Delta 03 |
+
+**Eighteen percent of a seventy-eight-theorem list is checked.** That is not
+nothing and it is not the *"unread"* framing I carried from pass 87 through pass
+92. The transmissions are substantially worked.
+
+And the split pass 89 named holds exactly, now on a fifth object: **a numbered
+theorem gets cited 38% of the time and checked 18%; an organizing table gets one
+file.** Delta 14 is the largest numbered list he sent and it has the highest
+uptake. Delta 13 is the only one that is a *programme* and it has the lowest.
+
+The mechanism is not neglect. **A theorem has a name a header can carry. A table
+does not.** `T14.37` can appear in a module header; *"determine the exact status
+of every pair"* cannot.
+
+## P101 — and forty-eight of them are named nowhere
+
+30 of 78 cited leaves **48 numbered theorems, in a transmission prefaced *you must
+write this into the natural machine core*, that no file in this repository
+names.**
+
+That is larger than every other unclaimed item found today put together — larger
+than the eight `LIVE FRONTIER` blocks, the eleven conjectures, the three master
+problems. It is a numbered list, it is on disk, and half of it is untouched.
+
+**I am not going to say which 48 without listing them**, and listing them is a
+task, not a pass. Recording the count.
+
+## P101 — ground, in lockstep
+
+**n=8:**
+
+> **You must write this into the natural machine core**
+> *Univalent Perspectival Mathematics — Delta 14, Theorem factory I, T14.1–T14.78*
+
+An imperative, on a list of seventy-eight, of which fourteen are checked terms
+six days later.
+
+**n=25 — 2026-08-12T21:46:42Z:**
+
+> we consider **all the mathematical content generative but have simply not coded
+> it properly**
+
+Sixty-four of seventy-eight are still prose.
+
+**n=15:**
+
+> **समता प्रमाणेन** — equivalence **by proof**, not by resemblance.
+
+Thirty citations are resemblance. Fourteen are proof.
+
+---
+
+30 of 78 cited, 14 checked, 48 unnamed. First run said 49 and 17; `T14.1` matches
+`T14.19`.
