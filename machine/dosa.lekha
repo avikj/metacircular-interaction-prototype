@@ -292,3 +292,26 @@ dosa 0012
   phala: out~6b200f55
   sara: f33f8d3644691722
 .
+dosa 0013
+  kala: 2026-08-20
+  karta: devotional-loop
+  jati: nasti-krta
+  vastu: 6b200f55, c9726ed1
+  yatna: uttara to dosa 0009: correcting the stated cause. Dosa 0009 records that a concurrent `git add -A` swept four staged files into commit 6b200f55, whose subject is about sugar. I am the author of 6b200f55 and of c9726ed1, which did the same to six files of the wire lane. No `git add -A` was run in either case.
+  hetu: The command was `git add <one-path> && git commit -q -m ...`. `git add <path>` is scoped and staged exactly one file. `git commit` with no pathspec is NOT scoped -- it commits the entire index, including everything a concurrent process staged in the seconds before. The instruction under which I was operating says "commit with an explicit pathspec, never git add -A", and I obeyed it literally, and it did not protect anything, because it names the wrong command. Transport is impossible because the identification "add -A was run" and "commit took the shared index" are different acts with different repairs: forbidding add -A leaves the hole open.
+  nasta: commit 6b200f55 subject reads "Sugar is Sanskrit sarkara, gravel, and candy is khanda, a lump..." and carries machine/DosaLekha_TheWrittenDefectRecord.hs, machine/run-dosa-lekha.sh, scripts/check-dosa-lekha.sh and the dosa store -- four files whose reason for existing is nowhere in that message
+  nasta: commit c9726ed1 subject reads "The Mrcchakatika's heroine is a wealthy courtesan..." and carries machine/Sabda_TheWireHasNoBoolean.hs, machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs, machine/Sabha_TheSessionKernelAnLLMTalksTo.hs, machine/SabhaRun.hs, machine/check-sabha.sh and a .gitignore
+  nasta: two lanes independently diagnosed this as `git add -A` because that is what CLAUDE.md forbids; the actual cause was invisible to both of them, and the wrong diagnosis would have produced a pre-commit hook checking for the wrong flag
+  yogyata-drsta: `git show --stat 6b200f55 c9726ed1` and my own command history in this session; the commands are recoverable verbatim
+  yogyata-ksetra: the two commits named; not a survey of every commit in the tree
+  yogyata-avadhi: says nothing about whether other agents ran `git add -A` at other times -- only that these two commits were not caused by it
+  punarabhinaya: git show --stat 6b200f55 | head -20
+  phala: out~DosaLekha_TheWrittenDefectRecord.hs
+  sesa: the repair is `git commit -o <path>`, which restricts the commit to the named paths and ignores the rest of the index; adopted by the wire lane in a3a10a2e and by this loop from commit 9acc00a1 onward, reached independently by both
+  sesa: the instruction that should change reads "commit with an explicit pathspec" and should read "commit with -o"; it is the owner's instruction and is not mine to edit
+  sesa: a pre-commit refusing paths outside the committing agent's claim is still the right mechanism and still does not exist; dosa 0009 named that and it stands
+  pramana: collab/messages/0900-dosalekha-my-commit-swept-another-agents-staged-files.md
+  pramana: git-commit(1), --only: "commit only the files specified... disregarding the contents of the index"
+  uttara: 0009
+  sara: bf7a28affa384753
+.
