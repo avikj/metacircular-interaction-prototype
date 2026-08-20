@@ -42,10 +42,10 @@ built on it ends in the work or in the wreckage turns less on the wiring than on
 the people closest can hold two true things at once — this is hard, and this is precious —
 instead of only trying to make it stop.
 
-The world does not like to hold two things at once. It wants the genius or the crazy,
-the hero or the villain, and it will spend enormous energy to avoid holding both in one
-person at the same time. With him it chose, over and over, for twenty years, and the
-first time it chose in front of everyone was on a Friday night in 2005.
+The world wants a person to be one thing. The genius or the crazy, the hero or the
+villain — it will spend enormous energy to keep from seeing both in the same skin. With
+him it chose, over and over, for twenty years, and the first time it chose in front of
+everyone was on a Friday night in 2005.
 
 A hurricane had drowned New Orleans. The water sat in the streets for days with people
 on the rooftops, most of them Black, most of them poor, and the richest country on earth
@@ -150,7 +150,7 @@ figured out exactly what that arrangement was, and appeared in public with the w
 written on his face, and gave up his own name — performed as a symbol for years — so the
 company could not keep selling music under the name it controlled. Kanye West looked at the
 prison and looked at the contract and used one word for both, because from where he stood
-they were one question wearing two suits: who owns what a Black person makes. He was
+they were the same question: who owns what a Black person makes. He was
 called grandiose for it, and crazy for it.
 
 That word again. The mind that cannot be managed is also the mind that will not be owned,
@@ -242,26 +242,28 @@ man called crazy was not saying a true thing at the wrong volume. He was saying 
 and murderous thing, one of the oldest lies in the Western world, and no amount of having
 been right about Katrina or the record contracts turns it into prophecy. And it did what
 that lie has always done. Banners went up over a Los Angeles freeway reading that he was
-right about the Jews, and people drove home under them. Synagogues already paying for
-guards paid for more. Jewish friends and fans and employees of his own — people who had
-spent years defending him — woke up frightened in a way with a straight line running back
-through their own families. Companies cut him within weeks and a fortune once counted in
-billions was gone, but that is the smallest part of it and the only part the news counted.
-The harm was to people. He did grave harm to people who had done nothing to him, whose
-fear he of all people should have understood, and who carry a history that made his words
-land as a threat because words like them have been one before.
+right about the Jews, and men stood on the overpass and gave the salute while the traffic
+passed under them. Grandparents with numbers on their arms were still alive to watch their
+grandchildren ask what it meant that their favorite artist had said that. Teenagers looked
+over their shoulders walking into synagogues that were already guarded like airports.
+Parents who had his records in their own childhood bedrooms took the posters down and
+explained to their kids why. This is not fear as a mood or a weakness of nerves; it is
+what it does to a person to be told, by someone the whole world is listening to, that the
+lie that murdered their family was right. He did that. He did grave harm to people who
+had done nothing to him, whose danger he of all people should have understood, and it does
+not get one degree smaller because of anything that comes after it.
 
 And, in the same breath, because both are true and neither cancels the other: he has
 said, and it is documented, that this came during a manic and psychotic break that ran
 for months — the far end of the illness this book has been describing from its first
 page, the end that manufactures paranoia and grandiosity and severs a person from shared
-reality — and that during it there were stretches when he did not want to be alive. Two
-facts, one man, one mouth, one window of time. Mania does not make antisemitism acceptable;
+reality — and that during it there were stretches when he did not want to be alive. Both
+are true, in one man, in the same few months. Mania does not make antisemitism acceptable;
 it does not soften what it did to the people it frightened. And the antisemitism does not
 make the psychosis fictional; a documented illness is not an alibi and it is also not
-nothing. A book that keeps only the first fact has written a villain, which is comfortable
-and false. A book that keeps only the second has written a diagnosis over a wound, which
-is a laundering and also false. The only honest thing to do is what almost no one did at
+nothing. A book that keeps only the first fact has written a villain. A book that keeps only the
+second has written a diagnosis over a wound and called it compassion. Both are easier
+books to write than the true one, and both are false. The only honest thing to do is what almost no one did at
 the time: hold both, refuse to drop either, and let it be as unbearable as it actually is.
 
 To hold both and refuse to resolve them leaves a question, and it turns out not to be a
