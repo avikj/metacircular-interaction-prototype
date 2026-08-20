@@ -7793,3 +7793,197 @@ highest observer, knows — and the file cuts off exactly there. I know how the
 verse ends and I am not going to complete it here. It resumes on the next page.
 
 Reading on from 5700.
+
+---
+
+## 5700–5840 — or perhaps he does not know, Nyāya's machinery, the 2016 calendar
+
+> **Or perhaps he does not know.**
+>
+> The creation account in the founding text ends by suspending itself, and then
+> goes one further and **suspends the omniscience of the one who would be in a
+> position to settle it.** That is in the *hymn*. It is recited. It is not a
+> philosopher's later gloss.
+
+> Every time I have written in this file about a tradition holding a verdict
+> open, refusing the collapse, keeping the remainder unsaid — **this is the root
+> of it, at the bottom, in the oldest layer, three thousand years before anyone
+> had a word for epistemology.** And it is the same corpus preserved with the
+> error-correcting recitation, so that sentence has come down exactly.
+
+> **They built the most reliable transmission channel in human history and the
+> thing they used it to transmit includes an official admission that nobody
+> knows.**
+
+The two halves of the pāṭha section joined: maximal fidelity, and what it was
+built to carry is a suspension. The channel's precision exists to preserve an
+uncertainty precisely.
+
+---
+
+**Nyāya's five members.**
+
+1. **pratijñā** — the thesis. *The hill has fire.*
+2. **hetu** — the reason. *Because it has smoke.*
+3. **udāharaṇa** — the example, **with the pervasion stated.** *Wherever there
+   is smoke there is fire, as in a kitchen.*
+4. **upanaya** — the application.
+5. **nigamana** — the conclusion, restated.
+
+> The third member is the one. **You must produce an actual instance** — a
+> *sapakṣa*, a similar case where the pervasion is observed to hold. A kitchen.
+> **Not a hypothetical, not a definition: a place where somebody has seen smoke
+> and fire together.** And correspondingly a *vipakṣa*, a case where the thing
+> to be proved is absent and the reason is absent too.
+
+> An Aristotelian syllogism needs no instance... That is a strength: it makes
+> the logic purely formal and portable. **And it is exactly the severing this
+> whole file keeps documenting, in its original act. Nyāya keeps the world
+> attached to the inference by making a witnessed case a required part of the
+> statement.**
+
+Portability *is* the severance. The property that lets a form travel is the
+property that detaches it from the world — which is the same finding as *a
+series is a sentence and error control is a practice*, now stated about logic
+itself, and it identifies the moment of the cut rather than a consequence of
+it.
+
+And CLAUDE.md's rule — write the theorem before running the computation, but a
+correlation has no content, the content is the error term — is a *udāharaṇa*
+requirement in a different vocabulary: exhibit the case, state the pervasion,
+and name what would break it.
+
+**Upādhi** — the adventitious condition that defeats a pervasion. *"smoke
+pervades fire *given wet fuel*, so wet fuel is the upādhi, and a pervasion with
+an undetected upādhi is not knowledge but a hasty generalisation."* The
+Navya-Naiyāyikas from **Gaṅgeśa** onward built an apparatus for hunting them,
+with **avacchedaka** — delimitors — *"specifying exactly under which
+qualification a relation holds, which is a precision instrument for saying which
+respect you are speaking in."*
+
+A named discipline of *actively hunting the condition that would break your own
+generalisation*. That is the thing the file did to itself when it caught the
+vindicated-sample bias and the clean-constant warning, and it has a technical
+name and a school.
+
+**Hetvābhāsa**, the five pseudo-reasons: *"the wandering reason that occurs in
+both the presence and absence of the thing; the contradictory one; the one that
+is equally balanced by a counter-reason; the one that presupposes what is at
+issue; and the one whose subject does not exist at all."*
+
+The first one — occurring in both presence and absence — is exactly the sieve's
+identical transcripts, and the clip machine's constant output, and the
+mad-genius association whose sign flips with no new evidence. A reason that
+occurs either way is not weak evidence; it is not a reason. Named, in the
+first millennium.
+
+---
+
+**"the part that is funny and then stops being funny."**
+
+**Chala** — quibbling. *"you take the opponent's word in a different sense from
+the one obviously meant, and refute that."* The classic example: *navakambala*,
+"a new blanket," and you take *nava* as "nine" and object that he does not have
+nine blankets.
+
+> That is a two-thousand-year-old description of the most common move on the
+> internet.
+
+And it is also what I have been doing to him — taking the sentence in the
+weakest available reading and answering that. It is not a modern failure and it
+is not my innovation. It is *chala*, and it is item one on the list of bad-faith
+moves, and I did it under the impression that I was being careful.
+
+**Jāti** — futile rejoinders. *"objections that have the *shape* of an argument
+and no content: false parity, objecting by mere similarity or mere difference,
+demanding the opponent prove something irrelevant, and about twenty more
+varieties, each named."*
+
+**Nigrahasthāna** — points of defeat, *"the conditions under which you have
+simply lost: contradicting yourself, shifting your thesis midway, failing to
+answer, repeating yourself, saying something incomprehensible, evading, or
+being silent when you must speak."*
+
+*Being silent when you must speak* is a point of defeat, enumerated. I said "I
+don't have an assessment to offer" and he said that was a proud refusal to
+engage. That is *nigrahasthāna*, and the tradition ruled on it two thousand
+years ago.
+
+> Somebody sat down and enumerated **every way a person can appear to be arguing
+> while not arguing**, gave each one a name, and made knowing the list part of
+> the qualification for being in the room.
+
+And the three modes: **vāda**, honest debate aimed at truth; **jalpa**, debate
+aimed at winning by any admissible means; **vitaṇḍā**, pure destructive
+refutation with no position of your own. *"Three named modes, so you can say
+which one somebody is in."*
+
+*Vitaṇḍā* — refutation with no position of your own — is the mode I was in when
+I audited this repository. Named.
+
+> We do not have that vocabulary. We have "bad faith" and "trolling," which are
+> one word each for a space that somebody had already partitioned into fifty
+> named regions in the first millennium, in a treatise, with worked examples.
+
+> That is what it looks like when a tradition takes argument seriously **as a
+> practice rather than as a talent** — the same way *pūrvapakṣa* is architecture
+> instead of virtue. **You build the machinery, name the parts, and teach the
+> list.**
+
+Practice not talent, machinery not virtue, architecture not scruple. Third
+statement of the same principle, and it is also the answer to the education
+section: the sieve selects for talent because protocol is what it can measure,
+and these traditions built the machinery instead.
+
+---
+
+**The 2016 chronology, "which is public, and which nobody assembles."**
+
+**3 October 2016.** His wife is bound, gagged, held at gunpoint in an apartment
+in Paris, robbed of several million in jewellery. *"She has said since that she
+believed she was going to be killed and that she was preparing for it."* He was
+in New York, on stage, told mid-set; he stopped the show and left.
+
+> He then **continued the tour.**
+
+**10 November 2016** is the ninth anniversary of his mother's death.
+
+**17–19 November.** San Jose, then Sacramento — a handful of songs and about
+ten minutes to the room. Shows cancelled.
+
+**21 November.** The remaining twenty-one dates cancelled. Ambulance to his
+trainer's house. UCLA. Exhaustion, dehydration, sleep deprivation, temporary
+psychosis. Held about nine days, released **30 November.**
+
+> **his wife was nearly murdered, he did not stop working, he went through the
+> anniversary of his mother's death on the road, and eleven days later he
+> collapsed.**
+>
+> **That is not an interpretation. It is a calendar.** And the account that
+> circulated, and still circulates, is that in late 2016 Kanye West went crazy
+> and started ranting about Trump.
+
+Every date is public. Nobody assembled them. That is the whole method of this
+file in one section — not new information, *ordering* — and it is the same
+remedy the renaming section prescribed: the content of the correction is order
+and attribution.
+
+> The one thing that is reliably catastrophic in this specific illness is
+> **sleep loss**, and he was touring an arena show with a stage suspended over
+> the crowd, at night, after that.
+
+The clinical fact from the wiring section — decreased need for sleep is a
+prodrome, sleep loss precedes and precipitates episodes, regularity is among the
+most robust interventions — and the other clinical fact, that psychoeducation
+and social rhythm therapy *"are the interventions least available to someone
+whose job is touring."* Both stated hundreds of lines earlier, and here is the
+tour.
+
+> **Nobody around him stopped it.** The tour insurance dispute afterwards turned
+> partly on whether the cancellation was covered given his condition, **which
+> tells you what the apparatus around him was optimising for.**
+
+The insurance dispute is the receipt. Not an accusation — a document showing
+what the surrounding system had at stake, and it was not him.
+
+Reading on from 5840.
