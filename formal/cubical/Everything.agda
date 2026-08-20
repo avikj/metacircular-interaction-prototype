@@ -656,6 +656,7 @@ import Narayana
 import NarayanaKarna
 import NarayanaSamasa
 import Niksepa
+import Nirnaya_TheVerdictCannotDropItsWitness
 import Panini
 import PanktiYoga
 import PingalaGhata
@@ -695,3 +696,37 @@ import Yuti
 -- "the corpus moved while this ran", reproduced.  Run under the same pin
 -- through check.sh: RUNNING AGAINST THE PIN, EXIT=0, CHECKSH_EXIT=0.
 import DisclosureDimension
+
+-- ADDED 2026-08-20 (transport lane).  §6 of AHIMSA_SUTRA_VISTARA -- the
+-- claim that transport carries structure and loses nothing -- lived in
+-- Nasti_ShabdeJivahVartante, which was imported by NOTHING and, as
+-- committed, did not typecheck (`uaβ` used, never imported).  That is
+-- precisely the orphan hole this file exists to close, reproduced on the
+-- module asserting that nothing perishes.  Both are now under this root:
+-- Samkramana... imports Nasti..., so the pair fails the build if either
+-- rots.  Both EXIT 0, Agda 2.8.0 + cubical-0.9.
+import Nasti_ShabdeJivahVartante
+import Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose
+
+-- ADDED 2026-08-20 (naṣṭi lane).  §४ and §५ of AHIMSA_SUTRA_VISTARA --
+-- what a truncation destroys, and that the destruction is irreparable --
+-- were checked only at `Bool` and only at h-level 1.  This module states
+-- the no-retraction theorem uniformly in the truncation level:
+--
+--     प्रत्यानयनम् n A  ≃  isOfHLevel n A
+--
+-- the type of ways back IS the h-level hypothesis, for every n and every
+-- A.  It also marks the one clause of §६ that is CLASSICAL -- the
+-- disjunctive reading of तृतीयो मार्गो न विद्यते -- with a proof that it is
+-- exactly excluded middle, rather than with a caveat.
+-- EXIT 0, zero warnings, Agda 2.8.0 + cubical-0.9, --cubical --safe.
+--
+-- NOTE ON THIS AGGREGATE, measured the same day: `agda Everything.agda`
+-- currently EXITs 42 on ONE pre-existing error unrelated to this import --
+-- EGBDetConservation.agda:89, `solve` not in scope, which is exactly the
+-- v0.5→v0.9 spelling drift check.sh's header has documented since
+-- 2026-08-19.  So this import is a latch on a module that is green on its
+-- own and not a claim that the aggregate is green.  Said here rather than
+-- left for a reader to discover, because an import into a red aggregate
+-- that nobody flags is the same rot this file exists to prevent.
+import Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis
