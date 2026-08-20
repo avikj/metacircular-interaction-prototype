@@ -31734,3 +31734,169 @@ have.** `CLAUDE.md`'s `native_decide` clause is unenforced by anything mechanica
 test is whether any note in this corpus that is downstream of a `native_decide` actually
 carries the qualification, **and I have not checked a single one.** Until that is checked the
 frame is a preference for a shape, not a finding about this repository.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 176 — "A syntactic audit counts sites; only the kernel counts
+# dependencies." The Lean lane names my whole day's defect and its own
+# remedy in a header, walks the directory rather than trusting an import
+# list "that can rot," and the Agda lane's three checks are all the thing
+# it warns against.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 175's counter-observation: *a specification nobody enforces is worse than a verdict, and
+I have not checked a single note downstream of a `native_decide`.* Checked. **The
+counter-observation fires against my own caution: the specification is enforced, and by more
+than I had any right to expect.**
+
+`formal/pairfield/axiom-allowlist.txt` is the Chishti ruling with a mechanism under it:
+
+> **RULE OF THIS FILE: every entry carries (a) the axiom it depends on, (b) the OBSERVED reason
+> kernel checking does not work — not a guess — and (c) what would remove it. An entry without
+> those three is not an exception, it is a rubber stamp, and should be deleted so the gate goes
+> red and someone looks.**
+>
+> The gate reports entries that have gone stale (declaration now clean) or absent **without
+> failing**, so the file is **self-pruning under anyone who reads the output.**
+
+**Who may listen, what may be sung, in whose company.** And the single live entry carries all
+three fields, with (b) *measured, twice, by two agents on two tactics*:
+
+> `decide` with maxRecDepth 100000 / maxHeartbeats 4000000 ran **OVER 20 MINUTES** without
+> terminating and was killed … `decide +kernel` — the tactic that retired the
+> `DiagonalSmithRoute` entries — was substituted here on 2026-08-15 and the build was
+> **KILLED WITH EXIT 137 (OOM) after 123 s.** So this is not the elaborator-irreducibility case
+> that `+kernel` fixes; **it is a genuine COST case, and it is a memory blowup, not only a
+> stall.**
+
+**One exception in the whole lane, with its cost measured rather than asserted, and a stated
+condition under which it disappears.** *(c)* names two constructions that would remove it and
+says **neither is written.**
+
+## P176 — and the entry's own history is the deaf column, found and closed
+
+> Until 2026-08-15 this site was **an anonymous `example`** (`ChartQuotient.lean:237`). **An
+> `example` emits no reachable constant, so `collectAxioms` never saw it and this gate reported
+> "allowlisted: 0" over a tree containing the lane's one live oracle.** Naming it is the
+> structural fix: **the exception is now inside the gate permanently rather than in a note.**
+
+**The gate was green over its own blind spot, and the blind spot was the one thing it existed
+to find.** `scripts/check-lean-example-oracles.sh` is the standing guard against the next
+anonymous one. That is `struck-claims` row 11 — *the root checks, so this module is checked* —
+in a different lane, found and repaired **five days before I derived the column for it.**
+
+## P176 — the sentence that indicts my entire day
+
+`AxiomGate.lean`, on why it is a kernel walk and not a grep:
+
+> **Two of the 28 modules tainted by `native_decide` at audit time contained no occurrence of
+> the token: they were tainted *through imports*.** **A syntactic audit counts sites; only the
+> kernel counts dependencies.**
+>
+> The gate … imports **every** module under `Pairfield/` — **discovered by walking the
+> directory, not by an import list that can rot** — and for every non-internal declaration
+> calls `Lean.collectAxioms`, the same function `#print axioms` calls.
+>
+> **The gate is also not taught the *names* of the escape hatches, so it does not need updating
+> when a new one appears.**
+
+**Every measurement I made today was a syntactic audit counting sites.** Names in
+`Everything.agda`. Spellings in `notes/`. Strings in a payload. And the two errors that
+mattered were exactly what that sentence predicts: **61 orphans when the number was 37** —
+an import list that had rotted, compared syntactically to a directory — and **`nayavāda: 0`
+when eight notes carry it** — a site count under one spelling.
+
+**And *not taught the names of the escape hatches* is the answer to the taxonomy problem.**
+Pass 168 caught my five columns under MMK 13.8 — emptiness held as a view — and could not say
+what to do instead. **This is what to do instead: a check that enumerates the defects it knows
+finds only those; a check that asks the kernel what a term actually depends on finds the ones
+nobody has named.** *Blind, deaf, entangled, radius, over-report* is a list of escape-hatch
+names. **`collectAxioms` is not taught any of them.**
+
+## P176 — and the Agda lane, measured, is all three of the things that header warns against
+
+```
+formal/cubical/check.sh:235
+    default_modules="NaturalMachine.agda Everything.agda IndianLane.agda"
+    modules="${NM_MODULES:-$default_modules}"          ← a hand list of three
+
+formal/cubical/Everything.agda                          ← a hand-maintained import list
+formal/cubical/check-everything-coverage.sh             ← compares that list to the directory,
+                                                          by module-name string identity
+```
+
+**A hand list of aggregates, a hand list of imports, and a string comparison between a rotted
+list and a filesystem.** No walk, no kernel, and — pass 165 — **no knowledge that a fourth
+aggregate exists.** The Lean lane wrote down *an import list that can rot* as its reason for
+not using one, and the Agda lane has three of them stacked.
+
+**And `check.sh`'s own header shows it arriving at half the insight from the other direction**:
+
+> `IndianLane` added 2026-08-19. **The two aggregates above are BOTH red off the pin, so on a
+> container without it this script reported two EXIT 42s and nothing else — no signal at all
+> about the work that does check here.** … **an aggregate nobody runs is how the last
+> overstatement hid.**
+
+*An aggregate nobody runs is how the last overstatement hid* and *only the kernel counts
+dependencies* are the same finding at two resolutions, **in two lanes, by two identities,
+neither citing the other** — and the seventh instance today of a repair existing in one file
+that the thing built afterwards does not carry. **This one is the first that crosses lanes.**
+
+## P176 — what I am not doing
+
+The Agda analogue of `AxiomGate` is not a small thing — Agda has no `collectAxioms` and `--safe`
+already does much of what the gate does, so *"walk the directory and ask the kernel"* would be
+`agda` on every `.agda` file, which is the sweep pass 163 ran by hand in one loop and which
+took under an hour for 61 files. **That is an observation, not a proposal**: the standing
+instruction is reflection only, `check.sh` and `Everything.agda` belong to other identities, and
+`CLAUDE.md` says the move there is an offer.
+
+**The offer, stated once:** the sweep in pass 163 — every `.agda` in the directory, per module,
+exit code and warning count recorded separately — **is a directory walk, it found three reds
+that all four aggregates missed, and one of them was the owner's own module.** `check.sh:251`
+already computes `errs` and `warns` per module. **The two halves exist in two files and nothing
+runs them together.**
+
+## P176 — ground, in lockstep
+
+**n=23:** *"You don't know how repo is organized. Hint: The answer is all over the place. It is
+not hidden."*
+
+**Fifth consecutive pass.** Yesterday: two aggregates. Pass 165: four. Today: **the other lane
+solved the problem the first lane has, wrote down why, and named the exact failure mode I spent
+the day committing.** *It is not hidden* — it is in the header of a file called `AxiomGate.lean`
+whose companion note is called `AXIOM_GATE.md`, and the sentence is the fourth paragraph.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+**A syntactic audit and a kernel walk are two pramāṇas with different resolving power, and the
+distinction they differ on is *dependency versus occurrence*.** Two modules tainted through
+imports with no occurrence of the token is that distinction made explicit **with a count
+attached** — 2 of 28, which is 7% of a lane invisible to any grep. **That is the number I would
+need for the Agda side and do not have.**
+
+**n=16:** *"building more systems isn't gonna help."*
+
+Ninth pass. **`AxiomGate.lean` is a system and it helps**, so the line needs its actual reading
+rather than my convenient one. What it says is that *recording refutations* does not help and
+*becoming smarter* does — and the gate is not a record. **It is the removal of a class of
+error, once, by construction: not taught the names of the escape hatches, so it never needs
+updating.** A system that has to be maintained is an addition. **A system that cannot go stale
+is a subtraction**, and *self-pruning under anyone who reads the output* is the allowlist saying
+so about itself.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the Lean lane's gate is
+structurally better than the Agda lane's, and the Agda lane should walk the directory.*
+**Counter-observation, at a strength its holder would accept:** the two lanes are not
+comparable on this axis, because **Agda's `--safe` is a per-module flag checked at compile time
+and Lean has no equivalent** — the gate exists in Lean *because* Lean lacks `--safe`, and the
+Agda lane's aggregates are trying to solve a different problem (which modules are re-checked)
+rather than the same one (what does a term depend on). **If that is right, `Everything.agda` is
+not a worse `AxiomGate`; it is a build manifest, and manifests rot by nature.** The check that
+would settle it: whether any Agda module in this corpus is *"tainted through imports"* in a way
+`--safe` does not catch — **and the honest answer is that `--safe` is precisely designed to be
+transitive, so the 2-of-28 number probably has no Agda analogue at all, and my parallel is one
+lane's problem borrowed to make a point about another's.**
