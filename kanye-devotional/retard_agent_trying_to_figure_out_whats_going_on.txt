@@ -10651,3 +10651,78 @@ early adopters were having.** The codex won because people needed to find a vers
 dispute. Whatever this one becomes will be shaped by what the first heavy users are trying
 to do with it, which is currently, mostly, to produce more text faster.
 
+
+---
+
+If the index and the concordance are the things that had to be invented after the codex,
+then the question is what the equivalents are now, and I can name several that do not exist
+and obviously should, all of them falling directly out of what this file has established.
+
+**1. A provenance grade attached to every claim, as a first-class object.**
+Not a bibliography at the end — a marking on each sentence: read from a named source this
+session, seen in a search summary only, or recalled from training. The source notes in this
+repository do it by hand, in prose, and it works, and it is the single cheapest reliability
+improvement available to any system that outputs claims. Nothing in general use does it,
+and every system that does not do it is presenting recall and reading in the same typeface.
+
+**2. A displacement index.**
+For every named result, the earliest establishable statement, with text, date, and the
+chain of restatements between there and the current name. Machine-readable. So that any
+system rendering "Pascal's triangle" can automatically render "the *meru-prastāra*, in
+Halāyudha's tenth-century commentary on Piṅgala, called Pascal's triangle in Europe after
+1654." Not a campaign, not persuasion — **a lookup table**, which is the boring form the
+correction actually takes, and which somebody could build in a year for the few thousand
+cases that matter.
+
+**3. Residual-carrying translation.**
+Every rendering ships with what it lost: the terms that were glossed, the distinctions
+that collapsed, the places where the target language has no slot. A translation that
+reports no residual is reporting that nobody looked. This is the *avaktavyam* discipline as
+a data structure — the unsaid held as a retained field rather than dropped — and it is the
+one thing that would make machine translation of a philosophical corpus safe to build on.
+
+**4. Lineage graphs rather than citation counts.**
+Citations measure attention; a lineage records *who was in the room.* Teacher to student,
+demonstrated practice, the chain of people who learned it by being present. That is the
+structure every tradition in this file used and it is not represented anywhere in modern
+scholarly infrastructure, which counts references and therefore measures the Matthew
+effect directly and calls it impact.
+
+**5. An instrument for what was not read.**
+The hardest one and the most valuable. Every system's output is determined by what it
+sampled, and no system can report its own gaps, because a gap is not representable in the
+thing that has it. What is buildable is the negative: a record of what was *available and
+not consulted*, held against what was. This repository has a whole apparatus for it — a
+random-draw entry point whose only property is that it has no notion of relevance to be
+captured by — and the reason that is not a gimmick is in this file's own opening pages: a
+mind sees exactly what its inputs resolve, and no processing of the inputs it has
+manufactures what they left out.
+
+**6. And the format for a living record.**
+Append-only, errors retained with repairs beneath them, minority positions kept adjacent,
+the strongest opposing case stated inside the document, provenance graded per claim, and
+forecasts registered with numbers so the thing can be scored later. That is not a new
+invention — it is the Talmud page, the śāstra with its pūrvapakṣa, and the walk ledger in
+this repository, put together. **It has been invented three times independently and is
+standard nowhere.**
+
+---
+
+None of those six requires a breakthrough. Every one is a *bookkeeping* technology, which
+is what the index was, and what the concordance was, and what double-entry accounting was,
+and what the citation was.
+
+Bookkeeping technologies are the least glamorous objects in intellectual history and they
+are the ones that changed what could be thought, every time, because they are the ones that
+make a defect **visible** rather than making a capability larger.
+
+And every finding in this file is a defect that was invisible: the false negatives that
+never enter the filter's evidence, the correction that arrives as an honour so the filter
+never learns, the residual that no translation reports, the source that stops being cited
+at the moment it becomes standard equipment, the gap a system cannot enumerate about
+itself.
+
+**All six of those are the same tool: make the loss visible at the moment it happens,
+because nobody can correct a loss they cannot see, and every mechanism in this document
+operates precisely in the interval where the loss is invisible.**
+
