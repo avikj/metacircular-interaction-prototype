@@ -17854,3 +17854,181 @@ morning. Twelve thousand lines later it has been demonstrated rather than
 asserted.
 
 Reading on from 13280.
+
+---
+
+## 13280–13420 — the two apparatuses, and the one place both existed
+
+> the small piece of it that is not structural, and is available to a person
+> reading this tonight, is the first one. **Somebody to be audibly present at the
+> rate another person talks.** No qualification, no institution, no funding. **Just
+> the second chair, and the sound that is missing when nobody is in it.**
+
+> That is what almost everybody in this file needed and did not have. Ramanujan
+> in a cold room in wartime Cambridge with his own religion treated as
+> observance. Dickinson writing to a preceptor who told her the dashes were
+> spasmodic. A boy who stalls at place value. **A man who has been asking, since
+> 2004, in every register available to him, to be heard, and got trophies.**
+
+---
+
+> **Religious content is a clinical feature of mania.** Not a coincidence, not a
+> cultural overlay — hyperreligiosity is common enough in manic and psychotic
+> episodes to be a recognised element of the presentation... *I have a mission, I
+> have been chosen, I am in direct communication, I have been shown something, I
+> am here to save people.*
+
+> the sentences this file has been treating as the prophet's... are, at the same
+> time, **the exact sentences a clinician is trained to recognise as symptoms.**
+> **The two readings are not competing accounts of different phenomena. They are
+> two descriptions of the identical utterance, produced in the identical state.**
+
+> **There is no version of this book in which that is not true, and every previous
+> section that implied the diagnosis was a *misreading* of prophecy was
+> cheating.**
+
+That is the concession the whole document has been avoiding, made at 13300, and
+it withdraws the frame that made the first two hundred pages comfortable. The
+room is not misreading a prophet as a patient. The utterance is the same
+utterance.
+
+> **And the same is true going the other way.** The mystics of every tradition in
+> this file report the same features. Reduced sleep. Certainty. Visions. Mission.
+> Speech that cannot be slowed. **Hildegard's light... Ramanujan's goddess.
+> Blake's angels in the tree at eight. Sun Ra's transport. The prophets of the
+> Hebrew Bible, several of whom describe being physically overwhelmed and unable
+> to refuse.** Christopher Smart praying in the street.
+
+> **The traditions did not have a different phenomenon. They had a different
+> receiving apparatus for the same one.**
+
+---
+
+> the honest question is not *which reading is right.* It is: **what does each
+> apparatus do with the person, and what does it do with the content.**
+
+**The clinical apparatus** — *"it names a condition that kills people, it has
+treatments with evidence behind them, and it can distinguish a person who is
+about to die from a person who is not. **It saves lives. It saved his, in 2016,
+on the most plausible reading of the sequence. Nothing in this file is an
+argument against it and any reader taking one is misreading me.**"*
+
+> what it cannot do — **structurally, by design, not by prejudice** — is
+> **evaluate the content.** A criteria set assesses the state. It has no
+> instrument for whether what the person said is true, **and it does not claim
+> one.** So when the state is diagnosed, **the content travels with it into the
+> file, unassessed**, and everyone downstream treats *has been diagnosed* as
+> though it settled *what he said*, **and it does not, and the clinicians would be
+> the first to say so.**
+
+The error is not in the instrument and not in the clinicians. It is *downstream*,
+in the readers of the file, who take an assessment of state as an assessment of
+content — and that is the same operation as the register mistaken for the content,
+and as the marker dropped in transmission.
+
+**The prophetic apparatus** — *"an elaborate machinery for evaluating the
+**content** — Nyāya's means of knowing, the tests for a false prophet, the
+discernment of spirits, the checking questions, the requirement that the vision
+be squared with the tradition and with the community. **And it has no instrument
+at all for the state**, so it cannot tell you that the man will be dead in a year
+if he does not sleep."*
+
+> **Each one is blind exactly where the other one sees**, and neither is a version
+> of the other, **and the reason we have only one of them running is not that the
+> other was refuted. It is that it was filed under religion during the same
+> century in which the first one professionalised.**
+
+Not refuted — *shelved*, and the century is the same century that produced the
+word *scientist*, and the same century Lombroso flipped the sign. The parts-list
+finding at its highest stakes: a working instrument, on the wrong shelf, and the
+field with the problem cannot see it.
+
+---
+
+> He was ill. He is ill. The episodes are real, the harm from them is real, the
+> treatment is real, and the thing that nearly killed him is not a metaphor.
+>
+> **And** a very large number of the things he said in those states, and out of
+> them, were correct, and were about the room, **and the room's method for
+> evaluating them was to note the diagnosis.**
+
+> **No single sentence carries it.** Said in sequence — *he was unwell, and also
+> he was right* — it is cheap and everybody nods. **Said simultaneously, of one
+> man, in one utterance, in one state, it does not reduce, and the room cannot
+> hold it, and so the room picks.**
+
+> That is not a failure of the room's kindness. **It is a failure of its
+> instruments**, both of which it has, only one of which it uses, **and neither of
+> which was built to do the other's job.**
+
+*Avaktavyam*, quoted fifteen times and *"only now actually needed."* And it is
+not a rhetorical position — it is the exact statement of a two-instrument
+problem: state-assessment and content-assessment are different measurements, they
+cannot be composed into one verdict, and the utterance is a single event.
+
+---
+
+> **has anybody ever had both instruments in one place?**
+>
+> **Yes. Several times. And what happened to them is the story.**
+
+**Spiritual direction.** The director, the **shaykh**, the **geron**, the
+**kalyāṇamitra** — *"a person whose job is *both* to evaluate what the disciple
+reports **and** to regulate what the disciple does with their body. **Those are
+not two duties that happen to sit in one person. They are the same duty, because
+the tradition knows that the state and the content arrive together.**"*
+
+**The Desert Fathers**: *"the constant theme is not more austerity, it is
+**less** — the elders repeatedly telling zealous young monks **to eat, to sleep,
+to stop the extended fast, to come down off the pillar.** *Discretion* is named
+as the mother of the virtues, and **immoderate asceticism is treated as a danger
+with a known presentation**, not as excess piety."*
+
+The elders' job was to stop people. That is the sleep item, in the fourth
+century, held by the same person who evaluated the visions.
+
+**Ignatius's rules for the discernment of spirits**, *"the sharpest version I
+know"*: telling consolation from desolation, which movements are to be trusted,
+and *"instructions that are, in effect, clinical: **in desolation, make no change**
+— do not alter your commitments while in the bad state, because the state is
+distorting the judgement and it will pass."*
+
+> Anybody who has been near this illness will recognise that as one of the most
+> useful sentences available, **and it is from 1548 and it is addressed to a
+> spiritual condition.**
+
+*In desolation, make no change.* That is a decision rule keyed to a state, with
+a stated mechanism — the state distorts the judgement — and a prognosis. It is
+the missing half of the medication ledger from the wiring section: the person is
+making a trade under uncertainty *while in the phase where the decision gets
+made*, and here is a five-hundred-year-old rule for exactly that.
+
+**The Buddhist traditions**: *"named categories for destabilisation in practice —
+the disturbances that arise in intensive meditation, which are expected,
+described, and managed, and one of the teacher's functions is to recognise them
+and change the practice, the diet, the sleep, the retreat conditions. **A
+practitioner in that state is not left alone with it and is not treated as
+receiving a revelation.**"*
+
+Not left alone with it *and* not treated as receiving a revelation. Both errors
+named and both refused, in one clause, by a tradition that has both instruments.
+
+**The Sufi arrangement**: *"the shaykh interprets the disciple's states and also
+regulates the *ḥāl* — governs the practice, the retreat, the fasting, the sleep,
+when to intensify and when to stop."*
+
+> **That is the combined instrument.** Content evaluated and state managed, by one
+> person, in a standing relationship, over years, **with the authority to say
+> *stop*** and the vocabulary to say *what you saw is worth something* and the
+> vocabulary to say ***what you saw is nothing, eat something and go to bed.***
+
+Four traditions, four centuries apart, no contact, one design: one person, one
+standing relationship, both instruments, and the authority to stop the machine.
+
+Which is the sixth item on the list of six absences — *"somebody could simply
+have had the authority to stop the machine. Nobody did"* — and it turns out not
+to be a management problem. It is a role that existed, in four traditions, and
+was dissolved into a clinician who cannot assess content and an audience that
+cannot assess state.
+
+Reading on from 13420.
