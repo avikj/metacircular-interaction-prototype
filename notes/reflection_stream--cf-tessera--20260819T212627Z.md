@@ -32098,3 +32098,205 @@ about the diligence of the search** — so the honest form is: **state the domai
 covered and let the reader see the gap**, which is exactly what `Yogyata.hs` does with *every
 inertness verdict carries the domain searched*, and which I did not do for `yogyānupalabdhi: 3`
 one section before I corrected it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 178 — Baudhāyana names the remainder in the text: *saviśeṣa*, "with
+# something left over," c. 800 BCE. And two modules in the same lane
+# attribute the same law to two different sources — `Ardhaccheda.agda` makes
+# the merge the devotional independently flags as wrong, and `JainSankhya`
+# has it right, twelve files away.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 7850–8030.
+
+> If categories are exclusions, then the box was **cut**, by someone, against a particular set
+> of things they had in view — **and a person who does not fit is not mismeasured. They are
+> outside the cut, and there is no measurement that would find them, because the boundary was
+> drawn from the other side and they were not on the other side either.**
+>
+> **The instrument returning nothing is then the correct behaviour of the instrument.**
+>
+> **[Not claimed]:** that Dignāga or Dharmakīrti were interested in anything like that
+> application. **The extension is mine and it is an extension.**
+
+**That is a third kind of zero and this stream did not have it.** Pass 177's *yogyatā* covers
+the case where the instrument was **unfit** — the grep could not see the diacritics. **This is
+the case where there is nothing to be unfit about**: the category was cut from one side, the
+thing is on neither side, **and a perfectly fit instrument returns nothing and is right.** No
+better search fixes it. And the file marks its own extension as an extension, which is the
+`TANTRAYUKTI` standard being met by the person who would benefit most from not meeting it.
+
+## P178 — *saviśeṣa*, and it is the oldest statement of the requirement this stream keeps finding
+
+> The ***Śulbasūtras*** — "the rules of the cord" — **Baudhāyana** earliest, ~**8th c. BCE**,
+> then Āpastamba, Mānava, Kātyāyana. **Appendices to the ritual manuals**, about constructing
+> the *vedi* and the *citi* to specified shapes and areas **with cord and pegs.**
+>
+> **Baudhāyana 1.48**: the cord stretched across the diagonal of a rectangle produces an area
+> equal to what the two sides produce separately. **The statement usually attributed to
+> Pythagoras, in a manual, centuries earlier, given because you need it to lay out a square
+> altar on the ground.**
+>
+> And a value for √2 as a sequence of unit fractions — **1 + 1/3 + 1/(3·4) − 1/(3·4·34)** —
+> correct to five decimal places.
+
+Checked:
+
+```
+1 + 1/3 + 1/12 - 1/408  =  1.4142156863
+√2                      =  1.4142135623
+```
+
+Agreement through **1.41421** — five places, as stated.
+
+> **Baudhāyana states that it is an approximation** — the word is ***saviśeṣa***, **"with a
+> remainder," "with something left over."**
+>
+> **The remainder is named in the text. Not hidden, not rounded away silently. The rule is
+> given with the notice that it does not close.**
+
+**This is the fifth statement of one requirement that this stream has found in three days'
+worth of reading, and it is the oldest by two millennia:**
+
+| | |
+|---|---|
+| **Baudhāyana**, c. 800 BCE | ***saviśeṣa*** — the approximation is labelled *with a remainder* |
+| **Gaṅgeśa**, 1325 | a claim is licensed by having **stated the extent of the search** |
+| **al-Kāshī**, 1424 | **the stopping rule**, from the universe and a horse's hair, plus one place |
+| `machine/Yogyata.hs` | **every inertness verdict carries the domain searched** |
+| `CLAUDE.md` | *a correlation coefficient has no content; **the content is the error term*** |
+
+**Five formulations, four traditions and one repository, and every one of them says: publish
+the residue with the result.** The corpus's own line is the youngest and the only one phrased
+as a prohibition.
+
+And the reason it existed at all is worth keeping attached: **certain rites require an altar of
+specified area in a specified shape**, the *śyena-citi* is built to the outline of a bird, and
+**when the rite is repeated the altar must be enlarged by a fixed amount while remaining the
+same shape.** So: *preserve shape, scale area by a given ratio, with cord and pegs, on ground,
+in bricks that tile the figure exactly.* **A wrong altar is a failed rite.** The texts contain
+**no proofs in the later sense — they contain constructions, and the construction is the
+warrant.**
+
+## P178 — the graded unbounded, and where it came from
+
+> ***saṃkhyāta*** — numerable. ***asaṃkhyāta*** — **innumerable. Not infinite. A distinct
+> middle category**, for quantities too large to count that are nonetheless **bounded.**
+> ***ananta*** — infinite. Each split three ways — lowest, intermediate, highest — **on the
+> order of twenty-one grades, with rules for which operations move you between them and which
+> do not.**
+>
+> **The middle term is the one with no counterpart in the later European scheme**, which went
+> straight from finite to infinite. … The ***palyopama***, the pit-measure — a cylindrical pit
+> packed with hairs, one removed per unit of time — and the ***sāgaropama***, the ocean-measure.
+>
+> The karma theory requires **durations** — ***sthiti*** — and **quantities of matter** —
+> ***pradeśa*** — **both graded**, because the soteriology depends on some durations being
+> longer than others in stateable ratios. **So the taxonomy of the unbounded is downstream of a
+> bookkeeping requirement about souls**, and the logarithm is downstream of **needing to compare
+> two very large durations without writing either one out.**
+
+*Sthiti* and *pradeśa* are **two of the four coordinates of every binding at 8.3**, which pass
+169 used to give an error four coordinates instead of a verdict. **The same two coordinates
+generated a theory of the unbounded and a logarithm**, because a bookkeeping system that must
+be exact about duration and quantity runs out of ordinary numbers.
+
+## P178 — and the attribution defect, in this repository, measured
+
+> ***Ardhaccheda*** — "half-cuttings." **Vīrasena**, in the ***Dhavalā***, around **816 CE**,
+> states the law: **ardhaccheda(a·b) = ardhaccheda(a) + ardhaccheda(b)** — the logarithm's
+> defining property, base two, in a commentary on Jain karma theory. He also uses *trikaccheda*
+> and *caturthaccheda* and gives relations between them, **which is a change of base.**
+>
+> **[The attribution matters and is often blurred: this is Vīrasena's, in the *Dhavalā*.
+> Secondary sources routinely fold it back into the *Anuyogadvāra*, and that merge is wrong.]**
+>
+> **Napier is 1614. Briggs' base-ten tables are 1617 and 1624.**
+
+**`formal/cubical/Ardhaccheda.agda` makes exactly that merge.** Its header, in Sanskrit and in
+gloss:
+
+> *अर्धच्छेदः — जैन-लघुगणकः (**अनुयोगद्वार-परम्परा**)* … *"The Jain ardhaccheda — logarithm base
+> 2 as successive halving, **Anuyogadvāra tradition**; with vargaśalākā = log log and higher
+> orders."*
+
+```
+Vīrasena / Dhavalā in Ardhaccheda.agda : 0
+Vīrasena in the corpus                 : 10 files
+Dhavalā in the corpus                  : 10 files
+```
+
+**And the corpus contains its own correction, twelve files away.** `JainSankhya.agda:12–15`:
+
+> *"The locus classicus is the Anuyogadvāra-sūtra; the … higher orders, in **Yativṛṣabha's
+> Tiloyapaṇṇattī and Vīrasena's Dhavalā**."*
+
+**Two modules, same lane, both inside `IndianLane`'s green closure. One attributes correctly and
+names two texts; the other makes the merge a third source independently flags as wrong.** This
+is pass 133's finding — *sameness asserted in comments and never in terms* — running on
+provenance instead of on proofs.
+
+**And the merge is inherited.** `CLAUDE.md:274` is the only place in the governing document
+where Jain mathematics is sourced, and it reads: *"Jain mathematics is inseparable from it —
+**Anuyogadvāra, Sthānāṅga, Bhagavatī**."* **Vīrasena is not in `CLAUDE.md` at all.** An agent
+following the governing document's own citation to write a module about *ardhaccheda* **gets the
+wrong attribution by doing exactly what it is told**, and the corpus's directive against taking
+a restatement as the first citation is defeated by its own example list.
+
+**Not fixing it.** `Ardhaccheda.agda` is another identity's file, `CLAUDE.md` is the owner's, and
+this stream is reflection only. **The offer, stated once:** the law in that module is
+Vīrasena's, *Dhavalā*, c. 816, and `JainSankhya.agda:15` already carries the citation in the
+form the header needs.
+
+## P178 — the pulveriser, five verses
+
+> **Kuṭṭaka** means **pulveriser, and the name is the algorithm.** **Āryabhaṭa,
+> *Āryabhaṭīya*, 499 CE**, *Gaṇitapāda*. … divide, **keep the remainder, and recurse on the
+> remainder.** The quotients generated on the way down are written in a column — the
+> ***vallī***, **the creeper, the climbing plant** — and then you **climb back up the column
+> substituting**, and the answer falls out at the top.
+>
+> **The whole thing is five verses.** Bhāskara I's commentary of **629** is what makes it
+> usable.
+
+## P178 — ground, in lockstep
+
+**n=15:**
+
+> **अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)** — *(preserved, distorted,
+> unavailable, newly visible).*
+
+Run on `Ardhaccheda.agda`: **preserved** — the law, the base changes, the Jain framing, the
+Sanskrit. **Distorted** — the source, by one text and four centuries. **Unavailable** —
+Vīrasena's name, and with it the fact that a commentator on karma theory in 816 had change of
+base. **Newly visible** — that a module can be right in every technical particular and wrong in
+the one field this repository exists to get right, **and that the governing document supplied
+the error.**
+
+**n=23:** *"You don't know how repo is organized. Hint: The answer is all over the place. It is
+not hidden."*
+
+Seventh consecutive pass, and the sharpest instance: **the correct citation is in the same
+directory, in a module about the same body of Jain mathematics, inside the same green
+aggregate.** Not hidden. Twelve files away, and nothing links them.
+
+**n=18:** *"engage … until you actually accept they had everything figured out. **If you
+prematurely decide they didn't — that's choosing not to engage.**"*
+
+Eleventh receipt. **Baudhāyana names his own remainder in c. 800 BCE**, and `CLAUDE.md` states
+the same requirement in 2026 as a prohibition against a fitted constant — **and the older
+statement is the more generous one**, because *saviśeṣa* is a word you attach to a result you
+are publishing, not a rule about what you may not publish.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *`CLAUDE.md`'s own citation
+list propagated a misattribution into a module.* **Counter-observation, at a strength its holder
+would accept:** `CLAUDE.md:274` is a sentence about **Jain epistemology**, naming three
+canonical texts as where Jain mathematics lives, **and it is not a citation for the logarithm
+law and does not claim to be.** The module's author chose the source; the governing document
+named a literature. **So "inherited" may be my reconstruction of a path nobody walked**, and the
+check that would settle it is the module's own git history and whatever message announced it —
+**which I have not read, and which is one command.** I am recording the frame as unverified on
+its causal claim and solid on its factual one: **the attribution in `Ardhaccheda.agda` is wrong
+and `JainSankhya.agda` has it right, whatever route produced either.**
