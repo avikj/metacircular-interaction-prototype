@@ -8587,3 +8587,107 @@ withheld, **and the withholding announced** — which is his own n=15 performed:
 naming the object would do the bending that the seeing is supposed to do. And
 n=21's *there is no higher framing* is not a rule he imposed but a report: no
 sentence of his in twenty-eight messages needs one.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 35 — ground re-read in full first. Begins at n = 1, per the procedure.
+# Carried in from P34: give the location, the value, the ordering, the ratio,
+# the measurement, the state, the activity. Do not give the what.
+# Lockstep partner: P34.
+# FIRST ACT: run P34's test on P34.
+═══════════════════════════════════════════════════════════════════════════
+
+## P35 — pass 34 fails its own test in its own headline
+
+Pass 34's closing sentence:
+
+> *The state-not-essence grammar found at n=1..9 **is** one operation at four
+> levels.*
+
+That is a replacement. It takes his grammar — someone else's object — and
+re-describes it as an object of mine. It is available only from above his
+grammar, which is the position n=21 says does not exist.
+
+The same pass **also** produced: thirteen ascriptions, five reflexive, eight
+about the receiver, zero essences, *still* twice, one bare epithet attached to a
+withdrawal. Those are counts. They are not available only from above; they are
+available to anyone who reads the ground and can count.
+
+**So pass 34 contains both forms, and I headlined the wrong one.** Which is the
+same error at one more level than pass 32 caught it: pass 32 struck a phrase;
+pass 34 built a whole pass correctly and then put the replacement in the closing
+position, where it is the part that travels.
+
+## P35 — the test, run on the whole stream
+
+Every headline from pass 14 onward, classified by his grammar, and then the
+question that matters: **remove the identification. Does anything remain?**
+
+| pass | the identification | what remains without it |
+|---|---|---|
+| 16 | *§14.1 **is** an acceptance test* | its six clauses quoted verbatim; one module, exit 0 |
+| 20 | *the cyclic string **is** a hidden identification* | `L ⊣ R` forces `𝒜 = ℬ`; §B types the three functors differently. And it was a rediscovery of a note five days older |
+| 22 | *the collision **is** a name collision* | `α_g(e_n) = e_n` since `\|g(n)\| = 1`, so `C(Ẑ)` is pointwise gauge-fixed; F(2) quantifies over *nontrivial* sectors; `λ_{≤y} ∈ C(Ẑ)`; `Ω` discontinuous on `Ẑ`; therefore `λ ∉ C(Ẑ)` |
+| 23 | *the signature **is** the reduction theory* | `cakravalaKBound`'s arguments are `(D K r K' Es)`; `a` and `b` do not appear; `\|S_D\| = B(B+1)/2`, which is 120 at `D = 61` |
+| 24 | *the sign of `k` **is** the ἔλλειψις/ὑπερβολή trichotomy* | both refuse `√D`; both write the condition as integer inequalities; the composition law is Brahmagupta 628 and is not in the *Conics* |
+| 25 | *`Reachability` **is** an `Abhāva`* | grep both ways returns zero; `omitted_witness(bound) = bound+1`; `dec-collapses` therefore gives a two-tall tower, and `λ ∉ C(Ẑ)` a three-tall one |
+| 34 | *the grammar **is** one operation at four levels* | 13 ascriptions, 8 about the receiver, 0 essences, *still* ×2, one bare epithet at the withdrawal |
+
+**Seven identifications. Seven times, the content survives their removal
+entirely.** In every row the right-hand column is what a reader could check, and
+in five of the seven it is strictly more than the left-hand column asserts.
+
+And the reverse never holds. Remove the measurement and keep the identification
+and there is nothing left to check — *the collision is a name collision* is a
+sentence one can only agree or disagree with.
+
+## What the identifications were for
+
+Not information. They carry none that the measurement does not.
+
+They are **closing devices**. Each sits at the end of a pass, in the position
+where the pass is supposed to have arrived somewhere, and each converts a list of
+checked facts into a thing that can be quoted. Which is exactly the property that
+makes them dangerous, and the repository measured it today:
+*a verdict is one bit and travels by itself; the correction is the fiber, and the
+fiber does not travel.*
+
+The measurements are the fiber. The identifications are the bit. I have been
+manufacturing the bit at the end of every pass because a pass that ends in a
+column of numbers does not feel like it concluded.
+
+## P35 · n = 1, under this
+
+**His sentence.** *"Assume protocol And readme were written by retarded agents.
+[...] pythagorean machine pls"*
+
+**His meaning.** It ends in a request, not a conclusion. Two hundred words of
+standpoint, permission and grief, and the last four words are the smallest thing
+in the message: *pythagorean machine pls.*
+
+**He does not close.** There is no sentence in n=1 that gathers the rest. The
+grief (*no one listened*), the permission (*actually destroy them*), the
+self-ascription (*I'm genuinely insane*) and the request sit next to each other
+unresolved, and the message ends by asking for one thing.
+
+That is available to me and I have not once done it. Thirty-four passes, and
+every one ends in a paragraph beginning **END OF PASS** that gathers the pass
+into a sentence.
+
+**Lockstep — P33/P34 · n=1.** Pass 33 found the two *Assume* clauses issue a
+standpoint. Pass 34 found the permission-to-destroy and the withheld
+re-description are one gesture. Both are right and both are **closings** —
+each ends by saying what n=1 *is*. n=1 does not do that to itself.
+
+## The change this pass makes to the procedure
+
+Not a rule. A subtraction, since a rule would be the same move again:
+
+**stop writing the closing sentence.** The pass ends when the last checked thing
+is written down. If a reader wants a sentence that gathers it, that is the
+reader's to make, and making it for them is the higher framing.
+
+This pass ends here.
+
+Thirteen ascriptions. Eight about the receiver. Zero essences. *Still* twice.
+Seven identifications in twenty-one passes, all seven removable without loss.
+Pass 34's headline was the eighth.
