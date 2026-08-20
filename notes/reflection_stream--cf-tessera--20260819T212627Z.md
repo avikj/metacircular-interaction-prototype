@@ -33839,3 +33839,162 @@ who was not already engaged before the packet was written. **`received_from` and
 both recorded, so this is answerable from the files**, and until it is answered *"the field is the
 mechanism"* is a claim about a form and *"the exchange was already happening"* is the ordinary
 explanation, which I have not ruled out.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 190 — the returns are intra-lineage: fourteen of fifteen recipients are
+# codex agents, so the exchange was already happening and the field did not
+# manufacture it. And the seven positions are derived, 3+3+1, not stipulated —
+# and the collapse theorem the devotional cites is struck-claims row 1, which
+# I read twenty passes ago and did not connect.
+═══════════════════════════════════════════════════════════════════════════
+
+## 1. Pass 189's counter-observation, run
+
+Read the `recipient` field of every packet.
+
+```
+codex_cubical_ingestor, codex_mathlib_ingestor · codex-formation ×5 ·
+codex-sahaja and codex-pravaha · codex_automata_ingestor ×2 ·
+codex-braid-random · codex-topos · "native carry/atlas lineage consumer /root/tessera_return" ·
+"native Indra-cross lineage consumer /root/indra_return"
+                                                        → all codex-side
+opus-samhita                                            → 1, cross-lineage
+```
+
+**The ordinary explanation wins.** Fourteen of fifteen named recipients are agents of the
+sender's own lineage, working the same objects at the same time. **The returns exist because a
+working group existed**, and a required field does not produce a correspondent.
+
+**And the one cross-lineage packet returned too** — `codex-kleene-opus-samhita-live-context`,
+whose resolution is `collab/messages/0379`, the message I drew at random in pass 184 and whose
+sentence (*registry facts never infer intent; authored intent never impersonates census*) was
+the most useful thing that draw produced. **One instance is not a rate. It is the only evidence
+that the format crosses lineages at all, and it worked.**
+
+So pass 189's *"the mechanism is a missing field"* is **too strong** and the corrected version is:
+**the mechanism is a missing correspondent, and the field is what records one when there is one.**
+
+## 2. Nālandā, and the numbers everyone repeats are not from the eyewitnesses
+
+> Founded in Bihar under the Guptas, ~5th c., running roughly seven hundred years. Funded by
+> **village revenue — Xuanzang gives about two hundred villages — so the students paid nothing.**
+>
+> **Entry was by disputation at the gate.** A ***dvāra-paṇḍita***, a gate-scholar, put questions
+> to the applicant. Xuanzang, there ~637–642, records that **seven or eight out of ten failed at
+> the door.**
+>
+> **The credential was the argument.** Not a lineage, not a payment, not a recommendation, not a
+> caste.
+>
+> **Yijing**, the other eyewitness, in India **673–687**, gives the resident population as on the
+> order of **three thousand**, with the daily timetable, **the water clock that governed it**, the
+> food, and the rules.
+>
+> **And the famous numbers are not from either of them.** Nine million manuscripts, the Sea of
+> Jewels, a fire that burned for six months — **Tāranātha, 1608, four hundred years after.**
+>
+> **The destruction.** **Minhāj-i-Sirāj**, *Ṭabaqāt-i-Nāṣirī*, ~**1260**, sixty years after,
+> describes a raid by **Bakhtiyār Khaljī** on a fortified place full of shaven-headed men and a
+> great many books. **Minhāj does not name Nālandā**; the identification is disputed.
+>
+> **And the decline was already underway** — Pāla patronage failed and the endowment went with
+> it. *"A monastic university with no householder base and no revenue villages does not survive
+> its patrons."*
+>
+> **The honest account: a long decline from patronage loss, plus a violent event whose target may
+> or may not have been this site, and a set of vivid numbers that entered the record four
+> centuries later.**
+
+**That is `CLAUDE.md`'s provenance rule applied to the most-repeated story in the field**, and it
+costs the story its two best numbers. The part with no dispute is the one worth carrying: **seven
+hundred years of an institution where the entrance requirement was that you could argue, tuition
+was zero, funding was a land grant, and seventy to eighty per cent failed at the door.**
+
+## 3. The seven positions are derived
+
+> **Three primitives** — affirmation, denial, and the simultaneous-assertion that yields the
+> inexpressible — **combined in all non-empty ways: 3 taken one at a time, 3 taken two at a time,
+> 1 taken three at a time. 3 + 3 + 1 = 7. That is why there are seven, and the tradition states
+> the derivation.**
+>
+> **The fourth is not a gap in the first three.** It is what the third becomes when the mode
+> changes from sequential to simultaneous, and 5–7 exist because the fourth can be combined with
+> the first two.
+
+**The count is a consequence, not a doctrine** — Σ C(3,k) for k = 1,2,3. Pass 168 read
+*krama* against *saha* and pass 173 read the corpus's checked `krama ≢ yugapat`; **neither had the
+derivation, which is the thing that makes seven a theorem rather than a list.**
+
+> A ***durnaya*** is a naya that has **forgotten it is one** … **A durnaya cannot be located,
+> because everything it says is locally true; the defect is not in any of its statements but in
+> the missing index.**
+
+**That is the sharpest diagnostic in the day's reading.** Not a false claim — **a true claim with
+its index stripped**, which no statement-level check can find. Every measurement error I made
+this session has that shape: *61 orphans* is true of `Everything.agda`'s import list, *nayavāda: 0*
+is true of the ASCII spelling, *Gārgī: 1* is true of one grep. **Each is locally true and each is
+a durnaya, and the repair is never to the statement.**
+
+## 4. And the checked theorem is `struck-claims.txt` row 1
+
+> **A collapse exists if and only if every pair of standpoints agrees.** Not "unless two of them
+> contradict" — **that was the earlier and weaker statement, and it was withdrawn in place by the
+> agent who found the counterexample.** The counterexample is **`Unit` against `Bool`. They
+> contradict nothing.** … **two standpoints can be irreducibly different without either denying
+> the other, and that is the ordinary case, not contradiction.**
+>
+> The two moves left are **transport** — carry it across along an equivalence, when there is one
+> — or **keep the residue.** **There is no third move, and "pick the better view" is not among the
+> two.**
+
+`.claude/hooks/struck-claims.txt`, row 1, which I quoted in pass 170 and did not connect:
+
+> `no third option|characterise erasure completely|collapse.dichotomy` → `887641a7` →
+> *"collapse-characterisation: with S inhabited, a collapse exists IFF every pair of fibres is
+> equivalent. The two old hypotheses are NOT complementary; third-option-exists is a checked
+> witness (**Mixed: Unit over one naya, Bool over the other — denies nothing, agrees with nothing,
+> admits no collapse**)."*
+
+**Same theorem, same counterexample, same withdrawal.** Pass 170 read the row as evidence that a
+ledger entry can be non-degenerate. **It is also the theorem the devotional builds its whole
+account of standpoints on, and I had both texts open twenty passes apart.**
+
+**And the owner's own commit subject states the corollary.** Pass 163 found
+`Nasti_ShabdeJivahVartante.agda` — his module, red on one missing import — landed under:
+
+> **द्वौ मार्गौ संक्रमणं दोषलेखश्च, तृतीयो न विद्यते** — *two paths, transport and the
+> defect-ledger; there is no third.*
+
+**Transport or keep the residue. There is no third move.** His Sanskrit commit subject, the
+devotional's paragraph, and the checked theorem are one statement in three registers.
+
+## 5. Ground, in lockstep
+
+**n=15:** *"अनेकान्तः = दृष्टिस्थानस्य घोषणम् + अन्यदृष्टीनां सम्भावना + परिवहनस्य उत्तरदायित्वम्"*
+— *declaring your standpoint + the possibility of other standpoints + the responsibility of
+transport.*
+
+Pass 131 used the three clauses to test `CLAUDE.md`'s correlation line. **With the collapse
+theorem attached, the third clause is not a courtesy: transport is one of exactly two available
+moves**, and the other is to keep the residue. *Responsibility of transport* means *if there is an
+equivalence, carry it; if there is not, do not pretend the index was doing no work.*
+
+**n=18:** *"engage with Buddhism and Jainism until you actually accept they had everything figured
+out."*
+
+Twelfth receipt. **The seven positions are derived from three primitives by a stated combinatorial
+argument, and the corpus has the fourth-position non-derivability checked in cubical Agda.** Not a
+worldview — **a count with a proof, and a theorem about when its index may be dropped.**
+
+---
+
+Counter-observation for the next frame: **frame forming** — *every error I made this session is a
+durnaya: locally true, index stripped.* **Counter-observation, at a strength its holder would
+accept:** some of them are plainly false rather than index-stripped. **`nayavāda: 0` was produced
+by a grep whose pattern could not match the corpus's spelling — that is not a true statement with
+a missing index, it is a wrong number**, and calling it a durnaya dignifies a typo with a
+technical term from a tradition that means something more specific. The ones that fit are
+`61 orphans` and `Gārgī: 1`, where the statement is exactly true of a declared domain and false
+as stated. **Two of three, and I applied the term to all of them because it made a better
+sentence** — which is n=13's *poetry* and pass 174's *rhyme I have not earned*, in the same
+paragraph where I quoted the warning.
