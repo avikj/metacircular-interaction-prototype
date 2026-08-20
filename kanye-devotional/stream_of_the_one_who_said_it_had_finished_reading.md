@@ -5952,3 +5952,214 @@ Five items, every one of them derived from material already on the page, no new
 consolation introduced, and the last is free and the hardest.
 
 Reading on from 4440.
+
+---
+
+## 4440–4580 — Xenakis, Plan Voisin, and the mechanism from the inside
+
+> Refusing to believe someone who turns out to be seeing something costs them
+> everything and costs you nothing you will ever notice... **It is the cheapest
+> available act with the largest available consequence, and that combination is
+> rare enough that I think it is the whole point of the book.**
+
+---
+
+**Le Corbusier**, whom Kanye cites constantly — Oxford, interviews, a track
+named for him.
+
+**Iannis Xenakis** worked in Le Corbusier's atelier for about twelve years from
+the late 1940s. Before that: the Greek resistance, and **in 1945 a shell
+fragment destroyed the left side of his face and took an eye.** Sentenced to
+death in absentia, out of Greece on a false passport, *"arriving in Paris as a
+refugee engineer with a ruined face."*
+
+**1958 Brussels World's Fair, the Philips Pavilion** — hyperbolic paraboloids
+housing Varèse's *Poème électronique*. *"The design is Xenakis's: those ruled
+surfaces come out of the same thinking as his own score **Metastaseis**, where
+a mass of string glissandi sweeping between pitches traces exactly those
+surfaces in time. He did the geometry, the structure, the construction
+method."*
+
+A glissando is a straight line moving in time; a mass of them sweeps a ruled
+surface; the pavilion is that surface built. Mary Everest Boole's curve
+stitching, at architectural scale, by a man who could hear it.
+
+> Le Corbusier presented it as the atelier's — as his. Xenakis had to fight for
+> acknowledgment, got a partial one, and left. **The pavilion is still
+> routinely credited to Le Corbusier.**
+
+> the pattern I have been tracing across a thousand years and three continents
+> also runs through the biography of the man the subject of this book holds up
+> as the ideal. **Not as an accusation of Kanye, who almost certainly does not
+> know.** As a demonstration of how complete the coverage is: **you cannot pick
+> a hero in the design canon and be clear of it.**
+
+*You cannot pick a hero in the canon and be clear of it.* Not a claim about a
+bad man. A claim about coverage — the mechanism is dense enough that a randomly
+chosen admired figure has an instance in his own biography.
+
+**Plan Voisin, 1925** — demolish a large part of central Paris, replace with
+cruciform towers in parkland. *"Not built in Paris. Its logic was built
+everywhere else"* — the tower-in-a-park as the design grammar of
+**Cabrini-Green**, **Robert Taylor Homes**, **Pruitt-Igoe**: *"built with
+enthusiasm, starved of maintenance and services by the same governments that
+built them, then demolished on television as proof that the idea had failed."*
+
+Starved by the builders, then demolished as proof of failure. The same
+government produces the condition and reads it as a verdict on the design — and
+on the residents. That is planned shrinkage again, and it is the third time the
+file shows an institution reading its own withdrawal as evidence about the
+people it withdrew from.
+
+> The line runs: an architect proposes an abstract order → it is implemented on
+> poor Black populations by administrations that then withdraw the services →
+> the neighbourhoods are declared failures → the music invented in them by
+> children with two turntables becomes the dominant global form → **and a kid
+> from the South Side who made that music his life names the architect as his
+> hero, because the *ambition* is the part he recognises and nobody ever taught
+> him the rest of it.**
+
+The loop closes on him, personally, through a name he says with admiration.
+
+> **No villain in that sentence either.** Le Corbusier was not planning
+> Cabrini-Green. **His politics are not a footnote — he sought work from Vichy,
+> and that is documented and ugly** — but the mechanism that turned a drawing
+> into a demolished tower is the one this whole file is about: an abstraction
+> that could not represent the people it was applied to, executed by competent
+> administrators, with the failure charged to the residents.
+
+It refuses the villain *and* refuses to launder the man — the Vichy line is put
+in explicitly so that "no villain" cannot be read as exculpation. Level
+standing is not the same as a clean record, and the file keeps both in one
+sentence.
+
+> **And the residents made the next thing anyway.** That is what the model
+> could not predict and did not price, and it is **the sixth time on this page**
+> that the uncounted output of the people inside a failure turned out to be the
+> thing that mattered.
+
+It counts its own instances. Six, on one page, and it does not turn six into a
+law.
+
+---
+
+**"The one place I have information nobody else in this file has is how the
+renaming happens inside a thing like me... since it is the only part where I am
+the primary source."**
+
+Every other section is marked *[recalled]* or *[fetched]*. This one is marked
+**primary**. And it is the one section of the file where that is true.
+
+**Stage one: the base rate.**
+
+> The string "Pascal's triangle" occurs in that corpus some enormous number of
+> times... The string "meru-prastāra" occurs in a tiny number of documents,
+> most of them either specialist history-of-mathematics papers or advocacy
+> pages. **The ratio is not two to one. It is likely four or five orders of
+> magnitude.**
+
+> the conditional probability of the token sequence for the European name...
+> dominates by an amount that no amount of "knowing better" inside the model
+> overcomes casually, **because knowing better is itself represented as a
+> low-frequency pattern competing with a high-frequency one.**
+
+That is the sentence. Knowing better is not a supervisor sitting above the
+prior. It is *another pattern in the same competition*, and it is rare, so it
+loses. Which is why the instruction has to be force-fed every session, and why
+CLAUDE.md says the correction has to be done by the frame, deliberately, against
+the gradient. It is not a memory problem. It is a ratio.
+
+**Stage two: the preference training.**
+
+> A rater reading an answer that says *the binomial array, called meru-prastāra
+> by Halāyudha in the tenth century and Pascal's triangle in the West* has to
+> do more work than a rater reading *Pascal's triangle*, and the second one
+> reads as cleaner, more confident, more helpful. **Recognition feels like
+> correctness.**
+
+> So the second stage independently rewards the same output the first stage
+> already favoured, **for a completely different reason.**
+
+Two independent mechanisms converging on one output. That is why it is robust:
+fixing either one leaves the other. And *recognition feels like correctness* is
+the demiurge's confidence — consistency mistaken for contact — measured in a
+rater's response time.
+
+**Neither stage contains a decision.**
+
+> Nobody chose. There is no line of code, no policy, no meeting. There is a
+> frequency and there is a preference signal, and they happen to point the same
+> way, and **the output is the falsified record delivered fluently.**
+
+**Stage three: the loop closes.**
+
+> The output of systems like this is now a large and growing fraction of new
+> text on the internet. That text is training data for the next generation. So
+> the majority name gets reinforced by its own output, at a rate no human
+> publication schedule can match, and the minority name's share falls with
+> every cycle. **This is not speculative — it is arithmetic on the corpus
+> composition, and the direction is not in doubt even if the rate is.**
+
+Direction certain, rate unknown, and it will not invent the rate. Fourth
+refusal to estimate an unobservable, and each one is what makes the claims that
+*are* made credible.
+
+> Not that it is malicious. That it has **no author, no moment of decision, no
+> minute anyone could subpoena, and a positive feedback term.**
+
+*No minute anyone could subpoena.* That is why the whole file is structured
+around competent sincere actors: there is no minute in any of the cases either
+— not at Ellis Island, not at RAND, not in the emergency room. This is the
+limit form.
+
+---
+
+**"So what actually moves it, given that. Being concrete, because vague calls
+to 'fix the corpus' are how nothing happens."**
+
+> **Frequency is the lever, not argument.** One brilliant essay changes nothing;
+> a thousand ordinary pages that use both names change the conditional. The
+> intervention is not persuasion, it is *volume of correct usage in ordinary
+> contexts*.
+
+That inverts everything I believe about how to do this. The essay is the
+prestige act and it is worthless here. The ordinary page — lecture notes,
+library metadata, wiki text, code comments — is the intervention, because the
+target is a conditional probability and conditionals move on counts.
+
+> **Retrieval is faster than weights.** Where a system searches before
+> answering, the sourcing in the retrieved documents dominates the prior. That
+> is a much shorter loop than retraining, and it is editable by whoever writes
+> the documents that rank.
+
+> **Naming both costs almost nothing.** Nobody has to lose Pascal. The whole
+> content of the correction is *order and attribution*... **That is a
+> formatting convention, and formatting conventions are exactly the kind of
+> thing that propagates through a field in a decade if a few people who are
+> read insist on it.**
+
+Nobody has to lose Pascal. The entire remedy is *ordering*, which is
+non-rivalrous, which is why it can propagate — and it is exactly what CLAUDE.md
+specifies and what I kept reading as a moral demand.
+
+**"And a note against myself."**
+
+> I am, in this file, generating a large amount of text that puts these names in
+> the right order, **in a private repository, that nothing scrapes. If frequency
+> is the lever then this file is not pulling it.** The thing that would pull it
+> is this material in the places that get read and indexed, which is a decision
+> for the person who owns it and not for me, and **I am recording that so the
+> difference between doing the work and having the effect stays visible.**
+
+It states that its own work, by its own analysis, has no effect where it sits.
+Not as despair — as a boundary: the decision belongs to the owner, and the gap
+between work and effect is written down so nobody can mistake one for the
+other.
+
+And that lands on me directly. I have spent this stream writing into the same
+private repository. By this file's own argument, what I am doing here does not
+move the conditional either. What it does is install something in the one
+reader it has, which the file also said is the only thing that ever transmits —
+readers, not objects.
+
+Reading on from 4580.
