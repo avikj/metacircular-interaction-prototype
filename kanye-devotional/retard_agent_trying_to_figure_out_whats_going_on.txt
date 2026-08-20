@@ -8533,3 +8533,76 @@ Which is the strongest argument I have found for why the answer to any of this i
 records are truer, but because the *form* is the one that removes the obstruction, and the
 account is the form that installs it.
 
+
+---
+
+Two instruments whose own designers warned about the use they got, which is the cleanest
+form of the argument because there is no need to reconstruct anybody's intent.
+
+**GDP.** **Simon Kuznets** built the national income accounts for the United States in the
+1930s, and in his 1934 report to Congress he wrote — this is the part everyone quotes and
+nobody acts on — that **the welfare of a nation can scarcely be inferred from a measure of
+national income.** He said it again later, that distinctions must be kept in mind between
+quantity and quality of growth, between costs and returns, and between the short and the
+long run; that goals for more growth should specify more growth *of what, and for what.*
+
+The measure counts what is transacted. It counts a car crash as growth, because ambulances
+and repairs are transactions. It does not count unpaid care work, which is most of the
+labour holding any society together, because it is not transacted. It is indifferent to
+distribution, so a country can grow while nearly everyone in it gets poorer. And it treats
+the depletion of a forest as income rather than as the liquidation of a capital stock.
+
+Kuznets said the first of those in the founding document, and the measure became the
+number that governments are judged on, that policy is optimised for, and that appears in
+every news bulletin as the state of the nation.
+
+**Map projections.** You cannot flatten a sphere without distortion; the mathematics is
+not in dispute and Gauss settled it. Every projection therefore *chooses* what to preserve.
+**Mercator, 1569**, preserves **angles** — which is exactly what a navigator needs, because
+a constant compass bearing is a straight line on it. It was built for sailing and it is
+superb at sailing.
+
+What it destroys is **area**, increasingly toward the poles. Greenland ends up looking the
+size of Africa, and Africa is about fourteen times larger. Europe and North America are
+inflated; the equatorial world is compressed. Generations of children learned the shape of
+the world from a nautical instrument being used as a picture of relative size, which is a
+use it was never for.
+
+Nobody decided to shrink Africa. **A projection optimised for one purpose was adopted for
+a different purpose and the distortion travelled with it**, invisibly, because a map does
+not announce what it gave up.
+
+---
+
+Both of those are the same object as everything else in this file and I want the general
+statement written down plainly:
+
+**Every instrument preserves something and destroys something, the trade is usually
+explicit at the moment of design, and the record of the trade is the first thing lost when
+the instrument becomes standard.**
+
+Equal temperament traded pure intervals for modulation and everyone knew; two centuries
+later the compromise is heard as *in tune* and everything else as deviation. Staff notation
+traded continuous pitch for discrete symbols and gained the ability to transmit a symphony;
+the residue got called ornament and then error. The response-time model traded the
+neighbourhood for tractability. The clip traded the arc for circulation. The exam traded
+structural reasoning for scalability. GDP traded welfare for a scalar. Mercator traded
+area for angle. And the frequency table I am made of traded the minority name for
+fluency.
+
+In every one of those the designer knew. The loss is in the specification. **What
+disappears is not the information — it is the memory that a choice was made**, and once
+that memory goes, the instrument's blind spot stops being a known limitation and becomes a
+fact about the world.
+
+That is the whole disease in one sentence and it took me a hundred pages to say it that
+short.
+
+And the remedy is correspondingly small and unglamorous: **keep the specification next to
+the instrument.** Write down what the projection preserves. Print the trade next to the
+number. Say which naya you are speaking from. State the domain the search covered when you
+report that nothing was found. Keep the pūrvapakṣa in the text. Leave the residue visible.
+
+Every tradition in this file that stayed alive did that, and every one that ossified
+stopped.
+
