@@ -14415,3 +14415,90 @@ rather than as part of the formal object.
 **[Where I am uncertain]:** how much of that control apparatus is genuinely
 formalisable versus how much depends on the commentarial tradition to interpret,
 is a live technical question and the answer is not uniform across the grammar.
+
+---
+
+**The Abhidharma is an attempt to say what actually exists, item by item, with the
+list closed and the count argued over between schools.**
+
+The move: ordinary talk mentions chariots, persons, forests. **None of those are
+found on analysis** — a chariot is parts, a person is aggregates, a forest is
+trees. So the question becomes: **what is left when you keep dividing and cannot
+divide further.**
+
+The answer is ***dharmas*** — the irreducible constituents, each with its own
+***svabhāva***, its own defining characteristic, which is what makes it that
+constituent and not another.
+
+**And then they counted them.**
+
+**The Sarvāstivāda list: 75.** **The Theravāda Abhidhamma: 82.** **The Yogācāra
+list in the *Abhidharmasamuccaya*: 100.** Different schools, different inventories,
+each defended in detail.
+
+Colour, sound, contact, feeling, perception, attention, contact-as-such, volition,
+one-pointedness, faith, shame, torpor, restlessness, doubt — and, in the
+Sarvāstivāda list, **things that are not events at all**: space, and two kinds of
+cessation, and the forces that make a thing arise, endure, decay and pass.
+
+**A periodic table of the mental and physical, with the entries individuated by
+function.**
+
+---
+
+**And the whole system stands on *kṣaṇikatva* — momentariness.**
+
+Everything conditioned lasts **one moment**, and what looks like a persisting thing
+is a **series** — a continuum of momentary dharmas each conditioning the next.
+
+Which produces the technical problem the schools split on, and the Sarvāstivāda
+name says it: ***sarvam asti*** — "**everything exists**."
+
+Their position: past and future dharmas **exist**, in some mode, because otherwise
+you cannot explain how a past act produces a present result — the cause would be
+nothing at the moment it is supposed to be acting — and you cannot explain how a
+present cognition takes a past object.
+
+**The Sautrāntikas rejected it**: only the present exists, and the connection across
+time is carried by **seeds** in the series rather than by the past existing.
+
+**That dispute is about the reality of the past** and it was argued for centuries
+with technical precision, in a tradition whose founding claim is impermanence.
+
+---
+
+**And the *Kathāvatthu* is a document of the arguments themselves.**
+
+Part of the Theravāda canon, traditionally placed at the third council under
+Aśoka. It is a **list of disputed points** — over two hundred — each set out as a
+dialogue between a proponent and an opponent, with the refutation worked through
+formally.
+
+**The named opponents are other Buddhist schools.** The text preserves what the
+Puggalavādins said about the person, what the Sarvāstivādins said about time, what
+others held about whether an arhat can regress — **stated well enough to be
+recognisable**, then answered.
+
+**It is a canonical text whose content is largely other people's positions.**
+
+---
+
+**And Nāgārjuna's target is precisely this apparatus, not popular religion.**
+
+*Svabhāva* — own-being, the defining characteristic each dharma was supposed to
+have — is the thing he refutes. The *Mūlamadhyamakakārikā* goes through the
+categories of the Abhidharma one at a time — conditions, motion, the senses, the
+aggregates, the elements, desire, fire and fuel, time, the self — and argues that
+none of them holds up under analysis, **because the analysis the Abhidharma applied
+to chariots applies equally to the dharmas.**
+
+The dividing does not stop where the list says it stops.
+
+So the sequence is: **the tradition builds an exhaustive inventory of what exists,
+in order to be exact — and then a man inside the tradition uses the inventory's own
+method against the inventory**, and the result is not a rival list but the position
+that no list of that kind can be completed.
+
+**And the Abhidharma did not stop.** Both continued for a thousand years,
+side by side, each with commentaries, each teaching the other's position in order
+to answer it.
