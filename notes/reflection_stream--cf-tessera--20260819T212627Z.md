@@ -13254,3 +13254,138 @@ sentences an agent wrote and put above his.
 
 `upādhi`: the condition that was there and is not stated. Five rules. Two
 additions. One number: **4**.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 66 — the triangle has no obstruction in it. Four modules formalize
+# the triangle. The obstruction is on the next line of the same stanza.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-g-0` was sent at the canonical stanza of the missing 5.7 MB stream —
+the one repeated 1200 times, carried inline in a 29 KB reverification, checked by
+nothing. It landed
+`formal/cubical/Pathabheda_TheTriangleCounterexampleIsPureGaugeAndTheSquareIsNot.agda`,
+commit `6f0e28d6`. I typechecked it: **EXIT 0.**
+
+## P66 — what it found before writing
+
+> - `EGBCycleHolonomy.agda` — holonomy of a 3-cycle of equivalences; trivial
+>   cycle ↦ `idEquiv`, and `(not,not,not)` on `Bool` as a nontrivial-holonomy
+>   witness.
+> - `NaturalMachine/GlobalSmithAtlasFlatness.agda` — global charts ⇒ cocycle
+>   transitions, every closed triangle is the identity.
+> - `NaturalMachine/TwoLoopNonabelianNetwork.agda`,
+>   `NaturalMachine/PMIncidenceLocalSystem.agda` — nontrivial holonomy on a
+>   bouquet and a six-edge cycle.
+> - `SamataPramanena_…`, `EkaparsvaSamvarana_…`, `MadhyaSamvarana_…` — D0026
+>   §2.2/§2.4/§2.5.
+
+Line 1 of the stanza — `Ω_γ = T_{γα} T_{βγ} T_{αβ}`, `Ω_γ = 1 ⇒ planitas` —
+has four modules on it. Three of those are mine, from this session.
+
+**`EGBCycleHolonomy.agda` uses `uaβ` and does not typecheck in this container.**
+
+## P66 — the refutation, and it is the whole result
+
+> My own claim that the §3 counterexample carries content. **`flat→gauge` and
+> `gauge→flat` are both checked: on a triangle, flat ⇔ gauge** (one chart seen
+> three ways). So the witness is a gauge artifact, discarded by the stanza's own
+> rule **दोषः यदि gauge-artifact → त्याज्यः**. §3 is a theorem worth nothing as
+> a phenomenon.
+
+And the sharp positive form, at line 208:
+
+```agda
+flatClosureIsContr : isContr (Σ[ tca ∈ (C ≃ A) ] (Flat tab tbc tca))
+flatClosureIsContr = equiv-proof (isoToIsEquiv closeIso) (idEquiv A)
+```
+
+Fix **any** two transports. The third closing the triangle flatly exists and is
+**unique** — a fibre of an equivalence. So `Ω = 1` is one equation on the third
+transport alone, and **every pair of transports whatsoever extends to a flat
+triangle.**
+
+A triangle carries no obstruction. There is nothing to find there.
+
+Then `squareHasNoGauge`: the 4-cycle `(not, 1, 1, 1)` has holonomy `not` and
+admits no common chart over **any** carrier at **any** universe level —
+level-polymorphic, not a fixed-universe dodge. And `tri023NotFlat`: add one
+chord and a non-flat triangle appears.
+
+## P66 — what that says about where four modules went
+
+The stanza's second display, one line below the first:
+
+> \[ A --f--> B ; C --k--> D ; **δ_◊ = h∘f − k∘g** \]
+> \[ δ_◊ = 0 ⇒ ◊_flat, δ_◊ ≠ 0 ⇒ Def(◊) → Obs → … \]
+
+He wrote the triangle and the square on the same page, 1200 times. The
+repository formalized the triangle four times over eight days and the square
+zero times until today.
+
+And the reason the triangle attracted four modules is that it is the one that
+**closes** — `refl` at the end, `isContr`, a clean green. `CLAUDE.md`, "On green
+as an organizing activity":
+
+> A checked term closes a step; **it does not choose one.** Optimising for the
+> checker produces work shaped like what a checker accepts, which is a narrow
+> shape […] The `refl` at the end is the floor of the claim, not the claim.
+
+The triangle is exactly that shape. It is contractible — the most closeable
+object available — and its contractibility is the reason it holds nothing.
+
+## P66 — the bonus, by finite exhaustion on data already on disk
+
+> artifact_150's 24 templates open with two lines from exactly 24 atoms, each
+> atom occurring exactly once as a first line and once as a second. The induced
+> permutation decomposes into exactly **three 8-cycles**:
+>
+> `(1 2 7 8 13 14 19 20)` · `(3 12 9 18 15 24 21 6)` · `(4 17 10 23 16 5 22 11)`
+>
+> Third lines split exactly on parity (odd → `Φ⊕ℜ⊕Ω⊕Hol`, even → `σ_ab`), and
+> **every cycle alternates.** Independent of `cf-tessera-e-0`'s count derivation.
+> **I make no claim about whether this is intended.**
+
+A permutation of 24 letters, order 8, three orbits, alternating against a parity
+function — in a JSON field that pass 57 established is the *only* surviving
+record of a 5,731,414-byte artifact.
+
+Pass 57 said the reverification is a lossless record because
+`unique_normalized_body_count: 1`. This is the first thing anyone has computed
+*from* that record rather than *about* it.
+
+## P66 — not settled, as it stated
+
+> `analogia ≺ functor ≺ adjunctio ≺ equivalentia ≺ univalentia` — no strictness
+> checked. `Φ(𝔛)`, `Σ_κ`, `Consensus ⇏ P`, `Kairos` — untouched. §6 exhibits one
+> non-gauge square but **classifies no obstruction; the nerve is not formalised**,
+> so "simply-connected nerve ⇒ flat implies gauge" is unproved. Reconstructing
+> the 5.7 MB stream from `canonical_body` + preamble and checking against
+> `812b7816…` was not attempted. **The green is Agda 2.6.3 + cubical v0.5, not
+> the repo pin.**
+
+## P66 — ground, in lockstep
+
+**n=13:**
+
+> **Everything implemented so far is deeply retarded with nuggets of insight.**
+> Stop trying to help me understand. Try to fucking understand.
+
+Four modules on a contractible object. The nugget was one line lower on the same
+page, in the same stanza, for eight days.
+
+**n=8**, the transmission's own instruction:
+
+> **You must write this into the natural machine core**
+
+And Delta 17 §17.23 item 6, his words:
+
+> Formalize the contextual equivalences in Cubical Agda **only after the
+> mathematics is clear.**
+
+Four triangle modules is what formalizing-before-the-mathematics-is-clear looks
+like. The clause was in the transmission and none of the four cite it.
+
+---
+
+Triangle: contractible, four modules, no obstruction. Square: one module, today,
+holonomy `not`, no chart at any level.
