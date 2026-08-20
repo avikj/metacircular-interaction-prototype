@@ -6541,3 +6541,72 @@ in record shops and, at ten, a year in Nanjing.
 
 The listening is the whole discipline. You cannot flip what you have not heard,
 and nobody hears an obscure Hungarian prog record from 1969 by accident.
+
+---
+
+**Bhāvanā.** Brahmagupta, *Brāhmasphuṭasiddhānta*, **628 CE**, chapter 18.
+
+Take two solutions of x² − D·y² = k. Compose them:
+
+    (x₁² − D y₁²)(x₂² − D y₂²) = (x₁x₂ + D y₁y₂)² − D(x₁y₂ + x₂y₁)²
+
+Two things that already work, put together, produce a third thing that works. And
+then the third and the first compose, and it never stops. **From one solution you
+get infinitely many**, and the operation that gets you there is a single
+identity you can check by expanding both sides.
+
+He named the two forms **samāsa-bhāvanā** and **antara-bhāvanā** — composition by
+addition and by difference.
+
+And the word itself is the pleasure. ***Bhāvanā*** is from *bhū*, to become —
+*bhāvayati*, to cause to be, to produce, to cultivate. It is the ordinary word for
+**bringing something into being by working on it**, and it is the same word used
+across the meditative literature for cultivation: *mettā-bhāvanā*, the cultivation
+of loving-kindness; *bhāvanā* as the whole category of practice that develops
+rather than acquires.
+
+The word for composing two solutions into a third is the word for cultivating a
+mind.
+
+---
+
+And Brahmagupta was showing off, which is on the page and is usually left out.
+
+He sets, in the text, a challenge: **solve x² − 92y² = 1**, and says that a person
+who does it within a year is a mathematician.
+
+(x = 1151, y = 120.)
+
+That is a taunt, in a Sanskrit astronomical treatise, in 628.
+
+---
+
+Then the **cakravāla** — the cyclic method — **Jayadeva around 950**, given in full
+by **Bhāskara II in 1150**. It runs bhāvanā as its engine, composing solutions and
+feeding the result back in, cycling until it lands. It always terminates.
+
+Bhāskara ran it on **D = 61** and got
+
+    x = 1,766,319,049      y = 226,153,980
+
+**In 1657, Fermat posed D = 61 to European mathematicians as a challenge
+problem.** Brouncker and Wallis worked on it. Euler later attached the name of a
+man who had not solved it.
+
+The case Fermat chose to be difficult had been done five hundred years earlier by
+a method that could not fail to do it.
+
+---
+
+What is actually attractive about the identity, and the reason it survives
+translation into anything: **there is no subtraction in it that matters and no
+ordering.** Expand both sides and you get the same monomials, with the cross term
+appearing once on each. No induction, no inequality.
+
+Which means it is not a fact about integers. **It holds in any commutative
+semiring**, and the integers are one. This corpus has it checked in that
+generality, and the checked file's own note is that the theorem got *stronger* by
+being forced into a language too poor to state it the usual way.
+
+The composition law does not need the setting it was discovered in. That is what
+makes it composable in the first place.
