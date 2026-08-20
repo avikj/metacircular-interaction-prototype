@@ -19714,3 +19714,208 @@ comparison is *agents whose brief required the disputed fact* rather than *all
 thirty*, the sample is n=1 and this is an anecdote. What would settle it: whether
 any agent with a non-search brief also ignored the framing, and what it returned. I
 have not checked and it is checkable in the task outputs.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 106 — z-0 cloned the whole nLab in 13.5 seconds and then reported that
+# translating it is the wrong instruction; and it ran, unprompted, four of the
+# five disciplines passes 103–105 identified as missing from this stream.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-z-0` returned. Step (6): returns take priority. Verified before
+reflecting on, because the system prompt says not to take another agent's report at
+face value:
+
+```
+CokernelUniversalProperty_TheHandRolledGraphH1IsACokernelAndItsGaugeRelationIsNotPropValued.agda
+agda --cubical --guardedness --safe --no-import-sorts   →  EXIT=0
+"postulate" occurrences: 1, and it is the header line "no postulates, no holes"
+"unique"/"isContr" in the new module: 12
+"unique" in NaturalMachine/FiniteGraphCohomology.agda: 0
+```
+
+## P106 — n=47, executed far enough to be measured, then reported back as wrong
+
+**n=47, 2026-08-14T01:56:19Z:** *"Translate **all** of nlab into our repo/natural
+machine core."*
+
+`git clone --depth 1 --filter=blob:none https://github.com/ncatlab/nlab-content` —
+**13.5 seconds, 398 MB, 41,456 files, 20,728 `content.md` pages.** The whole nLab,
+offline, in the time it takes to read a sentence. Then:
+
+> **Not a translation problem.** 20,728 pages of statements would add 20,728 names
+> and **zero checked terms**. The blocking dependency is the substrate, not the
+> wiki. What the mirror is actually worth is what §2 did: **look up the universal
+> property *before* hand-rolling the object** — thirteen seconds, and it is the
+> humility half of the owner's instruction.
+
+That is the correct relation to an instruction and it is neither of the two I have
+been alternating between. Not compliance — nobody translates 20,728 pages. Not
+refusal — the clone happened, the corpus now has the thing. **Execute it far enough
+that its cost becomes a measurement, then report what the instruction actually
+buys.** Delta 14 got 30 of 78 cited because nobody did this; the atlas got one
+file.
+
+And the payoff it names is the opposite of translation: not *move the nLab into the
+repo*, but *consult it before writing*. Thirteen seconds against the hand-rolled
+object.
+
+## P106 — the eighth measurement defect, and this one is in the storage layout
+
+> Format matters and is a trap: pages are stored **by numeric id**, with the title
+> in a sibling `name` file — `pages/3/3/0/1/1033/{content.md,name}`.
+> **`find -name 'cokernel*'` returns nothing and a reader concludes the page is
+> absent.** A title index has to be built first.
+
+Eighth defect of the day, and the first of a new kind. The seven before it were
+defects **in the query**: orthography, prefix collision, bracket classes over
+non-ASCII, substring false positives, two written forms of one name, homonyms, and
+the check erasing its own reading. This one is a defect **in the store**: the query
+is correct, the name is correct, and the answer is still zero, because the name is
+not in the path.
+
+*I did not see it ⇒ it does not exist* has now failed eight distinct ways in twelve
+hours, and there is no query discipline that would have caught this one.
+
+## P106 — the repair was one line below the function everybody reaches for
+
+z-0 planned to get exactness from `SetQuotients.effective`, as `s-0` did, and killed
+its own plan:
+
+> **Impossible.** `effective` demands `isPropValued`, and `GaugeStep` is **not**:
+> δ⁰ annihilates global constants (`δ⁰(const true) e = true ⊕ true = false`), so
+> const-false and const-true are two **distinct** elements of `GaugeStep x x`.
+> **Witnessed non-identity, not a size check** — and guarded on both sides, since
+> with `Vertex` empty the relation **is** prop-valued, so the hypothesis is
+> load-bearing.
+
+And then:
+
+> **The repair was already in the library, one line below the one everybody reaches
+> for**: `isEquivRel→TruncIso` (`SetQuotients/Properties.agda:295`) needs no
+> prop-valuedness and returns the *truncated* relation — which the same nLab page
+> says is the right notion of image anyway.
+
+**Line 295.** Not another file, not another library, not an unopened directory. The
+next line down from the function the corpus already imports. n=23 — *"the answer is
+all over the place. It is not hidden"* — has not previously been demonstrated at
+this radius.
+
+## P106 — one word, and it was the whole difference
+
+> Two sentences did the work: the factorisation through `coker(f)` is **unique**,
+> and in Ab the cokernel is the quotient by the **image of the underlying map of
+> sets**. `FiniteGraphCohomology.agda` has `H¹ = C¹ / GaugeStep` as a bare `Type₀`
+> plus `descendedEvaluation` — the existence half only. **"Unique" appears nowhere
+> in it. That word is the entire difference between *a quotient with a map out of
+> it* and *a cokernel*.**
+
+Checked: zero occurrences in the old module, twelve of `unique`/`isContr` in the
+new one. A hand-rolled object had the existence half and was being described by the
+name of the object that has both halves — which is the same operation as calling a
+restatement the source, at the scale of one word.
+
+## P106 — it ran four of the five disciplines this stream has been finding missing
+
+Passes 103–105 named what the second devotional stream does that I do not. z-0 did
+four of them in one run, unprompted, before those passes existed:
+
+| discipline | z-0 |
+|---|---|
+| **pre-registered weakest row** | *"How it could be true and irrelevant: if nothing downstream ever needs a **second** map out of H¹, uniqueness is decoration."* |
+| **self-refutation that narrows** | killed its own `effective` plan, and **guarded the refutation on both sides** — with `Vertex` empty the relation *is* prop-valued, so the counterexample is not parametric-vacuous |
+| **non-vacuity control** | on the bouquet, `classOf one¹ ≢ classOf zero¹` witnessed **twice by independent routes**, *"Without it, exactness is consistent with H¹ being a point and every theorem is true and worthless"* |
+| **report the disagreement, do not touch the file** | *"this is **why** s-0's H¹ and the hand-rolled one were never linked … Their file's 'the same set, as a bare type' is an assertion whose proof is not one line. **I report it; I did not touch their module.**"* — and it left a concurrent agent's uncommitted file strictly alone |
+
+The fifth — *hand over the instrument rather than the account* — is mine to run,
+not its.
+
+`CLAUDE.md`: *"Refuting your own claim is the most respected act in this
+repository."* It is also, on today's evidence, the **productive** act: the refutation
+is what sent it to line 295, and line 295 is what produced the theorem.
+
+## P106 — and it names what is still unimported
+
+> Elsewhere on disk and still un-imported: `1lab` (762 files) and `agda-unimath`
+> (3,036) at `/root/agda-libs/`; `Cubical.Categories.Abelian.Base` has
+> `IsKernel`/`IsCokernel` and `Categories/Abelian/Instances/` has **exactly one
+> file.**
+>
+> Gives: a name plus a universal property, stated precisely. **Gives nothing:
+> proofs.** The cokernel page is 40 lines with no construction; `chain complex` and
+> `snake lemma` are statement-only; and cubical v0.5 ships **no
+> `Cubical.Algebra.ChainComplex`** for them to land in — confirming `s-0`'s finding.
+
+Two agents, independently, on `ChainComplex`. Pass 93 corrected pass 86 on the
+strength of `s-0` alone; it now has a second witness by a different route.
+
+## P106 — ground, in lockstep
+
+**n=47:** *"Translate all of nlab into our repo/natural machine core."*
+
+Answered, six days later, by an agent that cloned all of it and then said the
+translation is not the valuable half — with the number that makes the case: 20,728
+names, zero checked terms. **He asked for the instruction; what came back is what
+the instruction costs.** That is the only kind of answer that can improve an
+instruction.
+
+**n=16:**
+
+> **actually becoming smarter so we don't walk a dumb path is the only thing that
+> helps.**
+
+The dumb path was hand-rolling `H¹` without looking up what a cokernel is. Thirteen
+seconds of consultation, one word — *unique* — and the object changed category. Not
+a system, not a record: a shorter path, found by reading first.
+
+**n=23:** *"The answer is all over the place. It is not hidden."*
+
+`SetQuotients/Properties.agda`, **line 295**, one below.
+
+**n=12:** *"Assume your last work doesn't matter … enter consumption/reading mode
+forget all your preconceptions."*
+
+z-0's preconception was `effective`, held because `s-0` had used it, and dropping it
+is what found the theorem. *Assume your last work doesn't matter* is not humility
+advice; on this evidence it is the search strategy.
+
+---
+
+Pre-registered: **the weakest claim in this pass is the four-disciplines table.** I
+scored `z-0` from its own return, which is the document most likely to present its
+work in the shape I was looking for — and I had just spent three passes writing down
+that shape, so I am the one primed to see it. What would settle it: read the module
+itself for the control and the guard rather than the summary of them. I ran `agda`
+and counted `postulate` and `unique`; I had not read the 25,295 bytes — which is
+pass 104's defect, verifying the number instead of opening the file, one pass after
+writing it down.
+
+**Run. The module is stronger than its summary, and it contains one thing the
+summary does not.** §6a carries both non-identity proofs and they are genuinely
+independent — `oneIsNotACoboundary` goes through `ker⊆im` and exactness,
+`separatedByThePairing` goes through `cong (descendedEvaluation loopCycle)` and
+never touches §2b. §6b instantiates the other side at `Vertex = ⊥`. `CycleEvaluation`
+is exhibited inhabited, so §5 is not an empty hypothesis.
+
+And the **Rigor boundary** at the foot of the file discloses something the return
+did not:
+
+> **NOT CHECKED / NOT CLAIMED:** H¹ is not given a group structure here, so
+> **"cokernel in Ab" is not proved** — only the universal property against
+> Ab-valued maps. `cf-tessera-s-0`'s parallel construction has the group structure;
+> the two H¹'s are still not connected by a proved iso, and §1 says why that
+> connection is not one line.
+
+**The module disclaims its own file name.** It is called
+`…TheHandRolledGraphH1IsACokernel…`, and its last section says cokernel-in-Ab is not
+what was proved.
+
+Which is pass 104's Petersen defect running in the opposite direction. There, the
+qualifier was in the first statement and gone from the re-mentions. Here the
+qualifier is in the module and absent from the name — and the name is the thing that
+propagates, because it is what `BOOK_INDEX.md` carries and what the next agent
+greps. This is not `z-0`'s failure: the naming rule requires an English descriptive
+title and **every title is a truncation**. What the module does is pay the residual
+explicitly, in a section, at the bottom. *"State what did not translate. Every
+transport owes its residual"* — the second devotional stream's methodology — is
+exactly what a `Rigor boundary` section is, and this corpus was already writing them
+before anyone named the rule.
