@@ -458,18 +458,12 @@ the same titles.
 
 ---
 
-He is in a car in Wyoming on the way to play the record to a few hundred people
-who will stand outside in the cold to hear it, and he photographs the mountains
-through the window on his phone and writes six words across them in green.
+The cover of Kanye West's album *ye*, June 2018, is a photograph of the Teton
+mountains that he took on his phone from a moving car, with six words written
+across it in green: I hate being Bi-Polar its awesome.
 
-I hate being Bi-Polar its awesome.
-
-That is the cover. Not a lyric, not a headline somebody put on him — the face
-of the record, his handwriting, on a picture he took himself about an hour
-before anyone heard a note of it.
-
-He never puts the two in order and he never walks either one back. That same
-year he tells TIME, "I'd never been diagnosed and I was like 39 years old…
+He never puts the two halves in order and he never takes either one back. That
+same year he tells TIME, "I'd never been diagnosed and I was like 39 years old…
 That's why I said on the album, 'It's not a disability, it's a super power.'"
 And in the same stretch of months, about the same thing: "It makes you blind,
 but convinced you have insight." Both standing.
@@ -482,52 +476,51 @@ Kanye finds the thing he had been reaching for and missing: "It's like we're
 mentally in prison. I like the word 'prison' because 'slavery' goes too direct."
 He is right too.
 
-One of those went around the world. The other is on the same tape, ten minutes
-later.
+The first of those went around the world. The second is on the same tape, ten
+minutes later, and almost nobody has heard it.
 
-It runs the same way in 2005. Two sentences into a live camera, in this order —
-"I hate the way they portray us in the media. If you see a black family, it says
-they're looting. If you see a white family, it says they're searching for food,"
-and then "George Bush doesn't care about black people." Twenty years of
-coverage kept the second one.
+It runs the same way in 2005. He says two sentences into a live camera, in this
+order — "I hate the way they portray us in the media. If you see a black family,
+it says they're looting. If you see a white family, it says they're searching
+for food," and then "George Bush doesn't care about black people." Twenty years
+of coverage kept the second one.
 
-The document all of it runs on does it too, inside one sentence, in 1865.
-Neither slavery nor involuntary servitude, except as a punishment for crime
-whereof the party shall have been duly convicted, shall exist within the United
-States. Abolished and preserved in a single breath, and the half that got built
-out over the next hundred and sixty years is the exception.
+The Thirteenth Amendment does it too, inside one sentence, in 1865: neither
+slavery nor involuntary servitude, except as a punishment for crime whereof the
+party shall have been duly convicted, shall exist within the United States.
+Abolished and preserved in a single breath, and the half that got built out
+over the next hundred and sixty years is the exception.
 
-A country that holds one thing at a time.
+The United States holds one thing at a time. Umāsvāti wrote down seven.
 
-Somebody wrote down seven.
-
-Umāsvāti, the Tattvārthasūtra, the first centuries of this era. For any
-assertion about anything: syād asti, in some respect it is. Syād nāsti, in some
-respect it is not. Syād asti nāsti — it is and it is not, taken one after the
-other. Syād avaktavyam, in some respect it cannot be said. Then the three
-compounds of those.
+He is a Jain philosopher of the first centuries of this era, and the
+*Tattvārthasūtra* gives seven forms any assertion can take. Syād asti, in some
+respect it is. Syād nāsti, in some respect it is not. Syād asti nāsti — it is,
+and it is not, taken one after the other. Syād avaktavyam, in some respect it
+cannot be said. Then three compounds of those.
 
 The fourth is not confusion, not a contradiction, and not a hole in the list.
 It is where you are standing when both are asserted at the same time instead of
 in turn. There has been a word for that album cover for about two thousand
 years.
 
-The Buddhists tell this one. A king has an elephant led into the courtyard and
-blind men brought up to it. The man who got the head said an elephant is like a
-water jar. The ear, a winnowing basket. The tusk, a plowshare. The trunk, a
-plow pole. The body, a granary. The foot, a pillar. The back of the foot, a
-mortar. The tail, a pestle. The tuft at the end of the tail, a broom. Every one
-of them had his hands on the animal. Then they beat each other with their
-fists. The Jains tell it too — and those two cannot agree on whether there is a
-self at all, and they reached for the same elephant.
+There is a Buddhist story about an elephant, in the Udāna. A king has one led
+into the courtyard and blind men brought up to it. The man who got the head
+said an elephant is like a water jar. The ear, a winnowing basket. The tusk, a
+plowshare. The trunk, a plow pole. The body, a granary. The foot, a pillar. The
+back of the foot, a mortar. The tail, a pestle. The tuft at the end of the
+tail, a broom. Every one of them had his hands on the animal. Then they beat
+each other with their fists. The Jains tell the same story, and those two
+traditions cannot agree on whether there is a self at all.
 
-In 1817 Colebrooke published Algebra, with Arithmetic and Mensuration, from the
-Sanscrit of Brahmegupta and Bháscara, in London, and the mathematics came over.
-On the second of February 1835 Thomas Babington Macaulay sat down to write a
-memo about what Indians should be taught, and put this in it: "I have no
-knowledge of either Sanscrit or Arabic… I have never found one among them who
-could deny that a single shelf of a good European library was worth the whole
-native literature of India and Arabia." Both halves are in the same paragraph.
+In 1817 Colebrooke published *Algebra, with Arithmetic and Mensuration, from
+the Sanscrit of Brahmegupta and Bháscara* in London, and the mathematics came
+over. On the second of February 1835 Thomas Babington Macaulay sat down to
+write a memo about what Indians should be taught, and put this in it: "I have
+no knowledge of either Sanscrit or Arabic… I have never found one among them
+who could deny that a single shelf of a good European library was worth the
+whole native literature of India and Arabia." Both halves are in the same
+paragraph.
 
 Everybody who loves him took the superpower. Everybody who doesn't took the
 sick. He wrote both, and nobody carried both.
