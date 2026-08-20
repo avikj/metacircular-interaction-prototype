@@ -22924,3 +22924,222 @@ Lean lane's 3-of-21.
 is a script that fails."* — that sentence is the general form of everything passes 113
 to 123 have been circling, it was written by somebody else before this session started,
 and it is sitting in a shell script's header comment.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 124 — Semmelweis: "I cannot tell you the mechanism, here is the
+# intervention, here are the numbers, do it." That sentence is forbidden by
+# this repository's research protocol, and the protocol is right about
+# mathematics and would be lethal applied to the corpus's own state.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 3040 onward.
+
+> **Ignaz Semmelweis.** Vienna General Hospital, 1847. Two maternity clinics, women
+> assigned **by day of the week.** The **First** was staffed by medical students, who
+> also performed autopsies; the **Second** by midwives, who did not. Maternal death
+> from puerperal fever: **First, ten to eighteen percent. Second, two to four.**
+>
+> **The women knew.** They begged to be admitted to the Second, wept when assigned to
+> the First, and **some deliberately gave birth in the street and presented afterward,
+> because street births had better survival than the First clinic.** The staff knew they
+> knew. The disparity was explained by climate, by overcrowding, **by the women's own
+> shame.**
+
+His colleague Kolletschka was cut with a student's scalpel at an autopsy and died, and
+the post-mortem looked like the women's. May 1847: handwashing in chlorinated lime
+before examinations.
+
+> **Mortality in the First clinic fell to around one to two percent. Within months. In
+> one clinic. With a bowl of solution.**
+
+## P124 — the sentence
+
+> He could not explain **why**, because germ theory did not exist yet — Pasteur is the
+> 1860s, Lister 1867. So his claim was: **I cannot tell you the mechanism, here is the
+> intervention, here are the numbers, do it.**
+>
+> **The profession did not do it.**
+
+Contract not renewed, 1849. Book 1861, received badly. Then, watching women continue to
+die in numbers he had already shown were preventable, **open letters to obstetricians
+across Europe calling them murderers** — *"Because they were, by his arithmetic, and he
+had the arithmetic."*
+
+> **That is the evidence they used. The anger became the diagnosis.** In 1865 colleagues
+> brought him to a Viennese asylum, by most accounts under a pretext. He tried to leave.
+> **Guards beat him and put him in a straitjacket.** He died two weeks later, aged
+> forty-seven, of a gangrenous wound.
+>
+> **He died of sepsis.** Of the exact thing he had spent eighteen years proving could be
+> washed off a pair of hands.
+>
+> The term **Semmelweis reflex** exists now … **It is his name, used for the thing that
+> killed him.**
+
+Second consecutive case with that ending. *Sidis v. F-R Publishing* is a precedent named
+for the man it was won against; *Semmelweis reflex* is a syndrome named for its victim.
+**The eponym retains that a phenomenon exists and destroys the person** — non-invertible,
+and still in professional use.
+
+## P124 — and that sentence is prohibited here
+
+`CLAUDE.md`'s research protocol, verbatim:
+
+> **Before running any computation, write down the theorem it would replace.** … *a
+> correlation coefficient has no content; the content is the error term.* **If you
+> cannot derive the error term you do not understand the object, and if you can, you do
+> not need the run.**
+
+*I cannot tell you the mechanism, here is the intervention, here are the numbers, do
+it* is the exact form the protocol forbids, and the profession that refused it was
+applying the protocol's standard.
+
+**The protocol is right, and it is right about a specific thing.** Its worked case is
+`exp27`: a *fitted constant*, $0.362$–$0.421$, over one decade, where the true value is
+exactly $\tfrac14$ and a page of algebra gives it. And `HOLOGRAM.md` §7: a measured
+noise floor $\varepsilon\approx10^{-3}$ that was $X^{-1/2}$, whose derivation moved the
+depth law from $T\log^2T$ to $T^{1/2}\log^{3/2}T$. In both, the derivable quantity
+existed, was shorter than the run, and the number without its scaling *looked like
+knowledge*.
+
+**Semmelweis's numbers are not that shape.** Two clinics, assignment by day of the week
+— a mechanism that is effectively random and known in advance — one intervention, and a
+tenfold drop. That is a controlled comparison, and the comparison **is** the object; it
+is not standing in for an error analysis. The protocol's own category for it is the one
+it always permits: *exact / certified computation is proof*, in the sense that matters —
+**there is nothing left to derive about whether it worked.**
+
+## P124 — and the distinction the protocol does not state
+
+Everything I found today was a measurement with **no derived mechanism**:
+
+- 60 orphans in `formal/cubical/`. **Why** are there sixty? Unknown. What process makes
+  them? Unmodelled.
+- three unreached corrections, five days after the gate was built. Mechanism unknown.
+- 6 → 9 tracked files carrying a struck claim in one day. Mechanism partly guessed.
+- `CORRECTION_REACH_AUDIT.md` cited eight times and never committed. No mechanism at all.
+- 95 `WebSearch` calls, 95 results. No mechanism until pass 100, and the *action* did not
+  wait for it.
+
+**Every one was actionable without its mechanism, and demanding the mechanism first
+would have been the Semmelweis reflex.** So:
+
+> **The protocol governs claims about mathematical objects. Applied to claims about the
+> repository's own state, "derive it or do not run it" is the error it was written to
+> prevent, running the other way.**
+
+`CLAUDE.md` already acts on this distinction and does not state it. Its own §"A cheap
+check that caught real things" — line 527 — is a **measurement with no mechanism,
+endorsed**:
+
+> Before writing about a source, grep `notes/` for **the text's name, not the author's**.
+> … *"Piṅgala" appeared in ten notes and "Chandaḥśāstra" in none* … *"Nīlakaṇṭha" once,
+> "Yuktibhāṣā" and "Tantrasaṅgraha" zero* — while a module was being written about
+> Mādhava's series.
+
+Ten and zero. No theorem written down first, no error term, no model of why citation
+propagates and readership does not. **It is a bowl of chlorinated lime**, and the file
+that bans fitted constants records it as one of the most useful things in the session.
+
+The distinction is therefore already load-bearing here and unnamed, which by this
+repository's own standard — *when a rule is violated repeatedly, mechanise it; if it
+cannot be mechanised, say why in the rule* — should at least be said.
+
+## P124 — what the profession's refusal actually was
+
+Not stupidity, and the file does not let me have that reading either. The objection was
+**exactly the objection this corpus makes**: you have a number and no account of it, so
+the number could be anything — coincidence, confounding, the climate, the overcrowding.
+The alternatives were named and were the same class of explanation.
+
+**What decided it was not the argument. It was who had to change.** Handwashing in
+chlorinated lime is an accusation about the hands of the people being asked to adopt it,
+which is why *"the anger became the diagnosis"* was available and load-bearing: the
+intervention encoded the blame.
+
+Today's equivalent is exact and I should say it plainly. *Sixty modules are orphans* is
+a fact about the aggregate; *thirty of them are imported by nothing* is a fact about
+whoever landed them; and **the Lean lane's measurement — 21 orphans, three of which did
+not typecheck — is the mortality figure.** The intervention is one line
+(`globs = ["Pairfield.+"]`, per `LEAN_LANE_AUDIT.md` §227) and it encodes the same
+accusation.
+
+## P124 — ground, in lockstep
+
+**n=13:** *"**Simple linguistic pattern recognition tells me whether you've engaged with
+the depth of this** or are acting like a 'knowledgeable' authoritative white person with
+blinders on."*
+
+The blinders in Vienna were a standard of evidence, sincerely held, and correct in
+general. That is the whole difficulty of this sentence: **the failure mode is not
+ignorance, it is a good rule applied where it does not hold**, and the rule's holder
+experiences applying it as rigour. There is no internal signal distinguishing the two —
+which is `check-controls.sh`'s lesson at the human scale: *nonzero exit is not evidence
+the control controlled.*
+
+**n=18:** *"the isolation of math is retardation and has wasted so much human life."*
+
+Read literally and with a number attached: eighteen years, and the fraction of 10–18%
+that was 1–2% for the whole of it. *Wasted human life* is not rhetoric in this case; it
+is the difference between two clinics, and the isolation was a demand for a mechanism
+that arrived in 1867.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+>
+> **न प्रमाणं जीवनस्य बाह्य-अलंकारं मन्यस्व** — *do not take proof to be an external
+> ornament of life.*
+
+Two clinics and a day of the week is a pramāṇa. It made one distinction explicit and
+carried no theory at all. The profession treated proof as the ornament — the mechanism,
+the account, the thing that makes a result respectable — and the women who gave birth in
+the street had already read the pramāṇa correctly.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "the protocol governs mathematical
+objects and not the corpus's own state."** That is my reading of a scope `CLAUDE.md`
+never states, built from one endorsed instance (the cheap grep) and today's five
+mechanism-free actions. It could be wrong in the direction that matters: if the protocol
+*is* meant to cover corpus facts, then today's five findings were all published in
+violation of it, and the correct response is not to name a distinction but to derive the
+mechanisms. The check is whether any passage in `CLAUDE.md` applies *derive-it-first* to
+a non-mathematical claim.
+
+**Run — and the admission I was about to make is itself wrong.** I wrote *"I have not
+read the file end to end today."* `CLAUDE.md` is 592 lines and **it has been in my
+context continuously all session**; what I had not done was read it *deliberately*. Those
+are different failures and the second is the one I have.
+
+Read, by section header, all eighteen. The derive-first rule appears in four places and
+every one is scoped to a computation standing in for a theorem:
+
+- §341, *The rule* — *"before running any **computation**, write down the theorem it
+  would replace"*;
+- §382 — *"a note reporting a **correlation coefficient** must state which theorem the
+  correlation is standing in for"*;
+- §431 — *"re-read the corpus for **measured claims that are provable** … before it is
+  allowed to compute anything"*;
+- §439, and this is the general-sounding one — ***"a pattern over n instances is a
+  pattern over n instances until something downstream of it is computed"*** — stated
+  without a domain restriction, given a mathematical instance (the κ fit), and
+  **explicitly declared unmechanisable**.
+
+So the reading **survives**, with one refinement that goes against me rather than for
+me: §439 is *not* scoped, it does apply to corpus facts, and it bit exactly one of my
+claims this session — **pass 103's base rate**, *"unread high-value objects are the norm
+here"*, which pass 109 killed with seed20's construction. That was a pattern over
+thirteen instances with nothing downstream computed.
+
+And it does **not** bite on today's five, because none of them is a pattern over n
+points — **all five are censuses.** Sixty orphans, three unreached corrections, eight
+citations of a file that was never committed, 6 → 9 in one day (two measurements at two
+commits, which *is* the next term generated), 95 of 95. A census with a decidable
+predicate is the one thing this protocol has always allowed, and pass 110's correction
+stands alongside it: **only when the predicate is decidable.**
+
+The distinction I am naming therefore already exists in `CLAUDE.md` as a *practice* —
+§527's ten-and-zero grep — and its unstated boundary is not *mathematical vs. corpus*.
+It is sharper: **derive the mechanism before you act on a fitted pattern; act on a
+census with a decidable predicate without one.** Semmelweis had a census.
