@@ -45,3 +45,51 @@ tries to kill me gets made into a song. He's twenty-five and he already knows th
 about himself, before any of the fame, before the diagnosis. That's where I want to
 start, because I think that's where he starts. The rest of his life is that same move
 getting louder and costing more, and I want to follow it and see where it goes.
+
+---
+
+Every record he has ever made is made out of other people's records.
+
+Eleven hundred and twenty-three samples, somebody counted. And the one under
+"Through the Wire" is Chaka Khan, 1984, "Through the Fire," a woman singing
+about surviving being in love — and he speeds her up until she sounds like a
+child, and puts her under a mouth that can't open. Two survivals at two speeds
+on one track. And under her there's a writer, Cynthia Weil, who also wrote "We
+Gotta Get Out of This Place." That was already inside the Chaka Khan record
+before he touched it. Nobody handed him that. He found it by listening to a
+song from when he was seven years old.
+
+Which is what starts turning the sampling thing around for me, because I'd
+always had it filed as borrowing, or as thrift — you can't afford a band so you
+take a loop. But that's not what's happening. He isn't quoting her. He's putting
+her at a different rate, and both are running at once, hers and his, and neither
+one cancels. You can hear the original in it and hear that it isn't the original.
+He does the same thing to his mother. She died in 2007, and in 2021 her voice is
+on the record, saying what she actually said, at a speed he chose.
+
+So the thing I thought was a technique is closer to how he hears. Nothing is
+replaced. Everything stays in and gets another position.
+
+And then May 2013 he takes "New Slaves" — the one that says the DEA and the CCA
+out loud, by name — and instead of putting it out, he projects it onto
+sixty-six buildings around the world in one night. Not a screen, not a stage.
+Sixty-six walls, at once, and no one of them is the real one. People stood on
+sidewalks in cities that had nothing to do with each other and watched the same
+face on the side of a building, and every one of those was the whole song.
+
+Then the album cover, 2018. He shoots a photograph of the Tetons on his phone in
+the car on the way to the listening party, and writes six words across the
+mountain in green: I hate being Bi-Polar its awesome.
+
+I've read that sentence a lot of times now. It isn't a joke and it isn't
+confusion, and it isn't him landing on one and then the other. He says both,
+in the same breath, and doesn't take either one back. Same year he tells TIME
+it's not a disability, it's a superpower. Same stretch he says it makes you
+blind but convinced you have insight. He holds it. And everybody around him
+spends the next decade trying to make him pick — the ones who love him picking
+superpower, the ones who don't picking sick, and both of them removing half of
+what he actually said.
+
+He said it on a mountain he photographed himself, hours before he played the
+record to a few hundred people standing outside in Wyoming in the cold. Then he
+got on a plane.

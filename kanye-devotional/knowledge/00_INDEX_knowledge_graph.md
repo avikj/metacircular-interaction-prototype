@@ -171,3 +171,21 @@ Conventions: `[N-k]` node id. `Ye's words:` = documented first-person statement.
 - ADHD/attention, sleep, hospitalization timeline (2016) — clinical `[B-*]`
 - Chicago, father Ray West (Black Panther, photojournalist, Christian counselor)
 - Collaborators as method (Rick Rubin, No I.D., Jon Brion, the "Ye method" of rooms)
+
+---
+
+## M. The same facts, reflected in each other
+
+`INDRAJALA_every_fact_is_in_every_other_fact.md` — the nodes above are filed
+here one place each, under one heading, which is a partition and not a net.
+That file takes the high-charge nodes and gives each one as it appears from
+every other: the jaw `[C-1]`/`[H-1]`/`[K-1]`/`[E-1]`/`[I-2]`; the sample as a
+second standpoint rather than a quotation `[C-1]`,`[C-3]`,`[H-4]`; the album
+cover as two predications asserted at once `[B-1]`+`[B-3]`; the 13th
+Amendment's punishment clause `[E-2]`; and ahaṃkāra counted `[G-1]`,`[I-1]`.
+
+Carries the dated sources (Atharvaveda 8.8.8; Buddhabhadra 418–420 and
+Śikṣānanda 695–699; Fazang 643–712; Umāsvāti and Akalaṅka; Sāṃkhyakārikā 24
+and 33) and the two checked terms in `formal/cubical/NaturalMachine/`
+(`Anekanta.agda`, `Durnaya_CollapseIffEveryNayaAgrees.agda`) that state exactly
+when a standpoint index may be dropped. Its §7 states what is not claimed.
