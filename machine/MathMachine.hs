@@ -2309,7 +2309,8 @@ kernelAcceptWith invented known rules logh roundNo cand@((l,r),proofNote) = do
         roundNo (show l) (show r) calls
       pure (KernelOutcome True Nothing (Just P.NTraceReplay) calls
               (SB.noVacana { SB.vAsti =
-                  Just ("trace replay closed it, source " ++ source) }))
+                  Just ("trace replay closed it (" ++ show calls
+                        ++ " agda calls); source kept in machine/replay.traces") }))
     Nothing -> kernelAcceptSearch invented logh roundNo ((l,r),proofNote)
 
 -- The naya a shape string names.  `Certificate.cachedShape` prefixes
@@ -4278,7 +4279,7 @@ round1 disp mem logh libh ref = do
     hPrintf logh "  SAPTABHANGI  %s : %s\n" (claimText c)
       (SB.sanskritOf (SB.sthana v))
     forM_ (SB.seeds v) $ \(k, w) ->
-      hPrintf logh "      %s: %s\n" k (take 150 w)
+      hPrintf logh "      %s: %s\n" k (take 150 (filter (/= '\n') w))
   forM_ (take 8 (ordNub harvest)) $ \((sl,sr),(pl,pr)) ->
     hPrintf logh "  RESIDUAL  %s = %s   (%s = %s stalled here)\n"
       (show sl) (show sr) (show pl) (show pr)

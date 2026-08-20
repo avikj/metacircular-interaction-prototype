@@ -4,6 +4,7 @@
 --   ./astadhyayi            self-test, coverage, and the derivation traces
 --   ./astadhyayi <words>    derive one form, e.g.  ./astadhyayi "deva + indra"
 import Astadhyayi
+import Data.List (intercalate)
 import System.Environment (getArgs)
 import System.Exit (exitFailure)
 import System.IO
@@ -29,6 +30,16 @@ trace1 input = do
   where
     step st = do
       putStrLn ("      " ++ showRef (stSutra st) ++ "  " ++ stText st)
+      -- WHICH SUTRA FIRED IS HALF OF IT.  The other half is which governing
+      -- context it was standing inside: the sutra as written is not what
+      -- applied.
+      case stInherited st of
+        [] -> putStrLn "              (nothing inherited: complete as it stands)"
+        as -> do
+          putStrLn ("              standing inside: "
+                    ++ intercalate ", " [ avWord a ++ " (" ++ showRef (avFrom a) ++ ")"
+                                        | a <- as ])
+          putStrLn ("              as applied:      " ++ fullReading (stSutra st))
       putStrLn ("              " ++ stNote st)
       putStrLn ("              " ++ stBefore st ++ "  ⇒  " ++ stAfter st)
       case stBeaten st of
@@ -84,6 +95,27 @@ main = do
         , ("ñaM","ñ","m"), ("jhaṢ","jh","ṣ"), ("jhaŚ","jh","ś"), ("jaŚ","j","ś")
         , ("khaY","kh","y"), ("jhaY","jh","y"), ("śaR","ś","r"), ("caR","c","r")
         , ("śaL","ś","l"), ("jhaL","jh","l"), ("haL","h","l"), ("aL","a","l") ]
+      bar "a sūtra alone, and what it is standing inside"
+      putStrLn ""
+      putStrLn "  ANUVṚTTI (6.1.72 saṃhitāyām · 6.1.77 aci · 6.1.84 ekaḥ pūrvaparayoḥ"
+      putStrLn "  · 8.1.16 padasya).  A word stated once runs forward until cancelled;"
+      putStrLn "  a heading governs a block.  Neither is written where it applies."
+      mapM_ (\r -> putStrLn "" >> mapM_ (putStrLn . ("  " ++)) (sutraAlone r))
+        [ (1,1,1), (6,1,77), (6,1,78), (6,1,87), (6,1,101), (6,1,109)
+        , (8,2,30), (8,4,40) ]
+      putStrLn ""
+      putStrLn "  and the heading is load-bearing at the point of APPLICATION --"
+      putStrLn "  cancel it and the derived form changes:"
+      mapM_ (\(w, i) ->
+               putStrLn ("    " ++ pad 22 (i ++ ":") ++ pad 12 (derive i)
+                         ++ "  without " ++ pad 14 w
+                         ++ deriveUnder [((0,0,0), w)] i))
+        [ ("padasya",    "tat + ca")
+        , ("saṃhitāyām", "deva . indra")
+        , ("aci",        "deva + kula") ]
+      bar "लाघवम् -- what the inheritance costs, in symbols"
+      putStrLn ""
+      mapM_ (putStrLn . ("  " ++)) laghavaReport
       bar "derivations"
       mapM_ trace1 corpus
       bar "how much of Pāṇini is here"
