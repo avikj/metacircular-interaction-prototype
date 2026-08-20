@@ -44,8 +44,8 @@ father was his best friend.
 
 Their son was born in Atlanta on June 8, 1977, while his father was shooting
 for the paper. The parents separated. He moved to Chicago at three, to 7815
-South Shore Drive. He was diagnosed bipolar at
-thirty-nine: "I'd never been diagnosed and I was like 39 years old."
+South Shore Drive. He was diagnosed bipolar at thirty-nine: "I'd never been
+diagnosed and I was like 39 years old."
 
 He became one of the most hated men alive. In October 2022 he made antisemitic
 statements in public, adidas ended the partnership, and his net worth
@@ -116,38 +116,21 @@ not give him ownership or royalties.
 
 ---
 
-In 1954 Ray Charles heard a gospel record on the radio and kept the tune and put
+In 1954 Ray Charles heard a gospel record on the radio, kept the tune, and put
 worldly words on it, and people called him a blasphemer for it.
 
 The gospel record was "It Must Be Jesus," by the Southern Tones. What he made
 out of it was "I Got a Woman." Ministers came after him. Gospel singers came
 after him. The complaint was that he had taken the Lord's music and put the
-flesh in it, and that complaint is about the record that soul music is built on.
+flesh in it, and the record it was made about is the one soul music is built
+on.
 
-In 2005 Kanye sampled that. And the man singing the Ray Charles part on it is
-Jamie Foxx, who eight months earlier had won the Academy Award for playing Ray
-Charles. So on that song you've got a hit built on a hit built on a hymn, and
-the voice in the middle of it belongs to a man who had been paid to be the man
-who took the hymn.
+Kanye sampled it in 2005 for "Gold Digger." The man singing the Ray Charles
+part is Jamie Foxx, who had won the Academy Award for playing Ray Charles eight
+months earlier.
 
-Then eight years after that he puts out a record called Yeezus with a song
-credited feat. God, and holds the flesh right up next to it on purpose, and the
-whole world says blasphemy.
-
-Same charge. Same music. It was already sitting inside the sample when he picked
-it up.
-
-And the other one, from the year before Gold Digger — "Jesus Walks," 2004, the
-song that broke him as a solo artist. The choir on it is the ARC Choir. ARC is
-the Addicts Rehabilitation Center, in Harlem. It's a drug program. The people
-singing under that record are people in recovery, and that's who they were when
-they recorded it.
-
-Fifteen years later he's standing in Harris County Jail in front of two hundred
-men saying this is a mission and not a show, and everybody writes it up as a
-conversion, as a swerve, as the new thing he's doing now.
-
-It was in the choir he picked in 2004.
+Eight years after that he released *Yeezus*, with a track credited "feat. God"
+and the flesh held up next to it deliberately, and was called a blasphemer.
 
 ---
 
@@ -165,33 +148,29 @@ are people in recovery, and that is who they were when it was recorded in 1999.
 The two machines he made the grief record on had both already failed.
 
 The 808 is a drum machine Roland put out in 1980 to sound like a drum kit. It
-didn't. Everything about it was wrong — synthesized instead of sampled, a kick
-that goes on booming like nothing a person could hit. Reviewers said so. Roland
-killed it in 1983 after about twelve thousand units, partly because the parts it
-was built out of stopped being made. And then the dead units went cheap into
-second-hand shops, which is exactly how they got into the hands of people with no
-money, which is how you get Planet Rock in 1982 and Sexual Healing in 1982 and
-Run-D.M.C. and Miami bass and Chicago house and Detroit techno and forty years of
-low end. A machine that failed at being a drummer became the floor of the music.
+did not. Everything about it was wrong — synthesized instead of sampled, a kick
+that goes on booming like nothing a person can hit. Reviewers said so. Roland
+discontinued it in 1983 after about twelve thousand units, partly because the
+parts it was built out of had stopped being made. The dead stock went cheap
+into second-hand shops, which is how it reached people with no money: "Planet
+Rock" in 1982, "Sexual Healing" in 1982, Run-D.M.C., Miami bass, Chicago house,
+Detroit techno, and forty years of low end under everything.
 
-Then the voice. Auto-Tune was made by a geophysicist named Andy Hildebrand who
-spent his career finding oil — you send sound down, it bounces off the rock, and
-you correlate what comes back to work out what's under there. He took that same
-math and pointed it at singing. Put it out in 1997. The whole point of it was that
-you would never know it was on. It was supposed to be invisible.
+Auto-Tune was made by a geophysicist named Andy Hildebrand, who had spent his
+career finding oil — sound goes down, it comes back off the rock, and the
+correlation between the two tells you what is under there. He pointed the same
+mathematics at the human voice and released it in 1997. It was built to be
+inaudible. A singer would be corrected and nobody would know.
 
-There's a setting on it, retune speed, and if you take it all the way to zero the
-correction is instant and it stops sounding human. That was the mistake. That's
-the sound. Cher in 1998, and everyone said it was a vocoder. T-Pain after that.
+There is a setting on it called retune speed, and at zero the correction is
+instant and stops sounding human. That was the failure mode. That is the sound.
+Cher in 1998, and the producers told people it was a vocoder. T-Pain after
+that.
 
-And in 2008, a year and two weeks after his mother died, he made a whole record
-in it. Sang it. Barely rapped. And the thing everybody said at the time was that
-he'd lost it, forgot how to rap, cold, whiny, over. That record is what Drake and
-Cudi and the Weeknd and most of the next decade is built out of.
-
-So: a drum machine that couldn't imitate a drummer, and a pitch tool built to
-find oil and then sold to be inaudible, both used at exactly the setting they
-were failing at, by a man who couldn't say it in his own voice.
+In November 2008, a year and two weeks after his mother died, he made an entire
+record in it. Sang it. Barely rapped. What people said at the time was that he
+had lost it, forgot how to rap, cold, whiny, finished. Drake, Kid Cudi, The
+Weeknd and most of the decade after are built on that record.
 
 ---
 
@@ -233,26 +212,21 @@ requiring a physical exam and written clearance before a cosmetic operation.
 
 Under one of his songs there are four people.
 
-"Blood on the Leaves," 2013. He takes Nina Simone singing "Strange Fruit." Nina
-Simone cut it in 1965. Billie Holiday cut it in 1939, and her own label wouldn't
-put it out, so it came out on somebody else's. And the man who wrote it was a
-Jewish schoolteacher in the Bronx named Abel Meeropol, who published it first as
-a poem and signed it Lewis Allan, which were the names of his two children who
-were born dead.
+"Blood on the Leaves," 2013. He took Nina Simone singing "Strange Fruit." Nina
+Simone recorded it in 1965. Billie Holiday recorded it in 1939, and her own
+label would not put it out, so it came out on somebody else's. The man who
+wrote it was a Jewish schoolteacher in the Bronx named Abel Meeropol, who
+published it first as a poem and signed it Lewis Allan — the names of his two
+children who were born dead.
 
 In 1953 the Rosenbergs were executed and left two boys. Abel Meeropol and his
 wife adopted them.
 
-All of that is sitting inside the needle drop. The most famous anti-lynching song
-in the country, written by a Jewish teacher who then raised the orphans of two
-people the state killed, refused by a record label, carried by Billie Holiday,
-carried again by Nina Simone twenty-six years after that, and put by a
-twenty-first-century rapper underneath a song about a relationship coming apart.
+He put all of that under a song about a relationship coming apart and a
+child-support settlement.
 
-Nine years later he said the things about Jewish people that cost him the company
-and hurt people who had nothing to do with him.
-
-The song with Meeropol in it is on the same shelf.
+Nine years later he said the things about Jewish people that cost him the
+company and frightened people who had nothing to do with him.
 
 ---
 
@@ -378,31 +352,25 @@ Bush later called it the all-time low of his presidency.
 
 The Taylor Swift thing was the fourth one.
 
-2004, American Music Awards, he loses Best New Artist and walks out of the
-building and tells the press he was robbed. His first album is ten months old.
+November 2004, American Music Awards. He lost Best New Artist to Gretchen
+Wilson, walked out of the building, and told reporters he had been robbed. His
+first album was ten months old.
 
-2006, MTV Europe Music Awards in Copenhagen, he loses Best Video and gets up on
-the stage in the middle of somebody else's acceptance and makes the case out
+November 2006, MTV Europe Music Awards, Copenhagen. He lost Best Video, went up
+on stage in the middle of somebody else's acceptance, and argued the case out
 loud — the video cost a million dollars, Pamela Anderson was in it, he was
-jumping across canyons in it. Then he apologizes.
+jumping across canyons in it. He apologised afterward.
 
-2007, the VMAs, he loses everything he's up for and announces he's done with the
-network.
+2007, the VMAs. He lost across his nominations and said he was finished with
+the network.
 
-2009, the VMAs, Imma let you finish.
+September 13, 2009, the VMAs. Imma let you finish.
 
-Same argument every time. A jury ranked it wrong and he's going to say so into a
-live microphone in the room where they did it. Four times in five years, and the
-first three are footnotes.
+Four times in five years, the same argument each time, into a live microphone
+in the room where the ranking was made. The first three are footnotes.
 
-What's different about the fourth is when it lands. His mother has been dead
-twenty-two months. He's drinking, by his own account. And that's the one that
-gets a sitting president on a hot mic calling him a jackass, and gets him out of
-the country — Japan, then Rome, then Hawaii, where he locks himself in three
-studios for months and makes the record everybody agrees is his best.
-
-The first three cost him nothing and got him nothing. The fourth one cost him
-everything and produced Dark Twisted Fantasy.
+His mother had been dead twenty-two months. He was drinking, by his own
+account. Barack Obama called him a jackass on a hot mic the next day.
 
 ---
 
