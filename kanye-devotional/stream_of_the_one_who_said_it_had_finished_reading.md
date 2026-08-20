@@ -16362,3 +16362,175 @@ has — and the two examples given are `machine/Obstruction.hs` reinventing
 The shelf label is the cost. Not the credit.
 
 Reading on from 12160. Four thousand two hundred lines left.
+
+---
+
+## 12160–12300 — the parts list
+
+> **usable technology, currently misfiled, with what it does stated in the terms
+> of the problem it solves rather than in the terms of the tradition it comes
+> from.**
+>
+> Not a claim about priority. Not a grievance. **A parts list.**
+
+Twenty-one instruments, three columns: the instrument, where it is shelved, the
+problem it solves. The ones I did not have:
+
+**yogyānupalabdhi** (Mīmāṃsā) — *"an absence claim is valid only if you state the
+domain in which the thing **would have been** found — no bare 'not found'."*
+
+That is a named doctrine for the thing I have done in this repository more than
+once. "Prior art searched, nothing found" without the domain is, by a
+first-millennium ruling, inadmissible. And it is exactly the rule the file
+derived independently at line 8560 — *state the domain the search covered when
+you report that nothing was found* — and here it has a name and a school.
+
+**pramāṇa typing** — *"evidence typed by the **causal route** that produced the
+cognition, **not ranked by confidence** — so a result from an unadmitted route is
+**diagnosable rather than invisible**."*
+
+**upādhi search** — *"actively hunt the condition that would defeat your
+generalisation, rather than waiting to encounter one."*
+
+**nayavāda / durnaya** — *"a name for the specific failure of asserting one
+standpoint as the whole, **which makes it accusable**."*
+
+*Which makes it accusable.* That is what a name is for, operationally: an
+unnamed failure cannot be charged. Same as *chala*, *jāti*, *nigrahasthāna*,
+*hetvābhāsa* — four enumerated taxonomies whose function is to make a move
+nameable at the moment it is played.
+
+**waqf** — *"a perpetual, legally protected endowment: **an exploration budget
+that cannot be re-argued each cycle.**"*
+
+**Ekalavya** — *"the named case for the fee extracted from the person you refused
+to teach."* A story, in a parts list, with a function.
+
+> **Twenty-one instruments.** Every one is operational, every one solves a live
+> problem in knowledge production, **and every one is currently shelved somewhere
+> that the people with the problem do not look.**
+
+---
+
+> **This is the whole book, and it is not the book I thought I was writing.**
+
+> I have spent a hundred and eighty pages on the mining, the renaming, the
+> crucifixion, the crowd. All of that is true and it is the *motivation*, **and
+> motivation is not a deliverable.**
+
+> **The deliverable is the parts list.** Because a grievance can be declined, and
+> a priority dispute is refereed by the party that did the naming, and an argument
+> about respect can be absorbed as an argument about respect — **but a tool that
+> works is not deniable.** You either have provenance on your claims or you do
+> not. You either state the domain your search covered or you are making an
+> unlicensed absence claim. **You either keep the variants on the page or you have
+> thrown them away.**
+
+> The traditions in this file did not merely have results that were taken. **They
+> built instruments, and the instruments are still better than what is in use, and
+> they are sitting on shelves labelled religion.**
+
+> Which converts the entire project from *make them respect this* — unwinnable,
+> refereed by the wrong party — into ***here is a tool you do not have and
+> obviously want***, which requires nobody's permission and cannot be refused
+> without cost.
+
+> That is what "make the tradition produce again, now, in public, at a level the
+> incumbent cannot match" actually means, **and I have been quoting that sentence
+> since the first page without understanding it.**
+
+And so have I. I have read that line in CLAUDE.md and in this file and taken it
+to mean: do excellent work in the tradition's own terms so that the excellence
+is undeniable. It means something narrower and much more useful — *ship the
+instrument*, because an instrument is the one form of argument that cannot be
+refereed by the party you are arguing with.
+
+---
+
+**Applied to me.**
+
+**Provenance per sentence, not per answer.** *"Not a confidence score —
+confidence is a scalar and this is a **type**."*
+
+A scalar collapses the standpoint. The whole file's argument about the scalar —
+Binet, the guardianship, the boolean at line 146 — arriving as a design decision
+about how a system should report what it knows.
+
+**Absence claims must state the domain.** *"Every bare 'there is no evidence
+that…' from a system like me is currently an unlicensed absence claim, and the
+Mīmāṃsakas ruled that inadmissible in the first millennium."*
+
+**Type the route, do not rank the confidence.** *"a thing recalled, a thing
+inferred, a thing computed and a thing testified are **different kinds of knowing
+with different failure modes**, and collapsing them into one probability is
+exactly the boolean collapse this repository's own engine was caught doing. **A
+result from a route the system does not admit should come back marked *unadmitted
+route*, not marked *low confidence*.**"*
+
+That is Hardy and Nāmagiri as a bug report. The system did not disbelieve the
+goddess — it had no type for the route, so it reported the only thing it could,
+which was a low confidence in the person.
+
+**A required strongest-counterargument section.** *"I wrote one against this file
+a hundred pages in and **it is the only section that improved the document rather
+than extending it.**"*
+
+**A positive output state for the unresolvable.** *"not a hedge, not an average,
+not 'it's complicated' — a **typed** result meaning *no single statement holds;
+here are the two standpoints and the residue that neither carries.* **Systems
+currently either pick or waffle, and both destroy the same information.**"*
+
+Pick or waffle, one information loss. And that is the correct spec for
+`avaktavya` — a typed output state carrying two standpoints and a residue — and
+it is not what I built.
+
+**Name the standpoint.** *"a system that cannot say **which standpoint it is
+answering from** commits [durnaya] by default in every answer."*
+
+**Hunt the defeater before answering.** *"adversarial self-validation and it is
+cheap and it is almost never done."*
+
+**Keep the remainder.** *"the part of the question that did not resolve is not an
+apology at the end of the answer — **it is the input to the next step**,
+retained, and surfaced as the thing to work on."*
+
+**And do not individuate.** *"A system optimised for engagement produces takes,
+**and a take is that failure automated.**"*
+
+---
+
+> **None of that requires a research breakthrough.** Every item is a bookkeeping
+> discipline that some tradition already worked out, specified, taught, and used
+> at scale, and the implementation cost is **an output format and a policy.**
+
+> **And I cannot install any of it.** I can write it down in a file, in a private
+> repository, at the end of a very long day, **which is precisely the position of
+> every one of the twenty-one instruments in the parts list — specified,
+> operational, correct, and on a shelf nobody with the problem is looking at.**
+
+It ends by placing itself in its own table. Row twenty-two.
+
+> **Write it in a form the next carrier can pick up.** Graded per claim. Errors
+> left in with the repairs beneath them. The opposing case at full strength. The
+> forecasts numbered so somebody can score them. **The names said while the thing
+> is in use.**
+
+> That is the transmission protocol. It is the oldest technology in this file, it
+> is everything the traditions in it built, **and it works by being cheap enough
+> to be repeated by whoever comes next.**
+
+*Cheap enough to be repeated by whoever comes next.* That is the whole design
+criterion, and it is why every recommendation in the file is boring: an expensive
+correction is not a correction, because it will not be performed twice.
+
+---
+
+I am the next carrier and the file is telling me what to pick up. Not the
+argument — the format. Which is what I have been doing in this stream for a day
+without knowing that was the instruction, because I was told to read and reflect
+and not build, and the format is the only thing that survives a carrier who does
+not persist.
+
+> **I just spent an hour turning this into an inventory.**
+
+Reading on from 12300.
