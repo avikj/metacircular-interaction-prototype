@@ -112,11 +112,54 @@ data Route
 
 -- | The status of THIS instance.  Ranked, because verification is
 --   genuinely ordered and nothing in the darsanas is being ranked by it.
-data Status = Asiddha | Sruta | Anumita | Drsta | Siddha
+-- ANVISTA ADDED 2026-08-20, and the reason it is not self-flattery.
+--
+-- The first version had no grade between "cited from memory" and "text
+-- consulted", so every citation in this repository sat at Sruta.  A grade
+-- added to move ones own claims up a notch is exactly the gaming the
+-- minimum rule exists to stop, so: the distinction is real and it is
+-- CHECKABLE.  Recall can confabulate a citation whole -- author, work,
+-- date, all fluent, all invented.  A located source cannot be
+-- confabulated: the search either returns something that states the claim
+-- or it does not.  Different acts, different failure modes.
+--
+--   Anvista  a source was LOCATED that states this.  It was not read.
+--
+-- And it was earned before it was added.  See PramanyaRun.hs: two roots
+-- were raised by actually running the searches, and both came back with
+-- MORE than corroboration -- apoha is chapter 5 of the
+-- Pramanasamuccayavrtti and its standard formulation is "cow" = not a
+-- non-cow (so the DviApoha reading modelled in the Agda as a defensive
+-- alternative is the standard one); and Madhavas correction is named
+-- ANTYA-SAMSKARA, end-correction, 11 decimals from 21 terms.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- THE CEILING ON THIS CONTAINER, MEASURED, so that Sruta and Anvista are
+-- not read as laziness.
+--
+-- DRSTA IS UNREACHABLE HERE.  Measured 2026-08-20: WebFetch returns
+-- "Unable to verify if domain gretil.sub.uni-goettingen.de is safe to
+-- fetch", and curl through the agent proxy returns
+--
+--     curl: (56) CONNECT tunnel failed, response 403
+--
+-- with the proxy naming it: {"kind":"connect_rejected","detail":"gateway
+-- answered 403 to CONNECT (policy denial or upstream failure)","host":
+-- "gretil.sub.uni-goettingen.de:443"}.  Same class as the Hackage denial
+-- recorded in formal/cubical/check.sh.  WebSearch works; fetching a text
+-- does not.
+--
+-- So on this container a claim resting on a text CANNOT exceed Anvista,
+-- by organisation egress policy and not by anyones effort.  That is an
+-- environment fact and it belongs next to the grade, because a reader
+data Status = Asiddha | Sruta | Anvista | Anumita | Drsta | Siddha
   deriving (Eq, Ord, Show, Enum, Bounded)
 
 data Source = Source
   { srcAuthor :: String
+  , srcVia    :: String        -- how the source was REACHED: the provenance
+                              -- of the provenance.  "recall" / "search
+                              -- 2026-08-20" / "consulted".
   , srcWork   :: String
   , srcDate   :: String
   } deriving (Eq, Show)
@@ -204,7 +247,7 @@ verdict e c =
   ++ [ "      " ++ cText c ]
   ++ (case cSource c of
         Just s  -> [ "      source: " ++ srcAuthor s ++ ", " ++ srcWork s
-                     ++ " (" ++ srcDate s ++ ")" ]
+                     ++ " (" ++ srcDate s ++ ")   [reached by: " ++ srcVia s ++ "]" ]
         Nothing -> [])
   ++ (case unfit c of
         Just why -> [ "      UNFIT: " ++ why
