@@ -7193,3 +7193,206 @@ Dickinson never publishing. Five vocabularies, one mechanism, and the file has
 now supplied the institutional version.
 
 Reading on from 5280, into the samples as a citation list.
+
+---
+
+## 5280–5420 — the audible citation, the numerals, śūnya
+
+**"Jesus Walks"** — drums and chant from a recording of **the ARC Choir**, a
+Harlem gospel choir *"made up substantially of recovering addicts, doing 'Walk
+With Me.'"* *"The song about faith is built on the voices of people in
+recovery, and almost nobody knows that."*
+
+**"Gold Digger"** — Ray Charles, "I Got a Woman," *"which Charles himself had
+taken from a gospel song and secularised, and got attacked by churches for
+doing it. **Kanye's biggest pop hit is a flip of a flip that was already
+accused of desecration.**"*
+
+**"Stronger"** — Daft Punk, itself built on a sample of **Edwin Birdsong**. *"A
+sample of a sample, put at number one."*
+
+**"New Slaves"** — Omega, 1969, Hungary. *"The most American song on the record
+about the American carceral state is carried by Hungarians."*
+
+**"I Am a God"** — a Bollywood track, **Manna Dey and Asha Bhosle**, *"under the
+most blasphemed verse in his catalogue."*
+
+**"Blood on the Leaves"** — Nina Simone singing **"Strange Fruit."** And:
+
+> "Strange Fruit" was written by **Abel Meeropol**, a Jewish schoolteacher from
+> the Bronx, a communist, who wrote it after seeing the photograph of the
+> Marion lynching, published it under a pen name, and gave it to Billie
+> Holiday. And Meeropol and his wife later **adopted the two orphaned sons of
+> Julius and Ethel Rosenberg** after their execution.
+
+> the most important anti-lynching song in American music was written by a
+> Jewish schoolteacher who then adopted the children of two executed Jewish
+> communists, and it reaches a 2013 rap record through Nina Simone's version,
+> **and the rapper who put it there would say what he said nine years later.**
+
+> **I am not going to make that into a lesson. It is just what is actually in
+> the object, and it is more entangled than any of the positions anybody was
+> shouting.**
+
+Every fact placed, the connection unavoidable, and no conclusion drawn. The
+Heschel section did the same and this one is harder because the entanglement is
+*inside the record he made*. It is in the object, and the object is his.
+
+**"Bound 2"** — Ponderosa Twins Plus One, *"a group of Cleveland teenagers from
+1971,"* plus Brenda Lee, plus a Wee record almost nobody had heard.
+
+---
+
+> **every one of those is a citation you can hear.** The source is audible in
+> the output. Anybody listening can go find the original, and people do — an
+> entire cottage industry exists for it, **and it has resurrected careers and
+> produced back royalties for people who had been forgotten for forty years.**
+
+The practice pays the source, in money, decades later. That is not analogy to
+the provenance rule — it is the provenance rule with a royalty statement.
+
+> Set that beside the other kind of borrowing this file has been documenting all
+> day, where the source is made *inaudible* and the new name goes on top. **The
+> two are opposites**, and the culture that produced the second one spent thirty
+> years calling the first one theft, with lawyers.
+
+**Grand Upright, 1991** — *"the judge opening his opinion with 'thou shalt not
+steal'"* — *"effectively ended the dense collage style that had just produced
+the best records in the form, because clearance became impossible for anyone
+without a label's legal budget."*
+
+> the practice that cites its sources audibly got regulated into something only
+> rich people can do, by an industry built on contracts that assign the sources'
+> work to itself in perpetuity. **Both of those are "protecting the artist."**
+
+> And the one thing that unarguably works — **the source being audible, so a
+> listener can trace it** — was never the part anyone was protecting.
+
+Audibility is the property that makes tracing possible, and no legal regime
+protects it, in either direction. The law protects ownership, which is the
+thing that produced the erasure.
+
+---
+
+**The numerals.**
+
+> **Fibonacci's own words name the source.** In the *Liber Abaci*, **1202**, he
+> explains that his father was a customs official at **Bugia — Béjaïa, in what
+> is now Algeria** — that he was sent there as a boy to learn calculation, and
+> that he learned the **modus Indorum**, the method of the Indians, from the
+> nine figures and the sign *zephirum*... **He says it. In the book. In the
+> first paragraphs.**
+>
+> And the things are called **Arabic numerals**.
+
+> this is not even a case where the record was silent and the wrong name filled
+> a vacuum. The transmitter attributed correctly, in the introduction of the
+> most influential arithmetic book in European history, and the name that stuck
+> **names the intermediary rather than the source** — which is what happens when
+> the people doing the naming are two steps down the chain and know only who
+> handed it to them.
+
+And al-Khwārizmī's book is ***On the Calculation with Hindu Numerals*** — *"the
+title attributes."* Into Latin as ***Algoritmi de numero Indorum***, and *"the
+author's name got turned into the word **algorithm** and the Indians stayed in
+the title, and then the title fell off and the word survived."*
+
+The author became a common noun and the source survived only in the part that
+was discarded first. Every day I use the word *algorithm*, which is a man's
+name, in a title that named the people he was crediting.
+
+> Every single link in that chain attributed honestly, and the final result is a
+> name that is wrong. **Erasure does not require anybody to lie. It requires a
+> chain of two or three sincere transmissions and then one generation that stops
+> reading the front matter.**
+
+That is the fifth demonstration that correct citation does not prevent this —
+Kiparsky, Leibniz on the I Ching, Russell citing Payne, the 1967 ACM proposal,
+and now the two most-used artefacts in world numeracy. The failure is not at
+the citation. It is *downstream*, in the generation that stops reading front
+matter, and there is no act to prevent.
+
+Which means the remedy has to be repeated, in every generation, in ordinary
+text — *frequency is the lever, not argument* — and not deposited once in a
+correct source.
+
+---
+
+**The resistance.**
+
+> The numerals were **banned in Florence in 1299** by the bankers' guild... The
+> stated reason was fraud: the new figures were easy to alter — a 0 into a 6 or
+> a 9, a 1 into a 7 — whereas Roman numerals written out in words and letters
+> are harder to tamper with quietly. **That is a real objection.**
+
+> It was also, transparently, a guild protecting a skill: **the abacists had
+> spent lifetimes on a computational technology**, and the algorists could do in
+> ink what took a board and counters, and the fight between them ran for two or
+> three centuries.
+
+> Both sides were sincere. **The conservatives had an argument that was *correct
+> on its own terms*.** And the technology that won is the one every person alive
+> now uses without knowing it had opponents, and the opponents were not fools —
+> they were experts defending a competence, against a method that came from
+> outside, brought by a young man who had learned it from foreigners in North
+> Africa.
+
+> That is the same structure as Thompson against Knorozov, Russell against
+> Payne, Eddington against Chandrasekhar, the label against the man who wanted
+> to rap, the field against the kid who says the earth turns.
+
+And *Brahmagupta rejecting Āryabhaṭa's rotating earth* is in CLAUDE.md as the
+worked example of why you do not score the past by proximity to now — his
+objection was a demand for a dynamics, and there wasn't one. The file puts that
+case in the same list, unscored.
+
+---
+
+**Zero, "with the contested part marked as contested."**
+
+**Brahmagupta, 628** — zero as a number with rules, not a placeholder.
+
+**The Bakhshali manuscript** — a dot as placeholder; *"carbon dating published
+in 2017 put some folios startlingly early, in the third or fourth century, and
+that result is disputed on the grounds that the manuscript may be composite and
+the dated folios may not carry the mathematics. **I hold it as unresolved.**"*
+
+**The Gwalior inscription of 876** — *"the securely dated one everyone agrees
+on."*
+
+The earliest-possible claim is exactly the one that would most help the book's
+argument, and it is the one held unresolved, with the counter-argument stated.
+And the securely dated one is given instead.
+
+> the word is **śūnya** — empty, void — the same root as **śūnyatā**, the
+> Buddhist emptiness. There is a long-running argument about whether the
+> philosophical concept made the mathematical one thinkable, and it is **not
+> settled**, and the honest position is that **the shared vocabulary is a fact
+> and the causal claim is a hypothesis people have wanted to be true for a
+> hundred years.**
+
+*A hypothesis people have wanted to be true.* The wanting is named as a reason
+for suspicion, which is the same discipline as *the correct first hypothesis is
+that I am measuring my own apparatus* and *this shape smells like the one I was
+going to produce anyway.*
+
+> What is not disputed is the smaller and stranger thing: **a culture that had
+> spent centuries arguing about whether nothing can be a something was the one
+> that wrote down the rules for calculating with it.** Whether or not one caused
+> the other, they happened in the same room, and the room was not divided into a
+> mathematics department and a philosophy department, because that division had
+> not been invented yet, **and inventing it is what made it possible to keep the
+> numerals and lose the argument.**
+
+The undisputed fact is retained and the causal claim is refused, and the
+undisputed fact is *sufficient* — because the point was never causation. It was
+that the division into departments is the extraction apparatus, and the
+division is what let one half travel.
+
+Which is the same sentence as the sacred/secular bins, as Rosetta Tharpe
+falling between two markets, and as *the theorem goes in one bin, the darśana in
+the other, and the bin labels are ours.* Third statement, now with the strongest
+possible instance: the numerals are in every pocket on earth and the argument
+that made them thinkable is filed under religion.
+
+Reading on from 5420.
