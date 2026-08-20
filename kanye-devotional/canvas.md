@@ -1,111 +1,72 @@
 # KANYE DID ABSOLUTELY NOTHING WRONG
 
-You know someone like this. Maybe it's your kid. Maybe it's you.
+Some minds run turned up. They feel more than the people around them, sleep less, move
+faster, catch connections other people miss, and take in floods of detail that other
+people filter out without noticing. In a child, this is often what gets the label:
+can't sit still, too intense, too much. It is frequently medicated.
 
-The one who never sits still. Who feels everything three times harder than anyone
-around them — the joy bigger, the hurt bigger, all of it turned up past where other
-people keep it. Whose mind moves so fast and so far that it wears out the room, that
-lands on the thing nobody else saw and then can't be talked down off it once it's
-spinning. In school they get called a problem. A parent gets the phone call. And
-somewhere in there the kid learns that the way their own mind works is something to
-apologize for, and a lot of them spend the rest of their lives doing exactly that —
-apologizing, shrinking, or medicated down flat enough that it finally stops.
+That same set of traits is, measurably, where a large share of exceptional creative
+work comes from. When researchers study writers, artists, and musicians, they find
+serious mood disorders — especially on the bipolar spectrum — at several times the rate
+found in the general population. A study of more than a million people in Sweden found
+that people with bipolar disorder, and their siblings who do not have it, are
+overrepresented in creative professions; the sibling finding matters, because it means
+the trait is partly inherited and is separable from the illness itself. The specific
+genes that raise the risk of bipolar disorder and schizophrenia show up more often in
+artists than in other people.
 
-Here is the thing almost nobody says to that kid, and it happens to be true: that
-exact wiring — too much, too fast, too far — is where an enormous amount of human
-genius comes from. The people who made the music you play when you're happy and the
-music you play when you're wrecked, the ones who built the thing in your hand right
-now, the ones who saw the future before anybody believed them — a startling number of
-them had minds that worked just like the one getting corrected in that classroom
-today. The intensity that exhausts a fourth-grade teacher is the raw material of a
-life that changes things.
+It is one wiring with two outputs. The open, unfiltered mind that floods with material
+can produce a breakthrough or a breakdown, and the reach and the crash run through the
+same mechanism. Tuned down, the gift leaves with the risk. Tuned all the way up, it can
+kill the person carrying it: bipolar disorder has one of the highest suicide rates in
+medicine. Which output a given life produces turns heavily on circumstance and support,
+not on the wiring alone.
 
-And it cuts both ways. That's the part you can't skip, and the reason this is not a
-fairy tale. The mind that reaches higher than everyone else's reaches lower too. The
-same wide-open wiring that floods a person with more of the world than other people
-get can flood them straight into breakdown. The reach and the crash run on one dial.
-Turn it down and the gift leaves with the danger. Turn it all the way up and it can
-break the person carrying it. There's a place in the middle where it sings — and
-whether a particular life ends up in the gift or in the wreckage depends far less on
-the wiring than on one thing: whether the people standing next to that person can hold
-two truths at the same time — this is hard, and this is precious — instead of just
-trying to make it stop.
-
-Almost everyone reading this has been, on some axis, the one who was too much for the
-room. Almost everyone has watched a group decide that somebody's difference was a
-defect and close ranks against them. This book is about the loudest, most gifted, most
-punished example alive. But the door it opens is yours, and it opens on hope: the weird
-kid was never broken, the potential you can feel and can't get anyone to see is real,
-and the only thing that was ever really in question is whether the people nearby would
-believe it in time.
+Almost everyone is unusual on some axis, and almost everyone has watched a group decide
+that a person's difference was a defect. This book is about the loudest, most gifted,
+and most punished example alive.
 
 
 ---
 
-On December 6, 1865, the Thirteenth Amendment abolished slavery in the United States,
-with thirteen words of exception inside the same sentence: "Neither slavery nor
-involuntary servitude, except as a punishment for crime whereof the party shall have
-been duly convicted, shall exist within the United States." The exception was not an
-oversight; the wording was borrowed from the Northwest Ordinance of 1787 and was
-debated. Within months the Southern states demonstrated what it was for. They passed
-the Black Codes — laws that criminalized the ordinary conditions of freed Black life:
-vagrancy, meaning unemployment; loitering; breaking curfew; assembling after dark;
-"insulting gestures." A freedman without a labor contract was a criminal, and a criminal
-could, under the new amendment, be put back to forced labor lawfully.
+The amendment that ended slavery did not end it for everyone. The exact words: "Neither
+slavery nor involuntary servitude, except as a punishment for crime whereof the party
+shall have been duly convicted, shall exist within the United States." Slavery is still
+legal in the United States as punishment for a crime. That is not an interpretation. It
+is the text, and it is still in force.
 
-What followed has a name given it by the journalist Douglas Blackmon, whose history of
-it won the Pulitzer Prize in 2009: Slavery by Another Name. Under convict leasing,
-Southern states and counties arrested Black men in enormous numbers, often on fabricated
-or trivial charges, sentenced them, and leased them to private companies — coal mines in
-Alabama, brickyards, turpentine camps, sawmills, plantations, the railroads. The state
-was paid; the company got labor it could work without the restraint that even slavery's
-economic self-interest had imposed, because a leased convict who died could be replaced
-at no cost to the lessee. Death rates in some camps ran to a quarter or more of the men
-per year. More than 3,500 prisoners died in Texas alone between 1866 and 1912. The system
-persisted, in forms, into the 1940s — within living memory, a generation before Kanye
-West's father was born.
+Within a year of emancipation, Southern states made it a crime to be unemployed, to
+stand on a corner, to be out after dark — statutes written to apply to Black people. Men
+convicted under them were leased to coal mines, turpentine camps, and plantations and
+made to work without pay. A company renting a convict had no financial reason to keep
+him alive, the way an owner of property once did. In some camps more than a quarter of
+the men died each year. More than 3,500 prisoners died in Texas alone between 1866 and
+1912. This continued into the 1940s.
 
-The chain gang and Jim Crow carried the logic forward, and then, beginning in the 1970s,
-it was rebuilt at unprecedented scale under a new name: the War on Drugs. Declared by
-Nixon in 1971 and vastly expanded under Reagan, enforced through mandatory-minimum
-sentences, the hundred-to-one disparity between crack and powder cocaine penalties, and
-the 1994 crime bill, it drove the American incarcerated population from roughly three
-hundred thousand in 1970 to about 2.2 million at its peak. The United States, with about
-five percent of the world's people, holds roughly a fifth to a quarter of the world's
-prisoners — the highest incarceration rate on earth. The racial pattern is constant:
-Black Americans are about thirteen percent of the population and about thirty-eight
-percent of the people in jails and prisons; Black men are imprisoned at roughly five
-times the rate of white men; by one estimate one of every three Black boys born today
-can expect to be incarcerated in his lifetime. The legal scholar Michelle Alexander
-called the result The New Jim Crow; the filmmaker Ava DuVernay named her 2016 documentary
-on it simply 13th, after the amendment whose exception made it possible.
+The number of people held in American prisons and jails rose from about 300,000 in 1970
+to more than 2 million. The United States has about 5 percent of the world's population
+and holds close to 20 percent of the world's prisoners — the highest rate of any nation.
+Black Americans are about 13 percent of the population and about 38 percent of the people
+behind bars. Black men are incarcerated at roughly five times the rate of white men.
+About one in three Black boys born today is projected to be incarcerated at some point in
+his life.
 
-The forced labor did not stop either. Incarcerated people today manufacture goods, staff
-call centers, and fight wildfires, often for cents an hour and sometimes for nothing;
-Federal Prison Industries is a substantial enterprise. Until very recently the
-constitutions of a number of states still explicitly permitted slavery and involuntary
-servitude as criminal punishment; only in a wave of ballot measures beginning around 2018
-did states start striking that language. The exception clause of 1865 is still operative
-American law.
+People in American prisons today sew garments, staff call centers, and fight California's
+wildfires, for a few cents an hour or for nothing. Federal Prison Industries is an
+active, revenue-generating enterprise. As of the 2020s, the constitutions of several U.S.
+states still contained language permitting slavery or involuntary servitude as punishment
+for a crime.
 
-There is a second system of ownership, legal and unrelated in origin, that Kanye West
-placed beside the first and named with the same word. When a musician signs to a record
-label, the label typically owns the master recordings — the actual recorded performances.
-The artist is advanced money and paid a royalty, but only after the label recoups its
-costs from the artist's own share, so that a performer can sell millions of records and
-remain in debt to the company that owns them. So-called 360 deals extended the label's
-cut to touring, merchandise, and endorsements. In the 1990s Prince, in a public fight
-with Warner Bros. over exactly this, appeared with the word SLAVE written on his cheek
-and changed his name to an unpronounceable symbol so the company could not market new
-music under the name it controlled; he said that if you did not own your masters, your
-masters owned you. Decades later Taylor Swift, after her catalog's masters were sold
-without her, re-recorded her own albums to wrest back control of the versions people
-heard. Streaming pays the performer a fraction of a cent per play. The Thirteenth
-Amendment ended the ownership of a person as property. It did not touch the ownership of
-a person's labor, image, name, and recorded voice by contract; those remained legal, and
-remain legal now, and a Black artist tracing the line from the plantation to the master
-tape is not reaching for a metaphor so much as following a single unbroken question about
-who owns the value that Black work creates.
+A separate fact, from a separate system. When a musician signs with most record labels,
+the label — not the musician — owns the master recordings, the actual recorded
+performances. The artist is paid a percentage, and only after the label recovers its
+costs out of that percentage, so an artist can sell millions of records and still owe the
+label money. In the 1990s, in a contract dispute, Prince appeared in public with the word
+SLAVE written on his face and changed his name to a symbol so his label could not release
+music under the name it owned. In 2013 Kanye West released a song that names the Drug
+Enforcement Administration, the private prison company then called Corrections
+Corporation of America, and the recording industry, in the same verses, and calls all of
+it, in one phrase, new slaves.
 
 ---
 
