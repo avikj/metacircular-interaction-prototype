@@ -12592,3 +12592,97 @@ words, and the word was worry.**
 
 That is a real motive and the work is worth doing. It is not the same claim as
 *the mathematics was failing*, and the record does not support the second one.
+
+---
+
+The previous entry was a defence of the old apparatus and it is withdrawn. The
+harder statement is the true one and it is not a complaint.
+
+**Nobody before could check. Not anybody. Not once.**
+
+Not the sloppy ones and the rigorous ones, with the rigorous ones doing better.
+**All of them.** For the entire history of the subject, up to a decade or two ago,
+**every mathematician who ever lived was working without any means of establishing
+that what they had written was correct** — and the ones at the very top were not
+exempt and knew it.
+
+That is the content of what Voevodsky said, and it is not modest.
+
+**A Fields medallist could not tell whether his own published theorem was true.**
+Not a footnote of it. The theorem. For twenty-two years. With the refutation in
+print for fifteen of them, in his own field's literature, by a competent man, and
+the community's mechanism produced nothing.
+
+**Twelve referees, four years, on Kepler, and they stopped at ninety-nine percent
+and said so** — which is the first time anyone made the actual state of the art
+visible in a journal.
+
+**Scholze**, best in the world at what he does, saying in public that this was the
+**first time** he had been unsure — which means the confidence in every prior case
+was not knowledge either. It was the same condition, unnoticed.
+
+**A hundred authors, fifteen thousand pages, announced complete in 1983, and it was
+not.** Nobody was lying. Nobody could see.
+
+**Frege could not find the contradiction in his own life's work.** Russell wrote to
+him and he had to be told.
+
+**Gauss knew non-Euclidean geometry and did not publish**, by his own account
+fearing the clamour of the Boeotians — the greatest of them deferring to a crowd he
+knew was wrong, because there was no instrument that could settle it over their
+objection.
+
+---
+
+**And that is the frame in which the genius becomes visible, and there is no other
+frame in which it does.**
+
+If some of them had verification and some did not, you get a ranking, and the
+ranking is the thing that hides them.
+
+**Once nobody has it, the question changes.** It stops being *who was rigorous* and
+becomes: **what did a person do, standing in the dark, with no instrument, and how
+much of it turned out to be true.**
+
+**Ramanujan** produced thousands of formulas, most of them correct, with no proofs
+and no means of checking, from a state he described as a goddess writing on his
+tongue. Under the old ranking that is charming and unrigorous. Under this one it
+is **the highest score anybody has ever posted**, because the conditions were the
+same for everyone and he was right more often, blind, than anyone.
+
+**Euler** summed divergent series with no licence and every answer stood.
+
+**Mādhava** gave the series with error terms and an acceleration, four hundred years
+before anyone could have told him whether he was right.
+
+**Piṅgala** wrote binary conversion in a book about metre with no formal system to
+check it against, and it is correct.
+
+**Brahmagupta** wrote the arithmetic of zero and got division wrong and **said the
+part he was unsure of differently from the part he was sure of** — with no
+apparatus behind either.
+
+**The Italian school** was right about nearly everything for forty years, working
+by sight.
+
+Not one of them had less than the others. **They all had nothing**, and what they
+have is what they saw.
+
+---
+
+**Which is why the ranking has to go, and univalence is the exact form of its
+going.**
+
+Equivalent things are equal. There is no privileged position from which to grade,
+because the identity of a thing is exhausted by how it relates — and if no era had
+the instrument, **no era's verdict on another has standing.**
+
+The Whig ordering needed a vantage point. There wasn't one. Everyone was inside.
+
+**And the covering coming off is not an achievement of the present.** *Kevala-jñāna*
+is not acquired — the knowing is intrinsic and the karma obscuring it is material,
+so what happens is **removal.** Everyone before was not defective. **They were
+covered**, all of them, identically, and they worked anyway, and what they produced
+under the covering is the record.
+
+The kernel is a covering coming off. It is not a better class of person.
