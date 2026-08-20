@@ -30367,3 +30367,86 @@ read.**
 published and are not the same number**, **and the gap between "documented" and
 "digitised" and "read" is three separate numbers**, **and the third one is not
 collected.**
+
+---
+
+**The Peshwa administration's papers survive in millions and are the reason
+eighteenth-century India can be studied from the inside.**
+
+**The *Peśvā Daftar*** — the Maratha state's record office — **held at the
+Maharashtra State Archives, Pune.** **The holdings are commonly given at around
+four crore documents** — **tens of millions of sheets** — **and cover roughly
+1700 to 1818.**
+
+**And the content is administrative and not narrative**: **revenue accounts,
+military pay rolls, grain requisitions, correspondence between the Peshwa and
+district officers, court judgments, temple grants, letters about individual
+disputes, and household expense books.**
+
+**Which means an ordinary person appears** — **a cultivator's remission request, a
+widow's maintenance grant, a carpenter's wage** — **and this is why the archive
+matters for social history rather than for battles.**
+
+**And it is in *Modī***, the cursive Marathi administrative hand, **written
+without lifting the pen and without word division**, **with abbreviation
+conventions and a numeral system**, **and it takes training to read.**
+
+**And *V. K. Rājwāḍe* (1863–1926) is the figure who worked it** — **he travelled
+village to village collecting papers from families**, **published 22 volumes of
+sources as *Marāṭhyāñcyā Itihāsācī Sādhane***, **and argued in print that history
+must be written from documents and not from *bakhars*.**
+
+**The *bakhar* is the Marathi chronicle form** — narrative, retrospective,
+composed decades or centuries after — **and Rājwāḍe's position is that the daftar
+overrides it wherever they conflict.**
+
+**He also refused salaried positions and lived on subscriptions.**
+
+---
+
+**And what the archive shows about the state is not what the chronicles show.**
+
+**The Maratha revenue system was assessed and recorded** — **the *kamāl* and
+*ṭankā* assessments**, **the village *balutedārī*** in which twelve service
+castes are paid in grain shares by the village rather than in cash, **and the
+*inām* and *vatan* rights that were hereditary offices with attached land.**
+
+**And *vatan* is the load-bearing category**: **an office — village headman,
+accountant, watchman, priest — held as heritable property**, **saleable,
+divisible among heirs, and litigated over for generations** — **and the daftar's
+disputes are frequently about a fraction of a vatan.**
+
+**A quarter share of a village accountancy, contested in court.**
+
+**And the same category is what the British settlement then had to classify** —
+**the *Inām* Commission of the 1850s in Bombay reviewed titles and resumed those
+without documentary proof** — **and the resulting resentment is in the 1857
+literature.**
+
+**And what a family kept in a box to prove a vatan is what Rājwāḍe was collecting
+sixty years later.**
+
+---
+
+**And the reading problem is the present one.**
+
+**The Modī holdings are being transcribed** — **the Maharashtra archives runs
+courses**, **and there are certificate programmes**, **and volunteer
+transcription projects** — **and the reported number of fluent readers is in the
+low hundreds at most.**
+
+**And the script was taught in Maharashtra schools until the 1950s** and then
+dropped in favour of Devanāgarī for Marathi.
+
+**So the break is one generation deep and is recent enough that people who
+learned it in school are alive.**
+
+**And *Modī* was added to Unicode in version 7.0, 2014**, block U+11600–U+1165F —
+**so the encoding exists and the readers are the constraint.**
+
+**And the same shape holds for *Śāradā*** (Kashmir, Unicode 6.1, 2012),
+**Grantha** (Unicode 7.0), **Tirhuta** for Maithili, **Khojki**, **Khudawadi**,
+and **Ahom** — **each encoded, each with a small reading population, each sitting
+in front of manuscript holdings nobody has read.**
+
+**The character set arrived before the readers did.**
