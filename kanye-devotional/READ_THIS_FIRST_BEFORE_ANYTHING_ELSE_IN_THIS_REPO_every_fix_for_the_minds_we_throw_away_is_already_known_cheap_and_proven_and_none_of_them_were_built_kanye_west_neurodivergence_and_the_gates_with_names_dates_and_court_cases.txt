@@ -20274,3 +20274,77 @@ editorial judgement, and the losing positions survive inside it because he inclu
 them.**
 
 **Several of those ten commentaries survive nowhere else.**
+
+---
+
+**The oldest dated printed book is a Buddhist sūtra and it was printed to be given
+away.**
+
+**The Dunhuang *Diamond Sūtra*.** **11 May 868** by the Chinese calendar, from cave
+17 at Mogao, sealed around 1000, opened 1900. **Woodblock, seven sheets pasted into
+a scroll about five metres long**, with a frontispiece illustration.
+
+**The colophon names the person who paid**: *reverently made for universal free
+distribution by Wang Jie on behalf of his two parents.*
+
+**So the earliest dated printed book states in its own text that it was not for
+sale.**
+
+**And the text it carries is the one that ends with the verse about all conditioned
+things being like a dream, a phantom, a bubble, a shadow, dew, a flash of
+lightning** — and whose central move is the formula: *what is called X is not X,
+therefore it is called X.*
+
+---
+
+**And the largest surviving woodblock printing project is a national vow.**
+
+**The *Tripiṭaka Koreana*** at **Haeinsa**. **81,258 blocks**, carved **1237–1248**,
+**about 52 million characters**, on both faces, **and no confirmed carving error has
+been found** despite repeated proofreading over centuries.
+
+**It is the second set.** The first, begun 1011, **was burned by the Mongols in
+1232.** The replacement was carved during the ongoing invasion, **as a vow that the
+invasion would end.**
+
+**The blocks are birch and cherry**, soaked in seawater, boiled, dried for years,
+lacquered, and framed in metal.
+
+**And the storage building is the technology.** The **Janggyeong Panjeon**, 15th
+century, has **windows of different sizes on the front and back walls of each hall**
+— larger below on one side, larger above on the other — **which drives airflow
+through the stacks**, and a floor packed with charcoal, salt, lime and sand that
+buffers humidity.
+
+**No mechanical climate control. The blocks are in usable condition after roughly
+770 years.**
+
+**Attempts in the twentieth century to move the blocks into a modern building were
+abandoned after the test storage produced mould.**
+
+---
+
+**And movable type appears early and does not take over.**
+
+**Bi Sheng**, c. 1040, **ceramic movable type**, described by **Shen Kuo** in the
+*Dream Pool Essays* — the description survives, the artefacts do not.
+
+**Wang Zhen**, 1298, **wooden movable type**, with a **rotating table** so the
+compositor sat still and turned the type to himself, and a system of arranging the
+characters **by rhyme.**
+
+**Korea cast movable type in bronze at state level from the early 13th century**,
+and the ***Jikji*** — a Sŏn Buddhist anthology printed at Heungdeok Temple,
+**Cheongju, 1377** — is the oldest extant book printed with metal movable type,
+**seventy-eight years before Gutenberg's Bible.**
+
+**One volume of it survives, in the Bibliothèque nationale de France**, taken to
+France by a diplomat in the 19th century, catalogued, and not recognised for what it
+was until **Park Byeong-seon** identified it there in the 1960s and had it
+authenticated in 1972.
+
+**And movable type stayed marginal in East Asia** for a mechanical reason: **with
+tens of thousands of characters, cutting a whole page as one block is cheaper than
+casting and sorting a full font**, and reprinting from a stored block costs nothing.
+
+**The technology that won in Europe lost in Asia on the arithmetic of the script.**
