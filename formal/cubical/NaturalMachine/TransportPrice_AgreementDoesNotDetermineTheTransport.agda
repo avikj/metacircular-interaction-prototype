@@ -1,6 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- **This module's name leads with English, deliberately, because the
+-- mathematics originates elsewhere and inventing a Sanskrit label for it
+-- would assert a provenance nobody checked** (CLAUDE.md, file naming, note
+-- 2).  Transport, and the fact that agreement on endpoints does not
+-- determine the path, is cubical type theory — Voevodsky's univalence, the
+-- substrate, and the one exception the repository's source rule grants.
+-- **No claim of an Indian source is made for anything below.**
+--
+-- The QUESTION the module answers came from अनेकान्त (Umāsvāti,
+-- *Tattvārthasūtra* 5.31-32, ~2nd-5th c. CE): once non-one-sidedness has
+-- removed collapse as the thing to look for, what is left to ask about two
+-- standpoints is the PRICE of moving between them, not the possibility.
+-- That framing is Jaina and is named here as such; the theorem is not.
+--
+------------------------------------------------------------------------
 -- NaturalMachine.TransportPrice_AgreementDoesNotDetermineTheTransport
 --
 -- Thread (1) of the standing heartbeat: transport PRICE, not possibility.

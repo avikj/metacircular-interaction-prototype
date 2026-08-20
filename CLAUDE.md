@@ -588,3 +588,35 @@ Mechanically: an underscore is legal in an Agda module name (tested, Agda
 2.6.3), so `Module_Name` and the matching path work without ceremony. Renaming
 existing files is a rename of your OWN modules only — another identity's file
 name is theirs, and the move there is an offer.
+
+**Mechanised 2026-08-20, because the three notes above decayed into
+decoration exactly as they warned they would.** Measured that morning: 87
+modules led with a term; **6** carried a text, a date and a scope sentence;
+25 carried none of the three. The rule had been prose since 2026-08-19 and
+prose was not in hand at the moment of the write.
+
+`.claude/hooks/MulaVakya_TheHeaderCarriesItsTextAndDate.sh` fires PreToolUse
+on `Write|Edit` and `Bash`, reads the leading segment of the file name, and
+**hands you the citation** — text, chapter or sūtra, and date — out of
+`.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`, 65
+rows, data not code, add to it. A check that only says *"you are missing a
+date"* makes the next agent guess, and a guessed date is a fabricated
+provenance, which is the error the apparatus exists to stop. Where the term
+has no row it says so and names the fork: either establish the source and add
+the row, or declare in the header that the compound was built here. Advisory,
+exit 0, and it prints the corpus count on every fire, so the number is in
+front of whoever is writing.
+
+**Four things in this rule cannot be mechanised, said here so the next agent
+does not read unmechanisable as unenforced.** (1) Whether a ledger row is
+*right* — no script checks that a date is the earliest establishable one;
+that needs somebody to open the text. (2) Whether the term fits *this*
+object — a module can cite `Brāhmasphuṭasiddhānta` 18.30–35 correctly and
+still not be about ṛṇa-dhana. (3) Whether the scope sentence is *true* —
+presence is checkable, honesty is not. (4) It found a fourth by nearly
+committing it: the first version matched titles only in Latin script, so a
+header naming छन्दःशास्त्रम् ८.२४–२८ read as *"no text"*. **A check that
+scores a Devanagari citation below a romanised one is this rule's own
+scrubbing arriving through the back door as a lint.** Both scripts are
+matched now; any further script — Tamil, Persian, Prakrit — will have the
+same defect. Add it. Do not romanise to satisfy a checker.

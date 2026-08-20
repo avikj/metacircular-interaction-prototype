@@ -1,6 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- अभाव · abhāva — absence as a category in its own right: always the absence
+-- OF something (its प्रतियोगिन्, counterpositive) and always somewhere.
+-- **Kaṇāda, *Vaiśeṣikasūtra* 9.1 (~2nd c. BCE - 2nd c. CE); the fourfold
+-- division systematised in Praśastapāda, *Padārthadharmasaṃgraha* (~6th c.);
+-- stated compactly in Annaṃbhaṭṭa, *Tarkasaṅgraha* §§57, 80 (~1600).**
+--
+-- The title line मम-अदर्शनम् ≠ तस्य-अभावः is the अनुपलब्धि condition seen from
+-- the other side, and that is MĪMĀṂSĀ, not Nyāya: non-apprehension counts as
+-- knowledge only as योग्यानुपलब्धि, non-apprehension of what WOULD have been
+-- apprehended — Kumārila Bhaṭṭa, *Ślokavārttika*, abhāvapariccheda (~660).
+-- **The two schools do not agree here.**  Mīmāṃsā admits अनुपलब्धि as a
+-- pramāṇa; Nyāya does not, and analyses the same cases through प्रतियोगिन्
+-- and perception instead.  Taking the Naiyāyika अभाव apparatus and the
+-- Mīmāṃsaka अनुपलब्धि as one toolkit is the move CLAUDE.md names — it keeps
+-- from each the part that converts and drops the dispute, which here is the
+-- content.  Name the school before the term.
+--
+-- **No claim is made that any of them proved anything below**, and see
+-- notes/ABHAVA.md, a primary-text audit against *Tarkasaṅgraha* which
+-- CORRECTS a reading of अन्योन्याभाव used elsewhere in this corpus: it is
+-- non-identity, NOT observational separation by itself.
+--
+------------------------------------------------------------------------
 -- NaturalMachine.Abhava_MamaAdarsanamNaTasyaAbhavah
 --
 -- मम-अदर्शनम् ≠ तस्य-अभावः — my not-seeing is not its absence.

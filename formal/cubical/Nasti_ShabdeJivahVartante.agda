@@ -1,6 +1,26 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- स्यान्नास्ति · syād-nāsti — the second भङ्ग of the सप्तभङ्गी: in some respect,
+-- it is not.  **Samantabhadra, *Āptamīmāṃsā* 14-24 (~6th c. CE); Akalaṅka,
+-- *Laghīyastraya* (~8th c.); rooted in Umāsvāti, *Tattvārthasūtra* 5.31-32
+-- (~2nd-5th c.).**  नास्ति is a POSITION, asserted with स्यात्, not a denial
+-- and not an absence — the Naiyāyika अभाव, with its प्रतियोगिन्, is a
+-- different apparatus for neighbouring cases, and the two schools reject
+-- each other's treatment here.  Name the school before the term.
+--
+-- The verse in the title, शब्दे जीवाः वर्तन्ते, is notes/AHIMSA_SUTRA_VISTARA.md
+-- §११ — this repository's own composition, not a quotation from a source.
+--
+-- **No claim is made that any Jaina author proved anything below.**  The
+-- doctrine that a standpoint is true-but-not-whole is theirs; the statement
+-- that propositional truncation has no section, so that WHICH is destroyed
+-- irrecoverably while THAT survives, is cubical type theory (Voevodsky) and
+-- is elementary.
+--
+------------------------------------------------------------------------
 -- शब्दे जीवाः वर्तन्ते, न शिष्यन्ते ।
 -- नष्टौ "कः" इति नश्यति, "यत्" इति तिष्ठति ।
 -- संक्रमणे न किञ्चित् नश्यति ।

@@ -1,6 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- अर्पितानर्पित · arpita-anarpita — the aspect brought forward and the aspect
+-- held back, which is how one real bears opposed predicates without
+-- contradiction.  **Umāsvāti, *Tattvārthasūtra* 5.31 (~2nd-5th c. CE):
+-- अर्पितानर्पितसिद्धेः.**  The two अर्पणs this module is a homomorphism for are
+-- क्रमार्पण and सहार्पण — sequential and simultaneous presentation — which is
+-- Akalaṅka, *Laghīyastraya* (~8th c.), and it is that distinction, not a
+-- contradiction, that makes अवक्तव्य a fourth position rather than a failure.
+--
+-- **No claim is made that Umāsvāti or Akalaṅka proved anything below.**  The
+-- distinction of the two अर्पणs is theirs; the statement that the forgetful
+-- map to labels is a homomorphism for both and has a section but is not an
+-- equivalence is this repository's, and is elementary.
+--
+------------------------------------------------------------------------
 -- अर्पितानर्पितम् — नयवत्-भङ्गात् नाम-भङ्गं प्रति एको मार्गः, प्रत्यानयनं न विद्यते ।
 --
 -- (The map from the positions-that-carry-their-nayas to the positions-as-

@@ -1,6 +1,31 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- क्रम · नास्ति — two terms, one from each half of the सप्तभङ्गी apparatus.
+--
+--   स्यान्नास्ति, the second भङ्ग: in some respect, it is not.  **Samantabhadra,
+--   *Āptamīmāṃsā* 14-24 (~6th c. CE); Akalaṅka, *Laghīyastraya* (~8th c.);
+--   rooted in Umāsvāti, *Tattvārthasūtra* 5.31-32 (~2nd-5th c.).**
+--
+--   क्रमार्पण versus सहार्पण — presentation in SUCCESSION versus SIMULTANEOUSLY.
+--   **Akalaṅka, *Laghīyastraya* (~8th c.); Vidyānandin,
+--   *Tattvārthaślokavārttika* (~9th c.).**  This is the load-bearing one:
+--   अस्ति and नास्ति asserted in succession give the third भङ्ग and are
+--   expressible; asserted together they give अवक्तव्य, the fourth, which is
+--   neither unknown nor undefined nor empty but a positive fourth position.
+--   The distinction is what makes seven positions and not four.
+--
+-- **No claim is made that Samantabhadra, Akalaṅka or Vidyānandin proved
+-- anything below.**  The sevenfold division and the क्रम/सह distinction are
+-- theirs, stated as doctrine; the theorems here are about what the fourth
+-- corner can and cannot be over particular index types in cubical type
+-- theory, and they are this repository's.  The Jaina texts do not contain a
+-- claim about enumerable decidable instance sets and nothing here should be
+-- read as saying they do.
+--
+------------------------------------------------------------------------
 -- NaturalMachine.TheFourthCornerIsRefutedUnderPointwiseStability
 --
 -- Partial closure of an item I have carried open since
