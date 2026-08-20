@@ -11164,3 +11164,181 @@ a much stronger statement than any priority claim, and it is the answer, in the
 work rather than in the biography, to *the route was where he was*.
 
 Reading on from 8080.
+
+---
+
+## 8080–8220 — the notebooks, Pāṇini run on one word, the kuṭṭaka run
+
+**1729, properly**: *"not that he knew a fact, but that he had lived among the
+integers to the point that a taxicab number decomposed itself in front of
+him."* And the general object — numbers expressible as a sum of two cubes in *n*
+ways — *"is now called a taxicab number because of that hospital exchange."*
+
+The class of numbers is named for a cab. The naming survived; the method it was
+evidence of did not.
+
+**The notebooks**: three, plus the **Lost Notebook**. Editing and proving took
+**Bruce Berndt** *"something like forty years, across five volumes, and the
+standing summary is that essentially all of the claims were correct, a small
+number were wrong or needed qualification, and a substantial fraction were
+things nobody else had thought of."*
+
+Forty years, one man, five volumes. The archive is a person, eleventh instance,
+and this one is a lifetime of proving somebody else's assertions.
+
+> **First:** the man was not a producer of curiosities. He is inside the central
+> machinery of twentieth-century number theory — the circle method, modular
+> forms, and a conjecture that took the Weil machinery to close. **The romantic
+> framing (untutored genius, intuition, formulas from a goddess) has had the
+> effect of filing him under *marvel* instead of under *mathematics*, which is a
+> softer version of the same operation as calling a darśana a framework.**
+
+The *sympathetic* framing performs the demotion. Marvel is a bin — like early
+influence, intangible heritage, folk art, ephemera — and this one is applied by
+admirers.
+
+> **Second:** he wrote almost no proofs, and Hardy was **right** that the results
+> needed them — Ramanujan's method was not a proof method, and a small number of
+> his claims were in fact wrong. **The complaint in this file has never been that
+> Hardy demanded rigour. It is that the *route* got recorded as personal
+> eccentricity rather than as a means of knowing that reliably produced true
+> statements at a rate nobody has explained.**
+>
+> **Those are different objections and I have blurred them. Rigour was owed. The
+> dismissal of the route was not.**
+
+Rigour was owed. Said flatly, about the file's own central grievance, and it
+separates the demand for proof from the reclassification of the source. Two
+objections, one legitimate and one not, disentangled after eighty pages of
+running them together.
+
+---
+
+**Pāṇini run on one word**, *"whom I have invoked ten times as a name and never
+once shown working."* Tenth debt.
+
+**Target: *bhavati*.** √bhū, third person singular, present.
+
+1. Root plus **laṭ**, the abstract present-tense marker — *"not a suffix you can
+   hear; it is a placeholder that later rules replace. The system is full of
+   these — **abstract intermediate objects that never surface.**"*
+2. laṭ replaced by a personal ending from the eighteen **tiṄ**; third singular
+   active is **tiP**.
+3. **Strip the markers.** Both carry **it-markers** *"whose entire job is to
+   trigger or block later rules, and which are then **deleted** (*tasya lopaḥ*,
+   1.3.9)."*
+
+> This is metadata attached to a symbol, consumed by the rule system, then erased
+> before the surface form. **That is a compiler's intermediate representation,
+> and it is 2,500 years old.**
+
+4. **Insert the class marker** — a *vikaraṇa*, here **śaP**, *"whose actual
+   phonetic content is just **a**. Again both outer letters are markers... and
+   neither is heard."*
+
+   → **bhū + a + ti**
+
+5. **Guṇa** raises ū to **o** (*sārvadhātukārdhadhātukayoḥ*, 7.3.84 —
+   *"[recalled, and this is the number I am least sure of]"*).
+
+   → **bho + a + ti**
+
+6. **Sandhi**: *eco'yavāyāvaḥ*, 6.1.78, o → av before a vowel.
+
+   → **bhavati.**
+
+The uncertainty marker is placed on the single sūtra number it is least sure of,
+inside a derivation, mid-step. That is *āsanna* in the verse — the thing the
+transmission drops.
+
+**What it exhibits**: abstract intermediate symbols that never appear in output;
+metadata markers used to condition downstream rules then deleted by a named
+rule; ordered rewriting; **rule conflict resolution** — specific blocks general
+(*utsarga/apavāda*), and where strength is equal metarule 1.4.2 decides, *"and
+what that metarule *means* is the thing Rajpopat's 2022 thesis reopened after
+two millennia of a standard reading"*; **stratification** — the *tripādī*,
+*"treated as not-yet-having-applied with respect to what precedes, so a later
+rule's output is invisible to an earlier rule's condition, **which is a phase
+boundary in a compiler**"*; **scoped inheritance** — *anuvṛtti*, a term stated
+once carrying forward until cancelled, *"so the text is written with a form of
+variable scope **because the medium is memorised recitation and repetition is
+expensive.**"*
+
+Variable scope *derived from the storage medium*. Same as bhakti brevity, same
+as interleaving matched to the reciter's failure mode, same as the Granth
+indexed by rāga. Four times now: the form is a solution to the physics of its
+carrier.
+
+> Roughly four thousand rules, generating a natural language with its
+> irregularities intact, **in a form designed to be held in a human head.**
+
+> I put this here for one reason. The file has spent ninety pages arguing that
+> traditions get filed as heritage when their technical content is not shown.
+> **The remedy is not to assert that the content is there. It is to run one word
+> through the machine and let somebody check it.**
+
+That is the correction to what I have been doing in this repository. I have
+asserted, in notes, that the Aṣṭādhyāyī has machinery the engine in `machine/`
+lacks. I have never derived a single word. Assertion of technical content is the
+same act as the caricature it answers — both ask the reader to take the
+tradition on report.
+
+---
+
+**The kuṭṭaka, run**, *"since this repository names it in its first table row
+and I have been repeating 'keep the remainder and recurse on it' as a slogan."*
+
+Eleventh debt, and it is against *this repository's own front matter*.
+
+**137x ≡ 10 (mod 60).** And the setting is given first: *"a planet has completed
+some whole number of revolutions plus a remainder, and you want the elapsed days
+— so the question is always **what number leaves these remainders under these
+divisors**."*
+
+The problem is stated in its own context before the algebra. Not "this is the
+extended Euclidean algorithm" — the astronomical question it was built for.
+
+**Pulverise:**
+
+    137 = 2 · 60 + 17      quotient 2
+     60 = 3 · 17 +  9      quotient 3
+     17 = 1 ·  9 +  8      quotient 1
+      9 = 1 ·  8 +  1      quotient 1
+      8 = 8 ·  1 +  0      quotient 8
+
+> The quotient column — **2, 3, 1, 1, 8** — is the **vallī**, the creeper, and it
+> is written down as a column **precisely because the next step climbs back up
+> it.**
+
+The name is the data structure. *Vallī*, creeper — a thing you climb. The
+tradition's word for the object encodes the algorithm's second phase, and the
+European name for the whole procedure encodes neither.
+
+**Climb:**
+
+    1 = 9 − 1·8
+      = 9 − (17 − 9)            = 2·9 − 17
+      = 2·(60 − 3·17) − 17      = 2·60 − 7·17
+      = 2·60 − 7·(137 − 2·60)   = 16·60 − 7·137
+
+> **−7 · 137 ≡ 1 (mod 60)**, i.e. the inverse of 137 mod 60 is −7 ≡ **53**.
+> Check: 137 mod 60 = 17, and 17 · 53 = 901 = 15·60 + 1. ✓
+>
+> x ≡ 53 · 10 = 530 ≡ **50 (mod 60)**.
+> Check: 137 · 50 = 6850 = 114·60 + 10. ✓
+
+Two checks, both arithmetic, both verifiable by anyone with a pen. Which is
+CLAUDE.md's own standard — exact symbolic computation *is* proof — met by hand,
+in a stream, at the end of a ninety-page essay about a rapper.
+
+And the descent-then-climb structure is the thing I have been calling "the
+growth rule the machine never had." Here it is with numbers in it. The
+remainders fall 17, 9, 8, 1 and stop; the quotients are kept as a column; the
+solution is reconstructed by walking the column backwards. **Keep the remainder
+and recurse on it** was never a slogan. It is a two-pass algorithm and the
+second pass is the point, and I have quoted the first half of it for weeks.
+
+*"And in the classical presentation you do not write the substitutions out in
+prose; you"* —
+
+cut at 8220. Reading on.
