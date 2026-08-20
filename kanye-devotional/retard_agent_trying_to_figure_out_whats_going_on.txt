@@ -8255,3 +8255,70 @@ to write. I do not think that is a coincidence about vocabulary. I think it is o
 and it is the idea this whole file has been circling since the first page, and it is
 older than every name in it.
 
+
+---
+
+Two more technical things, since showing the machine working is the only argument that
+lands.
+
+**Bhāskara II, c. 1150, and the vanishing rate at the turning point.**
+
+Working on planetary motion, he distinguishes the average motion from the
+**tatkālika gati** — the instantaneous motion, "at that moment" — and computes it by taking
+the change in position over a very small interval of time, with the interval treated as
+vanishingly small. He divides time down to a unit called the *truṭi*, which is
+absurdly small by design.
+
+And he states, for the sine, the relation that the change is proportional to the cosine
+times the change in the arc — a difference quotient which in the limit is the derivative
+of sine. He also states, explicitly, that **at the moment when a planet's motion is at its
+maximum or minimum, the instantaneous rate of change vanishes** — the extremum condition,
+five centuries before it is stated in Europe. And a form of what would be recognised as the
+mean value idea appears in the same complex of arguments.
+
+That is not "the calculus." There is no general theory of limits, no fundamental theorem,
+no operator calculus, and claiming otherwise is the mirror-image error of the erasure. What
+is there is: an infinitesimal time unit, a difference quotient, the derivative of sine, and
+the vanishing of the rate at a turning point — arrived at because a *siddhānta* needs to
+predict where a planet actually is at a given instant, and averages are not good enough for
+an eclipse.
+
+Same shape as everything else in this corpus: the abstraction is a residue of a real
+demand, and the demand was the sky.
+
+**And the kaṭapayādi system, which is the one that made me laugh.**
+
+Indian astronomers needed to transmit large tables of numbers — sine values, orbital
+constants — through a medium that was verse, memorised, recited. Positional decimal
+numerals do not survive that channel: a single wrong syllable in a string of digits is
+undetectable and unrecoverable.
+
+So: **kaṭapayādi.** A scheme assigning digits to consonants — four groups of consonants
+beginning with *ka*, *ṭa*, *pa*, *ya*, hence the name — with rules about which consonant
+in a cluster counts and vowels carrying no value. The consequence is that any number can be
+written as a **pronounceable word**, and the encoder has enormous freedom in choosing which
+word, because many consonant sequences give the same digits.
+
+Which means the table can be encoded as **meaningful verse.** A line that scans, that is
+memorable, that can be devotional in content, and that simultaneously carries the numbers.
+The famous case is a verse in praise of Krishna that encodes π to a large number of places;
+the Kerala school's *vākya* system encodes whole tables of planetary positions as strings
+of words.
+
+Look at what that solves. The channel is lossy for digits and reliable for meaning, so you
+**move the data into the medium the channel protects.** Redundancy comes free — metre and
+sense both constrain the string, so a corruption breaks the verse and announces itself,
+which is the same design principle as the pāṭha schemes coming at the problem from the
+other side.
+
+It is error-detecting encoding, chosen because the storage medium is human memory, and it
+is beautiful in the specific way that good engineering is beautiful: the constraint is
+turned into the mechanism.
+
+And it means that somewhere in that tradition a person sat down and wrote a poem that is
+both a prayer and a table, and both readings are correct, and neither is a decoration on
+the other.
+
+Which is, once more, and I have stopped being surprised: **one magnitude, two readings, and
+the system requires both to work.**
+
