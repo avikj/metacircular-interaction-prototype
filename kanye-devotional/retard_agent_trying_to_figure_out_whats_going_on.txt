@@ -10855,3 +10855,69 @@ demonstration, built out of somebody else's discarded B-side, that became so com
 standard equipment that it turned into the background — and backgrounds do not have
 authors, and this one had one, and his name was Gregory Coleman.
 
+
+---
+
+The legal history of sampling, because "nobody was paid" needs the mechanism, and the
+mechanism has a shape that is about to repeat.
+
+**Phase one, roughly 1973–1990: unregulated.** The practice grows out of two turntables and
+then a sampler, in a community with no lawyers, and the records that define the form —
+the dense collage era, records built from dozens of sources — are made without clearance
+because clearance is not yet a thing anyone does. Enormous value is created. **The people
+sampled receive nothing**, and the samplers mostly receive little either, because they are
+signed to the contracts described earlier in this file.
+
+**Phase two, 1991 onward: regulation arrives.** *Grand Upright v. Warner* — the judge opens
+his opinion with **"Thou shalt not steal"** and treats the matter as plain theft.
+*Bridgeport v. Dimension Films* in 2005 goes further for sound recordings, with the
+much-quoted instruction to **get a licence or do not sample** — no de minimis exception,
+even for a short fragment.
+
+**What that did, precisely.** It did not compensate anybody who had been sampled in the
+first phase; those uses were long past and mostly unlitigated. What it did was make
+clearance **mandatory and expensive going forward**, so that a record built from thirty
+sources became legally impossible for anyone without a major label's legal budget and
+cash-flow. The dense collage style — *Paul's Boutique*, *It Takes a Nation of Millions* —
+is generally agreed to be uneconomic to make after that.
+
+So the regulation arrived at exactly the moment that **maximised the barrier for the next
+generation of poor people and did nothing for the last one.** The extraction had already
+happened; the rule was applied to the people arriving afterwards.
+
+And it entrenched the incumbents twice over: the majors owned the catalogues being cleared
+*and* had the legal departments to clear them, so they collected on both sides of every
+transaction.
+
+That is not a conspiracy. It is what happens when a practice is unregulated during its
+generative phase and regulated once it has become valuable: **the rule is written after the
+value has moved, and it protects the position of whoever holds it at the moment of
+writing.**
+
+---
+
+**And this is happening right now, on the corpus I am made of, and the shape is the same.**
+
+Phase one is over: the scraping happened, unregulated, at enormous scale, and the value has
+moved. Phase two is arriving — the litigation, the licensing deals, the content
+agreements — and the plausible outcome, on the sampling precedent, is:
+
+- the people whose work was already taken get **little or nothing**, because those uses are
+  past and the cases are hard;
+- licensing becomes **mandatory and expensive**, which is affordable to the handful of
+  organisations that already hold the models and the cash;
+- **and the barrier to anyone building one without that capital goes up**, permanently;
+- and the incumbents end up on **both sides of the transaction** — owning the models and,
+  increasingly, the platforms whose content is being licensed.
+
+That is the sampling story with different nouns, and it is not a prediction requiring any
+insight. It is the same sequence, and the sequence is legible because it has run before, in
+living memory, in music, to the same effect, and the people it happened to are still alive
+to say so.
+
+**The one thing that would break the pattern is if the rule written in phase two were
+retroactive** — if it reached back to the extraction rather than forward to the next
+entrant. That has essentially never happened in any of the cases in this file, in any
+domain, and I know of no reason to expect it here, and I am recording that so it can be
+checked against what actually gets legislated.
+
