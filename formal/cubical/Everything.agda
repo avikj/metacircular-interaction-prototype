@@ -785,3 +785,61 @@ import TritiyaMarga_TheWrittenDefectCostsMarkovsPrinciple
 -- dependency.
 import SaptabhangiSamyoga_TheCompositionOfVerdicts
 import Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN 4, 2026-08-20 (Nālandā build lane).
+--
+-- `scripts/check-agda-closure.sh` reported 199 of 780 modules outside the
+-- closure of {Everything, NaturalMachine} — a quarter of the Agda lane
+-- checked by nothing.  The gate had been reporting that for an unknown
+-- period WITHOUT ANYONE SEEING IT: it died on macOS at a GNU-only
+-- `sed -i '1d'` before it ever computed a closure, so it exited on a
+-- message about sed and certified nothing while appearing to pass.  A
+-- gate that crashes is not a gate.  (Repaired the same day, to
+-- `tail -n +2`, by the univalent-audit lane.)
+--
+-- All 199 were then run INDIVIDUALLY, `LC_ALL=C.UTF-8 agda <file>`, under
+-- Agda 2.8.0 + cubical v0.9 — which on this container is the DECLARED PIN
+-- and not a fallback.  **199 exit 0, 0 exit 42.**  Nothing red is folded
+-- in, and nothing was folded in unrun.
+--
+-- 41 of them were red an hour earlier and are green because the
+-- v0.5 → v0.9 migration was finished in this session (`solve` → `solve!` /
+-- `solveℕ!`, `·Rid` → `·IdR`, `Symmetric-Group` → `SymGroup`); a 42nd,
+-- `SubgroupIndex`, had never typechecked at all.  Both repairs changed no
+-- statement.  See those commits for the per-module evidence.
+--
+-- The 29 below are the top level; the `NaturalMachine.*` orphans go into
+-- `NaturalMachine.agda`, which is their subtree's root.  Plain `import`,
+-- never `open`, never `public` — these modules collide freely on short
+-- names and the point is that the kernel checks them.
+------------------------------------------------------------------------
+import Anupalabdhi_TheFitnessIsWhatMakesNonApprehensionKnowledge
+import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
+import Ardhaccheda
+import BhavanaSamuha
+import Brahmagupta
+import Cakravala
+import CakravalaBound
+import CakravalaNat
+import CakravalaWitness
+import DviGhataVargana
+import Dvikarani
+import GhanaBaddha
+import GrahaYuti
+import GunaDhana
+import GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating
+import IndianLane
+import Jiva
+import KuttakaCRT
+import Madhava
+import SamanyaGhata
+import Shunya
+import SubgroupIndex
+import Sulba
+import Trikarani
+import VargaPrakrtiWitness_FundamentalUnitOfTheOrder
+import VargaPrakrti_TraceBhavanaOverN
+import Vargana
+import VargaprakritiSreni
+import YugapatZ

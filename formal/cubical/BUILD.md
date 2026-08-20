@@ -504,3 +504,83 @@ Discharged from the OUTSTANDING lists above this section by this pass:
 `SimplicialDefectFailure.agda` — it was an orphan, as its author reported,
 it exits 0 under the pin, and it is now imported by `Everything.agda`, so
 the aggregate re-runs it.
+
+## The whole lane, green and inside the closure, 2026-08-20 (Nālandā build lane)
+
+Added, not overwritten. This section is the fourth time the paragraph at the
+top of this file — *"the root aggregate now transitively reaches every module"*
+— has had to be repaired, and the reason it rotted a fourth time is written
+down here rather than the claim being restated a fourth time.
+
+**The check that was supposed to prevent this had been dead.**
+`scripts/check-agda-closure.sh` exists precisely because a hand-maintained
+orphan list rots in both directions; its own header says so. On macOS it
+aborted at a GNU-only `sed -i '1d'` — BSD `sed` reads the next argument as a
+suffix and fails with *"invalid command code"* — so it exited on a message
+about `sed` **before computing any closure at all**, for an unknown period,
+while looking like it had run. A gate that crashes certifies nothing. Repaired
+the same day to the portable `tail -n +2` by the univalent-audit lane. The
+general lesson is the one this file already learned about prose and is now
+learning about scripts: **a mechanism only enforces what it actually executes,
+so a gate needs a check that it ran, not just that it exited.**
+
+**What the repaired gate then reported: 199 of 780 modules outside the import
+closure of `{Everything, NaturalMachine}`** — a quarter of the Agda lane
+checked by nothing. Among them, `Madhava`, `Brahmagupta`, `Cakravala`,
+`CakravalaBound`, `CakravalaNat`, `CakravalaWitness`, `Sulba`, `Trikarani`,
+`Dvikarani`, `Vargana`, `DviGhataVargana`, `Shunya`, `BhavanaSamuha`,
+`VargaprakritiSreni` — the modules carrying the book's primary-source
+mathematics. Most of those were also RED, and being orphans, nothing would
+ever have said so.
+
+**State now, every number re-derived by running the check, none quoted:**
+
+| check | command | result |
+|---|---|---|
+| closure | `bash scripts/check-agda-closure.sh` | **784 on disk, 784 reached, exit 0**, 10 controls correctly unimported |
+| subtree root | `LC_ALL=C.UTF-8 agda NaturalMachine.agda` | **EXIT 0**, 0 errors, 203 warnings (the documented F39 `UnsupportedIndexedMatch` boundary) |
+| whole lane | `LC_ALL=C.UTF-8 agda Everything.agda` | **EXIT 0**, 0 errors, 214 `UnsupportedIndexedMatch` warnings |
+| `--safe` | `bash scripts/check-agda-pragmas.sh` | 802 files, 802 assert `--safe`, 794/794 under `formal/cubical/` assert `--cubical`, exit 0 |
+
+Toolchain: **Agda 2.8.0 + cubical v0.9 — the declared pin, and on this
+container it is the default `agda`** (`/opt/homebrew/Cellar/agda/2.8.0`, with
+`cubical` registered in `~/.agda/libraries` pointing at the v0.9 library
+shipped with it). The 2026-08-15 sections above describe Linux containers on
+which the pin had to be built by hand and `/usr/bin/agda` was 2.6.3; **that is
+not the situation here**, and a reader must not carry those sections' "this
+container is not the pin" caveat over to this one.
+
+Getting there took two source repairs, each with its own commit and neither
+changing a statement:
+
+1. **The v0.5 → v0.9 migration, finished, in 41 modules.** `solve` → `solve!`
+   / `solveℕ!` (with the per-call-site argument introduction this file's
+   version-skew section documents — v0.9's macro parses an equality boundary,
+   not a Π-type), `·Rid` → `·IdR`, `Symmetric-Group` → `SymGroup`. Before: 41
+   exit 42. After: 41 exit 0, each run individually. This is the repair
+   `Kuttaka.agda` received at `0f9f5454` and that its own header had
+   predicted, applied to the rest of the tree.
+2. **`SubgroupIndex.agda` had never typechecked at all.** Reported as one line
+   of skew (v0.9's `Cubical.Relation.Nullary` newly exports `⟪_⟫`); fixing
+   that exposed four further defects, including a proof term of no type
+   carrying a self-described "placeholder" and a where-bound postfix `_⁻¹`
+   whose default `infixl 20` is looser than `_∙_`'s 30 and therefore does not
+   parse. Its header cites v0.9 sources by name: it was written by *reading*
+   the library rather than by building against it. Statements unchanged; see
+   that commit for the five-item list.
+
+Then all 199 orphans were run individually, `LC_ALL=C.UTF-8 agda <file>`:
+**199 exit 0, 0 exit 42.** Nothing red and nothing unrun was folded in. They
+are imported by `Everything.agda` (the 29 top-level) and `NaturalMachine.agda`
+(the 170 in the subtree), under headers marked ORPHAN FOLD-IN 4.
+
+`NaturalMachine/TransportCost.agda` stays out of the subtree root and must:
+it `open import`s that root, so listing it there is a
+`[CyclicModuleDependency]`. It is the **only** module in the subtree with that
+property — established by resolving every import line in the tree against the
+root's name, not assumed — and `Everything.agda` imports it.
+
+**What this section does NOT claim.** That the lane will stay this way. It is
+one measurement, and the four previous repairs of this paragraph were also
+true when written. What is different is only that the *gate* now runs on this
+platform; quote `scripts/check-agda-closure.sh`'s exit code, not this table.
