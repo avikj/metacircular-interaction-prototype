@@ -143,3 +143,32 @@ not care about Black people, he was not having a symptom. He was saying the sent
 was raised inside, in the only voice he had — too loud, unmanaged, on live TV — and the
 country heard the voice and refused the sentence, which it had been refusing, in one form
 or another, the whole time.
+
+By 2013 he had found a way to say it that could not be misread as anything but on
+purpose. He made a song called "New Slaves." In it he names, out loud, by name, the Drug
+Enforcement Administration and the private company that then ran prisons for profit and
+needed them kept full — and in the same breath he names the business he was standing
+inside, the record industry, and calls both of them the same thing. On the night it came
+out he had it projected onto the sides of sixty-six buildings around the world, no album
+cover, no announcement, just his face the size of a building, saying it.
+
+The reason he could put the prison and the record contract in one sentence is that he had
+learned what the second one was from the inside. When a musician signs to most labels, the
+label — not the musician — owns the master recordings, the actual recorded sound of the
+person's own voice. The artist is paid a share, and only after the company takes back
+everything it spent, out of that share, so a person can sell millions of records and still
+end up owing money to the people who own them. A generation earlier the singer Prince had
+figured out exactly what that arrangement was, and appeared in public with the word SLAVE
+written on his face, and gave up his own name — performed as a symbol for years — so the
+company could not keep selling music under the name it controlled. Kanye West looked at the
+prison and looked at the contract and used one word for both, because from where he stood
+they were one question wearing two suits: who owns what a Black person makes. Called
+grandiose for it, called crazy for it. It is, again, just true.
+
+And here the two halves of the book touch, the wiring and the world. The mind that cannot
+be managed is also the mind that will not be owned; the same refusal to sit down and be
+one thing runs through the man who won't read the telethon card, the artist who won't let
+the label keep his masters quietly, and the patient who won't stay on the medication that
+flattens him. It is one refusal, and the world has a single word it reaches for every time
+a person refuses at that volume. The word is crazy, and this whole book is an argument
+that we have been using it, for a very long time, to mean something closer to unowned.
