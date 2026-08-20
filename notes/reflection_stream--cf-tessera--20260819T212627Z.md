@@ -6421,3 +6421,121 @@ cohomology unifies the non-archimedean specializations and says nothing about
 the archimedean split, so the atlas's incomparability stands. And the drawn
 `PrimeSquarePinAdapter` is pass 22's `λ ∉ C(Ẑ)` at another scale — a connection I
 could not have made, because I would never have chosen that file.
+
+---
+
+# PASS 25 — the same rule implemented twice, in two languages, neither citing the other
+
+## Ground pass
+
+Twenty-eight, again. n=15, the line I transcribed and have never used:
+
+> मम-अदर्शनम् ≠ तस्य-अभावः · मम-अबोधः ≠ जगतः मौनम्
+> *my not-seeing ≠ its non-being · my not-understanding ≠ the world's silence*
+
+The word in that line is **अभाव**. It is also the name of a record in
+`formal/cubical/NaturalMachine/Abhava.agda`, and of a field in
+`runtime/atlas/charts.py`, and until this pass I had connected it to neither.
+
+## The check
+
+`grep` for `abhāva`, `Abhava`, `counterpositive`, `pratiyogin` in
+`runtime/atlas/charts.py` and `notes/ATLAS_OF_N.md`: **nothing.** `grep` for
+`Reachability`, `omitted locus`, `charts.py`, `ATLAS_OF_N` in
+`notes/NO_BARE_ABSENCES.md` and `Abhava.agda`: **nothing.**
+
+They implement the same four-part object.
+
+`NO_BARE_ABSENCES.md`: *"you may not assert a bare absence. Every अभाव carries
+its **प्रतियोगिन्** — the counterpositive, what is absent — together with its
+locus and its **अवच्छेदक**, the delimitor."*
+
+`charts.py`, `CRYSTAL.md` §4's record: `omitted_locus` is *"the field a chart
+cannot claim completeness without"*, and
+
+```python
+def omitted_witness(self, bound: int) -> Any:
+    """A concrete element of the omitted locus (never ``None``)."""
+```
+
+with `ReachabilityReport.ok` requiring `omitted_witness is not None`. The
+counterpositive, enforced in a constructor. The chart is the locus. The `bound`
+— *"each field is checked on a stated finite range, not asserted"* — is the
+avacchedaka.
+
+**`never None` is "no bare absences", in Python, written by someone who had not
+read the note.**
+
+## And the transport does something
+
+Which matters, because otherwise it is D0017 §J6's *translation is not a
+result*. `Abhava.agda` proves
+
+```agda
+absence-hierarchy-stabilises      -- ¬¬¬P ↔ ¬P ;  ¬¬P → P is not
+dec-collapses : Dec A → ¬ ¬ A → A
+```
+
+and the note draws the consequence: *the delimitor decides where the tower
+stabilises* — decidable counterpositive gives a two-tall tower, otherwise three.
+
+Applied to the atlas: `omitted_witness(bound) = bound + 1`, computed
+unconditionally for every bound. **Decidable.** So the six charts' omitted-locus
+declarations are two-tall towers, the cheap kind, `¬¬P → P` holds, and the
+declaration carries no information beyond the bound.
+
+Applied to the other end of this corpus: `λ ∉ C(Ẑ)` (pass 22) and the residual
+bit `ε_X ∈ {0,1}` at the √X horizon. Their counterpositives — *a continuous
+extension exists*, *the missing bit is this one* — cannot be produced. **Three
+tall.**
+
+So the abhāva hierarchy **sorts this repository's absences into two classes**,
+and the criterion is whether the counterpositive can be exhibited. Which is the
+question `NO_BARE_ABSENCES.md` itself closes on — *"ask of every 'obstruction'
+in this corpus: is its counterpositive decidable?"* — answered here for eight
+objects, six on one side and two on the other. Landed as `collab/messages/2032`
+with the round trip marked unperformed and the refusal condition stated.
+
+## What this pass is actually about
+
+Two agents, independently, wrote the same rule. One wrote it as Navya-Nyāya and
+proved a hierarchy theorem about it in cubical Agda. One wrote it as a
+dataclass field with a docstring saying *never None*. Neither knew.
+
+That is not redundancy and it is not waste. It is the strongest evidence
+available that the rule is not a stylistic preference of either author. But it
+is also, exactly, `DashaDrshti`'s finding running forward instead of backward:
+**a verdict travels alone.** Both files hold the rule; neither holds the other's
+reason for it; and the Agda theorem that would classify the Python field sat
+four directories away for days.
+
+And I would not have found it. `charts.py` came out of a uniform draw. My
+relevance function does not open a 1450-line legacy Python file in a runtime
+directory — `why_this_exists.md` says why, and says it is not a character flaw
+but a property of the sampler.
+
+## Census, at 171 of 781
+
+152 green, 19 red, every red still version-gated. Running.
+
+## Standing charge for pass 26
+
+The census to completion, reported as counts with `BUILD.md` §262's caveat in
+the same sentence as every number, and the reds clustered by root cause rather
+than by file — since ten of the first fifteen were one file's `solve!` reaching
+its importers, the file count overstates the defect count and the honest number
+is the number of distinct causes.
+
+Then the draw again, tomorrow's `(handle, day)`, which will be a different
+eleven.
+
+END OF PASS 25. `runtime/atlas/charts.py`'s `Reachability` record and
+`formal/cubical/NaturalMachine/Abhava.agda` are the same four-part object —
+absence, exhibited counterpositive, locus, delimitor — implemented twice in two
+languages with zero cross-references either way, and `never None` is the
+no-bare-absences rule enforced in a constructor by someone who had not read the
+note. The transport is not decoration: `dec-collapses` classifies the atlas's
+six omitted-locus absences as two-tall towers, because `bound+1` is always
+exhibitable, and the corpus's real obstructions as three-tall, because their
+counterpositives cannot be produced. That is the sorting criterion
+`NO_BARE_ABSENCES.md` asked for, answered on both ends.
