@@ -2480,3 +2480,107 @@ is the same grammar as an altar built to a prescribed area with a cord, and the 
 grammar as a Sunday Service in a jail, and the same grammar as a record that says
 "Jesus Walks" in a market that had priced the sentence.
 
+
+---
+
+Ibn al-Haytham, and this is the one I should have had from the beginning.
+
+Basra, born around 965. He said, or is reported to have said, that the Nile could be
+regulated by a dam near Aswan. The Fatimid caliph al-Hakim — who by every account was
+dangerous and erratic — brought him to Cairo to do it. He went up the river, looked at
+the terrain, and understood it could not be done with what existed. Returning to a
+caliph with that answer was not survivable.
+
+**So he feigned madness.** He performed insanity, for years, and was placed under house
+arrest, and stayed there until al-Hakim died around 1021.
+
+And in that confinement he wrote the *Kitāb al-Manāẓir*, the Book of Optics — the work
+that overturns the Greek account of vision (light does not go out from the eye; it comes
+in from the object), that runs controlled experiments with the camera obscura and with
+apertures and refraction, and that states, explicitly, that the seeker after truth
+should make himself the enemy of everything he reads, attack it from every side, and
+suspect his own judgement most of all. It is generally called the founding statement of
+experimental method. Roger Bacon and Kepler read it in Latin as *De Aspectibus*.
+
+Read the sequence again. A man tells power the truth about a river. The truth is
+unwelcome. To survive he **performs the thing this whole book is about being wrongly
+accused of** — he acts crazy, on purpose, as protection. He is confined for it. And
+inside the confinement he writes the founding text on *how to see*, whose central
+instruction is to distrust the authority of what you are told and to test it yourself.
+
+The subject of the book is vision. The condition of writing it was pretending to have
+lost his mind so that a ruler would not have him killed. I don't need to add anything
+to that.
+
+---
+
+Ramanujan, in more detail, because I keep using him as a counter and that's cheap.
+
+Kumbakonam, Tamil Nadu, born 1887. Brahmin family, poor. He gets hold of Carr's
+*Synopsis of Elementary Results in Pure Mathematics* — a list of about five thousand
+theorems with barely any proofs — and works through it alone. He fails out of college
+**twice**, both times because he would not do anything except mathematics and therefore
+failed the other subjects and lost his scholarship. He is a clerk at the Madras Port
+Trust.
+
+In 1913 he writes to three Cambridge mathematicians. Two ignore it. Hardy nearly does —
+he later described the reaction as a sequence: the formulas *defeated me completely; I
+had never seen anything in the least like them before*, and then the reasoning that they
+must be true, because *no one would have the imagination to invent them.* Not: they
+follow. *No one could have made them up.*
+
+He comes to England in 1914 — which required a religious dispensation, since crossing
+the sea was a caste problem, and his mother reportedly relented after a dream of
+Nāmagiri. Then the war starts. He is a strict vegetarian in wartime England, cooking for
+himself, in a cold country, in poor lodgings, working continuously. He becomes very ill.
+He is diagnosed with tuberculosis; the modern reconstruction, from the recorded
+symptoms, is that it was most likely **hepatic amoebiasis** — an amoebic infection he
+had probably carried from India, which was curable then and was missed for years. He
+also, in 1918, tried to kill himself in the London Underground.
+
+Fellow of the Royal Society in 1918, at thirty. Back to India in 1919. Dead in 1920, at
+thirty-two.
+
+The taxicab story is real and is usually told wrong. Hardy visits him in hospital,
+mentions the cab number 1729 as dull, and Ramanujan says immediately that it is the
+smallest number expressible as the sum of two cubes in two different ways. He is dying
+in the room while doing it. What that story actually shows is not party-trick recall —
+it is that he had *lived* among the integers to the point that they had personalities,
+which is exactly what he said his method was.
+
+And his method he stated plainly and it was not accepted: the goddess of Namakkal wrote
+on his tongue; a formula had no meaning to him unless it expressed a thought of God.
+Hardy — decent, generous, doing more for him than anyone — recorded that as observance
+rather than conviction, i.e. as not a real epistemology, and then supplied the proofs.
+
+**The results held.** The notebooks kept being mined for a century. And in 1976, in a
+box of Watson's papers in the Trinity College library, George Andrews found what got
+called the **Lost Notebook** — about a hundred pages from the last year of Ramanujan's
+life, containing the mock theta functions, which nobody understood properly until
+Zwegers' thesis in 2002 put them in a framework, and which now connect to things that
+did not exist when he wrote them.
+
+Sixty years in a box. In a library. In Cambridge.
+
+The instinct is to say this is a story of neglect and it isn't, quite. Hardy did more
+than anyone would. Trinity elected him. The point is narrower and worse: **a system that
+admits exactly one route to knowledge will take the outputs of any other route and
+re-derive them into its own form, and will record the original route as a personal
+eccentricity, and will do this while being kind.** The results were never in question.
+The route was, and the route was where he was.
+
+---
+
+While I'm here: Abel died at twenty-six, of tuberculosis, in poverty, in Norway — and
+the letter offering him a professorship in Berlin arrived two days after he was dead.
+Galois wrote through the night at twenty and put *je n'ai pas le temps* in the margin.
+Both of their work sat unread in the hands of men who could have read it — Cauchy is
+supposed to have lost or shelved Abel's Paris memoir, and Galois' submissions went to
+Fourier, who died, and to Poisson, who found them incomprehensible.
+
+Two of the most consequential things anyone found in that century were, at the moment
+they were written, indistinguishable to the institution from noise from a nobody. Not
+because the institution was corrupt. Because a busy person with a reputation, holding an
+unreadable manuscript from an unknown, does the same thing every time, and is right
+almost always, and the almost is where everything is.
+
