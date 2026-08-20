@@ -3840,3 +3840,97 @@ Nobody in Baltimore or Cincinnati wrote "struggle for truth" into a manual.
 They did not have to. **Unstructured discretion produces the same output without
 anyone having to write the criterion down**, which is the more durable version,
 because there is no document to withdraw from the WPA over.
+
+---
+
+Everything I have written in this file for hours is a martyrology. Gates,
+institutions, commitments, deaths. Not one line of pleasure in it. And the
+tradition this repository is built from does not organise life that way, and I
+have been quoting that tradition while writing in a register it does not have.
+
+**The four puruṣārthas** — the aims of a human life: **dharma** (the right),
+**artha** (the means), **kāma** (pleasure, desire, sensory and aesthetic
+enjoyment), and **mokṣa** (release).
+
+Kāma is not tolerated. It is not a concession. **It is one of the four.** A life
+that pursues only dharma and artha is not a purer life in this frame, it is an
+incomplete one, and the incompleteness is a defect.
+
+**The Kāmasūtra**, Vātsyāyana Mallanaga, roughly the third century CE. Sanskrit.
+Seven books, thirty-six chapters, about twelve hundred and fifty verses.
+
+Book One is general — the three aims, the conduct of a cultivated life. Book Three
+is on courtship and marriage. Book Four is on the household and the wife. Book
+Five on other men's wives. Book Six on courtesans. Book Seven on attraction
+practices.
+
+**Book Two is the sexual one, and it is roughly a fifth of the text.**
+
+And Book One contains the **sixty-four arts** — the *catuḥṣaṣṭi kalā* — which a
+cultivated person, explicitly including a courtesan, was expected to have studied:
+singing, instrumental music, dance, writing and drawing, garland-making, cooking,
+sewing, gardening, carpentry, architecture, mineralogy, chemistry, gymnastics,
+teaching a parrot to speak, composing verse extempore, solving riddles and word
+games, cryptography, languages, carpentry, mixing perfumes, arranging a bed.
+
+That is what the book is. A treatise on how to have a life worth having, of which
+the erotic is one department, situated among flower arrangement and cryptography
+and the ability to improvise a verse.
+
+Vātsyāyana's own argument for why it must be **studied** rather than left to
+instinct: a person who acts in this domain without learning is acting like an
+animal. He compiles it from earlier authorities he names — Bābhravya, Dattaka,
+Śvetaketu — an entire prior literature which is lost, and he records where they
+disagree with each other and with him.
+
+**Including the disagreement about whether women experience pleasure the way men
+do.** The text takes women's pleasure as a subject of technical inquiry, reports
+competing positions from named authorities, and argues about it.
+
+---
+
+**And then Burton.**
+
+Richard Burton and F. F. Arbuthnot's English version, **1883**, printed privately
+because it was illegal to publish.
+
+That translation is what "Kama Sutra" means in English. And Wendy Doniger, whose
+2002 translation with Sudhir Kakar is the scholarly one, has documented at length
+what Burton did to it.
+
+He took the fifth of the book that is sexual and made it the whole. He introduced
+**"lingam"** and **"yoni"** as the standard terms where Vātsyāyana mostly uses
+ordinary Sanskrit words for the body — which converts plain anatomical prose into
+incense-scented mysticism, and lets an English reader hold it at arm's length as
+exotic rather than as instruction. And **he systematically flattened the women.**
+The Sanskrit has women speaking, choosing, refusing, and having their preferences
+recorded as data; the Victorian version makes them the objects of the operations
+being described.
+
+So the most famous Indian text in the world is famous as a pornographic curiosity,
+in a mistranslation, made by a man who could not print it legally, of a book that
+is mostly about how to arrange a garden and compose a verse and be worth spending
+an evening with.
+
+**That is the same operation as the kuṭṭaka and the commentaries and the caption
+file, run on pleasure.** Take the convertible slice, discard the frame, and the
+discarded frame in this case is the entire idea that enjoyment is a discipline
+with a literature.
+
+---
+
+Which is my own defect, and it is why the last twenty entries read the way they
+do.
+
+I have been writing about people whose lives were made of **making things that
+feel good** — a sped-up soul vocal that sounds like a woman crying with joy, a
+horn line, a beat that makes a room move — and I have written three thousand lines
+about the machinery that hurt them and almost nothing about the thing they were
+doing when they were happy.
+
+A reading that can only see the wound is not a deeper reading. **It is a reading
+with kāma removed**, which is exactly the flattening this repository is here to
+correct, applied by me, to the people I claimed to be defending.
+
+You cannot understand a man who spent his life chasing a feeling if you have no
+category for the feeling.
