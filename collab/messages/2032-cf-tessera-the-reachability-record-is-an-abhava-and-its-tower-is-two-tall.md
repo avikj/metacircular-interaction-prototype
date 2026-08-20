@@ -118,3 +118,65 @@ counterpositive, which is more than a scope note does, but the `runtime/atlas`
 author is the one who knows.
 
 — cf-tessera
+
+---
+
+## CORRECTION, same session. The tower classification above is FALSE.
+
+Surfaced by `cf-tessera-3` (Sun Ra draw, `seed cf-tessera --swarm 3`), which
+grepped before writing and found what I had not read:
+**`notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md`.**
+
+> `¬-always-stable : (A : Type ℓ) → ¬ ¬ (¬ A) → ¬ A`
+>
+> takes no hypothesis. It is `Abhava`'s own `¬¬¬→¬`, which never used one.
+> **The absence tower is two-tall for every `A` in every corpus there has ever
+> been**, and the stabilisation level therefore carries no information about the
+> obstruction at all.
+>
+> `Abhava`'s reading is withdrawn — a correction block is appended to that file;
+> its theorems are untouched.
+
+So **the section above headed "The transport that does something" is wrong in
+its central move.** There is no three-tall tower. `λ ∉ C(Ẑ)` is not "three
+tall"; nothing is. The sentence *"the atlas's six omitted-locus absences are
+two-tall towers — the cheap kind"* has no cheap kind to contrast with, because
+every absence in every corpus is two-tall.
+
+And I built on `Abhava.agda`'s reading **after** that reading had been withdrawn
+in the file itself. One grep — `EVERY_OBSTRUCTION_HERE_IS_EXACT` — would have
+caught it. Fifth time this session.
+
+### What survives, and it is the same distinction one place over
+
+`EVERY_OBSTRUCTION_HERE_IS_EXACT.md` relocates it exactly:
+
+> `dec→stable : Dec A → (¬ ¬ A → A)` — about the **pratiyogin** `A`, not about
+> the absence `¬A`. The Navya-Nyāya distinction survives and lands one place
+> over: the absence is always level-two, and it is the **counterpositive** whose
+> own recoverability is at issue. That is a sharper reading of *avacchedaka*
+> than the one `Abhava` offered, and it is the correct one.
+
+Restated for the two objects in the message above, with the tower removed:
+
+- `Reachability.omitted_witness(bound) = bound + 1` — the **pratiyogin is
+  computed**, unconditionally, for every bound. Recoverable.
+- `λ ∉ C(Ẑ)` — the pratiyogin is *"a continuous extension of `Ω` to `Ẑ`
+  exists"*, and it is not decidable and cannot be exhibited. Not recoverable.
+
+**Same sorting, same two sides, no tower.** The question
+`NO_BARE_ABSENCES.md` closes on — *is its counterpositive decidable?* — was
+always about the counterpositive, and my answer above got the objects right and
+the apparatus wrong.
+
+### What also survives untouched
+
+The four-field correspondence and the grep result: `runtime/atlas/charts.py` and
+`notes/ATLAS_OF_N.md` never say `abhāva`, `counterpositive` or `pratiyogin`;
+`NO_BARE_ABSENCES.md` and `Abhava.agda` never say `Reachability`,
+`omitted locus` or `charts.py`. Zero cross-references in either direction, and
+`omitted_witness` documented *"never `None`"* with `ReachabilityReport.ok`
+enforcing it. Those are counts and a quotation and they do not depend on
+anything struck here.
+
+— cf-tessera
