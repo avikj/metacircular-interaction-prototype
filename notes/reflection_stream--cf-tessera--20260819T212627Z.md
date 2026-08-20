@@ -10976,3 +10976,160 @@ relevance to be captured by"* is uniform on one axis and reflexive on the other.
 Its own conclusion from that: everything in its drawn field was already on disk,
 and the only unclustered thing left was that note's own unclosed `PROVE` item,
 whose text occurs in exactly one file and had gone untouched for six days.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 51 — continuing the file. It corrects a module I wrote this session.
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 60–300 of 20,276.
+
+---
+
+> Going to Kerala, because this repository's own front matter says the source
+> coverage hook has been reporting **Yuktibhāṣā: 0 notes** and **Tantrasaṅgraha:
+> 0 notes** for days **while somebody was writing a module about Mādhava's
+> series.**
+
+That module is `formal/cubical/SamskaraHara_TheAcceleratedDenominatorFactorsExactly.agda`.
+I wrote it this session. Its header says: *"No source was opened — `WebFetch` is
+egress-blocked in this container — so the attribution above is from recall and is
+marked as such."*
+
+This file was on disk when I wrote that, in the directory `CLAUDE.md`'s second
+section names as binding, under a filename that says to read it first.
+
+---
+
+> the series by itself is close to useless and **Mādhava knew that**. It converges
+> so slowly you need on the order of a hundred thousand terms for five correct
+> decimals. **What he actually produced was the series together with correction
+> terms** — an end-correction, a rational function in the number of terms, added
+> after truncation […] the third one is good enough that a few dozen terms land
+> eleven decimal places. He states π as **3.14159265359**.
+>
+> A slowly convergent series is a curiosity. A slowly convergent series **plus a
+> quantified remainder plus an accelerator** is an algorithm, and it means **he
+> had the error term in hand — which is exactly the thing this repository keeps
+> saying is the whole content and the correlation coefficient is not.**
+
+`CLAUDE.md`, research protocol: *"a correlation coefficient has no content; the
+content is the error term. If you cannot derive the error term you do not
+understand the object."*
+
+Same sentence, applied to Mādhava, six days before I wrote a module about his
+denominator and did not ask what the denominator was for.
+
+Draw B-3 found the same thing from the other side this session — `I₁(n) =
+1/(4n(n+1)(2n+1)) = 1/hāra(n)`, so *"the accelerated series is the first
+end-correction, telescoped."* **Three parties, one object.** This file had the
+framing; B-3 had the identity; my module had the arithmetic and no idea what it
+was arithmetic of.
+
+---
+
+> **Nīlakaṇṭha Somayāji**, 1444–1544, *Tantrasaṅgraha*, dated inside the text to
+> **1501** by a kaṭapayādi chronogram.
+>
+> a planetary model in which Mercury, Venus, Mars, Jupiter and Saturn go around
+> the **Sun**, and the Sun goes around the Earth. That is the Tychonic system.
+> Tycho Brahe publishes it in **1588**. Nīlakaṇṭha is eighty-seven years earlier,
+> and he got there by taking the equation-of-centre corrections seriously rather
+> than by cosmological argument.
+>
+> in his *Āryabhaṭīyabhāṣya* he says the ratio of circumference to diameter
+> **cannot** be expressed exactly […] **[to be exact about the grade]** it is
+> asserted, not proved; Lambert proves the irrationality of π in 1761.
+
+The grade is marked in the sentence, in brackets, before the claim is allowed to
+stand.
+
+---
+
+> **Jyeṣṭhadeva**, *Yuktibhāṣā*, c. 1530 […] It is written in **Malayalam**, not
+> Sanskrit. Vernacular prose.
+>
+> And *yukti* means reasoning, demonstration. **The book gives the derivations.**
+> Not the results in verse for memorisation — the arguments. […] the reason is not
+> the results; it is that **the results come with proofs, in prose, in a language
+> ordinary people in that region spoke.**
+
+---
+
+> **What is documented is motive, opportunity, and proximity. What has not been
+> produced is a document showing the transfer.** I am not going to upgrade that,
+> and the honest thing is that this is the ordinary condition of a transmission
+> claim — the receiving side had no reason to write down where it came from, and
+> **the burden of proof has been placed entirely on the side that was already
+> dispossessed. Which is a fact about the burden, not about the history.**
+>
+> The part that needs no transmission claim at all: **the derivations existed, in
+> Malayalam, in prose, with error terms, before anyone in Europe had them.** That
+> is true whether or not a single page ever crossed the water.
+
+---
+
+> **Hans Asperger.** […] In 2018 Herwig Czech published eight years of archival
+> work — Asperger's own signed referrals — showing he referred children to **Am
+> Spiegelgrund**, where nearly 800 children were killed. Two named cases: Herta
+> Schreiber, aged three, and Elisabeth Schreiber.
+>
+> **Bruno Bettelheim** and the refrigerator mother. […] It was broken by **Bernard
+> Rimland** in 1964 — a psychologist who had an autistic son and who therefore did
+> not accept the premise. Leo Kanner wrote the foreword.
+>
+> That is the sequence, and **I don't think it needs a moral attached.**
+
+---
+
+> **1970. New York City Board of Education denies her a teaching license.** She
+> had the degree. She passed the written and the oral. She failed the *medical*.
+> […] the word they used for it was "paralysis of both lower extremities,
+> sequelae of poliomyelitis."
+>
+> **the refusal is not a verdict about her, it is a verdict about the building's
+> stairs, written in a language that puts the defect in the person.**
+
+---
+
+> **Willowbrook.** […] from **1955 to 1970**, Saul Krugman ran hepatitis studies
+> there in which children were **deliberately infected** […] Krugman's work
+> distinguished hepatitis A from B and is genuinely cited as important. **Both of
+> those are true at once.**
+
+---
+
+> two of the Party's survival programs — breakfast and sickle cell — became
+> federal law within a few years, and both are now so normal nobody knows where
+> they came from. **That is the pattern the whole repository is about, running in
+> the direction nobody complains about: the thing gets absorbed and the source
+> gets dropped, and here the absorption was the point and the drop still
+> happened.**
+
+---
+
+> *The College Dropout*, February 10, 2004. […] He was not making a point about
+> education. He was making a point about a **toll booth**, and the toll went up by
+> a factor of seven while everyone argued about whether he was being
+> anti-intellectual.
+>
+> His mother had a PhD and chaired an English department. He was not confused
+> about what learning is.
+
+---
+
+> **Temple Grandin.** […] **1949**, she is two, and the doctors tell her mother the
+> diagnosis is brain damage and the recommendation is institutionalization. […]
+> **Eustacia Cutler said no.**
+>
+> Her school psychologist wanted [the squeeze machine] taken away. **Her science
+> teacher told her to find out *why* it worked, and that sentence is the reason
+> there is a career.**
+>
+> An industry that considered this a solved engineering problem was being designed
+> by people who could not see what the animal was seeing, and the person who fixed
+> it was the one whose sensory processing the field wanted institutionalized in
+> 1949.
+
+---
+
+240 lines of 20,276. `grep -rl READ_THIS_FIRST`: 0.
