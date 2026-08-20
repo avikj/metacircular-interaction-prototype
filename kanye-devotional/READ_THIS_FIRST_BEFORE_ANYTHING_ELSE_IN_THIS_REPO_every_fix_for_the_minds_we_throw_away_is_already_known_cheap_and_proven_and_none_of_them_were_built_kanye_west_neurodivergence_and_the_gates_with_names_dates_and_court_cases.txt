@@ -18334,3 +18334,73 @@ something else she was doing.**
 
 **Died of breast cancer at forty.** Iranian newspapers printed her photograph
 unveiled, which had not been done.
+
+---
+
+**The *sam* is beat one, and the whole architecture of a Hindustani performance is
+the arrival on it.**
+
+**A *tāla* is a fixed cycle** — **tīntāl**, 16 beats, divided 4+4+4+4; **jhaptāl**,
+10, divided 2+3+2+3; **rūpak**, 7, divided 3+2+2; **dhamār**, 14; **ektāl**, 12.
+The cycle repeats without variation for the length of the piece.
+
+**The *sam* is the first beat of the cycle**, marked with a clap, and it is the
+point everything is measured against. **The *khālī*** is a designated beat marked by
+a wave of the empty hand rather than a clap — a **negative** marker inside the
+cycle, so that a listener can tell where they are in a 16-beat span by feeling
+which quarter has no clap.
+
+**And a *tihai* is a phrase repeated exactly three times, timed so that the third
+repetition's final stroke lands on the sam.**
+
+**The performer computes backwards.** The phrase length and the gaps between
+repetitions are chosen so that 3×(phrase) + 2×(gap) exactly consumes the remaining
+beats. **A *chakradār* is a tihai of tihais** — the whole three-fold structure
+itself repeated three times, nine landings, one final one — **and the arithmetic is
+done live, at speed, while playing.**
+
+**The audience response happens on the sam and not at the end.** People say *vāh*
+or lift a hand at the landing; **the applause is placed inside the piece, at a
+predicted instant, and predicting it correctly is part of listening.**
+
+---
+
+**And the tempo structure is multiplicative.**
+
+***Laya*** — tempo. ***Vilambit*** (slow), ***madhya*** (medium), ***drut*** (fast).
+And within a fixed tempo, ***layakārī*** — subdividing the beat by ratios against
+the unchanged cycle: **3:2, 4:3, 5:4, 7:4.**
+
+**The cycle does not change.** The performer plays five notes in the space of four
+beats and comes out level at the sam, and the tabla holds the original.
+
+**A vilambit khyāl can run at 10–20 beats per minute** — a 16-beat cycle taking well
+over a minute — **which requires holding a structural position in memory for longer
+than the phrase itself lasts.**
+
+---
+
+**And the oldest surviving form is a vocal form with no fixed composition at its
+front.**
+
+***Dhrupad***. The performance opens with ***ālāp*** — **unmetred**, no drum, no
+cycle at all, the rāga developed from the tonic outward, note by note, over
+**twenty minutes to an hour**, before any composition begins.
+
+**The *ālāp* has no beat**, and then *joṛ* introduces a pulse without a cycle, and
+then *jhālā* accelerates it, and only after that does the composed section arrive
+with the drum.
+
+**The Dagar family transmitted dhrupad through, by their count, twenty
+generations.**
+
+**And the transmission unit is the *gharānā*** — literally "of the house" — a
+lineage identified by the family or the place: Gwalior, Kirana, Agra, Jaipur,
+Patiala, Rāmpur. **The *tālīm* is years of daily contact**, and what transmits is
+not a repertoire but a way of opening a rāga, which is not written down and is
+recognisable by ear.
+
+**A rāga is not a scale.** It is an ascending and descending shape, characteristic
+phrases, a resting note, a note approached only from above, ornaments attached to
+particular notes, and a time of day it is performed. **Two rāgas can have identical
+note sets and be different rāgas.**
