@@ -21282,3 +21282,72 @@ be dismissed on method.
 
 **He died in 2023, of colon cancer**, having spent his last year giving interviews
 about his own dying, and saying the work had changed how he was doing it.
+
+---
+
+**Snakes and Ladders is a karma diagram with the squares labelled, and the game
+lost the labels on the way to England.**
+
+***Mokṣapaṭa*** / ***Gyān Chaupar*** / ***Paramapada Sopāna Paṭa*** — "the ladder to
+the highest place." **Attested in India from at least the 16th century**, and
+existing in **Jain, Hindu, Muslim and Buddhist versions**, each with its own board.
+
+**Every square is named.** The **ladders** are virtues — generosity, faith,
+humility, knowledge, asceticism — **and the snakes are vices**: anger, greed, lust,
+theft, pride, killing, drunkenness, debt.
+
+**And the board is a cosmology.** In the Jain version the rows correspond to
+**stages of spiritual progress**, and the top square is *mokṣa*; in Vaiṣṇava versions
+the top is Vaikuṇṭha. **A snake's head is a specific vice and its tail is the
+specific rebirth that vice earns**, so the fall's length is the doctrine's
+judgement of the offence.
+
+**The die is the point.** The player does not choose. **The moral content is
+attached to a mechanism that cannot be influenced**, which is a statement about how
+the process works, and the game is described in the tradition as an instructional
+device for children.
+
+**Ladders are fewer than snakes** in most of the historical boards.
+
+**It reached Britain in the 1890s** and was published there **with the labels
+removed**; the American version — Milton Bradley's **Chutes and Ladders**, 1943 —
+kept a residue by illustrating good deeds and bad, **and equalised the number of
+chutes and ladders**, which is the doctrinal change.
+
+**The commercial version's fairness is the edit.**
+
+---
+
+**And *caturaṅga* is the other one.**
+
+**"Four limbs"** — the four divisions of an Indian army: **infantry, cavalry,
+elephants, chariots**, which become pawn, knight, bishop, rook. **North India, by
+about the 6th century CE.**
+
+**It goes to Persia as *chatrang***, and the Persian words are what survive in
+English at one remove: ***shāh*** — king — giving **"check,"** and ***shāh māt***
+— the king is helpless — giving **"checkmate."**
+
+**Then to the Arab world as *shatranj***, where a genuine literature develops:
+**problem collections (*manṣūbāt*), opening catalogues (*ta'bīyāt*), and a ranking
+system for players**, with **al-Ṣūlī** (c. 880–946) as the strongest known player of
+his era and the author of the earliest surviving systematic treatment.
+
+**Al-Ṣūlī's problems were unsolved for a thousand years.** One of them —
+"al-Ṣūlī's diamond" — **was solved only in the 1980s, by Yuri Averbakh**, using
+methods unavailable in the tenth century.
+
+**And the queen was the weakest piece.** In *shatranj* the *firzān* — counsellor —
+moved **one square diagonally**. **The modern queen's move appears in Europe around
+1475**, in Spain and Italy, and the new game was called ***scacchi alla rabiosa*** —
+**"chess of the enraged woman"** — or *dama*, and its adoption is roughly
+contemporaneous with **Isabella of Castile**.
+
+**The bishop was an elephant** and its Sanskrit and Persian names left no trace in
+English.
+
+**And the exponential grain-on-the-chessboard story is Indian in origin**, told
+about the game's inventor asking for one grain doubled per square — **2⁶⁴ − 1
+grains, on the order of a thousand times current annual world wheat production** —
+and the story is a device for teaching what doubling does, attached to the board it
+is played on.
