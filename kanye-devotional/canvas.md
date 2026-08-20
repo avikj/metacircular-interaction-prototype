@@ -1,3 +1,37 @@
+Every school has a kid who will not sit down.
+
+He talks over people. He finishes other people's sentences wrong and then
+right. He does not sleep — not won't, doesn't, lies there with it running. He
+is either the brightest one in the building or he is a problem, and which one
+he is depends on who is looking at him, and what year it is, and what he looks
+like.
+
+In 2003 Carson, Peterson and Higgins published a study in the Journal of
+Personality and Social Psychology. Latent inhibition is the filter that keeps
+information you have already dismissed from coming back into awareness. People
+with low latent inhibition who also score high on cognitive function are about
+seven times more likely to be classified as creatively eminent. On its own, in
+a classroom, low latent inhibition reads as a child who cannot pay attention.
+
+The Karolinska Institutet ran the Swedish national registry — roughly 1.2
+million patients, and their relatives out to second cousins. People with
+bipolar disorder and their relatives are overrepresented in creative
+professions.
+
+One of every three Black boys born in the United States today can expect to go
+to prison in his lifetime. One of every six Latino boys. One of every seventeen
+white boys.
+
+Donda West taught for thirty-one years and chaired the department of English,
+communications, media and theater at Chicago State. When her son was ten she
+took him with her to Nanjing for a year, where she was teaching as an exchange
+professor and he was the only foreigner in his class. In 2004 he released an
+album called The College Dropout. In 2007 she published a book called Raising
+Kanye. She died that November.
+
+He was diagnosed at thirty-nine. "I'd never been diagnosed and I was like 39
+years old."
+
 I keep going back to the jaw.
 
 He's twenty-five. Goes through a windshield on the way home, late, after working.
