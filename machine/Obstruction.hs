@@ -583,10 +583,24 @@ curriculum ls =
 -- EXIT=0).  What follows is the measurement.
 --
 -- THE OBSERVATION THAT FORCED THIS.  Two lines of machine/machine.log,
--- verbatim, both round 0:
+-- verbatim, both round 0.  QUOTED, NOT POINTED AT: that file is gitignored
+-- and is rewritten by every engine run, so no commit fixes its bytes and
+-- no line number names anything in it.  The quotations below ARE the
+-- object; the file is named as history.  (This paragraph used to read
+-- "146 ... / 174 ...".  Both numbers rotted -- position 146 today is a
+-- KERNEL-SKIP of a different claim -- and the citation went on resolving
+-- after the object had gone, which is exactly the failure the sevenfold
+-- below is about.  Registered as `uddhrta` in machine/mula.pramana and
+-- checked by machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs.)
 --
---   146  KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
---   174  KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
+--   as quoted 2026-08-18:
+--     KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
+--     KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
+--
+--   as the log stands 2026-08-20 -- the same claim, still both ways, and
+--   the refusal now given a different ground, which is itself the finding:
+--     KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 4 agda calls)
+--     KERNEL-REJECT round=0 x = (xmaxx)  (4 agda calls) [naya=induction on x] kernel gate environment fault
 --
 -- Same claim, same round, denied and affirmed.  The verdict was never a
 -- property of the claim; it is a property of the (claim, standpoint) pair,
@@ -911,19 +925,21 @@ selfTest = do
     st = sthana . evidenceOfReject acc
 
     sap =
-      [ -- THE CASE THE WHOLE THING IS FOR.  machine.log:146 denies it under
-        -- refl; machine.log:174 affirms it under induction, same round.
+      [ -- THE CASE THE WHOLE THING IS FOR.  The log denies this claim under
+        -- refl and affirms it under induction, in the same round.  The
+        -- REJECT string below is the citation: quoted, because machine.log
+        -- is gitignored and regenerated and no position in it holds still.
         -- syad asti-nasti, taken KRAMA.  Neither line is wrong.
-        ( "krama: x = max x x, denied at 146 and affirmed at 174"
+        ( "krama: x = max x x, denied under refl and affirmed under induction"
         , st "  KERNEL-REJECT round=0 x = (xmaxx)  (0 agda calls) cached: x != max x x of type \8469 when checking that the expression refl has type x \8801 max x x"
         , Position B3AstiNasti )
 
-        -- machine.log:251.  Same shape, but no naya in the log affirms it.
+        -- Same shape, but no naya in the log affirms it.  Quoted, not pointed at.
       , ( "nasti only: no accept line anywhere for this claim"
         , st "  KERNEL-REJECT round=5 x = -((x+y),y)  (2 agda calls) base clause: x != x + zero of type \8469 when checking that the expression refl has type x \8801 x + zero \8760 zero"
         , Position B2Nasti )
 
-        -- machine.log:4379.  The refusal mentions a section `cong (x ·_)`,
+        -- The refusal quoted below mentions a section `cong (x ·_)`,
         -- which is outside the language of standpointed predication: no
         -- Vacana is formable, so nothing single-standpointed denotes it.
         -- This is `Unparsed` read as what it always was.
@@ -931,7 +947,7 @@ selfTest = do
         , st "  KERNEL-REJECT round=0 le(x,0) = -(s(0),(x*x))  (8 agda calls) x \183 le x zero != zero of type \8469 when checking that the expression cong (x \183_) (candidate x) has"
         , Position B6NastiAvaktavya )
 
-        -- machine.log:159.  `x != y`: two distinct free variables.  There is
+        -- `x != y`: two distinct free variables.  There is
         -- no dharmin, so there is no bhanga -- and note the claim IS in the
         -- accept stream, so a careless reading would have made this B3.
       , ( "adharmin: x != y has no subject, so no bhanga (not forced into one)"

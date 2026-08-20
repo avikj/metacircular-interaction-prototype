@@ -54,10 +54,17 @@
 -- a Bool collapsing at least three distinct things, and replaces it with a
 -- three-valued type.  The doctrine says the collapse goes further than
 -- that, and says by how much.  Two facts from `machine/machine.log`, both
--- verbatim, both at round 0:
+-- at round 0, QUOTED VERBATIM AND NOT POINTED AT — that file is gitignored
+-- and is rewritten by every engine run, so no commit fixes its bytes and no
+-- position in it names anything.  The quotations below ARE the object:
 --
---   line 146  KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
---   line 174  KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
+--   as quoted 2026-08-18:
+--     KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
+--     KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
+--
+--   as the log stands 2026-08-20 — the same claim, still both ways:
+--     KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 4 agda calls)
+--     KERNEL-REJECT round=0 x = (xmaxx)  (4 agda calls) [naya=induction on x] kernel gate environment fault
 --
 -- The SAME claim, in the SAME round, denied and affirmed.  Nothing about
 -- the claim changed.  What changed is the standpoint: `refl` and
@@ -132,10 +139,24 @@ private
 -- §1's content is that the three standpoints are pairwise distinct
 -- (`rewriter≢refl` and its two siblings, proved below), not that any one
 -- of them is popular.  This file's own header quotes two individual log
--- LINES verbatim (146 and 174) instead of an aggregate; because the log is
--- append-only those two were re-checked on 2026-08-18 and are still exact.
--- That is the citation form that survives growth — quote the line, never
--- the total.
+-- LINES verbatim instead of an aggregate.
+--
+-- CORRECTED 2026-08-20.  This paragraph used to name the POSITIONS (146 and
+-- 174) and argued that an append-only log makes a position durable.  It
+-- does not, and the log is not append-only across runs — it is regenerated,
+-- and it is gitignored, so nothing can pin it at all.  Both numbers have
+-- since rotted: position 146 today is a KERNEL-SKIP of a different claim,
+-- and the refl-typed refusal that was quoted is no longer anywhere in the
+-- file.  Quoting the line was right; naming where the line sits was not.
+--
+--     A REPLAY MUST NAME A FIXED OBJECT: a commit hash, a text pattern, an
+--     invariant.  Never a position, never a quantity the record is inside,
+--     never a HEAD-relative query.
+--
+-- Registered as `uddhrta` in `machine/mula.pramana` and checked by
+-- `machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`, which
+-- does not export the constructors of its designation type, so a citation
+-- naming a position cannot be built at any call site.
 --
 -- Collapsed to the three that disagree with each other in the log.
 -- Siddhasena's 1.28 licenses this: as many nayas as ways of speaking.
@@ -281,8 +302,8 @@ naya-not-pramana kernel-ind =
 ------------------------------------------------------------------------
 -- §5  AVAKTAVYAM — the load-bearing section
 --
--- THE CLAIM BEING MODELLED is the one in the log twice, at lines 146 and
--- 174: affirmed by the rewriter, denied by kernel-refl.  Its joint content
+-- THE CLAIM BEING MODELLED is the one the log carries twice — affirmed by
+-- the rewriter, denied by kernel-refl; both quotations are in the header.  Its joint content
 -- — the thing both lines are jointly about — is this predicate on
 -- profiles:
 --
@@ -463,7 +484,8 @@ saptabhangi-equiv = isoToEquiv saptabhangi-iso
 -- kernel-refl's (`0 agda calls`, cached, and treated as the verdict).
 --
 -- `machine-profile` is `x = max x x` as the log has it: affirmed by the
--- rewriter, denied by refl (line 146), affirmed by induction (line 174).
+-- rewriter, denied by refl, affirmed by induction on x — the two
+-- quotations carried in this file's header.
 ------------------------------------------------------------------------
 
 machine-profile : Profile
