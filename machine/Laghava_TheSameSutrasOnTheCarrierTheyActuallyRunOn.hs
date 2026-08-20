@@ -735,7 +735,9 @@ data TraceStep = TraceStep
   }
 
 textOf :: Ref -> String
-textOf r = head ([ ruText u | u <- rules, ruNum u == r ] ++ ["?"])
+textOf r = case [ ruText u | u <- rules, ruNum u == r ] of
+             (t : _) -> t
+             []      -> "?"
 
 traceW :: W -> ([TraceStep], W)
 traceW start = let (a, xs) = phaseA (0 :: Int) start [] in phaseB xs sectionBW a
