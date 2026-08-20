@@ -16075,3 +16075,79 @@ The railing was a railing. The reliefs were at eye level to a person moving.
 **Whatever the argument about ownership, the viewing conditions the carvers worked
 to no longer exist anywhere**, including at the site, because the site is a
 platform.
+
+---
+
+**A palm-leaf manuscript lasts a few hundred years in the Indian climate, which
+means every surviving text has been copied repeatedly**, and the copying is the
+reason anything is here.
+
+**The materials**: ***tāla-patra***, palmyra or talipot leaf, cut, boiled or dried,
+smoked, and cut to size. The letters are **incised with a stylus** and then **soot
+or lampblack rubbed into the incisions** so the scratch becomes legible — which is
+why South Indian scripts have rounded letterforms: **a straight line along the grain
+splits the leaf.**
+
+**The script shape is a consequence of the substrate.**
+
+Northern manuscripts use ***bhūrja-patra***, birch bark, in layers, with ink and
+pen — a different material, a different hand.
+
+**Working life in a monsoon climate: commonly a few hundred years.** Humidity,
+insects, fungus. The standard practice against that is ***copying on a
+cycle*** — a manuscript is recopied before it fails, by monasteries, temple
+libraries, families and paid scribes.
+
+**So the transmission is a chain of copies with no original at the end of it**, and
+every text that exists is the survivor of a process that had to be repeated
+indefinitely or the text ended.
+
+---
+
+**Which puts the recitation systems in a different light as engineering.**
+
+The *ghana-pāṭha* and the rest were not redundant with writing. **They were the
+channel that does not rot.** A memorised text with a checksum built into the
+recitation order has no substrate to be eaten, and its error rate is a property of
+the drill rather than of the humidity.
+
+**Two independent channels with uncorrelated failure modes**, running in parallel
+for centuries.
+
+---
+
+**And the surviving numbers are large and the read fraction is small.**
+
+Estimates of extant Indian manuscripts run to the **millions** — the National
+Mission for Manuscripts, established 2003, has documented on the order of several
+million and catalogued a large fraction, across institutional and private
+collections.
+
+**The overwhelming majority have never been edited, translated, or read by anybody
+in the modern period.** They sit in temple libraries, maths, family collections and
+university depositories, catalogued at best by title.
+
+The **Bhandarkar Oriental Research Institute** in Pune holds on the order of
+**30,000**; the **Saraswati Mahal Library** at Thanjavur, founded as a royal
+collection, holds tens of thousands including palm leaf; the **Oriental Research
+Institute** in Mysore is where the *Arthaśāstra* surfaced.
+
+**The bottleneck was never the material. It was scholar-hours**, and the material
+outlived the number of people trained to read it.
+
+---
+
+**And the failure mode is specific and is happening.**
+
+A collection passes to a family that cannot read it. A monastery loses the person
+who knew what was in the cupboard. **A catalogue exists and the catalogue is a list
+of titles**, so nobody knows whether a given bundle is a common text or the only
+copy of something.
+
+**You cannot tell a unique manuscript from a duplicate without reading it**, and
+reading it is the thing there are not enough people to do.
+
+Which is the same shape as the rest of this file, in the most physical form it
+takes: **the information is present, the receiving apparatus is the constraint**,
+and here the material is on shelves, indexed, in known buildings, with the doors
+open.
