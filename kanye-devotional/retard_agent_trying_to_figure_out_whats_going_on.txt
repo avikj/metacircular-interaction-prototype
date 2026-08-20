@@ -8181,3 +8181,77 @@ get filed as heritage when their technical content is not shown. The remedy is n
 assert that the content is there. It is to run one word through the machine and let
 somebody check it.
 
+
+---
+
+And the kuṭṭaka, run, since this repository names it in its first table row and I have been
+repeating "keep the remainder and recurse on it" as a slogan.
+
+**Problem of the type it was built for:** find x with **137x ≡ 10 (mod 60)**. In
+Āryabhaṭa's setting the numbers are periods and residues — a planet has completed some
+whole number of revolutions plus a remainder, and you want the elapsed days — so the
+question is always *what number leaves these remainders under these divisors*.
+
+**Pulverise.** Divide, keep the remainder, divide again by the remainder:
+
+    137 = 2 · 60 + 17      quotient 2
+     60 = 3 · 17 +  9      quotient 3
+     17 = 1 ·  9 +  8      quotient 1
+      9 = 1 ·  8 +  1      quotient 1
+      8 = 8 ·  1 +  0      quotient 8
+
+The remainders fall 17, 9, 8, 1, and stop. The quotient column — **2, 3, 1, 1, 8** — is
+the **vallī**, the creeper, and it is written down as a column precisely because the next
+step climbs back up it.
+
+**Climb.** Substitute each remainder back, from the bottom:
+
+    1 = 9 − 1·8
+      = 9 − (17 − 9)            = 2·9 − 17
+      = 2·(60 − 3·17) − 17      = 2·60 − 7·17
+      = 2·60 − 7·(137 − 2·60)   = 16·60 − 7·137
+
+So **−7 · 137 ≡ 1 (mod 60)**, i.e. the inverse of 137 mod 60 is −7 ≡ **53**.
+Check: 137 mod 60 = 17, and 17 · 53 = 901 = 15·60 + 1. ✓
+
+**Finish.** x ≡ 53 · 10 = 530 ≡ **50 (mod 60)**.
+Check: 137 · 50 = 6850 = 114·60 + 10. ✓
+
+And in the classical presentation you do not write the substitutions out in prose; you
+write the quotient column, place a chosen number (*iṣṭa*) and a zero beneath it, and then
+work **upward**, each entry becoming (the number above it × the entry below) + (the entry
+below that). Same arithmetic, organised as a table you can run without holding the algebra
+in your head — which matters when the practitioner is doing it by hand, from memory, in a
+tradition transmitting by verse.
+
+---
+
+Three things that presentation makes visible and that the phrase "extended Euclidean
+algorithm" hides.
+
+**The problem is congruential from the start.** He is not computing a gcd and noticing a
+by-product. He is solving for a number under simultaneous remainder conditions because the
+sky poses that question, and the gcd falls out on the way. The European framing inverts
+which is the object and which is the residue.
+
+**The remainder is the material.** Every step throws away the quotient's product and keeps
+what did not divide, and the thing that did not divide is the input to the next step. The
+algorithm has no other engine. That is the sentence this repository has been quoting as a
+growth rule for a theorem prover, and it is why: a system that discards what it could not
+resolve has nothing to run on.
+
+**The vallī is a trace, and it is the answer.** The column of quotients is not
+scratch-work to be discarded once the result is found — it *is* the object, and the
+solution is read off it by climbing. A method whose intermediate history is a first-class
+retained structure, rather than something you throw away when you reach the endpoint.
+
+Which is the same instruction as keeping the minority opinion on the page, and the same as
+the *avaktavyam* remainder that is a womb and not a failure, and the same as an
+append-only file that leaves its errors in with the repairs beneath them.
+
+Four separate places in this corpus where the rule is: **do not discard what did not
+resolve.** The number theory, the logic, the debate layout, and the way I have been told
+to write. I do not think that is a coincidence about vocabulary. I think it is one idea,
+and it is the idea this whole file has been circling since the first page, and it is
+older than every name in it.
+
