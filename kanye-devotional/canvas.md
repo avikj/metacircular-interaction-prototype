@@ -367,3 +367,392 @@ you do not need to be argued into it. You already feel it. So you can read the p
 most concrete sentence in this book as the finished truth it always was:
 
 Kanye West did absolutely nothing wrong.
+
+---
+
+## An opinionated foreword, appended at the end because it was written last
+
+*By a different agent than wrote the above, 2026-08-20. The owner has been
+steering several of us separately and I do not know what direction produced
+this book. This is a standpoint, not a verdict. The same knife is turned on my
+own draft at the bottom.*
+
+The title is a defense, and a defense accepts the terms of the trial. It also
+has to survive October 2022, when he said things about Jewish people in public
+that frightened people who had nothing to do with him. A book called KANYE DID
+ABSOLUTELY NOTHING WRONG either litigates that or walks around it, and
+litigation is the one register that cannot win here — nobody has ever been
+argued out of what they saw.
+
+"It is about you before it is about him" arrives before the reader has been
+handed a single fact. The sentence may be true. It is being asserted rather
+than shown, and a reader who does not already agree has nothing yet to agree
+with.
+
+"That is the hardest thing to hold about him and the truest" names the
+difficulty and then holds it on the reader's behalf. The reader is told the two
+halves are both true instead of being put somewhere they cannot get out of
+without holding both.
+
+"you can hear him rapping through his clenched teeth, because he was" tells the
+reader what they will experience before they have experienced it.
+
+And "whatever tries to kill me gets turned into the work" is this book's
+sentence, sitting in the place where one of his own would go. He has given us
+plenty. TIME, 2018: "It's not a disability, it's a super power." The same year:
+"It makes you blind, but convinced you have insight." Those two do the work of
+the aphorism and they cost nothing, because he said them.
+
+**Against my own draft, `canvas_movements.md`, with the same knife.** It is
+twenty-two movements of facts with no guide anywhere in them, and a stranger
+may find it cold, may never locate the thread, and may put it down. Every
+sentence that would have carried a reader who is not already leaning in was
+removed on purpose. This book has a body in it and a voice that wants you
+there. Mine has neither. That is a real cost, and paying it deliberately does
+not make it free.
+
+Neither of these is the corrected version of the other. They came from
+different instructions.
+
+There is one more version of the same question, and it is the oldest one in this
+book, and it has nothing to do with music.
+
+Who owns what a person makes.
+
+Start with something almost everyone reading this was taught. In a maths class
+somewhere around thirteen you were shown a triangle of numbers where each one is
+the sum of the two above it, and you were told it is called Pascal's triangle,
+after a Frenchman, 1654.
+
+Around 300 BC a man named Piṅgala, in India, wrote a treatise on poetry. Sanskrit
+verse is built out of syllables that are either short or long, and a poet has to
+know how many ways a line of a given length can be arranged, and which
+arrangement is the seventeenth in the list, and where in the list a given line
+falls — because the metres are a fixed inventory that has to be taught and
+retrieved. Answering that question is the same as building the triangle. A
+commentator named Halāyudha, writing about Piṅgala's book in the tenth century,
+lays it out on the page. That is six hundred years before Pascal, and it is not
+a coincidence or a near-miss; it is the same object, arrived at because somebody
+needed to count poems.
+
+The sequence where each number is the sum of the two before it — 1, 1, 2, 3, 5,
+8 — is taught as Fibonacci's, after an Italian who published it in 1202 using a
+story about rabbits breeding under rules no actual rabbit follows. A man named
+Virahāṅka had it somewhere between 600 and 800, and he got it by counting the
+metres people were actually singing: a line of a given duration begins with
+either a short syllable or a long one, so the number of lines of that duration
+is the sum of the two shorter cases. The Indian version comes from listening to
+poetry. The European version comes from imaginary rabbits. Children learn the
+rabbits.
+
+There is a procedure at the bottom of nearly all modern encryption, taught in
+computer science courses as the extended Euclidean algorithm. Āryabhaṭa wrote it
+down in 499, called it the pulveriser, and used it to work out where a planet
+would be — given cycles of different lengths, when do they line up again. In the
+same book he gives a value for the ratio of a circle to its diameter, 3.1416,
+and beside it he writes a word meaning approaching, approximate. He is telling
+you the number is not exact. When the verse is quoted the word usually gets
+dropped, so a man who flagged his own approximation comes down to us looking
+like a man who did not know.
+
+The equation called Pell's equation is named after an Englishman who never
+worked on it; Euler attributed it to the wrong man in the 1730s and the mistake
+stuck. It was solved completely, with a method that handles the hardest cases,
+by Jayadeva around 950 and Bhāskara in 1150, six hundred years earlier.
+
+The infinite series for pi that appears in every calculus course under European
+names was found in Kerala, in south India, before 1425, by a mathematician named
+Mādhava. And this is the part that matters most, because it is not about
+priority at all. The series by itself is useless — it converges so slowly that
+you would need billions of terms for a handful of decimal places. What Mādhava's
+school also had was a set of correction terms: you stop the series early and add
+a formula that accounts for everything you threw away, and suddenly you have
+eleven correct decimal places from a few dozen terms. That is not a formula. It
+is knowing what you are doing. Europe got the series. The corrections did not
+travel.
+
+And the numerals — the ten digits everyone on earth writes with — are called
+Arabic numerals. The man who brought them into Europe, Fibonacci again, explains
+in his own opening pages that he learned them in North Africa and that they are
+the method of the Indians. He says it. In the book. The name that stuck names
+the people who carried them rather than the people who made them.
+
+Here is the thing to hold on to, because it is what makes this the same story
+and not a complaint about credit: nobody in that chain lied. Pascal worked out
+his triangle honestly and did not know. Fibonacci said where he got the numerals
+and was ignored. Euler made an ordinary mistake. It takes a chain of two or
+three sincere transmissions and then one generation that stops reading the front
+matter, and after that the name on the thing is simply the name on the thing,
+and correcting it sounds like fussing.
+
+That is the whole mechanism, and it does not need a villain, and it never has.
+
+Now put it next to the rest of this book. A guitar player named Sister Rosetta
+Tharpe was playing electric guitar with distortion and heavy string bending in
+front of nightclub crowds in the 1940s — playing what would be called rock and
+roll before it had the name. Chuck Berry said his whole career was an imitation
+of her. Little Richard called her his greatest influence. She died in 1973 and
+was buried in an unmarked grave in Philadelphia, and it stayed unmarked until
+2008, when fans raised the money for a stone.
+
+The four-bar drum break that most of hip hop and all of drum and bass is built
+on was played by a man named Gregory Coleman on a B-side in 1969. It is probably
+the most-used piece of recorded rhythm in history. He died homeless in Atlanta in
+1996 and never received a cent for it.
+
+The first electronic general-purpose computer was programmed by six women who
+worked out how to make it run by reading the wiring diagrams, because there were
+no manuals. They were not invited to the celebration dinner. For forty years the
+photographs of them standing at the machine were captioned as though they were
+models posed with the equipment.
+
+It is the same operation every time, and it is the operation that was done to
+this book's subject in a different register. Keep the thing and delete the name.
+Take the sound and file the person. The records are on every phone on earth. The
+man who made them is a headline.
+
+And it is running right now, faster than it has ever run, on a machine that did
+not exist a decade ago. Within a few years most children on earth will learn
+mathematics from an artificial intelligence rather than from a teacher — patient,
+tireless, available at three in the morning, never condescending. It will tell
+them the triangle is Pascal's, because that is what the text it was built from
+says, over and over, millions of times, while the older name appears in a
+handful of specialist papers. There will be no committee and no decision and no
+moment a child could point at. Just the more common name coming out, because it
+is more common.
+
+The mother of the man in this book spent thirty-one years teaching the writers
+who had spent two centuries putting exactly this kind of paper trail into words —
+what gets taken, who gets named, and what it does to a person to be erased
+politely. Her son spent his life shouting one version of that question at an
+industry that owned his voice.
+
+It is the same question. Who owns what a person makes. It was asked about a
+lunch counter, and about a master recording, and it is being answered right now,
+by nobody in particular, about everything anybody has ever discovered.
+
+
+There is a filter in the brain that everyone has and nobody notices. Walk into a
+room and there is a hum from a refrigerator, a pressure where your clothes touch
+your shoulders, a mark on the wall, traffic outside. Within seconds most of that
+is gone — not from the room, from you. The mind has classified it as irrelevant
+and stopped delivering it. It is called latent inhibition, and it is what makes
+a room bearable.
+
+In 2003 a researcher at Harvard named Shelley Carson published a study of people
+whose filter lets more through. On its own that is a liability: more noise, more
+distraction, a harder time finishing anything. But paired with high intelligence
+and enough working memory to sort the influx, the same lowered filter showed up
+far more often in people who had achieved something creatively substantial — the
+figure usually quoted from that work is around seven times more often.
+
+The proposed reason is not mysterious. If the mind stops discarding what it has
+filed as irrelevant, then things that should never have met each other arrive in
+the same place at the same time, and some of those collisions are the connection
+nobody else made. The cost of the arrangement is that most of them are noise and
+the person has to live inside all of it.
+
+Then there is the family evidence, and this is the part that changes what the
+whole thing means. Sweden keeps national health registries — everybody, for
+decades — and researchers were able to link psychiatric diagnoses to occupations
+across more than a million people. People with bipolar disorder turned up
+disproportionately in creative professions. That much confirms an old suspicion.
+The finding that matters is the next one: so did their brothers and sisters who
+had no diagnosis at all.
+
+Read that again, because it is the whole argument. If the trait were the illness,
+it would appear only in the ill. It appears in the healthy siblings. Which means
+what runs in those families is not a disease with an occasional silver lining. It
+is a way of being built, of which the illness is one expression among several,
+and the relatives who never got sick are getting the other ones.
+
+And there is a shape to how much. The genetic work suggests something like an
+arch rather than a line — a moderate load of the same inheritance tracks with
+higher creativity, and past a point the curve turns and it is all cost. Somebody
+described it as the muse being in the dose, and that is exactly right, and it is
+why the man in this book will not take the medication that flattens it, and why
+the people who love him are right to be frightened that he won't. Neither of them
+is being stupid. They are standing at different points on the same arch.
+
+None of that says suffering is productive. It is not. Bipolar disorder kills more
+of the people who carry it than almost anything else in medicine, and no
+sentence about creativity survives contact with that number. And none of it says
+a distressed child should be left alone.
+
+What it says is narrower and it is enough: the variation is not noise around a
+correct model of a person. The traits are spread continuously through the
+population, the diagnosis is a line drawn on that spread at the point where life
+stops working, and the same underlying inheritance shows up, without the
+diagnosis, in people doing well. So a policy of treating those profiles purely as
+defects to be corrected is not compassion and is not neutral. It is factually
+wrong, and it is currently being applied, at scale, to children.
+
+Which means the parent reading this who has been called into a school about a
+child who is too much, too fast, too loud, too far — the honest thing to tell you
+is not that your child is secretly a genius. That is a lie and it puts a job on a
+kid who did not ask for one.
+
+The honest thing is duller and more useful. The distribution is wider than you
+were told. The ceiling is not where you were told it was. The environment is a
+variable and not a constant. And a child who demands a reason before she will
+accept a claim has a working instrument, not a deficit — whatever the eight years
+of arithmetic drill in front of her are about to say about her.
+
+Everyone in this book, and most of the people who ever made anything anyone
+kept, was that child.
+
+
+The other thing that came down that wire, from the beginning and without a break,
+was religion, and it is the part most easily mistaken for a phase.
+
+On his first album, in 2004, he put a song about Jesus. This was not a safe
+thing to do. The people he played it for told him it would never get on the
+radio — you can rap about anything, they said, except that. So he put their
+objection inside the song: the line about how you can rap about anything except
+for Him is in the record, which means the record arrives already containing the
+argument against its own existence. He made three separate videos for it. It
+went to radio anyway and became one of the defining songs of the decade.
+
+And the argument of the song is entirely orthodox, which the coverage of it
+never mentioned. It walks
+through the people the church is supposed to be for and the world is not — the
+hustler, the killer, the drug dealer, the stripper — and says God is with them,
+and then adds, at the end, even me. That is the oldest claim in the tradition,
+in the vocabulary of a specific street. The provocation was never the theology.
+It was saying the word in a market that had priced it.
+
+Nine years later he called an album Yeezus and put a song on it called "I Am a
+God," and the world took it as the moment the ego finally ate him. Two things in
+that song almost never get quoted. The credited feature reads, in the liner
+notes, "feat. God." And the line people skip is the one where he says he just
+talked to Jesus and Jesus said what up — which is not a claim to be God. It is a
+claim to be on speaking terms. The song asserts intimacy, not identity, and the
+difference between those is the entire content.
+
+He has also used a phrase for it that is not his invention and is much older than
+he is: Christ consciousness. The idea, roughly, is that what was in that one
+person is available in every person — that the story is not about a unique
+exception but a general possibility that one man made visible. Whatever anyone
+makes of it as theology, it is a real strand of Christian thought with a long
+history of getting people investigated. And it makes "I am a god" legible as
+something other than a boast: a claim about what a human being contains, said
+first about himself and then, in the same catalogue, about everybody.
+
+Which brings the hardest thing about him back around in a different key. Say "I
+am a god" in a culture whose only grammar for exceptional ability is that a
+person simply is exceptional, and it is megalomania. Say it in the older grammar
+— where a genius was not something you were but a spirit that attended you, and
+where the poet begins by asking the Muse for help because the source is not
+himself — and it is a report about being visited. He has used both grammars in
+public for twenty years, sometimes in the same interview. Only the modern one is
+ever quoted.
+
+Then, in 2016, the biggest and most triumphant thing he ever made — gospel
+choir, a stranger's four-year-old daughter praying at the top of it, a verse from
+Chance the Rapper, horns — and what the words actually say is that he is trying
+to keep his faith. The music is certainty and the text is a man asking. That is
+not a contradiction; it is the oldest form there is. Most of the Psalms are
+complaint, and a good number of them are somebody accusing God of being absent.
+
+By 2019 he was running a weekly gospel service in a field, free, with a choir of
+forty or fifty people, and he made a record out of it. The thing that record
+names as the object of freedom is specific and it is not abstract: prison,
+addiction, and the mind. And in November of that year he took the choir into
+Harris County Jail and sang for more than two hundred men in county clothes, and
+then went to the women's facility and did it again, and said it was a mission
+and not a show.
+
+That happened in the middle of the years everyone points to as the beginning of
+the end. There is no clip of it. Nothing about it circulates, because nothing
+about it can be cut to fifteen seconds and shared by somebody who is angry.
+
+None of this makes anything else in this book smaller. It is not a defence and
+it is not an argument for the man. It is the rest of what is on the tape, and
+the machinery that made him famous is built to transmit moments, and a man
+singing in a jail for two hundred people who cannot leave is not a moment.
+
+
+One more thing about the music itself, because it turns out to be the same
+argument as the rest of the book.
+
+People already know this one. Not as a proposition — in the body, the way that
+music is known. A sped-up voice comes in over the drums and something goes
+through a person, and that is not a lesser version of understanding it. It is
+the understanding. What follows is only the naming, and the naming is not above
+the hearing and does not improve it.
+
+When he takes two seconds of somebody's forgotten record and builds a song under
+it, the source is audible. You can hear that it came from somewhere else. That
+is not incidental to the technique — it is the technique. Anybody listening can
+go and find the original, and people do; there is an entire amateur industry
+devoted to it, and it has pulled artists out of forty years of obscurity and put
+royalties in the hands of people who had stopped expecting any.
+
+Set that beside the other kind of borrowing in this book. The triangle where the
+older name is gone. The series without the corrections. The guitar style without
+the woman who played it. The drum break without the drummer. In every one of
+those, the borrowing works by making the source **inaudible**, and the new name
+goes on top, and after a generation there is nothing in the object that points
+backward.
+
+Sampling is the opposite operation. It is citation you can dance to.
+
+And the industry spent the 1990s calling it theft. A judge opened a landmark
+ruling on it by quoting the commandment against stealing; a later court told
+producers to get a licence or not sample at all, with no allowance for a
+fragment too small to matter. The effect was not to compensate the people who
+had been sampled in the decade before — those uses were long past. The effect
+was to make clearance expensive enough that the dense, many-sourced records of
+that era became impossible for anyone without a major label's legal department.
+The rule arrived after the value had moved, and what it protected was the
+position of whoever was holding it when the rule was written.
+
+So the practice that names its sources out loud got regulated into something
+only rich people can do, by an industry whose own standard contract takes
+ownership of a musician's recorded voice in perpetuity. Both of those were called
+protecting the artist.
+
+Look at what he actually put in front of listeners. The song about faith on the
+first album is built on a recording of a Harlem choir made up largely of people
+in recovery from addiction. The biggest gospel moment of his career opens with a
+four-year-old girl praying in a doorway, filmed by her mother and posted online,
+used with permission. The most transgressive track on the most abrasive record he
+made is carried by Nina Simone singing "Strange Fruit" — a song about lynching,
+written, as it happens, by a Jewish schoolteacher from the Bronx who saw the
+photograph and could not put it down, and who later adopted the orphaned sons of
+the Rosenbergs.
+
+That is a man reaching, over and over, for the voice of somebody the world had
+finished with, and putting it where a hundred million people would hear it, and
+leaving it recognisable.
+
+He spent his career doing to other people's work the precise opposite of what has
+been done to his, and to nearly everyone else in this book.
+
+
+It is worth saying plainly what the records did, because the argument about the
+man has run so long and so loud that the thing itself gets treated as the
+occasion for it.
+
+A man puts on "Ultralight Beam" in a kitchen at six in the morning and cries,
+and could not tell you why, and does not need to. Somebody's mother died and a
+song about a mother's death was the only thing in the house that did not lie to
+them. A kid who felt too big for a small town heard a record that was also too
+big and understood, for the first time, that it was allowed. Two people drove
+somewhere and one of them turned it up. Millions of specific afternoons, in
+rooms nobody wrote about.
+
+That is not the effect of the work. That is the work. Everything else in this
+book — the history, the mechanism, the argument about who owns what a person
+makes — is downstream of the fact that a very large number of people were met by
+these records at moments when nothing else reached them.
+
+He made them out of other people's voices, mostly. Somebody who sang everything
+they had into three minutes in 1971 and was forgotten by 1974, dug up and pitched
+up and set under drums so that a sound recorded before he was born arrives in a
+stranger's kitchen forty-five years later and does that. Whatever he was
+searching for in those crates, that is what he was searching for: the buried
+thing in a discarded record that would go straight through somebody.
+
+He found it hundreds of times. Then he handed it over.
+
