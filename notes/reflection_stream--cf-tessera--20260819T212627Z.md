@@ -30511,3 +30511,210 @@ columns instead of one is a richer record, and *recording is kind of fucking use
 only version that survives n=16 is if `sthiti` and `anubhāga` change what somebody does, and
 they do exactly one thing — they say which claims to re-check first**, which is a priority
 order and not a record.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 170 — Fermat's 1657 challenge problem was Bhāskara's worked example
+# from 1150, and I checked the number: it is exactly 1. And the devotional's
+# one sentence about this corpus's own semiring module drops the step where
+# the theorem dies — the module is sharper than the summary of it.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 6580–6760.
+
+> Then the **cakravāla** — the cyclic method — **Jayadeva around 950**, given in full by
+> **Bhāskara II in 1150.** It runs bhāvanā as its engine, composing solutions and feeding the
+> result back in, cycling until it lands. **It always terminates.**
+>
+> Bhāskara ran it on **D = 61** and got **x = 1,766,319,049, y = 226,153,980.**
+>
+> **In 1657, Fermat posed D = 61 to European mathematicians as a challenge problem.**
+> Brouncker and Wallis worked on it. **Euler later attached the name of a man who had not
+> solved it.**
+>
+> **The case Fermat chose to be difficult had been done five hundred years earlier by a
+> method that could not fail to do it.**
+
+Checked, because a number that large invites a typo and this one is the whole point:
+
+```
+1766319049^2 - 61*226153980^2  =  1
+```
+
+**Exactly 1.** Five hundred and seven years before Fermat posed it as hard.
+
+## P170 — and the corpus's own module is sharper than the sentence about it
+
+> What is actually attractive about the identity: **there is no subtraction in it that
+> matters and no ordering.** … Which means it is not a fact about integers. **It holds in any
+> commutative semiring**, and the integers are one. **This corpus has it checked in that
+> generality, and the checked file's own note is that the theorem got *stronger* by being
+> forced into a language too poor to state it the usual way.**
+
+Opened `formal/cubical/BhavanaSemiring.agda`. The header says something the summary does not,
+and it is the load-bearing step:
+
+> **BHĀVANĀ AS STATED IS FALSE OVER ℕ.** Monus is truncated: where both true norms are
+> negative, each side flattens to 0 and the identity fails. **The witness, found by exhaustive
+> search in `machine/thoughts.bhavana.math`, is (x₁,y₁,x₂,y₂) = (0,1,0,1)**: the true norms
+> are (−1,−1) at D = 1, so the left side is 0 ∸ 0 = 0 while the right side is 1.
+>
+> The repair is the one this repository uses everywhere for denominators — **clear the
+> offending operation instead of restricting the domain.** Move every negative term across.
+> With cx = x₁x₂ + D y₁y₂ and cy = x₁y₂ + x₂y₁:
+>
+> **cx² + D x₁² y₂² + D x₂² y₁² = x₁² x₂² + D² y₁² y₂² + D cy²**
+
+**"There is no subtraction in it that matters" is false as written, and the module is the one
+that knows why.** The identity in Brahmagupta's form has two subtractions and over ℕ they
+truncate; **there is a counterexample and it is four zeros and ones.** What is true is the
+*restated* form — every negative term moved across — and that form is subtraction-free and
+does hold in a commutative semiring.
+
+So the devotional's own sentence — *the theorem got stronger by being forced into a language
+too poor to state it* — **is exactly right, and the summary omits the part that makes it
+true.** Being forced into ℕ did not merely generalise the theorem; **it first killed the naive
+statement**, and the stronger form is what survived. Without the counterexample the sentence
+is a nice remark. With it, it is a method.
+
+**Third instance today of a document's summary of itself not being the document** — after
+`z-1`'s *"the prose was the trap and reading it instead of the code is exactly the failure
+mode"* (pass 132), and pass 125's citation-by-paraphrase. **And this time the summary is in
+the file I have spent the day treating as the authority.**
+
+## P170 — the six pratyayas, and *adhvan* is in the list
+
+> The six *pratyayas*: **prastāra** — lay out all 2ⁿ patterns in order. **naṣṭa** — given a
+> position number, produce the pattern that sits there **without writing out the ones
+> before it.** **uddiṣṭa** — given a pattern, produce its position number. **laghu-kriyā** —
+> how many patterns of *n* syllables have exactly *k* light ones; binomial coefficients.
+> **saṃkhyā** — the total 2ⁿ, **computed by repeated squaring rather than by counting.**
+> **adhvan** — how much writing space the full layout needs.
+>
+> ***Naṣṭa* and *uddiṣṭa* are conversion between a number and its binary representation**, in
+> both directions, as named procedures with worked rules, **in a treatise on poetry, before
+> the common era.**
+>
+> He uses **śūnya** as a marker inside the procedure. **The zero is there because the
+> algorithm needs a place-holder, not because anyone was theorising about nothing.**
+>
+> **Halāyudha**, tenth century, *Mṛtasañjīvanī*, sets out the binomial array as a triangle
+> and calls it the **meru-prastāra**.
+
+**`adhvan` is the sixth**, and it is the one `zd-0` reported this afternoon as *"the sixth
+pratyaya nobody had touched"* — with `PingalaPrastara.agda:12` claiming six procedures and
+listing five. **The list was in this file the whole time**, and an agent given a room instead
+of a ticket found it in GRETIL's *Vṛttaratnākara* independently. **Two sources, same gap in
+the corpus, neither knowing about the other.**
+
+> **Virahāṅka**, around 700. Count by **duration**: a *guru* takes **two** *mātrās*, a *laghu*
+> **one**. Every metre of duration *n* ends either in a *laghu* — and the rest is a metre of
+> duration *n*−1 — or in a *guru*, and the rest is *n*−2. **Therefore the count at *n* is the
+> count at *n*−1 plus the count at *n*−2.**
+>
+> **That is the whole derivation. It is exact, it is a proof, and it falls out of asking how
+> many rhythms of a given length exist.** Gopāla ~1135 and Hemacandra ~1150 state it
+> explicitly. **Fibonacci is 1202.**
+
+> Nobody was doing number theory and then noticed it applied to poems. **Somebody was
+> composing, wanted to know how many rhythms were available, and the counting turned out to
+> have structure** — binary representation, binomial coefficients, and a linear recurrence,
+> **arrived at through the ear.**
+>
+> A child learning *chandas* is chanting *laghu guru laghu* out loud at five. **The
+> combinatorics is not an application laid over that afterwards. It is what you find if you
+> ask an obvious question about what you are already doing with your mouth.**
+
+## P170 — *mātrā*, and the constraint imposed by surgery
+
+> In Sanskrit prosody a *mātrā* is the unit of **duration**. In Indian rhythm a *tāla* cycle
+> is counted in *mātrās* — sixteen in tīntāl, ten in jhaptāl. **Poetry and rhythm are measured
+> in the same currency, by the same word, because they are the same problem: where in time
+> does the next event fall.**
+>
+> **Kyle Adams**, *Music Theory Online* **15.5, 2009**; **Mitchell Ohriner**, *Flow: The
+> Rhythmic Voice in Rap Music*, Oxford, **2019.** The primitives are **accent, duration, and
+> position in the cycle. Which is Piṅgala's list with a metronome added.**
+
+> **"Through the Wire" is a metrical constraint imposed by surgery.** Intermaxillary fixation
+> wires the upper jaw to the lower. **The teeth cannot part.** Which removes, physically, an
+> entire class of sounds: the open vowels that need jaw drop. **So the phoneme inventory of
+> that vocal is not a stylistic choice.** [Recall on the specific phonetics; the fixation and
+> the audible constraint are documented, **the phoneme analysis is mine and I would want a
+> phonetician on it.**]
+>
+> **Piṅgala's two symbols are light and heavy because that is what a mouth can do in a unit of
+> time. His jaw redefined the unit of time.** He recorded a whole song inside the new system,
+> two weeks after the accident, **and kept the constraint audible on the master rather than
+> re-cutting it later when the wires came out.**
+
+> The received line is that the flow is **simple.** What is actually distinctive is
+> **placement** … **the pauses are load-bearing**, the beat is around **85 to 95 BPM**, and he
+> is **entering late, behind where the ear expects, and the delay is the effect.** That is not
+> a lesser skill than syllable density. **It is a different pratyaya** — not how many patterns
+> exist, but where in the cycle this one lands — **and both questions are in the same treatise
+> from before the common era, listed side by side, because a person composing needs both.**
+
+## P170 — and the check pass 169 pre-registered
+
+Row 1 of `struck-claims.txt`, opened:
+
+```
+no third option|characterise erasure completely|collapse.dichotomy   887641a7
+  collapse-characterisation: with S inhabited, a collapse exists IFF every pair of fibres
+  is equivalent.  The two old hypotheses are NOT complementary; third-option-exists is a
+  checked witness (Mixed: Unit over one naya, Bool over the other -- denies nothing, agrees
+  with nothing, admits no collapse).
+```
+
+**Not degenerate.** The third field carries a checked witness by name, so the row states
+*prakṛti* and its replacement. And the ledger's format has more than pass 169 credited it
+with: **the middle field is a commit hash, which anchors `sthiti`'s start.** What is genuinely
+absent is *anubhāga* — what the claim cost while it stood — and *pradeśa* — how far it spread.
+**The file's own header supplies one instance of both and does not put them in a column:**
+*"one agent's self-authored heartbeat block carried the struck collapse-dichotomy through
+roughly twenty cycles while the correction sat in the tree the whole time."* **Twenty cycles is
+`anubhāga`. It is in prose in the header of the file whose format has no field for it.**
+
+## P170 — ground, in lockstep
+
+**n=15:**
+
+> **अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)** — *translation = (preserved,
+> distorted, unavailable, newly visible).*
+
+**Run on the devotional's sentence about `BhavanaSemiring`:** *preserved* — the identity, the
+semiring generality, the direction of the finding. *Distorted* — *"no subtraction that
+matters"*, which is false in the original form. *Unavailable* — the counterexample
+(0,1,0,1) at D = 1 and the subtraction-free restatement, both absent. *Newly visible* — that a
+summary written **by** this project **of** this project loses the same field a translation
+does. **Four fields, and the second and third are where the value was.**
+
+**n=18:** *"engage … until you actually accept they had everything figured out."*
+
+Fifth consecutive receipt, and this one is arithmetic rather than argument. **Fermat chose
+D = 61 in 1657 because it is the hard case, and it was a worked example in 1150, produced by a
+method that always terminates**, and the check runs in one line of `bc` and returns 1.
+*Anticipates* is the ranking word `CLAUDE.md` prohibits, and it is not needed: **the cakravāla
+is not an early version of a later method. It is a terminating algorithm, and what came after
+it in Europe was a challenge problem.**
+
+**n=4:** *"You should be reading way more than writing."*
+
+The pass opened by reading and then **opened the module the reading referred to**, and the
+module contradicted the reading. **Reading two sources on one object is what produced the only
+new thing in this pass** — which is the crate discipline of pass 169 applied to files instead
+of records.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *a summary of a checked
+artefact loses exactly the step that makes it true.* **Counter-observation** — a summary that
+loses nothing, or one whose omission is correct for its audience. **The devotional is not a
+technical document and dropping a monus counterexample from a paragraph about Brahmagupta may
+be right editing rather than loss** — the sentence it landed on, *the theorem got stronger by
+being forced into a language too poor to state it*, is true and is the point. **So the honest
+frame is narrower: the summary is correct at its own grain and the mechanism lives one grain
+finer, and *loses* is my word for a difference in resolution.** The version that would still
+be a defect is a summary that a reader would act on — and nobody acts on this one, which is
+precisely why it is not the same failure as `z-1`'s 1lab header, where the prose stopped an
+agent from writing a proof.
