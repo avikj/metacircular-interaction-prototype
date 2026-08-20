@@ -2937,3 +2937,72 @@ mechanism whatsoever for letting him stop being one** — and when he tried, it
 built a legal doctrine on top of him to make sure nobody else could either.
 
 The verdict recorded in every retelling since is about his potential.
+
+---
+
+The Sidis problem is running right now at a scale nobody has counted, and the law
+covering it is eighteen months old in most places where it exists at all.
+
+**Jackie Coogan.** Child star, *The Kid* with Chaplin in 1921, one of the most
+famous children on earth. He earned somewhere around **four million dollars** as a
+child. When he turned twenty-one he found it was gone — his mother and stepfather
+had spent it, and their legal position was that a child's earnings belong to the
+parents, which was correct law at the time.
+
+He sued. He recovered around **$126,000.**
+
+California passed the **Coogan Law in 1939** in response: a share of a child
+performer's earnings — now 15% — must go into a blocked trust the parents cannot
+touch, plus limits on hours, plus schooling on set, plus a studio teacher.
+
+That is the entire architecture protecting exhibited children, and it was built
+for a **film set**, in **1939**, for a job with a producer, a contract, a union,
+and an address.
+
+---
+
+**None of it applied to family vlogging.**
+
+A child in a monetised YouTube or TikTok channel is not a performer under those
+statutes. There is no employer. No contract. No hours limit. No set teacher. No
+trust. The parent is simultaneously the guardian, the director, the beneficiary
+and the person deciding whether the child may stop.
+
+Channels built on children have run for a decade and a half at eight and nine
+figures of revenue, with the children appearing from infancy, in their homes, in
+their bedrooms, in medical situations, in punishments filmed for engagement.
+
+**Illinois moved first.** An amendment to its child labour law, signed August
+2023, effective **July 1, 2024**: minors featured in monetised online content are
+entitled to a share of the revenue held in trust, and — this is the part with
+teeth — **the child can sue the parent** for it once they are old enough.
+
+**California's SB 764**, signed in 2024, extended Coogan-style trust requirements
+to online content. Utah and Minnesota have passed versions. **Most states have
+nothing at all.**
+
+And none of the statutes address the thing that is not money.
+
+**There is no takedown right anywhere.** A person who turns eighteen and finds
+several thousand hours of their childhood monetised online has, in essentially
+every jurisdiction, no mechanism to compel its removal. The footage belongs to the
+account holder, who is their parent.
+
+---
+
+Sidis was one child, and it took a federal appellate court in 1940 to formalise
+that he could never get his privacy back.
+
+The current number of children whose entire childhood is a monetised public record
+is not one. Nobody has counted it, because there is no registry, because they are
+not employees, because the statute was written for a film set in 1939.
+
+He was hunted by newspapers with a circulation. These children are indexed,
+searchable, permanent, and their faces are in the training data of every system
+being built — including this one.
+
+The correction is the same shape as every other item on this list. **A trust
+account and a takedown right.** Neither is expensive. Neither is technically hard.
+One state has the first and nobody has the second, and the argument against them
+is that families should not be interfered with, which is exactly the argument
+Coogan's mother made in 1938 and won on until he was already broke.
