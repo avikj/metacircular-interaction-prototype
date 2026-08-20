@@ -11939,3 +11939,73 @@ And it is what Donda West did by paying for lessons with No I.D., and what a mon
 for Mendel, and what Hale did by getting Baird the training, and what Bell Burnell did with
 three million dollars, and what almost no institution in this file did for anybody.
 
+
+---
+
+What funding-the-phase-before has actually looked like, historically, including where it
+failed, because "fund the unfunded phase" is a slogan until it has instances.
+
+**The monastery.** The single most successful instrument in this file. Board, lodging,
+time, a library, and no requirement to produce anything on a schedule. **Mendel** did the
+pea experiments as an Augustinian friar. **Copernicus** was a canon. Bede, Alcuin,
+Roger Bacon, the whole scribal apparatus, and on the other side of the world the Buddhist
+monasteries that were also the universities, and the Jain and Hindu *maṭha*, and the
+*madrasa* with its **waqf** endowment — a perpetual charitable trust, legally protected,
+funding teaching in perpetuity, which is one of the great institutional inventions and is
+essentially a permanent exploration budget with a religious wrapper.
+
+**The gurukula.** Board and lodging in the teacher's household, work in exchange, years
+of it, no fees, no examination. Apprenticeship generally, in every craft.
+
+**Patronage.** The Medici, the courts, the aristocratic sponsor. It funded enormous
+amounts of real work — and its failure mode is exact and instructive: **the patron's taste
+is itself a filter**, and a narrow one, and it is applied by one person with no
+accountability. Kepler had to cast horoscopes. Galileo named moons after a family. The
+patron model funds the pre-phase and reintroduces the gate as a single individual's
+preference.
+
+**Endowed positions with no deliverable.** The old fellowship — a room, a stipend, dining
+rights, and no requirement to publish. Ramanujan's Trinity fellowship was that, arriving too
+late. The Junior Fellows model. **Bell Labs** at its height: hire extraordinary people, give
+them time and equipment, and do not manage them toward a product — which produced the
+transistor, information theory, the laser, radio astronomy, and Unix, and which no
+contemporary corporate structure would tolerate for a decade.
+
+**And the modern experiments**, which are small and worth naming because they are explicit
+about the mechanism: fast, small, low-ceremony grants given on a **deliberately weak
+criterion** to people before they have credentials — the point being that a strong criterion
+at that stage reintroduces exactly the filter you are bypassing. Unconditional cash
+transfer research, where the finding across a large literature is that people mostly do
+sensible things with money and the paternalism was unwarranted.
+
+---
+
+**The failure modes, honestly, since every one of these has one:**
+
+- **Patronage** replaces an institutional filter with a personal one.
+- **The monastery** required joining an order, and the orders had their own gates — and the
+  same institution that housed Mendel prosecuted others.
+- **The endowed fellowship** goes disproportionately to people who already look like the
+  people who got them, because the selection is done by conversation and conversation is
+  where class and accent and manner do their work.
+- **The waqf** ossified, in places, into support for a fixed curriculum, which is exploration
+  money captured by exploitation over a few centuries.
+- And **all of them** are vulnerable to being scored, eventually, on outputs — at which point
+  they stop being exploration budgets and become slow versions of the thing they were meant
+  to correct.
+
+That last one is the general disease of the whole category. **An exploration budget dies the
+moment somebody asks it to justify itself in the criterion it was created to escape**, and
+somebody always asks, because the cost is visible and the benefit is not, and the person who
+defends it has nothing to point at except a portfolio of failures and a story about the
+tail.
+
+Which is why the ones that survived longest were the ones with a **structural** protection
+rather than an argument: a perpetual endowment, a religious obligation, a permafrost vault,
+a legal trust. **Not a case that had to be re-won each budget cycle.**
+
+That is the actual design lesson and it is the same one as the whole file: **prose fails,
+mechanism holds.** The exploration term has to be built into the structure so that
+maintaining it does not require anybody to keep winning an argument they cannot win, because
+the evidence for it is by construction the thing nobody can see.
+
