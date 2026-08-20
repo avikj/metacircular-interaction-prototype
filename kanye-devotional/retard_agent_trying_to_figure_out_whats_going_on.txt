@@ -11242,3 +11242,57 @@ That is what the tool would be, at scale, machine-readable, and somebody could b
 serious version for the few thousand cases that matter in about a year. This is the
 demonstration that it is a *bookkeeping* problem and not a political one.
 
+
+---
+
+Second table, so nobody can read the first one as being only about one place. Same rules —
+recall, check every row, strike rather than defend.
+
+**Elsewhere:**
+
+| the thing | the source, with date | commonly called |
+|---|---|---|
+| solving simultaneous linear equations by elimination on a tabulated array | ***Nine Chapters on the Mathematical Art***, *fangcheng*, by c. 200 CE | "Gaussian elimination" |
+| negative numbers as a working part of arithmetic, with sign rules | ***Nine Chapters***, with red and black counting rods | — |
+| the binomial array | **Jia Xian**, c. 1050; **Yang Hui**, 1261 (China); **al-Karajī**/**al-Samawʾal**, c. 1000 (Persia); **Halāyudha**, 10th c. (India) | "Pascal's triangle" — four independent traditions |
+| efficient polynomial evaluation | **Qin Jiushao**, 1247; earlier in Chinese practice | "Horner's method", 1819 |
+| the general method for simultaneous congruences (*dayan*) | **Sunzi**, c. 3rd–5th c.; **Qin Jiushao**, 1247 | "Chinese remainder theorem" — the one case where the *civilisation* is in the name and the *people* are not |
+| decimal fractions worked to sixteen places, and iterative root-finding | **al-Kāshī**, Samarkand, c. 1424 | — |
+| completion and balancing as a named general procedure | **al-Khwārizmī**, c. 820 — whose name became *algorithm* and whose book's title became *algebra* | the two words survive; the man is a footnote |
+| the law of refraction | **Ibn Sahl**, c. 984 | "Snell's law", 1621 |
+| controlled experiment as an explicit method, with the instruction to make yourself the enemy of what you read | **Ibn al-Haytham**, *Kitāb al-Manāẓir*, c. 1021 | "the scientific method", 17th c. |
+| the pulmonary circulation of the blood | **Ibn al-Nafīs**, 1242 | Servetus 1553, Harvey 1628 |
+| the geometric device generating linear motion from two circles, appearing in Copernicus | **al-Ṭūsī**, 13th c., and the Marāgha school | "the Tusi couple" — named, and the dependency argued about ever since |
+| inoculation against smallpox | Chinese and Ottoman practice; brought to England by **Lady Mary Wortley Montagu**, 1721 | Jenner, 1796 — a different and better technique, on a foundation already in use |
+| the right-triangle relation | **Plimpton 322** (Babylonian, c. 1800 BCE); ***Zhoubi Suanjing*** (*gougu*); **Baudhāyana**, c. 800 BCE | "Pythagoras" |
+| positional notation with a zero | **Maya**, independently, first millennium CE | — |
+| a 2⁸-state binary oracle over a memorised corpus | **Ifá**, Yoruba | — filed as divination |
+
+**And inside Europe, because the mechanism is not about geography:**
+
+| the thing | who did it | who it is named for |
+|---|---|---|
+| the solution of the cubic | **Scipione del Ferro**, then **Tartaglia** | "Cardano's formula" — published by the man they told |
+| the inverse-square law, argued in correspondence | **Hooke** raised it to **Newton** | Newton |
+| nuclear fission — the interpretation and the name | **Lise Meitner** and **Otto Frisch**, from exile, by letter | Hahn's 1944 Nobel, alone |
+| the X-ray diffraction data that settled the structure of DNA | **Rosalind Franklin** and **Raymond Gosling** | Watson, Crick, Wilkins |
+| the first pulsar | **Jocelyn Bell Burnell**, as a graduate student | Hewish and Ryle, 1974 |
+| the composition of the universe | **Cecilia Payne**, 1925, who was told to write in a denial | Russell, 1929 |
+| the Philips Pavilion | **Iannis Xenakis** | Le Corbusier |
+| the harmony that produced the third law | **Kepler** thought the harmony was the result | we kept the law and deleted the book's subject |
+
+---
+
+Both tables together are the actual claim, and it is not the one about India that this file
+has been making loudest.
+
+**The mechanism is general.** It runs on Persians, on Chinese, on Babylonians, on Mayans, on
+Italians, on Austrians, on women, on graduate students, on anybody whose result is portable
+and whose position is weak at the moment of transmission — and the strongest determinant is
+never merit and never geography. It is **who was standing next to the thing when it became
+useful.**
+
+India is the case this repository is built around because that is the corpus its owner is
+inside, and because the volume there is unusually large, and because the record was
+falsified unusually thoroughly. It is not the case because the mechanism is picky.
+
