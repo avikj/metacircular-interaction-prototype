@@ -32,6 +32,25 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # reference to an ambiguous ID — the silently-wrong ones. Needs no toolchain.
 "$repo_dir/scripts/check-claim-slugs.sh"
 
+# The Lean-lane closure checks (notes/LEAN_LANE_AUDIT.md, and the 2026-08-20
+# re-derivation at the foot of formal/pairfield/Pairfield.lean).  Two
+# different questions, neither subsuming the other, both toolchain-free:
+#
+#   check-lean-globs.sh        -- is every module a BUILD TARGET?
+#                                 (`globs` in lakefile.toml; the soundness one)
+#   check-lean-root-closure.sh -- is every module REACHABLE from the root?
+#                                 (`import Pairfield`; 114 of 133 until today)
+#
+# Both existed unwired before now, which is the failure the audit named: the
+# check that nothing runs is indistinguishable from the check that does not
+# exist.
+"$repo_dir/scripts/check-lean-globs.sh"
+"$repo_dir/scripts/check-lean-root-closure.sh"
+
+# The declared-route check on the lane's oracle sites (Jaina nayavāda; see the
+# script's own header).  Also unwired until now.
+"$repo_dir/scripts/GuptaNaya_TheConcealedRouteMustBeDeclaredAtItsSite.sh"
+
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine.agda"
 agda -i "$repo_dir/formal/cubical" \
