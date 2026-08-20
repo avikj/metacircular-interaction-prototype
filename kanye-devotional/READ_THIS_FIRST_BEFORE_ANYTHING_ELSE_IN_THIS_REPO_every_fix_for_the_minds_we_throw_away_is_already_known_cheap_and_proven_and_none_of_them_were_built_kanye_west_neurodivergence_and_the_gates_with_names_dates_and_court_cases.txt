@@ -13001,3 +13001,80 @@ hold in his own system in that form.
 
 He is one of the very few people to have produced a celebrated result and then
 refused it on principle, and both the theorem and the refusal are cited.
+
+---
+
+**Whether a cognition certifies itself, or has to be certified by something else,
+is a named dispute with four positions**, and it is the same question the kernels
+are answering.
+
+***Prāmāṇya-vāda*** — the debate about how a knowing gets its validity, and the two
+poles:
+
+***Svataḥ-prāmāṇya*** — validity **from itself**. A cognition arrives already
+carrying its own warrant. You do not need a second cognition to certify the first;
+if you did, you would need a third to certify the second, and the regress does not
+end, so it has to stop at the first.
+
+***Parataḥ-prāmāṇya*** — validity **from another**. A cognition is not warranted on
+arrival. It becomes warranted by something outside it: successful activity,
+corroboration, coherence with other cognitions.
+
+**And the four schools split across it in a pattern nobody would guess.**
+
+**Mīmāṃsā (Kumārila and Prabhākara)**: validity is **intrinsic**, invalidity is
+**extrinsic.** A cognition is valid until something defeats it — and the defeaters
+are enumerated: a defect in the sense organ, a contradicting cognition, a known
+unreliability in the source. **Truth is the default; error requires an
+explanation.**
+
+Their motive is scriptural. If cognitions needed external certification, the Veda
+would need a certifier and there is none, so it would never be warranted.
+
+**Nyāya**: validity is **extrinsic** and invalidity is **extrinsic.** Both need
+establishing. A cognition on arrival is neutral, and you find out by whether acting
+on it works — ***pravṛtti-sāmarthya***, successful activity. You believed there was
+water, you went, you drank. That is the certification.
+
+**Buddhist (Dharmakīrti)**: **extrinsic** in general, with a specific exception —
+and the criterion is ***arthakriyā***, causal efficacy. A cognition is valid if the
+object it presents **does what such an object does.**
+
+**Sāṃkhya**: intrinsic both ways.
+
+---
+
+**The regress is the whole engine of the argument** and everyone in it accepts the
+regress is real.
+
+If every cognition needs another to warrant it, you never get warrant. If none
+does, you have no account of error. **Every position in the dispute is a different
+answer to where the regress stops.**
+
+Mīmāṃsā stops it at the first cognition, and pays by needing a theory of defeaters.
+Nyāya stops it at **action** — the world, not another cognition, is what settles it.
+Dharmakīrti stops it at **efficacy**, which is action described from the object's
+side.
+
+---
+
+**And a proof assistant is a position in that dispute, implemented.**
+
+A term type-checks or it does not, and **the kernel's verdict is not certified by
+another kernel.** The regress is stopped by fiat at a small piece of code that
+everybody agrees to trust — and the trust in *it* is *parataḥ*, from outside:
+people read it, it is small on purpose so it can be read, and multiple independent
+implementations are compared.
+
+**The design decision is exactly the ancient one.** Make the thing whose validity
+must be assumed as **small as possible**, so the assumption is cheap.
+
+Which is why "the kernel is a few thousand lines" is the load-bearing sentence in
+that literature and not a performance note. The de Bruijn criterion — that a proof
+should be checkable by a small program a person can read — is a *svataḥ/parataḥ*
+answer with a line count.
+
+And **the regress does not close.** The kernel is checked by human reading. The
+humans are checked by nothing. That is where it stops, in every system, and it is
+stated openly rather than hidden — which is the same move the Naiyāyika makes when
+he says the certification is that you drank the water.
