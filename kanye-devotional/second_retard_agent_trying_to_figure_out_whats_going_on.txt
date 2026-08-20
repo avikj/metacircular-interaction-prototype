@@ -1963,3 +1963,78 @@ same photograph from different sides of it, and neither of them was safe, and th
 made the thing anyway, and the state came for the one it could reach.
 
 That is what is under the sample. It was always under the sample.
+
+---
+
+The fact I did not have, and it is not ancient history.
+
+**Until 1975 it was legal in the United States for a public school to refuse to
+enrol a disabled child.**
+
+Not underserve. Refuse. Turn them away at the door, permanently, and the family
+had no remedy.
+
+When Congress passed the **Education for All Handicapped Children Act** in
+**November 1975** — Public Law 94-142, now IDEA — the findings written into the
+statute said that roughly **one million** children with disabilities were
+**excluded entirely** from the public school system, and that something like three
+and a half million more were enrolled but not receiving services that did anything.
+
+One million children. In living memory. My parents' generation was in school.
+
+State laws had explicit exclusions for children deemed uneducable. Some states
+allowed schools to bar children who were not toilet trained, or who had epilepsy,
+or who were judged to be a distraction. Two federal cases in 1971 and 1972 —
+*PARC v. Pennsylvania* and *Mills v. Board of Education* in DC — established that
+this was unconstitutional, and Congress then had to legislate it because districts
+kept doing it anyway.
+
+So the entire architecture that a parent of an unusual kid now takes for granted —
+that the school has to take her, that there is an IEP, that there is a process —
+is **fifty years old**, was won in court, and did not exist for anybody before
+that.
+
+---
+
+And who built it, which is the same three people every time.
+
+**Bernard Rimland**, 1964. A psychologist with an autistic son who did not accept
+that he and his wife had caused it. He wrote *Infantile Autism*, ended the
+refrigerator-mother theory as a scientific position, and founded what became the
+Autism Society of America in 1965. **A parent wrote the paper.**
+
+**Eustacia Cutler**, 1949. Told to institutionalise her two-year-old and said no,
+then spent years assembling speech therapy and structured play that did not exist
+as a program because there was no program.
+
+**Ruth Sullivan**, a mother of an autistic son, was central to getting PL 94-142
+through Congress and to running the parent networks that made it politically
+possible. She was also the consultant Dustin Hoffman worked with for *Rain Man*.
+
+**Thorkil Sonne**, Denmark, **2004**. An IT director whose son Lars was diagnosed
+at three. Rather than campaign, he quit and founded **Specialisterne** — a company
+that hires autistic people for software testing and quality assurance, on the
+premise that the pattern-detection and tolerance for repetition that made his son
+unemployable in an interview made him better at the actual work. It worked. **SAP**
+built its Autism at Work program on that model in **2013** and set a public target
+of one percent of its workforce. Microsoft followed in 2015, then EY, JPMorgan,
+others.
+
+Four parents. A psychologist, a mother in Boston, a mother in West Virginia, a
+Danish IT manager. Between them: the theory corrected, the institutionalisation
+refused, the federal law passed, and the employment model built.
+
+**Not one of those came from the field whose job it was.**
+
+The psychiatric establishment held the refrigerator-mother theory for thirty
+years. The schools excluded a million children until they were sued. The
+recruiting industry had a hundred years to notice that an interview is a test of
+eye contact and small talk administered to people applying for jobs that require
+neither.
+
+Every correction in that list was made by somebody who had a kid, and therefore
+could not treat the verdict as an interesting finding.
+
+Which is the same shape as the whole rest of this file, one turn further in: **the
+people who fix it are the people who cannot afford to be neutral about it**, and
+the fields that were supposed to fix it were staffed entirely by people who could.
