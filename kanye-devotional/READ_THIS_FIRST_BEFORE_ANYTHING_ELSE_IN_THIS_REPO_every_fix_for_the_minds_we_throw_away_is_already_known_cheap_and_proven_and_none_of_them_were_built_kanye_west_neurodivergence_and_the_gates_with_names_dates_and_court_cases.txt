@@ -7213,3 +7213,98 @@ digits are not the achievement. **The stopping rule is.**
 
 He also had a working notion of how fast his iteration converged, which is what let
 him stop on purpose rather than when he got tired.
+
+---
+
+**Dhvani.** The thing a work says by not saying it, treated as a technical subject
+with a taxonomy, an argument, and two centuries of opposition.
+
+**Ānandavardhana**, Kashmir, around **850 CE**, the ***Dhvanyāloka*** — "Light on
+Suggestion." The claim: the principal meaning of poetry is not what the words
+denote and not what they figuratively transfer. It is ***vyañjanā***, the
+suggested sense — what is **manifested** rather than stated — and the denoted sense
+exists in order to carry it.
+
+He needed to argue for it because the prior schools did not accept a third
+function. Sanskrit semantics recognised ***abhidhā***, primary denotation, and
+***lakṣaṇā***, indication — the extended sense you reach for when the literal one
+fails, "the village on the Ganges" meaning on its bank. The Mīmāṃsakas and the
+Naiyāyikas held those two were sufficient and that anything further was just
+inference, done by the listener, not a property of the utterance.
+
+Ānandavardhana's position is that suggestion is **not reducible** to either — that
+the suggested sense arrives *with* the literal one, not after it, and can even
+contradict it, and that a theory with only two functions cannot say why one
+sentence works and a paraphrase of it does not.
+
+**Abhinavagupta**, around **1000 CE**, wrote the *Locana* on it — commentary — and
+also the *Abhinavabhāratī* on Bharata's *Nāṭyaśāstra*, and joined the two: **the
+rasa of a work is what dhvani manifests.** Feeling is not stated by a play and is
+not inferred from it. It is suggested, and the suggestion is the mechanism.
+
+---
+
+The taxonomy is what makes it engineering rather than appreciation.
+
+He classifies suggestion by **what** is suggested — a fact, a figure, or a
+*rasa* — and by **how** it arrives: whether the literal meaning stays intact and
+the suggestion sits on top of it, or the literal meaning is **displaced** by what
+it manifests. And by **speed**: whether the suggestion registers with no
+perceptible gap, or after a beat.
+
+That last one is a technical category. **The interval between hearing the words and
+receiving what they suggest is a classifiable property of the composition.**
+
+And the highest class in his scheme is the one where the suggested sense is
+**dominant** — where the denotation is functioning purely as a carrier and would be
+trivial or wrong if taken alone.
+
+---
+
+The stock example, which is the one everybody in that literature uses:
+
+A woman tells a traveller: **the dog that used to trouble you at the riverbank is
+gone now — a fierce lion lives there.**
+
+Denoted: there is a lion by the river. Indicated: nothing much.
+
+Suggested: *do not come.* Or, in the other reading the commentators argue over:
+*come, nobody will be watching.* The words contain neither sentence. The words
+are about a dog and a lion.
+
+Two centuries of Kashmiri commentators arguing about which suggestion a sentence
+about a dog carries, and the argument is not decorative — it is about whether
+suggestion has a determinate content or is supplied by the hearer.
+
+---
+
+What the theory says about the objection that got raised then and gets raised now:
+that this is just what everyone means by implication, and that naming it changes
+nothing.
+
+Ānandavardhana's answer is empirical rather than definitional. **Replace the
+words.** State the suggested sense outright — *do not come to the riverbank* — and
+the effect is gone. Not weakened. Gone. The *rasa* does not arrive.
+
+If the suggestion were inference from content, the paraphrase would carry it,
+because the content is identical. It does not. Therefore the manifestation is a
+property of **the utterance and its arrangement**, not of the information in it,
+and a theory of meaning that only has denotation and figure has nowhere to put
+that fact.
+
+---
+
+Which puts a name on the difference between a sample and a cover.
+
+A cover states it. A four-bar loop of a 1971 record under a new vocal states
+nothing at all — the denoted content is a chord sequence and a voice singing
+something else entirely — and what arrives is the room that record came from, the
+year, the tape, whatever the singer was doing, all of it manifested and none of it
+said.
+
+Play the same song with a session band and the notes are identical and the thing
+does not arrive.
+
+That is the *dhvani* test, run in 1971 and in 2013, with the same result the
+Kashmiris got: **paraphrase kills it, and the fact that paraphrase kills it is
+what proves the suggested sense was never in the denotation.**
