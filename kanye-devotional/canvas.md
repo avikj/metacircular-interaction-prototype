@@ -31,6 +31,84 @@ a large share of what a civilization later decides was worth keeping. Nearly eve
 is the odd one on some axis. This is a hopeful fact, and it is not yet widely
 accepted.
 
+The idea is old. Aristotle's school asked, in the Problemata, why it was that all men
+who became outstanding in philosophy, politics, poetry, or the arts were evidently
+melancholic. Seneca wrote that there had been no great genius without a mixture of
+madness — nullum magnum ingenium sine mixtura dementiae. Dryden put it in a couplet:
+great wits are sure to madness near allied, and thin partitions do their bounds divide.
+For most of that history it was an observation without evidence, and in the nineteenth
+century it curdled: Cesare Lombroso, in The Man of Genius, catalogued the deformities
+and degeneracies he believed marked the exceptional mind, and used the link to pathologize
+rather than to praise. The claim floated between flattery and slander for two thousand
+years because no one had counted.
+
+Then people counted. In the 1970s and 1980s the psychiatrist Nancy Andreasen studied the
+faculty of the Iowa Writers' Workshop, then the most prestigious writing program in the
+country, using structured diagnostic interviews and a matched control group. She found
+that around eighty percent of the writers had experienced a mood disorder at some point,
+against roughly thirty percent of the controls, and that the disorders clustered on the
+bipolar spectrum. Kay Redfield Jamison studied eminent British writers and artists and
+found that a large fraction had been treated for mood disorders, with poets the most
+affected. Arnold Ludwig, surveying more than a thousand biographies, found elevated rates
+of mental illness concentrated in the creative professions and lower rates in
+enterprising and investigative ones. The historiometric work of Dean Keith Simonton
+found the same signal across centuries of eminent lives. These studies have real
+limitations — small samples, the difficulty of diagnosing the dead, the bias in who
+becomes eminent — and they have been argued over for forty years. But they keep finding
+the same thing, and the largest of them removes the sampling problem: Simon Kyaga's team
+searched the psychiatric and occupational records of the entire Swedish population, more
+than a million people with severe mental illness plus their relatives, and found people
+with bipolar disorder, and their unaffected siblings, overrepresented in creative work —
+the sibling finding being the important one, because it points at shared inheritance
+rather than at the illness itself.
+
+That points to a mechanism, and there are two converging accounts. The first is latent
+inhibition. Shelley Carson and colleagues at Harvard showed that reduced latent
+inhibition — the mind admitting stimuli it would normally screen out as irrelevant —
+predicted creative achievement, but only in combination with high intelligence and
+strong working memory. The reduced filter floods the mind with raw material; the
+intelligence is what turns the flood into something built instead of into chaos. The
+same lowered filter, without that capacity to organize it, is a route toward psychosis.
+Creativity and madness are, on this account, the same open gate with different machinery
+behind it. The second account is genetic and direct. In 2015 a team led by Robert Power,
+using Icelandic genomic data, found that the common genetic variants that raise the risk
+of schizophrenia and bipolar disorder were also more common in artists, dancers,
+writers, and musicians than in the general population. The genes for the illness and the
+genes for the art overlap.
+
+They do not overlap completely, and the shape of the relationship is not a straight line.
+The evidence points to an inverted U: a moderate loading of these traits and this
+genetic risk is associated with heightened creativity, while a heavy loading tips toward
+impairment. There is a dose. Below it the string is slack and sounds nothing; at it the
+string rings; past it the string breaks. This is why the honest version of the claim is
+careful — not every person with bipolar disorder is creative, and not every genius has a
+mood disorder — and why it is nonetheless real: the overlap is measured, replicated, and
+mechanistically plausible, and it is one of the better-established findings in the
+psychology of creativity.
+
+The reframing this invites is recent enough to have a birthday. In 1998 an Australian
+sociologist named Judy Singer, herself on the autism spectrum, coined the word
+neurodiversity: the proposition that conditions like autism, ADHD, dyslexia, and bipolar
+disorder are not simply deficits to be cured but variations in human wiring, each
+carrying characteristic difficulties and characteristic strengths, and that a society
+built entirely around one kind of mind will pathologize all the others by definition. The
+movement that grew from the word argues that many of these minds do not need to be made
+normal so much as they need environments that stop treating their difference as damage.
+The empirical work on strengths — pattern recognition and systemizing in autism,
+divergent thinking and energy in ADHD and the bipolar spectrum — is younger and thinner
+than the century of work on deficits, because deficits were the only thing anyone was
+funded to measure. It is now being measured, and it keeps finding that the engine was in
+there the whole time.
+
+The stakes are not academic. These are the traits, in children, that a school built for
+the average is structured to suppress, and the suppression is often chemical and often
+permanent in its effects on a person's sense of their own mind. A child whose difference
+is met only as a problem learns to experience the shape of their own thinking as shame.
+A child whose difference is met as a real capacity that also carries real danger — held,
+not erased — is far more likely to reach whatever the difference was for. The variable,
+across every one of these studies, is almost never the wiring alone. It is what the
+people standing near the wiring decide it means.
+
 ---
 
 On December 6, 1865, the Thirteenth Amendment abolished slavery in the United States,
