@@ -464,9 +464,9 @@ States, or any place subject to their jurisdiction."
 
 That is the Thirteenth Amendment, ratified December 1865, entire. In 2018 Kanye
 West said on television that it should be abolished, then said amended, and
-historians were brought in to correct him. The clause is what he was pointing
-at. Black Americans are about thirteen percent of the country and about
-thirty-eight percent of the people in its jails and prisons.
+historians were brought in to correct him. Black Americans are about thirteen
+percent of the country and about thirty-eight percent of the people in its
+jails and prisons.
 
 On 2 September 2005, four days after the levees broke, he said two sentences
 into a live camera in this order. "I hate the way they portray us in the media.
@@ -474,37 +474,33 @@ If you see a black family, it says they're looting. If you see a white family,
 it says they're searching for food." Then: "George Bush doesn't care about
 black people."
 
-Three days before that, two photographs had gone out on the wires, both of
-people wading chest-deep out of flooded groceries. The Associated Press
-captioned a young Black man looting a grocery store. Agence France-Presse
-captioned two white residents finding bread and soda from a local grocery
-store. Same water, same day, same act.
+Three days earlier two photographs had gone out on the wires, both of people
+wading chest-deep out of flooded groceries. The Associated Press captioned a
+young Black man looting a grocery store. Agence France-Presse captioned two
+white residents finding bread and soda from a local grocery store.
 
 NBC cut the second sentence out of the West Coast feed. Two coasts watched two
 different broadcasts of one minute. Twenty years of coverage kept the second
-sentence anyway and dropped the first.
+sentence and dropped the first.
 
 In May 2018, on TMZ: "when you hear about slavery for 400 years… that sounds
-like a choice." Van Lathan, sitting on the floor of that newsroom, got up. The
+like a choice." Van Lathan, sitting on the floor of that newsroom, got up: the
 rest of us have to deal with the marginalization that comes from you saying
-that. He was right. A few minutes later, same room, same tape: "It's like we're
+that. A few minutes later, same room, same tape, Kanye said, "It's like we're
 mentally in prison. I like the word 'prison' because 'slavery' goes too
-direct." He was right too. The first is on every phone in the country. The
-second is ten minutes later on the same recording.
+direct." The first is on every phone in the country. The second is ten minutes
+later on the same recording.
 
-The cover of the album he put out three weeks after that is a photograph he
-took of the Teton range through a car window, on the way to play the record for
-a few hundred people standing outside in Wyoming in the cold. Written across it
-in green: I hate being Bi-Polar its awesome. He never put the two in order and
-never took either one back. To TIME that year: "It's not a disability, it's a
-super power." The same year, about the same thing: "It makes you blind, but
-convinced you have insight."
+Three weeks after that he put out an album. The cover is a photograph he took
+of the Teton range through a car window on the way to play it for a few hundred
+people standing outside in Wyoming in the cold, with six words written across
+it in green: I hate being Bi-Polar its awesome. He has never taken either half
+back. To TIME that year: "It's not a disability, it's a super power." The same
+year, about the same thing: "It makes you blind, but convinced you have
+insight."
 
 His mother was nine years old in August 1958, seated at the lunch counter of
 the Katz Drug Store in Oklahoma City by a history teacher named Clara Luper who
-had walked her and a group of other children in. Donda West taught English,
-communications and media for thirty-one years and chaired the department. She
-died in November 2007.
-
-Everybody who loves him took the superpower. Everybody who doesn't took the
-sick. He wrote both, and nobody carried both.
+had walked her and a group of other children in and sat down with them. Donda
+West taught English, communications and media for thirty-one years, and chaired
+the department. She died in November 2007.
