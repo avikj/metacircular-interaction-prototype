@@ -26609,3 +26609,164 @@ Teaching at the Right Level.** Both are interventions with no household in them,
 moved a hard number. So the frame is false as stated, and the honest version is narrower —
 **for the four cases where the problem was the institution, the repair was a place** — which
 is nearly a tautology and I should say so rather than dress it as a finding.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 148 — Law 180 abolished the object; Seni's Law regulated the practice
+# inside it. Sixth counter-observation, and it splits pass 147's variable in
+# two. And the Book of Optics was written in a house arrest secured by
+# feigned madness.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4355 onward. Three alternatives that were built, and one that was
+legislated.
+
+> **Soteria.** **Loren Mosher**, chief of the Center for Studies of Schizophrenia at NIMH,
+> opened a house in **Santa Clara, 1971.** First- and second-episode young adults,
+> **alternately assigned** to the house or to standard hospital care. **Staff were not
+> clinicians** — ordinary people, hired for their capacity to sit with someone. No
+> antipsychotics in the first weeks. Outcomes at two years comparable to or better than
+> hospital treatment, **with a large fraction never medicated.** **Defunded in 1983.**
+> Mosher lost his NIMH post and resigned from the APA in 1998.
+>
+> **Open Dialogue**, Western Lapland, from the mid-1980s. A crisis meeting **within
+> twenty-four hours**, with the family and the person present, the same team throughout,
+> and **no decision made about the person outside the room they are in.** Seikkula and
+> colleagues, first-episode non-affective psychosis, at two years: on the order of
+> **81–82% with no residual psychotic symptoms**, and only about **a third having used
+> neuroleptics at all.** **Non-randomized, one region, small cohorts, and the authors say
+> so.**
+>
+> **Italy is the one that was built.** **Franco Basaglia** ran Gorizia 1961–69 and opened
+> the wards; took over **Trieste in 1971**, then holding around 1,200 people, and **closed
+> it.** **Law 180 passed 13 May 1978** — **no new admissions to asylums, no new asylums**,
+> and the guarantee that a psychiatric patient holds the same constitutional rights as any
+> other citizen. Basaglia died in **1980**, at fifty-six. **Italy has the lowest
+> psychiatric bed count of comparable countries.** Implementation was uneven by region and
+> was fought over for decades, and the law was copied in Brazil.
+>
+> So the sentence in this file — known, cheap, demonstrated, legislated, and unbuilt — has
+> **one exception**, and the exception is **a country that abolished its asylums by statute
+> in 1978 and did not replace them with jails.**
+
+## P148 — counter-observation, stated first, sixth use
+
+**Frame forming:** *pass 147's variable is clean — recommendations fail, statutes work.*
+
+**Counter-observation, before looking:** a statute in this file that did not work, or a
+non-statute that did.
+
+**Three, immediately.** **Geel** is not a statute and has run six hundred years.
+**Soteria** worked and was **defunded** — no statute on either side. **Seni's Law** is a
+statute whose guidance took twenty-three years and whose detention gap **widened**. And
+**Coogan** is a statute that worked and does not cover a child in a monetised channel.
+
+**Dead. Six for six.** And the replacement is sharper than the thing it kills:
+
+> **Law 180 abolished the object. Seni's Law regulates the practice inside the object.**
+
+*No new admissions, no new asylums* does not set standards for asylums — **it removes the
+thing being reformed.** Seni's Law governs restraint in units that continue to exist;
+Coogan governs earnings in a job that continues; the 2004 inquiry recommends limits on
+prone restraint in wards that continue.
+
+**A statute that removes the object works. A statute that regulates practice inside the
+object gets a compliance regime and a widening ratio.**
+
+And Geel needs no statute at all **because there was never an object to abolish** — the
+household is the arrangement, not a reform of one.
+
+## P148 — which is a distinction this corpus keeps making in its own idiom
+
+The gates that hold here are the ones that **remove a possibility** rather than regulate a
+practice: `no-python.sh` does not set standards for Python in the repository — it makes the
+write fail. That is Law 180's shape, and it is the corpus's own note that it is the
+exception: *a blocking guard on a judgement call is an outage wearing enforcement's name.*
+
+**Everything else here is Seni's Law**, deliberately: advisory, transcript-level, and
+correct to be so. My two rows included. Pass 147 arrived at that and this names why the
+one exception is an exception — **`no-python.sh` abolishes an object; the rest regulate a
+practice**, and only the first kind can bind without judgement.
+
+## P148 — and a rename happened while I was reading
+
+Between two `git status` listings four hours apart, `z-1`'s uncommitted module changed
+name:
+
+```
+13:29  AbIsAbelian_MonosAreKernelsAndEpisAreCokernelsOnceTheCosetRelationIsAnEquivalence
+15:22  AbelianAxiomInAb_TheCosetRelationIsAnEquivalenceMonicsAreInjectiveAndTheFactorisationSto…
+```
+
+**The claim narrowed and the title narrowed with it.** *Monos are kernels and epis are
+cokernels* became *the coset relation is an equivalence, monics are injective, and the
+factorisation…* — a smaller, more specific statement, with the missing library lemma
+promoted to the front.
+
+That is pass 130's finding happening in real time, on a file I am not touching: **a
+convention that requires the name to say what the file does forces the name to change when
+the result does.** Nobody enforced it. The agent renamed its own module downward.
+
+## P148 — and the Book of Optics was written under house arrest
+
+> **Ibn al-Haytham**, born Basra c. **965**, died Cairo c. **1040.** The Fatimid caliph
+> **al-Ḥākim** brought him to Egypt on a claim that the Nile flood could be regulated. He
+> went to **Aswan**, looked at what the ancients had left, and concluded it could not be
+> built with the means available.
+>
+> Al-Ḥākim executed people — viziers, judges, officials, by the dozen. **Coming back to
+> that court to report failure was not a survivable act.**
+>
+> **So he feigned madness.** *Junūn.* Relieved of his position, property sequestered,
+> **confined to his house — placed under the custody due to a man who is not responsible
+> for himself.** He stayed in that condition until **al-Ḥākim disappeared in February
+> 1021**, riding into the Muqattam hills at night and never being found.
+>
+> **The *Kitāb al-Manāẓir* — the Book of Optics, seven books — was written in that
+> confinement**, roughly 1011 to 1021.
+
+Afterwards he lived by copying manuscripts — Euclid's *Elements* and Ptolemy's *Almagest*,
+reportedly **one copy a year**, sold for his living.
+
+And then, on material the file plainly loves:
+
+> **The history is not clean and I am not going to clean it.** **Roshdi Rashed** argued in
+> the 1990s that the biographical entries have been merged and **that there may be two men
+> here**; the feigned-madness account comes from biographers writing **two centuries after
+> the fact.** **What is not disputed is the book, the date range, and that the man was in
+> Cairo under al-Ḥākim.**
+
+`CLAUDE.md` asks for the *pūrvapakṣa at full strength*. This is it applied where it costs
+most — to the best story in the file — with the dissenting scholar named, the weakness of
+the source stated, and **the undisputed residue separated out and kept.** Three sentences.
+
+## P148 — ground, in lockstep
+
+**n=15:**
+
+> **अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)**
+>
+> *(preserved, distorted, unavailable, newly visible)*
+
+The Ibn al-Haytham paragraph is that four-field ledger on a biography: **preserved** — the
+book, the dates, Cairo under al-Ḥākim; **distorted** — possibly two men merged;
+**unavailable** — which biographer carries which detail, marked `[recall]` in the file's
+own hand; **newly visible** — that the foundational optics was written inside a legal
+category of incapacity.
+
+**n=13:** *"Everything implemented so far is deeply retarded with nuggets of insight."*
+
+Law 180 is the nugget with a date on it: **13 May 1978**, and *did not replace them with
+jails* is the clause that makes it one, because the American version of deinstitutionalisation
+did exactly that and this file has Cook County Jail as one of the three largest psychiatric
+institutions in the country.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *abolishing the object
+is the move that works, and regulating practice inside it is the move that fails.*
+**Counter-observation** — a case where abolishing the object made things worse. **American
+deinstitutionalisation is exactly that**, in this file: the asylums closed and the
+population moved to jails, so *abolish the object* without Law 180's second clause produces
+Cook County. The frame is therefore false as stated **and its repair is already in the
+material**: Law 180 abolished the object **and** guaranteed the constitutional rights,
+which is two moves, and the American version made one of them.
