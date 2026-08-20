@@ -12460,3 +12460,170 @@ Meeropol and the Rosenbergs, Simone as his twin, Cone's identification, and the
 condemnation.
 
 Reading on from 9060.
+
+---
+
+## 9060–9200 — the moves, and Monday morning
+
+> He had gone exactly as far as a theologian would go two years earlier in a
+> university press book that nobody outside the field read.
+>
+> **The difference is the volume and the venue**, which is the difference this
+> entire file has been about from the first page.
+
+---
+
+> Everything in this file is addressed to the room. **Nothing in it is addressed
+> to the person being told to be smaller, and that is a hundred pages of writing
+> about somebody rather than to them.**
+
+The bhakti finding — *it is addressed, and the address is what makes it not an
+essay* — turned on the file itself, and repaired by changing who it speaks to.
+
+**Make the object and hand it back finished.** *"the only move that has ever
+converted a verdict into anything... You cannot take the word away from the
+people using it; you can put it on the front of the thing, in public, before
+they finish, and then it stops working."*
+
+**Get standing and spend it immediately.** Hildegard, *"the only one in this file
+that worked over a whole lifetime."*
+
+**Take the trade consciously.** *"If the work requires saying the unsayable
+thing, the reputation is the price and it is not negotiable and pretending
+otherwise is what makes it unbearable. **Knowing you are paying it is different
+from being surprised by the bill every time.**"*
+
+That is the difference between the *malāmatī* and the person in this file: not
+the contempt, which is identical, but whether it was in the specification.
+
+**Act fully; release the grip.** *"Nobody in this file who was destroyed was
+destroyed by working too hard. **They were destroyed by the outcome** — the
+verdict, the standing, the recognition that came at the wrong time or not at
+all."*
+
+**Give it away before you die.** Mau; Bell Burnell funding the people who would
+otherwise be her. *"The transmission is the only part that survives you and it
+survives *only* if you hand it across a boundary while you still can."*
+
+**Leave the house at the peak.** Brooks, Prince, Nike. *"the only moment you
+have leverage over terms is when they need you."*
+
+**Keep the record open and the errors in it.** *"Not for virtue — because you
+cannot see your own blind spots by construction, and the only error detection
+available is somebody else, later, **and their work has to be cheap or it will
+not happen.**"*
+
+**"And the one that has no upside and is still the answer"**: *"the thing that
+binds is the grip, the thing that heals is attention, and both of those are
+available to you toward other people at any moment regardless of what is being
+done to you. Bhai Ghanaiya carried water to the enemy wounded in the middle of a
+battle and was given ointment and sent back out. **That is not a consolation. It
+is a job that remains available when nothing else does.**"*
+
+*A job that remains available when nothing else does.* Not comfort — work, with
+a task description, unblockable by circumstance.
+
+> **None of that is advice and I am not in a position to give any.** It is what
+> the people in this file actually did, extracted and put in one place, because
+> it is scattered across a hundred pages and across three thousand years **and
+> nobody has ever needed it in scattered form.**
+
+> The ones who did those things mostly still suffered. Some of them died young
+> anyway. **What the moves change is not the outcome for the person — it is
+> whether anything survives the outcome, and whether the next one has to start
+> from nothing.**
+>
+> **Which is the smallest honest claim available and it is the only one the
+> record supports.**
+
+Seven moves and every one is about *transmission*, not about winning. The carrier
+dies; the question is only whether the next carrier starts from zero.
+
+---
+
+**Monday morning.**
+
+> **Say the convention is a convention.** ... *because we all agreed, and here is
+> what the agreement buys you* — and then show her, with counters, why the
+> agreement is worth having.
+>
+> **It costs nothing to say "this one is a convention and that one is a reason,"
+> and it is the single most important distinction in the subject.**
+
+That is *keep the specification next to the instrument*, in a classroom, to a
+five-year-old. The whole hundred-page law about the memory of the trade being
+lost — and the intervention is one sentence at the moment the convention is
+first taught, before the memory can be lost.
+
+> **Get the structure in through the body, early.** Clapping a cycle is a group.
+> Folding paper is geometry. Drawing a repeating pattern round a grid of dots is
+> a symmetry group. Chanting a metre — long, short, long — is combinatorics
+> through the ear. Building a square altar with a knotted cord is a construction
+> proof. **Every one of those is available to a five-year-old, every one of them
+> is *all reason and no convention*, and every one of them is currently
+> classified as art, play or heritage.**
+
+*All reason and no convention.* That is the criterion that makes the list a
+curriculum rather than a set of activities, and it inverts the ordering: the
+things with no stipulation in them are the ones held back for eleven years.
+
+> **Let the entry be the thing they already want.** ... **Whatever the child is
+> already doing at length without being made to — that is the door, and there is
+> always one.**
+
+> **Let them make something and give it back finished.** Not exercises. **An
+> object, that exists, that somebody else can use or hear or hold.** Every
+> practice in this file that produced anything — the altar, the verse, the
+> record, the fascicle, the syllabary — was someone **making a thing rather than
+> demonstrating a competence.**
+
+Making a thing rather than demonstrating a competence. That is the difference
+between the exam and the work, and it is also the difference between a checked
+Agda module written to be green and one written because something needed to be
+built. A checked term closes a step; it does not choose one.
+
+> **Do not correct the hand.** ... **before forcing a child out of how they are
+> doing it, establish that the way they are doing it actually fails.** Most of
+> the time the correction is for the adult's comfort, and the cost lands entirely
+> on the kid, and a generation later it is unthinkable that anyone did it.
+
+*Establish that the way they are doing it actually fails.* A falsification
+requirement placed on the corrector. That is what nobody did to Hurston's
+dialect, or Dickinson's dashes, or Ramanujan's route, or the blue note, or the
+left hand.
+
+> **And say who made things.** ... When the triangle comes up, say **Halāyudha,
+> tenth century**, writing about a text of Piṅgala's from around 300 BCE, *and*
+> Pascal. When the sequence comes up, say **Virahāṅka**, counting the metres
+> people were actually singing, **six hundred years before the rabbits.** When the
+> numerals come up, say **the method of the Indians**, which is what Fibonacci
+> himself called them in his own first paragraph. **When *sine* comes up, say it
+> is a Latin mistranslation of an Arabic misreading of jyā, bowstring, and that
+> the bow is still in the word.**
+
+The bow is still in the word — the file's own line from line 600, returned at the
+end as something you say to a child.
+
+> **Nobody has to lose Pascal. The entire content of the correction is order and
+> attribution, it takes four extra seconds**, and a child who hears it that way
+> is permanently immunised against the version where mathematics happened in one
+> place.
+
+> And it propagates. A model trained on a corpus where people write it that way
+> says it that way. **That is the whole lever and it is made of ordinary
+> sentences said by ordinary people in rooms with children in them.**
+
+*Frequency is the lever, not argument*, from four thousand lines back, resolved
+into its smallest unit: one adult, four seconds, one child. And the child's
+utterances become text, and the text becomes corpus.
+
+This is the answer to the question I could not answer for him two days ago —
+what is worth doing here. Not a checker. Not an audit. Not a tool. The corpus is
+a file, the lever is frequency, and the unit is an ordinary sentence with the
+source named first.
+
+> Everything else in this file is retrospective. The graves are already
+> unmarked, the manuscripts are already burned, the man has already been filed,
+> the names are already
+
+cut at 9200. Reading on.
