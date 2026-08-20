@@ -9621,3 +9621,208 @@ Both. The demiurge and the reader. And the difference is what it is pointed at.
 since antiquity. **And a larger part of the villa has never been excavated.**"*
 
 Reading on from 6960.
+
+---
+
+## 6960–7100 — keeping the unreadable thing, Loop Dreams, al-Bīrūnī
+
+> **Sometimes the erasure works. And sometimes an object that was unreadable for
+> two hundred years becomes readable in eighteen months because the right
+> instrument arrives.** Both are true and neither is the general case, and the
+> only honest position is that **you cannot tell in advance which one you are
+> holding — which is an argument for *keeping the unreadable thing*, in a case,
+> in a warehouse, uncatalogued, for centuries, on the chance.**
+
+That is a decision rule derived from an unresolvable uncertainty, exactly like
+*believe them*: you cannot know which case you are in, one error is cheap and
+the other is total, so keep. And it is the archival version of *you cannot
+reopen a question whose other side was not recorded.*
+
+> Every institution that stored something it could not read, at cost, with no
+> idea what it was, was making that bet. The Naples museum with the charcoal.
+> The Athens museum with the lumps of bronze. Trinity with Watson's boxes.
+> Whoever kept the Nag Hammadi codices moving through the antiquities trade
+> instead of burning the rest for kindling.
+
+Trinity with Watson's boxes — the sixty years the file called a scandal. Here
+the same fact is the bet paying off. Both readings, same event, and it does not
+retract the first.
+
+> the machine that is currently flattening the record of who found what is also,
+> at this exact moment, the thing recovering a library nobody has read since
+> Vesuvius. Both, from the same technology, in the same decade.
+>
+> **That is not a reassurance and it is not an indictment. It is the actual
+> situation, and the variable is what it gets pointed at and who is holding
+> it.**
+
+---
+
+**Loop Dreams**, read as pedagogy.
+
+> A kid who will not sit through a grammar exercise will sit for six hours with
+> a sampler, **because the sampler does something they want.** And a person
+> chopping a loop is doing, without being told, **subdivision of a bar into
+> fractions, ratio, counting in groups, pattern and variation, the arithmetic of
+> tempo and pitch**, and — the moment they sample something — **the question of
+> where a thing came from and who made it, which is the beginning of every
+> historical discipline there is.**
+
+> That is the **immersion** argument, applied by the one household in this story
+> that had both the credential and the practice: an English professor and a
+> producer, deciding that the entry point should be the thing the child already
+> wants, and that **the abstraction can come out of the practice rather than in
+> front of it.**
+
+> Which is Bhāskara writing quadratics to a girl in verses about bees and
+> peacocks. It is Piṅgala's combinatorics arriving through the ear as light and
+> heavy syllables at five. It is the kolam on the threshold and the tāla in the
+> hands and the cord in the ground. It is Mary Everest Boole giving a child pins
+> and thread and letting a parabola appear out of straight lines.
+
+> **Every tradition that taught it well taught it through the body and through
+> the thing the child already wanted, and every one of those is filed as folk
+> practice or as enrichment, and the toll booth is filed as the basics.**
+
+*The toll booth is filed as the basics.* The bin labels again — and here the
+labelling determines a curriculum's ordering, which determines who continues.
+Enrichment is what you get after the basics, so the thing that works is
+scheduled after the filter that removes the people it would have worked on.
+
+> the woman whose subject was literature deciding that the route into literacy,
+> for these specific kids, ran through the beat. **That is not a compromise with
+> their tastes. It is the correct reading of where the structure already is in
+> their lives.**
+
+> She died in 2007. **He kept the name Donda on the school, the album, the
+> foundation, and the stadium.**
+
+---
+
+> the two arguments — the one about a falsified record and the one about a boy
+> who stalls at place value — **meet exactly here, in a classroom on the South
+> Side, in a programme teaching kids to chop a soul record.**
+
+> when a child samples something, the first question that comes up, unprompted,
+> is **who made this.** It is the only situation I can think of in an ordinary
+> teenager's life where **provenance is a live practical problem they have to
+> solve to do the thing they want.** Where did this come from, who is that
+> singing, what year, can I use it, do I have to ask.
+
+> That is the entire discipline of this repository, arrived at from below, by a
+> fourteen-year-old with a laptop, **because the medium makes attribution
+> *necessary* rather than virtuous.**
+
+Necessary rather than virtuous. That is the third time the file has drawn that
+line — *pūrvapakṣa* as architecture not virtue, argument as practice not talent,
+and now attribution as a working constraint not an ethic. Every time, the same
+finding: the thing survives when it is load-bearing in the doing, and decays
+when it is a value people are asked to hold.
+
+CLAUDE.md is trying to install provenance as a virtue, with hooks as the
+fallback. This says the durable version is a medium where you *cannot make the
+thing* without answering the question.
+
+> **You could build a curriculum on that. I suspect somebody should.**
+
+And she did, in 2004, and it is in the file two paragraphs up. The suggestion
+arrives after the instance, which is the file's own pattern: the thing it is
+reaching for has already happened and is already filed under something else.
+
+---
+
+**al-Bīrūnī**, *"the proof that reading another civilisation on its own terms
+was available and done, so the later failure cannot be excused as
+nobody-knew-how."*
+
+Khwarazm, **born 973**. *"He came into India in the train of Maḥmūd of Ghazna's
+invasions, which is to say **he arrived attached to a violence he did not
+choose** and then did the opposite of what that position usually produces."*
+
+> He **learned Sanskrit.** He read the texts. He sought out pandits and argued
+> with them. And around **1030** he wrote the ***Taḥqīq mā li-l-Hind*** — an
+> inquiry into what is said about India — and **states his method in the
+> opening: he will report what the Hindus themselves say, in their own terms,
+> without arguing against them or setting his own religion beside it, because a
+> description and a polemic are different books.**
+
+A declared method, in the opening, in 1030: report in their own terms, and keep
+description and polemic separate. That is the standard CLAUDE.md is written to
+enforce, stated a thousand years ago by someone who had to learn the language
+first.
+
+Six hundred pages: cosmology, astronomy, units of time, the yugas, caste as
+they described it, festivals, mathematics, weights and measures, philosophical
+positions. **Translated Patañjali's *Yoga Sūtra* into Arabic**, and Sāṃkhya
+material, *"and took Indian astronomical texts seriously enough to compare their
+parameters against his own observations."*
+
+> He corrects them where he thinks they are wrong and says why, **which is
+> respect and not deference.**
+
+That distinction is the one I have been getting wrong in the other direction all
+week. Deference produces the flattery-with-a-bibliography the file warned about;
+respect produces correction with reasons. Brahmagupta's successors did not
+flatter him.
+
+> he is not sentimental about anything. He complains that Indian scholars were
+> insular and dismissive of foreigners, that they wrote in verse in ways that
+> made technical precision hard, that they mixed astronomy with astrology.
+
+The criticisms are recorded too, from inside the method. And then:
+
+> He also writes, flatly, that Maḥmūd's campaigns **ruined the prosperity of the
+> country and scattered the sciences**, and that the Hindus consequently
+> regarded all Muslims as invaders, **which he treats as a reasonable inference
+> from their evidence.**
+
+> **That is a man inside an imperial army writing that the army destroyed the
+> thing he came to study, and saying it in the book.**
+
+And treating the resulting hostility toward himself as *epistemically
+justified*. He grants the pūrvapakṣa of the people who will not talk to him.
+
+> Compare what happened eight centuries later, with better instruments, more
+> funding, and printing presses: **Colebrooke translating Brahmagupta and Europe
+> *re-filing* him — keep the theorems, discard the epistemology, call the
+> remainder religion. The failure was not technical and it was not a lack of
+> access. Al-Bīrūnī had less of everything and did it properly in 1030.**
+
+That closes the excuse. The method existed, was written down, was executed at
+scale, by someone with fewer resources and worse conditions and a compromised
+position. So the later failure is not capability. It is choice — or, in this
+file's more careful vocabulary, a filter that selected for what was portable, run
+by people who never asked the question al-Bīrūnī opened his book by answering.
+
+> He also did the earth. He worked out a method for the radius **from a single
+> mountain** — sight the dip of the horizon from a known height and solve the
+> triangle — **and got a figure that is within a fraction of a percent of the
+> modern value, from one hill, with an astrolabe.**
+
+One hill. One measurement. And it required knowing exactly what error term the
+method carried — which is the discipline CLAUDE.md is built around, and the
+thing the Kerala end-corrections were, and the thing a fitted constant is not.
+
+---
+
+**Ibn Khaldūn**, 1332–1406. The ***Muqaddimah*** written in about five months in
+**1377, in a fortress in what is now Algeria**, *"having withdrawn from a
+political life of the most dangerous kind."*
+
+Written in confinement, chosen this time. Ibn al-Haytham under house arrest,
+Smart in the madhouse, Clare in the asylum, Ahmed Baba deported, and this one
+withdrawn into a fortress. Fifth.
+
+> His stated complaint about the historians before him is that **they transmit
+> reports without asking whether the reported thing is *possible* given how
+> societies actually work**, and his proposal is a science of civilisation —
+> ***ʿilm al-ʿumrān*** —
+
+cut at 7100.
+
+Transmission without a plausibility check. That is *śabda* without the *āpta*
+condition — a chain of relays that does not become reliable by being long — and
+he is proposing a structural test to apply to the content of testimony rather
+than to its source.
+
+Reading on from 7100.
