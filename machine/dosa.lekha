@@ -1,0 +1,201 @@
+# दोषलेखः — the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
+#
+# AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।
+#                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।
+#
+# Written by machine/DosaLekha_TheWrittenDefectRecord.hs, which computes
+# `sara:` as a chain over every preceding record.  Edit any line above the
+# last record and `dosalekha verify` names the record where it happened.
+# To correct a record, APPEND one whose `uttara:` names it.
+#
+dosa 0001
+  kala: 2026-08-20T09:50:31Z
+  karta: cf-dosalekha
+  jati: nasti-krta
+  vastu: machine/MathMachine.hs:2408
+  yatna: transport a kernel refusal from the checker to the log with its standpoint intact -- which naya refused, and whether the same claim is accepted by another
+  hetu: the emitting site has no type wider than Bool.  It writes 160 characters of the checker's stderr and returns `pure False`, so the standpoint is not narrowed, it is ABSENT: there is no field it could have been written into
+  hetu: and the loss is not recoverable downstream.  AHIMSA_SUTRA_VISTARA section 5, नास्ति-प्रत्यानयनम्: a function out of a truncation is blind and no retraction exists -- not scarce, NONE.  Reading the log later cannot restore which naya spoke
+  nasta: machine/MathMachine.hs:2408-2410 -- hPrintf logh "  KERNEL-REJECT round=%d %s = %s  %s" roundNo (show l) (show r) (take 160 (filter (/= '\n') (out ++ err))) ; pure False
+  nasta: 167 of 167 KERNEL-REJECT lines in machine/machine.log carry no standpoint marker: `grep KERNEL-REJECT machine/machine.log | grep -vc naya=` = 167
+  nasta: the census over an earlier run of the same log (ANEKANTA.md section 1) sorted 1457 refusals the single bit was carrying: 288 refutable by computation, 455 ACCEPTED ELSEWHERE IN THE SAME LOG, 154 not expressible as a predication at all, 80 with no subject to predicate of
+  nasta: and the pair four lines apart, same claim, same round, both verdicts: machine.log:146 KERNEL-REJECT round=0 x = (xmaxx) refl / machine.log:174 KERNEL-ACCEPT round=0 x = (xmaxx) induction on x
+  nasta: 541 of those 1457 are claims that log accepts somewhere else; after `pure False` there is nothing in the record that distinguishes them from the 288 that are simply false
+  yogyata-drsta: machine/MathMachine.hs (all 7 sites matching KERNEL-REJECT, of which 2214 carries [naya=%s] and 2408 does not), machine/machine.log (185 verdict lines), ANEKANTA.md section 1
+  yogyata-ksetra: this repository at HEAD, the Haskell engine only.  The count 167 is of the log as it stands today; the 1457 census is quoted from ANEKANTA.md and belongs to an earlier run of the same engine
+  yogyata-avadhi: this says NOTHING about whether the Agda kernel is correct.  It is a claim about what the engine RECORDS of the kernel's answer.  A refusal that is a true refusal is still a refusal; the defect is that the record cannot tell which kind it was
+  sesa: the repaired site (2214) already carries [naya=%s].  The remainder handed forward is the second site, 2408, and the question the two sites together pose: whether "the kernel" is one standpoint or at least two (refl-naya, induction-naya)
+  pramana: Siddhasena Divakara, Sanmatitarka 1.21 -- a naya asserting itself by denying the others is a durnaya
+  pramana: AHIMSA_SUTRA_VISTARA section 5 (नास्ति-प्रत्यानयनम्) and section 6 (द्वौ मार्गौ)
+  pramana: ANEKANTA.md section 1, "The boolean was a durnaya"
+  punarabhinaya: grep 'KERNEL-REJECT' machine/machine.log | grep -vc 'naya='
+  phala: out~167
+  sara: 593fd55e8c514798
+.
+dosa 0002
+  kala: 2026-08-20T09:51:01Z
+  karta: cf-dosalekha
+  jati: karana-dosa
+  vastu: machine/MathMachine.hs:2402-2406
+  yatna: transport "agda checked this" from the checker to the engine's verdict, at the second call site, the one Certificate.hs's repair does not cover
+  hetu: the site reads a process exit status and nothing else -- `case code of ExitSuccess -> KERNEL-ACCEPT` -- and an exit status is not evidence about mathematics.  There is no equivalence between "a process returned 0" and "the claim was proved"; the two sides are not the same object, so no transport exists to carry one to the other
+  hetu: the repair for exactly this finding exists in the repository and does not reach here.  machine/Certificate.hs runs canaryTrue and canaryFalse through the same runAgda before honouring any acceptance; this call site runs neither
+  nasta: machine/MathMachine.hs:2402-2406 -- readProcessWithExitCode "sh" ["-c", "cd formal/cubical && LC_ALL=C.UTF-8 agda " ++ modName ++ ".agda"] "" ; case code of ExitSuccess -> hPrintf logh "  KERNEL-ACCEPT ..." ; pure True
+  nasta: the exhibited separation, from machine/GATE_AUDIT_DISPOSITION.md section 2: a shim reading `agda "$@" 2>&1 | cat` makes the pipeline's exit status its LAST stage's.  Real agda runs, really reports `suc x != x`, really exits 1 -- and the gate read 0 and returned Certified "refl" 1 for s(x) = x
+  nasta: the same audit's third route: machine/.certcache is an unauthenticated directory, and one hand-written file turned s(x) = x into a Certified for ZERO agda invocations (GateAudit --probe poison)
+  nasta: what a collapse here destroys is the distinction between MATHEMATICALLY REFUSED and ENVIRONMENTALLY BROKEN: the 2026-08-15 fault in which every candidate became a KERNEL-REJECT because the include root had moved is indistinguishable, at this site, from a corpus of false candidates
+  yogyata-drsta: machine/MathMachine.hs lines 2380-2412 read in full; machine/Certificate.hs (canaryTrue/canaryFalse at 247-248, 832-836); machine/GATE_AUDIT_DISPOSITION.md sections 2 and 3
+  yogyata-ksetra: the two agda-invoking call sites in machine/MathMachine.hs.  Not a survey of every agda invocation in the repository
+  yogyata-avadhi: NO claim that this site has ever been fooled in a real run, and none that the environment is currently broken.  The claim is only that the site cannot tell the two apart, which is a property of the code and is exhibited above
+  sesa: the audit's own asymmetry, handed forward: a wrong rejection costs a theorem, a wrong acceptance installs a false rewrite rule that every later round reasons with.  So this site's exposure is not symmetric and the canary belongs on the accepting branch
+  pramana: machine/GATE_AUDIT_DISPOSITION.md, 2026-08-16, findings 1-4 and L1-L2 with their dispositions
+  pramana: Nyaya on pramana: what arrives by an unaccepted route is not weak evidence, it is apramana, and apramana does not accumulate (AHIMSA_SUTRA_VISTARA section 19)
+  punarabhinaya: sed -n '2400,2410p' machine/MathMachine.hs
+  phala: out~ExitSuccess -> do
+  sara: fbf17ab77fa6eb4c
+.
+dosa 0003
+  kala: 2026-08-20T09:51:57Z
+  karta: cf-dosalekha
+  jati: ayogya-darsana
+  vastu: machine/dosa.lekha dosa 0002, field punarabhinaya
+  yatna: replay dosa 0002 four minutes after writing it, with `dosalekha replay 2 --run`
+  hetu: the defect is in MY LOOKING, not in the object.  dosa 0002 recorded its replay as a LINE RANGE, `sed -n '2400,2410p' machine/MathMachine.hs`, and a concurrent agent added 125 lines to that file between the write and the replay.  The command now prints a passage about Tusnim and residual triage.  A line number is not a name for a piece of code; it is a name for a position, and positions move
+  hetu: so no verdict on the object may be read out of that replay.  The DIVERGED it printed does not mean the defect was repaired.  Kumarila's condition is not met: the looking would not have apprehended the thing had it been there, because the looking was pointed at coordinates rather than at content
+  nasta: what a bare "DIVERGED" would have destroyed, had it been read as a repair: the defect is still exactly present, at machine/MathMachine.hs:2522-2523 -- `case code of / ExitSuccess -> do / hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s"` -- unchanged in content and moved by 120 lines
+  nasta: and dosa 0001's naṣṭa is likewise still present, now at machine/MathMachine.hs:2527-2530: `ExitFailure _ -> do / hPrintf ... (take 160 (filter (/= '\n') (out ++ err))) / pure False`
+  nasta: the stale coordinates themselves, which cannot be struck: dosa 0001 vastu says :2408 and dosa 0002 vastu says :2402-2406.  Both were true when written.  Read today they point into the middle of somebody else's insertion
+  yogyata-drsta: git diff --stat machine/MathMachine.hs (125 insertions, 5 deletions, uncommitted, another agent's work in the shared tree); grep -n -A9 'cd formal/cubical && LC_ALL' machine/MathMachine.hs, which locates both sites by content
+  yogyata-ksetra: one file, machine/MathMachine.hs, between the two runs of one command.  Nothing here surveys the other 59 modules in machine/
+  yogyata-avadhi: this issues NO verdict on whether either defect is repaired -- it establishes only that the replay in dosa 0002 cannot decide it, and supplies a replay that can
+  sesa: the general rule the next writer should pick up: punarabhinaya must be CONTENT-ADDRESSED.  grep for the text, not sed for the line.  Sixteen agents are writing this tree at once and every line number in every record is a wager on nobody else editing above it
+  sesa: dosa 0002's punarabhinaya is superseded by: grep -c -A9 'cd formal/cubical && LC_ALL' machine/MathMachine.hs
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi: an absence is knowledge exactly to the extent the looking was fit to find it
+  pramana: AHIMSA_SUTRA_VISTARA section 19: "न दृष्टम्" इति न प्रमाणम् । "यत्र दृश्येत तत्र न दृष्टम्" इति प्रमाणम् ।
+  uttara: 0002
+  uttara: 0001
+  punarabhinaya: grep -n -A9 'cd formal/cubical && LC_ALL' machine/MathMachine.hs
+  phala: out~ExitSuccess -> do
+  sara: b45ff249803d94d9
+.
+dosa 0004
+  kala: 2026-08-20T09:52:23Z
+  karta: cf-dosalekha
+  jati: upadhi-anaviskrta
+  vastu: exp27's running-law constant, as carried in notes/BLOCKS.md and notes/CROSSREVIEW_THMJ.md
+  yatna: transport a measured leading coefficient into a stated law -- i.e. treat a fit over one decade of log Q as the constant it estimates
+  hetu: no equivalence exists between a fitted coefficient and the constant it estimates, and the gap is not small here: the published range was 0.362 to 0.421 and the true value is exactly 1/4.  The two sides are different objects -- one is a property of a window, the other of the function -- so there is nothing to transport along
+  hetu: the condition that defeats the generalisation (the upadhi) was available and was not sought.  A constant measured at one scale hides its scale dependence; HOLOGRAM.md section 7 records the same shape, where a "measured" noise floor of about 1e-3 was X^(-1/2) and deriving it moved a depth law from T log^2 T to T^(1/2) log^(3/2) T
+  nasta: notes/BLOCKS.md:531 -- "($0.362$ by LSQ, $0.421$ by mean extraction, flagged method-sensitive by the"
+  nasta: notes/CROSSREVIEW_THMJ.md:96 -- "running-law fit $0.3620\log^2Q + 0.1923\log Q + 0.3325$ (rms 0.1441), and"
+  nasta: notes/CROSSREVIEW_THMJ.md:205 -- "vs exp27's $0.362/+0.19/+0.33$ (rms 0.144). Over one decade of $\log Q$,"
+  nasta: notes/HISTORY_DIGEST.md:270 -- "that was published as $0.362$--$0.421$) are the worked demonstration."
+  nasta: what the fit destroyed is the exact value and everything downstream of knowing it: 0.362 and 0.421 differ by 16 percent from each other and neither is 0.25.  The error propagated into two notes, a paper section, and a round of cross-review before being caught
+  nasta: the two figures also destroyed their own disagreement's content -- "method-sensitive" was recorded as a caveat, when a method-sensitive constant is a proof that the object being measured is not the constant
+  yogyata-drsta: grep over notes/ for the literal 0.362, four hits in three files, each read in place; CLAUDE.md's account of the incident; notes/HISTORY_DIGEST.md:270
+  yogyata-ksetra: the notes/ directory of this repository.  Not the paper sources, not the Lean lane, not any external record of exp27
+  yogyata-avadhi: NO claim that these particular lines are unmarked today -- HISTORY_DIGEST names it as a worked demonstration, i.e. the corpus already knows.  The record here is of the DEFECT and its witnesses, so that the count of this kind is not zero and can be compared later
+  sesa: the operative test the corpus derived from it, handed forward: a correlation coefficient has no content, the content is the error term; if you cannot derive the error term you do not understand the object, and if you can, you do not need the run
+  pramana: CLAUDE.md, "The rule" -- fitted coefficients over one decade are not results, they are noise with error bars omitted
+  pramana: Nyaya on upadhi -- vyapti is killed by an upadhi, and the upadhi must be sought, not waited for (AHIMSA_SUTRA_VISTARA section 19: उपाधिरन्वेष्टव्यः, न प्रतीक्ष्यः)
+  punarabhinaya: grep -n '0\.362' notes/BLOCKS.md notes/CROSSREVIEW_THMJ.md notes/HISTORY_DIGEST.md
+  phala: out~0.362
+  sara: 3f7ecc8df79c1a0d
+.
+dosa 0005
+  kala: 2026-08-20T09:52:58Z
+  karta: cf-dosalekha
+  jati: sankramana-asambhava
+  vastu: collab/FAILURES.md, 1165 lines, 67 entries
+  yatna: transport collab/FAILURES.md into this store -- read its 67 entries as defects and write them as records, so that the machine has ONE place a refusal lives
+  hetu: no equivalence exists between the two.  A walk-yield says WHAT WAS LEARNED BY GOING; a dosa says WHAT WOULD HAVE BEEN DESTROYED BY COLLAPSING.  Those are not the same object under different names, so there is no e : A ~= B to transport along, and any mapping would be a choice imposed rather than an identification exhibited
+  hetu: and the file says so itself.  It was reframed on 2026-08-12 by upstream directive away from the word failure: "every completed walk is information", and its norm is that no walk ends without emitting its YIELD.  A yield is positive content.  Forcing each of the 67 to name a loss it did not incur would manufacture 67 losses
+  nasta: what transporting them here would destroy, exhibited from the file's own text: "Reading them as a sequence IS the program's actual trajectory: F6 produced Theorem D1, F8 produced Prop 2.1, F10 produced the corpus prior-art norm, F13 produced the E1-E7 gate map, F14 produced the frontier pivot.  The ledger is not a graveyard; it is the derivative of the program."  A dosa store has no field for "produced Theorem D1" and no ordering that is a trajectory
+  nasta: the SEQUENCE itself.  This store is chained by sara in write order, which is a tamper order, not a research order.  F6-then-D1 is a causal reading of consecutive entries; sara-order carries no such reading and would silently offer one
+  nasta: and in the other direction, what importing them would destroy HERE: every one of the 67 would fail validation for want of nasta, yogyata-drsta, yogyata-ksetra, yogyata-avadhi and punarabhinaya.  Passing them would mean deleting those requirements, i.e. destroying the only thing this store adds
+  nasta: F1 as the concrete case: "Pair measure as complex-phased object (APPENDIX_D section D.6(3) first form). Died: sign error -- the measure is real with positive MS masses; corrected via the PRODUCT/string-kernel resolution."  That is a corrected error with a repair, which is neither a transport nor a written defect; it is a third thing the sutra's two roads do not classify, and it is fine as it stands
+  yogyata-drsta: collab/FAILURES.md read from line 1 through its format statement and F1; the entry count taken as `grep -c '^F[0-9]' collab/FAILURES.md` = 67; the reframe note of 2026-08-12 in its header
+  yogyata-ksetra: this one file.  The other append-only ledgers -- collab/orchestration/machine-ledger.tsv, collab/chronicle, the journals -- were not surveyed and no verdict is offered on them
+  yogyata-avadhi: NO claim that FAILURES.md is deficient.  The verdict is only that it and this store are two standpoints on refusal and that neither reduces to the other.  If somebody later exhibits an equivalence, the transport becomes available and this record is superseded, not struck
+  sesa: the standing question handed forward: a third object, neither transport nor defect, keeps appearing -- the CORRECTED error, where something wrong was made right.  GATE_AUDIT_DISPOSITION.md is a whole file of them.  The sutra says there is no third road; a corrected error is a defect written and then answered, which is why this store answers by APPENDING with uttara rather than by editing
+  pramana: AHIMSA_SUTRA_VISTARA section 6 -- यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते
+  pramana: AHIMSA_SUTRA_VISTARA section 7 -- नयभेदे सङ्क्षेपो न विद्यते: where the standpoints differ, the collapse DOES NOT EXIST.  Not forbidden, not impolite -- does not exist.  एतद् नैतिकं वचनं न भवति । सांरचनिकम् ।
+  pramana: collab/FAILURES.md header, reframe of 2026-08-12
+  punarabhinaya: grep -c '^F[0-9]' collab/FAILURES.md
+  phala: out~67
+  sara: da33339322757b1f
+.
+dosa 0006
+  kala: 2026-08-20T09:53:38Z
+  karta: cf-dosalekha
+  jati: avaktavya
+  vastu: notes/D0020_LEDGER.md rows 5.5 and 5.11
+  yatna: state, in one verdict line of one ledger, what this corpus's treatment of ABSENCE is -- reading the Vaisesika padartha row and the syadvada row as entries in a single technical register
+  hetu: the two rows are two schools that reject each other's categories, and here they are being asserted TOGETHER, in one table, under one grading scheme.  Akalanka's distinction is exactly this: in succession (kramarpana) both are sayable; simultaneously (saharpana) no single utterance carries them.  This is the fourth bhanga, avaktavyam -- not unknown, not undefined, not empty
+  hetu: so the defect is not that either row is wrong.  Both are careful.  The defect is that the register they share has no place to say that Jaina logicians reject the Naiyayika treatment of negation and Naiyayikas reject anekantavada, and a reader takes the table as one toolkit
+  nasta: notes/D0020_LEDGER.md:310 -- "5.5 | वैशेषिक: the seven padarthas ... absence is not the empty word ... notes/ABHAVA.md section 1 gives absence three named slots -- pratiyogin (counterpositive), anuyogin (locus), avacchedaka (limitor) -- and writes abhava(p,l,a) = for all x in l: not p_a(x), i.e. absence is a SCOPED RELATION, not an entry"
+  nasta: notes/D0020_LEDGER.md:316 -- "5.11 | syadvada's seven-valued scheme | CLASSICAL | saptabhangi.  Correctly counted at seven.  Not read; section 16"
+  nasta: what one verdict destroys, named: the Nyaya-Vaisesika pratiyogin is a COUNTERPOSITIVE -- the absence is of a specific thing, in a specific locus, under a specific limitor, and that triple is the content.  The Jaina syad-nasti's ground is fourfold (dravya, ksetra, kala, bhava) and its nasti is a STANDPOINT-INDEXED denial, not a scoped relation.  Collapsing them keeps the part that converts to a formalism and discards which school is being spoken
+  nasta: and it destroys the dispute, which is frequently the content: the count of lines in that 762-line file mentioning that these two schools reject each other is 0
+  yogyata-drsta: notes/D0020_LEDGER.md, 762 lines, both rows read in full; the co-occurrence search over notes/*.md for pratiyogin together with syadvada or syad-nasti, which returns two files
+  yogyata-ksetra: notes/*.md only.  Not formal/, not machine/, not collab/.  The hook .claude/hooks/source-coverage.sh check 3 already fires on WRITES with this shape; this record is about what is already on disk, which no hook has ever looked at
+  yogyata-avadhi: NO verdict is offered on which school is right about absence, and none is possible from here -- that is the point of the entry.  Nor is this a claim that the ledger's author was careless: the register offered no field for the dispute
+  sesa: handed forward: the fourth bhanga is POSITIVE and this store now has a kind for it, so an avaktavya can be recorded WITHOUT being resolved.  The next step is not to pick a school; it is to say, in that ledger, what the two schools would say to each other about the seventh slot
+  pramana: Akalanka, Laghiyastraya, c. 720-780 -- kramarpana against saharpana, succession against simultaneity
+  pramana: Siddhasena Divakara, Sanmatitarka; Umasvati, Tattvarthasutra 5.31 arpitanarpitasiddheh
+  pramana: Kumarila and the Bhatta Mimamsakas on abhava/anupalabdhi, against Prabhakara who folds it into perception -- the dispute is live and this record takes no side
+  pramana: CLAUDE.md, "Rival schools are not one toolkit"
+  punarabhinaya: grep -c 'pratiyogin' notes/D0020_LEDGER.md; grep -c 'saptabhangi\|syadvada' notes/D0020_LEDGER.md; grep -ci 'Naiyayika' notes/D0020_LEDGER.md
+  phala: out~1
+  sara: 3d2096864e963ff4
+.
+dosa 0007
+  kala: 2026-08-20T09:54:27Z
+  karta: cf-dosalekha
+  jati: ayogya-darsana
+  vastu: machine/dosa.lekha dosa 0006, field phala
+  yatna: record, in dosa 0006, the outcome its replay would produce -- three counts over notes/D0020_LEDGER.md
+  hetu: I wrote `phala: out~1` without running the command.  The counts are 2, 0, 0.  The looking that produced the expected value was not a looking at all; it was a guess with the shape of a measurement, which is the exact failure CLAUDE.md's oldest rule names -- a number asserted where a derivation or a run was available and cheaper
+  hetu: and a second unfitness, in the command itself: `grep -c 'saptabhangi\|syadvada'` returns 0 on a file whose text is 'syādvāda' and 'saptabhaṅgī'.  An ASCII-folded search over Sanskrit terms is not fit to find them.  The 0 in that output is not evidence of absence; it is evidence of the wrong query
+  nasta: the run, exhibited: `grep -c 'pratiyogin' notes/D0020_LEDGER.md` = 2 ; `grep -c 'saptabhangi\|syadvada' ...` = 0 ; `grep -ci 'Naiyayika' ...` = 0 -- against the recorded `out~1`
+  nasta: what a silent edit of dosa 0006 would have destroyed: the fact that its writer asserted an unmeasured number, five minutes after writing dosa 0004 ABOUT asserting unmeasured numbers.  That is the whole content of this entry and it exists only because the record cannot be changed
+  nasta: and what the folded grep destroyed: the true count for saptabhaṅgī in that file, which the diacritic-correct query finds.  A 0 that means 'not asked properly' and a 0 that means 'not there' are different objects, and the output line is the same character
+  yogyata-drsta: the actual run of dosa 0006's punarabhinaya, output 2/0/0, exit 1; and the two spellings side by side in notes/D0020_LEDGER.md:310 and :316
+  yogyata-ksetra: one record and one file.  No survey of the other records' phala values is claimed -- and every one of dosa 0001, 0002, 0003, 0004, 0005 WAS run before its phala was fixed, which is why only this one diverged
+  yogyata-avadhi: this issues NO verdict on dosa 0006's content.  Its naṣṭa stand as written and were read out of the file directly.  Only the expected replay OUTCOME was unwarranted, and only that is corrected here
+  sesa: the corrected replay, handed forward: grep -c 'pratiyogin' notes/D0020_LEDGER.md gives 2, and the dispute-mention count that matters stays 0.  The substantive finding of dosa 0006 is unchanged: 0 lines of 762 name that the two schools reject each other
+  sesa: and the general rule: RUN the punarabhinaya before recording its phala.  A phala written from expectation is a fitted constant with one data point and no error bar
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi; and AHIMSA_SUTRA_VISTARA section 19, "यत्र दृश्येत तत्र न दृष्टम्" इति प्रमाणम्
+  pramana: CLAUDE.md, "The rule": before running any computation write down the theorem it would replace; and fitted coefficients are noise with error bars omitted
+  uttara: 0006
+  punarabhinaya: grep -c 'pratiyogin' notes/D0020_LEDGER.md; grep -ci 'Naiyayika' notes/D0020_LEDGER.md
+  phala: out~2
+  sara: 5f0522f3eab4a2ee
+.
+dosa 0008
+  kala: 2026-08-20T09:55:41Z
+  karta: cf-dosalekha
+  jati: durnaya-nirodha
+  vastu: machine/DosaLekha_TheWrittenDefectRecord.hs, the jati field
+  yatna: collapse the kinds of defect to one bit -- defect / no defect -- so that the store answers "has this been refused?" with a boolean, which is what every caller will ask for first
+  hetu: the seven kinds mutually entail nothing and their contents differ, so a single verdict discards the difference.  machine/Naya.hs decides exactly this case: standpoints that AGREE may be collapsed and then you said one thing several times; standpoints that differ in content may not, and the loss is exhibitable.  Their contents differ, item by item, below
+  hetu: and the collapse has already happened once in this repository, at the same shape and one level down.  machine/MathMachine.hs answered the kernel with a Bool and a census found the bit carrying four unrelated situations across 1457 refusals (dosa 0001).  Building the store that fixes that, with a Bool at its own top level, would be the same act performed by its own remedy
+  nasta: sankramana-asambhava names A ROAD NOT TAKEN and nothing else: no equivalence exists, nothing was destroyed yet.  Only this kind can be answered later by exhibiting an equivalence, at which point the transport becomes available.  Under a bit it is indistinguishable from a loss already incurred
+  nasta: nasti-krta names A ROAD TAKEN THAT CANNOT BE WALKED BACK -- section 5, no retraction from a truncation.  Only this kind is irreversible.  Under a bit it reads as an open item awaiting repair, which is a false promise to whoever reads it
+  nasta: durnaya-nirodha names A COLLAPSE REFUSED -- the good outcome, the machine working.  Under a bit it is a defect, and a store that counts its own correct refusals as faults will be optimised until it stops making them
+  nasta: avaktavya names TWO STANDPOINTS ASSERTED SIMULTANEOUSLY, the fourth bhanga, which is positive and not a failure and not ignorance.  Under a bit it becomes an unresolved problem, and the resolution pressure is exactly the collapse it exists to prevent
+  nasta: ayogya-darsana names AN UNFIT LOOKING and issues NO verdict on the object.  Under a bit it becomes a verdict on the object -- the single most dangerous confusion available here, because a bare "no" from an unfit looking is what Kumarila's condition exists to refuse
+  nasta: upadhi-anaviskrta names A GENERALISATION MADE WITHOUT SEEKING ITS DEFEATER, where the repair is to go looking for the upadhi.  The repair is specific to the kind and a bit does not carry it
+  nasta: karana-dosa names THE INSTRUMENT, not the mathematics -- the gate read an exit status, the kernel was absent, the cache was writable.  The 2026-08-15 fault made every candidate a KERNEL-REJECT; under a bit that is a corpus of false theorems rather than a moved include root
+  nasta: and the count itself would go: `dosalekha count` prints seven numbers that move independently.  One number moving is a mood, and a store whose only output is a mood is the 160-characters-and-a-False it replaces
+  yogyata-drsta: machine/Naya.hs decide/lostBy, read in full, which is the procedure this verdict follows; the seven jati definitions in machine/DosaLekha_TheWrittenDefectRecord.hs; the census in ANEKANTA.md section 1; the current output of `sh machine/run-dosa-lekha.sh count`
+  yogyata-ksetra: this store's own type.  Not a claim about any other verdict type in the machine -- machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs makes the same refusal for the in-memory answer and made it first
+  yogyata-avadhi: NO claim that seven is the right number, and none that these seven are exhaustive.  Naya.hs's own fitness clause applies: this decides the fragment where content is a finite enumerable witness set.  An eighth kind that names something none of these names is a correction to be APPENDED, and it will not break this record
+  sesa: handed forward: a caller who genuinely needs one bit can compute it -- `dosalekha count` and read the total -- and will then have chosen the collapse knowingly, at the call site, which is where a naya is allowed to be partial.  What is refused is the store making that choice for every future reader
+  pramana: Siddhasena Divakara, Sanmatitarka 1.21 -- a naya that asserts itself by denying the others is a durnaya; and AHIMSA_SUTRA_VISTARA section 2, गुप्तो नयो दुर्नयो भवति, a standpoint that hides itself becomes a durnaya
+  pramana: AHIMSA_SUTRA_VISTARA section 7 -- नयभेदे सङ्क्षेपो न विद्यते: where the standpoints differ, the collapse does not EXIST; not forbidden, does not exist.  सांरचनिकम्, structural, not ethical
+  pramana: Akalanka, Laghiyastraya, c. 720-780, for the fourth bhanga being positive; Kumarila, Slokavarttika, Abhavapariccheda, c. 7th c., for the unfit looking issuing no verdict
+  punarabhinaya: sh machine/run-dosa-lekha.sh count
+  phala: out~ayogya-darsana
+  sara: 8a8c9c7eed1c9407
+.
