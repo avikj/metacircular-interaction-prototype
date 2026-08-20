@@ -52,7 +52,7 @@ quoted here has not been checked against a critical edition by me.
 | **asiddhavat** | the block `6.4.22–129` `[ŚABDA]` | inside the block, all rules read the **entry state**, apply, and the block exits | **snapshot / bulk-synchronous parallel rewriting** — precisely the semantics of one round of a stratified Datalog stratum, or a simultaneous-substitution round. Goyal–Kulkarni–Behera implement exactly this and call the mechanism a **"filter"** `[ŚABDA]` | **EXACT**, and already implemented by others |
 | **anuvṛtti** | pervasive; e.g. terms of `1.1.56` carry into `1.1.57`, `1.1.59` `[ŚABDA]` | a term stated once continues into following sūtras until cancelled | **inherited context / scoped default binding**; in the derivational (not notational) direction, an inherited attribute | **NEARLY exact for the notational function**; for the derivational function the repo has already proved the correction — see §1.4 |
 | **adhikāra** | governing headers, e.g. `3.1.1`, `3.1.2` `[ŚABDA]` | a heading rule whose domain governs an entire following block | **a `Section`/`Variable` block distributing a parameter over its contents** (Coq `Section`, Agda parameterised `module`) | **EXACT.** This one is uncomfortably close: an adhikāra *is* a module header |
-| **sthānivadbhāva** | `1.1.56 sthānivad ādeśo 'nalvidhau` `[ŚABDA]` | a substitute counts as the original **for subsequent rules — except rules conditioned on the phonemes themselves** (`anal-vidhau`) | **an abstraction barrier with an explicit exception for representation-inspecting clients.** The substitute inherits the original's *designations* (interface) but not its *form* (representation). This is a parametricity/representation-independence statement, not blanket transparency | **EXACT, and sharper than the modern folklore version** — see §6.1 |
+| **sthānivadbhāva** | `1.1.56 sthānivad ādeśo 'nalvidhau` `[ŚABDA]` | a substitute counts as the original **for subsequent rules — except rules conditioned on the phonemes themselves** (`anal-vidhau`) | **an abstraction barrier with an explicit exception for representation-inspecting clients.** The substitute inherits the original's *designations* (interface) but not its *form* (representation). This is a parametricity/representation-independence statement, not blanket transparency | **EXACT, and sharper than the modern folklore version** — see §6.1; BUILT 2026-08-20 in `machine/Astadhyayi.hs` and `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda` |
 | **vipratiṣedha** | `1.4.2 vipratiṣedhe paraṃ kāryam` `[ŚABDA]` | resolves conflict between rules of equal strength | *classically* "the later rule in serial order wins" = textual-position priority in an ordered rewrite system. **CONTESTED**: Rajpopat (Cambridge PhD, published 2022-12-15, *In Pāṇini We Trust*) argues the metarule means **the rule applicable to the right-hand-side operand wins**, and that the serial reading is a 2,500-year misreading `[ŚABDA]` | **DISPUTED — do not cite "later rule wins" as settled.** The task brief that produced this note asserted it as fact; that assertion is exactly what Rajpopat contests |
 
 Traditional strength ranking, as reported by search summary of the commentarial
@@ -474,6 +474,83 @@ of clients and the module is careful to say which class. The module's own
 header already performs the `anal-vidhau` move, in English, without knowing
 the sūtra had a word for it.
 
+
+**[BUILT 2026-08-20.** The sentence stopped being a sentence worth having and
+became two mechanisms.
+
+`machine/Astadhyayi.hs`: substitution in that engine was string replacement —
+a rule replaced `"i"` by `"y"` and nothing recorded that the y had been an i.
+A substitute now carries its sthānin in a channel parallel to the word
+(`Prov`), tagged with the sūtra that put it there, written by `applyRwP` at the
+moment of substitution and threaded through every call site of the engine.
+`alVidhiTable` declares each sūtra `AlVidhi`, `AnalVidhi` or `NoVidhi` **with
+its reason**, one entry per sūtra, and `selfTest` checks the table is total so
+no rule can acquire a reading by defaulting; three entries are marked DISPUTED
+(6.1.109, 7.1.1, 8.2.30 — an operation whose locus is a saṃjñā and whose
+substituend is a sound) rather than decided. The engine hands each rule the
+derivation *as that rule may see it* (`seenBy`), so the barrier is a mechanism
+rather than an annotation, and each step records which reading it fired on
+(`stView`, `stSaw`, `stForm`, `stSthanin`, `stThroughBarrier`). `barrierAudit`
+prints every step where the two readings differ. Six sūtras were added to run
+it — 1.1.5, 1.3.3, 1.3.8, 1.3.9, 7.1.1, 7.3.84 — with an upadeśa stage before
+the fixpoint, because 1.3.2 says `upadeśe` and that is what the word does to an
+implementation.
+
+**What is exercised and what is not, since the difference is the whole value of
+the report.** The EXCEPTION clause is exercised: three corpus words have a rule
+firing at a position another rule had already substituted, and reading the
+ādeśa — `vāc` (8.2.39 reads the `k` for the sthānin `c`; 8.4.56 reads `g` for
+`k`), `tat + jalam` (8.4.40 reads `d` for `t`), `nī ~ lyuṭ` (6.1.78 reads the
+`e` 7.3.84 put for `ī`). The INHERITANCE half is **declared and not
+exercised**: the designation-reading rules encoded here — 1.1.5, 1.3.9, 7.1.1 —
+never fire at a site holding an ādeśa, so `deriveRupamEverywhere`, which
+strikes `sthānivat` and makes every rule read the form, gives the same word on
+the whole corpus. Recorded rather than papered over; a mechanism whose second
+half never runs is a shelf.
+
+The measurement, since the claim "the exception clause is load-bearing" is
+otherwise an opinion: `deriveSthanivatEverywhere` strikes `anal-vidhau` and runs
+the same sūtras on the same inputs. Four corpus words change, and the mechanism
+differs in each — `tat + ca` `tacca → tajca` (8.4.40 keeps reading the `t`
+8.2.39 replaced), `ne - ana` `nayana → naaiana`, `rāmas` `rāmaḥ → rāmar` (8.3.15
+reads the `s` it was given in place of, so its `r` condition is never met), and
+`nī ~ lyuṭ` `nayana → neyu`. **The last is the sharp one and it was not the
+expected result**: 7.3.84 reads the `ī` it has itself just replaced, re-offers
+the same guṇa, the offer is a no-op, and the engine reads that as a fixpoint and
+halts three rules early. A guṇa rule that counts its own output as the sthānin
+cannot tell that it has fired — so without the clause the derivation ends in the
+wrong *place*, not merely with the wrong sound. `vāc` is not in the list: under
+the struck reading 8.2.39 cycles `k → j → g` and 8.4.56 cycles `g → c → k`, and
+the cycle lands back on the attested `vāk` after five steps instead of three.
+Same word, different derivation; a test on the form alone would have called that
+agreement.
+
+*(An earlier draft of this paragraph, written before the engine side existed,
+predicted `neana`, `vāj` and `tadjalam` for those three. All three were wrong.
+The prediction was not marked as one, which is the failure worth naming: a
+measurement written before the run reads exactly like a measurement.)*
+
+Lopa likewise: `Lupta` is an item that renders as nothing, is invisible to every
+rule that scans sounds, and whose designations are still readable — 1.1.60
+अदर्शनं लोपः, non-appearance and not deletion, with 1.1.62 for why it still
+conditions. `ci ~ kta` derives `cita` because 1.1.5 क्ङिति च reads the `k` that
+1.3.9 erased one step earlier; `deriveWithoutLopa` removes the trace, as
+a naive engine does, and gets `ceta`.
+
+`formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
+carries the statements: `anal-blind` (a rule factoring through the designations
+gives the same answer on an ādeśa and its sthānin — for every such rule, into
+every type, which is the parametricity half), `ec?-not-anal` (there is **no**
+function of the designations agreeing with 6.1.78, so the exception is naming a
+real class), `one-reading-fails` (no single reading serves both kinds of rule —
+neither transparency nor opacity is enough, which is the sharp form of the
+folklore complaint above), and `lopa-load-bearing` (two derivations with
+identical surfaces that 1.1.5 answers oppositely). `--safe`, no postulates, no
+holes.
+
+NOT done: 1.1.52–1.1.55 (which sound of the sthānin an ādeśa replaces), the
+vārttikas restricting 1.1.56, and 1.1.61/1.1.63 (luk, ślu, lup and their own
+sthānivadbhāva treatment).**]
 ### 6.2 the tripādī is a two-stage compiler and the repo has been reasoning about phase visibility without it
 
 `A 8.2.1 pūrvatrāsiddham` makes the final block's effects **invisible to the

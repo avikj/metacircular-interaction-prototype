@@ -10,6 +10,9 @@ import System.Exit (exitFailure)
 import System.IO
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding, setForeignEncoding, utf8)
 
+showRef2 :: (Int, Int, Int) -> String
+showRef2 (a,b,c) = show a ++ "." ++ show b ++ "." ++ show c
+
 bar :: String -> IO ()
 bar t = do
   putStrLn ""
@@ -23,10 +26,18 @@ trace1 input = do
   putStrLn ("  " ++ input ++ "   ->   " ++ render final)
   mapM_ step steps
   let aud = asiddhaAudit xs
+      bar1 = barrierAudit xs
+      kn   = knitAudit xs
   mapM_ (\(r, why) ->
           putStrLn ("      8.2.1 pūrvatrāsiddham: " ++ show r
                     ++ " would fire on the tripādī's output and is refused ("
                     ++ why ++ ")")) aud
+  mapM_ (\(r, _, orig, actual) ->
+          putStrLn ("      1.1.56 sthānivad ādeśo 'nalvidhau: " ++ showRef2 r
+                    ++ " is conditioned on the sounds, so it read the ādeśa "
+                    ++ actual ++ " and not the sthānin " ++ orig)) bar1
+  mapM_ (\(r, why) ->
+          putStrLn ("      1.1.60 adarśanaṃ lopaḥ: " ++ showRef2 r ++ " -- " ++ why)) kn
   where
     step st = do
       putStrLn ("      " ++ showRef (stSutra st) ++ "  " ++ stText st)
@@ -41,11 +52,26 @@ trace1 input = do
                                         | a <- as ])
           putStrLn ("              as applied:      " ++ fullReading (stSutra st))
       putStrLn ("              " ++ stNote st)
+      -- 1.1.56: WHICH VIEW THE RULE FIRED ON.  An al-vidhi is conditioned
+      -- on the sounds and reads what is there; an anal-vidhi reads the
+      -- substitute as its sthānin.  Where the site held an ādeśa and the
+      -- two readings differ, say which one was taken.
+      putStrLn ("              fired on " ++ viewWord (stView st)
+                ++ (if stSthanin st /= stForm st
+                      then "; the site holds " ++ stForm st ++ " standing for "
+                           ++ stSthanin st ++ ", and it read " ++ stSaw st
+                           ++ (if stThroughBarrier st
+                                 then " -- through the barrier, by anal-vidhau"
+                                 else " -- sthānivat")
+                      else ""))
       putStrLn ("              " ++ stBefore st ++ "  ⇒  " ++ stAfter st)
       case stBeaten st of
         [] -> return ()
         ls -> putStrLn ("              beat " ++ unwords (map showRef ls)
                         ++ " -- " ++ stReason st)
+    viewWord AlVidhi   = "the FORM (al-vidhi: conditioned on the sounds)"
+    viewWord AnalVidhi = "the DESIGNATION (anal-vidhi: 1.1.56 in force)"
+    viewWord NoVidhi   = "no substitution"
     showRef (a,b,c) = show a ++ "." ++ show b ++ "." ++ show c
 
 corpus :: [String]
@@ -64,6 +90,10 @@ corpus =
   , "tat + ca"
   , "tat + jalam"
   , "vāc"
+  -- 1.1.56 and 1.1.60, each doing visible work.  `~` marks the affix as
+  -- it is enunciated, markers and all.
+  , "nī ~ lyuṭ"
+  , "ci ~ kta"
   ]
 
 main :: IO ()

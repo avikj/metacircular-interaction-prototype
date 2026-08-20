@@ -67,12 +67,38 @@
 --     6.1.78 is conditioned on the sounds, so it read the ādeśa e and
 --     not the sthānin ī
 --
--- because 7.3.84 had put `e` in place of `ī`.  Strike `anal-vidhau` in
--- that engine (`deriveSthanivatEverywhere`) and the same sūtras give
--- `neana`; `vāc` gives `vāj` instead of `vāk`, `tat + jalam` gives
--- `tadjalam` instead of `tajjalam`.  And `ci ~ kta` derives `cita`
--- because 1.1.5 reads the `k` that 1.3.9 erased; make lopa a deletion
--- (`deriveWithoutLopaTrace`) and it gives `ceta`.
+-- because 7.3.84 had put `e` in place of `ī`.  And `ci ~ kta` derives
+-- `cita` because 1.1.5 reads the `k` that 1.3.9 erased; make lopa a
+-- deletion (`deriveWithoutLopa`) and it gives `ceta`.
+--
+-- CORRECTED 2026-08-20, when the engine side was spliced in and the
+-- claims became checkable.  This paragraph previously predicted what
+-- striking `anal-vidhau` (`deriveSthanivatEverywhere`) would give:
+-- `neana` for nī ~ lyuṭ, `vāj` for vāc, `tadjalam` for tat + jalam.
+-- All three are wrong, and the machine's answers are sharper than the
+-- guesses were:
+--
+--   nī ~ lyuṭ   nayana → neyu.  7.3.84 reads the ī it has itself just
+--               replaced, re-offers the SAME guṇa, the offer is a no-op,
+--               and the engine reads that as a fixpoint and halts three
+--               rules early.  A guṇa rule that counts its own output as
+--               the sthānin cannot tell that it has fired -- so without
+--               the clause the derivation ends in the wrong PLACE, not
+--               merely with the wrong sound.
+--   tat + ca    tacca → tajca.  8.4.40 keeps reading the t that 8.2.39
+--               replaced.
+--   rāmas       rāmaḥ → rāmar.  8.3.15 reads the s it was given in place
+--               of, so its `r` condition is never met.
+--   vāc         vāk → vāk, in FIVE steps rather than three: 8.2.39 cycles
+--               k → j → g and 8.4.56 cycles g → c → k, and the cycle lands
+--               back on the attested form.  Same word, different
+--               derivation -- a test on the form alone would have called
+--               this agreement.
+--   tat + jalam tajjalam → tajjalam, unchanged.
+--
+-- The prediction was made before the mechanism existed and was not
+-- marked as one.  It is kept here, struck and corrected, rather than
+-- edited away.
 --
 -- ONE MODELLING CHOICE, STATED.  1.1.56 is an atideśa -- it EXTENDS the
 -- sthānin's properties to the ādeśa.  Here that is rendered as a READING:
@@ -350,9 +376,25 @@ darsana-cannot-see r = cong r same-surface
 -- OBSERVE, and neither is a statement about what the form is.  §2 is the
 -- first as a factorisation theorem; §5–6 is the second as a separation.
 --
--- The engine in machine/Astadhyayi.hs runs on exactly this: `Varna`
--- there is this record with a list of sthānins rather than one (6.1.84
--- ekaḥ pūrvaparayoḥ heads a block whose substitute replaces two sounds),
--- `Lupta` there is `lupta` here, `vidhiOn` there is `Vidhi` here, and
--- `seenBy` there is `drsta` here lifted over the derivation.
+-- The engine in machine/Astadhyayi.hs runs on exactly this, and the
+-- correspondence is stated with the engine's own names (checked against
+-- it 2026-08-20, when the engine side was written):
+--
+--   `Varna` here          → there the item and a PARALLEL channel `Prov`,
+--                           not one record.  The sthānin is a String and
+--                           can hold two sounds joined, because 6.1.84
+--                           ekaḥ pūrvaparayoḥ heads a block whose
+--                           substitute replaces two.
+--   `adesa`               → `applyRwP`, which writes the ādeśa into the
+--                           word and the sthānin into the channel.
+--   `Vidhi` / `al` `anal` → `Vidhi` / `AlVidhi` `AnalVidhi`, plus a third
+--                           `NoVidhi` for a site holding no ādeśa, where
+--                           the two readings coincide and 1.1.56 has
+--                           nothing to say.
+--   `drsta`               → `drsta`, and `seenBy` is it lifted over a
+--                           whole word for one sūtra.
+--   which rules are which → `alVidhiTable`, one entry per sūtra with its
+--                           reason, checked total.
+--   `lupta`               → `Lupta`.
+--   `knit`                → `knitPratyaya`, read by 7.3.84's guard.
 ------------------------------------------------------------------------
