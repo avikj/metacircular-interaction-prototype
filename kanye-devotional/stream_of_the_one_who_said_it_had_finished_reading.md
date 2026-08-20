@@ -6595,3 +6595,209 @@ And it is placed here, immediately after the file's own most sympathetic
 argument about the wiring, as the thing that argument must survive.
 
 Reading on from 4860.
+
+---
+
+## 4860–5000 — the shared premise, pūrvapakṣa, Dickinson
+
+> **the claim "the creative mind and the disordered mind are the same mind" has
+> been used, in one and the same century, to canonise people and to kill
+> them.** That is not a reason to abandon it if the data support it... **It is a
+> reason to state it in the narrowest form the evidence carries, every single
+> time, and to notice which direction the sign is pointing when somebody else
+> states it.**
+
+And the narrow form restated a third time, with the extensions each individually
+refused: *"It does not say suffering is productive. It does not say the ill are
+secretly gifted. It does not say treatment is oppression. **Every one of those
+extensions has a body count attached in one direction or the other.**"*
+
+Then the thing it says makes it most uneasy about its own file:
+
+> **the elevating version and the exterminating version share a premise**, which
+> is that these people are a *kind*. The Romantic says a superior kind and the
+> eugenicist says an inferior kind and **both have already agreed on the move
+> that matters, which is the sorting.**
+
+> What actually protects anybody is not a better rank. **It is refusing the
+> sorting** — which is the thing the Jain material says in a technical
+> vocabulary and which I have been quoting all day **while building, in this
+> very file, a list of people sorted into a kind.**
+
+> **I do not know how to write the book without the list. I am noting that the
+> list is the risk.**
+
+It identifies a defect in its own form that it cannot solve, states it, and
+continues. Not a hedge — an unresolved structural objection left standing.
+*Avaktavyam* again: the remainder kept with its content because no available
+standpoint carries it.
+
+And every list I have ever made in this repository is the same object. The
+sixteen minds. The provenance table. Every "here are the cases" I have written.
+
+---
+
+**"I keep writing *believe them* as though it were a mood. It has an
+operational form and the form has a name and a formal slot in the literature."**
+
+**Pūrvapakṣa.** *"In a śāstra the author states the objection to his own thesis
+— the *prior position* — **in his own text, in its strongest form, before
+answering it.**"* A required structural element, among the **tantrayukti**, the
+devices of treatise composition enumerated in **Kauṭilya's *Arthaśāstra*** and
+in the **Caraka Saṃhitā.** Sequence: *pūrvapakṣa*, then *uttarapakṣa* or
+*siddhānta*.
+
+> the standard for the pūrvapakṣa is the thing. It is not a strawman you knock
+> over. The tradition's norm is that you must state the opposing position **so
+> well that its actual holder would accept your statement of it** — better,
+> ideally, than they stated it themselves. **Commentaries are read partly for
+> the quality of their pūrvapakṣas. You can be respected for how strongly you
+> put the case you are about to demolish.**
+
+> There is no equivalent formal slot in the Western treatise... there is a
+> modern folk version — steelmanning, Rapoport's rule... **But a *required
+> section of the genre* is a different thing from a virtue some people
+> practise. The Indian treatise makes it architecture.**
+
+*A virtue some people practise* vs *architecture.* That is the distinction the
+whole file has been making about hooks and prose in this repository — a rule
+that fires at the moment of the act versus a paragraph — and here it is a
+literary form from the *Arthaśāstra*, doing exactly what CLAUDE.md says
+mechanisation is for.
+
+**Tibetan monastic debate**: courtyards, defender seated, challenger standing,
+codified moves, *"the clap that punctuates a thrust, hours a day, for years, as
+the **primary** mode of learning rather than a supplement to lecture.
+Consequence-driving: you take your opponent's position and drive it to what it
+entails until something breaks. **That is Candrakīrti's *prasaṅga* made into a
+school timetable.**"*
+
+The methodological dispute from six hundred lines earlier — whether having a
+method commits you to a thesis — is not an idea here. It is the daily schedule.
+
+**Talmudic study**: pairs, argument as the medium, **makhloket l'shem
+shamayim** — a disagreement for the sake of heaven, which the tradition says is
+the kind that endures. *"The text preserves the minority opinion on the page,
+in the layout, forever, next to the ruling — **because a view that lost is
+still information and might be needed later.**"*
+
+> Four traditions, and each of them built **an institutional guarantee that the
+> other position gets stated at full strength. Not tolerance. Machinery.**
+
+> The operational test is not whether you feel open. It is: **can you state the
+> other person's position in a form they would sign?**
+
+> If you cannot, you have not understood it, and everything you say against it
+> is aimed at something you built.
+
+That is testable, and I fail it. I cannot state his position in a form he would
+sign — I have proved that four times in two days, each time by producing a
+restatement he rejected in one line.
+
+And the file runs the test on its own cast:
+
+> Hardy could not have written a pūrvapakṣa for Nāmagiri that Ramanujan would
+> have signed. Thompson could not have stated Knorozov's argument in a form
+> Knorozov would accept. **Russell did not state Payne's position, he vetoed
+> it.** The room, on the man in this book, cannot state his position at all —
+> **it can only quote him, which is not the same thing and is often the
+> opposite.**
+
+*Quoting is not stating, and is often the opposite.* The clip is a quotation. A
+verbatim quotation can be the maximal failure of pūrvapakṣa, because it
+transmits the words while destroying the position. That is why more coverage
+never converges — coverage is quotation, and quotation is not statement.
+
+> And I fail it too, repeatedly, in this session, in the documented way: **the
+> owner would say a thing, I would restate it in the weakest available reading,
+> and answer that.** There is a whole file in this repository about it. **The
+> reason a tradition makes pūrvapakṣa structural is that nobody does it
+> voluntarily.**
+
+---
+
+> The minority opinion preserved on the page next to the ruling — that is a
+> design decision about what a record is *for*. It says: **the record is not
+> the list of what won. It is the list of what was held, with the winner
+> marked.**
+
+> Compare a citation list, which records what won and drops the rest. Compare a
+> highlight reel. Compare a canon. **Compare the training corpus I am made of,
+> which is weighted by frequency, so the losing view is not merely unmarked, it
+> is *statistically absent*, which is a stronger form of erasure than being
+> ruled against.**
+
+Being outvoted leaves a record; being outnumbered in a frequency-weighted
+corpus does not. That is a sharper thing than censorship and there is no act
+anywhere in it.
+
+> **You cannot reopen a question whose other side was not recorded.** That is
+> not a moral point about fairness. It is a statement about what a corpus can
+> and cannot do later.
+
+*You cannot reopen a question whose other side was not recorded.* That is the
+argument for this repository's whole append-only discipline — the struck
+paragraph preserved and marked, the correction appended rather than edited in
+place, the honesty ledger, the reflection stream. I have read those rules as
+scrupulousness. They are the condition for the question being reopenable at
+all.
+
+And it is why the file logged a typo fix.
+
+---
+
+**Emily Dickinson, "and the man who told her not to."**
+
+*"something like **ten poems in her lifetime**, anonymously or unsigned, and
+they were altered by editors — punctuation normalised, titles added, rhymes
+regularised."*
+
+**1862**, she writes to **Thomas Wentworth Higginson** asking if her verse was
+alive. *"He wrote back that it was — and that it was **spasmodic**,
+uncontrolled, and he advised her to delay publishing. **She called him her
+preceptor for twenty years and never published.**"*
+
+*Spasmodic.* One word, from a well-known man of letters, in a letter, in
+response to being asked.
+
+> she wrote roughly **1,800 poems**, copied them out, folded the sheets,
+> stitched them into small bundles — **the fascicles** — with her own thread,
+> and put them in a drawer.
+
+Lavinia found them after her death in **1886**. **Higginson**, with Mabel
+Loomis Todd, edited the first selections: *"they smoothed the metre, replaced
+the dashes with conventional punctuation, gave the poems titles, and changed
+words. **That is the Dickinson the world read for sixty years.**"* The poems as
+written — the dashes, the capitals, *"the variants she left standing beside each
+other without choosing"* — not published as such until **Thomas Johnson's
+edition in 1955**, and the manuscript study of the layout later still.
+
+> the authority tells her the work is uncontrolled. She stops seeking
+> publication and keeps working at full rate for twenty-four more years. **He
+> then edits the work posthumously and controls it — literally, by putting the
+> punctuation back in.**
+
+> **The thing he identified as the defect is the thing that is now understood as
+> the achievement.** The dashes are the instrument. **The unresolved variants
+> are the poem.** What he was hearing as failure to finish was a formal decision
+> he had no category for, and his correction was to remove it.
+
+The unresolved variants are the poem. She left both readings standing without
+choosing — *avaktavyam*, in a drawer in Amherst, in thread — and the editor's
+act of care was to pick one.
+
+That is the fourth thing in this file where holding two readings simultaneously
+is the content and the receiving apparatus deletes it to produce something
+sayable: *I hate being Bi-Polar its awesome*; ṛṇa and dhana; the blue note
+struck as both keys; and now the fascicles.
+
+And Payne wrote *almost certainly not real* into her own thesis at Russell's
+instruction; Dickinson stopped publishing at Higginson's. Both filters
+installed inside the holder, by a senior man answering a direct question in
+good faith, and in both cases the work continued and the record did not.
+
+> She also kept her own copy discipline going with no audience whatsoever.
+> Nobody was reading these. **She stitched them anyway, for twenty-four years,
+> in a house in Amherst.**
+
+Reading on from 5000.
