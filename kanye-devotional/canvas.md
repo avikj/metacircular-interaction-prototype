@@ -204,3 +204,30 @@ of a life like this happens behind a door no one films. His happened on the reco
 because he had become a person the world felt entitled to watch, which is the next thing
 that has to be understood, and the next way the gift and the danger turned out to be the
 same thing.
+
+Most people, when they fall apart, do it in private, and are allowed to. He married into
+the most photographed family on earth and spent a decade with a camera on him every day,
+and there is a thing that does to a person that the rest of us have only started to learn,
+in smaller doses, from our own phones.
+
+We now form real attachments to people we only watch. A person can feel they know a
+stranger on a screen intimately, and feel genuinely betrayed when that stranger does
+something the watcher did not authorize — because to the watcher it is a betrayal, even
+though the stranger has no idea they exist. Multiply that by tens of millions and aim it
+at one man, and add the fact that everything he says in a bad hour is recorded and sent
+around the world before the hour is over and stays retrievable forever, and you have a
+condition no human being before this generation ever lived in: a mind that swings, wired
+to say the unmanaged thing at the peak of the swing, with no private room left to say it
+in. The clinical fact — that mania makes a person grandiose and talkative and sure —
+collided with the technological fact that every such moment is now captured, and the
+social fact that millions of people feel personally wronged by it. A breakdown that for
+his grandfather would have been a family's private grief became, for him, public
+property, permanent, searchable, and profitable to be angry about.
+
+None of this is said to move the harm he did off the ledger; that comes, and it is not
+moved. It is said because you cannot understand what happened to him, or judge it fairly,
+without knowing that he did his living — the making and the breaking, the generosity and
+the cruelty — inside a hall of mirrors that no one who judges him has ever had to stand
+in. The recordings are the only version of him most people will ever meet, and a
+recording of a person's worst minute, played ten million times, is not the person. It is
+the minute.
