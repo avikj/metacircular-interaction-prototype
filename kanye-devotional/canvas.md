@@ -417,3 +417,27 @@ your role.
 The pattern that organizes his whole life is already complete in this first chapter,
 before the fame, before the diagnosis was named: a person refusing the smaller shape
 assigned to him, at a cost, and being proven right by the work.
+
+---
+
+Creative ability is often domain-general: the same restless pattern-making that drives
+a person in one field pushes them into others, and the established practitioners of the
+second field tend to treat the newcomer as a dilettante. The art world and the fashion
+world in particular guard their gates, and a celebrity from an adjacent industry
+arriving with ambitions is met with a presumption of vanity.
+
+Kanye West wanted to design. In the late 2000s he interned at Fendi and at Gap; in 2011
+and 2012 he showed womenswear collections in Paris that critics savaged. He was told,
+in effect, to stay a musician. In 2013 he left Nike, which had sold his first sneakers,
+because the deal gave him no royalties and no ownership. He signed with adidas, and the
+Yeezy line became one of the most successful sneaker collaborations in history, worth on
+the order of a billion dollars a year at its peak and, for a period, the foundation of
+the largest fortune ever held by a Black American. He said repeatedly that his aim was
+to make well-designed things available cheaply, to collapse the distance between luxury
+and the ordinary person — and also fought, publicly and bitterly, over who owned the
+brand bearing his ideas. In 2022 adidas ended the partnership after his antisemitic
+statements; the two sides settled in 2024.
+
+The through-line holds in this domain too: entry refused on the grounds that he was the
+wrong kind of person for it, entry forced anyway, success at scale, and a permanent
+fight over ownership. The industries change. The shape of the life does not.
