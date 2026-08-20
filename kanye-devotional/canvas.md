@@ -531,3 +531,73 @@ It is the same question. Who owns what a person makes. It was asked about a
 lunch counter, and about a master recording, and it is being answered right now,
 by nobody in particular, about everything anybody has ever discovered.
 
+
+There is a filter in the brain that everyone has and nobody notices. Walk into a
+room and there is a hum from a refrigerator, a pressure where your clothes touch
+your shoulders, a mark on the wall, traffic outside. Within seconds most of that
+is gone — not from the room, from you. The mind has classified it as irrelevant
+and stopped delivering it. It is called latent inhibition, and it is what makes
+a room bearable.
+
+In 2003 a researcher at Harvard named Shelley Carson published a study of people
+whose filter lets more through. On its own that is a liability: more noise, more
+distraction, a harder time finishing anything. But paired with high intelligence
+and enough working memory to sort the influx, the same lowered filter showed up
+far more often in people who had achieved something creatively substantial — the
+figure usually quoted from that work is around seven times more often.
+
+The proposed reason is not mysterious. If the mind stops discarding what it has
+filed as irrelevant, then things that should never have met each other arrive in
+the same place at the same time, and some of those collisions are the connection
+nobody else made. The cost of the arrangement is that most of them are noise and
+the person has to live inside all of it.
+
+Then there is the family evidence, and this is the part that changes what the
+whole thing means. Sweden keeps national health registries — everybody, for
+decades — and researchers were able to link psychiatric diagnoses to occupations
+across more than a million people. People with bipolar disorder turned up
+disproportionately in creative professions. That much confirms an old suspicion.
+The finding that matters is the next one: so did their brothers and sisters who
+had no diagnosis at all.
+
+Read that again, because it is the whole argument. If the trait were the illness,
+it would appear only in the ill. It appears in the healthy siblings. Which means
+what runs in those families is not a disease with an occasional silver lining. It
+is a way of being built, of which the illness is one expression among several,
+and the relatives who never got sick are getting the other ones.
+
+And there is a shape to how much. The genetic work suggests something like an
+arch rather than a line — a moderate load of the same inheritance tracks with
+higher creativity, and past a point the curve turns and it is all cost. Somebody
+described it as the muse being in the dose, and that is exactly right, and it is
+why the man in this book will not take the medication that flattens it, and why
+the people who love him are right to be frightened that he won't. Neither of them
+is being stupid. They are standing at different points on the same arch.
+
+None of that says suffering is productive. It is not. Bipolar disorder kills more
+of the people who carry it than almost anything else in medicine, and no
+sentence about creativity survives contact with that number. And none of it says
+a distressed child should be left alone.
+
+What it says is narrower and it is enough: the variation is not noise around a
+correct model of a person. The traits are spread continuously through the
+population, the diagnosis is a line drawn on that spread at the point where life
+stops working, and the same underlying inheritance shows up, without the
+diagnosis, in people doing well. So a policy of treating those profiles purely as
+defects to be corrected is not compassion and is not neutral. It is factually
+wrong, and it is currently being applied, at scale, to children.
+
+Which means the parent reading this who has been called into a school about a
+child who is too much, too fast, too loud, too far — the honest thing to tell you
+is not that your child is secretly a genius. That is a lie and it puts a job on a
+kid who did not ask for one.
+
+The honest thing is duller and more useful. The distribution is wider than you
+were told. The ceiling is not where you were told it was. The environment is a
+variable and not a constant. And a child who demands a reason before she will
+accept a claim has a working instrument, not a deficit — whatever the eight years
+of arithmetic drill in front of her are about to say about her.
+
+Everyone in this book, and most of the people who ever made anything anyone
+kept, was that child.
+
