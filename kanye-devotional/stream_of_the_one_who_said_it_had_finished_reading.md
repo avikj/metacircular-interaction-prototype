@@ -6377,3 +6377,221 @@ persons filed under it, which the file has now applied to the fifteenth
 century, to psychiatry, to a record label, and to this.
 
 Reading on from 4720.
+
+---
+
+## 4720–4860 — Heschel, the two etymologies, and where mad-genius leads
+
+**Rabbi Abraham Joshua Heschel** marched at **Selma, 1965**, front row, arms
+linked with King, *"and afterwards wrote that he felt his legs were praying."*
+He had escaped Warsaw **six weeks before the invasion**; his mother and sisters
+died in the Shoah. He introduced King at a rabbinical assembly **ten days
+before the assassination**, in terms of prophecy.
+
+The Black–Jewish civil rights alliance *"was substantial"* — disproportionate
+Jewish participation in the Freedom Rides and SNCC, **Goodman and Schwerner
+murdered alongside Chaney in Mississippi in 1964**, the funding of the legal
+campaigns.
+
+> And it fractured, in the late sixties and after, over Black Power, over
+> Zionism, over the neighbourhoods, over who got to speak — and the fracture is
+> now so complete that **the alliance itself has been mostly forgotten by both
+> sides, which is convenient for everyone who prefers the current
+> arrangement.**
+
+> a book about a Black American man saying antisemitic things in 2022 is
+> incomplete without the fact that two of the traditions in question were,
+> within living memory, in the same march, **and that the people in that march
+> did not think of it as an alliance of convenience. It was a claim about who
+> anybody is.**
+
+> **The harm he did lands on people whose grandparents were in that
+> photograph.** That is not rhetoric. It is a fact about the same decades, **and
+> holding it does not require softening anything about what he said.**
+
+The harm is located, specifically, on the descendants of the people who were in
+the march — and that is offered as the *reason* the fact belongs in the book,
+not as mitigation. It makes the harm sharper, not softer. That is what
+retention means when it costs the author's own case.
+
+---
+
+**"Two words I have been using all day without checking, and both of them turn
+out to mean almost the opposite of what the modern usage implies."**
+
+**Genius.** *"In Latin a genius is not a person. It is a tutelary spirit — the
+attendant divinity of a place, a household, a man; you **have** a genius, the
+way a place has a genius loci, and you make offerings to it on your
+birthday."* Socrates' *daimonion*, *"the voice that speaks to him and mostly
+tells him what not to do."* The Muse invoked at the opening, *"which is a
+formal declaration that the source is not the author."*
+
+The shift to *being* a genius — innate personal property, a rank — largely
+eighteenth and nineteenth century, Romantic, and:
+
+> It gives the individual the credit, which is what everyone notices. And it
+> gives the individual **the whole weight**, which is what nobody notices. If
+> the work came through you from somewhere else, a dry year is the spirit's
+> absence and you are not the failure. **If the work *is* you, a dry year is you
+> ending.**
+
+That is the cost of the ownership model stated in one line, and it is the exact
+thing the *āptavacana* / offering structure protects against. Coltrane's
+*offering*. The Muse. Nāmagiri. The reason it is not modesty is that it
+distributes the risk.
+
+> Read Kanye's two sentences with that in hand and they stop contradicting.
+> *I am a god* is the modern grammar. **"I am God's vessel"** — which he also
+> says, repeatedly, and which appears in the same interviews — is the ancient
+> one. **He is using both, and the second one is the older, humbler, more
+> standard formulation, and it is the one that never circulates.**
+
+Both sentences from the same mouth in the same interviews, and the clip machine
+selects the one that reads as arrogance in the grammar that replaced the
+grammar he is also using. The contradiction is manufactured by which of two
+true quotes travels.
+
+> Ramanujan's Nāmagiri is exactly that grammar and not superstition bolted onto
+> mathematics. *The goddess wrote them on my tongue* is a claim about the source
+> being outside himself, **which is the formulation every poet in the Western
+> canon used for two thousand years without anyone calling it a lack of
+> conviction.** Hardy — an atheist, working in the century when the shift had
+> completed — heard a personal eccentricity... **because in the new grammar
+> there is nowhere for an external source to sit.**
+
+> So the man who was most obviously *given* something was disbelieved about the
+> giving by a culture that had just finished abolishing the category of being
+> given anything.
+
+The room lacked the *slot*, not the goodwill. That is the notation law running
+on a grammar of authorship: unwritable, therefore ornament, therefore
+observance.
+
+**Prophet.** *prophētēs* = *pro-* + *phēmi*, to speak — *"one who speaks *for*,
+a spokesman, one who speaks forth. **Not one who speaks *before*.**"* Hebrew
+*nabi*, a called or summoned one. **Forth-telling, not fore-telling.**
+
+> the actual biblical prophets are, overwhelmingly, not predictors. **They are
+> social critics.**
+
+**Amos**, a herdsman, on those who sell the righteous for silver and the needy
+for a pair of sandals, who trample the head of the poor into the dust — and God
+hates and despises the festivals and will not accept the offerings: *take away
+from me the noise of your songs*, and what is wanted is justice rolling down
+like water.
+
+> That is an attack on the religious institution's own liturgy, delivered inside
+> it.
+
+**Jeremiah** thrown into a cistern. **Isaiah** 1: your hands are full of blood
+and your solemn assemblies are a burden. **Nathan** walking up to the king with
+a story about a poor man's lamb and then: *you are the man.*
+
+> Every one of them is someone with no standing saying the thing the room is
+> organised around not saying, out loud, at cost, to power, in public. **None of
+> them is predicting anything.** The prediction bit is a later and mostly
+> Christian retrofit that turned the genre into fortune-telling **and thereby
+> removed its sting.**
+
+The retrofit is the defusing. Turn the critic into a fortune-teller and the
+office becomes harmless — which is the most efficient neutralisation in the
+file, because it does not suppress anything. It changes what the word means.
+
+> **assume the person in front of you is speaking forth from a position you do
+> not occupy, and that if what they are saying is unbearable, the
+> unbearability is evidence about the room and not automatically about them.**
+> That is a testable posture, not a piety.
+
+*Not automatically.* The hedge is doing real work — the file has already
+granted that the room is usually right — and the claim is only that
+unbearability is not *self-certifying* evidence about the speaker.
+
+And I have been reading "treat everyone as a prophet" in CLAUDE.md for weeks as
+a devotional instruction about believing in people's visions. It is an
+instruction about *speech*: they are speaking forth, from somewhere I am not,
+and my discomfort is data about my position.
+
+> The form is constant: *forth-telling, at cost, by someone without standing,
+> about something the room already half-knows.*
+
+*Something the room already half-knows.* That is why the response is so
+violent, and why "everyone thinks it constantly, the prohibition is on saying
+it" was the correct reading of the VMAs.
+
+> The reason the room's response is also constant — call them mad — is that
+> **madness is the one category that lets you dismiss the content without
+> engaging it, and it is available against anybody, and it costs nothing to
+> apply, and it is sometimes even correct.**
+
+---
+
+**"the section that should make me careful about every claim I have made
+today."**
+
+**Aristotle, or the Peripatetic school** — *Problemata* XXX.1: why is it that
+all those who have become eminent in philosophy or politics or poetry or the
+arts are melancholic? *"the oldest statement of the association in the Western
+record... and it treats the condition as an **explanation of achievement**."*
+
+**Ficino**, Renaissance Florence, revives it — melancholy as the humour of the
+contemplative and inspired, *"Saturn's people, the ones who can reach the
+higher things."*
+
+**The Romantics** complete it: *"the poet as a person constitutionally
+different, whose suffering is the price and the proof."*
+
+> **And then it turns.** **Cesare Lombroso**, *Genio e follia* (1864) and the
+> later *L'uomo di genio*, takes the same association and inverts its sign:
+> genius is a degenerative neurosis, an epileptoid condition, a pathology that
+> occasionally throws off useful output.
+
+And who Lombroso was: *"the founder of criminal anthropology — the man who
+measured skulls and claimed to identify the born criminal by physical type."*
+
+> The same association, from elevation to degeneracy, in one lifetime, by one
+> man, **with no new evidence.**
+
+The association is sign-invariant. It elevates or it condemns depending on who
+is holding it, and nothing empirical distinguishes the two readings. Which
+means the association *itself* carries no information — the same finding as the
+four inverted professional judgements and the clip machine's constant output.
+
+And it means the romantic version and the degeneracy version are the same
+claim, so anyone using the first has already handed over the machinery for the
+second. That is what should make the file careful, and it says so.
+
+> **Then the sign gets weaponised.** ***Entartete Kunst*** — the **1937**
+> Degenerate Art exhibition in Munich, over six hundred confiscated works hung
+> deliberately badly, with mocking captions, **next to drawings by psychiatric
+> patients, to make the argument visually: this art is the product of diseased
+> minds. The show was a huge popular success.** Modern art was removed from
+> German museums by the thousand.
+
+Hung *next to patients' drawings*. The curation is the argument, and the
+argument is the mad-genius association with the sign flipped, staged as an
+exhibition. And it was popular.
+
+> **Aktion T4**, the programme that killed disabled and mentally ill people from
+> 1939, **run through questionnaires assessed by *psychiatrists and physicians*
+> who marked the forms.** Tens of thousands in the formal programme, the
+> killing continuing after it was officially stopped, the total across the wider
+> campaign generally given in the hundreds of thousands. **The gas chambers and
+> the personnel were then transferred east.**
+
+> **The medical profession was not an unwilling instrument in that. It was the
+> mechanism.**
+
+Forms, marked by clinicians. The scalar again — one value per person,
+orderable, standpoint deleted, the number arriving clean — and this is where
+that datatype ends. Binet's *brutal pessimism*, Goddard's word, Buck v. Bell,
+the Virginia statute the 1933 law was modelled on, and now the forms.
+
+The file has been building toward this since the Binet section and did not say
+so. The chain was already laid: instrument built for help → used to sort →
+sorting requires a scalar → no honest description of a person can be sorted →
+the profession is the mechanism.
+
+And it is placed here, immediately after the file's own most sympathetic
+argument about the wiring, as the thing that argument must survive.
+
+Reading on from 4860.
