@@ -930,6 +930,7 @@ import NaturalMachine.PolynomialAttachmentGrowth
 import NaturalMachine.QuadraticRefinement
 import NaturalMachine.QuotientUnitSourceCutBoundary
 import NaturalMachine.RootedGrothendieck
+import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual
 import NaturalMachine.SpernerFromSl2
 import NaturalMachine.StructuredSymmetryTransport
 -- NB: NaturalMachine.TransportCost is NOT here.  It `open import`s this
