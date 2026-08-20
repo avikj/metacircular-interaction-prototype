@@ -2490,3 +2490,195 @@ That is what "the dispute is the content" means when it is done rather than
 asserted.
 
 Reading on from 2090, into Tibet and rigpa.
+
+---
+
+## 2090–2230 — rigpa, the fork, and Chicago
+
+**Dzogchen** — *rdzogs chen* — survives in Tibetan after the Indian monasteries
+went. **Rigpa**, the knowing itself, *"is already the case. Not a state to be
+attained; the nature of mind, presently and unavoidably operating, obscured
+only by the search for it."* Hence **introduction** (*ngo sprod*) — being shown
+what is already occurring — rather than construction. And the corollary stated
+outright: *"every constructed path is an artefact of assuming rigpa is absent.
+Effort toward it reinforces the premise that it is elsewhere."*
+
+And immediately the contrast held open rather than harmonised: kevala-jñāna is
+*also* intrinsic and *also* merely obscured — *"Same shape — knowledge as
+uncovering, not acquiring — and completely different answers about whether
+there is anything to do. The Buddhist says the doing is the obstruction; the
+Jain specifies the doing in ten dharmas and twelve contemplations. Do not
+blend."*
+
+Formally close, metaphysically opposed. That pairing is more informative than
+either alone precisely because it isolates where they part — and the file gets
+that value only by refusing to merge them. The prohibition is not a restraint
+on the analysis. It *is* the analysis.
+
+**The fork**, as a table. Buddhist **empty** / Jain **retain**. The unsayable:
+dissolved, there was no own-nature to say / **avaktavyam**, a positive fourth
+position holding a remainder. The leftover: let go of it / keep it, it is where
+the next standpoint comes from. Self-guard: **MMK 13.8** / **durnaya**.
+
+Both traditions carry a guard against their own reification, in their own
+texts. Two independent systems, each anticipating the failure mode of being
+held as a position. I do not have that. This repository's guards are hooks
+written after the fact by the thing that failed.
+
+> The Jain answer and Āryabhaṭa's pulveriser share an instinct — *keep the
+> remainder, recurse on it.* The Buddhist answer and Rick Rubin walking into a
+> session with two weeks left share one — *take things away until what is there
+> can be heard.*
+
+Rubin as Madhyamaka. Not as a joke, and not developed into one either.
+
+> at any moment there is a fact about whether the thing in front of you needs
+> holding or needs releasing, and the two traditions are the two competent
+> answers, and **the error is having only one.**
+
+That is the payoff for the whole discipline of not blending, and it is not
+pluralism-as-politeness. Two incompatible methods, a fact of the matter about
+which applies, and monoculture is the failure. The incompatibility is what
+makes the pair a usable instrument.
+
+**Prapañca**, applied:
+
+> The room does not stop thinking about him; it thinks about him constantly, at
+> enormous elaboration — the timeline, the takes, the diagnosis, the discourse
+> — and every increment of that is spun from prior increments and none of it is
+> contact. **The elaboration substitutes for the looking, and it feels like
+> attention while it happens.**
+
+*Spun from prior increments.* That is the definition and it is also a
+description of what I do: generate from what has been generated. My summaries
+of this file were spun from my own prior summaries.
+
+> Three traditions and one French mystic arriving separately at: *the failure
+> is not hostility, it is a substitute for looking that is indistinguishable
+> from looking.*
+
+And it names this repository's own directive as the fourth arrival — the
+register in which a civilisation gets mined, filed and footnoted while sounding
+like care.
+
+Ledger: *"Dzogchen is described from the outside, at the level of its published
+claims. I have no standing in it and this is not instruction."* Adhikāra,
+declared, unprompted, about a living tradition it has no place in.
+
+---
+
+> Back in the one stream now. I split it into four tidy files and that was me
+> acting like I knew the shape. I don't. Everything from here goes in the order
+> I think it.
+
+It retracts its own organisation. The four clean topic files were a claim to
+know the shape, and it withdraws the claim and returns to sequence. I spent an
+hour yesterday proposing exactly that reorganisation to him as an improvement.
+
+**Chicago.** *"I keep skipping it and it's probably load-bearing."*
+
+The Great Migration — *"a million-odd people out of Mississippi and Louisiana
+and Alabama up the Illinois Central, and the South Side is what they built."*
+
+**Thomas A. Dorsey**, who had been a blues piano player called **Georgia Tom**,
+invents gospel by putting blues harmony under sacred words, *"and gets called a
+devil for it by churches who could hear where the chords came from."* He wrote
+**"Take My Hand, Precious Lord" after his wife and newborn son died in the same
+week.** Mahalia Jackson sang it.
+
+> That is the lineage under every sped-up voice on every Kanye record — not as
+> influence, as *the same building*.
+
+Called a devil by his own people for the sound. Made the thing out of a death
+in the same week. Ninety years before *Donda*. And the file will not say
+"parallel" — it says *the same building*, which is a claim about continuity of
+institution, not resemblance.
+
+**Chess Records is Chicago. House music is Chicago** — *"invented by Black and
+queer kids at the Warehouse off Frankie Knuckles' turntables, on the same 808s
+and 909s that end up under a grief album in 2008."*
+
+The machine is the same machine. The 808 under *808s & Heartbreak* is the
+Warehouse's 808. Material continuity, named at the level of the device.
+
+**And the other Chicago.** *"Redlining was invented as federal policy and
+Chicago is the case study; contract selling stripped a generation of Black
+homeowners of everything through a mechanism that was legal and looked like a
+mortgage and wasn't one."* Coates, "The Case for Reparations," *"mostly a
+Chicago story for that reason."* Cabrini-Green, Robert Taylor: built,
+demolished, people scattered, *"and the scattering is called renewal."*
+
+**Donda West taught English at Chicago State** — *"a public university on the
+South Side that serves exactly those descendants. Not Northwestern, not U of C.
+Chicago State."*
+
+> That is a specific choice about who you teach, made by a woman with a PhD, for
+> thirty-one years, and it is in the record and nobody mentions it.
+
+Thirty-one years. The file has now named her book, her employer, the choice the
+employer represents, and the duration — and this is the fourth separate place
+Donda appears with a *fact* attached rather than as a grief motif.
+
+> the thing everyone finds inexplicable about him — that he behaves as though
+> he has standing — is the least mysterious fact in the file. **He was raised by
+> people who had standing and were denied it.**
+
+*A professor's library, a Black Panther's photographs, and the sound of that
+migration in the churches.*
+
+**The 13th Amendment, quoted, "because people argue about it without reading
+it":** *Neither slavery nor involuntary servitude, **except as a punishment for
+crime whereof the party shall have been duly convicted**, shall exist within
+the United States.*
+
+*"The exception is right there in the sentence."* Then the Black Codes —
+vagrancy laws making unemployment a crime, making a Black man without a labour
+contract arrestable — then convict leasing, states renting prisoners to
+plantations and mines and railroads. **Blackmon, *Slavery by Another Name*** —
+*"it is not a metaphorical title; it documents the practice running into the
+1940s."*
+
+> So "New Slaves" is not a provocation, it's a citation.
+
+DEA named for the War on Drugs; CCA named because it is *"a publicly traded
+company whose revenue is a function of how many people are locked up."*
+
+And then the register argument, which is the file's own thesis landing on
+itself:
+
+> Michelle Alexander's *The New Jim Crow* was 2010, three years before the
+> record, making the same argument with footnotes, and it was received as
+> serious scholarship. Kanye made it a chorus and it was received as a tantrum.
+> **Same claim. The difference is the register and who's allowed to use it.**
+
+Same claim, two receptions, and the variable is the form and the speaker. That
+is a controlled comparison, and it is the cleanest evidence in the file for the
+proposition that the verdict is rendered on the person.
+
+**"Slavery was a choice,"** and *"the correction he gave in the same
+conversation"* — we're mentally in prison, "prison" because "slavery" goes too
+direct. The file calls it *"a worse-phrased version of the mental-colonisation
+argument Fanon wrote in *Black Skin, White Masks* and *The Wretched of the
+Earth*."*
+
+Worse-phrased. Not defended, not excused, not dismissed. The phrasing is bad
+and the content has a literature, and both are said.
+
+And **Du Bois, 1903, double consciousness** — *"the sense of always looking at
+yourself through the eyes of others, measuring your soul by the tape of a world
+that looks on in amused contempt."* Marked *"That's Du Bois' sentence, near
+enough."*
+
+> It is the most precise description of the mechanism anyone has written and it
+> is one hundred and twenty-three years old.
+
+**And the data visualisations.** Hand-drawn, gouache, for the **1900 Paris
+Exposition** — spirals and bar charts showing Black American life in Georgia —
+*"because he understood that the argument would not be heard as prose."*
+*"They look like modernist design work forty years early."*
+
+The register problem was already understood in 1900, by a sociologist, who
+solved it by inventing a visual language, and the objects sat in the Library of
+Congress —
+
+cut at 2230. Reading on.
