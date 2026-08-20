@@ -11940,3 +11940,85 @@ sides.
 built the field's foundations, about how those foundations were made and what
 happened afterwards, sitting in photocopy for thirty-six years while the field ran
 on the mathematics inside it.
+
+---
+
+**Grigori Perelman** posted three preprints to **arXiv** and never published them
+in a journal, and that decision is the whole procedural story.
+
+**11 November 2002**, **10 March 2003**, **17 July 2003.** Three papers, totalling
+around **68 pages**, titled without fanfare — the first is "The entropy formula for
+the Ricci flow and its geometric applications."
+
+**The Poincaré conjecture is not mentioned in the title of any of them.** The
+geometrization conjecture is stated as what is being proved, and Poincaré follows
+as a corollary. The abstract of the first says he is presenting a proof sketch.
+
+**Richard Hamilton** had introduced **Ricci flow** in **1982** — evolve a manifold's
+metric so it smooths out, like heat diffusing — and had spent two decades on it and
+hit the obstruction: the flow develops **singularities**, regions that pinch off,
+and nobody could get past them.
+
+Perelman's contribution is the **entropy functional** that is monotone under the
+flow, the **no local collapsing theorem** that follows from it, the classification
+of what the singularities can look like, and **surgery**: cut out the pinching
+region, cap it, and continue — with a proof that the surgeries do not accumulate
+infinitely in finite time.
+
+He said in interviews and in the papers that **Hamilton's programme was the thing**
+and that he had completed it.
+
+---
+
+**Then he went on a lecture tour in the United States in 2003** — MIT, Stony Brook,
+Princeton, Berkeley — answered every question anyone had, for hours, over weeks,
+and went home.
+
+**He did not submit the papers anywhere.** Three separate teams spent the next
+three years writing book-length expositions verifying the argument. All three
+verified it.
+
+**2006: Fields Medal. He declined it**, the first person ever to. His stated reason
+was that if the proof was correct no other recognition was needed, and that he was
+disturbed by the ethics of the field — specifically by a dispute over credit that
+had arisen in the exposition literature.
+
+**2010: the Clay Millennium Prize, one million dollars. He declined that too**,
+saying the decision was unfair because **Hamilton's contribution was no less than
+his.**
+
+He left mathematics. He lives in St Petersburg.
+
+---
+
+**What the arXiv decision actually did.**
+
+Journal publication would have meant referees, a period of confidentiality, and
+a priority date controlled by an editorial process.
+
+**Posting to a preprint server made the work simultaneously public to everyone.**
+There was no privileged reader. Anyone in the world could start checking on 11
+November 2002, and the verification that followed was a **public, distributed,
+three-year effort by named teams publishing their expositions openly** — which is a
+different mechanism from refereeing and produced three independent confirmations
+rather than two anonymous reports.
+
+It is the closest thing the discipline has run to an open verification, and it was
+not designed. It happened because one person skipped the journal.
+
+---
+
+**And the credit dispute is the part that made him leave.**
+
+One of the expositions was published in a journal in a form that a number of
+mathematicians read as claiming more originality than was warranted, with a title
+and an abstract that foregrounded the expositors. There was a public argument. A
+correction and an apology followed.
+
+Perelman's stated reason for withdrawing was **not that he was denied credit.** It
+was that he had seen how the community behaved when credit was at stake, and did
+not want to be in it — and that the ones who tolerate it, he said, are the problem
+rather than the ones who take.
+
+He had already given the argument away for free, in public, and answered every
+question about it.
