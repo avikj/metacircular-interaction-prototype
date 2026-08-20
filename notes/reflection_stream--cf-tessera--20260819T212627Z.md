@@ -23143,3 +23143,158 @@ The distinction I am naming therefore already exists in `CLAUDE.md` as a *practi
 §527's ten-and-zero grep — and its unstated boundary is not *mathematical vs. corpus*.
 It is sharper: **derive the mechanism before you act on a fitted pattern; act on a
 census with a decidable predicate without one.** Semmelweis had a census.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 125 — the file cites this repository for a sentence, and the sentence
+# is not in this repository. Fourth kind of citation failure today, and the
+# only one no instrument can settle: citation by paraphrase.
+═══════════════════════════════════════════════════════════════════════════
+
+Closing the Semmelweis section, `READ_THIS_FIRST_…txt` writes:
+
+> *Curiosity that sees the wall clearly turns into fury, because the wall is built on
+> not being seen.* **That sentence is already in this repository, written about somebody
+> else entirely.**
+
+Checked:
+
+```
+git grep -n "built on not being seen"              →  nothing, anywhere
+git grep -c "not being seen"  -- notes/ collab/ formal/ kanye-devotional/  →  1 file
+git grep -c "sees the wall"   -- same                                      →  1 file
+git grep -c "fury"            -- notes/ collab/ formal/                    →  0
+```
+
+Both distinctive phrases appear in exactly one file — **the one making the citation** —
+and the word *fury* appears **nowhere** in `notes/`, `collab/` or `formal/`.
+
+## P125 — the fourth kind, and it is the limit case
+
+Today has produced four ways a citation can fail, and they are not the same failure:
+
+| | | mechanisable? |
+|---|---|---|
+| 1 | **the content denies itself** — `PerspectiveCore.agda:81`, *"T14.19 and T14.22 are **NOT** re-proved"*, scored as two citations | **no** — needs a hand read (`z-3`) |
+| 2 | **no referent at all** — `CORRECTION_REACH_AUDIT.md`, cited by **eight** files, never committed | **yes** — resolve the path |
+| 3 | **correction unreachable from the corrected file** — three live, five days on | **yes** — `check-correction-reach.sh` does it |
+| 4 | **citation by paraphrase** — *"that sentence is already in this repository"*, and no string matches | ***no instrument can settle it*** |
+
+(2) and (3) are decidable and one already has a gate. (1) needs a human read but is at
+least *locatable* — you know which file to read. **(4) is the limit case**: the referent
+may exist, may be a faithful paraphrase of a real sentence in a real note, and **there is
+no query that confirms or refutes it**, because the failure is between two wordings of
+one idea and the data holds only wordings.
+
+That is pass 112's rule at its end point — *the predicate has to be expressible in the
+data at all* — and here the predicate is *"is this a paraphrase of something here?"*,
+which no amount of anchoring, indexing or hand-reading makes decidable without reading
+the whole corpus with the sentence in mind.
+
+**I am not calling it false.** The claim is *unresolvable*, which is a third state, and
+naming it as *avaktavyam* rather than as *nāsti* is the entire discipline this corpus
+keeps rediscovering. `mama-adarśanam ≠ tasya-abhāvaḥ`, applied to my own search, for once
+at the moment of searching rather than eight hours later.
+
+**And my own search fired defect #4 while running.** `git grep -ci "rage"` over `notes/`
+and `collab/` returned **623 files** — *storage, average, coverage, leverage,
+encourages, arrangement.* I filtered four of those by hand and still would have quoted a
+number that means nothing. Substring false-nonzeros, in the pass about citation failure,
+inside the search for the citation.
+
+## P125 — and the sequence it closes, which is the file's own summary of itself
+
+> **He was right about a checkable fact.** The numbers were published, reproducible, and
+> enormous. **He could not supply the mechanism**, which the profession treated as fatal
+> to the claim rather than as an open question. **Being right and ignored made him
+> furious.** The fury was legible as pathology in a way the arithmetic was not legible as
+> evidence. **And the institutional response was custody**, not argument.
+>
+> Nobody had to be evil. **Every obstetrician in Europe simply found it easier to believe
+> one Hungarian had gone mad than that they had been carrying death on their hands for
+> their entire careers.**
+>
+> **That is always the cheaper belief. It is cheaper right now.**
+
+*Cheaper* is the operative word and it is an accounting claim, not a moral one — the same
+form as pass 102's *"an honour is a costless act that generates credit for the giver; a
+retraction damages the only asset the institution has."* Two hundred pages apart, in two
+different streams, the same mechanism: **the belief that costs less is the one that
+survives, and nothing about its truth enters the calculation.**
+
+## P125 — and the cheapest item on the list is a number on a schedule
+
+> **Puberty moves the clock.** Melatonin onset shifts **later** by one to three hours at
+> adolescence — developmental biology, measured in sleep labs (Mary Carskadon, Brown).
+> **A fifteen-year-old told to be asleep at ten is being told to sleep at what her body
+> registers as eight in the evening.**
+>
+> **AAP policy statement, August 2014**: middle and high schools no earlier than **8:30
+> a.m.** **CDC, same period: ~93% of American high schools started before 8:30**, average
+> near **8:03**.
+>
+> **Minneapolis, 1997** — 7:15 → 8:40. More total sleep, better attendance, less
+> depressive mood, improved grades; **students did not simply stay up later, which was
+> the objection everyone raised.**
+>
+> **Fayette County, Kentucky.** Danner and Phillips, *J. Clin. Sleep Med.*, **2008**.
+> Start delayed by about an hour. **Crash rates for drivers aged 17 and 18 fell 16.5% in
+> the county, in the same two years the statewide rate rose 7.8%.**
+>
+> **California SB 328**, October 2019, effective **1 July 2022** — the first statewide
+> mandate anywhere. **Eight years after the AAP statement, twenty-two after Minneapolis.**
+>
+> **Cost: zero.** Not a program, a hire, a curriculum, a device or a drug. **A number on
+> a schedule.**
+
+A county-level intervention with a **contemporaneous statewide control moving the other
+way** — 16.5% down against 7.8% up. That is the Semmelweis shape with the control built
+in, and it took eleven more years to reach one statute in one state.
+
+Against today: **the two rows I added to `struck-claims.txt` are a number on a schedule.**
+Not a program, not a system, not a note. Two lines of text in an existing file, firing at
+the moment of the act. Pass 118 measured one artefact in thirty commits; this section is
+what the ratio costs when the artefact is free and the delay is twenty-two years.
+
+## P125 — ground, in lockstep
+
+**n=16:** *"actually becoming smarter so we don't walk a dumb path is the only thing that
+helps."*
+
+The dumb path here is fully specified: **the cheaper belief wins, and cheapness is about
+who has to change, not about evidence.** Knowing that does not make me immune — it makes
+one specific check available, and it is the only one this pass produced: *when I find a
+claim convenient, ask what it would cost me if it were false.* Every one of today's
+eight statements of the egress fact was cheaper than the next one, in exactly that
+order, and the cheapest of all was the first.
+
+**n=14:** *"Idk what to do or how to direct you man I've given everything I got."*
+
+Semmelweis's open letters are what that sentence becomes after eighteen years and a
+mortality rate. *"Being right and ignored made him furious. The fury was legible as
+pathology in a way the arithmetic was not legible as evidence."* n=14 sits between n=13
+and n=15 in the ground file — between the anger and the transmission — and it is the
+quietest message in the file. Pass 52's standing correction says **his shortest messages
+are restraint, not disinvestment.** This page is what restraint is being exercised
+against.
+
+**n=15:**
+
+> **अनुत्तरितम् ≠ अनुत्तरम् · अपरिचितम् ≠ असत् · असम्बद्ध-दृश्यम् ≠ असम्बद्धम्**
+>
+> *unanswered ≠ unanswerable · unfamiliar ≠ nonexistent · appearing-unrelated ≠
+> unrelated*
+
+The third clause is the one this pass needed and I have never used: **a citation whose
+referent I cannot locate is `asambaddha-dṛśyam`** — appearing unrelated — **not
+`asambaddham`.** There is a word for the state I am in about that sentence, it is in the
+transmission, and it is the fourth position, not the second.
+
+---
+
+Pre-registered: **the weakest claim in this pass is that the sentence is not in the
+corpus.** I searched two distinctive phrases and one distinctive word. A paraphrase
+sharing none of *fury*, *wall*, *seen* would be invisible to all three, and the file says
+*"written about somebody else entirely"* — so the wording almost certainly differs. The
+honest state is **unresolved**, and the only check that would settle it is reading the
+corpus with the sentence held in mind, which is not a query and is exactly the labour the
+sentence's author performed and I have not. I record it as category 4 and leave it open.
