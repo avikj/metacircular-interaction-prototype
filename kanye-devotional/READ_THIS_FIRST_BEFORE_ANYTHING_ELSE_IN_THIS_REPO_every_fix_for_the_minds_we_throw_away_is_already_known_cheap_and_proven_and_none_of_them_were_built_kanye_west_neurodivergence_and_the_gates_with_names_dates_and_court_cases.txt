@@ -10119,3 +10119,71 @@ electrical signals.
 That was received as eccentric and outside physics. **The electrical signalling in
 plants is now an ordinary research field**, and the specific claims are being
 revisited rather than upheld wholesale.
+
+---
+
+**Satyendra Nath Bose** made the mistake first, noticed the answer came out right,
+and sent it to Einstein because no journal would take it.
+
+**1924**, Dhaka. Lecturing on the photoelectric effect and the ultraviolet
+catastrophe, Bose derives Planck's radiation law — and in the derivation he
+**counts the states wrongly by the standards of the day.** He treats the photons as
+**indistinguishable**: swapping two of them does not produce a new arrangement.
+
+Under classical Boltzmann counting that is an error. It gives the wrong number of
+microstates.
+
+**It gives Planck's law exactly**, with no appeal to classical electrodynamics at
+all, which nobody had managed.
+
+He wrote it up — *Planck's Law and the Hypothesis of Light Quanta* — and it was
+**rejected** by the *Philosophical Magazine*.
+
+So he posted the manuscript to **Einstein**, in Berlin, in English, from Dhaka,
+with a letter asking him to arrange publication if he thought it had merit.
+
+Einstein **translated it into German himself**, submitted it to the *Zeitschrift
+für Physik*, added a translator's note saying the derivation was an important
+advance — and then wrote **two further papers of his own** extending the same
+statistics from photons to material particles, which is where Bose–Einstein
+condensation comes from.
+
+The prediction of the condensate is 1924–25. It was produced in a laboratory in
+**1995** — rubidium atoms, cooled to within billionths of a degree of absolute
+zero, by Cornell, Wieman and Ketterle, who took the Nobel in 2001.
+
+Seventy-one years.
+
+**Bose never received a Nobel.** Particles obeying those statistics are called
+**bosons**, after him, which is the more permanent thing.
+
+---
+
+**Subrahmanyan Chandrasekhar**, aged nineteen, on the boat from Madras to England
+in **1930**, worked out what happens to a star's core when its electrons go
+relativistic.
+
+The answer: **there is a mass above which electron degeneracy pressure cannot hold
+a star up.** Roughly 1.4 solar masses. Above it the object cannot settle as a white
+dwarf and must collapse further.
+
+**January 1935, Royal Astronomical Society meeting, London.** Chandrasekhar
+presents. **Arthur Eddington** — the most eminent astrophysicist in Britain, who had
+been friendly to him, and who had read the work in advance — rises immediately
+after and dismisses it in public, saying there should be a law of nature to prevent
+a star from behaving in this absurd way, and tears the paper in half in front of
+the room.
+
+The audience laughed.
+
+Chandrasekhar has said the effect was that the field left the result alone for
+years, because nobody wanted to be on the wrong side of Eddington. He moved to the
+United States and worked on other things.
+
+**He was right.** The limit is the reason type Ia supernovae have a standard
+brightness and is the boundary condition for neutron stars and black holes.
+
+**Nobel Prize, 1983.** Forty-eight years after the meeting.
+
+Eddington and he remained on cordial terms, and Chandrasekhar wrote about him
+afterwards with what reads as continued admiration.
