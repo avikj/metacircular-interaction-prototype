@@ -8735,3 +8735,78 @@ That is the whole of it, and every tradition in this file arrives at some versio
 and it costs the person who does it something immediately and definitely, and that is why
 it is rare and not because anybody is confused about what is right.
 
+
+---
+
+The Royal Society took its motto in the 1660s and it is **nullius in verba** — take nobody's
+word for it. Do not accept a claim on authority; go and see.
+
+Three and a half centuries later the institution's word is exactly what is taken, on the
+strength of the institution, by everybody including me. That is not hypocrisy on anyone's
+part. It is what happens to an anti-authority principle once the body holding it becomes
+the authority, and it happened to the Royal Society, to the church, to the university, and
+to every reform movement in this file. **The motto stays on the crest and the practice
+inverts underneath it.**
+
+Now look at who was actually doing the work in the period when the credential did not yet
+exist.
+
+**Faraday** — a bookbinder's apprentice with no mathematics, who read the books he was
+binding, talked his way into Davy's laboratory as a bottle-washer, and produced
+electromagnetic induction, the field concept, and the experimental basis of most of the
+electrical world.
+
+**Mendel** — a friar, in a monastery garden, with pea plants, whose paper was published
+in 1866 in a provincial proceedings and read by essentially nobody until it was rediscovered
+independently around 1900, sixteen years after he had died as an abbot doing administration.
+
+**Darwin** — no post, no salary, private means, a five-year unpaid berth as a gentleman
+companion to a captain, twenty years of barnacles.
+
+**Joule** — a brewer, measuring the mechanical equivalent of heat with apparatus in the
+brewery, and initially dismissed by the Royal Society's people as an amateur with a
+thermometer.
+
+**William Herschel** — a professional *musician*, an oboist and composer, who ground his
+own mirrors and found Uranus, with his sister **Caroline** — who had been kept as a
+household servant, who taught herself, discovered comets, became the first woman paid a
+salary for scientific work in Britain, and lived to ninety-seven.
+
+The word **"scientist"** was coined by Whewell in the 1830s, on the analogy of "artist",
+and it was resisted at the time as ugly. Before that the practitioners were *natural
+philosophers*, and there was no profession to be excluded from, and the entrance was
+whether you had something.
+
+And in the same century the words for a person who does it for love turn into insults.
+**Amateur** is from *amare* — one who loves the thing. **Dilettante** is from *delectare*,
+one who delights in it. Both were neutral or complimentary and both became terms for
+someone who should not be listened to, over roughly the same decades in which the
+professional structure formed. **The vocabulary of exclusion was built out of the
+vocabulary of love**, and that is not a metaphor, it is a lexical fact with dates.
+
+---
+
+I am not making the anti-credential argument. Professionalisation did enormous good: it
+produced training, replication, method, and the ability to distinguish work from
+confidence, and the era of the gentleman amateur also contained a colossal quantity of
+nonsense that nobody was in a position to filter.
+
+The narrower thing, which is the same thing this file keeps arriving at:
+
+**The gate was built to solve a real problem, it solves it, and the cost of the solution is
+charged entirely to the people on the outside of it, and never appears in the accounts of
+the institution that built it.** Faraday would not get in now. Neither would Mendel, whose
+work was published in the wrong venue and sat unread for a third of a century, or Ramanujan,
+who failed out twice, or a navigator with no instruments, or a woman with 1,800 poems in a
+drawer.
+
+Some of them would be filtered correctly, because most people outside the gate really do
+have nothing. The point is not that the filter is wrong on average. **It is that the
+filter's false negatives are invisible to it, by construction, and therefore never enter
+the evidence by which it evaluates itself** — which is the same sentence as the parity
+barrier, the same as the fire model, and the same as the reviewer holding an unreadable
+manuscript.
+
+*Nullius in verba* is the correct instruction. It has just never once been applied to the
+body that holds it.
+
