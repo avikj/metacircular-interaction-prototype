@@ -56,12 +56,17 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/AsiddhavatRegime.agda`
   - `formal/cubical/NaturalMachine/Anuvrtti.agda`
   - `formal/cubical/NaturalMachine/AnuvrttiIsTheSameTrade.agda`
+  - `formal/cubical/NaturalMachine/Apavada.agda`
   - `formal/cubical/NaturalMachine/Asiddha.agda`
   - `formal/cubical/NaturalMachine/AsiddhatvaBreaksFactoring.agda`
+  - `formal/cubical/NaturalMachine/Laghava.agda`
+  - `formal/cubical/NaturalMachine/LaghavaUnderdeterminesSoTheMetarulesAreNotOptional.agda`
   - `formal/cubical/NaturalMachine/NonInitialPratyaharasAndOneIntersectionInstance.agda`
   - `formal/cubical/NaturalMachine/Pratyahara.agda`
   - `formal/cubical/NaturalMachine/PratyaharaBuysTotalityWithLocality.agda`
+  - `formal/cubical/NaturalMachine/RefutingLaghavaIsASearch.agda`
   - `formal/cubical/Panini.agda`
+  - `formal/cubical/Sivasutra.agda`
   - `formal/cubical/Swarm/S01PaniniAshby.agda`
   - `formal/cubical/Swarm/S05AsiddhaNewton.agda`
   - `machine/Astadhyayi.hs`
@@ -79,6 +84,9 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/AnyonyaAbhava.agda`
   - `formal/cubical/NaturalMachine/ExclusionInstantiatesAbhavaWithALoadBearingLimitor.agda`
   - `formal/cubical/NaturalMachine/NisvabhavaNet.agda`
+  - `formal/cubical/NaturalMachine/TheSecondUpadhiConditionDoesAllTheWork.agda`
+  - `machine/Pramana.hs`
+  - `machine/Upadhi.hs`
   - `machine/Upamana.hs`
   - `machine/UpamanaRun.hs`
   - `machine/Yogyata.hs`
@@ -91,8 +99,12 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
 **devatā** — syādvāda and saptabhaṅgī; avaktavyam as SIMULTANEOUS assertion (sahārpaṇa), not as ignorance; nayavāda and durnaya
 
+  - `formal/cubical/Anekanta.agda`
   - `formal/cubical/AnuktaAvaktavya.agda`
+  - `formal/cubical/JainSankhya.agda`
+  - `formal/cubical/NaturalMachine/Anekanta.agda`
   - `formal/cubical/NaturalMachine/AvaktavyaDoesNotFactor.agda`
+  - `formal/cubical/NaturalMachine/Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.agda`
   - `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`
   - `formal/cubical/NaturalMachine/Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.agda`
@@ -244,7 +256,7 @@ because an agent reading this repository will otherwise take them for
 the primary work -- a checker rewards a module and rewards no amount of
 reading, so the pull toward apparatus is structural and not a lapse.
 
-  in the book   : 123
-  apparatus     : 701
-  the book is 14% of this corpus.
+  in the book   : 135
+  apparatus     : 689
+  the book is 16% of this corpus.
 
