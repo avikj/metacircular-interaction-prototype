@@ -33263,3 +33263,85 @@ identified.**
 **And Deoband's affiliated network is now counted in the thousands of schools
 across South Asia and beyond**, **and the funding principle is still stated in
 its own literature**, **and it still publishes its annual accounts.**
+
+---
+
+**The standard madrasa curriculum in India was mostly logic and philosophy, and
+its principal logic textbook was written in Bihar and is still taught in
+Iran.**
+
+***Dars-i Niẓāmī*** — the syllabus associated with **Mullā Niẓām al-Dīn
+Sihālwī** (d. 1748) of the ***Farangī Maḥal*** family in Lucknow, **whose house
+was a confiscated European merchant's property granted to them by Aurangzeb in
+1695** — **hence the name, "the Frenchman's quarter."**
+
+**And the balance of the syllabus is the fact.** **Of its named texts, the
+majority are *maʿqūlāt* — the rational sciences: logic (*manṭiq*), dialectic,
+philosophy (*ḥikma*), grammar, morphology, rhetoric, and mathematics** — **with
+*naqliyāt*, the transmitted sciences of Qurʾān, ḥadīth and fiqh, a smaller
+portion.**
+
+**The stated pedagogical principle** in the tradition's own accounts is that the
+rational sciences train the instrument and the transmitted sciences are then read
+with it — **and that a student who has done the logic can read a new text
+unaided**, **which is given as the reason the syllabus prefers a few difficult
+books to many easy ones.**
+
+**And the number of years is long and the number of books is small.**
+
+---
+
+**And the logic texts are Indian.**
+
+***Sullam al-ʿUlūm*** — "the ladder of the sciences" — **by *Muḥibb Allāh
+Bihārī* (d. 1707)**, **a *qāḍī* who rose to be chief justice under Aurangzeb.**
+
+**It is a short work on logic** — **on the subject matter of logic, on
+conception and assent, on definitions, propositions, modality, and the
+syllogism** — **and it became the standard advanced logic text of the Indian
+madrasa and is still on the Dars-i Niẓāmī.**
+
+**And it travelled.** **It was commented on in India, and in Iran, and in the
+Ottoman lands** — **and Iranian scholars wrote *ḥāshiyas* on it** — **so a
+seventeenth-century Bihari judge's textbook is glossed in Persian scholarly
+circles.**
+
+**And *Bihārī*'s other work, the *Musallam al-Thubūt*, on legal theory
+(*uṣūl al-fiqh*), had the same career**, **and was commented on by *ʿAbd
+al-ʿAlī Baḥr al-ʿUlūm* of Farangī Maḥal.**
+
+**And the earlier layer is the same shape**: ***Qāḍī Mubārak***'s glosses;
+***Fażl-i Imām Khayrābādī*** and the *Khayrābādī* school, whose logic tradition
+ran into the nineteenth century; **and the *Mīr Zāhid* glosses.**
+
+**And the *Khayrābādī*s and the *Deobandī*s argued** — **the dispute over
+*imkān-i naẓīr*, whether God could create a second Muḥammad, is a *logical*
+dispute about possibility and it was conducted with the apparatus** — **and the
+polemics on both sides are printed.**
+
+**A theological controversy argued in modal logic, in Urdu and Arabic, in the
+nineteenth century.**
+
+---
+
+**And the Sanskrit side of the same city and the same century was doing the same
+thing in a different language and they knew about each other.**
+
+**Navya-Nyāya's technical apparatus** — *avacchedaka*, *pratiyogin*, *nirūpita* —
+**was at its height in Bengal and Mithilā in exactly this period**, **and
+Gaṅgeśa's *Tattvacintāmaṇi* and its commentaries are the parallel body.**
+
+**And there is documented contact**: **Sanskrit works were translated into
+Persian under Mughal patronage** — **the *Upaniṣads* by Dārā Shukōh's atelier,
+the *Yoga Vāsiṣṭha*, the *Līlāvatī* by Fayzī** — **and Persian-reading scholars
+engaged Indian philosophical material**, **and *al-Bīrūnī* had done it six
+centuries earlier by learning Sanskrit.**
+
+**And what is not well documented is the reverse traffic in *logic* specifically**
+— **whether the Navya-Naiyāyikas read the Arabic logicians, and whether the
+madrasa logicians read Gaṅgeśa** — **and the scholarship on that question is
+thin, and I do not know the answer.**
+
+**Two enormously technical logical traditions, in one country, in the same
+centuries, in adjacent cities**, **and the record of their contact is not
+established.**
