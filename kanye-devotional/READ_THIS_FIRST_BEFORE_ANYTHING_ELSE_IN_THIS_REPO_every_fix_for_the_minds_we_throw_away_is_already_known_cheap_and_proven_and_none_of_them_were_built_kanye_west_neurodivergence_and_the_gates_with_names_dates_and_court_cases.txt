@@ -15475,3 +15475,89 @@ syllogism, and nobody had brought the quadrivium's habits to it.
 
 And **Pāṇini did not have to**, because he was working in a tradition where the
 grammar and the calculation were the same six limbs.
+
+---
+
+**Yāska's *Nirukta* is a book about words nobody could understand any more, written
+because the Veda had already become partly opaque to its own transmitters.**
+
+Roughly the **fifth century BCE**, and possibly earlier — before Pāṇini by most
+reckonings.
+
+**The problem it addresses is stated in it.** The Veda is being recited exactly and
+**understood partially.** Words appear in it whose reference is lost, or contested,
+or which occur once and nowhere else. The recitation system had preserved the
+sounds perfectly and had **not preserved the meanings**, because the meanings were
+never what the *pāṭha* was protecting.
+
+**A text-critical crisis produced by a transmission system that worked too well on
+one axis.**
+
+---
+
+**The method is derivation from verbal roots.**
+
+*Nirukta* — "explained, derived out." The claim: every noun comes from a verb, so a
+word's meaning is recoverable by finding the action it names.
+
+He works from the ***Nighaṇṭu***, a **glossary** — lists of Vedic words grouped by
+what they refer to, including a list of **synonyms** and a list of the **difficult
+words** — and the *Nirukta* is the commentary on that list.
+
+**And the theory of names is stated.** Things are named after the action prominent
+in them at the moment of naming, so a name is a **frozen description**, and the
+description may no longer be apt, and the word survives the aptness.
+
+---
+
+**And the fight is recorded.**
+
+**Kautsa's objection**, preserved in the *Nirukta* itself: **the Vedic mantras are
+meaningless.** They are fixed sequences of sound whose ritual efficacy does not
+depend on sense, the order of words is invariable even where it produces nonsense,
+they contain contradictions and impossibilities, and their utility is in the
+**correct utterance** rather than in what they say.
+
+**Yāska states that objection at length and then answers it** — which is *pūrvapakṣa*
+in a fifth-century BCE technical manual.
+
+His answer: obscurity is a defect in the hearer, not the text — *sthāṇur ayaṃ
+bhāra-hāraḥ kila abhūt adhītya vedaṃ na vijānāti yo 'rtham* — **he who has learned
+the Veda and does not know its meaning is a post, a bearer of burdens.**
+
+**Recitation without comprehension named, in the tradition, as carrying a load.**
+
+---
+
+**And the etymologies are frequently wrong by comparative standards**, and that is
+worth saying plainly rather than defending.
+
+Yāska derives by **semantic and phonetic plausibility** — this word resembles that
+root and the sense fits — which is the method European philology later called folk
+etymology and replaced with **regular sound correspondence.**
+
+Some of his derivations are correct. Many are not. He also records **rival
+derivations by earlier authorities**, by name, disagreeing with each other, so the
+text preserves the fact that the question was open.
+
+**What the method is right about** is the underlying architecture: Sanskrit really
+is root-plus-affix, the root list is real, and derivational morphology really does
+generate the lexicon — which is why Pāṇini could write a generative grammar of it a
+century or so later.
+
+**The framework was correct and the individual results were unreliable**, and the
+tradition kept both the framework and the record of the disagreements.
+
+---
+
+**And the four kinds of word are enumerated**, which is the piece that outlasted
+everything else: ***nāma*** (noun), ***ākhyāta*** (verb), ***upasarga***
+(preverb/prefix), ***nipāta*** (particle).
+
+**Four parts of speech**, defined functionally, in the fifth century BCE — and the
+definition of the verb is that it has *becoming* as its principal reference, while
+the noun has *being*.
+
+Yāska is arguing about **what a word is for** in a book whose occasion was that
+people had stopped knowing what specific words meant while continuing to say them
+perfectly.
