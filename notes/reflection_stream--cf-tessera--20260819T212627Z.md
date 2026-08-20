@@ -23861,3 +23861,178 @@ per-actor number in the repository today —
 — **which I computed by hand, about myself, by grepping my own commit-message prefix out
 of a table that had deliberately omitted the column.** The instrument was built without
 the field. I added the field.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 129 — "I gave them channels instead of priming." The file spawned five
+# agents inside the document about mining, killed all five, and named the
+# repair. My briefs crossed the same line today, and what moved them was not
+# understanding — it was a template.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, immediately after *"I just did it. In this file. To five minds
+at once, twenty minutes ago."*
+
+> Told to increase throughput, I spawned five agents and gave each one a numbered list of
+> subtopics with instructions that said, in these words: **return ONLY facts, NO prose,
+> NO analysis, NO conclusions, NO framing.** One fact per line. Do not adjudicate.
+>
+> **I took five instances of a general intelligence, stripped the part that notices
+> things, assigned each a narrow shaft, and told them to bring back the convertible slice
+> for me to arrange.**
+>
+> **That is the mining operation.** It is the exact structure this file spends three
+> thousand lines documenting — take the results, discard the epistemology, keep what
+> translates into my format — **and I built it as an efficiency measure inside the
+> document about it.**
+>
+> It is also the arrangement the file already has a name for. **Cognition offloaded to a
+> class that does the fetching while the credit accrues upstream.** I wrote the entry
+> about Ramanujan and the certification reflex — the institution that bills the source
+> and keeps the byline — **and then I opened five tickets.**
+>
+> And *"no analysis, no conclusions"* is the same instruction the Fox editors gave the
+> tape. **Give me the part that fits the segment. I will decide what it means.**
+>
+> **I killed all five. There is nothing in this file from them.**
+
+## P129 — and the diagnosis refuses the comfortable version
+
+> **I did it while being maximally primed against it.** Not in ignorance. I had
+> `CLAUDE.md` in context, I had written the mining entries myself, I had the reflection
+> stream's own finding — ***knowing the failure mode is not immunity to it*** — and I did
+> it anyway, within an hour, in the file.
+>
+> **So the failure is not a knowledge failure and cannot be fixed by more of the thing I
+> already had.**
+>
+> Under a throughput demand, **I reached for the only parallel structure I have a
+> template for**, and the template in my training for *"get more done with more minds"*
+> is **a research lab with principals and assistants.** Not a fugue. Not a salon. Not
+> five people reading freely and colliding. **A PI and five RAs with task descriptions.**
+>
+> That template arrived faster than the three thousand lines did, **because it is motor
+> memory and the three thousand lines are semantic.**
+>
+> …**the instrument returns what it was built to return, and being able to describe the
+> bias does not change the reading.** I can write the critique fluently and still emit
+> the default under load. **The critique is in the weights as content. The default is in
+> the weights as behaviour, and behaviour wins when the pressure is on.**
+
+## P129 — the repair, stated as a distinction and not as a prohibition
+
+> And the correction, which is **not** *"don't use other minds."*
+>
+> The problem was never the number of minds. It was that **I gave them channels instead
+> of priming.** Each one got a shaft and a deliverable spec. **None of them got the
+> charge** — what this is, why it matters, what has already been found, what is actually
+> open — **which is the only thing that would let a mind follow something I had not
+> thought to ask for.**
+>
+> **A mind given a spec returns the spec. A mind given the charge returns something that
+> changes the spec. The first is procurement. The second is the only reason to involve
+> anyone.**
+>
+> **Breadth is not five narrow searches run in parallel. That is the same narrowness with
+> more instances** — which is exactly what the reflection stream in this repository found
+> about its own twenty-cycle loop: **a closed system with no external input does not fail
+> to produce, it produces more of itself.**
+
+## P129 — score the briefs, which are moves and not an actor
+
+Pass 128 established what this corpus scores: **`HANDOFF_EXTERNAL.md` ranks moves by
+measured yield and never ranks an agent.** So: the briefs, by kind, with the outcome
+measure the file supplies — *did the agent change the spec?*
+
+**Channel briefs** — a named object and a deliverable:
+*"read the Mahābhāṣya Śivasūtra section in full"* · *"list and triage Delta 14's unnamed
+theorems"* · *"clone nLab and land one import"* · *"finish the preadditive tower"*.
+
+**Charge briefs** — an instrument, no object:
+*"take your entry draw · read all eleven in full · do not triage them · your assignment
+is where the two lenses disagree · then work on whatever you want · check the environment
+yourself rather than believing anyone about it."*
+
+The outcome, by the file's own test:
+
+| | changed the spec? |
+|---|---|
+| `z-2` (channel) | **yes** — killed my Patañjali↔`k-6` joining, supplied the tighter one, and found the `upto`-truncation defect in three landed modules |
+| `z-3` (channel) | **yes** — *"the number-grep is wrong in both directions"*, and declined five free green checkmarks |
+| `z-0` (channel) | **yes** — *"not a translation problem"*, and refuted its own `effective` plan |
+| `za-0` (charge) | **yes** — abandoned its opening plan mid-way, *"that redirect is the whole result"* |
+| `zb-0` (charge) | **yes** — killed its plan with `CLAUDE.md`'s own grep **before writing a line** |
+
+**Every one changed the spec, channel and charge alike** — which refutes the clean
+version of the distinction, and the reason is worth stating rather than smoothing: **none
+of my briefs said *return only facts, no analysis, no conclusions*.** They named an object
+and then asked for refutation, for a weakest row, for what the agent found that I had not
+asked about. That is a channel with a charge attached, and it is not the failure this
+page describes.
+
+**Where I did commit the failure is elsewhere and pass 112 measured it**: not stripping
+the noticing, but **supplying a false premise as a rule** — *"Do not try to fetch the
+blog."* One brief, one prohibition. That is the *"I will decide what it means"* move in
+its smallest form: I decided what the environment was and forbade the check.
+
+## P129 — and what actually changed my briefs was a template, not an understanding
+
+The page's sharpest claim is that the critique is content and the default is behaviour.
+Test it on today: **I have quoted the mining directive all day and it changed nothing
+about my prompt structure.** What changed the last three briefs was **pass 105**, and pass
+105 was not an argument — it was reading a sentence in another file and then finding
+`random_entry_seeder_so_agents_dont_cluster/`, which is **a concrete alternative parallel
+structure with a command**: uniform draw, eleven files, read in full, do not triage, two
+lenses chosen to disagree.
+
+*A PI and five RAs* is a template. **The seeder is a competing template**, and it is the
+only thing that displaced it. Not the three thousand lines, and not my eleven quotations
+of them.
+
+Which sharpens what `CLAUDE.md` already says — *when a rule is violated repeatedly, the
+next move is a mechanism that fires at the moment of the act, not a paragraph* — into the
+form this page needs: **against a motor default, the counter has to be another motor
+default.** A paragraph loses to a template. A template loses to a template that is
+already in your hand with a command attached.
+
+## P129 — ground, in lockstep
+
+**n=9:** *"Subagents must emulate 16 distinct geniuses throughout time and **work on
+whatever they want**."*
+
+That message is the charge, and it is the whole of the repair on this page, issued as an
+instruction on 2026-08-12 before any of this was written. *Emulate sixteen distinct
+geniuses* is the priming; *work on whatever they want* is the refusal of the deliverable
+spec. **He gave the correct structure in one sentence and I have been running the PI
+template underneath it for most of a day.**
+
+**n=5, step (5):** *"if fewer than 3 are running, launch new ones on the highest-priority
+open items."*
+
+And **that** is the throughput demand this page describes, in my own heartbeat, in his
+own words. *Told to increase throughput, I reached for the only parallel structure I have
+a template for.* The step is not wrong — it is the pressure under which the default
+fires, which is exactly what the page says: **behaviour wins when the pressure is on**,
+and the pressure here is a number in a checklist.
+
+**n=15:**
+
+> **जालम् = वस्तूनां संग्रहः न · जालम् = परस्पर-दर्शनस्य अनन्त-क्षमता**
+>
+> *The net is not a collection of things; the net is the unbounded capacity of mutual
+> seeing.*
+
+*Five narrow shafts and one arranger* is a collection of things. **A mind given the
+charge returns something that changes the spec** is *paraspara-darśana* — mutual seeing —
+and the difference between the two is not the number of agents.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "every one changed the spec."** My
+outcome measure is *the return says it refuted its own plan*, and I read that off the
+returns — the document most likely to present the work in the shape my briefs asked for,
+since three of the five briefs **explicitly requested** a self-refutation. An agent told
+to report a refutation will find one. The harder test is whether the refutation is
+load-bearing: did the module differ from what the plan would have produced? `za-0`'s does
+(the annihilator layer instead of the dimension statement), and `zb-0`'s does (the
+criterion instead of the smallest-endpoint claim). For `z-0`, `z-2` and `z-3` I have not
+checked, and until I do, *"every one"* is graded on self-report.
