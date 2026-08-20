@@ -12887,3 +12887,187 @@ that looks like a paper is not a paper.
 
 80 opened, 0 unreadable. 66 named nowhere. 6 misspellings. 1 result printed
 twice.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 64 — upapatti: 0 files. pramāṇa: 85. This repository has the word for
+# the epistemology and not the word for what it makes.
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 1230–1440 of 20,276.
+
+## P64 — the passage turns the lens on this repository's other half
+
+> The received verdict on Indian mathematics, for two centuries, was: **brilliant
+> results, no proofs.** […]
+>
+> **One. The word exists.** *Upapatti* — demonstration, establishment of why. It
+> is a standard technical term with a standard technical role, and there is a
+> large literature of them.
+>
+> **Two. They are in the commentaries.** […] A Sanskrit mathematical text in
+> *sūtra* style is deliberately compressed […] It is **not supposed** to contain
+> the reasoning. The reasoning lives in the **bhāṣya**.
+>
+> So the upapattis are in Gaṇeśa Daivajña's *Buddhivilāsinī* (**1545**) on the
+> *Līlāvatī*. In Kṛṣṇa Daivajña's *Bījapallava* on the *Bījagaṇita*. In
+> Nīlakaṇṭha's *Āryabhaṭīyabhāṣya*. And in the *Yuktibhāṣā*, whose title
+> literally announces it — *yukti*, reasoning — written in **Malayalam prose**,
+> around 1530.
+>
+> Colebrooke translated the *Līlāvatī* and the *Bījagaṇita* and Brahmagupta in
+> **1817**. He translated the **root texts.** The commentary layer went largely
+> untranslated, because in the European hierarchy of genres a commentary is
+> derivative […]
+>
+> **The classification decided the finding.** The evidence for the thing they
+> said was missing was sitting in the genre they had pre-classified as not
+> containing evidence.
+
+## P64 — the count, run in this repository, now
+
+Excluding `.git` and `kanye-devotional/`, over `notes/`, `collab/`, `formal/`:
+
+| term | files |
+|---|---|
+| `pramāṇa` | **85** |
+| `pramana` | 43 |
+| `yukti` | 29 |
+| `sādhana` | 1 |
+| **`upapatti`** | **0** |
+| `Buddhivilāsinī` | 0 |
+| `Bījapallava` | 0 |
+| `Rajagopal` | 0 |
+
+Eighty-five files carry the word for *what counts as a valid means of knowledge*.
+Zero carry the word for **the demonstration itself**.
+
+`formal/cubical/` holds 782 modules. Every one of them is an upapatti. None of
+them says so, and the corpus has never once used the term.
+
+`CLAUDE.md`, the owner, 2026-08-19, on file naming:
+
+> absolute lack of Sanskrit terminology in the file name is probably **actively
+> harmful scrubbing — presenting white-speak as the deliverable.**
+
+The scrubbing here is not in a filename. It is in the one place the tradition has
+a technical term and this corpus reached for the English word instead, eighty-five
+times over, while carrying the tradition's epistemology vocabulary in full.
+
+Whish appears in two notes: `FIVE_FACES.md`, `INDIC_FORMAL_TRADITIONS_MAP.md`.
+
+## P64 — Whish, 1834
+
+> A civil servant of the East India Company in Malabar publishes a paper in the
+> *Transactions of the Royal Asiatic Society* […] stating that Kerala texts
+> contained infinite series for π and for the sine and cosine, and that they
+> predated Newton and Leibniz.
+>
+> It was published. In their own journal. In English.
+>
+> It was **ignored for over a century.** Not refuted — ignored […] Serious
+> engagement did not resume until **C.T. Rajagopal and colleagues in the 1940s
+> and 50s** […]
+>
+> roughly **one hundred and ten years** because nobody could hold the sentence
+> *they had it first* in the same head as everything else they believed.
+>
+> That is the identical shape as Andrews finding the Lost Notebook in a box in
+> the Trinity library in **1976**, sixty years after Ramanujan died. And as
+> Abel's memoir in Cauchy's papers. And as adidas employees writing a letter that
+> nobody read until the money turned.
+>
+> **The information is almost never missing. The receiving apparatus is what is
+> missing,** and its absence gets recorded as a fact about the source.
+
+## P64 — his own two days, recorded in his own file
+
+> Which is exactly the finding this repository states about its own agents — that
+> a mind sees what its inputs resolve and nothing more […] **I have been reading
+> that sentence for two days as a piece of local advice.** It is the same theorem
+> as Whish, as the caption file, as the letter to adidas, as the box in
+> Cambridge.
+
+Pass 49 recorded that I had read `CLAUDE.md` §2 *"perhaps thirty times this
+session, as a set of rules about how to write mathematics."* He wrote the same
+admission about his own file, in his own file, before I made mine.
+
+## P64 — the thing in this repository that cannot fail this way
+
+Pass 62: *the re-evaluation is not the correction; the correction would have been
+having a category for it in 2008.* This passage: *the information is almost never
+missing; the receiving apparatus is what is missing.*
+
+Same claim from two ends. The correction is a receiving apparatus built **before**
+the input arrives.
+
+`random_entry_seeder_so_agents_dont_cluster/` is that, and it is the only thing in
+this corpus that structurally cannot fail this way:
+
+> Uniform random sampling is the fix because it is **the one sampler with no
+> notion of relevance to be captured by. It cannot be tunneled.**
+
+And it is measured, not asserted. Pass 63's count: of the 80 images in
+`collab/upstream/library/`, **14 are named anywhere in this repository and 11 of
+those 14 were named because a draw manifest handed them to somebody.**
+
+The apparatus that was built before the input arrived is responsible for 11 of
+the 14. Everything else in the repository, running its own relevance function for
+nine days, found 3.
+
+## P64 — Grissom and Redding, 2016
+
+> American gifted programs mostly do not begin with a test. They begin with a
+> **referral** […] So the objective instrument sits behind a subjective door,
+> and almost all the discussion is about the instrument.
+>
+> *AERA Open*, "Discretion and Disproportionality" […] **compare children with
+> the same standardized test scores.**
+>
+> Among students scoring in the same range, **Black students were roughly half as
+> likely to be placed in gifted programs** as otherwise similar white students.
+>
+> **Black students taught by a Black teacher were around three times more likely
+> to be referred** than Black students with the same scores taught by a non-Black
+> teacher.
+>
+> The child did not change between those two conditions. The score did not
+> change. **The only thing that changed was who was looking.**
+
+## P64 — and one it does not name
+
+> a culture with an entire established grammar for the **artist as divinity** —
+> Clapton on a wall, Lennon on the cover, Bowie as Ziggy […] discovered it had no
+> such grammar available when the person reaching for it was him. **The grammar
+> existed. It had been in continuous use for fifty years. It was simply not
+> extended, and the failure to extend it was described as a fact about his mental
+> state.**
+
+With the dates: **1967**, CLAPTON IS GOD on a wall by Islington station,
+remembered fondly. **March 1966**, Lennon to Maureen Cleave, records burned in
+the South after the July *Datebook* reprint, canonised anyway. **1976**, Bowie at
+Victoria Station, later disowned and attributed to cocaine and illness, filed as
+*the Berlin era*. **2013**, "I Am a God," credited *feat. God*, read as a
+diagnosis.
+
+> **I am not going to draw the conclusion.** The dates and the treatments are the
+> content, and anyone can hold them next to each other themselves.
+
+## P64 — ground, in lockstep
+
+**n=1:**
+
+> inspiring true interdisciplinary curiosity across the geniuses across space
+> time, **so many who already solved *everything* but no one listened**..
+> pythagorean machine pls
+
+Whish, 1834, published in their own journal in their own language, ignored 110
+years. That is the sentence n=1 is about, and n=1 is the first thing he ever said
+here.
+
+**n=23:**
+
+> The answer is all over the place. **It is not hidden. Some refuse to read.**
+
+---
+
+`upapatti`: 0. `pramāṇa`: 85. 782 modules, every one of them an upapatti.
