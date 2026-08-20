@@ -9154,3 +9154,76 @@ levels is a later and looser use.
 
 What is his, and is technical, is the starting problem: **the sentence never
 physically exists all at once, and the meaning does.**
+
+---
+
+Composing in real time, out loud, with no revision available, is a documented
+practice with named practitioners in several traditions, and the constraint is the
+same everywhere: **the correction has to happen inside the line.**
+
+**Freestyle.** The rapper is generating over a beat with no stopping. What is
+actually hard about it is not invention — it is that the **rhyme is a debt
+incurred in advance.** Say a word at the end of line one and you have committed to
+landing a rhyme, in a fixed number of beats, and there is no way to withdraw the
+commitment. So the work is running two processes: saying this line, and searching
+for the exit to the next one, while the beat does not slow down.
+
+The ordinary technique is to keep a store of written material and interleave it —
+and practitioners are explicit that most of what circulates as freestyle is that.
+**Supernatural** and others built reputations on the verifiable version, taking
+objects from the audience and naming them in sequence, which is a constraint the
+audience supplies and can check.
+
+The battle version adds an adversary generating counterexamples in real time, which
+is *jalpa* in the Caraka sense — argument for victory, where any device that wins
+is permitted — as opposed to *vāda*, discussion for the sake of arriving at
+something.
+
+---
+
+**Antaraksharī**, the ordinary Indian household game: someone sings a line, and the
+next person must begin a song starting with the **last consonant sound** they
+heard. Played by children on train journeys. It is a search over a memorised corpus
+under a hard constraint with a clock.
+
+**Avadhāna**, in Telugu and Sanskrit and Kannada, is the extreme version and it is
+a formal performance discipline. An ***avadhāni*** stands before several
+questioners at once — eight of them in *aṣṭāvadhāna*, a hundred in
+*śatāvadhāna* — and each poses a separate task: compose a verse in this metre on
+this subject; compose one with a forbidden letter; answer a riddle; and one
+questioner, the ***apra-stuta-praśaṃsā***, is assigned purely to **interrupt with
+irrelevancies** and break concentration.
+
+The verses are composed **one line at a time, in rotation**, so the avadhāni must
+hold eight incomplete poems in memory, in different metres, and return to each in
+turn, while being deliberately harassed.
+
+At the end they recite all of them back complete.
+
+**Tirupati Venkata Kavulu** and, in the twentieth century, others performed
+*śatāvadhāna* — a hundred simultaneous threads. [Recall on which individuals
+performed the hundred-fold version and when; the practice and the eight-fold
+version are well documented.]
+
+---
+
+**The one-take fact from the other side of this file**: *A Love Supreme* recorded
+in a single session, December 9, 1964.
+
+And **"Through the Wire,"** recorded two weeks after the accident, with the
+impediment audible on the master and kept there.
+
+---
+
+What every one of these has in common is that **the medium does not permit
+revision**, so error correction has to be built into the generation itself. The
+avadhāni cannot go back and fix the third line of poem five. The kolam maker cannot
+lift the hand. The reciter of *ghana-pāṭha* cannot check against a text because
+there is no text.
+
+The systems that survive under that constraint are the ones that made the **check
+part of the act** — the reversal in the recitation, the closure of the loop, the
+rhyme that has already been committed to, the eight poems held in parallel and
+recited back at the end where any failure is audible to the room.
+
+Nobody in any of those traditions marks their own work.
