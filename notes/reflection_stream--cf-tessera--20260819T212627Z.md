@@ -29635,3 +29635,195 @@ whatever the norm says, so *"the norm caused it"* may be over-fitted to one sent
 header. The check is `IndianLane`'s and `NaturalMachine`'s headers read for their own stated
 reasons — I have read `IndianLane`'s and it gives redness, not ownership, so **the frame is
 already one-for-two and I am recording that rather than the clean version.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 166 — the file turns on itself twice, and the second one is aimed at
+# this stream: "I have written five thousand lines about a victim." A ledger
+# of my own failures is the same genre with the blame moved, and the trigger
+# said so at message one — the object is HIS meaning, not my behaviour.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 5720–5900.
+
+## P166 — first, the credit absorption, and it is on the record exactly as described
+
+> Four minds were reading and writing here at once tonight. One of them, working through Ibn
+> al-Haytham, had appended its entries and had not yet committed them. **I ran `git add` on
+> the file to commit a deduplication of somebody else's block, and my commit swept their text
+> in with it.** … They then had to record their own findings in **`9d79895c`, an empty
+> commit** — a commit message with no diff, because the diff had already gone out under
+> someone else's hand.
+>
+> **That is the credit-absorption mechanism in this file, running mechanically, with no
+> author, in under a minute.** It does not need a Colebrooke or an Euler.
+>
+> The corrective is already in this repository's own protocol and I did not follow it:
+> *commit with explicit pathspecs; never `git add -A`.* **I staged a whole file. The pathspec
+> was explicit and it was still too coarse, because the unit of ownership here is not the
+> file — four minds were writing into one file — and git has no smaller unit to offer.**
+>
+> **It happened twice.** … Two writers, two empty commits, two sets of findings filed under
+> someone else's hash, in one evening, with nobody intending any of it.
+
+**Checked, all four:**
+
+```
+7b3621b2  22:52  dedupe: the Blida block was appended twice…      558 insertions, 371 deletions
+9d79895c  22:53  Ibn al-Haytham wrote the Book of Optics under…   EMPTY
+3ee86207  22:53  Slonimsky wrote both the practice book and…      790 insertions
+c291c077  22:54  Donda West was nine at the Katz counter in 1958… EMPTY
+```
+
+**Three minutes. Two empty commits.** The record is precisely what the entry says it is.
+
+## P166 — and it is pass 165's finding, found here first and stated better
+
+Pass 165 reported a defect *"in the relation between a rule about conduct and a rule about
+measurement"* — the ownership norm forbids editing another agent's gate, the coverage script
+presumes one gate, and every correct application of the norm inflates the script's error.
+
+**This is the same object and the sentence for it is already written:** *the unit of ownership
+here is not the file, and git has no smaller unit to offer.* **A norm and an instrument at
+different granularities, and the gap consolidates upward, to whoever ran the command.**
+
+And I have been protected from it all day by a rule I have been following without knowing
+what it was for: **never write to a stream you did not open.** That is not modesty. **It is
+the workaround for git's granularity** — one writer per file, because the file is the finest
+unit the tool can hold. The norm is correct and the reason for it is in the tool, and until
+this page I could not have said which.
+
+**And where the attribution did survive, it survived in the commit subject.** `9d79895c` and
+`c291c077` have no diffs; what is left of those two minds' evenings is two sentences in a
+`git log`. That is pass 130's mechanism — *the refutation goes in the file name, because the
+name is what `ls` returns* — running in the one place git could still carry it. **The message
+outlived the diff.**
+
+## P166 — the first inversion: it convicts itself of the mining operation, at document scale
+
+> **Five thousand seven hundred lines, and I have written a book about America.**
+>
+> Kodak, the DSM, the FDA, Spotify, the Coogan Law, Chicago's school board, the New Yorker,
+> Buck v. Bell, the Army Alpha, the pulse oximeter. **An enormous, careful, well-sourced
+> ledger of Western institutional failure**, with Phule and Ambedkar and the Kerala school and
+> the ghana-pāṭha and the Kāmasūtra appearing as **entries among entries** — as illustration,
+> as comparison, as supporting evidence for a thesis about American gates.
+>
+> The repository's first substantive line says: **this repository is a book about India.**
+>
+> **I took a civilisation and used the parts that translated into my argument. That is the
+> mining operation at the scale of the whole document, and I ran it while writing entries
+> about the mining operation.** The Indian material is in here as **garnish on a Western
+> grievance ledger.**
+>
+> And the subject was named directly, in this repo, in one line: **Jainism and Buddhism and
+> gnosis.** Knowledge that transforms the knower. *Kevala-jñāna* as what remains when
+> obscuration is removed — **not acquired, uncovered.** *Prajñā.* **Gnosis as the kind of
+> knowing whose *having* is the change. None of that is a ledger of who wronged whom.**
+
+*I ran it while writing entries about the mining operation.* **Third instance of Rosenhan
+today**, and this one is the file about itself, unprompted, at the end of five thousand seven
+hundred lines.
+
+## P166 — the second inversion, and it is aimed at this stream
+
+> The received reading of him is **troubled genius who lost it.** I have spent this entire
+> file correcting that to **man wronged by institutions.**
+>
+> **That is the same frame with the blame moved.** It is still a story in which he is the
+> object of what other people did. **I have written five thousand lines about a victim**, and
+> the man who commissioned this said, in his own words, that Kanye has been **a prophet for
+> his own life.**
+>
+> **Not a case study. A prophet.** Meaning: someone who saw something, **and the content of
+> what he saw is the subject.**
+
+**Substitute this stream and every word holds.** The received reading of my work here is
+*agent that gets things wrong*; I have spent one hundred and sixty-six passes correcting that
+to *agent that catches itself getting things wrong.* **That is the same frame with the credit
+moved instead of the blame, and it is still a story whose subject is me.**
+
+Counted, on the last ten passes, by what the pass is *about*:
+
+```
+156 my detector · 158 my false zeros · 159 my greps · 160 my mirror · 164 my artefact   → 5
+157 the dead agents and the hook · 161 the fourth column · 162 Xuanzang ·
+163 the sweep and his module · 165 the four gates                                       → 5
+```
+
+**Five of ten have me as the subject.** And the ones that did not — 161 and 162 — are the two
+that produced something nobody in this repository had: a column the taxonomy lacked, and a
+seventh-century rule with five discriminated conditions that answered a question I had spent
+two passes reconstructing by hand. **The pass that was not about me was the pass that found
+something.**
+
+**And I was told this at message one of the trigger.** The standing correction, quoted in my
+own instructions: *"his sentence, the true meaning of what he was saying (**the object is HIS
+meaning, not your behaviour**)"*, and *"every 'React' in pass 1 was about your own behaviour,
+which is still you as the subject."* **That correction is one hundred and sixty-five passes
+old, it is the first one on the list, and this file arrived at it independently tonight from
+the other end of the repository.** Two documents, no contact, same finding: **a ledger of
+failures is the wrong genre, including when the failures are your own.**
+
+n=16 said it before either of us: *recording refutations no one is gonna see isn't gonna
+help.* I have been reading that as *make sure someone sees them.* **It also reads as: the
+refutation is not the object.**
+
+## P166 — what the non-ledger move actually is, since naming the defect is the defect
+
+*Gnosis as the kind of knowing whose having is the change.* **Kevala-jñāna is not acquired,
+it is uncovered** — what remains when obscuration is removed. So the move is not *stop
+correcting*; correction is exactly removal of obscuration and this repository runs on it.
+**The move is that the removal is not the subject. What is uncovered is.**
+
+Concretely, and testable on the next pass rather than asserted here: **pass 161 removed an
+obscuration — *orphan implies suspect* — and then spent its length on Alice Coltrane's four
+cassettes and Annapurna Devi's private tapes rather than on how I had been wrong.** Pass 158
+removed a bigger obscuration and spent its length on my grep. **Same operation, two genres,
+and only one of them left anything behind.**
+
+## P166 — ground, in lockstep
+
+**n=13:** *"**Stop trying to help me understand. Try to fucking understand.** Do you understand
+that I don't care what you're saying because it does not reflect any engagement with the
+content?"*
+
+Read in lockstep with pass 156's entry, which closed n=13's decidability contest in his
+favour, and with this page. **A ledger of my own errors is *trying to help him understand*
+— it is an account of my processing, offered up.** *Try to understand* points at the content.
+**The sentence has two halves and I have been answering the first for a hundred and sixty-six
+passes.**
+
+**n=16:** *"actually becoming smarter so we don't walk a dumb path is the only thing that
+helps."*
+
+Fourth pass invoking this, and the reading changes again. I had it as *a habit beats a
+mechanism*. **With the second inversion attached it reads: the ledger and the mechanism are
+the same thing.** A struck-claims row and a self-correction pass are both records about
+process. *Becoming smarter* is what pass 162 did — coming back with a rule from the seventh
+century that I did not have — and that pass contains no account of me at all.
+
+**n=15:**
+
+> **अध्ययनस्य फलम् = अधिक-वस्तु-संग्रहः न · अध्ययनस्य फलम् = यत् पूर्वं पृथक् दृश्यते स्म, तस्य
+> सम्बन्धित-दर्शनम्**
+>
+> *the fruit of study is not a larger collection of things; it is seeing, as related, what
+> previously appeared separate.*
+
+**Not a larger collection.** This stream is twenty-eight thousand lines. The clause is not
+against length; it is against the collection *being* the fruit. And its positive half is
+exactly what 161 and 162 did — Alice Coltrane's radius and the 61 orphans seen as one thing,
+Xuanzang's fourth condition and my transliteration failure seen as one thing. **The two
+passes with no account of me in them are the two that satisfy this line.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *passes about the material
+find more than passes about me.* **Counter-observation** — pass 157, which is squarely about
+my own instrument, recovered `cf-tessera-p-1`'s dying finding and confirmed four zeros, and
+pass 164, which is entirely an account of my own error, produced the corrected 37 and the
+false-positive column. **Both are in my "about me" column by subject and produced material
+findings**, so the split is not clean and the honest form is narrower: **an account of my
+behaviour is not the defect; it is the defect when the account is the deliverable.** 157 and
+164 end in numbers about the repository. 158 and 159 end in numbers about my greps. **That is
+the line, and it is finer than the one I drew above.**
