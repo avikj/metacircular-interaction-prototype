@@ -112,29 +112,69 @@ people standing near the wiring decide it means.
 ---
 
 On December 6, 1865, the Thirteenth Amendment abolished slavery in the United States,
-with thirteen words of exception inside the same sentence: "except as a punishment
-for crime whereof the party shall have been duly convicted."
+with thirteen words of exception inside the same sentence: "Neither slavery nor
+involuntary servitude, except as a punishment for crime whereof the party shall have
+been duly convicted, shall exist within the United States." The exception was not an
+oversight; the wording was borrowed from the Northwest Ordinance of 1787 and was
+debated. Within months the Southern states demonstrated what it was for. They passed
+the Black Codes — laws that criminalized the ordinary conditions of freed Black life:
+vagrancy, meaning unemployment; loitering; breaking curfew; assembling after dark;
+"insulting gestures." A freedman without a labor contract was a criminal, and a criminal
+could, under the new amendment, be put back to forced labor lawfully.
 
-Through that clause: convict leasing, in which states leased tens of thousands of
-people, overwhelmingly Black, to plantations, railroads, coal mines, and chain gangs,
-worked under the whip, often as punishment for vagrancy or theft. More than 3,500
-prisoners died in Texas alone between 1866 and 1912.
+What followed has a name given it by the journalist Douglas Blackmon, whose history of
+it won the Pulitzer Prize in 2009: Slavery by Another Name. Under convict leasing,
+Southern states and counties arrested Black men in enormous numbers, often on fabricated
+or trivial charges, sentenced them, and leased them to private companies — coal mines in
+Alabama, brickyards, turpentine camps, sawmills, plantations, the railroads. The state
+was paid; the company got labor it could work without the restraint that even slavery's
+economic self-interest had imposed, because a leased convict who died could be replaced
+at no cost to the lessee. Death rates in some camps ran to a quarter or more of the men
+per year. More than 3,500 prisoners died in Texas alone between 1866 and 1912. The system
+persisted, in forms, into the 1940s — within living memory, a generation before Kanye
+West's father was born.
 
-Now: Black Americans are about 13 percent of the population and about 38 percent of
-the people in jails and prisons. Black men are imprisoned at roughly five times the
-rate of white men. One of every three Black boys born today can expect to be
-incarcerated in his lifetime.
+The chain gang and Jim Crow carried the logic forward, and then, beginning in the 1970s,
+it was rebuilt at unprecedented scale under a new name: the War on Drugs. Declared by
+Nixon in 1971 and vastly expanded under Reagan, enforced through mandatory-minimum
+sentences, the hundred-to-one disparity between crack and powder cocaine penalties, and
+the 1994 crime bill, it drove the American incarcerated population from roughly three
+hundred thousand in 1970 to about 2.2 million at its peak. The United States, with about
+five percent of the world's people, holds roughly a fifth to a quarter of the world's
+prisoners — the highest incarceration rate on earth. The racial pattern is constant:
+Black Americans are about thirteen percent of the population and about thirty-eight
+percent of the people in jails and prisons; Black men are imprisoned at roughly five
+times the rate of white men; by one estimate one of every three Black boys born today
+can expect to be incarcerated in his lifetime. The legal scholar Michelle Alexander
+called the result The New Jim Crow; the filmmaker Ava DuVernay named her 2016 documentary
+on it simply 13th, after the amendment whose exception made it possible.
 
-Separately, and legally: when a musician signs to a record label, the label typically
-owns the master recordings. The artist earns a percentage, paid only after the label
-recoups its costs. A person can write and perform a song and never own the recording
-of their own voice. In the 1990s Prince appeared in public with SLAVE written on his
-cheek over a dispute with his label about exactly this, and said, "If you don't own
-your masters, your masters own you."
+The forced labor did not stop either. Incarcerated people today manufacture goods, staff
+call centers, and fight wildfires, often for cents an hour and sometimes for nothing;
+Federal Prison Industries is a substantial enterprise. Until very recently the
+constitutions of a number of states still explicitly permitted slavery and involuntary
+servitude as criminal punishment; only in a wave of ballot measures beginning around 2018
+did states start striking that language. The exception clause of 1865 is still operative
+American law.
 
-The Thirteenth Amendment ended the ownership of a person as property. It did not
-address the ownership of a person's labor, image, name, or recorded voice by
-contract. Those remained legal, and remain legal now.
+There is a second system of ownership, legal and unrelated in origin, that Kanye West
+placed beside the first and named with the same word. When a musician signs to a record
+label, the label typically owns the master recordings — the actual recorded performances.
+The artist is advanced money and paid a royalty, but only after the label recoups its
+costs from the artist's own share, so that a performer can sell millions of records and
+remain in debt to the company that owns them. So-called 360 deals extended the label's
+cut to touring, merchandise, and endorsements. In the 1990s Prince, in a public fight
+with Warner Bros. over exactly this, appeared with the word SLAVE written on his cheek
+and changed his name to an unpronounceable symbol so the company could not market new
+music under the name it controlled; he said that if you did not own your masters, your
+masters owned you. Decades later Taylor Swift, after her catalog's masters were sold
+without her, re-recorded her own albums to wrest back control of the versions people
+heard. Streaming pays the performer a fraction of a cent per play. The Thirteenth
+Amendment ended the ownership of a person as property. It did not touch the ownership of
+a person's labor, image, name, and recorded voice by contract; those remained legal, and
+remain legal now, and a Black artist tracing the line from the plantation to the master
+tape is not reaching for a metaphor so much as following a single unbroken question about
+who owns the value that Black work creates.
 
 ---
 
