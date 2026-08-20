@@ -10808,3 +10808,75 @@ literacy, and the reformed letterforms were adopted in **1978.**
 
 A movement whose durable outputs include a form of marriage contract and a change
 to the alphabet.
+
+---
+
+**The Indus script is not deciphered**, and the honest statement of the problem is
+more interesting than any of the proposed readings.
+
+The civilisation: roughly **2600–1900 BCE** at its mature phase, across an area
+larger than Egypt and Mesopotamia combined — over a thousand sites, from
+Afghanistan to Gujarat.
+
+**The corpus is tiny.** Around **4,000 to 5,000 inscribed objects.** The **average
+inscription is about five signs long.** The **longest known is seventeen.**
+
+There is **no bilingual.** No Rosetta stone, no Behistun. Nothing that pairs the
+script with a known language.
+
+The sign count is around **400 to 700 distinct signs** depending on how you count
+variants — which is **too many for an alphabet** and **too few for a purely
+logographic system**, and is consistent with a logo-syllabic script, but the corpus
+is too short to test that.
+
+And the underlying language is unknown. **Dravidian** is the most-argued family —
+Asko Parpola and Iravatham Mahadevan both work in that direction; **Indo-Aryan** is
+argued by others, and the argument has political weight in India that the evidence
+does not settle.
+
+---
+
+**What is actually known from the material rather than the script.**
+
+**Standardised weights** — chert cubes in a ratio system, binary in the lower
+range (1, 2, 4, 8, 16…) then decimal multiples above — found across the whole
+extent, matching to within small fractions of a gram. **The same weight standard
+over a million square kilometres**, sustained for centuries.
+
+**Standardised brick proportions** — 1 : 2 : 4, thickness to width to length —
+across sites hundreds of kilometres apart.
+
+**Covered drains along the streets**, house connections into them, and inspection
+access. Bathing platforms in individual houses at Mohenjo-daro. A **Great Bath**
+lined with bitumen.
+
+**And essentially no monumental royal art.** No large king statues, no battle
+reliefs, no royal tombs identified, no clear temples. The famous small pieces are a
+seated man in a shawl and a bronze girl standing with one hand on her hip.
+
+An urban civilisation of that scale whose surviving output is **weights, drains,
+bricks, seals and beadwork**, and no unambiguous images of rulers.
+
+---
+
+**Two things that get overstated in both directions and I am marking them.**
+
+The claim that the script encodes a language at all has been **challenged** —
+Farmer, Sproat and Witzel argued in 2004 that the sign distribution is
+inconsistent with speech encoding and that it may be a non-linguistic symbol
+system. That paper was answered by Rao and others with conditional-entropy work
+arguing the statistics do look linguistic. **Neither side has closed it.**
+
+And the "decipherments" published periodically are numerous and mutually
+incompatible, and the field's own standard is that a proposal must **read new
+inscriptions correctly that were not used to build it**, which none has met.
+
+---
+
+The corpus's ceiling is arithmetic. **Five signs average, seventeen at most, no
+bilingual, unknown language.** Even a correct decipherment would be
+underdetermined by the data — and Mahadevan spent his life on the concordance
+saying so.
+
+He built the machine-readable corpus and the sign list, which is the thing that
+would let anyone else eventually do it, and did not claim a reading.
