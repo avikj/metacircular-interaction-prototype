@@ -9826,3 +9826,197 @@ he is proposing a structural test to apply to the content of testimony rather
 than to its source.
 
 Reading on from 7100.
+
+---
+
+## 7100–7240 — ʿaṣabiyya, indigenous scripts, the dream, Sequoyah, the Osage
+
+**ʿAṣabiyya** — group feeling, *"the solidarity that lets a group act as one."*
+The cycle: a group with strong ʿaṣabiyya from the harder margins takes power;
+power brings settlement, luxury, taxation, specialisation, *"and the
+professionalisation of what had been shared obligation."* The solidarity decays
+*"because the conditions that produced it are gone."* Within a few generations
+the dynasty runs on paid soldiers and administration rather than cohesion, and a
+new group comes in from the margin. Three or four generations.
+
+*The professionalisation of what had been shared obligation.* That is Illich's
+iatrogenesis — the capacity atrophies once handed to professionals — as a theory
+of dynastic decline, six centuries earlier, and the file does not connect them.
+
+Taxation and incentive worked out — *"early low rates on a productive population
+yield more than later high rates on a discouraged one"* — and a theory of why
+crafts and sciences flourish in cities and decay when the city does.
+
+*"He met **Tamerlane** outside Damascus in 1401, was lowered over the city wall
+to do it, spent several weeks in conversation with him, and wrote it up."*
+
+> What I take from him for this file is the shape of his question rather than
+> any of his answers. **He refuses to explain events by the character of the
+> people in them, and insists on the conditions that generate the character.**
+> Every time in this file I have caught myself reaching for a villain and
+> stopped, **that is the move he named as a discipline in 1377, and he named it
+> because the histories he had were made of nothing else.**
+
+The file's single most consistent practice — no villains, always the mechanism —
+gets its name and date here, near the end, after being used three hundred times.
+Same as Blake and the inversion: the method found in a source, credited, after
+the fact.
+
+---
+
+**Ge'ez.** Ethiopia and Eritrea, *"a continuous literary tradition in an
+**indigenous script**, from the Aksumite period — inscriptions from around the
+fourth century, a script that begins as an abjad and then develops full vowel
+marking, still in liturgical use."* Thousands of parchment manuscripts, bound in
+wooden boards, *"produced continuously for a millennium and a half in
+monasteries that were never conquered."* The *Kebra Nagast*, the *Fetha
+Nagast*, chronicles, translations, original theology, *"and a computus — a
+calendar reckoning with its own new year and its own count of years that runs
+seven or eight behind the Gregorian."*
+
+Its own count of years. A civilisation that never adopted the reckoning, which
+is the one thing everything else in this file eventually did.
+
+> there is an unbroken indigenous manuscript culture in a native script from
+> late antiquity to now, and it was not a secret; **it was simply not in the
+> syllabus.**
+
+**Nsibidi**, Cross River, Nigeria and Cameroon. Ideographic, pre-colonial, on
+textiles, skin, calabashes, walls, and in the secret societies — *"and
+**deliberately restricted**, taught only to initiates, which is why the colonial
+administrators recorded so little of it and why so much is gone. **A writing
+system whose security model was that most people could not read it.**"*
+
+Restriction as security, and the same restriction as the loss. Adhikāra as gate
+again, and the *Mahābhārata*'s own indictment of it, and here the cost is
+measured in a script that is mostly gone.
+
+**Adinkra**, Akan, Ghana: symbols each with a name and a proverb, stamped onto
+cloth, *"so that a garment carries a set of statements."* Not phonetic — *"a
+symbol-to-proverb encoding, which is a different design with a different
+purpose, and **calling it 'not real writing' is the same move as calling a quipu
+a decoration.**"*
+
+**The Vai syllabary**, *"the one that stops me."*
+
+Liberia, ~1830s, **Momolu Duwalu Bukele** and a small group invent a **syllabary
+from scratch** for Vai. *"By the account he gave, the signs came to him **in a
+dream**, in which a man in white showed him a book and taught him the
+characters. He woke, could not remember all of it, and worked with others to
+reconstruct and complete the system."* ~200 characters. *"It spread through the
+region, was used for correspondence, records and personal accounts, was taught
+outside any school system, and is still in use."*
+
+> one of the very small number of documented cases anywhere on earth of a
+> writing system being **created independently by someone in a society that did
+> not have one** — not adapted, not borrowed, invented — and the record of it is
+> good because it happened recently enough that missionaries and travellers
+> wrote it down within a few years.
+>
+> **And the source he gave for it was a dream.**
+
+---
+
+> Put that beside Ramanujan's goddess and Blake's dead brother teaching him the
+> etching method and Coltrane's account of a spiritual awakening and Sun Ra's
+> Saturn. Four people — different centuries, different continents, different
+> fields — reporting that the method came from outside the ordinary channel,
+> **and in every case the report is filed as personality while the *output* is
+> used.**
+
+> **I do not have a theory about dreams and I am not proposing one.**
+
+> **when the output is verifiable and the reported route is not, the route gets
+> discarded and the output gets absorbed** — and this is so uniform that it
+> looks like a rule.
+
+The claim is confined to *how testimony gets processed*, with the metaphysics
+explicitly declined. That is the discipline that lets the observation stand:
+four independent cases, one processing rule, no theory of the source.
+
+> Vai script works. Ramanujan's identities hold. The etching method produced the
+> books. The record exists. In each case the tradition receiving it kept the
+> working thing and dropped the account of where it came from, **and then the
+> culture that did the dropping concluded that such accounts are never worth
+> anything, on the basis of never having kept one.**
+
+That last clause is the whole epistemic crime in one line, and it is
+self-sealing: the evidence that would refute the conclusion is the thing the
+policy discards. The false negative is unobservable, the rejected produce no
+counterfactual, the gaps are not representable in the record. Fifth statement of
+one structure, and this is the tightest.
+
+---
+
+**Sequoyah**, *"the shortest interval in this whole file between a people
+acquiring a technology and having it taken from them."*
+
+Cherokee, a silversmith, **who did not read or write English.** Roughly a decade
+of work: logograms first, abandoned on scale, then a **syllabary** — eighty-odd
+characters, one per syllable, *"which fits the phonology of Cherokee much better
+than an alphabet would."* *"He is said to have been ridiculed for it and accused
+of witchcraft, and to have demonstrated it by having his daughter read back a
+message she could not have known."*
+
+Completed **~1821**. Adopted by the Cherokee Nation **1825**. And within a few
+years, literacy in Cherokee among the Cherokee reportedly **higher than literacy
+in English among the white settlers around them** — *"because a syllabary that
+fits the language can be learned in days, not years, **and because they wanted
+it.**"*
+
+Fit to the language plus wanting it. The same two variables as every working
+pedagogy in the file, and the outcome is mass literacy in a few years by a man
+who could not read.
+
+**1828**: the *Cherokee Phoenix*, bilingual, printed in New Echota with type
+cast for the syllabary. A constitution. A legal code. A press.
+
+**1830**: the Indian Removal Act. **1835**: the New Echota treaty, *"signed by a
+faction with no authority to sign it."* **The printing press was seized and
+destroyed.** **1838**: the Trail of Tears.
+
+> **Seventeen years from the invention of the writing system to the forced
+> removal of the people who had just achieved mass literacy in it.**
+
+> The syllabary survived, **because it was in people's heads and not only in the
+> press**, which is the same reason Kabir survived and the pāṭha survived and
+> the bhakti songs survived. **It is still in use, it is on road signs, it is in
+> Unicode, and there are people teaching children in it now.**
+
+The press was seizable and the heads were not. Sixth demonstration that the
+carrier determines survival, and the first where the destruction of the archive
+and the survival of the content happen in the same decade to the same people.
+
+---
+
+**The Osage**, *"the case where pathologisation is written into statute as a
+property mechanism."*
+
+Removed onto land nobody wanted, and when they bought it *"they retained the
+**mineral rights** communally, in a way that turned out to be unusually well
+drafted. Then oil was found under it. By the 1920s the headright payments made
+them, per capita, among the wealthiest people in the world."*
+
+> Congress responded with a **guardianship** system: Osage people deemed
+> **"incompetent"** to manage their own affairs — **a determination that in
+> practice tracked how Osage you were** — were assigned white guardians who
+> controlled their money, approved their purchases, took fees, **and in many
+> documented cases simply stole.**
+
+> Adults, of sound mind, with their own property, declared incapable of holding
+> it, by law, and handed to a manager who profited
+
+cut at 7240.
+
+*Incompetent*, as a legal finding, tracking blood quantum, attached to money.
+That is drapetomania with a balance sheet — the conversion of a person's
+judgement into evidence of incapacity, and here the conversion has a fee
+schedule and a statutory basis.
+
+And it is *grave disability* — the 5150 standard, the capability test the file
+called "the right kind of test" — a century earlier, applied to property instead
+of liberty, with the assessment made by the party who benefits from the finding.
+The file's own operative question answers itself here: *is this description
+doing work for the person, or for whoever is inconvenienced by them?*
+
+Reading on from 7240.
