@@ -8594,3 +8594,74 @@ it.
 
 And the practical instruction that follows is not "try harder." It is that the two
 feel the same while you are on them, and the way to tell is not introspection.
+
+---
+
+The cyclic method, and why it always finishes.
+
+***Vargaprakṛti*** is the tradition's own name for the problem — "the nature of
+squares" — and it is x² − D·y² = 1. **Jayadeva**, around 950, has the method;
+**Bhāskara II** gives it in full in the ***Bījagaṇita***, 1150. It is called the
+***cakravāla***, the **wheel**.
+
+The engine is Brahmagupta's *bhāvanā*: compose two solutions to get a third. But
+composition alone stalls — you can compose forever and never land on k = 1.
+
+**The cakravāla's move is a choice made at each turn.** Having reached a triple
+(x, y, k), you need a new multiplier *m* to compose with, and the constraints are
+that (x + m·y) must be divisible by k, and then you choose, among all the *m*
+satisfying that, **the one making |m² − D| smallest.**
+
+That single greedy choice is what makes it terminate. Each turn the |k| you are
+working with shrinks, and the argument is that it must reach 1 in finitely many
+steps.
+
+It is called a wheel because you come back around to the same operation with a
+smaller residue, and you keep turning until it closes.
+
+---
+
+**D = 61.** Bhāskara ran it and got
+
+    x = 1,766,319,049      y = 226,153,980
+
+Ten digits, by hand, from a method that fits on a page.
+
+**In February 1657 Fermat issued a challenge** to the English mathematicians —
+Wallis, Brouncker, and through them Frenicle — proposing exactly the cases **D = 61**
+and **D = 109**, which are chosen precisely because their smallest solutions are
+enormous. He selected them to be hard.
+
+Wallis and Brouncker produced a method and answers. **Lagrange gave the first
+European proof that a solution always exists, in 1768** — six hundred years after
+Bhāskara had a method that could not fail to find one.
+
+**Euler, having read Wallis, attributed the whole thing to John Pell**, who had
+worked on other things and not on this. The name stuck to the equation and is still
+on it.
+
+---
+
+**Selenius**, the Scandinavian historian of mathematics who worked through the
+method in the 1970s, made the comparison directly: he argued the cakravāla is
+**better than the European continued-fraction algorithm**, that no European
+performance in the whole of algebra at the time of Bhāskara came close to it, and
+that the method's minimality property is not reproduced by the later approach.
+
+---
+
+And **the *Līlāvatī***, 1150, the arithmetic book, is addressed **to a person**.
+The problems are put to her by name — *Līlāvatī*, "the playful one" — in the
+second person: *tell me, dear girl, if you know the method*; *say, you whose eyes
+are like a fawn's, how many are the bees.*
+
+Bees, elephants, lotuses standing in water, a snake and a peacock, a broken
+bamboo, necklaces breaking and pearls scattering across a floor.
+
+The received story that she was his daughter, and that an astrological accident
+with a water clock cost her a marriage and he wrote the book to console her, comes
+from a **Persian translation made under Akbar in 1587**, four hundred years later,
+and there is no earlier source for it.
+
+What is in the text itself is the address. Somebody is being spoken to, throughout,
+in the vocative, and the arithmetic arrives as questions asked of her.
