@@ -139,3 +139,23 @@ aC = refl
 -- is still not proved, and is still unread: egress is blocked from that
 -- environment.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- EXTENDED 2026-08-20, another thread: PART OF THE OWED OPTIMALITY IS PAID.
+-- `PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain.agda` proves, for
+-- ANY linear order of the sounds and ANY placement of markers, that two
+-- classes ending at the same anubandha are ⊆-comparable — so the classes
+-- carried by one marker are a chain, and a ⊆-ANTICHAIN of classes forces that
+-- many distinct markers.  aṆ, iK, eṄ, aiC are pairwise incomparable as sets,
+-- hence four markers are forced; the śiva-sūtra order names all four with
+-- Ṇ K Ṅ C and has no fifth, so four is the minimum and this order attains it.
+--
+-- The NOT-claimed list above is unchanged in its main entry: Petersen's
+-- theorem — that the order is essentially UNIQUE for the full family, and 14
+-- markers minimal — is still not proved and Petersen is still unread.  What
+-- is now proved is a lower bound and its attainment on the vowel subfamily.
+-- `machine/Pratyahara_TheIntervalDecisionProcedure.hs` decides nameability
+-- against the line (no table) and computes the bound over all fourteen
+-- sūtras: width 14 over the 294 classes the line can name, width 11 over the
+-- ~30 the grammar uses.
+------------------------------------------------------------------------

@@ -145,6 +145,31 @@ module Astadhyayi
   , deriveAsiddhavat
   , asiddhaAudit
   , applyRw
+    -- शेषः: the residual (section 7b)
+  , Lekha(..)
+  , deriveLekha
+  , deriveLekhaUnder
+  , resolveN
+  , stepANUnder
+  , Hetu(..)
+  , Sandhi
+  , Sesa(..)
+  , SesaKey
+  , sesaKey
+  , sesaPrccha
+  , sesaPada
+  , showSandhi
+  , Nirnaya(..)
+  , nirnaya
+  , vidhiRefs
+  , Pravesha(..)
+  , pravesha
+  , sesah
+  , sesaKosha
+  , sesaPrasna
+  , sesaPrasnaNava
+  , abhyasa
+  , sesaLekha
     -- the karaka layer (2.3.1, 2.3.2, 2.3.18)
   , Karaka(..)
   , Vibhakti(..)
@@ -1122,16 +1147,40 @@ overlaps :: Rewrite -> Rewrite -> Bool
 overlaps a b = rPos a < rPos b + rLen b && rPos b < rPos a + rLen a
 
 -- utsarga/apavada, then 1.4.2.
-resolve :: [Rewrite] -> (Rewrite, [Ref], String)
-resolve [r] = (r, [], "sole candidate")
-resolve rs =
+--
+-- TWO CASES THE METARULES DO NOT DECIDE, and until 2026-08-20 the order of
+-- the list was deciding them silently:
+--
+--   * two competitors carrying the SAME Ref.  1.4.2 `vipratiṣedhe paraṃ
+--     kāryam` compares POSITIONS IN THE TEXT, and equal positions are not
+--     comparable, so paratva has nothing to say.  `maximumBy` returned one
+--     anyway.
+--   * two or more apavādas inside one competing set.  Utsarga/apavāda ranks
+--     a PAIR -- this rule is the exception to that one -- and says nothing
+--     about which of two exceptions wins.  `(r : _)` took the first.
+--
+-- `resolveN` returns the same winner in every case (`resolve` is exactly its
+-- projection, so no derivation changes) and additionally returns the
+-- competitors WHEN NOTHING DECIDED THEM, so section 7b can record the debt
+-- instead of the caller inheriting a decision the grammar never made.
+resolveN :: [Rewrite] -> (Rewrite, [Ref], String, Maybe [Ref])
+resolveN [r] = (r, [], "sole candidate", Nothing)
+resolveN rs =
   let apavadas = [ r | r <- rs, any (\o -> rSutra o `elem` apavadaTo (sutraAt (rSutra r))) rs ]
+      refs = map rSutra rs
+      undecided
+        | length apavadas > 1                             = Just (map rSutra apavadas)
+        | null apavadas && length (nub refs) < length refs = Just refs
+        | otherwise                                       = Nothing
   in case apavadas of
        (r : _) -> (r, [ rSutra o | o <- rs, rSutra o /= rSutra r ]
-                  , "apavāda blocks the utsarga (elsewhere condition)")
+                  , "apavāda blocks the utsarga (elsewhere condition)", undecided)
        []      -> let w = maximumBy (comparing rSutra) rs
                   in (w, [ rSutra o | o <- rs, rSutra o /= rSutra w ]
-                     , "1.4.2 vipratiṣedhe paraṃ kāryam: the later sūtra")
+                     , "1.4.2 vipratiṣedhe paraṃ kāryam: the later sūtra", undecided)
+
+resolve :: [Rewrite] -> (Rewrite, [Ref], String)
+resolve rs = let (a, b, c, _) = resolveN rs in (a, b, c)
 
 sutraAt :: Ref -> Sutra
 sutraAt r = head ([ s | s <- sutras, num s == r ] ++ [ missing ])
@@ -1146,15 +1195,17 @@ sectionB = sortOn num [ s | s <- sutras, tripadi (num s) ]
 -- one fixpoint step over the mutually-siddha section.  `nv` carries extra
 -- nivrttis, so that "what if this heading were not there" is a run and not
 -- an edit.
-stepAUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String)
-stepAUnder nv xs =
+stepANUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String, Maybe [Ref])
+stepANUnder nv xs =
   case sortOn rPos (concatMap (\s -> fires s (readingUnder nv s) xs) sectionA) of
     []  -> Nothing
     all_ ->
       let leftmost = minimum (map rPos all_)
           here     = [ r | r <- all_, overlaps r (head [ q | q <- all_, rPos q == leftmost ]) ]
-          (w, l, why) = resolve here
-      in Just (w, l, why)
+      in Just (resolveN here)
+
+stepAUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String)
+stepAUnder nv xs = fmap (\(w, l, why, _) -> (w, l, why)) (stepANUnder nv xs)
 
 stepA :: [Item] -> Maybe (Rewrite, [Ref], String)
 stepA = stepAUnder []
@@ -1163,43 +1214,79 @@ deriveTrace :: [Item] -> ([Step], [Item])
 deriveTrace = deriveTraceUnder []
 
 deriveTraceUnder :: [(Ref, String)] -> [Item] -> ([Step], [Item])
-deriveTraceUnder nv start = phaseB (phaseA 0 start [])
+deriveTraceUnder nv start = let (sts, xs, _) = deriveLekhaUnder nv start in (sts, xs)
+
+-- लेखः -- WHAT THE ENGINE SAW WHILE IT RAN, added 2026-08-20 for section 7b.
+--
+-- Three things were being computed and dropped on every derivation: the
+-- offers that were made and lost or never taken, the loci where the
+-- metarules did not separate the contenders, and the fact that a GUARD
+-- rather than a fixpoint ended the run.  The last is the worst of the
+-- three -- a partial form was returned in the same shape as a finished one,
+-- so nothing downstream could tell them apart.
+data Lekha = Lekha
+  { lVrtta    :: [([Item], [(Ref, Int, Int)])]  -- each configuration, and every (sūtra, pos, len) offered against it
+  , lAnirnita :: [([Item], Int, [Ref])]         -- configuration, locus, contenders the metarules did not separate
+  , lAsamapta :: Maybe Int                      -- the guard, and the count it tripped at
+  } deriving (Show)
+
+deriveLekha :: [Item] -> ([Step], [Item], Lekha)
+deriveLekha = deriveLekhaUnder []
+
+deriveLekhaUnder :: [(Ref, String)] -> [Item] -> ([Step], [Item], Lekha)
+deriveLekhaUnder nv start = phaseB (phaseA 0 start [] (Lekha [] [] Nothing))
   where
     reading s = readingUnder nv s
 
-    phaseA :: Int -> [Item] -> [Step] -> ([Step], [Item])
-    phaseA k xs acc
-      | k > 64 = (reverse acc, xs)          -- guard; no derivation here is long
-      | otherwise = case stepAUnder nv xs of
-          Nothing -> (reverse acc, xs)
-          Just (w, lost, why) ->
+    -- every offer against this configuration, from EVERY sūtra in the table.
+    -- Not only the section whose turn it is: the question section 7b asks is
+    -- "did anything in the grammar ever reach for this juncture", and a rule
+    -- refused by asiddhatva still reached for it.
+    note xs lg = lg { lVrtta = lVrtta lg ++
+                        [ (xs, [ (num s, rPos r, rLen r)
+                               | s <- sutras, r <- fires s (reading s) xs ]) ] }
+
+    phaseA :: Int -> [Item] -> [Step] -> Lekha -> ([Step], [Item], Lekha)
+    phaseA k xs acc lg
+      | k > 64 = (reverse acc, xs, lg { lAsamapta = Just k })  -- guard; no derivation here is long
+      | otherwise =
+          let lg' = note xs lg in
+          case stepANUnder nv xs of
+          Nothing -> (reverse acc, xs, lg')
+          Just (w, lost, why, undec) ->
             let ys = applyRw xs w
                 st = Step (rSutra w) (text (sutraAt (rSutra w))) (rNote w)
                        lost why (render xs) (render ys)
                        (rdInherited (reading (sutraAt (rSutra w))))
-            in if ys == xs then (reverse acc, xs) else phaseA (k + 1) ys (st : acc)
+                lg'' = case undec of
+                         Nothing -> lg'
+                         Just rf -> lg' { lAnirnita = lAnirnita lg' ++ [(xs, rPos w, rf)] }
+            in if ys == xs then (reverse acc, xs, lg'')
+                           else phaseA (k + 1) ys (st : acc) lg''
 
-    phaseB :: ([Step], [Item]) -> ([Step], [Item])
-    phaseB (acc, xs0) = go sectionB xs0 acc
+    phaseB :: ([Step], [Item], Lekha) -> ([Step], [Item], Lekha)
+    phaseB (acc, xs0, lg0) = go sectionB xs0 acc lg0
       where
-        go [] xs acc' = (acc', xs)
-        go (s : ss) xs acc' =
+        go [] xs acc' lg = (acc', xs, lg)
+        go (s : ss) xs acc' lg =
           -- a tripadi rule applies to a fixpoint on ITS OWN output (a rule is
           -- siddha to itself) but never sees a later rule, and is never
           -- revisited once passed.
-          let (xs', steps) = saturate s xs []
-          in go ss xs' (acc' ++ steps)
+          let (xs', steps, lg') = saturate s xs [] lg
+          in go ss xs' (acc' ++ steps) lg'
 
-        saturate s xs acc' =
+        saturate s xs acc' lg =
+          let lgN = note xs lg in
           case fires s (reading s) xs of
-            [] -> (xs, reverse acc')
+            [] -> (xs, reverse acc', lgN)
             (r : _) ->
               let ys = applyRw xs r
-              in if ys == xs || length acc' > 16
-                   then (xs, reverse acc')
+              in if ys == xs then (xs, reverse acc', lgN)
+                 else if length acc' > 16
+                   then (xs, reverse acc', lgN { lAsamapta = Just (length acc') })
                    else saturate s ys
                           (Step (num s) (text s) (rNote r) [] "tripādī: in order, 8.2.1"
-                             (render xs) (render ys) (rdInherited (reading s)) : acc')
+                             (render xs) (render ys) (rdInherited (reading s)) : acc') lgN
 
 
 ------------------------------------------------------------------------
@@ -1320,6 +1407,345 @@ asiddhaAudit start =
      , applyRw final r /= final ]
 
 ------------------------------------------------------------------------
+-- 7b.  शेषः -- THE RESIDUAL.  Added 2026-08-20.
+--
+-- यो शेषं त्यजति तस्य यन्त्रं न चलति ।
+-- A system that discards what it could not resolve has nothing left to run on.
+--
+-- THE SOURCE.  Āryabhaṭa, Āryabhaṭīya 2.32-33 (499 CE), the kuṭṭaka: divide,
+-- KEEP THE REMAINDER, recurse on the remainder.  The quotient column is the
+-- vallī and the answer is read by climbing it -- the intermediate trace IS
+-- the result, not scratch work thrown away once a result is reached.  Space
+-- log, time log, no table.
+--
+-- WHAT IS NOT CLAIMED, stated first because it is the easy overclaim.  The
+-- kuṭṭaka terminates because its remainders STRICTLY DECREASE.  Nothing here
+-- strictly decreases; a residual is frequently a larger object than the
+-- configuration that produced it.  What holds instead is FINITENESS -- the
+-- queue is a set of keys over the finite juncture alphabet, and requeue is
+-- suppressed explicitly.  "It is the kuṭṭaka, therefore it terminates" is
+-- false.  What is taken from Āryabhaṭa is the DISPOSAL RULE (keep the
+-- remainder, it is the material) and not the termination proof.
+--
+-- THE PRECEDENT IN THIS REPOSITORY.  `machine/Obstruction.hs` did this for
+-- the theorem engine: the kernel's refusals carried the exact pair of terms
+-- at which computation stalled, and every one of them was truncated to 160
+-- characters and collapsed to `False`.  1303 residuals recovered, 112
+-- distinct, ranked by how many parent goals each would unblock (`0 = y·0`
+-- unblocked fourteen).  The engine had been stating which lemma it needed
+-- next, ~1200 times a round, and deleting all of it.
+--
+-- THE SAME THING HERE, and where it was going.  A derivation stalls in four
+-- ways and all four were being swallowed:
+--
+--   अनक्षरम्  Anaksaram -- a token that is not a sound of the
+--             varṇasamāmnāya.  Every sūtra conditions through pratyāhāras
+--             over the 42 sounds, so NO sūtra can mention it; the grammar is
+--             definitionally silent.  `tokenize` kept it whole and said
+--             nothing.
+--   असूत्रम्  Asutram -- a boundary survives into the final form and no
+--             sūtra ever offered a rewrite touching it, at any configuration
+--             of the run.  The rule set has nothing in its domain here.
+--   अनिर्णीतम् Anirnitam -- two or more rewrites contend for one locus and
+--             the metarules do not separate them: equal Refs (1.4.2 compares
+--             positions in the text, and equal positions are incomparable),
+--             or two apavādas within one competing set (utsarga/apavāda
+--             ranks a PAIR, not two specifics).  `resolve` took `head` and
+--             the debt vanished.
+--   असमाप्तम् Asamaptam -- the fixpoint guard tripped (k > 64 in section A,
+--             16 iterations in one tripādī rule).  The partial form was
+--             returned as though it were final.
+--
+-- A residual is emitted at every stall and carries the configuration, the
+-- position, the juncture, the competing refs, and the parent input that
+-- demanded it -- so the debt is traceable to what asked for it.  Then
+-- `nirnaya` triages WITH EVIDENCE, `pravesha` admits or turns back WITH ITS
+-- GROUND (the discipline of Obstruction.hs: नकारः खण्डनं ददाति, स्वीकारः
+-- साक्षिणम् -- nowhere a bare truth-value), and `sesaPrasna` ranks what
+-- entered by HOW MANY DISTINCT PARENTS demand it.  That ranking is the
+-- machine stating which sūtra it needs next, derived from where its own work
+-- stalled rather than guessed by a person from a frequency table.
+------------------------------------------------------------------------
+
+-- हेतुः -- which of the four stalls, carrying what distinguishes it.
+data Hetu
+  = Anaksaram String    -- the token outside the varṇasamāmnāya
+  | Asutram             -- a surviving boundary no sūtra ever reached for
+  | Anirnitam [Ref]     -- the competitors the metarules did not separate
+  | Asamaptam Int       -- the guard, and the count it tripped at
+  deriving (Eq, Show)
+
+-- सन्धिः -- the juncture as the machine sees it: what precedes, the boundary
+-- itself, what follows.  `Nothing` on a side means there is no sound there,
+-- which is the case `nirnaya` calls निर्धर्मिन्.
+type Sandhi = (Maybe String, Item, Maybe String)
+
+-- शेषः.  Everything the stall knew at the moment it stalled.
+data Sesa = Sesa
+  { sHetu    :: Hetu
+  , sSandhi  :: Sandhi     -- the configuration at the stall, localised
+  , sSthana  :: Int        -- WHERE, as an index into sRupa
+  , sRupa    :: [Item]     -- the whole configuration, so the locus is checkable
+  , sSpardhi :: [Ref]      -- who contended here (empty when nobody did)
+  , sDrsta   :: [Ref]      -- who DID reach for this juncture during the run
+  , sJanaka  :: String     -- the parent that demanded it
+  } deriving (Eq, Show)
+
+-- The key a residual is remembered by.  The parent is DELIBERATELY not in
+-- it: counting distinct parents per key is the ranking, so a key that
+-- included the parent would rank everything 1 and say nothing.
+type SesaKey = (Hetu, Sandhi)
+
+sesaKey :: Sesa -> SesaKey
+sesaKey s = (sHetu s, sSandhi s)
+
+-- What the machine is asking for, in one line.
+sesaPrccha :: Sesa -> String
+sesaPrccha s = case sHetu s of
+  Anaksaram t -> "no sound " ++ show t ++ " in the varṇasamāmnāya: "
+                 ++ "no pratyāhāra reaches it, so no sūtra can condition on it"
+  Asutram     -> "no sūtra offers at " ++ showSandhi (sSandhi s)
+  Anirnitam rs -> "two sūtras at one locus and no metarule separates them: "
+                 ++ intercalate ", " (map showR rs)
+  Asamaptam k -> "the derivation did not converge (" ++ show k ++ " steps)"
+
+showSandhi :: Sandhi -> String
+showSandhi (l, b, r) =
+  maybe "∅" id l ++ " " ++ boundary b ++ " " ++ maybe "∅" id r
+  where boundary Pada     = "+"
+        boundary Avasana  = "."
+        boundary Morph    = "-"
+        boundary Avagraha = "'"
+        boundary (P x)    = x
+
+-- The juncture alone, restated as an input.
+--
+-- THIS IS NOT EQUIVALENT TO THE PARENT, and the machine says so: `sesah` on
+-- it gives a DIFFERENT key.  Extracted from "tam + ca" the pair m + c has the
+-- c at avasana, where 8.2.30 cohkuh turns it into k, and the juncture the
+-- residual named no longer exists.  A residual does not survive being taken
+-- out of the trace that produced it -- which is why `sJanaka` is carried and
+-- why `abhyasa` re-asks the PARENT and not this.  Kept, and checked, because
+-- the negative result is the content.
+sesaPada :: Sesa -> String
+sesaPada s = case sSandhi s of
+  (Just l, Pada,  Just r) -> l ++ " + " ++ r
+  (Just l, Morph, Just r) -> l ++ " - " ++ r
+  (Just l, _,     Just r) -> l ++ " " ++ r
+  (Just l, _,     Nothing) -> l
+  (Nothing, _,    Just r)  -> r
+  _ -> ""
+
+-- निर्णयः -- the verdict on one residual, and every constructor carries the
+-- evidence that put it there.  This is `Obstruction.hs`'s `Verdict`, the same
+-- four positions for the same reason: a verdict without its ground arrives
+-- downstream stripped of why, and nothing downstream can ask.
+-- नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् -- क्वापि न शून्यबोधः ।
+data Nirnaya
+  = Aviruddha [Ref]   -- अविरुद्ध -- unrefuted, CARRYING THE DOMAIN SEARCHED:
+                      -- which sūtras were offered this configuration and did
+                      -- not reach for it.  Not "a rule is missing here" --
+                      -- the absence of one over a stated extent, which is the
+                      -- yogya condition and is meaningless without the extent.
+  | Khandita Ref      -- खण्डित -- refuted: a sūtra DID reach for this juncture
+                      -- during the run, so it is not a gap in the rule set.
+                      -- Carrying which.  A refutation is exact.
+  | Nirdharmin String -- निर्धर्मिन् -- no subject to predicate of, carrying
+                      -- which side was empty.
+  | Tusnim String     -- तूष्णीम् -- the grammar declines to speak, carrying the
+                      -- token outside its sound system that silenced it.
+  deriving (Eq, Show)
+
+nirnaya :: Sesa -> Nirnaya
+nirnaya s = case sHetu s of
+  Anaksaram t  -> Tusnim t
+  Anirnitam rs -> Aviruddha rs
+  Asamaptam _  -> Aviruddha (nub (sDrsta s))
+  Asutram      -> case sSandhi s of
+    (Nothing, _, _) -> Nirdharmin "nothing precedes the boundary"
+    (_, _, Nothing) -> Nirdharmin "nothing follows the boundary"
+    _ -> case sDrsta s of
+           (r : _) -> Khandita r
+           []      -> Aviruddha vidhiRefs
+
+-- The extent actually searched, for अविरुद्ध on a juncture: every operational
+-- sūtra in the table.  An unrefutedness that does not say over what is the
+-- unfalsifiable number this repository's protocol forbids.
+vidhiRefs :: [Ref]
+vidhiRefs = [ num s | s <- sutras, styp s == Vidhi ]
+
+-- प्रवेशः -- admission, WITH ITS GROUND on both sides.  The extension is
+-- Obstruction.hs's, deliberately: अविरुद्ध and तूष्णीम् enter, खण्डित and
+-- निर्धर्मिन् turn back.  तूष्णीम् entering is not an oversight -- a token the
+-- sound system does not contain is a debt against the INVENTORY, and it is
+-- the one debt no sūtra can ever discharge.
+data Pravesha
+  = Pravishati Nirnaya   -- प्रविशति -- it enters, carried in by THIS verdict
+  | Nivartate  Nirnaya   -- निवर्तते -- it turns back, turned by THIS verdict
+  deriving (Eq)
+
+instance Show Pravesha where
+  show (Pravishati v) = "enters on " ++ show v
+  show (Nivartate  v) = "turns back on " ++ show v
+
+pravesha :: Nirnaya -> Pravesha
+pravesha v@(Aviruddha _)  = Pravishati v
+pravesha v@(Tusnim _)     = Pravishati v
+pravesha v@(Khandita _)   = Nivartate v
+pravesha v@(Nirdharmin _) = Nivartate v
+
+-- DELIBERATELY ABSENT, as in Obstruction.hs: `entered :: Pravesha -> Bool`.
+-- One line of that shape restores the bare label for every caller at once and
+-- reads as a convenience while doing it.  Callers match, and in matching they
+-- hold the reason.
+
+------------------------------------------------------------------------
+-- COLLECTION
+------------------------------------------------------------------------
+
+-- सेतवः -- the boundaries of a configuration, each with its ORDINAL and its
+-- index.  A boundary has to be identified across configurations, because the
+-- question is "did anything ever reach for THIS juncture" and the index moves
+-- under every rewrite.
+--
+-- THE LIMIT OF THE IDENTIFICATION, said rather than hidden: boundaries are
+-- matched by ordinal from the left.  Rewrites consume boundaries (6.1.101
+-- takes the Pada with the two vowels) and never create them, so where a
+-- boundary to the LEFT of this one is consumed mid-run the ordinal shifts and
+-- the match is wrong.  Every input in `sesaKosha` carries at most one
+-- boundary, where the identification is exact.  With more, this
+-- under-reports what reached for a juncture, which emits residuals that are
+-- not owed -- so it is the direction that must be fixed before the queue is
+-- trusted on multi-pada input.
+setavah :: [Item] -> [(Int, Int)]
+setavah xs = zip [0 ..] [ i | (i, x) <- zip [0 ..] xs
+                            , x `elem` [Pada, Morph, Avasana] ]
+
+-- the sound before an index, skipping boundaries
+prevPh :: [Item] -> Int -> Maybe String
+prevPh xs i = listToMaybe [ s | j <- [i-1, i-2 .. 0], P s <- [xs !! j] ]
+
+sandhiAt :: [Item] -> Int -> Sandhi
+sandhiAt xs i = ( prevPh xs i
+                , xs !! i
+                , listToMaybe [ s | j <- [i+1 .. length xs - 1], P s <- [xs !! j] ] )
+
+-- Did this offer REACH FOR this boundary?  A rewrite spanning [i, i+n) counts
+-- as reaching boundary b when b lies in [i-1, i+n]: the boundary itself may be
+-- consumed (6.1.101), or the rule may rewrite the sound immediately before it
+-- (8.2.39 at pada-end) or immediately after it (8.4.40's second branch).  The
+-- window is deliberately LOOSE.  Erring wide marks more junctures as reached
+-- and so emits FEWER residuals, which is the conservative direction: this file
+-- must not manufacture a debt.
+sprsati :: Int -> (Ref, Int, Int) -> Bool
+sprsati b (_, i, n) = b >= i - 1 && b <= i + n
+
+-- शेषाः -- every residual one derivation produces.  The parent is the input
+-- string, so every debt below names what demanded it.
+sesah :: String -> [Sesa]
+sesah src = alien ++ undecided ++ unfinished ++ gaps
+  where
+    xs0 = parseInput src
+    (_, final, lg) = deriveLekha xs0
+    at cfg i h drsta spardhi = Sesa h (sandhiAt cfg i) i cfg spardhi drsta src
+
+    alien = [ at xs0 i (Anaksaram t) [] []
+            | (i, P t) <- zip [0 ..] xs0, phoneOf t == Nothing ]
+
+    undecided = [ at cfg i (Anirnitam rs) [] rs | (cfg, i, rs) <- lAnirnita lg ]
+
+    unfinished = [ Sesa (Asamaptam k) (Nothing, Pada, Nothing) 0 final []
+                        (nub [ r | (_, os) <- lVrtta lg, (r, _, _) <- os ]) src
+                 | Just k <- [lAsamapta lg] ]
+
+    gaps = [ at final b Asutram (reachedFor o) [] | (o, b) <- setavah final ]
+
+    reachedFor o = nub [ r | (cfg, offers) <- lVrtta lg
+                           , Just b <- [lookup o (setavah cfg)]
+                           , (r, i, n) <- offers, sprsati b (r, i, n) ]
+
+------------------------------------------------------------------------
+-- THE QUEUE
+------------------------------------------------------------------------
+
+-- What entered, ranked by HOW MANY DISTINCT PARENTS demand it -- the ranking
+-- `Obstruction.curriculum` uses, for the same reason.  A raw occurrence count
+-- over-weights one input retried across rounds; what a queue is actually
+-- being asked is which single missing rule unblocks the most derivations.
+--
+-- Refuted and degenerate residuals are dropped BEFORE the queue rather than
+-- filtered where they are used.  A queue carrying objects nobody may act on
+-- is a queue that will be acted on.
+sesaPrasna :: [String] -> [(Sesa, Int)]
+sesaPrasna = sesaPrasnaNava []
+
+-- पुनरावृत्तिनिवारणम् -- requeue suppression, load-bearing rather than tidy.
+--
+-- THE LIVELOCK IS REAL AND WAS HIT HERE.  The obvious way to act on a queue
+-- is to re-run the derivations that stalled and see which debts are now
+-- discharged.  Re-running a parent whose debt is still open re-emits the
+-- identical residual -- same juncture, same key -- and it goes back on the
+-- queue, forever, at no point doing anything wrong.  `held` is what stops it:
+-- a key already queued is never queued again.
+--
+-- THIS IS NOT THE KUTTAKA'S TERMINATION and must not be reported as it.
+-- Āryabhaṭa's remainders strictly decrease and that is why the vallī ends.
+-- These do not decrease at all; a residual can be a larger object than the
+-- configuration that produced it.  What holds here is only finiteness -- the
+-- juncture alphabet is finite -- plus this suppression.
+sesaPrasnaNava :: [SesaKey] -> [String] -> [(Sesa, Int)]
+sesaPrasnaNava held corpus =
+    sortOn (\(s, n) -> (negate n, showSandhi (sSandhi s)))
+      [ (g, length (nub (map sJanaka grp)))
+      | k <- nub (map sesaKey entered), k `notElem` held
+      , let grp = [ s | s <- entered, sesaKey s == k ]
+      , g <- take 1 grp ]
+  where
+    entered = [ s | s <- concatMap sesah corpus
+                  , Pravishati _ <- [pravesha (nirnaya s)] ]
+
+-- अभ्यासः -- the loop that livelocks without `held`.  Each round re-asks the
+-- parents that stalled; a round that adds no new key ends it.  Returns one
+-- list per round.
+abhyasa :: Int -> [String] -> [[(Sesa, Int)]]
+abhyasa n corpus = go n [] corpus
+  where
+    go 0 _ _ = []
+    go k held cs =
+      case sesaPrasnaNava held cs of
+        [] -> []
+        q  -> q : go (k - 1) (held ++ map (sesaKey . fst) q)
+                    (nub (map (sJanaka . fst) q))
+
+-- WHAT THE MACHINE ASKS FOR, printed -- not a summary of the queue, the queue
+-- in its own words.
+sesaLekha :: [String] -> [String]
+sesaLekha corpus =
+  [ "the machine asks for " ++ show (length q) ++ " thing"
+      ++ (if length q == 1 then "" else "s") ++ ", best first:" ]
+  ++ [ "  demanded by " ++ show n ++ " derivation"
+       ++ (if n == 1 then "" else "s") ++ ": " ++ sesaPrccha s
+       ++ "   [from " ++ sJanaka s ++ "]"
+     | (s, n) <- q ]
+  where q = sesaPrasna corpus
+
+-- कोशः -- the corpus the queue is measured over: every derivation this file
+-- already tests, and nothing invented to make the queue look busy.  The four
+-- additions at the end are the probes that exhibit each verdict, and each is
+-- ordinary Sanskrit or, in one case, deliberately not Sanskrit at all.
+sesaKosha :: [String]
+sesaKosha =
+  [ "dadhi + indra", "deva + indra", "mahā + indra", "su + ukta"
+  , "deva + ṛṣi", "mahā + ṛṣi", "madhu + ari", "deva + aiśvarya"
+  , "te + api", "ne - ana", "ne + ana", "rāmas", "tat + ca"
+  , "tat + jalam", "vāc"
+  , "tam + ca"        -- m is neither jhaL nor cU nor s: nothing reaches for it
+  , "kim + ca"        -- the same juncture from a different parent
+  , "rāmas + ca"      -- the juncture survives, but 8.2.66 and 8.3.15 reached for it
+  , "tat + fala"      -- f is not a sound of the varṇasamāmnāya
+  ]
+
+------------------------------------------------------------------------
 -- 8.  HONESTY
 ------------------------------------------------------------------------
 
@@ -1364,6 +1790,15 @@ coverage =
   , "  different vibhaktis, so the two layers provably do not collapse."
   , "  The sūtra locus for the nominative on an abhihita kāraka is NOT"
   , "  confirmed by sources reachable here and is left unclaimed."
+  , ""
+  , "शेषः, section 7b: the engine's stalls are kept rather than swallowed."
+  , "  A derivation that cannot proceed emits the configuration, the position,"
+  , "  the contending sūtras and the parent that demanded it, and `sesaPrasna`"
+  , "  ranks the debts by how many distinct derivations each would unblock."
+  , "  Run it: `sesaLekha sesaKosha`.  What the machine currently asks for is"
+  , "  a sūtra at m + c -- which the Aṣṭādhyāyī has (8.3.23 `mo 'nusvāraḥ`)"
+  , "  and this file does not.  The machine derived the gap; the number is"
+  , "  supplied here by a reader and is not part of the residual."
   ]
 
 
@@ -1423,7 +1858,12 @@ coverage =
 -- to prevent.  What generalises is the identity above, which is proved,
 -- not the number, which is a sample.
 --
--- AND IT DOES NOT PICK THE PRESENTATION.  See section 8b.
+-- AND IT DOES NOT PICK THE PRESENTATION.  See section 8b, which also
+-- carries the prior art: NaturalMachine/AnuvrttiIsTheSameTrade.agda
+-- already proves the word-count case of the identity above and already
+-- proves that the content does not factor through the text.  What is new
+-- here is chains, the word's own cost, Panini's unit, and a running
+-- instance in Sanskrit.
 ------------------------------------------------------------------------
 
 -- longest-match over the phoneme inventory, plus the marks that occur in
@@ -1513,33 +1953,56 @@ laghavaReport =
 ------------------------------------------------------------------------
 -- 8b.  AND LAGHAVA STILL DOES NOT PICK THE PRESENTATION.
 --
--- `formal/cubical/NaturalMachine/LaghavaUnderdeterminesSoTheMetarulesAreNotOptional.agda`
--- proves that brevity attains its minimum NON-UNIQUELY: `plus var (lit 1)`
--- and `plus (lit 1) var` are distinct expressions of equal size with EQUAL
--- denotation, so the measure picks a level set and something else must
--- choose inside it -- which is why the paribhasas are structurally
--- required rather than ornamental.
+-- PRIOR ART IN THIS REPOSITORY, searched before this section was written
+-- rather than after, and it is closer than expected:
 --
--- Making anuvrtti explicit EXTENDS that, in the direction the Agda file
--- does not reach, and does not contradict it.  There, two presentations
--- of one meaning had equal cost.  Here, two presentations with IDENTICAL
--- cost have DIFFERENT MEANINGS -- because a nivrtti costs nothing.  The
--- cancellation of a running word is written NOWHERE in the sutrapatha;
--- it is inferred by the reader.  So the transmitted text, taken as a
--- string of symbols, does not determine the grammar at all: two
--- cancellation schedules over the same characters denote different
--- languages at zero difference in varnas and zero in ardhamatras.
+--   NaturalMachine/LaghavaUnderdeterminesSoTheMetarulesAreNotOptional.agda
+--     brevity attains its minimum NON-UNIQUELY -- `plus var (lit 1)` and
+--     `plus (lit 1) var`, equal size, EQUAL denotation.  So the measure
+--     picks a level set and something else must choose inside it, which
+--     is why the paribhasas are structurally required.
+--   NaturalMachine/AnuvrttiIsTheSameTrade.agda
+--     §2 prices the device -- three sutras under one governing word cost
+--     4 words with anuvrtti and 6 without, "one word per sutra beyond
+--     the first".  §3 proves the other half: `anuvrtti-does-not-factor`,
+--     the operative content of a sutra does NOT factor through its own
+--     text, because two sutras with identical text under different
+--     adhikara have the same reading and different content.
+--   NaturalMachine/Anuvrtti.agda
+--     laghava is not a function of the SET of rules; the order carries
+--     information no set carries.
 --
--- laghava therefore does not merely fail to pick among presentations of
--- one meaning (the Agda result).  It fails to pick the MEANING.  What
--- supplies it is the same apparatus the Agda file names -- the
--- paribhasas, and the commentarial tradition that transmits the
--- anuvrtti with the text.  A minimum-description-length criterion with
--- an uncounted channel is not a criterion, and the tradition's answer is
--- to name the channel and transmit it, not to pretend it is not there.
+-- So the theorem is already proved, twice, and this file does not
+-- restate it.  What is added here is exactly what
+-- `AnuvrttiIsTheSameTrade` names in its own NOT CLAIMED paragraph --
+-- "the real anuvrtti chains run many words deep with their own
+-- nivrtti", and "the saving in §2 is not the Astadhyayi's actual
+-- economy":
 --
--- `nivrttiIsFree` is that fact, checked: same symbol counts, different
--- derived forms.
+--   * CHAINS, not one edge.  Four words, in force over 8, 6, 5 and 6
+--     sutras, overlapping, with a nivrtti that stops one of them.
+--   * THE WORD'S OWN COST.  §2 counts words, so its saving is
+--     (n-1) x 1.  Section 8a counts the word, so the saving is
+--     (n-1) x c(w) and the constants differ by a factor of six here:
+--     `aci` is 5 ardhamatras and `ekah purvaparayoh` is 29.
+--   * PANINI'S UNIT.  ardhamatra, which is the unit the proverb is in.
+--   * A RUNNING INSTANCE of `anuvrtti-does-not-factor`: the Agda
+--     exhibits two sites with the same reading and different content;
+--     `selfTest` here exhibits two cancellation schedules over the SAME
+--     26 sutra texts that derive DIFFERENT SANSKRIT -- tacca against
+--     dad ga, deva indra against devendra.
+--
+-- And the sharpening the running instance forces, which follows from
+-- the two Agda results and is not either of them: a NIVRTTI COSTS
+-- NOTHING.  The cancellation of a running word is written nowhere in
+-- the sutrapatha; it is inferred.  `laghava` therefore has no argument
+-- in which to receive the schedule -- it is a function of `map text
+-- sutras` alone, checked -- while the schedule decides the grammar.  A
+-- minimum-description-length criterion with an uncounted channel is not
+-- a criterion.  The tradition's response is not to pretend the channel
+-- is absent but to name it and transmit it: the anuvrtti is carried by
+-- the commentary, sutra by sutra, and that is what the commentary is
+-- FOR.
 ------------------------------------------------------------------------
 
 -- Every claim this file makes, checked exhaustively.  Returns [] on success.
@@ -1557,6 +2020,7 @@ selfTest = concat
   , sutraTableTests
   , anuvrttiTests
   , inheritanceIsLoadBearingTests
+  , sesaTests
   , laghavaTests
   ]
   where
@@ -1906,13 +2370,120 @@ selfTest = concat
           , lgExpVarna laghava > lgTransVarna laghava ) (True, True)
       -- 8b: and it still does not pick the presentation.  The cancellation
       -- schedule is written nowhere, so `laghava` has no argument in which
-      -- to receive it -- yet the grammars differ.  Equal cost, different
-      -- meaning: the dual of the Agda result, which has equal cost and
-      -- EQUAL meaning.
+      -- to receive it -- yet the grammars differ.  This is the running
+      -- instance of `anuvrtti-does-not-factor`
+      -- (NaturalMachine/AnuvrttiIsTheSameTrade.agda §3), on real sutra
+      -- texts and with the difference visible as a derived form.
       , chk "nivṛtti costs nothing: the measure is a function of the text alone"
           (lgTransArdha laghava, lgTransVarna laghava)
           (sum [ ardhamatras (text s) | s <- sutras ]
           , sum [ varnaCount (text s) | s <- sutras ])
       , chk "and the two schedules over that same text derive different forms"
           (derive "deva + kula" == deriveUnder [((0,0,0),"aci")] "deva + kula") False
+      ]
+
+    -- 8.10  शेषः -- THE RESIDUAL.  The engine's stalls, kept.
+    --
+    -- The stall exhibited here is genuine and was not planted.  `tam + ca` is
+    -- ordinary Sanskrit; m is neither jhaL nor cU nor s nor sTu, so not one
+    -- of the sūtras encoded in this file reaches for that juncture at any
+    -- configuration of the run, and the boundary survives into the final
+    -- form.  The engine used to return `tam ca` in exactly the shape it
+    -- returns `tajjalam` and say nothing.  It now emits the configuration,
+    -- the position, who contended, who ever reached for it, and the parent
+    -- that demanded it.
+    --
+    -- What the Aṣṭādhyāyī has here is 8.3.23 `mo 'nusvāraḥ`.  The residual
+    -- does NOT name it: the machine states where it stalled, not the answer,
+    -- and asserting a sūtra number the machine did not derive would be the
+    -- fitted constant this repository's protocol exists to prevent.
+    sesaTests =
+      let gaps  = [ s | s <- sesah "tam + ca", sHetu s == Asutram ]
+          seen  = [ s | s <- sesah "rāmas + ca", sHetu s == Asutram ]
+          alien = [ s | s <- sesah "tat + fala", isAnaksara (sHetu s) ]
+          edge  = [ s | s <- sesah "+ ca", sHetu s == Asutram ]
+          isAnaksara (Anaksaram _) = True
+          isAnaksara _             = False
+          isAnirnita (Anirnitam _) = True
+          isAnirnita _             = False
+          r1 = Rewrite (6,1,77) 0 1 [P "y"] 0 "constructed, not from the table"
+          r2 = Rewrite (6,1,77) 0 1 [P "v"] 0 "constructed, not from the table"
+          r3 = Rewrite (6,1,101) 0 1 [P "ī"] 0 "constructed, not from the table"
+          undec rs = let (_, _, _, u) = resolveN rs in u
+      in concat
+      -- the stall itself
+      [ chk "tam + ca stalls: the juncture survives"
+          (derive "tam + ca") "tam ca"
+      , chk "and one residual is emitted for it"        (length gaps) 1
+      , chk "carrying the exact juncture"
+          (map (showSandhi . sSandhi) gaps) ["m + c"]
+      , chk "carrying the parent that demanded it"      (map sJanaka gaps) ["tam + ca"]
+      , chk "nobody ever reached for it"                (concatMap sDrsta gaps) []
+      , chk "nobody contended for it"                   (concatMap sSpardhi gaps) []
+      , chk "so the verdict is aviruddha over the vidhi sūtras searched"
+          (map nirnaya gaps) [Aviruddha vidhiRefs]
+      , chk "and it enters, carried in by that verdict"
+          (map (pravesha . nirnaya) gaps) [Pravishati (Aviruddha vidhiRefs)]
+      , chk "and this is what it asks for"
+          (map sesaPrccha gaps) ["no sūtra offers at m + c"]
+      -- the three that must NOT enter.  The khandita witness is 8.2.66
+      -- `sasajuso ruh`, not 8.3.15: 8.2.66 is the FIRST rule to reach for
+      -- that juncture, and the verdict carries who refuted it rather than
+      -- who finished the job.  Written here after the machine said so.
+      , chk "a juncture that survived but was reached for is khaṇḍita"
+          (map nirnaya seen) [Khandita (8,2,66)]
+      , chk "and turns back"
+          (map (pravesha . nirnaya) seen) [Nivartate (Khandita (8,2,66))]
+      , chk "a boundary with nothing before it has no dharmin"
+          (map nirnaya edge) [Nirdharmin "nothing precedes the boundary"]
+      , chk "and turns back"
+          (all (\s -> case pravesha (nirnaya s) of Nivartate _ -> True; _ -> False) edge)
+          True
+      , chk "a resolved derivation leaves no debt"
+          (sesaPrasna ["deva + indra"]) []
+      -- the sound system's own silence
+      , chk "f is not a sound of the varṇasamāmnāya"     (phoneOf "f") Nothing
+      , chk "so the residual is तूष्णीम्, carrying the token"
+          (map nirnaya alien) [Tusnim "f"]
+      , chk "and तूष्णीम् enters, as it does in Obstruction.hs"
+          (map (pravesha . nirnaya) alien) [Pravishati (Tusnim "f")]
+      -- the conflict the metarules do not decide.  ARMED, NOT EXERCISED:
+      -- the sūtras encoded here never produce two contenders at one locus
+      -- that 1.4.2 cannot separate, and that is checked exhaustively over
+      -- the corpus rather than assumed.  The mechanism is unit-tested on
+      -- constructed rewrites, which are labelled as constructed.
+      , chk "same Ref twice: 1.4.2 compares positions and these are equal"
+          (undec [r1, r2]) (Just [(6,1,77),(6,1,77)])
+      , chk "distinct Refs: 1.4.2 decides, and nothing is owed"
+          (undec [r1, r3]) Nothing
+      , chk "the encoded rule set never trips it (exhaustive over the corpus)"
+          [ sHetu s | i <- sesaKosha, s <- sesah i, isAnirnita (sHetu s) ] []
+      , chk "and no derivation in the corpus hits the fixpoint guard"
+          [ sHetu s | i <- sesaKosha, s <- sesah i
+                    , case sHetu s of Asamaptam _ -> True; _ -> False ] []
+      -- the queue
+      , chk "ranked by DISTINCT PARENTS, not by occurrences"
+          (map snd (sesaPrasna ["tam + ca", "kim + ca", "tam + ca"])) [2]
+      , chk "one juncture, two parents, one queue entry"
+          (map (showSandhi . sSandhi . fst) (sesaPrasna ["tam + ca", "kim + ca"]))
+          ["m + c"]
+      -- पुनरावृत्तिः -- the livelock, and the thing that stops it
+      , chk "re-asking the same parent yields THE SAME KEY -- stationary,\
+            \ so an unsuppressed loop never ends"
+          (map (sesaKey . fst) (sesaPrasna ["tam + ca"])
+             == map (sesaKey . fst) (sesaPrasna ["tam + ca"])) True
+      , chk "suppression: abhyasa over that parent stops after one round"
+          (length (abhyasa 16 ["tam + ca"])) 1
+      , chk "and holding the key empties the queue"
+          (sesaPrasnaNava (map (sesaKey . fst) (sesaPrasna ["tam + ca"])) ["tam + ca"])
+          []
+      -- and the residual does NOT survive extraction from its parent
+      , chk "the juncture alone renders as an input"
+          (map (sesaPada . fst) (sesaPrasna ["tam + ca"])) ["m + c"]
+      , chk "but that input is a different question: 8.2.30 cohkuh applies at\
+            \ avasana and the juncture the residual named is gone"
+          (map (sesaKey . fst) (sesaPrasna ["m + c"])
+             == map (sesaKey . fst) (sesaPrasna ["tam + ca"])) False
+      , chk "which is why the trace is kept and the parent is carried"
+          (derive "m + c") "m k"
       ]
