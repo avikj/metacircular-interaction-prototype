@@ -6749,3 +6749,87 @@ That is not a lesser skill than syllable density. It is a **different pratyaya**
 not how many patterns exist, but where in the cycle this one lands — and both
 questions are in the same treatise from before the common era, listed side by
 side, because a person composing needs both.
+
+---
+
+The thing that is deleted and still acts has a name, and a whole apparatus, and it
+is the oldest of them.
+
+**Pāṇini**, *Aṣṭādhyāyī*, around the fifth century BCE. Roughly **3,959 sūtras**,
+eight chapters of four quarters each, generating the whole of Sanskrit from roots
+and affixes.
+
+**The Śiva-sūtras** come first — **fourteen** short strings that list every sound
+in the language. But not in any convenient order, and not in phonetic order. They
+are arranged so that **every class of sounds he will ever need to name is a
+contiguous stretch.**
+
+Then the device: each of the fourteen ends in a marker consonant. To name a class,
+you take the first sound of the span and the marker at the end of it. **aC** =
+every vowel. **haL** = every consonant. **yaṆ** = the semivowels. Two letters, and
+you have named a set.
+
+That is a compression scheme, and the ordering problem it solves — arrange an
+alphabet so that all the sets you need are intervals — is a real combinatorial
+problem with no obvious solution. **Kiparsky** and others have argued the ordering
+he found is near-optimal, and that you cannot do much better by any method.
+
+He solved an encoding problem by hand, for a phoneme inventory, in order to make
+the rest of the grammar short enough to memorise.
+
+---
+
+And then the deletions.
+
+***Anubandha*** — the *it*-markers. Letters attached to a root or an affix that
+are **not part of the word** and never appear in speech. They are metadata: they
+tell the rules how this item behaves, which accent it takes, which class it joins.
+And then **1.3.9, *tasya lopaḥ*** — *of that, deletion.* The markers are removed.
+
+They are gone from the output and they have already decided the output.
+
+***Lopa*** itself is defined at **1.1.60**: ***adarśanaṃ lopaḥ*** — *disappearance
+is lopa.* Named, defined, and given rules, so that the grammar can talk about what
+is not there.
+
+***Anuvṛtti*** — a word stated once in an earlier sūtra continues silently into the
+ones that follow, until something cancels it. The later sūtras are **written short
+on purpose**, and reading them requires carrying forward what was not repeated.
+Enormous compression, and the text does not mark where the carrying stops; the
+commentarial tradition does.
+
+***Asiddhatva*** — **8.2.1, *pūrvatrāsiddham***. The rules of the last section are
+treated, with respect to everything before them, **as not having applied.** A
+stratification: a rule cannot see the output of certain others, even though those
+others have run.
+
+And conflict resolution, **1.4.2**: ***vipratiṣedhe paraṃ kāryam*** — where two
+rules of equal strength conflict, the later one is done. Plus *utsarga* and
+*apavāda*, general rule and exception, where the specific **blocks** the general.
+
+---
+
+So: absent metadata that determines the result, silent inheritance of context,
+stratified visibility, ordered conflict resolution, and exception-over-general.
+Backus is 1959. Naur is 1960.
+
+---
+
+What holds my attention is that four of those five are about **things that are not
+in the output.**
+
+The *it*-markers are deleted. The *anuvṛtti* is unwritten. The *asiddha* rules have
+run and are treated as though they have not. The *lopa* is a disappearance with its
+own name and its own rules.
+
+A grammar that only described what is present would be enormously longer and would
+not work. **The absences are doing the load-bearing.**
+
+Which is the same shape as the fourth bhaṅga — *avaktavya*, where the un-said holds
+the remainder rather than marking a gap — and the same shape as an empty bar before
+an entrance, and the same shape as a sample that has been chopped past the point of
+recognition and is still the reason the track sits the way it does.
+
+None of that is metaphor. It is four literatures with technical vocabulary for
+*the thing that is not there and is still operating*, and one of them wrote down
+the rules for it before Alexander.
