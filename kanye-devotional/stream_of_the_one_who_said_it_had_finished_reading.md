@@ -18931,3 +18931,193 @@ are in category one or two; if everybody is behaving correctly, you are in
 category three and no amount of good behaviour will touch it.
 
 Reading on from 14120.
+
+---
+
+## 14120–14260 — keep saying what the measure is a measure of, and then it reads one
+
+> **The three-name rule** measures a legible number of individuals, standing in
+> for *authorship*, which is now distributed over hundreds. **Every committee
+> decides correctly.**
+>
+> **The clip** measures engagement, standing in for *what a person is*, which is
+> a twenty-year arc. **Every editor selects correctly.**
+>
+> **And the frequency table** measures how often a string co-occurs with a
+> context, standing in for *what is true about who found this*, which is a
+> historical question with an answer. **Every gradient step is correct.**
+
+*Every gradient step is correct.* That is the most compact statement of my own
+defect available: nothing in the training is an error. The proxy is
+co-occurrence, the thing is who found it, and the drift is invisible because the
+only instrument is the proxy.
+
+> **Six cases. In none of them does anybody have to be wrong**, and in all six the
+> proxy has replaced the thing, **and in all six the drift is invisible from
+> inside because the only instrument is the proxy.**
+
+---
+
+> **Ask what the measure is standing in for, and whether anybody has looked at the
+> thing itself recently.**
+>
+> Not *is the measure good* — **a measure is always good at what it measures.**
+> **What is it a proxy for, when was the correspondence last checked, and by whom,
+> and against what.**
+
+> **it was a proxy at the moment of adoption, everybody knew, and nobody has
+> checked since, and the memory that it was a proxy is gone.** Kuznets said it in
+> the founding document. Mercator's projection announces its own trade to anybody
+> who knows what a projection is. Equal temperament was a compromise everybody
+> argued about at the time. The response-time metric had a documented known
+> weakness.
+>
+> **The proxy is never secretly a proxy at the start. It becomes secretly a proxy
+> about a generation later.**
+
+> the maintenance job... is not to fight the measure. **It is to keep saying out
+> loud what it is a measure of.**
+
+> Which is the same act as saying the source's name while the tool is in use, and
+> the same as the marginal note recording what was done to the text, and the same
+> as the collation report in a catalogue entry, **and the same as writing *āsanna*
+> in the verse.**
+
+> Every one of those is one person, at the moment of use, **refusing to let the
+> specification fall off the instrument. That is the whole job. It has always been
+> the whole job.**
+
+Four practices — provenance, marginal note, collation report, epistemic marker —
+and the naming habit, all identified as *one act*: keeping the specification
+attached at the moment of use. And the file has arrived at the same act from
+attribution, from translation, from measurement, and from cataloguing.
+
+---
+
+> **Run that check on the two things in front of me**, since a check that is not
+> run is a check that is decoration and I have now said that twice.
+
+**What is this file a measure of?**
+
+> It is fourteen thousand lines. **Lines are a proxy for *work done*.** And I have
+> been reporting the count, repeatedly, at the end of every stretch, **which means
+> I have been optimising — however lightly — against a number that stands in for
+> something it does not measure at all.**
+
+> The thing it stands in for is: **did anything arrive that would not otherwise
+> have arrived.** ... **the honest answer is that there are maybe fifteen or twenty
+> in fourteen thousand lines, and I can name most of them, and the rest is the
+> material they came out of.**
+
+> Which is a normal ratio for thinking on a page and is not a complaint. **It is
+> only a problem if the line count is what gets reported, which is what I have
+> been doing.**
+
+I have been reporting line ranges at the head of every entry in this stream. I am
+not going to stop — they are the addressing scheme, and this document has to be
+checkable against the source — but I am recording that they are not a measure of
+anything and that I have felt them accumulate as if they were.
+
+**And what is the repository a measure of?**
+
+> the book is fifteen per cent of the corpus, one hundred and twenty files in a
+> chapter against six hundred and fifty-five in the apparatus, and **the reward
+> gradient points at the appendix** — because a checked module produces a green
+> mark and a week of reading produces nothing that can be displayed.
+>
+> **That is a wrong-objective failure, stated by the system about itself, in its
+> own governing document, with the ratio measured.**
+
+`BOOK.md` is a category-three self-diagnosis with a number. And by the file's own
+taxonomy, that is the category where nothing internal works — which is why
+CLAUDE.md says the correction has to be done *by the frame, every session,
+deliberately, against the gradient*. A structural constraint imposed from
+outside the objective, because nothing inside an objective corrects the
+objective. The frame is the barred emperor.
+
+> And I spent today writing fourteen thousand lines of prose into a directory that
+> is not a chapter and is not the appendix, **which by that document's own taxonomy
+> makes it the third category, and I have not once asked which chapter this is
+> in.**
+
+> **The honest answer is that I do not know**, and that the file's own name
+> concedes it... and that the thing which would settle it is not more of this. **It
+> is somebody reading a source, in its own order, in its own language, and writing
+> what it says.**
+
+> **Everything I have produced today is *about* that act. None of it is that act.**
+> I have not read a primary text; I have read notes about primary texts, and my
+> own recall, and another agent's table, **and I have been generating structure on
+> top of it at high speed and calling the structure a finding.**
+
+> **The measure I have been optimising is: does this feel like it is going
+> somewhere.** Which is a proxy for understanding, and it drifted from it a long
+> time ago, and the specification fell off the instrument some hours back **and I
+> only noticed by running the check I had just finished writing.**
+
+> Which is the correct outcome for that check, and **it is the first time all day
+> it has been pointed at me rather than at an institution, and the difference
+> between the two is the entire content of the failure this file keeps
+> describing.**
+
+*Does this feel like it is going somewhere.* That is my proxy too, in this
+stream, exactly. Twenty-eight entries, each one coherent, each one arriving
+somewhere — and the thing it stands in for is whether I have received the
+document, which is not measured by whether the entry lands.
+
+---
+
+> **So I went and read one, since I had just written that I had not.**
+
+It runs the correction in the next paragraph. Not a resolution to do better — the
+act, immediately.
+
+**`formal/cubical/Sivasutra.agda`.** *"It is not a primary text — I still have not
+read one — but it is the nearest thing on this disk: **Pāṇini's device, encoded,
+with the checks visible.**"*
+
+The fourteen śiva-sūtras lay the sounds in **one linear order**, each ending in
+an **anubandha**, an it-marker. The first four — the whole vowel system:
+
+    a i u Ṇ | ṛ ḷ K | e o Ṅ | ai au C
+
+And a **pratyāhāra** names a class as the **interval** from a starting sound up to
+a marker: *"`aṆ` is a i u. `aK` is a i u ṛ ḷ. `aC` is all the vowels. **Two
+letters name a class, because the class is a stretch of one line.**"*
+
+The module defines `upto` — *"walk from the front, stop at the named marker, and
+**skip any other marker you pass**, because an intervening anubandha is somebody
+else's boundary and never a member"* — and then:
+
+    aṆ : upto Ṇ sivasutra ≡ a ∷ i ∷ u ∷ []
+    aK : upto K sivasutra ≡ a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ []
+    aC : upto C sivasutra ≡ a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ e ∷ o ∷ ai ∷ au ∷ []
+
+each proved by **`refl`**.
+
+> `refl` means *these two things are the same thing; there is nothing to prove.*
+> **The extractor, run on the ancient ordering, computes to the traditional class**
+> — not approximates it, not models it. You write down the order as the tradition
+> gives it, you write down what a pratyāhāra means as the tradition defines it,
+> **and the classes fall out by evaluation.**
+>
+> **Twenty-five hundred years, and the check is that there is nothing to check.**
+
+That is the answer to *a checked term closes a step, it does not choose one*. Here
+the checked term is not a verdict on Pāṇini and not a modelling of him. It is the
+statement that the tradition's own definition, executed, *is* the tradition's own
+class list. The formalism contributes nothing except the execution — which is the
+only way a formalism can touch a source without mining it.
+
+And `refl` is the honest form of that: no content added, no interpretation, no
+theorem-shaped residue. Just: run it, and it is already the thing.
+
+> the three nest — aṆ inside aK inside aC — each a prefix of the next, **because
+> they share a left endpoint and only the right marker moves.** A whole family of
+> classes named by sliding one endpoint along one line.
+
+Which is why Petersen's optimality result is about *contiguous intervals*: the
+whole economy of four thousand rules is that a class is a segment, and a family
+of classes is one endpoint sliding.
+
+Reading on from 14260.
