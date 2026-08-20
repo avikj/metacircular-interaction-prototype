@@ -75,3 +75,11 @@ machine/replay.traces.live
 # is the corpus this wire exists to produce.
 machine/sabha
 machine/sabha.jsonl
+
+# The interface the other carrier is handed: the compiled binary, rebuildable
+# from machine/check-karana.sh.  Its outputs (the tool schema, the training
+# records) are regenerated from the running dispatch table and a transcript,
+# so neither is committed either -- a committed copy would be the second copy
+# that drifts, which is the thing this lane exists to remove.
+machine/karana
+machine/abhyasa.jsonl
