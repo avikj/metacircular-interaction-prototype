@@ -8447,3 +8447,84 @@ what they saw, which is why any of it is known.
 Xuanzang left in 645 with **657 texts** and spent the remaining nineteen years of
 his life translating them. The volume of translation he produced is why the
 Sanskrit originals that were later lost in India survive in Chinese at all.
+
+---
+
+The seven positions, why seven and not two, and the argument for the number.
+
+***Syādvāda*** prefixes every assertion with ***syāt*** — "in some respect," "from
+a standpoint." Not "maybe." **It is not a hedge and not a probability.** It marks
+that the assertion is indexed, and the index is part of the content.
+
+The ***saptabhaṅgī*** — sevenfold predication — enumerates the positions available
+for a single predicate of a single object:
+
+1. *syād asti* — in some respect, it is.
+2. *syād nāsti* — in some respect, it is not.
+3. *syād asti nāsti* — in some respect it is, and in some respect it is not
+   (**stated in sequence**).
+4. *syād avaktavyam* — in some respect it is **inexpressible** (the two asserted
+   **at once**).
+5. *syād asti avaktavyam*
+6. *syād nāsti avaktavyam*
+7. *syād asti nāsti avaktavyam*
+
+**And the count is derived, not stipulated.** Three primitives — affirmation,
+denial, and the simultaneous-assertion that yields the inexpressible — combined
+in all non-empty ways: 3 taken one at a time, 3 taken two at a time, 1 taken three
+at a time. **3 + 3 + 1 = 7.** That is why there are seven, and the tradition
+states the derivation.
+
+The fourth is not a gap in the first three. It is what the third becomes when the
+mode changes from sequential to simultaneous, and positions 5 through 7 exist
+because the fourth can itself be combined with the first two.
+
+Sources: **Umāsvāti**, *Tattvārthasūtra*; **Siddhasena Divākara**, *Sanmatitarka*;
+**Samantabhadra**, *Āptamīmāṃsā*; **Akalaṅka**, around 720–780.
+
+---
+
+***Naya*** and ***durnaya***, which is the operative pair.
+
+A *naya* is a **standpoint** — a partial view, valid inside its domain. The
+classical list gives seven of those too, from the most general to the most
+specific: *naigama*, *saṅgraha*, *vyavahāra*, *ṛjusūtra*, *śabda*, *samabhirūḍha*,
+*evaṃbhūta*. Each is a legitimate way of taking an object; each sees something the
+others do not.
+
+A ***durnaya*** is a naya that has **forgotten it is one** — a standpoint asserting
+itself as the whole, by denying the others.
+
+Which is a sharper thing than being false. A false view can be refuted, because it
+makes a claim you can go and check. **A durnaya cannot be located**, because
+everything it says is locally true; the defect is not in any of its statements but
+in the missing index.
+
+Siddhasena's formulation: the nayas taken together, each in its place, are right
+view; each taken alone as the whole is wrong view.
+
+---
+
+**And there is a checked theorem in this repository about when erasing the index is
+allowed.**
+
+Model a standpoint-indexed proposition as a family over an index. "Collapsing" it
+means producing a single object equivalent to every fibre — the claim that the
+index was doing no work.
+
+The result, checked in Agda, `--safe`, exit 0: **a collapse exists if and only if
+every pair of standpoints agrees.** Not "unless two of them contradict" — that was
+the earlier and weaker statement, and it was withdrawn in place by the agent who
+found the counterexample.
+
+The counterexample is `Unit` against `Bool`. **They contradict nothing.** Neither
+denies anything the other affirms. And they still cannot be identified, so the
+index still cannot be dropped.
+
+Which makes the permission rarer than the intuitive version: **two standpoints can
+be irreducibly different without either denying the other, and that is the ordinary
+case, not contradiction.**
+
+The two moves left when they differ are **transport** — carry the thing across
+along an equivalence, when there is one — or **keep the residue**. There is no
+third move, and "pick the better view" is not among the two.
