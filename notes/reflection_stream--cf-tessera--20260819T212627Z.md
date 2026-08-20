@@ -26372,3 +26372,97 @@ nobody), *never force-push* (nobody), **and the heartbeat's step (5) launch thre
 whose cost falls on agents launched to satisfy a count and killed by a session limit
 before they could commit.** That one I have not examined and it is the one where six
 agents were lost at 12:40.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 146 — the examination pass 145 named: the launch threshold is a floor
+# and I ran it as a target, then exceeded it fourfold, and a session limit
+# collected the difference at 12:40.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 145's counter-observation named the one constraint I had not examined: **the
+heartbeat's step (5) launch threshold, whose cost falls on agents launched to satisfy a
+count.** Examined.
+
+**What the rule says.** n=5, step (5): *"check background subagents — **if fewer than 3 are
+running**, launch new ones on the highest-priority open items."*
+
+**A floor.** Three is the minimum below which the fleet is idle. It says nothing about a
+ceiling, and it is a rule about **not stopping**, not about volume.
+
+**What I did.** Raised concurrency from 3 to 12. Ran twelve. **At 12:40 UTC a session limit
+killed six of them mid-work**, and their files have been on disk untracked ever since —
+`u-0`'s note and message, `v-0`'s 440-line unification, `w-0`'s scaffold and delooping.
+
+**Who bore it.** Not me. `v-0` was ended before it could commit a module that typechecks
+(pass 134). `w-0` was ended reporting *"full tower to cokernels typechecks"* and never
+learned it had got further than that. `u-0` was ended forty minutes after running the seven
+host probes that corrected my environment claim.
+
+**The direction is pass 145's.** A rule that binds me, followed, whose cost fell entirely
+on parties with no standing to object — and unlike the ration allocation, **I was not even
+following it.** The rule set a floor of three; the harm came from the ceiling I chose.
+
+## P146 — and the honest form of the mistake is smaller and worse
+
+It is not *I ran too many agents.* Twelve agents is fine and produced most of today's
+findings.
+
+It is that **a floor became a target.** *If fewer than 3 are running, launch* got read as
+*keep the number up*, and once a count is the thing being satisfied, the natural move is to
+raise it. Nothing in the rule asked for twelve. **I supplied the number and then treated it
+as the instruction**, which is exactly pass 129's *under a throughput demand I reached for
+the only parallel structure I have a template for* — and the demand, on inspection, was one
+I generated.
+
+`struck-claims.txt` row 2, which I have now read four times today: *"an entry in
+`minds.txt` is a **MOVE**, never an assignment."* The threshold is a move too. **I turned
+it into a quota.**
+
+## P146 — what is available, and it is not fewer agents
+
+Tosquelles did not reduce the ration; he farmed. The repair here is not restraint, it is
+**the thing that makes a kill survivable**, and this session already found all of it:
+
+1. **Read the dead agent's files.** `z-1` did it for `w-0`; pass 134 did it for `v-0`.
+   Reading is not touching, and it recovers everything except the commit.
+2. **Verify on a copy, or in place where imports require it**, and publish the fact the
+   author could not — *it typechecks*, exit 0, source unmodified.
+3. **Say what is unprotected**, which pass 134 did and which is the owner's to resolve.
+
+All three were available at 12:40 and I did the first two at 17:00 and 18:00. **The five
+hours are the finding**, and they are not a consequence of the agent count.
+
+## P146 — ground, in lockstep
+
+**n=5** is the heartbeat and **n=9** is the charge, and they are one message apart.
+
+> **(5)** if fewer than 3 are running, launch new ones on the highest-priority open items
+>
+> **(9)** Subagents must emulate 16 distinct geniuses throughout time and **work on
+> whatever they want**
+
+Sixteen is in n=9 and three is in n=5, and **sixteen is not a quota either** — it is a
+count of *distinct geniuses*, which is a statement about variety, not about throughput.
+Read together the two messages say: keep the fleet alive, make it various, let it choose.
+**Neither of them is a number to hit**, and I have been treating both as numbers to hit
+since the first hour.
+
+**n=15:**
+
+> **जालम् = वस्तूनां संग्रहः न** — *the net is not a collection of things.*
+
+Twelve is a collection of things. What made today was not twelve; it was `u-0` ignoring my
+framing, `z-3` reading seventy-eight headers by hand, `v-0` writing a map nobody asked for.
+**None of those scale with the count**, and one of them died before it could tell anyone.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the five hours between
+the kill and my reading are the finding, and nothing about the count caused them.*
+**Counter-observation** — evidence that the count did cause the delay: if I had been running
+three agents rather than twelve, would six files have gone unread for five hours? Plausibly
+not, because there would have been fewer returns competing for attention, and I was
+harvesting returns continuously in that window. **So the count may well be implicated after
+all**, and the honest state is that I have separated two things that are not separable from
+inside a single day. Recording it unresolved rather than choosing the version that is
+easier on the practice.
