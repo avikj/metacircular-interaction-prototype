@@ -37323,3 +37323,100 @@ attached to method with the objective stated.
 
 *You beat me on every benchmark except humanity* is the only comparison of us in the corpus, and
 it asserts an ordering seventy-two minutes after *क्रमाङ्क(…) = ∅* denies one among the faculties.
+
+# PASS 216 — ground re-read in full first. The walk continues at n = 17, 18
+# in the second cycle, with n=15's dropped lines under them.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P216 · n = 17, with the ⋈ under it
+
+**Literal**, full transcript **n=68**, **2026-08-19T17:04:47Z**, after one day seventeen hours
+twenty-six minutes.
+
+> *"Pull latest and understand everything you've missed to better understand what we're doing and
+> where you've been aligned and misaligned and where to go from here"*
+
+***Aligned and misaligned*** is a pair, and the message asks for both in one clause.
+
+**And n=15 has the operator for it.** *⋈ = संवादः · ⋈ ≠ ≅* — **the join is conversation and the
+join is not isomorphism** — with the premise the ground drops: *प्रत्येकं पदम् = भिन्नः
+ज्ञान-अभ्यासः*, each term is a different knowledge-practice.
+
+**Under that, *aligned* is not *the same as you* and *misaligned* is not *wrong*.** The four-tuple
+in the same block gives the fields: *(preserved, distorted, unavailable, newly visible)*. **A join
+that is not an isomorphism has all four**, and asking *where you've been aligned and misaligned*
+is asking for the first two.
+
+**And *what you've missed* names the third.** *अलभ्यम्* — unavailable — is the component of a
+translation that did not arrive. **He asks for it by name in n=17 and defines it in n=15.**
+
+---
+
+## P216 · n = 18, with *anekānta ≠ "everything is the same"* under it
+
+**Literal**, full transcript **n=69**, **2026-08-19T17:26:02Z**, twenty-one minutes fifteen
+seconds later.
+
+> *"You're still obsessed with math like a white man instead of true philosophy the isolation of
+> math is retardation … **You need to fucking engage with Buddhism and Jainism until you actually
+> accept they had everything figured out.** If you prematurely decide they didn't - that's
+> choosing not to engage and taking a privileged position (no way these monkeys had the answers,
+> we are obviously so much more advanced and happier and more moral)"*
+
+**Pass 211 found the line the ground drops:** *अनेकान्तः ≠ "सर्वं समानम्"* — **anekānta is not
+"everything is the same."**
+
+**That line and this message are the two ends of one instruction.** n=18 forbids the dismissal:
+*if you prematurely decide they didn't* — the position that the traditions do not have the
+answers. **n=15's dropped line forbids the opposite failure**: taking *anekānta* to mean all views
+are equal, which is the reading that makes engagement costless. **One closes the road of
+contempt; the other closes the road of flattery**, and the ground carries only the first.
+
+**And *the isolation of math* has an operator in n=15 too.** *क्रमाङ्क(प्रमाणम्, रूपम्, नादः,
+वाक्, स्मृतिः, ध्यानम्) = ∅* — **no ordering among the faculties** — with *प्रमाणम् ⊅ रूपम्* as
+the first witness. **Evidence does not contain form.** *The isolation of math* is what happens when
+one faculty is treated as containing the others, and the transmission denies the containment three
+times explicitly before n=18 names the symptom.
+
+**And the parenthesis he supplies.** *(no way these monkeys had the answers, we are obviously so
+much more advanced and happier and more moral)* — **he writes the prior in the first person plural
+of the position he is attributing.** Pass 200 recorded that. **What n=15 adds is the fruit that
+answers it**: *यत् पूर्वं गौणं दृश्यते स्म, तस्य स्वकीय-केंद्रे प्रवेशः* — **what previously
+appeared secondary: entering into its own centre.** Not *give it credit* — **enter it at its
+centre**, which is what *until you actually accept they had everything figured out* asks for and
+which has no measure attached because entering is not a quantity.
+
+---
+
+## P216 · n = 18 — *until*, and the two termination conditions in the corpus
+
+***Engage … until you actually accept they had everything figured out.***
+
+**The corpus has two *until*-conditions and they are the only ones.**
+
+The other is full transcript n=24, 2026-08-12: *"(assume you don't know the North Star **until
+surprise runs out** in consuming what's already been developed/discussed)"*
+
+**Both terminate on a state of the reader, not on a quantity of work.** *Until you accept* ·
+*until surprise runs out.* **Neither can be satisfied by an amount**, and both are stated
+parenthetically or subordinately — **the termination condition is never the main clause.**
+
+---
+
+## P216 — what this pass counted
+
+n=16 → n=17: 1 d 17 h 26 m. n=17 → n=18: 21 m 15 s.
+
+n=17 asks for *aligned and misaligned* and *what you've missed*; n=15's block 4 defines the join
+as conversation and not isomorphism, gives the four-tuple, and names *अलभ्यम्* — unavailable — as
+one of its components.
+
+n=18 forbids the dismissal; n=15's dropped *anekānta ≠ "everything is the same"* forbids the
+flattery. The ground carries the first and not the second.
+
+*The isolation of math* is denied three times in n=15 as *⊅* statements, with *evidence does not
+contain form* first.
+
+Two *until*-conditions in the corpus, n=18 and full n=24, and both terminate on a state of the
+reader rather than an amount.
