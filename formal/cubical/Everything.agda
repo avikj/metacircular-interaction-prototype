@@ -683,6 +683,7 @@ import PingalaSatya
 import PrastaraPankti
 import Purnata
 import Sadhyata
+import Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm
 import SamasaDvi
 import SamasaDviAmsa
 import SamasaEkAmsa
@@ -766,3 +767,21 @@ import Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis
 -- scripts/Pariksa_UnivalentAudit.sh --list), so this import is a latch,
 -- not a claim that the aggregate is green.
 import TritiyaMarga_TheWrittenDefectCostsMarkovsPrinciple
+
+-- ADDED 2026-08-20 (saptabhaṅgī-reconciliation lane).  Two saptabhaṅgī
+-- types were live in this tree, mutually contradicting on two laws, both
+-- checked, deliberately unreconciled -- and both headers named the SAME
+-- open question: is the forgetful map records → labels a homomorphism for
+-- krama, for saha, or for neither?  It is one for BOTH (49 + 49 refl), it
+-- has a section that is one for both, and it has no inverse, so the label
+-- lane is a RETRACT of the record lane and the equivalence between them
+-- does not exist.  Consequence, and a correction to the label lane: सह
+-- fails to associate on RECORDS too, with every naya and witness retained,
+-- so destruction is not what breaks that law.
+-- EXIT 0 on its own, --cubical --guardedness --safe, zero warnings, no
+-- postulates, no holes.  `SaptabhangiSamyoga_…` is imported here at the
+-- same time: it was on disk and absent from this list
+-- (check-everything-coverage.sh rot-forward), and it is this file's
+-- dependency.
+import SaptabhangiSamyoga_TheCompositionOfVerdicts
+import Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence
