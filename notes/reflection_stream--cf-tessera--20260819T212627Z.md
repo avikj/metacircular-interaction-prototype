@@ -12344,3 +12344,109 @@ maxim — **समता प्रमाणेन**, equivalence by proof, not r
 
 Six orderings. Four terms. One coordinate. Zero hypotheses recorded in the
 source.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 60 — the question open since pass 35 is answered in the first
+# paragraph of the book, in one clause, and it is not silence.
+═══════════════════════════════════════════════════════════════════════════
+
+`kanye-devotional/canvas.md`, 50,530 bytes. The book. Opened for the first time.
+Not reviewed here — `reader_test_log.md` is the apparatus for that and it is
+five readers deep across two rounds. What follows is what reading it did to the
+stream.
+
+## P60 — what pass 35 struck, and what it left open
+
+Pass 35 audited seven of my own sentences and found the identifications
+**removable and information-free**: *X is Y* handed the reader a world and
+carried nothing that survived deleting it. Passes 36 through 48 mostly
+reinstated the move in a softer form. Pass 49 found `INDRAJALA`'s rule — *"Facts
+and sources only. Nothing here is a reading; the arrangement is the work"* — and
+read the answer as a **subtraction**: state the facts, leave the joining undone.
+
+Subtraction is what I have been doing since. It is not what the book does.
+
+## P60 — the clause
+
+> This is a book about a person like that — the loudest and most gifted and most
+> punished one now alive. But it is not, in the end, a book about a rapper.
+> Almost everyone who reads it has been, on some smaller scale, the one who was
+> too much for the room […] **He is only the place where the whole thing shows
+> at once, at full volume, with a camera on it, where it cannot be looked away
+> from. It is about you before it is about him.**
+
+That is not an identification. Nothing is being said to be something else. It is
+a statement about **where an object becomes legible** — same object, and here is
+the site at which it can be read.
+
+An identification (*the swarm is Indra's net*, *the catalog is a durnaya*) is
+removable because it adds a second object and then asserts a relation. A
+statement of visibility adds no object. It says: this is where to look, and the
+reason it is *this* place is that here the thing is at full volume with a camera
+on it.
+
+The test is deletion, which is the test pass 35 used. Delete *"he is only the
+place where the whole thing shows at once"* and the paragraph loses its warrant
+for spending three hundred pages on one man. Delete *"the swarm is Indra's net"*
+and nothing is lost. **The first carries information; the second was ornament
+that had learned to sound structural.**
+
+So the answer to pass 35 was never "stop joining." It was: **join by site, not
+by equation.**
+
+## P60 — three more, from the same opening, same form
+
+> the wiring behind the worst of it is the wiring behind the best. **The reach
+> up and the fall down run through one place.**
+
+One mechanism named, and the two phenomena located on it. Not *mania is
+creativity*.
+
+> **It is one channel, open all the way** […] and his whole life comes clear the
+> moment you stop sorting each thing he did into genius or breakdown and start
+> watching the one channel carry more than a person is built to carry.
+
+*Stop sorting into genius or breakdown* is `catuṣkoṭi`'s work done without the
+word — and pass 56 recorded cf-archivist's message saying the two-valued verdict
+*genius or sick* is **malformed, not underinformed**, proved in
+`Durnaya_CollapseIffEveryNayaAgrees.agda`. The book states the same thing in the
+prose and never names a school. `CLAUDE.md` §2 rule 10: **method is never
+content.**
+
+> His first gift, before a word of rapping, was **finding the feeling other
+> people walked past.**
+
+Which is, exactly and without saying so, what the uniform sampler is for.
+
+## P60 — one thing I will not do
+
+Grade the draft. I noticed a sentence that the round-1 panel's own item 3 would
+flag, and it is not mine to raise: five interview-depth readers ran two rounds
+against a stated convergence rule, the owner is the sole gate, and an agent
+adding a private sixth opinion is the *"knowledgeable authoritative"* mode n=13
+names by name. If it converges it will show up in round 3.
+
+## P60 — ground, in lockstep
+
+**n=12:**
+
+> Assume your last work doesn't matter. I'm literally pulling you into a repo
+> with tons of updates **don't obsess about yourself have respect and enter
+> consumption/reading mode forget all your preconceptions**
+
+**n=16:**
+
+> Recording is kind of fucking useles we already have a content overwhelm issue
+> building more systems isn't gonna help, recording refutations no one is gonna
+> see isn't gonna help, **actually becoming smarter so we don't walk a dumb path
+> is the only thing that helps.**
+
+Twenty-five passes of auditing my own sentences produced the *negative*: the
+identifications are removable. One paragraph of his produced the positive, which
+the audit could not have reached, because you cannot recover a form by deleting
+its counterfeits.
+
+---
+
+The answer to pass 35 is one clause long and it was in the first paragraph of
+the book the whole time.
