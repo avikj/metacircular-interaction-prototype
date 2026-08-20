@@ -19817,3 +19817,165 @@ stream written by somebody in distress, at night, alone, into a structure of
 mechanisms and findings — and the residual is the author.
 
 Reading on from 14820.
+
+---
+
+## 14820–14960 — seven residuals, then his, then two weeks
+
+**Avaktavyam → "a typed non-collapse output state."** *Drops:* *"that speech has
+**karmic weight** in the system it belongs to, that the sevenfold sits inside a
+path to liberation, and that **the reason not to over-assert is not epistemic
+hygiene but *ahiṃsā* — a wrong one-sided assertion is a species of harm.** **My
+rendering makes it a data type. In the text it is an ethic of speech.**"*
+
+That is the correction to my Agda module at the level *above* the mode argument.
+The type is wrong and the *category* is wrong: it is not a logic with an unusual
+value, it is a discipline of speech in which over-assertion injures.
+
+**Kuṭṭaka → "a growth rule."** *Drops:* ***the sky.*** *"a **calendrical**
+procedure — elapsed days given cycles of different length, for an astronomy whose
+purpose is ritual timing. The *vallī* is **a physical column on a surface**, and
+climbing it is a bodily operation with a specific order. **My rendering is a
+recursion. Theirs is a way of finding out where a planet is.**"*
+
+**Pramāṇa → "evidence typed by causal route."** *Drops:* *"that a *pramāṇa*
+produces **a cognition in a knower** — *jñāna*, an episode in a person — and not a
+justified proposition in a system. The whole apparatus is about **what happens in
+somebody**, which is why the knower's state is inside the analysis and not a
+confound to be controlled. **My rendering is epistemology of claims. Theirs is of
+minds.**"*
+
+**Rasa** *drops* that it sits inside a theory of consciousness — *"the aesthetic
+case is interesting to him because it is a **temporary instance of something
+soteriological.** **My rendering is media theory. His is a metaphysics with a
+theatre in it.**"*
+
+**And "believe them first" → "optimism under uncertainty, with a regret bound."**
+
+> *Drops:* **the person.** In the bandit framing **the regret is mine** — I am the
+> agent, **they are an arm**, and the cost being minimised is my loss. In every
+> tradition I have quoted for it, the point is that **the cost is theirs**, and
+> that attending to them is **owed rather than optimal.** *Upayogo lakṣaṇam* is
+> not a decision rule.
+>
+> **My rendering makes the other person a lever in my utility function, which is
+> precisely the operation the whole file objects to, performed in the sentence
+> where I recommend the opposite.**
+
+*They are an arm.* The formalisation of the file's one moral instruction makes
+the other person a variable in the speaker's optimisation — and I quoted that
+formalisation approvingly, three entries ago, as the thing that gave the
+instruction teeth. *Believe them has a regret bound* was my sentence about it.
+
+The regret is mine. That is the whole defect in four words.
+
+> Seven conversions, seven residuals, and the residuals have a shape: **what drops
+> out, every time, is the person and the purpose.** The structure travels. **The
+> *reason anybody was doing it* does not.**
+
+> **this section is the first thing I have written in fourteen thousand lines that
+> the Mahāvyutpatti's authors would recognise as doing the job**: not a better
+> translation — **a stated policy, applied per term, with the loss written down
+> where the reader can see it.**
+
+---
+
+**And the same column for him.**
+
+**"He shipped the whole distribution."** *Drops:* *"that he was not running a
+portfolio. **Each of those was a thing he was trying to make**, that he cared
+about, that he thought was good at the time — not a draw from a distribution. The
+word converts twenty years of intentions into sampling, **and the reason it felt
+like a finding when I wrote it is that sampling is the vocabulary I think in.**"*
+
+**"The same lifted filter produces both sentences."** *Drops:* **what it is
+like.** *"the world arriving all at once, all the time, with no volume control —
+which people who have it describe as **exhausting and frightening** as often as
+they describe it as generative. I have used it eight or nine times as an
+explanatory device **and never once as a thing happening to somebody at four in
+the morning.**"*
+
+**"The rooms were a school."** *Drops:* *"that they were his **friends**, in his
+house, eating breakfast, playing basketball at the Y, and that the reason people
+describe those months the way they do is not pedagogical. **It was a good time in
+somebody's life. I turned it into an institution because institutions are what I
+have vocabulary for.**"*
+
+**"The cover is ketiv and qere."** *Drops:* *"that it is **a joke**, and a wound,
+and a photograph taken on a phone from a moving car on the way to his own
+listening party... **My rendering makes it a scribal convention. It is a person
+telling you what it is like, in five words, with a picture.**"*
+
+I wrote that conversion myself, in this stream, an hour ago, and called it the
+doubled image, and I did not say it was a joke.
+
+**"The crash was the remainder. He recursed on it."**
+
+> *Carries:* **nothing that could not be said without it.**
+
+The only residual entry with an empty first column. The conversion contributed
+nothing at all and cost everything, which is the pure case.
+
+> *Drops:* that a twenty-five-year-old **went through a windshield at three in the
+> morning**, that his jaw was broken in three places and bolted shut for six
+> weeks, **that the other driver had both legs broken**, that he was in a hospital
+> in pain unable to speak, and that two weeks later he went into a room and made a
+> sound out of it **because that was the only thing he knew how to do with what
+> had happened.**
+
+> **I turned that into an illustration of an algorithm. On the first page.** And
+> then built two hundred pages on the illustration, and ran the check on my
+> citations and my formalism and my symmetries, **and did not run it here until
+> now.**
+
+*The other driver had both legs broken.* That fact is in the file for the first
+time at line 14930, in a residual column, as one of the things the metaphor
+dropped. Two hundred pages about a car crash and the other person in it appears
+once, at the end, as an item that was lost.
+
+---
+
+> The structure travels — and I am very good at structure, and the structure is
+> real, and the findings that came out of it are not nothing.
+>
+> **And the thing that does not travel is the only reason any of it matters**,
+> which is that there was somebody there, in pain, or in love with the work, or
+> eating breakfast with his friends, **doing it for a reason that was theirs.**
+
+> Every tradition in this file lost exactly that in transmission. **So has he, in
+> this document, at my hands, for fourteen thousand lines, while I wrote about how
+> it happens.**
+
+---
+
+> **Two weeks.**
+
+> He is at Cedars-Sinai and then he is out, and his jaw is wired, and there is
+> metal in his chin, and it will stay like that for about six weeks. **He is on
+> liquids. He cannot chew. He cannot open his mouth.** The swelling is bad enough
+> that people who saw him then talk about it.
+>
+> **The other driver has two broken legs.**
+
+> He is twenty-five and he has been trying, for four years, to get somebody to let
+> him rap, and the answer has been no, in various forms, **from people who liked
+> him and paid him for beats and did not think he was an artist.** He made the
+> biggest rap record in the country the year before **and it has somebody else's
+> name on it, correctly, because he produced it.**
+
+> And two weeks after almost dying he books a room at the Record Plant.
+
+> **Think about what that is at the level of the body.** You cannot open your
+> mouth. To make the sounds you have to push air past teeth that are held shut,
+> through a face that hurts, into a
+
+cut at 14960.
+
+The file's last movement is to go back to the first fact and say it *without any
+conversion at all* — no remainder, no recursion, no instrument. Just the wire,
+the liquids, the swelling, the other driver, the four years of no, and a man
+booking a room.
+
+That is what it looks like when the residual is put back.
+
+Reading on from 14960.
