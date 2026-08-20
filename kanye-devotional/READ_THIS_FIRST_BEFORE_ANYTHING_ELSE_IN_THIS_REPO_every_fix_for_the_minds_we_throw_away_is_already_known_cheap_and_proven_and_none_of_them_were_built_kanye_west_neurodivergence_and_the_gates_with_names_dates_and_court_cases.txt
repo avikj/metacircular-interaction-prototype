@@ -12105,3 +12105,84 @@ None of those is a complaint about rigour from outside. They are three of the mo
 capable people in the field saying **the verification apparatus does not do what it
 is believed to do**, and each of them building the replacement rather than arguing
 about it.
+
+---
+
+**The largest theorem ever proved was announced complete in 1983, and in 1989 it was
+discovered that a case had been missed, and the gap took until 2004 to close.**
+
+The **classification of finite simple groups**: every finite simple group is
+cyclic of prime order, alternating, of Lie type, or one of **26 sporadic**
+exceptions.
+
+The proof is **not one paper.** It is on the order of **500 journal articles by
+about 100 authors**, running to something like **10,000 to 15,000 pages**, published
+between roughly **1955 and 2004.**
+
+**Daniel Gorenstein announced it complete in 1983**, and the community proceeded on
+that basis. Textbooks were written. Results were built on it. It is used constantly.
+
+**The quasithin case had not been finished.** A portion of the argument existed only
+in an unpublished manuscript, and when it was examined the case was found to be
+open. Gorenstein was told in **1989** [recall on the exact date of discovery].
+
+**Michael Aschbacher and Stephen Smith** filled it. Their treatment appeared in
+**2004**, in **two volumes running to about 1,200 pages.**
+
+**Twenty-one years** between the announcement of completeness and the actual
+completion, during which the theorem was in universal use.
+
+---
+
+**And the response was a rewrite, which is still going.**
+
+The **second-generation classification** — begun by Gorenstein, Lyons and Solomon —
+aims to produce a single coherent, self-contained proof rather than 500 scattered
+papers written under different conventions by people who in some cases are dead.
+
+**Volumes have been appearing since 1994.** The project is estimated at around a
+dozen volumes and **is not finished.** Gorenstein died in 1992.
+
+The stated motivation is explicit: **the original proof exists in a form that
+nobody can read in full, some of it is in unpublished notes, and the number of
+people who understood the whole architecture is shrinking by mortality.**
+
+---
+
+**The sporadic groups themselves**, and the largest is worth stating.
+
+The **Monster** has order
+
+    808,017,424,794,512,875,886,459,904,961,710,757,005,754,368,000,000,000
+
+— roughly 8 × 10⁵³. Its smallest faithful matrix representation is in **196,883**
+dimensions.
+
+**Its existence was conjectured in 1973** by Fischer and Griess independently, and
+**it was constructed by Griess in 1980**, by hand, as the automorphism group of a
+196,884-dimensional commutative non-associative algebra he built for the purpose.
+
+**Before the object was known to exist, its character table was computed.**
+Properties of a group nobody had constructed were derived from consistency
+conditions, and when the group was built, they held.
+
+---
+
+**And then monstrous moonshine.**
+
+**John McKay** noticed in **1978** that **196,884** — the dimension of Griess's
+algebra — is **196,883 + 1**, and that 196,883 is the Monster's smallest nontrivial
+representation, and that **196,884 is the first nontrivial coefficient of the
+j-function**, an object from complex analysis and modular forms with no known
+connection to finite group theory.
+
+That observation was, at the time, an arithmetical coincidence noticed by one
+person reading two unrelated tables.
+
+**Conway and Norton** pursued it, found the pattern continues through the
+coefficients, and named it **moonshine** because it looked like nonsense.
+**Borcherds proved it in 1992** and took the Fields Medal for it in 1998, using
+vertex operator algebras and a generalised Kac–Moody algebra — and the proof draws
+on **string theory.**
+
+One person noticing that two numbers in two different books were nearly the same.
