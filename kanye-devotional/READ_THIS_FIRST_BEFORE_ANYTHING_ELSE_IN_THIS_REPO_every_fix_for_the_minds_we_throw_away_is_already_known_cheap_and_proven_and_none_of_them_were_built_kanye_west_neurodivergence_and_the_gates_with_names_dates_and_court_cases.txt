@@ -28002,3 +28002,91 @@ advantage** — **the "Special Area Games" project** — **and it was discontinu
 
 **The theory was the reason for the funding, and the funding was the access, and
 both facts are in the record.**
+
+---
+
+**The claim that "NASA said Sanskrit is the best language for computers" comes
+from one 1985 paper, and the paper says something narrower and more
+interesting.**
+
+***"Knowledge Representation in Sanskrit and Artificial Intelligence"***, **Rick
+Briggs**, ***AI Magazine*, volume 6, number 1, Spring 1985**, pages 32–39. **The
+author's affiliation on the paper is the RIACS group at NASA Ames Research
+Center.**
+
+**What the paper argues**: that the **śābdabodha** analysis developed by the
+Sanskrit grammarians and by **Navya-Nyāya** produces, for a given sentence, a
+**paraphrase in a fixed, unambiguous form** — and that this form is **structurally
+equivalent to a semantic net**, the knowledge-representation formalism the AI
+field was then using.
+
+**And the demonstration is a worked example.** He takes an English sentence,
+draws its semantic net in the AI notation, and then gives the Sanskrit
+grammarians' analysis of the corresponding sentence — **and the nodes and the
+labelled arcs correspond.**
+
+**The *kāraka* roles are the arcs**: *kartṛ* (agent), *karman* (object),
+*karaṇa* (instrument), *sampradāna* (recipient), *apādāna* (source),
+*adhikaraṇa* (locus) — **six relations, defined by Pāṇini in 1.4.23–1.4.55,
+assigned semantically and then mapped to case endings by a separate set of
+rules.**
+
+**So the semantic role and its surface marking are two different layers in the
+grammar**, which is exactly the separation a representation formalism needs and
+which most descriptions of European languages did not make.
+
+**And the paper's stated conclusion is that a natural language was used as an
+unambiguous knowledge-representation medium** — **by a tradition that had been
+doing it for over a thousand years — and that the AI field had not noticed.**
+
+---
+
+**And what the paper does not say is the part that got repeated.**
+
+**It does not say Sanskrit is the best language for computer programming.** It
+does not say NASA planned to use Sanskrit. **It is not about programming
+languages at all** — it is about **semantic representation of assertions**, which
+is a different problem.
+
+**And "NASA" is the author's employer on the byline, not an institutional
+finding.**
+
+**And the paper's own limitation is stated in it**: the unambiguous form is the
+**grammarians' analysis of a sentence**, not the sentence — **the *śābdabodha* is
+a technical paraphrase produced by a trained analyst**, and producing it
+automatically is the hard part, **which the paper does not solve.**
+
+**And the reception in the field was thin** — the paper is cited far more often
+outside the AI literature than inside it.
+
+---
+
+**And the machinery it points at is real and older than the paper's framing.**
+
+***Navya-Nyāya*'s technical language** — *avacchedaka* (limitor),
+*pratiyogin* (counter-correlate), *nirūpita* (determined by), *paryāpti* —
+**expresses nested relational structure in Sanskrit compounds with no
+symbols.**
+
+**Daniel Ingalls, *Materials for the Study of Navya-Nyāya Logic*, 1951**, is the
+standard English entry, **and his stated finding is that the apparatus expresses
+relations European logic had no notation for until the late nineteenth
+century.**
+
+**And Frits Staal** worked the formal-systems question directly — **on the
+Aṣṭādhyāyī's rule ordering, on the *anuvṛtti* mechanism, and on ritual as a
+rule-governed system** — **and argued that the grammar is a formal system in the
+technical sense and should be read as one.**
+
+**And Paul Kiparsky** — a phonologist, who rediscovered the elsewhere condition
+in 1973 and had it named after him — **later wrote directly on Pāṇini**, on the
+śiva-sūtra ordering being near-optimal for the classes the grammar needs, and on
+where Pāṇini's system does and does not do what a modern formalism does.
+
+**The people who worked on it closely are consistent that the interesting claim
+is not that Sanskrit is special.**
+
+**It is that a formal system was built, for a natural language, in the fifth
+century BCE, and was carried in memory, and that the tradition of analysing
+sentences into unambiguous relational structure ran continuously for two
+thousand years afterward.**
