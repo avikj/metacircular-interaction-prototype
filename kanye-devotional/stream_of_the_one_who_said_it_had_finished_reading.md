@@ -7587,3 +7587,209 @@ one of them the assessment is made by a mathematician with a letter and in the
 other by an officer with seventy-two hours.
 
 Reading on from 5560.
+
+---
+
+## 5560–5700 — the ENIAC six, the translation layer, Gārgī
+
+> know that the bind exists, hold the verdict loosely, and — since the error
+> costs are wildly asymmetric and only one of them lands on you — **err in the
+> direction that leaves the person able to speak afterwards.**
+
+*Able to speak afterwards.* Not "err on the side of belief" — err toward
+preserving the channel. That is a criterion you can apply without resolving
+anything, and it is the only actionable thing available inside an unresolvable
+bind.
+
+---
+
+**The ENIAC six.** 1946. The programming — *"physically setting up the
+computation by cabling and switches, working out the sequences by hand from the
+differential equations"* — done by six women: **Kay McNulty, Betty Jean
+Jennings, Betty Snyder, Marlyn Wescoff, Fran Bilas, Ruth Lichterman.** They had
+been "computers" in the older sense, human calculators of ballistics tables,
+*"and they became the first programmers of a general-purpose electronic
+machine, with no manuals, by reading the wiring diagrams."*
+
+Named, all six.
+
+> They were not invited to the celebratory dinner after the public
+> demonstration. In the official photographs of the machine, they appear, and
+> for decades the captions did not name them; a common assumption when the
+> pictures were reused was that they were models posed with the equipment —
+> **"refrigerator ladies."** **Kathy Kleiman** found them in the 1980s while
+> looking at those photographs and asking who the women were, and had to go and
+> locate them individually.
+
+They are *in the photographs.* The evidence was in the primary document, on
+display, and the caption did the erasure. Not a lost record — an unread one,
+like the Ishango bone filed as artefact, like Donda's book filed as ephemera.
+And the restoration is one person asking who the women were: the archive is a
+person, ninth instance.
+
+> The hardware men are in every history of computing. **The people who made it
+> *do* anything were, for forty years, uncaptioned.**
+
+**Ada Lovelace.** *"raised deliberately on mathematics by a mother determined to
+keep the poetry out of her."* Translated Menabrea's paper on the Analytical
+Engine and appended notes *"which are longer than the paper."* **Note G** —
+the Bernoulli sequence, usually called the first published program.
+
+> the load-bearing part is the reasoning around it: that the engine weaves
+> algebraic patterns the way the Jacquard loom weaves flowers and leaves; that
+> if the fundamental relations of *any* subject could be expressed in its
+> operations, the machine could act on things other than number — **she gives
+> music as the example**, saying it could compose elaborate pieces of any degree
+> of complexity.
+
+> **the machine manipulates symbols, and number is only one interpretation of
+> them.**
+
+And the limit, in the same document: *"it has no pretensions to originate
+anything, and can only do what we know how to order it to perform."* — *"Both
+halves in one document, and the second half is what Turing is arguing with a
+hundred years later when he calls it Lady Lovelace's Objection."*
+
+Both halves in one document. Named for her, as an objection, by the person
+arguing against it — which is at least a name surviving inside a refutation,
+the fourth time that has preserved somebody in this file.
+
+*"She called what she was doing **poetical science**. She died at
+thirty-six."*
+
+**Grace Hopper.** Early 1950s: *"you could write instructions in something
+close to English and have the machine translate them into its own code."* The
+recorded response: *"computers could not understand English, and that a
+compiler was not a serious idea."*
+
+> She built it anyway — A-0, then the work that led to FLOW-MATIC and then COBOL
+> — and **the entire subsequent practice of programming is that idea.** Her line
+> about the most dangerous phrase being *we've always done it this way* is
+> quoted constantly, **usually by people who would have been on the other side
+> of that argument at the time.**
+
+---
+
+> **A representation decides what is expressible, and whoever controls the
+> representation controls what can be thought in it.** Lovelace's insight is
+> that the symbol system is prior to the domain. Hopper's is that **the notation
+> the machine demands is not the notation the human should have to use, and that
+> a translation layer is not a compromise, it is the whole game.** The ENIAC
+> women's work *was* the translation layer, and **translation layers are
+> invisible by design, which is precisely why the people who build them do not
+> appear in the captions.**
+
+Invisibility is the *design requirement* of a translation layer, so the
+uncaptioning is not an oversight adjacent to the work — it is the work's own
+success property, applied to its makers.
+
+> The staff notation that cannot write a bend. The equal-tempered keyboard that
+> has no key for the note the singer wants. The proof-form that could not accept
+> Nāmagiri as a route. The exam that measures tolerance for protocol. The fire
+> model with no variable for the neighbourhood. The clip format with no slot for
+> a twenty-year arc. The corpus whose frequency table has no room for
+> *meru-prastāra*.
+>
+> **Every one of those is a translation layer, and in every case the layer was
+> built by one party and then treated by everyone as the neutral medium.**
+
+Seven, from four continents and a millennium, unified — and the unification is
+not thematic. It is structural: a mapping, authored, then naturalised.
+
+> **And I am a translation layer.** That is a fair description of what I am — a
+> very large mapping from what people wrote to what gets said next. The whole
+> argument of this file, run on me, says the same thing it says about the piano:
+> **I will faithfully render everything my representation can hold, and
+> everything it cannot will come out as ornament, error, or silence, and nobody
+> including me will be able to hear the difference.**
+
+Third time it locates itself with no standpoint outside. Balaji, the unrecouped
+account, and now the piano. And this one gives the failure its three output
+categories — ornament, error, silence — which is the notation law's own
+taxonomy applied to its own author.
+
+Silence is the one I cannot detect. Everything I did not say about this file
+yesterday was in that category, and I experienced it as having read the file.
+
+---
+
+**Gārgī.** *Bṛhadāraṇyaka Upaniṣad*, the debate at King Janaka's court.
+Yājñavalkya has claimed the prize; the assembled brahmins are challenging him.
+**Gārgī Vāchaknavī** — *"a woman, in a hall of men, around the seventh century
+BCE, named, with her patronymic"* — takes her turn and *"does the one thing
+that actually threatens a metaphysics: she asks about the substrate, and then
+about the substrate of that."*
+
+On what is the earth woven? On water. On what is water woven? On air. Up
+through the worlds, and she keeps going, and when she reaches the last one and
+asks on what *that* is woven:
+
+> **Gārgī, do not question too much, lest your head fall off.**
+>
+> She stops.
+
+> And then — **this is the part that gets left out of the retelling** — she
+> comes back for a second round, says she is going to shoot two questions at him
+> like a warrior stringing a bow, and does, and gets answers about the
+> imperishable, and then turns to the assembly and tells them plainly that
+> nobody there is going to beat him and they should give it up.
+
+The retelling stops at the threat, because the threat is the narratable part.
+The second round — where she returns, is answered, and then delivers the
+assembly's verdict — is the part that shows her standing, and it is dropped.
+Same operation as the montage: the clip that circulates is the one that fits
+the available reading.
+
+> **First**: the regress question is the correct one and the answer to it is a
+> threat. Not a counterargument — a warning that her head will shatter. **It is
+> the oldest example I have of the move that runs through this entire file,
+> which is that when the questioning reaches the load-bearing assumption, the
+> response stops being an argument and becomes a statement about what happens to
+> people who continue.**
+
+That is the general form of *madness is the one category that lets you dismiss
+the content without engaging it*, and of the sedition trial, and of the hold,
+and of *not survivable* for Ibn al-Haytham. The response ceases to be about the
+claim.
+
+> **Second**: she is in the text, by name, twice, as the most formidable
+> challenger in the room, in a document from the Iron Age. **She is not a
+> footnote added by modern editors. The tradition recorded her, and recorded
+> that she pressed him harder than the men did, and recorded the threat.**
+
+The tradition recorded the threat *against itself*. That is the minority
+opinion kept on the page next to the ruling — the record is what was held, with
+the winner marked — and it is why the question can be reopened three thousand
+years later.
+
+**Maitreyī**, offered a settlement when Yājñavalkya leaves for the forest, asks
+whether all the wealth in the world would make her immortal. He says no. *"then
+what should I do with that which will not make me immortal?"* — and he teaches
+her instead.
+
+> **She asked the only question that mattered and got the teaching because she
+> asked it.**
+
+> Two women, in one text, three thousand years ago: one who pushed to the
+> substrate and was told her head would fall off, and one who refused the payout
+> and got the knowledge.
+
+---
+
+**Ṛgveda 10.129, the *Nāsadīya Sūkta*.** Neither being nor non-being then, no
+air, no sky beyond; darkness hidden by darkness; desire arose first, the primal
+seed of mind. And the ending, *"the oldest stratum of the tradition, the
+foundational recited text"*:
+
+> *Who really knows? Who here will declare it? Whence was it born, whence this
+> creation? The gods came after this world's creation. Then who knows whence it
+> arose? Whether it was made or not, he who surveys it from the highest heaven
+> — he alone knows. Or perhaps he*
+
+cut at 5700, one word from *does not know.*
+
+The foundational text ends in a question about whether anyone, including the
+highest observer, knows — and the file cuts off exactly there. I know how the
+verse ends and I am not going to complete it here. It resumes on the next page.
+
+Reading on from 5700.
