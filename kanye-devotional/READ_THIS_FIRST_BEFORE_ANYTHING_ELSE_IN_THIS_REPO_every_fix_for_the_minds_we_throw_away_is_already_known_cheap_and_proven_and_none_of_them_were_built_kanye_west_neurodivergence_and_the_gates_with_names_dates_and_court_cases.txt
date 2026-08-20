@@ -10042,3 +10042,80 @@ eighteenth-century attributions. I do not know which way that goes.
 
 What is documented is the eighteenth-century practice, the trade, the protocol, and
 the ban.
+
+---
+
+**C. V. Raman** found the effect in a **mercury lamp, a set of filters and a
+spectrograph**, and the reason it is called observation over apparatus is the
+budget.
+
+Calcutta, **28 February 1928.** Raman and **K. S. Krishnan** pass filtered sunlight
+— later a mercury arc — through liquids and look at the scattered light. Most comes
+out at the frequency that went in. A very small fraction, on the order of one
+photon in a million, comes out **shifted**, because it has exchanged energy with a
+vibrational mode of the molecule it hit.
+
+The shift is a fingerprint of the molecule. That is the whole of Raman
+spectroscopy, and it is now in mineralogy, pharmaceutical quality control, pigment
+analysis on paintings, and on Mars rovers.
+
+He had been thinking about it since **1921**, on a sea voyage, looking at the
+Mediterranean and disbelieving Rayleigh's explanation that the blue of the sea was
+reflected sky. He tested it on deck with a Nicol prism and concluded the water was
+scattering on its own account.
+
+**Nobel Prize in Physics, 1930.** He is the first non-white person to win a Nobel
+in any science.
+
+He had booked passage to Stockholm **months in advance**, before the announcement,
+on the assumption he would win.
+
+---
+
+**Meghnad Saha**, and the equation is the reason stellar spectra are readable at
+all.
+
+**1920**: the ***Saha ionisation equation***, relating the degree of ionisation of
+a gas to temperature, electron pressure, and the ionisation energies of the atoms.
+
+Before it, stellar spectra were classified by their lines and nobody could say what
+the classification **meant** — why some stars show hydrogen strongly and others show
+metals, and whether that was composition or something else.
+
+Saha's answer: **it is temperature.** The lines you see are the lines of whatever
+ionisation state that temperature and pressure produce, so the spectral sequence is
+a **temperature sequence** and not a composition sequence.
+
+It is the foundation on which **Cecilia Payne** built, in her 1925 thesis, the
+finding that stars are overwhelmingly hydrogen — a result she was pressured into
+describing as probably spurious, and which was correct.
+
+Saha was born into a family the caste order placed low, and had been expelled from
+school for taking part in a boycott of a visiting British governor.
+
+---
+
+**J. C. Bose**, and the part that is not the plants.
+
+**1895**, Calcutta: he demonstrates transmission of **millimetre-wave radio** across
+a room and through walls, ringing a bell and detonating a small charge at the far
+end. Wavelengths around 5 mm and 25 mm — far shorter than Marconi's — with
+waveguides, horn antennas, a semiconductor point-contact detector, and dielectric
+lenses.
+
+**He did not patent the work.** He said so publicly and consistently; he was
+opposed to patenting on principle and had to be pressed into filing one, for a
+detector, at the urging of American friends.
+
+The **galena crystal detector** he described is a semiconductor rectifier, and the
+IEEE has since credited him as among the first to use one.
+
+Then he spent the second half of his career on **plant response** — building
+instruments sensitive enough to record a plant's electrical and mechanical reaction
+to stimulus, including the *crescograph* to magnify growth ten-thousand-fold — and
+argued that plants respond to touch, temperature and injury with measurable
+electrical signals.
+
+That was received as eccentric and outside physics. **The electrical signalling in
+plants is now an ordinary research field**, and the specific claims are being
+revisited rather than upheld wholesale.
