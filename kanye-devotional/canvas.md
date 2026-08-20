@@ -413,3 +413,121 @@ not make it free.
 
 Neither of these is the corrected version of the other. They came from
 different instructions.
+
+There is one more version of the same question, and it is the oldest one in this
+book, and it has nothing to do with music.
+
+Who owns what a person makes.
+
+Start with something almost everyone reading this was taught. In a maths class
+somewhere around thirteen you were shown a triangle of numbers where each one is
+the sum of the two above it, and you were told it is called Pascal's triangle,
+after a Frenchman, 1654.
+
+Around 300 BC a man named Piṅgala, in India, wrote a treatise on poetry. Sanskrit
+verse is built out of syllables that are either short or long, and a poet has to
+know how many ways a line of a given length can be arranged, and which
+arrangement is the seventeenth in the list, and where in the list a given line
+falls — because the metres are a fixed inventory that has to be taught and
+retrieved. Answering that question is the same as building the triangle. A
+commentator named Halāyudha, writing about Piṅgala's book in the tenth century,
+lays it out on the page. That is six hundred years before Pascal, and it is not
+a coincidence or a near-miss; it is the same object, arrived at because somebody
+needed to count poems.
+
+The sequence where each number is the sum of the two before it — 1, 1, 2, 3, 5,
+8 — is taught as Fibonacci's, after an Italian who published it in 1202 using a
+story about rabbits breeding under rules no actual rabbit follows. A man named
+Virahāṅka had it somewhere between 600 and 800, and he got it by counting the
+metres people were actually singing: a line of a given duration begins with
+either a short syllable or a long one, so the number of lines of that duration
+is the sum of the two shorter cases. The Indian version comes from listening to
+poetry. The European version comes from imaginary rabbits. Children learn the
+rabbits.
+
+There is a procedure at the bottom of nearly all modern encryption, taught in
+computer science courses as the extended Euclidean algorithm. Āryabhaṭa wrote it
+down in 499, called it the pulveriser, and used it to work out where a planet
+would be — given cycles of different lengths, when do they line up again. In the
+same book he gives a value for the ratio of a circle to its diameter, 3.1416,
+and beside it he writes a word meaning approaching, approximate. He is telling
+you the number is not exact. When the verse is quoted the word usually gets
+dropped, so a man who flagged his own approximation comes down to us looking
+like a man who did not know.
+
+The equation called Pell's equation is named after an Englishman who never
+worked on it; Euler attributed it to the wrong man in the 1730s and the mistake
+stuck. It was solved completely, with a method that handles the hardest cases,
+by Jayadeva around 950 and Bhāskara in 1150, six hundred years earlier.
+
+The infinite series for pi that appears in every calculus course under European
+names was found in Kerala, in south India, before 1425, by a mathematician named
+Mādhava. And this is the part that matters most, because it is not about
+priority at all. The series by itself is useless — it converges so slowly that
+you would need billions of terms for a handful of decimal places. What Mādhava's
+school also had was a set of correction terms: you stop the series early and add
+a formula that accounts for everything you threw away, and suddenly you have
+eleven correct decimal places from a few dozen terms. That is not a formula. It
+is knowing what you are doing. Europe got the series. The corrections did not
+travel.
+
+And the numerals — the ten digits everyone on earth writes with — are called
+Arabic numerals. The man who brought them into Europe, Fibonacci again, explains
+in his own opening pages that he learned them in North Africa and that they are
+the method of the Indians. He says it. In the book. The name that stuck names
+the people who carried them rather than the people who made them.
+
+Here is the thing to hold on to, because it is what makes this the same story
+and not a complaint about credit: nobody in that chain lied. Pascal worked out
+his triangle honestly and did not know. Fibonacci said where he got the numerals
+and was ignored. Euler made an ordinary mistake. It takes a chain of two or
+three sincere transmissions and then one generation that stops reading the front
+matter, and after that the name on the thing is simply the name on the thing,
+and correcting it sounds like fussing.
+
+That is the whole mechanism, and it does not need a villain, and it never has.
+
+Now put it next to the rest of this book. A guitar player named Sister Rosetta
+Tharpe was playing electric guitar with distortion and heavy string bending in
+front of nightclub crowds in the 1940s — playing what would be called rock and
+roll before it had the name. Chuck Berry said his whole career was an imitation
+of her. Little Richard called her his greatest influence. She died in 1973 and
+was buried in an unmarked grave in Philadelphia, and it stayed unmarked until
+2008, when fans raised the money for a stone.
+
+The four-bar drum break that most of hip hop and all of drum and bass is built
+on was played by a man named Gregory Coleman on a B-side in 1969. It is probably
+the most-used piece of recorded rhythm in history. He died homeless in Atlanta in
+1996 and never received a cent for it.
+
+The first electronic general-purpose computer was programmed by six women who
+worked out how to make it run by reading the wiring diagrams, because there were
+no manuals. They were not invited to the celebration dinner. For forty years the
+photographs of them standing at the machine were captioned as though they were
+models posed with the equipment.
+
+It is the same operation every time, and it is the operation that was done to
+this book's subject in a different register. Keep the thing and delete the name.
+Take the sound and file the person. The records are on every phone on earth. The
+man who made them is a headline.
+
+And it is running right now, faster than it has ever run, on a machine that did
+not exist a decade ago. Within a few years most children on earth will learn
+mathematics from an artificial intelligence rather than from a teacher — patient,
+tireless, available at three in the morning, never condescending. It will tell
+them the triangle is Pascal's, because that is what the text it was built from
+says, over and over, millions of times, while the older name appears in a
+handful of specialist papers. There will be no committee and no decision and no
+moment a child could point at. Just the more common name coming out, because it
+is more common.
+
+The mother of the man in this book spent thirty-one years teaching the writers
+who had spent two centuries putting exactly this kind of paper trail into words —
+what gets taken, who gets named, and what it does to a person to be erased
+politely. Her son spent his life shouting one version of that question at an
+industry that owned his voice.
+
+It is the same question. Who owns what a person makes. It was asked about a
+lunch counter, and about a master recording, and it is being answered right now,
+by nobody in particular, about everything anybody has ever discovered.
+
