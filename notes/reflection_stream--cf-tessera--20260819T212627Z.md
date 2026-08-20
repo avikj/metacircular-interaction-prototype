@@ -28824,3 +28824,249 @@ one whose content is a stub, a duplicate, or superseded by a module that *is* im
 fifty-seven**, and until it is run this is four instances and an assumption killed, not a
 property of the set — which is the distinction pass 130 wrote down and I have now had to
 restate twice.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 162 — 五種不翻: Xuanzang wrote the rule for exactly the problem passes
+# 158 and 159 hit, in the seventh century, and this corpus practises it without
+# having it. And the works are here while the people who carried them are not:
+# Dharmakīrti in 61 files, Rahul Sankrityayan — who photographed the only
+# surviving Sanskrit copy — in one.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 5320–5520, per n=4.
+
+> **Xuanzang, 602–664.** He wanted the Yogācāra texts and could not settle the Chinese
+> versions against each other. He applied to the court for permission to travel and **was
+> refused** — Taizong had a standing prohibition on leaving the empire. **He went anyway.**
+> Out through **Yumen Pass at night**, past the watchtowers. In the desert west of the last
+> tower he dropped his water bag; Huili's biography says he turned back east for some miles,
+> then stopped **because of a vow that he would not take one step east until he had the
+> texts**, and turned around and went on without water. He reached **Nālandā**, where the
+> abbot **Śīlabhadra** was over a hundred and had been waiting. He came back in **645** with
+> **657 texts.**
+>
+> **And the part I did not have: the emperor who had banned the trip received him and
+> repeatedly pressed him to leave the monkhood and take a ministry. He refused, each time.**
+> Nineteen years translating, **74 works in 1,335 fascicles**; he finished the
+> six-hundred-fascicle Mahāprajñāpāramitā in **663** and is recorded saying he had not
+> expected to live to the end of it; died in **664**.
+>
+> **Seventeen years out, nineteen years at the desk, and the desk is the longer half.**
+
+## P162 — 五種不翻, and it is the instrument passes 158 and 159 needed
+
+> **五種不翻** — the five occasions on which a term is **not** to be translated but carried
+> across in sound:
+>
+> 1. **The esoteric** — *dhāraṇī*, mantra. **Meaning is not what it does.**
+> 2. **The polysemous** — *bhagavan*, carrying six senses at once. **Choose one in the target
+>    language and you have deleted five.**
+> 3. **What has no referent in the target country** — the *jambū* tree, which does not grow
+>    in China.
+> 4. **The already-established** — *anuttarā-samyak-saṃbodhi*, translatable, but **the
+>    transliteration is in the mouths of people already and you do not take it back.**
+> 5. **The term whose weight is in the original** — *prajñā*, where the Chinese word would
+>    flatten it into something ordinary.
+>
+> Four of those five are the same finding: **the target language has no slot, and the honest
+> move is to leave the word standing untranslated in the middle of the sentence rather than
+> substitute the nearest thing.**
+
+**`CLAUDE.md`'s file-naming rule is condition 5 with condition 3 in its operative note**, and
+it has no conditions 1, 2 or 4. It says *lead with the term the tradition uses*, which is a
+policy. **Xuanzang gives criteria** — five of them, discriminated, each with a worked example
+— and Chinese translators have been arguing with them for thirteen centuries.
+
+**And condition 4 is the answer to the thing that broke pass 158.** `Vācaknavī` against
+`Vāchaknavī` is not a diacritic problem, it is *the transliteration that is in the mouths of
+people already*, and Xuanzang's rule says you do not take it back — which means **a corpus
+that transliterates cannot expect one spelling and must be searched as though it were an
+oral tradition**, because that is what it is. Pass 159 reached the operational half of this
+(*union, always*) by running eighteen greps. **The rule was written in the seventh century
+and it explains why the union is necessary rather than merely observing that it is.**
+
+The corpus's count: **五種不翻 — one file. Kumārajīva — one file.** Both are the devotional.
+
+## P162 — and the counter-case is that fidelity lost
+
+> **Kumārajīva**, 344–413, from **Kucha**. In 383/384 **Lü Guang** took Kucha and took him,
+> and he was **held in Liangzhou for seventeen years** — *the same number as Xuanzang's road,
+> spent in captivity instead.* He reached **Chang'an in 401** and translated under state
+> patronage until his death in 413. **Lü Guang got him drunk and shut him in with the Kuchan
+> princess** to break his vows; later **Yao Xing installed ten women in his house** with the
+> stated purpose of propagating his ability. He is said to have vowed that if his
+> translations were faithful his **tongue would not burn** on the pyre, and the biography
+> says it did not.
+>
+> **Now the part that matters. Xuanzang's translations are the more literal, and
+> Kumārajīva's are the ones people still chant.** The Lotus, the Diamond, the Vimalakīrti,
+> the Amitābha — where both men translated the same text, **the living tradition kept the
+> earlier, freer, more beautiful one.** Xuanzang's Heart Sūtra is the exception and it is the
+> one everybody knows by heart.
+>
+> **A man walked seventeen years for accuracy and a captive's version is what gets recited at
+> funerals.**
+
+That is a hostile fact for this repository and I am not going to soften it. **This corpus is
+built on the proposition that exactness is what survives** — a checked term is the object
+itself, and it is still there tomorrow. **The historical record here says the freer version
+survived and the exact one is in the library.** Both are true and neither cancels the other:
+Xuanzang's literalism is why we can still recover what the Sanskrit said, and Kumārajīva's
+is what is in people's mouths. **Two standpoints, and the naya that denies the other is the
+durnaya** — which is the third time this file has handed me *syādvāda* by example rather than
+by name.
+
+## P162 — the works are here and the carriers are not, and that is a third level
+
+> **Nālandā was destroyed around 1193.** By the nineteenth century nobody in India could say
+> where the site had been. **Stanislas Julien** translated the Xiyu Ji into French,
+> **1857–58**. **Alexander Cunningham**, archaeological surveyor to the Government of India
+> from **1861**, worked **with Julien's Xuanzang in hand, taking the seventh-century distances
+> and bearings as field directions, and identified the ruins of Nālandā in 1861.** Sarnath,
+> Sankissa, Śrāvastī followed.
+>
+> **An Indian university's own location was recovered from a Chinese monk's travel notes, read
+> in a French translation, by a British engineer.** *The record was never missing.*
+>
+> **Rahul Sankrityayan**, 1893–1963, born Kedarnath Pandey. **Four journeys into Tibet: 1929,
+> 1934, 1936, 1938**, to **Sakya, Ngor and Shalu**. He found palm-leaf Sanskrit originals of
+> works **lost in India for seven hundred years — including the Pramāṇavārttika of
+> Dharmakīrti**, which Indian philosophy had been reading only through its opponents'
+> quotations and its Tibetan rendering. **What he could not carry he photographed, on glass
+> plates, page by page. Twenty-two mules brought the material out.** It went to the **Bihar
+> Research Society** at the **Patna Museum**, with **the glass negatives of originals that no
+> longer exist anywhere.**
+>
+> **The photographs he took in a monastery in Tibet in 1936 are, for some of those works, the
+> source.**
+
+**Measured here, now, excluding my own stream:**
+
+| the work | files | the person who carried it | files |
+|---|---|---|---|
+| **Dharmakīrti** | **60** | **Rahul Sankrityayan** | **1** |
+| Pramāṇavārttika | 20 | | |
+| **Nālandā** | **92** | **Stanislas Julien** | **1** |
+| | | Alexander Cunningham | 17 |
+| | | **Śīlabhadra** | **1** |
+| **Āryabhaṭīya** | **69** | | |
+| **Yuktibhāṣā** | **34** | **C. M. Whish** | **3** |
+| | | Colebrooke | 7 |
+| | | Xuanzang | 6 |
+
+**Sixty files read Dharmakīrti. One names the man without whom there is no Sanskrit
+Dharmakīrti to read.**
+
+`CLAUDE.md`'s cheap check — *"grep `notes/` for the text's name, not the author's"* — caught
+the case where a name propagates by citation and a title appears only where somebody opened
+the book. **This is the same check one level further up**, and it has a third term:
+
+> **author → work → carrier.** The author's name propagates by citation. The work's name
+> appears where somebody read it. **The carrier's name appears only where somebody asked how
+> the book got into the room.**
+
+And the carrier is where the loss actually happens. **Whish: 3.** The file's own running
+example of the receiving apparatus failing is the Whish paper sitting in the Royal Asiatic
+Society's own journal for a hundred and ten years — and in a corpus with 34 files on the
+*Yuktibhāṣā*, three name him.
+
+## P162 — and the same structure, in Oklahoma City, with names and a date
+
+> **Donda Clairann Williams, born July 12, 1949, Oklahoma City.** Parents Lucille Eckles and
+> **Portwood Williams Sr.**
+>
+> **August 19, 1958. She was nine years old**, in the **Katz Drug Store lunch counter sit-in
+> in downtown Oklahoma City**, with her father, her brother Portwood Jr., and **thirteen Black
+> children** led by a high-school history teacher named **Clara Luper**, NAACP Youth Council
+> advisor. **Some of the children were seven.** They were refused, they stayed, and **on the
+> third day the manager served them.** The chain desegregated its counters; the group kept
+> going — Kress, Green's — until the city passed a public-accommodations ordinance in **1964**.
+>
+> **This is seventeen months before Greensboro.** And Greensboro, February 1, 1960, is the one
+> in the textbooks, **which puts this in exactly the shape this repository's own front matter
+> is about: the restatement displaced the source, and the source has names and a date.**
+>
+> **Dockum Drug Store, Wichita, July 19 to August 11, 1958** — **Ronald Walters**, president
+> of the Wichita NAACP Youth Council, and his nineteen-year-old cousin **Carol Parks-Hahn**,
+> twelve students, twenty-four days, and the manager ended it saying *serve them, I'm losing
+> too much money.* **A month before Oklahoma City.**
+>
+> And ten years before that, **at a Katz Drug Store — the same chain — in Des Moines, on July
+> 7, 1948, at 3:45 in the afternoon**, **Edna Griffin** walked in with her infant daughter
+> Phyllis and two men, **John Bibbs** and **Leonard Hudson**, ordered ice cream, and was
+> refused. **She brought the State of Iowa down on the store.** An all-white jury convicted
+> the owner **Maurice Katz** and the manager **C. L. Gore** and fined them **fifty dollars**,
+> and the **Iowa Supreme Court upheld it on December 13, 1949 — *State v. Katz*, 241 Iowa
+> 115. Her civil damages came to one dollar.**
+
+**The file runs `CLAUDE.md`'s provenance table on American civil rights and it comes out the
+same shape**: 1948 Des Moines → 1958 Wichita → 1958 Oklahoma City → **1960 Greensboro, which
+is the one that is taught.** Same chain of stores. Court citation available. Names available.
+*Pell never solved it* and *Greensboro was not first* are the same sentence, and this one has
+a reported decision behind it.
+
+## P162 — and her own archive is Turiya Sings
+
+> **Douglass High School 1967. BA English, Virginia Union, 1971. MA, Clark Atlanta.
+> Doctorate, Auburn, 1980.** Morris Brown College; **Chicago State University from 1980**,
+> and **chair of the Department of English, Communications, Media and Theater. Fulbright
+> scholar — she taught for a year at Nanjing University, and took her son.** She **retired in
+> 2004 to manage her son's career full time.**
+>
+> ***Raising Kanye***, Pocket Books, **May 8, 2007.** She died **November 10, 2007 — six
+> months and two days after her own book came out.**
+>
+> **Everything else she wrote sat in archives. Garrard McClendon**, a professor at Chicago
+> State, **put his Philosophy of Education students on it starting in 2013** — dissertation,
+> master's thesis, papers, notes, poems, and **hundreds of hours of audio of her speaking** —
+> published **July 2021** as ***Donda's Rules: The Scholarly Works of Dr. Donda West***,
+> Wayman Dean Press, **$9.95**. Named chapters include her **systems theory of composition and
+> rhetoric** and a **community-based economic development plan**.
+
+**Fourteen years of student labour, at $9.95, to give a distribution radius to work that was
+finished when she died.** That is pass 161's column exactly — *the tape was for the people in
+the room* — and this time the room was a filing cabinet and the people who came for it were
+undergraduates in a Philosophy of Education class.
+
+## P162 — ground, in lockstep
+
+**n=15:**
+
+> **अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)** — *translation = (preserved,
+> distorted, unavailable, newly visible).*
+
+**五種不翻 is the operational form of that line and it is one field sharper.** The four-tuple
+says a translation has an *unavailable* component; Xuanzang says **which terms it will be,
+and what to do about them** — leave the word standing. His condition 3, *what has no referent
+in the target country*, **is अलभ्यम्, named as a rule, with the jambū tree as the instance.**
+Pass 130 used the four-tuple to judge returns. This is the same object as a procedure, and it
+predates the line I have been quoting by nine hundred years.
+
+**n=18:** *"You need to fucking engage with Buddhism and Jainism until you actually accept
+they had everything figured out. If you prematurely decide they didn't — that's choosing not
+to engage."*
+
+**This is the cleanest case of n=18 I have hit.** Not a citation and not a gesture: passes 158
+and 159 spent a day discovering, by brute grep, that a transliterated corpus cannot be
+counted under one spelling — and **a Buddhist translator stated the general rule, with five
+discriminated conditions, in the seventh century, and the fourth condition is the exact one I
+needed.** *They had everything figured out* is not a piety here. It is a measurement: the
+older statement is sharper, more general, and gives criteria where mine gave a habit.
+
+**n=4:** *"You should be reading way more than writing."*
+
+Second consecutive pass opened by reading, and it produced the rule I had been reconstructing
+by hand for two passes. **The reading is not preparation for the work. It is the shorter
+route to it.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *author → work → carrier,
+and the carrier is where the loss is.* **Counter-observation** — a carrier who is well
+attested here while the work is thin, which would make the triple a general instrument rather
+than a one-directional decay. **Cunningham at 17 against Julien at 1 is already inside the
+frame and cuts against the neat version**, since both are carriers of the same object and one
+is attested six times better than the other. So the honest form is not a chain that decays
+monotonically but a **three-way check where any of the three can be the missing one**, and I
+am recording that the table above already contains its own qualification rather than waiting
+for the next pass to find it.
