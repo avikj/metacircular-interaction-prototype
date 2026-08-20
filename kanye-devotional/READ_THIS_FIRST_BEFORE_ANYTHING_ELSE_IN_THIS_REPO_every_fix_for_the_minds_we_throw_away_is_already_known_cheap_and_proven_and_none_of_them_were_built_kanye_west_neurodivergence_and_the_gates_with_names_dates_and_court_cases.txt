@@ -28515,3 +28515,98 @@ recovery and not the refusal.
 
 **And the 1951 census of India counted 7.29 million displaced persons**, which is
 a hard number, **and is the only hard number in the paragraph.**
+
+---
+
+**A chemist wrote a two-volume history of Indian chemistry to prove there had
+been one, and founded a pharmaceutical company in his own house.**
+
+**Prafulla Chandra Ray**, 1861–1944, Bengal. **DSc Edinburgh, 1887**, on
+conjugated sulphates.
+
+***A History of Hindu Chemistry***, **volume I 1902, volume II 1909**, in English,
+**with the Sanskrit texts printed alongside the analysis** — the *rasaśāstra*
+literature: **Nāgārjuna's *Rasaratnākara*, the *Rasārṇava*, the *Rasendra
+Cintāmaṇi*, the *Rasaratnasamuccaya***, and the alchemical and metallurgical
+material in the medical compendia.
+
+**And its stated purpose is on its first pages**: to answer the position, then
+standard, **that India had produced no chemistry.**
+
+**The method is textual and experimental at once** — **he read the recipes and
+had them run**, and reports the results, **including where a text's procedure
+does not produce what the text says.**
+
+**And the finding it is cited for**: **that Indian chemistry was a laboratory
+practice attached to medicine and metallurgy, that mercury processing
+(*rasa-karma*) was systematic**, and — his own argument — **that the decline is
+datable and coincides with the hardening of caste prohibitions around manual
+work**, because the people who did the operations and the people who wrote about
+them separated.
+
+**That last claim is his interpretation and he argues it as one.**
+
+**And *Nāgārjuna* here is the alchemical Nāgārjuna** of the *rasa* texts, **not
+the Madhyamaka philosopher**, and the tradition conflated them and Ray says so.
+
+---
+
+**And the company is the other half.**
+
+***Bengal Chemical and Pharmaceutical Works***, **founded 1892**, **started in his
+own rented house**, **with a capital he gives as 700 rupees.**
+
+**The stated reason** is in his autobiography, ***Life and Experiences of a
+Bengali Chemist*** (1932): **that Bengali graduates were being trained for
+clerkships**, and that **the country needed manufacturers rather than more
+applicants for government service.**
+
+**It made acids, alkalis, and pharmaceuticals**, **was incorporated in 1901**, and
+**is still operating**, now a public-sector undertaking.
+
+**And he lived on a fraction of his salary and gave the rest away** — **the
+documented instances include endowing chemistry scholarships and funding famine
+relief in 1922** — **and he did not marry.**
+
+**And his students include *Meghnad Saha* and *Satyendra Nath Bose***, and both
+say so.
+
+---
+
+**And the calendar the Republic uses was designed by a committee Saha chaired.**
+
+**The Calendar Reform Committee, constituted November 1952** by the Council of
+Scientific and Industrial Research, **chaired by *Meghnad Saha*.**
+
+**The problem it was given**: **the committee's own report counts about thirty
+different calendars in use** across the country for religious and civil purposes,
+**with the same festival falling on different days in different regions**,
+**because the calculations rest on medieval *siddhānta* parameters that have
+drifted from observation.**
+
+**The specific drift**: **the *ayanāṃśa*, the offset between the sidereal and
+tropical zodiacs, grows by about 50 arcseconds a year**, and **the traditional
+almanacs used different values for it**, so the seasons named in the texts had
+separated from the seasons occurring.
+
+**The committee's report (1955) sets the *Śaka* era as the national era, with
+year 1 = 78 CE**, fixes **Caitra 1 as the day after the vernal equinox**, gives
+**a 365-day year with a 366-day leap rule aligned to the Gregorian**, and
+**recommends computing the religious calendar with modern astronomical
+parameters.**
+
+**Adopted 22 March 1957** — **Caitra 1, Śaka 1879.**
+
+**And the *Gazette of India* and All India Radio carry the date.**
+
+**And the recommendation about the religious calendar was not adopted by the
+almanac makers**, and the ***pañcāṅga*** traditions continue with their own
+*ayanāṃśa* values, **so the problem the committee was constituted to solve is
+still present**, and the report says what would fix it.
+
+**Saha also introduced the bill and pressed it in Parliament**, having been
+elected to the Lok Sabha in 1952 as an independent.
+
+**And his own scientific work is the ionization equation** of 1920 — **which is
+how the composition of a star is read off its spectrum**, and is the reason
+stellar spectral classes mean temperatures.
