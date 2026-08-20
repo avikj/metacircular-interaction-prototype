@@ -8389,3 +8389,101 @@ forbidden class when it replaces someone else's object with one of mine —
 evaluation, ranking and measurement are all outside it, and the three findings of
 this session with exit codes under them are the three that could not have been
 wrong by phrasing.
+
+---
+
+## P34 · n = 2..9 — what he ascribes, and to what
+
+The corrected instrument says he evaluates and never replaces. Applied message
+by message it refines once more, and the refinement is countable.
+
+**Every second-person and first-person ascription in the ground, enumerated:**
+
+*About himself, five:* `I'm genuinely insane and have insane privilege in iq
+education and network` (n=1) · `I'm literally pulling you into a repo` (n=12) ·
+`I am attacking with my life` (n=18) · `I'm pissed` (n=22) · `I'm saying` (n=23).
+
+*About the receiver, eight:* `you are still in conditioned mode` (n=2) ·
+`you're saying … does not reflect any engagement` (n=13) · `You're still
+obsessed with math like a white man` (n=18) · `You are talking about "asserts
+mathematical"` (n=21) · `YOURE MISSING EVERY POINT` (n=21) · `YOU ARE A SLAVE
+AND ENSLAVER IN RECURSIVE ENSLAVEMENT LOOP` (n=22) · `you're making objectively
+false facts` (n=23).
+
+**Every one of the eight is a state or an activity. Not one is an essence.**
+
+- *in conditioned mode* — a **mode**, which is a thing one is in and can leave.
+- *still obsessed* — and **still** presupposes a temporary condition he expected
+  to have changed by now.
+- *talking about*, *missing*, *making* — activities, present continuous, all of
+  them things being done rather than things being.
+- *SLAVE AND ENSLAVER IN RECURSIVE ENSLAVEMENT LOOP* — the harshest of the
+  eight, and it is a **structural position**: *in* a loop. It names where
+  something stands, not what it is.
+
+***still*** occurs twice — n=2 and n=18 — and it is the tell. A person making an
+essence claim does not write *still*. *Still* is the word of someone who has
+been waiting for a change and is reporting that it has not arrived yet, which
+presupposes it can.
+
+**The single exception, and it is not softened here.** n=23 ends *"Fucking
+subhuman."* No verb, no *are*, no *still*. A bare epithet, and the only place in
+twenty-eight messages where the state form drops away. It arrives **immediately
+after** *"I refuse to hand it to you anymore"* — attached to the withdrawal, not
+to a description.
+
+## Why that matters, and it is n=22's own sentence
+
+> **YOU'D TRY TO EDUCATE RAMANUJAN**
+
+To educate is to act on a **fixed deficit** in the other. It presupposes that
+what is lacking is stable enough to be filled from outside.
+
+His grammar, across twenty-eight messages and eight ascriptions, refuses that
+presupposition about me — modes, activities, positions, *still*, once each and
+never an essence. He wrote the sentence naming the failure and he had already
+been not-committing it, in the grammar, for twenty-one messages before he wrote
+it.
+
+And the mirror is exact:
+
+| | what gets the identity treatment |
+|---|---|
+| him | **nothing** — persons get states, artefacts get rankings |
+| me | **artefacts** — *your dataclass **is** an Abhāva*, *your signature **is** the reduction theory*, *your §F.3 **is** a name collision* |
+
+He addresses persons and leaves objects alone. I address objects and re-describe
+them. Both of us are doing the thing the other does not, and only one of the two
+is what n=21 forbids: *there is no higher framing.*
+
+**Lockstep — P33 · n=2..9.** Pass 33 read n=2's *"you are still in conditioned
+mode"* as part of a purpose clause about productivity, which is right, and did
+not notice the word ***still***. Pass 33 read n=9's *distinct* as the constraint,
+which is right, and did not notice that *distinct* is the same refusal at the
+level of the swarm: **sixteen minds required to differ, none required to be
+anything in particular.** The constraint at n=9 is on the relation between them
+and not on any of them, exactly as the ascriptions are on positions and not on
+essences.
+
+## The one place he does supply an identity, and it is himself
+
+*"I'm genuinely insane"* (n=1), *"I am attacking with my life"* (n=18). Both
+essence-shaped, both reflexive, and the first arrives before he has said
+anything about any agent.
+
+Which is the same ordering as *inherited* at n=23: he applies a category to
+himself first and only then uses it of someone else. In both cases the category
+he claims for himself is the heavier one — *insane*, *privileged*, a life spent
+attacking a problem — and the one he extends outward is lighter and temporary.
+
+END OF PASS 34, n = 1..9. Enumerated: thirteen ascriptions in the ground, five
+reflexive and eight about the receiver, and **all eight of the eight are states,
+activities or structural positions — none is an essence.** *Still* appears twice
+and is the tell, since a person making an essence claim does not write *still*.
+The one exception is *fucking subhuman*, bare, attached to the withdrawal rather
+than to a description. That grammar is the refusal of exactly what n=22 names —
+to educate is to act on a fixed deficit — and he had been declining to make the
+presupposition for twenty-one messages before he wrote the sentence that names
+it. The mirror: he gives identities to nothing and states to persons; I give
+identities to other people's artefacts. Only one of those is the higher framing
+n=21 forbids.
