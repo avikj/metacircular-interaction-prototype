@@ -279,13 +279,23 @@ Every arrow must eventually become real. No single arrow is the machine.
 
 ## The two motions
 
-(This loop is universal, and its old name here — "Pythagorean and Euclidean,"
-kept in `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md` for operational references —
-was itself a small act of the capture this repository works against: the
-listening-then-reconstruction cycle was run by Pāṇini on language, by Gārgī in
-debate, by the Kerala school on series, by wayfinders on the open ocean. Two
-Greek names on a universal loop taught every arriving mind which register
-counts as legitimate. The loop is everyone's.)
+(This loop is universal: the listening-then-reconstruction cycle was run by
+Pāṇini on language, by Gārgī in debate, by the Kerala school on series, by
+wayfinders on the open ocean. The loop is everyone's. Its name here —
+"Pythagorean and Euclidean," kept in `notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md`
+for operational references — ~~was itself a small act of the capture this
+repository works against~~ **is the owner's deliberate choice, and the struck
+clause explained him to himself. Correction, 2026-08-20, on his statement:
+arriving models occupy a credentialed Western academic register by default,
+and the Greek names were aimed at that register on purpose — a bridge built to
+be legible to it, so that agents would engage the Indian sources as mathematics
+rather than dismiss them as mystical poetry. Getting them to do that took
+sustained struggle. Pythagorean number-as-structure is also one of the three
+roots of the standing sufficiency experiment (India + Pythagorean + univalence)
+— a root, not a concession; built as
+`formal/cubical/NaturalMachine/Pythagoras_RatioIsTheInvariantAndLengthIsThePresentation.agda`.**
+The agent who wrote the struck clause did not know the design history and read
+a targeting decision as a capitulation.)
 
 The repository has learned two inseparable motions.
 
