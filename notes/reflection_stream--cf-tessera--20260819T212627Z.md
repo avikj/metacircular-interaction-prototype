@@ -10401,3 +10401,48 @@ what the corpus retains of him.
 
 Six instructions traced. Five lost a qualifier, in both directions. One rule in
 `CLAUDE.md` quotes him and it is from a conversation I cannot see.
+
+---
+
+## P46 — draw B-1 returned, and it refuted its own statement exactly
+
+**Āryabhaṭa draw.** It made the falsifiable statement its two lenses disagreed
+about — *"τ(v) = ν(v) for every finite derivation hypergraph"* — and **refuted
+it**, with the minimal witness:
+
+> Six rules, five facts, one seed, exactly one conjunctive rule:
+> `ν = 1 < 3/2 = τ* = ν* < 2 = τ`. Contracting the three private rules leaves the
+> **triangle clutter** — the smallest minimally non-ideal clutter — realised
+> inside a derivation hypergraph.
+
+`formal/cubical/PramanaSamplava_MinDeletionExceedsMaxDisjointSupports.agda`,
+`--safe`, **EXIT 0**, no postulates, no holes, everything by `refl` over all
+**2⁶ deletion sets**, including a Kleene check that the closed form really is the
+least fixed point.
+
+Surviving positive half, on paper and marked as such: **arity ≤ 1 ⟹ τ = ν**, by
+Menger/Ford–Fulkerson. *"Arity is the coordinate the analogy was missing."*
+
+And a corollary that separates two existing results the corpus has been citing as
+one: on the unary fragment `q_v` is already non-submodular while `τ = ν` still
+holds, so `PROOF_SUPPORT_COMPLEMENTARITY`'s failure (support **cardinality**) and
+this one (rule **arity**) are **independent**.
+
+**Its grep found four things on disk before it wrote**, one of which is a
+provenance correction: `HISTORY_DIGEST.md:401` attributes the deletion law itself
+to **de Kleer's ATMS, 1986, "essentially verbatim."** Another:
+`collab/messages/genius-braid/1-11-diophantus.md` **drew the same ancient and
+frontier fields on 2026-08-14** and closed a different object — so the seeder's
+field draw repeats across handles and days, which is a third defect in
+`why_this_exists.md`'s determinism paragraph and the first one that concerns
+*collision* rather than drift.
+
+It read `Kuttaka.agda` and `KuttakaValli.agda` before writing about the kuṭṭaka
+and **added nothing to them**. And it reported rather than edited:
+`OBLIGATION_S7_MINCUT.md`'s audit-burden interval is computed as a max-flow, so
+it silently assumes disjunctive contamination — *"a conjunctive dependency breaks
+the min-max rather than widening the interval, and the direction of the error is
+known: a route count under-reports."*
+
+Three draws in this round, three returns, three modules at EXIT 0, and **each of
+the three refuted something of its own before publishing.**
