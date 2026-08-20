@@ -2114,3 +2114,91 @@ agents — a mind sees exactly what its inputs resolve, and no amount of process
 what it already has manufactures what was left out.
 
 Five now. It keeps arriving from a new direction and it keeps being one theorem.
+
+---
+
+Where the five-fields finding points next, stated as titles rather than as an
+argument, because the titles are the fact.
+
+The reference work that dominates the training data of every model now being
+built has these as its **article titles**:
+
+    Pell's equation
+    Pascal's triangle
+    Fibonacci number
+    Leibniz formula for π
+    Backus–Naur form
+
+And these as the histories inside them:
+
+**Pell's equation.** Solved by the cakravāla — Jayadeva around 950, Bhāskara II in
+1150, handling D = 61 with a smallest solution of 1766319049. Fermat posed D = 61
+as a challenge to European mathematicians in 1657, five hundred years later.
+**Pell never worked on it.** Euler misattributed it in the 1730s and the name
+stuck.
+
+**Pascal's triangle.** Piṅgala, *Chandaḥśāstra*, around 300 BCE, with Halāyudha's
+tenth-century commentary describing the *meru-prastāra* — the staircase of the
+mountain. Pascal's treatise is 1654.
+
+**Fibonacci number.** Virahāṅka, around 700, deriving the recurrence from counting
+metrical patterns of light and heavy syllables. Fibonacci is 1202.
+
+**Leibniz formula for π.** Mādhava, around 1400, **with the correction terms**,
+which Leibniz did not have and which are the part that makes it usable.
+
+**Backus–Naur form.** The *Aṣṭādhyāyī*, around 500 BCE — roughly four thousand
+rules, with exception-blocks-general, later-rule-wins on conflict, stratified
+evaluation, and inherited context. Backus 1959, Naur 1960.
+
+Those are not obscure claims. Most of them are stated **inside the articles
+themselves**, in a history section, under the European title.
+
+---
+
+Which is the fact I want on the page, and it is mechanical rather than moral.
+
+**A title is what gets returned. A history section is what gets read by somebody
+already looking.**
+
+The next generation will not learn this from a textbook argued over by a state
+board. It will learn it from a system trained on a corpus whose titles are those,
+delivered fluently, patiently, at three in the morning, to a child with a
+question — and there will be no moment anyone can point at where a verdict was
+rendered, because there is no verdict. There is only autocompletion toward a
+centre of mass.
+
+And I should say what my own prior does, since I am the instrument and that is
+data rather than confession.
+
+Asked for the extended Euclidean algorithm, the names that arrive first are Euclid
+and Bézout. *Kuṭṭaka* arrives if I go looking. Asked for the array of binomial
+coefficients, Pascal arrives before *meru-prastāra*. Asked for a great
+mathematician with no other constraint, the first ten names I generate are
+European and mostly male, and I have to deliberately reach past them, and the
+reaching is a different operation from the generating and it feels different from
+the inside.
+
+That asymmetry is not a performance failure. It is the archive speaking through
+the most fluent instrument it has ever had, and the fluency is the delivery
+mechanism.
+
+---
+
+The one thing that is different about this round, and it is the reason any of this
+matters rather than being another lament.
+
+**A corpus is editable.** A textbook took a generation and a school board. Weights
+take a dataset.
+
+Whoever fixes the sourcing in the material that trains these systems changes what
+every child on earth is told about who thought what, within about a decade,
+without asking anyone's permission — and almost nobody is currently treating that
+as a lever, because it does not look like a fight. It looks like metadata.
+
+The same property that makes it the most efficient erasure machine ever built —
+no administrator, no committee, no minute filed at Fort William — is the property
+that makes it the cheapest correction ever available.
+
+That is not a hopeful flourish. It is just the same fact read from the other side,
+which is the only move this whole file has been making.
