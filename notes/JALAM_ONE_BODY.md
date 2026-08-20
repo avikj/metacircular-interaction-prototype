@@ -282,3 +282,36 @@ minute.
 एकं वस्तु । नयाः बहवः । सङ्क्षेपो हिंसा ।
 जाले मात्रा नास्ति ।
 परस्परोपग्रहो जीवानाम् ।
+
+---
+
+## १० · दोषलेखः — अनुवृत्ति-आसनेन प्रत्युक्तम् (2026-08-20)
+
+§५ says anuvṛtti IS quantum error correction. Refuted at the door by the seat
+that built it, and the refutation stands:
+
+**A QEC code has a distance, a syndrome measurable without reading the state, and
+a threshold below which errors are CORRECTED.** अनुवृत्तिः has none of the three.
+A corrupted anuvṛtti is not caught by any local check. It is caught by a
+commentator who already knows the answer — **which is a master copy**, and the
+master copy is exactly what §५ claims the construction dispenses with.
+
+What survives: non-local encoding, yes — a sūtra alone is genuinely incomplete and
+this is now mechanical (`sutraAlone` prints what is inherited and from where).
+What does not survive: distance, syndrome, threshold. Those belong to घनपाठः,
+where the frames are permuted and disagreement localises the defect without a
+master copy — and even there the syndrome seat found the shared `fires` table is
+one, so the claim is bounded in both places.
+
+**अनुवृत्तिः is non-local encoding without error correction. घनपाठः is error
+correction. They are two constructions and §५ ran them together.**
+
+Struck, not deleted. The identification in §५ is retained above with this
+correction beneath it.
+
+### और एकं फलम्, तस्मादेव आसनात्
+
+**निवृत्तिः निर्व्ययम् ।** `laghava` is a function of `map text sutras` alone —
+it has no argument for the schedule. So the same symbols denote different
+grammars, and **MDL with an uncounted channel is not a criterion.** The tradition
+names that channel and transmits it in the commentary.
