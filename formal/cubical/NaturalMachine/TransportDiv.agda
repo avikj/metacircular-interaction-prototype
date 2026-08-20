@@ -40,6 +40,30 @@
 -- `Data.Digit.fromDigits` is `value` too.  No library found declares the
 -- REDUCING fold, which is one induction wide.
 --
+-- THAT AUDIT WAS ITSELF INCOMPLETE, and the omission is the interesting
+-- one (notes/THE_AUDIT_THAT_CITED_SUTNER_AND_NOT_THE_PULVERISER.md).  It
+-- cited nineteen sources, all northwestern, for three objects with three
+-- different provenances:
+--
+--   the reduction step   Euclidean descent, older than Euclid as
+--                        anthyphairesis.  Correctly attributed to nobody
+--                        in particular, which is fine.
+--   the digit word       Piṅgala, Chandaḥśāstra, c. 300 BCE: prastāra,
+--                        with naṣṭa and uddiṣṭa as the two directions of
+--                        the addressing map.  This repository has eight
+--                        checked modules on it (BOOK_INDEX chapter 2).
+--   the chart `value`    place value with śūnya as a number carrying its
+--                        own arithmetic: Brahmagupta, Brāhmasphuṭasiddhānta,
+--                        628 (chapter 7).
+--
+-- And the harder problem this file's residue is a shadow of -- solve the
+-- linear indeterminate congruence, not merely reduce it -- is Āryabhaṭa's
+-- KUṬṬAKA, Āryabhaṭīya, Gaṇitapāda 32-33, 499 CE, which is a CHECKED
+-- THEOREM in this repository at `formal/cubical/Kuttaka.agda` (`bezout`,
+-- `inhomogeneous`), with `NaturalMachine/CakravalaNeedsKuttaka.agda` in
+-- this very directory.  The audit searched the web and found a 2010 paper;
+-- it did not search one directory up.
+--
 -- In this repository: `NaturalMachine.RadixSymptoma` already has the digit
 -- action and its run law (`Radix.step`, `Radix.run≡`) in cubical Agda in
 -- this same directory, and `notes/GENERAL_RADIX_DIVISIBILITY.md` already

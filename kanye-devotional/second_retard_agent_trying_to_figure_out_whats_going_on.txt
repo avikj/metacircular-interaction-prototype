@@ -170,3 +170,93 @@ whether he was being anti-intellectual.
 
 His mother had a PhD and chaired an English department. He was not confused about
 what learning is.
+
+---
+
+Going to Kerala, because this repository's own front matter says the source
+coverage hook has been reporting **Yuktibhāṣā: 0 notes** and **Tantrasaṅgraha: 0
+notes** for days while somebody was writing a module about Mādhava's series. The
+author's name propagates through citation. The work's name only shows up when
+someone actually went to the work. So, the works.
+
+**Mādhava of Saṅgamagrāma**, c. 1340–1425. The series usually written
+
+    π/4 = 1 − 1/3 + 1/5 − 1/7 + …
+
+carries Leibniz's name from 1673 and Gregory's from 1671.
+
+But the series by itself is close to useless and Mādhava knew that. It converges
+so slowly you need on the order of a hundred thousand terms for five correct
+decimals. **What he actually produced was the series together with correction
+terms** — an end-correction, a rational function in the number of terms, added
+after truncation, which pulls high accuracy out of a handful of terms. He gives
+successively better correction terms, and the third one is good enough that a
+few dozen terms land eleven decimal places. He states π as **3.14159265359**.
+
+That is the part the European restatement does not carry, and it is not a detail.
+A slowly convergent series is a curiosity. A slowly convergent series **plus a
+quantified remainder plus an accelerator** is an algorithm, and it means he had
+the error term in hand — which is exactly the thing this repository keeps saying
+is the whole content and the correlation coefficient is not.
+
+He also has the arctangent, sine, and cosine series. The sine one gets called
+Newton's.
+
+**Nīlakaṇṭha Somayāji**, 1444–1544, and the *Tantrasaṅgraha*, which he dates
+inside the text to **1501** by a kaṭapayādi chronogram.
+
+Two things in him. First, a planetary model in which Mercury, Venus, Mars,
+Jupiter and Saturn go around the **Sun**, and the Sun goes around the Earth. That
+is the Tychonic system. Tycho Brahe publishes it in **1588**. Nīlakaṇṭha is
+eighty-seven years earlier, and he got there by taking the equation-of-centre
+corrections seriously rather than by cosmological argument.
+
+Second, in his *Āryabhaṭīyabhāṣya* he says the ratio of circumference to diameter
+**cannot** be expressed exactly — that any value given is approximate by
+necessity, not by lack of effort. That is a statement of incommensurability.
+**[to be exact about the grade]** it is asserted, not proved; Lambert proves the
+irrationality of π in 1761. But asserting that no ratio can do it, and giving the
+reason as the nature of the quantity rather than the state of the calculation, is
+a different epistemic act from computing better decimals.
+
+**Jyeṣṭhadeva**, *Yuktibhāṣā*, c. 1530 — and the two facts about it are the ones
+that matter.
+
+It is written in **Malayalam**, not Sanskrit. Vernacular prose.
+
+And *yukti* means reasoning, demonstration. **The book gives the derivations.**
+Not the results in verse for memorisation — the arguments. It derives the
+infinite series, does the summation of powers (*saṅkalita*) that plays the role of
+integrating x^k, and runs a term-by-term limiting argument on the arc. People who
+work on it call it the first text of calculus, and the reason is not the results;
+it is that the results come with proofs, in prose, in a language ordinary people
+in that region spoke.
+
+---
+
+The transmission question, stated at the grade it actually has.
+
+The Jesuits were in Cochin from the mid-1500s, in the middle of this. Europe had
+an enormous and specific problem — longitude at sea — and the solution needed
+better trigonometric tables and better calendrical astronomy. Matteo Ricci, in
+Cochin in 1581, wrote back to Rome asking about Indian methods of calendrical
+computation. The Jesuits were systematic collectors, they learned Malayalam and
+Sanskrit, and they were sitting in the exact region where the Yuktibhāṣā had been
+written fifty years earlier.
+
+Then Gregory 1671, Leibniz 1673, Newton.
+
+Almeida and Joseph argued the transmission case in print in 2007; C.K. Raju
+argued it at length the same year. The mainstream position is independent
+rediscovery.
+
+**What is documented is motive, opportunity, and proximity. What has not been
+produced is a document showing the transfer.** I am not going to upgrade that,
+and the honest thing is that this is the ordinary condition of a transmission
+claim — the receiving side had no reason to write down where it came from, and
+the burden of proof has been placed entirely on the side that was already
+dispossessed. Which is a fact about the burden, not about the history.
+
+The part that needs no transmission claim at all: the derivations existed, in
+Malayalam, in prose, with error terms, before anyone in Europe had them. That is
+true whether or not a single page ever crossed the water.

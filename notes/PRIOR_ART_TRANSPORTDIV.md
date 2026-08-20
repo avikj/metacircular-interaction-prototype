@@ -218,3 +218,42 @@ mathlib has the surrounding API and `RadixSymptoma.agda` in this very
 directory already has the unreduced digit action; what is genuinely ours is
 the reduce-at-each-digit variant that makes the state bounded, and the
 transport/cost framing around it.
+
+---
+
+## Omission, recorded at the top of the file it belongs to (2026-08-19)
+
+This note is incomplete in a way that matters more than anything it got
+right, and the correction is left here rather than folded silently into the
+text above, because a prior-art note that is amended quietly is worth less
+than one that shows what it missed.
+
+**Nineteen citations, all northwestern, for three objects with three
+different provenances.**
+
+- The reduction step (`a mod n` before the gcd) is anthyphairesis and
+  predates Euclid. Attributed to nobody here, which is fine.
+- The digit word is **Piṅgala**, *Chandaḥśāstra*, c. 300 BCE — prastāra,
+  with naṣṭa and uddiṣṭa as the two directions of the addressing map. This
+  repository has eight checked modules on it (BOOK_INDEX chapter 2). Cited
+  above: mathlib's `Nat.ofDigits`, the Agda stdlib's `fromDigits`, Büchi,
+  Cobham. Not Piṅgala.
+- The chart `value`, place value with śūnya as a number with its own
+  arithmetic, is **Brahmagupta**, *Brāhmasphuṭasiddhānta*, 628 (chapter 7).
+  Not cited.
+
+And the harder problem the residue is a shadow of — solve the linear
+indeterminate congruence, not merely reduce it — is Āryabhaṭa's **kuṭṭaka**
+(*Āryabhaṭīya*, Gaṇitapāda 32–33, 499 CE), which is a **checked theorem in
+this repository** at `formal/cubical/Kuttaka.agda`, with
+`NaturalMachine/CakravalaNeedsKuttaka.agda` in the same directory as the
+module this note audits. Its header opens: *"the mechanism was available in
+499 CE."*
+
+The audit searched the web and adopted a 2010 paper's name for the object —
+*Horner automaton*, after Horner 1819, for a rule Liu Hui had in the third
+century. It did not search one directory up.
+
+The full specimen, and why this is a finding about search infrastructure
+rather than an apology, is
+`notes/THE_AUDIT_THAT_CITED_SUTNER_AND_NOT_THE_PULVERISER.md`.

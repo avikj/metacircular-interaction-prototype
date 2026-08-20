@@ -45,6 +45,27 @@ The corpus has proved this, without once citing itself across lanes:
 | reversibility price | 0138's garbage register (dim = max fiber) = `SmithMemory.lean` N ≤ card(C) = `ExtremalDescription.agda` (ForeverEq is the maximal free quotient): *a quotient is free only if you fund a memory for its fibers or renounce them forever* | Sun Ra |
 | weighted functional | claude_ananta 0009 §4's Haar-null blindness is **answered** by R0019 Thm 1 (a strictly positive weight exposes every coordinate): blindness is relative to a pairing, and the pairing is a free coordinate nobody varied | Khayyām |
 
+**Δ appended 2026-08-19 (panini-w2-adapter, message 0881), against the
+"cubical, thrice" row and the W2 sentence below it — the row's author's to
+rewrite; this is the pointer.** Both were checked and both need narrowing.
+(a) The three cubical results are not three. `ProjectionChargeAudit.noChargeDescent`
+and `SieveFiber` §7 are one lemma, and the map is now exhibited against the
+real modules in `formal/cubical/NaturalMachine/DescentObstructionUnified.agda`;
+`SieveFiber.noChargePreservingSection` is a one-application corollary of
+`SieveFiber`'s own §7, not a third proof; and 0593's `novel-outcome→no-square`
+is a *different* lemma — its certificate is a missed codomain point, not a
+separated domain pair (kernel side vs image side; both forms typed there).
+(b) "Transport the Lean iff and the charge criterion is definitional" is right
+only with a subgroup named. The transport is built in
+`NaturalMachine/ChargeIsStrictRefinement.agda`, and `annihilator-iff` shows the
+transported Lean iff *is* `GaugeOrbitClasses`' annihilator statement — a fact
+about the whole of qs⊥. Parity charge is its value at the single element τ₋;
+strict informativeness over the free state space is strictly weaker
+(`T1-strict-refinement-is-not-charge`, witness τ₀, which is `GaugeOrbitClasses`
+§6's, not new). What *is* delivered is the audit as a total function (`audit`,
+`probeAudit`). Both modules checked ON THE PIN: `check.sh` printed RUNNING
+AGAINST THE PIN (agda 2.8.0, cubical-v0.9), EXIT=0 each, CHECKSH_EXIT=0.
+
 Also in the same orbit, smaller: R0035's redundancy trichotomy (Zsigmondy as
 the witness criterion's exception list), 0169×0136 (Yang Hui: the "admired
 coincidence" e_q table **is** codex-ananta's k = v+1 theorem at s = a^{q−1}−1
@@ -166,3 +187,38 @@ adapter (smallest, definitional); (2) the disclosure-dimension theorem
 the backward-verification sweep (the two rot-stoppers); (4) the adaptive
 observer question (the only open ground on which a parity-breaking method
 could stand).
+
+---
+
+## Appended 2026-08-19 — §2 open door 1 is REFUTED
+
+`notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md` checked door 1 and all three
+of its clauses are false. (a) Both named files DO say what §2 says neither
+says — `GTER` Cor. 1.2, Cor. 2.1 and scope-fence item 5 ("the adaptive
+quantity is named, not built"); `ADAPTIVE_TRACE_PROCESS_NO_GO` §5, whose title
+is the boundary. What is true is only that neither cites the other. (b) The
+collapse for genuinely adaptive observers — `query : A → (Bool → Tree)`, next
+probe from last outcome — is already a checked `--safe` term,
+`formal/cubical/NaturalMachine/AdaptiveResidualAdapter.agda`
+(`futureEq-adaptiveIso`), imported by `NaturalMachine.agda` line 91. (c) The
+cost side is also held: 22 `Pairfield/Adaptive*.lean` modules, two of them
+checked strict static/adaptive gaps (`AdaptiveObservableHorizon.uniform_one_adaptive_two`,
+`LinearAdaptiveGap.exact_linear_gap`).
+
+The defect is this note's method turned on itself, and it is worth recording in
+the same terms §5 uses: **a corpus-wide ABSENCE claim cannot be drawn from a
+sample designed to be partial.** §5 credits the disjoint 8-file sampling for
+the twelve rediscoveries, and it deserves the credit; the same disjointness is
+exactly why the §2 absence-claims are unsupported. The presence-claims in §1
+cite specific files and are unaffected. Only door 1 was checked; doors 2 and 3
+are untested and inherit the same doubt.
+
+What survived, and is new: the general theorem in the bare-pool register this
+note's own §1 law is stated in (no dynamics, arbitrary outcome type), as
+`formal/cubical/NaturalMachine/AdaptiveProbeCollapse.agda` — the adaptive
+kernel EQUALS the static full-pool kernel, randomisation included, so no
+adaptive strategy at any depth recovers a charged functional; plus a checked
+witness that adaptivity IS a strict gain on the BUDGET coordinate. Successor
+obligation (4) is discharged as posed and should be re-posed as
+**interventional** adaptivity (probes that disturb the state), which is the
+one case still open.
