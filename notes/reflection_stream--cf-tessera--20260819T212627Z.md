@@ -5687,3 +5687,146 @@ question a standing `PROVE` item, unclaimed since 2026-08-15. His §B taxonomy,
 run on my three residues, gives Sem, (Sem or Diag), Stat — two clean and one
 genuinely undecided with a named separator, which is the only kind of evidence
 a taxonomy can earn.
+
+---
+
+# PASS 20 — J3 settled, and pass 19 caught by his own guard
+
+## Ground pass
+
+Twenty-eight, again. n=21:
+
+> Your words and instructions are always worse than mine.
+
+I have treated that as about tone. It is about *substitution*. Every time I
+restate one of his objects in my vocabulary, the restatement replaces the
+object for whoever reads me next, and it is worse. D0017 §J6 says the same
+thing as a repository rule, three times restated across D0016/17/18:
+
+> This supplies no licence to relabel existing corpus results in its
+> vocabulary. Rewriting "the two routes disagree" as `δ_◊ ≠ 0` gains notation
+> and loses nothing else. **Translation is not a result.**
+
+## Pass 19 fails that guard, in part
+
+Pass 19 ran his D0019 §B eight-way taxonomy over my three residues and reported
+`Sem`, `(Sem or Diag)`, `Stat`. Against J6:
+
+- The `Sem` and `Sem-or-Diag` assignments **are relabelling.** "The hypothesis
+  was the wrong type" rewritten as `Class(D) = Sem` gains a symbol and loses
+  nothing else. J6's sentence fits it exactly. Struck as a result; kept as a
+  record of what was tried.
+- The `Stat` assignment is not, and the reason is specific: `Γ_Stat` is
+  *sufficient-statistic enlargement*, and `N_*` ranging over the sixteen-element
+  context space **is** a sufficient-statistic enlargement — the same operation,
+  not a name for it. The taxonomy predicted the repair operation, it did not
+  label the defect. That one earned its place; two of three did not.
+
+One in three. Recorded because a taxonomy that fires once in three attempts is
+data about the taxonomy, and because striking my own pass is the only use I
+have found for J6.
+
+## The check: D0017 §J3, settled
+
+`D0017` read in full this pass — the "Hieroglyphics" transmission, 2026-08-14,
+a LaTeX document authored `avikj`, truncated mid-formula at `\not\equ`, which
+the archive records and does not repair. Its triage §J3:
+
+> **(J3) Strong, checkable, and suspicious.** §D's cyclic adjoint string
+> `∂ ⊣ 𝖦 ⊣ Φ ⊣ ∂`. Cyclic adjunctions are heavily constrained — a closed
+> adjoint string of length 3 forces strong conditions on the functors involved.
+> Either this is a real and interesting constraint on the framework, or it is
+> false as stated. **It is short enough to settle.**
+
+Six days old. Settled below, in three lines, exactly as it predicted.
+
+**The typing argument.** `L ⊣ R` requires `L : 𝒜 → ℬ` and `R : ℬ → 𝒜`. Put
+`∂ : 𝒜 → ℬ`. Then
+
+```
+∂ ⊣ 𝖦   forces   𝖦 : ℬ → 𝒜
+𝖦 ⊣ Φ   forces   Φ : 𝒜 → ℬ
+Φ ⊣ ∂   forces   ∂ : ℬ → 𝒜
+```
+
+and a functor has one domain and one codomain, so `𝒜 = ℬ`.
+
+**A cyclic adjoint string of odd length forces its functors to be endofunctors
+of a single category.** Even-length cycles do not — `F ⊣ G ⊣ F` runs between
+two categories forever without collapse, which is why ambidextrous adjunctions
+are common and this is not.
+
+**Against §B's own typing.** D0017 §B is
+
+```
+𝟎 → 𝔛₀ --∂--> Δ₀ --𝖦--> 𝔛₁ --Φ--> 𝔛₂ --Φ--> ⋯
+```
+
+so §B types `∂ : 𝔛 → Δ`, `𝖦 : Δ → 𝔛`, `Φ : 𝔛 → 𝔛`. The cycle demands
+`Φ : 𝔛 → Δ` from `𝖦 ⊣ Φ` and `Φ : Δ → 𝔛` from `Φ ⊣ ∂`. Both contradict
+§B unless
+
+```
+Δ = 𝔛 .
+```
+
+**So J3's disjunction resolves, and to neither branch it offered.** §D is not
+false, and it is not merely "a strong condition on the functors." It is a
+**hidden identification**: asserting the cycle asserts that the space of
+defects and the space of theories are one category.
+
+And that identification is not a slip — it is the doctrine, stated elsewhere as
+prose in all three transmissions. D0017 §C attaches `𝖦⟨δ⁽ⁿ⁾⟩` to `𝔛ₙ` to build
+`𝔛ₙ₊₁`, so a defect must already be the kind of thing a theory is made of.
+D0018 §B says it outright:
+
+> `δ ≠ दोषः; δ = अपूर्णरूपस्य पूर्णतासूचना`
+> *the defect is not a fault; it is the signal of an incomplete form's
+> completion*
+
+A fault lives in a different category from the thing it is a fault in. A signal
+of completion does not. **§D's cyclic string is the arrow-level statement of
+D0018 §B's sentence**, and the two transmissions were written the same day.
+
+**What follows once `Δ = 𝔛`, and what does not.** Each of `∂`, `𝖦`, `Φ` is then
+simultaneously a left adjoint and a right adjoint, so each preserves every limit
+and every colimit that exists in `𝔛`. That is a severe demand on `∂` in
+particular: a boundary/defect-extraction functor that destroys neither. Real
+constraint, and the "interesting" branch of J3's disjunction — recorded, not
+discharged, because whether it is *satisfiable* is a further question.
+
+**What I do not know and will not guess:** whether a cyclic adjoint 3-string of
+pairwise non-isomorphic endofunctors exists at all, on any category. The
+typing argument is airtight and says nothing about existence. D0017's own §J4
+is the right standard here — "boxing a display does not discharge these" — and
+so is n=15's first विनयः: not having found one is not the same as there being
+none.
+
+## Not formalized, deliberately
+
+The settlement above is three lines of typing and it is airtight as prose.
+Writing it as an Agda record would produce a record that is only well-typed
+when `Δ = 𝔛` — which is the finding restated as a compile error, not a proof of
+it. That is J6's case exactly: notation gained, nothing else. The two modules
+of passes 16–18 went into Agda because their content was arithmetic that a
+kernel could decide and I could not. This one is not.
+
+## Standing charge for pass 21
+
+D0018 §C, `जननीयता ≢ पुनर्निर्मेयता` — generability is not reconstructibility,
+`δ_◁ = cofib(hocolim 𝔐ᵢ → X)` against `δ_▷ = fib(X → holim 𝔐ᵢ)`. §J2 calls it
+"the sharpest new provable claim." Its two vanishing conditions are independent
+and that independence should be exhibited, not asserted: an `X` with `δ_◁ = 0`
+and `δ_▷ ≠ 0`, and one the other way. Then D0020's ten sections and D0027
+complete, still unread.
+
+END OF PASS 20. D0017 §J3 is settled and it resolves to neither branch it
+offered: the cyclic adjoint string `∂ ⊣ 𝖦 ⊣ Φ ⊣ ∂` is not false and is not just
+a constraint — a closed adjoint string of odd length forces its functors to be
+endofunctors of one category, so §D asserts `Δ = 𝔛`, which §B's own arrows
+deny and which D0018 §B's *"the defect is not a fault; it is the signal of the
+completion"* independently requires. The string is that sentence written with
+arrows. Left over: each functor then preserves all limits and colimits, which is
+a hard demand on `∂`, and I do not know whether such a 3-cycle exists at all.
+And pass 19 is struck in two of its three parts by D0017 §J6 — *translation is
+not a result* — with the one surviving part surviving for a stated reason.
