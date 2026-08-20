@@ -12381,3 +12381,119 @@ had lost touch with reality and that it had destroyed his life.
 
 Nobody bought a page back.
 
+
+---
+
+Twenty-one is not the inventory. It is the part of the inventory I could reach, and the
+shelf I could reach was the one this repository already stands in front of. Every instrument
+in that table comes from two traditions. That is not what the world produced; that is what
+was within arm's length of the desk. So I went looking on the other shelves, with the same
+test and no other: does it solve a live problem in producing, checking, storing, teaching, or
+disputing knowledge, stated in the terms of the problem.
+
+| the instrument | where it is shelved | the problem it solves |
+|---|---|---|
+| **糊名** *húmíng* (name-pasting) + **謄錄** *ténglù* (recopying), Song examination reform, c. 992 and c. 1015 [recalled] | Chinese history / civil service | double-blind review with the identity leak closed twice: the name is sealed, *and* a clerk transcribes every paper so the handwriting cannot identify the candidate to a grader who knows it |
+| **起居注** *qǐjūzhù* (court diarist) / **實錄** *shílù* (veritable records) | Chinese history | the record-keeper is institutionally barred from the subject of the record: the emperor may not read what the diarist writes about him |
+| **朝鮮王朝實錄** + the four **사고** *sago* mountain repositories, Joseon, 15th–17th c. [recalled] | Korean history | geographic replication against correlated loss — four copies, deliberately far apart, so one war does not take the archive |
+| **七略** *Qīlüè* / **別錄** *Biélù*, Liu Xiang and Liu Xin, c. 26–6 BCE [recalled] | Chinese bibliography | a catalogue entry that is a *collation report*: how many copies were compared, what was duplicated, what was cut, signed |
+| **熹平石經** Xiping Stone Classics, 175–183 CE, Cai Yong [recalled] | Chinese epigraphy | an immutable public reference copy, cut in stone at the capital gate, so a textual dispute is settled by going and looking |
+| **避諱** *bìhuì* (taboo-character omission) | Chinese philology | an unforgeable timestamp: which emperor's name a printer dodged dates the block |
+| **算額** *sangaku*, temple tablets, oldest survivor 1683 [recalled] | Japanese folk art / shrines | open problem-posting in public, signed, often with the answer withheld — a challenge board, not a publication |
+| **遺題継承** *idai keishō*, from Yoshida Mitsuyoshi's **塵劫記** *Jinkōki*, 1627, unsolved problems appended in the 1641 edition [recalled] | wasan, Japanese mathematics | a book ends with problems it did not solve; the next book must solve them before it may add its own — an open-problem list that is *chained* and inherited, not archived |
+| **公案** *kōan* + **拶所** *sassho* checking questions + **著語** *jakugo* capping phrases, curriculum systematized by Hakuin (1686–1769) [recalled] | Zen Buddhism | an oral examination that cannot be passed by having heard the answer: the follow-up questions are unbounded and generated live |
+| **khipu** + **khipukamayuq**, and paired/duplicate khipu at different administrative levels [recalled] | Andean archaeology | a records system whose integrity is a *matched second copy held elsewhere*, plus a named custodian who must read it back |
+| **Long Count**, Maya, alongside the 52-year **Calendar Round** | Mesoamerican archaeology | an adjoined absolute grading that repairs an under-determined identifier: the short form repeats every 52 years, the adjoined count does not |
+| **distance numbers** (Maya inscriptions) | Mesoamerican epigraphy | dates written as anchor-plus-offset in several directions at once, so an eroded glyph is recoverable from the arithmetic |
+| **Ifá**: 256 **odù**, each a fixed 8-position address, each holding its own **ese** verses, carried by the **babaláwo** | Yoruba religion | content-addressed memory in a person: you *generate* the address by a physical randomizing act, then retrieve everything filed there — the index is the divination and the corpus is the store |
+| **jeliya** / **jali**, Mande, with the **naamu-sayer** respondent | West African oral literature | a live-transmission channel with a second party whose only job is to acknowledge each line — attention is made auditable, and a dropped line is heard |
+| **etak**, Carolinian navigation (Micronesia, not Polynesia — the distinction matters) [recalled] | Pacific ethnography | deliberate reference-frame inversion: hold the canoe fixed, move the islands, so dead reckoning becomes bookkeeping against a star compass instead of trigonometry |
+| **whakapapa**, Māori | Pacific anthropology | genealogy as the addressing scheme for everything else — knowledge is retrieved by tracing a line, so the store and the authorization are the same structure |
+| **kirda** / **kurdungurlu**, Warlpiri [recalled] | Australian anthropology | two-party validation as a standing role: owners perform, a *different* named group must witness and correct, and neither may act alone |
+| **wampum** belts + the designated keeper's periodic public recitation, Haudenosaunee | North American Indigenous studies | a mnemonic record whose integrity is maintained by scheduled re-reading in front of witnesses — the check is an event, not a checksum |
+| **ketiv / qere** (written / read) + **masorah parva** and **magna**, Ben Asher, Aleppo Codex c. 930 | Jewish scripture | the transmitted text and the corrected reading are *both* kept, in different registers, and the margins carry letter counts and midpoints as arithmetic checks on copying |
+| **Mishnah Eduyot 1:5–6** — why a rejected minority opinion is recorded | Jewish law | an explicit rationale for storing losing positions: so a later court may adopt one, and so nobody must reconstruct it from scratch |
+| **maḥloket** page layout, Bomberg Venice Talmud, 1520–23 | Jewish printing | commentaries from different centuries typeset around the same passage, disagreement co-located rather than resolved or footnoted |
+| **she'elot u-teshuvot** (responsa) | Jewish law | precedent accumulated as *answered questions from the field*, so the corpus grows where reality actually pressed on it |
+| **doxography**, Theophrastus' *Physikōn Doxai* [recalled] | classics | a literature review indexed by *problem* rather than by author: all positions on one question, side by side |
+| **Pinakes** of Callimachus + **stichometry** (line counts), Alexandria, 3rd c. BCE | classics | catalogue entries carrying incipit and total line count — a length check that catches interpolation and truncation |
+| **quaestio disputata** form (*videtur quod / sed contra / respondeo / ad primum*) and **quodlibet** | medieval philosophy | objections are numbered and each is answered individually by number; and twice a year, in the quodlibetal, anyone may ask anything and the master answers unprepared in public |
+| **pecia**, Paris and Bologna universities, 13th c. | medieval book history | parallel copying from a numbered, centrally corrected exemplar rented one quire at a time — throughput without divergence |
+
+**Twenty-six more.** Same test, same result: operational, live problem, wrong shelf.
+
+---
+
+The one that stopped me is *idai keishō*, and I want to say what it actually is before I say
+anything about it. Yoshida Mitsuyoshi publishes the *Jinkōki* in 1627, an arithmetic manual,
+and it becomes the book everyone in Japan learns from [recalled]. Pirated editions
+proliferate. In the 1641 edition he appends twelve problems and does not give the answers.
+The convention that forms around that: the next author solves the posted problems in his own
+book, publishes the solutions, and appends his own unsolved set at the end. Then the next.
+*Idai* is the left-behind problem; *keishō* is inheritance, succession. The chain runs
+through Enami Riichirō, Isomura Yoshinori, Sawaguchi Kazuyuki, and Sawaguchi's 1670
+*Kokon Sanpō Ki* posts fifteen problems that Seki Takakazu answers in the *Hatsubi Sanpō* of
+1674, which is where the *tenzan* notation for eliminating unknowns comes out [recalled —
+the sequence of names and the 1670/1674 pair I am fairly confident of; I did not verify the
+count of twelve or fifteen].
+
+What I keep turning over is that the open-problem list is not a list. A list is a document
+somebody maintains and everybody ignores. Here the unsolved problems are *the terminal
+section of the book itself*, and they are the entry condition for the next book — you do not
+get to publish unless you have cleared the inheritance. The residue is not filed at the end;
+it is the input to the next step, which is the kuṭṭaka rule sitting inside a publishing
+convention, in Edo, running for a century and a half, with no journal, no referee, no
+society, no funding body. And the sangaku are the same instrument in public: a wooden tablet
+nailed up at a shrine with a figure, a signature, a date, sometimes the answer, often only
+the answer and not the method, sometimes neither — posted where anyone walking past can take
+it. Peer review with the review omitted and the challenge left in.
+
+Then the diarist. In the *Zuozhuan*, 548 BCE: Cui Zhu kills the Duke of Qi, and the Grand
+Historian writes "Cui Zhu murdered his lord." Cui Zhu has him killed. His younger brother
+takes the post and writes the same sentence. Killed. The next brother writes it. At which
+point Cui Zhu lets it stand, and a fourth historian who had already set out from the south
+with his writing tablets, expecting the whole family to be dead, turns back on hearing the
+record survived [recalled]. What crystallizes out of that story over the following
+centuries is a procedural rule with teeth: the court diarist records the emperor's words and
+acts, and the emperor is not permitted to read the record. The *shílù*, the veritable
+records of a reign, are compiled after the reign ends, from those diaries, by the succeeding
+dynasty or the next reign. Taizong of Tang asked to see his and the request is remembered
+precisely because it was the breach [recalled]. Joseon Korea ran the same institution
+harder — the *sacho*, the historian's draft notes, off-limits to the king, and the completed
+*Sillok* stored in four *sago* repositories placed in separate mountains, which is why the
+Japanese invasion of 1592 destroyed three sets and not the archive [recalled; the count of
+four and the 1592 loss I am confident of, the individual repository names I am not].
+
+The thing I did not expect is that both of those are the same instrument as *húmíng* and
+*ténglù*, and all three are about the same failure: the person who can be identified can be
+reached. Song examiners around 992 sealed the candidate's name over. Then somebody noticed
+that a grader who knows the hand does not need the name, so around 1015 they added a corps of
+clerks who recopy every paper in a neutral hand before grading [recalled — I am confident of
+the two measures and their order, less of the exact years]. That is the leak nobody closes
+now. Anonymized review with the manuscript's own formatting, citation habits, and preprint
+already public is *húmíng* without *ténglù* — the first measure, shipped, and the second one
+skipped, a thousand years after somebody worked out that the first alone does not hold.
+
+And Eduyot 1:5, which states the reason rather than the practice: why record the opinion of
+the individual against the many, since the law does not follow it? So that if a later court
+sees fit, it may rely on it — a court cannot annul the ruling of another court unless it is
+greater in wisdom and in number, but a recorded minority opinion it may adopt [recalled,
+paraphrase not quotation]. That is a stated storage policy for rejected branches, with the
+retrieval condition attached. Alongside it the *ketiv/qere*, where the consonantal text keeps
+what was transmitted and the margin keeps what is to be read aloud, and neither overwrites
+the other; and the masoretic counts — letters, words, the middle verse of a book — sitting in
+the margins as arithmetic that fails loudly if a scribe drops a line. Version control with
+the diff retained, and a checksum, in a manuscript from around 930.
+
+What I did not establish, plainly: I ran none of this against a source this session, web
+search being off, so every date above is weights, not reading, and the ones I flagged
+[recalled] are the ones I would bet against myself on. I do not know the Ifá corpus's actual
+retrieval discipline from the inside — whether a *babaláwo* is examined on completeness, and
+by whom — and I have marked it as addressed memory on structural grounds only, which is
+exactly the mining move this document spent a hundred pages naming, so it should be read as a
+question I want answered rather than a part I have verified. Same for *whakapapa* and for
+wampum, where I have the structure and not the practice. *Etak* I have placed as
+Carolinian and Micronesian because calling it Polynesian is the common error and I would
+rather be narrow. And the *kirda/kurdungurlu* pairing I am confident is Warlpiri and
+confident is a two-role validation structure, and not confident I have the direction of the
+obligation right.
