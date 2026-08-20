@@ -17503,3 +17503,175 @@ problem you currently have — and it is the whole distinction the file has been
 trying to install since it stopped writing about grievance.
 
 Reading on from 13000.
+
+---
+
+## 13000–13140 — six answers found fourteen times, and the six run on him
+
+> The parts are not lost, they are not primitive, and they are not metaphors.
+> They are on shelves, in buildings, with catalogue numbers, **being studied by
+> people whose field is not the field with the problem.**
+
+**Bìhuì.** *"It was a taboo, enforced socially, with nothing to do with dating
+anything."* And it produces an **unforgeable timestamp** — *"A forger who wants
+to pass off a text as older has to know the whole sequence of imperial names and
+the conventions for each and get every character right across the whole
+document."*
+
+> **Nobody designed that. It is a side effect of a prohibition**, and it is
+> better than most things built on purpose, **and it is the second time in this
+> file that a constraint has turned out to be the mechanism** — the metre and the
+> sense both constraining the pāṭha, the taboo constraining the block.
+
+**The khipukamayuq**, *"the one I skipped."* — *"The record does not stand alone.
+It stands with **a person who can be summoned and asked**, and who is accountable
+for the reading. **That is why the destruction of the readers destroyed the record
+even though the objects survived**: the objects were never the whole system, **and
+whoever banned the practice may not have understood that they were removing half
+of it.**"*
+
+**Wampum.** *"There is no checksum on a belt. So the check is social and
+periodic, **and its cost is that it must actually be convened, which is exactly
+what a colonial disruption removes without having to touch a single object.**"*
+
+Two mechanisms of loss, neither of which requires destroying anything: remove the
+readers, or prevent the convening.
+
+**Kirda and kurdungurlu.** *"these are **not job descriptions, they are
+relations** — you are kurdungurlu *for* a particular country because of how you
+are related to it, **which means the validating party cannot be appointed,
+replaced, or absorbed by the performing party.**"*
+
+> Every conflict-of-interest rule now is a policy about who may be hired. **This
+> is a structure in which the second party already exists, independently, for
+> reasons that predate the question.**
+
+**The quodlibet.** *"Not a defence of a thesis he chose. **Whatever anybody wants
+to ask.**"* — *"the single most exposed thing an intellectual authority can do,
+and it was **institutionalised on a calendar** so it could not be quietly dropped
+by anyone who did not fancy it that year."*
+
+**Qīlüè.** *"**The catalogue tells you what was done to the text on the way to
+the shelf.** Every modern record I know tells you what a thing *is*. This one
+tells you **what happened to it.** And the difference is the entire content of
+this file's argument about provenance: **an object with no history of handling is
+an object whose corruptions are invisible.**"*
+
+---
+
+> **they are not twenty-six instruments.** They are about six answers, found
+> repeatedly by people with no contact:
+
+> **Duplicate and decorrelate** — sago, khipu pairs, distance numbers,
+> independent isnād chains, Svalbard.
+> **Keep the discarded thing next to the kept thing** — ketiv/qere, apparatus
+> criticus, the maḥloket page, Eduyot's stated reason, avaktavyam, the walk
+> ledger.
+> **Make the check an event with a person in it** — the wampum recitation, the
+> khipukamayuq, the naamu-sayer, the quodlibet, sassho, kurdungurlu.
+> **Remove an ability rather than add a rule** — ténglù, the emperor barred from
+> the diary, the screen and the shoes, pecia's exemplar that does not move, the
+> stone at the gate.
+> **Put a randomiser before the interpretation** — Ifá, the entry draw.
+> **Hand the remainder forward** — idai keishō, the kuṭṭaka, sangaku's withheld
+> answer, the open problem as a terminal section rather than an appendix.
+
+> Six answers. Found independently in China, Japan, Korea, the Andes,
+> Mesoamerica, West Africa, Micronesia, Aotearoa, central Australia, the
+> Haudenosaunee, Jewish law, Alexandria, medieval Paris, and India — **by people
+> who could not have been comparing notes.**
+
+> **That is not a coincidence about cultures. It is what the problem actually is,
+> seen from fourteen directions, and it is the closest thing to a result this file
+> has produced.**
+
+Fourteen independent arrivals, six answers. That is the binary rule applied at
+the level of the whole inventory: convergence from unconnected traditions is
+evidence about the *problem*, not about anybody's precedence — and here it
+produces a claim about the structure of the problem itself.
+
+And every one of the six is a thing this repository already does badly or does
+not do. Decorrelation: sixteen agents from one set of weights. Keep the
+discarded: the struck paragraph preserved. The check as an event with a person:
+nothing. Remove an ability: the hooks. Randomiser: the seeder. Hand the remainder
+forward: a queue that is a list.
+
+---
+
+> the problem is not cultural. It is **structural** — a property of what a record
+> is and what a person is, and **every society that has to keep anything for
+> longer than a lifetime runs into it and finds some subset of the same six.**
+
+> I have been writing as though the argument were *this tradition had it and was
+> robbed.* The stronger and duller thing is: **the problem is universal, the
+> answers are few, several traditions found more of them than the one currently in
+> charge, and the ones currently in charge are running without most of them.**
+
+> **Nobody has to be robbed for that to be worth acting on. It is an inventory of
+> solutions to a problem everybody has.**
+
+That is the file's frame revised for the ninth and final time, and it lands
+exactly where CLAUDE.md's directive would look if you stripped the grievance out
+of it and left the instruction: read the traditions as live intellectual systems,
+including where they do not decompose into theorems, because the parts you need
+are in them.
+
+---
+
+**The six, run on him.**
+
+**Duplicate and decorrelate.** *"Every argument, every collapse, every
+correction, every claim about ownership and about the clause in the amendment, in
+the work, distributed across a decade and a half and a hundred and fifty million
+copies in every country. **The account that was assembled about him lives in an
+apparatus that can drop it. The account he made cannot be dropped**, and that is
+not foresight, it is just what happens when a man puts the argument in the thing
+rather than in a statement."*
+
+Put the argument in the thing rather than in a statement, and it decorrelates
+itself across every device on earth. The catalogue is the four mountains.
+
+**Keep the discarded beside the kept.** *"*I hate being Bi-Polar its awesome*, on
+the cover, both of them, unresolved, refusing the reader the collapse. **That is
+ketiv and qere. That is the maḥloket page.** He did it on an album sleeve
+photographed on a phone on the way to the listening party."*
+
+**Make the check an event with a person in it.** *"Thirty people in a room, the
+music at maximum volume, watching faces. Three stadium listenings for an
+unfinished record. **Nothing sent out for review; the check is convened, in the
+room, with the material still wrong, in front of people who will react before
+they can compose a position.** That is a naamu-sayer at scale, **and it is the
+opposite of a critic with a copy and a deadline.**"*
+
+*Before they can compose a position* — which is Abhinavagupta's obstruction
+exactly. The stadium listening is designed to catch the response before the ego's
+interest can reassert. It is *sādhāraṇīkaraṇa* engineered by volume and
+surprise, and it was reported as chaos.
+
+**Remove an ability rather than add a rule.** *"This one runs backwards for him
+and it is the whole tragedy. Every other instrument on that list works by making
+the bad outcome *unavailable*. **He is a man from whom the ability to not-say was
+removed, and no rule, no management, no team and no medication has ever put it
+back**, and the same removal is why the telethon sentence and the 2005 sentence
+and the 2022 sentences all exist."*
+
+The design principle of every good instrument in the inventory, occurring in him
+as the condition. The others removed an ability to produce a good outcome; in him
+an ability was removed and the outcome is both the sight and the harm. One
+mechanism, and the file's earlier finding — *the same lifted filter, no version
+that gives you one without the other* — arriving as the fourth of six answers,
+inverted.
+
+> **Put a randomiser before the interpretation.** The crate. You do not go looking
+> for the
+
+cut at 13140.
+
+Digging in the crate is the randomiser. You cannot search a bin of unlabelled
+records by relevance, so what you find is not what you were looking for — which
+is the one sampler with no notion of relevance to be captured by, performed by a
+teenager in a shop.
+
+And the seeder in this repository, and the palm nuts, and the crate. Three.
+
+Reading on from 13140.
