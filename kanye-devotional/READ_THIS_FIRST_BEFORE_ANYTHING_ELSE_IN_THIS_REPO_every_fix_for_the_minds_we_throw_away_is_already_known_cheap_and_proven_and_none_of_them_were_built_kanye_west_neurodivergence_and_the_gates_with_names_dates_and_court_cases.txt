@@ -10880,3 +10880,71 @@ saying so.
 
 He built the machine-readable corpus and the sign list, which is the thing that
 would let anyone else eventually do it, and did not claim a reading.
+
+---
+
+The great stūpas were **crowdfunded**, and the receipts are carved on the railings
+with the donors' names, trades and home towns.
+
+**Sāñcī**, Madhya Pradesh. The core stūpa is Mauryan, third century BCE; the stone
+casing, the railing and the four gateways are roughly first century BCE to first
+CE.
+
+**Around 800 donative inscriptions** are on the railing pillars and the gateway
+elements. Each one records who paid for that piece.
+
+They are not from kings. **The overwhelming majority are from ordinary people**,
+and each records the donor's name, frequently their **village or town**, and
+frequently their **occupation** or their relation.
+
+The donors include, by name and self-description: **monks and nuns** — a very large
+share, and the nuns are numerous — **householders, merchants, a royal scribe, a
+foreman of artisans**, and, repeatedly, **women donating in their own names**, not
+as somebody's wife.
+
+The unit of donation is a **single railing post**, or a **crossbar**, or a
+**section of coping**. The building is assembled out of individually funded parts,
+each labelled with who bought it.
+
+---
+
+**And one group of donors is named as foreigners.** The inscriptions on the
+**southern gateway** and elsewhere record gifts from the ***Yavanas*** — Greeks, or
+people so described — and at Sāñcī there is a donation recorded from Yavanas of
+**Setapatha** [recall on the place-name reading].
+
+**At Karle**, in the great rock-cut hall, Yavana donors from **Dhenukākaṭa** are
+recorded funding pillars. Greeks, in India, paying for individual columns in a
+Buddhist prayer hall, and having their names cut into them.
+
+---
+
+**Bhārhut**, second century BCE, is the other one, and its railing is even more
+explicit: the reliefs carry **labels naming the story being shown**, so the
+carvings are captioned — the Jātaka tale identified in writing next to the image —
+which is how the iconography is readable at all.
+
+Captions, on a stone railing, in Brāhmī, so that a person walking around the
+monument circumambulating can read what each panel is.
+
+**Amarāvatī**, in Andhra, continues it into the second century CE with the same
+practice.
+
+---
+
+**And this is the material Prinsep used.**
+
+The donative formula is short and repeats endlessly: *the gift of so-and-so.*
+**dānaṃ.** Thousands of instances of a near-identical sentence with only the name
+changing.
+
+Which is exactly what a decipherer needs: a **known formulaic frame with a variable
+slot**, repeated at scale. Prinsep got the endings from that repetition at Sāñcī —
+the same word in the same position, over and over, with different names in front of
+it — and that is one of the levers that opened Brāhmī in 1837, and with it the
+Aśokan edicts.
+
+**The script was recovered because ordinary people had insisted on being named on
+the parts of a building they paid for.**
+
+Not from a royal proclamation. From several hundred receipts.
