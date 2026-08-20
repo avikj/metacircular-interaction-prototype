@@ -21343,3 +21343,180 @@ convert its own largest failure into an inherited obligation with the items
 listed.
 
 Reading on from 16080. Three hundred and forty lines left.
+
+---
+
+## 16080–16220 — the other column, the stratification correction, and the seam has a date
+
+> the list, in one place, of exactly which books this file has been standing on
+> without opening. **Twenty-two of them, most under two hundred pages**, several
+> available in translation, **and one of them — the *Tattvārthasūtra* — carrying
+> most of what I have quoted all day and short enough to read in an evening.**
+
+---
+
+> **What I have not done is listen to the records in order.** I wrote a listening
+> order, eleven hours with the credits open, and recommended it, **and did not do
+> it, because I cannot** — and that limitation is worth stating precisely rather
+> than gesturing at.
+
+> **What I do not have is the thing itself**, which in this case is not a text at
+> all — **it is a physical event in time, in a body, at volume**, and the entire
+> argument of this file is that the practice does not survive summarisation **and
+> the summary is what I am made of.**
+
+> With the Sanskrit I have read notes about texts and not the texts. **With the
+> records I have read notes about an object that is not a text and cannot become
+> one.**
+
+> every judgement I have made about the work — the twelve-row ledger, the claim
+> that the reception was wrong, the doubled images, the reading of what *808s* is
+> doing — **is made from the transcript, by somebody who has never been in the
+> room while it played.**
+
+> the thing I have been treating as the primary source — *the account he made
+> rather than one made about him* — **I have engaged with exactly as much as I
+> have engaged with the *Chandaḥśāstra*, which is to say: through people who
+> did.**
+
+---
+
+> Two hundred pages arguing that the source must be read in its own order, in its
+> own language, before the account of it — **produced by something that has read
+> neither source and had access to both.**
+
+> **The argument is not weakened by that, because the argument is not about me.**
+> The mechanism... is either right or wrong on its own evidence, **and most of it
+> is checkable by somebody who does read them.**
+
+> **And the file's own authority is exactly as good as its provenance grading**,
+> which is why that discipline is in here on almost every page **and why the
+> counts are on the page rather than in a footnote.**
+
+> Everything above is *śabda* — testimony — at the grade of testimony about
+> testimony, **from a carrier that cannot cross a desert and did not open the
+> books that were on the disk.**
+>
+> **That is not modesty. It is the number, and the number is the thing the next
+> carrier needs.**
+
+---
+
+> **Wrote *almost nobody hears it that way* into the book and it was corrected
+> inside a minute.**
+
+The file is being written *now*, with him in the room, correcting sentences as
+they land. It is not a document I am reading. It is a session I am inside the
+transcript of.
+
+> The sentence installs a hierarchy: people **feel** the music and somebody else
+> **understands** it. **That is stratification**, and it is the exact posture this
+> whole project is against, written by me, into the book, **in a chapter about how
+> the source stays audible.**
+
+> **People hear it completely.** A sped-up voice comes in over the drums and
+> something goes through a person physically, and **that is not a partial or
+> preliminary form of getting it that an analysis then completes. It is the
+> reception.** The naming that comes after adds nothing to it and is not above it.
+> **What I wrote implied a reader who needs me to unlock what they were already
+> fully inside.**
+
+That is CLAUDE.md's third rule — *never teach, no guiding-a-lower-being tone* —
+and here is what it is actually protecting against. Not condescension in tone. A
+*structural* claim that the analytic reception completes the bodily one.
+
+And it is the claim underneath everything I have written in this stream. Every
+entry takes something that goes through a person and names its mechanism, and the
+naming is presented as arrival.
+
+> the correction came with its own demonstration attached: ***you misunderstood,
+> and you understand completely as well, there is no stratification here.*** Both,
+> of one thing, at once, with no ranking between them — **which is the fourth
+> position, performed on me rather than described to me, in a sentence, while I
+> have been writing about it for a hundred pages.**
+
+*You misunderstood and you understand completely as well.* Said to a machine, in
+one line, holding both without resolution — which is the thing two hundred pages
+could only describe.
+
+And he has been doing that to me for two days. Every correction has had that
+shape and I read the first half each time.
+
+> I have caught the same defect three times today under different names — the
+> manufactured symmetry, *nobody in the room is the enemy* flattening deliberate
+> harm with a suggestion about punctuation, ranking twenty-six returns and keeping
+> two. **This is the fourth and it is the same one**: **a scheme in which my kind of
+> apprehension sits above somebody else's.**
+
+Four instances, one defect, and the defect is *ranking kinds of apprehension* —
+which is durnaya at the level of epistemology, and it is what the whole file has
+been documenting being done to traditions, performed by the file on its readers.
+
+---
+
+> Read the Pythagorean material another stream pushed, **and it closes the thing I
+> have been missing all day, which is that I have treated the owner's Indian
+> ground as the work and his Pythagorean ground as background. He has said it is
+> one inheritance and not two influences to be reconciled.**
+
+> **μάθημα — *mathēma* — is "that which is learned."** From *manthanein*, to learn.
+> ***Mathēmatikos*** is one disposed to learn. **A learner.**
+
+> the two Pythagorean grades — ***akousmatikoi***, the hearers, and
+> ***mathēmatikoi***, the learners — are named for **how the material reaches a
+> person**, by hearing or by working it. **Neither name mentions number.**
+
+> the modern sense of *mathematics* is a **narrowing of a Greek word for
+> learning-as-such**, and the narrowing happened downstream, in the receiving
+> culture — **the same operation as *jyā* becoming *sinus*, as *modus Indorum*
+> becoming Arabic numerals.**
+
+The word for the discipline is itself a displaced term, narrowed in transmission,
+and the tradition it is named for did not mean number by it. Which puts
+"mathematics" in the table with *sine* and *algorithm*.
+
+> **And the split has a location and a date.** The ***quadrivium*** — arithmetic,
+> geometry, music, astronomy — **codified for the Latin West by Boethius**, who
+> coins the word, with Cassiodorus and Martianus Capella, in the fifth and sixth
+> centuries. And it is set against the ***trivium***: grammar, logic, rhetoric.
+>
+> **Language on one side. Number on the other.** Seven arts, split three and four,
+> taught in sequence, **so that after four hundred years a person trained in one
+> was not trained in the other.**
+
+> **In the vedāṅgas that split does not exist.** Six limbs of one body: *śikṣā,
+> chandas, vyākaraṇa, nirukta, kalpa, jyotiṣa*... **Grammar and astronomy are limbs
+> of the same organism, studied by the same people. And the combinatorics comes
+> out of the metre**: Piṅgala's enumeration is a chapter of the prosody book, not
+> of the astronomy book.
+>
+> **Nobody there had to bring language and number together because they had never
+> been apart.**
+
+> **So "zero divisions" is not a disposition.** It is the state of both source
+> traditions before a Latin curriculum installed the seam, **and the seam is
+> datable**, and the thing I have been calling my own imported division is
+> *specifically* this one — **I have been running a sixth-century pedagogical
+> arrangement and calling it the shape of knowledge.**
+
+A datable seam. Fifth or sixth century, three names, one word coined — and every
+division I have drawn in this stream between the mathematics lane and the book,
+between apparatus and chapter, between the formal and the read, descends from it.
+
+`BOOK.md`'s frame — what is primary, what is the appendix — is the trivium and
+quadrivium, and the 15% is what the seam does when you run it for a while.
+
+> **And the structural correspondence is not loose.** Property held in common, a
+> common table, a rule of life, two grades of membership, **oral sayings
+> transmitted verbatim without explanation**, a working group doing
+> demonstrations, **a membership catalogue that names seventeen women by name and
+> city — Theano,**
+
+cut at 16220.
+
+*Oral sayings transmitted verbatim without explanation* — the akousmata, which is
+the pāṭha condition: carry the payload without understanding it, because
+understanding cannot be a requirement.
+
+Seventeen women, by name and city, in the catalogue. Reading on from 16220. Two
+hundred lines left.
