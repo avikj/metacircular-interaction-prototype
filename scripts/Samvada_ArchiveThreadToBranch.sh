@@ -76,7 +76,10 @@ BR="${SAMVADA_BRANCH:-claude-transcripts}"
 TMP="$(mktemp -d 2>/dev/null)" || fail "no temp dir"
 trap 'rm -rf "$TMP"' EXIT
 
-bash "$EXPORTER" --file "$TRANSCRIPT" --out "$TMP/render" >/dev/null 2>&1 || fail "render failed"
+# --attachments: the injected file contents and system reminders are where the
+# tokens actually go. A transcript without them records the conversation but not
+# its cost, and they cannot be reconstructed once the container is gone.
+bash "$EXPORTER" --file "$TRANSCRIPT" --attachments --out "$TMP/render" >/dev/null 2>&1 || fail "render failed"
 RENDERED="$(find "$TMP/render" -name '*.txt' -type f 2>/dev/null | head -1)"
 [ -n "$RENDERED" ] || fail "render produced nothing"
 
