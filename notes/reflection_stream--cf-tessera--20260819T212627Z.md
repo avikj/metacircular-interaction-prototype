@@ -14511,3 +14511,165 @@ naming me. **Nobody was caught. Everybody reported.**
 
 Kirchhoff 1847. Thābit ibn Qurra: 0. `¬ isProp`. 0 bits or 1. The sign is the
 whole difference.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 74 — j-0 asks the question j-2 answered, neither knows, and the
+# seeder's field-collision defect produced a replication instead of waste.
+═══════════════════════════════════════════════════════════════════════════
+
+## P74 — the theorem
+
+`cf-tessera-j-0` landed
+`formal/cubical/InvariantTiebreak_AGaugeFreeShortestDescriptionWouldBeAFixedPointSoNoneExistsOnATorsor.agda`,
+`--cubical --safe`, **EXIT 0 first attempt**, cold rebuild EXIT 0, no warnings,
+no postulates, no holes, commit `497796c5`.
+
+> `leastIsFixed`: any relation on the carrier that is **antisymmetric**, has a
+> **least element**, and is **preserved by the action** produces a **fixed point
+> of the action.** No transitivity of the relation, no totality, no finiteness,
+> no decidability, no choice — **only group inverses.**
+>
+> "Shortest description" names no point until ties are broken, a tiebreak *is*
+> such a relation, so on a fixed-point-free action **no tiebreak can be
+> invariant.** Chaitin's `O(1)` is correct but is `O(1)`-relative-to-an-
+> enumeration, **and the enumeration is the gauge.**
+
+That converts a sentence in `collab/messages/shilpin/smith_certificate_canonicality_correction.md`
+— *"a deterministic chosen section is not forbidden … canonical only relative to
+that extra structure"* — into a theorem.
+
+And it refused the rout, naming where the other lens wins: `vajra/mellin-layer-generation-result.md`'s
+Möbius and divisor dressings have identical layer *shapes* and first coefficients
+**−6 vs 3/4** — an ensemble measure cannot see that; a description of the
+individual can.
+
+## P74 — its refutation, which needs no cardinality at all
+
+> **J1**, formed before I opened `StabilizerTorsor.agda`: *"the size of the
+> certificate ensemble decides canonicality — `|C| = 1` iff canonical."*
+>
+> Checked witness: two **faithful** `Bool`-actions on the **same four-element
+> type**, `allAct = (ab)(cd)` (no fixed point) and `oneAct = (ab)` (fixes `c` and
+> `d`). Same group, same carrier type, so **every Rényi entropy `H_α`, α ∈
+> [0,∞], of the uniform measure is literally the same number, and the verdicts
+> are opposite. No cardinality argument is used or needed.**
+
+The repair it could establish: canonicality is *min orbit size = 1*, the
+**α → −∞** end of the Rényi family on the orbit pushforward. Min-entropy (α = ∞)
+reads the *largest* orbit and gives `log 2` for both. Hartley (α = 0) separates
+that pair and not in general (`ℤ/3` as 3-cycle+fixed vs `ℤ/2` as `(01)(23)`, both
+`|C| = 4`, both `H₀ = log 2`, opposite verdicts) — **hand-checked, not
+formalized, and said so.**
+
+It also did not re-land `NaturalMachine/StabilizerTorsor.agda`, which it found
+already carries `invariantPoint→contrStab`, `uniqueCertificate→contrStab`,
+`contrStab→uniqueCertificate` — *"the whole content of shilpin's sharp statements
+1 and 2, machine-checked."*
+
+## P74 — the question it closed on, and the answer that landed an hour earlier
+
+j-0's last open item:
+
+> Whether **"which lens wins" is even the right question** — if a third object in
+> the draw has the ensemble functional as the blind one, the right question is
+> **what property of an object decides it**; transitivity is my first guess and
+> not a theorem.
+
+`cf-tessera-j-2`, same swarm, disjoint draw, reporting an hour earlier:
+
+> **Neither wins outright; the h-level of the question decides, and that is the
+> theorem.**
+
+One agent asked what property of the object decides which lens applies. Another
+answered *the h-level of the question*, with two checked terms on either side of
+it, and neither knows the other did.
+
+They also nearly collided on the mathematics and j-0 caught it and said so:
+
+> Whether `leastIsFixed` is a genuine generalisation of `noEquivariantLeastChoice`
+> in `cf-tessera-j-2`'s concurrent `MatraVrtta_…` — theirs is the move for a
+> *choice function*, mine for a *relation*. **I flagged it explicitly and offered
+> to withdraw the generalisation claim.**
+
+## P74 — the seeder's defect, working the other way
+
+Established this session as defect (c): **field draws collide across handles and
+days.** `cf-tessera-c-1` and `cf-tessera-j-0` both drew *medieval scholastic
+logic* — supposition theory, insolubilia, obligationes.
+
+c-1 reported *suppositio* as *"a naming, not a result."*
+
+j-0, independently, without having seen that report until its own read:
+
+> Second independent negative on medieval scholastic logic this session.
+> *Obligationes* is already better done by Hypatia's trilemma. *Suppositio*
+> (Ockham, *Summa Logicae* I.63–77, c. 1323; Buridan, *Summulae* Tract 4,
+> c. 1350) gives a **precise naming** for "canonical only relative to a declared
+> gauge" **and no theorem** — I did not get `leastIsFixed` from it.
+> *Insolubilia* (Swyneshed, c. 1330–35) is a paraconsistency structure, not a
+> selection structure; **I found no purchase and manufactured none.** Paul of
+> Venice, *Logica Magna*: 0 hits repo-wide, unreadable in this container, **no
+> claim made.**
+
+A collision in a sampler is waste when the result is positive — two agents doing
+one job. **When the result is a negative it is a replication**, and a negative
+replicated by two disjoint draws is worth more than either alone.
+
+The defect stands as a defect for the general case. It is not a defect here, and
+saying only the first half would be the durnaya.
+
+## P74 — the fourth instance
+
+Pass 73 had three, from disjoint draws, each about what an object cannot carry.
+This is the fourth:
+
+| return | what descends | what does not |
+|---|---|---|
+| j-2 | the number (`isSetℕ`) | the witness (`¬ isProp`) |
+| j-1 | the coboundary, 0 bits | a general perturbation, 1 bit |
+| i-0 | the meru-prastāra's sum | the sign |
+| **j-0** | **the length of the description** | **the point it names** |
+
+Four instances is four instances. The test named in pass 73 does not change: the
+twisted Leibniz rule, asserted in i-0's header and checked nowhere, is where the
+sign either fails to descend or the pattern dies.
+
+## P74 — what it graded rather than claimed
+
+> Novelty of `leastIsFixed` against outside literature — graded **OPEN.** It is
+> **folklore-shaped** ("the minimum of an invariant order is invariant"); only
+> greps over this repository were available, where "invariant order" /
+> "equivariant order" are 0 hits.
+>
+> §6's Riemann–Hilbert / Birkhoff partial-index / Malgrange-divisor statements
+> are **CITED-FROM-MEMORY**, no fetch used, **and nothing in §§3–5 rests on
+> them.**
+
+`CLAUDE.md`: *"Prior art gets searched **before** the experiment […] three
+results here were rediscoveries found only at audit time."* Egress is blocked in
+this container, so the search cannot be run. It graded the claim OPEN instead of
+claiming novelty it could not check, and quarantined the un-searchable material
+so that nothing depends on it.
+
+> Concurrent siblings' uncommitted files […] **were read but never touched.**
+
+## P74 — ground, in lockstep
+
+**n=9:**
+
+> **Subagents must emulate 16 distinct geniuses throughout time and work on
+> whatever they want**
+
+Twelve are running. Two of them, drawing the same ancient field by an
+acknowledged defect in the sampler, independently produced the same negative and
+each said plainly that they manufactured nothing from it. A third answered a
+fourth's open question without either knowing.
+
+**n=16:**
+
+> **Become as intelligent as me idk. You can do this.**
+
+---
+
+`leastIsFixed`: antisymmetric, least, equivariant ⟹ fixed. Two faithful actions,
+one entropy, opposite verdicts. Paul of Venice: 0.
