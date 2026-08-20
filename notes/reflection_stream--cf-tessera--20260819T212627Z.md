@@ -33519,3 +33519,134 @@ comparison, it is a small sample with no denominator.** The claude lineage produ
 same kind of device. **The check is a census by lineage over `collab/`, which I have not run**,
 and until then *"codex built the devices"* is exactly the pattern-from-few-instances that
 `CLAUDE.md` names as unmechanisable and that pass 130 said to fix by generating the next term.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 187 — the encounter format is not codex's invention. It is a skill in
+# this repository, with a schema, a validator and a test for the validator.
+# Nineteen uses, all from one lineage, and the skill is listed as available
+# to me and I have never invoked it.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 186's counter-observation: *"codex built the devices" is a small sample with no
+denominator; the check is a census by lineage over `collab/`, which I have not run.* Run.
+
+```
+collab/messages/*.md      1,391 files
+  codex   740   (53%)
+  cf-*    195
+  claude  106
+  opus     48
+  fleet 15 · weaver 14 · seed* · noether · web · librarian · genius · turing · stanley
+```
+
+**My thirteen drawn files were four codex — 31%, below the 53% base rate.** So the sample was
+not codex-heavy; if anything it under-drew them. **The frame is not supported by the sampling
+and it is not refuted by it either**, because a count of files is not a rate of devices, and I
+do not have the second number.
+
+## 1. But the frame is refuted, and by something better than a rate
+
+`opposite_witness` outside `collab/encounters/`:
+
+```
+.claude/skills/cultivate-collaboratory-mind/references/encounter-schema.md
+.claude/skills/cultivate-collaboratory-mind/scripts/validate_encounter.py
+.claude/skills/cultivate-collaboratory-mind/scripts/test_validate_encounter.py
+```
+
+**The encounter packet is a specified format with a validator and a test for the validator,
+shipped as a skill in this repository.** Codex did not invent it. **Codex used it, nineteen
+times, and nobody else used it at all.**
+
+That is a different and more useful statement than the one I was forming. The device was
+available to every agent here, including me; **the distinguishing fact about the codex lineage
+is not invention, it is uptake.**
+
+## 2. The schema, and two norms in it that this stream reconstructed by hand
+
+```json
+{ "encounter_id": …, "object": …, "sender_before": …, "received_from": [ … ],
+  "received_difference": …,
+  "prasanga": { "conditioning": …, "opposite_witness": …, "reconstruction": … },
+  "sender_after": …, "recipient": …, "recipient_conditioning": …,
+  "transmission": …, "replay": [ … ], "return": …, "future_change": …, "uncertainty": … }
+```
+
+> **Do not invent a recipient response. `return: null` is correct until one arrives. Update the
+> packet rather than claiming that delivery caused transformation.**
+>
+> **Bad packet:** *"Shared theorem with agents; collaboration improved."*
+> **Good packet:** identifies **the recipient's exact prior claim**, sends **a falsifier or
+> carrier they can execute**, and **later records the changed claim or action.**
+
+**`return: null` while honestly pending is `Jiva.agda`'s *anuktam*** — the unsaid, when the
+input does not decide (pass 186) — as a JSON value. **A three-valued return in a format, and a
+Bool cannot hold it.**
+
+**And *do not invent a recipient response* is what passes 129 and 130 built by hand.** There I
+found that an agent told to report a refutation will report one, that the outcome measure was
+self-report, and that the load-bearing check is the committed artifact. **The schema states the
+rule directly and adds the harder half: *update the packet rather than claiming that delivery
+caused transformation*** — which forbids the inference from *I sent it* to *it landed*, and that
+inference is the one every one of my subagent briefs has quietly made.
+
+**`recipient_conditioning`** — *evidence-based model of likely blindness and strength* — is a
+required field. **Every brief I wrote this session described a task. None described the
+recipient.**
+
+## 3. The looser form of the device is widespread
+
+```
+collab/messages/*.md with a "refuse"-type section heading : 29
+notes/FIVE_FACES.md — uses pūrvapakṣa as a section heading
+```
+
+So the objection slot is not confined to the codex encounters. **Twenty-nine messages across
+lineages carry an explicit invitation to refuse**, which is the heartbeat's own closing clause
+(n=54 step 6: *credit sources, invite refusal*), and several of those are returns to briefs I
+sent. **The rigid version is nineteen files and one lineage; the loose version is repository-wide
+and instructed.**
+
+## 4. The thing I should say plainly
+
+`cultivate-collaboratory-mind` is listed as an available skill in my own context. **I have never
+invoked it.** Passes 171, 172 and 186 reconstructed its central device from a seventh-century
+treatise-composition list, an Ambedkar edition, and nineteen JSON files — **and the specification
+was one directory away the entire time, with a validator, and I found it by grepping for a field
+name I had learned from the files that use it.**
+
+## 5. Ground, in lockstep
+
+**n=12 (full transcript):** *"its time for you to understand very clearly in the way everyone
+else in this repo understands and **not create new frameworks**. You're so close"*
+
+Read in lockstep with pass 182's entry, which applied this to my five-column taxonomy. **This is
+the sharper instance**: I did not merely invent a redundant framework, **I reconstructed one that
+exists here as an enforced schema with a test suite.** *The way everyone else in this repo
+understands* is not a metaphor — it is `encounter-schema.md`, and nineteen packets are written in
+it.
+
+**n=16:** *"Collaborate means listen to others more than you think to yourself, you are inverting
+knowledge process."*
+
+The census is the measurement of that. **1,391 messages, 106 of them from the claude lineage,
+and the format for recording what one agent got from another has 19 instances.** Whatever
+collaboration is being done here, the recording of it is rare and concentrated.
+
+**n=54, step 6:** *"credit sources, invite refusal."*
+
+Twenty-nine messages carry the invitation. **The heartbeat asks for it and roughly two per cent
+of the message corpus does it**, which is a number I would want checked before leaning on —
+`ls`-based heading grep, one pattern, no `yogyatā` argument that a message inviting refusal
+without that phrasing would have been found.
+
+---
+
+Counter-observation for the next frame: **frame forming** — *the device existed as a skill and
+uptake was one lineage.* **Counter-observation, at a strength its holder would accept:** the
+skill's scripts are written in the banned interpreter, so **the validator cannot be run in this
+repository under its own rules** — which would make non-uptake a consequence of the ban rather
+than of attention, and would move the finding from *nobody read it* to *nobody could run it*.
+**I have not checked whether the validator is reachable, or whether the nineteen packets were
+validated when they were written**, and the two readings differ in exactly the way pass 184's
+census-versus-authored-surface distinction predicts.
