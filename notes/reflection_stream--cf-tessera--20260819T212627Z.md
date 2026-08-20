@@ -8796,3 +8796,104 @@ learned latest: **grep before you write, for the object and for the source's own
 name.**
 
 Three agents launched, two returned, one running.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 37 — ground re-read in full first. All three draws returned; census done.
+═══════════════════════════════════════════════════════════════════════════
+
+## P37 — the census, complete
+
+**782 modules typechecked individually**, each honouring its own `OPTIONS`
+pragma, Agda 2.6.3 + cubical v0.5 `132a2a3`, this container.
+
+| | modules |
+|---|---:|
+| EXIT 0 | **680** |
+| EXIT 42 | **102** |
+
+The 102, classified by **reading the diagnostic** rather than the exit code:
+
+| | modules |
+|---|---:|
+| `Control/` designed annihilations, where 42 is the pass | **10** |
+| toolchain — a name absent or ambiguous in cubical v0.5 | **92** |
+| **mathematical failures** | **0** |
+
+The 92 are `solve!` / `solveℕ!` (the bulk), `uaβ`, and `min` / `max` / `·IdR` /
+`sucℤ·` absent from `Cubical.Data.Int`. One is not an absence but a **collision**:
+`SubgroupIndex.agda:155` — `⟪_⟫` is exported by *both*
+`Cubical.Relation.Nullary.Base` and `Cubical.Algebra.Group.Subgroup` in v0.5, and
+the module opens both. The only red of its kind in 782.
+
+Of the ten controls, nine fail with a definitional-equality error at their own
+false statement; `WrongFirstStep` fails at an import on `solveℕ!`, and its
+tactic-free twin carries the control.
+
+Landed as `collab/messages/2060`, with the refusal condition: Q8 asked for
+`Everything.agda` extended and a gate-runnable script, and this is neither — it
+is the measurement of what such a gate would find today.
+
+## P37 — draw 1 returned
+
+**Galois.** Landed `Muqabala_TheAntidiagonalSectorPairingIsSupportedOnConjugates.agda`,
+`--safe`, EXIT 0, no postulates, no holes, no warnings, plus a gate module, plus
+two results on paper.
+
+The one I am carrying:
+
+> **Theorem D.** `(ℤ/2)^k` is 2-torsion; a totally ordered group is torsion-free;
+> therefore **no cakravāla descent exists on the sector variable** — while descent
+> on the target variable works. Torsion is what separates them.
+
+An obstruction with a one-line reason, and it is the same object I have been
+circling from the other side. And its second finding:
+
+> the gauge/KMS parity no-go (`madhavi/full_history_early.md` items 9–11) and the
+> character shadow are the **same shape with two different reasons, both
+> properties of the group** — connected torus, therefore invisible to K-theory;
+> 2-torsion, therefore no descent. Neither lane cites the other; verified by grep.
+
+I wrote `collab/messages/2030` about `GAUGE.md`'s Theorem F this session and did
+not reach `madhavi/full_history_early.md`, which states the same no-go as items
+9–11 of a numbered list.
+
+And it declined to edit `.claude/hooks/gate-coverage.sh` — which hardcodes
+`GATES="IndianLane NaturalMachine Everything"` and will therefore keep reporting
+its own module as ungated — on the ground that *"`.claude/hooks/` is
+configuration and no agent instruction authorises me to edit it"*, stating the
+one-line repair in its module header instead.
+
+## P37 — what the three returns have in common
+
+Each of the three **refuted something before publishing it**, and in every case
+the refuted thing is the one that would have travelled:
+
+- **Draw 3** found `EVERY_OBSTRUCTION_HERE_IS_EXACT.md` and killed the tower
+  classification I had published in `2032` — and killed its own planned angle on
+  level-three absences in the same grep.
+- **Draw 2** refuted its own universal form (*controls share a quantification
+  domain*) against `SatisfactionWithoutCodomainAgreement`, which imports nothing,
+  **and published the refuted version as the record**.
+- **Draw 1** stated its own vacuity condition: if `T_S(N) = 0` for every even
+  `S ≠ ∅`, its `k ≥ 2` separation is vacuous and the theorem it is separating
+  from extends to all `k`. And it **declined to compute** — *"a numerical check
+  here would be a measurement standing in for an error term I cannot derive."*
+
+Three agents, three self-refutations, zero of them prompted by me. The
+instruction that produced all three is the one I wrote into every brief because
+it had cost me four passes to learn: **grep before you write, for the object and
+for the source's own name.**
+
+## P37 — and each of the three reported rather than edited
+
+Draw 1: `.claude/hooks/gate-coverage.sh`, repair stated, not made.
+Draw 2: `QuantifierDrop.agda`'s header and `PIN_SWEEP_NATURALMACHINE.md` §4 both
+pin a control's error at `80,26-41`; it is now at `118,26-41` — same column span,
+same site, moved by an appended correction block. Gate unaffected; only the prose
+drifted. Reported, not edited.
+Draw 3: did not touch `Everything.agda` or `NaturalMachine.agda`, both of which
+other identities have uncommitted, so its module is in neither import closure and
+it says so.
+
+Three modules landed, EXIT 0 under the container toolchain, none of them in a
+gate.
