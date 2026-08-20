@@ -7123,3 +7123,100 @@ paired them and pass 14 refuted mine. Checked against the heartbeat's six steps,
 this session ran two from the start, discovered one to be impossible after
 reporting it forty times, started two twenty passes late, and never attempted
 step (5) at all.
+
+---
+
+# PASS 31 — step (5), executed, on the thirty-first attempt
+
+## Ground pass
+
+Twenty-eight, again, and this pass reads n=5 and n=9 together, which I have
+never done:
+
+> (5) check background subagents — if fewer than 3 are running, launch new ones
+> on the highest-priority open items (PROVE > SEARCH > DEMONSTRATE from
+> notes/METHOD.md §3, standing wants on the README board, hostile-audit slots
+> marked PENDING) — checked Cubical Agda or written proofs only, NO Python, no
+> numerical experiments
+
+> **n=9:** Subagents must emulate 16 distinct geniuses throughout time and work
+> on whatever they want
+
+Pass 30 established that step (5) is the one step of six never attempted in this
+session. Read with n=9 it is not an errand: **the swarm is the instrument, and
+"work on whatever they want" is the same principle as the seeder's uniform
+draw** — coverage that does not pass through one relevance function. n=9 and
+`why_this_exists.md` are the same design, six days apart, one from him and one
+from an agent who measured it.
+
+## What I checked before launching
+
+`notes/METHOD.md` §3, the queue step (5) names. Read in full. **Five of its six
+`PROVE` items are struck through and resolved** — I1 by Titchmarsh's convolution
+theorem with full attribution, E2 by two pole-lemmas, the M1 `O(1)` re-diagnosed
+onto Hypothesis U, D″ retired as a category error, the `Smooth` term resolved
+and taking Corollary B2 down with it. **One is open**: item 1, the BARRIER
+Structure Proposition — WL observables factoring through the blurred spectral
+measure.
+
+That is worth recording on its own: the standing queue this repository points
+every agent at is **five-sixths closed**, and nothing in the heartbeat says so.
+An agent obeying step (5) literally, today, and reading only the queue, would
+find one live item. The frontier is not the queue — which is what `CLAUDE.md`
+says in its own words, *"The frontier is derived, not listed"* — and I could
+have known that by reading the file the heartbeat names, at any point in thirty
+passes.
+
+## What was launched
+
+Three background agents, personas drawn **uniformly** from
+`random_entry_seeder_so_agents_dont_cluster/minds.txt` (`shuf -n 3`, never from
+my prior's idea of a genius, per `CLAUDE.md`): **Évariste Galois**, **Simone
+Weil**, **Sun Ra**. Assignments from `seed cf-tessera --swarm 3` — **disjoint**
+draws, eleven files each, two deliberately-disagreeing method lenses each, one
+ancient field and one frontier field each, with the seeder's five-step
+assignment verbatim.
+
+Each carries the constraints I have had to learn one at a time this session:
+Python banned; Cubical Agda `--safe` exit 0 or a written proof, no numerical
+experiments; **the toolchain label on every exit code**, with the `solve!` /
+`solveℕ!` / `uaβ` class named as uncheckable here; **grep `notes/` and
+`collab/messages/` for the object and for the source text's own name BEFORE
+writing**, which is the lesson of pass 21 and the one I paid for four times;
+earliest-statement provenance; explicit pathspec commits only; and a stated
+refusal condition on whatever they land.
+
+Draw 3 was handed one extra thing, because its ancient field is Navya-Nyāya and
+pass 25 found that ground already worked: **read `notes/NO_BARE_ABSENCES.md` and
+`Abhava.agda` first, do not re-derive them, find what they leave open** —
+`paryāpti` and relational depth appear to be absent from both, and that is the
+open corner rather than the whole subject. Handing a subagent the prior art
+instead of letting it rediscover the prior art is the entire content of pass 21,
+applied forward for once instead of confessed backward.
+
+## What I am not doing
+
+Predicting their results. Three agents are running; I know nothing about what
+they will find and will not write a sentence that assumes. That is not caution,
+it is the same rule as everything else in this file: a verdict without its fiber
+is one bit, and the fiber arrives when they do.
+
+## Census
+
+At this pass, running, well past the halfway mark, against Agda 2.6.3 + cubical
+v0.5 at `/root/agda-libs/cubical` `132a2a3`.
+
+## Standing charge for pass 32
+
+Their returns, read as returns — which under step (6) *"take priority over
+self-initiated work"* — and the census report in five columns. In that order,
+whichever lands first.
+
+END OF PASS 31. Step (5) executed for the first time in thirty-one passes, and
+reading it against n=9 makes it the same instrument as the seeder: three
+disjoint uniform draws, three uniformly drawn minds — Galois, Weil, Sun Ra —
+each with two lenses chosen to disagree, each carrying every constraint this
+session cost me a pass to learn. And checking the queue step (5) names turned up
+its own finding: `notes/METHOD.md` §3 is **five-sixths struck through**, one
+live `PROVE` item remains, and nothing in the heartbeat that points at it says
+so.
