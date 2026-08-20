@@ -30993,3 +30993,94 @@ lives to elephants and rhinoceros, and some depend on the park economically** �
 zero rhinoceros poached in 2022**, **against a peak of 27 in 2013.**
 
 **Both figures are in the record and neither is the whole of it.**
+
+---
+
+**India counted its tigers by tracing pugmarks for thirty years, and the method
+produced a number that was wrong in a way nobody could check.**
+
+**Project Tiger began 1 April 1973**, with nine reserves, **after a 1972 census
+put the population at about 1,827** — **against an early-twentieth-century figure
+often given as 40,000, which is itself an estimate with no method behind it.**
+
+**And the counting method was the *pugmark census*** — **plaster or tracing
+casts of left hind pugmarks**, **collected simultaneously across reserves**,
+**on the assumption that each individual's print is distinguishable.**
+
+**And it produced a total by summing identifications.**
+
+**And *K. Ullas Karanth* and colleagues published the objection from the
+1980s–90s**: **that individual identification from pugmarks is unreliable in
+practice, that the method has no way to estimate detection probability, and that
+summing across areas without a sampling frame is not an estimate** — **and that
+the errors are not random but tend upward, because a doubtful print is more
+easily counted than discarded.**
+
+**And the political incentive ran the same way**: **a reserve's performance was
+read off its number.**
+
+**And the *Sariska* case settled it.** **In 2004–05 it was found that Sariska
+Tiger Reserve had *no tigers at all***, **against a reported population** — **and
+the Central Bureau of Investigation and a Tiger Task Force were involved**, **and
+the finding was that the last animals had been poached and the census had not
+noticed.**
+
+**Panna followed in 2009, with the same result.**
+
+**A reserve reported a population it did not have, for years, and the instrument
+could not detect the absence.**
+
+---
+
+**And the replacement is a statistical method and it is stated as one.**
+
+**From 2006 the *National Tiger Conservation Authority* and the Wildlife
+Institute of India moved to a double-sampling design**: **camera-trap
+mark-recapture in sampled blocks — using stripe patterns, which are individually
+unique and photographable — combined with occupancy modelling and sign surveys
+across the wider landscape**, **with the estimate carrying a confidence
+interval.**
+
+**The published national figures**: **1,411 in 2006; 1,706 in 2010; 2,226 in
+2014; 2,967 in 2018; 3,167–3,682 in 2022**, **with the 2022 report giving 3,682
+as the upper bound and the mid-point as the headline.**
+
+**And the 2018 exercise is recorded by *Guinness* as the largest camera-trap
+wildlife survey**, **with something over 26,000 camera locations and some 35
+million photographs.**
+
+**And the method's own critics — including Karanth — have argued about the
+extrapolation from sampled blocks to unsampled landscape**, **and the argument is
+in the peer-reviewed literature and is about the estimator and not about the
+direction.**
+
+**A number that comes with an interval can be argued with. The pugmark total
+could not.**
+
+---
+
+**And the reserves were made by moving people, and that record is separate and
+also counted.**
+
+**The relocation of villages from core areas** — **under the Wildlife (Protection)
+Act and, after 2006, under the *Forest Rights Act*'s "critical wildlife habitat"
+provisions** — **runs to tens of thousands of families across the tiger
+reserves**, **and the NTCA publishes relocation figures.**
+
+**And the Forest Rights Act requires that rights be recognised and settled
+*before* relocation and that relocation be with informed consent** — **and the
+compliance record is contested reserve by reserve**, **with documented cases of
+relocation ahead of settlement.**
+
+**And the counter-record is also documented**: **relocated families who report
+better access to schools, roads and health facilities**, **and families who report
+loss of livelihood and of forest access**, **in the same reserves.**
+
+**And *Baiga*, *Gond*, *Soliga* and other communities' own positions differ
+between reserves** — **the *Soliga* of Biligiri Rangaswamy Temple reserve obtained
+recognition of rights inside a tiger reserve in 2011**, **the first such
+recognition**, **and the tiger population there has since been reported stable or
+rising.**
+
+**A case where people were not moved is in the record with its numbers
+attached.**
