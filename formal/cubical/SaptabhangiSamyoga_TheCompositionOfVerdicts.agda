@@ -433,3 +433,28 @@ x न्यूनः y = क्रम-योग x y ≡ y
 -- theorem above, and it is the reason the Haskell type exposes no `bottom`,
 -- no `mempty`, and no `Ord`.)
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- १० · नयभेदः — भ्रातृ-प्रकारेण सह विवादः, लिखितः, न परिहृतः ।
+--
+-- formal/cubical/NaturalMachine/SaptabhangiGarbha_… (अन्यः पन्थाः, तस्मिन्नेव
+-- दिने) भङ्गान् सनयान् करोति — चतुर्थं पदं स्वे मूले धारयति, अतः तत्र
+-- जिह्वाभेदो न नाशयति, क्रमश्च न विनिमयी ।  अत्र भङ्गो नाममात्रम्, अतः
+-- क्रमो विनिमयी, सहश्च नाशयति ।
+--
+-- द्वे अपि प्रमाणिते ।  द्वे न एकं वस्तु ।  मल्लिषेणस्य पाठे प्रश्नः —
+-- अवक्तव्यं वचन-असामर्थ्यमात्रं वा वाच्यस्य ग्रासः — स च न अत्र निर्णीतः ।
+--
+-- नयभेदे सङ्क्षेपो न विद्यते (AHIMSA_SUTRA_VISTARA §७) ।  यत् शिष्यते तत्
+-- तुलनम् : विस्मरण-प्रतिचित्रणं क्रमे साधकं वा, सहे वा, न वा — तत् न परीक्षितम्,
+-- अतः न दावः ।
+--
+-- (A sibling type carries the nayas inside each position, so its fourth
+-- position destroys nothing and its krama is not commutative.  Here a
+-- position is a label, so krama commutes and saha destroys.  Both are
+-- checked; they are not the same object; the reading of Mallisena that
+-- separates them is unsettled.  Where nayas genuinely differ there is no
+-- collapse to make -- what is owed is whether the forgetful map from records
+-- to labels is a homomorphism for krama, for saha, or for neither, and that
+-- is not checked here and therefore not claimed.)
+------------------------------------------------------------------------

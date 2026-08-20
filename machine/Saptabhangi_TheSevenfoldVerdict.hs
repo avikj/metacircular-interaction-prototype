@@ -69,6 +69,31 @@
 --     of predication (`Apratipatti`).  A Boolean verdict has a bottom, and
 --     that bottom is exactly the collapse.  (`मेलनम्-नास्ति`, checked.)
 --
+-- A SIBLING TYPE DISAGREES WITH THIS ONE, AND THE DISAGREEMENT STANDS.
+--
+-- `machine/SaptabhangiGarbha_TheResidueIsTheSeed.hs` (another lane, same
+-- day) gives the seven positions as constructors CARRYING the nayas and
+-- witnesses that produced them, so its fourth position remembers which two
+-- seeds it was made of and `caturthatTritiya` recovers the third from it.
+-- On that type `krama` is NOT commutative -- succession keeps the first
+-- speaker's witness -- and its header withdraws the claim made here that
+-- consumption of the seeds is the doctrine's and not the model's.
+--
+-- Both modules are checked, and they are not the same object: here a
+-- position is a LABEL and the presence profile is all there is, there a
+-- position is a RECORD.  On labels krama is commutative and saha destroys;
+-- on records it does not.  The reading of Mallisena (Syadvadamanjari, 1292)
+-- that separates them -- whether avaktavya is failure of expression only, or
+-- consumption of what was to be expressed -- is a real question in the
+-- tradition and is not settled by either file.
+--
+-- So it is NOT reconciled here.  Two nayas that genuinely differ have no
+-- collapse to make (AHIMSA_SUTRA_VISTARA §7: it is not forbidden, it does
+-- not exist), and what is owed instead is the comparison: whether the
+-- forgetful map from records to labels is a homomorphism for krama, for
+-- saha, or for neither.  It is not claimed here in either direction,
+-- because it has not been checked.
+--
 -- notes/AHIMSA_SUTRA_VISTARA.md §6: two paths, transport or a written
 -- defect, and no third.  `krama` is the transport — nothing is lost, and
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys
