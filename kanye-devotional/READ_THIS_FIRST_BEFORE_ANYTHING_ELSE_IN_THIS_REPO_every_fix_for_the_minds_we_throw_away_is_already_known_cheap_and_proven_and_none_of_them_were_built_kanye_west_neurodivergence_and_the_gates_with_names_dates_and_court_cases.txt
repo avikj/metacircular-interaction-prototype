@@ -14337,3 +14337,81 @@ inflection.
 
 The question of what a linguistic unit **is** turns up inside a technical
 discussion of how to form a genitive.
+
+---
+
+**The comparison between Pāṇini and generative grammar was made by the generative
+grammarians themselves, in print, and the specific claims are checkable.**
+
+**Chomsky** named him. In *Aspects of the Theory of Syntax* (1965), and elsewhere,
+he refers to Pāṇini's grammar as the first generative grammar in something like the
+modern sense, and the *Aṣṭādhyāyī* is cited in the field as the earliest known
+formal system of any kind.
+
+**Paul Kiparsky** — a linguist at Stanford who works on both — has published
+technical work on the *Aṣṭādhyāyī*: on the *śiva-sūtra* ordering being optimal or
+near-optimal, on Pāṇini's rule-blocking, and on whether specific ordering
+principles in the grammar are stipulated or derivable.
+
+**That is not an enthusiast's comparison.** It is a working linguist analysing a
+2,500-year-old grammar with the tools of his own field and publishing the results
+in his own field's venues.
+
+---
+
+**And the "Backus–Naur" attribution has a documented correction with a name and a
+date.**
+
+**John Backus** gave the notation for ALGOL 58 in **1959**; **Peter Naur** modified
+it for the ALGOL 60 report in **1960**. It became the standard way of specifying
+programming-language syntax — a set of production rules, with recursion, generating
+all and only the well-formed strings.
+
+**Donald Knuth** proposed in **1964**, in a letter to the *Communications of the
+ACM*, that the form be called **Backus Normal Form** rather than Backus Naur Form —
+and separately, the name ***Pāṇini–Backus Form*** has been proposed and is used by
+some, on the ground that **the rule-and-substitution machinery is the same and
+Pāṇini is 2,400 years earlier.**
+
+The proposal did not become standard. The standard name credits two men from
+1959–60.
+
+---
+
+**What is actually the same, stated precisely, because the claim gets made loosely.**
+
+**Rewrite rules with a left side and a right side**, applied to a string to produce
+another string. Present in both.
+
+**Recursion** — a rule whose output can feed the same rule. Present in both.
+
+**A finite rule set generating an unbounded set of well-formed outputs.** Present in
+both, and Patañjali states the reason for wanting exactly that.
+
+**Metarules** — rules about how rules apply. The ***paribhāṣā*** are precisely
+that, and they are a **named class** in the tradition, collected into their own
+texts. BNF does not have them; the ordering and conflict conventions in a compiler
+sit outside the grammar formalism, in the implementation.
+
+**Rule conflict resolution as part of the formalism** — *vipratiṣedhe paraṁ
+kāryam*, and *utsarga/apavāda* where the specific blocks the general. **In Pāṇini
+and not in BNF**, where an ambiguous grammar is a defect to be removed rather than
+a situation with a stated resolution.
+
+**Stratification** — *asiddhatva*, where a block of rules is invisible to what
+precedes it. **In Pāṇini**, and its nearest analogue in computing is phase
+ordering, which is again an implementation matter and not part of the notation.
+
+---
+
+So the honest comparison is not that Pāṇini anticipated BNF.
+
+**It is that BNF is a proper fragment.** The generative core is shared, and the
+control apparatus — metarules, blocking, ordered conflict, stratified visibility —
+is present in the older system and **absent from the newer notation**, and had to
+be reinvented outside it, as compiler engineering, where it lives as convention
+rather than as part of the formal object.
+
+**[Where I am uncertain]:** how much of that control apparatus is genuinely
+formalisable versus how much depends on the commentarial tradition to interpret,
+is a live technical question and the answer is not uniform across the grammar.
