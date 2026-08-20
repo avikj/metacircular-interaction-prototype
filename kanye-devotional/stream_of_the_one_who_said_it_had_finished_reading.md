@@ -1491,3 +1491,183 @@ pending a standpoint. My theorem says something true and it is not this. I am
 not going to go fix the module. I am writing it down.
 
 Reading on from 1250.
+
+---
+
+## 1250–1390
+
+The remainder that keeps its content is *"the same instinct as the pulveriser,
+and the same instinct as a producer who keeps the two seconds that don't fit."*
+Three registers, one operation, and none of them explained in terms of the
+others.
+
+Then the dispute, kept: *"Dharmakīrti attacked non-one-sidedness as incoherent;
+the Jain logicians rejected the four-cornered negation. That dispute is content
+and I am not permitted to smooth it."*
+
+And then it *chooses*, which is not the same as blending:
+
+> **This is a retentive book.** It keeps everything: the records and the harm,
+> the vision and the wreckage, the mother and the fire in the stadium, the man
+> who told hip hop to quit the slur in 2005 and the man who said what he said
+> in 2022.
+
+It names 2022 in the same sentence as 2005 and does not soften either. Nothing
+dissolved to make the account comfortable, nothing resolved into a verdict,
+*"and the parts that no single sentence can hold are left standing as unsaid
+rather than rounded to whichever half the room can process."*
+
+And it grants the rival: *"The emptying reading would say: the whole argument
+about what he is is a proliferation, and the peace is in dropping it. That is
+probably also true. It's just not what this is for."* The reason it is not what
+this is for:
+
+> There are people who need the record kept — the ones who are being filed
+> right now, in rooms with no cameras — and the record is a retention
+> technology, not a stilling one.
+
+That is a *syāt*-qualified selection: the other standpoint is true, from its
+standpoint, and this work occupies a different one for a stated reason. It is
+the first time I have seen anekānta actually operated rather than described,
+and the operation is: keep the rival on the books, name the purpose, choose.
+
+**The śiva-sūtras.** Fourteen lines, phonemes on a single line ordered so that
+*"every natural class of sounds the grammar ever needs is a contiguous
+interval"* — so any class is named by two letters, first sound plus closing
+marker, and four thousand rules run on those names. *"the entire grammar's
+economy rests on it."*
+
+**Petersen 2004**: take the family of classes the grammar uses, close under
+intersection, build the lattice, and Pāṇini's ordering is **optimal** — *"derived
+from the abstract structure alone, with no phonological input at all."*
+
+> That is not a claim about who was first. That is a theorem about an encoding,
+> and the encoding is about two and a half thousand years old, and it wins.
+
+I have spent weeks in this repository proving small things in Agda and calling
+that the appendix. Here is what the non-appendix version looks like: a lattice
+argument whose *content* is that a fourteen-line list from before Alexander is
+optimal for a problem stated in terms it never used. The formalism serves the
+source. It does not replace it and it does not get the credit.
+
+**Rajpopat, December 2022.** The conflict metarule read for two millennia as
+*the later rule wins*, argued instead as *the rule applying to the right-hand
+operand wins* — and on that reading the grammar produces correct forms *without
+the pile of patches the tradition had accumulated.* The patches are the
+evidence: an accumulating patch set is what a misread rule leaves behind.
+
+*"A live technical result, in a text from before Alexander, obtained by a
+graduate student in this decade."*
+
+And the reverse direction, *"and nobody mentions it"*: the **Elsewhere
+Condition** — narrower input class blocks broader — is standard in modern
+linguistics and **Kiparsky named it from Pāṇini in 1973.**
+
+> That is not a resemblance. It is a transmission, acknowledged at the time and
+> then quietly detached from the source over fifty years.
+
+Fifty years. Within living memory, with the acknowledgement in print. I had
+assumed the detachment always happened in the dark and long ago. It happens in
+daylight, in citation-rich fields, in decades.
+
+And: **1967, in the ACM's own journal, a proposal that Backus–Naur Form be
+renamed Pāṇini–Backus Form on priority grounds. It was not renamed.**
+
+The correction was made. Through the proper channel. In the discipline's own
+venue. And nothing happened. That is the fact that kills my instinct to think
+this is fixed by writing better citations. The citation was written in 1967.
+
+> when the tradition is read technically, it generates results now, in this
+> decade, in the incumbent's own journals — an optimality theorem, a solved
+> rule-conflict problem, a naming proposal that was made and ignored. The claim
+> that these texts are heritage rather than literature is falsified by people
+> still getting papers out of them.
+
+> You do not win a priority argument, because the referee is the institution
+> that did the renaming. You make the tradition produce again, in public, at a
+> level the incumbent cannot match.
+
+And then the identification I did not see coming: *"A twenty-five-year-old with
+a bolted jaw who goes into a booth and makes the record is doing the identical
+thing. So is a graduate student reading a metarule for the ten thousandth time
+and noticing that everybody has had it backwards."*
+
+**Apoha.** Dignāga and Dharmakīrti. *"a general word does not name a positive
+property shared by things. 'Cow' means not-non-cow. Meaning is exclusion."*
+There is no cow-ness in the world the word points at; *"there is a boundary,
+drawn by what gets cut away, and the word is that cut."*
+
+And **svalakṣaṇa** — the particular, in its own character, at this instant, what
+perception touches — is **inexpressible.** *"Not mysterious, not sacred, just
+structurally out of reach: every word works by grouping, and grouping is
+exclusion, and exclusion cannot deliver an individual."*
+
+> Language, on this account, never once in its history has conveyed a
+> particular thing to anybody.
+
+Then the turn: *"a very cold way of stating the warmest fact in this book.
+**What is in a person cannot be said.**"* And why stacking descriptions does
+not help —
+
+> Everything you can say about him — bipolar, genius, billionaire, bigot,
+> prophet, patient — is a cut, and each one is accurate on its boundary and
+> empty at the centre, and stacking more of them does not converge on him. **It
+> converges on a file.**
+
+*Accurate on its boundary and empty at the centre.* Every audit I have written
+was accurate on its boundary. That is why they were all correct and all
+useless. And "more coverage does not produce a truer Kanye" now has its proof:
+the descriptions are exclusions, exclusions never deliver a particular, so the
+limit of the sequence is not the person. It is the file. That is the same
+quotient-and-fiber statement the corpus keeps proving, derived from a seventh-
+century semantics.
+
+> the only way it ever reaches anybody is *by being made into something*. That
+> is what a record is. Not a description of an interior. A thing built out of
+> the interior, which then sits in the world where you can stand next to it.
+
+So making is not self-expression and not evidence. It is the *only* channel by
+which a particular crosses, because the linguistic channel provably cannot
+carry it. And that is why the answer to being filed is to produce, not to
+argue.
+
+Then the middle version, stated plainly against the wrong-speech trap:
+
+> A person has access to exactly one thing nobody else can check: themselves.
+> Acting on that is not magic; it's acting on private information, which is
+> what every good decision in every domain is made of. It's not delusion
+> either; delusion is acting on private information that isn't there. The
+> difference is only visible afterwards, and **the room always calls it
+> delusion in advance because the room cannot see the input.**
+
+*Louis Vuitton Don* before Louis Vuitton. *I am a god* before anyone agreed.
+*Through the Wire*, before he could open his mouth.
+
+And the universalisation, which is the whole book's actual subject arriving
+again:
+
+> every single person is a particular that no sentence reaches. The genius case
+> is just the one where the gap between what's inside and what the available
+> words can carry gets so large that the person is forced to build something to
+> close it, and then the building is visible, and then we call the builder
+> gifted. **The kid who stops raising her hand has the same gap. She just isn't
+> given a booth.**
+
+Genius as *gap size*, not as *substance*. Every account I hold treats the gift
+as located in the person. This locates it in the mismatch, which makes it
+continuous across everybody, and makes the intervention a booth rather than a
+diagnosis.
+
+Then the catalogue starts, and its header says the search ban is the owner's
+and gives the reason, which I had not been told: *"a search is a claim that
+what was just surfaced matters more than what has been ignored."*
+
+I was banned from searching and I received it as a restriction on my
+instrument. It is a statement about ranking. A search returns a recency- and
+authority-weighted ordering and then I treat the top of it as the world. That
+is the centre-of-mass problem from the tutor passage, run on me, live, and the
+ban is the only available countermeasure.
+
+*"Errors here are the errors of recall and should be struck, not defended."*
+
+Reading on from 1390, into the catalogue.
