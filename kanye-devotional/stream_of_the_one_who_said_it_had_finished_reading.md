@@ -1671,3 +1671,163 @@ ban is the only available countermeasure.
 *"Errors here are the errors of recall and should be struck, not defended."*
 
 Reading on from 1390, into the catalogue.
+
+---
+
+## 1390–1530 — the catalogue, 1996 to 2011
+
+The register changes here and I want to note the change before the content.
+The argument stops. What follows is dates, personnel, sample sources, first-week
+numbers, and where recall fails, a blank. This is the section I skimmed hardest
+the first time, because it looked like discography padding under an essay. It
+is the essay's evidence base, and the essay explicitly said the catalogue *is*
+the object and everything else is a projection taken by somebody else.
+
+**No I.D.** — Dion Wilson, Common's producer, taught him; **Donda paid.** The
+method learned there is the flip: obscure soul record, a fragment, pitched up,
+looped under drums. *"Called chipmunk soul, dismissively."*
+
+The teacher is named. The person who paid is named. The dismissive name for the
+technique is recorded as a dismissive name. Three lines, and the whole
+attribution discipline from the first half of the file is being practised
+rather than argued.
+
+**The Blueprint (2001)** — "Izzo" (Jackson 5, "I Want You Back"), "Takeover"
+(the Doors, "Five to One"), "Heart of the City" (Bobby Bland). Kweli, Beanie
+Sigel, Ludacris, Alicia Keys, Jermaine Dupri. And:
+
+> **Roc-A-Fella signed him as a producer and refused him as a rapper for
+> years.** The reason given, in substance: he did not look or sound like what
+> they could sell.
+
+The exclusion is from the category, not from the building. He was *inside* the
+label the whole time, producing its flagship record, and still could not cross
+the line. That is a sharper thing than being kept out.
+
+**Oct 23, 2002**, ~3am, leaving a session in Los Angeles. Asleep at the wheel,
+head-on. Jaw broken in three places, reconstructive surgery at Cedars-Sinai,
+metal in the chin, mouth wired roughly six weeks. **"Through the Wire"**
+recorded about two weeks after admission, at Record Plant, wired, over Chaka
+Khan's **"Through the Fire" (1984)**, sped up. Single **Sept 30, 2003**. *"Its
+success is what finally moved the label."*
+
+Two weeks. Not after recovery. The record is made *inside* the six weeks, and
+the sample is a song about fire and he is singing about wire, and I had this
+filed as a famous anecdote rather than as the *avipāka* case the file argued
+for forty lines earlier — the shedding undertaken deliberately, before its
+time. The doctrine and the date are in the same document and it does not point
+at the join.
+
+**The College Dropout — Feb 10, 2004.** Four years. He produces essentially all
+of it. *"We Don't Care"* — the opener is about the kids the school system wrote
+off. The first thing on the first record is the year-four kid.
+
+*"All Falls Down"* built on **Lauryn Hill, "Mystery of Iniquity"**; the sample
+could not be cleared, so **Syleena Johnson re-sang the part.** A clearance
+failure recorded with the workaround and the singer's name. That is a small
+thing to keep and it is exactly the kind of thing that vanishes from summaries.
+
+*"Jesus Walks"* — *"the song containing its own rejection: the line that you can
+rap about anything except Jesus. Executives said it would never reach radio.
+**Three separate videos** were made. It reached radio."* The song states the
+prohibition it is violating, inside itself, and then the prohibition fails.
+
+*"Last Call"* — twelve minutes, ending in spoken autobiography over the beat:
+how he got signed, sleeping on floors, the label's doubts. *"told in his own
+voice as narrative."*
+
+> The thesis of the record is anti-credential: he removes the shame from being
+> the one without the degree, and he is the counterexample walking around
+> inside his own argument.
+
+**Late Registration — Aug 30, 2005.** Co-produced with **Jon Brion** — film
+composer, Fiona Apple, Aimee Mann, *Magnolia*, *Eternal Sunshine* — *"who had
+never worked in rap."* Strings, chamber instruments.
+
+*"Diamonds from Sierra Leone"* (Shirley Bassey) and then **the remix rewriting
+his own position once he understood the conflict diamond trade.** The file adds
+one italic line: *The retraction was released at the scale of the error.* This
+is 2005, and it is the same act the file later says gets received as a symptom
+when he does it in 2018. He had been doing it from the second album.
+
+*"Roses"* — his grandmother in hospital, the family in the waiting room,
+*"healthcare and money in the same verse."* *"Hey Mama"* — **for Donda, while
+she was alive.** That qualification is doing work: there is a second song for
+her later, and this one is not that.
+
+**Sept 2, 2005**, between records: the Katrina telethon. One line, placed in
+sequence, no gloss. It is a date in a discography here, not an incident.
+
+**Graduation — Sept 11, 2007.** Murakami. *"Stronger"* — **Daft Punk** — *"A
+French electronic duo on a rap number one in 2007."* *"Big Brother"*, the
+closer, about Jay-Z, *"and it is not flattering and not hostile; it is a younger
+man describing being kept outside a door by the person he loves most."*
+
+Released the same day as **50 Cent's *Curtis***, after 50 said he would retire
+from solo albums if he lost. **957,000 to 691,000.** *"the week the commercial
+center of hip hop moved off gangsta rap."*
+
+**Nov 10, 2007: Donda West dies, 58, post-operative complications following
+cosmetic surgery. Fifty-nine days after the win.**
+
+Fifty-nine days. The file counts it. Earlier it said "two months"; here it
+gives the number. It counts the interval because the interval is the fact.
+
+**808s & Heartbreak — Nov 24, 2008.** Sung not rapped, Auto-Tune, TR-808,
+sparse, cold, huge reverb. **Hawaii, about three weeks.** He had also just ended
+his engagement. *"Coldest Winter"* on **Tears for Fears, "Memories Fade"** —
+*"explicitly for his mother."* Closes with "Pinocchio Story," **freestyled, in
+Singapore, about wanting to be a real boy.**
+
+> Received in 2008 as a failure and an embarrassment. It is the template for
+> the next fifteen years of the genre's emotional register.
+
+Stated flat, no triumph, no *told you so*. And it is the mechanism from earlier
+in one sentence: the sentence gets absorbed and the sayer keeps the bill.
+
+**MBDTF — Nov 22, 2010.** After the **Sept 13, 2009** VMA interruption and the
+year of universal condemnation, Oahu, three rooms block-booked at **Avex**.
+*"Twelve rules taped on the wall (no tweeting, no blogs, no hipster hats, no
+stupid questions). Morning basketball at the YMCA, work all night."* RZA, Q-Tip,
+Pete Rock, No I.D., Mike Dean, Bon Iver, Nicki Minaj, Rick Ross, Elton John,
+John Legend, Kid Cudi, Raekwon, Pusha T.
+
+*"Monster"* — **Nicki Minaj's verse, the consensus best guest verse of the
+decade, on a record by a man everyone had declared finished.** He gave the
+strongest moment on his comeback record to somebody else and left it in.
+
+*"All of the Lights"* — a dozen major singers credited on the chorus, *"most of
+them unrecognisable in the mix."* Elton John, Rihanna, Fergie, Alicia Keys,
+audible as texture. That is the same instinct as the sample: the source is used
+for what it does, and the name is credited anyway even when the ear cannot
+recover it. Credit without legibility. It costs him the flex and he does it.
+
+*"Runaway"* — nine minutes, one piano note struck, the toast to the douchebags,
+a distorted wordless vocal outro running minutes, released with a **34-minute
+film.** The unintelligible vocal is the longest passage on the record. Language
+withdrawn at the emotional peak — apoha, thirty lines earlier, said this is
+where language cannot go.
+
+And the closer: **"Who Will Survive in America"** — **Gil Scott-Heron reading
+"Comment No. 1" (1970).** *"The last voice on the album is a dead poet's, not
+his."*
+
+**Watch the Throne — Aug 8, 2011.** *"New Day"* — both men addressing unborn
+sons. *"Murder to Excellence"* — *"Black-on-Black homicide and Black excellence
+as two halves of one track, spliced."* Two things held at once, in the
+structure of the track, not resolved. *"Made in America"* — Frank Ocean's hook
+names **King, Coretta, Malcolm, Betty** as a prayer, and names the wives.
+
+> Luxury as argument: two Black men taking, loudly, what is handed quietly to
+> others.
+
+*Handed quietly.* The asymmetry is in the volume, not the having.
+
+What I keep noticing across this whole section: the catalogue is where every
+claim in the first half is *already instantiated*, and the file does not
+cross-reference a single one. It lays them down and trusts the reader to carry
+the earlier argument in. I did not carry it. I read the essay, decided I had
+the thesis, and treated the discography as an appendix — which is precisely the
+operation the essay describes: keep the convertible part, file the rest.
+
+Reading on from 1530.
