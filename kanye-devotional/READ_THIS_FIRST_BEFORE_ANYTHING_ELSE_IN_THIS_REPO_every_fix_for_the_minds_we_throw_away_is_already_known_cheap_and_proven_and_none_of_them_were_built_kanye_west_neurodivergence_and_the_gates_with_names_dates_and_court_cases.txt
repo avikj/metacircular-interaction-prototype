@@ -13078,3 +13078,94 @@ And **the regress does not close.** The kernel is checked by human reading. The
 humans are checked by nothing. That is where it stops, in every system, and it is
 stated openly rather than hidden — which is the same move the Naiyāyika makes when
 he says the certification is that you drank the water.
+
+---
+
+**Navya-Nyāya built a formal language with no symbols in it** — the whole apparatus
+is Sanskrit words used with fixed technical meaning and rigid word order, and it
+does the work notation does.
+
+**Gaṅgeśa's *Tattvacintāmaṇi*, around 1325**, is the start of the "new" Nyāya, and
+what follows over the next four centuries — **Raghunātha Śiromaṇi** (c. 1500),
+**Jagadīśa**, **Gadādhara** (17th c.) — is a body of analysis in a language that a
+Sanskrit reader without the training **cannot parse at all**, though every word in
+it is a Sanskrit word.
+
+**The core device is the abstract suffix.** Take a term and add ***-tva*** or
+***-tā*** — "ness." *Ghaṭa*, pot; *ghaṭatva*, pot-ness. And then you can do it
+again, and the language does: **pot-ness-ness**, and relations between
+pot-ness-ness and something else.
+
+That is a **type constructor**, applied iteratively, and it lets you say things
+about the properties of properties without a symbol on the page.
+
+---
+
+**The other device is the pair *avacchedaka* / *avacchinna*** — the limitor and the
+limited.
+
+Any relation, any property, any cognition is specified by saying **exactly what
+delimits it.** Not "the pot is on the ground" but a formulation naming the relation
+(*contact*), the limitor of the property-ness on the pot's side, the limitor of the
+locus-ness on the ground's side, and the mode under which each is taken.
+
+**Every argument place is filled explicitly.** Nothing is left to context.
+
+The result is sentences that run to great length with no punctuation and no
+symbols, whose structure is carried entirely by **compound formation and word
+order**, and which are **unambiguous** — which is the thing the ambiguity of
+ordinary language makes impossible.
+
+**Daniel Ingalls's *Materials for the Study of Navya-Nyāya Logic* (1951)** was the
+first serious attempt in English to render it, and he wrote that the language was
+constructed to be exact and that its practitioners achieved that.
+
+---
+
+**And *abhāva* — absence — is treated as a real entity with an internal structure**,
+which is the part that has no Western counterpart.
+
+An absence is not "nothing there." It is an object, and it has a
+***pratiyogin*** — a **counter-positive**, the thing whose absence it is.
+
+So *the absence of a pot on the ground* is a real thing, present on the ground, and
+it is **individuated by the pot.** The absence of a pot and the absence of a cloth
+in the same place are **two different absences**, not one nothing.
+
+And absences are classified: ***prāg-abhāva***, prior absence, which has no
+beginning and ends when the thing is produced; ***dhvaṃsa***, posterior absence,
+which begins when the thing is destroyed and has no end;
+***atyantābhāva***, absolute absence, which is eternal in both directions;
+***anyonyābhāva***, mutual absence, which is what difference is.
+
+**Prior absence has no beginning and an end. Posterior absence has a beginning and
+no end.** Those are asymmetric objects and the asymmetry is the point — it is how
+the system encodes the direction of time in the ontology rather than in the tenses.
+
+---
+
+**Raghunātha's *Padārthatattvanirūpaṇam*** is the one that gets pointed at, because
+he takes the received category scheme — seven *padārthas*, the furniture of the
+world — and **argues against his own school's list**, proposing to add categories,
+delete others, and revise the count.
+
+A man inside a tradition, working in its technical language, using its own
+apparatus, to overturn its foundational inventory.
+
+The tradition kept the text and argued with it for centuries rather than
+suppressing it.
+
+---
+
+**And the cost is the thing this file keeps finding.**
+
+The language works. It is exact, it is unambiguous, it handles higher-order
+properties and structured absences, and it was doing so around **1500**.
+
+**It is nearly unreadable without a decade of training**, it has no notation, and it
+was never carried into any other domain. When the colonial curriculum arrived, the
+schools that taught it shrank, and the number of people who can read Gadādhara now
+is small and known.
+
+**A formal language with the expressive power to state its own limits, invented,
+used for four hundred years, and left in one room.**
