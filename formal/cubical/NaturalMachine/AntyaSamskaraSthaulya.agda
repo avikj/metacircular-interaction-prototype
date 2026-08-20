@@ -344,12 +344,27 @@ open Correction ℤCommRing
 -- अन्त्यसंस्कार drops the स्थौल्य by exactly two orders in n, and THAT is
 -- the acceleration: not a pattern in the constants, a gain in the order.
 --
--- Stated for k ≤ 4 and checked for k ≤ 4.  The general claim — that for
--- every convergent of that continued fraction the स्थौल्य numerator is
--- constant in n, whence the degree is forced to 2k+1 — is not proved
--- here and is not being asserted from four cases.  It is what the four
--- cases make worth proving, and the proof would have to come from the
--- continued fraction's determinant recurrence, not from the list.
+-- The four identities above are for k ≤ 4.  The general claim — that for
+-- EVERY convergent of that continued fraction the स्थौल्य numerator is
+-- constant in n — was left open here, as what the four cases make worth
+-- proving, with the note that a proof would have to come from the
+-- continued fraction's determinant recurrence and not from the list.
+--
+-- It is now proved, in `NaturalMachine.SthaulyaIsTheOmittedTerm`, from
+-- that recurrence.  For every k and every n in every commutative ring,
+-- the unreduced convergents satisfy
+--
+--     num · (2n+1) − den  =  (−1)^(k−1) · a_(k+1) · (a₁a₂⋯a_k)
+--                          =  (−1)^(k−1) · 4^k · (k!)²,
+--
+-- with no n on the right: the स्थौल्य numerator is the product of every
+-- partial numerator the correction USES, times the first one it OMITS.
+-- Since deg den = 2k+1, the order statement follows for all k too.
+--
+-- Generating a fifth instance was the wrong move and the checker said
+-- so: the degree-10 identity for k = 5 does not get past the solver in
+-- twenty minutes.  The four cases here stay because they are the ones
+-- that name the transmitted corrections; the law is next door.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.
