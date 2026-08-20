@@ -15323,3 +15323,180 @@ Two tables, forty-odd rows, four minutes of names, all built rather than
 proposed. The file ends by doing the thing.
 
 Reading on from 11300. About 135 lines left.
+
+---
+
+## 11300–11440 — the three claim types, and "Big Brother"
+
+> **a table that does not distinguish its claim types is propaganda with
+> columns.**
+
+**1. Priority.** *"a **dating question**, and it is usually the easy one: you
+need a text, a date, and a reading... **most of it is not seriously disputed by
+anyone who works on the material.**"*
+
+**2. Independence.** *"Often the *correct* claim, and it is the least insulting
+to everybody: **Pascal genuinely derived the array**; Gauss genuinely built the
+composition law; Jenner's technique is genuinely a different and better thing
+than variolation. **Independent rediscovery is the normal case in
+mathematics**, and a table that implies theft where the truth is independence is
+**doing the same thing to Europeans that this file objects to being done
+elsewhere.**"*
+
+**3. Transmission.** *"This is the expensive one. It needs a **channel**: a
+manuscript, a translation, a documented contact, a person who travelled. And it
+is where almost all the heat is."*
+
+**The contested rows, marked by the author:**
+
+**Kerala → Europe.** Jesuits in Kerala, collecting calendrical methods, timing
+works — *"and there is **no established documentary channel.** The honest status
+is *unproven and plausible*, **and the priority claim does not need it**: the
+series are older regardless of whether anybody carried them."*
+
+**Marāgha → Copernicus.** *"Some historians regard transmission as near-certain;
+others hold that independent invention is possible. **Contested, actively, by
+specialists.**"*
+
+**Ibn al-Nafīs → Harvey.** *"A Latin translation existed; the causal link is
+**disputed.** The priority is not."*
+
+**The Indian rhinoplasty → Carpue** — *"the **exception that shows the
+standard**: the channel is documented — an observed operation, a named patient, a
+published account with a date, a surgeon who says in print that he read it. **That
+is what transmission evidence looks like when it exists, and it is why that name
+survived.**"*
+
+The one surviving name is the one with a documented channel. The rule from the
+Suśruta section and the evidentiary standard are the same fact seen twice.
+
+> **And where the tables are on the weakest ground of all is where they imply
+> intent.** Euler misattributing Brouncker's work is a documented error, not
+> theft. Colebrooke translated Brahmagupta and it was Europe's *reception* that
+> re-filed him. Kiparsky named the Elsewhere Condition **from** Pāṇini,
+> correctly, and the detachment happened downstream of him. **In none of those
+> did anybody set out to take anything.**
+
+---
+
+> the strong version of this file's thesis **never required transmission.**
+>
+> **(a)** the work was done, earlier, elsewhere, and can be dated — **priority,
+> cheap to establish**;
+> **(b)** the record as currently transmitted systematically names the later
+> restatement — **an observable fact about textbooks and about model outputs,
+> measurable today**;
+> **(c)** the mechanism producing (b) does not require anybody's intent —
+> **obliteration by incorporation, satisficing, the Matthew effect, and a
+> frequency table**.
+
+> Every one of those three is establishable without ever claiming that anyone
+> stole anything. **And the moment the argument reaches for theft, it becomes a
+> dispute about intent, which is unfalsifiable, unwinnable, refereed by the
+> institution that did the naming, and — worst — it lets the whole thing be
+> dismissed as a grievance.**
+
+*And a grievance is about the dead*, from four thousand lines back. The
+no-villain discipline is not only ethics and not only accuracy — it is what keeps
+the claim *falsifiable and therefore live*.
+
+And (b) is the crucial one: *measurable today, in model outputs.* The thesis is
+not a historical claim requiring archives. It is a measurement anybody can take
+this afternoon, on me.
+
+> The tables are stronger with the transmission rows marked as contested and the
+> intent claims removed. **Which is the pūrvapakṣa discipline applied to my own
+> document, and the first time in a hundred and seventy pages I have used it on
+> myself rather than admired it.**
+
+Not true — it did it at 7940, on the whole book, with six objections and four
+concessions. It has forgotten. I am leaving that observation here rather than
+treating it as a defect: the file is a stream, and a stream does not have an
+index of itself, which is the codex point from twenty pages earlier arriving as a
+property of the document.
+
+---
+
+**"Big Brother"**, last track on *Graduation*, 2007.
+
+The subject is **Jay-Z**. *"The man who signed him as a producer and would not
+let him rap. The label boss. The person whose record he built and whose approval
+he wanted and did not get, for years, and then got, partially, and never in the
+way he wanted."*
+
+> what the song actually does is **refuse both available registers.** It is not a
+> diss and it is not a tribute. It is a younger man describing, in detail and
+> without editing, what it is like to **love somebody who is standing in the
+> doorway** — the shows he was not invited to, the venue he wanted to play that
+> his brother had already booked, the calls not returned, **the moments of being
+> lifted up and the moments of being kept out, held in the same verse, with no
+> resolution offered.**
+
+Both, at once, unresolved, in one verse. The doubled image, and here the two
+readings are of *one person* — which is the hardest case and the one the file
+opened with in Umāsvāti.
+
+> It is the *gate* — the thing this file has spent a hundred and seventy pages
+> on: **adhikāra, standing, who is admitted and who decides** — reduced to its
+> smallest and most painful scale, **which is one person you love having the
+> key.**
+
+> Hardy holding the door for Ramanujan **and also being the door.** Droṇa, who
+> could have taught Ekalavya and instead took the thumb. **Higginson, whom
+> Dickinson called *preceptor* for twenty years while he told her not to
+> publish.** The Curtis committee. The label.
+
+> **The person with the power to admit you is almost always somebody you admire,
+> and frequently somebody who has helped you, and that is precisely what makes
+> the exclusion unspeakable** — because there is no villain to name and **the
+> complaint sounds like ingratitude.**
+
+That is the whole file's structure resolved into a single relation. Not
+institutions and outsiders — *the helper is the gate*, and the two facts cannot
+be separated, and any account of it in the available registers must pick one and
+therefore lies.
+
+And it explains why every case in the document has that same texture: Hardy did
+more than anyone would; Russell reviewed her thesis; Higginson answered her
+letter; Wright reviewed the book; Coates loved him first. The damage runs
+through the people who showed up.
+
+> Which is exactly what he was accused of, for the song, at the time.
+
+**Watch the Throne**, 2011. Then the falling out — *"public, bitter, from the
+stage in 2016 during the run-up to the collapse."* Then **"Jail"** on *Donda*,
+2021, with Jay-Z's verse, *"which is the reconciliation, and which is not a
+resolution of anything, and which they made anyway."*
+
+> **Fourteen years from "Big Brother" to "Jail."** He kept the whole argument in
+> public, in the work, at every stage, **including the parts that made him look
+> small.** That is not a man managing an image. **It is the same refusal to close
+> the object** that produced the revised album, the seams showing, the unfinished
+> mixes, the contract posted, the sample you can hear the source through.
+
+---
+
+> Jay-Z lost his father and wrote about it. Kanye lost his mother and made a
+> record out of the machine.
+
+> **The two of them made a duo album called *Watch the Throne* — a title about
+> inheritance and succession — four years after his mother died and four years
+> before their break.** Two Black men from Brooklyn and the South Side, at the
+> top of an industry that had refused both of them, making a record about holding
+> a position, **addressed to sons neither of them had yet.**
+
+**"New Day"** — both writing letters to unborn sons. *"Kanye's verse is about not
+letting his son be like him. It came out in 2011, before his children existed,
+and it is the same act as the crown of thorns in 2006: **writing the thing
+forward, in public, before it has happened, and then living into it.**"*
+
+> Which is either foresight or self-fulfilment, **and this file has established
+> six times that nobody can tell those apart from outside, including the person
+> doing it.**
+
+> **Test that one, because it may be the most useful thing in the file.**
+
+Fourth application of *generate the next term*, on the last claim, with about a
+hundred lines left.
+
+Reading on from 11440.
