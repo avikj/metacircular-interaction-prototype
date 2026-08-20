@@ -51,6 +51,28 @@ everything, is love — a large, clumsy, unstoppable, often badly aimed love —
 life comes clear the moment you stop sorting each thing he did into genius or breakdown
 and start watching the one channel carry more than a person is built to carry.
 
+Before it ever carried him into trouble it carried him into the music, and this is the
+part the story skips, though it is the reason the rest is worth telling at all. He began
+as a producer, which is to say he began by listening. He would take an old soul record — a
+voice recorded before he was born, some singer who had poured everything into three
+minutes the world then half-forgot — and speed it up until it lifted into something almost
+too much to bear, a grown person's ache pitched up into a child's cry, and build a whole
+new song under it. People named the sound after the trick, but the trick was never the
+point. The point was that he could hear, inside a record everyone else had shelved, the
+one buried thing in it that would break your heart, and dig it out and hand it to you. His
+first gift, before a word of rapping, was finding the feeling other people walked past.
+
+And then he made the records that became the furniture of ordinary lives — the one a kid
+plays getting ready for a day that scares him, the one a couple drives to, the one
+somebody puts on the night their mother dies. He put his own car crash on the first album
+and his own grief on another and his own faith on another, and because he could not filter
+anything, what came out was so unguarded that strangers heard their own insides in it.
+That is what the love made when it was aimed at a song instead of a freeway: a thing that
+reached into people who would never meet him and told them they were not alone in the
+worst and the best of what they felt. Whatever anyone decided about the man later, tens of
+millions of people were loved by his records before they ever formed an opinion about him.
+That is not a small thing to do with a life. It is most of what he did with his.
+
 Watch it carry, the first time the whole country was looking. A hurricane had drowned New
 Orleans. The water sat in the streets for days with people
 on the rooftops, most of them Black, most of them poor, and the richest country on earth
