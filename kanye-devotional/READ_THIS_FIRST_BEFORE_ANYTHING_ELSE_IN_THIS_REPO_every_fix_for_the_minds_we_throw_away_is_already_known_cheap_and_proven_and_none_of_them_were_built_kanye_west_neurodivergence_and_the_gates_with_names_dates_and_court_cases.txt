@@ -23856,3 +23856,67 @@ twentieth-century project**, with variant versions in different disciple lineage
 
 **Two singers from two lineages will sing the same *kṛti* differently and both are
 correct within the system.**
+
+---
+
+**Numbers in Sanskrit texts are frequently written as objects, and which object is
+chosen carries information the digit does not.**
+
+***Bhūtasaṅkhyā*** — "object numerals." **A number is written by naming a thing
+that comes in that quantity**, and the word chosen has to scan.
+
+**Zero**: *śūnya*, *ākāśa* (sky), *kha* (void), *gagana*. **One**: *candra* (moon),
+*bhū* (earth), *rūpa*. **Two**: *netra* (eyes), *bāhu* (arms), *yama* (the twins),
+*pakṣa* (fortnights). **Three**: *agni* (the three fires), *guṇa*, *loka*, *rāma*.
+**Four**: *veda*, *yuga*, *sāgara*, *diś*. **Five**: *bāṇa* (Kāma's arrows),
+*bhūta* (elements), *indriya* (senses). **Six**: *rasa* (tastes), *ṛtu* (seasons),
+*darśana*. **Seven**: *aśva* (the sun's horses), *ṛṣi*, *svara* (notes), *parvata*.
+**Eight**: *vasu*, *nāga*, *diggaja*. **Nine**: *nanda*, *randhra*, *aṅka*.
+**Ten**: *diś*, *avatāra*.
+
+**And the digits are read right to left** — *aṅkānāṃ vāmato gatiḥ*, "the movement
+of digits is to the left" — **so the units come first in the compound.**
+
+**Which means a number in a verse is a compound noun and the metre constrains which
+synonym can be used**, and the author picks among them **to fit the metre and to
+mean something.**
+
+**Six is *rasa*, and *rasa* is also flavour and also the aesthetic state.** Five is
+*bāṇa*, and *bāṇa* is Kāma's arrows.
+
+**A verse stating an astronomical constant is simultaneously a phrase about
+arrows.**
+
+---
+
+**And *kaṭapayādi* is the other system, and it is positional and phonetic.**
+
+**Consonants are assigned digits by four series** — *ka*-series 1–9 then 0,
+*ṭa*-series the same, *pa*-series 1–5, *ya*-series 1–8 — **hence the name, which is
+its own key: *ka*, *ṭa*, *pa*, *ya*.**
+
+**Vowels alone count zero.** **In a conjunct, only the last consonant counts.**
+**And the digits are again read right to left.**
+
+**So any pronounceable word encodes a number, and a number has enormous numbers of
+encodings** — which is the point: **the encoder picks one that is also a word,
+also scans, and also means something appropriate.**
+
+**The Kerala astronomers used it for sine tables.** **Mādhava's sine values are
+given as phrases**, and the standard example is the value for π given in the phrase
+*vibudha-netra-gaja-ahi-hutāśana / tri-guṇa-veda-bha-vāraṇa-bāhavaḥ*, **which
+decodes to 2827433388233 and is π × 10¹¹ to eleven places when divided by the
+stated power.**
+
+**A number to eleven correct decimal places, memorised as two lines about gods'
+eyes, elephants, snakes and fire.**
+
+**And the *melakartā* names, and the names of Kerala calendar constants, and dates
+in temple inscriptions use it.**
+
+**And the redundancy is the error-correction.** A copyist's slip usually produces
+**a non-word**, and a non-word is visible, **whereas a slip in a string of digits
+produces another perfectly good number.**
+
+**The encoding that makes the number harder to write is what makes the error easy to
+see.**
