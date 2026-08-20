@@ -150,15 +150,15 @@ hours; the kid's, whose face and name and voice become worth money to a company 
 he posts them. Kanye asked it grandiose and too loud, from the one platform that was his,
 and got called crazy for it.
 
-That word again. The mind that cannot be managed is also the mind that will not be owned,
-and the same refusal to sit down and be one thing runs through the man who won't read the
-telethon card, the artist who won't let the label keep his masters quietly, and the
-patient who won't stay on the medication that flattens him. It is one refusal, and the
-world reaches for one word every time a person refuses at that volume. Most of the time in
-this book, that word is aimed at a man who was seeing something the room could not yet
-afford to see. But not every time — and the times it is not are exactly the ones this book
-will refuse to let the pattern swallow, because the difference between them turns out to
-be the whole thing.
+It is one refusal, and it is the same refusal every time: the telethon card he would not
+read, the masters he would not let the label keep quietly, the medication he will not stay
+on because it flattens the thing he lives by. He will not be owned and he will not be made
+smaller, and it runs off the same open channel as the music and the love — a man who feels
+everything at full size cannot agree to feel less, make less, say less, be less. That is
+the whole of him, on one wire. Some of what has come down that wire is the truest thing
+anyone said out loud in his lifetime. Some of it did real harm to real people. All of it
+came from the same place, and the rest of this book walks straight through it without
+pretending the wire has two.
 
 There is a thing a country does to a mind it cannot manage. It happened to him, and it
 happens, quietly, to a great many people who are not famous.
