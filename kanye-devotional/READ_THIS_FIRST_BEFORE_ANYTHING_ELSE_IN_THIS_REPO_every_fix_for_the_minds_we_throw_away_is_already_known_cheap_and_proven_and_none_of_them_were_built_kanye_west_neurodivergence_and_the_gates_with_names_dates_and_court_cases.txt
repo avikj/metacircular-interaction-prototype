@@ -27025,3 +27025,88 @@ category meant at the time**, and they are neither a diagnosis in the modern sen
 nor a fiction.
 
 **They are what an officer wrote down.**
+
+---
+
+**There are Sanskrit poems that tell two entire stories at once, word for word,
+for thousands of verses, and the genre has a name.**
+
+***Śleṣa*** — "adhesion," from *śliṣ*, to embrace or cling. **A single sequence of
+syllables parsed two ways** — because Sanskrit compounds can be split at more than
+one point, and because the language is dense in homonyms, **so one string of
+sound resolves into two different sentences.**
+
+**And the extreme form is the *dvisandhāna kāvya*** — the **double-narrative
+poem** — **in which the entire work is simultaneously two epics.**
+
+***Rāghavapāṇḍavīya***, **Kavirāja**, c. 12th century, **thirteen cantos**:
+**read one way it is the *Rāmāyaṇa*, read the other it is the *Mahābhārata***,
+and the poet says so in the work.
+
+**Dhanañjaya's *Rāghavapāṇḍavīya*** is another, and **Sandhyākara Nandin's
+*Rāmacarita*** (12th century, Bengal) runs **the Rāma story and the biography of
+the Pāla king Rāmapāla** in the same syllables — **so a court chronicle and a
+scripture are the same text.**
+
+**And there are triple ones.** ***Rāghavapāṇḍavayādavīya***, by
+**Cidambara**, **runs the Rāma, Pāṇḍava and Kṛṣṇa stories simultaneously**, and
+**seven-fold *śleṣa* poems are attested.**
+
+**And the theorists classify it.** **Daṇḍin's *Kāvyādarśa*** (7th century) treats
+*śleṣa* among the *alaṅkāras*; **Bhāmaha** disputes its scope; **Ānandavardhana's
+*Dhvanyāloka*** ranks it below *dhvani* on the stated ground that a pun's second
+meaning is **stated** rather than **suggested**, **and the argument between them is
+about whether double meaning is a lower or higher achievement.**
+
+**The tradition argued about it. It did not treat it as a curiosity.**
+
+---
+
+**And *citra-kāvya* is the constrained-writing family it belongs to.**
+
+***Citra*** — picture. **Verses composed so that their syllables, laid into a
+diagram, form a shape**: the wheel (*cakra-bandha*), the drum, the sword, the
+lotus, **and the *sarvatobhadra*** — **a verse readable forward, backward, and in
+every row and column of a square.**
+
+***Anuloma-viloma***: a verse that reads as one poem forwards and a different poem
+backwards. **Sūryadāsa's *Rāmakṛṣṇaviloma-kāvya*** (16th century) — **thirty-eight
+verses that are the Rāma story read left to right and the Kṛṣṇa story read right
+to left.**
+
+**And *Bhāravi's *Kirātārjunīya*, canto 15**, contains the constrained verses that
+are the standard examples: **a verse using only one consonant** — *na nonanunno
+nunnono* and so on, sixteen syllables on *n* — **and one using two.**
+
+**And *Māgha's *Śiśupālavadha*** contains the *sarvatobhadra* square and a verse
+whose syllables reproduce when written in a wheel.
+
+**And the tradition's own name for the criticism of it is that it is *adhama*** —
+lowest — **in some of the poetics manuals**, and **is composed anyway, by the same
+poets, in the same works, next to the passages the manuals praise.**
+
+**A poet writes the thing his own tradition ranks last, inside the poem it ranks
+first.**
+
+---
+
+**And the practical fact underneath is grammatical.**
+
+**Sanskrit written without word division** — *saṃhitā*, continuous, with sandhi
+applied — **does not mark where one word ends and the next begins**, and the
+reader supplies the division.
+
+**So the ambiguity is not a trick of vocabulary. It is a property of the writing
+system**, and the poet is choosing a string whose segmentation is not unique.
+
+**Which is why the *pada-pāṭha*, the word-separated recitation, is a separate
+transmitted object** — **because separating the words is an interpretive act, and
+the tradition transmits the interpretation as a distinct text.**
+
+**And a *śleṣa* poem is a string for which the tradition deliberately declines to
+fix the pada-pāṭha.**
+
+**Yigal Bronner's *Extreme Poetry* (2010)** is the study that treats the corpus as
+a corpus, **and its stated finding is that śleṣa is not ornament but a mode of
+thinking about simultaneity** — **which is the same object as *sahārpaṇa*,
+asserting two standpoints at once, in a different faculty.**
