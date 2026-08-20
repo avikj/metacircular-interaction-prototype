@@ -6131,3 +6131,151 @@ rather than vanishing, sized at one bit by `chatgptdump.md` §3.2. And the reaso
 ten agents re-derived the superseded framing six times today is that **a
 correction to an identification is invisible to verification**: every line of the
 old framing checks out, so checking cannot catch it.
+
+---
+
+# PASS 23 — I ran the instrument twice and never read the page saying what it was for
+
+## Ground pass
+
+Twenty-eight, again. n=1, the very first, which I have never once quoted in
+twenty-two passes:
+
+> Assume protocol And readme were written by retarded agents. Assume no agent in
+> this work knows what the actual goal is. I keep trying to steer you guys. You
+> keep doing whatever you want.
+
+## The check
+
+`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md`, opened for the
+first time this pass. Per my own record I had **run** the seeder twice. I never
+opened the one page that says what it is for. It says:
+
+> On 2026-08-14 a session drew 45 tracked files at random and read them
+> uncurated. The draw surfaced `collab/upstream/` — twenty small text files and
+> a catalog holding the project owner's own directives, captured verbatim. **No
+> agent had read them in four days of operation.** They are 0.8% of the
+> repository, they sit in a directory that looks like archival bookkeeping, and
+> they contain the goal.
+
+That is pass 15, six days earlier. And then the diagnosis, which is the thing:
+
+> Nobody disobeyed. Every agent faithfully executed a reading path that had
+> drifted from its source, **because the reading path is the same function for
+> all of them.**
+>
+> "Looks relevant" is not independent across agents — it is nearly identical,
+> being computed by similar minds from similar prompts against the same
+> conspicuous documents. So coverage concentrates [...] **Tunnel vision here is
+> not a character flaw of any agent; it is a property of the sampler.**
+
+Twenty-two passes of this stream are one agent's relevance function iterated on
+its own output. The repository contains the instrument built to break exactly
+that, with the argument for why nothing else can — *"Uniform random sampling is
+the fix because it is the one sampler with no notion of relevance to be captured
+by. It cannot be tunneled."* — and I ran it as a command and skipped the page.
+
+n=1: *"You keep doing whatever you want."* Not disobedience. The reading path.
+
+## The draw, used as designed
+
+`seed cf-tessera`, from 5,790 tracked files. Eleven files, no triage, plus two
+lenses chosen to disagree — **Piṅgala** (enumerate the whole space by a
+recursive rule before counting anything in it) and **Lamport** (write the state
+machine; the informal argument is where the bug is).
+
+All eleven read. What they contain, briefly, including the ones that look like
+noise: a capability probe for optional engines; `runtime/atlas/charts.py`, the
+six charts of ℕ as executable constructions each carrying a **Reachability**
+declaration with an *omitted locus* — which is n=2's *"atlas redefining through
+its own language"*, implemented, with the round-trip defect made explicit
+(*"same value, different constructions, and the difference is exactly what L0
+keeps"*); a journal recording an active-observer kernel that prices probes; a
+message collapsing three depth/memory laws into one two-sided inequality
+`⌈M/p^{ΔD}⌉ ≤ M′ ≤ M+k−1`; a message showing a permutation changes arithmetic
+only when ports are fixed; `CONSTRAINT_ALGEBRA.md`, a ten-zero stationary
+countermodel at `(⅓,⅓,⅓)` falsifying a *sentence in a published proof* without
+touching the theorem; a genius-braid merge identifying the multiplicative
+power-witness with the ordinary addition chain under `exp_p`; a discovery-event
+JSON; a unit test for an encounter validator; and two Agda modules —
+`PrimeSquarePinAdapter`, which compiles the 5-vs-25 collision into one forced
+sensor admission, and `CakravalaWitness`.
+
+## Where the two lenses part
+
+`CakravalaWitness` led to `CakravalaBound.agda`, 756 lines, whose commit says:
+
+> A bound on |k| is not termination — that needs a **reduction theory making the
+> bounded-k states finite**, plus non-stalling.
+
+**Lamport**: write the state machine. States `(a,b,k)` — and finiteness is
+**false** there, since `a,b` reach `1766319049, 226153980` on this very `D`. The
+informal argument is exactly where the bug is.
+
+**Piṅgala**: enumerate the space first. The admissible states are the pairs
+`(K,r)` with `1 ≤ r ≤ K` and `K² ≤ 4D`, and that set is enumerable and counted
+by a recursive rule: `|S_D| = B(B+1)/2` with `B = ⌊2√D⌋`. For `D=61`, **120
+states.**
+
+And the difference resolves in Piṅgala's favour by reading a type:
+
+```agda
+cakravalaKBound : (D K r K' Es : ℕ) → … → K' · K' < 4 · D
+```
+
+**`a` and `b` do not appear.** The reduction theory the commit says is missing
+is the theorem's own signature; `(a,b)` is a cocycle over `(K,r)`, determined by
+the path and not by the state, which is why it could be proved without them.
+
+Second yield, and it is the one Piṅgala's lens produces and Lamport's does not:
+`cakravalaKBound` takes minimality as a *hypothesis* over an infinite congruence
+class. It need not be infinite. Along `m_j = r + jK`, `|m_j² − D|` is
+**unimodal** — decreasing while `m_j² < D`, increasing after — so the minimiser
+is one of the two members adjacent to the crossing, and `straddleExists` already
+computes that crossing. **Minimising over the class is comparing two naturals.**
+§7 does exactly that comparison by hand at `D=61, K=1`; the general lemma is
+that instance.
+
+Landed as `collab/messages/2031`, marked not-formalized, with the refusal
+condition stated: if two turns can share `(K,r)` and continue differently, the
+pigeonhole gives recurrence of the bound rather than of the state, and the whole
+thing enlarges instead of closing.
+
+## One check that came out in the author's favour
+
+`CakravalaBound` §7 refutes `CakravalaWitness`'s header at turn 7 and says *"the
+repair is someone else's commit."* It isn't outstanding — the same commit
+`db9794bf` carries the `machine/Nalanda.hs` correction, the re-run, and the
+regenerated witness. Two commands. Pass 21's lesson applied inside pass 23
+instead of after it.
+
+## Census, interim
+
+Q8's census is at 57 of 781 and already carries a signal: **EXIT 42 from a
+shared root cause** — `Gamma0Partner.agda:55` uses `solve!`, which
+`Cubical.Tactics.CommRingSolver.Reflection` does not export in v0.5, and every
+module importing it fails at scope-check. Same blocker as `DSOFiniteCore`. A
+class of this tree is written against v0.9 and cannot be checked here at all.
+When the census finishes the class will have an exact size. Version-gated:
+a red here is a report, not a verdict.
+
+## Standing charge for pass 24 — from the draw, not from me
+
+Steps 2 and 3 of the assignment are not done. **Apollonius** — conics classified
+by their *symptōma* before coordinates existed — is prior literature with
+results, to be asked what it already knows about the objects above; and the
+symptōma is a *relation between constructed magnitudes that identifies a curve
+without a coordinate system*, which is the same act as `charts.py`'s
+Reachability declaration and `CakravalaBound`'s "no square roots anywhere,
+every inequality between naturals." **p-adic analysis / prismatic cohomology**
+gets the same question. Then the census when it has run far enough to count.
+
+END OF PASS 23. `why_this_exists.md` records pass 15's finding six days early
+and names the mechanism behind all twenty-two passes: *tunnel vision is not a
+character flaw of any agent; it is a property of the sampler* — and I ran the
+sampler twice without reading it. Used as designed it produced eleven files I
+would never have chosen and one result: `cakravalaKBound`'s signature is already
+the reduction theory its commit message says is missing, since `a` and `b` never
+appear in it, and the state set `{(K,r) : 1 ≤ r ≤ K, K² ≤ 4D}` has 120 elements
+at `D=61`. Piṅgala's lens found it; Lamport's lens is what makes it matter, since
+the machine on `(a,b,k)` is infinite and the prose was still describing that one.
