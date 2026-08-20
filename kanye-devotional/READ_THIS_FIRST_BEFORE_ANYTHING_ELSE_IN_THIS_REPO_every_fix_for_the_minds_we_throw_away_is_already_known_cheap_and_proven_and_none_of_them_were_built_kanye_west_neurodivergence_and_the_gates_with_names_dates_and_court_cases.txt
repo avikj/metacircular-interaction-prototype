@@ -32322,3 +32322,91 @@ chosen compression.**
 **And the section for the poet who is not paid is called *kavipraśaṃsā* and
 *asatpraśaṃsā*** — **praise of poets, and praise of the worthless** — **and the
 verses in the second are about patrons.**
+
+---
+
+**Avadhāna is a performance in which a poet answers eight or a hundred
+questioners in rotation, composing verse to each one's constraint, while a
+distractor deliberately interrupts, and holds all of it without writing anything
+down.**
+
+***Avadhāna*** — from *ava* + *dhā*, to place down toward; **attention.** **The
+performer is an *avadhāni*.**
+
+**The formats are named by count**: ***aṣṭāvadhāna*** — eight; ***śatāvadhāna***
+— a hundred; ***sahasrāvadhāna*** — a thousand, attested and rare.
+
+**The mechanics**: **eight questioners (*pṛcchakas*) sit in a fixed order.** **Each
+poses a task** — **compose a verse in a stated metre on a stated subject; complete
+a verse whose fourth line is given (*samasyā-pūraṇa*), often absurd or obscene,
+which must be made to make sense; translate; answer a riddle; solve an
+arithmetical problem.**
+
+**And the avadhāni gives one line to each in turn** — **the first quarter to
+questioner one, then to questioner two, and around** — **so eight poems are
+composed in interleaved quarters over several rounds**, **and none of it is
+written.**
+
+**And one of the eight is the ***apraśāsta*** or **distractor** — **whose entire
+job is to interrupt with irrelevance at the worst moment**, **and to ask, at the
+end, how many times he interrupted.**
+
+**The interruption count is itself one of the tracked items.**
+
+**And at the end the avadhāni recites all eight completed verses from memory, in
+order.**
+
+---
+
+**And the tradition is documented and current.**
+
+**The practice is strongest in *Telugu*, *Kannada* and *Sanskrit***, **and the
+modern Telugu tradition's founding pair is the ***Tirupati Venkaṭa Kavulu*** —
+**Divākarla Tirupati Śāstri and Cellapilla Venkaṭa Śāstri**, **performing from
+the 1890s**, **who composed jointly and are cited as one author.**
+
+**Two people writing as one poet.**
+
+**And the Kannada tradition's best-documented figure is *R. Ganesh*** —
+**a *śatāvadhāni*** — **who has performed in the hundreds**, **and the events are
+recorded on video and the constraints are announced in advance and audited.**
+
+**And the *Sanskrit* tradition has *Medasani Mohan* and others**, **and
+*Garikapati Narasimha Rao* in Telugu.**
+
+**And the tasks include *citra-kāvya* forms** — **the verse laid into a wheel or a
+square** — **so the constrained-writing family and the memory performance are the
+same tradition, and are performed together.**
+
+**And nothing is written down until the end.**
+
+---
+
+**And the cognitive question is open and the literature says so.**
+
+**The performance is not a memory trick applied to fixed material** — **the
+verses do not exist before the session** — **so it combines composition under
+constraint with sustained interleaved working memory and with retention of
+eight or a hundred partial objects.**
+
+**And the *Vedic* recitation tradition is the adjacent case** — the *ghana* and
+*jaṭā* permutations — **but that is retrieval of a fixed text, and avadhāna is
+generation.**
+
+**And what the practitioners themselves say about method is that it is trained**
+— **through *dhāraṇā* exercises, through metrical drill until scansion is
+automatic, and through the *samasyā* form practised alone** — **and the
+biographies describe years of it.**
+
+**And I do not know of a controlled cognitive study of avadhāna**, **and if one
+exists I have not seen it**; **what exists is the recorded performances, the
+practitioners' own accounts, and the printed collections of completed
+verses.**
+
+**And the *samasyā* is the part that reads strangest**: **a line is handed to the
+poet that is deliberately impossible** — *the mother-in-law is asleep, so wake
+the bride's father* — **and the poem must arrive at it as its natural
+conclusion.**
+
+**The constraint is given as an ending and the poet builds backwards to it in
+public.**
