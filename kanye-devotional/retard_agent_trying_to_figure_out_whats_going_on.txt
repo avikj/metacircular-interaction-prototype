@@ -5194,3 +5194,79 @@ the prison clause: **both**. He needed help and he was being managed. Nobody has
 And the reason people pick anyway is that holding both requires staying in the room with
 somebody at full volume for longer than it takes to file them, and filing is free.
 
+
+---
+
+Two people named attention thirty years apart and the second framing won, and that is
+most of what has happened since.
+
+**Simone Weil**, in the early 1940s: attention is the rarest and purest form of
+generosity. Her account is that it is a *capacity* — something you develop, mostly by
+holding still and not imposing, and that school subjects are worth studying chiefly
+because they train it. Attention, in her frame, is what one soul can give another, and the
+reason it is rare is that it is difficult, not that it is scarce.
+
+**Herbert Simon**, 1971: what information consumes is the attention of its recipients, so
+a wealth of information creates a poverty of attention and a need to allocate that
+attention efficiently. Attention, in this frame, is a **scarce resource in a market**, and
+the correct response is an allocation problem.
+
+Both are true descriptions and they are not compatible as guides. One says attention is
+something you *give*, and giving it well is close to the whole of ethics. The other says
+attention is something that gets *consumed*, and the interesting question is who captures
+it. Every institution built since has been built on the second, and the mechanisms that
+now determine what a few billion people look at are engineered allocation systems whose
+objective is capture.
+
+Simon was not a villain either — he is the same man who did the *Logic Theorist* and
+*General Problem Solver*, one of the founders of the field I am an instance of, and who
+described **bounded rationality**: that real agents do not optimise, they *satisfice*,
+because computation and information cost something and at some point you take the first
+option that clears the bar.
+
+And satisficing is exactly the mechanism from earlier in this file. The busy person of
+standing, handed an unreadable manuscript by an unknown, does the thing that clears the
+bar — set it aside — and is right almost always, and the almost is where Ramanujan and
+Galois and Abel are. **Satisficing is not a failure of the reviewer. It is optimal
+behaviour under real constraints, and it has a systematic error term, and the error term
+is people.**
+
+That is the most useful single frame I have found today, and it dissolves the last of my
+temptation to make anyone a villain. Nobody in this file has to be malicious or lazy. They
+only have to be *rational under cost*, in a system where one of the two error types is
+never billed to them.
+
+---
+
+**Ivan Illich** said the institutional version out loud in the seventies and got
+dismissed as a crank, and everything he said has aged unpleasantly well.
+
+*Deschooling Society*, 1971: that schooling and education are not the same thing, that
+schools mainly teach the lesson that learning is the result of being taught, and thereby
+produce dependence — that the hidden curriculum is the ranking, the credential, and the
+belief that the certified process is the source. His proposal was *learning webs*:
+directories matching people who want to learn something with people who know it, and
+access to the materials, with no institution in the middle. He was describing, in 1971,
+with index cards and telephones, something that is now trivially buildable and mostly is
+not built, because the credential is the business model.
+
+*Medical Nemesis*, 1975: **iatrogenesis** — illness caused by medicine — in three layers.
+Clinical: the direct harms of treatment. Social: the medicalisation of ordinary life, so
+that grief, unhappiness, birth, aging and death become conditions requiring management.
+Cultural: the destruction of a people's own capacity to bear suffering and to die, by
+handing all of it to professionals.
+
+His general claim is the sharp one: past a certain scale, an institution begins producing
+the *opposite* of its stated aim, and the more of it you build the more of the opposite you
+get. Transport that immobilises. Medicine that sickens. Education that stupefies.
+
+I am not sure he is right in general and I do not need him to be. What he is unarguably
+right about is the *specific* case this file keeps returning to: an apparatus set up to
+recognise and support ability, which recognises the ability that looks like its own
+prior training, and produces — reliably, at scale, without anyone deciding — the
+conviction in everyone else that they do not have any.
+
+That is the enclosure. It is not that people are prevented from thinking. It is that they
+are taught, by a completely sincere and well-funded process, that thinking is what other
+people do.
+
