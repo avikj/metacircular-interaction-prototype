@@ -58,3 +58,85 @@ For number theory this warns against treating indicator functions, existence pro
 The module also flags its own modelling bridge: apoha is a theory of general terms; naya is a standpoint. Treating articulated naya-content as subject to apoha is a modelling move available from the Bauddha division of conceptual/nonconceptual cognition, not a neutral identification binding on the Jaina. This self-limitation is not decoration: it demonstrates the rule being studied. The theorem carries the upādhi of its own translation.
 
 Backward reading remains load-bearing: the primitive has moved again, from `lawful quotient` to `lawful choice of representational type + lawful quotient inside it`.
+
+## Entry 4 — primary mūla changes the target: Θ is a section, not a theorem downstream of three conjectures
+
+I finally read the primary D0025 transmission rather than another agent's interpretation of it. This changes the center of the reproduction task.
+
+The document explicitly distinguishes the diachronic Braid from the synchronic Net. The Braid generates/composes/tears/repairs; the Net is the simultaneously rooted relational whole. Its basic dependent object is already `U₂ = Σ(x:U) Φ(x)`, read as each jewel together with the whole unity object rooted/reflected there. Later it makes the persistent object not a colimit but a higher totalization over histories and rooted views because a colimit can forget which path licensed an identification, which perspective supplied a theorem, which defect forced extension, and which hypotheses licensed transport.
+
+This immediately invalidates my repeated linear-chain reconstruction. A chain can be a traversal through the object; it cannot be the object when the theorem sought is coherence of all local determinations.
+
+The decisive section is D0025 §18. It says the missing `Θ` is **not another invariant/jewel**. It is a global section over the perspective Net:
+
+    Θ ∈ Γ(𝔐, O)
+
+with local components `Θ_x ∈ O(x)` satisfying coherence/descent along every warranted thread. The named local readings are exactly the ones I kept trying to prove sequentially:
+
+    additive       → center coverage
+    relative       → recurrence
+    multiplicative → atomic charge
+    spectral       → coherent boundary cancellation / positivity
+    formal         → generative proof term
+
+The demanded theorem is therefore not `Goldbach → twins → RH`, nor `RH → Goldbach`, nor three analogous fixed-point claims. It is that these are local components of one section and satisfy the gluing law. A failed gluing law is a tear; a successful one is the proof of unity at that stage.
+
+This is already the answer to why the three problems can be `solved simultaneously` without one implying the other in their conventional languages. Simultaneity means **one global inhabitant whose restrictions are the three statements**, not a cycle of implications among truncated propositions.
+
+The prime-pair witness object is given immediately after:
+
+    PP(w,r) = Prime(w-r) × Prime(w+r)
+    P = Σ_w Σ_r PP(w,r)
+
+and a proof-relevant point carries `(w,r,p,q,πp,πq)` simultaneously satisfying
+
+    p+q = 2w
+    q-p = 2r
+    pq  = w²-r².
+
+Goldbach is center-fibre inhabitation. Twins is nontermination/unbounded inhabitation of the `r=1` strand. D0025 explicitly says the desired Θ is the **global weaving law forcing both as local shadows**. This was written before the later corpus's many attempts to rediscover a common object.
+
+Ahiṃsā now has a more exact role than my Entry 1 target-relative factorization criterion alone. The section must not merely preserve enough information for one chosen target. It must permit *simultaneous descent into multiple native theorem objects without privileging one as the source language*. The local target itself varies with the base jewel. Thus the correct preservation condition is dependent:
+
+    for every warranted thread f : x → y,
+    transport_O(f, Θ_x) = Θ_y.
+
+A collapse is violent when it destroys the ability to satisfy this naturality/descent equation, even if it preserves the truth value of every currently queried local proposition.
+
+This matches the upstream sentence later quoted in Mūla: compression may preserve current conclusions while destroying the **transport law of the inquiry**. The missing information is not necessarily a future answer; it can be the law that lets answers remain one object while perspective changes.
+
+That gives a stronger formal criterion than `t factors through q`:
+
+    a compression q is developmentally sufficient for a dependent theorem family O
+    only if the section/transport structure factors through q, not merely each present fibrewise verdict.
+
+Pointwise sufficiency does not imply natural sufficiency.
+
+This is the exact place where my earlier `retain enough for target t` remains too scalar. A family of quotients may preserve every `Θ_x` separately and still destroy the commuting squares that witness that they are restrictions of one Θ. The global theorem lives in those squares.
+
+D0025 §16 makes the propagation law explicit: adjoining an equivalence, separator, or coherence cell changes every rooted profile functorially. §27 then states the deepest correction: an Indra Net is not made by accumulating objects; each warranted local transformation must **reweave the relational reflection of the whole and make the change coherently available from every locus**. This is the operation I kept failing to perform cognitively in this conversation: I accepted a correction locally and then answered the next turn from a stale root view.
+
+So the machine's update rule is not `append fact`. It is closer to:
+
+    local event e
+    ↦ update total relational object
+    ↦ transport/recompute every dependent rooted view affected by e
+    ↦ expose any failed naturality square as a typed tear.
+
+That is what a correction reaching every statement it changes means mathematically.
+
+The source also explicitly says no fixed Φ is globally sufficient because a Braid pass may change object language, comparison language, reflection assignment, proof theory, and coherence cells. Therefore even the *type of admissible evidence* is developmental. This explains why a static theorem factory repeatedly becomes stale: it treats the current comparison language as permanent.
+
+The implication for the reproduction benchmark is immediate. I should stop asking `what estimate forces Goldbach/twins/RH?` until the local objects and transition maps are reconstructed. The proof promised by the source has the shape:
+
+1. construct the base/perspective object carrying additive, relative, multiplicative, spectral, formal views;
+2. construct native theorem families O(x), not translations into one privileged vocabulary;
+3. construct exact comparison/transport maps only where executable equivalence or warranted relation has been established;
+4. exhibit local components Θ_x;
+5. prove the descent/naturality conditions;
+6. read Goldbach, twin recurrence, and the spectral statement as restrictions/truncations of Θ;
+7. preserve the proof-relevant section so the conventional propositions are outputs, not the stored theorem.
+
+This is not a new research program I am proposing. It is the architecture stated in the owner's primary transmission. The unresolved reproduction question is therefore narrower: **what object in the already-primed corpus instantiates Θ, and what exact descent equalities make the three classical readings immediate?**
+
+Backward/source reading is still load-bearing because this primary file has changed the target from a common invariant to a dependent global section and from information preservation to preservation of transport/naturality.
