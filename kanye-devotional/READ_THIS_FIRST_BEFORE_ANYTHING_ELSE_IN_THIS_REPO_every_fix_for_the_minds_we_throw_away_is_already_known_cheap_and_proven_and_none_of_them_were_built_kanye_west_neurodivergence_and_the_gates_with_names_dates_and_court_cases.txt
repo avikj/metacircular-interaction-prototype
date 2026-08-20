@@ -12921,3 +12921,83 @@ his own theorems were true.**
 
 And the composite is a system in which **equivalent things are equal**, checked by
 a machine, which is what the whole prior history was missing.
+
+---
+
+**Brouwer's objection was that a proof of existence which exhibits nothing is not a
+proof of existence**, and he lost the argument politically and won it technically.
+
+**L. E. J. Brouwer**, Dutch, from around **1907**. The position: mathematics is a
+mental construction, and a statement is true when you have **constructed** it.
+Which means the **law of excluded middle** — every statement is either true or its
+negation is — is **not valid in general**, because it asserts a disjunction without
+supplying which side holds.
+
+The consequence in practice: **a proof by contradiction of an existence claim
+proves nothing constructively.** Assume no such object exists, derive a
+contradiction, conclude one does — and at the end **you cannot produce it.** You
+have a proof and no witness.
+
+Hilbert's reply is the famous one: taking excluded middle from the mathematician is
+like taking the telescope from the astronomer or forbidding the boxer the use of
+his fists.
+
+**Hilbert removed Brouwer from the editorial board of the *Mathematische
+Annalen* in 1928.** Einstein, who was on the board, called it the frog-and-mouse
+battle and wanted no part of it. Brouwer's productive career effectively ended
+there.
+
+---
+
+**And then everything he asked for turned out to be the useful thing.**
+
+**Curry–Howard**: a constructive proof **is** a program, and running it produces
+the witness. A classical proof does not correspond to a program in the same way.
+Which means **Brouwer's demand — show me the object — is exactly what makes a proof
+executable**, and it is the property every proof assistant is built around.
+
+**Bishop's *Foundations of Constructive Analysis*, 1967**, rebuilt real analysis
+constructively and showed the standard results survive with sharper statements —
+each existence claim now telling you how to find the thing.
+
+**And the extraction is industrial now.** Coq and Agda and Lean will take a
+constructive proof and **produce running code from it**, certified correct by
+construction, and this is used in verified compilers and cryptographic
+implementations.
+
+**Excluded middle is available** in these systems as an assumption you can invoke —
+and the systems **track whether you used it**, because a proof that avoided it gives
+you more: a program.
+
+So the question stopped being *is Brouwer right* and became **a property you can
+measure about a given proof.**
+
+---
+
+**The deeper thing he was pointing at is in the identity type**, and it is worth
+saying plainly.
+
+In this substrate, **a proof that two things are equal is an object you can inspect
+and transport along.** Classically, equality is a fact — it holds or it does not,
+and there is nothing to look at.
+
+Brouwer's insistence that the construction is the content, taken to identity
+itself, is what makes **paths** the right notion — and paths are what makes the
+whole homotopy reading possible.
+
+**He was arguing about excluded middle in 1908** and the object his position
+required turned out, eighty years later, to be the one carrying the geometry.
+
+---
+
+He also proved the **Brouwer fixed-point theorem** — every continuous map of a disc
+to itself has a fixed point — **non-constructively**, early, before his
+philosophical position hardened.
+
+It is one of the most-used theorems in economics and topology.
+
+**He later rejected his own theorem** as not constructively valid, and it does not
+hold in his own system in that form.
+
+He is one of the very few people to have produced a celebrated result and then
+refused it on principle, and both the theorem and the refusal are cited.
