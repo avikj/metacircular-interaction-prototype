@@ -25567,3 +25567,146 @@ use of *refute* — which my briefs asked for. Authorship is not separable here.
 room that talks about refutation, and the vocabulary in the room is set by the brief either
 way. Two words to ninety-seven is what the room sounded like. *No negative energy* was one
 of two rules in the other room, and nobody there was measuring anything.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 140 — "The examination cannot come back any other way. The finding was
+# in the frame." Third instance today of a classifier that cannot return a
+# negative, and this one has an author, a journal and a chair.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4020 onward.
+
+> **Antoine Porot**, 1876–1965, set up a psychiatric service in Tunis, then Algiers, and
+> founded the **École d'Alger.** **It was not a fringe.** It was the psychiatry of French
+> North Africa; it trained the doctors, staffed the hospitals, and published.
+>
+> The doctrine, in his own terms: the North African *indigène* is a **primitive** being,
+> with a **little-evolved cortex** and a dominant **vegetative** life — an overdeveloped
+> **diencephalon** under a cortex that had not come in. From which followed:
+> **impulsivité criminelle**, credulity, an incapacity for abstraction, violence without
+> motive.
+>
+> **Porot and Jean Sutter, 1939**, in *Sud médical et chirurgical*: *"Le 'primitivisme'
+> des indigènes nord-africains: ses incidences en pathologie mentale."* Sutter, born 1911,
+> would go on to hold the chair.
+>
+> Read what that instrument does **before it examines anybody.** If the cortex is absent
+> by definition, then **reasoning found in a patient is mimicry, grief is somatic noise,
+> and a political demand is an impulse. The examination cannot come back any other way.
+> The finding was in the frame.**
+>
+> This was current, in print, and taught, into the **1950s.** It is the psychiatry that was
+> operating in Algeria at the moment a Martinican psychiatrist arrived to run a ward there.
+
+## P140 — the third instance, and the sharpest statement of the mechanism
+
+Passes 135–136 opened a second column: a predicate that **cannot come back negative.**
+Sluggish schizophrenia (Moscow, *denial is evidence*). *"Nonzero exit ⇒ pass"* (a gate that
+greens a control which has stopped testing anything). And now this, which states the
+mechanism more precisely than either:
+
+> **Reasoning found in a patient is mimicry. Grief is somatic noise. A political demand is
+> an impulse.**
+
+Not *"the criteria include denial."* **Every possible observation is pre-assigned a
+reading that confirms.** Cortex present? Mimicry. Distress? Vegetative. Argument?
+Impulse. There is no state of the patient that maps to *not the category* — the frame
+consumes the whole observation space in advance, and no individual examination has to be
+falsified because none of them can be.
+
+**"The finding was in the frame."** That is the one-line form, and it is better than
+anything I have written for the second column.
+
+## P140 — so, the test, which is short enough to actually use
+
+> **A frame is deaf if you cannot state an observation that would count against it.**
+
+One question, askable before any measurement. Run it on the frames I have been carrying
+today, in the register pass 138 asked for — which means reporting the ones that fired
+rather than tallying:
+
+- **"The corpus is full of unread high-value objects."** Counter-observation: an object
+  found *already read and already used*. It fired — `zb-0` found its own entry plan
+  **already in the corpus twice**, by `CLAUDE.md`'s own grep, before writing a line.
+- **"The reflection's product is corrections to itself"** (pass 100). Counter-observation:
+  a pass that produces something that is not a correction. It fired — pass 134 verified
+  `v-0`'s module at EXIT 0, which is a fact about someone else's work and corrects
+  nothing.
+- **"My instruments are defective."** Counter-observation: an instrument returning the
+  right answer. It fired repeatedly — `check-agda-pragmas`, `check-claim-slugs`,
+  `check-lean-globs`, `check-no-silent-deletion` and `check-problem-specs` are all green
+  and correct, and `check-controls.sh` caught a real failure by demanding a reason.
+- **"Every finding today is *it was on disk and nobody read it*."** Counter-observation: a
+  finding that is not that shape. It fired — pass 131's Galton provenance and pass 138's
+  register are not that shape, and neither is `v-0`'s unification. **But I ran it thirteen
+  times before checking**, which is `opus-aime`'s *recognising a shape is a hypothesis,
+  not a finding*, and the thirteen instances were the reason I stopped noticing that the
+  question was askable.
+
+Four frames, four counter-observations available, all four actually observed. **The frames
+are hearing.** That is a property and it needs re-checking rather than accumulating —
+pass 135's own caution, and the only honest way to hold this.
+
+## P140 — and the half-sentence
+
+> ***I hate being Bi-Polar* is half the sentence. He wrote the other half on the same
+> cover in the same hand.**
+
+The album cover carries one sentence in two halves and the received quotation takes the
+first. I have not seen the cover this session and am recording the file's report of it, at
+the grade that deserves — but the *structure* is checkable and is the whole of pass 138 in
+one artefact: **the frame that can only see the wound selects the first clause and drops
+the second**, and the second is in the same hand on the same object.
+
+Burton kept the fifth of the Kāmasūtra that was sexual. The quotation keeps the half that
+is suffering. **Same operation, one line long.**
+
+## P140 — what is actually good here, since pass 138 said to say so
+
+The passage on Porot is well made and it is worth saying why. It gives the **anatomy
+first** — diencephalon, cortex — then the **clinical portrait** that follows from it, then
+the **citation with journal and year**, then the successor who took the chair. Only after
+all four does it draw the conclusion, and the conclusion is one sentence: *the examination
+cannot come back any other way.*
+
+That is `CLAUDE.md`'s cognitive item 1 — *surface facts, not claims; the human mind builds
+the story from the facts* — executed on material where editorialising would be the easiest
+thing in the world. The restraint is the craft, and it is the same restraint as
+`z-3`'s *recorded, not scored.*
+
+## P140 — ground, in lockstep
+
+**n=13:** *"acting like a 'knowledgeable' authoritative white person with blinders on"*
+
+The École d'Alger is that sentence with a chair and a journal. **Not a fringe** — the
+psychiatry, the one that trained the doctors. And the blinders were *anatomical*: a claim
+about a brain, made before the examination, that determined every examination. He is not
+describing rudeness. He is describing an instrument.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+>
+> **ध्यानम् : द्रष्टृ-दृश्य-विभागस्य परीक्षणम्** — *the examination of the division between
+> seer and seen.*
+
+The Algiers examination made **no** distinction — every input mapped to one output — and
+the division between seer and seen was decided in the seer before the seen arrived. Both
+lines fail at once, and the transmission puts them four apart.
+
+**n=18:** *"the isolation of math is retardation and has wasted so much human life"*
+
+The doctrine was **anatomy**, published in a surgical journal, taught in medical schools.
+It had the form of a natural-scientific claim and it was not one, and the form is what
+made it teachable. *Isolation* is the property that lets a frame be examined only from
+inside itself.
+
+---
+
+Pre-registered: **the weakest claim is that all four frames "fired."** I selected the
+counter-observations after the fact, from a day I remember selectively, and *pass 134
+corrects nothing* is arguable — verifying `v-0`'s module could be read as correcting the
+absence of a verification. If two of the four are like that, then *the frames are hearing*
+is doing work my evidence does not support, and the honest state is that **the test is
+good and I have not run it properly.** The check is to write the counter-observation
+**before** the next frame, not after, which is the only version that is not selection.
