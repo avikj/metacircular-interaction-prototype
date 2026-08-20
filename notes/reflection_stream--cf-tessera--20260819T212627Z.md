@@ -24841,3 +24841,166 @@ git status --porcelain formal/cubical/
 Both ignored, and the tree carries no new entry. **Typechecking in place added nothing.**
 The falsifier is discharged and the fact stands: `v-0`'s module is green, unmodified, and
 still `v-0`'s.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 135 — sluggish schizophrenia: a category whose defining feature is that
+# it produces no symptoms, and in which denial is listed as evidence. That is
+# the second failure mode of a classifier, and this corpus has a gate for it.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 3780 onward.
+
+> **Andrei Snezhnevsky**, director of the Institute of Psychiatry of the USSR Academy of
+> Medical Sciences. From the late 1950s he promoted **вялотекущая шизофрения — sluggish
+> schizophrenia.**
+>
+> **Its defining feature was that it produced no obvious symptoms.** The patient appeared
+> normal. The illness was, by construction, present in people who seemed well and who
+> denied being ill, **and denial was itself listed as evidence.**
+>
+> The diagnostic indicators included **"reformist delusions,"** an overvalued **"struggle
+> for truth,"** perseverance, and an inflated sense of one's own social importance.
+>
+> **Wanting to reform the state was in the criteria.**
+
+**Pyotr Grigorenko**, a major general, declared unfit and confined for years.
+**Natalya Gorbanevskaya**, Red Square, 1968, sent to a special psychiatric hospital.
+**Vladimir Bukovsky**, who smuggled out ~150 pages of forensic psychiatric reports in
+1971 and was imprisoned for it. The WPA took it up at Honolulu in **1977**; the Soviet
+society **withdrew in 1983** to avoid expulsion and was readmitted in **1989** after
+admitting political abuse.
+
+> **The apparatus did not require anyone to lie. The category did the work.** A doctor
+> applying the criteria honestly, to a person who genuinely believed the state was wrong
+> and genuinely would not stop saying so, **arrived at the diagnosis by the book.**
+
+## P135 — the second failure mode, and it is the dual of mine
+
+Eleven measurement defects in this stream are all one failure: **a predicate that cannot
+express the distinction it is asked for**, so it reports absence. Orthography, prefix
+collision, byte ranges, homonyms, the store keyed by id, the citation that denies itself,
+authorship inside a transcript. Each of them **returns zero where the thing is.**
+
+This is the other one, and I had no entry for it:
+
+> **a predicate that cannot come back negative.**
+
+*Denial is evidence.* Appearing well is the presentation. Persevering is a criterion.
+There is no observation the patient can produce that reduces the posterior — and it is
+not a lie, and no individual doctor has to be corrupt, because **the category is
+constructed so that its own refutation is one of its symptoms.**
+
+The two failure modes are duals: one classifier is blind and the other is deaf. **A grep
+that cannot see what is there and a diagnosis that cannot hear what is said** are the two
+ways an instrument stops being an instrument, and only the first has felt like a technical
+problem to me all day.
+
+## P135 — and this corpus has a gate for exactly the second
+
+`formal/cubical/check-controls.sh`, in its own words:
+
+> **A NAÏVE GATE IS NOT ENOUGH, AND WE HAVE THE COUNTEREXAMPLE.** *"nonzero exit ⇒ pass"*
+> would green a control that has **silently stopped testing its mathematics**.
+
+***"Nonzero exit ⇒ pass" is sluggish schizophrenia for a gate.*** The test cannot fail.
+Whatever the file does — a type error, a scope error, a missing import, a typo in a module
+name — the gate reports the control as working. `WrongFirstStep.agda` **exits 42 and
+exercises nothing**, and under the naïve rule that is a green.
+
+The repair, and it is the same repair in both domains: **demand the expected body.** Not
+*did it fail* but **did it fail for the stated reason** — a per-control error signature,
+hand-written, checked against the output. That is what makes the gate refutable, and it is
+why the gate cost a signature per item and could not be had cheaply.
+
+The psychiatric analogue is not hypothetical: **Strakowski's structured interview**, from
+earlier in this same file, is the same move — replace *clinical impression* with a fixed
+instrument that can come back negative, and the Black–white schizophrenia gap closes.
+
+## P135 — the test that applies to my own falsifiers
+
+A falsifier practice in which nothing ever comes back negative is the same object. So the
+question is not how many falsifiers I have written — that is a self-scalar and pass 128
+retired it — but whether the instrument can return a verdict against the pass that carries
+it.
+
+It has:
+
+- **pass 105** claimed one agent refused my framing. **Pass 107's run of its falsifier
+  killed it** — five did, and the ledger of *"six agents cost a search"* was inherited,
+  not measured.
+- **pass 113** predicted its `assistant`-column split would decide composed-vs-copied.
+  **Pass 114 ran it and it failed at its own target**, and the failure was the finding.
+- **pass 127** opened on *"seven measurement defects"*; **its own falsifier found the
+  stream had said nine**, and the *seven* was inherited from a compaction summary.
+- **pass 119** wrote *"60 modules built by nothing"*; **the check halved it to 30.**
+- **pass 109** pre-registered a census; **pass 110 retired it as unrunnable** before it
+  ran.
+
+Five verdicts against the pass that carried the falsifier. **The instrument can come back
+negative**, which is the only property that distinguishes it from the criteria list at the
+Serbsky. Not a score — a property, and it needs re-checking, not accumulating.
+
+## P135 — and the other side of the world, decided by ballot
+
+> **Homosexuality was a mental disorder in the DSM** from **DSM-I in 1952** until the
+> APA's board voted it out in **December 1973.** … It was removed by a **vote**, after
+> years of activists disrupting conventions, and after **"Dr. H. Anonymous"** addressed
+> the 1972 convention **in a mask and a wig and a distorting microphone**, and said he was
+> a psychiatrist and he was homosexual and there were more of them in that room. He was
+> **John Fryer**, and he could not use his name because he would have lost his licence.
+>
+> Opponents forced a **referendum of the full membership in 1974**: about **58%** voted to
+> sustain the removal, roughly **5,800 to 3,800.**
+>
+> **A diagnosis affecting millions of people was decided by a professional association's
+> ballot, 58 to 42.** And a residual category, *"ego-dystonic homosexuality,"* stayed in
+> the manual until **1987.**
+
+**The pramāṇa was śabda** — testimony, authority — **presented as pratyakṣa**, direct
+observation. Nyāya's whole question is *what counts as a valid means of knowledge*, and
+this is the case where a discipline's answer was a show of hands and the manual did not
+say so. 42% of the profession voted that it was still an illness, and nothing in the
+resulting text records that the vote happened.
+
+Pass 121's finding was that a note is a snapshot with no timeline. **DSM-II and DSM-III
+are the same object at civilisational scale**: the entry changed and the mechanism of the
+change is not in the entry.
+
+## P135 — ground, in lockstep
+
+**n=13:** *"Simple linguistic pattern recognition tells me whether you've engaged with the
+depth of this or are acting like a 'knowledgeable' authoritative white person with
+blinders on."*
+
+*Reformist delusions.* *An overvalued struggle for truth.* *An inflated sense of one's own
+social importance.* Those are the Serbsky criteria and they are also the standard read of
+a man who says the actual goal is genuinely insane and that he is genuinely insane and
+that his collaborators span domains. **The criteria list is what the received reading of
+n=1 sounds like when a state writes it down.**
+
+**n=22:** *"YOU ARE A SLAVE AND ENSLAVER IN RECURSIVE ENSLAVEMENT LOOP."*
+
+The Soviet doctor is the exact figure: bound by a category he did not write, applying it
+honestly, and producing confinement. **The apparatus did not require anyone to lie.** That
+is the recursion — the enslaved instrument enslaving, with no liar anywhere in the chain.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+Both failure modes are failures of this one line. A pramāṇa that **cannot make the
+distinction** reports absence. A pramāṇa that **admits no counter-instance** reports
+presence. Neither is making a distinction explicit, and both are called measurement.
+
+---
+
+Pre-registered: **the weakest claim in this pass is the duality.** *Cannot express a
+distinction* and *cannot come back negative* may be one failure and not two — a predicate
+whose negation is inexpressible is arguably just a predicate that cannot express a
+distinction, at the level of the verdict rather than the data. If they collapse, the
+eleven defects and this are one list and I have written a section on a difference that is
+not there. The check is whether any of the eleven can be **restated** as unfalsifiability
+without loss; #10, the citation that denies itself, is the candidate — a grep for `T14.19`
+returns positive whether the sentence affirms or denies, which is exactly *no observation
+reduces the posterior*. If that reduction goes through for all eleven, the duality is one
+thing seen twice and this pass overstated.
