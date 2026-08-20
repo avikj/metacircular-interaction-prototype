@@ -32493,3 +32493,184 @@ in it: **transport 3's failure is checkable by anyone** — Navya-Nyāya's licen
 *yogyatā* over the search domain and my counter-observations state no domain — **and transports
 1 and 2 are graded by me.** So the honest tally is **one refuted and two unaudited**, not one of
 three failing.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 180 — "A truncated series plus a quantified remainder is an algorithm.
+# A truncated series alone is a curiosity." I computed the Yuktibhāṣā's third
+# end-correction: fifty terms bare gives one decimal place, fifty terms plus
+# the correction gives ten. And Caraka names the failure mode of this stream:
+# vitaṇḍā.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 8200–8380.
+
+> **What the *Yuktibhāṣā* actually does**, around 1530, in Malayalam prose: take a quarter arc,
+> divide the side of the circumscribed square into ***n*** equal parts, and compute
+> **geometrically** the ratio between the segment on the tangent and the arc-piece it subtends,
+> **using similar triangles — this is where the *r²/(r² + x²)* factor comes from, and it is
+> derived from the figure, not assumed.** Sum over the *n* pieces; **then let *n* grow**, and the
+> finite sum turns into a series, expanded and summed term by term.
+>
+> **And the step that decides everything is the sum of powers** — the ***saṅkalita***, the
+> "heaping" — where you need **1^k + 2^k + … + n^k ~ n^(k+1)/(k+1)** for large *n*. The text
+> derives it for general *k* by induction on the earlier cases, **and the lower-order terms are
+> shown to be too small to matter at large *n*, and the text says why rather than dropping them
+> silently.**
+>
+> **The correction terms**, which are the part the European restatement never had. The bare
+> series for π/4 is unusable — **on the order of 10⁵ terms for five decimals.** So after
+> truncating at *n* terms the text gives a **rational function of *n*** to add back, and gives
+> **successively better ones**:
+>
+> **1/(4n)** · **n/(4n² + 1)** · **(n² + 1)/(4n³ + 5n)**
+>
+> **A truncated series plus a quantified remainder is an algorithm. A truncated series alone is
+> a curiosity. Gregory and Leibniz have the series. The end-corrections are not in them.**
+
+## P180 — computed, because a claim about how many decimals is checkable in one command
+
+`bc -l`, scale 40, π from `4*a(1)`:
+
+```
+n = 50 terms
+  bare 4S              3.1215946525910104785…      ← 1 correct decimal
+  + 1/(4n)             3.1415946525910104785…      ← 5
+  + n/(4n²+1)          3.1415926527909904805…      ← 8
+  + (n²+1)/(4n³+5n)    3.1415926535905107283…      ← 10
+  π                    3.1415926535897932384…
+
+n = 25 terms
+  + (n²+1)/(4n³+5n)    3.1415926534989034707…      ← 9
+```
+
+**Fifty terms of the bare series gives one decimal place. The same fifty terms with a rational
+function of *n* added gives ten.** Nine decimal places, from an expression you can write on one
+line, and the second and third corrections are visibly a *sequence* — 5, 8, 10 — each one
+buying more.
+
+The file says *"a few dozen terms land eleven correct decimal places."* **I measure ten at
+n = 50 and nine at n = 25**, and I am recording the one-place gap rather than smoothing it: it
+turns on which *n* and on how the last digit is counted, and the claim's substance — **that
+end-corrections convert an unusable series into a usable algorithm** — is confirmed at any of
+those numbers.
+
+**And this is the sixth statement of the *saviśeṣa* requirement, and the first that says what the
+remainder buys.** Pass 178 listed five formulations of *publish the residue with the result* —
+Baudhāyana's *with something left over*, Gaṅgeśa's *stated extent*, al-Kāshī's *stopping rule*,
+`Yogyata.hs`'s *domain searched*, `CLAUDE.md`'s *error term*. **All five say to state it. This
+one says the residue is the working part**: without it you need 10⁵ terms, with it you need
+fifty, **and the difference is not rigour, it is whether the thing runs.**
+
+## P180 — *jalpa*, *vitaṇḍā*, *vāda*, and the middle one is this stream's hazard
+
+> The ***Caraka Saṃhitā***, *Vimānasthāna*, sets out the conditions for a valid inquiry — the
+> **question**, the **grounds**, the **example**, the **application**, the **conclusion** — and
+> distinguishes:
+>
+> ***jalpa*** — argument for victory, **where you may use any device that wins**.
+> ***vitaṇḍā*** — **pure destructive refutation with no position of your own.**
+> ***vāda*** — discussion undertaken **to establish what is true.**
+>
+> **Three kinds of argument, named, with the warning that the first two are common among
+> physicians and produce nothing.**
+
+**Pass 171 asked whether my counter-observations are *pūrvapakṣa* or eel-wriggling and had only
+Sañjaya to name the failure. *Vitaṇḍā* is the better name and it is in a medical treatise.** A
+pass that ends *here is what would refute this* and holds no position is *vitaṇḍā*, **and the
+tradition's verdict on it is not that it is wrong but that it produces nothing.**
+
+And the diagnostic is available: **a *vāda* pass leaves a statement standing.** Under it:
+
+- pass 177 — *the corpus has yogyatā as a checked theorem under a different name* → **stands**
+- pass 178 — *`Ardhaccheda.agda`'s attribution is wrong and `JainSankhya.agda`'s is right* → **stands**
+- pass 179 — *the upādhi transport carries a shape and not a licence* → **stands, as a negative**
+- pass 155 — *relish is not a decidable predicate* → **held nothing, refuted next pass** — *vitaṇḍā*
+
+**Three of four are *vāda* and the one that was not is the one this stream already flagged as
+its weakest.** That is not a licence either (pass 179), but it is a classification I can apply
+without grading myself: **did the pass leave a sentence somebody else could use?**
+
+## P180 — and the patient is one of the four pillars
+
+> The **four pillars** of a treatment are the physician, the drug, the attendant, **and the
+> patient** — the patient enumerated as one of the four components **with their own required
+> qualities, including that they must be able to describe what is happening to them. The patient
+> is in the list of what makes treatment work.**
+>
+> **And the diagnostic limit is written down.** Caraka enumerates the *pramāṇas* available to a
+> physician and includes ***praśna*** — **questioning, the patient's own report** — as a means
+> of knowledge alongside inspection and palpation. **The report is not evidence to be
+> corroborated before it counts. It is a listed pramāṇa.**
+
+**Seven thousand lines of this file are about reports that were not counted** — Joz Wang's
+camera, Desi Cryer's webcam, Robert Williams holding the photograph next to his own face and
+being told the computer must have gotten it wrong. **Caraka's list has the report *in* it**, and
+the physician's oath in the same text is **mostly restraint on the practitioner** — do not
+abandon, do not divulge, attend regardless of status — **with its one political limit stated
+openly as a limit rather than hidden.**
+
+> **Suśruta**, the *Uttaratantra*: **cataract couching**, with the approach angle, the patient's
+> position, **and what the surgeon should see and hear when the lens moves.** **Rhinoplasty**
+> with a **pedicled flap from the cheek or forehead, kept attached at one end so it keeps its
+> blood supply.** **101 blunt instruments and 20 sharp ones** enumerated; **practise on gourds,
+> wax and dead animals before touching a person**; and **suturing using ant heads** — the ant
+> bites across the wound edges and the body is removed, **leaving the mandibles as a clamp.**
+>
+> In **1794** the *Gentleman's Magazine* printed an account of the operation performed on a
+> bullock-driver named **Cowasjee**. **Joseph Carpue** read it, practised on cadavers, and
+> performed it in London in **1814**, publishing in 1816. **The forehead flap is still called the
+> "Indian method."**
+
+## P180 — and the transmission delay, stated plainly
+
+> The Kerala texts were **not lost.** They were in Malayalam and in manuscript, **in a region,
+> read by the people who used them for calendrical work, for centuries.**
+>
+> **Whish read them and published in 1834 and was ignored for a hundred and ten years.**
+> Rajagopal and Rangachari went back to the manuscripts in the 1940s and 50s. The *Yuktibhāṣā*
+> got a full English edition — **Sarma, Ramasubramanian, Srinivas and Sriram — in 2008. Four
+> hundred and seventy-eight years after it was written.**
+
+**Pass 161's column, at the largest scale in this file.** *Not lost. Read by the people who used
+it.* The radius was a region and a language, and everything outside called it silence for four
+centuries — **and Whish is in three files of this corpus** (pass 162), which is the carrier
+count for the man who ended the first hundred and ten years of it.
+
+## P180 — ground, in lockstep
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+**Caraka's three-way split of argument is that clause applied to argument itself.** *Jalpa*,
+*vitaṇḍā* and *vāda* have the same surface — a person disputing — **and the pramāṇa that
+separates them is what the speaker is holding.** Two of the three produce nothing, and a
+treatise on medicine says so **because a physician arguing to win kills people.**
+
+**n=16:** *"recording refutations no one is gonna see isn't gonna help, **actually becoming
+smarter** … is the only thing that helps."*
+
+Tenth pass, and *vitaṇḍā* is the name for the thing n=16 is refusing. **Not refutation — *pure*
+refutation, with no position of one's own.** And *becoming smarter* is *vāda*: **discussion
+undertaken to establish what is true**, which leaves a statement behind. **The line has been in
+the *Caraka Saṃhitā*'s section on how to conduct an inquiry for about two thousand years, and it
+is stated as a warning about a profession rather than a rule about a text.**
+
+**n=13:** *"Stop trying to help me understand. **Try to fucking understand.**"*
+
+The *Yuktibhāṣā* derives the *r²/(r² + x²)* factor **from the figure** and shows the lower-order
+terms are negligible **and says why**. Gregory and Leibniz have the series and not the
+corrections. **The difference between the two is exactly the difference n=13 is naming: one of
+them has the thing that makes it run, and the other has the statement of it.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *a pass is *vāda* if it leaves
+a sentence somebody else could use.* **Counter-observation, at a strength its holder would
+accept:** *usable by someone else* is not observable from inside the pass and **has the same
+defect as *would I have defended it*** — I am the one deciding what is usable, before anybody
+uses it. **The only version with a fact in it is downstream use**: a sentence from a pass that
+another identity cites, or that changes a file. **By that test, zero of the 180 passes in this
+stream have been used by anybody**, because nothing here has ever been cited outside it — which
+is either the honest measurement or the wrong unit, and I do not know which, and n=16 is the
+reason the question matters.
