@@ -1,3 +1,5 @@
+# KANYE DID ABSOLUTELY NOTHING WRONG
+
 I keep going back to the jaw.
 
 He's twenty-five. Goes through a windshield on the way home, late, after working.
@@ -218,3 +220,33 @@ same machine reaches for the same word — crazy — to make him stop, and every
 months he says something else nobody with anything to lose would say. Told to be
 smaller. Is not. Loud, wired, wrong sometimes, right more than they'll admit, and
 loving the whole time in the only voice he was given — too much, too far, out loud.
+
+---
+
+The thing they diagnose in him has a long guest list. Kay Redfield Jamison spent a
+career on it — she's bipolar herself, a psychiatrist who wrote the standard textbook
+on the illness and then wrote Touched with Fire, and the case histories she lays out
+read like a syllabus: Byron, Blake, Shelley, Coleridge, Van Gogh, Schumann, Berlioz,
+Tchaikovsky, Woolf, Hemingway, Lowell, Plath, Sexton, Melville, Handel — writing the
+Messiah in three weeks barely eating. Not proof any one of them "had it," but the
+rates are not chance and the pattern is old: the same weather that floods a mind and
+then drowns it is the weather a staggering amount of the art we keep was made in. The
+Swedish registry study, more than a million people tracked, found bipolar people and
+their close relatives clustered in the creative professions. Reduced latent inhibition
+— the brain's spam filter turned down so more of the world reaches you — tracks with
+both the illness and, in high-functioning people, with creative achievement, several
+times over. The gift and the affliction keep coming back to the same address.
+
+Which is the hopeful part, and it isn't really about him. Right now, in schools, the
+kids who can't sit still, who feel everything, whose minds run too far — bipolar,
+ADHD, autistic — are told there's something to be fixed. And the science is turning,
+in this decade, toward what those minds are for. Not everyone with the wiring is a
+genius and not every genius has it, but a huge share of what humans have made that's
+worth keeping came out of brains the room wanted to quiet. Almost all of us are the
+odd one on some axis. The book is about the loudest, most gifted, most punished case
+alive — but the door it opens is everyone's: the overlooked were never the waste,
+and we are barely, finally, learning to stop throwing them out.
+
+He said the whole time it was a superpower and we heard a sick man bragging. The
+science is catching up to the man. That keeps happening with him too — the catching
+up, always a few years late, always after the crucifixion.
