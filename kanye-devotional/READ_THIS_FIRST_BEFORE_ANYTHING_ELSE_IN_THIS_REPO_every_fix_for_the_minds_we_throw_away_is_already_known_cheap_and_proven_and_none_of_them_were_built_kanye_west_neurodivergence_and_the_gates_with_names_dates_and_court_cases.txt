@@ -3006,3 +3006,88 @@ account and a takedown right.** Neither is expensive. Neither is technically har
 One state has the first and nobody has the second, and the argument against them
 is that families should not be interfered with, which is exactly the argument
 Coogan's mother made in 1938 and won on until he was already broke.
+
+---
+
+The cleanest case in the record of a man who was right, was not believed, was
+driven into fury by not being believed, and had the fury used as the evidence.
+
+**Ignaz Semmelweis.** Vienna General Hospital, 1847.
+
+The hospital had **two** maternity clinics. Women were assigned by day of the
+week. The **First** clinic was staffed by medical students, who also performed
+autopsies. The **Second** was staffed by midwives, who did not.
+
+Maternal death from puerperal fever in the First ran around **ten to eighteen
+percent.** In the Second, around **two to four.**
+
+The women knew. This is the detail that should not be skipped: they **begged** to
+be admitted to the Second clinic, wept when assigned to the First, and some
+deliberately gave birth in the street and then presented afterward, because
+street births had better survival than the First clinic. The staff knew they knew.
+The disparity was discussed and explained by climate, by overcrowding, by the
+women's own shame.
+
+Then his colleague **Jakob Kolletschka** was cut with a student's scalpel during
+an autopsy and died, and his post-mortem looked like the women's.
+
+Semmelweis drew the inference — something is being carried from the corpses on
+hands — and in **May 1847** ordered handwashing in **chlorinated lime** before
+examinations.
+
+**Mortality in the First clinic fell to around one to two percent.** Within
+months. In one clinic. With a bowl of solution.
+
+---
+
+He could not explain **why**, because germ theory did not exist yet — Pasteur is
+the 1860s, Lister is 1867. So his claim was: I cannot tell you the mechanism, here
+is the intervention, here are the numbers, do it.
+
+The profession did not do it.
+
+His contract was not renewed in 1849. He went to Pest. He published the book in
+**1861** and it was received badly. And then, over years of watching women continue
+to die in numbers he had already shown were preventable, **he began writing open
+letters to obstetricians across Europe calling them murderers.**
+
+Because they were, by his arithmetic, and he had the arithmetic.
+
+**That is the evidence they used.** The anger became the diagnosis. In **1865**
+colleagues brought him to a Viennese asylum — by most accounts under a pretext. He
+tried to leave. **Guards beat him and put him in a straitjacket.**
+
+He died **two weeks later**, on August 13, 1865, aged **forty-seven**, of a
+gangrenous wound sustained in the beating.
+
+**He died of sepsis.** Of the exact thing he had spent eighteen years proving
+could be washed off a pair of hands.
+
+---
+
+The term **Semmelweis reflex** exists now and means the automatic rejection of
+evidence that contradicts an established belief. It is his name, used for the
+thing that killed him.
+
+And the sequence is the one this whole file keeps producing.
+
+**He was right about a checkable fact.** The numbers were published, reproducible,
+and enormous. **He could not supply the mechanism**, which the profession treated
+as fatal to the claim rather than as an open question. **Being right and ignored
+made him furious.** The fury was legible as pathology in a way the arithmetic was
+not legible as evidence. **And the institutional response was custody**, not
+argument — a hold, restraint, and a death nobody was charged for.
+
+*Curiosity that sees the wall clearly turns into fury, because the wall is built on
+not being seen.* That sentence is already in this repository, written about
+somebody else entirely.
+
+Semmelweis is what it looks like when the fury is a hundred percent correct, is
+about a mortality rate, is supported by a controlled comparison the institution ran
+itself by accident, and still gets filed as a man losing his mind.
+
+Nobody had to be evil. Every obstetrician in Europe simply found it easier to
+believe one Hungarian had gone mad than that they had been carrying death on their
+hands for their entire careers.
+
+That is always the cheaper belief. It is cheaper right now.
