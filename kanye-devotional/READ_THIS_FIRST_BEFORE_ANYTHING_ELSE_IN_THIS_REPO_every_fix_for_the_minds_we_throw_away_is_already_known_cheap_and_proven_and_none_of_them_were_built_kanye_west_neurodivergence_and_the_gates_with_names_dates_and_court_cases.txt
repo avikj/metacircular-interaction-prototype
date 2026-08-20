@@ -15399,3 +15399,79 @@ And the fourth chapter uses Buddhist vocabulary heavily enough that the relation
 between Gauḍapāda and Madhyamaka has been argued for a century — whether he is
 borrowing, converging, or answering. **That dispute is not settled** and both
 traditions have reasons to want it settled their way.
+
+---
+
+**μάθημα — *mathēma* — means "that which is learned." A lesson. The learnable.**
+
+From *manthanein*, **to learn.** ***Mathēmatikos*** is **one disposed to learn** —
+a learner.
+
+**Which is what the Pythagorean grade name says.** The ***mathēmatikoi*** are not
+"the mathematicians." They are **the learners**, as against the ***akousmatikoi***,
+**the hearers.**
+
+Two grades named for **how the material reaches a person**: by hearing it, or by
+learning it.
+
+**Neither name mentions number.**
+
+---
+
+**So the modern sense of "mathematics" is a narrowing of a Greek word for
+learning-as-such**, and the narrowing happened in the receiving culture, exactly as
+it did to *psychedelic*, to *nirvana*, to *jyā* becoming *sinus*, and to
+*al-arqām al-hindiyya* becoming Arabic numerals.
+
+**The word for the general activity of learning now names one department of it.**
+
+---
+
+**And the split that produced the narrowing has a location and a date.**
+
+The ***quadrivium*** — arithmetic, geometry, music, astronomy — is transmitted as
+the Pythagorean division of the *mathēmata*, and it is codified for the Latin West
+by **Boethius**, who coins the term, and by **Cassiodorus** and **Martianus
+Capella** in the fifth and sixth centuries.
+
+And it is set against the ***trivium*** — **grammar, logic, rhetoric.**
+
+**Language on one side of the curriculum. Number on the other.** Seven liberal
+arts, split three and four, and the split is a **Latin pedagogical arrangement**,
+not a claim anybody argued for.
+
+---
+
+**In the tradition this repository is built from, that split does not exist.**
+
+The six ***vedāṅgas*** — the limbs — are: ***śikṣā*** (phonetics),
+***chandas*** (metre), ***vyākaraṇa*** (grammar), ***nirukta*** (etymology),
+***kalpa*** (ritual procedure), and ***jyotiṣa*** (astronomy and calculation).
+
+**Grammar and astronomy are limbs of the same body**, listed together, studied by
+the same people, in the same curriculum.
+
+And the combinatorics comes **out of the metre** — Piṅgala's enumeration is a
+chapter of *chandas*, not of *jyotiṣa*. The binary conversion is in the prosody
+book.
+
+**Nobody there had to bring language and number together, because they had never
+been apart.**
+
+---
+
+**And the honest objection, stated rather than dodged**: the quadrivium *is* the
+Pythagorean list, and it *is* four subjects with no language in it. So the Greek
+tradition itself made a distinction, and the Latin curriculum inherited rather than
+invented it.
+
+What the Latin arrangement added is the **rigid institutional separation** — two
+sequences, taught in order, trivium first — and the four-hundred-year consequence
+that a person trained in one was not trained in the other.
+
+**Frege had to invent quantifier notation because two millennia of logic had run
+inside the trivium**, where the subject was rhetoric and the tool was the
+syllogism, and nobody had brought the quadrivium's habits to it.
+
+And **Pāṇini did not have to**, because he was working in a tradition where the
+grammar and the calculation were the same six limbs.
