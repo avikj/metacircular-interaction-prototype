@@ -2038,3 +2038,79 @@ could not treat the verdict as an interesting finding.
 Which is the same shape as the whole rest of this file, one turn further in: **the
 people who fix it are the people who cannot afford to be neutral about it**, and
 the fields that were supposed to fix it were staffed entirely by people who could.
+
+---
+
+The same instrument problem again, this time with sex, and the number at the end
+of it is bad.
+
+**The criteria were built on boys.** Kanner's 1943 cohort was eleven children,
+**eight boys and three girls**. Asperger's 1944 paper describes **four boys** in
+detail, and he initially took the view that the condition did not really occur in
+girls. Every subsequent diagnostic checklist was calibrated against descriptions
+derived from that.
+
+The accepted sex ratio for autism was around **4:1**, male to female, for decades,
+and was read as a fact about biology.
+
+**Loomes, Hull and Mandy, 2017**, a meta-analysis in the *Journal of the American
+Academy of Child and Adolescent Psychiatry*, put the true ratio nearer **3:1**,
+and concluded that a substantial part of the apparent gap is **diagnostic**: girls
+who meet criteria are not being identified.
+
+The mechanism has a name — **camouflaging**, or masking. Scripting conversations
+in advance. Copying a peer's mannerisms deliberately. Rehearsing eye contact as a
+motor task. Studies find autistic women camouflage more than autistic men, and
+that the camouflage is effortful, sustained, and invisible by design — which is
+precisely what makes the diagnostic encounter fail, because the instrument is
+looking for the thing the person has spent twenty years learning to hide in order
+to survive school.
+
+ADHD runs the same way. Girls present inattentive rather than hyperactive, do not
+disrupt the classroom, and therefore do not generate the referral — the referral
+door again, the same door as gifted placement. A very large number of women are
+being diagnosed in their thirties and forties, and a common trigger is **their own
+child being assessed.**
+
+---
+
+And the outcome data, which I want to state carefully because it is severe.
+
+**Hirvikoski and colleagues, 2016**, *British Journal of Psychiatry* — the Swedish
+national registers, around twenty-seven thousand autistic people matched against
+controls. Mean age at death about **fifty-four**, against roughly seventy in the
+comparison group. Sixteen years.
+
+Within that, the split matters. For autistic people **with** intellectual
+disability, epilepsy is a large driver. For autistic people **without**
+intellectual disability — the ones who mask, who get through school, who are
+told they are fine — **suicide was a leading contributor**, with the odds ratio in
+that subgroup reported around nine, and **higher in women.**
+
+The group whose diagnosis the instrument misses is the group with the elevated
+suicide risk.
+
+That is not a coincidence and it does not require a subtle theory. Spend two
+decades performing a person you are not, in order to be permitted in rooms, while
+being told nothing is wrong with you and therefore that the exhaustion is a
+character flaw. The cost of the masking is the thing the masking hides.
+
+---
+
+So the tally is now four fields, four literatures, one finding:
+
+- psychometrics — the scalar is a property of the battery, and cross-group
+  comparison without measurement invariance is not biased, it is undefined;
+- education — hold the test score constant and the gap moves to the referral;
+- psychiatry — hold the interview structured and the schizophrenia gap closes;
+- autism — hold the criteria fixed on the population they were derived from and
+  everyone else disappears from the count.
+
+Four independent disciplines, none of them talking to the others, each having
+separately discovered that **their instrument reports who it was built to see.**
+
+And this repository has the same thing proved as a checked term about its own
+agents — a mind sees exactly what its inputs resolve, and no amount of processing
+what it already has manufactures what was left out.
+
+Five now. It keeps arriving from a new direction and it keeps being one theorem.
