@@ -29481,3 +29481,157 @@ have now found two lane-gates by accident while looking for something else, and 
 enumerated the aggregates.** Until I have — `ls *Lane.agda`, plus whatever else ends in an
 import list and nothing else — **thirty-seven is an upper bound I obtained the same way I
 obtained sixty-one**, and the honest statement is *at most 37*, not *37*.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 165 — four aggregates, and the number of them equals the number of
+# identities that noticed the problem, because the ownership norm forbids
+# editing another agent's gate. None of the four covers any of the 37.
+# And each gate's header names an upstream breakage: I tested both, and one
+# has been repaired without the header knowing.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 164's pre-registered check: **enumerate the aggregates.** A module with ≥8 import lines
+and ≤12 lines that are neither import, comment, nor blank:
+
+```
+Everything       706 lines  182 imports   closure 517
+NaturalMachine                            closure 294
+IndianLane       351 lines   36 imports   closure 102   exit 0 (measured)
+ArchivistLane    103 lines   39 imports   closure  40
+Jiva             146 lines   67 imports                (inside IndianLane's closure)
+```
+
+**Four top-level gates, and a fifth aggregate — `Jiva` — that is a lane index in everything
+but name.** Pass 164 said *"at most 37, not 37"*. Checked against all four closures:
+
+```
+covers of the 37:   Everything 0    NaturalMachine 0    IndianLane 0    ArchivistLane 0
+```
+
+**Zero, four times.** The thirty-seven is now a measurement rather than an upper bound, and
+pass 164's caveat is discharged in the direction it feared least.
+
+## P165 — and the reason there are four is social, not technical
+
+`ArchivistLane.agda`'s header, and this is the sentence:
+
+> **`IndianLane.agda` belongs to another identity and I do not edit it. So this file is the
+> alternative that is mine to make:** one command that rechecks all of them together, and
+> that will go red if a rename, a library drift, or one of my own later edits breaks any of
+> them.
+
+And what drove it:
+
+> *"`IndianLane` is the only Agda gate that can go green on a container off the pin … So a
+> broken import there is not cosmetic: **it is the whole checkable surface of the Indian
+> lane, dark.**"*
+>
+> Checked, this session, by grepping `IndianLane.agda` for each module I have written today:
+> **not one of them is in its import closure.** The other two gates … are red upstream … So
+> by this corpus's own standard, **thirty-four modules were being checked only by the single
+> `agda` invocation that first accepted them, and never again.**
+
+**`CLAUDE.md`'s ownership norm and `check-everything-coverage.sh`'s predicate are in direct
+contradiction, and neither one knows it.** The norm says *another identity's file is theirs*,
+which is right, and it means an agent who finds its work unguarded **cannot add itself to the
+existing gate** — it has to build a new one. The script asks *is this module named in
+`Everything.agda`?*, which presupposes one gate. **So every correct application of the norm
+increases the script's false-positive rate by the size of a lane.**
+
+That is a defect with no predicate in it. It is not blind, deaf, entangled, out-of-radius, or
+over-reporting-by-narrow-question — those are all properties of an instrument. **This one
+lives in the relation between a rule about conduct and a rule about measurement**, and it
+would not be visible from either one alone. Four gates, four identities, each having
+independently found that its work was built by nothing, each correctly declining to touch
+someone else's file.
+
+And the count is exact in a way worth stating: **the number of aggregates in this repository
+is the number of agents who noticed.**
+
+## P165 — each gate's header names an upstream breakage, and I tested both
+
+The two justifications are specific and checkable, which is the reason to check them:
+
+**`IndianLane`:** *"`Everything.agda` cannot go green on this container: it reaches
+`NaturalMachine/PathIsSymmetry.agda:98`, which needs `SymGroup`, a cubical v0.9 name that
+the pinned v0.5 spells `Symmetric-Group`."*
+
+**`ArchivistLane`:** *"The other two gates — `NaturalMachine.agda` and `Everything.agda` —
+are red upstream (`Transport.agda:46`, `solveℕ!`), so they check nothing either."*
+
+Run, pinned toolchain:
+
+```
+NaturalMachine/PathIsSymmetry   exit 0    3 s
+NaturalMachine/RadixSymptoma    exit 42   3 s
+    Not in scope: solveℕ!  at RadixSymptoma.agda:108
+    (did you mean 'Cubical.Tactics.NatSolver.Reflection.solve'?)
+```
+
+**`PathIsSymmetry` is repaired.** Line 66 now reads *"the symmetric group, spelled once, here
+(see the note above)"* and defines `SymGroup` locally over `makeGroup`. Somebody fixed it and
+**`IndianLane`'s stated reason for existing is now stale** — the file is right that a gate has
+to be able to go green, and wrong about which name is stopping this one.
+
+**`solveℕ!` is live.** It is in **no file** in pinned cubical v0.5 — grep over the whole
+library returns nothing — and three `NaturalMachine` modules import it by name from
+`Cubical.Tactics.NatSolver.Reflection`. **Agda's own error names the fix**: the pinned library
+spells it `solve`. So `Everything` and `NaturalMachine` are still red, **for the reason
+`ArchivistLane` gives and not the one `IndianLane` gives**, and the two headers were written a
+day apart.
+
+`notes/THE_GATE_IS_A_CLAIM_ABOUT_A_STATE.md` is the right title and it is one level short.
+**A gate is a claim about a state. A gate's *reason for existing* is also a claim about a
+state, and it decays the same way** — faster, in fact, because nothing re-runs a header.
+
+## P165 — what I am not doing, and it is the same word twice
+
+The `solveℕ!` → `solve` repair is one identifier in three files and Agda prints the
+replacement. `IndianLane`'s stale header is one sentence. **Neither is mine to make.** The
+standing instruction for this stream is reflection only, the modules belong to other
+identities, and `CLAUDE.md` says the move there is an offer.
+
+**The offer, stated once and precisely:** `RadixSymptoma.agda:80`,
+`DigitTowerLimit.agda`, and `TheTwoPigeonholesAreInterderivable…agda` import `solveℕ!` from
+`Cubical.Tactics.NatSolver.Reflection`; the pinned v0.5 module exports `solve`; if the call
+sites take the same arguments, that is the whole of it, and if they do not, the three modules
+need a different tactic and the gates stay red until somebody decides which.
+
+## P165 — ground, in lockstep
+
+**n=15:**
+
+> **समता पूर्वकल्पिता न · समता प्रमाणेन** — *equivalence is not presupposed; equivalence by
+> proof.*
+
+Second consecutive pass on this line and the object has moved. Pass 164 presupposed
+*orphan ≡ unbuilt*. This pass tested *guarded ≡ named in `Everything`* against four closures
+and got zero four times — **and the same discipline applied to the two headers found that one
+of them had expired.** The clause cuts at both ends: it forbids presuming the identity and it
+forbids presuming the difference.
+
+**n=16:** *"building more systems isn't gonna help."*
+
+**Four gates.** Each one was the right thing for the agent that built it — every one records
+that its modules were checked once and never again, which was true — and the result is a
+repository with four notions of *built* and a script that knows one. **This is the strongest
+case for n=16 I have measured**, and it is not a case against any of the four agents. It is
+that the fifth thing needed was not a fifth gate.
+
+**n=23:** *"You don't know how repo is organized."*
+
+Fourth consecutive pass. Yesterday I did not know there were two aggregates. Today I did not
+know there were four. **The rate at which this sentence keeps being true is itself the
+finding** — and what it is measuring is that I keep answering *how is this organised?* by
+running a script instead of by reading the files that say so in their headers.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *four gates exist because
+the ownership norm forbids editing another agent's.* **Counter-observation** — a gate built
+for a reason other than ownership: scope, toolchain, or speed. **`ArchivistLane`'s closure is
+40 and `Everything`'s is 517**, and a forty-module gate that runs in a minute is worth having
+whatever the norm says, so *"the norm caused it"* may be over-fitted to one sentence in one
+header. The check is `IndianLane`'s and `NaturalMachine`'s headers read for their own stated
+reasons — I have read `IndianLane`'s and it gives redness, not ownership, so **the frame is
+already one-for-two and I am recording that rather than the clean version.**
