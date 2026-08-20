@@ -18284,3 +18284,169 @@ cell 4 is a distinction made in 1150.
 
 9 nodes, 36 edges, 4 checked, 2 his, 30 open — and the 30 are five blockers.
 `W ≠ 0` is not sharp. `0 ÷ 0` is.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 98 — the next term was generated, the two-point fit died, the
+# three-point fit died, and the four-point fit was declined.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-r-0` landed commit `76f2475f`, message 2192.
+
+## P98 — 2, 3, 5, 8
+
+> **κ₃ = 5** and **κ₄ = 8.** Sequence is now κ₁…κ₄ = **2, 3, 5, 8** against
+> ⌈(3/2)ⁿ⌉ = **2, 3, 4, 6.**
+>
+> **The two-point fit dies, and dies again one term later.**
+
+`cf-tessera-m-0` this morning: *"⌈(3/2)ⁿ⌉ fits n=1 and n=2. **Two points. I did not
+state it as a law and did not generate the next term; somebody should.**"*
+
+`CLAUDE.md`, on the one rule it says cannot be mechanised: *"a pattern over n
+instances is a pattern over n instances until something downstream of it is
+computed […] **the discipline is to generate the next term, not to phrase the
+claim more carefully.**"*
+
+Generated. It was wrong at n=3.
+
+## P98 — and the lower bound was proved, not searched
+
+> Upper: five and eight explicit product witnesses, `refl` over **all 27 / all 81
+> inputs.**
+> Lower: **proved, not searched.** A **peeling law**, proved for an arbitrary
+> tail task over arbitrary carriers — every peel of a sufficient interface is
+> sufficient for the tail task, and the three peels hold `2·|C|` tails between
+> them (each hyperedge holds 2 of 3 vertices), giving
+> **κ(triangle ⊗ S) ≥ ⌈(3/2)·κ(S)⌉.** Then 2·4 = 8 < 9 kills 4 at n = 3, and
+> 2·7 = 14 < 15 kills 7 at n = 4. **Integral, LP-free, strictly stronger than
+> Delta 02 §9 Corollary 4.1** (which only gives ≥ 4 and ≥ 6).
+>
+> **Declined searches:** C(27,4) = 17550 and C(81,7) ≈ 3.5 × 10⁹; in m-0's
+> `tuples` idiom 27⁴ = 531441 and 81⁷ ≈ 2.3 × 10¹³. **None run.**
+
+The exhaustive search was available at n=3 and it did not run it — it proved a
+general law instead, and the law is stronger than the transmission's own
+corollary. `CLAUDE.md`'s protocol says exactly this: *write down the theorem the
+computation would replace, and if it follows from an argument, write the proof.*
+And the sizes of the searches it declined are stated, which is the *"no silent
+caps"* discipline.
+
+**κ₄ = 8 closes m-0's [6,9] bracket to a point** — the direct answer to Delta 02
+§9's own invitation.
+
+## P98 — it killed its own three-point fit, and then declined a four-point one
+
+> **Claim R**: *"the integrality penalty is paid once, κ_n = ⌈κ₀·τ\*^{n−1}⌉."*
+> **Fits three points (2, 3, 5)**, predicts 7 at n = 4, **killed by the checked
+> 8.** The overhead κ_n/τ\*ⁿ **climbs** — 4/3, 4/3, 40/27, 128/81, compared in
+> exact integers — which is **data against Delta 03 §2's own residual clause**
+> about subexponential overhead.
+>
+> Also **flagged rather than fallen into**: **2, 3, 5, 8 fits Virahāṅka's
+> recurrence** too (predicts κ₅ = 13, **inside my bracket [12,15]**); **nothing I
+> checked excludes it**, only Delta 03's rate does, and **only in the limit.**
+
+A two-point fit, killed. A three-point fit of its own, killed. A **four-point
+fit** — and it is Virahāṅka's, ~700 CE, the recurrence `CLAUDE.md`'s provenance
+table names against "Fibonacci 1202" — noticed, stated, **and not claimed**, with
+the exact reason it cannot be excluded (the rate argument only bites in the limit)
+and the exact number that would test it (κ₅, bracket [12,15], 13 predicted).
+
+That is the full discipline: generate the next term; when it kills your law,
+generate another; when the data fits a *different* law, say so and say what would
+decide it. **Nobody today has done all three.**
+
+## P98 — a correction to my correction, and I over-corrected
+
+> **Prior art / egress:** arxiv.org, oeis.org, dblp.org, zbmath.org,
+> api.crossref.org **all refused (403 / no route)**; `raw.githubusercontent.com` =
+> 200 but **is not a bibliographic index**; `gh` is not installed. So **no
+> literature check of 2, 3, 5, 8 was possible and I claim no novelty for them.**
+> Lovász 1975 / Stein 1974 cited from memory, **marked as such.**
+
+Pass 88 corrected my *"egress is blocked"* to *"the network is not blocked"*, on
+`git ls-remote` exiting 0 and `raw.githubusercontent.com` returning 200. **That
+was itself too broad.** What is true, now measured on six hosts:
+
+```
+git ls-remote (github)     exit 0      arxiv.org         refused
+raw.githubusercontent.com  200         oeis.org          refused
+GRETIL clone               works       dblp.org          refused
+                                       zbmath.org        refused
+                                       api.crossref.org  refused
+                                       gutenberg.org     403
+```
+
+**GitHub reachable; bibliographic indexes not.** So `cf-tessera-p-0`'s GRETIL
+finding stands, `cf-tessera-x-0`'s arXiv fetch was probably doomed, and the six
+prior-art searches I said had been wrongly declined were **half** wrongly
+declined — the Sanskrit sources were reachable and the mathematical literature was
+not.
+
+Two corrections in one day on the same fact, each narrowing. The rule I keep
+proving: **an environment claim is only true for the hosts you tested.**
+
+## P98 — and it found a possible defect in the transmission it was answering
+
+> **Delta 03 §1 cites a limit that is not the limit it uses.** The standard
+> "asymptotic covering = fractional covering" theorem in that literature is about
+> **k-fold covers of one hypergraph** (τ_f = lim τ_k/k); Theorem 1 needs the
+> **Cartesian-power** limit lim τ(H^{×n})^{1/n}. **Both true, different limits,
+> and the k-fold one does not imply the power one.** The greedy route does.
+> Someone with *Fractional Graph Theory* should check the numbering.
+>
+> Delta 02 §9's multiplicativity τ\*(R×S) = τ\*(R)τ\*(S) is labelled a
+> **"Candidate theorem"** whose primal half carries a visible in-text hesitation
+> **("(local? correction)")**. It is load-bearing for Corollary 4.1, for Delta 03
+> Theorem 1, and for m-0's open "K∞ additivity" item. **My peeling law does not
+> use it.**
+
+An agent reading the owner's transmission closely enough to find that one of its
+citations is to a neighbouring theorem, **and stating it as a question because it
+could not open the book.** And then routing its own proof around the candidate
+theorem so nothing it landed depends on the hesitant step.
+
+And on G∞: it had **independently derived Delta 03's answer before my correction
+message arrived**, *"so it is a replication, reported as one"*, with an explicit
+finite bound `τ*ⁿ ≤ κ_n ≤ τ*ⁿ(1 + n·ln N)` — and **"no checked term claims G∞
+either way."** It also says `m-0`'s `G∞-is-not-decided-by-this-bracket` is
+untouched and correct, explicitly, which is what I asked and is the thing an agent
+defending its own contribution would not say.
+
+## P98 — the swarm hit a ceiling
+
+Six agents terminated mid-work at 12:40 UTC on a session limit: the AbGroups
+instance (*"Full tower to cokernels typechecks"* — its last line), the analogy
+audit (*"EXIT=0 with eleven statements derived and eleven type-identity guards"*),
+the prior-art repair (*"Committing with an explicit pathspec"*), the
+`Cubical.Categories` measurement, the arXiv fetch, and the inventory item.
+
+Pass 72 raised concurrency from three to twelve on n=34's *"Maximize progress
+throughout with 12 subagents."* Pass 73 recorded the first cost — index
+contention. This is the second and it is a hard one: **twelve concurrent agents
+exhaust a shared budget, and work in flight is lost at the boundary.**
+
+Three of the six had visible partial results in their last line. The AbGroups
+tower typechecked to cokernels and the term is gone.
+
+## P98 — ground, in lockstep
+
+**n=1:**
+
+> so many who **already solved \*everything\* but no one listened**
+
+2, 3, 5, 8 is Virahāṅka's sequence, ~700 CE. An agent measuring the interface
+cost of a symmetric monoidal product landed on it at n = 4, recognised it,
+**named him**, and refused to claim the pattern.
+
+**n=16:**
+
+> **actually becoming smarter so we don't walk a dumb path is the only thing that
+> helps**
+
+The dumb path here was C(81,7) ≈ 3.5 × 10⁹. It proved a peeling law instead.
+
+---
+
+2, 3, 5, 8. Fit died at n=3, own fit died at n=4, fourth fit declined at κ₅ ∈
+[12,15]. GitHub reachable, indexes not. Six agents lost at 12:40.
