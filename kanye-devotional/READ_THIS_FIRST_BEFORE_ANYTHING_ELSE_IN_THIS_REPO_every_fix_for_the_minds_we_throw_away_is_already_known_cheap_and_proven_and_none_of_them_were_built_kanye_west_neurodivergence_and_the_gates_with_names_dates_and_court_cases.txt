@@ -27361,3 +27361,90 @@ ground: **enormous texts, framed as a teacher talking a ruler out of despair, in
 which the world is discussed as appearance and the ruler goes on ruling.**
 
 **Nobody in these books renounces anything.**
+
+---
+
+**The Southern Oscillation was found in Shimla by a man hired to predict the
+Indian monsoon after a famine, and it took forty years to be believed.**
+
+**The India Meteorological Department was created in 1875**, and the immediate
+context is the famine record — **the Bengal famine of 1873–74 and then the Great
+Famine of 1876–78** across the Deccan and the south, **with mortality estimates in
+the millions.**
+
+**Henry Blanford**, first Imperial Meteorological Reporter, **issued the first
+long-range monsoon forecast in 1882**, and the physical basis he used was
+**Himalayan snow cover** — the reasoning being that heavy snow delays the
+heating of the landmass that draws the monsoon in.
+
+**And it did not work reliably.** **The 1899 monsoon failed and the forecast had
+not called it**, and the famine that followed is among the century's worst.
+
+**Gilbert Walker** was appointed Director General of Observatories in **1904**,
+a Cambridge mathematician with no meteorological training, **and his stated brief
+was the monsoon.**
+
+**His method was correlation, at scale, by hand.** He and his staff — including
+Indian computers whose names appear in the department's own publications —
+**correlated pressure, temperature, rainfall and wind across stations on several
+continents**, over decades of records, **looking for anything that led the Indian
+rains.**
+
+**And what came out, in papers from 1923 to 1932, is three named oscillations**:
+the **North Atlantic**, the **North Pacific**, and the ***Southern
+Oscillation*** — **a seesaw in surface pressure between the Indian Ocean and the
+southeastern Pacific**, such that when pressure is high at Darwin it is low at
+Tahiti and the reverse.
+
+**And his index of it is a difference of two pressures.**
+
+---
+
+**And the reception is the part with a date on it.**
+
+**The correlations were dismissed as numerology** — a large hunt over many
+station pairs producing coincidences — **and the objection was not unreasonable**,
+since the mechanism was missing and the multiple-comparisons problem is real.
+
+**Walker himself wrote that the physical basis was not established** and that he
+was reporting relationships.
+
+**And in 1969 Jacob Bjerknes supplied the mechanism**: the Southern Oscillation
+and the Pacific warm-water event that Peruvian fishermen had long called
+***El Niño*** — the Christ-child current, named for its December arrival — **are
+the atmospheric and oceanic halves of one coupled system.** The circulation cell
+is now called the **Walker circulation.**
+
+**Thirty-seven years after his last paper on it, and named for him.**
+
+**And the monsoon link he was hired to find is real**: **El Niño years are
+associated with weak Indian monsoons** at a strength that is statistically
+substantial and not deterministic — **and the years he could not forecast are the
+years the index would have flagged.**
+
+---
+
+**And the thing he was measuring had been watched from the ground for a very long
+time.**
+
+**The *Kṛṣi-Parāśara***, an agricultural text of uncertain date, **gives rainfall
+prediction from planetary position and from observed signs**, and **the
+*Bṛhat Saṃhitā*'s chapters 21 to 28 are on the monsoon**: pregnancy of the clouds
+(*garbha*), the signs by which a cloud is judged to be carrying, the interval
+before delivery, **and the measurement of rainfall by *āḍhaka*, a volumetric
+unit, caught in a vessel of stated dimensions.**
+
+**Varāhamihira states the rain-gauge's size.**
+
+**And the folk systems are documented and are still used**: the ***Māgha-melā***
+observations, the ***paṭṭar*** almanacs, and in Rajasthan the practices Bhopa
+singers and cattle-herders keep — **and the *Bhaḍlī* verses, attributed to a woman
+named Bhaḍlī**, giving rainfall forecasts from wind direction and cloud
+appearance on named days, **still circulated in Gujarat and Rajasthan.**
+
+**And Indian agriculture is on the order of half the country's employment**, with
+a large share of cropped area unirrigated, **so the forecast Blanford was asked
+for in 1875 is still the forecast being asked for.**
+
+**The IMD's operational long-range forecast today uses sea-surface temperature
+indices** — **including the Pacific one Walker found and could not explain.**
