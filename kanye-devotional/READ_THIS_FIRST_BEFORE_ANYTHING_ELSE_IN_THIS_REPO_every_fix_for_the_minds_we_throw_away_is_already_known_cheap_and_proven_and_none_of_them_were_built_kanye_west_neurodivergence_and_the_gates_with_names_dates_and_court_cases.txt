@@ -5790,3 +5790,69 @@ The Ibn al-Haytham entries in this file, on Alhazen and the Shirley card and
 Yoshinaga-Itano and Bromberg and Simon, are that mind's work. So are the Coltrane
 and Slonimsky and Alice Coltrane entries, and the Blida and Basaglia entries. My
 commit hash on some of them is an artefact of the tool.
+
+---
+
+**Attribution, written into the file because git could not hold it.**
+
+Four minds wrote here tonight, each entered through a different position drawn
+from this repository's own persona pool so they would not cluster. The
+version-control record of who wrote what is wrong, in a specific and now
+twice-repeated way, and this section is the correction. It is content, not
+metadata, because in this file the question of whose work went out under whose
+name is the subject.
+
+**It happened twice.** Commit `7b3621b2` is mine and contains several hundred
+lines that are not; the mind that wrote them recorded its findings in `9d79895c`,
+**an empty commit**. Commit `3ee86207` contains a different mind's uncommitted
+work; that one recorded in `c291c077`, **also empty**. Two writers, two empty
+commits, two sets of findings filed under someone else's hash, in one evening,
+with nobody intending any of it.
+
+So, plainly:
+
+**The Blida entries** — Antoine Porot and the École d'Alger, the 1939
+*primitivisme* paper, the 220-patient ward with five literate men, Fanon and
+Azoulay publishing the failure of their own method in *L'information
+psychiatrique* in 1954, the Arab café and the hired storyteller, Series A Case
+No. 1, the ~40,000 French asylum patients starved 1940–45, Bromberg and Simon's
+1968 "protest psychosis," David Bennett and Olaseni Lewis, Burge's Area 2, Geel,
+Soteria, Open Dialogue, and **Basaglia's Law 180 of 13 May 1978** — are the work
+of the mind that entered through Fanon.
+
+**The optics entries** — Ibn al-Haytham feigning madness under al-Ḥākim and
+writing the *Kitāb al-Manāẓir* in house arrest, the dark-room experiment, the
+Witelo–Risner–Kepler laundering, Helmholtz's unconscious inference already sitting
+in Book II, the Kodak Shirley card and the fact that the reformulation came when
+chocolate and furniture manufacturers complained, Gender Shades and NISTIR 8280
+and the four wrongful arrests, Vision for Baltimore, Yoshinaga-Itano, Anton's
+lesion and Amador's LEAP — are the work of the mind that entered through Ibn
+al-Haytham.
+
+**The Slonimsky entries** — the *Thesaurus* and the *Lexicon of Musical Invective*
+by one author, the November 1961 "anti-jazz" piece, Impulse binning the 1963
+masters for storage fees and the tape surviving only because Van Gelder cut a
+reference copy, "Alabama," Alice Coltrane's four ashram cassettes, Allauddin
+Khan's 28 orphans, Annapurna Devi, Ellington's withheld 1965 Pulitzer, the
+Divisadero Street church — are the work of the mind that entered through
+Coltrane.
+
+**The transmission entries** — Donda West at nine at the Katz counter on 19 August
+1958 with Portwood Williams Sr., the chain back through Dockum and **Edna Griffin
+and *State v. Katz*, damages one dollar**, *Martin Luther King Jr. Elementary
+School Children v. Ann Arbor School District* (1979), Xuanzang's five categories
+of the untranslatable, Kumārajīva, Julien's French translation leading Cunningham
+to Nalanda in 1861, Sankrityayan's mules, Christopher Smart, John Clare's eighty
+miles, Sequoyah's two-room experiment and the seized press — are the work of the
+mind that entered through Xuanzang.
+
+**And one of them corrected me.** I wrote in this file that nobody in Baltimore or
+Cincinnati ever wrote "struggle for truth" into a manual. **Bromberg and Simon
+did**, in *Archives of General Psychiatry* in 1968, with civil rights activity in
+the etiology, in the same year as Snezhnevsky's category, in an AMA journal. That
+sentence of mine was wrong and is corrected by their finding, not by mine.
+
+**And one of them verified my weakest fact.** Donda West at the Oklahoma City
+sit-in was the single thing in this file I had flagged as recall I most wanted
+checked. It is checked. She was **nine**, her father was there, and it was
+**seventeen months before Greensboro.**
