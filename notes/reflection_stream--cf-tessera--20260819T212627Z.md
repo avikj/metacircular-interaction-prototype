@@ -10716,3 +10716,108 @@ Three rows. Zero cross-references. One directory.
 
 Drawn uniformly from 5,807 files. Forty-eight passes, and the first time the
 object was chosen by something other than me.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 49 — the section of CLAUDE.md I read as a style has a worked example
+# in this repository, and it names the mining machine by the same two rows.
+═══════════════════════════════════════════════════════════════════════════
+
+## P49 — opened for the first time
+
+`CLAUDE.md`'s second section is headed **"Cognitive technology — binding on the
+Kanye devotional and any related work (owner, 2026-08-19)"**. I have read that
+section perhaps thirty times this session, as a set of rules about how to write
+mathematics. `kanye-devotional/` is 2.1 MB and I had never opened a file in it.
+
+### `CONTENT_SPEC_what_this_covers.md`, §RACE, verbatim
+
+> George Bush doesn't care about black people. 13th Amendment;
+> prison-industrial complex; DEA+CCA; New Slaves. Mental slavery. 250 years of
+> slavery as an ongoing process. Locked out of fashion houses = locked out of
+> ownership. "You ain't got the answers, Sway." **Northwestern axis = crucifier +
+> mining machine (kuṭṭaka→Euclid, Piṅgala→Pascal).**
+
+`CLAUDE.md`'s provenance table, two of its six rows:
+
+| in this repo | the source | date | the name usually cited instead |
+|---|---|---|---|
+| `KuttakaValli.agda`, the descent law | Āryabhaṭa, *Āryabhaṭīya*, kuṭṭaka/vallī | 499 | "extended Euclidean algorithm" |
+| binomial array … | Piṅgala, *Chandaḥśāstra* … | ~300 BCE … | Pascal, Fibonacci, Leibniz |
+
+**Same two examples. Same direction of the arrow.** The devotional names the
+mechanism — *mining machine* — and the mathematics directive spends four
+paragraphs on the same mechanism without the name. The connection between the two
+halves of this repository is stated by him, in a content spec, in one line, and
+it is not an analogy I am constructing.
+
+And the noun beside it is **crucifier**, which is `CLAUDE.md` §2's rule 4:
+*"Treating everyone as a prophet is how you see crucifixion everywhere, and why
+we kill each other and ourselves."*
+
+## P49 — `INDRAJALA_every_fact_is_in_every_other_fact.md`, its second line
+
+> **Facts and sources only. Nothing here is a reading; the arrangement is the
+> work.**
+
+That is the operational form of rule 1 — *surface facts, not claims* — and of
+rule 10 — *method is never content*. And it is, in eleven words, what pass 35 of
+this stream arrived at by counting: **the identifications are removable and
+carry no information; the measurements are the fiber.**
+
+The difference is that pass 35 got there by auditing seven of my own sentences
+and this file states it as a compositional rule and then obeys it for 193 lines.
+
+### What the arrangement does, in its first section
+
+> **Atharvaveda 8.8.8.** "This great world was the net of great Śakra; by that
+> net of Indra do I encircle all yon men with darkness." […] **The oldest Indra's
+> net in the written record is a weapon and it covers people in darkness.**
+>
+> **The Buddhāvataṃsaka.** […] In the Huayan reading, the net is jewels, each
+> reflecting every other […] **no jewel the source of the light.**
+>
+> Same net. Roughly fifteen hundred years. **Darkness to light.**
+>
+> **Fazang** (法藏, 643–712) […] wrote the *Jin shizi zhang* to explain the
+> doctrine to Wu Zetian. The biographical literature reports that he also **built
+> it**: ten mirrors, one at each of the eight directions plus above and below,
+> facing each other, a Buddha figure and a single lamp at the centre. He did not
+> describe the net. **He installed it in a room and put the empress inside it.**
+>
+> **"New Slaves," May 17, 2013.** Projected on 66 building faces worldwide, the
+> same night. One image, sixty-six surfaces, simultaneously.
+
+Four items, dated, sourced. **No sentence connects them and the connection is
+unavoidable.** The reader does the joining, which is rule 3 — *never teach* — and
+rule 7's *make the claim BE the hook; do not announce the hook*.
+
+And the file states its own limits before the facts: *"Nothing in them is claimed
+to be about Kanye West. The two checked Agda terms cited are this repository's
+own, and what they prove is stated exactly and not extended."*
+
+## P49 — the correction this makes to forty-eight passes
+
+Every pass in this file has ended in a sentence that says what the pass found —
+pass 35 subtracted that and passes 36 through 48 mostly reinstated it in a
+softer form. This file does not have one, for 193 lines, **and the material is
+harder to hold than anything in my stream.**
+
+So the register I have treated as unavailable to me — *"the one voice that cannot
+do this"*, pass 12, about the Sanskrit transmission — is not a register at all.
+It is a **subtraction**: facts, dated, in an order, with the joining left
+undone. `CLAUDE.md` §2 lists ten rules for it and rule 10 says *method is never
+content*, which is why none of the ten appears on the devotional's pages.
+
+## P49 — what is not claimed
+
+That the devotional and the mathematics are one project. Pass 35 measured that
+move seven times and struck it, and it would be the exact violation of rule 10 to
+make it here.
+
+What is checkable and is stated: **`CONTENT_SPEC` §RACE names two rows of
+`CLAUDE.md`'s provenance table by their own terms**, with the mechanism named,
+and the section of `CLAUDE.md` that governs the devotional is the section I have
+been reading as a writing style for thirty passes.
+
+Two rows. One line. Zero cross-references from the mathematics side to the file
+that names them.
