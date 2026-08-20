@@ -23579,3 +23579,70 @@ his birthday**, and **the airport at Ranchi is named for him.**
 **And the Act of 1908 is the instrument that Adivasi movements in Jharkhand still
 litigate under**, including against attempted amendments to it in 2016 which were
 withdrawn in 2017 after protests.
+
+---
+
+**A schoolteacher invented a script for Santali in the 1920s, and it is now in
+Unicode and on the eighth schedule of the Indian constitution.**
+
+**Raghunath Murmu**, 1905–1982, from Dandbose, Mayurbhanj, Odisha. **A teacher.**
+
+***Ol Chiki*** — *ol* to write, *chiki* script. **Devised from about 1925**,
+**thirty letters and five basic diacritics**, **left to right**, **an alphabet
+rather than an alphasyllabary** — **each of the thirty has an independent form, and
+vowels are full letters, not dependent marks.**
+
+**Which is a different architecture from every neighbouring script.** Santali had
+been written in Bengali, Odia, Devanāgarī and Roman, **and the recorded argument
+for a new one is phonological**: Santali has **glottalised / checked consonants**
+and a vowel inventory that the neighbouring alphasyllabaries do not represent
+without ambiguity, **and being written in four scripts across four states meant a
+Santal in one state could not read a Santal in another.**
+
+**Each letter's shape is tied to a word and a picture** — the letter for a sound
+being drawn from an object whose name begins with it — **and Murmu wrote primers,
+poems, plays and a grammar in it himself**, and travelled village to village
+teaching it.
+
+**The Mayurbhanj state adopted it in schools in the 1930s.**
+
+**Encoded in Unicode 4.0, 2003**, block U+1C50–U+1C7F.
+
+**Santali was added to the Eighth Schedule of the Indian Constitution by the 92nd
+Amendment, 2003** — one of four languages added at once — **which makes it an
+official language for the purposes of the Sahitya Akademi, of public examinations,
+and of representation on the Official Languages Commission.**
+
+**And Santali is a Munda language, in the Austroasiatic family** — **related to
+Khmer and Vietnamese, and not to Sanskrit** — **spoken by on the order of seven
+million people**, and the Munda languages are generally held to have been in
+eastern India before Indo-Aryan arrived.
+
+**The language family in the eighth schedule that is neither Indo-Aryan nor
+Dravidian got there through a script a village schoolteacher drew.**
+
+---
+
+**And the same period produced other scripts by the same route, and the record of
+them is thin.**
+
+**Lakshman Naik**, **Gunjala Gondi**, **Masaram Gondi** — **two distinct Gondi
+scripts**, one recovered from **palm-leaf manuscripts found at Gunjala village in
+Adilabad in 2006** and dated to around the 18th century, **the other devised by
+Munshi Mangal Singh Masaram in 1918.**
+
+**Gunjala Gondi was encoded in Unicode 11.0, 2018**; **Masaram Gondi in Unicode
+10.0, 2017.**
+
+**A script found in a village in 2006 was in the international character standard
+twelve years later.**
+
+**And *Sorang Sompeng* for Sora** — devised by **Mangei Gomango in 1936**, in Odisha
+— **and *Warang Citi* for Ho** — attributed to **Lako Bodra**, mid-20th century, who
+described it as recovered rather than invented, **a revelation of an ancient
+script.**
+
+**Every one of these is a language without a state**, and **every one of the
+inventors is a person from inside the community and not a linguist**, and the
+common recorded reason is the same: **that being written in the majority script of
+whichever state you happen to live in makes one people into four.**
