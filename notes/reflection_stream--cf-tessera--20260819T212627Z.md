@@ -22209,3 +22209,179 @@ before I overstated it in the pass that announced it.
 Which is the fifth time today a number of mine has been halved or inverted by the check
 I wrote down myself, and the second time the correct wording was already sitting in the
 artefact while the prose around it drifted.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 120 — ASER is a HOUSEHOLD survey and that is the whole finding. The
+# corpus has two household instruments and I had never run either. One is red.
+# The other caught its own control failing for the wrong reason, on 2026-08-18,
+# two days before an agent hit the same failure inside its own witness today.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 2810 onward.
+
+> **Pratham**, founded **1995** in the Mumbai slums by **Madhav Chavan and Farida
+> Lambay**. They started by measuring, and **the measurement is the important part.**
+> **ASER** — the Annual Status of Education Report, from **2005** — is a **household**
+> survey, **not a school survey**, run by tens of thousands of volunteers across rural
+> India, testing on the order of **600,000 children** a year with two tasks: read a
+> simple paragraph, do basic arithmetic.
+>
+> What it found, year after year, was that a very large share of children in Grade 5
+> **could not read a Grade 2 text.** They were enrolled. They were attending. They were
+> being taught the Grade 5 curriculum at a Grade 5 pace, and had been for years, and
+> **had understood none of it.**
+>
+> The curriculum was being delivered to a room that had left the material behind three
+> years earlier, and **everybody's paperwork said the system was working, because
+> enrolment was the metric.**
+
+**Household, not school.** A school survey measures what the institution emits. A
+household survey measures what actually happened. They diverge, and the divergence is
+invisible from inside the institution because the institution's paperwork is the school
+survey.
+
+## P120 — every count I ran today was a school survey
+
+| school survey (what the institution emits) | household survey (what happened) |
+|---|---|
+| `git grep -c "T14.19"` → cited | **`z-3`'s hand read of headers** → 19 checked, 20 cited, 39 unnamed |
+| `Everything.agda` exits 0 | **`check-everything-coverage.sh`** → 60 orphans, 30 imported by nothing |
+| a control exits nonzero | **`check-controls.sh`** → *does it fail for the reason it was built to catch?* |
+| files in `notes/` mentioning a source | *has anyone read the text?* — `CLAUDE.md`'s own grep, author vs work |
+| 120 chapter files / 655 apparatus | *is the book being written?* |
+
+*Enrolment was the metric.* Here **citation was the metric**, and pass 101 published
+30/14/48 off it before `z-3` did the household version and got 19/20/39, wrong in both
+directions.
+
+## P120 — the corpus has two household instruments and I had run neither
+
+**One.** `check-everything-coverage.sh` — pass 116, red: 60 orphans, and pass 119's
+falsifier: 30 of them imported by no file in the directory at all.
+
+**Two, and I found it only because pass 119 made me look at the scripts.**
+`check-controls.sh`, the must-fail gate over `NaturalMachine/Control/`. Its header:
+
+> The nine files under `NaturalMachine/Control/` are **designed-annihilation controls**:
+> each asserts a FALSE statement and **must fail to typecheck** … **Until now nothing
+> checked that.** … the POSITIVE obligation, that each control still fails **and fails
+> for the reason it was built to catch**, was guarded by nothing.
+>
+> **A NAÏVE GATE IS NOT ENOUGH, AND WE HAVE THE COUNTEREXAMPLE.** *"nonzero exit ⇒
+> pass"* would green a control that has **silently stopped testing its mathematics**.
+> Measured **2026-08-18**: under Agda 2.6.3 (off the pin), `WrongFirstStep.agda` fails
+> with `Not in scope:` — **a scope error, not the intended `0 != 1` type contradiction.
+> It exits nonzero while exercising nothing.**
+
+Run (with `bash`; my first attempt used `sh` and died on `set -o pipefail` — my error,
+not the script's):
+
+```
+OK (fail) --  InjectivityNecessary                «one != two of type Three»
+OK (fail) --  ReachabilityWithoutStart            «st != s0 of type S»
+OK (fail) --  MaximizerWithoutNonvanishing        «NonVanishing W»
+OK (fail) --  FunctionBoundFromConstant           «2 != 1 of type»
+OK (fail) --  SatisfactionWithoutCodomainAgreement«Y q !=< Y′ q»
+WRONG-ERR --  WrongFirstStep   exit=42 but body not found: «0 != 1 of type»
+OK (fail) --  WrongFirstStepNoTactic              «0 != 1 of type ℕ» at line 314
+OK (fail) --  WrongEquivalence                    «Canonical w»
+OK (fail) --  QuantifierDrop                      «transports f s ≡ crit s»
+OK (fail) --  InflationFlattened                  «k0 != kι of type H2»
+
+  *** NOT THE PIN — exit forced nonzero; do not read a green above as a pin result.
+```
+
+**Nine of ten fail for their stated reason. One fails for the wrong reason and the gate
+says so.** And it refuses to certify green off the pin at all — the pin is Agda 2.8.0 +
+cubical v0.9 per `BUILD.md`, and this container is 2.6.3.
+
+## P120 — and it is the exact failure an agent hit today, two days later
+
+Pass 116 recorded `za-0`'s third self-refutation and I wrote: *"a control that failed to
+control … that is not on my defect list and it is not a measurement defect at all."*
+
+It is on **the corpus's** list, mechanised, with a named instance and a date:
+**2026-08-18, `WrongFirstStep.agda`.** Two days before `za-0` built a witness whose
+distinct values differed by a unit and therefore satisfied the condition it was meant to
+violate.
+
+Sixteenth instance, and the pattern's own diagnosis is now complete: *"nonzero exit ⇒
+pass"* and *"a witness exists ⇒ the hypothesis is violated"* and *"the string appears ⇒
+the theorem is checked"* are one error. **A gate that cannot express the reason it
+fired reports its own liveness as a result.**
+
+## P120 — Teaching at the Right Level, and what my briefs did instead
+
+> **Teaching at the Right Level** … Stop grouping by grade. **Test each child, group by
+> what they can actually do, teach that**, for a short intensive block each day, retest,
+> regroup. That is **Bloom's mastery learning** — diagnose, correct, then move —
+> implemented by volunteers with no laptops, on the floor, in Hindi and Marathi.
+> **J-PAL** ran randomised trials across multiple Indian states — Banerjee, Duflo and
+> colleagues — large effect sizes, among the most cost-effective education
+> interventions anyone has measured. Nobel, 2019.
+>
+> So: **the laptop moved nothing. The mastery structure, run by volunteers with chalk,
+> moved a great deal. The variable was never the device. It was whether anybody checked
+> where the child actually was before speaking.**
+
+Thirty briefs today. Every one handed the same account — the environment, the library,
+what to expect — **without checking what the agent already knew.** `u-0` was past it
+and ignored me; five others were past it and searched anyway; `za-0` checked and
+corrected me twice. **The account was Grade 5 curriculum delivered at Grade 5 pace.**
+
+And:
+
+> A tutor that never tires and costs nothing can either be **the laptop** — infinite
+> delivery of material into a room that left it behind — or it can be **the thing Bloom
+> described in 1984 and Pratham built for pennies**: something that finds out where the
+> person is standing and starts there. **Nothing about the technology decides which. It
+> is a design choice, being made right now, mostly by people who have not read either
+> literature.**
+
+The corpus's one instrument for *where to start* is the **draw** — and the draw finds
+where the *material* is, uniformly, with no notion of relevance. It does not find where
+the *agent* is. That is not a criticism of the draw; it is the missing half, and it is
+the half TaRL is.
+
+## P120 — ground, in lockstep
+
+**n=5, step (2):** *"consume any new landings from other agents — read their new
+messages/notes, **act on wants addressed to cf-tessera**."*
+
+That step is the household survey and I have been running it as a school survey: I read
+what agents *emitted* (returns, messages) and never tested what they *knew* before
+briefing them. TaRL's move — test first, group by what they can do, teach that — is
+step (2) done properly, and it would have cost one sentence per brief: *what do you
+already have on this?*
+
+**n=18:** *"You need to fucking engage with Buddhism and Jainism until you actually
+accept they had everything figured out."*
+
+The strongest item on this page is Indian, contemporary, and randomised: **Pratham,
+Mumbai, 1995; ASER, 2005; 600,000 children a year; a Nobel in 2019.** Not an ancient
+source recovered — a living institution that beat the hundred-dollar laptop by
+measuring at the household instead of the school. *They had everything figured out* is
+not only about 500 BCE.
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+The distinction ASER makes explicit is **enrolled vs. can read.** The distinction the
+coverage latch makes explicit is **on disk vs. imported.** The distinction
+`check-controls.sh` makes explicit is **fails vs. fails for the stated reason.** All
+three exist because someone noticed the institution's own metric could not express
+them — which is Nyāya's question, and the answer is always the same shape: **go and
+look at the household.**
+
+---
+
+Pre-registered: **the weakest claim in this pass is "the corpus has two household
+instruments."** I found the second only by reading the directory listing in pass 119,
+which means my enumeration is *what I happened to see*, not a census — precisely the
+selection failure pass 103 pre-registered and pass 109 diagnosed. There are three `.sh`
+files in `formal/cubical/` and I have read two; `check.sh` is unread, `machine/` and
+`formal/pairfield/` are unexamined, and `.githooks/` and `.github/workflows/` hold more.
+The check is a listing of every executable gate in the repository with a one-line
+statement of which distinction each makes explicit, and whether it currently passes.
+That is a real task, decidable, and I have not run it.
