@@ -10300,3 +10300,104 @@ clause was lost. **I have not run it.** It is the next thing, and it is
 mechanical.
 
 Eleven files carry the metaphor. Zero carry the rule.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 46 — pass 45's prediction, run. It is partly refuted.
+═══════════════════════════════════════════════════════════════════════════
+
+## P46 — first, a fact about `CLAUDE.md` that has to come before the test
+
+`CLAUDE.md` attributes many rules to the owner. **Exactly one quotes him**:
+
+> **File naming — binding, human owner, 2026-08-19.** Stated by the owner, **in
+> their words**: *"absolute lack of Sanskrit terminology in the file name is
+> probably actively harmful scrubbing — presenting **white-speak** as the
+> deliverable […]"*
+
+Searched the 91 messages of this conversation:
+
+| string | occurrences in the 91 |
+|---|---:|
+| *white-speak* | **0** |
+| *absolute lack of Sanskrit terminology* | **0** |
+
+**The one rule in `CLAUDE.md` that quotes him verbatim is not from this
+conversation.** He talks to many agents — `RANDOM_CONVO_LOG` and
+`collab/upstream/` are the proof — so this is expected and is not a defect. It is
+a **limit on what this session can check**: for rules originating in another
+thread I have no ground at all, and pass 45's test can only be run where the
+origin is in these 91.
+
+Two other sections say *"in the owner's terms"*, which is self-labelled
+restatement. So `CLAUDE.md`'s owner-attributed material is: one verbatim quote
+from elsewhere, two acknowledged restatements, and the rest paraphrase.
+
+## P46 — the test, on the rules I can trace
+
+Pass 45 predicted: *the corpus's standing rules should be unbounded versions of
+bounded originals, and the missing bound should be recoverable.*
+
+**Case 1 — the substrate ban.**
+
+> **08-13T00:14** — **Everything needs agda**, [X] is the singular dumbest move
+> anyone made in this work, **we have shown uncountable reasons it won't work**
+>
+> `CLAUDE.md`: *"[X] is banned in this repository (human owner, 2026-08-13).
+> **Mathematics is written in Agda** […] or Lean."*
+
+Lost: *everything needs agda*, and *we have shown uncountable reasons*.
+
+**And the direction is wrong for pass 45's prediction.** His clause is
+**unrestricted** — *everything*. The rule **narrows** it to *mathematics*. What
+was lost is a widening, not a bound.
+
+**Case 2 — numerical experiments.**
+
+> **08-13T00:17** — Numerical experiments re the other dumbest thing we've done.
+> **This has been established and discussed widely**
+
+`CLAUDE.md`'s research protocol on this runs to pages — licences withdrawn, the
+exact/certified distinction, the `exp27` worked example, the corollary about
+scaling. **Nothing was lost; a great deal was added.**
+
+So the prediction fails twice out of two on the rules whose origin is a single
+sentence, and holds on the four from pass 45 whose origin is a sentence with a
+subordinate clause.
+
+## P46 — the corrected statement, which is weaker and survives
+
+Not *the bound is lost*. **The qualifier is lost, and the direction varies.**
+
+| instruction | what was dropped | direction |
+|---|---|---|
+| heartbeat | *pull and consume updates **at equal cadence*** | a **ratio** — narrowing |
+| reading method | ***without imposing structure*** | a **prohibition** — narrowing |
+| North Star | ***until surprise runs out*** | a **termination condition** — narrowing |
+| *have respect* | ***reverence to others' work*** | an **object** — narrowing |
+| substrate | ***everything*** needs agda | a **scope** — **widening** |
+| numerical experiments | *this has been established and discussed widely* | a **citation** — neither |
+
+Six instructions. **Five lost a qualifier; the sixth lost a citation.** Four of
+the five narrowed the instruction and one widened it, so the corpus is not
+systematically softening him — it is systematically **dropping the modifying
+clause**, whichever way it points.
+
+That is a smaller claim than pass 45's and it is the one the data supports.
+
+## P46 — and the thing that is not lost
+
+Both bans are stated by him as **already established** — *we have shown
+uncountable reasons*, *this has been established and discussed widely* — and both
+are stated in `CLAUDE.md` as **rulings dated to him**: *"(human owner,
+2026-08-13)"*.
+
+He was citing the corpus. The corpus recorded him as legislating.
+
+That is the same inversion as pass 45's North Star, one level up: he says *this
+follows from what we have already shown*, and the record keeps the conclusion and
+drops the *because*. Which is exactly what pass 13 of this stream concluded about
+him — *"he supplies NO derivations"* — and it was false about him and true about
+what the corpus retains of him.
+
+Six instructions traced. Five lost a qualifier, in both directions. One rule in
+`CLAUDE.md` quotes him and it is from a conversation I cannot see.
