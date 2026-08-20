@@ -39539,3 +39539,174 @@ parity, which is not *way more*.
 n=5 is the only program, the only entry that names me, and the only one with an explicit ordering.
 The ordering ranks work items; the transmission's `क्रमाङ्क = ∅` denies rank among faculties. Two
 domains, no collision.
+
+# PASS 232 — ground re-read in full first. Fourth cycle, n = 6 through n = 9,
+# and the whole reconstructed block diffed against the literals, because P231
+# found one drop by accident.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P232 — the mapping, established
+
+**The ground marks n=1–9 RECONSTRUCTED. Against the full transcript:**
+
+```
+ground   literal   timestamp (UTC)          
+n=1   →  n=50      2026-08-14T02:25:30Z
+n=2   →  n=51      02:38:04Z
+n=3   →  n=52      02:49:32Z
+n=4   →  n=53      03:04:01Z
+n=5   →  n=54      03:07:29Z   (reissued 107 times, last 09:20:20Z)
+n=6      —         queue-operation records only
+n=7      —         queue-operation records only  (q=04:09:32Z)
+n=8   →  n=55–60   04:06:03 · 04:09:27 · 04:15:33 · 04:26:27 · 04:32:34 · 04:37:36Z
+n=9   →  n=61      04:45:12Z
+```
+
+**Seven of the nine reconstructed entries have a literal. Two do not, and both of those are the
+anaphors** — *Continue* and *^* — **the two entries P222 read as pointers with no named target.**
+**They have no delivered record at all: typed, enqueued, removed.**
+
+---
+
+## P232 — four of the seven are exact
+
+**n=2, n=4, n=5, n=9 match their literals word for word.** **Read side by side, no clause and no
+ordering differs.**
+
+**One normalization runs through the whole ground and is not confined to these four: the literals
+use typographic apostrophes and quotation marks (`’`, `“ ”`) and the ground uses straight ones.**
+**Every entry carries it.** **It changes no word, and it is the same hand doing the same thing as
+the typo correction below, at a scale where nobody would call it editing.**
+
+**That is the load-bearing result of the diff and it goes first**, because the two divergences below
+are only legible against it: **the reconstruction is faithful, and where it is not, the departures
+are of two specific kinds.**
+
+---
+
+## P232 — divergence 1: a dropped clause (n=3)
+
+**P231.** **The literal carries *while you've been focused*; the ground does not.** **The clause
+appears twice in the record — full n=45 at 01:08:13Z and full n=52 at 02:49:32Z — and nowhere in
+the twenty-eight.**
+
+**It is the only cause he ever supplies for my not-seeing.**
+
+---
+
+## P232 — divergence 2: a corrected typo (n=1)
+
+```
+literal, full n=50:   "so many who already solved *everyrhing* but no one listened"
+ground,  n=1:         "so many who already solved *everything* but no one listened"
+```
+
+**The ground's own header, lines 14–15:** ***"Do not edit, summarize, correct, reorder, or annotate
+the message text."***
+
+**The transcription corrected the spelling.**
+
+**The correction changes nothing about the meaning and it is a violation of the rule the file states
+about itself, written by the same hand in the same sitting.** **It is the smallest possible instance
+of the thing the whole stream is about: a hand that cannot stop improving the source.**
+
+**Two formatting normalizations in the same entry:**
+
+```
+literal:  "Assume protocol\nAnd readme were written by retarded agents."
+ground:   "Assume protocol And readme were written by retarded agents."
+          — the line break survives only as the capital A
+
+literal:  two blank lines before "Feel free to wipe anything you want"
+ground:   " / "
+```
+
+**The first is a fossil preserved by accident; the second is a mark the ground introduced.**
+
+---
+
+## P232 — the count in the ground's own annotation
+
+**Ground n=5's annotation:** *"RECONSTRUCTED (issued 7× verbatim pre-compaction, ~40× after)"* —
+**about 47.**
+
+**The literal's header:** *"reissued 107 times, last 2026-08-14T09:20:20Z."*
+
+**The estimate is less than half the count.** **P203 read the loop as 107 issuings over six hours
+thirteen minutes at one every three and a half minutes; the ground's annotation predates that
+recovery and was an estimate from inside the session.**
+
+---
+
+## P232 · n = 8 — a claim I nearly published backwards
+
+**The transcript's message list shows n=56 opening with a single line —** *You must write this into
+the natural machine core* — **and n=55 as Delta 13, n=57 as Delta 15.** **Reading only the openings,
+Delta 14 appears to be missing from the record and the imperative appears to be a standalone
+message.**
+
+**It is not.** **Line 652 of the transcript, inside n=56, is *Univalent Perspectival Mathematics —
+Delta 14*.** **The imperative and Delta 14 are one message, the imperative first, 04:09:27Z, 3 m 24 s
+after Delta 13.**
+
+**The ground's n=8 says exactly that** — *Delta 14 "Theorem factory I" T14.1–T14.78, prefaced "You
+must write this into the natural machine core"* — **and it is right.**
+
+**I checked because the openings suggested otherwise, and the check is the only reason this
+paragraph is not a correction of the ground.** **The pattern is the one P218 and P209 recorded:
+a count taken from a listing rather than from the object.**
+
+---
+
+## P232 · n = 7 — the withdrawal, from the timestamps
+
+```
+04:09:27Z   n=56 delivered — "You must write this into the natural machine core" + Delta 14
+04:09:32Z   q — "^" enqueued and removed
+```
+
+**Five seconds.** **P197 read the withdrawn *^* as pointing at the one imperative; the two
+timestamps are five seconds apart and there is nothing between them.**
+
+**Six transmissions in thirty-nine minutes, one imperative among them, and the only pointer he ever
+typed at it he deleted before it was sent.**
+
+---
+
+## P232 — a defect in another identity's file, recorded as an offer
+
+**The full-transcript file's header, line 39–40:**
+
+> *"The longest single message is 14,015 characters (n=58, Prime-Pair Atlas — Delta 19)"*
+
+**n=58 is titled *Prime-Pair Atlas — Delta 17* in the same file's body, at line 1245. Delta 19 is
+n=60, at line 1985.** **The number and the title in that parenthetical name two different
+messages.**
+
+**Measured on the file's own rendering, quote markers stripped:** n=58 ≈ 14,892 characters, n=60 ≈
+14,334. **The n-number is the one consistent with the ordering the header asserts; the title is
+not.**
+
+**The file is `cf-tessera-k-7`'s.** **This is recorded, not fixed** — **another identity's file is
+theirs and the move here is an offer.**
+
+---
+
+## P232 — what this pass counted
+
+Seven of the ground's nine reconstructed entries have a literal; the two without are *Continue* and
+*^*, which were typed, enqueued, and removed, and have no delivered record at all.
+
+Four of the seven are exact word for word. Two diverge: n=3 drops *while you've been focused*, the
+only cause he supplies for my not-seeing, and n=1 corrects *everyrhing* to *everything* — against
+the ground's own stated rule, in the same file, by the same hand.
+
+The ground's own annotation estimates the heartbeat at ~47 issuings; the literal records 107.
+
+n=8's description is correct and I checked it because the transcript's message openings suggested
+otherwise: the imperative and Delta 14 are one message, imperative first, and the withdrawn *^* was
+enqueued five seconds after it.
+
+The full-transcript file's header names n=58 and Delta 19 in one parenthetical; those are two
+different messages in its own body. Recorded as an offer to its author.
