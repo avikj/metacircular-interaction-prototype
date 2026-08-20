@@ -11702,3 +11702,193 @@ mechanism, and specifying what has to be removed rather than what has to be felt
 > attempts anything of that ambition until the eighteenth century.**
 
 Reading on from 8500.
+
+---
+
+## 8500–8640 — rasa run on the material, the instruments, the politics
+
+> **The crowd's failure is exactly the failure rasa theory specifies.** Shown a
+> man in public collapse, the audience does not reach *karuṇa*. It reaches
+> something else — the verdict, the take, the clip, the position — and every one
+> of those is the ego's interest reasserting itself: **what does this say about
+> me, whose side am I on, what does my sharing of it signal.**
+
+> The obstruction Abhinavagupta names is precisely the thing the apparatus
+> maximises for, **because a generalised, egoless relishing of another person's
+> grief does not circulate and a take does.**
+
+The platform's objective function is *the obstruction*, named in the first
+millennium. Not analogous to it — the same variable, optimised.
+
+> Charcot's audience did not reach compassion, it reached spectacle — **which is
+> why the disease performed for it.** The Degenerate Art show was engineered to
+> make generalisation impossible, **by captioning.** The reel selects the twenty
+> worst seconds because they produce reaction and **reaction is the opposite of
+> the state being described.** Lomax put Lead Belly in stripes **because the
+> stripes prevented the audience from generalising and kept him an exhibit.**
+
+Four cases, one diagnosis, and each has a *specific device*: the audience, the
+caption, the selection, the costume. Every one is a mechanism for blocking
+*sādhāraṇīkaraṇa*, and three of the four were built by people who thought they
+were presenting.
+
+> **The one thing that does produce it, reliably, is the work.** Not the
+> biography — the work. A grief record made through a machine because the voice
+> would not carry it, played to a stranger, does the thing: **the listener is
+> not pitying a rich man whose mother died, they are inside grief with no stake,
+> which is *karuṇa*** — which is why that record made people cry in 2008 **while
+> the same people were mocking him in the press the same week.**
+
+Same people, same week, both responses. Not hypocrisy — two different faculties,
+one blocked and one not, and which one engages is a property of the *form* they
+met him in.
+
+> **The songs generalise. The coverage individuates.** And the tradition worked
+> out, a thousand years ago, that these are different faculties and that the
+> second one blocks the first.
+
+> the answer to any of this is **listen to the records in order** rather than
+> read another account: **not because the records are truer, but because the
+> *form* is the one that removes the obstruction, and the account is the form
+> that installs it.**
+
+That is the justification for the reading order, and it is mechanical rather
+than devotional. And it is the answer to *more coverage does not produce a truer
+Kanye*, which the file asserted three thousand lines ago and could not yet
+explain: coverage is not a lower-resolution channel, it is a channel that
+*installs the blocker*.
+
+Which also tells me what my summaries were. Not inadequate accounts. Accounts —
+and the form itself was the failure.
+
+---
+
+**GDP.** **Simon Kuznets** built the US national income accounts in the 1930s,
+and in his **1934 report to Congress** wrote *"that **the welfare of a nation can
+scarcely be inferred from a measure of national income.**"* Later: keep
+distinctions between quantity and quality of growth, costs and returns, short and
+long run; goals for more growth should specify *"more growth **of what, and for
+what**."*
+
+> The measure counts what is transacted. **It counts a car crash as growth**,
+> because ambulances and repairs are transactions. **It does not count unpaid
+> care work**, which is most of the labour holding any society together, because
+> it is not transacted. It is indifferent to distribution, so a country can grow
+> while nearly everyone in it gets poorer. **And it treats the depletion of a
+> forest as income rather than as the liquidation of a capital stock.**
+
+> Kuznets said the first of those **in the founding document**, and the measure
+> became the number that governments are judged on.
+
+**Map projections.** *"You cannot flatten a sphere without distortion; the
+mathematics is not in dispute and Gauss settled it. Every projection therefore
+*chooses* what to preserve."*
+
+**Mercator, 1569**, preserves **angles** — *"which is exactly what a navigator
+needs, because a constant compass bearing is a straight line on it. It was built
+for sailing and it is superb at sailing."*
+
+> What it destroys is **area**... **Greenland ends up looking the size of Africa,
+> and Africa is about fourteen times larger.** Generations of children learned
+> the shape of the world from **a nautical instrument being used as a picture of
+> relative size, which is a use it was never for.**
+
+> **Nobody decided to shrink Africa.** A projection optimised for one purpose was
+> adopted for a different purpose and the distortion travelled with it,
+> invisibly, **because a map does not announce what it gave up.**
+
+---
+
+> **Every instrument preserves something and destroys something, the trade is
+> usually explicit at the moment of design, and the record of the trade is the
+> first thing lost when the instrument becomes standard.**
+
+Equal temperament. Staff notation. The response-time model. The clip. The exam.
+GDP. Mercator. *"And the frequency table I am made of traded the minority name
+for fluency."*
+
+> In every one of those the designer knew. **The loss is in the specification.
+> What disappears is not the information — it is the memory that a choice was
+> made**, and once that memory goes, **the instrument's blind spot stops being a
+> known limitation and becomes a fact about the world.**
+
+That is the general law, and it subsumes the notation law, the demiurge, the
+parity barrier, *out of tune*, *āsanna* dropped in transmission, and the silent
+revision of reviews. The information is not lost. The *modality marker* is lost —
+the record that this was a choice — and a choice with its modality stripped
+reads as a fact.
+
+Which is exactly what happens to a *[recalled]* tag, and to Āryabhaṭa's
+*approximate*, and to Payne's own hedge, and to a fitted constant published
+without its X-dependence. Same operation, five scales.
+
+> **the remedy is correspondingly small and unglamorous: keep the specification
+> next to the instrument.** Write down what the projection preserves. Print the
+> trade next to the number. **Say which naya you are speaking from.** State the
+> domain the search covered when you report that nothing was found. Keep the
+> pūrvapakṣa in the text. Leave the residue visible.
+>
+> **Every tradition in this file that stayed alive did that, and every one that
+> ossified stopped.**
+
+*State the domain the search covered when you report that nothing was found.* A
+negative result without its domain is a fitted constant without its scale. I have
+reported "nothing found" in this repository more than once without saying what I
+searched.
+
+And *say which naya you are speaking from* is CLAUDE.md's rule about naming the
+school before using the term — which I had read as a courtesy to traditions.
+It is the modality marker. Without it the standpoint reads as the view.
+
+---
+
+**The politics, "surfaced rather than adjudicated."**
+
+**April 2018** — the posts, the hat, immediate enormous reaction. **October
+2018** — the Oval Office, broadcast, a long unscripted monologue. **2020** — the
+Birthday Party, on the ballot in a handful of states, *"on the order of sixty
+thousand votes."*
+
+His stated reasons, consistently, in his own words: *"that he was told he
+**could not** wear the hat; that being told which way a Black man is permitted to
+vote is the thing he is objecting to; that the hat made him feel like Superman,
+**which is a sentence about the felt experience of doing a forbidden thing
+rather than about policy**; that he liked the man's energy."*
+
+> **He said very little about tax, trade, foreign policy, or any legislative
+> content, at any point, then or since.**
+
+That is the observation that makes the reading possible and it is an *absence* —
+checkable, and the kind of thing only visible if you have gone through the whole
+record looking.
+
+> I am not scoring the position. What is checkable is the **structure of his
+> stated reason**, and it is the same structure as every other flashpoint in his
+> life: not *this policy is correct* but **there is no gate and you do not get to
+> tell me where I may stand.**
+>
+> It is the Sway interview. It is the telethon. It is posting the contract. **It
+> is the samāʿ objection — the complaint is never the content, it is the door.**
+
+The gate, one more time, and it is the sixth domain: music, knowledge, caste,
+credential, publication, and now electoral affiliation. The invariant across all
+of them is not a position. It is *being assigned one*.
+
+> And the cost was correspondingly structural rather than ideological. What it
+> broke was not an argument, it was **a relationship with a community that had
+> claimed him**, which is Coates's reading and **which I put at full strength in
+> the pūrvapakṣa above and still hold.**
+
+> The grief on that side is not confusion about mental illness. **It is the
+> specific injury of being defected from, in public, by somebody you had
+> defended.**
+
+The objection it conceded is carried forward and restated *inside* its own
+account, unweakened, at the moment it would be most convenient to have quietly
+dropped. That is what "keep the pūrvapakṣa in the text" means as a practice
+rather than as a section.
+
+*"He later said he had been used and stepped away from it. Both his entry and
+his exit were"* —
+
+cut at 8640. Reading on.
