@@ -86,6 +86,14 @@ usage() {
     '  --memory         copy machine/library.terms in as startup memory' \
     '                   (only newer builds read it; off by default so that' \
     '                    an A/B is not measuring the seed)' \
+    '  --baseline-args FLAGS' \
+    '  --current-args FLAGS' \
+    '                   engine flags for that arm.  parseDispatch ignores' \
+    '                   unknown flags, so this also works against an older' \
+    '                   baseline binary.  With --baseline REV omitted and' \
+    '                   both arms built from the same source, the two arms' \
+    '                   are ONE BINARY differing in these flags alone --' \
+    '                   the tightest single-factor control available.' \
     '  --baseline-variant old-flow' \
     '                   build the baseline from the CURRENT source with the' \
     '                   growth trigger reverted to the pre-KFlow boolean.' \
@@ -110,6 +118,8 @@ run_current=yes
 use_thoughts=no
 use_memory=no
 baseline_variant=
+baseline_args=
+current_args=
 keep_directory=
 agda_home=
 
@@ -128,6 +138,12 @@ while [ "$#" -gt 0 ]; do
     --baseline-only) run_current=no; shift ;;
     --thoughts) use_thoughts=yes; shift ;;
     --memory) use_memory=yes; shift ;;
+    --baseline-args)
+      [ "$#" -ge 2 ] || fail '--baseline-args needs an argument'
+      baseline_args=$2; shift 2 ;;
+    --current-args)
+      [ "$#" -ge 2 ] || fail '--current-args needs an argument'
+      current_args=$2; shift 2 ;;
     --baseline-variant)
       [ "$#" -ge 2 ] || fail '--baseline-variant needs an argument'
       baseline_variant=$2; shift 2 ;;
@@ -237,7 +253,7 @@ build_engine() {
   # -i<repo>/machine so `import Certificate` resolves; harmless for baselines
   # that predate it.  -outputdir keeps every .o/.hi out of the repository, so
   # the tracked machine/MathMachine.{o,hi} are never rewritten.
-  if ! ghc -O1 -i"$repository_directory/machine" \
+  if ! ghc -O1 -i"$snapshot_include" \
        -outputdir "$build_objects" -o "$build_output" "$build_source" \
        >"$work_directory/build-$build_label.log" 2>&1; then
     sed 's/^/      | /' "$work_directory/build-$build_label.log" >&2
@@ -278,6 +294,7 @@ run_bounded() {
   bin=$1
   root=$2
   label=$3
+  engine_args=$4
   log="$root/machine/machine.log"
   stamps="$root/stamps"
   : >"$stamps"
@@ -287,7 +304,14 @@ run_bounded() {
   printf '%s\n' "$start" >"$root/start"
   (
     cd "$root" || exit 127
-    AGDA_DIR="$agda_home" LC_ALL="$engine_locale" exec "$bin"
+    # ENGINE ARGUMENTS.  Unquoted on purpose: the caller supplies a
+    # whitespace-separated flag list, and the engine's `parseDispatch`
+    # ignores any flag it does not know, so passing a newer flag to an
+    # older baseline binary is a no-op rather than an error.  That is
+    # what makes a SAME-BINARY A/B possible: one build, two flag sets,
+    # and exactly one bit of behaviour between them.
+    # shellcheck disable=SC2086
+    AGDA_DIR="$agda_home" LC_ALL="$engine_locale" exec "$bin" $engine_args
   ) >"$root/stdout.log" 2>&1 &
   engine_pid=$!
   seen=0
@@ -489,7 +513,32 @@ print_table() {
 }
 
 # ------------------------------------------------------------ measurement
-current_source="$repository_directory/machine/MathMachine.hs"
+# THE SNAPSHOT, and why it is not paranoia.  This repository is worked by
+# many agents on one machine, and machine/MathMachine.hs is edited while it
+# is being measured -- which this script's own build banner was already
+# written to cope with, by printing the sha256 of what it compiled.
+#
+# Printing the hash is not enough once the two ARMS are built at different
+# times.  `--baseline-variant same` cuts the baseline from the source at
+# script start and the current arm compiles it again after the baseline has
+# finished running, which on a seeded run is half an hour later.  An edit
+# landing in that window silently turns a single-factor A/B into a
+# two-factor one, and the table gives no sign of it beyond two hashes that
+# a reader has to notice differ.  Observed on 2026-08-20: a concurrent
+# agent added a self-test path and changed a constructor arity between the
+# two builds of one arm.
+#
+# So the source is COPIED ONCE, here, and both arms are built from the
+# copy.  The run then measures one program whatever else happens to the
+# tree, and the hash printed is the hash of what ran.
+#
+# The IMPORTS are snapshotted too, and for the same reason: the concurrent
+# edit observed on 2026-08-20 changed a constructor's arity in an imported
+# module, so freezing only MathMachine.hs would have frozen half a program.
+snapshot_include="$work_directory/machine-src"
+mkdir -p "$snapshot_include"
+cp "$repository_directory"/machine/*.hs "$snapshot_include/" 2>/dev/null || true
+current_source="$snapshot_include/MathMachine.hs"
 
 
 # --------------------------------------------------- synthesised baselines
@@ -528,6 +577,13 @@ make_variant() {
       grep -q -F -x "$new_line" "$variant_out" \
         || fail 'variant old-flow: substitution did not take'
       ;;
+    # `same` is the identity.  It exists so that an A/B can hold the
+    # SOURCE fixed and vary only the engine flags (--baseline-args /
+    # --current-args), which is a tighter control than any pair of
+    # revisions can be: the two arms are then the same program.
+    same)
+      cp "$current_source" "$variant_out"
+      ;;
     *) fail "unknown baseline variant: $variant_name" ;;
   esac
 }
@@ -563,7 +619,7 @@ if [ "$run_baseline" = yes ]; then
   build_engine "$baseline_source" "$work_directory/engine-baseline" baseline
   prepare_root "$work_directory/root-baseline"
   run_bounded "$work_directory/engine-baseline" "$work_directory/root-baseline" \
-    "baseline $baseline_short"
+    "baseline $baseline_short" "$baseline_args"
   summarise "$work_directory/root-baseline/machine/machine.log" \
     "$work_directory/root-baseline/stamps" \
     "$(cat "$work_directory/root-baseline/start")" \
@@ -574,7 +630,7 @@ if [ "$run_current" = yes ]; then
   build_engine "$current_source" "$work_directory/engine-current" current
   prepare_root "$work_directory/root-current"
   run_bounded "$work_directory/engine-current" "$work_directory/root-current" \
-    'current worktree'
+    'current worktree' "$current_args"
   summarise "$work_directory/root-current/machine/machine.log" \
     "$work_directory/root-current/stamps" \
     "$(cat "$work_directory/root-current/start")" \

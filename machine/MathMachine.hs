@@ -3774,7 +3774,7 @@ round1 disp mem logh libh ref = do
         , wellFormedTerm syms r
         , fingerprint sem envs l == fingerprint sem envs r ]
       -- The enumerator's own conjectures, named so that WIRE 7b can withhold
-      -- them.  With `--bhavana-only` the round proposes composed equations,
+      -- them.  With `--samasa-only` the round proposes composed equations,
       -- the thought file, the residuals and the climb -- and nothing that
       -- came out of `genTermsModulo`'s fingerprint classes.  The term space
       -- is still GENERATED (the pruning statistics, the probe and the gate
