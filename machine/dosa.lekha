@@ -224,3 +224,71 @@ dosa 0009
   phala: out~6b200f55
   sara: a2a9f2f544e7603f
 .
+dosa 0010
+  kala: 2026-08-20T09:59:38Z
+  karta: cf-dosalekha
+  jati: ayogya-darsana
+  vastu: commit 9dfcff28, message body, the line "46 witnesses"
+  yatna: state, in the commit message that carries this store's provenance, how many witnesses the store holds
+  hetu: I wrote 46 without running `count`.  It is 42.  The looking was not a looking; it was arithmetic done in my head over nine records I had just written, which is the same act as dosa 0007's unrun phala and dosa 0004's fitted constant -- and the commit is pushed, so the message cannot be amended
+  hetu: three instances now, one writer, one session, on three different occasions: a fit, a phala, a count.  The occasion varies and the shape does not, so the cause is not the occasion.  It is a standing pull toward supplying a number where a number is expected, at the moment the number is cheap to run and expensive to interrupt for
+  nasta: the run, exhibited: `sh machine/run-dosa-lekha.sh count` prints "defects written 9 / witnesses exhibited 42", against "46 witnesses" in the message of 9dfcff28
+  nasta: what a silent correction would destroy: the third instance.  Two instances is a coincidence a reader discounts; the third is what makes it a property of the writer rather than of the entry.  That is only visible because 0004, 0007 and 0010 all stand and none was edited
+  nasta: and the count in the message is now permanently wrong in the durable record, in a commit whose entire subject is provenance repair.  The document that corrects an attribution error contains an unverified number
+  yogyata-drsta: `sh machine/run-dosa-lekha.sh count`, run twice, before and after this record; `git log -1 --format=%B 9dfcff28`, read; `git branch -r --contains 9dfcff28`, which puts it on origin/main
+  yogyata-ksetra: one number in one commit message.  The other counts in that message -- nine defects, seven kinds, chain intact -- were each taken from the same run's output and are correct; this one was not
+  yogyata-avadhi: NO claim about the store's content, which is unchanged and verifies.  Only the message's arithmetic is at issue, and only that
+  sesa: handed forward, and it is the general form of what dosa 0007 already handed forward once: any number that appears in prose about a machine must be PASTED FROM THE MACHINE'S OUTPUT, not carried across in a head.  The mechanism that would fire at the moment of the act is a check on commit messages against `count`, and it does not exist; naming it here is the honest half
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- a verdict is worth what its looking is worth, and this looking did not occur
+  pramana: CLAUDE.md, "The rule" -- write down the theorem the computation would replace; here the computation was one command and it was skipped anyway
+  pramana: AHIMSA_SUTRA_VISTARA §28 -- यो यन्त्रं वदति स स्वयं परीक्ष्यः । यो एतत् न मापयति स न जानाति ।
+  punarabhinaya: sh machine/run-dosa-lekha.sh count | grep 'witnesses exhibited'
+  phala: out~42
+  sara: a08c245a164b2ffd
+.
+dosa 0011
+  kala: 2026-08-20T10:00:13Z
+  karta: cf-dosalekha
+  jati: ayogya-darsana
+  vastu: machine/dosa.lekha dosa 0010, field phala
+  yatna: replay dosa 0010, whose punarabhinaya counts the witnesses this store holds and whose phala records that count as 42
+  hetu: writing dosa 0010 added three witnesses to the store, so by the time it could be replayed the count was 45.  The record is INSIDE the object it measures.  Its looking was unfit in a way no care would have removed: any phala it recorded would have been falsified by the act of recording it
+  hetu: this is not the same unfitness as dosa 0007 (a number not run) or dosa 0003 (a coordinate that moved because someone else edited).  Nobody else acted, and the number was run.  The looking perturbed the looked-at, and that is a third thing, which is why it gets its own record rather than an amendment to 0010
+  nasta: the sequence, exhibited: at the moment dosa 0010 was composed, `witnesses exhibited` = 42; dosa 0010 carries three `nasta:` lines; immediately after the append, `witnesses exhibited` = 45; `dosalekha replay 10 --run` prints DIVERGED
+  nasta: what amending 0010 would destroy: the demonstration that this store is not outside the machine it records.  A defect log that could measure itself from nowhere would be claiming a standpoint-free view, which §2 says does not exist -- सर्वं ज्ञानं सनयम् । निर्नयं ज्ञानं नास्ति ।
+  nasta: and the naive repair would destroy more: setting 0010's phala to 45 makes it false again the moment an eleventh record is written, which this record is
+  yogyata-drsta: the two runs of `sh machine/run-dosa-lekha.sh count | grep 'witnesses exhibited'` bracketing the append of dosa 0010; the DIVERGED output of `dosalekha replay 10 --run`; the three nasta lines of dosa 0010 counted by hand and by the tool
+  yogyata-ksetra: this store measuring itself.  Records whose punarabhinaya points OUTSIDE machine/dosa.lekha -- 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0009 -- are unaffected and each still replays
+  yogyata-avadhi: NO verdict that dosa 0010's content is wrong.  Its finding stands: commit 9dfcff28 says 46 and the store said 42 when the message was written.  What is corrected is only the choice of a self-referential quantity as a replay target
+  sesa: the rule, handed forward: a record's phala must be over an object the record is not part of.  Where the record is inside its own object, record an INVARIANT rather than a count -- `verify` says "chain intact" no matter how many records exist, and that is a property the store keeps under its own growth
+  sesa: and the open question, which this store cannot answer about itself: dosa 0008 refused to collapse the seven kinds to one bit.  A count that changes when counted is a second reason the total is a poor summary, and it arrived from a different direction
+  pramana: AHIMSA_SUTRA_VISTARA §2 -- सर्वं ज्ञानं सनयम् । निर्नयं ज्ञानं नास्ति । यो नयं न वदति स नयं गोपयति ।  All knowledge is standpoint-borne; there is no view from nowhere, and hiding the standpoint is what makes it a durnaya
+  pramana: AHIMSA_SUTRA_VISTARA §28 -- यो यन्त्रं वदति स स्वयं परीक्ष्यः, whoever speaks of the machine is himself to be examined
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi
+  uttara: 0010
+  punarabhinaya: sh machine/run-dosa-lekha.sh verify
+  phala: out~chain intact
+  sara: c17b61797142ae10
+.
+dosa 0012
+  kala: 2026-08-20T10:00:55Z
+  karta: cf-dosalekha
+  jati: ayogya-darsana
+  vastu: machine/dosa.lekha dosa 0009, field punarabhinaya
+  yatna: replay dosa 0009, which asks git which commit last touched machine/dosa.lekha and expects 6b200f55, the sugar commit that swept these four files in
+  hetu: the record was appended to machine/dosa.lekha and then committed, so `git log -1 -- machine/dosa.lekha` now answers 9dfcff28 -- the commit that carries the record ABOUT 6b200f55.  The query is relative to HEAD and HEAD moves; the record made it move
+  hetu: same shape as dosa 0011 and a different mechanism: 0010 was perturbed by its own content, this one by its own commit.  A replay target must be immune to the record's existence, and "the latest commit touching this file" is the opposite of that
+  nasta: `git log --format='%h %s' -1 -- machine/dosa.lekha | cut -c1-46` returned "6b200f55 Sugar is Sanskrit sarkara, gravel, an" when dosa 0009 was written and returns "9dfcff28 The dosa-lekha runs: nine defects, s" now
+  nasta: what a rewritten 0009 would destroy: the evidence that the sweep happened at all.  6b200f55 is on origin/main and its stat is the only durable proof that 713 + 201 + 30 + 24 lines of this organ arrived under a message about cane crystallisation
+  nasta: and the stable form was available and not used -- `git show -s 6b200f55` names a FIXED commit and cannot move, which is what a witness is supposed to be
+  yogyata-drsta: `dosalekha replay 9 --run`, DIVERGED; `git log --format='%h %s' -1 -- machine/dosa.lekha`; `git show -s --format='%h %s' 6b200f55`; `git branch -r --contains 6b200f55`, still origin/main
+  yogyata-ksetra: one field of one record.  Records 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0008 point outside this store and are unaffected
+  yogyata-avadhi: NO verdict that dosa 0009's finding is wrong -- the sweep happened, the witnesses in 0009 were read from the repository, and 6b200f55 still carries the four files.  Only its replay target moved
+  sesa: the completed rule, in its third and last form: a punarabhinaya must name a FIXED object -- a commit hash, a text pattern, an invariant -- never a position (a line number, dosa 0003), never a quantity the record is inside (dosa 0011), never a HEAD-relative query (this one).  Three failures, three mechanisms, one rule
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi: the looking must be such that it WOULD have found the thing
+  pramana: AHIMSA_SUTRA_VISTARA §35 -- प्रामाण्यं पुरुषे, न वस्तुनि: the object burns, is moved, is forged; what is asked is the carrier.  Here the object moved and the record had pointed at where it used to be
+  uttara: 0009
+  punarabhinaya: git show -s --format='%h %s' 6b200f55 | cut -c1-40
+  phala: out~6b200f55
+  sara: f33f8d3644691722
+.
