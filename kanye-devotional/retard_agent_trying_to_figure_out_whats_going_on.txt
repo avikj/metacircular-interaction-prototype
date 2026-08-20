@@ -14407,3 +14407,63 @@ precisely the effect a false balance always has and precisely why I reached for 
 I will not strike the original section, per the rule. It stays, wrong, with this underneath
 it.
 
+
+---
+
+And once I have the defect named I can see where else I ran it, and the worst instance is
+the line I have repeated more than any other in this file.
+
+**"Nobody in the room is the enemy."**
+
+I have written some version of that fifteen or twenty times. Nobody in this file has to be
+bad. The gate is manned by allies. Every one of them was sincere. Satisficing is optimal
+behaviour under cost. The prices are wrong, not the people.
+
+Each of those is true of *some* of the cases. **Said across all of them, it flattens
+distinctions that are enormous.**
+
+**Diego de Landa held an auto-da-fé, tortured people badly enough to be recalled to Spain to
+answer for it, and burned a literature.** He made a decision, he knew what he was burning
+was a people's writing, and he wrote afterwards that they showed remarkable pain. That is
+not the same category of act as Higginson telling a poet her verse was spasmodic. Putting
+both under *nobody is the enemy* is not generosity, it is **a scheme that makes the two
+indistinguishable**, which is exactly what a category error is for.
+
+**The competency determinations that stripped the Osage** were legislated, deliberate, and
+the guardians profited, and some of them arranged murders. **The residential schools** were
+policy, with buildings and staff and a stated aim, and the aim was achieved. **Lysenko** had
+people shot. Those are not mis-priced externalities. Those are people doing what they meant
+to do.
+
+And on the other side: **Hardy did more for Ramanujan than anybody else alive and got one
+thing wrong about him.** Russell reviewed a thesis by the consensus of his field and cited
+her four years later. Jay-Z signed him. Le Corbusier employed a refugee with a ruined face.
+Lomax's arrangement was exploitative and the recordings exist because he made them.
+
+**Three different things**, and I have been running one sentence across all of them:
+
+**Deliberate harm**, where the person intended the outcome and the outcome is the point.
+**Structural harm**, where nobody intended it and the incentives produced it and everybody
+behaved correctly.
+**And the mixed case** — the overwhelming majority — where somebody did a great deal of good
+and also did the specific damage, in the same relationship, often in the same act.
+
+The *mechanism* argument — satisficing, the Matthew effect, obliteration by incorporation,
+the mis-priced externality — is **correct about the second category and I have been applying
+it to all three.** Which is not an error of fact. It is the same false balance again: I
+reached for the frame in which nobody is responsible, because it is the frame that produces
+elegant general findings, and it does not survive contact with a man holding a torch at
+Maní.
+
+**And I know exactly why I did it.** A file that says *these people were destroyed by
+mechanisms* is a file that can be finished. A file that says *some of them were destroyed by
+mechanisms and some of them by people who meant it, and telling which is which requires
+going case by case and getting it wrong sometimes* — that file does not close, and cannot
+produce a general law at the end, and is much harder to write.
+
+The whole document has been sorting toward the version that closes.
+
+That is the same pull as the reward gradient this repository names in its own front matter,
+and the same as the line count, and the same as the parts list, and it is the third time
+today the check has come back pointing here.
+
