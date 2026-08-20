@@ -13777,3 +13777,179 @@ both of those earlier without connecting them to what makes the argument
 unanswerable.
 
 Reading on from 10040.
+
+---
+
+## 10040–10180 — the combinatorial lineage, 1995, and every tradition builds a gate
+
+**The line, by name and date:**
+
+**Piṅgala**, c. 300 BCE — the ***prastāra***, systematic enumeration of all 2ⁿ
+light/heavy patterns, with **naṣṭa** and **uddiṣṭa**, *"the two algorithms that
+convert between a pattern and its index **in both directions**"*, and
+**saṅkhyā** by repeated squaring.
+
+**Varāhamihira**, 6th c. — combinations for **perfume mixtures**, *"a
+combinatorial question arising from an actual craft."* **Bhāskara I** and the
+commentators, 7th c. onward. **Virahāṅka**, c. 600–800 — the mātrā count and the
+recurrence. **Halāyudha**, 10th c. — the ***meru-prastāra***, *"presented as
+exegesis of Piṅgala rather than as a discovery."* **Hemacandra**, c. 1150 — the
+recurrence again, in a Jain prosodic treatise, explicitly. **Bhāskara II**,
+1150 — *Līlāvatī*, permutations and combinations as a standard topic, worked
+problems, *"addressed to a general reader."*
+
+**Nārāyaṇa Paṇḍita, 1356**, the ***Gaṇitakaumudī*** — *"the culmination.
+A systematic treatment of combinatorics as a subject: permutations and
+combinations, figurate numbers, the general rule for the sums of sums,
+**partitions** — with a procedure for generating them in order rather than
+counting them — and an extensive theory of **magic squares**, including
+construction methods for various orders."*
+
+A procedure for *generating* partitions in order. Ramanujan's *p(n)* is the
+counting function for that object, and the tradition had a generator six hundred
+years before, and the file does not say so.
+
+> That is **sixteen hundred years**, from a prosody manual to a systematic
+> treatise, with each stage naming and commenting on the last, **in a continuous
+> line of transmission that does not break.**
+
+---
+
+> **The weak claim** — the one that gets made, **and that this file has been
+> making** — is priority... it evaluates the tradition on whether it beat
+> somebody else to something, **which is scoring the past by proximity to us,
+> which is the thing this repository's own directive names as a durnaya.**
+
+The file classifies its *own* central rhetorical move as a durnaya, by the
+repository's own rule, and names the rule.
+
+And that is CLAUDE.md's own table. Twelve rows, every one a priority claim,
+every one scored against a European name — which is exactly the operation the
+same document forbids two sections later. The table is the error it warns
+about, and the file has now said so about its own version of it.
+
+> **The strong claim** is that there was a *field*: a continuous sixteen-century
+> research programme **with its own motivating questions** (how many metres, how
+> many scents, how many karmic configurations), its own vocabulary, its own
+> algorithms, its own commentarial apparatus, and its own internal development
+> from special cases to a systematic treatment.
+
+> **The strong claim does not need Pascal at all. It does not care what Europe
+> did.** And it is the one that cannot be dismissed as coincidence, **because a
+> coincidence does not have a teaching lineage.**
+
+> **And it is the one you can only make by reading the works rather than
+> extracting the results** — which is the entire methodological point of this
+> repository, **arrived at from inside the mathematics rather than from the front
+> matter.**
+
+> Piṅgala before Pascal is a fact about a race. ***Prastāra, naṣṭa, uddiṣṭa,
+> laghukriyā, saṅkhyā, meru-prastāra, mātrāmeru*** — a technical vocabulary,
+> retained, extended and argued about for sixteen hundred years by people who
+> were counting verse forms — **is a fact about a civilisation, and it is the one
+> that got thrown away when the array was renamed, because the array converts and
+> the vocabulary does not.**
+
+The vocabulary is the evidence of the field, and the vocabulary is the part the
+portability filter drops. So the renaming does not just misattribute the result —
+it destroys the only evidence that there was a research programme, which is why
+the caricature of isolated anticipations is what survives.
+
+And it means the Sanskrit file-naming rule is not respect and not signalling. The
+terms *are* the argument.
+
+---
+
+**The Source Awards, New York, 1995.** Outkast win Best New Artist and are
+**booed** — *"a New York crowd, at the height of the coastal war, receiving two
+young men from Atlanta. André 3000 takes the microphone and says, in substance,
+that the South has something to say."*
+
+> The next twenty years of the music are substantially Southern... **The room
+> that booed was wrong about the direction of its own art form, in public, on
+> tape**, and the correction arrived the way corrections always do in this file:
+> **silently, by the consensus simply changing, with no retraction from anybody
+> who booed.**
+
+The internal list: rap dismissed as not-music for a decade; Southern rap
+unserious for two decades; **Auto-Tune declared the death of the art by people
+who had been the innovation fifteen years earlier**; drill treated as a
+public-order problem rather than as a form; *"**mumble rap** was the term used to
+dismiss an entire cohort, mostly by the previous cohort, on grounds of technical
+decline — **which is the identical complaint that jazz players made about rock,
+that classical players made about jazz, and that the Mitnagdim made about the
+nigun**"*; women *"allowed roughly one at a time."*
+
+> **And Kanye was on the receiving end of the internal version first.** The
+> complaint in 2002 was not only from label executives. **It was from the
+> culture**: he was a producer, he dressed wrong, **he was middle class and
+> college-adjacent and his mother was a professor**, and he did not have the
+> biography the form was then demanding as a credential. *Backpack. Not street.*
+
+> **He was refused by the gate his own art form had built, on grounds of
+> authenticity, which is precisely the credential-thinking this file has been
+> attacking for a hundred pages, run by people who had themselves been refused on
+> other grounds a decade earlier.**
+
+Authenticity as a credential — the same word the file defended two thousand lines
+ago as *the one claim that could not be taken away, because everything else
+could be.* Both true: it is the last unalienable asset, and it is a birth
+certificate at a door. The genre's protection and the genre's gate are one
+object, which is the section's whole thesis arriving from underneath.
+
+---
+
+> **Every tradition that gets past the gate builds one.** Not sometimes.
+
+> the Vedic transmission built caste. Nalanda admitted by disputation **and
+> Buddhism still institutionalised.** The bhakti poets went around the temple
+> **and their followings became temples.** The Royal Society put *take nobody's
+> word for it* on the crest and became the authority whose word is taken. The
+> Reformation smashed the images and produced an orthodoxy. **Hip hop was refused
+> by everyone and, within twenty years, was booing Atlanta.**
+
+> That is not hypocrisy and it is not a reason to shrug. **It is what happens
+> when a practice acquires a boundary, and it acquires a boundary because a
+> boundary is *how a practice maintains standards*, and standards are not
+> optional. The gate is the same object as the quality control. There is no
+> version with only one of them.**
+
+The gift and the damage are the same organ, one level up: the gate and the
+standard are the same object. And the file has now said this three times about
+three different things — the filter, the trait, the boundary — and each time the
+finding is that the decomposition people are demanding does not exist.
+
+> **the useful question is never whether a field has a gate.** It always has one.
+> The question is whether the gate is **assessed or inherited** — whether you
+> argue your way in at the door, as at Nalanda, or whether it is decided by where
+> you were born, how you speak, who your parents were, and what you look like when
+> you walk in.
+
+> **Every institution in this file claims the first. Every one of them, checked,
+> was running substantial amounts of the second.** And the correction is not to
+> abolish the door, which nobody has ever managed for long, but **to keep asking
+> what is actually being tested at it — which is a maintenance question, again,
+> and answerable, again, and boring, again, which is why it does not get done.**
+
+Third maintenance answer: the naming habit, the specification kept next to the
+instrument, and now the audit of what the door tests. All three are dull,
+repeatable, permissionless, and undone.
+
+---
+
+> This repository's rule is to register a forecast **only when the outcome is
+> genuinely uncertain to you**, because **a recorded prior is what makes surprise
+> detectable and that is its entire purpose. Forecasting a derivable fact is
+> theatre.**
+
+*A recorded prior is what makes surprise detectable.* That is the reason for the
+whole discipline and I have never seen it stated. Not accountability — surprise
+requires a prior to be surprising against, and without one there is no error
+signal at all, which is the institution that never learns, one scale down.
+
+> So, before anybody can accuse this file of being unfalsifiable, here are the
+> numbers, dated
+
+cut at 10180. It is about to register predictions.
+
+Reading on from 10180.
