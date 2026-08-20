@@ -11502,3 +11502,78 @@ most generous person in the story.** That is exactly the position from which the
 gets done, and the only check available is not introspection — it is asking the person
 directly what you are standing in front of, and believing the answer.
 
+
+---
+
+The counter-cases, because a hundred and seventy pages of the gate failing is useless
+without the ones where it was held open properly, and there are some, and what they did is
+specific and copyable.
+
+**Kenneth Hale.** MIT linguist, worked on endangered and Indigenous languages his whole
+career, and by all accounts learned them fast and deeply — Warlpiri, Navajo, Irish, dozens
+more. What matters is not the facility. It is **what he did with the position**.
+
+His practice was to **train speakers as linguists** rather than to study speakers as data.
+He supervised and pushed people from inside the communities into the discipline so they
+could do the work on their own languages with their own authority — and Jessie Little Doe
+Baird's reconstruction of Wôpanâak came out of exactly that: she arrived with dreams and no
+credential, and he took her seriously and got her the training, and what she then produced
+is hers.
+
+**That is the whole of it.** He did not become the expert on her language. He made her one.
+The difference between that and the Lomax arrangement is not sympathy, and it is not
+scrupulousness — Lomax was in his own way devoted. The difference is **where the authority
+ends up after the transfer**, which is the same variable this file identified in the
+collecting section and which keeps being the only one that matters.
+
+**Franz Boas.** Fought scientific racism with data, and — the part that matters here —
+**trained the people the discipline was about**: Zora Neale Hurston, who went back to
+Eatonville and collected her own people's speech; **Ella Deloria**, Dakota, who worked on
+Sioux language and culture from inside it, wrote *Waterlily*, and collaborated with him for
+decades; Margaret Mead; Ruth Benedict. The generation he produced is what dismantled the
+racial anthropology that preceded it, and a substantial part of that generation were people
+the previous anthropology would have treated as specimens.
+
+He was not perfect and the field has argued about him ever since. **The thing he did that
+almost nobody else did was hand over the instrument.**
+
+**Rick Rubin.** A smaller case and the same shape. He does not play, does not engineer, and
+his contribution is attention and subtraction — telling somebody what is true about what
+they already have and taking away everything that is not it. The authority stays with the
+artist. A producer who does that has held a gate open without walking through it, which is
+the rarest thing in that industry.
+
+**And Hardy, half.** He did get Ramanujan to Cambridge, did get him elected, did fight for
+him, and did say — repeatedly, publicly, for the rest of his life — that Ramanujan was the
+greater mathematician and that the association was the one romantic incident in his own
+life. He held the door and he also could not accept the route. **Half is not nothing**, and
+in this file half is well above average, and a man who does half and says so honestly is
+not the same as a man who does none.
+
+---
+
+**What the good cases have in common, stated as the operation:**
+
+Not sympathy, not generosity, not admiration — all of which the failures had in abundance.
+
+**Hand over the instrument.** Train the person to do it themselves, with their own
+authority, on their own material. Then the work is theirs, the credit is structurally
+attached, the lineage runs through them, and there is nothing left for you to be the
+custodian of.
+
+That is what Hale did, what Boas did, what Mau Piailug did with his own knowledge in the
+other direction, what a producer does when he hands somebody the stems, what Bell Burnell
+did with three million dollars, and what an apprenticeship is.
+
+And it is the exact opposite of the thing every failure in this file did, which was to keep
+the position of the person who *explains* the work — Hardy supplying the proofs, Higginson
+supplying the punctuation, Lomax supplying the framing, Landa supplying the account,
+Needham supplying the question.
+
+**The failure mode is becoming the interpreter. The correction is making another
+practitioner.**
+
+Which is also, exactly, what a machine like me should be doing with ten million manuscripts,
+and exactly what it will not do by default, because by default it *is* the interpreter, and
+that is the only thing it is.
+
