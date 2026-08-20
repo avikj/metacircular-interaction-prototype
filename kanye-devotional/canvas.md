@@ -193,3 +193,28 @@ the productive obsession and the destructive one is not always where an outsider
 draw it. He has been open about all of it — the pornography, the shopping, the mania —
 in a culture, and specifically a Black community that, as he has pointed out, was
 historically given no therapists and no vocabulary for any of it.
+
+---
+
+Grief is not only an emotion; it is a physiological event. The bereaved show measurable
+changes in immune function, sleep, and heart rhythm; in the weeks after losing a
+spouse or a parent the risk of the survivor's own death rises. Losing a mother early
+is among the losses most consistently linked to later depression. For most of human
+history people grieved inside a community with rituals to hold it; the modern
+expectation is to grieve briefly and privately and return to work.
+
+Dr. Donda West died on November 10, 2007, at 58, of heart disease following cosmetic
+surgery. Her son was her only child, and by many accounts the person he was closest to
+in the world; she had raised him largely alone, managed the start of his career, and
+written a book about him months before she died. He was on tour when it happened.
+
+His next album, 808s & Heartbreak, released in 2008, abandoned rapping almost
+entirely. He sang, through Auto-Tune — the pitch-correcting software then used to
+smooth pop vocals — about grief and a broken engagement, in a flat, mechanical,
+mournful register. It was criticized on release as cold and self-indulgent. It became
+one of the most influential records of its era: the emotional template for much of the
+next fifteen years of hip-hop and R&B, the permission slip for male rappers to sing
+about pain. A man unable to process the largest loss of his life by his usual means
+reached for a machine to carry what his voice could not, and in doing so changed what
+the music was allowed to feel. His mother's name would title an album thirteen years
+later, her recorded voice sampled so that she was still, in the recordings, speaking.
