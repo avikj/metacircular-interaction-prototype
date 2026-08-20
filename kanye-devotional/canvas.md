@@ -320,3 +320,33 @@ And then the record collection. Hungarian rock from 1969 under New Slaves. A
 Bollywood record under I Am a God. Black gospel out of Harlem, a German
 avant-garde band, an Irish one, Nina Simone. People call that eclectic like it's
 a shopping habit.
+
+---
+
+The first voice you hear on that record is a four-year-old on somebody's phone.
+
+The Life of Pablo, February 2016, track one. Before Chance, before the choir,
+before Kirk Franklin comes in at the end to pray it out, there's a little girl
+saying we don't want no devils in the house, we want the Lord. Her name is
+Natalie Green. She was four. Her mother filmed her on a phone and put it on
+Instagram, and he found it and made it the front door of the album.
+
+Nobody auditioned for that.
+
+And then he wouldn't finish the record. It came out and he kept working on it —
+changing mixes, rebuilding Wolves, adding things, while people were already
+listening to it. Not a reissue. The same album, still moving. There's no final
+version of it. There's no version you can point at and say that's the one.
+
+Five years later he makes the album named after his mother and he does it by
+moving into a football stadium in Atlanta and living there. Then he goes home to
+Chicago, to Soldier Field, and on the grass they have built his childhood house.
+The actual one — 7815 South Shore Drive, full size, the house she raised him in,
+standing on a football field in the city where she taught.
+
+And in front of it, with tens of thousands of people watching, he is set on fire.
+
+I keep trying to find a way to say what that is and I don't think there is one
+that isn't just the facts. His mother has been dead fourteen years. He built her
+house on a field and burned it while forty thousand people watched him do it, and
+then he put her voice on the record and put the record out three days later.

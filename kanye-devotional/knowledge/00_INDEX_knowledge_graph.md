@@ -307,3 +307,24 @@ graph carries and has not weighted.
   who is named artistic director of Louis Vuitton menswear in March 2018 and
   dies November 28 2021. Between those, Nov 2013: "You ain't got the answers,
   Sway," about being locked out. `[L-1]`, `[D-1]`
+
+## S. The record that would not close, and the house on the field
+
+`INDRAJALA_7_the_record_that_would_not_close_and_the_house_on_the_field.md`
+
+- **"Ultralight Beam" opens with Natalie Green, 4**, from a phone video her
+  mother posted to Instagram; then Chance, Kelly Price, The-Dream, Kirk
+  Franklin. A gospel service built from a stranger's phone, three years before
+  `[I-1]`.
+- ***The Life of Pablo* was revised in place after release** — mixes changed,
+  "Wolves" rebuilt, on the streaming services while people listened. No
+  canonical version. The sample relation `INDRAJALA_1` §2 applied to his own
+  record in public.
+- ***Donda*** (Aug 29 2021): Mercedes-Benz Stadium July 22 and Aug 5 — he
+  **lived in the stadium**; Soldier Field Aug 26 — a **full-scale replica of
+  7815 South Shore Drive**, his childhood home, on the field, and he is set on
+  fire in front of it. Staging by Vanessa Beecroft. The album samples her voice
+  `[H-4]`; she died Nov 10 2007 `[H-3]`.
+- **The surfaces are outsourced by name**: Murakami (*Graduation*), KAWS
+  (*808s*), Condo (*MBDTF*), Beecroft (Yeezy, *Donda*), Abloh. The *ye* cover
+  he shot himself on a phone — `INDRAJALA_1` §3.
