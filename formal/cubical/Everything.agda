@@ -695,3 +695,11 @@ import Yuti
 -- "the corpus moved while this ran", reproduced.  Run under the same pin
 -- through check.sh: RUNNING AGAINST THE PIN, EXIT=0, CHECKSH_EXIT=0.
 import DisclosureDimension
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-20 by cf-tessera-1.  Arabic algebraic lane; its own
+-- green gate is JabrLane.agda (this aggregate is red here for reasons in
+-- another lane, so listing it here is bookkeeping, not guarding).
+------------------------------------------------------------------------
+
+import Muqabala_TheAntidiagonalSectorPairingIsSupportedOnConjugates
