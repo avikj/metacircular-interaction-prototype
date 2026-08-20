@@ -965,3 +965,59 @@ That is why this can't be a book about how the world was wrong about a rapper. I
 that's all it is, then it just adds one more name to the list of people it was safe
 to be right about after the fact, and the machine that made the list keeps running.
 
+
+August 2005. MTV. He is the biggest rapper in America and he says, on camera, that
+everybody in hip hop discriminates against gay people, and that hip hop has always
+been about speaking your mind and against oppression, and that this is the opposite
+of that, and to stop. He says he'd been using the word as an insult his whole life
+and stopped when his cousin told him he was gay.
+
+Two thousand and five. Before it was safe anywhere, and specifically unsafe in the
+one room where he had everything to lose. Nobody puts that in the montage. The
+montage has the Bush line from the same month, and it has the Taylor Swift moment
+four years later, and it does not have the part where he pointed at the thing his own
+audience was doing and told them to quit.
+
+It is the same move every time: say the sentence the room is organised around not
+saying. And the receipts are the same too — when it later becomes consensus, nobody
+goes back and says *he said this first, and it cost him.* The sentence gets absorbed
+and the sayer keeps the bill.
+
+Donda wrote a book. *Raising Kanye*, 2007, published months before she died. An
+English professor writing about her son's development, his discipline, his faith, and
+her own decisions — a mother's account, in print, by someone whose profession was
+literature and whose subject was Black writing. It is the only document in this whole
+story written by the person who knew him first, and it was published into a world
+that treated it as celebrity ephemera. She died that November.
+
+He is, by the standard reckonings, the first Black American billionaire in that lane
+and one of the most decorated musicians alive, and both of those facts are usually
+deployed against him — the money as proof he has no grievance, the trophies as proof
+he was never actually excluded. That is a neat trick. The awards were for the
+records; the exclusion was from ownership and from the rooms where design gets
+decided, and he kept saying so in the specific vocabulary of contracts and royalties
+and equity while people heard *ego*.
+
+He bails people out. Literally — money for strangers, for artists, for people in
+trouble, quietly and not quietly. He put the Sunday Service on for free and took it
+into a jail. In the middle of the years everyone agrees he was at his worst, he was
+also doing the thing that in any other biography would be the whole third act.
+
+*Christ consciousness* is the phrase he uses and it is not his invention; it is old,
+and it means the claim that what was in that one person is available in every person
+— that the story is not about a unique exception but about a general possibility that
+one man made visible. Read that back onto *I am a god* and the sentence stops being
+a boast and becomes a doctrine, and a fairly orthodox one at that, said in the wrong
+register by the wrong man in the wrong century. He also said Luther — Luther Vandross
+— was Christlike, and he did not say Luther was Christ, and the distinction is the
+whole thing: the claim is about what a person can carry, not about a throne.
+
+Hofstadter's book is in here somewhere too. The reason people love *Gödel, Escher,
+Bach* is not that it teaches logic. It's that a man noticed that a mathematician's
+undecidable sentence, an artist's hands drawing each other, and a composer's canon
+that climbs a whole tone and returns to itself are *the same event*, and that noticing
+is an artistic act and not an expository one. It is not a book about connections. It
+is one long demonstration that the connection is the object. Which is what a producer
+does when he hears a preacher's cadence and a synth line and a drum pattern from three
+different decades as one sound.
+
