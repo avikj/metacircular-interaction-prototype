@@ -282,3 +282,28 @@ graph carries and has not weighted.
 - **"Lost in the World" (2010)** is built on Bon Iver's "Woods" — voice-only
   Auto-Tune, made alone in a cabin. Continues `INDRAJALA_4` §2. Vernon then
   sings on *Yeezus*. `YZS` 5
+
+## R. The rulings, the route, the two presidents
+
+`INDRAJALA_6_the_rulings_the_route_and_the_two_presidents.md`
+
+- **Grand Upright v. Warner Bros.** (S.D.N.Y. 1991), Judge Kevin Thomas Duffy,
+  opinion opening "Thou shalt not steal," injunction plus referral to the U.S.
+  Attorney; **Bridgeport v. Dimension Films** (6th Cir. 2005), "Get a license
+  or do not sample." Together they end the uncleared-collage era (Public Enemy
+  1988, De La Soul 1989 — off streaming until March 2023) and select for few,
+  long, recognizable, paid samples. That is `[C-1]`. Ownership `[D-2]`,
+  `[L-1]`–`[L-3]`, `JIK` 5 begins in a clearance ledger.
+- **The route**: born Atlanta June 8 1977 where `[K-1]` was shooting; Chicago
+  at three; South Side, `[H-1]` chairing at Chicago State. **Nanjing at ten**,
+  the only foreigner in his class, while Donda taught there — set against the
+  catalogue in `INDRAJALA_2` §3.
+- **The "Donda West Law"** (California, signed 2009): physical exam and written
+  clearance before elective cosmetic surgery. Her name is on a statute; her
+  son's argument `[E-2]` is about the text of another one.
+- **Two presidents**: Bush, "all-time low" `[F-3]`; Obama, hot mic, Sept 14
+  2009, "a jackass."
+- **The co-intern**: Fendi, Rome, 2009, ~$500/month, with **Virgil Abloh** —
+  who is named artistic director of Louis Vuitton menswear in March 2018 and
+  dies November 28 2021. Between those, Nov 2013: "You ain't got the answers,
+  Sway," about being locked out. `[L-1]`, `[D-1]`

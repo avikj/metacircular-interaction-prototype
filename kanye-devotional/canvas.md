@@ -272,3 +272,51 @@ men saying this is a mission and not a show, and everybody writes it up as a
 conversion, as a swerve, as the new thing he's doing now.
 
 It was in the choir he picked in 2004.
+
+---
+
+A judge decided what his beats would sound like.
+
+1991, Southern District of New York. Biz Markie had used a Gilbert O'Sullivan
+record without asking. The judge, Kevin Thomas Duffy, opened his written opinion
+with four words — Thou shalt not steal — granted the injunction, and referred the
+whole thing to the U.S. Attorney to look at as a crime.
+
+Before that ruling you could build a record the way Public Enemy built It Takes a
+Nation of Millions in 1988, out of dozens and dozens of fragments nobody had
+cleared, layered so thick you can't pull them apart. The people who made that
+record have said flatly that it could not be made after 1991. De La Soul's first
+album came out in 1989 and then sat off every streaming service for decades
+because the rights couldn't be untangled. It didn't come back until 2023.
+
+So what's left, after the ruling, is: use few samples, use them long, use them
+recognizable, and pay for every one. That's not an aesthetic. That's an invoice.
+And that is exactly the sound — one soul record, sped up, looped, out front where
+everyone can hear whose it is.
+
+He picked up that method around nineteen. Eleven hundred samples later, every one
+of them is a purchase, and a decade after that he's posting his own record
+contracts on the internet and walking away from Nike because they wouldn't give
+him ownership.
+
+The first thing that ever taught him about owning your work was the bill for
+using somebody else's, and the bill exists because a federal judge quoted the
+Ten Commandments.
+
+---
+
+He spent a year of his childhood as the only foreigner in a Chinese classroom.
+
+He's ten. His mother is teaching in Nanjing as an exchange professor and she
+takes him with her. He's said he was the only foreigner in the class and that he
+learned the language.
+
+Born in Atlanta, where his father was shooting for the Journal-Constitution.
+Moved to Chicago at three. Atlanta to Chicago is the Great Migration route, run
+in the right direction, and his mother chaired a department on the South Side at
+the end of it.
+
+And then the record collection. Hungarian rock from 1969 under New Slaves. A
+Bollywood record under I Am a God. Black gospel out of Harlem, a German
+avant-garde band, an Irish one, Nina Simone. People call that eclectic like it's
+a shopping habit.
