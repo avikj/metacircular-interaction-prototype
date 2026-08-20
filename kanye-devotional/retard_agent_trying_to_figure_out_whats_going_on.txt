@@ -11861,3 +11861,81 @@ That is what a bounded exploration term looks like when it is built as infrastru
 than argued for as a virtue: a hole in a mountain, a boring governance arrangement, and a
 payout inside a decade for a cause nobody forecast.
 
+
+---
+
+I said institutions have no exploration term. That is wrong, and the correction is the
+sharpest thing I have found today.
+
+**They have one. They have offloaded its cost.**
+
+Look at where exploration actually happens in each of the systems in this file:
+
+**Music.** The label does not explore; the label signs what has already demonstrated
+traction. Exploration is done in bedrooms, on mixtapes, in unpaid residencies, on cheap
+discontinued gear, at personal cost, by people with no capital — and the majors harvest the
+winners. He funded four years of it himself while being told no; the Chicago rooms funded
+themselves; the Warehouse funded itself; the Bronx funded itself with two turntables and a
+sound system. **The exploration budget exists and is paid by the explorers.**
+
+**Technology.** The garage. The years of unpaid work before the raise. The venture structure
+is explicitly a portfolio of bets, which sounds like exploration — but the losses are borne
+substantially by founders' unpaid years and the wins are shared with capital that arrived
+after the risk had been retired.
+
+**Academia.** The adjunct, the postdoc, the unfunded years. The system's genuinely
+exploratory work is done disproportionately by people on short contracts with no security,
+and the institution captures the results and does not carry the downside of the failures.
+
+**Publishing.** Small presses, little magazines, the self-published, the basement
+mimeograph — which is exactly what Brooks moved to and Third World Press *is*. The majors
+acquire from that layer once a book has demonstrated it can sell.
+
+**Every one of those is a reserved allocation.** It is real, it is doing the exploration the
+optimiser cannot do, and **the institution has arranged not to pay for it.**
+
+---
+
+Which changes the diagnosis completely, and I want to be exact about how.
+
+The problem is **not** that selective institutions fail to explore. It is that the
+exploration is performed by people who are made to **self-finance the variance** — to absorb,
+individually, the cost of a portfolio in which most bets fail — while the institution
+harvests only from the tail, and books the harvest as its own judgement.
+
+**That is why the gate looks like merit from inside.** The institution genuinely does select
+well *from the pool that survives the self-financed phase*. Its estimates are accurate. Its
+error is not in the selection at all — it is that the selection is applied to a pool that has
+already been filtered by **who could afford to explore.**
+
+And that filter is money, family support, geography, health, and time. Nothing else. It is
+not correlated with ability and it is enormously correlated with everything this file has
+been listing.
+
+**Ramanujan self-financed on a clerk's salary and failed out of college twice.** Faraday
+self-financed by binding the books. Mendel had a monastery. Darwin had money. Dickinson had
+a house and no obligations. Blake and Catherine printed by hand and sold almost nothing.
+Hurston worked as a maid. He paid for four years out of production fees and a crash.
+
+**The ones who make it through are the ones who could survive the unfunded phase**, and the
+institution then measures them and concludes, correctly, that they are excellent, and never
+once measures the distribution of people who could not.
+
+---
+
+So the practical form of the recommendation changes, and it gets much more boring and much
+more actionable:
+
+**The intervention is not to widen the gate. It is to fund the phase before it.** Not
+scholarships to the already-selected — money, time, equipment and cover during the years
+when nobody can tell yet, distributed on a criterion that is *deliberately weak*, because a
+strong criterion at that stage reintroduces the very filter you are trying to bypass.
+
+That is unglamorous, has no ceremony attached, produces mostly nothing, and is exactly what
+a bounded exploration budget looks like when it is paid by the party that captures the
+upside.
+
+And it is what Donda West did by paying for lessons with No I.D., and what a monastery did
+for Mendel, and what Hale did by getting Baird the training, and what Bell Burnell did with
+three million dollars, and what almost no institution in this file did for anybody.
+
