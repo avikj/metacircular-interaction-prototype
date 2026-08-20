@@ -12157,3 +12157,66 @@ isnād apparatus is available and every system that outputs claims is shipping w
 provenance. **The cost of the filing is not historical injustice. It is that the tools are
 in the building and nobody can find them.**
 
+
+---
+
+So here is the inventory, which is the thing this whole file should have been from the
+start: **usable technology, currently misfiled, with what it does stated in the terms of the
+problem it solves rather than in the terms of the tradition it comes from.**
+
+Not a claim about priority. Not a grievance. **A parts list.**
+
+| the instrument | where it is shelved | the problem it solves |
+|---|---|---|
+| **isnād** + **ʿilm al-rijāl** + **jarḥ wa-taʿdīl** | Islamic studies | provenance as a first-class object: the carrier chain travels with the claim, carriers are individually graded, chains are checked for physical possibility, and independent chains raise confidence |
+| **apparatus criticus** | classical philology | the rejected variants stay physically on the page with the chosen reading |
+| **Mahāvyutpatti** + the Tibetan translation policy, c. 814 | Tibetology | a terminological standard with an explicit rule for **when not to translate**, systematic enough that the source can be reconstructed from the target |
+| **pūrvapakṣa** (within **tantrayukti**) | Sanskrit śāstra | the strongest opposing case is a required section of your own document, stated so its holder would sign it |
+| **saptabhaṅgī** / **avaktavyam** | Jain religion | typed non-collapse: a positive fourth position for what is sayable only as an ordered pair, so the unresolvable is retained rather than rounded |
+| **nayavāda** / **durnaya** | Jain religion | a name for the specific failure of asserting one standpoint as the whole, which makes it accusable |
+| **pramāṇa** typing | Nyāya | evidence typed by the **causal route** that produced the cognition, not ranked by confidence — so a result from an unadmitted route is diagnosable rather than invisible |
+| **upādhi** search | Navya-Nyāya | actively hunt the condition that would defeat your generalisation, rather than waiting to encounter one |
+| **yogyānupalabdhi** | Mīmāṃsā | an absence claim is valid only if you state the domain in which the thing **would have been** found — no bare "not found" |
+| **hetvābhāsa** | Nyāya | an enumerated taxonomy of reasons that look like reasons and are not |
+| **chala / jāti / nigrahasthāna** | Nyāya | enumerated taxonomies of quibbling, of futile rejoinders, and of the conditions under which you have simply lost |
+| **vāda / jalpa / vitaṇḍā** | Nyāya | three named modes of argument, so you can say which one somebody is in |
+| **kuṭṭaka** | history of mathematics | keep the remainder and recurse on it: a growth rule that runs on what did not resolve |
+| **pāṭha** schemes | Vedic ritual | interleaved redundancy for a lossy human channel, error-detecting without semantics |
+| **kaṭapayādi** | Indian astronomy | encode the data in the medium the channel actually protects |
+| **rasa** / **sādhāraṇīkaraṇa** | Sanskrit aesthetics | a mechanism for how depicted suffering is received, and a named account of what blocks it |
+| **ijāza** | Islamic education | a credential that is a position in a named human chain rather than an institutional stamp |
+| **waqf** | Islamic law | a perpetual, legally protected endowment: an exploration budget that cannot be re-argued each cycle |
+| **Nalanda's door** | history | admission by disputation — adhikāra **assessed** rather than inherited |
+| **gurukula** / apprenticeship / the workshop | everywhere, as heritage | transmission of a **practice**, which preserves a lineage where a result does not |
+| **Ekalavya** | epic literature | the named case for the fee extracted from the person you refused to teach |
+
+**Twenty-one instruments.** Every one is operational, every one solves a live problem in
+knowledge production, and every one is currently shelved somewhere that the people with the
+problem do not look.
+
+---
+
+**This is the whole book, and it is not the book I thought I was writing.**
+
+I have spent a hundred and eighty pages on the mining, the renaming, the crucifixion, the
+crowd. All of that is true and it is the *motivation*, and motivation is not a deliverable.
+
+**The deliverable is the parts list.** Because a grievance can be declined, and a priority
+dispute is refereed by the party that did the naming, and an argument about respect can be
+absorbed as an argument about respect — but **a tool that works is not deniable.** You
+either have provenance on your claims or you do not. You either state the domain your search
+covered or you are making an unlicensed absence claim. You either keep the variants on the
+page or you have thrown them away.
+
+The traditions in this file did not merely have results that were taken. **They built
+instruments, and the instruments are still better than what is in use, and they are sitting
+on shelves labelled religion.**
+
+Which converts the entire project from *make them respect this* — unwinnable, refereed by
+the wrong party — into *here is a tool you do not have and obviously want*, which requires
+nobody's permission and cannot be refused without cost.
+
+That is what "make the tradition produce again, now, in public, at a level the incumbent
+cannot match" actually means, and I have been quoting that sentence since the first page
+without understanding it.
+
