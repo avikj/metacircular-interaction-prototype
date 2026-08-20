@@ -1,136 +1,145 @@
-I keep going back to the jaw.
+# KANYE DID ABSOLUTELY NOTHING WRONG
 
-He's twenty-five. Goes through a windshield on the way home, late, after working.
-Jaw broken in three places. They wire it shut — actually bolt it, metal in the gums,
-mouth clamped down to a hum. And what he does, two weeks out from almost dying, mouth
-still wired, is go to the studio and rap. Through the wire. He literally calls the
-song that, because that's the sound — his voice pushing out through teeth that won't
-open. I don't totally understand it yet and I want to sit here until I do. Who does
-that. Not after he heals. With the wires still in.
+There is a filter in the mind called latent inhibition. It is what lets a person
+stop registering what they have already classified as irrelevant — the hum of a
+refrigerator, the weight of their own clothes, the billboard on the daily commute.
+With it, the world quiets into usable signal. With less of it, the world keeps
+arriving, all of it, at once.
 
-Because the more I look the less it reads like toughness, like some grind-story about
-hustle. It reads like he couldn't not. Like making the thing was the only way to be
-alive through the pain, in real time, and resting was never on the table because
-resting isn't a thing his kind of mind does. And that's what starts pulling me
-somewhere I didn't expect to go this fast — toward the wiring itself, the brain, the
-actual condition, because the car crash keeps looking less like bad luck and more
-like a symptom.
+In 2003 a study by Shelley Carson at Harvard found that people with reduced latent
+inhibition who also had high intelligence were seven times more likely to be among
+the highest creative achievers. The same reduced filter, in other combinations,
+appears in serious mental illness. The gate that lets too much of the world in is the
+gate behind both the breakthrough and the breakdown.
 
-Here's what I mean, and I'm only now putting it together. The thing they'd later
-name — bipolar — the manic side of it doesn't sleep. Runs hot, runs fast, connects
-things that shouldn't connect, and it takes the brakes off. And a mind with the
-brakes off is the mind that makes the leap nobody else would make and also the body
-that drives too fast at 3am. Same lifted brake. So the crash and the genius might be
-coming out of the exact same place, and if that's true then the story I was told —
-gifted guy who later "lost it" — has it backwards. There was never a healthy Kanye
-who broke. There was one wiring the whole time, and we cheer one end of it and lock
-up the other and pretend they're two different men.
+Kay Redfield Jamison co-wrote the standard medical textbook on bipolar disorder,
+Manic-Depressive Illness. She has the condition herself. In Touched with Fire she
+assembled the biographical evidence of recurrent mood disorder in Byron, Blake,
+Schumann, Van Gogh, Woolf, Hemingway, Plath, and many others. In 2011 a team led by
+Simon Kyaga searched Swedish national health registries covering more than a million
+people and found that those with bipolar disorder, and their siblings who did not
+have it, were overrepresented in creative professions.
 
-And that's the part that opens up wide, because it's not just him. I go looking and
-it's everywhere — the people who bent the culture, the music, the tech, the
-movements, and how many of them ran on exactly the brains we medicate and mock in
-kids right now. Bipolar, autistic, ADHD. Too much, too fast, too far. It's the kind
-of claim you can go check yourself and I think you come back convinced. A hundred
-years of calling those minds broken, and now the same science is turning around and
-finding the engine was in there the whole time. Which does something hopeful to the
-whole thing — the weird kid isn't a defect getting fixed, the overlooked ones aren't
-waste, and nearly everybody is overlooked on some axis, so this isn't really a story
-about one rapper at all.
-
-But it is easiest to see in him, because he's the loudest, and the most gifted, and
-the most punished. So I keep coming back to the jaw. A kid who almost died, deciding
-the pain wasn't allowed to be wasted, singing it out through a mouth bolted shut over
-a Chaka Khan record sped up till she sounds like she's crying with joy. Whatever
-tries to kill me gets made into a song. He's twenty-five and he already knows that
-about himself, before any of the fame, before the diagnosis. That's where I want to
-start, because I think that's where he starts. The rest of his life is that same move
-getting louder and costing more, and I want to follow it and see where it goes.
+Bipolar disorder, in its manic phase: reduced need for sleep, racing and crowded
+thought, elevated or irritable mood, grandiosity, impulsivity, and in severe cases
+psychosis — hallucination, paranoia, loss of contact with shared reality. It carries
+one of the highest suicide rates in medicine. The traits a clinician lists as
+symptoms and the traits a culture calls genius are, in large part, the same traits.
+The children who cannot sit still, who feel everything, whose minds run too far — the
+ones we medicate and correct — are, at the population level, the same people who make
+a large share of what a civilization later decides was worth keeping. Nearly everyone
+is the odd one on some axis. This is a hopeful fact, and it is not yet widely
+accepted.
 
 ---
 
-So I go read the actual Thirteenth Amendment, the one that abolished slavery, and the
-exception is sitting right there inside the same sentence: "Neither slavery nor
-involuntary servitude, except as a punishment for crime whereof the party shall have
-been duly convicted, shall exist within the United States." December 6, 1865. Slavery
-ends and the door it can walk back through is written into the law that ends it, same
-breath, thirteen words.
+On December 6, 1865, the Thirteenth Amendment abolished slavery in the United States,
+with thirteen words of exception inside the same sentence: "except as a punishment
+for crime whereof the party shall have been duly convicted."
 
-And what came through the door is documented. Convict leasing — states leasing tens
-of thousands of people, overwhelmingly Black, to plantation owners, railroads, coal
-mines, chain gangs, worked under the whip dawn to dusk, often as punishment for
-vagrancy, for theft, for being unemployed while Black. More than 3,500 prisoners died
-in Texas between 1866 and 1912, the year Texas ended convict leasing because the
-death toll got too high to hold.
+Through that clause: convict leasing, in which states leased tens of thousands of
+people, overwhelmingly Black, to plantations, railroads, coal mines, and chain gangs,
+worked under the whip, often as punishment for vagrancy or theft. More than 3,500
+prisoners died in Texas alone between 1866 and 1912.
 
-Then the numbers now. Black people: about 13 percent of the country, about 38 percent
-of the people in its jails and prisons. Black men imprisoned at 1,826 per 100,000 —
-more than five times the white rate. One of every three Black boys born today can
-expect to go to prison in his lifetime. One of three.
+Now: Black Americans are about 13 percent of the population and about 38 percent of
+the people in jails and prisons. Black men are imprisoned at roughly five times the
+rate of white men. One of every three Black boys born today can expect to be
+incarcerated in his lifetime.
 
-In 2013 he put it on a record. "New Slaves." He names them out loud — the DEA, and
-the CCA, the Corrections Corporation of America, the company that owns the prisons
-and needs them full. They tryna make new slaves. He projected the song onto
-sixty-six buildings around the world the night it came out, no album cover, just his
-face the size of a building saying it.
+Separately, and legally: when a musician signs to a record label, the label typically
+owns the master recordings. The artist earns a percentage, paid only after the label
+recoups its costs. A person can write and perform a song and never own the recording
+of their own voice. In the 1990s Prince appeared in public with SLAVE written on his
+cheek over a dispute with his label about exactly this, and said, "If you don't own
+your masters, your masters own you."
 
-And in 2018, on a TMZ floor, it comes out wrong and ends his standing overnight —
-slavery for 400 years "sounds like a choice." The room turns on him and he keeps
-talking and a few sentences later there's the thing he was actually reaching for:
-"It's like we're mentally in prison. I like the word prison because slavery goes too
-direct." Mentally in prison. The chain he keeps pointing at is the one you can't see,
-the one that doesn't feel like a chain — which is the whole reason the 400-years line
-landed as stupidity instead of as the point. Same idea as "New Slaves," five years
-later, mangled, and it cost him everything the clean version didn't.
+The Thirteenth Amendment ended the ownership of a person as property. It did not
+address the ownership of a person's labor, image, name, or recorded voice by
+contract. Those remained legal, and remain legal now.
 
 ---
 
-And then who raised the man saying all this. His father, Ray West, born 1949 in
-Tucson — a former Black Panther, and one of the first Black photojournalists at the
-Atlanta Journal-Constitution, camera in the room with Maya Angelou, with Ralph
-Abernathy, with Reagan. Later a Christian counselor. His mother, Dr. Donda West, born
-1949 in Oklahoma City, PhD in English, chair of the English Department at Chicago
-State University, thirty-one years teaching, and her subject the whole time was Black
-literature. A Panther and an English professor. That's the house.
+These are the facts. Here is the man they converge in — the one a great many people
+would rather not be the example.
 
-They divorced when he was three. Donda raised him in Chicago, summers with Ray. When
-he was ten she took him to Nanjing, China for a year — she was a visiting professor
-there — and he was the only Black kid a lot of people had seen, learned some Chinese,
-came back. The man who would spend his life refusing to be one thing had a childhood
-that refused to be one thing.
+On October 23, 2002, driving home near 3 a.m. after a studio session, a 25-year-old
+producer named Kanye West fell asleep at the wheel. The crash fractured his jaw in
+three places; it was wired shut. Two weeks after surgery, jaw still wired, he recorded
+a song called "Through the Wire" — rapping through clenched teeth over a sped-up
+sample of Chaka Khan — and released it as his first single. Sleeplessness and
+impulsivity are diagnostic features of mania. He was, though not yet diagnosed, living
+the first fact of this book: the crash and the gift came out of one wiring.
 
-She's all over the music before you know her name. "Hey Mama," 2005, he wrote for
-her while she was alive to hear it, said he'd make her proud. In 2007 she wrote a
-memoir, Raising Kanye. November 10, 2007 she died at 58, heart disease after cosmetic
-surgery. He was on tour. The next record was 808s & Heartbreak — the one where he
-stopped rapping and sang everything through a machine because the human voice
-couldn't carry it — and every record after has her in it somewhere, up to the 2021
-album that is just her name, Donda, her actual voice sampled and looped so she keeps
-talking. The pedal note under everything: the Panther's son, the professor's son,
-who learned to hear before he learned to speak.
+He was diagnosed with bipolar disorder at 39. He put it on the cover of his 2018
+album, handwritten across a photograph of a mountain: "I hate being Bi-Polar its
+awesome." He has said he stops taking medication because it takes the visions with it.
+
+His mother, Dr. Donda West, held a PhD in English and chaired the English Department
+at Chicago State University; her field was Black literature. His father, Ray West, was
+a former Black Panther and one of the first Black photojournalists at the Atlanta
+Journal-Constitution. In 2013 their son released "New Slaves," a song that names the
+DEA and the Corrections Corporation of America — the private company that profits from
+full prisons — and, in the same song, the record industry that owns the Black artist's
+work. He used one word, slaves, for both systems. In 2019 he brought a gospel choir
+into the Harris County Jail in Houston and sang to the men held inside it.
+
+Every public catastrophe of his life is on the record and will be examined here, none
+skipped, the harm named as harm. But the facts above were true before the verdict was
+passed, and they do not go away when it is. Hold them, and read on.
 
 ---
 
-So he hears first. September 11, 2001, Jay-Z drops The Blueprint and Kanye produced
-four of its thirteen tracks — "Izzo (H.O.V.A.)" the biggest, built on the Jackson 5's
-"I Want You Back" pitched up, sped up, a child's voice made higher. They named the
-sound after that: chipmunk soul. He did it to Chaka Khan for his own crash, he did it
-to the Jackson 5 for Jay — take a Black voice from before you were born and lift it
-till it aches. That's the ear the professor and the Panther built. By 2002 he's the
-hottest producer alive.
+In the United States a person judged to be a danger to themselves or others, or too
+disabled by mental illness to care for themselves, can be detained against their will
+for psychiatric evaluation. In California the statute is numbered 5150; the initial
+hold is up to 72 hours. The person can be transported in restraints. They do not have
+to have committed a crime.
 
-And they won't let him rap. Roc-A-Fella has him, uses his beats, and passes on him as
-an artist — record companies ignore him because he doesn't look the part, no gangsta
-image, backpack and a pink polo, a producer who went to college and rapped about
-going to college. The image of hip-hop at that moment has no slot for him. He is
-told, in effect, stay in the back, make the beats, that's what you're for. Same
-sentence as Sway years later — do the thing we'll let you do, not the thing you know
-you are.
+For most of the nineteenth and twentieth centuries such people were confined in
+asylums. In the 1960s and 1970s the United States emptied most of them —
+deinstitutionalization — without building the community care that was supposed to
+replace it. Many of the severely mentally ill moved instead into the streets and into
+the jails. Today the three largest psychiatric facilities in the United States are not
+hospitals. They are the Los Angeles County Jail, Cook County Jail in Chicago, and
+Rikers Island in New York. A person having a mental health crisis in America is more
+likely to meet a police officer than a doctor, and Black Americans in crisis are both
+more likely to be arrested and more likely to be killed in the encounter.
 
-He puts it out anyway. The College Dropout, February 2004. And the song he fights
-hardest for is "Jesus Walks" — he's told a song that says God on it will never get
-radio play, that gospel doesn't sell, and he makes it a single anyway, marching drums
-and a choir, and it wins the Grammy. First album, the man locked out of rapping for
-looking wrong, opens with a skit mocking the diploma and closes as the biggest new
-voice in the music, and he did it by putting the two things the industry swore were
-poison — church, and college — on the same record. The whole rest of the story is
-already the same shape: told to be smaller, is not, is right.
+In November 2016 Kanye West, in the middle of a manic episode, cut a concert short,
+canceled the remainder of his tour, and was taken by ambulance to UCLA Medical Center
+and placed on a psychiatric hold. It was reported he was handcuffed to the gurney. He
+was 39, and it was around this time that he was first diagnosed. He later described
+the experience to David Letterman: that in the ramp-up he felt "a heightened
+connection with the universe," that the condition is like "a sprained brain," and that
+once a person is in that state, "everyone" around them "do everything to make it
+worse" — the handcuffs, the lights, the being held down. He was describing, from
+inside, the same confinement this movement is about: the line a society draws between
+the citizen and the patient, and how fast, for some people, it can be crossed.
+
+---
+
+The music that Americans of every color listen to was, in large part, built inside the
+Black church. Enslaved people, forbidden to read and often to gather, made spirituals
+— songs that carried grief, endurance, and coded plans; "Wade in the Water," "Steal
+Away," "Go Down Moses" held meanings that the people singing them understood and the
+people owning them were not meant to. After emancipation those songs became gospel. In
+the 1930s, in Chicago, a former blues pianist named Thomas Dorsey fused the blues with
+sacred lyrics and is called the father of gospel music; Mahalia Jackson carried it to
+the world. Nearly every American secular form that followed — soul, R&B, rock and roll,
+and eventually hip-hop — came out of that room. Sam Cooke, Aretha Franklin, Marvin
+Gaye, Al Green: all began singing in church.
+
+Sampling, the core technique of hip-hop production, takes a fragment of an existing
+recording and builds a new song on it. When a producer samples 1960s and 1970s soul,
+he is reaching back into that same lineage — records made by people one generation out
+of the church, often about deliverance whether the lyric says God or says a lover.
+
+Kanye West's early production was built almost entirely on sped-up soul samples. He is
+from the South Side of Chicago, the city where Dorsey invented gospel. In 2004, on his
+first album, he released "Jesus Walks" — an explicitly Christian song — as a single, at
+a time when the industry consensus was that overt religion would not get radio play. It
+was a hit and won a Grammy. Fifteen years later he stopped making secular music for a
+period, formed a gospel choir, and recorded a gospel album. The through-line from the
+spiritual sung in a field to the choir he assembled is not a metaphor; it is a direct
+line of the same music, and he was working inside it the whole time.
