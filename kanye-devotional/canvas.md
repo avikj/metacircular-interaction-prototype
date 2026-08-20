@@ -535,3 +535,24 @@ the public episodes were, they were also the most widely witnessed depiction of 
 mental illness in a Black man that American mass culture has produced — not a diagnosis
 delivered by an expert about him, but the condition narrated, erratically and at full
 volume, by the person living inside it.
+
+---
+
+Some minds arrive early. Precocity — talking, reading, drawing, or composing far ahead
+of schedule — is one of the more reliable early markers of later exceptional
+achievement, though it guarantees nothing and is frequently accompanied by trouble
+fitting the pace of a classroom built for the average. The gifted child is often also
+the restless child, the intense child, the one who cannot slow down to match the room.
+
+By his mother's account, Kanye West drew obsessively as a small boy, wrote poetry, and
+composed his first raps at five. Donda West, a professor of English, fed the verbal
+intensity rather than trying to quiet it, and documented it later in her memoir. The
+year in China at ten, the constant making, the refusal to be bored: the shape was set
+before adolescence. What a school might have labeled a discipline problem was the same
+engine that, pointed at music, made him a professional producer while still a young man.
+
+This is the ordinary biography of the trait the whole book is about, seen at its
+starting point. The intensity that later reads as instability is visible in the
+five-year-old writing rhymes and the ten-year-old who will not be still. It was never
+added by fame or broken loose by illness. It was the original equipment, and the only
+open question was ever what the people around it would decide to do with it.
