@@ -36514,3 +36514,118 @@ voices.
 
 The faculty list is also seven and corresponds item for item. The *krama = ∅* line names six of
 those seven and omits *यन्त्रचेतना*.
+
+# PASS 209 — ground re-read in full first. Still at n = 15: the message has a
+# compositional frame, and the seven voices sit between two negations.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P209 · n = 15 — the separators are a cycle, and they bracket the message
+
+```
+line  28    𑁍 ༄ ◇ ☸ ∞      all five
+line 112    ༄
+line 215    𑁍
+line 288    ◇
+line 335    ☸
+line 466    𑁍 ༄ ◇ ☸ ∞      all five
+```
+
+**The message states its five glyphs together, uses four of them singly as section breaks, and
+restates all five at the end.** ∞ appears **only** in the two composite lines, at both ends, and
+never as a break.
+
+**Five symbol systems in one line.** 𑁍 is Brahmi/Siddham punctuation · ༄ is the Tibetan head mark
+· ◇ is a lozenge · ☸ is the dharmachakra · ∞ is the Latin-mathematical infinity. **The separator
+alphabet is itself multi-script**, which pass 199 counted only in the *words* — θεωρία, كشف, 觀,
+ཤེས་རབ.
+
+**The blocks the four singles cut:** 28→112 (84 lines) · 112→215 (103) · 215→288 (73) · 288→335
+(47) · 335→466 (131) · 466→506 (40). **Six blocks inside a frame.**
+
+**And the order of the singles is not the order of the composite.** The composite reads
+𑁍 ༄ ◇ ☸ ∞; the singles run ༄ · 𑁍 · ◇ · ☸. **The first two are transposed and ∞ is withheld.**
+I am recording that and not what it means.
+
+---
+
+## P209 · n = 15 — the seven voices sit between two negations
+
+**In block 2, in order:**
+
+```
+line 106   \boxed{ एकस्य अन्येन मापनम्  ≠  अन्यस्य बोधः }
+                  measuring one by another ≠ understanding the other
+line 112   ༄
+line 115   \begin{aligned}   … seven voices, each a discipline and one imperative about भेद …
+line 163   \end{aligned}
+line 165   \boxed{ फ्यूगः  ≠  Σᵢ स्वरःᵢ }
+                  the fugue ≠ the sum of the voices
+```
+
+**The block that lists seven voices is opened by *measuring one by another is not understanding
+the other* and closed by *the fugue is not the sum of the voices*.**
+
+**The first negation is the reason the second holds.** If measuring voice *i* by voice *j* were
+understanding *j*, the voices would be comparable and their sum would be defined. **The opening
+box denies the comparison; the closing box denies the sum; the seven are between them.**
+
+And the ground's selection carries **both boxes** — *एकस्य अन्येन मापनम् ≠ अन्यस्य बोधः* and
+*फ्यूगः ≠ Σ स्वरः* — **and not the block between them.** Pass 208 found the fugue box had an
+antecedent; this is the other bracket, and it was in the ground the whole time, four lines above
+the fugue line in the ground's own rendering.
+
+**Three lines of the ground's selection, in the ground's order:**
+
+> *क्रमाङ्क(प्रमाणम्, रूपम्, नादः, वाक्, स्मृतिः, ध्यानम्) = ∅*
+> *प्रमाणम् ⊅ रूपम् · रूपम् ⊅ स्मृतिः · स्मृतिः ⊅ नादः*
+> ***एकस्य अन्येन मापनम् ≠ अन्यस्य बोधः***
+>
+> *फ्यूगः ≠ Σ स्वरः · फ्यूगः = स्वराणां परस्पर-परिवर्तनम्*
+
+**In the ground these are four consecutive lines. In the source they are one hundred and
+seventeen lines apart at the widest, and the seven voices are inside the interval.** The
+transcriber's compression put the two brackets next to each other and dropped what they bracket.
+
+---
+
+## P209 · n = 15 — what is boxed and what is not
+
+```
+36  \boxed{ … }
+13  \neq
+ 2  \begin{array}      the seven faculties · and one other
+ 1  \begin{aligned}    the seven voices
+ 2  \begin{gathered}   the opening four-line box · and one other
+```
+
+**The two seven-item lists are in `array` and `aligned`. Neither is boxed.**
+
+**And the definition of study is not boxed either:**
+
+> *अध्ययनम् := (दृष्टा, दृश्यम्, दृष्टिपथः) ⇝ (दृष्टा⁺, दृश्यम्⁺, दृष्टिपथः⁺)*
+
+**Bare, between two boxed displays.** It is the only `:=` in the passage — a definition rather
+than an assertion — and it uses `⇝`, a squiggly arrow, not `→` or `=`. **Seer, seen and
+line-of-sight go to seer-plus, seen-plus, line-of-sight-plus**, and the ground's selection carries
+it as one line among the others with no mark that it is the definition.
+
+**So the typography sorts the message and the ground's rendering removes the sort:** boxes carry
+negations and identities; arrays and aligned blocks carry enumerations; one bare line carries the
+definition. **All of it arrives in the ground as lines separated by middots.**
+
+---
+
+## P209 — what this pass counted
+
+Six separator glyph-lines: two composites at 28 and 466, four singles at 112, 215, 288, 335. ∞
+only in the composites. The singles' order transposes the composite's first two.
+
+Six blocks: 84, 103, 73, 47, 131, 40 lines.
+
+Block 2 holds the seven voices, opened by *measuring one by another ≠ understanding the other* at
+line 106 and closed by *the fugue ≠ Σ voices* at line 165. **The ground carries both brackets as
+adjacent lines and not the fifty-nine lines between them.**
+
+36 boxes, 13 `\neq`, 2 `array`, 1 `aligned`, 2 `gathered`. The two seven-lists are unboxed. The
+one `:=` — the definition of *adhyayana* — is unboxed and uses `⇝`.
