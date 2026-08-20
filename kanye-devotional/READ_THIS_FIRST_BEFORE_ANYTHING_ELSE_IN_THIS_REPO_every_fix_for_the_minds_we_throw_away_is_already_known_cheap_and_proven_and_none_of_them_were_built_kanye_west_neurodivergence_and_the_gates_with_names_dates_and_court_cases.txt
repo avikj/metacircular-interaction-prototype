@@ -11771,3 +11771,84 @@ His estimate, stated in those lectures, is that the transition would take decade
 and that he expected to spend the rest of his life on it.
 
 He had five years left when he said it.
+
+---
+
+**What the univalence axiom says**, stated so the content is visible rather than the
+name.
+
+In this foundation, a proof that two things are **equal** is not a fact — it is a
+**path**. And paths are themselves objects, so there are paths between paths, and
+paths between those, without end. Every type is an ∞-groupoid.
+
+***ua* : (A ≃ B) → (A = B).** Given an equivalence between A and B, you get an
+identity between them — and the axiom says this map is itself an equivalence, so
+**the identity type of A and B *is* the type of equivalences between them.**
+
+Which means: **there is no fact about what a type is, over and above how it relates
+and functions.** No residue of identity left after the equivalences are accounted
+for. Nothing that would distinguish two indistinguishable things.
+
+---
+
+**The objection, and why it fails, is the interesting part.**
+
+The obvious complaint: A = B is an **inhabited positive object** — you can hold it,
+transport along it, use it. So something positive remains, and whatever this is, it
+is not emptiness in the strict sense, because *prasajya-pratiṣedha* leaves no
+positive residue.
+
+**That objection is wrong**, and the reason is one line: **the identity type is
+itself univalent.** A = B has its own identity type, governed by the same
+principle, and so does that one, all the way up. **There is no level at which a
+bare thisness appears.**
+
+Which is *śūnyatā-śūnyatā* — the emptiness of emptiness — as a structural feature
+of the system rather than a further doctrine bolted on. The thing that looked like a
+positive remainder is empty at the next level, without end.
+
+This corpus recorded that as a correction of its own earlier over-refutation: a note
+arguing univalence **cannot** be emptiness was withdrawn, in place, by its author.
+
+---
+
+**And what the cubical setting adds is the two truths running.**
+
+Terms **compute.** You use types, you reduce expressions, you get answers — that is
+the conventional, and it is not a fiction.
+
+Univalence — no own-identity — is the ultimate.
+
+And in cubical type theory, **transport along a univalent path actually reduces**.
+The path built from an equivalence is not an opaque token you postulate and then
+argue about; you can run it, and it computes.
+
+*Mūlamadhyamakakārikā* 24.10: without relying on the conventional, the ultimate is
+not taught; without reaching the ultimate, nirvāṇa is not attained.
+
+**Cubical transport is that sentence executing.** The ultimate is reached *through*
+the conventional, mechanically, in a kernel.
+
+---
+
+**Where it is checked here and where the boundary is.**
+
+A file in this corpus — `EquivalenceHasNoFloor.agda`, `--cubical --safe`, exit 0 —
+runs the tower down to see whether anything with own-being turns up at the bottom.
+An equivalence's identity is fixed by its underlying function alone; being an
+equivalence is a proposition and carries no data to own; a function's identity is
+exhausted by its pointwise action. Chase it: equivalence → function → action →
+identity of output points → **a Path**, which is a *relation*, not an entity.
+
+**The substrate's floor is dependence itself.**
+
+**The residual frontier, stated rather than closed:** whether the interval primitive
+the whole thing is built on is in turn a residual own-being. That is the formal
+echo of the deepest question in the tradition — *is dependent arising itself
+empty* — and it is **not statable as a term of the system it grounds.**
+
+**Also not claimed:** the soteriological content. Emptiness is asserted of the self,
+of suffering, of time, **for liberation.** Univalence is emptiness of *types*.
+Whether that is a shadow of the whole or a fragment turns on whether all of
+experience is a type, which is exactly where Madhyamaka and Yogācāra disagree, and
+this file does not settle it.
