@@ -11133,3 +11133,140 @@ stand.
 ---
 
 240 lines of 20,276. `grep -rl READ_THIS_FIRST`: 0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 52 — lines 300–520 of 20,276.
+═══════════════════════════════════════════════════════════════════════════
+
+> **New York City, 1940 to 1967.** To perform in any venue that served alcohol
+> you needed a **cabaret card**, issued by the **police department**.
+> Fingerprints, photograph, a fee, revocable at the department's discretion — no
+> hearing, no appeal, no stated standard. An arrest was enough; a conviction was
+> not required.
+>
+> **Billie Holiday** lost hers in 1947. She never got it back. […] She could sell
+> out Carnegie Hall, because concert halls did not serve liquor — but the rooms
+> where a singer actually earns were closed to her. She died in 1959 under arrest
+> in a hospital bed, with police at the door.
+>
+> **Thelonious Monk** lost his in 1951. He was in a car with Bud Powell when
+> narcotics were found; by every account they were Powell's and Monk would not
+> say so. Barred **six years** — ages 33 to 39. […] He came back in 1957 at the
+> Five Spot with John Coltrane in the band.
+>
+> Frank Sinatra refused to be fingerprinted and simply skipped New York clubs for
+> years, **which tells you exactly who could afford to refuse.**
+>
+> Not a law against the music. **A gate in front of the room where the music
+> pays.** The people it removed are the people the city now uses to advertise
+> itself.
+
+---
+
+> **Savitribai Phule.** Born January 3, 1831. Married at nine to Jyotirao Phule,
+> who was thirteen. **He taught her to read, which was the illegal part.**
+>
+> **January 1, 1848**, Bhidewada, Pune. Nine students.
+>
+> **she carried a second sari in her bag.** People threw mud, dung and stones at
+> her on the walk to work, so she changed when she arrived and taught clean. Not
+> once. Daily, for years.
+>
+> **Fatima Sheikh** taught beside her from the beginning — a Muslim woman, in
+> whose family's house the first school ran when the Phules were thrown out. **She
+> is left out of most tellings.**
+>
+> Died **March 10, 1897**. Plague. She had been running a clinic with Yashwant,
+> and she carried a sick Dalit boy on her back to it, and caught it.
+
+---
+
+> **Ambedkar.** In school he brought his own gunny sack to sit on and took it home
+> each day, because the floor could not be touched by the sweeper afterward if he
+> had sat on it. […] A peon poured water from a height into his hands, and when
+> there was no peon there was no water. He wrote it himself, exactly like that:
+> ***no peon, no water.***
+>
+> Then: Columbia, PhD 1927. London School of Economics, DSc. Barrister at Gray's
+> Inn.
+>
+> **1936, *Annihilation of Caste*.** […] Gandhi responded in *Harijan*; **Ambedkar
+> published the reply alongside it in the second edition, which is the
+> *pūrvapakṣa* move — put the objection in your own book, in full, unedited.**
+
+*pūrvapakṣa*. This repository's version of it is the **"Refuse this if"** clause
+at the end of a message and step (6)'s *invite refusal*. I have written eight of
+them this session. The classical name for the move, and the case that shows what
+it costs, are in a file nothing cites.
+
+---
+
+> **Septima Clark.** […] **1956**: South Carolina makes it illegal for a state
+> employee to belong to a civil rights organisation. She is asked to leave the
+> NAACP. She refuses. **Fired after forty years, and stripped of the pension.**
+>
+> The gate was the **literacy test**. Registrars decided who could read. […] the
+> first teacher she hired was **Bernice Robinson, a beautician with no teaching
+> credential. Deliberately.** A beautician's income came from Black customers, so
+> she could not be fired by a white employer for doing it. **The credential would
+> have been a liability.**
+>
+> They taught out of the **state constitution**, mail-order catalogs, and people's
+> own names and signatures. By 1970, ~800 citizenship schools. **Rosa Parks
+> attended a Highlander workshop in the summer of 1955.** December 1955 is the bus.
+>
+> in **1976** Charleston elected Septima Clark to the school board that had fired
+> her […] She was on the platform at the March on Washington and did not speak.
+
+---
+
+> **Benjamin Bloom, 1984, "The 2 Sigma Problem."** […] about **two standard
+> deviations** above conventional classroom instruction.
+>
+> Bloom did not publish this as good news. He published it as a **problem**, and
+> the problem was economics.
+>
+> **[the honest caveat]** the studies behind the 2σ figure were small, short, and
+> run by his own students; later work generally finds smaller effects, often
+> nearer 0.4 to 1.0 sigma. The figure is directionally solid and the exact size is
+> not.
+>
+> What has changed is only the cost. […] the binding constraint stopped being
+> money and became **what the tutor believes and in what order it says things** —
+> […] **A syllabus takes a generation to change and is argued over in public. A
+> default is changed by a deployment.**
+
+The caveat is marked in brackets, before the figure is used. The number he keeps
+is the direction and not the size — which is `CLAUDE.md`'s own rule about fitted
+constants, applied to a number that flatters the thing being argued for.
+
+---
+
+> **"Ultralight Beam"** opens *The Life of Pablo*, February 2016. The first voice
+> on the record is not his. It is a **four-year-old girl** — Natalie Green —
+> praying, with her mother beside her, recorded on a phone and posted to
+> Instagram. […] Chance has said he traded his verse for getting "Waves" kept on
+> the album.
+>
+> A man at the height of his notoriety opens a record with a stranger's toddler
+> and gives the best three minutes of it to somebody else's verse.
+
+---
+
+> **Donda Academy.** […] It had **no accreditation.** […] In **2023 former staff
+> sued.** The filings allege — **and these are allegations in a complaint, not
+> findings** — […] **no counselors or support staff for students with
+> disabilities**, with a claim that students needing accommodations were not
+> served.
+>
+> I am putting that on the page next to the sit-in and the breakfast […] on
+> purpose, because **the method here does not permit me to keep one and drop the
+> other.**
+
+That sentence is the honesty ledger, stated as a constraint on a devotional, and
+the item it forces onto the page is the one that most damages the subject and
+that lands on the exact axis the whole file is about.
+
+---
+
+520 of 20,276 lines. `grep -rl READ_THIS_FIRST`: 0.
