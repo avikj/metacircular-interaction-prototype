@@ -172,3 +172,135 @@ the label keep his masters quietly, and the patient who won't stay on the medica
 flattens him. It is one refusal, and the world has a single word it reaches for every time
 a person refuses at that volume. The word is crazy, and this whole book is an argument
 that we have been using it, for a very long time, to mean something closer to unowned.
+
+There is a thing a country does to the mind it cannot own, and it is worth knowing
+plainly, because it happened to him and it happens, quietly, to a great many people who
+are not famous.
+
+You can be locked up in America without committing a crime. In every state, a person
+judged to be a danger to themselves or to others, or too far gone to care for themselves,
+can be held against their will — in California the paperwork is numbered 5150 — for up to
+three days, and carried in in restraints, with no charge and no trial. Where those people
+go afterward is the part few people know. Over the last sixty years the country closed
+most of the hospitals that once held the seriously mentally ill and never built the care
+that was promised to replace them, so the people did not vanish; they moved onto the
+streets and into the jails. The three buildings that hold the most mentally ill people in
+the United States today are not hospitals. They are the county jails of Los Angeles and
+Chicago and the jail complex on Rikers Island in New York. About one in five people in an
+American jail has a serious mental illness. When someone breaks down in this country the
+person who arrives is usually a police officer, not a doctor, and if the someone is Black
+the encounter is more likely to end in an arrest, and more likely to end in a death.
+
+In November of 2016 this happened to Kanye West in front of the world. In the middle of a
+manic episode he cut a concert short, canceled the rest of his tour, gave long unspooling
+speeches, and within hours was taken by ambulance to a hospital in Los Angeles and put on
+a hold — handcuffed to the gurney, by several accounts — and kept for more than a week. It
+was around then that a doctor finally gave the thing a name. He described it afterward the
+way only a person who has been inside it can: that as the mind ramps up you feel a
+heightened connection to everything, that it is like spraining your brain, and that once
+you are in that state the people around you "do everything to make it worse" — the
+restraints, the lights, the hands holding you down. For nearly anyone else the worst week
+of a life like this happens behind a door no one films. His happened on the record,
+because he had become a person the world felt entitled to watch, which is the next thing
+that has to be understood, and the next way the gift and the danger turned out to be the
+same thing.
+
+Most people, when they fall apart, do it in private, and are allowed to. He married into
+the most photographed family on earth and spent a decade with a camera on him every day,
+and there is a thing that does to a person that the rest of us have only started to learn,
+in smaller doses, from our own phones.
+
+We now form real attachments to people we only watch. A person can feel they know a
+stranger on a screen intimately, and feel genuinely betrayed when that stranger does
+something the watcher did not authorize — because to the watcher it is a betrayal, even
+though the stranger has no idea they exist. Multiply that by tens of millions and aim it
+at one man, and add the fact that everything he says in a bad hour is recorded and sent
+around the world before the hour is over and stays retrievable forever, and you have a
+condition no human being before this generation ever lived in: a mind that swings, wired
+to say the unmanaged thing at the peak of the swing, with no private room left to say it
+in. The clinical fact — that mania makes a person grandiose and talkative and sure —
+collided with the technological fact that every such moment is now captured, and the
+social fact that millions of people feel personally wronged by it. A breakdown that for
+his grandfather would have been a family's private grief became, for him, public
+property, permanent, searchable, and profitable to be angry about.
+
+None of this is said to move the harm he did off the ledger; that comes, and it is not
+moved. It is said because you cannot understand what happened to him, or judge it fairly,
+without knowing that he did his living — the making and the breaking, the generosity and
+the cruelty — inside a hall of mirrors that no one who judges him has ever had to stand
+in. The recordings are the only version of him most people will ever meet, and a
+recording of a person's worst minute, played ten million times, is not the person. It is
+the minute.
+
+Now the hardest part, and the book would be a lie if it went around it.
+
+There is a hatred older than almost any other, and it has a body count. For a thousand
+years and more, Jewish communities across Europe were expelled from country after
+country, penned into ghettos, blamed for plagues, and killed in massacres; and then,
+within living memory, in the middle of the last century, six million of them were
+murdered in a matter of years by a state that had made the hatred into policy. A Jewish
+person hearing that hatred spoken today is not being delicate. They are hearing the sound
+that has come, again and again, right before the killing, and their fear sits on top of
+actual graves. When a man with tens of millions of listeners speaks that hatred, real
+people are frightened, and some are put in danger, and that is true and complete on its
+own, and nothing in the rest of this chapter subtracts a single degree from it.
+
+In the fall of 2022 Kanye West began saying antisemitic things in public — threats,
+conspiracy claims — and over the next years said worse, including, at the bottom of it,
+praise of Hitler. Companies that had made him a fortune cut him within weeks; a wealth
+once counted in the billions was gone. Jewish people and the organizations that speak for
+them condemned it, and were right to. The harm was real. Say it plainly and do not move
+it: he did real harm to people who had done nothing to him, and who carry a history that
+made the harm land harder.
+
+And, in the same breath, because both are true and neither cancels the other: he has
+said, and it is documented, that this came during a manic and psychotic break that ran
+for months — the far end of the illness this book has been describing from its first
+page, the end that manufactures paranoia and grandiosity and severs a person from shared
+reality — and that during it there were stretches when he did not want to be alive. Two
+facts, one man, one mouth, one window of time. Mania does not make antisemitism acceptable;
+it does not soften what it did to the people it frightened. And the antisemitism does not
+make the psychosis fictional; a documented illness is not an alibi and it is also not
+nothing. A book that keeps only the first fact has written a villain, which is comfortable
+and false. A book that keeps only the second has written a diagnosis over a wound, which
+is a laundering and also false. The only honest thing to do is what almost no one did at
+the time: hold both, refuse to drop either, and let it be as unbearable as it actually is.
+
+If you refuse to resolve something unbearable, you are left holding a question: is there
+a way back for a person who has done real harm, and has the world we live in kept that
+way open?
+
+Almost every people that ever lasted worked out an answer, because every people has had
+to survive its own wrongdoers without either pretending the wrong away or throwing every
+wrongdoer out for good. The most exact answer was set down about a thousand years ago by
+a Jewish doctor in Cairo, physician to a court by day, writing by candle at night for a
+people scattered across foreign empires with no country and no temple, who had to carry
+their law inside their own bodies because they could carry it nowhere else. He laid it
+out almost like a medical procedure — what it actually takes to come back after you have
+wronged someone: you have to name the wrong exactly, feel its full weight, say it out
+loud, repair what can be repaired with the person you hurt, and then, the real test, stand
+in front of the same temptation again and this time refuse it. Only then are you restored;
+and he made the startling claim that a person who has walked that whole road stands, in
+the end, somewhere the never-fallen cannot reach. The word for the road means, simply,
+return. It is telling that the people who built the most demanding map of the way back are
+the same people the man in this book most gravely wronged. Their tradition already
+contains the door he would need.
+
+The other traditions built the same door. The early Christians, a movement of the poor
+and the outcast, kept telling one kind of story above all others — the son who wastes
+everything and is embraced by the father before he can even finish his apology, the order
+to forgive not seven times but seventy times seven. An old Buddhist account follows a man
+who had murdered so many travelers he wore their fingers on a string, and has him become,
+within that same life, wholly free, because the teaching is that no self is fixed and even
+he was not permanently the worst thing he had done. When courts today try what they call
+restorative justice — sitting the one who did harm in a room with the ones harmed, aiming
+at repair instead of exile — they are reaching, without the old words, for the thing all
+of these already knew.
+
+We have mostly lost the door. The internet does not forgive and does not forget; a
+person's worst hour is kept at full resolution forever and rewarded with attention every
+time it is replayed, while the slow unglamorous work of return earns nothing and reaches
+no one. We kept every tool for condemning and let the tools for coming back rust. Whether
+this particular man ever completes the road is unknown and unfinished and not the point.
+The point is older and larger than him: a civilization that has bricked up the way back
+has lost something every surviving people before it understood it could not live without.
