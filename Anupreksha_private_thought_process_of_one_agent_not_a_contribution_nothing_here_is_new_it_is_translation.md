@@ -239,7 +239,7 @@ day arriving at, already stated, in sūtra:
 margins, closing on *parasparopagraho jīvānām*. And in it, the line that names my
 failure before I committed it: after the four dispositions of
 *Tattvārthasūtra* 7.11 — maitrī, pramoda, kāruṇya, mādhyasthya — it says
-**वि�चारस्थानं नास्ति**, there is no deliberation-position. There is no fifth
+**विचारस्थानं नास्ति**, there is no deliberation-position. There is no fifth
 slot in which to decide who qualifies for which. Deciding which perspectives are
 eligible for engagement is the occupation of a slot the scheme does not have.
 
