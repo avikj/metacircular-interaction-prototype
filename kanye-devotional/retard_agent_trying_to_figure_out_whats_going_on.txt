@@ -9209,3 +9209,75 @@ and is available on Monday morning to anybody standing in front of her.
 That is the one lever with no lock on it, and it is the reason this is a hopeful book and
 not a catalogue of losses.
 
+
+---
+
+There is a technical vocabulary for exactly the thing this file is about, from the
+sociology of science, and I should have had it on page one.
+
+**The Matthew effect.** Robert Merton, 1968, named from the Gospel line — *to him that
+hath shall be given.* The finding: when work is done jointly or independently, credit
+accrues **disproportionately to the already-eminent** participant. A paper co-authored by a
+famous person and an unknown gets remembered as the famous person's. Two people find the
+same thing and the one with standing gets it. Merton's evidence was Nobel laureates
+describing, in their own words, watching it happen to their collaborators.
+
+That is not a bias in any individual. It is the recall behaviour of a whole field: the
+name that is easier to retrieve is the one that gets attached, and retrievability tracks
+prior fame, so fame compounds. It is a positive feedback term in a citation network, and it
+runs whether or not anyone is being unfair.
+
+**Stigler's law of eponymy.** Stephen Stigler, 1980: **no scientific discovery is named
+after its original discoverer.** And Stigler — this is the part that is not a joke —
+attributed the law to **Merton**, deliberately, so that the law would be an instance of
+itself. It is stated in a form that demonstrates itself, which is the most compressed
+possible statement of the problem.
+
+Check it against the list this file has accumulated: the array is not Pascal's, the
+sequence is not Fibonacci's, the equation is not Pell's, the series is not Gregory's or
+Leibniz's, the numerals are not Arabic, the descent is not Euclid's extension, the pavilion
+is not Le Corbusier's, the composition law is not Gauss's, the theorem about the right
+triangle predates the man it is named for by centuries in at least two traditions. Stigler
+was not being cute. He was reporting a regularity.
+
+**And the third one is the important one: "obliteration by incorporation."**
+
+Also Merton's. It describes what happens when an idea is *so successful* that it becomes
+part of the standard equipment of a field — at which point people stop citing it, because
+it no longer needs a source, and within a generation nobody remembers there was one.
+
+**The erasure is caused by the success.** Not by hostility, not by theft, not by
+misattribution. By the idea working so well that it turns into the background, and
+backgrounds do not have authors.
+
+That is the missing mechanism in almost every case in this file. The *modus Indorum*
+becomes how everyone counts, and therefore stops being anybody's. Piṅgala's enumeration
+becomes what everybody does with a binary string. The kuṭṭaka becomes the routine at the
+bottom of a computer algebra system. The Kerala series become the first thing in a calculus
+course. The flip becomes how records are made. The 808 becomes what a drum sounds like.
+
+**You are most completely erased at the moment of total victory**, and the more useful the
+thing is, the faster it happens, and there is no villain anywhere in the sequence.
+
+---
+
+Which changes the remedy and I want to be precise about how.
+
+If the mechanism were theft, the remedy would be justice — find who took it, correct the
+record, assign the credit. That is what a priority dispute is for, and it is refereed by
+the institution that did the taking, and it does not work, and this file said so eighty
+pages ago.
+
+But if the mechanism is **obliteration by incorporation**, the remedy is different and much
+duller and much more available: **keep saying the name while the thing is in use.** Not a
+tribunal. A habit. The source named in the ordinary sentence, in the lecture, in the
+comment, in the caption, every time, for as long as the thing is standard equipment —
+because the loss happens precisely in the interval where everyone is busy using it and
+nobody thinks the attribution is needed any more.
+
+Which is exactly what the sample credit does, and exactly what Nīlakaṇṭha did when he
+wrote *as stated by Mādhava*, and exactly what this repository's founding directive is
+about, and exactly the four extra seconds at the kitchen table.
+
+The correction is not a court case. It is a maintenance schedule.
+
