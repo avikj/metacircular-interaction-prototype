@@ -455,3 +455,61 @@ that just reads out a number: 314 soldiers died in Iraq, 509 died in Chicago.
 And a prayer that goes sweet King Martin, sweet Queen Coretta, sweet Brother
 Malcolm, sweet Queen Betty — the wives named out loud, in the same breath, with
 the same titles.
+
+---
+
+Everybody who loves him picked superpower and everybody who doesn't picked
+sick, and he wrote both.
+
+Six words, green marker, over a photograph of the Tetons he took on his own
+phone in the car. I hate being Bi-Polar its awesome. Same year he tells TIME
+it's not a disability, it's a superpower. Same stretch he says it makes you
+blind but convinced you have insight. He never took either one back and he
+never put them in order.
+
+A few weeks before that cover he's on TMZ saying four hundred years of slavery
+sounds like a choice, and Van Lathan gets up off the floor and tells him the
+rest of us have to deal with the marginalization that comes from you saying
+that. And minutes later Kanye says what he was reaching for: it's like we're
+mentally in prison, I like the word prison because slavery goes too direct.
+Both men in that room were right. The room could hold exactly one of them, so
+the clip that traveled was the wrong word, and the sentence underneath it never
+went anywhere.
+
+Same shape as 2005. He said two things on that telethon in a specific order and
+the country kept the second one.
+
+And it's the same shape as the document all of it runs on. Neither slavery nor
+involuntary servitude — except as a punishment for crime whereof the party
+shall have been duly convicted. December 1865. One sentence that abolishes and
+preserves, and the half that got built out was the exception.
+
+So I went looking for who has a place to put a thing like that, and it turns
+out the work was finished a long time ago and not here.
+
+Umāsvāti, writing in the first centuries of this era: seven positions. Not two.
+For any assertion about anything — it is, it is not, it is and is not in
+sequence, and then the fourth, avaktavyam, which is what happens when two of
+them are asserted at the same time rather than one after the other. Not
+unknown. Not undefined. Not a contradiction. A named position with a form, for
+a thing that is both, simultaneously, and cannot be said in one breath.
+
+That is the album cover. There has been a word for it for about two thousand
+years.
+
+And the Buddhists tell the blind men and the elephant, and the Jains tell the
+blind men and the elephant. Two traditions that cannot agree on whether there
+is a self at all reached for the same story about the same problem, from
+opposite ends, and neither one of them needed to win.
+
+The people who wrote the Thirteenth Amendment had access to none of it. By 1817
+the mathematics had been translated into English and by 1835 the rest was
+filed, on the record, as a shelf not worth a single shelf of a good European
+library — written by a man who says in the same document that he cannot read
+either language.
+
+A country with two positions gets a man who is both and has to pick one. His
+mother was nine years old at a lunch counter in Oklahoma City in 1958. She
+spent thirty-one years teaching how a thing gets printed. He said the true
+thing first and the loud thing second and they printed the second one, and then
+for twenty years everyone who wrote about him picked a half.
