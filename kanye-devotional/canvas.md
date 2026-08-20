@@ -344,3 +344,25 @@ moment is now captured and the social fact that millions feel personally wronged
 A person with his illness, born forty years earlier, would have broken down in private
 and recovered in private. He did it in a hall of mirrors, and the recordings are the
 only version of him most people will ever have.
+
+---
+
+Charitable giving by the wealthy is usually visible by design; the gift and the
+announcement travel together, because the announcement is part of what is bought. There
+is an older idea, present in most traditions, that the highest form of giving is the
+one the recipient cannot repay and the public never sees — in Jewish teaching, the
+anonymous gift ranks near the top of the ladder of charity; in the Gospels, the
+instruction is to give so that the left hand does not know what the right is doing.
+
+Much of what Kanye West has given has surfaced only because a recipient mentioned it.
+He has paid off strangers' mortgages and student debt, covered funerals and medical
+bills, quietly supported people with no relationship to his career and no ability to do
+anything for him in return. He has also funded at scale — donations to schools,
+churches, disaster relief, and, through Donda's Place and similar efforts, programs
+named for his mother. The same man whose most-quoted line is "I am a god" has spent
+sums, often unpublicized, behaving as though the obligation of a god is to feed people.
+
+This is not offered to balance a ledger. Generosity does not cancel harm, and harm does
+not cancel generosity; the book's whole method is that these do not net against each
+other. It is offered because it is part of the record and is usually left out of it. A
+full account of a person includes the checks nobody filmed.
