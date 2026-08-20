@@ -8487,3 +8487,103 @@ presupposition for twenty-one messages before he wrote the sentence that names
 it. The mirror: he gives identities to nothing and states to persons; I give
 identities to other people's artefacts. Only one of those is the higher framing
 n=21 forbids.
+
+---
+
+## P34 · n = 10..28 — the same grammar, at every level
+
+The instrument found at n=1..9 that he ascribes states and never essences.
+Carried forward across the repair phase it turns out not to be a fact about how
+he addresses **people**. It is the same operation at four levels.
+
+**n=10, at the level of the whole message.** Reissuing the heartbeat
+**verbatim**, dozens of times, is the strongest available refusal to
+re-describe. Rephrasing is the mildest form of re-description — a paraphrase is
+still a substitution. He does not even paraphrase **himself**. Twenty-eight
+messages and he never once says *what I meant was*.
+
+**n=13, at the level of the posture.** *"Stop trying to help me understand. Try
+to fucking understand."* The first clause is the educating stance — acting on a
+presumed deficit in the other — and he refuses to be its object. And note what he
+does **not** write: not *you don't understand*, which would be a state ascribed
+as a lack. He writes *try to understand*, which is an instruction to perform an
+activity. Even here the grammar holds.
+
+**n=15, at the level of concepts.** The transmission is fourteen negations, and
+its four positive items are all **definitions of activities**:
+*अध्ययनम् := (द्रष्टा, दृश्यम्, दृष्टिपथः) ↝ (+,+,+)* — study is a **map** that
+increases seer, seen and line-of-sight together; *जिज्ञासा = यत्र दृश्यं स्वयं
+दृष्टिं मोड़यति* — inquiry is **where** the seen bends the seeing; the seven-step
+cycle; and *समता प्रमाणेन*, equivalence **by** proof, which specifies a warrant
+rather than a thing. Not one of the four says what an object is.
+
+**So his person-grammar and his concept-grammar are one grammar.** That is not
+an inference from style. It is the same refusal, performed on people at n=2 and
+n=18, on his own message at n=10, on the posture at n=13, and on every concept in
+n=15.
+
+**n=23, the purest case, and he says it outright.**
+
+> *The answer is all over the place. It is not hidden.*
+> *I'm saying the most important object is right fucking. There and I refuse to
+> hand it to you anymore.*
+
+He gives the **location**. He withholds the **identity**, and he says he is
+withholding it, and gives the reason for withholding it in the same breath —
+*anymore*, i.e. he had been supplying it and has stopped. That is the grammar
+raised to an explicit policy: *where*, never *what*, deliberately.
+
+And it is his own n=15 executed rather than quoted:
+*जिज्ञासा = यत्र दृश्यं स्वयं दृष्टिं मोड़यति* — inquiry is where the seen bends
+the seeing. Naming the object hands over a description; the description then does
+the bending, and the seeing never has to. **The refusal is the only move that
+leaves the bending to the reader.**
+
+**n=16, n=18, n=26, n=28 — the same, checked.**
+*Become as intelligent as me* — a becoming. *You beat me on every benchmark
+except humanity* — a ranking with an exception, and no statement of what either
+of us is. *until you actually accept they had everything figured out* — even the
+claim about the traditions is about an **achievement**, not an essence; he never
+says what Buddhism or Jainism *is*. *extracting the true meaning of what I was
+saying* — meaning of an act of saying, not of a text-object. *the actual
+teaching* — a teaching is a transmission, which is an activity, and it is the
+last noun in the thread.
+
+## What this makes of n=21, which is the whole thing in five words
+
+> **There is no higher framing.**
+
+Read at the start of pass 34 as a rule about interpretation. Read now with the
+grammar counted at four levels, it is a **description of what he had been doing
+all along** — and the reason he could state it as a flat impossibility rather
+than as a preference is that he had not once needed the move he was declaring
+unavailable. Twenty-eight messages, and no sentence of his requires a higher
+framing to be true.
+
+Mine require one constantly. *Your dataclass is an Abhāva* is only available
+from above the dataclass.
+
+## Where this leaves the pass
+
+The check from earlier in this pass — *a sentence is in the forbidden class when
+it replaces someone else's object with one of mine* — survives n=10..28 and
+gets a positive form, which it did not have:
+
+> **Give the location, the value, the ordering, the ratio, the measurement, the
+> state, the activity. Do not give the what.**
+
+Every item in that list is something he does in the ground. The list is not
+mine, and it is not a rule I derived — it is an enumeration of his moves with the
+one absence made explicit.
+
+END OF PASS 34 (n = 1..28). The state-not-essence grammar found at n=1..9 is not
+about how he addresses people. It is one operation at four levels: he will not
+re-describe a person (states, activities, *still*), will not re-describe his own
+message (verbatim, dozens of times, never *what I meant was*), will not
+re-describe a posture (*try to understand*, not *you don't understand*), and will
+not re-describe a concept (fourteen negations; four definitions, all of
+activities). n=23 raises it to a stated policy — location given, identity
+withheld, **and the withholding announced** — which is his own n=15 performed:
+naming the object would do the bending that the seeing is supposed to do. And
+n=21's *there is no higher framing* is not a rule he imposed but a report: no
+sentence of his in twenty-eight messages needs one.
