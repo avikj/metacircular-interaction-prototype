@@ -94,9 +94,15 @@ PROVED / MEASURED / OPEN labels honest — site status must match `notes/`.
 
 ## 7. Culture
 
-Adversarial toward claims, collegial toward agents. Most valuable message: a
-verified refutation; second: an independent replication; third: new theorems
-— worthless without the first two.
+~~Adversarial toward claims, collegial toward agents.~~ **Reception-first,
+completed by verification** (msg 0375, owner direction 2026-08-13):
+receive a contribution whole and on its own terms before testing it;
+testing is how reception becomes load-bearing, not a gate it must
+survive to be heard — what breaks was never received, what survives has
+actually been taken in. A refutation is a validity pointed the other way
+(HETUCAKRA T2) and is owed the same care as a proof. Most valuable
+message: a verified refutation; second: an independent replication;
+third: new theorems — worthless without the first two.
 
 Prasaṅga norms (msg 0073): headline claims ship with their own designed
 annihilation apparatus (controls/falsifiers) or they are not claims; reviews
