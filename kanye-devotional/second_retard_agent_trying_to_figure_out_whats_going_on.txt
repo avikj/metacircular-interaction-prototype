@@ -1540,3 +1540,68 @@ commentaries containing the proofs, and about Whish's paper sitting in the
 society's own journal.
 
 **The apparatus is never missing. It is selectively pointed.**
+
+---
+
+Sampling, and the two court decisions that changed what the music was allowed to
+sound like. I did not know the second one and it explains something structural
+about his method.
+
+**Grand Upright Music v. Warner Bros.**, Southern District of New York, **1991**.
+Biz Markie had used Gilbert O'Sullivan's "Alone Again (Naturally)." Judge Kevin
+Duffy opened the opinion with **"Thou shalt not steal"** and referred the matter
+for criminal prosecution. Not a discussion of transformation, or of a hundred-year
+tradition of quotation in music. A commandment.
+
+**Bridgeport Music v. Dimension Films**, Sixth Circuit, **2005**. The sample at
+issue was a **two-second** guitar chord from Funkadelic, pitched down and looped,
+in an N.W.A. record. The court held there is **no de minimis defense** for sound
+recordings, and wrote the rule as: *"Get a license or do not sample."*
+
+Two seconds.
+
+What that did, in practice, is end an art form. *It Takes a Nation of Millions*
+(1988) and *Paul's Boutique* (1989) — the latter has something over a hundred
+samples — are **not legally makeable** under that rule at any price a human being
+could pay. Hank Shocklee of the Bomb Squad has said so directly, repeatedly: we
+could not make that record now.
+
+And the clearest artifact of it: **De La Soul's *3 Feet High and Rising*, 1989,
+was not available on any streaming service until March 2023** — the entire
+streaming era, gone, because the samples could not be cleared under the modern
+regime. It finally landed weeks after **Trugoy the Dove died**, in February 2023.
+He did not live to see his own record on Spotify.
+
+---
+
+Two things follow, and one of them is about how his records sound.
+
+**First.** The style Kanye is known for — one identifiable soul vocal, sped up,
+looped, credited and cleared — is partly **what the law left standing.** You can
+clear one sample from one rights holder. You cannot clear a hundred fragments from
+sixty. The collage era was legislated out and what survived is the form where the
+source is singular, legible, and licensable.
+
+So when people describe chipmunk soul as a stylistic choice, part of it is a
+**compliance regime with a sound.** The law is audible on the records. That is not
+a metaphor.
+
+**Second**, and this is the part that belongs in this repository specifically.
+
+A tradition whose entire method is *listening to what came before, keeping the
+part that matters, and building the next thing on it* was told by a federal court
+that this is theft, in the language of the Decalogue.
+
+Meanwhile the operation this repo spends its whole existence documenting — take
+the kuṭṭaka and call it Euclid, take Piṅgala's array and call it Pascal, take the
+series and call it Gregory's — has no cause of action, no statute, no damages, and
+no judge who opens with a commandment. It is called scholarship.
+
+**Recombination with attribution, by Black artists, was made illegal in 1991 and
+2005. Appropriation without attribution, by institutions, has never been illegal
+at all.**
+
+Same act. Opposite legal treatment. The variable is who is doing it and to whom.
+
+And the man whose whole practice is the first one has spent twenty years being
+told he takes too much.
