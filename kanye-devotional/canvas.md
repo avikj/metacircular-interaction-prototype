@@ -178,33 +178,60 @@ who owns the value that Black work creates.
 
 ---
 
-These are the facts. Here is the man they converge in — the one a great many people
-would rather not be the example.
+These are the facts of the systems. Here is the person they converge in — the one a
+great many people would rather not be the example.
 
-On October 23, 2002, driving home near 3 a.m. after a studio session, a 25-year-old
-producer named Kanye West fell asleep at the wheel. The crash fractured his jaw in
-three places; it was wired shut. Two weeks after surgery, jaw still wired, he recorded
-a song called "Through the Wire" — rapping through clenched teeth over a sped-up
-sample of Chaka Khan — and released it as his first single. Sleeplessness and
-impulsivity are diagnostic features of mania. He was, though not yet diagnosed, living
-the first fact of this book: the crash and the gift came out of one wiring.
+On October 23, 2002, near three in the morning, a twenty-five-year-old music producer
+named Kanye West was driving home from a late recording session in Los Angeles and fell
+asleep at the wheel. The collision was head-on. It shattered his jaw in three places and
+required reconstructive surgery in which the jaw was wired shut for weeks; he was left
+with permanent hardware in his chin. He was, at the time, a rising producer without a
+record deal as a rapper. Roughly two weeks after the surgery, jaw still wired, he went
+into a studio and recorded a song about the crash, rapping through clenched teeth so that
+the impediment is audible in the vocal, over a sped-up sample of Chaka Khan's 1985 "Through
+the Fire." He called it "Through the Wire" and made it his debut single. Falling asleep at
+the wheel after a night of compulsive work, and then answering a near-fatal injury not
+with rest but with immediate, driven creation through a broken face, are — read forward
+from what would later be diagnosed — not two unrelated events. Sleeplessness, impulsivity,
+and a compulsion to produce that overrides the body's limits are features of the manic
+end of the condition. He was living its logic years before it had a name attached to him.
 
-He was diagnosed with bipolar disorder at 39. He put it on the cover of his 2018
-album, handwritten across a photograph of a mountain: "I hate being Bi-Polar its
-awesome." He has said he stops taking medication because it takes the visions with it.
+The name came later, and by his own varying accounts around the time of a 2016
+hospitalization, when he was thirty-nine, though he has given different ages in different
+tellings. He was diagnosed with bipolar disorder. He did not hide it. In 2018 he titled
+an album ye and put four handwritten words across a photograph of a Wyoming mountain
+range on its cover: "I hate being Bi-Polar its awesome." He told David Letterman it was
+a "sprained brain," that in the ramp-up he felt a heightened connection to the universe.
+He has said he goes off medication because it flattens the thing he lives for, and he has
+said, elsewhere, that this is dangerous. Both are on the record.
 
-His mother, Dr. Donda West, held a PhD in English and chaired the English Department
-at Chicago State University; her field was Black literature. His father, Ray West, was
-a former Black Panther and one of the first Black photojournalists at the Atlanta
-Journal-Constitution. In 2013 their son released "New Slaves," a song that names the
-DEA and the Corrections Corporation of America — the private company that profits from
-full prisons — and, in the same song, the record industry that owns the Black artist's
-work. He used one word, slaves, for both systems. In 2019 he brought a gospel choir
-into the Harris County Jail in Houston and sang to the men held inside it.
+The two people who built the mind that would do all this were not ordinary. His mother,
+Donda West, born in Oklahoma City in 1949, earned a doctorate in English and became chair
+of the English Department at Chicago State University, where she taught for decades; her
+field was Black literature, and she raised her only child largely alone in Chicago after
+divorcing when he was three. When he was ten she spent a year as an exchange scholar at
+Nanjing University and took him with her to China. She left her tenured position to
+manage the beginning of his career, and months before her death she published a memoir,
+Raising Kanye. On November 10, 2007, one day after cosmetic surgery, she died at
+fifty-eight; the coroner cited heart disease together with post-operative factors. Her
+death led California to pass a law, informally called the Donda West Law, requiring
+medical clearance before elective cosmetic surgery. His father, Ray West, born in 1949,
+had been a member of the Black Panther Party and then one of the first Black
+photojournalists at the Atlanta Journal-Constitution, in the room with Maya Angelou and
+Ralph Abernathy; he later became a Christian marriage counselor and, with his son's help,
+opened a café. A Panther and photojournalist, and a professor of Black literature: the
+politics, the eye, and the language that would run through everything the son made were
+in the house before he could speak.
 
-Every public catastrophe of his life is on the record and will be examined here, none
-skipped, the harm named as harm. But the facts above were true before the verdict was
-passed, and they do not go away when it is. Hold them, and read on.
+In 2013 that son released "New Slaves," which names the Drug Enforcement Administration
+and the Corrections Corporation of America — the private company that profits from full
+prisons — and, in the same verses, the recording industry that owns the Black artist's
+work, using one word, slaves, for both. In 2019 he assembled a gospel choir and brought
+it into the Harris County Jail in Houston to sing to the men held inside. Everything
+between and after — the triumphs and the catastrophes alike — is on the record and is
+examined in the chapters that follow, none skipped, the harm named as harm. But the facts
+above were true before any verdict was passed on the man, and they do not disappear when
+one is. Hold them, and read on.
 
 ---
 
