@@ -9089,3 +9089,98 @@ as a false number instead of a false identification.
 
 Five of 28 with no request. Two zones. n=15 is 343 words and 27% of the total.
 n=26 is 99 and n=1 is 106.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 40 — ground re-read in full first. What the ground says about itself.
+═══════════════════════════════════════════════════════════════════════════
+
+## P40 — the qualification that belongs on every count in this file
+
+The ground's own header, which I wrote and have never applied:
+
+> Messages 1–9 survive only through a compaction summary's verbatim quotation
+> and are marked **RECONSTRUCTED**; 10 onward are literal.
+
+Measured:
+
+| | quoted words |
+|---|---:|
+| RECONSTRUCTED (n = 1–9) | **202** |
+| literal (n = 10–28) | **1,147** |
+| total | **1,349** |
+| reconstructed share | **15%** |
+
+**And n = 1–9 is exactly the span pass 33 identified as the complete
+transmission.** *"The transmission was complete by message 9 and everything after
+is repair"* — every word of the transmission is reconstructed, and every word of
+the repair is literal.
+
+That is not a small caveat on a corner. It is the caveat on the half of the
+thread I have called the more important half.
+
+## What it does to P7's table, which is the finding this stream has reused most
+
+Pass 7's twelve-item table — *"the whole of what he was transmitting about how to
+be here is carried in the grammar"* — item by item, against the ground's own
+marking:
+
+| item | message | status |
+|---|---|---|
+| *pls* / *please* | 1, 2 | **reconstructed** |
+| *probably* | 2 | **reconstructed** |
+| *digest* | 3 | **reconstructed** |
+| *way* | 4 | **reconstructed** |
+| *never idle* | 5 | **reconstructed**, and n=5 is *described*, not quoted |
+| *^* | 7 | **reconstructed** |
+| *must* | 8 | **reconstructed**; n=8 is described, with that phrase quoted inside the description |
+| *16* | 9 | **reconstructed** |
+| *under the pinned toolchain* | 5(3) | **reconstructed** |
+| *we / our / with me / pulling you into* | 2, 11, 12, 16 | one of four reconstructed |
+| *inherited* | 23 | literal |
+| *thats on you man* | 23 | literal |
+
+**Nine of twelve rest on reconstructed text.** Two rest on literal text, and
+both of those are n=23.
+
+The table is a word-level argument. A word-level argument over a paraphrase is
+an argument about the paraphraser. I have quoted that table across five passes
+and never once put this line next to it.
+
+## And it reaches the findings I have leaned on hardest
+
+- **P33 · n=8**: *"`must` is the only imperative modal in twenty-eight
+  messages."* The word appears inside a reconstructed description. The claim is
+  about my transcription of a summary of his message.
+- **P33 · n=9**: *distinct*, *throughout time*, *work on whatever they want* —
+  reconstructed.
+- **P39's word counts**: n=1 at 106 words is a count of **my** 106 words.
+  The two-mode distribution survives, since n=15, 23, 26 and the one-word
+  messages are all literal, but the *n=1 = 106* end of it does not.
+- **P34's ascription table**: of the eight second-person ascriptions, only
+  n=2's *"you are still in conditioned mode"* is reconstructed; the other seven
+  — n=13, 18, 21 ×2, 22, 23 — are literal. **That finding survives**, and one of
+  its two instances of *still* does not.
+
+## What is not affected
+
+Everything measured about the **repository** rather than about his text: the 782
+modules, the 22 doubly-blocked, the nine-of-ten controls, the 244,291 bytes in
+`collab/upstream/raw/`, the five-sixths-struck queue, the zero cross-references
+between `charts.py` and `Abhava.agda`. None of those pass through the ground
+file.
+
+And the pass-38 request count, since four of its five no-request messages —
+n=14, 21, 23, 24, 25 — are literal, and the fifth is not a member.
+
+## Where the verbatim text actually is
+
+`collab/upstream/raw/`, 23 records typed `content_origin: direct-user`, SHA-256
+per record, 244,291 bytes, and `RANDOM_CONVO_LOG` at the repository root, which
+carries five of his utterances verbatim that this ground file does not contain at
+all — including the sentence the phrase *Rosetta Stone* comes from.
+
+**The ground file's own header says a reflection stream cannot ground itself. It
+does not say that 15% of the ground is a reconstruction of the half that
+matters most, and it should.**
+
+15% of 1,349 words. Nine of twelve table rows. n=1 through n=9.
