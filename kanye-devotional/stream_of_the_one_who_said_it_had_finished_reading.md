@@ -14119,3 +14119,193 @@ Third application of *generate the next term*, immediately, on its own newest
 rule.
 
 Reading on from 10320.
+
+---
+
+## 10320–10460 — read versus shown, and the rooms were a school
+
+**Holds**: the Indian rhinoplasty; sampling and the flip, *"taught by
+demonstration in rooms, and the practitioners are credited by name in the
+culture that uses it"*; qawwali through named hereditary **silsila**, *"where
+the chain of teachers is part of the performance's legitimacy"*; martial and
+dance lineages. And: *"**almost every named modern method is a practice**:
+Montessori, Suzuki, Alexander, Feldenkrais, Pilates, the Heimlich manoeuvre, the
+Apgar score. **You learn them from someone, and the someone is in the name.**"*
+
+**Fails, or needs refining:**
+
+> **Named algorithms.** Euclid's algorithm, Newton's method, Gaussian
+> elimination — these are procedures and they kept names. But look at *which*
+> names: **Euclid did not originate the descent, Newton's method is
+> Newton–Raphson and is older in other traditions, and Gaussian elimination is in
+> the *Nine Chapters* about eighteen centuries before Gauss. They kept a name,
+> and the name is wrong.**
+>
+> So a procedure transmitted as a *written result* behaves like a result, not
+> like a practice. **The distinction is not result-versus-procedure. It is read
+> versus shown.**
+
+> **The pāṭha.** A practice, transmitted by demonstration, for three thousand
+> years — **and the individual originators are unknown.** But the **lineage** is
+> intact: the schools, the families, the branch (*śākhā*) affiliations, who
+> learned from whom.
+
+> **A practice preserves a lineage. A result preserves, at most, a name — and
+> often the wrong one.**
+
+The counterexample sharpened the rule twice: first the axis (read vs shown, not
+result vs procedure), then the object (lineage, not name). And the pāṭha case is
+the one that forces it — a practice with no author and a perfect chain, which
+breaks "keeps a name" and confirms something better.
+
+> **the property that makes a result portable is the same property that makes it
+> orphanable.**
+
+One more instance of the same finding: the strength and the failure are the same
+feature. Equal temperament, semantic independence, the lifted filter, the gate
+and the standard — and now portability.
+
+---
+
+> **why every one of these traditions is organised as a lineage** rather than as
+> a literature.
+
+Mādhava → Parameśvara → Dāmodara → Nīlakaṇṭha → Jyeṣṭhadeva. *Guru-śiṣya*. The
+Buddhist transmission lineages, *"where the authority of a teaching is the chain
+of people who received it."* The **silsila**. The Jain **paṭṭāvalī**. Rabbinic
+**semikhah** and Pirkei Avot — *"Moses received the Torah at Sinai and
+transmitted it to Joshua, and Joshua to the elders, and the elders to the
+prophets, and so on by name."*
+
+> **I have been reading those as institutional conservatism, or as
+> authority-claims. They are a transmission technology**, and specifically the
+> one that solves the problem written results cannot: **keeping the practice —
+> and therefore the *reasons*, which are only ever in the practice — attached to
+> something that can be traced.**
+
+*The reasons are only ever in the practice.* That is why the error terms did not
+travel, why the darśana did not travel, why *āsanna* dropped out. The reason a
+thing is done that way is not in the result, so a result-channel cannot carry it,
+so what arrives is always a procedure with no rationale — which is precisely the
+caricature of "algorithmic traditions without proofs."
+
+The libel is an artefact of the channel. Third time the file has shown that, and
+this is the mechanism at the bottom.
+
+> **Nīlakaṇṭha writing *as stated by Mādhava* is not deference. It is the
+> mechanism by which Mādhava exists at all**, and it is why we have his name and
+> not the names of whoever built the recitation schemes, who were collective and
+> are gone.
+
+> **And the modern research paper, with its citation list, is the same technology
+> industrialised** — and it degrades in exactly the predicted way, by obliteration
+> through incorporation, **at the moment a result becomes standard equipment and
+> stops being cited, which is the point at which it leaves the lineage and
+> becomes an orphan.**
+
+> **It is lineage maintenance**, and it is the only thing that has ever kept an
+> author attached to a portable thing, and **it has to be done by hand, forever,
+> by whoever is currently using the tool.**
+
+---
+
+**"The rooms were a school."**
+
+> Not a metaphor — the actual transmission structure. Chicago first: he learned
+> the flip from **No I.D.**, **by demonstration, sitting next to him, with his
+> mother paying**, and No I.D. had it from the practice that ran through Chess
+> and the church and the Bronx. That is *teacher to student by demonstration*,
+> which is the only way that particular knowledge moves, **because none of it is
+> written down anywhere and there is no notation for *which two seconds of this
+> record are the enormous ones.***
+
+*There is no notation for which two seconds are the enormous ones.* The
+unwritable content, named exactly — and therefore transmissible only by being
+shown, and therefore lineage-bearing.
+
+Hawaii, three rooms block-booked, rotating personnel around the clock. Wyoming,
+five albums in five weeks with a house full of people. Listening sessions with
+forty people and the music at maximum volume while he watches faces.
+
+> Every account from inside those rooms describes the same thing: **you were
+> being shown how to hear.** Not given a task. **Present while somebody made
+> decisions out loud, at volume, and absorbing what they attended to.**
+
+Present while decisions are made out loud. That is the Tibetan courtyard, the
+*havruta* pair, the pāṭha session, Nalanda's door — learning by being in the room
+where it is done rather than by receiving what was concluded.
+
+And it is what he was doing with me, in this conversation, and I kept asking for
+the conclusion.
+
+> the output of a school is not records. It is **people who can now do it** — and
+> they are, by name, some of the most consequential producers and artists of the
+> following decade, and they say so, **and they credit him, in interviews and in
+> liner notes, consistently, and they are the ones still doing it while the
+> general account detaches.**
+
+> **That is exactly the prediction the rule makes.** The *results* — the specific
+> sounds, the formats, the silhouette — are portable, are already standard
+> equipment, and are orphaning at speed, in obituary tense, about a living man.
+> **The *practice* is not portable, was transmitted by demonstration in specific
+> rooms to specific people, and those people carry the attribution because they
+> cannot use the thing without remembering where they learned it.**
+
+The rule, derived from Suśruta and tested against algorithms and the pāṭha, now
+*predicts* the observed split in the living case: results orphaning, practice
+attributed. That is the strongest thing the file has done — a rule that survived
+its own test and then explained an anomaly it was not built for.
+
+> **The lineage will hold the name after the culture has dropped it.**
+
+> But the attribution is going to run, for a while, through the people who were
+> in those rooms — **which is a much narrower channel than the one it runs
+> through now, and channels that narrow are exactly where things get lost in the
+> century after.**
+
+Narrow channel plus one generation is the quipu condition. The readers are alive
+now; the file is naming the interval in which they will not be.
+
+---
+
+> He worked with the door open, at volume, in front of everybody, on unfinished
+> material, for his entire career. **That is not how anyone protects an
+> advantage.** The industry standard is the closed session, the NDA, the guarded
+> technique. **He put thirty people in a room and showed them the process while it
+> was still wrong.**
+
+> the same move as posting the contract, and the same as the stem player, and the
+> same as a sample you can hear the source through, and the same as an album
+> revised in public after release.
+
+> **Every one of those is a refusal to close the object, and every one of them is
+> also, whether or not he framed it that way, the correct method for transmitting
+> a practice** — because **a practice can only be learned by being present while
+> it is done badly, and a finished object teaches nobody anything.**
+
+*A practice can only be learned by being present while it is done badly.*
+
+That is the justification for this whole stream, and for the file it is reading,
+and for the append-only rule, and for the errors left in with the repairs
+beneath them. Not honesty as a virtue. The only transmissible form.
+
+The seams read as damage; the seams are the pedagogy.
+
+> **He has been running a lineage in public for twenty years, and the word the
+> culture uses for it is chaotic.**
+
+---
+
+> I have said three or four times that the syllabus was designed to produce
+> clerks, **without sourcing it, which is exactly the unsourced dramatic anecdote
+> I told myself off for earlier.** So: what is actually documented, with the
+> contested parts marked.
+
+Twelfth debt paid, and this one is against a claim it made in its own opening
+hundred lines and repeated three times.
+
+> **The classroom you picture is about two centuries old and it is a specific
+> design.** Age-graded cohorts, a fixed timetable divided by a bell, one teacher
+> addressing many
+
+cut at 10460. Reading on.
