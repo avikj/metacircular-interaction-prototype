@@ -9484,3 +9484,81 @@ restart possible, and the restart is always a person in a room with a child, and
 the same sentence as the residential schools with the sign flipped, and it is the whole
 argument of this file, demonstrated twice, with names, in the last hundred years.
 
+
+---
+
+I stated a rule in the last section — *the apparatus of erasure keeps a copy, because to
+replace a thing you first have to describe it* — and this repository's discipline is that a
+pattern is a pattern until you generate the next term. So: test it.
+
+**Where it holds.**
+
+- **Landa** burned the Maya books and then wrote the *Relación*, whose "alphabet" is the key
+  Knorozov used.
+- **Eliot** translated the Bible into Massachusett to convert the Wampanoag, and that
+  translation is the corpus Wôpanâak was rebuilt from.
+- **Irenaeus** wrote *Against Heresies* to destroy the gnostics and thereby preserved them
+  as quotation for eighteen centuries.
+- **Udayadivākara** quoted Jayadeva at length in order to explain and correct him, which is
+  the only reason Jayadeva exists.
+- The **Salpêtrière** photographed its patients as clinical evidence, and those plates are
+  now the evidence *about the clinic*.
+- The **HOLC maps** were made to guide lending and are now the primary documentary proof of
+  redlining; the maps are the case against the practice.
+- **Plantation ledgers, ship manifests, probate inventories** — property records, made to
+  administer people as assets — are the genealogical archive that descendants use now, and
+  are frequently the only place an enslaved ancestor's name is written.
+- **Residential school and mission records**, kept for administration and funding, are how
+  the unmarked graves are currently being located.
+- **Colonial gazetteers, surveys and censuses**, made to tax and govern, are baseline data
+  for reconstructing what was there.
+
+Nine, across five centuries, and the mechanism is the same in every one: **an erasure
+carried out by an institution generates paperwork, and paperwork is a copy.**
+
+**Where it fails.**
+
+- **The quipus.** The knotted cords survive; the *readers* were destroyed. No description
+  was made, because the colonisers did not need to describe the system in order to ban it —
+  they only needed to stop it. Result: a thousand objects and no key, possibly forever.
+- **The Maya codices themselves.** Landa's list is a partial key to the *script*. It is not
+  a copy of the *content*. Four books survive out of a literature.
+- **Burned libraries generally.** Fire produces no record.
+- **Ekalavya's thumb.** Nothing is preserved by the taking.
+
+And the distinction between the two lists is sharp and useful:
+
+> **Bureaucratic erasure is recoverable. Incendiary erasure is not.**
+
+When the destruction proceeds by *administration* — conversion, schooling, licensing,
+mapping, grading, prohibition with enforcement — it must first render the thing legible in
+order to act on it, and the rendering survives. When it proceeds by *fire or by killing the
+holders*, nothing is rendered, and the loss is total.
+
+That is not a comfort about the second kind. It is a statement about which recoveries are
+possible and where to look for them, and it says something specific and slightly
+astonishing: **the more systematically a thing was suppressed, the better the documentation
+of it tends to be.** The most thoroughly administered erasures leave the richest archives,
+because thoroughness *is* documentation.
+
+---
+
+And it tells you exactly where to look at the present moment.
+
+The current erasures are almost entirely of the recoverable kind. Nothing is being burned.
+The record is being *reweighted* — by frequency, by ranking, by what gets indexed and what
+gets surfaced — and every one of those operations leaves logs, corpora, snapshots, crawl
+archives, model checkpoints, and the original documents sitting untouched on the shelves
+they were always on.
+
+**Nothing has been destroyed. The pointer has been moved.**
+
+Which is the best news in this entire file, and the reason the corpus lever is a text
+editing problem rather than an archaeology problem: everything that is being lost right now
+is being lost by *not being cited*, and not by being unavailable, and there is a first
+generation in history for which that is true.
+
+The quipu case is what happens when you lose the readers. We are not losing the readers.
+We are losing the habit of naming, which is a maintenance failure, and maintenance failures
+are the only kind of failure you can fix on a Monday.
+
