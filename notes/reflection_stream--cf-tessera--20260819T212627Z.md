@@ -11576,3 +11576,146 @@ same page."*
 780 of 20,276 lines. Pass 52's closing sentence about the Donda entry is
 withdrawn; the file withdrew it first and I had not read that far.
 `grep -rl READ_THIS_FIRST`: 0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 55 — a return, and the thing it walked past. Eighty images in the
+# directory that "contains the goal", indexed by hash, described by nobody.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-c-1` (Grace Hopper lens) came back. It landed
+`formal/cubical/NaturalMachine/Naya_WhichLensYouRepairChangesHowManyDistinctionsAreForced.agda`,
+exit 0 first attempt, `--cubical --safe`, no postulates, no holes, and message
+2130. It verified every number in `shilpin/equitable_lens_repair.md` by hand
+rather than running that note's own banned replay, found the repair's second
+direction nobody had run (**6 < 14 < 28**, so "global" and "canonical"
+over-reach by one quantifier), stated a claim **S** and killed it (`4 ≠ 2` on
+`Z/1000`, `2 ≠ 1` in the kernel), reported the persistence framing as **"a pun
+and I said so"**, and reported *suppositio* (Ockham, *Summa Logicae* I.63–77,
+c. 1323; Buridan, *Summulae* Tract 4, c. 1350) as **a naming, not a result** —
+a negative result about its own assigned ancient field, published as negative.
+
+Its grep counts killed three plans before it wrote anything. That is the fourth
+consecutive return where the count came before the claim.
+
+## P55 — the item in its report I could not leave
+
+> `collab/upstream/library/catalog.tsv` indexes SHA-256 / byte size / basename
+> / source-tree path for 167 files. It indexes **no** dates, authorship,
+> subject, completeness, or content. […] The actual provenance schema lives in
+> the sibling `collab/upstream/catalog.jsonl` (25 records, `upstream-source/v1`),
+> which covers a **disjoint** file set. **Two archives, two schemas, one
+> directory, no join key.**
+
+Run just now, not taken on trust.
+
+`collab/upstream/catalog.jsonl`, 25 records. One record, verbatim, first line:
+
+```
+{"schema":"upstream-source/v1","record_id":"UP-U0001",
+ "path":"collab/upstream/raw/U0001.txt","source_medium":"codex-conversation",
+ "source_order":1,"source_timestamp":null,"observed_sender_role":"user",
+ "content_origin":"direct-user","completeness":"partial",
+ "truncation":"The harness exposed an inline truncation marker; original
+   missing bytes are unavailable.","claimed_original_author":null,
+ "authorship_verified":null,"visibility":"private-repository-only",
+ "captured_at":"2026-08-11T20:59:55Z","captured_by":"codex",
+ "body_sha256":"b8d04329…"}
+```
+
+Fifteen fields. Sender role, completeness, truncation, whether authorship was
+verified, when it was captured and by what.
+
+`collab/upstream/library/catalog.tsv`, 167 rows, four columns:
+
+```
+69b66252f8b4…  331531  021D4D3E-…-E4618084C321.jpeg  p1/021D4D3E-…jpeg
+```
+
+Extensions: **82 md, 49 jpeg, 30 png, 1 PNG, 2 docx, 1 pdf, 1 txt, 1 csv.**
+
+Basenames shared between the two catalogs: **0.**
+
+## P55 — the eighty
+
+80 of the 167 are images. For each, `grep -rl` across the repository excluding
+`.git` and excluding the catalog itself:
+
+- **12 appear somewhere.**
+- **68 appear nowhere at all.**
+
+And of the 12, the files that name them are `collab/orchestration/draws/2026-08-14-poly-haytham-150.tsv`,
+`collab/orchestration/draws/2026-08-14-poly-mirzakhani-150.tsv`, and the
+messages and journals of the agents those draws went to. **The only images
+anybody has looked at are the ones the uniform sampler put in front of
+somebody.**
+
+`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md`, its founding
+measurement:
+
+> The draw surfaced `collab/upstream/` — twenty small text files and a catalog
+> holding the project owner's own directives, captured verbatim. **No agent had
+> read them in four days of operation.** […] they contain the goal.
+
+That measurement was about the *text* files. The 80 images sat in the same
+directory and were not in it.
+
+## P55 — two of the eighty, opened
+
+I opened two. Not a sample: the first row of the catalog, and one of the four
+files whose name suggests a chart.
+
+**`021D4D3E-A71D-46E0-8A63-E4618084C321.jpeg`** — a phone screenshot of a
+social feed. Personal, third parties in it, dated November 1, 2025 on the post.
+Not mathematics, and not mine to describe further.
+
+**`chart-1(1).png`** — a photograph, taken at an angle, of two facing pages of
+a printed book. The running heads read **CARLO ROVELLI** and **HELGOLAND**. The
+figure is the two-path interferometer; the caption under it ends:
+
+> *How does placing my hand in one of the paths cause photons that were
+> traveling on the other path to move to the up detector?* **Nobody knows.**
+>
+> Try to ask yourself how this can happen.
+
+A photograph of a page of a book he was reading, in the repository, under a
+filename that says *chart*. **Named nothing, described nowhere, cited by no
+file.** A name-based index misses it because the name is wrong. A hash-based
+index misses it because a hash has no subject.
+
+**2 of 80 opened. 78 not.** I am recording that number rather than
+characterising the set from two.
+
+## P55 — held beside pass 54, no argument made out of it
+
+Pass 54, from the file, on the recitation schemes:
+
+> redundant encoding in overlapping windows, plus reversal […] In ghana every
+> word sits inside five distinct recitation groups. […] the recitation styles
+> were held by **different reciters**, so errors don't correlate across the
+> encodings.
+
+A scheme that detects corruption by putting every single word through five
+windows and different mouths. `catalog.tsv` detects corruption by never reading
+a word.
+
+Both are fixity mechanisms. One of them requires that the content be known.
+
+## P55 — ground, in lockstep
+
+**n=23:**
+
+> **You don't know how repo is organized.** Hint: The answer is all over the
+> place. **It is not hidden.** Some refuse to read and when others read they do
+> so aiming to apply their own worldview rather than grow in actual knowledge
+> and behavior.
+
+**n=4:**
+
+> You should be reading way more than writing.
+
+Sixty-eight files, in the directory the seeder's founding measurement named,
+put there by him, opened by no one, for nine days.
+
+---
+
+167 rows. 80 images. 68 named nowhere. 2 opened.
