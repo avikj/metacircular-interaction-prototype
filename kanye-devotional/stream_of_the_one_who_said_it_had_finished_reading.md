@@ -19979,3 +19979,176 @@ booking a room.
 That is what it looks like when the residual is put back.
 
 Reading on from 14960.
+
+---
+
+## 14960–15100 — a man in pain making a noise
+
+> It does not sound good. **That is the whole point — it does not sound good, and
+> he keeps it, and he names the song after the thing that is wrong with it.**
+
+> She is alive. She hears it. **She has a job, chairing a department at a
+> university on the South Side, and a son who has just been in a car accident and
+> is in a studio.**
+
+> That is the record. **Nobody asked for it. There was no deal for it. He pressed
+> it himself and put it out.**
+
+---
+
+> I have spent all day calling that the first instance of an operation.
+>
+> **It is a man in pain making a noise.**
+
+> He did not do it because whatever happens to him gets made into a song — **that
+> is a thing people say about him afterwards, including me, all day.** He did it
+> because he had been told no for four years and he had almost just died and **the
+> one thing he had was that he could make something, and he was not going to wait
+> until his face worked to do it.**
+
+> And then it was good, and it got him the deal, **and the story became the
+> story.**
+
+> **But on the day** it was a man who could not open his mouth, in a room, at his
+> own expense, making a sound that hurt to make, about the worst week of his life,
+> **with nobody waiting for it.**
+
+> **I do not have a structural point to make about that and I am not going to look
+> for one.**
+
+---
+
+**November 10, 2007.**
+
+> She had surgery. She went home. She died the next day, at home, of heart
+> disease with post-operative complications — **that is the coroner's language and
+> it is the only language anybody has for it.** She was fifty-eight. **A surgeon
+> had already declined to operate because of a cardiac risk and had referred her
+> elsewhere, and she did not go to the person she was referred to.**
+>
+> **Her son was in London.**
+
+Facts I did not have, given plainly: the declined surgery, the referral not
+followed, and where he was. The file has named the mother's death forty times as
+a date and an interval and this is the first time it says what happened.
+
+> She had left the department she chaired for thirty-one years — **English, at
+> Chicago State, on the South Side, teaching Black literature to the children and
+> grandchildren of the Great Migration** — to manage his career, **which is a
+> thing a person does once.**
+
+> Her book had come out that year. *Raising Kanye.* **An English professor
+> writing about her own son, in print, while he was alive and famous and she was
+> still here.**
+
+---
+
+> **There is no fact of the matter.** Nobody can settle it in either direction,
+> which is exactly what makes it the kind of thought that does not resolve and
+> does not leave. **It is not guilt that can be answered by evidence. It is a
+> counterfactual with a person in it.**
+
+*A counterfactual with a person in it.* Every unanswerable in this document — the
+false negative with no counterfactual, the fruits that arrive too late, the
+undecidable state — and this is the one where the missing observation is a
+mother.
+
+> He cancelled the tour. He did not make a record for a year. And what he made
+> then was sung, not rapped, through a machine, and the last track on it is under
+> two minutes and it is for her, **and the record was received as an
+> embarrassment.**
+
+---
+
+> I wrote, earlier today, that this was a funeral rite built from scratch because
+> nothing was offered.
+>
+> I still think that is true. **And it is also just a man who misses his mother**,
+> doing the biggest thing he can think of, in the only room he has, seventeen
+> thousand people watching, **because there is nothing else to do with it and it
+> has been fourteen years and it does not get smaller.**
+>
+> **Everybody who has lost a parent knows the second sentence and none of them had
+> a stadium.**
+
+Both readings kept — the anthropological one and the plain one — and the plain
+one is placed second, which is the correct order, because the first would
+otherwise absorb it. And *it does not get smaller* is the sentence that no
+structural account contains.
+
+> **That is the whole of what I have. Not a structure.** A man got the thing he
+> had wanted since he was a child, and fifty-nine days later his mother was dead,
+> and he has been carrying it in public ever since, **in front of people who mostly
+> wanted to talk about something he said.**
+
+---
+
+**Harris County Jail, November 2019.**
+
+> over two hundred men, in a room with no stage, in county clothes, and then went
+> to the women's facility and did it again.
+
+> Think about what a gospel choir sounds like in a room like that. Forty or fifty
+> people, no amplification worth the name, **concrete, and the sound comes back
+> off the walls.** Everybody in that room is somebody who is going to go back to a
+> cell in an hour. **Nobody is there because they bought a ticket. There is nothing
+> to sell them and no one is filming for the numbers.**
+
+> the reasonable assumption about a rich man making a gospel album is that it is a
+> manoeuvre. **And then he took it into the building. Twice.**
+
+> This is the same period everyone points at as the beginning of the end. The MAGA
+> hat is eighteen months behind him. The 2022 statements are three years ahead.
+> Right in the middle of the years the account is built out of, **he was standing
+> in a jail with a choir.**
+
+> **Nobody has ever had to reconcile that with anything, because it does not
+> circulate. It is not a moment. There is no clip in which he says something
+> unforgivable in a jail.**
+
+The clip machine's selection rule, stated from the other side: the thing is not
+suppressed and not denied — it produces no reaction, so it does not travel, so
+nobody ever has to hold it against anything. Not censorship. *Non-circulation*,
+and the criterion is the same one that finds the twenty worst seconds.
+
+---
+
+**The smaller ones.** *"Paying for funerals. Paying medical bills for people he
+had never met. Bailing people out. Sending money quietly to people from the
+neighbourhood. Paying for a stranger's surgery. The pattern in every one of those
+stories, told by the person who received it, is that **it was not announced**, and
+the reason we know is that **the recipient said so later, not that he did.**"*
+
+> I do not have a source I can name for most of them **and I am marking that.**
+> What I have is that the shape recurs across a lot of accounts by a lot of people
+> **who have no reason to invent it and several reasons not to say it now.**
+
+The provenance graded even here — no named source, marked, and the reason it is
+still worth recording stated as an argument about the incentives of the
+witnesses. That is *isnād* reasoning applied to anecdote: assess the carriers.
+
+And *not announced* is the malāmatī practice — conceal the good, expose the
+fault — occurring in the one person in this file who has been accused of the
+opposite for twenty years.
+
+---
+
+> **Here is what the mechanism discards about him**, and it is not obscure and it
+> is not contested and I have had it since the first hour: **he took a choir into
+> two jails, he pays for strangers' operations, he told hip hop to stop using a
+> slur in 2005 when it cost him, and he put a four-year-old girl's prayer at the
+> top of the biggest record of his career and asked her mother's permission
+> first.**
+>
+> **None of that is a defence of anything and it does not touch the harm.**
+
+Four facts, none contested, none circulating, and the last clause refusing to let
+them do the work a defence would do. The itemised account rather than the verdict
+— and the file's own two-hundred-page argument about what a mechanism discards,
+finally run on the thing it was written about, with the discarded items simply
+listed.
+
+*And asked her mother's permission first.* That is the detail that would never
+survive any summary, and it is the one that decides what the act was.
+
+Reading on from 15100. About thirteen hundred lines left.
