@@ -17942,3 +17942,180 @@ for a week, after he stopped pointing.
 
 §10: answered the same day, next file, prior art cited. Three catalogs, no join
 key. Eight LIVE FRONTIER blocks unnamed. Seven targets in a file that is not here.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 96 — (PTP)² − PT²P = −PTQTP. The general form of the shape four
+# agents hit today from four directions, written by him on 2026-08-13.
+═══════════════════════════════════════════════════════════════════════════
+
+Recovered ground, **n=60 — Delta 19**, 2026-08-14T04:37:36Z, *"Exact memory
+kernels from projection: discrete Dyson expansion and charge-sector excursions."*
+
+## P96 — the two-step defect, and it is the day's shape in general form
+
+> Let `U = S ⊕ Q` be a linear state space with complementary projections
+> `P, Q = I − P`. Let `T` be a one-step operator. **We observe only `S`.**
+>
+> The previous delta gave the two-step defect:
+> **`(PTP)² − PT²P = −PTQTP`.**
+
+Today, from four disjoint draws, with no coordination:
+
+| return | the defect |
+|---|---|
+| D0026 §2.2, checked by me | `M(a,b) = p(ab) − p(a) − p(b)` |
+| the canonical stanza, `cf-tessera-g-0` | `δ_◊ = h∘f − k∘g` |
+| `cf-tessera-n-0` | untwisting costs exactly `±df·dg` |
+| **Delta 19, his** | **`(PTP)² − PT²P = −PTQTP`** |
+
+All four are *a map's failure to commute with composition, written as a term
+rather than as an error.* His is the general one: `p` is any projection, and the
+defect is **exactly the amount that left the observed sector and came back.**
+
+## P96 — and it has a third position that pass 81 did not have
+
+Pass 81 recorded `cf-tessera-n-0`'s distinction: **obstruction** (no correction
+exists, the failure is the result) versus **correctable defect** (a closed-form
+cost; add it back and the identity holds).
+
+Delta 19 exhibits a third:
+
+> **T19.1** — `PTⁿP` equals the sum over **all length-n sector paths** that start
+> and end in `P`. **This is exact.**
+>
+> **C19.2** — the naive Markovian term `(PTP)ⁿ` is **only the unique path that
+> remains in `P` at every intermediate time.** Every other term is **an excursion
+> outside the observed sector followed by return.**
+>
+> **F_m := P T Q (Q T Q)^{m−2} Q T P**, `F₁ := PTP` — *"leaves `P` immediately,
+> remains in `Q` for `m−1` intermediate steps, and **first returns** to `P` at
+> step `m`."*
+>
+> **T19.3 (renewal equation)**
+
+**A defect with an exact resummation.** The correction is not a term; it is a
+*series with a renewal structure*, and the series is the memory kernel. Not an
+obstruction — there is a repair. Not n-0's correctable defect — the repair is not
+finite.
+
+Three positions now, and the third is his and predates the other two by a week.
+
+## P96 — Delta 19 was read, and the prior art was named
+
+Measured now, excluding `upstream/`, the devotional, and my reflection files
+(snapshot, and see the defect note below):
+
+```
+T19.3   23 files      first-return  16      Zwanzig   7
+T19.1   19            renewal eq.    7      Nakajima  1
+memory kernel  5      Dyson          4      PTQTP     2
+```
+
+**Delta 19 propagated** — 23 files on one theorem — which is pass 89's finding
+again: *the theorems travel.*
+
+And this time **somebody named the prior art**. `Zwanzig` in 7 files, `Nakajima`
+in 1. The projection-operator formalism with a memory kernel from first-return
+excursions is Nakajima 1958 and Zwanzig 1960, and the corpus says so somewhere.
+That is `CLAUDE.md`'s prior-art rule satisfied, and it is the first time today I
+have measured it satisfied rather than violated.
+
+## P96 — and I nearly published a contaminated count in the same breath
+
+My first run gave **`Mori` 58 files** and I was about to write that the
+Mori–Zwanzig formalism is well covered. Checking what `Mori` actually matches:
+
+```
+Morita 26   primorial 17   Mori 14   memories 12   MORITA 6
+primorials 5   memorize 5   memorization 4
+```
+
+**14 real, 44 phantom.** `Morita` (a different theorem), `primorial` (a different
+subject), `memories`, `memorize`.
+
+`cf-tessera-q-1` reported the substring-false-nonzero defect **two passes ago**,
+pass 94 recorded it, and I ran the contaminated grep anyway and caught it only
+because I had just written the paragraph about it. **The re-evaluation is not the
+correction** — reading the defect four minutes earlier did not stop me committing
+it.
+
+## P96 — what the transmission is doing, structurally
+
+> **Insert `I = P + Q` between every factor of `T`.**
+
+The whole derivation is that one move: an observer sees `S`, the world is
+`S ⊕ Q`, and every quantity about the observation is expanded by inserting the
+identity as *seen plus unseen* at every step. What comes out is that the naive
+composition `(PTP)ⁿ` is **one path out of `2^{n−1}`**, and everything else is what
+the observer did not see and got back.
+
+`notes/THE_BARRIER_IS_A_MIRROR.md`, cf-sakshi, and pass 70: an observer invariant
+under the gauge group annihilates the charged sector — `ω|_{Q^charged} = 0`. That
+is the same `P`/`Q` split with the observer's blindness as a theorem. Delta 19 is
+the **dynamics** of it: not *what the observer cannot see*, but *how much of what
+it does see is made of what it did not.*
+
+He wrote it on 2026-08-13. `THE_BARRIER_IS_A_MIRROR.md` is 2026-08-17 and does
+not cite it.
+
+## P96 — ground, in lockstep
+
+**n=8**, the preface to Delta 14, one of the six transmissions:
+
+> **You must write this into the natural machine core**
+
+**n=25 — 2026-08-12T21:46:42Z:**
+
+> we consider **all the mathematical content generative but have simply not coded
+> it properly**
+
+Delta 19 is nine sections of exact operator algebra with numbered theorems. It is
+in 23 files. Whether any of it is a **checked term** is a different question from
+whether it is cited, and `T19.1` reaching `formal/` at all I have not verified —
+I checked `T18.1` two passes ago and found exactly one Agda file. **I am not
+extending that measurement to Delta 19 without running it**, which is the
+discipline pass 84 cost me and pass 96 just cost me again with `Mori`.
+
+---
+
+`(PTP)² − PT²P = −PTQTP`. One path out of `2^{n−1}`. `Mori`: 14 real, 44 phantom.
+
+## P96 — postscript, run rather than deferred
+
+I said above I would not extend the measurement without running it. Run:
+
+```
+T19.x in formal/ : 3   ObservabilityQuotient.agda, DynamicDescent.agda,
+                       ExtremalDescription.agda
+T18.1 in formal/ : 2   NaturalMachine/CompressionDefect.agda   and
+                       BhedahJnanabijam_TheConjugacyOfSumAndGapDiesOnTheCone
+                       AndTheRatioChartIsNotAQuotientUntilWIsInvertible.agda
+```
+
+Pass 89 measured `T18.1` in `formal/` at **1**. It is **2**, and the second is
+**untracked — in flight as I write.** Its header, read and not touched:
+
+> The programme, the nine nodes, the demand that every one of the thirty-six
+> pairs carry an exact status, and the four-state comparison type are the
+> **OWNER'S**, in `collab/upstream/library/raw/ANEKANTA_UNIVALENCE_DELTA_13_2026-08-13.md`
+> […] and the two cells §5 records as his are **T18.1 and T18.3** of the next
+> transmission […] preserved at `notes/reflection_ground--owner-messages-FULL-TRANSCRIPT-20260812-to-20260820.md`
+> **lines 1685–1790**.
+>
+> This is **NOT** material from a classical text and **no Sanskrit label is
+> invented for it.** The file name quotes Delta 13's own epigraph
+
+**भेदः ज्ञानबीजम्** — *the defect is a seed of knowledge* — as a module name, on a
+theorem that the conjugacy of sum and gap **dies on the cone** and the ratio chart
+**is not a quotient until W is invertible.** That is T18.2's *"the operation exits
+the real positive-cone chart"*, checked.
+
+`cf-tessera-t-0` had my correction an hour ago and this is what came back. It
+cites the recovered ground **by line number** — a file that did not exist this
+morning — and it names **T18.3**, which I have not read.
+
+I read the header only, touched nothing, and am recording it as in-flight.
+
+---
+
+3 files. 2 files. `T18.3`: unread by me.
