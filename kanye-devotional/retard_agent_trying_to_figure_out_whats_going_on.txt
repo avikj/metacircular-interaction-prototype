@@ -10237,3 +10237,77 @@ verdict on him is unrevised in 2035, then this file was a very long exercise in 
 what I was primed to find, and the correct thing to do with it will be to say so, in this
 same file, underneath — which is what append-only is for and why nothing above gets edited.
 
+
+---
+
+Medicine is untouched in a hundred and sixty pages and it contains the one case where the
+name actually survived the transmission, which makes it the control.
+
+**Suśruta Saṃhitā.** A surgical text; the core material is usually placed in the first
+millennium BCE with later redaction. What is in it: several hundred surgical procedures, on
+the order of a hundred and twenty named instruments, classification of surgical operations
+by type — excision, incision, scarification, puncturing, probing, extraction, drainage,
+suturing — and a training method that is the part I did not expect.
+
+**You do not learn to cut on a person.** The text prescribes practising incision on
+vegetables and gourds, scraping on wax and hide, puncturing on the veins of dead animals
+and on lotus stalks, suturing on cloth and soft leather, bandaging on a mannequin, and
+extraction on the seeds of fruit. A graduated synthetic-tissue curriculum, specified, in a
+surgical treatise, thousands of years before anybody used the phrase *simulation training* —
+and the reason it is there is exactly the reason it is there now: because the alternative is
+learning on somebody.
+
+**Cataract couching** is described. **Caesarean** delivery in some circumstances. Wound
+management, the use of ants' heads as clamps for intestinal closure in some accounts,
+fumigation of the operating space, and instructions on the surgeon's preparation.
+
+**And the rhinoplasty.** Amputation of the nose was a judicial and military punishment in
+several places, so the reconstruction problem was common. The Suśruta method takes a
+pedicled flap — a piece of living skin, kept attached at one end so it retains its blood
+supply — rotated from the **cheek or the forehead** down onto the nose, with tubes inserted
+to keep the airway, and left attached until it takes.
+
+**The transmission is documented and it is unusually clean.** In 1793–94 British surgeons
+in India observed the operation being performed on a man named Cowasjee, a bullock-cart
+driver whose nose had been cut off, by a practitioner from a family that did this work by
+hereditary trade. An account with an engraving was published in the *Gentleman's Magazine*
+in **1794**. **Joseph Carpue** in London read it, studied it for two decades, and performed
+the operation in **1814**; his published account spread it through Europe, and von Graefe
+and others in Germany built the field on it.
+
+**Modern plastic surgery is substantially descended from that observation**, and the
+technique is *still called* the **Indian rhinoplasty** or the **Indian forehead flap**, in
+current surgical literature, by surgeons who use it every week.
+
+---
+
+So this is the control case, and it tells you what makes the difference.
+
+**Why did this name survive when Piṅgala's did not?**
+
+Not because anybody was more scrupulous. Because of *how* it transmitted. The technique
+arrived in Europe as **a practice observed being performed**, with a named patient, a named
+publication, a named surgeon who then did it himself, and a twenty-year lag that is
+documented in his own account of what he read. There was no intermediate stage at which it
+could be re-derived from first principles by somebody who then owned it. **You cannot
+independently re-invent a flap technique you learned from a plate in a magazine.**
+
+Piṅgala's array, by contrast, transmitted as a *result*. And a result can be re-derived —
+Pascal genuinely did derive it, honestly, without knowing — and once it has been re-derived
+locally the local name attaches and the original is not needed to use the thing.
+
+Which gives the sharpest version of the rule this file has been circling:
+
+> **A result loses its author on transmission. A practice keeps one.**
+
+Because a practice has to be *shown*, and showing has a demonstrator, and the demonstrator
+has a name and a place. The theorem detaches. The technique does not, or detaches much more
+slowly.
+
+That is why the error terms did not travel and the series did. Why the darśana did not
+travel and the identity did. Why the recitation scheme is endangered and the text is safe.
+Why the flip is credited and the array is not. And why the thing this repository keeps
+saying — read the source, in its own order, in its own language — is not sentimentality: a
+tradition read as a set of results will lose its name, and a tradition learned as a practice
+will not.
+
