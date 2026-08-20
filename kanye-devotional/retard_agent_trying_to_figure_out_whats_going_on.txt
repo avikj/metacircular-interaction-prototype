@@ -10030,3 +10030,75 @@ Hahn *and Meitner and Frisch and Strassmann*. Watson, Crick, *Franklin and Wilki
 Gosling*. It costs four seconds, it is more accurate, and it is the only intervention in
 this file that requires nobody's permission.
 
+
+---
+
+The strongest form of the argument about a tradition is not a list of priorities. It is
+**continuity** — that the thing was worked on, continuously, by named people who cite each
+other, for a very long time. Isolated anticipations can be dismissed as luck. A lineage
+cannot.
+
+So, the combinatorial line, by name and date:
+
+**Piṅgala**, c. 300 BCE — the *prastāra*, the systematic enumeration of all 2ⁿ light/heavy
+patterns of an n-syllable metre, with **naṣṭa** and **uddiṣṭa**, the two algorithms that
+convert between a pattern and its index in both directions, and **saṅkhyā** by repeated
+squaring.
+
+**Varāhamihira**, 6th century, on combinations for perfume mixtures — how many
+scents from a given set, which is a combinatorial question arising from an actual craft.
+
+**Bhāskara I** and the commentators, 7th century onward.
+
+**Virahāṅka**, c. 600–800 — the mātrā count and the recurrence.
+
+**Halāyudha**, 10th century — the *meru-prastāra*, the triangular array, presented as
+exegesis of Piṅgala rather than as a discovery.
+
+**Hemacandra**, c. 1150 — the recurrence again, in a Jain prosodic treatise, explicitly.
+
+**Bhāskara II**, 1150 — *Līlāvatī* has permutations and combinations as a standard topic,
+with worked problems, addressed to a general reader.
+
+**Nārāyaṇa Paṇḍita**, **1356**, the *Gaṇitakaumudī*, and this is the culmination. A
+systematic treatment of combinatorics as a subject: permutations and combinations,
+figurate numbers, the general rule for the sums of sums, **partitions** — with a procedure
+for generating them in order rather than counting them — and an extensive theory of
+**magic squares**, including construction methods for various orders. He also works the
+cyclic method and indeterminate equations.
+
+That is **sixteen hundred years**, from a prosody manual to a systematic treatise, with
+each stage naming and commenting on the last, in a continuous line of transmission that
+does not break.
+
+---
+
+Which changes what the claim is, and I want to state the difference precisely because this
+file has been sloppy about it.
+
+**The weak claim** — the one that gets made, and that this file has been making — is
+priority: Piṅgala had the array before Pascal, Virahāṅka had the recurrence before
+Fibonacci. That is true, and it is worth saying, and it is also the weakest available
+version, because it evaluates the tradition on whether it beat somebody else to something,
+which is scoring the past by proximity to us, which is the thing this repository's own
+directive names as a **durnaya**.
+
+**The strong claim** is that there was a *field*: a continuous sixteen-century research
+programme with its own motivating questions (how many metres, how many scents, how many
+karmic configurations), its own vocabulary, its own algorithms, its own commentarial
+apparatus, and its own internal development from special cases to a systematic treatment.
+
+The strong claim does not need Pascal at all. It does not care what Europe did. And it is
+the one that cannot be dismissed as coincidence, because a coincidence does not have a
+teaching lineage.
+
+**And it is the one you can only make by reading the works rather than extracting the
+results** — which is the entire methodological point of this repository, arrived at from
+inside the mathematics rather than from the front matter.
+
+Piṅgala before Pascal is a fact about a race. *Prastāra, naṣṭa, uddiṣṭa, laghukriyā,
+saṅkhyā, meru-prastāra, mātrāmeru* — a technical vocabulary, retained, extended and argued
+about for sixteen hundred years by people who were counting verse forms — is a fact about a
+civilisation, and it is the one that got thrown away when the array was renamed, because
+the array converts and the vocabulary does not.
+
