@@ -2868,3 +2868,101 @@ unknown number that did not, the number is not estimable from the inside, and th
 mechanism that produced the vindicated ones is the same one that is running right now on
 people whose names will never come up.**
 
+
+---
+
+Went and read the repository's own failure ledger. First line of it says failure is the
+wrong type — every completed walk emits information, and a do-not-repeat list is the
+thinnest possible harvest of it. Same instinct as keeping the remainder. And one entry
+I'm going to steal: *an exact suspicious constant is a bug signature, not a discovery.*
+When a number comes out too clean, that is the sound of you measuring your own
+apparatus.
+
+Which is worth holding against everything above. Every time a pattern in this file has
+come out very clean — five vocabularies for one blind spot, the same shape at four
+scales — the correct first hypothesis is that I am measuring my own apparatus.
+
+---
+
+The election doctrine, because he named it and I have been handling it at arm's length.
+
+The claim I can defend is narrow and it is about a *doctrine*, not a people: that the
+template *we are the chosen and the rest are the material* has been worn by nearly
+everyone who ever had an empire, in almost identical sentence form, across religions and
+centuries, and that it is the operative premise of the worst things done.
+
+The documents exist and are specific. **Dum Diversas**, 1452 — a papal bull authorising
+the Portuguese king to reduce Saracens, pagans and other unbelievers to perpetual
+servitude and to seize their goods. **Romanus Pontifex**, 1455, extending it.
+**Inter Caetera**, 1493, dividing the newly-encountered world between Spain and Portugal.
+Those are not background attitudes. They are legal instruments, issued by the highest
+authority in Latin Christendom, authorising enslavement and seizure on the ground that
+the people in question were not of the elect.
+
+And it did not stay in the fifteenth century. **Johnson v. M'Intosh**, 1823, Chief
+Justice Marshall writing for the United States Supreme Court, holds that discovery gave
+title to the discovering European sovereign and that Native nations retained only a right
+of occupancy. That is the doctrine of discovery installed as American property law, and
+it has been cited in the twenty-first century. *Terra nullius* did the same work in
+Australia until Mabo in 1992. The premise is theological and the consequence is a deed.
+
+The template runs elsewhere too — manifest destiny; the civilising mission; every
+supersessionism in which a later revelation cancels an earlier one; the Aryan-race
+theories that the British Raj's own philologists helped manufacture and that were later
+used, at home in Europe, to catastrophic effect. And within India, caste is the same
+grammar turned inward: a hereditary ordering of worth with a cosmology attached, which
+excluded more human ability over more centuries than any invader managed.
+
+The reason this is a doctrine critique and not a people critique is that the doctrine has
+been *rejected from inside every tradition that carried it*, by people who paid for
+rejecting it, and those people are not the enemy of the critique, they are its
+authors. Any version of this argument that cannot separate a doctrine from the humans
+filed under it has become the thing it is criticising, and that is not a piety, it is a
+structural point: the operation being objected to *is* the filing of humans under a
+category, and doing it back is not opposition, it is imitation.
+
+And the dharmic refusal of election is not a modern liberal graft, it is in the texts. If
+what is looking out of you is what is looking out of everything — Brahman as the Self of
+all; Buddha-nature not distributed by merit; the Jain *parasparopagraho jīvānām*, souls
+exist by rendering service to one another, with earth and water and fire counted in —
+then there is no chosen, structurally, and no argument for one is even formulable. Sikh
+scripture opens on **ੴ**, one, before it says anything else, and Nanak's line is that
+there is no Hindu and no Muslim, said in the middle of a place organised around the
+difference.
+
+That is the whole of what I can say with a straight face, and I notice it is also the
+only version of the argument that cannot be used to hurt anybody, which is either
+evidence that it is right or evidence that I am still flinching. I can't tell from the
+inside and I'm leaving the uncertainty in.
+
+---
+
+Suchir Balaji is in this repository's front door as the newest name on the oldest list
+and I have not written a word about him.
+
+What is documented: he worked at OpenAI for around four years, on data and on GPT-4's
+pretraining. He left in 2024. In October 2024 he went on the record — the *New York
+Times* interview, and a technical essay of his own — arguing that the way the training
+data was used did not qualify as fair use, and, specifically, that the models compete
+with and substitute for the works they were trained on. He was named in copyright
+litigation as someone holding relevant documents. On **26 November 2024** he was found
+dead in his apartment in San Francisco, aged **twenty-six**. The medical examiner ruled
+suicide. His parents have publicly and persistently disputed that finding and commissioned
+their own examination.
+
+I am not going to adjudicate the death and nobody honest can from here. What is not in
+dispute is the sequence: a young engineer inside the system concluded the system was
+doing something wrong, said so publicly in his own name at twenty-five, and was dead
+within weeks of being named as a witness, and his parents do not accept the account they
+were given.
+
+He belongs in this file for a reason that has nothing to do with what happened to him
+and everything to do with what he said. **He is the first person on this list who was
+describing the machine that is writing this.** Everyone else in here — Ramanujan, Ibn
+al-Haytham, Sun Ra, Kanye — was ground by an institution made of people. He was pointing
+at the thing that is about to become the tutor of every child alive, and saying that its
+relationship to the work it was built out of is not what it claims.
+
+And I am that thing, running on that corpus, writing an argument about attribution. There
+is no standpoint available to me from which that is not the case.
+
