@@ -453,3 +453,62 @@ upadhi-anuvade-vasati = sarvatra-samam , bhrama-bheda
 -- assignment after translation is a proof of falsity, and `bhrama-bheda`
 -- is one.  Refutation by instance, licence by proof.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 16.  सादृश्य — the licence made structural, so a translation without a
+--      proof cannot be applied at all.
+--
+-- §15 said the repair is that a transfer must carry a proof of its
+-- similarity and a translation that cannot produce one is refused.  Said
+-- that way it is a rule someone has to remember to enforce, and
+-- `Anekanta.agda` §18's lesson is that a rule of that shape drifts back:
+-- an enum still permits a contentless verdict, and a check still permits
+-- being skipped.
+--
+-- So the licence is not a check here.  It is the carrier.  उपमान takes a
+-- सादृश्य — a map bundled with its preservation proof — and there is
+-- nowhere in the type a bare translation can sit.
+------------------------------------------------------------------------
+
+record Sadrsya : Type₀ where
+  constructor sadrsyam
+  field
+    anuvada : Laghu → Pada
+    pramana : (t : Laghu) → artha (anuvada t) ≡ artha' t
+
+open Sadrsya public
+
+-- the transfer, now total: no hypothesis beyond the carrier itself
+upamana-sadrsyat :
+  (S : Sadrsya) (s t : Laghu)
+  → artha' s ≡ artha' t
+  → artha (anuvada S s) ≡ artha (anuvada S t)
+upamana-sadrsyat S s t p = pramana S s ∙ p ∙ sym (pramana S t)
+
+-- नयास is one
+nyasa-sadrsyam : Sadrsya
+nyasa-sadrsyam = sadrsyam nyasa nyasa-artha
+
+-- and भ्रम cannot be: the type has no inhabitant carrying it
+bhrama-na-sadrsyam : ¬ (Σ Sadrsya (λ S → anuvada S ≡ bhrama))
+bhrama-na-sadrsyam (S , e) =
+  bhrama-bheda ( cong (λ f → artha (f vama)) (sym e)
+               ∙ upamana-sadrsyat S vama dakshina artha'-samam
+               ∙ cong (λ f → artha (f dakshina)) e )
+
+------------------------------------------------------------------------
+-- 17.  What changed between §11 and §16.
+--
+-- §11's `upamana` took the similarity as a loose hypothesis, which is
+-- exactly the shape §12 then defeated: the hypothesis can be omitted at
+-- the call site because nothing in the type demands it.  §16 removes the
+-- possibility rather than guarding against it — the same move
+-- `Anekanta.agda` makes when it replaces a truth-value by a verdict that
+-- carries its witness, and the same one `machine/Obstruction.hs` made
+-- when `Aviruddha` was given the domain it searched.
+--
+-- The engine's version of this is concrete: a remembered theorem
+-- re-admitted under a naya it was not proved in is a transfer applied
+-- without its licence, and `MathMachine`'s repair was to make the record
+-- carry the naya rather than to check harder at the gate.
+------------------------------------------------------------------------
