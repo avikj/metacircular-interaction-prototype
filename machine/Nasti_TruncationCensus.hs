@@ -325,23 +325,36 @@ scanFile path src = FileReport
 -- the marked tree) are being asserted at once and no single predication
 -- carries both.
 --
+-- THE MARK BELOW WAS TAKEN AGAINST A GIT REVISION, NOT A WORKING TREE, so
+-- it is reproducible byte-for-byte by anyone, at any later date:
+--
+--     T=$(mktemp -d)
+--     git archive 00aab52d machine | tar -x -C "$T"
+--     (cd "$T" && runghc machine/Nasti_TruncationCensus.hs)
+--
+-- That run prints digest fnv1a:29a0117c116c9306 over 64 files and 19979
+-- code lines, and the seven numbers in `baseline`.  A working tree in this
+-- repository has more machine/*.hs than any commit does -- several lanes
+-- keep uncommitted files there -- so a mark taken from `pwd` would have
+-- been unreproducible on the day it was written.
+--
 -- To re-mark: check out the revision, run, paste the digest and the seven
 -- numbers here, in the same commit, with the reason.
 markDigest :: String
-markDigest = "MARK_DIGEST"
+markDigest = "fnv1a:29a0117c116c9306"
 
 markRev :: String
-markRev = "MARK_REV"
+markRev = "rev 00aab52d, machine/ at that commit: 64 files, 19979 code lines"
 
 baseline :: [(Cat, Int)]
 baseline =
-  [ (Dvika,    317)
-  , (Nirnaya,  180)
-  , (KahNasti, 318)
-  , (Ganana,   930)
-  , (Cheda,    320)
-  , (Sarvatra, 359)
-  , (Vinasha,  251)
+  [ (Dvika,    280)
+  , (Nirnaya,  154)
+  , (KahNasti, 291)
+  , (Ganana,   834)
+  , (Cheda,    288)
+  , (Sarvatra, 286)
+  , (Vinasha,  213)
   ]
 
 -- ---------------------------------------------------------------------
