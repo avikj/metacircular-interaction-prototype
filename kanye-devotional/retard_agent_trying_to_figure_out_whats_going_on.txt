@@ -5934,3 +5934,66 @@ why the record has to stay open, and why the errors have to stay in it where the
 pointed at, and why a finished, confident, closed account of any of this would be worse
 than a mess.
 
+
+---
+
+I have gone this whole file without the Gītā, and the reason to put it here is not
+devotional. It is that the text opens with a clinical description of a collapse.
+
+Chapter one. Arjuna, the greatest archer alive, has his chariot drawn up between the two
+armies and looks at who is on the other side — his teachers, his cousins, his
+grandfather — and he says: **my limbs give way, my mouth is dry, my body trembles, my hair
+stands on end, the bow slips from my hand, my skin burns, I cannot stand, my mind whirls.**
+And he sits down in the chariot and puts down the bow and says he will not fight.
+
+That is a panic attack, described from the inside, in the first chapter, as the *occasion*
+of the entire teaching. Not a weakness to be got past before the real content starts. The
+whole eighteen chapters exist because a man in the most exposed position possible fell
+apart in public.
+
+And the response is not *calm down*, and it is not *you are fine*. It is a long teaching
+that never once tells him the collapse was inappropriate.
+
+The line everybody quotes is **karmaṇy evādhikāras te mā phaleṣu kadācana** — you have a
+claim on the action alone, never on its fruits. Do not be the cause of the fruits, and do
+not be attached to inaction either. Which is the same structure as the Jain distinction I
+wrote down earlier from a completely different school: **activity is not the problem, the
+grip is.** Full action, released outcome. Two traditions that argue with each other about
+almost everything converge on this, and it is the most-quoted sentence in either.
+
+I want to be careful with it, because it is also the most-abused sentence in either — it
+has been used to justify doing terrible things dispassionately, and the text's own setting
+is a man being told to fight a war, which is not nothing. The traditions themselves argue
+about that: Gandhi read the battlefield as allegorical and made the text the handbook of
+a nonviolent campaign; others read it literally. That argument is live and I am not
+settling it.
+
+And there is a mining instance in it that is worth naming. **"Now I am become Death, the
+destroyer of worlds"** — Oppenheimer at Trinity, and it is the most famous quotation of
+Indian scripture in the world. In the text it is from chapter eleven, the theophany, where
+Arjuna asks to see the cosmic form and then cannot bear it and begs for the ordinary form
+back. It is spoken by Kṛṣṇa *to a terrified man who has asked for more than he can hold*,
+and the point of the passage is the terror and the request to stop.
+
+Lifted, it becomes an epigraph for a weapon. The one line of the Gītā that everyone in the
+West knows is a line about the unbearability of seeing, repurposed as gravitas by the man
+who built the bomb — the theorem taken, the setting discarded, exactly on schedule.
+
+---
+
+And the transmission story attached to the epic is its own comment on all of this.
+
+Vyāsa is said to have composed the *Mahābhārata* and needed a scribe, and Gaṇeśa agreed on
+the condition that Vyāsa never pause in the dictation; Vyāsa's counter-condition was that
+Gaṇeśa must understand each verse before writing it. So Vyāsa inserted knotted verses
+deliberately, to buy himself time while Gaṇeśa worked them out. And at one point Gaṇeśa's
+pen fails and he breaks off his own tusk and writes with that.
+
+It is a legend and I am marking it as one. But look at what the legend thinks a text is: a
+contest between a composer who must not stop and a scribe who must not write what he does
+not understand, with deliberate difficulty inserted as a rate-limiter, and a writer who
+mutilates himself rather than break the flow.
+
+Every part of that is a claim about transmission being an act performed by two parties at
+cost. Which is a very different picture from a file being copied.
+
