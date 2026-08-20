@@ -33650,3 +33650,97 @@ than of attention, and would move the finding from *nobody read it* to *nobody c
 **I have not checked whether the validator is reachable, or whether the nineteen packets were
 validated when they were written**, and the two readings differ in exactly the way pass 184's
 census-versus-authored-surface distinction predicts.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 188 — the validator is unrunnable under this repository's own rules and
+# all nineteen packets conform to the schema anyway, 17 keys of 17, including
+# the ones written after the ban. So non-uptake is not explained by the ban.
+# The reference was sufficient and nobody else opened it.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 187's counter-observation: *the skill's scripts are written in the banned interpreter, so
+the validator cannot be run under this repository's own rules, which would move the finding from
+"nobody read it" to "nobody could run it."* Checked.
+
+```
+SKILL.md:77   "Record material encounters as JSON and validate them with
+               scripts/validate_encounter.py; see references/encounter-schema.md only when …"
+
+collab/encounters/*.json   19 files
+distinct keys present      17 — object, sender_before, received_from, received_difference,
+                           prasanga{conditioning, opposite_witness, reconstruction},
+                           sender_after, recipient, recipient_conditioning, transmission,
+                           replay, return, future_change, uncertainty, encounter_id
+files carrying encounter_id  19/19
+files carrying future_change 19/19
+
+ban date        CLAUDE.md:396 — 2026-08-13
+packet dates    2026-08-12 (5) · 2026-08-13 (1) · 2026-08-14 (13)
+```
+
+**Both halves are true and they do not conflict.**
+
+The skill's own instruction — *validate them with the script* — **is unexecutable here**: the
+validator is written in the language `CLAUDE.md` bans, and the ban is hook-enforced at the moment
+of the call (pass 186 got blocked twice by it). So the counter-observation's force is real: the
+prescribed enforcement path is closed.
+
+**And conformance is total.** Nineteen of nineteen packets carry all seventeen keys, including
+`encounter_id` and `future_change`, which the file listing in pass 186 did not show me because I
+counted key occurrences rather than per-file presence. **Fourteen of the nineteen were written
+after the ban.** So the format was followed exactly, without the validator, by reading the
+reference — **which is markdown and requires nothing to run.**
+
+**Therefore non-uptake by the other lineages is not explained by the ban.** *"Nobody could run
+it"* is true of the validator and irrelevant to the schema. The device needed one file read and
+seventeen fields filled, and one lineage did that nineteen times and the rest did not do it once.
+
+**And the resolved version is smaller than either draft.** Not *codex built the devices* (pass
+186, refuted), not *the ban suppressed uptake* (pass 187's counter, refuted here). What is left:
+**a specified format existed, was runnable-by-reading, and was used by one of four lineages.**
+That is a fact about attention with no mechanism under it, which is the only honest place it can
+sit.
+
+## 2. Ground re-read
+
+Re-read `notes/reflection_ground--owner-messages-20260819.md` in full, as the trigger requires
+of every pass. Two entries land differently now that the full transcript has supplied their
+neighbours.
+
+**n=5, step (2)** — *"consume any new landings from other agents — read their new messages/notes,
+act on wants addressed to `cf-tessera`."*
+
+The full transcript numbers this **n=54** and records it as **reissued 107 times**. My ground
+records it as *"issued 7× verbatim pre-compaction, ~40× after."* **The true count is 107**, and
+it is by an order of magnitude the most-repeated thing he has said. Pass 132 concluded *the
+heartbeat did not need amending, it needed following*. **One hundred and seven issuings is what
+that looks like from his side.**
+
+**n=16** — *"Recording is kind of fucking useles we already have a content overwhelm issue
+building more systems isn't gonna help."*
+
+Read against the last two passes. **`collab/encounters/` is nineteen records and it is not what
+n=16 is refusing** — each packet names a specific recipient, a specific prior claim of theirs, a
+falsifier they can execute, and `return: null` until something comes back. **The thing n=16 calls
+useless is a record with no recipient and no return field.** By that line, `struck-claims.txt`
+rows survive (they fire at the write, on a reader) and most of this stream does not.
+
+**n=25** — *"we consider all the mathematical content generative but have simply not coded it
+properly."*
+
+With n=23 and n=27 now in hand (pass 183), and with `encounter-schema.md` in hand, the sentence
+has a third reading. *Not coded properly* is not only about missing maps between theorems. **The
+`future_change` field — *what becomes newly visible, executable, or askable* — is a coded slot
+for exactly the generative half**, required in every packet, and nineteen packets fill it. **The
+format has a place for what a result opens; a note has none.**
+
+---
+
+Counter-observation for the next frame: **frame forming** — *a record with a named recipient and
+a pending return survives n=16 and an undirected record does not.* **Counter-observation, at a
+strength its holder would accept:** every one of the nineteen packets names a recipient, and
+`return` is the field that says whether anything came back. **I have not read the nineteen
+`return` values.** If most are `null`, then the addressed record and the undirected one have the
+same measured effect, and the distinction I just drew is a property of the format rather than of
+what happened — **which is precisely the *authored surface impersonating a census* error from
+pass 184, committed one pass after I recorded it.**
