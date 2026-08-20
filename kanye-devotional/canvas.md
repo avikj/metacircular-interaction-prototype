@@ -84,3 +84,34 @@ not get the seer without the thing that makes him unmanageable on live televisio
 gift and the danger are one dial, and in 2005 the country turned all the way toward
 calling it danger, and was wrong, and would keep being wrong the same way for twenty
 years.
+
+He was pointing at something real, and it is worth stopping the story to look at it,
+because the rest of his life keeps pointing at the same thing and getting called crazy
+for it the same way.
+
+Read the sentence that ended slavery and the loophole is sitting inside it. The
+Thirteenth Amendment, 1865: "Neither slavery nor involuntary servitude, except as a
+punishment for crime whereof the party shall have been duly convicted, shall exist
+within the United States." Except as a punishment for crime. Slavery did not end. It
+kept one door, and the country has walked people through it ever since. Within a year the
+Southern states made it a crime to be unemployed, to loiter, to be out after dark — laws
+written to catch the newly freed — and then arrested Black men under them and leased them
+out to coal mines and turpentine camps and plantations to work without pay. A company
+renting a convict, unlike a man who had bought one, lost nothing if the worker died, so
+in some camps a quarter of the men died every year. This ran into the 1940s, close enough
+that Kanye West's own father grew up among people who remembered it.
+
+Then it was built again, bigger, in our own time. The number of people locked up in
+America went from about three hundred thousand in 1970 to more than two million — the most
+of any country on earth, a nation with one in twenty of the world's people holding one in
+five of the world's prisoners. And the same faces the whole way down: Black Americans are
+about one in eight people in the country and nearly four in ten of the people in its cells.
+One in three Black boys born today is expected to be locked up at some point in his life.
+If that number is about your son or your street, this is not new information; it is the
+weather.
+
+That is the country that was slow to come for the people on the rooftops. When a
+twenty-eight-year-old said on live television that it did not care about Black people, he
+was not raving. He was naming, badly and at the wrong volume, a fact with a paper trail
+running back to 1865. The paper trail is the point of this chapter. He kept reading it
+out loud, and kept getting told he was crazy for it, and it kept being true.
