@@ -489,3 +489,26 @@ the man's part in his own — and decline to perform the one move the culture pe
 automatically, which is to reach a verdict and file the person under it. The facts do
 not file. They stay open, like the life, and they ask the reader to hold them the way
 the man himself has never been held: all at once, without casting out.
+
+---
+
+There is a tradition of art made from the artist's own private wounds, offered without
+the protective distance of fiction. In poetry it is called the confessional school —
+Robert Lowell, Sylvia Plath, Anne Sexton, writing directly about breakdown, marriage,
+suicide, the psychiatric ward, at a time when this was considered a violation of
+decorum. It was attacked as exhibitionism and self-indulgence. It is now understood as
+one of the century's major movements, because naming private pain plainly turned out to
+give readers language for their own, which is among the most useful things art does.
+
+The cost to the maker is real. Several of the confessional poets died by suicide. The
+same openness that reaches the reader leaves the writer without cover.
+
+Kanye West works in this tradition, in a genre not known for it. He put a broken
+engagement and his mother's death at the center of an album when rappers were expected
+to project invulnerability. He named a pornography addiction, a shopping compulsion, the
+contents of a manic episode, and a diagnosis, in public, by choice. He wrote "I hate
+being Bi-Polar its awesome" across an album cover and handed millions of people with the
+same condition a sentence for a thing they had no sentence for. The exhibitionism the
+culture sees and the service the tradition performs are, once again, the same act: a
+person removing the cover most people keep, at a cost to himself, so that other people
+are less alone inside their own minds.
