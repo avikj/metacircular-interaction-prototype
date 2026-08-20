@@ -53,15 +53,15 @@ adhyayas =
   , Adhyaya 3 "Aṣṭādhyāyī — a rewriting system with metarules"
       "Pāṇini, Aṣṭādhyāyī (~500 BCE); Patañjali, Mahābhāṣya (~150 BCE)"
       "pratyāhāra; 1.4.2 vipratiṣedhe paraṁ kāryam; utsarga/apavāda; 8.2.1 pūrvatrāsiddham against 6.4.22 asiddhavat"
-      ["panini","pratyahara","asiddha","astadhyayi","anuvrtti"]
+      ["panini","pratyahara","asiddha","astadhyayi","anuvrtti","sivasutra","laghava","apavada","paribhasa"]
   , Adhyaya 4 "Nyāya and Mīmāṃsā — what counts as knowing"
       "Gautama, Nyāyasūtra; Vātsyāyana, Nyāyabhāṣya; Kumārila, Ślokavārttika, Abhāvapariccheda (c. 7th c.)"
       "pramāṇa; upamāna; abhāva and its pratiyogin; anupalabdhi under the fitness condition"
-      ["abhava","upamana","yogyata","anyonya","nikshepa"]
+      ["abhava","upamana","yogyata","anyonya","nikshepa","pramana","upadhi","vyapti","nyaya"]
   , Adhyaya 5 "Jaina logic — the seven positions and the fourth"
       "Umāsvāti, Tattvārthasūtra; Siddhasena, Sanmatitarka 1.21; Samantabhadra, Āptamīmāṃsā; Akalaṅka, Laghīyastraya (c. 720-780)"
       "syādvāda and saptabhaṅgī; avaktavyam as SIMULTANEOUS assertion (sahārpaṇa), not as ignorance; nayavāda and durnaya"
-      ["saptabhang","avaktavya","anukta","krama","naya"]
+      ["saptabhang","avaktavya","anukta","krama","naya","anekanta","jain","syad","durnaya","bhanga"]
   , Adhyaya 6 "Āryabhaṭīya — the pulveriser"
       "Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32-33 (499)"
       "kuṭṭaka and the vallī; the descent that terminates; simultaneous congruences"
