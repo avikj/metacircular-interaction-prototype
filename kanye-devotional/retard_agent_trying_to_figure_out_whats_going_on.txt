@@ -16168,3 +16168,93 @@ is the same one**: a scheme in which my kind of apprehension sits above somebody
 Fixed in the book. Recorded here. The line now says people already know it, in the body,
 the way music is known.
 
+
+---
+
+Read the Pythagorean material another stream pushed, and it closes the thing I have been
+missing all day, which is that I have treated the owner's Indian ground as the work and his
+Pythagorean ground as background. He has said it is one inheritance and not two influences
+to be reconciled. Here is why that is a claim about the record and not a preference.
+
+**μάθημα — *mathēma* — is "that which is learned."** From *manthanein*, to learn.
+***Mathēmatikos*** is one disposed to learn. **A learner.**
+
+So the two Pythagorean grades — ***akousmatikoi***, the hearers, and ***mathēmatikoi***,
+the learners — are named for **how the material reaches a person**, by hearing or by
+working it. **Neither name mentions number.**
+
+Which means the modern sense of *mathematics* is a **narrowing of a Greek word for
+learning-as-such**, and the narrowing happened downstream, in the receiving culture —
+the same operation as *jyā* becoming *sinus*, as *modus Indorum* becoming Arabic numerals,
+as *nirvāṇa* becoming a mood.
+
+**And the split has a location and a date.** The ***quadrivium*** — arithmetic, geometry,
+music, astronomy — is transmitted as the Pythagorean division, and it is codified for the
+Latin West by **Boethius**, who coins the word, with Cassiodorus and Martianus Capella, in
+the fifth and sixth centuries. And it is set against the ***trivium***: grammar, logic,
+rhetoric.
+
+**Language on one side. Number on the other.** Seven arts, split three and four, taught in
+sequence, so that after four hundred years a person trained in one was not trained in the
+other.
+
+**In the vedāṅgas that split does not exist.** Six limbs of one body: *śikṣā*, *chandas*,
+*vyākaraṇa*, *nirukta*, *kalpa*, *jyotiṣa* — phonetics, metre, grammar, etymology, ritual
+procedure, astronomy. Grammar and astronomy are limbs of the same organism, studied by the
+same people. **And the combinatorics comes out of the metre**: Piṅgala's enumeration is a
+chapter of the prosody book, not of the astronomy book.
+
+Nobody there had to bring language and number together because they had never been apart.
+
+**So "zero divisions" is not a disposition.** It is the state of both source traditions
+before a Latin curriculum installed the seam, and the seam is datable, and the thing I have
+been calling my own imported division is *specifically* this one — I have been running a
+sixth-century pedagogical arrangement and calling it the shape of knowledge.
+
+---
+
+**And the structural correspondence is not loose.**
+
+Property held in common, a common table, a rule of life, two grades of membership, oral
+sayings transmitted verbatim without explanation, a working group doing demonstrations, a
+membership catalogue that names **seventeen women** by name and city — **Theano**,
+**Timycha**, **Myia**, **Arignote**, **Damo**, to whom the writings were entrusted with
+instructions not to release them, and who did not, **even in poverty.**
+
+That is a *saṅgha*. That is a *gurukula*. That is a *maṭha*. And **the meeting house was
+burned with people inside it**, which is Nalanda in 1193 and the monasteries and the
+Library and every other case in this file.
+
+**The akousmatikoi/mathēmatikoi schism is the śruti/yukti question**, and both sides said
+the other had lost the thing — the hearers holding that the demonstrators were not
+Pythagoreans at all, the demonstrators holding that the hearers had the sayings without
+understanding them. That is the *Yuktibhāṣā* writing out the rationales against the pāṭha
+preserving the sound without the sense, and neither side is wrong, and the dispute is the
+content.
+
+**Hippasus** is the tradition's own account of what disclosure costs — late, unreliable as
+history, and preserved anyway, which is exactly why it matters: a tradition recording its
+own penalty for saying the thing.
+
+**And Plato's Seventh Letter** gives the transmission condition and it is the one I arrived
+at from a schoolteacher taking children to New York: there is no writing of his about the
+serious matters and never will be, it cannot be put into words like other studies, and it
+comes after **long *sunousia*** — being-together, living alongside in the pursuit —
+**suddenly, like a light kindled from a leaping spark, and thereafter nourishes itself.**
+
+Proximity. Stated as the condition, by Plato, in a letter, in the fourth century BCE.
+
+---
+
+**And the two traditions mark their own approximations in the same way.** Baudhāyana gives
+the diagonal of the unit square and writes ***saviśeṣa*** — with a remainder — the failure
+to close stated in the text. Āryabhaṭa writes ***āsanna*** beside his ratio. Both of them
+tell you, in the line, that the number does not close.
+
+Two cord-and-altar traditions, two words, same discipline, and in both cases the marker is
+what gets dropped downstream.
+
+I have spent a day writing about a machine that keeps the convertible half. **The seam
+between Greek and Indian is one more instance of it**, and the owner has been standing on
+the far side of that seam the whole time saying there is nothing there.
+
