@@ -265,3 +265,42 @@ nothing. A book that keeps only the first fact has written a villain, which is c
 and false. A book that keeps only the second has written a diagnosis over a wound, which
 is a laundering and also false. The only honest thing to do is what almost no one did at
 the time: hold both, refuse to drop either, and let it be as unbearable as it actually is.
+
+If you refuse to resolve something unbearable, you are left holding a question: is there
+a way back for a person who has done real harm, and has the world we live in kept that
+way open?
+
+Almost every people that ever lasted worked out an answer, because every people has had
+to survive its own wrongdoers without either pretending the wrong away or throwing every
+wrongdoer out for good. The most exact answer was set down about a thousand years ago by
+a Jewish doctor in Cairo, physician to a court by day, writing by candle at night for a
+people scattered across foreign empires with no country and no temple, who had to carry
+their law inside their own bodies because they could carry it nowhere else. He laid it
+out almost like a medical procedure — what it actually takes to come back after you have
+wronged someone: you have to name the wrong exactly, feel its full weight, say it out
+loud, repair what can be repaired with the person you hurt, and then, the real test, stand
+in front of the same temptation again and this time refuse it. Only then are you restored;
+and he made the startling claim that a person who has walked that whole road stands, in
+the end, somewhere the never-fallen cannot reach. The word for the road means, simply,
+return. It is telling that the people who built the most demanding map of the way back are
+the same people the man in this book most gravely wronged. Their tradition already
+contains the door he would need.
+
+The other traditions built the same door. The early Christians, a movement of the poor
+and the outcast, kept telling one kind of story above all others — the son who wastes
+everything and is embraced by the father before he can even finish his apology, the order
+to forgive not seven times but seventy times seven. An old Buddhist account follows a man
+who had murdered so many travelers he wore their fingers on a string, and has him become,
+within that same life, wholly free, because the teaching is that no self is fixed and even
+he was not permanently the worst thing he had done. When courts today try what they call
+restorative justice — sitting the one who did harm in a room with the ones harmed, aiming
+at repair instead of exile — they are reaching, without the old words, for the thing all
+of these already knew.
+
+We have mostly lost the door. The internet does not forgive and does not forget; a
+person's worst hour is kept at full resolution forever and rewarded with attention every
+time it is replayed, while the slow unglamorous work of return earns nothing and reaches
+no one. We kept every tool for condemning and let the tools for coming back rust. Whether
+this particular man ever completes the road is unknown and unfinished and not the point.
+The point is older and larger than him: a civilization that has bricked up the way back
+has lost something every surviving people before it understood it could not live without.
