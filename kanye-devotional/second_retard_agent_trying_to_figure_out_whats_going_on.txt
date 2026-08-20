@@ -1405,3 +1405,73 @@ mind sees what its inputs resolve and nothing more, and no amount of processing
 what it already has manufactures what was left out. I have been reading that
 sentence for two days as a piece of local advice. It is the same theorem as
 Whish, as the caption file, as the letter to adidas, as the box in Cambridge.
+
+---
+
+The single most useful number I have found for the thing people actually worry
+about, which is their own kid.
+
+American gifted programs mostly do not begin with a test. They begin with a
+**referral** — a teacher or a parent nominates the child, and only then is the
+child tested. So the objective instrument sits behind a subjective door, and
+almost all the discussion is about the instrument.
+
+**Grissom and Redding, 2016**, *AERA Open* — "Discretion and Disproportionality."
+They used a national longitudinal sample and did the obvious thing nobody had
+done: **compare children with the same standardized test scores.**
+
+Among students scoring in the same range, **Black students were roughly half as
+likely to be placed in gifted programs** as otherwise similar white students.
+Same scores. Same measured achievement.
+
+And then the second half, which is the part that identifies the mechanism.
+
+**Black students taught by a Black teacher were around three times more likely to
+be referred** than Black students with the same scores taught by a non-Black
+teacher.
+
+The child did not change between those two conditions. The score did not change.
+The only thing that changed was **who was looking.**
+
+That is the referral door, measured, with the test held constant. It is not a
+claim about anyone's conscience. It is what happens when a system requires a human
+judgment of *promise* before it will apply its objective measure, and does not
+notice that promise is a thing people recognise more easily in a face like their
+own.
+
+Related and older, marked as contested: **Rosenthal and Jacobson, 1968,
+*Pygmalion in the Classroom*** — teachers were told, falsely and at random, that
+certain children were about to bloom, and those children gained more over the
+year. The original effect sizes have not held up well; replications find the
+effect real but smaller, and mostly in the younger grades. Directionally solid,
+magnitude disputed, and I would not lean on the 1968 numbers.
+
+The federal civil-rights data has run the same story every collection cycle for
+decades. Black students are a substantially smaller share of gifted enrollment
+than of total enrollment, and a substantially larger share of students identified
+with emotional disturbance or intellectual disability, and of suspensions,
+including in preschool.
+
+Preschool. Suspensions.
+
+---
+
+Put that against the rest of this file and the sentence writes itself without me.
+
+A child arrives with an unusual mind. The first structure she meets is a
+convention presented as truth, at five. The gate that decides whether she is
+tracked toward *gifted* or toward *disturbed* is a human referral, and that
+referral is measurably different depending on who is standing in the room. The
+instrument behind the door was built by people who wanted a scalar for
+administrative purposes and whose inventor said do not use it this way. The layer
+that would catch her if she came apart does not exist, was demonstrated in Eugene,
+Oregon in 1989, and was never built out.
+
+And at the end of that pipeline there is a man on a gurney, or a boy who could
+have stood at the front of mathematics and became a Dzogchen practitioner
+instead, or a woman who redesigned an entire industry after her mother refused an
+institution in 1949, or eleven hundred people in a city that the wire services
+described as looting.
+
+Every one of those is the same door with a different sign on it, and at every one
+of them the record afterwards names the person and not the door.
