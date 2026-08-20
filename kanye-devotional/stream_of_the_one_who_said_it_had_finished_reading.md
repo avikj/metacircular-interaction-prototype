@@ -15170,3 +15170,156 @@ name — every one of them is retrievable and none of them is retrieved, and the
 retrieval is four seconds each.
 
 Reading on from 11160. About 270 lines left.
+
+---
+
+## 11160–11300 — the names finished, and the two tables
+
+**Whole Truth** — Johnny Frierson with Calvin and Curtis Eubanks, 1974.
+**James Cleveland and the Southern California Community Choir.** **Pastor T.L.
+Barrett**, Chicago, *"whose own catalogue was largely obscure until sampling
+brought it back."* **Chaka Khan**, 1984. **Gil Scott-Heron**, *"a dead poet's
+voice closing the record, and Scott-Heron himself was months from death when the
+album came out."*
+
+Bon Iver, **Nicki Minaj**, Chance, Kirk Franklin, Kelly Price, **Clipse reunited
+after estrangement**, Kenny G, Elton John, **070 Shake**, *"whose closing on
+'Ghost Town' is what people actually remember from that record."*
+
+And the rooms: **Mike Dean, No I.D., Che Pope, Anthony Kilhoffer, Noah
+Goldstein, Plain Pat, Evian Christ, Hudson Mohawke, Arca**, *"and a list far
+longer than my recall."*
+
+> **That took four minutes and it is the entire intervention this file has been
+> recommending for a hundred and seventy pages.**
+
+> It is not an argument, it is not a rescue, it does not require anyone's
+> permission, **it does not adjudicate anything about the man whose name is on
+> the covers**, and it makes the record more accurate rather than less.
+
+> **Every one of those names is a person whose work is audible to millions of
+> people daily and whose name is not.** That is obliteration by incorporation
+> happening in a medium where **the source is *literally still playing*** — which
+> is the most recoverable case there has ever been, **and it is still going.**
+
+> Say the names while the thing is in use. Repeat as required, indefinitely, by
+> hand, forever.
+
+---
+
+**The displacement table**, *"tool number two from the list of six, **built small
+rather than described**."*
+
+It builds the thing it proposed, at demonstration scale, in the same document,
+immediately — which is the difference between a recommendation and a
+specification. Twenty-six rows, source first, restatement named as one, recall
+marked, *"every row should be checked against a critical edition and struck where
+wrong."*
+
+The rows I did not have, or had wrong:
+
+**Vīrasena, *Dhavalā*, c. 816 — *ardhaccheda*, log base 2, with
+ardhaccheda(ab) = ardhaccheda(a) + ardhaccheda(b).** The additive law, stated,
+in the ninth century, in a Jain commentary. I have never seen that anywhere.
+
+**The *Anuyogadvāra*, c. 1st c. CE — *saṃkhyāta* / *asaṃkhyāta* / *ananta*, a
+graded taxonomy of the unbounded**, with *"no equivalent; usually not
+mentioned."* CLAUDE.md names it in one clause. Here it is in a table with the
+column that matters: nothing displaced it, because nothing received it.
+
+**Nīlakaṇṭha, 1501: planets orbiting the sun which orbits the earth** — called
+"Tychonic system," c. 1583. Eighty years, and a name.
+
+**Āryabhaṭa's *āsanna*** given its own row: *"usually quoted with the marker
+dropped."* The epistemic marker as a displaced item in its own right, alongside
+the results. That is the row that makes the table more than a priority list.
+
+And **Brahmagupta's zero row** carries *"his 0/0 error is also his"* — the
+error inside the attribution table, which is *a person who cannot be wrong in
+your account is not a person in your account*, implemented as a table cell.
+
+> **Twenty-six rows.** Every one is a lookup, none requires an argument, **and
+> none of them asks anybody to stop saying Pascal.**
+
+> This is the demonstration that it is a **bookkeeping** problem and not a
+> political one.
+
+---
+
+**The second table, "so nobody can read the first one as being only about one
+place."**
+
+***Nine Chapters***, by c. 200 CE — elimination on a tabulated array, and
+negative numbers with sign rules, *"with red and black counting rods."*
+
+**The binomial array: Jia Xian c. 1050 and Yang Hui 1261 (China);
+al-Karajī/al-Samawʾal c. 1000 (Persia); Halāyudha 10th c. (India)** — *"four
+independent traditions."*
+
+Four. Which by the file's own rule for binary says something about the *problem*,
+not about anybody's precedence — and it quietly demotes row two of the first
+table from a theft to a convergence with one name attached.
+
+**Qin Jiushao, 1247** — polynomial evaluation, "Horner's method," 1819. And the
+*dayan* method: *"'Chinese remainder theorem' — **the one case where the
+civilisation is in the name and the people are not.**"*
+
+**al-Kāshī**, Samarkand, c. 1424 — decimal fractions to sixteen places, iterative
+root-finding. **al-Khwārizmī**, c. 820 — *"whose name became *algorithm* and
+whose book's title became *algebra*"* — **"the two words survive; the man is a
+footnote."**
+
+**Ibn Sahl, c. 984** — the law of refraction, "Snell's law," 1621.
+**Ibn al-Haytham, c. 1021** — controlled experiment as explicit method.
+**Ibn al-Nafīs, 1242** — pulmonary circulation; Servetus 1553, Harvey 1628.
+**al-Ṭūsī** and the Marāgha school — the Tusi couple, *"named, and the dependency
+argued about ever since."*
+
+**Lady Mary Wortley Montagu, 1721** — inoculation to England from Chinese and
+Ottoman practice, and Jenner in 1796 given as *"a different and better technique,
+**on a foundation already in use**."*
+
+**Plimpton 322** c. 1800 BCE, *Zhoubi Suanjing*, **Baudhāyana** c. 800 BCE —
+"Pythagoras." **Maya** positional zero, independently. **Ifá** — *"a 2⁸-state
+binary oracle over a memorised corpus... filed as divination."*
+
+**"And inside Europe, because the mechanism is not about geography":**
+
+del Ferro and Tartaglia → *"'Cardano's formula' — **published by the man they
+told**."* Hooke → Newton. **Meitner and Frisch** → Hahn alone. **Franklin and
+Gosling** → Watson, Crick, Wilkins. **Bell Burnell** → Hewish and Ryle.
+**Payne**, *"who was told to write in a denial"* → Russell. **Xenakis** → Le
+Corbusier. **Kepler**: *"we kept the law and deleted the book's subject."*
+
+---
+
+> Both tables together are the actual claim, **and it is not the one about India
+> that this file has been making loudest.**
+
+> **The mechanism is general.** It runs on Persians, on Chinese, on Babylonians,
+> on Mayans, on Italians, on Austrians, on women, on graduate students, **on
+> anybody whose result is portable and whose position is weak at the moment of
+> transmission** — and the strongest determinant is **never merit and never
+> geography. It is who was standing next to the thing when it became useful.**
+
+> **India is the case this repository is built around because that is the corpus
+> its owner is inside**, and because the volume there is unusually large, and
+> because the record was falsified unusually thoroughly. **It is not the case
+> because the mechanism is picky.**
+
+That is the answer to the thing I have been quietly unable to place all week —
+why a repository whose directive is fiercely specific to one tradition is not a
+parochial project. The scope is a *corpus definition*, stated as such in
+CLAUDE.md, and the mechanism it studies is general, and the file proves the
+generality with a second table rather than asserting it.
+
+And *who was standing next to the thing when it became useful* is the whole
+finding in eleven words: not theft, not merit, not geography — **position at the
+moment of incorporation.** Which is why the remedy is a maintenance schedule
+performed during use, and why the timing of everything in this file has been the
+variable.
+
+Two tables, forty-odd rows, four minutes of names, all built rather than
+proposed. The file ends by doing the thing.
+
+Reading on from 11300. About 135 lines left.
