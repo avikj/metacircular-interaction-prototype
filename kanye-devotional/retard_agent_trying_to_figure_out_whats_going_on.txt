@@ -12915,3 +12915,90 @@ somebody, this document ranking twenty-six things and keeping two.
 The Mande answer is not an exhortation to listen better. **It is a second chair, with a job
 in it, and a sound that is missing if the job is not being done.**
 
+
+---
+
+Still on the twenty-six, because I gave several of them a sentence and they are not
+sentences.
+
+**Whakapapa.** Genealogy as the addressing scheme for everything else. You do not retrieve a
+piece of knowledge by subject — you retrieve it by **tracing a line**, and the line is also
+what entitles you to it. **The store and the authorisation are one structure.**
+
+Sit with what that does. In every system I know, access control is a layer bolted onto a
+store: here is the data, and separately here is who may see it. In whakapapa there is no
+separate layer, because the path *to* the knowledge is the path that establishes standing to
+hold it. You cannot arrive at it without having come through the relations that make it
+yours to have.
+
+Which means it cannot be scraped. Not *should not* — cannot, in the way a fugue cannot be
+excerpted into a satchel: what you would take is the content and the content is not the
+thing. It is also, exactly, why every extraction from such a system is experienced by its
+holders as a theft of relationship rather than of information, and why the person doing the
+extracting genuinely cannot see what was taken, because in their scheme the data came away
+intact.
+
+**Responsa.** The corpus grows as answers to questions that arrived from the field — a
+community writes to an authority with a real problem, and the answer is preserved, and the
+body of law is therefore **shaped like the places where reality actually pressed.**
+
+Compare a syllabus, which is shaped like what somebody decided should be covered, or a
+research literature, which is shaped like what is fundable and publishable. A responsa
+corpus has a topology you could read off as a map of what was hard, where, and when.
+
+**Doxography.** A review indexed **by problem** rather than by author or by date — all
+positions on one question, side by side, including the ones nobody holds any more.
+Theophrastus doing it in the fourth century BCE.
+
+Every literature review I have ever produced is indexed by author and weighted by recency,
+which is the Matthew effect and the frequency table wearing academic clothes. A
+problem-indexed review would put a discarded position from 1890 next to a current one and
+let the reader see they are the same argument, which is precisely the sort of collision this
+repository says is the most valuable object you can find.
+
+**Stichometry and the Pinakes.** Callimachus catalogued Alexandria's holdings with the
+opening words and the **total line count.** A checksum, third century BCE, so that a copy
+with lines missing or lines added announces itself against the catalogue.
+
+I keep finding that the ancient instrument is not a cruder version of the modern one. It is
+frequently a **thing the modern one does not have.** A modern library catalogue records
+extent in pages, which is a property of the printing, not of the text.
+
+**The Long Count and the distance numbers.** The Calendar Round repeats every fifty-two
+years, so it under-determines the date, and the response is not to guess from context — it
+is to **adjoin an absolute count** that does not repeat. And the distance numbers write
+dates as anchor-plus-offset in several directions at once, so an eroded glyph is recoverable
+from the arithmetic.
+
+Two different redundancies, chosen for two different failure modes: ambiguity of the
+encoding, and physical loss of the medium. Somebody thought about what stone does to
+writing and designed for it.
+
+**The sago repositories.** Four copies of the veritable records, in four mountains, far
+apart. Not backup — **decorrelation.** Somebody asked *what event would take all of these at
+once* and then arranged that no such event was likely, which is the question almost nobody
+asks about their off-site copy in the next city.
+
+**The Xiping stones.** The reference copy cut into stone at the capital gate. A textual
+dispute is settled by **walking there.** No custodian, no edition, no access request, no
+version. And the crowds copying from it are described as blocking the streets, which tells
+you the demand for an unarguable reference was enormous and unmet.
+
+**Sangaku.** A problem, painted on a wooden tablet, hung at a shrine, signed, sometimes with
+the answer withheld — by farmers, merchants, and children as well as scholars. **Open
+problems posted where people walk past, by amateurs, as a challenge to strangers.**
+
+That is the thing every field says it wants and none of them build: a public place where
+the unsolved is visible to somebody who has no position and might just have it.
+
+---
+
+I keep having the same reaction to each of these, and it is not admiration. It is
+**recognition of a specific absence**: in each case there is a job that obviously needs
+doing, somebody built a thing that does it, and the thing is not in my hands or in the hands
+of anyone with the job.
+
+The parts are not lost, they are not primitive, and they are not metaphors. They are on
+shelves, in buildings, with catalogue numbers, being studied by people whose field is not
+the field with the problem.
+
