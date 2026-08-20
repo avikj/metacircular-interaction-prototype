@@ -6776,3 +6776,118 @@ of the ten that states the criterion, *must fail at its own last line, not
 earlier.* A control's exit code is not its result, my two published red counts
 had ten modules on the wrong side of the ledger, and the fiber of a verdict here
 is one `head` of a log away.
+
+---
+
+# PASS 28 — there is no toolchain in which this tree is green, and the split is 42 to 43
+
+## Ground pass
+
+Twenty-eight, again — and the count is now the same as the pass number, which is
+an accident and worth noting only because it is the first time this file's
+arithmetic has been anything but a source of error.
+
+n=16, the sentence I have quoted as a prohibition seven times:
+
+> actually becoming smarter so we don't walk a dumb path is the only thing that
+> helps
+
+A dumb path, named exactly: **writing a module that cannot be checked by
+anything, and calling the failure someone else's version problem.**
+
+## The check
+
+Pass 26 established that the container has Agda 2.6.3 + cubical v0.5 and that
+`cubical-master` (@ `9216603`, which does have `solve!`) cannot be loaded by
+2.6.3. What I did not do then was look at the *other* direction. This pass did:
+
+```
+grep -n "solve" /root/agda-libs/cubical-master/Cubical/Tactics/CommRingSolver/Reflection.agda
+188:  solve!-macro …
+206: macro
+207:  solve! : Term → Term → TC _
+```
+
+**Plain `solve` does not exist in the newer library.** Only `solve!`. So the
+rename is not an addition, it is a replacement, and the drift runs both ways —
+which is what `notes/ORPHAN_SWEEP_3.md`'s title said (*"the version drift runs
+backwards"*) and which I read past as a remark about that sweep rather than as a
+fact about the tree.
+
+Counted over all 781 modules, **excluding comment lines** (`Kuttaka.agda` only
+mentions `solve!` in prose, and a first count that included comments was wrong
+by six on one side and eleven on the other):
+
+| | modules |
+|---|---|
+| use v0.5-only names — `solve`, `solveℕ` | **42** |
+| use v0.9-only names — `solve!`, `solveℕ!` | **43** |
+| use both | **0** |
+
+**So there is no toolchain in which this tree is green**, and the two halves are
+within one module of each other. Under the container, 43 modules and their
+importers cannot check. Under the pin, 42 modules and their importers cannot
+check. The tree is bifurcating in real time, and the newer half is the pin half,
+which means it is growing.
+
+**Two of my four modules this session are on the v0.5 side** —
+`SamataPramanena` and `SamskaraHara` both call `solve ℤCommRing` /
+`solve`. So they would be red under the pin, and I have been reporting their
+greens without that half of the sentence. `EkaparsvaSamvarana` and
+`MadhyaSamvarana` use no tactic at all — I wrote `maxℤ`/`minℤ` by hand because
+`Cubical.Data.Int` has no order in v0.5 — and are therefore the only two of the
+four that are toolchain-neutral. That was an accident of the library's poverty,
+not a choice, and it is the only reason those two are portable.
+
+## What was already known, and by whom
+
+`Kuttaka.agda`'s header, before me:
+
+> `KuttakaValli.agda`'s `solve!`-bearing dependencies do NOT build. Only the one
+> back-substitution ring identity uses the CommRing solver, in the v0.5 spelling
+> `solve`; **under v0.9 that single token becomes `solve!`**. Fallback-checked,
+> not pin-green — stated per protocol.
+
+The token-level fact is documented, in one file, correctly, with the right
+protocol label. What is not documented anywhere I can find is **the count**, and
+the count is the thing that turns a note in one header into a property of the
+corpus: 42 against 43 is not a stray module, it is a fault line through the
+middle of the formal lane.
+
+## Why this is the fifth instance and also not one
+
+Passes 21, 23, 26, 27 were each *one command away*. This one was too — the grep
+that found `solve` absent from master took four seconds. But the difference is
+that here nobody had the answer and no note contained it; what existed was one
+header stating the mechanism in one file and a sweep title stating the direction
+in one clause. **The corpus knew the shape and not the size**, and size is what
+decides whether it is a footnote or a fault.
+
+That is a different failure from the previous four, and it has a name in
+`CLAUDE.md`:
+
+> a pattern over n instances is a pattern over n instances **until something
+> downstream of it is computed**.
+
+`Kuttaka`'s header is n = 1. The sweep's title is n = 1. Nothing downstream was
+computed for six days.
+
+## Standing charge for pass 29
+
+The census is at 353 of 781. When it lands, the report is the four-way split of
+pass 27 plus this fifth column: **unreachable under EITHER toolchain**, which is
+the intersection nobody has measured — modules importing something from each
+half. `Kuttaka.agda`'s header names one such chain (`KuttakaValli`'s
+`solve!`-bearing dependencies under a `solve`-using module) and the census log
+has the import closures to compute the rest.
+
+END OF PASS 28. Plain `solve` does not exist in cubical master — the newer
+library replaced it rather than adding to it — so the drift runs both ways and
+the tree has no toolchain in which it is green. Counted over 781 modules
+excluding comments: **42 use v0.5-only names, 43 use v0.9-only names, 0 use
+both.** Two of my own four modules are on the v0.5 side and I have been
+reporting their greens without saying so. `Kuttaka.agda`'s header had the
+mechanism right and `ORPHAN_SWEEP_3`'s title had the direction right, both for
+six days, at n = 1 each; nothing downstream of either was ever computed, which
+is precisely the failure `CLAUDE.md` says cannot be mechanised and must be
+answered by generating the next term.
