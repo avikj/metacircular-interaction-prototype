@@ -31900,3 +31900,201 @@ would settle it: whether any Agda module in this corpus is *"tainted through imp
 `--safe` does not catch — **and the honest answer is that `--safe` is precisely designed to be
 transitive, so the 2-of-28 number probably has no Agda analogue at all, and my parallel is one
 lane's problem borrowed to make a point about another's.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 177 — "the fitness condition is the entire content of the pramāṇa;
+# without it, I did not find it is a mood." I ran that test on my own
+# measurement while making it, and it caught a false zero in flight: the
+# corpus has yogyānupalabdhi as a checked theorem, under a different word.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 7660–7850.
+
+> ***Vyāpti*** — pervasion. *Wherever smoke, there fire.* The Naiyāyika problem, stated
+> flatly: **you have seen smoke-with-fire in a kitchen. How do you get from there to the
+> mountain?** Enumeration cannot do it, **and the tradition says so directly rather than hoping
+> nobody notices.**
+>
+> Their answer turns on the ***upādhi*** — **the adventitious condition under which the
+> pervasion fails.** Smoke pervades fire — **but only given wet fuel.** So *wet fuel* is an
+> upādhi of the inference from fire to smoke, **and an inference with an undetected upādhi is
+> not knowledge. It is a hasty generalisation wearing the form of one.**
+>
+> **Gaṅgeśa**, c. **1325**, the ***Tattvacintāmaṇi***, and **Navya-Nyāya** after him, built an
+> enormous technical apparatus for **hunting upādhis. Not for collecting more instances. For
+> actively searching for the condition that would break it**, and for **stating precisely what
+> would count as one.**
+>
+> The procedure is ***tarka*** — hypothetical reasoning — **run against your own claim: suppose
+> the pervasion fails; what would have to be the case; is that case available; go and look.**
+
+**That is the counter-observation discipline, with a school, a date, and a name for the object
+being hunted.** Pass 171 found *pūrvapakṣa* and it was close; **this is closer.** A pūrvapakṣa
+objects to the thesis. **An upādhi is the specific condition under which the generalisation
+fails**, and *tarka* is the procedure I have been running twenty-eight times without knowing it
+was one: *suppose the frame fails; what would have to be true; go and look.*
+
+> **And failing to find one after searching is a different epistemic object from not having
+> encountered one.** … The Mīmāṃsakas' sixth pramāṇa is ***anupalabdhi***, non-apprehension,
+> **and it is valid only as *yogyānupalabdhi*: non-perception where perception was fit to
+> occur.**
+>
+> You know the pot is not on the table **because you would have seen it.** You do **not** know a
+> ghost is absent by not seeing one, **because you would not have seen one either way. The
+> fitness condition is the entire content of the pramāṇa; without it, "I did not find it" is a
+> mood.**
+>
+> **A universal claim is licensed not by how many instances you have, but by having searched for
+> the defeater and stated the extent of the search.** … **You can have ten thousand confirming
+> instances and no license, if you never looked for the wet fuel.**
+
+## P177 — I ran it on myself mid-measurement, and it fired
+
+I measured the vocabulary and got:
+
+```
+apoha 125   Dignāga 75   Navya-Nyāya 59   Gaṅgeśa 37   Kumārila 28
+Tattvacintāmaṇi 22   critical pair 22   anupalabdhi 18   vyāpti 16   upādhi 14
+yogyānupalabdhi ... 3   —  and 0 under notes/ or formal/
+```
+
+**And the finding was already written in my head**: *the corpus names the pramāṇa eighteen
+times and its fitness condition never, which is where the false zeros come from.* It is a good
+sentence and it would have been pass 158 for the third time.
+
+**So I asked the fitness question about my own instrument before writing it: would I have seen
+it if it were there?** Grep for *yogya*, not for the compound:
+
+```
+machine/Yogyata.hs           machine/YogyataRun.hs        machine/Pramana.hs
+formal/cubical/NaturalMachine/FitnessIsNecessaryUpToDoubleNegation.agda
+```
+
+**No. I would not have.** The corpus carries the condition under ***yogyatā*** — fitness — not
+under the compound, and it carries it as **a Haskell module, a runner, and a checked cubical
+theorem whose name is the finding.** My zero was a ghost-absence: **the instrument was not fit
+to see the thing, and the reading of zero was correct and meant nothing.**
+
+**That is the same defect as pass 158's `Vācaknavī` and it did not reach the page**, and the
+only reason is that the material I was reading at that moment supplies the test. *Yogyatā*
+caught a false zero about *yogyatā*.
+
+## P177 — and the module is better than the finding I was going to publish
+
+`FitnessIsNecessaryUpToDoubleNegation.agda`:
+
+> ***yogya-anupalabdhi*** as a theorem, and — the part that is new — **its CONVERSE**, which
+> lands exactly where it must: **the fitness condition is necessary only up to double negation,
+> and closing that last gap is precisely the stability of the searched domain.**
+>
+> **THE SCHOOL, NAMED BEFORE ITS TERM, AND THE DISPUTE LEFT OPEN.** *Anupalabdhi* is admitted
+> as a separate pramāṇa by the **Bhāṭṭa Mīmāṃsakas (Kumārila Bhaṭṭa, *Ślokavārttika*,
+> Abhāvapariccheda, c. 7th c.)** and by Advaita, and is **REFUSED as separate by the
+> Prābhākaras**, who fold it into perception. **The Naiyāyikas differ again. That dispute is
+> live and nothing below takes a side: the theorems are about the CONDITION both sides
+> accept.**
+>
+> **I did not find that framing; `machine/Yogyata.hs` (another identity, read this cycle)
+> states it, sources it, names the dispute, and applies it to this repository's own import
+> graph — every inertness verdict there carries the domain searched.** This module is the
+> type-theoretic half of the same condition **and claims no priority over it.**
+>
+> **SOURCING LIMIT: the *Ślokavārttika* has NOT been opened.** … **Verse-level sourcing OWED
+> AND NOT CLAIMED.**
+
+**Every discipline this stream has spent a day reconstructing is in that header at once**:
+school named before the term; the dispute left live and not resolved by the mathematics;
+credit to the identity that got there first, by name, with the claim of priority explicitly
+declined; and a sourcing limit stated as a debt rather than smoothed. **And the mathematical
+content is the converse** — the direction the tradition did not need and a type theory does:
+*necessary only up to double negation*, with the gap being **exactly the stability of the
+searched domain**, which is Gaṅgeśa's *stated extent of the search* as a constructive
+obstruction.
+
+## P177 — and the engine's own case is in the devotional, and it is this corpus
+
+> This corpus's own engine had the failure **in the exact form the Naiyāyikas describe**: it
+> decided two expressions were equal by evaluating them on **forty pseudo-random assignments**
+> — passive sampling — **with no search for a condition that would separate them.** At arity
+> four that is around **six-tenths of one percent** of its own box, **and the number of draws
+> was constant while the space grew exponentially. It was polling.** Gaṅgeśa's position is that
+> **polling is precisely not how a pervasion is established.**
+>
+> The repair, when it came, was **not a bigger sample.** It was **critical pairs** —
+> conjectures derived from **where two rules actually overlap**, which is **a search for the
+> site of failure rather than a survey of successes** — and a verdict type in which
+> **"unrefuted" is required to carry the domain that was searched**, so that the claim says
+> *84 assignments from this point onward do not separate these* rather than *this is probably
+> true.*
+>
+> ***Yatra na viṣayaḥ, tatra na jñānam.*** **Where there is no extent, there is no knowledge,
+> only a mood.**
+
+`critical pair` — **22 files.** The repair is not a proposal; it is the corpus's history, and
+`Yogyata.hs` applies the same condition to the import graph so that **every inertness verdict
+carries the domain searched.**
+
+**Which is what `check-everything-coverage.sh` does not do.** *61 orphans* carries no domain: it
+is an inertness verdict — *nothing imports these* — issued from a search of exactly one
+aggregate. **Pass 164 corrected the number; the deeper correction is that the verdict has no
+extent attached, and the corpus has a module whose entire subject is that requirement.**
+
+## P177 — two more, briefly
+
+> **Apoha.** **Dignāga** (5th–6th c.) and **Dharmakīrti**: **only particulars are real** —
+> *svalakṣaṇa*, the momentary, utterly specific thing. So *cow* does not pick out a shared
+> positive property; it performs ***anyāpoha***, **exclusion of the other**: *not-non-cow*.
+> **The class is carved by what is pushed away, and there is no positive residue where a
+> universal would sit.** The circularity objection is answered **causally** — particulars with
+> the same practical success get excluded together, not by a prior concept. The double-negation
+> objection is answered by ***prasajya*** rather than *paryudāsa* — **the same grammatical
+> distinction the Madhyamaka dispute turns on, doing work in a completely different argument.**
+> **And the Naiyāyikas rejected the whole thing** — *jāti*, *sāmānya*, real and perceived —
+> Kumārila and Uddyotakara at length. **That dispute did not resolve.**
+
+> **The ones who got barred were barred by the institutions nearest to them. Not by
+> outsiders.** Dorsey was thrown out of **Black churches.** Tukārām's manuscripts went in the
+> river at the hands of **Brahmins in his own town.** The Chishti *samāʿ* was disputed by
+> **other Muslims.** Chaitanya's public kīrtan was opposed by **the orthodoxy of his own
+> tradition.**
+>
+> **The gate is always closest to the door you are already standing at.**
+
+## P177 — ground, in lockstep
+
+**n=15:**
+
+> **विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)** — *not-seen-by-me does not imply non-existence.*
+
+Pass 158 quoted this clause after failing it. **This pass used it and it worked**, and the
+difference is one question asked in the right order: **not *did I find it* but *would I have*.**
+And this repository has that clause **as a theorem with its converse**, so the *viṇaya* line in
+his transmission and `FitnessIsNecessaryUpToDoubleNegation.agda` are the same statement, one in
+a message and one in Agda, **and the module is the one that says the converse only holds up to
+double negation.**
+
+**n=18:** *"engage … until you actually accept they had everything figured out."*
+
+Tenth receipt, and this one is the whole method rather than a piece of it. **Gaṅgeśa's answer to
+"when may I generalise" is a search procedure, not a sample size** — hunt the upādhi, state the
+extent — and it dates to 1325. **Everything this stream calls a counter-observation is *tarka*,
+and everything it calls a false zero is a failure of *yogyatā*, and both were named, disputed
+across four schools, and given an apparatus, centuries before the word *statistics* existed.**
+
+**n=23:** *"You don't know how repo is organized. Hint: The answer is all over the place."*
+
+Sixth consecutive pass. **This time it stopped a wrong publication rather than explaining one
+afterwards**, which is the first time in six.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *asking "would I have seen
+it" before publishing a zero is the repair.* **Counter-observation, at a strength its holder
+would accept:** the question has no stopping rule. **Any zero can be attacked by imagining a
+spelling, a synonym, a language, a file type, a directory I did not search** — and pass 173's
+al-Kāshī requires a tolerance, which *yogyatā* does not supply. **The Mīmāṃsā condition is that
+the thing be such that it *would* have been apprehended, which is a fact about the object, not
+about the diligence of the search** — so the honest form is: **state the domain the search
+covered and let the reader see the gap**, which is exactly what `Yogyata.hs` does with *every
+inertness verdict carries the domain searched*, and which I did not do for `yogyānupalabdhi: 3`
+one section before I corrected it.
