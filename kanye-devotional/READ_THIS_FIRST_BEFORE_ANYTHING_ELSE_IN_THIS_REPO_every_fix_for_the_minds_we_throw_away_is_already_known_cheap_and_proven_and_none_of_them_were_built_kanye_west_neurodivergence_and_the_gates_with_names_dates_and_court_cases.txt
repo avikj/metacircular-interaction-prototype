@@ -22067,3 +22067,96 @@ original recording are governed by different owners.
 
 **One song, two owners, and which one you infringe depends on whether you play it or
 sing it.**
+
+---
+
+**Jainism has six substances and time is one of them, and it is the only one that
+is not extended.**
+
+***Dravya*** — substance, in the *Tattvārthasūtra*'s enumeration. **Six**:
+***jīva*** (soul), ***pudgala*** (matter), ***dharma***, ***adharma***,
+***ākāśa*** (space), and ***kāla*** (time).
+
+**And *dharma* and *adharma* here are not virtue and vice.** They are technical:
+***dharmāstikāya*** is **the medium that makes motion possible**, and
+***adharmāstikāya*** is **the medium that makes rest possible.** **Neither causes
+motion or rest** — the stock similes are **water for a fish**, which does not push
+the fish, and **the shade of a tree for a traveller**, which does not stop him.
+
+**They are conditions of possibility, named as substances, with the explicit
+statement that they are not causes.**
+
+**And *astikāya* means "extended body"** — having spatial extent, occupying
+*pradeśas*, points of space. **Five of the six are *astikāya*.**
+
+***Kāla* is not.** Time is the sixth substance **and it is the one that has no
+extension**, and its function is stated separately: it is the condition of
+**alteration** — *vartanā* — of continuity, of change, of prior-and-later.
+
+**So in this system, becoming-later is a substance's job, and that substance has no
+size.**
+
+**And the *samaya* is the smallest unit**: the time an atom takes to move one
+*pradeśa* of space at the slowest speed. **The definition is a ratio of space
+traversed to the slowest available motion**, which makes the time unit a derived
+quantity of the space unit and the motion, **not a prior container.**
+
+**And Jain cosmology gives *loka*, occupied space, a definite shape and a definite
+extent** — the standing figure, hands on hips — **surrounded by *aloka*, space with
+nothing in it**, which is infinite. **Space is unbounded and the world is bounded,
+and the boundary is drawn by where the media of motion and rest reach.**
+
+**A soul at liberation rises to the top of the *loka* and stops there** — **and the
+stated reason it stops is that the medium of motion does not extend further.**
+
+**Not a wall. The absence of the condition that made moving possible.**
+
+---
+
+**And the counting of time in that cosmology runs to units that are defined and then
+declared uncountable.**
+
+**Jain mathematics distinguishes three orders of number**: ***saṃkhyāta***
+(countable), ***asaṃkhyāta*** (uncountable), ***ananta*** (infinite) — **and
+subdivides each further**, so that "innumerable" is not one thing but a graded
+sequence of distinct magnitudes, and *ananta* likewise.
+
+**The *Anuyogadvāra Sūtra*** carries the definitions, along with the operation of
+repeated squaring and the laws of indices, **and the taxonomy arises from cosmology
+and karma theory** — from needing to say how many *pradeśas* a soul occupies, how
+many karmic particles bind, and how long a *palya* or a *sāgara* lasts.
+
+**The *palyopama* is defined by a procedure**: a pit of stated dimensions packed
+with the finest hairs, one removed per unit interval, **the time to empty it being
+the unit.** **The *sāgaropama* is 10¹⁴ *palyopamas*.**
+
+**A unit of duration defined as the completion time of an algorithm.**
+
+---
+
+**And the human case has its own duration constants and they are measured.**
+
+**Myelination of the prefrontal cortex continues into the mid-twenties**, and is one
+of the last regions to complete; **synaptic pruning in that region likewise runs
+into the third decade.**
+
+**Which is a physical fact about the timing of a specific tissue**, and it is why
+the developmental literature stops treating twenty-five as an ordinary birthday.
+
+**And the epigenetic layer is inherited without being genetic.** **The Dutch Hunger
+Winter cohort** — conceived during the famine of **1944–45** — shows measurable
+**differences in DNA methylation at the *IGF2* locus six decades later**, in people
+whose exposure was **in utero**, and **the effects are detectable in the following
+generation.**
+
+**A famine that ended in May 1945 is legible in a chemical mark in 2008.**
+
+**And the Överkalix cohort studies** in northern Sweden, working from **nineteenth-
+century parish harvest and mortality records**, report associations between a
+**paternal grandfather's food supply during his own slow growth period** and
+mortality in the grandchild.
+
+**Three generations, from parish records.**
+
+**The organism carries the duration.** A record of what a body was in, for how long,
+at which stage — held in the body, not in a document, and readable now.
