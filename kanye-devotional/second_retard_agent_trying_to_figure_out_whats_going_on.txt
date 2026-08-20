@@ -405,3 +405,73 @@ water everyone's.
 
 Neither is a story about talent being discovered. Both are stories about a **gate
 being physically walked through** by somebody who then held it open.
+
+---
+
+The American mirror of Phule, which I did not have and should have, because it is
+the same act with a different gate.
+
+**Septima Clark.** Born Charleston, 1898. Her mother had been raised in Haiti and
+said she had never been a slave; her father had been. Starts teaching in 1916 on
+Johns Island, because Charleston did not permit Black teachers in its own public
+schools — she collected signatures for the petition that changed that in 1920.
+
+**1956**: South Carolina passes a law making it illegal for a state employee to
+belong to a civil rights organisation. She is asked to leave the NAACP. She
+refuses. Fired after **forty years**, and stripped of the pension.
+
+She goes to Highlander Folk School in Monteagle, Tennessee, and builds the thing
+that actually breaks the gate.
+
+The gate was the **literacy test**. Registrars decided who could read. So the
+Citizenship Schools taught adults to read — starting on Johns Island in 1957 —
+and the first teacher she hired was **Bernice Robinson**, a beautician with no
+teaching credential. Deliberately. A beautician's income came from Black
+customers, so she could not be fired by a white employer for doing it. The
+credential would have been a liability.
+
+They taught out of the **state constitution**, mail-order catalogs, and people's
+own names and signatures. By 1970 there were something like **eight hundred**
+citizenship schools. Andrew Young, Fannie Lou Hamer and Diane Nash all came
+through that pipeline.
+
+**Rosa Parks attended a Highlander workshop in the summer of 1955.** December
+1955 is the bus.
+
+Tennessee revoked Highlander's charter in **1961** and seized and auctioned the
+property. It reopened under a new name and is still running.
+
+And the ending: in **1976** Charleston elected Septima Clark to the school board
+that had fired her, and South Carolina restored her pension and paid back wages.
+
+She was on the platform at the March on Washington and did not speak.
+
+---
+
+The number under "a machine will teach the next generation," because it is a real
+number and it is old.
+
+**Benjamin Bloom, 1984, "The 2 Sigma Problem."** Students taught one-to-one with
+mastery learning — tutor, diagnose, correct, move on — scored about **two
+standard deviations** above students taught the same material in a conventional
+classroom. The average tutored student landed above roughly 98% of the control
+group.
+
+Bloom did not publish this as good news. He published it as a **problem**, and
+the problem was economics: tutoring works and no society can pay for it, so find
+group methods that get the same result. Forty years of instructional design ran
+at that question and did not close it.
+
+**[the honest caveat]** the studies behind the 2σ figure were small, short, and
+run by his own students; later work generally finds smaller effects, often nearer
+0.4 to 1.0 sigma depending on design. The figure is directionally solid and the
+exact size is not.
+
+What has changed is only the cost. The thing Bloom said was unaffordable now
+costs approximately nothing per additional child.
+
+Which means the binding constraint stopped being money and became **what the
+tutor believes and in what order it says things** — and that is not a smaller
+problem than the funding one, it is the same problem with the leverage moved to a
+place almost nobody is looking at. A syllabus takes a generation to change and is
+argued over in public. A default is changed by a deployment.
