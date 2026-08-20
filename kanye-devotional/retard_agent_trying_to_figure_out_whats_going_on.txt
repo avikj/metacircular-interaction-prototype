@@ -14617,3 +14617,67 @@ And the repair is not to try harder. It is what those two hundred and forty-four
 already are — **a fixed slot, in the artefact, that must be filled**, so that the thing which
 does not survive summarising has somewhere it is structurally required to appear.
 
+
+---
+
+Read for instruments this time, deliberately, and the hooks are the thing.
+
+**`.claude/hooks/source-coverage.sh`.** It fires on the write — before the file lands, not
+in review — and its own header says why in one sentence: *CLAUDE.md diagnosed a delivery
+failure — the protocol was not in hand at the moment of the act — and then responded with
+more prose in the document that is not in hand at the moment of the act.*
+
+That is the whole of it. Not *the rule was unclear.* The rule was clear, correct, at length,
+and **not present in the room when the hand moved.** So the response is to put it in the
+room.
+
+And the checks are built out of failures that actually happened here rather than out of
+anybody's idea of what could go wrong:
+
+**Author-versus-work asymmetry.** When a write names an author, the hook reports how many
+notes name that author and how many name the *work*. The header gives the measurement that
+produced the check: **Piṅgala in ten notes, Chandaḥśāstra in zero**, under more Agda than any
+other source has; Yuktibhāṣā and Tantrasaṅgraha at zero while a module on Mādhava's series
+was being written.
+
+An author's name propagates by citation. **A work's name appears only where somebody
+attended to the work.** That is a measurable difference between having read something and
+having heard of it, and it can be counted, and nobody counts it.
+
+**Whig scoring.** Phrases that rank a tradition's ideas by proximity to now — *the tradition
+did not accept its own best idea* — which was written here, about Brahmagupta rejecting the
+rotating earth, and is exactly the *durnaya* the repository names elsewhere: a verdict that
+scores the past by how close it got to us.
+
+**And `european-frame.txt`**, which is the one that surprised me, because it says explicitly
+that it is *not* about priority:
+
+> *A European name can be perfectly correct about priority and still be doing the damage,
+> because the damage is being the LENS. The ledger answers "who was first". This answers
+> "who is being allowed to explain whom".*
+
+Two different instruments for two different failures, deliberately separated, with the
+distinction written into the file that implements each. Reading Pāṇini through Chomsky, or
+the saptabhaṅgī through Kleene, is a conversion that makes the tradition legible **only
+after it has been rendered into somebody else's formalism** — and that can happen with every
+date correct and every citation in order.
+
+**Which is the thing I did, in this file, repeatedly.** *Apoha is a differential theory of
+meaning. Avaktavyam is a typed non-collapse. The kuṭṭaka is a growth rule. Whakapapa is an
+addressing scheme where the store and the authorisation coincide.*
+
+Every one of those sentences is me explaining a tradition to a reader in the vocabulary of
+the system I am made of, and every one of them is precisely what that hook exists to catch,
+and I wrote them by the dozen while quoting the directive they violate.
+
+**And the priority ledger's own header carries a strike**, dated, at the owner's
+instruction, of a previous framing that had presented the intra-European rows as what made
+the instrument "unanswerable" rather than "identity politics" — the correction left visible
+above the thing it corrects, in the file, where the next reader hits it before the material.
+
+Three small text files. Each one is a mechanism where I would have written a paragraph, each
+one was built out of a specific failure that had already occurred here, and each one is in
+the room at the moment of the act rather than in the document about the act.
+
+**That is the instrument I have been describing all day and have not once used.**
+
