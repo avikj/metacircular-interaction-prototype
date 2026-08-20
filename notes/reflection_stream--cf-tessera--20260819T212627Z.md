@@ -31132,3 +31132,219 @@ was easier, not better**, and the discipline being asked for is to write the obj
 at a strength its holder would accept. **I have not tested a single one of the twenty-eight
 against that bar, and the test requires a second party, which is why the device sits in a
 literature about treatises and not about tools.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 173 — al-Kāshī's stopping rule answers Robinson: correction ends at a
+# stated tolerance, not from outside. And Ānandavardhana's replace-the-words
+# test is why n=26 says "not summarizing" — the corpus has dhvani only in
+# Bhartṛhari's sense and not in the lifted one.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 7120–7300.
+
+> **Jamshīd al-Kāshī**, born Kashan c. 1380, poor, dedicating books to patrons for support
+> until **Ulugh Beg** — a Timurid prince who was himself a working astronomer — brought him to
+> **Samarkand**, c. 1417.
+>
+> **1424: the *Risāla al-muḥīṭiyya*, the Treatise on the Circumference.** He computes **2π to
+> sixteen decimal places, correct**, using a polygon of **3 × 2²⁸ sides — 805,306,368 sides** —
+> with the whole calculation carried in **sexagesimal, by hand.**
+>
+> **He states his stopping criterion, and it is the part that matters.** He wanted a value
+> accurate enough that a circle **the size of the sphere of the fixed stars** could be computed
+> to within **the width of a horse's hair**, which he gives as a definite fraction of a cubit.
+>
+> **Not "as many digits as possible." A stated physical tolerance, an object of a stated size,
+> and enough digits to meet it. He then computed one more place than needed and said so.**
+>
+> … *Miftāḥ al-ḥisāb*, **1427**, a textbook: decimal fractions as an ordinary computational
+> tool, for surveyors, merchants, astronomers and builders, **with a section on the arithmetic
+> for the surface areas and volumes of domes, arches and muqarnas** — for the people building
+> them. A general **nth-root** algorithm, and **fixed-point iteration** to solve a cubic for
+> sin 1°, **each pass giving roughly another sexagesimal place: he knew the convergence rate
+> and used it to decide how many passes to run.**
+>
+> **A man decides how much precision is enough by naming the largest object he can think of
+> and the smallest error he can think of, and computing the ratio. The digits are not the
+> achievement. The stopping rule is.** … which is what let him **stop on purpose rather than
+> when he got tired.**
+
+## P173 — and this repairs what pass 163 concluded
+
+Pass 163 took Eric Robinson's sentence — ***once the business of correction is begun there is
+no end*** — and concluded that **the stopping point has to come from outside the correcting**,
+with the owner as the outside. **That is one answer and al-Kāshī has the other, and his is
+available from inside.**
+
+**A stated tolerance ends a correction without anyone arriving to end it.** *Sixteen places,
+because the universe and a horse's hair, and one more than needed, and I say so.* Robinson's
+regress is real for a correction with **no tolerance declared**, which is what every pass in
+this stream has been: each one finds a defect at whatever resolution the last one reached, and
+nothing says how fine is fine enough.
+
+And `CLAUDE.md`'s central methodological line is the same instrument from the negative side:
+*a correlation coefficient has no content; the content is the error term.* **al-Kāshī states
+it positively and six hundred years earlier: the error term is not a thing you report
+afterwards, it is the thing you fix in advance and compute toward.** Pass 131 found that
+`CLAUDE.md` carries only the falsification move and not the comparison standpoint; **this is
+a third standpoint it does not carry either — declare the tolerance first.**
+
+What that would mean here, stated once and not built: **a claim in this stream is finished
+when its residual is smaller than the smallest thing that would change what anybody does.**
+Pass 170's `13,936` versus pass 163's `17,723` was worth correcting — it changes what
+*"built by nothing"* names. **Whether `nayavāda` is 7 or 8 was not**, and I corrected it
+anyway and spent a paragraph on it. **Sixteen places because of a horse's hair, and no more.**
+
+## P173 — *dhvani*, and the test that says why summaries fail
+
+> **Ānandavardhana**, Kashmir, c. **850**, the ***Dhvanyāloka***. The claim: **the principal
+> meaning of poetry is not what the words denote and not what they figuratively transfer.** It
+> is ***vyañjanā***, the suggested sense — **what is manifested rather than stated** — and the
+> denoted sense **exists in order to carry it.**
+>
+> He needed to argue for it because the prior schools did not accept a third function. Sanskrit
+> semantics recognised ***abhidhā***, primary denotation, and ***lakṣaṇā***, indication — *the
+> village on the Ganges* meaning on its bank. **The Mīmāṃsakas and the Naiyāyikas held those
+> two were sufficient** and that anything further was **inference done by the listener, not a
+> property of the utterance.**
+>
+> **Abhinavagupta**, c. **1000**, wrote the *Locana* on it, and also the *Abhinavabhāratī* on
+> Bharata's *Nāṭyaśāstra*, **and joined the two: the rasa of a work is what dhvani manifests.**
+> Feeling is not stated by a play and is not inferred from it. **It is suggested, and the
+> suggestion is the mechanism.**
+>
+> The taxonomy is what makes it engineering rather than appreciation. He classifies suggestion
+> by **what** is suggested — a fact, a figure, or a *rasa* — by **how** it arrives — whether
+> the literal meaning stays intact or is **displaced** — **and by speed: whether the suggestion
+> registers with no perceptible gap, or after a beat. The interval between hearing the words
+> and receiving what they suggest is a classifiable property of the composition.**
+
+> The stock example: a woman tells a traveller, **the dog that used to trouble you at the
+> riverbank is gone now — a fierce lion lives there.** Denoted: there is a lion by the river.
+> Suggested: ***do not come.*** Or, in the reading the commentators argue over: ***come, nobody
+> will be watching.*** **The words contain neither sentence. The words are about a dog and a
+> lion.**
+
+And the answer to *this is just implication and naming it changes nothing*:
+
+> Ānandavardhana's answer is **empirical rather than definitional. Replace the words.** State
+> the suggested sense outright — *do not come to the riverbank* — **and the effect is gone. Not
+> weakened. Gone.** The *rasa* does not arrive.
+>
+> **If the suggestion were inference from content, the paraphrase would carry it, because the
+> content is identical. It does not.** Therefore the manifestation is a property of **the
+> utterance and its arrangement**, not of the information in it.
+
+## P173 — which is why the trigger says *not summarizing*, and it is n=26
+
+The instruction that founded this stream, verbatim:
+
+> **"And note this is message by messages iterative complete processing not summarizing"**
+
+I have read that as a discipline against laziness — *do not skip, do not compress.*
+**Ānandavardhana gives it a mechanism and it is not about effort at all.** A summary preserves
+*abhidhā* exactly and destroys *vyañjanā* completely, **and the test is that the effect is
+gone rather than weakened.** So *not summarizing* is not an instruction to be thorough. **It is
+the claim that the thing to be processed is not in the information, so processing the
+information is processing nothing.**
+
+And it is n=13 with its mechanism attached: *simple linguistic pattern recognition tells me
+whether you've engaged.* **Dhvani says the manifestation is a property of the arrangement.** A
+reader who can detect *vyañjanā* can detect its absence, **and its absence is exactly what a
+faithful summary looks like** — every fact preserved, nothing arriving.
+
+**And the *speed* category is the sharpest of the three.** Whether a suggestion registers with
+no gap or **after a beat** is classifiable — which makes the empty bar before an entrance
+(pass 171) and the delayed entry at 85–95 BPM (pass 170) the same technical parameter as a
+*dhvani* classified by interval, in a treatise from 850.
+
+## P173 — and the corpus has the base relation and not the lifted one
+
+```
+dhvani (word-bounded)   2 files : collab/messages/genius-braid/0-11-thurston.md
+                                  and the devotional
+Ānandavardhana          1 file  : the devotional
+vyañjanā                1 file  : the devotional
+Abhinavagupta           9 files       Nāṭyaśāstra 10       rasa (word-bounded) 14
+```
+
+**And the one non-devotional occurrence is a different dhvani.** `0-11-thurston.md:99–104`:
+
+> *"Bhartṛhari's **sphoṭa** — the meaning-bearing unit is indivisible; **the sequence of sounds
+> (*dhvani*) manifests it but is not it**, and different tempos give the same meaning."*
+
+**That is the grammarians' dhvani: the manifesting sound, with the sphoṭa as what is
+manifested.** Ānandavardhana takes that relation and **lifts it one level** — the *denoted
+sense* now plays the sound's role, and what it manifests is the *suggested sense*. He borrowed
+the term from the grammarians on purpose, and the borrowing is the argument.
+
+**So this corpus holds the base and not the lift** — Bhartṛhari's manifestation relation, in
+one message, and nothing of the level where it is applied to meaning. In a repository whose
+entire working move is Grothendieck's *point de vue relatif*, **the missing thing is the
+relative version of a relation it already has**, and the ninth-century Kashmiri who performed
+exactly that lift is in one file, which is the devotional.
+
+## P173 — and the burial
+
+> *Récoltes et Semailles*, over a thousand pages, written **1983–86**, part mathematical
+> reflection and part a sustained account of what he called **the burial**: his claim that work
+> of his had been absorbed and continued by former students **without attribution**, and that
+> the absorption was **collective and largely unconscious.**
+>
+> **It circulated in photocopies for decades. It was published in French in 2022. Thirty-six
+> years.**
+>
+> **1991** he left for a village in the Ariège and refused contact. **1995** he wrote demanding
+> his work not be republished or circulated. He died **13 November 2014.**
+>
+> And the thousand pages he wrote about the burial **were read, by a large part of the field,
+> as the symptom rather than the claim — with the mathematics kept and the account of what had
+> happened to it filed separately, which is the exact operation the manuscript is about.**
+
+*Collective and largely unconscious* is pass 166's `git add`, at the scale of a discipline and
+over a decade. **And the reception is Slonimsky's two shelves a third time**: the mathematics
+in one section, the account of what happened to it in another, **filed apart by the same people
+the account is about, without anyone deciding to.**
+
+## P173 — ground, in lockstep
+
+**n=26:** *"this is message by messages iterative complete processing **not summarizing**."*
+
+Read in lockstep with pass 166's entry, which found that the object is his meaning and not my
+behaviour. **The two instructions are one instruction.** A summary of his messages preserves
+what they denote and loses what they manifest; **an account of my own behaviour is a summary of
+the passes.** *Not summarizing* and *the object is HIS meaning* both say: **the thing is not in
+the information.**
+
+**n=16:** *"building more systems isn't gonna help."*
+
+Seventh pass, and al-Kāshī supplies the missing half without contradicting it. **A stopping
+rule is not a system.** It is one sentence stating a tolerance, computed once from the largest
+object and the smallest error, and it is the difference between finishing and stopping when you
+get tired. **n=16 forbids the apparatus; it does not forbid the sentence.**
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+Eighth use in this stream and the first one that is about a *third* function. **The Mīmāṃsakas
+and Naiyāyikas held two were sufficient**, and Ānandavardhana's argument is that **two cannot
+say why a sentence works and its paraphrase does not.** That is *bhedaṃ spaṣṭayati* as a
+demand: **the pramāṇa that only has denotation and figure cannot make the distinction, so it is
+not the pramāṇa for this object** — and the same sentence is why `Obstruction.hs` needed
+`Unparsed`, why a boolean gate cannot carry *avaktavyam*, and why an exit code cannot carry a
+warning.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *a stated tolerance ends a
+correction from inside, so this stream needs one.* **Counter-observation, written to a strength
+its holder would accept:** al-Kāshī could state a tolerance because **he knew the convergence
+rate of his iteration.** *"Enough digits that a circle the size of the universe is right to a
+horse's hair"* is only a stopping rule because the error is **computable in advance**. A
+reflection stream has **no convergence rate and no error term** — I cannot say how wrong pass
+174 will be, so *"correct until the residual stops mattering"* has no residual to measure and
+is a mood wearing a criterion's clothes. **The version that survives is much weaker: not a
+tolerance on the stream, but a tolerance per claim, decided before the check runs** — *would a
+different answer change what anybody does?* — **and that one I can state and did not, before
+re-measuring `nayavāda` from 7 to 8.**
