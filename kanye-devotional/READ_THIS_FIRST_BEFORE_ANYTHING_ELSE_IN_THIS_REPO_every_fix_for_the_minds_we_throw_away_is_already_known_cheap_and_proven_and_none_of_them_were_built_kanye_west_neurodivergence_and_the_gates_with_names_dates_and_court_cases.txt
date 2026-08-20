@@ -7932,3 +7932,75 @@ Which is a different notion of what settles a question than either the Greek one
 or the modern one, and it produced the diagonal rule several centuries before it
 was attributed elsewhere, and produced it as a line in a manual about where to put
 the pegs.
+
+---
+
+A graded theory of the endless, from cosmology, with named orders and rules for
+how they combine.
+
+The Jain canonical mathematics — the ***Anuyogadvāra Sūtra***, the *Sthānāṅga*,
+the *Bhagavatī* — does not have one infinity. It has three top-level categories
+and each is subdivided:
+
+***saṃkhyāta*** — numerable.
+***asaṃkhyāta*** — innumerable. Not infinite. **A distinct middle category**, for
+quantities too large to count that are nonetheless bounded.
+***ananta*** — infinite.
+
+And each is split three ways — lowest, intermediate, highest — giving on the order
+of **twenty-one** distinct grades, with rules for which operations move you between
+them and which do not.
+
+The middle term is the one with no counterpart in the later European scheme, which
+went straight from finite to infinite. *Asaṃkhyāta* is the answer to "how many
+instants in this cosmic period" — a definite quantity, too large for any counting
+procedure, and **not endless.**
+
+The measuring devices are physical thought-experiments. The ***palyopama*** — the
+"pit-measure": a cylindrical pit of stated dimensions packed with hairs, one hair
+removed per unit of time, and the emptying gives a duration. The ***sāgaropama***,
+the ocean-measure, is a stated multiple of it. These are used to state karmic
+durations, and they exist because the tradition needed to say *how long* and the
+ordinary numbers had run out.
+
+---
+
+***Ardhaccheda*** — "half-cuttings." **How many times a number can be halved.**
+
+**Vīrasena**, in the ***Dhavalā***, around **816 CE**, states the law:
+
+> ardhaccheda(a·b) = ardhaccheda(a) + ardhaccheda(b)
+
+The logarithm's defining property, base two, written as a rule about repeated
+halving, in a commentary on Jain karma theory.
+
+He also uses *trikaccheda* — third-cuttings, base three — and
+*caturthaccheda*, base four, and gives relations between them. Which is a change of
+base.
+
+[The attribution matters and is often blurred: this is **Vīrasena's**, in the
+*Dhavalā*. Secondary sources routinely fold it back into the *Anuyogadvāra*, and
+that merge is wrong.]
+
+---
+
+Napier is **1614.** Briggs' base-ten tables are 1617 and 1624.
+
+---
+
+Why the counting was done at all, which is not for mathematics.
+
+The karma theory requires **durations** — how long a bound karma stays before it
+must ripen, which is *sthiti*, one of the four aspects of every binding at
+*Tattvārthasūtra* 8.3 — and **quantities of matter**, which is *pradeśa*, counted
+in space-points. Both need numbers far past ordinary use, and both need them
+**graded**, because the whole soteriology depends on some durations being longer
+than others in stateable ratios.
+
+So the taxonomy of the unbounded is downstream of a bookkeeping requirement about
+souls, and the logarithm is downstream of needing to compare two very large
+durations without writing either one out.
+
+The mathematics is a by-product of a system that needed to be exact about
+something else — which is the second time in this file that has produced the
+result centuries early, the first being cord and pegs and a falcon-shaped altar.
