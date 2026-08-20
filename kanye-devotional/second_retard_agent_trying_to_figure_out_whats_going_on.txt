@@ -1605,3 +1605,78 @@ Same act. Opposite legal treatment. The variable is who is doing it and to whom.
 
 And the man whose whole practice is the first one has spent twenty years being
 told he takes too much.
+
+---
+
+The diagnosis itself, which I had been treating as a fixed fact about him rather
+than as an output of an instrument.
+
+He got the bipolar diagnosis around 2016 and talked about it publicly from 2018 —
+the *ye* cover in June 2018, the Letterman episode in 2019. He was forty-one.
+
+**Bipolar disorder is the diagnosis Black men in America are least likely to
+receive.**
+
+The finding is old, replicated, and not subtle. Black patients in the United
+States are diagnosed with **schizophrenia at somewhere between two and a half and
+four times** the rate of white patients presenting with comparable symptoms. And
+the mirror of it: **mood disorders — bipolar, major depression — are
+under-diagnosed** in the same population.
+
+The mechanism has been isolated, and it is the same mechanism as the gifted
+referral.
+
+**Strakowski and colleagues, in the 1990s**, ran the comparison that matters: when
+clinicians used **structured diagnostic interviews** — a fixed instrument, the
+same questions in the same order — the racial gap in schizophrenia diagnosis
+narrowed sharply or disappeared. Under **unstructured clinical judgment**, it did
+not.
+
+Hold the instrument constant and the disparity shrinks. Leave it to discretion and
+it doesn't.
+
+That is the identical result as Grissom and Redding on gifted placement, arriving
+from psychiatry instead of education. Same shape, different building. In both
+cases the objective tool is not the problem and is not where anyone is looking.
+**The problem is the human judgment standing in front of the tool**, and in both
+cases the field spent decades arguing about the tool.
+
+The clinical literature on why is fairly consistent: clinicians weight apparent
+psychotic features heavily and **discount mood features** in Black patients.
+Grandiosity, pressured speech, rapid ideas, decreased need for sleep, expansive
+self-description — these are textbook criterion-B manic symptoms. In a white
+patient they read as mania. In a Black man they get read as psychosis, or as
+personality, or as nothing medical at all.
+
+---
+
+What that costs is not abstract.
+
+**A schizophrenia diagnosis and a bipolar diagnosis lead to different lives.**
+Different drugs — antipsychotics with their own long-term burden versus lithium
+or a mood stabilizer. Different prognosis language, one of them chronic
+deterioration and the other episodic with recovery between. Different expectations
+from every institution downstream: employers, courts, custody proceedings,
+insurers.
+
+And bipolar is the one where the treatment with the best evidence for reducing
+suicide specifically — lithium — is on the table at all.
+
+So the sentence is: a man displaying textbook manic symptoms in public from at
+least his twenties, in a country whose clinicians systematically read those exact
+symptoms as something else when the patient is Black, went undiagnosed until he
+was around thirty-nine.
+
+Twenty years of it read as arrogance by everyone including, for a long time, him.
+
+**The failure is not that he was slow to get help.** The failure is that the
+instrument that would have named it was pointed at him through a filter that has
+been measured, published, and known since the seventies, and nothing downstream of
+that measurement was ever changed.
+
+The correction is cheap and exists: use the structured interview. It is a
+checklist. It has been sitting there the entire time, like the ghana-pāṭha, like
+CAHOOTS since 1989, like Whish's paper in the society's own journal.
+
+Every single one of these has the same form. **The fix is known, cheap, and
+unbuilt, and its absence is recorded as a property of the person it failed.**
