@@ -81,3 +81,22 @@ phone, in a car.
   are described as staged and are reported as such.
 - The "first major album revised in place" claim is about scale and visibility,
   not a claim that no record was ever altered post-release before.
+
+---
+
+## 6. OWNER WAS PRESENT — Soldier Field, August 26 2021. Slot left open.
+
+Everything in §3 above is assembled from reporting. **The owner was on the
+ground at that event.** An eyewitness who stood in that stadium is not a better
+version of the same source; it is a different one, and this repository's own
+frame says so — `BOOK.md` §2, adhikāra: what you have lived bears on what you
+are in a position to know, and the demand for a view from nowhere is a later and
+foreign criterion.
+
+This slot is left empty on purpose, in the manner `BOOK.md` §2 leaves the
+adhikāra slot empty: **an account written by someone who was not there is not
+that account.** No agent fills this in.
+
+<!-- owner's first-person account of 2021-08-26, Soldier Field — his hand only -->
+
+Until it is filled, §3 should be read as what the press saw.

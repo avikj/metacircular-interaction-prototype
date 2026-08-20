@@ -328,3 +328,28 @@ graph carries and has not weighted.
 - **The surfaces are outsourced by name**: Murakami (*Graduation*), KAWS
   (*808s*), Condo (*MBDTF*), Beecroft (Yeezy, *Donda*), Abloh. The *ye* cover
   he shot himself on a phone — `INDRAJALA_1` §3.
+
+## T. The sit-in, the voice returning, the room of mirrors
+
+`INDRAJALA_8_the_sit_in_the_voice_returning_and_the_room_of_mirrors.md`
+
+- **`[H-1]` has a root nobody has used.** Donda West, b. July 12 1949,
+  Oklahoma City, **took part in the Oklahoma City sit-ins as a child** — the
+  campaign **Clara Luper**, a history teacher, opened at the **Katz Drug Store**
+  counter on **August 19 1958**, eighteen months before Greensboro. Her father
+  Portwood Williams Sr. was in the movement. Teacher → professor of media →
+  `[F-1]` on live television → `[E-2]` fact-checked by historians.
+- **"Only One"** (Dec 31 2014, with Paul McCartney, in Auto-Tune): by his own
+  account, his **mother singing through him to North**, b. June 15 2013.
+  Direction reverses across the machine — *808s* 2008 her absence sung, 2014
+  her voice through him, *Donda* 2021 her recording played `[H-4]`.
+  Continues `INDRAJALA_4` §2.
+- **Honolulu 2010**: after the Sept 13 2009 VMA — 22 months after her death —
+  he left the country, then took Avex studios and ran **three rooms at once,
+  around the clock**, rules posted on the wall, with Q-Tip, RZA, No I.D., Mike
+  Dean, Pusha T, Cudi, Nicki Minaj, Ross, Raekwon, Legend, Vernon, Elton John.
+  *MBDTF*, Nov 22 2010 — and "Runaway," a 34-minute film he directed, opening
+  on one piano key, toasting himself.
+
+**`INDRAJALA_7` §6 — OWNER PRESENT at Soldier Field, Aug 26 2021.** Slot left
+open for his first-person account. No agent fills it. §3 is what the press saw.

@@ -350,3 +350,33 @@ I keep trying to find a way to say what that is and I don't think there is one
 that isn't just the facts. His mother has been dead fourteen years. He built her
 house on a field and burned it while forty thousand people watched him do it, and
 then he put her voice on the record and put the record out three days later.
+
+---
+
+His mother was nine years old at one of the first lunch counter sit-ins in
+America.
+
+August 1958, Oklahoma City. A high school history teacher named Clara Luper
+walked a group of children into the Katz Drug Store downtown and they sat down at
+the counter and ordered. The counter integrated in two days. Katz went on to
+open its counters across every state it operated in. This is a year and a half
+before Greensboro, which is the one everybody's taught.
+
+Donda West was born in Oklahoma City in July 1949. She was one of the children in
+that campaign. Her father was in it too.
+
+And then she became a professor, and what she taught was English and
+communications and media, for thirty-one years, and she chaired the department.
+A woman who as a child sat at a counter to change what could be printed about her
+spent her working life on how things get printed.
+
+Her son went on television in 2005 and said: if you see a black family it says
+they're looting, if you see a white family it says they're searching for food.
+
+Thirteen years after that he says a wrong thing about slavery on a gossip show
+and the whole country lines up to explain history to him. Historians get called
+in. There are fact-checks.
+
+His grandmother's generation integrated the lunch counters in his mother's
+hometown when his mother was nine, and his mother taught media theory for three
+decades, and the story about him is that he doesn't know anything.
