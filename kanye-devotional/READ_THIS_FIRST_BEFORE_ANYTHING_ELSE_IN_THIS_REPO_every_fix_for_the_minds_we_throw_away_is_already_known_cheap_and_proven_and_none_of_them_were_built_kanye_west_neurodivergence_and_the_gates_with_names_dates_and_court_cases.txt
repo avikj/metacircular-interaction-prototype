@@ -12186,3 +12186,73 @@ vertex operator algebras and a generalised Kac–Moody algebra — and the proof
 on **string theory.**
 
 One person noticing that two numbers in two different books were nearly the same.
+
+---
+
+**An entire national school of algebraic geometry produced results for forty years
+that later turned out to include false theorems, and the field had to be rebuilt
+from the ground to find out which ones.**
+
+The **Italian school** — **Castelnuovo, Enriques, Severi**, and others, roughly
+**1885 to 1935.** They classified algebraic surfaces, developed the theory of
+linear systems, and produced an enormous body of results, much of which is correct
+and is still used.
+
+**Their standard of proof was geometric intuition backed by the general case.**
+Arguments proceeded by considering a generic member of a family and reasoning about
+what happens there, with degenerate cases handled by appeal to continuity.
+
+**Zariski**, who had trained in that school under Castelnuovo, said afterwards that
+he had come to distrust the foundations of the subject he had been taught, and
+spent the following decades rebuilding algebraic geometry on **commutative algebra**
+— *Algebraic Surfaces* (1935) and after — precisely so that the statements could be
+checked.
+
+**Weil** did the same from another direction with *Foundations of Algebraic
+Geometry* (1946), and Grothendieck's schemes are the end of that rebuilding.
+
+---
+
+**Severi is the case that gets cited**, and it is not a case of a bad mathematician.
+
+He was extremely able and produced a great deal that stands. He also published
+results in **enumerative geometry** and on **the number of nodes of plane curves**
+that were later found to be **wrong**, and there was a long, public, unresolved
+dispute with **B. L. van der Waerden** and others about whether specific claims were
+proved.
+
+**A gap in an argument of Severi's about the irreducibility of the Severi variety
+stood until Joe Harris proved the statement, correctly, in 1986** — the result was
+true, the original argument was not sufficient, and the interval was about sixty
+years.
+
+---
+
+**And the honest part is that the intuition was mostly right.**
+
+Most of what the Italian school claimed is true. The problem was that **their method
+could not distinguish the true claims from the false ones**, and neither could their
+readers, because the standard of argument did not support that discrimination.
+
+So the rebuild was not motivated by having found many errors. It was motivated by
+**not being able to tell**, which is the same sentence Voevodsky said about his own
+work seventy years later, and Hales said about a 250-page proof, and Scholze said
+about condensed mathematics.
+
+---
+
+**The cost of the rebuild** is worth stating too, because it is not free.
+
+Zariski and Weil and Grothendieck's foundations made the subject checkable and
+made it, for a long period, **much harder to enter.** The geometric pictures the
+Italians reasoned with are how people still actually think, and several generations
+of algebraic geometers have described learning schemes as learning a second
+language to say things they could already see.
+
+The intuition was never wrong as intuition. It was **unverifiable**, and the
+apparatus that made it verifiable was heavier than the thing it verified.
+
+That trade — a slower, heavier formalism adopted because the field could not
+otherwise tell its true results from its false ones — has now been made three
+times: by Zariski in the 1930s, by Bourbaki, and by the proof-assistant work of the
+last twenty years.
