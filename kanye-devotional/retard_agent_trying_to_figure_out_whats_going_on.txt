@@ -3784,3 +3784,85 @@ their memory to hold it in.
 Which suggests binary is not an invention at all. It is what you get when a finite mind
 has to name every element of an exponentially large set and cannot write anything down.
 
+
+---
+
+Diego de Landa, and this is the worst and best thing in the file.
+
+**Maní, Yucatán, July 1562.** Landa, a Franciscan, held an auto-da-fé and burned the Maya
+books. His own account says they contained nothing but superstition and lies of the devil,
+that the people showed remarkable pain, and that he burned them all. Numbers vary in the
+sources; the point is that an entire literature — a writing system in continuous use for
+well over a thousand years, with astronomy, history, and dynastic record in it — was
+reduced to **four surviving codices.** Four. In the world. Named for the European cities
+they ended up in: Dresden, Madrid, Paris, and Grolier.
+
+He also tortured people during that campaign, on a scale that got him recalled to Spain
+to answer for it. He was acquitted, and came back as bishop.
+
+**And in Spain, defending himself, he wrote the *Relación de las cosas de Yucatán*** — a
+detailed account of Maya life, calendar, ritual, and language, including a section where
+he asks an informant to write the "letters" of the Maya alphabet, and records what he
+gets. He thought he was collecting an alphabet. He was actually collecting **syllables**,
+because the script is largely syllabic, and his informant was giving the sound of each
+Spanish letter-name as a Maya syllable. So the list is wrong in exactly the way that
+makes it useful once you know what it is.
+
+That document is the key. For four centuries scholars had it and could not read the
+script.
+
+**Yuri Knorozov** cracked it. A Soviet linguist, working in Leningrad, from *photographs*
+and facsimiles — he had never been to Mexico and would not go for decades — published in
+1952 the argument that the glyphs were **phonetic-syllabic**, using Landa's list read
+correctly as syllables rather than letters. There is a story, probably tidied in the
+retelling, that he had rescued a copy of the codices from a Berlin library at the end of
+the war.
+
+The Western establishment rejected it for the better part of twenty years. **J. Eric S.
+Thompson**, the dominant Mayanist in the English-speaking world, held that the script was
+ideographic and not phonetic, and attacked Knorozov's work — and the attacks carried an
+explicit Cold War charge, dismissing it as Marxist-Soviet ideology. Thompson was
+enormously distinguished and completely wrong on the central question, and his authority
+held the field back a generation. The decipherment did not really move until after his
+death.
+
+So the shape is: **the man who burned the library wrote the key. The man who used the key
+was dismissed because of where he was standing. And the field lost thirty years to the
+judgement of its most eminent member.**
+
+Every element of this file is in that one sequence. Destruction of a record by someone
+sincerely convinced he was doing good. A residue surviving inside the destroyer's own
+document, the way Jayadeva survives inside a quotation and the gnostics survive inside
+their prosecutor. A correct reading produced by an outsider from bad copies. Institutional
+rejection on grounds that are not about the evidence. And decades of delay charged
+entirely to the people whose ancestors' writing it was.
+
+The Rosetta Stone is the same story with the sign flipped: a trilingual decree, found by
+French soldiers in 1799, taken by the British after Alexandria, Champollion cracking the
+script in 1822 partly against Young's competing claim — and the stone itself has been in
+the British Museum ever since. The key to reading Egypt is in London.
+
+---
+
+The quipu, which is the case where the readers were killed and it is *still* unread.
+
+Andean knotted-cord records: cords hanging from a primary cord, knot types and positions
+encoding numbers in a base-ten positional scheme, with colour, ply direction, and
+attachment as further dimensions. The numerical ones are read. There are also cords
+believed to be **narrative** — historical, genealogical, legal — and those are not read,
+and may never be, because the reading was a trained profession, the *quipucamayocs*, and
+the colonial administration destroyed the practice, with a formal order in the early
+1580s to collect and burn them as idolatrous.
+
+Roughly a thousand quipus survive in collections. The people who could read them were
+killed or forbidden or died out within a couple of generations, and the object is
+therefore a text with no surviving readers and no bilingual key. There is no Rosetta for
+it and there may not be one.
+
+That is the actual worst case, and it is the honest end of the argument I have been
+making all day. Most of this file is about knowledge that was renamed, or delayed, or
+sat in a box for sixty years, or was recovered when a jar broke. Those all have happy
+endings by comparison. **The quipu is the case where the erasure worked**, and what it
+looks like from here is a shelf of beautiful objects nobody can read, and no way to
+estimate what was in them.
+
