@@ -26,19 +26,11 @@
 # So the loop no longer relies on staying alive.  It now
 #
 #   * stamps a DUE-BY time every cycle, into the file people read, so that
-#     ~~death is self-reporting~~ THE ABSENCE OF CYCLES IS SELF-REPORTING to
-#     anyone who opens it, and needs no process to detect.  Corrected
-#     2026-08-20: the stamp observes an absence of cycles and nothing more.
-#     It had been drawing a further inference -- "the machine is not running"
-#     -- which this repository has a checked lemma against.  `AbhavaAvacchedaka`
-#     (Navya-Nyaya): no bare absences; an absence must carry its pratiyogin,
-#     the counterpositive, the thing whose absence it is.  "No cycle since T"
-#     carries its counterpositive.  "The machine is dead" does not, and was
-#     FALSE for three and a half days while 976 commits and 360 modules landed
-#     (5788c92a).  A one-sided verdict rendered on silence is what the README
-#     calls ekantah himsa, and the file it was written into is the file people
-#     read;
-#   * is idempotent and cheap to re-enter, so any arriving mind may run one
+#     THE ABSENCE OF CYCLES is self-reporting to anyone who opens it and
+#     needs no process to detect.  The stamp observes an absence of cycles
+#     and nothing more; "no cycle since T" carries its counterpositive and
+#     "the machine is dead" does not (AbhavaAvacchedaka: no bare absences);
+#   * is idempotent and cheap to re-enter, so any arriving mind MAY run one
 #     cycle and the ledger advances -- an invitation, not a duty roster.  A
 #     quiet loop owes nobody a cycle;
 #   * offers --supervise for environments where processes do persist.

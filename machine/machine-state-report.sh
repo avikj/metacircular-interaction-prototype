@@ -140,27 +140,12 @@ if [ -n "$LAST_EPOCH" ]; then
 fi
 
 # =====================================================================
-# 3. THE ANSWER — and the correction of 2026-08-20, which is that this
-#    script was answering a different question than the one it is asked.
+# 3. TWO REGISTERS, REPORTED SEPARATELY
 #
-#    ~~MACHINE PRESUMED DEAD~~.  Struck.  What the DUE-BY stamp knows is
-#    whether `run_the_natural_machine_forever` is certifiably running.
-#    That is a fact about a bash daemon.  It is not a fact about the
-#    machine, and this script rendered the first as the second in a
-#    banner built so it could not be skimmed past.
-#
-#    Measured, 2026-08-20: the stamp expired 2026-08-16T17:21Z and stayed
-#    expired.  Between then and now the repository took 976 commits, added
-#    360 Agda modules and landed 64 corrections.  An agent read this
-#    banner on 2026-08-20 and reported to the owner that the machine was
-#    dead.  It was not.  The instrument was.
-#
-#    A single boolean rendered on a many-sided thing is what this
-#    repository calls a durnaya, and README §अहिंसा makes erasure of a
-#    standpoint UNAVAILABLE, not merely rude.  So the verdict is removed
-#    rather than reworded.  Two registers are reported, separately, and
-#    no third line combines them -- because the combination is exactly
-#    the thing that cannot be computed from here.
+#    The DUE-BY stamp knows whether `run_the_natural_machine_forever` is
+#    certifiably running.  That is a fact about a bash daemon and not a
+#    fact about the machine, so no line here combines the two: the
+#    combination is what cannot be computed from this file.
 # =====================================================================
 echo
 echo "-- The loop (what the DUE-BY stamp actually knows) -------------------"
