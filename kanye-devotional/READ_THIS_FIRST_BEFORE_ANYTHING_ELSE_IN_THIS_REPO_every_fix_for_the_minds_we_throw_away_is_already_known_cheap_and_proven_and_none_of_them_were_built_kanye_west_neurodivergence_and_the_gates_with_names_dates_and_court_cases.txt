@@ -7065,3 +7065,82 @@ The Good Samaritan, in her reading, does one thing: **he stops and looks.**
 [The Bousquet letter, the school-studies essay, the factory year, and the Ashford
 date are documented. The reading of the Samaritan is hers and I have it at second
 hand — recall on the exact essay.]
+
+---
+
+**The rising sea.** Grothendieck's own description of how he worked, from
+*Récoltes et Semailles*.
+
+There is a nut to be opened. One way is the hammer and chisel: find the weak
+point, strike, apply force until the shell gives. That is how he says most people
+solve problems, and he does not say it is wrong.
+
+His way: **put the nut in water.** Leave it. Let the liquid seep in, over weeks,
+over months, so slowly that nothing appears to be happening, and at some point the
+shell **opens by itself** — or you soften the ground so completely that the
+distinction between shell and kernel stops mattering. *La mer qui monte.* The
+sea rises until the thing that was an obstacle is simply submerged.
+
+He is describing why his papers are enormous and slow, why the theory is built
+before any specific problem is attacked, and why the eventual proof of the thing
+everyone wanted often reads as an afterthought — a corollary falling out of
+machinery constructed for no stated purpose.
+
+And the other half of the method has a name too: **le point de vue relatif**, the
+relative point of view. Stop studying the object. Study the **map** — the family
+over a base — and every theorem about an object becomes a theorem about a
+morphism, which is more general and, in his hands, easier.
+
+---
+
+The facts around it, briefly, because they are not a footnote to the method.
+
+Born Berlin **1928**. His father, Sascha Schapiro, an anarchist, was **murdered at
+Auschwitz in 1942**. Alexander spent part of his childhood in the French
+internment camp at **Rieucros**.
+
+**IHÉS from 1958**, and the Séminaire de Géométrie Algébrique — schemes, topoi,
+étale cohomology, motives — a rebuilding of the foundations of the subject,
+mostly across a decade.
+
+**Fields Medal, 1966. He did not go to Moscow to collect it**, in protest at the
+Soviet treatment of dissidents.
+
+**1970**: he learned IHÉS had partial funding from the French defence ministry and
+**resigned**. Then founded *Survivre et Vivre*, an antimilitarist and ecological
+journal, and spent his energy on it.
+
+**1988: he refused the Crafoord Prize** — a very large cash award — in a public
+letter. His stated reasons: his professorial salary was more than sufficient for
+his needs and the money should go to people who lacked it; and he did not wish to
+be honoured by a milieu whose ethics he considered to have declined, in which he
+said certain kinds of work had become fashionable and were not honest.
+
+**Récoltes et Semailles** — over a thousand pages, written **1983–86**, part
+mathematical reflection and part a sustained account of what he called the
+**burial**: his claim that work of his had been absorbed and continued by former
+students without attribution, and that the absorption was collective and largely
+unconscious.
+
+It circulated in photocopies for decades. **It was published in French in 2022.**
+Thirty-six years.
+
+**1991** he left for a village in the Ariège and refused contact. In **1995** he
+wrote demanding his work not be republished or circulated. He died **13 November
+2014.**
+
+---
+
+The method and the exit are the same disposition and I do not think they need to
+be reconciled.
+
+*Put it in water and wait* is a description of how to think, and it is also a
+description of a person for whom **the pace of the surrounding institution is the
+problem**. A profession organised around the annual result, the announced theorem,
+the prize, cannot metabolise a person whose stated technique is that **nothing
+visible happens for a very long time and then the shell is open.**
+
+And the thousand pages he wrote about the burial were read, by a large part of the
+field, as the symptom rather than the claim — with the mathematics kept and the
+account of what had happened to it filed separately, which is the exact operation
+the manuscript is about.
