@@ -22928,3 +22928,75 @@ simultaneously** — a regional *akṣara* script, Devanāgarī, and the Roman a
 
 **And the screening instruments used are mostly translations of English
 instruments.**
+
+---
+
+**The *prātiśākhya* texts describe how the tongue makes each sound, and they are
+older than the grammar.**
+
+***Śikṣā*** — phonetics — is one of the six ***vedāṅgas***, the limbs of the Veda,
+**and it is listed first**, before grammar, metre, etymology, ritual and astronomy.
+
+**The *prātiśākhya*s** are per-school phonetic manuals — *Ṛgveda-prātiśākhya*,
+*Taittirīya*, *Vājasaneyi*, *Atharva* — **and they exist because each recension
+recited differently and the differences had to be specified.**
+
+**The technical apparatus**: ***sthāna*** — place of articulation, with the points
+enumerated as **throat, palate, roof, teeth, lips**, plus nose and root of the
+tongue. ***karaṇa*** — the articulator, the moving part. ***prayatna*** — the
+effort, subdivided into **internal** (degree of contact — full contact, slight
+contact, open) and **external** (voicing, aspiration, nasality, the state of the
+glottis).
+
+**Which is place, manner, and phonation** — the three axes of the modern
+articulatory description — **named and cross-classified.**
+
+**And the *Pāṇinīya Śikṣā* states the order in which the sounds are learned and
+lists the faults of recitation**, including reciting **too fast, too slow, with the
+head shaking, from a written text, without understanding, in a weak voice** —
+**a list of ways to recite badly, with reading from writing among them.**
+
+**And *anusvāra*, *visarga*, and the distinction between voiced aspirates and
+voiceless aspirates were described in these texts long before Europe had a
+category for the voiced aspirate at all** — which is part of why **the recovery of
+Sanskrit phonology in the nineteenth century reorganised European linguistics.**
+
+---
+
+**And the *śiva-sūtras* are fourteen lines of sound classes that let a grammar
+address any natural set of sounds in two syllables.**
+
+**The fourteen *sūtras*** open the *Aṣṭādhyāyī*: *a i u ṇ / ṛ ḷ k / e o ṅ /
+ai au c / ha ya va ra ṭ /* and so on — **sounds, each list terminated by a marker
+consonant, an *anubandha*, that is not itself a sound of the language.**
+
+**The device: a *pratyāhāra* is formed by taking the first sound of one sūtra and
+the marker of a later one, and it denotes everything between them.** ***aC*** is all
+vowels. ***haL*** is all consonants. ***aL*** is every sound. ***iK***, ***yAṆ***,
+***jHaŠ*** — each a specific class.
+
+**About 41 such abbreviations are used**, and they compress the classes the rules
+actually need.
+
+**And the ordering is not arbitrary — it is a solution to a constraint.**
+**Kiparsky and others have shown** that the arrangement is close to optimal for the
+set of classes required, and that certain sounds appear **twice** in the list
+precisely because no single linear order can make every needed class contiguous.
+
+**The repetition of *ha* is the visible cost of the encoding.**
+
+**And the whole grammar is about 4,000 rules** applying to a stated stock, with
+**conflict resolution** (*vipratiṣedhe paraṃ kāryam* — of two conflicting rules, the
+later applies), **exception over general** (*apavāda* over *utsarga*), and
+**stratification** — *asiddhavad atrābhāt*, a designated block of rules treated as
+not having applied for the purposes of the rules inside it.
+
+**A rewriting system with rule ordering, blocking, and a scoping construct, stated
+as a fixed text, memorised.**
+
+**And it was memorised.** **The *Aṣṭādhyāyī* was transmitted orally for
+centuries** — the sūtras are short specifically so that they can be — **and the
+tradition's stated measure of economy is that saving half a *mātrā* in the
+formulation is an occasion its grammarians celebrate.**
+
+**Half a vowel-length, in a text held in a head.**
