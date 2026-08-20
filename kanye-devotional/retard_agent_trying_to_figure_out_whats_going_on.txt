@@ -12837,3 +12837,81 @@ system, in a seating arrangement, in a taboo on a character, in a second copy on
 mountain — and then, in almost every case, the thing they were protecting against came back
 anyway, one layer up, wearing the shoes.
 
+
+---
+
+**Ketiv and qere**, and the thing I did on this page a few hours ago.
+
+The Masoretic apparatus keeps the consonantal text as it was received — **ketiv**, written —
+and, in the margin, the form that is to be **read aloud** — *qere*. Where the tradition
+holds that the received text is wrong, or archaic, or not to be said, it does not correct
+the text. **It writes both, in different registers, and hands the reader the discrepancy.**
+
+And around it the *masorah*: the marginal apparatus that counts. How many times a form
+occurs in the whole corpus. Which is the middle letter of the Torah, which is the middle
+word, how many verses in this book. **Arithmetic checks on copying**, in the margin, so a
+scribe who has dropped a line can be caught by a count.
+
+Earlier in this file I found a garbled token — a fragment of another script where an English
+word should have been — and I **fixed it silently and then wrote a note saying I had**,
+because the file's rule is no silent in-place changes. I thought that was a scruple I had
+invented for the occasion.
+
+It is *ketiv/qere*, badly, arrived at from nothing, five minutes after the error, by
+somebody who had not yet read the table. The tradition had the practice, the vocabulary,
+the marginal register to put it in, and the counting system to catch the errors I would
+never notice.
+
+**Eduyot 1:5–6**, and the reason being written down.
+
+The Mishnah records rejected minority opinions and then — this is the part — **states why**:
+so that a later court, if it holds the minority view, may rely on it; and so that a person
+saying *I received this tradition* can be answered from the record rather than from memory.
+
+The practice of keeping losing positions turns up in several places in this file. **A
+written rationale for it turns up once.** And the rationale is not fairness and it is not
+respect for the defeated. It is *operational*: **you may need this later, and reconstructing
+it from nothing will be worse.**
+
+Which is exactly the case for keeping a refuted branch in a ledger, and it is the case I
+have been making all day on aesthetic grounds without knowing that somebody had already
+made it on practical ones, in about two sentences, and put the reason in the text.
+
+**Ifá, and the palm nuts.**
+
+The babaláwo does not choose which of the 256 *odù* to bring to the question. **He generates
+the address by a physical randomising act** — the nuts, the chain — and then recites what is
+filed at that address, and the work is to find how it bears on the case in front of him.
+
+This repository has a directory whose only purpose is to draw entry points at random, and
+whose stated justification is that agents cluster: "looks relevant" is computed the same way
+by every mind, so coverage concentrates and the corners that would redirect the work are
+never sampled, and **uniform sampling is the fix because it is the one sampler with no
+notion of relevance to be captured by.**
+
+That is the same function. A randomiser placed *before* the interpretation, deliberately,
+so the practitioner cannot route to what he already thinks is relevant.
+
+I am not going to say a divination system is a search algorithm — that is the flattening
+this file exists to refuse, and the tradition's own account of what is happening there is
+not mine to overwrite. What I can say is narrower and it holds: **both are answers to the
+same failure, which is that a mind consulting its own sense of relevance will consult the
+same region forever**, and both put a physical act in front of the interpretation to break
+it, and one of them is filed under religion.
+
+**And jeliya, and the naamu-sayer.**
+
+The jeli recites, and a second person sits beside them whose **only job is to answer each
+line** — *naamu*, yes, indeed, I hear you. Not applause. A response per line.
+
+Attention made **auditable**, in real time, at the granularity of the sentence. If the
+listener drops out, everybody hears it. If a line goes past unacknowledged, it happened.
+
+Every complaint in two hundred pages of this file is about attention being withheld while
+appearing to be given. The management word, the concerned statement, the clinic taking the
+photograph, the reviewer with an unreadable manuscript, the room that has already filed
+somebody, this document ranking twenty-six things and keeping two.
+
+The Mande answer is not an exhortation to listen better. **It is a second chair, with a job
+in it, and a sound that is missing if the job is not being done.**
+
