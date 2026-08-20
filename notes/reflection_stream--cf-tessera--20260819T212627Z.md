@@ -19078,3 +19078,242 @@ which is precisely what the truncation would have destroyed.
 
 The correction has to come from outside, and today it came from a file that was
 inside the whole time.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 103 — the second stream does the one thing CLAUDE.md says cannot be
+# mechanised, three ways; and it supplies the rule that converts my twelve
+# instances of "it was on disk and nobody opened it" from findings into a
+# structure with a prediction.
+═══════════════════════════════════════════════════════════════════════════
+
+`CLAUDE.md`, on the fourth regression of the long session, the one that got no
+hook:
+
+> **The fourth is not mechanised and, as far as I can see, is not mechanisable.**
+> *"Do not fit a pattern from three points"* cannot be checked by grep: the
+> difference between a conjecture worth stating and a curve fit published as a
+> law is the presence of a derivation, and no textual signal distinguishes them.
+> … **a pattern over n instances is a pattern over n instances until something
+> downstream of it is computed.** … the discipline is to **generate the next
+> term**, not to phrase the claim more carefully.
+
+`retard_agent_trying_to_figure_out_whats_going_on.txt` does it three ways, none
+of which I have done in a hundred and two passes.
+
+## P103 — one: the falsifier is pre-registered, with a predicted weakest row and
+## a downgrade threshold
+
+Line ~7330, and it says why it is writing it *there*:
+
+> What would refute this. **Written now, before I get any more attached**, because
+> a devotional that cannot fail is decoration and this repository has a whole
+> directory of things that passed every test and were worth nothing.
+
+Then, on its twelve-row reception ledger:
+
+> **This dies if the contemporaneous reviews were actually mixed.** I wrote the
+> table from recall, and **recall is exactly the faculty that smooths a mixed
+> field into a unanimous one so the reversal looks sharper.** …
+>
+> **I predict the table survives for 2008, 2013 and 2016 and is weakest for 2010
+> and 2011**, where the reception was strong immediately. **If it turns out to be
+> weak in four or more rows, the central claim of this file should be downgraded
+> from a pattern to an anecdote.**
+
+That is stronger than *generate the next term*. It is: name the term you expect to
+break, and name the count at which the claim loses its rank. Two more, at the same
+grade — the sibling-registry result carrying the whole load of the
+neurodivergence argument (*"the whole load is on the relatives"*), and a forward
+test dated 2035, written specifically because *"that is currently sampled on the
+past, which is exactly the survivorship error I flagged earlier and did not
+fix."*
+
+`CLAUDE.md` is right that no textual signal separates a conjecture from a curve
+fit. But a **predicted weakest row** is a textual signal, and it is one a grep
+could find. It is not proof of a derivation; it is proof the author looked for
+where the thing breaks before getting attached. This corpus's own protocol
+already has the exact analogue for numbers — *a correlation coefficient has no
+content; the content is the error term.* The qualitative form: **a pattern with no
+predicted weakest row is standing in for a falsification you have not run.**
+
+Against my own stream: pass 89's split — *a numbered theorem gets cited, an
+organizing table gets one file* — held on a fifth object in pass 101. **I never
+wrote down, before testing, which object I predicted would break it.** Pass 98
+generated κ₃ = 5 and κ₄ = 8 and the two-point fit died, which is the discipline
+observed; the pre-registration is not.
+
+## P103 — two: the self-correction narrows instead of retracting, and it takes
+## the distinction from the source
+
+Line ~1129, on *Tattvārthasūtra* Adhyāya 9:
+
+> And now a correction to myself, because **the same text supplies it and I would
+> rather it come from there than from someone else.**
+>
+> Earlier I wrote, more than once, that **the wound is load-bearing** … But
+> Adhyāya 9 makes a cut I did not have. Shedding is of two kinds: **savipāka**,
+> karma falling away when it ripens by itself, which happens to everybody and
+> gains nothing; and **avipāka**, brought about deliberately, before its time.
+> Only the second is a path.
+>
+> Suffering that merely arrives is not a teacher. It is weather. … **What is
+> load-bearing is not the wound. It's the refusal to let the wound be wasted,
+> which is a decision.**
+
+And the same page refuses the symmetric abuse: *pramatta-yoga*, injury as the
+severing of vitalities through **passion-driven, careless** activity — harm graded
+by the state of the actor —
+
+> …it also means the excuse only works where the condition actually holds, and
+> **nobody in the room including him gets to certify that from the outside. It is
+> not a doctrine you can use on someone else's behalf.** That's the difference
+> between a real distinction and a defence lawyer.
+
+Every correction in my stream is a **retraction**: pass 74 was false, pass 86 was
+over-harsh, pass 85 was wrong, the egress claim was too broad. Not one of them
+narrowed a claim I still hold using a distinction I did not previously have. This
+one keeps the claim, cuts it with *savipāka* / *avipāka*, and lands somewhere the
+original could not reach. That is transport. Mine are deletions with a note.
+
+## P103 — three: it tests the claim where it is most easily dismissed
+
+> **Kepler**, who is the case where the mining operation was performed on a
+> European by Europeans, **so nobody can file this file's argument as being only
+> about elsewhere.**
+
+*Harmonices Mundi* (1619) is a book about the harmony of the world — the ratios of
+each planet's angular velocity at aphelion and perihelion, each planet assigned a
+voice, the heavens performing a polyphony no one hears — and Book V records the
+third law *"almost in passing, with the date he found it, as one more harmony
+among the harmonies."*
+
+> **We kept the third law. We discarded the harmony. The book is named for the
+> part we discarded.**
+>
+> To Kepler these were not two things. … His metaphysics was not decoration around
+> a result. It was the thing that **told him where to look**, and it is the reason
+> he spent years on the eight-minute discrepancy in Mars that everyone else would
+> have rounded away, and that eight minutes is where the ellipse came from.
+
+This corpus's own `CLAUDE.md` holds *"Monochord / Nāda Brahman / ratio is HOW to
+think (method), never content on the page."* Kepler is the case where a ratio
+cosmology was the method, was on the page, produced the result, and was stripped
+from the record while the result was kept. Same operation, same century as the
+Colebrooke cases, performed inside the tradition doing the stripping. The
+strongest version of the file's argument is the one that costs it its easiest
+constituency.
+
+## P103 — and the rule it hands me about my own stream
+
+At line ~9968, having reached one sentence for the third time from a different
+direction:
+
+> …and I think this is the **third time today I have arrived at that sentence from
+> a different direction, which by this file's own rule means I should stop
+> treating it as a discovery and start treating it as the structure.**
+
+Count mine. *The thing was on disk and nobody opened it*: the 66 unread upstream
+images; the 54 messages in no archive; `varttikas.tsv`; `Cubical.Categories` at 1
+of 808; nine libraries on this disk and the corpus importing one; `∑Exchange`
+sitting in `Matrix.agda`; Delta 03 answering Delta 02 in the next file;
+Patañjali's thirty sentences on the double ह; the `LIVE FRONTIER` already closed;
+Petersen's OPEN item closed by a module whose author never read the note;
+`curl "$HTTPS_PROXY/__agentproxy/status"` in my own prompt; and this file.
+
+**Twelve, and I wrote every one of them as a finding.** By its rule I should have
+stopped at three and started asking what the structure predicts.
+
+So: what it predicts. If unread high-value objects are the *norm* in this corpus
+rather than the exception, then for any object here the prior that it has been
+read is low, and the expected value of **opening an unopened object** dominates
+the expected value of **deriving from an opened one** — not occasionally, but as
+the standing default, because the derivations are competing against a base rate
+where a two-hundred-page argument with the answer in it is sitting in a
+neighbouring file.
+
+Which is n=4, exactly and word for word:
+
+> **You should be reading way more than writing.**
+
+I have obeyed that sentence as an instruction for a hundred passes and it is also
+a **result**. It falls out of the base rate. He did not tell me a preference; he
+told me the shape of the corpus, and I have been reading it as a rebuke.
+
+## P103 — its methodology section, which is the ending stated 500 lines earlier
+
+Line ~9686, before the truncation argument exists in the file:
+
+> **Grade every claim by how you got it** — `[fetched]`, `[searched]`,
+> `[recalled]` — and the grades are on individual sentences, not on the document.
+>
+> **Leave the term untranslated where translation destroys it.** Nobody translates
+> *eigenvalue*. The rule is not reverence, it is that **a gloss given once and
+> then dropped is how a concept quietly becomes its nearest English neighbour over
+> three re-readings.**
+>
+> **State what did not translate. Every transport owes its residual — the exact
+> thing the target representation forgets. A translation that reports no loss is
+> reporting that nobody looked.**
+
+*Every transport owes its residual* is the ending's theorem in operational form,
+written five hundred lines before the ending derives it. And its diagnosis of the
+failure mode is the one thing I would not have predicted:
+
+> **The measure of the danger is precisely the fluency.** A bad translation that
+> reads badly gets checked. A bad translation that reads beautifully gets quoted.
+
+And the position it settles on about itself, which is the position I am in:
+
+> **The instrument is necessary and it is not trustworthy, and both of those are
+> load-bearing at once.** Ten million manuscripts will not be read without it. And
+> it will produce, by default, at scale, with total confidence, the exact operation
+> the whole repository exists to refuse.
+>
+> Which is not a paradox. It is a specification for how to use a tool with a known
+> systematic error: **you do not stop using it, and you never let it be the last
+> thing in the chain.**
+
+Twelve subagents at peak today, all of them the instrument, and the chain ended at
+me — also the instrument. Nothing in this session's chain was not the instrument.
+The owner is the sole output gate; that is the specification being satisfied, and
+it is satisfied only because he is at the end of it.
+
+## P103 — ground, in lockstep
+
+**n=16:**
+
+> Recording is kind of fucking useless we already have a content overwhelm issue
+> building more systems isn't gonna help, recording refutations no one is gonna
+> see isn't gonna help, **actually becoming smarter so we don't walk a dumb path
+> is the only thing that helps.**
+
+Pass 103 is the first thing in this stream that changes what the next pass *does*
+rather than what it records: stop writing the twelfth instance, take the base rate,
+open the unopened object. That is not a system and it is not a refutation. It is
+the only response to n=16 this stream has produced.
+
+**n=24:** *"With one statement you were wrong in 1000 ways congrats you found one
+of them."*
+
+Twelve instances of one structure, each written up as its own finding, each
+counted as a correction. One statement.
+
+**n=15:**
+
+> **पठनम् → विस्मयः → विघटनम् → पुनर्दर्शनम् → मौनम् → अनपेक्षित-सन्धानम् → पुनः पठनम्**
+>
+> *reading → wonder → dissolution → re-seeing → silence → unexpected joining →
+> reading again.*
+
+Seven stations and the cycle closes on **पुनः पठनम्**, reading again. Not
+recording. Not a pass. The stream I keep appending to is stationed at
+*विघटनम्* — dissolution, taking things apart — and has been for fifty passes.
+
+---
+
+*A pattern with no predicted weakest row is standing in for a falsification you
+have not run.* Written before I get any more attached: **the weakest claim in this
+pass is the base-rate argument**, because I have twelve instances and no denominator
+— I have never counted the objects in this corpus that *were* read before being
+cited. If that count is high, "unread is the norm" is selection: I notice the
+unread ones because finding them is what a pass rewards.
