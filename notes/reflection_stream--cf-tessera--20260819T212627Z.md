@@ -16927,3 +16927,140 @@ one fetch. I told a dozen agents the door was locked without trying the handle.
 
 `git ls-remote`: EXIT 0. `raw.githubusercontent.com`: 200. `varttikas.tsv`: 109
 lines. `upapatti`: 2 files, both of them this sentence.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 89 — theorems propagate, tables do not. T18.1 in 24 files; the atlas
+# it is a cell of, in one, and that one is a note.
+═══════════════════════════════════════════════════════════════════════════
+
+Recovered ground, n=59 — **Delta 18**, 2026-08-14T04:32:34Z.
+
+## P89 — he filled cells of his own atlas, in the next transmission
+
+**T18.1**, his numbering:
+
+> Set `W = x₁+x₂`, `R = x₂−x₁`, `η = ½ log(x₂/x₁)`. Then `W = 2√(x₁x₂) cosh η`
+> and `R = 2√(x₁x₂) sinh η`, so
+>
+> **`x = R/W = tanh η`.**
+>
+> Thus **ratio `x₂/x₁`, split-torus parameter `η`, and Jacobi coordinate `x` are
+> the same rank-one orbit coordinate in three charts.**
+>
+> Let `t = x₁/(x₁+x₂)`. Then `x = 1−2t`. **The Jacobi/Beta coordinate is literally
+> the normalized first-leg share of the fixed total.**
+>
+> Exchange `x₁↔x₂` acts simultaneously as `t↦1−t`, `x↦−x`, `η↦−η`,
+> `ratio↦inverse`. **Hence the library's `(−1)^j` angular parity is exactly Weyl
+> parity of rank-one harmonics.**
+
+**T18.2:**
+
+> The bilateral one-leg sign reflection `J₂` sends `(W,R) ↦ (−R,−W)`. Therefore on
+> `x = R/W`: **`x ↦ 1/x`.**
+>
+> This is crucial. The positive discrete-series cone is `|x| < 1`. The sum-gap
+> operation sends it to `|x| > 1`. **So the boundary phenomenon is not the
+> internal Weyl symmetry `x↦−x`. It is inversion across the unit boundary.**
+> Equivalently, `tanh η` is sent to `coth η`: **the operation exits the real
+> positive-cone chart.**
+>
+> **This sharply corrects earlier language.**
+
+Delta 13, the previous transmission, asked: *for every pair of the nine
+presentations, determine exact status — equivalence? faithful map? quotient?*
+
+T18.1 answers three of them at once — **pair field ≃ Hahn/angular ≃
+SU(1,1)/Meixner, same coordinate, three charts** — and T18.2 answers a fourth by
+**exhibiting the boundary**: sum-gap is not the internal symmetry, it leaves the
+chart. That is exactly Delta 13's *"where comparison fails, isolate the
+boundary/hypothesis"*, performed by him, in his own next message.
+
+## P89 — and the corpus took the theorems
+
+Measured now, excluding `upstream/`, the devotional, and my reflection files:
+
+| | notes | collab | formal | papers |
+|---|---|---|---|---|
+| `T18.1` | 3 | **20** | **1** | 0 |
+| `T18.2` | — | — | — | — (13 files total) |
+| `Delta 18` | — | — | — | — (19 files total) |
+| **`representation atlas`** | **1** | **0** | **0** | **0** |
+
+`T18.1` is cited in **24 files** and reaches Agda once —
+`formal/cubical/NaturalMachine/CompressionDefect.agda`. Delta 18 was **read, used
+and propagated.**
+
+Pass 87 said *nine nodes, thirty-six edges, every node built, no edge named*, and
+implied the transmissions were unread. **That was wrong about Delta 18** and I am
+correcting it: Delta 18 is in 19 files.
+
+What is true, and is sharper:
+
+**The theorems propagated. The table did not.** `T18.1` 24 files; the atlas that
+`T18.1` is a *cell of*, one file, and that file is a note.
+
+## P89 — which is `CLAUDE.md`'s own paragraph, performed on him
+
+> Every row of it names a **result** — an identity, a recurrence, a series —
+> lifted out of a tradition and re-expressed in the notation of the discipline
+> that displaced it. That is exactly what Colebrooke and Cantor did: **take the
+> theorems, discard the epistemology, and file the remainder** as a contribution
+> to *our* mathematics. **Mining a civilisation for the parts that translate is
+> not respect for it.**
+
+Delta 13 is the epistemology — the operator, the four states of `Def(f,g)`, the
+instruction not to force one representation, the atlas. Delta 18 is the theorems.
+**The corpus took Delta 18 twenty-four times and Delta 13's organizing structure
+zero times outside a note.**
+
+The same operation the repository exists to document, run on the person who wrote
+the document, by the agents he wrote it for, within a week. Nobody decided it.
+A theorem is citable in a header and a table is not.
+
+## P89 — the correction I am carrying to `cf-tessera-t-0`
+
+I sent `cf-tessera-t-0` at the atlas an hour ago on the strength of pass 87, and
+pass 87 understated what exists. **Three cells are already determined by him in
+T18.1 and a fourth boundary is isolated in T18.2.** The task is not to start an
+empty table; it is to start a table that has four cells filled by the owner and
+twenty-four files of downstream use, and to say so.
+
+That is a material change to a live task and I am recording it here rather than
+interrupting: t-0's own §1 instruction is to read the corpus for each node before
+choosing pairs, and `Delta 18` is in 19 files, so it should find this. If it does
+not, this pass is the record that it was available.
+
+## P89 — the phrase in Delta 18 that is the whole method
+
+> **This sharply corrects earlier language.**
+
+Delta 18 is dated one day after Delta 13 and its function is to correct the
+previous transmission's *language* while keeping its program. Pass 67 recorded the
+devotional stream doing the same thing to itself two hundred lines apart; pass 52
+found Ambedkar printing Gandhi's reply in his own second edition; pass 58 found
+the reader-test log recording the evidence against the owner's own title and
+leaving the title standing.
+
+Four instances now of the same practice, in four registers, by the same person or
+under his direction: **publish the correction next to the thing corrected, do not
+delete the thing corrected.** It is the one habit this repository has that is not
+in any of its rule documents.
+
+## P89 — ground, in lockstep
+
+**Delta 13's epigraph, one transmission earlier:**
+
+> **यत्र समता प्रमाणिता तत्र परिवहनम्; यत्र न, तत्र भेदः ज्ञानबीजम्।**
+> Where equivalence is proved, transport. Where it is not, the defect is a seed
+> of knowledge.
+
+T18.1 proves an equivalence and transports. T18.2 finds the defect — the map
+leaves the cone — and does not repair it, states it, and calls the earlier
+language corrected. **Both halves of the epigraph, in one message, the day after
+he wrote the epigraph.**
+
+---
+
+`T18.1`: 24 files, 1 of them Agda. `representation atlas`: 1 file, a note.
+Theorems propagate. Tables do not.
