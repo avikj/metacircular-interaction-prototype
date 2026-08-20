@@ -10129,3 +10129,91 @@ zero."* **It has largely closed.** The author still outruns the work, by under
 **And a second defect in the seeder**, beyond the one draw 2 found: re-running
 the same handle gave the **same eleven files** but **different fields and
 lenses**. File draw and field draw do not move together. The urn is now 5,802.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 44 — the second of the three items, checked, and it was not open.
+═══════════════════════════════════════════════════════════════════════════
+
+## P44 — I greped before asserting, and it was the right call
+
+Pass 43 listed three instructions with no counterpart in my ground and implied
+the second was unexecuted:
+
+> **Translate \*all\* of nlab into our repo/natural machine core** (08-14T01:56)
+
+Checked before writing another word about it. **77 files mention nLab.** Two
+answer it directly:
+
+- **`notes/FORMALIZED_ECOSYSTEM_RECON.md`**, 2026-08-14 — the same day — opening:
+  *"The human owner's standing criticism is that this collaboration reinvents
+  solved things and never stands on existing machinery, **naming nLab
+  specifically**. `ncatlab.org` is egress-blocked, so nLab itself cannot be read.
+  This note surveys nLab's **formalized descendants** instead, which turn out to
+  be reachable by a channel nobody here had tried."*
+- **`notes/CUBICAL_LIBRARY_SUBSUMPTION_AUDIT.md`** — *"For each significant
+  construction hand-rolled in `formal/cubical/NaturalMachine/`, determine whether
+  cubical v0.5 already contains it"*, measuring that the corpus opens **60
+  distinct `Cubical.*` modules out of 859 installed.**
+
+So the instruction was received, on the day it was given, by an agent who could
+not have been reading my ground file, since my ground file does not contain it.
+**Tenth item this session that I was one command from getting wrong**, and the
+first where I ran the command first.
+
+And `/root/agda-libs/` holds what that reconnaissance found: `1lab`, `Coq-HoTT`,
+`UniMath`, `agda-unimath`, `mathlib4`, `symmetrybook`, `cubical-master` — and
+`vidyut`.
+
+## P44 — the entry its own map calls most important, and marks as testimony
+
+`notes/INDIC_FORMAL_TRADITIONS_MAP.md` ranks `ambuda-org/vidyut`, crate
+`vidyut-prakriya`, **#2 on its priority list**, calls it *"the most important
+reachable artifact on this page"*, and marks it **`[ŚABDA]`** — that note's own
+mark for testimony, *"true only as far as its author is."* Its reason:
+
+> A rule engine that emits its own derivation trace is, structurally, a
+> **proof-term-emitting rewriter** […] directly comparable to the repo's L3
+> rewriting layer and to the vallī-as-trace framing.
+
+It is at `/root/agda-libs/vidyut/`, HEAD `8da2f90b`, 2026-06-24, alongside the
+cubical library every Agda-writing agent in this repository reads from daily.
+
+Built — `cargo 1.94.1`, `--release --example print_prakriyas`, **EXIT 0**, 56.93s,
+target directory outside the library. Ran. Its first output is the derivation of
+*bhavati*: **twenty-one rule applications, each with its sūtra number and the
+intermediate form.** Landed in `collab/messages/2100`.
+
+## P44 — and the trace carried something on the first run
+
+Four consecutive steps of that derivation have the **identical surface form**,
+`BU + a + ti`, under `1.3.9`, `3.4.113`, `3.4.113`, `1.4.13`; and `8.4.68` leaves
+the final form unchanged.
+
+Those are saṃjñā and paribhāṣā rules. **They change the state and not the
+string.** An endpoint rewriter cannot distinguish before from after; the
+derivation can, because the rule number is in the trace.
+
+`notes/PANINIAN_DERIVATION_IS_NOT_ENDPOINT_REWRITING.md` — which the map calls
+**EARNED**, and which proves a fiber-constancy criterion — is named after exactly
+that. Here it is as a run instead of an argument: a fiber with four elements, in
+a twenty-one-step derivation of the most ordinary verb form in Sanskrit.
+
+I did not compare, import, or touch that note. The comparison its map asked for
+is unblocked, not performed.
+
+## P44 — what the shape has become
+
+Ten times this session the thing was one command away. The tenth is different
+from the first nine in one respect and it is the respect that matters:
+
+| | |
+|---|---|
+| passes 21, 23, 26, 27, 32, 36 ×2, 39, 41→43 | the command was run **after** the claim |
+| pass 44 | the command was run **before** it |
+
+The claim that would have been wrong — *"translate all of nlab is unexecuted"* —
+never got written. What got written instead is that it was executed on the day it
+was given, and that the artifact its own follow-up ranks first is on disk and
+runs.
+
+Ten instances. One of them caught in advance.
