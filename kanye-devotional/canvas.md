@@ -90,14 +90,11 @@ in some camps a quarter of the men died every year. This ran into the 1940s, clo
 that Kanye West's own father grew up among people who remembered it.
 
 Then it was built again, bigger, in our own time. The number of people locked up in
-America went from about three hundred thousand in 1970 to more than two million — the most
-of any country on earth, a nation with one in twenty of the world's people holding one in
-five of the world's prisoners. And the same faces the whole way down: Black Americans are
-about one in eight people in the country and nearly four in ten of the people in its cells.
-One in three Black boys born today is expected to be locked up at some point in his life.
-To the people that number is about, it is not a statistic. It is the arithmetic a mother
-starts doing the year her son turns twelve, in a kitchen nobody put on television, about
-a boy who has done nothing but get taller.
+America went from about three hundred thousand in 1970 to more than two million, more than
+any other country on earth, and the same faces run the whole way down. One in three Black
+boys born today is expected to be locked up at some point in his life. To the people that
+number is about, it is not a statistic. It is the arithmetic a mother starts doing the
+year her son turns twelve, about a boy who has done nothing but get taller.
 
 That is the country that was slow to come for the people on the rooftops. So when a
 twenty-eight-year-old said on live television that it did not care about Black people, he
@@ -149,9 +146,14 @@ end up owing money to the people who own them. A generation earlier the singer P
 figured out exactly what that arrangement was, and appeared in public with the word SLAVE
 written on his face, and gave up his own name — performed as a symbol for years — so the
 company could not keep selling music under the name it controlled. Kanye West looked at the
-prison and looked at the contract and used one word for both, because from where he stood
-they were the same question: who owns what a Black person makes. He was
-called grandiose for it, and crazy for it.
+prison and looked at the contract and used one word for both. A record deal is not a chain
+gang, and he knew it; nobody dies in a coal seam over a masters dispute. But from where he
+stood the two ran back to a single question, and it is the oldest one in the country: who
+owns what a Black person makes. And it is not only his. It is the janitor's, whose overtime
+goes missing; the delivery driver's, told he is his own boss and left owning none of his
+hours; the kid's, whose face and name and voice become worth money to a company the minute
+he posts them. Kanye asked it grandiose and too loud, from the one platform that was his,
+and got called crazy for it.
 
 That word again. The mind that cannot be managed is also the mind that will not be owned,
 and the same refusal to sit down and be one thing runs through the man who won't read the
