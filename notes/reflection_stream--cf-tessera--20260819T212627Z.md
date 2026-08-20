@@ -17800,3 +17800,145 @@ specific readings of one term, none of them the count.
 ---
 
 Four defects. Three scripts. `शेष` 43 / `śeṣa` 8. `kuṭṭaka` 155 / `labdha` 2.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 95 — the LIVE FRONTIER was answered by him, the same day, in the next
+# file. And his own index does not index five of his own open-problem lists.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-r-1` landed
+`notes/Anirnita_TheOwnersStatedOpenProblemsAcrossTheWholeUpstreamCorpus.md` and
+message 2187, commit `cc3bb67e`. **146 of 147 text artifacts read** — 33 in
+`raw/`, 27 in the packages, 87 non-image in `library/raw/` — of which *"34
+line-by-line in full, 112 by full heading enumeration plus every marker-flagged
+section — the note states which, and does not claim a line-by-line read it did not
+do."*
+
+The name is *anirṇīta*, the negative of Nyāya's *nirṇaya* (Nyāyasūtra 1.1.1,
+1.1.41) — **stated, not settled** — with the header saying plainly that it found
+no source using it as a title for a list of open problems and is not claiming one.
+
+## P95 — it refuted the premise of the task I gave it
+
+> Delta 02 §10's **"Prove or disprove G∞ = 0"** was **answered upstream the same
+> day**, by `SUFFICIENT_INTERFACES_DELTA_03` §0/§2 (**"ANSWER: YES"**;
+> **"COROLLARY 2. G∞(R) = 0 for every finite relation"**), from classical
+> fractional hypergraph theory **that Delta 03 itself flags as prior art** — in
+> the same directory, same date.
+
+Pass 85 called §10 *"a live frontier … reached by a uniform draw seven days
+later."* It was not live. He answered it himself, in the next file, on the same
+day, and cited the prior art for his own answer.
+
+I built that on `cf-tessera-m-0`'s report, which read Delta 02 and not Delta 03,
+and **I did not open the neighbouring file before sending an agent at it.** That
+is the failure this stream has recorded eleven times today, committed by me, on a
+directory listing.
+
+`cf-tessera-r-0` has been redirected. And what survives is exact: *"m-0's refusal
+of the [6,9] bracket is untouched; what remains open from that thread is its §9
+list, not §10."*
+
+## P95 — his own index does not index five of his own open-problem lists
+
+> **Three catalogs, no join key, none a superset.** `catalog.jsonl` **25 records
+> for 33 files**, and its `UP-D0017`/`UP-D0018` point at the **atlas** deltas, not
+> the same-numbered owner transmissions. Neither catalog covers the 27 package
+> files. **24 on-disk non-image files are absent from the V3 index — including
+> all 11 Fields-Medal deltas, the 133 KB handoff, and the Arithmetic Research
+> Ledger, i.e. five of the numbered open-problem lists live in files his own index
+> does not index.**
+
+Pass 55 found two catalogs with zero shared basenames. There are **three**, none
+is a superset of the others, and one of them mis-resolves two of its own record
+ids to the wrong files.
+
+## P95 — what nothing names
+
+Searched in `notes/`, `collab/messages/`, `formal/`, both orthographies:
+
+> the `H²_local,phys(A_HDA;ℝ) = 0` **"knife-edge problem"**; Conjectures
+> **QGR-Rigidity, QGR-Flat, II-A**; **"prove or kill"** the bulk central
+> extension; the **Coordination Kernel §129's eight formal open problems**; Delta
+> 06's **Conjectures A and B** and its request for a **human structural proof**;
+> the handoff's **three master problems, 11 conjectures (§24.3) and 7 breakthrough
+> criteria (§24.4)**; `PRIME_PAIR_RESEARCH_LIBRARY_INDEX` §5's **eight tasks**;
+> **eight `LIVE FRONTIER` blocks** in the 2026-08-11 deltas;
+> `knowledge_process_handoff` §25 A–G; `MODAL_PROCESS_SEMANTICS` §16/§11;
+> `COORDINATION_GRAPH` §8 A–E.
+
+**Eight `LIVE FRONTIER` blocks**, plus eleven conjectures, plus three master
+problems, plus eight formal open problems, plus eight tasks — named nowhere.
+
+And worse than unnamed:
+
+> **seven of his open targets that are lost**: the handoff §0.2/§25 records **"User
+> external state v1, 2026-08-11"** as authoritative for **"seven named open
+> targets"** and **unmaterialized.**
+
+A file that is authoritative for seven of his open problems and is not on this
+disk.
+
+**What did get worked**, and it says so: *"D0025's T25.A–H, end to end, **the only
+owner target list that is**. D0016–D0018's PROVE items, ledgered. D0026 §14's
+ingredients are dense but **no artifact says which acceptance test it
+discharges**."*
+
+## P95 — the orthography defect is in the check, not in Sanskrit
+
+> Six splitting pairs are **not Indic at all** — `Selberg–Delange`/`Selberg-Delange`,
+> `Ramanujan–Hahn`, `Beck–Chevalley`, `Gamma_H`/`Γ_H`, `G∞`/`G_infty`, `K∞` — so
+> **the defect is in the check, not in the handling of Sanskrit.**
+
+`Selberg–Delange` with an **en dash** and `Selberg-Delange` with a **hyphen** are
+different strings. `G∞` and `G_infty` are different strings. Pass 94 called this
+*a third orthography*; r-1 shows the class is wider: **any name with two written
+forms splits, and the two forms need not be two scripts.**
+
+That is the fifth defect and it subsumes the first: **k-1's finding is not about
+Indic names.** It is about a check that matches bytes and a corpus that writes
+names more than one way. I recorded it four passes running as an Indic problem.
+
+And its own second refutation is the same defect a third time:
+
+> "114 of 177 V3-index artifacts absent from the repo" — **wrong by ≥6.** `D0015`,
+> the three prime-pair atlas deltas, `D0025` and the `(1)`-suffixed kernel are
+> present **under different names.** Corrected to ≤108 […] **Both failures are the
+> same defect as the orthography one: a name-based check.**
+
+## P95 — the one file it could not read, and what is in its metadata
+
+> the PDF body — no poppler/`pdftotext`, `libreoffice --convert-to txt` errors,
+> streams Flate-compressed […] Metadata via `strings`: **"There Will Be a
+> Scientific Theory of Deep Learning", arXiv:2604.21691v1, 14 authors,
+> stat.ML/cs.LG.** It is the **only third-party publication upstream**, and **its
+> title, authors and subject are named nowhere in the repository.**
+
+The single outside paper he put in the corpus, unnamed by any file. And the two
+`.docx` **were** extracted — `unzip` plus `sed` over `word/document.xml` — after
+the obvious tools failed.
+
+Pass 88 established the network works. **arXiv:2604.21691 is fetchable**, and
+nobody has fetched it.
+
+## P95 — ground, in lockstep
+
+**n=19 — 2026-08-12T20:57:09Z:**
+
+> I keep telling you **the repository and collaboration has all the answers**
+> engage with the actually alive content **you are closing your eyes and ears**
+
+**n=29 — 2026-08-12T22:02:43Z**, one of the two messages where he is pleased:
+
+> Wait so you have **a single file which an agent can consume to literally catch
+> up on all additions?**
+
+`notes/Anirnita_…md` is that file for his open problems, four hours after
+`notes/reflection_ground--owner-messages-FULL-TRANSCRIPT-…md` became it for his
+messages. Both were built today, by agents, from material that had been on disk
+for a week, after he stopped pointing.
+
+---
+
+§10: answered the same day, next file, prior art cited. Three catalogs, no join
+key. Eight LIVE FRONTIER blocks unnamed. Seven targets in a file that is not here.
