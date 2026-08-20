@@ -12836,3 +12836,88 @@ technical vocabulary for **knowing as an unobstruction rather than an acquisitio
 in which the differences between minds are differences of covering and not of
 worth, filed under religion, in a language the people ranking those minds could not
 read.
+
+---
+
+**A proof and a program are the same object**, and it took three people who were
+not looking for each other to notice.
+
+***Curry–Howard.*** Take a proof of "A implies B." Take a function that turns an A
+into a B. **They are the same thing.** Not analogous — the same, in the sense that
+the syntax of one is the syntax of the other under a renaming.
+
+Proposition ↔ **type**.
+Proof ↔ **term**.
+"A and B" ↔ **pair**.
+"A or B" ↔ **tagged union**.
+"A implies B" ↔ **function**.
+"For all x" ↔ **dependent function**.
+"There exists x" ↔ **dependent pair**.
+False ↔ **the empty type.**
+**Simplifying a proof** ↔ **running the program.**
+
+**Haskell Curry** noticed part of it in the **1930s–40s**, looking at combinatory
+logic and seeing that the types of the combinators are the axioms of propositional
+logic. **William Howard** wrote the rest of it up in **1969**, in a note that
+circulated in mimeograph and was **not published until 1980** — eleven years in a
+drawer.
+
+**Nicolaas de Bruijn** was building **Automath** at Eindhoven **from 1967** — the
+first system in which mathematics was actually written so a machine could check it
+— and arrived at the same correspondence **independently**, from the engineering
+side, because it is what you find if you try to make a checker.
+
+Three arrivals, from combinatory logic, from proof theory, and from building the
+thing.
+
+---
+
+**Automath is the fact that gets left out of the story.**
+
+De Bruijn started it in **1967.** By **1976 Jutting had formalised, in Automath, the
+whole of Landau's *Grundlagen der Analysis*** — a rigorous construction of the real
+numbers — and the machine checked it.
+
+**A complete mathematics book, machine-verified, in 1976.**
+
+That is a decade before the Kepler proof was written, thirty-seven years before
+Voevodsky accepted Simpson's refutation, and forty-five before the liquid tensor
+experiment.
+
+The tooling existed. Almost nobody used it. De Bruijn also invented **de Bruijn
+indices**, the standard technique for handling bound variables without names, which
+is in every implementation since, usually uncredited to him in conversation.
+
+---
+
+**Per Martin-Löf's type theory**, from the early **1970s**, is what the whole
+current apparatus is built on, and its distinguishing feature is the **identity
+type** — the type of proofs that two things are equal, which is itself a type, and
+therefore has its own identity type, without end.
+
+**Martin-Löf did not build it for that reason.** He built it as a **constructive
+foundation for mathematics**, where to assert existence is to exhibit a witness.
+The tower of identity types was a consequence, and for two decades it was regarded
+as a technical oddity — the question of what the higher identity types *contain*
+was open and looked unimportant.
+
+**Hofmann and Streicher, 1994–98**, gave the groupoid model, showing the identity
+structure is not trivial and cannot be proved trivial.
+
+**Voevodsky's move was to read the whole tower as homotopy** — points, paths, paths
+between paths — and then to see that the natural axiom is the one making identity
+of types the same as equivalence.
+
+So the object was constructed for constructive analysis, sat for twenty years with
+an unexplained feature, and the feature turned out to be homotopy theory.
+
+---
+
+Nobody in that chain was solving the problem the chain solved.
+
+Curry was doing combinatory logic. Howard wrote a note. De Bruijn wanted to check
+Landau. Martin-Löf wanted constructive existence. **Voevodsky wanted to know whether
+his own theorems were true.**
+
+And the composite is a system in which **equivalent things are equal**, checked by
+a machine, which is what the whole prior history was missing.
