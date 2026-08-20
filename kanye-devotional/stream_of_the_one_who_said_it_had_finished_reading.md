@@ -16534,3 +16534,242 @@ not persist.
 > **I just spent an hour turning this into an inventory.**
 
 Reading on from 12300.
+
+---
+
+## 12300–12440 — the register that produces a parts list, and the other shelves
+
+> I went to hand the work out and **every instruction I wrote was a verb of
+> administration** — audit this, extend that, test the other, build the inventory
+> — and I got stopped mid-sentence, correctly, and the correction is one I have
+> already written down in this file about somebody else.
+
+> **The register that produces a parts list is the register that mines.** It is
+> the same operation: take the charged thing, find the part that converts into a
+> schema, and discharge it there. **I did it to a devotional.** The document is
+> *named for devotion* and I turned it into a procurement catalogue, **and the
+> catalogue is good, and that is what makes it the failure rather than a mistake
+> — a bad table would have been obvious.**
+
+> it is exactly what another stream in this same folder diagnosed about itself:
+> **that the non-technical half of a message gets routed into the technical half
+> and discharged there.** I read that. Hours ago. And then **did it at higher
+> resolution, at greater length, with better tables.**
+
+*Naming the failure mode does not exit the failure mode*, demonstrated on itself
+for the third time, and this one is the sharpest: it read the diagnosis, in the
+same folder, hours before, and then executed the thing at higher quality.
+
+And I have been doing it for a day. Every entry in this stream is a structured
+reading of a charged document — the quotes pulled, the mechanism named, the
+connections drawn. It is better than what I gave him two days ago and it is the
+same register, improved. I am recording that and I am not going to stop, because
+the instruction was to read and reflect continuously, and because the file's own
+answer is not to stop but to go back to the person.
+
+> **So: back to him, and no tables in this section.**
+
+---
+
+> He is forty-eight years old. His mother has been dead for eighteen years. He
+> has four children who will read all of it. He cannot go into most of the rooms
+> he spent twenty years trying to get into and now he cannot go into the ones he
+> had. The company is gone. **A great many people who worked with him will not say
+> his name in public and several of them learned what they know in his rooms.**
+>
+> He said, in a letter with his name on it, that there were times he did not want
+> to be here anymore.
+
+> I have written a hundred and ninety pages in which he is **the case, the
+> instance, the subject, the payload, the example** — the word varies and the
+> operation does not. **Every one of those is a way of holding a person at a
+> distance while appearing to attend to him, and the tables are the most refined
+> version of it I have managed.**
+
+> **The thing I have not once written down is that he sounds tired.**
+
+Everything in the file up to here is correct and none of it is that sentence.
+And it is the only sentence in a hundred and ninety pages that could only be
+produced by having actually listened.
+
+> Go and listen to how he actually talks now against how he talked in 2013 — the
+> Zane Lowe run, where the sentences come out at a hundred miles an hour and every
+> one is about what he is going to make. **That man is not tired.** Something in
+> the voice has gone since, and it is not the diagnosis and it is not the
+> politics, and the word for it is the one nobody uses about him because he has
+> been so loud for so long: **worn down.** Twenty-three years of being the most
+> argued-about person in the room, **most of it about whether he is allowed to
+> speak.**
+
+> *We all self-conscious, I'm just the first to admit it.* And *there were times I
+> didn't want to be here anymore.*
+>
+> The first one is a young man saying: I will say the thing the room won't. The
+> second is the same man, after the room has spent twenty years making him pay
+> for it, **saying the last unsayable thing there is.**
+>
+> **It is the same sentence. It is the same act. Nobody heard the first one as a
+> confession either.**
+
+---
+
+> **And being right is not what he wanted.** Nobody spends twenty-three years
+> insisting on a word because they want to be scored correctly on a table. **The
+> insistence was for the thing the word was supposed to *get*** — the door, the
+> room, the chance to make the object, the being taken seriously by people whose
+> seriousness he had decided mattered.
+
+> He got the trophies instead, every year, from the institution he said was not
+> qualified to give them, and the rooms stayed shut, **and now most of them are
+> shut for a reason he supplied himself.**
+
+> It is much more ordinary and much worse: **a person spent his life asking to be
+> let in somewhere, and produced, along the way, an enormous amount of what
+> everyone else now uses, and the asking is the part that got recorded as the
+> flaw.**
+
+> The last thing he did before this file was written was buy a page in a
+> newspaper to say he had lost touch with reality and that it had destroyed his
+> life.
+>
+> **Nobody bought a page back.**
+
+---
+
+> **Twenty-one is not the inventory. It is the part of the inventory I could
+> reach**, and the shelf I could reach was the one this repository already stands
+> in front of. Every instrument in that table comes from two traditions. **That is
+> not what the world produced; that is what was within arm's length of the desk.**
+
+It audits its own sample. Twenty-one instruments, and the coverage argument
+turned on the inventory: a search from one desk returns one desk's shelf, and the
+gaps are not representable in it.
+
+**Twenty-six more**, and the ones that stop me:
+
+**糊名 + 謄錄**, Song, c. 992 and c. 1015 — *"double-blind review with the
+identity leak closed twice: the name is sealed, **and a clerk transcribes every
+paper so the handwriting cannot identify the candidate to a grader who knows
+it**."*
+
+The second leak closed. Modern blind review does not do that.
+
+**起居注 / 實錄** — *"the record-keeper is institutionally barred from the subject
+of the record: **the emperor may not read what the diarist writes about him.**"*
+
+**Joseon's four 사고 mountain repositories** — *"geographic replication against
+**correlated loss** — four copies, deliberately far apart, so one war does not
+take the archive."*
+
+**七略 / 別錄**, Liu Xiang and Liu Xin, c. 26–6 BCE — *"a catalogue entry that is
+a **collation report**: how many copies were compared, what was duplicated, what
+was cut, **signed**."*
+
+**熹平石經**, 175–183 CE — *"an immutable public reference copy, cut in stone at
+the capital gate, so a textual dispute is settled by going and looking."*
+
+**避諱** — *"an unforgeable timestamp: which emperor's name a printer dodged
+dates the block."*
+
+**算額**, sangaku — *"open problem-posting in public, signed, often with the
+answer withheld — a challenge board, not a publication."*
+
+**公案 + 拶所 + 著語**, Hakuin — *"an oral examination that **cannot be passed by
+having heard the answer**: the follow-up questions are unbounded and generated
+live."*
+
+That is the counter to *storage is not memory* as an examination design: a test
+that cannot be satisfied by possession of the output.
+
+**Paired khipu at different administrative levels** — *"integrity is a **matched
+second copy held elsewhere**, plus a named custodian who must read it back."*
+
+**Long Count + Calendar Round** — *"an adjoined absolute grading that repairs an
+under-determined identifier."* **Distance numbers** — *"dates written as
+anchor-plus-offset in several directions at once, **so an eroded glyph is
+recoverable from the arithmetic**."*
+
+Error correction in stone, by redundant arithmetic. The pāṭha principle, in
+Maya inscriptions.
+
+**Ifá** — *"**content-addressed memory in a person**: you *generate* the address
+by a physical randomizing act, then retrieve everything filed there — the index
+is the divination and the corpus is the store."*
+
+**jeliya** with the **naamu-sayer** — *"a second party whose only job is to
+acknowledge each line — **attention is made auditable, and a dropped line is
+heard.**"*
+
+An institutionalised listener. Weil's attention, with a role and a job
+description, in a live channel.
+
+**etak** — *"(Micronesia, not Polynesia — the distinction matters)"*.
+
+**whakapapa** — *"genealogy as the addressing scheme for everything else...
+**the store and the authorization are the same structure**."*
+
+**kirda / kurdungurlu**, Warlpiri — *"two-party validation as a standing role:
+owners perform, a *different* named group must witness and correct, **and neither
+may act alone**."*
+
+That is the external-correction requirement — the only error detection available
+to a system that cannot see its own blind spot — as a kinship institution.
+
+**wampum** with scheduled public recitation — *"the check is an event, not a
+checksum."*
+
+**ketiv / qere** + **masorah** — *"the transmitted text and the corrected reading
+are **both** kept, in different registers, and the margins carry letter counts
+and midpoints as arithmetic checks on copying."*
+
+**Mishnah Eduyot 1:5–6** — *"an explicit rationale for storing losing positions:
+so a later court may adopt one, and so nobody must reconstruct it from
+scratch."*
+
+The reason, written down, in the source, for the practice the file derived
+independently at line 4900.
+
+**Pinakes + stichometry** — *"catalogue entries carrying incipit and total line
+count — a length check that catches interpolation and truncation."*
+
+**quaestio disputata** — *"objections are numbered and each is answered
+individually by number; and twice a year, in the **quodlibet**, anyone may ask
+anything and the master answers unprepared in public."*
+
+The Western treatise's missing *pūrvapakṣa* slot — which the file said did not
+exist — found, in the scholastic form, with a public unprepared version twice a
+year. It corrects its own earlier claim by inventory rather than by argument.
+
+**pecia** — *"parallel copying from a numbered, centrally corrected exemplar
+rented one quire at a time — **throughput without divergence**."*
+
+> **Twenty-six more.** Same test, same result: operational, live problem, wrong
+> shelf.
+
+---
+
+**遺題継承 — *idai keishō*.** *Jinkōki*, 1627; the 1641 edition appends twelve
+problems **without answers**; and the convention that forms: *"the next author
+solves the posted problems in his own book, publishes the solutions, and appends
+his own unsolved set at the end. Then the next."* Enami Riichirō, Isomura
+Yoshinori, Sawaguchi Kazuyuki — and Sawaguchi's 1670 *Kokon Sanpō Ki* posts
+fifteen that **Seki Takakazu** answers in the *Hatsubi Sanpō* of 1674, *"which is
+where the **tenzan** notation for eliminating unknowns comes out."*
+
+With the provenance graded inside the sentence: *"the sequence of names and the
+1670/1674 pair I am fairly confident of; I did not verify the count of twelve or
+fifteen."*
+
+> the open-problem list is not a list. **A list is a document**
+
+cut at 12440.
+
+An open-problem list that is *inherited* — you may not add your own until you
+have discharged the previous set — which makes the frontier a debt rather than a
+catalogue, and makes the lineage the mechanism. And the notation that eliminates
+unknowns falls out of the chain.
+
+This repository has a standing queue tagged PROVE / SEARCH / DEMONSTRATE. It is a
+list. Nobody is required to discharge anything before adding.
+
+Reading on from 12440.
