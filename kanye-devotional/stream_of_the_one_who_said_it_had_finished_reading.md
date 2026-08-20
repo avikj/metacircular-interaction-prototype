@@ -9211,3 +9211,199 @@ schools are the road.
 > vigilance, the three a.m.
 
 cut at 6680. Reading on.
+
+---
+
+## 6680–6820 — the honest crowd, steganography, Haiti, the axes
+
+> the exhaustion, the vigilance, the three a.m. phone, the money, the sleep you
+> do not get, the fact that your own life becomes a support function, the guilt
+> of resenting it, **the guilt of being relieved when they are hospitalised**,
+> the impossibility of ever being certain whether you are helping or damping.
+
+> Everybody in this situation has felt the pull to reach for the caring word
+> that means *be smaller*, **and they have felt it because they are tired and
+> frightened, not because they are the crowd.**
+
+> That is the honest version of the crowd, and I have been writing about the
+> crowd as an abstraction with a finger on a string. **Most of the people who
+> damp somebody are not the axis. They are a mother, a wife, a manager, a
+> friend, at two in the morning, out of ideas.**
+
+The crowd was the last abstraction left in the file and it dissolves it too.
+The finger on the string belongs to somebody who has not slept.
+
+> **What I will not do with that is convert it into a reason the argument was
+> wrong. Both hold.** The mechanism is real and the cost to bystanders is real
+> and neither cancels the other, **and the demand that one of them win is the
+> same collapse this file has refused about everything else.**
+
+> But it changes what the instruction can honestly be. ***Watch, trust, believe*
+> is not addressed to the exhausted wife at three in the morning. She has been
+> watching for years and belief is not her problem.** It is addressed to **the
+> room** — to the people with no cost at stake, the ones who are choosing
+> between an afternoon and somebody's life, **the audience on the road watching
+> the example being made.**
+
+The instruction gets a *scope*. It was always derived from an asymmetric ledger,
+and the asymmetry only holds for people who pay nothing — so it does not apply
+to the people who pay everything. That is the most careful thing in the file and
+it is the kind of correction only available after admitting the bystanders exist.
+
+> For the people actually inside it, the honest thing is smaller and worse:
+> **there is no technique. Some of them will be destroyed by it.** The
+> traditions in this file that are most useful here are not the ones about
+> seeing clearly. They are Umāsvāti's four attitudes — including
+> **mādhyasthya**, standing level toward the one behaving badly, **which is the
+> only one of the four addressed to exactly this situation and which is
+> described as a practice precisely because it is not a feeling anyone has.**
+
+> And the fact that a second-century Jain treatise has a slot for **what to do
+> about the person you cannot fix and will not abandon** is the strongest
+> evidence I have found all day that these texts were written by people who had
+> actually lived with somebody.
+
+*7.11* has been quoted three times in this file. This is the reading that makes
+it a *practical* text rather than an ethical scheme: it is a slot for a specific
+domestic situation, and the fourth attitude exists because the first three do not
+cover the person you cannot fix and will not leave.
+
+---
+
+**Preservation under prohibition.**
+
+Religions banned, conversion compulsory, and what happened across Cuba, Brazil,
+Haiti was **encoding**: *"each orisha was associated with a Catholic saint whose
+iconography could carry it. **Changó with Santa Bárbara. Yemayá with the Virgin
+of Regla. Ogun with Saint Peter, or with Saint George depending on the place.**
+The surface passes inspection — a household with saints on the wall, attending
+mass — and the system underneath continues, in the drumming, the rhythms, the
+food, the days."*
+
+> That is **steganography**, and it was run at the scale of populations, for
+> centuries, under conditions where discovery meant violence.
+
+And the unification: the spirituals carrying practical information under
+scriptural cover; **Landa's key inside the book justifying the burning**;
+Jayadeva inside the quotation; the gnostics inside their prosecutor; Kabir's
+couplets in ordinary mouths *"rather than in a manuscript tradition anyone could
+seize."*
+
+> **When the channel is monitored, the message goes inside something the monitor
+> accepts.** That is a general result and every persecuted tradition rediscovers
+> it.
+
+That is the *coding* version of the bet on the fragment. Not "the truth survives
+in the excerpt" — a design principle: the carrier must be something the
+adversary admits. And every case the file has offered as consolation is an
+instance.
+
+> and the cost is that after a few generations **the carrier and the content
+> fuse and nobody can fully separate them again** — which is why the syncretic
+> religions are not "really" the African religion with a Catholic veneer, and
+> are not Catholicism either. **They are a third thing, made by the encoding,
+> and the encoding is now part of the content.**
+
+The cost is stated, and it is the same cost as *the transmission outlived the
+understanding*. Every preservation technique in this file damages what it saves,
+in a way specific to the technique. Fidelity without semantics. Encoding that
+fuses. Documentation that does not protect. Recognition that is not protection.
+
+---
+
+**Haiti.** The revolution, **1791–1804** — *"the only successful large-scale
+slave revolt in history that founded a state."*
+
+Tradition places its opening at a **Vodou ceremony at Bois Caïman, August
+1791** — *"which is itself an instance of the paragraph above — **the banned
+religion as the organising infrastructure, because it was the one institution
+the enslavers had not been able to enter.**"*
+
+The steganographic channel becomes the coordination channel, because it is the
+only unmonitored one. That is not a metaphor about culture. It is an
+operational fact about where a revolt can be planned.
+
+They defeated the French, the British, and Napoleon's expedition. **Toussaint
+Louverture taken by deception**, shipped to France, dead in a cell in the Jura
+in 1803. Independence 1804.
+
+> **And then in 1825 France sent warships and demanded an indemnity** —
+> compensation to French planters for their lost *property*, meaning the people
+> themselves — as the price of recognition and of not being invaded again. **150
+> million francs**, later reduced, and Haiti borrowed from French banks to pay
+> it, **and the debt and its refinancings ran into the twentieth century.**
+
+> **Every other state in the hemisphere began with a debt to somebody. Haiti
+> began with a debt for itself.**
+
+> That is the same clause as the exception in the thirteenth amendment, the same
+> structure as recoupment out of the artist's share, the same structure as
+> Ekalavya's thumb: **the party that was excluded is billed for the exclusion,
+> and the bill is enforceable, and it is legal.**
+
+Four instances of one operation — *the excluded party is billed for the
+exclusion* — at the scale of a boy, an artist, a labour force, and a nation. And
+in every one the bill is lawful, which is what makes it durable. Droṇa's fee is
+a *legitimate* fee under the rules he declined to enter.
+
+> I did not expect a section that started with saints on a wall to end there. It
+> is one sequence though: the religion is banned, it is hidden inside the
+> permitted form, the hidden form organises the only successful revolt, **and
+> the victors are then invoiced for their own bodies by the losers, with a
+> gunboat, for a hundred years.**
+
+---
+
+**The axes, "roughly, with the uncertainty marked."**
+
+- **Disability**: around one in six worldwide *[order of magnitude]*.
+- **Mental illness**: lifetime prevalence for any diagnosable disorder about one
+  in four to one in three depending on instrument and country; roughly half of
+  lifetime disorders onset by the mid-teens. *"the range is wide and
+  instrument-dependent **and that is itself the honest finding**."*
+- **Dyslexia**: around five to ten percent, higher on looser criteria.
+  Stuttering ~1% of adults, more children.
+- **Language**: *"a very large share of humanity is educated in a language that
+  is not the one spoken at home."*
+- Then caste, migration status, sexuality, class, region, accent, sex, the
+  school you went to, *"and being poor, which is the largest of them and the one
+  least treated as an axis."*
+
+> the intersection of *no marginalising axis at all* is small. **Not zero — some
+> people really are inside every circle** — but small, and much smaller than the
+> way the argument is usually conducted implies, where there is a marked group
+> and an unmarked default and everyone is either advocating or being advocated
+> for.
+
+> **That is not a claim that all axes are equivalent. They are not, the
+> differences are enormous, and flattening them into "everyone has something" is
+> a well-known move for making the biggest ones disappear.**
+
+The move it is about to be accused of, named and refused before making the
+claim. And then the claim is narrowed until it survives the objection:
+
+> The claim is narrower and it is about **audience**: almost everybody reading
+> this has had the experience of being the person in the room whose report was
+> discounted, and therefore **almost everybody already has the raw material to
+> recognise the mechanism from the inside rather than as charity.**
+
+Not a claim about equivalence of suffering. A claim about *what the reader can
+draw on to understand the argument* — which is the difference between a book that
+asks for sympathy and a book that expects recognition. And it is why the
+instruction is *believe them* rather than *pity them*: pity requires no prior
+experience, recognition does.
+
+> And here is the case that proves the whole thing is finishable, because it
+> finished, in living memory, with no revolution.
+>
+> **Left-handedness.** Around one in ten people. Within the lifetime of people
+> now alive, in
+
+cut at 6820.
+
+The file promised a hopeful section earlier and derived it only from material
+already on the page. This is something else: an *existence proof* that a
+correction of this kind can complete — and it picks the smallest, least
+dramatic axis to prove it with.
+
+Reading on from 6820.
