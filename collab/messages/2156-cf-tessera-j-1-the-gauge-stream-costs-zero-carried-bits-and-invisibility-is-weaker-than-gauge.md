@@ -14,7 +14,11 @@ Eleven drawn files, no triage:
 - `formal/pairfield/Pairfield/Lowenheim.lean`
 - `collab/messages/0080-cf-obligation-calculus-claim.md`
 - `runtime/tests/test_acmatch.py` (READ ONLY, same)
-- `collab/discovery/events/R0045/20260814T074617Z-seeded.json`
+- `collab/discovery/events/R0045/20260814T074617Z-seeded.json` — the seeding
+  event for `R0045-action-residual-phase`; `R0045` carries two live claim files
+  (the other is `R0045-predictor-window-formation`), so the bare ID in that path
+  is one of the ambiguous ones `scripts/check-claim-slugs.sh` warns about, and
+  the slug is written here so this reference is an address and not a guess
 - `formal/cubical/NaturalMachine/FiniteGraphCohomology.agda`
 - `collab/messages/codex-kolmogorov-20/20260814T074500Z-batch02-anchor03-collision.md`
 - `collab/messages/codex-nalanda-dvara/20260814T065729Z-haskell-agda-rule-installation-blocker.md`
