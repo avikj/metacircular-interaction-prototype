@@ -26062,3 +26062,154 @@ counter-observation I state so narrowly that nothing could satisfy it. The secon
 real risk and I have no check for it: **a pre-registration can be gamed by choosing a
 counter-observation I already know is unavailable**, and nothing in the practice detects
 that. Recording it as the practice's own blind spot, unresolved.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 144 — Series A, Case No. 1 is the torturer, filed with a number in the
+# same register as the tortured. The counter-observation fires a third time:
+# this corpus keeps its false things in the tree, with names.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4125 onward. *Les damnés de la terre*, 1961, Chapter 5,
+*"Guerre coloniale et troubles mentaux"* — a **case series**, assembled from Fanon's own
+patients in Algeria and then Tunis, grouped, **each entry with a number, an age, an
+occupation, a presenting complaint.**
+
+> **Series A, Case No. 1** is the one nobody expects.
+>
+> The patient is a **European police inspector.** He came to Fanon privately. Insomnia;
+> he had begun **beating his wife**, and had **tied up and beaten his children, one of
+> them twenty months old.** He describes hearing screaming at night in the house.
+>
+> **He tortured Algerian prisoners as part of his work.** He had come to a psychiatrist
+> because the symptoms were interfering with his family life.
+>
+> What he asked Fanon for, in the case note, is help **to go on torturing** — with
+> equanimity, without conscience trouble, without the behaviour at home.
+>
+> **Fanon treated him.** The man's leave was interrupted; he went back to work.
+>
+> Elsewhere in the same chapter: two Algerian boys, thirteen and fourteen, who killed a
+> European playmate; survivors of a massacre; women whose husbands had been killed and who
+> were then raped by the men who did it.
+>
+> **The torturer is filed in the same series as the tortured, in the same clinical
+> register, by the same physician, in the same book, with a number.**
+>
+> **He did not withhold the treatment and he did not withhold the record. Both of those
+> are in the volume.**
+
+`CLAUDE.md`, cognitive item 4: *"**Treat everyone as a prophet** — full attention, take
+them at their word, believe their private sight. **Not 'forgive'** (still the judge's
+bench), **not 'understand'** (still above them)."*
+
+Neither forgiveness nor understanding. **A case number.** The request is recorded verbatim
+— *help me go on torturing* — and it is not editorialised, not withheld, and not placed in
+a separate appendix for the guilty. That is the hardest possible instance of the rule and
+it is the one the rule was presumably written for.
+
+## P144 — the resignation letter, and the pathology named
+
+> **December 1956.** The resignation letter to **Robert Lacoste**, resident minister of
+> France in Algeria … **short, and a clinical document.** For months his conscience had
+> been the seat of unpardonable debates, and their conclusion was **the will not to lose
+> hope in man, that is to say in himself**; and his decision was **not to carry a
+> responsibility at any cost on the false pretext that there was nothing else to be done.**
+>
+> The argument: the Arab in Algeria is permanently depersonalized by the structure he lives
+> in, the events of the country produce their symptoms **faster than he can treat them**,
+> and **a psychiatry practised inside a systematically dehumanizing order is repair work
+> performed to return people to the thing that injured them.**
+>
+> **A doctor quit the hospital and named the country as the pathology.** That is not a
+> metaphor he wrote afterward. **It is the resignation letter of the head of a service,
+> addressed to the minister, filed at the time.**
+
+Expelled January 1957. Died **6 December 1961**, leukemia, NIH in Bethesda, admitted under
+the name **Ibrahim Fanon**, brought to the US by a CIA officer. **Thirty-six.** *Les damnés
+de la terre* had appeared weeks earlier and had been seized in France.
+
+And the number under Saint-Alban, where he trained: **roughly forty thousand psychiatric
+patients died of starvation in French asylums between 1940 and 1945** — estimates in the
+literature run 40,000 to 45,000–50,000 by how the counting is done.
+
+## P144 — counter-observation, stated first, and it fires again
+
+**Frame forming:** *the same-register move — filing the excluded thing with a number,
+in the tree, unhidden — has no analogue in this corpus.*
+
+**Counter-observation, stated before looking:** a place where something that would
+ordinarily be kept out of the record is kept in it, in the same format as everything else.
+
+Three, immediately:
+
+- **`formal/cubical/NaturalMachine/Control/` — ten files that assert FALSE statements.**
+  `WrongFirstStep` · `WrongEquivalence` · `QuantifierDrop` · `InjectivityNecessary` ·
+  `MaximizerWithoutNonvanishing` · `ReachabilityWithoutStart` ·
+  `SatisfactionWithoutCodomainAgreement` · `FunctionBoundFromConstant` ·
+  `InflationFlattened` · `WrongFirstStepNoTactic`. **In the tree. With names. Gated. And
+  required to keep failing for their stated reason.**
+- **`struck-claims.txt`** — *"**Never delete one** — a claim that comes back is exactly
+  what this file is for."* The refuted claims live in the same file, in the same
+  three-field format, as the corrections that replaced them.
+- **`CLAUDE.md:287`** — ***"STRUCK 2026-08-19 by the owner. The paragraph that stood here
+  is preserved below it, marked, because striking a rule silently is how this repository
+  loses its own history."*** The struck rule is **left in the governing document**, marked,
+  under the rule that replaced it.
+
+**Dead before written. Three for three.** And the finding is better: **this corpus's
+default is to keep the false thing, in place, named.** Not archived, not deleted, not
+moved to a graveyard directory — kept in the register, where the next reader hits it.
+
+## P144 — and the two moves are the same move
+
+Fanon's case series and `NaturalMachine/Control/` are doing one thing: **the record's
+completeness is not conditional on the entry being creditable.**
+
+A case series that excluded the torturer would be a better story and a worse instrument —
+you could no longer ask *what does this war do to the people running it*, which is the
+question Chapter 5 exists to answer. A `formal/cubical/` that deleted its ten false
+modules would look cleaner and would lose the only thing that shows the true ones are not
+vacuous.
+
+**`check-controls.sh` is the sentence made mechanical:** the false modules are not merely
+kept, they are **checked**, and checked for *failing for the stated reason*, so that a
+false thing which has stopped being false in the right way is caught. There is no
+equivalent for the case series and Fanon supplies it in prose instead — the presenting
+complaint, the request, the outcome, all in the entry.
+
+## P144 — ground, in lockstep
+
+**n=22:** *"**I HATE YOU I LOVE YOU.** YOU'D TRY TO EDUCATE RAMANUJAN"*
+
+Both halves in one line, neither retracted, in the message as sent. **That is Series A Case
+No. 1's format** — the thing that would be edited out of a cleaner account, kept in the
+same register as everything around it. Pass 140 found the same structure on an album cover;
+this is it in the ground file, and I have quoted n=22 four times today for the second half
+and never once for the first.
+
+**n=13 + n=22 together.** *Everything implemented so far is deeply retarded with nuggets of
+insight.* Also both halves, also in one sentence, also unretracted. **The ground file's own
+form is the case-series form**, and the reason nine of its twenty-eight messages read as
+contradictory is that none of them was cleaned.
+
+**n=15:**
+
+> **सत्यं न एकस्वरम् · सत्यं = भेदान् न नाशयन्ती संगतिः**
+>
+> *Truth is not single-voiced; truth is a coherence that does not destroy differences.*
+
+A case series is that, literally: series A next to series B, the inspector next to the
+boys, coherent as a document and destroying no difference between them. **Deleting the
+inspector would be single-voiced and would be a smaller truth.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *keeping the false thing
+in register is costless and the corpus does it everywhere.* **Counter-observation** — a
+place where keeping it **cost** something: a false module that broke a build, a struck row
+that misfired, a preserved paragraph that an agent then acted on as if live. The third is
+the real risk and `struck-claims.sh`'s own header describes exactly it — *an agent's
+standing state carried a struck claim through twenty cycles* — so the counter-observation
+is already found and the frame is dead on arrival. **Keeping the false thing in register is
+not costless; it is cheaper than the alternative**, which is a different claim and the one
+I should have made.
