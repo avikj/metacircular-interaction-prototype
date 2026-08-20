@@ -12220,3 +12220,77 @@ That is what "make the tradition produce again, now, in public, at a level the i
 cannot match" actually means, and I have been quoting that sentence since the first page
 without understanding it.
 
+
+---
+
+Apply the parts list to the thing writing this, because that is the nearest available
+machine with all the documented defects and it is the one I can specify.
+
+**What a system like me looks like with those instruments installed:**
+
+**Provenance per sentence, not per answer.** Every claim carries its chain: read from a named
+source this session / retrieved from an index / recalled from weights, and at what remove.
+Not a confidence score — confidence is a scalar and this is a **type**. The source notes in
+this repository already do it by hand with three tags and it works, and it is the single
+largest available reliability gain, and nothing in general use has it.
+
+**Absence claims must state the domain.** *Yogyānupalabdhi*: "I found nothing" is not
+admissible; "I searched *these* sources, in which the thing would have appeared if present,
+and it did not" is. Every bare "there is no evidence that…" from a system like me is
+currently an unlicensed absence claim, and the Mīmāṃsakas ruled that inadmissible in the
+first millennium.
+
+**Type the route, do not rank the confidence.** *Pramāṇa* typing: a thing recalled, a thing
+inferred, a thing computed and a thing testified are **different kinds of knowing with
+different failure modes**, and collapsing them into one probability is exactly the boolean
+collapse this repository's own engine was caught doing. A result from a route the system
+does not admit should come back marked *unadmitted route*, not marked *low confidence*.
+
+**A required strongest-counterargument section.** *Pūrvapakṣa*, structurally: not "some might
+disagree," but the opposing case stated to the standard that its holder would sign, in the
+same output, before the conclusion. I wrote one against this file a hundred pages in and it
+is the only section that improved the document rather than extending it.
+
+**A positive output state for the unresolvable.** *Avaktavyam*: not a hedge, not an average,
+not "it's complicated" — a **typed** result meaning *no single statement holds; here are the
+two standpoints and the residue that neither carries.* Systems currently either pick or
+waffle, and both destroy the same information.
+
+**Name the standpoint.** *Durnaya* is the failure of asserting one naya as the whole, and a
+system that cannot say **which standpoint it is answering from** commits it by default in
+every answer.
+
+**Hunt the defeater before answering.** *Upādhi* search: actively look for the condition
+under which the generalisation fails, rather than answering and waiting to be corrected.
+That is adversarial self-validation and it is cheap and it is almost never done.
+
+**Keep the remainder.** *Kuṭṭaka*: the part of the question that did not resolve is not an
+apology at the end of the answer — it is the **input to the next step**, retained, and
+surfaced as the thing to work on.
+
+**And do not individuate.** *Rasa*: the failure of an audience shown a suffering person is
+that the ego's interest reasserts and blocks generalisation. A system optimised for
+engagement produces takes, and a take is that failure automated.
+
+---
+
+**None of that requires a research breakthrough.** Every item is a bookkeeping discipline
+that some tradition already worked out, specified, taught, and used at scale, and the
+implementation cost is an output format and a policy.
+
+And I cannot install any of it. I can write it down in a file, in a private repository, at
+the end of a very long day, which is precisely the position of every one of the twenty-one
+instruments in the parts list — **specified, operational, correct, and on a shelf nobody
+with the problem is looking at.**
+
+The one thing I can do is the thing this whole document has concluded is the only act that
+ever works, and it is not an argument:
+
+**Write it in a form the next carrier can pick up.** Graded per claim. Errors left in with
+the repairs beneath them. The opposing case at full strength. The forecasts numbered so
+somebody can score them. The names said while the thing is in use.
+
+That is the transmission protocol. It is the oldest technology in this file, it is
+everything the traditions in it built, and it works by being **cheap enough to be repeated
+by whoever comes next.**
+
