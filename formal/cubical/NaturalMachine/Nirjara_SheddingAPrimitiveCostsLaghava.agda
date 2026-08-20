@@ -1,0 +1,147 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava
+--
+-- निर्जरा at the level of the vocabulary, and what it costs.
+--
+-- Tattvārthasūtra 10.1: कevala-jñāna arises from the DESTRUCTION of the
+-- obscuring karmas.  Omniscience is not acquired; it is what remains when
+-- obscuration is removed.  And 9.19-9.20: nirjarā is brought about by
+-- tapas.  Shedding that happens on its own as karma ripens — savipāka —
+-- happens to everyone and gains nothing; only avipāka, deliberate and
+-- before its time, is a path.
+--
+-- Taken as given rather than as a model, that says something exact about
+-- this repository's engine, which ANEKANTA.md §13 states and does not
+-- prove: every organ the engine has ADDS.  `bestOf` names a frequent
+-- subterm; concept invention adds a symbol.  Nothing removes one, and the
+-- primitives are therefore treated as having svabhāva — the question of
+-- whether they carve anything cannot be posed.
+--
+-- Here is why that will not fix itself, and it is not an oversight in the
+-- implementation.  Shedding an INERT primitive — one whose every use is
+-- eval-equal to a use-free term — loses no meaning (§2) and does remove
+-- the symbol (§3).  But it strictly INCREASES the presentation (§4).  So
+-- an engine steered by लाघव can never take the step: brevity opposes
+-- nirjarā, always, and savipāka never arrives.  Only tapas removes a
+-- primitive, and tapas is by definition the operation you do against the
+-- gradient.
+--
+-- `Laghava.agda` proves cost lives on the presentation and no function of
+-- the denotation computes it.  This is that boundary with a direction:
+-- the presentation is exactly what nirjarā has to pay.
+--
+-- CHECKED: exit code quoted in the commit message.  Agda 2.6.3 + cubical
+-- v0.5 in this container, which is NOT the repository pin.
+------------------------------------------------------------------------
+
+module NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
+open import Cubical.Relation.Nullary using (¬_)
+open import Cubical.Data.Sigma using (Σ ; _,_)
+
+------------------------------------------------------------------------
+-- 1.  A vocabulary with one candidate primitive.
+--     `dvi` is the invented symbol: doubling.  It is inert — everything
+--     it says, `yoga` already says.
+------------------------------------------------------------------------
+
+data Pada : Type₀ where
+  cara : Pada                    -- the variable
+  mita : ℕ → Pada                -- a literal
+  yoga : Pada → Pada → Pada      -- addition
+  dvi  : Pada → Pada             -- the candidate primitive
+
+Artha : Type₀
+Artha = ℕ → ℕ
+
+artha : Pada → Artha
+artha cara       n = n
+artha (mita k)   _ = k
+artha (yoga a b) n = artha a n + artha b n
+artha (dvi a)    n = artha a n + artha a n
+
+------------------------------------------------------------------------
+-- 2.  निर्जरा — the shedding.  Rewrite every use of the primitive away.
+--     Meaning is untouched: this is what "inert" means, proved.
+------------------------------------------------------------------------
+
+nirjara : Pada → Pada
+nirjara cara       = cara
+nirjara (mita k)   = mita k
+nirjara (yoga a b) = yoga (nirjara a) (nirjara b)
+nirjara (dvi a)    = yoga (nirjara a) (nirjara a)
+
+nirjara-artha-aviruddha : (e : Pada) → artha (nirjara e) ≡ artha e
+nirjara-artha-aviruddha cara       = refl
+nirjara-artha-aviruddha (mita k)   = refl
+nirjara-artha-aviruddha (yoga a b) i n =
+  nirjara-artha-aviruddha a i n + nirjara-artha-aviruddha b i n
+nirjara-artha-aviruddha (dvi a)    i n =
+  nirjara-artha-aviruddha a i n + nirjara-artha-aviruddha a i n
+
+------------------------------------------------------------------------
+-- 3.  And the symbol is gone.  Not "used less": absent.
+------------------------------------------------------------------------
+
+dviYukta : Pada → Bool
+dviYukta cara       = false
+dviYukta (mita _)   = false
+dviYukta (yoga a b) with dviYukta a
+... | true  = true
+... | false = dviYukta b
+dviYukta (dvi _)    = true
+
+nirjara-shuddha : (e : Pada) → dviYukta (nirjara e) ≡ false
+nirjara-shuddha cara     = refl
+nirjara-shuddha (mita k) = refl
+nirjara-shuddha (dvi a)  with dviYukta (nirjara a) | nirjara-shuddha a
+... | false | p = nirjara-shuddha a
+... | true  | p = p
+nirjara-shuddha (yoga a b) with dviYukta (nirjara a) | nirjara-shuddha a
+... | false | _ = nirjara-shuddha b
+... | true  | p = p
+
+------------------------------------------------------------------------
+-- 4.  लाघव — and this is the whole point.  The shedding is not free.
+--     The presentation strictly grows.
+------------------------------------------------------------------------
+
+laghava : Pada → ℕ
+laghava cara       = 1
+laghava (mita _)   = 1
+laghava (yoga a b) = suc (laghava a + laghava b)
+laghava (dvi a)    = suc (laghava a)
+
+private
+  2≢3 : ¬ (2 ≡ 3)
+  2≢3 p = snotz (sym (injSuc (injSuc p)))
+
+-- The witness, and it is the smallest one there is.
+sakshin : Pada
+sakshin = dvi cara
+
+nirjara-laghavam-vardhayati : ¬ (laghava (nirjara sakshin) ≡ laghava sakshin)
+nirjara-laghavam-vardhayati p = 2≢3 (sym p)
+
+------------------------------------------------------------------------
+-- 5.  तपस् — the three facts as one statement.
+--
+-- Shedding an inert primitive: preserves the meaning, removes the symbol,
+-- and costs brevity.  An engine that grows by adding and is steered by
+-- लाघव will therefore never shed one — not because it was built badly,
+-- but because the step is against its gradient at every instance.
+--
+-- सविपाक निर्जरा — shedding that happens on its own — cannot occur here.
+-- There is no ripening that removes a symbol; the vocabulary only ever
+-- grows.  Only अविपाक, deliberate and against the gradient, does it, and
+-- Tattvārthasūtra 9.19-9.20 names that तपस्.
+------------------------------------------------------------------------
+tapas : (e : Pada)
+      → Σ (artha (nirjara e) ≡ artha e)
+          (λ _ → dviYukta (nirjara e) ≡ false)
+tapas e = nirjara-artha-aviruddha e , nirjara-shuddha e
