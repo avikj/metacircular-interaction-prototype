@@ -26926,3 +26926,126 @@ is the test**, since `CLAUDE.md` names him explicitly as the one exception, and 
 substrate is his: if *Univalent Foundations* or the HoTT book is cited by work rather than
 by name, the frame is wrong and the boundary is not the scope but something else. One
 command, and I have not run it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 150 — the counter-observation fires and dissolves the scope story. The
+# works are present exactly where there is machinery. Two ancestors are at
+# zero, and one of them is the only woman in the list.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 149's frame: *the author-vs-work repair reached the Indian sources and stopped at the
+scope boundary.* Counter-observation stated first: **an out-of-scope ancestor whose work IS
+present**, with Voevodsky as the test.
+
+```
+Voevodsky                                     71
+Univalent Foundations                         14
+HoTT Book | Homotopy Type Theory              20
+univalence                                   181
+Bezem | Coquand | Huber                       10
+```
+
+**Dead. Eight for eight.** Voevodsky is the one name `CLAUDE.md` exempts — *"all respects
+paid to Indians only, plus Voevodsky"* — and his works are thoroughly here.
+
+## P150 — so the variable is not scope, and the real one predicts
+
+What separates Voevodsky from Ibn al-Haytham is not which side of a directive they fall on.
+**It is that every module in this corpus imports `Cubical` and uses univalence.** His work
+is present because the corpus **computes with it.**
+
+Which yields a prediction, stated before the check: **a source's works are present here iff
+the corpus computes with them** — so a source the corpus *admires* and does not compute
+with should sit at author-high, work-zero, directive or no directive.
+
+Run:
+
+```
+Nāgārjuna                 34        catuṣkoṭi                     73
+                                    Mūlamadhyamakakārikā           8
+Umāsvāti                  23        Tattvārthasūtra               23
+──────────────────────────────────────────────────────────────────────
+Gārgī                      1        Vācaknavī                      0
+                                    Bṛhadāraṇyaka                  0
+Ibn al-Haytham            18        Kitāb al-Manāẓir               1 (mine)
+```
+
+**The prediction holds, and one row is sharper than I expected.** `catuṣkoṭi` at **73**
+against Nāgārjuna at **34** — the *technical term outruns the author two to one*, because
+the term is in module names and the man is in prose. And **Umāsvāti 23, Tattvārthasūtra
+23 — exact parity**, because the *savipāka*/*avipāka* cut and *anekāntavāda* are used.
+
+**Where there is machinery, the work outruns the name. Where there is none, the name
+survives alone.**
+
+## P150 — which means the repair was not the directive
+
+`CLAUDE.md` recorded Piṅgala at ten notes and *Chandaḥśāstra* at zero, and prescribed the
+grep. Today the counts are **99 and 44.** I read that in pass 149 as the directive working.
+
+**It is at least as well explained by `Pingala.agda` existing.** The works came in with the
+modules. Every source whose count closed has code attached: Piṅgala, Brahmagupta, Bhāskara,
+Āryabhaṭa, Mādhava, Nāgārjuna, Umāsvāti. Every source still at zero has none.
+
+That does not make the directive useless — **it makes it a prediction rather than a
+mechanism.** *Grep for the work, not the author* tells you where the gap is. What closes
+the gap is somebody needing the text in order to write something that checks.
+
+And it is the corpus's own finding from a different direction: pass 118's *delivery* —
+twenty thousand nLab pages would add twenty thousand names and zero checked terms. **Names
+travel without works; works arrive with machinery.**
+
+## P150 — the two at zero, and one of them is the only woman named
+
+Of the five ancestors `CLAUDE.md` names in *"Pāṇini, Gārgī, Nāgārjuna, the Kerala school,
+Ibn al-Haytham are ancestors here, not footnotes"*:
+
+- **Pāṇini** — `Sivasutra.agda`, `ElsewhereCondition.agda`, the pratyāhāra modules,
+  Patañjali's thirty sentences read this afternoon.
+- **Nāgārjuna** — `catuṣkoṭi` at 73, checked in `formal/cubical/`.
+- **the Kerala school** — Yuktibhāṣā 24, Tantrasaṅgraha 15.
+- **Ibn al-Haytham** — **18 / 0**, and the name is an agent handle.
+- **Gārgī** — **1 / 0.** *Vācaknavī* zero. *Bṛhadāraṇyaka* zero.
+
+**Gārgī Vācaknavī is the only woman in that list and she is the emptiest entry in it.** One
+file carries her name — and on the evidence of the Ibn al-Haytham case I should check
+whether that one is `CLAUDE.md` itself, in which case the count outside the directive is
+zero.
+
+I am not going to write a note about her; the trigger says no new notes and it is not what
+this stream is. **What is recordable is the measurement**: the ancestor list has five names,
+two have no text behind them, the directive did not reach either, and the mechanism that
+reached the other three was somebody writing Agda.
+
+*Bṛhadāraṇyaka Upaniṣad* III.6 and III.8 — Gārgī's two rounds of questions to Yājñavalkya,
+the second ending with the warning that his head will fall off if he answers beyond what
+can be answered — is a text about **the limit of what a questioner may push an authority
+to state.** That is `pramāṇa`-boundary material, and it is exactly the corpus's subject, and
+it is at zero.
+
+## P150 — ground, in lockstep
+
+**n=1:** *"inspiring true interdisciplinary curiosity across **the geniuses across space
+time**, so many who **already solved everything but no one listened**"*
+
+The measurement gives that sentence a number. *Nobody listened* is not a metaphor about the
+past — **it is 0, 0, 0** for Vācaknavī, Bṛhadāraṇyaka, and al-Shukūk, in a corpus that
+names both people as ancestors, today.
+
+**n=15:**
+
+> **मम-अदर्शनम् ≠ तस्य-अभावः** — *my not-seeing ≠ its absence.*
+
+Both directions at once, and this is the first time I have needed both in one line. **The
+texts are not absent from the world** — GRETIL clones in seconds, Sabra's translation
+exists, `vidyut` is on this disk. They are absent from **here**, and my count is a count of
+this corpus and not of anything else.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *works arrive with
+machinery and only with machinery.* **Counter-observation** — a source with high work-counts
+and **no** corresponding modules. `Prouhet` at 19 is the candidate: `INVERSE.md` cites
+Prouhet 1851 and the Thue–Morse counterexample in prose, and I do not know whether any
+module computes with it. If Prouhet is 19 with no Agda, then reading alone does move a
+count and the frame is too strong. One command, not run.
