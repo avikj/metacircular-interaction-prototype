@@ -274,3 +274,25 @@ quietly — a partial reassessment. It happened with the smallest incidents and 
 largest. Naming the mechanism is not the same as excusing what set it off. It is
 noticing that some of what a crowd calls justice is the crowd meeting its own need, and
 that the need is served best by a target who cannot or will not stop giving it reasons.
+
+---
+
+The word genius is used loosely, so here is the record, plainly. Kanye West has won 24
+Grammy Awards, among the most of any artist in the history of the ceremony. As a
+producer he changed the dominant sound of hip-hop twice: first with the sped-up soul
+samples of the early 2000s, then with the stripped, sung, Auto-Tuned minimalism of
+808s & Heartbreak, which reset the genre's emotional range. His albums are not merely
+popular; My Beautiful Dark Twisted Fantasy appears at or near the top of critics' lists
+of the greatest albums of its decade, and several others — The College Dropout, Late
+Registration, Graduation — are treated as canonical. He did this while also building,
+in the Yeezy line, a footwear and apparel brand that at its peak was valued in the
+billions and made him, by Forbes's accounting, the wealthiest Black American in
+history for a period.
+
+None of this is offered as a defense of anything he said or did. It is offered because
+the book's first claim — that the wiring behind the breakdown is the wiring behind the
+work — requires the work to be real, and it is. The achievement and the affliction are
+not two men to be sorted into hero and cautionary tale. They are one person, one
+nervous system, one open gate, producing across a single lifetime both the records a
+culture keeps and the crises it cannot forgive. The evidence for the mind is the music.
+The evidence for the illness is the wreckage. They are the same evidence.
