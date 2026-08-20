@@ -38,6 +38,31 @@
 payload=$(cat 2>/dev/null) || exit 0
 [ -z "$payload" ] && exit 0
 
+# Un-escape newlines, AFTER the quoted spans below are blanked. Added
+# 2026-08-20 by the lane that built
+# Nasti_TheIndexIsSharedAndCommitTakesAllOfIt.sh, and it is a repair of a live
+# OUTAGE, not a tightening: a multi-line Bash command reaches this hook as one
+# JSON string with literal \n escapes, so every `[^|;&]*` segment below spanned
+# what were separate lines of the script.
+#
+#   git commit -o machine/Foo.hs -m x     -> exit 0 alone
+#   ls -a                                 -> exit 0 alone
+#   the two joined by an escaped newline  -> REFUSED
+#
+# Two harmless lines, refused together, by a BLOCKING guard, with sixteen
+# agents live in this tree; it refused the command that was writing the case
+# file for the other guard. Only \n is decoded -- \" is deliberately left
+# escaped so the quoted-span seds keep matching exactly what they did.
+# This change can only REMOVE refusals; every case in the .cases file still
+# lands where it did.
+#
+# ORDER IS LOAD-BEARING, and the first attempt at this repair got it backwards.
+# Decoding FIRST splits a multi-line quoted span across lines, and the
+# line-oriented `s/'[^']*'/''/g` below then blanks nothing -- so the guard
+# started refusing commands whose only mention of the flag was inside a quoted
+# string. It refused the very command that was adding these cases. Blank the
+# quoted spans on the single line first, THEN decode.
+
 # Strip quoted spans before matching. A flag is never quoted; a commit message
 # always is, and a message that DESCRIBES the sweep is not one. The first
 # version of this guard refused its own landing commit, because that commit's
@@ -48,6 +73,10 @@ payload=$(cat 2>/dev/null) || exit 0
 payload=$(printf '%s' "$payload" \
   | sed "s/'[^']*'/''/g" \
   | sed 's/\\"[^\\]*\\"/""/g')
+
+# ...and now the newlines, so no segment regex spans two lines of the script.
+payload=$(printf '%s' "$payload" | sed 's/\\n/\
+/g')
 
 # Only git invocations are of interest.
 printf '%s' "$payload" | grep -q 'git' || exit 0

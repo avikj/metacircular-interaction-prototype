@@ -14,6 +14,10 @@
           },
           {
             "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/Nasti_TheIndexIsSharedAndCommitTakesAllOfIt.sh\""
+          },
+          {
+            "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/source-coverage.sh\""
           },
           {
@@ -23,6 +27,10 @@
           {
             "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/struck-claims.sh\""
+          },
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/MulaVakya_TheHeaderCarriesItsTextAndDate.sh\""
           }
         ]
       },
@@ -40,6 +48,10 @@
           {
             "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/struck-claims.sh\""
+          },
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/MulaVakya_TheHeaderCarriesItsTextAndDate.sh\""
           }
         ]
       }
