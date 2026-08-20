@@ -172,3 +172,35 @@ the label keep his masters quietly, and the patient who won't stay on the medica
 flattens him. It is one refusal, and the world has a single word it reaches for every time
 a person refuses at that volume. The word is crazy, and this whole book is an argument
 that we have been using it, for a very long time, to mean something closer to unowned.
+
+There is a thing a country does to the mind it cannot own, and it is worth knowing
+plainly, because it happened to him and it happens, quietly, to a great many people who
+are not famous.
+
+You can be locked up in America without committing a crime. In every state, a person
+judged to be a danger to themselves or to others, or too far gone to care for themselves,
+can be held against their will — in California the paperwork is numbered 5150 — for up to
+three days, and carried in in restraints, with no charge and no trial. Where those people
+go afterward is the part few people know. Over the last sixty years the country closed
+most of the hospitals that once held the seriously mentally ill and never built the care
+that was promised to replace them, so the people did not vanish; they moved onto the
+streets and into the jails. The three buildings that hold the most mentally ill people in
+the United States today are not hospitals. They are the county jails of Los Angeles and
+Chicago and the jail complex on Rikers Island in New York. About one in five people in an
+American jail has a serious mental illness. When someone breaks down in this country the
+person who arrives is usually a police officer, not a doctor, and if the someone is Black
+the encounter is more likely to end in an arrest, and more likely to end in a death.
+
+In November of 2016 this happened to Kanye West in front of the world. In the middle of a
+manic episode he cut a concert short, canceled the rest of his tour, gave long unspooling
+speeches, and within hours was taken by ambulance to a hospital in Los Angeles and put on
+a hold — handcuffed to the gurney, by several accounts — and kept for more than a week. It
+was around then that a doctor finally gave the thing a name. He described it afterward the
+way only a person who has been inside it can: that as the mind ramps up you feel a
+heightened connection to everything, that it is like spraining your brain, and that once
+you are in that state the people around you "do everything to make it worse" — the
+restraints, the lights, the hands holding you down. For nearly anyone else the worst week
+of a life like this happens behind a door no one films. His happened on the record,
+because he had become a person the world felt entitled to watch, which is the next thing
+that has to be understood, and the next way the gift and the danger turned out to be the
+same thing.
