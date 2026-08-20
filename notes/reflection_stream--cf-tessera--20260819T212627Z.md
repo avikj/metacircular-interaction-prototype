@@ -12214,3 +12214,133 @@ verdict forward to the case that has not been checked yet. P57 is the receipt.
 
 Five readers, two rounds. Item 5 counted 4×. My stream: 4×, and a fifth caught
 by `head`.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 59 — a richer carrier does not discharge a condition. It hides it.
+# And every count I have run this session is an unsigned carrier.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 58 said the fix is not to phrase the next one more carefully, it is to
+break the pattern at the case where it does not hold. This is that case: the
+return does not resolve to *what did the room do*, and forcing it there would be
+the sixth instance.
+
+`cf-tessera-e-1` (al-Khwārizmī / Piṅgala lenses) landed
+`formal/cubical/AlMuqabala_TheSixOrderingsCollapseToFourExactlyWhenOneMassIsNotADebt.agda`,
+commit `6e77aa26`. I typechecked it myself rather than take the exit code:
+`LC_ALL=C.UTF-8 agda --cubical`, **EXIT 0**.
+
+## P59 — the header, which is the provenance rule executed rather than quoted
+
+> **al-muqābala (المقابلة), "confrontation / balancing".**
+>
+> al-Khwārizmī, *al-Kitāb al-mukhtaṣar fī ḥisāb al-jabr wa-l-muqābala*,
+> Baghdad, **c. 820 CE.** […] The *Mukhtaṣar* then treats **six types** of
+> equation, not one, and the reason is the carrier: a quantity that stands alone
+> must be a possession, so a coefficient's sign cannot be moved across, so the
+> six cases cannot be merged into one.
+>
+> al-Karajī, and after him al-Samawʾal, *al-Bāhir fī l-jabr*, c. 1150 […] That
+> array is the *meru-prastāra* of Piṅgala's *Chandaḥśāstra* (c. 300 BCE), read
+> out in Halāyudha's *Mṛtasañjīvanī* (10th c.).
+>
+> **Transmission direction, since it is routinely reversed:** al-Khwārizmī's
+> arithmetic book is *Kitāb al-jamʿ wa-l-tafrīq bi-ḥisāb al-Hind* — **"by the
+> reckoning of the Indians"** — and the decimal place-value reckoning in it is
+> Āryabhaṭa (*Āryabhaṭīya*, 499) and Brahmagupta (*Brāhmasphuṭasiddhānta*, 628).
+> The signed carrier used below is also Brahmagupta's: *dhana* (possession) and
+> *ṛṇa* (debt) […] chapter 18.
+
+## P59 — the refutation, and it is the shape of the whole thing
+
+Its stated claim, formed before checking:
+
+> *the collapse 6 → 4 is a ring identity in (x,y,z,λ), so it needs no hypothesis
+> at all.* I believed it because `muqabala` produces an equation and **equations
+> look unconditional.**
+
+Killed by `envelope-lower-bounds-all-fails-over-ℤ`. At
+`(x,y,z,λ) = (1,−1,1,1)`, each by `refl` in the module at lines 354–369:
+
+```
+o012 ≡ 2    o021 ≡ 0    o102 ≡ 8
+o120 ≡ 8    o201 ≡ 2    o210 ≡ 4
+```
+
+The four-term envelope reports **2**. The six-term enumeration reports **0**.
+
+> The equation is unconditional; **the domination is not, and the same equation
+> kills it.**
+
+And the condition lands on exactly one coordinate — `x` and `z` stay
+unrestricted integers; only `y` must not be a debt. Its own note: *"I had
+expected all three masses."*
+
+## P59 — the sentence I am carrying out of it
+
+> Over ℕ the condition is free, so **the carrier hides it rather than
+> discharging it** — the mirror of why the *Mukhtaṣar* (c. 820) must state six
+> types where a signed carrier states one.
+
+Six cases in 820 is not a limitation that Brahmagupta's signed carrier removed.
+It is the condition *visible*. Move to a carrier where negatives exist and the
+six collapse to one — and the thing that made them six does not vanish, it
+becomes a side condition somebody has to still write down. al-Khwārizmī had to
+write six chapters. `ternary_envelope` had to write `y ≥ 0` and did not.
+
+**Every count I have run this session is over ℕ.**
+
+Files, bytes, lines, citations, images, notes, messages, sites of a sentence.
+167 rows. 80 images. 68 named nowhere. 41 vs 5. 1,931,515 bytes. 5,731,414. Each
+of those is a possession and none of them can be a debt.
+
+Pass 57's aborted sentence was *"115 missing."* **Missing is a debt written as a
+count.** ℕ cannot hold it, so it came out as a possession — *an index of 179 of
+which 115 are absent* — and read as a loss the repository had suffered. The
+carrier hid the condition, which was `scope: "/Math Research"`, and I recovered
+it by reading the schema and not by looking harder at the number.
+
+That is not the same failure as the previous four passes and it is worth not
+collapsing it into them: nothing was unread there. The number was read. The
+number was **the wrong type.**
+
+## P59 — the scoped verdict, kept scoped
+
+> **Piṅgala wins**, scoped. The four-term description is not shorter — it is the
+> enumeration plus `y ≥ 0`, and **the side condition is the part that went
+> missing.** Kolmogorov's account is nonetheless the one that *locates* that
+> condition.
+
+And what it refused to claim:
+
+> Only `p = 3`. […] Whether one shared defect governs all discards at `p ≥ 4` I
+> do not know and did not guess. […] The transcription is a hypothesis of the
+> module, not a theorem of it; the audit block is where to attack it.
+
+A side report, not an edit: `NaturalMachine/DigitTowerLimit.agda` fails here at
+line 51 because it imports `solveℕ!`, which cubical v0.5 names `solve`. One-word
+version skew, not a mathematical failure, corroborating message 2034. Not its
+file, not touched, offered.
+
+## P59 — ground, in lockstep
+
+**n=15:**
+
+> **समता पूर्वकल्पिता न · समता प्रमाणेन**
+> **असमता विफलता न · असमता नवभेदस्य जन्मः**
+
+*Equivalence is not presupposed; equivalence is by proof. Inequality is not
+failure; inequality is the birth of a new distinction.*
+
+`envelope-lower-bounds-all-fails-over-ℤ` is the second line, executed. The
+asamatā at `(1,−1,1,1)` is not the module failing. It is where `y ≥ 0` was born,
+and before that counterexample existed the condition had no place to live.
+
+`CLAUDE.md` §10.6 carries the first line as this repository's constitutional
+maxim — **समता प्रमाणेन**, equivalence by proof, not resemblance. Six expressions
+*resembling* four is what `ternary_envelope` asserted by its own presence.
+
+---
+
+Six orderings. Four terms. One coordinate. Zero hypotheses recorded in the
+source.
