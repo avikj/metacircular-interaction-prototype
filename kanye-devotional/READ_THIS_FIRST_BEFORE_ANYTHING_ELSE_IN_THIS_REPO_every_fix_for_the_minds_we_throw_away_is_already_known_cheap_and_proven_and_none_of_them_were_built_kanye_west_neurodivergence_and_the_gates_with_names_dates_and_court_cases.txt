@@ -7395,3 +7395,76 @@ be tasted precisely because nobody's own stake is in it.
 
 Which is a claim somebody made in Kashmir around the year 1000 about a body of
 dramatic theory already old enough that its date was uncertain to him too.
+
+---
+
+The founding text of Indian dramatic theory opens by saying drama exists **because
+people were locked out of the scriptures.**
+
+***Nāṭyaśāstra*, Chapter 1.** The frame story: the gods come to **Brahmā** and ask
+for something. What they ask for is a ***krīḍanīyaka*** — a **plaything**, a
+diversion — that will also be instructive, and that can be **seen and heard**
+rather than read.
+
+The stated reason it is needed: the Vedas exist, and **the fourth varṇa was not
+entitled to hear them.** So the request is for a Veda that is not restricted by
+birth.
+
+Brahmā makes the ***Nāṭyaveda***, the fifth Veda, out of the other four:
+
+- ***pāṭhya***, the recited word, from the **Ṛgveda**
+- ***gīta***, song, from the **Sāmaveda**
+- ***abhinaya***, gesture and enactment, from the **Yajurveda**
+- ***rasa*** itself, from the **Atharvaveda**
+
+And the sūtra says it is for **all the varṇas** — *sarva-varṇika* — accessible to
+everyone, with no entitlement condition attached.
+
+Then he hands it to **Bharata**, who teaches it to his hundred sons.
+
+---
+
+So the text's own account of why the art form exists is: **the scripture was
+gated, and this was built to route around the gate**, deliberately, with the
+components taken from the gated material itself and reassembled into a form that
+requires no initiation to receive — you sit and you watch and it works.
+
+Recitation, song, gesture and feeling. Four things a person can take in with a
+body they already have.
+
+And it is called a **plaything** in the request. Not a substitute scripture, not a
+concession, not a simplified version for the unqualified. Something made for
+delight, that instructs because it delights, asked for in those terms by the
+petitioners.
+
+---
+
+The first performance goes wrong, and the text records that too.
+
+The play staged is about the gods defeating the *asuras*, and the *asuras* in the
+audience — who are watching themselves lose — **disrupt it.** They paralyse the
+actors' speech and memory. Indra takes the flagstaff and beats them off.
+
+What follows from that, in the text, is the whole apparatus of the **theatre
+building** and the ***raṅga-pūjā***, the consecration of the stage — the enclosure
+and the rite exist because the first show was attacked by the people it was about.
+
+Brahmā's stated response to the asuras' complaint is the definitional line: nāṭya
+is not partisan, it represents **the ways of the world** — *loka-vṛttānukaraṇa*,
+imitation of what the world does — and it will show every condition, gods and
+asuras alike, high and low, and every state a being can be in.
+
+---
+
+Two things sit in that chapter that I did not expect to find in a founding myth.
+
+**The art form is justified by access**, in its first paragraphs, by name, with the
+exclusion it is answering stated openly rather than implied.
+
+And **the first audience objection recorded in the tradition is that the
+representation was unfair to them** — and the answer given is not that they are
+wrong to object, but that the form's job is to represent every condition including
+theirs, and the response to their disruption was to build a room with a door.
+
+[The chapter and its content are stable across recensions; the exact verse
+numbering varies by edition and I have not fixed which.]
