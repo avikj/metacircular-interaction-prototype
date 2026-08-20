@@ -44,8 +44,8 @@ father was his best friend.
 
 Their son was born in Atlanta on June 8, 1977, while his father was shooting
 for the paper. The parents separated. He moved to Chicago at three, to 7815
-South Shore Drive. He was diagnosed bipolar at thirty-nine — "I'd never been
-diagnosed and I was like 39 years old."
+South Shore Drive. He was diagnosed bipolar at
+thirty-nine: "I'd never been diagnosed and I was like 39 years old."
 
 He became one of the most hated men alive. In October 2022 he made antisemitic
 statements in public, adidas ended the partnership, and his net worth
@@ -96,30 +96,23 @@ voice is on the album, saying what she actually said, at a speed he chose.
 A judge decided what his beats would sound like.
 
 1991, Southern District of New York. Biz Markie had used a Gilbert O'Sullivan
-record without asking. The judge, Kevin Thomas Duffy, opened his written opinion
-with four words — Thou shalt not steal — granted the injunction, and referred the
-whole thing to the U.S. Attorney to look at as a crime.
+record without asking. Judge Kevin Thomas Duffy opened his written opinion with
+four words — Thou shalt not steal — granted the injunction, and referred the
+matter to the United States Attorney for possible criminal prosecution.
 
-Before that ruling you could build a record the way Public Enemy built It Takes a
-Nation of Millions in 1988, out of dozens and dozens of fragments nobody had
-cleared, layered so thick you can't pull them apart. The people who made that
-record have said flatly that it could not be made after 1991. De La Soul's first
-album came out in 1989 and then sat off every streaming service for decades
-because the rights couldn't be untangled. It didn't come back until 2023.
+Before that ruling a record could be built the way Public Enemy built *It Takes
+a Nation of Millions to Hold Us Back* in 1988, out of dozens of uncleared
+fragments layered so thick they cannot be pulled apart. The men who made it
+have said it could not be made after 1991 at clearance prices. De La Soul's
+first album came out in 1989 and then sat off every streaming service until
+March 2023 because the rights could not be untangled.
 
-So what's left, after the ruling, is: use few samples, use them long, use them
-recognizable, and pay for every one. That's not an aesthetic. That's an invoice.
-And that is exactly the sound — one soul record, sped up, looped, out front where
-everyone can hear whose it is.
+What the ruling left standing was few samples, long, recognizable, and paid for
+one at a time.
 
-He picked up that method around nineteen. Eleven hundred samples later, every one
-of them is a purchase, and a decade after that he's posting his own record
-contracts on the internet and walking away from Nike because they wouldn't give
-him ownership.
-
-The first thing that ever taught him about owning your work was the bill for
-using somebody else's, and the bill exists because a federal judge quoted the
-Ten Commandments.
+He took up that method at about nineteen. A decade later he posted his own
+record contracts on the internet, and in 2013 he left Nike because they would
+not give him ownership or royalties.
 
 ---
 
@@ -213,10 +206,9 @@ daughter.
 North was born June 15, 2013. Donda West died November 10, 2007. They never
 met.
 
-So there are three of them on the same piece of equipment, in order. In 2008 he
-sang about her being gone. In 2014 he sang as her. In 2021, on the album with
-her name on it, he stopped singing and played her actual recorded voice, taken
-off tape she made while she was alive.
+In 2008 he sang about her being gone. In 2014 he sang as her. In 2021, on the
+album with her name on it, he stopped singing and played her recorded voice,
+taken off tape she made while she was alive.
 
 ---
 
@@ -341,30 +333,21 @@ avant-garde band. An Irish one. Nina Simone.
 
 The record that made him came out on the morning of September 11th, 2001.
 
-The Blueprint. Jay-Z. Made in about two weeks. Released that Tuesday. Four of the
-tracks on it are Kanye's, and they're the four that made people learn his name —
-Izzo, Heart of the City, Never Change, Takeover. Jackson 5 sped up. Bobby Bland
-sped up. It went platinum with the country on fire.
+*The Blueprint*, Jay-Z, cut in about two weeks and released that Tuesday. Four
+of the tracks on it are his, and they are the four that made people learn his
+name — "Izzo," "Heart of the City," "Never Change," "Takeover." Jackson 5 sped
+up. Bobby Bland sped up. It went platinum.
 
-Six years later, to the day, he puts out Graduation. Same date, September 11th,
-2007. And 50 Cent put out his record that same day and said publicly that if
-Kanye outsold him he'd quit making solo albums. Kanye did — about 957,000 to
-691,000 — and people have been calling that week the end of an era in rap ever
-since, the week the tough guy lost to the guy in the shutter shades.
+Six years later to the day he released *Graduation*, against 50 Cent's
+*Curtis*, which came out the same morning. 50 Cent had said publicly that he
+would stop making solo albums if he lost. First week, about 957,000 to 691,000.
 
-Sixty days after that, his mother died.
+Sixty days after that his mother died.
 
-And the dates run together one more time. Late
-Registration came out August 30th, 2005. Katrina made landfall on the 29th. The
-two photographs — the Black man looting, the white couple finding — went out on
-the wires on the 30th. Same day as his album.
-
-So when he stood up on that telethon on September 2nd and said the thing, he was
-three days into the release week of the biggest record of his life. That's the
-window every artist protects. That's the part of the year everybody's publicist
-is begging them to be likable.
-
-He spent it.
+*Late Registration* had come out on August 30, 2005. Katrina made landfall on
+the 29th. The two wire photographs went out on the 30th. He went on the
+telethon on September 2nd, three days into the release week of the biggest
+record of his life.
 
 ---
 
