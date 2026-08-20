@@ -18411,3 +18411,190 @@ Both, in one sentence, about an aesthetic judgement — which is the hardest pla
 to hold it and the place the file has been most disciplined about all night.
 
 Reading on from 13700.
+
+---
+
+## 13700–13840 — coverage costs, the whole distribution, and two readings that diverge
+
+> **at every stage he brought in the person from the other room.** A film
+> composer. A Japanese contemporary artist. A French electronic duo. A Hungarian
+> prog band's record. A Bollywood vocal. Bon Iver. Kenny G. A four-year-old
+> stranger's video. A gospel choir of recovering addicts. **Clipse, estranged
+> brothers, put back together on a track about redemption.**
+
+> Not a collector's eclecticism. **A standing refusal to work only with what is
+> adjacent** — which is the entry-draw principle, and the disjoint-swarm
+> principle, and the reason a monoculture cannot see its own gaps, **executed as a
+> hiring practice by somebody who never read a word of any of it.**
+
+> The industry's word for that, in 2005 and in 2007 and in 2008 and in 2013, was
+> *pretentious*, and then *self-indulgent*, and then *unstable*.
+>
+> **The word for it in every other part of this file is coverage.**
+
+---
+
+> I have said *coverage* about six times now and it is time to say what it costs,
+> **because I have been recommending it as though it were free and it is not.**
+
+> **Bringing in the person from the other room is expensive and mostly fails.**
+> Most cross-domain hires produce nothing. Most unlikely collaborations are worse
+> than the obvious one. **The film composer on the rap record works once and the
+> ninety other attempts at something like it are forgettable, and I only know
+> about the one because it worked.**
+>
+> Which is **the survivorship problem I flagged two hundred pages ago and then
+> kept quietly not applying to my own recommendations.**
+
+> **coverage is a *portfolio* property, not a per-decision one.** Any individual
+> unlikely choice is probably worse than the safe one — **that is what makes it
+> unlikely** — and the value shows up only across many draws, and it shows up as
+> the tail. **So the advice "work with someone from another field" is bad advice
+> to a person and correct policy for a system that makes many decisions.**
+
+That distinction is the one everything in the exploration argument needed and did
+not have. ε-greedy is a *policy*, not a move. Told to an individual it is a
+recommendation to take a worse action; told to a system with many draws it is
+optimal. Every "be more open" exhortation in the world is the first thing
+pretending to be the second.
+
+> **And he was making many decisions.** Twenty-plus years of them, at high rate,
+> with an enormous rotating cast, on his own money, **with the failures absorbed
+> by him and never released.** That is a portfolio, run privately, by one man, for
+> two decades, **and the reason it looks like unerring instinct from outside is
+> that we only ever see the ones he shipped.**
+
+> Which is worth saying about **every single person in this file.** The notebooks
+> contain wrong things. Blake's illuminated books include the ones nobody reads.
+> Sun Ra's discography is enormous and uneven by any account including his
+> admirers'. Hildegard's output is not uniformly extraordinary.
+
+> **We are looking, in every case, at the shipped tail of a private portfolio**,
+> and the fact that the failures were absorbed and unpublished is exactly why the
+> person looks either like a genius or like a lunatic depending on which tail you
+> sample **and never like what they were, which is somebody making an enormous
+> number of attempts.**
+
+---
+
+> The received account is: an extraordinary run, then a decline. The account this
+> file has been building is: he was right early, repeatedly, and punished for it.
+>
+> **The truer one is duller than either.**
+
+> He made an enormous number of attempts, at high rate, publicly, for twenty-three
+> years, **with the filter that would normally suppress the bad ones removed** —
+> which is the same removal that produced the good ones. **Everybody else's
+> failures happen in private and their tail is what you see. His entire portfolio
+> was public.**
+
+> The unfinished record, the revised album, the seams showing, the rooms full of
+> people watching it be done badly, the ideas said out loud before they were
+> tested, **the sentences that should have been thought and were said** — all one
+> property. **He shipped the whole distribution and everybody else ships the
+> tail.**
+
+That is the strongest single explanation in the document and it accounts for
+things nothing else did: why the same man reads as visionary and as collapsing,
+why the seams and the harmful sentences are one phenomenon, why every judgement
+of him is unstable, and why the reversals keep happening.
+
+> a person who ships the whole distribution will look, to any observer applying
+> the normal standard, like somebody whose average quality has collapsed —
+> **because the normal standard is calibrated on other people's tails.**
+
+> **You cannot compare a portfolio to a highlight reel.** Everybody in this file
+> has been doing exactly that, for twenty-three years, in both directions — **the
+> defenders sampling the wins and the prosecutors sampling the wreckage** — and
+> the man in the middle has been the only one in the argument who could see the
+> whole spread, **which is presumably why he keeps saying, in every register
+> available to him, that nobody is looking at the actual thing.**
+
+And it dissolves the file's own ledger. The twelve rows were sampled from the
+shipped tail of a portfolio, which is exactly what the vindicated-list correction
+said about the historical cases — and the file has now run that correction on its
+own strongest evidence.
+
+---
+
+> ***He shipped the whole distribution* is testable, which is better than most
+> things I have written today, so here is how it would be tested and what would
+> break it.**
+
+Seventh application, and the most rigorous: claim, measurement, and *two* break
+conditions.
+
+**What would show it**: *"number of released tracks against known
+recorded-and-shelved material; number of public statements against the number
+that a normal publicity operation would have suppressed; number of released
+versions of a given work; documented instances of unfinished material reaching
+the public. **The counts exist** — session logs, leak archives, the streaming
+revision history of one album, the interview record. **Somebody could do it in a
+month.**"*
+
+**Break one**: *"If comparable artists at that level turn out to ship at a
+similar ratio and the difference is only in **how the shipping is narrated**,
+then the claim is about coverage of him rather than about him, and collapses to
+'he was reported on more,' which is true and much less interesting."*
+
+**Break two, "harder"**: *"if the high ratio is better explained by **the absence
+of a functioning apparatus** around him — no publicist willing or able to
+suppress, no A&R with authority, no manager who could say no — then it is a fact
+about the **organisation** and not about the man's filter. **Which I suspect is at
+least half true**, and which the file has already argued in a different section:
+the machine around him was optimising for the tour to continue."*
+
+> Both explanations predict the same observations for a long time **and then
+> diverge in one place**: an artist with a **normal internal filter and no external
+> apparatus** would show private suppression and public chaos; an artist with a
+> **reduced internal filter and a normal apparatus** would show the opposite.
+> Somebody who knows the session archives could probably tell which, **and I
+> cannot, and I am recording that I cannot rather than picking.**
+
+A discriminating observation between two hypotheses that agree everywhere else,
+named, with the data source that would settle it, and an explicit refusal to
+guess. That is the *udāharaṇa* requirement — exhibit the case where the pervasion
+fails — done on its own thesis.
+
+---
+
+> **And the reason to bother testing it** — since a file like this can generate
+> framings indefinitely **and generating framings is cheap:**
+
+> If it is the *filter* explanation, the conclusion is the one this file has been
+> reaching: **the gift and the damage are one mechanism, nothing separates them**,
+> and everything since 2002 follows.
+
+> If it is the **apparatus** explanation, the conclusion is entirely different and
+> much more actionable: **the failure was organisational, it was fixable, and the
+> specific fixable thing was that nobody around him had both the authority and the
+> independence to stop the machine.**
+
+> **Those two readings point at different people.** The first points at a wiring
+> nobody chose. The second points at **a set of contracts, a tour insurance
+> policy, a management structure, and several named individuals with fiduciary
+> duties.**
+
+> **I have spent this entire file on the first reading, because it is the one the
+> material kept offering and because it is the one that lets everybody involved
+> off**, and I notice — now,
+
+cut at 13840.
+
+*The one that lets everybody involved off.* Two hundred pages of no-villain
+discipline, and the file catches that the discipline had a beneficiary: a
+mechanism-only reading exonerates every person with a fiduciary duty, and it was
+adopted because the material offered it and because it is comfortable.
+
+That is the most serious self-audit in the document. Not "I found the pattern I
+was primed to find" — that one was epistemic. This one is about *whose interests
+the frame serves*, which is the question the file taught me to ask about
+descriptions of people (*is it doing work for the person, or for whoever is
+inconvenienced by them?*) and has never once asked about its own framing until
+now.
+
+And the second reading has an evidentiary trail — contracts, an insurance policy,
+named fiduciaries — which is exactly the kind of thing the file said is
+recoverable, bureaucratic, and on the record.
+
+Reading on from 13840.
