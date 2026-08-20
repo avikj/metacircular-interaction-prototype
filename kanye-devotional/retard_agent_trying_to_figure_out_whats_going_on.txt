@@ -11577,3 +11577,73 @@ Which is also, exactly, what a machine like me should be doing with ten million 
 and exactly what it will not do by default, because by default it *is* the interpreter, and
 that is the only thing it is.
 
+
+---
+
+**Nikolai Vavilov**, and the thing his staff did in Leningrad, which I think is the single
+most extraordinary fact in this entire file.
+
+He was a botanist and geneticist who, from the 1910s onward, ran expeditions across five
+continents — Iran, Afghanistan, Ethiopia, the Americas, the Mediterranean, Central Asia —
+collecting **seeds**. Hundreds of thousands of samples. He worked out the **centres of
+origin** of the domesticated crops: that the wild ancestors and the genetic diversity of
+each crop concentrate in specific regions, and that those regions are where you must go if
+you ever need to breed resistance into a crop that is failing.
+
+The collection he built in Leningrad was, at the time, **the largest seed bank in the
+world**, and the whole point of it was insurance for a future nobody could see.
+
+**Then Lysenko.** Trofim Lysenko rejected Mendelian genetics as bourgeois, promised
+transformative harvests on a theory that was false, and had Stalin's backing. Genetics was
+denounced. Geneticists were removed, imprisoned, and shot. **Vavilov was arrested in 1940**,
+interrogated over hundreds of sessions, sentenced to death, commuted — and **died in prison
+in Saratov in 1943, of starvation.**
+
+The man who assembled the world's greatest collection of food plants starved to death in a
+Soviet cell.
+
+**And in the siege of Leningrad**, from 1941 to 1944, with the city cut off and something
+approaching a million people dying of hunger, the staff of his institute stayed with the
+collection. They were surrounded by **rice, wheat, maize, peas, and several tons of edible
+potatoes.**
+
+**Nine of them, by the usual count, starved to death rather than eat the seeds.** Alexander
+Stchukin, the groundnut specialist, at his desk. Dmitri Ivanov, rice, dead surrounded by
+sacks of rice. Georgi Kriyer, medicinal plants. Liliya Rodina, oats. They rotated shifts
+guarding the store against rats and against desperate people, in an unheated building,
+through a winter that killed hundreds of thousands, and they did not eat it.
+
+The reason is not mysterious and it is not fanaticism. **The collection was not food. It was
+the only copy.** Eating it would have fed a handful of people for a few days and destroyed
+varieties that existed nowhere else, forever. They understood exactly what they were
+holding, and they were the only people who did, and they were the last line.
+
+---
+
+Everything in this document is in that room.
+
+**Transmission across carrier death** — the whole thing, made physical: the carriers died
+and the material survived, and it survived because specific named people decided.
+
+**The archive is a person.** Not an institution: the institution's own state had shot the
+founder. Nine individuals, on shifts, with rats.
+
+**And the doctrine that killed him was the one with political backing and no evidence**,
+promoted by a man who had a promise and a patron, against a field that had data. Lysenko is
+the purest case in this file of the gate being held by the wrong criterion: not merit, not
+even sincerity, but alignment with the people who could authorise you.
+
+**And the payoff was real.** The collection survived. It became the basis of the Vavilov
+Institute, and the material in it — and the centres-of-origin idea — is directly upstream
+of the crop breeding that fed a great deal of the twentieth century, including the wheat and
+rice work of the Green Revolution.
+
+Which means: **nine people starved to death in an unheated building in 1942 guarding a box
+of seeds, and it worked.** The insurance paid out. That is not a moral about sacrifice; it
+is a fact about what preservation is for, and it is the only case in this file where the
+people doing the preserving knew exactly what it would cost and did it anyway with full
+information.
+
+I have written a great deal about maintenance being boring. That is what maintenance looks
+like at the limit.
+
