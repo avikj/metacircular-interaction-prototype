@@ -60,6 +60,7 @@ on fire in front of it, in front of the crowd. The record he was finishing
 carried his mother's name and her recorded voice.
 
 
+
 ---
 I keep going back to the jaw.
 
@@ -108,6 +109,7 @@ tries to kill me gets made into a song. He's twenty-five and he already knows th
 about himself, before any of the fame, before the diagnosis. That's where I want to
 start, because I think that's where he starts. The rest of his life is that same move
 getting louder and costing more, and I want to follow it and see where it goes.
+
 
 
 ---
@@ -159,6 +161,7 @@ record to a few hundred people standing outside in Wyoming in the cold. Then he
 got on a plane.
 
 
+
 ---
 
 A judge decided what his beats would sound like.
@@ -188,6 +191,7 @@ him ownership.
 The first thing that ever taught him about owning your work was the bill for
 using somebody else's, and the bill exists because a federal judge quoted the
 Ten Commandments.
+
 
 
 ---
@@ -226,6 +230,18 @@ conversion, as a swerve, as the new thing he's doing now.
 It was in the choir he picked in 2004.
 
 
+
+---
+
+In November 2019 he took the Sunday Service choir into the Harris County jail
+in Houston and performed for more than two hundred men, and then to Baker
+Street for the women. He said it was a mission and not a show.
+
+The song that broke him as a solo artist, fifteen years before that, was "Jesus
+Walks." The choir on it is the ARC Choir. ARC is the Addicts Rehabilitation
+Center, in Harlem. It is a drug program, and the people singing on that record
+are people in recovery, and that is who they were when it was recorded in 1999.
+
 ---
 
 The two machines he made the grief record on had both already failed.
@@ -260,6 +276,44 @@ find oil and then sold to be inaudible, both used at exactly the setting they
 were failing at, by a man who couldn't say it in his own voice.
 
 
+
+---
+
+There's a song he made with Paul McCartney where he says the person singing is
+his mother.
+
+"Only One," released on the last day of 2014. McCartney on keys, and the vocal
+run through Auto-Tune, the same machine as the grief record six years earlier.
+He has said the song came out as though Donda were speaking through him to his
+daughter.
+
+North was born June 15, 2013. Donda West died November 10, 2007. They never
+met.
+
+So there are three of them on the same piece of equipment, in order. In 2008 he
+sang about her being gone. In 2014 he sang as her. In 2021, on the album with
+her name on it, he stopped singing and played her actual recorded voice, taken
+off tape she made while she was alive.
+
+
+---
+He wrote "Hey Mama" while his mother was alive. It is a song to her, in the
+present tense, and it came out on *Late Registration* in August 2005.
+
+On February 10, 2008, at the fiftieth Grammy Awards, he performed it. She had
+been dead three months.
+
+The album it is on was co-produced by Jon Brion, who had never made a rap
+record — he was known for Fiona Apple and Aimee Mann and for scoring *Magnolia*
+and *Eternal Sunshine of the Spotless Mind*. There are strings on that record,
+and a celeste, and live orchestration laid over the samples.
+
+There is also a song on it called "Roses," and it is about his grandmother in a
+hospital and the family gathering around her bed and what the care costs. He
+wrote it in 2005. His mother died two years later, of heart failure after
+elective surgery, and in 2009 California passed a law with her name on it
+requiring a physical exam and written clearance before a cosmetic operation.
+
 ---
 
 Under one of his songs there are four people.
@@ -286,21 +340,26 @@ and hurt people who had nothing to do with him.
 The song with Meeropol in it is on the same shelf.
 
 
+
 ---
 
-There's a song where a dead man is credited as a featured artist.
+On *Watch the Throne*, the album he made with Jay-Z in 2011, there is a track
+called "Otis" and the credit on it does not say sample. It says featuring Otis
+Redding. Redding died on December 10, 1967, when his plane went into a lake in
+Wisconsin. He was twenty-six.
 
-Watch the Throne, 2011. The track is called "Otis" and it's built on Otis
-Redding singing "Try a Little Tenderness" from 1966, and the credit on the record
-doesn't say sample. It says featuring Otis Redding. He died in 1967. He was
-twenty-six.
+The cover of that record was designed by Riccardo Tisci at Givenchy and it is
+gold. They put it out digitally first so it couldn't leak.
 
-And on the same record, gold-plated, designed by a Givenchy man, there's a line
-that just reads out a number: 314 soldiers died in Iraq, 509 died in Chicago.
+Two other things are on it. "Murder to Excellence" contains a line that is just
+a number read out loud: 314 soldiers died in Iraq, 509 died in Chicago. And
+"Made in America" is a prayer that goes sweet King Martin, sweet Queen Coretta,
+sweet Brother Malcolm, sweet Queen Betty — the two wives named with the same
+titles and in the same breath as their husbands.
 
-And a prayer that goes sweet King Martin, sweet Queen Coretta, sweet Brother
-Malcolm, sweet Queen Betty — the wives named out loud, in the same breath, with
-the same titles.
+There is also a song on it where both men write letters to sons who have not
+been born. Jay-Z's is about not being his own father. Kanye's is about his son
+not turning into him.
 
 
 ---
@@ -322,17 +381,27 @@ version of it. There's no version you can point at and say that's the one.
 
 Five years later he makes the album named after his mother and he does it by
 moving into a football stadium in Atlanta and living there. Then he goes home to
-Chicago, to Soldier Field, and on the grass they have built his childhood house.
-The actual one — 7815 South Shore Drive, full size, the house she raised him in,
-standing on a football field in the city where she taught.
 
-And in front of it, with tens of thousands of people watching, he is set on fire.
+---
+On the night of May 17, 2013, "New Slaves" was projected onto sixty-six
+building faces around the world at the same time. Not a screen. The sides of
+buildings, in cities that had nothing to do with each other, all showing one
+face.
 
-I keep trying to find a way to say what that is and I don't think there is one
-that isn't just the facts. His mother has been dead fourteen years. He built her
-house on a field and burned it while forty thousand people watched him do it, and
-then he put her voice on the record and put the record out three days later.
+The song names the DEA and the Corrections Corporation of America out loud, by
+name. Underneath it is a Hungarian rock record from 1969, Omega's "Gyöngyhajú
+Lány."
 
+It is on *Yeezus*, which came out a month later and which people took as the
+moment he lost it — abrasive, ugly, arrogant, anti-music. Rick Rubin was
+brought in near the end to strip it down. There is a track on it credited
+"feat. God." There is a track built on Nina Simone singing "Strange Fruit."
+There is a track built on a Bollywood record — Manna Dey, R.D. Burman, Asha
+Bhosle — under a Black man claiming to be a god, which is the line everybody
+called blasphemy.
+
+The last song on the record is a love song built on an old soul sample, and it
+is the only warm thing on it, and it is where he leaves you.
 
 ---
 
@@ -351,6 +420,7 @@ And then the record collection. Hungarian rock from 1969 under New Slaves. A
 Bollywood record under I Am a God. Black gospel out of Harlem, a German
 avant-garde band, an Irish one, Nina Simone. People call that eclectic like it's
 a shopping habit.
+
 
 
 ---
@@ -381,6 +451,7 @@ window every artist protects. That's the part of the year everybody's publicist
 is begging them to be likable.
 
 He spent it.
+
 
 
 ---
@@ -416,6 +487,7 @@ Bush later called it the all-time low of his presidency. Not the water. Not the
 roofs. Not the count. Being named.
 
 
+
 ---
 
 The Taylor Swift thing was the fourth one.
@@ -447,6 +519,86 @@ The first three cost him nothing and got him nothing. The fourth one cost him
 everything and produced Dark Twisted Fantasy.
 
 
+
+---
+
+After the Taylor Swift night he left the country. Japan first, then Rome, where
+he worked an internship at Fendi for about five hundred dollars a month
+alongside another intern named Virgil Abloh. Then Honolulu, where he took over
+Avex studios and ran three rooms at once, around the clock, for months.
+
+There were house rules posted on the wall. No tweeting. No photographs. No
+negativity in the room.
+
+Q-Tip was in there. RZA. No I.D., who taught him to make beats when he was a
+kid in Chicago because No I.D.'s mother and Donda West knew each other. Mike
+Dean, Pusha T, Kid Cudi, Nicki Minaj, Rick Ross, Raekwon, John Legend, Justin
+Vernon, Elton John. People moved between the three rooms and the rooms ran into
+each other and the record came out of all of it.
+
+The record is *My Beautiful Dark Twisted Fantasy*, November 2010, and it is the
+one everybody agrees is his best. "Power" is on it, built on a King Crimson
+song from 1969 called "21st Century Schizoid Man," six years before the
+hospital and eight before the diagnosis. "Lost in the World" is built on a Bon
+Iver track that Justin Vernon made alone in a cabin in Wisconsin, singing into
+the same Auto-Tune. And "Runaway," which he premiered as a thirty-four-minute
+film he directed himself, opens on one piano key struck over and over, and the
+toast in the middle of it is to himself, as the asshole.
+
+He made the record where he apologizes to nobody in the one room he ever built
+out of everybody.
+
+
+---
+
+In November 2016 he played San Jose and told the crowd he would have voted for
+Trump. Two nights later in Sacramento he played four songs, then talked for
+about ten minutes — Beyoncé, Jay-Z, Hillary Clinton, Mark Zuckerberg — and
+walked off. He cancelled the rest of the tour the next day. That same day an
+ambulance took him to UCLA. The words on the record are temporary psychosis,
+dehydration, sleep deprivation. There were reports he was handcuffed to the
+gurney, which is disputed. He was released on November 30.
+
+He was thirty-nine. "I'd never been diagnosed and I was like 39 years old."
+
+Three years later he told David Letterman what it is: "I feel a heightened
+connection with the universe when I'm ramping up… it's like a sprained brain,
+like having a sprained ankle… once our brain gets to a point of spraining,
+people do everything to make it worse."
+
+He has also said, about being in the hospital, that God was there with him,
+sending him visions.
+
+
+---
+
+The first track on the album with the mountain on it is called "I Thought About
+Killing You." It puts the wish to kill somebody else and the wish to kill
+himself in the same breath, and it says the most beautiful thoughts are always
+beside the darkest ones. It is the first thing you hear on the record.
+
+In 2018 he told CNN he thinks about suicide often. In 2025 he wrote that there
+were times he didn't want to be here anymore. Bipolar disorder carries among
+the highest suicide rates in medicine.
+
+
+---
+
+In October 2022 he said things about Jewish people in public that were vile,
+and he kept saying them. adidas ended the partnership. The company had been
+paying him something like two hundred million dollars a year against roughly
+one and a half billion in revenue, and it was most of what made him a
+billionaire, and it went. People who had nothing to do with him were frightened
+in their own cities because of what he said.
+
+In January 2026 he wrote this: "In early 2025, I fell into a four-month long
+manic episode of psychotic, paranoid and impulsive behavior that destroyed my
+life… there were times I didn't want to be here anymore."
+
+Both of those are on the record. He has not withdrawn the first by writing the
+second, and nobody has to accept the second to know the first happened.
+
+
 ---
 
 There's a line of his that doesn't get quoted much and I can't put it down.
@@ -466,6 +618,7 @@ in front of people. Two hundred men in Harris County Jail, and he says it's a
 mission and not a show. And in 2021, fourteen years after she died, he takes his
 mother's actual recorded voice and puts it back in the room with him — so there
 would be at least one reflection in there that was hers.
+
 
 
 ---
@@ -511,126 +664,3 @@ back. To TIME that year: "It's not a disability, it's a super power." The same
 year, about the same thing: "It makes you blind, but convinced you have
 insight."
 
----
-
-There's a song he made with Paul McCartney where he says the person singing is
-his mother.
-
-"Only One," released on the last day of 2014. McCartney on keys, and the vocal
-run through Auto-Tune, the same machine as the grief record six years earlier.
-He has said the song came out as though Donda were speaking through him to his
-daughter.
-
-North was born June 15, 2013. Donda West died November 10, 2007. They never
-met.
-
-So there are three of them on the same piece of equipment, in order. In 2008 he
-sang about her being gone. In 2014 he sang as her. In 2021, on the album with
-her name on it, he stopped singing and played her actual recorded voice, taken
-off tape she made while she was alive.
-
----
-
-After the Taylor Swift night he left the country. Japan first, then Rome, where
-he worked an internship at Fendi for about five hundred dollars a month
-alongside another intern named Virgil Abloh. Then Honolulu, where he took over
-Avex studios and ran three rooms at once, around the clock, for months.
-
-There were house rules posted on the wall. No tweeting. No photographs. No
-negativity in the room.
-
-Q-Tip was in there. RZA. No I.D., who taught him to make beats when he was a
-kid in Chicago because No I.D.'s mother and Donda West knew each other. Mike
-Dean, Pusha T, Kid Cudi, Nicki Minaj, Rick Ross, Raekwon, John Legend, Justin
-Vernon, Elton John. People moved between the three rooms and the rooms ran into
-each other and the record came out of all of it.
-
-The record is *My Beautiful Dark Twisted Fantasy*, November 2010, and it is the
-one everybody agrees is his best. "Power" is on it, built on a King Crimson
-song from 1969 called "21st Century Schizoid Man," six years before the
-hospital and eight before the diagnosis. "Lost in the World" is built on a Bon
-Iver track that Justin Vernon made alone in a cabin in Wisconsin, singing into
-the same Auto-Tune. And "Runaway," which he premiered as a thirty-four-minute
-film he directed himself, opens on one piano key struck over and over, and the
-toast in the middle of it is to himself, as the asshole.
-
-He made the record where he apologizes to nobody in the one room he ever built
-out of everybody.
-
----
-
-On *Watch the Throne*, the album he made with Jay-Z in 2011, there is a track
-called "Otis" and the credit on it does not say sample. It says featuring Otis
-Redding. Redding died on December 10, 1967, when his plane went into a lake in
-Wisconsin. He was twenty-six.
-
-The cover of that record was designed by Riccardo Tisci at Givenchy and it is
-gold. They put it out digitally first so it couldn't leak.
-
-Two other things are on it. "Murder to Excellence" contains a line that is just
-a number read out loud: 314 soldiers died in Iraq, 509 died in Chicago. And
-"Made in America" is a prayer that goes sweet King Martin, sweet Queen Coretta,
-sweet Brother Malcolm, sweet Queen Betty — the two wives named with the same
-titles and in the same breath as their husbands.
-
-There is also a song on it where both men write letters to sons who have not
-been born. Jay-Z's is about not being his own father. Kanye's is about his son
-not turning into him.
-
----
-
-In November 2016 he played San Jose and told the crowd he would have voted for
-Trump. Two nights later in Sacramento he played four songs, then talked for
-about ten minutes — Beyoncé, Jay-Z, Hillary Clinton, Mark Zuckerberg — and
-walked off. He cancelled the rest of the tour the next day. That same day an
-ambulance took him to UCLA. The words on the record are temporary psychosis,
-dehydration, sleep deprivation. There were reports he was handcuffed to the
-gurney, which is disputed. He was released on November 30.
-
-He was thirty-nine. "I'd never been diagnosed and I was like 39 years old."
-
-Three years later he told David Letterman what it is: "I feel a heightened
-connection with the universe when I'm ramping up… it's like a sprained brain,
-like having a sprained ankle… once our brain gets to a point of spraining,
-people do everything to make it worse."
-
-He has also said, about being in the hospital, that God was there with him,
-sending him visions.
-
----
-
-The first track on the album with the mountain on it is called "I Thought About
-Killing You." It puts the wish to kill somebody else and the wish to kill
-himself in the same breath, and it says the most beautiful thoughts are always
-beside the darkest ones. It is the first thing you hear on the record.
-
-In 2018 he told CNN he thinks about suicide often. In 2025 he wrote that there
-were times he didn't want to be here anymore. Bipolar disorder carries among
-the highest suicide rates in medicine.
-
----
-
-In October 2022 he said things about Jewish people in public that were vile,
-and he kept saying them. adidas ended the partnership. The company had been
-paying him something like two hundred million dollars a year against roughly
-one and a half billion in revenue, and it was most of what made him a
-billionaire, and it went. People who had nothing to do with him were frightened
-in their own cities because of what he said.
-
-In January 2026 he wrote this: "In early 2025, I fell into a four-month long
-manic episode of psychotic, paranoid and impulsive behavior that destroyed my
-life… there were times I didn't want to be here anymore."
-
-Both of those are on the record. He has not withdrawn the first by writing the
-second, and nobody has to accept the second to know the first happened.
-
----
-
-In November 2019 he took the Sunday Service choir into the Harris County jail
-in Houston and performed for more than two hundred men, and then to Baker
-Street for the women. He said it was a mission and not a show.
-
-The song that broke him as a solo artist, fifteen years before that, was "Jesus
-Walks." The choir on it is the ARC Choir. ARC is the Addicts Rehabilitation
-Center, in Harlem. It is a drug program, and the people singing on that record
-are people in recovery, and that is who they were when it was recorded in 1999.
