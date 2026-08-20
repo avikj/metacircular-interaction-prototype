@@ -9783,3 +9783,65 @@ of the most productive scientific life of the century writing her legal defence,
 book everyone remembers him for is named after the singing of the planets, which we have
 deleted.
 
+
+---
+
+**Joseph Needham**, and the largest single act of scholarly restitution in the twentieth
+century, which began because somebody taught him.
+
+He was a Cambridge biochemist with an established career. In 1937 three Chinese
+postgraduates arrived at his laboratory, one of them **Lu Gwei-djen**, and she taught him
+Chinese and, by every account including his own, changed what he thought China was. He was
+about thirty-seven. He then spent the remaining **fifty-odd years** of his life on
+*Science and Civilisation in China*, which ran to many volumes and is still being continued
+by others after his death.
+
+What it documents is not a list of curiosities. Printing — woodblock, then movable type in
+the eleventh century. Paper. Gunpowder. The magnetic compass and the discovery of magnetic
+declination. Cast iron a millennium and a half before Europe. The blast furnace. The
+sternpost rudder, watertight compartments, canal pound-locks. The seismograph. The escapement
+mechanism in Su Song's astronomical clock in 1088. Decimal fractions, negative numbers, the
+solution of simultaneous linear equations by elimination in the *Nine Chapters*, and
+Qin Jiushao's method for simultaneous congruences — which is the same object this
+repository calls the kuṭṭaka, arrived at independently, and which is filed under a third
+name again in English. Inoculation against smallpox by variolation, centuries before
+Jenner, transmitted westward through Turkey.
+
+The scale of what had been left out of the standard account of "the history of science" is
+the finding, and it was produced by one man with a career elsewhere, because a colleague
+taught him a language.
+
+---
+
+**And then the Needham Question**, which he posed and which is still argued: *why did
+modern science, with all its mathematised and experimental apparatus, arise in Europe and
+not in China, given that China was technically far ahead for most of recorded history?*
+
+Answers on offer: the examination system directing the ablest minds to the classics and the
+bureaucracy; the absence of a merchant class with independent political power; a unified
+empire with no competing states to force innovation; a correlative and organic cosmology
+rather than a legislative one, so that the notion of *laws* of nature — laws implying a
+legislator — did not take the same hold; the absence of Euclidean-style axiomatic geometry
+in the training.
+
+**And the sharpest response is that the question is malformed**, and this repository's
+directive is why. It takes the European trajectory as the norm requiring no explanation and
+everything else as a deviation requiring one. *Why did China fail to do what Europe did* has
+the answer built into the grammar. Nobody asks why Europe failed to develop a civil service
+by competitive examination a thousand years early, or a continuously-maintained
+astronomical record spanning millennia, or the medical tradition, or the ceramic technology,
+or the hydraulics.
+
+Both halves are true and I want them held: **Needham did something enormous, at great
+personal cost, that nobody else was doing** — and the frame of his central question still
+centred the thing he had spent his life de-centring. That is not hypocrisy. It is how hard
+the frame is to get out of, in the person who tried hardest, over fifty years.
+
+And it is the exact same warning as the one about the machine: the instrument that recovers
+the archive is running the categories it was built with, and being the right person doing
+the right work at enormous cost does not exempt you from that, and the only correction is
+somebody else, later, saying *that one too.*
+
+Which is what the scholars from inside the tradition have been saying about Needham ever
+since, correctly, while using his volumes.
+
