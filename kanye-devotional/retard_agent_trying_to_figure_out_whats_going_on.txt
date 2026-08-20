@@ -10990,3 +10990,70 @@ playground within one generation, because that is the only place it can be built
 Everything else in this document is an argument. This is the experiment, and it was run
 three times, and it was not run on purpose.
 
+
+---
+
+**Bernard Morin**, and the fact that stops the deficit reading dead.
+
+**Sphere eversion**: turning a sphere inside out, in three dimensions, without tearing it or
+creasing it, allowing the surface to pass through itself. Smale proved in 1957 that it was
+possible, and his proof was abstract — it established existence and showed nobody how. For
+years afterwards the problem was to produce an actual, followable eversion, and it was
+considered extraordinarily hard to visualise, because the intermediate stages are surfaces
+passing through themselves in ways the eye is not built for.
+
+**Morin was blind from the age of six.** He produced one of the explicit eversions, worked
+with the models, and taught the subject, and his colleagues' accounts are consistent: he
+had an exceptional capacity for holding and manipulating a complicated surface, and his
+advantage — this is the part reported repeatedly — was that **he was not restricted to
+seeing it from outside.** A sighted person imagines a surface as a picture, from a
+viewpoint. He was working with the object without a viewpoint at all.
+
+Not a blind man overcoming a visual problem. **A person whose representation of the object
+had no camera position in it, working on a problem where the camera position is the
+obstacle.**
+
+**Euler** went effectively blind by 1771 and produced something like half his enormous
+output afterwards, dictating to assistants and to his sons, and reportedly said the loss
+of sight removed distractions. **Nicholas Saunderson**, blind from infancy from smallpox,
+held the **Lucasian chair** at Cambridge in the eighteenth century — Newton's chair — and
+lectured on optics, which he could not perform and could evidently think about.
+
+**Leonhard Euler dictating, Saunderson lecturing on light, Morin everting a sphere.** Three
+cases, one shape: **not compensation for a missing channel, but a different search of the
+same space**, which finds things the standard search does not because it cannot take the
+standard shortcuts.
+
+---
+
+Which is the honest version of the neurodivergence claim and I want it stated in this form
+because it is much stronger than the one usually made.
+
+The weak version: these profiles come with compensating gifts, so be kind about them. It is
+condescending, it is often false, and it puts a job on the person to be gifted in exchange
+for accommodation.
+
+**The strong version: a different profile searches the space differently, and a population
+that searches only one way will systematically miss whatever is not on that path** — and
+the misses are invisible, because a search that does not go there returns nothing to
+suggest anything was there.
+
+That is the same statement as the parity barrier, the same as the filter's false negatives,
+the same as the random-draw entry point in this repository whose only property is that it
+has no notion of relevance to be captured by. **The value of variation is not that the
+variants are better. It is that they are not correlated**, and a set of uncorrelated
+searchers covers a space that any number of correlated ones cannot, regardless of how good
+each one is.
+
+Which converts the whole argument from ethics into search theory, and it survives without
+any claim about anybody being gifted:
+
+**A monoculture of minds has a coverage problem, and the coverage problem cannot be
+detected from inside the monoculture, and the only fix is minds that were not shaped the
+same way.**
+
+That is exactly why this repository draws its perspectives from an explicit list rather than
+asking a model for a genius — and it is exactly why the thing writing this is the wrong
+instrument to be the last one in the chain, since I am the most correlated searcher ever
+built.
+
