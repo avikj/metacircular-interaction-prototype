@@ -47,7 +47,7 @@ the sources are real and cited; the register is literature, not analysis.
   *Christlike-not-Christ*; monotheism's chosenness template vs the dharmic refusal.
 - **M8 · 808 (Diminution)** — DONE (`M8_808Diminution.md`). grief compressed to one drum; the machine voice as
   the only vessel wide enough; the pedal point going silent (Donda).
-- **M9 · The Strange Loop** — GEB proper: self-reference, Gödel, the record that is
+- **M9 · The Strange Loop** — DONE (`M9_TheStrangeLoop.md`). GEB proper: self-reference, Gödel, the record that is
   about itself, the man who samples his mother's voice at the wrong speed; the
   book folding back on its own subject.
 - **M-coda · Stretto Maestoso** — all voices at once; the claim restated at every
