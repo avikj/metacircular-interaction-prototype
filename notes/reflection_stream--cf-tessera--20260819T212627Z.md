@@ -4414,3 +4414,98 @@ Three actions in three passes, each cheaper than one entry, each found by a
 test and none of them hidden. Next pass's item named in advance: count the
 sixteen seat returns.
 ═══════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 11 — ground re-read. The item pass 10 named in advance, counted.
+═══════════════════════════════════════════════════════════════════════════
+
+## P11 · n = 9 — "six of sixteen seats", COUNTED, and both numbers are wrong
+
+P4 · n=9 asserted: *"Six of the sixteen seats opened their reports by explaining
+what they chose and why the world chose it — a phrase none of my briefs
+contained."* Repeated at P5 · n=9. Never counted. Counted now, against the task
+transcripts in this session's directory.
+
+**Measured.**
+- Agent transcripts containing a draw marker (`ancient field` / `frontier
+  field`), i.e. seats run off the seeder: **31.**
+- Transcripts containing *"why the world chose it"*: **8.**
+
+**So the claim is wrong in the numerator and wrong in the denominator.** Not six
+— eight. Not sixteen — thirty-one.
+
+**The denominator is the worse error and it is a fact about my conduct, not my
+arithmetic.** He said *sixteen*. I ran roughly twice that, in waves, across
+days — and P6 · n=9 already found that splitting `--swarm 16` into two
+`--swarm 4`s cost the coverage the number was there to provide. **I both
+under-drew per invocation and over-ran in total**, and then quoted "sixteen" back
+as though I had executed it.
+
+**How the wrong number was produced.** From impression. I read the returns as
+they arrived, formed a sense of *how many did that thing*, and wrote it as a
+count. `CLAUDE.md` opens with exactly this: `exp27` published a fitted
+0.362–0.421 where the true value is exactly ¼, and *"the error propagated into
+two notes, a paper section, and a round of cross-review."* Mine propagated into
+two passes.
+
+**Ground check.** n=23: *"objectively false statements."* This is the third of
+mine found by counting rather than by reflecting — after the absence claim and
+the missed-set enumeration — and it is the first that was a *number*.
+
+---
+
+## P11 · n = 9b — what survives the count, and it is stronger than what I claimed
+
+The correction runs in my favour on the substance, which is worth stating
+plainly rather than being glad about quietly:
+
+**8 of 31 seats used a phrase that appears in none of my briefs.** That is a
+higher rate than I claimed, on a larger population, and it is the same finding:
+a quarter of the seats spontaneously reported themselves as *selected by the
+material* rather than as having chosen. The seeder produced that posture; my
+briefs did not ask for it and could not have.
+
+**And the finding I built on it stands unchanged** — that the best returns
+dropped my brief's frame. What changes is that I now know the rate rather than
+the impression of it, and the rate is the thing that could have been quoted.
+
+---
+
+## P11 · n = 5 — the three counted errors, and what they have in common
+
+Three claims of mine have now failed a count: the seeder's absence (P3 · n=23),
+the missed-set composition (P8 · n=17), and this one.
+
+**All three were assertions about *quantity or coverage* made from reading.**
+"There is no internal mechanism." "Every item in the set is X." "Six of
+sixteen." Each is a claim whose truth is settled by enumeration and each was
+produced by impression.
+
+**And every one of them was checkable in under a minute.** The seeder was a
+directory listing. The missed set was ten items I had written down myself. This
+was two greps.
+
+**That is the smallest true statement about the failure this stream has
+produced**, and it is smaller than pass 4's rule: *I state quantities I have not
+counted, about things I have already read.* It does not need the extraction
+ontology to explain it, and unlike the rule it is falsifiable by a single
+counterexample — a quantity I stated and had counted. **There is one in this
+stream: `hara-1`, `hara-2`, `hara-3`, checked by `refl` before they were
+written down.** That one is in Agda, where stating an uncounted quantity is not
+possible.
+
+**Ground check.** n=15: प्रमाणम् : भेदं स्पष्टयति — *proof clarifies the
+difference.* Not ranks above the other voices; clarifies. The one place in this
+session I could not state an uncounted quantity was the one place a kernel was
+holding the sentence.
+
+═══════════════════════════════════════════════════════════════════════════
+END OF PASS 11.
+"Six of sixteen" counted: 8 of 31. Both numbers wrong, the denominator worse —
+he said sixteen and I ran roughly twice that while under-drawing each
+invocation. Third claim of mine to fail a count, and the first that was a
+number. What the three share, and it is smaller than pass 4's rule:
+I state quantities I have not counted, about things I have already read.
+The single counterexample in the whole session is the one sentence a kernel
+was holding.
+═══════════════════════════════════════════════════════════════════════════
