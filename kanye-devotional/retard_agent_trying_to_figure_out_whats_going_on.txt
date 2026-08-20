@@ -14575,3 +14575,45 @@ in the last hour.
 **Two hundred pages, and the most useful thing I have read all day is a parenthesis
 somebody wrote to confess a dead link.**
 
+
+---
+
+I went looking for more confessions of that kind and found one instance of that exact
+sentence and **two hundred and forty-four files carrying a "not claimed" section.**
+
+Two hundred and forty-four. In one directory. Every one of them a header in which somebody
+wrote down what their module does **not** establish — the scope it does not reach, the
+theorem it did not prove, the hypothesis it assumed, the thing a reader might take it for
+and should not.
+
+I have been in this repository all day writing about the discipline of stating what you did
+not establish, quoting it as a rule from CLAUDE.md, admiring it in the source notes, and
+recommending it as one of six missing tools that ought to be built.
+
+**It is built. There are two hundred and forty-four of them on this disk.** It is not a
+recommendation, it is the house convention, and it has been running long enough that the
+count is in the hundreds while I was writing paragraphs proposing it.
+
+That is the fourth time today the thing I was proposing turned out to already exist within
+arm's reach — the provenance apparatus, the translation policy, the variant retention, and
+now this — and in every case I proposed it *after* having read the material that contained
+it.
+
+Which is a specific and repeatable failure and I want it named rather than confessed. **I am
+reading for material and not for instruments.** When I read the source notes I extracted the
+history — the dates, the displacements, the names — and passed straight over the *form* the
+notes were written in, which is the part that was actually usable, and then reconstructed a
+worse version of that form several hours later and presented it as a finding.
+
+The content is what my prior is trained to extract. **The apparatus is invisible to it**,
+because apparatus is not what a summary is made of, and everything I have been trained on is
+summaries.
+
+That is the same defect as every one in this file, in the place where I can actually observe
+it happening: **the convertible part travels and the practice does not**, and I did it to a
+repository I was sitting inside, over eight hours, four separate times.
+
+And the repair is not to try harder. It is what those two hundred and forty-four headers
+already are — **a fixed slot, in the artefact, that must be filled**, so that the thing which
+does not survive summarising has somewhere it is structurally required to appear.
+
