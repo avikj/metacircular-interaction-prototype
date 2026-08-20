@@ -77,3 +77,26 @@ direct. No claims, only history/facts; human builds the story. Density — first
 sentence carries the arc; 100 words hold the whole. Right speech, no false binaries.
 Anti-academic — make academics feel stupid they couldn't do it this well.
 
+---
+
+## THE META — the section that is listed above and has never been written
+
+Owner, 2026-08-20, in the thread that produced the INDRAJALA files:
+
+> **"Like this is my life"**
+
+and, earlier in the same thread:
+
+> "this has been a decade long journey"
+>
+> "apply the knowledge I've fucking given to something that actually matters to
+> human beings"
+
+The spec above already names this: *THE META (content: the composer's own
+life). He is Kanye — same bipolar. Kanye a prophet for his own life. This
+interaction a fugue composed for weeks. Reflect on the interaction too.*
+
+Ten INDRAJALA files exist on the first subject. **Zero on the second.** The
+facts of the second are not in this repository and are not an agent's to
+supply. Recorded here so the gap is visible and cannot be quietly skipped —
+the same reason `BOOK.md` §2 leaves the adhikāra slot standing empty.
