@@ -6,6 +6,14 @@
         "hooks": [
           {
             "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/no-python.sh\""
+          },
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/no-sweeping-commit.sh\""
+          },
+          {
+            "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/source-coverage.sh\""
           },
           {
