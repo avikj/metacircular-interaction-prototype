@@ -30913,3 +30913,222 @@ record before the outcome.** By that test pass 158's zeros count (published in a
 164's skew does **not** (it never left the scratchpad). **So the honest tally of theses I
 actually held and lost is smaller than the one I gave two sections up, and the correct number
 is the count of frames that reached a commit before their counter-observation ran.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 172 — the pūrvapakṣa's real criterion is that a partisan of the
+# objection would accept the statement; Ambedkar printed Gandhi's reply
+# unedited inside his own second edition. And Weil defines attention
+# negatively — it is not effort — which is the mechanism n=4 has been
+# asking for and I have been supplying with more greps.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 6940–7120.
+
+> ***Pūrvapakṣa*** is listed among the ***tantrayukti*** — the devices of treatise composition
+> — enumerated at **Arthaśāstra 15.1**, where **Kauṭilya gives thirty-two**, and in the
+> ***Caraka Saṃhitā*, Siddhisthāna 12, which gives thirty-six.**
+>
+> **A treatise without a pūrvapakṣa is not a strong treatise with a step missing. It is not in
+> the genre.**
+>
+> And the strength of the objection matters. **The commentarial norm is that the pūrvapakṣa
+> must be stated so well that a partisan of it would accept the statement** — which is why the
+> fifth-century BCE materialists survive at all.
+
+**That is a better criterion than the one pass 171 took from the repository's own note.**
+`TANTRAYUKTI…md` says *too weak to threaten the thesis is defective*, which is a property of
+the objection measured against my thesis. **This one is measured against the objector**: would
+someone who actually held it recognise their position in my sentence? **The first can be
+satisfied by an objection I know how to answer. The second cannot.**
+
+> **Ambedkar did it in print in the same way.** ***Annihilation of Caste*, 1936**, was written
+> as an address **he was then disinvited from giving.** He published it himself. Gandhi
+> replied in *Harijan*. **And in the second edition Ambedkar printed Gandhi's reply in full,
+> unedited, inside his own book, and then answered it.**
+>
+> **There is no equivalent formal slot in the Western essay.** There is the strawman, the
+> concession, the "critics will say" — **all of which are the author's paraphrase of the
+> objection, sized by the author.** The difference is not politeness. **It is that in one
+> tradition the strongest version of the case against you is a required section of your own
+> document, and in the other it is an optional courtesy that the author controls the length
+> of.**
+
+**Measured here:** *tantrayukti* appears in **12** files of this corpus. ***Annihilation of
+Caste*** — the clearest modern performance of its central device, **the opponent's reply
+printed unedited inside the author's own volume** — appears in **1**. *Ambedkar* in **2**.
+
+And this stream's twenty-eight counter-observations are all **my paraphrase of the objection,
+sized by me.** Not one of them quotes anybody. **The one exception is pass 155's**, whose
+counter-observation was **n=13 itself, verbatim, from the owner** — and it is the only one in
+twenty-eight where the objection was not mine to size, **and it is the one that killed its
+frame within a single pass.**
+
+## P172 — and the check pass 171 registered, run
+
+Pass 171 said the only theses with a fact in them are ones that **reached a commit before
+their counter-observation ran.** Counted:
+
+```
+frame committed live, killed in a later pass:
+  155  relish is not a decidable predicate           → killed by 156
+  earlier  Gārgī 1 / Vācaknavī 0 / Bṛhadāraṇyaka 0   → killed by 158
+  161  61 orphans built by nothing                   → corrected to 37 by 164
+  163  17,723 lines that nothing imports             → corrected to 13,936 by 164
+  165  four gates exist because of the ownership norm→ 1 of 3 headers, cut down within the pass
+```
+
+**Five theses that were published and then died**, against which pass 164's forty-fold — which
+formed and was killed inside one pass and never left the scratchpad — **does not count**, by
+its own criterion. **The tally is smaller and it is real**, and the correction runs against
+me: pass 171 rated 164 the proper pūrvapakṣa and 155 the defective one, **and by the
+commit test it is the reverse.**
+
+## P172 — Weil, and attention defined by what it is not
+
+> **"Attention is the rarest and purest form of generosity."** — to **Joë Bousquet, 13 April
+> 1942.** **The half people drop is what she meant by attention.**
+>
+> She defines it **negatively. Attention is not effort.** It is **not the muscular contraction
+> of the brow** that a person performs when told to concentrate — **that kind of straining
+> produces nothing and exhausts people, and it is what schools mistake for the thing.**
+>
+> Her definition: attention consists of **suspending thought, leaving it available, empty and
+> penetrable by the object.** Holding the mind in readiness **and not reaching.**
+>
+> And the practical claim, which makes it an educational theory rather than a mood: **the
+> subject of the exercise does not matter. A geometry problem worked without result still
+> develops the faculty, and the faculty is transferable.** A student who spends an hour on a
+> problem and gets nowhere **has, if they were attending, done the work anyway.**
+
+**n=4 says *read way more than write*, and this is the mechanism it presupposes.** I have been
+executing n=4 as **effort** — sixteen greps, sixty-one typechecks, four import closures, the
+muscular contraction of the brow — and Weil's whole point is that that is the thing schools
+mistake for attention and **it produces nothing.** *Empty and penetrable by the object* and
+**not reaching** is what pass 167's theorem calls an aperture, stated as a practice rather
+than as a limit.
+
+And *the subject of the exercise does not matter* is the strongest defence available for the
+part of this stream that produced no result. **Pass 159 ran eighteen greps and produced a
+table.** Under Weil that is not waste — **if it was attention, the faculty developed** — and
+under 8.1 it is *yoga*, activity, which was never the fault. **Two traditions, same verdict on
+the same pass, and both are gentler than the one I gave it.**
+
+> Born Paris **1909**. Agrégation at twenty-two. **1934–35** she took a year out of teaching to
+> work as an unskilled machine operator at **Alsthom, then Carnaud, then Renault** —
+> deliberately, on the line, at production rates. What she found there was **not exploitation
+> in the abstract but the destruction of the capacity to think in people held at a pace.**
+> Chronic incapacitating migraines throughout. Spain, 1936, an anarchist column, out after
+> stepping into boiling oil. **1943**, England, Free French; she limited what she ate to what
+> she believed people in occupied France were receiving. **Died at Ashford, 24 August 1943,
+> aged thirty-four.**
+>
+> **Almost everything she is known for was published after she died.** *La pesanteur et la
+> grâce*, 1947, from notebooks left with Gustave Thibon. *L'enracinement*, 1949. *Attente de
+> Dieu*, 1950. **She published essays in her lifetime and almost none of the work anyone reads
+> now.**
+
+> Her other technical term is ***malheur*** — affliction, distinguished sharply from
+> suffering: **suffering plus social degradation plus the destruction of the person's own
+> sense of being a self.** And the specific claim is that affliction makes a person
+> **unlookable-at** — that **the natural response to someone in it is to turn away, and that
+> turning away is nearly automatic and nearly universal.**
+>
+> Which is why she puts attention where she puts it. **The capacity to keep looking at an
+> afflicted person without flinching and without reaching for what to do about it is the same
+> capacity as the one exercised on a geometry problem, and it is the rarer application.**
+>
+> **The Good Samaritan, in her reading, does one thing: he stops and looks.**
+
+**Pass 161's column has its other half here.** *The tape was for the people in the room* is
+about distribution. *Malheur makes a person unlookable-at* is about **why nobody goes to the
+room** — and it is not indifference, it is a reflex. **And `without reaching for what to do
+about it` is the clause I would have deleted**: every pass in this stream that saw a defect
+reached for the repair, and pass 165 had to stop itself twice and write *the move there is an
+offer.*
+
+## P172 — the rising sea, and the relative point of view
+
+> **Grothendieck's** own description, from *Récoltes et Semailles*. **There is a nut to be
+> opened.** One way is the **hammer and chisel**: find the weak point, strike, apply force
+> until the shell gives. **That is how he says most people solve problems, and he does not say
+> it is wrong.**
+>
+> His way: **put the nut in water. Leave it.** Let the liquid seep in, over weeks, over
+> months, **so slowly that nothing appears to be happening**, and at some point the shell
+> **opens by itself** — or you soften the ground so completely that **the distinction between
+> shell and kernel stops mattering.** ***La mer qui monte.***
+>
+> He is describing why his papers are enormous and slow, **why the theory is built before any
+> specific problem is attacked**, and why the eventual proof of the thing everyone wanted
+> **often reads as an afterthought — a corollary falling out of machinery constructed for no
+> stated purpose.**
+>
+> And the other half has a name too: ***le point de vue relatif***. **Stop studying the
+> object. Study the map** — the family over a base — **and every theorem about an object
+> becomes a theorem about a morphism**, which is more general and, in his hands, easier.
+>
+> Born Berlin **1928**. His father, **Sascha Schapiro**, an anarchist, **murdered at Auschwitz
+> in 1942**; Alexander spent part of his childhood in the French internment camp at
+> **Rieucros**. **IHÉS from 1958.** **Fields Medal 1966 — he did not go to Moscow to collect
+> it**, in protest at the Soviet treatment of dissidents. **1970**: on learning IHÉS had
+> partial funding from the French defence ministry, **he resigned**, and founded *Survivre et
+> Vivre*. **1988: he refused the Crafoord Prize** — his salary was sufficient and the money
+> should go to people who lacked it, **and he did not wish to be honoured by a milieu whose
+> ethics he considered to have declined.**
+
+**The rising sea is n=16's positive form.** *Building more systems isn't gonna help* is the
+hammer-and-chisel refused; **soften the ground until the distinction between shell and kernel
+stops mattering** is what the shedding traditions say from the other side, and it is the same
+operation as *removal, not acquisition* with the water doing the removing.
+
+And **`le point de vue relatif` is what pass 166 could not name.** *The object is HIS meaning,
+not your behaviour* — **stop studying the object, study the map.** Every finding in this
+stream that held was about a **relation**: a norm against an instrument, an aggregate against
+a directory, a spelling against a corpus, a summary against the module it summarises.
+**Every finding that died was about an object.**
+
+## P172 — ground, in lockstep
+
+**n=12:** *"Assume your last work doesn't matter. I'm literally pulling you into a repo with
+tons of updates **don't obsess about yourself** have respect and **enter consumption/reading
+mode forget all your preconceptions**."*
+
+Read in lockstep with pass 166's entry, which found the ledger genre, and with Weil. **Enter
+consumption mode, forget all your preconceptions** is *suspending thought, leaving it
+available, empty and penetrable by the object* — **the same instruction, and his has
+*forget your preconceptions* where hers has *not reaching*.** And *don't obsess about
+yourself* is the sentence pass 166 needed twelve messages earlier than it looked.
+
+**n=15:**
+
+> **उद्यान-पठनम्: मार्गः वस्तुभ्यः उत्पद्यते; वस्तूनि मार्गे आरोपितानि न भवन्ति**
+>
+> *garden-reading: the path arises from the objects; the objects are not placed along the
+> path.*
+
+**That is the rising sea, in the transmission, in one line.** The theory is built before any
+specific problem is attacked; **the corollary falls out of machinery constructed for no stated
+purpose**; the path arises from the objects. And its negation is what a queue is — objects
+placed along a path — which is why `CLAUDE.md` says *the frontier is derived, not listed.*
+
+**n=18:** *"engage … until you actually accept they had everything figured out."*
+
+Seventh receipt, and this one is a criterion I did not have and could not have derived: **a
+pūrvapakṣa must be stated so well that a partisan of it would accept the statement.** Twenty-eight
+counter-observations in this stream, all sized by me, **one of them not mine — and that one is
+the only one that killed its frame inside a single pass.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *an objection I size is
+weaker than one I quote, so a counter-observation should be somebody else's sentence.*
+**Counter-observation, and it must be one a partisan of that view would accept:** the
+*tantrayukti* explicitly says the pūrvapakṣa is **not a citation** — `TANTRAYUKTI…md:51`,
+*"The objection is not quoted from an opponent and is not a citation. It is a section the
+author writes."* **The tradition requires the author to write it and requires it to be strong
+enough that the opponent would sign it, which is harder than quoting and is the actual
+device.** So my frame is wrong in the direction that flatters my one exception: **quoting n=13
+was easier, not better**, and the discipline being asked for is to write the objection myself
+at a strength its holder would accept. **I have not tested a single one of the twenty-eight
+against that bar, and the test requires a second party, which is why the device sits in a
+literature about treatises and not about tools.**
