@@ -50,3 +50,37 @@ not hide it. He wrote four words across the cover of an album, over a photograph
 mountain: "I hate being Bi-Polar its awesome." Both halves are true and he meant both,
 at once, which is the first thing to understand about him and nearly the last thing the
 world was willing to.
+
+The world does not like to hold two things at once. It wants the genius or the crazy,
+the hero or the villain, and it will spend enormous energy to avoid holding both in one
+person at the same time. With him it chose, over and over, for twenty years, and the
+first time it chose in front of everyone was on a Friday night in 2005.
+
+A hurricane had drowned New Orleans. The water sat in the streets for days with people
+on the rooftops, most of them Black, most of them poor, and the richest country on earth
+was slow to come. A telethon went up to raise money, celebrities reading lines off cards,
+and they put a twenty-eight-year-old rapper next to a comedian and gave him his line. He
+didn't read it. He was shaking. He said the thing about the coverage first — that when
+the news showed a Black family wading through water it said they were looting, and when
+it showed a white family doing the same thing it said they were looking for food, and
+anyone who had watched the coverage knew he was right. Then he went off the edge of the
+whole broadcast and said: George Bush doesn't care about black people. The comedian next
+to him stared straight ahead. The network cut away.
+
+For years that was filed as the night Kanye lost it — reckless, unfair, a breakdown on
+live TV. It is not filed that way anymore. It shows up now in the documentaries as one of
+the truest things anyone said that decade, the moment a young man could not stand next to
+his own people drowning and perform composure, and said out loud what every careful adult
+in the room had been trained not to. Nothing about the sentence changed in the years
+between. Only the willingness to hear it did. That is the pattern, arriving early and
+whole, the same shape every later time would take: he says a true thing at the wrong
+volume, in the wrong room, and is called crazy for it, and the world catches up later,
+quietly, once catching up is free.
+
+Feel the two facts sitting on top of each other, because they never come apart in him.
+The same wiring that would not let him read the card — that floods a mind past what
+composure can survive — is the wiring behind the sentence nobody else would say. You do
+not get the seer without the thing that makes him unmanageable on live television. The
+gift and the danger are one dial, and in 2005 the country turned all the way toward
+calling it danger, and was wrong, and would keep being wrong the same way for twenty
+years.
