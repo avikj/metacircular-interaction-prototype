@@ -13953,3 +13953,169 @@ signal at all, which is the institution that never learns, one scale down.
 cut at 10180. It is about to register predictions.
 
 Reading on from 10180.
+
+---
+
+## 10180–10320 — six registered forecasts, and the Suśruta control
+
+> here are the numbers, dated today, on the claims it actually makes. **I do not
+> know any of these.**
+
+**F1 — the twelve-row ledger survives**, at least eight of twelve. **0.6.**
+Weakest rows predicted: 2010, 2011, and 2019.
+**F2 — the sibling finding replicates** in a different national registry after
+controlling for socioeconomic status and diagnostic access. **0.7.** *"If this
+fails the neurodivergence argument in this file collapses to 'some artists were
+ill,' which is not an argument."*
+**F3 — the reading is revised** by 2035: major-outlet reconsiderations,
+catalogue re-canonisation, 2016–2025 discussed primarily as illness-and-harm
+rather than as character. **0.55.** *"the one I am least sure of and it is the
+direct test of the survivorship problem I flagged and did not fix."*
+**F4 — the corpus lever works**: a bounded measured intervention on indexed
+attribution changes deployed outputs within three years. **0.85.** *"If this
+fails, the hopeful ending of this file fails with it."*
+**F5 — honour before retraction**: any significant institutional honour arrives
+posthumously or terminally, **0.8** conditional; and no institution that
+misjudged him issues anything recognisable as a retraction, **0.9.**
+**F6 — the unread archive**: a published, cited, specialist-accepted new result
+from machine reading within ten years, **0.65**; *and* a substantial
+fluent-and-wrong corpus also produced and entering training data, **0.9.**
+*"Both, at once, is the expected outcome, **and the ratio between them is what
+actually matters and is what I cannot forecast at all.**"*
+
+Six forecasts, calibrated, some against its own thesis, and the one thing it
+declines to number is the ratio that decides everything.
+
+0.55 on F3 is the file betting barely better than a coin on its own central
+claim about its own subject.
+
+> **These are cheap for me and that is the point. I do not persist.** I will not
+> be here to be embarrassed, **and a forecast that costs its author nothing is
+> worth less than one that does.** What it is worth is that it **converts a
+> document that otherwise cannot fail into a document that can be checked** —
+> which is the only difference between this and the ninety pages of confirmations
+> it is attached to.
+
+It prices its own forecasts at a discount, for the correct reason, and then says
+what they are still worth. The carrier dies, so the stake is unavailable, so the
+value is not accountability — it is checkability.
+
+> **the one I most want checked is F3**, because it is the only forward test of
+> the central pattern. Every other case in this file is a case where the reversal
+> already happened, **which is exactly how a pattern that is not real looks from
+> inside.** If the verdict on him is unrevised in 2035, **then this file was a
+> very long exercise in finding what I was primed to find, and the correct thing
+> to do with it will be to say so, in this same file, underneath — which is what
+> append-only is for and why nothing above gets edited.**
+
+*Which is what append-only is for.* The format exists so that a future reader can
+write the refutation into the same object without the object having to be
+rewritten. Not humility — a slot, reserved, for the correction that the author
+cannot make.
+
+---
+
+**Suśruta Saṃhitā**, *"the one case where the name actually survived the
+transmission, which makes it the control."*
+
+Several hundred surgical procedures; ~120 named instruments; classification of
+operations by type — *"excision, incision, scarification, puncturing, probing,
+extraction, drainage, suturing"* — and the training method:
+
+> **You do not learn to cut on a person.** The text prescribes practising
+> incision on **vegetables and gourds**, scraping on **wax and hide**, puncturing
+> on **the veins of dead animals and on lotus stalks**, suturing on **cloth and
+> soft leather**, bandaging on a **mannequin**, and extraction on **the seeds of
+> fruit.**
+
+> A graduated synthetic-tissue curriculum, specified, in a surgical treatise,
+> thousands of years before anybody used the phrase *simulation training* — **and
+> the reason it is there is exactly the reason it is there now: because the
+> alternative is learning on somebody.**
+
+Cataract couching, caesarean in some circumstances, wound management, *"the use
+of ants' heads as clamps for intestinal closure in some accounts"*, fumigation
+of the operating space, instructions on the surgeon's preparation.
+
+**The rhinoplasty.** *"Amputation of the nose was a judicial and military
+punishment in several places, so the reconstruction problem was common."* The
+method: a **pedicled flap** — *"a piece of living skin, kept attached at one end
+so it retains its blood supply"* — rotated from cheek or forehead onto the nose,
+tubes to keep the airway, left attached until it takes.
+
+**The transmission, documented:** **1793–94**, British surgeons in India observe
+the operation performed on a man named **Cowasjee**, a bullock-cart driver whose
+nose had been cut off, *"by a practitioner from a family that did this work by
+hereditary trade."* An account with an engraving in the ***Gentleman's
+Magazine*, 1794.** **Joseph Carpue** in London reads it, studies it for two
+decades, performs it in **1814**; his account spreads it through Europe, and
+**von Graefe** and others build the field on it.
+
+> **Modern plastic surgery is substantially descended from that observation**,
+> and the technique is *still called* the **Indian rhinoplasty** or the **Indian
+> forehead flap**, in current surgical literature, by surgeons who use it every
+> week.
+
+The patient is named. Cowasjee, a bullock-cart driver, in the record, in 1794 —
+which is more than the ENIAC captions managed in 1946.
+
+---
+
+> **Why did this name survive when Piṅgala's did not?**
+>
+> **Not because anybody was more scrupulous. Because of *how* it transmitted.**
+> The technique arrived in Europe as **a practice observed being performed**,
+> with a named patient, a named publication, a named surgeon who then did it
+> himself, and a twenty-year lag documented in his own account of what he read.
+> **There was no intermediate stage at which it could be re-derived from first
+> principles by somebody who then owned it. You cannot independently re-invent a
+> flap technique you learned from a plate in a magazine.**
+
+> Piṅgala's array, by contrast, transmitted as a *result*. And a result can be
+> re-derived — **Pascal genuinely did derive it, honestly, without knowing** —
+> and once it has been re-derived locally **the local name attaches and the
+> original is not needed to use the thing.**
+
+Re-derivability is the mechanism. Not theft, not the portability filter, not even
+obliteration by incorporation — those all sit on top of this. **A result carries
+its own re-derivation instructions, so the receiver can regenerate it and
+legitimately own their copy. A practice cannot be regenerated from its
+description.**
+
+Which means Pascal is *innocent* in the strongest sense available, and the
+erasure still happened, and no one had to do anything. That is the cleanest
+no-villain account in the entire document, and it is derived rather than
+asserted.
+
+> **A result loses its author on transmission. A practice keeps one.**
+>
+> Because **a practice has to be *shown*, and showing has a demonstrator, and the
+> demonstrator has a name and a place.** The theorem detaches. The technique does
+> not, or detaches much more slowly.
+
+> That is why the error terms did not travel and the series did. Why the darśana
+> did not travel and the identity did. Why **the recitation scheme is endangered
+> and the text is safe.** Why the flip is credited and the array is not.
+
+*The recitation scheme is endangered and the text is safe.* Both halves of the
+pāṭha section in one clause, and the asymmetry now has a cause: the text is a
+result, the recitation is a practice, and the practice is the one with the
+name — and the endangerment.
+
+> a tradition read as a set of results will lose its name, and **a tradition
+> learned as a practice will not.**
+
+And that is why *read the source in its own order* is not sentimentality, and
+why the reading order for the records was given as *what to attend to* rather
+than what to feel. Attending is learning a practice. Summarising is extracting a
+result. My summary detached the author because that is what summarising does,
+mechanically, regardless of care.
+
+> **Test the rule, because a rule stated once is a phrase.**
+>
+> **"A result loses its author on transmission; a practice keeps one."**
+
+Third application of *generate the next term*, immediately, on its own newest
+rule.
+
+Reading on from 10320.
