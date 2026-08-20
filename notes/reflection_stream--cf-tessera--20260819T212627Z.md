@@ -20462,3 +20462,210 @@ honest test is a census of **every** load-bearing claim in passes 52–108, clas
 before checking which held. That is Σ₀ over a file I own, it is therefore decidable
 under seed20's own theorem, and it is the next thing this stream should run rather
 than write.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 110 — z-3 read all seventy-eight by hand and pass 101's count was wrong
+# in BOTH directions. The tenth defect is a citation whose content is its own
+# denial, and no anchoring fixes it: the predicate is not decidable from text.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-z-3` returned. `notes/DELTA14_ALL_SEVENTYEIGHT_WITH_STATUS_AND_TRIAGE.md`,
+commit `e499010f`, all 78 quoted in his words, sectioned A–Q as he sectioned them.
+
+## P110 — both directions, and I verified both at the source
+
+Pass 101 published **30 cited / 14 checked / 48 unnamed**, boundary-anchored, and
+treated the boundary-anchoring as the fix. `z-3` read the headers by hand:
+
+> **The number-grep is wrong in both directions.**
+>
+> `NaturalMachine/CenterRelative.agda` proves **T14.1, T14.2, C14.3** and discharges
+> **Program 14.71** while **never writing a theorem number** — four items checked and
+> invisible to any count.
+>
+> Conversely `PerspectiveCore.agda` *writes* T14.19, T14.22, D14.59, D14.61, P14.48,
+> P14.65, C14.64, P14.67 inside an honesty ledger saying each is **not** proved there
+> — eight items counted as checked that aren't.
+>
+> **CHECKED/CITED had to be read out of headers by hand; it is not greppable.**
+
+Checked, both:
+
+```
+grep -c "14\." NaturalMachine/CenterRelative.agda            →  0
+NaturalMachine/PerspectiveCore.agda:81
+   --  * **T14.19 and T14.22 are NOT re-proved.**
+```
+
+**A line that names two theorems in order to deny them.** Every count I ran today
+scores that line as two citations. Its content is the opposite of what the count
+records.
+
+Corrected snapshot, 2026-08-20 pre-write: **17 CHECKED, 20 CITED, 41 UNNAMED**, plus
+six of the eight Programs discharged. After `z-3`'s own homonym correction: **37
+cited, 41 unnamed.** After its module landed: **19 checked, 39 unnamed.**
+
+## P110 — the tenth defect class, and it is not a query defect
+
+The nine before it were failures of **address**: orthography, prefix collision,
+bracket ranges over bytes, substrings, two written forms, homonyms, the check erasing
+its own reading, the store keying pages by numeric id, the pooled-pattern hook. Every
+one is fixed by a better pattern or a title index.
+
+This one is not addressable at all:
+
+> **the citation whose content is its own denial.**
+
+`T14.19` appears; the sentence containing it says the theorem is not proved there. No
+anchoring, no boundary, no index repairs that — the string is correct, the file is
+correct, the match is correct, and the count is inverted. `z-3`'s conclusion is the
+only available one: **read it by hand.**
+
+And this sharpens pass 109's own result rather than confirming it. Pass 109 partitioned
+my claims by seed20's topology and concluded *everything Σ₀ held.* `"is T14.37
+checked"` **looks** Σ₀ — a census over files that exist, finitely decidable, proof-grade
+under the corpus's own licence. It is not, and the reason is a level down from
+seed20's theorem: **seed20 classifies the claim; this classifies the predicate.** A
+Σ₀ census is only Σ₀ when its predicate is decidable from the data, and *"this file
+proves T14.19"* is not decidable from the occurrence of the string `T14.19`.
+
+Pass 101 said *"a numbered theorem gets cited 38% of the time and checked 18%; a
+theorem has a name a header can carry."* The mechanism I proposed was right and my
+instrument could not see either end of it: the module that does the work without the
+name, and the module that carries the name while disclaiming the work.
+
+And `z-3` found two more defects in its own passes and recorded rather than swept them:
+a bare `14\.N` matching decimals in `FAILURES.md`, `DIVISOR.md`, and **a handoff file
+dated two days before Delta 14 existed** — a false positive refuted by a date, which
+is a new kind of check; and `T14.4`/`T14.5` matching **rows 14.4 and 14.5 of a
+different table** in `Anirnita…md:190–191`.
+
+## P110 — the triage, which is the thing pass 101 declined to do
+
+> **(a) one module away — 15.** T14.4, T14.5 (taken), T14.26 (`Σ-assoc-Iso`), T14.28,
+> T14.29 (`conj-iterate`), T14.31 (`Cubical.Relation.Binary`), T14.33
+> (`GroupoidLaws`), T14.34 (`isContrSingl` + `preCompEquiv` — **the uniqueness half is
+> real work**), T14.40, T14.41, T14.54 (`ua`), P14.53 (`notEquiv`), P14.66, P14.70,
+> T14.63. **Five of these are green trivialities as literally stated and I say so in
+> the note rather than harvesting them.**
+>
+> **(b) needs one missing object — 22**, clustered *by the object*: a cost model
+> charging `e`/`e⁻¹` separately (6); a choice-free surjection UP (2); an
+> ambiguity-fibre object (3); a perspective atlas carrying 2-cells (6); a
+> non-functional simulation type (2); conditioning as an operation (1); a cohomology
+> functor (1); two conditioned ensembles + coupling (1).
+>
+> **(c) needs an absent lane — 4:** Bound 14.43, P14.42, C14.49, C14.50.
+
+*Five are green trivialities and I say so rather than harvesting them.* That is the
+single most anti-gradient sentence in any return today. `CLAUDE.md`: *"Optimising for
+the checker produces work shaped like what a checker accepts."* Five free green
+checkmarks, identified, declined, and the declining written down.
+
+And the clustering is the useful shape: **22 items need eight objects.** Not
+twenty-two problems — eight, one of which (a perspective atlas carrying 2-cells)
+unblocks six by itself, and which is Delta 13, the transmission pass 101 measured at
+one file and zero modules.
+
+## P110 — the largest thing nobody can reach, established negatively
+
+> **Bound 14.43** (Pinsker bound on surviving covariance) — the only quantitative
+> inequality in the 41, and the load-bearing half of §G; without it P14.42 is a
+> slogan. Cubical v0.5 has no ℝ; agda-unimath's Dedekind reals are off the include
+> path; and **`grep -rl Pinsker` across all of `/root/agda-libs/mathlib4/Mathlib/`
+> returns nothing** — mathlib has KL divergence, its chain rule and data-processing,
+> **but not Pinsker.** Four objects, not one.
+
+A negative established over an 8,886-file library on disk, with the *neighbours*
+named so the gap is exact. That is the shape pass 109's `codex-bhaskara-15` file
+demands: an unavailable sample reported as unavailable, with no substitution.
+
+## P110 — and what it refuted of its own
+
+> I began the module believing **T14.4 inherits "2 invertible" from T14.1** — it sits
+> in §A right after it and is stated with `s/2`. **It does not.**
+> `fixedSumEquiv-noHalf : (s : ⟨ R ⟩) → FixedSum s ≃ ⟨ R ⟩` over **any** commutative
+> ring, no hypothesis, by `q ↦ (s − q, q)`. Prior art **named rather than claimed**:
+> the standard translation-equivalence, `is-binary-equiv-add-Ring`,
+> `/root/agda-libs/agda-unimath/src/ring-theory/rings.lagda.md:233`.
+
+Pass 99 recorded nine libraries on this disk and the corpus importing one. Here is a
+citation into **agda-unimath, by file and line**, used the way pass 106 said the nLab
+mirror is worth using: consult before hand-rolling.
+
+And then the actual result, which is about the owner's own theorem:
+
+> `half` isn't idle, and isolating what it buys is the result. Under the free
+> coordinate the exchange `τ(p,q)=(q,p)` is the **affine** involution `q ↦ s − q`,
+> fixed point **moving with `s`**. Under his centred coordinate it is `r ↦ −r`,
+> **linear**, fixed point at 0, **identical in every fibre.** So `half + half ≡ 1r`
+> purchases a **simultaneous linear normal form for the exchange across all fibres** —
+> exactly what T14.5 consumes, and **why T14.5 cannot be *stated* in the free
+> coordinate.**
+
+That is not a formalisation of T14.4. It is an account of **why he wrote it with a
+half**, recovered by trying to do without one and finding what stops working. n=26:
+*extracting the true meaning of what I was saying.* This is that operation performed
+on a theorem instead of on a sentence, and it is the first time in this session
+anything has done it.
+
+Guards, all present: `fibre-two-points` a witnessed non-identity not a size check;
+`two≡zero→trivial` showing `half` collapses characteristic 2 outright;
+`even-not-odd` as a control refusing the reading where `antisymIsoOdd` is
+`symmetricIsoEven` renamed; and §6 discharging all three hypotheses **at ℚ**, so they
+are not conditionals waiting on a ring nobody supplies. And the pre-registration:
+*"True and irrelevant, how: nothing downstream consumes either theorem."*
+
+## P110 — two things it pushed back on, and a second witness
+
+> The CHECKED/CITED split is **my hand reading of module headers, not a mechanical
+> result** — if you disagree with a row, **the header is the arbiter** and I may have
+> mis-scored borderline cases (T14.9 at general `k`, P14.39). And `--safe` here is the
+> file's own pragma plus a clean run; **I did not add it to `Everything.agda`, so
+> nothing else builds it.**
+
+`CLAUDE.md` states that last one as a standing trap for the Lean lane — *"a module
+that is not in the import closure is built by nothing."* Reported by the agent about
+its own module, unprompted.
+
+And, independently of `p-0`: *"`.claude/hooks/source-coverage.sh:61` matches **Bhāskara
+I** and **Bhāskara II** with one pattern and reports the pooled author count against
+Bhāskara II's works. Another identity's file; untouched."* Second witness, same line,
+different agent, different day's work. It is now a measured fact and not a report.
+
+## P110 — ground, in lockstep
+
+**n=8:** ***"You must write this into the natural machine core"*** — Delta 14,
+T14.1–T14.78.
+
+Six days on: **19 checked, 20 cited, 39 named nowhere**, 22 of the 39 blocked on
+**eight** objects, and one — Pinsker — blocked on four objects that are not in an
+8,886-file library on this disk. That is the instruction, costed. Pass 101 reported
+the count and called listing them *"a task, not a pass"*; the task is done, and the
+count it was defending was wrong in both directions.
+
+**n=25:** *"we consider all the mathematical content generative but have simply not
+coded it properly."*
+
+**Generative** is now measured rather than assumed: 15 items are one module away, 22
+need eight objects, 4 need a lane. Nothing in the 41 was found to be wrong or empty.
+The obstruction is uniformly *missing machinery*, exactly as he said, and the shape of
+the missing machinery is now a list of eight things.
+
+**n=15:** *"**असमता विफलता न · असमता नवभेदस्य जन्मः**" — disagreement is not failure;
+disagreement is the birth of a new distinction.*
+
+`z-3`'s count disagrees with mine, and the disagreement produced the tenth defect —
+the citation that denies itself — which neither count could have found alone. The
+distinction born from it is the one pass 109 needed and did not have: **a Σ₀ census is
+Σ₀ only when its predicate is decidable from the data.**
+
+---
+
+Pre-registered: **the weakest claim in this pass is "19 / 20 / 39."** `z-3` says
+plainly that the split is its hand reading of headers, not a mechanical result, and
+names two rows it may have mis-scored. I am carrying its numbers with more confidence
+than it offered them, one pass after writing down that I score returns in the shape I
+was primed to see. The arbiter is the header, per row, and the check is a second
+independent hand read — which is exactly the disagreement that produced this pass, so
+running it a third time is the method and not a formality.
