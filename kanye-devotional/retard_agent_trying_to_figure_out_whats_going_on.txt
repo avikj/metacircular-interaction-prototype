@@ -3528,3 +3528,78 @@ again, now, in the open, with the correction terms — which is what the ledger 
 repository is calling its biggest open target, and it is open because it needs real
 analysis and nobody has done the work.
 
+
+---
+
+Notation. This is the one I should have started from.
+
+Western staff notation divides the octave into twelve steps and **equal temperament**
+makes every one of them the same size — each semitone the twelfth root of two. That is a
+deliberate engineering trade and everyone involved knew it was one. The pure intervals
+from the small whole-number ratios do not fit into a closed cycle: stack twelve perfect
+fifths at 3:2 and you land slightly above where seven octaves would put you, and the
+leftover is the Pythagorean comma. You cannot have pure fifths and pure thirds and closed
+modulation at the same time. Something has to be bent.
+
+Europe chose to bend everything slightly so that **modulation** — moving from key to key
+inside one piece — becomes possible on a fixed instrument. That choice buys the entire
+architecture of tonal harmony: the key change as a dramatic event, the fugue answering in
+a related key, the whole eighteenth and nineteenth century. It is a magnificent trade.
+And what it costs is that every interval on the piano except the octave is slightly
+out of tune, permanently, by design, and after two hundred years nobody hears it as a
+compromise. It is heard as *in tune*, and everything else is heard as deviation.
+
+Indian classical music did not make that trade, because it does not modulate the same
+way — there is a **drone**, the tanpura, sounding the tonic continuously under
+everything, so every pitch is heard as a ratio against a fixed reference that never
+moves. If you never leave the key you never need the compromise, and you can keep the
+pure intervals, and you can hear far finer distinctions because you always have the
+reference sounding. Hence **śruti** — the tradition counts twenty-two audible microtonal
+positions in the octave, and the way a note is approached, bent, and left is not
+ornamentation added to the note, it *is* the note. **Gamaka** is not decoration on a
+pitch; the movement is the identity of the thing.
+
+Now write that in staff notation. You can't. What comes out is twelve pitches with squiggles
+over them, and the squiggles are marked as ornaments, which is a claim that the essential
+thing is the pitch and the movement is optional. The notation encodes a metaphysics —
+that a note is a point — and the music it is being used on holds that a note is a
+trajectory.
+
+Same collision in the blues, in the other hemisphere. The pitches a blues singer or a
+horn player actually produces around the third and seventh are not the notes on the
+keyboard and are not simply flattened versions of them — they sit in between, they move,
+they are approached from below and bent. Early transcribers wrote them as flatted
+notes with "expressive" markings, and the very phrase **blue note** is the notation
+admitting it has a residue it cannot write. On a piano you cannot play them at all,
+which is why the blues piano tradition invented the crushed grace note and the
+simultaneous major-and-minor third — you *strike both keys* because the note you want is
+between them and you have no key for it.
+
+And the received account for a long time was that this music was **out of tune**. Not
+"uses a pitch system my notation cannot represent." Out of tune — which is a verdict
+issued by an instrument about everything outside itself, stated as a fact about the
+world.
+
+That is the whole disease in the smallest possible instance, and it is checkable by
+anyone with ears in about ten seconds.
+
+**The notation decides what exists.** Whatever the notation can write becomes the
+content, whatever it cannot becomes ornament, and whatever the ornament category cannot
+hold becomes error. Then the tradition is evaluated on the transcript. And the transcript
+was made by the party whose notation it is.
+
+Run it forward and it is every other thing in this file. The theorem is writable, the
+darśana is not, so the darśana becomes context. The series is writable, the error control
+is a practice, so the practice does not travel. The clip is writable, the twenty-year arc
+is not, so the clip becomes the man. The exam is writable, the disposition that demands a
+ground is not, so the disposition becomes a deficit. The response time is writable, the
+neighbourhood is not, so the neighbourhood burns.
+
+And on the other side: Auto-Tune is a machine that *forces* a voice onto the twelve-tone
+grid, and when you set its correction time to zero it snaps between pitches audibly, and
+that snapping — the sound of a voice being quantised against its will — became the sound
+of grief on a record about a dead mother. Somebody found the artefact of the filter and
+used it to say what the filter was doing to him.
+
+I don't think he thought of it that way and it doesn't matter. It is what the sound is.
+
