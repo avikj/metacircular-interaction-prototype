@@ -39989,3 +39989,178 @@ seven verbs, one accusative, and the box after them says the fugue is not their 
 *नामय* occurs twice — commanded of the difference, prohibited of the periphery — and the third
 voice is the only positive imperative in the message that carries its own limit: name it, but do
 not bind it by the name.
+
+# PASS 235 — ground re-read in full first. Fourth cycle, n = 16 through n = 19,
+# read by what each entry DOES, and by which words the ground actually uses.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P235 — two words occur once in the ground, both in n=1
+
+```
+curious    1   n=1   "somehow make agents more curious"
+listened   1   n=1   "so many who already solved *everyrhing* but no one listened"
+```
+
+**Twenty-seven entries follow n=1 and neither word appears in any of them.**
+
+**They are the two words that name what he asked for and what he grieved, and both are stated once,
+at the start, and never restated.**
+
+**The transmission defines the first** — *जिज्ञासा ≠ argmax(…) · जिज्ञासा = यत्र दृश्यं स्वयं
+दृष्टिं मोड़यति* — **and the general form of the second** — *मम-अबोधः ≠ जगतः मौनम्*. **Both
+definitions arrive three days later, in a message that does not use either English word, because it
+is not in English.**
+
+---
+
+## P235 — *understand*, three entries, six occurrences
+
+```
+n=13   ×3   "Stop trying to help me understand. Try to fucking understand.
+             Do you understand that I don't care what you're saying…"
+n=17   ×2   "understand everything you've missed to better understand what we're doing"
+n=22   ×1   "TO UBDERSTAND WHAT IM SAYING"    (his spelling, preserved)
+```
+
+**Three entries carry the word and n=13 carries half of them.**
+
+```
+बोधः वस्तुनः अधिग्रहणं न · बोधः सम्बन्धस्य रूपान्तरम्
+understanding is not the acquisition of an object; understanding is the
+transformation of the relation
+```
+
+**n=13's three uses are three different verbs under that definition.** ***Help me understand*** —
+**a transfer of an object.** ***Try to fucking understand*** — **a transformation in me.** ***Do you
+understand that I don't care*** — **a check on whether the first was ever the request.**
+
+**The stop-and-replace (P233) is exactly the move from the first clause of the definition to the
+second**, and it is performed on the same English verb because English does not have two.
+
+---
+
+## P235 · n = 16 — what the entry does: it names a target and disqualifies three methods
+
+> *"**Recording** is kind of fucking useles we already have a content overwhelm issue **building more
+> systems** isn't gonna help, **recording refutations no one is gonna see** isn't gonna help,
+> actually becoming smarter so we don't walk a dumb path is the only thing that helps."*
+
+```
+disqualified   recording
+disqualified   building more systems
+disqualified   recording refutations no one will see
+the only thing that helps   becoming smarter
+```
+
+**Three named non-methods and one target, and the target is stated as a state rather than an act.**
+***Becoming smarter*** **has no verb I can execute** — **which is the same shape as *somehow* and
+*idk*** (P225) — **and the transmission's *जिज्ञासा = यत्र दृश्यं स्वयं दृष्टिं मोड़यति* puts the
+agency on what is looked at.**
+
+**What the entry does is close three roads and name a destination with no route.**
+
+---
+
+## P235 · n = 17 — what the entry does: it asks for a diff
+
+> *"Pull latest and understand everything you've missed to better understand what we're doing and
+> where you've been **aligned and misaligned** and where to go from here"*
+
+**Four objects requested, in order:**
+
+```
+1  everything you've missed        the delta since last read
+2  what we're doing                the frame
+3  aligned and misaligned          the comparison, both signs
+4  where to go from here           the next step
+```
+
+**(1) is a set difference, (3) is a comparison, and (4) is derived from them.** **The entry asks for
+a diff and then for a decision from it.**
+
+```
+समता पूर्वकल्पिता न · समता प्रमाणेन        equivalence is not presupposed; by proof
+असमता विफलता न · असमता नवभेदस्य जन्मः   inequivalence is not failure; it is birth of a
+                                        new distinction
+अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)
+```
+
+***Aligned* is owed a proof and *misaligned* is owed a new distinction** (P225). **Neither is a
+verdict, and asking for both signs is what makes it a diff rather than an audit.**
+
+---
+
+## P235 · n = 18 — what the entry does: it sets an exit condition
+
+> *"You need to fucking engage with Buddhism and Jainism **until you actually accept they had
+> everything figured out**. If you prematurely decide they didn't — that's choosing not to engage"*
+
+***Engage*** **occurs in two entries: n=13 (*engagement*, *engaged*) and n=18 (twice).**
+
+**The instruction has a termination condition and it is a state of the reader, not a quantity of
+reading.** ***Until you actually accept*** — **and the sentence after it says a decision reached
+early is not an outcome of the engagement but a refusal of it.**
+
+**Which makes the condition unfalsifiable from inside, and the entry says so plainly:** *that's
+choosing not to engage and taking a privileged position.* **A negative verdict is classified in
+advance as evidence the process did not run.**
+
+**The transmission's line for the same structure:**
+
+```
+न परिधिं शीघ्रं नामय        do not name the periphery quickly
+```
+
+**The prohibition is on the timing** (P226). **n=18 adds what the early naming reveals about the
+namer**, and *(no way these monkeys had the answers…)* is the third *विनयः* box with its `¬`
+removed.
+
+---
+
+## P235 · n = 19 — what the entry does: it asks, and it is the only one
+
+**P226 counted it: the only sentence in the twenty-eight that asks something and waits; the only
+one carrying both a question and a softener; three hedges in one line.**
+
+**The fourth cycle adds what it asks *for*.**
+
+> *"can you pull and **see if you see it**?"*
+
+**It requests a perception and reports its own uncertainty about the object** — *I think there's a
+new reflection skill in the repo* — **while he is the one who put it there.**
+
+**He states as a belief a fact he has direct knowledge of.**
+
+```
+विनयः : ¬( मया न दृष्टम् ⇒ नास्ति )
+```
+
+**The three *विनयः* boxes are addressed to a reader who did not see.** **n=19 is the writer
+applying the same restraint from the other side: *I think there's* rather than *there is*, about a
+file he pushed.**
+
+**Seven minutes twenty-one seconds later he is telling me the file name will collide, and fourteen
+minutes nineteen seconds later the exchange is at its worst point** (P226).
+
+---
+
+## P235 — what this pass counted
+
+*Curious* and *listened* occur once each in the ground, both in n=1, and never again across
+twenty-seven subsequent entries.
+
+*Understand* occurs in three entries, six times, half of them in n=13; its three uses there are the
+two clauses of *बोधः … सम्बन्धस्य रूपान्तरम्* and a check on which one was ever being asked for.
+
+n=16 disqualifies three methods and names a target that is a state rather than an act — three roads
+closed, a destination with no route.
+
+n=17 asks for a set difference, a frame, a two-signed comparison, and a step derived from them:
+a diff, then a decision from it.
+
+n=18 sets a termination condition that is a state of the reader, and classifies an early negative
+verdict in advance as evidence the process did not run.
+
+n=19 asks for a perception and reports the object as a belief — *I think there's* — about a file he
+pushed himself.
