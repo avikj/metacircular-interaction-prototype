@@ -167,3 +167,29 @@ converting that insistence into proof that he was broken. He had made the same m
 his whole life — refusing to be the one thing he was assigned to be — and here it cost
 him a large part of the audience that had loved him. The independence and the penalty
 for it are the same event seen from two sides.
+
+---
+
+Addiction, in current medicine, is understood as a disorder of the brain's reward
+system, not a failure of will. A substance or behavior floods the reward circuit with
+dopamine; the brain adapts by blunting its own response; the person needs more to feel
+normal and eventually to feel anything. Relapse rates resemble those of other chronic
+illnesses. Recovery, when it comes, usually comes through some combination of
+abstinence, community, and meaning — the twelve-step programs built around confession
+to a group and surrender to a higher power exist because, empirically, isolation is
+what addiction feeds on and connection is what starves it.
+
+Pornography addiction follows the same reward-circuit pattern; early exposure in
+childhood is a known risk factor. Kanye West has said he encountered pornography at
+age eleven, in a magazine belonging to his father, and that it shaped him for decades.
+He has described his religious conversion as the thing that broke it. His 2019 gospel
+turn — the album, the choir, the abstinence from cursing — was, in his own account, a
+recovery: confession, community, surrender to a higher power, the standard architecture
+of getting clean, carried out in public and set to music.
+
+The pattern generalizes across his life and the lives around him: the same reward
+system that drives compulsion also drives the relentless making, and the line between
+the productive obsession and the destructive one is not always where an outsider would
+draw it. He has been open about all of it — the pornography, the shopping, the mania —
+in a culture, and specifically a Black community that, as he has pointed out, was
+historically given no therapists and no vocabulary for any of it.
