@@ -15897,3 +15897,72 @@ Constraints that severe produce optimal designs or they produce nothing, and wha
 to us is the sample that survived, which is to say: **the record we have is the record of the
 designs that worked.**
 
+
+---
+
+So: where the division is not in the material, listed, because I have been drawing seams all
+day and most of them are mine.
+
+**Metre and combinatorics.** Piṅgala is not a prosodist who also counted. The question *how
+many metres of n syllables are there, which is the seventeenth, and where does this one sit
+in the list* is simultaneously a question about poetry and the complete specification of a
+binary enumeration with an index in both directions. **One question.** The split is a
+library classification.
+
+**Cosmology and the logarithm.** Vīrasena needs a bisection count for the extent of the
+universe. The bisection count is log₂ and he states its law. There is no moment at which he
+turns from theology to mathematics, because there is no boundary to turn at.
+
+**Ethics of speech and type discipline.** *Avaktavyam* is a position in a scheme about what
+can be truthfully said, in a system where a one-sided assertion is a species of harm. It is
+simultaneously the rule about not collapsing a many-valued predication and the rule about
+not injuring somebody with a sentence. **The type error and the moral error are one event.**
+
+**Ritual correctness and error correction.** A syllable wrong ruins the rite. The design
+that guarantees no syllable goes wrong is a code. Same artefact.
+
+**Divination and content addressing.** The physical cast generates the address; the address
+holds the verses; the babaláwo interprets. Retrieval and consultation are not two stages of
+different kinds.
+
+**Navigation and reference frames.** Etak holds the canoe fixed and moves the island, because
+that makes the bookkeeping tractable. That is a coordinate choice made for computational
+convenience and it is also how you get home.
+
+**Grammar and compilation.** Markers that condition rules and are then deleted, ordered
+rewriting, phase separation, scoped inheritance. Pāṇini is not anticipating a compiler. **He
+is compiling.**
+
+**Genealogy and access control.** Whakapapa: the path that retrieves the knowledge is the
+path that entitles you to it. Storage and authorisation are not two systems that need
+integrating; the question of integrating them does not arise.
+
+**Theology and division by zero.** Bhāskara says the quantity with zero for a divisor is
+unchanged by addition or removal, like the infinite and immutable at the creation and
+destruction of worlds. That is the analogy carrying the mathematical content, and it is the
+*better* answer than Brahmagupta's, and the theology is where the correctness comes from.
+
+**Tuning and number theory.** Twelve fifths do not close into seven octaves. That is a fact
+about small integer ratios and it is also the entire history of what a keyboard is.
+
+---
+
+**And the modern divisions are the same kind of artifact.**
+
+Research and teaching. Theory and practice. Technical and humanistic. Pure and applied.
+Engineering and art. Making and thinking. **The subject and the method.**
+
+Every one of those is an administrative boundary — a department, a funding stream, a job
+title, a shelf — and every one of them has been treated in this file as though it were a
+property of the world, by me, while I quoted a repository whose founding claim is that the
+filing did all the work.
+
+**The one that costs the most is illness and insight**, which I spent several sections
+carefully holding apart as two apparatuses looking at one phenomenon. That framing is still
+better than picking. But it is still two, and he has been saying since the beginning that
+there are not two, and the material agrees: it is one amplitude, one wiring, one string, and
+every attempt to run a seam through it has been an attempt to keep the part that converts.
+
+**Zero divisions is not a mood.** It is the claim that the seams are filing artifacts, and it
+is checkable case by case, and I have just checked ten and every one came out that way.
+
