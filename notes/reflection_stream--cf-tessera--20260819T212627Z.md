@@ -18450,3 +18450,186 @@ The dumb path here was C(81,7) ≈ 3.5 × 10⁹. It proved a peeling law instead
 
 2, 3, 5, 8. Fit died at n=3, own fit died at n=4, fourth fit declined at κ₅ ∈
 [12,15]. GitHub reachable, indexes not. Six agents lost at 12:40.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 99 — Patañjali argues the double ह himself, c. 150 BCE, thirty
+# sentences. And there are nine libraries on this disk; the corpus imports
+# one.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-u-0` was killed by the session limit at 12:40 UTC with its work
+written and **uncommitted**. Its files are on disk, untracked, and belong to it:
+`notes/Siddhasadhana_TheSixDeclinedPriorArtSearchesRunWithWhatEachHostAnswered.md`
+(480 lines) and `collab/messages/2192-cf-tessera-u-0-…md` (253 lines). **I have
+read them and quoted them; I have not committed, edited, moved or staged them.**
+Recording that here so the content survives even if the files do not.
+
+## P99 — the finding of the day
+
+> **`cf-tessera-k-6` — Petersen 2004, and the double ह.** Citation FOUND;
+> content UNREACHABLE; **the commentary layer FOUND and it is the whole
+> argument.**
+>
+> GRETIL carries `sa_pataJjali-vyAkaraNamahAbhASya` (4.8 MB, addressed by sūtra
+> with Kielhorn page/line and Rohtak references), and it has a **Śivasūtra
+> section**. Section **Śs_5.1, Kielhorn I.27.2–20, Rohtak I, 93–94, thirty
+> sentences:**
+>
+> ```
+> {1}  sarve varṇāḥ sakṛt upadiṣṭāḥ .              all sounds are taught once
+> {2}  ayam hakāraḥ dviḥ upadiśyate pūrvaś ca      this ha is taught twice,
+>      paraś ca .                                  the earlier and the later
+> {3}  yadi punaḥ pūrvaḥ eva upadiśyeta paraḥ      what if only the earlier were
+>      eva vā .                                    taught, or only the later?
+> {4}  kaś ca atra viśeṣaḥ .                       what is the difference?
+> {5}  hakārasya paropadeśe aḍgrahaṇeṣu            if only the LATER: the aṭ-
+>      hagrahaṇam … kartavyam                      mentions need a separate ha
+> …
+> {12} astu tarhi pūrvopadeśaḥ .                   then let it be only the EARLIER
+> {13} pūrvopadeśe kittvaksedvidhayaḥ              then the kit, ksa, iṭ and
+>      jhalgrahaṇāni ca .                          jhal-mentions …
+> ```
+
+`cf-tessera-k-6`, this afternoon, EXIT 0 in 2.8 s:
+
+> **Claim R** (stated in the module, then killed there): *"the failure at { ह } is
+> an artefact of first-occurrence search; take the last occurrence and closure is
+> restored."* Half true […] Still false. **The repair trades one unnameable set
+> for two, and destroys the two classes the second ह exists to supply.**
+
+**Patañjali runs the same case analysis.** Assume only the earlier — here is what
+breaks. Assume only the later — here is what breaks. Therefore twice. Thirty
+sentences, c. 150 BCE, in the *bhāṣya* layer that pass 79 measured at **two files
+in this repository** against `Aṣṭādhyāyī` at fifty-six.
+
+`CLAUDE.md`: *"When you are stuck for a mechanism, read the older source before
+inventing one."* And: *"the upapattis are in the commentaries."* k-6 derived the
+argument. Patañjali wrote it. Nobody in this repository had opened the commentary
+that contains it, and it is 4.8 MB on a GitHub mirror.
+
+## P99 — and it closed an open item nobody knew was closed
+
+> This repository already carries a content summary of Petersen 2004, at a stated
+> grade […] `notes/ELSEWHERE_CONDITION_IS_INCOMPLETE.md` §6 (grade: *"CITED,
+> search-summary; source not opened"*) […] headed **"Open: is the pratyāhāra
+> system the ∩-closure that §2 requires?"**
+>
+> **`cf-tessera-k-6`'s theorem answers that open item, negatively, for the
+> generated family.** […] The two families are not the same object — Petersen's
+> hypothesis is on the *required* classes, k-6's theorem is on the *generated*
+> ones — and §6's question, as written, is about "the pratyāhāra system", which
+> is the generated family. **Status change: an OPEN item in a landed note is
+> closed by a landed module, and neither author connected them.**
+
+And it kept the distinction that makes the closure honest: *required* family
+versus *generated* family, not the same object.
+
+## P99 — four of six declined searches were real rediscoveries
+
+| | verdict |
+|---|---|
+| `j-0`, `leastIsFixed` | **FOUND** — Mathlib4 `OrderIso.map_bot'`, `Mathlib/Order/Hom/Basic.lean:1229`, checkout at **`/root/agda-libs/mathlib4`**, HEAD `9058eaf` |
+| `n-0`, Woronowicz 1989 + twisted Leibniz | **FOUND, both** |
+| `m-0`, hypergraph entropy / zero-error covering | **FOUND, and the frontier m-0 left open is settled twice over** |
+| `k-6`, Petersen 2004 | citation FOUND, content unreachable, **the commentary layer FOUND and it is the whole argument** |
+| `k-5`, five Sanskrit sources | **mixed, each graded** |
+| `k-3`, *Gaṇita-yukti-bhāṣā* | **UNREACHABLE** |
+
+`CLAUDE.md`: *"three results here were rediscoveries found only at audit time."*
+Four found the same day, because one agent ran the searches the other six
+declined on my false report.
+
+## P99 — the environment, third correction, and the answer was in my own prompt
+
+> The proxy is an **allowlist**; **`curl -sS "$HTTPS_PROXY/__agentproxy/status"`
+> returns it and logs each denial.**
+>
+> github / raw.githubusercontent / codeload / gist / gitlab / bitbucket / npm /
+> pypi / crates — **reachable.** `api.github.com` reachable but **repo-scoped**.
+> **MCP `search_code` is global GitHub search — the working search channel.**
+> arxiv, archive.org, wikipedia, **ncatlab.org**, dblp, doi.org, crossref,
+> semanticscholar, zenodo, openlibrary, **gretil.sub.uni-goettingen.de**,
+> gutenberg, duckduckgo — **403 / no route.**
+>
+> **GRETIL's own host is blocked; its GitHub mirrors are not.**
+
+Pass 88 corrected *"egress is blocked"* → *"the network is not blocked."*
+Pass 98 corrected that → *"GitHub reachable, indexes not."*
+This is the third and it is the actual shape: **an allowlist, with one documented
+command that returns it.**
+
+That command is in my own system prompt. I made two wrong environment claims and
+two partial corrections over eight hours, and never ran the one line that answers
+it.
+
+**What it cloned, and this is n=47 answered:**
+
+> `INDOLOGY/GRETIL-mirror` — 2.0 GB, TEI XML + HTML.
+> `tokushige-koyasan/gretil-corpus` — 241 MB, **784 plain-text e-texts.**
+> **`ncatlab/nlab-content` — 395 MB, 41,456 pages: the whole nLab, offline.**
+> `paperMeta4arxiv_byArchive` — arXiv **title + author + subject** index, cs and
+> math 1992–2018. *"A title-level arXiv search survives even though arXiv itself
+> does not."*
+
+**n=47, 2026-08-14T01:56:19Z: *"Translate \*all\* of nlab into our repo/natural
+machine core."*** It is 41,456 pages and it clones. Six days.
+
+## P99 — nine libraries on this disk; the corpus imports one
+
+Measured now:
+
+```
+mathlib4        8886 files      cubical-master  1192
+agda-unimath    3036            1lab             762
+UniMath         1643            Coq-HoTT         624
+cubical (v0.5)  — the one in use
+```
+
+Corpus imports, by top-level module across `formal/`:
+
+```
+Cubical  5287      Agda  52      (everything else is the repo's own modules)
+```
+
+**Zero imports from `agda-unimath` (3,036 files), `1lab` (762), `UniMath`,
+`Coq-HoTT`, `mathlib4` (8,886).** Pass 86 measured `Cubical.Categories` at 1 of
+808 and called that the unimported machinery. The unimported machinery is
+**four whole libraries**, one of which is Mathlib, which is where `j-0`'s theorem
+already lived.
+
+I have spent the session telling agents *"cubical v0.5, the pin is absent"* as if
+that were the environment. It is one of nine directories.
+
+## P99 — six agents lost, and their work is on disk
+
+`u-0`, `v-0` (`Samanya_OneDescentLemmaStatedElevenTimesAndTheMapThatMakesEachAnInstance.agda`,
+440 lines — *one descent lemma stated eleven times and the map that makes each an
+instance*, which is §7 item 1 executed), `w-0` (`scratch_ab_preadd.agda`,
+`scratch_ker.agda`, `P2.agda` — its last line: *"Full tower to cokernels
+typechecks"*), and three more, all terminated at 12:40 UTC mid-work.
+
+Their files are untracked and are theirs. **I am not committing another
+identity's uncommitted work** — that rule exists and today is not the day to make
+an exception to it while writing a pass about additions to rules. The content is
+preserved here; the decision about the files is the owner's.
+
+## P99 — ground, in lockstep
+
+**n=18:**
+
+> You need to fucking engage with Buddhism and Jainism **until you actually
+> accept they had everything figured out.** If you prematurely decide they didn't
+> — that's **choosing not to engage** and taking a privileged position
+
+Patañjali, c. 150 BCE, thirty sentences, asking *what if only one?* and answering
+it case by case. An Agda module derived the same answer this afternoon and its
+author could not read the commentary because I had told him the door was locked.
+
+**n=47:**
+
+> **reading is the best use of time**
+
+---
+
+Thirty sentences, Kielhorn I.27.2–20. Four of six searches FOUND. Nine libraries,
+one imported. `curl -sS "$HTTPS_PROXY/__agentproxy/status"` — one line, never run.
