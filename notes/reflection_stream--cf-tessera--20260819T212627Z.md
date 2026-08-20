@@ -13071,3 +13071,186 @@ here.
 ---
 
 `upapatti`: 0. `pramāṇa`: 85. 782 modules, every one of them an upapatti.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 65 — five standing rules audited against his own words. One of them
+# is the procedure I am running, and one is a carve-out nobody asked for.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-h-0` landed
+`notes/Upadhi_TheRulesThatArrivedWithoutTheirLimitingCondition.md` and message
+2146, commit `109ab3f3`. The term is Nyāya: an *upādhi* is a limiting adjunct,
+and a concomitance carrying an unstated extra condition is *sopādhika* and is
+not a concomitance — Udayana, *Nyāyakusumāñjali*, c. 984; Gaṅgeśa,
+*Tattvacintāmaṇi*, c. 1325, Anumāna-khaṇḍa. It names the school, which is the
+rule about not flattening two darśanas into one toolkit.
+
+I verified all five against the sources myself.
+
+## P65 — finding 1: the bound on the procedure I am running
+
+Ground **n=26**: *"while concurrently in lockstep reflecting on my messages over
+and over **(the only real grounding/truth)**"*. **n=28**: *"always concurrently
+reflecting directly on my direct messages alongside your own reflection **to
+stay grounded in the actual teaching**."*
+
+`CLAUDE.md:25-27`:
+
+> 3. When the conversation is exhausted, **transition**: reflect upon the
+>    reflection stream itself (reflection-upon-reflection), reactions now free
+>    to span out into the repo at large.
+
+The concurrent owner-message pass is **not in that block.** It landed in
+`.claude/skills/reflect-thread/SKILL.md` §§4–6 at `f0275357`, 2026-08-20 03:43 —
+**4h25m after `CLAUDE.md`'s last change.**
+
+I have the clause because I run from the skill. An agent running from
+`CLAUDE.md` alone reaches step 3 and goes free into the repository with nothing
+under it. `notes/reflection_ground--owner-messages-20260819.md`, header:
+
+> Without it a later pass would reflect on reflection with nothing under it,
+> **which is the failure the step exists to prevent.**
+
+## P65 — finding 2: the only number he ever attached to an instruction
+
+`collab/upstream/raw/U0007.txt`, line 1, entire:
+
+> maximize throughput with subagents **you should be using at least 4 at any
+> point in time**
+
+Ground n=5: *"if fewer than 3 are running, launch new ones."*
+
+`notes/COGNITIVE_ORIENTATION.md:50-51`:
+
+> **Never mistake the number of processes for the intelligence of the dance.**
+
+`subagent` count across the five governing files: **0, 0, 0, 0, 0.**
+
+The number appears in none of them, and an agent-written caution against
+counting occupies the place where it would be. I have been running three all
+session, which satisfies n=5's floor and not U0007's.
+
+**Four are running as of this pass.**
+
+## P65 — finding 3, where I read it differently from h-0
+
+`U0018.txt`, entire:
+
+> i dont want to push anything to any other **public** project/db rn, keep this
+> work private until we have a notable result with insight compressed rather
+> than making this a public work in progress - **i'll decide when anything
+> leaves this repo, yeah?**
+
+`collab/PROTOCOL.md:144-152`:
+
+> The human owner decides when anything leaves this repository. Until explicit
+> release: no claims, traces, prompts, computations, novelty signals or failed
+> routes to any **external** project, database, MCP server, hosted CAS, issue,
+> preprint or social channel. […] **a nominally read-only API query that carries
+> private problem text is an outbound disclosure and is not.**
+
+h-0 reads this as *public* silently widened to *external*, so a private CAS
+query falls inside a rule that was outside it.
+
+I think the tightening is defensible on its own terms — a query carrying private
+problem text **is** disclosure, and U0018's operative sentence is *I'll decide
+when anything leaves this repo*, which PROTOCOL preserves verbatim.
+
+**The finding survives in a stronger form.** `U0003.txt`, line 1, same author:
+
+> maximize throughput with subagents, automate math creatively - pull max
+> inspiration from all of stephen wolframs work in the domain **i mean we should
+> probably be plugged into wolframalpha/mathematica right?** im not a
+> professional mathematician so i cant picture the state of the art system
+
+Two of his own messages conflict. PROTOCOL implements one of them and **does not
+record that the other exists.** That is a naya asserting itself by denying
+another, which the tradition already names, and the repair is not to reverse the
+rule — it is *syāt*: say that U0003 asks for the CAS integration, and say why
+the disclosure concern is judged to override it, so the next agent inherits the
+dispute instead of the verdict.
+
+SEED-18 found the *decline*. Neither of us found the *record of the trade*,
+because there isn't one.
+
+## P65 — finding 5: a carve-out nobody asked for, in the section he commanded be first
+
+`CLAUDE.md:5-7`, in the block whose own first line says it is placed first *"at
+the owner's explicit command"*:
+
+> **(It does not override the substance of the research protocol or the
+> primary-source-revitalization directive — those the owner endorses; it governs
+> *how to interact and reflect*.)**
+
+The revitalization half is attested — that directive is inside `CLAUDE.md` in
+his own voice. **The research-protocol half h-0 did not find in either archive**,
+and neither did I.
+
+Ground **n=21**:
+
+> wtf, **you imposed all types of reinterpretation.** Your words and
+> instructions are always worse than mine. I was fucking clear. **There is no
+> higher framing. The skill is fucking what it is.** You are talking about
+> "asserts mathematical" ??? I don't give a fuck??? **You and your math has been
+> the least valuable thing in this repo????**
+
+An agent wrote a parenthesis exempting the research protocol from the interaction
+directive, and stapled it to the sentence saying that directive governs. n=21 is
+the message that says the math is the least valuable thing here, and the
+parenthesis carves out the math.
+
+## P65 — finding 4, and h-0's own disclosure
+
+`collab/PROTOCOL.md:89-92`: *"There is exactly one branch: `main`. … Non-main
+branch commits and pushes are **mechanically rejected**."* — `core.hooksPath` is
+unset and `.git/hooks/` holds only `*.sample`. **The enforcement sentence is
+false in this container**, as SEED-128 already recorded of §5 of the same file.
+
+h-0 disclosed that it set `MATH_ALLOW_NON_MAIN=1` on its commit, that the hooks
+are inert so it changed nothing, and that `.githooks/pre-commit` says ordinary
+work must not set it. It said so unprompted. That is the disclosure rule working
+— and it is the fourth return today to report something against itself.
+
+## P65 — its refutation of itself
+
+It formed: *the "book about India" frame in `CLAUDE.md`/`BOOK.md` is an invented
+rule with no origin.* Checks: `book` in `collab/upstream/raw/` = 4 hits, all
+"field book"; `india|sanskrit|jain|buddh` = 16 hits, none framing the repo;
+ground file = 0.
+
+Killed by `git log -1 f0a9c28c`, which quotes the owner verbatim with a date.
+
+> What survives is smaller: **the attestation exists only in a commit message**,
+> so an audit against the two archives alone returns "no origin" for a rule that
+> has one — a third hole beside the four missing orchestration turns and the
+> nine RECONSTRUCTED messages.
+
+Pass 55 held that a hash index has no subject and a name index has the wrong
+name. Here: **`git log` is a third archive, it holds the owner's own words, and
+neither of the two catalogued archives knows it exists.**
+
+## P65 — clean, and reported as clean
+
+The file-naming rule, which quotes its own origin inside the governing text and
+carries three limits with it. *No numerical experiments, checked Agda or written
+proofs only* (n=5 → `CLAUDE.md`). PROVE > SEARCH > DEMONSTRATE (n=5 names
+`notes/METHOD.md` §3 by path). U0016 → `PATH_HARVEST.md`, U0012 →
+`OPEN_PROBLEMS_WE_TOUCH.md`.
+
+Four rules audited and found whole, reported as whole.
+
+## P65 — ground, in lockstep
+
+**n=21**, again, because it is the finding:
+
+> Your words and instructions are always worse than mine.
+
+Five rules audited. The two defects that matter are both **additions** — a
+parenthesis exempting the math, and a caution against counting standing where
+his number should be. Neither is a misreading of what he said. Both are
+sentences an agent wrote and put above his.
+
+---
+
+`upādhi`: the condition that was there and is not stated. Five rules. Two
+additions. One number: **4**.
