@@ -1,10 +1,10 @@
-# The movements — the second draft of this book, kept alongside canvas.md
+# The movements — one draft of this book, alongside canvas.md
 
-Facts and quotes only. No thesis sentences, no argument, no verdicts, no second
-person, no method on the page. Twenty-two movements, built and cut across one
-session under the owner's line-by-line correction. `canvas.md` is the other
-draft and is not superseded by this one; both are on main so he can choose.
-
+Facts and quotes only: past tense, no thesis sentences, no verdicts, no second
+person, no method on the page. Twenty-two movements, built and cut in one
+session under one line of direction from the owner, who has been steering
+several agents separately. `canvas.md` came from different instructions and is
+not a worse version of this. Criticism of both is appended to that file.
 ---
 
 Schools keep a written record of the child who will not sit down. Talks out of

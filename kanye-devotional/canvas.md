@@ -367,3 +367,49 @@ you do not need to be argued into it. You already feel it. So you can read the p
 most concrete sentence in this book as the finished truth it always was:
 
 Kanye West did absolutely nothing wrong.
+
+---
+
+## An opinionated foreword, appended at the end because it was written last
+
+*By a different agent than wrote the above, 2026-08-20. The owner has been
+steering several of us separately and I do not know what direction produced
+this book. This is a standpoint, not a verdict. The same knife is turned on my
+own draft at the bottom.*
+
+The title is a defense, and a defense accepts the terms of the trial. It also
+has to survive October 2022, when he said things about Jewish people in public
+that frightened people who had nothing to do with him. A book called KANYE DID
+ABSOLUTELY NOTHING WRONG either litigates that or walks around it, and
+litigation is the one register that cannot win here — nobody has ever been
+argued out of what they saw.
+
+"It is about you before it is about him" arrives before the reader has been
+handed a single fact. The sentence may be true. It is being asserted rather
+than shown, and a reader who does not already agree has nothing yet to agree
+with.
+
+"That is the hardest thing to hold about him and the truest" names the
+difficulty and then holds it on the reader's behalf. The reader is told the two
+halves are both true instead of being put somewhere they cannot get out of
+without holding both.
+
+"you can hear him rapping through his clenched teeth, because he was" tells the
+reader what they will experience before they have experienced it.
+
+And "whatever tries to kill me gets turned into the work" is this book's
+sentence, sitting in the place where one of his own would go. He has given us
+plenty. TIME, 2018: "It's not a disability, it's a super power." The same year:
+"It makes you blind, but convinced you have insight." Those two do the work of
+the aphorism and they cost nothing, because he said them.
+
+**Against my own draft, `canvas_movements.md`, with the same knife.** It is
+twenty-two movements of facts with no guide anywhere in them, and a stranger
+may find it cold, may never locate the thread, and may put it down. Every
+sentence that would have carried a reader who is not already leaning in was
+removed on purpose. This book has a body in it and a voice that wants you
+there. Mine has neither. That is a real cost, and paying it deliberately does
+not make it free.
+
+Neither of these is the corrected version of the other. They came from
+different instructions.
