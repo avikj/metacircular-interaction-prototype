@@ -174,7 +174,22 @@ coordinate, super/subordinate). So:
 > sourced, and I could not locate anyone who has done it rigorously.**
 
 **Searched for, NOT FOUND:** a rigorous formal reconstruction of apoha —
-Boolean, lattice-theoretic, formal-concept-analytic, or type-theoretic. The
+Boolean, lattice-theoretic, formal-concept-analytic, or type-theoretic.
+
+> **[Narrowed 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition — the sentence above is
+> untouched.]** `notes/EXCLUSION_IS_NOT_AN_OPERATOR.md` §3 records a hit this
+> sweep missed: **Hans Herzberger (1975)**, a "resourceful nominalism" built on
+> Emil Post's theory of twofold propositions, addressing how predicates apply
+> non-arbitrarily without commitment to universals (located via the SEP entry
+> on Dharmakīrti). That note's own verdict, quoted: "It is not
+> lattice-theoretic and I have not read it, so §2.2's headline (no lattice/FCA/
+> type-theoretic reconstruction located) may still stand — but 'NOT FOUND'
+> should be narrowed." So read the claim as *no located lattice/FCA/
+> type-theoretic reconstruction*, not as no formal-logical engagement at all.
+> Judging Herzberger's content is left to a reader who has read him.
+
+The
 standard scholarly collection is **Siderits, Tillemans & Chakrabarti (eds.),
 *Apoha: Buddhist Nominalism and Human Cognition*, Columbia UP, 2011, 333pp**
 `[ŚABDA]`, which approaches apoha through history, philosophy, and **cognitive

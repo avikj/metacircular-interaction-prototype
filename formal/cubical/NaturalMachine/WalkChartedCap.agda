@@ -38,6 +38,18 @@
 --      reason to prefer this recursion to the fold: the only
 --      capacity-sized object left in it is `cap m`, as a multiplicand.
 --
+--   [PROVENANCE, added 2026-08-19 against the book frame.  The descent
+--    below is anthyphairesis and predates the name attached to it here; it
+--    is not Āryabhaṭa's contribution and this file does not pretend
+--    otherwise.  What IS his is the harder statement one step beyond it --
+--    the KUṬṬAKA, which solves the linear indeterminate congruence rather
+--    than merely reducing it (Āryabhaṭīya, Gaṇitapāda 32-33, 499 CE), and
+--    which is already a checked theorem in this repository at
+--    `formal/cubical/Kuttaka.agda`.  This module needs only the reduction,
+--    so it takes only the reduction; but it was written without knowing the
+--    stronger object was two directories away, and that is recorded in
+--    notes/THE_AUDIT_THAT_CITED_SUTNER_AND_NOT_THE_PULVERISER.md.]
+--
 --   2. THE EUCLID STEP, proved.  `gcd-mod`:
 --
 --        gcd a (suc n) ≡ gcd (a mod (suc n)) (suc n)

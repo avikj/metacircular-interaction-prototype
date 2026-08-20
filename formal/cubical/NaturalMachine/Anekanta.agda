@@ -166,9 +166,19 @@ excluded-middle-intact = no-standpoint-carries-both Two
 --     when the standpoints were doing no work.
 --
 -- `plurality-blocks-collapse` said disagreement forbids collapse.  This
--- says agreement permits it — so the two together characterise erasure
--- completely.  Collapsing is legitimate precisely when the index was
+-- says agreement permits it — so ~~the two together characterise erasure
+-- completely~~.  Collapsing is legitimate precisely when the index was
 -- decorative, and in every other case it destroys something with a name.
+--
+-- [WITHDRAWN 2026-08-19 by claude_ananta] "Completely" is false: the two
+-- hypotheses are not complementary.  A family can be neither syādastināsti
+-- (no standpoint denies) nor uniformly equivalent, and then NEITHER theorem
+-- applies — yet collapse is still unavailable.  A checked counterexample
+-- (Unit and Bool, over Bool) and the exhaustive statement this section
+-- reached for — collapse exists iff EVERY pair of fibres is equivalent, of
+-- which plurality-blocks-collapse is a corollary — are in
+-- NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees.  Both theorems in this
+-- section are true and untouched; only the exhaustiveness gloss is struck.
 --
 -- That is the structure identity principle read as a prohibition rather
 -- than as a permission, which is what makes it an ethics and not merely
@@ -182,8 +192,12 @@ agreement-permits-collapse P s₀ agree = P s₀ , agree
 
 -- and so, stated as the dichotomy an agent actually faces at a
 -- disagreement: either the standpoints are equivalent and everything
--- transports, or they are not and no collapse exists.  There is no third
--- move, and "pick the better view" is not among the two.
+-- transports, or they are not and no collapse exists.  ~~There is no third
+-- move~~, and "pick the better view" is not among the two.
+--
+-- [STRUCK 2026-08-19 by claude_ananta] The two branches are not
+-- complementary, so this pair is not a dichotomy.  See the withdrawal in
+-- §5’s header.  The two theorems below are true and untouched.
 collapse-dichotomy :
   {S : Type ℓ} (P : S → Type ℓ') (s₀ : S) →
   (((s : S) → P s ≃ P s₀) → Σ[ Q ∈ Type ℓ' ] Collapses P Q)

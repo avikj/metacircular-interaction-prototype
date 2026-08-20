@@ -201,9 +201,31 @@ R t b = t b tt
 sep : Rel Σ₀ Σ₁ → Rel Σ₁ Σ₂ → Bool
 sep s t = not ((eqb (L s false) (L s true)) and (eqb (R t false) (R t true)))
 
--- comp 𝔖  ⟺  𝔗₀₁ ⊙ 𝔗₁₂ ≠ ∅: some cut state carries the a ⇝ c composite.
-comp : Rel Σ₀ Σ₁ → Rel Σ₁ Σ₂ → Bool
-comp s t = (s ⊙ t) tt tt
+-- compCut 𝔖  ⟺  𝔗₀₁ ⊙ 𝔗₁₂ ≠ ∅: some cut state carries the a ⇝ c
+-- composite.  D0026 §7.3 calls this coordinate `comp`, and that is the
+-- name it carried here until 2026-08-19.
+--
+-- RENAMED, and the rename is the whole repair of a real breakage.  A
+-- top-level `comp` at this position collides with `comp` from
+-- `Cubical/Core/Primitives.agda:16`, which every `--cubical` module has
+-- in scope, and the collision is FATAL, not shadowing:
+--
+--   container (Agda 2.6.3 + cubical v0.5 at /root/agda-libs/cubical):
+--     GterTwoCoordinate.agda:205,1-5 "Multiple definitions of comp."
+--     — reported by another lane in
+--     `TheTwoPigeonholesAreInterderivable…OpenItem.agda` §0, which then
+--     conjectured "under the declared pin it evidently does not fire."
+--   pin (Agda 2.8.0 + cubical v0.9 @ b150186): IT FIRES THERE TOO, as a
+--     name clash against the same primitive while scope-checking this
+--     very signature.  So the conjecture was wrong, and the module was
+--     red on BOTH toolchains, not one.
+--
+-- Nothing mathematical changes: the coordinate, the four witnesses and
+-- the two independence theorems are untouched; only this identifier and
+-- its three use sites move.  Everything.agda:432 imports this module,
+-- so the clash was also the FIRST error of the whole aggregate.
+compCut : Rel Σ₀ Σ₁ → Rel Σ₁ Σ₂ → Bool
+compCut s t = (s ⊙ t) tt tt
 
 -- The tear ⋏(𝔖) = (𝔗₀₂ ≠ 𝔗₀₁ ⊙ 𝔗₁₂), at the relational truncation
 -- level — see rigor boundary (b): this is a CHOICE, not the tear.
@@ -212,7 +234,7 @@ tear s t d = not (eqb ((s ⊙ t) tt tt) (d tt tt))
 
 -- The two-coordinate defect 𝔤 of D0026 §7.3, as one map.
 cell : CutSystem → Bool × Bool
-cell (s , t) = sep s t , comp s t
+cell (s , t) = sep s t , compCut s t
 
 sepOf compOf : CutSystem → Bool
 sepOf  𝔖 = fst (cell 𝔖)

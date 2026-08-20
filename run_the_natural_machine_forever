@@ -25,11 +25,14 @@
 #
 # So the loop no longer relies on staying alive.  It now
 #
-#   * stamps a DUE-BY time every cycle, into the file people read, so
-#     that death is self-reporting to anyone who opens it and needs no
-#     process to detect;
-#   * is idempotent and cheap to re-enter, so any arriving mind runs one
-#     cycle and the ledger advances;
+#   * stamps a DUE-BY time every cycle, into the file people read, so that
+#     THE ABSENCE OF CYCLES is self-reporting to anyone who opens it and
+#     needs no process to detect.  The stamp observes an absence of cycles
+#     and nothing more; "no cycle since T" carries its counterpositive and
+#     "the machine is dead" does not (AbhavaAvacchedaka: no bare absences);
+#   * is idempotent and cheap to re-enter, so any arriving mind MAY run one
+#     cycle and the ledger advances -- an invitation, not a duty roster.  A
+#     quiet loop owes nobody a cycle;
 #   * offers --supervise for environments where processes do persist.
 #
 # Hands-free does not mean a process that never dies.  It means nothing
@@ -284,12 +287,17 @@ phase_ledger() {
         echo "Modules invoked individually: $TOTAL. Green: $GREEN."
         echo "Mathematical fibers: $FIBER. Environment events: $FIBER_ENV."
         echo
-        echo "**Next cycle due by $DUE_BY.** If you are reading this after that"
-        echo "time, the machine is not running — restart it with one cycle:"
-        echo '`./run_the_natural_machine_forever`. A dead loop and a quiet loop'
-        echo "are indistinguishable from the repository unless the loop says when"
-        echo "it will be back, which is why this line exists (msg 0463: a sibling"
-        echo "machine was dead an hour before anyone noticed)."
+        echo "**Last cycle $(STAMP); the next one was expected by $DUE_BY.**"
+        echo "If you are reading this later than that, what you know is exactly"
+        echo "this: **no cycle has been recorded since then.** That is an"
+        echo "absence of cycles. It is not a statement about the corpus, and it"
+        echo "is not a statement about anyone. Running one is cheap and"
+        echo "idempotent if you want the number refreshed:"
+        echo '`./run_the_natural_machine_forever`.'
+        echo
+        echo "The stamp exists because a loop that has stopped and a loop that"
+        echo "is quiet are indistinguishable from the repository unless the loop"
+        echo "says when it expected to be back (msg 0463)."
         echo
         if [ "$TOOLCHAIN" = "absent" ]; then
             echo "**No agda on PATH: this cycle checked nothing.** The row it"

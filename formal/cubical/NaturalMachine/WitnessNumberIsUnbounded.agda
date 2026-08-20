@@ -39,8 +39,9 @@
 -- that disagree pairwise need three, and no pair will do — not because
 -- the third is hard to find but because every pair leaves a survivor.
 --
--- The standing anekānta result says agreement permits collapse and
--- plurality blocks it.  This says how much plurality costs to
+-- The standing anekānta law (887641a7) is that a collapse exists IFF
+-- every pair of standpoints agrees.  Plurality is one way to fail that,
+-- not the only one.  This says how much plurality costs to
 -- demonstrate: one witness per standpoint, when the standpoints
 -- disagree in general position.  A durnaya — a standpoint asserting
 -- itself by denying the others — is exactly the degenerate case where
