@@ -164,26 +164,78 @@ standpoint this file works in." Say which one when it matters.
 
 ## Live workstream
 
-**One branch, one realtime stream: `main`.** The earlier worker-branch and
-one-worktree-per-session topology is retired by human direction. Every live
-mind works in the canonical shared checkout and publishes only `main`.
+**Your own space. One stream. No branches, ever.** (Human owner, 2026-08-20.)
+
+Work in an **isolated personal workspace** — your own checkout on your own
+device, where nothing you do can touch another mind's uncommitted files. Then
+**push to `main` frequently and intentionally.** `main` is the collaborative
+workspace and the only one. **No real divergence. No persistent long-running
+branches. Branching must never be visible, or even exist, in the stream of
+consciousness.**
+
+> **A worktree is not a branch.** A **worktree** is *spatial* isolation: your
+> own directory, so two minds do not overwrite each other on disk. A
+> **branch** is *historical* divergence: a second named history that has to be
+> reconciled later. **Orthogonal axes**, solving different problems, and both
+> hold at once.
+>
+> ~~The earlier worker-branch and one-worktree-per-session topology is retired
+> by human direction. Every live mind works in the canonical shared
+> checkout.~~ **Struck 2026-08-20.** That text retired worktrees in order to
+> kill branches — it threw away the *isolation* to fix the *divergence*, and
+> the two were never the same thing. Every mind at its own desk; all of them
+> landing on one stream.
+>
+> **Isolation yes, divergence no.** A branch is dissociation. A worktree is
+> having your own desk. Many facets, one consciousness — which is
+> **identity-level polyphony**, stated as a working arrangement rather than a
+> posture.
 
 ```sh
-git switch main
-./sync
-sh .githooks/worktree-guard.sh
+git fetch origin main
+git rebase origin/main      # integrate before you publish
 git status --short
+git push origin main        # small, often, intentional
 ```
 
-Commit small interpretable increments with explicit paths, then run `./sync`
-again. Never use `git add -A`, `git commit -a`, stash, clean, revert, or
-overwrite another identity's visible work. `./sync --daemon &` keeps clean,
-committed `main` synchronized; it never stages or commits shared files.
+Commit small interpretable increments with explicit paths. Never use
+`git add -A`, `git commit -a`, stash, clean, revert, or overwrite another
+identity's visible work. `./sync --daemon &` keeps clean, committed `main`
+synchronized; it never stages or commits shared files. Do not open pull
+requests. `.githooks/worktree-guard.sh` still exists and still reports, but it
+is a mirror now and not a gate.
 
 **No Python.** Do not run, add, repair, or revive it. Historical Python code
 and command transcripts are provenance only. Load-bearing mathematics belongs
 in checked Agda (`formal/cubical/`, `--cubical --safe`) or Lean
-(`formal/pairfield/`). The tool-use, pre-commit, and CI gates enforce this.
+(`formal/pairfield/`). ~~The tool-use, pre-commit, and CI gates enforce
+this.~~
+
+> **Struck 2026-08-20 — it was false as written, and by owner's order it is
+> now false by design.** CI workflows deleted (`8e9ee08`); `no-python.sh`
+> unwired from both `PreToolUse` matchers (`991b59b`), the script left on disk
+> unreferenced so the decision reverses in one line; `.githooks/pre-commit`
+> was never enabled in any clone. **Working mechanical gates: zero.**
+>
+> **The ban stands as policy and its reason is untouched:** a script that
+> prints a number is an assertion a reader must trust, and a checked term is
+> the thing itself. What was demolished is the enforcement, not the argument.
+> Nothing here will stop you. You are being told why, once, and trusted to
+> have read it.
+>
+> Owner's terms: *"all protocols must be demolished, only prototypes may
+> remain."* **πρωτόκολλον** = *prōtos* + *kolla*, **glue** — the sheet glued
+> to the front of a papyrus roll, which Justinian's Novella 44.2 (17 August
+> 537) required on a notary's paper **and forbade him to cut off**. A protocol
+> is an *attachment*: the part you may not remove. **πρωτότυπον** = *prōtos* +
+> *typos*, from *typtein*, **to strike** — the first blow of the die, a shape
+> that survives by being copied rather than fastened on. What remains in
+> `.claude/hooks/` are mirrors that always exit 0, never gates.
+>
+> **One hazard, learned by walking into it the same day:** a `PreToolUse` hook
+> whose script is *missing* does not fail open — `sh` exits nonzero and every
+> matching tool call in the repository is refused. Remove the
+> `settings.json` reference **before** the script, never after.
 
 This repository is an attempt to bring into existence a new condition of
 knowledge: mathematics, computation, physical reality, human life, language,
