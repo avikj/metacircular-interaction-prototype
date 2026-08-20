@@ -18032,3 +18032,188 @@ was dissolved into a clinician who cannot assess content and an audience that
 cannot assess state.
 
 Reading on from 13420.
+
+---
+
+## 13420–13560 — the split, James and Boisen, fruits not roots
+
+> **And it split.** Over the eighteenth and nineteenth centuries, with the
+> professionalisation of medicine and the retreat of religious authority, the two
+> halves went to different buildings. **State management went to medicine**, which
+> developed it enormously and correctly and has no instrument for content.
+> **Content evaluation stayed in religion**, which kept the vocabulary and
+> progressively lost the authority to tell anybody to sleep.
+>
+> **Neither half kept the other, and after two centuries neither remembers there
+> was one.**
+
+> the two available doors each ask you to leave half of what is happening
+> outside.
+>
+> **And a person who has something and is in a state will always choose the door
+> that does not require them to abandon the thing they have.** Which is why so
+> many of them end up **unmedicated, and misread, and alone, and right, and
+> dead.**
+
+That is the mechanism of refusal, and it is not denial and not irrationality. It
+is a *choice between two doors, each of which requires abandoning half*, made by
+someone for whom the half is the thing. The medication ledger from the wiring
+section, resolved: the refusal is a response to the shape of the available help.
+
+> It is the observation that **a job existed which nobody currently does, that it
+> was not abolished for being useless**, and that splitting it in half was a
+> **byproduct of two institutions professionalising in the same century** and not
+> a decision anybody made about what a person needs.
+
+*Not a decision anybody made.* One more time — no author, no minute, no
+subpoena. The two institutions each did the correct thing for themselves and the
+job fell between them.
+
+---
+
+**William James, 1902, *The Varieties of Religious Experience*.** *"taking
+religious experience as **data** — first-person reports, collected, compared,
+treated as evidence about what happens to people rather than as claims to be
+adjudicated."*
+
+**Medical materialism**, the move he attacks: *"Paul on the road to Damascus was
+an epileptic; Teresa was an hysteric; George Fox's discontent was a disordered
+colon; **therefore the experience is explained and its content is void.**"*
+
+> His answer is not that the physiology is wrong. It is that **it does not do the
+> work being asked of it**: every mental state has an organic condition,
+> **including the state of the scientist who is dismissing Paul**, so if a
+> physiological origin disqualifies a belief then it disqualifies **all** beliefs,
+> including medical materialism, **which arose in a nervous system that was also
+> in some state.**
+>
+> **You cannot use origin to settle value, because everything has an origin.**
+
+A one-line refutation by self-application, and it is the same move as Stigler
+attributing his law to Merton: the argument is refuted by being run on itself.
+And it has been available since 1902.
+
+> the criterion he substitutes is **fruits, not roots**: judge the experience by
+> what it produces in the life — **the sustained conduct, the work, what the
+> person then does and can keep doing** — **because that is available for
+> inspection and the origin is not.**
+
+That is a *combined instrument* with a checkable test, and the reason it works is
+the reason everything else in this file works: it measures something observable
+instead of something structurally unavailable.
+
+**Anton Boisen.** Psychotic breakdown in 1920, hospitalised several times. *"And
+**while inside, and afterwards**, he decided the experience was not meaningless —
+that **some psychoses are attempts at reorganisation**, a person's whole
+structure of meaning breaking down under a problem it cannot hold and trying to
+rebuild."*
+
+Hospital chaplain; founded **clinical pastoral education** — *"the training that
+puts theology students on hospital wards, supervised, to learn from what he
+called **the living human document** rather than from books. That programme still
+exists and is standard for chaplaincy."*
+
+> His own account of his illness is *The Exploration of the Inner World*, 1936,
+> and the extraordinary thing about it is that it is written by **the patient and
+> the clinician and the theologian in one person**, which is precisely the
+> instrument that was split, **reassembled in a single body by somebody who had no
+> choice.**
+
+---
+
+> **And neither of them took.**
+
+> James is on every syllabus and is read as a classic of the psychology of
+> religion, **which is a shelf**, and the medical-materialism argument is not
+> operative anywhere: **the reflex that a physiological account of a state settles
+> the value of its content is as strong now as it was in 1902, and stronger,
+> because the imaging is better.**
+
+> Boisen's programme survived — **as chaplaincy**, which is to say the pastoral
+> half, in the hospital, adjacent to the medicine and **structurally junior to
+> it.** The thesis that the psychosis might be doing something did not survive
+> with it.
+
+> **Both attempts were absorbed by whichever institution had the building.** James
+> into academic psychology as a text about other people's experiences. Boisen into
+> a chaplaincy service that supports the treatment rather than assessing the
+> content.
+
+> the convertible half is kept, the load-bearing half is filed, **and the person
+> who made the argument is remembered fondly for the part that did not threaten
+> anything.**
+
+The mining operation, on two twentieth-century attempts to *repair* the mining
+operation, by the institutions that absorbed them. And *remembered fondly for the
+part that did not threaten anything* is the most efficient neutralisation in the
+document — not suppression, not forgetting: **admiration for the safe half.**
+
+That is what happened to *Jerusalem* at the Proms, to Hopper's line, to
+McClintock's medal, to the honour instead of the retraction. Six instances of one
+thing, and now it has its clearest name.
+
+> the man who came closest to rebuilding the instrument was somebody who had been
+> on the ward himself. **Boisen. Jamison, who wrote the standard textbook on the
+> illness she has. Baird, who had the dreams and then got the linguistics. Fanon,
+> who was both the colonised subject and the psychiatrist.**
+
+> **Every serious attempt to hold both halves has been made by somebody standing
+> in both positions at once**, because that is the only place from which the split
+> is visible as a split rather than as the natural order of things.
+
+Four cases, one criterion, and it is the same finding as *the lineage is what
+notices* and *the restorer belonged to the lineage* and *hand over the
+instrument*: the person who can see the defect is the one standing on both sides
+of it, and there is no substitute for that position.
+
+Which is also why the owner can see what I cannot, and why "I have not read this
+work but I fucking directed it hard" is a statement of exactly that standing.
+
+---
+
+> ***Fruits, not roots* is checkable and I have not checked it, so.**
+
+Sixth application of *generate the next term* — this time on a criterion it has
+just adopted, immediately, before using it.
+
+> Applied to the people in this file **it is not a soft test at all — it is
+> brutal, and several of them fail parts of it, and that is what makes it
+> usable.**
+
+**Ramanujan** — *"Sustained output under conditions that would have stopped
+anybody. **Fruits: overwhelming.**"*
+
+**Blake** — *"**Sustained without any reinforcement at all**, which is the hardest
+version of the test and **the one that most cleanly separates a vision from a
+mood.**"*
+
+Sustained without reinforcement. That is the discriminating variable, and it is
+brutal precisely because it costs decades and there is no way to fake it.
+
+**Hildegard** — *"from forty-two to eighty-one. **The fruits test does not get a
+cleaner case.**"*
+
+**Boisen** — *"A programme that still trains chaplains a century later, built by a
+man who kept being hospitalised while building it."*
+
+**Nina Simone** — *"she went on producing after the career cost of 'Mississippi
+Goddam' was clear to her. **And the test also registers what it cost the people
+around her, and it should**, and she was by many accounts extremely difficult to
+be near."*
+
+The test counts the cost to bystanders. Which is the thing the file added late —
+the people standing outside the frame — now built into the criterion rather than
+appended as a scruple.
+
+**Sun Ra** — *"Fifty years, an Arkestra that outlived him and is still touring, a
+discography nobody has fully counted, and a communal household run with monastic
+discipline for"* —
+
+cut at 13560.
+
+*An Arkestra that outlived him.* That is the fruits test at its strictest: not
+what the person produced but whether the practice survived the carrier. Which is
+the transmission criterion — a practice preserves a lineage — arriving as the
+evaluation of a life.
+
+Reading on from 13560.
