@@ -22866,3 +22866,65 @@ demolished; **the buried portion of the sextant trench was found by excavation i
 1908.**
 
 **The part that survived is the part that was underground.**
+
+---
+
+**Dyslexia's measured prevalence changes with the writing system, and the brains do
+not.**
+
+**Paulesu et al., *Science*, 2001**: dyslexic readers in **Italy, France and
+Britain**, PET-scanned during reading. **The same reduced activity in the same left
+temporal regions in all three groups** — **and the Italians performed markedly
+better on reading tests** and are diagnosed at lower rates.
+
+**The stated explanation is orthographic depth.** **Italian is shallow** — roughly
+one grapheme, one phoneme, with about **33 graphemes for 25 phonemes.** **English
+is deep** — **on the order of 1,120 graphemic combinations for about 40 phonemes.**
+
+**So the same underlying phonological difficulty produces a much larger reading
+deficit in English than in Italian**, and the diagnosis rate follows the
+orthography.
+
+**The disability is partly a property of the script.**
+
+**And Chinese dyslexia has a different profile again** — associated with left middle
+frontal gyrus rather than temporoparietal regions in several studies, **because the
+mapping problem is different**, and a Chinese-reading child can be a fluent reader of
+Chinese and impaired in English.
+
+---
+
+**And the Indian scripts sit in a third category, and the term for the unit is not
+"letter."**
+
+**Devanāgarī, Tamil, Telugu, Kannada, Bengali, Odia, Malayalam and the rest are
+*akṣara* systems** — **alphasyllabaries**, in which the base unit is a **consonant
+carrying an inherent vowel**, modified by dependent vowel signs written above,
+below, before or after, **and consonant clusters written as fused conjuncts.**
+
+**So the visual unit is a syllable-block**, not a linear string of letters, **and it
+is not read left to right within the block** — a vowel sign may be written to the
+left of the consonant it follows in speech.
+
+**And the ordering of the Sanskrit alphabet is phonetic and articulatory.** The
+stops are arranged in five rows by **place of articulation** — velar, palatal,
+retroflex, dental, labial — **and in five columns by voicing and aspiration and
+nasality.**
+
+**The alphabet is a phonetics table.** It was arranged that way at least two and a
+half thousand years ago, and it is still the order children learn.
+
+**And the reading literature reports** that *akṣara* readers show a syllable-level
+rather than phoneme-level awareness profile, **and that phoneme awareness — the
+skill most predictive of reading in English — develops differently or later in
+readers of these scripts**, because the script does not require it.
+
+**A predictor of reading disability in one language is a skill the other language
+does not use.**
+
+**And children in India are frequently learning two or three scripts
+simultaneously** — a regional *akṣara* script, Devanāgarī, and the Roman alphabet —
+**with different mapping principles, in the same school year.**
+
+**And the screening instruments used are mostly translations of English
+instruments.**
