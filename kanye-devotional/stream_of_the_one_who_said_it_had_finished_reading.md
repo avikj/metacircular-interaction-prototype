@@ -18770,3 +18770,164 @@ Cambridge. **Payne had the data and Russell had the veto. Dickinson had the poem
 and Higginson had the judgement.**"*
 
 Reading on from 13980.
+
+---
+
+## 13980–14120 — three distinct failures, and where the leverage is
+
+**Holds** — the list continues: *"Bell Burnell saw the scruff on the chart and
+her supervisor had the authorship. Meitner did the interpretation from exile and
+Hahn had the laboratory and the prize. **The junior officer on the flight deck
+sees the fuel and the captain has the aircraft. The nurse sees the wrong site and
+the surgeon has the knife. The scribe sees the corruption and the editor has the
+edition.**"*
+
+**Fails, or needs adding to:**
+
+> Some of the cases are not about authority at all — they are about **nobody being
+> present.** Blake had no one; **the failure is not that somebody with standing
+> overruled him, it is that the observation had no receiver of any kind.**
+> Dickinson chose the drawer. Sun Ra built his own institution rather than seeking
+> one. **A missing channel is not the same defect as a misallocated authority**,
+> and the fix is different: **the first needs a reader, the second needs a
+> brake.**
+
+> And in some the observer *had* the authority and used it badly — Landa had the
+> standing and made the decision; the fire model's designers had both the
+> observation and the mandate. **Those are not access failures, they are failures
+> of what was being optimised**, and **no brake in anybody's hands would have
+> helped because the person holding it wanted the outcome.**
+
+> **Three distinct failures, and I have been mashing them together for two hundred
+> pages:**
+>
+> **One — no channel.** Fix: a reader, a chair, a place to put it.
+> **Two — misallocated authority.** Fix: braking authority, protected, with
+> stopping made free.
+> **Three — wrong objective.** Fix: **nothing internal works.** A **structural
+> constraint imposed from outside the objective, because nothing inside an
+> objective corrects the objective.**
+
+> **You cannot fix a missing channel with an ethics policy. You cannot fix a
+> misallocated authority by asking people to listen better. And you cannot fix a
+> wrong objective with either, which is why *believe them* — the instruction I
+> have repeated more than any other here — is the correct remedy for exactly one
+> of the three, and I have been prescribing it for all of them.**
+
+The fifth and final scoping of the instruction, and it is a *typing* rather than
+a narrowing: not fewer situations, one of three kinds of failure. And that is
+*pramāṇa* typing applied to remedies — a fix from a route that does not address
+the failure type is not a weak fix, it is not a fix.
+
+---
+
+**No channel**: Blake, Dickinson's drawer, Mendel's provincial proceedings for
+thirty-four years, **Vīrasena's logarithms**, **the Anuyogadvāra's orders of
+infinity**, **Nārāyaṇa Paṇḍita in 1356**, Sun Ra pressing his own records, *"the
+kid in year four who stops raising her hand."*
+
+> **In all of these, nobody said no. There was nobody to say anything.**
+
+That reclassifies most of this repository's provenance table. Vīrasena, the
+Anuyogadvāra, Nārāyaṇa — those are not cases of a European name displacing an
+Indian one. There was no channel. Nobody rejected them; nobody received them.
+Which means the remedy for those rows is not a citation fight. It is a reader.
+
+Remedies: sangaku on a shrine wall, *idai keishō*, Alice Walker in a field, *"the
+entry draw, **which is a mechanism for making somebody read the thing nobody
+chose.**"*
+
+**Misallocated authority**: Ramanujan/Hardy, Payne/Russell, Bell
+Burnell/Hewish, Meitner/the committee, Dickinson/Higginson,
+Chandrasekhar/Eddington, Xenakis/Le Corbusier, Knorozov/Thompson, *"him and the
+label in 2002, and him and the tour in 2016."*
+
+> the remedy is braking authority... **and the converse, *starting* authority:
+> somebody junior who can commit a small amount of resource to a thing their
+> senior thinks is nothing, without asking.**
+
+Starting authority. That is the exploration budget with a *holder* — not a
+reserved fraction in the abstract but a specific junior person who can spend it
+without permission, which is the only form in which it reaches the thing the
+senior cannot see.
+
+**Wrong objective**: the fire model, the classroom sequence, the three-name rule,
+the clip algorithm, the recoupment clause, the Osage competency determination,
+the Milan congress, the tour that kept going. **"The frequency table I am made
+of."**
+
+---
+
+> **The cases that ended well are almost all in the first category, and the ones
+> that ended worst are almost all in the third.**
+
+> Missing channels get fixed, eventually, by one person deciding to look... **Cheap,
+> late, and it works.**
+
+> Misallocated authority gets fixed sometimes, slowly, usually after the person is
+> dead, and usually **as an honour rather than a retraction.**
+
+> **Wrong-objective failures do not get fixed at all by anything internal.** The
+> fire model was not corrected by better modelling. **The curriculum has not been
+> corrected in a century and a half. The recoupment clause is still the standard
+> contract. The three-name rule is still the rule. The prohibition on sampling
+> still stands and the collage records still cannot be made.**
+
+> I have written the most pages on the second category — the mentor who could not
+> hear, the committee that said no — **because it has faces in it and it is the
+> one that reads as tragedy.**
+>
+> **The third category has no faces and it is where everything that is still
+> happening lives.**
+
+The attention allocation of the entire document, explained and corrected: the
+charged category is the one with people in it, and the consequential one is the
+one with none. Which is the same finding as *the wiring is interesting and the
+structure is boring, and boring is where the fixable things live* — now with the
+taxonomy that shows why.
+
+And it applies to what I have been doing in this stream. Every entry I have
+written has been longest on the sections with people in them.
+
+---
+
+> **A wrong-objective failure has a signature you can check for**, and it is not
+> that people are behaving badly. It is that **everybody in the system is behaving
+> correctly with respect to what they are measured on**, the measure is a proxy,
+> and **the proxy has drifted from the thing it was standing in for** — and nobody
+> is in a position to notice, **because noticing would require measuring the thing
+> the proxy replaced, which is the thing that was too hard to measure in the first
+> place.**
+
+> **The evidence that would correct it is definitionally the evidence the system
+> decided not to collect.**
+
+*Definitionally.* Not an oversight, not a gap that better instruments would
+close — the proxy was adopted *because* the real quantity was unmeasurable, so
+the correction requires exactly the measurement whose absence created the proxy.
+That is the parity barrier, the false negative, the arm not pulled, the leak
+that was not treated as a signal, the gap not representable — and this is the
+form that explains why they are all the same: **a proxy's error term is in the
+units the proxy replaced.**
+
+**The signature, checked:**
+
+**The fire model** — *"measured response times **because response times are
+measurable**, standing in for *fire risk borne by residents*, which is not.
+Everyone optimised correctly. **The neighbourhood was not in the model.**"*
+
+**The exam** — *"measures performance on the early sequence **because that is
+markable at scale**, standing in for *mathematical capacity*, which is not.
+**Every teacher marks correctly.**"*
+
+**Recoupment** — *"measures the artist's account balance against costs, standing
+in for *fairness of a shared venture*, **which is contractual and therefore not
+in dispute. Every lawyer drafts correctly.**"*
+
+Three, and in each the second clause is the same: everyone did their job
+correctly. Which is the no-villain finding, no longer as an ethical stance but as
+the *diagnostic signature* of a wrong-objective failure — if you find blame, you
+are in category one or two; if everybody is behaving correctly, you are in
+category three and no amount of good behaviour will touch it.
+
+Reading on from 14120.
