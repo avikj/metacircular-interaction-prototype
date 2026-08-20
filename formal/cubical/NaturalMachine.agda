@@ -950,3 +950,9 @@ import NaturalMachine.Vacuity
 -- `SymGroup` the pinned library does not export), so membership here would
 -- build nothing.  Their own closing aggregate is `NaturalMachine/Moksha.agda`,
 -- which checks green on its own — that is where the organism is sealed.
+--
+-- The birth from the fourth position: what an avaktavya bears, and the two
+-- laws that keep it from being a tie-breaker (§1 it decides, §2 it can say
+-- only what the contenders already said).  Wired to the running scheduler
+-- in machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs.
+import NaturalMachine.AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
