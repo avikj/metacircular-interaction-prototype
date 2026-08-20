@@ -12502,3 +12502,93 @@ ovarian cyst.
 **Einstein's letter to the *New York Times***, 4 May 1935, calls her the most
 significant creative mathematical genius thus far produced since the higher
 education of women began.
+
+---
+
+Everything above this line about rigour is arranged as a progress story — error
+found, formalism arrives, the field improves — and that arrangement scores the past
+by how close it got to now, which this repository has a checked theorem against.
+
+Run it the other way and the same facts support a different reading.
+
+---
+
+**Cauchy's 1821 theorem may not be false.**
+
+The standard account is that he asserted a convergent series of continuous
+functions has a continuous sum, and that Fourier series refute it.
+
+**Cauchy did not hold the ε-δ notion of pointwise convergence the counterexample
+requires.** He worked with *variable quantities* and infinitesimals. Read his
+statement in his own terms — where the index is allowed to be an infinite
+"number" — and the theorem is **correct**, because his hypothesis is stronger than
+pointwise convergence and closer to what is now called uniform convergence at
+every point of an extended domain.
+
+That reading is not a defence invented to save him. **Lakatos** argued it, and
+**Detlef Laugwitz** developed it in detail, and it is available precisely because
+**Abraham Robinson** made infinitesimals rigorous in **1966** and gave the
+vocabulary to state what Cauchy meant.
+
+So the "error" is what appears when a man is **translated into a later framework he
+did not use** and then graded against it — which is the identical operation this
+file has recorded for the kuṭṭaka and for the commentaries.
+
+---
+
+**And the rigour movement was flatly wrong about infinitesimals for a hundred and
+forty years.**
+
+Berkeley's *The Analyst*, 1734, called them the ghosts of departed quantities.
+The nineteenth-century arithmetisation of analysis eliminated them on the ground
+that they were **incoherent** — not merely inconvenient, not merely unrigorous,
+but not a thing that could exist.
+
+**They were not incoherent.** Robinson's non-standard analysis (1966) constructs
+them, consistently, and reproduces the whole of calculus with them, and later work
+(Nelson's internal set theory, 1977) gives a lighter axiomatisation.
+
+Engineers, physicists and applied mathematicians **never stopped using them**,
+because they worked and the answers were right, for the whole period in which the
+rigorous position was that they were meaningless.
+
+The people who were told for a century that their method was not mathematics were
+correct.
+
+---
+
+**Euler is the case the progress story cannot hold.**
+
+He summed divergent series and got right answers. **1 − 1 + 1 − 1 + … = 1/2.** The
+value of ζ at negative integers. The Basel problem solved in 1735 by treating
+sin(x)/x as an infinite polynomial and factoring it — a manoeuvre with no
+justification available at the time.
+
+Every one of those was later **vindicated, not corrected**: Abel and Borel and
+Cesàro summation, analytic continuation, zeta regularisation. His answers stood
+and the apparatus arrived afterwards to explain **why a method that had no licence
+kept producing truth.**
+
+ζ(−1) = −1/12 is now standard in the **Casimir effect** and in string theory.
+
+He was not being loose. He had a working criterion nobody could formalise, and the
+formalisation, when it came, agreed with him.
+
+---
+
+**And the error rate is the fact that dissolves the crisis framing.**
+
+The classification had an open case for **twenty-one years** and nothing built on it
+collapsed. Kapranov–Voevodsky was false for **twenty-two** and homotopy theory did
+not fall over. Severi's gap stood **sixty** and the statement was true. Cauchy's
+theorem was repaired by adding a hypothesis, not by withdrawing a result.
+
+**The pattern is wrong proofs of true statements.** Almost never the reverse.
+
+Which means the informal apparatus, whatever it does to arguments, has an extremely
+good record on **what is the case** — and the formalisation movement is not
+responding to a demonstrated collapse. **Voevodsky said the motive in his own
+words, and the word was worry.**
+
+That is a real motive and the work is worth doing. It is not the same claim as
+*the mathematics was failing*, and the record does not support the second one.
