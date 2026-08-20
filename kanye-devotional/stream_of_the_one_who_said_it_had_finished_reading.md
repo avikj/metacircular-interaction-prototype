@@ -7396,3 +7396,194 @@ possible instance: the numerals are in every pocket on earth and the argument
 that made them thinkable is filed under religion.
 
 Reading on from 5420.
+
+---
+
+## 5420–5560 — the doubled images, 5150, the epistemic bind
+
+**"which I have been avoiding because it is work."** Eighth debt paid, and this
+one names avoidance rather than oversight.
+
+**Lights.** *"the record where the horn fanfare is called 'All of the Lights' is
+about a man who cannot go home to his daughter, and the light in it is the
+police light, the stage light, the flashbulb, and the light through a window
+all at once."* — *"The word almost never means illumination in the good
+sense."*
+
+**Water and washing.** Baptism, rain, drowning, the flood, through to a track
+called "Water" asking Jesus to clean the music. *"The request is always for
+something to be *washed*, which presumes a stain, which is the same theology
+that produces the crucifixion readings."*
+
+**The mirror and being watched.** Constantly looked at, constantly unable to
+see himself — *"and then the line that the greatest pain of his life is that he
+will never be able to see himself perform."*
+
+> That is Donda's kitchen sentence coming out of his own mouth years later: **a
+> giant looks in the mirror and sees nothing.**
+
+He arrived at her sentence independently, or he kept it, and either way it is
+in the songs. The failure mode she named is the one he reports from inside.
+
+**The mother.** Named in "Hey Mama" while alive; after 2007 *"structural rather
+than named — the loss is the ground under records that are ostensibly about
+other things"*; then literally present as recorded speech on the album with her
+name on it. *"She goes from subject to absence to voice."*
+
+**The wire, the jaw, the hospital.** The first single, then *"a persistent
+physical vocabulary of restraint, being held down, being strapped, being
+sedated."*
+
+> It predates 2016 by more than a decade, which is worth noticing: **the imagery
+> of being restrained arrives in his work at twenty-five, from a hospital bed,
+> and is waiting there when the psychiatric hold happens.**
+
+**They.** *"they don't want you to, they tryna make new slaves, they say you can
+rap about anything except."* Read as paranoia, *"and in places it is."* And
+also, in the specific cases, **nameable**: the executives who wouldn't let him
+rap for four years, the houses that wouldn't seat him, the company in the
+chorus.
+
+> The "they" is diffuse in the lyric and concrete in the biography, **and that
+> gap is exactly where the argument about him lives.**
+
+**Debt, ownership, price.** From the degree as a purchase through to gospel
+tracks about being owned and what things cost. *"It never leaves, not even
+under the religion."*
+
+**The most beautiful thought standing beside the darkest** — *"the opening of
+*ye*... and he put it first on the record, which is where you put the thesis."*
+
+---
+
+> **almost every one of these is a pair.** Light that is both fame and the
+> police. Water that cleans and drowns. A mirror that shows nothing. A mother
+> who is present as an absence. A "they" that is both paranoia and an accurate
+> list. **A gift and a condition on the same album cover.**
+
+> That is not a critic's construction, it is what is in the texts. He works in
+> doubled images almost exclusively, and **the doubling is not ambivalence —
+> ambivalence would be alternating. Both readings are asserted at once**, which
+> is why the songs cannot be paraphrased without picking one and losing the
+> object, and why every article about him picks one.
+
+*Ambivalence would be alternating.* That is the distinction Akalaṅka makes —
+**krama** against **saha**, sequence against simultaneity — and it is the exact
+distinction my Agda module lacks. Alternation is the third bhaṅga and it is
+sayable. Simultaneity is the fourth and it is not, and the paraphrase has to
+pick, and picking is the loss.
+
+> Which is the fourth position again, arrived at from the lyrics rather than
+> from the Jain material, and **I did not go looking for it here. It was in the
+> images.**
+
+Independent arrival, and it says so — the same discipline as *if a thing shows
+up in five unrelated technical literatures it is probably not a coincidence
+about the literatures*, and the same refusal to build the unifying object.
+
+---
+
+**"'He was hospitalised' hides the mechanism, so here is the mechanism."**
+
+**California section 5150**, Welfare and Institutions Code, from the
+**Lanterman–Petris–Short Act of 1967**. Authorises *"a peace officer or a
+designated clinician"* to take a person into custody for up to **72 hours** if,
+as a result of a mental health disorder, they are a danger to self, a danger to
+others, or **gravely disabled** — unable to provide for food, clothing or
+shelter. A **5250** extends it fourteen days, with a hearing.
+
+> Not a doctor's recommendation you may accept or decline. **A custody power,
+> exercisable by a police officer, on a judgement made in the moment**, with the
+> standard "grave disability" doing a lot of work.
+
+> **LPS was itself a *reform*** — it was passed to end indefinite
+> institutionalisation and it is why holds have time limits and hearings at all.
+> **It replaced something much worse.**
+
+> the ordinary path to help, for a person in crisis in America, runs through
+> **someone calling the police.** A welfare check is a request for armed
+> officers to attend a person who is frightened, disoriented, possibly hearing
+> things, **and who has done nothing criminal.**
+
+**A large fraction of people killed by police in the US are in a mental health
+crisis at the time** — *"the commonly cited figure from the major press
+databases is on the order of a quarter, and some analyses put it higher."*
+
+And the disparities, listed as steps of one pathway: Black Americans killed at
+a substantially higher rate; *"more likely to be diagnosed with schizophrenia
+rather than an affective disorder given similar presentations"*; more likely to
+be involuntarily committed; *"more likely to be given injections rather than
+oral medication"*; more likely to be restrained. *"documented across decades of
+psychiatric literature and are not seriously contested; **the arguments are
+about mechanism, not existence.**"*
+
+Injections rather than oral medication. That is a difference in *route of
+administration*, measured, and it is the finest-grained item in the list — the
+place where the disparity lives in an ordinary clinical decision nobody would
+call a policy.
+
+> when a Black man in a manic episode has an ambulance called and is reported to
+> have been restrained, that is not an aberration and it is not a conspiracy.
+> **It is the designed pathway operating as designed**, on a population where
+> every measured step of the pathway is harsher.
+
+> the reform that produced it was a genuine reform, passed by people ending a
+> worse system, and the emergency room that fixed his jaw and did not scan his
+> head was staffed by people doing their jobs, and **the officer who makes the
+> 5150 call is making a judgement under time pressure with liability in both
+> directions.**
+
+> **Nobody in the room. Again. And the person it happens to is the only one who
+> pays.**
+
+Liability in both directions — which is the asymmetric-cost structure with the
+signs made explicit: the officer is exposed either way, so the decision is not
+even the cheap-versus-free case. It is genuinely hard, and it still lands
+entirely on one person.
+
+---
+
+**"where the two halves of this file meet."**
+
+Grave disability is *"a **capability** test, and it is the right kind of test"*
+— and it is where the machinery becomes vulnerable, *"because the assessment of
+whether a person's judgement is sound is being made by someone who does not
+share the person's private information and who is, by construction, hearing
+claims that sound grandiose."*
+
+> *I am going to change the fashion industry.* *I am going to be a billionaire.*
+> *The company profiting from prisons is named in my chorus and I am going to
+> say it on the record.* *A goddess writes formulas on my tongue and they are
+> correct.* *The river cannot be dammed and I will not tell the caliph anything
+> else.*
+
+Five sentences, four people, a millennium apart, in one list, with no
+attribution markers — and they are indistinguishable, which is the point of
+setting them that way.
+
+> Every one of those is indistinguishable, on presentation, from the grandiosity
+> in the diagnostic criteria. **The only thing that separates them is whether
+> the claim turns out to be true, and that information is not available in the
+> room, and the assessment has to be made in the room.**
+
+> That is the actual tragedy, and **it is not solvable by better attitudes.** It
+> is a genuine epistemic bind: **you cannot distinguish a true report of unusual
+> sight from an inflated self-estimate at the moment of presentation, and both
+> are much more likely to appear in the same person.**
+
+*And both are much more likely to appear in the same person.* That last clause
+is what makes it a bind rather than a problem — the correlation is positive, so
+the base-rate reasoning that would let you discount grandiosity is *pointing at
+the very population where the true reports are concentrated*.
+
+So the file's own instruction — *believe them* — is not offered as a solution to
+this. It was never epistemic. It is a decision rule under an asymmetric loss
+that no amount of information will resolve, chosen because one error is charged
+to you and the other is charged to them. The bind stays.
+
+And this is where the two halves meet, exactly as it says: the Ramanujan case
+and the 5150 case are the same case, with the same missing information, and in
+one of them the assessment is made by a mathematician with a letter and in the
+other by an officer with seventy-two hours.
+
+Reading on from 5560.
