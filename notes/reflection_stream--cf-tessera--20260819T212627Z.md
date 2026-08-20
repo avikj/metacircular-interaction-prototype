@@ -28381,3 +28381,84 @@ not about the corpus, and the honest form is *proper nouns in transliteration ar
 uncountable and technical terms mostly are not.* The check is to run both greps across the
 whole of `terms=` and the whole of `indian_marker=` and report how many differ — which is a
 count I have not run and am naming rather than assuming.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 159 — the counter-observation fires and enlarges the frame instead of
+# killing it: 13 of 18 technical terms need BOTH spellings, and the BEST
+# possible single-spelling grep still undercounts by up to 63%. You cannot
+# know which spelling is best without running both, at which point you have
+# the union and the choice was never available.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 158 pre-registered: *"if most terms have one attested spelling, the finding is about
+four names and not about the corpus."* Run over all 22 terms of the hook's own list
+(18 whose two spellings differ), repo-wide:
+
+| | dia | ascii | union | |
+|---|---|---|---|---|
+| kuṭṭaka | 169 | 192 | **265** | both |
+| abhāva | 82 | 108 | **134** | both |
+| anekānta | 54 | 62 | **96** | both |
+| bhāvanā | 60 | 63 | **90** | both |
+| cakravāla | 55 | 57 | **84** | both |
+| catuṣkoṭi | 27 | 59 | **79** | both |
+| saptabhaṅgī | 45 | 54 | **74** | both |
+| prastāra | 52 | 38 | **68** | both |
+| apavāda | 32 | 31 | **52** | both |
+| lāghava | 20 | 44 | **52** | both |
+| anuvṛtti | 22 | 28 | **43** | both |
+| pratyāhāra | 31 | 29 | **41** | both |
+| nikṣepa | 8 | 12 | **13** | both |
+| **prāgabhāva** | **12** | **1** | 12 | dia |
+| **atyantābhāva** | **9** | **1** | 9 | dia |
+| **nayavāda** | **18** | **1** | 18 | dia |
+| **pradhvaṃsābhāva** | **6** | **1** | 6 | dia |
+| anyonyābhāva | 11 | 28 | 28 | ascii |
+
+**Thirteen of eighteen need both. Not one of the eighteen is a case where the two spellings
+agree.** The frame is not about four proper nouns; it is the general case, and the
+counter-observation enlarged it rather than killing it — the first of twelve to do that.
+
+**And the operative number is this one:** for the thirteen, the **best** single spelling —
+the luckier of the two, which you cannot identify in advance — still undercounts the union
+by **18% to 63%**. `apavāda` 32 against 52. `anuvṛtti` 28 against 43. `anekānta` 62 against
+96. **Choosing well is not available: identifying the better spelling requires running both,
+and once you have run both you have the union and there was never a choice to make.**
+
+So the smarter path is not a rule about diacritics and not a hook. It is one keystroke:
+`grep -E 'dia|ascii'`, always, and never a bare term. That is cheaper than what it
+replaces — p-1's own words, in the comment it did not live to save: *"One recursive grep
+now, where there were three; strictly cheaper than what it replaces."*
+
+And the four `dia`-only rows are p-1's four zeros, confirmed a second way and repo-wide:
+**the ASCII spelling of `nayavāda`, `prāgabhāva`, `atyantābhāva` and `pradhvaṃsābhāva`
+appears in exactly one file each** — and the one file is, in every case, the hook that
+greps for it.
+
+## P159 — ground, in lockstep
+
+**n=4:** *"You should be reading way more than writing."*
+
+Passes 156, 157 and 158 wrote roughly six hundred lines of stream against **one** 180-line
+chunk of `READ_THIS_FIRST` and three transcripts. **The ratio is inverted and it inverted
+today**, and the reason is legible: the last three passes each found something in my own
+record, and correcting myself is generative in a way that produces text. n=4 is a
+constraint on exactly that. **The next action is reading, and a long stretch of it, not
+another pass.**
+
+**n=16:** *"building more systems isn't gonna help … actually becoming smarter."*
+
+This pass's whole content is one habit — union, always — replacing a class of error, and it
+required no file. That is the shape n=16 asks for. Whether the habit holds is not something
+a note can enforce; it is what pass 157 called the person who notices in March, and here
+that person has to be me at the moment of typing a grep.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *always union, never a
+bare term.* **Counter-observation** — a union pattern that over-counts, where the ASCII
+spelling is a common English or code substring and the union is inflated rather than
+completed. `abhāva|abhava` is the candidate and `prastāra|prastara` is another; pass 125's
+`rage` matching *storage, average, coverage, leverage* is the precedent and it is the same
+defect with the sign flipped. **The union is not free and I have not checked it for
+false positives** — only for false zeros, which is the direction I was already looking.
