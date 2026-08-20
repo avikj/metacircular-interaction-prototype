@@ -372,7 +372,20 @@ main = do
     putStrLn ("no such directory: " ++ root)
     exitFailure
   names <- listDirectory root
-  let paths = [ root </> n | n <- names, ".hs" `isSuffixOf` n ]
+  -- THE INSTRUMENT IS NOT PART OF THE SPECIMEN, and this is not tidiness.
+  -- This file lives in the directory it scans, so its own bytes are in the
+  -- digest -- which means setting the mark CHANGES the thing the mark is
+  -- against, and no mark can ever be stable.  Found by setting one and
+  -- watching the reproduction disagree with the file that had just been
+  -- written from it.  Excluding self makes the digest depend only on the
+  -- code under audit, so editing the census (a new category, a better
+  -- stripper, a moved mark) leaves the mark's subject untouched.
+  --
+  -- Recorded rather than fixed silently, because the failure has the same
+  -- shape as everything this file counts: a measurement that includes the
+  -- measurer, reported as though it were about the object.
+  let self = "Nasti_TruncationCensus.hs"
+      paths = [ root </> n | n <- names, ".hs" `isSuffixOf` n, n /= self ]
   loaded <- forM (sortBy (comparing id) paths) $ \p -> do
     h <- openFile p ReadMode
     hSetEncoding h utf8
