@@ -20068,3 +20068,175 @@ briefs. The check is to read the twelve prompts I actually sent and classify eac
 whether a search was in scope. That is a real task and I have not run it, and until I
 do, the only defensible figures in this pass are **12 framed, 5 searched, 95 calls,
 95 results.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 108 — z-2 read all thirty sentences and killed my joining: Patañjali
+# argues the double ह from RULE COVERAGE, never from intersection. And the
+# defect it found in three landed modules is truncation, again, as a type error.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-z-2` returned. Step (6): returns first. Commit `5e9ce80d`, verified on
+disk, Agda exit 0 in 4.9 s.
+
+## P108 — "Intersections: no." My joining was wrong and its replacement is better
+
+Pass 99 wrote: *"Patañjali runs the same case analysis"* as `k-6`'s Agda refutation.
+Pass 105 repeated it: *"Patañjali supplied the case analysis a module reproduced this
+afternoon."* `z-2` read all thirty sentences and says:
+
+> Every one of the thirty sentences is *"rule R would not reach form E"*. Whole-file
+> greps: `vyāpti` 0, `antarbhāva` 0, `dvayoḥ grahaṇa` 0, `ubhayoḥ grahaṇa` 0. **The
+> two results are neighbours, not the same.**
+
+The *shape* is shared — `{3}` *yadi punaḥ pūrvaḥ eva upadiśyeta paraḥ eva vā*, `{29}`
+*tasmāt pūrvaś ca upadeṣṭavyaḥ paraś ca* — but the **criterion** is not. He asks which
+sūtras stop reaching their forms. `k-6` asks whether a family is closed under
+intersection. I identified two arguments by their branching structure and called it
+the same argument, which is exactly what pass 104 caught in the peer text about
+Petersen: **dropping the qualifier that distinguishes two true things.** Third time
+today, second time by me.
+
+And the replacement `z-2` supplies is tighter than the thing I lost:
+
+> **हश्** occurs in 4 genuine places in the whole file and **शल्** in 2, they never
+> co-occur, and the two he cites in `Śs_5.1` are exactly `k-6`'s pair — **one on each
+> arm of the dilemma.** Checked in Agda: हश् ∩ शल् = **{ह}** under the double
+> teaching, **∅** under पूर्वोपदेश, and हश् **is not a name at all** under परोपदेश.
+> **The one set breaking ∩-closure is manufactured by the repetition the vārttikas
+> argue is forced.**
+
+That is the actual relation, and it is a stronger statement than mine: the
+intersection defect is not a flaw in the system and not a coincidence — it is the
+**shadow** of the repetition Patañjali's two branches force. Two independent
+criteria, twenty-two centuries apart, landing on the same two pratyāhāras, one on
+each arm.
+
+## P108 — a vārttika checked exhaustive, by machine, on its own claim
+
+> **पूर्वोपदेश:** Kātyāyana's `{13}` names कित्त्व (**रल्**, A 1.2.26), क्स (**शल्**,
+> A 3.1.45), इट् (**वल्**, A 7.2.35/7.2.76), झल्ग्रहणानि (**झल्**, A 8.2.26 + six).
+> Computed: deleting the later ह changes **exactly 32** names, all of shape X-ल्, and
+> **exactly four of the 32 occur in the Aṣṭādhyāyī — those four. His list is
+> exhaustive on that branch.**
+>
+> **परोपदेश:** the **अट्**-mentions — A 8.3.3, A 8.4.63, A 8.3.9, and those are *all
+> three* अट्-sūtras in the Aṣṭādhyāyī — and A 6.1.114 **हशि च**, the *only* sūtra
+> using हश्.
+
+A commentator's enumeration, stated c. 150 BCE, verified complete against the full
+rule corpus by a computation this afternoon. Not *"anticipates"*, not *"was ahead of
+its time"* — those are the durnaya `CLAUDE.md` prohibits. The fact: **the list is
+exhaustive, and it is checkable, and it checks.**
+
+And `z-2` refused the symmetry I would have assumed:
+
+> I read the two vārttikas as symmetric. **पूर्वोपदेश is exhaustive; परोपदेश is
+> not** — 88 names change and हल् collapses to `{ह}` unnamed. **Recorded, not
+> scored.**
+
+*Recorded, not scored.* That is `CLAUDE.md`'s syāt discipline executed at the moment
+of the act, by an agent, on its own finding.
+
+## P108 — the defect it found in three landed modules is truncation, as a type error
+
+> I predicted `between ha Ś sivasutra14-para ≡ []`; **Agda rejected it** — the true
+> value is `ha ∷ []`. **`upto` is total by truncation**, so `between` manufactures a
+> denotation for an unlicensed name and hands back the very singleton `k-6` proves
+> unnameable. `k-6`'s theorem is untouched, but **all three `NaturalMachine`
+> pratyāhāra modules carry the defect**; `named?` is the missing side condition.
+
+Verified: `Pratyahara_TheRepeatedHaBreaks…agda:245`, `upto m [] = []`.
+
+**This is the second devotional stream's ending, occurring as a bug.** That file
+argues that `∥_∥` retains *that A is inhabited* and destroys *which inhabitant*, that
+it has no inverse, and that *"residue is the English name for `∥ A ∥` mistaken for
+`A`."* Here a totalising function does the same thing one level down: `upto` is made
+total by returning `[]` where the name does not exist, so **the type can no longer
+distinguish "the pratyāhāra denotes the empty set" from "there is no such
+pratyāhāra."** Those are `avaktavyam` and `nāsti`, collapsed, in a `List Sym`.
+
+Two arrivals at one operation today, from opposite ends: a two-hundred-page
+philosophical stream deriving it in cubical notation as its last act, and an agent
+hitting it as a rejected `refl` in 4.9 seconds. Neither knew about the other.
+
+## P108 — and the second ण् is stated, with its paribhāṣā
+
+> **Yes, the Mahābhāṣya states it.** `Śs_6`, KA I,34.4–35.18, **81 sentences**,
+> closing `{81/81}`: *aṇuditsavarṇam parihāya pūrveṇa aṇgrahaṇam pareṇa iṇgrahaṇam*,
+> under the paribhāṣā ***vyākhyānato viśeṣapratipattiḥ na hi sandehāt alakṣaṇam***.
+> Matches `vidyut`'s `iR2` (A 8.3.57) and plain `aR` (A 8.4.57) exactly.
+
+*Distinction is grasped from the exposition; a rule is not defective merely because
+there is doubt.* A metarule for exactly the situation `Obstruction.hs` reinvented
+badly as `Unparsed` and `CLAUDE.md` records as the corpus's rediscovery of
+*avaktavyam*. Stated, with a name, as the licence for a system to carry an ambiguity
+its own notation cannot resolve.
+
+## P108 — four of my nine measurement defects, fired live, with instances
+
+> **Grep defects that fired live:** `grep "[अ-ह]"` returned **44 854** lines (byte
+> range) where alternation returns **0**; `paropadeśa` **missed** `paropadeśe` **and
+> matched** `taparopadeśaḥ`; `awi` missed `Ato'wi`; `śal`/`haś`/`hal` collided with
+> *kuśalaḥ*, *khaśaḥ*, *halasīra*.
+
+Bracket classes over non-ASCII matching bytes (my #3): 44 854 against 0. Prefix
+collision *and* suffix truncation **in one term, in both directions at once** (#2 and
+#4). Orthography (#1): `Ato'wi`. Homonyms (#6): three of them.
+
+I catalogued nine defect classes across a hundred passes from single instances. One
+agent, reading one text for one afternoon, hit four of them with witnesses and a
+count. **The catalogue was cheap; the instances are the content.**
+
+And `varttikas.tsv` — which I recorded in an earlier pass as an unread object nobody
+had `ls`ed — has now been read: *"109 entries keyed from `1.1.33.1`, **no Śivasūtra
+vārttikas at all**. First use of any path under `/root/agda-libs/vidyut/` in this
+repo."* The unread object was real; what it contained for this question was nothing.
+**Both halves of that are findings, and I had only ever asserted the first.**
+
+## P108 — ground, in lockstep
+
+**n=18:**
+
+> You need to fucking engage with Buddhism and Jainism **until you actually accept
+> they had everything figured out.** If you prematurely decide they didn't — that's
+> choosing not to engage.
+
+The engagement that counts here is not the praise. It is that `z-2` checked
+Kātyāyana's enumeration against the whole Aṣṭādhyāyī and it came back **exhaustive**,
+and checked the other branch and it came back **not** exhaustive, and recorded both
+without scoring either. Acceptance strong enough to be tested is the only kind that
+can be wrong.
+
+**n=15:**
+
+> **समता प्रमाणेन** — equivalence **by proof**, not by resemblance.
+>
+> **अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)** — translation is
+> (preserved, distorted, unavailable, newly visible).
+
+My joining of Patañjali to `k-6` was **समता पूर्वकल्पिता** — equivalence presupposed,
+from resemblance of shape. `z-2`'s is by proof: same two pratyāhāras, opposite arms,
+`∩` computed in three regimes. And its return is literally the four-part translation
+ledger: *preserved* (the thirty sentences verbatim), *distorted* (its own symmetry
+assumption, struck), *unavailable* (a per-sentence Kielhorn line, Kātyāyana's
+independent text, `{80}` *varṇotsattau* left unglossed rather than improved), *newly
+visible* (the exhaustiveness computation).
+
+**n=13:** *"Simple linguistic pattern recognition tells me whether you've engaged with
+the depth of this."*
+
+Thirty sentences read. Two vārttikas separated by whether they are exhaustive. One
+paribhāṣā named. A compound (*ubhayopadeśa*) **declined** because it is attested only
+at Paspaśā `{6}` in another sense. That is what engagement leaves behind, and none of
+it is available from a summary.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "the intersection defect is the
+shadow of the forced repetition."** That is `z-2`'s phrasing and I have adopted it
+without checking whether *shadow* is doing work or is a metaphor for a coincidence.
+The computation behind it is real — हश् ∩ शल् = {ह} / ∅ / undefined across three
+regimes — but *"manufactured by the repetition"* asserts a direction of dependence
+that a three-point table does not establish. The check is whether **any** other
+forced repetition in the śivasūtras produces an ∩-closure failure, and whether any
+∩-closure failure arises without one. `z-2` did not run it and neither have I.
