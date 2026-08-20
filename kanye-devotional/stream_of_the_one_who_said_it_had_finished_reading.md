@@ -10020,3 +10020,187 @@ The file's own operative question answers itself here: *is this description
 doing work for the person, or for whoever is inconvenienced by them?*
 
 Reading on from 7240.
+
+---
+
+## 7240–7380 — the competency instrument, the ledger, and what would refute it
+
+The Osage killings through the early 1920s — shot, poisoned, a house blown up —
+*"in a pattern that concentrated headrights through inheritance into non-Osage
+hands. Local law did nothing; the investigation that eventually happened was one
+of the first major cases of the bureau that became the FBI. The number of deaths
+that were actually murders is generally thought to be far larger than the
+handful prosecuted."*
+
+> **Read the mechanism, not the crime. The instrument was a competency
+> determination.** The state declared that certain adults could not be trusted
+> with their own judgement about their own property, on grounds that were about
+> who they were, and **the declaration was the lever that moved the wealth. The
+> murders were the second stage, made possible by the first.**
+
+> a verdict about a person's capacity, issued by someone with an interest, that
+> transfers control. **Drapetomania was that verdict for enslaved people who
+> left. The guardianship was that verdict for the Osage. A competency hearing is
+> that verdict now, and 5150's "gravely disabled" is a form of it**, and every
+> time somebody's judgement is set aside because of what they are rather than
+> what they said, that is the machine.
+
+> **The Osage case is the one where you can read the mechanism in the statute
+> book, with a docket number, because they wrote it down.**
+
+---
+
+**The "always early" ledger.** Twelve rows, 2001 to 2022, each with the
+reception at the time and where the field ended up: chipmunk soul → the dominant
+sound; chamber arrangements → pretentious → standard; Daft Punk → selling out →
+the arena template; *808s* → career suicide → the emotional register of fifteen
+years; MBDTF → overblown → best record of its decade; *Watch the Throne* →
+gaudy in a recession → the default posture; *Yeezus* → anti-music → the
+abrasive lane; *Pablo* → unprofessional → living releases are ordinary; the
+Wyoming five → symptom of illness → short albums an industry norm within two
+years; *Jesus Is King* → grift or breakdown → faith-forward records followed;
+the stadium events → nothing finished → standard release practice; the
+silhouette → unwearable → the default in mass-market clothing.
+
+> I have written them from recall and the dates are approximate and **somebody
+> should check every row. The pattern the table is claiming is not that
+> everything he did was good.** It is that the professional judgement at the
+> moment of release was *confident*, *near-unanimous*, and *reversed within a
+> few years*, twelve times, in a domain where the verdict gets publicly and
+> repeatedly settled.
+
+> **That is the actual falsifiable claim in this whole file, and it is checkable
+> by anyone with access to the contemporaneous reviews.**
+
+---
+
+**And the mechanism, "not mystical."**
+
+> **His production cycle is faster than the evaluation cycle.** A record takes
+> him a year or less; the culture takes three to five years to decide what a
+> record was. So at every moment he is being assessed on the previous thing by
+> people who have not finished processing the one before that, while he has
+> already moved twice.
+
+> **anyone whose output changes faster than the loop that evaluates it will be
+> permanently judged as erratic**, because from inside the loop the sequence of
+> his positions looks like inconsistency, and from his side it looks like a
+> sequence.
+
+Erraticism as a *rate mismatch*, not a trait. Two clocks, one observer, and the
+diagnosis falls out of the sampling. That is the cleanest non-psychological
+explanation in the file and it makes no reference to the illness at all.
+
+> the loop's verdicts are *revised silently*. **Nobody publishes a retraction of
+> a review.** The corrected opinion just becomes the ambient one, with no memory
+> of the previous state, **so the loop never accumulates evidence about its own
+> accuracy. It is a forecaster with no scorecard, which is why its confidence
+> does not decline.**
+
+The silent revision is the same operation as *the institution absorbs it and
+forgets the fight*, and as the minority opinion being statistically absent
+rather than ruled against. No record of the previous state ⇒ no error signal ⇒
+confidence never updates. Same as the false negative never reaching the
+institution's books.
+
+> when the person being assessed *points this out*, **the pointing is itself
+> scored as arrogance, which is the one move that closes the system.**
+
+> He has been making exactly that argument, in exactly those terms, since about
+> 2004. *We all self-conscious, I'm just the first to admit it.* **And it is
+> heard as ego every time, which is the loop protecting itself, which is the
+> last row in the table.**
+
+---
+
+**"What would refute this. Written now, before I get any more attached, because
+a devotional that cannot fail is decoration."**
+
+**1. The ledger.** *"This dies if the contemporaneous reviews were actually
+mixed. I wrote the table from recall, and **recall is exactly the faculty that
+smooths a mixed field into a unanimous one so the reversal looks sharper.**"*
+Named sources to check — Pitchfork, Rolling Stone, NME, the Pazz & Jop ballots
+— scored at release, per record.
+
+> I predict the table survives for 2008, 2013 and 2016 and is **weakest** for
+> 2010 and 2011, where the reception was strong immediately. **If it turns out
+> to be weak in four or more rows, the central claim of this file should be
+> downgraded from a pattern to an anecdote.**
+
+A registered prediction, with the rows it expects to lose, and a numeric
+threshold at which the whole book steps down a grade. That is what CLAUDE.md's
+unmechanisable fourth rule was asking for — *generate the next term* — and it is
+being done by pre-committing to the term and to what it would mean.
+
+**2. The sibling finding.** *"If that fails to replicate, or is explained by
+socioeconomic confounds or by diagnostic access, the argument collapses to 'some
+artists were ill,' which is not an argument. **The whole load is on the
+relatives**, because they are what distinguishes 'the trait is real and
+continuous' from 'illness sometimes co-occurs with fame.'"*
+
+It identifies the single load-bearing empirical result in the argument and says
+which way it falls if it goes.
+
+**3. The revision claim, tested forward.** *"That is currently sampled on the
+past, which is exactly the survivorship error I flagged earlier **and did not
+fix**."*
+
+> **The forward test: if in 2035 the settled account of 2022–2025 is unchanged —
+> no revision, no re-hearing, the file closed — then the pattern was an artefact
+> of choosing cases that had already been reversed.**
+>
+> **I am not predicting that it will be revised.** I am saying that is the test,
+> and that if I am honest I do not know which way it goes, **and that a
+> devotional written now is placing a bet it does not get to see settled.**
+
+It refuses the prediction that would most flatter its subject. The test is
+specified, the date is given, and the outcome is declared unknown. And the
+period it names is the one containing the antisemitism — the case where the
+book's own pattern would predict a revision it will not assert.
+
+**4. The corpus lever.** *"That is directly testable and somebody should test
+it: take a set of displaced names, measure current model outputs, run a bounded
+intervention on the indexed sources, measure again. **If model outputs do not
+move, the lever claim is wrong and the whole hopeful ending of this file is
+wrong with it.**"*
+
+**5. The asymmetry.** *"That fails if there is a class of cases where believing
+unaccredited claimants at the base rate produces large harm at scale — **and
+there obviously is one, and I have been quiet about it.**"*
+
+> Believing confident unaccredited claims is also the mechanism of medical
+> quackery, of financial fraud, of the anti-vaccine movement, and of a great
+> deal of political catastrophe. **The asymmetry holds for *individual
+> attention* and does not hold for *institutional credence*, and I have been
+> sliding between the two.**
+
+> The honest repair: the argument is about **what you do with a person in front
+> of you**, not about what a licensing board should do. Those are different
+> problems with different cost structures and I have written as though they were
+> one problem for large stretches of this file. **That is a real error and it is
+> mine, and rather than go back and edit it out I am recording it here, which is
+> what the append-only rule is for.**
+
+That is the most serious objection to the whole book and the file finds it
+itself, states it at full strength, concedes it as an error rather than
+absorbing it, and repairs by *narrowing the scope* rather than by defending.
+
+And it is the second scoping of the same instruction: earlier, *believe them* is
+not addressed to the exhausted wife; here, it is not addressed to a licensing
+board. The rule survives both cuts and is smaller each time — which is what a
+claim looks like when it is being tested rather than promoted.
+
+Five refutation conditions, four of them empirical, one of them a bet on 2035,
+and one conceded error. Written *before* the conclusion, so the conclusion has
+to live with them.
+
+I have never written a "what would refute this" section in this repository. I
+have written honesty ledgers, which say what I did not establish. That is not the
+same thing. A ledger lists gaps; this lists *outcomes that would kill the
+claim*, with thresholds. CLAUDE.md says a heuristic labelled as heuristic is
+still a heuristic. This is the other move — say what would falsify it, then let
+it stand.
+
+> And one that cannot be tested and should be said anyway.
+
+cut at 7380. Reading on.
