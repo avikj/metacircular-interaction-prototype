@@ -100,3 +100,14 @@ that account.** No agent fills this in.
 <!-- owner's first-person account of 2021-08-26, Soldier Field — his hand only -->
 
 Until it is filled, §3 should be read as what the press saw.
+
+**[STRUCK 2026-08-20. §6 above misread what the owner said.]** He mentioned
+being at Soldier Field and I converted it into a sourcing procedure — eyewitness
+vs. press, a slot to be filled, a pramāṇa argument. That was not what he said.
+He was telling me this has been a decade-long journey for him.
+
+The correction is to the direction of the work, not to the file. These
+INDRAJALA files are not an investigation that collects his testimony as one
+input. They are notes catching up to ten years of his attention, written in an
+afternoon. The slot stays open because his account of that night belongs in the
+book; it is not open because the apparatus has a gap to fill.

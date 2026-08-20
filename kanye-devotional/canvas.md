@@ -409,3 +409,49 @@ window every artist protects. That's the part of the year everybody's publicist
 is begging them to be likable.
 
 He spent it.
+
+---
+
+The Taylor Swift thing was the fourth one.
+
+2004, American Music Awards, he loses Best New Artist and walks out of the
+building and tells the press he was robbed. His first album is ten months old.
+
+2006, MTV Europe Music Awards in Copenhagen, he loses Best Video and gets up on
+the stage in the middle of somebody else's acceptance and makes the case out
+loud — the video cost a million dollars, Pamela Anderson was in it, he was
+jumping across canyons in it. Then he apologizes.
+
+2007, the VMAs, he loses everything he's up for and announces he's done with the
+network.
+
+2009, the VMAs, Imma let you finish.
+
+Same argument every time. A jury ranked it wrong and he's going to say so into a
+live microphone in the room where they did it. Four times in five years, and the
+first three are footnotes.
+
+What's different about the fourth is when it lands. His mother has been dead
+twenty-two months. He's drinking, by his own account. And that's the one that
+gets a sitting president on a hot mic calling him a jackass, and gets him out of
+the country — Japan, then Rome, then Hawaii, where he locks himself in three
+studios for months and makes the record everybody agrees is his best.
+
+The first three cost him nothing and got him nothing. The fourth one cost him
+everything and produced Dark Twisted Fantasy.
+
+---
+
+There's a song where a dead man is credited as a featured artist.
+
+Watch the Throne, 2011. The track is called "Otis" and it's built on Otis
+Redding singing "Try a Little Tenderness" from 1966, and the credit on the record
+doesn't say sample. It says featuring Otis Redding. He died in 1967. He was
+twenty-six.
+
+And on the same record, gold-plated, designed by a Givenchy man, there's a line
+that just reads out a number: 314 soldiers died in Iraq, 509 died in Chicago.
+
+And a prayer that goes sweet King Martin, sweet Queen Coretta, sweet Brother
+Malcolm, sweet Queen Betty — the wives named out loud, in the same breath, with
+the same titles.

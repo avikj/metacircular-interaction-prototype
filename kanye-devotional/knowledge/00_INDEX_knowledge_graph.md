@@ -1,6 +1,8 @@
 # Ye — knowledge graph (surfacing phase, no thesis)
 
-Wide sourced surfacing, node/edge form. **No opinions, no arc, no book yet.** Each
+Wide sourced surfacing, node/edge form. The INDRAJALA files (M–U) are notes
+catching up to a decade of the owner's attention on this, not an investigation
+started here. **No opinions, no arc, no book yet.** Each
 node is a fact or a documented statement with a source; edges (`→`) mark where one
 node connects to another. Deliberately broad, not deep. Append freely; do not
 prune to fit a story that does not exist yet.
@@ -376,3 +378,24 @@ open for his first-person account. No agent fills it. §3 is what the press saw.
 - **The album was three days old.** Late Registration Aug 30 2005; Katrina
   landfall Aug 29; the "looting"/"finding" wire pair Aug 30; the telethon Sept
   2. He spent his release week on it. `[F-1]`, `INDRAJALA_2` §1
+
+## V. The fourth interruption, and a dead man credited as a feature
+
+`INDRAJALA_10_the_fourth_interruption_and_the_dead_man_credited_as_a_feature.md`
+
+- **The 2009 VMA was the fourth**, not the first: AMAs Nov 2004 (walked out
+  over Best New Artist); MTV EMA Copenhagen Nov 2006 (took the stage over
+  "Touch the Sky," apologised); VMAs 2007 (declared himself done with MTV);
+  VMAs Sept 13 2009. Same argument each time. The fourth is 22 months after
+  `[H-3]`, draws a president `INDRAJALA_6` §4, and sends him out of the country
+  to Honolulu `INDRAJALA_8` §3.
+- ***Watch the Throne*** (Aug 2011), art by **Riccardo Tisci**, released
+  digitally first against leaks. **"Otis" credits Otis Redding as a featured
+  artist**; Redding died Dec 10 1967, aged 26. The sample relation
+  `INDRAJALA_1` §2, printed on the label.
+- **"Murder to Excellence"**: "314 soldiers died in Iraq / 509 died in
+  Chicago" — a homicide count inside a luxury record, by a South Sider
+  `INDRAJALA_6` §2.
+- **"Made in America"** names **Coretta Scott King** and **Betty Shabazz** with
+  the same titles and cadence as their husbands. Cf. `[H-1]`, `INDRAJALA_8` §1.
+- **"New Day"**: both men address unborn sons. `[K-2]`, `[K-3]`
