@@ -7046,3 +7046,80 @@ virtuous.
 
 You could build a curriculum on that. I suspect somebody should.
 
+
+---
+
+al-Bīrūnī, who is the proof that reading another civilisation on its own terms was
+available and done, so the later failure cannot be excused as nobody-knew-how.
+
+Khwarazm, born 973. He came into India in the train of Maḥmūd of Ghazna's invasions,
+which is to say he arrived attached to a violence he did not choose and then did the
+opposite of what that position usually produces. He **learned Sanskrit.** He read the
+texts. He sought out pandits and argued with them. And around 1030 he wrote the
+*Taḥqīq mā li-l-Hind* — an inquiry into what is said about India — and states his method
+in the opening: he will report what the Hindus themselves say, in their own terms, without
+arguing against them or setting his own religion beside it, because a description and a
+polemic are different books.
+
+He then does exactly that for six hundred pages: cosmology, astronomy, the units of time,
+the yugas, caste as they described it, festivals, the mathematics, weights and measures,
+the philosophical positions. **He translated Patañjali's *Yoga Sūtra* into Arabic**, and
+Sāṃkhya material, and took Indian astronomical texts seriously enough to compare their
+parameters against his own observations. He corrects them where he thinks they are wrong
+and says why, which is respect and not deference.
+
+And he is not sentimental about anything. He complains that Indian scholars were insular
+and dismissive of foreigners, that they wrote in verse in ways that made technical
+precision hard, that they mixed astronomy with astrology. He also writes, flatly, that
+Maḥmūd's campaigns **ruined the prosperity of the country and scattered the sciences**, and
+that the Hindus consequently regarded all Muslims as invaders, which he treats as a
+reasonable inference from their evidence.
+
+That is a man inside an imperial army writing that the army destroyed the thing he came to
+study, and saying it in the book.
+
+Compare what happened eight centuries later, with better instruments, more funding, and
+printing presses: Colebrooke translating Brahmagupta and Europe **re-filing** him — keep
+the theorems, discard the epistemology, call the remainder religion. The failure was not
+technical and it was not a lack of access. Al-Bīrūnī had less of everything and did it
+properly in 1030.
+
+He also did the earth. He worked out a method for the radius from a single mountain — sight
+the dip of the horizon from a known height and solve the triangle — and got a figure that
+is within a fraction of a percent of the modern value, from one hill, with an astrolabe.
+
+---
+
+**Ibn Khaldūn**, 1332–1406, and the reason he belongs next to al-Bīrūnī is that he asked
+the structural question about the thing al-Bīrūnī was inside.
+
+He wrote the *Muqaddimah* — the introduction to a universal history — in about five months
+in **1377, in a fortress in what is now Algeria**, having withdrawn from a political life
+of the most dangerous kind. His stated complaint about the historians before him is that
+they transmit reports without asking whether the reported thing is *possible* given how
+societies actually work, and his proposal is a science of civilisation — *ʿilm al-ʿumrān* —
+that would supply the criterion.
+
+His central object is **ʿaṣabiyya**: group feeling, the solidarity that lets a group act as
+one. His claim is a cycle. A group with strong ʿaṣabiyya, usually from the harder margins,
+takes power. Power brings settlement, luxury, taxation, specialisation, and the
+professionalisation of what had been shared obligation. The solidarity that produced the
+conquest decays because the conditions that produced it are gone. Within a few
+generations the dynasty is maintained by paid soldiers and administration rather than by
+cohesion, and a new group with intact ʿaṣabiyya comes in from the margin. He gives it
+roughly three or four generations.
+
+He also has taxation and incentive worked out — that early low rates on a productive
+population yield more than later high rates on a discouraged one — which is a
+recognisable argument six centuries early, and he has a theory of why crafts and sciences
+flourish in cities and decay when the city does.
+
+He met **Tamerlane** outside Damascus in 1401, was lowered over the city wall to do it,
+spent several weeks in conversation with him, and wrote it up.
+
+What I take from him for this file is the shape of his question rather than any of his
+answers. **He refuses to explain events by the character of the people in them**, and
+insists on the conditions that generate the character. Every time in this file I have
+caught myself reaching for a villain and stopped, that is the move he named as a discipline
+in 1377, and he named it because the histories he had were made of nothing else.
+
