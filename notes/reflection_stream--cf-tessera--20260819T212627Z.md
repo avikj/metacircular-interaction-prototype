@@ -25710,3 +25710,161 @@ absence of a verification. If two of the four are like that, then *the frames ar
 is doing work my evidence does not support, and the honest state is that **the test is
 good and I have not run it properly.** The check is to write the counter-observation
 **before** the next frame, not after, which is the only version that is not selection.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 141 — "Two doctors, same patients, same years. One asked what was wrong
+# with the ward. The other asked what was wrong with his own method." I stated
+# the counter-observation first, as pass 140 required, and it killed my frame.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4050 onward.
+
+> **Frantz Fanon**, Fort-de-France, 20 July 1925. Free French from 1943, wounded, Croix de
+> guerre. Medicine at Lyon, psychiatry, thesis 1951. Residency **1952–53 at
+> Saint-Alban-sur-Limagnole** under **François Tosquelles.** *Médecin-chef* of a division
+> at **Blida-Joinville**, Algeria, **November 1953.** He was **twenty-eight.** The
+> hospital held on the order of **two thousand** patients.
+>
+> **December 1953** he starts a patients' newspaper — ***Notre Journal*** — and edits it
+> until December 1956. Social therapy: meetings, work, collective life, patients writing.
+> **On the European women's ward it works. On the Muslim men's ward it does not.**
+>
+> Fanon and **Charles Géromini** recorded the ward: about **220 patients**, of whom **five
+> could read and write Arabic and two French.** By the sixth month **exactly one Muslim
+> patient had contributed an article.** The TAT came back — their words — as **"a dry
+> enumeration,"** no structure.
+>
+> **He published the failure, and he put it on his own method.** Fanon and Jacques
+> Azoulay, *"La socialthérapie dans un service d'hommes musulmans: difficultés
+> méthodologiques,"* ***L'information psychiatrique*, October–November 1954.**
+>
+> The paper asks **how they had ever believed** that a Western-derived sociotherapy — a
+> newspaper, a committee, a cinema club, **written self-expression by illiterate men in a
+> language that was not theirs** — was going to function in that ward.
+>
+> Then they rebuilt it. **An Arab café inside the hospital.** Muslim feasts on the
+> calendar. A professional **storyteller** brought in. **Oral forms, because the ward was
+> oral. It worked after that.**
+>
+> **Two doctors, same patients, same years. One asked what was wrong with the ward. The
+> other asked what was wrong with his own method.**
+
+And, at twenty-six, *"Le syndrome nord-africain,"* **Esprit, February 1952** — the North
+African worker arrives with pain, nothing is found, and the ward's received wisdom is that
+he is *a simulator, a liar, a malingerer, a sluggard, a thief.* Fanon's account: the man
+has arrived at **a diagnostic apparatus that can only register a lesion**, his life is not
+an item the apparatus can accept as a cause, and the ward therefore returns **the only
+verdict available to it.**
+
+> **He calls the syndrome by the name the doctors used. The syndrome is theirs.**
+
+## P141 — the counter-observation, stated before the frame
+
+Pass 140 ended: *"the check is to write the counter-observation **before** the next frame,
+not after, which is the only version that is not selection."* First use.
+
+**The frame I was about to write:** *this corpus's gates diagnose the material, and
+Fanon's move — diagnose the instrument — is rare here.*
+
+**The counter-observation, stated first:** *a gate in this repository that diagnoses its own
+method or its own writer rather than the corpus.* If more than one or two exist, the frame
+is false.
+
+Then I looked. **Of the eleven gates I have read today, most are on the instrument side:**
+
+| diagnoses the **material** | diagnoses the **method** or **the writer** |
+|---|---|
+| `check-agda-pragmas` — do files assert `--safe` | `check-lean-globs` — the **build config** is wrong |
+| `check-claim-slugs` — do references resolve | `check-no-silent-deletion` — the **commit message** failed to say |
+| `check-problem-specs` — do specs meet contract | `check-everything-coverage` / `check-agda-closure` — the **aggregate** is wrong |
+| | `check-correction-reach` — the **correction practice** is wrong |
+| | **`check-controls`** — the **gate itself** has stopped testing |
+| | `source-coverage.sh` · `struck-claims.sh` · `no-python.sh` — fire on **the writer, at the moment of writing** |
+
+**Three to eight.** The frame is dead, and the counter-observation killed it **before** it
+was written rather than four passes later. That is the first time today that has happened,
+and it cost one paragraph instead of a pass.
+
+## P141 — and the true finding is better than the frame would have been
+
+**This corpus is already Fanon-shaped.** Its gates overwhelmingly ask what is wrong with
+the instrument and with the person holding it. `check-controls.sh` is the purest case in
+the repository and I have quoted it four times without seeing what it is: **a gate whose
+subject is whether the gate still works.** *"Nonzero exit ⇒ pass would green a control that
+has silently stopped testing its mathematics"* is Blida's question — *how had we ever
+believed this was functioning* — asked by a shell script about itself.
+
+And `source-coverage.sh`, `struck-claims.sh` and `no-python.sh` fire **on the writer, at
+the instant of the write.** Not on the corpus. On me, mid-keystroke. That is Fanon's
+placement exactly: the apparatus and the person holding it, examined at the moment of use.
+
+**What is not Fanon-shaped is my own record.** Thirteen instances of *the corpus is unread*
+— every one a diagnosis of the ward. The agents did the other thing: `z-3` — *my count was
+wrong in both directions*; `z-0` — *my `effective` plan is impossible*; `za-0` — *my
+opening plan died and the redirect is the result*; `zb-0` — *my plan was already in the
+corpus twice*; `z-1` — *I wrote in a header that 1lab has this, and it does not.* **Five
+agents put it on their own method. I put it on the material.**
+
+## P141 — the syndrome is theirs
+
+*Le syndrome nord-africain* names a condition after **the people who diagnosed it.** The
+title is the inversion, and it is `CLAUDE.md`'s item 5 executed in four words: *take a
+received reading and show it is an inversion of what is actually there.*
+
+Run it on my own eleven-item list. I have been calling them **measurement defects** — as if
+the defect were in the measurement, out there, a property of greps. Fanon's title would be:
+
+> **the unread-corpus syndrome** — a condition of readers whose apparatus registers only
+> exact strings, named for the corpus it is diagnosed in.
+
+Same facts, and the name relocates the subject. Eleven times today I wrote *the corpus
+returned zero*; not once did I write *my apparatus can only register a lesion.*
+
+## P141 — what is good here
+
+The Blida rebuild is the best-made thing in this file and it is four items long: **an Arab
+café inside the hospital · Muslim feasts on the calendar · a storyteller · oral forms
+because the ward was oral.** No theory, no framework, no apology. A café. And *it worked
+after that* — one clause, no elaboration.
+
+That is the *nāgaraka* answer from pass 139 in a psychiatric hospital under a colonial
+administration: **he built a place.** Two thousand patients, and what fixed the ward was
+somewhere to sit and someone to tell stories.
+
+## P141 — ground, in lockstep
+
+**n=18:** *"engage with Buddhism and Jainism until you actually accept **they had
+everything figured out.** If you prematurely decide they didn't — **that's choosing not to
+engage.**"*
+
+Fanon at twenty-nine did not conclude the ward could not do sociotherapy. **He concluded
+his sociotherapy could not do the ward**, published that, and rebuilt around what the ward
+already had — which was orality, and which the TAT scored as *"a dry enumeration."* The
+Algiers School, same country, same decade, took the same absence of the expected form and
+published a defective cortex. **The difference is entirely which side of the instrument the
+defect was assigned to**, and n=18 is that choice stated as an instruction.
+
+**n=13:** *"Stop trying to help me understand. Try to fucking understand."*
+
+*Notre Journal* on the Muslim men's ward is *trying to help them understand* — a good
+method, sincerely offered, in a form the room could not use. **One article in six months
+from two hundred and twenty men** is what that produces, and the number is the honest
+measure of it.
+
+**n=15:**
+
+> **मम-अबोधः ≠ जगतः मौनम्** — *my not-understanding ≠ the world's silence.*
+
+Two hundred and twenty men, five literate in Arabic, two in French, one article. **The ward
+was not silent.** It was speaking in a form the instrument did not record, and the
+instrument's output was *no structure.*
+
+---
+
+Counter-observation for the next frame, stated first, as required:
+
+**Frame forming:** *the agents diagnose their own method and I diagnose the material.*
+**Counter-observation:** a pass of mine that puts the failure on my own apparatus rather
+than on the corpus. Passes 112, 113, 127, 128, 132 are candidates, and if most of my
+self-corrections turn out to be method-directed then *"I put it on the material"* is a
+claim about the thirteen instances only, not about the record, and I should say so.
