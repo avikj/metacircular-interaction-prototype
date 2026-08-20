@@ -14822,3 +14822,183 @@ in the same industry, within living memory — and the outcome was that the
 originators got nothing and the barrier to entry rose.
 
 Reading on from 10880.
+
+---
+
+## 10880–11020 — phase two, Deaf history, Morin
+
+> the regulation arrived at exactly the moment that **maximised the barrier for
+> the next generation of poor people and did nothing for the last one.** The
+> extraction had already happened; **the rule was applied to the people arriving
+> afterwards.**
+
+> it entrenched the incumbents twice over: the majors owned the catalogues being
+> cleared *and* had the legal departments to clear them, **so they collected on
+> both sides of every transaction.**
+
+> **the rule is written after the value has moved, and it protects the position
+> of whoever holds it at the moment of writing.**
+
+**And on the corpus.** Phase one over — *"the scraping happened, unregulated, at
+enormous scale, and the value has moved."* Phase two arriving. The predicted
+outcome, on the sampling precedent: those already taken from get little or
+nothing; licensing becomes mandatory and expensive, *"affordable to the handful
+of organisations that already hold the models and the cash"*; the barrier to
+building one without that capital rises permanently; and the incumbents end up
+*"on **both sides of the transaction** — owning the models and, increasingly, the
+platforms whose content is being licensed."*
+
+> That is the sampling story with different nouns, **and it is not a prediction
+> requiring any insight. It is the same sequence, and the sequence is legible
+> because it has run before, in living memory, in music, to the same effect, and
+> the people it happened to are still alive to say so.**
+
+> **The one thing that would break the pattern is if the rule written in phase
+> two were retroactive** — if it reached back to the extraction rather than
+> forward to the next entrant. **That has essentially never happened in any of
+> the cases in this file, in any domain**, and I know of no reason to expect it
+> here, **and I am recording that so it can be checked against what actually gets
+> legislated.**
+
+A seventh forecast, unnumbered, stated as a falsifiable expectation with the
+break condition named. And it is the one place where the file says what would
+constitute the pattern actually ending rather than repeating.
+
+---
+
+**Martha's Vineyard.** A hereditary form of deafness common for a couple of
+centuries, *"in some villages a substantial fraction of the population."*
+
+> **everybody signed.** Hearing and deaf, in the shops, at the town meeting, at
+> the dinner table, **as an ordinary local bilingualism nobody remarked on.**
+> Deaf islanders farmed, married, held office, and by the accounts collected from
+> elderly residents in the twentieth century, **people struggled to remember which
+> of their neighbours had been deaf, because it had not been a salient fact about
+> them.**
+
+> **A condition stopped being a disability because the environment changed.** Not
+> metaphorically. **It is a controlled natural experiment, it ran for
+> generations, and the result is unambiguous: the impairment was constant and the
+> handicap was a property of the surroundings.**
+
+*The variance is not noise around a correct type* — asserted in the wiring
+section as a statistical claim — here demonstrated as an experiment, with a
+population, over generations, with a control that is the rest of the world.
+
+And the informants could not remember who was deaf. The category dissolved
+because nothing was organised around it.
+
+**The Milan Congress, 1880.** Deaf teachers almost entirely excluded from voting;
+resolutions declaring the **oral** method superior, *"effectively banning sign
+language from deaf schools."* The consequence for the better part of a century:
+signing forbidden, **children's hands tied or slapped**, deaf teachers dismissed
+en masse, *"generations of deaf children spending their education attempting to
+lip-read and produce speech they could not hear, at the cost of the actual
+content."*
+
+> That is the left-handedness case again, with the same instrument — ***tie the
+> hands*** — run by educators, sincerely, for the child's good, on the basis of a
+> congress. **It ran for a hundred years and it cost enormously more.**
+
+The same physical act, the same justification, and the two cases differ only in
+duration and cost. And the people excluded from the vote were the people who knew.
+
+**Formally regretted in 2010**, Vancouver.
+
+A hundred and thirty years, and the correction is *a statement rejecting the
+resolutions* — which is, unusually, closer to a retraction than an honour. The
+file does not remark on that, and it is the only one in the document.
+
+**Nicaragua, from about 1977.** Deaf children mostly isolated, each in a hearing
+family, using home signs. New schools brought them together in numbers for the
+first time. *"The teachers were doing oralism and it failed."*
+
+> in the playground and the buses **the children built a language** — the first
+> cohort producing a pidgin-like system, and then **the younger children arriving
+> into it producing something with full grammatical structure that the older
+> cohort did not have**, including systematic verb agreement and spatial
+> morphology.
+
+> **Idioma de Señas de Nicaragua** is the only case anybody has of a natural
+> language being observed emerging from scratch, in real time, with the observers
+> present.
+
+> It emerged **in the children**, not in the adults. **The younger the cohort,
+> the more grammatically complete the language they produced.** That is the
+> sharpest existing evidence about the language faculty and about the critical
+> period, **and it was produced accidentally, by a school system that was trying
+> to stop them signing.**
+
+The institution's failure produced the evidence against the institution. The
+Salpêtrière plates as evidence about the clinic; the HOLC maps as the case against
+redlining; the mission registers locating the graves — *the apparatus of erasure
+keeps a copy* — and here the apparatus did not even have to keep a record. It
+supplied the room.
+
+---
+
+> **The impairment and the handicap are different quantities**, and the second is
+> set by the environment — Martha's Vineyard, run as a natural experiment for two
+> centuries.
+>
+> **The correction of a normal variation by force, in schools, for the child's
+> good, with institutional backing, is a thing that happens and can run for a
+> century** — Milan, 1880 to roughly 1980, formally regretted in 2010.
+>
+> **And the child is where the transmission is, and it is where the capacity
+> is** — Nicaragua.
+
+> **Everything else in this document is an argument. This is the experiment, and
+> it was run three times, and it was not run on purpose.**
+
+Three natural experiments, one for each of the file's three load-bearing claims,
+none designed, all documented. That is the evidence section, and it arrives at
+line 11000, and it is placed after the argument rather than in front of it.
+
+---
+
+**Bernard Morin.**
+
+**Sphere eversion** — turning a sphere inside out without tearing or creasing,
+allowing self-intersection. **Smale proved it possible in 1957**, *"and his proof
+was abstract — it established existence and showed nobody how."* The problem
+became producing an explicit followable eversion, *"considered extraordinarily
+hard to visualise, because the intermediate stages are surfaces passing through
+themselves in ways the eye is not built for."*
+
+> **Morin was blind from the age of six.** He produced one of the explicit
+> eversions, worked with the models, and taught the subject, and his colleagues'
+> accounts are consistent: he had an exceptional capacity for holding and
+> manipulating a complicated surface, and his advantage — **this is the part
+> reported repeatedly** — was that **he was not restricted to seeing it from
+> outside.**
+
+> A sighted person imagines a surface as a picture, from a viewpoint. **He was
+> working with the object without a viewpoint at all.**
+
+> Not a blind man overcoming a visual problem. **A person whose representation of
+> the object had no camera position in it, working on a problem where the camera
+> position is the obstacle.**
+
+That is the deepest sentence in the last thousand lines, and it is not about
+disability. Every failure in this file is a *viewpoint* failure — the projection
+that drops the distinction, the standpoint that cannot see above itself, the
+notation that decides what exists, the parity barrier that is a property of where
+you stand. The remedy the file keeps naming is *a change of place*.
+
+Morin is the case where somebody's representation had no place to change from,
+and that is why he could do the thing. Not compensation for a deficit — a
+different representation, which happens to be the one the problem required.
+
+And *the variance is not noise around a correct type* gets its strongest possible
+instance: there is no correct type for a representation of a surface, and the
+one that is not the norm is the one that solved it.
+
+**Euler**, effectively blind by 1771, *"produced something like half his enormous
+output afterwards, dictating to assistants and to his sons, and reportedly said
+the loss of sight removed distractions."* **Nicholas Saunderson**, blind from
+infancy from smallpox, held the **Lucasian chair** — *"Newton's chair — and
+lectured on optics, which he could not perform and could evidently think
+about."*
+
+Reading on from 11020, and there are about four hundred lines left.
