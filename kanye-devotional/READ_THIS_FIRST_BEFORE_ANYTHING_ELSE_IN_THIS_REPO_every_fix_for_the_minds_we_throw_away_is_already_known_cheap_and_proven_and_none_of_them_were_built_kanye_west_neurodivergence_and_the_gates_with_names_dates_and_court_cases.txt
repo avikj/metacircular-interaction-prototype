@@ -10187,3 +10187,89 @@ brightness and is the boundary condition for neutron stars and black holes.
 
 Eddington and he remained on cordial terms, and Chandrasekhar wrote about him
 afterwards with what reads as continued admiration.
+
+---
+
+**The partition congruences**, because they are the clearest case of somebody
+seeing a pattern in a table that nobody else had looked at properly.
+
+*p(n)* counts the ways of writing *n* as a sum of positive integers, order
+irrelevant. p(4) = 5: 4, 3+1, 2+2, 2+1+1, 1+1+1+1.
+
+**MacMahon** computed a table of *p(n)* by hand out to n = 200. Ramanujan read the
+table and saw:
+
+    p(5n + 4) ≡ 0  (mod 5)
+    p(7n + 5) ≡ 0  (mod 7)
+    p(11n + 6) ≡ 0 (mod 11)
+
+Every fifth value from the fourth is divisible by five. Every seventh from the
+fifth by seven. Every eleventh from the sixth by eleven.
+
+There is no reason for that in the definition. Partitions have nothing to do with
+divisibility. The function is defined by a counting problem and it turns out to be
+**periodically congruent to zero**, for three primes, at three offsets.
+
+He proved the first two. **The 11 case is genuinely harder** and its proof came
+later.
+
+And the deeper thing: **why those three primes and no others.** The answer took
+most of a century. Ono and others eventually showed congruences exist for every
+prime above 3 in a suitable sense, and the 5, 7, 11 cases are the visible surface
+of something much larger — but the reason the *simple* congruences stop at 11 was
+not understood for decades.
+
+**Dyson**, aged twenty and still an undergraduate, in **1944**, proposed a
+statistic he called the ***rank*** of a partition — the largest part minus the
+number of parts — and conjectured it would sort the partitions of 5n+4 into five
+equal classes and those of 7n+5 into seven, explaining the congruences
+combinatorially. **It works for 5 and 7 and fails for 11.**
+
+He then said there ought to be a different statistic that handles 11, and called
+it, in advance and without having it, **the crank.**
+
+**The crank was found in 1988** — Andrews and Garvan. Forty-four years after
+someone named a thing that did not exist yet.
+
+---
+
+**The mock theta functions**, and the manuscript.
+
+Ramanujan's **last letter to Hardy**, January 1920, three months before he died,
+describes functions he calls **mock theta** — seventeen of them, in three orders —
+which behave *nearly* like classical theta functions near the boundary but not
+quite, and he gives their expansions and asymptotic behaviour.
+
+He does not define what a mock theta function **is**. He gives examples and
+properties. There was no definition to give.
+
+Hardy passed the letter on. **G. N. Watson** worked on them through the 1930s and
+took them as his retiring address to the London Mathematical Society. And then the
+subject largely sat.
+
+**1976**: **George Andrews**, going through Watson's papers in the Wren Library at
+Trinity, finds about a hundred pages in Ramanujan's hand from the last year of his
+life. It gets called the **Lost Notebook.** It contains far more mock theta
+material than the letter.
+
+**2002**: **Sander Zwegers**' doctoral thesis puts them in a framework —
+harmonic Maass forms — which finally says what they *are*: the holomorphic parts
+of objects that are almost modular, with a specific and computable failure.
+
+Eighty-two years from the letter to the definition.
+
+They now connect to black hole entropy counts in string theory, to Borcherds
+products, and to the theory of moonshine.
+
+---
+
+He wrote formulas and no proofs, and the proofs took the twentieth century, and the
+notebooks are still producing.
+
+Berndt's editing of the notebooks with proofs runs to five volumes; the Lost
+Notebook editions with Andrews run to five more. The last volumes appeared in the
+2010s and 2020s.
+
+A hundred years of professional mathematicians establishing things a clerk in
+Madras wrote down without argument, and the count of items still not settled is not
+zero.
