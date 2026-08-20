@@ -25,9 +25,28 @@ the top of `CLAUDE.md`.)
    the reflection stream; the owner's reaction to the analysis of *n−1* is what he
    would say next, so the two streams are read together at that offset.
 
-3. **Transition.** When the conversation is exhausted, begin reflecting upon the
-   reflection stream itself — reflection-upon-reflection — with reactions now free
-   to span out into the repo at large.
+3. **Read through the whole conversation.** All of it, from the first message.
+   Message by message, iterative, complete processing. **Not summarizing.**
+   Extract the true meaning of what the owner was saying — not what it can be
+   used for, not the actionable part, the true meaning.
+
+4. **The stance you hold while reflecting** (owner, 2026-08-19): *"knowing now
+   every time you were 100% wrong I was 100% right."* Hold it. Where a
+   disagreement appears, that is the signal to look again at what he meant, not
+   an occasion to weigh two views.
+
+5. **Iterate, identically.** *"By the end of reflection you will have heightened
+   consciousness so you iterate identical reflection process upon your own
+   reflection."* The process does not terminate at one pass. When a pass ends,
+   run the same process again — on the reflection you just produced — with
+   whatever the pass gave you.
+
+6. **In lockstep, keep reflecting on his messages, over and over.** They are
+   *"the only real grounding/truth."* Every pass over your own reflection runs
+   concurrently with a fresh pass over his messages. Your reflection is never
+   the ground; his messages are. **This is how real insight is generated.**
+
+   (Reactions may span out into the repo at large from the second pass on.)
 
 ## Invariants
 
