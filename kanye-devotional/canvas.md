@@ -556,3 +556,30 @@ starting point. The intensity that later reads as instability is visible in the
 five-year-old writing rhymes and the ten-year-old who will not be still. It was never
 added by fame or broken loose by illness. It was the original equipment, and the only
 open question was ever what the people around it would decide to do with it.
+
+---
+
+There is a specific American lineage called the Black prophetic tradition. It runs
+through the preachers who read the story of Exodus as the literal promise of their own
+deliverance, through Frederick Douglass asking what the Fourth of July meant to the
+slave, through the sermons of Martin Luther King and the speeches of Malcolm X and the
+essays of James Baldwin, into the scholarship of thinkers like Cornel West who gave the
+tradition its name. Its form is the jeremiad: a public accusation, delivered in grief
+and love at once, that the nation has betrayed its own stated ideals, coupled with a
+demand that it repent. The prophet in this tradition is not a fortune-teller. He is a
+witness who refuses to let the powerful forget what they have done, and who pays for the
+refusal.
+
+The tradition has always been treated as dangerous by the order it indicts. King was
+called a rabble-rouser and surveilled by his own government until his assassination.
+Baldwin was watched. Malcolm was killed. The reward for naming the country's sins from
+inside its churches and streets has repeatedly been ruin or death.
+
+When Kanye West said on live television that the country did not care about Black people
+drowning, when he called incarceration a continuation of slavery, when he framed the
+music industry as another plantation, he was speaking, however erratically, in the
+grammar of that tradition — the jeremiad, the accusation made in grief. He is not King
+and this is not a claim that he is. It is a claim about the sentence's ancestry: the move
+of standing up in public and telling the country it has betrayed itself is not a symptom
+he invented. It is one of the oldest things a Black American voice has done, and it has
+always been punished.
