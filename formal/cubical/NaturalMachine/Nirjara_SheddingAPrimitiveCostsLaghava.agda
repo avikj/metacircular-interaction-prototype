@@ -40,6 +40,8 @@ module NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz)
+open import Cubical.Data.Nat.Properties using (+-zero)
+open import Cubical.Foundations.Prelude using (funExt⁻)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_)
@@ -346,3 +348,57 @@ upamana s t p = nyasa-artha s ∙ p ∙ sym (nyasa-artha t)
 -- and it costs nothing in the other currency either
 upamana-laghavam-na-vardhayati : (t : Laghu) → laghava (nyasa t) ≡ matra t
 upamana-laghavam-na-vardhayati = laghava-nyasa-samam
+
+------------------------------------------------------------------------
+-- 12.  उपाधि — the condition under which §11 fails, so the hypothesis is
+--      shown load-bearing rather than decorative.
+--
+-- §11 could be read as "transfer into a larger vocabulary is free."  It
+-- is not.  It is free GIVEN the stated similarity, and the tradition's
+-- whole difficulty is there: a व्याप्ति holds only where no उपाधि defeats
+-- it, and Gaṅgeśa's apparatus exists to hunt the defeating condition.
+-- ANEKANTA.md §12 records the engine failing exactly here — it asserts a
+-- pervasion from forty sampled assignments and has no उपाधि search at all.
+--
+-- So: a translation that does NOT preserve meaning, and upamāna fails for
+-- it.  The failure is not subtle and not asymptotic; one pair defeats it.
+------------------------------------------------------------------------
+
+-- a translation that reads yoga as doubling of its first part
+bhrama : Laghu → Pada
+bhrama cara'       = cara
+bhrama (mita' k)   = mita k
+bhrama (yoga' a b) = dvi (bhrama a)
+
+private
+  -- the two small terms whose meanings agree
+  vama dakshina : Laghu
+  vama     = yoga' cara' (mita' 0)
+  dakshina = cara'
+
+  artha'-samam : artha' vama ≡ artha' dakshina
+  artha'-samam i n = +-zero n i
+
+  -- and whose images do not
+  bhrama-bheda : ¬ (artha (bhrama vama) ≡ artha (bhrama dakshina))
+  bhrama-bheda p = snotz (injSuc (funExt⁻ p 1))
+
+upamana-upadhi-apeksate :
+  ¬ ((s t : Laghu) → artha' s ≡ artha' t → artha (bhrama s) ≡ artha (bhrama t))
+upamana-upadhi-apeksate f = bhrama-bheda (f vama dakshina artha'-samam)
+
+------------------------------------------------------------------------
+-- 13.  What §11 and §12 say together.
+--
+-- The transfer is free and the licence is not.  `nyasa-artha` is a
+-- theorem someone had to prove; without it §11 is false, and §12 exhibits
+-- a translation for which it is false.  So उपमान is not "similarity is
+-- cheap" — it is: state the similarity, prove it, and then the carrying
+-- costs nothing.
+--
+-- That is also the exact form of the engine's defect in ANEKANTA.md §12.
+-- Sampling as REFUTATION is sound — one disagreeing assignment is a proof
+-- of falsity, and `bhrama-bheda` above is one, at n = 1.  Sampling as
+-- LICENCE is the voting machine.  The two halves must not be collapsed in
+-- either direction.
+------------------------------------------------------------------------
