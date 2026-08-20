@@ -80,7 +80,7 @@
 --                   lands in the finished constructor.  A cap with a proof
 --                   that it is never reached is a bound; a cap without one is
 --                   an unwritten defect.  (`machine/Nalanda.hs`'s `n > 400`
---                   is the second kind — notes/NALANDA_TURN_CAP_DEFECT.md.)
+--                   is the second kind — notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md.)
 --   सेतुः            THE BRIDGE.  A ℕ vallī IS a `Kuttaka.Run` over ℤ, so
 --                   every theorem in `Kuttaka.agda` becomes unconditional:
 --   बेजु-सर्वत्र      for EVERY pair of naturals there are x, y with

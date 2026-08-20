@@ -51,6 +51,8 @@ module Nalanda
   , tulya
   , compose
   , cakravala
+  , cakravalaCapped
+  , turnCap
   , shortcut
   , chooseM
   , chain
@@ -158,9 +160,28 @@ isqrt n
 --
 -- The congruence is  a + b*m = 0  (mod |k|),  i.e.  m = -a * b^{-1}.  The
 -- kuttaka supplies the inverse.  Then walk the residue class and take the
--- member minimising |m^2 - D|; the minimiser is adjacent to sqrt D, so a
--- short window around it is exhaustive rather than sampled -- the window is
--- checked in `selfTest` by re-running with a wider one and comparing.
+-- member minimising |m^2 - D|.
+--
+-- THE WINDOW, CORRECTED 2026-08-20.  This comment used to justify the
+-- truncation like this: "the minimiser is adjacent to sqrt D, so a short
+-- window around it is exhaustive rather than sampled -- the window is checked
+-- in `selfTest` by re-running with a wider one and comparing."  The first
+-- clause is a theorem and the second is a measurement standing in for it, and
+-- per CLAUDE.md a comparison of two runs over six values of D has no content.
+-- It was also not testing what it said: `cakravalaWide` still carried the
+-- |k| = 1 branch that `CakravalaBound.agda` §7 refuted, so the two functions
+-- differed in their CHOICE RULE and not only in their window width, and both
+-- rules reach the fundamental solution because any m satisfying the congruence
+-- descends.  Both are repaired; see
+-- notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md §6.
+--
+-- The window is now DERIVED, in
+-- `formal/cubical/Varana_TheChoiceWindowIsDerivedNotFitted.agda`: below sqrt D
+-- the larger candidate is the better one and above it the smaller one is, so
+-- given a bracketing pair the minimiser over the class is one of the two, and
+-- the class has no member strictly between them.  A window of +/-1 is
+-- exhaustive.  The +/-2 kept below is therefore a MARGIN of three candidates
+-- over what the argument needs -- stated, rather than hoped for.
 -- CORRECTED 2026-08-18, by `formal/cubical/CakravalaBound.agda` §7.
 --
 -- This read:
@@ -236,11 +257,48 @@ shortcut d t@(Triple a b k)
     halveBy q (Triple a' b' k') =
       Triple (abs a' `div` q) (abs b' `div` q) (k' `div` (q * q))
 
+-- THE TURN CAP, and what it is standing in for.
+--
+-- The loop needs a stopping condition and termination of the cakravala is
+-- OPEN -- `formal/cubical/CakravalaBound.agda` says so in its own words:
+-- "TERMINATION IS STILL OPEN.  A bound on |k| is not termination."  Until
+-- 2026-08-20 the constant `400` stood there instead, derived from nothing.
+--
+-- IT WAS WRONG, and the failing case is D = 73516, which needs 441 turns and
+-- on which the reactor returned `Left "no convergence in 400 turns"` while the
+-- solution exists.  73516 is the SMALLEST such D -- every D from 2 to 73516
+-- was run with the cap lifted and the turn counts compared, exact Integer
+-- arithmetic throughout -- and 1370 values of D <= 200000 exceed 400 turns,
+-- the worst being 744 turns at D = 195196.  A constant cap cannot be right in
+-- any case: the turn count tracks the period of the continued fraction of
+-- sqrt D, which grows like sqrt D.  That is HOLOGRAM.md section 7 exactly --
+-- a constant measured at one scale hiding its scaling.  The whole record is
+-- notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md.
+--
+-- WHAT REPLACES IT.  `turnCap d = 2 * d`, which is the classical count of
+-- reduced surds of discriminant 4D -- the pairs (P, Q) with 0 < P < sqrt D and
+-- 0 < Q < 2 sqrt D -- and so bounds the period of the continued fraction of
+-- sqrt D, of which the cakravala's cycle is a sub-walk.  NEITHER of those two
+-- classical facts is checked in this repository, so this is a bound modulo two
+-- named unproved inputs.  That is strictly better than a bound modulo nothing,
+-- and it is stated as what it is rather than presented as settled.  Making it
+-- checked means putting the finiteness of reduced forms of a given
+-- discriminant into `formal/cubical/`, which is also most of what
+-- `CakravalaBound.agda` names as missing for termination itself.
+turnCap :: Integer -> Int
+turnCap d = fromInteger (2 * d)
+
 -- THE REACTOR.  Seed with the trivial triple and turn until the norm is 1.
 -- Returns the whole trace, so every intermediate is auditable and the run
 -- is not a number that must be trusted.
 cakravala :: Integer -> Either String [Triple]
-cakravala d
+cakravala d = cakravalaCapped (turnCap d) d
+
+-- The same reactor with the cap supplied by the caller, because a resource
+-- limit that a caller cannot see or change is a limit that lies about being a
+-- theorem.  `cakravala` is this with the derived default.
+cakravalaCapped :: Int -> Integer -> Either String [Triple]
+cakravalaCapped cap d
   | d < 2 = Left "cakravala: D must be at least 2"
   | isqrt d * isqrt d == d = Left "cakravala: D is a perfect square"
   | otherwise = go (Triple a0 1 (a0 * a0 - d)) (0 :: Int) []
@@ -256,7 +314,29 @@ cakravala d
       -- broke the form would be caught here rather than trusted.
       | Just u <- shortcut d t, verify d u, tK u == 1
         = Right (reverse (u : t : acc))
-      | n > 400   = Left ("no convergence in 400 turns; last " ++ show t)
+      -- THE REMAINDER.  A truncated run that reports only "no convergence"
+      -- has thrown away everything it did reach -- and what it reached is not
+      -- nothing: every norm on the trace is a SOLVED equation x^2 - D y^2 = k
+      -- (see `spectrum`), which is the whole point of the section below.  The
+      -- ahimsa sutra's section 8 -- what states its remainder does not
+      -- collapse -- is the same discipline this corpus learned on Madhava's
+      -- series, where a truncated series with a quantified remainder is an
+      -- algorithm and a truncated series alone is a curiosity.  So the
+      -- failure names the turn, the cap, the state it stopped on and the
+      -- norms already solved.  The checked analogue is `shesha-valli` in
+      -- formal/cubical/KuttakaSamapti_TheValliIsFiniteForEveryPair.agda,
+      -- where the result type has no constructor for a truncated run without
+      -- its remainder.
+      | n > cap = Left ("cakravala: cap of " ++ show cap
+                        ++ " turns reached at turn " ++ show n
+                        ++ " for D = " ++ show d
+                        ++ "; NOT REACHED: k = 1."
+                        ++ "  Remainder -- last triple " ++ show t
+                        ++ "; norms already solved (each a solution of"
+                        ++ " x^2 - D y^2 = k) " ++ show (map tK (reverse (t : acc)))
+                        ++ ".  The cap is a resource limit, not a termination"
+                        ++ " theorem: see"
+                        ++ " notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md.")
       | otherwise = case step d t of
           Nothing -> Left ("congruence unsolvable at step " ++ show n
                            ++ ": " ++ show t)
@@ -325,11 +405,29 @@ selfTest = do
     putStrLn "     equation, and bhavana makes each one an infinite family --"
     beyond <- mapM beyondReport [61, 109]
     putStrLn ""
-    putStrLn "  -- the choice window is exhaustive, not sampled: rerunning"
-    putStrLn "     every case with a window of +/-6 gives the same answers --"
-    let wide = all wideAgrees classical
-    putStrLn ("     window-independent: " ++ show wide)
-    pure (and rs && and gen && and beyond && wide)
+    putStrLn "  -- the choice window: DERIVED in"
+    putStrLn "     formal/cubical/Varana_TheChoiceWindowIsDerivedNotFitted.agda"
+    putStrLn "     (+/-1 is exhaustive; chooseM's +/-2 is a stated margin).  The"
+    putStrLn "     run below is a regression guard, not the justification, and"
+    putStrLn "     it compares the m CHOSEN AT EVERY TURN -- comparing final"
+    putStrLn "     answers has no content, since any m satisfying the"
+    putStrLn "     congruence descends to the same fundamental solution --"
+    let wide = all widthAgrees classical
+    putStrLn ("     choices agree at widths 1, 2, 6: " ++ show wide)
+    putStrLn ""
+    putStrLn "  -- the turn cap is a resource limit and NOT a termination"
+    putStrLn "     theorem: D = 73516 needs 441 turns and the old constant cap"
+    putStrLn "     of 400 returned Left on it.  See"
+    putStrLn "     notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md --"
+    let capOk = case cakravalaCapped 400 73516 of
+                  Left _  -> True     -- the old cap does fail, as recorded
+                  Right _ -> False
+        capFixed = case cakravala 73516 of
+                     Left _   -> False
+                     Right tr -> let t = last tr in verify 73516 t && tK t == 1
+    putStrLn ("     old cap 400 fails at D=73516: " ++ show capOk
+              ++ "; derived cap succeeds: " ++ show capFixed)
+    pure (and rs && and gen && and beyond && wide && capOk && capFixed)
   where
     -- (D, expected a, expected b) as the tradition records them
     classical =
@@ -388,38 +486,69 @@ selfTest = do
                              three)
               pure (allOk && famOk)
 
-    wideAgrees (d, ea, eb) = case cakravalaWide d of
-      Left _ -> False
-      Right t -> tA t == ea && tB t == eb && tK t == 1
+    -- the m selected at every turn must not depend on the window width.
+    -- Widths 1, 2 and 6 must give the identical sequence of choices; that is
+    -- the claim the width makes, and it is what `Varana_...agda` proves.
+    widthAgrees (d, _, _) =
+      let c1 = choicesAtWidth 1 d
+          c2 = choicesAtWidth 2 d
+          c6 = choicesAtWidth 6 d
+      in c1 == c2 && c2 == c6 && c1 /= Nothing
 
     pad n s = s ++ replicate (max 0 (n - length s)) ' '
 
--- The same reactor with a deliberately wider choice window, used only to
--- check that the narrow one is not quietly truncating the search.  If these
--- ever disagree the narrow window is wrong and `selfTest` says so.
-cakravalaWide :: Integer -> Either String Triple
-cakravalaWide d = go (Triple a0 1 (a0 * a0 - d)) (0 :: Int)
+-- The same reactor with a wider choice window, used to check that the narrow
+-- one is not quietly truncating the search.
+--
+-- REPAIRED 2026-08-20, and the repair matters more than the function.  This
+-- carried
+--
+--     if n == 1 then Just (isqrt d) else do
+--
+-- which is the branch `formal/cubical/CakravalaBound.agda` §7 refuted on
+-- 2026-08-18 and which was removed from `chooseM` in that same commit.  So the
+-- two functions `selfTest` compared differed in their CHOICE RULE and not only
+-- in their window width, and both rules reach the fundamental solution because
+-- any m satisfying the congruence descends.  The check therefore passed while
+-- testing nothing whatever about the window: it compared final answers, which
+-- agree for any valid rule, using a rule that had already been proved wrong.
+--
+-- It now differs from `chooseM` in the window width and in nothing else, and
+-- `selfTest` compares the m SELECTED AT EVERY TURN rather than the final
+-- answer -- which is the only comparison that has content, since the final
+-- answer is insensitive to the choice.
+--
+-- And the comparison is no longer the justification.  The window is DERIVED in
+-- `formal/cubical/Varana_TheChoiceWindowIsDerivedNotFitted.agda`: +/-1 is
+-- exhaustive, so the +/-2 in `chooseM` is a stated margin.  This function is
+-- now a regression guard against an edit to `chooseM`, not evidence for it.
+chooseMWindow :: Integer -> Integer -> Triple -> Maybe Integer
+chooseMWindow w d (Triple a b k) = do
+  let n = abs k
+  bi <- inverseMod b n
+  let r  = ((- a) * bi) `mod` n
+      t0 = (isqrt d - r) `div` n
+      cands = [ r + t * n | t <- [t0 - w .. t0 + w], r + t * n >= 0 ]
+  if null cands
+    then Nothing
+    else Just (minimumBy (comparing (\m -> abs (m * m - d))) cands)
+
+-- the m selected at each turn, under a given window width.  Comparing THESE
+-- across widths is the check; comparing final answers is not.
+choicesAtWidth :: Integer -> Integer -> Maybe [Integer]
+choicesAtWidth w d = go (Triple a0 1 (a0 * a0 - d)) (0 :: Int) []
   where
     a0 = isqrt d
-    go t n
-      | not (verify d t) = Left "invariant broken"
-      | tK t == 1 = Right t
-      | n > 400 = Left "no convergence"
-      | otherwise = case stepWide t of
-          Nothing -> Left "congruence unsolvable"
-          Just t' -> go t' (n + 1)
-    stepWide t@(Triple a b k) = do
-      m <- chooseMWide t
-      let n = abs k
-      pure (Triple (abs ((a * m + d * b) `div` n))
-                   (abs ((a + b * m) `div` n))
-                   ((m * m - d) `div` k))
-    chooseMWide (Triple a b k) = do
-      let n = abs k
-      if n == 1 then Just (isqrt d) else do
-        bi <- inverseMod b n
-        let r  = ((- a) * bi) `mod` n
-            t0 = (isqrt d - r) `div` n
-            cands = [ r + t * n | t <- [t0 - 6 .. t0 + 6], r + t * n >= 0 ]
-        if null cands then Nothing
-          else Just (minimumBy (comparing (\m -> abs (m * m - d))) cands)
+    go t n acc
+      | tK t == 1 = Just (reverse acc)
+      | n > turnCap d = Just (reverse acc)   -- the cap's remainder is the
+                                             -- caller's problem here; this
+                                             -- function reports choices only
+      | otherwise = case chooseMWindow w d t of
+          Nothing -> Nothing
+          Just m ->
+            let q  = abs (tK t)
+                t' = Triple (abs ((tA t * m + d * tB t) `div` q))
+                            (abs ((tA t + tB t * m) `div` q))
+                            ((m * m - d) `div` tK t)
+            in go t' (n + 1) (m : acc)

@@ -587,6 +587,12 @@ import BhavanaGenerative
 -- the cakravāla step, and why Bhāskara needs only ONE congruence.
 import CakravalaDescent
 
+-- and the width of Bhāskara's m-choice window, DERIVED rather than checked
+-- by re-running with a wider one — which is what `machine/Nalanda.hs` was
+-- doing, with a comparison function that carried the choice rule
+-- `CakravalaBound.agda` §7 had already refuted.  Pin-green, 2026-08-20.
+import Varana_TheChoiceWindowIsDerivedNotFitted
+
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka and Halāyudha: the
 -- mātrā recurrence and binary enumeration of metres.
 import Pingala
@@ -670,6 +676,8 @@ import Nirnaya_TheVerdictCannotDropItsWitness
 import Panini
 import PanktiYoga
 import PingalaGhata
+-- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
+import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
 import PingalaSatya
 import PrastaraPankti
