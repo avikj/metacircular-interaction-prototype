@@ -15818,3 +15818,81 @@ because the exertion itself was sound.
 **A legal system that grades the reasoning rather than only the answer**, and keeps
 four incompatible bodies of ruling live simultaneously, and calls the multiplicity
 the mercy rather than the defect.
+
+---
+
+**Ḥunayn ibn Isḥāq described his own method for producing a reliable text and it is
+textual criticism**, written down in the ninth century by the man doing it.
+
+**Ḥunayn** (809–873), a Nestorian Christian from al-Ḥīra, working in Baghdad,
+translating Greek medicine and philosophy into **Syriac and Arabic.**
+
+**His *Risāla*** — a letter listing the works of **Galen**, what he had translated,
+for whom, into which language, and **in what condition he found the manuscripts** —
+is one of the most detailed accounts of a translation programme anyone has left.
+
+**And the method he describes**: he did not translate from a single copy. He
+**collected manuscripts**, compared them, and where they disagreed he **collated to
+establish a text before translating it.** He describes travelling to find copies —
+to Syria, Palestine, Egypt — and failing to find some, and saying so.
+
+He describes **retranslating his own earlier work** when a better manuscript
+appeared, and describes his earlier versions as inadequate.
+
+**A translator publishing a critical apparatus about his own output, including its
+defects.**
+
+---
+
+**And the movement he was part of ran for two centuries and was state-funded.**
+
+Baghdad under the **Abbasids**, roughly **750 to 950.** Greek scientific,
+mathematical, medical and philosophical works translated into Arabic at scale —
+Aristotle, Galen, Hippocrates, Euclid, Ptolemy, Archimedes, Apollonius, Diophantus,
+Hero.
+
+**And Sanskrit works alongside them.** The ***Zīj al-Sindhind*** is an Arabic
+adaptation of an Indian *siddhānta*, produced after an Indian embassy reached
+al-Manṣūr's court around 771 — and **al-Khwārizmī's** own tables descend from it.
+
+**The *Barmakid* family**, viziers of Persian origin with Buddhist ancestry from
+Balkh, were among the principal patrons.
+
+***Bayt al-Ḥikma*** — the House of Wisdom — is the name that circulates for the
+institution, and **modern scholarship, notably Dimitri Gutas, has argued it was a
+library and translation bureau rather than the academy of the popular account**, and
+that the popular version is a later romance. The **translation movement itself is
+not in doubt**; the institution's shape is.
+
+---
+
+**And what came back is the fact the standard story reverses.**
+
+The Greek texts that reached medieval Europe reached it substantially **through
+Arabic**, and then through the twelfth-century translation work in **Toledo** and
+in **Sicily** — Gerard of Cremona alone is credited with something like **eighty**
+Latin translations from Arabic, including Ptolemy's *Almagest*, whose very title is
+Arabic: ***al-majisṭī***, from the Greek *megistē*, the greatest.
+
+**Aristotle came back to Latin Christendom via Arabic and via commentators writing
+in Arabic** — **Ibn Rushd**, Averroes, whose commentaries were so central that Latin
+scholastics called him simply **the Commentator**, as Aristotle was **the
+Philosopher.**
+
+**Some Greek works survive only in Arabic.** Books V through VII of Apollonius's
+*Conics* exist in Arabic and not in Greek. Several of Galen's works likewise.
+
+---
+
+**And Ḥunayn was paid.** The reports have him and his team compensated substantially
+— one account says by weight in gold against the finished manuscripts, which is
+probably a good story rather than a fact, and the underlying point that translation
+was **funded work with a budget** is not in doubt.
+
+**He also wrote his own books**, including on ophthalmology — *Ten Treatises on the
+Eye*, one of the earliest systematic ophthalmology texts — so the man collating
+Galen was also practising and adding.
+
+The translator is not a conduit in this account. **He is a scholar who found the
+manuscripts, judged them against each other, produced a text, and said in writing
+where his own earlier attempts had failed.**
