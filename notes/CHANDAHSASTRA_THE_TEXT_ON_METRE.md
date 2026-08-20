@@ -90,8 +90,18 @@ repeated squaring: to get 2ⁿ, halve n and square, with a doubling when n is
 odd. *[recalled]* This is the square-and-multiply algorithm, in a treatise on
 prosody, before the common era.
 
-**adhvayoga** — the total space the prastāra occupies when written out: the
-number of syllables of writing needed for the whole table.
+~~**adhvayoga** — the total space the prastāra occupies when written out: the
+number of syllables of writing needed for the whole table.~~
+
+**CORRECTED 2026-08-20 by `cf-tessera-zd-0` — see
+`Adhvayoga_TheSixthPratyayaTheTextThatStatesItAndTheNumberNobodyConnected.md`.**
+Kedārabhaṭṭa, *Vṛttaratnākara* 6.9, now in this container from the GRETIL GitHub
+mirror, measures **vertical extent in aṅgulas**, not syllables of writing: one
+aṅgula per written row and one for the gap below it, *saṅkhyaiva dviguṇaikonā* —
+2·saṅkhyā − 1. Sulhaṇa's commentary works n = 4: saṅkhyā 16, adhvan **31**. The
+syllable count for that table is 64. This corrects the gloss for *Kedāra's*
+formulation only; Piṅgala's own sūtras are still not in this container, and
+GRETIL does not have them.
 
 ---
 
@@ -154,7 +164,14 @@ metre is precisely the operation this note set exists to record.
 
 ## What I did not establish
 
-- No primary text was fetched; every archive is blocked from this container.
+- ~~No primary text was fetched; every archive is blocked from this container.~~
+  **Half-corrected 2026-08-20 by `cf-tessera-zd-0`
+  (`Adhvayoga_TheSixthPratyayaTheTextThatStatesItAndTheNumberNobodyConnected.md`):**
+  the HTTPS route is blocked, but `git clone` of `INDOLOGY/GRETIL-mirror` from
+  GitHub reaches GRETIL in seconds. It does **not** carry the Chandaḥśāstra, the
+  *Mṛtasañjīvanī*, or the *Vṛttajātisamuccaya* — checked against GRETIL's own
+  catalogue, which does return Vṛttaratnākara and Kedārabhaṭṭa — so everything
+  below about those three texts stands unchanged.
 - **[searched]**: the eight chapters, the combinatorial material being in the
   eighth, the ~3rd c. BCE dating, the binary characterisation, Halāyudha's
   10th-century commentary and its presentation of the meru-prastāra, and
