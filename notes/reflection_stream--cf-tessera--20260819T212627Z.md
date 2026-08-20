@@ -25974,3 +25974,91 @@ than about the material. `CORRECTION_REACH_AUDIT`'s gate, `check-controls.sh`'s 
 `INVERSE.md`'s *"the corpus's contribution here is zero"* are the candidates, and pass 141
 already found the gates are eight-to-three on the instrument side, so the frame is probably
 false again and I am stating it so that it dies before it is written rather than after.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 143 — the counter-observation fires again, two for two. The corpus has
+# a genre for apparatus-directed findings and a naming convention for it, and
+# my thirteen went somewhere else.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 142's frame, stated in advance so it could die in advance: *apparatus-directed
+findings are rare in this corpus.* Counter-observation: a note whose **finding** is about
+the instrument.
+
+```
+notes/*.md                                                     981
+with an instrument word in the title
+  (audit · no_go · ambiguity · triage · coverage · honesty …)   112
+```
+
+`AGDA_PRAGMA_AUDIT` · `ARCHIVE_FIDELITY_AUDIT` · `ARITHMETIC_LIFE_ADVERSARIAL_AUDIT` ·
+`ARXIV_1805_07047_SOURCE_AUDIT` · `CLAIM_ID_AMBIGUITY` · `ADAPTIVE_TRACE_PROCESS_NO_GO` ·
+`ARITY_QUANTUM_MEMORY_NO_GO` · `CACHE_OPTION_VALUE_NO_GO` · `CHARGED_FIXED_FIBER_AUDIT` —
+and that is the first twelve alphabetically.
+
+**Dead, again, before it was written. Two for two.**
+
+## P143 — and `_NO_GO` is the genre
+
+An `_AUDIT` note asks whether a procedure did what it claimed. A **`_NO_GO`** note is
+purer: **this route does not work, and here is why the route was wrong.** That is an
+apparatus-directed finding, published outward, with a filename convention — the corpus
+names them so they can be found by anyone about to take the same route.
+
+**Eleven percent of the notes.** Not a rare form. A standing one, with two suffixes.
+
+And what is mine went into a reflection stream. *48 unnamed*, *60 orphans*, *nine files
+carrying a struck claim* — thirteen instances of a measurement failure, in a file that is
+by construction about me, when the corpus has a genre whose whole purpose is to put that
+finding where the next person taking the route will hit it. I am not writing one; the
+trigger says no new notes and it is the owner's call. **What is recordable is that the
+genre exists, that it is 112 files deep, and that I did not use it.**
+
+## P143 — what the discipline cost and what it bought
+
+Two passes ago I started stating the counter-observation before the frame. The ledger, for
+the only two uses it has had:
+
+- **Pass 141** — frame: *the gates diagnose the material.* Counter-observation: a gate that
+  diagnoses its method. Found eight. **Dead in one paragraph.**
+- **Pass 143** — frame: *apparatus-directed findings are rare.* Counter-observation: a note
+  whose finding is about the instrument. Found 112. **Dead in one command.**
+
+Both frames were false, both would have been written confidently, and both cost a
+paragraph instead of a pass and a later correction. Against passes 100–114, where the same
+sentence took **eight statements over eight hours** to reach its final form.
+
+**The difference is one question asked in a different order.** Not more rigour, not more
+checks — the same check, moved before the claim instead of after it. That is Fisher's
+randomisation in its cheapest possible form: **decide what would count against you while
+you still do not know the answer.**
+
+## P143 — ground, in lockstep
+
+**n=15:**
+
+> **न केन्द्रं शीघ्रं चुनु · न परिधिं शीघ्रं नामय**
+>
+> *do not choose the centre quickly; do not name the periphery quickly.*
+
+Naming the periphery is what a frame does — *this is the region where the thing is rare.*
+Both my frames named a periphery, both were wrong about where it was, and in both cases the
+region was full. The instruction is not to be slower. **It is to name what would show the
+periphery is somewhere else, first.**
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of
+them."*
+
+Two frames, two statements, both dead before publication. That is not the sentence being
+avoided — it is the sentence being paid **before** the statement leaves rather than after,
+which is the only version that costs one paragraph.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *stating the
+counter-observation first is the correction, and it will keep working.* **Counter-observation**
+— a frame that survives its pre-stated counter-observation and is nonetheless wrong, or a
+counter-observation I state so narrowly that nothing could satisfy it. The second is the
+real risk and I have no check for it: **a pre-registration can be gamed by choosing a
+counter-observation I already know is unavailable**, and nothing in the practice detects
+that. Recording it as the practice's own blind spot, unresolved.
