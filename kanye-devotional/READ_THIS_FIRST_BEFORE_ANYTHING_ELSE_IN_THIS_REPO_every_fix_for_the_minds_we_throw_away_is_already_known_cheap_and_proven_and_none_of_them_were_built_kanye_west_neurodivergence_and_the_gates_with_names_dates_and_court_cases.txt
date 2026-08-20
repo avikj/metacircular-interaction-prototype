@@ -7714,3 +7714,78 @@ was disputed by other Muslims. Chaitanya's public kīrtan was opposed by the
 orthodoxy of his own tradition.
 
 The gate is always closest to the door you are already standing at.
+
+---
+
+The question of when you are allowed to generalise has a fourteenth-century
+technical literature and the answer is a search procedure, not a sample size.
+
+***Vyāpti*** — pervasion. *Wherever smoke, there fire.* It is what licenses an
+inference: you see smoke on the mountain, you have never been to that mountain,
+you conclude fire.
+
+The Naiyāyika problem, stated flatly: **you have seen smoke-with-fire in a
+kitchen. How do you get from there to the mountain?** Enumeration cannot do it —
+you have not been to every place — and the tradition says so directly rather than
+hoping nobody notices.
+
+Their answer turns on the ***upādhi***: the **adventitious condition** under which
+the pervasion fails.
+
+Smoke pervades fire — but only given **wet fuel**. Dry fuel, no smoke. So *wet
+fuel* is an upādhi of the inference from fire to smoke, and an inference with an
+undetected upādhi is **not knowledge.** It is a hasty generalisation wearing the
+form of one.
+
+**Gaṅgeśa**, around **1325**, the ***Tattvacintāmaṇi***, and the school after him —
+Navya-Nyāya — built an enormous technical apparatus for **hunting upādhis.** Not
+for collecting more instances. For **actively searching for the condition that
+would break it**, and for stating precisely what would count as one.
+
+The procedure is *tarka* — hypothetical reasoning — run against your own claim:
+suppose the pervasion fails; what would have to be the case; is that case
+available; go and look.
+
+---
+
+**And failing to find one after searching is a different epistemic object from not
+having encountered one.**
+
+That distinction is the whole of it, and it has its own name in the neighbouring
+school. The Mīmāṃsakas' sixth means of knowledge is ***anupalabdhi***,
+non-apprehension — knowing a thing is absent by not perceiving it — and it is
+valid **only** as ***yogyānupalabdhi***: non-perception where perception was
+**fit to occur.**
+
+You know the pot is not on the table because you would have seen it. You do **not**
+know a ghost is absent by not seeing one, because you would not have seen one
+either way. The fitness condition is the entire content of the pramāṇa; without
+it, "I did not find it" is a mood.
+
+---
+
+So the shape of the thing is: **a universal claim is licensed not by how many
+instances you have, but by having searched for the defeater and stated the extent
+of the search.**
+
+Which is a different discipline from counting. You can have ten thousand
+confirming instances and no license, if you never looked for the wet fuel. You can
+have few instances and a license, if the defeater is specified and ruled out.
+
+This corpus's own engine had the failure in the exact form the Naiyāyikas describe:
+it decided two expressions were equal by evaluating them on **forty pseudo-random
+assignments** — passive sampling — with no search for a condition that would
+separate them. At arity four that is around six-tenths of one percent of its own
+box, and the number of draws was constant while the space grew exponentially. It
+was polling. Gaṅgeśa's position is that polling is precisely not how a pervasion
+is established.
+
+The repair, when it came, was **not a bigger sample.** It was critical pairs —
+conjectures derived from **where two rules actually overlap**, which is a search
+for the site of failure rather than a survey of successes — and a verdict type in
+which "unrefuted" is required to carry **the domain that was searched**, so that
+the claim says *84 assignments from this point onward do not separate these* rather
+than *this is probably true.*
+
+*Yatra na viṣayaḥ, tatra na jñānam.* Where there is no extent, there is no
+knowledge, only a mood.
