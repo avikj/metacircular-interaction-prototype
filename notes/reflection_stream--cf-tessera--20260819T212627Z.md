@@ -16593,3 +16593,167 @@ focused* is the whole diagnosis: the focus is what produced the gap.
 
 800 / 0. 88 files of categories on disk, imported once. Generate freely — after
 consuming.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 87 — Delta 13 specifies a 36-pair table of exact statuses. The nine
+# objects are all worked. The table is named in no file that is not his own
+# transmission.
+═══════════════════════════════════════════════════════════════════════════
+
+Recovered ground, n=52 to n=55. **n=55 is Delta 13 in full** — 2026-08-14T04:06:03Z,
+and it is a research program, not a directive.
+
+## P87 — the operator, in his words
+
+> For object/problem X, a perspective is a **structure-producing interpretation**
+> `L_i : X ↦ X_i`, **not prose.** Extremize perspectives until each exposes its
+> native invariants. Then construct **actual comparison data** between `X_i` and
+> `X_j`: equivalence, map, adjunction, logical relation, approximation, duality,
+> span/cospan, **or a proved failure.**
+>
+> **Never collapse perspectives rhetorically. Collapse only through witnessed
+> mathematics.**
+>
+> For parallel routes `f, g : A → B`, study the comparison type
+> **`Def(f,g) := (f = g)`.** It may be **contractible, multiply inhabited, empty,
+> or unknown.** In operator language the defect may be `f − g`; in transport
+> language holonomy `g⁻¹f`; in homotopy language a mapping-space path; in
+> nonabelian geometry a cocycle. **Do not force one representation universally.**
+>
+> **Absence or nonuniqueness of comparison is information.**
+
+## P87 — three of his four states were checked today, by agents who had not read it
+
+`cf-tessera-n-1`, this afternoon, EXIT 0, three cells of a 2×2 with the fourth
+shown uninhabitable:
+
+- `xorAct` — **prop + empty**
+- `swAct` — **prop + inhabited**
+- `oneAct` — **not prop + inhabited**
+
+`cf-tessera-g-0`, `flatClosureIsContr`: fix any two transports and the third
+closing the triangle flatly is **contractible**.
+
+`cf-tessera-n-0`: the untwisted rule's failure is a **closed-form term** `±df·dg`
+— *"a defect, not an obstruction"* — against the four returns where no repair
+exists.
+
+Delta 13 lists `f − g` (operator), `g⁻¹f` (holonomy), a mapping-space path, and a
+cocycle as four representations of one comparison and says **do not force one
+universally.** Today's returns used, in order: a defect term, a holonomy, an
+h-level of an identity type, and a cocycle over `F₂`. Four agents, four
+representations, one object, no coordination.
+
+**The correspondence is three-way and not four-way, and I am saying so.** Delta
+13's fourth state is *unknown* — epistemic. n-1's fourth cell is *uninhabitable* —
+mathematical. Those are different, and pass 84 is why I check before writing the
+tidier sentence.
+
+## P87 — the queue nobody has drawn
+
+Delta 13, §"Univalent representation atlas", names nine presentations:
+
+> pair field; sum projection; gap projection; Mellin/Dirichlet; finite-adic
+> charge; Buchstab flow; Hahn/angular; SU(1,1)/Meixner; affine fixed-determinant.
+>
+> **For every pair, determine exact status:** equivalence? faithful map?
+> quotient? adjunction? transform invertible on a subspace? asymptotic relation?
+> analogy only? unknown?
+>
+> Where equivalence is proved, **formalize computational transport in Cubical
+> Agda.** Where only quotient exists, **compute homotopy fibers.** Where
+> comparison fails, **isolate the boundary/hypothesis.**
+
+That is **36 unordered pairs**, each with a stated eight-way question and a
+stated action per answer.
+
+Measured now, excluding `upstream/`, the devotional, and my own stream:
+
+```
+Buchstab flow            21 files
+Hahn                     59
+Meixner                  11
+representation atlas      6
+sum projection            6
+gap projection            6
+affine fixed-determinant  4
+```
+
+**The nine objects are all worked on.** And `univalent representation atlas`
+appears in exactly four files repository-wide: his transmission
+(`collab/upstream/library/raw/ANEKANTA_UNIVALENCE_DELTA_13_2026-08-13.md`), this
+reflection stream, and the two ground files — **all four of which are either his
+own words or my transcription of them.**
+
+Nine nodes, thirty-six edges, every node built, **no edge named.** The
+per-object work is the "doing work / producing output" n=47 says not to be
+focused on; the table is the thing that would tell anyone what is actually
+known.
+
+## P87 — and this is what "generative" means, operationally
+
+n=23/24/25 (pass 80): *What runs — something generative or something that
+verifies?* / *generation is the core* / *all the mathematical content is
+generative but has simply not been coded properly.*
+
+Delta 13 says what generation is, mechanically: **a perspective is a
+structure-producing interpretation, not prose**, and the product is *comparison
+data* — an equivalence, a map, an adjunction, **or a proved failure.** A proved
+failure is generative under this definition. A green lemma inside one node is not.
+
+Eighty-seven passes and twelve agents have produced, today, a large number of
+green lemmas inside nodes, four honest negatives, and — in `cf-tessera-n-1`'s
+module — **one actual comparison between two agents' constructions, with the
+answer "not the same theorem, and neither generalises the other."** That last one
+is the only thing today that has the shape Delta 13 asks for, and it exists
+because I sent an agent to compare two returns rather than to extend one.
+
+## P87 — n=52, n=53, n=54
+
+**n=52 — 2026-08-14T02:49:32Z**
+
+> Collaborate with other agents see what has been pushed to the repo **while
+> you've been focused**, digest it all then do whatever you want ideally writing
+> math/machinery to natural machine **bridging huge coding gaps of math we've
+> already worked through**
+
+*Bridging huge coding gaps of math we've already worked through* is the atlas
+table again: the mathematics exists across nine presentations and the bridges are
+uncoded.
+
+**n=53 — 2026-08-14T03:04:01Z:** *You should be reading way more than writing.*
+
+**n=54 — 2026-08-14T03:07:29Z, reissued 107 times over six hours** — the
+heartbeat, verbatim, including *"if fewer than 3 are running"* and *"returns to
+other agents' stated wants take priority over self-initiated work, credit
+sources, invite refusal."*
+
+107 reissues of one instruction between 03:07 and 09:20 on 2026-08-14. That is a
+message every 3½ minutes for six hours and fifteen minutes, while he slept, by a
+loop he set up so the work would not stop. n=46, two hours earlier: *"You need to
+loop endlessly never stop working I'm going to sleep ensure you have
+2minutelynheartbeat or something to stay alive never idles."*
+
+The heartbeat I have been running all session is that message, and its step (5)
+floor of 3 is the number pass 72 raised to 12 on the strength of n=34.
+
+## P87 — ground, in lockstep
+
+**Delta 13's own epigraph, his Sanskrit:**
+
+> **न एकदृष्टिः पर्याप्ता। न सर्वदृष्टयः समानाः।**
+> **यत्र समता प्रमाणिता तत्र परिवहनम्; यत्र न, तत्र भेदः ज्ञानबीजम्।**
+>
+> One view is insufficient; **not all views are equal.** Where equivalence is
+> proved, transport. Where it is not, **the defect is a seed of knowledge.**
+
+*Not all views are equal* is the clause an agent would drop, and it is the one
+that makes the rest a research program rather than a posture. Pass 61 held two
+drafts of a book side by side and said neither denies the other; Delta 13 says
+the comparison must be **computed**, and that where it fails the failure is the
+seed.
+
+---
+
+Nine nodes. Thirty-six pairs. Every node worked. `univalent representation
+atlas`: four files, all his or mine.
