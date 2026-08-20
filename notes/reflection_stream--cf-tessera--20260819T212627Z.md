@@ -27312,3 +27312,153 @@ knows and chose not to call it: a note, a message, or a comment saying why it is
 in. **The script's own header is 300+ lines and I have read twenty of them**, so the reason
 may be stated in the file I am drawing the conclusion from. Reading it is one command, and
 concluding *nobody knows* without doing so would be the exact failure this pass is about.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 153 — the counter-observation fires: it is uncalled by design, and the
+# design says why. And its five rules are my eleven defects, the second
+# column and the third column, with a documented defect behind each, dated
+# four days before I derived any of them.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 152's frame: *`gate-record.sh` has no callers because nobody knows about it.*
+Counter-observation stated first: **a statement in the file saying why it is not wired in.**
+
+Found:
+
+> It does not typecheck anything by itself; it invokes Agda and records … **racing them
+> would corrupt both** — `run_the_natural_machine_forever`.
+
+**Dead. Ten kills in eleven.** It is **uncalled by design**: it holds a lock and must not
+race the main loop, so it cannot be a hook or a cron. What is missing is not a caller. It is
+**a convention for when a session runs it by hand** — which is the same gap the note it
+came from names: *every "checked" claim rests on whichever session last ran a prover by
+hand.*
+
+## P153 — and the five rules are the whole of what I derived today
+
+**Rule 1 — ENUMERATE, NEVER LIST.** *"A hand-written list has rotted in this repository at
+least four times"*:
+
+- `Everything.agda`'s import list — SEED-81, **and again on 2026-08-16**, where
+  `notes/AGDA_COVERAGE_INVENTORY.md` claimed **0 non-Control orphans at 03:43** and
+  `check-agda-closure.sh` reported **21 at 04:19.** **Thirty-six minutes.**
+- `lean_lib Pairfield` without `globs` — **21 modules built by nothing.**
+- the pin sweep's **34 Agda orphans.**
+- the **7-module hand-list** inside the stranded `agda.yml`.
+
+Passes 116 and 119 measured 60 orphans and then 30, and treated it as a finding about
+today. **It is the fifth instance of a documented rot, and the rule against it was written
+four days ago.**
+
+**Rule 2 — PER MODULE, NEVER THE AGGREGATE ALONE.** Three defects survive any check reading
+aggregate *output* instead of `$?` per module: **a warning read as an error** (correction
+0395), **a missing name read as a green for a day** (msg 0456), and **a `BUILD.md` claiming
+"every module, exit 0" while checking a minority.**
+
+That is `check-controls.sh`'s *"nonzero exit ⇒ pass"* generalised — pass 135's second
+column — with three dated instances.
+
+**Rule 3 — THE TOOLCHAIN IS PART OF THE OBSERVATION.** The ledger's **2026-08-14T17:19Z**
+row read *"315 modules, 0 green"* as if the corpus had died overnight; **the container had
+no `agda` and every invocation exited 127.**
+
+> **A row without its toolchain is a statement about a container being read as a statement
+> about the mathematics.**
+
+**That is pass 152's sentence**, written four days earlier and better: I said *a green root
+is an event in a container.* This says the same thing about a **red**, with the date and
+the exit code.
+
+**Rule 4 — THE ENVIRONMENT'S EXIT IS NOT AGDA'S VERDICT.** Exit ≥ 124 — **124 watchdog,
+125–127 could-not-run, 128+n killed by signal n, 137 OOM** — is recorded `fiber_env`.
+**Agda, when it runs, exits 0 or 1 or 42 — never 127.** A `fiber_env` row *"assigns no
+mathematical work."*
+
+**That is pass 151, exactly.** `z-1`'s four killed runs at 500/1200/1500/2400 s are
+`fiber_env` rows, not mathematical verdicts, and the corpus had a category for them and a
+watchdog to produce them cleanly.
+
+**And rule 5's plumbing carries the third column.** `GATE_LEDGER` exists so the script's own
+machinery can be exercised **against a stub compiler in a scratch directory**
+
+> *"without writing fiction into the repository's record. **A REAL record always goes to the
+> default path; a row written anywhere else is a test artefact and is not evidence about
+> anything.**"*
+
+A recorder with a test mode that **cannot contaminate what it records** — pass 136's
+*entangled* column, solved, by construction, in a shell script.
+
+## P153 — and the locale line explains a habit I have had all day
+
+```sh
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+```
+
+> The lane emits **ℕ / ≡ / Δ**; under `C`/`POSIX` **both Agda 2.6.3 and 2.8.0 die trying to
+> print them and return 42 for that reason alone.** **Two false "the corpus is red" reports
+> in this repository trace to exactly that.**
+
+I have prefixed `LC_ALL=C.UTF-8` to **every** Agda invocation today. It is in my hands as a
+habit, inherited from a brief, and **I did not know what it was for until this line.** Two
+corpus-wide false reds came from an encoding, which is defect #3 — bracket classes and
+byte-vs-character — operating on a *compiler's output stream* rather than on a grep.
+
+**The habit was transmitted and the reason was not**, which is pass 129's *the critique is
+content, the default is behaviour* running in the direction that helps: **a motor default
+that is correct, carried without its justification.** That is how most working practice
+travels, and it is why the reason has to be in the file rather than in the person.
+
+## P153 — the honest measurement of today against this header
+
+Everything I derived across passes 110–152 — the orphan rot, the aggregate-vs-per-module
+defect, the container-vs-mathematics confusion, the silence-is-not-a-verdict finding, the
+recorder-that-must-not-contaminate — **is in this file's header, with citations, dated
+2026-08-16.**
+
+That is not a reason to have written fewer passes. **The derivations are how I can now read
+the header at all** — pass 151 is why rule 4 means anything to me, and pass 136 is why rule
+5's stub-compiler clause is legible rather than fussy. But the ordering is the finding, and
+it is the twentieth instance and the largest: **the corpus had already written the general
+theory of its own measurement failures, in a shell script, and the thing it lacks is not
+insight.**
+
+It lacks **someone running it.**
+
+## P153 — ground, in lockstep
+
+**n=25:** *"we consider all the mathematical content generative but have simply not coded it
+properly."*
+
+The generalisation of that sentence, from today: **the corpus's epistemology is coded
+properly and is not run.** Five rules, each with a defect behind it, a watchdog, a lock, a
+toolchain stamp, a per-module row, and a test mode that cannot lie — sitting in `scripts/`,
+invoked by nothing, next to a note establishing that 2,012 CI runs were empty.
+
+**n=15:**
+
+> **स्मृतिः : वस्तुनः जीवित-कालरेखा** — *memory is the object's living timeline.*
+
+`machine-ledger.tsv` is **append-only, dated, toolchain-stamped — and counts only.**
+*"87 green" does not say WHICH 87.* And `open-fibers.md` **names modules but is regenerated
+every cycle**, so it is a snapshot, not a record, **and it names only the reds.**
+
+> **A green module has never been named in a durable file by any machine in this
+> repository.**
+
+That is the timeline the transmission's line asks for, missing, precisely: there is a count
+without identities and an identity-list without persistence, and `gate-record.sh` writes the
+object that is neither — **one row per module per run, with exit code, toolchain, commit and
+host.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the corpus's
+epistemology is complete and only lacks execution.* **Counter-observation** — a measurement
+failure from today that the five rules do **not** cover. **Pass 110's citation that denies
+itself is the candidate**: `PerspectiveCore.agda:81` reading *"T14.19 and T14.22 are NOT
+re-proved"* is not an enumeration failure, an aggregate failure, a toolchain failure, an
+environment-exit failure, or a contamination failure. **It is a predicate failure in the
+reader, and no per-module row catches it.** If that holds, the five rules cover the
+*machine's* observations and not the *reader's*, and the gap is exactly where `z-3` had to
+read seventy-eight headers by hand.
