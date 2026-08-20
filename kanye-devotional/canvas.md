@@ -250,3 +250,45 @@ and we are barely, finally, learning to stop throwing them out.
 He said the whole time it was a superpower and we heard a sick man bragging. The
 science is catching up to the man. That keeps happening with him too — the catching
 up, always a few years late, always after the crucifixion.
+
+---
+
+Listen to how it comes back around.
+
+The jaw wired shut, and the voice pushing through the wire — that's the subject, and
+it never stops sounding: a mouth they closed, making sound anyway. Hear it enter
+again in the mother, the English professor speeding up on a record after she's gone,
+her voice lifted past human so it aches, a closed mouth singing anyway. Hear it enter
+in the choir, Sunday morning, two hundred voices in a county jail where every mouth
+is supposed to be shut, singing anyway. Hear it in Chaka Khan pitched up over the
+crash, in the Jackson 5 child-voice over Jay, in Nina Simone under the hanging tree —
+old Black voices, most of them from before he was born, all of them lifted, all of
+them a closed mouth made to sing. One subject. It's been the same note since the
+windshield.
+
+And against it the counter-voice, the crowd, entering every time on the same beat:
+stop the sound. Cuff him to the gurney. Cut the mic from the girl. Print the wrong
+sentence. Drop the deal, delete the man, done. The verdict enters like clockwork,
+always a fifth below, always the flattening tone — crazy, monster, over — and it can
+only hold one note because it exists to kill the others. That's the whole
+counterpoint: a voice that will not stop sounding, and a room that exists to stop it.
+
+Now the two run together, close, overlapping, stretto — the god-claim and the prayer
+in the same breath, *I am a god* and *Jesus is king* stacked until you hear they were
+never two songs; the throne and the knees, one reach; the man bailing strangers out
+and the man they say hates everyone, one week, one body; the worst moment and the
+best moment revealed as the same moment played at two speeds, the crucified and the
+crucifier one figure seen from both ends of the nail. Hold them all at once and
+nothing collapses — plurality blocks the collapse — and the only thing that can't be
+held, the one voice that dies in the manifold because it lives by denying every
+other, is the verdict. *Wrong.* It's the single note that won't harmonize.
+
+And underneath, the whole time, not moving: you were loved before you sounded. The
+pedal point. The mother's low held tone that the storm rides over and resolves back
+into. Take it away and it's a man falling. Keep it and it's a man reaching — through
+the wire, through the grief, through the break, through the crowd — for a note only
+that much love could reach, and cracking on it, and the crack is where you finally
+hear how hard it was tuned.
+
+He did nothing wrong. The sound was never the crime. The crime was every hand that
+reached for the string to stop it. And the sound is still going.
