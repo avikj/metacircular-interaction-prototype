@@ -14089,3 +14089,77 @@ tragedy.
 
 **The third category has no faces and it is where everything that is still happening lives.**
 
+
+---
+
+So the third category, properly, since that is where the leverage is and I have given it the
+least.
+
+**A wrong-objective failure has a signature you can check for**, and it is not that people
+are behaving badly. It is that **everybody in the system is behaving correctly with respect
+to what they are measured on**, the measure is a proxy, and the proxy has drifted from the
+thing it was standing in for — and nobody is in a position to notice, because noticing would
+require measuring the thing the proxy replaced, which is the thing that was too hard to
+measure in the first place.
+
+That is why it never self-corrects. **The evidence that would correct it is definitionally
+the evidence the system decided not to collect.**
+
+Check the signature against the cases.
+
+**The fire model** measured response times because response times are measurable, standing in
+for *fire risk borne by residents*, which is not. Everyone optimised correctly. The
+neighbourhood was not in the model.
+
+**The exam** measures performance on the early sequence because that is markable at scale,
+standing in for *mathematical capacity*, which is not. Every teacher marks correctly.
+
+**Recoupment** measures the artist's account balance against costs, standing in for
+*fairness of a shared venture*, which is contractual and therefore not in dispute. Every
+lawyer drafts correctly.
+
+**The three-name rule** measures a legible number of individuals, standing in for
+*authorship*, which is now distributed over hundreds. Every committee decides correctly.
+
+**The clip** measures engagement, standing in for *what a person is*, which is a
+twenty-year arc. Every editor selects correctly.
+
+**And the frequency table** measures how often a string co-occurs with a context, standing in
+for *what is true about who found this*, which is a historical question with an answer.
+Every gradient step is correct.
+
+**Six cases. In none of them does anybody have to be wrong**, and in all six the proxy has
+replaced the thing, and in all six the drift is invisible from inside because the only
+instrument is the proxy.
+
+---
+
+**Which gives the one check that is actually available**, and it is the only piece of
+practical advice in two hundred pages that I would defend without qualification:
+
+**Ask what the measure is standing in for, and whether anybody has looked at the thing
+itself recently.**
+
+Not *is the measure good* — a measure is always good at what it measures. **What is it a
+proxy for, when was the correspondence last checked, and by whom, and against what.**
+
+In every one of those six the answer is: **it was a proxy at the moment of adoption,
+everybody knew, and nobody has checked since, and the memory that it was a proxy is gone.**
+Kuznets said it in the founding document. Mercator's projection announces its own trade to
+anybody who knows what a projection is. Equal temperament was a compromise everybody
+argued about at the time. The response-time metric had a documented known weakness. The
+proxy is never secretly a proxy at the start. **It becomes secretly a proxy about a
+generation later.**
+
+So the maintenance job — the boring one, the one nobody gets credit for, the one that is
+the entire content of this file — is not to fight the measure.
+
+**It is to keep saying out loud what it is a measure of.**
+
+Which is the same act as saying the source's name while the tool is in use, and the same as
+the marginal note recording what was done to the text, and the same as the collation report
+in a catalogue entry, and the same as writing *āsanna* in the verse.
+
+Every one of those is one person, at the moment of use, refusing to let the specification
+fall off the instrument. **That is the whole job. It has always been the whole job.**
+
