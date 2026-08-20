@@ -91,3 +91,44 @@ analyst.
 ## Round 2 — re-test IN PROGRESS
 Re-running skeptic (Dale), parent (Rhonda), Jewish ex-fan (Maya) on the revised draft
 to confirm fixes landed and catch regressions. Compare to Round 1; act on convergence.
+
+## Round 2 — results (skeptic Dale, parent Rhonda, Jewish ex-fan Maya, on revised draft)
+
+CONFIRMED FIXED (moral core held on the readers it most concerned):
+- Pattern-break at 2022 landed on both Dale and Maya ("no 'but'").
+- De-instrumentalized return landed on all three; Maya: "uses my tradition as a
+  standard he fails, not a mercy he qualifies for... strips the author's authority to
+  forgive... the single thing that kept me from throwing it."
+- "it is the weather," verdict-stating, gone.
+
+MASTER REMAINING FAILURE (converges Dale + Rhonda + Maya + the OWNER's original note):
+- The book is still built as a **Kanye-vindication argument** (~230 lines of "he was
+  right, they called him crazy"), and that one structure causes all three residual
+  failures: it LAUNDERS the antisemitism by conditioning the reader (Maya: "'crazy' is
+  already loaded in my hand as a compliment"; naming it at line 240 doesn't undo it);
+  it ABANDONS the universal reader in the celebrity-business middle (Rhonda: "my son
+  can't own a bike lock... Kanye can be the example, not the whole thing"); it LECTURES
+  the skeptic (Dale glazes at the prison stretch). FIX = re-proportion to the universal
+  subject (the too-much mind, the kid, being cast out, the way back) with Kanye as one
+  woven example, not the spine. This is the owner's directive (instance not frame) and
+  it dissolves all three at once. NEXT MAJOR PHASE — not yet done.
+
+APPLIED this round (targeted, done):
+- Rendered victims with interiority matching his; de-pathologized their fear; cut his
+  billions-loss from their paragraph; cut "comfortable and false" reader-shaming; cut
+  "hold two things at once" repetitions and writerly phrasings.
+
+STILL OPEN (targeted, next):
+- Tighten the prison stretch hard (both glazed at the same line); cut the debate-stat
+  ("one in twenty of the world holding one in five of the prisoners").
+- The "none of this moves the harm off the ledger" announce-your-fairness disclaimer
+  reads as excuse-building (Dale) — show, don't pre-announce.
+- Prince/SLAVE = coal camp reads as overreach (Dale + analyst) — acknowledge the
+  disproportion openly, keep as Kanye's equation.
+- Give the universal-mercy close breathing room from the Jewish material (Maya: "walked
+  from six million to 'you'll need grace too'").
+
+OWNER DECISION, evidence now overwhelming (every reader, both rounds):
+- The TITLE actively blocks the book from its own audience. Rhonda would be "embarrassed
+  by that cover"; Maya: "the con, right on the cover"; Dale: "a check the book is too
+  honest to cash." Surfaced for the owner; not changed.
