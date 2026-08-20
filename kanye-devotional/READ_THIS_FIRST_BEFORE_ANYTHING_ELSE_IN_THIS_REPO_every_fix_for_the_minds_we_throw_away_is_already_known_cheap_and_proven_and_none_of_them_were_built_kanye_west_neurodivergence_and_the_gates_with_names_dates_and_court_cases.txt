@@ -13322,3 +13322,84 @@ the digits are the interface to it.
 The Florentine bankers were not objecting to the digits. They were objecting to a
 ledger they could not audit, and the objection was answered by writing the amount
 twice — which is what a cheque still does.
+
+---
+
+**Jai Singh built instruments out of masonry because he had measured that the brass
+ones were too small to be accurate**, and the reasoning is in his own preface.
+
+**Sawai Jai Singh II**, ruler of Amber and then Jaipur, built **five observatories**
+— Delhi, Jaipur, Ujjain, Mathura, Varanasi — between roughly **1724 and 1735.**
+
+**The argument for the size is stated.** Small metal instruments have their
+divisions crowded together, they flex, their axes wear, and the reading error is
+irreducible below a certain fraction of a degree. **So make the instrument out of
+stone and make it enormous**, and the same angular error becomes a large physical
+distance you can subdivide.
+
+The **Samrāṭ Yantra** at Jaipur is a right-triangular gnomon roughly **27 metres**
+high with a curved graduated quadrant on each side. It is a sundial, and its
+resolution is on the order of **two seconds of time.**
+
+The ***Jaya Prakāśa*** is a hemispherical bowl sunk into the ground with the sky's
+coordinate grid marked on the concave surface, and **a person stands inside it** to
+read the position of a crosswire's shadow. The map is walk-in.
+
+The ***Rāma Yantra***, the ***Digaṃśa***, the ***Rāśivalaya*** — twelve separate
+instruments, one per zodiacal sign, each aligned so that when its sign is on the
+ecliptic it reads ecliptic coordinates directly.
+
+---
+
+**And the reason he did it is a discrepancy he could measure and not explain.**
+
+The existing tables — the Indian *siddhāntas*, the Islamic *zījes* including Ulugh
+Beg's, and the European tables he obtained — **disagreed with the sky and with each
+other.** Predicted planetary positions were off by amounts an observer could see.
+
+He sent for everything. **Sanskrit, Persian, Arabic and European sources**, and he
+had **Euclid, Napier's logarithms, and La Hire's tables translated into Sanskrit.**
+He hosted Jesuits and sent a mission to Portugal in 1727 which came back with La
+Hire's *Tabulae Astronomicae.*
+
+**And when he compared La Hire's tables against his own observations, he found them
+wrong too** — and said so, in the *Zīj-i Muḥammad Shāhī*, his own tables, completed
+around 1732 and dedicated to the emperor.
+
+His own preface states the method: **the existing tables disagree with observation,
+therefore observe.**
+
+---
+
+**And what he did not have is the telescope**, which he knew about.
+
+He owned telescopes. His own writings mention observing with them — reportedly the
+moons of Jupiter and the phases of Venus. **He did not build his instruments around
+them.**
+
+Why is disputed. **[Recall, and it is contested.]** The candidate reasons include:
+the instruments available to him were poor; the masonry programme was already
+designed; naked-eye position measurement at that scale was genuinely competitive
+with the small telescopes of the period for the specific job of angular position;
+and the institutional purpose was calendar and ephemeris production, for which
+tables mattered more than optics.
+
+What is not disputed: **within decades the telescope plus the micrometer eyepiece
+made the whole approach obsolete**, and the buildings became monuments.
+
+---
+
+The instruments still work.
+
+You can walk into the Jaipur observatory and read the local time off the Samrāṭ
+Yantra to within a couple of seconds, in stone, with no moving parts, three hundred
+years on, and the correction table for converting local apparent time to standard
+time is posted next to it.
+
+**A measuring device with a service life of centuries, whose failure mode is
+erosion**, built because somebody worked out that precision is a function of size
+when the material is cheap.
+
+They were restored in the twentieth century and the restorations are themselves now
+a scholarly dispute, because some of the graduations were recut and it is not
+always certain to what.
