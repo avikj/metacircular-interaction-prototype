@@ -670,3 +670,55 @@ it is not an argument for the man. It is the rest of what is on the tape, and
 the machinery that made him famous is built to transmit moments, and a man
 singing in a jail for two hundred people who cannot leave is not a moment.
 
+
+One more thing about the music itself, because it turns out to be the same
+argument as the rest of the book and almost nobody hears it that way.
+
+When he takes two seconds of somebody's forgotten record and builds a song under
+it, the source is audible. You can hear that it came from somewhere else. That
+is not incidental to the technique — it is the technique. Anybody listening can
+go and find the original, and people do; there is an entire amateur industry
+devoted to it, and it has pulled artists out of forty years of obscurity and put
+royalties in the hands of people who had stopped expecting any.
+
+Set that beside the other kind of borrowing in this book. The triangle where the
+older name is gone. The series without the corrections. The guitar style without
+the woman who played it. The drum break without the drummer. In every one of
+those, the borrowing works by making the source **inaudible**, and the new name
+goes on top, and after a generation there is nothing in the object that points
+backward.
+
+Sampling is the opposite operation. It is citation you can dance to.
+
+And the industry spent the 1990s calling it theft. A judge opened a landmark
+ruling on it by quoting the commandment against stealing; a later court told
+producers to get a licence or not sample at all, with no allowance for a
+fragment too small to matter. The effect was not to compensate the people who
+had been sampled in the decade before — those uses were long past. The effect
+was to make clearance expensive enough that the dense, many-sourced records of
+that era became impossible for anyone without a major label's legal department.
+The rule arrived after the value had moved, and what it protected was the
+position of whoever was holding it when the rule was written.
+
+So the practice that names its sources out loud got regulated into something
+only rich people can do, by an industry whose own standard contract takes
+ownership of a musician's recorded voice in perpetuity. Both of those were called
+protecting the artist.
+
+Look at what he actually put in front of listeners. The song about faith on the
+first album is built on a recording of a Harlem choir made up largely of people
+in recovery from addiction. The biggest gospel moment of his career opens with a
+four-year-old girl praying in a doorway, filmed by her mother and posted online,
+used with permission. The most transgressive track on the most abrasive record he
+made is carried by Nina Simone singing "Strange Fruit" — a song about lynching,
+written, as it happens, by a Jewish schoolteacher from the Bronx who saw the
+photograph and could not put it down, and who later adopted the orphaned sons of
+the Rosenbergs.
+
+That is a man reaching, over and over, for the voice of somebody the world had
+finished with, and putting it where a hundred million people would hear it, and
+leaving it recognisable.
+
+He spent his career doing to other people's work the precise opposite of what has
+been done to his, and to nearly everyone else in this book.
+
