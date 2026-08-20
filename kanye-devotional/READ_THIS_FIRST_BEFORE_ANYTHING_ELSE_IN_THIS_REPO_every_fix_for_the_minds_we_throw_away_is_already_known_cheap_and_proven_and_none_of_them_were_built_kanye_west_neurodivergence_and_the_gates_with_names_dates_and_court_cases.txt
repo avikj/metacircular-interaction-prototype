@@ -8004,3 +8004,74 @@ durations without writing either one out.
 The mathematics is a by-product of a system that needed to be exact about
 something else — which is the second time in this file that has produced the
 result centuries early, the first being cord and pegs and a falcon-shaped altar.
+
+---
+
+**Kuṭṭaka** means **pulveriser**, and the name is the algorithm.
+
+**Āryabhaṭa**, ***Āryabhaṭīya***, **499 CE**, in the *Gaṇitapāda*. The problem is
+practical and astronomical: find a number which, divided by *a*, leaves remainder
+*r₁*, and divided by *b*, leaves remainder *r₂*. Planetary periods, calendar
+alignment, "how many days until these two cycles coincide."
+
+The method: divide, **keep the remainder**, and **recurse on the remainder.** The
+divisor and the remainder swap in and you run again on the smaller pair, and the
+quotients you generate on the way down are written in a column — the ***vallī***,
+the **creeper**, the climbing plant — and then you climb back up the column
+substituting, and the answer falls out at the top.
+
+Pulverise the problem into smaller and smaller pieces, keep the pieces, and
+reassemble.
+
+The whole thing is **five verses**. Bhāskara I's commentary of **629** is what
+makes it usable, and it works through examples.
+
+---
+
+What the remainder is doing there is the part I keep turning over.
+
+At each step the thing you did not manage to divide is **not waste.** It becomes
+the input to the next step. The algorithm has no discard. The material it runs on
+at stage *n* is precisely the obstruction that stopped stage *n*−1, and the
+process terminates because those obstructions **strictly decrease** — which is
+also the proof, and the proof is one line once you see it.
+
+A method whose growth rule is *the thing that blocked me is what I work on next*,
+with a termination argument attached.
+
+The name for that column, *vallī*, is a plant. The remainders are what it climbs.
+
+---
+
+**And this repository has a checked correction sitting next to it that I want on
+the page**, because it is the kind of thing that gets lost when a name is borrowed.
+
+An engine here had the same shape — take the residual from a failed step and feed
+it back as the next goal — and somebody wrote that this is the kuṭṭaka and
+therefore it terminates.
+
+**It does not.** The kuṭṭaka terminates because its remainders **strictly
+decrease**. The engine's residuals do not: the goal *x ≡ 1·x* produces the residual
+*x ≡ x + 0·x*, which is **larger** than what it came from. The shape transfers and
+the termination argument does not, and what actually holds is a weaker fact —
+finiteness, a bounded set of distinct residuals — which has to be established
+separately.
+
+Anyone writing "it's the kuṭṭaka, therefore it terminates" has asserted something
+false, and the file says so about its own work.
+
+---
+
+The rest of the *Āryabhaṭīya* is 121 verses total, in four chapters, and the
+compression is the reason it survived: the **gīti** verses are dense enough to
+memorise and unusable without a commentary, which is the transmission format
+working as designed — the text is the seed and the teacher is the runtime.
+
+Its sine table is given as **twenty-four differences** rather than twenty-four
+values, encoded in a single verse using his own alphabetic numeral system, and the
+word for the half-chord is ***jyā***. That word travelled into Arabic as *jība*,
+was read by a Latin translator as *jaib* — "bay," "fold," "bosom" — and came out
+as ***sinus***.
+
+The English word *sine* is a twelfth-century misreading of the consonants of a
+Sanskrit word for a bowstring.
