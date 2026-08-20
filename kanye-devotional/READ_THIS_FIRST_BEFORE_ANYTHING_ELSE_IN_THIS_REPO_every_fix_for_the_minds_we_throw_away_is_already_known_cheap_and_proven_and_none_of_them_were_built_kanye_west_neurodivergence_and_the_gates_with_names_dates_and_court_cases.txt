@@ -23123,3 +23123,54 @@ whether people believed the Saturn account, **because the accepted account of wh
 they came from had not done them any good.**
 
 **A person who found the archive did not have a place for him, and wrote one.**
+
+---
+
+**Lovelace's contribution is in the notes to a translation, and the notes are three
+times the length of the thing translated.**
+
+**Luigi Menabrea**, an Italian military engineer who later became prime minister of
+Italy, **published a French account of Babbage's Analytical Engine in 1842**, from
+lectures Babbage had given in Turin.
+
+**Ada Lovelace translated it into English and appended seven notes, A through G,
+published 1843.** **The translation is about 8,000 words; the notes are about
+20,000.**
+
+**Note G contains a table for computing Bernoulli numbers on the engine** — the
+operations, the variable columns, the working, **and an explicit loop with a
+condition for terminating it** — and it is the item conventionally identified as the
+first published algorithm written for a machine.
+
+**Babbage's own earlier programs exist in his notebooks and are unpublished**, and
+the question of how much of Note G is hers is a live argument with partisans on
+both sides. **Her letters to Babbage during the drafting survive** and show her
+finding an error in his working and telling him so.
+
+**And the claim that is not disputed is Note A.**
+
+**Note A states that the engine is not a calculator.** Its subject is
+**"the science of operations"**, and the argument is that the machine operates on
+**symbols whose meaning is assigned**, so that if the relations between pitched
+sounds were expressed in the engine's terms, **"the engine might compose elaborate
+and scientific pieces of music of any degree of complexity or extent."**
+
+**Number is one interpretation of the symbols and not the only one.**
+
+**And she wrote the limit in the same notes**: that the engine **"has no pretensions
+whatever to originate anything"** and can do **"whatever we know how to order it to
+perform."**
+
+**Both statements are hers, in one document: that the machine is general, and that
+it originates nothing.**
+
+**She died of uterine cancer in 1852, aged 36** — **the same age her father died** —
+**and asked to be buried beside him**, having never met him.
+
+**And her mother had had her taught mathematics deliberately, from childhood, on
+the stated theory that it would inoculate her against the poetic temperament she
+had married.**
+
+**The stated purpose of the education was prevention.**
+
+**Lovelace's own term for what she was doing was "poetical science."**
