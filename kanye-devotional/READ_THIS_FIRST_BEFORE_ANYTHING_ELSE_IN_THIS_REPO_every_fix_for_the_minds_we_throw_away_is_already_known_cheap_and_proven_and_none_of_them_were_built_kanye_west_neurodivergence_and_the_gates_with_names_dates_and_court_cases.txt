@@ -3091,3 +3091,81 @@ believe one Hungarian had gone mad than that they had been carrying death on the
 hands for their entire careers.
 
 That is always the cheaper belief. It is cheaper right now.
+
+---
+
+The cheapest item on the whole list, and it is free, and it is about sleep, which
+is where this file started.
+
+**Puberty moves the clock.** At adolescence the circadian phase shifts **later** —
+melatonin onset moves back by something in the range of one to three hours. This
+is developmental biology, measured in sleep labs, not a lifestyle. Mary Carskadon
+at Brown ran much of the work. A fifteen-year-old told to be asleep at ten is being
+told to sleep at what her body registers as eight in the evening.
+
+Teenagers need something like eight to ten hours. School start times in the United
+States are built around bus routing and parents' commutes.
+
+**The American Academy of Pediatrics issued a policy statement in August 2014**:
+middle and high schools should start **no earlier than 8:30 a.m.**
+
+**CDC data from around the same period: roughly 93% of American high schools
+started before 8:30**, with an average start near **8:03**, and a substantial
+number before 7:30.
+
+---
+
+The evidence for moving it is not thin and it is not new.
+
+**Minneapolis**, 1997, moved its high schools from 7:15 to 8:40. Kyla Wahlstrom at
+the University of Minnesota followed it: more total sleep, better attendance, less
+reported depressive mood, improved grades. Students did not simply stay up later —
+that was the objection everyone raised, and it did not happen.
+
+**Fayette County, Kentucky.** Danner and Phillips, *Journal of Clinical Sleep
+Medicine*, **2008**. The district delayed start by about an hour. **Crash rates
+for drivers aged 17 and 18 fell 16.5% in the county, in the same two years that
+the statewide rate rose 7.8%.**
+
+Car crashes. The leading cause of death for American teenagers. Moved by changing
+what time a bell rings.
+
+---
+
+**California passed SB 328 in October 2019**, effective **July 1, 2022** — high
+schools no earlier than 8:30, middle schools no earlier than 8:00. The first
+statewide mandate anywhere in the country.
+
+That is one state, and it took **eight years** after the AAP statement and
+**twenty-two** after the Minneapolis result.
+
+Most of the country still starts before 8:30.
+
+---
+
+So put it on the ledger in its proper place.
+
+**Cost: zero.** It is not a program, a staff hire, a curriculum, a device, or a
+drug. It is a **number on a schedule.** The buses are the actual obstacle — one
+fleet doing staggered runs — and that is a routing problem, which is a solved
+class of problem.
+
+**Evidence: three decades**, with a hard outcome measure that nobody can argue
+about, which is dead teenagers in cars.
+
+**Status: one state.**
+
+And here is why it belongs in this file rather than in a policy brief.
+
+Sleep loss is the documented precipitant of manic switch. Sleep loss degrades
+exactly the executive functions that a kid with ADHD or autism has least slack in.
+Sleep-deprived adolescents present as inattentive, irritable, unmotivated,
+oppositional — **which is the referral profile.** The same profile that lands a
+child in the office rather than in the gifted testing queue, and that a clinician
+under time pressure reads as a disorder.
+
+We run a country-wide, decades-long, involuntary partial sleep-deprivation protocol
+on every adolescent, then assess them for attention and mood disorders during it,
+then sort them for life on the results.
+
+The fix is a clock.
