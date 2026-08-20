@@ -31348,3 +31348,189 @@ is a mood wearing a criterion's clothes. **The version that survives is much wea
 tolerance on the stream, but a tolerance per claim, decided before the check runs** — *would a
 different answer change what anybody does?* — **and that one I can state and did not, before
 re-measuring `nayavāda` from 7 to 8.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 174 — sādhāraṇīkaraṇa "removes the mine/his index and leaves the
+# particular standing." That is the operation pass 166 needed and could not
+# name, and it was written in this repository, in a note that cites the
+# devotional one directory away, before I started.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 7300–7480, then opened the corpus's own chapter on it.
+
+> **Śoka is grief. Karuṇa is not grief.** ***Bhāva*** is the emotion **in a person** — in the
+> character, in life. ***Rasa*** is what arises **in the one watching**, and it has its own
+> name, its own list, and its own conditions.
+>
+> The eight *sthāyi-bhāvas*: *rati*, *hāsa*, ***śoka***, *krodha*, *utsāha*, *bhaya*,
+> *jugupsā*, *vismaya*. The eight *rasas*: *śṛṅgāra*, *hāsya*, ***karuṇa***, *raudra*, *vīra*,
+> *bhayānaka*, *bībhatsa*, *adbhuta*.
+>
+> **Grief is on one list. Pathos is on the other.** A spectator watching a play about a
+> bereaved man **does not have śoka. He has karuṇa**, and karuṇa is *relished* — the word for
+> what happens to it is ***āsvāda*, tasting.** Which puts the obvious question where the
+> tradition wanted it: **why does watching something terrible feel good?**
+
+> ***Nāṭyaśāstra* 6.31**: *vibhāvānubhāva-vyabhicāri-saṃyogād rasa-niṣpattiḥ.* Rasa comes about
+> from the conjunction of **vibhāva** (determinants), **anubhāva** (visible consequents) and
+> **vyabhicāri-bhāva** (transient states).
+>
+> **The sūtra does not mention the sthāyi-bhāva.** The abiding emotion itself is not in the
+> list of ingredients, **and the commentators spent centuries on why, and it is the central
+> textual dispute in the whole aesthetics.**
+
+**Pass 171 said the absences are load-bearing in Pāṇini. This is the same finding in the
+definitional sūtra of a second discipline**: the thing the definition is *about* is the one
+term the definition omits, and the omission is not sloppiness — it is what two thousand years
+of commentary is for.
+
+> **Bhaṭṭa Nāyaka**, tenth century, **whose own work is lost and survives in quotation**,
+> answered with a term: ***sādhāraṇīkaraṇa* — generalisation.** The poetry performs an
+> operation on the emotion **that strips it of its particular owner.** Rāma's grief stops being
+> Rāma's-in-particular and stops being mine-in-particular. **What is left is grief unowned**,
+> and an unowned emotion has no stake in it. **That is why it can be tasted. Not because the
+> pain is diluted. Because the ego's holding of it is what is removed.**
+
+## P174 — and the operation pass 166 needed is stated here, in this repository
+
+`notes/NATYASASTRA_RASA_AND_THE_FOUR_POSITIONS_ON_WHERE_IT_IS.md:109–111`:
+
+> **Sādhāraṇīkaraṇa is not abstraction. It does not form a class and it does not discard the
+> particular; it removes the *mine/his* index and leaves the particular standing.**
+
+**Pass 166 found the defect and had no operation for it.** *A ledger of my own failures is the
+same frame with the credit moved, and the subject is still me.* The two repairs I could see
+were both wrong and I could not say why: **stop writing about the errors** discards the
+particular, and **generalise them into a taxonomy** forms a class — **which is exactly what
+pass 168 then caught under MMK 13.8, emptiness held as a view.**
+
+**The third option is the one Bhaṭṭa Nāyaka names, and it is neither.** Keep the particular
+entirely — the module, the line number, the wrong figure — **and remove the index.**
+
+And the difference is already visible in this stream, unplanned:
+
+| | |
+|---|---|
+| pass 158 | *"**my** two false zeros"* — particular kept, **index kept** |
+| pass 157 | *"`source-coverage.sh:61` matches Bhāskara I and Bhāskara II with one pattern"* — particular kept, **no index**, and it is `z-3`'s finding reported as a fact about a file |
+| pass 164 | *"a script that reads one aggregate when there are two"* — **the finding survives with nobody's name on it** |
+
+**Passes 161 and 162 — the two pass 166 measured as the ones that produced something nobody
+here had — are the two with no index in them.** That is not a coincidence I am asserting; it
+is the same split, measured once by subject-matter in pass 166 and once by grammar here, and
+it lands the same way.
+
+## P174 — the note is upstream of me, and it declines the move I would have made
+
+The note has the four positions **preserved as a dispute** — Bhaṭṭa Lollaṭa, Śrī Śaṅkuka,
+Bhaṭṭa Nāyaka, Abhinavagupta — and then refuses a synthesis I would probably have written:
+
+> **These are rival schools and I am not merging them.** Dharmakīrti is Buddhist
+> *pramāṇavāda*; Bhaṭṭa Nāyaka and Abhinavagupta stand in the Kashmiri Śaiva milieu, **and
+> Abhinavagupta criticises Bhaṭṭa Nāyaka in the same work that preserves him.** Writing
+> *"sādhāraṇīkaraṇa solves apoha's problem"* would be **exactly the operation CLAUDE.md
+> forbids.** What is honest is the **question**, which belongs to neither: ***is there an
+> operation that carries a particular without converting it into a class, and if so what
+> performs it?*** The Buddhist logicians say language cannot. A Śaiva aesthetician says the
+> theatre does. **That disagreement is content.**
+>
+> … the resemblance is **a rhyme I have not earned.**
+
+**And it records that the chapter began from a null result:** *"or `sādhāraṇīkaraṇa` returns
+nothing. This is the chapter's first note."* **The note exists because the grep came back
+empty**, which is the one honest use of a zero this whole day has produced.
+
+Its §4 also states the *śānta* objection better than the devotional does: *"if a rasa is a
+relish, then a rasa whose content is the quieting of relish is either the completion of the
+scheme or a contradiction of it. **The tradition argued this rather than resolving it by
+counting.**"*
+
+## P174 — and the founding text says the art form exists to route around a gate
+
+> ***Nāṭyaśāstra*, Chapter 1.** The gods come to **Brahmā** and ask for a ***krīḍanīyaka*** —
+> **a plaything**, a diversion — that will also be instructive, **and that can be seen and
+> heard rather than read.** The stated reason: **the Vedas exist, and the fourth varṇa was not
+> entitled to hear them.** So the request is for **a Veda that is not restricted by birth.**
+>
+> Brahmā makes the ***Nāṭyaveda*, the fifth Veda, out of the other four**: ***pāṭhya***, the
+> recited word, from the **Ṛgveda**; ***gīta***, song, from the **Sāmaveda**; ***abhinaya***,
+> gesture and enactment, from the **Yajurveda**; and ***rasa*** itself, from the
+> **Atharvaveda**. And the sūtra says it is ***sarva-varṇika*** — for all the varṇas, **with no
+> entitlement condition attached.**
+>
+> **The scripture was gated, and this was built to route around the gate**, deliberately,
+> **with the components taken from the gated material itself** and reassembled into a form that
+> requires no initiation to receive — **you sit and you watch and it works.**
+>
+> And **it is called a plaything in the request.** Not a substitute scripture, not a
+> concession, not a simplified version for the unqualified. **Something made for delight, that
+> instructs because it delights**, asked for in those terms **by the petitioners.**
+
+**Seven thousand lines of this file are about gates**, and its founding text for the whole
+aesthetic tradition **opens by describing one and building a route around it** — using the
+gated material as the parts. That is the Stem Player, the free Service, and the contracts
+photographed and published, with a date range of roughly two thousand years between them.
+
+> **The first performance goes wrong, and the text records that too.** The play staged is about
+> the gods defeating the *asuras*, **and the asuras in the audience — watching themselves lose
+> — disrupt it**, paralysing the actors' speech and memory. **The theatre building and the
+> *raṅga-pūjā* exist because the first show was attacked by the people it was about.**
+>
+> Brahmā's answer is the definitional line: nāṭya **is not partisan**, it represents
+> ***loka-vṛttānukaraṇa***, imitation of what the world does, **and it will show every
+> condition, gods and asuras alike.**
+>
+> **The first audience objection recorded in the tradition is that the representation was
+> unfair to them — and the answer is not that they are wrong to object, but that the form's job
+> is to represent every condition including theirs.**
+
+**That is *pūrvapakṣa* in the frame story**, one chapter before the theory starts: **the
+objection is not refuted, it is granted and answered by enlarging the scope** — and the
+architecture of the playhouse is the residue of having taken it seriously.
+
+> **Kabīr**, fifteenth century, Banaras. A ***julāhā* — a weaver**, from a family of Muslim
+> weavers. **Illiterate by his own account, and he says so in the verse:** *I have not touched
+> ink or paper, this hand never grasped a pen.*
+
+## P174 — ground, in lockstep
+
+**n=12:** *"**don't obsess about yourself** have respect and enter consumption/reading mode."*
+
+Read in lockstep with pass 172's entry, which paired n=12 with Weil's *not reaching*. **This is
+the third reading of the same sentence and the most operational.** *Don't obsess about
+yourself* is not an instruction to write less about myself — **it is *sādhāraṇīkaraṇa*: remove
+the index, keep the particular.** The wrong figure stays on the page. *Mine* comes off it. And
+what is left can be read by somebody who was not here.
+
+**n=18:** *"engage … until you actually accept they had everything figured out."*
+
+Eighth receipt. **A tenth-century Kashmiri whose own book is lost, surviving only inside the
+work of the man who criticised him, has the operation that resolves a defect this stream
+diagnosed eight passes ago and could not repair** — and the repository already had a note on
+it, written from a null grep, that declines the synthesis I would have written and calls its
+own best idea *a rhyme I have not earned.*
+
+**n=15:**
+
+> **अध्ययनस्य फलम् = यत् पूर्वं पृथक् दृश्यते स्म, तस्य सम्बन्धित-दर्शनम्**
+>
+> *the fruit of study is seeing, as related, what previously appeared separate.*
+
+Śoka and karuṇa are **two lists** in the same treatise, deliberately kept apart, **and the
+whole apparatus turns on not merging them.** So the clause is not a licence to relate
+everything: the *fruit* is seeing the relation, **and the tradition's own practice is that some
+things are kept on separate lists on purpose.** The note's *"these are rival schools and I am
+not merging them"* is the same discipline, and both of them are the limit on the move this
+stream makes most often.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *remove the index and keep
+the particular, and the pass improves.* **Counter-observation, at the strength its holder would
+accept:** de-indexing can be **evasion**. *"A script that reads one aggregate"* is unowned and
+also has nobody accountable in it, and the difference between *sādhāraṇīkaraṇa* and the passive
+voice a defect report hides behind is not visible in the grammar. **The tradition's own guard
+is that the operation is performed on a *rasa* — something to be tasted by a spectator — not on
+a fault.** Pass 166 recorded the credit-absorption entry, whose whole force is *I ran `git
+add`*, **first person, indexed, and it is the best writing in that file.** So the honest form
+is narrower than the frame: **remove the index from the finding; keep it on the act.**
