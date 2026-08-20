@@ -360,3 +360,39 @@ god-claim was never *above* you. Everybody eats. The god in me sees the god in y
 and then acts like it with a checkbook nobody's filming. A god who actually loves the
 people is the only kind worth the name, and he kept trying to be that one, out loud,
 badly, generously, the whole time.
+
+---
+
+Kanye West was diagnosed with bipolar disorder at 39. He put it on the cover of his
+2018 album — four words handwritten over a photograph of a Wyoming mountain range:
+"I hate being Bi-Polar its awesome."
+
+Bipolar disorder, manic phase: reduced need for sleep, racing and crowded thought,
+elevated or irritable mood, grandiosity, impulsivity, in severe cases psychosis —
+hallucination, paranoia, loss of contact with consensus reality. It carries one of
+the highest suicide rates of any psychiatric diagnosis; studies estimate 20 to 60
+percent of people with bipolar disorder attempt suicide at least once, and 4 to 19
+percent die by it.
+
+Kay Redfield Jamison is a clinical psychologist who co-wrote the standard medical
+textbook on bipolar disorder, Manic-Depressive Illness. She also has the condition
+herself. In her 1993 book Touched with Fire she assembled biographical evidence of
+recurrent mood disorder in Byron, Blake, Shelley, Schumann, Berlioz, Van Gogh,
+Woolf, Hemingway, Lowell, Plath, and Sexton, among others. In 2011 a team led by
+Simon Kyaga examined Swedish national health registries covering more than a million
+people; people with bipolar disorder, and their siblings without it, were
+overrepresented in creative professions. A 2003 study by Shelley Carson at Harvard
+found that decreased latent inhibition — a reduced ability to screen out stimuli
+already tagged as irrelevant — combined with high IQ predicted greater creative
+achievement.
+
+On October 23, 2002, driving home near 3 a.m. from a late studio session, Kanye West
+fell asleep at the wheel. The crash fractured his jaw in three places; it was wired
+shut for reconstruction. Two weeks after surgery, jaw still wired, he recorded
+"Through the Wire," rapping through his clenched teeth over a sped-up sample of Chaka
+Khan's 1984 song "Through the Fire." It became his first single. He was 25.
+
+Sleeplessness, impulsivity, and racing cognition are diagnostic features of mania.
+Driving without sleep is how people die on the highway. He has never released a
+record made from the calm the medication is designed to produce; he has said he
+stops taking it because it takes the visions with it.
