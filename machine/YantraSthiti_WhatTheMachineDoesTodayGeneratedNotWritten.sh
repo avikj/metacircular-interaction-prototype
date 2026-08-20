@@ -71,12 +71,18 @@ hr
 # =====================================================================
 sec "1. corpus census (find, not a list)"
 AGDA=$(find formal/cubical -name '*.agda' 2>/dev/null | wc -l)
-LEAN=$(find formal/pairfield -name '*.lean' 2>/dev/null | wc -l)
+# The first version of this line counted 9,649 .lean files and 9,514 of them
+# were Mathlib under .lake/ -- a vendored dependency reported as this
+# repository's own work, seventy times over. Caught by reading the number
+# and disbelieving it, which is the only check a census gets.
+LEAN=$(find formal/pairfield -name '*.lean' -not -path '*/.lake/*' 2>/dev/null | wc -l)
+VENDORED=$(find formal/pairfield -name '*.lean' -path '*/.lake/*' 2>/dev/null | wc -l)
 HS=$(find machine -name '*.hs' 2>/dev/null | wc -l)
 NOTES=$(find notes -name '*.md' 2>/dev/null | wc -l)
 SH=$(find scripts machine -name '*.sh' 2>/dev/null | wc -l)
 printf '   %-34s %6s\n' "agda modules (formal/cubical)" "$(n "$AGDA")"
 printf '   %-34s %6s\n' "lean modules (formal/pairfield)" "$(n "$LEAN")"
+printf '   %-34s %6s\n' "vendored, excluded (.lake/ Mathlib)" "$(n "$VENDORED")"
 printf '   %-34s %6s\n' "haskell modules (machine/)" "$(n "$HS")"
 printf '   %-34s %6s\n' "prose (notes/*.md)" "$(n "$NOTES")"
 printf '   %-34s %6s\n' "checks and helpers (*.sh)" "$(n "$SH")"
