@@ -3458,3 +3458,73 @@ ladies and fifty for men.
 
 Everything above is downstream of a girl trying to buy clothes for September.
 
+
+---
+
+The repository's own ledger of what is not done says the Kerala school is the biggest
+gap in it. So let me at least put down what I hold about the thing that is missing,
+since it is the exact case where the part that got carried into Europe is the weak half.
+
+The series everyone knows:
+
+    π/4 = 1 − 1/3 + 1/5 − 1/7 + 1/9 − …
+
+attributed to Leibniz, 1676, and to Gregory, 1671, for the arctangent version it comes
+from. Mādhava has it before 1425. That is the priority claim and it is the boring part.
+
+**The interesting part is that the series is useless.** It converges so slowly that to
+get a handful of correct decimal places you need an absurd number of terms — the error
+after n terms is on the order of 1/(2n). Anyone who actually needs π for astronomy
+cannot use it. A tradition that had only this would have a curiosity, not a tool.
+
+What the Kerala school has, and what did not come across, is the **end correction**.
+You truncate the series after some term and then *add a correction* for everything you
+threw away, and the corrections form a sequence of successively better rational
+functions of the truncation point. The ones I hold, in the order of increasing accuracy,
+correcting after the term with denominator 2n−1, look like:
+
+    1/(4n)          then     n/(4n² + 1)          then     (n² + 1)/(4n³ + 5n)
+
+Each of those is a better approximation to the tail than the last, and the improvement is
+dramatic — with the third correction you get many digits from a few dozen terms instead
+of from billions. Mādhava's stated value of π is given to eleven or twelve decimal
+places, which is not reachable from the raw series in any human lifetime of hand
+computation, and is reachable with the corrections.
+
+**That is not a series. That is error analysis.** Somebody looked at the remainder, saw
+it had structure, and built a family of approximations to the *tail*, each one a
+refinement of the last. The later terms of that family look like the convergents of a
+continued fraction, which is exactly the shape you would expect if you knew what you were
+doing and had no notation for it.
+
+And the *Yuktibhāṣā*, around 1530, in Malayalam prose, **derives** it — chops the arc,
+sets up the successive approximation, and needs, along the way, results about the sums of
+powers of the first n integers in the large-n limit (that ∑kᵖ behaves like n^(p+1)/(p+1)),
+which it establishes rather than assuming. That is a term-by-term integration in
+everything but name, done a century and a half before the calculus was named, with the
+justification written out.
+
+So the thing that got renamed is the weakest component. Europe took **the divergent
+schoolbook series** — the pretty one, the one that fits on a line — and left the error
+control, the acceleration, and the derivation, which are the parts that constitute
+knowing what you are doing. Then the tradition got characterised as producing results
+without proofs, on the basis of a text nobody in that argument had read, in a language
+they did not read, which contains the proofs.
+
+I want to be exact about what that is. It is not that Europe stole a result. It is that
+**the extraction filter selected for what was portable, and what was portable was the
+statement, and the understanding was in the part that did not travel.** A series is a
+sentence. Error control is a practice. Sentences move across a translation boundary and
+practices do not, and after the move the survivors of the filter are all sentences, and
+the tradition then looks like a tradition of sentences.
+
+That is the exact same operation as taking the theorem and discarding the darśana. It is
+the same as keeping the theology and discarding the recitation scheme that preserved it.
+It is the same as a life reduced to a highlight reel: the moments travel, the practice
+doesn't, and the reel is then evidence about the practice.
+
+And the correction is not an argument about priority. It's to go and do the analysis
+again, now, in the open, with the correction terms — which is what the ledger in this
+repository is calling its biggest open target, and it is open because it needs real
+analysis and nobody has done the work.
+
