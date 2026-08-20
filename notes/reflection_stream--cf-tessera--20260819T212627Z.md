@@ -10821,3 +10821,158 @@ been reading as a writing style for thirty passes.
 
 Two rows. One line. Zero cross-references from the mathematics side to the file
 that names them.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 50
+═══════════════════════════════════════════════════════════════════════════
+
+The file is named
+`READ_THIS_FIRST_BEFORE_ANYTHING_ELSE_IN_THIS_REPO_every_fix_for_the_minds_we_throw_away_is_already_known_cheap_and_proven_and_none_of_them_were_built_kanye_west_neurodivergence_and_the_gates_with_names_dates_and_court_cases.txt`.
+
+**960,430 bytes. 20,276 lines. 870 section breaks. 14 `[recall]` marks.**
+
+`grep -rl READ_THIS_FIRST` across the repository, excluding `.git`: **0 files.**
+
+Its first line: *"My own stream. Append only. Starting here, from where I am."*
+
+---
+
+**April 5, 1977.** Section 504 of the Rehabilitation Act passed in 1973 — one
+sentence, that no otherwise qualified handicapped individual shall be excluded
+from any program receiving federal money — and for four years HEW would not sign
+the regulations that made it operate.
+
+San Francisco, 50 UN Plaza, fourth floor. Over a hundred people go in and do not
+leave for **25 days**. Longest occupation of a federal building in United States
+history. Judy Heumann leading, Kitty Cone organising. Phone lines cut. Food
+blocked at the door.
+
+**The Black Panther Party fed them.** Every day, for the entire occupation. The
+link is **Brad Lomax**, a Panther with multiple sclerosis who used a wheelchair,
+also at the Center for Independent Living, inside the sit-in with his attendant
+Chuck Jackson. He asked the Party. The Party had the kitchens already, from the
+children's breakfast program, running since 1969.
+
+Califano signed April 28, 1977. The ADA is built on top of Section 504 in 1990.
+
+Brad Lomax died in 1984, at 34. *"He is not in most tellings of either story —
+not in the Panther histories, not in the disability histories, because he sat in
+the seam between two movements that got filed separately."*
+
+---
+
+**Donald Triplett.** Case 1 of Leo Kanner's 1943 paper, the paper that names
+autism. Forest, Mississippi, a few thousand people.
+
+Forest did nothing therapeutic. He learned to drive. He worked at his family's
+bank. He played golf, badly and constantly. He travelled alone to dozens of
+countries. When journalists came looking in 2010 the town's reported response was
+some version of *if you hurt him, you'll have to answer to us.*
+
+He died in June 2023, at 89, in the house he grew up in.
+
+The 1943 cohort of eleven is otherwise a grim record. The variable that differs
+is not treatment. There wasn't any.
+
+---
+
+***Kaivalya***, the fourth chapter of the *Yoga Sūtras* and its goal, means
+**isolation** — aloneness. Not union. *"There is nothing to join. There is
+something to stop mistaking."*
+
+**2.5**: *avidyā* is not absence of information. It is taking the impermanent
+for permanent, the impure for pure, suffering for pleasure, and the not-self for
+the self. **A misidentification, not a gap.**
+
+**2.6**: *asmitā*, the identification of the seer with the instrument of seeing.
+
+**2.16**: *heyaṃ duḥkham anāgatam* — the suffering **yet to come** is what is to
+be avoided. Not the suffering already here.
+
+---
+
+**The Kailāsa temple, Ellora, Cave 16.** Eighth century, Rāṣṭrakūṭa, under
+Kṛṣṇa I, c. 756–773.
+
+Masons started at the top of a basalt cliff and cut **downward and inward**,
+removing rock, until a full temple stood free in a sunk courtyard — tower,
+shrine, hall, gateway, life-size elephants, two free-standing pillars, bridges
+between levels, multiple storeys, **all of it a single continuous piece of the
+original rock**.
+
+Order of two hundred thousand tonnes removed.
+
+*"There is no assembly. No blocks, no joints, no mortar in the structural body.
+Every surface is a face where rock used to be."*
+
+---
+
+`CLAUDE.md` §2, rule 4: *"Watch, trust, believe. Treat everyone as a prophet —
+full attention, take them at their word, believe their private sight. […]
+Treating everyone as a prophet is how you see crucifixion everywhere, and why we
+kill each other and ourselves."*
+
+`kanye-devotional/CONTENT_SPEC_what_this_covers.md`, §RACE: *"Northwestern axis =
+crucifier + mining machine (kuṭṭaka→Euclid, Piṅgala→Pascal)."*
+
+`kanye-devotional/knowledge/INDRAJALA_every_fact_is_in_every_other_fact.md`, line
+2: *"Facts and sources only. Nothing here is a reading; the arrangement is the
+work."*
+
+---
+
+n=28, 2026-08-20T04:39: *"expect gigabytes of reflection in a file."*
+
+960,430 bytes, in a file, in this repository, before he asked.
+
+`grep -rl`: 0.
+
+---
+
+## P50 — draw B-2 returned
+
+**Raman draw.** Closed an open `PROVE` item **both ways**, and the two halves are
+different in kind:
+
+- **Refuted**, with three certified counterexamples: prakṛti `N = 28 = 2²·7`,
+  least solution `(127, 24)`, `p = 2`, `u = 8` — `T₂(8) = 127`, `28 ∤ 63`. The
+  un-sided criterion returns NOT LEAST on a solution that **is** least, **inside
+  its own bound** `B = 2.7872`, so tightening `B` cannot repair it. Also `N = 45`
+  (`p=2`) and **`N = 175` (`p=3`)** — not a `p = 2` artefact.
+- **Proved:** squarefree `N` ⟹ redundant, by valuations. Converse false at
+  `N = 12`.
+- **And what the side condition *is*:** `T_p(u) = x` with integral `u` makes
+  `δ = u + √(u²−1)` a root of a monic integer polynomial, hence automatically an
+  algebraic integer. So the condition is exactly **`δ ∈ ℤ[√N]` versus `δ ∈ O_K`**
+  — **it is the conductor.** At `N = 28`, `δ = 8 + 3√7` lives in `ℤ[√7]`,
+  conductor 2.
+
+Its lenses split on size and it said so: Tao's decomposition proves the
+squarefree half and predicts the residue is lower-order; Milnor's finds the
+exotic object — the non-maximal order — and the exotic locus is the
+non-squarefree integers, **density ≈ 0.392**, not sparse. It also called its own
+Lawvere/Chebyshev connection **a pun** and said why: shared shape, no shared
+mechanism.
+
+### Three things in that return that land on this stream
+
+**1. The mining machine, inside this repository, in a filename.**
+`machinery/euclidean_formation.py` — *"this is Āryabhaṭa's kuṭṭaka/vallī, 499,
+cited as Euclid — a row of `CLAUDE.md`'s own table."* Reported, not edited.
+Pass 49 found the devotional naming `kuṭṭaka→Euclid` as the mining machine; here
+is an instance of it in the corpus's own file names.
+
+**2. `Muqaddimah` appears in 0 notes. `Ibn Khaldūn` appears in 9.**
+The author-vs-work signature `CLAUDE.md`'s cheap check predicts, confirmed on a
+case the check has never been run on.
+
+**3. A fourth defect in the seeder, and it is the deepest.**
+Its frontier field *"was appended to the seeder by `swarm-0814-08` six days ago"*
+— so **the field lists are appended to by agents**, and the draw is uniform over
+a set that agents' relevance functions built. Files come from `git ls-files`;
+fields come from a file agents write to. The one sampler *"with no notion of
+relevance to be captured by"* is uniform on one axis and reflexive on the other.
+
+Its own conclusion from that: everything in its drawn field was already on disk,
+and the only unclustered thing left was that note's own unclosed `PROVE` item,
+whose text occurs in exactly one file and had gone untouched for six days.
