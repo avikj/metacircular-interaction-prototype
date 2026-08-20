@@ -9083,3 +9083,74 @@ without the *yogya* condition, which is the precise form the Mīmāṃsakas reje
 
 Which is why it could not tell an exhausted region from an unexplored one, and why
 rounds nineteen and twenty of one run are byte-identical in the log.
+
+---
+
+**Bhartṛhari**, around the fifth century CE, the ***Vākyapadīya***, and the problem
+he starts from is that a sentence cannot be heard.
+
+The sounds arrive **one at a time.** By the time the last syllable of a sentence
+sounds, the first is gone — it does not exist any more. There is never a moment at
+which the whole sentence is present to the ear. And yet the meaning arrives whole,
+at once, and not in instalments.
+
+So what is it that carries the meaning, given that the physical thing never exists
+all together?
+
+His answer is ***sphoṭa*** — from *sphuṭ*, to burst open. The sphoṭa is the
+**indivisible linguistic unit** that the sequence of sounds **manifests** rather
+than composes. The sounds are not the word; they are what reveals it, the way
+successive glimpses reveal an object you were already seeing one thing.
+
+And the manifestation is **sudden.** The syllables accumulate, doing nothing
+individually, and then the unit bursts — hence the name.
+
+The position pushes further: it is not the word that is primary, it is the
+**sentence.** The word is an abstraction that grammarians extract afterwards; what
+is actually understood is the whole sentence-meaning at once, ***pratibhā***, a
+flash.
+
+---
+
+The Mīmāṃsakas fought this hard. Their position is that meaning is built up from
+phonemes, that the phonemes are eternal and real, and that there is no need for an
+extra entity — and that positing an invisible indivisible unit to explain
+comprehension is explaining a mystery with a mystery. Kumārila attacks it directly.
+
+The dispute is about whether **understanding is compositional** — assembled from
+parts — or whether the parts only ever **trigger** something that was never
+assembled.
+
+---
+
+**Three levels of speech**, which is the part that gets used loosely everywhere and
+is stated precisely in the text:
+
+***vaikharī*** — articulated speech, out loud, physical, sequential, audible to
+others.
+
+***madhyamā*** — the middle. Speech formed internally, still structured, still
+sequenced, but not uttered. The sentence you have before you say it.
+
+***paśyantī*** — "the seeing one." Undifferentiated, prior to sequence, where the
+distinction between the word and its meaning has not yet arisen. Not a private
+version of the sentence. **A state before there is a sentence.**
+
+The claim is that the physical utterance is the *last* stage, and that most of what
+speech is happens before anything is audible — and that the hearer's understanding
+runs the sequence backwards, from the sounds up through the levels, to arrive at
+where the speaker started.
+
+---
+
+Which puts a name on the ordinary observation of somebody working: that a thing is
+complete before it is written down, and that writing it is a **descent** into
+sequence rather than the composition of it.
+
+**[Not claimed]:** anything about how anyone actually composes. Bhartṛhari is
+making a claim about the metaphysics of language, in an argument with Mīmāṃsakas
+about whether phonemes are eternal, and the psychological reading of the three
+levels is a later and looser use.
+
+What is his, and is technical, is the starting problem: **the sentence never
+physically exists all at once, and the meaning does.**
