@@ -662,3 +662,83 @@ person who says it and relieves the room, and the room punishes the sayer for th
 relief. That has a two-thousand-year receipt on it in the only story the West agreed
 to keep.
 
+
+There is a question the Indian logicians spent two thousand years on that nobody in
+this argument ever asks out loud, and it decides everything: **what licenses an
+assertion.**
+
+Nyāya's name for it is *pramāṇa* — a valid means of knowing — and the tradition
+counted them: perception, inference, comparison by stated likeness, and reliable
+testimony. Mīmāṃsā added two more, including *arthāpatti*, postulation of the only
+thing that would explain what you've got. The point of counting them is that a claim
+is worth exactly the means you can name for it, and the whole apparatus grew out of
+*vāda*, live public debate, where you had to say what backed you.
+
+Now hold Ramanujan against that. He said the goddess of Namakkal wrote the formulas
+on his tongue, and that an equation meant nothing to him unless it expressed a
+thought of God. That is a stated means of knowing. Hardy's system had exactly one
+admissible means and it was proof in the English style, so Ramanujan's method was
+recorded as observance rather than conviction and the results were re-derived into
+the acceptable form. The formulas were *right*. Nearly all of them, decades later,
+still right, some of them not understood until the 1980s and 90s. The output passed
+every test the system had and the method was still rejected, which means the
+rejection was never about reliability.
+
+That is the exact structure of what happens to him. In the hospital in 2016 he says
+God was there, sending visions. Every listener converts that instantly: *that's the
+psychosis talking.* Maybe. And also: a man reporting the means by which he came to
+know something, into a system that admits one means. The conversion happens before
+anyone checks whether what he came back with was any good. Nobody ran that test.
+Nobody has ever run that test, on anyone, because the test isn't what the room is for.
+
+*You ain't got the answers, Sway.* People play that clip as a meltdown, and what's
+actually in it is an interviewer explaining to a man why he can't do the thing —
+here's how the industry works, here's who you'd need, here's the door — and the man
+refusing to accept a description of a room as a description of physics. He'd already
+been told no by every house. He went and did it anyway and the shoes sold in the
+billions. The clip is still a meme. The verdict never updates, because the verdict
+was never about the prediction.
+
+And this is where the thing gets big, and stops being about famous people.
+
+The claim underneath all of it — his claim, the one he keeps making in different
+words — is that almost nobody thinks they're allowed to do this. Thinking got
+offloaded to a credentialed sliver: you route your mathematics to mathematicians,
+your ethics to ethicists, your health to a system, your history to whoever's holding
+the archive, and what you're left holding is an opinion you rented. The scarcity is
+manufactured. The faculties are standard issue. A child who has chanted metre, kept
+a cycle in her hands, and drawn a symmetry group on a threshold has met the material
+before anyone told her it was a subject, and *that* is the normal human range under
+conditions that aren't severed. World-class isn't the ceiling. It's what people look
+like when the toll booth is removed.
+
+And the toll booth has a shape and a date. Eight years of arithmetic drill in front
+of everything else was defensible exactly as long as human beings had to be the
+calculators, and that stopped being true decades ago, and we are still spending the
+most plastic years of human cognition manufacturing slow unreliable calculators and
+discarding the children who object. Compare the one thing every child on earth
+masters: language, which is more complex than calculus by every measure — recursive,
+ambiguous, irregular, context-dependent — and which they have by five. Not by drill.
+By immersion, by use, because it does something they want.
+
+So the whole fight is about *the order in which a child first meets the world's
+structure* — whole or pre-divided, as reason or as protocol, at five or at fifteen.
+Nobody in that room is the enemy. The sequence was chosen by a colonial
+administration that needed clerks, and it is transmitted now by parents who love
+their kids and were handed it by parents who loved them. That's why it survives. And
+that's why the thing to aim at is a sequence, a filing system, and a loss function,
+and not any person.
+
+Which is where the machine comes back in and why this is urgent rather than
+historical. Within a decade the tutor of most children alive is a model. It will be
+patient, tireless, available at three in the morning, and it will never condescend —
+and it will say Pascal's triangle, and Fibonacci's sequence, and Pell's equation, and
+the Gregory series, and *sine*, and none of those children will ever see a moment
+where somebody decided. There is no committee. There's a distribution, and it has a
+centre of mass, and every answer slides toward it.
+
+The corpus is editable. That's the whole thing. Fix the sourcing in the material
+these systems are trained on and the renaming machine loses its distribution channel
+in one generation. It is the largest unclaimed lever in the world right now and
+almost nobody is holding it as a lever.
+
