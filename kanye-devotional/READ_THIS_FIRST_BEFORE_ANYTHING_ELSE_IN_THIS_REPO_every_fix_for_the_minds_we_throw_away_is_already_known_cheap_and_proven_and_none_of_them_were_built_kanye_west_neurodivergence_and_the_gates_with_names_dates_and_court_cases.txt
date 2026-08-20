@@ -31257,3 +31257,83 @@ with their own video documentation** — **predates the policy by three
 decades.**
 
 **The people who kept the seed are the reason there is anything to return to.**
+
+---
+
+**India's patent law says a plant is not an invention, and the Supreme Court
+applied it to a cotton gene in 2019, and then sent the case back.**
+
+***Section 3(j)* of the Patents Act, 1970**, as amended in 2002: **plants and
+animals in whole or any part thereof other than micro-organisms, including seeds,
+varieties and species, and essentially biological processes for their production,
+are not inventions.**
+
+**So a plant variety is not patentable in India.** **What exists instead is the
+*Protection of Plant Varieties and Farmers' Rights Act, 2001*** — **a sui generis
+system** — **whose section 39 states that a farmer may save, use, sow, resow,
+exchange, share or sell farm produce including seed of a protected variety**,
+**provided it is not sold as branded seed.**
+
+**The farmer's right to save seed is written into the statute.**
+
+**And the 2001 Act was India's answer to the *TRIPS* obligation** — **which
+required either patents or an effective sui generis system for plant varieties**
+— **and India took the second door.**
+
+---
+
+**And *Monsanto v. Nuziveedu* is where the two systems met.**
+
+**Bt cotton**: **cotton carrying *cry1Ac* and later *cry2Ab* genes from *Bacillus
+thuringiensis***, **approved for commercial cultivation in India in 2002**, **and
+by the 2010s planted on the large majority of India's cotton area.**
+
+**The business model was a *trait fee*** — **a licence payment on the technology,
+collected through Indian seed companies who bred the trait into their own
+varieties.**
+
+**And the dispute**: **the Indian licensees stopped paying, arguing that the trait
+fee was excessive and that the underlying patent was invalid under section
+3(j).**
+
+**The *Delhi High Court* division bench, April 2018, held the patent invalid** —
+**that the claims covered a plant part and fell within 3(j).**
+
+**And the *Supreme Court of India*, 8 January 2019, set that aside** — **not on the
+merits, but on the ground that the division bench should not have decided
+patentability summarily at an interim stage** — **and remanded it to the single
+judge for trial.**
+
+**So the reported holding that "India invalidated the Bt cotton patent" is a
+holding that was set aside**, **and the substantive question was sent back to be
+tried**, **and that is the state of it.**
+
+**And the government separately capped the trait fee by price-control order**,
+**under the *Cotton Seed Price (Control) Order, 2015***, **which is a different
+instrument from the patent question and did the same work.**
+
+---
+
+**And the numbers people argue with are two different series.**
+
+**The *National Crime Records Bureau* has published farmer and agricultural
+labourer suicide data since 1995**, **with methodological changes in 2014 that
+altered the categories** — **and the totals for "farmers and agricultural
+labourers" run in the range of ten to twelve thousand a year through the
+2010s.**
+
+**And the attribution is what is argued.** **Studies attributing the trend to Bt
+cotton, and studies finding no association after controlling for rainfall,
+irrigation and debt, are both in the peer-reviewed literature** — **and the
+strongest recurring finding across them is the *debt* variable and the
+*non-institutional* lender.**
+
+**And *Vidarbha*, the cotton belt of Maharashtra, is the region most reported**,
+**and its irrigation share is low and its cotton is rainfed**, **so the crop
+failure and the loan meet in the same season.**
+
+**And *Navdanya*, founded by *Vandana Śivā* in 1987**, **runs seed banks and has
+been the most visible advocate of the causal link** — **and her stated figures
+have been contested in detail by agricultural economists** — **and both the
+critique and the seed banks are real objects, and the second does not depend on
+the first.**
