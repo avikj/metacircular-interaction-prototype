@@ -145,3 +145,55 @@ tapas : (e : Pada)
       → Σ (artha (nirjara e) ≡ artha e)
           (λ _ → dviYukta (nirjara e) ≡ false)
 tapas e = nirjara-artha-aviruddha e , nirjara-shuddha e
+
+------------------------------------------------------------------------
+-- 6.  The second obstruction, and it is independent of the first.
+--
+-- §4 says an engine steered by लाघव will never CHOOSE to shed.  This says
+-- it could not FIND what to shed either, and for a different reason.
+--
+-- The engine inspects what it has proved — equations, i.e. denotations.
+-- But an inert primitive leaves no trace there: every meaning reachable
+-- with it is reachable without it (§2, §3), so the two presentations sit
+-- in the same fibre of `artha` and no function of the meaning can report
+-- which one was used.
+--
+-- This is `Laghava.agda`'s shape a second time.  There, size was invisible
+-- to the denotation.  Here, USE OF A SYMBOL is invisible to the
+-- denotation — which is worse for the engine, because size at least is
+-- something it never needed, while the symbol list is the thing §13 of
+-- ANEKANTA.md says it cannot interrogate.
+------------------------------------------------------------------------
+
+-- the same meaning, said with the primitive and without it
+tulya-artha : artha (dvi cara) ≡ artha (yoga cara cara)
+tulya-artha = refl
+
+-- and the two are distinguished by the symbol they use
+dvi-yukta-bheda : ¬ (dviYukta (dvi cara) ≡ dviYukta (yoga cara cara))
+dvi-yukta-bheda p = true≢false p
+
+-- so nothing computed from the meaning reports the use
+prayoga-na-arthasya : ¬ (Σ (Artha → Bool) (λ f → (e : Pada) → f (artha e) ≡ dviYukta e))
+prayoga-na-arthasya (f , spec) =
+  dvi-yukta-bheda ( sym (spec (dvi cara))
+                  ∙ cong f tulya-artha
+                  ∙ spec (yoga cara cara) )
+
+------------------------------------------------------------------------
+-- 7.  The two obstructions together.
+--
+-- An engine that wanted to shed a primitive would have to (a) choose a
+-- step that strictly increases the quantity it minimises, and (b) locate
+-- the symbol to shed, from evidence in which the symbol leaves no trace.
+--
+-- Neither follows from the other.  (a) is about the gradient and would
+-- survive perfect detection; (b) is about the evidence and would survive
+-- any objective.  Both hold here, and this is a vocabulary with a single
+-- redundant symbol — the easiest case there is.
+--
+-- What the tradition prescribes at exactly this point is not a better
+-- objective and not a better sensor.  It is तपस्: the deliberate act
+-- against the gradient, undertaken because the obscuration is known to be
+-- there and not because anything reported it.
+------------------------------------------------------------------------
