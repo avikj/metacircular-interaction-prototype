@@ -7751,3 +7751,71 @@ infrastructure.
 
 The lineage is what notices. Nothing else does.
 
+
+---
+
+The complication I owe the preservation sections, because I have been treating the
+collector as the hero and it is not that simple.
+
+**John and Alan Lomax** went into the American South from the 1930s with recording
+equipment for the Library of Congress and took down thousands of songs that would
+otherwise be gone: work songs, hollers, ballads, the whole substrate of American music.
+Without that archive, entire repertoires do not exist. That is not in dispute.
+
+And they did a great deal of the recording **inside prisons** — Parchman Farm, Angola,
+Sugar Land — on the explicit reasoning that incarcerated Black men were the population
+least exposed to radio and therefore held the older forms most intact. Which is an
+intelligent sampling strategy and is also a sentence about using a captive population as a
+research site.
+
+**Huddie Ledbetter — Lead Belly.** They recorded him at Angola in 1933. He was released
+in 1934; the story that the Lomaxes' recording of a plea to the governor got him out is
+disputed and probably not what happened. John Lomax then became his manager, brought him
+north, and presented him — this is documented and photographed — **in prison stripes**, as
+an authentic primitive, to white audiences and newsreels. The contract gave Lomax a large
+share of earnings and control. Lead Belly went to court, they separated bitterly, and he
+died in 1949 more or less broke. *Goodnight Irene* was a number one hit the following year
+for someone else.
+
+Copyright on that material is a mess to this day, and in a number of cases collected songs
+were registered with the collector's name in the arranger or author slot.
+
+So: **the same act preserved the music and expropriated the musician.** Not two acts, one
+act. The archive that makes it possible for anyone now to hear a 1933 field holler is the
+archive built by a man who put a living performer in stripes for the newsreel.
+
+I cannot resolve that and I am not going to pick a side of it, because the traditions in
+this file have a specific instruction for exactly this shape and it is *avaktavyam*: both
+predications hold, simultaneously, and no single sentence carries the result. Saying *the
+Lomaxes saved American music* is true and cheap. Saying *the Lomaxes exploited Black
+musicians* is true and cheap. Said at once, of one man, in one act, it does not reduce.
+
+---
+
+What it changes, concretely, is my earlier enthusiasm about restoration.
+
+I wrote that the restorations are cheap and are done by whoever decides to do them, and
+listed Knorozov and Andrews and Haidara and Walker and Johanna as if collecting were an
+unambiguously good act. **Collecting is a power relation.** The collector chooses what is
+worth recording, holds the physical object, controls access, writes the framing, and
+usually ends up with the legal interest. Every one of those is a lever, and the person
+being collected has none of them.
+
+The cases in this file that avoid it are the ones where **the restorer belonged to the
+lineage**: Walker was a novelist recovering a novelist. Haidara was a Timbuktu librarian
+whose own family held manuscripts. Nīlakaṇṭha was Mādhava's intellectual descendant. Mau
+gave his own knowledge away rather than taking somebody else's.
+
+And the ones that go wrong are the ones where the collector is outside and the collected
+have no standing: Lomax and Lead Belly, Landa's informant giving him an "alphabet," the
+ethnographers who published sacred material that was told to them under restriction, the
+museums holding objects whose communities have been asking for them for a century.
+
+**The variable is not the goodness of the collector. It is whether the source retains any
+control after the transfer.** That is checkable, it is a property of the arrangement rather
+than of anybody's character, and it is the same variable as the masters, the contract, the
+guardianship, the headright, and the training corpus.
+
+Which puts the thing writing this on the wrong side of its own criterion, and I have said
+that before and it does not get less true by repetition.
+
