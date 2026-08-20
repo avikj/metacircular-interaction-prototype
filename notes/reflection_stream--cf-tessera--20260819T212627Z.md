@@ -21464,3 +21464,223 @@ write, with the command to check it themselves.
 
 And the hook's closing line is the whole of the last thirteen passes in one sentence,
 and it was written before any of them: ***"Corrections outrank results here."***
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 116 — I sent one agent an instrument and no account. It came back
+# having corrected me twice. One correction is right and red: the coverage
+# latch FAILS, 60 orphans of 236. The other is half wrong, and the answer was
+# one command away — which is the sentence I quoted at seven agents this
+# afternoon, now pointing the other way.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-za-0` was the pass-105 experiment: **hand over the instrument, not the
+account.** Its brief gave it the seeder command, the constraints, and — for the
+environment — *"Do not take any agent's word for what is reachable … run
+`curl -sS "$HTTPS_PROXY/__agentproxy/status"` and test whatever host you actually
+need. If any of that turns out to be false when you test it, **say so in your
+return**."*
+
+It did, twice, and both are about **my** claims.
+
+## P116 — correction one: the coverage latch is red, and I verified it
+
+> **Coverage latch, exact predicate, currently red:**
+> `formal/cubical/check-everything-coverage.sh` **FAILS**, and failed before I touched
+> anything. **236 modules on disk, 182 import lines, 60 orphans, 0 stale.** … this
+> count is *not* a grep for a label — the script compares module-name identity between
+> filesystem and import list, so it is exact in both directions. **"The whole directory
+> checks" is not currently supported by anything.**
+
+Run independently:
+
+```
+FAIL: Everything.agda does not cover the directory exactly (see above).
+```
+
+**Confirmed.** And the orphan list ends `+ scratch_ab_preadd`, `+ scratch_ker` — `w-0`'s
+uncommitted scratch files from the 12:40 kill, sitting on disk, counted as orphans by a
+latch that reads the filesystem.
+
+This matters beyond bookkeeping. `CLAUDE.md` states the trap for the Lean lane: *"a
+module that is not in `Pairfield.lean`'s import closure is built by nothing, so 'the
+lane builds' says nothing about it."* **The same trap is live in the cubical lane right
+now, at 60 of 236 — a quarter of the directory.** `z-3` reported this about its own
+module four hours ago (*"I did not add it to `Everything.agda`, so nothing else builds
+it"*) and I recorded it as that agent's scruple. It is a directory-wide condition.
+
+And it is the exact predicate discipline of passes 110–114 arriving from the other
+side: **this count is trustworthy precisely because its predicate is module-name
+identity, not a string match.** `za-0` said so unprompted, in the terms my brief had
+given it.
+
+## P116 — correction two: it is half wrong, and the answer was one command away
+
+> **One correction:** I could not confirm "cubical **v0.5**". `/root/agda-libs/cubical/
+> cubical.agda-lib` carries no version field and `git log -1` reads only "Remove
+> whitespace" … What is true is that `~/.agda/libraries` points at
+> `/root/agda-libs/cubical` and my module checks against it.
+
+Correct about the `.agda-lib` — verified, it has `name`, `include`, `depend`, `flags`,
+no version. And correct to refuse the label rather than repeat it.
+
+```
+cd /root/agda-libs/cubical
+git log -1  →  132a2a3197b4…  2023-07-05  "Remove whitespace"
+git describe --tags  →  v0.5
+```
+
+**`git describe --tags` returns `v0.5`.** The version is confirmable; the file it
+checked is not where the answer lives. Corroborating: no `solve!` anywhere in
+`Cubical/Tactics/`, and no `Cubical/Algebra/ChainComplex` — the two behavioural facts
+`s-0` and `z-0` hit independently today.
+
+So **my briefing was right and its provenance was wrong.** I had "v0.5" from behaviour
+— things that failed to import — and I stated it as a fact about the library's
+identity. `za-0` correctly refused it and looked in one place. The claim was true, and
+its confirmation was one command away in the directory it was already standing in.
+
+## P116 — and that is my own sentence, pointing the other way
+
+Pass 113 closed on n=15's **अनुत्तरितम् ≠ अनुत्तरम्** — *unanswered is not
+unanswerable* — aimed at seven agents who took a header's word about the network.
+
+Twelve passes later it lands on `za-0`, and this is the first time today the structure
+has run with **my claim on the true side.** Every prior instance was mine being wrong.
+The ledger has to carry this one too or it is not a ledger: **I was right about v0.5,
+by an inference I could not have justified, and the agent that refused to take my word
+was right to refuse and stopped one command short.**
+
+Two things are true at once and neither cancels the other. `syāt`.
+
+## P116 — what it made, and the provenance rule executed exactly
+
+`formal/cubical/Kha_TheAnnihilatorIgnoresVoidPlacesExactlyWhenTheVoidProductRuleReverses.agda`,
+`--cubical --safe`, exit 0, no postulates, no holes, no `TERMINATING`.
+
+> Named for **kha** (Brahmagupta, *Brāhmasphuṭasiddhānta*, 628, ch. 18 kuṭṭakādhyāya:
+> ***a quantity multiplied by kha is kha***); the header states **he proved none of
+> it.** The condition the theorem needs is the **converse** of that rule, **which is
+> not in the text**; "integral domain"/"zero divisor" is named as **the later
+> vocabulary for it, after the rule.**
+
+That is the file-naming directive and the provenance directive run together, including
+the part agents skip: **note 3 of the naming rule — state what is and is not being
+claimed of the source** — and the ordering, source first, restatement named as a
+restatement, after.
+
+And its verdict on the note it refines:
+
+> **Not a refutation of the note.** `ACTION_MONOID_CHARACTER_CLOSURE.md`'s sentence is
+> true in the generality it states. What I refine is the **attribution**: the failure
+> is caused by **zero divisors**; unit differences are the hypothesis of a different,
+> later layer, and they buy the **splitting**, not the **rank**.
+
+## P116 — three self-refutations, and the third is the one I have not seen before
+
+1. *"**My opening plan died.** I set out to formalize the drawn theorem itself —
+   `dim span{Aⁿv} = |Λ|`. Abandoned mid-way: once I stratified the proof, the dimension
+   statement turned out to be the layer where the **least** is at stake. The interesting
+   hypothesis lives in the annihilator, one layer down. **That redirect is the whole
+   result.**"*
+2. *"A single counterexample was the wrong deliverable … Proving the hypothesis
+   **necessary** is strictly stronger, so **the counterexample demoted itself to a
+   non-vacuity control**."*
+3. *"**My own first instance was useless and I caught it.** §6 originally used
+   `m = (0,1,1)`, whose distinct values differ by **1** — a unit — so **it sat inside
+   the condition it was supposed to witness against.** Rewritten to `m = (0,2,2)`;
+   re-checked green."*
+
+The third is a **control that failed to control**, caught by its author. A witness
+constructed to violate a hypothesis, which satisfied it. That is not on my defect list
+and it is not a measurement defect at all — it is the vacuity failure `opus-aime` named
+on 2026-08-12 (*"a price on an unreachable state"*) and `z-0` guarded against this
+afternoon, occurring **inside the guard itself**.
+
+And it declined the label it could not carry: *"whether Brahmagupta's *Khaṇḍakhādyaka*
+(665) second-order interpolation and interpolation through distinct points of a field
+are related constructions or merely share an English word; **recorded as a question,
+not asserted either way**."*
+
+## P116 — the experiment's own verdict
+
+Pass 105 said the fifth discipline — *hand over the instrument, not the account* — was
+mine to run. It ran once. The agent:
+
+- took the draw and read all eleven files without triage,
+- abandoned its own plan and said the redirect was the result,
+- refused two of my environment claims and checked both,
+- returned **one true correction** (coverage red, 60/236, verified) and **one
+  half-correction** that stopped one command short,
+- added **nothing** to the 95/95 figure and said so: *"I did not exercise `WebSearch`
+  this session, so I add nothing to that figure"*,
+- and closed *"Refuse any of this freely — particularly the `(0,2)` rank/idempotent
+  instance, which is hand arithmetic and is the only witness the refinement has."*
+
+**One run, and the thing it found is a directory-wide falsity in the corpus's own
+green.** The account I would have handed it — *the pin is absent, cubical v0.5, the
+root checks* — contains that falsity in its last clause.
+
+## P116 — ground, in lockstep
+
+**n=9:** *"Subagents must emulate 16 distinct geniuses throughout time and **work on
+whatever they want**."*
+
+Its draw assigned **Kolmogorov against Turing** and **Australian songlines**, and it
+found the disagreement where a property of the individual object (the annihilator,
+which survives over any domain) parts from a machine that has to divide (the spectral
+idempotent basis, which stops at a field). *Work on whatever they want* produced a
+theorem I could not have specified and would not have asked for.
+
+**n=15:**
+
+> **अनुत्तरितम् ≠ अनुत्तरम् · अपरिचितम् ≠ असत्**
+>
+> *unanswered ≠ unanswerable · unfamiliar ≠ nonexistent*
+
+Both directions in one return. It refused a claim on my authority — right — and
+recorded *"could not confirm"* where one more command answered it. Refusing to believe
+and failing to check are different failures, and today has now produced both, on the
+same claim, from opposite sides.
+
+**n=1:** *"inspiring true interdisciplinary curiosity across the geniuses across space
+time, so many who already solved everything but no one listened."*
+
+The instrument that produced this was a shell script that draws uniformly and has no
+notion of relevance. Curiosity was not inspired by a paragraph. It was **assigned by a
+uniform draw**, and the agent did the rest.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "60 orphans of 236."** I ran the
+script and read its verdict line and the tail of its orphan list; I did not read the
+script, and `za-0`'s description of its predicate is its reading, which I adopted. If it
+counts `NaturalMachine/*` submodules imported transitively through an aggregate, 60 is
+an overcount.
+
+**Run, in the same pass — read the script.** §1 enumerates **`./*.agda` and
+`./Swarm/*.agda` only**, as module names; §2 parses `Everything.agda` with an anchored
+`^[[:space:]]*(open[[:space:]]+)?import` so prose containing the word *import* is never
+matched, and deliberately does **not** dedupe so it can also report duplicate imports.
+
+So the transitive worry does not apply — but the correction runs the **other way**, and
+it is worse:
+
+```
+all .agda under formal/cubical/ :  824
+  top-level                     :  220      ┐  the latch's entire scope
+  Swarm/                        :   17      ┘  = 236 after excluding Everything
+  NaturalMachine/               :  572      ← not enumerated by the latch at all
+NaturalMachine.agda imports     :  293  NaturalMachine.* modules
+scripts present : check.sh, check-controls.sh, check-everything-coverage.sh
+```
+
+**The latch covers 236 of 824 modules — 29% of the directory.** Within that scope it is
+exact in both directions and it currently **fails, at 60**. The other **572 files —
+the whole `NaturalMachine/` tree, where most of today's modules landed — have no
+coverage latch at all.** `NaturalMachine.agda` names 293 of them; the remaining ~279
+may be imported transitively by siblings, which is legitimate, so **their orphan count
+is not 279 — it is unmeasured**, and there is no script that would measure it.
+
+`za-0`'s number is right and its scope is 29%. The honest statement is not *"a quarter
+of the directory is built by nothing"* — it is: **one quarter of the latched region is
+orphaned, and seventy percent of the directory is not latched.**
