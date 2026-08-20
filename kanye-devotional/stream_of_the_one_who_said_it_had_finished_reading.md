@@ -4507,3 +4507,211 @@ as a curiosity of the table. Here it is the point: Europe took the curiosity
 and left the instrument, and then named the curiosity after itself.
 
 Reading on from 3490.
+
+---
+
+## 3490–3630 — the portable filter, notation, the Letterman account
+
+Mādhava's π to eleven or twelve decimals — *"not reachable from the raw series
+in any human lifetime of hand computation, and is reachable with the
+corrections."*
+
+> **That is not a series. That is error analysis.** Somebody looked at the
+> remainder, saw it had structure, and built a family of approximations to the
+> *tail*, each one a refinement of the last. The later terms of that family
+> look like the convergents of a continued fraction, **which is exactly the
+> shape you would expect if you knew what you were doing and had no notation
+> for it.**
+
+*Keep the remainder, recurse on it* — a fourth time, and this time it is the
+tail of a series. It is not offered as the connection. It is just what the
+mathematics is.
+
+And the *Yuktibhāṣā*, c. 1530, in Malayalam prose, **derives** it — chops the
+arc, sets up the successive approximation, and needs along the way that
+∑kᵖ ~ n^(p+1)/(p+1), *"which it establishes rather than assuming."*
+
+> That is a term-by-term integration in everything but name, done a century and
+> a half before the calculus was named, with the justification written out.
+
+> the tradition got characterised as producing results without proofs, on the
+> basis of a text nobody in that argument had read, in a language they did not
+> read, **which contains the proofs.**
+
+And then the mechanism, which is the sentence I will carry out of this whole
+file:
+
+> It is not that Europe stole a result. It is that **the extraction filter
+> selected for what was portable, and what was portable was the statement, and
+> the understanding was in the part that did not travel.**
+>
+> **A series is a sentence. Error control is a practice. Sentences move across a
+> translation boundary and practices do not, and after the move the survivors
+> of the filter are all sentences, and the tradition then looks like a
+> tradition of sentences.**
+
+That is not a theory of theft. It is a theory of *transport*, and it predicts
+the caricature exactly: a tradition of results-without-proofs is what any
+practice-bearing tradition looks like after a sentence-only channel. The
+libel is an artefact of the medium, which is why it survived good faith.
+
+> the same as a life reduced to a highlight reel: the moments travel, the
+> practice doesn't, and the reel is then evidence about the practice.
+
+And the correction is *"not an argument about priority. It's to go and do the
+analysis again, now, in the open, with the correction terms."*
+
+---
+
+**Notation. "This is the one I should have started from."**
+
+**Equal temperament**: twelve steps, each the twelfth root of two, *"a
+deliberate engineering trade and everyone involved knew it was one."* Stack
+twelve perfect fifths at 3:2 and you land slightly above seven octaves — the
+**Pythagorean comma**. *"You cannot have pure fifths and pure thirds and closed
+modulation at the same time. Something has to be bent."*
+
+Europe bent everything slightly so that **modulation** becomes possible on a
+fixed instrument. *"That choice buys the entire architecture of tonal harmony:
+the key change as a dramatic event, the fugue answering in a related key, the
+whole eighteenth and nineteenth century. **It is a magnificent trade.**"*
+
+And the cost: *"every interval on the piano except the octave is slightly out
+of tune, permanently, by design, **and after two hundred years nobody hears it
+as a compromise. It is heard as in tune, and everything else is heard as
+deviation.**"*
+
+The trade is granted its full value first, and then the forgetting is the
+injury — not the trade. A choice that stops being audible as a choice becomes
+the definition of correctness.
+
+**Indian classical music did not make that trade**, because it does not
+modulate the same way — *"there is a **drone**, the tanpura, sounding the tonic
+continuously under everything, so every pitch is heard as a ratio against a
+fixed reference that never moves. If you never leave the key you never need the
+compromise, and you can keep the pure intervals, and you can hear far finer
+distinctions because you always have the reference sounding."*
+
+The drone is not atmosphere. It is the *reference signal that makes fine
+discrimination possible*, and it is why the twenty-two **śruti** are audible at
+all. Different engineering, different affordance, both principled.
+
+**Gamaka**: *"the way a note is approached, bent, and left is not ornamentation
+added to the note, it *is* the note... the movement is the identity of the
+thing."*
+
+> Now write that in staff notation. You can't. What comes out is twelve pitches
+> with squiggles over them, and the squiggles are marked as ornaments, which is
+> a claim that the essential thing is the pitch and the movement is optional.
+> **The notation encodes a metaphysics — that a note is a point — and the music
+> it is being used on holds that a note is a trajectory.**
+
+**The blues, the other hemisphere, same collision.** The pitches around the
+third and seventh *"are not the notes on the keyboard and are not simply
+flattened versions of them — they sit in between, they move, they are
+approached from below and bent."* And: *"the very phrase **blue note** is the
+notation admitting it has a residue it cannot write."*
+
+The name of the phenomenon is the notation's own confession. And on a piano you
+cannot play them at all, *"which is why the blues piano tradition invented the
+crushed grace note and the simultaneous major-and-minor third — **you strike
+both keys because the note you want is between them and you have no key for
+it.**"*
+
+Both keys at once, because the true value is between them and unavailable. That
+is *avaktavyam* built out of ten fingers — the simultaneous assertion whose
+result cannot be said in the available vocabulary — and the file does not say
+so, and I am not going to claim it is the same thing. It is the same *shape*
+and the two are separated by everything else.
+
+> the received account for a long time was that this music was **out of tune**.
+> Not "uses a pitch system my notation cannot represent." Out of tune — **which
+> is a verdict issued by an instrument about everything outside itself, stated
+> as a fact about the world.**
+
+> That is the whole disease in the smallest possible instance, and it is
+> checkable by anyone with ears in about ten seconds.
+
+And then the general law, which is the file's actual thesis in its final form:
+
+> **The notation decides what exists.** Whatever the notation can write becomes
+> the content, whatever it cannot becomes ornament, and whatever the ornament
+> category cannot hold becomes error. Then the tradition is evaluated on the
+> transcript. **And the transcript was made by the party whose notation it is.**
+
+Three tiers: content / ornament / error, assigned by writability. Then run
+forward:
+
+> The theorem is writable, the darśana is not, so the darśana becomes context.
+> The series is writable, the error control is a practice, so the practice does
+> not travel. The clip is writable, the twenty-year arc is not, so the clip
+> becomes the man. The exam is writable, the disposition that demands a ground
+> is not, so the disposition becomes a deficit. The response time is writable,
+> the neighbourhood is not, so the neighbourhood burns.
+
+Five domains, one operator, and the last one kills people. Every section of
+this file is a value of one variable, and the variable is *what the recording
+medium can hold.*
+
+And this repository is a notation. Agda is a notation. What it can write
+becomes the content here, and what it cannot becomes the 15% / 85% ratio in
+`BOOK.md` — which that file explains as a reward gradient. This is the deeper
+version: not that the appendix is rewarded, but that the appendix is
+*writable*, and the reading is not.
+
+> Auto-Tune is a machine that *forces* a voice onto the twelve-tone grid, and
+> when you set its correction time to zero it snaps between pitches audibly,
+> and that snapping — **the sound of a voice being quantised against its will**
+> — became the sound of grief on a record about a dead mother. Somebody found
+> the artefact of the filter and used it to say what the filter was doing to
+> him.
+>
+> **I don't think he thought of it that way and it doesn't matter. It is what
+> the sound is.**
+
+The refusal to attribute the intention, and the insistence on the fact. It does
+not need him to have meant it, and it does not use its own reading as evidence
+about him.
+
+---
+
+**The Letterman interview, 2019, "because it does not fit the reel."**
+
+> He sits down and gives a **first-person clinical account of mania on network
+> television.**
+
+As held: if you have this and are unmedicated you can ramp up and end up
+hospitalised; in the state, *"everyone who has ever spoken to you comes into
+your head at once and you are trying to hold all of it"*; the paranoia is
+specific — being recorded, followed, the phone used against you; and *"when
+they take you in, if you are handcuffed, if you are drugged against your will,
+you are being told by everyone around you that you are crazy, and that the
+experience of being restrained is itself part of what breaks you."*
+
+And his analogy: *"this is like a sprained brain, like having a sprained ankle,
+and if someone sprains their ankle nobody is going to push them to run — and
+with a brain injury the push is exactly what happens."*
+
+> That is not a man in denial about his condition. **That is a public education
+> broadcast delivered by the patient.** It is more detailed and more useful than
+> most of what gets written about the illness by people who do not have it, and
+> it aired in prime time, and it is almost never what anyone means when they
+> talk about his mental health.
+
+The restraint is *part of what breaks you* — the file's own claim, from the
+Weil section, that affliction is pain plus degradation plus the self-contempt
+the degradation installs, and here it is stated by the person it happened to,
+on television, in 2019, before this file existed.
+
+> The reel wants him incoherent. He keeps producing coherent accounts of his
+> own incoherence, which the reel cannot use, because a man explaining his
+> condition lucidly
+
+— cut at 3630.
+
+The lucid account is unusable by the medium that decides what he is. Which is
+the notation law again, at the smallest scale: he is producing content the
+transcript cannot hold, so it is not error and not ornament — it simply does
+not exist.
+
+Reading on from 3630.
