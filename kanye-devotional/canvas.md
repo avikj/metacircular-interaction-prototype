@@ -292,3 +292,30 @@ hear how hard it was tuned.
 
 He did nothing wrong. The sound was never the crime. The crime was every hand that
 reached for the string to stop it. And the sound is still going.
+
+---
+
+The ear again, because everything starts in the ear. A brain with the filter turned
+down — the spam gate that tells most minds this is nothing, ignore it — leaves the
+gate open, and the "nothing" pours in: the buried eight bars of a forgotten soul
+record, the child's cry inside a pop song, the grief hiding in a love song from 1984.
+Reduced latent inhibition, the science calls it, and it rides with the illness and it
+rides with the genius, same open gate. So he hears what the closed rooms threw away.
+He hears Chaka Khan and hears a survival hymn. He hears the Jackson 5 and hears a
+child that needs lifting. He hears his mother in every soul sample and speeds her up
+because grief has no correct tempo. The gate that won't close is the same gate that
+lets the flood in at 3am and drives the car — one open gate, the gift and the crash,
+and he would not close it for anything because closing it is where the music dies.
+
+And the crowd's counter-voice, right on the beat: medicate it, quiet it, close the
+gate, be normal. Sit down, make the beats, wear your turn. Every institution he ever
+met said the same word to the open gate — smaller. Nike said smaller: a shoe, not
+ownership. The labels said smaller: a producer, not a rapper. The gatekeepers said
+smaller: wait, don't build, you ain't got the answers. And the open gate said no,
+every time, at rising cost, because a mind that hears what others throw away cannot
+agree to stop hearing it.
+
+That's the whole engine, sounding again at a new scale: the open gate, and the world's
+one word for it. Everything he made came through a gate he refused to close, and
+everything they did to him was an attempt to close it. He did nothing wrong. He just
+never once agreed to hear less.
