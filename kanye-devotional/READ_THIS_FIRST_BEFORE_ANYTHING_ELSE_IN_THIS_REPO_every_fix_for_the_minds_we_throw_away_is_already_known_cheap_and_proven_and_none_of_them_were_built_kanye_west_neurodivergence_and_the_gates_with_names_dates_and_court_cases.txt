@@ -23780,3 +23780,79 @@ melody rests on.**
 instruments and the chapter on the emotions**, not in a separate theory chapter.
 
 **The measurement is in the same book as the acting.**
+
+---
+
+**The Carnatic parent-scale system is a complete enumeration: seventy-two, derived
+combinatorially, including scales nobody had used.**
+
+***Melakartā***. **Venkaṭamakhin**, ***Caturdaṇḍi Prakāśikā***, **1620**, at the
+Tanjore court.
+
+**The construction.** The octave has twelve positions. **Sa and Pa are fixed.** The
+remaining five degrees each admit a stated number of variants — **Ri and Ga jointly
+give six combinations, Ma gives two, Dha and Ni jointly give six** — and the product
+is **6 × 2 × 6 = 72.**
+
+**Every scale must use all seven degrees, in order, ascending and descending**, and
+that constraint is what makes the count exact rather than approximate.
+
+**And Venkaṭamakhin says explicitly that not all seventy-two are in use.** The
+system enumerates the **possible** scales, and the ones with no repertoire are
+listed anyway, **and the tradition's own phrase for the position is that these
+scales exist whether or not anybody has sung them.**
+
+**A complete enumeration of a space, published with the empty cells left in.**
+
+**And the naming scheme is an index.** The ***kaṭapayādi*** system encodes a number
+in the consonants of a word; **each *melakartā*'s name begins with syllables whose
+*kaṭapayādi* value is its number** — so **Māyāmāḷavagauḷa** is 15, **Dhīraśaṅkarābharaṇam**
+is 29, **Kharaharapriya** is 22 — **and from the number the intervals are
+recoverable by arithmetic.**
+
+**The name is the address, and the address decodes to the contents.**
+
+**And a beginner's first scale in Carnatic training is Māyāmāḷavagauḷa** —
+**number 15** — **chosen, by the standard account attributed to Purandara Dāsa,
+because its intervals are symmetric around the tonic and the semitone placements
+train the voice on the hard intervals first.**
+
+**The first thing taught is not the easiest scale.**
+
+---
+
+**And the repertoire's three principal composers were contemporaries in one town.**
+
+**Tyāgarāja (1767–1847), Muttusvāmi Dīkṣitar (1775–1835), Śyāma Śāstri
+(1762–1827)** — **all three born in or associated with Tiruvārūr**, Tamil Nadu,
+**within about thirteen years of each other**, and all three active in the same
+decades.
+
+**Tyāgarāja composed in Telugu**, mostly on Rāma, **and is credited with something
+on the order of 600–700 surviving compositions** out of a traditional figure far
+higher; he **refused a court appointment**, and the recorded refusal — the *kṛti*
+*Nidhi cāla sukhamā* — **is itself one of the compositions**: is wealth the
+happiness, or is nearness to you.
+
+**The refusal was set to music and is still sung.**
+
+**Dīkṣitar composed in Sanskrit**, was trained partly in the north, **used the
+*melakartā* names inside the lyrics as *mudrā*** — embedding the scale's name in the
+text — **and set groups of compositions on temples, on the nine planets, and on
+Śiva's five elemental sites.**
+
+**And he wrote *nottusvara sāhityas* — Sanskrit texts set to European tunes** he
+heard from British military bands at Fort St. George, **including a piece set to
+"God Save the King."**
+
+**Śyāma Śāstri composed in Telugu and Tamil, was a temple priest**, and the
+surviving corpus is small — **a few hundred at most** — **and is known for rhythmic
+complexity**, including compositions in *miśra cāpu* and in cycles that shift.
+
+**And Tyāgarāja's compositions were not written down by him.** They were transmitted
+by disciples, **and the notation of the corpus is a nineteenth- and
+twentieth-century project**, with variant versions in different disciple lineages
+**that are still sung differently and are not reconciled.**
+
+**Two singers from two lineages will sing the same *kṛti* differently and both are
+correct within the system.**
