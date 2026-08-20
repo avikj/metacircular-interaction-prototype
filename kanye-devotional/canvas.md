@@ -87,3 +87,32 @@ into the Harris County Jail in Houston and sang to the men held inside it.
 Every public catastrophe of his life is on the record and will be examined here, none
 skipped, the harm named as harm. But the facts above were true before the verdict was
 passed, and they do not go away when it is. Hold them, and read on.
+
+---
+
+In the United States a person judged to be a danger to themselves or others, or too
+disabled by mental illness to care for themselves, can be detained against their will
+for psychiatric evaluation. In California the statute is numbered 5150; the initial
+hold is up to 72 hours. The person can be transported in restraints. They do not have
+to have committed a crime.
+
+For most of the nineteenth and twentieth centuries such people were confined in
+asylums. In the 1960s and 1970s the United States emptied most of them —
+deinstitutionalization — without building the community care that was supposed to
+replace it. Many of the severely mentally ill moved instead into the streets and into
+the jails. Today the three largest psychiatric facilities in the United States are not
+hospitals. They are the Los Angeles County Jail, Cook County Jail in Chicago, and
+Rikers Island in New York. A person having a mental health crisis in America is more
+likely to meet a police officer than a doctor, and Black Americans in crisis are both
+more likely to be arrested and more likely to be killed in the encounter.
+
+In November 2016 Kanye West, in the middle of a manic episode, cut a concert short,
+canceled the remainder of his tour, and was taken by ambulance to UCLA Medical Center
+and placed on a psychiatric hold. It was reported he was handcuffed to the gurney. He
+was 39, and it was around this time that he was first diagnosed. He later described
+the experience to David Letterman: that in the ramp-up he felt "a heightened
+connection with the universe," that the condition is like "a sprained brain," and that
+once a person is in that state, "everyone" around them "do everything to make it
+worse" — the handcuffs, the lights, the being held down. He was describing, from
+inside, the same confinement this movement is about: the line a society draws between
+the citizen and the patient, and how fast, for some people, it can be crossed.
