@@ -25362,3 +25362,78 @@ disputes produced decrees that specified liturgical order.**
 
 **A question about whether the kitten holds on was settled, for administrative
 purposes, by judges.**
+
+---
+
+**Madhva's system says souls are permanently different from each other and from
+God, and that some of them are never released — which is the only Indian school
+that says so.**
+
+**Madhvācārya**, **1238–1317**, coastal Karnataka. **Dvaita** — dualism, and the
+technical name is ***tattvavāda***, the doctrine of reality.
+
+**The five real differences (*pañca-bheda*)**, enumerated: God and soul; God and
+matter; soul and soul; soul and matter; matter and matter. **All five eternal,
+none of them appearance.**
+
+**And souls are graded by intrinsic nature (*svarūpa-yogyatā*)** — a fixed
+capacity that is not acquired and cannot be changed by effort. **Three classes**:
+*mukti-yogya*, fit for liberation; *nitya-saṃsārin*,永 in transmigration,
+never released and never damned; **and *tamo-yogya*, fit for darkness —
+permanently.**
+
+**This is *svarūpa-traividhya*, the threefold classification of souls, and it is
+the position no other Vedāntic school holds.** Advaita, Viśiṣṭādvaita and the rest
+have all souls eventually released.
+
+**And Madhva's technical innovation for handling difference is *viśeṣa***, a
+device by which a thing's own qualities are distinguished from it without being
+separate things — **posited to avoid an infinite regress of relations**, since if
+difference itself required a further difference to relate it, nothing would ever
+be related.
+
+**And the eight Uḍupi *maṭha*s he founded still operate**, on a rotation —
+***paryāya*** — in which each maṭha's head takes charge of the Kṛṣṇa temple **for
+two years**, in a cycle of sixteen years, **and the handover is a dated public
+ceremony still performed.**
+
+**And *Vyāsatīrtha*** (1460–1539), at Vijayanagara, wrote the ***Nyāyāmṛta***
+against Advaita; **Madhusūdana Sarasvatī** answered with the ***Advaitasiddhi***;
+**Rāmācārya answered that with the *Taraṅgiṇī***; **and the exchange continued
+through further replies for generations**, in a chain where each text is a
+commentary on the refutation of the refutation.
+
+---
+
+**And the technical language they were all arguing in had been rebuilt by one
+man in Mithilā.**
+
+**Gaṅgeśa Upādhyāya**, ***Tattvacintāmaṇi***, **c. 1325**, Mithilā. **The book
+that starts *Navya-Nyāya*, the new logic.**
+
+**It is organised by the four *pramāṇa*s** — perception, inference, comparison,
+testimony — **and its method is to state an opponent's definition, exhibit a case
+that breaks it, repair it, and repeat**, until the definition survives every
+counterexample the tradition has produced.
+
+**The machinery**: ***avacchedaka***, the limitor — a device that fixes the exact
+respect in which a property is being predicated, **so that "the pot has
+pot-ness" and "the pot has pot-ness limited by contact with the ground" are
+different statements** — and ***pratiyogin***, the counter-correlate, which every
+absence must name: **there is no absence, only absence-of-something, and the
+something is carried in the type.**
+
+**And *paryāpti*, and *nirūpita*, and the chains of genitives** that let a
+Navya-Naiyāyika state, without symbols, **a nested quantifier structure** —
+which is why the school's prose is famously unreadable and why it is
+translatable into modern logical notation almost mechanically.
+
+**Ingalls's *Materials for the Study of Navya-Nyāya Logic* (1951)** is the
+standard English entry, **and Ingalls's own stated finding is that the system's
+apparatus expresses relations that European logic had no notation for until the
+late nineteenth century.**
+
+**And the school's own prose has no symbols at all.**
+
+**It is Sanskrit, and the precision is carried entirely by compound
+morphology.**
