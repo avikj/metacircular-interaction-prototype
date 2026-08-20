@@ -12341,3 +12341,88 @@ moves.
 The theorems in the interval are not wrong exactly. They are **true of a domain
 nobody had specified**, and the specification arrives afterwards, dragged into
 existence by the thing that broke it.
+
+---
+
+**Frege received the letter while the second volume was at the printer**, and he
+printed the letter.
+
+**Gottlob Frege**, *Grundgesetze der Arithmetik*, an attempt to derive arithmetic
+from logic alone. Volume I 1893, Volume II in press in **1902.**
+
+**Bertrand Russell wrote to him on 16 June 1902** with a paradox: consider the set
+of all sets that are not members of themselves. If it contains itself it does not,
+and if it does not it does. Frege's **Basic Law V** — which lets you form the
+extension of any concept — produces it.
+
+Frege's reply, days later, opens: **"Your discovery of the contradiction caused me
+the greatest surprise and, I would almost say, consternation, since it has shaken
+the basis on which I intended to build arithmetic."**
+
+**He added an appendix to Volume II**, in print, stating that a foundation-stone of
+his edifice had been shaken and that he did not, at that moment, know how to
+repair it — and published the volume anyway with the objection inside it.
+
+He tried a patch and it did not work, and he later abandoned the logicist project
+entirely.
+
+Russell's own account, decades later, is that he had never seen a comparable
+instance of intellectual honesty: a man whose life's work was destroyed responding
+with attention to the argument rather than to himself.
+
+---
+
+**Hilbert's programme**, formulated across the 1920s: find a **finitary** proof that
+the whole of mathematics, formalised, is **consistent** — and thereby settle the
+question of whether the paradoxes could recur.
+
+Hilbert's 1930 retirement address in Königsberg ends with
+**"Wir müssen wissen — wir werden wissen."** We must know, we will know. It is on
+his gravestone.
+
+**At a conference in the same city, in the same week, in September 1930**, a
+twenty-four-year-old named **Kurt Gödel** mentioned, in a roundtable discussion,
+that he had a result.
+
+**The first incompleteness theorem**: any consistent formal system strong enough
+for arithmetic contains statements it can neither prove nor refute.
+
+**The second**: such a system cannot prove **its own consistency.**
+
+Which is the exact target of the programme. Published **1931.**
+
+**Von Neumann**, in the audience, understood it immediately, worked out the second
+theorem himself within weeks, and wrote to Gödel — who had already got it. Von
+Neumann abandoned foundations and moved to other work.
+
+Hilbert's reaction is variously reported. The programme, in its original form, was
+over.
+
+---
+
+**And Gödel's own reading is not the one that circulates.**
+
+The popular version is that mathematics is broken, or that truth outruns proof in
+some vague way.
+
+**Gödel's position was Platonist.** He held that the undecidable statements have
+determinate truth values and that the theorems show the **formal system** is
+inadequate to the subject, not that the subject is defective. He thought the
+theorems supported the view that mathematical objects exist independently and that
+the mind is not a machine.
+
+That is a philosophical position and it is disputed, and he held it explicitly and
+in print.
+
+**The programme also did not entirely die.** **Gentzen proved the consistency of
+arithmetic in 1936** — using transfinite induction up to ε₀, which is not finitary,
+which is exactly the point. The consistency is provable; it is provable **from
+outside**, using a stronger principle.
+
+So the shape of what was learned is: **a system cannot certify itself, and can be
+certified by something bigger, which then cannot certify itself.**
+
+Which is a statement about where verification has to come from, and it is the same
+structural fact the proof assistants are living with: a kernel checks the
+mathematics, and **the kernel is checked by people reading it**, and that is where
+it stops.
