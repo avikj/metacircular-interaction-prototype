@@ -215,13 +215,15 @@ social fact that millions of people feel personally wronged by it. A breakdown t
 his grandfather would have been a family's private grief became, for him, public
 property, permanent, searchable, and profitable to be angry about.
 
-None of this is said to move the harm he did off the ledger; that comes, and it is not
-moved. It is said because you cannot understand what happened to him, or judge it fairly,
-without knowing that he did his living — the making and the breaking, the generosity and
-the cruelty — inside a hall of mirrors that no one who judges him has ever had to stand
-in. The recordings are the only version of him most people will ever meet, and a
-recording of a person's worst minute, played ten million times, is not the person. It is
-the minute.
+He did his living — the making and the breaking, the generosity and the cruelty — inside
+a hall of mirrors no one who judges him has ever had to stand in. The recordings are the
+only version of him most people will ever meet, and a recording of a person's worst
+minute, played ten million times, is not the person. It is the minute. And this is not
+only his problem anymore. Everyone carries a camera now; every worst minute is captured
+and kept and paid for in attention; more and more of us are going to be known, somewhere,
+by our worst minute instead of by our lives. He is the largest instance of a thing that
+is already coming for ordinary people — the man it happens to at work, the kid it happens
+to at school. What was done to him is the preview.
 
 Now the hardest part, and the book would be a lie if it went around it.
 
