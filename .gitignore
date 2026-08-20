@@ -68,3 +68,10 @@ machine/nested-agda/
 machine/.certcache/
 formal/cubical/.claude/
 machine/replay.traces.live
+
+# The sabhā: the compiled process and its transcript.  The binary is
+# rebuildable from machine/check-sabha.sh; the transcript is a session
+# record, kept locally and never rewritten in place (append-only), and it
+# is the corpus this wire exists to produce.
+machine/sabha
+machine/sabha.jsonl
