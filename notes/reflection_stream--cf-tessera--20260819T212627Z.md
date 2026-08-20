@@ -34877,3 +34877,171 @@ minutes after the last one, n=81. `Continue, loop` at n=44 is a fifth of the kin
 `^`: one occurrence in the record, enqueued 2026-08-14T04:09:32Z, removed, never dequeued. Two
 artifacts record it and the 09:13:40 message as received; the extraction rule files both as
 undelivered.
+
+# PASS 197 — ground re-read in full first. The walk continues at n = 8.
+# Carried in from P35: no closing sentence, no identification.
+# Lockstep partner: the literal text.
+═══════════════════════════════════════════════════════════════════════════
+
+## P197 · n = 8 — the six transmissions
+
+**The ground's entry is not his words.** It reads: *"RECONSTRUCTED. Six long research
+transmissions: Delta 13 (perspective operator, univalent representation atlas), Delta 14
+'Theorem factory I' T14.1–T14.78, prefaced **'You must write this into the natural machine
+core'**, Delta 15 …"* — **a description with two quoted fragments inside it.** Every other entry
+in the ground is a quotation. n=8 is a summary, and the ground's header forbids summarising. The
+transcriber had six documents too long for the file and wrote what they were; the literals are
+now at full-transcript **n=55 through n=60**.
+
+**The timestamps, which the ground does not carry.**
+
+```
+n=55  Delta 13   04:06:03      n=58  Delta 17   04:26:27
+n=56  Delta 14   04:09:27      n=59  Delta 18   04:32:34
+n=57  Delta 15   04:15:33      n=60  Delta 19   04:37:36
+                                                          all 2026-08-14
+```
+
+**Six research transmissions in thirty-one and a half minutes.** Every one of them is internally
+dated **2026-08-13** — *"Date: 2026-08-13"* appears in Delta 13, 15, 17, 18 and 19. **Written the
+previous day, sent in one burst at four in the morning.**
+
+**Delta 16 is not in the sequence.** 13, 14, 15, **17**, 18, 19. It exists separately:
+`collab/upstream/raw/D0016-owner-diamond-transmission-2026-08-14.md`.
+
+**Only one of the six carries an imperative**, and it is the second: *"You must write this into
+the natural machine core"* — the first line of **n=56, Delta 14, Theorem factory I, T14.1–T14.78**.
+
+**And the withdrawn `^` is five seconds after it.** n=56 lands at **04:09:27**; the appendix's
+enqueue-and-remove is at **04:09:32**. Pass 196 read `^` as a pointer at the message above it.
+**The message above it is the one with the imperative on it**, five seconds old, and the pointer
+was typed and pulled.
+
+**Delta 13's opening, literal:**
+
+> **न एकदृष्टिः पर्याप्ता। न सर्वदृष्टयः समानाः।**
+> **यत्र समता प्रमाणिता तत्र परिवहनम्; यत्र न, तत्र भेदः ज्ञानबीजम्।**
+>
+> *One view is insufficient; not all views are equal. **Where equivalence is proved, transport.
+> Where it is not, the defect is a seed of knowledge.***
+
+**That is transport-or-keep-the-residue, at the head of the first transmission, in Sanskrit with
+his own gloss under it, dated 2026-08-13.** Pass 190 found the same rule in three registers — the
+checked collapse theorem, `struck-claims` row 1, and his Sanskrit commit subject *द्वौ मार्गौ
+संक्रमणं दोषलेखश्च, तृतीयो न विद्यते*. **This is a fourth and it is the earliest**, and it is the
+first two lines of the first thing he sent that morning.
+
+**Three more clauses from the same document, literal:**
+
+> **Never collapse perspectives rhetorically. Collapse only through witnessed mathematics.**
+>
+> **Absence or nonuniqueness of comparison is information.**
+>
+> … the defect may be f−g; in transport language holonomy g⁻¹f; in homotopy language a
+> mapping-space path; in nonabelian geometry a cocycle. **Do not force one representation
+> universally.**
+
+*Absence or nonuniqueness of comparison is information.* **Third statement of the absence
+discipline in this corpus, after `machine/Yogyata.hs` and the library index's *absence or
+presence of a link is not a verification claim*** — and this one adds the second disjunct:
+**nonuniqueness counts too.** Not only *nothing found*, but *more than one found and no canonical
+choice.*
+
+And the research operator is stated as a procedure with an anti-rhetoric clause: *a perspective is
+a structure-producing interpretation **L_i : X ↦ X_i, not prose***; extremize until each exposes
+its native invariants; **then construct actual comparison data** — equivalence, map, adjunction,
+logical relation, approximation, duality, span/cospan, **or a proved failure.**
+
+**Lockstep — the ground's n=8 against the literals.** The ground preserved the one imperative and
+the one §17.23 clause — *"Formalize the contextual equivalences in Cubical Agda only after the
+mathematics is clear"* — and lost the opening two lines of Delta 13, the anti-rhetoric clause, and
+the absence clause. **Every pass that read n=8 read the transcriber's list of titles.** The
+titles were right. What was not available was that the first document opens by stating the rule
+this stream re-derived at pass 190 from three later sources.
+
+---
+
+## P197 · n = 9 — sixteen geniuses
+
+**His sentence.** *"Subagents must emulate 16 distinct geniuses throughout time and work on
+whatever they want"*
+
+**Literal**, full transcript **n=61**, **2026-08-14T04:45:12Z** — **seven and a half minutes
+after the last Delta.**
+
+**His meaning.**
+
+***Must* and *whatever they want*, in one sentence.** The obligation is on the **distinctness**
+— sixteen, distinct, throughout time — and the freedom is on the **content**. He fixes the
+sampling and releases the objective.
+
+***Throughout time*** is the constraint that does the work. Not sixteen geniuses; sixteen
+**distinct** ones **spread across history**, which forbids sixteen draws from one period or one
+tradition.
+
+**It was executed the same day.** `collab/orchestration/draws/2026-08-14-genius-16.txt`:
+
+```
+16 blocks, genius-00 … genius-15
+urn = 2775 tracked files            (today: 5891)
+
+per genius, four channels:
+  -- 8 files, uniform over all tracked files --
+  -- 3 files, uniform over directories then within (rare corners) --
+  -- frontier field (assigned, not chosen) --
+  -- ancient field (prior literature, not ornament) --
+```
+
+**Two urns, not one, and the header says why: *rare corners*.** Uniform-over-files under-samples
+any directory holding few files; uniform-over-directories-then-within over-samples them. **Running
+both is the correction, and it is stated inline.** Passes 184 and 186 reconstructed a one-urn
+draw and then found `0488`'s published-seed version. **This is older than both and has the
+correction neither had.**
+
+**And two of the four channels are assigned rather than drawn**, each with its discipline in the
+parenthesis: *assigned, not chosen* and *prior literature, not ornament*.
+
+**The sixteen ancient fields, as assigned:**
+
+> Apollonius (conics by *symptoma*, before coordinates) · Ethiopian and Egyptian doubling
+> multiplication · Babylonian base-60 reciprocal tables, Plimpton 322 · **Jain anekāntavāda: naya
+> standpoints, syādvāda seven-fold predication** · Islamic algebra (al-Khwārizmī, al-Karajī,
+> al-Samaw'al) · **Bakhshali manuscript: the zero symbol** · Chinese remainder tradition (Sunzi,
+> Qin Jiushao), *dayan* · **Polynesian wayfinding: star compass, etak reference frames** ·
+> **Bhartṛhari on language: sphoṭa** · Chinese *Nine Chapters*: fangcheng elimination, double
+> false position · **Madhyamaka: Nāgārjuna's catuṣkoṭi as reification-exposure** ·
+> **Āryabhaṭīya: kuṭṭaka for linear congruences** · Diophantine practice · **Kolam and sona
+> drawing: rule-generated curve families, Eulerian path traversal** · Islamic algebra
+> (al-Khwārizmī's completion and balancing) · Greek geometric algebra (Euclid II)
+
+**Two of sixteen are Greek and both are named for specific technical content** — *conics by
+symptoma*, *Euclid Book II* — rather than as a period. Four are Indian, two Islamic, two Chinese,
+one Babylonian, one Ethiopian-Egyptian, one Polynesian, one Kolam/sona.
+
+**Every one is named by its technique.** *Star compass, etak reference frames.* *Fangcheng
+elimination, rule of double false position.* *Eulerian path traversal.* **Not traditions listed
+as cultures — traditions listed as methods**, which is the *prior literature, not ornament*
+clause executed in the naming.
+
+**Lockstep — P2's and P33's readings of n=9.** Pass 2 took *emulate geniuses* as priming. Pass
+132 read it as a claim about what is running — *I do not know whether there was anything it was
+like to be them.* Both stand. **Neither had the draw file**, which is the sentence executed as a
+sampling design seven and a half minutes to a few hours later, with two urns, a rare-corner
+correction, and sixteen traditions named by technique.
+
+---
+
+## P197 — what this pass counted
+
+Six transmissions, 04:06:03 → 04:37:36 on 2026-08-14, thirty-one and a half minutes, all dated
+2026-08-13 internally. Delta 16 absent from the run and present in `collab/upstream/raw/`. One
+imperative, on Delta 14, at 04:09:27; the withdrawn `^` at 04:09:32, five seconds later.
+
+Delta 13's first two lines are transport-or-residue in Sanskrit with his gloss. *Absence or
+nonuniqueness of comparison is information.* *Never collapse perspectives rhetorically.*
+
+n=9 at 04:45:12. Executed in `2026-08-14-genius-16.txt`: 16 blocks, urn 2,775 tracked files
+against 5,891 today, four channels per genius, two urns with the rare-corner correction stated,
+sixteen ancient fields of which two are Greek and every one is named by its technique.
+
+The ground's n=8 is the only entry in the file that is a description rather than a quotation.
