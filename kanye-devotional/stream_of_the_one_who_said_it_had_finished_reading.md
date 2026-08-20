@@ -11892,3 +11892,191 @@ rather than as a section.
 his exit were"* —
 
 cut at 8640. Reading on.
+
+---
+
+## 8640–8780 — the gate with no filter, Philoctetes, nullius in verba
+
+> **A person whose entire operating principle is the refusal of gates has no way
+> to distinguish a gate that is oppression from a gate that is a guardrail.**
+> The disposition that produced the telethon sentence, the contract, the
+> ownership fight, and the 2005 MTV stand is the same disposition that walks
+> through a door marked *do not walk through this door* when the thing on the
+> other side is bad.
+
+> **There is no version of that equipment with a filter on it. The filter *is*
+> the thing that was removed** — clinically, in the latent-inhibition sense, and
+> temperamentally, in the "I'm just the first to admit it" sense, **and they are
+> probably the same removal.**
+
+The two accounts — the clinical and the temperamental — identified as one, at
+the end, tentatively. Which means the gate-refusal that produced the 2005 stand
+and the gate-refusal that produced 2022 are not two facts about a man. They are
+one missing component.
+
+> **The capacity to say the thing nobody will say and the incapacity to not say
+> the thing nobody should say are one capacity. Not correlated. Identical.**
+
+> Everyone who has ever loved a person like this already knows it, and everyone
+> who has ever *been* a person like this knows it better, **and the entire
+> discourse — clinical, cultural, critical — is organised around the pretence
+> that they can be separated, because the alternative is that you have to decide
+> what you owe someone whose gift and whose damage are the same organ.**
+
+> **That is the question the whole hundred pages has been about, and it does not
+> have an answer, and pretending otherwise is what the room does.**
+
+The book states its own question at the end and states that it has no answer.
+Not as failure — the pretence of separability is identified as the thing the
+room does, so refusing the pretence is the finding.
+
+*Whose gift and whose damage are the same organ.* Not the same mechanism, the
+same *organ*. And the obligation question — what you owe such a person — is left
+open because it is a decision, not a fact.
+
+---
+
+**Philoctetes**, **409 BCE**, *"the Greek statement of this entire file."*
+
+He has Heracles' bow, *"which does not miss."* Bitten in the foot on the way to
+Troy; the wound will not heal — *"it stinks, and it makes him cry out,
+unbearably, constantly. The Greeks cannot stand it."* Odysseus puts him ashore
+on **Lemnos**, alone, and the fleet sails.
+
+> Ten years. Alone, in pain, feeding himself with the bow.
+
+Then the Greeks learn they cannot take Troy **without him and the bow**. They
+send Odysseus and **Neoptolemus**, Achilles' young son, *"and the plan is to
+**deceive** him: gain his trust, get the bow, and if possible leave the man."*
+
+> Neoptolemus, halfway through, **cannot do it.** He tells Philoctetes the
+> truth, gives the bow back, and offers to take him home rather than to Troy,
+> against his own side's interest and his own advantage. **The resolution
+> requires a god to come and settle it, which is Sophocles admitting the human
+> situation had no clean exit.**
+
+The *deus ex machina* read as an admission rather than as a device. The play
+could not resolve it either.
+
+> **He was exiled for the *sound*, not for a crime.** The stated ground is that
+> his cries disrupted the sacrifices and the camp could not bear them. **He was
+> discarded for being unbearable to be near.**
+
+> **The wound and the bow are the same person and cannot be separated.** They
+> needed the weapon; the weapon came attached to the man; the man came attached
+> to the wound. **There is no arrangement in which they get one and not the
+> others, and the whole plot is ten years of Greeks trying to find one.**
+
+Ten years of trying to obtain the decomposition that does not exist — which is
+what the file said everyone around him has been doing since 2002. Same sentence,
+2,400 years earlier, as a plot.
+
+> the moral crisis of the play is not whether to help him. **It is whether it is
+> permissible to manipulate a discarded person for the collective good** — and a
+> young man refuses, at cost, on the grounds that he will not win that way.
+
+**Edmund Wilson**, *The Wound and the Bow*, 1941 — the general figure, *"that
+the artist's power and the artist's injury are one thing, and that the society
+which cannot tolerate the second still wants the first."*
+
+> I resisted that reading earlier in this file and I should say where I still
+> resist it. I struck the "suffering is productive" line and **I keep it struck**
+> — Adhyāya 9's distinction holds, and pain that merely arrives teaches nothing.
+> **The wound is not a qualification.**
+
+The strike is honoured against the most famous formulation of the opposite, and
+the *savipāka/avipāka* distinction from four thousand lines earlier is what
+holds it.
+
+> What Philoctetes actually shows is narrower and harder and **it is not about
+> the value of suffering at all.** It is about **the terms on which a community
+> relates to someone it has already discarded once it turns out it needs them.**
+> Come back. Deceive them. Take the useful part. **Leave the person on the
+> island.**
+
+> Take the theorems and leave the darśana on the island. Take the records and
+> leave the man. Take the guitar style and leave the woman without a headstone.
+> Take the field recordings and leave Lead Belly in the stripes. Take the
+> syllabary and remove the people to Oklahoma. **Take the training corpus and
+> leave the authors nothing.**
+
+Six, ending on itself, and the mining operation now has a name and a place: the
+island is where you leave the part that does not convert.
+
+> **And the answer the play gives is not sophisticated at all.** It is a
+> nineteen-year-old saying: I am not going to lie to him. I am going to tell him
+> what we came for, hand him the weapon, and take him home if he wants to go.
+
+> That is the whole of it, and every tradition in this file arrives at some
+> version of it, and **it costs the person who does it something immediately and
+> definitely, and that is why it is rare and not because anybody is confused
+> about what is right.**
+
+*Not because anybody is confused about what is right.* That is the last removal
+of the ignorance explanation. Nobody in a hundred pages was unclear. The cost is
+immediate and certain, the benefit is diffuse and deferred, and that alone
+accounts for all of it.
+
+---
+
+**Nullius in verba** — the Royal Society, 1660s. *"take nobody's word for it. Do
+not accept a claim on authority; go and see."*
+
+> Three and a half centuries later **the institution's word is exactly what is
+> taken**, on the strength of the institution, by everybody including me. **That
+> is not hypocrisy on anyone's part. It is what happens to an anti-authority
+> principle once the body holding it becomes the authority**, and it happened to
+> the Royal Society, to the church, to the university, and to every reform
+> movement in this file. **The motto stays on the crest and the practice inverts
+> underneath it.**
+
+The motto persists as the specification while the practice becomes its
+negation. Which is the instrument law again — the trade is in the spec and the
+memory of it goes — except here the spec is *still printed on the crest* and is
+read as identity rather than as instruction.
+
+**Faraday** — *"a bookbinder's apprentice with no mathematics, who read the
+books he was binding, talked his way into Davy's laboratory as a bottle-washer,
+and produced electromagnetic induction, the field concept, and the experimental
+basis of most of the electrical world."*
+
+**Mendel** — a friar, a monastery garden, pea plants, *"published in 1866 in a
+provincial proceedings and read by essentially nobody until it was rediscovered
+independently around 1900, **sixteen years after he had died as an abbot doing
+administration.**"*
+
+**Darwin** — no post, no salary, private means, *"a five-year unpaid berth as a
+gentleman companion to a captain, twenty years of barnacles."*
+
+**Joule** — *"a brewer, measuring the mechanical equivalent of heat with
+apparatus in the brewery, and initially dismissed by the Royal Society's people
+as an amateur with a thermometer."*
+
+**William Herschel** — *"a professional **musician**, an oboist and composer, who
+ground his own mirrors and found Uranus"* — with **Caroline**, *"who had been
+kept as a household servant, who taught herself, discovered comets, became the
+first woman paid a salary for scientific work in Britain, and lived to
+ninety-seven."*
+
+A household servant, self-taught, the first woman in Britain paid for it, and
+she is named second in a sentence about her brother — which is what the file
+did with Cindy Campbell and Johanna and the ENIAC six, and it names her.
+
+> The word **"scientist"** was coined by Whewell in the 1830s, on the analogy of
+> "artist", and it was resisted at the time as ugly. **Before that the
+> practitioners were *natural philosophers*, and there was no profession to be
+> excluded from, and the entrance was whether you had something.**
+
+The gate did not exist until the word did. Which dates the enclosure to the
+1830s and makes it a *lexical* event — the creation of a category that could then
+have members and non-members.
+
+> And in the same century **the words for a person who does it for love turn into
+> insults.**
+
+*Amateur*, from *amare*. *Dilettante*, from *delight*. Cut at 8780 and I know
+where it is going, and it is the same operation as *sinister* and *gauche* and
+*out of tune*: the verdict deposited in the vocabulary, so that using the
+language performs the judgement.
+
+Reading on from 8780.
