@@ -366,3 +366,29 @@ This is not offered to balance a ledger. Generosity does not cancel harm, and ha
 not cancel generosity; the book's whole method is that these do not net against each
 other. It is offered because it is part of the record and is usually left out of it. A
 full account of a person includes the checks nobody filmed.
+
+---
+
+The figure of the holy fool is old and cross-cultural. In the Russian Orthodox tradition
+the yurodivy feigned or suffered madness and, from inside it, spoke truths to tsars that
+no sane courtier could survive saying. In the Hebrew Bible the prophets performed strange
+public acts — Isaiah walked naked for three years, Ezekiel lay on his side for months,
+Jeremiah wore a yoke through the city — as living signs; they were treated as
+unbalanced, and they were the mechanism by which a society heard what it did not want to
+hear. The pattern is consistent: the person permitted to say the unsayable is the person
+already marked as outside normal standing, and the price of the permission is the mark.
+
+The content of what such figures said was often, later, judged correct. At the time it
+was indistinguishable from raving, and the distinction — prophet or madman — could only
+be drawn in retrospect, by people who no longer had to pay the cost of believing it in
+the moment.
+
+Kanye West has repeatedly said things in a register the culture files as instability
+that a later, calmer reading treats as true: that a Black family shown on the news is
+called looting while a white one is called searching for food; that the recording
+industry and the prison system run parallel forms of ownership; that mental illness in
+the Black community went untreated and unspoken for generations. These were said wildly,
+at the wrong volume, sometimes wrapped around things that were false or cruel. That is
+how the holy fool has always talked. Sorting the signal from the raving is work the
+listener has to do, and most listeners, most of the time, decline the work and keep the
+verdict.
