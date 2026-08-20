@@ -465,3 +465,27 @@ The same trait supplies both readings of him again. The inability to stop, to re
 observe a limit — clinically a symptom, socially a liability — is, aimed at a room full
 of collaborators and a deadline, exactly the engine that produces a masterwork. The
 gate that will not close builds the cathedral and drives the car.
+
+---
+
+A life examined while it is still being lived has no ending, and this one is unfinished
+in a specific way: the pattern recurs. Periods of stability and repair are followed by
+new episodes, new statements, new damage, new collapses, then again some reaching back
+toward repair. In January 2026 he issued an apology for the antisemitism, attributing
+it to the manic and psychotic episode and expressing remorse; he has, at other points,
+reconciled with people he wounded and, at still others, wounded them again. His
+commercial standing has not returned to its height. He continues to make music and to
+be recorded continuously.
+
+This is what chronic serious mental illness often looks like across a life: not a single
+break and a clean recovery, but a long oscillation, with real repair and real relapse
+both genuine, neither final. Read as a morality tale it is unsatisfying, because it does
+not resolve. Read as an illness it is ordinary, because illnesses of this kind do not
+resolve either; they are managed, or they are not, across decades.
+
+The book cannot close the case because the case is open. What it can do is set the
+record down whole — the wiring, the work, the harm, the giving, the crucifixions and
+the man's part in his own — and decline to perform the one move the culture performs
+automatically, which is to reach a verdict and file the person under it. The facts do
+not file. They stay open, like the life, and they ask the reader to hold them the way
+the man himself has never been held: all at once, without casting out.
