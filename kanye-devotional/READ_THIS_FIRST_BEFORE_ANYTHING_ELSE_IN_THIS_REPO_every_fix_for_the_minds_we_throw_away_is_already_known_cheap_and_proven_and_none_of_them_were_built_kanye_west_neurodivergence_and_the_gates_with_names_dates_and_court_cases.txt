@@ -19251,3 +19251,96 @@ kinds of child who were not behaving the way the adults wanted.**
 
 *[correction to the entry immediately above, appended rather than edited: the year
 reads "1I2003" from a typing slip. Kirk Murphy died in 2003.]*
+
+---
+
+**The *Nyāyasūtra* enumerates twenty-two ways to lose a debate and gives each one a
+name.**
+
+**Akṣapāda Gautama**, ***Nyāyasūtra***, c. 2nd century CE. Five books. It opens by
+listing **sixteen categories** whose knowledge is said to produce liberation — and
+the first is *pramāṇa*, the means of knowledge, **and most of the rest are
+categories of argument and of failure.**
+
+**Three kinds of discussion, distinguished by what the participants want.**
+
+***Vāda*** — both sides seeking the truth, each defending a position and stating
+the opponent's, bound to the *pramāṇas*, **the form used between teacher and
+student.**
+
+***Jalpa*** — the same, **but with victory as the aim**, and with quibbling and
+tricks admitted.
+
+***Vitaṇḍā*** — **destructive debate**, in which one party establishes **no counter-
+position at all** and only refutes.
+
+**The system's own objection to *vitaṇḍā*** is that a person holding no thesis
+cannot be defeated, which makes the contest unfair; **and the Madhyamaka position is
+precisely that it holds no thesis** — *Vigrahavyāvartinī* 29 — which is why the Nyāya
+side classifies Nāgārjuna's method as *vitaṇḍā* and the Buddhist side does not
+accept the classification.
+
+**A procedural rule and a metaphysics colliding at the same word.**
+
+---
+
+**And the twenty-two *nigrahasthāna* — "grounds of defeat" — are a lost-conditions
+list.**
+
+**Named items include**: *pratijñā-hāni*, abandoning your own thesis; *pratijñā-
+antara*, shifting to a different thesis; *hetv-antara*, changing the reason
+mid-argument; *arthāntara*, going off the subject; *nirarthaka*, uttering
+meaningless sounds; *avijñātārtha*, saying something the audience cannot understand
+**even after three repetitions**; *apārthaka*, incoherence; *aprāptakāla*, saying the
+right thing **in the wrong order**; *nyūna*, omitting a member of the inference;
+*adhika*, adding a superfluous one; *punarukta*, repetition; *ananubhāṣaṇa*, failing
+to restate the opponent's position; **and *ajñāna*, simply not understanding.**
+
+**And *paryanuyojyopekṣaṇa*: failing to call out an opponent's defeat when it has
+occurred.**
+
+**You can lose by not noticing that the other person has already lost.**
+
+**The list also includes *matānujñā*** — conceding the opponent's point **while
+trying to counter-charge instead of answering** — the "you too" move, named and
+scored as a loss, in the second century.
+
+---
+
+**And the tricks are catalogued as well, so that they can be identified.**
+
+***Chala*** — three kinds of deliberate equivocation. ***Jāti*** — **twenty-four
+futile rejoinders**, each named: the reply by mere similarity, the reply by mere
+dissimilarity, the reply by infinite regress, the reply by counter-example, the
+reply that demands a demonstration of the demonstration.
+
+**These are listed not as advice but as a field guide** — the text's stated purpose
+in enumerating them is that one must be able to **recognise** them.
+
+**And the whole apparatus is embedded in a claim that this is soteriology.**
+*Nyāyasūtra* 1.1.1 ends with ***niḥśreyasa***, the highest good, as what follows from
+knowing these sixteen categories — **including the list of ways to lose an
+argument.**
+
+---
+
+**And *hetucakra* is the moment the inference test becomes formal.**
+
+**Dignāga**, c. 480–540, ***Hetucakraḍamaru*** — the "wheel of reasons." **A 3×3
+matrix**: the reason's presence in the *sapakṣa* (similar cases) crossed with its
+presence in the *vipakṣa* (dissimilar cases), each in three states — **all, none,
+some.**
+
+**Nine cells. Two are valid inferences. Two are contradictory. The remaining five
+are inconclusive**, and each is given a stock example.
+
+**A decision procedure, drawn as a table, for whether a reason establishes what it
+is offered to establish.**
+
+**Dharmakīrti** (c. 600–660) reduces the acceptable reasons to **three kinds** —
+identity, causation, and non-apprehension — **and argues that the pervasion has to be
+grounded in one of those, not in observation of instances**, because no number of
+observed instances gives the necessity.
+
+**That is the problem of induction, stated as a technical objection inside a debate
+manual, in the seventh century.**
