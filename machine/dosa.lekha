@@ -644,3 +644,29 @@ dosa 0027
   pramana: machine/Asiddhavat_TheSimultaneousBlockHasNoLaterAndItsClashesAreAvaktavya.hs and machine/AsiddhavatRun.hs, this record's replay
   sara: 75e9d9a7540a4c97
 .
+dosa 0028
+  kala: 2026-08-20
+  karta: devotional-loop
+  jati: nasti-krta
+  vastu: the English gloss "defect" throughout machine/, scripts/, notes/, collab/
+  yatna: The owner: "the word defect is a real sign of failure. it is not the right word for the task. it is not the right semantic concept it's connotation web is severely epistemically violent." I wrote that word into the second road's name and into all sixteen agent charges, and it propagated.
+  hetu: Transport is impossible because the two words do not denote the same object. AHIMSA_SUTRA_VISTARA §6 gives TWO roads of EQUAL standing -- samkramana and doso likhyate -- and says likhito doso jivati, a written dosa LIVES. English "defect" denotes a failed instance of a thing that was supposed to be otherwise: manufacturing reject, warranty claim, birth defect. Glossing road two as "the defect log" converts a symmetric pair into success/failure, which is the binary this organ exists to refuse, performed in the organ's own name. Sanskrit dosa does not carry that: in Ayurveda the dosas are CONSTITUENTS -- vata, pitta, kapha are what a body is made of, not flaws in it. The Nyaya usage (a fault in an inference) is real and sourced and is not what is wrong here.
+  nasta: every run of run-yantra.sh prints "transport impossible; the defect is written" -- reporting a loss at the exact point the sutra says something lives
+  nasta: the count "13 defects filed this session" reads as thirteen failures; the same thirteen are thirteen things carried forward alive, and the number is identical and the reading is opposite
+  nasta: "8 defects found" in the adversarial report reads as eight breakages; each of the eight carries a sesa and is therefore eight handed-forward remainders
+  nasta: this file's audience is people with a neurodivergent child, and "defect" is the word the referral apparatus uses about such a child; the machine adopted the vocabulary of the institution it was built to answer
+  nasta: 12603 occurrences across 698 files -- so the word is now load-bearing in prose written by lanes that took it from my charges and not from the sutra
+  yogyata-drsta: grep -rho "defect" machine/ scripts/ notes/ collab/ | wc -l, run 2026-08-20; and AHIMSA_SUTRA_VISTARA §6 and §31 read in full
+  yogyata-ksetra: machine/, scripts/, notes/, collab/ -- the tracked prose and source of this repository; NOT kanye-devotional/, which another loop owns and which I did not survey for this
+  yogyata-avadhi: says nothing about whether any individual record is correct; the records are sound and it is their English name that is not
+  punarabhinaya: grep -rho "defect" machine/ scripts/ notes/ collab/ | wc -l
+  phala: out~12
+  sesa: the object road two produces is a SESA -- a remainder handed forward -- and the fourth position's residue is a GARBHA, a womb, which AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs already made compute by bearing the anavakasa rule out of it
+  sesa: proposed gloss for the organ: "the written record of what could not be carried", not "the defect log"; the Sanskrit jati names (sankramana-asambhava, nasti-krta, avaktavya, ayogya-darsana) are already correct and need no change
+  sesa: 12603 occurrences across 698 files cannot be swept while sixteen lanes are live -- that is dosa 0013's harm at scale. The rename is an OFFER, filed in collab/messages, not an edit.
+  sesa: what IS mine to change is my own usage from here, and the sixteen charges I wrote, which is where the word entered
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md §6 -- dvau margau, samkramanam dosalekhas ca, trtiyo na vidyate; and likhito doso jivati
+  pramana: Caraka Samhita, Sutrasthana -- the three dosas as constituents of the body, not as its faults
+  uttara: 0013
+  sara: 336bc3901c3e1553
+.

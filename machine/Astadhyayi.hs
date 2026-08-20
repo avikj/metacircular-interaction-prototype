@@ -14,7 +14,7 @@
 -- two sutras both wanted the same position -- which one won and by which
 -- metarule.
 --
--- THE FIVE MECHANISMS, each implemented and each self-tested:
+-- THE SIX MECHANISMS, each implemented and each self-tested:
 --
 --   1. PRATYAHARA.  The fourteen siva-sutras lay all forty-two phonemes in ONE
 --      linear order, each sutra ending in an anubandha (it-marker).  A class of
@@ -58,6 +58,37 @@
 --      without 8.1.16 `padasya`, tat + ca derives `dad ga` and not
 --      `tacca`.  With inheritance explicit the presentation cost is
 --      computable -- section 8a, `laghavaReport`.
+--
+--   6. STHANIVADBHAVA (1.1.56) and LOPA (1.1.60), section 6c, added
+--      2026-08-20.  `sthanivad adeso 'nalvidhau`: a substitute counts as
+--      the original FOR SUBSEQUENT RULES, except for rules conditioned on
+--      the sounds themselves.  It inherits the original's DESIGNATIONS and
+--      not its FORM -- an abstraction barrier with a named exception for
+--      the clients that inspect the representation, which is sharper than
+--      the modern folklore version offering full transparency or full
+--      opacity and having no vocabulary for the middle.
+--
+--      Before this section the engine could not have obeyed the sutra: a
+--      rewrite overwrote the string and the sthanin was gone.  Now every
+--      substitution writes what it stands in place of into a channel
+--      parallel to the word, `alVidhiTable` declares per sutra WITH ITS
+--      REASON which of the two readings that sutra takes, `seenBy` hands
+--      each rule the view it is entitled to, and every `Step` records
+--      which reading fired at which site.  Cancelling the exception
+--      clause is a RUN (`deriveSthanivatEverywhere`), not an edit, and it
+--      changes four derived forms.
+--
+--      1.1.60 `adarsanam lopah` is the companion: an elided element is
+--      absent from the surface and present to the conditions.  `Lupta`
+--      is that distinction in the type, and 1.1.5 `kniti ca` reads the
+--      `k` that 1.3.9 erased -- `ci ~ kta` gives `cita`, and a deletion
+--      instead of an adarsana gives `ceta`.
+--
+--      WHAT IS NOT EXERCISED, said here and not only in `coverage`: the
+--      INHERITANCE half.  The three designation-reading rules encoded
+--      (1.1.5, 1.3.9, 7.1.1) never fire at a site holding a substitute,
+--      so striking `sthanivat` changes nothing in this corpus.  The
+--      exception half is exercised; the inheritance half is declared.
 --
 -- ADHIKARA AS A CHECKABLE PROPERTY.  6.1.84 `ekah purvaparayoh`
 -- ("one, in place of both the preceding and the following") is a heading that
@@ -145,6 +176,37 @@ module Astadhyayi
   , deriveAsiddhavat
   , asiddhaAudit
   , applyRw
+    -- स्थानिवद्भावः 1.1.56 and लोपः 1.1.60 (section 6c)
+  , Vidhi(..)
+  , Sthanin(..)
+  , Prov
+  , navah
+  , applyRwP
+  , alVidhiTable
+  , vidhiOf
+  , vidhiWhy
+  , Drsti(..)
+  , Vidhana(..)
+  , yathasutram
+  , drstiVidhi
+  , drsta
+  , seenBy
+  , firesV
+  , sthaniAt
+  , deriveV
+  , deriveTraceV
+  , deriveLekhaV
+  , deriveSthanivatEverywhere
+  , deriveRupamEverywhere
+  , deriveWithoutLopa
+  , deriveWithoutLopaTrace
+  , barrierAudit
+  , knitAudit
+  , upadesaSpan
+  , upadesaAudible
+  , itPending
+  , knitPratyaya
+  , angaAntya
     -- शेषः: the residual (section 7b)
   , Lekha(..)
   , deriveLekha
@@ -430,7 +492,34 @@ data SutraType
 -- applies in close juncture, and across a pause it does not.  Without a
 -- pause in the input language the heading could not be shown doing
 -- anything, and a gate that cannot fail is not a gate.
+-- `Pratyaya` is the boundary written `~` in the input: the affix as it is
+-- ENUNCIATED, markers and all, which is what the it-sutras of 1.3 operate on.
+-- `lyuT` is l-y-u-T on the far side of a `~`; it is `ana` only after 1.3.3 and
+-- 1.3.8 have marked and 1.3.9 has elided.  Without a boundary that says "an
+-- upadesa starts here" those sutras have no locus and cannot be encoded at all.
+--
+-- WHY `It` AND `Lupta` ARE CONSTRUCTORS AND NOT A PARALLEL CHANNEL.  Everything
+-- 1.1.56 needs about a substitute IS carried in a parallel channel (`Prov`,
+-- section 7c) and `Item` is untouched by it, because a substitute occupies its
+-- position and every function of `[Item]` alone still gives the right answer on
+-- it.  Lopa is the opposite case and that is why it is here: by 1.1.60
+-- `adarsanam lopah` an elided sound must be ABSENT from `render` and from
+-- `nextPhBy` -- both of which are functions of `[Item]` and of nothing else --
+-- and PRESENT to 1.1.5, which reads it.  A parallel flag on a `P` would leave
+-- the sound visible to every sound-reading rule in the file, which is the one
+-- thing lopa is defined to prevent.  So:
+--
+--   Anubandha s  a sound MARKED as an it by 1.3.3 / 1.3.8, still appearing.  1.3.9
+--            has not yet run; `nextPhBy` sees it, `render` prints it.
+--   Lupta s  1.3.9's output.  Invisible to `render` and to `nextPhBy` -- the
+--            adarsana of 1.1.60 -- and readable by rules that condition on the
+--            designation, which is 1.1.62 pratyayalaksanam.
+--
+-- This is `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
+-- section 5's `ph`/`lupta` split, with the marked-but-not-yet-elided state the
+-- Agda does not carry because there 1.3.9 has already run.
 data Item = P String | Pada | Morph | Avagraha | Avasana
+          | Pratyaya | Anubandha String | Lupta String
   deriving (Eq, Show)
 
 data Rewrite = Rewrite
@@ -646,6 +735,9 @@ nextPhBy crossPause xs i = go (i + 1)
     go j | j >= length xs = Nothing
     go j = case xs !! j of
              P s      -> Just (j, s)
+             Anubandha s -> Just (j, s)  -- marked, not yet elided: still a sound
+             Lupta _  -> go (j + 1)      -- 1.1.60 adarsanam lopah: NON-APPEARANCE
+             Pratyaya -> go (j + 1)
              Pada     -> go (j + 1)
              Morph    -> go (j + 1)
              Avagraha -> go (j + 1)
@@ -682,6 +774,89 @@ atAvasana xs i = case drop (i + 1) xs of
                    []            -> True
                    (Avasana : _) -> True
                    _             -> False
+
+------------------------------------------------------------------------
+-- 4b.  उपदेशः -- THE AFFIX AS ENUNCIATED, AND ITS IT-MARKERS.
+--      Added 2026-08-20, with the lopa machinery it exists to feed.
+--
+-- `lyuṬ` is enunciated l-y-u-ṭ and MEANS `ana`.  The distance between the
+-- two is 1.3.3 `halantyam` (the final consonant is an it), 1.3.8
+-- `laśakvataddhite` (an initial l, ś or kU is an it), 1.3.9 `tasya lopaḥ`
+-- (that it is elided) and 7.1.1 `yuvor anākau`.  None of it can be encoded
+-- without a boundary in the input saying "an upadeśa starts here", which is
+-- what `~` and `Pratyaya` are.
+--
+-- WHAT IS NOT ENCODED, said here rather than implied by silence:
+--   * 1.3.2 `upadeśe 'j anunāsika it` -- nasalised vowels as its.  The
+--     engine has no nasalisation on vowels.
+--   * 1.3.4 `na vibhaktau tusmāḥ`, 1.3.5-1.3.7 -- the other it rules.
+--   * the taddhita restriction in 1.3.8 is vacuous here because no taddhita
+--     affix is encoded; the rule is written with the restriction anyway,
+--     because a rule stripped of a condition it always satisfies is a
+--     different rule.
+--   * 3.4.113-114 sārvadhātuka/ārdhadhātuka.  Every `~` affix here is
+--     treated as ārdhadhātuka, which is what lyuṬ and kta are, and the
+--     classification that would make the treatment general is absent.
+------------------------------------------------------------------------
+
+-- the upadeśa: every position after the last `Pratyaya` boundary.  An input
+-- with no `~` in it has none, so nothing below can touch the derivations
+-- that were here before.
+upadesaSpan :: [Item] -> [Int]
+upadesaSpan xs = case [ i | (i, Pratyaya) <- zip [0 ..] xs ] of
+  [] -> []
+  bs -> [ maximum bs + 1 .. length xs - 1 ]
+
+-- the sounds of the upadeśa that still APPEAR.  1.1.60: an elided one does
+-- not, and so is not a candidate for anything conditioned on a sound.
+upadesaAudible :: [Item] -> [(Int, String)]
+upadesaAudible xs =
+  [ (i, s) | i <- upadesaSpan xs
+           , s <- case xs !! i of P t -> [t]; Anubandha t -> [t]; _ -> [] ]
+
+unmarked :: [Item] -> Int -> Bool
+unmarked xs i = case xs !! i of P _ -> True; _ -> False
+
+-- 1.3.3 halantyam: the FINAL sound of the upadeśa, if it is a hal.
+halantyaAt :: [Item] -> [Int]
+halantyaAt xs = case reverse (upadesaAudible xs) of
+  ((i, s) : _) | s `elem` haL, unmarked xs i -> [i]
+  _                                          -> []
+
+-- 1.3.8 laśakvataddhite: an INITIAL l, ś or kU of a pratyaya (not a taddhita).
+lasakvatAt :: [Item] -> [Int]
+lasakvatAt xs = case upadesaAudible xs of
+  ((i, s) : _) | s `elem` (["l","ś"] ++ kU), unmarked xs i -> [i]
+  _                                                        -> []
+  where kU = ["k","kh","g","gh","ṅ"]
+
+-- 1.3.2-1.3.8 confer, 1.3.9 elides, and until both have run the affix is
+-- still IN UPADEŚA.  Until then no aṅga rule looks at it -- which is what
+-- `upadeśe`, running down from 1.3.2, says.  It is stated as a guard here
+-- because this engine's scheduler is leftmost-first and the aṅga's vowel
+-- lies to the LEFT of the affix's markers; the ordering is Pāṇini's, the
+-- guard is this file's way of getting it.
+itPending :: [Item] -> Bool
+itPending xs = not (null (halantyaAt xs ++ lasakvatAt xs))
+            || or [ True | Anubandha _ <- xs ]
+
+-- 1.1.5 kṅiti ca, as the predicate it is: does the affix bear a k or a ṅ?
+-- It reads the ELIDED marker -- 1.1.62 pratyayalakṣaṇam -- which is the whole
+-- content of 1.1.60's `adarśana` rather than a deletion.
+knitPratyaya :: [Item] -> Bool
+knitPratyaya xs = or [ s `elem` ["k","ṅ"]
+                     | i <- upadesaSpan xs
+                     , s <- case xs !! i of
+                              Lupta t     -> [t]
+                              Anubandha t -> [t]
+                              _           -> [] ]
+
+-- the aṅga's final audible sound: the last one before the upadeśa begins.
+angaAntya :: [Item] -> Maybe (Int, String)
+angaAntya xs = case [ i | (i, Pratyaya) <- zip [0 ..] xs ] of
+  [] -> Nothing
+  bs -> listToMaybe [ (i, s) | i <- [maximum bs - 1, maximum bs - 2 .. 0]
+                    , s <- case xs !! i of P t -> [t]; Anubandha t -> [t]; _ -> [] ]
 
 phAt :: [Item] -> Int -> Maybe String
 phAt xs i | i < 0 || i >= length xs = Nothing
@@ -789,6 +964,18 @@ sutras =
   , Sutra (1,1,3) "iko guṇavṛddhī"
       "guṇa/vṛddhi named without a locus operate on iK" Paribhasa [] (\_ _ -> [])
 
+  -- 1.1.5 kniti ca.  A NISEDHA: it performs no substitution, it REFUSES
+  -- one.  What it reads is a DESIGNATION -- kit, ngit -- conferred on the
+  -- affix by 1.3.8 and erased from the affix by 1.3.9 before this rule is
+  -- ever consulted.  So the whole content of 1.1.60 `adarsanam lopah` is
+  -- here: the marker is gone from the surface and present to this
+  -- condition.  Encoded as `knitPratyaya`, read by 7.3.84's guard, and
+  -- audited by `knitAudit` -- which prints it as a refusal, because a
+  -- prohibition that leaves no trace is indistinguishable from a rule that
+  -- never applied.
+  , Sutra (1,1,5) "kṅiti ca"
+      "no guṇa or vṛddhi when the affix is marked kit or ṅit" Niyama [] (\_ _ -> [])
+
   , Sutra (1,1,9) "tulyāsyaprayatnaṃ savarṇam"
       "same place and same effort: savarṇa" Samjna [] (\_ _ -> [])
 
@@ -800,6 +987,39 @@ sutras =
 
   , Sutra (1,1,69) "aṇudit savarṇasya cāpratyayaḥ"
       "an aṆ sound, or one marked with u, denotes its savarṇas too" Paribhasa [] (\_ _ -> [])
+
+  ----------------------------------------------------------------
+  -- 1.3.3, 1.3.8, 1.3.9: the it-markers and their lopa.
+  ----------------------------------------------------------------
+
+  , Sutra (1,3,3) "halantyam"
+      "the final hal of an upadeśa is an it" Samjna []
+      (\_ xs ->
+        [ Rewrite (1,3,3) i 1 [Anubandha s] 0
+            ("upadeśa-final hal " ++ s ++ " is an it (1.3.3)")
+        | i <- halantyaAt xs, Just s <- [phAt xs i] ])
+
+  , Sutra (1,3,8) "laśakvataddhite"
+      "an initial l, ś or kU of a pratyaya (not a taddhita) is an it" Samjna []
+      (\_ xs ->
+        [ Rewrite (1,3,8) i 1 [Anubandha s] 0
+            ("pratyaya-initial " ++ s ++ " is an it (1.3.8)")
+        | i <- lasakvatAt xs, Just s <- [phAt xs i] ])
+
+  -- 1.3.9 tasya lopah.  `tasya` resumes the it-SAMJNA, not any sound: this
+  -- is the rule that erases the marker AFTER it has done its marking, and
+  -- 1.1.60 `adarsanam lopah` is what erasure means -- non-appearance, not
+  -- removal.  `Lupta` is that distinction made in the type: invisible to
+  -- `render` and to `nextPhBy`, readable by 1.1.5.  Run this engine with
+  -- `vLopa = False` (`deriveWithoutLopaTrace`) and the marker is REMOVED
+  -- instead, which is the naive implementation, and `ci ~ kta` comes out
+  -- `ceta` rather than `cita`.
+  , Sutra (1,3,9) "tasya lopaḥ"
+      "the it is elided -- 1.1.60: non-appearance, not deletion" Vidhi []
+      (\_ xs ->
+        [ Rewrite (1,3,9) i 1 [Lupta s] 0
+            ("the it " ++ s ++ " is elided (1.1.60 adarśana: it still conditions)")
+        | (i, x) <- zip [0 ..] xs, Anubandha s <- [x] ])
 
   , Sutra (1,4,2) "vipratiṣedhe paraṃ kāryam"
       "in conflict, the later operation" Paribhasa [] (\_ _ -> [])
@@ -896,6 +1116,51 @@ sutras =
         , atPadanta xs i
         , Just (j, t) <- [nextPhIn rd xs i]
         , t == "a" ]))
+
+  ----------------------------------------------------------------
+  -- 7.1.1 and 7.3.84: what the affix BECOMES, and what the stem does
+  -- in front of it.  Two sutras of chapter 7, which this engine had
+  -- none of, and they are here because 1.1.56 and 1.1.60 have nothing
+  -- to operate on in pure sandhi -- every rule of 6.1 and of the
+  -- tripadi is an al-vidhi, so the barrier's OTHER side needed a rule
+  -- that reads a designation, and the designation-reading rules of
+  -- this grammar are in 1.3 and 7.
+  ----------------------------------------------------------------
+
+  , Sutra (7,1,1) "yuvor anākau"
+      "the affix-material yu becomes ana, vu becomes aka" Vidhi []
+      (\_ xs ->
+        [ Rewrite (7,1,1) i 2 [P a1, P a2, P a3] 0
+            (y ++ u ++ " -> " ++ a1 ++ a2 ++ a3 ++ " (7.1.1)")
+        | (i, y) : (j, u) : rest <- [upadesaAudible xs]
+        , null rest, j == i + 1
+        , (a1, a2, a3) <- case (y, u) of
+                            ("y","u") -> [("a","n","a")]
+                            ("v","u") -> [("a","k","a")]
+                            _         -> [] ])
+
+  -- 7.3.84 sarvadhatukardhadhatukayoh.  Guna of the anga's final vowel,
+  -- and `ikah` -- of the iK -- is 1.1.3's supplying of the locus, not a
+  -- word of this sutra.
+  --
+  -- TWO GUARDS, and neither is decoration:
+  --   * `itPending`: while the affix still has its markers it is still in
+  --     upadesa, and 1.3.2's `upadese` puts the it-rules before any anga
+  --     rule.  Without this the leftmost-first scheduler would guna the
+  --     stem before 1.3.8 had marked the k of kta, and 1.1.5 would arrive
+  --     too late to refuse it.
+  --   * `knitPratyaya`: 1.1.5 kniti ca.  This is the refusal, and it is
+  --     made on a marker that 1.3.9 has already erased.
+  , Sutra (7,3,84) "sārvadhātukārdhadhātukayoḥ"
+      "before a sārvadhātuka or ārdhadhātuka affix: guṇa of the aṅga's final iK" Vidhi []
+      (\_ xs ->
+        [ Rewrite (7,3,84) i 1 (guna s) (gunaRapara s)
+            ("aṅga-final iK " ++ s ++ " -> guṇa "
+             ++ concat [ c | P c <- guna s ] ++ " before the pratyaya")
+        | not (itPending xs)
+        , not (knitPratyaya xs)                    -- 1.1.5 kṅiti ca refuses
+        , Just (i, s) <- [angaAntya xs]
+        , s `elem` iK ])
 
   ----------------------------------------------------------------
   -- THE TRIPADI.  8.2.1 makes everything from here asiddha for
@@ -1104,19 +1369,24 @@ parseInput = go . words
     go ["+"]        = []
     go ["-"]        = []
     go ["."]        = []
-    go ("+" : rest) = Pada    : go rest
-    go ("-" : rest) = Morph   : go rest
-    go ("." : rest) = Avasana : go rest
+    go ["~"]        = []
+    go ("+" : rest) = Pada     : go rest
+    go ("-" : rest) = Morph    : go rest
+    go ("." : rest) = Avasana  : go rest
+    go ("~" : rest) = Pratyaya : go rest
     go (w : rest)   = map P (tokenize w) ++ go rest
 
 render :: [Item] -> String
 render = concatMap f
   where
     f (P s)    = s
-    f Pada     = " "
-    f Morph    = ""
-    f Avasana  = " "
-    f Avagraha = "'"
+    f Pada      = " "
+    f Morph     = ""
+    f Avasana   = " "
+    f Avagraha  = "'"
+    f Pratyaya  = ""
+    f (Anubandha s) = s    -- marked and still there: 1.3.9 has not run
+    f (Lupta _) = ""       -- 1.1.60 adarsanam lopah
 
 ------------------------------------------------------------------------
 -- 7.  THE ENGINE
@@ -1126,6 +1396,246 @@ render = concatMap f
 -- Section B (8.2.1 .. 8.4.x, the tripadi): each rule ONCE, in numeric order,
 --   seeing only what precedes it.  That IS 8.2.1.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 6c.  स्थानिवद्भावः -- 1.1.56, AS A CHANNEL AND NOT AS A REMARK.
+--      Added 2026-08-20.
+--
+--   1.1.56  स्थानिवदादेशोऽनल्विधौ   sthānivad ādeśo 'nalvidhau
+--           An ādeśa is LIKE the sthānin -- except in an al-vidhi, an
+--           operation conditioned on the sounds themselves (aL is the
+--           pratyāhāra of the whole inventory).
+--
+-- So a substitute inherits the original's DESIGNATIONS and not its FORM.
+-- That is an abstraction barrier with a named exception for the clients
+-- that inspect the representation, and the exception is a CLASS OF RULES,
+-- not a per-site escape hatch -- which is the part the modern folklore
+-- version (transparent, or opaque, pick one) has no vocabulary for.
+--
+-- WHAT WAS HERE BEFORE.  Nothing.  `Item` was `P String` and a rewrite
+-- overwrote it, so the moment 8.2.30 turned `c` into `k` the `c` was gone
+-- from the machine and no later rule could have read it even if 1.1.56
+-- told it to.  `machine/Nigrahasthana_...hs` recorded exactly this gap:
+-- "the al-vidhi direction is asserted; the designation direction is
+-- recorded as absent."  The channel below is the missing half.
+--
+-- THE CHANNEL IS PARALLEL AND `Item` IS UNTOUCHED BY IT.  A substitute
+-- occupies its position and appears; every function of `[Item]` alone
+-- still gives the right answer about it, so nothing about the ādeśa needs
+-- to be in the item.  (Lopa is the opposite case, and that is why `Lupta`
+-- IS a constructor -- see the note on `Item`.)
+------------------------------------------------------------------------
+
+-- WHICH READING A RULE TAKES.  `NoVidhi` is not a third kind of rule: it
+-- is the answer at a site that holds no ādeśa, where the two readings
+-- coincide and 1.1.56 has nothing to say.
+data Vidhi = AlVidhi | AnalVidhi | NoVidhi
+  deriving (Eq, Show)
+
+-- स्थानी -- what a position stands in place of.
+--
+-- ONE MODELLING CHOICE, AND THE TRADITION DISPUTES IT.  `snOrig` is what
+-- was standing at the position immediately before the substitution -- ONE
+-- step back, not the whole chain.  Whether sthānivadbhāva composes (is the
+-- ādeśa of an ādeśa sthānivat to the FIRST sthānin?) is argued in the
+-- Mahābhāṣya on 1.1.56 and is not settled by the sūtra's wording.  One
+-- step is taken here because it is what the encoded derivations need and
+-- because a chain would have to be justified, not assumed; a run that
+-- wants the other reading is a change to `applyRwP` and to nothing else.
+data Sthanin = Sthanin
+  { snAdesa :: String     -- the substitute now standing here
+  , snOrig  :: String     -- what it stands in place of
+  , snBy    :: Ref        -- the sūtra that put it there
+  } deriving (Eq, Show)
+
+-- Index-for-index with the `[Item]`.  A shorter list reads as all-Nothing,
+-- so no caller can get an off-by-one silently.
+type Prov = [Maybe Sthanin]
+
+navah :: [Item] -> Prov
+navah = map (const Nothing)
+
+provAt :: Prov -> Int -> Maybe Sthanin
+provAt pv i | i < 0 || i >= length pv = Nothing
+            | otherwise               = pv !! i
+
+-- The sound at a position, as it now stands.  `Lupta` has none: 1.1.60.
+rupaAt :: [Item] -> Int -> String
+rupaAt xs i | i < 0 || i >= length xs = ""
+            | otherwise = case xs !! i of
+                            P s  -> s
+                            Anubandha s -> s
+                            _    -> ""
+
+-- 1.1.56 AT THE MOMENT OF SUBSTITUTION.  Applying a rewrite writes the
+-- ādeśa into the word and the sthānin into the channel, at the same index.
+-- Where 6.1.84 `ekaḥ pūrvaparayoḥ` takes two sounds and gives one, the
+-- sthānin recorded is the two joined -- which is what the sūtra says the
+-- substitute stands in place of, and which is deliberately not a single
+-- sound of the inventory (`phoneOf` declines it, so no rule can pretend to
+-- condition on it).
+applyRwP :: ([Item], Prov) -> Rewrite -> ([Item], Prov)
+applyRwP (xs, pv) rw@(Rewrite r i n new _ _) =
+  (applyRw xs rw, take i pv ++ map mark new ++ drop (i + n) pv)
+  where
+    orig = concat [ rupaAt xs j | j <- [i .. i + n - 1] ]
+    mark (P s) | not (null orig), s /= orig = Just (Sthanin s orig r)
+    mark _ = Nothing
+
+-- अल्विधिः -- WHICH ENCODED RULES ARE CONDITIONED ON THE SOUNDS.
+--
+-- Declared, with the text and the reason, one entry per sūtra in `sutras`;
+-- `selfTest` checks the table is TOTAL, so no rule can acquire a reading
+-- by defaulting.  A boolean guessed at each `fires` would have been an
+-- assertion with no place to put its justification.
+--
+-- READ THE THIRD COLUMN BEFORE THE SECOND.  Two of these are genuinely
+-- argued in the commentaries and are marked DISPUTED rather than decided:
+-- an operation whose locus is a pada-final sound conditions on a saṃjñā
+-- (pada) AND on an aL, and which of the two makes it an al-vidhi is not
+-- settled by 1.1.56's wording.  They are entered as al-vidhi because the
+-- SUBSTITUEND in each is a sound; the other reading is one line away and
+-- the note says so.
+alVidhiTable :: [(Ref, Vidhi, String)]
+alVidhiTable =
+  [ ((1,1,1),   NoVidhi,   "vṛddhir ādaic -- saṃjñā, performs no operation")
+  , ((1,1,2),   NoVidhi,   "adeṅ guṇaḥ -- saṃjñā")
+  , ((1,1,3),   NoVidhi,   "iko guṇavṛddhī -- paribhāṣā")
+  , ((1,1,5),   AnalVidhi, "kṅiti ca -- conditions on the DESIGNATIONS kit and "
+                           ++ "ṅit, which are marks, not sounds.  The only "
+                           ++ "anal-vidhi in this table, and the one 1.3.9's "
+                           ++ "lopa is read by")
+  , ((1,1,9),   NoVidhi,   "tulyāsyaprayatnaṃ savarṇam -- saṃjñā")
+  , ((1,1,10),  NoVidhi,   "nājjhalau -- niyama on the saṃjñā")
+  , ((1,1,51),  NoVidhi,   "ur aṇ raparaḥ -- paribhāṣā")
+  , ((1,1,69),  NoVidhi,   "aṇudit savarṇasya cāpratyayaḥ -- paribhāṣā")
+  , ((1,3,3),   AlVidhi,   "halantyam -- the condition is `hal`, a pratyāhāra "
+                           ++ "of sounds, and `antya`, final.  Conditioned on "
+                           ++ "the sound")
+  , ((1,3,8),   AlVidhi,   "laśakvataddhite -- the condition is the sounds l, ś "
+                           ++ "and kU.  `taddhite` restricts the locus and does "
+                           ++ "not change what is read")
+  , ((1,3,9),   AnalVidhi, "tasya lopaḥ -- `tasya` resumes the it-SAṂJÑĀ "
+                           ++ "conferred by 1.3.2-1.3.8, not any sound.  It "
+                           ++ "elides whatever bears the designation")
+  , ((1,4,2),   NoVidhi,   "vipratiṣedhe paraṃ kāryam -- paribhāṣā")
+  , ((6,1,72),  NoVidhi,   "saṃhitāyām -- adhikāra")
+  , ((6,1,77),  AlVidhi,   "iko yaṇ aci -- substituend iK, condition aC; both "
+                           ++ "pratyāhāras of sounds")
+  , ((6,1,78),  AlVidhi,   "eco 'yavāyāvaḥ -- substituend eC.  This is the "
+                           ++ "worked case: no function of the designations "
+                           ++ "agrees with it, proved in "
+                           ++ "formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda")
+  , ((6,1,84),  NoVidhi,   "ekaḥ pūrvaparayoḥ -- adhikāra")
+  , ((6,1,87),  AlVidhi,   "ād guṇaḥ -- substituend a/ā before aC")
+  , ((6,1,88),  AlVidhi,   "vṛddhir eci -- substituend a/ā before eC")
+  , ((6,1,101), AlVidhi,   "akaḥ savarṇe dīrghaḥ -- substituend aK, and savarṇa "
+                           ++ "is 1.1.9's relation between SOUNDS")
+  , ((6,1,109), AlVidhi,   "eṅaḥ padāntād ati -- DISPUTED.  Substituend eṄ and "
+                           ++ "the following `a`, both sounds; but `padāntāt` "
+                           ++ "is a pada-saṃjñā condition.  Entered as al-vidhi "
+                           ++ "on the substituend")
+  , ((7,1,1),   AnalVidhi, "yuvor anākau -- the substituends `yu` and `vu` are "
+                           ++ "named as UPADEŚA forms of affixes, and the rule "
+                           ++ "reaches them through the pratyaya-saṃjñā.  "
+                           ++ "DISPUTED: read as naming two sound-sequences it "
+                           ++ "is an al-vidhi.  Entered as anal-vidhi because "
+                           ++ "the locus is the affix and not a sound of it")
+  , ((7,3,84),  AlVidhi,   "sārvadhātukārdhadhātukayoḥ -- guṇa of the aṅga's "
+                           ++ "final iK by 1.1.3; the substituend is a sound")
+  , ((8,2,1),   NoVidhi,   "pūrvatrāsiddham -- paribhāṣā")
+  , ((8,2,30),  AlVidhi,   "coḥ kuḥ -- DISPUTED, as 6.1.109.  Substituend cU, a "
+                           ++ "pratyāhāra of sounds; locus `padasya` from 8.1.16")
+  , ((8,2,39),  AlVidhi,   "jhalāṃ jaśo 'nte -- substituend jhaL.  THE "
+                           ++ "DIVERGENCE CASE: on `vāc` this rule fires at a "
+                           ++ "position 8.2.30 has already substituted, and the "
+                           ++ "two readings of that position give different words")
+  , ((8,2,66),  AlVidhi,   "sasajuṣo ruḥ -- substituend the sound s")
+  , ((8,3,15),  AlVidhi,   "kharavasānayor visarjanīyaḥ -- substituend r, "
+                           ++ "condition khaR; `avasāna` is a pause and not a "
+                           ++ "sound, which does not make the substituend one")
+  , ((8,4,40),  AlVidhi,   "stoḥ ścunā ścuḥ -- sTu and ścU, both classes of sounds")
+  , ((8,4,41),  AlVidhi,   "ṣṭunā ṣṭuḥ -- ṣṭu, a class of sounds")
+  , ((8,4,53),  AlVidhi,   "jhalāṃ jaś jhaśi -- jhaL before jhaŚ")
+  , ((8,4,55),  AlVidhi,   "khari ca -- jhaL before khaR")
+  , ((8,4,56),  AlVidhi,   "vāvasāne -- jhaL in pause")
+  ]
+
+-- दृष्टिः -- the READING REGIME a whole run takes.  `Yathasutram` is the
+-- grammar as Pāṇini states it: `alVidhiTable` decides per rule.  The other
+-- two strike one half of 1.1.56 each and are COUNTERFACTUALS -- they are
+-- here so the sūtra's clause can be shown to be load-bearing rather than
+-- described as load-bearing.
+data Drsti = Yathasutram | SthanivatSarvatra | RupamSarvatra
+  deriving (Eq, Show)
+
+-- The lopa half is a separate switch because it is a separate sūtra.
+-- `vLopa False` makes 1.3.9 DELETE instead of leaving an adarśana, which
+-- is the naive implementation 1.1.60 exists to forbid.
+data Vidhana = Vidhana
+  { vDrsti :: Drsti
+  , vLopa  :: Bool
+  } deriving (Eq, Show)
+
+yathasutram :: Vidhana
+yathasutram = Vidhana Yathasutram True
+
+vidhiOf :: Ref -> Vidhi
+vidhiOf r = head ([ v | (q, v, _) <- alVidhiTable, q == r ] ++ [AlVidhi])
+
+vidhiWhy :: Ref -> String
+vidhiWhy r = head ([ w | (q, _, w) <- alVidhiTable, q == r ]
+                   ++ ["not in alVidhiTable -- defaulted to al-vidhi"])
+
+-- The reading in force, under a regime.  A NoVidhi rule performs no
+-- operation, so no regime has anything to change about it.
+drstiVidhi :: Drsti -> Ref -> Vidhi
+drstiVidhi d r = case (d, vidhiOf r) of
+  (_, NoVidhi)               -> NoVidhi
+  (Yathasutram, v)           -> v
+  (SthanivatSarvatra, _)     -> AnalVidhi   -- `anal-vidhau` struck out
+  (RupamSarvatra, _)         -> AlVidhi     -- `sthānivat` struck out
+
+-- दृष्टम् -- WHAT A RULE IS HANDED.  This is the barrier itself: an
+-- anal-vidhi is given the word with every ādeśa replaced by its sthānin,
+-- so it cannot tell the substitute from the original; an al-vidhi is given
+-- the word as it stands.  Indices are preserved, so a rewrite offered
+-- against the view applies to the word.
+drsta :: Vidhi -> ([Item], Prov) -> [Item]
+drsta AnalVidhi (xs, pv) = [ f x (provAt pv i) | (i, x) <- zip [0 ..] xs ]
+  where f (P _) (Just sn) = P (snOrig sn)
+        f x _             = x
+drsta _ (xs, _) = xs
+
+seenBy :: Vidhana -> Sutra -> ([Item], Prov) -> [Item]
+seenBy vd s wp = drsta (drstiVidhi (vDrsti vd) (num s)) wp
+
+-- Every offer a sūtra makes, through the barrier.  `vLopa False` is the
+-- counterfactual engine in which 1.3.9 removes the it rather than leaving
+-- it as an adarśana; nothing else in the file knows about it.
+firesV :: Vidhana -> Sutra -> Reading -> ([Item], Prov) -> [Rewrite]
+firesV vd s rd wp =
+  [ if vLopa vd || num s /= (1,3,9)
+      then r
+      else r { rNew = [], rNote = rNote r ++ " (COUNTERFACTUAL: deleted, not elided)" }
+  | r <- fires s rd (seenBy vd s wp) ]
+
+-- WHAT THE SITE HELD AND WHAT THE RULE READ THERE, for the trace.
+-- Returns (view, sthānin, form, what it read, did it cross the barrier).
+sthaniAt :: Vidhana -> Ref -> ([Item], Prov) -> Rewrite -> (Vidhi, String, String, String, Bool)
+sthaniAt vd r (xs, pv) rw =
+  let i    = rPos rw
+      n    = max 1 (rLen rw)
+      cell j = case provAt pv j of
+                 Just sn -> (snAdesa sn, snOrig sn)
+                 Nothing -> (rupaAt xs j, rupaAt xs j)
+      cells = map cell [i .. i + n - 1]
+      form  = concatMap fst cells
+      orig  = concatMap snd cells
+      view  | form == orig = NoVidhi
+            | otherwise    = drstiVidhi (vDrsti vd) r
+      saw   = case view of AnalVidhi -> orig; _ -> form
+  in (view, orig, form, saw, view == AlVidhi && form /= orig)
 
 data Step = Step
   { stSutra   :: Ref
@@ -1138,6 +1648,13 @@ data Step = Step
   , stInherited :: [Inherited]   -- the governing context the rule was standing
                                  -- inside when it fired.  A trace that names
                                  -- the sutra and not this names half of it.
+    -- 1.1.56, per step.  A trace that names the sutra and the context and NOT
+    -- these says which rule fired and not what it was looking at.
+  , stView    :: Vidhi     -- which reading 1.1.56 gave this rule here
+  , stSthanin :: String    -- what the site stands in place of
+  , stForm    :: String    -- what is actually standing there
+  , stSaw     :: String    -- which of the two the rule was handed
+  , stThroughBarrier :: Bool  -- an adesa was there and the rule read past it
   } deriving (Show)
 
 applyRw :: [Item] -> Rewrite -> [Item]
@@ -1195,14 +1712,25 @@ sectionB = sortOn num [ s | s <- sutras, tripadi (num s) ]
 -- one fixpoint step over the mutually-siddha section.  `nv` carries extra
 -- nivrttis, so that "what if this heading were not there" is a run and not
 -- an edit.
-stepANUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String, Maybe [Ref])
-stepANUnder nv xs =
-  case sortOn rPos (concatMap (\s -> fires s (readingUnder nv s) xs) sectionA) of
+--
+-- EVERY OFFER NOW COMES THROUGH THE BARRIER.  `firesV` hands each sūtra the
+-- view 1.1.56 gives IT -- the form, or the sthānin -- so which rules see
+-- through is decided by `alVidhiTable` and by nothing local.  Under
+-- `yathasutram` every operational rule in this table is an al-vidhi except
+-- 1.1.5, 1.3.9 and 7.1.1, so the view usually IS the word and the derivations
+-- that were here before are unchanged; that they are unchanged is checked.
+stepANV :: Vidhana -> [(Ref, String)] -> ([Item], Prov)
+        -> Maybe (Rewrite, [Ref], String, Maybe [Ref])
+stepANV vd nv wp =
+  case sortOn rPos (concatMap (\s -> firesV vd s (readingUnder nv s) wp) sectionA) of
     []  -> Nothing
     all_ ->
       let leftmost = minimum (map rPos all_)
           here     = [ r | r <- all_, overlaps r (head [ q | q <- all_, rPos q == leftmost ]) ]
       in Just (resolveN here)
+
+stepANUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String, Maybe [Ref])
+stepANUnder nv xs = stepANV yathasutram nv (xs, navah xs)
 
 stepAUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String)
 stepAUnder nv xs = fmap (\(w, l, why, _) -> (w, l, why)) (stepANUnder nv xs)
@@ -1234,59 +1762,75 @@ deriveLekha :: [Item] -> ([Step], [Item], Lekha)
 deriveLekha = deriveLekhaUnder []
 
 deriveLekhaUnder :: [(Ref, String)] -> [Item] -> ([Step], [Item], Lekha)
-deriveLekhaUnder nv start = phaseB (phaseA 0 start [] (Lekha [] [] Nothing))
+deriveLekhaUnder = deriveLekhaV yathasutram
+
+-- THE DERIVATION, WITH THE PROVENANCE CHANNEL THREADED.  The word is
+-- `([Item], Prov)` from here down: `applyRwP` writes the sthānin into the
+-- channel at the moment of substitution, `firesV` hands each rule the view
+-- 1.1.56 gives it, and `sthaniAt` records on the Step which of the two
+-- readings the rule was given at the site it fired on.  Every construction
+-- site of a `Step` in this file goes through `mkStep`, so no step can be
+-- built without saying what it was looking at.
+deriveLekhaV :: Vidhana -> [(Ref, String)] -> [Item] -> ([Step], [Item], Lekha)
+deriveLekhaV vd nv start =
+  let (sts, (xs, _), lg) = phaseB (phaseA 0 (start, navah start) [] (Lekha [] [] Nothing))
+  in (sts, xs, lg)
   where
     reading s = readingUnder nv s
+
+    mkStep r wp@(xs, _) rw lost why ys inh =
+      let (vw, sn, fm, saw, thru) = sthaniAt vd r wp rw
+      in Step r (text (sutraAt r)) (rNote rw) lost why (render xs) (render ys)
+              inh vw sn fm saw thru
 
     -- every offer against this configuration, from EVERY sūtra in the table.
     -- Not only the section whose turn it is: the question section 7b asks is
     -- "did anything in the grammar ever reach for this juncture", and a rule
     -- refused by asiddhatva still reached for it.
-    note xs lg = lg { lVrtta = lVrtta lg ++
+    note wp@(xs, _) lg = lg { lVrtta = lVrtta lg ++
                         [ (xs, [ (num s, rPos r, rLen r)
-                               | s <- sutras, r <- fires s (reading s) xs ]) ] }
+                               | s <- sutras, r <- firesV vd s (reading s) wp ]) ] }
 
-    phaseA :: Int -> [Item] -> [Step] -> Lekha -> ([Step], [Item], Lekha)
-    phaseA k xs acc lg
-      | k > 64 = (reverse acc, xs, lg { lAsamapta = Just k })  -- guard; no derivation here is long
+    phaseA :: Int -> ([Item], Prov) -> [Step] -> Lekha -> ([Step], ([Item], Prov), Lekha)
+    phaseA k wp@(xs, _) acc lg
+      | k > 64 = (reverse acc, wp, lg { lAsamapta = Just k })  -- guard; no derivation here is long
       | otherwise =
-          let lg' = note xs lg in
-          case stepANUnder nv xs of
-          Nothing -> (reverse acc, xs, lg')
+          let lg' = note wp lg in
+          case stepANV vd nv wp of
+          Nothing -> (reverse acc, wp, lg')
           Just (w, lost, why, undec) ->
-            let ys = applyRw xs w
-                st = Step (rSutra w) (text (sutraAt (rSutra w))) (rNote w)
-                       lost why (render xs) (render ys)
+            let wq@(ys, _) = applyRwP wp w
+                st = mkStep (rSutra w) wp w lost why ys
                        (rdInherited (reading (sutraAt (rSutra w))))
                 lg'' = case undec of
                          Nothing -> lg'
                          Just rf -> lg' { lAnirnita = lAnirnita lg' ++ [(xs, rPos w, rf)] }
-            in if ys == xs then (reverse acc, xs, lg'')
-                           else phaseA (k + 1) ys (st : acc) lg''
+            in if ys == xs then (reverse acc, wp, lg'')
+                           else phaseA (k + 1) wq (st : acc) lg''
 
-    phaseB :: ([Step], [Item], Lekha) -> ([Step], [Item], Lekha)
-    phaseB (acc, xs0, lg0) = go sectionB xs0 acc lg0
+    phaseB :: ([Step], ([Item], Prov), Lekha) -> ([Step], ([Item], Prov), Lekha)
+    phaseB (acc, wp0, lg0) = go sectionB wp0 acc lg0
       where
-        go [] xs acc' lg = (acc', xs, lg)
-        go (s : ss) xs acc' lg =
+        go [] wp acc' lg = (acc', wp, lg)
+        go (s : ss) wp acc' lg =
           -- a tripadi rule applies to a fixpoint on ITS OWN output (a rule is
           -- siddha to itself) but never sees a later rule, and is never
           -- revisited once passed.
-          let (xs', steps, lg') = saturate s xs [] lg
-          in go ss xs' (acc' ++ steps) lg'
+          let (wp', steps, lg') = saturate s wp [] lg
+          in go ss wp' (acc' ++ steps) lg'
 
-        saturate s xs acc' lg =
-          let lgN = note xs lg in
-          case fires s (reading s) xs of
-            [] -> (xs, reverse acc', lgN)
+        saturate s wp@(xs, _) acc' lg =
+          let lgN = note wp lg in
+          case firesV vd s (reading s) wp of
+            [] -> (wp, reverse acc', lgN)
             (r : _) ->
-              let ys = applyRw xs r
-              in if ys == xs then (xs, reverse acc', lgN)
+              let wq@(ys, _) = applyRwP wp r
+              in if ys == xs then (wp, reverse acc', lgN)
                  else if length acc' > 16
-                   then (xs, reverse acc', lgN { lAsamapta = Just (length acc') })
-                   else saturate s ys
-                          (Step (num s) (text s) (rNote r) [] "tripādī: in order, 8.2.1"
-                             (render xs) (render ys) (rdInherited (reading s)) : acc') lgN
+                   then (wp, reverse acc', lgN { lAsamapta = Just (length acc') })
+                   else saturate s wq
+                          (mkStep (num s) wp r [] "tripādī: in order, 8.2.1"
+                             ys (rdInherited (reading s)) : acc') lgN
 
 
 ------------------------------------------------------------------------
@@ -1347,15 +1891,23 @@ deriveLekhaUnder nv start = phaseB (phaseA 0 start [] (Lekha [] [] Nothing))
 -- then applied together; where two rewrites overlap, the block cannot
 -- perform both at once and 1.4.2 decides, exactly as it does elsewhere.
 asiddhavatPass :: [Sutra] -> [Item] -> ([Step], [Item])
-asiddhavatPass block xs =
-  let offers = [ (s, r) | s <- block, r <- fires s (readingUnder [] s) xs ]
+asiddhavatPass block xs = let (sts, ys, _) = asiddhavatPassP block (xs, navah xs)
+                          in (sts, ys)
+
+-- the same pass with the channel threaded, so a simultaneous step records
+-- what its site held exactly as an ordered one does
+asiddhavatPassP :: [Sutra] -> ([Item], Prov) -> ([Step], [Item], Prov)
+asiddhavatPassP block wp@(xs, _) =
+  let offers = [ (s, r) | s <- block, r <- firesV yathasutram s (readingUnder [] s) wp ]
       chosen = pick (sortOn (rPos . snd) offers)
       -- apply right-to-left so earlier positions keep their indices
-      ys = foldl applyRw xs (reverse (sortOn rPos (map snd chosen)))
-      steps = [ Step (num s) (text s) (rNote r) [] "asiddhavat: simultaneous, 6.4.22"
-                     (render xs) (render ys) (contextAt (num s))
+      (ys, pw) = foldl applyRwP wp (reverse (sortOn rPos (map snd chosen)))
+      steps = [ let (vw, sn, fm, saw, thru) = sthaniAt yathasutram (num s) wp r
+                in Step (num s) (text s) (rNote r) [] "asiddhavat: simultaneous, 6.4.22"
+                        (render xs) (render ys) (contextAt (num s))
+                        vw sn fm saw thru
               | (s, r) <- chosen ]
-  in (steps, ys)
+  in (steps, ys, pw)
   where
     pick [] = []
     pick ((s, r) : rest) =
@@ -1388,6 +1940,70 @@ derive = render . snd . deriveTrace . parseInput
 -- `samhitayam`, and on the anuvrtti of `aci`, and all three change a form.
 deriveUnder :: [(Ref, String)] -> String -> String
 deriveUnder nv = render . snd . deriveTraceUnder nv . parseInput
+
+-- 1.1.56 AND 1.1.60, RUN THE OTHER WAY.  Cancelling a clause of a sutra is
+-- an experiment here, the same way cancelling a heading is: strike
+-- `anal-vidhau` and every rule reads the sthanin, strike `sthanivat` and
+-- every rule reads the form, make 1.3.9 delete and 1.1.5 has nothing to
+-- read.  Each is a RUN of the same sutras, not an edited grammar.
+deriveV :: Vidhana -> String -> String
+deriveV vd = render . (\(_, x, _) -> x) . deriveLekhaV vd [] . parseInput
+
+deriveTraceV :: Vidhana -> [Item] -> ([Step], [Item])
+deriveTraceV vd start = let (sts, xs, _) = deriveLekhaV vd [] start in (sts, xs)
+
+-- `sthanivat` with the exception struck: every rule reads the sthanin.
+deriveSthanivatEverywhere :: String -> String
+deriveSthanivatEverywhere = deriveV (Vidhana SthanivatSarvatra True)
+
+-- the other half struck: every rule reads the form, which is the engine as
+-- it stood before this section existed.
+deriveRupamEverywhere :: String -> String
+deriveRupamEverywhere = deriveV (Vidhana RupamSarvatra True)
+
+-- 1.3.9 as a DELETION rather than an adarsana.  1.1.60 is what this run
+-- does not have.
+deriveWithoutLopa :: String -> String
+deriveWithoutLopa = deriveV (Vidhana Yathasutram False)
+
+deriveWithoutLopaTrace :: [Item] -> ([Step], [Item])
+deriveWithoutLopaTrace = deriveTraceV (Vidhana Yathasutram False)
+
+-- 1.1.56, doing visible work.  Every step of the real derivation at which
+-- the site held an adesa AND the rule was an al-vidhi, so it read past the
+-- barrier to the form.  Where this list is empty the barrier was never
+-- tested in that derivation; where it is not, the counterfactual
+-- `deriveSthanivatEverywhere` on the same input gives a different word.
+barrierAudit :: [Item] -> [(Ref, Vidhi, String, String)]
+barrierAudit start =
+  [ (stSutra st, stView st, stSthanin st, stForm st)
+  | st <- fst (deriveTrace start), stThroughBarrier st ]
+
+-- 1.1.60, doing visible work.  Every configuration of the real derivation at
+-- which 7.3.84's guna is refused by 1.1.5 reading a marker 1.3.9 erased.  The
+-- reason carries the counterfactual, because a refusal whose consequence is
+-- not shown is indistinguishable from a rule that never applied.
+knitAudit :: [Item] -> [(Ref, String)]
+knitAudit start =
+  nub [ ( (1,1,5)
+        , "the affix bears " ++ marks cfg ++ ", elided by 1.3.9 and read here: "
+          ++ "guṇa of the aṅga-final " ++ s ++ " by 7.3.84 is refused, and the "
+          ++ "form is " ++ render final ++ ".  Delete the marker instead of "
+          ++ "eliding it and the same sūtras give " ++ render noLopa )
+      | (cfg, _) <- lVrtta lg
+      , knitPratyaya cfg
+      , not (itPending cfg)
+      , Just (_, s) <- [angaAntya cfg]
+      , s `elem` iK ]
+  where
+    (_, final, lg) = deriveLekha start
+    (_, noLopa)    = deriveWithoutLopaTrace start
+    marks cfg = intercalate ", "
+      (nub [ t | i <- upadesaSpan cfg
+               , t <- case cfg !! i of
+                        Lupta u     | u `elem` ["k","ṅ"] -> [u]
+                        Anubandha u | u `elem` ["k","ṅ"] -> [u]
+                        _                                -> [] ])
 
 -- 8.2.1 purvatrasiddham, doing visible work.
 --
@@ -1512,11 +2128,14 @@ sesaPrccha s = case sHetu s of
 showSandhi :: Sandhi -> String
 showSandhi (l, b, r) =
   maybe "∅" id l ++ " " ++ boundary b ++ " " ++ maybe "∅" id r
-  where boundary Pada     = "+"
-        boundary Avasana  = "."
-        boundary Morph    = "-"
-        boundary Avagraha = "'"
-        boundary (P x)    = x
+  where boundary Pada      = "+"
+        boundary Avasana   = "."
+        boundary Morph     = "-"
+        boundary Avagraha  = "'"
+        boundary Pratyaya  = "~"
+        boundary (Anubandha x) = x
+        boundary (Lupta x) = "(" ++ x ++ ")"    -- 1.1.60: written, not appearing
+        boundary (P x)     = x
 
 -- The juncture alone, restated as an input.
 --
@@ -1619,7 +2238,7 @@ pravesha v@(Nirdharmin _) = Nivartate v
 -- trusted on multi-pada input.
 setavah :: [Item] -> [(Int, Int)]
 setavah xs = zip [0 ..] [ i | (i, x) <- zip [0 ..] xs
-                            , x `elem` [Pada, Morph, Avasana] ]
+                            , x `elem` [Pada, Morph, Avasana, Pratyaya] ]
 
 -- the sound before an index, skipping boundaries
 prevPh :: [Item] -> Int -> Maybe String
@@ -1775,6 +2394,31 @@ coverage =
   , "  four continuations that can be checked against the shape of the rules"
   , "  that inherit them, and the laghava figure below is a figure for THIS"
   , "  sample -- a floor for the text, not an estimate of it."
+  , ""
+  , "स्थानिवद्भावः, section 6c: 1.1.56 is a CHANNEL and not an annotation."
+  , "  Every substitution records what it stands in place of; every sūtra is"
+  , "  handed the reading 1.1.56 gives IT -- the form if it is an al-vidhi,"
+  , "  the sthānin if it is not -- and `alVidhiTable` declares which, with"
+  , "  the reason, one entry per sūtra, checked total by `selfTest`.  Three"
+  , "  entries are marked DISPUTED (6.1.109, 7.1.1, 8.2.30: an operation whose"
+  , "  locus is a saṃjñā and whose substituend is a sound) rather than decided."
+  , "  EXERCISED: the exception clause.  Three corpus words have a rule"
+  , "  reading past a substitution (`barrierAudit`), and striking the clause"
+  , "  changes four derived forms.  NOT EXERCISED: the inheritance half."
+  , "  The designation-reading rules here (1.1.5, 1.3.9, 7.1.1) never fire at"
+  , "  a site holding an ādeśa, so `deriveRupamEverywhere` -- which strikes"
+  , "  `sthānivat` -- gives the same word on the whole corpus.  Said here"
+  , "  because a mechanism whose second half is declared and never run is a"
+  , "  shelf, and the report of it is worth more than a manufactured case."
+  , ""
+  , "लोपः, 1.1.60 with 1.3.3, 1.3.8, 1.3.9 and 1.1.5: an elided it is absent"
+  , "  from the surface and present to the conditions.  `Lupta` is that in the"
+  , "  type.  `ci ~ kta` derives cita because 1.1.5 reads the k that 1.3.9"
+  , "  erased; make lopa a deletion (`deriveWithoutLopa`) and the same sūtras"
+  , "  give ceta.  Nothing of 1.3.2, 1.3.4-1.3.7 is encoded, and no"
+  , "  sārvadhātuka/ārdhadhātuka classification: every `~` affix is treated as"
+  , "  ārdhadhātuka, which is what lyuṬ and kta are and is not a general rule."
+  , ""
   , "A SAMPLE here: the vidhi rules -- 6.1 vowel sandhi and the tripādī --"
   , "  chosen to be enough to run derivations end to end and to make each"
   , "  mechanism do visible work.  Nothing of morphology, nothing of the"
@@ -2022,6 +2666,7 @@ selfTest = concat
   , inheritanceIsLoadBearingTests
   , sesaTests
   , laghavaTests
+  , sthanivatTests
   ]
   where
     chk name got want
@@ -2381,6 +3026,111 @@ selfTest = concat
       , chk "and the two schedules over that same text derive different forms"
           (derive "deva + kula" == deriveUnder [((0,0,0),"aci")] "deva + kula") False
       ]
+
+    -- 8.11  स्थानिवद्भावः (1.1.56) and लोपः (1.1.60), section 6c.
+    --
+    -- WHAT IS AND IS NOT EXERCISED, and this is the honest half of the
+    -- section.  The EXCEPTION clause `anal-vidhau` is exercised: three
+    -- corpus words have a rule firing at a position another rule had
+    -- already substituted, and the rule reads the ādeśa (`barrierAudit`).
+    -- The INHERITANCE half is DECLARED for the three designation-reading
+    -- rules encoded here -- 1.1.5, 1.3.9, 7.1.1 -- and in every derivation
+    -- this file runs, those three fire at sites holding no ādeśa, so their
+    -- two readings COINCIDE and nothing distinguishes them.  That is
+    -- checked below, not glossed over: `deriveRupamEverywhere`, which
+    -- strikes `sthānivat` and makes every rule read the form, gives the
+    -- same word as the grammar on the whole corpus.
+    --
+    -- So the divergence is exhibited by striking the EXCEPTION -- reading
+    -- 1.1.56 as the folklore's full transparency -- and not by an encoded
+    -- anal-vidhi seeing a sthānin.  Four corpus words then derive
+    -- differently, and the mechanism differs in each:
+    --
+    --   tat + ca   tacca / tajca   8.4.40 keeps reading the t that 8.2.39
+    --                              replaced, and substitutes again
+    --   ne - ana   nayana / naaiana  6.1.87 and 6.1.88 chain on sthānins
+    --   rāmas      rāmaḥ / rāmar   8.3.15 reads the s it was given in place
+    --                              of, so its `r` condition is never met
+    --   nī ~ lyuṭ  nayana / neyu   7.3.84 reads the ī it has just replaced,
+    --                              re-offers the SAME guṇa, and the offer is
+    --                              a no-op -- so the derivation reports a
+    --                              fixpoint and halts three rules early.
+    --
+    -- The last is the sharpest and it was not the expected one: a guṇa rule
+    -- that counts its own output as the sthānin cannot tell that it has
+    -- fired.  `anal-vidhau` is what stops that, and stopping it is not a
+    -- refinement of the rule -- without the clause the derivation ends in
+    -- the wrong place, not merely with the wrong sound.
+    --
+    -- `vāc` is NOT in that list and the reason is worth recording: under
+    -- the struck reading 8.2.39 cycles k → j → g and 8.4.56 cycles g → c → k,
+    -- and the cycle happens to land back on the attested `vāk` after five
+    -- steps instead of three.  Same form, different derivation.  A test on
+    -- the form alone would have called this agreement.
+    sthanivatTests = concat
+      [ -- the table is TOTAL, so no rule acquires a reading by defaulting
+        chk "every sūtra has an al-vidhi entry"
+          [ num s | s <- sutras, num s `notElem` [ r | (r, _, _) <- alVidhiTable ] ] []
+      , chk "and every entry names a sūtra that exists"
+          [ r | (r, _, _) <- alVidhiTable, not (any ((== r) . num) sutras) ] []
+      , chk "no sūtra is entered twice"
+          (length (nub [ r | (r, _, _) <- alVidhiTable ])) (length alVidhiTable)
+      , chk "every entry carries a reason"
+          [ r | (r, _, w) <- alVidhiTable, null w ] []
+      -- the barrier is CROSSED, and by which rules reading what
+      , chk "vāc: 8.2.39 and 8.4.56 read past the sthānin to the ādeśa"
+          (barrierAudit (parseInput "vāc"))
+          [ ((8,2,39), AlVidhi, "c", "k"), ((8,4,56), AlVidhi, "k", "g") ]
+      , chk "nī ~ lyuṭ: 6.1.78 reads the e that 7.3.84 put for ī"
+          (barrierAudit (parseInput "nī ~ lyuṭ"))
+          [ ((6,1,78), AlVidhi, "ī", "e") ]
+      , chk "where nothing was substituted the barrier is never tested"
+          (barrierAudit (parseInput "deva + indra")) []
+      -- THE TWO READINGS DIFFER, on the encoded rules
+      , chk "striking anal-vidhau changes four corpus words"
+          [ (w, derive w, deriveSthanivatEverywhere w)
+          | w <- [ "tat + ca", "ne - ana", "rāmas", "nī ~ lyuṭ" ] ]
+          [ ("tat + ca",  "tacca",  "tajca")
+          , ("ne - ana",  "nayana", "naaiana")
+          , ("rāmas",     "rāmaḥ",  "rāmar")
+          , ("nī ~ lyuṭ", "nayana", "neyu") ]
+      , chk "and on vāc it changes the derivation and not the form"
+          ( derive "vāc" == deriveSthanivatEverywhere "vāc"
+          , length (fst (deriveTrace (parseInput "vāc")))
+          , length (fst (deriveTraceV (Vidhana SthanivatSarvatra True) (parseInput "vāc"))) )
+          (True, 3, 5)
+      -- and the OTHER half is declared, not exercised: say so with a test
+      , chk "striking sthānivat changes nothing here -- the inheritance half"
+          [ w | w <- corpusWords, derive w /= deriveRupamEverywhere w ] []
+      -- 1.1.60: lopa is not deletion, and the difference is a derived form
+      , chk "ci ~ kta: 1.1.5 reads the k that 1.3.9 erased"
+          (map fst (knitAudit (parseInput "ci ~ kta"))) [(1,1,5)]
+      , chk "and the refusal decides the word"
+          (derive "ci ~ kta", deriveWithoutLopa "ci ~ kta") ("cita", "ceta")
+      , chk "where no affix is marked there is nothing to read"
+          (knitAudit (parseInput "nī ~ lyuṭ"), knitAudit (parseInput "vāc")) ([], [])
+      , chk "and deleting instead of eliding changes nothing without a marker"
+          [ w | w <- corpusWords, w /= "ci ~ kta", derive w /= deriveWithoutLopa w ] []
+      -- the channel is inert on the grammar that was here before it
+      , chk "no derivation of the old corpus moved"
+          [ (w, derive w) | (w, want) <- oldCorpus, derive w /= want ] []
+      ]
+
+    corpusWords =
+      [ "dadhi + indra", "deva + indra", "mahā + indra", "su + ukta"
+      , "deva + ṛṣi", "mahā + ṛṣi", "madhu + ari", "deva + aiśvarya"
+      , "te + api", "ne - ana", "rāmas", "tat + ca", "tat + jalam", "vāc"
+      , "nī ~ lyuṭ", "ci ~ kta" ]
+
+    oldCorpus =
+      [ ("dadhi + indra", "dadhīndra"), ("deva + indra", "devendra")
+      , ("mahā + indra", "mahendra"),   ("su + ukta", "sūkta")
+      , ("deva + ṛṣi", "devarṣi"),      ("mahā + ṛṣi", "maharṣi")
+      , ("madhu + ari", "madhvari"),    ("deva + aiśvarya", "devaiśvarya")
+      , ("te + api", "te'pi"),          ("ne - ana", "nayana")
+      , ("ne + ana", "ne'na"),          ("rāmas", "rāmaḥ")
+      , ("tat + ca", "tacca"),          ("tat + jalam", "tajjalam")
+      , ("vāc", "vāk") ]
 
     -- 8.10  शेषः -- THE RESIDUAL.  The engine's stalls, kept.
     --

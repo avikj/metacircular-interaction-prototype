@@ -122,11 +122,37 @@ occurrences and two sūtras, and the difference is precisely the shared use
 
 So the failure of `laghava` is at the *first* of the three moves, not at
 some subtle one, and the replacement is not exotic: count the sūtras that
-write the term rather than the term. What is still missing is the rest of
-the requirement — प्रत्याहार has no naming form in that grammar; अपवाद is
-defined on पदs and not on प्रक्रियाs; and *instability under everything else*
-is untouched, in particular whether मात्रा still separates न्यास from स्थूल,
-which needs a lower bound over derivations rather than a witness.
+write the term rather than the term.
+
+**प्रत्याहार, same day.** §24–§25. The Śivasūtras list the phonemes in a
+fixed order with markers, and a प्रत्याहार names an arbitrary-length stretch
+of that order by two symbols. `pratyahara-s k` is that device on a
+प्रक्रिया: one sūtra, one bound, naming the top `suc k` of what has been
+derived. `pratyahara-matra` is again `refl` for every bound — **the cost
+does not depend on how much is named** — while the tree measure of what it
+names grows one योग node per step (`sanghata-vardhate`, and 1, 3, 5 written
+out), so `laghava-pratyahare-na-sthiram` refutes stability for `laghava` a
+second time.
+
+The negative half is the design and is proved for *every* bound:
+`pratyahara-na-vyavadhanam` shows the skip `yoga (mita 2) (mita 0)` is no
+प्रत्याहार of the derivation `[mita 2, mita 1, mita 0]`, using only `laghava`
+and `artha` and no injectivity of the पद constructors. The three cases are
+three different reasons. At bound zero the run is too short and `laghava`
+sees it. At bound one the run has the right *size* and the wrong members —
+`laghava` cannot tell and `artha` must, 2+1 against 2+0. At every larger
+bound the run is too long. **A skip is never a stretch**, which is why the
+ordering is the achievement and the abbreviation only its consequence, and
+why where the order could not be made to work a phoneme is simply listed
+twice.
+
+What is still missing: अपवाद is defined on पदs and not on प्रक्रियाs, and its
+interaction with a back-reference is untouched. And the second half of the
+requirement is untouched entirely — every theorem so far says a move is
+FREE and none says anything is *paid*. A measure free on all three moves
+and free on everything else is the constant function. That is the hard
+half, and it includes whether मात्रा still separates न्यास from स्थूल, which
+needs a lower bound over all derivations rather than a witness.
 
 But note what it is not: it is not runtime, which depends on a machine,
 and it is not state size, which depends on a chart. It is the length of
