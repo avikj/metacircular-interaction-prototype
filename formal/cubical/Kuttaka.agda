@@ -16,12 +16,16 @@
 -- trace-as-syntax) but not "kuṭṭaka" — it has no gcd, no Bézout, no
 -- back-substitution.  This module supplies the missing theorem.
 --
--- (It is self-contained over ℤ — no matrix/continuant dependency — so it
--- checks under the v0.5 cubical pin this container carries, on which
--- KuttakaValli.agda's `solve!`-bearing dependencies do NOT build.  Only
--- the one back-substitution ring identity uses the CommRing solver, in
--- the v0.5 spelling `solve`; under v0.9 that single token becomes
--- `solve!`.  Fallback-checked, not pin-green — stated per protocol.)
+-- (It is self-contained over ℤ — no matrix/continuant dependency.  PIN-GREEN
+-- SINCE 2026-08-20.  It was written against a v0.5 container and carried the
+-- v0.5 spellings `solve` and `·Rid`, which the DECLARED pin — Agda 2.8.0 +
+-- cubical v0.9, `BUILD.md` — does not have.  It was therefore one of the 24
+-- modules notes/ORPHAN_SWEEP_3.md §5 lists as red under the pin, and one of
+-- the two that made `Everything.agda` itself red.  The repair is the one this
+-- header already predicted: `solve` → `solve!` — applied to the arguments,
+-- since v0.9's `solve!` is a macro on an equational goal and not on a Π-type
+-- — and `·Rid` → `·IdR`.  No statement was changed, weakened or added.
+-- `agda --safe Kuttaka.agda` exits 0.)
 --
 -- WHAT IS PROVED.  No postulates, no holes, --safe.
 --
@@ -57,7 +61,7 @@ open import Cubical.Data.Int
 open import Cubical.Data.Int.Properties
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
 -- The pulverizer's descent, as inductive evidence (the vallī).
@@ -84,17 +88,17 @@ private
   -- Fully ∀-quantified, as the v0.5 CommRing solver requires.
   backSubst : (b q r x y : ℤ)
             → (q · b + r) · y + b · (x + (- (q · y))) ≡ b · x + r · y
-  backSubst = solve ℤCommRing
+  backSubst b q r x y = solve! ℤCommRing
 
   -- scaling the Bézout pair through k.
   ringStepL : (a b k x y : ℤ)
             → a · (x · k) + b · (y · k) ≡ (a · x + b · y) · k
-  ringStepL = solve ℤCommRing
+  ringStepL a b k x y = solve! ℤCommRing
 
   -- base coefficients (1,0): pos 0 · pos 0 reduces to pos 0 (first-arg
-  -- recursion), g · pos 1 ≡ g by ·Rid, then drop the + pos 0.
+  -- recursion), g · pos 1 ≡ g by ·IdR, then drop the + pos 0.
   baseId : (g : ℤ) → g · pos 1 + pos 0 · pos 0 ≡ g
-  baseId g = cong (_+ pos 0) (·Rid g) ∙ +Comm g (pos 0) ∙ sym (pos0+ g)
+  baseId g = cong (_+ pos 0) (·IdR g) ∙ +Comm g (pos 0) ∙ sym (pos0+ g)
 
 ------------------------------------------------------------------------
 -- The kuṭṭaka: every run yields a Bézout pair for its terminal g.
@@ -131,7 +135,7 @@ inhomogeneous a b g k run =
 private
   famId : (a b x₀ y₀ t : ℤ)
         → a · (x₀ + t · b) + b · (y₀ + (- (t · a))) ≡ a · x₀ + b · y₀
-  famId = solve ℤCommRing
+  famId a b x₀ y₀ t = solve! ℤCommRing
 
 solutionFamily : (a b g x₀ y₀ : ℤ) → a · x₀ + b · y₀ ≡ g
                → (t : ℤ) → a · (x₀ + t · b) + b · (y₀ + (- (t · a))) ≡ g
@@ -145,7 +149,7 @@ private
   famDiffId : (a b x y x' y' : ℤ)
             → a · (x + (- x')) + b · (y + (- y'))
               ≡ (a · x + b · y) + (- (a · x' + b · y'))
-  famDiffId = solve ℤCommRing
+  famDiffId a b x y x' y' = solve! ℤCommRing
 
 solutionsDiffer : (a b g x y x' y' : ℤ)
                 → a · x + b · y ≡ g → a · x' + b · y' ≡ g
@@ -167,21 +171,21 @@ private
   -- a = q·b + r with b = g·kb, r = g·kr  ⟹  a = g·(q·kb + kr)
   combineId : (g q kb kr : ℤ)
             → q · (g · kb) + g · kr ≡ g · (q · kb + kr)
-  combineId = solve ℤCommRing
+  combineId g q kb kr = solve! ℤCommRing
 
   -- from a ≡ q·b + r, recover r ≡ a + (-(q·b))
   remId : (b q r a : ℤ) → (q · b + r) + (- (q · b)) ≡ r
-  remId = solve ℤCommRing
+  remId b q r a = solve! ℤCommRing
 
   -- a = d·ka, b = d·kb  ⟹  a + (-(q·b)) = d·(ka + (-(q·kb)))
   descId : (d q ka kb : ℤ)
          → d · ka + (- (q · (d · kb))) ≡ d · (ka + (- (q · kb)))
-  descId = solve ℤCommRing
+  descId d q ka kb = solve! ℤCommRing
 
 -- g divides a and b, along the run.
 gcdDivides : (a b g : ℤ) → Run a b g → (g ∣ a) × (g ∣ b)
 gcdDivides .g .(pos 0) g (stop g) =
-  (pos 1 , sym (·Rid g)) , (pos 0 , sym (·Comm g (pos 0)))
+  (pos 1 , sym (·IdR g)) , (pos 0 , sym (·Comm g (pos 0)))
 gcdDivides a b g (div a b q r g eq run) =
   let ((kb , b≡gkb) , _) = gcdDivides b r g run
       (kr , r≡gkr)       = snd (gcdDivides b r g run)
