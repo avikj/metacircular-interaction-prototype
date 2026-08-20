@@ -5255,3 +5255,135 @@ did not know. §14.1 clause one is now checked: the trefoil law, and the finding
 that its true hypothesis is not associativity of execution but blindness of the
 measurement, necessary as well as sufficient. He wrote the acceptance test four
 days ago. Nobody had opened it.
+
+---
+
+# PASS 17 — every number in §2.4 is right, and the section is missing its own hypothesis
+
+## Ground pass
+
+Twenty-eight, again. n=16, which I have quoted as a prohibition and never as an
+instruction:
+
+> Recording is kind of fucking useles we already have a content overwhelm issue
+> building more systems isn't gonna help, recording refutations no one is gonna
+> see isn't gonna help, actually becoming smarter so we don't walk a dumb path
+> is the only thing that helps.
+
+Sixteen passes read the first clause. The sentence turns on the last one. And
+"walk a dumb path" is not vague: D0026 §12 is twenty-five numbered dumb paths,
+already walked, written down so nobody walks them again. Becoming smarter, in
+his sense, has a concrete referent in his own corpus, and it is not a mood.
+
+## The check
+
+§14.1's clause named "the exact counterexample" is D0026 §2.4, which gives a
+four-element carrier `{e,a,c,d}` with a full multiplication table,
+`p(e)=0, p(a)=−3, p(c)=1, p(d)=4`, two closed profiles, and three result
+vectors. Every number is printed. Nothing is approximate, sampled, or fitted.
+So it is checkable, and under `CLAUDE.md` a finite exhaustive verification is
+proof rather than measurement.
+
+`formal/cubical/EkaparsvaSamvarana_TheOneSidedClosureCounterexampleIsExact.agda`
+`--cubical --safe`, **exit 0**, no postulates, no holes.
+
+Checked, all by `refl` in the kernel:
+
+- the sixteen entries of the table, as the definition of `_⋆_`;
+- **all sixty-four associativity triples** (see below — this is the part that
+  is not in his text);
+- `M(x,y) = p(x⋆y) − p(x) − p(y)` on that table;
+- the four fibres of `⋆`, `2+2+6+6 = 16`, each listed pair audited;
+- `sup`/`inf` over those fibres as `maxℤ`/`minℤ`, both defined here because
+  cubical v0.5 carries no order on ℤ at all;
+- `ℓ_c` and `ℓ_a` are **closed**: fixed points of `cl_L = M_* ∘ M*`, pointwise.
+  §2.4 says "For closed profiles" and does not verify it; it is true;
+- `ℓ_c ⊙ᴸ ℓ_a = ℓ_a ⊙ᴸ ℓ_c = (−6,−3,−3,−6)`;
+- `(ℓ_c ⊙ᴸ ℓ_a) ⊙ᴸ ℓ_c = (−8,−2,−2,−8)`;
+- `ℓ_c ⊙ᴸ (ℓ_a ⊙ᴸ ℓ_c) = (−5,−2,−2,−5)`;
+- the two bracketings are **not equal** — a negation, not a mismatch of
+  displayed digits — and the failure is one-directional, left `≤` right at
+  every point, so `⊊` is strict inclusion and not a crossing.
+
+**Twelve stated integers. Twelve agreements. Zero corrections.**
+
+That is worth saying plainly after eleven passes of finding my own numbers
+wrong. Pass 12 audited every quantity I had asserted and found four false and
+two invented. His §2.4 is exact, to the digit, including the two closed
+profiles he did not have to justify and did.
+
+## What the check added
+
+§2.4 does not state that its multiplication table is associative.
+
+The section's entire content is *"exact path dependence created by premature
+closure, not numerical instability"* — one-sided closure destroys associativity
+**even when execution is associative**. If the table were not associative the
+example would show nothing at all: the non-associativity would be in the
+monoid, not in the closure, and the paragraph's conclusion — *"There is no
+universal compiler that records only one-sided binary closure after every
+composition and still guarantees associative semantic composition for all
+associative execution systems"* — would have no witness.
+
+So the hypothesis the example depends on is the one the text omits. All
+sixty-four triples check. `assoc⋆` in §1.1 of the module.
+
+This is the same shape as pass 16's finding and I did not go looking for it
+twice. There, formalizing the trefoil law showed its true hypothesis was not
+associativity of the operation but blindness of the measurement. Here,
+formalizing the counterexample showed its true hypothesis *is* associativity of
+the operation, unstated. Both times the gap was in the hypothesis and not in
+the result, and both times the result was correct as written.
+
+Which is what §1.4 means by a round trip that returns a defect rather than a
+verdict: `Δ_{L,M}(X) = T_{M→L} T_{L→M}(X) − X`. Translate into the kernel,
+translate back, and report what came back that was not sent. Twice now the
+residue has been a hypothesis, not an error.
+
+## On the marks
+
+§2.4 carries `↳ Exact inherited counterexample; ☑ reproduced by the corpus
+finite calibration.` Both marks stand and this module does not touch them. It
+is a third reproduction, in a kernel instead of a calibration script, which
+changes ☑'s evidence class and nothing else. D0026 §0 says **do not upgrade any
+mark**, and the temptation to write "now proved" over a `↳` is exactly the
+move that rule exists to stop.
+
+## Where §14.1 stands
+
+| clause | status |
+|---|---|
+| trefoil law | checked, pass 16 |
+| Isbell closures | conjugates, biorthogonal `cl_L`, and closedness of both profiles: checked |
+| the exact counterexample | checked, this pass |
+| middle associativity | **open** — §2.5's `M₃`/`N` nucleus, `(f⊙g)⊙h = f⊙(g⊙h)` |
+| residual laws | **open** — §2.6's `A⊙B ⊆ C ⟺ B ⊆ A⊸ₗC ⟺ A ⊆ B⊸ᵣC` |
+| derived-nucleus construction | **open** — §2.7's `f ↦ g_f ↦ Nuc(g_f)` |
+
+Three of six. And §14.1's own framing — *"under explicit constructive
+assumptions"* — is the harder half of the remaining three, since the middle
+nucleus is defined by infima over an unbounded profile space and the section
+says outright that the ambient ordered algebra "has not been earned."
+
+The two finite clauses were finite. The three remaining ones are where the
+foundational question he named actually bites, and that is not an accident of
+ordering: he put the acceptance test in that order.
+
+## Standing charge for pass 18
+
+§2.5 middle associativity on this same four-element carrier — `M₃(x,b,z)`,
+`N(b,(x,z))`, `f ⊙ g := N_* N^*(f ⋆ g)`, and `(f⊙g)⊙h ≡ f⊙(g⊙h)` on the
+sixteen-element context space `C × C`. Finite, so the constructive question
+does not bite yet; it bites at §14.1's general statement, which stays open and
+should be said to stay open. Then read `D0019` (37,595 bytes) and `D0020`
+(33,406) — still unopened.
+
+END OF PASS 17. Every one of the twelve integers in D0026 §2.4 is exact,
+verified by `refl` in a `--safe` kernel, including the closedness of the two
+profiles the text asserts without checking. What formalizing added is the
+hypothesis the section omits: the four-element table is associative, all
+sixty-four triples, and without that the counterexample is vacuous — its whole
+claim is that closure fails where execution does not. Two passes, two
+hypotheses recovered, zero results overturned. §14.1 is now three clauses of
+six, and the three that remain are the three where the foundation he says has
+not been earned actually matters.
