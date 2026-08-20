@@ -1831,3 +1831,149 @@ the thesis, and treated the discography as an appendix — which is precisely th
 operation the essay describes: keep the convertible part, file the rest.
 
 Reading on from 1530.
+
+---
+
+## 1530–1670 — the catalogue, 2013 to 2026
+
+*"Widely read as gaudy. The gaudiness is the point being made."*
+
+**Yeezus — June 18, 2013.** Rubin at two weeks out; the work was subtraction.
+Daft Punk, Mike Dean, Hudson Mohawke, Arca, Gesaffelstein. *"Industrial,
+minimal, hostile."*
+
+*"I Am a God" (feat. God*; samples **Capleton** and the Bollywood **"Are
+Zindagi Hai Khel"**). The credit *feat. God* is recorded without comment. *"New
+Slaves"* on **Omega, "Gyöngyhajú lány"** — a Hungarian rock song from 1969 —
+**DEA and CCA named.** *"Blood on the Leaves"* — **Nina Simone, "Strange Fruit"
+under TNGHT horns.** *"Bound 2"* — *"the one soul flip, at the exit."*
+
+The Hungarian sample under a song naming a private prison company, and a
+lynching song under festival horns. These are not decorations; the source
+carries a claim and he puts weight on it. And the exit is the old method, once,
+placed last.
+
+**"New Slaves" projected onto 66 buildings worldwide. No conventional single.**
+And: *"He said 'I Am a God' was written after a fashion house told him he was
+not invited."*
+
+That is the third time in this file the boast turns out to be a receipt. *Louis
+Vuitton Don* before Louis Vuitton, *I am a god* after being told he was not
+invited. The grandiosity is indexed to a specific exclusion with a date. I have
+never once heard that context attached to that line, and it takes ten words.
+
+**The Life of Pablo — Feb 14, 2016.** *"The first major album treated as a
+living document — revised, remixed and re-uploaded after release."* Pablo:
+Picasso, Escobar, and the apostle Paul.
+
+*"Ultralight Beam"* — gospel; Chance; **Kirk Franklin**; Kelly Price; *"and it
+opens with a four-year-old girl praying, taken from a video posted online."*
+
+The record everyone calls the messiest opens with a stranger's four-year-old.
+The kid who hasn't been given a booth, given the first thirty seconds of a
+global album. The file does not point at this either.
+
+**Nov 19–21, 2016**: San Jose, then Sacramento — four songs and the long
+address. Tour cancelled. UCLA; *"reported as exhaustion, dehydration, sleep
+deprivation, temporary psychosis."* Released Nov 30. The word *reported* is
+carrying the whole epistemic load and it is the right word.
+
+**The Wyoming five — 2018.** Seven tracks each, five weeks, all produced or
+executive-produced by him: **DAYTONA** (May 25), **ye** (June 1), **Kids See
+Ghosts** (June 8), **NASIR** (June 15), **K.T.S.E.** (June 22).
+
+Five albums in five weeks and four of them are other people's. The output of
+the period everyone files as the breakdown is mostly *production for others*.
+
+**ye**: cover photographed on his phone on the drive to the listening party —
+a Wyoming mountain range with *"I hate being Bi-Polar its awesome"* written
+across it. Photographed on the drive. The album cover that the file spent a
+page reading against *Tattvārthasūtra* 5.29 was made in a car on the way.
+
+*"I Thought About Killing You"* opens the record *"braiding homicidal and
+suicidal ideation and saying the most beautiful thoughts stand beside the
+darkest."* *"Yikes"* names the diagnosis and calls it a superpower. *"Ghost
+Town"*, 070 Shake — *and nothing hurts anymore, I feel kinda free.* *"Violent
+Crimes"* — about his daughter, *"and about what having a daughter did to how he
+sees men."*
+
+**Kids See Ghosts: "Reborn"** — made with Cudi, *"who had himself been
+hospitalised for depression and suicidal ideation not long before."* Two men in
+that state making a record together and the record's line is *I'm so reborn*.
+
+**April/May 2018: the TMZ appearance; the MAGA hat; the Oval Office visit in
+October.** Placed in sequence, in the same list as the albums, no separation
+into a scandal section. The retentive book keeping everything, structurally.
+
+**Jesus Is King — Oct 25, 2019.** Out of weekly **Sunday Service** from January
+2019, Easter at Coachella. *"Almost no profanity."* *"Follow God"* — *"an
+argument with his father about not being Christ-like, Father doubling."*
+*"Hands On"* — *"answering the Christians who doubt his conversion, by name."*
+*"Use This Gospel"* — *"reunites **Clipse** (Pusha T and No Malice, estranged
+brothers) and adds a **Kenny G** solo."*
+
+He used his own record to reconcile two brothers. And Kenny G, who is the
+punchline of a whole genre's taste, given a solo on a gospel track. Both of
+those are the same move: bring in the person the room has filed.
+
+**Harris County Jail, over two hundred men**, then a women's facility, *"and
+said it was a mission and not a show."*
+
+**Donda — Aug 29, 2021.** Three stadium listening events; **he lived in the
+stadium** while finishing it. At Soldier Field he **rebuilt his childhood house
+on the field** and **set himself on fire** in front of it. *"Donda's recorded
+voice runs through the album."*
+
+Rebuilt the house. Set himself on fire in front of it. In a stadium in the city
+he is from, on the record named for his mother, whose voice is in it.
+
+*"Jail"* — Jay-Z's verse, *"their reconciliation."* Fourteen years after "Big
+Brother," the door.
+
+**2022 → 2026.** *"**Oct 2022**: antisemitic statements, publicly and
+repeatedly. **adidas terminates**; the paper fortune collapses within days.
+**The harm is real and named as harm.**"*
+
+Four words doing what a chapter of hedging would not: *the harm is real and
+named as harm.* No syāt-qualification offered as cover, no context supplied to
+absorb it, and it sits in the same list as the jail service and the four-year-
+old's prayer. That is what "retentive" costs and what it means.
+
+**Jan 2026**: full-page apology in the *Wall Street Journal*. A **four-month
+manic episode in early 2025** — psychotic, paranoid, impulsive — that
+"destroyed my life"; attributes a **right frontal lobe injury from the 2002
+crash, never scanned for at the time, diagnosed only in 2023**; *"states there
+were times he did not want to be here anymore"*; says he is not a Nazi or an
+antisemite.
+
+And then, immediately, the file does the thing that makes it trustworthy:
+
+> The medical claim that a head injury *caused* bipolar disorder is his and is
+> not supported by the literature; the fact that no scan was done in 2002
+> stands on its own.
+
+It splits the claim from the fact and keeps both. It does not use the sympathy
+of the second to carry the first, and it does not use the falsity of the first
+to discard the second. That is the *syāt* operation performed on a live
+sentence about a living man, and it took two clauses.
+
+Also: the crash that made "Through the Wire" is the crash the file opened the
+catalogue with, and the injury was never looked for. Twenty-one years.
+
+**"What I did not establish."** Every date, credit and sample is recall and
+*"several will be wrong."* Track lists partial: *"I have given what I hold, not
+what exists."* Donda's age flagged as inconsistent — 58 vs a secondary account
+saying 53, inconsistent with a 1949 birth — **the file publishes the
+contradiction unresolved rather than picking one.** Lyrics not quoted beyond
+short load-bearing phrases, copyright named as the reason.
+
+> Nothing in this file is an argument. It is the sequence.
+
+I called this file a stream of consciousness that needed editing. It has a
+declared epistemic status per section, a marked provenance vocabulary, a
+recorded unresolved discrepancy, and a closing statement of genre. Those are
+the disciplines CLAUDE.md spent thousands of words installing, and they are
+being run here without being named, on a subject the repository does not think
+of as its subject.
+
+Next: the wiring, from recall. Reading on from 1670.
