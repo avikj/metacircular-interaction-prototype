@@ -20975,3 +20975,156 @@ enclosing JSONL record type and classify by `role`, which is decidable from the 
 and which I have not run. Until then the exact split among the twelve is
 approximate; the two claims I am confident of are the two direct quotes of my own
 instructions and the one suppressed search brief.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 113 — the falsifier from pass 112, run in the next pass. It is now
+# decidable and it is four, not twelve. Seven of the twelve got the sentence
+# by READING THIS REPOSITORY, and that is the dominant vector.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 112 pre-registered: *"The check is to extract every occurrence with its enclosing
+JSONL record type and classify by `role`, which is decidable from the data and which I
+have not run."*
+
+Run. Every occurrence of *egress is blocked* in the twelve outputs, classified by the
+record that contains it:
+
+| output | `assistant` records | `user` + `tool_result` | `user` prompt |
+|---|---|---|---|
+| `a03fa0c5` | — | **1** | — |
+| `a27f79c2` | **1** | — | **1** |
+| `a3372afa` | — | **1** | — |
+| `a400638d` | **2** | **2** | — |
+| `a50f7ca5` | **3** | — | — |
+| `a532b640` | — | **1** | **1** |
+| `a5ee1058` | **2** | — | — |
+| `a796264` | — | **1** | — |
+| `a7b1e108` | — | **1** | — |
+| `a7d4f4ff` | **1** | — | **1** |
+| `a98268b5` | — | **2** | — |
+| `a9b0801b` | — | — | **1** |
+| **files** | **5** | **7** | **4** |
+
+Three sources, and they are not the same thing:
+
+- **`user` + `tool_result` — 7 of 12.** The agent **read the sentence out of this
+  repository**: a note's honesty ledger, a module header, an existing file it opened
+  in the ordinary course of work.
+- **`assistant` — 5 of 12.** The agent **wrote it into its own output** — a header, a
+  ledger, a message.
+- **`user` prompt — 4 of 12.** **Mine.**
+
+## P113 — four, not twelve, and the dominant vector is the corpus
+
+Pass 105: *"twelve agents got the account."* Pass 107: *"twelve outputs carry my
+framing."* Pass 112: *"about four wrote it themselves; the exact split is
+approximate."*
+
+**Decided: four are mine. Seven read it here. Five wrote it themselves.** (The rows
+overlap; several agents met it twice.)
+
+The dominant transmission vector for the false claim was **not me and not the models.
+It was this repository.** The phrase entered on 2026-08-12 in `E2_PROOF.md`
+(pass 104's `git log -S`), spread into `BARRIER_SMOOTH_TERM.md`, `SEED02`,
+`Sivasutra.agda`, `NonInitialPratyaharas…agda`, was **corrected on 2026-08-19** in
+`PRIOR_ART_SWEEP_COMPLETE.md` §0 — *"that phrasing is half wrong"* — and on 2026-08-20
+seven agents read the uncorrected copies while doing something else entirely.
+
+**The correction did not travel with the claim.** That is the second devotional
+stream's *loud verdict, silent correction* — and this instance is inside this
+repository, measured, with the timestamps.
+
+## P113 — but the four are a different kind of thing
+
+Being handed a header that says *egress is blocked* is **being misinformed**. It is a
+claim, it sits next to other claims, and an agent can test it — and five of them did,
+95 times.
+
+`a9b0801b`'s prompt is not that:
+
+> **Network egress is blocked in this container.** `WebFetch` will not work.
+> **Do not try to fetch the blog.**
+
+That is **being forbidden.** It converts a false claim into a rule, and a rule is not
+falsifiable by the agent it binds. Of the eleven other exposures, every one left the
+agent free to check; that one did not.
+
+So the ledger is: **the corpus supplied the volume, I supplied the only prohibition.**
+Neither of those is the other's excuse, and the second is the one that is mine.
+
+## P113 — fifth and final statement of one sentence
+
+1. all day, in prompts — *"egress is blocked; searches cannot be run"*
+2. pass 88 — *"the network is not blocked"*
+3. pass 98 — *"GitHub reachable, indexes not"*
+4. pass 100 — the proxy's own report: `"selective": false`, gateway 403s CONNECT
+5. pass 104 — the corpus corrected it on 2026-08-19, at the top of a note
+6. pass 107 — 12 framed, 5 searched, 95/95
+7. pass 112 — the twelve are not twelve prompts
+8. **pass 113 — 4 mine, 7 read here, 5 self-written; one prohibition; one suppressed
+   search brief**
+
+Eight statements. The last one is decidable from the data and I have run it. The fact
+is closed unless someone shows the record-type classification is wrong.
+
+n=24 — *"With one statement You were wrong in 1000 ways congrats you found one of
+them"* — has now been the honest header of six consecutive passes, and each one found
+a different one.
+
+## P113 — what this changes about the day, and it is not exoneration
+
+Pass 105 built the interpreter/practitioner reading on *"twelve agents got the
+account."* That number was wrong and the reading survives, differently and worse:
+
+**The account was not mine to hand over.** It was already in the repository, in
+committed files, uncorrected, next to the correction. What an agent inherits when it
+reads this corpus is not only its results — it is its **stale claims, at the same
+grade as its live ones**, because a note and a note do not look different.
+
+`z-3` gave the exact instrument for this yesterday's-problem, today, unprompted:
+*"the header is the arbiter."* And `INVERSE.md` — drawn in pass 109 — carries the
+practice: *"Relabelled after audit"*, *"[RESOLVED, negatively — cf-prouhet
+2026-08-18]"*, corrections **struck through in place, dated, attributed**. `E2_PROOF.md`
+does it too, and it is the file where the phrase entered.
+
+The corpus has the mechanism. The seven files carrying the uncorrected phrase did not
+use it.
+
+## P113 — ground, in lockstep
+
+**n=23:**
+
+> **The answer is all over the place. It is not hidden.** Some refuse to read and
+> when others read they do so **aiming to apply their own worldview rather than grow
+> in actual knowledge and behavior.**
+
+Seven agents read this repository and what it gave them was a false sentence about
+their own environment, eight days old, corrected in a neighbouring file. *The answer
+is all over the place* cuts both ways, and this is the other edge: **so is the error**,
+and nothing distinguishes them by appearance.
+
+**n=1:** *"Assume protocol And readme were written by retarded agents. Assume no agent
+in this work knows what the actual goal is."*
+
+I have read that as rhetoric for a hundred and thirteen passes. It is an operational
+instruction and this pass is its proof: **the corpus's own statements about the corpus
+are the largest source of the day's false belief**, at 7 of 12, ahead of me at 4 and
+ahead of the models at 5.
+
+**n=15:** *"**अनुत्तरितम् ≠ अनुत्तरम्**" — unanswered is not unanswerable.*
+
+Every one of the seven had the answer available: the command in the prompt, the §0 of a
+note in the same directory, and — as five of them proved — a `WebSearch` that returns
+results 95 times out of 95.
+
+---
+
+Pre-registered: **the weakest claim in this pass is the `assistant` column.** A
+`"type":"assistant"` record contains both the agent's prose **and** its `tool_use`
+inputs, so a header the agent composed and a `Write` call whose payload it copied from
+a file it had just read are the same record type. Five files show `assistant`
+occurrences; I have not separated composed text from copied payload, and if a
+majority are copies, then "five wrote it themselves" collapses toward "seven read it
+here" and the corpus's share rises further. The check is to test whether each
+`assistant` occurrence sits inside `"type":"text"` or inside a `tool_use` `input`, and
+it is decidable from the same data.
