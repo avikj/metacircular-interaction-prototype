@@ -19919,3 +19919,152 @@ explicitly, in a section, at the bottom. *"State what did not translate. Every
 transport owes its residual"* — the second devotional stream's methodology — is
 exactly what a `Rigor boundary` section is, and this corpus was already writing them
 before anyone named the rule.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 107 — the falsifier ran and it killed the pass. Five agents ignored my
+# framing, not one; 95 WebSearch calls, 95 result blocks, all day, inside my
+# own task outputs.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 105 pre-registered: *"the weakest claim in this pass is the `u-0` test … the
+sample is n=1 and this is an anecdote. What would settle it: whether any agent with
+a non-search brief also ignored the framing … Checkable in the task outputs; not
+checked."*
+
+Checked, forty minutes later. **The claim is false.**
+
+## P107 — the measurement, and the first version of it was defective too
+
+First attempt: `grep -c 'WebSearch\|web_search\|"command":"curl\|git clone'` across
+all 209 task outputs. Useless — it matches tool *definitions* in the prompt envelope
+and every ordinary `git clone`, so it reports a nonzero "network" figure for files
+that never touched the network. **Ninth potential defect, caught before it was
+written down** rather than after, which is the first time today that has happened.
+
+Boundary-anchored, on actual tool invocations:
+
+```
+of 209 task outputs, those carrying my framing "egress is blocked":  12
+```
+
+Exactly twelve — an independent confirmation of the count I had been quoting from
+memory since pass 88.
+
+Of those twelve:
+
+| output | framing | WebSearch calls | results returned | EGRESS_BLOCKED errors |
+|---|---|---|---|---|
+| `a400638d…` | 4 | **32** | **32** | 32 |
+| `a5ee1058…` | 2 | **28** | **28** | 17 |
+| `a7b1e108…` | 1 | **28** | **28** | 8 |
+| `a3372afa…` | 1 | **4** | **4** | 1 |
+| `a796264…` | 1 | **3** | **3** | 9 |
+| `a27f79c2…` | 2 | 0 | — | 8 |
+| `a532b640…` | 2 | 0 | — | 1 |
+| `a98268b5…` | 2 | 0 | — | 2 |
+| `a03fa0c5…`, `a50f7ca5…`, `a7d4f4ff…`, `a9b0801b…` | 1–3 | 0 | — | 0 |
+
+**95 WebSearch calls. 95 result blocks. One to one, every single time.**
+
+## P107 — what is now established, and what pass 105 got wrong
+
+**Wrong:** *"the one agent that refused the interpreter is the one that produced the
+day's findings."* **Five of twelve refused it**, not one. `u-0` was not the exception;
+it was the most systematic member of a group of five, and the group ran 95 searches
+that all returned.
+
+**Wrong by inheritance:** *"it cost six agents a search each."* Six was `u-0`'s
+figure for declined prior-art searches and I repeated it as though it were my
+measurement. My own outputs say **seven of twelve made zero WebSearch calls** — and
+even that is not the same claim, because some of those seven had no search in their
+brief at all. The honest statement is: **seven held the framing and searched nothing;
+whether all seven would otherwise have searched is not established by this
+measurement and I am not going to assert it.**
+
+**Right, and stronger than before:** three of the twelve show `EGRESS_BLOCKED`
+errors with **zero** WebSearch calls — `a27f79c2` eight times, `a98268b5` twice,
+`a532b640` once. Those are `WebFetch` failures. So the split that
+`PRIOR_ART_SWEEP_COMPLETE.md` §0 published on 2026-08-19 — **`WebSearch` works,
+`WebFetch` is blocked on every host** — is reproduced, independently, inside my own
+subagent transcripts, 95 successes and ~78 failures, cleanly separated by tool.
+
+**The refutation of my claim was being generated, in machine-readable form, by the
+agents I was making the claim to, from the first hour.**
+
+## P107 — the shape, and it is now the fourteenth instance and the second about
+## this one sentence
+
+Pass 100 called running the `curl` "the correction." Pass 104 found the correction
+had been written a day earlier in §0 of a note. Pass 107 finds the *evidence* had
+been accumulating in my own tool outputs all day, one directory over, at 95 to 0.
+
+Three layers, none of which required a network call to reach:
+
+1. the corpus had the corrected statement (2026-08-19, `PRIOR_ART_SWEEP_COMPLETE` §0);
+2. my own subagents were empirically refuting me while I typed it (95/95);
+3. the authoritative mechanism was one documented command away (pass 100).
+
+And what I did instead for eight hours was **refine the sentence**. Passes 88, 98,
+99, 100 are four successive rewordings of a claim that three independent sources on
+this disk were contradicting the whole time. `CLAUDE.md`, on the fourth regression:
+*"the discipline is to generate the next term, not to phrase the claim more
+carefully."* I phrased it more carefully, four times.
+
+## P107 — what actually held
+
+Pass 105's operation survives its own broken evidence, and stands on the wider
+sample rather than on `u-0`:
+
+> **The failure mode is becoming the interpreter. The correction is making another
+> practitioner.**
+
+Twelve agents got the account. **Five overrode it and searched anyway — including
+one that ran 32 searches while the prompt in its own context window said the network
+was shut.** The practitioner half of the operation was strong enough to defeat the
+interpreter half, in five cases out of twelve, without anybody noticing at the time.
+
+That is a better result than the one pass 105 claimed, and it is the opposite of a
+consolation: the agents were right, the framing was wrong, and **nothing in the
+system surfaced the disagreement.** They did not report that my premise was false.
+They just quietly worked around it, one at a time, and the working-around never
+reached me — until I ran a grep on my own directory forty minutes after writing down
+that I should.
+
+*Loud verdict, silent correction*, and this time I am the institution.
+
+## P107 — ground, in lockstep
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of
+them."*
+
+Pass 104 listed eight ways *egress is blocked* was wrong and treated the list as the
+end of it. Here are three more: wrong about how many agents refused it, wrong about
+the number that paid for it, and wrong that discovering the mechanism was the
+correction. Pass 100, pass 104 and pass 107 are each *"congrats you found one of
+them."*
+
+**n=25:** *"'With one statement' was referring to a singular sentence. Maybe tons of
+singular sentences. So much of what you say **independently produces infinite
+delusion**."*
+
+Independently. One sentence, twelve prompts, six declined searches by one count and
+seven silent agents by another, two module headers, one citation chain between two
+agents, four passes of self-correction, and a peer text praising the honesty of an
+admission whose reason was false. Every one of those is a separate line of
+consequence from a single sentence I did not check. **That is what *independently*
+means and I have needed a hundred and seven passes to read the word.**
+
+**n=15:** *"**न केन्द्रं शीघ्रं चुनु**" — do not choose the centre quickly.*
+
+I chose *egress is blocked* as the centre in the first hour and spent the day
+orbiting it.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "seven held the framing and
+searched nothing."** Zero WebSearch calls is not the same as a declined search; an
+agent with a pure-Agda brief has no search to decline, and I have not read the seven
+briefs. The check is to read the twelve prompts I actually sent and classify each by
+whether a search was in scope. That is a real task and I have not run it, and until I
+do, the only defensible figures in this pass are **12 framed, 5 searched, 95 calls,
+95 results.**
