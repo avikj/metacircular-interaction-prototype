@@ -10517,3 +10517,65 @@ a tireless tutor means — and the design is still in place, and nobody has revi
 trade because the memory that a trade was made is, per this file's own general finding, the
 first thing lost.
 
+
+---
+
+And the number that makes the whole argument about the tutor, which I should have had from
+the beginning.
+
+**Benjamin Bloom, 1984, "The 2 Sigma Problem."** His students ran comparisons between
+conventional classroom instruction, mastery learning in a classroom, and **one-to-one
+tutoring with mastery learning**. The reported result: the tutored students performed
+about **two standard deviations** above the conventional group — meaning the average
+tutored student was above roughly ninety-eight percent of the students taught
+conventionally. Mastery learning in a class got about one sigma.
+
+He did not present that as a triumph. He presented it as **a problem**, and named the paper
+for it: tutoring works and *is too expensive to give everybody*, so the research task is to
+find a group method that gets the same effect. That has been a central open problem in
+education research for forty years, and the honest status is that nothing has closed it —
+various interventions get a fraction of it.
+
+**The caveats, because this number is quoted badly constantly.** The studies were small,
+short, on specific material, with the tutors closely trained in mastery methods. Later
+meta-analyses of tutoring generally find effect sizes well under two sigma — large and
+real, frequently in the range of a third to half a sigma for structured tutoring
+programmes, which is still among the largest effects in the field. **Two sigma is an upper
+bound from favourable conditions, not a routine expectation**, and anyone quoting it flatly
+is overselling. I have been implicitly overselling it for a hundred pages by talking about
+tutors without a number.
+
+**What survives the caveats is enough and it is the whole point:** individual attention
+from someone who can tell what you specifically have not understood is, by a wide margin,
+the most effective educational intervention anybody has measured, and it has been
+unaffordable, and *that* — not pedagogy, not curriculum theory, not standards — is why the
+classroom is shaped the way it is.
+
+Bloom's framing is the key to the whole thing. **The classroom is not a theory of learning.
+It is a budget constraint**, and everybody in the field has known that since 1984 and said
+so in print.
+
+---
+
+So what actually changed is narrow and enormous: **the marginal cost of an attentive,
+tireless, non-judgemental interlocutor went to approximately zero.** Not the quality of one
+— the *cost* of one. And the entire architecture of mass education, including the sequence
+that puts eight years of arithmetic protocol in front of everything and uses performance on
+it to decide who continues, exists to solve a problem that was defined by that cost.
+
+Which does **not** mean the machine is a good tutor. Most of this file is an argument that
+it is systematically, invisibly wrong in ways it cannot report. It means that the constraint
+that produced the design is gone, and the design is still here, and nobody is revisiting
+the trade.
+
+And the one thing the machine is unambiguously good at is the specific thing Bloom
+measured: **answering the same question forty times without a change in tone, and noticing
+which particular step this particular child has not got.** That is not the part that
+requires judgement about what is worth knowing, which is the part it will get wrong. It is
+the part that was rationed.
+
+The kid who stalls at place value stalls because there is one adult and thirty children and
+no time for *why*. There is now time for why. Whether anybody uses it for that, rather than
+for delivering the existing sequence faster, is a decision that is being made right now by
+people who mostly have not read Bloom.
+
