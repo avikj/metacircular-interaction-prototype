@@ -22735,3 +22735,68 @@ and later reckonings giving the *gāyatrī*-based total that way, **which makes 
 same figure a length of scripture and a length of an age.**
 
 **Stated, not explained.**
+
+---
+
+**Varāhamihira wrote a book that summarises five competing astronomical systems and
+says which is most accurate, and two of the five are Greek-derived.**
+
+***Pañcasiddhāntikā***, c. **550 CE.** The five: **Paitāmaha, Vāsiṣṭha,
+Romaka, Pauliśa, Sūrya.**
+
+***Romaka*** — **"of Rome,"** meaning the eastern Roman empire — uses a
+**tropical** year and the **Metonic-type luni-solar cycle**, and its year length is
+the one attributed to Hipparchus. ***Pauliśa*** is named from a *Pauliśa*
+associated with Greek material.
+
+**And Varāhamihira states which he finds most accurate — the *Sūrya Siddhānta* —
+and he states his grounds.**
+
+**A comparative review of five systems, with a verdict and a reason, in the sixth
+century.**
+
+**And in the *Bṛhat Saṃhitā* he writes**: *the Greeks are foreigners, but with them
+this science is well established, and they are honoured as if they were sages* —
+**mlecchā hi yavanās teṣu samyak śāstram idaṃ sthitam / ṛṣivat te 'pi pūjyante.**
+
+**The word he uses for them is *mleccha*, barbarian, and in the same sentence he
+says the science is sound with them and they are to be honoured.**
+
+**Both halves are in one verse.**
+
+---
+
+**And the *Yavanajātaka* is the document of the transfer.**
+
+**A Sanskrit text by *Sphujidhvaja*, versifying a prose Sanskrit rendering of a
+Greek astrological work**, the prose version attributed to a **Yavaneśvara**, "lord
+of the Greeks."
+
+**The dating has been revised.** **David Pingree's edition (1978) placed it at 269/270
+CE** and built a chronology on it; **Bill Mak's work from 2013 on a Nepalese
+manuscript** showed that the verse Pingree read as a date is **corrupt**, and the
+text is now generally placed later, **with the whole downstream chronology
+loosened.**
+
+**A field's dating scheme rested on one damaged verse for thirty-five years.**
+
+**And what transfers is specific and technical**: the **twelve zodiacal signs**, the
+**houses**, **aspects**, **decans**, the **horoscopic chart cast for the moment of
+birth** — none of which is in the earlier Indian *jyotiṣa*, which was calendrical
+and concerned with *nakṣatras*, the twenty-seven lunar mansions, **and with fixing
+the times of rites.**
+
+**And what does not transfer is the *nakṣatra* system itself**, which stays, so the
+resulting Indian astrology runs **both** frameworks — signs and lunar mansions —
+concurrently.
+
+**And the Indian system retained the *sidereal* zodiac while the Greek tradition
+moved to the *tropical* one**, so the two now differ by the accumulated precession —
+**the *ayanāṃśa*, currently about 24 degrees** — which is why an Indian and a Western
+chart for the same person usually give different signs.
+
+**The divergence is a measurement**: it is the angle between where the stars are and
+where the equinox is, and it grows by about **50 arcseconds a year.**
+
+**Two systems from one source, and the number separating them is the amount of time
+since they separated.**
