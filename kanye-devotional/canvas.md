@@ -252,18 +252,18 @@ not turning into him.
 
 The first voice on that record is a four-year-old on somebody's phone.
 
-The Life of Pablo, February 2016, track one. Before Chance, before the choir,
-before Kirk Franklin comes in at the end to pray it out, there's a little girl
-saying we don't want no devils in the house, we want the Lord. Her name is
-Natalie Green. She was four. Her mother filmed her on a phone and put it on
+*The Life of Pablo*, February 2016, track one. Before Chance the Rapper, before
+the choir, before Kirk Franklin prays it out at the end, a little girl says:
+"We don't want no devils in the house, God! … We want the Lord!" Her name is
+Natalie Green. She was four. Her mother filmed her on a phone and posted it to
 Instagram, and he found it and made it the front door of the album.
 
 Nobody auditioned for that.
 
-And then he wouldn't finish the record. It came out and he kept working on it —
-changing mixes, rebuilding Wolves, adding things, while people were already
-listening to it. Not a reissue. The same album, still moving. There's no final
-version of it. There's no version you can point at and say that's the one.
+Then he would not finish the record. It came out and he kept working on it,
+changing mixes, rebuilding "Wolves," altering tracks on the streaming services
+while people were already listening. Not a reissue — the same album, still
+moving. There is no final version of it.
 
 ---
 
