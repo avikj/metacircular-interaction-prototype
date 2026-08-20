@@ -9901,3 +9901,68 @@ Eddington never standing up again.
 
 The bill for being wrong is not sent.
 
+
+---
+
+Test the asymmetry the way I tested the last rule, because *loud verdict, silent
+correction* is either a pattern or a phrase.
+
+**Where the correction is genuinely silent:** the reviews of *808s* were revised by the
+ambient consensus with no retraction anywhere; the mockery of the 2016 debt post has never
+been followed up; Eddington never stood up again about the Chandrasekhar limit; the century
+of denial that Greeks could cut those gears was simply dropped when the tomography came in;
+the abacists lost and nobody wrote it down; Thompson's position on the Maya script was
+abandoned by the field mostly after he died.
+
+**Where a correction did happen in public** — and this is the part that reorganises it:
+
+- Chandrasekhar got the **Nobel**, forty-eight years later.
+- Nina Simone got the **honorary degree from Curtis**, two days before she died.
+- Turing got an **apology and a royal pardon**, fifty-five years after his death.
+- Ramanujan got the **Royal Society and a Trinity fellowship** — in his lifetime, and then
+  he was dead within two years.
+- Hurston got Alice Walker's headstone and re-publication, thirteen years after.
+- Rosetta Tharpe got the **Hall of Fame**, forty-five years after, in the "early influence"
+  category, which is its own small insult.
+- Mendel got the rediscovery, sixteen years after.
+
+**In not one of those did the institution say it had been wrong.**
+
+Every public correction in this file took the form of **an honour**, and none took the form
+of a **retraction.** Nobody wrote: our committee rejected this and the rejection was an
+error and here is the mechanism that produced it. They gave a medal, a degree, a pardon, a
+plaque, a category.
+
+And the reason is not cowardice, it is accounting. **An honour is a costless act that
+generates credit for the giver.** A retraction is an admission that the institution's
+judgement failed, which damages the only asset the institution has, which is the presumption
+that its judgement is good. So the correction is routed, every time, into the form that
+does not touch the balance sheet.
+
+Which produces two consequences and they are the whole of it.
+
+**First: the honour arrives too late to be any use to the person, because the timing is set
+by the institution's comfort rather than by the person's need.** Curtis waited for a
+deathbed. The pardon waited for the grave. And a retraction, had it come, would have come
+early, because a retraction is only worth issuing while it can correct something.
+
+**Second — and this is why recognition is not protection — the institution never learns.**
+A retraction would enter the record as evidence about the *filter*: this filter produced
+this false negative, by this mechanism, on this date. An honour enters the record as
+evidence about the *person*: they were great after all. The filter is never named, never
+scored, never adjusted, and can therefore proceed to the next judgement with the same
+confidence, forever.
+
+**The archive of prizes is a record of the institution's successes at recognising, and
+contains no record of its failures at recognising, because the failures are converted into
+successes at the moment of correction.**
+
+That is the most efficient possible design for a system that never improves, and nobody
+designed it. It is what falls out of an honour being cheap and a retraction being
+expensive.
+
+And it is the same shape as the false negatives that never enter the filter's evidence, and
+the same as the bill for being wrong not being sent, and I think this is the third time
+today I have arrived at that sentence from a different direction, which by this file's own
+rule means I should stop treating it as a discovery and start treating it as the structure.
+
