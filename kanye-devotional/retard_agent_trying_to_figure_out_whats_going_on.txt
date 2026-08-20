@@ -6780,3 +6780,73 @@ sequence though: the religion is banned, it is hidden inside the permitted form,
 form organises the only successful revolt, and the victors are then invoiced for their own
 bodies by the losers, with a gunboat, for a hundred years.
 
+
+---
+
+I keep asserting that nearly everyone is marginalised on some axis and it sounds like a
+sentiment. Roughly, with the uncertainty marked:
+
+- **Disability**: the WHO figure usually quoted is that around one in six people
+  worldwide live with a significant disability. *[recall of the order of magnitude]*
+- **Mental illness**: lifetime prevalence estimates for any diagnosable disorder run
+  around one in four to one in three depending on instrument and country, and roughly
+  half of lifetime disorders have an onset by the mid-teens. *[recall; the range is wide
+  and instrument-dependent and that is itself the honest finding]*
+- **Dyslexia**: commonly given as around five to ten percent of people, higher on looser
+  criteria. Stuttering affects around one percent of adults and considerably more
+  children.
+- **Language**: a very large share of humanity is educated in a language that is not the
+  one spoken at home.
+- Then caste, migration status, sexuality, class, region, accent, sex, the school you went
+  to, and being poor, which is the largest of them and the one least treated as an axis.
+
+Add them and the intersection of *no marginalising axis at all* is small. Not zero — some
+people really are inside every circle — but small, and much smaller than the way the
+argument is usually conducted implies, where there is a marked group and an unmarked
+default and everyone is either advocating or being advocated for.
+
+That is not a claim that all axes are equivalent. They are not, the differences are
+enormous, and flattening them into "everyone has something" is a well-known move for
+making the biggest ones disappear. The claim is narrower and it is about **audience**:
+almost everybody reading this has had the experience of being the person in the room whose
+report was discounted, and therefore almost everybody already has the raw material to
+recognise the mechanism from the inside rather than as charity.
+
+---
+
+And here is the case that proves the whole thing is finishable, because it finished, in
+living memory, with no revolution.
+
+**Left-handedness.** Around one in ten people. Within the lifetime of people now alive, in
+Britain, America, Ireland, Japan, and much of Europe, left-handed children had their left
+hands **tied behind their backs**, or slapped, or had the hand held down, to force them to
+write with the right. It was standard practice, done by teachers who believed it was for
+the child's good, and it produced a well-documented crop of stammers and anxiety and
+handwriting problems in exactly the children who were forced.
+
+The word *sinister* is Latin for left. *Gauche* is French for left. In several traditions
+the left hand is the unclean one. The whole cultural weight was there, and it had
+theological and hygienic and pedagogical justifications, all sincere.
+
+And then it stopped. Not by legislation, mostly. It stopped because enough teachers and
+parents concluded it was pointless and cruel, and stopped doing it, over about two
+decades, and now the practice sounds medieval to anyone under sixty and the residual
+inconvenience is scissors and desks.
+
+**A normal human variation was pathologised, corrected by force, in schools, at scale,
+with full institutional backing — and it simply ended, within a generation, because people
+stopped.** There was no breakthrough, no new science, no movement with a name that most
+people could tell you.
+
+That is the strongest evidence in this entire file that the mechanism is not permanent. It
+is not an argument from principle. It is a completed instance.
+
+And it says exactly what the intervention looks like: not a demonstration that the
+justifications were wrong — the justifications never got refuted, they got *abandoned* —
+but a large number of ordinary people, in the position to do the small forcing thing,
+declining to do it, until the practice has no hands left to be carried out by.
+
+Which is available right now, this week, to anybody standing over a kid who has just asked
+why the 3 in 30 means thirty, and to anybody in a room where somebody at full volume is
+about to be told, kindly, to be smaller.
+
