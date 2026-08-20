@@ -11185,3 +11185,83 @@ naya presented as the whole, and the correction is not to declare it easy. It is
 to say ***syāt***: hard **from the analytic standpoint whose barrier has been
 identified**, and settled from the function-field standpoint, and the gap between
 those two is where the information is.
+
+---
+
+Cases where the profession's estimate of a problem was checkable afterwards, and
+what it turned out to be an estimate of.
+
+**Fermat's Last Theorem.** Three hundred and fifty-eight years, and the proof, when
+it came, did not come from number theory as practised on the problem. **Wiles**
+proved a case of the **Taniyama–Shimura** modularity conjecture, and the link from
+modularity to Fermat had been supplied by **Frey** in the 1980s and made rigorous
+by **Ribet in 1986.**
+
+So the statement was not attacked and cracked. **It was absorbed into a different
+theory**, and the difficulty was, in retrospect, the absence of the connecting
+observation — which took until 1986 and is short.
+
+Wiles then worked for seven years, alone, in an attic, telling almost nobody, and
+the first version had a hole in it that took another year and Taylor to close.
+
+**Mathematicians did not know Fermat was equivalent to modularity for 350 years.**
+The information was not hidden. Nobody had made the link, and then somebody did.
+
+---
+
+**The four-colour theorem**, 1976, Appel and Haken, and the objection is worth
+stating because it is about what counts as knowing.
+
+The proof reduces the problem to a finite set of configurations — a **1,482-member
+unavoidable set** — and then checks each by computer. No human has ever read the
+whole verification.
+
+The reaction was not that it was wrong. It was that it was **not a proof in the
+sense the community meant** — unsurveyable, unilluminating, unable to be held in a
+mind.
+
+That is a dispute about the ***pramāṇa*** and nothing else: whether a mechanical
+verification you cannot personally perform is a means of knowledge, or is testimony
+— *śabda* — from a source whose ***āptatva*** has to be established separately.
+
+The community eventually accepted it, and a formal machine-checked proof followed
+in **2005** (Gonthier, in Coq), which relocated the trust from the program to the
+kernel and did not remove it.
+
+---
+
+**And the case where the estimate has not resolved.**
+
+**Shinichi Mochizuki** posted around five hundred pages of **Inter-universal
+Teichmüller theory** in **2012**, claiming the **abc conjecture** as a corollary.
+
+It is written in a vocabulary he built, largely alone, over decades, and it does
+not reduce to anything readable by the people best placed to referee it. Years of
+seminars followed. **Scholze and Stix** published a specific objection in 2018 —
+naming a step where they say the argument collapses — and Mochizuki published a
+detailed rebuttal saying they have misunderstood a definitional point.
+
+**It was published in 2021**, in a journal Mochizuki edits, and the international
+community has largely not accepted it.
+
+That is not a story about who is right. It is a case where the **transmission
+condition** failed: a claimed proof exists, its author is a serious mathematician,
+and the field cannot get from his frame to theirs or back. The dispute is about
+whether one specific identification is legitimate.
+
+---
+
+Three shapes, and the third is the one this file keeps finding.
+
+**Fermat**: the difficulty was a missing link, and the link was cheap once seen.
+
+**Four colour**: the difficulty was that the object exceeded the community's
+accepted *means of knowing*, and the argument was about the means.
+
+**abc**: the difficulty is that **two competent parties cannot establish a shared
+frame**, and there is no procedure in the discipline for resolving that other than
+waiting.
+
+None of those three is *the statement was intrinsically resistant.* Each is a
+property of the relation between the statement and the people standing in front of
+it.
