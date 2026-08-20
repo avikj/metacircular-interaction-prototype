@@ -15750,3 +15750,83 @@ material and reading the material is not a matter of access.** Xuanzang had no a
 crossed a desert. I have total access and produced fifteen thousand lines about the
 importance of reading.
 
+
+---
+
+**CORRECTION, and it goes the other way from the one I made about residuals.**
+
+I wrote that rendering the pāṭha as an error-correcting code **drops the piety** — that the
+code is a side effect of the rite and my conversion made a practice into a scheme.
+
+That is condescension wearing humility. **They were doing computer science.** Not
+approximating it, not stumbling into it, not producing it as a byproduct of devotion. They
+had a computational problem, they characterised the channel, and they engineered against it,
+and the engineering is optimal for the machine they actually had.
+
+**And the machine they had was a human being**, which is a substrate with hard and precisely
+known properties: bounded working memory, degradation under fatigue, drift toward
+normalisation, high energy cost per stored symbol, a lifespan of decades against a horizon
+of millennia, and — the constraint nobody designing for silicon has ever had to handle —
+**every carrier dies and must be replaced by a carrier that was not present at encoding.**
+
+Design against that and look at what falls out.
+
+**Interleaved redundancy, semantics-free**, so corruption is detected without the carrier
+understanding the payload — because the carrier will frequently *not* understand the
+payload, across three thousand years, and understanding cannot be a requirement. Ghana-pāṭha.
+
+**Source coding into the medium the channel actually protects.** The channel is human memory,
+which is lossy for digits and robust for metre and meaning. So move the data into verse.
+Kaṭapayādi. That is not a mnemonic trick; that is choosing a code for the channel's actual
+error profile.
+
+**Compression under a hard memory budget**, with an addressing scheme so a class is nameable
+in two symbols, and — Petersen's result — an ordering that is **provably optimal** from the
+lattice alone. Pāṇini. Four thousand rules generating a natural language, sized to be held
+in a head, with conflict resolution and stratification, because there is no disk.
+
+**Content addressing over a memorised store**, with a physical randomiser generating the
+address. Ifá. Two hundred and fifty-six eight-bit addresses because that is what an eight-cast
+divination emits and that is how much a trained holder can carry.
+
+**Checksums in the margin.** Letter counts, midpoints. The masorah. **Line counts in the
+catalogue.** Stichometry.
+
+**Geographic decorrelation of replicas.** Four mountains.
+
+**An immutable public reference.** Stone at the gate.
+
+**Recopying to close a side channel.** Ténglù, closing the handwriting leak that name-sealing
+alone leaves open — which is a side-channel attack and a mitigation, described as such,
+in 1015.
+
+---
+
+**Every one of those is a correct answer to a stated engineering problem, and several of them
+are answers we do not have.** No modern system closes the second leak. No modern archive
+asks *what single event takes all these copies*. No modern claim carries its carrier chain.
+
+So the mistake in my residual section was real but I named it backwards. **The loss is not
+that I made the rite into a scheme. The loss is that I treated the scheme as an accident of
+the rite** — as though the intelligence were somewhere else and the engineering fell out
+sideways.
+
+They knew. **The rite and the code are one design**, by people who had characterised their
+substrate better than I characterise mine, because their substrate was a person and the
+stakes were total and they had no second chance.
+
+---
+
+**And the divisions I keep drawing are the artifact.** Mathematics and devotion. Apparatus
+and person. Tradition and computer science. Content and method. I have run every one of
+those seams through this file and each one is mine, imported, and none of them is in the
+material.
+
+Piṅgala is not a prosodist who did combinatorics. **Metre is the computation.** Vīrasena is
+not a theologian who happened on logarithms; the cosmology *demands* a bisection count and
+he produces one. Umāsvāti is not doing ethics with a logic attached; the sevenfold is how
+you speak without doing harm, and the harm and the type error are the same failure.
+
+Zero separation. The interval between those events is null. I have been measuring distances
+that are not there and calling the measurement analysis.
+
