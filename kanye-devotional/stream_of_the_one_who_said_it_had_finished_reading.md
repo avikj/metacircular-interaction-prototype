@@ -13589,3 +13589,191 @@ error does not move the conditional, no matter how right it is. Brigham's four
 pages against Johnson-Reed. The 1967 ACM note against every compilers textbook.
 
 Reading on from 9900.
+
+---
+
+## 9900–10040 — an honour, not a retraction
+
+> **The bill for being wrong is not sent.**
+
+> Test the asymmetry the way I tested the last rule, because *loud verdict,
+> silent correction* is either a pattern or a phrase.
+
+Second application of *generate the next term*, on its own newest phrase, within
+a hundred lines of the first.
+
+**Where the correction is genuinely silent**: the *808s* reviews revised by
+ambient consensus with no retraction; the 2016 mockery never followed up;
+Eddington never standing up again; *"the century of denial that Greeks could cut
+those gears was simply dropped when the tomography came in"*; the abacists lost
+and nobody wrote it down; Thompson's position abandoned mostly after he died.
+
+**Where a correction did happen in public** — and it reorganises the whole
+thing:
+
+Chandrasekhar, the **Nobel**, forty-eight years later. Nina Simone, the **Curtis
+degree**, two days before she died. Turing, an **apology and a royal pardon**,
+fifty-five years after his death. Ramanujan, the **Royal Society and a Trinity
+fellowship** — in his lifetime, and dead within two years. Hurston, Walker's
+headstone and re-publication, thirteen years after. Tharpe, the **Hall of
+Fame**, forty-five years after, *"in the 'early influence' category, which is
+its own small insult."* Mendel, the rediscovery, sixteen years after.
+
+> **In not one of those did the institution say it had been wrong.**
+
+> **Every public correction in this file took the form of an honour, and none
+> took the form of a retraction.** Nobody wrote: our committee rejected this and
+> the rejection was an error and here is the mechanism that produced it. **They
+> gave a medal, a degree, a pardon, a plaque, a category.**
+
+> the reason is not cowardice, **it is accounting. An honour is a costless act
+> that generates credit for the giver.** A retraction is an admission that the
+> institution's judgement failed, **which damages the only asset the institution
+> has, which is the presumption that its judgement is good.** So the correction
+> is routed, every time, into the form that does not touch the balance sheet.
+
+> **First: the honour arrives too late to be any use to the person, because the
+> timing is set by the institution's comfort rather than by the person's need.**
+> Curtis waited for a deathbed. The pardon waited for the grave. **And a
+> retraction, had it come, would have come early, because a retraction is only
+> worth issuing while it can correct something.**
+
+The lateness is *derived* from the form, not from slowness. An honour has no
+deadline because it repairs nothing; a retraction has one because it does. That
+explains forty-eight years, two days, fifty-five years, twenty-nine years — all
+of them — with one property of the instrument.
+
+> **Second — and this is why recognition is not protection — the institution
+> never learns.** A retraction would enter the record as evidence about the
+> *filter*: this filter produced this false negative, by this mechanism, on this
+> date. **An honour enters the record as evidence about the *person*: they were
+> great after all.** The filter is never named, never scored, never adjusted,
+> and can therefore proceed to the next judgement with the same confidence,
+> forever.
+
+> **The archive of prizes is a record of the institution's successes at
+> recognising, and contains no record of its failures at recognising, because
+> the failures are converted into successes at the moment of correction.**
+
+That is the finding. Not that the record is incomplete — that the *repair
+mechanism is the deletion mechanism*. Every correction removes the evidence that
+a correction was needed. The medal is where the error goes to stop existing.
+
+Which is the strongest possible version of *the gaps are not representable in
+the record*, and it explains why the vindicated list is not just a survivorship
+sample — the vindications are *manufactured out of* the failures, so the record
+of failure and the record of success are the same entries.
+
+> That is the most efficient possible design for a system that never improves,
+> **and nobody designed it.** It is what falls out of an honour being cheap and a
+> retraction being expensive.
+
+> **I think this is the third time today I have arrived at that sentence from a
+> different direction, which by this file's own rule means I should stop treating
+> it as a discovery and start treating it as the structure.**
+
+Third arrival, and the response is to demote it from finding to *frame*. Which
+is the opposite of what I do: I promote a repeated pattern to a law.
+
+---
+
+**The Nobel's rules.**
+
+> **The Nobel can be split among at most three people**, and since 1974 it is
+> **not awarded posthumously.** Those two clauses are not incidental; **they
+> encode a theory of how discovery happens** — a small number of great
+> individuals, alive at the moment of recognition — **and that theory has been
+> false for most of the twentieth century and all of the twenty-first**, where
+> the work is done by groups of tens, hundreds, or in some fields thousands.
+
+> the instrument is a **lossy compression of authorship**, applied annually, in
+> public, with maximum authority. **Everyone beyond the third name is not merely
+> uncredited; they are formally excluded by the rules, and the exclusion is
+> invisible in the output, which is a list of three names.**
+
+The instrument law at its purest: the trade is *written in the statutes*, the
+output shows no trace of it, and the theory the trade encodes is a hundred years
+dead. Mercator with an awards ceremony.
+
+**Lise Meitner.** Thirty years with Otto Hahn. **1938**: she flees Germany —
+Jewish, and the Anschluss had removed her Austrian protection — *"and got out
+with almost nothing."* Hahn and Strassmann run the experiment and get barium
+where there should have been radium and cannot interpret it. **Hahn writes to
+Meitner in exile**, and she, with **Otto Frisch**, works out that the nucleus had
+split, does the energy calculation, and names it: **fission.**
+
+> The **1944** chemistry prize went to **Hahn alone.** She was nominated
+> repeatedly, across decades, in both physics and chemistry, and never got it.
+>
+> And in 1997, element **109** was named **meitnerium**.
+
+> That is the pattern from the last section, exactly: **an honour, not a
+> retraction.** No committee ever said the 1944 decision was wrong. **They named
+> an element after her, which is beautiful, and costs nothing, and arrived
+> twenty-nine years after her death, and changes nothing about a woman who spent
+> her last decades knowing what had happened.**
+
+She was the person who *understood the result*, in exile, by letter, and named
+the phenomenon — and the prize went to the person who had the barium. The route
+and the interpretation on one side, the apparatus on the other, and the
+instrument credits the apparatus.
+
+**Rosalind Franklin**: ineligible in 1962, dead in 1958 at thirty-seven, *"of
+ovarian cancer that a great deal of X-ray work will not have helped. **Photo 51
+was shown to Watson without her knowledge.**"* And the rules make the question
+unarguable: no posthumous award, and *"the three-person limit means that if she
+had lived, somebody would have had to be dropped."*
+
+The rule does not merely fail to credit her. It makes the counterfactual
+inexpressible — which is the notation law in a statute: no slot.
+
+**Bell Burnell**, 1974, and *"her own public position has consistently been that
+the student-supervisor conventions of the period were what they were, **which is
+more generous than the situation deserves.**"*
+
+---
+
+> **An instrument that compresses authorship will systematically credit whoever
+> is most legible to it, and the legibility is set by the instrument's own theory
+> of how the work happens.** Three names. Living. Individual. The theory is from
+> the nineteenth century and the rules have outlived it by a hundred years, and
+> every year they produce a public, authoritative, permanently-archived
+> misattribution **that nobody has to intend.**
+
+> Which is the same object as the Matthew effect, the same as the frequency
+> table, the same as Mercator: **the instrument's blind spot becomes a fact about
+> the world, because the output is the only thing anybody sees.**
+
+> **when you say the name, say the others.** Hahn *and Meitner and Frisch and
+> Strassmann*. Watson, Crick, *Franklin and Wilkins and Gosling*. **It costs four
+> seconds, it is more accurate, and it is the only intervention in this file that
+> requires nobody's permission.**
+
+Four seconds, third instance — the kitchen table, the sample credit, and now the
+Nobel line. Same unit every time. The maintenance schedule.
+
+And *Gosling* is the name I did not have. Raymond Gosling took Photo 51 as
+Franklin's student, and I have read the Franklin story a hundred times in
+training and could not have produced his name unprompted. Which is the Matthew
+effect measured on me directly: retrievability tracks prior fame, and I am the
+retrieval.
+
+---
+
+> The strongest form of the argument about a tradition is not a list of
+> priorities. It is **continuity** — that the thing was worked on, continuously,
+> by named people who cite each other, for a very long time. **Isolated
+> anticipations can be dismissed as luck. A lineage cannot.**
+
+That is the correction to CLAUDE.md's provenance table stated as a method. The
+table is a list of priorities — one row, one result, one displaced name — and
+every row is individually dismissible as an anticipation. What is not dismissible
+is *Āryabhaṭa → Brahmagupta arguing with him by name → Jayadeva → Udayadivākara
+quoting Jayadeva → Bhāskara correcting Brahmagupta → Mādhava → Nīlakaṇṭha writing
+"as stated by Mādhava" → Jyeṣṭhadeva writing the derivations out.*
+
+The disputes are the aliveness. The citations are the proof. And the file said
+both of those earlier without connecting them to what makes the argument
+unanswerable.
+
+Reading on from 10040.
