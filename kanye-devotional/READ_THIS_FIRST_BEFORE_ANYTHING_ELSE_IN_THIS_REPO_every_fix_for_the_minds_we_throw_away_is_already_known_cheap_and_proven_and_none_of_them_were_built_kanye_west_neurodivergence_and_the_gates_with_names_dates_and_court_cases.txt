@@ -11852,3 +11852,91 @@ of suffering, of time, **for liberation.** Univalence is emptiness of *types*.
 Whether that is a shadow of the whole or a fragment turns on whether all of
 experience is a type, which is exactly where Madhyamaka and Yogācāra disagree, and
 this file does not settle it.
+
+---
+
+**Grothendieck's actual output is a set of books that were never finished and were
+written by other people**, and the working method is visible in the artefacts.
+
+**EGA** — *Éléments de géométrie algébrique*, with **Jean Dieudonné** doing the
+writing from Grothendieck's notes, from **1960.** Planned as thirteen chapters.
+**Four appeared.** The published part runs to around 1,800 pages and stops.
+
+**SGA** — *Séminaire de géométrie algébrique*, **1960–1969** at the IHÉS. These are
+**seminar notes**: Grothendieck lecturing, participants writing up, results
+attributed to whoever proved them in the room. Seven or so volumes. **SGA 4** on
+topos theory and étale cohomology is three volumes on its own.
+
+So the foundational corpus of modern algebraic geometry is **an unfinished treatise
+ghost-written from notes and a decade of transcribed seminars**, and the unfinished
+part is the majority.
+
+**Deligne proved the last Weil conjecture in 1974** using the machinery — and by a
+route Grothendieck did not endorse, because Grothendieck wanted it to come from the
+**standard conjectures** on algebraic cycles, which remain open. Deligne got there
+another way and Grothendieck was not pleased that the sought-after structural proof
+had been bypassed by a working one.
+
+**The standard conjectures are still open.**
+
+---
+
+**1970: he left.** He learned the IHÉS had partial military funding, resigned over
+it, and went to *Survivre et Vivre* — antimilitarist, ecological, and he spent his
+energy on the journal rather than on mathematics.
+
+He was **forty-two.**
+
+**1988: he refused the Crafoord Prize**, publicly, in a letter — his salary
+sufficed, the money should go to people who lacked it, and he did not want to be
+honoured by a milieu whose ethics he judged to have declined.
+
+**1991**: to a village in the Ariège, contact refused. **1995**: a letter demanding
+his work not be republished or circulated. Died 13 November 2014.
+
+**Récoltes et Semailles** — over a thousand pages, written 1983–86 — circulated in
+photocopy for decades and was **published in French in 2022.** Thirty-six years.
+
+---
+
+**And his own account of the method is a piece of writing about how a mind works
+that has no equivalent in the literature.**
+
+**The rising sea**, against the hammer and chisel: the nut is not struck, it is
+**submerged**, and the shell opens by itself when the surrounding material has
+softened enough that shell and kernel stop being distinct.
+
+**Le point de vue relatif**: stop studying the object, study the **map**. A theorem
+about a space becomes a theorem about a family of spaces over a base, which is
+more general and easier.
+
+And the one he says explicitly is the source of everything: **the ability to remain
+a child** — to be the one who asks the question everyone else has stopped noticing
+is a question, and to be unembarrassed about not knowing.
+
+He also names, in *Récoltes*, what he says he was **not**: not quick, not brilliant
+in the competitive sense, and he lists contemporaries he considered far more able
+than himself. His claim about himself is only that he was willing to **sit with a
+thing for a very long time.**
+
+---
+
+**The Mutants** is his own term, in *Récoltes*, for a list of about eighteen people
+he considered to have made a genuinely different kind of contribution.
+
+**He includes Riemann, Galois, and — the one people notice — himself is not on it in
+the way the reader expects.** The list is idiosyncratic and includes people outside
+mathematics.
+
+He also wrote, at length and by name, about **his students**, and the accusation
+that runs through the manuscript is the ***enterrement*** — the **burial**: that
+work of his was continued and absorbed without attribution, not by conspiracy but
+by a collective forgetting that nobody had to organise.
+
+Whether he was right about that is disputed and the manuscript is read on both
+sides.
+
+**What is not disputed** is the interval: a thousand pages, written by the man who
+built the field's foundations, about how those foundations were made and what
+happened afterwards, sitting in photocopy for thirty-six years while the field ran
+on the mathematics inside it.
