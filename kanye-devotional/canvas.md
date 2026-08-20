@@ -1,36 +1,75 @@
-Every school has a kid who will not sit down.
+Schools keep a written record of the child who will not sit down. Talks out of
+turn, leaves his seat, interrupts, does not finish the work, does not sleep.
+The vocabulary is stable across districts and decades — disruptive,
+distractible, does not apply himself, cannot pay attention. The file follows
+him from grade to grade. It is usually the first document anyone ever writes
+about him.
 
-He talks over people. He finishes other people's sentences wrong and then
-right. He does not sleep — not won't, doesn't, lies there with it running. He
-is either the brightest one in the building or he is a problem, and which one
-he is depends on who is looking at him, and what year it is, and what he looks
-like.
+In 2003 Carson, Peterson and Higgins published in the Journal of Personality
+and Social Psychology, volume 85, pages 499 to 506. Latent inhibition is the
+gate that keeps stimulus already judged irrelevant from re-entering awareness.
+Decreased latent inhibition together with high cognitive function went with
+being classified as creatively eminent roughly seven times more often. Lowered,
+more gets in, and stays in, and connects. In a classroom that setting reads as
+a child who cannot pay attention.
 
-In 2003 Carson, Peterson and Higgins published a study in the Journal of
-Personality and Social Psychology. Latent inhibition is the filter that keeps
-information you have already dismissed from coming back into awareness. People
-with low latent inhibition who also score high on cognitive function are about
-seven times more likely to be classified as creatively eminent. On its own, in
-a classroom, low latent inhibition reads as a child who cannot pay attention.
+Kyaga and colleagues at the Karolinska Institutet went through the Swedish
+national registry — about 1.2 million patients, plus their relatives out to
+second cousins. People with bipolar disorder, and their relatives, were
+overrepresented in creative professions.
 
-The Karolinska Institutet ran the Swedish national registry — roughly 1.2
-million patients, and their relatives out to second cousins. People with
-bipolar disorder and their relatives are overrepresented in creative
-professions.
+One of every three Black boys born today can expect to go to prison in his
+lifetime. One of every six Latino boys. One of every seventeen white boys.
 
-One of every three Black boys born in the United States today can expect to go
-to prison in his lifetime. One of every six Latino boys. One of every seventeen
-white boys.
+Donda West was born in Oklahoma City on July 12, 1949. On August 19, 1958,
+Clara Luper, a high school history teacher and adviser to the NAACP Youth
+Council, walked a group of children into the Katz Drug Store downtown and sat
+them at the lunch counter. It desegregated within two days, and Katz went on to
+desegregate its counters across the states it operated in. Donda West took part
+in the Oklahoma City sit-ins as a child. She was nine that August. Her father,
+Portwood Williams Sr., was in the movement; he lived to ninety-eight. She
+taught for thirty-one years and chaired the department of English,
+Communications, Media and Theater at Chicago State, on the South Side. She
+published a memoir called *Raising Kanye* in 2007 and died that November, at
+fifty-eight, of post-operative heart failure following cosmetic surgery. In
+2009 California enacted a statute requiring a physical examination and written
+clearance before elective cosmetic surgery, and named it for her.
 
-Donda West taught for thirty-one years and chaired the department of English,
-communications, media and theater at Chicago State. When her son was ten she
-took him with her to Nanjing for a year, where she was teaching as an exchange
-professor and he was the only foreigner in his class. In 2004 he released an
-album called The College Dropout. In 2007 she published a book called Raising
-Kanye. She died that November.
+Ray West joined the Black Panther Party before he became a newspaperman. He was
+one of the first Black photojournalists at the *Atlanta Journal-Constitution*,
+and he photographed Maya Angelou, Ronald Reagan and Ralph Abernathy. Later he
+trained as a Christian counselor. In 2006 he opened a store called Good Water
+with help from his son, who said it took him forty-two years to realize his
+father was his best friend.
 
-He was diagnosed at thirty-nine. "I'd never been diagnosed and I was like 39
-years old."
+Their son was born in Atlanta on June 8, 1977, while his father was shooting
+for the paper. The parents separated. He moved to Chicago at three, to 7815
+South Shore Drive. At ten he spent a year in Nanjing, where his mother was
+teaching as an exchange professor, and he has said he was the only foreigner in
+his class. He was diagnosed bipolar at thirty-nine — "I'd never been diagnosed
+and I was like 39 years old."
+
+He became one of the most hated men alive. In October 2022 he made antisemitic
+statements in public, adidas ended the partnership, and his net worth
+collapsed.
+
+Hurricane Katrina made landfall on August 29, 2005, and the levees failed. The
+next day two wire photographs ran of people wading chest-deep out of flooded
+New Orleans grocery stores. The Associated Press caption, under a young Black
+man, read looting a grocery store. The AFP caption, under two white residents,
+read finding bread and soda from a local grocery store. Four days later, live
+on NBC, standing beside Mike Myers, off the teleprompter, he said: "I hate the
+way they portray us in the media. If you see a black family, it says they're
+looting. If you see a white family, it says they're searching for food." Then
+he said, "George Bush doesn't care about black people." NBC cut the second
+sentence from the West Coast feed, so the two coasts saw two different
+broadcasts of the same minute. Bush later called it an all-time low of his
+presidency.
+
+On August 26, 2021, at Soldier Field in Chicago, a full-scale replica of 7815
+South Shore Drive stood on the field, built for a listening event. He was set
+on fire in front of it, in front of the crowd. The record he was finishing
+carried his mother's name and her recorded voice.
 
 I keep going back to the jaw.
 
