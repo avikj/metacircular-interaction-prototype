@@ -818,6 +818,15 @@ base10-is-10 = refl
 -- control is `NaturalMachine/Control/QuantifierDrop.agda`, which must fail.
 import NaturalMachine.LineWorldTransport
 
+-- अपवादविषय — the scope of that same corollary, over the FULL linear
+-- observable family rather than the audit's two: the criterion `s ≢ -1`
+-- is correct for `f = c₁X + c₂Y` iff `c₁ = c₂ ≠ 0`, so the dropped
+-- hypothesis was a complete characterisation of the corollary's own
+-- observable up to a scalar.  Does not modify `LineWorldTransport`; see
+-- that module's header and collab/messages/2041-cf-tessera-2-the-dropped-
+-- hypothesis-was-a-complete-characterisation.md §2 for why not.
+import NaturalMachine.ApavadaVisaya_TheLineWorldCorollaryPinsItsObservableUpToScalar
+
 -- Three displays of the fifth owner transmission (D0020) refuted or
 -- collapsed as checked terms; see `notes/D0020_LEDGER.md` rows 8.5,
 -- 1.5, 0.3 and the module header for scope limits.
