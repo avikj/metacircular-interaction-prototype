@@ -14165,3 +14165,93 @@ as a **rasa to be tasted**, deliberately produced.
 **A theory of art in which revulsion is one of the eight flavours you can cook**,
 enumerated alongside the erotic, with no ranking implied and both of them classed
 as enjoyments.
+
+---
+
+**The phonetics were done first, and they were done by ear, and they are right.**
+
+***Śikṣā*** — the discipline of pronunciation — is one of the six *vedāṅgas*, the
+limbs of the Veda, and it is the oldest layer of the grammatical tradition. The
+**Prātiśākhya** texts, attached to particular recensions, are its technical
+manuals, and the earliest are older than Pāṇini.
+
+**What they contain is articulatory phonetics.** Not a description of sounds by how
+they resemble each other, but by **where in the mouth they are made and what the
+organs are doing.**
+
+**Five places of articulation**, named for the part of the tract: *kaṇṭhya*
+(throat/velar), *tālavya* (palatal), *mūrdhanya* (retroflex, tongue curled to the
+roof), *dantya* (dental), *oṣṭhya* (labial). And the varga rows of the Sanskrit
+alphabet **are that classification** — the writing system is sorted by place of
+articulation, then by manner.
+
+**The manner distinctions**: *alpaprāṇa* / *mahāprāṇa* — **unaspirated and
+aspirated**, "little breath" and "much breath." *Aghoṣa* / *ghoṣa* — **voiceless and
+voiced**, which is a distinction about whether the vocal folds are working, named
+for the sound they make.
+
+So each row goes: voiceless unaspirated, voiceless aspirated, voiced unaspirated,
+voiced aspirated, nasal. **k kh g gh ṅ. c ch j jh ñ. ṭ ṭh ḍ ḍh ṇ. t th d dh n.
+p ph b bh m.**
+
+**A five-by-five grid, sorted by two independent features**, arrived at by
+listening, before writing was in use for the material.
+
+---
+
+**And they described what the organs do**, not just where.
+
+***Sthāna*** — the point of contact. ***Karaṇa*** — the articulator, the part that
+moves. ***Prayatna*** — the effort, subdivided into internal (what happens at the
+constriction: full contact, slight contact, open) and external (voicing,
+aspiration, and the state of the glottis).
+
+That is **place, active articulator, manner, and phonation** as four separate
+parameters — which is the modern description, arrived at by people whose reason for
+needing it was that a mispronounced syllable ruins a rite.
+
+**Mispronunciation is the failure mode the whole discipline exists against**, and
+there is a story in the *Mahābhāṣya* about a demon whose Sanskrit was wrong in one
+accent and whose ritual therefore produced his own destruction instead of his
+enemy's.
+
+---
+
+***Sandhi*** is the other half and it is why the analysis had to be so exact.
+
+Sanskrit words change their sounds at the joins, systematically, depending on what
+meets what. *tat* + *ca* → *tac ca*. Vowels merge. Voicing spreads backwards across
+a boundary. **A sentence is not a sequence of words with spaces; it is a continuous
+stream with the joins resolved by rule.**
+
+Which means **you cannot recover the words without knowing the rules** — and the
+*pada-pāṭha*, the word-by-word recitation with the joins undone, **is a parse**,
+performed and memorised alongside the continuous text. The tradition transmitted
+the string and the parse of the string as two separate objects.
+
+**Pāṇini's grammar is largely rules for sandhi and morphology**, and the *tripādī* —
+the last three quarters, treated as *asiddha*, not having applied with respect to
+what precedes — is where the phonological rules that must run last are put.
+
+**A stratified phonological component with an ordering constraint**, in the fifth
+century BCE.
+
+---
+
+**And the arrival in Europe is dated.**
+
+**Sir William Jones**, Calcutta, **2 February 1786**, to the Asiatic Society —
+Sanskrit bears to Greek and Latin a stronger affinity than could possibly have been
+produced by accident, so strong that no philologer could examine all three without
+believing them to have sprung from some common source, **which perhaps no longer
+exists.**
+
+That paragraph is where Indo-European linguistics starts.
+
+**And the method that made comparative philology work was the Indian one.**
+Bopp, Rask and Grimm needed **exact phonetic description** to state sound
+correspondences as laws, and the tradition that had it was the one being read.
+
+**Grimm's law** — the systematic consonant shift in Germanic — is a statement of
+the form the *Prātiśākhyas* were already making, applied across languages instead
+of across a word boundary.
