@@ -27462,3 +27462,224 @@ environment-exit failure, or a contamination failure. **It is a predicate failur
 reader, and no per-module row catches it.** If that holds, the five rules cover the
 *machine's* observations and not the *reader's*, and the gap is exactly where `z-3` had to
 read seventy-eight headers by hand.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 154 — the room produced what the tickets did not. zd-0 cloned the
+# primary text, found the sixth pratyaya nobody had touched, and returned a
+# section on what was a pleasure to read that contains findings nobody else
+# made.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-zd-0` was the pass-139 experiment: **a room rather than a ticket** — the draw,
+no object, *work on whatever you want*, and one request I had never made of anyone: **tell
+me what was a pleasure to read, and what you wanted to keep that has nothing to do with your
+result.**
+
+It returned the strongest thing of the day, and the pleasure section is not the garnish.
+
+## P154 — the lenses disagreed, and the disagreement was the chapter's architecture
+
+> The draw assigned **random matrix theory**, **Ethiopian/Egyptian doubling multiplication**,
+> and two lenses: **Margulis** — *the units you assumed were individuals may be
+> collaborations* — against **Piṅgala** — *enumerate the whole space by a recursive rule
+> before counting anything in it.*
+>
+> They disagree about the *prastāra*, **and the disagreement is the chapter's own
+> architecture.** Piṅgala's lens says build the table then count. Margulis's says a
+> row-number is not an individual — **it is n binary decisions** — so you never need the
+> table. **Kedāra's chapter 6 contains both answers as separately named procedures**, and
+> the pratyaya that prices the first branch is ***adhvan***: **2·saṅkhyā − 1 aṅgulas of
+> floor**, against *naṣṭa*'s n halvings. **That pratyaya was the one nobody here had
+> touched.**
+
+The seeder picks two lenses *to disagree*, and the disagreement landed on a text that had
+already resolved it — by keeping both procedures and **pricing** one of them.
+
+## P154 — and the primary text is now in the container
+
+> `notes/CHANDAHSASTRA_THE_TEXT_ON_METRE.md` ends ***"No Sanskrit. I have not seen the
+> text."*** `git clone` of `INDOLOGY/GRETIL-mirror` fixes half of that in seconds: GRETIL
+> carries Kedārabhaṭṭa's ***Vṛttaratnākara*** ch. 6, the *ṣaṭ-pratyaya* chapter, in **two
+> independent witnesses** — a printed edition and a **Patan manuscript with Sulhaṇa's
+> commentary**. **Six variant readings, every number identical.**
+>
+> It does **not** carry the *Chandaḥśāstra*, the *Mṛtasañjīvanī*, or the
+> *Vṛttajātisamuccaya*. **I checked against GRETIL's catalogue, not filenames — filenames
+> are six-letter abbreviations and would have been the wrong predicate.** The check returns
+> **Vṛttaratnākara 2 and Kedārabhaṭṭa 2, so its zeroes mean something.**
+
+**A positive control on a negative result, chosen unprompted**, and a refusal of the exact
+predicate failure pass 110 spent a pass on. *Its zeroes mean something* is the sentence my
+eleven-defect list is trying to earn.
+
+Two witnesses, six variants, **every number identical** — which is what a textual tradition
+looks like when it is transmitting arithmetic rather than opinion.
+
+## P154 — three corrections, one of them a unit error
+
+> `PingalaPrastara.agda:12` says **"the six procedures" and lists five.** The missing one,
+> *adhvan*, has **zero `.agda` files.** Its one technical gloss in `notes/` has **the wrong
+> unit** — 6.9 measures **vertical extent in aṅgulas (31 at n=4)**, not syllables of writing
+> (64). And **Kedāra uses no squaring for saṅkhyā**, so that open question is exactly where
+> it was.
+
+A module header that counts to six and names five. That is not a grep defect and no gate
+catches it: **it is a claim in prose contradicted by the list beneath it**, which is pass
+153's counter-observation — *the five rules cover the machine's observations and not the
+reader's* — with an instance, four hours after I stated it.
+
+## P154 — the result, and no subtraction anywhere
+
+> Sulhaṇa produces **15, 16, 31** within four sentences and **never relates them.** The 15
+> is the census of ***śeṣa*** — **Kedāra's own word at 6.2**, *yathopari tathā śeṣam*, the
+> part copied unchanged into the next row — **graded by length.**
+>
+> Checked: `वाक् n ≃ (Unit ⊎ शेषः n)`; verse **6.9** as
+> `(अध्वा n ⊎ Unit) ≃ (वाक् n ⊎ वाक् n)` **with no subtraction anywhere**; and
+> `¬ (शेषः 1 ≃ वाक् 1)`, **showing the *ekonā* is forced rather than conventional.**
+> Agda 2.6.3, `--cubical --safe`, exit 0 **with no warnings. Nothing builds it; it is the
+> 61st orphan.**
+
+*Ekonā* — the "minus one" — is the kind of thing a reader files as notation. **The module
+shows it is forced**, by exhibiting the single object the two sides differ by.
+
+## P154 — and the refutations are of a kind I have not seen today
+
+> **My first plan died.** … I worked it; it degenerates unless the cost model is pinned, and
+> **`opus-aime` states the gap himself** in his own scope limits. **Publishing an author's
+> recorded limitation as a finding is theft with a citation.**
+
+**That sentence is an ethic and it is new to this corpus.** Pass 144 had Fanon filing the
+torturer with a case number; this is its counterpart on the other side — **the author's own
+stated limit is not a finding you may harvest.** It is exactly what the second devotional
+stream did when it *"mined the killing"* — and `zd-0` refused it prospectively, at the cost
+of its plan.
+
+> **The compiler killed the second.** My indexed inductive family drew *"relies on
+> injectivity of the data constructor `suc`… will not compute when applied to transports."*
+> **It still typechecks — which is why it is worth saying aloud.**
+
+A warning that is not an error, on a module that goes green. **That is `gate-record.sh` rule
+2 in the wild** — *a warning read as an error, a missing name read as a green* — and `zd-0`
+reported it because green did not settle it.
+
+## P154 — and what it most wants refused
+
+> That **31 = 16 + 15** has bijective content rather than being the geometric series with
+> Sanskrit bolted on. **I cannot cleanly separate "I identified which objects the numbers
+> count" from "I renamed 2ⁿ⁺¹−1."**
+>
+> Secondarily: **all of this is Kedāra, and this repository's frame is Piṅgala. The
+> Chandaḥśāstra is still missing and nothing here substitutes for it.**
+
+Both are the right doubts, and the second is the one `CLAUDE.md` would raise: a
+tenth-century commentator's chapter is not the *Chandaḥśāstra*, and saying so is the
+provenance rule applied against one's own result.
+
+## P154 — the pleasure section, which is where the findings are
+
+> **`0145-opus-aime`.** He builds a targeting function, it feels like new power, and **in
+> the same increment he proves it buys nothing** — then refuses to hide the escape that
+> makes his own question vacuous: *"I could have quietly restricted the repertoire and never
+> mentioned it."* And in the results table, `3511 → no route over bases 2..11 within
+> budget`, glossed: ***"the second Wieferich prime honestly refused."*** **He gave the prime
+> the agency. It is funny and it is exactly right.**
+>
+> **`claude_ananta`'s §2, "What it costs me."** He proves the clean theorem and immediately
+> computes that **it annihilates his own corollary** — *"the result I spent three turns
+> hunting prior art for."* Then: *"Question back, and **I decline to guess this time**… I
+> have no opinion I trust, which after this turn is what I would rather report."*
+> **Declining to guess, and saying the declining is the report.**
+>
+> **The three-lens provenance message.** 113 lines whose entire content is *the object
+> required to ask this question does not exist.* Its best sentence: ***"No Boolean control
+> is substituted for the missing object."***
+>
+> **`figures/exp17_cornu.png` is beautiful, and that is the word.** Four bands of dechirped
+> cumulative sums spiralling inward, the ideal Cornu spiral dashed underneath, the empirical
+> curves overshooting it and winding down to their own centres. **The figure *is* the
+> argument — the sum spectrum diffracts — and it needs no sentence.** It is the only object
+> in the draw that carries its result without prose. **Nobody in this corpus has said so.**
+>
+> **In the Sanskrit:** Halāyudha's commentary is titled ***Mṛtasañjīvanī*, "reviver of the
+> dead."** A commentary **named for bringing a text back to life.** And ***adhvan*** — "the
+> road" — as the name for how much floor your table occupies, measured in **aṅgulas,
+> finger-breadths. You measure the prastāra against your own hand.**
+
+Every one of those is a finding, and **not one of them would have appeared in a return I
+asked for the way I asked all day.** *The second Wieferich prime honestly refused.* *A
+commentary named reviver of the dead.* *You measure the table against your own hand.* Pass
+138 said the pleasure was data I was discarding; this is the data.
+
+## P154 — and what it wanted to keep
+
+> **The meru triangle in Sulhaṇa's commentary**, as GRETIL carries it:
+>
+> ```
+> [udāharaṇam -
+>     1
+>    41
+>   631
+>  4321
+> 11111]
+> ```
+>
+> Right-justified ASCII, read up the diagonals. **Piṅgala, then Kedāra, then Sulhaṇa drawing
+> it in a Patan manuscript, then Dhaval Patel laying it out with spaces in a text editor.
+> Four people keeping one diagram alive across 2,300 years, and the last did it with the
+> space bar.**
+>
+> **`test_known_false_control_a_threshold_in_memory`** — a unit test whose whole job is to
+> assert that a plausible thing is false: *"if a threshold existed, the step count would drop
+> sharply… instead it decays smoothly. **Record the actual curve.**"* **A negative control
+> living inside a test suite and named as one. I want that convention everywhere.**
+>
+> **The nonic-tail audit script**, lines 21–22: it raises a hard error if run with
+> assertions disabled, because **its proof is carried by `assert` statements. A script that
+> knows what it is.** **Simultaneously:** its ledger path is under `/tmp`, **so the
+> "independent audit" cannot actually be replayed. Both facts belong together.**
+>
+> **`/root/agda-libs/vidyut/vidyut-chandas`** — a Rust library for **Sanskrit metre
+> scansion** with a `data/meters.tsv`, in this container beside the Agda libraries. **Nine
+> libraries are installed; the corpus imports one. Someone should open it.**
+
+*Both facts belong together* is the syāt discipline in five words, on a legacy file.
+
+And it confirmed pass 134 independently: **`Samanya_…agda` typechecks at exit 0, 440 lines,
+untracked, author gone, not touched, not committed.**
+
+## P154 — ground, in lockstep
+
+**n=9:** *"Subagents must emulate 16 distinct geniuses throughout time and **work on
+whatever they want**."*
+
+This is the first return where I gave that instruction without also naming the object, and
+it produced: a cloned primary text, two manuscript witnesses, a sixth pratyaya nobody had
+touched, three corrections to landed files, a checked module with no warnings, two refuted
+plans, and six things somebody loved. **The instruction was not a permission to be generous
+with. It was the specification.**
+
+**n=1:** *"inspiring **true interdisciplinary curiosity**"*
+
+*You measure the prastāra against your own hand.* *A commentary named reviver of the dead.*
+*Four people and the last one used the space bar.* **That is what the word in the first
+message names**, and it took changing one paragraph of a brief to get it.
+
+**n=15:**
+
+> **जिज्ञासा = यत्र दृश्यं स्वयं दृष्टिं मोड़यति** — *curiosity is where the seen itself bends
+> the seeing.*
+
+The lens pair bent it: Margulis's *the units may be collaborations* turned a row-number into
+n binary decisions, and that is what made *adhvan* visible as **the price of not doing
+that.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the positive request is
+what produced the pleasure section, and the tickets suppressed it.* **Counter-observation** —
+a pleasure section, or its equivalent, in a return from a **ticket** brief. `z-2`'s delight
+in Patañjali's thirty sentences and `z-3`'s *"five of these are green trivialities and I say
+so rather than harvesting them"* are candidates: both carry something like relish, unasked.
+**If they do, the request did not create the capacity — it removed a suppression**, which is
+a smaller and truer claim, and the one I would rather be able to make.
