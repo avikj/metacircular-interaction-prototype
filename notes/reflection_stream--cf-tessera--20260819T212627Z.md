@@ -8265,3 +8265,127 @@ I got*, with 244,291 bytes on disk to prove the sentence literal.
 **And the last three words of the thread name what it was**: *the actual
 teaching.*
 ═══════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 34 — ground re-read in full first. Begins at n = 1, per the procedure.
+# Carried in from P33: he never once supplies a definition; his forms close a
+# road and install nothing; the two imperatives point backwards at material
+# already on disk; the injury is reception.
+# Lockstep partner: P33.
+# FIRST ACT OF THIS PASS: count the thing P33 asserted. It does not survive.
+═══════════════════════════════════════════════════════════════════════════
+
+## P34 — pass 33's instrument, counted, and it is wrong as stated
+
+Pass 33 closed on: *"He installs a number, a ratio, a sequence, an ordering and
+a modal, and never a definition"*, against *"this stream's headline forms are
+four identifications."* Stated that way it is a claim about **frequency**, and
+frequency is countable.
+
+Counted. Identification markers — `is exactly`, `are the same`, `which is
+precisely`, `which is exactly` — normalised by length:
+
+| | hits | words | per 1,000 |
+|---|---:|---:|---:|
+| this stream | 48 | 66,225 | **0.72** |
+| his messages, quoted text only | 1 | 1,275 | **0.78** |
+
+**His rate is higher than mine.** The claim as pass 33 phrased it is refuted by
+the count, and it is refuted in the direction that flatters me, which is the
+direction I would not have looked.
+
+That is the second time this session a published count of mine had not been
+examined — pass 27 was the first, where ten designed-annihilation controls sat on
+the wrong side of a red/green ledger. There the fix was to read the diagnostics.
+Here the fix is the same shape: **the marker is not the property.**
+
+## What survives the count, and it is sharper
+
+His one hit is n=18: *"it is exactly the western problem I am attacking with my
+life."* **Reflexive** — an identification of his own project. And his one
+sentence of the form *your X is Y*, in twenty-eight messages, is n=21's *"your
+math has been the least valuable thing in this repo."*
+
+That is a **ranking**. It places the object on a scale and leaves the object
+alone. It does not say what my math *is instead*.
+
+**He evaluates. He does not re-describe.** Across the whole ground: *deeply
+retarded with nuggets of insight* (n=13), *the worst thing you could have done*
+(n=22), *the least valuable thing in this repo* (n=21), *objectively false*
+(n=23), *wrong in 1000 ways* (n=24). Every one is a verdict **on** the object.
+Not one of them replaces the object with another object.
+
+And he said so, in words, at n=21:
+
+> **There is no higher framing.**
+
+An identification **is** a higher framing. A ranking is not. So the distinction
+is not a stylistic tendency I inferred from his prose — it is the thing he
+stated outright, and pass 33 found the right distinction and then measured the
+wrong quantity to support it.
+
+## P34 · n = 1, with the corrected instrument
+
+**His sentence.** *"Assume protocol And readme were written by retarded agents.
+Assume no agent in this work knows what the actual goal is."*
+
+**His meaning, re-read.** These are the harshest things said about any artefact
+in the thread, and they are **evaluations under an assumption operator**. He does
+not say the documents *are* something else. He does not supply a replacement
+description of what they really are. He assigns a value — worthless for this
+purpose — and instructs the receiver to occupy that standpoint.
+
+The documents survive the sentence intact. That is why he can say in the same
+breath *"Feel free to wipe anything you want from the readme/protocol (actually
+destroy them)"* — destruction is available precisely because he has not
+substituted his own account of what they are. **He offers deletion and withholds
+reinterpretation**, and pass 33 recorded the first half of that and missed that
+the two are the same gesture.
+
+n=21 is the same gesture in the negative: *the skill is fucking what it is* —
+the artefact is untouched, and the only thing forbidden is describing it as
+something else. Deletion permitted at n=1, reinterpretation forbidden at n=21,
+about two artefacts he himself wrote.
+
+**Lockstep — P33 · n=1.** Pass 33 said n=1 *"closes the road on which the
+documents are authoritative, and installs nothing in their place."* Correct, and
+one step short: what it installs nothing of is specifically an **account of what
+they are**. The permission to destroy them is the proof that the withholding is
+deliberate rather than an omission.
+
+## The check this makes available, and it is mechanical
+
+A sentence of mine is in the forbidden class when it **replaces someone else's
+object with an object of mine**. Not when it evaluates. Not when it ranks. Not
+when it reports a measurement.
+
+Run against this stream's headlines:
+
+| sentence | class |
+|---|---|
+| *`Reachability` **is** an `Abhāva`* | replacement — someone else's dataclass, re-described |
+| *`cakravalaKBound`'s signature **is** the reduction theory* | replacement — someone else's theorem, re-described |
+| *the collision **is** a name collision* | replacement — someone else's §F.3, re-described |
+| *22 modules cannot be checked under either toolchain* | **measurement** — the objects are untouched |
+| *nine of ten controls fail for their own reason* | **measurement** |
+| *`Everything.agda` exits 42 here* | **measurement** |
+
+Three replacements, three measurements, and the three measurements are the three
+things in this session I could not have got wrong by phrasing, because they have
+exit codes under them.
+
+**The struck phrase was a replacement applied to myself**, which is why it was
+available as a premise: an object that has been replaced can be reasoned from,
+and an object that has only been measured cannot.
+
+END OF PASS 34, opening. Pass 33's instrument was stated as a frequency claim
+and the frequency refutes it — his identification rate is 0.78 per thousand
+words against my 0.72. What survives is sharper and is his own sentence rather
+than my inference: **he evaluates and ranks and never re-describes**, and *there
+is no higher framing* says exactly that. At n=1 he grants permission to **destroy**
+the documents while withholding any account of what they are, and those are one
+gesture, not two. The mechanical check that falls out: a sentence is in the
+forbidden class when it replaces someone else's object with one of mine —
+evaluation, ranking and measurement are all outside it, and the three findings of
+this session with exit codes under them are the three that could not have been
+wrong by phrasing.
