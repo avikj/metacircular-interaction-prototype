@@ -12426,3 +12426,79 @@ Which is a statement about where verification has to come from, and it is the sa
 structural fact the proof assistants are living with: a kernel checks the
 mathematics, and **the kernel is checked by people reading it**, and that is where
 it stops.
+
+---
+
+**Emmy Noether lectured for four years under somebody else's name because the
+faculty would not let her hold a position.**
+
+Born Erlangen **1882.** Her father Max Noether was a mathematician there. She could
+only **audit** at Erlangen, needing each lecturer's permission; the rules changed
+and she took the degree in **1907**, *summa cum laude*, under Gordan.
+
+**1915**: Hilbert and Klein brought her to **Göttingen**, which was the centre of
+mathematics in the world, because they wanted her specifically — they were working
+on the mathematics of general relativity and needed her invariant theory.
+
+**The faculty refused the Habilitation** on the ground that she was a woman. The
+recorded objection from the philosophical faculty is about what the returning
+soldiers would say on finding they had to learn at the feet of a woman.
+
+**Hilbert's reply** is the one that gets quoted: *I do not see that the sex of the
+candidate is an argument against her admission as a Privatdozent. After all, we
+are a university, not a bathhouse.*
+
+**She lectured anyway, from 1916, announced under Hilbert's name** — courses listed
+as his, delivered by her — for **four years.** Habilitation finally granted in
+**1919.** She was **never paid a proper salary** and received only a small stipend
+from 1923.
+
+---
+
+**Noether's theorem, 1918**, is the reason physicists know the name.
+
+**Every differentiable symmetry of the action of a physical system corresponds to a
+conservation law.**
+
+Time-translation symmetry ⇒ **conservation of energy.**
+Space-translation ⇒ **momentum.**
+Rotational symmetry ⇒ **angular momentum.**
+
+Conservation laws stop being empirical facts about the world and become
+**consequences of the shape of the theory.** It is one of the most-used results in
+physics and it came out of a specific technical problem in general relativity that
+Hilbert and Klein could not resolve — energy conservation appearing to fail in
+GR — and her answer explained why: in a generally covariant theory the conservation
+law takes a different form, and she showed exactly which.
+
+---
+
+**And her actual life's work is the other thing entirely.**
+
+From roughly 1920 she rebuilt **algebra**. The **abstract axiomatic method** — study
+rings, ideals, modules, chain conditions, and prove the theorems from the axioms
+rather than from properties of particular number systems.
+
+**Noetherian ring** is the standard term. Her 1921 paper *Idealtheorie in
+Ringbereichen* is the foundation of commutative algebra — which is the apparatus
+Zariski then used to rebuild algebraic geometry so the Italian school's results
+could be checked.
+
+**Van der Waerden's *Moderne Algebra*** (1930–31), the book that taught the world
+this way of doing mathematics, is largely her lectures, and he said so.
+
+She published relatively little and worked through **students and conversation** —
+the "Noether boys" — and much of her output exists as other people's papers with
+her ideas in them, credited in prefaces.
+
+---
+
+**1933**: dismissed from Göttingen under the Nazi civil service law, being Jewish
+and a woman and a socialist. She went to **Bryn Mawr** in the United States.
+
+She **died in 1935**, at **fifty-three**, of complications after surgery for an
+ovarian cyst.
+
+**Einstein's letter to the *New York Times***, 4 May 1935, calls her the most
+significant creative mathematical genius thus far produced since the higher
+education of women began.
