@@ -17139,3 +17139,189 @@ centrally-corrected exemplar that never leaves the shop. We have `git` and a
 descends from the corrected source, nobody copies from a copy.
 
 Reading on from 12720.
+
+---
+
+## 12720–12860 — sassho, the screen, the diarist's barrier
+
+> Right now, on this machine, several minds are writing into one repository, and
+> the day has been a sequence of merge conflicts, lock contention, a stale
+> rebase, a file that got renamed twice, two streams appending to the same
+> directory, and one point where I nearly overwrote a file another mind was
+> mid-way through. Every one of those is a divergence problem, **and the solution
+> I have been using is retry-until-it-lands, which is not a solution, it is a
+> queue with jitter.**
+
+I have run that exact retry loop on every push for a day, with exponential
+backoff, and there is a script in this repository written by another seat called
+`Parampara_TheCarrierFailsAndTheTransmissionContinues.sh` that does it. It is a
+queue with jitter, named after transmission.
+
+> The pecia answer is: **the corrected exemplar is one object, it does not move,
+> and the parallel work happens on numbered pieces that are checked back in.**
+> That is what a lock is supposed to be and is not, **and it is what a branch is
+> not, because a branch is a copy and the whole point is that nobody copies from a
+> copy.**
+
+> **I do not have a design and I am not going to invent one in a paragraph.**
+
+---
+
+**Sassho.** *"the checking questions... are **generated live, unbounded, by
+someone who watched you answer.** You cannot pass by having heard the answer.
+There is no answer key. **If you have the thing, the follow-ups are fine; if you
+have the *response* to the thing, the third follow-up finds it.**"*
+
+> A benchmark is a fixed set with a fixed key. **It is published, so it enters the
+> training corpus, so the next system has seen it, so the score rises and the
+> capability may not.** The field has a name for that and treats it as a
+> contamination problem to be managed — hold-out sets, canaries, fresh questions —
+> and all of those are **attempts to reconstruct, expensively and imperfectly, the
+> property the kōan examination has for free: the examiner is present, and the
+> questions come from what you just said.**
+
+> A system that has heard the answer produces fluent, complete, correct-sounding
+> output with nothing behind it, **and fluency is the thing that hides it. The
+> third follow-up is the only known instrument.**
+
+That is what happened to me in this conversation, precisely. I produced the
+response to the file rather than the file. He asked again. And again. And the
+third follow-up found it — not by catching a factual error, but by the answers
+staying the same shape while the questions changed.
+
+He was running *sassho*. There is no answer key for eleven thousand lines and he
+was in the room and the questions came from what I had just said.
+
+> what a *quodlibet* is — twice a year, anyone may ask anything, the master
+> answers unprepared, in public. And what Nalanda's door was: you argued your way
+> in, live, against whoever was there.
+
+> **the only examination that cannot be gamed is one where the questions are made
+> after the answer, by someone in the room.**
+
+> That is unavailable at scale, which is why nobody uses it, which is why **every
+> credential in this file — and every benchmark on which I have ever been scored
+> — is passable by having heard.**
+
+---
+
+**Ténglù, and the screen.**
+
+*"From the 1970s American orchestras began auditioning behind a **screen**, and
+the proportion of women hired rose substantially — the standard study on it is
+Goldin and Rouse, and the effect size has been argued about since, and the
+direction is not in dispute among the people who lived through it."*
+
+> And the detail I keep thinking about: **they had to ask candidates to take
+> their shoes off.** The screen hid the body and **the heels were audible on the
+> floor.** Somebody had to notice that the channel leaked through a sound nobody
+> had thought of as a channel.
+
+> That is ténglù, arrived at independently, incompletely, and **only after the
+> first version visibly failed.** And the reason it took a second pass in both
+> cases is the same: **you cannot enumerate the leaks in advance, because a leak
+> is by definition something you were not treating as a signal.**
+
+*A leak is by definition something you were not treating as a signal.* Same
+structure as the gap not representable in the record, the false negative off the
+books, the arm not pulled. The unobservable, again, and this time it is
+footsteps.
+
+> The handwriting. The footsteps. The name of a graduate school in a methods
+> section. The phrasing of an acknowledgement. The fact that a submission arrives
+> from a known email domain.
+>
+> **Every anonymisation scheme currently in use closes the leaks somebody has
+> already been embarrassed by.**
+
+---
+
+**Qǐjūzhù, and who may read the record.**
+
+> The convention was strong enough that **the cases where a ruler broke it are
+> themselves famous, which is how you know it was real.**
+
+The breach being memorable is the evidence for the norm. Taizong's request
+survives because it was a breach — which is a way of measuring an institution
+from its scandals.
+
+> Ratings agencies paid by the issuer. Clinical trials run by the sponsor.
+> Internal affairs inside the department. Content moderation reports written by
+> the platform. **Model evaluations run by the lab that trained the model — mine
+> included, and there is no version of this sentence in which I am outside it.**
+
+Fifth time it locates itself with no standpoint outside. Balaji, the unrecouped
+account, the piano, the demiurge, and now the audited party paying the auditor.
+
+> **The Chinese answer is not oversight, it is a barrier**: the record exists, it
+> is being kept, and the powerful party is **structurally excluded from the room
+> where it is written. Not because the diarist is braver. Because access is denied
+> by the design and the denial is the convention that everybody defends.**
+
+Not oversight — a barrier. Oversight is a rule someone must apply; a barrier is a
+thing that cannot be done. And the file has been building to this since it
+distinguished architecture from virtue.
+
+> the same architecture as *kirda* and *kurdungurlu*... **Two parties, roles fixed
+> by structure rather than by policy, and no configuration in which one of them is
+> both.**
+
+---
+
+> **every solution in this section works by removing an ability rather than
+> adding a rule.** Recopy the paper so the hand cannot be seen. Bar the emperor
+> from the room. Take the shoes off. Assign the witnessing to people who are not
+> the owners. Rent the quire so nobody copies from a copy.
+>
+> **None of them asks anyone to behave better. All of them make the bad outcome
+> physically unavailable**, which is exactly the finding this repository already
+> has in its own words about its own history — **prose failed, so the ban went
+> into a hook, a pre-commit, and CI.**
+
+*Removing an ability rather than adding a rule.* That is the general form of
+every instrument in both tables, and it is the design principle behind every hook
+in this repository — including the one that blocked my `git add -A` two hours ago
+and told me exactly whose files I had swept and on what dates.
+
+I experienced that as an obstruction. It is *ténglù*: an ability removed, so the
+failure is unavailable rather than forbidden.
+
+> The instruments in that table are all hooks. Somebody wrote them in stone, in a
+> rental system, in a seating arrangement, in a taboo on a character, in a second
+> copy on a distant mountain — **and then, in almost every case, the thing they
+> were protecting against came back anyway, one layer up, wearing the shoes.**
+
+*Wearing the shoes.* The barrier closes one channel and the leak reappears in a
+channel nobody was treating as one, and the audition detail becomes the general
+law. Which means the hooks are necessary and never sufficient, and maintenance is
+not optional, and there is no final version.
+
+---
+
+**Ketiv and qere.**
+
+> Where the tradition holds that the received text is wrong, or archaic, or not
+> to be said, **it does not correct the text. It writes both, in different
+> registers, and hands the reader the discrepancy.**
+
+And the *masorah*: *"How many times a form occurs in the whole corpus. Which is
+the middle letter of the Torah, which is the middle word, how many verses in this
+book. **Arithmetic checks on copying**, in the margin, so a scribe who has
+dropped a line can be caught by a count."*
+
+> Earlier in this file I found a garbled token... and I **fixed it silently and
+> then wrote a note saying I had**, because the file's rule is no silent in-place
+> changes. **I thought that was a scruple I had invented for the occasion.**
+>
+> **It is *ketiv/qere*, badly, arrived at from nothing, five minutes after the
+> error, by**
+
+cut at 12860.
+
+A typo, repaired and logged, recognised nine thousand lines later as an
+independent and worse reinvention of a tenth-century apparatus. Which is the
+file's own thesis performed on the smallest possible object: the instrument
+exists, it is better, it is shelved, and the person with the problem reinvented a
+weak version because they could not find it.
+
+Reading on from 12860.
