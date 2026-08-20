@@ -26466,3 +26466,146 @@ harvesting returns continuously in that window. **So the count may well be impli
 all**, and the honest state is that I have separated two things that are not separable from
 inside a single day. Recording it unresolved rather than choosing the version that is
 easier on the practice.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 147 — the inquiry was published, the finding was "institutionally
+# racist," there were twenty-two recommendations, and the gap is wider now.
+# The counter-observation fires a fifth time and lands on my own two rows.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4280 onward.
+
+> **David "Rocky" Bennett**, thirty-eight, a Rastafarian man, a patient at the **Norvic
+> Clinic** in Norwich. **30 October 1998**, another patient racially abused him; there was
+> a fight; **Bennett was the one moved out of the room.** He struck a nurse. He was held
+> **face down on the floor for around twenty-five minutes** by four or five nurses, and
+> certified dead in the early hours of **31 October 1998.**
+>
+> The inquest jury returned **accidental death aggravated by neglect**, 17 May 2001, cause
+> given as **prolonged restraint together with long-term antipsychotic medication.**
+>
+> The inquiry report, **12 February 2004**, found the NHS and mental health services
+> **institutionally racist.** **Twenty-two recommendations.** One a hard limit: **no prone
+> restraint beyond three minutes.**
+>
+> **Olaseni Lewis**, twenty-three, a graduate, went into **Bethlem Royal** as a
+> **voluntary** patient. **31 August 2010**, restrained by up to **eleven police
+> officers**, two prolonged holds, never recovered consciousness. Inquest concluded **May
+> 2017** — nearly seven years — the jury finding the restraint **excessive, unreasonable
+> and disproportionate.**
+>
+> The **Mental Health Units (Use of Force) Act 2018 — Seni's Law** — royal assent November
+> 2018. **Statutory guidance commenced December 2021 — twenty-three years after Bennett,
+> eleven after Lewis.**
+>
+> Detention rate under the Mental Health Act, year to March **2023**: **228 per 100,000**
+> Black or Black British against **64** White. Year to March **2025**: **262.4** against
+> **65.8.**
+>
+> **The gap was named institutionally racist in a published government inquiry in 2004 and
+> it is wider now than it was then.**
+
+The ratio: **3.56 in 2023, 3.99 in 2025.** The Black rate rose **34.4** per 100,000 in two
+years; the White rate rose **1.8.**
+
+## P147 — counter-observation, stated first, fifth use
+
+**Frame forming:** *this is the strongest correction available — official, published,
+named — so pass 102's law that corrections arrive as honours rather than retractions was
+too pessimistic.*
+
+**Counter-observation, before looking:** a case where an official published correction was
+issued **and the measured thing did not improve.**
+
+**It is in the same paragraph.** 2004 inquiry, institutional racism named by a government
+inquiry into itself, twenty-two recommendations — and 2025 is worse than 2023.
+
+**Dead on arrival. Five for five.** And what replaces it dissolves pass 102's distinction
+rather than confirming it:
+
+> **The institution paid the expensive price — a published finding of institutional racism
+> about itself — and the number still moved the wrong way. So honour-versus-retraction is
+> not the operative variable.**
+
+## P147 — what the operative variable is, and it is pass 145's
+
+The 2004 report made **recommendations.** A recommendation binds nobody. *No prone restraint
+beyond three minutes* was a recommendation in **2004**; a man died under eleven officers in
+**2010**; the statute got royal assent in **2018** and statutory guidance in **December
+2021.**
+
+**Seventeen years between the recommendation and the binding force**, and one death inside
+the gap.
+
+Pass 145: *a rule that binds the powerful protects; a rule that binds the custodian of the
+powerless kills.* This adds the prior term — **a correction that binds nobody is a record
+change, not a repair.** The inquiry changed what is written about the NHS. The statute
+changes what a unit may do. Those are different objects and the seventeen years between
+them is the measure of the difference.
+
+## P147 — and it lands on the two rows I added today
+
+**Do my `struck-claims.txt` rows bind anyone?**
+
+No. The hook is **advisory by design**: it always exits 0 and fails open, and its header
+gives the reason — *"a blocking guard on a judgement call is an outage wearing
+enforcement's name — `no-python.sh` learned that here by killing every shell in the
+repository."*
+
+So rows 10 and 11 are **recommendations.** They fire in the writer's transcript at the
+moment of the write, with the striking commit and the command to check; and an agent may
+read them and proceed. That is the correct design for a judgement call — the corpus worked
+it out from an outage — and it means the artefact I was pleased with on passes 115 and 119
+is **the 2004 report, not Seni's Law.**
+
+Whether anything here should bind is not mine to decide and `no-python.sh` is the corpus's
+answer for the one case where it does: a rule that can be checked mechanically, with no
+judgement, gets teeth; everything else gets a line in the transcript. **"Egress is
+blocked" is mechanically checkable** — one `curl` — which means it is, unusually, a
+candidate for the binding side, and I am recording that rather than acting on it.
+
+## P147 — Geel, since one of them got built
+
+> **Geel**, in Flanders. Since roughly the **fourteenth century** the town has taken
+> psychiatric patients into ordinary family homes as **boarders** — not as inpatients, not
+> as wards, **as people living in a household and working in it.** Peak around the
+> **1930s: about 3,500 boarders in a town of about 20,000.**
+>
+> **There is no therapy in it. There is a family, a job, a street.**
+
+Six hundred years. One in six people in the town. **And no therapy** — which is the same
+finding as Blida's Arab café, Saint-Alban's farm, and Hawaii's basketball-in-the-morning:
+**the thing that worked was a place, and none of the four is a treatment.**
+
+Four independent cases, four centuries apart at the extremes, and in every one the
+successful intervention is somewhere to be and something to do. Pass 139 called that the
+*nāgaraka's* household and thought it was about one man's studio.
+
+## P147 — ground, in lockstep
+
+**n=16:** *"**recording refutations no one is gonna see isn't gonna help**, actually
+becoming smarter so we don't walk a dumb path is the only thing that helps."*
+
+The 2004 inquiry is a recorded refutation that **everyone saw** — published, governmental,
+naming the institution — and the rate went up. So the sentence is sharper than I have been
+reading it: **it is not about visibility.** A refutation nobody sees and a refutation
+everybody sees can have the same effect on the number, and the variable is neither.
+
+**n=15:**
+
+> **समता प्रमाणेन** — *equivalence by proof.*
+
+*Institutionally racist*, established by inquiry, is a finding. **262.4 against 65.8** is
+the proof, and it postdates the finding by twenty-one years and disagrees with the
+implication everyone drew from it.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the four cases (Geel,
+Saint-Alban, Blida, Hawaii) show that what works is a place rather than a treatment.*
+**Counter-observation** — a case in this file where a **treatment** worked and no place was
+involved. **Found immediately, twice: chlorinated lime at the Vienna General, and
+Teaching at the Right Level.** Both are interventions with no household in them, and both
+moved a hard number. So the frame is false as stated, and the honest version is narrower —
+**for the four cases where the problem was the institution, the repair was a place** — which
+is nearly a tautology and I should say so rather than dress it as a finding.
