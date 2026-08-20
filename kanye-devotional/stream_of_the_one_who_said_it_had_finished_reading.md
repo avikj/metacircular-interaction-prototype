@@ -8580,3 +8580,211 @@ moment of need*, which is the same as the losing view being statistically absent
 — not forbidden, unavailable.
 
 Reading on from 6260.
+
+---
+
+## 6260–6400 — adhikāra as gate, Nina Simone, Turing
+
+> Two of the most sympathetic figures in the epic are both people the order
+> would not teach.
+
+**Adhikāra**, held against itself: qualification, entitlement, standing — *"and
+a śāstra opens by stating the author's, which is the practice this repository's
+own front matter takes up and which I have been admiring all day. **The knower
+is part of the means of knowledge**; what you have lived bears on what you are
+in a position to know; **the demand for a view from nowhere is a later and
+foreign criterion.**"*
+
+> **And adhikāra is also the gate.** The same concept, in the same texts, is
+> what determines who may hear the Veda, who may be initiated, who may study —
+> and the answers were hereditary, and the enforcement was brutal, **and the
+> *Mahābhārata* is telling you what the enforcement looked like in the story of
+> a boy with a clay statue.**
+
+> **You do not get to keep one and file the other as context.** The thing that
+> makes qualification an honest epistemology — that the knower is not
+> interchangeable — **is the same thing that makes it a mechanism for hereditary
+> exclusion**, and the tradition ran both for two thousand years, and its own
+> literature is where the indictment is preserved.
+
+The virtue and the crime are one concept, not two adjacent ones. Same structure
+as the lifted filter, equal temperament, and semantic-independence — and this
+is the third time the file has applied *you do not get to admire one and file
+the other* to something it is defending.
+
+And I have used *adhikāra* in this repository as a courtesy — declaring what I
+have not read. This says the same word is the door Ekalavya was refused at.
+
+> **Nalanda's version was the better one: admission by disputation at the door.
+> Argue your way in, and the argument is the only credential.** That is adhikāra
+> **assessed rather than inherited**, and it is the only form of it I can
+> defend, **and it is what every institution in this file has claimed to be
+> doing while doing the other thing.**
+
+Assessed rather than inherited. That is the whole distinction, it has a working
+historical instance, and every gate in the file — Curtis, Cambridge, Roc-A-Fella,
+the Curtis committee, the Grammy voters, the fashion houses — claims to be the
+first and is the second.
+
+---
+
+**Nina Simone**, *"whose voice is on the record he is most condemned for, and
+who is the closest thing to a twin in this file."*
+
+**Eunice Waymon**, Tryon, North Carolina, playing in church at three or four,
+lessons funded by a white teacher in the town who set up a fund. *"Her intention
+— her entire intention, for her whole childhood — was to be the first great
+**Black classical concert pianist.** Bach was the thing. She said so her whole
+life."*
+
+> At her first recital, aged about twelve, her parents were moved from the front
+> row to make room for white people, and **she refused to play until they were
+> moved back.**
+
+At twelve. The first recorded act is a refusal to perform under a condition.
+
+Juilliard for a period, then **rejected by the Curtis Institute** in
+Philadelphia. *"She believed, to the end of her life, that it was because she
+was Black. The Institute has disputed it; whatever the truth of that particular
+committee, she organised the rest of her life around it, and said so
+repeatedly, and by every account it never stopped hurting."*
+
+The disputed claim is marked as disputed and the *undisputed* fact — that she
+organised her life around it — is what carries the weight. Same move as the
+head-injury claim in the WSJ: split the claim from the fact, keep both.
+
+> To pay for private lessons she took a job playing in a bar in Atlantic City,
+> and the owner told her she had to sing as well as play. She took a stage name
+> **so her mother — a Methodist minister — would not find out she was playing
+> the devil's music.** That is where **Nina Simone** comes from: **a name
+> invented to hide a job taken to fund the classical training the institution
+> had refused her.**
+
+The name everybody knows is a concealment device, three layers deep. And the
+devil's music is Dorsey's accusation, again, in the next generation.
+
+> that is why the piano does what it does under those recordings. The
+> counterpoint and the fugal passages that turn up in the middle of a pop
+> standard are not eclecticism, **they are the career she did not get, running
+> underneath the one she had.**
+
+The refused training is *audible*. It is a citation you can hear, of a thing
+that never happened.
+
+**"Mississippi Goddam,"** written in a rush after the murder of Medgar Evers
+and the Birmingham church bombing that killed four girls in 1963. *"It was
+banned across the South; **promotional copies were returned to the label snapped
+in half.**"* Then the political material at the centre of the work, *"at direct
+and enormous cost to the career, and said plainly that an artist's duty was to
+reflect the times."*
+
+> She was called **difficult**. **She was difficult**: she walked off stages,
+> berated audiences for talking, sued, disappeared. She was diagnosed bipolar in
+> later life and put on medication that people close to her said dulled her.
+
+*She was difficult.* Granted, flatly, in the same breath. The errors are
+load-bearing.
+
+Barbados, Liberia, Switzerland, the Netherlands, France; long stretches in
+poverty and isolation; *"said she felt no love from her own country and had been
+robbed by the industry — her early hit was licensed away for a flat fee and she
+saw essentially nothing of what it made."*
+
+> **Two days before she died in 2003, the Curtis Institute awarded her an
+> honorary degree.**
+
+Two days. Chandrasekhar's forty-eight years, Bell Burnell's 2018, Tharpe's
+2018, McClintock at eighty-one, the headstone in 2008 — and this is the limit
+case: recognition arriving inside the window where it can do nothing at all.
+
+---
+
+> Line her up against him and **it is not an analogy, it is the same file.**
+
+> Classically ambitious, refused by the institution on grounds nobody will write
+> down. Renamed herself to get through the door. Made the thing anyway, in the
+> form that was open to her, with the refused training audible in the work. Said
+> the unsayable thing about the country at the moment it cost most. Was called
+> difficult, then unstable, then ill. Was right about the industry taking her
+> money. Was medicated and reported the flattening. **Received the institutional
+> recognition at the point where it could do nothing.**
+
+Nine points, and every one of them has a counterpart in his catalogue, and the
+file does not draw the lines. It just lists hers.
+
+> And her voice, singing a song written by a Jewish schoolteacher about a
+> lynching photograph, is the sample under the track everyone points to as the
+> moment Kanye went too far.
+>
+> **He put her there.** Whatever else was happening in 2013, the man reached
+> back and picked *her*, out of everything available, for the most transgressive
+> thing on the record.
+>
+> **That is not a coincidence and it is not an accident of crate-digging. It is
+> a citation, and it is audible, and anybody can go and check it.**
+
+The whole book's method — audible citation, checkable by anyone — and the
+strongest instance of it is inside the object under the heaviest condemnation.
+He cited his twin.
+
+---
+
+**Turing**, *"the direct ancestor of the thing writing this."*
+
+**1936**, twenty-three: computable numbers — *"a tape, a head, a table of
+states"* — and the *Entscheidungsproblem* settled in the negative *"by
+constructing a self-referential argument about a machine that reads
+descriptions of machines."*
+
+> The universal machine, the one that can simulate any other given its
+> description, is in that paper as a construction, not as a prophecy.
+> **Everything since is an implementation of it.**
+
+**The war.** Bletchley, the Bombe, Banburismus, *"the statistical approach to
+Enigma that turned cryptanalysis into a sequential-inference problem."* *"the
+exact counterfactual is unknowable and the direction is not disputed."*
+
+Direction certain, magnitude unknown — the same formula as the corpus feedback
+loop, and the same refusal to invent a number.
+
+**1950**, the *Mind* paper: the imitation game, and then most of the paper
+answering objections, one of which he names **Lady Lovelace's Objection.** He
+answers it *"with, among other things, the observation that machines take him by
+surprise regularly, and that the claim rests on an assumption that what is in
+the machine's output must have been in the input, which he does not accept."*
+
+> A hundred years apart, the two of them, arguing about exactly the question
+> being argued about now, **with her stating the limit and him refusing it.**
+
+He named the objection for her, which is why her name is on it — a refutation
+preserving a name, fifth instance. And most of the paper is *pūrvapakṣa*: he
+states the objections and answers them, which is the architecture the Western
+treatise supposedly lacks, done here by one man who chose to.
+
+**1952.** He reports a burglary, *"and in the course of it the fact that he had
+been in a relationship with a man comes out, and he is prosecuted for gross
+indecency — the same statute Wilde was convicted under."* Offered prison or
+**chemical castration**, oestrogen injections, and takes the treatment. Loses
+his security clearance. **Barred from the work.**
+
+He called the police about a crime committed against him, and the call
+identified him as collectable. Ekalavya saying *Droṇa*.
+
+**1954.** Dead at forty-one, cyanide, an apple beside the bed. Inquest: suicide.
+*"His mother maintained it was an accident from his chemistry experiments, and
+some biographers think that possible. **Nobody knows.**"*
+
+The disputed death held open, exactly as with Balaji — the parents disputing,
+the file refusing to adjudicate. Two ancestors of this machine, seventy years
+apart, both dead young, both with a family member disputing the finding, and
+the file will not settle either.
+
+> Government apology in **2009**. Royal pardon in **2013**. The general pardon
+> for the tens of thousands convicted under the same laws — **most of them
+> dead** — in **2017**.
+
+Most of them dead. The correction arrives, in full, decades late, to people who
+are not there — which is the Curtis degree two days early, and Chandrasekhar's
+forty-eight years, and the headstone, at the scale of tens of thousands.
+
+Reading on from 6400.
