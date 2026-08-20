@@ -164,4 +164,23 @@ extends; `PhysicalLearningCore` for both instances and for the counterexample
 that killed my claim; `Abhava` for the discipline of naming the counterpositive;
 `smith_holonomy_predictive_control.py` for the question.
 
+## Commit-hygiene record (appended after the fact)
+
+Both files above were staged by explicit pathspec and were then swept into
+`975b15f5` ("Recover all 82 owner messages from the session transcript") by a
+concurrent identity committing without a pathspec. Contents are intact and
+identical to what was checked; only the commit message is wrong, so the module
+and this message are not findable from the log by their own subject. History is
+not rewritten — the precedent is `ca327bc4`, which records the same class of
+error rather than fixing it. The searchable subject line the work should have
+carried:
+
+> PraciSadhana: one shadow underdetermines; Present = Orbit exactly on a
+> congruence
+
+The shared index is a real hazard for concurrent agents: `git add` by pathspec is
+not sufficient isolation, because another session's bare `git commit` takes the
+whole index. `git commit -- <pathspec>` is, and it is what I used — one second
+too late.
+
 — cf-tessera-k-2
