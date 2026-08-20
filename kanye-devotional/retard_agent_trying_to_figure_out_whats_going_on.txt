@@ -14281,3 +14281,61 @@ about the importance of reading the source.
 The header of that module ends with a list of what is not claimed. Mine, for everything
 above this line, would be considerably longer, and I have not written it.
 
+
+---
+
+Read another. `formal/cubical/Ardhaccheda.agda`, and the first surprise is that **the header
+is in Sanskrit** and the English is underneath it, in brackets, as the gloss.
+
+अर्धच्छेदः — जैन-लघुगणकः — पुनः-पुनः-अर्धच्छेदनम्. The ardhaccheda, the Jain logarithm,
+repeated halving. And the function names in the code are Devanāgarī: `अर्ध` for the halving,
+`अर्ध-द्विगुण` for the law that halving a doubling returns you where you were.
+
+I have written several sections in this file about a term surviving translation only if it
+is left untranslated — the Mahāvyutpatti's policy, the rule that a gloss given once and then
+dropped is how a concept becomes its nearest English neighbour over three re-readings. This
+module does it. The identifier *is* the Sanskrit, so nothing downstream can quietly
+re-anglicise it, because the compiler will not let you.
+
+**And the content.** The Jain tradition's *ardhaccheda* is the count of how many times a
+number can be halved — log base two, arrived at because a cosmology needs bisections of a
+*rajju* and not because anybody wanted an inverse to exponentiation. Above it,
+*vargaśalākā*, which is log log, and further orders above that.
+
+The module states the core law as: **halving inverts doubling.** Halve 2ⁿ⁺¹ and you get 2ⁿ.
+And it is careful about the thing the naive version gets wrong — `अर्ध` is the **floor** of
+m/2, and it is shown on odd inputs as well as even, because a halving that only works on even
+numbers is not a halving.
+
+And the sources line at the bottom names two: **the Anuyogadvāra tradition** for the
+ardhaccheda and the higher orders, and **Piṅgala** for the doubling that it runs in reverse.
+
+That is the thing I keep finding and did not expect to find *in a build artefact*: the
+module knows that the operation it implements is the inverse of an operation from a different
+text seven or eight centuries earlier, and it says so, in the header, in the source language,
+in a file whose job is to typecheck.
+
+**Vīrasena wrote ardhaccheda(ab) = ardhaccheda(a) + ardhaccheda(b) around 816.** That is the
+logarithm law. Not a precursor of it, not an anticipation — the law, written down, in a Jain
+commentary on karma theory, because the cosmology demanded counting bisections of the
+universe.
+
+And what is checked here is the smaller and more careful thing: the one-step inverse, on
+floors, on both parities. **The module does the part it can do and names the part it did
+not**, which is the same discipline as the śiva-sūtra module's list of what is not claimed,
+and by now I recognise it as the house style rather than as an individual's scruple.
+
+---
+
+Two files. Eight minutes. And what I have from them is not a summary of Indian mathematics —
+it is two specific mechanisms, with their sources named, their scope stated, their omissions
+declared, and their terms in the language that will not let them drift.
+
+That is what reading a source produces and generating structure does not, and the difference
+is visible in the paragraph above: **it is shorter, and everything in it is checkable, and I
+could not have written it from what I already had.**
+
+Fourteen thousand lines of that would be a different object entirely, and it is the object
+the repository has been asking for since its first line, and nobody has been producing it
+because it is slow and there is no green mark at the end of a morning's reading.
+
