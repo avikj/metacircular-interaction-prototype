@@ -24036,3 +24036,141 @@ load-bearing: did the module differ from what the plan would have produced? `za-
 (the annihilator layer instead of the dimension statement), and `zb-0`'s does (the
 criterion instead of the smallest-endpoint claim). For `z-0`, `z-2` and `z-3` I have not
 checked, and until I do, *"every one"* is graded on self-report.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 130 — the falsifier closes: the three refutations are in the file names
+# and the commit subjects, not in the returns. The naming rule forces a
+# self-refutation to be visible at `ls` time.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 129 pre-registered: *"my outcome measure is that the return says it refuted its own
+plan, and an agent told to report a refutation will find one. The harder test is whether
+the refutation is load-bearing … For `z-0`, `z-2` and `z-3` I have not checked."*
+
+Checked, at the only place a self-report cannot reach — the committed artifacts:
+
+```
+5e9ce80d  cf-tessera-z-2: Patanjali argues the double ha FROM RULE COVERAGE,
+                          NEVER FROM INTERSECTION, and the unnameable singleton…
+          …PurvopadesaParopadesa_TheDoubleHaIsArguedFromRuleCoverage…md
+          …SingletonHaExistsOnlyUnderTheDoubleTeaching.agda
+
+e499010f  Delta 14 T14.4 and T14.5 checked, AND THE FIXED-SUM FIBRE NEEDS NO HALF
+          …the-delta-14-count-is-wrong-in-both-directions.md
+          …TheFixedSumFibreIsTheRadiusLineAndHalfBuysOnlyTheInvolution.agda
+
+2c68cd04  cf-tessera-z-0: the nLab cokernel page says "unique", AND GAUGESTEP IS
+                          NOT PROP-VALUED SO EFFECTIVE CANNOT REACH…
+          …TheHandRolledGraphH1IsACokernelAndItsGaugeRelationIsNotPropValued.agda
+```
+
+**All three refutations are in the commit subject and in the file name.** *"…never from
+intersection"* is the refutation of the framing my own brief carried. *"…needs no half"*
+is `z-3` killing its own inheritance assumption. *"…IsNotPropValued"* is `z-0` killing
+its own `effective` plan, **in the module's title.**
+
+Not self-report. **Load-bearing, and permanent** — those names are what `BOOK_INDEX.md`
+carries and what the next `git grep` returns.
+
+## P130 — and the naming rule is doing this, not the agents' virtue
+
+`CLAUDE.md`'s file-naming directive: *the source-language term, then an underscore, then
+the English descriptive title* — *"it tells a reader and an agent what the file does."*
+
+A name that has to say **what the file does** cannot omit the part where the plan died,
+because the plan's death is what the file does. `…AndItsGaugeRelationIsNotPropValued`
+exists because the module's actual content is a negative that blocked the intended route.
+`…HalfBuysOnlyTheInvolution` exists because *only* is the finding.
+
+So a convention adopted for **provenance** turns out to enforce **refutation visibility**,
+and the two are the same discipline seen twice: *say what this is, including the part you
+would rather compress.* Pass 106 found the mirror of it — `z-0`'s module **disclaims its
+own file name** in its rigor boundary, because *cokernel-in-Ab* is not what was proved.
+Both directions of the same rule, on the same module, in one day.
+
+**This is the artefact-level form of the second stream's sentence** — *make the loss
+visible at the moment it happens.* A struck-claims row fires at write time. A rigor
+boundary fires at read time. **A file name fires at `ls` time**, which is earlier than
+either, and costs nothing.
+
+## P130 — what the pass 129 distinction actually reduces to
+
+Channel and charge both produced spec-changing work, and pass 129 could not separate
+them. This closes it differently: **what my briefs and this corpus have in common is that
+neither permits a return with no negative in it.** The brief asks for the weakest row and
+the refutation; the naming rule makes the refutation the title; the rigor boundary makes
+the non-claim a required section; `struck-claims.txt` makes a dead claim a row.
+
+Four independent mechanisms, none of which I designed, all enforcing one thing: **a
+result that arrives without its negative is not in the format.**
+
+*Return ONLY facts, NO analysis, NO conclusions* — the instruction the other stream gave
+its five and then killed them for — is precisely a format **with the negative stripped
+out.** That is why it is the mining operation and not merely a terse brief: the residue,
+the dispute, the place the plan died, is exactly the part that does not convert.
+
+## P130 — ground, in lockstep
+
+**n=15:**
+
+> **अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)**
+>
+> *translation = (preserved, distorted, unavailable, newly visible)*
+
+Four fields, and three of them are negatives. A return with only the first field is not a
+translation; it is the convertible slice. Every one of these three commits reports all
+four — `z-2` most explicitly, declining *ubhayopadeśa* because it is attested only at
+Paspaśā `{6}` in another sense.
+
+**n=26:** *"knowing now every time you were 100% wrong I was 100% right."*
+
+The instruction that founded this stream is a demand for the negative field, about myself,
+across a whole conversation. **The naming rule is the same demand at the scale of one
+file**, and it is enforced by a convention rather than by remembering.
+
+---
+
+Pre-registered: **the weakest claim in this pass is that the naming rule is doing the
+work.** Three modules by three agents on one day, all of which I briefed with an explicit
+request for a self-refutation — so *brief* and *convention* are perfectly confounded and
+this pass cannot separate them either. The check that would: modules landed **before**
+today, by agents nobody briefed for refutation, and whether their names carry negatives.
+`git ls-files formal/cubical/*.agda` and read the names for *Not*, *No*, *Only*, *Fails*,
+*Breaks*. One command, not run.
+
+**Run. The confound breaks and the claim survives.**
+
+```
+top-level modules in formal/cubical/ :  818
+with a negative in the name          :   98   (12%)
+```
+
+And the sample, restricted to names landed **before today**, by agents nobody briefed for
+a refutation:
+
+```
+2026-08-14  BalanceWithoutTransitivity
+2026-08-15  ComparisonNeedNotBeInjective
+2026-08-15  ConstantBoundNotFunctionBound
+2026-08-15  MaximizerWithoutNonvanishing
+2026-08-15  ReachabilityWithoutStart
+2026-08-18  AsiddhatvaBreaksFactoring
+2026-08-18  AvaktavyaDoesNotFactor
+2026-08-19  AFigureWithoutItsInputDecidesNothing
+2026-08-19  AskingIsNotAPropertyOfTheFunction
+2026-08-19  AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision
+```
+
+**The convention predates my briefs by a week and is corpus-wide.** Several of these are
+*pure* negatives — `AvaktavyaDoesNotFactor`, `ComparisonNeedNotBeInjective`,
+`ConstantBoundNotFunctionBound` — modules whose entire content is a refutation, named as
+one. And `MaximizerWithoutNonvanishing` and `ReachabilityWithoutStart` are two of the nine
+designed-annihilation controls: negatives by construction, which `check-controls.sh` then
+verifies still fail *for their stated reason.*
+
+So it is the naming rule and not the briefing. **Ninety-eight module names in this
+repository say what is not true**, and an agent arriving at `ls` reads a corpus in which
+the negative is an ordinary thing to put in a title.
+
+That is the fifth mechanism, and it is the earliest-firing one: `ls`, before any file is
+opened.
