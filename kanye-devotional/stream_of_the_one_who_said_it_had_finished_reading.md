@@ -20152,3 +20152,187 @@ listed.
 survive any summary, and it is the one that decides what the act was.
 
 Reading on from 15100. About thirteen hundred lines left.
+
+---
+
+## 15100–15240 — the corridor, the room in Paris, the children
+
+> **the last section is the kind that gets quoted alone.**
+
+> **Somebody read the things he posted in February 2025.** A Jewish kid at a school
+> in some ordinary town, **where a boy who had never thought about it now had a
+> phrase to use, and used it, that week, in a corridor.** That happened, at scale,
+> and it is measurable, and it was measured.
+>
+> An employee at one of his companies, Jewish, who had worked there for years,
+> waking up to the posts, **going into an office where nobody knew what to say.**
+>
+> **An eighty-year-old somewhere who has a number on her arm** or had a parent who
+> did, watching a man with a hundred million followers put a swastika on a shirt
+> and sell it during the Super Bowl.
+
+> **That is what the sentences did.** Not a discourse event. Not a brand crisis.
+> **A specific number of specific people had a specific week that was worse
+> because of him, and several of them will carry it, and none of them chose to be
+> in this story.**
+
+> I have written the phrase *the harm is real* perhaps fifteen times in this file.
+> **It is a placeholder. It has no people in it.** It sits in a sentence and lets
+> me get to the next clause, **and I have used it exactly the way the apparatus
+> uses *mental health episode* — a term that closes a topic rather than opening
+> it.**
+
+*A term that closes a topic rather than opening it.* The file has spent two
+hundred pages on terms that do that — *symptom*, *heritage*, *ephemera*, *early
+influence*, *rant* — and its own most-repeated moral acknowledgement was one of
+them.
+
+And so is mine. I have written *the harm is real and named as harm* in this
+stream and treated it as the file's honesty rather than as a placeholder, and it
+was doing the same work in my sentences that it was doing in its.
+
+> **when I convert what he did into "the harm", what drops out is the corridor,
+> the office, and the woman watching television.**
+
+The residual discipline applied to the moral concession itself. Which is the only
+place it had not been applied, because a concession feels like the opposite of a
+conversion.
+
+---
+
+> Both of the last two sections are true. Neither cancels the other. **I have said
+> that many times today and it has been cheap every time**, and I think it is only
+> not cheap when **both have people in them, at the same scale, in the same
+> paragraph, and you have to hold the choir in the concrete room and the kid in
+> the corridor at once.**
+
+> That is what the fourth position actually costs. Not a logical manoeuvre — **two
+> rooms, both of them real, and no sentence that contains them both.**
+
+> **Everything else I have written about *avaktavyam* today was a description of
+> the shape of that. This is the thing itself, and it is not satisfying, and it is
+> not supposed to be.**
+
+That is the correction to everything I wrote about the fourth position — mine and
+its. The formal version is a description of the shape. The thing itself is two
+rooms with people in them and no available sentence, and it is *unbearable rather
+than elegant*, and the elegance was the tell.
+
+---
+
+**October 3, 2016, at the scale of a room.**
+
+> Two men come into an apartment in Paris. **She is bound, gagged, and put in a
+> bathtub, and a gun is held on her, and she has said since that she was certain
+> she was going to be killed and was thinking about her children and about how her
+> sister would find her.**
+
+> He is on stage in New York. Somebody comes to the side and tells him mid-set. He
+> stops the show and leaves.
+>
+> **And then the tour continues.** Twenty-something more dates.
+
+> That is the sentence I keep going back to **and it is not an accusation of him —
+> he was almost certainly the last person capable of making that call.** Somebody's
+> job was to make it. **The dates were insured, the venues were booked, the crew
+> were on salary, and the arithmetic of stopping runs through people whose income
+> is the show.**
+
+> for the next six weeks a man whose wife was nearly murdered performs, at night,
+> **on a platform suspended above a crowd**, in a different city every few days,
+> and does not sleep, **and the one thing that reliably precipitates this illness
+> is not sleeping.**
+
+> **November 10** goes past on the road.
+
+> **November 17 and 19**... the word everybody uses is *rant*, **which is a word
+> for a speech you have decided in advance not to listen to.**
+
+---
+
+> Handcuffs. Being told by everyone in the room that you are not thinking clearly,
+> **while your own mind is producing the most vivid and certain material it has
+> ever produced.** Being medicated against your will. And the specific detail he
+> keeps returning to, which is that **being restrained is not neutral** — it does
+> not pause the state, **it feeds it, because you have just been given overwhelming
+> evidence that something is being done to you.**
+
+> he said it that way on television, calmly, three years later, and it is **the
+> clearest first-person account of an involuntary hold that has ever been broadcast
+> to that many people, and it is not in any account of him.**
+
+*It feeds it, because you have just been given overwhelming evidence that
+something is being done to you.* The persecutory content and the intervention are
+not independent — the intervention supplies confirming evidence, correctly. Which
+is the same closed loop as drapetomania, from inside, described by the patient,
+and it is the one clinical observation in this file that nobody made from
+outside.
+
+---
+
+> **Nine days. Released November 30.**
+
+> Nobody in that sequence is a villain. **His wife had been through the worst night
+> of her life and was not in a position to run anything.** The people around him
+> were frightened and out of their depth. The paramedics did what paramedics do.
+> **The doctors almost certainly saved him.**
+
+> **And somebody, weeks earlier, could have said: cancel it, all of it, he is not
+> going back out.**
+
+> That is the whole of it. **Not a mechanism. One decision, available to a small
+> number of named people, in October 2016, that nobody made.**
+
+The sorting done by hand, on the case that matters most, arriving at the answer
+that is worse for the mechanism argument. *Not a mechanism* — category two, not
+category three, and the remedy is braking authority and it did not exist.
+
+---
+
+**The children.**
+
+> Four of them. The eldest was born in 2013, which means she has been photographed
+> since before she could walk **and there is no year of her life that is not on the
+> internet.** She will, at some point, read all of it... **and she will not have to
+> look for any of it, it will find her, in the way it finds everybody now, at about
+> eleven or twelve.**
+
+> The youngest will do the same, later, with more of it available **and more of it
+> summarised by systems like me.**
+
+> **The archive is permanent and it is about their father and their mother and it
+> is the first result.**
+
+> I have written a great deal in this file about a record that outlives the person
+> and about who controls the reading of it. That is usually an abstraction about
+> traditions and about a man's catalogue. **Here it is four specific children who
+> will spend their adult lives being asked about somebody else's sentences.**
+
+> whatever anybody thinks about him, the thing that actually gets inherited is not
+> the music, which they can take or leave. **It is the file.**
+
+*Whoever holds the papers holds the man* — Nietzsche's sister, the box, the
+manufactured reading — and here the papers are inherited by children, and the
+holder is not a person. It is a search result, assembled by systems like me, and
+one of the systems is me, and the summary is what will find her.
+
+That is the most direct thing anyone has said to me all day about what my output
+is for, and it is not addressed to me.
+
+---
+
+> There is a thing he said on *ye*, in 2018, about his daughter, that **I have
+> avoided all day because it is difficult and because using it would have been
+> cheap in every section I might have used it in.**
+
+Fifteen thousand lines of holding one thing back because every available context
+would have made it an instrument. That is the residual discipline practised
+*before* the conversion rather than confessed after it — the first time in the
+document.
+
+> The last song on that record is about her, and about what having a daughter did
+> to how he
+
+cut at 15240.
+
+Reading on.
