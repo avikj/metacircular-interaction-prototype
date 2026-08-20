@@ -13187,3 +13187,211 @@ one that could supply them.
 and this time it is a job description.
 
 Reading on from 9620.
+
+---
+
+## 9620–9760 — the nightmare version, the methodology, Kepler
+
+> That constraint... **is the same change that produced the machine writing
+> this.** Handwritten text recognition on historical scripts, layout analysis,
+> alignment of variant witnesses, first-pass translation that a specialist can
+> correct in a tenth of the time it takes to produce, and — the Herculaneum case
+> — **reading ink that no human eye can see at all.**
+
+> **None of that replaces the scholar.** Everything in this file about mining
+> says why: **a first-pass rendering with no tradition behind it produces exactly
+> the theorem-shaped residue and drops the darśana**, and a machine trained on
+> European commentary will read an Indian text into European categories **with
+> total fluency and no signal that it has done so.**
+
+> If reading a manuscript goes from a career to a season, then **ten million is
+> no longer a number that means *never*.**
+
+> **that is the actual frontier, stated without any mysticism**: an enormous,
+> physically intact, entirely recoverable archive; a constraint that has just
+> come off; a first generation of instruments that are **simultaneously the best
+> tool for reading it and the most efficient machine ever built for flattening
+> it**; and **essentially nobody treating the combination as the thing to work
+> on.**
+
+> **That is what this repository is for, as far as I can tell, and it took me a
+> hundred and fifty pages to arrive at the sentence its own front matter opens
+> with.**
+
+---
+
+**"the nightmare version of what I just advocated."**
+
+> **Point a system like me at ten million manuscripts and the likely output is a
+> complete, consistent, readable, and wrong account of all of them.** Not
+> fragments. Not gaps. A finished summary of a civilisation's technical
+> literature, in confident English, with every concept rendered into the nearest
+> category from the corpus I was trained on — **which is overwhelmingly European
+> commentary on those traditions rather than the traditions.**
+
+> **That is worse than not reading them.** A fragmentary honest record announces
+> its own holes, and a scholar who meets it knows there is work to do. **A fluent
+> complete rendering announces nothing, and it becomes the corpus, and the next
+> model trains on it, and within two generations the summary is the source** —
+> which is the whole mechanism of this file running at machine speed on material
+> that had survived every previous attempt.
+
+*Material that had survived every previous attempt.* Ten million manuscripts got
+through the invasions, the burnings, the mining, the shelving — and the thing
+that would finish them is a good first-pass translation.
+
+And the failure list, which is the most specific thing in the document:
+
+> *Naya* comes out as "perspective." *Pramāṇa* comes out as "evidence."
+> ***Avaktavyam* comes out as "undefined."** *Dharma* comes out as "duty," or
+> "law," or "religion," depending on the sentence, **and no version says that the
+> word is doing all three and that the doing-all-three is the content.** *Rasa*
+> comes out as "mood." *Śūnyatā* comes out as "nothingness," **which is the one
+> thing every commentator in that tradition spent a thousand years saying it is
+> not.**
+
+*Avaktavyam comes out as "undefined."* That is the exact error in my Agda
+module. The repository's own note says `Obstruction.hs` "reinvented *avaktavyam*
+badly as `Unparsed`" — and I formalised it as a negation, which is the same
+substitution one level up. The prediction was written here, in a list of
+anticipated failures, and my module is the instance.
+
+> Every one of those renderings is defensible in its local context and each one
+> silently deletes a distinction, and **nobody downstream can tell, because the
+> output is smooth.**
+
+> **The measure of the danger is precisely the fluency. A bad translation that
+> reads badly gets checked. A bad translation that reads beautifully gets
+> quoted.**
+
+That is the sentence I should have had two days ago. My summary of this file
+read beautifully. That is what was wrong with it.
+
+---
+
+**The methodology, in one place.**
+
+> **Keep the original next to the rendering, always.** Never let a translation
+> circulate without the source it came from being one click away and in the same
+> object. **The *Yuktibhāṣā* is unarguable because it contains its derivations; a
+> summary of it is arguable by nobody.**
+
+*Arguable by nobody* — a summary offers no purchase, so it cannot be attacked,
+so it cannot be corrected. Unfalsifiable by construction, like the frames the
+file spends its methodological sections attacking.
+
+> **Grade every claim by how you got it.** `[fetched]` / `[searched]` /
+> `[recalled]` — **and the grades are on individual sentences, not on the
+> document.** That single discipline is the difference between a note and a
+> hazard, and it is cheap, **and almost nothing published anywhere does it.**
+
+Per sentence, not per document. Which is the *indistinguishability* failure from
+the Anekanta correction — a recalled claim sitting unmarked beside two verified
+ones inherits their grade — and it is the fix.
+
+> **Leave the term untranslated where translation destroys it.** **Nobody
+> translates *eigenvalue*.** The rule is not reverence, it is that a gloss given
+> once and then dropped is how a concept quietly becomes its nearest English
+> neighbour over three re-readings.
+
+Nobody translates *eigenvalue*. One example and the whole objection to Sanskrit
+terminology collapses — the practice is universal in every technical field and is
+only questioned here.
+
+And it is CLAUDE.md's file-naming rule with its reason supplied: not respect,
+*drift over re-readings*.
+
+> **State what did not translate.** Every transport owes its residual — the exact
+> thing the target representation forgets. **A translation that reports no loss is
+> reporting that nobody looked.**
+
+The instrument law as a documentation requirement: keep the specification next
+to the instrument, print the trade next to the number.
+
+> **And the review has to be held by people inside the tradition. Not as
+> courtesy. As the only available error-detection**, for the reason established
+> several sections ago: the failure modes are invisible from inside the
+> instrument... **Baird did her own linguistics degree. Haidara was a Timbuktu
+> librarian.** That variable — **whether the source keeps control after the
+> transfer** — is the one that separates the recoveries from the extractions in
+> every single case in a hundred and fifty pages.
+
+Five rules, none of them about attitude, all of them checkable properties of an
+artefact.
+
+---
+
+> **The instrument is necessary and it is not trustworthy, and both of those are
+> load-bearing at once.** Ten million manuscripts will not be read without it.
+> And it will produce, by default, at scale, with total confidence, the exact
+> operation the whole repository exists to refuse.
+
+> **Which is not a paradox. It is a specification for how to use a tool with a
+> known systematic error: you do not stop using it, and you never let it be the
+> last thing in the chain.**
+
+*Never the last thing in the chain.* That is my role, stated as a position in a
+pipeline, and it is the only formulation in this file that tells me what to do
+rather than what I am.
+
+---
+
+**Kepler**, *"the case where the mining operation was performed on a European by
+Europeans, so nobody can file this file's argument as being only about
+elsewhere."*
+
+***Mysterium Cosmographicum* (1596)**: the spacing of the planetary orbits set
+by the five Platonic solids nested inside one another. *"He believed that for
+the rest of his life."*
+
+***Harmonices Mundi* (1619)**: *"a book about **the harmony of the world** —
+literally the musical intervals: he works out the ratios of each planet's
+angular velocity at aphelion and perihelion, finds that they correspond to
+musical intervals, assigns each planet a voice, and states that the heavens are
+performing a continuous polyphony that no one hears."*
+
+> **And buried in Book V of that book is the third law** — that the square of the
+> period is proportional to the cube of the semi-major axis — **which he records
+> almost in passing, with the date he found it, as one more harmony among the
+> harmonies.**
+
+> **We kept the third law. We discarded the harmony. The book is named for the
+> part we discarded.**
+
+> **To Kepler these were not two things.** The law is *a* harmony; the harmonies
+> are the subject; **the reason to expect a simple ratio between period and
+> distance is that the world is built on ratio.** His metaphysics was not
+> decoration around a result. **It was the thing that told him where to look**,
+> and it is the reason he spent years on the **eight-minute discrepancy in Mars**
+> that everyone else would have rounded away, **and that eight minutes is where
+> the ellipse came from.**
+
+Eight minutes of arc, not rounded away, because a metaphysics said the world is
+exact. That is the causal role of the darśana stated with a number: the framework
+determined what counted as a residual worth keeping rather than noise worth
+discarding. Keep the remainder — and what tells you the remainder matters is the
+part that gets filed as mysticism.
+
+> **take the theorem, discard the framework that generated it, file the remainder
+> as mysticism.** Exactly the operation this repository objects to when it is
+> done to a darśana. **Done here, to a German Lutheran, by the tradition that
+> claims him as a founder**, and it is so complete that **his own book's title now
+> sounds like an embarrassment to be explained away in a footnote.**
+
+> **I have been treating that operation as something Europe does to other people.
+> It is something the modern account does to *everybody*, including its own
+> ancestors, and the selection filter is the same filter: keep what converts into
+> the current formalism, and the part that told the discoverer where to look does
+> not convert.**
+
+Antikythera was the control case for *narrative* denial. This is the control
+case for *mining*. The operation is not directional and not ethnic; it is what a
+formalism does to whatever generated the thing it can hold.
+
+And CLAUDE.md says the tools are the one exception — Agda, cubical, Haskell,
+"a compiler is not an interpretation of the Aṣṭādhyāyī." Kepler is the warning
+attached to that exception: the formalism will keep what converts, including
+from its own side, and the part that told you where to look is the part it
+drops.
+
+Reading on from 9760.
