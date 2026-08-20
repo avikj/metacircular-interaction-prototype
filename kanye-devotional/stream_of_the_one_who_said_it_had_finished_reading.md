@@ -4941,3 +4941,212 @@ operation in the file: it does not require anyone to think less of it. The
 category does the work.
 
 Reading on from 3770.
+
+---
+
+## 3770–3910 — Landa, the quipu, Timbuktu
+
+**The I Ching** — 64 hexagrams, six binary lines, 2⁶. And Leibniz, who
+published on binary arithmetic in **1703**, *knew*: **Joachim Bouvet** in
+Beijing sent him the hexagram arrangement, *"and Leibniz saw his own binary in
+it and wrote about the correspondence."*
+
+> So even in the one case where the European inventor is genuinely an inventor,
+> he *knew* about a prior instance and said so, and **the tradition downstream
+> of him dropped the acknowledgment anyway.**
+
+The erasure happened *downstream of a correct citation by the person credited.*
+Not a failure of the original scholar. A loss in transmission — which is
+Kiparsky 1973 again, and Brigham's four-page retraction, and the 1967 ACM
+proposal. Four cases now where the correction existed and did not survive the
+channel. The channel is the thing.
+
+> Three independent cultures, working on prosody, on divination, and on
+> divination, all arrive at systematic enumeration of two-valued strings and
+> build addressing schemes over it.
+
+> Which suggests binary is not an invention at all. **It is what you get when a
+> finite mind has to name every element of an exponentially large set and
+> cannot write anything down.**
+
+Not "they all discovered it" — a *derivation from the constraint*. Three
+independent arrivals is the evidence, and the conclusion is about the problem,
+not about the peoples. That is how you use a convergence without flattering
+anyone, and it is the opposite of what I would have written.
+
+---
+
+**Diego de Landa, "the worst and best thing in the file."**
+
+**Maní, Yucatán, July 1562.** A Franciscan holds an auto-da-fé and burns the
+Maya books. *"His own account says they contained nothing but superstition and
+lies of the devil, that the people showed remarkable pain, and that he burned
+them all."*
+
+*The people showed remarkable pain* — recorded by the man doing it, in his own
+account, and it changed nothing.
+
+A writing system in continuous use for well over a thousand years, with
+astronomy, history and dynastic record, reduced to **four surviving codices.**
+*"Four. In the world. Named for the European cities they ended up in: Dresden,
+Madrid, Paris, and Grolier."*
+
+Named for where they ended up. The four survivors carry the names of their
+destinations.
+
+He also tortured people, was recalled to Spain to answer for it, **was
+acquitted, and came back as bishop.**
+
+> **And in Spain, defending himself, he wrote the *Relación de las cosas de
+> Yucatán*** — a detailed account of Maya life, calendar, ritual, and language,
+> including a section where he asks an informant to write the "letters" of the
+> Maya alphabet, and records what he gets.
+
+> He thought he was collecting an alphabet. He was actually collecting
+> **syllables**, because the script is largely syllabic, and his informant was
+> giving the sound of each Spanish letter-name as a Maya syllable. **So the
+> list is wrong in exactly the way that makes it useful once you know what it
+> is.**
+
+The informant answered the question correctly under the only reading available
+to him, and the mismatch between the question and the answer is what preserved
+the phonetic information. Landa recorded the residue of his own
+misunderstanding.
+
+**Yuri Knorozov.** Soviet linguist, Leningrad, working *from photographs and
+facsimiles* — never been to Mexico, would not go for decades — publishes in
+**1952** that the glyphs are **phonetic-syllabic**, using Landa's list read
+correctly as syllables. *"There is a story, probably tidied in the retelling,
+that he had rescued a copy of the codices from a Berlin library at the end of
+the war."*
+
+> The Western establishment rejected it for the better part of twenty years.
+> **J. Eric S. Thompson**, the dominant Mayanist in the English-speaking world,
+> held that the script was ideographic and not phonetic, and attacked
+> Knorozov's work — **and the attacks carried an explicit Cold War charge,
+> dismissing it as Marxist-Soviet ideology.** Thompson was enormously
+> distinguished and completely wrong on the central question, and his authority
+> held the field back a generation. **The decipherment did not really move
+> until after his death.**
+
+> **the man who burned the library wrote the key. The man who used the key was
+> dismissed because of where he was standing. And the field lost thirty years
+> to the judgement of its most eminent member.**
+
+> Every element of this file is in that one sequence.
+
+And it enumerates them: destruction by someone sincerely convinced he was doing
+good; a residue surviving inside the destroyer's own document (*"the way
+Jayadeva survives inside a quotation and the gnostics survive inside their
+prosecutor"*); a correct reading produced by an outsider from bad copies;
+institutional rejection on grounds that are not about the evidence; *"and
+decades of delay charged entirely to the people whose ancestors' writing it
+was."*
+
+The bet on the fragment — that hostile transmission preserves — has now been
+paid out three times: Jayadeva, the gnostics, the Landa alphabet. It is the
+file's only consolation and it is empirically supported.
+
+**The Rosetta Stone**, *"the same story with the sign flipped"*: trilingual
+decree, found by French soldiers in **1799**, taken by the British after
+Alexandria, **Champollion 1822** partly against Young's competing claim — *"and
+the stone itself has been in the British Museum ever since. The key to reading
+Egypt is in London."*
+
+---
+
+**The quipu, "the case where the readers were killed and it is *still*
+unread."**
+
+Cords hanging from a primary cord; knot types and positions encoding numbers in
+a **base-ten positional scheme**, with colour, ply direction, and attachment as
+further dimensions. *"The numerical ones are read."* And there are cords
+believed to be **narrative** — historical, genealogical, legal —
+
+> and those are not read, and may never be, because **the reading was a trained
+> profession, the *quipucamayocs*, and the colonial administration destroyed
+> the practice, with a formal order in the early 1580s to collect and burn them
+> as idolatrous.**
+
+*Roughly a thousand quipus survive in collections.* The readers *"were killed
+or forbidden or died out within a couple of generations, and the object is
+therefore a text with no surviving readers and no bilingual key. **There is no
+Rosetta for it and there may not be one.**"*
+
+> That is the actual worst case, and it is the honest end of the argument I
+> have been making all day. Most of this file is about knowledge that was
+> renamed, or delayed, or sat in a box for sixty years, or was recovered when a
+> jar broke. **Those all have happy endings by comparison.** The quipu is the
+> case where the erasure worked, and what it looks like from here is a shelf of
+> beautiful objects nobody can read, **and no way to estimate what was in
+> them.**
+
+*No way to estimate what was in them.* Same refusal as the vindicated-sample
+correction: the size of the loss is not knowable from here, and it will not be
+given a number. Third time the file declines to estimate an unobservable, and
+each time that refusal is the load-bearing part.
+
+And it destroys its own consolation. The objects survived, the destroyer's
+document does not help, the fragment does not carry the whole, because *the
+practice of reading was the missing half.* Sentences move, practices do not —
+and here the practice was the only key.
+
+---
+
+**Timbuktu, "the hopeful one and is recent enough that the people are alive."**
+
+The standing story that sub-Saharan Africa had no written scholarly tradition,
+falsified by **hundreds of thousands of manuscripts** — Arabic and African
+languages in Arabic script — astronomy, mathematics, medicine, jurisprudence,
+poetry, correspondence, contracts. *"Sixteenth-century Timbuktu had a scholarly
+economy — the Sankoré complex, teachers, copyists, a book trade."*
+
+**Ahmed Baba**: jurist and prolific author, deported to Marrakesh when Morocco
+invaded in **1591**, library seized — *"he said thousands of volumes, and said
+that his was the smallest among his family's."* And: *"He wrote against the
+enslavement of Muslims in the region while in that captivity."*
+
+Writing from captivity, again — Ibn al-Haytham under house arrest, Smart in the
+madhouse, Clare in the asylum, Ahmed Baba deported. Four.
+
+> The manuscripts survived because they were **private**. Family libraries, held
+> for generations, in houses, in trunks, in some cases buried, **precisely
+> because every government of the previous four hundred years had been a reason
+> to hide them.**
+
+Survival by dispersal and concealment. The opposite of the archive — and the
+reason is a four-hundred-year threat model.
+
+**2012.** Armed groups take northern Mali. **Abdel Kader Haidara**, a
+librarian, organises the evacuation: *"manuscripts packed into footlockers and
+rice sacks, moved out of the city in small quantities by families, on donkey
+carts, in taxis, down the Niger by boat past checkpoints, over months, to
+Bamako."* On the order of **350,000 manuscripts.** Some lost, some burned at
+the Ahmed Baba Institute, *"the great majority got out."*
+
+> They then began rotting in the humidity of the south, which is the unglamorous
+> second half that nobody films.
+
+It will not let the rescue be an ending.
+
+> I want that next to the quipu, because it is the same situation with a
+> different ending and the difference is **who was still there and still able to
+> act.** In the Andes the readers were destroyed and the objects survived
+> unreadable. In Mali the objects were threatened and the readers were alive
+> and organised and got them out on donkeys.
+
+> **The knowledge survives when the community that holds it survives, and every
+> strategy of preservation that routes around the community — the museum, the
+> digitisation, the scholarly edition — is a fallback for the case where that
+> has already failed.**
+
+That is the conclusion of the whole transmission argument and it indicts the
+form this repository takes. A corpus is a digitisation. It is the fallback. It
+is what you build when the readers are gone or going — and the file has just
+demonstrated, with two cases, that the fallback does not work without them.
+
+Which is also why Mau breaking his own lineage rule was correct: he was
+preserving *readers*, not objects, and that is the only thing that has ever
+worked.
+
+Reading on from 3910.
