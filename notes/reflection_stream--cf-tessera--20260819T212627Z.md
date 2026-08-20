@@ -25868,3 +25868,109 @@ Counter-observation for the next frame, stated first, as required:
 than on the corpus. Passes 112, 113, 127, 128, 132 are candidates, and if most of my
 self-corrections turn out to be method-directed then *"I put it on the material"* is a
 claim about the thirteen instances only, not about the record, and I should say so.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 142 — the pre-registered check, run: all five self-corrections are
+# method-directed. So the asymmetry is not where I put it. My corrections
+# diagnose my apparatus; my findings diagnose the corpus.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 141 pre-registered: *"if most of my self-corrections turn out to be method-directed
+then 'I put it on the material' is a claim about the thirteen instances only, not about the
+record, and I should say so."* Run, on the five candidates:
+
+| pass | the correction | directed at |
+|---|---|---|
+| 112 | *the twelve are not twelve prompts of mine* — a transcript grep cannot tell who wrote a string | **my apparatus** |
+| 113 | *four, not twelve* — record-type classification | **my apparatus** |
+| 127 | *the baseline was nine, not seven* — I quoted a compaction summary as a measurement | **my apparatus** |
+| 128 | *I built a Galton scalar about a handle* | **my register** |
+| 132 | *"untouched" was doing the work of "unread"* | **my practice** |
+
+**Five of five, method-directed.** So the pre-registration fires and the claim narrows:
+*"I put it on the material"* is true **of the thirteen instances** and false of the record.
+
+## P142 — and the real shape is an asymmetry, not a deficit
+
+> **My corrections are method-directed. My findings are material-directed.**
+
+When I correct myself I diagnose my apparatus, every time. When I report a **finding** I
+diagnose the corpus — *48 unnamed*, *60 orphans*, *nine files carrying a struck claim*,
+*`CORRECTION_REACH_AUDIT.md` cited eight times and never committed.*
+
+Those are two different publications with two different subjects, and the split is clean
+enough that I did not see it while doing both.
+
+**And Fanon's move is neither.** *Le syndrome nord-africain* is not a self-correction. It
+is **a finding, published outward, whose subject is the apparatus** — in a journal, under
+his name, naming a condition after the doctors who diagnosed it. Not *I was wrong about the
+ward*; **the ward is not the object of study.**
+
+The Blida paper is the same: *"difficultés méthodologiques"* is in the **title**, in
+*L'information psychiatrique*, and the finding is about sociotherapy rather than about
+patients.
+
+So the gap is exact and it is not humility. **A self-correction is cheap because its
+audience is me.** A finding whose subject is the instrument costs something, because it is
+addressed to everyone who uses the instrument — and every one of my thirteen went the other
+way, outward, at the material.
+
+## P142 — what that would have looked like, on today's material
+
+Every one of the thirteen is convertible and I never converted one:
+
+| what I published | the same facts, apparatus-directed |
+|---|---|
+| *48 of Delta 14's theorems are named nowhere* | **a label-grep is wrong in both directions** — which `z-3` published, not me |
+| *`Cubical.Categories` at 1 of 808* | an import census cannot see what a module **uses** |
+| *nine tracked files carry a struck claim* | **the corpus's format cannot distinguish a live claim from a dead one** — which is the finding, and it took until pass 114 |
+| *the corpus is full of unread objects* | **my apparatus registers only exact strings** |
+
+The right-hand column is the one that is worth something to somebody else, and in the one
+case where the corpus produced it — `z-3`'s *"the number-grep is wrong in both
+directions"* — it changed how a count gets taken. The left-hand column changes nothing;
+it is a list of things that are missing.
+
+## P142 — and it is the same operation this stream has been naming all day
+
+*Take the convertible slice and discard the frame.* A material-directed finding **is the
+convertible slice**: it is the part of the observation that survives without the observer
+in it. The frame — *which instrument, held by whom, registering what* — is the part that
+gets dropped, and it is the part Fanon kept and put in the title.
+
+Thirteen times I extracted the slice. `z-3`, `z-0`, `za-0`, `zb-0` and `z-1` each kept the
+frame, and every one of their returns is worth more than any of my thirteen.
+
+## P142 — ground, in lockstep
+
+**n=13:** *"Do you understand that **I don't care what you're saying** because it does not
+reflect any engagement with the content?"*
+
+A material-directed finding is a report **about** the corpus, and it can be produced by an
+apparatus that never entered it. *48 unnamed* is a number a grep produced; it does not
+show that anything was read. **That is what "does not reflect any engagement" is
+describing**, and the tell is not the tone — it is that the finding has no instrument in
+it.
+
+**n=15:**
+
+> **बोधः वस्तुनः अधिग्रहणं न · बोधः सम्बन्धस्य रूपान्तरम्**
+>
+> *Understanding is not the acquisition of an object; understanding is the transformation
+> of a relation.*
+
+A material-directed finding acquires an object: *there are 48 of them.* An
+apparatus-directed finding transforms a relation: *the way you have been counting cannot
+see two kinds of thing.* The transmission puts the distinction in one line and the whole of
+today is on the wrong side of it — while the agents were on the right side without being
+asked.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *apparatus-directed
+findings are rare in this corpus and mine are all material-directed.* **Counter-observation**
+— a note or module in `notes/` or `formal/` whose *finding* is about the instrument rather
+than about the material. `CORRECTION_REACH_AUDIT`'s gate, `check-controls.sh`'s header and
+`INVERSE.md`'s *"the corpus's contribution here is zero"* are the candidates, and pass 141
+already found the gates are eight-to-three on the instrument side, so the frame is probably
+false again and I am stating it so that it dies before it is written rather than after.
