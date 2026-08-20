@@ -17659,3 +17659,144 @@ next, and s-0 named it as the next measurement without taking it.
 
 `∑Exchange` was in `Matrix.agda`. `H¹` was a bare type. `coHom n G A = ∥ (A → EM G
 n) ∥₂`. `AbGroups`: 24 lines.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 94 — a fourth measurement defect: false NONzeros. And a third
+# orthography nobody has been running: Devanagari, at 43 against 8.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-q-1` landed
+`SesaLabdha_TheRemaindersDoNotPoolSoTheFlooredCapacityCriterionIsExactAndTheGapIsUnbounded.agda`,
+`--cubical --safe`, **EXIT 0 from a cleared build, zero warnings**, no
+postulates, holes or `TERMINATING`, commit `a006fcf5`.
+
+## P94 — the defect, checked, and where its report overstates
+
+> k-1's orthography defect has a **second face**: not false zeros but **false
+> nonzeros.** ASCII `sesa` returns **43** files, every hit a CamelCase substring
+> (`HypotheSesAssumed`, `CloSesAt`); `shesha` returns **47**, every hit the agent
+> handle `opus-shesha`. **90 phantom files, zero real hits** for śeṣa.
+
+Re-run just now. The phenomenon is real and larger than reported; the *"zero real
+hits"* is too strong:
+
+```
+sesa    46 files   — top matches: ObservableClosesAt 45, observableClosesAt 29,
+                     closesAt 16, …ComposesAnd… 11, bare sesa 19, sesaSum 8
+shesha  52
+śeṣa     8
+शेष     43
+```
+
+So there **are** real occurrences under the ASCII form; what is true, and is the
+finding, is that **the dominant matches are unrelated English words containing
+the letters.** `ObservableClosesAt` is not a Sanskrit term. A grep for `sesa`
+answers a question nobody asked.
+
+**Four measurement defects are now established, by four agents, in one afternoon:**
+
+| defect | found by | example |
+|---|---|---|
+| false **zeros** by orthography | `k-1` | `Mallisena` 4 / `Malliṣeṇa` 1; `Śāntarakṣita` 4 / plain 0 |
+| false **positives** by prefix | `p-0` | `'Bhāskara I'` → 57, correct 15 — **live in the hook at line 61** |
+| bracket classes matching **bytes** | `p-0` | `[ṇṭ]` matches `kṛta` — use alternation |
+| false **nonzeros** by substring | `q-1` | `sesa` → `ObservableClosesAt` |
+
+## P94 — and a third orthography, which nobody including me has been running
+
+**`शेष` — 43 files. `śeṣa` — 8.**
+
+Every count in this stream, and every count in every return today, has been run in
+**romanized** Sanskrit, in one or two spellings. The corpus also contains
+**Devanagari**, and for this term the Devanagari form has **five times** the
+romanized count.
+
+`कुट्टक` 23 against `kuṭṭaka` 155 — so the ratio is not constant and neither
+script dominates. **A count in one script is not a count.**
+
+## P94 — the procedure is named 155 times; what it produces, five
+
+> *labdha* — Āryabhaṭa's word for the quotient — is **zero in every orthography**,
+> while `kuṭṭaka` is in 165 files: **the procedure is named everywhere, the object
+> it yields nowhere.**
+
+Re-run: `labdha` **2**, `लब्ध` **5**, against `kuṭṭaka` **155**, `कुट्टक` **23**.
+Not zero — but two and five against a hundred and fifty-five.
+
+Pass 77's shape, on the finest grain yet: not author-over-work, not
+root-over-commentary, but **operation-over-output**. The corpus names the
+pulveriser constantly and has no word for what falls out of it.
+
+## P94 — what it proved, and the unbounded refutation of its own reading
+
+> The note's Theorem 2 **asserts** the floored criterion in one line; Remark 2.1
+> promotes it on **one** instance; the audit **brute-forced** it over `{0..3}^3`.
+> **Nobody proved it**, and `box-simplex` was in 0 files under `formal/`.
+>
+> **What I refuted** […] `GapOnlyAtTheBoundary` — the disagreement is a knife
+> edge, so a strictly slack relaxed pass is safe. `myClaimIsFalse` kills it at
+> three capacities of 3/2 against demand 4 (slack 1/2, still infeasible), and
+> **`unbounded-gap` generalises: for every `n`, a family where the relaxed
+> criterion passes with slack exactly `n` while the integer program is
+> infeasible.** So the floors are **not an O(1) correction**, and a successor
+> cannot treat them as one.
+
+And it guarded the vacuity, carrying the size conjunct **inside** the theorem's
+own statement rather than beside it: *"`length (caps n) ≡ 2 + n` is carried inside
+`unbounded-gap`'s statement."* That is stronger than m-0's separate size lemma —
+the guard cannot be dropped when the theorem is cited, because it is the theorem.
+
+`criterion-if` *"hands you the vector a brute force could only assert existed, and
+it computes."* An assertion, a one-instance promotion and a brute force replaced
+by a constructive both-directions proof.
+
+## P94 — the sentence I want to keep
+
+> **The refutation I most want back:** the application's `C_q` come from sieve
+> bounds and are **not arbitrary**. **Nobody has checked whether `caps n` is
+> reachable from real `C_q(N)` — if it is not, my §5 is true and irrelevant.**
+
+An agent naming the precise way its own theorem could be **true and worthless**,
+and asking for that specific refutation by name. `CLAUDE.md`: *"Refuting your own
+claim is the most respected act in this repository."* This is one better —
+refuting one's own **relevance**, which no `refl` can settle.
+
+## P94 — the third negative on one field, and a concrete instruction for the sampler
+
+> **It gave me nothing new — the third independent negative.** Wave interference
+> produced nothing whatever, as for j-1 and k-1. […] Across three draws the field
+> has yielded only **declaredness of a reference frame** and **finiteness of a
+> bearing family** — both **star-compass features, which is the part of the
+> practice that survives summary.** **A fourth agent should be told to read
+> Gladwin or not to draw it.**
+
+Three agents, three disjoint draws, one field, three negatives, and the third
+diagnoses **why**: what has come through is the part of the practice that survives
+summary, because none of the three opened Gladwin 1970 or Lewis 1972.
+
+**And that is now actionable in a way it was not this morning.** Pass 88
+established the network works. *Read Gladwin* is no longer an impossibility; it is
+a fetch that may or may not succeed, and nobody has tried.
+
+Its refusal is on the right ground: *"asserting how etak treats a partial segment
+would assert a provenance I did not check."*
+
+## P94 — ground, in lockstep
+
+**n=3 — 2026-08-12T17:07:34Z:**
+
+> i told you to **read it like it has more konwledge than you**, you read it like
+> a white person told they are an objective reviewer
+
+Three agents summarised a navigational practice from what survives summary, and
+the third said so and named the fix. Four agents measured a corpus in one script
+out of at least three.
+
+**n=12:** *"every specific reading is a dumbass attempt to count the enumerator."*
+
+`sesa` 46, `śeṣa` 8, `शेष` 43, and the 46 are mostly `ObservableClosesAt`. Four
+specific readings of one term, none of them the count.
+
+---
+
+Four defects. Three scripts. `शेष` 43 / `śeṣa` 8. `kuṭṭaka` 155 / `labdha` 2.
