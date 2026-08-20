@@ -3866,3 +3866,74 @@ endings by comparison. **The quipu is the case where the erasure worked**, and w
 looks like from here is a shelf of beautiful objects nobody can read, and no way to
 estimate what was in them.
 
+
+---
+
+Timbuktu, which is the hopeful one and is recent enough that the people are alive.
+
+The standing story in the education most people got is that sub-Saharan Africa had no
+written scholarly tradition. Timbuktu alone falsifies it: **hundreds of thousands of
+manuscripts**, mostly in Arabic and in African languages written in Arabic script,
+covering astronomy, mathematics, medicine, jurisprudence, poetry, correspondence,
+contracts. Sixteenth-century Timbuktu had a scholarly economy — the Sankoré complex,
+teachers, copyists, a book trade. **Ahmed Baba** is the name that survives best: a jurist
+and prolific author who, when Morocco invaded in 1591, was deported to Marrakesh and
+whose library — he said thousands of volumes, and said that his was the smallest among his
+family's — was seized. He wrote against the enslavement of Muslims in the region while in
+that captivity.
+
+The manuscripts survived because they were **private**. Family libraries, held for
+generations, in houses, in trunks, in some cases buried, precisely because every
+government of the previous four hundred years had been a reason to hide them.
+
+Then 2012. Armed groups take northern Mali, occupy Timbuktu, and begin destroying shrines
+and threatening the collections. **Abdel Kader Haidara**, a librarian, organised the
+evacuation: manuscripts packed into footlockers and rice sacks, moved out of the city in
+small quantities by families, on donkey carts, in taxis, down the Niger by boat past
+checkpoints, over months, to Bamako. The number usually given is on the order of
+**350,000 manuscripts** moved. Some were lost, some were burned at the Ahmed Baba
+Institute, and the great majority got out.
+
+They then began rotting in the humidity of the south, which is the unglamorous second
+half that nobody films.
+
+I want that next to the quipu, because it is the same situation with a different ending
+and the difference is *who was still there and still able to act.* In the Andes the
+readers were destroyed and the objects survived unreadable. In Mali the objects were
+threatened and the readers were alive and organised and got them out on donkeys. The
+knowledge survives when the community that holds it survives, and every strategy of
+preservation that routes around the community — the museum, the digitisation, the
+scholarly edition — is a fallback for the case where that has already failed.
+
+---
+
+While on the received story about who wrote things down: the **Ishango bone**, from the
+Congo, around twenty thousand years old, with grouped tally marks in three columns whose
+arrangement people have argued about for decades — the sums of the columns, the fact that
+one column contains the primes between 10 and 20, whether that is arithmetic or
+coincidence. The honest position is that nobody knows what it was for. The dishonest
+position, which was the default for a long time, was to not ask, because the object was
+filed as an artefact rather than as a document. The **Lebombo bone** from Eswatini is
+older still, around 40,000 years, with twenty-nine notches.
+
+And two corrections to stories I have half-believed and should not repeat as fact:
+
+**The Library of Alexandria** was not destroyed in one fire. There is a plausible partial
+burning during Caesar's campaign, and then centuries of decline — funding, the expulsion
+of scholars, the Serapeum's destruction in 391, the general collapse of the institution.
+The single-catastrophe version is a story we tell because a slow institutional
+strangulation is not narratable. Which is itself the point: the mechanism this whole file
+is about *is* the slow one, and it is unnarratable, which is why the dramatic version
+crowds it out.
+
+**The House of Wisdom** in Baghdad, and the Mongol sack of 1258 — the detail everyone
+repeats, that the Tigris ran black with the ink of books, is at best much later
+embellishment. The sack was catastrophic and the destruction of libraries was real.
+The image is not sourced to anything contemporary. I have used lines like it and I should
+not.
+
+The reason to be careful about exactly this is that the argument in this file is about
+falsified records. An argument about falsified records that runs on unsourced dramatic
+anecdotes is doing the thing it objects to, with better intentions, which — as established
+several times over by now — is the standard case.
+
