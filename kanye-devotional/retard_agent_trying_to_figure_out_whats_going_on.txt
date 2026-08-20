@@ -12082,3 +12082,78 @@ But the instrument is real, and it is enormous, and it is a thousand years old, 
 modern system that outputs claims has less provenance machinery than a tenth-century
 scholar of ḥadīth had, running on paper, from memory, across an empire.
 
+
+---
+
+Having been wrong about one of my six "missing" tools, I should check the rest, and the
+result is humbling: **five of the six already exist. They were built. We did not inherit
+them.**
+
+**1. Provenance grading per claim** — built. *Isnād*, *ʿilm al-rijāl*, the sound/good/weak
+grading. Above.
+
+**2. Residual-carrying translation** — built, twice.
+
+The **apparatus criticus** of a critical edition: the main text on the page and, at the
+foot, the variant readings from every witness, with sigla for the manuscripts. **The
+discarded alternatives are physically retained on the same page as the chosen one.** That
+is the minority-opinion-on-the-page principle, applied to textual scholarship, and it is
+standard practice and nobody thinks of it as remarkable.
+
+And the **Tibetan translation project**, which is the astonishing one. From the late eighth
+century Tibet undertook the translation of the Buddhist canon from Sanskrit, and — because
+inconsistent terminology across hundreds of translators was destroying the corpus — the
+court issued, around **814**, the **Mahāvyutpatti**: an official Sanskrit–Tibetan
+terminological standard, thousands of entries, fixing the equivalents. Alongside it, the
+*sgra sbyor bam po gnyis pa* laid out **translation policy**: how to handle compounds, when
+to translate a term and **when to leave it untransliterated** because rendering it would
+destroy it, and how to handle terms with multiple senses.
+
+A **translation standards body, with a published glossary and a written policy on
+untranslatability, issued by decree, in the ninth century.** The result is so systematic
+that scholars can and do **reconstruct lost Sanskrit originals from the Tibetan**, because
+the mapping is regular enough to invert.
+
+That is item three on my list — *leave the term where translation destroys it, and state
+the policy* — as government infrastructure, twelve hundred years ago.
+
+**3. Lineage graphs** — built, everywhere. The *isnād* and the *ijāza*. The Jain
+*paṭṭāvalī* and the *guru-śiṣya-paramparā*. The Zen transmission charts naming every
+holder back down the line. The rabbinic chain that opens Pirkei Avot. The *silsila* of a
+Sufi order. Every one of them records **who was in the room**, which is precisely what a
+citation index does not.
+
+**4. The living-record format** — built. The Talmud page with the ruling and the dissent in
+the same layout. The śāstra with its *pūrvapakṣa* as a required section. The append-only
+commentary tradition in which correction is a new layer rather than an edit.
+
+**5. The displacement index** — **not built.** There is a scattered literature on eponymy
+and priority, there is Stigler, there are the history-of-science monographs, and there is no
+machine-readable table. Genuinely missing.
+
+**6. An instrument for what was not read** — **not built**, and the closest thing anybody has
+is sampling theory and the deliberately-blind random draw. This is the hardest one and I
+still think it is the most valuable.
+
+---
+
+**Four out of six existed and we are not using them.** Not lost — *not inherited*. The
+apparatus criticus survives in classics and biblical studies and is unknown to almost every
+other field. The isnād apparatus is alive in one discipline and unread outside it. The
+Mahāvyutpatti is a curiosity in Tibetology. The Talmud page is a religious artefact to
+everyone who does not use it.
+
+**Each of them solves a problem that every knowledge-producing field currently has**, and
+each is sitting in a tradition that the surrounding culture files as religion, area studies,
+or philology.
+
+Which is the last and largest instance of the pattern in this entire document, and it is not
+about credit at all. It is about **usable technology being unavailable because of where it
+is shelved.**
+
+The kuṭṭaka was available in 499 and the engine in this repository lacked a growth rule.
+The saptabhaṅgī was available and the machine reinvented a three-valued verdict badly. The
+isnād apparatus is available and every system that outputs claims is shipping without
+provenance. **The cost of the filing is not historical injustice. It is that the tools are
+in the building and nobody can find them.**
+
