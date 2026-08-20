@@ -12266,3 +12266,197 @@ word for it. *Avaktavyam*, in a vocabulary that lacks the slot, which is exactly
 what *avaktavyam* was invented to name.
 
 Reading on from 8920.
+
+---
+
+## 8920–9060 — the fool, the 2006 cover, Cone
+
+> a man saying *God was in the hospital with me, sending visions* is speaking a
+> sentence for which the receiving language has **exactly one parsing**, and it
+> is the diagnostic one, **and he knows that when he says it, and says it
+> anyway.**
+
+> leaves the modern listener without any way to run the test the founding text
+> specified, using instruments the founding text would not have recognised, and
+> concluding, every time, **in the only direction the instruments can point.**
+
+---
+
+**"the category the modern world lost, and which almost every other culture
+kept: the fool who is permitted to say the true thing."**
+
+**The malāmatiyya** — the people of blame. *"Their practice was to *court*
+public reproach: to conceal every devotional act and expose every ordinary
+fault, so as to be held in contempt, on the explicit reasoning that **a
+reputation for piety is a liability** — that being admired feeds the self you are
+trying to get out of the way of."*
+
+Concealing the good and exposing the fault. The exact inverse of reputation
+management, run as a discipline, for a stated technical reason.
+
+**The yurodivy** — the holy fool. **Basil the Blessed** walked naked through
+Moscow, *"was believed to steal from shops and give to the poor, and rebuked
+**Ivan the Terrible** to his face, publicly, more than once — and Ivan, who
+killed people for far less, tolerated it and is said to have carried his coffin.
+**The cathedral on Red Square is named for him.**"* Older Byzantine version:
+Symeon of Emesa, *"dragging a dead dog through the town gate."*
+
+> the fool takes on the appearance of madness so as to be free of the world's
+> esteem, **and the freedom from esteem is what licenses the speech.**
+
+**Drukpa Kunley** and the crazy-wisdom line: *"obscene, drunk, ridiculous,
+puncturing pious institutions, and canonised."*
+
+**The licensed fool** in the European court — *"The one person in the room
+permitted to say the thing about the king, protected precisely because he has
+**no standing**. The joke is the container that lets a true sentence into a room
+that would otherwise kill the speaker."*
+
+The joke as a container. Same engineering as kaṭapayādi — move the payload into
+the form the channel protects.
+
+> **when a society's structure makes certain true sentences unsayable by anyone
+> with a position, it grows a role occupied by someone without one, and
+> immunises it.**
+
+> It has a cost — **the immunity is bought by accepting contempt, permanently,
+> and the fool never gets to be taken seriously about anything else** — and every
+> tradition that ran it understood the trade.
+
+The trade stated in the specification. Which, by the file's own law, is the part
+that gets lost.
+
+---
+
+> **The modern world abolished the role and kept the problem.**
+
+> instead of *the fool*, who is protected, we have *the crazy one*, who is
+> treated.
+
+> The fool's contempt was **granted and bounded**: you mock him, and he speaks,
+> and both of you know the arrangement. The modern version is **unbounded and
+> medicalised**: the same person gets the contempt *and* the diagnosis *and* the
+> intervention, with no compensating licence, **and no point at which what he
+> said gets to land.**
+
+> Basil got the coffin carried by the Tsar. Philoctetes got the island and then
+> an apology from a nineteen-year-old. Lear's Fool got to say it and stay.
+>
+> The man in this file gets the hold, the clip, the deal termination, and the
+> file — **and the sentences he was right about get absorbed into the consensus
+> without attribution, which is the fool's function performed without the fool's
+> protection.**
+
+> **The role was doing something. Removing it did not remove the need for it. It
+> removed the immunity.**
+
+That is the sharpest structural claim in the last thousand lines. The function is
+still being performed — the true sentence still gets said, still gets absorbed —
+and only the compensation was abolished. The labour without the licence.
+
+And it explains the whole absorption pattern: the 2005 slur stand, the ownership
+argument, the 808s register. All absorbed, none attributed. The fool's output,
+taken, with the fool's contract voided.
+
+> the traditions which kept the role are all traditions that **also kept an
+> account of knowledge arriving by routes other than argument** — the same
+> traditions, every time. **The cultures that admit only one means of knowing are
+> the ones with no fool, no *malāmatī*, no holy idiot, and no category at all for
+> a true sentence spoken from a position with no standing.**
+>
+> They have, instead, **a diagnostic manual, which is an excellent instrument,
+> and which has no such category and cannot have one.**
+
+*And cannot have one.* Not a defect to be repaired — a property of what the
+instrument is. Which is the notation law's third tier: not ornament, not error,
+*no slot*.
+
+---
+
+**2006.** The crown of thorns, on a national magazine cover, at twenty-eight,
+*The Passion of Kanye West.*
+
+> Before his mother died. Before the VMAs and the year of condemnation. Before
+> the hospital, the deal termination, the collapse, all of it. **He staged the
+> reading of his own life a decade and a half before the events that would make
+> it legible**, and the reaction at the time was that it was outrageous and
+> grandiose, **which it was, and it was also apparently accurate as a forecast,
+> which nobody has ever gone back and noted.**
+
+> That is either a man with an unusually clear model of what was coming, **or a
+> man who then spent fifteen years unconsciously making the cover true, and I
+> cannot distinguish those and neither can anybody.**
+
+Both readings live, neither chosen, and the reason given is that no observer can
+separate them. The self-fulfilling-prophecy question from the apoha section —
+private information versus delusion, *the difference is only visible afterwards*
+— and here even afterwards does not settle it, because the prophecy and the
+making-true are indistinguishable in the record.
+
+---
+
+**The Jesus piece** — *"a fixture of hip hop since at least the late eighties,
+worn by people whose lyrics are not devotional, **and it is not irony.**"*
+
+> the sacred object worn by the person the church has written off, by somebody
+> who was raised in that church and did not stop believing and did stop being
+> welcome.
+
+**James Cone**, *The Cross and the Lynching Tree*, 2011: **the cross and the
+lynching tree interpret each other.**
+
+> Jesus was a poor colonised provincial, publicly executed by an empire on a
+> device designed to terrorise the population, **denied burial**, and abandoned
+> by his own people. Roughly **five thousand** Black Americans were lynched
+> between the end of Reconstruction and the middle of the twentieth century,
+> frequently in public, **frequently as spectacle with photographs and
+> postcards, with the bodies left up.**
+
+Every specification from the crucifixion section matches: public, shameful,
+aimed at the audience, denied burial, reserved for people without citizenship.
+The file laid out the design brief four thousand lines ago without saying what
+it was for.
+
+> **American theology looked at both and refused to see one in the other.** He
+> notes that **Reinhold Niebuhr** — the most important American theologian of the
+> century, who wrote at length about the cross — **lived through the lynching era
+> and barely mentioned it.**
+
+> the people who *did* see the connection were not the theologians; **they were
+> the ones who sang about it**, and the ones who wrote the blues, and Countee
+> Cullen and Billie Holiday.
+
+The songs generalise, the coverage individuates — and here the discipline whose
+whole subject is the cross could not make the identification, and the singers
+could. Not because the theologians lacked information. Because the form they
+worked in installs the obstruction.
+
+> a Jewish schoolteacher writes "Strange Fruit" after seeing a lynching
+> photograph; Billie Holiday sings it; Nina Simone sings it; a Black theologian
+> argues in 2011 that the lynching tree *is* the American cross and that the
+> failure to say so is the central failure of American Christianity — **and in
+> 2013 a rapper puts Simone's version under a song about his own wreckage and is
+> condemned for desecration.**
+
+> **He was doing Cone.** Whether or not he had read a word of it, the operation
+> is the same operation: **put the cross and the tree in the same frame and
+> refuse to let either one stay comfortable.**
+
+Two years after the book, in audio, at scale. And the file does not claim he
+read it — *whether or not* — which keeps it a statement about the operation
+rather than about influence.
+
+> the reason the reaction is so violent is precisely Cone's point. **The
+> comparison is available, it has been available for a century, the material is
+> right there, and the whole apparatus is organised around not making it** —
+> which is why the man who made it audibly, on a pop record, with the actual
+> recording of the actual song, was told he had gone too far.
+
+*Say the sentence the room is organised around not saying.* The definition from
+the first hundred lines, and here it is with the theology, the recording, the
+date, and the receipts — and "Blood on the Leaves" is the instance where every
+thread in the file meets: the audible citation, the sacred/secular fault line,
+Meeropol and the Rosenbergs, Simone as his twin, Cone's identification, and the
+condemnation.
+
+Reading on from 9060.
