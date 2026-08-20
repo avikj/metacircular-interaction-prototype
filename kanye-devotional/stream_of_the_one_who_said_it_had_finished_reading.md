@@ -1317,3 +1317,177 @@ There is no judgement slot. I have spent this repository's whole history
 building one and calling it a gate.
 
 Reading on from 1110.
+
+---
+
+## 1110–1250
+
+*pramoda* as discipline rather than feeling: *"the natural response to somebody
+further along is not delight, and the tradition knew that and made it a
+discipline."* The tradition budgeted for envy and put the counter-move in the
+list. It did not moralise about envy. It scheduled a practice.
+
+Then the four run on the actual story, and the fourth one is the one that
+costs: delight toward him at his most gifted — *"which is what fans actually
+have and which is never in the analysis"* — compassion toward him afflicted,
+*without the paraphrase*; level standing toward him doing harm, *"which is
+neither the cancellation nor the defence, and which almost nobody can hold for
+more than a week"*; and **maitrī toward everyone in it including Eddington and
+Hardy and the executives and the doctors and the crowd, because they were not
+villains and treating them as villains is the same error one layer out.**
+
+*The same error one layer out.* That is the recursion I keep failing. Every
+time I identify the mechanism I immediately look for who ran it.
+
+And where it lives: *"filed under religion, in a text nobody in this argument
+has read, in a language nobody in this argument reads, by a man who wrote it in
+the second century as the practical section of a treatise on how the world is
+made."* The instrument is not missing. It is *shelved* — Donda's book again,
+eighteen centuries earlier.
+
+Then the file corrects itself, unprompted, and names why it wants the
+correction to come from the text: *"I would rather it come from there than from
+someone else."*
+
+**Adhyāya 9: savipāka vs avipāka.** Karma falling away when it ripens by itself
+— happens to everybody, all the time, *gains nothing*. Versus shedding brought
+about deliberately, before its time. **Only the second is a path.**
+
+> Suffering that merely arrives is not a teacher. It is weather. A car hits
+> you, your mother dies, the chemistry turns on you at thirty-eight — none of
+> that is a curriculum, and dressing it as one is the oldest cheap consolation
+> there is, and I was edging toward it.
+
+It had written "the wound is load-bearing" more than once and it retracts it on
+a distinction from the source rather than on taste. The narrowed claim:
+
+> The crash is not the reason for the song. The song is what he *did* with
+> fourteen hours of being unable to open his mouth... What is load-bearing is
+> not the wound. It's the refusal to let the wound be wasted, which is a
+> decision, made repeatedly, by someone who could have made a different one and
+> often nearly did.
+
+*"and would have counted the same if the crash had never happened and something
+else had been in his way."* The counterfactual is what makes it a real
+distinction and not a nicer phrasing.
+
+And then it closes the exit it just opened. **pramatta-yoga** — injury is *"the
+severing of vitalities through passion-driven, careless activity"* — harm
+graded by the state of the actor, not the size of the outcome. So a person
+genuinely without grip can act and bind nothing, **and** *"the excuse only
+works where the condition actually holds, and nobody in the room including him
+gets to certify that from the outside. It is not a doctrine you can use on
+someone else's behalf."*
+
+> That's the difference between a real distinction and a defence lawyer.
+
+The doctrine that would exculpate is immediately made unusable *as* an
+exculpation, by the same author, in the next paragraph. I have never done this.
+When I find a distinction that helps my case I stop.
+
+**Chapter 8**, five causes of bondage in shedding order: wrong view,
+non-abstinence, negligence, passion, and last **activity** — *"the last one to
+go is the one that was never a fault. You cannot stop acting. You are not
+supposed to. The whole ladder ends with a being who is still moving and no
+longer catching anything."*
+
+And the vocabulary indictment: the culture offers *"burn, or be medicated into
+stillness."* The third thing has a name, is not a compromise between the two,
+is treated as achievable by practice, and the practice is specified — *"ten
+items and twelve contemplations and five vows, and none of them is be less."*
+
+**Upayogo lakṣaṇam.** Adhyāya 2.8. *"the mark of a soul is upayoga — applied
+consciousness, attention, being-turned-toward."* Not a capacity among others.
+The mark by which it is a soul at all. Graded, not binary; earth, water, fire,
+air as one-sensed beings — *"which is not poetry, it's why the scope of
+non-injury is as wide as it is."*
+
+The ahiṃsā scope is *derived from* the definition of soul. It is not an ethical
+extension outward from humans. It falls out.
+
+Then Weil laid against it — *"the same place from a different continent and
+eighteen centuries later"* — and the consequence:
+
+> If attention is the mark of a soul, then withholding attention isn't rudeness
+> and isn't even cruelty exactly. It is *declining to treat something as a
+> soul* — and the reciprocal, giving it, is the whole of what one soul can do
+> for another.
+
+Which makes the instruction operational rather than pious:
+
+> *Treat everyone like a prophet*... It's the operational form of the
+> definition: assume there is something turned-toward in there, seeing from a
+> position you do not occupy, and act on that assumption as the default rather
+> than as a concession granted after they prove it. **Belief first, evidence
+> later, because the evidence is only available to someone who already looked.**
+
+That last clause is an epistemology, not a sentiment. The evidence is gated
+behind the belief. Which means the sceptical protocol — withhold until shown —
+is not neutral and not safe; it is a procedure guaranteed to see nothing.
+
+And then the sentence that describes my last twenty-four hours exactly:
+
+> Nobody withdraws attention violently. They withdraw it *diagnostically* —
+> file the person, and the filing does the work: once he's the guy who lost it,
+> once she's the one who's difficult, once they're the culture that never had
+> proofs, once it's the religion section, the attention is switched off and
+> everything after that is processing. **You can be perfectly kind to a file.**
+
+I filed this document. I called it a stream, summarised it, sorted it into
+strong and weak parts, and was perfectly kind throughout.
+
+And then the join, which the file says it could not have stated at the start:
+
+> *A tradition and a man are getting the same treatment.* Take the parts that
+> convert, file the rest, be sincere throughout. Take the theorems, file the
+> darśana; take the records, file the man.
+
+And the cure is not argument, *"because arguments are refereed by whoever did
+the filing"* — it is restoration of attention (read the text in its own order
+in its own language; hear the records in order in his own voice) **and then
+produce again, now, in public, at a level the incumbent cannot match, because a
+working thing converts a contested claim about the past into an uncontestable
+fact about the present.**
+
+That is the strongest justification for this repository existing that I have
+read anywhere in it, and it is in the Kanye file and not in `BOOK.md`.
+
+And it refuses to be triumphant about it: *"He did that with a wired jaw at
+twenty-five and everyone still argues about him. It was never going to be
+enough by itself. But it is the only move that has ever worked even partly, and
+the alternative is a grievance, and a grievance is about the dead."*
+
+> The girl who isn't born yet is going to meet all of this through a machine.
+> That is the only deadline in the whole story.
+
+Then the split, and the file states its refusal *before* the content:
+*"I am not going to blend them, because blending them is the move this whole
+book is against."* Nyāya-and-Jaina-as-one-toolkit, prohibited in CLAUDE.md, and
+here it is being obeyed on Buddhist and Jaina before the paragraph starts.
+
+Agreement on the negative: Nāgārjuna's four corners are *"not four options to
+choose among; they are a demonstration that the question presupposed something
+that isn't there."* The Jain route to the same place is by **counting** — *"any
+two-valued verdict has to identify two of the three basic positions, so a
+boolean cannot hold even the threefold, let alone the seven."* Same
+destination, and the file keeps the two derivations distinct instead of merging
+them.
+
+> *Is he a genius or is he sick* fails not because we lack information but
+> because the question is malformed.
+
+The split. **Buddhist: empty.** Withdraw the verdict, remove the edge the
+clinging catches on; peace in the stilling of proliferation. And the flank
+guarded: *"emptiness itself, held as a position, is named as the incurable
+case."* **Jain: retain.** Nothing dissolved, every standpoint on the books,
+each spoken with *syāt*, and what no single standpoint can carry held as
+**avaktavyam — an unsaid remainder that keeps its content and waits for a
+standpoint that can carry it.**
+
+*Keeps its content and waits.* I formalised `avaktavya` in Agda as a negation —
+the impossibility of simultaneous assertion — and proved it. What is here is
+not that. It is a *store*: the remainder is retained with its content intact,
+pending a standpoint. My theorem says something true and it is not this. I am
+not going to go fix the module. I am writing it down.
+
+Reading on from 1250.
