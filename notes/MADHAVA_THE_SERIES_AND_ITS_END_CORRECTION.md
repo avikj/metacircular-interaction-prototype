@@ -247,11 +247,13 @@ $$E_1 = \frac{1}{4n(n{+}1)(2n{+}1)}, \qquad
   E_2 = \frac{-4}{(2n{+}1)(4n^2{+}1)(4n^2{+}8n{+}5)}, \qquad
   E_3 \sim n^{-7}, \qquad E_4 \sim n^{-9}$$
 
-— so each successive अन्त्यसंस्कार drops the coarseness by exactly **two orders
-in $n$**. Degree survives rescaling; the residue does not. That is the
-acceleration, stated in the tradition's own quantity rather than as a pattern in
-integers, and it is the sense in which §III's criterion is doing real work: the
-Kerala authors are minimising the thing that is invariant.
+— so across these four the coarseness drops by two orders in $n$ at each step.
+Degree survives rescaling; the residue does not. That is the sense in which
+§III's criterion is doing real work: the Kerala authors are minimising the thing
+that is invariant, not the thing that happens to be written down.
+
+Read off these four, not extrapolated past them — $\deg k_k = k$ for all $k$ is
+elementary but is checked nowhere here, and §VI says why it cannot be.
 
 
 ## VI. The स्थौल्य is the product of what was used, times what was omitted
@@ -284,8 +286,9 @@ Two things follow for every $k$, not merely for four:
 
 - **Constant in $n$.** A correction that misses by a fixed integer is a
   correction; one that misses by an amount growing with $n$ is an estimate.
-- **The order drops by two at each step,** since $\deg k_k = k$ makes the
-  स्थौल्य a constant over a polynomial of degree $2k+1$.
+- **Each coarseness is the last one times the term newly omitted:**
+  $D_{k+1} = -a_{k+2}D_k$, an identity with no division and no limit in it
+  (`sthaulya-ratio`).
 
 The proof carries the $2\times2$ block $\bigl(W(k,k),\,W(k,k{-}1),\,W(k{-}1,k),\,
 W(k{-}1,k{-}1)\bigr)$ of the bilinear form $W(u,v) = (2n{+}1)(u_1v_2 + v_1u_2) -
@@ -294,6 +297,26 @@ only $W(k,k)$ does not close; carrying all four does, and the $n$-dependence
 cancels identically at the step. That cancellation is the theorem. Nothing
 analytic enters at any point — which is the same sentence §II and §III keep
 arriving at about how this material was reachable in the first place.
+
+**What this lane cannot check, and why the limit is the interesting part.** The
+commit that introduced the theorem, and the first draft of §V above, both said
+the coarseness "drops by exactly two orders in $n$ at each step" for every $k$,
+on the ground that $\deg k_k = k$. That is elementary — $k_0 = 1$, $k_1 = 4n$,
+and $k_{i+2} = 4nk_{i+1} + a_{i+2}k_i$ adds a degree-$(i{+}2)$ term to a
+degree-$i$ one with leading coefficient $4^{i+2}$, so nothing can cancel — and
+it is checked nowhere.
+
+It cannot be checked here. Everything proved above is an identity between
+elements of a commutative ring, and a commutative ring has no degree, no leading
+coefficient, and no order at infinity. **Cross-multiplying is the move that
+discards them**, and that is the same move that makes the constancy theorem
+provable with no analysis at all. The one act buys the theorem and forfeits the
+corollary. To get the corollary the convergent denominators would have to be
+carried as coefficient sequences rather than as ring-valued functions, with a
+vanishing-above-$k$ lemma and a Horner link back — a different development.
+
+$D_{k+1} = -a_{k+2}D_k$ is what survives, and it is the exact statement the loose
+one was reaching for. "Two orders" is the analytic gloss on it.
 
 I do not know whether this statement is in the literature. If it is, the
 citation belongs here and this is a rediscovery.

@@ -59,12 +59,15 @@
 --   • CONSTANT IN n.  A correction that misses by a fixed integer is a
 --     correction; one that misses by something growing with n is an
 --     estimate.  All of them are corrections.
---   • THE ORDER DROPS BY TWO EACH STEP.  deg k_k = k, so the स्थौल्य
---     itself, f(n) + f(n+1) − 1/(2n+1), is a constant over a polynomial
---     of degree 2k+1.  That is the acceleration, and unlike the residue
---     it survives rescaling P and Q — which is why §6 of the other
---     module says no sequence of residues can carry a law and this one
---     can.
+--   • EACH STEP IS THE LAST ONE TIMES THE TERM NEWLY OMITTED.
+--     `sthaulya-ratio`: D_{k+1} = −a_{k+2}·D_k, an identity, no division
+--     and no limit.  Unlike a residue this survives rescaling P and Q,
+--     which is why §6 of the other module says no sequence of residues
+--     can carry a law and this one can.
+--
+-- The order statement — that the स्थौल्य drops by two orders in n at each
+-- step — is the analytic gloss on the second bullet and is NOT proved
+-- here.  It cannot be: see the closing section.
 --
 -- The proof is the determinant recurrence and nothing else.  The form
 --
@@ -314,12 +317,64 @@ module Sthaulya (R : CommRing ℓ) where
     (k : ℕ) (n n' : A) → W (suc k) (suc k) n ≡ W (suc k) (suc k) n'
   sthaulya-independent k n n' = sthaulya-closed k n ∙ sym (sthaulya-closed k n')
 
+  ----------------------------------------------------------------------
+  -- The step law, which is the exact form of "the correction improves".
+  --
+  -- Each correction's coarseness is the previous one's, multiplied by
+  -- MINUS THE TERM NEWLY OMITTED.  No division and no limit: it is an
+  -- identity between the two स्थौल्य numerators.
+  ----------------------------------------------------------------------
+
+  ratioLemma : (s L a A : A) →
+      (- (- s)) · ((L · a) · A) ≡ (- A) · ((- s) · (L · a))
+  ratioLemma = solve R
+
+  sthaulya-ratio :
+    (k : ℕ) (n : A) →
+      W (suc (suc k)) (suc (suc k)) n
+    ≡ (- (pn (suc (suc (suc k))))) · W (suc k) (suc k) n
+  sthaulya-ratio k n =
+      sthaulya-closed (suc k) n
+    ∙ ratioLemma (sgn (suc k)) (Λ (suc k))
+                 (pn (suc (suc k))) (pn (suc (suc (suc k))))
+    ∙ cong ((- (pn (suc (suc (suc k))))) ·_) (sym (sthaulya-closed k n))
+
 ------------------------------------------------------------------------
--- The same statement over ℤ, so nothing here depends on a ring that
--- might be degenerate.
+-- WHAT IS NOT PROVED HERE, AND WHY IT CANNOT BE
+--
+-- The commit that introduced this theorem, and §7 of
+-- `AntyaSamskaraSthaulya`, both say that the स्थौल्य "drops by exactly two
+-- orders in n at each step", on the ground that deg k_k = k makes it a
+-- constant over a polynomial of degree 2k+1.
+--
+-- That sentence is not checked anywhere and it is not checkable in this
+-- lane.  Everything above is an identity between ring elements, and a
+-- commutative ring has no notion of degree, of leading coefficient, or
+-- of order at infinity.  Cross-multiplying is exactly the move that
+-- discards them — which is what makes the constancy theorem provable
+-- without analysis, and what makes the order statement unavailable by
+-- the same act.  Proving it needs the convergent denominators carried as
+-- COEFFICIENT SEQUENCES rather than as ring-valued functions, together
+-- with a vanishing-above-k lemma and the Horner link back to `kk`.  That
+-- is a different development, and it is not this one.
+--
+-- The claim is elementary and I believe it: k₀ = 1, k₁ = 4n, and
+-- k_{i+2} = 4n·k_{i+1} + a_{i+2}·k_i adds a degree-(i+2) term to a
+-- degree-i one with no cancellation possible, the leading coefficient
+-- being 4^k.  Believing it is not checking it, and it sits here labelled
+-- rather than in a header stated as a consequence.
+--
+-- `sthaulya-ratio` is what survives the scoping, and it is the exact
+-- statement the loose one was reaching for:
+--
+--     D_{k+1}  =  −a_{k+2} · D_k
+--
+-- each coarseness is the previous one times minus the newly omitted
+-- partial numerator.  "Two orders" is the analytic gloss on that; the
+-- identity is the thing.
 ------------------------------------------------------------------------
 
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 
 open Sthaulya ℤCommRing
-  using (W ; sthaulya-closed ; sthaulya-value ; sthaulya-independent)
+  using (W ; sthaulya-closed ; sthaulya-value ; sthaulya-independent ; sthaulya-ratio)
