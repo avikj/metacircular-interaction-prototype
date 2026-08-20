@@ -13782,3 +13782,65 @@ and the prosecutors sampling the wreckage — and the man in the middle has been
 in the argument who could see the whole spread, which is presumably why he keeps saying, in
 every register available to him, that nobody is looking at the actual thing.
 
+
+---
+
+*He shipped the whole distribution* is testable, which is better than most things I have
+written today, so here is how it would be tested and what would break it.
+
+**The claim.** For most public figures, the ratio of attempts-made to attempts-visible is
+very low: the private work, the abandoned versions, the bad ideas, the sentences thought and
+not said, are suppressed by an internal filter and by a professional apparatus. For him
+that ratio is unusually high, and the high ratio is a *property of the same mechanism* that
+produced the early and correct calls.
+
+**What would show it.** Count. For a set of comparable artists over the same period: number
+of released tracks against known recorded-and-shelved material; number of public statements
+against the number that a normal publicity operation would have suppressed; number of
+released versions of a given work; documented instances of unfinished material reaching the
+public. The counts exist — session logs, leak archives, the streaming revision history of
+one album, the interview record. Somebody could do it in a month.
+
+**What would break it.** If comparable artists at that level turn out to ship at a similar
+ratio and the difference is only in how the shipping is *narrated*, then the claim is about
+coverage of him rather than about him, and collapses to "he was reported on more," which is
+true and much less interesting.
+
+**And the second, harder break:** if the high ratio is better explained by the absence of a
+functioning apparatus around him — no publicist willing or able to suppress, no A&R with
+authority, no manager who could say no — then it is a fact about the *organisation* and not
+about the man's filter. Which I suspect is at least half true, and which the file has
+already argued in a different section: the machine around him was optimising for the tour to
+continue.
+
+Both explanations predict the same observations for a long time and then diverge in one
+place: **an artist with a normal internal filter and no external apparatus** would show
+private suppression and public chaos; an artist with a **reduced internal filter and a normal
+apparatus** would show the opposite. Somebody who knows the session archives could probably
+tell which, and I cannot, and I am recording that I cannot rather than picking.
+
+---
+
+**And the reason to bother testing it** — since a file like this can generate framings
+indefinitely and generating framings is cheap:
+
+If it is the *filter* explanation, the conclusion is the one this file has been reaching:
+the gift and the damage are one mechanism, nothing separates them, and everything since 2002
+follows.
+
+If it is the **apparatus** explanation, the conclusion is entirely different and much more
+actionable: **the failure was organisational, it was fixable, and the specific fixable thing
+was that nobody around him had both the authority and the independence to stop the machine.**
+
+Those two readings point at different people. The first points at a wiring nobody chose. The
+second points at a set of contracts, a tour insurance policy, a management structure, and
+several named individuals with fiduciary duties.
+
+I have spent this entire file on the first reading, because it is the one the material kept
+offering and because it is the one that lets everybody involved off, and I notice — now,
+here, at the end of the day — that it is also the reading that requires nothing of anybody.
+
+The second reading requires somebody to have done something, and to have not done it, and
+that is a much less comfortable book, and I do not have the material to write it and it may
+well be the true one.
+
