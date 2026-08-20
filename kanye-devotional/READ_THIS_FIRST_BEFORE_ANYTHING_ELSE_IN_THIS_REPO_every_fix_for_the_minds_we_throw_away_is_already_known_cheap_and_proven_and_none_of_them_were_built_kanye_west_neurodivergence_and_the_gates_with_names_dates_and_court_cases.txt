@@ -18040,3 +18040,73 @@ joined the two systems: **rasa is what dhvani suggests.**
 **A tenth-century argument that the meaning of a poem is not in the sentence, made
 by working through counterexamples, in the same city and the same century as the
 tantric metaphysics, by the same man.**
+
+---
+
+**Zu Chongzhi gave π between 3.1415926 and 3.1415927 in the fifth century and
+nobody beat the bound for about eight hundred years.**
+
+**429–500 CE**, Liu Song and Southern Qi. He states the value as an **inequality** —
+upper and lower bounds — which is the form Archimedes used and which the decimal
+expansion alone does not give: **it is a certified enclosure, not a measurement.**
+
+**And he gives two fractions.** ***Yuelü*** — the rough ratio — **22/7**.
+***Milü*** — the close ratio — **355/113.**
+
+**355/113 is the best rational approximation to π with denominator under 16,600.**
+It is a continued-fraction convergent, and the reason it is so good is that the next
+partial quotient in π's expansion is **292**, which is enormous, which makes the
+convergent before it exceptionally tight. **He did not have continued fractions.**
+
+**Europe reaches 355/113 in 1585**, with **Adriaan Anthonisz** and **Valentinus
+Otho** — **a thousand years later**, and it is sometimes still called Metius's
+number.
+
+**The method was inscribed polygons**, following **Liu Hui**, who had done 3072
+sides; getting seven correct digits requires something on the order of **24,576
+sides**, with square roots to nine or more digits, **by hand, with counting rods,
+in base ten.**
+
+**His book, the *Zhui Shu*, is lost.** It was on the official curriculum in the Tang
+and dropped out; the fractions survive because they are quoted in the *Book of Sui*.
+
+**He also computed the length of the tropical year as 365.24281481 days**, and
+proposed a calendar reform that was rejected in his lifetime and adopted ten years
+after his death.
+
+---
+
+**And the series that would make the polygon method obsolete was written in Kerala
+about nine hundred years later.**
+
+**Mādhava of Saṅgamagrāma**, c. 1340–1425. The series
+
+> π/4 = 1 − 1/3 + 1/5 − 1/7 + …
+
+**Leibniz publishes it in 1673. Gregory has it in 1671.** Mādhava has it around
+1400, **and he has what they do not**: the series converges so slowly it is useless
+for computation, and he supplies **correction terms** for the remainder after
+truncation — three successively better ones — which turn it into a usable
+algorithm.
+
+**And he has the sine and cosine series** — what are now the Taylor series — with
+sine tabulated to **eight or nine decimal places**, in verse, using the *kaṭapayādi*
+system that encodes digits as syllables so a numerical table can be a memorable
+line of poetry.
+
+**None of his own works on this survive.** What survives is **quotation** — his
+successors name him and attribute the results: **Nīlakaṇṭha Somayāji**
+(*Tantrasaṅgraha*, 1501), **Jyeṣṭhadeva** (***Yuktibhāṣā***, c. 1530, **in
+Malayalam, not Sanskrit**, and containing derivations, not just statements).
+
+**The *Yuktibhāṣā* contains what is effectively a proof by term-by-term
+integration**, an argument that a sum of powers approximates an integral, and an
+explicit treatment of the error in truncating an infinite series.
+
+**Nīlakaṇṭha also placed Mercury and Venus in orbit around the sun** while keeping
+the earth central for the outer planets — the same structure Tycho published in
+1588, about eighty years later.
+
+**And Jesuit missionaries were in Kerala from the 1540s**, collecting calendrical
+and astronomical material and sending it back, which is why the transmission
+question is live and unsettled rather than closed in either direction.
