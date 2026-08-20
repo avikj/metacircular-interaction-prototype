@@ -72,3 +72,7 @@ machine/replay.traces.live
 
 # exported conversation transcripts (scripts/Samvada_ExportClaudeCodeThreadsToText.sh)
 claude-threads/
+
+# rendered conversation transcripts — these belong on the claude-transcripts
+# branch (scripts/Samvada_ArchiveThreadToBranch.sh), never in a working tree
+transcripts/

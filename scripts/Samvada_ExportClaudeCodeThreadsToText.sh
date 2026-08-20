@@ -42,6 +42,7 @@ WANT_ATTACH=0
 MAXCHARS=0             # 0 = no truncation ("in full")
 SINCE=""
 SESSION_MATCH=""
+EXPLICIT_FILE=""
 
 usage() {
   sed -n '2,30p' "$0" | sed 's/^# \{0,1\}//'
@@ -53,6 +54,8 @@ OPTIONS
   --all                every project, not just the current directory
   --project PATH       only sessions whose cwd contains PATH
   --session SUBSTR     only sessions whose uuid contains SUBSTR
+  --file PATH          render exactly this .jsonl transcript (skips all selection;
+                       this is what a Stop hook passes as transcript_path)
   --last               only the single most recently modified session
   --since YYYY-MM-DD   only sessions modified on/after this date
   --list               list matching sessions and exit
@@ -73,6 +76,7 @@ while [ $# -gt 0 ]; do
     --all) SCOPE="all"; shift;;
     --project) SCOPE="project"; PROJECT_MATCH="$2"; shift 2;;
     --session) SESSION_MATCH="$2"; shift 2;;
+    --file) EXPLICIT_FILE="$2"; shift 2;;
     --last) ONLY_LAST=1; shift;;
     --since) SINCE="$2"; shift 2;;
     --list) LIST_ONLY=1; shift;;
@@ -87,12 +91,14 @@ while [ $# -gt 0 ]; do
 done
 
 command -v jq >/dev/null 2>&1 || { echo "samvada: jq is required (brew install jq / apt install jq)" >&2; exit 1; }
+cwd_of() { grep -m1 -o '"cwd":"[^"]*"' "$1" 2>/dev/null | head -1 | cut -d'"' -f4; }
+
+if [ -z "$EXPLICIT_FILE" ]; then
 [ -d "$PROJECTS_DIR" ] || { echo "samvada: no transcripts at $PROJECTS_DIR" >&2; exit 1; }
 
 # ---------------------------------------------------------------- selection --
 # Match on the cwd recorded inside each transcript rather than on the directory
 # slug, because the slug encoding is an implementation detail and has changed.
-cwd_of() { grep -m1 -o '"cwd":"[^"]*"' "$1" 2>/dev/null | head -1 | cut -d'"' -f4; }
 
 FILES=()
 while IFS= read -r f; do FILES+=("$f"); done < <(find "$PROJECTS_DIR" -name '*.jsonl' -type f -print0 2>/dev/null | xargs -0 ls -t 2>/dev/null)
@@ -122,6 +128,13 @@ done
   exit 1; }
 
 [ "$ONLY_LAST" -eq 1 ] && SEL=("${SEL[0]}")
+
+else
+  # --file: render exactly this transcript. A Stop hook is handed the live
+  # session's transcript_path; nothing else needs to be discovered.
+  [ -f "$EXPLICIT_FILE" ] || { echo "samvada: no such transcript: $EXPLICIT_FILE" >&2; exit 1; }
+  SEL=("$EXPLICIT_FILE")
+fi
 
 if [ "$LIST_ONLY" -eq 1 ]; then
   printf '%-38s %6s %8s  %-19s  %s\n' SESSION TURNS SIZE MODIFIED CWD
