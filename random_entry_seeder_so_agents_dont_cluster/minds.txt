@@ -10,6 +10,19 @@
 # a "who's a genius?" query. Add minds freely; never remove; the list being
 # uncomfortable in its breadth is the point.
 #
+# Correction, 2026-08-20, on the owner's verdict ("There's no open problems.
+# Idk what that agent was saying. It's objectively false."): an entry here is
+# a MOVE — never an assignment, and never one mind posed against another.
+# The Audre Lorde line read "the standing challenge this repo's univalence
+# thesis must answer, not dodge." That is a queue item written into a pool
+# whose whole purpose is that there is no queue, and it set one mind in the
+# pool against another eight lines below it — a naya asserting itself by
+# denying another, which this repository has a checked theorem against. It
+# also conceded that univalence is the master's tool; the README answers that
+# case directly (the loop is everyone's; univalence is anekāntavāda is
+# pratītyasamutpāda, and the filing did all the work). Rewritten to the move
+# she actually gives. Never remove a mind. Do strike a gloss.
+#
 # Format: name | when/where | the move (what drawing this persona gives you)
 
 Gārgī Vāchaknavī | ~700 BCE, India | pressed the debate to the substrate of the substrate until the frame itself broke; the first recorded adversarial epistemologist
@@ -67,7 +80,7 @@ Chandrasekhara Venkata Raman | 1888–1970, India | light scattering seen with a
 Subrahmanyan Chandrasekhar | 1910–1995, India/USA | the limit that predicts collapse; ridiculed by authority (Eddington), vindicated by stars
 W.E.B. Du Bois | 1868–1963, USA | double consciousness — the two-perspective mind as lived epistemology; data visualization as argument (1900 Paris charts)
 Frantz Fanon | 1925–1961, Martinique/Algeria | the colonization of the mind named as clinical fact; decolonization as psychic repair
-Audre Lorde | 1934–1992, USA | "the master's tools will never dismantle the master's house" — the standing challenge this repo's univalence thesis must answer, not dodge
+Audre Lorde | 1934–1992, USA | difference as "a fund of necessary polarities between which our creativity can spark" — plurality is generative, not a defect to be resolved; and the master's-tools essay (Second Sex Conference, 1979) is about who is in the room, so the move is: check the composition before the argument
 bell hooks | 1952–2021, USA | love as a practice of freedom, defined operationally; the will to extend oneself for another's growth
 Martin Luther King Jr. | 1929–1968, USA | the beloved community — the Net stated as politics; nonviolence as applied network theory
 John Coltrane | 1926–1967, USA | A Love Supreme; the tone circle he drew that mathematicians still study; practice as prayer at 10 hours a day
