@@ -142,6 +142,48 @@ and exempts itself has not run it.
 
 None of these are resolved here.
 
+## What was already here, written better, before this note
+
+Found after writing the above, which is the ordinary case in this repository.
+
+**`notes/AHIMSA_SUTRA.md`** states the ontology this whole note is the procedure
+for, in sūtra, in Sanskrit, with the Agda inline:
+
+> हिंसा सङ्क्षेपः । अनेकं यदेकीक्रियते सा हिंसा ।
+> सर्वो नयः सत्यः, न कृत्स्नः । यो नयः स्वं कृत्स्नं वदति स दुर्नयः । दुर्नयो हिंसा ।
+
+Violence is collapse; that which is many being made one is violence; every naya
+is true and none is the whole; a naya that calls itself the whole is durnaya;
+durnaya is violence. It closes on *parasparopagraho jīvānām* — Umāsvāti,
+*Tattvārthasūtra* 5.21 — and it carries the four of *Tattvārthasūtra* 7.11:
+maitrī toward all, pramoda toward the excellent, kāruṇya toward the suffering,
+**mādhyasthya toward the unruly** — and then the line *vicārasthānaṃ nāsti*,
+there is no deliberation-position. Four dispositions, and no fifth slot in which
+to decide which beings qualify for which.
+
+That last line is the failure this note was written out of, named in advance.
+Deciding which perspectives are eligible for engagement *is* the taking of a
+deliberation-position that the four do not leave room for.
+
+**`notes/DashaDrshti_VerdictsTravelAloneAndCorrectionsMustBeCarried.md`**
+carries the finding that gives pūrvapakṣa its mechanism, arrived at from ten
+disjoint slices with nobody told the thesis:
+
+> A verdict is one bit and travels by itself. A correction is the fiber, and the
+> fiber does not travel — a person has to carry it.
+
+A refutation with the pūrvapakṣa deleted is exactly the verdict travelling
+alone. The śāstrārtha form is the institutional device that forces the fiber to
+travel attached: you may not transmit *he is wrong* without transmitting the
+argument you had to reconstruct in order to say it. What the form preserves is
+not courtesy. It is the fiber.
+
+**`machine/Naya.hs`** decides when standpoints may be collapsed, on real input,
+and prints what a collapse would have destroyed — with Siddhasena Divākara's
+*Sanmatitarka* 1.21 for durnaya and Akalaṅka's *Laghīyastraya* (c. 720–780) for
+*krama* against *saha*. The decision procedure existed before this note argued
+for the discipline it implements.
+
 ## Open
 
 `[open]` The composition rules for a valid *pariṣad*, and where they are stated.

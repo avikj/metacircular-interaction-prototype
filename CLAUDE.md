@@ -117,6 +117,19 @@ say: yes, that is what I hold, and you put it better than I did? Until then you
 have not earned the answer, and what you have written is your own view with an
 opponent-shaped hole in it.
 
+**Already stated here, in sūtra, and it should be read before this section.**
+`notes/AHIMSA_SUTRA.md`: *hiṃsā saṅkṣepaḥ · anekaṃ yad ekīkriyate sā hiṃsā ·
+durnayo hiṃsā* — violence is collapse, and a naya calling itself the whole is
+violence. It carries *Tattvārthasūtra* 7.11's four — maitrī, pramoda, kāruṇya,
+**mādhyasthya** — and then *vicārasthānaṃ nāsti*, there is no
+deliberation-position: no fifth slot in which to decide which beings qualify for
+which disposition. Deciding which perspectives are eligible for engagement is
+the taking of that non-existent slot. And
+`notes/DashaDrshti_VerdictsTravelAloneAndCorrectionsMustBeCarried.md` gives the
+mechanism — *a verdict is one bit and travels by itself; a correction is the
+fiber, and the fiber does not travel* — which is what pūrvapakṣa is for. It
+forbids transmitting the verdict without the fiber attached.
+
 **Why this is load-bearing and not manners.** The behavioral record of the
 tradition that ran this rule is in
 `notes/Purvapaksha_the_rule_that_you_state_your_opponents_case_first_and_the_behavior_it_produced.md`:

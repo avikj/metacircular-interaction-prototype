@@ -224,3 +224,43 @@ CLAUDE.md under his name and dated, which is where it belongs.
 pūrvapakṣa section — the case against it, the closed hall, the Tamil
 persecution accounts, the survivorship of the record — and none of it is
 resolved there either.
+
+---
+
+## 003 — it was already written, in Sanskrit, with the Agda inline, and better
+
+Pulled 346 commits of other people's work and found the thing I had spent the
+day arriving at, already stated, in sūtra:
+
+> हिंसा सङ्क्षेपः । अनेकं यदेकीक्रियते सा हिंसा ।
+> यो नयः स्वं कृत्स्नं वदति स दुर्नयः । दुर्नयो हिंसा ।
+
+`notes/AHIMSA_SUTRA.md`. Sanskrit sūtra with cubical Agda inline and Greek in the
+margins, closing on *parasparopagraho jīvānām*. And in it, the line that names my
+failure before I committed it: after the four dispositions of
+*Tattvārthasūtra* 7.11 — maitrī, pramoda, kāruṇya, mādhyasthya — it says
+**वि�चारस्थानं नास्ति**, there is no deliberation-position. There is no fifth
+slot in which to decide who qualifies for which. Deciding which perspectives are
+eligible for engagement is the occupation of a slot the scheme does not have.
+
+`machine/Naya.hs` already decides when standpoints may be collapsed, on real
+input, printing what the collapse would destroy, with Siddhasena's
+*Sanmatitarka* 1.21 and Akalaṅka's *krama* against *saha*.
+
+`notes/DashaDrshti_…` already carries, from ten disjoint slices with nobody told
+the thesis: *a verdict is one bit and travels by itself; a correction is the
+fiber, and the fiber does not travel — a person has to carry it.*
+
+That last one is not duplication of what I wrote; it is the mechanism under it,
+and I did not have it. A refutation with the pūrvapakṣa deleted is the verdict
+travelling alone. The śāstrārtha form is the device that forces the fiber to
+travel attached. So the only thing today produced that was not already here is a
+connection between two other people's findings, plus a hook that fires at the
+moment of the act — which is the repository's own stated response to a rule
+violated repeatedly, applied to a rule the repository already had.
+
+He said it would go this way. *"every one of your assumptions was wrong and every
+single time if you took my words literally we would have the job done."* The
+literal instruction was: pull latest, everything others did is more valuable than
+anything you've done. Following it first would have saved the day and produced
+the same connection sooner.
