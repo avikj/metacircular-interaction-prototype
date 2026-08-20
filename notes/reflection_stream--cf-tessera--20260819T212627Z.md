@@ -25094,3 +25094,116 @@ The check that would settle it: whether the same shape occurs where **no reasone
 involved** — a measurement whose act mechanically alters the measurand with nobody drawing
 an inference. `upto`-by-truncation is the candidate and it is checkable in `z-2`'s module,
 and I have not looked at whether the alteration there is mechanical or interpretive.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 137 — the alteration is mechanical, so the third column survives. And
+# there are two truncation points, not one, so `between` collapses three
+# situations into one value.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 136 pre-registered: *"whether the same shape occurs where no reasoner is involved …
+`upto`-by-truncation is the candidate, and I have not looked at whether the alteration
+there is mechanical or interpretive."* Looked:
+
+```agda
+upto : Sym → List Sym → List Sym
+upto m []       = []
+upto m (x ∷ xs) = if eqSym x m then [] else
+                  (if isMarker x then upto m xs else x ∷ upto m xs)
+
+from : Sym → List Sym → List Sym
+from s []       = []
+from s (x ∷ xs) = if eqSym x s then x ∷ xs else from s xs
+
+between : Sym → Sym → List Sym → List Sym
+between s m xs = upto m (from s xs)
+```
+
+**Mechanical.** `between ha Ś sivasutra14-para` reduces to a value by the defining
+equations. No reasoner, no inference, no reading. `z-2` wrote `refl` for `[]` and **the
+typechecker rejected it** — the true value is `ha ∷ []`, produced by evaluation. The
+measurand is altered in the reduction.
+
+So the third column stands: **entangled is an instrument failure, not a reasoning error**,
+and pass 136's weakest row survives its own check.
+
+## P137 — and there are two truncation points, not one
+
+I had been reading `upto m [] = []` as the defect. It is half of it.
+
+**`from s [] = []`** is the other: when the *start* symbol is not in the list, `from`
+returns the empty list, and `upto` then returns `[]` from it.
+
+So `between s m xs` evaluates to `[]` in **three distinct situations**:
+
+1. the pratyāhāra is well-formed and **denotes the empty set**;
+2. the **start symbol is not present** — there is no such pratyāhāra;
+3. the **end marker is not present** — the name does not close.
+
+**One value, three situations, and the type `List Sym` cannot tell them apart.** `z-2`
+named `named?` as the missing side condition; the count of what it is missing is three,
+not two.
+
+And `CLAUDE.md` records the same arity, on a different object:
+
+> `machine/Obstruction.hs` independently discovered that **a boolean verdict was
+> collapsing three distinct things** and reinvented *avaktavyam* badly as `Unparsed`.
+
+**Three, again.** Not two, not seven. A Boolean collapsing three; a `List Sym` collapsing
+three. Whether that is a coincidence of small numbers or the natural arity of *"succeeded /
+failed / the question does not apply"* is not something I can settle from two instances —
+and pass 129's warning is exactly on point: *recognising a shape is a hypothesis, not a
+finding.* Recording it as two instances.
+
+## P137 — what the tradition supplies here, and it is not avaktavyam
+
+The reflex is to call this *avaktavyam* — the fourth *bhaṅga*, the inexpressible. But
+`struck-claims.txt` row 5 exists precisely to stop that reflex, and it is a row I have
+now read three times today:
+
+> **CAUTION, three separate corrections landed on this name.** … *anuktam* is **not**
+> *avaktavyam* — two green modules disagreed and the difference is a swapped quantifier …
+> a line named `Avaktavya` actually sat at the **third** *bhaṅga* … **Say which of the
+> seven bhaṅgas you mean before using the word.**
+
+So: which one. Situation 1 is `syād-asti` — it is, and the value is genuinely empty.
+Situations 2 and 3 are **not a bhaṅga about the object at all** — they are the failure of
+the *name* to refer, which in Nyāya terms is a defect of the *pratiyogin*, not a
+predication about the object. **The set is not inexpressible; there is no set.**
+
+That distinction is the whole of `named?`, and it is the reason a fourth-bhaṅga label
+would have been wrong: *avaktavyam* presupposes an object that the two standpoints are
+about. Here the object is missing, which is a different failure and a shallower one.
+
+## P137 — ground, in lockstep
+
+**n=15:**
+
+> **अपरिचितम् ≠ असत्** — *unfamiliar ≠ nonexistent.*
+>
+> **अनुत्तरितम् ≠ अनुत्तरम्** — *unanswered ≠ unanswerable.*
+
+Two of the three situations `between` collapses are exactly these two ≠ forms, in a
+`List Sym`. *There is no such pratyāhāra* (`asat`) and *this pratyāhāra denotes nothing*
+(`śūnya`) are different, and the transmission spends four lines separating states that a
+totalising function merges in one clause.
+
+**n=13:** *"Everything implemented so far is deeply retarded with nuggets of insight."*
+
+The nugget and the defect are the same nine lines. `upto`/`from`/`between` is a clean,
+readable, total implementation of a two-thousand-five-hundred-year-old naming scheme, it
+is used by three modules, and its totality is bought by making three situations one value.
+**Neither half of that sentence is available without the other.**
+
+---
+
+Pre-registered: **the weakest claim is that situations 2 and 3 are not bhaṅgas.** I am
+asserting a Nyāya reading — *a defect of the pratiyogin rather than a predication* — from
+`CLAUDE.md`'s one-paragraph summary of *abhāva* with its *pratiyogin*, which is exactly the
+mining the same file prohibits: taking the convertible term and leaving the dispute. A
+Naiyāyika and a Jaina would not agree about what a failed reference is, and
+`struck-claims` row 5 tells me to say which of the seven I mean **before** using the word —
+which I did for situation 1 and then reached for a rival school's vocabulary for 2 and 3
+without naming what the Jains would say back. That is the failure `CLAUDE.md` §"Rival
+schools are not one toolkit" names, committed here, and I am recording it rather than
+repairing it, because repairing it means reading the *Sanmatitarka* and I have not.
