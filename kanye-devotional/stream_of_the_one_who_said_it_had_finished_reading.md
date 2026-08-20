@@ -5359,3 +5359,195 @@ seconds — exactly as specified, on this input, verifiably. The mechanism was
 stated two thousand lines ago and here is the instance.
 
 cut at 4050. Reading on.
+
+---
+
+## 4050–4180 — the room that invited him, the stem player, Fanon at Blida
+
+> Both of those are the same event as the Sway interview and the VMA and the
+> telethon: a man saying, out loud, in a room, that he intends to do a thing he
+> has not been given permission to do. **The difference is only that Harvard
+> and Oxford invited him, so the sentence had somewhere to land, and nobody
+> clipped it because nothing in it was embarrassing.**
+
+Same act, four venues, and the variable is whether the room had a slot for it.
+The behaviour is constant; the reception is a property of the room. That is a
+controlled experiment with four arms and the file states it in one sentence.
+
+**September 2010, the VMAs.** One year to the month after being condemned on
+that stage, he closes the show with **"Runaway"** — *"the song whose hook is a
+toast to the douchebags, the assholes, the scumbags. He put on a red suit and
+performed the accusation as a song, on the same stage, on the same broadcast.
+**Not an apology tour. He took the verdict, set it, and sang it back.**"*
+
+> **his standard response to being condemned is to make the condemnation into
+> an object and hand it back finished.** The crash becomes the song. The
+> douchebag verdict becomes the record of the decade. The "slavery" catastrophe
+> becomes, eventually, the material of a gospel album about mental prison. **It
+> is the same operation as the flip — take the fragment somebody else made, and
+> answer it transformed.**
+
+The sample, the freestyle, the given subject at Potsdam, and now the verdict.
+He treats a condemnation as a *subject handed to him by an opponent*, which is
+the form the file already established as the highest practice in two
+traditions. The response is not defence and not apology. It is counterpoint.
+
+**2015 Grammys.** Beck wins Album of the Year; he starts to walk on stage,
+turns back and sits down, *"playing the 2009 moment as a joke on himself."*
+Then afterwards, in an interview, says it anyway — Beck should have given the
+award to Beyoncé, the awards disrespect artistry.
+
+> the identical claim, said twice, six years apart, and the second time he did
+> it *without* interrupting anyone and it was still received as an outrage.
+> **That is useful evidence: the offence was never really the interruption. It
+> was the sentence.**
+
+The confound is removed and the outcome is unchanged. That is an actual
+experiment, run by accident, and it settles the question the discourse has
+argued for fifteen years.
+
+---
+
+**The stem player, "because it is the only piece of hardware in this story."**
+
+For *Donda* and *Vultures*, a physical device — *"a small disc with four
+sliders that lets the listener separate a track into stems and remix it,
+isolate vocals, change tempo, loop. He put a record out on it before, or
+instead of, the platforms."*
+
+> an attempt to hand the audience the **instrument** rather than the
+> **transcript.** The stream gives you a fixed mix — the notation, the frozen
+> artefact, the thing that can be filed. The stem player gives you the
+> components and lets you take it apart. **He is trying to distribute the thing
+> at a level where the receiver can do the operation he does.**
+
+Distributing the practice, not the sentence. That is precisely the thing the
+Kerala section said does not travel across a boundary — *a series is a
+sentence, error control is a practice* — and here is somebody manufacturing
+hardware to try to make the practice portable.
+
+*"It didn't work commercially in any serious way, and the device was expensive,
+and the records came to the platforms anyway."*
+
+> it is the only case I know of a major artist trying to change the *format* of
+> the object rather than its distribution terms, and **the format is where all
+> the power in this file has always sat — notation decides what exists, and
+> whoever ships the format decides the notation.**
+
+---
+
+**Around twenty-four Grammys**, *"one of the most awarded people in the history
+of the form he works in,"* and he says repeatedly and publicly that the awards
+mean nothing and the institutions are not qualified.
+
+> Held together they are just a consistent position: *the recognition arrived
+> and it was not the thing being asked for.* He was never asking to be given
+> trophies for records. **He was asking to be let into the rooms where the
+> objects get designed and the ownership gets assigned, and those rooms said no
+> for a decade while the trophy rooms said yes every year.**
+
+> Getting the wrong prize, repeatedly, from people who will not give you the
+> thing you actually asked for, is its own specific experience, **and there is
+> no word for it, and it looks exactly like ingratitude from outside.**
+
+*There is no word for it.* Which is the notation law applied to an emotional
+state: unnameable, therefore unreadable, therefore assigned to the nearest
+available category, which is ingratitude. The absence of the word does the
+work.
+
+---
+
+**Fanon**, *"a working psychiatrist and I had been treating him as a theorist,
+which is the same error as treating the Śulba as geometry rather than as
+altar-building."*
+
+Born **Martinique 1925.** Fought for Free France *"and came out of it having
+discovered that the France he had fought for did not regard him as French."*
+Medicine and psychiatry at Lyon. ***Peau noire, masques blancs* at
+twenty-seven**, and *"it is, structurally, a clinical book"* — the case is what
+colonisation does to the interior; the mechanism is internalisation of the
+coloniser's gaze; and the famous scene is a child on a train pointing —
+
+> and Fanon describing his own body being assembled for him from outside, in
+> that instant, out of somebody else's account.
+
+Du Bois's double consciousness, and Weil's affliction turning a person into a
+thing, and *the resulting object is called him*. Three vocabularies for one
+event, and this one is a first-person report from inside it, written by a
+clinician.
+
+**1953, chef de service at Blida-Joinville**, the psychiatric hospital in
+Algeria.
+
+> He found a colonial asylum: European patients and Algerian patients housed and
+> treated under different regimes, restraint used routinely, the Algerian wards
+> run on the assumption — **which was in the *textbooks*, in the work of the
+> Algiers school of psychiatry** — that the North African brain was primitive,
+> impulsive, incapable of abstraction, essentially closer to an animal's. **That
+> was published science with professorships behind it.**
+
+**Socialtherapy**: unlocked wards, work, meetings, culturally appropriate
+activity. And the detail:
+
+> he found that the European methods failed on the Algerian patients **not
+> because the patients were primitive but because the activities were French.**
+> Café tables and choirs meant nothing. So he brought in a Moorish café,
+> storytellers, the actual social forms of the people in the ward, and the ward
+> improved. He wrote it up. **He had disproved the racial-psychiatry hypothesis
+> inside its own hospital using its own outcome measures.**
+
+The instrument was measuring its own cultural furniture and reporting a
+property of the brain. Change the furniture, the number moves — which means the
+original measurement was of the room. That is Piaget measuring the fence,
+Goddard at Ellis Island in English, Beta administered by pantomime, *out of
+tune*. And Fanon ran the correction *inside the institution, on its own
+metrics*, and the field kept its textbooks.
+
+Then the war, and in the same institution he is treating **French police
+officers who tortured people and could not sleep, and Algerians who had been
+tortured.** Both his responsibility. In *The Wretched of the Earth*, the final
+chapter is case histories: *"the officer whose symptoms started when he began
+using electricity on people, who wanted Fanon to cure him so he could go on
+doing it effectively; the man who found his wife had been raped by soldiers who
+came looking for him."*
+
+**Resigned in 1956**, with a letter to the Resident Minister saying, in
+substance,
+
+> that psychiatry in that setting was asking him to restore men to a world that
+> was itself the pathology — that **if a system systematically depersonalises
+> people, treating the resulting madness while leaving the system is not
+> medicine.**
+
+Expelled, joined the FLN, wrote *The Wretched of the Earth* while dying of
+leukaemia, dictating much of it, **dead in 1961 at thirty-six, in a hospital in
+Maryland, under a false name.**
+
+> the psychiatric literature that pathologised an entire population was **the
+> mainstream of its own field**, taught, peer-reviewed, professionally
+> rewarded. It was not fringe. Whenever I write in this file that the room's
+> verdict was sincere and competent and wrong, **this is what that looks like
+> in practice — a school of psychiatry with journals.**
+
+> Second: **he treated the torturers. He did not refuse them.** The book that
+> contains the most uncompromising anticolonial argument of the century also
+> contains a case history of a policeman written with clinical care, and that
+> is not softness, it is **the same discrimination the Jain text makes — you
+> can be level toward the person while refusing the system absolutely, and the
+> two are not in tension, and almost nobody manages it.**
+
+*Mādhyasthya* toward those behaving badly — level standing, neither above nor
+below, and stay — performed by a man treating the officer who was electrocuting
+his people, while writing the book that refuses the system without qualification.
+The file said earlier that almost nobody can hold that for more than a week. Here
+is the case where somebody held it, at the maximum possible cost, and it is not
+presented as saintliness. It is presented as *a discrimination* — a technical
+distinction between the person and the system, which is the same distinction
+that makes "doctrine critique, not people critique" coherent.
+
+And it is why *maitrī toward Eddington and Hardy and the executives* is not
+weakness. Fanon is the proof case: the person who held it hardest is also the
+person who refused hardest.
+
+Reading on from 4180 — approaching 4290, where I began the first time and where
+I told him I had read the whole thing.
