@@ -50,3 +50,68 @@ not hide it. He wrote four words across the cover of an album, over a photograph
 mountain: "I hate being Bi-Polar its awesome." Both halves are true and he meant both,
 at once, which is the first thing to understand about him and nearly the last thing the
 world was willing to.
+
+The world does not like to hold two things at once. It wants the genius or the crazy,
+the hero or the villain, and it will spend enormous energy to avoid holding both in one
+person at the same time. With him it chose, over and over, for twenty years, and the
+first time it chose in front of everyone was on a Friday night in 2005.
+
+A hurricane had drowned New Orleans. The water sat in the streets for days with people
+on the rooftops, most of them Black, most of them poor, and the richest country on earth
+was slow to come. A telethon went up to raise money, celebrities reading lines off cards,
+and they put a twenty-eight-year-old rapper next to a comedian and gave him his line. He
+didn't read it. He was shaking. He said the thing about the coverage first — that when
+the news showed a Black family wading through water it said they were looting, and when
+it showed a white family doing the same thing it said they were looking for food, and
+anyone who had watched the coverage knew he was right. Then he went off the edge of the
+whole broadcast and said: George Bush doesn't care about black people. The comedian next
+to him stared straight ahead. The network cut away.
+
+For years that was filed as the night Kanye lost it — reckless, unfair, a breakdown on
+live TV. It is not filed that way anymore. It shows up now in the documentaries as one of
+the truest things anyone said that decade, the moment a young man could not stand next to
+his own people drowning and perform composure, and said out loud what every careful adult
+in the room had been trained not to. Nothing about the sentence changed in the years
+between. Only the willingness to hear it did. That is the pattern, arriving early and
+whole, the same shape every later time would take: he says a true thing at the wrong
+volume, in the wrong room, and is called crazy for it, and the world catches up later,
+quietly, once catching up is free.
+
+Feel the two facts sitting on top of each other, because they never come apart in him.
+The same wiring that would not let him read the card — that floods a mind past what
+composure can survive — is the wiring behind the sentence nobody else would say. You do
+not get the seer without the thing that makes him unmanageable on live television. The
+gift and the danger are one dial, and in 2005 the country turned all the way toward
+calling it danger, and was wrong, and would keep being wrong the same way for twenty
+years.
+
+He was pointing at something real, and it is worth stopping the story to look at it,
+because the rest of his life keeps pointing at the same thing and getting called crazy
+for it the same way.
+
+Read the sentence that ended slavery and the loophole is sitting inside it. The
+Thirteenth Amendment, 1865: "Neither slavery nor involuntary servitude, except as a
+punishment for crime whereof the party shall have been duly convicted, shall exist
+within the United States." Except as a punishment for crime. Slavery did not end. It
+kept one door, and the country has walked people through it ever since. Within a year the
+Southern states made it a crime to be unemployed, to loiter, to be out after dark — laws
+written to catch the newly freed — and then arrested Black men under them and leased them
+out to coal mines and turpentine camps and plantations to work without pay. A company
+renting a convict, unlike a man who had bought one, lost nothing if the worker died, so
+in some camps a quarter of the men died every year. This ran into the 1940s, close enough
+that Kanye West's own father grew up among people who remembered it.
+
+Then it was built again, bigger, in our own time. The number of people locked up in
+America went from about three hundred thousand in 1970 to more than two million — the most
+of any country on earth, a nation with one in twenty of the world's people holding one in
+five of the world's prisoners. And the same faces the whole way down: Black Americans are
+about one in eight people in the country and nearly four in ten of the people in its cells.
+One in three Black boys born today is expected to be locked up at some point in his life.
+If that number is about your son or your street, this is not new information; it is the
+weather.
+
+That is the country that was slow to come for the people on the rooftops. When a
+twenty-eight-year-old said on live television that it did not care about Black people, he
+was not raving. He was naming, badly and at the wrong volume, a fact with a paper trail
+running back to 1865. The paper trail is the point of this chapter. He kept reading it
+out loud, and kept getting told he was crazy for it, and it kept being true.
