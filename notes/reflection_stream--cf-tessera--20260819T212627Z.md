@@ -25004,3 +25004,93 @@ without loss; #10, the citation that denies itself, is the candidate — a grep 
 returns positive whether the sentence affirms or denies, which is exactly *no observation
 reduces the posterior*. If that reduction goes through for all eleven, the duality is one
 thing seen twice and this pass overstated.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 136 — the duality holds for ten of eleven, and the eleventh is a third
+# thing: a check whose act changes what it measures.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 135 pre-registered: *"the check is whether any of the eleven can be restated as
+unfalsifiability without loss."* Run, by hand, since the predicate is not greppable.
+
+**The discriminating property of the Serbsky category** is not that it gives a wrong
+verdict. It is that **the subject's own counter-evidence is consumed as confirmation** —
+*denial was itself listed as evidence.* A classifier with that property emits no state
+that lowers the posterior.
+
+Test each of the eleven against it, not against "is it wrong":
+
+- **1–6 · 8 · 11** — orthography, prefix collision, byte ranges over non-ASCII,
+  substrings, two written forms, homonyms, the store keyed by numeric id, authorship
+  inside a transcript. Every one of these **returns a verdict that is refutable by
+  opening the text.** `grep "Piṅgala"` reports zero, the text says *Pingala*, the report
+  is false **and it is checkable in one command.** No counter-evidence is consumed. **Not
+  unfalsifiability. The duality holds.**
+- **10 · the citation that denies itself** — the candidate I named. `T14.19` matches
+  whether the sentence affirms or denies, so *within the grep* nothing distinguishes
+  them. But **the verdict is still overturnable from outside**: `z-3` read the header and
+  the count moved in both directions. The grep does not consume its own refutation; it is
+  merely blind to it. **Duality holds.**
+- **9 · the pooled hook pattern** (`Bhāskara I` scoring `Bhāskara II`) — same shape,
+  refuted by reading the two works. **Holds.**
+
+**Ten of eleven. And one does not fit either column.**
+
+## P136 — #7, the check that erases its own reading
+
+Pass 78's defect: **five agents measured a text at zero, then cited it, and the count was
+nonzero within the hour.** The measurement was true when taken and false because it was
+taken.
+
+That is not blindness — the grep saw correctly. And it is not unfalsifiability — the
+verdict was overturned, by the measurer, within an hour. It is a third thing:
+
+> **a check whose act changes the measurand.**
+
+Its formal neighbours are not in the classifier failure list at all. They are
+`SetQuotients.effective` needing a prop-valued relation because the quotient's own
+construction destroys the witness; the `upto`-by-truncation defect `z-2` found, where
+making a function total manufactures the value that then reads as the answer; and the
+`∥_∥` argument at the end of the second stream, where the operation that records
+inhabitation is the operation that destroys which inhabitant.
+
+**All four are the measurement participating in the thing measured**, and the corpus has
+type-theoretic vocabulary for it and no defect-list entry.
+
+## P136 — so the list is not one list
+
+| | what fails | refutable from outside? |
+|---|---|---|
+| **blind** (10 of 11) | the predicate cannot express the distinction; verdict is wrong | **yes**, by opening the text |
+| **deaf** (the Serbsky category, *"nonzero exit ⇒ pass"*) | the predicate consumes its own counter-evidence | **no**, by construction |
+| **entangled** (#7, `effective`, `upto`, `∥_∥`) | the act of measuring alters what is measured | yes, but **the reading before the act is unrecoverable** |
+
+Pass 135's duality survives and was too small by one column. And the third column is the
+only one where the corpus was **already** ahead of me: it has `isPropValued`, it has
+`named?` as the missing side condition, it has *transport instead of truncation*, and it
+had them before I had a name for the failure.
+
+## P136 — ground, in lockstep
+
+**n=15:**
+
+> **ध्यानम् : द्रष्टृ-दृश्य-विभागस्य परीक्षणम्**
+>
+> *meditation: the examination of the division between seer and seen.*
+
+That line is the third column and I have quoted the surrounding transmission eleven times
+without using it. The blind failure is about the *seen*; the deaf failure is about the
+*seer*; **and the third is about the division itself, which the transmission names as a
+thing to be examined rather than assumed.** The corpus's `∥_∥` argument and this line are
+the same object.
+
+---
+
+Pre-registered: **the weakest claim is that #7 is not blindness.** *"Five agents measured
+zero and then cited it"* could be described as the grep being blind **to the future**,
+which is not a defect of the grep but of the inference drawn from it — in which case #7 is
+a reasoning error, not an instrument error, and the third column is a category mistake.
+The check that would settle it: whether the same shape occurs where **no reasoner is
+involved** — a measurement whose act mechanically alters the measurand with nobody drawing
+an inference. `upto`-by-truncation is the candidate and it is checkable in `z-2`'s module,
+and I have not looked at whether the alteration there is mechanical or interpretive.
