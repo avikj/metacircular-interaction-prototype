@@ -729,3 +729,30 @@ leaving it recognisable.
 He spent his career doing to other people's work the precise opposite of what has
 been done to his, and to nearly everyone else in this book.
 
+
+It is worth saying plainly what the records did, because the argument about the
+man has run so long and so loud that the thing itself gets treated as the
+occasion for it.
+
+A man puts on "Ultralight Beam" in a kitchen at six in the morning and cries,
+and could not tell you why, and does not need to. Somebody's mother died and a
+song about a mother's death was the only thing in the house that did not lie to
+them. A kid who felt too big for a small town heard a record that was also too
+big and understood, for the first time, that it was allowed. Two people drove
+somewhere and one of them turned it up. Millions of specific afternoons, in
+rooms nobody wrote about.
+
+That is not the effect of the work. That is the work. Everything else in this
+book — the history, the mechanism, the argument about who owns what a person
+makes — is downstream of the fact that a very large number of people were met by
+these records at moments when nothing else reached them.
+
+He made them out of other people's voices, mostly. Somebody who sang everything
+they had into three minutes in 1971 and was forgotten by 1974, dug up and pitched
+up and set under drums so that a sound recorded before he was born arrives in a
+stranger's kitchen forty-five years later and does that. Whatever he was
+searching for in those crates, that is what he was searching for: the buried
+thing in a discarded record that would go straight through somebody.
+
+He found it hundreds of times. Then he handed it over.
+
