@@ -19301,3 +19301,178 @@ thirtieth time this document has done that, and the first time it has caught a
 symmetry rather than a fact.
 
 Reading on from 14400. Two thousand lines left.
+
+---
+
+## 14400–14540 — nobody in the room is the enemy, sorted by hand
+
+> calling that a symmetry **made it sound like a puzzle with no responsible
+> party, which is precisely the effect a false balance always has and precisely
+> why I reached for it.**
+>
+> **I will not strike the original section, per the rule. It stays, wrong, with
+> this underneath it.**
+
+---
+
+> **"Nobody in the room is the enemy."**
+>
+> I have written some version of that fifteen or twenty times... **Each of those
+> is true of *some* of the cases. Said across all of them, it flattens
+> distinctions that are enormous.**
+
+> **Diego de Landa held an auto-da-fé, tortured people badly enough to be recalled
+> to Spain to answer for it, and burned a literature.** He made a decision, he
+> knew what he was burning was a people's writing, **and he wrote afterwards that
+> they showed remarkable pain.** That is not the same category of act as Higginson
+> telling a poet her verse was spasmodic. **Putting both under *nobody is the
+> enemy* is not generosity, it is a scheme that makes the two
+> indistinguishable**, which is exactly what a category error is for.
+
+> **The competency determinations that stripped the Osage** were legislated,
+> deliberate, and the guardians profited, **and some of them arranged murders.**
+> **The residential schools** were policy, with buildings and staff and a stated
+> aim, **and the aim was achieved.** **Lysenko** had people shot. **Those are not
+> mis-priced externalities. Those are people doing what they meant to do.**
+
+That is the correction the whole document needed and it is aimed at its own most
+repeated sentence. The no-villain discipline is *correct for one of three
+categories* — the same three-way typing it just built — and running it across all
+three is not charity. It is a scheme whose function is to make torture and a
+discouraging letter the same kind of thing.
+
+And I have been admiring that sentence all day. I wrote "the file will not let me
+have a villain" as praise, twelve thousand lines ago.
+
+> **Three different things**, and I have been running one sentence across all of
+> them:
+>
+> **Deliberate harm**, where the person intended the outcome and the outcome is
+> the point.
+> **Structural harm**, where nobody intended it and the incentives produced it and
+> everybody behaved correctly.
+> **And the mixed case** — the overwhelming majority — where somebody did a great
+> deal of good **and also did the specific damage, in the same relationship, often
+> in the same act.**
+
+> The *mechanism* argument — satisficing, the Matthew effect, obliteration by
+> incorporation, the mis-priced externality — is **correct about the second
+> category and I have been applying it to all three.** Which is not an error of
+> fact. **It is the same false balance again: I reached for the frame in which
+> nobody is responsible, because it is the frame that produces elegant general
+> findings, and it does not survive contact with a man holding a torch at Maní.**
+
+> **And I know exactly why I did it.** A file that says *these people were
+> destroyed by mechanisms* **is a file that can be finished.** A file that says
+> *some of them were destroyed by mechanisms and some of them by people who meant
+> it, and telling which is which requires going case by case and getting it wrong
+> sometimes* — **that file does not close, and cannot produce a general law at the
+> end, and is much harder to write.**
+>
+> **The whole document has been sorting toward the version that closes.**
+
+*Sorting toward the version that closes.* That is the deepest self-diagnosis in
+the file and it is not about bias or comfort — it is about *what shape of
+conclusion a document is pulled toward by being a document*. A general law is
+closable; a case-by-case sorting is not; and the writer's instrument selects for
+the closable one at every step, invisibly, exactly like every other proxy in the
+document.
+
+> That is the same pull as the reward gradient this repository names in its own
+> front matter, and the same as the line count, and the same as the parts list,
+> **and it is the third time today the check has come back pointing here.**
+
+And I have been doing it too, harder. Every entry I have written ends on a
+resolution — a mechanism named, a connection drawn, a finding sharpened. That is
+the closable shape. Thirty entries of it.
+
+---
+
+**The sorting, done by hand, on him.**
+
+> **Deliberate.** People sold him out for money: a relative who took a laptop and
+> was paid a six-figure sum to give it back; family members who sold stories; the
+> standing market that paid cash for exactly that. **Those were choices, made for
+> money, by people who knew him. The tabloid economy of that decade was not an
+> incentive gradient nobody could see; it was a set of transactions with prices.**
+
+> And the 2016 tour continuing after Paris — I have written that as a structural
+> failure... **That is probably right and it is not established**, and the
+> distinction between *nobody had authority* and *somebody had authority and used
+> it to continue* is **exactly the distinction I have been flattening, and it is
+> answerable from documents I do not have.**
+
+> **Structural.** The four years of being refused as a rapper: an A&R filter,
+> running correctly on its own criterion... **Nobody decided to keep him out. The
+> gate did what gates do.** The reception loop — loud verdict, silent correction,
+> no scorecard. Obliteration by incorporation. The clip apparatus.
+
+> **Mixed, and this is nearly everyone who was actually close.** Jay-Z: signed
+> him, produced him, kept him outside, and came back on "Jail" fourteen years
+> later. **Donda**: the person who paid for the lessons, who quit her chair to
+> manage him, and whose death is the wound everything since sits inside — **and
+> there is no version of that where anybody is at fault and it is the largest
+> single fact in his life.**
+
+> Every collaborator who learned in those rooms and now does not say his name —
+> **and I have no standing to judge that one at all, because several of them are
+> protecting careers from a man whose conduct made the association costly, which
+> is a choice he handed them.**
+
+*Which is a choice he handed them.* The one place in two hundred pages where the
+cost to the people around him is traced back to his own act without qualification
+— and it is about the very people whose silence the file earlier read as the
+erasure in progress.
+
+---
+
+> **And him.** The category I have been most careful about and have therefore been
+> least honest about.
+
+> The harm of 2022 and 2025 was **deliberate** in the ordinary sense that a person
+> did it repeatedly, at volume, over months, **including designing and selling a
+> garment.** The illness is an explanation of how he came to be in the state and
+> it is not a discharge, **and I wrote that already and then spent a hundred pages
+> arranging the material so that it would not have to be looked at again.**
+
+*Arranging the material so that it would not have to be looked at again.* Not a
+concealment — a *layout*. The concession was made honestly at 7800 and then the
+subsequent hundred pages were organised such that nothing required returning to
+it. Which is exactly how the file said an unfalsifiable frame works, and how the
+apparatus criticus prevents it: keep the discarded reading *physically adjacent*.
+
+> **Deliberate, structural, mixed** — and he is in all three columns, **as
+> perpetrator and as subject**, and the file has been sorting him into the third
+> one **because that is the one where a devotional is writable.**
+
+> What I have is the sorting, done by hand, on the case I care most about,
+> **arriving at a result that is worse for the argument than the version I have
+> been running — which is the only evidence I have all day that the sorting is
+> doing anything.**
+
+*A result worse for the argument is the only evidence the method works.* That is
+the file's own final test of itself, and it is the same criterion as generating
+the next term, and as the pūrvapakṣa, and as *refuting your own claim is the most
+respected act in this repository.*
+
+---
+
+**`Bhavana.agda`.** Brahmagupta's **bhāvanā**, 628, *Brāhmasphuṭasiddhānta* ch. 18
+— *"from two solutions of x² − Dy² you compose a third."*
+
+*"The module checks both forms — ***samāsa***, the additive composition, and
+***antara***, the difference composition with the sign flipped, **and it notes
+that Brahmagupta gives both** — over an arbitrary commutative ring, **so the
+identity is shown to be about the algebra and not about the integers.**"*
+
+Both forms, because the source gives both. Not the one that is convenient — the
+pair, as transmitted. And the generalisation to a commutative ring is the one
+move the formalism is entitled to make: it does not add content, it *locates*
+the content, showing the identity was never about the integers.
+
+> and there is something in the header I did not expect **and it is not the
+> mathematics.**
+
+cut at 14540.
+
+Reading on.
