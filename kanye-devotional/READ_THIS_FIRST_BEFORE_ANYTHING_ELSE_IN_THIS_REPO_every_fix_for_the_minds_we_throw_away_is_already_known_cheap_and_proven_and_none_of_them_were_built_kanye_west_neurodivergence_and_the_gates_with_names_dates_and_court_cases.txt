@@ -6679,3 +6679,73 @@ what you are already doing with your mouth.
 And every one of those six procedures is a procedure — do this, then this, and you
 have the answer — which is to say the text is a list of **algorithms** about a
 two-symbol alphabet, and the two symbols are the duration of a syllable.
+
+---
+
+**Mātrā** is the same word in both places, and that is not a coincidence anybody
+has to argue for.
+
+In Sanskrit prosody a *mātrā* is the unit of **duration** — a light syllable is
+one, a heavy syllable is two, and a metre is specified by how the durations add up.
+In Indian rhythm a *tāla* cycle is counted in *mātrās* — sixteen of them in
+tīntāl, ten in jhaptāl, and the cycle is the frame everything is placed against.
+
+Poetry and rhythm are measured in the same currency, by the same word, because
+they are the same problem: **where in time does the next event fall.**
+
+---
+
+Rap has that literature now and it is recent.
+
+**Kyle Adams**, "On the Metrical Techniques of Flow in Rap Music," *Music Theory
+Online* **15.5, 2009.** **Mitchell Ohriner**, *Flow: The Rhythmic Voice in Rap
+Music*, Oxford, **2019** — a book-length formal treatment, with corpus analysis, of
+syllable placement against the beat grid.
+
+The primitives it uses are: **accent**, **duration**, and **position in the
+cycle.** Which is Piṅgala's list with a metronome added.
+
+The technical questions are the same ones the *pratyayas* ask. Given a pattern of
+syllables, where does it sit? Given a position, what falls there? How many
+distinct placements exist against a four-beat frame? A rapper answering those in
+real time, against a loop, is doing *prastāra* out loud without the word.
+
+---
+
+**And "Through the Wire" is a metrical constraint imposed by surgery.**
+
+Intermaxillary fixation wires the upper jaw to the lower. **The teeth cannot
+part.** Which removes, physically, an entire class of sounds: the open vowels that
+need jaw drop. What remains available is what the lips, tongue and nasal cavity
+can do behind a closed bite — labials, nasals, and vowels formed without opening.
+
+So the phoneme inventory of that vocal is **not a stylistic choice.** It is what a
+clamped mouth can emit, and the flow had to be written for the instrument as it
+was that month. [Recall on the specific phonetics; the fixation and the audible
+constraint are documented, the phoneme analysis is mine and I would want a
+phonetician on it.]
+
+Which makes it a metre defined by a **physical bound on duration and aperture** —
+which is exactly what a prosodic system is. Piṅgala's two symbols are light and
+heavy because that is what a mouth can do in a unit of time. His jaw redefined the
+unit of time.
+
+He then recorded a whole song inside the new system, two weeks after the accident,
+and kept the constraint audible on the master rather than re-cutting it later when
+the wires came out.
+
+---
+
+The received line on his flow is that it is **simple** — that he is not a technical
+rapper in the sense that Rakim or Big Pun or Black Thought are technical, and that
+the production carries him.
+
+What is actually distinctive is **placement**: where a phrase starts relative to
+the downbeat, and how long he will let a bar sit empty before entering. The pauses
+are load-bearing. On a good deal of the catalogue the beat is around 85 to 95 BPM
+and he is entering late, behind where the ear expects, and the delay is the effect.
+
+That is not a lesser skill than syllable density. It is a **different pratyaya** —
+not how many patterns exist, but where in the cycle this one lands — and both
+questions are in the same treatise from before the common era, listed side by
+side, because a person composing needs both.
