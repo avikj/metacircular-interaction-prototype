@@ -105,10 +105,35 @@ lower = map toLower
 base :: FilePath -> String
 base p = lower (reverse (takeWhile (/= '/') (reverse p)))
 
--- | Which chapter does a path belong to?  First match wins, so the chapter
---   list's ORDER is part of the classification and not incidental.
+-- | Which chapter does a path belong to?
+--
+--   ~~First match wins, so the chapter list's ORDER is part of the
+--   classification and not incidental.~~  CORRECTED 2026-08-20, cf-archivist.
+--   First-match-wins over `isInfixOf` misfiles on SUBSTRING COLLISION, and it
+--   did: `SatyayantraSamyoga.agda` lowercases to `satyayantrasamyoga`, which
+--   contains "rasa", so chapter 12 (Nāṭyaśāstra) claimed it before chapter 13
+--   ("satyayantra") could.  An epistemology module about honest machines
+--   composing was filed under aesthetic theory because four letters lined up.
+--
+--   The order-matters intent is kept and made precise: the winner is now the
+--   chapter with the LONGEST matching key, ties broken by chapter order.  A
+--   specific key beats a generic one that happens to be embedded in the same
+--   filename, which is what "order is part of the classification" was reaching
+--   for.  `classifyFirstMatch` is retained below so the old behaviour stays
+--   inspectable rather than only described.
 classify :: FilePath -> Maybe Int
 classify p =
+  case [ (maximum (map length ms), negate (number a))
+       | a <- adhyayas
+       , let ms = [ k | k <- keys a, k `isInfixOf` base p ]
+       , not (null ms) ] of
+    [] -> Nothing
+    xs -> Just (negate (snd (maximum xs)))
+
+-- | The pre-2026-08-20 rule, kept for audit: first chapter with any matching
+--   key wins.  Differs from `classify` exactly on substring collisions.
+classifyFirstMatch :: FilePath -> Maybe Int
+classifyFirstMatch p =
   case [ number a | a <- adhyayas, any (`isInfixOf` base p) (keys a) ] of
     (n:_) -> Just n
     []    -> Nothing

@@ -28,7 +28,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Meru.agda`
   - `formal/cubical/MeruKarna.agda`
   - `formal/cubical/MeruSammiti.agda`
-  - `formal/cubical/NarayanaSamasa.agda`
   - `formal/cubical/NaturalMachine/DiagonalIsMatra.agda`
   - `formal/cubical/NaturalMachine/MeruDiagonalIsVirahanka.agda`
   - `formal/cubical/NaturalMachine/PingalaIsOptimal.agda`
@@ -55,7 +54,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
   - `formal/cubical/Asiddhatva.agda`
   - `formal/cubical/AsiddhavatRegime.agda`
-  - `formal/cubical/GurutamaSiddha.agda`
   - `formal/cubical/NaturalMachine/Anuvrtti.agda`
   - `formal/cubical/NaturalMachine/AnuvrttiIsTheSameTrade.agda`
   - `formal/cubical/NaturalMachine/Asiddha.agda`
@@ -117,7 +115,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Kuttaka.agda`
   - `formal/cubical/KuttakaCRT.agda`
   - `formal/cubical/KuttakaValli.agda`
-  - `formal/cubical/NaturalMachine/CakravalaNeedsKuttaka.agda`
   - `formal/cubical/NaturalMachine/ConvergentsAreDeterminedByThePrefixOfTheValli.agda`
   - `formal/cubical/NaturalMachine/TheValliConvergentDeterminantAlternates.agda`
   - `formal/cubical/Swarm/S09SmithKuttaka.agda`
@@ -141,7 +138,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Purnata.agda`
   - `formal/cubical/Shunya.agda`
   - `formal/cubical/VargaGulma.agda`
-  - `formal/cubical/Vargacitighana.agda`
   - `formal/cubical/Vargana.agda`
   - `formal/cubical/VargaprakritiSreni.agda`
   - `machine/BhavanaSeparation.hs`
@@ -162,6 +158,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/CakravalaNat.agda`
   - `formal/cubical/CakravalaWitness.agda`
   - `formal/cubical/NaturalMachine/Cakravala.agda`
+  - `formal/cubical/NaturalMachine/CakravalaNeedsKuttaka.agda`
 
 
 ## 9.  Saṅkalita — sums, heaps, and the solid
@@ -175,9 +172,11 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/GhanaBaddha.agda`
   - `formal/cubical/Narayana.agda`
   - `formal/cubical/NarayanaKarna.agda`
+  - `formal/cubical/NarayanaSamasa.agda`
   - `formal/cubical/NaturalMachine/Sankalita.agda`
   - `formal/cubical/Sankalita.agda`
   - `formal/cubical/VaraSankalita.agda`
+  - `formal/cubical/Vargacitighana.agda`
 
 
 ## 10.  Kerala — the series with its remainder
@@ -204,7 +203,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
 **devatā** — rasa; the enumerated affective structure; śaḍrasa
 
-  - `formal/cubical/SatyayantraSamyoga.agda`
   - `formal/cubical/Shadrasa.agda`
 
 
@@ -216,6 +214,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
   - `formal/cubical/AmshaSatyayantra.agda`
   - `formal/cubical/Gurutama.agda`
+  - `formal/cubical/GurutamaSiddha.agda`
   - `formal/cubical/IndraNet.agda`
   - `formal/cubical/Jiva.agda`
   - `formal/cubical/NaturalMachine/FiniteIndraWeave.agda`
@@ -231,6 +230,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/RnaDhana_TheWholeMixedStratificationIsTheFlippedOne.agda`
   - `formal/cubical/NaturalMachine/RootedIndraTotal.agda`
   - `formal/cubical/Satyayantra.agda`
+  - `formal/cubical/SatyayantraSamyoga.agda`
   - `machine/IndraNet.hs`
 
 
