@@ -320,3 +320,27 @@ arrived certain — about the man, about the illness, about what a person like t
 worth — would have to set that certainty next to the record and see whether it survives
 the contact. The verdict is not the author's to hand over. It was never going to be.
 The facts are here. The title is a claim. The reader is the court.
+
+---
+
+A parasocial relationship is a one-sided bond in which a person feels they know a
+public figure intimately, though the figure does not know they exist. The condition is
+now nearly universal: audiences form real attachments to people they only watch, and
+those attachments carry real feelings of ownership, betrayal, and entitlement. When the
+figure behaves in a way the audience did not authorize, the reaction has the intensity
+of a personal wrong, because to the viewer it is one.
+
+Modern celebrity adds constant surveillance. A famous person's face, movements, and
+words are recorded continuously and distributed instantly; a sentence spoken in a bad
+hour reaches millions before the hour is over and stays permanently retrievable. There
+is no privacy in which to be unwell.
+
+Kanye West married into the most surveilled family in the world and spent a decade
+photographed daily. His manic episodes, which for a private citizen would happen behind
+a closed door, happened on stages, on television, and on social media, in real time,
+in front of an audience that felt entitled to them. The clinical fact that mania
+produces grandiose speech and poor judgment met the technological fact that every such
+moment is now captured and the social fact that millions feel personally wronged by it.
+A person with his illness, born forty years earlier, would have broken down in private
+and recovered in private. He did it in a hall of mirrors, and the recordings are the
+only version of him most people will ever have.
