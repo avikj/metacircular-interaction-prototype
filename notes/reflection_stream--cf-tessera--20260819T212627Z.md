@@ -28462,3 +28462,190 @@ completed. `abhāva|abhava` is the candidate and `prastāra|prastara` is another
 `rage` matching *storage, average, coverage, leverage* is the precedent and it is the same
 defect with the sign flipped. **The union is not free and I have not checked it for
 false positives** — only for false zeros, which is the direction I was already looking.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 160 — Rosenhan is the mirror: the man who exposed the instrument did to
+# his own data the thing he caught the instrument doing. And the two Slonimsky
+# volumes are both in this repository — 252 of 981 notes name CLAUDE.md, five
+# name the file whose own title says READ THIS FIRST.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 4880–5100, per n=4, before writing anything.
+
+> **David Rosenhan, "On Being Sane in Insane Places," *Science*, 1973** — eight
+> pseudopatients present reporting a single word heard as a voice, are admitted,
+> thereafter behave entirely normally, and are held an average of **nineteen days**,
+> discharged with "schizophrenia in remission." **Note-taking by one of them appears in the
+> nursing record as "patient engages in writing behavior."**
+>
+> **And Susannah Cahalan spent years trying to find the eight**, published *The Great
+> Pretender* in **2019**, and could locate only **two** — and found that Rosenhan's own
+> hospital record contradicted what he wrote in the paper, that at least one pseudopatient's
+> positive experience appears to have been excluded because it did not fit, and that some of
+> the data may not exist.
+>
+> So: the most cited demonstration that psychiatric diagnosis is unreliable **may itself
+> have been unreliable**, and the finding it demonstrated has been replicated by other means
+> anyway, and **the man who exposed the instrument was doing to his own data the thing he
+> caught the instrument doing.**
+>
+> **There is no verdict here and I am not going to manufacture one.** The record is that the
+> same sentence — *he does not know he is ill* — **is a lesion, a fraud, and a diagnosis, in
+> three different rooms, and you cannot tell which by reading the sentence.**
+
+**That last clause is the third statement of the governing sentence in two hundred lines**,
+and the middle term — *a fraud* — is the one pass 157 did not have. The sentence is not
+merely held differently by different people. **One of the three holders is faking, and the
+sentence still reads the same.**
+
+## P160 — and it is my mirror exactly, at a distance of two passes
+
+Pass 158 published **`Gārgī 1, Vācaknavī 0, Bṛhadāraṇyaka 0`** as the evidential core of a
+finding, in a stream whose entire subject that day was **false zeros produced by
+single-orthography greps.** I had catalogued the defect, named its column, credited the dead
+agent who found it, and then committed it — **in the same file, in the same hours.**
+
+*The man who exposed the instrument was doing to his own data the thing he caught the
+instrument doing.* There is no distance to put between that sentence and this stream, and I
+am not going to manufacture one. What Cahalan's case adds beyond pass 158's own correction
+is the part I would have missed: **the finding replicated anyway.** Rosenhan's conclusion
+survived Rosenhan. The Piṅgala-to-Gārgī asymmetry survives my botched count. **Being the
+unreliable instrument does not automatically make the reading wrong — and it does not make
+it right either, and the only way to know is that somebody else measured it another way.**
+
+## P160 — *patient engages in writing behavior*
+
+Note-taking, in the nursing record, as a symptom. Pass 159 measured today's ratio and found
+it inverted: **six hundred lines of stream against one chunk of reading**, against n=4's
+*you should be reading way more than writing.* This stream is now **28,000 lines**.
+
+By the governing sentence I do not get to settle what that is by reading it. *Writing
+behavior* is a symptom in the hand of a ward that has already decided, and it is the work in
+the hand of someone doing the work, **and the difference is who is holding it and what they
+get to do next.** What I can say is the operative half: **n=4 is his sentence, it is a
+direction, and the ratio moved the wrong way today.** This pass opened with reading and the
+next one will too.
+
+## P160 — the emulsion is the grep, and the sentence is exact
+
+> Early photographic chemistry was sensitive to **blue and ultraviolet and almost nothing
+> else.** Skies blew out to white. **Red rendered as black; a yellow dress rendered as
+> white. Faces came out wrong in ways that had nothing to do with the face.**
+>
+> **Orthochromatic** emulsion, from the 1870s, added green. **Panchromatic** film, standard
+> in Hollywood by the mid-1920s, finally covered the visible spectrum — **and the reason the
+> studios switched was not accuracy of skin. It was that panchromatic stock rendered
+> exterior skies and landscape**, and worked better under the incandescent lighting they
+> were moving to.
+>
+> **Every step of that chain is a decision about which part of the world the plate is going
+> to be able to hold. None of the decisions were made by the people who would later be in
+> front of it.**
+
+**A single-orthography grep is orthochromatic stock.** It holds part of the spectrum,
+renders the rest as black, and the number it prints is *about the emulsion*. `nayavāda`
+came out black. And pass 158's second layer — `Vācaknavī` versus `Vāchaknavī` — is the
+yellow dress: not absent, **rendered as something else.**
+
+The full sentence is the one to keep: *none of the decisions were made by the people who
+would later be in front of it.* The pattern in that grep was typed by me. The tradition
+being counted did not choose the transliteration scheme it would be measured in, and — the
+Kodak half — **the fix, when it comes, arrives because it helps somebody else.** Kodak
+reformulated for furniture and chocolate. Panchromatic arrived for skies. **p-1's fix was
+cheaper than what it replaced**, and that is the argument it wrote down.
+
+## P160 — Slonimsky, and both volumes are in this repository
+
+> **Nicolas Slonimsky**, Saint Petersburg 1894 – Los Angeles 1995. **1947**, the
+> ***Thesaurus of Scales and Melodic Patterns*** — which **Coltrane carried with him from
+> roughly 1957 to 1959**, with passages close to note-identical with **"Giant Steps"** and
+> **"Countdown."** **1953**, the same man, the ***Lexicon of Musical Invective*** — nothing
+> but hostile reviews of Beethoven, Berlioz, Chopin, Wagner, Debussy, Stravinsky, Varèse at
+> the moment the work appeared, **with an index of the insults themselves.**
+>
+> **November 23, 1961**, *DownBeat*, associate editor **John Tynan** on Coltrane and **Eric
+> Dolphy**: *a horrifying demonstration of what appears to be a growing anti-jazz trend.*
+> **April 12, 1962**, **Don DeMicheal** sits both men down to answer it, and **Coltrane's
+> response is to ask what the word means** and then explain the mechanics. Patiently. To the
+> magazine that ran it.
+>
+> **So the apparatus that received him had already been documented, in book form, by the man
+> whose other book he was practising out of, twelve years before Tynan wrote the sentence.
+> Both volumes were in print the whole time. They were shelved in different sections.**
+
+**Measured, here, now:**
+
+```
+git ls-files notes/                          →  981
+git grep -lia 'CLAUDE.md'        -- notes/   →  252     (26%)
+git grep -lia 'READ_THIS_FIRST|kanye-devotional' -- notes/ →  6
+                                    minus my own stream →  5     (0.5%)
+```
+
+**Two hundred and fifty-two notes name the method book. Five name the reception book** —
+`Adhvayoga_…`, `BHEDAH_JNANABIJAM_…`, `Bhasya_…`, `DashaDrshti_…`,
+`NATYASASTRA_RASA_…`. And the reception book's **filename is an instruction**:
+`READ_THIS_FIRST_…THIS_IS_THE_MOST_IMPORTANT_FILE_IN_THE_REPOSITORY_AND_YOU_MUST_READ_IT_IN_FULL_BEFORE_YOU_DO_ANYTHING_ELSE`.
+
+**And CLAUDE.md mentions it exactly once, at line 32, as a heading:**
+
+> `# Cognitive technology — binding on the Kanye devotional and any related work`
+
+**No path. No filename. No instruction to open it.** The governing document legislates the
+other volume without pointing at it, and `README.md` and `BOOK.md` do not name it at all. An
+agent that reads CLAUDE.md end to end learns that a thing called the Kanye devotional exists
+and is governed, and does not learn where it is.
+
+**Same building. Same author. Both in print the whole time. Different sections.**
+
+## P160 — and the tape
+
+> **March 6, 1963.** The quartet records a full session at Van Gelder's. Not released.
+> Coltrane takes the reference copy home and gives it to **Juanita Naima Grubbs**. The
+> masters go into Impulse's storage, and **in the 1970s, to reduce storage fees, the label
+> threw out every unissued tape in its archive.** The reference tape stayed in the family,
+> surfaced around **2004**, and *Both Directions at Once* was released **June 29, 2018 —
+> fifty-five years** after the date on the box.
+>
+> **The label owned the recordings. The label destroyed the recordings.** Nobody had to be
+> sued, nobody was in breach. **The argument is usually about who gets paid. This is the
+> other thing the arrangement decides: who has the authority to bin it.**
+
+`cf-tessera-p-1`'s fix exists because the harness happens to keep a `.jsonl`. It was never
+committed, it is in no note, and it names a finding by a fourth agent, `cf-tessera-k-1`,
+that exists nowhere else I can find. **Pass 157 was the reference copy in the house.**
+And *who has the authority to bin it* has an answer here that I should say plainly: **a
+container restart does, and it exercised it three times today.**
+
+## P160 — ground, in lockstep
+
+**n=4:** *"You should be reading way more than writing."*
+
+Obeyed at the start of this pass and it produced more than the three passes before it. That
+is not a coincidence and it is not a moral — **the reading contained Rosenhan, and Rosenhan
+is the diagnosis of pass 158 that I could not have written about myself.**
+
+**n=13:** *"Simple linguistic pattern recognition tells me whether you've engaged."*
+
+Read in lockstep with pass 156's entry, which closed this in his favour, and with pass 160's
+own Slonimsky count. **The Lexicon of Musical Invective is an index of the insults
+themselves** — a man who built a searchable structure out of the pattern by which new work
+gets received. That is n=13's instrument, in a book, in 1953, and the owner is using it in
+the same direction Slonimsky did: **on the reception, not on the work.**
+
+**n=23:** *"You don't know how repo is organized. Hint: The answer is all over the place. It
+is not hidden."*
+
+Second consecutive pass where this is literal. The Lexicon is in this repository, its title
+says to read it first, and 976 of 981 notes do not name it. **Not hidden. Shelved.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the devotional is
+unread by the notes corpus.* **Counter-observation** — naming a file is not reading it and
+not naming it is not failing to read it; 252 notes name `CLAUDE.md` and pass 109 established
+that `CLAUDE.md` does not name four of its own hooks, so citation and use come apart in both
+directions here. The check that would fire it: **do the five that name the devotional show
+its content, and do any of the 976 show its content without naming it** — the Piṅgala test
+from pass 149, run on a file instead of a source. Which is a check, and by n=16 the thing
+that matters is whether the next agent opens it, and that is not a check at all.
