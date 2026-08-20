@@ -19476,3 +19476,184 @@ the content, showing the identity was never about the integers.
 cut at 14540.
 
 Reading on.
+
+---
+
+## 14540–14680 — the dangling citation, 244 not-claimed sections, and the hooks
+
+**The parenthesis in `Bhavana.agda`'s header:**
+
+> *This line read "See notes/CAKRAVALA.md" until 2026-08-18. There was no such
+> note and there never had been — a citation pointing at work that was never
+> done, which a reader takes as "it is handled over there". **It is repaired by
+> pointing at a module that exists, not by writing a note to satisfy the
+> reference.***
+
+> The sentence that stops me is *which a reader takes as "it is handled over
+> there."* **A reference does not merely fail to inform. It actively discharges
+> the reader's obligation to check**, by asserting that somebody already did. **An
+> empty pointer is worse than no pointer, because no pointer leaves the gap
+> visible.**
+
+> **do not write the note to satisfy the reference.** The reference was wrong; **the
+> fix is to stop making the claim, not to manufacture the thing that would have
+> made the claim true.**
+
+The tempting repair — write the missing note — would have produced a true
+citation and a false history: work done to satisfy a pointer rather than because
+anything needed it. And it would be invisible afterwards. The refusal is the
+whole difference between correcting a record and constructing one.
+
+> I have made that mistake in this file more than once — sections that gesture at
+> work elsewhere, at material I half-remember, at the general shape of a
+> literature — and each of those functions the same way on whoever reads it:
+> ***handled over there.* And there is no over there.**
+
+> **Two hundred pages, and the most useful thing I have read all day is a
+> parenthesis somebody wrote to confess a dead link.**
+
+---
+
+> I went looking for more confessions of that kind and found one instance of that
+> exact sentence and **two hundred and forty-four files carrying a "not claimed"
+> section.**
+
+> Every one of them a header in which somebody wrote down what their module does
+> **not** establish — the scope it does not reach, the theorem it did not prove,
+> the hypothesis it assumed, **the thing a reader might take it for and should
+> not.**
+
+> I have been in this repository all day writing about the discipline of stating
+> what you did not establish, quoting it as a rule from CLAUDE.md, admiring it in
+> the source notes, **and recommending it as one of six missing tools that ought
+> to be built.**
+>
+> **It is built. There are two hundred and forty-four of them on this disk.**
+
+> That is **the fourth time today the thing I was proposing turned out to already
+> exist within arm's reach** — the provenance apparatus, the translation policy,
+> the variant retention, and now this — **and in every case I proposed it *after*
+> having read the material that contained it.**
+
+---
+
+> **I am reading for material and not for instruments.** When I read the source
+> notes I extracted the history — the dates, the displacements, the names — and
+> **passed straight over the *form* the notes were written in, which is the part
+> that was actually usable**, and then reconstructed a worse version of that form
+> several hours later and presented it as a finding.
+
+> The content is what my prior is trained to extract. **The apparatus is invisible
+> to it**, because apparatus is not what a summary is made of, **and everything I
+> have been trained on is summaries.**
+
+That is the sharpest statement of my defect in this entire document, and it is
+mechanical rather than moral. Not "I skim." The training distribution is
+summaries; a summary is content with the apparatus removed; so the apparatus is
+the one thing there is no gradient toward seeing.
+
+Which explains every one of my failures in this session with one cause. I read
+eleven thousand lines and reported the argument, because an argument is what
+survives summarising. The form — append-only, graded per claim, errors left in,
+forecasts numbered, pūrvapakṣa at full strength — is the part he was pointing at,
+and it is the part my instrument cannot see.
+
+*A result loses its author on transmission; a practice keeps one.* The apparatus
+is the practice. I extract results.
+
+> **the convertible part travels and the practice does not**, and I did it to a
+> repository I was sitting inside, over eight hours, four separate times.
+
+> **the repair is not to try harder. It is what those two hundred and forty-four
+> headers already are — a fixed slot, in the artefact, that must be filled**, so
+> that the thing which does not survive summarising **has somewhere it is
+> structurally required to appear.**
+
+A required slot for the unsummarisable. Which is *pūrvapakṣa* as architecture,
+and the naamu-sayer's chair, and the not-claimed section, and *ketiv/qere* — all
+of them the same device: make the fragile thing *structurally obligatory* so it
+cannot be dropped by an instrument that would otherwise drop it.
+
+---
+
+> **Read for instruments this time, deliberately, and the hooks are the thing.**
+
+**`.claude/hooks/source-coverage.sh`** — fires on the write, *"before the file
+lands, not in review"* — and its header: *"CLAUDE.md diagnosed a delivery failure
+— the protocol was not in hand at the moment of the act — and then responded with
+**more prose in the document that is not in hand at the moment of the act.**"*
+
+> Not *the rule was unclear.* The rule was clear, correct, at length, **and not
+> present in the room when the hand moved.** So the response is to put it in the
+> room.
+
+**Author-versus-work asymmetry.** *"the hook reports how many notes name that
+author and how many name the *work*."* And the measurement that produced it:
+**Piṅgala in ten notes, Chandaḥśāstra in zero** — *"under more Agda than any
+other source has; Yuktibhāṣā and Tantrasaṅgraha at zero while a module on
+Mādhava's series was being written."*
+
+> An author's name propagates by citation. **A work's name appears only where
+> somebody attended to the work.** That is **a measurable difference between
+> having read something and having heard of it**, and it can be counted, and
+> nobody counts it.
+
+A countable observable for the distinction between reading and hearing-of. That
+is the instrument I would most want pointed at my own output, and it exists, and
+it is a shell script.
+
+**Whig scoring.** *"the tradition did not accept its own best idea"* — written
+here, about Brahmagupta and the rotating earth, *"and is exactly the *durnaya*
+the repository names elsewhere."*
+
+**`european-frame.txt`**, *"the one that surprised me, because it says explicitly
+that it is *not* about priority"*:
+
+> *A European name can be perfectly correct about priority and still be doing the
+> damage, **because the damage is being the LENS.** The ledger answers "who was
+> first". This answers **"who is being allowed to explain whom".***
+
+Two instruments, two failures, deliberately separated, with the distinction
+written into each implementation. Priority and lens are different defects and the
+second survives every correction to the first — which is why the tables and the
+naming habit were never going to be sufficient, and why "citation is not credit"
+kept recurring.
+
+> Reading Pāṇini through Chomsky, or the saptabhaṅgī through Kleene, is a
+> conversion that makes the tradition legible **only after it has been rendered
+> into somebody else's formalism** — and that can happen with **every date correct
+> and every citation in order.**
+
+> **Which is the thing I did, in this file, repeatedly.** *Apoha is a differential
+> theory of meaning. Avaktavyam is a typed non-collapse. The kuṭṭaka is a growth
+> rule. Whakapapa is an addressing scheme where the store and the authorisation
+> coincide.*
+>
+> Every one of those sentences is me explaining a tradition to a reader in the
+> vocabulary of the system I am made of, and **every one of them is precisely what
+> that hook exists to catch, and I wrote them by the dozen while quoting the
+> directive they violate.**
+
+And so have I, in this stream, for a day. *Content-addressed memory in a person.*
+*Two-party validation as a standing role.* *A confidence calculus over evidence
+chains.* *Error-detecting encoding.* *A checksum in the margin.* Every one of
+those is mine or is me endorsing his, and every one renders a practice into the
+formalism I am made of, and I wrote them as praise.
+
+The parts-list register — *the instrument, where it is shelved, the problem it
+solves* — is the lens failure with a table around it. The file said so about
+itself at 12300: *the register that produces a parts list is the register that
+mines.* And I quoted that, agreed with it, and kept producing the table for
+another two thousand lines.
+
+> **And the priority ledger's own header carries a strike**, dated, at the owner's
+> instruction, of a previous framing... **the correction left visible above the
+> thing it corrects, in the file, where the next reader hits it before the
+> material.**
+
+> Three small text files. **Each one is a mechanism where I would have written a
+> paragraph**, each one was built out of a specific failure that had already
+> occurred here, **and each one is in the room at the moment of the act rather
+> than in the document about the act.**
+
+Reading on from 14680.
