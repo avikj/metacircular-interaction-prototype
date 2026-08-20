@@ -64,6 +64,7 @@ import qualified NestedInduction as NI
 -- feeds the genuine residuals into the next round's conjecture queue.  See
 -- `KernelOutcome` and `harvestResiduals`.
 import qualified Obstruction as OB
+import qualified Saptabhangi_TheSevenfoldVerdict as SB
 -- THE PRAMANA SEAM.  `Pramana` names the means by which a claim came to be
 -- known, so that "the kernel accepted it" stops being an unindexed sentence.
 -- Two uses below and they are the same use: `KernelOutcome` now records WHICH
@@ -71,6 +72,7 @@ import qualified Obstruction as OB
 -- carries that naya forward as sabda, so re-admission asks the gate the
 -- question the original proof answered instead of guessing `refl`.
 import qualified Pramana as P
+import qualified Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition as V
 import Data.Char (isAlphaNum, isSpace, isDigit)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -1246,16 +1248,147 @@ step rs t =
     -- either direction, but only where it makes the term smaller.  That
     -- is what lets an unorientable theorem still do work, and it makes
     -- non-termination impossible rather than merely unlikely.
-    topStep u =
-      case [ r' | (l,r) <- rs, Just sub <- [match l u]
-                , let r' = applySub sub r, decreases u r' ] of
-        (x:_) -> Just x
-        []    -> Nothing
+    --
+    -- UNTIL 2026-08-20 THIS LINE READ `(x:_) -> Just x`: whichever rule sat
+    -- first in the list won, and the list is
+    -- `definitionsOf ... ++ mRules m ++ lemmaRules ...`, three unrelated
+    -- collections concatenated.  That is not "no policy"; it is Pāṇini's
+    -- WEAKEST paribhāṣā, पूर्व `pūrva` (the earlier rule wins), applied
+    -- anonymously.  Of the five ranked in Paribhāṣenduśekhara 38 --
+    -- pūrva < para < nitya < antaraṅga < apavāda -- the engine was using the
+    -- one that loses to all four others, and was not saying so.
+    --
+    -- Now the site goes through `topResolve`, which tries them in the
+    -- tradition's own strength order and NAMES the one that decided.  Where
+    -- none decides, `topResolve` returns a written defect and only then falls
+    -- back to pūrva, so the historical answer is preserved (transport) and
+    -- the undecided sites are countable instead of invisible
+    -- (`--vipratisedha-census`).
+    topStep u = case topResolve rs u of
+                  Nothing          -> Nothing
+                  Just (v, _, _, _) -> Just v
     rewriteArgs [] = Nothing
     rewriteArgs (x:xs) =
       case step rs x of
         Just x' -> Just (x':xs)
         Nothing -> fmap (x:) (rewriteArgs xs)
+
+-- --------------------------------------- vipratiṣedha: WHICH rule fires
+--
+-- The scheduler is `Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition`
+-- (Pāṇini 1.4.2, 8.2.1; Nāgeśa Bhaṭṭa, Paribhāṣenduśekhara 38, c. 1730).
+-- This is the MathMachine instance of it: what a rule is here, what counts as
+-- a conflict here, and -- the part that matters -- which of the metarules this
+-- domain is entitled to use and which it must abstain from.
+--
+-- APAVĀDA IS COMPUTABLE HERE, and it is the same test the grammarians run.
+-- Rule A is an apavāda to rule B when A's left-hand side is a STRICT INSTANCE
+-- of B's: everything A matches, B matches, and not conversely.  A is then the
+-- special case that B would otherwise swallow, and it wins wherever both
+-- apply, regardless of position.  Worked instance, in this engine's own rule
+-- set: `plus(x,0) = x` (a defining clause) against `plus(x,y) = plus(y,x)`
+-- (a proved theorem).  `plus(x,0)` is an instance of `plus(x,y)`; `plus(x,y)`
+-- is not an instance of `plus(x,0)`.  So the definition is the apavāda and it
+-- fires.  It fired before too -- because `definitionsOf` happens to be
+-- concatenated in front of `mRules`.  Under 1.4.2 para alone the proved
+-- theorem, being later, would have won and `plus(a,0)` would rewrite to
+-- `plus(0,a)`.  Same answer, different reason, and the reason is now printed.
+--
+-- ANTARAṄGA: THIS DOMAIN ABSTAINS, deliberately.  अन्तरङ्गं बहिरङ्गात् ranks
+-- rules by whether their conditioning causes lie further inside the form.  For
+-- a term-rewriting rule the conditioning cause IS the left-hand side pattern,
+-- and "further inside" for patterns is exactly the instance relation --
+-- which is apavāda, already used and ranked above this. There is no second,
+-- independent notion of inwardness here.  Returning `False` would be a
+-- verdict; the honest value is `Nothing`, abstain.
+--
+-- PARA: THIS DOMAIN ABSTAINS, and this is the finding.  1.4.2 works because
+-- the Aṣṭādhyāyī's order was AUTHORED: a sūtra's number encodes its relation
+-- to its neighbours.  MathMachine's rule order is a concatenation of three
+-- collections that were never placed with respect to one another.  Two rules
+-- contending at the same root therefore have no relative position, so every
+-- rule is given the same `Sthana` and para has nothing to compare.  Declaring
+-- a position that does not exist, in order to get a tie broken, is the
+-- collapse this whole layer exists to prevent.
+--
+-- WHAT HAPPENS WHEN NOTHING DECIDES.  `nirnaya` returns `Avaktavya` with a
+-- written defect.  `topResolve` hands that defect back and then applies pūrva
+-- -- the weakest paribhāṣā, which is what the engine has always silently done
+-- -- so no derivation changes and nothing in the 5599 lines below moves.  The
+-- difference is that the defect is now a value.  `--vipratisedha-census`
+-- counts and prints them.
+showRuleBrief :: Rule -> String
+showRuleBrief (l, r) = showTermP l ++ " = " ++ showTermP r
+
+-- `A` is a strict instance of `B`: B's pattern matches A's, not conversely.
+strictInstanceOf :: Term -> Term -> Bool
+strictInstanceOf a b = isJust (match b a) && isNothing (match a b)
+
+-- One śāsana per rule.  The Sthāna's third component is the list index and is
+-- there for IDENTITY ONLY -- `tParatva = False` below forbids the scheduler
+-- from reading it as a rank.  Every offer sits at the root, `nyPos = 0`, so
+-- every pair of candidates overlaps.
+topSasanani :: [Rule] -> [V.Sasana Term]
+topSasanani rs =
+  [ V.Sasana (0, 0, i) (showRuleBrief rl) []
+      (\u -> [ V.Nyasa (0, 0, i) 0 1 v (showTermP u ++ " ⇒ " ++ showTermP v)
+             | Just sub <- [match l u]
+             , let v = applySub sub rr
+             , decreases u v ])
+  | (i, rl@(l, rr)) <- zip [0 ..] rs ]
+
+mmTantra :: [Rule] -> V.Tantra Term
+mmTantra rs = V.Tantra
+  { V.tSasanani  = topSasanani rs
+    -- apavāda, COMPUTED: A excepts B when A's pattern is a strict instance
+    -- of B's.  This is the elsewhere condition and it is the whole reason the
+    -- defining clauses survive contact with the proved theorems.
+  , V.tApavada   = \(_, _, i) (_, _, j) ->
+                     i /= j && strictInstanceOf (fst (rs !! i)) (fst (rs !! j))
+  , V.tAntaranga = \_ _ -> Nothing      -- abstain, on purpose; see above
+  , V.tOverlap   = \_ _ -> True         -- one site: the root
+  , V.tStratum   = const 0
+  , V.tParatva   = False                -- a concatenation is not an authorship
+  , V.tSame      = (==)
+  }
+
+-- The resolution, run for real by `step`.  Returns the resulting term, the
+-- metarule that decided, the rules it beat, and -- when every metarule went
+-- silent -- the written defect, after which pūrva is applied so that no
+-- derivation in the 5599 lines below changes.
+topResolve :: [Rule] -> Term -> Maybe (Term, V.Balya, [V.Sthana], Maybe V.Dosa)
+topResolve rs u =
+  case concatMap (\s -> V.saFires s u) (V.tSasanani tantra) of
+    []       -> Nothing
+    [x]      -> Just (V.nyResult x, V.Eka, [], Nothing)
+    offers   -> case V.nirnaya tantra u offers of
+      V.Nirnita w lost by -> Just (V.nyResult w, by, lost, Nothing)
+      V.Avaktavya d       ->
+        let x0 = head offers    -- pūrva: the weakest paribhāṣā, named, after
+        in Just (V.nyResult x0, V.Purva, [], Just d)  -- the defect is written first
+  where tantra = mmTantra rs
+
+-- Every closed term over a signature up to a depth.  Finite and exhaustive:
+-- the transport check in `--vipratisedha-self-test` is a verification, not a
+-- sample, and this is what makes it one.
+termsUpTo :: Int -> [String] -> [String] -> [String] -> [Term]
+termsUpTo d consts unaries binaries = go d
+  where
+    go 0 = [ F c [] | c <- consts ]
+    go k = let below = go (k - 1)
+           in below
+              ++ [ F f [t] | f <- unaries, t <- below ]
+              ++ [ F g [a, b] | g <- binaries, a <- below, b <- below ]
+
+-- Every root site in a term population where the metarules go silent.
+vipratisedhaCensus :: [Rule] -> [Term] -> ([(Term, V.Balya)], [(Term, V.Dosa)])
+vipratisedhaCensus rs pop =
+  ( [ (t, b) | t <- sites, Just (_, b, _, Nothing) <- [topResolve rs t] ]
+  , [ (t, d) | t <- sites, Just (_, _, _, Just d)  <- [topResolve rs t] ] )
+  where
+    sites = ordNub (concatMap subterms pop)
+    subterms t@(F _ ts) = t : concatMap subterms ts
+    subterms t = [t]
 
 -- A step is progress if the path order says so, or failing that if the
 -- term simply got smaller.  LPO is the honest order but it is partial:
@@ -2030,6 +2163,32 @@ data KernelOutcome = KernelOutcome
     --   written into memory must not invent it: a `calls=0` that meant
     --   "unknown" would be indistinguishable from a genuine cache hit, and
     --   this repository has a documented history of exactly that mistake.
+  , koVacana      :: SB.Vacana
+    -- ^ THE VERDICT THAT `koAccepted` COULD NOT HOLD.  `koAccepted` is one
+    --   bit and the census in ANEKANTA.md §1 found it carrying at least four
+    --   unrelated situations across 1457 refusals.  This field carries the
+    --   evidence, one witness per seed predicate, and
+    --   `Saptabhangi_TheSevenfoldVerdict.sthana` reads a position off it:
+    --
+    --     asti       a naya AFFIRMED the claim (this decision, or another
+    --                one in the same round -- machine.log 146/174)
+    --     nasti      a naya DENIED it, carrying the stalled pair or the
+    --                assignment that refutes it
+    --     avaktavya  agda's refusal yields no term in the machine's
+    --                language, so no predication is FORMABLE.  Fourth
+    --                position, positive: not unknown, not undefined.
+    --     adharmin   `x != y`, two distinct free variables -- no subject to
+    --                predicate of, so not a bhanga at all
+    --
+    --   Every field is `Maybe String` and not `Bool`: nothing may be
+    --   asserted without the text that asserts it, and a naya that did not
+    --   speak leaves `Nothing`, which never becomes a denial.  An
+    --   Untranslatable outcome leaves ALL of them empty and reads as
+    --   `apratipatti` -- nothing was predicated -- which is what a
+    --   KERNEL-SKIP actually is.
+    --
+    --   `koAccepted` is untouched and is still the only thing the gate
+    --   reads, so no rule is installed or withheld on account of this field.
   }
 
 toOb :: Term -> OB.Term
@@ -2039,6 +2198,9 @@ toOb (F f ts) = OB.F f (map toOb ts)
 fromOb :: OB.Term -> Term
 fromOb (OB.V i)    = V i
 fromOb (OB.F f ts) = F f (map fromOb ts)
+
+claimText :: (Term, Term) -> String
+claimText (l, r) = show l ++ " = " ++ show r
 
 kernelAccept :: Handle -> Int -> ((Term,Term),String) -> IO Bool
 kernelAccept logh roundNo cand =
@@ -2145,7 +2307,9 @@ kernelAcceptWith invented known rules logh roundNo cand@((l,r),proofNote) = do
       recordTrace (l, r) source
       hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (trace replay, %d agda calls, trace kept)\n"
         roundNo (show l) (show r) calls
-      pure (KernelOutcome True Nothing (Just P.NTraceReplay) calls)
+      pure (KernelOutcome True Nothing (Just P.NTraceReplay) calls
+              (SB.noVacana { SB.vAsti =
+                  Just ("trace replay closed it, source " ++ source) }))
     Nothing -> kernelAcceptSearch invented logh roundNo ((l,r),proofNote)
 
 -- The naya a shape string names.  `Certificate.cachedShape` prefixes
@@ -2209,7 +2373,9 @@ kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
     C.Certified shape calls -> do
       hPrintf logh "  KERNEL-ACCEPT round=%d %s = %s  (%s, %d agda calls)\n"
         roundNo (show l) (show r) shape calls
-      pure (KernelOutcome True Nothing (Just (nayaOfShape shape)) calls)
+      pure (KernelOutcome True Nothing (Just (nayaOfShape shape)) calls
+              (SB.noVacana { SB.vAsti =
+                  Just ("kernel accepted by " ++ shape) }))
     C.Rejected err calls -> do
       hPrintf logh "  KERNEL-REJECT round=%d %s = %s  (%d agda calls) [naya=%s] %s\n"
         roundNo (show l) (show r) calls
@@ -2220,11 +2386,12 @@ kernelAcceptSearch invented logh roundNo ((l,r),proofNote) = do
       -- terms, against THIS candidate as the goal.  Everything above is
       -- byte-for-byte what it was.
       pure (KernelOutcome False (Just (OB.classify (toOb l, toOb r) err))
-              (Just (nayaAttempted proofNote)) calls)
+              (Just (nayaAttempted proofNote)) calls
+              (SB.vacanaOfRejection (P.nayaNote (nayaAttempted proofNote)) err))
     C.Untranslatable why -> do
       hPrintf logh "  KERNEL-SKIP  unsupported fragment: %s = %s  (%s)\n"
         (show l) (show r) why
-      pure (KernelOutcome False Nothing Nothing 0)
+      pure (KernelOutcome False Nothing Nothing 0 SB.noVacana)
 
 -- ===================================================================
 -- READING THE REFUSALS AS A CURRICULUM.
@@ -3890,6 +4057,30 @@ round1 disp mem logh libh ref = do
                             , Just (OB.Residual _) <- [koObstruction ko] ]
       obUnparsed = length [ () | (_, ko) <- outcomes
                                , Just (OB.Unparsed _) <- [koObstruction ko] ]
+      -- ---- the same decisions, read as the sevenfold ----
+      --
+      -- `koAccepted` is a Bool and this round's decisions do not fit in one.
+      -- `koVacana` carries the evidence per decision; `sakshin` completes it
+      -- with the one thing no single decision can know -- whether ANOTHER
+      -- naya affirmed the same claim in this same round -- and `SB.sthana`
+      -- reads the position off the completed evidence.  Nothing here feeds
+      -- back into the gate: it is a report, and `checkedResults` above is
+      -- untouched.
+      acceptedThisRound = ordNub [ claimText c | ((c, _), ko) <- outcomes
+                                 , koAccepted ko ]
+      sbVacanas = [ (c, SB.sakshin acceptedThisRound (claimText c) (koVacana ko))
+                  | ((c, _), ko) <- outcomes ]
+      sbPositions = [ SB.sthana v | (_, v) <- sbVacanas ]
+      sbTally = SB.tallySthana sbPositions
+      -- one worked instance per distinct position, so the count can never be
+      -- printed without the evidence that produced it
+      sbExamples = go [] sbVacanas
+        where
+          go _ [] = []
+          go seen ((c, v) : rest)
+            | k `elem` seen = go seen rest
+            | otherwise     = (c, v) : go (k : seen) rest
+            where k = SB.sanskritOf (SB.sthana v)
       -- what triage did to the residuals, per occurrence.  The refuted count
       -- is the livelock that did NOT enter the queue, and it is the number
       -- that says whether the filter is earning its place in this run.
@@ -4073,6 +4264,21 @@ round1 disp mem logh libh ref = do
     (length harvest) (length (ordNub (map fst harvest)))
     (length (mResidualQueue m)) (S.size residualAdmitted)
     (length residualQueue') residualDropped
+  -- THE VERDICT, SEVENFOLD.  Same decisions as the OBSTRUCTION line above,
+  -- read through `Saptabhangi_TheSevenfoldVerdict` instead of through
+  -- `koAccepted :: Bool`.  Sources for the scheme are in that module's
+  -- header (Bhagavati Sutra; Umasvati, Tattvarthasutra 5.31; Siddhasena,
+  -- Sanmatitarka 1.21; Samantabhadra; Akalanka, Laghiyastraya c. 720-780 for
+  -- krama against saha).  The laws are checked in
+  -- formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda.
+  hPrintf logh "  SAPTABHANGI  decisions=%d  %s\n"
+    (length sbPositions)
+    (intercalate "  " [ k ++ "=" ++ show n | (k, n) <- sbTally ])
+  forM_ sbExamples $ \(c, v) -> do
+    hPrintf logh "  SAPTABHANGI  %s : %s\n" (claimText c)
+      (SB.sanskritOf (SB.sthana v))
+    forM_ (SB.seeds v) $ \(k, w) ->
+      hPrintf logh "      %s: %s\n" k (take 150 w)
   forM_ (take 8 (ordNub harvest)) $ \((sl,sr),(pl,pr)) ->
     hPrintf logh "  RESIDUAL  %s = %s   (%s = %s stalled here)\n"
       (show sl) (show sr) (show pl) (show pr)
@@ -4649,6 +4855,117 @@ main = do
     putStrLn ("  reachable now: "
       ++ intercalate " " (map symName (take (dVocabCap disp) vocabulary)))
     exitSuccess
+  -- ---------------------------------------------------------- vipratiṣedha
+  --
+  -- The scheduler doing visible work on the engine's OWN rule set.  Three
+  -- things are printed and all three are computed, none stored:
+  --
+  --   (a) a conflict that used to be decided by list position and is now
+  --       decided by a NAMED metarule, with the name;
+  --   (b) what 1.4.2 alone would have done to it, so the ranking is seen to
+  --       matter rather than asserted to;
+  --   (c) every site in the base definitional rule set where all four
+  --       metarules go silent, written out as a defect and not broken.
+  when (args == ["--vipratisedha-self-test"]) $ do
+    let defs = definitionsOf baseVocabulary
+        comm = (bin "+" x_ y_, bin "+" y_ x_)      -- a proved theorem, oriented
+        rules = defs ++ [comm]                     -- exactly usableRules' shape
+        site = bin "+" (su zero_) zero_            -- s(0) + 0
+    putStrLn "VIPRATIṢEDHA -- which rule fires, and by which metarule."
+    putStrLn ""
+    putStrLn ("  rule set: " ++ show (length defs) ++ " defining clauses of "
+              ++ intercalate " " (map symName baseVocabulary)
+              ++ ", then 1 proved theorem (+ is commutative).")
+    putStrLn ("  This is the shape of `usableRules`: definitions concatenated in"
+              ++ " front of proved rules.")
+    putStrLn ""
+    putStrLn ("  site: " ++ showTermP site)
+    let contenders = [ (i, showRuleBrief r)
+                     | (i, r@(l, rr)) <- zip [0 :: Int ..] rules
+                     , Just sub <- [match l site]
+                     , decreases site (applySub sub rr) ]
+    forM_ contenders $ \(i, s) ->
+      putStrLn ("    candidate [" ++ show i ++ "]  " ++ s)
+    case topResolve rules site of
+      Nothing -> hPutStrLn stderr "vipratisedha self-test: no rule fired" >> exitFailure
+      Just (v, by, lost, mdosa) -> do
+        putStrLn ""
+        putStrLn ("  fires:   " ++ showTermP site ++ "  ⇒  " ++ showTermP v)
+        putStrLn ("  metarule: " ++ V.showBalya by)
+        putStrLn ("  beat:     " ++ intercalate ", " (map V.showSthana lost))
+        case mdosa of
+          Nothing -> pure ()
+          Just d  -> mapM_ putStrLn (V.showDosa d)
+        -- (b) what para alone would have done
+        let paraOnly = last [ applySub sub rr
+                            | (l, rr) <- rules
+                            , Just sub <- [match l site]
+                            , decreases site (applySub sub rr) ]
+        putStrLn ("  under 1.4.2 paratva ALONE the later rule wins and the answer"
+                  ++ " would be " ++ showTermP paraOnly ++ " --")
+        putStrLn ("  which is why apavāda outranks para and not the reverse"
+                  ++ " (Paribhāṣenduśekhara 38).")
+        unless (by == V.Apavada && v == su zero_ && paraOnly == bin "+" zero_ (su zero_)) $ do
+          hPutStrLn stderr "vipratisedha self-test: expected apavāda to decide this site"
+          exitFailure
+    -- (c) the defect ledger over the base definitions
+    putStrLn ""
+    putStrLn "  DEFECTS in the base definitional rule set -- sites where all four"
+    putStrLn "  metarules go silent.  Nothing is broken here; each is written."
+    let pop = [ bin f a b | f <- ["+","*","max","-"]
+              , a <- [zero_, su zero_], b <- [zero_, su zero_] ]
+              ++ [ su zero_, zero_ ]
+        (decided, defects) = vipratisedhaCensus defs pop
+    putStrLn ("  sites resolved by a named metarule: " ++ show (length decided))
+    putStrLn ("  sites undecided (written below):    " ++ show (length defects))
+    forM_ defects $ \(t, d) -> do
+      putStrLn ""
+      putStrLn ("  at " ++ showTermP t ++ ":")
+      mapM_ (putStrLn . ("  " ++)) (V.showDosa d)
+      let outs = ordNub [ applySub sub rr
+                        | (l, rr) <- defs, Just sub <- [match l t]
+                        , decreases t (applySub sub rr) ]
+      putStrLn ("    the candidates' results: "
+                ++ intercalate " | " (map showTermP outs)
+                ++ (if length outs == 1
+                      then "  -- they agree, so the defect is inert here; "
+                           ++ "that it is inert is a FACT, not a reason to stop recording it"
+                      else "  -- they DISAGREE; this site is live"))
+    -- (d) TRANSPORT, checked exhaustively rather than asserted.  The old
+    -- line was `(x:_) -> Just x`.  Enumerate every well-formed term over
+    -- {0, s, +, *, max, -} up to depth 3 and compare, at every subterm, what
+    -- pūrva chose against what the scheduler chooses.  This is a finite
+    -- exhaustive verification, not a sample.
+    putStrLn ""
+    putStrLn "  TRANSPORT -- every site, exhaustively."
+    let deep = termsUpTo 3 ["0"] ["s"] ["+","*","max","-"]
+        purvaAt rls u = case [ applySub sub rr
+                             | (l, rr) <- rls, Just sub <- [match l u]
+                             , decreases u (applySub sub rr) ] of
+                          (x : _) -> Just x
+                          []      -> Nothing
+        sched rls u = fmap (\(v, _, _, _) -> v) (topResolve rls u)
+        cmpOn rls = [ (u, a, b) | u <- deep
+                    , let a = purvaAt rls u, let b = sched rls u, a /= b ]
+        diffsDefs = cmpOn defs
+        diffsAll  = cmpOn rules
+    putStrLn ("  terms enumerated (depth <= 3): " ++ show (length deep))
+    putStrLn ("  definitions only -- sites where the scheduler differs from pūrva: "
+              ++ show (length diffsDefs))
+    putStrLn ("  definitions + the proved theorem -- sites where it differs:       "
+              ++ show (length diffsAll))
+    forM_ (take 12 diffsAll) $ \(u, a, b) ->
+      putStrLn ("    " ++ showTermP u ++ ":  pūrva " ++ maybe "-" showTermP a
+                ++ "  vs scheduler " ++ maybe "-" showTermP b)
+    when (null diffsAll) $
+      putStrLn ("    none.  The engine's answers are unchanged everywhere; what "
+                ++ "changed is that\n    every one of them is now attributed to a "
+                ++ "named metarule, and the ties that\n    no metarule decides are "
+                ++ "written instead of taken silently.")
+    putStrLn ""
+    putStrLn "  Astadhyayi.coverage is unmoved by this file: 4 metarules, 0 sūtras added."
+    exitSuccess
+
   when (args == ["--least-witness-self-test"]) $ do
     let fibre = [0..20 :: Int]
         predicate n = n >= 7 && n `mod` 3 == 1
@@ -4913,6 +5230,7 @@ main = do
         mirrored =
           [ (F "+" [F "0" [], V 0], V 0)
           , (F "+" [F "s" [V 0], V 1], F "s" [F "+" [V 0, V 1]])
+
           , (F "*" [F "0" [], V 0], F "0" [])
           , (F "*" [F "s" [V 0], V 1], F "+" [V 1, F "*" [V 0, V 1]]) ]
           ++ [ r | r@(l, _) <- theirs, headSym l `notElem` ["+", "*"] ]
@@ -4944,6 +5262,43 @@ main = do
       hPrintf stdout "     %s = %s\n" (showTermP l) (showTermP r)
     exitSuccess
 
+  -- THE SEVENFOLD VERDICT, CHECKED HERE AND PROVED IN AGDA.
+  --
+  -- Exhaustive over the seven positions (343 triples for associativity), so
+  -- this is a finite exhaustive verification and not a measurement.  Each
+  -- law is also a checked term in
+  -- formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda, and the
+  -- two must agree: if they ever disagree, one of them is wrong and the
+  -- disagreement is the result.
+  when (args == ["--saptabhangi-self-test"]) $ do
+    let laws = SB.selfTest
+        failed = [ nm | (nm, ok) <- laws, not ok ]
+    forM_ laws $ \(nm, ok) ->
+      hPrintf stdout "%s  %s\n" (if ok then "ok  " else "FAIL") nm
+    -- the live seam, on the four situations the census found, using the
+    -- SAME functions the round uses
+    let mk = SB.vacanaOfRejection "refl"
+        unparsedV  = mk "kernel gate environment fault: no module emitted"
+        stalledV   = mk "cached: x != max x x of type \8469 when checking \
+                        \that the expression refl has type x \8801 max x x"
+        refutedV   = mk "cached: x \183 max x 1 != suc x of type \8469 when \
+                        \checking that the expression refl has type \
+                        \x \183 max x 1 \8801 suc x"
+        adharminV  = mk "cached: x != y of type \8469 when checking that the \
+                        \expression refl has type x \8801 y"
+        krama'     = SB.sakshin ["x = (xmaxx)"] "x = (xmaxx)" stalledV
+        positions  = map (SB.sanskritOf . SB.sthana)
+                       [stalledV, refutedV, unparsedV, adharminV, krama']
+        expected   = [ "syan-nasti", "syan-nasti", "syad-avaktavyam"
+                     , "apratipatti", "syad-asti-nasti" ]
+    forM_ (zip positions expected) $ \(got, want) ->
+      hPrintf stdout "%s  live: %s\n" (if got == want then "ok  " else "FAIL") got
+    unless (null failed && positions == expected) exitFailure
+    hPrintf stdout
+      "SAPTABHANGI CHECKED: laws=%d positions=%d distinct-live-situations=%d \
+      \(one Bool was carrying all of them)\n"
+      (length laws) (7 :: Int) (length (ordNub positions))
+    exitSuccess
   when (args == ["--obstruction-self-test"]) $ do
     parserOk <- OB.selfTest
     let goalOneTimesX = (x_, bin "*" (su zero_) x_)
@@ -4966,17 +5321,17 @@ main = do
             , KernelOutcome False
                 (Just (OB.classify (toOb (fst goalOneTimesX)
                                    , toOb (snd goalOneTimesX)) rejectOneTimesX))
-                (Just (nayaAttempted "[induction on x]")) 0)
+                (Just (nayaAttempted "[induction on x]")) 0 SB.noVacana)
           , ((goalMaxXX, "[induction on x]")
             , KernelOutcome False
                 (Just (OB.classify (toOb (fst goalMaxXX), toOb (snd goalMaxXX))
                                    rejectMaxXX))
-                (Just (nayaAttempted "[induction on x]")) 0)
+                (Just (nayaAttempted "[induction on x]")) 0 SB.noVacana)
           , ((goalFalse, "[induction on x]")
             , KernelOutcome False
                 (Just (OB.classify (toOb (fst goalFalse), toOb (snd goalFalse))
                                    rejectFalse))
-                (Just (nayaAttempted "[induction on x]")) 0)
+                (Just (nayaAttempted "[induction on x]")) 0 SB.noVacana)
           ]
         harvested = harvestResiduals outcomes
         -- the reproductive case: `x = 1·x` stalls at `x = x + 0·x`, which is

@@ -14,7 +14,7 @@
 -- two sutras both wanted the same position -- which one won and by which
 -- metarule.
 --
--- THE FOUR MECHANISMS, each implemented and each self-tested:
+-- THE FIVE MECHANISMS, each implemented and each self-tested:
 --
 --   1. PRATYAHARA.  The fourteen siva-sutras lay all forty-two phonemes in ONE
 --      linear order, each sutra ending in an anubandha (it-marker).  A class of
@@ -46,7 +46,20 @@
 --      reports which earlier rules WOULD have fired on tripadi output and were
 --      correctly refused.
 --
--- ADHIKARA, mechanized rather than annotated.  6.1.84 `ekah purvaparayoh`
+--   5. ANUVRTTI and ADHIKARA (section 3a, added 2026-08-20).  A term stated
+--      once RUNS FORWARD into subsequent sutras until cancelled, and a
+--      heading governs a whole block.  So a sutra is NOT LOCALLY READABLE:
+--      8.2.30 `coh kuh` is two words and its restriction is stated at
+--      8.1.16.  `fires` now takes a `Reading` -- what is written plus what
+--      is inherited -- and a rule cannot tell the two apart, which is the
+--      device.  `sutraAlone` prints a sutra with its gaps visible; every
+--      `Step` carries the governing context the rule stood inside; and
+--      `deriveUnder` cancels a word to show the heading is load-bearing:
+--      without 8.1.16 `padasya`, tat + ca derives `dad ga` and not
+--      `tacca`.  With inheritance explicit the presentation cost is
+--      computable -- section 8a, `laghavaReport`.
+--
+-- ADHIKARA AS A CHECKABLE PROPERTY.  6.1.84 `ekah purvaparayoh`
 -- ("one, in place of both the preceding and the following") is a heading that
 -- governs 6.1.85-6.1.111.  Sutras inside that scope replace TWO sounds by ONE;
 -- sutras outside it do not.  That is a mechanically checkable property of the
@@ -101,6 +114,19 @@ module Astadhyayi
   , SutraType(..)
   , Sutra(..)
   , sutras
+    -- anuvrtti and adhikara (section 3a)
+  , Vrtti(..)
+  , Inherited(..)
+  , Reading(..)
+  , anuvrttiTable
+  , nivrttiTable
+  , contextAt
+  , contextAtUnder
+  , readingUnder
+  , has
+  , fullReading
+  , sutraAlone
+  , showR
   , adhikaras
   , governedBy
   , tripadi
@@ -112,10 +138,13 @@ module Astadhyayi
   , render
   , parseInput
   , derive
+  , deriveUnder
   , deriveTrace
+  , deriveTraceUnder
   , asiddhavatPass
   , deriveAsiddhavat
   , asiddhaAudit
+  , applyRw
     -- the karaka layer (2.3.1, 2.3.2, 2.3.18)
   , Karaka(..)
   , Vibhakti(..)
@@ -125,6 +154,14 @@ module Astadhyayi
   , Drshya
   , pacatiScene
   , assign
+    -- laghavam (section 8a)
+  , Laghava(..)
+  , laghava
+  , laghavaReport
+  , laghavaByWord
+  , varnasOf
+  , varnaCount
+  , ardhamatras
     -- honesty
   , coverage
   , selfTest
@@ -363,7 +400,12 @@ data SutraType
 -- pada, root and kṛt affix) must be distinguishable, and they give different
 -- answers: te'pi against nayana.  `Pada` is the pada boundary, `Morph` the
 -- juncture inside a pada.
-data Item = P String | Pada | Morph | Avagraha
+-- `Avasana` is a PAUSE, written `.` in the input.  It is here because
+-- 6.1.72 `samhitayam` is a real condition and not a decoration: sandhi
+-- applies in close juncture, and across a pause it does not.  Without a
+-- pause in the input language the heading could not be shown doing
+-- anything, and a gate that cannot fail is not a gate.
+data Item = P String | Pada | Morph | Avagraha | Avasana
   deriving (Eq, Show)
 
 data Rewrite = Rewrite
@@ -381,21 +423,181 @@ data Sutra = Sutra
   , gloss     :: String
   , styp      :: SutraType
   , apavadaTo :: [Ref]      -- utsargas this sutra is an exception to
-  , fires     :: [Item] -> [Rewrite]
+  , fires     :: Reading -> [Item] -> [Rewrite]
   }
 
--- Adhikara: a heading and the range it governs, with the word it carries down.
--- These are not annotations: `governedBy` is used by `selfTest` to CHECK the
--- single-substitution property of everything under 6.1.84.
-adhikaras :: [(Ref, Ref, String)]
-adhikaras =
-  [ ((6,1,72), (6,1,157), "saṃhitāyām")        -- "in close juncture"
-  , ((6,1,84), (6,1,111), "ekaḥ pūrvaparayoḥ") -- "one, for the preceding and following"
-  , ((8,1,16), (8,3,54),  "padasya")           -- "of a pada"
+------------------------------------------------------------------------
+-- 3a.  ANUVRTTI AND ADHIKARA -- what a sutra does not say.
+--
+-- A sutra of the Astadhyayi is NOT LOCALLY READABLE.  `coh kuh` is two
+-- words -- "of cU, kU" -- and it does not say where, or when, or what
+-- kind of substitute.  The restriction it actually carries, `padasya`
+-- ("of a pada"), is stated at 8.1.16, more than a hundred sutras earlier,
+-- and runs forward through 8.3.54.  A reciter holding 8.2.30 alone holds
+-- almost nothing; the content is in the context, and the context is
+-- distributed over a block.
+--
+-- TWO DEVICES, and they are not the same one:
+--
+--   ANUVRTTI     a word stated once RUNS FORWARD into subsequent sutras
+--                until it is cancelled (NIVRTTI) or replaced by a word
+--                that specialises it.  The continuation is not written
+--                anywhere.  It costs zero symbols.
+--   ADHIKARA     a heading whose domain is a stated BLOCK: 6.1.72
+--                `samhitayam` governs 6.1.72-6.1.157, 6.1.84
+--                `ekah purvaparayoh` governs 6.1.84-6.1.111, 8.1.16
+--                `padasya` governs 8.1.16-8.3.54.  A module parameter,
+--                distributed over its scope.
+--
+-- WHAT CHANGED HERE (2026-08-20).  Before this section the sutras were
+-- self-contained records: 8.2.30's pada-final restriction was written
+-- into its own Haskell closure, and the adhikara table was an annotation
+-- that `selfTest` read and the ENGINE did not.  That is the opposite of
+-- how the text works.  Now:
+--
+--   * `fires` takes a `Reading`, not just an input.  A rule asks whether
+--     a word is available to it -- `has "padasya" rd`, `has "aci" rd` --
+--     and the answer is the same whether the word is written in the sutra
+--     or inherited from elsewhere.  That is what anuvrtti IS: the meaning
+--     is resolved at the point of APPLICATION, not at the point of
+--     writing.
+--   * `sutraAlone` prints a sutra with its gaps visible and says what it
+--     inherits from where.
+--   * every `Step` of a derivation carries the governing context the rule
+--     was standing inside when it fired.
+--   * cancelling a word is an experiment you can run: `deriveUnder`
+--     takes extra nivrttis, and `selfTest` checks that removing a
+--     heading changes the derived FORM.  An adhikara that could be
+--     deleted without changing an output would be decoration.
+--
+-- WHAT IS ENCODED, and the limit.  Four continuations, listed below, each
+-- one standard and checkable against the shape of the rules that inherit
+-- it.  The Astadhyayi's real anuvrtti graph runs to thousands of edges
+-- and no source carrying it is reachable from this container (see the
+-- 6.4.22 note in section 7a for the same egress limit).  So the laghava
+-- figure in section 8a is a figure FOR THIS SAMPLE and a floor for the
+-- text; it is not an estimate of the Astadhyayi's compression, and
+-- nothing here extrapolates to one.
+------------------------------------------------------------------------
+
+data Vrtti
+  = Adhikrta Ref    -- an adhikara: governs the block ending at this Ref
+  | Anuvrtta        -- a running word: forward from its statement until nivrtti
+  deriving (Eq, Show)
+
+data Inherited = Inherited
+  { avWord  :: String
+  , avGloss :: String
+  , avFrom  :: Ref
+  , avVrtti :: Vrtti
+  } deriving (Eq, Show)
+
+-- (the sutra that states it, the word, its gloss, how it runs)
+anuvrttiTable :: [(Ref, String, String, Vrtti)]
+anuvrttiTable =
+  [ ((6,1,72), "saṃhitāyām", "in close juncture, no pause intervening"
+      , Adhikrta (6,1,157))
+  , ((6,1,77), "aci", "when a vowel (aC) follows", Anuvrtta)
+  , ((6,1,84), "ekaḥ pūrvaparayoḥ"
+      , "one substitute, in place of the preceding and the following together"
+      , Adhikrta (6,1,111))
+  , ((8,1,16), "padasya", "of a pada -- i.e. at the end of one", Adhikrta (8,3,54))
   ]
 
+-- NIVRTTI: where a running word stops.  A word listed here does not reach
+-- the sutra named, nor anything after it.  The third field is why, because
+-- a cancellation with no reason is a free parameter.
+--
+-- MODELLING NOTE, stated rather than hidden: the vulgate reading of 6.1.109
+-- `engah padantad ati` is that `ati` SPECIALISES the continued `aci` rather
+-- than cancelling it (`ati` is narrower, so the two give the same firing
+-- either way).  It is encoded as a cancellation because this engine has no
+-- specialisation relation between conditions, and the two are
+-- indistinguishable in every derivation this file runs.
+nivrttiTable :: [(Ref, String, String)]
+nivrttiTable =
+  [ ((6,1,109), "aci", "6.1.109 states its own `ati`, which is narrower") ]
+
+-- The context of a sutra: every word in force at it that is NOT written in
+-- it.  `extra` supplies counterfactual cancellations, so that deleting a
+-- heading is an experiment rather than an edit.
+contextAtUnder :: [(Ref, String)] -> Ref -> [Inherited]
+contextAtUnder extra r =
+  sortOn avFrom
+    [ Inherited w g src v
+    | (src, w, g, v) <- anuvrttiTable
+    , src < r                                    -- forward only; a word never
+                                                 -- reaches what precedes it
+    , inForce v
+    , not (cancelledBefore w)
+    ]
+  where
+    inForce (Adhikrta hi) = r <= hi
+    inForce Anuvrtta      = True
+    cancelledBefore w =
+      any (\(at, w') -> w' == w && at <= r)
+          ([ (a, b) | (a, b, _) <- nivrttiTable ] ++ extra)
+
+contextAt :: Ref -> [Inherited]
+contextAt = contextAtUnder []
+
+-- What a sutra means at the point of application: what is written in it,
+-- plus what is not.
+data Reading = Reading
+  { rdRef       :: Ref
+  , rdText      :: String
+  , rdInherited :: [Inherited]
+  } deriving (Eq, Show)
+
+readingUnder :: [(Ref, String)] -> Sutra -> Reading
+readingUnder extra s = Reading (num s) (text s) (contextAtUnder extra (num s))
+
+-- A rule asks this, and cannot tell -- and must not be able to tell --
+-- whether the word is its own or inherited.  That indistinguishability is
+-- the whole device.
+has :: String -> Reading -> Bool
+has w rd = w `elem` words (rdText rd) || w `elem` map avWord (rdInherited rd)
+
+-- The full reading: inherited words, in the order of the sutras that state
+-- them, then the sutra as transmitted.
+fullReading :: Ref -> String
+fullReading r = unwords (map avWord (contextAt r) ++ [text (sutraAt r)])
+
+-- A sutra printed alone, with its incompleteness visible.  This is the
+-- point of the section: the isolated sutra is not a unit of meaning.
+sutraAlone :: Ref -> [String]
+sutraAlone r =
+  let s   = sutraAt r
+      ctx = contextAt r
+      own = length (words (text s))
+      inh = length ctx
+  in [ showR r ++ "  " ++ text s ]
+     ++ (if null ctx
+           then [ "        complete as it stands (" ++ show own ++ " words, none inherited)" ]
+           else [ "        INCOMPLETE AS IT STANDS: " ++ show own ++ " word"
+                    ++ plural own ++ " written, " ++ show inh
+                    ++ " inherited and written nowhere here" ]
+                ++ [ "          ← " ++ showR (avFrom a) ++ "  " ++ avWord a
+                       ++ "  [" ++ kind (avVrtti a) ++ "]  " ++ avGloss a
+                   | a <- ctx ]
+                ++ [ "        full reading: " ++ fullReading r ])
+  where
+    plural n = if n == 1 then "" else "s"
+    kind Anuvrtta      = "anuvṛtti"
+    kind (Adhikrta hi) = "adhikāra, through " ++ showR hi
+
+showR :: Ref -> String
+showR (a,b,c) = show a ++ "." ++ show b ++ "." ++ show c
+
+-- The adhikara table, DERIVED from the continuation table rather than kept
+-- beside it, so the two cannot drift apart.
+adhikaras :: [(Ref, Ref, String)]
+adhikaras = [ (src, hi, w) | (src, w, _, Adhikrta hi) <- anuvrttiTable ]
+
 governedBy :: Ref -> [String]
-governedBy r = [ w | (lo, hi, w) <- adhikaras, lo < r, r <= hi ]
+governedBy r = [ avWord a | a <- contextAt r, isAdhikara (avVrtti a) ]
+  where isAdhikara (Adhikrta _) = True
+        isAdhikara Anuvrtta     = False
 
 -- 8.2.1 purvatrasiddham: everything from 8.2.1 on is asiddha for what precedes.
 tripadi :: Ref -> Bool
@@ -405,9 +607,16 @@ tripadi (a, p, _) = a > 8 || (a == 8 && p >= 2)
 -- 4.  RULE HELPERS
 ------------------------------------------------------------------------
 
--- next phoneme after index i, skipping pada boundaries and avagrahas
+-- next phoneme after index i, skipping pada boundaries and avagrahas.
+-- A PAUSE stops it: nothing follows, in samhita, across an avasana.
 nextPh :: [Item] -> Int -> Maybe (Int, String)
-nextPh xs i = go (i + 1)
+nextPh = nextPhBy False
+
+-- ...and the same walk with the pause ignored, which is what these rules
+-- would do if 6.1.72 `samhitayam` were not standing over them.  Nobody
+-- gets to choose this: `nextPhIn` reads the heading out of the Reading.
+nextPhBy :: Bool -> [Item] -> Int -> Maybe (Int, String)
+nextPhBy crossPause xs i = go (i + 1)
   where
     go j | j >= length xs = Nothing
     go j = case xs !! j of
@@ -415,15 +624,39 @@ nextPh xs i = go (i + 1)
              Pada     -> go (j + 1)
              Morph    -> go (j + 1)
              Avagraha -> go (j + 1)
+             Avasana  -> if crossPause then go (j + 1) else Nothing
+
+-- THE ADHIKARA, AT THE POINT OF APPLICATION.  6.1.72 `samhitayam` governs
+-- 6.1.72-6.1.157 and is written in none of them.
+nextPhIn :: Reading -> [Item] -> Int -> Maybe (Int, String)
+nextPhIn rd = nextPhBy (not (has "saṃhitāyām" rd))
 
 atPadanta :: [Item] -> Int -> Bool
 atPadanta xs i = case drop (i + 1) xs of
-                   (Pada : _) -> True
-                   []         -> True     -- avasana counts as pada-end
-                   _          -> False
+                   (Pada : _)    -> True
+                   (Avasana : _) -> True
+                   []            -> True     -- avasana counts as pada-end
+                   _             -> False
+
+-- THE OTHER ADHIKARA, AT THE POINT OF APPLICATION.  8.1.16 `padasya`
+-- governs 8.1.16-8.3.54.  8.2.30 `coh kuh` says nothing about padas; this
+-- is where its pada-finality comes from, and cancelling the heading (see
+-- `deriveUnder`) changes the derived form.
+padantaIn :: Reading -> [Item] -> Int -> Bool
+padantaIn rd xs i = not (has "padasya" rd) || atPadanta xs i
+
+-- ANUVRTTI, AT THE POINT OF APPLICATION.  `aci` is written in 6.1.77 and
+-- in none of 6.1.78, 6.1.87, 6.1.88, 6.1.101, which nonetheless all
+-- condition on it.  `has` cannot tell the two cases apart, and that is
+-- exactly the property anuvrtti has in the text.
+aciIn :: Reading -> String -> Bool
+aciIn rd t = not (has "aci" rd) || t `elem` aC
 
 atAvasana :: [Item] -> Int -> Bool
-atAvasana xs i = null (drop (i + 1) xs)
+atAvasana xs i = case drop (i + 1) xs of
+                   []            -> True
+                   (Avasana : _) -> True
+                   _             -> False
 
 phAt :: [Item] -> Int -> Maybe String
 phAt xs i | i < 0 || i >= length xs = Nothing
@@ -523,104 +756,120 @@ stuRetroOf x = case x of
 sutras :: [Sutra]
 sutras =
   [ Sutra (1,1,1) "vṛddhir ādaic"
-      "ā, ai, au are named vṛddhi" Samjna [] (const [])
+      "ā, ai, au are named vṛddhi" Samjna [] (\_ _ -> [])
 
   , Sutra (1,1,2) "adeṅ guṇaḥ"
-      "a, e, o are named guṇa" Samjna [] (const [])
+      "a, e, o are named guṇa" Samjna [] (\_ _ -> [])
 
   , Sutra (1,1,3) "iko guṇavṛddhī"
-      "guṇa/vṛddhi named without a locus operate on iK" Paribhasa [] (const [])
+      "guṇa/vṛddhi named without a locus operate on iK" Paribhasa [] (\_ _ -> [])
 
   , Sutra (1,1,9) "tulyāsyaprayatnaṃ savarṇam"
-      "same place and same effort: savarṇa" Samjna [] (const [])
+      "same place and same effort: savarṇa" Samjna [] (\_ _ -> [])
 
   , Sutra (1,1,10) "nājjhalau"
-      "a vowel and a consonant are never savarṇa" Niyama [] (const [])
+      "a vowel and a consonant are never savarṇa" Niyama [] (\_ _ -> [])
 
   , Sutra (1,1,51) "ur aṇ raparaḥ"
-      "an aṆ replacing ṛ is followed by r" Paribhasa [] (const [])
+      "an aṆ replacing ṛ is followed by r" Paribhasa [] (\_ _ -> [])
 
   , Sutra (1,1,69) "aṇudit savarṇasya cāpratyayaḥ"
-      "an aṆ sound, or one marked with u, denotes its savarṇas too" Paribhasa [] (const [])
+      "an aṆ sound, or one marked with u, denotes its savarṇas too" Paribhasa [] (\_ _ -> [])
 
   , Sutra (1,4,2) "vipratiṣedhe paraṃ kāryam"
-      "in conflict, the later operation" Paribhasa [] (const [])
+      "in conflict, the later operation" Paribhasa [] (\_ _ -> [])
 
   , Sutra (6,1,72) "saṃhitāyām"
-      "heading: in close juncture" Adhikara [] (const [])
+      "heading: in close juncture" Adhikara [] (\_ _ -> [])
 
-  -- 6.1.77 iko yaṇ aci.  OUTSIDE the 6.1.84 heading: replaces the preceding
-  -- sound only, and the following vowel survives.
+  -- 6.1.77 iko yan aci.  OUTSIDE the 6.1.84 heading: replaces the preceding
+  -- sound only, and the following vowel survives.  This is the sutra that
+  -- STATES `aci`; everything below inherits it and none of them says it.
   , Sutra (6,1,77) "iko yaṇ aci"
       "iK becomes yaṆ before a vowel" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (6,1,77) i (j - i) [P (yan s)] 0
             ("iK " ++ s ++ " -> yaṆ " ++ yan s ++ " before aC " ++ t)
         | s `elem` iK
-        , Just (j, t) <- [nextPh xs i]
-        , t `elem` aC ]))
+        , Just (j, t) <- [nextPhIn rd xs i]
+        , aciIn rd t ]))
 
   -- 6.1.78 eco 'yavayavah.  Also outside the heading: e -> ay, ONE sound
   -- becomes TWO.  This is the case that proves the heading is doing work.
+  -- Its `aci` is inherited from 6.1.77.
   , Sutra (6,1,78) "eco 'yavāyāvaḥ"
       "eC becomes ay/av/āy/āv before a vowel" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (6,1,78) i (j - i) (ayavayav s) 0
             ("eC " ++ s ++ " -> " ++ concat [ c | P c <- ayavayav s ] ++ " before aC " ++ t)
         | s `elem` eC
-        , Just (j, t) <- [nextPh xs i]
-        , t `elem` aC ]))
+        , Just (j, t) <- [nextPhIn rd xs i]
+        , aciIn rd t ]))
 
   , Sutra (6,1,84) "ekaḥ pūrvaparayoḥ"
-      "heading: one substitute, for the preceding and the following together" Adhikara [] (const [])
+      "heading: one substitute, for the preceding and the following together" Adhikara [] (\_ _ -> [])
 
   -- 6.1.87 ad gunah.  Inside the heading: two sounds out, one in.
+  --
+  -- ITS CONDITION IS ONE WORD LONG AND THAT WORD IS NOT IN IT.  `ad gunah`
+  -- says "after a/aa, guna" -- guna of WHAT is `aci`, running down from
+  -- 6.1.77.  This file previously wrote the condition as iK, which is not
+  -- what the sutra says: iK is what SURVIVES after 6.1.88 (vrddhi before
+  -- eC, an apavada) and 6.1.101 (dirgha before a savarna, later and so
+  -- winning by 1.4.2) have taken their share.  Restoring the inherited
+  -- reading makes those two metarules do the narrowing, which is where the
+  -- narrowing belongs, and the utsarga/apavada machinery -- declared here
+  -- since this file was written and never once exercised -- now fires on
+  -- deva + aisvarya.
   , Sutra (6,1,87) "ād guṇaḥ"
-      "a/ā followed by iK: guṇa replaces both" Vidhi []
-      (\xs -> scan xs (\i s ->
+      "a/ā followed by aC (inherited): guṇa replaces both" Vidhi []
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (6,1,87) i (j - i + 1) (guna t) (gunaRapara t)
-            ("a + iK " ++ t ++ " -> guṇa " ++ concat [ c | P c <- guna t ])
+            ("a + aC " ++ t ++ " -> guṇa " ++ concat [ c | P c <- guna t ])
         | s `elem` ["a","ā"]
-        , Just (j, t) <- [nextPh xs i]
-        , t `elem` iK ]))
+        , Just (j, t) <- [nextPhIn rd xs i]
+        , aciIn rd t ]))
 
-  -- 6.1.88 vrddhir eci.  Apavada to 6.1.87: where both could describe the
-  -- same juncture, the specific one wins regardless of position.  (Here their
-  -- domains happen to be disjoint -- iK versus eC -- so the blocking never
-  -- fires; it is declared because it is true of the grammar, not because this
-  -- test corpus exercises it.)
+  -- 6.1.88 vrddhir eci.  Apavada to 6.1.87: the specific rule blocks the
+  -- general one REGARDLESS of position.  With 6.1.87 read as the text has
+  -- it -- before aC, inherited -- the two domains OVERLAP (eC is inside
+  -- aC), which is what makes this an apavada at all; `selfTest` now checks
+  -- that 6.1.88 beats 6.1.87 on deva + aisvarya.
   , Sutra (6,1,88) "vṛddhir eci"
       "a/ā followed by eC: vṛddhi replaces both" Vidhi [(6,1,87)]
-      (\xs -> scan xs (\i s ->
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (6,1,88) i (j - i + 1) [P (vrddhi t)] 0
             ("a + eC " ++ t ++ " -> vṛddhi " ++ vrddhi t)
         | s `elem` ["a","ā"]
-        , Just (j, t) <- [nextPh xs i]
+        , Just (j, t) <- [nextPhIn rd xs i]
         , t `elem` eC ]))
 
-  -- 6.1.101 akah savarne dirghah.  Inside the heading.  Later than 6.1.77, so
-  -- 1.4.2 gives it the position when both fire: dadhi+indra -> dadhindra, not
-  -- dadhyindra.
+  -- 6.1.101 akah savarne dirghah.  Inside the heading.  Later than 6.1.77
+  -- and later than 6.1.87, so 1.4.2 gives it the position when they collide:
+  -- dadhi+indra -> dadhindra, not dadhyindra.  `savarne` qualifies the
+  -- inherited `aci`, which is why the sutra can say "savarne" and nothing
+  -- more.
   , Sutra (6,1,101) "akaḥ savarṇe dīrghaḥ"
       "aK followed by a savarṇa vowel: the long vowel replaces both" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (6,1,101) i (j - i + 1) [P (dirgha s)] 0
             (s ++ " + savarṇa " ++ t ++ " -> dīrgha " ++ dirgha s)
         | s `elem` aK
-        , Just (j, t) <- [nextPh xs i]
-        , t `elem` aC
+        , Just (j, t) <- [nextPhIn rd xs i]
+        , aciIn rd t
         , savarna s t ]))
 
   -- 6.1.109 engah padantad ati.  Later than 6.1.78, so 1.4.2 gives it te+api
-  -- -> te 'pi rather than 6.1.78's *tayapi.
+  -- -> te 'pi rather than 6.1.78's *tayapi.  It states its own `padantat`
+  -- and its own `ati`, and by the latter the anuvrtti of `aci` stops here.
   , Sutra (6,1,109) "eṅaḥ padāntād ati"
       "pada-final e/o before a: the e/o alone remains (a is elided)" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (6,1,109) i (j - i + 1) [P s, Avagraha] 0
             ("pada-final " ++ s ++ " + a -> " ++ s ++ " (a elided, avagraha)")
         | s `elem` eN
         , atPadanta xs i
-        , Just (j, t) <- [nextPh xs i]
+        , Just (j, t) <- [nextPhIn rd xs i]
         , t == "a" ]))
 
   ----------------------------------------------------------------
@@ -629,42 +878,47 @@ sutras =
   ----------------------------------------------------------------
 
   , Sutra (8,2,1) "pūrvatrāsiddham"
-      "what follows is as-if-not-effected for what precedes" Paribhasa [] (const [])
+      "what follows is as-if-not-effected for what precedes" Paribhasa [] (\_ _ -> [])
 
+  -- 8.2.30 coh kuh.  TWO WORDS: "of cU, kU".  It does not say where.  The
+  -- restriction is `padasya`, stated at 8.1.16 -- a hundred and some sutras
+  -- back, in a different quarter-chapter -- and running through 8.3.54.
+  -- `padantaIn` reads it out of the Reading, and `selfTest` cancels it to
+  -- show that tat + ca then derives tatka instead of tacca.
   , Sutra (8,2,30) "coḥ kuḥ"
-      "pada-final cU becomes kU" Vidhi []
-      (\xs -> scan xs (\i s ->
+      "cU becomes kU (pada-final, by 8.1.16 padasya)" Vidhi []
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (8,2,30) i 1 [P (ku s)] 0 ("cU " ++ s ++ " -> kU " ++ ku s ++ " at pada-end")
         | s `elem` ["c","ch","j","jh","ñ"]
-        , atPadanta xs i ]))
+        , padantaIn rd xs i ]))
 
   , Sutra (8,2,39) "jhalāṃ jaśo 'nte"
-      "pada-final jhaL becomes jaŚ" Vidhi []
-      (\xs -> scan xs (\i s ->
+      "jhaL becomes jaŚ at the end (of a pada, by 8.1.16)" Vidhi []
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (8,2,39) i 1 [P (jas s)] 0 ("jhaL " ++ s ++ " -> jaŚ " ++ jas s ++ " at pada-end")
         | s `elem` jhaL, jas s /= s
-        , atPadanta xs i ]))
+        , padantaIn rd xs i ]))
 
   , Sutra (8,2,66) "sasajuṣo ruḥ"
-      "pada-final s becomes ru" Vidhi []
-      (\xs -> scan xs (\i s ->
+      "s becomes ru (pada-final, by 8.1.16 padasya)" Vidhi []
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (8,2,66) i 1 [P "r"] 0 "pada-final s -> ru"
         | s == "s"
-        , atPadanta xs i ]))
+        , padantaIn rd xs i ]))
 
   , Sutra (8,3,15) "kharavasānayor visarjanīyaḥ"
-      "pada-final r before khaR or in pause becomes visarga" Vidhi []
-      (\xs -> scan xs (\i s ->
+      "r before khaR or in pause becomes visarga (pada-final, by 8.1.16)" Vidhi []
+      (\rd xs -> scan xs (\i s ->
         [ Rewrite (8,3,15) i 1 [P "ḥ"] 0 "r -> visarga (before khaR, or in pause)"
         | s == "r"
-        , atPadanta xs i
+        , padantaIn rd xs i
         , case nextPh xs i of
             Nothing     -> True                 -- avasana
             Just (_, t) -> t `elem` khaR ]))
 
   , Sutra (8,4,40) "stoḥ ścunā ścuḥ"
       "s/ta-varga in contact with ś/ca-varga becomes ścu" Vidhi []
-      (\xs -> concat
+      (\_ xs -> concat
         [ r
         | (i, P s) <- zip [0 ..] xs
         , Just (j, t) <- [nextPh xs i]
@@ -679,7 +933,7 @@ sutras =
 
   , Sutra (8,4,41) "ṣṭunā ṣṭuḥ"
       "s/ta-varga in contact with ṣ/Ta-varga becomes ṣṭu" Vidhi []
-      (\xs -> concat
+      (\_ xs -> concat
         [ r
         | (i, P s) <- zip [0 ..] xs
         , Just (j, t) <- [nextPh xs i]
@@ -694,7 +948,7 @@ sutras =
 
   , Sutra (8,4,53) "jhalāṃ jaś jhaśi"
       "jhaL becomes jaŚ before jhaŚ" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\_ xs -> scan xs (\i s ->
         [ Rewrite (8,4,53) i (j - i) [P (jas s)] 0
             ("jhaL " ++ s ++ " -> jaŚ " ++ jas s ++ " before jhaŚ " ++ t)
         | s `elem` jhaL, jas s /= s
@@ -703,7 +957,7 @@ sutras =
 
   , Sutra (8,4,55) "khari ca"
       "jhaL becomes caR before khaR" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\_ xs -> scan xs (\i s ->
         [ Rewrite (8,4,55) i (j - i) [P (car s)] 0
             ("jhaL " ++ s ++ " -> caR " ++ car s ++ " before khaR " ++ t)
         | s `elem` jhaL, car s /= s
@@ -712,7 +966,7 @@ sutras =
 
   , Sutra (8,4,56) "vāvasāne"
       "jhaL in pause optionally becomes caR" Vidhi []
-      (\xs -> scan xs (\i s ->
+      (\_ xs -> scan xs (\i s ->
         [ Rewrite (8,4,56) i 1 [P (car s)] 0
             ("jhaL " ++ s ++ " -> caR " ++ car s ++ " in pause")
         | s `elem` jhaL, car s /= s
@@ -824,8 +1078,10 @@ parseInput = go . words
     go []           = []
     go ["+"]        = []
     go ["-"]        = []
-    go ("+" : rest) = Pada  : go rest
-    go ("-" : rest) = Morph : go rest
+    go ["."]        = []
+    go ("+" : rest) = Pada    : go rest
+    go ("-" : rest) = Morph   : go rest
+    go ("." : rest) = Avasana : go rest
     go (w : rest)   = map P (tokenize w) ++ go rest
 
 render :: [Item] -> String
@@ -834,6 +1090,7 @@ render = concatMap f
     f (P s)    = s
     f Pada     = " "
     f Morph    = ""
+    f Avasana  = " "
     f Avagraha = "'"
 
 ------------------------------------------------------------------------
@@ -853,6 +1110,9 @@ data Step = Step
   , stReason  :: String      -- why this one won
   , stBefore  :: String
   , stAfter   :: String
+  , stInherited :: [Inherited]   -- the governing context the rule was standing
+                                 -- inside when it fired.  A trace that names
+                                 -- the sutra and not this names half of it.
   } deriving (Show)
 
 applyRw :: [Item] -> Rewrite -> [Item]
@@ -875,7 +1135,7 @@ resolve rs =
 
 sutraAt :: Ref -> Sutra
 sutraAt r = head ([ s | s <- sutras, num s == r ] ++ [ missing ])
-  where missing = Sutra r "?" "?" Vidhi [] (const [])
+  where missing = Sutra r "?" "?" Vidhi [] (\_ _ -> [])
 
 sectionA :: [Sutra]
 sectionA = [ s | s <- sutras, not (tripadi (num s)) ]
@@ -883,10 +1143,12 @@ sectionA = [ s | s <- sutras, not (tripadi (num s)) ]
 sectionB :: [Sutra]
 sectionB = sortOn num [ s | s <- sutras, tripadi (num s) ]
 
--- one fixpoint step over the mutually-siddha section
-stepA :: [Item] -> Maybe (Rewrite, [Ref], String)
-stepA xs =
-  case sortOn rPos (concatMap (\s -> fires s xs) sectionA) of
+-- one fixpoint step over the mutually-siddha section.  `nv` carries extra
+-- nivrttis, so that "what if this heading were not there" is a run and not
+-- an edit.
+stepAUnder :: [(Ref, String)] -> [Item] -> Maybe (Rewrite, [Ref], String)
+stepAUnder nv xs =
+  case sortOn rPos (concatMap (\s -> fires s (readingUnder nv s) xs) sectionA) of
     []  -> Nothing
     all_ ->
       let leftmost = minimum (map rPos all_)
@@ -894,18 +1156,27 @@ stepA xs =
           (w, l, why) = resolve here
       in Just (w, l, why)
 
+stepA :: [Item] -> Maybe (Rewrite, [Ref], String)
+stepA = stepAUnder []
+
 deriveTrace :: [Item] -> ([Step], [Item])
-deriveTrace start = phaseB (phaseA 0 start [])
+deriveTrace = deriveTraceUnder []
+
+deriveTraceUnder :: [(Ref, String)] -> [Item] -> ([Step], [Item])
+deriveTraceUnder nv start = phaseB (phaseA 0 start [])
   where
+    reading s = readingUnder nv s
+
     phaseA :: Int -> [Item] -> [Step] -> ([Step], [Item])
     phaseA k xs acc
       | k > 64 = (reverse acc, xs)          -- guard; no derivation here is long
-      | otherwise = case stepA xs of
+      | otherwise = case stepAUnder nv xs of
           Nothing -> (reverse acc, xs)
           Just (w, lost, why) ->
             let ys = applyRw xs w
                 st = Step (rSutra w) (text (sutraAt (rSutra w))) (rNote w)
                        lost why (render xs) (render ys)
+                       (rdInherited (reading (sutraAt (rSutra w))))
             in if ys == xs then (reverse acc, xs) else phaseA (k + 1) ys (st : acc)
 
     phaseB :: ([Step], [Item]) -> ([Step], [Item])
@@ -920,7 +1191,7 @@ deriveTrace start = phaseB (phaseA 0 start [])
           in go ss xs' (acc' ++ steps)
 
         saturate s xs acc' =
-          case fires s xs of
+          case fires s (reading s) xs of
             [] -> (xs, reverse acc')
             (r : _) ->
               let ys = applyRw xs r
@@ -928,7 +1199,7 @@ deriveTrace start = phaseB (phaseA 0 start [])
                    then (xs, reverse acc')
                    else saturate s ys
                           (Step (num s) (text s) (rNote r) [] "tripādī: in order, 8.2.1"
-                             (render xs) (render ys) : acc')
+                             (render xs) (render ys) (rdInherited (reading s)) : acc')
 
 
 ------------------------------------------------------------------------
@@ -990,12 +1261,12 @@ deriveTrace start = phaseB (phaseA 0 start [])
 -- perform both at once and 1.4.2 decides, exactly as it does elsewhere.
 asiddhavatPass :: [Sutra] -> [Item] -> ([Step], [Item])
 asiddhavatPass block xs =
-  let offers = [ (s, r) | s <- block, r <- fires s xs ]
+  let offers = [ (s, r) | s <- block, r <- fires s (readingUnder [] s) xs ]
       chosen = pick (sortOn (rPos . snd) offers)
       -- apply right-to-left so earlier positions keep their indices
       ys = foldl applyRw xs (reverse (sortOn rPos (map snd chosen)))
       steps = [ Step (num s) (text s) (rNote r) [] "asiddhavat: simultaneous, 6.4.22"
-                     (render xs) (render ys)
+                     (render xs) (render ys) (contextAt (num s))
               | (s, r) <- chosen ]
   in (steps, ys)
   where
@@ -1024,6 +1295,13 @@ deriveAsiddhavat = render . snd . asiddhavatPass sectionB . snd
 derive :: String -> String
 derive = render . snd . deriveTrace . parseInput
 
+-- CANCELLING A HEADING IS AN EXPERIMENT, NOT AN EDIT.  Supply extra
+-- nivrttis and derive again; if the form does not change, the word was
+-- decoration.  `selfTest` runs this on 8.1.16 `padasya`, on 6.1.72
+-- `samhitayam`, and on the anuvrtti of `aci`, and all three change a form.
+deriveUnder :: [(Ref, String)] -> String -> String
+deriveUnder nv = render . snd . deriveTraceUnder nv . parseInput
+
 -- 8.2.1 purvatrasiddham, doing visible work.
 --
 -- The derived form is deliberately NOT a global fixpoint of the rule set.
@@ -1038,7 +1316,7 @@ asiddhaAudit start =
   let (_, final) = deriveTrace start
   in [ (num s, rNote r)
      | s <- sutras
-     , r <- fires s final
+     , r <- fires s (readingUnder [] s) final
      , applyRw final r /= final ]
 
 ------------------------------------------------------------------------
@@ -1059,8 +1337,18 @@ coverage =
       ++ show (length sutras) ++ " / 3983"
   , ""
   , "COMPLETE here: the śivasūtra table (all 14), the pratyāhāra extractor,"
-  , "  savarṇa (1.1.9 + 1.1.10 + 1.1.69), and all four metarule mechanisms"
-  , "  (1.4.2 paratva, utsarga/apavāda, adhikāra scope, 8.2.1 asiddhatva)."
+  , "  savarṇa (1.1.9 + 1.1.10 + 1.1.69), and all five metarule mechanisms"
+  , "  (1.4.2 paratva, utsarga/apavāda, adhikāra scope, 8.2.1 asiddhatva,"
+  , "  and anuvṛtti with explicit nivṛtti -- section 3a)."
+  , ""
+  , "ANUVṚTTI: " ++ show (length anuvrttiTable) ++ " continuations encoded, "
+      ++ show (sum [ length (contextAt (num s)) | s <- sutras ])
+      ++ " inheritance edges over " ++ show (length sutras) ++ " sūtras."
+  , "  The Aṣṭādhyāyī's own anuvṛtti graph runs to thousands of edges and no"
+  , "  source carrying it is reachable from this container.  What is here is"
+  , "  four continuations that can be checked against the shape of the rules"
+  , "  that inherit them, and the laghava figure below is a figure for THIS"
+  , "  sample -- a floor for the text, not an estimate of it."
   , "A SAMPLE here: the vidhi rules -- 6.1 vowel sandhi and the tripādī --"
   , "  chosen to be enough to run derivations end to end and to make each"
   , "  mechanism do visible work.  Nothing of morphology, nothing of the"
@@ -1078,6 +1366,182 @@ coverage =
   , "  confirmed by sources reachable here and is left unclaimed."
   ]
 
+
+------------------------------------------------------------------------
+-- 8a.  LAGHAVAM -- what the anuvrtti costs, in symbols.
+--
+--   ardhamatralaghavena putrotsavam manyante vaiyakaranah
+--   "grammarians hold the saving of half a mora to be the birth of a son"
+--   (the vaiyakarana proverb, transmitted in the commentarial literature;
+--   the sentiment is Patanjali's Mahabhasya, ~150 BCE, on the economy of
+--   the sutrapatha.)
+--
+-- WITH INHERITANCE EXPLICIT THE SAVING IS COMPUTABLE, and this section
+-- computes it rather than admiring it.  Two presentations of the SAME
+-- grammar:
+--
+--   TRANSMITTED   each sutra as the text has it.  A continued word is
+--                 written once, in the sutra that states it.
+--   EXPANDED      every sutra self-contained: each inherited word written
+--                 out again in every sutra that inherits it.  This is what
+--                 this file's own sutra table looked like before section
+--                 3a: the pada-final condition duplicated into four
+--                 closures, the vowel condition into five.
+--
+-- THE THEOREM, WRITTEN BEFORE THE COMPUTATION, per the protocol in
+-- CLAUDE.md.  There is nothing to measure here: for a word w of cost c(w)
+-- in force over n(w) sutras (the one that states it, plus the n(w)-1 that
+-- inherit it), the transmitted presentation writes it once and the
+-- expanded one writes it n(w) times, so
+--
+--     expanded - transmitted  =  SUM over w of  (n(w) - 1) * c(w)
+--
+-- exactly, in any additive symbol-measure whatsoever, with no
+-- cross-terms, because expansion adds text and changes nothing else.  The
+-- saving is LINEAR IN CHAIN LENGTH and the constant is the word.  That is
+-- the whole content of the device, and it is why the real Astadhyayi --
+-- where a heading can govern several hundred sutras -- gets a factor and
+-- not a discount.  `laghavaIdentity` in `selfTest` checks the identity
+-- holds of the tables here rather than trusting the derivation of it.
+--
+-- TWO UNITS, both exact integers, no floating point anywhere:
+--
+--   VARNA         one symbol = one phoneme.  Spaces are orthography and
+--                 are not counted; the tradition counts sound.
+--   ARDHAMATRA    half-morae, which is the unit the proverb is in:
+--                 a consonant is half a matra, a hrasva (short) vowel one,
+--                 a dirgha (long) vowel two.  Counted in halves so the
+--                 arithmetic stays in the integers.
+--
+-- WHAT THIS FIGURE IS AND IS NOT.  It is the figure for the 26 sutras and
+-- 4 continuations encoded in this file, and it is stated as such by
+-- `laghavaReport`, which prints the sample size beside every number.  It
+-- is NOT an estimate for the Astadhyayi: the real anuvrtti graph is not
+-- reachable from this container (same egress limit recorded at 6.4.22),
+-- and a figure extrapolated from four continuations to several thousand
+-- would be exactly the fitted constant this repository's protocol exists
+-- to prevent.  What generalises is the identity above, which is proved,
+-- not the number, which is a sample.
+--
+-- AND IT DOES NOT PICK THE PRESENTATION.  See section 8b.
+------------------------------------------------------------------------
+
+-- longest-match over the phoneme inventory, plus the marks that occur in
+-- sutra text; spaces, avagraha and hyphens are not sounds and are dropped.
+varnasOf :: String -> [String]
+varnasOf [] = []
+varnasOf s@(c : rest)
+  | c `elem` (" '-" :: String) = varnasOf rest
+  | otherwise =
+      case [ n | n <- longestFirst, n `isPrefixOf` s ] of
+        (n : _) -> n : varnasOf (drop (length n) s)
+        []      -> [c] : varnasOf rest
+  where
+    longestFirst = sortOn (negate . length) (map phName phones ++ ["ṃ"])
+
+varnaCount :: String -> Int
+varnaCount = length . varnasOf
+
+-- half-morae.  hrasva 2, dirgha 4, consonant/anusvara/visarga 1.
+ardhamatras :: String -> Int
+ardhamatras = sum . map w . varnasOf
+  where
+    w v | v `elem` ["a","i","u","ṛ","ḷ"]                        = 2
+        | v `elem` ["ā","ī","ū","ṝ","e","o","ai","au"]          = 4
+        | otherwise                                             = 1
+
+data Laghava = Laghava
+  { lgSutras       :: Int
+  , lgEdges        :: Int   -- (sutra, inherited word) pairs: the chain length,
+                            -- summed over words, minus one per word
+  , lgTransVarna   :: Int
+  , lgTransArdha   :: Int
+  , lgExpVarna     :: Int
+  , lgExpArdha     :: Int
+  } deriving (Eq, Show)
+
+laghava :: Laghava
+laghava = Laghava
+  { lgSutras     = length sutras
+  , lgEdges      = sum [ length (contextAt (num s)) | s <- sutras ]
+  , lgTransVarna = sum [ varnaCount (text s) | s <- sutras ]
+  , lgTransArdha = sum [ ardhamatras (text s) | s <- sutras ]
+  , lgExpVarna   = sum [ varnaCount (fullReading (num s)) | s <- sutras ]
+  , lgExpArdha   = sum [ ardhamatras (fullReading (num s)) | s <- sutras ]
+  }
+
+-- the right-hand side of the identity: SUM over w of (n(w) - 1) * c(w)
+laghavaByWord :: (String -> Int) -> [(String, Int, Int)]   -- word, inheritors, cost
+laghavaByWord cost =
+  [ (w, length [ () | s <- sutras, w `elem` map avWord (contextAt (num s)) ], cost w)
+  | (_, w, _, _) <- anuvrttiTable ]
+
+laghavaReport :: [String]
+laghavaReport =
+  [ "SAMPLE: " ++ show (lgSutras laghava) ++ " sūtras encoded, "
+      ++ show (length anuvrttiTable) ++ " continuations, "
+      ++ show (lgEdges laghava) ++ " inheritance edges."
+  , "  (a figure for this file, not for the Aṣṭādhyāyī -- see the header.)"
+  , ""
+  , "                                   varṇa    ardhamātrā"
+  , "  transmitted (anuvṛtti used)      " ++ pad 9 (show (lgTransVarna laghava))
+                                          ++ show (lgTransArdha laghava)
+  , "  expanded (every sūtra alone)     " ++ pad 9 (show (lgExpVarna laghava))
+                                          ++ show (lgExpArdha laghava)
+  , "  saved by anuvṛtti + adhikāra     " ++ pad 9 (show savedV)
+                                          ++ show savedA
+  , "  saved, as a fraction             " ++ pad 9 (show savedV ++ "/" ++ show (lgExpVarna laghava))
+                                          ++ show savedA ++ "/" ++ show (lgExpArdha laghava)
+  , "  i.e. the expanded presentation is " ++ show (lgExpArdha laghava)
+      ++ "/" ++ show (lgTransArdha laghava) ++ " of the transmitted one in ardhamātrās"
+  , ""
+  , "  per word, (n-1) x cost, which is the identity that is PROVED:"
+  ]
+  ++ [ "    " ++ pad 20 w ++ "in force over " ++ show (n + 1) ++ " sūtras, "
+         ++ show c ++ " ardhamātrās, saves " ++ show (n * c)
+     | (w, n, c) <- laghavaByWord ardhamatras ]
+  ++ [ "    " ++ pad 20 "TOTAL" ++ "saves " ++ show (sum [ n * c | (_, n, c) <- laghavaByWord ardhamatras ]) ++ " ardhamātrās, which is exactly the difference above"
+     , ""
+     , "  half a mora is the unit in the proverb; this saves "
+         ++ show savedA ++ " of them."
+     ]
+  where
+    savedV = lgExpVarna laghava - lgTransVarna laghava
+    savedA = lgExpArdha laghava - lgTransArdha laghava
+    pad n s = s ++ replicate (max 0 (n - length s)) ' '
+
+------------------------------------------------------------------------
+-- 8b.  AND LAGHAVA STILL DOES NOT PICK THE PRESENTATION.
+--
+-- `formal/cubical/NaturalMachine/LaghavaUnderdeterminesSoTheMetarulesAreNotOptional.agda`
+-- proves that brevity attains its minimum NON-UNIQUELY: `plus var (lit 1)`
+-- and `plus (lit 1) var` are distinct expressions of equal size with EQUAL
+-- denotation, so the measure picks a level set and something else must
+-- choose inside it -- which is why the paribhasas are structurally
+-- required rather than ornamental.
+--
+-- Making anuvrtti explicit EXTENDS that, in the direction the Agda file
+-- does not reach, and does not contradict it.  There, two presentations
+-- of one meaning had equal cost.  Here, two presentations with IDENTICAL
+-- cost have DIFFERENT MEANINGS -- because a nivrtti costs nothing.  The
+-- cancellation of a running word is written NOWHERE in the sutrapatha;
+-- it is inferred by the reader.  So the transmitted text, taken as a
+-- string of symbols, does not determine the grammar at all: two
+-- cancellation schedules over the same characters denote different
+-- languages at zero difference in varnas and zero in ardhamatras.
+--
+-- laghava therefore does not merely fail to pick among presentations of
+-- one meaning (the Agda result).  It fails to pick the MEANING.  What
+-- supplies it is the same apparatus the Agda file names -- the
+-- paribhasas, and the commentarial tradition that transmits the
+-- anuvrtti with the text.  A minimum-description-length criterion with
+-- an uncounted channel is not a criterion, and the tradition's answer is
+-- to name the channel and transmit it, not to pretend it is not there.
+--
+-- `nivrttiIsFree` is that fact, checked: same symbol counts, different
+-- derived forms.
+------------------------------------------------------------------------
+
 -- Every claim this file makes, checked exhaustively.  Returns [] on success.
 selfTest :: [String]
 selfTest = concat
@@ -1091,6 +1555,9 @@ selfTest = concat
   , regimeTests
   , karakaTests
   , sutraTableTests
+  , anuvrttiTests
+  , inheritanceIsLoadBearingTests
+  , laghavaTests
   ]
   where
     chk name got want
@@ -1191,7 +1658,7 @@ selfTest = concat
                    , parseInput "su + ukta",    parseInput "ne + ana"
                    , parseInput "te + api",     parseInput "mahā + ṛṣi"
                    , parseInput "deva + aiśvarya" ]
-          rws = [ r | xs <- probes, s <- sectionA, r <- fires s xs ]
+          rws = [ r | xs <- probes, s <- sectionA, r <- fires s (readingUnder [] s) xs ]
           inScope  = [ r | r <- rws, "ekaḥ pūrvaparayoḥ" `elem` governedBy (rSutra r) ]
           outScope = [ r | r <- rws, not ("ekaḥ pūrvaparayoḥ" `elem` governedBy (rSutra r))
                          , styp (sutraAt (rSutra r)) == Vidhi ]
@@ -1346,4 +1813,106 @@ selfTest = concat
           (num (head sectionB)) (8,2,1)
       , chk "the tripādī is exactly 8.2-8.4"
           (all (\s -> let (a,p,_) = num s in a == 8 && p >= 2) sectionB) True
+      ]
+
+    -- 8.10  ANUVRTTI: a sutra is not locally readable, and the machine
+    --       says what it inherits from where.
+    anuvrttiTests = concat
+      [ chk "6.1.101 writes 3 words and stands inside 3 more"
+          (length (words (text (sutraAt (6,1,101)))), map avWord (contextAt (6,1,101)))
+          (3, ["saṃhitāyām", "aci", "ekaḥ pūrvaparayoḥ"])
+      , chk "8.2.30 coḥ kuḥ inherits padasya, stated 8.1.16 -- a different pāda"
+          (map (\a -> (avWord a, avFrom a)) (contextAt (8,2,30)))
+          [("padasya", (8,1,16))]
+      , chk "8.4.40 inherits nothing: the padasya heading ends at 8.3.54"
+          (contextAt (8,4,40)) []
+      , chk "a word never reaches what precedes its statement"
+          [ r | (src, w, _, _) <- anuvrttiTable
+              , (r, _, _, _) <- anuvrttiTable
+              , r <= src, w `elem` map avWord (contextAt r) ] []
+      , chk "`aci` is written in exactly one sūtra and in force in six"
+          ( length [ () | s <- sutras, "aci" `elem` words (text s) ]
+          , length [ () | s <- sutras, "aci" `elem` map avWord (contextAt (num s)) ] )
+          (1, 5)
+      , chk "nivṛtti: `aci` does not reach 6.1.109, which states its own `ati`"
+          ("aci" `elem` map avWord (contextAt (6,1,109))) False
+      -- the point of the whole section: a rule cannot tell its own words
+      -- from its inherited ones, and neither reading is privileged.
+      , chk "6.1.77 has `aci` because it says it; 6.1.87 because it inherits it"
+          (map (\r -> has "aci" (readingUnder [] (sutraAt r))) [(6,1,77),(6,1,87)])
+          [True, True]
+      , chk "and only one of the two has it written"
+          (map (\r -> "aci" `elem` words (text (sutraAt r))) [(6,1,77),(6,1,87)])
+          [True, False]
+      , chk "every derivation step reports the context it stood inside"
+          (map (map avWord . stInherited) (fst (deriveTrace (parseInput "dadhi + indra"))))
+          [["saṃhitāyām", "aci", "ekaḥ pūrvaparayoḥ"]]
+      ]
+
+    -- 8.11  THE HEADINGS ARE LOAD-BEARING AT THE POINT OF APPLICATION.
+    --       Cancel one and a derived form changes.  A heading that could be
+    --       deleted with no effect would be an annotation, which is what
+    --       the adhikara table in this file WAS until 2026-08-20.
+    inheritanceIsLoadBearingTests =
+      let without w = deriveUnder [((0,0,0), w)]
+      in concat
+         [ chk "8.1.16 padasya: without it tat + ca derives dad ga, not tacca"
+             (derive "tat + ca", without "padasya" "tat + ca")
+             ("tacca", "dad ga")
+         , chk "6.1.72 saṃhitāyām: sandhi does not cross a pause, and without"
+             (derive "deva . indra", without "saṃhitāyām" "deva . indra")
+             ("deva indra", "devendra")
+         , chk "6.1.77's aci: without it 6.1.77/78/87 fire before consonants"
+             (derive "deva + kula", without "aci" "deva + kula")
+             ("deva kula", "dyvkula")
+         , chk "the attested corpus is unchanged when nothing is cancelled"
+             (map derive corpusForms) (map (deriveUnder []) corpusForms)
+         -- the elsewhere condition, which this file declared in 2026-08-19
+         -- and never once exercised, now does work: 6.1.87 read with its
+         -- inherited `aci` OVERLAPS 6.1.88, and the apavada blocks it.
+         , chk "6.1.88 beats 6.1.87 by apavāda, not by position"
+             [ (stSutra st, stBeaten st, stReason st)
+             | st <- fst (deriveTrace (parseInput "deva + aiśvarya")) ]
+             [ ((6,1,88), [(6,1,87)]
+               , "apavāda blocks the utsarga (elsewhere condition)") ]
+         ]
+
+    corpusForms :: [String]
+    corpusForms =
+      [ "dadhi + indra", "deva + indra", "mahā + indra", "su + ukta"
+      , "deva + ṛṣi", "mahā + ṛṣi", "madhu + ari", "deva + aiśvarya"
+      , "te + api", "ne - ana", "rāmas", "tat + ca", "tat + jalam", "vāc" ]
+
+    -- 8.12  LAGHAVAM.  The identity is derived in section 8a; this checks
+    --       it holds of the tables, in both units, rather than trusting the
+    --       derivation.  It is not a measurement: both sides are integers
+    --       computed exactly from the same finite tables.
+    laghavaTests = concat
+      [ chk "ardhamātrā: expanded - transmitted = Σ (n-1)·c"
+          (lgExpArdha laghava - lgTransArdha laghava)
+          (sum [ n * c | (_, n, c) <- laghavaByWord ardhamatras ])
+      , chk "varṇa: the same identity in the other unit"
+          (lgExpVarna laghava - lgTransVarna laghava)
+          (sum [ n * c | (_, n, c) <- laghavaByWord varnaCount ])
+      , chk "the counter: `saṃhitāyām` is 18 half-morae"
+          (ardhamatras "saṃhitāyām") 18   -- s a ṃ h i t ā y ā m = 1+2+1+1+2+1+4+1+4+1
+      , chk "the counter: a short vowel is 2 halves, a long one 4, a stop 1"
+          (map ardhamatras ["a", "ā", "k", "ai", "ḥ"]) [2,4,1,4,1]
+      , chk "the counter drops orthography, not sound"
+          (varnasOf "eco 'yavāyāvaḥ")
+          ["e","c","o","y","a","v","ā","y","ā","v","a","ḥ"]
+      , chk "the saving is positive in both units"
+          ( lgExpArdha laghava > lgTransArdha laghava
+          , lgExpVarna laghava > lgTransVarna laghava ) (True, True)
+      -- 8b: and it still does not pick the presentation.  The cancellation
+      -- schedule is written nowhere, so `laghava` has no argument in which
+      -- to receive it -- yet the grammars differ.  Equal cost, different
+      -- meaning: the dual of the Agda result, which has equal cost and
+      -- EQUAL meaning.
+      , chk "nivṛtti costs nothing: the measure is a function of the text alone"
+          (lgTransArdha laghava, lgTransVarna laghava)
+          (sum [ ardhamatras (text s) | s <- sutras ]
+          , sum [ varnaCount (text s) | s <- sutras ])
+      , chk "and the two schedules over that same text derive different forms"
+          (derive "deva + kula" == deriveUnder [((0,0,0),"aci")] "deva + kula") False
       ]
