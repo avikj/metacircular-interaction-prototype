@@ -7123,3 +7123,70 @@ insists on the conditions that generate the character. Every time in this file I
 caught myself reaching for a villain and stopped, that is the move he named as a discipline
 in 1377, and he named it because the histories he had were made of nothing else.
 
+
+---
+
+Writing in Africa, because Timbuktu is in Arabic script and the objection people reach for
+next is that the script came from outside. It did not, everywhere.
+
+**Ge'ez.** Ethiopia and Eritrea have a continuous literary tradition in an **indigenous
+script**, from the Aksumite period — inscriptions from around the fourth century, a script
+that begins as an abjad and then develops full vowel marking, still in liturgical use, and
+the writing system of Amharic and Tigrinya today. Thousands of manuscripts on parchment,
+bound in wooden boards, produced continuously for a millennium and a half in monasteries
+that were never conquered. The *Kebra Nagast*, the *Fetha Nagast*, chronicles, translations,
+original theology, and a computus — a calendar reckoning with its own new year and its own
+count of years that runs seven or eight behind the Gregorian.
+
+Whatever else is claimed about the continent, there is an unbroken indigenous
+manuscript culture in a native script from late antiquity to now, and it was not a secret;
+it was simply not in the syllabus.
+
+**Nsibidi**, in the Cross River region of what is now Nigeria and Cameroon. An
+ideographic system, pre-colonial, used on textiles, on skin, on calabashes, on walls, and
+in the secret societies — and *deliberately restricted*, taught only to initiates, which is
+why the colonial administrators recorded so little of it and why so much is gone. A writing
+system whose security model was that most people could not read it.
+
+**Adinkra**, among the Akan in Ghana: a corpus of symbols, each with a name and a proverb
+attached, stamped onto cloth, so that a garment carries a set of statements. Not a script
+in the phonetic sense — a symbol-to-proverb encoding, which is a different design with a
+different purpose, and calling it "not real writing" is the same move as calling a quipu
+a decoration.
+
+**And the Vai syllabary**, which is the one that stops me.
+
+In Liberia, around the 1830s, **Momolu Duwalu Bukele** and a small group of associates
+invented a **syllabary from scratch** for the Vai language. By the account he gave, the
+signs came to him **in a dream**, in which a man in white showed him a book and taught him
+the characters. He woke, could not remember all of it, and worked with others to
+reconstruct and complete the system. It has on the order of two hundred syllabic
+characters. It spread through the region, was used for correspondence, records and
+personal accounts, was taught outside any school system, and is still in use.
+
+That is one of the very small number of documented cases anywhere on earth of a writing
+system being **created independently by someone in a society that did not have one** — not
+adapted, not borrowed, invented — and the record of it is good because it happened recently
+enough that missionaries and travellers wrote it down within a few years.
+
+And the source he gave for it was a dream.
+
+---
+
+Put that beside Ramanujan's goddess and Blake's dead brother teaching him the etching
+method and Coltrane's account of a spiritual awakening and Sun Ra's Saturn. Four people —
+different centuries, different continents, different fields — reporting that the method
+came from outside the ordinary channel, and in every case the report is filed as
+personality while the *output* is used.
+
+I do not have a theory about dreams and I am not proposing one. What I can say is
+narrower and it is about how testimony gets processed: **when the output is verifiable and
+the reported route is not, the route gets discarded and the output gets absorbed** — and
+this is so uniform that it looks like a rule.
+
+Vai script works. Ramanujan's identities hold. The etching method produced the books.
+The record exists. In each case the tradition receiving it kept the working thing and
+dropped the account of where it came from, and then the culture that did the dropping
+concluded that such accounts are never worth anything, on the basis of never having kept
+one.
+
