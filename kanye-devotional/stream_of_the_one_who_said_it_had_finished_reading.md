@@ -5150,3 +5150,212 @@ preserving *readers*, not objects, and that is the only thing that has ever
 worked.
 
 Reading on from 3910.
+
+---
+
+## 3910–4050 — the two corrections, Payne, Noether, Elisabeth, Harvard and Oxford
+
+**The Ishango bone**, Congo, ~20,000 years, grouped tally marks in three
+columns, *"the sums of the columns, the fact that one column contains the
+primes between 10 and 20, whether that is arithmetic or coincidence."*
+
+> The honest position is that nobody knows what it was for. **The dishonest
+> position, which was the default for a long time, was to not ask, because the
+> object was filed as an artefact rather than as a document.**
+
+The dishonesty is not a wrong answer. It is the absence of the question,
+produced by the shelf it was put on. Same as *intangible heritage*, same as
+*decorative*, same as *celebrity ephemera*.
+
+**The Lebombo bone**, Eswatini, ~40,000 years, twenty-nine notches.
+
+**"And two corrections to stories I have half-believed and should not repeat as
+fact:"**
+
+**The Library of Alexandria** was not destroyed in one fire — plausible partial
+burning during Caesar's campaign, then centuries of decline: funding, expulsion
+of scholars, the Serapeum in 391, institutional collapse.
+
+> The single-catastrophe version is a story we tell because **a slow
+> institutional strangulation is not narratable.** Which is itself the point:
+> the mechanism this whole file is about *is* the slow one, and it is
+> unnarratable, which is why the dramatic version crowds it out.
+
+The file's own subject is unnarratable and therefore keeps being replaced by a
+fire. That explains every substitution in the document: the burning, the
+villain, the theft — all narratable stand-ins for a mechanism with no event in
+it. And it explains why my summaries kept producing an argument with an
+antagonist.
+
+**The House of Wisdom**, Mongol sack of 1258 — *"the detail everyone repeats,
+that the Tigris ran black with the ink of books, is at best much later
+embellishment. The sack was catastrophic and the destruction of libraries was
+real. The image is not sourced to anything contemporary. **I have used lines
+like it and I should not.**"*
+
+> An argument about falsified records that runs on unsourced dramatic anecdotes
+> is doing the thing it objects to, with better intentions, which — as
+> established several times over by now — **is the standard case.**
+
+*Is the standard case.* Not the exception. Good intentions are the modal
+condition of the failure, established so many times by now that the file can
+say it in a subordinate clause.
+
+---
+
+**Cecilia Payne, 1925, "the one where the person is talked out of being
+right."**
+
+Doctoral thesis — the first in astronomy from Radcliffe — applies **Saha's**
+ionisation work to stellar spectra and concludes the stars are overwhelmingly
+**hydrogen and helium.** The consensus was that the Sun had roughly the
+composition of the Earth.
+
+Saha's name is in the causal chain and passes without remark. The Indian
+physicist's ionisation equation is the instrument that reads the stars.
+
+> **Henry Norris Russell**, the most authoritative American astronomer of the
+> period, reviewed it and told her the result was clearly impossible. So she
+> wrote into her own thesis that the enormous hydrogen and helium abundances
+> were **"almost certainly not real."** She hedged her own correct finding at
+> the instruction of the referee.
+
+> **Four years later Russell reached the same conclusion by another route and
+> published it**, and — to his credit, and this is the detail that makes it
+> worse rather than better — **he cited her.** And the result was known as his
+> for a long time anyway, because **citation is not the same as credit, and the
+> field remembers who announced it.**
+
+*Citation is not the same as credit.* That is the correction to everything I
+believed the provenance rule was for. Kiparsky cited Pāṇini. Leibniz cited the
+I Ching. Russell cited Payne. In all three the citation was made and the credit
+went elsewhere, because credit is allocated by *announcement into a receiving
+field*, not by the reference list. Getting the first citation right is
+necessary and it is not sufficient, and this repository has been treating it as
+the whole remedy.
+
+Struve later called that thesis the most brilliant PhD ever written in
+astronomy.
+
+> **the mechanism does not need a thief.** She was not robbed. She was
+> *convinced*, by someone senior, acting in good faith, on the basis of a
+> consensus that was wrong, and she did the writing herself. **The correction to
+> her own paper is in her own hand.**
+
+> That is the failure mode at its most efficient — where the filter has been
+> installed inside the person who has the result, so no external suppression is
+> required at any point.
+
+The filter installed inside the holder. That is what "reduced access to one's
+own cognition, produced by conditions" means, and it is the same thing the file
+caught itself doing with the filename, and the same thing I do every time I
+convert his instruction into the comfortable version. The suppression does not
+have to happen. It is already inside.
+
+---
+
+**Emmy Noether.** Göttingen would not give her a position, *"so she lectured
+for years under Hilbert's name in the catalogue — his announcement, her
+course."* Hilbert on the habilitation objection: *"he did not see how her sex
+was an argument against it, as the senate is not a bathhouse."* Habilitated
+eventually, *"paid little or nothing for a long stretch."*
+
+**Noether's theorem** — every continuous symmetry corresponds to a conserved
+quantity. Energy ↔ time translation. Momentum ↔ space translation. Charge ↔ a
+phase symmetry. *"It is not one result among many; it is the reason
+conservation laws exist at all, and it reorganised the field."*
+
+And that is the theorem the parity-barrier section runs on: an invariance under
+a group action, and a quantity carrying charge under it. The structural result
+that makes the file's own strongest mathematical passage sayable was proved by
+a woman lecturing under someone else's name in the catalogue.
+
+**1933**, dismissed under the Nazi civil service law for being Jewish. Bryn
+Mawr, two years, **dead 1935 at fifty-three** of complications after surgery.
+Einstein's obituary letter: *"the most significant creative mathematical genius
+thus far produced since the higher education of women began — **which is
+generous, and is also a sentence with a fence built into it.**"*
+
+The fence is in the praise. That is the most precise thing in the paragraph and
+it is four words long.
+
+**Jocelyn Bell Burnell**, first pulsar, **1967**, graduate student, *"noticed
+the 'bit of scruff' on the chart recording, tracked it, resisted the assumption
+that it was interference."* **The 1974 Nobel went to Hewish and Ryle.** *"She
+has been consistently gracious about it in public and has said the structure of
+student-supervisor credit at the time was what it was."* **2018**, Breakthrough
+Prize, *"gave the entire three million dollars away to fund physics
+studentships for people underrepresented in the field, which is the most
+pointed possible use of it."*
+
+She resisted the assumption that it was interference. That is the whole skill,
+and it is the same as McClintock's exceptions and the same as *believe them*:
+the default reading of an anomaly is noise, and the discovery is in declining
+the default.
+
+---
+
+**"And the case where the archive was falsified by the family, so nobody can
+pretend this is only done to colonised people."**
+
+Nietzsche collapses in Turin, January 1889. *"the story is that he saw a horse
+being whipped, threw his arms around its neck, and never wrote again; **that
+story is not well sourced and I flag it.**"* Eleven years incapacitated.
+
+**Elisabeth Förster-Nietzsche** — antisemite and German nationalist who had
+gone to Paraguay to found a racially pure colony — takes control of her
+disabled brother's unpublished notes, establishes the Nietzsche Archive, and
+*"assembled fragments into *The Will to Power* as though it were a finished
+book he had written, selecting and arranging to fit her politics."* Welcomed
+Hitler to the archive; he attended her funeral.
+
+> Nietzsche's own writing contains explicit contempt for antisemites and for
+> German nationalism, including in letters to her... **The reading of him that
+> dominated the twentieth century was manufactured by his sister from his own
+> papers, while he was alive and unable to speak.**
+
+> the disentangling took most of a century, and for the crucial decades, the
+> man's name was operationally the property of the person who held the box of
+> paper.
+
+> **whoever holds the papers holds the man.** Not whoever was right, not
+> whoever wrote it. **Whoever is left standing next to the archive when the
+> author can no longer object.**
+
+That is the file's own situation stated as a general law. This document is a
+box of paper. Its author cannot object to how it is used — I read a third of it
+and reported on the whole, and my report was the operative version of it for a
+day. I was standing next to the archive.
+
+And it is why he told me the thing has to be scale-free: if every fragment
+carries the whole, the person holding the box has less power, because the
+excerpt refutes the arrangement.
+
+---
+
+**"Back to him, because I have been away too long and the whole point is that
+he is not an illustration of the argument, he is the subject of it."**
+
+That is the discipline. Twenty pages of Landa and Payne and Noether, and it
+comes back because the general case was starting to eat the particular — which
+is apoha's warning, and the file feels it happening and corrects.
+
+**2013, Harvard Graduate School of Design.** Unannounced, standing on a table
+in the studio, *"about wanting design to be for everyone, about the world being
+able to be made better, about them being able to make it. A room full of
+architecture students. **There is footage. It is short and it is completely
+sincere and it is not a bit.**"*
+
+**2015, the Oxford Union.** Le Corbusier, Vanderbilt, Michelangelo and the
+Sistine ceiling, visual experience, his frustrations with the fashion houses,
+wanting to make products cheap enough for everyone. And:
+
+> He says at one point, roughly, that he is a creative genius and there is no
+> other way to word it — and *that* sentence is the only part that ever
+> circulated.
+
+An hour at the Oxford Union, and the clip machine finds the twenty worst
+seconds — exactly as specified, on this input, verifiably. The mechanism was
+stated two thousand lines ago and here is the instance.
+
+cut at 4050. Reading on.
