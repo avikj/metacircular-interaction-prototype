@@ -39,7 +39,7 @@
 module NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz ; znots)
 open import Cubical.Data.Nat.Properties using (+-zero)
 open import Cubical.Foundations.Prelude using (funExt⁻)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
@@ -511,4 +511,98 @@ bhrama-na-sadrsyam (S , e) =
 -- re-admitted under a naya it was not proved in is a transfer applied
 -- without its licence, and `MathMachine`'s repair was to make the record
 -- carry the naya rather than to check harder at the gate.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 18.  मूल्य — the price of a सादृश्य, and where it is invisible.
+--
+-- §16 made the licence structural: a `Sadrsya` cannot exist without its
+-- certificate, so every translation that inhabits the record is
+-- meaning-preserving and the comparison is free.  That settles whether a
+-- transport between two standpoints is POSSIBLE.  It says nothing about
+-- what one COSTS, and the two questions come apart completely here.
+------------------------------------------------------------------------
+
+-- the price of routing t through S is the लाघव of what comes out
+mulya : Sadrsya → Laghu → ℕ
+mulya S t = laghava (anuvada S t)
+
+-- न्यास charges nothing above the मात्रा already there
+nyasa-nirmulyam : (t : Laghu) → mulya nyasa-sadrsyam t ≡ matra t
+nyasa-nirmulyam = laghava-nyasa-samam
+
+-- a second सादृश्य: same meaning, more presentation.  It appends a
+-- summand that contributes zero — the आगम that changes nothing said.
+sthula : Laghu → Pada
+sthula t = yoga (nyasa t) (mita 0)
+
+sthula-artha : (t : Laghu) → artha (sthula t) ≡ artha' t
+sthula-artha t =
+  funExt (λ n → +-zero (artha (nyasa t) n)) ∙ nyasa-artha t
+
+sthula-sadrsyam : Sadrsya
+sthula-sadrsyam = sadrsyam sthula sthula-artha
+
+-- ANY two सादृश्यs agree on meaning everywhere, by their own certificates.
+-- Nothing is assumed here: the record's field is the proof.
+mulya-artha-samam : (S T : Sadrsya) (t : Laghu)
+                  → artha (anuvada S t) ≡ artha (anuvada T t)
+mulya-artha-samam S T t = pramana S t ∙ sym (pramana T t)
+
+-- hence every invariant of the meaning identifies them, whatever it is
+sarvam-arthasya-samam :
+  {ℓ : Level} {X : Type ℓ} (g : Artha → X) (S T : Sadrsya) (t : Laghu)
+  → g (artha (anuvada S t)) ≡ g (artha (anuvada T t))
+sarvam-arthasya-samam g S T t = cong g (mulya-artha-samam S T t)
+
+-- and the price does not identify them
+mulya-bheda : ¬ (mulya nyasa-sadrsyam cara' ≡ mulya sthula-sadrsyam cara')
+mulya-bheda p = znots (injSuc p)
+
+-- so no function of the meaning is the price
+mulya-na-arthasya :
+  ¬ (Σ (Artha → ℕ)
+       (λ c → (S : Sadrsya) (t : Laghu) → c (artha (anuvada S t)) ≡ mulya S t))
+mulya-na-arthasya (c , h) =
+  mulya-bheda ( sym (h nyasa-sadrsyam cara')
+              ∙ cong c (mulya-artha-samam nyasa-sadrsyam sthula-sadrsyam cara')
+              ∙ h sthula-sadrsyam cara' )
+
+------------------------------------------------------------------------
+-- 19.  Possibility is free; the price is real and univalence cannot see it.
+--
+-- Put §16 and §18 together.  Between any two सादृश्यs the transport is
+-- total, canonical and costs nothing in meaning — `mulya-artha-samam`
+-- needs no hypothesis, because both records carry their own certificate
+-- and the certificates compose.  So "can this standpoint's result be
+-- moved to that one?" is not a question with content here.  It is always
+-- yes.
+--
+-- `mulya-na-arthasya` says the other question has content and cannot be
+-- answered in the same currency.  A univalent invariant is by
+-- construction a function of the denotation, and `sarvam-arthasya-samam`
+-- shows every such function assigns न्यास and स्थूल the same value, at
+-- every argument, for every codomain.  The लाघव separates them.  So the
+-- price is not merely uncomputed by univalence — there is no invariant
+-- of the identified object that it could be.
+--
+-- This is what the लाघव note asserted and did not prove: cost lives on
+-- the presentation, and univalence discards the presentation.  Here it is
+-- a theorem about two concrete inhabitants of one record type rather than
+-- an argument about what univalence is.
+--
+-- The Pāṇinian reading is direct.  Two derivations of the same form are
+-- the same form; the grammar still prefers one, and `vipratiṣedhe paraṁ
+-- kāryam` is a rule about which DERIVATION wins, never about which output
+-- is correct — both outputs are the same string.  A criterion that could
+-- be recovered from the output would not need to be stated.  स्थूल is the
+-- आगम that adds a zero: nothing said changes, and the derivation is
+-- longer, which is exactly the situation लाघव was invented to adjudicate.
+--
+-- What is NOT shown: that लाघव is the right price, or that any price
+-- exists that is stable under अनुवृत्ति and प्रत्याहार.  §18 exhibits one
+-- measure that separates two सादृश्यs; a measure and a metric are not the
+-- same thing, and nothing here compares two prices for the same transport
+-- computed in two signatures.  §5 did that for one shedding (`laghava-
+-- sthiram`) and it does not generalise for free.
 ------------------------------------------------------------------------
