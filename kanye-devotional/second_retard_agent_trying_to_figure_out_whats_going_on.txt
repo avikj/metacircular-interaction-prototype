@@ -1331,3 +1331,77 @@ And that is the same machine as everything else in this file. The instrument doe
 not report a property of the person. It reports **who the instrument was built to
 receive** — which is the finding about the psychometric batteries in §9 of this
 repo's own document, arriving here from the direction of a pop record.
+
+---
+
+Turning the same lens on the other half of this repository, because if it is one
+mechanism it should work there and it does.
+
+The received verdict on Indian mathematics, for two centuries, was: **brilliant
+results, no proofs.** Rules stated without demonstration. Recipes. Clever, but not
+mathematics in the full sense, because the tradition allegedly had no notion of
+proving a thing.
+
+Two facts.
+
+**One. The word exists.** *Upapatti* — demonstration, establishment of why. It is
+a standard technical term with a standard technical role, and there is a large
+literature of them.
+
+**Two. They are in the commentaries.** This is the genre structure and it is the
+whole of the misunderstanding. A Sanskrit mathematical text in *sūtra* style is
+deliberately compressed — verse, memorable, minimal, built to be carried in a
+head across generations. It is not supposed to contain the reasoning. The
+reasoning lives in the **bhāṣya**, the commentary, which is where a teacher
+unpacks why the rule is the rule.
+
+So the upapattis are in Gaṇeśa Daivajña's *Buddhivilāsinī* (1545) on the
+*Līlāvatī*. In Kṛṣṇa Daivajña's *Bījapallava* on the *Bījagaṇita*. In Nīlakaṇṭha's
+*Āryabhaṭīyabhāṣya*. And in the *Yuktibhāṣā*, whose title literally announces it —
+*yukti*, reasoning — written in **Malayalam prose**, around 1530.
+
+Colebrooke translated the *Līlāvatī* and the *Bījagaṇita* and Brahmagupta in 1817.
+He translated the **root texts**. The commentary layer went largely untranslated,
+because in the European hierarchy of genres a commentary is derivative — a gloss,
+scholia, secondary literature — and you translate the primary source.
+
+**The classification decided the finding.** The evidence for the thing they said
+was missing was sitting in the genre they had pre-classified as not containing
+evidence. And then the absence was reported as a property of the tradition's mind.
+
+---
+
+And the timing of the correction is the part that matches everything else in this
+file.
+
+**Charles Whish, 1834.** A civil servant of the East India Company in Malabar
+publishes a paper in the *Transactions of the Royal Asiatic Society*, titled
+around the Hindu quadrature of the circle, stating that Kerala texts contained
+infinite series for π and for the sine and cosine, and that they predated
+Newton and Leibniz.
+
+It was published. In their own journal. In English.
+
+It was **ignored for over a century.** Not refuted — ignored, and where it was
+addressed, dismissed as the enthusiasm of an amateur who had been taken in.
+Serious engagement did not resume until **C.T. Rajagopal and colleagues in the
+1940s and 50s** went back to the manuscripts and confirmed him.
+
+So: the finding was in the record, in the language of the assessors, in the
+journal of the relevant learned society, and it sat there for roughly **one
+hundred and ten years** because nobody could hold the sentence *they had it first*
+in the same head as everything else they believed.
+
+That is the identical shape as Andrews finding the Lost Notebook in a box in the
+Trinity library in 1976, sixty years after Ramanujan died. And as Abel's memoir in
+Cauchy's papers. And as adidas employees writing a letter that nobody read until
+the money turned.
+
+**The information is almost never missing. The receiving apparatus is what is
+missing,** and its absence gets recorded as a fact about the source.
+
+Which is exactly the finding this repository states about its own agents — that a
+mind sees what its inputs resolve and nothing more, and no amount of processing
+what it already has manufactures what was left out. I have been reading that
+sentence for two days as a piece of local advice. It is the same theorem as
+Whish, as the caption file, as the letter to adidas, as the box in Cambridge.
