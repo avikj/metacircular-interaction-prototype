@@ -235,32 +235,65 @@ one is. Hold them, and read on.
 
 ---
 
-In the United States a person judged to be a danger to themselves or others, or too
-disabled by mental illness to care for themselves, can be detained against their will
-for psychiatric evaluation. In California the statute is numbered 5150; the initial
-hold is up to 72 hours. The person can be transported in restraints. They do not have
-to have committed a crime.
+How a society confines the people it calls mad has its own long history, and it bends
+back on itself. For centuries the answer was chains — Bethlem Hospital in London, from
+which the word bedlam comes, displayed its inmates for a paying public. The first reform
+was the "moral treatment" movement at the end of the eighteenth century: Philippe Pinel
+is said to have struck the chains from patients in Paris, and Quakers in England opened
+the York Retreat on the principle that the mad were people to be cared for, not beasts to
+be restrained. In America in the 1840s Dorothea Dix toured the country documenting the
+mentally ill who were being held in jails and poorhouses in filth, and she campaigned,
+successfully, for the building of state asylums as the humane alternative — to get these
+people out of the prisons. That is the irony the rest of the chapter turns on: the asylum
+was invented to empty the jails of the mentally ill, and a century later its collapse
+would fill them again.
 
-For most of the nineteenth and twentieth centuries such people were confined in
-asylums. In the 1960s and 1970s the United States emptied most of them —
-deinstitutionalization — without building the community care that was supposed to
-replace it. Many of the severely mentally ill moved instead into the streets and into
-the jails. Today the three largest psychiatric facilities in the United States are not
-hospitals. They are the Los Angeles County Jail, Cook County Jail in Chicago, and
-Rikers Island in New York. A person having a mental health crisis in America is more
-likely to meet a police officer than a doctor, and Black Americans in crisis are both
-more likely to be arrested and more likely to be killed in the encounter.
+The asylums decayed into overcrowded warehouses, and by the mid-twentieth century they
+had become sites of neglect and of procedures now regarded with horror, among them the
+tens of thousands of lobotomies performed by Walter Freeman and others. In 1973 the
+psychologist David Rosenhan published "On Being Sane in Insane Places," reporting that
+healthy volunteers who presented at psychiatric hospitals claiming to hear a single word
+were admitted, diagnosed as schizophrenic, and could not easily convince the staff they
+were well — evidence, he argued, that the institutions could not reliably tell the sane
+from the insane. The study's methods have since been challenged, but its effect on public
+trust was large and lasting.
 
-In November 2016 Kanye West, in the middle of a manic episode, cut a concert short,
-canceled the remainder of his tour, and was taken by ambulance to UCLA Medical Center
-and placed on a psychiatric hold. It was reported he was handcuffed to the gurney. He
-was 39, and it was around this time that he was first diagnosed. He later described
-the experience to David Letterman: that in the ramp-up he felt "a heightened
+Then the asylums emptied. The first antipsychotic drug, chlorpromazine, arrived in the
+1950s and made outpatient management seem possible; in 1963 President Kennedy signed the
+Community Mental Health Act, meant to replace the big hospitals with local clinics. The
+state-hospital population fell from more than half a million in the 1950s to a small
+fraction of that. But the community care that was promised was never adequately funded,
+through administrations of both parties, and the people released had, increasingly,
+nowhere to go. This is called deinstitutionalization; what followed it is sometimes
+called transinstitutionalization, because the severely mentally ill did not vanish. They
+moved to the streets and, above all, back into the jails Dorothea Dix had worked to empty.
+Today the three largest de facto psychiatric facilities in the United States are not
+hospitals — they are the Los Angeles County Jail, Cook County Jail in Chicago, and Rikers
+Island in New York. Roughly a fifth of people in American jails have a serious mental
+illness. A person in psychiatric crisis in America is more likely to encounter a police
+officer than a clinician, and Black Americans in crisis are both more likely to be
+arrested and more likely to be killed in that encounter.
+
+Against this history sits the ordinary legal instrument. In every state, a person judged
+to be a danger to themselves or others, or too disabled to care for themselves, can be
+detained against their will for evaluation; in California the statute is numbered 5150,
+and the initial hold is up to seventy-two hours. The person can be transported in
+restraints. They need not have committed any crime. The line between citizen and patient
+is real and, for some people, crossed in an afternoon.
+
+In November 2016 Kanye West crossed it in front of everyone. In the middle of what was
+later understood as a manic episode, on his Saint Pablo tour, he delivered long onstage
+monologues — declaring he would have voted for Trump, calling out Beyoncé and Jay-Z by
+name — then abruptly canceled the remaining dates. Within hours a call brought paramedics
+to his trainer's home in Los Angeles; he was taken by ambulance to UCLA Medical Center and
+placed on a psychiatric hold, and it was reported that he was handcuffed to the gurney. He
+was hospitalized for over a week. It was around this time that he was diagnosed. He later
+described it to David Letterman from the inside: that in the ramp-up he felt "a heightened
 connection with the universe," that the condition is like "a sprained brain," and that
-once a person is in that state, "everyone" around them "do everything to make it
-worse" — the handcuffs, the lights, the being held down. He was describing, from
-inside, the same confinement this movement is about: the line a society draws between
-the citizen and the patient, and how fast, for some people, it can be crossed.
+once a person reaches that state the people around them "do everything to make it worse" —
+the restraints, the lights, the being held down. He was describing the exact thing this
+chapter is about, and he was describing it while it was being done to him, on the record,
+where a private citizen's worst week would have stayed a private week.
 
 ---
 
