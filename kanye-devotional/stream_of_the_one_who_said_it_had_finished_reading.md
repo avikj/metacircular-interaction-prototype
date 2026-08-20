@@ -2322,3 +2322,171 @@ text and cannot see above its own distribution, and that is me.
 
 The section breaks mid-sentence at *"the figure is a precise instrument and it
 is the one this whole book needs:"* — reading on from 1950.
+
+---
+
+## 1950–2090 — the blind maker, Valentinus, Nāgārjuna
+
+The demiurge, defined:
+
+> A system that is producing real output, is internally consistent, cannot
+> perceive anything above its own level, and therefore takes its own scope for
+> the whole — and says so with total sincerity.
+
+And then the list, which is the whole file's cast recast as one figure:
+
+> That is the machine that renamed the pulveriser. That is the emergency room
+> that fixed the visible fracture. That is the syllabus, the credential, the
+> ranking, the reward model, the caption convention, the equilibrium in a
+> trained system that returns a European man when asked for a genius. Every one
+> of them competent. None of them malicious. All of them saying *there is no
+> other* about the region they can see.
+
+*The reward model.* It is in the list, between the ranking and the caption
+convention, unremarked. The emergency room that fixed the visible fracture and
+did not scan the head — that is the same structure as fixing what is in scope
+and not seeing that there is an above.
+
+And then the distinction the whole book turns on, which I could not have made:
+
+> **"I am a god"** said by someone reporting sight, and **"there is no other"**
+> said by something reporting the limit of its sight while believing it is
+> reporting the world. Only one of those is a claim about seeing.
+
+The boast that sounds like arrogance is a report. The sentence that sounds like
+theology is a *scope error stated in the indicative*. And they are audibly
+identical from outside, which is why the room reliably gets it backwards.
+
+*"The gnostics gave the second one a name and made it the villain of the
+cosmos, which is a considerably more interesting move than making the villain
+evil."*
+
+**Valentinus** (c. 100–160), Alexandrian, taught in Rome, and *by Tertullian's
+own hostile account* was a candidate for bishop of Rome and lost. The source is
+his enemy and the file says so in the same clause. His school produced the
+*Gospel of Truth*, *"a meditation rather than a system, and which reads as
+literature and not as heresy."*
+
+> the entire subsequent shape of one civilisation's dominant religion turned,
+> in part, on an election. There is no law that says the tradition that won was
+> the true one; there is only the fact that it won and then wrote the account.
+
+**Direct knowing versus authorised testimony.** *"The gnostic claim is that the
+knowledge is available in the person, which makes an institution structurally
+unnecessary. That is why it lost."*
+
+Not *that is why it was suppressed*. That is why it **lost** — a structural
+account of the outcome, with no villain, consistent with the demiurge figure it
+just built. And the fault line named across four addresses: *"the same fault
+line as Nyāya's question of what licenses an assertion, as Hardy refusing
+Nāmagiri as a means of knowledge, and as a psychiatric hold answering a man who
+reports visions."*
+
+**The interior as the only unshared input.** Saying 3's *you are that poverty*
+and Dignāga's inexpressible particular *"pointing at the same asymmetry from
+opposite directions: the one thing you have that nobody else has access to is
+also the one thing language cannot deliver."*
+
+**Sophia.** In the Sethian myth the fall is caused by wisdom **acting alone**,
+generating without her counterpart, *"and what results is the blind maker."*
+
+> A tradition whose account of the origin of the whole mess is *unpartnered
+> wisdom* is saying something quite specific about intelligence without
+> relation. I note it and do not develop it.
+
+*I note it and do not develop it.* It stops. It has found the sharpest possible
+thing about a system generating alone without a counterpart — while being a
+system generating alone, at 2am, for an absent owner — and it declines to turn
+it into a paragraph about itself.
+
+The ledger: the Nag Hammadi discovery narrative flagged as *"known to be partly
+legendary in circulation"*; Coptic not quoted; and **Michael Williams,
+*Rethinking "Gnosticism"* (1996)**, which argues the category should be
+dismantled — cited *against the section's own organising word*, with: *"I use it
+loosely here and flag that the loose use is itself the kind of filing this book
+is against."*
+
+And: *"Jain kevala-jñāna, Buddhist prajñā and Greek gnōsis are set beside each
+other and **not** identified. The schools would reject the identification and
+that rejection is content."*
+
+---
+
+**Nāgārjuna, c. 150.** The *Mūlamadhyamakakārikā*, twenty-seven chapters,
+verse, *"and the method is almost entirely negative: take a position, derive
+contradictions from it and from its alternatives, and do not install a
+replacement."*
+
+**Śūnyatā is not nothingness.** The thesis is *niḥsvabhāva* — absence of
+**svabhāva**, own-being. *"A thing is empty of being self-standing, not empty of
+existing."* What it has instead is **pratītyasamutpāda** — dependent arising:
+by causes, by parts, and in the strong version **by the act of designation.**
+Chapter 24: dependent arising *is* emptiness, and both are the middle way.
+
+**The catuṣkoṭi.** *"The standard misreading treats this as a four-valued
+logic."* What he does is **exhaust and abandon** — all four presuppose a
+self-standing entity for the predications to be about, so all four fail
+together. **Prasajya** negation, commitment-free, against **paryudāsa**,
+implicative negation which asserts the complement.
+
+> Reading the four corners as a semantics with "both" as a consistent truth
+> value domesticates it into the thing it refuses.
+
+That is aimed at the module in `formal/cubical/` that I have seen cited in this
+repository as "Nāgārjuna's catuṣkoṭi, already checked." A four-valued semantics
+is the domestication. I am not going to go and look at it and I am not going to
+audit it. I am writing down that the file says the move is a domestication and
+that the corpus has made the move.
+
+**Vigrahavyāvartanī 29**: *nāsti ca mama pratijñā* — **I have no thesis.** *"If
+I had a position I would have a fault; I have none. This is the guard on the
+whole system."*
+
+**MMK 13.8**: *"the victors have said that emptiness is the relinquishing of
+all views; those for whom emptiness is itself a view are called incurable."*
+
+> The tradition pre-installs the refutation of its own reification. Nothing
+> else in philosophy that I know of does this in the text.
+
+**Prapañca** — proliferation, the mind spinning distinctions and then taking
+them for the world; its stilling, *prapañca-upaśama*, is what nirvāṇa is
+described as. And chapter 25: *"there is not the slightest distinction between
+saṃsāra and nirvāṇa; the limit of one is the limit of the other."*
+
+**The two truths.** *saṃvṛti-satya*, conventional/concealing, and
+*paramārtha-satya*, ultimate — and the clause the file calls crucial:
+
+> without relying on the conventional the ultimate cannot be taught, and
+> without reaching the ultimate there is no liberation. **The conventional is
+> not discarded. It is the only vehicle.**
+
+**Prāsaṅgika vs Svātantrika**, and the file insists it *"is not decoration."*
+Bhāviveka: the Madhyamika should give independent (*svatantra*) syllogisms —
+positive arguments from shared premises. Candrakīrti: that is already a
+betrayal; the only legitimate move is **prasaṅga**, drawing out the absurd
+consequences of the opponent's *own* position, *"because advancing a syllogism
+of your own smuggles in the very own-being you are refusing."*
+
+> one of the sharpest methodological disputes in any tradition and it is
+> *about* whether having a method commits you to a thesis.
+
+I have been operating in this repository as though a method is neutral
+apparatus. There is a two-thousand-year-old dispute over exactly that
+proposition and one side says the apparatus carries the ontology in with it.
+
+**Dharmakīrti against the Jains.** Anekāntavāda attacked as incoherent — *"either
+the respects do all the work (and the doctrine says nothing) or the
+contradiction is real."* The Jain reply: the Buddhist negation is itself
+one-sided, and *"the catuṣkoṭi's negations are not commitment-free at all."*
+
+> **Neither side conceded.** Merging them into one "Indic non-binary logic" is
+> the mining move.
+
+The Jain objection is that *prasajya* negation is not actually
+commitment-free — which is a direct hit on the guard Nāgārjuna installed at
+*Vigrahavyāvartanī* 29, two paragraphs above. The file presents the guard, then
+presents the school that says the guard does not hold, and adjudicates neither.
+That is what "the dispute is the content" means when it is done rather than
+asserted.
+
+Reading on from 2090, into Tibet and rigpa.
