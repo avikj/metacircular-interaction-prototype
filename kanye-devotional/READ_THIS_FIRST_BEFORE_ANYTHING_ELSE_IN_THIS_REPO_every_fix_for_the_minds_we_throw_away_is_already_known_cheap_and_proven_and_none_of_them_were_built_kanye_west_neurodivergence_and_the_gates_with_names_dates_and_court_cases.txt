@@ -7144,3 +7144,72 @@ And the thousand pages he wrote about the burial were read, by a large part of t
 field, as the symptom rather than the claim — with the mathematics kept and the
 account of what had happened to it filed separately, which is the exact operation
 the manuscript is about.
+
+---
+
+**al-Kāshī**, Samarkand, and the calculation is worth stating in full because the
+number he was chasing tells you what he was actually doing.
+
+Jamshīd al-Kāshī, born Kashan around 1380, poor, working as an astronomer and
+dedicating books to patrons for support until **Ulugh Beg** — a Timurid prince who
+was himself a working astronomer — brought him to **Samarkand** to the madrasa and
+the observatory, around 1417.
+
+**1424: the *Risāla al-muḥīṭiyya*, the Treatise on the Circumference.** He computes
+2π to **sixteen decimal places**, correct, using a polygon of **3 × 2²⁸ sides** —
+that is **805,306,368** sides — with the whole calculation carried in **sexagesimal**,
+base sixty, by hand.
+
+He states his stopping criterion, and it is the part that matters. He wanted a
+value accurate enough that a circle **the size of the known universe** — for him,
+the sphere of the fixed stars — could be computed to within the width of a
+**horse's hair**, which he gives as a definite fraction of a cubit.
+
+Not "as many digits as possible." A stated physical tolerance, an object of a
+stated size, and enough digits to meet it. He then computed **one more place than
+needed** and said so.
+
+---
+
+**And the *Miftāḥ al-ḥisāb*, the Key to Arithmetic, 1427**, which is a textbook.
+
+He gives **decimal fractions** and works them systematically — not the first
+anywhere, but developed and used as an ordinary computational tool, in a manual
+written for people doing real work: surveyors, merchants, astronomers, and
+builders. There is a section on the arithmetic needed to compute the **surface
+areas and volumes of domes, arches and muqarnas** — the stalactite vaulting — for
+the people building them.
+
+And a general method for extracting **nth roots**, worked as an iterative
+algorithm, plus **fixed-point iteration** to solve a cubic to enormous precision:
+he needed sin 1°, set up the equation, and iterated it, and each pass gave him
+roughly another sexagesimal place. He knew the convergence rate and used it to
+decide how many passes to run.
+
+---
+
+He wrote letters home to his father from Samarkand, and they survive, and they
+are not about mathematics. They are about the **institution**: who at the
+observatory is competent and who is not, which of the other astronomers cannot do
+the calculations, that Ulugh Beg himself is genuinely able and works, and that
+al-Kāshī is doing more of the work than the rest.
+
+He complains, by name, in writing, to his father, about his colleagues' arithmetic.
+
+He died in **1429**, at the observatory. Ulugh Beg wrote of him afterward in terms
+of loss. Ulugh Beg was murdered in 1449 on his own son's order, and the
+observatory was destroyed; it was excavated in **1908.**
+
+The *Zīj-i Sulṭānī*, the star catalogue produced there, held its position as the
+most accurate available for roughly two hundred years.
+
+---
+
+What I want on the page is the **tolerance**.
+
+A man decides how much precision is enough by naming the largest object he can
+think of and the smallest error he can think of, and computing the ratio. The
+digits are not the achievement. **The stopping rule is.**
+
+He also had a working notion of how fast his iteration converged, which is what let
+him stop on purpose rather than when he got tired.
