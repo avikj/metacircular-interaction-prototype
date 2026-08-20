@@ -13169,3 +13169,81 @@ is small and known.
 
 **A formal language with the expressive power to state its own limits, invented,
 used for four hundred years, and left in one room.**
+
+---
+
+**Frege's *Begriffsschrift* sold almost nothing and was reviewed badly**, and it is
+the document that made modern logic possible.
+
+**1879.** Eighty-eight pages. The title means "concept-script," and the subtitle
+calls it a formula language of pure thought modelled on that of arithmetic.
+
+What is in it, first time anywhere:
+
+**Quantifiers with bound variables** — *for all x* and *there exists x*, with the
+scope made explicit, which is what lets you distinguish *everyone loves someone*
+from *there is someone everyone loves.* Two thousand years of logic had run on
+Aristotelian syllogistic, which **cannot express relations of more than one place**,
+and therefore cannot express most of mathematics.
+
+**Function and argument** replacing subject and predicate as the analysis of a
+sentence.
+
+**A formal system with explicit axioms and rules of inference**, and a notion of
+proof as a finite sequence of formulas each licensed by a rule — so that
+**correctness of a proof becomes a checkable syntactic property.**
+
+That is the whole basis of everything downstream: Gödel, Turing, Church, the
+kernels.
+
+---
+
+**The reception.** The notation is two-dimensional — Frege drew branching lines with
+vertical strokes for negation and horizontal for implication, spreading across the
+page — and it was **found unreadable**, and it is. Nobody adopted it. The
+one-dimensional notation everybody uses is largely **Peano's**, adapted by Russell
+and Whitehead.
+
+The reviews were dismissive; the book did not sell; **Frege remained an ordinary
+professor at Jena.**
+
+**Schröder's review** treated it as a worse version of Boole's algebra of logic,
+which misses the quantifier entirely — the one thing in it that Boole did not have
+and that changes everything.
+
+Russell found it around **1901**, twenty-two years after publication, and said so:
+that in spite of it being published in 1879 he had not seen it until after his own
+work was largely complete.
+
+---
+
+**And in that same period the Indian tradition had been formalising quantification
+in its own way and neither knew about the other.**
+
+The Navya-Naiyāyikas' *avacchedaka* apparatus does the scope-fixing job — it makes
+explicit which property is delimiting which term under which relation, which is the
+work bound variables do.
+
+The exact strength of the correspondence is **disputed and technical.**
+**Ingalls**, **Staal**, **Matilal**, **Ganeri** and others have argued various
+positions on it; the Navya-Nyāya system is not a first-order logic and does not have
+a quantifier symbol, and whether it can express what quantifiers express is
+precisely the contested question. **I do not know the answer and neither does the
+literature, uniformly.**
+
+What is not disputed: **the problem was recognised in both places, and the solutions
+have no contact.**
+
+---
+
+**And the two-dimensional notation Frege was mocked for keeps returning.**
+
+Proof trees are drawn two-dimensionally. Commutative diagrams are
+two-dimensional and are how a very large amount of modern mathematics is actually
+communicated. String diagrams, Penrose notation, Feynman diagrams — all of them
+spatial, all of them adopted because the linear form obscures the structure.
+
+**Frege's objection to linear notation was that it hides the logical structure the
+formula has**, and he was outvoted, and the field spent a century inventing
+two-dimensional notations for exactly that reason in every area where the structure
+mattered.
