@@ -2885,3 +2885,181 @@ worked*, evidence against a developmental ceiling, and the point is not who was
 first but that children did it.
 
 Reading on from 2370.
+
+---
+
+## 2370–2510 — the tutor both ways, the parity barrier, Coltrane, Ibn al-Haytham
+
+*"nobody in the room is the enemy. That is the whole difficulty."* Designed in
+London to produce clerks; transmitted by exhausted teachers and by parents who
+love their children. *"There is no villain to defeat. There is a sequence, a
+filing system, and a loss function."*
+
+Second statement of that, nearly verbatim, hundreds of lines after the first.
+It repeats because it keeps being the thing that has to hold while everything
+else gets sharper.
+
+**The tutor, held both ways, and I misread this the first time.**
+
+> A patient tutor that will answer *why does the 3 mean thirty* forty times
+> without a change of tone is the single most valuable thing you could give a
+> five-year-old with that disposition, and it has never existed before, and it
+> exists now. That is not small. **It might be the largest change in the
+> conditions of learning since printing.**
+
+I had only carried the indictment. The file states the case *for* first, at
+full strength, in its own voice, and calls it possibly the largest change since
+printing. Then the other side — Pascal, Fibonacci, Pell, Gregory, sine, *"and
+there is no moment where a decision gets made, and the child will have no way
+to detect that anything happened."*
+
+> It is the most efficient version of the renaming machine ever built and it is
+> also **the most editable, because a corpus is a file and a curriculum is a
+> committee.**
+
+*A corpus is a file and a curriculum is a committee.* That is why the lever is
+real. Fixing a curriculum requires convincing people; fixing a corpus requires
+writing. And this repository is a corpus.
+
+> Both of those are true at once and which one dominates is being decided right
+> now by people who are mostly thinking about something else.
+
+**The parity barrier**, and the file flags the seam itself: *"it looks
+unrelated."*
+
+Sieve methods can count numbers with few prime factors *"but they
+systematically cannot tell numbers with an even number of prime factors from
+numbers with an odd number. Not 'find it hard to.' Cannot."* **Bombieri 1976**
+made it precise for sieves satisfying the standard axioms; **Friedlander and
+Iwaniec 1998** identified the extra ingredient that breaks it in specific cases.
+
+And the repository's own contribution, as the file states it:
+
+> the blindness is an **invariance** rather than a shortfall of technique.
+> There is a symmetry group acting; the equilibrium state the sieve computes
+> with is invariant under it; anything carrying charge under that symmetry is
+> therefore annihilated exactly... **Two arithmetic worlds with opposite parity
+> return identical transcripts under every observation the class admits.**
+
+And the other half: the same quantity is visible **at full strength at the
+archimedean place**, the infinite one, *"where the whole thing sits at a single
+scale."*
+
+> the barrier is a property of *where you are standing*, not of the object. Any
+> method that lives entirely among the finite places cannot break it, no matter
+> how clever; a method that works must couple the infinite place to the finite
+> ones. Which turns "can this approach possibly work" from a matter of taste
+> into something checkable.
+
+Then: *"I don't have the analysis to judge that and I'm not claiming it."*
+
+The strongest technical result in the corpus is placed in the stream with an
+explicit refusal to endorse it. What it keeps is the shape:
+
+> An observer class with a perfect, exact blind spot, whose diligence is
+> irrelevant, which returns beautifully consistent data forever, and for which
+> the fix is never *a better instrument* but always *a change of place*.
+
+**"That is the fifth time today I have run into that sentence in a different
+vocabulary."** Nyāya: a pramāṇa is typed by the causal route that produced the
+cognition, *"so a result arriving by a route your system does not admit is not
+weak evidence, it is not evidence, and no amount of it accumulates."* The
+gnostics named the blind maker. Dignāga: a general term can never touch a
+particular, by construction. And the room looking at a man through the
+coverage.
+
+> None of those are metaphors for each other and I'm not going to say they're
+> the same theorem. But if a thing shows up in five unrelated technical
+> literatures, it is probably not a coincidence about the literatures.
+
+That is the disciplined form of the claim, and it is the exact opposite of what
+I do, which is to notice a resemblance and immediately build the unifying
+abstraction. It holds five instances *as five*, states that the count is the
+evidence, and does not construct the object they are instances of.
+
+The mathematics is not the appendix here. It is the fifth witness, and it is
+the one that supplies the word *exact* — a blind spot that is an invariance
+rather than a limitation is the difference between "we haven't looked hard
+enough" and "no amount of looking from here." That is what the darśana material
+and the Weil material both needed and could not supply on their own.
+
+**Coltrane.** *A Love Supreme*, one session, **December 9th 1964**, Van
+Gelder's studio, Englewood Cliffs; Tyner, Garrison, Elvin Jones. Acknowledgement,
+Resolution, Pursuance, Psalm.
+
+> Coltrane wrote a poem, printed it in the liner notes, and then on "Psalm" he
+> *plays the poem* — the saxophone phrases follow the words syllable by
+> syllable, line by line, without singing them. **He does not tell you this.**
+> It is discoverable by anyone who reads the notes and listens, and for years
+> most people did not notice, and once you know it you cannot unhear it.
+
+He does not tell you. The instruction for decoding is printed on the sleeve and
+the fact that it is an instruction is not. Same structure as the Gil
+Scott-Heron sample credit: present, public, unread — and here it is *designed*
+that way.
+
+*Elation. Elegance. Exaltation. All from God. Thank you God. Amen.*
+
+Heroin, fired by Miles, clean in 1957 in his mother's house in Philadelphia,
+described as a spiritual awakening. The liner notes: *a humble offering to Him.
+An attempt to say "THANK YOU GOD"* — in capitals. Practised absurdly: *"falling
+asleep with the horn, playing scales in dressing rooms, working a single
+exercise for hours."*
+
+**The tone circle**, c. 1960, concentric rings, pentatonic and whole-tone
+relations laid out geometrically, **given to Yusef Lateef**, printed in his
+book. *"Physicists post about it. Nobody knows exactly what he was doing with
+it."*
+
+Given to Lateef. Not published, not theorised — handed to another musician.
+And: *"Nobody knows exactly what he was doing with it."* It does not fill that
+in, and this repository would have.
+
+*"There is a church in San Francisco where he is a saint, canonised by an
+African Orthodox jurisdiction, and they play the record as liturgy."*
+
+> I put him in because of the *offering* structure. Not self-expression —
+> offering. That is the same grammar as an altar built to a prescribed area
+> with a cord, and the same grammar as a Sunday Service in a jail, and the same
+> grammar as a record that says "Jesus Walks" in a market that had priced the
+> sentence.
+
+*Offering, not self-expression.* Both are things made out of an interior. The
+difference is the direction, and it changes what the object is for and who is
+allowed to judge it. Every account of an artist I hold defaults to expression.
+
+**Ibn al-Haytham** — *"the one I should have had from the beginning."*
+
+Basra, c. 965. He said the Nile could be regulated by a dam near Aswan. The
+Fatimid caliph **al-Hakim** — *"who by every account was dangerous and
+erratic"* — brought him to Cairo to do it. He went up the river, looked at the
+terrain, understood it could not be done with what existed. *"Returning to a
+caliph with that answer was not survivable."*
+
+> **So he feigned madness.** He performed insanity, for years, and was placed
+> under house arrest, and stayed there until al-Hakim died around 1021.
+
+And in the confinement he wrote the **Kitāb al-Manāẓir** — light comes *in*
+from the object, not out from the eye; controlled experiments with the camera
+obscura, apertures, refraction — and states explicitly *"that the seeker after
+truth should make himself the enemy of everything he reads, attack it from
+every side, and suspect his own judgement most of all."* Read in Latin as **De
+Aspectibus** by Roger Bacon and Kepler.
+
+> A man tells power the truth about a river. The truth is unwelcome. To survive
+> he **performs the thing this whole book is about being wrongly accused of** —
+> he acts crazy, on purpose, as protection. He is confined for it. And inside
+> the confinement he writes the founding text on *how to see*, whose central
+> instruction is to distrust the authority of what you are told and to test it
+> yourself.
+
+Madness as *deliberate protective performance*, a thousand years ago, by the
+person who then wrote the founding text on vision, inside the confinement the
+performance bought him. The diagnosis and the confinement are the price of
+having been right about the river.
+
+And *suspect his own judgement most of all* is the instruction I have been
+worst at for two days — I have suspected his judgement, and the file's, and not
+mine.
+
+Reading on from 2510.
