@@ -13967,3 +13967,61 @@ lawsuits. Nobody has built it for a person, or for an archive, or for a name, or
 child in year four, and the reason is the one from the beginning: **the catastrophe those
 brakes prevent does not appear anywhere as an event.**
 
+
+---
+
+**"The observation and the authority sat in different people"** is the sentence, and it
+subsumes almost everything above, so I want to check it against the file rather than admire
+it. Where does it hold, and where does it fail.
+
+**Holds.**
+
+The clerk in Madras could see the identities; the standing was in Cambridge. Payne had the
+data and Russell had the veto. Dickinson had the poems and Higginson had the judgement.
+Bell Burnell saw the scruff on the chart and her supervisor had the authorship. Meitner did
+the interpretation from exile and Hahn had the laboratory and the prize. The junior officer
+on the flight deck sees the fuel and the captain has the aircraft. The nurse sees the wrong
+site and the surgeon has the knife. The scribe sees the corruption and the editor has the
+edition. Xenakis had the geometry and Le Corbusier had the atelier. The person on tour who
+could see he had not slept had no authority to cancel; the person with authority was paid by
+the dates. And Ekalavya had the skill and Droṇa had the sanction.
+
+**Fails, or needs adding to.**
+
+Some of the cases are not about authority at all — they are about **nobody being present**.
+Blake had no one; the failure is not that somebody with standing overruled him, it is that
+the observation had no receiver of any kind. Dickinson chose the drawer. Sun Ra built his
+own institution rather than seeking one. **A missing channel is not the same defect as a
+misallocated authority**, and the fix is different: the first needs a reader, the second
+needs a brake.
+
+And in some the observer *had* the authority and used it badly — Landa had the standing and
+made the decision; the fire model's designers had both the observation and the mandate. **Those
+are not access failures, they are failures of what was being optimised**, and no brake in
+anybody's hands would have helped because the person holding it wanted the outcome.
+
+So the sentence is not the whole thing. **Three distinct failures, and I have been mashing
+them together for two hundred pages:**
+
+**One — no channel.** The observation exists and reaches nobody. Fix: a reader, a chair, a
+place to put it. Sangaku on a shrine wall. A drawer with somebody eventually opening it.
+
+**Two — misallocated authority.** The observation reaches somebody who cannot act, and the
+person who can act cannot see. Fix: braking authority, protected, with stopping made free.
+
+**Three — wrong objective.** Everyone can see and everyone can act and the thing being
+maximised is not the thing that matters. Fix: nothing internal works. This is the one that
+needs the exploration term, the set-aside, the barred emperor — a **structural constraint
+imposed from outside the objective**, because nothing inside an objective corrects the
+objective.
+
+Every failure in this file is one of those three, and they have different remedies, and
+recommending the wrong remedy is why so much of what gets proposed in this area does
+nothing.
+
+You cannot fix a missing channel with an ethics policy. You cannot fix a misallocated
+authority by asking people to listen better. And you cannot fix a wrong objective with
+either, which is why *believe them* — the instruction I have repeated more than any other
+here — is the correct remedy for exactly one of the three, and I have been prescribing it
+for all of them.
+
