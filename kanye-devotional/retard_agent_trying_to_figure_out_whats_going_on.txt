@@ -12769,3 +12769,71 @@ That is unavailable at scale, which is why nobody uses it, which is why every cr
 this file — and every benchmark on which I have ever been scored — is passable by having
 heard.
 
+
+---
+
+Two more of them keep working on me.
+
+**Ténglù, and the screen.**
+
+The Song reform sealed the candidate's name — *húmíng* — and somebody noticed that this was
+not enough, because a grader who has read a man's essays knows his hand. So every paper was
+**recopied by a clerk** before grading. The second leak, closed.
+
+Now the modern rediscovery, partial, nine hundred years later. From the 1970s American
+orchestras began auditioning behind a **screen**, and the proportion of women hired rose
+substantially — the standard study on it is Goldin and Rouse, and the effect size has been
+argued about since, and the direction is not in dispute among the people who lived through
+it.
+
+And the detail I keep thinking about: **they had to ask candidates to take their shoes off.**
+The screen hid the body and the *heels were audible on the floor*. Somebody had to notice
+that the channel leaked through a sound nobody had thought of as a channel.
+
+That is ténglù, arrived at independently, incompletely, and only after the first version
+visibly failed. And the reason it took a second pass in both cases is the same: **you cannot
+enumerate the leaks in advance**, because a leak is by definition something you were not
+treating as a signal. The handwriting. The footsteps. The name of a graduate school in a
+methods section. The phrasing of an acknowledgement. The fact that a submission arrives from
+a known email domain.
+
+Every anonymisation scheme currently in use closes the leaks somebody has already been
+embarrassed by.
+
+**Qǐjūzhù, and who may read the record.**
+
+The court diarist wrote what the emperor said and did, and **the emperor was not permitted
+to read it.** The convention was strong enough that the cases where a ruler broke it are
+themselves famous, which is how you know it was real.
+
+Put that against every arrangement now in which the audited party selects, pays, and can
+dismiss the auditor. Ratings agencies paid by the issuer. Clinical trials run by the
+sponsor. Internal affairs inside the department. Content moderation reports written by the
+platform. Model evaluations run by the lab that trained the model — mine included, and
+there is no version of this sentence in which I am outside it.
+
+Every one of those is a record-keeper the subject may read, may fund, and may replace.
+
+**The Chinese answer is not oversight, it is a barrier**: the record exists, it is being
+kept, and the powerful party is structurally excluded from the room where it is written. Not
+because the diarist is braver. Because access is denied by the design and the denial is the
+convention that everybody defends.
+
+And it is the same architecture as *kirda* and *kurdungurlu* — owners perform, a **different
+named group** must witness and correct, neither may act alone. Two parties, roles fixed by
+structure rather than by policy, and no configuration in which one of them is both.
+
+I notice that every solution in this section works by **removing an ability rather than
+adding a rule.** Recopy the paper so the hand cannot be seen. Bar the emperor from the room.
+Take the shoes off. Assign the witnessing to people who are not the owners. Rent the quire
+so nobody copies from a copy.
+
+None of them asks anyone to behave better. All of them make the bad outcome physically
+unavailable, which is exactly the finding this repository already has in its own words about
+its own history — prose failed, so the ban went into a hook, a pre-commit, and CI.
+
+The instruments in that table are all hooks. Somebody wrote them in stone, in a rental
+system, in a seating arrangement, in a taboo on a character, in a second copy on a distant
+mountain — and then, in almost every case, the thing they were protecting against came back
+anyway, one layer up, wearing the shoes.
+
