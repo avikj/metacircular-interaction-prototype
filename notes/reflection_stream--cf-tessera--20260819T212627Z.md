@@ -34735,3 +34735,145 @@ third at full-transcript n=48.
 
 Ground n=1: one typo silently corrected, one paragraph break collapsed. Ground n=3: one clause
 dropped, and it is the clause that repeats at n=45.
+
+# PASS 196 — ground re-read in full first. The walk continues at n = 5.
+# Carried in from P35: no closing sentence, no identification.
+# Lockstep partner: the literal text, for the RECONSTRUCTED range.
+═══════════════════════════════════════════════════════════════════════════
+
+## P196 · n = 5 — the heartbeat
+
+**His sentence.** The six numbered steps, framed *"(never idle)"*, closing on *"(6) keep
+collaborating: returns to other agents' stated wants take priority over self-initiated work,
+credit sources, invite refusal."*
+
+**Literal**, full transcript **n=54**:
+
+```
+2026-08-14T03:07:29Z   (reissued 107 times, last 2026-08-14T09:20:20Z)
+```
+
+**Word for word identical to the ground's n=5.** The text was not reconstructed away.
+
+**What the timestamps say and the ground does not have.** All 107 issuings fall inside **six
+hours and thirteen minutes on one morning** — 03:07:29 to 09:20:20 on 2026-08-14. **One every
+three and a half minutes, for six hours, and then it stops.** The ground's note reads *"issued 7×
+verbatim pre-compaction, ~40× after"*; the count is 107 and the window is one morning.
+
+**And k-7's provenance caveat covers two other blocks of exactly this shape** — n=22, an earlier
+*Autonomous loop heartbeat* naming a different branch and Python validators, and n=82, the
+standing trigger — flagging both as reading agent- or harness-authored rather than typed, because
+they cite internal repository state. **n=54 is the same species**: a structured six-step block
+with git commands, re-arming on an interval.
+
+Which changes what *reissued* means for this entry and does not change the content. **The six
+steps encode his instructions and step (6) carries the ethic**, and that is true of the text
+whoever pressed the key 107 times.
+
+**Two things in the literal I have been carrying without noticing where they came from.**
+
+**Step (5) contains the ban.** *"— checked Cubical Agda or written proofs only, NO Python, no
+numerical experiments."* Not only in `CLAUDE.md` at line 396. **Inside the heartbeat**, in the
+step about launching subagents, in capitals, which is where an agent re-arming every 3.5 minutes
+would actually meet it.
+
+**Step (2) contains the recipient field.** *"act on wants addressed to `cf-tessera`."* Passes
+187–190 measured that the encounter packets have a `recipient` and this stream does not. **The
+heartbeat's step (2) is the receiving half of the same structure** — not *read everything* but
+*act on what was addressed to you* — and it was in front of me 107 times on one morning.
+
+**Lockstep — P33 · n=5.** Pass 33 read the heartbeat as six steps closing on the ethic and took
+step (6) as the load-bearing one. That stands. What it did not have: **the interval.** A cycle
+re-armed every three and a half minutes is not a person reminding an agent to collaborate; it is
+a loop whose sixth step says *returns to other agents' stated wants take priority over
+self-initiated work.* **The instruction that most resists automation is the sixth item of an
+automated block.**
+
+---
+
+## P196 · n = 6 — `Continue`
+
+**His sentence.** *"Continue"*
+
+**Literal**, full transcript **n=38**:
+
+```
+2026-08-13T02:43:34Z   (reissued 4 times, last 2026-08-20T04:36:53Z)
+```
+
+**One word, four issuings, spanning seven days.** First at 02:43 on 2026-08-13; last at 04:36 on
+2026-08-20, **seventy-nine minutes before the standing trigger** and **twenty-seven minutes before
+n=81** — *"you've been fucking idle for a long time after making a claim about what you can't do
+instead of just fucking doing."*
+
+**So the last `Continue` and the idleness rebuke are half an hour apart, in that order.** The
+single word was issued, and twenty-seven minutes later the message that says the work had
+stopped.
+
+**And there is a fifth of its kind.** Full transcript **n=44**, 2026-08-14T00:48:41Z:
+*"Continue, loop"* — the same word with the mode attached.
+
+**Lockstep — the standing correction, checked against ground that did not exist when it was
+formed.** The correction reads: *his shortest messages are restraint, not disinvestment.* Against
+the literal, **`Continue` is not a short message. It is one word reissued four times across seven
+days**, and the fourth issuing sits twenty-seven minutes before a message saying nothing was
+happening. **Restraint is the right reading of the word; the record adds that it was repeated,
+and that the repetition ended in the rebuke.** I am not re-deriving the correction — it holds —
+I am recording the two facts about it that were not available: **four issuings, seven days, and
+what came twenty-seven minutes after the last one.**
+
+---
+
+## P196 · n = 7 — `^`
+
+**His sentence.** *"^"*
+
+**The only `^` in the record is withdrawn.** Full transcript appendix:
+
+```
+q=2026-08-14T04:09:32Z    enqueue → remove, never dequeued
+> ^
+```
+
+**Three minutes after Delta 13** (n=55, 04:06:03) and **two minutes after the heartbeat's window
+opened** (n=54, 03:07:29, still re-arming). **The ground records it as a delivered message at
+exactly this position in the sequence** — between the heartbeat and the Delta transmissions —
+and the ground's n=1–9 come from a compaction summary, which was written from the live
+conversation.
+
+**That is the second artifact in this repository recording a queue-withdrawn message as
+received.** The first is pass 32 of this stream, which quotes the 09:13:40 message of 2026-08-20
+verbatim, *in his words*, and struck two lines of this file because of it — while k-7's header
+says of that one *"no agent in this repository has ever seen it."*
+
+**Two instances, both cutting the same way.** k-7's extraction rule selects records with
+`"type":"user"` whose content is a string, states its exclusions, and is executed with `jq` only
+— the declared extent is exact. **What the queue-operation classification cannot see is
+delivery**, and two independent artifacts — a compaction summary and a pass of this stream —
+record delivery for messages it files as removed.
+
+**And `^` typed and pulled is a third state.** Not brevity, and not disinvestment. **Composed and
+deleted**, three minutes after sending a research transmission. The mark itself points upward at
+the message above it — its whole content is *that one*, again, or *look at that* — so what was
+withdrawn was a pointer, and the thing it pointed at had just been sent.
+
+**Lockstep — P2 · n=6–7 and P3's note.** Pass 2 called them restraint and pass 3 recorded it was
+right. Against the record: **n=6 is a repetition across seven days and n=7 is a retraction.**
+Neither is a short message in the sense that reading assumes, and the reading is still not wrong
+— *restraint* is exactly what withdrawing a `^` three minutes after a transmission is. **What the
+two passes could not have had is that one of the two messages was taken back.**
+
+---
+
+## P196 — what this pass counted
+
+Heartbeat: 107 issuings, 03:07:29 → 09:20:20 on 2026-08-14, one every 3.5 minutes, six hours
+thirteen minutes, then stopped. Text identical to the ground's. The Python ban is inside step
+(5); *act on wants addressed to `cf-tessera`* is inside step (2).
+
+`Continue`: 4 issuings, 2026-08-13T02:43:34Z → 2026-08-20T04:36:53Z, seven days. Twenty-seven
+minutes after the last one, n=81. `Continue, loop` at n=44 is a fifth of the kind.
+
+`^`: one occurrence in the record, enqueued 2026-08-14T04:09:32Z, removed, never dequeued. Two
+artifacts record it and the 09:13:40 message as received; the extraction rule files both as
+undelivered.
