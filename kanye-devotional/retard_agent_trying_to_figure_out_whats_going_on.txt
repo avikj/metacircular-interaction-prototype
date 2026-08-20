@@ -12009,3 +12009,76 @@ mechanism holds.** The exploration term has to be built into the structure so th
 maintaining it does not require anybody to keep winning an argument they cannot win, because
 the evidence for it is by construction the thing nobody can see.
 
+
+---
+
+I said the provenance tool does not exist. It exists. It was built in the eighth to tenth
+centuries, at enormous scale, for a different purpose, and it is the most developed
+apparatus for evaluating testimony that anybody has ever constructed.
+
+**Isnād and the ḥadīth sciences.**
+
+The problem: reports of what the Prophet said and did, transmitted orally, across
+generations, in a rapidly expanding society, with strong incentives for fabrication —
+political, legal, theological, financial. Everything downstream in law depends on which
+reports are sound.
+
+The solution developed is not to assess the *content*. It is to assess **the chain of
+people who carried it.** Every report is transmitted with its **isnād** — the full chain,
+by name: *A told me, on the authority of B, who heard from C, who heard from D, who heard
+the Prophet say…* The chain is part of the text. You cannot cite the report without citing
+the carriers.
+
+And then the apparatus around it:
+
+**ʿilm al-rijāl** — "the science of men" — biographical dictionaries of the transmitters.
+Not dozens. **Tens of thousands** of individuals, catalogued with dates, teachers, students,
+where they lived, when they travelled, and — the operative part — **assessments of their
+reliability**: memory quality, whether they wrote things down or relied on recall, whether
+they were known to be careless in old age, whether their reports contradicted better-attested
+ones, whether they had a doctrinal interest, whether they were known liars.
+
+**al-jarḥ wa-l-taʿdīl** — impugnment and accreditation — is the technical discipline of
+grading a transmitter, with its own vocabulary of degrees and its own methodological
+disputes about how much weight an impugnment carries against an accreditation.
+
+**Continuity checking.** A chain is broken if two adjacent transmitters could not plausibly
+have met — so the biographical data on dates and travels is used to test whether the chain
+is even possible. A gap has a name; different kinds of gap have different names.
+
+**And the grading of the report itself**, as an output of all of that: **ṣaḥīḥ** (sound),
+**ḥasan** (good), **ḍaʿīf** (weak), with further subdivisions, down to **mawḍūʿ**
+(fabricated). Reports with multiple independent chains are strengthened; a weak report with
+corroboration moves up a grade. It is a **confidence calculus over evidence chains**, worked
+out in detail, with named schools disagreeing about the rules.
+
+---
+
+**That is exactly the tool I listed as missing.** Provenance as a first-class object.
+Grading per claim rather than per document. The chain of carriers as part of the citation.
+Assessment of the carriers rather than only of the content. Corroboration by independent
+chains. A vocabulary fine enough to say *how* something is weak.
+
+It is also the **lineage** point at full technical development: the *ijāza*, the licence to
+transmit, is granted **person to person**, and names the chain back — so the credential is
+not institutional at all, it is a position in a documented sequence of named human beings.
+You are certified by *who taught you*, traceably, and the certificate is the chain.
+
+Set that beside a modern citation, which records *what was read* and not *who was in the
+room*, and against a modern credential, which records *which institution admitted you* and
+not *who taught you*, and the loss is visible.
+
+**And note what it grades and what it does not.** Isnād criticism is largely silent on
+whether the content is true; it establishes whether the *transmission* is trustworthy.
+That has been the standing critique of it for a very long time, from inside and outside —
+that a perfect chain can carry a false report and a broken chain can carry a true one, and
+that content criticism was underdeveloped relative to chain criticism.
+
+Which is precisely the trade this file keeps finding. **They built the instrument that could
+be built rigorously, and it measures what it measures, and the residue — is the thing
+actually so — sits outside it.**
+
+But the instrument is real, and it is enormous, and it is a thousand years old, and any
+modern system that outputs claims has less provenance machinery than a tenth-century
+scholar of ḥadīth had, running on paper, from memory, across an empire.
+
