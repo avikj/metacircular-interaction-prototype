@@ -44,6 +44,20 @@
 --      candidates are written out with what was tried and why each metarule
 --      abstained.
 --
+--      AMENDED.  "The derivation STOPS there" was the whole of the fourth
+--      position in this file, and it is half of what the doctrine says.
+--      §३ of the same note continues: अवक्तव्ये शेषो वसति । शेषो गर्भः, न
+--      विफलता । गर्भाद् अग्रिमो नयो जायते -- in the avaktavya the residue
+--      dwells; the residue is a WOMB, not a failure; from the womb the next
+--      naya is born.  A `Dosa` is a rendering, for a reader; a caller handed
+--      one can print the fourth position and do nothing else with it.  So
+--      `Avaktavya` now carries a `Sesa` as well: the object and the
+--      contending OFFERS, entire.  What is born from it is
+--      `machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`,
+--      and none of it is computable from the `Dosa` alone.  `prakriya` below
+--      still stops -- it is the scheduler and it decides nothing it has no
+--      fact for; `prakriyaPrasava` there does not.
+--
 -- THE STRENGTH ORDER, and it is not invented here.  Nāgeśa Bhaṭṭa,
 -- *Paribhāṣenduśekhara* (c. 1730), paribhāṣā 38:
 --
@@ -93,6 +107,7 @@ module Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition
   , Balya(..)
   , showBalya
   , Nirnaya(..)
+  , Sesa(..)
   , Dosa(..)
   , showDosa
     -- resolution
@@ -238,9 +253,29 @@ showDosa d =
   [ "    " ++ pad (show b) ++ "  " ++ why | (b, why) <- doTried d ]
   where pad s = s ++ replicate (max 0 (9 - length s)) ' '
 
+-- THE RESIDUE.  शेष -- what the fourth position holds.  `Dosa` above is the
+-- WRITING of the undecided site: rendered strings, for a reader.  It is not
+-- the site.  A caller handed only a `Dosa` can print the fourth position and
+-- can do nothing else with it, which is exactly the collapse
+-- `machine/SaptabhangiGarbha_TheResidueIsTheSeed.hs` names in its own header:
+-- "after the collapse the fourth position does not record which two seeds
+-- produced it".  It did not here either, until this type existed.
+--
+-- So the fourth position carries the OFFERS, not their names: the object the
+-- standpoints contended over, and each standpoint's own result under it.
+-- AHIMSA_SUTRA_VISTARA §३: अवक्तव्ये शेषो वसति । शेषो गर्भः, न विफलता ।
+-- Everything born from an avaktavya in
+-- `machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`
+-- is computed from this record, and none of it is computable from `Dosa`.
+data Sesa o = Sesa
+  { sesaVastu  :: o          -- the object both standpoints are speaking about
+  , sesaNyasah :: [Nyasa o]  -- the contending offers, entire
+  }
+
 data Nirnaya o
   = Nirnita (Nyasa o) [Sthana] Balya   -- decided: winner, beaten, by which metarule
-  | Avaktavya Dosa                     -- undecided: the fourth position, written
+  | Avaktavya Dosa (Sesa o)            -- undecided: the fourth position, written
+                                       -- AND retained (see Sesa)
 
 ------------------------------------------------------------------------
 -- 4.  THE METARULES
@@ -321,7 +356,7 @@ nirnaya t o xs = tryApavada
           winners = [ x | x <- xs, nyRule x == top ]
       in case (tParatva t, winners) of
            (True, [w]) -> Nirnita w (beaten w) Para
-           _           -> Avaktavya Dosa
+           _           -> flip Avaktavya (Sesa o xs) Dosa
                     { doSite = nyPos (head xs)
                     , doCandidates = [ (nyRule x, nameOf (nyRule x), nyNote x) | x <- xs ]
                     , doTried = acc ++ [( Para
@@ -382,7 +417,7 @@ prakriya t fuel start = phase0 fuel start []
     phase0 k o acc =
       case ekapada t (block 0) o of
         Nothing -> later (drop 1 strata) o (reverse acc)
-        Just (Avaktavya d) -> (reverse acc, Just d, o)
+        Just (Avaktavya d _) -> (reverse acc, Just d, o)
         Just (Nirnita w lost by) ->
           let o' = nyResult w in
           if tSame t o' o then later (drop 1 strata) o (reverse acc)
@@ -405,7 +440,7 @@ prakriya t fuel start = phase0 fuel start []
         saturate n s' o' acc' =
           case ekapada t [s'] o' of
             Nothing -> Right (o', acc')
-            Just (Avaktavya d) -> Left d
+            Just (Avaktavya d _) -> Left d
             Just (Nirnita w lost by) ->
               let o'' = nyResult w in
               if tSame t o'' o' then Right (o', acc')

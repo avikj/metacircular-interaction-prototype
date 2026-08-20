@@ -26,9 +26,9 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; -_)
 open import Cubical.Data.Int.Properties
-  using (·Comm ; ·Rid ; ·DistL+ ; -DistL· ; +Assoc ; minusPlus)
+  using (·Comm ; ·IdR ; ·DistL+ ; -DistL· ; +Assoc ; minusPlus)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
 -- घातः — rᵏ (पुनरावर्तनेन) ।
@@ -54,7 +54,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 -- एक-गुणः वामतः : 1·x ≡ x ।
 वाम-एक : (x : ℤ) → pos 1 · x ≡ x
-वाम-एक x = ·Comm (pos 1) x ∙ ·Rid x
+वाम-एक x = ·Comm (pos 1) x ∙ ·IdR x
 
 -- आधारः : (1 − r)·0 ≡ 0 (परिवर्तनेन) ; 0 ≡ 1 − 1 (refl) ।
 आधार-समिका : (r : ℤ) → (pos 1 - r) · pos 0 ≡ pos 1 - pos 1
@@ -62,7 +62,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 -- वितरणम् (शुद्ध-चरम्, साधक-सिद्धम्) : a·(S + p) ≡ a·S + a·p ।
 वितरण-समिका : (a S p : ℤ) → a · (S + p) ≡ (a · S) + (a · p)
-वितरण-समिका = solve ℤCommRing
+वितरण-समिका a S p = solve! ℤCommRing
 
 -- सहायकः : (1 − r)·p ≡ p − r·p  (एक-वितरणाभ्याम्, हस्तेन) ।
 भङ्ग-समिका : (r p : ℤ) → (pos 1 - r) · p ≡ p - (r · p)

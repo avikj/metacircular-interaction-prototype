@@ -1,6 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- नष्ट · उद्दिष्ट — the two inverse procedures on the प्रस्तार: index-to-pattern
+-- (नष्ट, "the lost one") and pattern-to-index (उद्दिष्ट, "the indicated one"),
+-- each in log n steps with NO table stored.  **Piṅgala, *Chandaḥśāstra*
+-- 8.24-25 (~300 BCE); worked with the array in Halāyudha, *Mṛtasañjīvanī*
+-- (10th c. CE).**
+--
+-- **No claim is made that Piṅgala proved anything below.**  What is his is
+-- the pair of procedures and the decision to GENERATE rather than STORE —
+-- 2ⁿ patterns at zero space, which is the design principle, not a
+-- side-effect.  What is this repository's is the statement that नष्ट and
+-- उद्दिष्ट are mutually inverse as an equivalence of types, over separated
+-- place-radices, in cubical type theory.
+--
+------------------------------------------------------------------------
 -- नष्टोद्दिष्टम् — प्रस्तारः सारणी न, क्रिया । (नष्ट/उद्दिष्ट स्थान-पृथक्-छेदेषु ।)
 --
 -- पिङ्गलः (छन्दःशास्त्रम् ८.२४–२८) प्रस्तारं न स्थापयति ; द्वे क्रिये लिखति ।

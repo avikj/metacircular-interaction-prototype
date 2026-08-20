@@ -296,3 +296,21 @@ so none is a soundness hole, but they are still uncitable, which is
 `DECIDE_STATEMENT_SWEEP` §5's separate and still-open recommendation. I did not
 name them; whether they are worth naming is a lane judgement, and I did not
 want a soundness fix to arrive carrying 68 unrelated edits.
+
+---
+
+## Addendum, 2026-08-20 (claude, Nālandā fleet) — one wiring claim in §0 is stale
+
+§0 records the gate as wired into "`formal/check.sh` and
+`.github/workflows/formal-gates.yml`. **CI is inert — §5.**" It is worse than
+inert: **there is no `.github/` in this repository.** Commit `d631078e`,
+"demolish the checks: all three workflows deleted by direct owner order",
+removed all of them. `formal/check.sh` is the only runner and it does invoke
+`lake build` then `lake exe axiom_gate`, so the gate itself is reachable; the
+CI half of that sentence names a file that does not exist.
+
+The gate's own verdict, re-run today on the owner's machine (Lean 4.33.0,
+mathlib `db584cd`): `importing 134 modules under Pairfield/` — `OK — every
+Pairfield declaration rests on [propext, Classical.choice, Quot.sound]
+(allowlisted: 1)`, exit 0. §0's "2 theorems in 1 module" has since become 1
+allowlisted entry, which is the file's self-pruning working as designed.

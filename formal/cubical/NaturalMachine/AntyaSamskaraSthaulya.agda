@@ -86,7 +86,7 @@ module NaturalMachine.AntyaSamskaraSthaulya where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
@@ -110,7 +110,7 @@ module Correction (R : CommRing ℓ) where
     (n : A) →
       (((1r + 1r) · n) + 1r) · (((1r + 1r) · n) + 1r)
     ≡ (((1r + 1r) · (1r + 1r)) · (n · (n + 1r))) + 1r
-  residue₁ = solve R
+  residue₁ n = solve! R
 
   ----------------------------------------------------------------------
   -- 2.  f₂(n) = n/(4n²+1)
@@ -123,7 +123,7 @@ module Correction (R : CommRing ℓ) where
       (n · ((((1r + 1r) · (1r + 1r)) · ((n + 1r) · (n + 1r))) + 1r))
       + ((n + 1r) · ((((1r + 1r) · (1r + 1r)) · (n · n)) + 1r))
     ≡ (((1r + 1r) · n) + 1r) · ((((1r + 1r) · n) + 1r) · (((1r + 1r) · n) + 1r))
-  numerator₂ = solve R
+  numerator₂ n = solve! R
 
   --   … and its denominator is (2n+1)⁴ + 4.
   residue₂ :
@@ -134,7 +134,7 @@ module Correction (R : CommRing ℓ) where
       · ( (((1r + 1r) · n) + 1r)
         · ( (((1r + 1r) · n) + 1r) · (((1r + 1r) · n) + 1r) ) ) )
       + ((1r + 1r) · (1r + 1r))
-  residue₂ = solve R
+  residue₂ n = solve! R
 
   ----------------------------------------------------------------------
   -- 3.  f₃(n) = (n²+1)/(4n³+5n) = (n²+1) / (n·(4n²+5))
@@ -156,7 +156,7 @@ module Correction (R : CommRing ℓ) where
       · ((n + 1r) · ((((1r + 1r) · (1r + 1r)) · ((n + 1r) · (n + 1r)))
                       + (1r + ((1r + 1r) · (1r + 1r))))) )
       + ((1r + 1r + 1r) · (1r + 1r + 1r))
-  residue₃ = solve R
+  residue₃ n = solve! R
 
   ----------------------------------------------------------------------
   -- 3a.  f₁ again, WITHOUT the rescaling.
@@ -177,7 +177,7 @@ module Correction (R : CommRing ℓ) where
       · (((1r + 1r) · n) + 1r)
     ≡ ((((1r + 1r) · (1r + 1r)) · n) · (((1r + 1r) · (1r + 1r)) · (n + 1r)))
       + ((1r + 1r) · (1r + 1r))
-  residue₁-unreduced = solve R
+  residue₁-unreduced n = solve! R
 
   ----------------------------------------------------------------------
   -- 3b.  f₄, the fourth अन्त्यसंस्कार, derived rather than penciled.
@@ -217,7 +217,7 @@ module Correction (R : CommRing ℓ) where
       (Q₄ n · Q₄ (n + 1r))
     ≡ ((((P₄ n) · Q₄ (n + 1r)) + ((P₄ (n + 1r)) · Q₄ n)) · ((two · n) + 1r))
       + (twentyfour · twentyfour)
-  residue₄ = solve R
+  residue₄ n = solve! R
 
 ------------------------------------------------------------------------
 -- 4.  The four residues, and the same statement over ℤ

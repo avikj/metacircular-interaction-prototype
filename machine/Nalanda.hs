@@ -336,18 +336,66 @@ shortcut d t@(Triple a b k)
 -- a constant measured at one scale hiding its scaling.  The whole record is
 -- notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md.
 --
--- WHAT REPLACES IT.  `turnCap d = 2 * d`, which is the classical count of
--- reduced surds of discriminant 4D -- the pairs (P, Q) with 0 < P < sqrt D and
--- 0 < Q < 2 sqrt D -- and so bounds the period of the continued fraction of
--- sqrt D, of which the cakravala's cycle is a sub-walk.  NEITHER of those two
--- classical facts is checked in this repository, so this is a bound modulo two
--- named unproved inputs.  That is strictly better than a bound modulo nothing,
--- and it is stated as what it is rather than presented as settled.  Making it
--- checked means putting the finiteness of reduced forms of a given
--- discriminant into `formal/cubical/`, which is also most of what
--- `CakravalaBound.agda` names as missing for termination itself.
+-- WHAT REPLACED IT FIRST, and why that is now superseded.  `2 * d` was put
+-- here, justified as "the classical count of reduced surds of discriminant 4D
+-- -- the pairs (P, Q) with 0 < P < sqrt D and 0 < Q < 2 sqrt D", with the
+-- honest note that neither classical fact is checked here.  Two things are
+-- wrong with it, and the first is not a matter of provenance:
+--
+--   1. THE FIRST HALF OF THAT COUNT IS NOT TRUE OF THIS ALGORITHM'S STATE.
+--      The cakravala's multiplier m is routinely LARGER than sqrt D.  For
+--      D = 1989 the reactor's turn 0 is (44, 1, -53) and `chooseM` selects
+--      m = 62, with 62^2 = 3844 against D = 1989.  This is checked in the
+--      kernel:
+--      formal/cubical/GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating.agda
+--      section 7, `gunakah-mulat-adhikah`.  Over every non-square D <= 5000,
+--      35060 turns have m^2 > D.  So `0 < P < sqrt D` counts the reduced
+--      surds of the continued fraction, and the claim that this cycle is a
+--      sub-walk of that one is a THIRD unchecked input, not a consequence of
+--      the first two.
+--   2. It was a bound modulo three unchecked classical facts.
+--
+-- WHAT REPLACES IT NOW, and what it rests on.  `turnCap d = B^2` where B is
+-- the least integer with 4D < B^2, i.e. `isqrt (4*d) + 1`.  B^2 is the size
+-- of the box the wheel's state (m, k) provably lives in, and the box is
+-- CHECKED in this repository, not cited:
+--
+--   formal/cubical/GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating.agda
+--     `gunaka-bandhah`         m^2 <= 4D at every turn obeying the choice
+--                              rule, from CakravalaBound's own conclusion
+--                              16E^2 <= 36 D K^2 plus its invariant K^2 <= 4D.
+--                              CakravalaBound bounds k and never bounds m;
+--                              this is the half that was missing.
+--     `kosthakah`              x^2 <= 4D < B^2 gives x < B, for both
+--                              coordinates.
+--     `avastha-punaravrttih`   any B^2 + 1 turns in that box contain two
+--                              DISTINCT turns with the SAME state -- cubical's
+--                              `pigeonhole`, with the coding proved injective
+--                              so a repeated code is a repeated state.
+--
+-- So exceeding this cap PROVES that a state repeated.  That is a
+-- mathematical claim about the run, which `400` never was and `2*d` never
+-- was.
+--
+-- WHAT IS STILL MISSING, stated so the cap is not mistaken for a theorem.
+-- A repeated state is a cycle only if the next state is a FUNCTION of the
+-- current one.  Section 5 of the same module proves the algebraic core of
+-- that -- from the step's three exact divisions, a' + b'*(-m) = k'*(-b), so
+-- -m already solves the next turn's congruence and the next multiplier's
+-- residue class is determined by (m, k') alone.  What is NOT proved is (a)
+-- that the solution set IS that class, which needs gcd(b', k') = 1, and (b)
+-- TIES: Bhaskara's rule minimises |m^2 - D| over the class and the two
+-- bracketing members can tie, in which case the rule does not say which.  So
+-- this is a bound modulo ONE named lemma with a stated failing shape, where
+-- it used to be a bound modulo three classical facts and before that a bound
+-- modulo nothing.
+--
+-- COST.  B^2 is about 4D against the old 2D, so the cap is roughly twice as
+-- loose.  It is never reached in practice -- the observed worst case is 744
+-- turns at D = 195196 -- and a cap that is loose and sourced is worth more
+-- than a cap that is tight and cited.
 turnCap :: Integer -> Int
-turnCap d = fromInteger (2 * d)
+turnCap d = let b = isqrt (4 * d) + 1 in fromInteger (b * b)
 
 -- THE REACTOR.  Seed with the trivial triple and turn until the norm is 1.
 -- Returns the whole trace, so every intermediate is auditable and the run
@@ -395,9 +443,16 @@ cakravalaCapped cap d
                         ++ "  Remainder -- last triple " ++ show t
                         ++ "; norms already solved (each a solution of"
                         ++ " x^2 - D y^2 = k) " ++ show (map tK (reverse (t : acc)))
-                        ++ ".  The cap is a resource limit, not a termination"
-                        ++ " theorem: see"
-                        ++ " notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md.")
+                        ++ ".  The cap is B^2 with B the least integer"
+                        ++ " above sqrt(4D), which is the size of the state box"
+                        ++ " proved in formal/cubical/GunakaKsepa_TheWheels"
+                        ++ "StateIsBoundedAndSelfPropagating.agda, so reaching"
+                        ++ " it PROVES that a state (m, k) repeated"
+                        ++ " (avastha-punaravrttih).  That it is therefore a"
+                        ++ " CYCLE holds modulo the determinism lemma named in"
+                        ++ " section 6 of that module and not proved there."
+                        ++ "  See notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md"
+                        ++ " and notes/AvasthaBaddha_TheCakravalaStateBoxIsChecked.md.")
       | otherwise = case step d t of
           Nothing -> Left ("congruence unsolvable at step " ++ show n
                            ++ ": " ++ show t)

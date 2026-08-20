@@ -458,3 +458,49 @@ x न्यूनः y = क्रम-योग x y ≡ y
 -- to labels is a homomorphism for krama, for saha, or for neither, and that
 -- is not checked here and therefore not claimed.)
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- ११ · नयभेदः निर्णीतः — the comparison §१० said was owed, 2026-08-20.
+--
+-- §१० ended: "what is owed is whether the forgetful map from records to
+-- labels is a homomorphism for krama, for saha, or for neither, and that
+-- is not checked here and therefore not claimed."  It is now checked, in
+--
+--   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
+--     LabelsAreARetractNotAnEquivalence.agda
+--   (--cubical --guardedness --safe, exit 0, no postulates, no holes)
+--
+-- and the answer is BOTH, exhaustively, 49 cases each, for every S and
+-- every P.  Further: the map has a SECTION (अर्पणम्, Tattvārthasūtra 5.31's
+-- अर्पित to this file's अनर्पित) which is a homomorphism for both modes,
+-- with अनर्पणम् ∘ अर्पणम् ≡ id — so this lane's seven are a subalgebra AND a
+-- quotient of the record lane's, i.e. a RETRACT of it — and it has NO
+-- inverse (`न-प्रत्यानयनम्`), so no equivalence exists and §६ path one is
+-- unavailable as a theorem rather than as a failure to find one.
+--
+-- ONE CLAIM OF THIS FILE IS CORRECTED BY THAT RESULT.  §७ above says the
+-- reason सह-योग fails to associate is that ~~जिह्वाभेदः destroys the two seed
+-- markings, so the fourth position does not record which pair produced
+-- it~~.  The destruction is real and it is NOT the reason: on the record
+-- lane, where the fourth position retains both nayas and both witnesses
+-- and `अवक्तव्यम्-अ-लुप्तम्` proves the third is recoverable from it, सहार्पणम्
+-- still fails to associate (`सह-असङ्गतिः-ऊर्ध्वम्`, with the same three
+-- positions).  The reason both lanes fail is that सह tests the JOINED
+-- position for an asti–nāsti pair, and whether that pair is present
+-- depends on the grouping.  Retaining the seeds does not buy the law
+-- back.  The law and the counterexample in §७ stand exactly as stated;
+-- what is struck is the explanation attached to them.
+--
+-- The sibling lane's own withdrawal (that consumption is the model's and
+-- not the doctrine's) is therefore not contradicted by §७'s failure, and
+-- §७'s failure is not evidence for §७'s attribution.  Both were reading
+-- one algebraic fact as evidence about the doctrine, in opposite
+-- directions, and it is evidence for neither.
+--
+-- What remains open is what §१० said was open in the tradition: whether
+-- अवक्तव्यम् is failure of expression only or consumption of what was to be
+-- expressed (Malliṣeṇa, Syādvādamañjarī, 1292).  That question is now
+-- known to be undecidable BY THE COMPOSITION LAWS — the two lanes agree
+-- across it — so any argument for a reading that runs through krama or
+-- saha proves nothing.  It is a question about what a position is.
+------------------------------------------------------------------------

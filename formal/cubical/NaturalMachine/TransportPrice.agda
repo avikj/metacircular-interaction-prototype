@@ -76,7 +76,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _-_ ; -_)
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.Laghava using (Expr ; size ; eval)
 
@@ -89,15 +89,15 @@ private
   shift x y z h = sym (lem x y) ∙ cong (_- x) h
     where
     lem : (a b : ℤ) → (a + b) - a ≡ b
-    lem = solve ℤCommRing
+    lem a b = solve! ℤCommRing
 
   idem→zero : (x : ℤ) → x + x ≡ x → x ≡ pos 0
   idem→zero x h = sym (lem x) ∙ cong (_- x) h ∙ self x
     where
     lem  : (a : ℤ) → (a + a) - a ≡ a
-    lem  = solve ℤCommRing
+    lem a = solve! ℤCommRing
     self : (a : ℤ) → a - a ≡ pos 0
-    self = solve ℤCommRing
+    self a = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 1.  Additive costs on any type of standpoints
@@ -125,7 +125,7 @@ module _ {X : Type ℓ} (c : X → X → ℤ) (add : Additive c) where
   reverse p q = shift (c p q) (c q p) (pos 0) (loop-is-free p q) ∙ neg (c p q)
     where
     neg : (a : ℤ) → (pos 0) - a ≡ - a
-    neg = solve ℤCommRing
+    neg a = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 2.  The potential, when the standpoints are presentations
@@ -141,7 +141,7 @@ laghava-additive : Additive laghavaPrice
 laghava-additive p q r = tri (toℤ p) (toℤ q) (toℤ r)
   where
   tri : (a b d : ℤ) → (b - a) + (d - b) ≡ d - a
-  tri = solve ℤCommRing
+  tri a b d = solve! ℤCommRing
 
 -- so all four laws above hold of it, with no further work
 laghava-loop-free : (p q : Expr) → laghavaPrice p q + laghavaPrice q p ≡ pos 0

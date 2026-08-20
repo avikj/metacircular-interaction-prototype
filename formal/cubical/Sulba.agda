@@ -20,7 +20,7 @@ module Sulba where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 ------------------------------------------------------------------------
@@ -39,7 +39,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 शुल्ब-समिका : (m n : ℤ)
             → (पार्श्व m n · पार्श्व m n) + (तिर्यक् m n · तिर्यक् m n)
             ≡ (कर्ण m n · कर्ण m n)
-शुल्ब-समिका = solve ℤCommRing
+शुल्ब-समिका m n = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- उदाहरणम् — बौधायनस्य त्रिकाणि (refl-सिद्धानि) ।
@@ -68,7 +68,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 ------------------------------------------------------------------------
 
 अन्तर-वर्गः : (a b : ℤ) → (a + b) · (a - b) ≡ a · a - b · b
-अन्तर-वर्गः = solve ℤCommRing
+अन्तर-वर्गः a b = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- आयत-समचतुरस्रम् — आयतस्य समचतुरस्र-करणम् : 4·ab = (a+b)² − (a−b)² ।
@@ -82,7 +82,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 आयत-समचतुरस्रम् : (a b : ℤ)
                 → pos 4 · (a · b) ≡ (a + b) · (a + b) - (a - b) · (a - b)
-आयत-समचतुरस्रम् = solve ℤCommRing
+आयत-समचतुरस्रम् a b = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- वर्ग-समुच्चयः — शुल्ब-समुच्चय-करणम् : (a+b)²-समचतुरस्रं द्वयोः वर्गयोः द्वयोश्च
@@ -99,4 +99,4 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 वर्ग-समुच्चयः : (a b : ℤ)
             → (a + b) · (a + b) ≡ (a · a + b · b) + (a · b + a · b)
-वर्ग-समुच्चयः = solve ℤCommRing
+वर्ग-समुच्चयः a b = solve! ℤCommRing

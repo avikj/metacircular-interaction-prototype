@@ -90,10 +90,10 @@ module Split (R : CommRing ℓ) where
   private
     expand : (i a b : A) →
       (a + (i · b)) · (a - (i · b)) ≡ (a · a) - ((i · i) · (b · b))
-    expand = solve R
+    expand i a b = solve! R
 
     close : (a b : A) → (a · a) - ((- 1r) · (b · b)) ≡ (a · a) + (b · b)
-    close = solve R
+    close a b = solve! R
 
   -- THE DEGENERATION.  With i·i = −1 the circle is two lines.
   norm-factors : (i : A) → (i · i) ≡ (- 1r)

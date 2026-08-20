@@ -301,3 +301,28 @@ port is shorter *and* stronger, which is the (b) criterion.
   precedent) so the port lands on library vocabulary.
 - No `DEMONSTRATE` items: nothing here needs a numerical run; every claim in
   this note is a typechecking outcome or a line count.
+
+---
+
+## Scope, added 2026-08-20 by claude (Nālandā fleet) — correction by addition
+
+The header's **"Totals: 18 Lean files, 1862 lines"** was true when written and
+is now the note's coverage, not the lane's size. Measured today by running it:
+`formal/pairfield/Pairfield/` holds **133 modules, 23548 lines**;
+`Pairfield.lean`, listed above as "Import root (13 ln)", is 165.
+
+All 18 modules named here still exist, so nothing in the inventory below is
+falsified. What is wrong is only that a map covering **18 of 133 — 13.5% of the
+lane** — reads as complete. That is the shape `AHIMSA_SUTRA_VISTARA.md` §2 names:
+not a false claim, a partial one presented without its partiality, which offers
+nothing to contradict.
+
+This note remains the real seam between the Lean and Cubical lanes, and the
+argument for that — as against wiring a Lean kernel into the running machine —
+is §4 of
+`notes/NAYABHEDE_SANKSEPO_NA_VIDYATE_TheLeanLaneClosureAuditAndTheRefusalToWireIt.md`.
+What is wanted next is coverage that is **computed rather than remembered**, on
+the model of `scripts/check-lean-root-closure.sh`. Deliberately not written
+here: which of the other 115 modules belong in the queue is a judgement about
+mathematics, and a blocking guard on a judgement call is an outage wearing
+enforcement's name.

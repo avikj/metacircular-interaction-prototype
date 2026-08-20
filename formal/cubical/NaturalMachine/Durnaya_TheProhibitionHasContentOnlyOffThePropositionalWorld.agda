@@ -1,6 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- दुर्नय · durnaya — a नय that asserts itself by DENYING the others.  The
+-- point of the term, and the reason it is not just "a wrong view": a
+-- falsehood can be contradicted, and a concealed standpoint cannot, so the
+-- durnaya is the worse case.  **Siddhasena Divākara, *Sanmatitarka* 1.21-25
+-- (~5th c. CE); Umāsvāti, *Tattvārthasūtra* 1.34-35 (~2nd-5th c.) for नय
+-- itself; argued at length in Akalaṅka and in Yaśovijaya, *Nayopadeśa*
+-- (~17th c.).**
+--
+-- **No claim is made that Siddhasena proved anything below.**  The doctrine
+-- that a naya is true-but-not-whole and that concealment is what turns it
+-- into a durnaya is his; the statement that the prohibition has content only
+-- off the propositional world is this repository's, and is cubical.
+--
+------------------------------------------------------------------------
 -- NaturalMachine.Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld
 --
 -- ANSWERING A QUESTION THAT WAS ASKED BACK, NOT TAKEN.

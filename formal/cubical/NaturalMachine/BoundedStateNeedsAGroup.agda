@@ -76,7 +76,7 @@ open CommRingStr (snd ℤCommRing) using ()
 
 private
   cancelℤ : (x g : ℤCommRing .fst) → (x +ℤ g) +ℤ (-ℤ g) ≡ x
-  cancelℤ = solve ℤCommRing
+  cancelℤ x g = solve! ℤCommRing
 
 window-slide : (bs : List ℕ) (u g : ExpZ bs)
              → ((u ⊞ g) ⊞ negE bs g) ≡ u

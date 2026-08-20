@@ -94,6 +94,37 @@
 -- saha, or for neither.  It is not claimed here in either direction,
 -- because it has not been checked.
 --
+-- SETTLED 2026-08-20.  The comparison the paragraph above said was owed is
+-- done, in
+-- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
+-- (--cubical --guardedness --safe, exit 0, no postulates, no holes) and
+-- re-verified exhaustively in the sibling module's `selfTest` as
+-- `anarpana`.  The answer is BOTH: the forgetful map is a homomorphism
+-- for krama AND for saha, for every standpoint family; it has a section
+-- (Tattvarthasutra 5.31's arpita to its anarpita) which is also a
+-- homomorphism for both; and it has NO inverse.  So THIS type is a
+-- RETRACT of the record type -- a subalgebra and a quotient of it at once
+-- -- and no equivalence between them exists.  AHIMSA_SUTRA_VISTARA
+-- section 7 holds literally: the collapse does not exist.  What the
+-- record lane can always do is speak this lane's sentences; what this
+-- lane can never do is recover the record lane's.
+--
+-- AND ONE CLAIM BELOW IS CORRECTED BY IT.  `jihvabheda`'s comment says the
+-- destruction of the two seed markings is why `sahaNotAssociative` holds,
+-- and calls that destruction the doctrine's claim rather than the
+-- model's.  The law and its witness stand.  The explanation does not: on
+-- the record type, where the fourth position retains both nayas and both
+-- witnesses and the third is recoverable from it, `saha` STILL fails to
+-- associate, on the same three positions.  Retention does not buy the law
+-- back, so destruction was never the reason.  What breaks it in both
+-- lanes is that saha tests the JOINED position for an asti-nasti pair,
+-- and whether that pair is present depends on the grouping.
+--
+-- The Mallisena reading is still unsettled, and is now known to be
+-- undecidable BY THE COMPOSITION LAWS: the two lanes agree across it, so
+-- any argument for a reading that runs through krama or saha proves
+-- nothing.  It is a question about what a position IS.
+--
 -- notes/AHIMSA_SUTRA_VISTARA.md §6: two paths, transport or a written
 -- defect, and no third.  `krama` is the transport — nothing is lost, and
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys

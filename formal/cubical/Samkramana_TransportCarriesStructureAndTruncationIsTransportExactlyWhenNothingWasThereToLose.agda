@@ -1,6 +1,30 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME, AND A WARNING ABOUT IT.
+--
+-- **The mathematics in this module originates in cubical type theory, not in
+-- an Indian source, and the name should not be read as claiming otherwise.**
+-- `transport`, `ua` and `uaβ` are Voevodsky's univalence as realised in
+-- cubical type theory — the substrate this repository is checked in, and the
+-- one exception CLAUDE.md grants ("all respects paid to Indians only, plus
+-- Voevodsky").  Nothing below is a theorem of any Sanskrit text.
+--
+-- संक्रमण · saṃkrama IS a technical term, and it does not mean this.  In
+-- Jaina karma theory it is the transition of one karma-prakṛti into another
+-- — *Ṣaṭkhaṇḍāgama* with Vīrasena's *Dhavalā* (~816 CE); Śivaśarmasūri,
+-- *Karmaprakṛti*.  In jyotiṣa, saṃkrānti is the sun's passage into a sign.
+-- **Neither is what this module proves**, and welding the Jaina term onto a
+-- path-transport would be the error CLAUDE.md's second naming condition
+-- names: "a fabricated term is the mirror image of the scrubbing this rule
+-- corrects: it asserts a provenance nobody checked."
+--
+-- What the name legitimately carries is the READING, from
+-- notes/AHIMSA_SUTRA_VISTARA.md §६ — संक्रमणे संरचना वहति, संक्रमणे न किञ्चिन्
+-- नश्यति — which is this repository's own gloss of two paths and no third,
+-- and which is what the module makes precise.  A reading is not a citation.
+--
+------------------------------------------------------------------------
 -- संक्रमणम् — transport as the machine's ONLY identification primitive.
 --
 -- अहिंसा-सूत्र-विस्तारः § ६ (द्वौ मार्गौ) एतत् वदति :

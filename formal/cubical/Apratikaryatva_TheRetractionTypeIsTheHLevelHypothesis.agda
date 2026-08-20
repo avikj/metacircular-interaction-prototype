@@ -1,6 +1,26 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
+-- मूलवाक्यम् · PROVENANCE OF THE NAME.
+--
+-- **अप्रतिकार्यत्व is a compound built HERE and is not a source term.**  It is
+-- assembled from ordinary Sanskrit (प्रतिकार, remedy; the privative and the
+-- abstract suffix) to name §५ of notes/AHIMSA_SUTRA_VISTARA.md.  It is
+-- listed in the UNSOURCED block of .claude/hooks/MulaVakya_SourceStatements-
+-- ForTheTermsInOurFileNames.txt for exactly this reason.  Building a
+-- compound is legitimate; letting it pass as a citation is not — "a
+-- fabricated term is the mirror image of the scrubbing this rule corrects:
+-- it asserts a provenance nobody checked" (CLAUDE.md, file naming, note 2).
+--
+-- What IS sourced, and what the module leans on, is the Jaina reading of
+-- irreversible loss: निर्जरा as either सविपाका (ripening on its own, gaining
+-- nothing) or अविपाका (brought on deliberately, which is the path) —
+-- Umāsvāti, *Tattvārthasūtra* 9.3 (~2nd-5th c.).  **No claim is made that
+-- Umāsvāti proved anything below.**  The h-level statement is cubical type
+-- theory (Voevodsky) and is elementary; the reading it is answering is
+-- Jaina.
+--
+------------------------------------------------------------------------
 -- अप्रतिकार्यत्वम् — Apratikāryatva — irreparability.
 --
 -- नष्टिर्न न्यूनता । नष्टिर्विनाशः ।

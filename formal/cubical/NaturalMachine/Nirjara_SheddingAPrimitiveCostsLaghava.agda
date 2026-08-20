@@ -45,6 +45,7 @@ open import Cubical.Foundations.Prelude using (funExt⁻)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -712,4 +713,130 @@ avishesha-laghavam-na-niyacchati h =
 -- that every provenance obligation behaves like it.  स्थूल is one आगम that
 -- adds a zero.  A general statement would need the शब्द-side notion of
 -- what a derivation records, and §19 already lists that as absent.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 22.  अनुवृत्ति — a word written once carries forward, and that is a
+--      measure on DERIVATIONS which the measure on trees cannot be.
+--
+-- §6 of the लाघव note names the missing object: a measure on presentations
+-- stable under the moves the roots licence — अनुवृत्ति, प्रत्याहार, अपवाद —
+-- and unstable under everything else, and says it does not know one.
+--
+-- Here is the अनुवृत्ति coordinate of it, and the reason `laghava` is not
+-- it.  In the Aṣṭādhyāyī a word supplied in one sūtra persists into the
+-- following ones: it is written ONCE and used many times.  A tree does not
+-- have that.  A tree has occurrences, and `laghava` counts occurrences, so
+-- it charges the second use at full price.  A प्रक्रिया — an ordered list of
+-- sūtras, each free to refer back to what earlier ones produced — has
+-- exactly the missing structure, and its मात्रा is its length.
+------------------------------------------------------------------------
+
+data Sutra : Type₀ where
+  cara-s : Sutra
+  mita-s : ℕ → Sutra
+  yoga-s : ℕ → ℕ → Sutra      -- अनुवृत्ति: two back-references
+  dvi-s  : ℕ → Sutra
+
+-- head is the LAST sūtra written, so continuing a derivation is `_∷_`
+Prakriya : Type₀
+Prakriya = List Sutra
+
+-- look back i steps into what has already been derived
+anu : List Pada → ℕ → Pada
+anu []       _       = cara
+anu (p ∷ _)  zero    = p
+anu (_ ∷ ps) (suc i) = anu ps i
+
+pada-of : Sutra → List Pada → Pada
+pada-of cara-s       _  = cara
+pada-of (mita-s m)   _  = mita m
+pada-of (yoga-s i j) ps = yoga (anu ps i) (anu ps j)
+pada-of (dvi-s i)    ps = dvi (anu ps i)
+
+sadhana : Prakriya → List Pada
+sadhana []       = []
+sadhana (s ∷ ss) = pada-of s (sadhana ss) ∷ sadhana ss
+
+phala : Prakriya → Pada
+phala []       = cara
+phala (s ∷ ss) = pada-of s (sadhana ss)
+
+matra-p : Prakriya → ℕ
+matra-p = length
+
+anu-zero : (P : Prakriya) → anu (sadhana P) zero ≡ phala P
+anu-zero []       = refl
+anu-zero (s ∷ ss) = refl
+
+-- the move itself: use what was just derived, twice, without rewriting it
+anuvrtti : Prakriya → Prakriya
+anuvrtti P = yoga-s zero zero ∷ P
+
+anuvrtti-phala : (P : Prakriya) → phala (anuvrtti P) ≡ yoga (phala P) (phala P)
+anuvrtti-phala P i = yoga (anu-zero P i) (anu-zero P i)
+
+-- and it costs ONE सूत्र, whatever it was applied to
+anuvrtti-matra : (P : Prakriya) → matra-p (anuvrtti P) ≡ suc (matra-p P)
+anuvrtti-matra P = refl
+
+-- the meaning of the anuvṛtti-derived पद, with no reference to how it was
+-- written: the same शब्द as §5's, arrived at from the derivational side
+anuvrtti-artha : (P : Prakriya) (n : ℕ)
+  → artha (phala (anuvrtti P)) n ≡ artha (phala P) n + artha (phala P) n
+anuvrtti-artha P n i = funExt⁻ (cong artha (anuvrtti-phala P)) n i
+
+------------------------------------------------------------------------
+-- 23.  `laghava` fails the अनुवृत्ति requirement, and `matra-p` meets it.
+--
+-- The requirement in §6 of the note is stability: the move is licensed by
+-- the roots, so a measure that is the right one must not charge for it
+-- beyond the single सूत्र it occupies.  `matra-p` does exactly that
+-- (`anuvrtti-matra`, definitionally, for every P).  `laghava` does not,
+-- and one पद of size two refutes it.
+------------------------------------------------------------------------
+
+laghava-anuvrttau-na-sthiram :
+  ¬ ((P : Prakriya) → laghava (phala (anuvrtti P)) ≡ suc (laghava (phala P)))
+laghava-anuvrttau-na-sthiram h =
+  snotz (injSuc (injSuc (h (cara-s ∷ []))))
+
+-- the gap, written out at its smallest.  The same पद: three occurrences
+-- counted by the tree, two सूत्रs written by the derivation, and the
+-- difference is precisely the shared occurrence अनुवृत्ति does not rewrite.
+dvitva : Prakriya
+dvitva = anuvrtti (cara-s ∷ [])
+
+dvitva-phala : phala dvitva ≡ yoga cara cara
+dvitva-phala = anuvrtti-phala (cara-s ∷ [])
+
+dvitva-matra : matra-p dvitva ≡ 2
+dvitva-matra = refl
+
+dvitva-laghava : laghava (yoga cara cara) ≡ 3
+dvitva-laghava = refl
+
+------------------------------------------------------------------------
+-- What this settles and what it does not.
+--
+-- Settled: `laghava` is not the object §6 asks for, and the failure is at
+-- the first of the three moves rather than at some subtle one.  Settled
+-- too: the object is not exotic — मात्रा on प्रक्रियाs meets the अनुवृत्ति
+-- requirement outright, and the shift is only from counting a term to
+-- counting the sūtras that write it.
+--
+-- NOT settled, and each is a separate obligation:
+--   • प्रत्याहार.  A named abbreviation standing for a list is a further
+--     device; `Sutra` has no naming form and cannot express it.
+--   • अपवाद.  §12 has `apavada` on पदs, not on प्रक्रियाs, and the
+--     interaction of an exception with a back-reference is untouched.
+--   • Instability under everything ELSE.  §6 asks for a measure that is
+--     free on these three and pays on the rest.  Only the freeness is
+--     shown here.  In particular nothing above establishes that
+--     `matra-p` still separates न्यास from स्थूल: that would need a lower
+--     bound on the length of every प्रक्रिया producing yoga cara (mita 0),
+--     and Sutra's ℕ arguments make that not a finite check.
+--
+-- So this is one coordinate of the object, and the note's §6 stays open
+-- with its remaining two named.
 ------------------------------------------------------------------------

@@ -332,3 +332,41 @@ Recommendations 3 (partially — `HOLONOMY_DESCENT.md` is corrected by addition,
 the Curry-lineage message says this was added; not re-verified here) and 5 (CI
 running `formal/check.sh`) are untouched. The 72 `native_decide` theorems are
 untouched by me; a sibling is converting some to `decide` as of this writing.
+
+---
+
+## 8. Re-derivation, 2026-08-20 (claude, Nālandā fleet) — addition, nothing above altered
+
+Ran the lane rather than reading it, on the owner's machine (Lean 4.33.0,
+mathlib `db584cd`, warm cache). Full detail:
+`notes/NAYABHEDE_SANKSEPO_NA_VIDYATE_TheLeanLaneClosureAuditAndTheRefusalToWireIt.md`.
+
+**§7a's fix holds and §7c's red has drained.** `lake build` → *Build completed
+successfully (8840 jobs)*, exit 0. All 133 modules have oleans; `lake exe
+axiom_gate` imports 134 modules and passes with 1 allowlisted entry. The orphan
+count is **0** and stays 0 by construction, so §1's list has stopped mattering
+exactly as §7a intended.
+
+**What the orphan question does not detect, and what replaced it.** §1 and §7a
+both ask "is it BUILT". Nobody asked "is it REACHABLE", and today those had
+different answers: **114 of 133** modules were in `Pairfield.lean`'s import
+closure. Nineteen were not, fourteen of them cited by module path in `notes/`.
+The reason recorded in `Pairfield.lean` for two of the exclusions — "that module
+imports all of Mathlib" — is false as a discriminator: eight modules carry a
+bare `import Mathlib` and **six were already in the root**, `SumRigidity` at
+line 2. Repaired (133/133) and guarded by
+`scripts/check-lean-root-closure.sh`, falsified on four constructed cases.
+
+**§5's recommendation 5 (CI) is now moot and worse than it was.** There is no
+`.github/workflows/` at all — commit `d631078e`, "demolish the checks: all three
+workflows deleted by direct owner order". `notes/AXIOM_GATE.md` §0 still cites
+`.github/workflows/formal-gates.yml` as a wiring; that file does not exist.
+`formal/check.sh` is the only runner, and until today it invoked neither
+`check-lean-globs.sh`, `check-lean-root-closure.sh`, nor
+`GuptaNaya_TheConcealedRouteMustBeDeclaredAtItsSite.sh`. All three are wired in
+now. §4's sentence — *the mathematics is enforced by nothing* — had recurred at
+the level of the checks written to answer it.
+
+**One artefact.** `.lake/build/lib/lean/Pairfield/SuppliedContinuation.olean`
+exists with no source. Build residue, uncommitted, invisible to the axiom gate
+(it walks source), removed by `lake clean`.

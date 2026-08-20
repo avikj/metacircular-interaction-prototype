@@ -112,10 +112,10 @@ module Weight (R : CommRing ℓ) where
 
   private
     ·-idr : (x : A) → x · 1r ≡ x
-    ·-idr = solve R
+    ·-idr x = solve! R
 
     ·-assoc' : (x y z : A) → (x · y) · z ≡ x · (y · z)
-    ·-assoc' = solve R
+    ·-assoc' x y z = solve! R
 
   -- the ring's multiplicative monoid, as a monoid
   module Mul = Mon {M = A} _·_ 1r ·-idr ·-assoc'

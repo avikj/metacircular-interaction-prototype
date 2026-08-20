@@ -52,7 +52,7 @@ open import Cubical.Data.Nat using (ℕ ; suc)
 open import Cubical.Data.Int using (ℤ ; pos ; _·_ ; _-_)
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.TheValliConvergentDeterminantAlternates
   using (num ; den ; det ; signed ; standardDeterminantIsAUnit)
@@ -66,7 +66,7 @@ d divides x = Σ[ c ∈ ℤ ] (x ≡ c · d)
 
 private
   pullOut : (x d E F y : ℤ) → (x · d) · E - F · (y · d) ≡ (x · E - F · y) · d
-  pullOut = solve ℤCommRing
+  pullOut x d E F y = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 2.  A common divisor of a convergent divides its determinant

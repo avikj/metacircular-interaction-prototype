@@ -67,19 +67,19 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; negsuc ; _·_ ; _+_ ; -_)
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import Kuttaka using (Run ; stop ; div ; inhomogeneous)
 
 private
   unit· : (x : ℤ) → pos 1 · x ≡ x
-  unit· = solve ℤCommRing
+  unit· x = solve! ℤCommRing
 
   peel : (a b m k t : ℤ) → a + b · m ≡ a + ((b · m + k · t) + (- (k · t)))
-  peel = solve ℤCommRing
+  peel a b m k t = solve! ℤCommRing
 
   close : (a k t : ℤ) → a + ((- a) + (- (k · t))) ≡ k · (- t)
-  close = solve ℤCommRing
+  close a k t = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- The pulveriser supplies Bhāskara's choice

@@ -23,6 +23,31 @@
 -- terms are two nayas; succession keeps the first speaker's witness
 -- (prathamarpana).  Commutativity was a law of the erasure.
 --
+-- SETTLED 2026-08-20, and it costs this module a law it did not know it
+-- was making.  Both this header and the label module's named ONE open
+-- question: is the forgetful map records -> labels a homomorphism for
+-- krama, for saha, or for neither?  It is one for BOTH (`anarpana` below,
+-- 49 + 49 exhaustive pairs here, proved for every standpoint family in
+-- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda);
+-- it has a section which is one for both; and it has NO inverse.  So the
+-- label lane is a RETRACT of this one -- a subalgebra and a quotient at
+-- once, not a rival account and not an independent object -- and no
+-- equivalence between them exists.  AHIMSA_SUTRA_VISTARA section 7,
+-- literally: the collapse does not exist, so searching for one is
+-- fruitless.
+--
+-- THE COST.  Distinctness lifts along a homomorphism, so the label lane's
+-- broken law breaks here: `saha` is NOT associative on these records
+-- either, with both nayas and both witnesses retained and
+-- `caturthatTritiya` in force throughout.  Retention does not buy the law
+-- back.  That refutes the label module's explanation of its own failure
+-- (that the collapse destroys the seeds) -- the failure survives the
+-- retention -- and it equally means this module's withdrawal above is
+-- NOT supported by the non-associativity.  Neither lane may read that
+-- algebraic fact as evidence about the doctrine, in either direction.
+-- The Mallisena question stays open, and is now known to be untouchable
+-- by the composition laws: the two lanes agree across it.
+--
 -- EVERY LAW BELOW IS PROVED, NOT MEASURED, in
 -- formal/cubical/NaturalMachine/SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.agda
 -- (--cubical --safe, exit 0, no postulates, no holes).  The Agda term name
@@ -55,11 +80,13 @@ module SaptabhangiGarbha_TheResidueIsTheSeed
   , krama, saha, yugapat
   , caturthatTritiya, prasava, garbha, garbhaDhara
   , renderBhanga, renderNaya
+  , anarpana
   , selfTest
   ) where
 
 import Data.List (intercalate)
 import Data.Maybe (isNothing)
+import qualified Saptabhangi_TheSevenfoldVerdict as L
 
 -- ------------------------------------------------------------------ 1 naya
 
@@ -248,6 +275,30 @@ renderBhanga b = case b of
       , "    seeds the next derivation at level "
         ++ show (1 + stara (sesaSadhaka v)) ]
 
+-- ------------------------------------------- 7b anarpana: the label lane
+--
+-- The forgetful map into `Saptabhangi_TheSevenfoldVerdict.Bhanga` -- this
+-- module's positions read with the naya UNASSERTED (Umasvati,
+-- Tattvarthasutra 5.31, arpitanarpita-siddheh: the aspect not made primary
+-- in this utterance, which is NOT a claim that there was none).
+--
+-- Both modules left one question open in their headers -- whether this map
+-- is a homomorphism for krama, for saha, or for neither.  It is one for
+-- BOTH, it has a section that is one for both, and it has no inverse.
+-- Proved for every standpoint family in
+-- formal/cubical/Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndTheLabelsAreARetractNotAnEquivalence.agda
+-- (--cubical --guardedness --safe, exit 0, no postulates, no holes);
+-- re-verified exhaustively over the 49 pairs of `sample` in `selfTest`.
+anarpana :: Bhanga -> L.Bhanga
+anarpana b = case b of
+  SyadAsti _                    -> L.SyadAsti
+  SyanNasti _                   -> L.SyadNasti
+  SyadAstiNasti _ _             -> L.SyadAstiNasti
+  SyadAvaktavyam _              -> L.SyadAvaktavya
+  SyadAstiAvaktavyam _ _        -> L.SyadAstiAvaktavya
+  SyanNastiAvaktavyam _ _       -> L.SyadNastiAvaktavya
+  SyadAstiNastiAvaktavyam _ _ _ -> L.SyadAstiNastiAvaktavya
+
 -- ------------------------------------------------------------ 8 the laws
 --
 -- Exhaustive over the seven, and over 49 pairs where a pair is called for.
@@ -313,6 +364,28 @@ selfTest =
 
   , ("...and the withdrawal is exactly the evidence: the labels still agree",
       shape (krama (SyadAsti a1) (SyadAsti a2)) == shape (krama (SyadAsti a2) (SyadAsti a1)))
+
+  , ("anarpana is a KRAMA homomorphism onto the label lane, 49 pairs \
+     \(anarpana-krame)",
+      and [ anarpana (krama x y) == L.krama (anarpana x) (anarpana y)
+          | x <- sample, y <- sample ])
+
+  , ("anarpana is a SAHA homomorphism too -- the half expected to fail \
+     \(anarpana-sahe): a retained pair and a destroyed pair have the \
+     \same presence profile",
+      and [ anarpana (saha x y) == L.saha (anarpana x) (anarpana y)
+          | x <- sample, y <- sample ])
+
+  , ("saha is NOT associative HERE either, with every naya and witness \
+     \retained (saha-asangatih-urdhvam) -- retention does not buy the \
+     \law back, so destruction was never the reason it fails",
+      saha (saha (SyadAstiNasti a1 n1) (SyadAsti a1)) (SyanNasti n1)
+      /= saha (SyadAstiNasti a1 n1) (saha (SyadAsti a1) (SyanNasti n1)))
+
+  , ("...and the labels of those two sides differ, which is WHY the \
+     \records do: distinctness lifts along anarpana, identities do not",
+      anarpana (saha (saha (SyadAstiNasti a1 n1) (SyadAsti a1)) (SyanNasti n1))
+      /= anarpana (saha (SyadAstiNasti a1 n1) (saha (SyadAsti a1) (SyanNasti n1))))
 
   , ("every position in the sample carries at least one witness",
       and [ all (not . null) (witnessesOf b) | b <- sample ])

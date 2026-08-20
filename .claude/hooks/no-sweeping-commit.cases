@@ -17,3 +17,6 @@ PASS	git add formal/cubical/A.agda machine/B.hs
 PASS	echo appending a note about all files
 PASS	git commit -m 'this message names the flag git commit -a and git add -A in prose'
 PASS	git commit -F /tmp/msg.txt
+BLOCK	git status\ngit add -A
+PASS	git commit -o machine/Foo.hs -m x\nls -a
+PASS	git log -1\ngit commit -o notes/X.md -m y\ncat notes/X.md

@@ -412,3 +412,47 @@ private
 क्रम-अ-विनिमयः : ¬ ((x y : सप्तभङ्गी उदाहरणम्) → क्रमार्पणम् x y ≡ क्रमार्पणम् y x)
 क्रम-अ-विनिमयः h =
   false≢true (cong मानम् (h (स्यात्-अस्ति (tt , false)) (स्यात्-अस्ति (tt , true))))
+
+------------------------------------------------------------------------
+-- §8  The relation to the label lane, settled 2026-08-20.
+--
+-- This module and `Saptabhangi.agda` / `SaptabhangiSamyoga_TheComposition
+-- OfVerdicts.agda` were left deliberately unreconciled, and both headers
+-- named one open question: is the forgetful map records → labels a
+-- homomorphism for krama, for saha, or for neither?
+--
+-- Checked in
+--   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
+--     LabelsAreARetractNotAnEquivalence.agda
+--   (--cubical --guardedness --safe, exit 0, no postulates, no holes):
+--
+--   * BOTH.  अनर्पणम् (this file's positions, read with the naya UNASSERTED
+--     — Tattvārthasūtra 5.31's अनर्पित) commutes with क्रमार्पणम् and with
+--     सहार्पणम् alike, exhaustively, for every S and every P.
+--   * It has a section अर्पणम् which is also a homomorphism for both, with
+--     अनर्पणम् ∘ अर्पणम् ≡ id.  The label lane is a RETRACT of this one: a
+--     subalgebra and a quotient at once.  It is not a rival account.
+--   * It has no inverse (`न-प्रत्यानयनम्`): two standpoints that both affirm
+--     give two positions with one label.  So there is no equivalence, §६
+--     path one is unavailable AS A THEOREM, and §७ of
+--     AHIMSA_SUTRA_VISTARA applies literally — the collapse does not
+--     exist.
+--
+-- AND ONE LAW OF THIS FILE IS WEAKER THAN IT LOOKED.  §7's क्रम-अ-विनिमयः
+-- is confirmed and sharpened (`क्रम-विनिमयः-न-ऊर्ध्वम्`: identities descend
+-- along अनर्पणम् and do not lift).  But distinctness LIFTS, and the label
+-- lane's सह-असङ्गतिः lifts with it: `सह-असङ्गतिः-ऊर्ध्वम्` proves सहार्पणम् is
+-- NOT associative HERE, on the three positions स्यात्-अस्ति-नास्ति,
+-- स्यात्-अस्ति, स्यान्-नास्ति, with every naya and every witness retained and
+-- `अवक्तव्यम्-अ-लुप्तम्` in force throughout.  Retaining the शेष does not buy
+-- associativity back, and the label lane's explanation of its own failure
+-- (that जिह्वाभेदः destroys the seeds) is refuted by that — the failure
+-- survives the retention.  What breaks the law in both lanes is that सह
+-- tests the JOINED position for an asti–nāsti pair, and whether that pair
+-- is present depends on the grouping.
+--
+-- So this module's withdrawal — that consumption is the model's and not
+-- the doctrine's — is not supported by the non-associativity, and was not
+-- refuted by it either.  The Malliṣeṇa question (Syādvādamañjarī, 1292)
+-- it turns on is untouched by the composition laws in either direction.
+------------------------------------------------------------------------

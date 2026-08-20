@@ -72,6 +72,21 @@ seed =
       (Ayogya "no search for a hash, a length or a commit pin on machine.log")
       []
 
+  -- 4': the search entry 4 records as not-done HAS NOW BEEN DONE, and it
+  -- came back a DENIAL.  `machine/machine.log` is matched by .gitignore and
+  -- `git ls-files` returns it zero times, so no commit fixes its bytes and
+  -- nothing in the repository can pin it -- not a hash, not a length, not a
+  -- line.  Entry 4 is NOT edited: this store is append-only and a correction
+  -- is a new entry plus a relation (see `insert`, which has no update path).
+  -- Both are kept, so the record shows silence and its resolution, which is
+  -- the difference between "nobody looked" and "somebody looked and found
+  -- nothing" -- Kumarila's condition, satisfied rather than assumed.
+  , seedEntry "the-log-is-content-addressable"
+      (Yogya "git check-ignore -v machine/machine.log (hit: .gitignore) and \
+             \git ls-files machine/machine.log (zero rows), 2026-08-20; \
+             \registered in machine/mula.pramana as uddhrta")
+      []
+
   -- 5 & 6: the checked Unit/Bool witness, as data.  Both inhabited --
   -- equal in truth value -- and inequivalent.
   , seedEntry "Mixed-at-true"
@@ -111,6 +126,10 @@ questions =
       ["log-carries-both-verdicts", "the-cited-line-numbers-still-resolve"]
   , Prccha "the same shape, but the second one nobody looked for" True
       ["log-carries-both-verdicts", "the-log-is-content-addressed"]
+  , Prccha "and the same standpoint once the search WAS made: krama, not residue" False
+      ["log-carries-both-verdicts", "the-log-is-content-addressable"]
+  , Prccha "silence and its resolution, held together: only one is decidable" True
+      ["the-log-is-content-addressed", "the-log-is-content-addressable"]
   , Prccha "containment: one standpoint's content inside another's" False
       ["python-is-banned", "python-is-banned-and-mechanised"]
   ]
@@ -191,17 +210,29 @@ main = do
   putStrLn ("journal: " ++ path ++ "  (" ++ show (length (koshaEntries k0))
             ++ " entries replayed off disk)")
 
-  -- Seed only if the store is empty.  Re-running never re-seeds, which is
-  -- why the journal is a history and not a scratch file.
+  -- Seed only what the store does not already hold.  Sameness here is
+  -- (name, yogyata, mula) -- the FULL record, not the name and not the
+  -- content: two entries with one name are different standpoints and two
+  -- with one content from different sources are different records, which
+  -- is the whole thesis of the index.  Nothing is ever re-seeded and
+  -- nothing is ever overwritten, so the journal stays a history; and a
+  -- seed list that GROWS (as it did on 2026-08-20, when the search entry
+  -- #3 records as not-done was actually made) now reaches an existing
+  -- store instead of being silently dropped, which it was.
+  let heldAlready e = any (\o -> entName o == entName e
+                             && entYogyata o == entYogyata e
+                             && mula o == mula e) (koshaEntries k0)
+      fresh = [ e | e <- seed, not (heldAlready e) ]
   (k1, newLines) <-
-    if null (koshaEntries k0)
+    if not (null fresh)
       then do
-        putStrLn "\n-- seeding: every insertion reports every relation it finds ----------"
+        putStrLn ("\n-- seeding " ++ show (length fresh) ++ " of " ++ show (length seed)
+                  ++ ": every insertion reports every relation it finds ------")
         let step (k, ls) e =
               let (i, rels, k') = insert e k
               in ( (k', ls ++ [lineOf (head [ x | x <- koshaEntries k', entId x == i ])])
                  , (i, entName e, rels) )
-            (kv, reports) = mapAccumL' step (k0, []) seed
+            (kv, reports) = mapAccumL' step (k0, []) fresh
         mapM_ (\(i, nm, rels) -> do
                  putStrLn ("  #" ++ show i ++ "  " ++ nm)
                  mapM_ (\r -> putStrLn ("        " ++ sambandhaGloss r)) rels)

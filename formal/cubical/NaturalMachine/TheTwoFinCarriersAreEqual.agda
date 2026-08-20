@@ -62,7 +62,7 @@ module NaturalMachine.TheTwoFinCarriersAreEqual where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Algebra.Group.Base using (Group)
-open import Cubical.Algebra.SymmetricGroup using (Symmetric-Group)
+open import Cubical.Algebra.SymmetricGroup using (SymGroup)
 
 import Cubical.Data.Fin as F
 import Cubical.Data.SumFin as SF
@@ -90,10 +90,10 @@ isSetRidesAlong n s = subst-filler isSet (carriersAreEqual n) s
 
 symmetricGroupsAreEqual :
   (n : ℕ) (s : isSet (SF.Fin n))
-  → Symmetric-Group (SF.Fin n) s
-  ≡ Symmetric-Group (F.Fin n) (subst isSet (carriersAreEqual n) s)
+  → SymGroup (SF.Fin n) s
+  ≡ SymGroup (F.Fin n) (subst isSet (carriersAreEqual n) s)
 symmetricGroupsAreEqual n s i =
-  Symmetric-Group (carriersAreEqual n i) (isSetRidesAlong n s i)
+  SymGroup (carriersAreEqual n i) (isSetRidesAlong n s i)
 
 ------------------------------------------------------------------------
 -- 3.  The sentence

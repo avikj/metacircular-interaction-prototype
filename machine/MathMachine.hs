@@ -33,6 +33,7 @@ module Main (main) where
 
 import qualified Data.Set as S
 import qualified Data.Map.Strict as M
+import qualified Prastara_TheSearchSpaceIsGeneratedNotStored as P
 import Data.List (sortOn, sortBy, foldl', intercalate, permutations, sort, partition, isInfixOf, isPrefixOf)
 import Data.Maybe (mapMaybe, isJust, isNothing)
 import Data.IORef
@@ -73,6 +74,7 @@ import qualified Saptabhangi_TheSevenfoldVerdict as SB
 -- question the original proof answered instead of guessing `refl`.
 import qualified Pramana as P
 import qualified Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition as V
+import qualified AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt as G
 import Data.Char (isAlphaNum, isSpace, isDigit)
 import System.Directory (doesFileExist)
 import System.Exit (exitSuccess)
@@ -965,8 +967,14 @@ definitionShapeFailures syms =
             ++ [ "right side introduces a variable absent from the left"
                | not (vars r `subsetOf` vars l) ] ]
 
+-- सारणी वा क्रिया (Piṅgala, Chandaḥśāstra 8.24–28).  This was
+--     smallEnvironments n bound = sequence (replicate n [0 .. bound])
+-- — the whole refutation box laid out.  It is now naṣṭa in mixed radix:
+-- the same (bound+1)^n rows in the same order, each made from its index
+-- and dropped, with the count in hand before the first row.  Order-identity
+-- is checked exhaustively in machine/PrastaraRun.hs.
 smallEnvironments :: Int -> Integer -> [[Integer]]
-smallEnvironments n bound = sequence (replicate n [0 .. bound])
+smallEnvironments n bound = P.rows (P.envPrastara n bound)
 
 ruleCounterexample
   :: [Sym] -> Integer -> Rule -> Maybe ([Integer], Integer, Integer)
@@ -1363,7 +1371,7 @@ topResolve rs u =
     [x]      -> Just (V.nyResult x, V.Eka, [], Nothing)
     offers   -> case V.nirnaya tantra u offers of
       V.Nirnita w lost by -> Just (V.nyResult w, by, lost, Nothing)
-      V.Avaktavya d       ->
+      V.Avaktavya d _     ->
         let x0 = head offers    -- pūrva: the weakest paribhāṣā, named, after
         in Just (V.nyResult x0, V.Purva, [], Just d)  -- the defect is written first
   where tantra = mmTantra rs
@@ -1381,6 +1389,11 @@ termsUpTo d consts unaries binaries = go d
               ++ [ F g [a, b] | g <- binaries, a <- below, b <- below ]
 
 -- Every root site in a term population where the metarules go silent.
+-- A term and every subterm of it, root first.
+subtermsAll :: Term -> [Term]
+subtermsAll t@(F _ ts) = t : concatMap subtermsAll ts
+subtermsAll t          = [t]
+
 vipratisedhaCensus :: [Rule] -> [Term] -> ([(Term, V.Balya)], [(Term, V.Dosa)])
 vipratisedhaCensus rs pop =
   ( [ (t, b) | t <- sites, Just (_, b, _, Nothing) <- [topResolve rs t] ]
@@ -3097,10 +3110,60 @@ data Dispatch = Dispatch
   -- verdict is computed and logged either way, so the two arms differ in
   -- exactly one bit of behaviour.
   , dAnupalabdhi :: Bool
+  -- WIRE 7: SAMASA-BHAVANA.  The generation step as COMPOSITION rather than
+  -- enumeration.
+  --
+  -- NOT WIRE 6, and the two must not be collapsed.  WIRE 6 puts
+  -- Brahmagupta's composition rule into the engine as CONTENT: four new
+  -- symbols `bcx1`, `bcx2`, `bcy`, `nrm2` that the machine can write terms
+  -- with and prove things about.  This wire puts it in as METHOD: the
+  -- machine's way of getting a new equation from two it already has.
+  -- Neither subsumes the other and neither is evidence for the other.
+  --
+  -- BRAHMAGUPTA, Brahmasphutasiddhanta 18 (628).  Given two solutions of
+  -- x^2 - D y^2 = k, the samasa-bhavana COMPUTES a third; the norms multiply,
+  -- so the rule is productive by construction and nothing is tested.
+  -- `machine/Nalanda.hs` runs that rule as a reactor and its header states
+  -- the diagnosis this wire acts on, in the file's own words: ENUMERATION HAS
+  -- NO GROWTH RULE -- it can only sift a space someone else fixed.
+  --
+  -- WHAT THE COMPOSITION LAW IS, HERE.  This engine's objects are equations
+  -- over a term algebra, not triples, and the composition law for equations
+  -- was already in this file and was being used only as a FILTER.
+  -- `criticalPairs` overlaps the left side of one rule with a subterm of
+  -- another and returns the two results of the divergent peak.  Both results
+  -- are reachable from the same term by rules the machine holds, so the
+  -- equation between them is a CONSEQUENCE of what is already proved -- true
+  -- by algebra, exactly as bhavana's product norm is k1*k2 by algebra.  Two
+  -- theorems in, one theorem out, no candidate set.
+  --
+  -- WIRE 4 (`dCertify`) already computes these and uses them for a
+  -- saturation verdict, taking at most ONE (the first divergent pair) and
+  -- only on a round that was going to grow.  That is the composition law
+  -- employed as a sieve.  This wire employs it as the generator: every
+  -- non-joinable pair within budget is proposed, every round.
+  --
+  -- WHY THE COST CURVE IS DIFFERENT, which is the whole claim.  The
+  -- enumerator's candidate count is Theta(r_b^s) in the size horizon s
+  -- (LOOP_MEASUREMENT.md section 9, r_b = 1 + 4*sqrt(b)).  The composer's is
+  -- O(n^2 * subterms) in the RULE COUNT n -- it grows with what the machine
+  -- has proved, not with a space someone else fixed.
+  --
+  -- 0 = off, and off is the live default, so the engine with
+  -- `defaultDispatch` is the engine before this wire existed.  Any n > 0 is
+  -- the budget of critical pairs the composer may examine per round.
+  , dSamasa     :: Int
+  -- WIRE 7b.  With the composer on, drop the fingerprint-class conjectures
+  -- and propose ONLY composed ones.  This is the strong reading of the
+  -- charge -- generation IS composition, not composition ADDED to
+  -- enumeration -- and it is a separate bit so that the two claims are
+  -- measured separately rather than credited to each other.  Inert while
+  -- `dSamasa` is 0.
+  , dSamasaOnly :: Bool
   } deriving (Eq, Show)
 
 defaultDispatch :: Dispatch
-defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0 Nothing True
+defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0 Nothing True 0 False
 
 -- 2^n memoised states in `D.optimalSchedule`, and n * 2^n cost evaluations,
 -- each of which normalises two terms.  This is a hard ceiling, not a taste:
@@ -3135,6 +3198,10 @@ parseDispatch = go defaultDispatch []
       -- arms see the same numbers -- and simply does not act on it, which is
       -- exactly the engine of 2026-08-17.
       ("--no-anupalabdhi", ms) -> go (d { dAnupalabdhi = False }) rest ms
+      -- WIRE 7.  The composer, and its budget of critical pairs per round.
+      ("--samasa", v:ms)      -> withNat v ms (\n -> d { dSamasa = n })
+      -- WIRE 7b.  Composition INSTEAD OF enumeration, not in addition.
+      ("--samasa-only", ms)   -> go (d { dSamasaOnly = True }) rest ms
       _                        -> go d (flag:rest) more
       where
         withNat v ms f = case parseNaturalInt v of
@@ -3602,12 +3669,7 @@ round1 disp mem logh libh ref = do
       classes = M.elems (M.fromListWith (++)
                   [ (fingerprint sem envs t, [t]) | t <- normed ])
       conjectures = ordNub
-        ( [ canonVars (rep, other)
-          | cls <- classes
-          , length cls > 1
-          , rep:others <- [sortOn (\t -> (size t, t)) cls]
-          , other <- others
-          ]
+        ( classConjectures
         ++ [ canonVars (l,r)
            | (l,r) <- mThoughts m
            , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
@@ -3632,7 +3694,9 @@ round1 disp mem logh libh ref = do
         -- up the vallī rather than waited for.  Same firewall as everything
         -- else -- in the vocabulary, well-formed, fingerprint-agreeing -- so a
         -- summoned parent that is false is refuted here like any candidate.
-        ++ arohanaAdmittedList )
+        ++ arohanaAdmittedList
+        -- WIRE 7.  Composed equations.  Empty unless --bhavana is on.
+        ++ samasaAdmittedList )
       -- Same filters, named once so the log can report what survived them: a
       -- residual dropped by the firewall and a residual never generated look
       -- identical otherwise, and they are different diseases.  The `nvEnv`
@@ -3662,6 +3726,68 @@ round1 disp mem logh libh ref = do
         , wellFormedTerm syms r
         , fingerprint sem envs l == fingerprint sem envs r ]
       arohanaAdmitted = S.fromList arohanaAdmittedList
+      -- ------------------------------------------------- WIRE 7: SAMASA-BHAVANA
+      --
+      -- The composed conjectures.  See the `dSamasa` banner in `Dispatch`
+      -- for the source (Brahmagupta, Brahmasphutasiddhanta 18, 628) and for
+      -- what is and is not being claimed of it.
+      --
+      -- `cpEquation` is the two results of a divergent peak.  Both sides are
+      -- reachable from `cpPeak` by rules the machine already holds, so the
+      -- equation is an equational CONSEQUENCE of those rules and is true
+      -- whenever they are.  Nothing here is a candidate to be sifted: the
+      -- law produces truths, and the kernel is asked only because this
+      -- repository does not install what it has not checked.
+      --
+      -- Both sides are normalised before proposal, because the peak's raw
+      -- results carry whatever the two rules happened to leave behind and the
+      -- normal forms are the equation's actual new content.  A pair whose two
+      -- normal forms agree is joinable -- it says nothing the rewriter does
+      -- not already do -- and is dropped here, counted, and reported.
+      composedRaw =
+        [ (cp, canonVars (normalize rules l0, normalize rules r0))
+        | dSamasa disp > 0
+        , cp <- take (dSamasa disp) (criticalPairs rules)
+        , let (l0, r0) = cpEquation cp ]
+      composedNovel = [ (cp, c) | (cp, c@(l,r)) <- composedRaw, l /= r ]
+      -- THE NEGATIVE CONTROL, and it is the reason this wire can be believed
+      -- at all.  A composed equation is true by algebra, so the fingerprint
+      -- -- forty random environments under the current semantics -- MUST
+      -- agree on its two sides.  If it ever does not, either a rule in
+      -- `usableRules` is unsound or the composition law is misapplied here,
+      -- and in both cases the number below is nonzero and the round says so.
+      -- `machine/CandidateGen.hs` submits a deliberate falsehood through its
+      -- own gate for the same purpose; this is that discipline applied to a
+      -- law rather than to a module.
+      composedRefuted =
+        [ c | (_, c@(l,r)) <- composedNovel
+            , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+            , all (< nvEnv) (vars l ++ vars r)
+            , wellFormedTerm syms l, wellFormedTerm syms r
+            , fingerprint sem envs l /= fingerprint sem envs r ]
+      samasaAdmittedList =
+        [ c
+        | (_, c@(l,r)) <- composedNovel
+        , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
+        , all (< nvEnv) (vars l ++ vars r)
+        , wellFormedTerm syms l
+        , wellFormedTerm syms r
+        , fingerprint sem envs l == fingerprint sem envs r ]
+      -- The enumerator's own conjectures, named so that WIRE 7b can withhold
+      -- them.  With `--samasa-only` the round proposes composed equations,
+      -- the thought file, the residuals and the climb -- and nothing that
+      -- came out of `genTermsModulo`'s fingerprint classes.  The term space
+      -- is still GENERATED (the pruning statistics, the probe and the gate
+      -- all read it); what is withheld is its use as a source of questions.
+      classConjectures
+        | dSamasa disp > 0 && dSamasaOnly disp = []
+        | otherwise =
+            [ canonVars (rep, other)
+            | cls <- classes
+            , length cls > 1
+            , rep:others <- [sortOn (\t -> (size t, t)) cls]
+            , other <- others
+            ]
       -- WHERE A RESIDUAL ACTUALLY DIES, per round.  This is the diagnostic
       -- that decides whether the wire can pay at all, and it is here because
       -- the answer turned out to be structural rather than empirical: the
@@ -4409,6 +4535,19 @@ round1 disp mem logh libh ref = do
     prunedPct (length conjectures) (length fresh) (length checkedResults)
     (length (mRules m') + length (mLemmas m')) secs
   -- KFlow: the sign of the step in ∂, not the emptiness of a result list.
+  -- WIRE 7.  What the composition law produced this round, and the negative
+  -- control on it.  `refuted` is the count of composed equations whose two
+  -- sides DISAGREE on the fingerprint.  A composed equation is an equational
+  -- consequence of rules the machine holds, so this number must be 0; a
+  -- nonzero value is a report that either a rule is unsound or the law is
+  -- misapplied, and it is printed rather than assumed away.
+  when (dSamasa disp > 0) $
+    hPrintf logh "  SAMASA  examined=%d novel=%d admitted=%d refuted=%d  (refuted must be 0: a composed equation is true by algebra)%s\n"
+      (length composedRaw) (length composedNovel)
+      (length samasaAdmittedList) (length composedRefuted)
+      (if dSamasaOnly disp
+         then "  [samasa-only: the fingerprint classes proposed nothing]"
+         else "")
   hPrintf logh "  FLOW  %s  d %d -> %d\n"
     (flowName flow) (mObstruction m) obstruction
   -- ChuDefect: the defect of the round's own test set.  If this is zero
@@ -4965,6 +5104,193 @@ main = do
                 ++ "written instead of taken silently.")
     putStrLn ""
     putStrLn "  Astadhyayi.coverage is unmoved by this file: 4 metarules, 0 sūtras added."
+    exitSuccess
+
+  -- ------------------------------------------------- avaktavya-prasava
+  --
+  -- THE FOURTH POSITION DOING SOMETHING.  `--vipratisedha-self-test` above
+  -- reaches the fourth position and stops: it writes the undecided site out
+  -- and falls back to pūrva, the weakest paribhāṣā.  That is the fourth
+  -- position as a LABEL.
+  --
+  -- AHIMSA_SUTRA_VISTARA §३: अवक्तव्ये शेषो वसति । शेषो गर्भः, न विफलता ।
+  -- गर्भाद् अग्रिमो नयो जायते -- in the avaktavya the residue dwells; the
+  -- residue is a womb, not a failure; from the womb the next naya is born.
+  --
+  -- So here the residue is taken and made to bear.  What is missing at an
+  -- undecided site is not the answer: it is a STANDPOINT whose scope is the
+  -- contested item.  Both contenders speak about it anyārtha -- in passing,
+  -- on the way elsewhere (Kātyāyana, vārttika 1 on Aṣṭādhyāyī 1.4.2, in
+  -- Patañjali's Mahābhāṣya c. 150 BCE: द्वौ प्रसङ्गावन्यार्थावेकस्मिन् स
+  -- विप्रतिषेधः).  The birth constructs the अनवकाश rule whose only scope IS
+  -- that item, declares it an apavāda to both, and re-resolves.
+  --
+  -- Machinery: machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThat-
+  -- DecidesIt.hs.  Nothing here is stored; every line is computed.
+  when (args == ["--avaktavya-prasava"]) $ do
+    let defs   = definitionsOf baseVocabulary
+        tan0   = mmTantra defs
+        offersAt rs u = concatMap (\s -> V.saFires s u)
+                                  (V.tSasanani (mmTantra rs))
+        -- every site in a population where nirnaya returns the fourth
+        -- position, WITH its residue (the offers, not their names)
+        fourth rs us = [ (u, dd, se)
+                       | u <- us
+                       , let os = offersAt rs u
+                       , length os > 1
+                       , V.Avaktavya dd se <- [V.nirnaya (mmTantra rs) u os] ]
+        pop0 = [ bin f a b | f <- ["+","*","max","-","gcd","le"]
+               , a <- [zero_, su zero_], b <- [zero_, su zero_] ]
+    putStrLn "AVAKTAVYA-PRASAVA -- the fourth position bears the rule that decides it."
+    putStrLn ""
+    putStrLn "  Umāsvāti, Tattvārthasūtra 5.31 (c. 2nd-5th c. CE): अर्पितानर्पितसिद्धेः."
+    putStrLn "  Kātyāyana, vārttika 1 on Aṣṭādhyāyī 1.4.2, in Patañjali's Mahābhāṣya"
+    putStrLn "  (c. 150 BCE): two rules, each with its scope ELSEWHERE, meeting on ONE"
+    putStrLn "  item -- that is vipratiṣedha.  Siddhasena Divākara, Sanmatitarka 1.21"
+    putStrLn "  (c. 5th c. CE): a naya asserting itself by denying another is durnaya."
+    putStrLn ""
+    putStrLn "== 1. WHERE THE ENGINE REACHES THE FOURTH POSITION ====================="
+    putStrLn ""
+    let sites = fourth defs (ordNub (concatMap subtermsAll pop0))
+    putStrLn ("  population: every f(a,b) over {+,*,max,-,gcd,le} x {0,s(0)}, "
+              ++ "and every subterm.")
+    putStrLn ("  sites where all four metarules go silent: " ++ show (length sites))
+    putStrLn ""
+    forM_ (zip [0 :: Int ..] sites) $ \(i, (u, _, se@(V.Sesa _ os))) -> do
+      putStrLn ("  ---- " ++ showTermP u ++ " ----")
+      putStrLn "  the residue -- the standpoints themselves, not their names:"
+      forM_ os $ \nz ->
+        putStrLn ("    " ++ V.showSthana (V.nyRule nz) ++ "  "
+                  ++ head ([ V.saName s | s <- V.tSasanani tan0
+                           , V.saRef s == V.nyRule nz ] ++ ["?"])
+                  ++ "   ⇒  " ++ showTermP (V.nyResult nz))
+      let sth = G.navaSthana tan0 i
+          (verdict, mp, _) = G.nirnayaPrasava tan0 showTermP 4 sth u os
+      case mp of
+        Nothing -> putStrLn "  (decided without a birth)"
+        Just p  -> mapM_ (putStrLn . ("  " ++)) (G.showPrasuti showTermP p)
+      case verdict of
+        V.Nirnita w lost by -> do
+          putStrLn ("  VERDICT: " ++ showTermP u ++ "  ⇒  "
+                    ++ showTermP (V.nyResult w))
+          putStrLn ("  by      " ++ V.showBalya by)
+          putStrLn ("  winner  " ++ V.showSthana (V.nyRule w)
+                    ++ ", beating " ++ intercalate " " (map V.showSthana lost))
+        V.Avaktavya _ _ ->
+          putStrLn "  VERDICT: the fourth position stands.  Nothing was born."
+      putStrLn ""
+      -- guard: the birth must never change the answer the contenders gave
+      case (verdict, se) of
+        (V.Nirnita w _ _, V.Sesa _ os') ->
+          unless (all ((== V.nyResult w) . V.nyResult) os') $ do
+            hPutStrLn stderr ("avaktavya-prasava: the birth at " ++ showTermP u
+                              ++ " changed an answer")
+            exitFailure
+        _ -> pure ()
+    putStrLn "== 2. THE DERIVATION GETS FURTHER ======================================"
+    putStrLn ""
+    putStrLn "  `V.prakriya` STOPS at the fourth position and hands back the object"
+    putStrLn "  untouched.  `G.prakriyaPrasava` bears what the position bears and"
+    putStrLn "  goes on, keeping every child for the rest of the derivation."
+    putStrLn ""
+    forM_ [bin "max" zero_ zero_, bin "-" zero_ zero_, bin "gcd" zero_ zero_] $ \st -> do
+      let (pb, db, ob) = V.prakriya tan0 64 st
+          (pa, births, da, oa) = G.prakriyaPrasava tan0 showTermP 64 4 st
+      putStrLn ("  start: " ++ showTermP st)
+      putStrLn ("    before:  " ++ show (length pb) ++ " step(s), reached "
+                ++ showTermP ob
+                ++ (case db of { Just _ -> "  -- STOPPED at a written defect"
+                               ; Nothing -> "" }))
+      putStrLn ("    after:   " ++ show (length pa) ++ " step(s), reached "
+                ++ showTermP oa ++ ", " ++ show (length births) ++ " born"
+                ++ (case da of { Just _ -> "  -- still stopped"
+                               ; Nothing -> "  -- no defect remains" }))
+      forM_ pa $ \pd ->
+        putStrLn ("      " ++ V.showSthana (V.pdRule pd) ++ "  "
+                  ++ showTermP (V.pdBefore pd) ++ "  ⇒  "
+                  ++ showTermP (V.pdAfter pd) ++ "   ("
+                  ++ show (V.pdBalya pd) ++ ")")
+      unless (null births || (length pa > length pb && (case da of { Nothing -> True ; _ -> False }))) $ do
+        hPutStrLn stderr "avaktavya-prasava: a birth that got nowhere"
+        exitFailure
+      putStrLn ""
+    putStrLn "== 3. THE BIRTH IS NOT A TIE-BREAKER ==================================="
+    putStrLn ""
+    putStrLn "  CONSTRUCTED WITNESS -- these two clauses are not the engine's.  The"
+    putStrLn "  machine's real clause is `le(s(x),0) = 0`; `le(x,0) = 0` below is a"
+    putStrLn "  false over-generalisation of it, and le(0,0) is exactly where the"
+    putStrLn "  falsehood shows.  Two standpoints, neither an instance of the other,"
+    putStrLn "  disagreeing on the one item they share."
+    putStrLn ""
+    let bad = [ (bin "le" zero_ x_, su zero_)     -- true: le(0,x) = 1
+              , (bin "le" x_ zero_, zero_) ]      -- FALSE at x = 0
+        badT = mmTantra bad
+        badSites = fourth bad [bin "le" zero_ zero_]
+    forM_ badSites $ \(u, _, V.Sesa _ os) -> do
+      let (verdict, mp, _) = G.nirnayaPrasava badT showTermP 4
+                               (G.navaSthana badT 0) u os
+      putStrLn ("  ---- " ++ showTermP u ++ " ----")
+      forM_ os $ \nz -> putStrLn ("    " ++ V.showSthana (V.nyRule nz)
+                                  ++ "  ⇒  " ++ showTermP (V.nyResult nz))
+      case mp of
+        Just p  -> mapM_ (putStrLn . ("  " ++)) (G.showPrasuti showTermP p)
+        Nothing -> pure ()
+      case verdict of
+        V.Avaktavya _ _ -> do
+          putStrLn "  VERDICT: the fourth position stands, as it must."
+          putStrLn "  And note WHAT the refusal produced: the claim `s(0) = 0`, which"
+          putStrLn "  is false, so one of the two clauses is false at this item.  The"
+          putStrLn "  fourth position holding is not the machine failing to answer; it"
+          putStrLn "  is the machine locating the falsehood -- which a tie-breaker"
+          putStrLn "  would have hidden by picking whichever clause came first."
+        V.Nirnita _ _ _ -> do
+          hPutStrLn stderr "avaktavya-prasava: a rule was born over a disagreement"
+          exitFailure
+    when (null badSites) $ do
+      hPutStrLn stderr "avaktavya-prasava: the constructed witness did not reach the fourth position"
+      exitFailure
+    putStrLn ""
+    putStrLn "== 4. TRANSPORT, EXHAUSTIVELY =========================================="
+    putStrLn ""
+    putStrLn "  Every well-formed term over {0,s,+,*,max,-} up to depth 3, at every"
+    putStrLn "  subterm.  Finite and exhaustive, not a sample."
+    let deep = ordNub (termsUpTo 3 ["0"] ["s"] ["+","*","max","-"])
+        purvaAt u = case [ applySub sub rr
+                         | (l, rr) <- defs, Just sub <- [match l u]
+                         , decreases u (applySub sub rr) ] of
+                      (v : _) -> Just v
+                      []      -> Nothing
+        birthAt u = case offersAt defs u of
+          []  -> (Nothing, "none")
+          [z] -> (Just (V.nyResult z), "eka")
+          os  -> case G.nirnayaPrasava tan0 showTermP 4 (G.navaSthana tan0 0) u os of
+                   (V.Nirnita w _ by, Just _, _)  -> (Just (V.nyResult w), "born:" ++ show by)
+                   (V.Nirnita w _ by, Nothing, _) -> (Just (V.nyResult w), show by)
+                   (V.Avaktavya _ _, _, _)        -> (Nothing, "fourth")
+        rows  = [ (u, purvaAt u, birthAt u) | u <- deep ]
+        diffs = [ (u, a, v) | (u, a, (v, _)) <- rows, a /= v ]
+        bornN = length [ () | (_, _, (_, w)) <- rows, take 5 w == "born:" ]
+        heldN = length [ () | (_, _, (_, w)) <- rows, w == "fourth" ]
+    putStrLn ("  distinct terms enumerated: " ++ show (length deep))
+    putStrLn ("  sites where the born-rule resolution differs from pūrva: "
+              ++ show (length diffs))
+    putStrLn ("  sites decided by a rule BORN from the residue:            "
+              ++ show bornN)
+    putStrLn ("  sites where the fourth position still holds:              "
+              ++ show heldN)
+    forM_ (take 8 diffs) $ \(u, a, v) ->
+      putStrLn ("    " ++ showTermP u ++ ":  pūrva " ++ maybe "-" showTermP a
+                ++ "  vs born " ++ maybe "-" showTermP v)
+    unless (null diffs) $ do
+      hPutStrLn stderr "avaktavya-prasava: TRANSPORT FAILED"
+      exitFailure
+    putStrLn ""
+    putStrLn "  none.  Every answer the engine gives is the answer it gave before."
+    putStrLn "  What changed: the sites that used to be taken by pūrva -- the"
+    putStrLn "  weakest of the five paribhāṣās, applied anonymously -- are now"
+    putStrLn "  decided by apavāda, the strongest, and the rule that decides them"
+    putStrLn "  is one the machine did not have when it reached the fourth position."
+    putStrLn "  The derivation in §2 that stopped now finishes."
     exitSuccess
 
   when (args == ["--least-witness-self-test"]) $ do
