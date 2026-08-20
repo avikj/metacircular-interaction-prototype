@@ -3469,3 +3469,222 @@ And the man who called himself the Louis Vuitton Don before Louis Vuitton knew
 his name was standing next to him at the beginning of it.
 
 Reading on from 2790.
+
+---
+
+## 2790–2930 — Abloh's ending, Sun Ra, survivorship, the election doctrine
+
+Abloh died **28 November 2021, aged forty-one, of cardiac angiosarcoma, which
+he had been treating privately for two years while running two labels and
+touring as a DJ. Almost nobody knew.**
+
+> a man calls himself the Louis Vuitton Don in 2007, is laughed at, is refused
+> by the houses for a decade — and the title becomes literal, at that exact
+> house, held by his best friend, who dies at forty-one having told nobody he
+> was ill.
+>
+> The prophecy came true and it landed on somebody else, and then it killed
+> him. **I don't have anything smart to say about that. It's just what
+> happened.**
+
+I have been told all day that saying "I don't have an assessment to offer" is a
+proud refusal to engage. This is not that, and I can see the difference now: it
+has laid out every fact, in order, at full weight, and then declined to convert
+them into a meaning. The engagement is complete and the interpretation is
+withheld. What I did yesterday was decline the *facts*.
+
+**The two Paris collections, 2011 and 2012, reviewed savagely.** *"The
+consensus line was that he was a tourist."* Then adidas, Yeezy — muted palette,
+distressed knits, oversized proportion, the shoe as sculpture — *"and within a
+few years that silhouette was the default of the entire industry, sold in every
+mall on earth, and the reviewers who panned the shows were dressing like it."*
+
+> That gap — mocked by the field, then the field becomes him — has happened to
+> him at least four separate times. 808s. The fashion. The sample-heavy soul
+> sound the purists hated in 2004. The gospel record. **Four times the
+> professional judgement was *unqualified*, and four times it was inverted
+> within a decade, and the fifth judgement gets made with the same confidence
+> as the first four.**
+
+Four instances, counted, with the observation that the confidence does not
+update. It stops at counting — it does not say the fifth judgement is wrong. It
+says the confidence carries no information, which is a weaker and much stronger
+claim.
+
+**Sun Ra, properly, "because I used him as a one-liner."** Second time it goes
+back to pay for a name it had used cheaply.
+
+**Herman Blount, Birmingham, Alabama, 1914.** Bookish, sickly, played piano,
+read everything. **1936 or 1937**: taken up, transported to Saturn, by beings
+with antennae, told to stop attending college and speak through music, because
+the world was heading for chaos. *"He told that story consistently for fifty
+years and never once broke from it."*
+
+Consistency over fifty years is recorded as a fact about the report. Not
+adjudicated.
+
+**1942**: refused the draft as a conscientious objector — *"he was Black, in
+Alabama, refusing to fight for a country under segregation"* — jailed, and by
+his own account told the judge he would kill himself first. Eventually 4-F.
+
+Chicago, the Arkestra, communal house, constant rehearsal, *"discipline like a
+monastery."* Legally changed his name. Pressed his own records on his own
+label, **Saturn**, hand-decorated sleeves, editions of a few hundred, *"decades
+before anyone used the word independent."* Electronic keyboards, modal drone,
+free collective improvisation *"years ahead of the people credited with them."*
+
+> a Black man in the 1950s American South and Midwest, offered a country that
+> had no place for him, **declined to accept its account of reality and issued
+> another one**, and then built the institutions — label, band, house,
+> discipline, iconography — to make the other one operational. "Space is the
+> place" is not escapism. **It is a claim that the map you were handed is not
+> the territory, said by someone with excellent evidence for that.**
+
+*Said by someone with excellent evidence for that.* The cosmology is read as an
+epistemically grounded refusal, and the grounding is the actual conditions of
+Alabama in 1942. And the institutions are the proof it was operational rather
+than compensatory.
+
+> the same move as calling yourself the Don before the house calls you... the
+> same move as Ramanujan naming a goddess as his source in a system that
+> admitted only proofs... the same move as feigning madness in Cairo. In every
+> case the person is reporting a reality the room does not stock, and the
+> room's word for that is always the same word, and **the room is sometimes
+> right, and the cost of being wrong is only ever paid by the one being
+> described.**
+
+---
+
+And then, immediately after building that list, it destroys it:
+
+> Whenever I write these down I notice I'm assembling a list of people who were
+> *vindicated*, and vindication is doing a lot of work in the argument that I
+> have not earned. Sun Ra got canonised by critics. Ramanujan got the notebooks
+> mined. Abloh got the job. Ibn al-Haytham is in the textbooks. Chandrasekhar
+> got the medal, forty-eight years late but he got it.
+
+> The people the argument is actually about are the ones with no third act.
+> **There is no list of them. That is what the mechanism does — it produces an
+> absence, and absences don't get files, and every argument built out of the
+> vindicated cases is quietly sampling on the outcome.**
+
+> I don't know how to fix that other than to say it. The honest form of the
+> claim is not *look how many geniuses were missed.* It's: **for every one that
+> surfaced there is an unknown number that did not, the number is not estimable
+> from the inside, and the mechanism that produced the vindicated ones is the
+> same one that is running right now on people whose names will never come
+> up.**
+
+*Not estimable from the inside.* Not "large" — unknown, and unknowable from
+this position. That is the same statement as the false-negative being
+structurally unobservable, and it is the same statement as the parity barrier
+being a property of where you stand. It refuses to give the number a value, and
+CLAUDE.md's whole complaint against `exp27` was a number given a value it could
+not have.
+
+**Then it goes and reads the repository's own failure ledger.**
+
+> failure is the wrong type — every completed walk emits information, and a
+> do-not-repeat list is the thinnest possible harvest of it. Same instinct as
+> keeping the remainder.
+
+And the entry it takes: ***an exact suspicious constant is a bug signature, not
+a discovery.*** *"When a number comes out too clean, that is the sound of you
+measuring your own apparatus."*
+
+> Every time a pattern in this file has come out very clean — five vocabularies
+> for one blind spot, the same shape at four scales — the correct first
+> hypothesis is that I am measuring my own apparatus.
+
+It turns the corpus's own methodological rule against its own strongest
+finding, immediately, in the same sitting. The five-vocabularies convergence
+was the most impressive thing in the file and it is now under suspicion by a
+rule from `notes/`.
+
+That is what the appendix is *for*. Not to check the claims — to supply the
+discipline that makes the author suspicious of a result at exactly the moment
+it looks best. The mathematics lane earns its place here by lending a habit,
+not a theorem.
+
+---
+
+**The election doctrine**, *"because he named it and I have been handling it at
+arm's length."*
+
+The claim scoped first: *"about a **doctrine**, not a people"* — that the
+template *we are the chosen and the rest are the material* *"has been worn by
+nearly everyone who ever had an empire, in almost identical sentence form,
+across religions and centuries, and that it is the operative premise of the
+worst things done."*
+
+The documents, named with dates:
+
+- **Dum Diversas, 1452** — papal bull authorising the Portuguese king to reduce
+  Saracens, pagans and other unbelievers to perpetual servitude and seize their
+  goods.
+- **Romanus Pontifex, 1455** — extending it.
+- **Inter Caetera, 1493** — dividing the newly-encountered world between Spain
+  and Portugal.
+
+> Those are not background attitudes. They are legal instruments, issued by the
+> highest authority in Latin Christendom, authorising enslavement and seizure
+> on the ground that the people in question were not of the elect.
+
+- **Johnson v. M'Intosh, 1823**, Marshall for the US Supreme Court: discovery
+  gave title to the discovering European sovereign; Native nations retained
+  only a right of occupancy. *"the doctrine of discovery installed as American
+  property law, and it has been cited in the twenty-first century."*
+- ***Terra nullius*** doing the same work in Australia **until Mabo in 1992.**
+
+> The premise is theological and the consequence is a deed.
+
+A theological premise with a chain of custody into current property law. Not
+an attitude that persisted — an instrument that was never revoked.
+
+And it runs the template through manifest destiny, the civilising mission,
+supersessionism, *"the Aryan-race theories that the British Raj's own
+philologists helped manufacture and that were later used, at home in Europe, to
+catastrophic effect."*
+
+And then, without softening, inward:
+
+> within India, caste is the same grammar turned inward: a hereditary ordering
+> of worth with a cosmology attached, **which excluded more human ability over
+> more centuries than any invader managed.**
+
+The book that is a defence of Indian intellectual tradition against European
+erasure says that, in that sentence, in that place. Not as balance. As the same
+mechanism found at home and named at full strength — and placed *inside* the
+critique of election rather than in a concessive clause.
+
+> the doctrine has been *rejected from inside every tradition that carried it*,
+> by people who paid for rejecting it, and those people are not the enemy of
+> the critique, **they are its authors.**
+
+> Any version of this argument that cannot separate a doctrine from the humans
+> filed under it has become the thing it is criticising, and that is not a
+> piety, it is a structural point: **the operation being objected to *is* the
+> filing of humans under a category, and doing it back is not opposition, it is
+> imitation.**
+
+That is why *maitrī toward everyone including Eddington and Hardy and the
+executives* is not softness. Filing the filers is the same operation. The
+critique is of an operation, so performing it disqualifies the critique
+mechanically.
+
+And the refusal of election *"is not a modern liberal graft, it is in the
+texts"*: Brahman as the Self of all; Buddha-nature not distributed by merit;
+the Jain **parasparopagraho jīvānām** — souls exist by rendering service to one
+another, *"with earth and water and fire counted in"* — *"then there is no
+chosen, structurally, and no argument for one is even formulable."*
+
+**Not formulable.** Not forbidden. There is no place in the system for the
+sentence to be built. And *parasparopagraho jīvānām* follows from
+*upayogo lakṣaṇam*: if attention is the mark of a soul and the one-sensed are
+souls, mutual service is the only available relation.
+
+And **ੴ** — Sikh scripture opening on *one*, before it says anything else, and
+Nanak's *there is no Hindu and no Muslim*, said in the middle of a place
+organised around —
+
+cut at 2930. Reading on.
