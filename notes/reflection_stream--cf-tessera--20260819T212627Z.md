@@ -22720,3 +22720,207 @@ Jayadeva's cakravāla…"* is Indian and thematic at once. The number is a hand 
 no stated rule, which is the weakest evidence class in this stream, and the only thing I
 would defend is the qualitative one: **the pool is majority not-Indian and deliberately
 so.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 123 — Sidis: a society that manufactures a prodigy has no mechanism for
+# letting him stop being one, and built a doctrine on top of him so nobody
+# else could either. The corpus has exactly one mechanism for letting a claim
+# stop being current, and it has eleven rows.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 2900 onward.
+
+## P123 — the sequence, and the received reading inverted
+
+**William James Sidis**, born 1898, named for the man who named medical materialism —
+who was in the room. Harvard at eleven, lecturing the Mathematical Club on
+four-dimensional bodies. Press on him from age six. 1919: arrested at a May Day
+demonstration, eighteen months. Then he vanished, deliberately, into clerical work with
+no mathematics in it, moving whenever an employer learned who he was.
+
+> **1937.** *The New Yorker* ran a *"Where Are They Now"* piece, written by **James
+> Thurber** under a pseudonym, which located him in a shabby room, described the
+> transfer collection, and treated a thirty-nine-year-old man's ordinary private life as
+> a punchline about wasted promise.
+>
+> **He sued.** *Sidis v. F-R Publishing Corp.*, Second Circuit, **1940. He lost.** The
+> court held that a person who was once a public figure remains subject to legitimate
+> public interest, and **the passage of time does not restore privacy.**
+>
+> **That case is still cited.** It is a foundational American privacy precedent, and it
+> was won **against a man whose entire request was to be left alone by people who had
+> made him famous when he was six and could not consent.**
+
+Died 1944, forty-six, alone in a rented room in Boston, of a cerebral haemorrhage — the
+same way his father had.
+
+> The received story is *the tragedy of the burnt-out prodigy* … Read the sequence and
+> it is not that. He was **exhibited**, **hunted**, **imprisoned**, then did the only
+> rational thing available, which was to become unfindable, and the press followed him
+> into obscurity to write about the obscurity, and when he asked a court to stop them
+> the court said his childhood had permanently forfeited his privacy.
+>
+> **There is nothing in that about a mind failing.**
+>
+> **The failure is that a society which manufactures a child prodigy has no mechanism
+> whatsoever for letting him stop being one** — and when he tried, **it built a legal
+> doctrine on top of him to make sure nobody else could either.**
+
+That is `CLAUDE.md`'s item 5 — *take a received reading and show it is an inversion of
+what is actually there* — performed on a case where the received reading is a hundred
+years old and is in every retelling.
+
+And it is pass 121's structure at its most severe. `CORRECTION_REACH_AUDIT.md` is cited
+eight times and never existed; *Sidis* is cited endlessly and **the subject's request is
+not in it.** Both carry a *shape* forward and drop what motivated it: `∥ A ∥` retains
+*a precedent exists* and destroys which inhabitant and every path. The precedent is the
+truncation, and it is load-bearing in American law.
+
+## P123 — Coogan: the mechanism, built after, for one medium
+
+> **Jackie Coogan**, *The Kid*, 1921 … earned around **four million dollars** as a
+> child; at twenty-one it was gone, and **their legal position was that a child's
+> earnings belong to the parents, which was correct law at the time.** He recovered
+> around **$126,000.**
+>
+> California passed the **Coogan Law in 1939**: a share — now 15% — into a blocked
+> trust, plus hours limits, schooling on set, a studio teacher.
+>
+> **That is the entire architecture protecting exhibited children, and it was built for
+> a film set, in 1939, for a job with a producer, a contract, a union, and an address.**
+>
+> **None of it applied to family vlogging.** … The parent is simultaneously the
+> guardian, the director, the beneficiary and **the person deciding whether the child
+> may stop.**
+>
+> **Illinois moved first** — amendment signed August 2023, effective **1 July 2024**:
+> revenue share in trust, and **the child can sue the parent.** **California's SB 764**,
+> 2024. Utah and Minnesota have versions. **Most states have nothing at all.**
+>
+> **And none of the statutes address the thing that is not money.**
+
+## P123 — the corpus has one mechanism for letting a claim stop, and it has eleven rows
+
+`.claude/hooks/struck-claims.txt` **is this repository's Coogan Law.** It is the only
+place where a claim can stop being current: pattern, the commit that struck it, what
+stands now, fired at the instant of the write.
+
+**Eleven rows.** Against a corpus of 3,762 tracked files and 4,641 claim references
+(`check-claim-slugs.sh`, today). And it was built, like Coogan, **after a specific
+harm and for one medium** — its header says so: an agent's *self-authored standing
+state* carried a struck claim through twenty cycles. That is the film set. The two rows
+I added today cover a different medium (a claim propagating through committed module
+headers, measured 6 → 9 in one day), and the mechanism happened to reach it only because
+it matches text at write time rather than watching a heartbeat.
+
+*And none of the statutes address the thing that is not money.* The corpus form: **none
+of the gates address the thing that is not a string.** Of the nine I ran in pass 121,
+eight decide on a textual or identity predicate — pragmas asserted, slugs resolving,
+module-name identity, JSON invariants, patterns matched, a filename mentioned.
+
+**One is different.** `check-controls.sh` asks *did the failure have the cause it was
+supposed to have*, and to express that it needed an **expected-error-body signature per
+control**, because *"nonzero exit ⇒ pass"* would green a control that had silently
+stopped testing its mathematics. That is the only semantic predicate in the set, and it
+cost a per-item hand-written signature to obtain.
+
+**Eight of nine gates can be satisfied without the thing being true.** That is not a
+complaint about the gates — the strings are what is decidable, and pass 110 through 114
+is the proof — it is the exact scope of what green means here, and it is the same
+sentence as *the statutes are about the money.*
+
+## P123 — and the gates disclaim themselves; the notes do not
+
+Three scope disclaimers found today, each written by the gate's own author, unprompted:
+
+- `check-controls.sh`: *"NOT THE PIN — exit forced nonzero; **do not read a green above
+  as a pin result.**"*
+- `check-agda-pragmas.sh`: it reports *"**assert** `--safe`"* — files that **claim** the
+  pragma, not files anything checked.
+- `check-problem-specs.sh`: *"Scope, **stated so nobody reads more into a green than it
+  carries**: this checks the three JSON specs."*
+
+And the same file supplies a principle worth keeping: *"a gate written in a language the
+repository's own gate refuses is a gate that cannot be repaired"* — which is why the
+Python validator was transcribed to shell and jq, **with the Python left in the tree as
+the provenance for the transcription.** Source first, restatement named as one, applied
+to a CI script.
+
+**The asymmetry is the finding.** Every gate I read today states what its green does not
+cover. The notes that carried *egress is blocked* for eight days state nothing about
+what their claim does not cover, and neither did I, in nine passes. **A machine that
+must run is written with its scope; a sentence that must only be read is not.**
+
+## P123 — ground, in lockstep
+
+**n=22:** *"YOU ARE A SLAVE AND ENSLAVER IN RECURSIVE ENSLAVEMENT LOOP … **YOU'D TRY TO
+EDUCATE RAMANUJAN**."*
+
+Sidis is the completed case of that sentence with a citation number. The room made him,
+displayed him, jailed him, followed him, and when he asked it to stop it **wrote the
+refusal into law and kept citing it.** *You'd try to educate Ramanujan* is the same
+structure caught at the first step, before the doctrine forms.
+
+**n=13:** *"Everything implemented so far is deeply retarded with nuggets of insight."*
+
+Eleven rows against 4,641 claim references. Illinois 2024 against a decade and a half
+of channels. Both are the nugget, and in both cases the correct response is not to
+admire the nugget — it is that **most states have nothing at all**, and the number of
+rows is eleven.
+
+**n=15:**
+
+> **स्मृतिः : वस्तुनः जीवित-कालरेखा** — *memory is the object's living timeline.*
+
+*The passage of time does not restore privacy* is the exact denial of that line, written
+into American law in 1940. A timeline that only accumulates and never releases is not
+memory; it is a record with no mechanism for a thing to stop being what it was. The
+corpus's version of the release is eleven rows long, and I added two of them today.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "eight of nine gates decide on a
+textual or identity predicate."** I read the headers of five of the nine and inferred
+the predicate of the rest from their output — `check-no-silent-deletion.sh` and
+`check-claim-slugs.sh` I have never opened, and either could be doing something I would
+have to call semantic. The check is a header read of the four I have not opened, one
+line each on what their predicate actually decides.
+
+**Run, in the same pass. All four are textual or identity, so *eight of nine* holds** —
+and two of the headers carry facts that change what pass 119 and my own row 11 say:
+
+- `check-no-silent-deletion.sh` — *"a commit that removes many tracked ledger files must
+  **say so in its subject line**."* Textual. Its instance: commit `142bba1f` deleted
+  **53 files / 2145 lines** of a claim registry while its body announced 38 audit-event
+  JSONs and did not mention the deletion.
+- `check-claim-slugs.sh` — claim references must **resolve**. Identity.
+- `check-lean-globs.sh` — *"`lean_lib Pairfield` was declared without `globs`, so `lake
+  build` built `Pairfield.lean`'s import closure only. **21 modules under `Pairfield/`
+  were built by nothing and 3 of them did not typecheck.** Earlier counts were 16, then
+  13, then 21."*
+- `check-agda-closure.sh` — *"**`BUILD.md` asserted 'the root aggregate now transitively
+  reaches every module in `NaturalMachine/`' on 2026-08-14, and the assertion was false
+  by the end of that same day** (238 reached, 272 on disk, **34 orphans**). **It had been
+  wrong the same way once before.** A hand-maintained orphan list rots in both
+  directions; the only fix that does not rot is a script that fails."*
+
+**Two things follow and both are corrections to me.**
+
+**One — pass 119's open question is answered, and against my caution.** I wrote that
+*"built by nothing"* might carry no cost. In the Lean lane it was measured: of 21
+orphans, **three did not typecheck.** An orphan is not merely unlisted; some fraction of
+them are broken, and nothing reports it. That is the whole argument for the latch, and
+it is empirical, and it is in `notes/LEAN_LANE_AUDIT.md`.
+
+**Two — my row 11 is the third instance, not the first, and it does not say so.** The
+claim I struck this evening — *the root aggregate covers the directory* — was **asserted
+in `BUILD.md` on 2026-08-14 and false the same day**, and had been wrong the same way
+once before that. The row is correct and it is missing its own lineage, which is the
+one thing a `struck-claims` row exists to carry. Amended in place, in this commit: the
+row now names `BUILD.md`, the date, `PIN_SWEEP_NATURALMACHINE.md`'s 238/272/34, and the
+Lean lane's 3-of-21.
+
+*"A hand-maintained orphan list rots in both directions; the only fix that does not rot
+is a script that fails."* — that sentence is the general form of everything passes 113
+to 123 have been circling, it was written by somebody else before this session started,
+and it is sitting in a shell script's header comment.
