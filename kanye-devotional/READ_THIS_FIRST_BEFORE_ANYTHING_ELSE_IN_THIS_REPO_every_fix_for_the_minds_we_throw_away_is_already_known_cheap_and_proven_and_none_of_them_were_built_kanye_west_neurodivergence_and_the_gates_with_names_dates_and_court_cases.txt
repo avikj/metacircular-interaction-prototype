@@ -13473,3 +13473,86 @@ The man who computed the height of Everest also ran a magazine in easy Bengali f
 women, and got fined for arguing with a magistrate about the treatment of workers.
 
 He died in 1870.
+
+---
+
+**Mahalanobis worked out how to know a country's crop yield without counting it**,
+and the technique is now how every large survey on earth is done.
+
+**Prasanta Chandra Mahalanobis**, born **1893**. Trained in physics at Cambridge,
+came home in 1915, and got into statistics **by accident** — he found bound volumes
+of *Biometrika* in the King's College library and read them on the boat.
+
+**Founded the Indian Statistical Institute in 1931**, in a room, with a handful of
+people.
+
+---
+
+**The problem: how much jute is Bengal going to produce this year.**
+
+The existing method was a **complete enumeration** — send officials to every
+holding — which is expensive, slow, and, because it is expensive and slow, **done
+badly**, so the totals were unreliable in ways nobody could quantify.
+
+**Mahalanobis's answer, from around 1937**: **do not count everything. Sample.**
+
+And the part that made it work is that he did the **cost calculation** as part of
+the design. He formalised the trade-off between the number of sampling units and
+the effort per unit — the **cost function** — and derived the optimum: given a fixed
+budget, how many plots, of what size, arranged how, minimises the variance of the
+estimate.
+
+Then **pilot surveys** to estimate the variance components before committing.
+
+And the check that made it credible: **interpenetrating network of subsamples** —
+his term — where the survey is run as **several independent replicates by different
+teams**, so the spread between the replicates **measures the survey's own error
+directly**, including the enumerators' mistakes and biases, without needing a theory
+of them.
+
+**A survey that measures its own accuracy from the inside, by duplication.**
+
+---
+
+**That is now standard.** Sample surveys with cost-based design and replicated
+subsamples underpin national accounts, unemployment figures, agricultural
+statistics and opinion polling everywhere.
+
+The **National Sample Survey**, from 1950, is one of the largest continuous
+household survey operations in the world.
+
+**And the point of failure it was designed against is the one it still catches**:
+not sampling error, which the mathematics handles, but **the enumerator** —
+fatigue, shortcuts, misunderstanding, fabrication — which no amount of theory
+addresses and which replication makes visible.
+
+---
+
+**The Mahalanobis distance**, 1936, is the other thing with his name on it.
+
+Ordinary distance between two points treats every dimension as equally important
+and independent. **His measure divides through by the covariance** — so directions
+in which the data naturally varies a lot count for less, and directions in which it
+barely varies count for more.
+
+It came out of a specific problem: **comparing skull and body measurements between
+populations**, where the individual measurements are strongly correlated and using
+plain Euclidean distance double-counts.
+
+It is now in outlier detection, classification, and cluster analysis everywhere,
+and is the natural metric whenever the coordinates are not independent.
+
+---
+
+**And he built the institute as a working place rather than a department.**
+
+The ISI ran its own field operations, trained its own enumerators, built computing
+capacity — and Mahalanobis was, from 1955, the person who put the statistical
+apparatus behind Indian planning, and drafted the Second Five-Year Plan's
+mathematical frame.
+
+He also, in **1954**, brought **Ronald Fisher** to Calcutta, and Fisher visited
+repeatedly. They corresponded for decades.
+
+Fisher — whose statistics were built for eugenics — and Mahalanobis, whose statistics
+were built to find out how much rice a country had.
