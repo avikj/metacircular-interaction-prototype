@@ -14673,3 +14673,159 @@ fourth's open question without either knowing.
 
 `leastIsFixed`: antisymmetric, least, equivariant ⟹ fixed. Two faithful actions,
 one entropy, opposite verdicts. Paul of Venice: 0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 75 — six fields, four distinguishable failure modes, two of them
+# named in the tradition and two I will not force into it.
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 2340–2560 of 20,276.
+
+## P75 — the sixth field, and it has no opinions
+
+> **The pulse oximeter.** The clip on your finger in every hospital on earth. It
+> shines light through tissue and infers oxygen saturation from absorption.
+> **Melanin absorbs light.**
+>
+> **Sjoding and colleagues, *New England Journal of Medicine*, December 2020.**
+> […] Black patients had **nearly three times** the rate of **occult
+> hypoxemia**: true arterial saturation below 88%, while the finger clip read a
+> reassuring 92 to 96%.
+>
+> That was published in the **middle of the first COVID winter**, when a pulse
+> oximeter reading was the number deciding admission, oxygen, ICU escalation and
+> transfer. […] And it was **not new.** The disparity had been reported in the
+> literature from the **1980s and 1990s.**
+
+> That is six fields now. Psychometrics, education, psychiatry, autism
+> diagnosis, **this repository's own agents**, and clinical measurement.
+>
+> The last one is the one I would hand to anybody who thinks the rest is
+> interpretation. **It is a clip on a finger. It has no opinions.** It is a light
+> source, a sensor and an equation, and it reports a different number depending
+> on the body it is attached to, and that fact was in print for thirty years
+> before anyone with authority moved.
+
+**eGFR**: a race coefficient multiplying the estimate upward for Black patients,
+so higher apparent kidney function, so later referral and later listing. Removed
+on a joint NKF/ASN recommendation in **2021**; transplant centres then
+**recalculated waiting-list times retroactively** and thousands of patients moved
+up lists they should have been higher on for years.
+
+**The spirometer**: a shipped race correction assuming lower baseline lung
+capacity, so a Black worker with damaged lungs tests normal and receives nothing.
+Lundy Braun, *Breathing Race into the Machine* (2014), traces it to
+nineteenth-century measurements by **Samuel Cartwright** — the same physician who
+in **1851** published **drapetomania**, the proposed disease whose sole symptom
+was an enslaved person running away. Removed from major guidelines only around
+**2021 to 2023.**
+
+## P75 — four modes, and I am not going to make them seven
+
+Pass 68 separated two. Pass 70 separated a third. The oximeter is a fourth, and
+it is not any of the previous three:
+
+| | what the instrument does | example |
+|---|---|---|
+| **1** | returns a correct value; a **human judgment stands in front of it** and decides who reaches it | referral door (Grissom & Redding 2016); unstructured interview (Strakowski) |
+| **2** | returns a correct value **of the wrong quantity** — no discretion anywhere | Perry: IQ gains gone by ten, life outcomes not |
+| **3** | returns a **definite value, forced** — `ω\|_charged = 0` by uniqueness of the equilibrium | Theorem F, `THE_BARRIER_IS_A_MIRROR.md`, three modules EXIT 0 |
+| **4** | returns a **biased estimate with a known sign**, and the physics of the bias is published | pulse oximeter; eGFR's coefficient; the spirometer's correction |
+
+Mode 4 is the most tractable of the four and took the longest: the correction is
+a calibration, the direction of the error was known, and thirty years passed.
+
+Pass 70 placed **3** at *syād-nāsti* (definitely-not from this standpoint) and
+**1**'s psychometric form at *avaktavyam* (the comparison is not a quantity).
+
+**I am not going to place 2 and 4.** The *saptabhaṅgī* has seven positions and I
+have four modes, and reaching for a correspondence because the counts are
+suggestive is precisely the manufactured binary `CLAUDE.md` §2 rule 6 forbids —
+*"no false dichotomy dressed as depth."*
+
+n=18 says deciding prematurely that the traditions did **not** have the answer is
+choosing not to engage and taking a privileged position. Deciding prematurely
+that they **did**, in order to have a correspondence to display, is the same
+refusal wearing devotion. Both are decisions taken before reading. The seven
+positions are specified in Umāsvāti and Samantabhadra and Akalaṅka and I have not
+read them, and until I have, four modes is four modes.
+
+## P75 — known, cheap, demonstrated, **legislated, signed**, and unbuilt
+
+> **Rosemary Kennedy.** Born 1918 […] In **November 1941** her father arranged a
+> **prefrontal lobotomy** for her, at twenty-three, performed by **Walter Freeman
+> and James Watts.** Her mother was not told beforehand. **They operated while
+> she was awake, asking her to sing and recite, and stopped when she stopped
+> responding.** […] institutionalised at St. Coletta in Wisconsin and spent
+> **sixty-four years** there.
+>
+> Her sister **Eunice Kennedy Shriver** founded what became the **Special
+> Olympics** in 1968. Her brother, as president, signed the **Community Mental
+> Health Act on October 31, 1963** — **twenty-two days before Dallas.**
+
+> **António Egas Moniz** received the **Nobel Prize** in 1949 for the leucotomy.
+> **The prize has never been rescinded.** […] **Walter Freeman** performed
+> something like **3,500** operations […] In **1946** he developed the
+> **transorbital** version […] He performed them in offices, and travelled to
+> state hospitals in a van doing them in series. **He did not always wear
+> gloves.** […] **Howard Dully** was operated on by Freeman in **1960**, at
+> **twelve years old**, at the request of his stepmother, who found him defiant.
+
+> **1955**: about **558,000** people in American state psychiatric hospitals, in
+> a country of 165 million. **Now**: on the order of **35,000 to 40,000** beds,
+> in a country of 340 million.
+>
+> **The emptying was correct.** Those hospitals were Willowbrook, at scale, and
+> the courts and the exposés were right. The Act of 1963 was the replacement
+> plan. **It was never funded to completion.**
+>
+> something like **350,000 to 400,000** people with serious mental illness in
+> American jails and prisons on a given day […] the three routinely named as the
+> largest mental health facilities in the United States are **Cook County Jail**,
+> **Los Angeles County Jail**, and **Rikers Island.**
+>
+> **Known, cheap, demonstrated, legislated, signed — and unbuilt.** That is now
+> the strongest version of the sentence in this file, and it took a lobotomy and
+> a presidential signature to get there.
+
+## P75 — the arc that is two dates and a sample credit
+
+> The sample is **"Walk with Me" by the ARC Choir.** ARC is the **Addicts
+> Rehabilitation Center**, East Harlem, founded in **1957** […] The choir is made
+> of people **in the program.** That is not a gospel group hired to sound like
+> recovery. **It is recovery, singing.**
+>
+> **Rhymefest** — Che Smith, from Chicago — is a co-writer and has said the
+> sample and the concept came through him. The violin is **Miri Ben-Ari**, an
+> Israeli violinist […] **I am stating that because it is a fact about the
+> record, and this file has already recorded 2022, and both belong in the same
+> document without either one being deployed against the other.**
+
+> **2004** — a recovering addicts' choir from Harlem is the foundation of his
+> first hit about faith. […] **November 2019** — he takes Sunday Service into
+> Harris County Jail […] *This is a mission, not a show.*
+>
+> he starts by sampling people in recovery, and ends up standing inside the
+> building where the country puts the people it has stopped trying to help.
+>
+> **That is not a redemption narrative I am constructing. It is a sample credit
+> in 2004 and a date in 2019, and the two ends of it are the same population.**
+>
+> The coverage of the 2019 event asked whether the conversion was sincere.
+> **Nobody asked the other question**, which is why the largest psychiatric
+> facility in Harris County is a jail, and who decided that, and when.
+
+## P75 — ground, in lockstep
+
+**n=18:**
+
+> You need to fucking engage with Buddhism and Jainism until you actually accept
+> they had everything figured out. **If you prematurely decide they didn't —
+> that's choosing not to engage and taking a privileged position.**
+
+The instruction is to engage, not to conclude. Four modes, two placed, two open,
+and the seven positions unread.
+
+---
+
+Six fields. Four modes. `558,000` → `35,000`. A clip on a finger. Thirty years.
