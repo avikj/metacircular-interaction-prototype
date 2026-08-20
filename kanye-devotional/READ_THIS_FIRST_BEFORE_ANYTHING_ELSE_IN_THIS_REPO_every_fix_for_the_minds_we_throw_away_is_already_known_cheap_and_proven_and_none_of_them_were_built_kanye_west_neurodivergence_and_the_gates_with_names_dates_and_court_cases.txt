@@ -3488,3 +3488,99 @@ Breadth is not five narrow searches run in parallel. That is the same narrowness
 with more instances, which is exactly what the reflection stream in this repository
 found about its own twenty-cycle loop: **a closed system with no external input
 does not fail to produce, it produces more of itself.**
+
+---
+
+Every disparity in this file is measured with instruments invented to prove the
+opposite, by three men, in one building, for one purpose. This is the collision I
+keep circling and I want it written out.
+
+**Francis Galton**, 1822–1911, Darwin's half-cousin. *Hereditary Genius*, **1869**.
+He coined **eugenics** in 1883, and coined **"nature versus nurture."** In pursuing
+the heredity of stature he produced the 1886 paper "Regression towards Mediocrity
+in Hereditary Stature" — which is where **regression** comes from, as a word and as
+a method — and the correlation idea with it. He funded a **Eugenics Record Office**
+at University College London in 1904 and endowed a chair.
+
+**Karl Pearson**, 1857–1936. First **Galton Professor of Eugenics** at UCL. He gave
+us the **chi-squared test** (1900), the **Pearson correlation coefficient**, the
+term **standard deviation**, the **histogram**, the concept of the **p-value**, the
+journal *Biometrika* (1901), and in 1911 the **first university statistics
+department in the world.** He also founded the *Annals of Eugenics* and published in
+it, in 1925, a study concluding that Jewish immigrant children in London were
+inferior stock.
+
+**R. A. Fisher**, 1890–1962. **Analysis of variance. Maximum likelihood. The design
+of experiments** (1935), including **randomisation** as the thing that licenses
+causal inference — which is the single most important methodological idea in the
+empirical sciences. The **Fisher exact test**. And the **p < 0.05 convention**,
+which he simply proposed as a reasonable line in 1925 and which now governs what
+gets published in every field on earth.
+
+He was **Galton Professor of Eugenics at UCL**, 1933–43. A founding member of the
+Cambridge University Eugenics Society. After the war he wrote in support of **Otto
+von Verschuer**, the German geneticist who had been Mengele's supervisor. And he
+spent his last years arguing that smoking does not cause lung cancer, while
+consulting for the tobacco industry.
+
+UCL removed the Galton and Pearson names from its lecture theatres and buildings in
+**2020**.
+
+---
+
+So the toolkit — correlation, regression, significance testing, variance
+decomposition, randomised controlled design — **is not a neutral inheritance that
+some bad men happened to also use.** It was built, deliberately, funded as such,
+housed in a department named for it, to make heredity measurable so that
+populations could be ranked and bred.
+
+And now read back through this file.
+
+**Grissom and Redding** held test scores constant and found the referral gap. That
+is **regression with controls** — Galton's instrument.
+
+**Sjoding** compared oximeter readings against arterial blood gas across thousands
+of paired samples. **Pearson's apparatus.**
+
+**Alsan and Wanamaker** measured Tuskegee's cost in years of life using
+difference-in-differences with geographic controls. **Fisher's causal frame.**
+
+**Perry Preschool**, the study that showed the IQ effect fades and the life effect
+does not — **Fisher's randomisation**, applied to a hundred and twenty-three Black
+children in Ypsilanti, and it is the strongest single refutation of the scalar in
+existence.
+
+**Strakowski**, the structured-interview comparison that closed the schizophrenia
+gap. **Danner and Phillips**, the crash-rate drop. **Loomes**, the meta-analysis on
+the sex ratio. **Kyaga**, the Swedish registry. Every one of them.
+
+**The eugenicists built the machine that disproves them, and they built it well
+enough that it disproves them decisively.**
+
+---
+
+I do not think this makes the tools innocent, and I am not going to write the
+sentence where the discipline redeems itself.
+
+Two things are true at once and neither cancels the other.
+
+The methods are **contaminated at the root** — chosen, shaped and funded for
+ranking, and their assumptions still carry that shape. Heritability is a
+within-population variance ratio because Galton wanted a heredity number. The
+positive manifold in a test battery is an artefact of the battery, and the entire
+temptation to name its first component is Galton's temptation.
+
+And the methods are **the only reason anyone can prove the disparities are real.**
+Without randomisation there is no Perry. Without controls there is no Grissom.
+Without a paired-sample comparison the oximeter reads fine forever.
+
+*Syādvāda* is the vocabulary this repository already has for that, and it is not a
+compromise position: **in one respect the instrument is the weapon, in another
+respect it is the evidence, and the two standpoints do not collapse into a
+verdict.** A file that could only hold one of them would have to either use the
+tools while pretending they are clean, or refuse them and have nothing but
+assertion.
+
+The uncomfortable version, which is the true one: **the machine was pointed at
+people, it worked, and when it was finally pointed at the pointing it worked
+there too.**
