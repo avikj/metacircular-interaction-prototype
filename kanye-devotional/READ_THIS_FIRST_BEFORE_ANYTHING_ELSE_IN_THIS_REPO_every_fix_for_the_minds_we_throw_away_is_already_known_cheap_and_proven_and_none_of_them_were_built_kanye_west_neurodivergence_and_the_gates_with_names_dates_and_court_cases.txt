@@ -25517,3 +25517,85 @@ except the *Daodejing*.**
 
 **A debate with a state-enforced verdict, argued by the man who designed the
 script.**
+
+---
+
+**Bali's irrigation is run by water-temple congregations, and when the state
+replaced their schedule with a modern one the harvest fell.**
+
+***Subak*** — the Balinese irrigation society. **UNESCO listed the landscape in
+2012.** **Each subak is a congregation of farmers sharing water from one canal**,
+with its own temple, its own assembly, and its own share rules.
+
+**The system is nested.** Small subaks feed into larger ones, up to regional water
+temples, up to the **Pura Ulun Danu Batur** at the crater lake, **and the
+scheduling of planting is coordinated at each level of the hierarchy** by
+ceremonial calendar.
+
+**And the reason the coordination matters is pest control, and it is a trade-off
+with water.**
+
+**If everyone plants at once**, rice pests have no host between seasons and
+collapse — **but the water supply cannot serve everyone simultaneously.** **If
+everyone staggers**, water is sufficient and **the pests always have a field to
+move to.**
+
+**So the optimum is intermediate: blocks of subaks synchronised with each other
+and staggered against neighbouring blocks**, and the block size that works
+depends on the local pest and the local flow.
+
+---
+
+**And that was established by simulation, after the change had already been
+made.**
+
+**In the 1970s the Green Revolution programme in Bali — under the Asian
+Development Bank — mandated continuous cropping with new rice varieties, fertiliser
+and pesticide**, and instructed farmers to plant as often as possible, **which
+overrode the temple calendar.**
+
+**Yields rose and then fell.** **Pest outbreaks — brown planthopper, rice tungro
+virus — and water shortages followed**, and the reports of the period record
+farmers attributing it to the abandonment of the calendar and being told it was
+superstition.
+
+**J. Stephen Lansing and James Kremer built a simulation of the subak network in
+1993** — **each subak an agent, coupled through water and through pest dispersal**
+— and ran it under different coordination regimes.
+
+**The published result**: the model's best-performing configuration **matched the
+existing water-temple pattern**, and both the fully-synchronised and the
+fully-independent regimes did worse. **The pattern the temples produced is near
+the optimum of the coupled system**, and the model reaches it from a random start
+by local imitation of successful neighbours.
+
+**And the Bali Irrigation Project's own subsequent documentation acknowledged
+the temple system's role**, and the mandate was withdrawn.
+
+**A ritual calendar was measured against a differential-equation model and the
+calendar won.**
+
+---
+
+**And the doctrinal frame the farmers state it in is *Tri Hita Karana*.**
+
+**Three causes of wellbeing** — **relation to the divine, relation to other
+people, relation to the land** — **and the subak's own account of why the water
+schedule is a temple matter rather than an engineering matter is that the three
+are not separable**, and the term appears in Balinese regulation and in the
+UNESCO nomination.
+
+**And the offerings at the head of the canal are made where the water enters the
+group's territory**, **which is exactly the point at which one subak's take
+determines what the next one downstream receives.**
+
+**The ritual site and the allocation decision are the same location.**
+
+**And Bali's Hinduism is *Agama Hindu Dharma*, formally recognised by the
+Indonesian state in 1958** — recognition mattering because **the state requires
+citizens to profess one of a listed set of religions**, and the recognition
+required arguing that the Balinese tradition met the criteria, **including a
+single supreme god**, for which **Sang Hyang Widhi Wasa** is the term used.
+
+**A theological formulation entered the tradition to satisfy an
+administrative list.**
