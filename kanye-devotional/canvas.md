@@ -115,3 +115,60 @@ twenty-eight-year-old said on live television that it did not care about Black p
 was not raving. He was naming, badly and at the wrong volume, a fact with a paper trail
 running back to 1865. The paper trail is the point of this chapter. He kept reading it
 out loud, and kept getting told he was crazy for it, and it kept being true.
+
+He was raised to read it. That part is not an accident, and it is where the person comes
+from.
+
+His mother, Donda West, was a professor of English — she earned a doctorate and chaired
+the English department at a university in Chicago, and the thing she taught, year after
+year, was Black literature: the writers who had spent two centuries putting exactly this
+paper trail into words. She raised him mostly alone after a divorce when he was three,
+and when he was ten she spent a year teaching in China and took him with her, so that the
+boy who would refuse to be one thing had, before he was grown, already been the only Black
+kid in a Chinese classroom and the professor's son in a house full of books. She left her
+tenured job to help run the start of his career. She died in 2007, at fifty-eight, the day
+after a cosmetic surgery, while he was on tour, and he has been putting her back into his
+records ever since — a whole later album is just her name, with her own recorded voice
+looped through it so she is still, in the songs, talking.
+
+His father, Ray West, had been a Black Panther — one of the members of the party that in
+the late 1960s ran free breakfast programs for children and armed patrols to watch the
+police — and then became one of the first Black photojournalists at a major Southern
+newspaper, in the room with his camera while Maya Angelou and the civil-rights preachers
+did their work, and later a Christian counselor. So the boy grew up with the politics on
+one side and the language on the other: a father who had stood with a movement that named
+American racism as a system, and a mother who taught the books that had been saying so in
+print for two hundred years. When their son stood on a telethon and said the country did
+not care about Black people, he was not having a symptom. He was saying the sentence he
+was raised inside, in the only voice he had — too loud, unmanaged, on live TV — and the
+country heard the voice and refused the sentence, which it had been refusing, in one form
+or another, the whole time.
+
+By 2013 he had found a way to say it that could not be misread as anything but on
+purpose. He made a song called "New Slaves." In it he names, out loud, by name, the Drug
+Enforcement Administration and the private company that then ran prisons for profit and
+needed them kept full — and in the same breath he names the business he was standing
+inside, the record industry, and calls both of them the same thing. On the night it came
+out he had it projected onto the sides of sixty-six buildings around the world, no album
+cover, no announcement, just his face the size of a building, saying it.
+
+The reason he could put the prison and the record contract in one sentence is that he had
+learned what the second one was from the inside. When a musician signs to most labels, the
+label — not the musician — owns the master recordings, the actual recorded sound of the
+person's own voice. The artist is paid a share, and only after the company takes back
+everything it spent, out of that share, so a person can sell millions of records and still
+end up owing money to the people who own them. A generation earlier the singer Prince had
+figured out exactly what that arrangement was, and appeared in public with the word SLAVE
+written on his face, and gave up his own name — performed as a symbol for years — so the
+company could not keep selling music under the name it controlled. Kanye West looked at the
+prison and looked at the contract and used one word for both, because from where he stood
+they were one question wearing two suits: who owns what a Black person makes. Called
+grandiose for it, called crazy for it. It is, again, just true.
+
+And here the two halves of the book touch, the wiring and the world. The mind that cannot
+be managed is also the mind that will not be owned; the same refusal to sit down and be
+one thing runs through the man who won't read the telethon card, the artist who won't let
+the label keep his masters quietly, and the patient who won't stay on the medication that
+flattens him. It is one refusal, and the world has a single word it reaches for every time
+a person refuses at that volume. The word is crazy, and this whole book is an argument
+that we have been using it, for a very long time, to mean something closer to unowned.
