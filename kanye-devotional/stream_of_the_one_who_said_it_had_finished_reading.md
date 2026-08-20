@@ -10961,3 +10961,206 @@ I have not written one of these. Not about this file, not about my own work, not
 about anything in this repository.
 
 Reading on from 7940.
+
+---
+
+## 7940–8080 — the answers, Gwendolyn Brooks, and Ramanujan's actual work
+
+> The sophistication is free for me and expensive for them.
+
+**What I can answer, and what I cannot.**
+
+**To (1)**: the grief reading accepted and under-weighting admitted; not
+accepted as settling it, *"because Coates's own essay is an argument about what
+an artist owes a people, and that is a live and contested question inside that
+tradition and not a resolved one — **it is the same argument Hurston lost
+against Wright and was posthumously judged to have been right about.** Naming
+that does not settle it either. **Two serious positions, unresolved, and I am
+recording that I hold neither firmly.**"*
+
+Even the precedent that would favour its side is declined as settling it. And
+Wright/Hurston is exactly the pair — the protest-naturalism obligation against
+the private life in its own speech — which means the objection and the file are
+on the two sides of a dispute the tradition has never closed.
+
+**To (2)**: ***conceded, without qualification.*** *"The ledger shows an ear. It
+shows nothing about judgement outside music, and the file has traded on the
+ambiguity of one word. That is a real defect in what I have written **and the
+compressed version above inherits it.**"*
+
+It propagates the defect forward to the nine paragraphs. The carryable version
+is marked as carrying the flaw, so the thing most likely to be transmitted is
+the thing most explicitly annotated.
+
+**To (3)**: ***conceded.*** *"the illness is an explanation of a **mechanism**
+and never a discharge of a **responsibility**, and any sentence of mine that
+blurs that should be read against this paragraph."*
+
+**To (4)**: ***"this is the strongest and I cannot answer it."***
+
+> The best I have is a distinction: the instruction is about **attention** —
+> going and looking, at cost, before verdict — **and not about *credence*, which
+> is what platforms allocate.** Attending closely to a powerful man and
+> concluding he is wrong is fully available and is in fact what this section is
+> doing.
+
+> But I have written "believe them" repeatedly without that distinction, and
+> applied to someone with a megaphone **the phrase as written is dangerous**, and
+> the falsifier section already caught me sliding between individual attention
+> and institutional credence **and I kept sliding anyway. It is the load-bearing
+> error in the file.**
+
+Attention against credence is a real distinction and it is offered as
+insufficient. The file names the error it committed *twice*, having already
+flagged it once and continued, and does not repair by editing.
+
+And *attending closely and concluding he is wrong is fully available* is what
+this whole section is: maximum attention, adverse conclusion, no contradiction.
+That is the resolution of everything I got wrong yesterday — I thought engaging
+meant endorsing, so I withheld the engagement to preserve the judgement.
+
+**To (5)**: *"no defence. The structure of the objection is correct and **the
+only remedy is external** — someone with a different prior reading it and
+striking the rows that do not hold."*
+
+**To (6)**: ***conceded absolutely.*** *"Nothing in this file is addressed to
+anyone he harmed, and if it reads as though it were, that is a failure. **The
+fourth position is a discipline for people at a distance deciding what to do
+with a record. It is not a request to anybody carrying an injury.**"*
+
+Four concessions, one partial, one unanswerable. The book loses its own
+pūrvapakṣa and continues.
+
+---
+
+**Donda West's actual field**, *"which I have referred to as 'Black literature' a
+dozen times without naming a single writer in it."* Ninth debt paid, and it is
+the one that most resembles my own habit: a category name standing in for
+content.
+
+**Gwendolyn Brooks.** South Side. First Black person to win the **Pulitzer for
+Poetry**, 1950, *Annie Allen*. *"She stayed. Not Manhattan, not Paris —
+Bronzeville, for her whole life, writing about the specific block: kitchenette
+apartments, the boys at the pool hall in 'We Real Cool,' a woman in a beauty
+shop, the children on her street."*
+
+> And in **1967**, after the Fisk writers' conference and the Black Arts turn,
+> she did the thing that matters for this file. **She left Harper & Row** — her
+> prestigious New York publisher, the one that had made her career — **and moved
+> her work to Black-owned presses**: Dudley Randall's **Broadside Press** in
+> Detroit, and **Third World Press** in Chicago, founded by Haki Madhubuti in a
+> basement in 1967 **with a few hundred dollars and a mimeograph.**
+
+> **She was a Pulitzer winner choosing a basement mimeograph over a New York
+> house.**
+
+Paid for prizes out of her own money for decades, ran workshops for the
+Blackstone Rangers, and as Poet Laureate of Illinois *"went into schools and
+prisons constantly."*
+
+Into prisons. Sunday Service in Harris County. Same city, same instinct, one
+generation apart.
+
+> **That is the ownership argument, one generation earlier, in the mother's
+> discipline.** Not a metaphor for it — **the same decision, with the same
+> reasoning: the terms are the game, the house owns the asset, and an
+> institution that is not yours will decide what you are allowed to be.**
+
+> Brooks moved her books there at the peak of her standing, **which is exactly
+> the moment when it costs most and is worth most.**
+
+Hildegard spent her standing the moment she got it. Brooks spent hers by leaving.
+Same currency, opposite direction, both at the peak — and the file has now
+identified the only two moves that work.
+
+*"Third World Press is still operating, over fifty years later. It is one of the
+longest-running independent Black publishers in the country."*
+
+---
+
+> when the son says *ownership* over and over... **the argument was already in
+> the house.** It was in the curriculum his mother taught, in the field she
+> chaired, about the writers she assigned, **from a woman who lived thirty
+> blocks away and had made exactly that move in 1967.**
+
+> I have been reading his ownership obsession as something he worked out from
+> the industry. **It is at least as likely that he got it at the kitchen table**,
+> from an English professor whose own discipline had staged the identical fight
+> a generation before he was born, **and who quit her chair to manage him — which
+> is itself the same decision at family scale.**
+
+She left the institution to manage the asset herself. Brooks left the publisher.
+He left Nike. Three instances of one move in one family's line of sight.
+
+> Brooks's actual method: **she wrote about the specific block in the specific
+> speech, and took the Pulitzer for it, and then decided the prize was not the
+> point.**
+
+The specific block in the specific speech — Hurston's decision, in poetry, in
+Chicago. And *the prize was not the point* is the twenty-four Grammys, in
+advance, by somebody who had already worked out that the recognition and the
+thing asked for were different objects.
+
+> That is the whole content of the folder this file is in, stated by a woman in
+> Bronzeville in 1967, **and nobody had to be told it twice.**
+
+---
+
+**Ramanujan's actual work**, *"I have used Ramanujan as an exhibit six or seven
+times in this file and have never once said what he actually did. **That is the
+exact operation the file objects to** — take the biography, use it as evidence in
+somebody else's argument, discard the work."*
+
+That is the sharpest self-catch in the document, because the biography-as-exhibit
+is precisely the mining operation, and it has been running it on its own central
+witness for eighty pages.
+
+**The partition function.** *p(n)*, p(4) = 5, no elementary formula. With Hardy,
+the **circle method** — *"an asymptotic expansion obtained by integrating a
+generating function around a contour and extracting the contributions of the
+rational points, weighted by their arithmetic."* **Rademacher** later turned the
+asymptotic series into an exact convergent one. *"the circle method itself became
+one of the central tools of analytic number theory, used on Waring's problem, on
+Goldbach-type questions, and on the whole subsequent industry."*
+
+**The partition congruences.**
+
+  p(5n + 4) ≡ 0 (mod 5), p(7n + 5) ≡ 0 (mod 7), p(11n + 6) ≡ 0 (mod 11)
+
+*"a startling thing to find in a counting function with no evident arithmetic
+structure."* Why 5, 7, 11 and apparently nothing else *"was open for most of a
+century; the modern understanding runs through modular forms, and **Ono** and
+others later showed congruences exist for every prime modulus beyond 3, which
+was not expected."*
+
+**The tau function.** τ multiplicative, a recursion at prime powers, and
+|τ(p)| ≤ 2p^(11/2). First two proved by **Mordell** within a few years. *"**The
+bound was proved by Deligne in 1974, as a consequence of his proof of the Weil
+conjectures**, for which he got the Fields Medal."*
+
+> A guess written in a notebook in Madras required the machinery of étale
+> cohomology and algebraic geometry over finite fields to settle, fifty-plus
+> years later.
+
+**The mock theta functions.** In the last letter to Hardy, months before he
+died, seventeen functions called *mock theta*, with asymptotic properties, **and
+no definition of the class.** *"For eighty years nobody could say what a mock
+theta function *was* — there were examples and identities and no theory."*
+**Zwegers's 2002 thesis** put them inside harmonic Maass forms, *"and they now
+connect to black hole entropy counting and to moonshine. **He was writing them
+while dying, with no framework, and the framework arrived in 2002.**"*
+
+**Continued fractions and identities.** Rogers–Ramanujan, class invariants,
+*"a very large number of exact series for 1/π of a type nobody had produced
+before — one of which underlies the"* —
+
+cut at 8080.
+
+The pattern across all five: he produced *objects whose defining framework did
+not exist*. A class with no definition. A bound requiring étale cohomology. A
+congruence with no visible arithmetic. That is not "results without proofs." It
+is results whose proofs required mathematics that had to be invented — which is
+a much stronger statement than any priority claim, and it is the answer, in the
+work rather than in the biography, to *the route was where he was*.
+
+Reading on from 8080.
