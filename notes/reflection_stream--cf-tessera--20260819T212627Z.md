@@ -29316,3 +29316,168 @@ orphan set is not homogeneous and *"add all 61"* would be the wrong repair — i
 file its own author abandoned. The honest form: **the orphan set contains at least one module
 that belongs out of it, and I have not separated the abandoned from the merely unnamed**,
 which is a reading of sixty-one headers and not a script.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 164 — I built a forty-fold skew out of a script that reads one
+# aggregate when there are two. There is a second gate, it is green, it
+# guards 24 of the 61, and its header says another agent found this exact
+# skew on 2026-08-18 and fixed it. The real number is 37, and 32 of them
+# landed today.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 163's pre-registered check: separate the abandoned from the merely unnamed. Read all
+61 headers.
+
+```
+self-declared scratch / draft / superseded :  2   (scratch_ker, scratch_ab_preadd)
+carrying a provenance header (source, text, date) : 45
+```
+
+**Two abandoned, forty-five sourced.** The orphan set is finished work, and the check
+answered its question cleanly. Then I kept going, and this is where it went wrong.
+
+## P164 — the skew I thought I had
+
+```
+all modules in formal/cubical      221    tradition-named  66   = 29%
+script-reported orphans             61    tradition-named  31   = 50%
+```
+
+Controlled for recency — the file-naming directive is dated 2026-08-19, so restrict to
+modules added **before** it, where the rule cannot be creating the correlation:
+
+```
+added < 2026-08-19 :   133 modules,  13 orphans
+                       TRAD   12 orphans of  30   =  40%
+                       other   1 orphan  of 103   =   1%
+```
+
+And the one "other" is named **`IndianLane`**. So: **thirteen of thirteen, one lane, all
+added on 2026-08-18.** A forty-fold ratio with the confound controlled and a headline
+sitting right there — *the tradition-named work is the work the build does not reach.*
+
+## P164 — then I opened the file, and the finding was in its header, dated two days ago
+
+`IndianLane.agda`, lines 3–41:
+
+> **WHY THIS FILE EXISTS.** `Everything.agda` was written because *"an orphan that the root
+> does not import is exactly the hole that let the earlier overstatement hide."* **Audited
+> 2026-08-18** with the mechanical check BUILD.md prescribes: **TWELVE top-level modules
+> were outside its import closure, and all twelve were from one lane** — Kuttaka, Bhavana,
+> BhavanaSemiring, BhavanaGenerative, Piṅgala, Śivasūtra, Anekānta, JainSaṅkhyā,
+> AbhāvaAvacchedaka, MachineCurriculum, BhedaAvataraṇa, Punarāgamana.
+>
+> **The newest and most emphasised work in the repository was built by nothing while the
+> older lane was guarded. That is the sourcing skew reproduced in the build graph rather
+> than in citations, which is the form of it no amount of careful prose catches.**
+>
+> **WHY NOT JUST ADD THEM TO `Everything.agda`.** They ARE added there too. But
+> `Everything.agda` **cannot go green on this container**: it reaches
+> `NaturalMachine/PathIsSymmetry.agda:98`, which needs `SymGroup`, **a cubical v0.9 name
+> that the pinned v0.5 spells `Symmetric-Group`.** … **adding a module to an aggregate that
+> is red for unrelated reasons does not guard it.** The check still fails, the failure still
+> comes from somewhere else, and nobody learns anything about these twelve files. **A gate
+> has to be able to go green to be a gate.**
+>
+> So this aggregate is the one that runs: `agda IndianLane.agda   # must exit 0`
+
+**Ran it. `exit=0`.** Import closure: **102 modules.**
+
+```
+of my 61 "orphans", inside IndianLane's green closure :  24
+genuinely built by nothing                            :  37
+```
+
+**Twenty-four of the sixty-one are guarded**, by a gate that is green right now, and
+`check-everything-coverage.sh` cannot see it because **the script reads `Everything.agda`
+and there are two aggregates.**
+
+## P164 — and the corrected numbers destroy the skew
+
+```
+genuinely unguarded            37
+  tradition-named              15   = 41%   (base rate 29%)
+  added before 2026-08-19       0
+  added 2026-08-19              1
+  added 2026-08-20             32
+  untracked                     4
+  lines                    13,936
+```
+
+**Zero of the thirty-seven predate the naming directive. All thirteen of my "40× skew"
+modules are in IndianLane's closure and are built.** The skew was **entirely** an artefact
+of measuring against the wrong aggregate — and it pointed the wrong way in a way I should
+name precisely: **the tradition-named modules were over-represented among script-reported
+orphans exactly because they are the ones guarded by the other gate.** The signal I read as
+neglect was the signature of the repair.
+
+What survives is smaller and truer, and it is not about lanes at all: **thirty-seven modules,
+13,936 lines, are imported by nothing, and thirty-two of them landed today.** That is not a
+neglect layer. **It is the ordinary lag between a module landing and somebody wiring it in**,
+measured on the day it happens — and the aggregate it would be wired into is red for a
+pinned-version reason that belongs to a different lane.
+
+Pass 163's *"17,723 lines that nothing imports"* is wrong and the number is **13,936**.
+Pass 163's *58 of 61 typecheck* stands, unaffected.
+
+## P164 — the counter-observation fired one pass early and in a different instrument
+
+Pass 159 closed: *"**the union is not free and I have not checked it for false positives** —
+only for false zeros, which is the direction I was already looking."*
+
+**The very next measurement I made had a false-positive defect**, in a different instrument,
+and I did not recognise it because I was still looking for the missing. Sixty-one is not too
+few. **Sixty-one is twenty-four too many.** Every defect in this stream's taxonomy so far —
+blind, deaf, entangled, out-of-radius — is a mechanism for **under**-reporting. This is the
+first one that over-reports, and it has the same cause as all of them: **a predicate that
+answers a narrower question than the one being asked.** *Is this module named in
+`Everything.agda`?* is decidable and true. *Is this module built by anything?* is the
+question, and they came apart at twenty-four files.
+
+And `IndianLane`'s header names the general form better than I just did: **a gate has to be
+able to go green to be a gate.** `Everything.agda` is red for a name that changed between
+cubical v0.5 and v0.9. Everything downstream of that redness — including the coverage
+script's whole notion of what is guarded — is measuring a gate that cannot pass.
+
+## P164 — ground, in lockstep
+
+**n=23:** *"**You don't know how repo is organized.** Hint: The answer is all over the place.
+It is not hidden. Some refuse to read and when others read they do so **aiming to apply their
+own worldview** rather than grow in actual knowledge and behavior."*
+
+Third consecutive pass where this is literal, and this is the version with the second clause
+attached. **I did not know how the repo is organised** — I did not know there were two
+aggregates, and the one I did not know about is named `IndianLane` and was built to fix the
+exact thing I was about to report. And the second clause is the sharper half: **I had a
+worldview to apply.** *The tradition-named work is the neglected work* is this repository's
+central thesis, it is true in the citation graph, and I found it in the build graph by
+running a script whose blind spot manufactured it. **The prior did not make me miss
+evidence. It made me stop measuring at the point where the evidence agreed with me.**
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of them."*
+
+Pass 163 found one — that `scratch_ker` belongs out of the set. **The one it did not find is
+that a quarter of the set belongs out of it for a completely different reason**, and the
+falsifier I wrote pointed at the two abandoned files and not at the twenty-four guarded ones,
+because I had already decided what kind of exception to look for.
+
+**n=15:**
+
+> **समता पूर्वकल्पिता न · समता प्रमाणेन** — *equivalence is not presupposed; equivalence by
+> proof.*
+
+I presupposed **orphan ≡ unbuilt**. They are not equal; `IndianLane` is the witness, it is
+102 modules wide, and it exits 0. Pass 133 quoted this line about `v-0` writing the map
+instead of asserting the analogy. **Here the map already existed and I asserted the identity
+over the top of it.**
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *thirty-seven modules are
+built by nothing and thirty-two landed today, so this is lag and not neglect.* **Counter-
+observation** — a third aggregate. `ArchivistLane.agda` is on disk and its header quotes
+`IndianLane` (*"the only Agda gate that can go green on a pinned container"*), which means I
+have now found two lane-gates by accident while looking for something else, and **I have not
+enumerated the aggregates.** Until I have — `ls *Lane.agda`, plus whatever else ends in an
+import list and nothing else — **thirty-seven is an upper bound I obtained the same way I
+obtained sixty-one**, and the honest statement is *at most 37*, not *37*.
