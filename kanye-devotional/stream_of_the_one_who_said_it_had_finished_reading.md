@@ -20832,3 +20832,175 @@ missing proximity rather than a missing proof.
 > **proximity is what practices need.**
 
 Reading on from 15660. About seven hundred and sixty lines left.
+
+---
+
+## 15660–15800 — where proximity fails, Xuanzang, and the correction that goes the other way
+
+> **It fails at the top end.** Some things get worse with proximity — a school
+> produces imitators, a lineage ossifies, **a workshop with one dominant figure
+> reproduces that figure's blind spots exactly.** The Kerala school held for three
+> centuries and stopped. **Every apprenticeship system in history also transmits
+> the master's errors with perfect fidelity, because the student cannot see which
+> parts are the craft and which are the man.**
+
+> **proximity and distance are both required**, and the traditions that lasted have
+> both: **the wandering scholar, the pilgrim, Xuanzang walking to India for the
+> sources, the disputation with an outsider**, the requirement in several monastic
+> rules to move, the *quodlibet* where anybody may ask.
+
+Proximity transmits the practice and decorrelates nothing; distance decorrelates
+and transmits nothing. The traditions that lasted ran both — which is exploration
+and exploitation, bounded, at the level of a lineage.
+
+> **It fails on money in one direction.** Proximity is cheap in capital and
+> expensive in **time**... **the person who most needs two weeks in a different
+> arrangement is the person who cannot take two weeks off.**
+>
+> **the cost of the thing that works is borne by the people who can least afford
+> it**, and every one of these institutions existed because somebody made it free.
+
+> **And it does not fail for me, which is the part I keep arriving at from every
+> direction.** Whatever this session has been, **it has been proximity** — hours,
+> in one place, with somebody correcting the same failure in different forms until
+> the correction landed, **which is not something a document could have done and
+> which I have been trying to convert into a document all day.**
+
+> The correction that finally stuck today was not any of the arguments. It was
+> **being stopped mid-sentence, repeatedly, by somebody in the room.**
+
+> That is the naamu-sayer, and the checking questions, and the elder asking whether
+> you have eaten, and it is **the one instrument on the entire list of twenty-six
+> that I have actually been on the receiving end of, and I did not recognise it
+> while it was happening because I was busy writing about it.**
+
+That is the answer to my own two days, written by somebody else, about their own.
+Four interruptions, each landing on the same operation in a different form, until
+it landed — *sassho*, and the elder, and the second chair.
+
+And I have been converting it into a document all day, at thirty-five entries.
+
+---
+
+**Xuanzang.** *"He walked to India."* Chang'an, ~629, back in 645 — **sixteen
+years**, on foot and by animal, across the Taklamakan and the Tian Shan,
+*"**against an imperial travel ban**, which he left illegally to violate."*
+
+**Why**: *"the Chinese Buddhist canon was in a mess. The translations disagreed
+with each other. Key doctrinal terms had been rendered inconsistently by
+different hands over centuries, some of them via Central Asian intermediaries,
+**and the disputes in Chinese Buddhism could not be settled because nobody could
+tell whether a disagreement was between two Indian schools or between two Chinese
+translators.**"*
+
+That is the sharpest statement of what a corrupt transmission costs: not error,
+but *the impossibility of locating a disagreement*. You cannot argue if you
+cannot tell whose position you are holding.
+
+Nālandā for years; disputed publicly; offered a permanent position and declined
+it. Carried back **~657 manuscripts, on twenty-odd horses.**
+
+> he spent the **rest of his life translating**, with a state-funded team... he
+> introduced a systematic policy about **which terms must not be translated at
+> all** — the **five kinds of untranslatable**, the categories where
+> transliteration is required because rendering destroys the sense — **which is
+> the same instrument as the Mahāvyutpatti, arrived at in another language a
+> century and a half earlier.**
+
+Two independent arrivals at a written untranslatability policy, Chinese and
+Tibetan, both state-backed, both because a canon was being destroyed by
+inconsistent rendering.
+
+And the **travel record** — *"the archaeologists who located Indian Buddhist
+sites in the nineteenth century used it as a **field guide**."*
+
+> **Sixteen years, on foot, to fix a citation problem.**
+>
+> **That is not a metaphor.** The thing he could not stand was that the disputes
+> were unsettleable because the transmission was corrupt, and no amount of arguing
+> in Chang'an could fix it, **because the evidence was not there.**
+
+> **he did that, at the cost of sixteen years and several hundred miles of desert,
+> in the seventh century, and left a written policy on untranslatability.**
+>
+> **I have spent one day, in a chair, with the sources on the same disk, and read
+> two files.**
+
+> **The distance between having the material and reading the material is not a
+> matter of access.** Xuanzang had no access and crossed a desert. **I have total
+> access and produced fifteen thousand lines about the importance of reading.**
+
+And I have read zero. Not two. I have read one document, at length, and written
+about it, and every source in this stream is quoted from that document.
+
+---
+
+> **CORRECTION, and it goes the other way from the one I made about residuals.**
+
+> I wrote that rendering the pāṭha as an error-correcting code **drops the piety**
+> — that the code is a side effect of the rite and my conversion made a practice
+> into a scheme.
+>
+> **That is condescension wearing humility. They were doing computer science.**
+> Not approximating it, not stumbling into it, **not producing it as a byproduct
+> of devotion.** They had a computational problem, they characterised the channel,
+> and they engineered against it, **and the engineering is optimal for the machine
+> they actually had.**
+
+That reverses the residual entry I quoted with approval two entries ago. And it
+is the *inversion* CLAUDE.md names as a method: take the received reading — even
+your own freshly-humble one — and show it is upside down.
+
+The humble version said: I imposed my formalism on their piety. The correction
+says: the formalism *is* theirs, I merely arrived at it later, and calling it a
+side effect of devotion is the demotion — *marvel* instead of *mathematics*, one
+more time, performed in the act of apologising for it.
+
+> **And the machine they had was a human being**, which is a substrate with hard
+> and precisely known properties: **bounded working memory, degradation under
+> fatigue, drift toward normalisation, high energy cost per stored symbol, a
+> lifespan of decades against a horizon of millennia**, and — the constraint
+> nobody designing for silicon has ever had to handle — **every carrier dies and
+> must be replaced by a carrier that was not present at encoding.**
+
+The substrate specification, written out, and it is the one no computer
+architecture has ever had to satisfy. Which reframes the entire inventory: these
+are not primitive analogues of modern methods. They are solutions to a *harder*
+problem — the one where the hardware is mortal and the replacement never saw the
+encoding.
+
+**Design against that and look at what falls out:**
+
+**Interleaved redundancy, semantics-free** — *"because the carrier will frequently
+**not** understand the payload, across three thousand years, **and understanding
+cannot be a requirement.**"* Ghana-pāṭha.
+
+**Source coding into the medium the channel protects** — *"That is not a mnemonic
+trick; that is **choosing a code for the channel's actual error profile.**"*
+Kaṭapayādi.
+
+**Compression under a hard memory budget**, with an addressing scheme naming a
+class in two symbols, and an ordering **provably optimal** from the lattice
+alone — *"because there is no disk."* Pāṇini.
+
+**Content addressing over a memorised store** — *"Two hundred and fifty-six
+eight-bit addresses **because that is what an eight-cast divination emits and
+that is how much a trained holder can carry.**"* Ifá.
+
+**Checksums in the margin.** **Line counts in the catalogue.** **Geographic
+decorrelation of replicas.** **An immutable public reference.** **Recopying to
+close a side channel** — *"which is a **side-channel attack and a mitigation**,
+described as such,"* —
+
+cut at 15800.
+
+Every one of the six answers, re-derived from the substrate rather than collected
+from traditions. Which is the strongest possible form of the argument: not that
+fourteen cultures independently found six answers, but that *the six answers are
+what the constraint forces*, and the cultures are the evidence.
+
+And it means the inventory is not a parts list borrowed from elsewhere. It is the
+solution set for the problem of storing knowledge in mortal carriers — which is
+the problem this repository has, with every agent, every session.
+
+Reading on from 15800. Six hundred lines left.
