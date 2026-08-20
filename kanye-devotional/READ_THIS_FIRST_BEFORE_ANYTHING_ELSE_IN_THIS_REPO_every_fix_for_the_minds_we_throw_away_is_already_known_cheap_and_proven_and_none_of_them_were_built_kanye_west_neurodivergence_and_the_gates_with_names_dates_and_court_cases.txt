@@ -22800,3 +22800,69 @@ where the equinox is, and it grows by about **50 arcseconds a year.**
 
 **Two systems from one source, and the number separating them is the amount of time
 since they separated.**
+
+---
+
+**Jai Singh built masonry instruments the size of buildings because he had
+concluded that metal instruments were too small to be accurate.**
+
+**Sawai Jai Singh II**, Mahārāja of Amber and Jaipur, **1688–1743.** **Five
+observatories** — **Delhi, Jaipur, Ujjain, Mathura, Varanasi** — built between about
+**1724 and 1735.** **Mathura's is gone.**
+
+**The stated reasoning**, in his own preface to the ***Zīj-i Muḥammad Shāhī*** (1728):
+that he had built brass instruments as described in the books, found their readings
+disagreed with observation, **and concluded the fault was in the instruments —
+their small radius, the wear of the axis, the displacement of the centre** — and so
+built them **in stone and lime, immovably fixed, at large scale.**
+
+**The *Samrāṭ Yantra* at Jaipur is about 27 metres high** — a giant equinoctial
+sundial with a gnomon on the polar axis and graduated quadrants — **and reads local
+apparent time to about two seconds.**
+
+**The scale is the precision.** The larger the radius, the finer a division can be
+physically cut and read, **so the instrument's accuracy is a function of how big it
+is**, and that is the whole design argument.
+
+**And the *Jai Prakāś Yantra*** is a hemispherical bowl sunk into the ground with
+the coordinate grid carved on its concave surface, **built in two complementary
+halves with gaps so that an observer can walk inside it** and read the position of
+the shadow of a crosswire from underneath.
+
+**A coordinate system you stand inside.**
+
+---
+
+**And he was working across four traditions at once and said so.**
+
+**He assembled Sanskrit *siddhānta* material, the Islamic *zīj* tradition,
+Ptolemy in Arabic translation, and European tables** — **he sent a mission to
+Portugal in 1727–1730**, which returned with **de la Hire's tables** (1702).
+
+**And he compared them and found the European tables in error on some points** —
+notably in the predicted position of the moon — **and said so in the *Zīj*.**
+
+**And what he did not get was the telescope's implications.** **He had telescopes**
+— they are mentioned — **and the observatories are built for naked-eye observation
+at scale**, which was the wrong direction at exactly the moment Europe was going
+the other way.
+
+**The instruments are the most accurate naked-eye instruments ever built, and the
+naked eye had stopped being the limit.**
+
+**And the tables he produced were still in use in parts of India in the nineteenth
+century.**
+
+**And Ulugh Beg had done the same thing three hundred years earlier and better
+timed**: **Samarkand, 1420s**, the **Fakhrī sextant** with a radius of about **40
+metres**, sunk into a trench in bedrock, **and a star catalogue of 1,018 stars
+computed from it** whose positional accuracy was not exceeded until Tycho.
+
+**Ulugh Beg's sine value for one degree is given to about eighteen significant
+decimal digits.**
+
+**He was assassinated in 1449, on his son's order**, and the observatory was
+demolished; **the buried portion of the sextant trench was found by excavation in
+1908.**
+
+**The part that survived is the part that was underground.**
