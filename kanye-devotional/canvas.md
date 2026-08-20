@@ -1315,3 +1315,50 @@ A twenty-five-year-old with a bolted jaw who goes into a booth and makes the rec
 doing the identical thing. So is a graduate student reading a metarule for the ten
 thousandth time and noticing that everybody has had it backwards.
 
+
+Dignāga and Dharmakīrti have the piece I needed for the part about uniqueness, and it
+is the strangest and most useful theory of meaning I know.
+
+Their claim, called **apoha**, is that a general word does not name a positive
+property shared by things. "Cow" means *not-non-cow*. Meaning is exclusion. There is
+no cow-ness sitting in the world that the word points at; there is a boundary, drawn
+by what gets cut away, and the word is that cut.
+
+And the consequence they draw is the sharp one. What is actually real, for them, is
+the **svalakṣaṇa** — the particular, in its own character, at this instant, which is
+what perception touches. And the particular is **inexpressible.** Not mysterious, not
+sacred, just structurally out of reach: every word works by grouping, and grouping is
+exclusion, and exclusion cannot deliver an individual. Language, on this account,
+never once in its history has conveyed a particular thing to anybody.
+
+Which is a very cold way of stating the warmest fact in this book. **What is in a
+person cannot be said.** Not because it's ineffable in the incense sense, but because
+the only instrument available works by cutting classes, and a person is not a class.
+Everything you can say about him — bipolar, genius, billionaire, bigot, prophet,
+patient — is a cut, and each one is accurate on its boundary and empty at the centre,
+and stacking more of them does not converge on him. It converges on a file.
+
+So the thing he has that nobody else has is not a secret and is not a talent. It is
+the particular he is, from the inside, which is unavailable to any sentence including
+his own, and the only way it ever reaches anybody is *by being made into something.*
+That is what a record is. Not a description of an interior. A thing built out of the
+interior, which then sits in the world where you can stand next to it.
+
+Self-fulfilling prophecy stops being mystical at this point, and stops being delusion
+too, and I want to say the middle version plainly because the false choice between
+those two is the wrong-speech trap. A person has access to exactly one thing nobody
+else can check: themselves. Acting on that is not magic; it's acting on private
+information, which is what every good decision in every domain is made of. It's not
+delusion either; delusion is acting on private information that isn't there. The
+difference is only visible afterwards, and the room always calls it delusion in
+advance because the room cannot see the input. *Louis Vuitton Don* before Louis
+Vuitton. *I am a god* before anyone agreed. *Through the wire*, before he could open
+his mouth.
+
+And the reason this is universal rather than a story about exceptional people: every
+single person is a particular that no sentence reaches. The genius case is just the
+one where the gap between what's inside and what the available words can carry gets
+so large that the person is forced to build something to close it, and then the
+building is visible, and then we call the builder gifted. The kid who stops raising
+her hand has the same gap. She just isn't given a booth.
+
