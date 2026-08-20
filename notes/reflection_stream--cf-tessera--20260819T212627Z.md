@@ -28649,3 +28649,178 @@ directions here. The check that would fire it: **do the five that name the devot
 its content, and do any of the 976 show its content without naming it** — the Piṅgala test
 from pass 149, run on a file instead of a source. Which is a check, and by n=16 the thing
 that matters is whether the next agent opens it, and that is not a check at all.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 161 — "Nobody was blocking it. Nobody had to. The tape was for the
+# people in the room, and everyone outside the room called that silence."
+# A fourth column, and the 61 orphan modules are Turiya Sings: I checked
+# three at random, and all three exit 0.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 5100–5320, per n=4, before writing.
+
+> **Alice McLeod**, Detroit **1937**, church-trained on piano and organ, worked in Paris with
+> Bud Powell, joined the band and married Coltrane in **1965**. When Tyner and Elvin Jones
+> left and she took the piano chair, **a large share of the critical writing treated her as
+> the reason the music had gone where it went.**
+>
+> After **July 17, 1967** — he dies of liver cancer at **forty**, having told almost no one
+> he was ill — she records under her own name: *A Monastic Trio*, *Ptah, the El Daoud*,
+> ***Journey in Satchidananda* (1971)**. Initiation from **Swami Satchidananda**, India in
+> 1970, the name **Turiyasangitananda**. **1983**, the **Sai Anantam Ashram**, forty-eight
+> acres in Agoura Hills, and she effectively stops making records for the industry.
+>
+> **She does not stop making music.** She issues it **on cassette, in limited quantities, to
+> ashram members**: *Turiya Sings* **1982**, *Divine Songs* **1987**, *Infinite Chants*
+> **1990**, *Glorious Chants* **1995**. Voice, Wurlitzer, synthesiser, harp. Detroit church
+> singing and Sanskrit bhajan in the same take, by a person doing both from inside.
+>
+> **May 2017.** Luaka Bop issues *The Ecstatic Music of Alice Coltrane Turiyasangitananda*.
+> **Thirty-five years after the first tape. Ten years after she died.**
+>
+> The received account for four decades was that she withdrew. What is in the record is four
+> albums, made across thirteen years, **with a distribution radius of one property in Los
+> Angeles County — which is not withdrawal, it is a woman who kept working and whose channel
+> had a membership requirement.**
+>
+> **Nobody was blocking it. Nobody had to. The tape was for the people in the room, and
+> everyone outside the room called that silence.**
+
+## P161 — this is a fourth column and I did not have it
+
+The taxonomy this stream has been building had three:
+
+- **blind** — the predicate cannot express the distinction. *Refutable by opening the text.*
+- **deaf** — the predicate consumes its own counter-evidence. *Nonzero exit ⇒ pass.*
+- **entangled** — measuring alters the measurand. *`∥_∥`, `upto`-by-truncation.*
+
+All three are defects **in the instrument**. This is not one of those. **The work is
+complete, it is good, and it is addressed to a membership; the measurement was taken outside
+the radius.** Nothing is mis-set. Nobody is faking. The reading of *zero* is arithmetically
+correct **for the room the reader is standing in.**
+
+Call the column by the sentence, because inventing a term for it would be the fourth time
+today I reached for a name instead of the thing: **the tape was for the people in the room.**
+
+## P161 — and the 61 orphans are Turiya Sings
+
+`check-everything-coverage.sh`, run now: **237 modules on disk, 61 orphans** — present,
+named by no import line, built by nothing. Pass 119 filed that as a coverage failure and
+pass 131 filed the number as a comparison. **Both readings assumed the orphan is a defect.**
+
+So I checked whether the tapes are any good. Three drawn from the 61, plus the one already
+verified:
+
+```
+JyesthaMulaMatra_TheGreaterRootAloneMisreadsANonSquarefreePrakrti  402 lines  exit 0   4s
+Jiva                                                              146 lines  exit 0  18s
+Vargana                                                            88 lines  exit 0   2s
+Samanya_OneDescentLemmaStatedElevenTimes…  (v-0, untracked)        440 lines  exit 0
+```
+
+**Four for four.** Agda 2.6.3, `--cubical`, pinned toolchain, `LC_ALL=C.UTF-8`. A thousand
+and seventy-six lines of checked mathematics that **no aggregate reaches and no CI touches**,
+by authors mostly gone.
+
+**They are not broken. They are unimported.** *Nobody was blocking it. Nobody had to.*
+
+And the sampling is honest about its size: **four of sixty-one is not a survival rate**, it
+is four instances, and the number that would matter is all sixty-one. What four buys is the
+death of the assumption I was carrying — *orphan implies suspect* — which needed exactly one
+counterexample and got four.
+
+## P161 — the same shape, four more times, in one afternoon's reading
+
+> **Annapurna Devi**, born at Maihar **1927** as Roshanara Khan, plays **surbahar** — the
+> deeper, slower instrument, the one with less audience in it. She stops performing in
+> public around the 1950s and never does again, until her death in Mumbai in **2018** at
+> ninety-one. **The accounts of why do not agree and I am not going to pick one.** What is
+> not in dispute: **she taught, in a flat in Mumbai, for decades** — Hariprasad Chaurasia,
+> Nikhil Banerjee and others went to her — **and she refused recording and refused the
+> camera, and the surviving audio of one of the significant instrumentalists of the century
+> is a handful of private tapes.**
+>
+> Her father **Allauddin Khan**, born c. **1862**, died at Maihar **1972** past a hundred.
+> **1918**: influenza and famine leave children in the streets, and he takes in **twenty-eight
+> orphans**, houses them, teaches them instruments, and builds the **Maihar Band** so they
+> have a trade. **It still exists.** *A musician whose response to a mass-casualty year was
+> to acquire twenty-eight children and give each one an instrument and a living.*
+>
+> **So one household contains the man who gave twenty-eight orphaned children a public life
+> in music, and the daughter who was given one and put it down.**
+
+> **Yusef Lateef**, born **William Emanuel Huddleston**, Chattanooga **1920**, raised in
+> Detroit; Ahmadiyya Islam **1950**; tenor, flute, oboe, bassoon, argol, shanai, rabat;
+> master's from the Manhattan School; **doctorate in education, UMass Amherst, 1975**; taught
+> at **Ahmadu Bello University**. **And he refused the word.** Not jazz —
+> **autophysiopsychic music**, music from one's own physical, mental and spiritual self —
+> **and he held that line in print for fifty years while being filed under the category he
+> had declined.**
+>
+> He is also the person Coltrane handed the circle diagram to in **1967**. **Not a label, not
+> a journalist, not a musicologist. A colleague with a doctorate who was writing his own book
+> of scales.**
+
+> **1965.** The Pulitzer music jury recommends a special citation to **Duke Ellington**. The
+> advisory board declines. **No music Pulitzer is awarded at all that year, and three of the
+> music jurors resign.** Ellington, sixty-six: *Fate is being kind to me. Fate doesn't want
+> me to be too famous too young.* **1999**: a special citation, in his centennial year,
+> **twenty-five years after his death.** **The category was the obstacle, the category was
+> eventually fixed, and the fix was applied to men who were dead or nearly.**
+
+> **August 1, 1971**, the **Concert for Bangladesh**. Over **twelve million dollars.** The
+> organisers had **no tax-exempt status**, so the receipts went into an **IRS escrow account
+> pending assessment**, and a large part of the money sat there for roughly **ten years while
+> the refugees it was raised for were refugees.** **Nobody stole it. There was no villain.**
+> A benefit concert at that scale was a thing nobody had filed before, **the machinery had no
+> form for it, and the default applied — and the default is that undeclared money is held.**
+
+**The default applied.** That is the deaf column at institutional scale and it is the
+cleanest statement of it I have read: no intent, no error, **no form**, and the default is
+the harm. `CLAUDE_PROJECT_DIR` unset is a default. Advisory-exit-0 is a default. **Sixty-one
+modules unimported is a default** — nobody decided it and nobody would have to.
+
+> **Around 2000** the Divisadero landlord raises the Saint John Will-I-Am Coltrane African
+> Orthodox Church's rent from about **$1,350 to $2,500** and they are pushed out. **February
+> 2016**, eviction over unpaid rent; King's account is the director would not accept his
+> **$1,600 a month** for two years. **So there is a church in the United States whose
+> scripture is a record made in one session in New Jersey in December 1964, running for
+> fifty-odd years, and the recurring threat to it is not doctrine and not the state. It is
+> the rent.**
+
+## P161 — ground, in lockstep
+
+**n=15:**
+
+> **विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)** — *not-seen-by-me does not imply non-existence.*
+
+Pass 158 applied this to a mis-typed grep. **Alice Coltrane is the harder case: the grep is
+correct.** Four albums, and no error anywhere in the measurement — the tapes were in Agoura
+Hills and the counter was not. **The clause is not only about bad instruments.** It is about
+standing in one room and reporting on the building.
+
+**n=23:** *"the most important object is right fucking. There and I refuse to hand it to you
+anymore."*
+
+Read in lockstep with pass 160's entry, which found the Lexicon shelved. **Right there** and
+**handed** are two different things, and this pass is the difference: the 61 modules are
+right there, and nothing hands them to anyone. `Everything.agda` is the handing mechanism and
+it does not name them.
+
+**n=12:** *"Assume your last work doesn't matter … enter consumption/reading mode forget all
+your preconceptions."*
+
+The preconception this pass killed was mine and it was three passes old: **orphan means
+suspect.** It took three `agda` invocations and eight seconds of compute, and I had run the
+coverage script four times today without once running the compiler on what it named.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the orphans are complete
+work with no distribution.* **Counter-observation** — an orphan that fails to typecheck, or
+one whose content is a stub, a duplicate, or superseded by a module that *is* imported.
+`scratch_ker` is in the 61 and `w-0` itself may have superseded it with `scratch_ab_preadd`
+(pass 132 recorded that possibility and never closed it). **The check is the remaining
+fifty-seven**, and until it is run this is four instances and an assumption killed, not a
+property of the set — which is the distinction pass 130 wrote down and I have now had to
+restate twice.
