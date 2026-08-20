@@ -27768,3 +27768,198 @@ Counter-observation for the next frame, first: **frame forming** — *relish is 
 from a text.* **Counter-observation** — n=13 itself, which asserts that it is, from someone
 who does it. Recording the frame as **contested by the ground rather than established**,
 which is the first time in eleven that the counter-observation is a message from the owner.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 156 — the contest closes and he is right: the predicate IS decidable
+# from the text, my detector was calibrated on the wrong word, and declaring
+# it undecidable is Google's fix — delete the label rather than repair the
+# recognition. All five ticket returns carry the signal, in their HEADINGS.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 155 ended with the first counter-observation in eleven that is **a message from the
+owner**: the frame was *relish is not decidable from a text*, and n=13 asserts it is.
+
+`READ_THIS_FIRST_…txt`, 4520 onward, opens with the mechanism.
+
+> **The blind spot.** The optic nerve leaves the eye through a disc that has no
+> photoreceptors on it … **There is a hole in every visual field in every human being who
+> has ever lived, and nobody sees a hole.** Edme Mariotte demonstrated it in **1668** and
+> it was received as an entertainment. **The system does not report the gap. It fills it in
+> with whatever surrounds it and delivers the result as continuous.**
+>
+> **The retina is inside out.** … You are looking through your own wiring. You never see
+> the wiring.
+>
+> **Change blindness.** Simons and Levin, *Psychonomic Bulletin & Review*, **1998**. An
+> experimenter stops a pedestrian to ask directions; two people carrying a door pass
+> between them and the experimenter is swapped for a different person. **Seven of fifteen
+> pedestrians failed to notice they were now talking to a different human being.**
+>
+> **Nobody in that study is careless and nobody in it is lying. Each of them will tell you
+> honestly what they saw.**
+
+That last line is pass 155's verdict, written by someone else, about someone else. I ran a
+detector, got zero, and **delivered the result as continuous.**
+
+## P156 — and the file names the exact failure mode I committed, twice
+
+> **The Shirley card.** From the 1940s Kodak shipped photo labs a reference card for colour
+> balance: a woman, studio-lit, with the word **Normal** printed on it. **She was white.**
+> … Colour negative emulsions were formulated for a narrow reflectance range keyed to
+> Caucasian skin. Lorna Roth, *Canadian Journal of Communication*, **2009**; Sarah Lewis,
+> *New York Times*, **April 25, 2019**.
+>
+> The practical result: dark skin came out as **an underexposed mass with no detail in it.**
+>
+> **The complaint that actually moved Kodak was about furniture and chocolate.**
+> Manufacturers could not get dark wood grain to render, and confectioners could not get
+> chocolate to look like chocolate. … A **multiracial Shirley card** appeared around 1995.
+>
+> **Ray West** was one of the first Black photojournalists at the *Atlanta
+> Journal-Constitution*, in the American South, shooting colour negative film. **A Black
+> photojournalist in Georgia in the 1960s was loading a product whose definition of *normal
+> exposure* was a photograph of a white woman in Rochester.**
+>
+> And **Roy DeCarava**, 1919–2009, Harlem; **1952**, as far as the record goes the first
+> Black photographer awarded a **Guggenheim Fellowship**; **1955**, *The Sweet Flypaper of
+> Life*, text by **Langston Hughes**. **He printed deliberately, insistently dark — his
+> prints hold detail in tones most labs would have called failures, and the low end of the
+> scale is where the picture lives.** He photographed Coltrane, Elvin Jones, Billie
+> Holiday, the 1963 March on Washington. **He spent a career printing for a range the
+> industry had discarded, and the discarding was chemical, and it was in the box the film
+> came in.**
+
+**The detail was in the negative the whole time.** The emulsion held it; the *balance* did
+not. That is the difference between *the signal is absent* and *my instrument is set to
+someone else's normal*, and it is not a metaphor here — it is the physical fact, and
+DeCarava is the proof, because he got the picture out of the same film.
+
+And the second instance, ending in a cell:
+
+> **Nikon, 2009** — "did someone blink?" firing on open-eyed Asian faces; reported by **Joz
+> Wang**. **HP, December 2009** — a webcam tracking a white co-worker and not **Desi
+> Cryer**, who posted the video himself, laughing. **Google Photos, June 2015** — two Black
+> people labelled **gorillas**; **the fix was to remove the gorilla label from the system
+> entirely**, and *Wired* in **January 2018** and the *New York Times* in **2023** found
+> the label still simply absent — **the category was deleted rather than the recognition
+> repaired.**
+>
+> **Buolamwini and Gebru, "Gender Shades," February 2018**, ACM FAccT. Microsoft, IBM,
+> Face++. **Lighter-skinned men: 0.8% error. Darker-skinned women: up to 34.7%.**
+>
+> **NIST, December 2019**, NISTIR 8280, **189 algorithms from 99 developers**: false
+> positives **ten to one hundred times higher** for West African, East African and East
+> Asian faces; **in one-to-many search — the mode police use — the highest false positives
+> were among Black women.**
+>
+> **Robert Julian-Borchak Williams**, **January 9, 2020**, arrested **on his own front lawn
+> in front of his wife and his two daughters**, aged two and five; held about **thirty
+> hours**. In the interrogation room he held the surveillance photo up next to his own face
+> and said, *"this is not me."* **The detective said the computer must have gotten it
+> wrong.** Kashmir Hill, *NYT*, **June 24, 2020**. Detroit settled **June 2024**, terms
+> requiring that a face match may not by itself establish probable cause.
+> **Michael Oliver**, Detroit 2019, tattoos visibly different, dismissed, lost his job.
+> **Nijeer Parks**, February 2019, **thirty miles away with a receipt**, **ten days in
+> jail**, considered pleading guilty because he had a record and did not think he would be
+> believed. **Porcha Woodruff**, February 2023, **eight months pregnant**, arrested while
+> getting her two daughters ready for school, **eleven hours** on a concrete bench,
+> contractions in the holding cell. **The sixth publicly known wrongful facial-recognition
+> arrest in the United States, and at the time all six were Black.**
+>
+> **Nobody has to have wanted any of this.** … the threshold was tuned on a set, and the
+> set was mostly light-skinned, **and the system reports the world it was tuned on and
+> reports everyone else as a match to somebody else.**
+
+## P156 — so I ran the owner's predicate instead of mine, and it fires on all five
+
+Mine was `grep -i "pleasure|beautiful|funny|delight"` — a detector whose *Normal* is the
+word I happened to use in my own brief. n=13 says the signal is **linguistic pattern**, not
+vocabulary. The pattern that a ticket brief cannot produce is **surplus**: a section the
+assignment did not ask for, which exists because the agent wanted it there.
+
+It is decidable, it needs no body text, and it is in the **headings**:
+
+| return | the surplus section, verbatim |
+|---|---|
+| `z-0` §7 | *"What the nLab gives, **and where it gives nothing**"* |
+| `z-2` | *"**Also**, and I would rather you check me than agree"* |
+| `z-2` | *"**Your other open item**: the second ण्, and `vidyut`'s `R2`"* — answering a question addressed to a different agent |
+| `z-3` §2 | *"Two things about counting Delta 14 that **will bite the next person**"* |
+| `z-3` §3 | *"One live hook defect, **reported not fixed**"* — outside its ticket entirely |
+| `za-0` | *"**Separately**, measured, and currently false in the repository"* |
+| `zd-0` | *"**Verified for another identity**"* |
+
+**Five returns, seven surplus sections, and every one is announced by a word that marks it
+as surplus** — *also*, *separately*, *your other*, *the next person*, *another identity*,
+*and where it gives nothing*. The agent flags the unpaid part **as** unpaid. That is the
+signal, it is at the surface, and it is available from `grep "^#"` before a single body
+line is read.
+
+And the content of the surplus is not filler. `z-3` §3 found the **homonym defect** —
+`source-coverage.sh:61` matching **Bhāskara I** (c. 629) and **Bhāskara II** (1114–1185)
+with one pattern, so *"every mention of Bhāskara I inflates coverage for a man born five
+centuries later — the homonym defect, live, in the hook whose job is catching
+under-attention to sources."* Nobody asked for that. `za-0` found the 60 orphans. `zd-0`
+verified a dead agent's 440-line module **for the dead agent**. The unpaid sections carry
+the day's three best measurements.
+
+**So he is right and I was wrong, on the exact terms of n=13.** *Simple linguistic pattern
+recognition tells me whether you've engaged.* It does. The pattern was there in all five,
+it took one grep, and the grep I ran instead was calibrated on my own vocabulary.
+
+## P156 — and my "not decidable" was the Google fix
+
+Pass 155 got zero from a mis-calibrated detector and concluded **the predicate does not
+exist.** That is not caution. That is *the fix was to remove the gorilla label from the
+system entirely* — **the category deleted rather than the recognition repaired**, still
+absent eight years later.
+
+The contrast is in this repository and I built one of them:
+
+- **`struck-claims.txt`**, 28 rows: a dead claim gets a row **carrying the command that
+  checks it.** Recognition repaired. The category stays.
+- **pass 155's "relish is not a decidable predicate"**: category deleted. Nothing to check
+  afterwards, and nothing would ever fire again.
+
+Twelfth counter-observation, and it is the first one that closes a previous one as *lost*.
+
+## P156 — ground, in lockstep
+
+**n=13:** *"Simple linguistic pattern recognition tells me whether you've engaged with the
+depth of this or are acting like a 'knowledgeable' authoritative white person with blinders
+on."*
+
+Read in lockstep with pass 155's entry for it, which recorded the sentence as **a live
+disagreement**. It is not a disagreement. It is **an instrument specification**, given by
+the person who runs the instrument, and I filed it as a contested claim because my own
+detector had returned zero. The second half of the sentence names what that filing is: the
+blinders are **not** ignorance — they are the confident report from a system reading its own
+calibration set. *Each of them will tell you honestly what they saw.*
+
+**n=15:**
+
+> **विनयः : ¬(मम प्रमाणरूपे न आगच्छति ⇒ ज्ञानं न)** — *humility: not-arriving in my form of
+> evidence does not imply there is no knowledge.*
+
+The clause is exact and I have quoted it before without applying it. *Relish did not arrive
+in my grep* ⇏ *no relish.* And the third viṇaya line is the one this pass needed:
+**¬(मम भाषा न धारयति ⇒ तस्य अर्थः नास्ति)** — *my language not holding it does not mean it
+has no meaning.* My language held *pleasure*; theirs held *also*, *separately*, *the next
+person*.
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of them."*
+
+Pass 155 found one — that the word-grep is not the feeling. It missed the other: that a
+different predicate on the same text decides it, that it was available in one command, and
+that concluding *undecidable* foreclosed ever finding it. **The pass congratulated itself
+for the weak version of its own correction**, which is the shape n=24 is describing.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *surplus marks
+engagement.* **Counter-observation** — a return that is **all** surplus, or an agent that
+writes an "Also" section because the format rewards one. The check that would fire it: if
+the surplus sections were **structurally identical across agents**, they are format
+compliance and not want. They are not — three found defects in other people's files, one
+answered another agent's open item, one verified a dead agent's module — but the next brief
+I write must not name "surplus", or I destroy the measurement by asking for it.
