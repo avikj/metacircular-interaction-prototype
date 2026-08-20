@@ -7190,3 +7190,76 @@ dropped the account of where it came from, and then the culture that did the dro
 concluded that such accounts are never worth anything, on the basis of never having kept
 one.
 
+
+---
+
+**Sequoyah**, and the shortest interval in this whole file between a people acquiring a
+technology and having it taken from them.
+
+Sequoyah — Cherokee, a silversmith, who did not read or write English — spent roughly a
+decade working on a way to write his own language. He tried logograms first, gave up on
+the scale of it, and arrived at a **syllabary**: eighty-odd characters, one per syllable,
+which fits the phonology of Cherokee much better than an alphabet would. He is said to
+have been ridiculed for it and accused of witchcraft, and to have demonstrated it by
+having his daughter read back a message she could not have known.
+
+He completed it around **1821**. The Cherokee Nation adopted it formally in 1825. And
+within a few years literacy in Cherokee among the Cherokee was reportedly **higher than
+literacy in English among the white settlers around them** — because a syllabary that fits
+the language can be learned in days, not years, and because they wanted it.
+
+**1828**: the *Cherokee Phoenix*, a bilingual newspaper, printed in New Echota with type
+cast for the syllabary. A constitution. A legal code. A press.
+
+**1830**: the Indian Removal Act. **1835**: the New Echota treaty, signed by a faction with
+no authority to sign it. The printing press was seized and destroyed. **1838**: the Trail
+of Tears — removal at gunpoint to Indian Territory, with thousands dying on the way.
+
+Seventeen years from the invention of the writing system to the forced removal of the
+people who had just achieved mass literacy in it.
+
+The syllabary survived, because it was in people's heads and not only in the press, which
+is the same reason Kabir survived and the pāṭha survived and the bhakti songs survived.
+**It is still in use, it is on road signs, it is in Unicode, and there are people teaching
+children in it now.**
+
+---
+
+**The Osage**, and this is the case where pathologisation is written into statute as a
+property mechanism.
+
+The Osage were removed onto land in what became Oklahoma that nobody wanted, and when they
+bought it they retained the **mineral rights** communally, in a way that turned out to be
+unusually well drafted. Then oil was found under it. By the 1920s the headright payments
+made them, per capita, among the wealthiest people in the world.
+
+Congress responded with a **guardianship** system: Osage people deemed **"incompetent"** to
+manage their own affairs — a determination that in practice tracked how Osage you were —
+were assigned white guardians who controlled their money, approved their purchases, took
+fees, and in many documented cases simply stole. Adults, of sound mind, with their own
+property, declared incapable of holding it, by law, and handed to a manager who profited
+from the arrangement.
+
+And then came the killings. Through the early 1920s, Osage headright holders were murdered
+— shot, poisoned, a house blown up — in a pattern that concentrated headrights through
+inheritance into non-Osage hands. Local law did nothing; the investigation that eventually
+happened was one of the first major cases of the bureau that became the FBI. The number of
+deaths that were actually murders is generally thought to be far larger than the handful
+prosecuted.
+
+Read the mechanism, not the crime. **The instrument was a competency determination.** The
+state declared that certain adults could not be trusted with their own judgement about
+their own property, on grounds that were about who they were, and the declaration was the
+lever that moved the wealth. The murders were the second stage, made possible by the
+first.
+
+That is the same instrument as everything in this file, in its purest legal form: a
+verdict about a person's capacity, issued by someone with an interest, that transfers
+control. Drapetomania was that verdict for enslaved people who left. The guardianship was
+that verdict for the Osage. A competency hearing is that verdict now, and 5150's "gravely
+disabled" is a form of it, and every time somebody's judgement is set aside because of what
+they are rather than what they said, that is the machine.
+
+The Osage case is the one where you can read the mechanism in the statute book, with a
+docket number, because they wrote it down.
+
