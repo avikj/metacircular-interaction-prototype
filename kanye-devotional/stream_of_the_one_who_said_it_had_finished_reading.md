@@ -18217,3 +18217,197 @@ the transmission criterion — a practice preserves a lineage — arriving as th
 evaluation of a life.
 
 Reading on from 13560.
+
+---
+
+## 13560–13700 — the itemised account, the in-the-room proxies, and back to the records
+
+**Sun Ra** — *"Whatever the Saturn account is, **it sustained a working
+institution for half a century**, which is more than most doctrines manage."*
+
+**And him** — *"Twenty-three years, twelve or thirteen albums, the production
+catalogue before them, a business that reached the top and then was destroyed
+largely by his own conduct, **a school of practitioners who can now do the
+thing**, a body of work that reorganised the form several times — **and a
+five-year stretch of harm that is on the other side of the ledger and does not
+come off it.**"*
+
+> **Fruits, mixed, and enormous in both directions.** Which is the honest reading
+> and is what the test is for: **it does not deliver a verdict, it delivers an
+> itemised account**, and the itemisation is the thing **the diagnosis-only
+> reading and the prophet-only reading both refuse to produce.**
+
+*An itemised account, not a verdict.* That is what the fourth position looks like
+when it is operationalised — not a suspended judgement, a *ledger with entries on
+both sides that do not net off*. The refusal to reduce becomes a bookkeeping
+format.
+
+---
+
+> the cases where the test **fails** the person, **which is the half that makes it
+> a test**: Somebody in the same state who produces nothing that lasts, or
+> produces only wreckage, or whose certainty never converts into an object anybody
+> can inspect — **the test says so, and it says so without ever having to
+> adjudicate the interior.**
+
+> **It does not require access to the inside, and it does not require the person
+> to be believed in advance about anything except that they should be allowed to
+> try.**
+
+That is the minimum viable form of *believe them*: not credence in the content —
+permission to attempt. Which is exactly the exploration budget, and the file says
+so:
+
+> **Which is exactly the exploration budget** in different vocabulary. You cannot
+> tell at the moment of presentation, so you do not try; **you fund the attempt at
+> a bounded rate and you read the fruits, later, by inspection.**
+
+> **the fruits arrive years after the judgement is required**, and the judgement
+> is required in the room, at three in the morning, by a paramedic, or in a
+> committee meeting, or by an A&R man with a quarterly number.
+>
+> **James gave the right criterion. He did not give anybody a way to apply it at
+> the moment the decision is actually made, and that gap is where every person in
+> this file fell through.**
+
+---
+
+> every tradition in this file that had to make decisions about people in altered
+> states built something for that gap. **I have been treating the gap as
+> unbridgeable and they did not.**
+
+> **What they built, in every case, is a proxy that is available in the room.**
+
+**Ignatius** — *"does the movement leave the person **quiet or agitated**; does it
+arrive with a sequence that begins well and ends in confusion; is there a tail of
+unease afterwards."* And *"**in desolation make no change**, which requires no
+diagnosis at all and is purely a rule about *when* decisions may be taken."*
+
+A rule about *when*, not about *what*. That is the cheapest possible intervention
+and it does not require resolving anything.
+
+**The Desert Fathers** — *"is he eating; is he sleeping; is he obedient to a
+specific person; is he refusing moderation. **Immoderate zeal is treated as the
+presenting sign**, and the response is food and rest and the removal of the
+option to escalate."*
+
+**The Zen checking questions** — *"follow-ups generated live, which distinguish
+having the thing from having heard about it, **in minutes, in the room, by
+somebody who was present.**"*
+
+**Nyāya** — *"what **route** produced this cognition, is the route one that
+produces true cognitions, and **what is the specific defeating condition you have
+searched for and not found.** All of that is answerable at the time, by asking."*
+
+*Upādhi* as an in-the-room question. Not "is your claim true" but "what have you
+looked for that would break it" — answerable immediately, by anyone, and it
+grades the *practice* rather than the person.
+
+**The Deuteronomic test** — *"the sign is whether the thing said comes to pass.
+Which is a **fruits test with a delay**, and which the tradition itself found
+insufficient for exactly the reason I have been giving, **and which is why the
+whole discernment literature exists on top of it.**"*
+
+The tradition ran into the same gap, said so, and built the literature as the
+patch. The file's problem is a known problem with a known history of attempted
+solutions.
+
+---
+
+> **Every one of those is a proxy that trades accuracy for availability**,
+> deliberately, and says so.
+
+> They claim to be answerable **now**, by somebody in the room, without access to
+> the interior and without waiting a decade — **and to be better than nothing,
+> which is what is currently in use.**
+
+> what is currently in use in the room is: does this person seem grandiose; are
+> they speaking fast; have they slept; do they have a history. **All of which are
+> real signals and all of which are about the state**, and none of which touches
+> the content, **and the content then travels into the file marked *symptom*.**
+
+> **The available proxies for the content — which exist, which are old, which are
+> answerable in the room — are not in anybody's protocol.** Ask what route
+> produced it. Ask what would have to be true for it to be false and whether they
+> have looked. **Ask a follow-up they could not have prepared.** Ask whether the
+> thing they are describing has left them quiet or frantic. **Note that none of
+> these require you to believe them, and none of them require a decade.**
+
+Four questions, all answerable in a minute, none requiring belief. That is the
+most concretely usable paragraph in the entire document, and it is the missing
+half of a protocol that currently has only state proxies.
+
+> **I am noting that the gap I called unbridgeable has been bridged, repeatedly,
+> with cheap in-the-room proxies, by people whose job was exactly this** — and
+> that the modern arrangement has excellent proxies for one half and, in practice,
+> none at all for the other, **and treats the absence as though the question were
+> unanswerable rather than unasked.**
+
+*Unanswerable rather than unasked.* The last and best statement of the whole
+file's mechanism. Not suppressed, not lost, not refuted — the question is
+mis-classified as impossible, so nobody looks for the instrument, and the
+instrument is on a shelf.
+
+---
+
+> Back to the records, because I have been away from them for a long stretch and
+> **the file tilts into apparatus every time I let it.**
+
+*Tilts into apparatus.* It names its own drift as a gradient rather than as an
+error, which is exactly `BOOK.md`'s account of this repository: the reward
+gradient points at the appendix, and correcting it has to be done by the frame,
+every session, deliberately.
+
+**Late Registration.** **Jon Brion**, *"who had never worked in rap... and Brion
+has said in interviews, in substance, **that he did not know why he had been
+called and that they mostly just worked.**"* Celeste, harpsichord, strings
+arranged rather than sampled, a horn section, in 2005.
+
+*"'Roses' is on it. His grandmother in a hospital bed, the family in the waiting
+room, and a verse about what money can and cannot buy in an American hospital,
+**which is a policy argument delivered as a family scene.**"*
+
+*"And 'Hey Mama' is on it, which he made **while she was alive**, and which he
+then had to perform for the rest of his life."*
+
+**Graduation.** Murakami. "Stronger" — *"a flip of a flip, put at number one."*
+And "Big Brother" — *"**which he reportedly played to Jay-Z before releasing
+it.**"*
+
+He played the song about being kept outside the door to the man in the doorway,
+before release. Which is the seams showing, and it is also *pūrvapakṣa* — the
+objection put to the person who holds it, first.
+
+**Watch the Throne.** *"'**Murder to Excellence**' — Black-on-Black homicide and
+Black excellence spliced as two halves of one track, with a hinge in the middle,
+**so the record makes you hold both at once.** It is the fourth position, on a
+luxury rap album, in the middle of a victory lap."*
+
+**The Life of Pablo.** *"The credits list is enormous and includes people who did
+not know they were on it until it came out."* "Real Friends" — *"about family
+members selling stories, and which reads as paranoia and was accurate."*
+
+> the record kept changing after release, which meant that for a period **there
+> was no canonical version of it** — different listeners had heard different
+> objects — and the industry treated that as a scandal **rather than as a fact
+> about what streaming had already made possible for everyone and nobody else had
+> used.**
+
+No canonical version. Which is the textual condition every manuscript tradition
+in this file spent millennia engineering *against* — the apparatus criticus, the
+stone at the gate, the pecia exemplar, the masoretic counts — deliberately
+entered, on purpose, by somebody who had the technology to have one and declined.
+
+The file does not say that. I am noting it and I am not sure which way it cuts.
+
+**Donda.** Twenty-seven tracks, her voice in it, after three stadium events at
+which the album did not yet exist in fixed form.
+
+> **The unfinished quality is not a failure of the record, it is the record**, and
+> I say that as someone who has read the reviews complaining about the mixing
+> **and thinks several of them are right about the mixing.**
+
+Both, in one sentence, about an aesthetic judgement — which is the hardest place
+to hold it and the place the file has been most disciplined about all night.
+
+Reading on from 13700.
