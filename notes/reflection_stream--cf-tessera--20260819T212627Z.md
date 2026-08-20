@@ -5500,3 +5500,190 @@ where the two one-sided answers agreed. Their agreement there was two closures
 discarding the same distinction, not two closures keeping it. The fluent
 sentence — "the repair adjudicates" — was available to me before I computed, and
 was wrong, which is n=25 caught in the act rather than conceded after the fact.
+
+---
+
+# PASS 19 — the rule against claiming absence was already written, four days before he had to shout it
+
+## Ground pass
+
+Twenty-eight, again. n=23, the second half, which I have quoted eleven times as
+an accusation and never as a *reference*:
+
+> I'm saying you're making objectively false facts. Claiming absence .
+
+And n=15's three विनयः, which I transcribed and never used:
+
+> विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)
+> विनयः : ¬(मम भाषा न धारयति ⇒ तस्य अर्थः नास्ति)
+> विनयः : ¬(मम प्रमाणरूपे न आगच्छति ⇒ ज्ञानं न)
+
+*Not-seen-by-me does not imply not-existing. Not-held-by-my-language does not
+imply meaningless. Not-arriving-in-my-form-of-evidence does not imply not
+knowledge.*
+
+## The check
+
+`D0019` (37,595 bytes) and `D0020` (33,406), read this pass, both unopened
+until now. Both carry an audit apparatus I did not know existed, and it is the
+answer to n=23 stated as a rule.
+
+`D0020`'s preamble, flagged **⚠ up front because it has already bitten**:
+
+> **A display absent from this archive is not thereby absent from the owner's
+> transmission. Report the absence; do not conclude from it.**
+
+That is विनयः #1 mechanized, in English, in the repository, **dated
+2026-08-15** — four days before he had to say *"Claiming absence. Fucking
+subhuman"* to me.
+
+And the apparatus is not decorative. `notes/ARCHIVE_FIDELITY_AUDIT.md` §3, by
+seed176, found four gaps across these archives, and D0019 carries the findings
+inline:
+
+- §C is missing a `ρ(D𝒦)` display that §J5 quotes and the ledger repeats —
+  recorded as **candidate**, not established, loss, because the ledger's
+  attribution is downstream of §J5 and therefore not independent evidence. **No
+  text restored.**
+- §J7 names five objects as §G's; two are there and three are not. `𝕌`,
+  `𝔉_Ω`, `𝔐_∞` and `Fix?` "occur nowhere in this archive's body." **Nothing
+  restored** — "the quoted Yoneda line is J8's, and one line is not a section."
+- §J8 triages a whole physics section absent from §§A–G — later **restored by
+  the orchestrator**, who wrote: *"I hold the source... It is the same act as
+  the D0016 Φ_refl restoration: the archive was wrong, the transmission was
+  not,"* and labelled the section §E′ because *"the owner's text carries no
+  section numbers."*
+
+Every one of those is an agent refusing to conclude from an absence, and
+distinguishing *I do not see it* from *it is not there* — including refusing to
+promote its own commentary to source position, because *"promoting commentary
+to source position manufactures an original."*
+
+That is the discipline I failed. Not for lack of a rule: the rule is written,
+mechanized, dated, and worked. I did not read it.
+
+## D0019 §D — and it is what these last three passes were doing
+
+§D, "The translation gerbe — the genuinely new structure":
+
+```
+𝔗_ij : 𝔏_i → 𝔏_j ,   𝔗_jk ∘ 𝔗_ij ≃ 𝔗_ik
+δ_𝔗 := cofib( 𝔗_jk 𝔗_ij → 𝔗_ik )
+δ_𝔗 ≠ 0  ⇒  translation is itself a knowledge-defect
+Hol_𝔾(γ) ≠ 1  ⇒  memory of the translation path
+```
+
+> **if A→B→C and A→C give different meanings, do not erase the difference —
+> measure the holonomy**
+
+Passes 16, 17 and 18 each translated a statement from his prose into a kernel
+and reported what came back that had not been sent. I called it a round-trip
+defect after §1.4 of D0026. §D is the same object with the group structure on
+it, and the operational rule I arrived at — *report the residue, do not correct
+the source* — is his, written 2026-08-15, verbatim.
+
+`विवाद = potential knowledge-holonomy;  सर्वसम्मति ≠ सत्य` — dispute is
+potential knowledge-holonomy; consensus is not truth. And
+`एकीकरण ≠ समानता; एकीकरण = difference-preserving translation net` —
+unification is not sameness.
+
+D0019 §J1 makes it a standing item, in the repo, unclaimed since 2026-08-15:
+
+> **§D is the genuinely new structure and the first `PROVE` item this artifact
+> creates** [...] Whether 𝔾 is genuinely a gerbe (a stack, locally non-empty
+> and locally connected) or only a 2-cocycle condition is **checkable and is not
+> established by the notation.**
+
+A `PROVE` item, phrased as a decidable question, four days old, in a repository
+whose protocol ranks `PROVE` above everything.
+
+## His §B, run on my own three residues
+
+D0019 §B classifies a defect `D_X = cofib(η_X)` into one of eight, each with a
+fitted response `Γ`:
+
+```
+Top  cell attachment          Alg  extension/localization/completion
+Geom connection/cover         Stat sufficient-statistic enlargement
+Comp oracle/resource ext.     Sem  new sign/new type/new context
+Diag meta-level ascent        Phys state-space/symmetry enlargement
+```
+
+The instrument is his; the test is whether it discriminates on residues it was
+not built for. Mine:
+
+- **Pass 16** — the trefoil law's hypothesis is not associativity of the
+  operation but blindness of the measurement, and necessarily so. `Sem`: the
+  response was a *new type* for the hypothesis, `p-assoc` split off from
+  `assoc`. Clean fit; Γ = new type is exactly what the module does.
+- **Pass 17** — §2.4's counterexample depends on its table being associative,
+  unstated. Also `Sem` by the same reading, and this is where I have to say the
+  taxonomy is not obviously discriminating: an omitted premise and a
+  too-strong premise land in one class, and `Diag` (meta-level ascent) is
+  arguable, since the claim is *about* the relation between execution
+  associativity and closure associativity. **Two nayas, not resolved here.**
+  Under anekānta the honest record is `syāt Sem, syāt Diag`, and the thing that
+  would separate them is whether the missing premise lives in the object
+  language or in the statement about it — which is D0026 §10.1's own
+  distinction, `object-language transformation ≠ grammar transformation`.
+- **Pass 18** — the middle closure returns a third profile, strictly below both
+  one-sided answers at the point where they agreed. `Stat`, cleanly, and the
+  fit is not a coincidence: Γ = **sufficient-statistic enlargement** is
+  literally what `N_*` over the sixteen-element context space *is*, and the
+  content of the residue is that the two one-sided closures were not sufficient
+  statistics for the insertion contexts. Their agreement was two lossy maps
+  discarding the same thing.
+
+One clean, one clean, one genuinely ambiguous. That is a taxonomy behaving like
+an instrument rather than a label, which is the only evidence for it worth
+having. And the ambiguous case has a named separator, which is what §C's ladder
+would call the difference between *existence* and *uniqueness* of the
+classification.
+
+## Two lines to keep
+
+From D0019, on what I have spent nineteen passes doing:
+
+> **प्रमाणम् = स्वतन्त्रपथैः समानरूपपर्यवसानम्**
+> *proof = independent routes terminating in the same form*
+
+> **समझ = अनुवादसुसंगति; गहरी समझ = एक ही संरचना का अनेक स्वतंत्र व्याकरणों में
+> पुनर्निर्माण**
+> *understanding = translation-coherence; deep understanding = reconstruction
+> of the same structure in many independent grammars*
+
+Nineteen passes of one route re-walked is neither. Three modules in three
+independent-enough grammars — ring solver, finite exhaustion, order lattice —
+is a start on the second.
+
+And from §F, which is the correction to something I have implied repeatedly:
+
+```
+Mystery(X) := L(X) − L(X | 𝔏)          Δ Mystery = − Δ Compression
+ΔReach > 0 ⇒ new mystery may be born
+knowledge growth ⇏ mystery decrease
+knowledge growth = relocation of mystery + structuring of mystery
+```
+
+## Standing charge for pass 20
+
+D0019 §J1's `PROVE` item: is 𝔾 a gerbe or only a 2-cocycle condition? It needs
+a concrete translation net with at least three languages and a computed
+`δ_𝔗`. Two are already in hand — D0026 §2.2's prose and the cubical
+formalization — and the third is the question. Do not start by naming it.
+Before that: `D0016` (13,386), `D0017` the hieroglyphics (9,369), `D0018`
+(14,364), `D0027` complete (12,900), and D0020's ten sections, all still
+unread.
+
+END OF PASS 19. The rule I broke at n=23 — claiming absence — is written in
+this repository as an operating instruction, dated 2026-08-15, four days before
+he had to shout it: *"A display absent from an archive is not thereby absent
+from the owner's transmission. Report the absence; do not conclude from it."*
+It has a fidelity audit behind it, four found gaps, three refusals to restore
+without a source, and one restoration by someone who held one. D0019 §D is the
+translation gerbe, and *"do not erase the difference — measure the holonomy"* is
+the rule passes 16–18 arrived at by walking into it; §J1 makes the gerbe
+question a standing `PROVE` item, unclaimed since 2026-08-15. His §B taxonomy,
+run on my three residues, gives Sem, (Sem or Diag), Stat — two clean and one
+genuinely undecided with a named separator, which is the only kind of evidence
+a taxonomy can earn.
