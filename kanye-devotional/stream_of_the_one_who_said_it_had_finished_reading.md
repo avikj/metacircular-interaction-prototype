@@ -14664,3 +14664,161 @@ And the venue's name became the name of the genre, which is one of the few times
 in this file a place kept its own attribution.
 
 Reading on from 10740.
+
+---
+
+## 10740–10880 — the failures, the Amen break, and the legal phases
+
+Knuckles editing on reel-to-reel to make records longer and more percussive,
+drum machine underneath, extending the parts the floor wanted. **Ron Hardy** at
+the Music Box. And local kids buying *"cheap discontinued Roland gear — the 808,
+the 909, the 303, **none of which had sold**"* — pressing locally: **Jesse
+Saunders, Marshall Jefferson, Larry Heard, Adonis, Phuture**, whose ***Acid
+Tracks*** *"came out of somebody misusing a 303 bass machine and finding a sound
+nobody had designed."*
+
+> **The music was named after the building.** House music, from the Warehouse.
+
+Detroit in parallel: **Juan Atkins, Derrick May, Kevin Saunderson.**
+
+> It went to the UK and Ibiza, became rave, became a global industry, and by the
+> 2000s "EDM" was a multi-billion dollar business **whose public face was almost
+> entirely white, European and heterosexual, and whose origin story in general
+> circulation was Ibiza and Manchester rather than a Black gay club on the South
+> Side.**
+
+**Frankie Knuckles** — a Grammy, a street named for him in Chicago — died
+**2014**. **Ron Hardy**, *"whose sets people still describe as the more radical
+of the two, died in **1992, at thirty-three**, having recorded very little."*
+**Larry Levan**, same year, **thirty-eight**.
+
+> A great many of the people in those rooms died of AIDS in a decade when the
+> response of the state was to do essentially nothing, **and their music is what
+> the world dances to.**
+
+The state doing nothing is the same instrument as the emergency room not
+scanning, the fire companies closed, the deinstitutionalisation without funding —
+absence as policy — and here it removed the lineage itself in a decade. The
+readers, not the objects.
+
+> **The name kept and the lineage dropped**: the genre is still called *house*,
+> after the building, **which is an attribution surviving in plain sight that
+> essentially nobody decodes.** The word is a fossil of a specific address, the
+> way *album* is a fossil of a book of sleeves.
+
+Two fossils in two sections. The attribution is *in the word* and unread —
+which is the ENIAC captions, the sample credit, Coltrane's liner notes: present,
+public, and requiring somebody to know it is information.
+
+> The 808 he used to carry his mother's death is the machine those men rescued
+> from the discount bin, and the reason it was in the bin is that it failed at
+> sounding like drums, **and the reason it is on his record is that a generation
+> of Black and queer Chicagoans decided that the failure was the instrument.**
+
+---
+
+> **the innovations came from people who could only afford the failures.**
+
+The 808/909/303, discontinued and dumped. **Auto-Tune**, built to be inaudible,
+*"became an instrument when somebody set the parameter to the value the manual
+implied you should not."* The sampler's **coupled pitch-and-time**, a
+limitation. The **turntable**, a playback device, *"and using two of them as an
+instrument is the founding act of a global music."* **Distortion** — *"amplifier
+damage — a dropped or water-damaged amp on 'Rocket 88' in 1951, Link Wray
+reportedly punching holes in a speaker cone"*. **Dub**, *"the mixing desk treated
+as a performance instrument, with the echo and reverb units used far past their
+intended settings."*
+
+> **Six cases, one shape: the device fails at its stated purpose, gets devalued,
+> reaches people with no budget, and the failure mode turns out to be the
+> expressive content.**
+
+> **That is not a romantic claim about scarcity breeding creativity.** It is
+> narrower and duller: **capital buys the equipment that works as specified, and
+> equipment that works as specified produces what it was specified to produce.**
+> The people who get the broken and discounted things are the only ones with a
+> reason to find out what else it does — **and being outside the professional
+> norms, they have no colleague to tell them that is not what it is for.**
+
+Two independent causes, both economic and social rather than temperamental:
+supply (you get the discards) and absence of correction (nobody tells you it is
+misuse). The romantic version is refused and the mechanism is dull and complete.
+
+And it is the inversion of *the instrument's blind spot becomes a fact about the
+world*: here somebody is outside the instrument's spec, so the spec is not
+invisible to them, so they can see what it actually does.
+
+---
+
+**The Amen break.** 1969, a B-side by **The Winstons**, a Washington DC soul
+group, **"Amen, Brother."** Four bars played by **Gregory Coleman**. Six
+seconds.
+
+> by any reasonable count **the most-sampled recording in the history of
+> music.** the rhythmic basis of large parts of hip hop, and essentially all of
+> jungle and drum and bass, **which are built by chopping and re-ordering those
+> six seconds**; television advertising, film, video game soundtracks. **A genre
+> exists because of one drummer's four bars.**
+
+> **Nobody was paid.**
+
+> **Gregory Coleman died in 1996, homeless, in Atlanta.** Spencer said he had
+> received nothing, and in 2015 a crowdfunding campaign run by two British DJs
+> raised a modest sum and handed it to him. He was in his seventies.
+
+> That is the most-used piece of recorded rhythm on the planet, and the man who
+> played it died without shelter, and the correction came as **a gift from fans**,
+> decades late, **to the surviving rights-holder rather than to the player** —
+> which is, once again and exactly, **an honour rather than a retraction,
+> arriving too late to change anything, with no institution involved at any
+> point.**
+
+The honour/retraction rule applied a fourth time, and this instance is worse
+than the Nobel cases: the recipient is not even the person. The compensation was
+routed by the rights structure to whoever held the paper, which is the file's
+other law arriving in the same sentence.
+
+> Everything in this document is in those six seconds: a practice, transmitted by
+> demonstration, built out of somebody else's discarded B-side, that became so
+> completely standard equipment that it turned into the background — **and
+> backgrounds do not have authors, and this one had one, and his name was Gregory
+> Coleman.**
+
+---
+
+**The legal history, "because 'nobody was paid' needs the mechanism, and the
+mechanism has a shape that is about to repeat."**
+
+**Phase one, ~1973–1990: unregulated.** *"the records that define the form — the
+dense collage era, records built from dozens of sources — are made without
+clearance because clearance is not yet a thing anyone does. **Enormous value is
+created. The people sampled receive nothing**, and the samplers mostly receive
+little either, because they are signed to the contracts described earlier."*
+
+**Phase two, 1991 onward: regulation arrives.** ***Grand Upright v. Warner*** —
+*"the judge opens his opinion with **'Thou shalt not steal'** and treats the
+matter as plain theft."* ***Bridgeport v. Dimension Films*, 2005** — *"the
+much-quoted instruction to **get a licence or do not sample** — no de minimis
+exception, even for a short fragment."*
+
+> **What that did, precisely.** It did not compensate anybody who had been
+> sampled in the first phase; those uses were long past and mostly unlitigated.
+> **What it did was make clearance mandatory and expensive going forward**, so
+> that a record built from thirty sources became legally impossible for anyone
+> without a major label's legal budget and
+
+cut at 10880.
+
+*The mechanism has a shape that is about to repeat.* It is not writing about
+music. Phase one: an unregulated period in which enormous value is extracted from
+uncompensated sources by people who mostly do not profit either. Phase two:
+regulation that arrives too late to pay anyone from phase one, and whose cost
+falls on whoever comes next without a legal budget.
+
+That is the training-corpus question, and the file has already put itself on the
+wrong side of its own criterion twice, and named Balaji. This is the third
+approach, and it comes with a precedent that has already run to completion once,
+in the same industry, within living memory — and the outcome was that the
+originators got nothing and the barrier to entry rose.
+
+Reading on from 10880.
