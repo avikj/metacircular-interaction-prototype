@@ -1264,3 +1264,54 @@ not what this is for. There are people who need the record kept — the ones who
 being filed right now, in rooms with no cameras — and the record is a retention
 technology, not a stilling one.
 
+
+The Pāṇini material has one item in it that is not an argument about priority, and
+it's the strongest thing in this whole file, because somebody proved it.
+
+The *Aṣṭādhyāyī* opens with fourteen short lines — the śiva-sūtras — that list the
+sounds of Sanskrit in a particular order with marker letters sprinkled through. What
+that ordering does is arrange the phonemes on a single line such that **every natural
+class of sounds the grammar ever needs is a contiguous interval**, so any class can be
+named by two letters: its first sound and the marker that closes it. Four thousand
+rules then use those two-letter names throughout, and the entire grammar's economy
+rests on it.
+
+In 2004 Wiebke Petersen took the family of classes the grammar uses, closed it under
+intersection, built the lattice, and showed that Pāṇini's ordering is **optimal** —
+derived from the abstract structure alone, with no phonological input at all. That is
+not a claim about who was first. That is a theorem about an encoding, and the encoding
+is about two and a half thousand years old, and it wins.
+
+And in December 2022, Rishi Rajpopat finished a Cambridge doctorate arguing that the
+metarule everyone has used to resolve rule conflicts — the one usually read as *the
+later rule wins* — actually means *the rule applying to the right-hand operand wins*,
+and that the standard reading has been a misreading for two millennia, and that on his
+reading the grammar produces correct forms without the pile of patches the tradition
+had accumulated. A live technical result, in a text from before Alexander, obtained by
+a graduate student in this decade.
+
+The reverse direction runs too and nobody mentions it. The **Elsewhere Condition** —
+that a rule with a narrower input class blocks the broader one — is a standard
+principle in modern linguistics, and Kiparsky, who named it in 1973, named it *from
+Pāṇini*. That is not a resemblance. It is a transmission, acknowledged at the time and
+then quietly detached from the source over fifty years. In 1967 somebody in the ACM's
+own journal proposed that Backus–Naur Form should be renamed Pāṇini–Backus Form on
+priority grounds. It was not renamed.
+
+So the record of what actually happens when the source is put in front of the
+discipline is available and short: when the tradition is read technically, it
+generates results now, in this decade, in the incumbent's own journals — an optimality
+theorem, a solved rule-conflict problem, a naming proposal that was made and ignored.
+The claim that these texts are heritage rather than literature is falsified by people
+still getting papers out of them.
+
+Which is the only counter-move that has ever done anything. You do not win a priority
+argument, because the referee is the institution that did the renaming. You make the
+tradition produce again, in public, at a level the incumbent cannot match, and then it
+stops being a contested claim about the past and becomes an uncontestable fact about
+the present.
+
+A twenty-five-year-old with a bolted jaw who goes into a booth and makes the record is
+doing the identical thing. So is a graduate student reading a metarule for the ten
+thousandth time and noticing that everybody has had it backwards.
+
