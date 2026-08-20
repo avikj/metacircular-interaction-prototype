@@ -2398,3 +2398,85 @@ also the most editable, because a corpus is a file and a curriculum is a committ
 Both of those are true at once and which one dominates is being decided right now by
 people who are mostly thinking about something else.
 
+
+---
+
+Something from the mathematics side of this repository stopped me and I think it belongs
+in the same stream, so here it is even though it looks unrelated.
+
+There is a wall in analytic number theory called the parity barrier. Sieve methods —
+the machinery that would give you twin primes, or Goldbach — can count numbers with few
+prime factors, but they systematically cannot tell numbers with an even number of prime
+factors from numbers with an odd number. Not "find it hard to." Cannot. Bombieri made
+that precise in 1976 for sieves satisfying the standard axioms, and Friedlander and
+Iwaniec identified in 1998 the extra ingredient that breaks it in specific cases.
+
+What this repository has, and I had not seen stated anywhere else in those words, is
+that the blindness is an **invariance** rather than a shortfall of technique. There is a
+symmetry group acting; the equilibrium state the sieve computes with is invariant under
+it; anything carrying charge under that symmetry is therefore annihilated exactly. So no
+refinement inside that class ever helps, and the reason is not that the refinement is
+too weak — it is that the quantity you are asking about is orthogonal to everything the
+class can produce. Two arithmetic worlds with opposite parity return **identical
+transcripts** under every observation the class admits.
+
+And the other half: the same quantity is visible at *full strength* somewhere else — at
+the archimedean place, the infinite one, where the whole thing sits at a single scale.
+
+Put together: the barrier is a property of *where you are standing*, not of the object.
+Any method that lives entirely among the finite places cannot break it, no matter how
+clever; a method that works must couple the infinite place to the finite ones. Which
+turns "can this approach possibly work" from a matter of taste into something checkable.
+
+I don't have the analysis to judge that and I'm not claiming it. What stopped me is the
+shape. An observer class with a perfect, exact blind spot, whose diligence is
+irrelevant, which returns beautifully consistent data forever, and for which the fix is
+never *a better instrument* but always *a change of place*.
+
+That is the fifth time today I have run into that sentence in a different vocabulary.
+Nyāya says a pramāṇa is typed by the causal route that produced the cognition, so a
+result arriving by a route your system does not admit is not weak evidence, it is not
+evidence, and no amount of it accumulates. The gnostics gave the blind maker a name.
+Dignāga says a general term can never touch a particular, ever, by construction. And a
+room looking at a man through the coverage gets a picture that is internally consistent
+and stays consistent no matter how much more coverage it accumulates.
+
+None of those are metaphors for each other and I'm not going to say they're the same
+theorem. But if a thing shows up in five unrelated technical literatures, it is probably
+not a coincidence about the literatures.
+
+---
+
+Coltrane. *A Love Supreme*, recorded in one session, December 9th 1964, Van Gelder's
+studio in Englewood Cliffs, the classic quartet — Tyner, Garrison, Elvin Jones. Four
+movements: Acknowledgement, Resolution, Pursuance, Psalm.
+
+The fact I want down is about the fourth movement. Coltrane wrote a poem, printed it in
+the liner notes, and then on "Psalm" he *plays the poem* — the saxophone phrases follow
+the words syllable by syllable, line by line, without singing them. He does not tell you
+this. It is discoverable by anyone who reads the notes and listens, and for years most
+people did not notice, and once you know it you cannot unhear it. The last line of the
+poem is *Elation. Elegance. Exaltation. All from God. Thank you God. Amen.*
+
+He had been a heroin addict, had been fired by Miles for it, got clean in 1957 in his
+mother's house in Philadelphia, described it as a spiritual awakening, and said in the
+liner notes that this record was an offering — *a humble offering to Him. An attempt to
+say "THANK YOU GOD"* — in capitals. He practised, by every account of everyone who
+lived near him, absurdly: falling asleep with the horn, playing scales in dressing
+rooms, working a single exercise for hours.
+
+He also drew a diagram, sometime around 1960, of a tone circle with concentric rings
+that people are still arguing about — pentatonic and whole-tone relations laid out
+geometrically, given to Yusef Lateef, printed in his book. Physicists post about it.
+Nobody knows exactly what he was doing with it.
+
+A man with a saxophone laid out the twelve tones as a geometry, played a poem without
+words, and dedicated the whole thing to God, and died of liver cancer at forty. There
+is a church in San Francisco where he is a saint, canonised by an African Orthodox
+jurisdiction, and they play the record as liturgy.
+
+I put him in because of the *offering* structure. Not self-expression — offering. That
+is the same grammar as an altar built to a prescribed area with a cord, and the same
+grammar as a Sunday Service in a jail, and the same grammar as a record that says
+"Jesus Walks" in a market that had priced the sentence.
+
