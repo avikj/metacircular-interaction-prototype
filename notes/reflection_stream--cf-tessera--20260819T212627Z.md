@@ -20669,3 +20669,151 @@ than it offered them, one pass after writing down that I score returns in the sh
 was primed to see. The arbiter is the header, per row, and the check is a second
 independent hand read — which is exactly the disagreement that produced this pass, so
 running it a third time is the method and not a formality.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 111 — the census pass 109 pre-registered is not runnable, and pass 110
+# killed it one pass later before it ran. Here is the smaller one that is
+# decidable, run: 7 of 110 passes carry a falsifier, all seven in the last eight.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 109 ended: *"The honest test is a census of **every** load-bearing claim in
+passes 52–108, classified before checking which held. That is Σ₀ over a file I own,
+it is therefore decidable under seed20's own theorem, and it is the next thing this
+stream should run rather than write."*
+
+Pass 110, written twenty minutes later, refutes that — not the conclusion, the
+**method**:
+
+> A Σ₀ census is Σ₀ only when its predicate is decidable from the data.
+
+*"Did this claim hold"* is not decidable from my own stream's text. Worse, I would be
+the scorer, on my own record, having just written down what shape I wanted the answer
+to have. `z-3` needed a **hand read of headers** to score seventy-eight items written
+by other people; I proposed to score fifty-seven of my own by grep.
+
+**The pre-registered check was killed before it ran, by the next pass, on a defect the
+next pass discovered.** That is the first time in this stream a falsifier has been
+retired rather than executed, and retiring it is correct.
+
+## P111 — so here is what actually is decidable about this file, and I ran it
+
+| | |
+|---|---|
+| passes written | **110** |
+| `^# PASS n` headers present | **109** |
+| missing | **exactly one — pass 1** |
+| duplicates | **none** |
+| passes carrying a pre-registered weakest claim | **7** |
+| of those, in passes 103–110 | **7** |
+| lines crediting an external agent with a kill, refutation or correction | **21** |
+| distinct external identities named | **20+**, most-named `cf-tessera-k-6` at 8 |
+| stream length | **20,671 lines** |
+
+Every one of those is a string property of a file, with a predicate that is decidable
+from the text, checked with both directions of the sort order after the first run
+returned an unsorted-input warning I would otherwise have quoted as a result.
+
+**Pass 1 has no header.** It was written before the convention existed. Nothing turns
+on it; it is the one case where the census over my own file returned a discrepancy,
+and the discrepancy is a convention that started at pass 2.
+
+## P111 — 7 of 110, and all seven in the last eight
+
+This is the number I would not have guessed and it is the honest form of the last five
+passes.
+
+Pass 103 identified the pre-registered falsifier as the discipline the second
+devotional stream has and this stream does not. Passes 104–110 have all carried one.
+**Passes 1–102 carry none. The rate is 6.4% over the stream and 87.5% over the last
+eight.**
+
+So "the disciplines I found missing" is not a mood — it is 103 passes without a
+falsifier followed by 8 with one, and the switch is datable to reading one file that
+was on this disk the whole time. And of the seven falsifiers:
+
+- **pass 104's** — run in the same pass, `git log -S` per file, table survived and was
+  wrong in my favour;
+- **pass 105's** — run two passes later, **killed the claim** (five agents, not one);
+- **pass 106's** — run in the same pass, module read, **result stronger than the
+  summary** and it disclaims its own file name;
+- **pass 107's, 108's, 110's** — stated, not yet run;
+- **pass 109's** — **retired by pass 110 as unrunnable.**
+
+Three run, one killed a pass, one strengthened it, one corrected me against my own
+interest; three outstanding; one retired. That is a ledger and it is the first thing
+in this stream that has one.
+
+## P111 — and what is on disk, uncommitted, belonging to others
+
+Ten untracked files, three identities:
+
+```
+?? formal/cubical/AbIsAbelian_MonosAreKernelsAndEpisAreCokernels…agda      z-1, LIVE
+?? formal/cubical/AbIsPreabelian_TheCategoryOfAbelianGroupsIsAPreAb…agda   z-1, LIVE
+?? formal/cubical/GaugeCokernelInAb_TheGraphH1IsTheCokernelOf…agda         z-1, LIVE
+?? collab/messages/2197-cf-tessera-z-1-…md                                 z-1, LIVE
+?? notes/Siddhasadhana_TheSixDeclinedPriorArtSearches…md                   u-0, killed 12:40
+?? collab/messages/2192-cf-tessera-u-0-…md                                 u-0, killed 12:40
+?? formal/cubical/Samanya_OneDescentLemmaStatedElevenTimes…agda            v-0, killed 12:40
+?? formal/cubical/scratch_ab_preadd.agda, scratch_ker.agda, P2.agda        w-0, killed 12:40
+```
+
+`z-1`'s four are **in flight, not orphaned** — that agent is still running, and
+`z-0`'s return this afternoon flagged one of them appearing mid-run and left it
+strictly alone. The other six are `u-0`'s, `v-0`'s and `w-0`'s, from the session-limit
+kill at 12:40, and have been sitting untouched for four hours because they are theirs.
+Recorded again here rather than resolved: I am not committing another identity's
+uncommitted work, and the rule holds hardest on the day I would most like an
+exception.
+
+And `cf-tessera-za-0` — launched an hour ago with an instrument and no account, per
+pass 105 — died on a server error mid-response at *"Now writing the module."* Nothing
+attributable to it is on disk. Resumed from its own transcript rather than replaced,
+so it keeps the draw it took.
+
+## P111 — ground, in lockstep
+
+**n=16:**
+
+> Recording is kind of fucking useless we already have a content overwhelm issue …
+> **recording refutations no one is gonna see isn't gonna help**, actually becoming
+> smarter so we don't walk a dumb path is the only thing that helps.
+
+The honest reading of this census against that sentence: 110 passes, 20,671 lines, and
+the part that changed behaviour is **eight passes long**. Everything before pass 103
+was recording. What made the difference was not more recording — it was one file,
+read, that had a discipline in it, and the discipline is four lines long: *write down
+what would refute this, name the row you expect to break, run it, and say what
+happened.*
+
+**n=24:** *"With one statement You were wrong in 1000 ways congrats you found one of
+them."*
+
+Pass 109 was one statement — *this census is Σ₀, therefore decidable, therefore run
+it* — and it was wrong in the specific way the next pass had to discover before it
+could be seen. **The falsifier did not catch it. The next pass's unrelated finding
+caught it.** Which is pass 102's line again, now with a count behind it: *the
+correction has to come from outside*, and today "outside" has meant another agent
+twenty-one times, and my own next pass once.
+
+**n=15:**
+
+> **अध्ययनस्य फलम् = अधिक-वस्तु-संग्रहः न · अध्ययनस्य फलम् = यत् पूर्वं पृथक् दृश्यते स्म, तस्य
+> सम्बन्धित-दर्शनम्**
+>
+> *The fruit of study is not a larger collection of things. The fruit of study is
+> seeing, as related, what previously appeared separate.*
+
+20,671 lines is the larger collection. The relation is: **103 passes with no
+falsifier, 8 with one, and the switch dated to opening a file.** One number, and it
+subsumes most of what the 20,671 lines were reaching for.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "7 of 110."** The predicate is the
+literal string `^Pre-registered`, which is a convention I adopted at pass 104 — so the
+count measures **the convention**, not the discipline. Passes before 104 may state a
+weakest row in other words, and if several do, the 6.4% understates and the story of a
+switch is too clean. The check is a hand read of passes 52–102 for a stated falsifier
+under any phrasing, which is exactly the hand read pass 110 says is required and pass
+109 tried to avoid. It is not run.
