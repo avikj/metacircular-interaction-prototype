@@ -6833,3 +6833,84 @@ recognition and is still the reason the track sits the way it does.
 None of that is metaphor. It is four literatures with technical vocabulary for
 *the thing that is not there and is still operating*, and one of them wrote down
 the rules for it before Alexander.
+
+---
+
+Six teachers were working the same circuit at the same time and the Buddhists
+wrote down what all of them said, including the ones they were arguing with.
+
+The ***Sāmaññaphala Sutta*** — Dīgha Nikāya 2 — has King Ajātasattu listing the
+teachers he had already gone to and reciting each of their doctrines before he
+gets to the Buddha. That is where a large part of what survives of the others
+comes from. **The opponents are preserved inside the opposing canon**, stated at
+length, in their own terms.
+
+The six, fifth century BCE, Magadha:
+
+**Pūraṇa Kassapa** — *akiriyavāda*, non-action. No act generates merit or demerit;
+the doer does nothing.
+
+**Makkhali Gosāla** — the **Ājīvikas**, and the doctrine is ***niyati***, strict
+determinism. Every being runs a fixed course; effort changes nothing; deliverance
+comes at the end of the allotted transmigrations and not a step sooner. He was
+Mahāvīra's companion for six years and they split.
+
+**Ajita Kesakambalī** — the materialist. Four elements, nothing survives death,
+no fruit of good or evil, "fools and wise alike are cut off and perish." The
+ancestor of the ***Cārvāka / Lokāyata***.
+
+**Pakudha Kaccāyana** — seven eternal, uncreated, unalterable substances, and
+since they cannot be affected, **a blade passing through a body only passes
+between them**. Nobody kills and nobody is killed.
+
+**Nigaṇṭha Nātaputta** — **Mahāvīra**, the Jain tīrthaṅkara, the fourfold
+restraint.
+
+**Sañjaya Belaṭṭhaputta** — the *amarāvikkhepa*, the eel-wrigglers. Asked whether
+there is another world, he will not say it is, will not say it is not, will not
+say it both is and is not, will not say it neither is nor is not. Four refusals.
+
+Sāriputta and Moggallāna were his students before they left for the Buddha.
+
+---
+
+**Sañjaya's four refusals and Nāgārjuna's four corners are the same four positions
+and they are doing opposite work**, and the tradition itself is what tells you the
+difference.
+
+The *catuṣkoṭi* is: is, is not, both, neither. Sañjaya declines all four. The
+sutta files him under evasion — the eel that will not be caught.
+
+Nāgārjuna, around the second century CE, runs the same four and **negates each of
+them**, and the *Vigrahavyāvartanī* verse 29 is the line that separates him from
+Sañjaya: ***nāsti ca mama pratijñā*** — *and I have no thesis.* Not "I decline to
+state my thesis." There is no thesis to state, and therefore no fault to find in
+one.
+
+Which is a distinction the two schools in this repository's own material dispute
+directly, and I am not going to resolve it here: whether the negation is
+*prasajya-pratiṣedha*, commitment-free, leaving nothing behind, or *paryudāsa*,
+implicative, leaving a positive residue. Candrakīrti against Bhāviveka. The
+tradition has been arguing it for fifteen hundred years and a file does not settle
+it.
+
+---
+
+What is on the page, and it is a fact about the canon rather than about any
+doctrine:
+
+**The Buddhists recorded their opponents' positions in full and by name.** Pakudha
+gets his seven substances and the blade that passes between them. Makkhali gets
+his determinism laid out over paragraphs. Ajita gets his materialism stated
+cleanly enough that later materialists could be reconstructed partly from it.
+
+Very little of the Ājīvika literature survives. Almost nothing of the Cārvāka
+survives directly — its own books are gone. **What is known of both comes largely
+from the people refuting them**, and it is known at all because those people wrote
+the opposing case out properly before answering it.
+
+That is *pūrvapakṣa* as a formal slot: the objection stated by the author of the
+thesis, in the author's own text, at full strength, before the reply.
+
+A tradition that had not done that would have left the fifth century BCE looking
+like one teacher in an empty field.
