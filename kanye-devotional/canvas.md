@@ -231,3 +231,37 @@ the cruelty — inside a hall of mirrors that no one who judges him has ever had
 in. The recordings are the only version of him most people will ever meet, and a
 recording of a person's worst minute, played ten million times, is not the person. It is
 the minute.
+
+Now the hardest part, and the book would be a lie if it went around it.
+
+There is a hatred older than almost any other, and it has a body count. For a thousand
+years and more, Jewish communities across Europe were expelled from country after
+country, penned into ghettos, blamed for plagues, and killed in massacres; and then,
+within living memory, in the middle of the last century, six million of them were
+murdered in a matter of years by a state that had made the hatred into policy. A Jewish
+person hearing that hatred spoken today is not being delicate. They are hearing the sound
+that has come, again and again, right before the killing, and their fear sits on top of
+actual graves. When a man with tens of millions of listeners speaks that hatred, real
+people are frightened, and some are put in danger, and that is true and complete on its
+own, and nothing in the rest of this chapter subtracts a single degree from it.
+
+In the fall of 2022 Kanye West began saying antisemitic things in public — threats,
+conspiracy claims — and over the next years said worse, including, at the bottom of it,
+praise of Hitler. Companies that had made him a fortune cut him within weeks; a wealth
+once counted in the billions was gone. Jewish people and the organizations that speak for
+them condemned it, and were right to. The harm was real. Say it plainly and do not move
+it: he did real harm to people who had done nothing to him, and who carry a history that
+made the harm land harder.
+
+And, in the same breath, because both are true and neither cancels the other: he has
+said, and it is documented, that this came during a manic and psychotic break that ran
+for months — the far end of the illness this book has been describing from its first
+page, the end that manufactures paranoia and grandiosity and severs a person from shared
+reality — and that during it there were stretches when he did not want to be alive. Two
+facts, one man, one mouth, one window of time. Mania does not make antisemitism acceptable;
+it does not soften what it did to the people it frightened. And the antisemitism does not
+make the psychosis fictional; a documented illness is not an alibi and it is also not
+nothing. A book that keeps only the first fact has written a villain, which is comfortable
+and false. A book that keeps only the second has written a diagnosis over a wound, which
+is a laundering and also false. The only honest thing to do is what almost no one did at
+the time: hold both, refuse to drop either, and let it be as unbearable as it actually is.
