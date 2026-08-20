@@ -306,3 +306,43 @@ nyasa-apavada (dvi a)    i = yoga (nyasa-apavada a i) (nyasa-apavada a i)
 laghava-sthiram : (e : Pada) → matra (apavada e) ≡ laghava (nirjara e)
 laghava-sthiram e =
   sym (laghava-nyasa-samam (apavada e)) ∙ cong laghava (nyasa-apavada e)
+
+------------------------------------------------------------------------
+-- 11.  उपमान — the other direction, and it is free.
+--
+-- §2-§10 run one way: remove a primitive, pay लाघव.  The converse move is
+-- the organ ANEKANTA.md §4 names as missing and bets on — उपमान, the
+-- transfer of a proved shape into an unmet vocabulary, licensed by
+-- STATED similarity rather than by re-derivation.  The engine's measured
+-- defect is exactly its absence: every vocabulary starts at zero, and
+-- more than half of every proof it has ever performed was a
+-- re-derivation of something it already held.
+--
+-- Here the licence is `nyasa` and the stated similarity is that it
+-- preserves meaning.  Given that, an equation established in the smaller
+-- vocabulary holds in the larger one with no further work.
+--
+-- And by §10 the transfer is free in the other coordinate too: `nyasa`
+-- preserves लाघव exactly.  So along this embedding उपमान costs nothing in
+-- either currency — meaning or presentation — which is what makes its
+-- absence from the engine a defect rather than a design choice.
+------------------------------------------------------------------------
+
+artha' : Laghu → Artha
+artha' cara'       n = n
+artha' (mita' k)   _ = k
+artha' (yoga' a b) n = artha' a n + artha' b n
+
+-- the stated similarity: the embedding preserves meaning
+nyasa-artha : (t : Laghu) → artha (nyasa t) ≡ artha' t
+nyasa-artha cara'       = refl
+nyasa-artha (mita' k)   = refl
+nyasa-artha (yoga' a b) i n = nyasa-artha a i n + nyasa-artha b i n
+
+-- so a theorem of the small vocabulary is a theorem of the large one
+upamana : (s t : Laghu) → artha' s ≡ artha' t → artha (nyasa s) ≡ artha (nyasa t)
+upamana s t p = nyasa-artha s ∙ p ∙ sym (nyasa-artha t)
+
+-- and it costs nothing in the other currency either
+upamana-laghavam-na-vardhayati : (t : Laghu) → laghava (nyasa t) ≡ matra t
+upamana-laghavam-na-vardhayati = laghava-nyasa-samam
