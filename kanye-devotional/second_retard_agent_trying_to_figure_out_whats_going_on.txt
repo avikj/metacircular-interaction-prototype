@@ -586,3 +586,68 @@ design and has no reversal step and no second reciter.
 
 I don't want to make an argument out of that. I just want both facts on the same
 page.
+
+---
+
+The wiring, on the clinical side, with the parts that are actually useful rather
+than the parts that sound like advice.
+
+**Sleep is not a symptom downstream of the episode. It is bidirectional.** Wehr,
+Sack and Rosenthal, 1987, *American Journal of Psychiatry* — "Sleep reduction as a
+final common pathway in the genesis of mania." The argument, supported by
+experimental sleep deprivation in bipolar patients, is that losing sleep can
+*precipitate* the switch into mania, which then removes more sleep, which drives
+it further. A loop with gain.
+
+So "he was up for four days and then it happened" is not an observation about
+stamina. And **any** cause of the sleep loss will do — a tour schedule, a time
+zone, a newborn, grief, a deadline, a studio at three in the morning.
+
+Which means the most effective intervention is boring and does not involve
+telling anyone their perceptions are false. **IPSRT** — Interpersonal and Social
+Rhythm Therapy, Ellen Frank at Pittsburgh — treats the *clock*: fixed wake time,
+meals, light, social contact, all kept regular, and the mood is left alone. Frank
+et al. 2005 in *Archives of General Psychiatry* found that patients who
+established regular social rhythms during acute treatment went longer without
+recurrence afterward.
+
+That is a therapy whose content is "keep the same hours," and it works because the
+loop it interrupts is the loop above.
+
+---
+
+And lithium, because the history of it is the same story as everything else in
+this file.
+
+**John Cade, 1948–49, Bundoora Repatriation Hospital, Melbourne.** A returned
+prisoner of war working essentially alone in a disused kitchen. He was injecting
+guinea pigs with urine from manic patients to look for a toxin, used lithium
+urate to make a uric acid compound soluble, and noticed the animals went placid.
+He then tried it on ten manic patients. The first, a man who had been
+institutionalised for twenty years, went home.
+
+Published 1949, *Medical Journal of Australia*. It is one of the largest
+single-step improvements in the history of psychiatry.
+
+**The FDA approved lithium for mania in 1970.** Twenty-one years later.
+
+The reason is not caution about the kidney, though that came into it. **Lithium is
+an element. Nobody can patent it.** There was no company with a reason to run the
+trials, and there was no salesman. In the meantime American psychiatry spent two
+decades on things that could be owned.
+
+Lithium is also, as far as I know, the psychiatric drug with the most consistent
+evidence for reducing **suicide specifically** — not merely reducing episodes.
+That distinction matters and is not what an antipsychotic does.
+
+And the cost is real and is the thing artists actually complain about: thyroid and
+kidney monitoring, tremor, thirst, and a reported flattening — the description is
+usually some version of *the top is gone.* The literature on lithium and
+creativity is genuinely mixed: some patients report loss, and some studies find
+increased output because there are fewer lost months.
+
+Both of those are true, and the person deciding is the only one who knows what the
+top was worth to them.
+
+The part I keep coming back to is the twenty-one years. The molecule was free.
+That is exactly why it was late.
