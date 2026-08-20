@@ -5387,3 +5387,116 @@ claim is that closure fails where execution does not. Two passes, two
 hypotheses recovered, zero results overturned. §14.1 is now three clauses of
 six, and the three that remain are the three where the foundation he says has
 not been earned actually matters.
+
+---
+
+# PASS 18 — the repair is not an adjudication, and I would have written that it was
+
+## Ground pass
+
+Twenty-eight, again. n=25:
+
+> "With one statement" was referring to a singular sentence. Maybe tons of
+> singular sentences . So much of what you say independently produces infinite
+> delusion .
+
+Seventeen passes treated that as a verdict about my past sentences. This pass
+produced a live instance, in advance, and caught it — which is the only form in
+which that message can be obeyed rather than agreed with.
+
+## The check
+
+D0026 §2.5 repairs §2.4's failure with the two-sided middle nucleus:
+`M₃(x,b,z) = p(xbz) − p(x) − p(b) − p(z)`, `N(b,(x,z)) = M₃(x,b,z)`,
+`f ⊙ g := N_* N^*(f ⋆ g)`, and states `(f ⊙ g) ⊙ h = f ⊙ (g ⊙ h)`.
+
+`formal/cubical/MadhyaSamvarana_TheMiddleClosureRepairsTheExactFailingTriple.agda`
+`--cubical --safe`, **exit 0**, no postulates, no holes.
+
+Checked, by `refl`:
+
+- both decompositions of §2.5 — `M₃(x,b,z) = M(x,bz) + M(b,z) = M(xb,z) + M(x,b)`
+  — on all sixty-four triples of the §2.4 carrier;
+- `N^*` over the four-element carrier, `N_*` over the sixteen-element context
+  space `C × C`;
+- **the exact triple that breaks one-sided closure is repaired**:
+  `(ℓ_c ⊙ ℓ_a) ⊙ ℓ_c ≡ ℓ_c ⊙ (ℓ_a ⊙ ℓ_c)`, pointwise, all four points.
+
+Clause four of §14.1 is *not* discharged — §2.5's theorem is quantified over all
+profiles, this is one triple, and the module says so in its header. What is
+discharged is the one instance where the failure is known to occur.
+
+## The sentence I would have written
+
+Before computing, the sentence available to me was: *the middle closure resolves
+the ambiguity by agreeing with one of the two one-sided bracketings.* It is
+fluent, it is the shape of every repair theorem I have ever seen, and it is
+**false**.
+
+```
+(ℓ_c ⊙ᴸ ℓ_a) ⊙ᴸ ℓ_c  =  (−8, −2, −2, −8)     one-sided, left
+ ℓ_c ⊙ᴸ (ℓ_a ⊙ᴸ ℓ_c) =  (−5, −2, −2, −5)     one-sided, right
+(ℓ_c ⊙  ℓ_a) ⊙  ℓ_c  =  (−8, −5, −2, −8)     middle, either bracketing
+```
+
+A **third** profile. Pointwise `≤` both — checked — and **strictly below both at
+`a`**, where the two one-sided answers agreed with each other. Checked as a
+negation, not as a difference of printed digits.
+
+So saturating against every insertion context costs information at exactly the
+point where neither one-sided bracketing had lost any. That is §2.5's own
+condition, read exactly instead of read for its conclusion:
+
+> "a distinction may be discarded only after proving every supported insertion
+> context is insensitive to it."
+
+At `a`, no context is insensitive. So nothing may be discarded there, and the
+profile drops. The one-sided calculi agreed at `a` because both had thrown the
+same thing away, not because both had kept it. **Agreement between two lossy
+closures is not evidence.** That is the content, and it is not in §2.5's text —
+§2.5 gives the repair and does not compute it on the broken triple.
+
+n=25 is about sentences that produce infinite delusion independently. This is
+what one looks like from the inside: not a false claim I made, a false claim
+that was *available*, fluent, and would have been believed. The only thing that
+stopped it was running it.
+
+## Three passes, three hypotheses
+
+| pass | what formalizing returned |
+|---|---|
+| 16 | the trefoil law's hypothesis is not associativity of the operation but blindness of the measurement — and necessary, not just sufficient |
+| 17 | §2.4's counterexample depends on its table being associative, which the section does not state and which is true |
+| 18 | §2.5's repair returns a third profile below both one-sided answers, not one of them |
+
+Zero of his results overturned. Three gaps, all of them in what a reader would
+supply between the lines, and in every case the source was right and the
+obvious gloss was wrong. That is what §1.4's round-trip defect
+`Δ_{L,M}(X) = T_{M→L}T_{L→M}(X) − X` measures, and it has now returned a
+nonzero residue three times running without once returning an error.
+
+## §14.1
+
+| clause | status |
+|---|---|
+| trefoil law | checked |
+| Isbell closures | checked (conjugates, `cl_L`, closedness of both profiles) |
+| the exact counterexample | checked |
+| middle associativity | **the decisive instance** checked; the general theorem open |
+| residual laws | open — §2.6 |
+| derived-nucleus construction | open — §2.7 |
+
+## Standing charge for pass 19
+
+Read `D0019` (37,595 bytes) and `D0020` (33,406) — still unopened, still his,
+still in `collab/upstream/raw/`. Then §2.6's residual laws, which are an
+adjunction rather than a computation and so are the first clause where a finite
+carrier will not carry the whole statement.
+
+END OF PASS 18. §2.5's middle closure repairs the exact triple §2.4 breaks —
+checked. And it does not do it by choosing between the two one-sided answers: it
+returns `(−8,−5,−2,−8)`, a third profile strictly below both at the one point
+where the two one-sided answers agreed. Their agreement there was two closures
+discarding the same distinction, not two closures keeping it. The fluent
+sentence — "the repair adjudicates" — was available to me before I computed, and
+was wrong, which is n=25 caught in the act rather than conceded after the fact.
