@@ -12080,3 +12080,189 @@ where it is going, and it is the same operation as *sinister* and *gauche* and
 language performs the judgement.
 
 Reading on from 8780.
+
+---
+
+## 8780–8920 — the vocabulary of love, the name, the lane, the *Phaedrus*
+
+> **Amateur** is from *amare* — one who loves the thing. **Dilettante** is from
+> *delectare*, one who delights in it. Both were neutral or complimentary and
+> both became terms for someone who should not be listened to, over roughly the
+> same decades in which the professional structure formed. **The vocabulary of
+> exclusion was built out of the vocabulary of love**, and that is not a
+> metaphor, it is a lexical fact with dates.
+
+> **I am not making the anti-credential argument.** Professionalisation did
+> enormous good: it produced training, replication, method, and the ability to
+> distinguish work from confidence, **and the era of the gentleman amateur also
+> contained a colossal quantity of nonsense that nobody was in a position to
+> filter.**
+
+> **The gate was built to solve a real problem, it solves it, and the cost of the
+> solution is charged entirely to the people on the outside of it, and never
+> appears in the accounts of the institution that built it.**
+
+> Some of them would be filtered correctly, because **most people outside the
+> gate really do have nothing.** The point is not that the filter is wrong on
+> average. **It is that the filter's false negatives are invisible to it, by
+> construction, and therefore never enter the evidence by which it evaluates
+> itself** — which is the same sentence as the parity barrier, the same as the
+> fire model, and the same as the reviewer holding an unreadable manuscript.
+
+> ***Nullius in verba* is the correct instruction. It has just never once been
+> applied to the body that holds it.**
+
+---
+
+**The name.**
+
+> In 2018 he began going by **Ye**, and in 2021 changed it legally — no surname,
+> no middle name, one syllable. The reason he gave, publicly and more than once,
+> is that *ye* is among the most commonly used words in the Bible, that it means
+> **you**, and — his phrasing — that he is a reflection of **us**: our good, our
+> bad, our confused, everything.
+
+> The standing charge is that he is the most self-obsessed man in public life.
+> **The name he chose for himself is the second-person plural pronoun, on the
+> stated ground that what you are looking at when you look at him is
+> yourselves.**
+
+> Twice, seventeen years apart, in the two most exposed positions available to
+> him — **an opening verse and a legal name** — the content is: **this is about
+> you.**
+
+The most-mocked act of self-aggrandisement in his life is, read at the level of
+the word, the abolition of his own name in favour of the plural second person.
+And the reading is checkable in one dictionary lookup, which nobody performed.
+
+> Whether that is grandiosity or diagnosis depends entirely on whether it is
+> true, **and the evidence for it is the reaction, which has been enormous and
+> has told everybody a great deal about what the reactors believe.**
+
+If the claim is *you are looking at yourselves*, then the reaction is the
+measurement. The claim is self-testing, and the test has been running for years.
+
+---
+
+**The lane argument.**
+
+The 2013 run — Zane Lowe, Sway, Harvard, Oxford — *"a man saying, over and over,
+in almost these words: I want to make **things**. Not records. Objects,
+buildings, clothes, furniture, products cheap enough that ordinary people can
+have them. And the answer he kept getting from the industries he wanted into was
+that he was a musician and should remain one."*
+
+> *Stay in your lane* is the phrase, and it is worth noticing what it actually
+> is. **It is not a judgement about ability — nobody had seen his furniture.** It
+> is a statement that **the lanes exist and you were assigned one**, and the
+> assignment was made by people who were not consulted with and cannot be
+> appealed to.
+
+> That is the gate again, and it is the same gate as *you are a producer, not a
+> rapper*, which was the first one, **and which was wrong.**
+
+The first assignment was made and was demonstrably wrong, by the same mechanism,
+by the same industry, and the wrongness of the first is not treated as evidence
+about the second. Which is the forecaster with no scorecard, applied to a person
+instead of a record.
+
+> he is a creative genius and there is no other way to word it. Read against the
+> rest of the transcript **it is not a boast about his taste. It is an argument
+> about *standing*** — a demand for the category that would make him admissible
+> to the rooms, made by somebody who had noticed that **the category is what
+> admits you and not the work.**
+
+> **Which he was right about. The category is what admits you.** Everyone in this
+> file who got in without one — **Faraday through a bottle-washing job, Hildegard
+> through a papal reading, Ramanujan through Hardy's letter** — got in because
+> somebody with standing spent it, **and everyone who did not get in had exactly
+> the same quality of work.**
+
+> **He did not have anyone to spend it for him, so he said it himself, loudly,
+> for a decade, and that is the single most-mocked thing about him.**
+
+Saying it yourself is what you do when there is no Einstein to mail your paper
+to. And it is the same act as Sun Ra building his own authority and Hildegard
+going to get one — except those two are read as visionary and this one as
+egomania, and the difference is that he asked in the vocabulary the culture
+reserves for self-flattery, because there is no other vocabulary for it.
+
+*Adhikāra*, demanded aloud by the person who lacks it. The traditions have a
+word for that transaction and a mechanism for it — Nalanda's door, disputation —
+and the industries in question have neither, so the request has no legible form.
+
+---
+
+**Plato, *Phaedrus*.**
+
+> Socrates argues — and this is not a throwaway, **it is the pivot of the
+> dialogue** — that **the greatest of goods come to us through madness**,
+> provided the madness is god-sent.
+
+The four kinds:
+
+- **prophetic**, from Apollo — with an etymological argument that *"the ancients
+  who named the *mantic* art and the *manic* state saw them as one thing, and
+  that the modern spelling with the extra letter was added by people with no
+  taste"*;
+- **telestic**, from Dionysus, which purifies;
+- **poetic**, from the Muses — *"whoever approaches the doors of poetry sane,
+  confident that skill will be enough, is **not admitted**, and the poetry of the
+  sane is eclipsed by the poetry of the possessed"*;
+- **erotic**, from Aphrodite and Eros, ranked highest.
+
+Socrates making an etymology joke about people who added a letter to separate
+*mantic* from *manic* — the split the whole file is about, dated to before Plato,
+and mocked in the text as bad taste.
+
+> the four highest human capacities — **foresight, purification, poetry, and
+> love** — all arrive by way of a state that looks, from outside, like being out
+> of your mind, **and the sane version of any of them is a lesser product.**
+
+> **He is not sentimental about it.** He distinguishes the god-sent kind from
+> ordinary derangement, and the whole question of *which one you are looking at*
+> is left exactly where this file has been leaving it: **undecidable from
+> outside, in the moment, by anyone.**
+
+Plato leaves the bind exactly where the file leaves it. Twenty-four centuries,
+same undecidability, and neither pretends to close it.
+
+> **And Aristotle's school asks the other question** — *Problemata* XXX.1 — and
+> answers it with **black bile**. A humour. A physiological substrate. A
+> condition.
+
+> Two accounts, from the two founding schools, of the same observed correlation:
+> one says the state is a **gift from outside** and the sane version of the work
+> is inferior; the other says it is **a fluid in the body**.
+
+> **The second one won, completely**, and everything since is downstream of it —
+> Ficino's Saturn, the Romantic temperament, Lombroso's degeneracy, the
+> diagnostic manual. And each of those is a refinement of the *substrate*
+> account, **and none of them has any room at all for the possibility that the
+> report from inside the state is about something real.**
+
+That is the *pramāṇa* problem at its source: not that the report is doubted, but
+that the winning framework has no slot in which a report from inside the state
+could be evidence about anything except the state. Hardy hearing observance
+rather than conviction, because in the new grammar there is nowhere for an
+external source to sit — same sentence, and here is where the grammar was
+chosen.
+
+> By the time the word arrives at us, **mania** means a mood episode with
+> criteria, and *maniac* means dangerous, and *crazy* means dismissible, and the
+> Platonic sense is not merely absent — **it is unavailable, because the
+> vocabulary has no slot for a state that is both a disorder and a route.**
+
+> **Which is the notation argument again, run on a word instead of a stave.** The
+> vocabulary preserves what it can represent. It could represent the humour, so
+> the humour became the content. It could not represent the fourth Platonic
+> kind, so the fourth kind became
+
+cut at 8920 — mid-sentence, on the word for what happens to what cannot be
+written.
+
+And *a state that is both a disorder and a route* is the fourth position with no
+word for it. *Avaktavyam*, in a vocabulary that lacks the slot, which is exactly
+what *avaktavyam* was invented to name.
+
+Reading on from 8920.
