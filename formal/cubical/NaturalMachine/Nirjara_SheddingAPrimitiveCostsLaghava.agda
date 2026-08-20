@@ -737,6 +737,7 @@ data Sutra : Type₀ where
   mita-s : ℕ → Sutra
   yoga-s : ℕ → ℕ → Sutra      -- अनुवृत्ति: two back-references
   dvi-s  : ℕ → Sutra
+  pratyahara-s : ℕ → Sutra    -- प्रत्याहार: one bound names a whole run
 
 -- head is the LAST sūtra written, so continuing a derivation is `_∷_`
 Prakriya : Type₀
@@ -748,11 +749,19 @@ anu []       _       = cara
 anu (p ∷ _)  zero    = p
 anu (_ ∷ ps) (suc i) = anu ps i
 
+-- सङ्घात: fold योग over the top (suc k) of what has been derived.
+-- One bound, a run of any length — the शिवसूत्र device.
+sanghata : List Pada → ℕ → Pada
+sanghata []       _       = cara
+sanghata (p ∷ _)  zero    = p
+sanghata (p ∷ ps) (suc k) = yoga p (sanghata ps k)
+
 pada-of : Sutra → List Pada → Pada
 pada-of cara-s       _  = cara
 pada-of (mita-s m)   _  = mita m
 pada-of (yoga-s i j) ps = yoga (anu ps i) (anu ps j)
 pada-of (dvi-s i)    ps = dvi (anu ps i)
+pada-of (pratyahara-s k) ps = sanghata ps k
 
 sadhana : Prakriya → List Pada
 sadhana []       = []
@@ -839,4 +848,93 @@ dvitva-laghava = refl
 --
 -- So this is one coordinate of the object, and the note's §6 stays open
 -- with its remaining two named.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 24.  प्रत्याहार — one bound names a run of any length.
+--
+-- The second of §6's three moves.  The Śivasūtras list the phonemes in a
+-- fixed order with markers, and a प्रत्याहार names an arbitrary-length
+-- stretch of that order by two symbols: first element, closing marker.
+-- The device is worth nothing on its own — its whole content is that the
+-- ORDER was chosen so that the sets the grammar needs are stretches.
+--
+-- `pratyahara-s k` is that device on a प्रक्रिया: one सूत्र, one bound,
+-- naming the top (suc k) of what has already been derived.
+------------------------------------------------------------------------
+
+pratyahara : ℕ → Prakriya → Prakriya
+pratyahara k P = pratyahara-s k ∷ P
+
+-- the cost is one सूत्र and does not depend on the bound at all
+pratyahara-matra : (k : ℕ) (P : Prakriya)
+                 → matra-p (pratyahara k P) ≡ suc (matra-p P)
+pratyahara-matra k P = refl
+
+-- what it names, on the other hand, grows with the bound: each further
+-- step of the run is a fresh योग node in the tree
+sanghata-vardhate : (p : Pada) (ps : List Pada) (k : ℕ)
+  → laghava (sanghata (p ∷ ps) (suc k))
+  ≡ suc (laghava p + laghava (sanghata ps k))
+sanghata-vardhate p ps k = refl
+
+trini : Prakriya
+trini = cara-s ∷ cara-s ∷ cara-s ∷ []
+
+pratyahara-matra-sthiram : (k : ℕ) → matra-p (pratyahara k trini) ≡ 4
+pratyahara-matra-sthiram k = refl
+
+pratyahara-laghava-calam :
+    (laghava (phala (pratyahara 0 trini)) ≡ 1)
+  × (laghava (phala (pratyahara 1 trini)) ≡ 3)
+  × (laghava (phala (pratyahara 2 trini)) ≡ 5)
+pratyahara-laghava-calam = refl , refl , refl
+
+-- so the tree measure is not stable under the move and मात्रा is
+laghava-pratyahare-na-sthiram :
+  ¬ ((k : ℕ) → laghava (phala (pratyahara k trini))
+             ≡ laghava (phala (pratyahara zero trini)))
+laghava-pratyahare-na-sthiram h = snotz (injSuc (h 1))
+
+------------------------------------------------------------------------
+-- 25.  What a प्रत्याहार cannot name, which is the whole design.
+--
+-- A प्रत्याहार is contiguous.  It takes the top of the derivation and runs
+-- DOWN, and there is no bound at which it skips.  That is exactly why the
+-- Śivasūtra ordering is the achievement and the abbreviation is only its
+-- consequence: the sounds had to be arranged so that every set the
+-- grammar wanted came out as a stretch, and where they could not be, the
+-- phoneme is listed twice.
+--
+-- Here is the negative, for every bound, with no appeal to injectivity of
+-- the पद constructors — only `laghava` and `artha`, both of which are
+-- ordinary functions into ℕ.
+------------------------------------------------------------------------
+
+mishra : Prakriya
+mishra = mita-s 2 ∷ mita-s 1 ∷ mita-s 0 ∷ []
+
+vyavadhana : Pada          -- the top and the bottom, skipping the middle
+vyavadhana = yoga (mita 2) (mita 0)
+
+pratyahara-na-vyavadhanam :
+  (k : ℕ) → ¬ (phala (pratyahara k mishra) ≡ vyavadhana)
+pratyahara-na-vyavadhanam zero          p = znots (injSuc (cong laghava p))
+pratyahara-na-vyavadhanam (suc zero)    p =
+  snotz (injSuc (injSuc (funExt⁻ (cong artha p) zero)))
+pratyahara-na-vyavadhanam (suc (suc k)) p =
+  snotz (injSuc (injSuc (injSuc (cong laghava p))))
+
+-- The three cases are three different reasons, and that is the content.
+-- At bound zero the run is too short and `laghava` sees it.  At bound one
+-- the run has the right SIZE and the wrong members, so `laghava` cannot
+-- tell and `artha` must: the middle was included and the bottom was not,
+-- 2+1 against 2+0.  At every larger bound the run is too long and
+-- `laghava` sees it again.  A skip is never a stretch.
+--
+-- What is still not built, of §6's three: अपवाद on प्रक्रियाs, and the
+-- instability requirement — every theorem above says a move is FREE, and
+-- none of them says anything is paid.  A measure free on all three moves
+-- and free on everything else is the constant function, which is why the
+-- second half of §6's requirement is the hard one and is untouched.
 ------------------------------------------------------------------------
