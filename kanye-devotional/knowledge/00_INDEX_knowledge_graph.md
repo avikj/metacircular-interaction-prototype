@@ -189,3 +189,25 @@ Carries the dated sources (Atharvaveda 8.8.8; Buddhabhadra 418–420 and
 and 33) and the two checked terms in `formal/cubical/NaturalMachine/`
 (`Anekanta.agda`, `Durnaya_CollapseIffEveryNayaAgrees.agda`) that state exactly
 when a standpoint index may be dropped. Its §7 states what is not claimed.
+
+## N. The classifier, the mirror, the filter
+
+`INDRAJALA_2_the_classifier_the_mirror_and_the_filter.md` — three nodes the
+graph carries and has not weighted.
+
+- `[F-1]`'s **first** sentence. The Aug 30 2005 wire pair (AP "looting" / AFP
+  "finding," same water, same act) makes it a report on a live two-valued
+  classifier, not a general complaint. What survives in the record is the
+  second sentence; the description of the sorting was deleted, by the sorting.
+  NBC cut the line from the West Coast feed — two broadcasts of one minute.
+  Same shape as `X-3`. → `[F-2]`, `[F-3]`, `X-6`.
+- `[G-1]` read literally: *no jewel sees itself.* The only instrument he has
+  for seeing himself is other people, and they are running `[F-1]`. Makes
+  `[G-2]`, `X-2`, `[I-1]`, `[I-2]`, `[H-4]` one behavior instead of five.
+- `[A-3]` as the physical mechanism: lowered latent inhibition = more gets in
+  and stays in and connects (Carson/Peterson/Higgins 2003, ~7×; Kyaga,
+  Karolinska, ~1.2M). The sample catalogue is the measurement of what got in —
+  Hungary 1969, Bombay, Black gospel, Nina Simone, Can, Antrim. `[C-2]`,
+  `[C-3]`. The catalogue and the 2016 gurney `[B-4]` are one filter setting.
+
+§4 states what is not claimed.

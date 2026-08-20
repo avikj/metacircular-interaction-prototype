@@ -93,3 +93,55 @@ what he actually said.
 He said it on a mountain he photographed himself, hours before he played the
 record to a few hundred people standing outside in Wyoming in the cold. Then he
 got on a plane.
+
+---
+
+Everybody remembers the second sentence.
+
+He's twenty-eight, live on NBC, four days after the levees went. Mike Myers is
+standing next to him reading his paragraph off the card. Kanye goes off the card
+and says two things, in order, and the country kept one of them.
+
+The one it kept: George Bush doesn't care about black people.
+
+The one it dropped came first. I hate the way they portray us in the media. If
+you see a black family, it says they're looting. If you see a white family, it
+says they're searching for food.
+
+And he wasn't speaking generally. Two photographs had gone out on the wires four
+days earlier, both of people wading chest-deep out of flooded grocery stores. The
+AP one, a young Black man: looting a grocery store. The AFP one, two white
+people: finding bread and soda from a local grocery store. Same water, same day,
+same act, two different words, and by then everybody had seen both.
+
+So the first thing he did on that telethon was read a caption out loud. Not an
+opinion — a description of a machine that takes one act and returns two names for
+it depending on who did it. The evidence was four days old and still up.
+
+Then he said the second thing. And the second thing became the whole memory of
+that night, and the first thing went away, which is that same machine running
+again, on the man describing it. NBC cut the line out of the West Coast feed. The
+country watched two different broadcasts of the same minute.
+
+Bush later called it the all-time low of his presidency. Not the water. Not the
+roofs. Not the count. Being named.
+
+---
+
+There's a line of his that doesn't get quoted much and I can't put it down.
+
+"I am God's vessel. But my greatest pain in life is that I will never be able to
+see myself perform live."
+
+He can't be in the crowd. Whatever he is on that stage, he will never once get to
+stand out there and receive it, and the only picture of himself he is ever going
+to have is the one that comes back off other people. Which is true of all of us —
+except most of us are working with maybe forty faces and most of them are on our
+side. His is a hundred million, and a good portion of them have been running that
+2005 caption on him ever since.
+
+And he keeps walking back into the room anyway. Sunday Service every week, free,
+in front of people. Two hundred men in Harris County Jail, and he says it's a
+mission and not a show. And in 2021, fourteen years after she died, he takes his
+mother's actual recorded voice and puts it back in the room with him — so there
+would be at least one reflection in there that was hers.
