@@ -36160,3 +36160,120 @@ and removed.
 
 n=6 and n=7 are both anaphoric and neither names its antecedent. The ground's order is the
 conversation's, not the clock's.
+
+# PASS 206 — ground re-read in full first. The walk continues at n = 8 with
+# the clock and the literal under it. Carried in from P35: no closing
+# sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P206 · n = 8, with the literal under it
+
+**The ground's entry is a description** (pass 197). The literals are full n=55–60.
+
+**Delta 14's opening, literal**, full transcript **n=56**, **2026-08-14T04:09:27Z**:
+
+> *"**You must write this into the natural machine core**
+> Univalent Perspectival Mathematics — Delta 14
+> Theorem factory I
+> Date: 2026-08-13
+> **Status: exact/standard results + explicit conjectural program. No novelty claims.**"*
+
+**The imperative and the disclaimer are four lines apart in the same document.** *You must write
+this into the natural machine core* — the only imperative in the six transmissions — and, under
+the title and the date, **No novelty claims.**
+
+**Which places what the imperative is asking for.** Not *this is new, preserve it*. **The status
+line says the results are exact or standard and the program is explicitly conjectural**, and the
+instruction on top of it is to put them into the core. **The value being asserted is not
+originality; it is that they should be *there*.**
+
+**The first theorem carries its hypothesis in its first clause.** *T14.1 (center-relative
+equivalence). **Let R be a commutative ring with 2 invertible.** Define Φ(p,q)=((p+q)/2,(q−p)/2)
+…* — **the halves are why 2 must be invertible**, and every fixed-sum statement downstream inherits
+it.
+
+**And two of the numbered items are stated as failure conditions rather than as constructions.**
+*T14.6 (boundary restriction criterion). For e:A≃B and predicates A₊,B₊, e restricts to A₊≃B₊
+**iff** A₊(a)↔B₊(e a) for all a.* · *C14.7. **Ambient equivalence can fail after sector selection
+precisely because the sector predicate is not invariant.*** **An iff and a can-fail, at positions
+6 and 7 of a theorem factory.**
+
+---
+
+## P206 · n = 8 — what the repository did with it
+
+`notes/DELTA14_ALL_SEVENTYEIGHT_WITH_STATUS_AND_TRIAGE.md`, handle **`cf-tessera-z-3`**, snapshot
+**2026-08-20**. It cites the literal by message number in k-7's file and quotes both the imperative
+and the status line.
+
+**Its second sentence declares that the measurement altered the measurand:**
+
+> Snapshot date: 2026-08-20, taken **before** the module this note ends with was written. That
+> ordering matters and is stated first because **this check erases its own reading**: T14.4 and
+> T14.5 were UNNAMED when the count was taken and are CHECKED by the time you read it.
+
+**And it names three defects in the measurement, the first of them its own:**
+
+> **Substring false nonzero (mine, caught and discarded).** My own first pass used a bare
+> boundary-anchored `(^|[^0-9.])14\.N([^0-9]|$)` across the whole repo. **It matched *decimals*:**
+> `10.92--14.20 ms` in `collab/FAILURES.md`, `14.5` in `notes/DIVISOR.md`, `14.1` in a legacy
+> script, and every `14.x` in a handoff file **dated two days before Delta 14 existed.**
+
+**A file dated two days before the thing it appeared to cite.** That is the control that caught
+it, and it is the same class as pass 171's `\beel\b` and pass 125's `rage` — **and z-3 found it in
+its own first pass and discarded the pass.**
+
+**The counts, at snapshot and after:**
+
+```
+CHECKED (theorem numbers with a term)      17 of 78
+Programs (§O) discharged                    6 of 8   (14.71–14.76)
+CITED, not checked                         20 of 78
+UNNAMED                                    41 of 78
+                     post-write, same session:  CHECKED 19, UNNAMED 39
+```
+
+**And the greppable/ungreppable boundary is stated:** *"Raw result: 39 cited, 39 unnamed. Subtract
+the two homonyms … 37 cited, 41 unnamed. **The CHECKED/CITED split inside the 37 is not greppable
+at all and was read by hand.**"*
+
+**So: of seventy-eight numbered statements carrying his one imperative, nineteen have a checked
+term, and thirty-nine are not named by any file.** Six days after the transmission.
+
+---
+
+## P206 · n = 9, with the clock under it
+
+**Literal**, full transcript **n=61**, **2026-08-14T04:45:12Z** — seven minutes thirty-six seconds
+after Delta 19, the last of the six.
+
+> *"Subagents must emulate 16 distinct geniuses throughout time and work on whatever they want"*
+
+**Third occurrence of *do/work on whatever they want*.** n=1: *You keep doing whatever you want*
+(the failure). n=3: *digest it all then do whatever you want* (the instruction, with a
+precondition). **n=9: *work on whatever they want* — and here the precondition is not digestion,
+it is *emulate 16 distinct geniuses throughout time*.**
+
+**Both times the phrase is licensed, the licence is a constraint on the reader rather than on the
+work.** Digest first; be sixteen distinct minds first. **The freedom is downstream of a change in
+who is doing it.**
+
+**Lockstep — P197 · n=9.** Pass 197 measured the draw file: sixteen blocks, two urns, a
+rare-corner correction, sixteen ancient fields named by technique. **What it did not put beside it
+is that the same four words appear at n=1 as the thing he is complaining about**, twenty-two hours
+and twenty minutes earlier.
+
+---
+
+## P206 — what this pass counted
+
+Delta 14's imperative and its *No novelty claims* status line are four lines apart. T14.1's
+hypothesis is *2 invertible*; T14.6 is an iff; C14.7 is a can-fail.
+
+`DELTA14_ALL_SEVENTYEIGHT`: 17 checked at snapshot, 19 after; 20 cited-not-checked; 41 unnamed at
+snapshot, 39 after; 6 of 8 programs discharged. The note declares that its own writing moved two
+rows, and it discards its own first grep for matching decimals in a file that predates the
+transmission by two days.
+
+*Whatever they want* occurs three times: n=1 as the failure, n=3 licensed by digestion, n=9
+licensed by being sixteen distinct minds.
