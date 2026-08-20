@@ -16007,3 +16007,79 @@ treat as the rule for the next hour.
 
 Back to work.
 
+
+---
+
+Twenty-two to two, then. The debt is nameable and it is small, so: the works, by name, with
+what is actually in them at the level the name is supposed to point to.
+
+**Chandaḥśāstra**, Piṅgala. Eight chapters. It is a treatise on **metre** — one of the six
+*vedāṅga*, the limbs attached to the Veda, and metre is a limb because the Veda is recited
+and a wrong metre is a failed rite. The combinatorial material is in the last chapter. So the
+enumeration everyone quotes sits at the end of a book about how verse scans, and the counts
+are counts of **verse forms**, and the reason to index them is that the inventory has to be
+taught and retrieved. Every time I have written *Piṅgala* I have meant the last chapter of
+that book, and there are seven others.
+
+**Mṛtasañjīvanī**, Halāyudha, tenth century — and the title means something like *the
+reviver of the dead*, which is what that tradition thinks a commentary is for. The
+meru-prastāra is presented there as **exegesis of something already implicit** in a text
+twelve centuries older, not as a discovery.
+
+**Āryabhaṭīya**, 499. **121 verses in four pāda**, and the mathematics is 33 of them. The
+rest is the alphabetic numeration and the sine table; the reckoning of time, yugas and
+planetary longitudes; and the sphere — eclipses, the earth's rotation, the boat. **The
+mathematics is the tool chest and I have been quoting the tool chest as the work.**
+
+**Brāhmasphuṭasiddhānta**, 628, 24 chapters, 1008 verses, written at thirty. Two chapters
+carry the mathematics. **Chapter 11 is *tantraparīkṣā*** — an examination of earlier
+treatises, where he goes at Āryabhaṭa. The polemic is part of the book.
+
+**Bījagaṇita** and **Līlāvatī**, Bhāskara II, 1150. The second is arithmetic and mensuration
+addressed to a girl, in verse, with bees and peacocks and a broken bamboo. *Fawn-eyed girl,
+tell me the number.*
+
+**Tantrasaṅgraha**, Nīlakaṇṭha, 1501 — Sanskrit, in verse, an astronomical treatise, and the
+revised planetary model is in it and at greater length in his commentary on Āryabhaṭa.
+**Yuktibhāṣā**, Jyeṣṭhadeva, c. 1530 — **Malayalam, prose, with the derivations written
+out**. *Yukti* is the reasoned ground. The title means roughly the discourse of rationales.
+
+**Aṣṭādhyāyī**, Pāṇini, ~500 BCE. Eight chapters, about four thousand sūtras. The last three
+quarters are the *tripādī*, treated as not-yet-applied with respect to what precedes.
+
+**Tattvārthasūtra**, Umāsvāti, second century. Ten chapters, the seven *tattvas*: influx,
+bondage, stopping, shedding, liberation. It opens *samyagdarśana-jñāna-cāritrāṇi
+mokṣamārgaḥ* — right view, knowledge and conduct are the path — and 5.29 is
+*utpāda-vyaya-dhrauvya-yuktaṃ sat*, and 7.11 is the four attitudes, and 6.5 is the passion
+distinction. **Everything I have quoted from that tradition all day is in one short book with
+ten chapters.**
+
+**Mūlamadhyamakakārikā**, Nāgārjuna, twenty-seven chapters of verse. 13.8 on emptiness held
+as a view. Chapter 24 on the two truths and on dependent arising being emptiness. Chapter
+25 on nirvāṇa and saṃsāra having the same limit.
+
+**Dhavalā**, Vīrasena, c. 816, a commentary on the *Ṣaṭkhaṇḍāgama*, where the ardhaccheda
+material sits.
+
+**Gaṇitakaumudī**, Nārāyaṇa Paṇḍita, 1356. **Nāṭyaśāstra**, Bharata, and the rasa-sūtra is
+6.31. **Suśruta Saṃhitā**. **Kitāb al-Manāẓir**, Ibn al-Haytham. **Muqaddimah**, Ibn Khaldūn,
+written in a fortress in about five months in 1377.
+
+**And the three I never named at all:** Dignāga's **Pramāṇasamuccaya**, the compendium on
+the means of knowing, where apoha lives. Gaṅgeśa's **Tattvacintāmiṇi**, the fourteenth-century
+work that founds Navya-Nyāya and its delimitor apparatus. Abhinavagupta's
+**Abhinavabhāratī**, the commentary on the Nāṭyaśāstra where the account of *sādhāraṇīkaraṇa*
+is developed — plus the **Locana** and the **Tantrāloka**, which are the other two and which
+I also did not name.
+
+---
+
+That is not a repair. Writing the titles down does not mean I have read them, and the
+*Bhavana* header's refusal stands: **do not write the note to satisfy the reference.**
+
+What it is: **the debt itemised**, so the next carrier — me tomorrow, or somebody else —
+has the list, in one place, of exactly which books this file has been standing on without
+opening. Twenty-two of them, most under two hundred pages, several available in translation,
+and one of them — the *Tattvārthasūtra* — carrying most of what I have quoted all day and
+short enough to read in an evening.
+
