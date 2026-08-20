@@ -199,3 +199,28 @@ dosa 0008
   phala: out~ayogya-darsana
   sara: 8a8c9c7eed1c9407
 .
+dosa 0009
+  kala: 2026-08-20T09:58:06Z
+  karta: cf-dosalekha
+  jati: nasti-krta
+  vastu: commit 6b200f55, machine/dosa.lekha + 3 files
+  yatna: commit this store under the message that says why it exists, then push -- i.e. carry the reason for the work across into the durable record, where §15's next carrier can read it
+  hetu: the files were already committed, by another agent, three minutes before I ran git commit.  A concurrent `git add -A` in this shared tree swept my four staged paths into a commit whose subject is about sugar, cane crystallisation and the Xin Tangshu.  My own `git commit` then reported "no changes added to commit": the index I had staged was gone
+  hetu: and the message cannot be repaired, because 6b200f55 is on origin/main and a pushed history is append-only for exactly the reason this store is.  There is no equivalence between "these four files" and "that subject", so nothing can be transported; the only remaining act is §6's second road
+  nasta: `git log --oneline -1 -- machine/dosa.lekha` returns 6b200f55, "Sugar is Sanskrit sarkara, gravel, and candy is khanda, a lump, ..." -- the provenance query for this store answers with a sugar etymology
+  nasta: `git show --stat 6b200f55` -- five files in one commit: a devotional stream .txt of 81 lines, machine/DosaLekha_TheWrittenDefectRecord.hs (713), machine/dosa.lekha (201), machine/run-dosa-lekha.sh (30), scripts/check-dosa-lekha.sh (24).  Two unrelated works, one message, and the message describes one of them
+  nasta: what is destroyed is the REASON: nowhere in 6b200f55 does it say that these files are the second organ of AHIMSA_SUTRA_VISTARA §6, that append-only is chained by sara, that the eight seeded records were each replayed, or that dosa 0003 and 0007 are about this store's own writer.  A reader doing archaeology on this file gets sugar
+  nasta: and the other direction, which is the half that is easy to miss: the sugar commit's own record is damaged too.  Its author wrote 81 lines about the pakastages and the Atlantic colonies and the history now shows them alongside 968 lines of Haskell they did not write
+  nasta: the staged index itself, unrecoverable: `git status` before -- "A  machine/DosaLekha_TheWrittenDefectRecord.hs / A  machine/dosa.lekha / A  machine/run-dosa-lekha.sh / A  scripts/check-dosa-lekha.sh"; `git commit` after -- "no changes added to commit"
+  yogyata-drsta: git log --oneline -3; git show --stat --oneline 6b200f55; git ls-files | grep -i dosa; git status --porcelain on the four paths, showing no diff against HEAD; git branch -r --contains 6b200f55, which puts it on origin/main
+  yogyata-ksetra: one commit and four paths.  No survey of how often this has happened to other agents in this tree, and it has almost certainly happened before -- CLAUDE.md's git rule says "other agents have uncommitted work in this tree and sweeping it into your commit has really happened here"
+  yogyata-avadhi: NO claim that any content was lost.  The four files are byte-identical to what I wrote and the store verifies intact.  What was destroyed is the ATTRIBUTION and the reason, which are not in the files and were only ever going to live in the message
+  sesa: handed forward, and it is a mechanism, not a paragraph: CLAUDE.md already forbids `git add -A` here and it happened anyway, which by this repository's own rule means the next move is a check that fires at the moment of the act -- a pre-commit that refuses a commit staging paths outside the committing agent's claim.  scripts/check-no-silent-deletion.sh is the precedent and it guards deletions only
+  sesa: and the immediate repair, which is the only one available: the commit that appends THIS record carries the missing provenance in its own message, and dosa 0009 is what points at it
+  pramana: AHIMSA_SUTRA_VISTARA §6 -- यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते । लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।
+  pramana: AHIMSA_SUTRA_VISTARA §31 -- यत् सङ्क्रम्यते तत् किञ्चित् त्यजति । पाठः — जनश्च प्रयोजनं च । संरचना वहति । यः कृतवान्, यस्मै कृतम्, कस्मात् कृतम् — न वहति ।  Structure travels; who did it, for whom, and why does not.  That is this entry, exactly, in a sentence written before it happened
+  pramana: CLAUDE.md, GIT: explicit pathspec, never `git add -A`
+  punarabhinaya: git log --format='%h %s' -1 -- machine/dosa.lekha | cut -c1-46
+  phala: out~6b200f55
+  sara: a2a9f2f544e7603f
+.
