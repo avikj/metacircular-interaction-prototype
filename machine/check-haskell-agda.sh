@@ -50,6 +50,7 @@ mkdir -p \
   "$check_directory/ghc/no-code-math" \
   "$check_directory/ghc/no-code-induction" \
   "$check_directory/ghc/no-code-rewrite-gate" \
+  "$check_directory/ghc/pramana" \
   "$check_directory/ghc/rewrite-gate" \
   "$check_directory/ghc/math" \
   "$check_directory/ghc/induction" \
@@ -136,5 +137,25 @@ printf '%s\n' '==> running checked induction installation gate'
 # deliberately non-terminating candidate proving the timeout fires.
 printf '%s\n' '==> running Agda rewrite-certificate grammar and hardening gate'
 "$rewrite_gate"
+
+# The pramana layer: hetvabhasa, abhava with its pratiyogin and its searched
+# extent, and the five-membered inference that will not conclude without a
+# verified udaharana.  Run from here because machine/Yogyata.hs's header
+# records what a module with a selfTest nobody calls costs: Upamana.hs sat
+# 896 lines unread, Pramana.hs's own table called it ABSENT, and the first run
+# found three defects latent since it was written.  Exits nonzero on any
+# failed check; its log census never affects the exit code, because a log is
+# a description and not a regression.
+printf '%s\n' '==> running the pramana layer self-tests and hetvabhasa census'
+# -Wall but NOT -Werror, and the reason is recorded rather than left to look
+# like laziness: Obstruction.hs and Pramana.hs carry pre-existing -Wx-partial
+# warnings (head/tail) that belong to their own lanes, and promoting them to
+# errors here would make this step an outage for someone else's warning.  The
+# three modules this step introduces are -Wall clean on their own.
+ghc -Wall -fforce-recomp "$machine_include" \
+  -outputdir "$check_directory/ghc/pramana" \
+  -o "$check_directory/bin/nyayapariksa" \
+  "$repository_directory/machine/Nyayapariksa_RunThePramanaLayer.hs"
+"$check_directory/bin/nyayapariksa"
 
 printf '%s\n' 'HASKELL-AGDA MACHINE CHECKED'
