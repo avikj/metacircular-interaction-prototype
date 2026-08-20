@@ -583,3 +583,30 @@ and this is not a claim that he is. It is a claim about the sentence's ancestry:
 of standing up in public and telling the country it has betrayed itself is not a symptom
 he invented. It is one of the oldest things a Black American voice has done, and it has
 always been punished.
+
+---
+
+Nearly every moral tradition holds that a person is not permanently identical to their
+worst act, and each built machinery for return. In Judaism the concept is teshuvah,
+literally "return"; Maimonides set out its stages — recognition, remorse, confession,
+restitution, and changed conduct when the same temptation recurs — as a path by which a
+wrongdoer is restored, and taught that one who has completed it stands where the
+perfectly righteous cannot. In Christianity the word is metanoia, a turning of the mind;
+the parables insist on it, the prodigal welcomed home, forgiveness extended "seventy
+times seven." Buddhist and Jain thought hold that the self is not fixed and that even a
+murderer — Angulimala, who wore his victims' fingers — can transform completely within a
+single life. Systems of restorative justice are the secular form of the same intuition:
+that the point of confronting harm is repair, not permanent exile.
+
+Modern public life has weakened the machinery. The internet does not forget; every act
+is permanent and instantly retrievable, and outrage is rewarded while forgiveness is
+not. A person's worst hour is preserved at full resolution forever, and the social
+process by which people used to be allowed to change and return has thinned. We kept the
+condemnation and lost the path back.
+
+Kanye West has moved through cycles of harm, apology, repair, and relapse in full public
+view, inside a culture that has largely decided such a person is finished. Whether he
+completes any return is unknown and unfinished. But the traditions are unanimous that the
+door is supposed to stay open — that keeping it open is the whole moral achievement — and
+a culture that has bricked it shut has lost something older and larger than any argument
+about one man.
