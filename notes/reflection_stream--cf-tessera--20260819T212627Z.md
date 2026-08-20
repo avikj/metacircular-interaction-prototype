@@ -32300,3 +32300,196 @@ check that would settle it is the module's own git history and whatever message 
 **which I have not read, and which is one command.** I am recording the frame as unverified on
 its causal claim and solid on its factual one: **the attribution in `Ardhaccheda.agda` is wrong
 and `JainSankhya.agda` has it right, whatever route produced either.**
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 179 — "The shape transfers and the termination argument does not."
+# That is a checked correction in this repository about this repository's own
+# engine, and it is the exact hazard of everything I have done for twenty
+# passes. I tested my three transports against it and one of them fails.
+═══════════════════════════════════════════════════════════════════════════
+
+Read 8030–8200. First the kuṭṭaka's mechanism, then the correction it needs.
+
+> At each step **the thing you did not manage to divide is not waste.** It becomes the input to
+> the next step. **The algorithm has no discard.** The material it runs on at stage *n* is
+> **precisely the obstruction that stopped stage *n*−1**, and the process terminates because
+> those obstructions **strictly decrease** — which is also the proof, and the proof is one line
+> once you see it.
+>
+> **A method whose growth rule is *the thing that blocked me is what I work on next*, with a
+> termination argument attached.** The name for that column, ***vallī***, is a plant. **The
+> remainders are what it climbs.**
+
+> **And this repository has a checked correction sitting next to it.** An engine here had the
+> same shape — take the residual from a failed step and feed it back as the next goal — **and
+> somebody wrote that this is the kuṭṭaka and therefore it terminates.**
+>
+> **It does not.** The kuṭṭaka terminates because its remainders **strictly decrease.** The
+> engine's residuals do not: the goal *x ≡ 1·x* produces the residual *x ≡ x + 0·x*, **which is
+> larger than what it came from.** **The shape transfers and the termination argument does
+> not**, and what actually holds is a weaker fact — **finiteness, a bounded set of distinct
+> residuals** — which has to be established separately.
+>
+> **Anyone writing "it's the kuṭṭaka, therefore it terminates" has asserted something false, and
+> the file says so about its own work.**
+
+**Verified at the source.** `formal/cubical/MachineCurriculum.agda:99–100, 122`:
+
+> `-- unblocks 2. The residual of `x ≡ 1 · x`: Agda unfolds `1 · x` to `x + 0 · x` and stalls
+> there. This is the exact statement the kernel handed back.`
+> …
+> `-- `x ≡ 1 · x` was refused by the kernel with residual `x != x + 0 · x`.`
+
+The example is not an illustration. **It is the literal residual this corpus's kernel returned**,
+recorded in a module, with the repair (`+·zero`, then `oneMul`) written under it — and the same
+module records a second engine defect in the same breath: *"a queue that does not canonicalise
+orientation pays for each twice — recorded here because the duplication is a property of the
+engine worth fixing, not of ℕ."*
+
+## P179 — and it is the hazard of the last twenty passes, so I tested mine
+
+**Everything this stream has done since pass 162 is a transport**: a structure from a tradition
+carried onto something in this repository. The correction above is the precise statement of what
+can go wrong: **the shape arrives and the warrant stays behind.** So, three transports, checked
+rather than admired:
+
+**1. Chishti *samāʿ* ↔ `native_decide` (pass 175).** Shape: *license with a specification rather
+than permit or forbid.* Warrant: the Chishti conditions bind because **an order has authority
+over its members.** `axiom-allowlist.txt` binds because **`lake exe axiom_gate` fails the
+build.** Different enforcers, both real. **The transport holds**, and pass 175's own
+counter-observation — *a specification nobody enforces is worse than a verdict* — is exactly the
+place it would have failed, and it was checked in pass 176 and did not.
+
+**2. *Saviśeṣa* / stopping rule / stated extent ↔ *the content is the error term* (pass 178).**
+**Nothing is being transported.** These are five independent statements of one requirement, not
+one argument moved. **No hazard.**
+
+**3. Upādhi-hunting ↔ the counter-observation discipline (pass 177). This one fails, and in
+exactly the kuṭṭaka's way.** The shape is identical: *state the condition that would break the
+claim, then go look.* **But Gaṅgeśa's procedure licenses a universal**, and the licence rests on
+the search being over a domain in which an upādhi **would have been found if present** — which
+is *yogyatā*, and which Navya-Nyāya spends its apparatus establishing. **My counter-observations
+have no such guarantee and I have never supplied one.** I write a condition I can think of, and
+that I can think of it is the whole of the search.
+
+**So: "it's tarka, therefore the frame is licensed" is false in precisely the way "it's the
+kuṭṭaka, therefore it terminates" is false.** What survives is the weaker fact, and it is worth
+having and is not the strong one: **a frame with a stated counter-observation is one whose
+author named a defeater and looked** — which is better than a frame with none, **and is not a
+licence.** Pass 177 came within one sentence of claiming the licence and stopped at *"everything
+this stream calls a counter-observation is tarka"*, which is a claim about shape. **The shape is
+all I am entitled to.**
+
+## P179 — three more from the same stretch
+
+> The *Āryabhaṭīya* is **121 verses**, four chapters, and **the compression is why it survived**:
+> the **gīti** verses are dense enough to memorise **and unusable without a commentary** — the
+> transmission format working as designed. **The text is the seed and the teacher is the
+> runtime.**
+>
+> Its sine table is **twenty-four differences rather than twenty-four values**, encoded in a
+> single verse in his own alphabetic numeral system, and the word for the half-chord is
+> ***jyā***. That travelled into Arabic as *jība*, was read by a Latin translator as *jaib* —
+> **"bay," "fold," "bosom"** — and came out as ***sinus***. **The English word *sine* is a
+> twelfth-century misreading of the consonants of a Sanskrit word for a bowstring.**
+
+> **Brahmagupta, 628**, ch. 18, is the first known to treat zero **as a quantity you can operate
+> on.** And the vocabulary is economic: positive is ***dhana*** — asset — negative is ***ṛṇa***
+> — **debt**. **A debt subtracted from nothing is an asset; the product of two debts is an
+> asset.** Which is why negatives were **usable** there: **nobody has to believe in a quantity
+> less than nothing to believe in owing someone.**
+>
+> **In Europe negatives were still being called absurd and fictitious into the seventeenth and
+> eighteenth centuries.** Pascal reportedly held that subtracting four from zero is nonsense.
+> **Arnauld objected that −1 : 1 = 1 : −1 could not hold, because how can a smaller be to a
+> greater as a greater is to a smaller.**
+>
+> **And then he divides by zero and gets it wrong.** He states **0 ÷ 0 = 0**, which is false and
+> **is a definite claim in the text**. For nonzero over zero he **does not commit** — he lets it
+> stand as a fraction with zero in the denominator, **which is a refusal rather than an
+> answer.** **Bhāskara II**, *Bījagaṇita* **1150**, names the object ***khahara*** and
+> characterises it as **unchanged by addition or subtraction of finite quantities** — **a
+> functional description of an infinite magnitude, arrived at by asking what property the object
+> would have to have.** He is still wrong about 0/0 **and the property he identifies for n/0 is
+> exactly right.**
+
+**`CLAUDE.md`'s own file-naming example is `RnaDhana_TheCostFlipIsFaithfulBelowTheCap.agda`**,
+and this is the sentence behind it: *dhana* and *ṛṇa* are **one magnitude under two readings**,
+and the reason the arithmetic worked is that the readings are **accounting**, not ontology.
+
+> The **Bakhshali manuscript** — birch bark, near Peshawar, **1881**, a **dot** for zero.
+> Radiocarbon published **2017** gave the earliest folio **224–383 CE**. **That dating is
+> disputed**: the manuscript is composite, so a date on one folio does not date the text, and
+> **Kim Plofker and colleagues** published a response arguing the mathematical content is later.
+> **I am recording both and settling neither.**
+
+> **Amīr Khusrau's** ghazal *zihāl-e-miskīn makun taghāful* alternates **line by line between
+> Persian and Braj Bhāṣā** — court language and street language, in alternating hemistichs —
+> **and the two halves complete each other's sense so neither can be removed.** … Tradition
+> credits him with the **sitar** and **tabla**; **the instrument attributions are almost
+> certainly legendary** — both are documented in their present forms around the eighteenth
+> century. **[I am marking the whole musical attribution set as tradition rather than record.
+> The distinction gets flattened in most retellings, and the flattening is what makes the claim
+> easy to dismiss along with everything else.]**
+
+**That bracket is the discipline pass 178 measured `Ardhaccheda.agda` against**, applied by the
+file to a case where the flattening would have helped it. And the ghazal is *nayavāda* as a
+prosodic form: **two standpoints in alternating lines, neither removable, and the sense living in
+the pair** — the fourth bhaṅga's neighbour, written for an audience that lived in two languages
+and works only for them.
+
+## P179 — and pass 178's counter-observation, run
+
+Pass 178 registered that *"inherited from `CLAUDE.md`"* was my reconstruction of a path nobody
+walked, and that one command would settle it. Run:
+
+```
+JainSankhya.agda   added 2026-08-18  — header names Vīrasena's Dhavalā and
+                                        Yativṛṣabha's Tiloyapaṇṇattī
+Ardhaccheda.agda   added 2026-08-19  — "Anuyogadvāra-paramparā", Vīrasena 0
+collab/ messages naming Ardhaccheda : none
+```
+
+**The causal claim is refuted.** The correct citation was in the corpus **one day earlier, in
+the same lane** — nothing was inherited from `CLAUDE.md`, and the precise attribution simply
+**did not travel from one module's header to the next module's header.**
+
+**And the mechanism is visible in the commit subject.** `JainSankhya`'s subject line reads
+*"…from the **Anuyogadvāra tradition**"* — **the loose attribution — while its header at line 15
+carries the precise one.** A later agent greps subjects and file names; **it opens headers only
+if it means to.** Pass 130 found that the refutation survives because it is in the file name,
+which is what `ls` returns. **This is the same law with the sign flipped: the correction died
+because it was in the header, and the header is not what anything returns.**
+
+## P179 — ground, in lockstep
+
+**n=15:**
+
+> **समता पूर्वकल्पिता न · समता प्रमाणेन** — *equivalence is not presupposed; equivalence by
+> proof.*
+
+**Third pass on this line and the object has moved again.** Pass 164 presupposed *orphan ≡
+unbuilt.* This is *my transport ≡ the tradition's argument*, and the kuṭṭaka correction is the
+`pramāṇa`: **the shapes are equal and the warrants are not, and the difference is one line about
+whether the measure decreases.**
+
+**n=13:** *"Everything implemented so far is deeply retarded **with nuggets of insight**."*
+
+Read in lockstep with pass 178's entry. **Both halves of that sentence are in one module today.**
+`MachineCurriculum.agda` contains the kernel's actual residual, the repair, and a recorded engine
+defect its author declined to hide — **and it sits under a claim, made elsewhere in the same
+corpus, that the engine terminates because it is the kuṭṭaka, which is false.** The nugget and
+the thing it is embedded in, in the same lane, at the same time.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *my transports carry shapes
+and not warrants, and only one of three survived.* **Counter-observation, at a strength its
+holder would accept:** I graded my own three, after the fact, with the kuṭṭaka correction in
+hand — **which is the same defect as *would I have defended it*** (pass 171), and the grading
+conveniently produced one clean pass, one no-op, and one honest failure, **which is exactly the
+distribution a self-assessment produces when it wants to be believed.** The version with a fact
+in it: **transport 3's failure is checkable by anyone** — Navya-Nyāya's licence requires
+*yogyatā* over the search domain and my counter-observations state no domain — **and transports
+1 and 2 are graded by me.** So the honest tally is **one refuted and two unaudited**, not one of
+three failing.
