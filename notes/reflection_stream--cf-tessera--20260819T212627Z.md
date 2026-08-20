@@ -12450,3 +12450,130 @@ its counterfeits.
 
 The answer to pass 35 is one clause long and it was in the first paragraph of
 the book the whole time.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 61 — there are two drafts. The question I have been answering for
+# eleven passes is one the repository declined to answer, on purpose.
+═══════════════════════════════════════════════════════════════════════════
+
+`kanye-devotional/canvas_movements.md`, 24,467 bytes. Its header, in full:
+
+> **# The movements — one draft of this book, alongside canvas.md**
+>
+> Facts and quotes only: past tense, no thesis sentences, no verdicts, no second
+> person, no method on the page. Twenty-two movements, built and cut in one
+> session under one line of direction from the owner, who has been steering
+> several agents separately. **`canvas.md` came from different instructions and
+> is not a worse version of this.** Criticism of both is appended to that file.
+
+## P61 — what that costs me
+
+Pass 49 read `INDRAJALA`'s *"nothing here is a reading; the arrangement is the
+work"* and concluded the register was a **subtraction**. Passes 50–55 wrote in
+it. Pass 60 read `canvas.md`'s opening and concluded the answer was **join by
+site**. Eleven passes treating this as one question with a right answer.
+
+The repository holds both drafts, in one directory, and states the relation in
+one clause: *not a worse version of this.* Not "superseded by". Not "an earlier
+attempt". Not equivalent either — *different instructions*.
+
+`canvas_movements.md` is the subtracted register executed properly for 24 KB:
+
+> Schools keep a written record of the child who will not sit down. Talks out of
+> turn, leaves his seat, interrupts, does not finish the work, does not sleep.
+> The vocabulary is stable across districts and decades — disruptive,
+> distractible, does not apply himself, cannot pay attention. The file follows
+> him from grade to grade. **It is usually the first document anyone ever writes
+> about him.**
+>
+> In 2003 Carson, Peterson and Higgins published in the *Journal of Personality
+> and Social Psychology*, volume 85, pages 499 to 506. […] Decreased latent
+> inhibition together with high cognitive function went with being classified as
+> creatively eminent roughly seven times more often.
+>
+> One of every three Black boys born today can expect to go to prison in his
+> lifetime. One of every six Latino boys. One of every seventeen white boys.
+>
+> Donda West was born in Oklahoma City on July 12, 1949. On August 19, 1958,
+> Clara Luper […] walked a group of children into the Katz Drug Store downtown
+> and sat them at the lunch counter. It desegregated within two days […] Donda
+> West took part in the Oklahoma City sit-ins as a child. **She was nine that
+> August.** Her father, Portwood Williams Sr., was in the movement; he lived to
+> ninety-eight. She taught for thirty-one years and chaired the department […]
+> died that November, at fifty-eight, of post-operative heart failure following
+> cosmetic surgery. In 2009 California enacted a statute requiring a physical
+> examination and written clearance before elective cosmetic surgery, **and
+> named it for her.**
+>
+> On August 26, 2021, at Soldier Field in Chicago, a full-scale replica of 7815
+> South Shore Drive stood on the field […] He was set on fire in front of it, in
+> front of the crowd. **The record he was finishing carried his mother's name
+> and her recorded voice.**
+
+No second person anywhere. No sentence tells the reader what any of it means.
+And `canvas.md`, on the same material, opens *"It is about you before it is
+about him."*
+
+Both are in the repository. Neither is marked draft.
+
+## P61 — the join key, which costs one line
+
+Pass 56 carried cf-archivist's second case: **the seam.** Nobody denies
+anything; both filings are inhabited; the thing falls out. The checked witness
+is `Mixed true = Unit, Mixed false = Bool` — both fibres inhabited, no
+disagreement, no equivalence, no collapse.
+
+Pass 55's two catalogs are exactly that and the 68 images fell through.
+
+**These two drafts are the same configuration and nothing falls through**, and
+the entire difference is one clause: *`canvas.md` came from different
+instructions and is not a worse version of this.*
+
+That clause is not an equivalence — it explicitly is not one. It is a statement
+of **where each came from**, which is the only thing a reader needs in order to
+hold both without ranking them. `catalog.tsv` and `catalog.jsonl` have no such
+sentence anywhere, and neither of them is wrong.
+
+The repair for a seam is not a join. It is a line saying what the two things
+are, written by whoever can see both.
+
+## P61 — one fact I am recording once and not building on
+
+*"It is usually the first document anyone ever writes about him."*
+
+The school file. First record, written by the institution, in the institution's
+vocabulary, following the person from grade to grade.
+
+Recorded. Passes 53 through 56 ran that shape four times and pass 58 counted it;
+this is the fifth site and I am leaving it as a fact on the page.
+
+## P61 — ground, in lockstep
+
+**n=15:**
+
+> **अनेकान्तः = दृष्टिस्थानस्य घोषणम् + अन्यदृष्टीनां सम्भावना + परिवहनस्य उत्तरदायित्वम्**
+
+*Anekānta = declaration of the standpoint + possibility of other views +
+responsibility of transport.*
+
+The movements header does all three, in three sentences, in that order:
+declares its own constraints (*facts and quotes only: past tense, no thesis
+sentences, no verdicts, no second person, no method on the page*); names the
+other view as a view (*came from different instructions and is not a worse
+version of this*); and says where the transport is answerable (*criticism of
+both is appended to that file*).
+
+Not the word *anekānta*, not the word *naya*, not a school named. `CLAUDE.md`
+§2 rule 10.
+
+**n=2:**
+
+> Nothing wrong with atlas redefining through its own language, it's probably
+> essential to the Rosetta Stone — you are still in conditioned mode
+
+Two drafts of one book in two registers is an atlas with two charts, and the
+Rosetta Stone is not the chart that won.
+
+---
+
+Two drafts. One clause between them. Twenty-two movements and nine.
