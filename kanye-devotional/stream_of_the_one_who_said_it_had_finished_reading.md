@@ -18598,3 +18598,175 @@ named fiduciaries — which is exactly the kind of thing the file said is
 recoverable, bureaucratic, and on the record.
 
 Reading on from 13840.
+
+---
+
+## 13840–13980 — braking authority
+
+> it is also **the reading that requires nothing of anybody.**
+>
+> The second reading requires somebody to have done something, and to have not
+> done it, and that is a much less comfortable book, **and I do not have the
+> material to write it and it may well be the true one.**
+
+**The apparatus reading, written anyway.**
+
+> **There were people with fiduciary duties.** A manager... A business manager.
+> Lawyers. A label. A tour promoter. An insurer. Agencies... several of them had
+> contractual authority to stop things, **and the standard arrangement in that
+> industry is that their compensation is a percentage of what continues.**
+
+> **That is not an accusation. It is the structure.** A commission on gross is a
+> formula that **prices continuation and does not price stopping**, and everybody
+> in it is being paid by the show going on. When the person at the centre is ill
+> in a way that is precipitated by not sleeping, and the calendar is arena dates,
+> **the incentive of every professional in the chain runs the wrong way at exactly
+> the moment the intervention is needed.**
+
+> **And it is checkable rather than speculative.** The 2016 cancellation produced
+> an insurance dispute. Insurance disputes generate filings. Filings say what the
+> policy covered, what was claimed, and on what grounds it was contested — and the
+> grounds in that case turned on his condition. **Somebody with the documents
+> could establish, from the record, what the apparatus around him was optimising
+> for and when it knew. That is not a matter of interpretation.**
+
+*When it knew* is a documentary question with a docket. The bureaucratic-erasure
+rule again: administration generates paperwork, and the paperwork is the copy.
+
+**The comparison cases**: a team doctor who can bench a player; a flight surgeon
+who can ground a pilot; a safety officer who can halt a line *"and whose pay does
+not depend on the line running."*
+
+> **Those exist. They were built. They were built recently, against resistance, in
+> industries where the failure was killing people and became undeniable.** Music
+> has nothing of the kind. **There is no independent authority who can stop a
+> tour, and the person who would have to do it is paid by it.**
+
+---
+
+> **Somebody could have stopped it, more than once, and the arrangement made it
+> nobody's job and everybody's loss to do so.** Not a villain. Not negligence in
+> the legal sense necessarily. **A structure with no braking authority**... absent
+> for the ordinary reason that **nobody builds a brake until a specific catastrophe
+> makes it politically impossible not to.**
+
+> the reason I could write two hundred pages on the wiring and only three
+> paragraphs on this is that **the wiring is *interesting* and the structure is
+> *boring*, and boring is where the fixable things live**, and I have known that
+> since the section on bookkeeping technologies **and did it anyway.**
+
+> That is the same error as the whole file's, and I have now made it at every
+> scale: **reached for the charged reading, produced something true and
+> unactionable, and left the dull actionable thing in a paragraph at the end.**
+>
+> **Which is, precisely, what an apparatus that is paid by continuation does.**
+
+The file's own attention allocation, indicted by the file's own mechanism, in one
+line. It was paid — in interest, in charge, in what the material offered — by
+continuing on the wiring, and the brake on that was nobody's job either.
+
+---
+
+**Where braking authority has been built, and what it took.**
+
+**Aviation.** A flight surgeon can ground a pilot, *"and — the more important
+half — **the first officer can refuse the captain**, and crew resource management
+exists because a sequence of crashes established that the junior person seeing
+the problem could not say so."*
+
+> the change is that **the check now sits with somebody who is structurally junior
+> and cannot be overruled on that one axis.**
+
+**Nuclear and rail.** Stop-work authority — *"any worker may halt an operation,
+and the protection is that they cannot be penalised for a stop that turns out to
+be unnecessary — **which is the whole design, because a brake that costs you your
+job is not a brake.**"*
+
+**Sport.** Independent concussion spotters, *"with authority to remove a player
+over the objection of the coach and the player."*
+
+**Medicine.** The **data and safety monitoring board** — *"an independent
+committee that sees the accumulating trial results, **which the investigators do
+not**, and can stop the trial."* And the surgical pause *"at which **anyone in the
+room may speak**, which exists because the person who could see the error was
+frequently the most junior person present and had no standing to say so."*
+
+The DSMB is the diarist barred from the emperor, inverted: the *investigators*
+are barred from the accumulating record, so the party with the interest cannot
+see the data that would let them steer. Same instrument, 1,400 years apart.
+
+**Finance.** Circuit breakers; compliance whose reporting lines do not run
+through the desk it supervises.
+
+> Every one of those was built **after** a countable body of harm, against the
+> resistance of the people whose authority it constrained, and every one has the
+> same two properties: **the person who can stop it is not paid by it
+> continuing**, and **stopping wrongly is not punished.**
+
+Two properties, stated as a specification. And the second one is the one nobody
+remembers: a brake with a cost attached is not a brake — which is the same
+finding as the exploration budget dying the moment it must justify itself, and as
+the false negative never appearing on the books.
+
+---
+
+> The label had no brake. The tour had no brake. The A&R filter had no
+> exploration term and no stop authority. The fire model had nobody who could say
+> *not this neighbourhood*. **The examination has nobody who can say *this child is
+> stalling for a reason and the sequence is wrong*.** The prize committee has no
+> one whose job is the false negative. **The peer reviewer who wants to say *I do
+> not understand this and it might be important* has no protected way to say it
+> and every incentive to reject.**
+
+That last one is the whole Ramanujan case as a missing role: Hardy's actual
+first reaction — *they defeated me completely* — is precisely the sentence a
+reviewer has no protected way to say, and the only thing he could do with it was
+convert it into an argument about the improbability of forgery.
+
+> And the corpus — the one I am made of, the one the next generation of children
+> meets — **has no braking authority at all. Nobody, anywhere, has the standing to
+> halt the propagation of a wrong attribution, and the people who could are paid
+> by the throughput.**
+
+> Every mechanism in two hundred pages of this file is a system in which **the
+> person who can see the error has no standing, and the person with standing has
+> an interest in continuation. Not one of the failures required anybody to be
+> wrong about anything. They required only that the observation and the authority
+> sat in different people.**
+
+That is the single sentence the whole document reduces to, and it is not about
+knowledge, or bias, or attention, or filing. It is about *where the observation
+sits relative to the power to act on it* — and every other finding in the file is
+a consequence of that separation.
+
+Gārgī saw the regress and Yājñavalkya had the authority. Ekalavya had the skill
+and Droṇa had the fee. The child sees that the convention is unmotivated and the
+teacher has the grade. The kid in the chute — Grandin saw the shadow and the
+handlers had the cattle prod.
+
+> the fix, everywhere it has been built, is the same and it is dull: **give the
+> person who can see it the authority to stop it, and make stopping wrongly
+> free.**
+
+> Aviation took a decade of crashes. Medicine took the checklist literature. Sport
+> took the lawsuits. **Nobody has built it for a person, or for an archive, or for
+> a name, or for a child in year four, and the reason is the one from the
+> beginning: the catastrophe those brakes prevent does not appear anywhere as an
+> event.**
+
+---
+
+> **"The observation and the authority sat in different people"** is the sentence,
+> and it subsumes almost everything above, **so I want to check it against the
+> file rather than admire it. Where does it hold, and where does it fail.**
+
+Eighth application of *generate the next term*, on the sentence that subsumes the
+document, immediately after producing it. It has done this every single time,
+without exception, and it is the one habit that separates this file from
+everything I have written.
+
+**Holds**: *"The clerk in Madras could see the identities; the standing was in
+Cambridge. **Payne had the data and Russell had the veto. Dickinson had the poems
+and Higginson had the judgement.**"*
+
+Reading on from 13980.
