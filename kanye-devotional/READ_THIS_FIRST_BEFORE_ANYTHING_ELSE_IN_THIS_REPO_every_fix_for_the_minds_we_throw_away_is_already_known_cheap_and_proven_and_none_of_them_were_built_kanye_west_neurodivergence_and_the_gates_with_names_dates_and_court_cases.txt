@@ -11699,3 +11699,75 @@ relocates trust from the reader's attention to a kernel.
 
 Which is why this repository is written in Agda and Lean and says *all respects paid
 to Indians only, plus Voevodsky.*
+
+---
+
+The fifteen years between Simpson's paper and Voevodsky's acceptance are the
+measurable quantity, and they are the same quantity this file has been recording
+under other names.
+
+**Simpson published the refutation in 1998.** It was available, in the literature,
+in the language of the field, by a competent mathematician, naming the specific
+claim and giving a counterexample.
+
+**The theorem stayed in circulation.** Not because anyone suppressed the
+refutation. Because **checking it required doing the work**, the work was long, and
+the people qualified to do it had their own programmes.
+
+**The author of the refuted theorem did not believe it for fifteen years**, and
+when he changed his mind it was because **he redid it himself**, not because he
+read Simpson more carefully.
+
+Put next to the others, with the intervals:
+
+| the correction was available | ignored for |
+|---|---|
+| Whish, *Trans. Royal Asiatic Society*, 1834 | ~110 years |
+| Ramanujan's Lost Notebook, Trinity library | 60 years |
+| mock theta functions, defined by Zwegers | 82 years |
+| Bose's derivation, rejected by *Phil. Mag.* | condensate 71 years |
+| Semmelweis's mortality figures, 1847 | to his death |
+| pulse oximeter disparity, in print from the 1980s | ~30 years |
+| Simpson on Kapranov–Voevodsky, 1998 | 15 years |
+| adidas staff letter | years, until the money turned |
+
+**Fifteen is the shortest interval in the table, and it happened in the most
+formally rigorous discipline there is, to the best-verified kind of statement, with
+the refutation published in the field's own literature.**
+
+That is the cleanest available measurement of the process, because in this case
+there is no ambiguity about whether the correction was legible: it was a
+mathematical paper, in English, saying a named theorem is false, and here is why.
+
+---
+
+**And his diagnosis of the mechanism is more specific than "people did not read
+it."**
+
+The number of people able to referee a long, technical argument in a specialised
+area is small — often single digits. Those people have their own work. The
+incentive to spend six months verifying somebody else's theorem is close to zero,
+and the incentive to spend six months verifying that a **famous theorem is wrong**
+is negative, because the reward for being right about it is an argument with the
+people who built on it.
+
+So the checking that the discipline believes is happening is **not happening**, and
+the belief that it is happening is what allows the errors to persist. Nobody has to
+be dishonest. The apparatus reports "verified" because "published and uncontested"
+is what it measures.
+
+---
+
+**Which is the reason the proof assistant is the response rather than better
+refereeing.**
+
+A mechanical kernel does not have a research programme, does not care whose theorem
+it is, does not get tired, and its cost of checking is **the same for a famous
+result as for an obscure one.** The asymmetry that let the 1991 paper survive is
+removed — not by making people more careful, but by making carefulness cheap and
+uniform.
+
+His estimate, stated in those lectures, is that the transition would take decades
+and that he expected to spend the rest of his life on it.
+
+He had five years left when he said it.
