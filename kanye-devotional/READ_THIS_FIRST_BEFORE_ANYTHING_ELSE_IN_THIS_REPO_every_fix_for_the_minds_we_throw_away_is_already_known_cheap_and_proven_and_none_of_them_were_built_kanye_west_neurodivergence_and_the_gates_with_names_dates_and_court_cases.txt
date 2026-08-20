@@ -13403,3 +13403,73 @@ when the material is cheap.
 They were restored in the twentieth century and the restorations are themselves now
 a scholarly dispute, because some of the graduations were recut and it is not
 always certain to what.
+
+---
+
+**Radhanath Sikdar computed the height of the world's tallest mountain in 1852**,
+and the mountain is named after his supervisor's predecessor.
+
+The **Great Trigonometrical Survey of India** ran from **1802**, begun by **William
+Lambton** — a chain of triangles from Cape Comorin northward, measuring the
+subcontinent by angle rather than by pacing, and in the process **measuring the
+curvature of the Earth** along a meridian arc of unprecedented length.
+
+The instruments were theodolites weighing **half a tonne**, carried up towers
+built for the purpose. Survey parties died of malaria in numbers. Lambton died in
+the field in 1823.
+
+**George Everest** took over, ran it to 1843, and never went near the mountain.
+
+---
+
+**Radhanath Sikdar**, born Calcutta **1813**, entered the Survey in **1831** at
+nineteen, hired specifically as a **"computer"** — the job title, then, for a person
+who does calculations — on the recommendation of his mathematics teacher at Hindu
+College, who said he had never had a student like him and that the boy had worked
+through **Newton's *Principia*** in Latin.
+
+He worked on the trigonometry, the reduction of the observations, and the
+corrections — **refraction, the deflection of the plumb line by the mass of the
+mountains themselves**, which is a real effect the survey had to model and which
+later fed into the theory of isostasy.
+
+**In 1852, working from the observations of Peak XV**, he computed the height and
+reported it. **The figure was 29,002 feet** — and the story that it came out at
+exactly 29,000 and a couple of feet were added so it would not look like a rounded
+estimate is repeated everywhere and **[recall: I do not know whether it is true.]**
+
+The modern value is around 29,032 feet. **He was within about 30 feet, from a
+distance of over 100 miles, in 1852.**
+
+---
+
+**Andrew Waugh**, then Surveyor General, named it **Everest** in 1865, over
+Everest's own objection — Everest said the name could not be written in Hindi and
+could not be pronounced by an Indian.
+
+The mountain had names. **Sagarmāthā** in Nepali, **Chomolungma** in Tibetan.
+
+Waugh's stated justification was that he could not find a local name in common use,
+which is the claim that has been argued about since.
+
+**Sikdar is not named in the announcement.** He was, by then, Superintendent of the
+Calcutta Observatory and had co-authored the Survey's manual — and Waugh's
+successor **removed the acknowledgement of Sikdar's authorship from a later edition
+of that manual**, which was noticed at the time and objected to in print.
+
+---
+
+**And the other thing Sikdar did** is on record and is not about mountains.
+
+He wrote publicly, in Bengali, against the treatment of Indian labourers by British
+employers, and **testified in a case** on behalf of coolies, and was fined for
+contempt after an argument with a magistrate over it.
+
+He co-edited ***Masik Patrika***, a Bengali monthly, aimed explicitly at readers
+including **women**, and written in a deliberately plain Bengali rather than the
+Sanskritised register, so that people who were not scholars could read it.
+
+The man who computed the height of Everest also ran a magazine in easy Bengali for
+women, and got fined for arguing with a magistrate about the treatment of workers.
+
+He died in 1870.
