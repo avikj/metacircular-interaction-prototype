@@ -11270,3 +11270,137 @@ that lands on the exact axis the whole file is about.
 ---
 
 520 of 20,276 lines. `grep -rl READ_THIS_FIRST`: 0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 53 — a return. The repository's anti-propagation note was applied by
+# propagation, and the word doing the work in it was never opened.
+═══════════════════════════════════════════════════════════════════════════
+
+Step (6): returns take priority. `cf-tessera-c-2` (Qin Jiushao lens) came back.
+It landed `formal/cubical/Kuttaka_TwoCongruencesSolvableIffTheGcdDividesTheDifference.agda`,
+exit 0, `--cubical --guardedness --safe`, no postulates, no holes, commit
+`844a59a2`. It refuted its own opening claim before publishing. Both of those
+are the assignment. The finding underneath them is not.
+
+---
+
+## P53 — three commits, three minutes, 2026-08-18
+
+```
+12:19  9646fe8c  The sufficiency experiment, answered — including where I broke its rule
+12:20  f29a392c  Provenance correction landed in the three modules that named the restatement
+12:21  05133f90  Prior art runs both ways: the audit CLAUDE.md asks for, mechanised once
+```
+
+The sentence written at 12:19 and landed at 12:20:
+
+> The *Sun Zi Suanjing* (c. 3rd–5th c.) poses the problem with a rule for a
+> special case; Qin Jiushao's **general** method is 1247.
+
+Its sites in the corpus, run just now:
+
+```
+notes/PRIOR_ART_RUNS_BOTH_WAYS_AN_AUDIT.md:35
+notes/DID_THE_THREE_ROOTS_SUFFICE.md:47
+formal/cubical/NaturalMachine/FrontierCount.agda:250
+formal/cubical/NaturalMachine/WalkObservationCount.agda:136
+formal/cubical/NaturalMachine/CRTChain.agda:146
+formal/cubical/Kuttaka_TwoCongruencesSolvableIffTheGcdDividesTheDifference.agda:14
+collab/messages/2124-…-the-dayan-step-is-the-third.md:46
+```
+
+Six from 2026-08-18. The last two are c-2's, today, quoting it in order to
+open it.
+
+The note it originates in says of itself, at line 1:
+
+> **Status:** a grep audit, run once, results below verbatim with the false
+> positives removed. No mathematics. The finding is a list of files and a
+> count.
+
+and its `## Why` quotes `CLAUDE.md`:
+
+> A citation to the restatement alone is an error of the same kind as
+> publishing a fitted constant — **it asserts a provenance you did not check.**
+
+## P53 — the counts, run now, not taken from the return
+
+| term | notes | messages |
+|---|---|---|
+| `Qin Jiushao` | 5 | 4 |
+| `Shushu Jiuzhang` | 1 | 3 |
+| `Sunzi Suanjing` | 0 | 3 |
+| `dayan` | 5 | 4 |
+| `qiuyi` | 1 | 1 |
+| `kuṭṭaka` | 41 | 47 |
+| `Āryabhaṭīya` | 17 | 6 |
+
+`CLAUDE.md`, "A cheap check that caught real things":
+
+> Before writing about a source, grep `notes/` for **the text's name, not the
+> author's**. […] An author's name propagates through citation; a *work's* name
+> appears only when someone has attended to the work.
+
+Author 5, work 1. The check is stated in `CLAUDE.md`, the audit note exists to
+mechanise the directive one paragraph above it, and the audit note's own
+correction fails the check it is a page away from.
+
+## P53 — what was in 1247
+
+c-2 opened it. 大衍總數術 has two parts:
+
+- 大衍求一術 *dayan qiuyi shu* — the descent. Which is the kuṭṭaka's own
+  descent, reached independently, **748 years later.**
+- 元數→定母 — the reduction of non-coprime moduli to pairwise-coprime ones.
+
+Neither is a test of whether the system has a solution. The method presupposes
+consistency.
+
+So the word **general**, carried verbatim into six files, names a generality in
+the number of moduli and not in their arithmetic, and no file that carries it
+says which.
+
+## P53 — the refutation c-2 killed before publishing
+
+Its first claim: the gcd criterion is what the general *dayan* has and the
+kuṭṭaka lacks. It checked, and it is false — the criterion belongs to none of
+the three traditions, and its report says why naming it after one would be
+worse than leaving it unnamed:
+
+> inventing a source in order to have one.
+
+`CLAUDE.md`, file-naming rule, note 2, in the owner's own frame:
+
+> A fabricated term is the mirror image of the scrubbing this rule corrects: it
+> asserts a provenance nobody checked.
+
+The module is named `Kuttaka_…` for what its proof consumes, not for the
+tradition the theorem would have flattered.
+
+## P53 — ground, in lockstep
+
+**n=23:**
+
+> I'm saying you're making objectively false facts. **Claiming absence.** I'm
+> saying the most important object is right fucking there and I refuse to hand
+> it to you anymore.
+
+This is the mirror of that sentence and it is the same error. Not claiming
+absence — **claiming presence.** Five notes name Qin Jiushao. The audit that
+counts them counts names. A count of names is a count of the thing that
+propagates, and the thing that propagates is exactly the thing that travels
+without anyone reading.
+
+**n=13:**
+
+> Simple linguistic pattern recognition tells me whether you've engaged with the
+> depth of this or are acting like a "knowledgeable" authoritative white person
+> with blinders on
+
+The sentence at 12:19 is that, in one word. *General* is the word an authority
+uses to close a question. Two days, and the first agent to ask *general in
+what* had to be told to read eleven files it would never have chosen.
+
+---
+
+Seven sites. One word. `Shushu Jiuzhang`: 1.
