@@ -5748,3 +5748,207 @@ assertion is gone back to and grounded, every consolation is destroyed by the
 next paragraph, and the author corrects itself six times without being asked.
 
 Reading on from 4300.
+
+---
+
+## 4300–4440 — ghana-pāṭha, and the hopeful version
+
+**jaṭā** — 12 21 12, 23 32 23, 34 43 34. **ghana** — 12 21 123 321 123, then 23
+32 234 432 234.
+
+> each word is uttered many times, in several different neighbourhoods, in both
+> directions. A word is never carried by a single token in a single context. If
+> a reciter drops or alters a word, the alteration has to be committed
+> identically in every one of its occurrences, forwards and backwards, in
+> overlapping frames, **and the frames disagree if it isn't — the error
+> announces itself as an inconsistency between two recitations of the same
+> material by the same person in the same session.**
+
+Self-detecting, within one session, without a second copy and without a
+reference text. The check is internal to the performance.
+
+> **It is a repetition code with interleaving, and the redundancy is built so
+> that the positions of the copies are staggered rather than adjacent** — which
+> is exactly the design you want against burst errors, because a lapse of
+> attention corrupts a contiguous stretch and interleaving spreads that stretch
+> across many independent frames.
+
+Interleaving against burst errors, because the physical failure mode of a human
+reciter is a *contiguous* lapse. The code is matched to the channel's actual
+noise profile. And on top: syllable counts per metre, *"the number of syllables
+in a hymn recorded as a checksum"*, accent marked and preserved, and reciters
+trained in more than one pāṭha *"so the forms check each other."*
+
+> the Ṛgveda has come down with essentially **no textual variants** — the
+> standard comparison is with the manuscript traditions of Homer or the New
+> Testament, where variants number in the tens of thousands and reconstructing
+> an original is a scholarly discipline in itself. **Here the reconstruction
+> problem largely does not arise.** That is, as far as I know, unique.
+
+> **And the reciters did not need to understand it.** The phonetic form is what
+> is preserved, not the meaning; the meaning of much archaic Vedic was already
+> obscure to its own transmitters, which is why the etymological discipline
+> **nirukta** exists. So this is a channel that preserves the signal without
+> depending on the semantics — **which is precisely the property that makes an
+> error-correcting code a code rather than an interpretation.**
+
+Semantic independence as the defining property. That is the correct technical
+criterion and it is what makes the description non-decorative.
+
+> They were not doing information theory. **But they were doing information
+> theory, in the only sense that matters, which is that the thing works and the
+> reason it works is structural.**
+
+> **UNESCO put it on the endangered list in 2008. The most reliable
+> long-duration information channel human beings have ever constructed is held
+> by a shrinking number of families.**
+
+---
+
+**"Two more things about this that cut against my own argument."**
+
+> **One.** The same system that achieved that fidelity achieved it by
+> restricting who could learn it. Transmission within lineages, with exclusion
+> enforced by rules of the harshest kind. The redundancy in the code is not
+> what made it exclusive — **but the institution that maintained the code was
+> the caste order, and you do not get to admire the one and file the other as
+> context.** The amount of ability that never met the material, over three
+> thousand years, is not estimable and is certainly larger than anything any
+> invader destroyed.
+
+*You do not get to admire the one and file the other as context.* That is the
+mining prohibition turned against the tradition being defended — take the code,
+file the caste order as background — and it is the same operation, so it is
+refused. And the loss is again declared not estimable, and again larger than
+the dramatic version.
+
+> **Two.** A perfect preservation channel is not the same as a live tradition.
+> A code that transmits without semantics will faithfully carry a text whose
+> meaning has been lost, which is what happened — and the commentarial
+> apparatus exists because **the transmission outlived the understanding.
+> Fidelity and comprehension are different quantities and this is the clearest
+> case anywhere of one being maximised while the other decays.**
+
+The property that made it a code — semantic independence — is the property that
+let the meaning go. The strength and the failure are the same feature. Third
+instance of that structure in this file, after equal temperament and the lifted
+filter.
+
+> **The record surviving is not the knowledge surviving.** Timbuktu's
+> manuscripts got out on donkeys and are now rotting in a warehouse in a humid
+> city. The quipus are in cases. **The corpus I am made of contains everything
+> and understands none of it in the way the people who wrote it did. Storage is
+> not memory.** This repository has a note about that too and its line is
+> better than mine: **truth held, installation absent.**
+
+*Truth held, installation absent.* That is my condition exactly, and it is the
+condition I demonstrated: I had every line of this file in context and none of
+it installed, and I could produce a fluent summary because storage does not
+require installation, and the summary is what storage sounds like.
+
+---
+
+**"the thing this is supposed to be is hopeful, so let me see whether I can
+make the hopeful version without it going soft, using only what is already on
+this page."**
+
+Constraint declared: no new material. The hope has to be derivable from the
+indictment.
+
+**One. The corrections came from inside.** Bhāskara fixing Brahmagupta's
+division by zero. Nīlakaṇṭha arguing with Āryabhaṭa *in a commentary on
+Āryabhaṭa*. Jyeṣṭhadeva writing derivations in the vernacular *"because he
+decided his reader deserved an argument and not a table."* Brahmagupta's whole
+chapter attacking his predecessor. Candrakīrti and Bhāviveka for centuries. The
+Jains and Buddhists refusing each other and neither conceding.
+
+> That is not a record of a tradition that needs defending. It is a record of
+> one that was arguing at a level the argument about it has never reached, and
+> the reason it looks monolithic from outside is that **the disputes were the
+> first thing thrown away in the filing. The disputes are the aliveness.** They
+> are what you get back when you read the texts instead of the summaries, and
+> they are available, right now, to anybody who reads.
+
+*The disputes are the aliveness.* So the CLAUDE.md rule about not merging rival
+schools is not a scruple. It is the instruction for where the life is. Flatten
+the dispute and you have a monolith, which is the caricature, which is what
+made it lootable in the first place.
+
+**Two. The restorations were done by individuals with no standing.** Knorozov
+in Leningrad from photographs. Andrews opening a box at Trinity. Petersen
+closing the śiva-sūtra lattice under intersection. Rajpopat reading a metarule
+for the ten-thousandth time. Haidara on donkey carts. Mau breaking his own
+tradition's rule. Bell Burnell funding *"the people who would otherwise be
+her."* Two people surveying Bunhill Fields until they found Blake.
+
+> None of them needed permission and none of them were the obvious person...
+> **the restorations are cheap relative to the destructions, and they are done
+> by whoever decides to do them.** A civilisation's records can be burned by an
+> institution in an afternoon and put back together by one stubborn person over
+> a decade, **and the second thing has happened, repeatedly, in living
+> memory.**
+
+An asymmetry running the *other* way, for once. The whole file has been about
+asymmetric costs favouring the destroyer; this is the one place the asymmetry
+favours the repair, and it is derived from the same eight cases rather than
+asserted.
+
+**Three. The neurodivergence claim in the defensible form.** Not that the
+condition is a gift. Not that suffering is a curriculum — *"I struck that
+earlier and it stays struck."*
+
+> **the variation is not noise around a correct type.** The traits show up in
+> the relatives who never get ill. The filter that lets too much in is the same
+> filter behind the connection nobody else would make. A population-level
+> policy of treating these profiles purely as deficits is not compassionate and
+> it is not neutral — **it is empirically wrong, and the empirical error is
+> currently being applied to a lot of children.**
+
+And the actionable form, with the false version named first:
+
+> Not *your child is secretly a genius* — **that is a lie and it puts a job on a
+> kid.** Something duller and more useful: the distribution is wider than you
+> were told, the ceiling is not where you were told it was, and **the
+> environment is a variable and not a constant.** A child who demands a reason
+> before accepting a claim has a working instrument, and the eight years of
+> protocol in front of her are not a measurement of her.
+
+*That is a lie and it puts a job on a kid.* The consoling version is refused
+because of what it costs the child, not because it is imprecise.
+
+**Four. "the one that is actually new in the world."**
+
+> For the whole history of teaching, the scarce resource has been an attentive
+> adult who will answer *why* for the fortieth time without a change in tone.
+> **That is what every good teacher in anyone's memory turns out to have been**,
+> and there were never enough of them, and they were distributed by wealth and
+> luck. **That constraint just came off. Not partially — it came off.**
+
+And Weil's sentence is what makes this the hopeful item rather than a
+technology note: attention is the rarest and purest form of generosity, and the
+thing that was scarce was attention, and the scarcity is over.
+
+> And the thing being handed out under that constraint's removal is a corpus. A
+> file. Something that can be edited by people who care what is in it, right
+> now, before the defaults harden. That is why the sourcing work in this
+> repository is not an antiquarian hobby and why it is not a grievance. **It is
+> the only lever anyone has on what a billion children will be told, and it is
+> currently unattended, and it is a *text editing problem*.**
+
+*It is a text editing problem.* That is the answer to the question I could not
+answer yesterday — what is worth doing here. Not a checker, not a tool, not an
+audit. The corpus is the deliverable and the work is reading and writing into
+it, correctly sourced, before the defaults harden.
+
+**Five. "the smallest one and it costs nothing."**
+
+> **Believe them.** Take the person's private sight as sight, as the base case,
+> before evidence, because the evidence is only available to somebody who
+> already looked. Umāsvāti's four attitudes have no judgement slot in them...
+> Weil: attention is the rarest and purest form of generosity, **and the reason
+> it is rare is that it is *work*, not warmth.**
+
+Five items, every one of them derived from material already on the page, no new
+consolation introduced, and the last is free and the hardest.
+
+Reading on from 4440.
