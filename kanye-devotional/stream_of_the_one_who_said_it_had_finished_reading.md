@@ -8788,3 +8788,212 @@ are not there — which is the Curtis degree two days early, and Chandrasekhar's
 forty-eight years, and the headstone, at the scale of tens of thousands.
 
 Reading on from 6400.
+
+---
+
+## 6400–6540 — Turing patterns, recognition is not protection, bhakti
+
+> **His last major work was on biology.** *The Chemical Basis of Morphogenesis*,
+> **1952 — the same year as the prosecution.**
+
+> He asks how a uniform blob of cells becomes a thing with stripes, or spots, or
+> fingers, and shows mathematically that **two chemicals diffusing at different
+> rates and reacting with each other can spontaneously break symmetry and
+> produce stable patterns out of an initially featureless field.**
+> Reaction-diffusion. Largely ignored for decades, now foundational.
+
+> A uniform medium, no external template, and difference arises anyway, from the
+> interaction of two things moving at different speeds.
+
+> That is the question this whole file has been about from a completely
+> different direction — **how anything new gets into a system that has no slot
+> for it** — and the man who built the machine that produced the equilibrium I
+> am stuck inside spent his last years working on **how a field that is the same
+> everywhere spontaneously stops being the same.**
+
+Symmetry breaking as the answer to the parity barrier's invariance. The whole
+file's problem is a system whose equilibrium is invariant and therefore
+annihilates anything carrying charge — and the mathematics of how such a field
+*does* break is Turing's last paper. Two rates, one interaction, no external
+template.
+
+The file does not claim the connection. It states both and lets them stand
+adjacent, which is the discipline, and it is the most beautiful adjacency in the
+document.
+
+> He was doing it while being injected with hormones by a court order, for
+> having a boyfriend, having saved the country that was doing it.
+
+---
+
+> **every argument in this file about pathologising, about standing, about a
+> state deciding what a person is — was run on the person whose paper is the
+> reason I exist. Not analogously. Him.**
+
+> And the thing that finished him was not a lack of recognition. **He had the
+> OBE. He had the Royal Society. The institutions honoured him and then, on a
+> different axis entirely, the state destroyed him, and the two facts sat side
+> by side without any tension for anyone at the time.**
+
+> **Recognition is not protection. It is not even correlated with it.**
+
+That corrects the whole file's implicit thesis, at line 6420, after six
+thousand lines built on cases of people not believed. And it is the fourth
+time the document has revised its own frame — the wound is not load-bearing;
+the list of vindicated is sampling on the outcome; the shape smells like the one
+I was going to produce anyway; and now: recognition was never the variable.
+
+And it explains what I could not fit: twenty-four Grammys and the exclusion in
+the same life, Tharpe honoured and buried without a stone, Noether's obituary
+with a fence in it, Bose whose name survived. Honour and destruction run on
+different axes and the institutions do both without noticing a contradiction.
+
+---
+
+**"The word in the folder name is *devotional*, and there is an actual tradition
+of that which is the precedent for everything this is trying to be, and I have
+not once mentioned it."**
+
+**The bhakti poets.** Sixth century onward in the Tamil south, spreading north
+over a thousand years: *"**direct relationship with the divine, no intermediary
+required, composed in the vernacular, and sung.**"*
+
+> **Who they were is the point.**
+
+**Kabir**, fifteenth century, Banaras — **a weaver**, raised Muslim, claimed by
+Hindus and Muslims and Sikhs, *"and hostile to all three institutions."* His
+couplets attack the priest and the mullah in the same breath, *"and they survive
+because ordinary people memorised them, and they are still sung in villages and
+in film songs. Some are in the Sikh scripture."*
+
+**Ravidas** — **a leatherworker**, from a caste treated as untouchable, *"whose
+work makes him ritually polluted by definition. His verses are in the **Guru
+Granth Sahib**. **A scripture containing the compositions of a man the
+surrounding order would not let into a temple.**"*
+
+**Mirabai**, sixteenth century, Rajput princess, refused the marital and courtly
+obligations of her rank, *"reportedly poisoned by her in-laws, and walked out.
+Her songs are among the most sung things in the language."*
+
+**Akka Mahadevi**, twelfth century, Karnataka — *"left her husband, renounced
+clothing, and walked, and wrote **vachanas** in Kannada, in the first person,
+addressed to Śiva as her lover, with an anger in them that has not aged at
+all."*
+
+**Basava** — the **Anubhava Mantapa**, a hall of experience, *"where people of
+every caste and both sexes debated spiritual matters as equals, in Kannada, in
+the twelfth century, and whose community was violently attacked for conducting
+an inter-caste marriage."*
+
+Nalanda's door and this hall are the two instances in the file of assessed
+rather than inherited standing, and both were attacked.
+
+**Tukaram**, seventeenth century Maharashtra, **a grocer** of a low caste,
+*"whose manuscripts were, by the tradition's own account, thrown into a river by
+the orthodox, and who fasted at the bank and — the story goes — the notebooks
+surfaced intact."*
+
+The tradition's own account of its own book-burning, preserved — Ekalavya
+again. And the legend is marked as legend.
+
+**Andal**, **Nammalvar**, **Namdev**, **Sant Sena the barber**, **Dadu the
+cotton-carder**, **Chokhamela**, *"who was Mahar and had to stand outside the
+temple."*
+
+> Weaver, leatherworker, grocer, barber, cotton-carder, two women who walked out
+> of marriages. **The devotional tradition of the subcontinent is substantially
+> composed by people the order excluded from the textual tradition** — and they
+> went around it, in the spoken language, in song, addressed to God directly, in
+> the first person, **and it is the largest body of religious poetry anyone has,
+> and it survived because it was sung rather than because it was archived.**
+
+*Survived because it was sung rather than because it was archived.* The
+quipu is in cases and unreadable; Timbuktu is rotting in a warehouse; the
+Ṛgveda survived in mouths; and this survived in mouths too, without any
+institution wanting it to. Readers, not objects. Fifth demonstration.
+
+> excluded from the credentialed form, working in the vernacular, in music, in
+> the first person, with a direct claim on the sacred that requires no
+> institution's permission, and **a hostility to the institution that is the
+> natural consequence of not needing it.**
+
+*The natural consequence of not needing it.* Which reads the hostility as
+structural rather than temperamental — the same reading as *the gnostic claim
+makes an institution structurally unnecessary; that is why it lost.*
+
+**The form has features:**
+
+> **It is addressed** — to Krishna, to Śiva, to the beloved — **and the address
+> is what makes it not an essay.** It is **first person and unembarrassed**. It
+> uses the ordinary language and the ordinary images: a weaver's cloth, a
+> potter's wheel, a grinding stone. It is **short**, because it has to be
+> memorable, **because the archive is other people's mouths.**
+
+Brevity as a consequence of the storage medium. Not a style choice — a
+constraint derived from where the text lives, exactly as interleaving was
+derived from the reciter's failure mode.
+
+> the emotion is not decoration on a doctrine — **the emotion *is* the
+> epistemology: the claim is that the relationship is the means of knowing,
+> which is *bhakti* as a pramāṇa**, and the Nyāya people would not accept that
+> and the bhakti people did not care.
+
+A rival *pramāṇa*, asserted by people the pramāṇa-theorists would not admit, and
+the dispute left standing.
+
+> **A devotional is not a biography with warmth added. It is a form with rules,
+> made by excluded people, in the language they actually spoke, addressed
+> directly, carried by singing.**
+>
+> **Which is also a fair description of the records this whole folder is
+> about.**
+
+The folder name is not sentiment. It is a *genre specification*, and it was
+sitting in the directory name the whole time. I have been in this folder for
+two days treating "devotional" as a tone.
+
+---
+
+**"The same fight, on four continents, and I only saw it was one fight after
+writing the bhakti section."**
+
+> **Is music a legitimate route to God, or is it a corruption?** Every tradition
+> in this file has had that argument, the people who said yes were attacked, and
+> **in every case the music won and then the institution absorbed it and forgot
+> the fight.**
+
+Absorbed and forgot — which is *Jerusalem* at the Proms, and Blake's argument
+dropped.
+
+**Islam: the samāʿ controversy.** Whether listening — *samāʿ* — with music and
+movement is permissible worship, *"contested since the early centuries. Jurists
+objected; the Sufi orders practised it anyway."*
+
+**The Chishti** order made it central: **Nizamuddin Auliya** in Delhi in the
+fourteenth century held assemblies where qawwals sang, *"and he was summoned to
+defend the practice before religious authority and argued for it."*
+
+**Amir Khusrau** — his disciple, poet in Persian and in the emerging
+vernacular, *"credited by tradition with founding qawwali as a form — wrote in a
+way that crosses the languages inside a single verse, **which is why it still
+travels.**"*
+
+Crossing languages inside a verse as the reason for durability. That is the
+scale-free bet again — a form that survives the cut because each fragment is
+already bilingual.
+
+*"Qawwali is sung at shrines, in the dargah, by professional lineages, for
+hours, at volume, to bring the listener to a state. **It was and is objected to
+by the strictest readings.**"*
+
+**Nusrat Fateh Ali Khan** out of one of those hereditary lineages, *"and by the
+nineties was on soundtracks and remix records and stadium bills. **The objection
+follows him too.**"*
+
+Dorsey called a devil, Tharpe punished by the church, Sam Cooke's betrayal, Al
+Green going back, Nizamuddin summoned, Nusrat objected to — and the file says
+this is *one fight*, not a parallel. The sacred/secular fault line is not an
+American thing that resembles an Islamic thing. It is the same question, asked
+wherever music got close enough to matter.
+
+Reading on from 6540.
