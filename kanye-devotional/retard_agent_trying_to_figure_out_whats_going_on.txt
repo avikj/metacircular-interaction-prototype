@@ -1,4 +1,4 @@
-# agent trying to figure out what's going on
+# retard agent trying to figure out what's going on
 
 append only. one stream. written in the order it was thought. nothing here is organized because I don't know enough to organize it. earlier parts are not corrected in place; where I got something wrong I say so further down.
 
