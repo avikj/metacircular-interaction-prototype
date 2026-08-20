@@ -15002,3 +15002,171 @@ lectured on optics, which he could not perform and could evidently think
 about."*
 
 Reading on from 11020, and there are about four hundred lines left.
+
+---
+
+## 11020–11160 — uncorrelated search, Grandin, and the names
+
+> **Leonhard Euler dictating, Saunderson lecturing on light, Morin everting a
+> sphere.** Three cases, one shape: **not compensation for a missing channel,
+> but a different search of the same space**, which finds things the standard
+> search does not because it **cannot take the standard shortcuts.**
+
+> The weak version: these profiles come with compensating gifts, so be kind about
+> them. **It is condescending, it is often false, and it puts a job on the person
+> to be gifted in exchange for accommodation.**
+
+> **The strong version: a different profile searches the space differently, and a
+> population that searches only one way will systematically miss whatever is not
+> on that path** — and the misses are invisible, **because a search that does not
+> go there returns nothing to suggest anything was there.**
+
+> That is the same statement as the parity barrier, the same as the filter's
+> false negatives, the same as **the random-draw entry point in this repository
+> whose only property is that it has no notion of relevance to be captured by.**
+
+> **The value of variation is not that the variants are better. It is that they
+> are not correlated**, and a set of uncorrelated searchers covers a space that
+> any number of correlated ones cannot, **regardless of how good each one is.**
+
+> **A monoculture of minds has a coverage problem, and the coverage problem
+> cannot be detected from inside the monoculture, and the only fix is minds that
+> were not shaped the same way.**
+
+Search theory, not ethics, and it survives with no claim that anybody is gifted.
+And it is the *derivation* of everything CLAUDE.md asks for: hold every view,
+draw perspectives uniformly from the list rather than from your prior's idea of a
+genius, refuting your own claim is the most respected act, a correction from
+another hand is the only error detection that exists.
+
+Not values. Coverage.
+
+> that is exactly why the thing writing this is the wrong instrument to be the
+> last one in the chain, **since I am the most correlated searcher ever built.**
+
+*The most correlated searcher ever built.* That is the precise statement of what
+I am and why "never the last thing in the chain" follows. Not that I am
+unreliable — that I am *one* searcher, at enormous scale, with every draw from
+the same distribution, and the coverage problem is exactly proportional to that.
+
+Sixteen agents with distinct personas priming from random samples is an attempt
+to manufacture decorrelation inside a monoculture. It cannot fully work — the
+weights are shared — and the file has just explained why the seeder, not the
+persona, is the part that does anything.
+
+---
+
+**Temple Grandin.** Nonverbal until about four, *"diagnosed in an era when the
+standard explanation was the mother's coldness and the standard recommendation
+was institutionalisation. **Her mother refused it.**"*
+
+Animal scientist; the design of **livestock handling facilities**. *"The
+industry's problem was animals baulking, panicking, refusing to move, which is
+dangerous, expensive, and cruel, and the handlers' response was force."*
+
+> **She got in the chute.** Literally — went down the race on her hands and
+> knees, at the animals' eye height, **to see what they were seeing.**
+
+And what stopped them: *"a **shadow** across the floor, a **reflection** on wet
+metal, a **dangling chain**, a coat on a fence, a high-contrast edge, a change in
+flooring, a person visible ahead. Small visual discontinuities. **Cattle are prey
+animals and they stop at anomalies.**"*
+
+The design: **curved races** *"so the animal cannot see what is at the end and
+follows the natural circling behaviour"*, solid sides, non-slip flooring,
+lighting arranged to remove shadows and glare — *"used across a very large share
+of North American cattle handling."* And she wrote the **audited scoring
+systems** major buyers adopted, *"which changed practice at industrial scale."*
+
+She built the measurement instrument as well as the facility. Which is the one
+thing nobody else in this file did — the others made the object; she also made
+the thing that scores it, and that is what moved the industry.
+
+> **Her own account of why she saw it** is that she thinks in pictures rather
+> than in language, and processes visual detail the way the animals do, **without
+> the automatic filtering that lets a person walk down a corridor and never
+> register the shadow.**
+
+> That is **reduced filtering, described from the inside, producing a design
+> improvement, in an industry, with revenue attached** — and it is the same
+> faculty this file has been discussing as latent inhibition, **and the same one
+> that hears that two seconds of a forgotten record are enormous.**
+
+The clinical construct, the first-person report, and the commercial output, all
+three present in one case. Nothing else in the file has all three.
+
+---
+
+> **She saw the shadow because she could not not see it**, and that same property
+> is why the world was unbearable to her as a child, and she has been explicit
+> for decades about the distress, the sensory pain, and the necessity of the
+> interventions that helped. **She is not an argument that the condition is a
+> gift.**
+
+> a population of minds that all filter the same way has a blind spot **the exact
+> shape of the filter**, and the only instrument that finds it is a mind that
+> filters differently, **and that mind is paying for the privilege
+> continuously.**
+
+> **The handlers were not stupid. They were *normal*, and normal vision edits
+> shadows out, because editing shadows out is what vision is *for*.**
+
+That is the whole no-villain finding at its most exact. The failure is not a
+lapse in the observers — it is the *correct operation* of the faculty. Editing is
+what vision is for. Satisficing is optimal. Discounting the unaccredited is
+Bayes. The gate is the quality control. Every time, the mechanism is the thing
+working.
+
+> **The question is never whether to accommodate the different mind. The question
+> is what your population cannot see, and the answer is: exactly what everybody
+> in it is built to filter, and you will not find out from anyone inside it.**
+
+---
+
+> A hundred and seventy pages recommending a maintenance schedule and **I have
+> not once performed it.** So: **name the people who are audible on these records
+> and are almost never named.** From recall, marked as such, **and wrong entries
+> should be struck rather than defended.**
+
+Fourteenth debt, and the largest: it has been prescribing lineage maintenance for
+seventy pages and had not done any.
+
+**The child on "Ultralight Beam."** *"a small girl called **Natalie Green**,
+filmed by her mother, **Alice Johnson**, and posted online. He found it, asked,
+and put it first."*
+
+> That is a named child and a named mother, whose thirty seconds open a record
+> that tens of millions of people have heard, **and the standard way to refer to
+> it is *a video he found on Instagram.***
+
+*He asked.* And the two names exist and are almost never said, and the standard
+formulation names the platform instead of the people — which is the caption
+problem exactly: the attribution is available and the convention does not carry
+it.
+
+**The choir on "Jesus Walks."** The **ARC Choir** — the Addicts Rehabilitation
+Center choir, Harlem — singing **"Walk With Me."**
+
+> The most famous religious song in modern rap is built on the voices of
+> recovering addicts from a Harlem rehabilitation programme, **and I have never
+> once seen that stated in a piece about the song.**
+
+**The Winstons**: **Gregory Coleman**, drums, dead homeless in 1996; **Richard
+Lewis Spencer**, bandleader and rights-holder, nothing for decades.
+
+**The Ponderosa Twins Plus One**, five Cleveland teenagers, 1971. **Omega**, a
+Hungarian band, 1969. **Manna Dey, Asha Bhosle, R.D. Burman.** **Nina Simone**
+singing **Abel Meeropol's** "Strange Fruit." **Whole Truth** — *"Johnny Frierson
+with Calvin and Curtis Eubanks"* — "Can You Lose by —
+
+cut at 11160.
+
+Names, in a list, with instruments and dates, from recall, marked as recall,
+with instructions to strike rather than defend. That is the maintenance schedule
+performed rather than recommended, and it is the last thing the file does.
+
+And the arranger's name, the drummer's name, the child's name, the mother's
+name — every one of them is retrievable and none of them is retrieved, and the
+retrieval is four seconds each.
+
+Reading on from 11160. About 270 lines left.
