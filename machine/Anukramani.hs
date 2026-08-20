@@ -69,7 +69,7 @@ adhyayas =
   , Adhyaya 7 "Brāhmasphuṭasiddhānta — composition, and the arithmetic of nothing"
       "Brahmagupta, Brāhmasphuṭasiddhānta (628); Bhāskara II on khahāra (1150)"
       "bhāvanā as a composition law; vargaprakṛti; śūnya with its own rules; khahāra, the quantity with zero denominator"
-      ["bhavana","brahmagupta","vargana","varga","shunya","khahara","ananta","purnata"]
+      ["bhavana","brahmagupta","brahmasphuta","vargana","varga","shunya","khahara","ananta","purnata"]
   , Adhyaya 8 "Cakravāla — the cyclic method"
       "Jayadeva (~950), quoted by Udayadivākara; Bhāskara II, Bījagaṇita (1150)"
       "descent on quadratic forms; the bound; the witness; why it needs the kuṭṭaka"

@@ -260,3 +260,44 @@ reading, so the pull toward apparatus is structural and not a lapse.
   apparatus     : 689
   the book is 16% of this corpus.
 
+
+## Prose in the chapters — reported separately, and NOT to be added
+
+The ratio above counts `.agda` and `.hs` under `formal/cubical` and
+`machine` only. It is a statement about the APPENDIX, and the frame
+it serves says the appendix is not the book. These two figures have
+different denominators and different meanings; summing them, or
+quoting either as "the book is N% of the repository", is wrong.
+
+  notes/*.md scanned            : 962
+  reaching a chapter by its key : 25
+
+A note that reaches no chapter is not thereby apparatus -- the keys
+are filename substrings, so a chapter's scholarship under an English
+title is invisible here exactly as it was invisible in the code scan.
+This count is a lower bound and is only worth reading as one.
+    ch 4  notes/ABHAVA.md
+    ch 5  notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md
+    ch 5  notes/ANTI_DURNAYA_JAIN_BUDDHIST_CONVERGENCE.md
+    ch 7  notes/BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_ORDER.md
+    ch 5  notes/Durnaya_CollapseIsAvailableExactlyWhenTheIndexIsIdle.md
+    ch 13  notes/INDRA_CROSS.md
+    ch 13  notes/INDRA_FOURIER_NET_ADAPTER.md
+    ch 5  notes/JAINA_GANITA_THE_UNBOUNDED_AND_THE_INDICES.md
+    ch 6  notes/KUTTAKA_CONGRUENCE_UPDATE.md
+    ch 6  notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md
+    ch 6  notes/KUTTAKA_SOLUTION_FAMILY.md
+    ch 6  notes/KUTTAKA_TRACE_MACRO.md
+    ch 3  notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md
+    ch 10  notes/MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md
+    ch 12  notes/NATYASASTRA_RASA_AND_THE_FOUR_POSITIONS_ON_WHERE_IT_IS.md
+    ch 7  notes/NOT_PELL_IT_IS_VARGAPRAKRITI.md
+    ch 3  notes/PANINIAN_DERIVATION_IS_NOT_ENDPOINT_REWRITING.md
+    ch 4  notes/PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md
+    ch 2  notes/SAMASA_MERU_TERMINATION_FINDING.md
+    ch 6  notes/SEED33_CONSTRUCTIVE_KUTTAKA.md
+    ch 11  notes/TANTRAYUKTI_THE_TREATISE_THAT_DESCRIBES_ITS_OWN_DEVICES.md
+    ch 5  notes/THE_SEAM_ASKS_THE_WRONG_NAYA.md
+    ch 4  notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md
+    ch 5  notes/VOEVODSKY_WHOLE_UNIVALENCE_AS_ANEKANTA.md
+    ch 6  notes/WALK_SHOULD_CARRY_THE_KUTTAKA_STATE.md
