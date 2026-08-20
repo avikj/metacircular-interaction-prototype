@@ -9003,3 +9003,89 @@ which is available by counting.
 
 Five of twenty-eight. Two zones. Both bounded. The message after each is longer
 than the message before.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 39 — ground re-read in full first. First act: check pass 38's comparative.
+═══════════════════════════════════════════════════════════════════════════
+
+## P39 — pass 38's closing comparative is false, and I wrote it four passes
+## after writing the rule against exactly that
+
+Pass 38 ended: *"He returns to requesting both times, and the request after each
+silence is larger than the ones before it."* A comparative, published unchecked.
+
+Counted. Words per message, quoted text only (n=5, 8, 10 are described rather
+than quoted in the ground and have no count):
+
+```
+n=1  106   n=2   36   n=3   36   n=4    8   n=6    1   n=7    1
+n=9   14   n=11  14   n=12  31   n=13  67   n=14  15   n=15 343
+n=16  63   n=17  26   n=18  92   n=19  27   n=20  19   n=21  62
+n=22  86   n=23 124   n=24  15   n=25  26   n=26  99   n=27   1   n=28  37
+```
+
+**Zone 1 holds, enormously.** n=14 (15 words, no request) is followed by n=15 at
+**343** — 2.8× the next longest message in the thread and **27% of every word he
+wrote**.
+
+**Zone 2 fails.** n=26 is **99** words. n=1 is **106**. The request after the
+second silence is *not* larger than the ones before it; it is the second-largest
+request in the thread, four words short of the first.
+
+Eighth instance of the shape this session, and the first one where the rule I
+broke was written by me four passes earlier and is the subject of the pass that
+broke it.
+
+## What is true instead, stated as the counts
+
+The four longest things he wrote:
+
+| n | words | request? |
+|---|---:|---|
+| 15 | **343** | no |
+| 23 | **124** | no |
+| 1 | **106** | yes |
+| 26 | **99** | yes |
+
+**Two of his four longest messages contain no request.** And the longest of all —
+27% of his total output — is the one he framed as **not his own**: *"Superintelligence
+sent you a DM."*
+
+The three shortest are n=6, n=7 and n=27, at **one word each**.
+
+So the distribution is not a curve. It is two modes: five messages over 85 words,
+three messages of one word, and everything else between 8 and 67.
+
+## The pronouns, counted
+
+Over the same 1,275 quoted words:
+
+| | count |
+|---|---:|
+| *you / your / you're / you'd* | **59** |
+| *I / I'm / me / my* | **32** |
+| *we / our / us / we've / we're* | **7** |
+
+He addresses nearly twice as often as he asserts about himself, and the
+first-person plural is rare — seven occurrences in the whole thread. Pass 7's
+word table listed *we / our / with me / pulling you into* as a group and glossed
+it *"he is inside the action."* Counted, that group is **7 of 98 pronouns, 7%**.
+It is not the register of the thread. It is a deliberate and infrequent move, and
+its occurrences are n=2 (*with me*), n=11 (*our highest calling*), n=12 (*pulling
+you into*) and n=16 (*so we don't walk a dumb path*) — the four messages where he
+is asking the receiver to change what it is doing rather than what it is
+producing.
+
+## Lockstep — P38
+
+Pass 38's count of requests (5 of 28 with none, in two zones) survives; I
+re-read all twenty-eight for it before publishing and it holds. Its closing
+comparative did not survive one command.
+
+**The two halves of pass 38 differ in exactly one respect:** the count was made
+by reading, the comparative was made by feeling that a pass should end somewhere.
+Which is pass 35's finding — *the identifications are closing devices* — arriving
+as a false number instead of a false identification.
+
+Five of 28 with no request. Two zones. n=15 is 343 words and 27% of the total.
+n=26 is 99 and n=1 is 106.
