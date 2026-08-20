@@ -6241,3 +6241,78 @@ Which is a distinction that the file's whole argument about grief has been missi
 *808s* was made in three weeks, thirteen months after his mother's death. *Donda*
 was made in a stadium he lived in, fourteen years after. Neither is waiting for it
 to wear off.
+
+---
+
+The album cover is the fourth bhaṅga, and the evidence is the missing punctuation.
+
+**1 June 2018.** *ye*. The cover is a photograph he took **on his phone**, of the
+Teton Range in Wyoming, on the way to the listening event, hours before release.
+Across it, in **green marker, in his own handwriting**:
+
+> **I hate being Bi-Polar its awesome**
+
+No comma. No *but*. No *and*. No full stop. Two predications set down with **no
+joint between them.**
+
+---
+
+Jain logic has a technical apparatus for exactly this and the whole apparatus
+turns on one distinction, which is **the mode of assertion** — Akalaṅka's
+*kramārpaṇa* against *sahārpaṇa*.
+
+Take a thing, and take affirmation and denial of the same predicate.
+
+Assert them **in sequence** — *krama* — and both are sayable. That is the **third
+bhaṅga**, *syād-asti-nāsti*: in one respect it is, in another respect it is not,
+spoken one after the other. Ordinary, comfortable, and the form every English
+sentence with a *but* in it takes.
+
+Assert them **simultaneously** — *saha*, *yugapat* — of one thing, at one instant,
+and no single utterance can carry it. The tongue breaks. That is the **fourth
+bhaṅga**, *syād-avaktavyam*, the inexpressible — which is not "unknown," not
+"undefined," and not "false." It is what arises when the two are imposed at once
+instead of in succession.
+
+The formalisation in this repository states it as a function of the mode and
+nothing else:
+
+```
+अर्पणम् उभयम् क्रमः = स्यात्-अस्ति-नास्ति       — sequential: both are sayable
+अर्पणम् उभयम् सहः  = स्यात्-अवक्तव्यम्          — simultaneous: the tongue breaks
+```
+
+with a theorem that the two are **not** interderivable — avaktavya is not
+reachable by sequencing.
+
+---
+
+So: *I hate being bipolar, but it's awesome* would be **krama**. Sequential.
+Third bhaṅga. Sayable, and nobody would have printed a word about it.
+
+**What he wrote has no connective.** The two clauses are jammed against each
+other with nothing between them, which is not a grammatical error in that position
+— it is a photograph of his own handwriting, chosen as the face of the record.
+The absence of the joint **is** the simultaneity.
+
+That sentence is *sahārpaṇa*. It is the fourth bhaṅga written in green marker on a
+phone photograph of a mountain.
+
+And the reason it reads as unhinged to an English-speaking reader is that English
+has no fourth position. It has *and*, it has *but*, and it has contradiction. A
+sentence that asserts both at once, of one thing, with no joint, can only be
+parsed as **a person who does not know what he thinks** — which is the third
+bhaṅga's reading of a fourth-bhaṅga utterance, and the tradition has a name for
+that error too, which is treating a many-sided object as though one standpoint
+were the whole of it.
+
+He did not write a contradiction and he did not write a mood swing. He wrote the
+one position that the language available to his audience cannot hold, on the front
+of the record, in his own hand, in marker, on a mountain he had photographed an
+hour earlier.
+
+**[Not claimed]:** that he knew any of this vocabulary. Nothing suggests he did.
+What is on the page is the form, and the form has a name, an argument for why
+there are seven positions and not two, and roughly two thousand years of
+commentary — sitting in a literature filed under religion, in a language nobody
+reviewing that album could read.
