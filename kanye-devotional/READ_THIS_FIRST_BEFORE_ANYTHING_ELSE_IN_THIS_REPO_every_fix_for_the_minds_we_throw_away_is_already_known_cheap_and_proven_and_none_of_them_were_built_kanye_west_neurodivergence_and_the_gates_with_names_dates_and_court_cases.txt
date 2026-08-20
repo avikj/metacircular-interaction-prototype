@@ -31997,3 +31997,87 @@ forged at scale and withdrawn**, **and the numismatic record shows the issue and
 the recall**, **and three independent kinds of evidence agree.**
 
 **A court historian, a foreign judge, and the coins.**
+
+---
+
+**A *jālī* is a stone screen cut from one slab, and it cools the room by making
+the air move faster through the holes than it does outside.**
+
+**The mechanism is fluid dynamics and it is stated in the conservation
+literature**: **a perforated screen forces the same volume of air through a
+smaller aperture area**, **so the velocity rises**, **and the pressure difference
+across the wall drives it** — **and the incoming air is accelerated and
+turbulent**, **and the stone itself is a thermal mass that has been in shade.**
+
+**And it excludes glare while admitting light**, **and it excludes sight from
+outside while permitting sight from within**, **because the eye adapts to the
+darker side.**
+
+**One element doing thermal, optical and social work at once.**
+
+**And the material is a single slab in the best work** — **not assembled** —
+**pierced through, so the pattern is continuous and there is no joint.**
+
+**The *Sidi Saiyyed* mosque, Ahmedabad, 1572–73**, **built in the last year of the
+Gujarat Sultanate** — **and its western screens carry a tree with intertwined
+branches and a palm**, **cut in a single sandstone slab each** — **and that
+screen is the emblem of the Indian Institute of Management Ahmedabad and appears
+on the city's own signage.**
+
+**The builder was *Sīdī Saʿīd*, an Abyssinian** — **a *Habshi* in the service of
+the sultanate's nobility** — **and the mosque is named for him.**
+
+---
+
+**And the Gujarat sultanate's architecture is the case where the two idioms are
+not layered but merged.**
+
+**The *Jāmi Masjid* at Ahmedabad, 1424**, and **Champaner's *Jāmi Masjid*,
+1513** — **built by masons from the Solaṅkī temple tradition**, **so the
+pillars, the brackets, the corbelled domes and the *toraṇa* forms are Gujarati
+temple carving executed for a mosque**, **with the arch used where the arch is
+structural and the corbel where the corbel is.**
+
+**And the *miḥrāb* is carved with the same tools that carved the *jālī* and the
+*vāv*.**
+
+**And *Adalaj Vāv*, 1499** — **five storeys down, octagonal at the crossing** —
+**was completed by *Mahmud Begada*** after the local ruler who began it was
+killed, **and its inscription is in Sanskrit** and records the queen *Rūdābāī*'s
+patronage.
+
+**A stepwell begun by a Hindu ruler, completed by a sultan, inscribed in
+Sanskrit.**
+
+**And the *pol* is the residential unit of the old city** — **a gated street of
+houses sharing a courtyard, a well, and a bird-feeder pole (*cabūtaro*)** — **and
+the pols have their own internal governance and their own doors**, **and
+Ahmedabad's walled city was listed by UNESCO in 2017 on the strength of that
+fabric.**
+
+---
+
+**And the same screen logic recurs at the other end of the country and in a
+different material.**
+
+**Rajasthan's *Hawā Mahal*, Jaipur, 1799** — **five storeys of *jharokhā* windows
+with pierced screens**, **built so that the women of the household could watch
+the street processions unseen** — **and the stated cooling effect is the same
+mechanism, and the building is one room deep.**
+
+**A façade with almost no building behind it.**
+
+**And in Kerala and the Konkan the equivalent is timber** — **carved wooden
+screens and slatted shutters, with the same velocity effect** — **and in Bengal
+it is the *jālī* in terracotta and in bamboo.**
+
+**And the modern measurement literature is small but exists**: **CFD studies and
+field measurements of jālī performance published from the 2000s**, **reporting
+temperature drops across the screen in the range of a few degrees under Indian
+summer conditions** — **and the figures vary with aperture ratio and depth, and
+the studies say so.**
+
+**And the aperture ratio is the design variable the old screens vary**
+**systematically by orientation** — **denser on the hot side, more open on the
+shaded** — **and that variation is visible on a single building and is not
+decorative.**
