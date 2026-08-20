@@ -329,22 +329,36 @@ vibhasaSutras = [ ((8,4,56), "vā -- 8.4.56 vāvasāne states the option in its 
 -- The tripādī from just after `after`, in numeric order, each sūtra once,
 -- saturating on its own output.  8.2.1 pūrvatrāsiddham is what makes this
 -- shape correct: a later rule never sees an earlier one's context.
+--
+-- 1.1.56 IS THREADED HERE TOO (2026-08-20).  `A.Step` now carries which
+-- reading the rule fired on, and a re-run that could not say would be
+-- reporting less than the engine it is examining.  So this loop carries the
+-- provenance channel (`A.Prov`) the same way `deriveLekhaV` does: `applyRwP`
+-- writes the sthānin at the moment of substitution and `sthaniAt` reads it
+-- back.  The channel STARTS EMPTY, and it must -- this function re-parses a
+-- rendered string, so whatever substitutions produced that string are not
+-- recoverable from it, and claiming otherwise would be an invented
+-- provenance.  What is recorded is what happens from `after` onwards.
 tripadiFrom :: A.Ref -> [A.Item] -> ([A.Step], [A.Item])
-tripadiFrom after xs0 = go later xs0 []
+tripadiFrom after xs0 = let (sts, (xs, _)) = go later (xs0, A.navah xs0) []
+                        in (sts, xs)
   where
     later = [ s | s <- sortOn A.num A.sutras, A.tripadi (A.num s), A.num s > after ]
-    go [] xs acc = (reverse acc, xs)
-    go (s : ss) xs acc = let (xs', acc') = saturate s xs acc 0 in go ss xs' acc'
-    saturate s xs acc k
-      | k > (16 :: Int) = (xs, acc)
+    go [] wp acc = (reverse acc, wp)
+    go (s : ss) wp acc = let (wp', acc') = saturate s wp acc 0 in go ss wp' acc'
+    saturate s wp@(xs, _) acc k
+      | k > (16 :: Int) = (wp, acc)
       | otherwise = case firesOf s xs of
-          []      -> (xs, acc)
-          (r : _) -> let ys = applyRw xs r
-                     in if ys == xs then (xs, acc)
-                        else saturate s ys
+          []      -> (wp, acc)
+          (r : _) -> let wq@(ys, _) = A.applyRwP wp r
+                         (vw, sn, fm, saw, thru) =
+                           A.sthaniAt A.yathasutram (A.num s) wp r
+                     in if ys == xs then (wp, acc)
+                        else saturate s wq
                                (A.Step (A.num s) (A.text s) (A.rNote r) [] "tripadi_8_2_1"
                                        (A.render xs) (A.render ys)
-                                       (A.rdInherited (A.readingUnder [] s)) : acc) (k + 1)
+                                       (A.rdInherited (A.readingUnder [] s))
+                                       vw sn fm saw thru : acc) (k + 1)
 
 -- The two standpoints on contention, evaluated SEPARATELY and compared.
 -- Neither stands in for the other.  Where they name different sūtras there
