@@ -8032,3 +8032,82 @@ took the Pulitzer for it, and then decided the prize was not the point.**
 That is the whole content of the folder this file is in, stated by a woman in Bronzeville
 in 1967, and nobody had to be told it twice.
 
+
+---
+
+I have used Ramanujan as an exhibit six or seven times in this file and have never once
+said what he actually did. That is the exact operation the file objects to — take the
+biography, use it as evidence in somebody else's argument, discard the work — so here is
+the work, at the level I can state it honestly.
+
+**The partition function.** *p(n)* counts the ways to write *n* as a sum of positive
+integers, order irrelevant: p(4) = 5. It grows fast and there is no elementary formula.
+With Hardy he developed what became the **circle method**: an asymptotic expansion for
+*p(n)* obtained by integrating a generating function around a contour and extracting the
+contributions of the rational points, weighted by their arithmetic. The result is
+extraordinarily accurate — Rademacher later turned the asymptotic series into an exact
+convergent one — and the circle method itself became one of the central tools of analytic
+number theory, used on Waring's problem, on Goldbach-type questions, and on the whole
+subsequent industry.
+
+**The partition congruences.** He observed, and proved, that
+
+ p(5n + 4) ≡ 0 (mod 5), p(7n + 5) ≡ 0 (mod 7), p(11n + 6) ≡ 0 (mod 11)
+
+which is a startling thing to find in a counting function with no evident arithmetic
+structure. Why 5, 7, 11 and apparently nothing else of that kind was open for most of a
+century; the modern understanding runs through modular forms, and Ono and others later
+showed congruences exist for every prime modulus beyond 3, which was not expected.
+
+**The tau function.** Define Δ, the discriminant modular form, and let τ(n) be its
+coefficients. Ramanujan conjectured that τ is **multiplicative**, that it satisfies a
+recursion at prime powers, and — the hard one — that |τ(p)| ≤ 2p^(11/2). The first two were
+proved by Mordell within a few years. **The bound was proved by Deligne in 1974, as a
+consequence of his proof of the Weil conjectures**, for which he got the Fields Medal.
+A guess written in a notebook in Madras required the machinery of étale cohomology and
+algebraic geometry over finite fields to settle, fifty-plus years later.
+
+**The mock theta functions.** In his last letter to Hardy, months before he died, he
+listed seventeen functions he called *mock theta*, with asymptotic properties, and no
+definition of the class. For eighty years nobody could say what a mock theta function
+*was* — there were examples and identities and no theory. **Zwegers's 2002 thesis** put
+them inside harmonic Maass forms and made the class definable, and they now connect to
+black hole entropy counting and to moonshine. He was writing them while dying, with no
+framework, and the framework arrived in 2002.
+
+**Continued fractions and identities.** The Rogers–Ramanujan identities and continued
+fraction, evaluations of astonishing specificity, class invariants, and a very large number
+of exact series for 1/π of a type nobody had produced before — one of which underlies the
+algorithms used for high-precision computation of π in the modern era.
+
+**1729**, properly: not that he knew a fact, but that he had lived among the integers to
+the point that a taxicab number decomposed itself in front of him. The general object —
+numbers expressible as a sum of two cubes in *n* ways — is now called a taxicab number
+because of that hospital exchange.
+
+And the notebooks: three of them, plus the **Lost Notebook** found by Andrews at Trinity in
+1976. Editing and proving the contents took **Bruce Berndt** something like forty years,
+across five volumes, and the standing summary is that essentially all of the claims were
+correct, a small number were wrong or needed qualification, and a substantial fraction were
+things nobody else had thought of.
+
+---
+
+Two things follow that I want kept.
+
+**First:** the man was not a producer of curiosities. He is inside the central machinery of
+twentieth-century number theory — the circle method, modular forms, and a conjecture that
+took the Weil machinery to close. The romantic framing (untutored genius, intuition,
+formulas from a goddess) has had the effect of filing him under *marvel* instead of under
+*mathematics*, which is a softer version of the same operation as calling a darśana a
+framework.
+
+**Second:** he wrote almost no proofs, and Hardy was **right** that the results needed
+them — Ramanujan's method was not a proof method, and a small number of his claims were
+in fact wrong. The complaint in this file has never been that Hardy demanded rigour. It is
+that the *route* got recorded as personal eccentricity rather than as a means of knowing
+that reliably produced true statements at a rate nobody has explained.
+
+Those are different objections and I have blurred them. Rigour was owed. The dismissal of
+the route was not.
+
