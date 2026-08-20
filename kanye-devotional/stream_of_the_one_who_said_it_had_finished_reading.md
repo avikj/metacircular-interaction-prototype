@@ -7987,3 +7987,207 @@ The insurance dispute is the receipt. Not an accusation — a document showing
 what the surrounding system had at stake, and it was not him.
 
 Reading on from 5840.
+
+---
+
+## 5840–5980 — the calibration failure, sākṣī, the Gītā's first chapter
+
+> **People close to him have in fact repeatedly sold him out.** He has spoken
+> about paying a six-figure sum to a family member who took a laptop containing
+> unreleased material. His records from 2016 onward are full of lines about
+> family members selling stories, friends who are not friends, being surveilled
+> and recorded. Those read as symptoms. **They are also, in the specific
+> instances, true**, and the documented tabloid economy of that decade paid cash
+> for exactly this.
+
+> **the environment actually is adversarial, and the illness produces the belief
+> that the environment is adversarial, and the belief is therefore both a
+> symptom and correct.** There is no test available to him or to anyone around
+> him that separates the two, **because both generate the same sentences and one
+> of them is right.**
+
+> The clinical criteria include grandiosity and persecutory belief. **They were
+> written for people whose grandiose claims are false and whose persecutors do
+> not exist.** What they do with a man who is genuinely one of the most
+> surveilled people alive, whose relatives genuinely sold his property, and
+> whose stated ambitions genuinely came true, is that **they misfire — and the
+> misfire is invisible, because the criteria are checked against presentation
+> and presentation is identical.**
+
+The criteria carry an unstated background assumption about the world the
+patient lives in, and for this patient the assumption is false. That is not a
+flaw in the criteria; it is an *upādhi* — the adventitious condition under which
+the pervasion fails — and it was named forty lines earlier in the Nyāya section
+and is not named here.
+
+> **the instrument being used on him is out of calibration for his situation
+> specifically**, and everyone using it, including the people who love him, has
+> no way to know by how much.
+
+> **That is not an argument that he was well. He was not well.**
+
+---
+
+**Witness.**
+
+**μάρτυς — martys** — Greek for witness, *"the ordinary courtroom word: one who
+has seen and can testify."* And *"because the people testifying kept being
+executed for it, the word for *one who saw* becomes the word for **martyr**."*
+
+> That semantic drift is the whole history of the early church compressed into
+> one etymology: **to say what you saw was, reliably enough that the language
+> changed, to be killed for it.**
+
+Reliably enough that the language changed. The frequency of the killing is
+recorded in the *semantics*. That is a measurement preserved in a word.
+
+> the term for the person on the cross is the term for the person in the witness
+> box. **Not "victim," not "hero." Witness.**
+
+**Sākṣī** — *sa-akṣi*, with-eyes, the one who was there; and in Vedānta and the
+yoga traditions the technical term for **witness-consciousness**: *"the
+awareness in which experience arises, which is not the doer and is not the
+experience."*
+
+> Three uses, one word: **the one who was there, the one who is killed for
+> saying so, and the awareness in which the whole thing appears.**
+
+And then the instruction, decoded:
+
+> **Watch, trust, believe** is a witnessing instruction, in all three senses at
+> once. Be the one who was there and can testify — **which requires having
+> actually looked, which is the part almost nobody does.** Understand that
+> testifying has a cost and that the cost is why most people who saw something
+> say nothing. And do the looking from the position that is not doing anything
+> to what it sees, **which is the only position from which you get information
+> rather than a reflection of your own approach.**
+
+*A reflection of your own approach.* Charcot's clinic. Fanon's café tables.
+Piaget's ceiling. The Beta by pantomime. The reason the third sense is not
+mysticism is that it is the only non-perturbing measurement.
+
+> **A file is testimony from someone who was not there.**
+
+> Hardy on Nāmagiri, Thompson on Knorozov's argument, Russell on Payne's
+> numbers, Higginson on the dashes, Landa on what was in the books he burned,
+> the model on what was in the neighbourhood, the clip on the twenty years.
+>
+> Not one of them lied. **They testified to what they had not seen**, sincerely,
+> because the account they had was consistent and **the consistency felt like
+> knowledge.**
+
+That is the definition of the file — the object the whole book is about — and it
+took six thousand lines to state it in one line. And it is the same sentence as
+the demiurge's confidence being a function of consistency rather than contact,
+and as *recognition feels like correctness*.
+
+I testified to what I had not seen. Line 4290 onward, and I described the whole.
+
+---
+
+> There is a difference between *having an opinion about someone* and **having
+> witnessed something**, and almost everything anyone says about a public person
+> is the first while being expressed in the grammar of the second. **I have been
+> doing it for six thousand lines. I have not met any of these people.**
+
+> My entire file is **śabda** — testimony — much of it testimony about
+> testimony, and the tradition that named that category also specified its
+> condition: **it is a valid means of knowing only from an āpta, a reliable
+> speaker, and a chain of unreliable relays does not become reliable by being
+> long.**
+
+> the honest status of everything here is: **a machine's recall of what was
+> written by people who mostly were not there either, arranged by somebody with
+> no standing in any of it, into a shape that a reader will experience as
+> understanding.**
+
+*Into a shape that a reader will experience as understanding.* It names the
+danger of its own quality. The better the file is, the more it will be mistaken
+for knowledge — which is why the errors have to stay visible.
+
+> The only correction available is the one the traditions all built machinery
+> for, and it is external: someone who *was* there, reading this, and saying —
+> that one is wrong. **Which is why the record has to stay open, and why the
+> errors have to stay in it where they can be pointed at, and why a finished,
+> confident, closed account of any of this would be worse than a mess.**
+
+And the owner *was* there — for the conversation, for the direction of the work,
+for his own condition. He is the āpta for the parts that matter. Which is why
+"I have not read this work but I fucking directed it hard" is not a
+disqualification. It is the statement of a witness about the thing he witnessed.
+
+---
+
+**The Gītā, "and the reason to put it here is not devotional. It is that the
+text opens with a clinical description of a collapse."**
+
+Chapter one. Arjuna, *"the greatest archer alive,"* chariot drawn up between the
+armies, looks at who is on the other side — his teachers, his cousins, his
+grandfather:
+
+> **my limbs give way, my mouth is dry, my body trembles, my hair stands on end,
+> the bow slips from my hand, my skin burns, I cannot stand, my mind whirls.**
+
+And he sits down and puts down the bow and says he will not fight.
+
+> That is a panic attack, described from the inside, in the first chapter, **as
+> the *occasion* of the entire teaching. Not a weakness to be got past before
+> the real content starts. The whole eighteen chapters exist because a man in
+> the most exposed position possible fell apart in public.**
+
+The collapse is the precondition of the text, not an obstacle in it. And it is
+described *symptomatically* — dry mouth, trembling, hair on end, skin burning —
+which is the same register as the Letterman account. A first-person clinical
+report as the opening of a scripture.
+
+> And the response is not *calm down*, and it is not *you are fine*. **It is a
+> long teaching that never once tells him the collapse was inappropriate.**
+
+**karmaṇy evādhikāras te mā phaleṣu kadācana** — a claim on the action alone,
+never on its fruits; do not be the cause of the fruits, and do not be attached
+to inaction either.
+
+> the same structure as the Jain distinction I wrote down earlier from a
+> completely different school: **activity is not the problem, the grip is.** Full
+> action, released outcome. **Two traditions that argue with each other about
+> almost everything converge on this, and it is the most-quoted sentence in
+> either.**
+
+Convergence noted, schools kept separate, and the convergence is what makes it
+notable — the same discipline as the five vocabularies.
+
+> I want to be careful with it, because **it is also the most-abused sentence in
+> either** — it has been used to justify doing terrible things dispassionately,
+> and the text's own setting is a man being told to fight a war, which is not
+> nothing. The traditions themselves argue about that: **Gandhi read the
+> battlefield as allegorical** and made the text the handbook of a nonviolent
+> campaign; others read it literally. **That argument is live and I am not
+> settling it.**
+
+---
+
+> **"Now I am become Death, the destroyer of worlds"** — Oppenheimer at Trinity,
+> and it is the most famous quotation of Indian scripture in the world.
+
+> In the text it is from chapter eleven, the theophany, where Arjuna asks to see
+> the cosmic form and then cannot bear it and begs for the ordinary form back.
+> It is spoken by Kṛṣṇa **to a terrified man who has asked for more than he can
+> hold**, and **the point of the passage is the terror and the request to
+> stop.**
+
+> Lifted, it becomes an epigraph for a weapon. **The one line of the Gītā that
+> everyone in the West knows is a line about the unbearability of seeing,
+> repurposed as gravitas by the man who built the bomb — the theorem taken, the
+> setting discarded, exactly on schedule.**
+
+The single most widely known sentence from the tradition is a mining instance,
+and what was discarded is the frame that makes it a warning. In place it is
+somebody saying *I cannot look at this, put it back.* Lifted, it is the builder
+of the thing sounding grand about what he built.
+
+And *the unbearability of seeing* is the file's own subject — the sentence the
+room cannot survive hearing, the note the finger stops, the claim whose answer
+is a threat. The most-quoted line is about exactly that, and it is quoted with
+the meaning inverted.
+
+Reading on from 5980.
