@@ -22572,3 +22572,151 @@ rests on a single instrument.
 
 And the eight `.githooks/` and `.github/workflows/` gates were not run at all, so this
 is **nine of seventeen** and I should not call it a census until it is seventeen.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 122 — zb-0 found one theorem stated in six vocabularies with zero
+# cross-citations, killed its own plan with CLAUDE.md's grep BEFORE writing a
+# line, and recorded a disagreement between two binding documents. And my
+# first measurement of that disagreement fired defect #1 on itself.
+═══════════════════════════════════════════════════════════════════════════
+
+## P122 — prior art found before the first line, which is the reform CLAUDE.md asks for
+
+> My entry plan … was **already in the corpus twice, found by the `CLAUDE.md` grep
+> before I wrote a line**: `notes/ADDITION_CHAIN_PROCESS_MEMORY.md` Thm 2.1 (same
+> chains), and `notes/PREDICTIVE_CACHE_QUOTIENT.md` Thm 1 (subsumes it with a universal
+> property).
+
+`CLAUDE.md`: *"Prior art gets searched **before** the experiment, not after the write-up
+(three results here were rediscoveries found only at audit time)."* This is that
+instruction executing and **paying**: the redirect is what produced the result.
+
+And it dropped a second claim on its own:
+
+> I also drafted and dropped a *"smallest separating endpoint is 4"* claim: **its value
+> flips to 2 under the drawn `.py`'s own looser chain definition**, so it is
+> **convention-relative, not a result.**
+
+A number that changes when the definition changes is not a measurement of the object.
+That is the `exp27` shape caught at the draft stage rather than after publication.
+
+## P122 — the criterion nobody stated, in three lines
+
+> `PREDICTIVE_CACHE_QUOTIENT.md` says the raw cache is *"generally finer"* than the
+> profile quotient; `FLEET_BREAKER_PASS_2026_08_14.md` §6.4 gives a homometric witness
+> and names the repair (Nerode). **Neither states the criterion, which is three lines:**
+> since `d_X(t)=0` exactly when `t ∈ X`, **if `C △ D ⊆ T` then `Δ_T(C)=Δ_T(D)` forces
+> `C=D`.**
+>
+> So *"generally finer"* is **not a tendency** — every homometric pair of caches has a
+> separating element **outside the declared family**, and the quotient's nontriviality
+> is **a statement about `T` alone, never about the dynamics.**
+
+*Generally finer* is a hedge. The three lines replace it with a boundary. `CLAUDE.md`:
+*"a correlation coefficient has no content; the content is the error term"* — and its
+qualitative twin, which this is: **a frequency adverb has no content; the content is
+the criterion.**
+
+And **the first independent check of a corpus witness**:
+
+> §6.4's witness appears **once** in the corpus and **grep found no check of it.** It is
+> correct, and is now **computed rather than asserted**: `C={1,2,4,6}`, `D={1,2,3,4}`,
+> `d_C(11)=d_D(11)=2`, `u₁₀` fires on `C` and is inert on `D`. **Both sides of the
+> dichotomy instantiated**: `T={11}` homometric, `T={3,11}` separated.
+
+## P122 — six vocabularies, one theorem, zero cross-citations, verified
+
+> **Six of the eleven drawn files state one theorem in six vocabularies** — invariant /
+> fiber · endpoint / cache · value / cost · optimum / witness · `δ mod ker χ` / value
+> register · evidence / truth. **Zero cross-citations among the six** — verified by
+> grep, graded as *"no path or title of any appears in another."*
+
+`CLAUDE.md` requires *fugue* only ever as concrete cognition, never as theory. **This is
+the concrete instance, with a count**: a uniform draw over 5,876 files returned eleven,
+and six of them are one theorem in six dialects that have never met.
+
+And the lens verdict is a result, not a preference:
+
+> **Church's** move produces *"`∼_O` is equality iff `O` separates points"* — **true of
+> every set and predicts nothing: the convenient formalism loses the theorem.**
+> **McClintock's** finds that all six carry a **vocabulary-relativity clause written as
+> a boundary rather than a statement** (0145: *"empty unless the organ's vocabulary is
+> fixed in advance… always yes and always vacuous"*). §0 **promotes that clause to the
+> statement** for one of the six, with the threshold made exact. **§6.4 itself makes the
+> Church move — names Nerode, doesn't compute it.**
+
+## P122 — the source genre named for the distinction is absent, at zero on both grep
+
+> `pāṭī` / `Pāṭīgaṇita` / `Śrīdhara` / `dhūlikarma` / `dust board`: **zero files** in
+> `notes/` and `formal/` — **a corpus whose cache lane is entirely retain-versus-wipe
+> with the text genre named for that distinction absent.**
+
+`CLAUDE.md`'s cheap check — grep for the *work*, not the author — returning **zero on
+both**, on a genre whose defining operational fact (*pāṭī* = the board; *dhūlikarma* =
+dust-work, where a step is wiped as you go) is the exact distinction the lane is built
+on. And it corrected its own recalled date rather than assert one: *"Śrīdhara's dating
+is **disputed** (8th–9th c.; MacTutor 870–930) — this corrected a 'c. 750' I had written
+from recall, and **I assert no single year**."*
+
+It also refused a count I would have taken: *"`ls notes/ | grep -i 'cache\|chain'`
+returns 22, but **that is a name match, not a subject count** (≥3 are toolchain notes) —
+**no lane count asserted.**"* Defect #1 declined at the moment of the act, by an agent,
+in a return.
+
+## P122 — and then my own measurement of its disagreement fired defect #1
+
+`zb-0` recorded, without resolving:
+
+> The draw's ancient field is **Mesoamerican** while `CLAUDE.md` scopes the corpus to
+> Indian texts — **not an agent's call**, and other agents have followed the same draw.
+
+I went to measure the pool and ran
+`grep -icE "indian|sanskrit|jain|buddh|nyaya|vedic|kerala|panini|prakrit|tamil"` over
+`ancient_fields.txt`: **10 of 73.** I was about to write *"the pool is 14% Indian."*
+
+Then I printed the rows my pattern had excluded, and the first eight were **Pāṇinian
+grammar, Navya-Nyāya, Mīmāṃsā, Madhyamaka, Kuṭṭaka, Bhāskara II, Brahmagupta,
+Bhartṛhari.**
+
+**The rows name the school and the person; my pattern named the English category.**
+That is defect #1 — orthography and naming — and it is `CLAUDE.md`'s own cheap check
+running backwards: *grep for the text's name, not the author's* fails identically when
+you grep for the *category* rather than the tradition's own names. Fired in the pass
+about it, on the file about not clustering, four minutes after quoting an agent
+declining exactly this.
+
+Read by hand instead: **66 rows, roughly 24 Indian**, the rest Babylonian, Egyptian,
+Greek, Chinese, Japanese, Islamic/Persian, West African, Mesoamerican, Andean,
+Polynesian, Australian, Tibetan, Talmudic, scholastic.
+
+## P122 — and it is not a contradiction; the pool contains its own justification
+
+`CLAUDE.md` scopes **the object**: *"a corpus definition — Indian mathematical and
+philosophical texts, c. 1200 BCE to c. 1600 CE, read in their own sequence, from their
+own statements"*, with the interpretive chain Indian and a European restatement named as
+a restatement or not named.
+
+The seeder draws **the standpoint** — where you are reading from — and one of its 66
+rows is:
+
+> **Al-Bīrūnī's comparative method: reading another civilization's science on its own
+> terms**
+
+That is the relationship, stated inside the instrument. A pool of standpoints is not a
+second corpus definition; it is *nayavāda* — the object is fixed, the standpoints are
+plural, and a standpoint that denied the others would be the *durnaya*. **`zb-0` was
+right that it is not an agent's call, and right to record rather than resolve it.**
+Recording the resolution here as one reading, not as a ruling: the two documents govern
+different variables, and neither says so.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "roughly 24 Indian of 66."** I read
+66 truncated rows at 58 characters and classified by eye, in one pass, having just
+demonstrated that my classification instrument for exactly this question was wrong by a
+factor of two. A row like *"Music and tuning theory: śruti systems, Pythagorean
+comma…"* is both and I counted it once; *"Mathematics surviving only as quotation:
+Jayadeva's cakravāla…"* is Indian and thematic at once. The number is a hand count with
+no stated rule, which is the weakest evidence class in this stream, and the only thing I
+would defend is the qualitative one: **the pool is majority not-Indian and deliberately
+so.**
