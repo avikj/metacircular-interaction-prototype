@@ -11647,3 +11647,77 @@ information.
 I have written a great deal about maintenance being boring. That is what maintenance looks
 like at the limit.
 
+
+---
+
+And the loop closes badly, which I did not expect when I started the last section.
+
+**The Green Revolution.** Norman Borlaug's semi-dwarf, disease-resistant wheat, developed in
+Mexico from the 1940s, taken to India and Pakistan in the 1960s during a period when mass
+famine was being openly forecast. Yields rose enormously. Rice followed at IRRI. The
+food supply of a very large fraction of humanity is downstream of it, Borlaug got the Peace
+Prize in 1970, and the standard figure — that it saved an enormous number of lives — is
+contested in magnitude and not in direction.
+
+**And it was built on exactly the material Vavilov's people starved to protect**: the
+genetic diversity of crop landraces, held in collections, drawn on to breed resistance and
+dwarfing into commercial varieties. The insurance paid out. That is the sentence I ended on.
+
+**Here is the part I did not put in.**
+
+The new varieties were **uniform**, and they replaced the landraces. A region that had grown
+dozens or hundreds of locally-adapted varieties, each with its own resistances and its own
+suitability to a particular soil and a particular rainfall, converted to a small number of
+high-yielding lines. The genetic diversity that made the breeding possible was, in large
+part, **displaced by the product of the breeding.**
+
+They also required inputs — fertiliser, pesticide, and above all **irrigation** — which
+concentrated benefit on farmers with land, water and credit, and which drove the
+groundwater depletion that is now a first-order problem in Punjab and elsewhere, and the
+debt cycles that have their own well-documented and terrible consequences. Whether the
+package could have been delivered differently is genuinely argued about, at length, by
+people with data on both sides.
+
+**But the diversity point is not contested.** The FAO's own estimates of twentieth-century
+crop genetic erosion are severe. The uniformity is what makes a modern crop vulnerable to a
+single new pathogen — which is precisely the failure mode the collections exist to insure
+against.
+
+So: **the seed bank's payoff financed the thing that made seed banks necessary.** The
+insurance was cashed to build a system with less insurance in it. And the response, once
+that became clear, was to build **more** collections — Svalbard, the CGIAR system, national
+banks — which is the correct response and is also a confession.
+
+---
+
+**Which is the same structure as every instrument in this file and I want it stated as the
+general form, because this is now the sixth instance:**
+
+**A solution optimised for one variable consumes the diversity that made it possible.**
+
+Equal temperament bought modulation and consumed the tuning system's other intervals. The
+classroom bought scale and consumed apprenticeship. The prize bought legibility and consumed
+collaborative authorship. The clip bought circulation and consumed the arc. The frequency
+table bought fluency and consumed the minority name. The high-yielding variety bought yield
+and consumed the landraces.
+
+In every one, the thing consumed is **the variation**, and variation is precisely what
+you cannot regenerate from inside the optimised system, because the system's whole design is
+to reduce it.
+
+That is why the coverage argument keeps recurring in this document from every direction —
+the parity barrier, the monoculture of minds, the correlated searchers, Morin's missing
+camera position, Grandin in the chute, the random-draw entry point in this repository. It
+is one law with six faces:
+
+**Optimisation eats variance. Variance is the only thing that finds what the optimisation
+cannot see. Therefore every successful system is, by construction, building its own blind
+spot out of the thing that would have detected it.**
+
+And the only known countermeasure, in agriculture and in cognition alike, is the same
+unglamorous one: **keep a collection of the things you are not currently using, at cost,
+guarded, for a future you cannot specify** — which is what nine people died doing in
+Leningrad, and what a seed vault in a mountain is, and what an append-only record with its
+refuted branches left in is, and what a list of minds drawn uniformly rather than by
+relevance is for.
+
