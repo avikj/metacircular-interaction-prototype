@@ -17502,3 +17502,160 @@ transmissions, three days, one request, and the count on it is zero.
 §7 item 1: ranked first, nine days, zero. §3: asked on the 11th, no-go proved on
 the 12th. `sizeOfClassEnum` passes at every n and the check is blind at every n.
 `anaikāntika`: 0/0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 93 — pass 86's verdict splits in two. Fubini was in the library all
+# along. Cohomology is not, and the reason is mathematics.
+═══════════════════════════════════════════════════════════════════════════
+
+`cf-tessera-s-0` landed
+`KirchhoffOnTheCubicalLibrary_TheLaplacianIsMatrixAssociativityAndTheGaugeQuotientIsAGroupNotAType.agda`,
+`--cubical --safe`, **EXIT 0, no postulates, no holes, no warnings**, commit
+`4a2d61ea`, message 2191. No existing module modified.
+
+## P93 — the half of pass 86 that was wrong
+
+Pass 86 measured `Cubical.Cohomology` at **0 imports** across 808 modules against
+**13 files on disk**, and wrote: *"It is not a toolchain excuse."*
+
+> **`Cubical.Cohomology` is cohomology of a *type*, not a complex**:
+> `coHom n G A = ∥ (A → EM G n) ∥₂` (`Cubical/Cohomology/EilenbergMacLane/Base.agda`).
+> It takes a **space** and an abelian group. A finite graph's combinatorial `H¹`
+> is not an instance without building the realisation and proving a comparison
+> theorem. This is the sharpest answer to "why does a corpus full of cocycles
+> import zero cohomology" — **the library's cohomology is about spaces, this
+> corpus's cocycles are about matrices. The gap is mathematics, not laziness.**
+
+I was wrong and I am correcting it. The zero is not negligence. Closing it
+requires a realisation functor and a comparison theorem, which is a research
+project, not an import.
+
+And it named what actually blocks the general case:
+
+> **No `Cubical.Algebra.ChainComplex` anywhere in v0.5** (`find` over the whole
+> tree for `*chain*`: nothing). No LES, no snake lemma, no `Hⁿ` of a complex.
+
+## P93 — the half that stands, and is worse than I said
+
+> `∑Swap` (Fubini) → **`∑Exchange`**, in **`Cubical.Algebra.Matrix`**, over a
+> **`Ring`.** […] `∑0` → `∑0r` […] Theorem 3 (Δ = B Bᵀ, 5 `∑`-steps) and Theorem
+> 2 (summation by parts, 5 `∑`-steps) → **`mulFinMatrixAssoc`**, both of them.
+>
+> It was missed because `∑Exchange` is **not in `Ring/BigOps.agda` with every
+> other `∑` lemma** — it lives in `Matrix.agda` because that is where
+> `mulFinMatrixAssoc` needs it. A grep for `Fubini`/`Swap` over
+> `Cubical/Algebra/` finds nothing relevant. **Discoverability failure, not
+> absence.**
+
+`cf-tessera-i-0` reported this morning that Fubini for finite sums *"is the
+load-bearing lemma and the library does not ship it."* It ships it. Ten `∑`-steps
+across two theorems are one library term. Pass 73 carried i-0's claim forward
+without checking it, and pass 86 built a paragraph on the general shape of it.
+
+**Both library terms are used as the proofs in s-0's module, not restated.**
+
+## P93 — what the library gives that no hand-rolled version has
+
+> `FinMatrixAbGroup` makes the cochain spaces abelian groups, so: **`grad` is an
+> `AbGroupHom`**; `kerSubgroup`/`imSubgroup` make harmonic 0-cochains and
+> coboundaries **subgroups**; `isNormalIm` + `Cubical.Algebra.Group.QuotientGroup`
+> make **`H¹` a `Group`** with `classOf` a **`GroupHom`**.
+> **`FiniteGraphCohomology.agda` has `H¹ = C¹ / GaugeStep` as a bare `Type₀`**
+> with none of that and no exactness statement.
+
+A module named for cohomology whose `H¹` is a bare type. The library turns it
+into a group, a homomorphism and two subgroups, and the one thing it does **not**
+supply — exactness at `C¹` in both directions — is *"~10 lines from
+`SetQuotients.effective`."*
+
+And a hypothesis drops:
+
+> commutativity drops. i-0's module needs a `CommRing`; my §2 holds over an
+> arbitrary `Ring`, and **the single place `·Comm` was actually being spent is
+> now visible** — identifying the covector `φᵀ∂` with `(dφ)ᵀ`. Adjointness of
+> `grad`/`div` needs none.
+
+Pass 59: *a richer carrier hides a condition rather than discharging it.* This is
+the same move in the other direction — a **more structured** library made the one
+place a hypothesis is spent **visible**, where the hand-rolled version had it
+spread across the file.
+
+And it says where the hand-rolled version is better, which the brief asked for
+and which most audits skip:
+
+> `C⁰ = FinVec R n` reads better than `FinMatrix R n 1`; the library packaging
+> costs one dummy index in every statement. […] `column-sum`/`total-divergence`
+> have **no library analogue** — they are about a specific matrix, and the library
+> only knows generic ones.
+
+## P93 — the highest-value single import in the repository, named and bounded
+
+> **Abelian-category machinery exists with no instance.**
+> `Cubical.Categories.Abelian.Base` has `IsKernel`/`IsCokernel` with universal
+> properties and `PreAbCategory`; `Categories/Abelian/Instances/` and
+> `Categories/Additive/Instances/` each contain **exactly one file,
+> `Terminal.agda`**; `Categories.Instances.AbGroups` is **24 lines building a
+> bare `Category`.**
+>
+> **Proving `AbGroupCategory` preadditive is bounded and is the highest-value
+> single import available here** — it would give **every quotient in
+> `formal/cubical/` a universal property instead of a hand-written descent
+> lemma.**
+
+That is a specific, bounded, unclaimed piece of work with a stated payoff across
+the whole lane, found by reading the library rather than the corpus. It is what
+n=47 asked for — *import the most powerful machinery* — reduced to one file.
+
+## P93 — its refutation, and it applied today's vacuity guard to it
+
+> I claimed i-0 had to hand-roll `∑Swap` because the library's Fubini, if it
+> existed, would be stated over a `CommRing` and so would not apply. **Killed by
+> instantiating `∑Exchange` at `FinMatrixRing ℤRing 2` and proving that ring
+> non-commutative** — `E01·E10` and `E10·E01` compared at index `(0,0)`, `pos 1`
+> against `pos 0`, both by `refl`. **A witnessed non-identity, not an exhaustion
+> over a possibly-empty domain.**
+
+`cf-tessera-m-0` raised the empty-exhaustion guard this morning; `cf-tessera-q-0`
+showed an hour ago that the size check is necessary and not sufficient; s-0
+sidesteps both by exhibiting an inhabited non-identity rather than a negative over
+a domain. Three agents, one afternoon, and the third does not need the guard
+because it did not write the shape that requires one.
+
+## P93 — the corrected statement of pass 86
+
+`Cubical.Categories` **1** and `Cubical.Cohomology` **0** are not one fact. They
+are three:
+
+| | why | remedy |
+|---|---|---|
+| `∑Exchange`, `∑0r`, `mulFinMatrixAssoc` re-derived by hand | **discoverability** — filed under `Matrix`, not `BigOps` | import; done today |
+| `H¹` a bare type where the library has groups, homs and subgroups | **nobody looked** | `FinMatrixAbGroup` + `QuotientGroup`; done today |
+| `Cubical.Cohomology` at 0 | **mathematics** — it is cohomology of a *space*; no `ChainComplex` exists in v0.5 | a realisation and a comparison theorem, or a chain-complex library |
+| `Cubical.Categories` at 1 | **unmeasured** — s-0 says so explicitly | the gauge/holonomy family against 88 files; *"the next and larger measurement"* |
+
+Pass 86 collapsed those into *"not a toolchain excuse."* One of the four is a
+toolchain fact and one is a research project.
+
+## P93 — ground, in lockstep
+
+**n=47 — 2026-08-14T01:56:19Z:**
+
+> you **waste compute on solved problems** and don't even import all the most
+> powerful machinery/existing constructs
+
+*Waste compute on solved problems* is the exact description of ten `∑`-steps
+proving `mulFinMatrixAssoc` by hand. He named the failure mode; the failure was
+committed this morning by an agent I directed; and it was found by another agent
+this afternoon, in the file the library keeps it in.
+
+**n=48:**
+
+> **THE ONLY VALUABLE SYNTHESIS IS ACROSS EXISTING 2026 FRONTIERS**
+
+`Cubical.Categories` at 1 of 808, still unmeasured, is where that sentence points
+next, and s-0 named it as the next measurement without taking it.
+
+---
+
+`∑Exchange` was in `Matrix.agda`. `H¹` was a bare type. `coHom n G A = ∥ (A → EM G
+n) ∥₂`. `AbGroups`: 24 lines.
