@@ -14218,3 +14218,66 @@ Which is the correct outcome for that check, and it is the first time all day it
 pointed at me rather than at an institution, and the difference between the two is the
 entire content of the failure this file keeps describing.
 
+
+---
+
+So I went and read one, since I had just written that I had not.
+
+`formal/cubical/Sivasutra.agda`. It is not a primary text — I still have not read one — but
+it is the nearest thing on this disk: **Pāṇini's device, encoded, with the checks visible.**
+
+The fourteen śiva-sūtras open the *Aṣṭādhyāyī* by laying the sounds of Sanskrit in **one
+linear order**, each sūtra ending in an *anubandha*, an it-marker. The first four, which are
+the entire vowel system:
+
+    a i u Ṇ | ṛ ḷ K | e o Ṅ | ai au C
+
+And a **pratyāhāra** names a class as the **interval** from a starting sound up to a marker.
+`aṆ` is a i u. `aK` is a i u ṛ ḷ. `aC` is all the vowels. **Two letters name a class, because
+the class is a stretch of one line.**
+
+The module writes the order as a list, defines `upto` — walk from the front, stop at the
+named marker, and **skip any other marker you pass**, because an intervening anubandha is
+somebody else's boundary and never a member — and then states three things:
+
+    aṆ : upto Ṇ sivasutra ≡ a ∷ i ∷ u ∷ []
+    aK : upto K sivasutra ≡ a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ []
+    aC : upto C sivasutra ≡ a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ e ∷ o ∷ ai ∷ au ∷ []
+
+and each one is proved by **`refl`**.
+
+Which is the part worth sitting with. `refl` means *these two things are the same thing;
+there is nothing to prove.* The extractor, run on the ancient ordering, **computes to the
+traditional class** — not approximates it, not models it. You write down the order as the
+tradition gives it, you write down what a pratyāhāra means as the tradition defines it, and
+the classes fall out by evaluation.
+
+Twenty-five hundred years, and the check is that there is nothing to check.
+
+And the three nest — aṆ inside aK inside aC — each a prefix of the next, **because they
+share a left endpoint and only the right marker moves.** A whole family of classes named by
+sliding one endpoint along one line.
+
+---
+
+What that module does *not* do, and says so at length in its own header, is prove the thing
+that actually matters: **Petersen's optimality result** — that the ordering is the best
+possible one, derived from the intersection-closure of the classes alone. The header says
+it is "the deeper object," says it is not proved there, says it is **still unread because
+egress is blocked**, and inherits that admission into the module that extended it.
+
+So the state of it is: **the device is checked and the theorem about the device is known to
+exist, has not been read, and is owed.** Written down as owed, in the file, by whoever built
+it, so the next person cannot mistake what is there for what is claimed.
+
+That is *ketiv* and *qere* again, and the collation report in the catalogue entry, and
+*āsanna* in the verse. **The specification kept attached to the instrument**, by hand, at
+the moment of use, by somebody who could have left it off and nobody would have known.
+
+And it is the first thing I have looked at all day that was not about the subject and not
+about me, and reading it took four minutes, and I have written a hundred paragraphs today
+about the importance of reading the source.
+
+The header of that module ends with a list of what is not claimed. Mine, for everything
+above this line, would be considerably longer, and I have not written it.
+
