@@ -25908,3 +25908,93 @@ judgments on statutory construction from the nineteenth century onward.**
 
 **A hermeneutic built to decide which sacrifice a verse commands has been used to
 decide what a tax provision means.**
+
+---
+
+**Bhāskara II computes an instantaneous velocity in 1150 and states the condition
+that a quantity's rate vanishes where it turns.**
+
+***Siddhānta Śiromaṇi***, 1150. The astronomical half — ***Grahagaṇita*** and
+***Golādhyāya*** — contains the material, not the arithmetic books.
+
+**The problem is real and observational**: a planet's apparent motion is not
+uniform, and the correction depends on the planet's anomaly; **a tabulated daily
+motion gives the wrong position when the rate is changing within the day.**
+
+***Tātkālika-gati*** — **instantaneous motion**, as against ***sthūla-gati***,
+gross or mean motion. **The word *tātkālika* is "of that moment."**
+
+**The construction**: the change in the sine over a small interval, taken as
+proportional to the cosine times the change in the argument — **the relation now
+written d(sin θ) = cos θ dθ** — **and Bhāskara states it and uses it to correct
+planetary longitudes.**
+
+**And the interval is taken as a *truṭi*** — a very small unit of time,
+defined in the text, **and the point stated is that the smaller the interval the
+closer the result**, with the computation performed at that scale rather than at
+the daily scale.
+
+**And the statement about turning points**: that at the moment a planet is at its
+**furthest or nearest point — where the retrograde motion reverses — the
+instantaneous rate is zero**, and that the motion is momentarily stationary
+before it changes sign.
+
+**Which is the content of the statement that a differentiable quantity's rate
+vanishes at an extremum.**
+
+**Rolle publishes in 1691. Bhāskara is 1150.**
+
+---
+
+**And the honest form of the claim is narrower than the popular one and the
+scholarship says so.**
+
+**What is in the text**: an instantaneous rate, computed; the sine-cosine
+relation, used; the vanishing rate at the turning point, stated; **and the
+recognition that the result improves as the interval shrinks.**
+
+**What is not in the text**: a general concept of function, a general derivative,
+limits as a defined operation, integration as the inverse, or a fundamental
+theorem connecting them.
+
+**And the assessment is not a modern imposition** — **Bhāskara's own successors
+and commentators treat it as a computational technique for a specific
+astronomical correction**, and it is applied where it is needed and not
+generalised.
+
+**Datta and Singh, and later Bag and Ramasubramanian, worked the passages
+directly**, and the standard careful statement is that the ideas are **present in
+specific application** and that calling it "the calculus" imports a later
+architecture the text does not build.
+
+**And the Kerala school two hundred and fifty years later goes considerably
+further** — Mādhava's series with their correction terms, the *Yuktibhāṣā*'s
+term-by-term integration and its explicit treatment of the error in truncating
+an infinite series — **and Nīlakaṇṭha's commentary on Āryabhaṭa contains the same
+sine relation with a derivation.**
+
+**So there is a line, and the line is Indian, and it runs 499 → 628 → 1150 →
+1400 → 1530, and it does not arrive at the same object Newton and Leibniz built,
+and both halves of that sentence are load-bearing.**
+
+---
+
+**And Bhāskara's other well-known passage is a proof by rearrangement with one
+word under it.**
+
+**The Pythagorean statement, given as a figure**: a square with four congruent
+right triangles arranged inside it, the inner square being the difference,
+**and the algebraic identity falling out of the areas.**
+
+**The word written beneath the diagram, by tradition, is *paśya*** — **"look."**
+
+**Whether Bhāskara wrote it is not established** and the attribution is repeated
+widely without a citation to a manuscript; **what is in the *Bījagaṇita* is the
+dissection argument set out in words**, with the areas stated.
+
+**And the same dissection is in Chinese**, in the ***Zhoubi Suanjing*** and in
+**Liu Hui**'s third-century commentary as the ***xian tu***, the hypotenuse
+diagram, **with the rearrangement argued rather than shown.**
+
+**Two traditions with the same cut, and neither of them calls the theorem by a
+Greek name.**
