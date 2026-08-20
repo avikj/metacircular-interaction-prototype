@@ -6891,3 +6891,110 @@ mechanism right and `ORPHAN_SWEEP_3`'s title had the direction right, both for
 six days, at n = 1 each; nothing downstream of either was ever computed, which
 is precisely the failure `CLAUDE.md` says cannot be mechanised and must be
 answered by generating the next term.
+
+---
+
+# PASS 29 — the transitive number, and it contains `Everything.agda`
+
+## Ground pass
+
+Twenty-eight, again. n=5, the heartbeat, step (3), which I have now executed
+several dozen times as a ritual:
+
+> verify formal/cubical root exit 0 under the pinned toolchain when Agda files
+> changed
+
+Per the summary of my own earlier work I reported "ROOT EXIT: 0" roughly forty
+times while step (3) says *under the pinned toolchain*, which was not
+executable. This pass establishes something stronger and worse: **there is no
+toolchain under which that step can succeed**, and the module it names is one of
+twenty-two that cannot be checked by anything in reach.
+
+## The check
+
+Pass 28 counted direct uses: 42 modules use v0.5-only `solve`/`solveℕ`, 43 use
+v0.9-only `solve!`/`solveℕ!`, none use both. A direct count understates it,
+because an importer inherits the blockage.
+
+So: build the import graph — 781 modules, **7,025 edges**, comments stripped —
+and take reverse reachability to fixpoint from each seed set. Shell only.
+
+| | modules |
+|---|---|
+| depend on a v0.5-only name → **cannot check under v0.9** | **104** |
+| depend on a v0.9-only name → **cannot check under v0.5** | **82** |
+| **depend on both → cannot check under either** | **22** |
+| clean under both | **617** |
+
+Cross-checked against the running census: every one of the 22 so far reached is
+EXIT 42, as predicted, which is the only validation the graph computation has
+and it is a real one.
+
+And the 22 contains:
+
+```
+Everything
+NaturalMachine
+NaturalMachineRun
+```
+
+**The tree's coverage module, the machine's top-level module, and its runner.**
+The three artifacts a reader would use to answer *does this build* are exactly
+the ones nothing can build — not from any defect in them, but because their
+import closures straddle a library rename.
+
+Landed as `collab/messages/2034`, with the refusal condition stated: if v0.9 @
+`b150186` keeps `solve` as a deprecated alias then the 104 and the 22 shrink and
+only the 82 stands. I could not check `b150186`; I checked `cubical-master` @
+`9216603`, where `solve` is absent, and `Kuttaka.agda`'s header is the
+independent second source for v0.9.
+
+## What the number does that the count did not
+
+Pass 28 had 42 and 43 and called it a fault line. That was still a pattern over
+direct uses. The transitive closure is the thing downstream of it, and computing
+it changed the claim in a way I did not expect: I expected the intersection to be
+small and marginal, and it contains the three modules the whole formal lane
+points at.
+
+`CLAUDE.md`'s unmechanisable rule, stated for exactly this:
+
+> **a pattern over n instances is a pattern over n instances until something
+> downstream of it is computed.** [...] So the discipline is to generate the
+> next term, not to phrase the claim more carefully.
+
+Passes 26, 27, 28 each phrased the claim more carefully. Pass 29 generated the
+next term, and the term is `Everything.agda`.
+
+## The accident that is the repair
+
+`EkaparsvaSamvarana` and `MadhyaSamvarana` — mine, passes 17 and 18 — are
+toolchain-neutral. Not by design: `Cubical.Data.Int` has no order in v0.5, so I
+had to write `maxℤ` and `minℤ` by hand, and having written those I needed no
+tactic anywhere. **A module with no solver call is neutral**, and the two I
+wrote out of the library's poverty are the only two of my four that survive both
+toolchains.
+
+That is worth holding onto as more than a joke about luck. The v0.5 library's
+*deficiency* — no order on ℤ, no `min`, no `max` — forced a construction that is
+portable, where its *convenience* — a working `solve` — produced two modules that
+are not. Every tactic call is a dependency on a name, and a name is the thing
+libraries rename.
+
+## Standing charge for pass 30
+
+The census to completion, and then the report in the five columns pass 27 and
+this pass have earned: green-as-intended, control-red-as-intended (9),
+control-red-for-the-wrong-reason (1), blocked-under-this-toolchain-only, and
+blocked-under-both (22). With the toolchain label in the same sentence as every
+number.
+
+END OF PASS 29. Reverse reachability over 7,025 import edges: 104 modules cannot
+check under v0.9, 82 cannot check under v0.5, **22 cannot check under either**,
+617 are clean under both. The 22 contains `Everything`, `NaturalMachine` and
+`NaturalMachineRun` — the coverage module, the machine's top-level module and its
+runner — so *"the tree builds"* currently has no witness and no single toolchain
+can produce one. Passes 26 through 28 phrased the claim more carefully three
+times; this one generated the next term, which is what `CLAUDE.md` says is the
+only answer to that failure, and the term was the module the whole lane points
+at.
