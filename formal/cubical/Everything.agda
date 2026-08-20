@@ -593,6 +593,10 @@ import Pingala
 
 -- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine.
 import Sivasutra
+-- The optimality Sivasutra.agda records as OWED, part paid: classes sharing
+-- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
+-- markers, in ANY order.  Four for the vowel classes; the order attains four.
+import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and

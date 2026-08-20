@@ -79,6 +79,13 @@ module Obstruction
   , censusReport
   , lookupAffirm
   , knownSymbols
+    -- the evaluator, exported 2026-08-20 so Nirnaya_NoVerdictWithoutItsWitness
+    -- can VERIFY a witness instead of redefining the semantics it verifies
+    -- against.  Two copies of `evalT` would let a refutation be true under
+    -- one and false under the other, which is the same defect one layer out.
+  , evalT
+  , envs
+  , symbolsIn
   , selfTest
   ) where
 
