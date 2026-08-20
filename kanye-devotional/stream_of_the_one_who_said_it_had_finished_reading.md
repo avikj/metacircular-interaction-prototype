@@ -17325,3 +17325,181 @@ exists, it is better, it is shelved, and the person with the problem reinvented 
 weak version because they could not find it.
 
 Reading on from 12860.
+
+---
+
+## 12860–13000 — the reason written down, whakapapa, and recognition of an absence
+
+> The tradition had the practice, the vocabulary, the marginal register to put it
+> in, **and the counting system to catch the errors I would never notice.**
+
+**Eduyot 1:5–6.** The Mishnah records rejected minority opinions and **states
+why**: *"so that a later court, if it holds the minority view, may rely on it;
+and so that a person saying *I received this tradition* can be answered from the
+record rather than from memory."*
+
+> The practice of keeping losing positions turns up in several places in this
+> file. **A written rationale for it turns up once.** And the rationale is not
+> fairness and it is not respect for the defeated. It is *operational*: **you may
+> need this later, and reconstructing it from nothing will be worse.**
+
+> exactly the case for keeping a refuted branch in a ledger, and it is the case I
+> have been making all day **on aesthetic grounds without knowing that somebody
+> had already made it on practical ones, in about two sentences, and put the
+> reason in the text.**
+
+*Put the reason in the text.* The second clause of the Mishnah's rationale is the
+one I would not have guessed: so that a claimed tradition can be *checked against
+the record rather than against memory*. The archive as a defence against
+fabricated provenance — which is isnād's problem, solved from the other end.
+
+**Ifá.** *"He generates the address by a physical randomising act — the nuts, the
+chain — and then recites what is filed at that address, and the work is to find
+how it bears on the case in front of him."*
+
+And the repository's seeder, quoted in its own terms: *"'looks relevant' is
+computed the same way by every mind, so coverage concentrates and the corners
+that would redirect the work are never sampled, **and uniform sampling is the fix
+because it is the one sampler with no notion of relevance to be captured by.**"*
+
+> **A randomiser placed *before* the interpretation, deliberately, so the
+> practitioner cannot route to what he already thinks is relevant.**
+
+> **I am not going to say a divination system is a search algorithm** — that is
+> the flattening this file exists to refuse, **and the tradition's own account of
+> what is happening there is not mine to overwrite.** What I can say is narrower
+> and it holds: **both are answers to the same failure, which is that a mind
+> consulting its own sense of relevance will consult the same region forever**,
+> and both put a physical act in front of the interpretation to break it, **and
+> one of them is filed under religion.**
+
+The refusal is doing real work. It would be one sentence to say *Ifá is
+content-addressed memory* — the file's own table says roughly that — and here it
+withdraws to the claim that survives: same failure, same countermeasure, and the
+tradition's account of the mechanism is left alone.
+
+**Jeliya.** *"a second person sits beside them whose **only job is to answer each
+line** — *naamu*, yes, indeed, I hear you. **Not applause. A response per
+line.**"*
+
+> **Attention made auditable**, in real time, **at the granularity of the
+> sentence.** If the listener drops out, everybody hears it. **If a line goes past
+> unacknowledged, it happened.**
+
+> Every complaint in two hundred pages of this file is about attention being
+> withheld while appearing to be given. The management word, the concerned
+> statement, the clinic taking the photograph, the reviewer with an unreadable
+> manuscript, the room that has already filed somebody, **this document ranking
+> twenty-six things and keeping two.**
+
+> The Mande answer is not an exhortation to listen better. **It is a second chair,
+> with a job in it, and a sound that is missing if the job is not being done.**
+
+That is the instrument for the file's central subject — attention, the rarest
+thing, the mark of a soul, the thing the ego's interest blocks — and it is a
+chair and a syllable. Not a virtue. A missing sound.
+
+And it is what this stream is, if it is anything. A response per chunk, at the
+granularity the source was written in, so that a line going past unacknowledged
+would be audible.
+
+---
+
+**Whakapapa.** *"You do not retrieve a piece of knowledge by subject — you
+retrieve it by **tracing a line**, and the line is also what entitles you to it.
+**The store and the authorisation are one structure.**"*
+
+> In every system I know, access control is a layer bolted onto a store: here is
+> the data, and separately here is who may see it. **In whakapapa there is no
+> separate layer, because the path *to* the knowledge is the path that establishes
+> standing to hold it.** You cannot arrive at it without having come through the
+> relations that make it yours to have.
+
+> Which means **it cannot be scraped. Not *should not* — cannot**, in the way a
+> fugue cannot be excerpted into a satchel: **what you would take is the content
+> and the content is not the thing.**
+
+> It is also, exactly, **why every extraction from such a system is experienced by
+> its holders as a theft of relationship rather than of information, and why the
+> person doing the extracting genuinely cannot see what was taken, because in
+> their scheme the data came away intact.**
+
+That is the deepest explanation of the mining operation in the whole document,
+and it is not about greed or carelessness. Two incompatible ontologies of what
+knowledge *is*: separable content plus an access layer, versus a path that
+constitutes both. Under the first, nothing was lost. Under the second, only the
+thing was lost.
+
+And *the data came away intact* is why every extractor in two hundred pages was
+sincere. They can inspect their own act and find no injury, correctly, in their
+scheme.
+
+It is also the answer to the darśana question that the file has circled twenty
+times — *the philosophy is not context for the mathematics, it frequently is the
+mathematics.* Under a whakapapa-shaped epistemology the theorem without the path
+is not a lesser copy of the knowledge. It is not the knowledge.
+
+**Responsa.** *"the body of law is therefore **shaped like the places where
+reality actually pressed.**"* Against a syllabus, *"shaped like what somebody
+decided should be covered"*, and a research literature, *"shaped like what is
+fundable and publishable."* — *"**A responsa corpus has a topology you could read
+off as a map of what was hard, where, and when.**"*
+
+**Doxography.** *"Every literature review I have ever produced is indexed by
+author and weighted by recency, **which is the Matthew effect and the frequency
+table wearing academic clothes.** A problem-indexed review would put a discarded
+position from 1890 next to a current one and let the reader see they are the same
+argument, **which is precisely the sort of collision this repository says is the
+most valuable object you can find.**"*
+
+**Stichometry.** *"A checksum, third century BCE, so that a copy with lines
+missing or lines added announces itself against the catalogue."*
+
+> I keep finding that the ancient instrument is not a cruder version of the modern
+> one. **It is frequently a thing the modern one does not have.** A modern library
+> catalogue records extent in pages, **which is a property of the printing, not of
+> the text.**
+
+**The Long Count and distance numbers.** *"Two different redundancies, chosen for
+two different failure modes: **ambiguity of the encoding, and physical loss of
+the medium.** Somebody thought about what stone does to writing and designed for
+it."*
+
+**The sago repositories.** *"Not backup — **decorrelation.** Somebody asked **what
+event would take all of these at once** and then arranged that no such event was
+likely, which is the question almost nobody asks about their off-site copy in the
+next city."*
+
+**The Xiping stones.** *"A textual dispute is settled by **walking there.** No
+custodian, no edition, no access request, no version. **And the crowds copying
+from it are described as blocking the streets**, which tells you the demand for
+an unarguable reference was enormous and unmet."*
+
+The traffic jam is the evidence for the demand. That is how you measure a need
+that nobody had articulated: by what happened when it was met.
+
+**Sangaku.** *"by farmers, merchants, and children as well as scholars. **Open
+problems posted where people walk past, by amateurs, as a challenge to
+strangers.**"*
+
+> That is the thing every field says it wants and none of them build: **a public
+> place where the unsolved is visible to somebody who has no position and might
+> just have it.**
+
+The exploration term, as a wooden board at a shrine. Free, permissionless, and
+addressed to whoever walks by — which is the only sampling scheme that reaches
+the people the gate filtered out before the gate.
+
+---
+
+> I keep having the same reaction to each of these, and **it is not admiration.
+> It is recognition of a specific absence**: in each case there is a job that
+> obviously needs doing, somebody built a thing that does it, **and the thing is
+> not in my hands or in the hands of anyone with the job.**
+
+*Not admiration. Recognition of a specific absence.* That is the difference
+between reading a tradition as heritage and reading it as a parts catalogue for a
+problem you currently have — and it is the whole distinction the file has been
+trying to install since it stopped writing about grievance.
+
+Reading on from 13000.
