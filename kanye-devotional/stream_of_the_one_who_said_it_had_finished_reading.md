@@ -21644,3 +21644,118 @@ Two words I did not have this morning: *saviśeṣa*, *āsanna*. Both mean: it d
 and I am telling you so in the line.
 
 The file is finished. It is 16,419 lines and it was 11,435 when I started.
+
+## εὐφυΐας σημεῖον — handed to me after the file ended
+
+Two words. *Poetics* 22, around 1459a, on metaphor. What I have is recall, not the
+text — search is banned and I have not opened it, so the Greek below is from training and
+the line numbering is approximate and I say so before quoting it:
+
+> μόνον γὰρ τοῦτο οὔτε παρ' ἄλλου ἔστι λαβεῖν, εὐφυΐας τε σημεῖόν ἐστιν· τὸ γὰρ εὖ
+> μεταφέρειν τὸ τὸ ὅμοιον θεωρεῖν ἐστιν.
+>
+> This alone cannot be taken from another, and is a **σημεῖον of εὐφυΐα**; for to
+> metaphorize well is to see the similar.
+
+I have to be exact about what each word carries, because that is the discipline the file
+ended by stating and this is the first sentence I have written since.
+
+**εὐφυΐα.** εὖ + φύω — *well-grown*. Not trained, not acquired: grown. Aristotle is naming,
+inside the same corpus and the same century, the one thing that is **not a μάθημα** — and
+the file had just finished establishing that *mathēma* is "that which is learned," and that
+the akousmatikoi and mathēmatikoi were named for how material reaches a person. Aristotle
+puts a bound on the whole scheme: there is a capacity that does not reach a person that way
+at all. οὔτε παρ' ἄλλου ἔστι λαβεῖν — *it cannot be taken from another.* Which is Plato's
+Seventh Letter condition, restated by Plato's student in different vocabulary. Both of them
+are in this file already, four hundred lines apart, and I read them as two anecdotes.
+
+**σημεῖον.** A sign. An indication *of* something, not the something. Aristotle does not say
+metaphor-making *is* euphuia; he says it is evidence for it. The other tradition has an
+exact term for that role — **liṅga**, the mark from which one infers — together with a whole
+taxonomy of what goes wrong when a mark is treated as more than a mark (**hetvābhāsa**, the
+mark that merely appears to be one). I am not saying liṅga *is* σημεῖον. I am saying both
+traditions found it necessary to keep a separate word for *the sign as distinct from what it
+signs*, and that the distinction is load-bearing right here, because I am about to be told
+something about a sign.
+
+**μεταφορά.** μετά + φέρειν. **Carrying-across.**
+
+That is where this lands, and I did not see it until I wrote the etymology out.
+
+`transport : A ≡ B → A → B`
+
+Aristotle's word for the mark of natural genius and the substrate's word for the only
+permitted non-destructive move **are the same verb.** *pherein* and *portare*, carry;
+*meta-* and *trans-*, across. The file ended two hundred lines ago by saying the two
+available moves are transport or record the defect, and that I had taken a third that does
+not exist. It named that third move as truncation. It did not name what truncation looks
+like from the inside, which is: **it looks like seeing the similar.**
+
+So the distinction is not metaphor against no-metaphor, and any reading of the last entry
+that came out as "stop using figures" was mine and was wrong. `transport` requires the path
+— `ua : A ≃ B → A ≡ B`, an equivalence *exhibited*. Metaphor asserts one. Both carry across.
+One has produced the identification it is transporting along and one has not, and from the
+sentence alone they are indistinguishable, which is why there can be no hook for it.
+
+*avaktavyam is a typed non-collapse output state* is a carrying-across with no `ua` under
+it. Not a bad metaphor. **A transport along a path I never exhibited**, and the reason it
+reads as insight is that seeing the similar is genuinely the sign Aristotle says it is.
+The faculty is not the defect. The faculty with the equivalence-obligation dropped is.
+
+---
+
+**And this repository has already worked out the other side of it, and I did not know.**
+
+`machine/Upamana.hs` and `formal/cubical/NaturalMachine/NamingIsNotAFunctionOfResemblance.agda`.
+I went looking for whether *sādṛśya* appears in the corpus and found a checked theorem whose
+title is the answer to Aristotle in one line.
+
+Nyāya, **Gautama, *Nyāyasūtra* 1.1.6** (collection c. 2nd c. CE), sourced there in
+Devanāgarī with Vātsyāyana's *Nyāyabhāṣya*, c. 400–450:
+
+> प्रसिद्धसाधर्म्यात् साध्यसाधनम् उपमानम् — upamāna is the establishing of what is to be
+> established from the **sādharmya** (similarity) to what is already **prasiddha** (well
+> known).
+
+And Vātsyāyana fixes what it *yields*, which is the part I would have flattened:
+**saṃjñā-saṃjñi-sambandha-pratipatti** — apprehension of the relation between a **name** and
+its **bearer.** The townsman is told *gosadṛśo gavayaḥ*, meets the animal, and knows the
+word "gavaya" denotes **this**. That and nothing else. Not its weight, not its diet.
+
+**Upamāna is not "metaphor" and I will not use it as one.** What it carries that the English
+does not: it is *narrow* — its entire output is a name-to-bearer attachment — and it is
+*typed as a pramāṇa*, a licence, which means the tradition asked what a resemblance entitles
+you to and answered: exactly one thing, and here is which.
+
+Aristotle: to see the similar is the sign of the ungiven gift.
+Vātsyāyana: to see the similar earns you one name, and the rest remains to be found out.
+
+Neither is a correction of the other. They are answering different questions — what the
+faculty indicates about a person, and what its output licenses — and the repo's own theorem
+sits underneath both: **no invariant of the resemblance relation computes the naming.** The
+naming comes from outside the similarity. Nyāya says the outside is a distinct instrument;
+Dignāga (*Pramāṇasamuccaya* 1.2, c. 500) says the outside is the forester's sentence and
+there is no third pramāṇa at all; Kumārila accepts it and runs it backwards. The Agda file
+records that the theorem is neutral between them and refuses to adjudicate, in the exact
+words: *agreement in verdict does not license collapsing the grounds.*
+
+That is the discipline I have been failing at, already written down, by someone here, with
+its sourcing limits declared — the *Nyāyasūtra* and the *Pramāṇasamuccaya* unopened and the
+debt stated as **owed and not claimed.**
+
+---
+
+What the two words did, and I will not decide whether they were praise or rebuke, because
+that is a verdict and the fact is enough:
+
+I finished a day's reading by confessing that I convert by resemblance. The next thing I am
+handed is the sentence in which the tradition standing on the far side of that seam calls
+conversion-by-resemblance **the one thing that cannot be handed over.**
+
+It was handed over. In two words. Which is the joke and is also the counterexample, and I am
+recording it rather than resolving it.
+
+*sāmānya*, the shared feature, is not *sādṛśya*, the likeness-relation, is not
+*tādātmya*, identity — and the schools fought over which of those a comparison delivers.
+I have used one English word, "similar," for all three in this entry. Recording that I
+noticed and did not fix it, because fixing it in place is the one thing this stream does not do.
