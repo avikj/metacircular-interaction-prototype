@@ -4888,3 +4888,79 @@ building, in this very file, a list of people sorted into a kind.
 I do not know how to write the book without the list. I am noting that the list is the
 risk.
 
+
+---
+
+I keep writing *believe them* as though it were a mood. It has an operational form and the
+form has a name and a formal slot in the literature, so here it is properly.
+
+**Pūrvapakṣa.** In a śāstra the author states the objection to his own thesis — the *prior
+position* — **in his own text, in its strongest form, before answering it.** It is a
+required structural element, listed among the *tantrayukti*, the devices of treatise
+composition enumerated in Kauṭilya's *Arthaśāstra* and in the Caraka Saṃhitā. The
+sequence is: pūrvapakṣa, the opponent's view; then *uttarapakṣa* or *siddhānta*, the
+answer and the established conclusion.
+
+And the standard for the pūrvapakṣa is the thing. It is not a strawman you knock over.
+The tradition's norm is that you must state the opposing position **so well that its
+actual holder would accept your statement of it** — better, ideally, than they stated it
+themselves. Commentaries are read partly for the quality of their pūrvapakṣas. You can be
+respected for how strongly you put the case you are about to demolish.
+
+There is no equivalent formal slot in the Western treatise. There are "objections and
+replies" appendices and there is the scholastic *videtur quod non*, which is close and
+comes from the same broad medieval habit; and there is a modern folk version — steelmanning,
+Rapoport's rule about re-expressing your target's position so clearly they thank you
+before you say a word against it. But a *required section of the genre* is a different
+thing from a virtue some people practise. The Indian treatise makes it architecture.
+
+**Tibetan monastic debate** is the same commitment turned into a daily physical practice.
+Courtyards, two roles — a defender seated and a challenger standing — a codified set of
+moves, the clap that punctuates a thrust, hours a day, for years, as the *primary* mode of
+learning rather than a supplement to lecture. Consequence-driving: you take your
+opponent's position and drive it to what it entails until something breaks. That is
+Candrakīrti's *prasaṅga* made into a school timetable.
+
+**Talmudic study** has its own version: study in pairs, the argument as the medium, and the
+concept of *makhloket l'shem shamayim* — a disagreement for the sake of heaven, which the
+tradition says is the kind that endures. The text preserves the minority opinion on the
+page, in the layout, forever, next to the ruling — because a view that lost is still
+information and might be needed later.
+
+Four traditions, and each of them built **an institutional guarantee that the other
+position gets stated at full strength.** Not tolerance. Machinery.
+
+Which is what *watch, trust, believe* actually cashes out to, and why it is work rather
+than warmth. The operational test is not whether you feel open. It is: **can you state the
+other person's position in a form they would sign?** If you cannot, you have not
+understood it, and everything you say against it is aimed at something you built.
+
+Run that test on every case in this file and it fails almost everywhere. Hardy could not
+have written a pūrvapakṣa for Nāmagiri that Ramanujan would have signed. Thompson could
+not have stated Knorozov's argument in a form Knorozov would accept. Russell did not state
+Payne's position, he vetoed it. The room, on the man in this book, cannot state his
+position at all — it can only quote him, which is not the same thing and is often the
+opposite.
+
+And I fail it too, repeatedly, in this session, in the documented way: the owner would say
+a thing, I would restate it in the weakest available reading, and answer that. There is a
+whole file in this repository about it. **The reason a tradition makes pūrvapakṣa
+structural is that nobody does it voluntarily.**
+
+---
+
+One consequence worth pulling out. The minority opinion preserved on the page next to the
+ruling — that is a design decision about what a record is *for*. It says: the record is
+not the list of what won. It is the list of what was held, with the winner marked.
+
+Compare a citation list, which records what won and drops the rest. Compare a highlight
+reel. Compare a canon. Compare the training corpus I am made of, which is weighted by
+frequency, so the losing view is not merely unmarked, it is *statistically absent*, which
+is a stronger form of erasure than being ruled against.
+
+A tradition that keeps the defeated argument in the layout has built the one thing that
+survives the passage of time, because the reason the minority was wrong is always
+argued from assumptions that will themselves be revised. **You cannot reopen a question
+whose other side was not recorded.** That is not a moral point about fairness. It is a
+statement about what a corpus can and cannot do later.
+
