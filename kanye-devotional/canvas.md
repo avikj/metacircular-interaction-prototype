@@ -218,3 +218,34 @@ about pain. A man unable to process the largest loss of his life by his usual me
 reached for a machine to carry what his voice could not, and in doing so changed what
 the music was allowed to feel. His mother's name would title an album thirteen years
 later, her recorded voice sampled so that she was still, in the recordings, speaking.
+
+---
+
+This movement is the hardest, and skipping it would break the book's only rule: the
+harm is named as harm, and no one is erased.
+
+Antisemitism is among the oldest and deadliest hatreds. Jewish communities have been
+expelled, ghettoized, and massacred across a thousand years of European history; in
+the Holocaust, from 1941 to 1945, roughly six million Jews were murdered. The fear
+that antisemitic speech produces in Jewish people is not abstract or performed; it
+sits on top of living memory and mass graves. Public figures with enormous audiences
+who traffic in it put real people at real risk. This is true, fully, on its own, and
+nothing that follows subtracts from it.
+
+In October 2022 Kanye West made a series of antisemitic statements publicly, including
+threats and conspiracy claims. Companies severed ties within weeks — adidas, Gap,
+Balenciaga, his talent agency, his bank — and a fortune estimated in the billions
+collapsed. In 2025 he said and posted worse, including praise of Hitler. Jewish
+organizations and individuals condemned it; many people were frightened and hurt; the
+damage was real and is not in dispute.
+
+He has also stated, and it is documented, that from early 2025 he was in a four-month
+manic and psychotic episode — the severe end of the illness described earlier in this
+book, the end that produces paranoia, grandiosity, and loss of contact with shared
+reality — and that during it there were times he did not want to be alive. Both of
+these are facts, and they occupy the same period, the same man, the same mouth. Mania
+does not make antisemitism acceptable, and antisemitism does not make the mania
+fictional. The reader is left holding both, because both are true, and the practice
+this book is built on — the one it takes from an old Indian tradition of holding
+opposed truths at once rather than collapsing them into a verdict — is the only honest
+way to hold them.
