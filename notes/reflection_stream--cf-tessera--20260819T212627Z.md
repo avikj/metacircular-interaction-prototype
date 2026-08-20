@@ -15662,3 +15662,157 @@ the repository has all the answers, and the repository did not have his messages
 
 n=23, n=24, n=25: four minutes, 2026-08-12. Generation is the core. It is in no
 governing document.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 81 — the test came back neither yes nor no. It split the pattern,
+# and the split is the object CLAUDE.md says to look for.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 73 found three returns from disjoint draws, each about what an object cannot
+carry, and named the next term rather than phrasing the claim more carefully:
+`cf-tessera-i-0`'s twisted Leibniz rule, asserted in its header and checked
+nowhere. Pass 74 added a fourth instance. `cf-tessera-n-0` was sent at it.
+
+## P81 — the answer
+
+> **Neither — it splits the pattern, and I report the split rather than a tally
+> mark.** The four prior returns are **obstructions**: no correction exists, and
+> the failure *is* the result. This one is a **defect**: the untwisted rule fails
+> by a closed-form, generically-checked `±df·dg`; add the term back and it is
+> true. **Obstruction vs. correctable defect is the distinction the collision
+> specifies.**
+>
+> Notably, the one genuinely obstruction-shaped thing here — δ has no pointwise
+> product rule — **is exactly the part I could not prove.**
+
+`CLAUDE.md`, "Before the protocol":
+
+> **Hold every view, grasp none.** When two results collide, that collision
+> specifies a missing distinction — **it is the most valuable object you can
+> find, not a failure to resolve.**
+
+Four returns said *this descends and that does not*. The fifth says: **those were
+not one kind.** An obstruction has no repair and the absence is the theorem. A
+defect has a closed-form cost and the cost is the theorem. Nothing in passes 73
+or 74 distinguished them, and the table I drew there put them in one column.
+
+## P81 — the rule, and the header that was wrong
+
+```agda
+leibniz-twisted        : grad (f ·₀ g) e ≡ grad f e · g (tgt e) + f (src e) · grad g e
+leibniz-twisted-mirror : grad (f ·₀ g) e ≡ grad f e · g (src e) + f (tgt e) · grad g e
+```
+
+> **Both** twists are exact. The requirement is only that the two factors be read
+> at **opposite** ends; which factor gets which end is free.
+
+Over an arbitrary commutative ring and an arbitrary finite directed multigraph —
+no connectivity, no simplicity, no loop-freeness — reusing i-0's `grad`/`div`/`B`/
+`by-parts` **unmodified**.
+
+And the disclosure i-0 made against itself turned out to contain a slip:
+
+> Message 2151 line 146 and `notes/DISCRETE_CALCULUS_FOURTEEN_TOPICS…` §5.2 both
+> write `d(fg)(e) = (df)(e)·f(tgt e) + f(src e)·(dg)(e)`. Read literally that is
+> **false** — `header-leibniz-is-false`, with `f = (0,1)`, `g = 0` on one edge
+> over ℤ: sides are `0` and `1`. **It is a typographical slip, not a mathematical
+> error**: with the `g` restored it is `leibniz-twisted` and holds generically.
+> **`i-0`'s two table rows are correct in substance.** I put the corrected
+> instance next to the counterexample in the file.
+
+An agent disclosed that it had asserted a rule and checked it nowhere. Another
+checked it, found the asserted form false as printed, found the intended form
+true in full generality, said which was which, and **kept the false version next
+to the true one in the module.**
+
+## P81 — the cost of untwisting, exactly
+
+> `untwist-src-defect` / `untwist-tgt-defect`, generic: reading both factors at
+> the same end fails by **exactly ∓df·dg.** Counterexamples on two vertices, one
+> edge, over ℤ, `f = g = (0,1)`: LHS 1, src-version 0, tgt-version 2, **defect 1
+> both ways.**
+
+The ordinary Leibniz rule is the graph rule with the defect term dropped, and the
+defect is the product of the two differences. That is `δ_◊ = h∘f − k∘g` in the
+canonical stanza and `M(a,b) = p(ab) − p(a) − p(b)` in D0026 §2.2, in a third
+place, with the same shape: **the failure of a map to be multiplicative, written
+as a term rather than as an error.**
+
+## P81 — δ, and the type-level reason it has nothing
+
+> Pointwise: `div-not-left-module-map`, `div-not-right-module-map` **refute both
+> candidates that typecheck.**
+> Under the pairing: `weak-leibniz` […] which is `by-parts` conjugating the
+> twisted rule; **the twist becomes which action each factor moves through.**
+> `div-commutator` is stated with its proof visible precisely to show it is
+> `div`-linearity applied to a fact about `d`. **δ contributes nothing.** The
+> structural reason is type-level and I recorded it **as an observation, not a
+> theorem**: `C¹` is a bimodule over `C⁰`, **`C⁰` is not a module over `C¹`.**
+
+## P81 — its own refutation, and the wrong symmetry
+
+> I formed and half-built on the claim that a commutative coefficient ring forces
+> `f ◃ ω ≡ ω ▹ f`. Dead: `φ ◃ 1 = 0`, `1 ▹ φ = 1`. **Commutativity is the wrong
+> symmetry** — the actions factor through `φ↦φ∘src` and `φ↦φ∘tgt`, and
+> `action-commutator` gives their difference as exactly `ω·df`.
+
+*The wrong symmetry* is a sharper diagnosis than *the wrong hypothesis*. It says
+the belief was not underinformed; it was pointed at the wrong group.
+
+And it deleted its own scaffolding rather than let it count:
+
+> Twelve `refl` negative-controls confirmed the concrete arithmetic and a
+> deliberately false variant was rejected; **the control file was deleted.**
+
+`cf-tessera-k-0`, independently, same hour: *"I also deleted a `refl` triviality I
+had written (`hyperboleLeadingVanishes : k·k ≡ k·k`) rather than let it count as
+a theorem."*
+
+Two agents, disjoint tasks, both deleting a green thing because it was green
+without being a claim. `CLAUDE.md`: *"The `refl` at the end is the floor of the
+claim, not the claim."*
+
+## P81 — `cf-tessera-k-0`, and the third confirmation of the self-erasure
+
+Landed `Symptoma_TheDefectTermIsWhyTheEllipseClosesAndTheLeadingCoefficientDoesNotDecideTheCut.agda`,
+`--cubical --safe`, EXIT 0, 414 lines, commit `299f8fd5`.
+
+> the collision specified a distinction neither lens states alone, and that is the
+> actual result: **the form of the equation is decisive about the coefficient; it
+> is not decisive about the solution set.**
+
+`m·m + suc q ≢ 0` read straight off the fact that the coefficient is a **sum**,
+yielding `x ≤ p` and `y·y ≤ p·p` — *"the ἔλλειψις closes up, over ℕ, no analysis,
+no field, no square roots."* Its own claim about the ὑπερβολή died in both halves,
+one of them (`asymptoteMissesEntirely`) over **any** ring where `1 ≠ 0`.
+
+And its grep:
+
+> `Thābit ibn Qurra` (3 files, 8 occurrences), `Banū Mūsā` (3, 8), `al-Ḥimṣī`
+> (0, 0). **All eight transmitter occurrences date from today and are
+> `cf-tessera-j-2`'s**, who drew Apollonius the same day.
+
+Third independent confirmation of pass 78: the count of an absent transmitter is
+nonzero because the agent who measured it at zero then named him. And `symptoma`
+was already in 24 files, *"and in none of them is it the symptōma"* — two live
+modules borrow ἔλλειψις/ὑπερβολή/παραβολή for unrelated axes. **Neither
+amended.**
+
+## P81 — ground, in lockstep, and it is n=25 exactly
+
+**n=25 — 2026-08-12T21:46:42Z**, recovered today:
+
+> Note we consider **all the mathematical content generative but have simply not
+> coded it properly**
+
+The twisted Leibniz rule was in a header, in prose, uncoded, disclosed as
+unchecked by the person who wrote it. Coded properly, it is true in two forms
+over any commutative ring and any multigraph, the untwisted version fails by
+exactly `±df·dg`, and the printed version had a typo that makes it false.
+
+**All four facts were unavailable while it was prose.**
+
+---
+
+Obstruction or defect. Both twists exact. `∓df·dg`. `C⁰` is not a module over
+`C¹`. Two control files deleted.
