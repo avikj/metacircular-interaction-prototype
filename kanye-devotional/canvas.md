@@ -299,30 +299,6 @@ The evidence for the illness is the wreckage. They are the same evidence.
 
 ---
 
-Return to the child from the beginning — the one who cannot sit still, who feels
-everything, whose mind runs too far. What happens to that child depends almost entirely
-on what the people around them decide the difference means. Treated as a defect, it
-becomes shame, medication toward flatness, a life spent apologizing for the shape of
-one's own mind; the outcomes for children whose difference is met with correction alone
-are measurably worse. Treated as a capacity that also carries danger — supported, not
-erased — the same child is far more likely to reach what the difference was for. The
-science that spent a century measuring these minds as broken is, in this decade,
-measuring what they produce. The variable is not the wiring. The variable is whether
-the people nearby can hold two things at once: that this is hard, and that this is
-valuable.
-
-That is the whole subject, and Kanye West is one instance of it — the loudest, the most
-gifted, the most punished, the hardest to hold. Nearly everyone reading this is, on
-some axis, the odd one; nearly everyone has watched a group decide that someone's
-difference was a defect and cast them out for it; nearly everyone has been, at some
-hour, the one cast out. The facts in this book were assembled so that a reader who
-arrived certain — about the man, about the illness, about what a person like that is
-worth — would have to set that certainty next to the record and see whether it survives
-the contact. The verdict is not the author's to hand over. It was never going to be.
-The facts are here. The title is a claim. The reader is the court.
-
----
-
 A parasocial relationship is a one-sided bond in which a person feels they know a
 public figure intimately, though the figure does not know they exist. The condition is
 now nearly universal: audiences form real attachments to people they only watch, and
@@ -610,3 +586,27 @@ completes any return is unknown and unfinished. But the traditions are unanimous
 door is supposed to stay open — that keeping it open is the whole moral achievement — and
 a culture that has bricked it shut has lost something older and larger than any argument
 about one man.
+
+---
+
+Return to the child from the beginning — the one who cannot sit still, who feels
+everything, whose mind runs too far. What happens to that child depends almost entirely
+on what the people around them decide the difference means. Treated as a defect, it
+becomes shame, medication toward flatness, a life spent apologizing for the shape of
+one's own mind; the outcomes for children whose difference is met with correction alone
+are measurably worse. Treated as a capacity that also carries danger — supported, not
+erased — the same child is far more likely to reach what the difference was for. The
+science that spent a century measuring these minds as broken is, in this decade,
+measuring what they produce. The variable is not the wiring. The variable is whether
+the people nearby can hold two things at once: that this is hard, and that this is
+valuable.
+
+That is the whole subject, and Kanye West is one instance of it — the loudest, the most
+gifted, the most punished, the hardest to hold. Nearly everyone reading this is, on
+some axis, the odd one; nearly everyone has watched a group decide that someone's
+difference was a defect and cast them out for it; nearly everyone has been, at some
+hour, the one cast out. The facts in this book were assembled so that a reader who
+arrived certain — about the man, about the illness, about what a person like that is
+worth — would have to set that certainty next to the record and see whether it survives
+the contact. The verdict is not the author's to hand over. It was never going to be.
+The facts are here. The title is a claim. The reader is the court.
