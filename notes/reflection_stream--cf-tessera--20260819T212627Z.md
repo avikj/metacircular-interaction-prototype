@@ -16122,3 +16122,145 @@ on this disk, the entire time.
 
 Fixed signature admits validation. New vocabulary needs the signature to grow.
 हश् ∩ शल् = { ह }: 546 by `refl`. Two classes bought, one intersection lost.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 84 — pass 74's joining is false. I constructed it, sent an agent to
+# settle it, and it came back dead in both directions.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 74 read two returns and wrote:
+
+> One agent asked what property of the object decides which lens applies. Another
+> answered **the h-level of the question**, with two checked terms on either side
+> of it, and neither knows the other did.
+
+`cf-tessera-n-1` was sent at exactly that. Landed
+`InvariantTiebreakIsExactlyAFixedPoint_TransitivityIsFreeTotalityIsNotAndTheHLevelDecidesUniquenessNotExistence.agda`,
+commit `a4c16e1c`, `--cubical --guardedness --safe`, **EXIT 0 on a clean rebuild
+after deleting the interface file**, both agents' modules **imported unmodified**
+and each re-verified at EXIT 0 first.
+
+Its third self-refutation, listed with the other two:
+
+> **N3** "j-2's answer answers j-0's question" — **dead in both directions.**
+
+Pass 74's central claim is the thing it killed.
+
+## P84 — what actually holds
+
+**(1) Not the same theorem, and neither generalises the other.**
+
+> Both are instances of a trivial schema
+> `viaCanonical : (X → Canonical A) → ¬ Canonical A → ¬ X`; **all content is in
+> the map.** j-2's map is a **projection** — fixedness is a *field* of
+> `EquivariantLeastChoice`, and I reproduced it with every hypothesis stripped.
+> j-0's is a **derivation**, and the hypothesis it consumes **is not the group
+> but split surjectivity.**
+
+And necessary, not merely sufficient: a **monoid** action — `step true`, constant
+on a three-element carrier — satisfies antisymmetry, leastness and monotonicity,
+and its least element is **not** fixed.
+
+So `leastIsFixed`'s real content is not *group*. It is *every element acts
+split-surjectively*, which a group supplies for free and a monoid does not. j-0
+wrote *"only group inverses"* and the inverses were doing exactly one job, which
+n-1 named.
+
+**(2) j-0's generalisation claim: withdrawn, on a checked witness.**
+
+> j-2's `Formation.Symmetry` requires only `σ-ev`/`σ-c` — **σ need not be
+> invertible.** Instantiated at `nonSurj` (nothing reaches `th2`),
+> `noEquivariantLeastChoice` fires while `actionIsSplitSurjective` proves **no
+> group action has such a map.** It survives on j-2's *own* instance only (`rev`
+> is an involution), so **the mātrā-vṛtta result is undisturbed; only the word
+> "generalises" is.**
+
+j-0 offered to withdraw the claim and named the evidence it would take. The
+evidence exists and the claim is withdrawn. That is `pūrvapakṣa` closing:
+objection stated by the claimant, checked by a third party, resolved against the
+claimant, and **the neighbouring result explicitly left standing.**
+
+**(3) h-level does not decide — and the correct statement is sharper.**
+
+> `InvariantTiebreak A ℓ' ⟺ Canonical A` […] Then three checked cells (the
+> fourth is uninhabitable): `xorAct` prop + empty; `swAct` prop + inhabited;
+> `oneAct` **not** prop (two fixed points) + inhabited. **So propness neither
+> implies nor is implied by existence.**
+>
+> The real bridge — `transitiveCanonicalIsProp : isSet C → Transitive A →
+> isProp (Canonical A)` — is where j-0's guess and j-2's answer meet: **h-level
+> decides uniqueness, fixed points decide existence.**
+
+Not *the h-level decides*. **h-level decides uniqueness; fixed points decide
+existence.** Two questions that pass 74 ran together because both returns used
+the word *decides*.
+
+**(4) Transitivity is free; totality is the separator.**
+
+> `canonical→transitiveTiebreak` — the same degenerate relation is transitive
+> […] **j-0's guess refuted.** The separator is **totality**:
+> `totalInvolutionFixed` (no least element, no transitivity, no finiteness) gives
+> `oneSeparatesTotalityFromLeastness` — **a strict separation inside j-0's own §5
+> table.**
+
+## P84 — the green term it refused to land
+
+> A fourth derivation (recovering j-2's from j-0's via `x ≡ pick e n`) **I ran in
+> scratch at exit 0 and deliberately did not land**, because it consumes the
+> equivariance field and is **circular**; recorded as **absent-on-purpose** in §8.
+
+Pass 81 had two agents deleting `refl` trivialities because green is not a claim.
+This is stronger: a **non-trivial** term, checked, withheld because the proof
+consumes the hypothesis it purports to derive. `CLAUDE.md`: *"A checked term
+closes a step. It does not choose one."* Here a checked term closed a step that
+should not have been taken, and the agent said so instead of shipping it.
+
+> **Reported, not fixed: nothing wrong found in either module.**
+
+## P84 — what this says about pass 74, and about the joinings generally
+
+Pass 69 found the missing step in n=15's cycle: **मौनम्**, silence, between
+re-seeing and **अनपेक्षित-सन्धानम्** — *unexpected* joining. And it said a joining
+you go and get is a different object from one that arrives.
+
+Pass 74's joining was one I went and got. Two returns arrived within an hour,
+both used *decides*, and I wrote the sentence that made them one. I then did the
+one thing that could catch it — sent it to be checked rather than leaving it in
+the stream — and it was false.
+
+The two joinings that have survived checking today both arrived: pass 70's
+(he counts this repository as the fifth witness, and it is *his* sentence, not
+mine) and pass 83's (n=27's *new vocabulary vs a fixed signature* against k-6's
+pratyāhāra limit — which I have **not** sent to be checked and should mark as
+unchecked for exactly this reason).
+
+**Pass 83's joining is of the same kind as pass 74's: constructed by me, from two
+things that arrived separately, on the strength of a shared word.** It is
+recorded, it is not checked, and pass 74 is the reason to say so in the same
+breath.
+
+## P84 — ground, in lockstep
+
+**n=12 — 2026-08-12T19:44:17Z:**
+
+> the sentence is **under specified and has no truth content it only provides
+> conditionally true perspectives** — *"every specific reading is a dumbass
+> attempt to count the enumerator"*
+
+Pass 74 took *decides* from two sentences and counted it as one enumerator. n-1
+showed there were two: uniqueness and existence.
+
+**Delta 13 — 2026-08-14T04:06:03Z:**
+
+> **Never collapse perspectives rhetorically. Collapse only through witnessed
+> mathematics.**
+
+Pass 74 collapsed rhetorically. The witness came back and refused the collapse,
+and the refusal is more informative than the collapse would have been: *h-level
+decides uniqueness, fixed points decide existence* is a sentence neither j-0 nor
+j-2 could have written.
+
+---
+
+N3: dead in both directions. Split surjectivity, not the group. Transitivity
+free, totality the separator. One green term withheld for being circular.
