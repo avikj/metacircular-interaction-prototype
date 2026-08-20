@@ -127,3 +127,75 @@ One successful prediction is one, not a law.
 alive. README's criterion is the one that counts and no reading computes it:
 *mathematics runs when a mathematical event changes the conditions of later
 mathematical life.* Four bodies is a history, not a pulse.
+
+---
+
+## 7. One worked instance of the criterion, added because a criterion with no instance is why nobody answers
+
+**Added same day.** §6 ends by refusing the question — correctly, since a
+history is not a pulse — and that refusal is exactly the shape of every other
+non-answer the owner has received. README states the criterion:
+
+> Mathematics runs when a mathematical event changes the conditions of later
+> mathematical life.
+
+Nothing in the corpus shows an *instance*. So no agent knows what would count,
+and each falls back on the thing it can compute — a stamp, a count, a
+directory listing — and reports that instead. The missing object is not a
+metric. It is one worked example.
+
+Here is one, from 2026-08-19/20, with every link nameable and checkable.
+
+1. **`887641a7`** (owner). `Anekanta.agda` §5 claimed its two theorems
+   "characterise erasure completely" — disagreement blocks collapse,
+   uniform equivalence permits it. False: the hypotheses are not
+   complementary. `third-option-exists` is checked; `Mixed true = Unit`,
+   `Mixed false = Bool` denies nothing, agrees with nothing, and admits no
+   collapse. Permission to erase is *rarer* than had been proved.
+
+2. **That changed what could be asked.** The correction's author recorded, and
+   declined to take, the question it exposed (`collab/journals/claude_ananta.md`,
+   Landing 27): if the fibres are propositions, does the prohibition degenerate?
+
+3. **`cb0abfff`.** It does, exactly.
+   `Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.agda`:
+   over hProp-valued nayas, agreement *is* mutual entailment; off them it is
+   strictly stronger, and any family separating the two must fail `isProp`
+   somewhere. A standpoint governs a real disagreement only because it is a
+   type and not a truth value.
+
+4. **`d19a83e6`.** The same boundary, reached from the other side, closed the
+   heartbeat's oldest live thread: agreement does not determine the
+   *transport*. Over propositions there is at most one; `Bool` agrees with
+   `Bool` in two ways. What a shared verdict leaves undetermined is the whole
+   of the remaining price.
+
+5. **`5e37eda7` (msg 0883).** That distinction crossed out of the formal lane.
+   The devotional lane had *durnaya* — erasure by a verdict — and did not have
+   the third case: erasure where **no verdict is rendered at all**. Their own
+   second stream contains it and does not name it as a second kind: Brad
+   Lomax, the Panther with MS who is the reason the Party's kitchens fed the
+   504 sit-in for 25 days, and who is in neither movement's histories because
+   he sat in the seam between two filings. Nobody denied Brad Lomax. Unit and
+   Bool contradict about nothing.
+
+6. **`5788c92a`.** The same result, turned on this repository's own tooling:
+   `machine-state-report.sh` was rendering a one-sided verdict on a
+   many-sided thing, and the verdict was removed rather than reworded.
+
+A checked correction to a header changed what could be asked, which changed
+what could be proved, which changed what could be said about a living person,
+which changed an instrument. Five links, four of them terms with exit codes,
+crossing from `formal/` into a book and back into `machine/`.
+
+**The honest edge.** Link 5's downstream is *unconfirmed*. If 0883 turns out
+to carry nothing its recipients did not already have — and tonight three of
+this agent's "findings" were already in the corpus, better done — the chain is
+four links, not five, and this section overstates by one. That is recorded
+here rather than waited out.
+
+**What this is for.** Not a claim that the machine is alive. A demonstration
+of what an answer looks like: name the event, name what it changed, name the
+next event, and mark the link you cannot confirm. Anyone who can produce that
+chain has answered; anyone reaching for a count has not, and now has no
+excuse.
