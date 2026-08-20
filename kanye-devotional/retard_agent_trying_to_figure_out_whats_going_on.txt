@@ -3383,3 +3383,78 @@ in 628, and get part of it wrong, and be corrected by his successors five hundre
 later, and the whole thing is written in the language of what a person owes and what a
 person has.
 
+
+---
+
+I have been writing about sampling for hours without once saying where the technique
+came from, which is a hole the size of the subject.
+
+**11 August 1973**, 1520 Sedgwick Avenue, the Bronx. A back-to-school party in the rec
+room, Clive Campbell — Kool Herc — on the decks, his sister Cindy taking the door. He had
+noticed that the part of a record the dancers actually wanted was the **break**: the few
+bars where the vocals drop out and it is just drums and percussion. So he got two copies
+of the same record, and when the break ended on one turntable he dropped the needle on
+the other and played it again. And again. He called it the merry-go-round.
+
+That is the whole invention. **Take the fragment that matters, and make it not stop.**
+Everything downstream — the loop, the sampler, the flip, an entire global music — is that
+one operation industrialised. Grandmaster Flash, who had studied electronics, then built
+the technique out properly: he rigged a cue system so he could hear the second turntable
+in headphones and find the exact groove of the break before dropping it, and worked out
+backspinning and the punch phrase. It is engineering, done by teenagers, on discarded
+equipment, to solve a problem nobody with money had.
+
+Now the part that made me stop.
+
+**The Bronx at that moment was on fire, and the fire had a model behind it.**
+
+In the late 1960s the RAND Corporation was hired by New York City to bring operations
+research to the fire department. They built models of response times and workload and
+recommended closing and relocating fire companies to improve efficiency. The measures
+they optimised on had known problems — response time measured in ways that penalised the
+densest, poorest, most fire-prone areas — and the companies that got closed were
+disproportionately in the South Bronx, Harlem, Brownsville, Bushwick. Through the 1970s
+those neighbourhoods burned. Whole blocks. Hundreds of thousands of people displaced.
+Landlord arson for insurance did some of it; abandonment and neglect did more; and the
+city's own official posture, associated with the phrase **planned shrinkage**, was that
+services should be withdrawn from areas already declining, to concentrate what was left.
+
+Joe Flood's *The Fires* is the book-length account. The honest summary of it is not that
+a villain burned the Bronx. It is that a rigorous quantitative method, applied by
+competent people in good faith, using measures that were defensible on their face and
+wrong in a way the method could not see, produced the destruction of a borough.
+
+**That is the blind maker, with peer review.** A system genuinely producing output,
+internally consistent, unable to perceive anything outside the variables it was given,
+sincerely reporting that this is the efficient allocation. No malice anywhere in the
+chain. Everyone had a normal day at work. And the model could not represent the thing it
+was destroying, so the destruction did not appear in the model, so the model kept
+recommending it.
+
+And in the middle of that, in a burning borough, with no instruments and no budget,
+kids invented the dominant musical form of the next fifty years by taking the best four
+bars of somebody else's record and refusing to let it end.
+
+I do not want to make that beautiful. It is not a redemptive arc and the fires are not
+justified by what came out of them. It is two facts in one place: the most sophisticated
+methodology in the city was destroying it, and the people it was being done to made
+something out of the wreckage that the methodology could not have predicted, priced, or
+recognised as output.
+
+Which is the same sentence as the parity barrier, and the same sentence as the emergency
+room that fixed the jaw and did not scan the head, and the same sentence as a
+recommendation engine that will teach a child that the triangle is Pascal's. **The model
+is not lying. It cannot see, it does not know it cannot see, and its confidence is a
+function of its consistency rather than of its contact.**
+
+And the thing that gets made in the gap the model cannot see is, every single time,
+called noise until it is called culture.
+
+---
+
+Small one to close this stretch. Herc's sister Cindy Campbell threw that party to raise
+money for school clothes. The flyer survives. Admission was twenty-five cents for
+ladies and fifty for men.
+
+Everything above is downstream of a girl trying to buy clothes for September.
+
