@@ -8075,3 +8075,78 @@ as ***sinus***.
 
 The English word *sine* is a twelfth-century misreading of the consonants of a
 Sanskrit word for a bowstring.
+
+---
+
+Zero gets its arithmetic written down as a **number** in 628, and the same chapter
+gets division wrong and says what it is doing.
+
+**Brahmagupta**, ***Brāhmasphuṭasiddhānta***, chapter 18. He is the first known to
+treat zero not as a placeholder in notation but as a quantity you can operate on,
+and to state the rules:
+
+A quantity plus zero is that quantity. Minus zero, the same. **Zero minus a
+quantity is that quantity with its sign reversed.** Anything times zero is zero.
+Zero plus zero is zero.
+
+And the vocabulary is economic. Positive is ***dhana*** — **asset, fortune**.
+Negative is ***ṛṇa*** — **debt**. So the sign rules are stated as facts about
+money: a debt subtracted from nothing is an asset; the product of two debts is an
+asset; the product of an asset and a debt is a debt.
+
+Which is why negative numbers were **usable** there and were not the ontological
+crisis they became elsewhere: nobody has to believe in a quantity less than
+nothing to believe in owing someone.
+
+**In Europe negatives were still being called absurd and fictitious into the
+seventeenth and eighteenth centuries.** Pascal reportedly held that subtracting
+four from zero is nonsense. Arnauld objected that the proportion −1 : 1 = 1 : −1
+could not hold, because how can a smaller be to a greater as a greater is to a
+smaller. Those are serious mathematicians, a thousand years later, refusing the
+object.
+
+---
+
+**And then he divides by zero and gets it wrong.**
+
+He states that zero divided by zero is zero. That is false and it is not a slip of
+notation — it is a definite claim in the text.
+
+For a nonzero quantity over zero he does not commit to a value; he lets it stand
+as a fraction with zero in the denominator, which is a refusal rather than an
+answer.
+
+**Bhāskara II**, five hundred years later, in the ***Bījagaṇita*** (1150), takes it
+up and gives it a name: ***khahara*** — "having zero as divisor," the quantity so
+produced. And his characterisation is that it is **unchanged by addition or
+subtraction of finite quantities** — you can add to it or take away from it and it
+does not move.
+
+Which is a functional description of an infinite magnitude, arrived at by asking
+what property the object would have to have, rather than by computing it.
+
+He is still wrong about 0/0 by modern lights, and the property he identifies for
+n/0 is exactly right.
+
+---
+
+The **Bakhshali manuscript** — birch bark, found near Peshawar in 1881, using a
+**dot** for zero as a placeholder in worked arithmetic. Radiocarbon results
+published in **2017** gave dates for separate folios spanning several centuries,
+the earliest around **224–383 CE**, which would push the written symbol back
+considerably.
+
+**That dating is disputed.** The objection is that the manuscript is composite —
+different leaves of different ages bound together — so a date on one folio does not
+date the text, and scholars including Kim Plofker and colleagues published a
+response arguing the mathematical content is later than the earliest bark. I am
+recording both and settling neither.
+
+---
+
+What sits under all of it: the operations were written for **accountants and
+astronomers**, in the vocabulary of debt and asset, in a chapter of a book about
+planetary positions.
+
+Zero became a number because somebody needed to say what happens when you subtract
+a debt from nothing, and needed the answer to be usable in a table.
