@@ -42,12 +42,17 @@ built on it ends in the work or in the wreckage turns less on the wiring than on
 the people closest can hold two true things at once — this is hard, and this is precious —
 instead of only trying to make it stop.
 
-The world wants a person to be one thing. The genius or the crazy, the hero or the
-villain — it will spend enormous energy to keep from seeing both in the same skin. With
-him it chose, over and over, for twenty years, and the first time it chose in front of
-everyone was on a Friday night in 2005.
+So the first thing to know about him is that he cannot not make, and the second is that
+he cannot not feel, and they are the same fact. A man built this way has no public self
+kept separate from a private one; the amplitude is the same in the studio, on the stage,
+in the interview, in the grief. It is one channel, open all the way, and it carries out
+whatever is in him without a filter to hold any of it back. What is in him, mostly, under
+everything, is love — a large, clumsy, unstoppable, often badly aimed love — and his whole
+life comes clear the moment you stop sorting each thing he did into genius or breakdown
+and start watching the one channel carry more than a person is built to carry.
 
-A hurricane had drowned New Orleans. The water sat in the streets for days with people
+Watch it carry, the first time the whole country was looking. A hurricane had drowned New
+Orleans. The water sat in the streets for days with people
 on the rooftops, most of them Black, most of them poor, and the richest country on earth
 was slow to come. A telethon went up to raise money, celebrities reading lines off cards,
 and they put a twenty-eight-year-old rapper next to a comedian and gave him his line. He
@@ -58,24 +63,20 @@ he went off the edge of the whole broadcast and said: George Bush doesn't care a
 black people. The comedian next
 to him stared straight ahead. The network cut away.
 
-For years that was filed as the night Kanye lost it — reckless, unfair, a breakdown on
-live TV. It is not filed that way anymore. It shows up now in the documentaries as one of
-the truest things anyone said that decade, the moment a young man could not stand next to
-his own people drowning and perform composure, and said out loud what every careful adult
-in the room had been trained not to. Nothing about the sentence changed in the years
-between. Only the willingness to hear it did. That is the pattern, arriving early and
-whole, the same shape every later time would take: he says a true thing at the wrong
-volume, in the wrong room, and is called crazy for it, and the world catches up later,
-quietly, once catching up is free.
+He was shaking because he could feel it in his own body — the people on the roofs, the
+cameras calling them looters, the country taking its time — and he had no mechanism for
+feeling a thing that size and keeping his face smooth. Most public people have that
+mechanism; it is most of what being a public person is. He seems to have been born
+without it. So he did what a person does when they love something and watch it drown and
+cannot pretend otherwise: he broke the frame and said the true thing into the room. It
+cost him, immediately and for years, and the cost is not the point. The point is what you
+just watched. You watched the love arrive the way it always arrives in him — too loud,
+too soon, with no smooth face over it, aimed straight at the thing everyone else in the
+room had agreed to keep quiet about.
 
-The two facts sit on top of each other and never come apart in him. The same wiring that
-would not let him read the card — that floods a mind past what composure can survive — is
-the wiring behind the sentence nobody else would say. You do not get the seer without the
-thing that makes him unmanageable on live television.
-
-He was pointing at something real, and the rest of his life keeps pointing at the same
-thing and getting called crazy the same way, so it is worth knowing what he was pointing
-at.
+And the thing he could not keep quiet about was not a whim he had on live television. It
+was the subject his own mother had taught for thirty years. To know him you have to know
+it the way he was raised to know it.
 
 Read the sentence that ended slavery and the loophole is sitting inside it. The
 Thirteenth Amendment, 1865: "Neither slavery nor involuntary servitude, except as a
@@ -96,13 +97,9 @@ boys born today is expected to be locked up at some point in his life. To the pe
 number is about, it is not a statistic. It is the arithmetic a mother starts doing the
 year her son turns twelve, about a boy who has done nothing but get taller.
 
-That is the country that was slow to come for the people on the rooftops. So when a
-twenty-eight-year-old said on live television that it did not care about Black people, he
-was not raving. He was saying, badly and too loud, a thing with a paper trail that runs
-back to 1865 — and it was the thing his own mother had spent her life teaching.
-
-He was raised to read it. That part is not an accident, and it is where the person comes
-from.
+This is the water he grew up in — not a set of facts he studied and could take up or put
+down, but the thing his mother taught for a living and his father had joined a movement
+over before he was born.
 
 His mother, Donda West, was a professor of English — she earned a doctorate and chaired
 the English department at a university in Chicago, and the thing she taught, year after
@@ -122,12 +119,10 @@ police — and then became one of the first Black photojournalists at a major So
 newspaper, in the room with his camera while Maya Angelou and the civil-rights preachers
 did their work, and later a Christian counselor. So the boy grew up with the politics on
 one side and the language on the other: a father who had stood with a movement that named
-American racism as a system, and a mother who taught the books that had been saying so in
-print for two hundred years. When their son stood on a telethon and said the country did
-not care about Black people, he was not having a symptom. He was saying the sentence he
-was raised inside, in the only voice he had — too loud, unmanaged, on live TV — and the
-country heard the voice and refused the sentence, which it had been refusing, in one form
-or another, the whole time.
+American racism as a machine, and a mother who taught, out of books, the two hundred years
+of Black writers who had been naming it in print. The boy who could not keep his face
+smooth on that telethon was not having a symptom and was not making a point. He was
+letting out, at the only volume he had, the thing he had been raised standing inside.
 
 By 2013 he had found a way to say it that could not be misread as anything but on
 purpose. He made a song called "New Slaves." In it he names, out loud, by name, the Drug
