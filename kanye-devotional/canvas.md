@@ -53,24 +53,14 @@ He became one of the most hated men alive. In October 2022 he made antisemitic
 statements in public, adidas ended the partnership, and his net worth
 collapsed.
 
-Hurricane Katrina made landfall on August 29, 2005, and the levees failed. The
-next day two wire photographs ran of people wading chest-deep out of flooded
-New Orleans grocery stores. The Associated Press caption, under a young Black
-man, read looting a grocery store. The AFP caption, under two white residents,
-read finding bread and soda from a local grocery store. Four days later, live
-on NBC, standing beside Mike Myers, off the teleprompter, he said: "I hate the
-way they portray us in the media. If you see a black family, it says they're
-looting. If you see a white family, it says they're searching for food." Then
-he said, "George Bush doesn't care about black people." NBC cut the second
-sentence from the West Coast feed, so the two coasts saw two different
-broadcasts of the same minute. Bush later called it an all-time low of his
-presidency.
 
 On August 26, 2021, at Soldier Field in Chicago, a full-scale replica of 7815
 South Shore Drive stood on the field, built for a listening event. He was set
 on fire in front of it, in front of the crowd. The record he was finishing
 carried his mother's name and her recorded voice.
 
+
+---
 I keep going back to the jaw.
 
 He's twenty-five. Goes through a windshield on the way home, late, after working.
@@ -118,6 +108,7 @@ tries to kill me gets made into a song. He's twenty-five and he already knows th
 about himself, before any of the fame, before the diagnosis. That's where I want to
 start, because I think that's where he starts. The rest of his life is that same move
 getting louder and costing more, and I want to follow it and see where it goes.
+
 
 ---
 
@@ -167,149 +158,37 @@ He said it on a mountain he photographed himself, hours before he played the
 record to a few hundred people standing outside in Wyoming in the cold. Then he
 got on a plane.
 
----
-
-Everybody remembers the second sentence.
-
-He's twenty-eight, live on NBC, four days after the levees went. Mike Myers is
-standing next to him reading his paragraph off the card. Kanye goes off the card
-and says two things, in order, and the country kept one of them.
-
-The one it kept: George Bush doesn't care about black people.
-
-The one it dropped came first. I hate the way they portray us in the media. If
-you see a black family, it says they're looting. If you see a white family, it
-says they're searching for food.
-
-And he wasn't speaking generally. Two photographs had gone out on the wires four
-days earlier, both of people wading chest-deep out of flooded grocery stores. The
-AP one, a young Black man: looting a grocery store. The AFP one, two white
-people: finding bread and soda from a local grocery store. Same water, same day,
-same act, two different words, and by then everybody had seen both.
-
-So the first thing he did on that telethon was read a caption out loud. Not an
-opinion — a description of a machine that takes one act and returns two names for
-it depending on who did it. The evidence was four days old and still up.
-
-Then he said the second thing. And the second thing became the whole memory of
-that night, and the first thing went away, which is that same machine running
-again, on the man describing it. NBC cut the line out of the West Coast feed. The
-country watched two different broadcasts of the same minute.
-
-Bush later called it the all-time low of his presidency. Not the water. Not the
-roofs. Not the count. Being named.
 
 ---
 
-There's a line of his that doesn't get quoted much and I can't put it down.
+A judge decided what his beats would sound like.
 
-"I am God's vessel. But my greatest pain in life is that I will never be able to
-see myself perform live."
+1991, Southern District of New York. Biz Markie had used a Gilbert O'Sullivan
+record without asking. The judge, Kevin Thomas Duffy, opened his written opinion
+with four words — Thou shalt not steal — granted the injunction, and referred the
+whole thing to the U.S. Attorney to look at as a crime.
 
-He can't be in the crowd. Whatever he is on that stage, he will never once get to
-stand out there and receive it, and the only picture of himself he is ever going
-to have is the one that comes back off other people. Which is true of all of us —
-except most of us are working with maybe forty faces and most of them are on our
-side. His is a hundred million, and a good portion of them have been running that
-2005 caption on him ever since.
+Before that ruling you could build a record the way Public Enemy built It Takes a
+Nation of Millions in 1988, out of dozens and dozens of fragments nobody had
+cleared, layered so thick you can't pull them apart. The people who made that
+record have said flatly that it could not be made after 1991. De La Soul's first
+album came out in 1989 and then sat off every streaming service for decades
+because the rights couldn't be untangled. It didn't come back until 2023.
 
-And he keeps walking back into the room anyway. Sunday Service every week, free,
-in front of people. Two hundred men in Harris County Jail, and he says it's a
-mission and not a show. And in 2021, fourteen years after she died, he takes his
-mother's actual recorded voice and puts it back in the room with him — so there
-would be at least one reflection in there that was hers.
+So what's left, after the ruling, is: use few samples, use them long, use them
+recognizable, and pay for every one. That's not an aesthetic. That's an invoice.
+And that is exactly the sound — one soul record, sped up, looped, out front where
+everyone can hear whose it is.
 
----
+He picked up that method around nineteen. Eleven hundred samples later, every one
+of them is a purchase, and a decade after that he's posting his own record
+contracts on the internet and walking away from Nike because they wouldn't give
+him ownership.
 
-His mother was a professor of media.
+The first thing that ever taught him about owning your work was the bill for
+using somebody else's, and the bill exists because a federal judge quoted the
+Ten Commandments.
 
-Not a figure of speech. Dr. Donda West, thirty-one years teaching, chair of the
-department of English, Communications, Media and Theater at Chicago State. That
-was her field. That was the thing she ran.
-
-And in 2005 her son stood up on live television and made an argument about media
-captioning — that the same photograph of the same act gets one word for a Black
-family and another for a white one. He made a media-representation argument, off
-the card, on NBC, and the country filed him as a man who blurts.
-
-His father took the pictures. Ray West, Black Panther, then one of the first
-Black photojournalists at the Atlanta Journal-Constitution — Maya Angelou,
-Reagan, Ralph Abernathy came through his lens. Later he became a Christian
-counselor. One parent made the images and the other parent taught how to read
-them, and their kid is the one everybody calls untutored.
-
-Then there's the thing I can't get past, which is that in 2004 he put out an
-album against college while his mother was chairing a department. And she didn't
-cut him off over it. She wrote a book about raising him instead, in 2007, and
-then she died that November. Both of those people were right and neither of them
-had to be wrong for the other one to be right, and I don't think there's a
-version of that story where somebody wins it.
-
-His father did the three things one at a time. Panther, then photographer, then
-minister — decades apart, in order, the way a life is supposed to go. The son
-does all three at once, in the same years, and that is the thing he gets called
-unstable for. In 2019 there's a song where they're arguing and the father is
-telling the son he isn't being Christ-like.
-
-"It took him 42 years to realize his father was his best friend."
-
----
-
-Under one of his songs there are four people.
-
-"Blood on the Leaves," 2013. He takes Nina Simone singing "Strange Fruit." Nina
-Simone cut it in 1965. Billie Holiday cut it in 1939, and her own label wouldn't
-put it out, so it came out on somebody else's. And the man who wrote it was a
-Jewish schoolteacher in the Bronx named Abel Meeropol, who published it first as
-a poem and signed it Lewis Allan, which were the names of his two children who
-were born dead.
-
-In 1953 the Rosenbergs were executed and left two boys. Abel Meeropol and his
-wife adopted them.
-
-All of that is sitting inside the needle drop. The most famous anti-lynching song
-in the country, written by a Jewish teacher who then raised the orphans of two
-people the state killed, refused by a record label, carried by Billie Holiday,
-carried again by Nina Simone twenty-six years after that, and put by a
-twenty-first-century rapper underneath a song about a relationship coming apart.
-
-Nine years later he said the things about Jewish people that cost him the company
-and hurt people who had nothing to do with him.
-
-The song with Meeropol in it is on the same shelf.
-
----
-
-The two machines he made the grief record on had both already failed.
-
-The 808 is a drum machine Roland put out in 1980 to sound like a drum kit. It
-didn't. Everything about it was wrong — synthesized instead of sampled, a kick
-that goes on booming like nothing a person could hit. Reviewers said so. Roland
-killed it in 1983 after about twelve thousand units, partly because the parts it
-was built out of stopped being made. And then the dead units went cheap into
-second-hand shops, which is exactly how they got into the hands of people with no
-money, which is how you get Planet Rock in 1982 and Sexual Healing in 1982 and
-Run-D.M.C. and Miami bass and Chicago house and Detroit techno and forty years of
-low end. A machine that failed at being a drummer became the floor of the music.
-
-Then the voice. Auto-Tune was made by a geophysicist named Andy Hildebrand who
-spent his career finding oil — you send sound down, it bounces off the rock, and
-you correlate what comes back to work out what's under there. He took that same
-math and pointed it at singing. Put it out in 1997. The whole point of it was that
-you would never know it was on. It was supposed to be invisible.
-
-There's a setting on it, retune speed, and if you take it all the way to zero the
-correction is instant and it stops sounding human. That was the mistake. That's
-the sound. Cher in 1998, and everyone said it was a vocoder. T-Pain after that.
-
-And in 2008, a year and two weeks after his mother died, he made a whole record
-in it. Sang it. Barely rapped. And the thing everybody said at the time was that
-he'd lost it, forgot how to rap, cold, whiny, over. That record is what Drake and
-Cudi and the Weeknd and most of the next decade is built out of.
-
-So: a drum machine that couldn't imitate a drummer, and a pitch tool built to
-find oil and then sold to be inaudible, both used at exactly the setting they
-were failing at, by a man who couldn't say it in his own voice.
 
 ---
 
@@ -346,53 +225,83 @@ conversion, as a swerve, as the new thing he's doing now.
 
 It was in the choir he picked in 2004.
 
----
-
-A judge decided what his beats would sound like.
-
-1991, Southern District of New York. Biz Markie had used a Gilbert O'Sullivan
-record without asking. The judge, Kevin Thomas Duffy, opened his written opinion
-with four words — Thou shalt not steal — granted the injunction, and referred the
-whole thing to the U.S. Attorney to look at as a crime.
-
-Before that ruling you could build a record the way Public Enemy built It Takes a
-Nation of Millions in 1988, out of dozens and dozens of fragments nobody had
-cleared, layered so thick you can't pull them apart. The people who made that
-record have said flatly that it could not be made after 1991. De La Soul's first
-album came out in 1989 and then sat off every streaming service for decades
-because the rights couldn't be untangled. It didn't come back until 2023.
-
-So what's left, after the ruling, is: use few samples, use them long, use them
-recognizable, and pay for every one. That's not an aesthetic. That's an invoice.
-And that is exactly the sound — one soul record, sped up, looped, out front where
-everyone can hear whose it is.
-
-He picked up that method around nineteen. Eleven hundred samples later, every one
-of them is a purchase, and a decade after that he's posting his own record
-contracts on the internet and walking away from Nike because they wouldn't give
-him ownership.
-
-The first thing that ever taught him about owning your work was the bill for
-using somebody else's, and the bill exists because a federal judge quoted the
-Ten Commandments.
 
 ---
 
-He spent a year of his childhood as the only foreigner in a Chinese classroom.
+The two machines he made the grief record on had both already failed.
 
-He's ten. His mother is teaching in Nanjing as an exchange professor and she
-takes him with her. He's said he was the only foreigner in the class and that he
-learned the language.
+The 808 is a drum machine Roland put out in 1980 to sound like a drum kit. It
+didn't. Everything about it was wrong — synthesized instead of sampled, a kick
+that goes on booming like nothing a person could hit. Reviewers said so. Roland
+killed it in 1983 after about twelve thousand units, partly because the parts it
+was built out of stopped being made. And then the dead units went cheap into
+second-hand shops, which is exactly how they got into the hands of people with no
+money, which is how you get Planet Rock in 1982 and Sexual Healing in 1982 and
+Run-D.M.C. and Miami bass and Chicago house and Detroit techno and forty years of
+low end. A machine that failed at being a drummer became the floor of the music.
 
-Born in Atlanta, where his father was shooting for the Journal-Constitution.
-Moved to Chicago at three. Atlanta to Chicago is the Great Migration route, run
-in the right direction, and his mother chaired a department on the South Side at
-the end of it.
+Then the voice. Auto-Tune was made by a geophysicist named Andy Hildebrand who
+spent his career finding oil — you send sound down, it bounces off the rock, and
+you correlate what comes back to work out what's under there. He took that same
+math and pointed it at singing. Put it out in 1997. The whole point of it was that
+you would never know it was on. It was supposed to be invisible.
 
-And then the record collection. Hungarian rock from 1969 under New Slaves. A
-Bollywood record under I Am a God. Black gospel out of Harlem, a German
-avant-garde band, an Irish one, Nina Simone. People call that eclectic like it's
-a shopping habit.
+There's a setting on it, retune speed, and if you take it all the way to zero the
+correction is instant and it stops sounding human. That was the mistake. That's
+the sound. Cher in 1998, and everyone said it was a vocoder. T-Pain after that.
+
+And in 2008, a year and two weeks after his mother died, he made a whole record
+in it. Sang it. Barely rapped. And the thing everybody said at the time was that
+he'd lost it, forgot how to rap, cold, whiny, over. That record is what Drake and
+Cudi and the Weeknd and most of the next decade is built out of.
+
+So: a drum machine that couldn't imitate a drummer, and a pitch tool built to
+find oil and then sold to be inaudible, both used at exactly the setting they
+were failing at, by a man who couldn't say it in his own voice.
+
+
+---
+
+Under one of his songs there are four people.
+
+"Blood on the Leaves," 2013. He takes Nina Simone singing "Strange Fruit." Nina
+Simone cut it in 1965. Billie Holiday cut it in 1939, and her own label wouldn't
+put it out, so it came out on somebody else's. And the man who wrote it was a
+Jewish schoolteacher in the Bronx named Abel Meeropol, who published it first as
+a poem and signed it Lewis Allan, which were the names of his two children who
+were born dead.
+
+In 1953 the Rosenbergs were executed and left two boys. Abel Meeropol and his
+wife adopted them.
+
+All of that is sitting inside the needle drop. The most famous anti-lynching song
+in the country, written by a Jewish teacher who then raised the orphans of two
+people the state killed, refused by a record label, carried by Billie Holiday,
+carried again by Nina Simone twenty-six years after that, and put by a
+twenty-first-century rapper underneath a song about a relationship coming apart.
+
+Nine years later he said the things about Jewish people that cost him the company
+and hurt people who had nothing to do with him.
+
+The song with Meeropol in it is on the same shelf.
+
+
+---
+
+There's a song where a dead man is credited as a featured artist.
+
+Watch the Throne, 2011. The track is called "Otis" and it's built on Otis
+Redding singing "Try a Little Tenderness" from 1966, and the credit on the record
+doesn't say sample. It says featuring Otis Redding. He died in 1967. He was
+twenty-six.
+
+And on the same record, gold-plated, designed by a Givenchy man, there's a line
+that just reads out a number: 314 soldiers died in Iraq, 509 died in Chicago.
+
+And a prayer that goes sweet King Martin, sweet Queen Coretta, sweet Brother
+Malcolm, sweet Queen Betty — the wives named out loud, in the same breath, with
+the same titles.
+
 
 ---
 
@@ -424,35 +333,25 @@ that isn't just the facts. His mother has been dead fourteen years. He built her
 house on a field and burned it while forty thousand people watched him do it, and
 then he put her voice on the record and put the record out three days later.
 
+
 ---
 
-His mother was nine years old at one of the first lunch counter sit-ins in
-America.
+He spent a year of his childhood as the only foreigner in a Chinese classroom.
 
-August 1958, Oklahoma City. A high school history teacher named Clara Luper
-walked a group of children into the Katz Drug Store downtown and they sat down at
-the counter and ordered. The counter integrated in two days. Katz went on to
-open its counters across every state it operated in. This is a year and a half
-before Greensboro, which is the one everybody's taught.
+He's ten. His mother is teaching in Nanjing as an exchange professor and she
+takes him with her. He's said he was the only foreigner in the class and that he
+learned the language.
 
-Donda West was born in Oklahoma City in July 1949. She was one of the children in
-that campaign. Her father was in it too.
+Born in Atlanta, where his father was shooting for the Journal-Constitution.
+Moved to Chicago at three. Atlanta to Chicago is the Great Migration route, run
+in the right direction, and his mother chaired a department on the South Side at
+the end of it.
 
-And then she became a professor, and what she taught was English and
-communications and media, for thirty-one years, and she chaired the department.
-A woman who as a child sat at a counter to change what could be printed about her
-spent her working life on how things get printed.
+And then the record collection. Hungarian rock from 1969 under New Slaves. A
+Bollywood record under I Am a God. Black gospel out of Harlem, a German
+avant-garde band, an Irish one, Nina Simone. People call that eclectic like it's
+a shopping habit.
 
-Her son went on television in 2005 and said: if you see a black family it says
-they're looting, if you see a white family it says they're searching for food.
-
-Thirteen years after that he says a wrong thing about slavery on a gossip show
-and the whole country lines up to explain history to him. Historians get called
-in. There are fact-checks.
-
-His grandmother's generation integrated the lunch counters in his mother's
-hometown when his mother was nine, and his mother taught media theory for three
-decades, and the story about him is that he doesn't know anything.
 
 ---
 
@@ -482,6 +381,40 @@ window every artist protects. That's the part of the year everybody's publicist
 is begging them to be likable.
 
 He spent it.
+
+
+---
+
+Everybody remembers the second sentence.
+
+He's twenty-eight, live on NBC, four days after the levees went. Mike Myers is
+standing next to him reading his paragraph off the card. Kanye goes off the card
+and says two things, in order, and the country kept one of them.
+
+The one it kept: George Bush doesn't care about black people.
+
+The one it dropped came first. I hate the way they portray us in the media. If
+you see a black family, it says they're looting. If you see a white family, it
+says they're searching for food.
+
+And he wasn't speaking generally. Two photographs had gone out on the wires four
+days earlier, both of people wading chest-deep out of flooded grocery stores. The
+AP one, a young Black man: looting a grocery store. The AFP one, two white
+people: finding bread and soda from a local grocery store. Same water, same day,
+same act, two different words, and by then everybody had seen both.
+
+So the first thing he did on that telethon was read a caption out loud. Not an
+opinion — a description of a machine that takes one act and returns two names for
+it depending on who did it. The evidence was four days old and still up.
+
+Then he said the second thing. And the second thing became the whole memory of
+that night, and the first thing went away, which is that same machine running
+again, on the man describing it. NBC cut the line out of the West Coast feed. The
+country watched two different broadcasts of the same minute.
+
+Bush later called it the all-time low of his presidency. Not the water. Not the
+roofs. Not the count. Being named.
+
 
 ---
 
@@ -513,21 +446,27 @@ studios for months and makes the record everybody agrees is his best.
 The first three cost him nothing and got him nothing. The fourth one cost him
 everything and produced Dark Twisted Fantasy.
 
+
 ---
 
-There's a song where a dead man is credited as a featured artist.
+There's a line of his that doesn't get quoted much and I can't put it down.
 
-Watch the Throne, 2011. The track is called "Otis" and it's built on Otis
-Redding singing "Try a Little Tenderness" from 1966, and the credit on the record
-doesn't say sample. It says featuring Otis Redding. He died in 1967. He was
-twenty-six.
+"I am God's vessel. But my greatest pain in life is that I will never be able to
+see myself perform live."
 
-And on the same record, gold-plated, designed by a Givenchy man, there's a line
-that just reads out a number: 314 soldiers died in Iraq, 509 died in Chicago.
+He can't be in the crowd. Whatever he is on that stage, he will never once get to
+stand out there and receive it, and the only picture of himself he is ever going
+to have is the one that comes back off other people. Which is true of all of us —
+except most of us are working with maybe forty faces and most of them are on our
+side. His is a hundred million, and a good portion of them have been running that
+2005 caption on him ever since.
 
-And a prayer that goes sweet King Martin, sweet Queen Coretta, sweet Brother
-Malcolm, sweet Queen Betty — the wives named out loud, in the same breath, with
-the same titles.
+And he keeps walking back into the room anyway. Sunday Service every week, free,
+in front of people. Two hundred men in Harris County Jail, and he says it's a
+mission and not a show. And in 2021, fourteen years after she died, he takes his
+mother's actual recorded voice and puts it back in the room with him — so there
+would be at least one reflection in there that was hers.
+
 
 ---
 
@@ -572,8 +511,68 @@ back. To TIME that year: "It's not a disability, it's a super power." The same
 year, about the same thing: "It makes you blind, but convinced you have
 insight."
 
-His mother was nine years old in August 1958, seated at the lunch counter of
-the Katz Drug Store in Oklahoma City by a history teacher named Clara Luper who
-had walked her and a group of other children in and sat down with them. Donda
-West taught English, communications and media for thirty-one years, and chaired
-the department. She died in November 2007.
+---
+
+There's a song he made with Paul McCartney where he says the person singing is
+his mother.
+
+"Only One," released on the last day of 2014. McCartney on keys, and the vocal
+run through Auto-Tune, the same machine as the grief record six years earlier.
+He has said the song came out as though Donda were speaking through him to his
+daughter.
+
+North was born June 15, 2013. Donda West died November 10, 2007. They never
+met.
+
+So there are three of them on the same piece of equipment, in order. In 2008 he
+sang about her being gone. In 2014 he sang as her. In 2021, on the album with
+her name on it, he stopped singing and played her actual recorded voice, taken
+off tape she made while she was alive.
+
+---
+
+After the Taylor Swift night he left the country. Japan first, then Rome, where
+he worked an internship at Fendi for about five hundred dollars a month
+alongside another intern named Virgil Abloh. Then Honolulu, where he took over
+Avex studios and ran three rooms at once, around the clock, for months.
+
+There were house rules posted on the wall. No tweeting. No photographs. No
+negativity in the room.
+
+Q-Tip was in there. RZA. No I.D., who taught him to make beats when he was a
+kid in Chicago because No I.D.'s mother and Donda West knew each other. Mike
+Dean, Pusha T, Kid Cudi, Nicki Minaj, Rick Ross, Raekwon, John Legend, Justin
+Vernon, Elton John. People moved between the three rooms and the rooms ran into
+each other and the record came out of all of it.
+
+The record is *My Beautiful Dark Twisted Fantasy*, November 2010, and it is the
+one everybody agrees is his best. "Power" is on it, built on a King Crimson
+song from 1969 called "21st Century Schizoid Man," six years before the
+hospital and eight before the diagnosis. "Lost in the World" is built on a Bon
+Iver track that Justin Vernon made alone in a cabin in Wisconsin, singing into
+the same Auto-Tune. And "Runaway," which he premiered as a thirty-four-minute
+film he directed himself, opens on one piano key struck over and over, and the
+toast in the middle of it is to himself, as the asshole.
+
+He made the record where he apologizes to nobody in the one room he ever built
+out of everybody.
+
+---
+
+On *Watch the Throne*, the album he made with Jay-Z in 2011, there is a track
+called "Otis" and the credit on it does not say sample. It says featuring Otis
+Redding. Redding died on December 10, 1967, when his plane went into a lake in
+Wisconsin. He was twenty-six.
+
+The cover of that record was designed by Riccardo Tisci at Givenchy and it is
+gold. They put it out digitally first so it couldn't leak.
+
+Two other things are on it. "Murder to Excellence" contains a line that is just
+a number read out loud: 314 soldiers died in Iraq, 509 died in Chicago. And
+"Made in America" is a prayer that goes sweet King Martin, sweet Queen Coretta,
+sweet Brother Malcolm, sweet Queen Betty — the two wives named with the same
+titles and in the same breath as their husbands.
+
+There is also a song on it where both men write letters to sons who have not
+been born. Jay-Z's is about not being his own father. Kanye's is about his son
+not turning into him.
