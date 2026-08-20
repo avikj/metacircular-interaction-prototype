@@ -740,3 +740,21 @@ import Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNo
 -- left for a reader to discover, because an import into a red aggregate
 -- that nobody flags is the same rot this file exists to prevent.
 import Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis
+
+-- ADDED 2026-08-20 (univalent-audit lane).  §६ of AHIMSA_SUTRA_VISTARA
+-- has three sentences.  Path one is checked by Nasti_Shabde… and
+-- Samkramana…; the DISJUNCTIVE reading of "there is no third path" is
+-- marked classical by Apratikaryatva… .  What none of them proves is the
+-- cost of path TWO itself: getting from `¬ isEquiv f` to a WRITTEN
+-- defect `Σ[ b ] ¬ isContr (fiber f b)` -- a defect whose SITE you can
+-- project out.  That step is exactly MARKOV'S PRINCIPLE, strictly weaker
+-- than the excluded middle already charged for; and even LEM buys only
+-- `∥ Defect f ∥₁`, which §५'s no-retraction theorem then says cannot be
+-- un-truncated.  So दोषो लिख्यते is an imperative: nothing in the logic
+-- hands you the document, an author searches for the site.
+-- EXIT 0 on its own, Agda 2.8.0 + cubical-0.9, --cubical --safe, zero
+-- warnings.  As the note above records, this AGGREGATE is red on
+-- pre-existing v0.5→v0.9 API skew (29 modules; run
+-- scripts/Pariksa_UnivalentAudit.sh --list), so this import is a latch,
+-- not a claim that the aggregate is green.
+import TritiyaMarga_TheWrittenDefectCostsMarkovsPrinciple

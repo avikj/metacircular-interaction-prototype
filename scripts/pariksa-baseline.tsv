@@ -1,0 +1,8 @@
+# Baseline for scripts/Pariksa_UnivalentAudit.sh.
+# Each number may FALL freely.  Raising one requires editing this
+# file, and editing this file is where the defect gets written.
+# metric<TAB>count<TAB>reason the current level stands
+api-skew	29	v0.5 solver/SymGroup spellings not yet migrated to the v0.9 pin; each of these modules is RED, verified by running the pinned Agda on Madhava, Brahmagupta, Cakravala, GhanaBaddha, Dvikarani (all exit 42, 2026-08-20).
+hlevel-redundant	6	the assumed one is ExclusionRecoversGroundAtAPrice:267 (isSet T with Discrete T), already documented by NaturalMachine/HypothesesAssumedWhereTheyAreDerivable; the rest are DERIVED at their sites (LinearOrderFinite from isFinSet, StagewiseComposite says so in its header) and are ratchet noise, not findings.
+trunc-modules	45	truncation is often the honest move; this number exists so a new one cannot be added without someone writing why.
+settrunc-modules	5	set-truncation assumes UIP at the object; each of these should be able to say what higher structure it destroys.

@@ -329,10 +329,10 @@ scanFile path src = FileReport
 -- it is reproducible byte-for-byte by anyone, at any later date:
 --
 --     T=$(mktemp -d)
---     git archive 00aab52d machine | tar -x -C "$T"
+--     git archive 98ad555a machine | tar -x -C "$T"
 --     (cd "$T" && runghc machine/Nasti_TruncationCensus.hs)
 --
--- That run prints digest fnv1a:29a0117c116c9306 over 64 files and 19979
+-- That run prints digest fnv1a:a438770021d42124 over 65 files and 20143
 -- code lines, and the seven numbers in `baseline`.  A working tree in this
 -- repository has more machine/*.hs than any commit does -- several lanes
 -- keep uncommitted files there -- so a mark taken from `pwd` would have
@@ -341,20 +341,20 @@ scanFile path src = FileReport
 -- To re-mark: check out the revision, run, paste the digest and the seven
 -- numbers here, in the same commit, with the reason.
 markDigest :: String
-markDigest = "fnv1a:29a0117c116c9306"
+markDigest = "fnv1a:a438770021d42124"
 
 markRev :: String
-markRev = "rev 00aab52d, machine/ at that commit: 64 files, 19979 code lines"
+markRev = "rev 98ad555a; machine/ there, less this file: 65 files, 20143 code lines"
 
 baseline :: [(Cat, Int)]
 baseline =
   [ (Dvika,    280)
   , (Nirnaya,  154)
-  , (KahNasti, 291)
-  , (Ganana,   834)
-  , (Cheda,    288)
-  , (Sarvatra, 286)
-  , (Vinasha,  213)
+  , (KahNasti, 294)
+  , (Ganana,   833)
+  , (Cheda,    285)
+  , (Sarvatra, 288)
+  , (Vinasha,  221)
   ]
 
 -- ---------------------------------------------------------------------

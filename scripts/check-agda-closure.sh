@@ -47,13 +47,20 @@ imports_of() {
 
 # ---- 1. BFS closure ----------------------------------------------------
 seen_file=$(mktemp); queue_file=$(mktemp)
-trap 'rm -f "$seen_file" "$queue_file"' EXIT
+trap 'rm -f "$seen_file" "$queue_file" "$queue_file.tmp"' EXIT
 for r in $ROOTS; do
   if [ -f "$(mod_to_file "$r").agda" ]; then printf '%s\n' "$r" >> "$queue_file"
   else echo "check-agda-closure: aggregate root $r.agda not found" >&2; exit 2; fi
 done
 while [ -s "$queue_file" ]; do
-  m=$(head -n1 "$queue_file"); sed -i '1d' "$queue_file"
+  # `sed -i '1d'` is GNU-only: BSD/macOS sed reads the next argument as the
+  # suffix and then fails with "invalid command code", which made this gate
+  # abort on every macOS container with a message about sed rather than about
+  # the closure — a gate that crashes certifies nothing.  `tail -n +2` is
+  # portable.  (Found 2026-08-20 by the univalent-audit lane, running the
+  # standing gate set on macOS.)
+  m=$(head -n1 "$queue_file")
+  tail -n +2 "$queue_file" > "$queue_file.tmp" && mv "$queue_file.tmp" "$queue_file"
   grep -qxF "$m" "$seen_file" 2>/dev/null && continue
   printf '%s\n' "$m" >> "$seen_file"
   for i in $(imports_of "$m"); do
