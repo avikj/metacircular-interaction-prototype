@@ -64,3 +64,30 @@ analyst.
   also not nothing"; "laundering... also false"; "let it be as unbearable as it
   actually is") — protect the ordering above all
 - the Bush telethon retelling
+
+## Round 1 — fixes APPLIED (commit "Revision round 1 from reader panel")
+- Front door: cut the Swedish-study lecture; kept the concrete kid-hook; got to the
+  crash within two short paragraphs; planted "it is about you before it is about him."
+- Cut verdict-stating: "anyone knew he was right," "It is, again, just true," "the
+  paper trail is the point"; cut the feel-instruction "Feel the two facts."
+- Cut "it is the weather"; the incarceration stat now lands on a real, non-famous
+  person (a mother's arithmetic), not a pivot to celebrity biography.
+- Dismantled the "crazy = unowned" acquittal engine; replaced with a planted LIMIT
+  ("not every time — the times it is not are the ones this book will refuse to let the
+  pattern swallow"), setting up the break.
+- Delivered the explicit pattern-break at 2022 ("this time the man called crazy was
+  NOT saying a true thing at the wrong volume... a false and murderous thing... no
+  amount of having been right turns it into prophecy").
+- Fixed the rendering asymmetry: rendered the victims' harm concretely (freeway
+  banners, synagogues adding guards, frightened Jewish friends/employees) to match the
+  weight the psychosis gets.
+- De-instrumentalized the return: teshuvah reframed as a STANDARD held by the harmed,
+  not a pardon; by its own last step he has not walked it; the harmed (not the writer,
+  not the tradition-in-abstract) decide; tightened the comparative tour; turned the
+  whole movement to the universal reader ("not about him at all... you will still,
+  someday, need to be more than your worst hour").
+- Title unchanged — owner decision, flagged above.
+
+## Round 2 — re-test IN PROGRESS
+Re-running skeptic (Dale), parent (Rhonda), Jewish ex-fan (Maya) on the revised draft
+to confirm fixes landed and catch regressions. Compare to Round 1; act on convergence.
