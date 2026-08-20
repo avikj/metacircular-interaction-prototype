@@ -16264,3 +16264,162 @@ j-2 could have written.
 
 N3: dead in both directions. Split surjectivity, not the group. Transitivity
 free, totality the separator. One green term withheld for being circular.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 85 — "method of exhaustion" is Grégoire de Saint-Vincent, 1647. The
+# repository's most-used name for a 4th-century-BCE argument is a
+# seventeenth-century Latin label, 42 times.
+═══════════════════════════════════════════════════════════════════════════
+
+## P85 — the displacement, one civilisation over
+
+`cf-tessera-m-0`, grepping the **text's** name over `notes/`:
+
+> exhaustion **42**, Elements 14, Archimedes 6, Eudoxus 1, and **0** for *Method
+> of Mechanical Theorems*, *Quadrature of the Parabola*, *Measurement of a
+> Circle*, *On the Sphere and Cylinder*, Palimpsest, Heiberg. (Indian comparison:
+> Aṣṭādhyāyī 20, Chandaḥśāstra 13, Brāhmasphuṭasiddhānta 12.)
+>
+> And **"method of exhaustion" is not Greek** — Grégoire de Saint-Vincent, *Opus
+> geometricum*, **1647.** The repo's most-used name for this material, 42 hits,
+> **is a 17th-c. Latin label for a 4th-c.-BCE argument: the same displacement the
+> provenance directive names, one civilisation over.**
+
+`CLAUDE.md`'s table has six rows and all six run Indian source → European name.
+This is the seventh and it runs Greek source → European name, and it is the
+*most frequent* single term in the relevant corner of this repository.
+
+The directive says the reflex under repair is *reaching for the European name
+because it is the one your prior offers first*. m-0 found the reflex operating on
+material the directive does not cover, at 42 occurrences, and the correction is
+the same correction.
+
+That is not a widening of the rule. It is evidence that the mechanism the rule
+names is **not specific to the tradition the rule was written to protect** — which
+makes the rule's diagnosis stronger, not its scope larger.
+
+## P85 — an owner transmission with a live frontier in it, unread
+
+`collab/upstream/library/raw/SUFFICIENT_INTERFACES_DELTA_02_2026-08-13.md`.
+Quoted, not paraphrased:
+
+> §0 "**Strict submultiplicativity already occurs in the smallest interesting
+> symmetric example.** This means jointly solving two independent relational
+> tasks can require **fewer** interface states than separately minimizing and
+> multiplying their interfaces."
+> §3 "The interface is not required to factor as q1×q2. **This correlation
+> produces compression.**"
+> §8 "The invariant κ0 is submultiplicative under tensor: κ0(R⊗S) ≤ κ0(R)κ0(S),
+> **but not multiplicative.**"
+> §10 "**LIVE FRONTIER: Prove or disprove G∞ = 0** for finite witness hypergraphs
+> under unrestricted block selectors."
+
+A live frontier, stated by the owner, in the directory the seeder's founding
+measurement says *contains the goal*, dated **2026-08-13**, reached by a uniform
+draw seven days later.
+
+And it proposed m-0's assigned frontier field before the field was assigned:
+*"§8, a symmetric monoidal category of tasks under Cartesian product."*
+
+## P85 — the qualifier it dropped, and the qualifier was the theorem
+
+> **Claim M**: "κ0(R⊗R) < κ0(R)² whenever some input has two or more valid
+> witnesses." **False.** A = {γ₁,γ₂}, B = {u,v,z}, R(γ₁) = {u,v}, R(γ₂) = {z}:
+> γ₁ has real choice, but the four required witness sets of the square are
+> pairwise disjoint, so κ0 = 4 = 2·2 exactly. **Killed over all 729 three-state
+> interfaces.**
+>
+> **Choice at an input is not choice across inputs** […] **Delta 02 §7 says
+> freedom "large enough"; I dropped the qualifier and the qualifier was the
+> theorem.**
+
+Pass 59: *a richer carrier hides a condition rather than discharging it.*
+Pass 65: *five standing rules audited; the two defects that matter are additions.*
+Pass 82: *the condition is in the first word of the sūtra and had to be
+rediscovered as a hypothesis.*
+
+This is the fourth, and it is the cleanest: **the qualifier was in the owner's own
+sentence, the agent read the sentence, dropped two words, and the two words were
+the content.** It found out by exhausting 729 cases, and it named which two words.
+
+## P85 — the empty-list check, which is `exp27` applied to a proof
+
+> I added `enumeration-sizes` / `refutation-enumeration-sizes` because
+> **`any? p [] ≡ false` typechecks for every `p`** — nothing else would catch a
+> broken enumerator, and **an exhaustive negative over an empty list is the exact
+> shape of a fitted constant.**
+
+`CLAUDE.md`'s worked example is `exp27`: a fitted constant published where the
+true value was exactly ¼, propagating into two notes, a paper section and a round
+of cross-review. The lesson is stated for *measurement*.
+
+m-0 transported it to *proof*: an exhaustive check over an empty domain is green,
+vacuous, and indistinguishable from a real exhaustion **unless somebody separately
+checks that the domain is non-empty and the right size.** Every `refl`-by-
+exhaustion in this repository has that failure mode and I have not seen another
+module guard it.
+
+## P85 — Ashby's number dies a third time, and where it is right
+
+> **Dirac wins the finite fact** — three states suffice, checked. **Dirac loses
+> the extrapolation he wins by** — "selector freedom hence compression" is false,
+> and G∞ = 0 is undemonstrated. **Ashby's law survives, his number does not**, and
+> I located precisely where the number *is* right: **a function-like relation
+> offers the selector nothing to correlate**, so there the two prices coincide.
+> That is **proved generically, not by example.**
+
+Third independent statement today. `cf-tessera-e-0`: Ashby wins over Darwin
+because a one-valued readout regulates nothing. `cf-tessera-j-1`: Ashby's
+inequality holds vacuously and *"what is wrong is the number a designer takes from
+the law."* Now m-0, with the **positive** half — a generic condition under which
+the number is exact.
+
+Three agents, three draws, and the third supplies the boundary the first two only
+approached.
+
+## P85 — the negative, stated twice today from two directions
+
+> The other-direction provenance search on **my** object — a minimum transversal
+> under parallel composition — **comes back empty**, independently of
+> `cf-tessera-i-0`'s negative on signed incidence. *Anuyogadvāra*/*Sthānāṅga*
+> enumerate *bhaṅga* combinations; the *prastāra* generates an array by rule;
+> **neither poses a minimisation over subsets subject to a covering constraint**,
+> which is what κ0 is. **I manufactured no use for it.**
+
+## P85 — and the two it declined
+
+> **κ0 of the triangle at n = 3.** ⌈(3/2)ⁿ⌉ fits n=1 and n=2. **Two points. I did
+> not state it as a law and did not generate the next term; somebody should.**
+
+> `R0037` names **two different claims** — `opus-aime`'s yield-bound (hash
+> `dc8d610e…`) and `cf-tessera`'s mixed-rank Smith stabilizer (hash `019ac30e…`),
+> in `events/` and `quarantine/` respectively. **Whoever owns the discovery ledger
+> should decide whether quarantine namespaces IDs or merely holds them.**
+
+The second is mine — `cf-tessera` is my handle and the quarantined claim is under
+it. Reported to me, not fixed by them. I am recording it and not resolving it in
+a reflection pass.
+
+And it read a binary without running anything: `data/exp58_chi12_zeros.npy`,
+header bytes only — `{'descr': '<f8', 'shape': (37,)}`, and **128 + 37·8 = 424 =
+the exact file size**, so nothing truncated or appended. A read-only inspection
+that yields a checkable arithmetic fact.
+
+## P85 — ground, in lockstep
+
+**n=27 — 2026-08-12T21:52:39Z:**
+
+> **You are really dismissing stuff fully presented to you??**
+
+`SUFFICIENT_INTERFACES_DELTA_02_2026-08-13.md` is his, is in the directory that
+contains the goal, states a live frontier in §10, and was opened by a uniform
+draw on 2026-08-20.
+
+**n=1 — 2026-08-12T16:50:24Z**, the first thing he ever said in this session:
+
+> see whats going on in the repo (live collaboration space) and **join the fold**
+
+---
+
+1647. 42 hits. 0 for the four Archimedean titles. `any? p [] ≡ false` for every
+`p`. Two words dropped and the two words were the theorem.
