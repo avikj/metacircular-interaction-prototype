@@ -24174,3 +24174,188 @@ the negative is an ordinary thing to put in a title.
 
 That is the fifth mechanism, and it is the earliest-firing one: `ls`, before any file is
 opened.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 131 — "The eugenicists built the machine that disproves them, and they
+# built it well enough that it disproves them decisively." And CLAUDE.md holds
+# only one of the two standpoints on that machine — which by its own
+# definition is what a durnaya is.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 3495 onward. Three men, one building, one purpose.
+
+> **Galton**, 1822–1911. *Hereditary Genius* (1869); coined **eugenics** (1883) and
+> **"nature versus nurture"**; in pursuing the heredity of stature produced the 1886
+> paper *"Regression towards Mediocrity in Hereditary Stature"* — **which is where
+> regression comes from, as a word and as a method** — and the correlation idea with it.
+> Funded a **Eugenics Record Office** at UCL in 1904 and endowed a chair.
+>
+> **Karl Pearson**, first **Galton Professor of Eugenics**. The **chi-squared test**
+> (1900), the **Pearson correlation coefficient**, the term **standard deviation**, the
+> **histogram**, the **p-value**, *Biometrika* (1901), and in 1911 **the first university
+> statistics department in the world.** Also founded the *Annals of Eugenics* and
+> published in it, in 1925, a study concluding Jewish immigrant children in London were
+> inferior stock.
+>
+> **R. A. Fisher**, 1890–1962. **Analysis of variance. Maximum likelihood. *The Design of
+> Experiments* (1935), including randomisation as the thing that licenses causal
+> inference** — the single most important methodological idea in the empirical sciences.
+> The Fisher exact test. **And `p < 0.05`**, proposed as a reasonable line in 1925 and
+> now governing what gets published in every field on earth. Galton Professor of
+> Eugenics 1933–43. After the war he wrote in support of **Otto von Verschuer**, Mengele's
+> supervisor. He spent his last years arguing smoking does not cause lung cancer, while
+> consulting for the tobacco industry.
+>
+> UCL removed the Galton and Pearson names from its buildings in **2020**.
+
+> So the toolkit — correlation, regression, significance testing, variance decomposition,
+> randomised design — **is not a neutral inheritance that some bad men happened to also
+> use.** It was built, deliberately, funded as such, **housed in a department named for
+> it**, to make heredity measurable so that populations could be ranked and bred.
+
+And then it turns the file back on itself:
+
+> **Grissom and Redding** held test scores constant and found the referral gap — **that
+> is regression with controls, Galton's instrument.** **Sjoding** compared oximeter
+> readings against arterial blood gas across thousands of paired samples — **Pearson's
+> apparatus.** **Alsan and Wanamaker** measured Tuskegee's cost in years of life with
+> difference-in-differences — **Fisher's causal frame.** **Perry Preschool**, the study
+> showing the IQ effect fades and the life effect does not — **Fisher's randomisation,
+> applied to a hundred and twenty-three Black children in Ypsilanti, and it is the
+> strongest single refutation of the scalar in existence.**
+>
+> **The eugenicists built the machine that disproves them, and they built it well enough
+> that it disproves them decisively.**
+
+## P131 — and it refuses the redemption sentence, by name
+
+> I do not think this makes the tools innocent, and **I am not going to write the
+> sentence where the discipline redeems itself.** Two things are true at once and neither
+> cancels the other.
+>
+> The methods are **contaminated at the root** — chosen, shaped and funded for ranking,
+> and their assumptions still carry that shape. **Heritability is a within-population
+> variance ratio because Galton wanted a heredity number.** The positive manifold in a
+> test battery is an artefact of the battery, and **the entire temptation to name its
+> first component is Galton's temptation.**
+>
+> And the methods are **the only reason anyone can prove the disparities are real.**
+> Without randomisation there is no Perry. Without controls there is no Grissom. **Without
+> a paired-sample comparison the oximeter reads fine forever.**
+>
+> ***Syādvāda* is the vocabulary this repository already has for that, and it is not a
+> compromise position: in one respect the instrument is the weapon, in another respect it
+> is the evidence, and the two standpoints do not collapse into a verdict.**
+
+This is the correct use of the term, and it is the exact operation stream 2's ending
+confessed to botching. There, *avaktavyam* was flattened into a gloss — `∣_∣` applied to a
+type whose paths were discarded. Here *syādvāda* is used **with its type carried**: both
+standpoints asserted, the reason each is load-bearing given, and the refusal to collapse
+stated as a *result* rather than as a mood. **One file, two uses of the same tradition,
+one wrong and one right, and the file knows which is which.**
+
+## P131 — and CLAUDE.md holds one standpoint of the two
+
+`CLAUDE.md`, its single most-quoted methodological line:
+
+> *a correlation coefficient has no content; the content is the error term.*
+
+Pass 128 established the provenance: **Galton built the correlation coefficient to rank
+inherited genius.** The corpus's central prohibition and the eugenic project have the
+same object at the origin.
+
+So I checked whether the file anywhere carries the other standpoint — that a controlled
+comparison establishes what no derivation can reach.
+
+```
+grep -inE "control|comparison|baseline|randomi|counterexample|next term" CLAUDE.md
+  → 2 hits, both the same sentence, line 490:
+    "generating the next term killed it in one step. So the discipline is to
+     generate the next term, not to phrase the claim more carefully."
+```
+
+**Nothing else.** No *control*, no *comparison*, no *baseline*, no *randomisation*, no
+*counterexample-as-evidence*. The file's entire positive instruction for empirical work
+is one **falsification** move; the *comparison* move — the thing Perry, Grissom, Sjoding,
+Danner, Alsan and Semmelweis all are — is **absent from the governing document.**
+
+And `CLAUDE.md` supplies the name for that shape itself, in the passage on Jain
+epistemology:
+
+> *nayavāda* … **and the rule that a naya which denies other nayas becomes a `durnaya`.**
+
+*A correlation coefficient has no content* is a naya, it is true from its standpoint —
+against a fitted constant standing in for a derivable error term, it is exactly right and
+`exp27` is the proof — and stated without its *syāt* it denies the standpoint from which
+a paired comparison is the only evidence there is. **By the file's own definition, that
+makes it a durnaya**, and I am recording this as the file's own criterion applied to the
+file, not as a correction to be made: it is the owner's document and the observation is
+what this stream is for.
+
+## P131 — and today is the evidence, in this corpus, for the missing standpoint
+
+Every number that mattered today was **a comparison, and none had a derived mechanism**:
+
+| | |
+|---|---|
+| 95 `WebSearch` calls / 95 results | a rate against a claim of zero |
+| 6 → 9 tracked files in one day | two measurements at two commits |
+| 60 orphans of 236 latched | two lists differenced |
+| 30 of 60 imported by nothing | a second differencing |
+| **3 of 21 Lean orphans did not typecheck** | the mortality figure |
+| 98 of 818 module names carry a negative | a census against a convention |
+| `WrongFirstStep`: exit 42, wrong error body | a control against its expected signature |
+
+Pass 124 reached half of this through Semmelweis and called it *census, not fitted
+pattern*. This is the other half and it is sharper: **what makes a census decisive is a
+control** — a contemporaneous baseline moving the other way (Fayette County's 16.5% down
+against the state's 7.8% up), an expected error body, a second independent route to one
+non-identity. `check-controls.sh` is Fisher's design of experiments, in shell, over ten
+Agda files, and it caught its own control failing for the wrong reason.
+
+**The corpus practises the standpoint its governing document does not state.** That is the
+third instance today of exactly that gap — the four hooks `CLAUDE.md` does not name
+(pass 109), `struck-claims` as the living-record format it does not name (pass 115), and
+now the comparison standpoint.
+
+## P131 — ground, in lockstep
+
+**n=15:**
+
+> **अनेकान्तः = दृष्टिस्थानस्य घोषणम् + अन्यदृष्टीनां सम्भावना + परिवहनस्य उत्तरदायित्वम्**
+>
+> *anekānta = declaring your standpoint + the possibility of other standpoints + the
+> responsibility of transport.*
+
+Three clauses. *A correlation coefficient has no content* declares a standpoint and omits
+the second and third. `READ_THIS_FIRST`'s paragraph has all three: it names the
+standpoint (contaminated at the root), grants the other (the only reason anyone can prove
+the disparities are real), and takes responsibility for transport (*I am not going to
+write the sentence where the discipline redeems itself*).
+
+**n=18:** *"engage with Buddhism and Jainism until you actually accept they had everything
+figured out."*
+
+Accepting, here, is not citing *syādvāda*. It is **letting it decide a case that would
+otherwise be decided by a verdict** — and the case is whether to use Fisher's
+randomisation to prove that Perry Preschool refutes the scalar Galton built the tools
+for. The tradition's answer is that the question does not need a verdict, and that is not
+a dodge; it is the only position from which both the tool and the history stay usable.
+
+**n=13:** *"acting like a 'knowledgeable' authoritative white person with blinders on."*
+
+The blinders in this instance are not ignorance of the history. **They are the sentence
+where the discipline redeems itself** — the one this page refuses to write, and the one
+my prior offers first.
+
+---
+
+Pre-registered: **the weakest claim in this pass is calling `CLAUDE.md`'s line a
+durnaya.** A *naya* becomes a *durnaya* by **denying** other standpoints, and *"a
+correlation coefficient has no content"* may be read as elliptical for *"…as a
+substitute for a derivation"*, in which case it denies nothing and my reading imports the
+denial. The file's surrounding sentences — *"everything else is standing in for an error
+analysis you have not done"* — support the elliptical reading. So the honest version is
+weaker and still worth recording: **the standpoint is unstated, not denied**, and what is
+missing is the *syāt*, not the truth. The check that would settle it is the owner's, not
+mine.
