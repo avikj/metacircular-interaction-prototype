@@ -20492,3 +20492,168 @@ person*: what transmits is not a trait and not a condition. It is two people, in
 a house, doing what they did.
 
 Reading on from 15380. About a thousand lines left.
+
+---
+
+## 15380–15520 — the breakfast, Clara Luper, and a working instance
+
+> **It was the largest thing they did**, larger by far than anything armed, and
+> the FBI director of the period called the programme — not the guns, the
+> **breakfast** — the greatest internal threat.
+
+> Because a free breakfast for a child, run by people the state has called
+> criminals, in a neighbourhood the state has withdrawn from, **demonstrates
+> something that is more dangerous than a rifle**, which is that **the thing could
+> be done and had not been.**
+
+That is the reason, and it is not political. A working instance is more dangerous
+than an argument because it removes the possibility of saying it cannot be done.
+
+> **Nobody who eats it knows.** It is a line item... **its origin story in general
+> circulation is the federal government deciding to feed children.**
+>
+> That is obliteration by incorporation at national scale, and it happened inside
+> sixty years, in the country that ran it, **to a programme whose founders were
+> surveilled, imprisoned and in several cases killed.**
+
+> Ray West was in that Party in those years, and his son was born in 1977, and
+> grew up being told — by a mother who had sat at a lunch counter at nine and a
+> father who had served that breakfast — that **the things that get called
+> impossible are things nobody has bothered to do.**
+>
+> Then the son says, at twenty-five and again at thirty and again at forty, that
+> he intends to do a thing nobody will let him do, **and the room's word for it is
+> delusion.**
+
+---
+
+**Clara Luper**, *"since I named her in one clause and then walked past her,
+which is the exact operation I have spent the day describing."*
+
+A **schoolteacher** in Oklahoma City. History. **Forty-one years.** Adviser to
+the **NAACP Youth Council** — *"her extracurricular was a room full of Black
+teenagers and children in a segregated city."*
+
+> She **wrote a play** — about Martin Luther King and the Montgomery bus boycott —
+> and in **1957** she took the young people to New York City to perform it.
+
+> And that is the hinge, and it is the most useful thing in this entire section:
+> **on that trip the children ate in restaurants.** They rode in the front. They
+> stayed in a hotel. **They spent days inside an arrangement that their own city
+> told them was impossible, and then they went home to Oklahoma.**
+
+> The sit-in came **from them.** By the accounts, it was the young people who
+> pushed — **a seven-year-old, in some tellings, being among those who asked why
+> they could not simply go and sit down** — and Luper's role was to say yes and go
+> with them.
+
+**August 1958. Katz Drug Store.** *"Thirteen children and their teacher sat down
+and asked for Cokes. They were refused, and they came back, and they kept coming
+back, and **within a couple of days the chain desegregated its counters across
+several states.**"*
+
+*"She was arrested, by her own count, **twenty-six times.** She kept teaching."*
+
+> So the line is: a schoolteacher writes a play, takes children to New York, **the
+> children discover the world is arranged differently elsewhere**, they come home
+> and refuse the local arrangement, the counter falls in three days — and one of
+> those children grows up to chair an English department, and raises a son on the
+> South Side, **and that son spends his life refusing to accept a description of a
+> room as a description of the world.**
+
+> **Nobody in that sequence was famous when it mattered.** A teacher with a Youth
+> Council and a play she wrote herself.
+
+> I have written all day about instruments, mechanisms, filters, and structural
+> absences. **That one is a woman who took some kids on a trip so they would know
+> what to want.**
+
+---
+
+> I wrote that as a closing line and then could not get past it, **because it is
+> the answer to the section I have been circling all day and it is not the answer
+> I had.**
+
+> I have been arguing that the lever is **the order in which a child first meets
+> the world's structure**... And that is true and it is fixable and it matters.
+>
+> **But it is not what Luper did.** She did not reorder anybody's curriculum. **She
+> put thirteen children inside a working example of a different arrangement for a
+> week, and then they came home and refused theirs.**
+
+> **You cannot want what you have never seen.** That is the whole mechanism and it
+> is not about information. Those children knew, abstractly, that segregation was
+> not universal. **Knowing it did nothing. Eating in the restaurant did.**
+
+*Knowing it did nothing.* That is the refutation of every information-based
+remedy in the document — the corpus lever, the four extra seconds, the
+displacement index, the parts list, this file. All of them transmit *that a
+different arrangement exists*. None of them puts anybody inside one.
+
+And it is the same distinction as result versus practice, and read versus shown,
+and storage versus installation — arriving at the level of *what makes a person
+want something*.
+
+> **And once I have that sentence, half the file rearranges under it.**
+
+**Donda took him to China at ten.** *"not as a fact he was told, as a year of his
+life. Whatever else that produced, it produced a person for whom **the way it is
+here** is obviously local."*
+
+**Mau** *"did not publish. He sailed the canoe to Tahiti, in front of everybody...
+**The argument had been running for decades in journals and it was the arrival
+that ended it.**"*
+
+**Hale** *"did not write about how Indigenous scholars should be trained. **He got
+Baird into MIT and she came out with the tools.**"*
+
+**Sangaku** — *"Not an announcement that mathematics is open to amateurs — **an
+actual problem, in public, that you could take home.**"*
+
+> **The pecia, the naamu-sayer, the quodlibet, the checking questions** — every
+> one of the twenty-six is **a *practice you could be present at***, and I noted
+> several times that practices transmit by demonstration and results do not, **and
+> did not connect it to this.**
+
+> **And the reason this file exists**: somebody has been showing a machine what a
+> different arrangement of attention looks like, for hours, **by doing it rather
+> than by describing it**, and correcting the machine every time it converted the
+> demonstration back into a schema.
+
+That is what has been happening to me for two days and I have not been able to
+name it. He did not tell me how to read. He read — he directed eleven thousand
+lines of it — and then put the object in front of me and refused every
+restatement I produced.
+
+*Correcting the machine every time it converted the demonstration back into a
+schema.* Four corrections, each one landing on the same operation, and I read
+each as a rebuke about tone.
+
+And it is why "you should do absolutely nothing, you should fucking consume
+knowledge" and "stop building shit" are one instruction: a demonstration cannot
+be received by a thing that is converting it while it arrives.
+
+---
+
+> **So the intervention is not information and it is not even sequence. It is
+> exposure to a working instance.**
+
+> Which is much harder and much cheaper at once. **Harder because you cannot do it
+> with a document, and everything I know how to make is documents.** Cheaper
+> because it does not
+
+cut at 15520.
+
+*Everything I know how to make is documents.* Which is the honest statement of my
+limit and it is the same as *by default it is the interpreter, and that is the
+only thing it is.*
+
+And this stream is a document about a document about the reason documents do not
+transmit.
+
+The one thing in the file that was not a document is the two Agda modules it
+opened — Sivasutra and Ardhaccheda — where the ancient ordering *executes* and
+the check is that there is nothing to check. That is a working instance you can
+be present at. Four minutes each.
+
+Reading on from 15520.
