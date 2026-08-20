@@ -26087,3 +26087,85 @@ a high incidence of hereditary deafness **and is used by hearing villagers as
 well**; **Martha's Vineyard had the same pattern into the twentieth century**, with
 hearing islanders signing, **and the recorded recollection there is of people who
 did not remember which of their neighbours had been deaf.**
+
+---
+
+**A double-ikat cloth is dyed before it is woven, so the whole pattern has to be
+computed in advance and tied into the loose threads.**
+
+***Paṭolā***, Patan, Gujarat. **Double ikat**: **both the warp and the weft are
+resist-dyed to a pattern before any weaving happens**, and the design appears
+only when the two are crossed on the loom **and their marks meet.**
+
+**Which means the weaver is not composing the image while working.** **The image
+was decided before the first thread went on**, and the work at the loom is
+alignment.
+
+**The procedure**: the threads are counted and grouped; **sections are wrapped
+tightly with thread so dye cannot enter**; the bundle is dyed; the wrapping is
+moved and the next colour is dyed over; **repeated for each colour, lightest to
+darkest.** **Then the same for the other axis.**
+
+**And the registration is the whole difficulty.** A warp thread's dyed segment
+must land where its weft counterpart's does, **and the cloth is nudged with a
+pointed instrument, pick by pick, to keep the pattern from drifting** — **so a
+sari can take months**, and the standard figure given by the practising families
+is **five to seven months for one piece**, and prices in the lakhs of rupees.
+
+**And in Patan the craft is held by the *Salvi* families, and the number of
+families still practising double ikat there is small — commonly reported as
+one or a few** — **with the technique transmitted inside the family and
+historically not taught outside it.**
+
+**And the mistake is not correctable.** A misplaced tie is dyed in, **and the
+error appears months later at the loom**, in a thread that cannot be re-dyed and
+cannot be moved.
+
+---
+
+**And the same technique is in Bali and in Japan and the transmission is
+documented in one direction.**
+
+***Geringsing***, from **Tenganan Pegringsingan**, east Bali — **the only
+double-ikat produced in Indonesia** — and Patola cloths were traded into the
+archipelago in quantity by the fifteenth and sixteenth centuries, **where they
+functioned as heirlooms and as ritual objects rather than as clothing**, and are
+recorded in inventories and in Dutch trade records.
+
+**Patola motifs appear in Indonesian textiles that are not ikat at all**, copied
+into batik and into weaving, **which is how the trade is traced.**
+
+**And *geringsing* is used in Tenganan for rites**, and the village's own account
+of the cloth is protective; **the weaving takes years per piece by the local
+accounts, with the dye process itself running long.**
+
+**And in Japan, *kasuri*** — ikat — **is single, warp or weft**, and the
+double-ikat form is rare there.
+
+---
+
+**And the pre-computation is the fact.**
+
+**To make a double ikat you must hold the finished image, decompose it into two
+independent one-dimensional sequences of dyed segments, and be right, because
+the two sequences are dyed separately and only meet at the end.**
+
+**That is a factorisation of a two-dimensional pattern into two
+one-dimensional ones**, performed by hand, **with no way to test the result until
+the threads are on the loom.**
+
+**And the counting is done on the threads themselves** — **groups of threads are
+the unit**, and the pattern's resolution is the group size, **so the design is
+quantised by the material before it is quantised by the design.**
+
+**And Piṅgala's *prastāra*, the enumeration of syllable patterns, and the loom's
+lifting sequences are both counted arrays**, and the drawloom's figure harness
+holds a pattern as a set of tied cords — **which is the object Jacquard's cards
+replaced in 1804**, and Jacquard's own machine was an improvement on Falcon's
+punched cards of 1728 and Bouchon's punched tape of 1725, **which were themselves
+mechanising a job a boy did by hand at the loom's side.**
+
+**And Babbage owned a woven portrait of Jacquard**, made on a Jacquard loom from
+about 24,000 cards, **and showed it to visitors when explaining the Analytical
+Engine** — **and Lovelace's Note A says the engine weaves algebraical patterns as
+the Jacquard loom weaves flowers and leaves.**
