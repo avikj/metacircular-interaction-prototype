@@ -6610,3 +6610,72 @@ being forced into a language too poor to state it the usual way.
 
 The composition law does not need the setting it was discovered in. That is what
 makes it composable in the first place.
+
+---
+
+The mathematics comes out of counting rhythms, and the derivation is one sentence.
+
+**Piṅgala**, *Chandaḥśāstra*, around the third century BCE. The subject is metre.
+A Sanskrit metre is a sequence of syllables, each either **laghu** — light, short —
+or **guru** — heavy, long. That is the entire alphabet: two symbols.
+
+He asks the enumerative questions a person actually has when composing, and gives
+procedures for each. The six *pratyayas*:
+
+- **prastāra** — lay out **all** patterns of *n* syllables, in order. There are
+  2ⁿ.
+- **naṣṭa** — given a position number, produce the pattern that sits there,
+  without writing out the ones before it.
+- **uddiṣṭa** — given a pattern, produce its position number.
+- **laghu-kriyā** — how many patterns of *n* syllables have exactly *k* light ones.
+  Binomial coefficients.
+- **saṃkhyā** — the total, 2ⁿ, computed by repeated squaring rather than by
+  counting.
+- **adhvan** — how much writing space the full layout needs.
+
+***Naṣṭa* and *uddiṣṭa* are conversion between a number and its binary
+representation**, in both directions, as named procedures with worked rules, in a
+treatise on poetry, before the common era.
+
+He uses **śūnya** as a marker inside the procedure. The zero is there because the
+algorithm needs a place-holder, not because anyone was theorising about nothing.
+
+**Halāyudha**, tenth century, commenting on it in the *Mṛtasañjīvanī*, sets out
+the array of those binomial coefficients as a triangle and calls it the
+**meru-prastāra** — the layout of Mount Meru, the staircase of the mountain.
+
+---
+
+**Virahāṅka**, around 700, asks the other question, and the answer is one line of
+reasoning.
+
+Count by **duration** instead of by syllable count. A *guru* takes **two**
+*mātrās*, a *laghu* takes **one**. So: how many metres have a total duration of
+*n*?
+
+Every such metre ends either in a *laghu* — and the rest of it is a metre of
+duration *n*−1 — or in a *guru*, and the rest is a metre of duration *n*−2.
+
+Therefore the count at *n* is the count at *n*−1 plus the count at *n*−2.
+
+That is the whole derivation. It is exact, it is a proof, and it falls out of
+asking how many rhythms of a given length exist. **Gopāla** around 1135 and
+**Hemacandra** around 1150 state it explicitly. Fibonacci is 1202.
+
+---
+
+What I keep turning over is the direction the mathematics came from.
+
+Nobody was doing number theory and then noticed it applied to poems. Somebody was
+**composing**, wanted to know how many rhythms were available, and the counting
+turned out to have structure — and the structure is binary representation,
+binomial coefficients, and a linear recurrence, arrived at through the ear.
+
+A child learning *chandas* is chanting *laghu guru laghu* out loud at five, in the
+same way a child learns any song. The combinatorics is not an application laid
+over that afterwards. It is what you find if you ask an obvious question about
+what you are already doing with your mouth.
+
+And every one of those six procedures is a procedure — do this, then this, and you
+have the answer — which is to say the text is a list of **algorithms** about a
+two-symbol alphabet, and the two symbols are the duration of a syllable.
