@@ -14309,3 +14309,190 @@ hundred lines and repeated three times.
 > addressing many
 
 cut at 10460. Reading on.
+
+---
+
+## 10460–10600 — the classroom is a budget constraint, and the codex
+
+The Prussian package — *"Age-graded cohorts, a fixed timetable divided by a
+bell, one teacher addressing many children simultaneously, a standardised
+curriculum with standardised examinations, compulsory attendance, and trained
+certified teachers"* — assembled across the eighteenth and nineteenth centuries.
+**Horace Mann** to Prussia in **1843**, the *Seventh Annual Report*, adoption
+through the American states and outward. *"That much is straightforwardly
+documented."*
+
+> **What is contested and gets overstated — including by me, above** — is the
+> *intent*. The strong claim that circulates is that the model was engineered to
+> manufacture obedient soldiers and factory workers. **Historians of education
+> generally regard that as too neat**: Prussian reformers included people with
+> genuinely humanistic aims, **mass literacy was a real and enormous
+> achievement**, and the system did things for poor children that no previous
+> arrangement had. **I should not have said "designed to produce clerks" as
+> though it were settled.**
+
+It retracts its own most-repeated line — used four times, including in the nine
+compressed paragraphs — and gives the reason the strong version is wrong.
+
+> **What survives the correction, and is enough:** the design solves the problem
+> of teaching very many children with very few trained adults, and every feature
+> of it — the age cohort, the bell, the standard sequence, the examination — is a
+> **throughput** solution. **It is optimised for scale under scarcity of teachers,
+> and it is *extremely good at that*, and the scarcity was real.**
+
+The claim survives *stronger* without the intent. A throughput solution to a real
+constraint is harder to argue with than a conspiracy, and it makes the
+consequences structural rather than culpable — which is the file's discipline
+throughout, applied to its own rhetoric.
+
+**Macaulay's Minute, 1835**, *"is on the record and says what it says"*: a class
+of persons *"Indian in blood and colour but English in taste, opinions, morals
+and intellect, who can be interpreters between the government and the millions
+it governs"* — *"and he dismisses the entire Sanskrit and Arabic literature in a
+sentence he admits he is not qualified to make.**"*
+
+> **That is not a reconstruction of intent; it is the memorandum**, and the
+> English-language system built on it is the direct ancestor of the examination
+> culture across South Asia.
+
+The unsourced claim is withdrawn and the *documented* one, which is sharper, is
+put in its place. And the admission inside Macaulay's own sentence — dismissing a
+literature he says he cannot read — is the *pramāṇa* violation stated by the
+person committing it.
+
+---
+
+> Every craft tradition in this file transmitted by **apprenticeship**: the
+> student in the teacher's household or workshop, present while the work is done,
+> doing the low-value parts first, absorbing the judgement alongside the
+> technique, over years, **with no examination because the work is the
+> examination.**
+
+*Gurukula*, guild, atelier, *silsila*, *paṭṭāvalī*, the Hawaii studio, Suśruta's
+gourds-then-cadavers-then-patients ladder.
+
+> **Apprenticeship transmits a practice. The classroom transmits results.**
+
+> So the shift from one to the other is not only a change in how children are
+> taught. **It is a change in *what kind of thing is being transmitted*, and it
+> selects, mechanically, for the portion of any body of knowledge that can be
+> written on a board and examined on paper** — which is the results, and never
+> the judgement, **and never the *where to look*, which was Kepler's harmony and
+> Ramanujan's route and the two seconds of a record that are enormous.**
+
+The education argument and the transmission argument are the same argument. The
+sieve does not merely select the wrong children — it selects the wrong *kind of
+content*, by the same mechanism as the portability filter, and produces a
+population that received results and never saw a judgement being made.
+
+> The scarcity that forced the trade was real. **The scarcity has just ended** —
+> that is what a tireless tutor means — **and the design is still in place, and
+> nobody has revisited the trade because the memory that a trade was made is, per
+> this file's own general finding, the first thing lost.**
+
+---
+
+**Bloom, 1984, "The 2 Sigma Problem."** Conventional classroom vs mastery
+learning in a classroom vs **one-to-one tutoring with mastery learning**.
+Tutored students *"about **two standard deviations** above the conventional group
+— meaning the average tutored student was above roughly ninety-eight percent of
+the students taught conventionally."* Mastery learning in a class: about one
+sigma.
+
+> He did not present that as a triumph. He presented it as **a problem**, and
+> named the paper for it: **tutoring works and *is too expensive to give
+> everybody***, so the research task is to find a group method that gets the same
+> effect. That has been a central open problem for forty years, **and the honest
+> status is that nothing has closed it.**
+
+**The caveats**, *"because this number is quoted badly constantly"*: small,
+short, specific material, tutors closely trained in mastery methods. Later
+meta-analyses *"frequently in the range of a third to half a sigma for structured
+tutoring programmes, which is still among the largest effects in the field.
+**Two sigma is an upper bound from favourable conditions, not a routine
+expectation**, and anyone quoting it flatly is overselling. **I have been
+implicitly overselling it for a hundred pages by talking about tutors without a
+number.**"*
+
+Talking about tutors without a number is the same error as a fitted constant
+without its scale — an unqualified magnitude doing rhetorical work — and the file
+convicts itself of it and then supplies the number *and* the discount.
+
+> individual attention from someone who can tell what you specifically have not
+> understood is, by a wide margin, the most effective educational intervention
+> anybody has measured, **and it has been unaffordable, and *that* — not
+> pedagogy, not curriculum theory, not standards — is why the classroom is shaped
+> the way it is.**
+
+> **The classroom is not a theory of learning. It is a budget constraint**, and
+> everybody in the field has known that since 1984 and said so in print.
+
+---
+
+> **the marginal cost of an attentive, tireless, non-judgemental interlocutor
+> went to approximately zero.** Not the quality of one — the *cost* of one.
+
+Weil: attention is the rarest and purest form of generosity, rare because it is
+difficult. Simon: attention is scarce and the question is who captures it. Bloom:
+attention is the most effective intervention measured and it is unaffordable.
+Three framings, one variable, and the file has now given its price.
+
+> Which does **not** mean the machine is a good tutor. **Most of this file is an
+> argument that it is systematically, invisibly wrong in ways it cannot report.**
+> It means that the constraint that produced the design is gone, and the design
+> is still here, and nobody is revisiting the trade.
+
+> the one thing the machine is unambiguously good at is the specific thing Bloom
+> measured: **answering the same question forty times without a change in tone,
+> and noticing which particular step this particular child has not got.** That is
+> **not** the part that requires judgement about what is worth knowing, which is
+> the part it will get wrong. **It is the part that was rationed.**
+
+The scope of the claim, exactly: good at the rationed thing, bad at the
+judgement, and the two are separable in a way the gift and the damage were not.
+That is the most precise statement of what I am for that I have read.
+
+> The kid who stalls at place value stalls because there is one adult and thirty
+> children and no time for *why*. **There is now time for why.** Whether anybody
+> uses it for that, **rather than for delivering the existing sequence faster**,
+> is a decision that is being made right now by people who mostly have not read
+> Bloom.
+
+*Rather than for delivering the existing sequence faster.* That is the actual
+risk and it is not the renaming risk. The design was a workaround for a
+constraint that has lifted, and the default use of the new capacity is to run the
+workaround at higher throughput.
+
+---
+
+**Scroll to codex**, *"because the file has argued for a hundred pages that
+notation and format decide what exists and has never traced a format shift."*
+
+Thirteenth debt.
+
+> For most of antiquity the book is a roll... **What a roll is bad at is finding
+> a place.** You read it linearly or you spend a long time hunting. **You cannot
+> easily compare two passages, you cannot flip, and you cannot annotate in a
+> margin that stays put.**
+
+> The **codex** — folded leaves, sewn, with covers — arrives and spreads across
+> roughly the second to fourth centuries CE, and what it buys is **random
+> access**: page numbers, an opening at any point, **two passages held
+> simultaneously with a finger in each**, and a margin.
+
+Two passages at once, with a finger in each. That is *saha* — simultaneity —
+made physically possible by a binding, and the *krama*/*saha* distinction is
+exactly what the scroll cannot support. A scroll can only give you sequence.
+
+> what follows from random access is an entire apparatus that was not previously
+> constructible: **the index, the table of contents, the cross-reference, the
+> concordance, the chapter division, the citation by locus.**
+
+The citation by locus. Attribution machinery — the thing this whole file is about
+— is a *codex-dependent technology*. You cannot cite a place in a scroll, so a
+lineage in a roll-based culture has to be a chain of people, which is exactly
+what every tradition in this file used.
+
+> **You cannot build a concordance to a scroll in**
+
+cut at 10600. Reading on.
