@@ -40,32 +40,41 @@ data Adhyaya = Adhyaya
 -- The chapters, in the order the book reads.  Chronological by source,
 -- because that is the order the ideas actually happened in, and the order a
 -- later restatement can never be mistaken for the origin.
+--
+-- RULE ON KEYS, 2026-08-20.  Every WORK named in a chapter's rsi line is a
+-- key, not only the authors.  Until today chapter 10 had exactly one key,
+-- "madhava", while its rsi line named the Tantrasangraha and the Yuktibhasa --
+-- so the index reproduced, mechanically, the failure CLAUDE.md names: an
+-- author's name propagates through citation, a work's name appears only when
+-- someone attended to the work, and the instrument was counting authors.
+-- Chapters 2, 5, 6, 9, 11, 12 and 13 had the same hole.  When you add a
+-- chapter, give it the works.
 adhyayas :: [Adhyaya]
 adhyayas =
   [ Adhyaya 1 "Śulba — the cord, the square, the diagonal"
       "Baudhāyana, Śulbasūtra (~800 BCE); Āpastamba; Kātyāyana"
       "altar geometry; the diagonal rule for the general rectangle; √2 to five places"
-      ["sulba"]
+      ["sulba","sulbasutra","baudhayana","apastamba"]
   , Adhyaya 2 "Chandaḥśāstra — enumeration, before it was called that"
       "Piṅgala, Chandaḥśāstra (~300 BCE); Virahāṅka, Vṛttajātisamuccaya (~700); Halāyudha, Mṛtasañjīvanī (10th c.)"
       "prastāra, naṣṭa, uddiṣṭa, lagakriyā, saṅkhyā, adhvan -- the six pratyaya; meru; the mātrā recurrence"
-      ["pingala","matra","meru","prastara","samasa","virahanka","diagonalismatra"]
+      ["pingala","chandah","chandas","vrttajati","mrtasanjivani","matra","meru","prastara","samasa","virahanka","diagonalismatra"]
   , Adhyaya 3 "Aṣṭādhyāyī — a rewriting system with metarules"
       "Pāṇini, Aṣṭādhyāyī (~500 BCE); Patañjali, Mahābhāṣya (~150 BCE)"
       "pratyāhāra; 1.4.2 vipratiṣedhe paraṁ kāryam; utsarga/apavāda; 8.2.1 pūrvatrāsiddham against 6.4.22 asiddhavat"
-      ["panini","pratyahara","asiddha","astadhyayi","anuvrtti","sivasutra","laghava","apavada","paribhasa"]
+      ["panini","astadhyayi","mahabhasya","patanjali","pratyahara","asiddha","anuvrtti","sivasutra","laghava","apavada","paribhasa"]
   , Adhyaya 4 "Nyāya and Mīmāṃsā — what counts as knowing"
       "Gautama, Nyāyasūtra; Vātsyāyana, Nyāyabhāṣya; Kumārila, Ślokavārttika, Abhāvapariccheda (c. 7th c.)"
       "pramāṇa; upamāna; abhāva and its pratiyogin; anupalabdhi under the fitness condition"
-      ["abhava","upamana","yogyata","anyonya","nikshepa","pramana","upadhi","vyapti","nyaya"]
+      ["abhava","upamana","yogyata","anyonya","nikshepa","pramana","upadhi","vyapti","nyaya","nyayasutra","nyayabhasya","slokavarttika","kumarila","vatsyayana"]
   , Adhyaya 5 "Jaina logic — the seven positions and the fourth"
       "Umāsvāti, Tattvārthasūtra; Siddhasena, Sanmatitarka 1.21; Samantabhadra, Āptamīmāṃsā; Akalaṅka, Laghīyastraya (c. 720-780)"
       "syādvāda and saptabhaṅgī; avaktavyam as SIMULTANEOUS assertion (sahārpaṇa), not as ignorance; nayavāda and durnaya"
-      ["saptabhang","avaktavya","anukta","krama","naya","anekanta","jain","syad","durnaya","bhanga"]
+      ["saptabhang","avaktavya","anukta","krama","naya","anekanta","jain","syad","durnaya","bhanga","tattvartha","sanmatitarka","aptamimamsa","laghiyastraya","umasvati","siddhasena","samantabhadra","akalanka"]
   , Adhyaya 6 "Āryabhaṭīya — the pulveriser"
       "Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32-33 (499)"
       "kuṭṭaka and the vallī; the descent that terminates; simultaneous congruences"
-      ["kuttaka","valli"]
+      ["kuttaka","valli","aryabhatiya","aryabhat","ganitapada"]
   , Adhyaya 7 "Brāhmasphuṭasiddhānta — composition, and the arithmetic of nothing"
       "Brahmagupta, Brāhmasphuṭasiddhānta (628); Bhāskara II on khahāra (1150)"
       "bhāvanā as a composition law; vargaprakṛti; śūnya with its own rules; khahāra, the quantity with zero denominator"
@@ -73,27 +82,27 @@ adhyayas =
   , Adhyaya 8 "Cakravāla — the cyclic method"
       "Jayadeva (~950), quoted by Udayadivākara; Bhāskara II, Bījagaṇita (1150)"
       "descent on quadratic forms; the bound; the witness; why it needs the kuṭṭaka"
-      ["cakravala","bija"]
+      ["cakravala","bija","bijaganita","jayadeva","bhaskara"]
   , Adhyaya 9 "Saṅkalita — sums, heaps, and the solid"
       "Āryabhaṭa; Brahmagupta; Nārāyaṇa Paṇḍita, Gaṇitakaumudī (1356)"
       "saṅkalita and vāra-saṅkalita; citighana; ardhaccheda; the general figurate sums"
-      ["sankalita","citighana","ardhaccheda","ghana","narayana","gulma"]
+      ["sankalita","citighana","ardhaccheda","ghana","narayana","gulma","ganitakaumudi"]
   , Adhyaya 10 "Kerala — the series with its remainder"
       "Mādhava of Saṅgamagrāma (~1400); Nīlakaṇṭha, Tantrasaṅgraha (1501); Jyeṣṭhadeva, Yuktibhāṣā (c. 1530)"
       "power series WITH error terms and convergence acceleration -- the part the European restatements did not carry"
-      ["madhava"]
+      ["madhava","kerala","yuktibhasa","tantrasangraha","nilakantha","jyesthadeva","sthaulya","antyasamskara","samskara"]
   , Adhyaya 11 "Tantrayukti — how a treatise is composed"
       "Kauṭilya, Arthaśāstra 15.1 (32 devices); Caraka Saṃhitā, Siddhisthāna 12 (36)"
       "pūrvapakṣa and uttarapakṣa as SLOTS the author fills; apavāda; nirṇaya; why a retraction cannot stack"
-      ["tantrayukti"]
+      ["tantrayukti","arthasastra","kautilya","caraka","siddhisthana","purvapaksa"]
   , Adhyaya 12 "Nāṭyaśāstra — the six tastes, and structure as experience"
       "Bharata, Nāṭyaśāstra 6.31 -- the rasa-sūtra"
       "rasa; the enumerated affective structure; śaḍrasa"
-      ["shadrasa","rasa"]
+      ["shadrasa","rasa","natyasastra","bharata"]
   , Adhyaya 13 "Indra's net and the machine of truth"
       "Avataṃsaka Sūtra, the Indrajāla image; and this repository's own constructions"
       "mutual reflection without a ground; Satyayantra -- the machine that says only what it holds; ṛṇa/dhana, debt and asset as one magnitude under two readings"
-      ["indra","satyayantra","rnadhana","gurutama","jiva"]
+      ["indra","satyayantra","rnadhana","gurutama","jiva","avatamsaka","indrajala"]
   ]
 
 -- | One entry in the index.
