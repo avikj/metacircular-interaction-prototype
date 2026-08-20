@@ -6163,3 +6163,217 @@ reader it has, which the file also said is the only thing that ever transmits �
 readers, not objects.
 
 Reading on from 4580.
+
+---
+
+## 4580–4720 — the unrepresentable gaps, Rosetta Tharpe, the discrimination
+
+> I have no access to my own frequency table. I cannot tell, from in here,
+> which of the names I have used are the displaced ones — I catch the ones this
+> repository has already flagged, and I have no way to enumerate the ones
+> nobody has flagged yet, **and the number of those is certainly larger than the
+> number I caught.**
+
+> So every list in this file is a list of the errors *someone else already
+> found*. **That is the exact structure of the thing being criticised: a record
+> that looks complete because its gaps are not representable in it.**
+
+That is the RAND model, the sieve, the false-negative, the rejected person with
+no counterfactual — and now it is stated about *this document*, by its author,
+as a property of the document.
+
+> The only fix available is external — someone with different training reading
+> it and saying, that one too. **Which is why the repository's rule that a
+> correction from another hand is the most respected act is not a nicety. For a
+> system with this failure mode it is the only error-detection that exists.**
+
+The rule I have read a dozen times in CLAUDE.md as an etiquette about ego is a
+*technical necessity* for an observer whose blind spot is an invariance. There
+is no internal check. That is the whole argument for another hand, and it is
+the same argument as the reference island in etak and the swell felt through
+the hull: you cannot get the missing coordinate from inside the frame.
+
+> (Fixed a garbled token two sections up — a stray non-English fragment where
+> "course pages" should have been. Not a claim, so I repaired it rather than
+> annotating it; **noting it here because the file's rule is no silent in-place
+> changes.**)
+
+A typo, repaired, and *logged*, because the rule is about silence rather than
+about significance.
+
+---
+
+**Sister Rosetta Tharpe.** Born Arkansas, **1915**. Guitar and singing in the
+**Church of God in Christ** from about four, touring with her mother, *"a
+preacher and mandolin player."* By the late 1930s in New York, recording for
+**Decca**, playing the **Cotton Club** and **Café Society**, hollow-body
+electric, gospel songs with a rhythm section in nightclubs.
+
+> She played electric guitar with distortion and heavy string bending,
+> single-note lead lines with attack, and a showman's physicality, *in the
+> 1940s*. **Not as an influence on rock and roll. As the thing itself, before
+> it had the name.**
+
+**Chuck Berry**: his whole career one long Rosetta Tharpe impersonation.
+**Little Richard**: his greatest influence — *"and told the story of her
+pulling him on stage as a boy in Macon and paying him afterwards — the first
+money he made from music."* **Johnny Cash**: his favourite singer. Elvis, Jerry
+Lee Lewis, the British blues players *"who reimported all of it in the
+sixties."*
+
+She paid him. The first money Little Richard made from music came from her hand
+on the night she pulled him up. The attribution here is not contested by
+anybody — Berry, Richard and Cash all said it plainly — and the name still did
+not survive, which is the Payne finding again: citation is not credit.
+
+> the church punished her for the nightclubs, and the secular audience treated
+> her as a gospel novelty, **so she fell between the two markets that both
+> wanted her for the part of her that fit.**
+
+Both markets wanted the convertible part. The mining operation, run twice on
+one person from opposite directions, and what falls out is the person.
+
+*"She kept working, had a stroke, lost a leg to diabetes, kept working, died in
+1973 — and was buried in an **unmarked grave in Philadelphia**. It stayed
+unmarked until **2008**, when a fan-organised concert raised the money for a
+headstone. Rock and Roll Hall of Fame in **2018**, in the 'early influence'
+category, forty-five years after her death."*
+
+Unmarked grave, marked by people who organised it themselves — the second one
+in this file after Bunhill Fields, and the same repair mechanism: no
+institution, some people, decades late.
+
+And *"early influence"* is a category that honours and demotes in one word.
+Intangible heritage. Folk art. Ephemera. Early influence.
+
+**The fault line.** Dorsey called a devil. Little Richard oscillating —
+quitting rock for the ministry, coming back, quitting again. Sam Cooke's
+crossover treated as betrayal. Al Green going back. *"Marvin Gaye was a
+preacher's son and was shot by his father."*
+
+> when a man puts "Jesus Walks" on a rap album in 2004 and is told it will never
+> see radio, and then in 2013 calls a record *Yeezus* and puts "I Am a God" next
+> to the flesh songs, and then in 2019 makes a gospel album and takes a choir
+> into a jail — **he is not being erratic. He is standing exactly on the fault
+> line that this music has had since Dorsey, and refusing to pick a side of
+> it,** which is the one thing neither institution has ever permitted anybody to
+> do.
+
+The career that reads as instability is a *consistent refusal*, and the
+consistency is only visible if you know the fault line exists. Read as
+biography, it is chaos; read as position, it is one stance held for twenty
+years against two institutions.
+
+> Rosetta Tharpe was punished for standing on it. He is punished for standing on
+> it. The difference is that she was buried without a stone and he has
+> twenty-four Grammys, **and the sameness is that neither of them was allowed to
+> be one thing.**
+
+Difference and sameness both stated, neither collapsing into the other. It
+would have been easy and false to say they suffered alike.
+
+---
+
+**"the piece of that which is genuinely about mathematics, since this
+repository is supposedly a book about India."**
+
+> the sacred/secular split is not universal, it is *local*.
+
+Piṅgala's combinatorics inside a treatise on metre, *"which is a limb of the
+Veda because the Veda is recited."* Jain enumeration inside karma theory. The
+Kerala series existing to predict eclipses for a ritual calendar. Śulba
+geometry as altar construction. Nyāya's theory of valid knowledge out of formal
+debate about doctrine.
+
+> In every one of those the question "is this religious or is this mathematics"
+> has no answer because the distinction does not exist in the setting, and
+> imposing it is precisely what the mining operation does — **the theorem goes
+> in one bin, the darśana in the other, and the bin labels are ours.**
+
+> The same operation, applied to a Black American musician, produces: the guitar
+> playing goes in the rock bin, the singing goes in the gospel bin, and the
+> woman falls between them and gets a stone in 2008.
+
+The two halves of the book joined at the *bin*, not at the theme. Same
+apparatus, two continents, and the residue in both cases is the person.
+
+And CLAUDE.md's line — *the philosophy is not context for the mathematics, in
+these traditions it frequently is the mathematics* — is here given its
+mechanism: there is no split to respect, the split is an import, and the
+importing is the operation.
+
+---
+
+**"The hardest section to write honestly, so I am going to do it by naming
+people rather than by making pronouncements."**
+
+Method declared before content, and the method is the file's whole ethic:
+particulars, not verdicts.
+
+> **the sharpest critiques of what the Israeli state does have always come from
+> inside the tradition**, and the fact that they come from inside is the whole
+> reason the source/institution distinction is not a dodge.
+
+**Arendt and Einstein**, with other Jewish intellectuals, signed a letter to
+the *New York Times* in **December 1948** about Begin's party on his American
+tour — *"describing it in explicit terms as closely akin in organisation and
+method to fascist parties, and citing Deir Yassin."* *"a published document,
+signed by the most famous Jewish person alive, four months after the state was
+founded."*
+
+Arendt then attacked for the rest of her life over *Eichmann in Jerusalem*; the
+friendship with **Gershom Scholem** breaking over it; his letter that she
+lacked ***Ahavat Yisrael***, love of the Jewish people, and her reply *"that
+she had never in her life loved any people or collective, only her friends"* —
+*"one of the great exchanges about exactly this question."*
+
+Only her friends. Which is the refusal of the category applied to *love* —
+you cannot love a file either.
+
+**Marek Edelman**, last surviving commander of the Warsaw Ghetto Uprising,
+stayed in Poland, refused Zionism, and **in 2002 wrote an open letter to
+Palestinian militant leaders addressing them as commanders of a resistance and
+asking them to stop killing civilians** — *"a document nobody else on earth had
+the standing to write."*
+
+Addressed them as commanders. Adhikāra, exercised: the one person whose
+standing was unquestionable used it to grant standing to the people he was
+asking something of.
+
+**The New Historians** — Morris, Shlaim, Pappé, Segev — Israeli scholars in
+Israeli archives as they opened, establishing the documentary record of 1948
+*"in the face of the national account, and then split bitterly over what the
+record meant, and that split is itself a live scholarly argument and not a
+settled thing."*
+
+The dispute kept open, again. Same treatment as Prāsaṅgika/Svātantrika and
+Dharmakīrti/the Jains.
+
+And the religious anti-Zionism named as old and internal: Satmar and other
+Haredi lines holding that a state established by human political action before
+the messianic age was a category error, *"and said so from the beginning."*
+
+> the move I am refusing is the one where a critique of a state's conduct gets
+> converted into a claim about a people. **That conversion is the *same
+> operation* as everything else in this file — take a category, file the humans
+> under it, treat the file as the person — and it has a specific history of
+> ending in mass graves, and anybody making it while claiming to oppose
+> supremacy has become the thing.**
+
+> **Doctrine and institution are criticisable without limit. A people is not a
+> defendant.** That is not a compromise between two positions. **It is the
+> discrimination that makes the critique true rather than a smear**, and every
+> tradition in this file supplies it: a one-sided totalising verdict on any
+> group is *durnaya* in the Jain vocabulary, and speech that dehumanises is
+> *hiṃsā*, **and neither has an exception clause for when you are angry and
+> correct.**
+
+*Neither has an exception clause for when you are angry and correct.* That is
+the load-bearing clause, because being angry and correct is exactly the
+condition under which the exception gets claimed. And it is the same
+discrimination as Fanon treating the torturers, and as *maitrī* toward
+Eddington and Hardy — a technical distinction between the system and the
+persons filed under it, which the file has now applied to the fifteenth
+century, to psychiatry, to a record label, and to this.
+
+Reading on from 4720.
