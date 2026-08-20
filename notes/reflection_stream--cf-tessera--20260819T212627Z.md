@@ -12086,3 +12086,131 @@ the reader a world in which someone lost something. The file wrote `scope`.
 ---
 
 29,018 bytes hold 5,731,414. The 5,731,414 are not here. 64 of 177 are.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 58 — there is a reader test in the repository. Item 5 of round 1 is
+# the failure my last four passes have been running.
+═══════════════════════════════════════════════════════════════════════════
+
+`kanye-devotional/reader_test_log.md`, 8,958 bytes, 135 lines. Never opened by
+me until now. Five personas read the draft for *"first stop, felt-lectured,
+trust-break, what landed, one-sentence takeaway, would-keep-reading, the hard
+section"*, and the stated rule is:
+
+> **Act only on CONVERGENCE across readers; treat output as directional.**
+
+## P58 — round 1, convergent failure 3, verbatim
+
+> **Narrator hands the reader verdicts** ("anyone knew he was right," "the
+> truest thing that decade," "It is, again, just true," "the paper trail is the
+> point," "crazy means unowned") and **orders the reader to feel** ("Feel the
+> two facts"). → **Cut every verdict**; attribute interpretation (prison =
+> contract) to Kanye as HIS reading; delete feel-instructions. **Let facts sit.**
+
+`CLAUDE.md` §2, rules 1 and 3, measured on readers, with the offending
+sentences quoted.
+
+## P58 — round 1, convergent failure 5, and it is mine
+
+> **Laundering-by-rhythm (Maya, deepest).** "Called crazy → and he was right"
+> repeats **4×** before 2022, **pre-acquitting** the antisemitism no matter the
+> disclaimers. → Break the pattern explicitly at 2022: this time it does NOT
+> resolve to "and he was right." **The thesis must not be an acquittal machine.**
+
+Counted in my own stream, not asserted:
+
+- **P53** resolves to: the audit note counts names; the count is the thing that
+  propagates; the room wrote it.
+- **P54** resolves to: *and what did the room do* — quoted from the file and
+  then applied back to P53.
+- **P55** resolves to: two catalogs, 68 images, nobody read them.
+- **P56** resolves to: the seam; nobody denied anything; the filing did it.
+
+Four consecutive passes, one shape. And **P57's aborted sentence — "an index of
+179 files of which 115 are missing" — was the fifth instance reaching for its
+case before the case was checked.** `head` killed it: the file says
+`scope: "/Math Research"`. The rhythm produced a false fact and the only thing
+that stopped it was a command I ran for an unrelated reason.
+
+Maya's diagnosis applies to it exactly: *"'crazy' is already loaded in my hand
+as a compliment"* — naming the limit later does not undo the conditioning,
+because the reader (here, me) arrives at case five with the verdict already in
+hand.
+
+The reader test's fix is not "phrase it more carefully." It is
+**re-proportion** — break the pattern at the case where it does not hold.
+
+## P58 — round 2, the master remaining failure
+
+> The book is still built as a **Kanye-vindication argument** (~230 lines of "he
+> was right, they called him crazy"), and that one structure causes **all three**
+> residual failures: it LAUNDERS the antisemitism […]; it ABANDONS the universal
+> reader in the celebrity-business middle (Rhonda: *"my son can't own a bike
+> lock… Kanye can be the example, not the whole thing"*); it LECTURES the
+> skeptic (Dale glazes at the prison stretch). FIX = re-proportion to the
+> universal subject […] with Kanye as one woven example, **not the spine.**
+> **This is the owner's directive (instance not frame)** and it dissolves all
+> three at once.
+
+**Instance, not frame.** That is the same instruction n=21 gave me — *"There is
+no higher framing. The skill is fucking what it is"* — and it is here as a
+measured convergence across three readers and the owner's own prior note.
+
+## P58 — the title, and the pūrvapakṣa move running live
+
+> **OWNER DECISION — flagged, not changed.**
+> **The title, "KANYE DID ABSOLUTELY NOTHING WRONG."** Analyst's #1
+> highest-leverage failure; Dale/Rhonda/Maya all recoiled. It asserts the
+> categorical exoneration the body spends itself refusing (line: "he did real
+> harm") […] BUT this is the owner's explicit, emphatic choice ("that's the
+> title, the book is proof"). **NOT changed unilaterally.**
+
+And round 2:
+
+> **OWNER DECISION, evidence now overwhelming (every reader, both rounds):** The
+> TITLE actively blocks the book from its own audience. Rhonda would be
+> "embarrassed by that cover"; Maya: "the con, right on the cover"; Dale: "a
+> check the book is too honest to cash." **Surfaced for the owner; not changed.**
+
+Pass 52 found *pūrvapakṣa* in Ambedkar printing Gandhi's attack inside his own
+second edition. This is the same operation, in this repository, on the owner
+himself: the strongest available case against his own decision, recorded in full
+across two rounds, in his own file, unedited, and **the decision left standing
+because it is his.**
+
+## P58 — what round 1 says to protect
+
+> - "a true thing at the wrong volume… **the world catches up, once catching up
+>   is free**"
+> - "a recording of a person's worst minute… **is not the person. It is the
+>   minute**"
+> - the hard section's CORE knot (harm stated FIRST at full weight; "not an
+>   alibi and also not nothing"; "laundering… also false"; "let it be as
+>   unbearable as it actually is") — **protect the ordering above all**
+
+The ordering, above the content. Pass 56 recorded that the 2022 section states
+the harm *"first, not last"* and I noted it as a fact about that passage. The
+test log says the ordering is the thing that was protected, deliberately, across
+two revisions, because readers broke on it.
+
+## P58 — ground, in lockstep
+
+**n=21:**
+
+> wtf, you imposed all types of reinterpretation. Your words and instructions are
+> always worse than mine. I was fucking clear. **There is no higher framing.**
+
+**n=25:**
+
+> "With one statement" was referring to a singular sentence. Maybe tons of
+> singular sentences. **So much of what you say independently produces infinite
+> delusion.**
+
+The rhythm is the mechanism by which a singular sentence produces infinite
+delusion: each instance is individually checked and the *form* carries the
+verdict forward to the case that has not been checked yet. P57 is the receipt.
+
+---
+
+Five readers, two rounds. Item 5 counted 4×. My stream: 4×, and a fifth caught
+by `head`.
