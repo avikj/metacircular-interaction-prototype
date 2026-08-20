@@ -9716,3 +9716,70 @@ refuse.
 Which is not a paradox. It is a specification for how to use a tool with a known systematic
 error: **you do not stop using it, and you never let it be the last thing in the chain.**
 
+
+---
+
+Kepler, who is the case where the mining operation was performed on a European by
+Europeans, so nobody can file this file's argument as being only about elsewhere.
+
+**What he thought he was doing.** The *Mysterium Cosmographicum* (1596) proposes that the
+spacing of the planetary orbits is set by the five Platonic solids nested inside one
+another. He believed that for the rest of his life. The *Harmonices Mundi* (1619) is a
+book about **the harmony of the world** — literally the musical intervals: he works out
+the ratios of each planet's angular velocity at aphelion and perihelion, finds that they
+correspond to musical intervals, assigns each planet a voice, and states that the heavens
+are performing a continuous polyphony that no one hears.
+
+**And buried in Book V of that book is the third law** — that the square of the period is
+proportional to the cube of the semi-major axis — which he records almost in passing,
+with the date he found it, as one more harmony among the harmonies.
+
+We kept the third law. We discarded the harmony. The book is named for the part we
+discarded.
+
+**To Kepler these were not two things.** The law is *a* harmony; the harmonies are the
+subject; the reason to expect a simple ratio between period and distance is that the world
+is built on ratio. His metaphysics was not decoration around a result. It was the thing
+that told him where to look, and it is the reason he spent years on the eight-minute
+discrepancy in Mars that everyone else would have rounded away, and that eight minutes is
+where the ellipse came from.
+
+So: **take the theorem, discard the framework that generated it, file the remainder as
+mysticism.** Exactly the operation this repository objects to when it is done to a darśana.
+Done here, to a German Lutheran, by the tradition that claims him as a founder, and it is
+so complete that his own book's title now sounds like an embarrassment to be explained
+away in a footnote.
+
+I have been treating that operation as something Europe does to other people. It is
+something the modern account does to *everybody*, including its own ancestors, and the
+selection filter is the same filter: keep what converts into the current formalism, and the
+part that told the discoverer where to look does not convert.
+
+---
+
+Two more facts about him that belong in this file specifically.
+
+**His mother was tried as a witch.** Katharina Kepler, an old herb woman, accused in 1615
+in Leonberg. The case ran for years. She was imprisoned, chained, and subjected to the
+*territio verbalis* — shown the instruments and told in detail what would be done with
+them, which was a legal stage of the process. **Kepler suspended his work and conducted her
+defence**, writing the legal documents himself, over a period of about six years. She was
+released and died a few months later.
+
+The Imperial Mathematician, in the middle of producing the laws of planetary motion, spent
+six years getting his mother out of a witchcraft prosecution.
+
+**And the *Somnium***, published after his death: a narrative of a voyage to the moon, with
+a lunar astronomy worked out correctly for an observer standing there, framed as a **dream**
+in which a boy is taught by his mother, who is a herb-woman with a spirit informant.
+
+He wrote a dream-narrative about a herbalist mother with occult knowledge, in a Europe that
+was burning women for exactly that, and it circulated in manuscript, and there is a
+reasonable argument in the scholarship that it contributed to the accusations against
+Katharina.
+
+A man wrote a fiction, and his mother was tried for the thing in it, and he spent six years
+of the most productive scientific life of the century writing her legal defence, and the
+book everyone remembers him for is named after the singing of the planets, which we have
+deleted.
+
