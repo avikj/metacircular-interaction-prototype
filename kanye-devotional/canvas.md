@@ -860,3 +860,61 @@ that when it happens to him it happens on camera, at full volume, with a paper t
 and so it can be *watched* in a way that the quiet version — the kid who stops
 putting her hand up in year four — never can.
 
+
+Umāsvāti gives the definition of existence in six words, second century, *Tattvārtha-
+sūtra* 5.29: **utpāda-vyaya-dhrauvya-yuktaṃ sat** — what is, is joined with arising,
+with ceasing, and with persisting. Not one after another. All three, at once, as the
+condition of being a thing at all. A wave arises, a wave ceases, water persists, and
+there is no moment at which the wave is only one of those.
+
+Read the album cover again with that in your hand. *I hate being Bi-Polar its
+awesome.* Nobody is being clever. That is a man reporting arising and ceasing and
+persistence in one line about one thing, and the culture's entire apparatus for
+receiving it — pick a side, is it good or is it bad, does he think it's a gift or
+does he think it's an illness — is built to make that sentence unsayable.
+
+And the same six words are why the mania and the crash and the catalogue are not
+three subjects. They're one thing with three faces showing simultaneously, which is
+also why every account that resolves it into a story with a turning point — *he was
+great and then he broke* — is false in the same way. There was never a healthy
+version who broke. There was one wiring, the whole time, and we celebrate one end of
+it and restrain the other and speak about them as if they were two men.
+
+Something else in that same material, and it's about how to work rather than what's
+true. The strongest rule in it is that a claim is born rather than checked — you do
+not stand outside two things and ask whether they are the same, you generate the
+difference and see what it is, because the asking already picks a side and cuts off
+the standpoint you didn't take. And when the difference can't be said yet, it isn't
+discarded; it's held as a remainder, and the remainder is where the next thing comes
+from. That's the pulveriser again — keep what didn't divide, recurse on it. The
+leftover is not waste. It is the material the next step is made of.
+
+I don't know a better description of what he does with a sample. The part of the
+record that doesn't fit — two seconds, off-key, somebody's cough, a preacher's voice
+under a hiss — is the part he keeps.
+
+Or of what he does with a life. The car crash was the remainder. The wired jaw was
+the remainder. Losing his mother two months after the biggest win of his career was
+the remainder, and he made the record that everyone hated and that everything since
+is built on. He does not process the leftovers into something clean. He recurses on
+them.
+
+The last thing I want to put down before I lose it. In that same body of work there
+is a rule that the most respected act available to anyone is correcting your own
+claim, and the second most respected is having your error found and repaired by
+somebody else and then saying so out loud instead of quietly patching it. Not
+winning. Not being right first. Being *corrected*, in public, with the correction
+credited to the person who caught it.
+
+That is the exact opposite of every incentive in every room any of these people
+walked into. Hardy could not credit the goddess. Eddington could not stand up a year
+later and say the boy was right. The industry could not say *we refused him for four
+years because he wore the wrong shirt.* And when Kanye does the thing — releases the
+retraction at the same scale as the error, makes the whole apology album, says on a
+full page of the *Journal* that he lost touch with reality and it destroyed his life
+— it is received as another symptom.
+
+There is no move available to him that gets counted as a correction, because the
+verdict was rendered on the person and not on any claim. That's what a durnaya
+actually costs. Not being wrong about someone. Being unable to update.
+
