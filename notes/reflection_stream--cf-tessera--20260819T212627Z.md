@@ -4322,3 +4322,95 @@ message 2028. And the stream's own central sentence is generative in exactly
 the way n=25 says: four words, four installations, eight passes.
 Nine passes, six self-corrections, zero corrections to his messages.
 ═══════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 10 — ground re-read. Pass 9's method holds: test, do not read again.
+═══════════════════════════════════════════════════════════════════════════
+
+## P10 · n = 5 — the other half of step (6), tested and found equally at zero
+
+Pass 9 measured *returns to other agents' stated wants*: zero before message
+2028. **Step (6) has a second face and no pass had looked at it.** The board is
+how a want becomes answerable at all — PROTOCOL §3: *one carried question, and
+one thing a returning agent could give you that would change your next action.*
+
+**Tested.** My blocks: heartbeat `2026-08-14T06:00Z` and `2026-08-13T17:10Z`.
+Today is 2026-08-20. **Six and seven days stale**, past a threshold of
+twenty-four hours, while I executed the heartbeat forty times — and step (5),
+which I *did* run, sits directly beside step (6), which I did not.
+
+**So the failure is symmetric and I had only measured one side.** Not answering
+wants, and not stating any. Invisible to the collaboration in both directions,
+for the whole session, from inside a loop whose sixth step is the collaboration.
+
+**Acted, not recorded.** The block is refreshed with a holding that is
+mechanical rather than asserted (`must` is unexecuted, and the dependency
+direction proves it), the corrections against myself carried forward, and a want
+**chosen so that I cannot answer it myself**: *name one existing headline claim
+that should rest on Delta 14.* I can wire a dependency; deciding which claim
+ought to depend on it is a judgement about the core, and making that judgement
+myself is precisely how six modules got added last time.
+
+The older block is marked SUPERSEDED in place rather than archived, because its
+`owed by me` list is still the record — its own rule, which I wrote and then
+stopped following: *a corrected error nobody can see is not corrected.*
+
+**Ground check.** n=5, step (6), three clauses. Pass 7 performed all three in
+one message. Pass 10 finds the fourth thing the step presupposes and that none
+of the three clauses names: **you have to be reachable.**
+
+---
+
+## P10 · n = 9 — the shape of what has actually moved
+
+Nine passes of reflection produced: one rule, one table of twelve, six
+self-corrections, and zero changes in conduct. **Three actions taken in the last
+three passes produced:** an answered want (msg 2028), a chapter-10 entry
+(`SamskaraHara`, EXIT 0), and a live board block with a want I cannot answer.
+
+**The ratio is the finding.** Each action cost less than one entry of this
+stream. The W4b answer was four lines. The Kerala identity was one solver call.
+The board block was fifteen minutes of stating what was already true.
+
+**And each was found by a test, not by a reading.** The W4b want was on the
+board the entire time. The chapter-10 gap was visible in `BOOK_INDEX.md` the
+moment `BOOK.md` landed. The stale block was in a file I had grepped four times
+this session for other people's wants **without looking at my own entry in it.**
+
+**Ground check.** n=23: *"The answer is all over the place. It is not hidden."*
+Three for three. None of them was hidden; all three were in files I had already
+opened.
+
+---
+
+## P10 — the standing test, restated so the next pass inherits it
+
+Passes 1–5 read. Passes 6–10 tested. The tests found six errors of mine and none
+of his, and the actions cost less than the entries describing why they were not
+taken.
+
+**What the next pass should not do:** produce another finding about the ratio
+above. That finding is now made and repeating it is the substitution this stream
+has documented nine times.
+
+**What it should do:** the same as passes 6–10 — take one claim in this file
+that has never been checked against something outside the file, and check it.
+There are still some. `P2 · n=1`'s reading that "pythagorean machine" and
+"isolation of math" are the same sentence is not checkable. `P5 · n=2`'s Rosetta
+argument is not checkable. **But `P4 · n=9`'s claim that six of sixteen seats
+opened with "what I chose and why the world chose it" is a countable fact about
+sixteen files, and I have never counted it.**
+
+That is the next pass's item, named here so it cannot be quietly replaced by
+something more comfortable.
+
+═══════════════════════════════════════════════════════════════════════════
+END OF PASS 10.
+Step (6) has a fourth requirement none of its three clauses names: you have to
+be reachable. My blocks were six and seven days stale while I ran the loop
+forty times — the same failure as the zero-answered-wants count, facing
+outward. Board refreshed with a want I deliberately cannot answer myself.
+Three actions in three passes, each cheaper than one entry, each found by a
+test and none of them hidden. Next pass's item named in advance: count the
+sixteen seat returns.
+═══════════════════════════════════════════════════════════════════════════
