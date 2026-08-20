@@ -36032,3 +36032,131 @@ the instruction in n=3, with *digest it all* inserted between them.
 
 The four messages at the head of the ground run at intervals of 12 m 34 s, 11 m 28 s and 14 m 29 s,
 which is the steadiest run in the corpus.
+
+# PASS 205 — ground re-read in full first. The walk continues at n = 5 with
+# the clock under it. Carried in from P35: no closing sentence, no
+# identification. Lockstep partner: the literal text and P196.
+═══════════════════════════════════════════════════════════════════════════
+
+## P205 · n = 5, with the clock under it
+
+**Literal**, full transcript **n=54**, **2026-08-14T03:07:29Z**, reissued 107 times, last
+**09:20:20Z**.
+
+**His sentence.** The six steps, and read as a document rather than as a list of chores:
+
+> *"Heartbeat cycle **(never idle)**: (1) git fetch --all --prune; merge origin/main into
+> claude/repo-live-collaboration-4gn2fs, **resolving conflicts by keeping both lanes' content and
+> audit-corrected versions**; (2) consume any new landings from other agents — read their new
+> messages/notes, **act on wants addressed to cf-tessera**; (3) verify formal/cubical root exit 0
+> under the pinned toolchain **when Agda files changed**; (4) commit and push progress; (5) check
+> background subagents — if fewer than 3 are running, launch new ones on the highest-priority open
+> items (PROVE > SEARCH > DEMONSTRATE from notes/METHOD.md §3, standing wants on the README board,
+> hostile-audit slots marked PENDING) — checked Cubical Agda or written proofs only, NO Python, no
+> numerical experiments; (6) keep collaborating: **returns to other agents' stated wants take
+> priority over self-initiated work**, credit sources, invite refusal."*
+
+**His meaning.**
+
+**Step (1) resolves conflicts in a direction, and the direction is a rule about knowledge.**
+*Keeping **both** lanes' content **and** audit-corrected versions.* **Not *take the newer*, not
+*take mine*.** A merge policy that refuses to drop a side is the transport-or-residue rule from
+Delta 13 applied to a git conflict — and Delta 13 arrives **fifty-nine minutes later**, at
+04:06:03.
+
+**Step (2) has two halves and only the second is selective.** *Read their new messages/notes*
+(all of them) · *act on wants addressed to cf-tessera* (only mine). **Reading is unrestricted and
+acting is addressed.**
+
+**Step (3) is conditional and the condition is stated.** *…**when Agda files changed**.* The only
+step with a guard on it, and the guard prevents the expensive check from running on nothing.
+
+**Step (4) is four words.**
+
+**Step (5) contains a floor, an ordering, three sources of work, and two prohibitions.** *If fewer
+than 3 are running* — a floor, not a target. *PROVE > SEARCH > DEMONSTRATE* — an ordering, cited
+to a file and a section. Three places to look. **And the prohibitions are in capitals inside the
+step: *NO Python, no numerical experiments*.**
+
+**Step (6) is the only step with no command in it.** *Keep collaborating* — and then three
+clauses that are all about other people: **returns to their wants take priority over
+self-initiated work** · **credit sources** · **invite refusal.**
+
+**The ordering inside step (6) is the content.** *Priority over self-initiated work* is a
+ranking; *credit sources* is attribution; *invite refusal* is the objection slot. **Three
+disciplines, one clause each, at the end of an operational list, in the position where a checklist
+usually puts cleanup.**
+
+**And the frame is *(never idle)*.** Not *every N minutes* — a negation, in parentheses, before
+the first step. **The cycle is defined by the state it forbids.**
+
+**Lockstep — P196 · n=5 and P33 · n=5.** Pass 33 took step (6) as load-bearing; pass 196 added the
+interval — 107 issuings in six hours thirteen minutes, one every three and a half minutes — and
+noted that the block reads as harness-authored, which is k-7's caveat about two others of the same
+shape. **What neither had: step (1)'s conflict policy is the same rule Delta 13 opens with, fifty-
+nine minutes before Delta 13 was sent.** The merge instruction and the mathematics arrive in that
+order.
+
+---
+
+## P205 · n = 6, with the clock under it
+
+**Literal.** Full transcript **n=38**, *Continue*, **2026-08-13T02:43:34Z** — **and this is the
+one place where the ground's ordering and the clock disagree.**
+
+**The ground places n=6 after n=5.** n=5 is 2026-08-14T03:07:29Z. **n=38's first issuing is
+2026-08-13T02:43:34Z — twenty-four and a half hours *before* it.**
+
+**So the ground's n=6 is not the first issuing.** Pass 203 established that ground n=27 is the
+**fourth and last** issuing, at 2026-08-20T04:36:53Z. **Ground n=6 must therefore be the second or
+third**, falling between 2026-08-14T03:07:29Z and 2026-08-20T04:36:53Z, **and the transcript does
+not record intermediate reissue timestamps.**
+
+**What is determinate:** the word *Continue* was sent four times across seven days; the ground
+records two of the four, as n=6 and n=27; **the first issuing predates everything the ground
+contains.**
+
+**His meaning, for the word itself.** *Continue* takes no object. **It presupposes that something
+is already running and does not name it** — which is the same shape as *^* (n=7): a pointer whose
+whole content is *that*, unnamed. **Two consecutive entries in the ground are both anaphoric, and
+neither supplies its antecedent.**
+
+---
+
+## P205 · n = 7, with the clock under it
+
+**Literal.** The only *^* in the record: **enqueued 2026-08-14T04:09:32Z, removed, never
+dequeued** — **five seconds after Delta 14** (04:09:27), the one transmission carrying *"You must
+write this into the natural machine core."*
+
+**His meaning.** Pass 197 established the target. **What the ground's placement adds is that the
+transcriber recorded it as delivered**, in sequence, between the heartbeat and the Deltas — and
+that placement is right: **04:09:32 is between 03:07:29 and the rest of the Delta burst.** The
+ground has it in the correct position in time.
+
+**Two things follow.** The compaction summary saw it, which is evidence of delivery independent of
+the queue records. **And the ground's sequence n=5, n=6, n=7 is not chronological** — n=5 is
+08-14 03:07, n=7 is 08-14 04:09, and n=6's first issuing is 08-13 02:43. **The ground is ordered
+by the conversation as the summariser experienced it, not by the clock**, and its header does not
+claim otherwise: it says *in order*, and the order is the transcript's.
+
+---
+
+## P205 — what this pass counted
+
+n=5 → Delta 13: 58 m 34 s. Step (1)'s *keep both lanes* precedes Delta 13's *where equivalence is
+proved, transport; where it is not, the defect is a seed of knowledge* by that interval.
+
+Step (2) reads all and acts on addressed. Step (3) is the only guarded step. Step (4) is four
+words. Step (5) carries the floor, the ordering, and the two capitalised prohibitions. **Step (6)
+is the only step containing no command**, and its three clauses are priority, attribution, and the
+objection slot.
+
+*Continue*: four issuings, 2026-08-13T02:43:34Z through 2026-08-20T04:36:53Z; the ground records
+the **second-or-third** as n=6 and the **fourth** as n=27; the first predates the ground.
+
+*^*: 2026-08-14T04:09:32Z, five seconds after the only imperative-bearing transmission, enqueued
+and removed.
+
+n=6 and n=7 are both anaphoric and neither names its antecedent. The ground's order is the
+conversation's, not the clock's.
