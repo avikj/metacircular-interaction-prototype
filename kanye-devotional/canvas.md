@@ -462,18 +462,11 @@ the same titles.
 whereof the party shall have been duly convicted, shall exist within the United
 States, or any place subject to their jurisdiction."
 
-That is the whole Thirteenth Amendment, ratified December 1865. It abolishes
-and it preserves, in one sentence, and the half that got built out over the
-next hundred and sixty years is the exception. Black Americans are about
-thirteen percent of the country and about thirty-eight percent of the people in
-its jails and prisons.
-
-In 2018 Kanye West said on television that the amendment should be abolished,
-then amended, and historians were brought in to correct him. What he was
-pointing at is the clause.
-
-He is one of the most hated men alive, and he has been saying two things at
-once for twenty years.
+That is the Thirteenth Amendment, ratified December 1865, entire. In 2018 Kanye
+West said on television that it should be abolished, then said amended, and
+historians were brought in to correct him. The clause is what he was pointing
+at. Black Americans are about thirteen percent of the country and about
+thirty-eight percent of the people in its jails and prisons.
 
 On 2 September 2005, four days after the levees broke, he said two sentences
 into a live camera in this order. "I hate the way they portray us in the media.
@@ -481,63 +474,37 @@ If you see a black family, it says they're looting. If you see a white family,
 it says they're searching for food." Then: "George Bush doesn't care about
 black people."
 
-Three days before that, two photographs went out on the wires, both of people
-wading chest-deep out of flooded groceries. The Associated Press captioned a
-young Black man looting a grocery store. Agence France-Presse captioned two
-white residents finding bread and soda from a local grocery store. Same water,
-same day, same act.
+Three days before that, two photographs had gone out on the wires, both of
+people wading chest-deep out of flooded groceries. The Associated Press
+captioned a young Black man looting a grocery store. Agence France-Presse
+captioned two white residents finding bread and soda from a local grocery
+store. Same water, same day, same act.
 
-Twenty years of coverage kept the second sentence.
+NBC cut the second sentence out of the West Coast feed. Two coasts watched two
+different broadcasts of one minute. Twenty years of coverage kept the second
+sentence anyway and dropped the first.
 
-In 2018, on TMZ, he said "when you hear about slavery for 400 years… that
-sounds like a choice." Van Lathan, sitting on the floor of that newsroom,
-answered him — the rest of us have to deal with the marginalization — and was
-right. A few minutes later, in the same room, Kanye said the thing he had been
-reaching for and missing: "It's like we're mentally in prison. I like the word
-'prison' because 'slavery' goes too direct." He was right too. The first went
-around the world. The second is on the same tape, ten minutes later.
+In May 2018, on TMZ: "when you hear about slavery for 400 years… that sounds
+like a choice." Van Lathan, sitting on the floor of that newsroom, got up. The
+rest of us have to deal with the marginalization that comes from you saying
+that. He was right. A few minutes later, same room, same tape: "It's like we're
+mentally in prison. I like the word 'prison' because 'slavery' goes too
+direct." He was right too. The first is on every phone in the country. The
+second is ten minutes later on the same recording.
 
-There is no sentence in English for what happened in that newsroom. *Both
-sides* is a lie; it is what you say when you want to leave. *It's complicated*
-says nothing and everybody in the room knows it says nothing. And you cannot
-say he is right and he is right, because English hears that as a contradiction
-and asks which one you meant.
+The cover of the album he put out three weeks after that is a photograph he
+took of the Teton range through a car window, on the way to play the record for
+a few hundred people standing outside in Wyoming in the cold. Written across it
+in green: I hate being Bi-Polar its awesome. He never put the two in order and
+never took either one back. To TIME that year: "It's not a disability, it's a
+super power." The same year, about the same thing: "It makes you blind, but
+convinced you have insight."
 
-Somebody built the form for it. In the Jain texts an assertion has seven
-available shapes instead of two. It is. It is not. It is and it is not, taken
-one after the other — which is the ordinary move, first one and then the other,
-and it is not the same thing. And then the fourth: both, at the same time,
-which cannot be got into one breath, and so is given its own name,
-*avaktavya*, instead of being called a contradiction and thrown out.
+His mother was nine years old in August 1958, seated at the lunch counter of
+the Katz Drug Store in Oklahoma City by a history teacher named Clara Luper who
+had walked her and a group of other children in. Donda West taught English,
+communications and media for thirty-one years and chaired the department. She
+died in November 2007.
 
-That is not a mood, not tolerance, and not a way of seeing. It is a position in
-a list of seven, and you can occupy it correctly or incorrectly. What it says
-about that newsroom is that both men were right at once, that no single
-sentence carries it, and that this is a fact about sentences rather than a
-failure in the men.
-
-The people who worked that out also wrote down the binary encoding. Two
-symbols; a rule that generates every string of a given length in order; a
-procedure taking a string to its position in that list and another taking a
-position back to its string. They had two values, they built with them, and
-they did not use two values for truth.
-
-It reached English. In 1817 Colebrooke published *Algebra, with Arithmetic and
-Mensuration, from the Sanscrit of Brahmegupta and Bháscara* in London and the
-theorems came over. On 2 February 1835 Thomas Babington Macaulay wrote a minute
-on Indian education containing this: "I have no knowledge of either Sanscrit or
-Arabic… I have never found one among them who could deny that a single shelf of
-a good European library was worth the whole native literature of India and
-Arabia." Both halves are in the same paragraph. The theorems were taken and the
-rest was filed under religion.
-
-His mother was nine years old in August 1958, at the lunch counter of the Katz
-Drug Store in Oklahoma City, with a history teacher named Clara Luper who had
-walked her and a group of other children in and sat them down. Donda West spent
-thirty-one years teaching English, communications and media, and chaired the
-department. She died in November 2007.
-
-In June 2018 her son photographed a mountain range through a car window and
-wrote six words across it for the cover of his album: I hate being Bi-Polar its
-awesome. Everybody who loves him took the superpower. Everybody who doesn't
-took the sick. He wrote both, and nobody carried both.
+Everybody who loves him took the superpower. Everybody who doesn't took the
+sick. He wrote both, and nobody carried both.
