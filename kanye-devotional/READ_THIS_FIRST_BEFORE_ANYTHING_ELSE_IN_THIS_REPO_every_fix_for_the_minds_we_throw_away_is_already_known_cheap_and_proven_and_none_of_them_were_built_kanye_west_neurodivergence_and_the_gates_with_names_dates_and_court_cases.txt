@@ -17965,3 +17965,78 @@ includes the **Pārśvanātha** and **Ādinātha** temples, Jain, built in the s
 period by the same dynasty's patronage, with the same exterior figural conventions.
 
 **The Jain temples at Khajuraho carry the same sculpture.**
+
+---
+
+**The *Nāṭyaśāstra* states the *rasa* formula in a single line and the entire
+subsequent tradition is commentary on that line.**
+
+Attributed to **Bharata**, compiled somewhere between the 2nd century BCE and the
+2nd century CE. **Thirty-six chapters**, covering stagecraft, theatre architecture,
+gesture, gait, costume, **metre**, **musical scales**, and the *rasa* doctrine.
+
+**The formula, *Nāṭyaśāstra* 6:**
+
+> *vibhāvānubhāva-vyabhicāri-saṃyogād rasa-niṣpattiḥ*
+
+— **rasa arises from the conjunction of the determinants, the consequents, and the
+transitory states.**
+
+**Three technical terms.** ***Vibhāva*** — the situation and its objects, what
+causes the emotion. ***Anubhāva*** — the visible physical consequences, the
+outward signs. ***Vyabhicāri-bhāva*** — the thirty-three passing states that flicker
+across, listed by name: despondency, weariness, anxiety, envy, intoxication,
+weariness, sleep, dreaming, awakening, shame, agitation, and so on.
+
+**And the stable emotions, the *sthāyi-bhāva*, are eight**, each producing one
+*rasa*: love → the erotic, laughter → the comic, sorrow → the pathetic, anger → the
+furious, energy → the heroic, fear → the terrible, disgust → the odious,
+astonishment → the marvellous.
+
+**A ninth was added later** — ***śānta***, the peaceful, with *nirveda*, world-weariness
+or dispassion, as its stable state — **and its admission was fought over for
+centuries**, on the ground that a rasa with no visible consequents cannot be staged.
+
+---
+
+**And the argument is about what the audience is actually feeling, which is not the
+same emotion.**
+
+The problem: if the tragedy makes me sorrowful, why do I go back. If I feel the
+hero's fear, why is it pleasurable. **The word *rasa* is "juice," "sap," "taste" —
+a food metaphor**, and the commentators press it: the ingredients are not the
+flavour.
+
+**Bhaṭṭa Lollaṭa** held the rasa is in the character, and the actor imitates it.
+**Śrī Śaṅkuka** held it is inference — the spectator infers the emotion from the
+signs. **Bhaṭṭa Nāyaka** introduced ***sādhāraṇīkaraṇa*** — **generalisation** —
+the claim that the poetic medium strips the emotion of its ownership: it becomes
+nobody's grief, and therefore can be tasted rather than suffered.
+
+**Abhinavagupta**, c. 1000 CE, in the ***Abhinavabhāratī***, took Nāyaka's
+generalisation and made the tasting an **uncovering** — the obstruction is removed
+and what is left is the spectator's own consciousness resting in itself, which is
+why it is pleasurable **even when the content is grief.**
+
+**And he is the same Abhinavagupta as the Kashmir Śaiva metaphysician.** The
+aesthetics and the *Tantrāloka* are one system: the aesthetic pause and the
+recognition are the same event at different intensities.
+
+---
+
+**And *dhvani* is the other half.**
+
+**Ānandavardhana**, ***Dhvanyāloka***, 9th century Kashmir. The thesis that the
+soul of poetry is ***dhvani*** — **suggestion**, resonance, what is conveyed
+without being said.
+
+**Three functions of a word**: the direct, the metaphorical, and the suggested —
+and the third is claimed to be irreducible to the first two, with the whole book
+spent on cases where the paraphrase demonstrably loses the content.
+
+**Abhinavagupta wrote the standard commentary on that too**, the ***Locana***, and
+joined the two systems: **rasa is what dhvani suggests.**
+
+**A tenth-century argument that the meaning of a poem is not in the sentence, made
+by working through counterexamples, in the same city and the same century as the
+tantric metaphysics, by the same man.**
