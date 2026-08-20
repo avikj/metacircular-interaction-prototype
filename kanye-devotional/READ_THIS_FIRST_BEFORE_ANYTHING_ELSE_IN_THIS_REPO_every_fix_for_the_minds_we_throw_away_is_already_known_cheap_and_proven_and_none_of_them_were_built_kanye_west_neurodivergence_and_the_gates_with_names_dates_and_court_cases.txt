@@ -23920,3 +23920,72 @@ produces another perfectly good number.**
 
 **The encoding that makes the number harder to write is what makes the error easy to
 see.**
+
+---
+
+**The Vedic recitation schemes are error-detecting codes, and their overhead is
+stated: the *ghana* recites eleven words to transmit three.**
+
+**The base is *saṃhitā*** — the continuous text with *sandhi* applied, the words
+run together as they are actually pronounced.
+
+***Pada-pāṭha*** — word text. **Each word separated, with sandhi undone**, which
+records where the joins were and what the underlying forms are. **Śākalya's
+*pada-pāṭha* of the *Ṛgveda* is itself a work of analysis** — the decision of where
+a compound divides is a grammatical judgement, made once, and fixed.
+
+**Then the *vikṛti-pāṭhas* — the "modified" recitations. Eight are named**: *jaṭā*,
+*mālā*, *śikhā*, *rekhā*, *dhvaja*, *daṇḍa*, *ratha*, *ghana.*
+
+***Krama***: 1-2, 2-3, 3-4 — **each adjacent pair, so every word is spoken twice
+and every boundary once.**
+
+***Jaṭā*** — braid: **1-2-2-1-1-2, 2-3-3-2-2-3** — each pair forward, backward,
+forward.
+
+***Ghana*** — dense: **1-2-2-1-1-2-3-3-2-1-1-2-3**, and so on.
+
+**Which is thirteen utterances covering three words, and the standard count of the
+*ghana*'s expansion factor is about 3.6 to 1.**
+
+**And the property that makes it a code**: **a word can only be recited in these
+patterns if it is in a specific position relative to its neighbours**, and a
+substitution, deletion or transposition **breaks the pattern in a way that is
+audible to a trained reciter**, because the same word must recur at multiple
+prescribed positions and must match itself each time.
+
+**Order errors are caught by the reversals.** **Substitutions are caught by the
+repetitions.** **Sandhi errors are caught by the *pada-pāṭha* being separately
+transmitted**, so the joined and unjoined forms are two encodings of one text and
+must be consistent.
+
+**And the accents are transmitted with it** — *udātta*, *anudātta*, *svarita* —
+**and are meaning-bearing**, so a pitch error is a text error.
+
+**A reciter who holds the *ghana* is called a *ghanapāṭhin*, and the title is a
+statement about which encoding they can produce.**
+
+---
+
+**And the result is measurable against the ordinary rate of textual corruption.**
+
+**The *Ṛgveda*'s manuscript witnesses agree to a degree that is not typical of
+long texts transmitted over comparable periods**, and the standard observation in
+the philological literature is that the oral tradition preserved the text more
+accurately than the manuscripts did — **that where a manuscript and a reciter
+disagree, the reciter is frequently right.**
+
+**And the tradition made a deliberate choice not to write it.** The prohibition on
+writing the Veda is stated in later sources, and the material reason is not in
+doubt — **India had writing from at least the third century BCE and did not use it
+for this.**
+
+**And the accent system it preserves is what allowed the reconstruction of
+Proto-Indo-European accent.** **Ṛgvedic accent and Ancient Greek accent agree in
+placement in a large class of correspondences**, and that agreement — **two branches
+preserving one inherited system** — **is one of the foundations of comparative
+Indo-European linguistics.**
+
+**A phonetic detail was carried for three thousand years by a rule against writing
+it down, and it turned out to be the evidence for a language nobody had ever
+heard.**
