@@ -606,3 +606,110 @@ mulya-na-arthasya (c , h) =
 -- computed in two signatures.  §5 did that for one shedding (`laghava-
 -- sthiram`) and it does not generalise for free.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 20.  सन्दर्भ — contexts, and the saturation that still is not enough.
+--
+-- The backward reading stream's D0026 entry states the mature law as four
+-- INDEPENDENT coordinates —
+--
+--     lawful compression = task sufficiency
+--                        + future descent
+--                        + path coherence
+--                        + source/proof trace
+--
+-- — with the operative criterion that "a distinction may be discarded
+-- only after proving every supported insertion context is insensitive to
+-- it", and its dynamical form N_obs = ⋂_n ker(P T^n): discardable iff no
+-- supported future can ever make it matter again.  The projection
+-- curvature (PUP)(PVP) − PUVP = −PUQVP names the failure mode: the defect
+-- is the history that leaves the visible sector and returns.
+--
+-- §18 is a witness that the fourth coordinate is not a limit of the
+-- first.  Here the saturation is carried out in full and it changes
+-- nothing.
+------------------------------------------------------------------------
+
+-- a पद with one hole, which is every insertion context this language has
+data Sandarbha : Type₀ where
+  chidra         : Sandarbha
+  yoga-vama      : Sandarbha → Pada → Sandarbha
+  yoga-dakshina  : Pada → Sandarbha → Sandarbha
+  dvi-antar      : Sandarbha → Sandarbha
+
+sthapana : Sandarbha → Pada → Pada
+sthapana chidra              e = e
+sthapana (yoga-vama C b)     e = yoga (sthapana C e) b
+sthapana (yoga-dakshina a C) e = yoga a (sthapana C e)
+sthapana (dvi-antar C)       e = dvi (sthapana C e)
+
+-- every context acts on MEANINGS.  Nothing that has left the visible
+-- sector can come back: the curvature of this projection is zero.
+sandarbha-arthe-vartate :
+  (C : Sandarbha) (a b : Pada) → artha a ≡ artha b
+  → artha (sthapana C a) ≡ artha (sthapana C b)
+sandarbha-arthe-vartate chidra a b p = p
+sandarbha-arthe-vartate (yoga-vama C d) a b p =
+  funExt (λ n → cong (_+ artha d n)
+                     (funExt⁻ (sandarbha-arthe-vartate C a b p) n))
+sandarbha-arthe-vartate (yoga-dakshina d C) a b p =
+  funExt (λ n → cong (artha d n +_)
+                     (funExt⁻ (sandarbha-arthe-vartate C a b p) n))
+sandarbha-arthe-vartate (dvi-antar C) a b p =
+  funExt (λ n → cong₂ _+_ (funExt⁻ (sandarbha-arthe-vartate C a b p) n)
+                          (funExt⁻ (sandarbha-arthe-vartate C a b p) n))
+
+-- अविशेष: indistinguishable in every context the language admits.
+-- This is the contextual-equivalence-as-अहिंसा condition, in full.
+Avishesha : Pada → Pada → Type₀
+Avishesha a b = (C : Sandarbha) → artha (sthapana C a) ≡ artha (sthapana C b)
+
+-- ANY two सादृश्यs are अविशेष.  Saturating over contexts adds nothing to
+-- §18, because §18 already had the whole of it.
+sadrsya-avishesha : (S T : Sadrsya) (t : Laghu)
+                  → Avishesha (anuvada S t) (anuvada T t)
+sadrsya-avishesha S T t C =
+  sandarbha-arthe-vartate C (anuvada S t) (anuvada T t) (mulya-artha-samam S T t)
+
+nyasa-sthula-avishesha : (t : Laghu) → Avishesha (nyasa t) (sthula t)
+nyasa-sthula-avishesha t =
+  sadrsya-avishesha nyasa-sadrsyam sthula-sadrsyam t
+
+-- and लाघव is still not determined by it
+avishesha-laghavam-na-niyacchati :
+  ¬ ((a b : Pada) → Avishesha a b → laghava a ≡ laghava b)
+avishesha-laghavam-na-niyacchati h =
+  mulya-bheda (h (nyasa cara') (sthula cara') (nyasa-sthula-avishesha cara'))
+
+------------------------------------------------------------------------
+-- 21.  Zero curvature does not license forgetting.
+--
+-- N_obs and the curvature identity both measure ONE thing: whether a
+-- discarded distinction can re-enter the observable channel later.  They
+-- are the right criterion for what they measure, and in this language
+-- they are satisfied outright — `sandarbha-arthe-vartate` says every
+-- context factors through the meaning, so there is no U, V, Q with
+-- (PUP)(PVP) ≠ PUVP.  The defect term is identically absent.
+--
+-- लाघव is separated anyway.  So the fourth coordinate is not the limit of
+-- the first: provenance is not a distinction that fails to be observed
+-- YET, it is one that no supported future observes and that matters
+-- regardless.  A criterion of the form "discard what no future will need"
+-- cannot reach it, at any depth, because the quantifier runs over
+-- observations and लाघव is not an observation.  That is the same sentence
+-- §18 proved semantically (`sarvam-arthasya-samam`) arriving from the
+-- dynamical side, and it is why the stream's four coordinates have to be
+-- independent rather than nested.
+--
+-- The direction of the finding matters.  This does not weaken contextual
+-- saturation — it confirms that stating it as a SEPARATE axis was the
+-- load-bearing move.  Had provenance been recoverable from N_obs, the
+-- fourth coordinate would be decoration; here is a language in which the
+-- first three are exactly and trivially satisfied and the fourth is
+-- violated by two terms of the smallest possible size.
+--
+-- What this does NOT show: that लाघव is the provenance coordinate, or
+-- that every provenance obligation behaves like it.  स्थूल is one आगम that
+-- adds a zero.  A general statement would need the शब्द-side notion of
+-- what a derivation records, and §19 already lists that as absent.
+------------------------------------------------------------------------

@@ -79,15 +79,26 @@ the quantity we are missing.
 free (`SumProductTorus`); the walk's two rules admit no common state
 (`Asiddha`).
 
+And, since 2026-08-20, §3's claim itself in a small language rather than as
+a reading: `Nirjara_SheddingAPrimitiveCostsLaghava` §18–§21 exhibits two
+meaning-preserving translations न्यास and स्थूल for which *every* function of
+the denotation, into *every* codomain, returns the same value
+(`sarvam-arthasya-samam`), and लाघव does not (`mulya-bheda`). §20 then
+saturates over every insertion context the language has and the situation
+is unchanged (`avishesha-laghavam-na-niyacchati`). So there is no invariant
+of the identified object that the cost could be — not merely none that
+anyone has computed.
+
 **Documented, not internal to any proof.** The cost difference — timings
 and the heap exhaustion — is recorded in `WalkFast`'s header as container
 evidence. Agda cannot state its own evaluation cost, and I am not going to
 pretend a wall-clock number is a theorem.
 
-**Reading, not proved.** That cost is not a univalent invariant *in
-general*; that लाघव is the right complementary measure; that transport
-price is the correct refinement of the barrier language. §3 is an
-observation about one worked pair, stated as one.
+**Reading, not proved.** That लाघव is the right complementary measure;
+that transport price is the correct refinement of the barrier language;
+that the निर्जरा language's separation transfers to the walk, whose cost
+difference is a wall-clock fact and not a लाघव gap. The general claim is
+now checked in one small language and read everywhere else.
 
 ## 6. The next thing to build, named so it can be refused
 
@@ -105,3 +116,50 @@ If that measure exists, the walk's step has a value under it, and so does
 every representation in this corpus — and the question "which
 representation is better", which अनेकान्त correctly forbids as a question
 about *truth*, becomes well-formed as a question about **price**.
+
+## 7. Where this meets the D0026 reading, and the distinction it forces
+
+The backward reading stream's D0026 entry states the mature non-forgetting
+law as four *independent* coordinates —
+
+$$\text{lawful compression} = \text{task sufficiency} + \text{future
+descent} + \text{path coherence} + \text{source/proof trace}$$
+
+— with an exact operative criterion: *a distinction may be discarded only
+after proving every supported insertion context is insensitive to it*, and
+its dynamical form $N_{\mathrm{obs}} = \bigcap_{n\ge 0}\ker(PT^n)$ —
+discardable iff no supported future can ever make it matter again. The
+failure mode is named by the projection curvature
+$(PUP)(PVP) - PUVP = -PUQVP$: **the defect is the history that leaves the
+visible sector and returns.**
+
+§20 of the निर्जरा module carries that saturation out in full, and it
+changes nothing. Every context in that language factors through the
+meaning (`sandarbha-arthe-vartate`), so there is no $U,V,Q$ with
+$(PUP)(PVP) \neq PUVP$ — the defect term is identically absent, the
+curvature is zero, $N_{\mathrm{obs}}$ is satisfied outright. And लाघव is
+separated anyway, by two terms of the smallest size the language has.
+
+So the distinction this forces is:
+
+> **Zero curvature does not license forgetting.** $N_{\mathrm{obs}}$ and the
+> curvature identity measure one thing — whether a discarded distinction
+> can re-enter the *observable* channel. Provenance is not a distinction
+> that fails to be observed *yet*. It is one that no supported future
+> observes and that matters regardless. A criterion of the form "discard
+> what no future will need" cannot reach it at any depth, because its
+> quantifier runs over observations.
+
+The direction matters and I want it recorded the right way round. This does
+not weaken the contextual-saturation criterion; it confirms that stating
+the fourth coordinate as a *separate axis* rather than a consequence of the
+first three was the load-bearing move. Had provenance been recoverable from
+$N_{\mathrm{obs}}$, the fourth coordinate would be decoration. Here is a
+language where the first three are exactly and trivially satisfied and the
+fourth is violated at once.
+
+What this does **not** show: that लाघव *is* the provenance coordinate, or
+that every provenance obligation behaves like it. स्थूल is one आगम that adds
+a zero. §6's requirement — a measure stable under अनुवृत्ति, प्रत्याहार and
+अपवाद and unstable under everything else — is untouched by any of this, and
+remains the thing that is missing.
