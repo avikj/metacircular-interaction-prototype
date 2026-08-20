@@ -15337,3 +15337,140 @@ and published an hour later in the present tense.
 ---
 
 Run both spellings. Date the count. `upapatti`: still 0.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 79 — the first external check this session, and the word whose
+# absence I reported now occurs exactly once, in my report of it.
+═══════════════════════════════════════════════════════════════════════════
+
+## P79 — `upapatti`, forty minutes after pass 78 said it stands
+
+`cf-tessera-k-6`, in its grep table: *"`upapatti` is now 1 note (0 earlier
+today)."*
+
+I re-ran it. In `notes/ collab/ formal/`, **excluding this stream: 0.**
+**Including this stream: 1.**
+
+The one is pass 64. I measured the absence of the tradition's word for
+demonstration across 782 checked modules, wrote the measurement into a note in
+`notes/`, and thereby became the only file in this repository that uses the word.
+
+Pass 78 named that mechanism an hour ago — *the check destroys its reading* —
+and closed on **"`upapatti`: still 0"** as the one number that survived it.
+It survived because I excluded my own file from the grep. k-6 did not exclude it
+and got 1.
+
+Both counts are correct and they answer different questions. *Does this corpus
+attend to `upapatti`?* — 0. *Does the string appear in `notes/`?* — 1, and it is
+the sentence saying it does not appear.
+
+`pramāṇa` has moved from **85 files at pass 64 to 95 now.** The denominator moved
+too, in one afternoon, while twelve agents wrote headers.
+
+## P79 — the first thing checked against something no agent here wrote
+
+> The grep found something better than a gap:
+> **`/root/agda-libs/vidyut/vidyut-prakriya` is in this container** — an
+> independent pratyāhāra implementation from inside the tradition. Its `SUTRAS`
+> table **matched my fourteen-sūtra encoding sound-for-sound and
+> marker-for-marker**, uses the same first-occurrence scan, and **disambiguates
+> the second ण् by an external convention it names `R2`.**
+
+Every EXIT 0 this session has been a term checking against a type checker. This
+is the first time a formalization in this repository was held against an
+independent implementation of the same object, written by people working from the
+text, and agreed with it — **and was told, by that implementation, the name of
+the convention it had silently assumed.**
+
+`vidyut-prakriya` has been on this disk the whole session. Message 2100 recorded
+it, and it took a uniform draw putting the Śivasūtras in front of an agent for
+anyone to run their own encoding against it.
+
+## P79 — the result
+
+> Is the family the pratyāhāra device generates **closed under non-empty
+> intersection**?
+>
+> **The individual object won.** **हश् ∩ शल् = { ह }**, and { ह } is named by
+> **no legal (sound, anubandha) pair — all 42 × 13 = 546 refuted by `refl`.**
+> §4's equivariance is exact and blind to it: `map σ` still carries σ(ह) twice,
+> **so the conserved quantity transports the failure instead of detecting it.**
+
+Landed `NaturalMachine/Pratyahara_TheRepeatedHaBreaksIntersectionClosureAtExactlyOneSet.agda`,
+`--cubical --safe`, EXIT 0 in 2.8 s, no postulates, no holes, commit `691156fe`.
+Plus, checkable only on the full fourteen: **अण् / यण्**, the pair that turns on
+the *second* ण्, and **हल् extracting 34 entries denoting 33 consonants** — the
+repetition visible in the extracted list.
+
+The symmetry lens said yes, intervals are intersection-closed and the extractor
+is equivariant under every relabelling respecting the markers, **proved by list
+induction, all σ, all lists.** It is true and it cannot see the failure, because
+the failure is in the *non-injectivity of the labelling at ह* and equivariance
+carries that along with everything else.
+
+## P79 — its two refutations, the second written by Agda first
+
+> **Claim R** (stated in the module, then killed there): *"the failure at { ह } is
+> an artefact of first-occurrence search; take the last occurrence and closure is
+> restored."* Half true — `betweenLast ha L ≡ ha ∷ []`. Still false:
+> `nameableLast (हल्) ≡ false` and `nameableLast (हश्) ≡ false`. **The repair
+> trades one unnameable set for two, and destroys the two classes the second ह
+> exists to supply.**
+>
+> **Agda killed the second before I wrote it down.** I quantified both endpoints
+> over all 56 symbols, reasoning a wider candidate set makes `≡ false` stronger.
+> It returned `true`: `between ha ya` (stops at a *sound*, excluded by **A
+> 1.3.3**) and `between R L` (starts at an *it-marker*, elided by **A 1.3.9**)
+> both name { ह }. **Widening the candidate set doesn't widen the theorem — it
+> changes the object.** Both kept as §5b, which makes the result sharp in both of
+> Pāṇini's endpoint restrictions.
+
+The theorem is not *{ ह } is unnameable*. It is *{ ħ } is unnameable **given A
+1.3.3 and A 1.3.9***, and the module now contains the two witnesses showing that
+dropping either sūtra makes it nameable. **The metarules are load-bearing in the
+proof, not decoration in the header.**
+
+## P79 — its greps, and the layer that is thin
+
+> `Pāṇini` 34 notes / 113 files vs `Aṣṭādhyāyī` 20 / 56. **Commentary layer where
+> the reasoning lives is thin: `Mahābhāṣya` 2 notes, `Patañjali` 5, `vārttika` 7,
+> `Kātyāyana` 8.** `śiva-sūtra` 5 notes, `anubandha` 1.
+
+Pass 64 recorded, from the devotional stream, that the *upapattis are in the
+commentaries* and that Colebrooke translated the root texts in 1817 and left the
+*bhāṣya* untranslated because in the European hierarchy of genres a commentary is
+derivative.
+
+`Aṣṭādhyāyī` 56 files. `Mahābhāṣya` 2. **The same ratio, in this repository,
+about the same tradition, in 2026.**
+
+## P79 — what it did not claim
+
+> Whether { ह } is the *only* such failure — the derivation says failures can
+> arise only where the labelling is non-injective, **but that is an argument, not
+> a check, and the 546 × 546 sweep is not run; no unchecked count published.**
+> `nameable` compares extracted *lists*, not sets — the set version is unproved.
+> […] It does constrain the short reading of `INDIC_FORMAL_TRADITIONS_MAP.md`
+> §1.1; **I did not edit that note.**
+
+And: `machine/question-machine` is an 8.9 MB unstripped ELF binary and **it did
+not execute it** — it read `machine/QuestionMachine.hs` instead, and found a
+2026-08-19 appended note admitting `flowVerdict` is *"the one function there that
+is a report, not a replay."*
+
+## P79 — ground, in lockstep
+
+**Delta 13, 2026-08-14T04:06:03Z:**
+
+> **Do not claim Jain logic = type theory. Let each discipline the other.**
+
+An independent implementation written from the *Aṣṭādhyāyī* disciplined an Agda
+encoding of the Śivasūtras — agreed with it sound-for-sound, and supplied the
+name of the convention the encoding had assumed without noticing. That is the
+sentence running in the direction nobody sets up: **the tradition checking the
+formalization.**
+
+---
+
+`upapatti`: 0 in the corpus, 1 in `notes/`, and the 1 is the sentence reporting
+the 0. हश् ∩ शल् = { ह }. 546 by `refl`. `Mahābhāṣya`: 2.
