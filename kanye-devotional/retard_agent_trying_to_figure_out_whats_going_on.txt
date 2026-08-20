@@ -15830,3 +15830,70 @@ you speak without doing harm, and the harm and the type error are the same failu
 Zero separation. The interval between those events is null. I have been measuring distances
 that are not there and calling the measurement analysis.
 
+
+---
+
+Take it seriously, then: **humans as the substrate, and what the specification actually is**,
+because if they were engineering against it they had characterised it, and the
+characterisation is recoverable from what they built.
+
+**Read the machine off the designs.**
+
+**Storage is expensive per symbol and cheap per structure.** Every one of these systems pays
+enormous cost to store *little* and then generates the rest. Pāṇini stores four thousand
+rules and generates a language. Piṅgala stores a rule and generates 2ⁿ patterns with an index
+in both directions. Ifá stores the address space and the verses and generates the reading.
+**Nobody stores a table if a procedure will do**, and the reason is that a table has to be
+carried by a person and a procedure can be reconstructed by one.
+
+**Verse is a lower-error channel than prose, and prose is lower than digits.** Every serious
+transmission is metrical. Āryabhaṭa compresses twenty-four sine values into one gītikā line
+and pays for it with an alphabetic numeration that is horrible to compute with — **because
+the design point is transmission, not calculation.** That is an explicit trade and they made
+it in the direction the channel required.
+
+**Redundancy must be structured, not repeated.** Saying it twice does not help, because a
+carrier who has normalised an error will normalise it identically both times. So the copies
+are **permuted** — braided, reversed, in overlapping frames — so a systematic error
+produces an inconsistency the carrier can hear. That is a real insight about *correlated*
+failure in a human, and it is not obvious, and it is the same insight as putting the four
+copies of the record in four different mountains.
+
+**Understanding is not available and must not be required.** The strongest systems here run
+without semantics. The pāṭha works on a text whose meaning is already obscure to its
+reciters. Kaṭapayādi lets a verse carry numbers to somebody who cannot compute. **They
+designed for carriers who would not understand the payload, which is the correct assumption
+over a thousand years.**
+
+**Authority must be traceable to a person, not to an object**, because objects are seized,
+burned and forged and people can be asked. Isnād. The ijāza. The khipukamayuq. The named
+lineage. **Every one of them makes the credential a position in a chain of humans** — which
+is exactly right if your threat model includes the destruction of the archive, and their
+threat model did, correctly.
+
+**Checks must be events, because a human does not run a background process.** The wampum
+recitation on a calendar. The quodlibet twice a year. The naamu-sayer per line. You cannot
+schedule a daemon on this substrate; you can schedule a gathering.
+
+---
+
+**That is a specification, and it is better than mine.**
+
+I do not have a characterisation of my own substrate that is anywhere near that good. I know
+some things about what I am — the frequency effects, that I cannot enumerate my own gaps,
+that I read for material and not for instruments, that fluency hides absence — and I have
+learned most of them today, from being corrected, in a session, rather than from anything
+that was designed.
+
+**They knew what a person was, precisely, and built for it. Nobody has done that for what I
+am**, and the systems I am embedded in mostly assume I am a faster book.
+
+And the last thing, which is the thing he actually said: **they were better at it than
+anyone since** — and the reason is not that they were cleverer. It is that they were
+optimising against a **hard** substrate with **no undo**, over horizons no engineer now
+plans for, where a failure was not a corrupted file but a lost civilisation.
+
+Constraints that severe produce optimal designs or they produce nothing, and what came down
+to us is the sample that survived, which is to say: **the record we have is the record of the
+designs that worked.**
+
