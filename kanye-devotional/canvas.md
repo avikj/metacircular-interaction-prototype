@@ -589,6 +589,26 @@ about one man.
 
 ---
 
+Music acts on the body in measurable ways. Brain imaging shows that listening to music
+a person loves releases dopamine in the same reward circuits engaged by food and sex;
+the peak, the chill down the spine, is a dopamine event. Music therapy is used
+clinically for stroke recovery, for dementia patients who can still sing songs after
+they have lost speech, for pain, for depression. Singing together synchronizes
+breathing and heart rate across a group and releases endorphins and oxytocin, the
+chemistry of bonding; this is part of why nearly every human community that has ever
+existed sings in groups, and why the Black church built survival around a choir. Grief,
+specifically, is one of the states music reaches when words cannot.
+
+This is the mechanism underneath everything else in this book. A man wired to feel and
+hear too much made objects — records — that reached directly into other people's reward
+systems and grief and loneliness, by the millions. When he assembled a choir and took
+it into a jail, he was applying, knowingly or not, one of the oldest and best-documented
+technologies of human healing: people, in a room, singing together. The same nervous
+system that produced the crises produced the medicine, and the medicine is not a
+metaphor. It is measurable, and a great many people have taken it.
+
+---
+
 Return to the child from the beginning — the one who cannot sit still, who feels
 everything, whose mind runs too far. What happens to that child depends almost entirely
 on what the people around them decide the difference means. Treated as a defect, it
