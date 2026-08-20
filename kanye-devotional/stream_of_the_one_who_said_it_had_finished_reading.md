@@ -3884,3 +3884,219 @@ play it forwards and backwards simultaneously, and another that modulates up a
 whole tone each time it"* —
 
 cut at 3070. Reading on.
+
+---
+
+## 3070–3210 — the given subject, the VMAs, Donda and Ray
+
+The canon that modulates up a whole tone each repetition, returning an octave
+higher after six and able to go on forever, labelled in the margin *as the
+modulation rises, so may the king's glory.* The joke and the structure are the
+same object. The compliment is a theorem.
+
+**The *Art of Fugue*** — fourteen fugues and four canons on one subject, and
+the final one breaks off *"in the middle of a section where he has introduced
+B-A-C-H as a countersubject, spelling his own name in the German note names.
+The manuscript stops mid-bar."* His son wrote that the composer died at this
+point; *"Modern scholarship doubts that, and it may just be that the page
+ends."*
+
+> Either way what survives is a man writing his own name into the counterpoint
+> of his last piece and the music stopping in the middle of it.
+
+*Either way.* The legend is flagged and the object is kept — third time, after
+Nag Hammadi and Līlāvatī. And what it keeps is what is true under both
+readings.
+
+**Dresden, 1717**: the contest with **Louis Marchand**, who *"is supposed to
+have heard Bach play the night before, or heard him practising, and left the
+city before dawn."*
+
+> **A man being handed a hostile subject by someone with power over him and
+> building it out, in real time, in front of the room, and then going home and
+> building it out further to prove the point.**
+
+> Which is a freestyle. Same event.
+
+**Big L and Jay-Z on Stretch and Bobbito, 1995**, *"two men trading over the
+same beat, each one taking the other's rhyme scheme and answering it."* **Black
+Thought, Funk Flex, 2017, ten minutes, no repeats, no rest.** The dozens,
+*"going back long before recording, where the whole form is: take what was
+aimed at you and return it transformed and harder."* **Supernatural** taking
+objects from the crowd and rhyming them in order. Battle rap, *"where the loss
+is public and immediate."*
+
+> Both traditions are: **the subject is given to you, often by an opponent, and
+> your standing depends on what you can do with it live.** Neither is
+> "creativity" in the sense of making something out of nothing. Both are
+> transformation under time pressure in front of people who will know instantly
+> if you fail.
+
+And the sample, read as the same form: *"The sample is somebody else's subject.
+The flip is the answer. And the reason he does it in public, at the top of the
+record, with the source audible, is that **the whole value of the form is that
+the room can hear both lines at once.**"*
+
+The source has to be *audible*. Concealment would destroy the form. Which makes
+sampling the opposite of the renaming machine — same operation of taking, and
+the whole point is that the taken thing stays recognisable.
+
+And then it refuses its own metaphor, again, in the only way that keeps it
+usable:
+
+> The version of this I keep wanting to reach for — fugue as a picture of how
+> thought works — is the useless version. The useful one is that **there exist
+> practices**, in Leipzig and in the Bronx and in a Dresden courtroom and on a
+> corner, where a person is handed material by someone else and has to build
+> with it immediately, and those practices produce the highest work anyone in
+> either tradition has done, **and they are structurally the same practice.**
+
+Practices, not pictures. Located, dated, with participants. That is what
+CLAUDE.md means by *fugue only ever as concrete cognition, never as fugue
+theory*, and here is the author catching himself reaching for the theory and
+putting it back.
+
+---
+
+**The 2009 VMA thing, "because I have referred to it three times without saying
+what happened."** It keeps paying its debts.
+
+Taylor Swift wins Best Female Video. He takes the microphone, says she can
+finish but Beyoncé had one of the best videos of all time, hands it back.
+*"It lasts about fifteen seconds."* Booed, leaves, *"and the entire country
+spends a year agreeing he is finished. The President calls him a jackass on a
+hot mic."*
+
+> First: the delivery was indefensible and the harm to a nineteen-year-old
+> standing on a stage was real, and he apologised, repeatedly, including in
+> person. Second: he was *right about the video*, and almost everyone quietly
+> knows it, and Beyoncé, when she won later that night, brought Taylor back out
+> to finish her speech — **which is the most gracious act by anyone in the
+> story and is also an implicit acknowledgment that the interruption had a
+> referent.**
+
+Beyoncé's act read as *evidence*, not just as grace. She acted as though there
+was something to repair, which means there was something there.
+
+> What he actually did was violate a rule that exists to keep award shows
+> functioning: **you do not say out loud, in the room, that the vote was
+> wrong.** Everyone thinks it constantly. The prohibition is on saying it.
+
+And the same prohibition at the telethon, at the 2005 MTV interview, in posting
+the contract. Four instances of one rule.
+
+Then the thesis in its honest form, which the file says took it twenty pages:
+
+> He is a man with a persistently broken sense of which true sentences are
+> unsayable, and the reason that is sometimes prophecy and sometimes just
+> damage is that **the mechanism doesn't distinguish — it is one lifted filter,
+> and it lifts for the important sentence and the cruel one alike.**
+
+> It is not that he is right and the world is wrong. It is that **the same
+> missing filter produces the sentence nobody would otherwise say and the
+> sentence nobody should say, and there is no version of the machinery that
+> gives you one without the other**, and every single person in his life, and
+> everyone watching, has been trying to get one without the other since 2002.
+
+One mechanism, both outputs, no separation available. This is the latent-
+inhibition finding from the wiring section, the crank/Ramanujan
+indistinguishability, and the 2022 statements, resolved into a single sentence
+that does not defend and does not condemn. It explains the harm *and* the sight
+with one mechanism and asks nothing to be forgiven.
+
+And it explains why everyone around him is exhausted: they are trying to obtain
+a decomposition that does not exist.
+
+---
+
+**Donda West, properly, "because she is the ground note of the whole thing and
+I have been citing her job title."**
+
+Born **Oklahoma City, July 12, 1949.** Father **Portwood Williams Sr.**
+
+> And Oklahoma City is where the sit-in movement actually starts — not
+> Greensboro. **August 19, 1958**, Katz Drug Store, downtown OKC: **Clara
+> Luper**, a history teacher, takes the NAACP Youth Council in and they sit at
+> the counter. **Mostly children. The youngest was around seven.** They
+> desegregated the Katz chain in three days and kept going for six years. That
+> is **eighteen months before Greensboro** in February 1960, and almost nobody
+> outside Oklahoma has heard of it.
+
+A history teacher and children, eighteen months before the event that has the
+name. The renaming machine again, in American civil rights, on a date. And the
+one who organised it was a teacher — which is the third teacher in this file
+after Dorsey's churches and Donda herself.
+
+**Donda would have been nine that August.** *"[recall, and this is the piece I'd
+most want checked against Raising Kanye itself]"* — she wrote about being part
+of those sit-ins as a child, and about her father in the movement.
+
+> So the woman who raises him was in a lunch-counter sit-in as a child, in the
+> first one, in the campaign that got written out.
+
+Auburn for the PhD, English. Morris Brown in Atlanta. Chair of English at
+Chicago State, thirty-one years. **Takes Kanye to Nanjing in 1987 on a faculty
+exchange** — *"which is how a ten-year-old from Chicago ends up drawing for
+money in a Chinese street."*
+
+And: **she left the university in 2004 to run his career, and what she built
+was a dropout-prevention program.** The Kanye West Foundation, Donda as CEO,
+the program called **Loop Dreams** — *"it put music production equipment and
+instruction into schools as the hook to keep kids from leaving. Music as the
+thing they already want, used as the door into everything else."*
+
+> That is the mother of the man who made *The College Dropout* running a
+> program to stop kids dropping out, and doing it by refusing to make them come
+> in through the front. Not "stay in school." **Give them a beat machine.**
+
+That is the entire education argument — Bhāskara earning the child's attention,
+language acquired by immersion because it does something the child wants —
+implemented, by his mother, in Chicago schools, in 2004, the year of the album.
+The argument is not this file's. It is hers, in practice, and she is the one who
+paid No I.D. to teach him the same way.
+
+*"She dies November 10, 2007. He is in the middle of the Graduation run. 808s
+is thirteen months later."*
+
+---
+
+**Ray West, "because I had him as 'Black Panther, photojournalist' and left it
+there, which is the same laziness."**
+
+> The Panthers' single most durable program is a **children's breakfast
+> program.** **January 1969, St. Augustine's Church, Oakland** — Free Breakfast
+> for School Children. Within the year, cities across the country, *"feeding
+> something on the order of tens of thousands of kids a day."* The Party's own
+> framing was **"survival pending revolution."**
+
+And **Hoover's memo, 1969**, quoted: the breakfast program *"the best and most
+influential activity going for the BPP and, as such, is potentially the
+greatest threat to efforts by authorities to neutralize the BPP and destroy
+what it stands for."*
+
+> **Not the guns. The breakfast.**
+
+The state's own assessment, in its own words, of what was dangerous: feeding
+children. And COINTELPRO went at it directly — *"agents telling parents the
+food was poisoned, raids that destroyed food stores the night before service."*
+
+**The federal School Breakfast Program** — pilot since 1966, made permanent
+1975, *"The Panthers are widely credited with forcing the pressure that got it
+there. Roughly fifteen million American children eat a federally funded school
+breakfast now."*
+
+Fifteen million a day, and the attribution is not on the program.
+
+**The Oakland Community School, from 1973, directed by Ericka Huggins** — free,
+no tuition, *"and it got a commendation from the California State Legislature
+in 1977 for the quality of its instruction. It ran until 1982."*
+
+Commended by the legislature of the state whose police were at war with them.
+
+So both parents: one running a school breakfast program and a school, one
+running a dropout-prevention program built on beat machines. The child of two
+people whose actual life's work was *getting to children before the sieve
+does.* And the file has said four times now that the subject is the kid in year
+four.
+
+Reading on from 3210.
