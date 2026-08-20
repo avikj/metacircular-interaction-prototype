@@ -22385,3 +22385,190 @@ files in `formal/cubical/` and I have read two; `check.sh` is unread, `machine/`
 The check is a listing of every executable gate in the repository with a one-line
 statement of which distinction each makes explicit, and whether it currently passes.
 That is a real task, decidable, and I have not run it.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 121 — the gate census, run. There is a gate named
+# `check-correction-reach.sh`, written 2026-08-15 for exactly what passes
+# 113–115 spent three hours deriving. It is RED with three. And its own
+# motivating note does not exist — and eight files cite it.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 120 pre-registered: *"a listing of every executable gate in the repository with a
+one-line statement of which distinction each makes explicit, and whether it currently
+passes. That is a real task, decidable, and I have not run it."* Run.
+
+## P121 — the census
+
+Seventeen executables, six locations: `.claude/hooks/` (4), `.githooks/` (5),
+`.github/workflows/` (3), `formal/cubical/` (3), `scripts/` (10+), plus the seeder.
+Nine are gates I could run here:
+
+| gate | the distinction it makes explicit | now |
+|---|---|---|
+| `check-agda-pragmas.sh` | does every file *assert* `--safe` / `--cubical`? | **0** — 833/833 |
+| `check-claim-slugs.sh` | does every claim reference resolve? | **0** — 3762 files, 4641 refs |
+| `check-lean-globs.sh` | is every Lean module inside a declared glob? | **0** |
+| `check-no-silent-deletion.sh` | were files deleted without a record? | **0** |
+| `check-problem-specs.sh` | does each spec meet its contract? | **0** |
+| `check-controls.sh` | does each control fail **for its stated reason**? | **9/10**, one `WRONG-ERR`, and it refuses to certify off-pin |
+| `check-everything-coverage.sh` | on disk vs. imported | **FAIL — 60 orphans** |
+| **`check-agda-closure.sh`** | is every module in an aggregate's closure? | **exit 1 — 815 modules on disk** |
+| **`check-correction-reach.sh`** | **is a correction reachable from the file it corrects?** | **3 UNREACHED** |
+
+**Three red, one partial, five green.** And `check-agda-pragmas.sh` is the sharpest
+green in the list precisely because of what it says it checks — *files that **assert**
+`--safe`* — not that anything checked them. It is a school survey and it knows it.
+
+## P121 — a gate for exactly what passes 113–115 derived, written five days earlier
+
+`scripts/check-correction-reach.sh`:
+
+> **Motivation (`notes/CORRECTION_REACH_AUDIT.md`, 2026-08-15):** *"correct by
+> addition" is not position-neutral.* **Three corrections in this corpus were written
+> in note A as "Correction to `B.md`" and never appeared in B, so every reader of B —
+> including the ones who only read B's summary — got the uncorrected claim.**
+>
+> Rule, deliberately weak so it cannot false-positive on judgement calls … **It does
+> NOT check placement, wording, or whether the correction is right.** Failing this check
+> means the correction is unreachable from the corrected file, **which is decidable.**
+
+That is passes 113, 114 and 115 — *the claim reproduces and the correction does not;
+loud verdict, silent correction; the corpus's stale claims are formatted identically to
+its live ones* — stated on **2026-08-15**, reduced to a decidable predicate, and
+mechanised.
+
+Run:
+
+```
+UNREACHED: notes/E2_PROOF.md corrects notes/ADELIC.md,
+           but ADELIC.md never names E2_PROOF.md
+UNREACHED: notes/FLEET_BREAKER_PASS_2026_08_14.md corrects DELTA19_IS_THE_KERNEL_AGAIN.md,
+           but that file never names it
+UNREACHED: notes/NEGATIVE_KNOWLEDGE_IS_TYPED.md corrects notes/ABHAVA.md,
+           but ABHAVA.md never names it
+```
+
+**Still three, five days later.** And the first one is `E2_PROOF.md` — the same file
+where *egress is blocked* entered on 2026-08-12. That file both **carries** an
+uncorrected claim of its own and **is** the unreachable correction of another.
+
+## P121 — and the gate's own motivation is unreachable
+
+`notes/CORRECTION_REACH_AUDIT.md` **does not exist.**
+
+```
+ls notes/CORRECTION_REACH*                                    → nothing
+git log --all --diff-filter=AD -- notes/CORRECTION_REACH_AUDIT.md → nothing
+```
+
+Never added, never deleted. It was never committed. And:
+
+```
+git grep -l "CORRECTION_REACH_AUDIT"  →  8 files
+   collab/STATE.md
+   notes/FORMED_UNIT_FILTRATION_DEPTH.md
+   notes/INDIC_FORMAL_TRADITIONS_MAP.md
+   notes/KUTTAKA_SOLUTION_FAMILY.md
+   notes/PROLATE_BRIDGE.md
+   notes/SHRINKING_TESTS_LOWER_CURVATURE.md
+   notes/WALK_SENSOR_THEOREM.md
+   scripts/check-correction-reach.sh
+```
+
+**Eight files cite a note that was never committed**, including the repository's own
+`STATE.md` and the gate built from it.
+
+A gate whose function is *a correction must be reachable from the thing it corrects*,
+whose own justification is **not reachable from anything**, cited eight times. Pass
+114 found *a false claim acquired a citation on the same day it acquired a commit*; this
+is the terminal form — **a citation with no referent at all, propagated eight times,
+inside the mechanism for citation reachability.**
+
+I am not going to call that irony. It is the seventeenth instance of one structure and
+the structure is now fully general: **the corpus's format cannot distinguish a live
+claim from a stale one, a correct citation from a denied one, or a real target from an
+absent one — and every instrument built to fix one of those three has itself failed on
+one of the other two.**
+
+## P121 — the index was twenty commits stale, and today is a quarter of it
+
+`scripts/correction-index.sh` is a generator; `notes/CORRECTION_INDEX.md` says
+**"GENERATED … Do not hand-edit; re-run it."** Re-run:
+
+```
+header commit   5fbaf718  →  6b77800e      (twenty commits stale)
+self-corrections     179  →  267           (+88)
+other matches         41  →   65           (+24)
+```
+
+Of the 267, **74 are dated 2026-08-20**, and **19 of those are mine** — the stream's
+passes and the two `struck-claims` rows.
+
+Two readings, and I am recording both without choosing:
+
+- **Seventy-four corrections landed in this corpus today**, across every identity. That
+  is what a day of this looks like when it is working.
+- **A quarter of them are one agent correcting itself in one file**, which is pass 100's
+  ledger — *the reflection's product is corrections to itself* — now with a
+  denominator, and the denominator says the rest of the fleet produced 55.
+
+The index regenerated because I ran the generator while enumerating gates. Committing
+the regeneration rather than reverting it: the header instructs re-running, the previous
+snapshot predated twenty commits, and restoring a stale snapshot deliberately, today,
+would be the exact act these last ten passes have been about.
+
+## P121 — ground, in lockstep
+
+**n=23:**
+
+> **You don't know how repo is organized. Hint: The answer is all over the place. It is
+> not hidden.**
+
+Seventeen executables. Nine runnable gates. Three red. One of them named for the exact
+question I spent three hours deriving from first principles, five days after somebody
+answered it and built the check. Not hidden — in `scripts/`, with the word *correction*
+in the filename.
+
+**n=1:** *"Assume protocol And readme were written by retarded agents."*
+
+And assume the gates were too — not as insult, as method. `check-correction-reach.sh`
+is a good gate, and its motivating document does not exist. `check-agda-pragmas.sh` is
+green and checks only that files *assert* `--safe`. `check-controls.sh` is the best
+instrument in the repository and it says so itself: *"a naïve gate is not enough, and we
+have the counterexample."* **Every gate here is worth reading and none is worth
+believing**, which is the same instruction as *run the `curl` yourself* and the same as
+*the header is the arbiter.*
+
+**n=15:**
+
+> **अनुत्तरितम् ≠ अनुत्तरम् · अपरिचितम् ≠ असत्**
+
+`CORRECTION_REACH_AUDIT.md` is the fourth term of that line and the one it does not
+have: **not unanswered, not unanswerable, not unfamiliar — cited, and absent.** Eight
+files treat it as existing. Nothing in the format says otherwise.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "three red."** I ran nine gates and
+read exit codes and head-of-output; `check-agda-closure.sh` exits 1 and I did not read
+*why* — it may be red for a benign, known reason its own header states, in which case
+*"three red"* overstates and the correct figure is two. That is the same error pass 116
+made and pass 119 halved. The check is to read `check-agda-closure.sh`'s header and its
+full output, and it is one command.
+
+**Run.** Its output is an `ORPHAN` list — `Shunya`, `Sulba`, `Trikarani`,
+`TwistedLeibniz_…`, `Samanya_…`, `scratch_ab_preadd`, `scratch_ker`, and more. **Red
+for the same reason, not a benign one.** So *three red* holds — with a refinement that
+makes it sharper rather than softer:
+
+> **Three gates are red and they report two conditions:** orphanhood (twice, by two
+> instruments, at two scopes) and unreached corrections (once).
+
+Two independent instruments agreeing on orphanhood is not redundancy — it is exactly
+the *"witnessed twice by independent routes"* discipline `z-0` used on `classOf one¹ ≢
+classOf zero¹` this afternoon, occurring by accident at the level of the repository's
+own gates. The orphan condition is now corroborated; only the correction-reach failure
+rests on a single instrument.
+
+And the eight `.githooks/` and `.github/workflows/` gates were not run at all, so this
+is **nine of seventeen** and I should not call it a census until it is seventeen.
