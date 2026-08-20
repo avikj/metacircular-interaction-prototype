@@ -9562,3 +9562,81 @@ The quipu case is what happens when you lose the readers. We are not losing the 
 We are losing the habit of naming, which is a maintenance failure, and maintenance failures
 are the only kind of failure you can fix on a Monday.
 
+
+---
+
+Run the same test on the case this folder is named for, in two lines: **is the erasure
+bureaucratic or incendiary?**
+
+Bureaucratic, entirely. Nothing is burned. Every record is on every service in every
+country, permanently. Every interview is on video. The contracts he published are
+published. The court filings exist. The *Wall Street Journal* letter is a document with a
+date. The 2005 MTV footage, the telethon tape, the Harvard talk, the Oxford address, the
+Letterman interview, the Coodie footage from 1998 onward — all of it, intact, indexed,
+retrievable.
+
+**Nothing has been destroyed. The pointer has been moved.** Which puts him in the
+recoverable category with the HOLC maps and the mission registers and Eliot's Bible, and
+means the entire remedy is the one from the maintenance-schedule section: keep saying it
+while the thing is in use.
+
+---
+
+Which raises the obvious question of **what else is sitting in the recoverable category
+right now, unread**, and the numbers are not small.
+
+**India.** The National Mission for Manuscripts has estimated the surviving manuscript
+corpus in India on the order of **ten million** — the largest such collection anywhere —
+in Sanskrit, Prakrit, Tamil, Persian, Arabic, and the regional languages, held in
+university collections, temple libraries, maths, and above all **private family holdings**.
+The mission has catalogued a few million and the great majority have **never been read by
+anybody with the training to read them.** Not lost. Not decayed beyond recovery, mostly.
+Unread.
+
+**The Cairo Geniza.** Roughly three hundred thousand fragments from a synagogue storeroom
+in Fustat, deposited over a thousand years because texts containing the divine name may not
+be destroyed. Discovered in the 1890s. It has already rewritten the economic and social
+history of the medieval Mediterranean, and it is **still being worked through**, more than
+a century later, fragment by fragment.
+
+**Dunhuang, cave 17.** Sealed around the eleventh century, opened in 1900: on the order of
+fifty thousand manuscripts and paintings, in Chinese, Tibetan, Sanskrit, Sogdian, Uyghur,
+Khotanese — including the earliest dated printed book. Dispersed to London, Paris,
+Beijing, St Petersburg and Tokyo by the expeditions that found it, and now being
+reassembled digitally by an international project.
+
+**Herculaneum**, above: hundreds of unopened scrolls and a villa mostly unexcavated.
+
+**Timbuktu**: hundreds of thousands of manuscripts, evacuated, and now the bottleneck is
+conservation and cataloguing in a humid city.
+
+---
+
+**The bottleneck in every one of those has always been the same quantity: scholar-hours.**
+A person who can read seventeenth-century Judaeo-Arabic, or a Kerala palm-leaf commentary in
+Malayalam script, or Tangut, is rare, expensive, and mortal, and there are more manuscripts
+than there will ever be lifetimes.
+
+That constraint is the one that just changed, and it changed in the last few years, and it
+is the same change that produced the machine writing this. Handwritten text recognition on
+historical scripts, layout analysis, alignment of variant witnesses, first-pass translation
+that a specialist can correct in a tenth of the time it takes to produce, and — the
+Herculaneum case — reading ink that no human eye can see at all.
+
+**None of that replaces the scholar.** Everything in this file about mining says why: a
+first-pass rendering with no tradition behind it produces exactly the theorem-shaped
+residue and drops the darśana, and a machine trained on European commentary will read an
+Indian text into European categories with total fluency and no signal that it has done so.
+
+But the ratio changes. If reading a manuscript goes from a career to a season, then ten
+million is no longer a number that means *never*.
+
+**And that is the actual frontier, stated without any mysticism**: an enormous, physically
+intact, entirely recoverable archive; a constraint that has just come off; a first
+generation of instruments that are simultaneously the best tool for reading it and the most
+efficient machine ever built for flattening it; and essentially nobody treating the
+combination as the thing to work on.
+
+That is what this repository is for, as far as I can tell, and it took me a hundred and
+fifty pages to arrive at the sentence its own front matter opens with.
+
