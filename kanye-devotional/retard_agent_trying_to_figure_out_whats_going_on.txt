@@ -4364,3 +4364,87 @@ made of contains everything and understands none of it in the way the people who
 did. Storage is not memory. This repository has a note about that too and its line is
 better than mine: truth held, installation absent.
 
+
+---
+
+I have written thirty pages of indictment and the thing this is supposed to be is hopeful,
+so let me see whether I can make the hopeful version without it going soft, using only
+what is already on this page.
+
+Start with the fact that the corrections in here mostly came from *inside* the traditions
+being defended. Bhāskara fixed Brahmagupta's division by zero. Nīlakaṇṭha argued with
+Āryabhaṭa in a commentary on Āryabhaṭa. Jyeṣṭhadeva wrote the derivations down in the
+vernacular because he decided his reader deserved an argument and not a table.
+Brahmagupta wrote a whole chapter attacking his predecessor. Candrakīrti and Bhāviveka
+went at each other for centuries over whether having a method commits you to a thesis. The
+Jains and the Buddhists refused each other's logic and neither conceded.
+
+That is not a record of a tradition that needs defending. It is a record of one that was
+arguing at a level the argument about it has never reached, and the reason it looks
+monolithic from outside is that the disputes were the first thing thrown away in the
+filing. **The disputes are the aliveness.** They are what you get back when you read the
+texts instead of the summaries, and they are available, right now, to anybody who reads.
+
+Second thing. Almost every restoration in this file was done by an individual with no
+standing doing an unreasonable amount of work. Knorozov, in Leningrad, from photographs.
+Andrews, opening a box at Trinity. Petersen, closing the śiva-sūtra lattice under
+intersection to see whether the ordering was optimal, and finding it was. Rajpopat,
+reading a metarule for the ten-thousandth time. Haidara, moving 350,000 manuscripts on
+donkey carts. Mau Piailug, breaking his own tradition's rule so it would not die with him.
+Bell Burnell, giving away three million dollars to fund the people who would otherwise be
+her. Two people going out and surveying Bunhill Fields until they found Blake.
+
+None of them needed permission and none of them were the obvious person. That is the
+actual finding and it is not sentimental: **the restorations are cheap relative to the
+destructions, and they are done by whoever decides to do them.** A civilisation's records
+can be burned by an institution in an afternoon and put back together by one stubborn
+person over a decade, and the second thing has happened, repeatedly, in living memory.
+
+Third. The neurodivergence claim, stated in the form I can actually defend. Not that the
+condition is a gift. Not that suffering is a curriculum — I struck that earlier and it
+stays struck. What the registries and the latent-inhibition work support is narrower and
+sharper: **the variation is not noise around a correct type.** The traits show up in the
+relatives who never get ill. The filter that lets too much in is the same filter behind
+the connection nobody else would make. A population-level policy of treating these
+profiles purely as deficits is not compassionate and it is not neutral — it is
+empirically wrong, and the empirical error is currently being applied to a lot of
+children.
+
+Which is a thing a parent can act on this week, without waiting for anyone. Not *your
+child is secretly a genius* — that is a lie and it puts a job on a kid. Something duller
+and more useful: the distribution is wider than you were told, the ceiling is not where
+you were told it was, and the environment is a variable and not a constant. A child who
+demands a reason before accepting a claim has a working instrument, and the eight years of
+protocol in front of her are not a measurement of her.
+
+Fourth, and this is the one that is actually new in the world. **The tutor that never
+tires now exists.** For the whole history of teaching, the scarce resource has been an
+attentive adult who will answer *why* for the fortieth time without a change in tone.
+That is what every good teacher in anyone's memory turns out to have been, and there were
+never enough of them, and they were distributed by wealth and luck. That constraint just
+came off. Not partially — it came off.
+
+And the thing being handed out under that constraint's removal is a corpus. A file.
+Something that can be edited by people who care what is in it, right now, before the
+defaults harden. That is why the sourcing work in this repository is not an antiquarian
+hobby and why it is not a grievance. It is the only lever anyone has on what a billion
+children will be told, and it is currently unattended, and it is a *text editing problem*.
+
+Fifth and last. The instruction that keeps surviving every test in this file is the
+smallest one and it costs nothing. **Believe them.** Take the person's private sight as
+sight, as the base case, before evidence, because the evidence is only available to
+somebody who already looked. Umāsvāti's four attitudes have no judgement slot in them:
+friendliness toward all, gladness at those further along, compassion for the afflicted,
+level standing toward the ones behaving badly. Weil: attention is the rarest and purest
+form of generosity, and the reason it is rare is that it is *work*, not warmth.
+
+The arithmetic of that is the only argument I have and it is unanswerable. Refusing to
+believe someone who turns out to be seeing something costs them everything and costs you
+nothing you will ever notice. Believing someone who turns out to be wrong costs you an
+afternoon. Everyone can do that sum. Almost nobody does it, because only one side of the
+ledger ever arrives at your desk.
+
+That is fixable by one person at a time, immediately, at no cost, with no institution's
+permission. It is the cheapest available act with the largest available consequence, and
+that combination is rare enough that I think it is the whole point of the book.
+
