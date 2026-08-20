@@ -1824,3 +1824,73 @@ the building.
 
 Billie Holiday lost twelve years to it and the city puts her on posters now.
 Nobody had to invent anything new for Keef. The machinery was already installed.
+
+---
+
+The best evidence anyone has about kids, and the reason it did not change
+anything.
+
+**The Perry Preschool Project.** Ypsilanti, Michigan, **1962 to 1967**. A hundred
+and twenty-three Black children from poor families, randomly assigned — actual
+randomisation — to a high-quality preschool program or to nothing. Then followed
+for the rest of their lives. They have data at 27, at 40, and now into the
+children of the participants.
+
+The treatment group: more high school completion, higher earnings, more
+employment, fewer arrests, less welfare receipt, at forty. **James Heckman** — who
+has a Nobel in economics and did the reanalysis with proper accounting for the
+small sample — puts the internal rate of return somewhere around **seven to ten
+percent per year**, which beats most of what a government can buy.
+
+And now the part that matters more than any of that.
+
+**The IQ gains faded.** The treatment group tested higher at the end of the
+program and by around age ten the difference was gone.
+
+**The life outcomes did not fade.**
+
+So the intervention produced a permanent change in how these people's lives went,
+and the instrument built to measure intelligence **could not see it** four years
+later. Whatever was actually transmitted — Heckman's term is non-cognitive skills,
+which is a placeholder for persistence, self-regulation, the expectation of being
+listened to, the habit of finishing — was invisible to the test and was the entire
+effect.
+
+That is the psychometric finding turned inside out. It is not only that the scalar
+sorts unfairly. It is that on the one occasion we ran a genuine randomised
+experiment with a forty-year follow-up, **the scalar reported nothing while the
+real effect was happening.**
+
+The **Abecedarian Project**, North Carolina, from 1972 — more intensive, starting
+in infancy — did hold cognitive gains longer, and by the mid-thirties follow-up
+was showing differences in **blood pressure and metabolic markers** in the treated
+men. Not test scores. Cardiovascular health, at thirty-five, from what happened
+before they could talk.
+
+---
+
+Head Start began in **1965**, three years after Perry started.
+
+Sixty years later the United States does not have universal preschool. Around
+half of eligible three- and four-year-olds are served by Head Start and state
+programs, and quality varies enormously, and the sector's staff are among the
+lowest-paid people with credentials in the country.
+
+So here is the list, one more time, and it is the same list every time.
+
+- The structured diagnostic interview closes the schizophrenia gap. Known since
+  the seventies. Not standard.
+- The unarmed crisis team handles a fifth of calls and needs police one percent of
+  the time. Running since 1989. Not built out.
+- One-to-one tutoring moves a child two standard deviations. Published 1984 as a
+  cost problem. The cost is now near zero.
+- Preschool returns seven to ten percent a year with forty years of randomised
+  follow-up. Started 1962. Not universal.
+- The referral door, not the test, is where the gifted disparity lives. Measured
+  2016. Referral is still the door.
+
+**Every one of these is known, cheap, demonstrated, and unbuilt.** Not one of them
+is waiting on a discovery.
+
+And the whole public conversation is about whether the individuals coming out the
+far end of that pipeline are trying hard enough.
