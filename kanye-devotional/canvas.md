@@ -613,7 +613,8 @@ for Him is in the record, which means the record arrives already containing the
 argument against its own existence. He made three separate videos for it. It
 went to radio anyway and became one of the defining songs of the decade.
 
-And the argument of the song is entirely orthodox, which nobody says. It walks
+And the argument of the song is entirely orthodox, which the coverage of it
+never mentioned. It walks
 through the people the church is supposed to be for and the world is not — the
 hustler, the killer, the drug dealer, the stripper — and says God is with them,
 and then adds, at the end, even me. That is the oldest claim in the tradition,
@@ -672,7 +673,13 @@ singing in a jail for two hundred people who cannot leave is not a moment.
 
 
 One more thing about the music itself, because it turns out to be the same
-argument as the rest of the book and almost nobody hears it that way.
+argument as the rest of the book.
+
+People already know this one. Not as a proposition — in the body, the way that
+music is known. A sped-up voice comes in over the drums and something goes
+through a person, and that is not a lesser version of understanding it. It is
+the understanding. What follows is only the naming, and the naming is not above
+the hearing and does not improve it.
 
 When he takes two seconds of somebody's forgotten record and builds a song under
 it, the source is audible. You can hear that it came from somewhere else. That
