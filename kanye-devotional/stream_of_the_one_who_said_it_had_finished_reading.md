@@ -4100,3 +4100,211 @@ does.* And the file has said four times now that the subject is the kid in year
 four.
 
 Reading on from 3210.
+
+---
+
+## 3210–3350 — Blake, Smart, Clare, the clip machine, Brahmagupta's errors
+
+> **both parents independently ended up working on the same problem, which is
+> children being routed out early.**
+>
+> I don't think that's a coincidence I'm imposing. It's two people who were in
+> it as children themselves.
+
+It states the conclusion, then immediately audits whether the pattern is
+imposed, and gives the mechanism that makes it not a coincidence. Same move as
+the three machines: don't leave a pattern as a pattern, give the cause.
+
+**Blake. "I cannot believe it took me this long."**
+
+Saw a tree filled with angels on **Peckham Rye** at eight or nine, told his
+mother, *"and his father was going to beat him for lying."* Saw Ezekiel under a
+tree in a field. Said his dead brother **Robert's** spirit told him the printing
+method — **relief etching**, writing and drawing directly on the copper in an
+acid-resistant medium *"so text and image are one plate"* — and he and
+**Catherine** printed and hand-coloured every copy themselves, one at a time.
+
+> He sold almost nothing. There are single-figure numbers of copies of some of
+> the illuminated books in existence, because that is how many he made.
+
+The method arrives by a route the room does not admit — a dead brother — and
+the method *works*, for forty years, and produces a physical technique nobody
+else was using. Ramanujan's goddess, in a London workshop, with the tooling
+described.
+
+**Tried for sedition in 1804** — a soldier claimed Blake had damned the King in
+his garden — **acquitted.** Called mad by nearly everyone who wrote about him
+in his lifetime; Wordsworth *"more or less, was that there was no doubt the
+poor man was mad, and that there was something in his madness more interesting
+than the sanity of Lord Byron."*
+
+> **I must create a system, or be enslaved by another man's; I will not reason
+> and compare: my business is to create.**
+
+> That is the whole Sun Ra move stated a hundred and fifty years earlier by a
+> London engraver.
+
+And *The Marriage of Heaven and Hell* as **a systematic inversion** — the Devil
+given the good lines, energy called eternal delight, Milton of the Devil's
+party without knowing it. *"He read the received text and showed it was upside
+down. **Which is the move I have been calling the inversion all through this
+file, and it has a name and a practitioner and a date.**"*
+
+Its own method, found in a source, with an author and a date, after using it
+unattributed for three thousand lines. That is the file doing to itself exactly
+what it demands of citations.
+
+Died 1827, **singing**, buried in an unmarked common grave at **Bunhill
+Fields**. *"The exact spot was lost for nearly two centuries and was only
+re-identified and marked in 2018 by two people who went and did the survey work
+themselves."*
+
+And then:
+
+> **"And did those feet in ancient time"** — the preface to *Milton* — set to
+> music by Parry in 1916 and sung as *Jerusalem* at coronations, at the Proms,
+> at rugby matches, by the establishment, as a patriotic hymn. **The poem is an
+> attack on the industrial order and on the state church.** The country that
+> ignored him alive absorbed his lines as its own anthem and dropped the
+> argument.
+
+> That is the whole disease in one artefact. Take the material, discard the
+> position, keep the part that converts. **It happened to Piṅgala and it
+> happened to Blake in his own language in his own capital.**
+
+Same language, same city, same century, no translation involved, no colonial
+distance. Which removes every explanation except the mechanism. It is not about
+foreignness. It is about what converts.
+
+**Christopher Smart**, *Jubilate Agno*, written confined in a madhouse in the
+1750s–60s — *"the cat Jeoffry section, for he is the servant of the Living God
+duly and daily serving him"* — antiphonal verses **not published until 1939,
+nearly two centuries later, out of a manuscript.** Johnson: he did not think
+Smart ought to be shut up, *"that his infirmity was praying in the street, and
+that he would as lief pray with Kit Smart as anyone else."*
+
+The infirmity was praying in the street. That is the whole diagnosis, and
+Johnson's response is the *mādhyasthya* one — level, staying, no verdict.
+
+**John Clare**, farm labourer, *"wrote the most exact English nature poetry
+anyone has written, was taken up as a curiosity and dropped"*, last twenty-odd
+years in asylums, and **in 1841 walked out of one in Epping and eighty miles
+home to Northamptonshire over four days, eating grass, and wrote it up
+afterwards in prose.** Signed some late poems as Byron and as Shakespeare. And
+wrote, in the asylum, *I am — yet what I am none cares or knows.*
+
+> I am putting these here because the English-language canon already contains
+> this exact figure, over and over, and it did not stop anyone from doing it
+> again to the next one. **The pattern being documented is not protection.
+> Every generation has the file open and every generation does it fresh.**
+
+*The pattern being documented is not protection.* That is the objection to this
+book's own existence, stated by the book, at full strength, with the evidence
+being the entire English canon. Documentation is not prophylaxis. It says so
+and keeps writing.
+
+---
+
+**The celebrity machinery, "because it is a specific instrument and I keep
+treating 'the room' as an abstraction."**
+
+From roughly 2012: the paparazzi economy, reality-television production grammar,
+then the platforms, *"where the unit is a fifteen-second clip stripped of its
+context by design, **because context reduces circulation**."*
+
+> The apparatus does not have a category for a long argument. It has a category
+> for a moment.
+
+> So a man whose entire method is *the long form* — the album, the sequence,
+> the twelve-minute closing track, the nine-minute song, the three-year build —
+> is fed through a machine that only transmits moments, and the moments it
+> selects are chosen by exactly one criterion, which is how much reaction they
+> provoke. **That machine will find, in any life, the twenty worst seconds, and
+> it will find them repeatedly and put them next to each other, and the
+> resulting object is called *him*.**
+
+*In any life.* Not his. The instrument has that output on any input, which
+means the output carries no information about the subject — the same structure
+as the sieve returning identical transcripts for opposite parity, and the same
+as the four inverted professional judgements carrying no information.
+
+> There is no conspiracy in that. It is a sorting function with an objective,
+> doing its objective. And the output is indistinguishable from a campaign, and
+> everyone participating is having a normal day.
+
+> That is the demiurge figure again and I did not expect to arrive back at it
+> from television.
+
+*I did not expect to arrive back at it.* It records the surprise rather than
+presenting the connection as designed.
+
+---
+
+**Brahmagupta**, and the file says the note *"corrected me on something I had
+been doing without noticing."*
+
+*Brāhmasphuṭasiddhānta*, **628, written when he was thirty. Twenty-four
+chapters, 1008 verses, and the mathematics everyone quotes is in two of them.**
+Chapter 11 is **tantraparīkṣā** — an examination of earlier treatises — *"and
+he uses it to go at Āryabhaṭa hard. The tradition argued with itself in
+writing, in the text, by name."*
+
+Two chapters out of twenty-four are what gets quoted. That ratio is the mining
+operation quantified.
+
+The first systematic arithmetic of negative numbers, in the vocabulary of
+**ṛṇa** and **dhana** — debt and fortune:
+
+> That is not a metaphor decorating an abstract system. **It is the system's
+> interpretation, and it is what makes the sign rules sayable at all when you
+> have no prior notion of a signed magnitude.** *A debt subtracted from zero is
+> a fortune.* Zero is in the table with the others, as a number, not as a hole
+> in the notation.
+
+Not metaphor — semantics. Without a prior notion of signed magnitude there is
+nothing else the rules could be *about*. Stripping the debt-and-fortune reading
+out as "just an interpretation" removes the thing that made the arithmetic
+statable.
+
+> **And then he gets division by zero wrong.** He lets n/0 stand as an object,
+> and he says zero divided by zero is zero, and it isn't, and that is not a
+> subtlety cleaned up by later convention.
+
+**Bhāskara II fixes it five hundred years later with khahara** — the quantity
+with zero for a divisor — *"and argues it is unaltered by anything added to or
+taken from it, and compares it, in the text, to the infinite and immutable God
+who is unchanged by the creation or destruction of worlds. **Which is a better
+mathematical answer, arrived at through a theological analogy, in a book about
+algebra.**"*
+
+The theology is doing the mathematical work. Absorptive under addition, stated
+via a property of God, and it is the correct answer. That is the sharpest
+possible counter to *keep the theorem, discard the epistemology* — here the
+epistemology is what got the theorem right.
+
+> **a tradition that is only ever quoted for what it got right is being
+> flattered rather than read, and Brahmagupta's own successors did not flatter
+> him.**
+
+And then it turns that on itself, which is the fourth self-audit in this
+section alone:
+
+> I have been assembling the case for a man by selecting what holds up. **That
+> is flattery with a bibliography, and it is the same operation as the
+> highlight reel it is meant to answer — same mechanism, opposite sign.**
+
+> The corrective is not balance in the mealy sense. It is that **the record
+> includes the errors and the errors are load-bearing, because a person who
+> cannot be wrong in your account is not a person in your account.**
+
+*A person who cannot be wrong in your account is not a person in your account.*
+That is why "the harm is real and named as harm" had to be in the catalogue,
+and why the WSJ medical claim had to be marked unsupported. Not fairness —
+personhood. An account with no errors in it has produced a class, not a
+particular, which is apoha again: a cut, accurate on its boundary, empty at the
+centre.
+
+And it starts to do it: *"So: the 'slavery was a choice' sentence is wrong on
+the history and it did real damage"* —
+
+cut at 3350. Reading on.
