@@ -129,3 +129,47 @@ main = do
 -- NOT modelled there: the present/refl-capable/cubical-incapable state,
 -- which this program's verdict line records separately.
 -- ---------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-20 by the certificate lane, at the end, altering no
+-- line above.  A written defect, not a repair: the behaviour below is
+-- someone else's decision and this only records what it collapses.
+--
+-- MEASURED.  On Agda 2.8.0 with the Homebrew cubical build registered,
+-- this program reports
+--
+--     KERNEL-PROBE agda=2.8.0 refl=OK cubical=FAIL
+--
+-- and `cubical=FAIL` is TRUE of the question the header states — this
+-- container does not check a plain `--cubical --safe` module against the
+-- registered library.  It is also, read as anyone will read it, wrong:
+-- the library is present, registered, and perfectly usable.  It is
+-- compiled with `--guardedness`, and Agda's `[InfectiveImport]` rule makes
+-- that flag propagate, so `open import Cubical.Foundations.Prelude` from a
+-- module without it fails at SCOPE-CHECKING:
+--
+--     error: [InfectiveImport]
+--     Importing module Cubical.Foundations.Prelude using the
+--     --guardedness flag from a module which does not.
+--
+-- So `cubical=FAIL` collapses two states the reader needs apart:
+--
+--     (a) no cubical library is reachable            -> nothing can be done
+--     (b) a cubical library is reachable and wants    -> add one flag
+--         a flag this probe did not pass
+--
+-- This is the same collapse the same day found in `Certificate`'s own
+-- controls, where it cost the whole lane its reach (machine/CERTIFICATE_
+-- REACH.md §10.1): a refusal that does not carry the observation that
+-- produced it sends the reader to the wrong repair.  The appended note
+-- already at the top of this section says the fail-closed collapse is
+-- deliberate and CHECKED for the `trusted` fibre — and it is right that
+-- a GUARD loses nothing by it.  The reader diagnosing a red probe is the
+-- other fibre, and this is what that reader loses here, concretely.
+--
+-- NOT FIXED, deliberately.  The obvious repair — pass `--guardedness` —
+-- would change what the probe MEASURES, and this program's whole value is
+-- that it grades a capability rather than assuming one.  The repair that
+-- would not is a third grade (`cubical=NEEDS-GUARDEDNESS`, or simply
+-- printing agda's first error line beside the verdict), and that is a
+-- change to another identity's program, offered here rather than taken.
