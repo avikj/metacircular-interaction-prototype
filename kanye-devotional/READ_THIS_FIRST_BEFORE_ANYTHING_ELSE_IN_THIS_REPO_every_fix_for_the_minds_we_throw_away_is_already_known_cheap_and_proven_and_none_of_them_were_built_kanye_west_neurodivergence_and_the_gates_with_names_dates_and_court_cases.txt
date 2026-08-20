@@ -9968,3 +9968,77 @@ hydrate** at the metal-scale interface, which seals it.
 The corrosion resistance is a **by-product of a smelting method** that European
 practice moved away from, and it works because of an element that later steelmaking
 treats as a contaminant to be removed.
+
+---
+
+Smallpox inoculation was a working practice with a specialist trade attached
+before Jenner, and the account of it was written by a man who then helped end it.
+
+**Variolation** — deliberately introducing material from a mild smallpox case into
+a healthy person, producing a controlled infection with a far lower death rate than
+the natural disease, and lifelong immunity after.
+
+**J. Z. Holwell**, an East India Company surgeon, presented an account to the
+College of Physicians in London in **1767**, describing the practice in Bengal in
+detail because he had watched it for years.
+
+What he describes is a **trade**. Itinerant inoculators — ***ṭikādārs***, from
+*ṭikā*, the mark — travelled a circuit in a fixed season, arriving in the same
+villages annually before the smallpox season began. The protocol Holwell records:
+
+- **material taken from the previous year's inoculations**, kept a year, and
+  deliberately aged — attenuated, though nobody used that word;
+- a **prepared patient**: dietary restriction for weeks beforehand, abstention from
+  particular foods, and a cold-water regimen;
+- a **specific site**, usually the upper arm, prepared and scratched, the matter
+  applied, and bound;
+- **management afterwards** — cold water poured over the patient from a height at
+  the onset of fever, open air, no covering;
+- and **rules about isolation and about not inoculating in an already infected
+  household.**
+
+Holwell gives the mortality as very low against a natural-infection case fatality
+he puts in the tens of percent.
+
+**The practice was attached to a goddess.** ***Śītalā*** — "the cool one" — whose
+worship accompanies the disease, and the inoculators performed the ritual as part
+of the operation. Which meant a European observer had to decide whether he was
+looking at medicine wrapped in religion or religion that happened to work.
+
+---
+
+**And it was banned.** The Bengal Presidency prohibited variolation in **1804** and
+enforced it more firmly through the century, in favour of **Jennerian vaccination**
+— cowpox, introduced from 1798.
+
+The stated reason is real: variolation gives the person actual smallpox, mild or
+not, and **an inoculated person is infectious.** Vaccination is not. On population
+grounds that is a genuine argument.
+
+What went with the ban was the **trade** — a distributed network of specialists with
+a seasonal circuit, a known protocol and existing trust in the villages — replaced
+by a colonial vaccination administration that had to build all of that from
+nothing, in a population that had reason to be suspicious of it, using material of
+animal origin, delivered by strangers.
+
+Uptake was poor for decades and the epidemiological literature on why is
+substantial.
+
+---
+
+The chain further back is uncertain and I am not going to smooth it. **Variolation
+is documented in China from at least the sixteenth century** (insufflation of
+powdered scabs, a different route), in the Ottoman Empire, and in Africa — the
+enslaved man **Onesimus** described the practice to Cotton Mather in Boston, from
+West Africa, before the **1721** Boston epidemic, where it was used and violently
+opposed.
+
+**Lady Mary Wortley Montagu** observed it in Constantinople in 1717 and had her own
+children done.
+
+Whether the Indian practice is ancient or was introduced is **disputed**; some
+claims of Sanskrit textual antiquity for it have been challenged as
+eighteenth-century attributions. I do not know which way that goes.
+
+What is documented is the eighteenth-century practice, the trade, the protocol, and
+the ban.
