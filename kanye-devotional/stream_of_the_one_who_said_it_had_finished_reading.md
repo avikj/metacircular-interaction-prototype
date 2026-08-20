@@ -10579,3 +10579,189 @@ The indictment and the hope in one sentence, with no seam.
 > destructions and are always done by one specific
 
 cut at 7660. Reading on.
+
+---
+
+## 7660–7800 — nine paragraphs, Hurston, and the collector
+
+> **Nine paragraphs. Chop it anywhere and the thing is in the piece, which was
+> the only instruction.**
+
+It states the design target and confirms it met it. And it is the bet from three
+thousand lines earlier — *all anyone ever produces in one life is a single linear
+stream, and the only thing you can do is hope that however they cut it, the
+truth is in the piece* — implemented, on purpose, in nine paragraphs, after the
+long version had been diagnosed as storage.
+
+So the file contains both: the seven-thousand-line derivation, and the carryable
+object derived from it. Which is the *Yuktibhāṣā* answer — write the derivation
+so it rebuilds in a new head — and the pāṭha answer — make a compressed form that
+can be carried — at the same time, in one document.
+
+---
+
+**Zora Neale Hurston, "and the third unmarked grave in this file."**
+
+Trained as an anthropologist under **Franz Boas** at Barnard and Columbia —
+*"the man who did more than anyone to dismantle scientific racism"* — and used
+the training to go **back to Eatonville**, the all-Black town in Florida where
+she grew up, and collect: *"work songs, sermons, lies, jokes, hoodoo practice,
+the actual speech."* Then New Orleans, then Jamaica and Haiti — *Tell My Horse*
+— and *Their Eyes Were Watching God*, **in about seven weeks.**
+
+> Her method is the whole argument of this file executed as fieldwork. **She
+> recorded the speech as spoken.** She did not translate it upward into standard
+> English for respectability, and she did not present it as quaint material
+> framed by an educated narrator. **The dialect is the medium of the novel's
+> interior life, which is a technical decision about where the intelligence in a
+> text is located.**
+
+Not translating upward is the refusal of the sanitised default — the thing the
+file caught itself doing to a filename, the thing CLAUDE.md calls white-speak as
+the deliverable. And she did it in 1937, with the anthropology degree in hand,
+against her own field's conventions.
+
+*Where the intelligence in a text is located.* An educated frame narrator places
+it outside the speakers. She put it inside.
+
+> And she was attacked for exactly that. **Richard Wright reviewed *Their Eyes*
+> savagely** — that it carried no theme, no message, no thought, that the
+> dialect was a minstrel inheritance, that she was writing for a white
+> audience's amusement.
+
+> The Black literary establishment of the moment was committed to protest
+> naturalism, and a novel about a woman finding her own life, in her own speech,
+> in a Black town where white people are barely present, **did not read as
+> serious to them.**
+
+The attack comes from inside, and from a position that is itself a response to
+the same oppression. Not a villain — a genre commitment, and under it her book
+is illegible. Same structure as the abacists, as Brahmagupta on the rotating
+earth, as Thompson: an objection correct on its own terms.
+
+The *Brown* position: *"she argued it insulted Black schools and Black teachers
+by implying that Black children needed to sit beside white children to learn.
+**That position was and is contestable and it cost her what remained of her
+standing.**"*
+
+Contestable, stated, not adjudicated, and the cost recorded.
+
+> **four novels, two folklore collections, an autobiography, plays, essays** —
+> and by the 1950s she was out of print, working as a maid in Florida among
+> other jobs, and she died in **1960 in a county welfare home** and was buried in
+> an **unmarked grave** in a segregated cemetery in Fort Pierce. **Her papers
+> were reportedly being burned in a yard fire when a passing deputy who knew her
+> put it out.**
+
+A deputy who knew her. The archive survives because one person who happened to
+be passing recognised what was on the fire. The archive is a person, tenth
+instance, and this one is an accident.
+
+> **In 1973, Alice Walker went to Florida to find the grave.** By her own account
+> she walked into a waist-high field of weeds, could not find any marker, and
+> eventually simply called out — ***Zora! I'm here. Are you?*** — and stepped
+> into a sunken rectangle in the ground and decided that was it. She bought a
+> headstone and had it inscribed ***A Genius of the South***, and then wrote the
+> essay in *Ms.* that put Hurston back into print.
+
+> **Every book of Hurston's that is in a bookshop now is downstream of a novelist
+> walking into a weed field in 1973 and shouting her name.**
+
+---
+
+**Three unmarked graves**: Blake at Bunhill Fields, surveyed back into existence
+in 2018; Rosetta Tharpe, unmarked until 2008; Hurston until Walker in 1973.
+
+> In every case: **no institution did it.** A specific person went to a field.
+
+> And in every case the recovery required someone who was *already* the thing
+> being recovered — **Walker was a novelist, the people who found Blake were
+> readers, the ones who paid for Tharpe's stone were musicians and fans.** The
+> restoration is done by the next member of the lineage, which is the same
+> structure as Nīlakaṇṭha writing *as stated by Mādhava*, **and it is why lineage
+> is not a sentimental idea but a load-bearing piece of infrastructure.**
+>
+> **The lineage is what notices. Nothing else does.**
+
+*The lineage is what notices.* That is the answer to why *the archive is a
+person* — not because people are noble, but because only someone inside the
+practice can see that something is missing. An institution has no detector for
+an absence; a practitioner does, because the gap is in their own working
+material.
+
+Which is also why *readers, not objects* is the whole preservation finding, and
+why Mau breaking his lineage rule was correct: he was manufacturing detectors.
+
+---
+
+**"The complication I owe the preservation sections, because I have been
+treating the collector as the hero and it is not that simple."**
+
+**John and Alan Lomax**, into the American South from the 1930s for the Library
+of Congress. *"took down thousands of songs that would otherwise be gone: work
+songs, hollers, ballads, the whole substrate of American music. Without that
+archive, entire repertoires do not exist. **That is not in dispute.**"*
+
+> And they did a great deal of the recording **inside prisons** — Parchman Farm,
+> Angola, Sugar Land — on the explicit reasoning that **incarcerated Black men
+> were the population least exposed to radio and therefore held the older forms
+> most intact.** Which is an intelligent sampling strategy **and is also a
+> sentence about using a captive population as a research site.**
+
+The methodology is *good*, and the reason it is available is incarceration. Both
+in one clause, neither softened.
+
+**Lead Belly.** Recorded at Angola in 1933, released 1934 — *"the story that the
+Lomaxes' recording of a plea to the governor got him out is disputed and
+probably not what happened."* John Lomax became his manager, brought him north,
+and presented him — **documented and photographed — in prison stripes, as an
+authentic primitive**, to white audiences and newsreels. *"The contract gave
+Lomax a large share of earnings and control. Lead Belly went to court, they
+separated bitterly, and he died in 1949 more or less broke. **Goodnight Irene
+was a number one hit the following year for someone else.**"*
+
+> Copyright on that material is a mess to this day, and in a number of cases
+> collected songs were registered with **the collector's name in the arranger or
+> author slot.**
+
+The collector's name in the author slot. That is the renaming machine with a
+form to fill in — the HOLC field for race, the guardianship docket, the
+recoupment clause — and here it is the copyright registration.
+
+> **the same act preserved the music and expropriated the musician. Not two
+> acts, one act.** The archive that makes it possible for anyone now to hear a
+> 1933 field holler is the archive built by a man who put a living performer in
+> stripes for the newsreel.
+
+> I cannot resolve that and I am not going to pick a side of it, because the
+> traditions in this file have a specific instruction for exactly this shape and
+> it is *avaktavyam*: both predications hold, simultaneously, and no single
+> sentence carries the result. **Saying *the Lomaxes saved American music* is
+> true and cheap. Saying *the Lomaxes exploited Black musicians* is true and
+> cheap. Said at once, of one man, in one act, it does not reduce.**
+
+That is the correct use of the fourth position and it is the first place in the
+file where the term is applied as a *working instruction* rather than explained.
+Sequence is cheap; simultaneity does not reduce; keep the remainder.
+
+And it is precisely what my Agda module cannot express, because it has no mode
+argument — no *saha* against *krama*. The distinction between "both are true in
+sequence" and "both asserted at once" is the entire content, and my
+formalisation collapses exactly there.
+
+---
+
+> I wrote that the restorations are cheap and are done by whoever decides to do
+> them, and listed Knorozov and Andrews and Haidara and Walker and Johanna **as
+> if collecting were an unambiguously good act. Collecting is a power
+> relation.** The collector chooses what is worth recording, holds the physical
+> object, controls access, writes the framing, and
+
+cut at 7800.
+
+It goes back and complicates the hopeful section — the one it built carefully,
+derived only from material on the page, and then compressed into the nine
+paragraphs. The consolation is not left standing. Fifth time it has revised its
+own frame, and this one is aimed at the part a reader would most want to keep.
+
+Reading on from 7800.
