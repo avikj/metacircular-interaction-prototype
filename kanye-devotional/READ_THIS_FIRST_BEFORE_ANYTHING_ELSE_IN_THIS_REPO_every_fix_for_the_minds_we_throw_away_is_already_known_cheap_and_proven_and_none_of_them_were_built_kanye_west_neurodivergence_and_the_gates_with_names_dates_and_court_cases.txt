@@ -25731,3 +25731,90 @@ a Seoul railway station warehouse** and the dictionary was completed from it.
 **And South Korea's Hangul Day is 9 October and North Korea's is 15 January** —
 **the same alphabet, two dates**, one taken from the 1446 promulgation and one
 from the 1443 creation.
+
+---
+
+**The "intense world" account was proposed by two neuroscientists who are also
+the parents of an autistic child, and it inverts the deficit reading.**
+
+**Henry and Kamila Markram**, with **Tania Rinaldi**, from **2007**, on the
+**valproic acid rat model** — rats exposed in utero to VPA, which in humans is
+associated with elevated autism risk.
+
+**What they measured**: the VPA rats' cortical microcircuits were
+**hyper-reactive and hyper-plastic** — **more excitable, more connected locally,
+and forming associations faster and more durably** — and the animals showed
+**enhanced fear conditioning that was harder to extinguish.**
+
+**The proposal**: that the core is not deficient perception, social interest or
+cognition, **but excessive** — "**a world of overwhelming intensity**" — and that
+withdrawal, repetitive behaviour and avoidance of eye contact are **consequences
+of, and coping with, that**, rather than the primary defect.
+
+**And the stated prediction is that the child is not failing to perceive but is
+perceiving too much**, with fear consolidating faster than it can be
+extinguished.
+
+**The theory is contested and is not the field's consensus**, and the animal
+model's relation to human autism is one of the disputes. **It is stated here with
+that attached.**
+
+**And the Markrams have said in interviews that the work began from their son
+Kai.**
+
+---
+
+**And the other reframing on the table is about prediction, and it is stated in
+Bayesian terms.**
+
+**Pellicano and Burr (2012)** — "hypo-priors": that autistic perception weights
+**incoming sensory evidence more and prior expectation less**, so the world is
+experienced closer to as it is, **with less smoothing.**
+
+**Van de Cruys et al. (2014)** — **HIPPEA**, "high, inflexible precision of
+prediction errors": that the weighting on prediction error is set too high and
+does not adapt, **so noise is treated as signal and every deviation demands
+explanation.**
+
+**And the consequence both accounts derive is the same and is testable**:
+**susceptibility to certain visual illusions should be reduced**, because
+illusions are the prior overriding the input. **The experimental results are
+mixed** — some illusions show the predicted reduction, others do not, **and the
+replication literature is genuinely unsettled.**
+
+**And what both accounts share is that they place the difference at the level of
+inference weighting rather than at the level of a social module**, which is a
+different research programme from theory-of-mind deficit, **and it generates
+different predictions about non-social perception.**
+
+---
+
+**And the behaviour that gets suppressed first has a measured function.**
+
+***Stimming*** — repetitive self-stimulatory movement. **Kapp et al. (2019)**
+surveyed and interviewed **autistic adults** on it: the reported functions are
+**self-regulation of overwhelming sensation and of strong emotion**, and the
+reported cost of suppression is **increased distress**, **with participants
+describing having been trained out of visible forms and having substituted
+hidden ones.**
+
+**And "quiet hands" — the instruction to keep hands still — is a documented
+component of behavioural programmes**, and the autistic-written response to it,
+**Julia Bascom's essay "Quiet Hands" (2011)**, is one of the most circulated
+first-person texts on the practice.
+
+**And *camouflaging* is measured.** **Hull, Mandy and colleagues built the CAT-Q**;
+the finding across studies is that **camouflaging is associated with anxiety,
+depression, exhaustion and — in several samples — with suicidality**, **and that
+it is reported more by those diagnosed later and by women.**
+
+**And late diagnosis in women is itself measured**: the diagnostic instruments
+were normed on samples that were overwhelmingly male, **and the sex ratio
+reported has fallen from around 4:1 toward roughly 3:1 as ascertainment
+methods changed** — **which is a fact about the instrument as much as about the
+population.**
+
+**And the earliest published descriptions had this in them.** **Kanner's 1943
+cohort was eleven children — eight boys, three girls** — and **Asperger wrote in
+1944 that he had not seen the full picture in a girl**, **a sentence that
+propagated for fifty years.**
