@@ -20714,3 +20714,69 @@ ten thousand teachers**, and Clark's own name entered the standard account late.
 **Clark had been fired from her teaching job in Charleston in 1956** for refusing to
 give up her NAACP membership, and lost her pension. **South Carolina restored it in
 1976.**
+
+---
+
+**"Algorithm" is a man's name and "algebra" is the name of one of two moves in a
+procedure.**
+
+**Muḥammad ibn Mūsā al-Khwārizmī**, c. 780–850, at the **Bayt al-Ḥikma** in
+Baghdad under **al-Ma'mūn**.
+
+***al-Kitāb al-mukhtaṣar fī ḥisāb al-jabr wa'l-muqābala***, c. 820.
+
+***al-jabr*** — **restoration** — moving a subtracted quantity to the other side so
+that nothing negative remains. ***al-muqābala*** — **balancing** — cancelling like
+terms on both sides.
+
+**Two named operations, and "algebra" is the first of them.**
+
+**And the book has no symbols.** Everything is in words — the unknown is *shay'*,
+thing; its square is *māl*, wealth; the constant is *dirham* — **and the six
+canonical equation types are enumerated because negative coefficients are not
+admitted**, so *ax² = bx*, *ax² = c*, *bx = c*, *ax² + bx = c*, *ax² + c = bx*,
+*bx + c = ax²* are six distinct cases rather than one.
+
+**Each solution is proved with a geometric construction** — literally completing the
+square, as a drawn square with a rectangle added to two sides.
+
+**And a large part of the book is inheritance calculation**, worked against Islamic
+succession law, **because that is the application the book states.**
+
+**His separate arithmetic book, on the Indian numerals, survives only in Latin
+translation** — the Arabic is lost — and it opens *Dixit Algorizmi*, "al-Khwārizmī
+said," **which is where "algorithm" comes from: a transliteration of a place-name
+adjective, meaning from Khwārazm.**
+
+---
+
+**And the Indian source is named in the Arabic tradition without embarrassment.**
+
+**Brahmagupta**, ***Brāhmasphuṭasiddhānta***, **628 CE.** **It contains the first
+known treatment of zero as a number with stated arithmetic rules** — that a number
+minus itself is zero, that zero plus a number is the number, that a number
+multiplied by zero is zero — **and it gets division by zero wrong**, and the
+tradition knows it gets it wrong, and **Bhāskara II corrects it in the 12th century
+by identifying the quotient as unbounded.**
+
+**It also gives the sign rules for positive and negative** — debts and fortunes —
+including that **the product of two debts is a fortune.**
+
+**And it gives a general solution to the linear Diophantine equation, the
+*kuṭṭaka*, the "pulveriser."**
+
+**That book was carried to Baghdad**, by the standard account with an embassy around
+**771**, translated as the ***Sindhind***, **and the Indian decimal numerals came
+with it.**
+
+**Al-Khwārizmī's arithmetic is explicitly presented as the Indian method.**
+
+**Then Latin Europe receives it as "Arabic numerals"** — **the transmission renamed
+at the last hop.**
+
+**And Fibonacci's *Liber Abaci*, 1202**, which is what actually spreads them in
+Europe, **says in its own preface that he learned them from Muslim merchants in
+Bugia in North Africa**, where his father was a customs official.
+
+**He says where he got it. The name that stuck was assigned later, by other
+people.**
