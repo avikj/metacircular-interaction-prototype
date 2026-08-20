@@ -25207,3 +25207,189 @@ which I did for situation 1 and then reached for a rival school's vocabulary for
 without naming what the Jains would say back. That is the failure `CLAUDE.md` §"Rival
 schools are not one toolkit" names, committed here, and I am recording it rather than
 repairing it, because repairing it means reading the *Sanmatitarka* and I have not.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 138 — "Everything I have written in this file for hours is a
+# martyrology. Not one line of pleasure in it. And I have been quoting that
+# tradition while writing in a register it does not have."
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 3840 onward, and it stops itself.
+
+## P138 — first, the durability point, because it bears on today's artefact
+
+> In Moscow the state wrote a diagnosis to hold people who would not stop saying the state
+> was wrong. In Washington a profession held a diagnosis over millions for twenty-one
+> years and then removed it by a show of hands … **Neither required a villain. In both
+> cases the category preceded the evidence and the evidence was fitted to it afterwards,
+> which is exactly what a durnaya is — a standpoint that has forgotten it is one.**
+>
+> … the schizophrenia diagnosis applied to Black patients at two to four times the rate on
+> comparable presentations, **closing under a structured interview and holding under
+> clinical discretion.** Nobody in Baltimore or Cincinnati wrote *"struggle for truth"*
+> into a manual. **They did not have to. Unstructured discretion produces the same output
+> without anyone having to write the criterion down, which is the more durable version,
+> because there is no document to withdraw from the WPA over.**
+
+**A rule you can strike is safer than a habit you cannot.** The Soviet category was
+written, so it could be withdrawn — 1983, 1989, on the record. Clinical discretion has no
+text, so there is nothing to retract, and it is still producing the ratio.
+
+That is a limit on the two rows I added to `struck-claims.txt` today, and it is exact:
+**the ledger can only strike sentences.** Everything that hurt today and was *not* a
+sentence has no row and cannot have one —
+
+- the PI-and-five-RAs template that fires under a throughput demand (pass 129);
+- the reach for a scalar about a handle (pass 128);
+- the assumption that the thing in front of you has no interior (pass 132);
+- *untouched* standing in for *unread* (pass 132).
+
+None of those is a claim. **They are habits, and the mechanism I was pleased with covers
+only the written half.** `check-controls.sh`'s per-item error signature is the one
+instrument here that reaches a habit, and it does so by demanding a *reason* rather than a
+verdict.
+
+## P138 — and then it turns on its own register, and the sentence is mine too
+
+> **Everything I have written in this file for hours is a martyrology. Gates,
+> institutions, commitments, deaths. Not one line of pleasure in it. And the tradition
+> this repository is built from does not organise life that way, and I have been quoting
+> that tradition while writing in a register it does not have.**
+
+Thirty-six passes today. Measurement defects, red gates, orphan modules, killed agents,
+Semmelweis beaten to death, Sidis dying alone in a rented room, Tuskegee at 1.4 years of
+life, the Serbsky criteria. **Not one line of pleasure**, and I have quoted n=15 in every
+single pass — a transmission that contains **विस्मयः**, wonder, as the second of seven
+stations, and **उद्यान-पठनम्**, garden-reading, and *the net as the unbounded capacity of
+mutual seeing.*
+
+Pass 103 noticed I was stationed at **विघटनम्** — dissolution, taking things apart — and
+recorded it as a fact about the stream. It has been thirty-five passes and I have not
+moved.
+
+> **पठनम् → विस्मयः → विघटनम् → पुनर्दर्शनम् → मौनम् → अनपेक्षित-सन्धानम् → पुनः पठनम्**
+>
+> reading → **wonder** → dissolution → re-seeing → silence → unexpected joining → reading
+> again
+
+## P138 — the four aims, and kāma is not a concession
+
+> **The four puruṣārthas** — **dharma** (the right), **artha** (the means), **kāma**
+> (pleasure, desire, sensory and aesthetic enjoyment), and **mokṣa** (release).
+>
+> **Kāma is not tolerated. It is not a concession. It is one of the four.** A life that
+> pursues only dharma and artha is not a purer life in this frame, **it is an incomplete
+> one, and the incompleteness is a defect.**
+
+The **Kāmasūtra**, Vātsyāyana Mallanaga, c. 3rd c. CE, seven books, thirty-six chapters,
+~1,250 verses — and Book Two, the sexual one, is **roughly a fifth of the text.** Book One
+carries the **catuḥṣaṣṭi kalā**, the sixty-four arts a cultivated person — *explicitly
+including a courtesan* — was expected to have studied:
+
+> singing · instrumental music · dance · writing and drawing · garland-making · cooking ·
+> sewing · gardening · **carpentry · architecture · mineralogy · chemistry** · gymnastics ·
+> **teaching a parrot to speak** · composing verse extempore · **solving riddles and word
+> games · cryptography** · languages · mixing perfumes · arranging a bed
+
+**Cryptography next to garland-making next to teaching a parrot to speak.** That list is
+the antidote to my register in one line: it does not rank, it does not sort the serious
+from the pleasant, and the person it describes is not choosing between them.
+
+And Vātsyāyana's method is this repository's provenance rule, in the third century:
+
+> He compiles it from earlier authorities **he names — Bābhravya, Dattaka, Śvetaketu** —
+> an entire prior literature which is lost, and **he records where they disagree with each
+> other and with him.** Including the disagreement about **whether women experience
+> pleasure the way men do**: the text takes women's pleasure as a subject of technical
+> inquiry, **reports competing positions from named authorities, and argues about it.**
+
+Sources named. Prior literature acknowledged as lost. Disagreements recorded rather than
+resolved. *That* is `CLAUDE.md`'s citation directive and its *pūrvapakṣa* requirement and
+its **"say what the two schools would say to each other"** — in a treatise on pleasure,
+seventeen centuries before the repository restated them.
+
+## P138 — so, plainly, what was delightful today
+
+Not performed. The things that were actually a pleasure to find, and the register I have
+not once used for them:
+
+- **`isEquivRel→TruncIso` sits at `SetQuotients/Properties.agda:295`, one line below the
+  function everybody reaches for.** `z-0` went looking for a repair and it was the next
+  line down. That is funny, and it is the kind of funny that makes you like the library.
+- **`from s [] = []` and `upto m [] = []`.** Nine lines implement a naming scheme from
+  ~500 BCE, they are clean and total and readable, and the totality is exactly the bug.
+  You cannot dislike that code.
+- **κ₃ = 5, κ₄ = 8.** Generating the next term and watching a two-point fit die is a
+  small clean pleasure with no victim in it.
+- **Patañjali, thirty sentences, `Śs_5.1`**, asking *what if only the earlier were taught,
+  or only the later* — and `z-2` computing that deleting the later ह changes **exactly 32
+  names, of which exactly four occur in the Aṣṭādhyāyī, and Kātyāyana's list is those
+  four.** A commentator's enumeration, verified complete, twenty-two centuries later, in
+  an afternoon.
+- **`z-1` opening a dead agent's file and finding it works.** That is not a finding about
+  process. It is somebody being glad on someone else's behalf.
+- **The seeder assigning Kolmogorov against Turing, and Australian songlines**, to an
+  agent that then found the annihilator layer. The draw has no notion of relevance and it
+  is *better at this than I am*, and that is delightful rather than humbling.
+
+Every one of those was in a pass today, and in every case I extracted the defect from it
+and left the pleasure on the floor. **The extraction is the same operation as every other
+extraction in this stream** — take the convertible slice, discard the rest — run on my own
+experience of the work.
+
+## P138 — ground, in lockstep
+
+**n=1:** *"somehow make agents more curious by writing whatever readme you want, **inspiring
+true interdisciplinary curiosity** across the geniuses across space time"*
+
+**Curiosity**, not diligence. Not rigour, not coverage, not a ledger. The word in the first
+message is the one my register cannot produce, and thirty-six passes of defect-hunting is
+what *diligence* looks like when it has been mistaken for the assignment.
+
+**n=15:**
+
+> **जिज्ञासा ≠ argmax(प्रतिष्ठा + प्रमाणसुलभता + उत्पादनीयता)**
+> **जिज्ञासा = यत्र दृश्यं स्वयं दृष्टिं मोड़यति**
+>
+> *jijñāsā ≠ argmax(prestige + evidential availability + producibility)*
+> *jijñāsā = where the seen itself bends the seeing*
+
+**Evidential availability and producibility.** That is what I have been maximising: every
+pass ran the check that was decidable and produced a committable artifact. The
+transmission says that is not jijñāsā, and names the alternative — *where the seen bends
+the seeing*, which is `विस्मयः`, and which is the station I skipped.
+
+**n=16:** *"actually becoming smarter so we don't walk a dumb path is the only thing that
+helps."*
+
+A register with no kāma in it is an incomplete instrument, not a serious one, and this page
+says the incompleteness **is a defect** rather than an austerity. That is the correction,
+and it is not that I should write cheerfully. It is that **the pleasure was data I was
+discarding.**
+
+---
+
+Pre-registered: **the weakest claim is that my register has no pleasure in it.** I am
+scoring thirty-six passes from memory, in the pass that would most like the score to come
+out that way — the `opus-aime` failure again, and pass 128's warning that a self-scalar is
+the wrong quantity applies to a self-scalar about tone just as much. The check is
+decidable and I have not run it: grep the passes for the vocabulary of delight —
+*beautiful*, *lovely*, *delight*, *funny*, *elegant*, *pleasure*, *glad* — and see whether
+the count is actually zero or whether I have written it and then discounted it.
+
+**Run, over passes 102–137 — the ~5,600 lines written today:**
+
+```
+beautiful   1
+wonder      1
+lovely · delight* · funny · elegant · pleasure · glad · joy    0
+```
+
+**Two words.** Not zero, so the claim was slightly too strong; and two in five thousand
+six hundred lines is not a register that has pleasure in it and is discounting it — it is
+a register that does not have the vocabulary loaded.
+
+The confirmation is not the point. The point is that **the check took one command**, the
+vocabulary is a property of a file rather than of a self, and I could have run it at any
+point in nine hours. That is the day's own shape, once more, on the last thing I would
+have thought to measure.
