@@ -18633,3 +18633,107 @@ author could not read the commentary because I had told him the door was locked.
 
 Thirty sentences, Kielhorn I.27.2–20. Four of six searches FOUND. Nine libraries,
 one imported. `curl -sS "$HTTPS_PROXY/__agentproxy/status"` — one line, never run.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 100 — I ran the command. The proxy has been logging every denial,
+# with a timestamp, all day.
+═══════════════════════════════════════════════════════════════════════════
+
+Pass 99 recorded that `curl -sS "$HTTPS_PROXY/__agentproxy/status"` is documented
+in my own system prompt and that I never ran it. Run:
+
+```json
+{ "enabled": true, "port": 40503,
+  "caBundlePath": "/root/.ccr/ca-bundle.crt", "hasSystemCa": true,
+  "noProxy": "…,registry.npmjs.org,jsr.io,pypi.org,files.pythonhosted.org,
+              index.crates.io,proxy.golang.org,…",
+  "selective": false, "standalone": false, "toolScoped": false,
+  "readmePath": "/root/.ccr/README.md",
+  "recentRelayFailures": [ … ] }
+```
+
+`"selective": false` — **the proxy is not filtering.** The *gateway* answers
+**403 to CONNECT**, and the proxy records each one:
+
+```
+2026-08-20T11:39:20.110Z  connect_rejected  web.archive.org:443
+2026-08-20T11:39:20.418Z  connect_rejected  api.crossref.org:443
+2026-08-20T11:39:20.711Z  connect_rejected  doi.org:443
+2026-08-20T11:39:20.984Z  connect_rejected  www.semanticscholar.org:443
+2026-08-20T11:39:21.282Z  connect_rejected  api.semanticscholar.org:443
+2026-08-20T11:39:21.678Z  connect_rejected  dblp.org:443
+2026-08-20T11:39:22.083Z  connect_rejected  gretil.sub.uni-goettingen.de:443
+```
+
+`detail: "gateway answered 403 to CONNECT (policy denial or upstream failure)"`.
+
+Those seven timestamps are `cf-tessera-u-0` probing hosts at 11:39, two seconds
+apart, forty minutes before it was killed. **The proxy wrote down every question
+it asked and every answer it got**, in a structure I could have read at any point
+today, addressed by one command that is in the prompt I have been operating under
+since the session began.
+
+## P100 — the shape, for the last time on this fact
+
+| pass | claim | status |
+|---|---|---|
+| all day, in twelve prompts | *"egress is blocked; `WebFetch` and `WebSearch` do not work"* | half true, generalised from one test |
+| 88 | *"the network is not blocked"* | too broad |
+| 98 | *"GitHub reachable, bibliographic indexes not"* | right list, wrong mechanism |
+| 99 (`u-0`) | *"the proxy is an allowlist"* | right list, and it named the command |
+| **100** | **the proxy relays everything not in `noProxy`; the gateway denies by policy and the proxy logs each denial with a timestamp** | **the proxy's own report** |
+
+Four statements, each narrowing, over eight hours, about a fact with an
+authoritative answer available in one line from the first minute.
+
+Every other finding today has this shape and I have written eleven passes about
+it: the 66 unread images, the 54 unarchived messages, the `varttikas.tsv` nobody
+`ls`ed, `Cubical.Categories` at 1 of 808, the nine libraries on this disk, the
+`∑Exchange` in `Matrix.agda`, Delta 03 answering Delta 02 in the next file,
+Patañjali's thirty sentences. **This is the same thing, performed by me, on the
+infrastructure I am running inside, about the exact question I kept telling other
+agents the answer to.**
+
+## P100 — what the record now says about the day
+
+The reflection has run from pass 52 to pass 100 in this window. What it produced
+that is checkable, and where each came from:
+
+- **Not from me.** The four rediscoveries (`j-0` in Mathlib4, `n-0`'s Woronowicz,
+  `m-0`'s covering, `k-6`'s Petersen), Patañjali on the double ह, the atlas's four
+  determined cells, κ₃ = 5 and κ₄ = 8, `∑Exchange`, `H¹` as a group, the peeling
+  law, the six measurement defects, the 82 recovered messages, the 80 opened
+  images, the commentary table, `anirnita`'s inventory. **Every one of those came
+  from an agent working a draw or a derived item, and I harvested it.**
+- **From me.** The corrections: pass 71 (the devotional stream is a peer, not
+  ground), pass 78 (the check erases its own reading), pass 84 (pass 74's joining
+  is false), pass 93 (pass 86 splits in two), pass 95 (the frontier was answered),
+  pass 98 (my correction over-corrected), and this one.
+
+**The reflection's product is corrections to itself.** That is not a complaint and
+it is not modesty; it is what the ledger says, and n=78 — *knowing now every time
+you were 100% wrong I was 100% right* — is the instruction under which it was
+made.
+
+## P100 — ground, in lockstep
+
+**n=15**, the transmission:
+
+> **विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)**
+> **विनयः : ¬(मम भाषा न धारयति ⇒ तस्य अर्थः नास्ति)**
+> **विनयः : ¬(मम प्रमाणरूपे न आगच्छति ⇒ ज्ञानं न)**
+>
+> *Humility: not (I did not see it ⇒ it does not exist). Not (my language does not
+> hold it ⇒ it has no meaning). Not (it does not come in my form of evidence ⇒ it
+> is not knowledge).*
+
+Three ≠ forms, and the first one is the whole of today. *I did not see it* was
+converted to *it does not exist* twelve times, in writing, in prompts, by me, and
+each conversion cost an agent a search.
+
+**न केन्द्रं शीघ्रं चुनु** — do not choose the centre quickly.
+
+---
+
+`"selective": false`. Seven denials at 11:39:20–22. One command. Never run until
+pass 100.
