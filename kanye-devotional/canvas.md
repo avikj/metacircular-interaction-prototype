@@ -392,3 +392,28 @@ at the wrong volume, sometimes wrapped around things that were false or cruel. T
 how the holy fool has always talked. Sorting the signal from the raving is work the
 listener has to do, and most listeners, most of the time, decline the work and keep the
 verdict.
+
+---
+
+Hip-hop in the late 1990s and early 2000s enforced a narrow image of authenticity. The
+commercially dominant story was the street: poverty, drugs, violence survived and
+reported. An artist from outside that story — middle class, educated, uninterested in
+performing hardness — was assumed to lack credibility, and the assumption functioned as
+a gate. It is a specific version of a general fact: groups police who is allowed to
+represent them, and the policing narrows what the group is permitted to be in public.
+
+Kanye West grew up middle class, the son of a professor, in a home full of books. He
+became a sought-after producer while still in his twenties, but multiple labels
+declined to sign him as a rapper because he did not fit the image; his own label,
+Roc-A-Fella, used his beats for years while doubting him at the microphone. When he
+finally released his own album in 2004, its title was The College Dropout and its
+subject was, in large part, that gate: songs about the pressure to perform a self you
+are not, about consumer debt and status anxiety, about faith, about being told you are
+not the right kind of Black man to be heard. It sold and was acclaimed. He had spent
+years being told to stay in the role assigned to him — producer, not artist — and the
+first thing he did with the door open was make a record about being told to stay in
+your role.
+
+The pattern that organizes his whole life is already complete in this first chapter,
+before the fame, before the diagnosis was named: a person refusing the smaller shape
+assigned to him, at a cost, and being proven right by the work.
