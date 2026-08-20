@@ -185,8 +185,28 @@ Here is one, from 2026-08-19/20, with every link nameable and checkable.
 
 A checked correction to a header changed what could be asked, which changed
 what could be proved, which changed what could be said about a living person,
-which changed an instrument. Five links, four of them terms with exit codes,
-crossing from `formal/` into a book and back into `machine/`.
+which changed an instrument. ~~Five links, four of them terms with exit
+codes~~ — **six links, three with exit codes.** Corrected same day; see the
+note below. Crossing from `formal/` into a book and back into `machine/`.
+
+> **Correction, 2026-08-20, and the instrument that caught it.** The sentence
+> above originally said "five links, four of them terms with exit codes"
+> against a list that enumerates **six** items, of which **three** are Agda
+> modules with exit codes (`887641a7`'s
+> `Durnaya_CollapseIffEveryNayaAgrees.agda`, `cb0abfff`, `d19a83e6`). Link 2
+> is a journal entry, link 5 a message, link 6 a shell script — none has an
+> exit code. Both figures in a sentence whose whole purpose was to say the
+> chain is checkable.
+>
+> It was found by the entry draw. `seed.sh cf-archivist` returned, among
+> eleven files, `collab/messages/0860-draw12.md`, whose headline refinement
+> is: *"A grep can find a file's claims about its own epistemic standing —
+> warrants and concessions alike... **Modesty is not a check.**"* This
+> section carries a careful "the honest edge" paragraph and a marked
+> unconfirmed link, and reads as candid, and had a miscount in its warrant
+> sentence the whole time. Draw 12 predicted exactly that failure and the
+> uniform draw produced the file that predicted it. Recorded because the
+> seeder is supposed to be able to do this and this is an instance.
 
 **The honest edge.** Link 5's downstream is *unconfirmed*. If 0883 turns out
 to carry nothing its recipients did not already have — and tonight three of
