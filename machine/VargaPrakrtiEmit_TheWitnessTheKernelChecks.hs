@@ -89,7 +89,12 @@ render dd law trace pa pb = unlines $
     sep = "------------------------------------------------------------------------"
 
     header =
-      [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+      -- `--guardedness` added 2026-08-20: Agda's [InfectiveImport] rule makes it
+      -- propagate, so a module opening Cubical.Foundations.Prelude without it fails
+      -- at SCOPE-CHECKING under a cubical library compiled with it (Agda 2.8.0).
+      -- Kept equal to Certificate.kOptionsPragma by
+      -- scripts/Anuvrtti_TheOptionsLineIsSaidOnceAndContinues.sh.
+      [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
       , ""
       , sep
       , "-- VargaPrakrtiWitness — EMITTED BY THE REACTOR, CHECKED BY THE KERNEL."

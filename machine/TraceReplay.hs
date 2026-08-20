@@ -66,6 +66,14 @@ module TraceReplay
   , libRules
   , deriveByInduction
   , peanoRules
+  -- Exported 2026-08-20 (additive; no definition changed).  A caller that
+  -- wants to REWRITE with the same defining equations this module is willing
+  -- to CITE needs the environment, not just the +/* half of it: `peanoRules`
+  -- omits max and le, so a derivation over those symbols cannot fire and
+  -- replay declines a proof that was in fact available.  Re-deriving the list
+  -- in the caller is the two-copies defect that cost this file its whole
+  -- reach on 2026-08-20 (see `moduleHeader`), so it is exported instead.
+  , vocabEnv
   , replayContract
   , main
   ) where
@@ -502,9 +510,21 @@ symbolsUsed lenv d = nubStr (concatMap symsT terms)
 -- `Cubical.Data.Nat.GCD`, which roughly triples the cost of the call.  The
 -- local `max` and `le` are transcribed from the same place, in the same
 -- clause order, so a module that renders here renders there.
+-- 2026-08-20.  `--guardedness` was added.  This module is deliberately
+-- self-contained (see STATUS above) and therefore carries its own copy of the
+-- OPTIONS line, which is exactly why it drifted: the copy in
+-- `Certificate.preambleCore` had `--guardedness` and this one did not.  Under
+-- a cubical library compiled with that flag, Agda's `[InfectiveImport]` rule
+-- refuses `open import Cubical.Foundations.Prelude` from a module without it,
+-- so EVERY module this file emitted failed at scope-checking and the measured
+-- replay reach on Agda 2.8.0 was 0/13 — for a reason with no mathematics in
+-- it.  Self-containment is worth its cost and the cost is real: the copy is
+-- now checked against `Certificate.kOptionsPragma` by
+-- `scripts/EkarupaVikalpa_OneOptionsLineForEveryEmitter.sh`, which fires on
+-- the write rather than after the measurement.
 moduleHeader :: String -> [String] -> [String]
 moduleHeader modName syms =
-  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
   , "module " ++ modName ++ " where"
   , "open import Cubical.Foundations.Prelude"
   , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_"

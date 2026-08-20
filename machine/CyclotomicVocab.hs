@@ -278,7 +278,12 @@ emitAgda surv path = writeFile path (unlines source)
   where
     (wp, wa, wn) = naiveWitness
     source =
-      [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+      -- `--guardedness` added 2026-08-20: Agda's [InfectiveImport] rule makes it
+      -- propagate, so a module opening Cubical.Foundations.Prelude without it fails
+      -- at SCOPE-CHECKING under a cubical library compiled with it (Agda 2.8.0).
+      -- Kept equal to Certificate.kOptionsPragma by
+      -- scripts/Anuvrtti_TheOptionsLineIsSaidOnceAndContinues.sh.
+      [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
       , ""
       , "------------------------------------------------------------------------"
       , "-- CyclotomicMined"

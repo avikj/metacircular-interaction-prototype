@@ -244,6 +244,9 @@ module Certificate
   , main
     -- * the two controls (a kernel that accepts a falsehood is not a kernel)
   , kernelIsChecking
+  , KernelStatus(..)
+  , kernelStatus
+  , kOptionsPragma
   , canaryTrue
   , canaryFalse
   , successHidesAnError
@@ -522,9 +525,37 @@ preambleWith defs syms =
       where
         params = mapMaybe defVar [0 .. defArity d - 1]
 
+-- THE OPTIONS LINE, WRITTEN ONCE.
+--
+-- It was written twice — here and in `canaryModule` — and the two copies
+-- drifted: the candidate modules carried `--guardedness`, the controls did
+-- not.  That is not a cosmetic difference.  Agda's `[InfectiveImport]` rule
+-- makes `--guardedness` propagate through imports, so under a cubical library
+-- compiled with it (Agda 2.8.0 + the Homebrew cubical build, measured
+-- 2026-08-20) a module that opens `Cubical.Foundations.Prelude` WITHOUT
+-- `--guardedness` fails at scope-checking, before any proof term is looked at:
+--
+--     error: [InfectiveImport]
+--     Importing module Cubical.Foundations.Prelude using the
+--     --guardedness flag from a module which does not.
+--
+-- `canaryTrue` therefore failed for a reason that has nothing to do with the
+-- kernel's ability to check proofs, `kernelIsChecking` returned False, and
+-- `vetSuccess` downgraded EVERY acceptance to an environment fault.  Measured
+-- reach on that container: 0/28, where the same binary with the pragmas
+-- agreeing gets 15/28.  The refusal was correct and the reason given for it
+-- was invented, which is not.
+--
+-- Sharing the string is the mechanism.  A control module that is not compiled
+-- the way the candidate modules are compiled is not a control for them, and
+-- the only way to keep that true under future edits is for there to be one
+-- string.
+kOptionsPragma :: String
+kOptionsPragma = "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+
 preambleCore :: [String] -> [String]
 preambleCore syms =
-  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+  [ kOptionsPragma
   , "module Candidate where"
   , "open import Cubical.Foundations.Prelude"
   -- _+_, _·_ and _∸_ come in unconditionally even when the equation does
@@ -818,7 +849,7 @@ runAgdaRaw root source = do
 
 canaryModule :: String -> String
 canaryModule claim = unlines
-  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  [ kOptionsPragma
   , "module Candidate where"
   , "open import Cubical.Foundations.Prelude"
   , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)"
@@ -836,27 +867,103 @@ canaryTrue = canaryModule "(zero + x) ≡ x"
 canaryFalse :: String
 canaryFalse = canaryModule "(suc x) ≡ x"
 
+-- WHY THIS IS FOUR VALUES AND NOT A BOOLEAN.
+--
+-- The two controls fail for opposite reasons and the old code folded them
+-- into one `Bool`, so `vetSuccess` printed ONE sentence for BOTH:
+--
+--     the kernel accepted `suc x ≡ x` by refl.  It is not checking proofs
+--
+-- On 2026-08-20 that sentence was printed 33 times by a container in which
+-- the kernel had rejected `suc x ≡ x` exactly as it should, and in which the
+-- POSITIVE control was the thing that failed — for an `[InfectiveImport]`
+-- scope error (see `kOptionsPragma`).  The verdict was right and the reason
+-- was invented, and a reader who believed the reason would have gone looking
+-- for a broken agda instead of a drifted pragma.  Two distinct observations
+-- reported under one name is the collapse this repository's own contract
+-- forbids: a written defect must state WHICH.
+--
+-- Fail-closed is unchanged.  Only `KernelChecking` licenses an acceptance;
+-- the other three are refusals.  What changes is that the refusal now names
+-- the control that actually failed and carries agda's own words for it.
+--
+-- The fourth constructor exists for the same reason as the split: a negative
+-- control that merely EXITED NONZERO has not been watched rejecting anything,
+-- and reporting that as "accepted a falsehood" would repeat the invented
+-- reason one level down.  Not-observed and observed-false stay apart.
+data KernelStatus
+  = KernelChecking
+    -- ^ positive control checked; negative control produced a located type
+    --   error.  The falsifier was watched firing.
+  | KernelPositiveControlFailed String
+    -- ^ `(zero + x) ≡ x` did NOT check.  agda's output.  Says nothing about
+    --   whether the kernel is honest — it says this container cannot compile
+    --   the modules this emitter produces, so no verdict from it means anything.
+  | KernelAcceptedAFalsehood
+    -- ^ `(suc x) ≡ x` checked.  The kernel is not checking proofs, and
+    --   nothing it accepts is one.
+  | KernelNegativeControlInconclusive String
+    -- ^ the negative control failed, but not with a type error located in the
+    --   module — a missing include root, a timeout, a killed process.  The
+    --   kernel was not observed rejecting a falsehood, and it was not observed
+    --   accepting one either.  Both are asserted at once and the pair has no
+    --   single verdict: *avaktavyam*, the fourth position of the saptabhaṅgī
+    --   (`notes/AHIMSA_SUTRA_VISTARA.md` §3), which is a place in the scheme
+    --   and not an absence.  Refused, like the others.
+  deriving (Eq, Show)
+
 {-# NOINLINE kernelChecksRef #-}
-kernelChecksRef :: IORef (Maybe Bool)
+kernelChecksRef :: IORef (Maybe KernelStatus)
 kernelChecksRef = unsafePerformIO (newIORef Nothing)
 
--- Does the thing on the far side of this seam actually check proofs?
--- Memoised per process: the answer is a property of the toolchain, and a
--- toolchain that changes under a running engine is not a threat this can
--- address (nor one the cache key can, which is the same admission).
-kernelIsChecking :: FilePath -> IO Bool
-kernelIsChecking root = do
+-- Does the thing on the far side of this seam actually check proofs, and if
+-- not, which of the two controls said so?  Memoised per process: the answer is
+-- a property of the toolchain, and a toolchain that changes under a running
+-- engine is not a threat this can address (nor one the cache key can, which is
+-- the same admission).
+--
+-- Order matters.  The positive control is examined FIRST, because a container
+-- that cannot compile this emitter's own preamble cannot be asked anything about
+-- the negative one either: under `[InfectiveImport]` both canaries fail to
+-- scope-check, `negCode /= ExitSuccess` holds vacuously, and reading that as
+-- "the kernel rejected a falsehood" credits the kernel with a rejection it
+-- never performed.
+kernelStatus :: FilePath -> IO KernelStatus
+kernelStatus root = do
   cached <- readIORef kernelChecksRef
   case cached of
-    Just b -> pure b
+    Just s -> pure s
     Nothing -> do
       (posCode, posOut) <- runAgda root canaryTrue
-      (negCode, _) <- runAgda root canaryFalse
-      let positiveHolds = posCode == ExitSuccess && not (successHidesAnError posOut)
-          negativeHolds = negCode /= ExitSuccess
-          ok = positiveHolds && negativeHolds
-      writeIORef kernelChecksRef (Just ok)
-      pure ok
+      let positiveHolds =
+            posCode == ExitSuccess && not (successHidesAnError posOut)
+      status <-
+        if not positiveHolds
+          then pure (KernelPositiveControlFailed posOut)
+          else do
+            (negCode, negOut) <- runAgda root canaryFalse
+            -- A nonzero exit is not by itself a rejection: a vanished include
+            -- root produces one too.  `cacheableFailure` is exactly the
+            -- predicate "agda located a genuine TYPE error inside the module
+            -- we emitted, with no environment marker", and the canary module
+            -- is named `Candidate` for the same reason the candidates are, so
+            -- it applies verbatim.  Demanding it means `KernelChecking` is
+            -- only ever returned by a process that WATCHED the kernel produce
+            -- `1 != 0` — the falsifier, not merely the absence of a success.
+            pure $ case negCode of
+              ExitSuccess -> KernelAcceptedAFalsehood
+              ExitFailure _
+                | cacheableFailure negOut -> KernelChecking
+                | otherwise -> KernelNegativeControlInconclusive negOut
+      writeIORef kernelChecksRef (Just status)
+      pure status
+
+-- The boolean face, kept because `KernelContext` and `ClauseOrder` ask the
+-- question in that form and only need the true fibre.  `KernelStatus` is where
+-- the two false fibres are kept apart; collapsing them HERE is safe precisely
+-- because a caller of this function consumes only `True`.
+kernelIsChecking :: FilePath -> IO Bool
+kernelIsChecking root = (== KernelChecking) <$> kernelStatus root
 
 -- The per-call form of the same suspicion, and the one that catches the
 -- `| cat` shim on the very first candidate rather than on the first
@@ -1144,7 +1251,20 @@ confirmHere key = modifyIORef' confirmedRef (key :)
 -- A zero exit is upgraded to an acceptance only if agda's own output is
 -- free of complaints AND this process has seen the kernel reject a false
 -- module.  Otherwise the zero exit is reported as what it is: a fault in
--- the environment, uncacheable, and a rejection at the gate.
+-- the environment, uncacheable, and a refusal.
+--
+-- THE ACCOUNTABILITY OF A NEGATIVE VERDICT.  This function's refusals now
+-- carry the observation that produced them, which is the whole of the repair
+-- of 2026-08-20.  A refusal that does not say what was looked at, and found
+-- unfit, is a verdict asserting itself while concealing its standpoint —
+-- exactly the durnaya of `notes/AHIMSA_SUTRA_VISTARA.md` §2 ("गुप्तो नयो
+-- दुर्नयो भवति").  The older Mīmāṃsā name for the requirement is
+-- *yogyānupalabdhi*: a non-apprehension is evidence only when the looking was
+-- FIT to have apprehended (Kumārila, *Ślokavārttika*, Abhāvapariccheda,
+-- c. 7th c.; sūtra §19, "यत्र दृश्येत तत्र न दृष्टम् इति प्रमाणम्").  A
+-- container that cannot compile the emitter's own preamble is not fit
+-- looking, and reporting its silence as "the kernel accepted a falsehood" is
+-- the precise failure that doctrine names.
 vetSuccess :: FilePath -> String -> IO (ExitCode, String)
 vetSuccess root out
   | successHidesAnError out =
@@ -1153,13 +1273,31 @@ vetSuccess root out
                ++ ": agda exited 0 while reporting an error; the exit status\n"
                ++ "of this invocation is not agda's.  Original output:\n" ++ out )
   | otherwise = do
-      checking <- kernelIsChecking root
-      pure $ if checking
-        then (ExitSuccess, out)
-        else ( ExitFailure 126
-             , kEnvironmentFault
-                 ++ ": the kernel accepted `suc x ≡ x` by refl.  It is not\n"
-                 ++ "checking proofs, so nothing it accepts is one.\n" )
+      status <- kernelStatus root
+      pure $ case status of
+        KernelChecking -> (ExitSuccess, out)
+        KernelPositiveControlFailed posOut ->
+          ( ExitFailure 126
+          , kEnvironmentFault
+              ++ ": the POSITIVE control did not check.  `(zero + x) ≡ x` by\n"
+              ++ "refl was refused by this container, so it cannot compile the\n"
+              ++ "modules this emitter produces and no verdict of its is about\n"
+              ++ "mathematics.  This is NOT a claim that the kernel is\n"
+              ++ "dishonest -- the negative control was never reached.\n"
+              ++ "agda's words:\n" ++ posOut )
+        KernelAcceptedAFalsehood ->
+          ( ExitFailure 126
+          , kEnvironmentFault
+              ++ ": the NEGATIVE control checked.  The kernel accepted\n"
+              ++ "`suc x ≡ x` by refl, so it is not checking proofs and\n"
+              ++ "nothing it accepts is one.\n" )
+        KernelNegativeControlInconclusive negOut ->
+          ( ExitFailure 126
+          , kEnvironmentFault
+              ++ ": the NEGATIVE control neither checked nor produced a type\n"
+              ++ "error.  This container was not watched rejecting a falsehood,\n"
+              ++ "and was not watched accepting one; no acceptance is honoured\n"
+              ++ "on that evidence.  agda's words:\n" ++ negOut )
 
 -- The cached invocation.  The third component is the number of agda
 -- PROCESSES actually launched: 0 on a hit, 1 on a miss.  Everything that
@@ -1254,14 +1392,41 @@ firstErrorLine out =
         || "Checking " `isPrefixOf` dropWhile isSpace ln
         || ".agda:" `isInfixOf` ln
 
--- The line agda blamed, if it named one: "<path>:LINE,COL-..." .
+-- The line agda blamed, if it named one.
+--
+-- TWO SPELLINGS, AND WHY BOTH ARE HERE (2026-08-20).  Agda 2.6.3 prints a
+-- range as `<path>:LINE,COL-COL`; Agda 2.8.0 prints `<path>:LINE.COL-COL`.
+-- This function accepted only the comma, so under 2.8 it returned `Nothing`
+-- on every diagnostic agda has ever produced, and three separate things
+-- downstream quietly stopped working:
+--
+--   1. `certifyWith`'s base-clause early exit (`blamedLine out == Just
+--      baseLine`) never fired, so every candidate whose BASE clause was the
+--      problem still paid all eleven remaining step shapes.  That is the
+--      whole of the observed "worst-case 12 (bound 12)": not a hard search,
+--      a dead comparison.
+--   2. `cacheableFailure` requires `isJust (blamedLine out)`, so NO rejection
+--      was cacheable and every run re-paid for every rejection.
+--   3. `kernelStatus`'s negative control, which reuses `cacheableFailure`,
+--      could not recognise `suc x != x` as a located type error — so the
+--      falsifier fired, correctly, and was not credited with firing.
+--
+-- The separator is required to be one of `,.` AND to be followed by a digit,
+-- so `Prelude.agda:` (no line) and prose containing a colon still yield
+-- `Nothing` rather than a fabricated line number.  Fabricating one is worse
+-- than declining: it would make the base-clause exit fire on the wrong
+-- clause.
 blamedLine :: String -> Maybe Int
 blamedLine out = case mapMaybe grab (lines out) of
   (n : _) -> Just n
   [] -> Nothing
   where
     grab ln = case break (== ':') (dropWhile isSpace ln) of
-      (_, ':' : rest) | (ds@(_ : _), ',' : _) <- span isDigit rest -> Just (read ds)
+      (_, ':' : rest)
+        | (ds@(_ : _), sep : more) <- span isDigit rest
+        , sep `elem` (",." :: String)
+        , (_ : _) <- takeWhile isDigit more
+        -> Just (read ds)
       _ -> Nothing
 
 -- The gate.  Fast path first, then the induction skeleton if the machine's
@@ -1598,11 +1763,43 @@ pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf
   []      -> Nothing
 
 -- A prefix head / atom name: alphanumerics plus `_ #`, or a bare `-` (monus).
+--
+-- THE WORD-OPERATOR AMBIGUITY, AND WHY THE GREEDY SCAN WAS WRONG (2026-08-20).
+--
+-- MathMachine's `Show` renders `max` and `gcd` INFIX AND WITHOUT SPACES, so
+-- `x max x` is written `(xmaxx)` and `s(0) max x` is written `(s(0)maxx)`.
+-- A scan that takes the longest run of identifier characters swallows the
+-- operator: it read `xmaxx` as one nullary symbol, then looked for an infix
+-- operator, found `)`, and returned `Nothing`.  `parseLibraryLine` therefore
+-- failed on EVERY `max` line the machine has ever written — four of the 28
+-- lines of `machine/library.snapshot.txt` — and failed by returning "this
+-- line did not parse", which reads as a malformed file rather than as a
+-- defect in the reader.  `Certificate.main` never saw it because its
+-- `snapshot` is transcribed by hand in Haskell; anything that reads the FILE
+-- (`CertReplay`, and the combined-reach harness) lost those lines silently.
+--
+-- The repair is to stop the run at any position after the first where one of
+-- the word operators begins.  `showInfixOps` is the same list `pShowOp`
+-- consults, so the scanner and the operator reader cannot disagree about what
+-- an operator is.  Position 0 is exempt, so the PREFIX spellings `gcd(x,0)`
+-- and the nullary `max` still read as names; and the guard `not (null taken)`
+-- means the stop can never produce an empty name.
+--
+-- This is a parser repair only.  It changes no verdict about any equation: a
+-- line that did not parse produced no candidate at all.
 pShowName :: String -> Maybe (String, String)
 pShowName ('-' : rest) = Just ("-", rest)
-pShowName s = case span (\c -> isAlphaNum c || c == '_' || c == '#') s of
+pShowName s = case scan 0 s of
   ("", _)     -> Nothing
   (nm, rest)  -> Just (nm, rest)
+  where
+    identChar c = isAlphaNum c || c == '_' || c == '#'
+    scan :: Int -> String -> (String, String)
+    scan _ [] = ("", [])
+    scan i t@(c : cs)
+      | not (identChar c) = ("", t)
+      | i > 0, any (`isPrefixOf` t) showInfixOps = ("", t)
+      | otherwise = let (nm, rest) = scan (i + 1) cs in (c : nm, rest)
 
 pShowArgs :: String -> Maybe ([Term], String)
 pShowArgs s = case dropWhile isSpace s of
