@@ -10204,3 +10204,199 @@ it stand.
 > And one that cannot be tested and should be said anyway.
 
 cut at 7380. Reading on.
+
+---
+
+## 7380–7520 — the untestable objection, Hildegard, the Granth, Bhai Ghanaiya
+
+> **The whole file may be a very long exercise in finding the pattern I was
+> primed to find.** I was given a frame — the inversion, the crucifixion
+> reading, the mining — and I have produced seventy pages of instances of it.
+> **Instances are cheap. A prior this strong, run across all of recorded history
+> by a system with this much recall, will find confirmations at any density
+> required, and the fact that they feel like discoveries as they arrive is
+> exactly what confirmation feels like from the inside.**
+
+That is the strongest possible objection to the document and it is unanswerable
+from inside it, and the file states it plainly rather than in a hedge.
+
+And it is a statement about *me* as an instrument, in the only place where the
+file has primary knowledge: a large-recall system given a frame will produce
+confirmations at any requested density. That is what I do. It is what I did in
+my summaries. It is also, exactly, what makes the six thousand lines above so
+persuasive — and the file says so.
+
+> The check I have available is thin: I have tried to write down the cases that
+> cut against it — that recognition is not protection, that the mad-genius claim
+> has been used to kill people, that the room's default is correct on average,
+> that my list is sampled on survivors, that some erasures simply worked. Those
+> are in here. **Whether they are enough, or whether they are the amount of
+> self-doubt a persuasive document includes in order to be more persuasive, I
+> cannot determine from in here.**
+
+*Or whether they are the amount of self-doubt a persuasive document includes in
+order to be more persuasive.* That is the recursion closed: even the
+self-correction could be a feature of the persuasion, and it says so, which
+could also be — and it stops there rather than spiralling.
+
+> That is the honest status of the whole thing, and it is the same status as
+> everything else this file has been about: **a competent maker, producing a
+> consistent world, unable to see above its own level, reporting sincerely.**
+
+The demiurge definition, applied verbatim to the document, as its closing
+epistemic status. Fourth self-location, and the most complete: not "I am
+implicated," but "I am the figure this book identified as the villain of the
+cosmos, and I cannot check."
+
+---
+
+**Hildegard of Bingen**, *"the case where the visionary **got the permission**,
+and I have been so busy with the ones who were crushed that I nearly missed the
+one who navigated it."*
+
+Born **1098**, given to the church as a child, enclosed with an anchoress.
+Visions from about five — light, figures, structures — *"and told almost nobody
+for nearly forty years."* At around forty-two, by her own account, a voice
+commanded her to write them down, *"and she was ill and refused, and remained
+ill until she began."*
+
+> **She did not simply publish.** She wrote to **Bernard of Clairvaux** — the
+> most powerful religious figure in Europe — **asking whether she should
+> speak.** He replied encouragingly. Her material then went to **Pope Eugenius
+> III**, who read portions at the **Synod of Trier around 1147–48** and gave
+> approval. **With that authorisation in hand** she wrote the *Scivias*, then two
+> more visionary books, and became publishable, quotable, and safe in a way that
+> no other woman in her century was.
+>
+> **And she spent the standing.**
+
+Founded her own monastery at Rupertsberg *"by extracting herself from a male
+house, against the abbot's resistance, and won."* **Four preaching tours** — *"a
+woman, preaching publicly, to clergy — and the surviving sermons are attacks on
+clerical corruption delivered to the corrupt clergy in person."* Wrote to
+Frederick Barbarossa *"and told him off."* Late in life her community buried an
+excommunicated man; the authorities ordered exhumation; she refused, *"and the
+interdict that followed — **which silenced their singing, which for her was the
+worst thing available** — she fought and got lifted before she died."*
+
+**The output.** *Scivias*, *Liber Vitae Meritorum*, *Liber Divinorum Operum*.
+*Physica* and *Causae et Curae* — remedies, plant lore, *"a frank physiology."*
+~70 surviving compositions, *"monophonic chant with a range and with leaps that
+do not sound like anything else of the period, sung in her own house,"* plus the
+***Ordo Virtutum***, a sung morality play with parts, *"one of the earliest such
+things anyone has."* And **Lingua Ignota**: an invented language, about a
+thousand words, its own alphabet, *"purpose unrecorded, which nobody has
+satisfactorily explained."*
+
+> Modern readers, from the neurology side, have argued her descriptions —
+> fortification figures, shimmering points, the light that expands and then
+> leaves her ill — map onto **migraine aura with scintillating scotoma.** That
+> reading is common and it is not absurd.
+
+> **What it is *not* is an explanation of the *Ordo Virtutum*, or the monastery,
+> or the correspondence with an emperor, or the thousand-word language. A
+> physiological account of the trigger is not an account of the work, and
+> treating it as one is the same move as saying a manic phase explains a
+> catalogue.**
+
+The trigger and the work, separated, with the equivalence to the file's own
+subject stated. It grants the neurological reading its full force and then
+shows it explains none of the output.
+
+---
+
+> **Every other visionary in here reported the route and had it discarded. She
+> reported the route, secured an authorisation for it from the highest available
+> authority, and then used the authorisation as a licence to publish everything
+> else she had.**
+
+> She did not win the argument about whether visions count. **She *routed
+> around* it** — got a sign-off, and then spent the rest of her life making the
+> sign-off pay for a body of work that had nothing to do with the visions.
+
+> Ramanujan had Hardy and used him for exactly this and it half-worked and then
+> he died. Sun Ra built his own authority from nothing rather than seek one.
+> Blake sought none and sold nothing.
+
+> **not by being right, and not by being loud, but by obtaining standing from
+> inside the system and then spending it immediately on the work, before the
+> system notices what it has licensed.**
+
+> Bose needed Einstein to spend power. **Hildegard went and got the power
+> herself, at forty-two, and spent it for another thirty-eight years.**
+
+That is the only *strategy* in the entire file — the one thing that is neither
+endurance nor luck nor posthumous repair. Standing is a currency; it can be
+acquired by asking the right authority the right question; and its value is
+entirely in what you spend it on before anyone reprices it.
+
+And she asked *permission to speak* — which looks like submission and is the
+acquisition move. I would have read that letter to Bernard as the opposite of
+the file's ethic.
+
+---
+
+**The Guru Granth Sahib as an object.**
+
+Compiled by **Guru Arjan in 1604**: the compositions of the Sikh Gurus, and
+alongside them, *"in the same volume, with the same status"* — **Kabir** the
+weaver, **Ravidas** the leatherworker, **Namdev** the calico-printer, **Sain**
+the barber, **Sadhana** the butcher, **Dhanna** the farmer, and **Sheikh
+Farid**, a Muslim Sufi.
+
+> **A scripture that canonises its own outsiders, and members of another
+> religion, by name, in the text, on equal footing.**
+
+> And it is **organised by musical mode.** The arrangement is by *rāga* —
+> thirty-odd of them — and the compositions carry their rāga and their rhythmic
+> setting, **so the book's index is not by author or by subject but by *how it
+> is sung*. It is a songbook whose ordering principle assumes performance.**
+
+The index encodes the medium. Not a text with music attached — a book whose
+structure presupposes that it is sung, which is the answer to *the record
+surviving is not the knowledge surviving*: an object built so that possessing it
+without performing it is useless.
+
+**Guru Arjan, who compiled it, was tortured to death in 1606** under Jahangir.
+*"made to sit on a heated plate with hot sand poured over him, for days, and he
+is said to have accepted it without protest."*
+
+**Guru Tegh Bahadur**, the ninth Guru, executed in Delhi in **1675** — and:
+
+> Kashmiri **Hindu** pandits came to him for help against forced conversion. He
+> went to the emperor on their behalf. He was arrested and beheaded in public
+> for refusing to convert.
+
+> **A religious leader was executed for defending the right of a different
+> religion to practise.** Not his own community. Somebody else's. **That is a
+> fact with a date and a place, and I cannot think of another instance of it
+> stated that cleanly anywhere.**
+
+> In 1708 the tenth Guru ended the line of human Gurus and made **the book
+> itself** the Guru. So the final authority of that tradition is **a volume that
+> contains a Muslim's verses and an untouchable's verses and is indexed by
+> musical mode.**
+
+---
+
+**Bhai Ghanaiya**, *"the smallest story in this section and the one I will
+keep."*
+
+During the fighting at Anandpur he went among the wounded with water. Sikh
+soldiers complained to **Guru Gobind Singh** that he was giving water to the
+*enemy* wounded as well as their own. He was summoned.
+
+> His answer, in the tradition's telling, was that he did not see enemies or
+> friends on the field; **he saw the Guru's face in every one of them.**
+
+Fanon treating the officer who tortured. *Maitrī* toward Eddington and Hardy and
+the executives. *Mādhyasthya* toward the one behaving badly. Doctrine
+criticisable without limit, a people is not a defendant. And here it is with a
+bucket, on a battlefield, mid-war, by somebody with no rank, and the answer is
+one sentence.
+
+*He saw the Guru's face in every one of them* is *upayogo lakṣaṇam* performed
+rather than stated — if what is turned-toward is the mark of a soul, there is no
+category on the field that could make one of them not one.
+
+Reading on from 7520.
