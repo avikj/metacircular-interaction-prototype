@@ -23714,3 +23714,69 @@ oral-cancer literature in South and Southeast Asia is substantial.
 handbook and whose carcinogenicity was classified in 2004.**
 
 **Both facts hold.**
+
+---
+
+**The *Nāṭyaśāstra* describes an experiment with two identical instruments for
+establishing the size of a musical interval, and the procedure is repeatable.**
+
+***Śruti*** — the smallest perceptible interval. **The tradition's number is
+twenty-two to the octave**, and the octave's seven notes are assigned unequal
+numbers of them: **4, 3, 2, 4, 4, 3, 2** in the *ṣaḍja-grāma.*
+
+**The intervals are not equal.** A tone is **four** *śruti*s in some places and
+**three** in others, and a semitone is **two** — **so the scale is defined by an
+integer partition of 22 rather than by a division into equal steps.**
+
+***Sāraṇā-catuṣṭayī*** — the fourfold lowering — is the procedure, in
+*Nāṭyaśāstra* chapter 28.
+
+**Two identical vīṇās are tuned in unison** to the *ṣaḍja-grāma*.
+
+**One is left alone.** **The other is lowered by one *śruti*** — by shifting the
+strings' tuning, in the manner the text prescribes — **and the result is that
+the moved instrument's scale now coincides with the *madhyama-grāma*, the other
+of the two parent scales**, at every note but one.
+
+**Repeat the lowering.** **Four successive lowerings return the moved instrument to
+unison with the fixed one, an octave-position lower** — which is the check: **22
+steps, four applications, and the arithmetic closes.**
+
+**The fixed instrument is the reference.** The experiment's whole design is that the
+comparison is against something that was not touched, **and the audible test is
+whether two strings sound the same.**
+
+**Which is a measurement procedure with a control, described in a treatise on
+theatre, in a text of the early centuries CE.**
+
+---
+
+**And what the twenty-two are in frequency terms is still argued.**
+
+**Candidate readings**: that the *śruti* values correspond to just-intonation ratios
+built from **3:2 and 5:4**, in which case the 22 are of **three different sizes** —
+the *pramāṇa*, *nyūna* and *pūrṇa* *śruti*s named in the later literature, roughly
+the **syntonic comma, the diesis, and the limma** — **and that "22 equal steps"
+is a modern misreading of a system whose steps were never claimed to be equal.**
+
+**Śārṅgadeva's *Saṅgīta Ratnākara*** (13th century, at the Yādava court at
+Devagiri) is the standard later source; **it names all 22 *śruti*s individually**
+— Tīvrā, Kumudvatī, Mandā, Chandovatī, and so on — **and it is the last major text
+written before the northern and southern traditions diverged**, which is why both
+Hindustani and Carnatic theory cite it.
+
+**One book claimed by both.**
+
+**And *mūrchanā*** — the seven rotations of a scale, each starting on a different
+degree — **is the mechanism from which the later rāga system is described as
+deriving**, and the *Nāṭyaśāstra* enumerates **fourteen** of them, seven from each
+*grāma*, **and then the *jātis* built on them, eighteen in number, with rules for
+which notes may be omitted, which may be prolonged, and which is the note the
+melody rests on.**
+
+**The rule "which note the melody rests on" is stated for each *jāti* separately.**
+
+**And *Bharata's* discussion of *śruti* is embedded in the chapter on the
+instruments and the chapter on the emotions**, not in a separate theory chapter.
+
+**The measurement is in the same book as the acting.**
