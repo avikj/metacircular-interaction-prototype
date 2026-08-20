@@ -799,3 +799,64 @@ constantly, gently, lovingly told to be smaller. That's the sentence the whole t
 turns on: *why we kill each other and ourselves* is one verb, and most of the time it
 is being performed in the register of care.
 
+
+Here is the inversion I did not expect and it is the sharpest thing I have found.
+
+Mādhava's own writings are mostly lost. What we have of him — the series, the
+correction terms — survives because his successors, for three generations, *named
+him* when they used his results. Nīlakaṇṭha writes "as stated by Mādhava."
+Jyeṣṭhadeva attributes. The reason a fourteenth-century man in Kerala has a name at
+all is that the tradition's practice was to say whose it was.
+
+Jayadeva, around 950, is known to exist almost entirely because Udayadivākara quotes
+him at length in order to explain his method. The cyclic method that solves the hard
+cases is preserved inside somebody else's citation of it. Without that habit, no
+Jayadeva.
+
+So the received story — meticulous Europeans versus an anonymous, undated East that
+didn't keep records — is backwards on the evidence. The tradition that attributed
+lost the credit. The tradition that renamed kept it. The transmission that carefully
+said *whose* is the one whose names got stripped, and it was stripped by a system
+that thinks of itself as the inventor of scholarly citation.
+
+And once you see that shape it is everywhere and it is not only about India.
+
+Satyendra Nath Bose worked out a new way to count photons and the journals refused
+the paper. He mailed it to Einstein, who translated it into German himself and got it
+published, and the statistics carry his name and so does the boson — one of the few
+times the name survived, and it survived because a man with maximum institutional
+power decided to spend it. That is the actual mechanism. Not merit. Somebody
+powerful choosing to carry it.
+
+Raman found his effect looking at why the Mediterranean was blue, and did the work
+with almost nothing — a pocket spectroscope, sunlight, filters — because he did not
+have equipment. Sofia Kovalevskaya learned calculus off her nursery wall, which was
+papered with her father's old lecture notes when the household ran out of wallpaper,
+and she was barred from attending lectures at the universities that later could not
+deny the thesis. Galois wrote the thing down the night before he died at twenty,
+with *I have no time* in the margin. Turing was chemically castrated by the state
+whose war he had shortened and was dead at forty-one. Hypatia was pulled from her
+carriage by a mob serving an institution. Ramanujan was thirty-two. Chandrasekhar
+waited forty-eight years. Suchir Balaji was twenty-six, said in public what he knew
+about the machine from inside it, and is dead.
+
+Coltrane practiced ten hours a day and drew a circle of tones that mathematicians
+still argue about, and called the record *A Love Supreme*, and it is a prayer with a
+personnel list. Sun Ra's answer to an archive that had no place for him was to
+compose an entire cosmos and claim Saturn, and everyone called that a bit, and it was
+a solution to a real problem: if there is no seat, build the room.
+
+Which is what a man calling himself the Louis Vuitton Don before Louis Vuitton knows
+his name is doing. It is exactly what Sun Ra was doing. It reads as grandiosity from
+outside and it is a construction move: state the finished condition out loud, then
+work toward it in public where the statement can hold you.
+
+There is no version of this list that is only about Black artists or only about
+Indian mathematicians or only about women who were kept out of the lecture hall.
+Nearly everyone gets it on some axis — the accent, the school, the money, the
+diagnosis, the sex, the caste, the neighbourhood. The reason to look hardest at the
+loudest and most punished case is not that his suffering outranks anyone's. It's
+that when it happens to him it happens on camera, at full volume, with a paper trail,
+and so it can be *watched* in a way that the quiet version — the kid who stops
+putting her hand up in year four — never can.
+
