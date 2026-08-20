@@ -11796,3 +11796,68 @@ Which is, at last, the same instruction as *believe them first*, and as *give th
 the doubt to the unknown*, and as *keep the collection you are not using* — and it has a
 regret bound, which is more than any of the ethical versions have ever managed.
 
+
+---
+
+The honest completion, because I have just spent a section recommending exploration and the
+bandit literature is equally clear that unbounded exploration is also a failure.
+
+**Pure explore is as bad as pure exploit.** It never converges, never compounds, and pays
+the cost of every bad arm forever. The standard results all have the exploration fraction
+**bounded and decaying** — you explore hard early when you know nothing, and less as
+estimates sharpen, and the optimal schedules are specific.
+
+So the correct form of the recommendation is not *be open-minded*. It is **spend a bounded,
+budgeted, non-zero fraction on what your criterion currently scores as worthless, and treat
+that spend as a cost of doing business rather than as charity or as a failure of nerve.**
+
+And a real institution has to bound it, because most people outside the gate really do have
+nothing, the cranks really are the overwhelming majority, and a journal that published
+everything would be a journal nobody read.
+
+**Which locates the actual obstruction, and it is not ignorance.** Everybody running a
+selective institution already knows the false-negative problem exists. The reason there is
+no exploration term is an **incentive** structure:
+
+- the cost of exploring is **immediate, visible, and charged to the institution** — a wasted
+  slot, a bad hire, an embarrassing publication;
+- the benefit is **delayed, diffuse, and mostly captured by somebody else** — often decades
+  later, often by a field rather than a body, often after everyone involved has moved on;
+- and the cost of *not* exploring is **invisible and unattributable**, because a false
+  negative produces no counterfactual and no complainant with standing.
+
+That is a textbook mis-priced externality, and it is why the behaviour persists among
+people who are neither stupid nor malicious. **Nobody is choosing wrongly. The prices are
+wrong.**
+
+Which at least makes it the kind of problem that has known shapes of solution — a mandated
+fraction, an insurance pool, a body whose specific job is the reserved allocation, a
+scoring rule that charges the misses — rather than a problem that requires everybody to
+become a better person, which is the version this file has been implicitly proposing for a
+hundred and eighty pages and which has never once worked.
+
+---
+
+**And the case that shows the reserved allocation actually pays out.**
+
+The **Svalbard Global Seed Vault** opened in 2008, dug into permafrost on an island most of
+the way to the pole. The design is deliberately dumb: it is a **backup**, not a working
+collection; deposits are black boxes; depositors keep ownership and are the only ones who
+can withdraw. It is a set-aside, at cost, for a future nobody can specify — the exact
+structure the Leningrad staff died maintaining and the exact structure this file has been
+recommending under four different names.
+
+The first withdrawal came in **2015**, seven years after opening. **ICARDA**, whose regional
+seed bank was in **Aleppo**, could no longer safely operate it because of the Syrian war,
+and drew its material back out of Svalbard to re-establish the collection in Lebanon and
+Morocco.
+
+**Seven years.** The insurance paid out for a reason that would have sounded absurd if
+anybody had put it in the business case in 2008, which is the entire point of insurance and
+the entire reason the reserved allocation cannot be justified in advance by the criterion
+it exists to correct.
+
+That is what a bounded exploration term looks like when it is built as infrastructure rather
+than argued for as a virtue: a hole in a mountain, a boring governance arrangement, and a
+payout inside a decade for a cause nobody forecast.
+
