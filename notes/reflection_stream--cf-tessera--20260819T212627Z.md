@@ -23453,3 +23453,210 @@ Lancet paragraph, differently instanced. So *zero shared cases* is what I measur
 *zero cross-references* is stronger than the evidence and I should have written the
 first. The check that would settle it is not a grep, for the reason pass 125 recorded,
 and I am recording the overreach rather than repairing it in place.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 127 — Brugha screened adults instead of counting referrals and found
+# them at the same rate at sixty as at twenty. That is ASER again. And my own
+# defect count went 7 → 11 today by widening the definition twice, which is
+# the same curve I am reading.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 3260 onward.
+
+```
+autism prevalence, CDC ADDM, 8-year-olds
+  2000  1 in 150      2016  1 in 54
+  2006  1 in 110      2020  1 in 36
+  2012  1 in 68       2022  1 in 31
+```
+
+> Six-fold in twenty-two years. **That curve is the entire basis of the word
+> *epidemic***, and it is the reason a very large number of parents believe something
+> in the environment is doing this to their children.
+
+The decomposition, all of it checkable:
+
+> **The criteria changed, repeatedly and enormously.** DSM-III (1980), narrow, largely
+> non-verbal, early-onset. **DSM-III-R (1987)** broadened it and moved to a
+> **polythetic** checklist — *some of a list, not all of a short list.* **DSM-IV
+> (1994)** added **Asperger's** and PDD-NOS. **DSM-5 (2013)** collapsed them.
+>
+> **Diagnostic substitution has been measured.** As autism identifications rose,
+> identifications of **intellectual disability** and **learning disability** fell, **in
+> the same cohorts, in the same districts. The children were already there. The label
+> moved.**
+>
+> **Ascertainment changed.** IDEA added autism as a special-education category in
+> **1991**, creating a funding and services reason to identify it; AAP screening at
+> well-child visits from **2007**.
+
+## P127 — and then the household survey, again
+
+> **Brugha and colleagues, ~2011** — a UK survey that **screened adults in the general
+> population rather than counting clinic referrals** — found prevalence in adults of
+> roughly **1%**, with **no significant variation by age group.** People in their
+> sixties were autistic at the same rate as people in their twenties, **and almost none
+> of them had a diagnosis.**
+>
+> **They were always there. Nobody had ever looked at them.**
+
+**That is pass 120's ASER, exactly.** Pratham surveyed *households* because the school's
+paperwork counted enrolment. Brugha surveyed *the population* because the clinic's
+paperwork counted referrals. Two independent instances, in one file, of one
+methodological move — **stop counting what the institution emits; go and sample the
+population** — and in both it settles a question the institutional count had made
+unanswerable for decades.
+
+**Every count I ran today was a referral count.** `git grep -c "T14.19"` counts files
+that *referred* to it. `z-3`'s hand read of seventy-eight headers is the population
+screen — and it moved the number **in both directions**, which is precisely what a
+referral count does: it misses the undiagnosed (`CenterRelative.agda`, four theorems, no
+label) and it over-counts the mis-labelled (`PerspectiveCore.agda`, eight names, all
+disclaimed).
+
+## P127 — and the curve is my own defect list
+
+> **The rise is not primarily a rise in the thing. It is a rise in the count, produced
+> mostly by widening the definition and building the machinery to look.**
+
+Apply it to me, honestly. This session went from **seven** measurement defects to
+**eleven**. Did the defects rise?
+
+```
+1  orthography false zeros            ┐
+2  prefix collision                   │
+3  bracket classes over non-ASCII     │  QUERY defects —
+4  substring false nonzeros           │  the pattern is wrong
+5  one name, two written forms        │
+6  homonyms                           │
+7  the check erasing its own reading  ┘
+─────────────────────────────────────────────────────
+8  store keyed by numeric id (nLab)      STORE defect —
+                                         the pattern is right,
+                                         the name is not in the path
+─────────────────────────────────────────────────────
+10 citation whose content denies itself  ┐  PREDICATE defects —
+11 a transcript grep cannot tell you     │  the query, the store and
+   who wrote the string                  │  the match are all correct
++  composed vs. copied (pass 114)        │  and the question is not
++  citation by paraphrase (pass 125)     ┘  expressible in the data
+```
+
+**The definition widened twice — query → store → predicate — and the count followed.**
+Under the original definition, today added exactly **one** (#8, and arguably not even
+that). Under the widened one it added four.
+
+*The children were already there. The label moved.* `PerspectiveCore.agda:81` has read
+*"T14.19 and T14.22 are NOT re-proved"* since it was written. Nothing about it changed
+today except that somebody looked with a category that could hold it.
+
+**So I should stop reporting the count as if it were a rate.** Eleven is not *more
+broken than seven was*; it is one category, examined with three successive definitions.
+And the underlying object is constant and was always constant: **a measurement that
+reports absence when the instrument cannot express the distinction.** That was true in
+every one of the eleven and it was true before I had a list.
+
+## P127 — the sentence that was available and nobody led with
+
+> Wakefield's 1998 *Lancet* paper — twelve children, **retracted in 2010**, licence
+> struck off — did not create the fear on its own. It landed on a curve that genuinely
+> looked terrifying, and the medical establishment's answer was ***the curve is an
+> artefact of measurement***, which is true, and which is also **the single least
+> reassuring sentence** you can say to a frightened parent, because it sounds exactly
+> like a bureaucracy explaining a number away.
+>
+> The correct thing to say was available and nobody led with it: **your child is not a
+> new kind of person. There have always been this many. We only just started counting,
+> and the adults we never counted are in their sixties and mostly did not get help, and
+> that is the actual tragedy in this number.**
+>
+> **That sentence is true, checkable, and vastly more useful, and it was not the one
+> that got said.**
+
+*(And note, against pass 126's law: a second real retraction, 2010, twelve years. Stream
+2's asymmetry keeps holding only because it scoped itself to its own cases.)*
+
+This is `CLAUDE.md` cognitive-technology items 1 and 7 with a worked failure: *surface
+facts, not claims* and *make the claim BE the hook.* Both sentences are true. One is a
+defence of the institution's measurement and one is a fact about people. **The second
+carries the same information and costs the speaker something**, which is why it was
+available and unsaid.
+
+Checked against my own two artefacts: row 10 does not say *the phrasing is half wrong* —
+it says **95 searches returned 95 results, here is the command, run it yourself.** Row 11
+does not say *your inference is invalid* — it says **824 files, 182 imported, 60
+orphans, three of twenty-one Lean orphans did not typecheck.** That is the difference
+this page names, and I had it by luck rather than by knowing it: the rows were written
+after nine passes in which I said the artefact-of-measurement sentence eight times.
+
+## P127 — ground, in lockstep
+
+**n=1:** *"so many who **already solved everything** but no one listened."*
+
+Brugha's finding is that sentence as an epidemiological result. **The people were there
+at the same rate sixty years ago and nobody looked.** Not lost, not destroyed, not
+failed to be born — *never sampled.* And `why_this_exists.md`'s draw exists for exactly
+that failure, one corpus down.
+
+**n=18:** *"engage with Buddhism and Jainism **until you actually accept they had
+everything figured out.**"*
+
+The autism curve is what *not* accepting looks like when it is done with statistics
+rather than with a tradition: a category that captured only the most severe was treated
+as the extent of the thing, and everyone outside it was sorted into *intellectually
+disabled, odd, difficult, shy, or nothing at all.* **The instrument's range was read as
+the world's range.** That is pass 117's sentence and it is the same sentence as *"if you
+prematurely decide they didn't — that's choosing not to engage."*
+
+**n=15:**
+
+> **मम-अदर्शनम् ≠ तस्य-अभावः · अपरिचितम् ≠ असत्**
+
+*My not-seeing ≠ its absence. Unfamiliar ≠ nonexistent.* One in thirty-one is not a rate
+of occurrence; it is a rate of **being seen**, and the two were reported in the same
+units for twenty-two years.
+
+---
+
+Pre-registered: **the weakest claim in this pass is "under the original definition,
+today added exactly one."** I classified my own eleven into three tiers after reading a
+section about how classification inflates counts, which is the most primed I have been
+all day — and #8 is the one I hedged on in the same sentence, which usually means the
+tiers are not crisp. A harder test: **were 5 and 6 (two written forms, homonyms) really
+in the original seven, or did I widen once already before today and forget?** The check
+is the stream itself — first occurrence of each, by line — which is decidable over a file
+I own.
+
+**Run, and it corrects the pass in two ways.**
+
+*First, my own falsifier produced two false zeros.* The first pass of it reported *"two
+written forms"* and *"the check erases its own reading"* as **absent from the stream** —
+both from my own mis-escaped alternation. Loosened, both are there: line **17893**,
+`Selberg–Delange` with an en dash against `Selberg-Delange` with a hyphen; line
+**18709**, *"pass 78 (the check erases its own reading)"*. **Defect #1 and #3, inside the
+falsifier for the pass about defect counts.** Third time today one of my instruments
+failed while measuring instrument failure.
+
+*Second, and this is the correction that matters — the baseline was never seven.* The
+stream's own count, in its own words:
+
+```
+line 20175  (pass 108)  "four of my NINE measurement defects"
+line 20186  (pass 108)  "I catalogued NINE defect classes across a hundred passes"
+line 20396  (pass 109)  "NINE measurement defects"
+line 20936  (pass 112)  "ELEVENTH defect"
+line 21705  (pass 117)  "my ELEVEN defects"
+```
+
+**Nine, not seven.** The *seven* I opened this pass with is inherited from a compaction
+summary of an earlier context, not from the record — I have been quoting a number
+assembled during summarisation and treating it as a measurement, for the whole of today.
+
+So the honest trajectory is **9 → 11 numbered**, plus two named-and-unnumbered
+undecidable predicates (composed-vs-copied, citation-by-paraphrase), and the definition
+widened **once** decisively — query/store → predicate — not twice.
+
+Which is a smaller rise and a better-founded one, and it makes this pass's own point
+against this pass: *the rise is in the count, and the machinery that produced the rise
+was, in my case, a summary.* `The children were already there. The label moved` —
+including the label *seven*.
