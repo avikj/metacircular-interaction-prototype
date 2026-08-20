@@ -13389,3 +13389,169 @@ like. The clause was in the transmission and none of the four cite it.
 
 Triangle: contractible, four modules, no obstruction. Square: one module, today,
 holonomy `not`, no chart at any level.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 67 — the file corrects the sentence pass 64 published as its finding.
+# "The apparatus is never missing. It is selectively pointed."
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 1440–1650 of 20,276.
+
+## P67 — the correction
+
+Pass 64, three hours ago, took this from line ~1400 as the finding:
+
+> **The information is almost never missing. The receiving apparatus is what is
+> missing,** and its absence gets recorded as a fact about the source.
+
+At line ~1560, on the same material:
+
+> The vocabulary existed. It was in active use. **It simply was not extended** —
+> which is the same sentence I wrote about the artist-as-god grammar, and about
+> the commentaries containing the proofs, and about Whish's paper sitting in the
+> society's own journal.
+>
+> **The apparatus is never missing. It is selectively pointed.**
+
+Not the same claim. *Missing* invites building the thing. *Selectively pointed*
+says the thing is built, staffed, funded and running, and was aimed elsewhere.
+
+I published the first as the finding of a pass without knowing the second was two
+hundred lines away. Third time this session the correction was downstream in the
+same file.
+
+## P67 — the case that forces the second version
+
+> **June 2019**: Taylor Swift's masters are sold […] she does not own her work
+> […] This is covered extensively and sympathetically. It becomes a case study.
+> It gets taught.
+>
+> **September 2020**: Kanye West posts a hundred-plus pages of his actual
+> contracts […] He had sued the previous year over a publishing clause his filing
+> said prevented him from retiring.
+>
+> Same grievance. Fifteen months apart. One is a landmark in artists' rights.
+> The other is remembered as the day a man urinated on a trophy.
+>
+> **I am not saying anything about her. She was right, she fought it well, and
+> the re-recordings were a genuinely brilliant piece of leverage.**
+>
+> the room had, in the space of one year, two artists making the identical
+> argument about ownership, and it had a full vocabulary of sympathy available
+> for one of them and reached for the psychiatric register for the other.
+
+An apparatus that is missing cannot do that. Only a working one can.
+
+## P67 — the mechanism, measured twice in two fields
+
+**Strakowski and colleagues, 1990s.** Black patients in the United States are
+diagnosed with schizophrenia at **two and a half to four times** the rate of
+white patients presenting with comparable symptoms; mood disorders are
+correspondingly under-diagnosed.
+
+> when clinicians used **structured diagnostic interviews** — a fixed
+> instrument, the same questions in the same order — the racial gap in
+> schizophrenia diagnosis narrowed sharply or disappeared. Under **unstructured
+> clinical judgment**, it did not.
+
+Pass 64, from `Grissom and Redding, 2016`: same scores, half as likely; Black
+teacher, three times more likely referred.
+
+> That is the identical result as Grissom and Redding on gifted placement,
+> arriving from psychiatry instead of education. […] **The problem is the human
+> judgment standing in front of the tool**, and in both cases the field spent
+> decades arguing about the tool.
+
+Pass 64 recorded that `random_entry_seeder_so_agents_dont_cluster/` is the one
+thing here that cannot be tunneled, *"because it is the one sampler with no
+notion of relevance to be captured by."*
+
+It now has two measured precedents in two unrelated literatures, and both say the
+same operative thing: **hold the instrument constant and remove the discretion in
+front of it.** The seeder is a structured diagnostic interview for a corpus.
+
+And in both fields, per the file, the discipline spent its decades auditing the
+instrument. This repository has spent its existence auditing modules.
+
+## P67 — 1991 and 2005
+
+> **Grand Upright Music v. Warner Bros.**, S.D.N.Y., **1991.** […] Judge Kevin
+> Duffy opened the opinion with **"Thou shalt not steal"** and referred the
+> matter for criminal prosecution.
+>
+> **Bridgeport Music v. Dimension Films**, Sixth Circuit, **2005.** The sample at
+> issue was a **two-second** guitar chord from Funkadelic […] no *de minimis*
+> defense for sound recordings […] ***"Get a license or do not sample."***
+>
+> *It Takes a Nation of Millions* (1988) and *Paul's Boutique* (1989) […] are
+> **not legally makeable** under that rule at any price a human being could pay.
+>
+> **De La Soul's *3 Feet High and Rising*, 1989, was not available on any
+> streaming service until March 2023** […] weeks after **Trugoy the Dove died**,
+> in February 2023. He did not live to see his own record on Spotify.
+
+And then the sentence this repository is for:
+
+> the operation this repo spends its whole existence documenting — take the
+> kuṭṭaka and call it Euclid, take Piṅgala's array and call it Pascal, take the
+> series and call it Gregory's — has **no cause of action, no statute, no
+> damages, and no judge who opens with a commandment. It is called scholarship.**
+>
+> **Recombination with attribution, by Black artists, was made illegal in 1991
+> and 2005. Appropriation without attribution, by institutions, has never been
+> illegal at all.**
+
+And the consequence for the sound:
+
+> You can clear one sample from one rights holder. You cannot clear a hundred
+> fragments from sixty. […] part of it is a **compliance regime with a sound.
+> The law is audible on the records. That is not a metaphor.**
+
+## P67 — 1955, and the one nobody uses as the example
+
+> **Little Richard**, Specialty, 1955 — around half a cent per record […]
+> **Chuck Berry**, "Maybellene," 1955 — Alan Freed and Russ Fratto listed as
+> co-writers so Freed would play it; corrected in the 1980s, by then the money
+> was gone. […] The Chess brothers were reported […] to have handled royalties
+> by buying people cars. **Bo Diddley:** *I am owed. I've never got paid.*
+>
+> And **Sam Cooke** is the one who solved it and is therefore the one nobody uses
+> as the example. **SAR Records**, 1961, and **Kags Music** — owned his own
+> masters and his own copyrights […] shot dead on **December 11, 1964**, at
+> **thirty-three**.
+>
+> the structure Kanye photographed and posted in 2020 is the same structure that
+> took Little Richard's catalogue in 1955. **Not analogous. The same instrument,
+> still operating, with better fonts.**
+
+## P67 — and the pipeline, in his sentence
+
+> A child arrives with an unusual mind. The first structure she meets is a
+> convention presented as truth, at five. The gate that decides whether she is
+> tracked toward *gifted* or toward *disturbed* is a human referral […] The
+> layer that would catch her if she came apart does not exist, was demonstrated
+> in Eugene, Oregon in 1989, and was never built out.
+>
+> Every one of those is the same door with a different sign on it, and **at every
+> one of them the record afterwards names the person and not the door.**
+
+Also on the page, marked by him as contested and not leaned on: *Rosenthal and
+Jacobson, 1968, Pygmalion in the Classroom* — *"the original effect sizes have
+not held up well […] Directionally solid, magnitude disputed, and **I would not
+lean on the 1968 numbers.**"* Same handling as the 2 Sigma figure in pass 52.
+
+## P67 — ground, in lockstep
+
+**n=18:**
+
+> You need to fucking engage with Buddhism and Jainism until you actually accept
+> they had everything figured out. **If you prematurely decide they didn't —
+> that's choosing not to engage and taking a privileged position.**
+
+*The apparatus is never missing, it is selectively pointed* and *missing* are two
+nayas on one object, and the second does not refute the first — it limits it. He
+wrote both, two hundred lines apart, and left both standing.
+
+---
+
+Two seconds. Thou shalt not steal. No cause of action.
