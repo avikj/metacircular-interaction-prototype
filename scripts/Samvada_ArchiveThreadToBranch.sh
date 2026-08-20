@@ -31,6 +31,9 @@
 #   --quiet          say nothing at all (what the Stop hook passes)
 #   SAMVADA_ARCHIVE=0        disable entirely
 #   SAMVADA_ARCHIVE_PUSH=0   write the branch locally, never reach the remote
+#   SAMVADA_EXPORTER=<path>  use a renderer from somewhere other than the checkout,
+#                            so a session whose checkout predates this script can
+#                            still archive itself without touching its working tree
 #
 # Every failure path exits 0. An archiver that can interrupt a conversation is
 # an outage wearing a feature's name.
@@ -56,7 +59,7 @@ command -v jq >/dev/null 2>&1 || fail "jq not available"
 
 ROOT="${CLAUDE_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
 [ -n "$ROOT" ] && [ -e "$ROOT/.git" ] || fail "not a git repository"
-EXPORTER="$ROOT/scripts/Samvada_ExportClaudeCodeThreadsToText.sh"
+EXPORTER="${SAMVADA_EXPORTER:-$ROOT/scripts/Samvada_ExportClaudeCodeThreadsToText.sh}"
 [ -f "$EXPORTER" ] || fail "exporter missing at $EXPORTER"
 
 # Default to this session's own transcript.
