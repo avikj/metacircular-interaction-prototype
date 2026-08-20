@@ -19094,3 +19094,83 @@ vocabulary, and the surviving Chinese *Compendium* presents Mani as a **buddha.*
 buddha**, and it is the only intact Manichaean building standing anywhere.
 
 **It survived by being mistaken for something else.**
+
+---
+
+**The double empathy problem is a claim that the communication failure is mutual,
+and it has been tested by passing messages down chains of people.**
+
+**Damian Milton**, 2012, ***"On the ontological status of autism: the 'double
+empathy problem'"*** — the proposal that the breakdown between autistic and
+non-autistic people is **bidirectional**: a mismatch between two ways of being,
+not a deficit located in one party.
+
+**The prediction that makes it testable**: if the deficit is one-sided, autistic
+people should communicate poorly with everyone. **If it is a mismatch, autistic
+people should communicate well with each other.**
+
+**Crompton, Ropar, Evans-Williams, Flynn and Fletcher-Watson (2020)** ran a
+**diffusion-chain** design — a story passed person to person down a line of eight,
+like telephone — with **all-autistic chains, all-non-autistic chains, and mixed
+chains.**
+
+**Result: information transfer in all-autistic chains was not significantly
+different from all-non-autistic chains. The mixed chains lost significantly more.**
+
+**And rapport, rated by the participants, was lower in the mixed chains and
+comparable in the two matched conditions.**
+
+**Sasson et al. (2017)** had already found that non-autistic observers form negative
+first impressions of autistic people **within seconds**, from thin slices — **and
+that the effect disappears when the content is presented as a transcript**, with
+the speaker's voice and face removed.
+
+**The judgement tracks presentation, not what was said**, and **Sasson and Morrison
+(2019)** found the negative bias reduced when the raters had been told the person
+was autistic.
+
+---
+
+**And the historical record of the diagnosis has a document problem.**
+
+**Leo Kanner**, 1943, eleven children, Baltimore. **Hans Asperger**, 1944, Vienna,
+**writing under the Third Reich**, in a paper describing children he called
+*autistischen Psychopathen* and whose abilities he emphasised.
+
+**Herwig Czech's archival work (2018)** and **Edith Sheffer's *Asperger's
+Children* (2018)** documented Asperger's referral of children to **Am Spiegelgrund**,
+the Vienna clinic where children were killed, and his signature on assessments,
+against the post-war account in which he had protected his patients.
+
+**The category named after him had already been dissolved in the DSM-5, 2013**, for
+unrelated reasons — the collapse into a single spectrum.
+
+**And the spectrum concept is Lorna Wing's.** She translated Asperger's paper into
+English in 1981 and introduced the term; **her daughter Susie was autistic**, and
+she co-founded what became the National Autistic Society **because there was no
+provision.**
+
+---
+
+**And the first-person literature predates the research by decades and was ignored.**
+
+**Jim Sinclair**, ***"Don't Mourn For Us,"*** delivered at the 1993 International
+Conference on Autism, Toronto, to an audience of parents. The argument: that the
+grief expressed by parents is grief for **an expected child who never existed**, and
+is expressed **in the presence of the actual child**, who hears it.
+
+**And that the request is not for the parent to stop grieving but to notice who the
+grief is about.**
+
+**Autism Network International**, which Sinclair co-founded in 1992, and
+**Autreat**, its retreat from 1996 — **the first autistic-run autistic-space
+event**, with the colour-coded interaction badges (red, yellow, green) that later
+spread across conference culture generally.
+
+**Monotropism** — **Dinah Murray, Wenn Lawson and Mike Lesser, 2005** — the account
+of autistic attention as **a small number of interests taking a large share of
+available processing**, with the consequences (difficulty switching, flow states,
+distress at interruption) derived from that single parameter **rather than listed as
+separate symptoms.**
+
+**All three authors were autistic.**
