@@ -14255,3 +14255,85 @@ correspondences as laws, and the tradition that had it was the one being read.
 **Grimm's law** — the systematic consonant shift in Germanic — is a statement of
 the form the *Prātiśākhyas* were already making, applied across languages instead
 of across a word boundary.
+
+---
+
+**The *Mahābhāṣya* is a commentary written as an argument, with the objector given a
+voice and a personality, and it opens by asking why anyone should study grammar at
+all.**
+
+**Patañjali**, around **150 BCE** — the grammarian, whom tradition identifies with
+the author of the *Yoga Sūtra* and modern scholarship generally does not.
+
+The structure: Pāṇini's sūtra, then **Kātyāyana's *vārttikas*** — critical notes,
+some of them objections to Pāṇini, written a couple of centuries after him — and
+then Patañjali discussing both, often defending Pāṇini against Kātyāyana, sometimes
+not.
+
+**Three layers, two of them disagreeing with the first, transmitted as one text.**
+
+---
+
+**The opening is a dialogue and the objector is not a straw man.**
+
+The question raised at the start: *atha śabdānuśāsanam* — now, the instruction
+concerning words. And immediately: **why?** People already speak. Children learn the
+language without a grammar. Words are learned from usage, from the world, from
+elders. **So what is this for?**
+
+The answers given are practical and are argued over: to preserve the Veda, to
+modify it correctly where a rite requires substitution, because a text says so,
+because economy — and the last is the interesting one: **learning four thousand
+rules is faster than learning the words one at a time**, since the words are
+unbounded and the rules are not.
+
+*Anabhidheyā hi śabdāḥ* — the words cannot be enumerated. The rules can.
+
+**The objector keeps returning through the whole work**, and the form is: the
+objection stated at full strength, then answered, then a further objection.
+
+---
+
+**And it contains the passage about the elephant and the word.**
+
+Patañjali distinguishes the **word** from the **thing**. *When one says "bring the
+cow," it is not the cow that is brought by the word* — and he works through what
+kind of object a word is, and whether the word for a thing is the individual, the
+class, or the form.
+
+He also has the line that is quoted constantly: *ekaḥ śabdaḥ samyag jñātaḥ
+suprayuktaḥ svarge loke ca kāmadhug bhavati* — **one word, correctly known and
+correctly used, is a wish-fulfilling cow in this world and the next.**
+
+A grammarian claiming that exactness in a single word has that much force.
+
+---
+
+**The other thing in it: how the grammar was checked.**
+
+Patañjali describes the practice of testing a rule against **usage** — going to the
+people who speak, the *śiṣṭas*, whose speech is the standard, and finding out what
+they actually say. The rule is not self-justifying; **it answers to the community
+of competent speakers**, and where Pāṇini's rule and observed usage conflict, that
+is a problem to be resolved rather than a usage to be corrected.
+
+**The grammar is descriptive at the root and prescriptive in application**, and the
+text says which.
+
+---
+
+**And the argument about *sphoṭa* runs through it.**
+
+Bhartṛhari, five centuries later, credits the doctrine to the grammarians before
+him, and the *Mahābhāṣya* is where he finds it — the distinction between the
+**sounds that are produced and pass** and the **word that is understood**, which does
+not pass and is not the sounds.
+
+*Nāda* — the audible noise. *Sphoṭa* — what bursts into recognition.
+
+Patañjali is arguing about how a word can be **one thing** when its utterance is
+many things in sequence, and he is doing it in a commentary on a rule about
+inflection.
+
+The question of what a linguistic unit **is** turns up inside a technical
+discussion of how to form a genitive.
