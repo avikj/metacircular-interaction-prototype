@@ -10273,3 +10273,83 @@ Notebook editions with Andrews run to five more. The last volumes appeared in th
 A hundred years of professional mathematicians establishing things a clerk in
 Madras wrote down without argument, and the count of items still not settled is not
 zero.
+
+---
+
+The **Sangam** poems are secular, they are short, and they are sorted by
+**landscape**, and the landscape is a code for what kind of love is happening.
+
+Tamil, roughly the third century BCE to the third CE. Around **2,381 poems**,
+attributed to about **473 poets**, of whom **around thirty are women** — and the
+attributions are by name, in the anthologies, with the poet's name given at the end
+of each poem.
+
+The material splits into ***akam*** — the interior, love, which is anonymous by
+convention: the people in it are never named, only "he," "she," "her friend," "the
+concubine" —
+
+and ***puṟam*** — the exterior, war, kings, death, public praise and public blame,
+where everyone **is** named.
+
+Two registers, two rules about names, in one body of work.
+
+---
+
+**The five landscapes**, the ***tiṇai***, and this is the structural device:
+
+***kuṟiñci*** — mountains, night, the cold season. **Union.**
+***mullai*** — forest and pasture, evening, the rains. **Waiting, patiently.**
+***marutam*** — cultivated riverine land, dawn. **Quarrelling, sulking, the lover's
+infidelity.**
+***neytal*** — the seashore, sunset. **Separation and anxiety.**
+***pālai*** — the wasteland, midday, summer. **Elopement, and the hardest
+separation.**
+
+Each *tiṇai* comes with a full inventory: **its flower, its bird, its tree, its
+animal, its drum, its tribe, its occupation, its god, its time of day, its
+season.** Naming the jasmine, or the crab, or the millet field, sets the emotional
+situation before a single word about the people.
+
+So a poem can open on a **stork picking at a crab in a saltpan** and the audience
+already knows the woman is separated and afraid.
+
+The correspondence is fixed and known to everyone, which makes it a **compression
+scheme.** Four lines can carry a whole situation because the setting is doing the
+work the exposition would otherwise do.
+
+---
+
+**Puṟanāṉūṟu 192**, by **Kaṇiyaṉ Pūṅkuṉṟaṉār**, and the first line is on the wall
+of the UN building in New York:
+
+> ***yāthum ūrē yāvarum kēḷir*** — every town is my town, everyone is my kin.
+
+The rest of it is harder than the line: good and evil do not come from others,
+neither pain nor its relief, death is nothing new, we do not rejoice that life is
+sweet nor say in adversity that it is bitter — and the image is a **raft in a river
+in flood, carried over rocks by lightning-lit rain.**
+
+The poet is otherwise almost unknown.
+
+---
+
+**The *Tirukkuṟaḷ***, Tiruvaḷḷuvar, around the fifth century CE. **1,330 couplets**,
+each **exactly seven words** — four in the first line, three in the second — in
+133 chapters of ten.
+
+It is organised on the puruṣārthas: virtue, wealth, and love. **No section on
+mokṣa.** Three of the four, and the third of them — *inbam*, pleasure — gets 250
+couplets, a quarter of the book, on the specifics of desire between two people.
+
+And it names **no god, no caste, and no sect** in a way that lets any tradition
+claim it. Śaivas, Vaiṣṇavas, Jains and Christians have all read it as theirs, and
+the argument over Tiruvaḷḷuvar's affiliation is unsettled and probably unsettleable.
+
+Chapter 33 is on **not killing**. Chapter 32 on **not injuring**. Chapter 26
+argues against eating meat, on the ground that one who refuses to fatten himself on
+another's flesh will be honoured — which is why the Jain claim is made.
+
+**Auvaiyār**, the woman poet of the Sangam corpus — the name recurs for more than
+one poet across periods — has *puṟam* poems addressed directly to kings, including
+one refusing a king's gift and another telling a ruler to his face what his war
+has cost.
