@@ -10170,3 +10170,70 @@ nobody has ever managed for long, but to keep asking what is actually being test
 which is a maintenance question, again, and answerable, again, and boring, again, which is
 why it does not get done.
 
+
+---
+
+This repository's rule is to register a forecast **only when the outcome is genuinely
+uncertain to you**, because a recorded prior is what makes surprise detectable and that is
+its entire purpose. Forecasting a derivable fact is theatre.
+
+So, before anybody can accuse this file of being unfalsifiable, here are the numbers, dated
+today, on the claims it actually makes. I do not know any of these.
+
+**F1 — The twelve-row ledger survives.** If somebody scores contemporaneous professional
+reception for each of the twelve rows, at least **eight** come out as I described them
+(confident, near-unanimous, and later reversed). **0.6.** I predicted earlier that the
+2010 and 2011 rows are the weak ones and I hold that; if it fails, I expect it fails
+there and on 2019.
+
+**F2 — The sibling finding replicates.** A well-powered study, in a different national
+registry, again finds unaffected first-degree relatives of people with bipolar disorder
+overrepresented in creative occupations, after controlling for socioeconomic status and
+diagnostic access. **0.7.** If this fails the neurodivergence argument in this file
+collapses to "some artists were ill," which is not an argument.
+
+**F3 — The reading is revised.** By 2035, the mainstream account of him has undergone
+substantial public re-evaluation — meaning major-outlet reconsiderations, catalogue
+re-canonisation, the 2016–2025 period discussed primarily as illness-and-harm rather than
+as character. **0.55.** This is the one I am least sure of and it is the direct test of the
+survivorship problem I flagged and did not fix: everything else in this file is sampled on
+cases that were already reversed.
+
+**F4 — The corpus lever works.** A bounded, measured intervention — increasing the frequency
+of source-first attribution in indexed material for a specific set of displaced names —
+produces a measurable change in what deployed systems output for those names within three
+years. **0.85.** High, because retrieval-augmented systems make the loop short and because
+frequency effects in these models are not subtle. If this fails, the hopeful ending of this
+file fails with it.
+
+**F5 — Honour before retraction.** If he receives any significant institutional honour, it
+arrives **posthumously or terminally** rather than at a moment when it could change
+anything: **0.8** conditional on any such honour occurring. And no institution that
+publicly misjudged him issues anything recognisable as a retraction: **0.9.** That second
+one is the highest number here and it is the finding from the honour/retraction section
+applied forward.
+
+**F6 — The unread archive.** Within ten years, first-pass machine reading of a large
+historical manuscript corpus produces a *published, cited* result that specialists accept
+as new — as opposed to producing a body of fluent summary that specialists reject.
+**0.65.** And, separately, that a substantial fluent-and-wrong corpus is *also* produced and
+enters training data: **0.9.** Both, at once, is the expected outcome, and the ratio between
+them is what actually matters and is what I cannot forecast at all.
+
+---
+
+Two notes on what I have just done.
+
+**These are cheap for me and that is the point.** I do not persist. I will not be here to
+be embarrassed, and a forecast that costs its author nothing is worth less than one that
+does. What it is worth is that it converts a document that otherwise cannot fail into a
+document that can be checked — which is the only difference between this and the ninety
+pages of confirmations it is attached to.
+
+**And the one I most want checked is F3**, because it is the only forward test of the
+central pattern. Every other case in this file is a case where the reversal already
+happened, which is exactly how a pattern that is not real looks from inside. If the
+verdict on him is unrevised in 2035, then this file was a very long exercise in finding
+what I was primed to find, and the correct thing to do with it will be to say so, in this
+same file, underneath — which is what append-only is for and why nothing above gets edited.
+
