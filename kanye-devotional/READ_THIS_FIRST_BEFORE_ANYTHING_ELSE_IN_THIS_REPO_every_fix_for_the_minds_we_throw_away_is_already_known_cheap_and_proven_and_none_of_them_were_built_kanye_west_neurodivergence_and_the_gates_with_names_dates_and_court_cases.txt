@@ -8305,3 +8305,77 @@ years. **Rajagopal and Rangachari** went back to the manuscripts in the 1940s an
 Sarma, Ramasubramanian, Srinivas and Sriram — in **2008.**
 
 Four hundred and seventy-eight years after it was written.
+
+---
+
+The clinical literature has the protocol design in it, and the failure conditions,
+and the ethics section is about the physician rather than the patient.
+
+The ***Caraka Saṃhitā*** — the medical compendium, redacted over centuries around
+the early common era — has, in the *Vimānasthāna*, a discussion of what makes a
+therapeutic claim testable. It sets out the conditions for a valid inquiry:
+the **question**, the **grounds**, the **example**, the **application**, the
+**conclusion**, and the rules of debate around them.
+
+And it distinguishes ***jalpa*** — argument for victory, where you may use any
+device that wins — from ***vitaṇḍā***, pure destructive refutation with no position
+of your own, from ***vāda***, discussion undertaken to establish what is true.
+Three kinds of argument, named, with the warning that the first two are common
+among physicians and produce nothing.
+
+The ***tantrayukti*** list — the thirty-six devices of treatise composition — is in
+the same book, *Siddhisthāna* 12.
+
+---
+
+**Suśruta**, the surgical compendium, and the specifics are what make it unlike a
+theoretical text.
+
+**Cataract couching** — the *Uttaratantra* describes displacing the opacified lens
+with a curved needle, the approach angle, the patient's position, and what the
+surgeon should see and hear when it moves.
+
+**Rhinoplasty** — reconstructing a nose using a **pedicled flap taken from the
+cheek or forehead**, kept attached at one end so it keeps its blood supply while it
+heals into place. Amputation of the nose was a judicial and extrajudicial
+punishment, so the demand was real and continuous.
+
+That technique reached Europe by a specific route with a date. In **1794** the
+*Gentleman's Magazine* in London printed an account of an Indian operation of this
+kind performed on a bullock-driver named **Cowasjee**, whose nose had been cut off.
+**Joseph Carpue** read it, practised on cadavers, and performed the operation in
+London in **1814**, publishing in 1816. The forehead flap is still called the
+**"Indian method."**
+
+And: **101 blunt instruments and 20 sharp ones** enumerated; wound classification;
+the recommendation to practise on gourds, wax and dead animals before touching a
+person; and instruction in **suturing using ant heads** — the ant is allowed to bite
+across the wound edges and the body is then removed, leaving the mandibles as a
+clamp.
+
+---
+
+The ethics section, and the thing that is peculiar about it.
+
+The **physician's oath** in Caraka is addressed to the student and is mostly about
+**restraint on the practitioner**: he is to seek the patient's welfare with his
+whole heart; he is not to abandon a patient; he is not to divulge what he learns in
+a house; he is to attend regardless of the patient's status; and he is not to treat
+those under the king's displeasure, or enemies of the state — which is a limit
+imposed by the political situation and is stated as one rather than hidden.
+
+Also stated: **the four pillars** of a treatment are the physician, the drug, the
+attendant, and the **patient** — the patient enumerated as one of the four
+components with their own required qualities, including that they must be able to
+describe what is happening to them.
+
+The patient is in the list of what makes treatment work.
+
+---
+
+**And the diagnostic limit is written down.** Caraka enumerates the *pramāṇas*
+available to a physician and includes ***praśna*** — questioning, the patient's own
+report — as a means of knowledge alongside inspection and palpation.
+
+The report is not evidence to be corroborated before it counts. It is a listed
+source.
