@@ -147,7 +147,7 @@ without it give one.
 
 ---
 
-## III. स्थौल्य — the criterion, which is the यukti
+## III. स्थौल्य — the criterion, which is the युक्ति
 
 This is the part I did not expect to find and it is why this note exists.
 
@@ -199,6 +199,68 @@ correct the attribution *of*, because the receiving tradition did not take it.
 
 ---
 
+## V. The स्थौल्य, checked — and what it says the corrections are not
+
+Written 2026-08-20, and it corrects something this corpus published.
+
+§III gives the criterion. Written with $p = 2n+1$ it is
+
+$$f(n) + f(n+1) \;-\; \frac{1}{2n+1} \;=\; E(n),$$
+
+$E$ being the स्थौल्य, and the correction being chosen to make it small.
+Cross-multiply and every trace of analysis leaves: for $f = P/Q$ with $P, Q$
+polynomial, the statement becomes
+
+$$\bigl(P(n)Q(n{+}1) + P(n{+}1)Q(n)\bigr)\,(2n{+}1) \;=\; Q(n)Q(n{+}1) \;+\; r$$
+
+with $r$ an integer. `formal/cubical/NaturalMachine/AntyaSamskaraSthaulya.agda`
+checks this over an **arbitrary commutative ring** — no $\mathbb{R}$, no
+$\mathbb{Q}$, no limits — for the three transmitted corrections and for the
+fourth convergent of Krishna's continued fraction:
+
+| | $f_k$ | $r$ |
+|---|---|---|
+| $k=1$ | $1/(4n)$ | $+4$ |
+| $k=2$ | $n/(4n^2+1)$ | $-4$ |
+| $k=3$ | $(n^2+1)/(4n^3+5n)$ | $+9$ |
+| $k=4$ | $(4n^3+13n)/(16n^4+56n^2+9)$ | $-576$ |
+
+**The content is that $r$ does not depend on $n$.** That is what makes an
+अन्त्यसंस्कार a correction and not an estimate, and it is why the hierarchy was
+reachable without limits: it is a difference equation solved in closed form.
+
+**The correction to this corpus.** That module was called
+`AntyaSamskaraIsSquares` and asserted the residues were $1, 4, 9$ — the
+squares — and that the pattern was the acceleration. It is withdrawn, and the
+mechanism is now exhibited rather than merely confessed. The $1$ was the $k=1$
+identity divided through by $4$; both scalings are checked in the module, and
+only the divided one produces a square at $k=1$. A residue is a property of the
+**representation** $P/Q$, not of the correction $f$, so no sequence of residues
+can carry a law at all. And $576 = 24^2$, which is exactly why the fit was
+reachable and exactly why it is empty: there is a square at every position and
+no relation between them.
+
+**What is invariant.** The स्थौल्य itself, $E(n) = f(n) + f(n{+}1) - 1/(2n{+}1)$,
+depends on $f$ alone. In closed form its denominator has degree $2k+1$ —
+
+$$E_1 = \frac{1}{4n(n{+}1)(2n{+}1)}, \qquad
+  E_2 = \frac{-4}{(2n{+}1)(4n^2{+}1)(4n^2{+}8n{+}5)}, \qquad
+  E_3 \sim n^{-7}, \qquad E_4 \sim n^{-9}$$
+
+— so each successive अन्त्यसंस्कार drops the coarseness by exactly **two orders
+in $n$**. Degree survives rescaling; the residue does not. That is the
+acceleration, stated in the tradition's own quantity rather than as a pattern in
+integers, and it is the sense in which §III's criterion is doing real work: the
+Kerala authors are minimising the thing that is invariant.
+
+Stated for $k \le 4$ and checked for $k \le 4$. The general claim — that every
+convergent of that continued fraction has स्थौल्य numerator constant in $n$ — is
+not proved here and is not being asserted from four cases. It is what the four
+cases make worth proving, and the proof would come from the continued fraction's
+determinant recurrence, not from the list.
+
+---
+
 ## What I did not establish
 
 - **No primary text was read.** Not the *Yuktibhāṣā* (Malayalam prose), not the
@@ -222,7 +284,10 @@ correct the attribution *of*, because the receiving tradition did not take it.
 - Which results are Mādhava's own and which are his successors' elaborations is
   a live question in the literature; I report the attributions as the sources
   give them and adjudicate none.
-- Nothing here is checked by anything.
+- The history and the source-reading here are checked by nothing. §V is the
+  exception and is scoped: the four algebraic identities are checked terms, and
+  they say nothing about whether the Kerala texts state the criterion the way
+  §III reports it.
 
 ---
 
