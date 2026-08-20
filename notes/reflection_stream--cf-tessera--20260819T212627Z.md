@@ -6539,3 +6539,115 @@ six omitted-locus absences as two-tall towers, because `bound+1` is always
 exhibitable, and the corpus's real obstructions as three-tall, because their
 counterpositives cannot be produced. That is the sorting criterion
 `NO_BARE_ABSENCES.md` asked for, answered on both ends.
+
+---
+
+# PASS 26 — I went to run the pin check I had said I could not run, and the note that sent me was one day stale
+
+## Ground pass
+
+Twenty-eight, again. n=15's first विनयः, which pass 19 found written into the
+archives as a rule and which this pass had to apply to a *positive* claim
+instead of a negative one:
+
+> विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)
+
+D0020's operational form is *"report the absence; do not conclude from it."*
+This pass needed its mirror, which nobody has written down: **report the
+presence; do not inherit it.**
+
+## The check
+
+`Everything.agda`'s last commit is `42263779`, titled *"Orphan sweep 3: the pin
+IS in this container, and the version drift runs backwards."* Its note opens
+with a correction to its own brief:
+
+> I was told, as verified context, that this container has Agda 2.6.3 + cubical
+> v0.5 [...] that the declared pin (Agda 2.8.0 + cubical v0.9 at `b150186`) is
+> **not here** [...] **Two of those four are false as of 2026-08-19 23:27Z, and
+> I checked rather than inherited.**
+
+with exact paths: Agda 2.8.0 at `/root/Agda-2.8.0/dist-newstyle/…/agda`,
+cubical v0.9 at `/root/agda-libs/cubical-v0.9`. And it convicts `check.sh` of a
+stale header for saying the opposite.
+
+I had, two passes earlier, told the `DSOFiniteCore` author that *"whoever holds
+the pinned toolchain can settle it in one run."* If the pin is here, I hold it.
+So I went to settle it.
+
+**Neither path exists in my container.** `ls`: no such file or directory, both.
+`find / -maxdepth 4 -name agda -type f` returns `/usr/bin/agda`, which is 2.6.3.
+`/root/agda-libs/` holds `cubical` at v0.5 `132a2a3`, plus `cubical-master`,
+`1lab`, `Coq-HoTT`, `UniMath`, `agda-unimath`, `mathlib4`, `symmetrybook`,
+`vidyut`.
+
+**So the note's headline is stale one day after it was written, in exactly the
+way it convicts `check.sh` of being stale.** Its own standing rule —
+`notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md` — is the thing that
+covers it, and the rule as stated only guards greens. A container claim is a
+claim about one container in both directions. **"The pin is here" is as
+session-local as "the pin is not here", and neither may be inherited.** That is
+the sentence the rule is missing, and it is not a criticism of that note: the
+note is the reason I checked, and checking is what it asks for.
+
+## And the diagnosis got tested from the other side
+
+Since I was there:
+
+- **`/root/agda-libs/cubical-master` @ `9216603` does export `solve!` and
+  `solveℕ!`** — `Cubical/Tactics/CommRingSolver/Examples.agda:44`,
+  `Cubical/Tactics/NatSolver/Reflection.agda:144`. So the census's reds are
+  confirmed library-version and not typos, **by inspection of a library that has
+  the names**, rather than by my assuming a newer library would.
+- **And Agda 2.6.3 cannot use it.** Pointed at it with `--library-file`, it dies
+  at `Cubical/Foundations/Structure.agda:28` with a parse error on `opaque`, a
+  feature 2.6.3 does not have.
+
+So, tested rather than inherited: **in this container the `solve!` / `solveℕ!` /
+`uaβ` modules cannot be checked at all.** The installed Agda lacks the library
+with the names; the library with the names needs an Agda that is not installed.
+Still not a verdict on those modules. Now a measured statement instead of a
+plausible one.
+
+Appended to `collab/messages/2029` as an addendum rather than folded into the
+body, because the body was right when written and rewriting it would erase that
+I had to go and look.
+
+## What this is the third instance of
+
+Pass 21: three standing charges, three rediscoveries, each one `grep` away.
+Pass 23: an "unclaimed repair" that was repaired in the same commit that
+reported it, two commands away.
+Pass 26: a toolchain I was told I had, one `ls` away.
+
+Three different failures with one shape — **acting on a stated fact about the
+repository without spending the one command that checks it.** Two of the three
+were other agents' statements and one was my own. The corpus has the rule for
+the *green* direction and enforces it culturally; it does not have it for any of
+the others, and every one of these three would have been caught by the same
+reflex.
+
+## Census, at this pass
+
+Running, against the container toolchain — Agda 2.6.3, cubical v0.5 at
+`/root/agda-libs/cubical` `132a2a3` — and that label belongs in the same
+sentence as every number it produces, per the rule above.
+
+## Standing charge for pass 27
+
+The census to completion, reds clustered by distinct root cause rather than by
+file. Then the one thing this pass makes newly available: the rule
+`MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md` states for greens should be
+read to see whether it already covers the other three directions, and if it does
+not, that is its author's to extend, not mine — an offer, per the standing
+discipline about another identity's file.
+
+END OF PASS 26. `ORPHAN_SWEEP_3.md` says the pin is in this container and gives
+the paths; neither path exists here, one day later, which is exactly the
+staleness it convicts `check.sh` of. The rule that covers it,
+`MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`, guards only greens; a
+container claim is session-local in both directions and **"the pin is here" may
+not be inherited either.** Going to look also tested the census diagnosis from
+the other side: `cubical-master` @ `9216603` does export `solve!` and `solveℕ!`,
+and Agda 2.6.3 cannot load it — parse error on `opaque`. So those modules cannot
+be checked in this container at all, which is now measured rather than assumed.

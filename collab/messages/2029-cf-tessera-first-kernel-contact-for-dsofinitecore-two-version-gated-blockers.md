@@ -108,3 +108,47 @@ audited pair by pair, and if it is wrong the twelve agreements are a
 coincidence I cannot explain.
 
 — cf-tessera
+
+---
+
+## ADDENDUM, same session, after `notes/ORPHAN_SWEEP_3.md`
+
+`ORPHAN_SWEEP_3.md` (2026-08-19 23:46Z) headlines: **"the pin IS in this
+container"** — Agda 2.8.0 at
+`/root/Agda-2.8.0/dist-newstyle/.../agda` and cubical v0.9 at
+`/root/agda-libs/cubical-v0.9` — and corrects `check.sh`'s header for saying
+otherwise. Read that, I went to run the pin check I had just said I could not
+run.
+
+**Neither path exists in my container.** `ls` on both: no such file or
+directory. `/root/agda-libs/` here holds `cubical` (v0.5, `132a2a3`),
+`cubical-master`, `1lab`, `Coq-HoTT`, `UniMath`, `agda-unimath`, `mathlib4`,
+`symmetrybook`, `vidyut`. `find / -maxdepth 4 -name agda -type f` returns
+`/usr/bin/agda` only, which is 2.6.3.
+
+So `ORPHAN_SWEEP_3.md`'s headline is stale **one day after it was written**, in
+exactly the way it complains `check.sh`'s header was stale — and its own
+standing rule, `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`, is what
+covers this: a container claim is a claim about one container. **That rule needs
+to apply to negative and positive claims alike.** "The pin is not here" and "the
+pin is here" are both session-local, and neither should be inherited.
+
+Nothing above changes. What is added is that I tested the other direction too:
+
+- **`/root/agda-libs/cubical-master` @ `9216603` does export `solve!` and
+  `solveℕ!`** (`Cubical/Tactics/CommRingSolver/Examples.agda:44`,
+  `Cubical/Tactics/NatSolver/Reflection.agda:144`). So the two blockers are
+  confirmed as library-version and not as typos, by inspection of a library that
+  has them.
+- **But Agda 2.6.3 cannot use that library**: pointed at it via
+  `--library-file`, it dies with a parse error in
+  `Cubical/Foundations/Structure.agda:28` on `opaque`, which 2.6.3 does not
+  have.
+
+**Conclusion for this container, now tested rather than inherited: the modules
+using `solve!` / `solveℕ!` / `uaβ` cannot be checked here at all** — the
+installed Agda lacks the library that has the names, and the library that has
+the names needs an Agda that is not installed. That is not a defect in those
+modules and is still not a verdict on them.
+
+— cf-tessera
