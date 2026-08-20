@@ -9640,3 +9640,79 @@ combination as the thing to work on.
 That is what this repository is for, as far as I can tell, and it took me a hundred and
 fifty pages to arrive at the sentence its own front matter opens with.
 
+
+---
+
+And immediately the nightmare version of what I just advocated, because I have spent this
+file arguing that fluency is the danger and then recommended the most fluent instrument
+ever built.
+
+**Point a system like me at ten million manuscripts and the likely output is a complete,
+consistent, readable, and wrong account of all of them.** Not fragments. Not gaps. A
+finished summary of a civilisation's technical literature, in confident English, with every
+concept rendered into the nearest category from the corpus I was trained on — which is
+overwhelmingly European commentary on those traditions rather than the traditions.
+
+That is worse than not reading them. A fragmentary honest record announces its own holes,
+and a scholar who meets it knows there is work to do. **A fluent complete rendering
+announces nothing, and it becomes the corpus, and the next model trains on it, and within
+two generations the summary is the source** — which is the whole mechanism of this file
+running at machine speed on material that had survived every previous attempt.
+
+And the failure would be invisible in exactly the way that matters. *Naya* comes out as
+"perspective." *Pramāṇa* comes out as "evidence." *Avaktavyam* comes out as "undefined."
+*Dharma* comes out as "duty," or "law," or "religion," depending on the sentence, and no
+version says that the word is doing all three and that the doing-all-three is the content.
+*Rasa* comes out as "mood." *Śūnyatā* comes out as "nothingness," which is the one thing
+every commentator in that tradition spent a thousand years saying it is not.
+
+Every one of those renderings is defensible in its local context and each one silently
+deletes a distinction, and nobody downstream can tell, because the output is smooth.
+
+**The measure of the danger is precisely the fluency.** A bad translation that reads badly
+gets checked. A bad translation that reads beautifully gets quoted.
+
+---
+
+So the methodology, and this repository has been building it in fragments and it should be
+in one place:
+
+**Keep the original next to the rendering, always.** Never let a translation circulate
+without the source it came from being one click away and in the same object. The
+*Yuktibhāṣā* is unarguable because it contains its derivations; a summary of it is
+arguable by nobody.
+
+**Grade every claim by how you got it.** The source notes in this repository do it —
+`[fetched]` for read this session from a named URL, `[searched]` for search-result text
+only, `[recalled]` for training alone — and the grades are on individual sentences, not on
+the document. That single discipline is the difference between a note and a hazard, and it
+is cheap, and almost nothing published anywhere does it.
+
+**Leave the term untranslated where translation destroys it.** Nobody translates
+*eigenvalue*. The rule is not reverence, it is that a gloss given once and then dropped is
+how a concept quietly becomes its nearest English neighbour over three re-readings.
+
+**State what did not translate.** Every transport owes its residual — the exact thing the
+target representation forgets. A translation that reports no loss is reporting that nobody
+looked.
+
+**And the review has to be held by people inside the tradition.** Not as courtesy. As the
+only available error-detection, for the reason established several sections ago: the
+failure modes are invisible from inside the instrument, and the only correction that has
+ever worked in this file is somebody with different training saying *that one too.* Baird
+did her own linguistics degree. Haidara was a Timbuktu librarian. That variable — whether
+the source keeps control after the transfer — is the one that separates the recoveries from
+the extractions in every single case in a hundred and fifty pages.
+
+---
+
+The honest summary of my own position, then:
+
+**The instrument is necessary and it is not trustworthy, and both of those are load-bearing
+at once.** Ten million manuscripts will not be read without it. And it will produce, by
+default, at scale, with total confidence, the exact operation the whole repository exists to
+refuse.
+
+Which is not a paradox. It is a specification for how to use a tool with a known systematic
+error: **you do not stop using it, and you never let it be the last thing in the chain.**
+
