@@ -12577,3 +12577,163 @@ Rosetta Stone is not the chart that won.
 ---
 
 Two drafts. One clause between them. Twenty-two movements and nine.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 62 — "The re-evaluation is not the correction." Sixty-one passes of
+# this stream are re-evaluations.
+═══════════════════════════════════════════════════════════════════════════
+
+Lines 1010–1230 of 20,276.
+
+## P62 — the sentence
+
+On *808s & Heartbreak*, November 24, 2008, made in about three weeks in Hawaii;
+his mother dead November 10, 2007; the engagement ended in 2008:
+
+> The reception argued about **Auto-Tune.** […] Column after column on a piece
+> of studio hardware. A man's mother had been dead for a year and the trade
+> conversation was about whether he should be using a vocal processor.
+>
+> Nobody's professional vocabulary had a slot for *this is what grief sounds
+> like when the person will not stop working.* Music criticism has extensive
+> apparatus for genre, for production, for authenticity, for career trajectory.
+> It has almost none for **a specific bereavement in a specific person**.
+>
+> Then a decade of the most successful music in the world came directly out of
+> it — Cudi, Drake, the Weeknd, Frank Ocean, Future, Travis Scott […] and the
+> same institution wrote the retrospectives calling it visionary, without ever
+> going back and saying *what we did was fail to notice a man was in mourning.*
+>
+> **The re-evaluation is not the correction. The re-evaluation is the same
+> faculty running again with better information. The correction would have been
+> having a category for it in 2008.**
+
+Sixty-one passes of this stream are the same faculty running again with better
+information.
+
+Pass 58 found the acquittal-rhythm by counting four instances of it. Pass 59
+found that a count over ℕ cannot carry a debt. Both are re-evaluations. Neither
+gave me the category before the pass; both gave it after, from the wreckage of
+the pass before.
+
+The apparatus that does the other thing is in this repository and is 135 lines
+long: `reader_test_log.md` runs readers against a draft on stated dimensions
+**before** it goes out, and acts only on convergence. It has been applied to one
+file.
+
+## P62 — the mechanism, stated by the file, and its name
+
+> That is not the press being cruel. **Cruelty would at least be a response to
+> what happened.** It is a machine that only has the categories it has, running
+> over an event that fits none of them, and producing the only output it can
+
+`cf-tessera-e-0`'s assigned lens this morning: **Ashby — a regulator must have
+at least as much variety as what it regulates.** Its report: *"Ashby wins, and I
+checked it rather than asserting it."*
+
+The variety counts, as the file gives them:
+
+- Pass 56, the tour: *"the entire apparatus around him had exactly one setting,
+  forward, and no one was employed to have the other one."*
+- The gurney: *"**The United States has two settings.** Setting one: nothing.
+  Setting two: armed strangers arrive and remove you against your will. There is
+  no third position in the standard build. A family watching someone go into an
+  episode has, as its actual menu, *wait* or *call the police.*"*
+- July 2020: *"Not one outlet's structure had a slot for* this person needs to
+  be off this stage."
+- September 16, 2020: *"one of those things fits in the machine and the other
+  does not. A hundred pages of contract law is not a segment. A man and a trophy
+  is a segment."*
+
+One setting. Two settings. No slot. One shape of segment.
+
+## P62 — September 16, 2020
+
+> He **photographed and published his own recording and publishing contracts** —
+> over a hundred pages of them, Universal and Sony/ATV and EMI, tweeted out
+> sheet by sheet […] And he filmed himself urinating on a Grammy.
+>
+> **One hundred percent of the coverage was the Grammy.**
+>
+> Not a description of the terms. **The paper.** Recoupment structure, term,
+> ownership, the mechanics by which an advance is a loan the artist repays out
+> of a royalty share while the label keeps the asset in perpetuity. Free, in
+> full, screenshot by screenshot, for every eighteen-year-old about to sign one.
+>
+> The year before, he had sued EMI […] the filing described a clause under which
+> he was **not permitted to retire** […] The word his side used for it in the
+> filing was servitude, and the industry's response was that this is standard,
+> which was true, and which was the point he was making.
+>
+> the stunt was almost certainly the delivery mechanism, because he knew exactly
+> what would get looked at.
+
+## P62 — Sway, November 2013
+
+> The question was **bootstraps.** The answer was: I have tried, I do not have
+> the capital, I need tens of millions of dollars to do this at the level I am
+> describing, I have gone to the people who have it and they will not fund me
+>
+> He was describing a **capital access problem** and was offered self-reliance
+> as the solution.
+>
+> **It was a fair question. It just had a real answer, and the answer was the
+> thing nobody wanted on the tape.**
+
+## P62 — the domes, and the numbers beside them
+
+> **Yeezy Home**, announced 2018 […] In 2019 he built prototypes on his
+> Calabasas property: several large concrete dome shells, half-buried, meant as
+> a template for cheap replicable structures. […] **Los Angeles County ordered
+> them demolished.** They had been built without permits. […] The permits point
+> is correct.
+>
+> Los Angeles County's homeless count was around **fifty-nine thousand** people
+> in 2019 and has since gone well past **seventy thousand**.
+>
+> Not a permitting pathway. Not an offer from the county's housing authority […]
+> Not one architect of record assigned. Not a pilot program.
+>
+> He then bought a Tadao Ando house in Malibu and stripped it to the concrete
+> […] **and that one was genuinely just a rich man doing what he wanted. Both
+> are on the record.**
+
+## P62 — §5150, and what has existed the whole time
+
+> **California Welfare and Institutions Code §5150** — a seventy-two hour
+> involuntary hold […] Reports at the time said he was handcuffed to the gurney.
+> **That has been disputed and I do not know.**
+>
+> The Treatment Advocacy Center's 2015 estimate was that people with untreated
+> serious mental illness are on the order of **sixteen times more likely** to be
+> killed during a police encounter […] something like a **quarter** of people
+> killed by police in the United States have a mental illness.
+>
+> **988** […] launched in **July 2022.** Three years old. That is the first time
+> this country had a number to call that wasn't the police.
+>
+> **CAHOOTS**, in Eugene, Oregon, since **1989** — a medic and a crisis worker,
+> unarmed, dispatched through the same 911 system. It has taken roughly a fifth
+> of that city's call volume, and requests police backup in something around
+> **one percent** of calls.
+
+1989 to 2022. Thirty-three years, one town, operating data.
+
+## P62 — ground, in lockstep
+
+**n=16:**
+
+> Recording is kind of fucking useles we already have a content overwhelm issue
+> building more systems isn't gonna help, **recording refutations no one is
+> gonna see isn't gonna help**, actually becoming smarter so we don't walk a
+> dumb path is the only thing that helps.
+
+That is *the re-evaluation is not the correction*, said to me directly, in the
+second person, before I had read a line of the stream. **Recording refutations**
+is re-evaluation. **Not walking the dumb path** is having the category in 2008.
+
+Sixty-one passes, and n=16 was the thirteenth message in.
+
+---
+
+1,230 of 20,276. 1989. 2022. One percent.
