@@ -13395,3 +13395,197 @@ from its own side, and the part that told you where to look is the part it
 drops.
 
 Reading on from 9760.
+
+---
+
+## 9760–9900 — Katharina Kepler, Needham, and February 2016
+
+**His mother was tried as a witch.** **Katharina Kepler**, an old herb woman,
+accused **1615** in Leonberg. The case ran for years. *"She was imprisoned,
+chained, and subjected to the ***territio verbalis*** — shown the instruments and
+told in detail what would be done with them, **which was a legal stage of the
+process.**"*
+
+A legal stage. The terror is in the procedure, scheduled.
+
+> **Kepler suspended his work and conducted her defence**, writing the legal
+> documents himself, over a period of about six years. She was released and died
+> a few months later.
+
+> The Imperial Mathematician, in the middle of producing the laws of planetary
+> motion, spent six years getting his mother out of a witchcraft prosecution.
+
+**The *Somnium***, published after his death: a voyage to the moon *"with a lunar
+astronomy worked out correctly for an observer standing there, framed as a
+**dream** in which a boy is taught by his mother, who is a herb-woman with a
+spirit informant."*
+
+> He wrote a dream-narrative about a herbalist mother with occult knowledge, in a
+> Europe that was burning women for exactly that, and it circulated in
+> manuscript, **and there is a reasonable argument in the scholarship that it
+> contributed to the accusations against Katharina.**
+
+> A man wrote a fiction, and his mother was tried for the thing in it, and he
+> spent six years of the most productive scientific life of the century writing
+> her legal defence, **and the book everyone remembers him for is named after the
+> singing of the planets, which we have deleted.**
+
+Sixth dream in the file, and this one is a *device* — the frame that let him do
+the astronomy from a lunar observer's position — and it was read as testimony
+and nearly killed his mother. The route reported as fiction, received as
+evidence, and the cost paid by somebody else.
+
+---
+
+**Joseph Needham**, *"the largest single act of scholarly restitution in the
+twentieth century, which began because somebody taught him."*
+
+Cambridge biochemist, established career. **1937**: three Chinese postgraduates
+arrive at his laboratory, one of them **Lu Gwei-djen**, *"and she taught him
+Chinese and, by every account including his own, changed what he thought China
+was. He was about thirty-seven."* Then **fifty-odd years** on *Science and
+Civilisation in China*, *"still being continued by others after his death."*
+
+The whole thing begins with a woman teaching him a language, and she is named
+first.
+
+What it documents: printing, woodblock then movable type in the eleventh
+century; paper; gunpowder; the compass and **magnetic declination**; **cast iron
+a millennium and a half before Europe**; the blast furnace; the sternpost
+rudder, watertight compartments, canal pound-locks; the seismograph; **the
+escapement mechanism in Su Song's astronomical clock in 1088**; decimal
+fractions, negative numbers, simultaneous linear equations by elimination in the
+*Nine Chapters*, and **Qin Jiushao's method for simultaneous congruences** —
+
+> **which is the same object this repository calls the kuṭṭaka, arrived at
+> independently, and which is filed under a third name again in English.**
+
+Three names for one object, three traditions, and the English one names neither.
+And it is a second independent arrival at the same algorithm — like binary three
+times — which by the file's own rule says something about the *problem*, not
+about the peoples.
+
+And **variolation** against smallpox, centuries before Jenner, *"transmitted
+westward through Turkey."*
+
+> it was produced by one man with a career elsewhere, **because a colleague
+> taught him a language.**
+
+---
+
+**The Needham Question**: *"why did modern science... arise in Europe and not in
+China, given that China was technically far ahead for most of recorded
+history?"*
+
+Answers on offer: the examination system directing the ablest minds to the
+classics and the bureaucracy; no merchant class with independent political
+power; a unified empire with no competing states; *"a correlative and organic
+cosmology rather than a legislative one, so that the notion of *laws* of nature
+— **laws implying a legislator** — did not take the same hold"*; no
+Euclidean-style axiomatic geometry in the training.
+
+> **And the sharpest response is that the question is malformed**, and this
+> repository's directive is why. **It takes the European trajectory as the norm
+> requiring no explanation and everything else as a deviation requiring one.**
+> *Why did China fail to do what Europe did* **has the answer built into the
+> grammar.**
+
+> Nobody asks why Europe failed to develop a civil service by competitive
+> examination a thousand years early, or a continuously-maintained astronomical
+> record spanning millennia, or the medical tradition, or the ceramic technology,
+> or the hydraulics.
+
+The counter-questions are the proof that the question is a choice of baseline.
+Five of them, all answerable, none asked.
+
+> Both halves are true and I want them held: **Needham did something enormous, at
+> great personal cost, that nobody else was doing — and the frame of his central
+> question still centred the thing he had spent his life de-centring.**
+
+> **That is not hypocrisy. It is how hard the frame is to get out of, in the
+> person who tried hardest, over fifty years.**
+
+> it is the exact same warning as the one about the machine: **the instrument
+> that recovers the archive is running the categories it was built with, and
+> being the right person doing the right work at enormous cost does not exempt
+> you from that**, and the only correction is somebody else, later, saying *that
+> one too.*
+
+> Which is what the scholars from inside the tradition have been saying about
+> Needham ever since, correctly, **while using his volumes.**
+
+*While using his volumes.* Both, held: the work is indispensable and the frame
+is wrong, and the people correcting it are the ones who need it most. That is
+the pattern for how this repository's own output should expect to be treated,
+and it is a better outcome than being right.
+
+---
+
+**February 2016**, *"the cleanest single test case in the file because the
+claim, the mockery, and the outcome are all documented and only four years
+apart."*
+
+He posted that he was **$53 million in personal debt** from investing his own
+money in his own ideas, and asked **Zuckerberg** for **a billion dollars in
+Kanye West ideas.** *"He said it publicly, in his own name, with a number."*
+
+> The response was total ridicule, for weeks, across every outlet and every
+> timeline. **It became the reference joke for delusion.**
+
+Four to five years later: *"Yeezy's revenues were reported in the region of $1.7
+billion a year, the brand valuation ran to several billion, and *Forbes* — after
+arguing with him about his own figures — listed him as a billionaire."*
+
+> **He was asking for growth capital for a business that then produced roughly
+> what he said it would.**
+
+> A founder with a deck, no revenue, and a story about the future raises hundreds
+> of millions on precisely that basis, is described as visionary, and **the
+> language used in the pitch — *this will be enormous, I need capital, I am the
+> person to do it* — is identical, word for word, to what he posted.**
+
+> The difference between a raise and a breakdown, in that instance, was **the
+> venue and the speaker.** He did it in public, in the first person, without an
+> intermediary, **in a form that was legible to everyone rather than to a room of
+> ten people under NDA** — and the same sentences that get a term sheet in a
+> private meeting get a pity-clip when said in the open by a Black musician.
+
+The fifth controlled comparison in the file, and the tightest: same speech act,
+same words, two venues, two receptions, and an outcome that settles the content
+within four years.
+
+And *legible to everyone rather than to a room of ten under NDA* is the contract
+argument again — privacy is the mechanism — with the sign flipped. Publishing
+the ask has the same structure as publishing the contract, and it costs the same
+thing.
+
+> **I am not claiming he was owed a billion dollars.** I am pointing at the fact
+> that the *content* of the claim was directionally right within four years and
+> that the reaction had nothing to do with the content... **the confidence of the
+> room at the moment of judgement was total and uncorrelated with the outcome.**
+
+> **The mockery is still in circulation and the correction is not.** Nobody went
+> back. There was no retraction, no follow-up piece, no revision of the joke.
+> **The verdict was rendered publicly at maximum volume and the vindication
+> arrived quietly in a business report that nobody who laughed ever read.**
+
+> That asymmetry — **loud verdict, silent correction** — is why the loop never
+> accumulates evidence about its own accuracy, and it is why the same confidence
+> is available for the next judgement, and the next one, **with no cost to
+> anybody who was wrong before.**
+
+> the same asymmetry as the false negatives that never enter the filter's
+> evidence, and the same as the reviews that get quietly revised without a
+> retraction, **and the same as Eddington never standing up again.**
+
+*Loud verdict, silent correction.* That is the name for it, and it is the
+mechanism behind every non-updating institution in a hundred and fifty pages —
+the reviewer, the referee, the field, the platform, the discipline. Not that
+they were wrong. That the record of having been wrong is asymmetrically quieter
+than the wrongness was.
+
+And it is why *frequency is the lever*: a correction at lower volume than the
+error does not move the conditional, no matter how right it is. Brigham's four
+pages against Johnson-Reed. The 1967 ACM note against every compilers textbook.
+
+Reading on from 9900.
