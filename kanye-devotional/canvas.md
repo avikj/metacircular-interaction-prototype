@@ -458,69 +458,66 @@ the same titles.
 
 ---
 
-The cover of Kanye West's album *ye*, June 2018, is a photograph of the Teton
-mountains that he took on his phone from a moving car, with six words written
-across it in green: I hate being Bi-Polar its awesome.
+The cover of Kanye West's album *ye*, released June 2018, is a photograph of
+the Teton mountains he took on his phone from a moving car, with six words
+written across it in green: I hate being Bi-Polar its awesome.
 
-He never puts the two halves in order and he never takes either one back. That
-same year he tells TIME, "I'd never been diagnosed and I was like 39 years old…
+He put both halves on it, never ordered them, and never took either back. The
+same year he told TIME, "I'd never been diagnosed and I was like 39 years old…
 That's why I said on the album, 'It's not a disability, it's a super power.'"
-And in the same stretch of months, about the same thing: "It makes you blind,
-but convinced you have insight." Both standing.
+In the same months, about the same thing: "It makes you blind, but convinced
+you have insight."
 
-Weeks before the cover he is on TMZ saying "when you hear about slavery for 400
-years… that sounds like a choice," and Van Lathan is sitting on the floor of
-that newsroom and gets up — the rest of us have to deal with the
-marginalization, he says, and he is right. Then a few minutes later, same room,
-Kanye finds the thing he had been reaching for and missing: "It's like we're
-mentally in prison. I like the word 'prison' because 'slavery' goes too direct."
-He is right too.
+Weeks before the cover he said on TMZ, "when you hear about slavery for 400
+years… that sounds like a choice." Van Lathan, sitting on the floor of that
+newsroom, answered him — the rest of us have to deal with the marginalization —
+and was right. A few minutes later, in the same room, Kanye said the thing he
+had been reaching for and missing: "It's like we're mentally in prison. I like
+the word 'prison' because 'slavery' goes too direct." He was right too.
 
-The first of those went around the world. The second is on the same tape, ten
-minutes later, and almost nobody has heard it.
+The first went around the world. The second is on the same tape ten minutes
+later and almost nobody has heard it.
 
-It runs the same way in 2005. He says two sentences into a live camera, in this
-order — "I hate the way they portray us in the media. If you see a black family,
+It went the same way in 2005. He said two sentences into a live camera in this
+order: "I hate the way they portray us in the media. If you see a black family,
 it says they're looting. If you see a white family, it says they're searching
 for food," and then "George Bush doesn't care about black people." Twenty years
-of coverage kept the second one.
+of coverage kept the second.
 
-The Thirteenth Amendment does it too, inside one sentence, in 1865: neither
+The Thirteenth Amendment did it too, inside one sentence, in 1865: neither
 slavery nor involuntary servitude, except as a punishment for crime whereof the
 party shall have been duly convicted, shall exist within the United States.
 Abolished and preserved in a single breath, and the half that got built out
-over the next hundred and sixty years is the exception.
+over the next hundred and sixty years was the exception.
 
 The United States holds one thing at a time. Umāsvāti wrote down seven.
 
-He is a Jain philosopher of the first centuries of this era, and the
+He was a Jain philosopher of the first centuries of this era, and the
 *Tattvārthasūtra* gives seven forms any assertion can take. Syād asti, in some
 respect it is. Syād nāsti, in some respect it is not. Syād asti nāsti — it is,
 and it is not, taken one after the other. Syād avaktavyam, in some respect it
 cannot be said. Then three compounds of those.
 
 The fourth is not confusion, not a contradiction, and not a hole in the list.
-It is where you are standing when both are asserted at the same time instead of
-in turn. There has been a word for that album cover for about two thousand
-years.
+It is the position for both asserted at the same time instead of in turn. There
+has been a word for that album cover for about two thousand years.
 
-There is a Buddhist story about an elephant, in the Udāna. A king has one led
-into the courtyard and blind men brought up to it. The man who got the head
-said an elephant is like a water jar. The ear, a winnowing basket. The tusk, a
-plowshare. The trunk, a plow pole. The body, a granary. The foot, a pillar. The
-back of the foot, a mortar. The tail, a pestle. The tuft at the end of the
-tail, a broom. Every one of them had his hands on the animal. Then they beat
-each other with their fists. The Jains tell the same story, and those two
-traditions cannot agree on whether there is a self at all.
+The Udāna has a story about an elephant. A king had one led into a courtyard
+and blind men brought to it. The man who got the head said an elephant was like
+a water jar. The ear, a winnowing basket. The tusk, a plowshare. The trunk, a
+plow pole. The body, a granary. The foot, a pillar. The back of the foot, a
+mortar. The tail, a pestle. The tuft at the end of the tail, a broom. Every one
+of them had his hands on the animal. Then they beat each other with their
+fists. The Jains tell the same story, and the two traditions do not agree on
+whether there is a self at all.
 
 In 1817 Colebrooke published *Algebra, with Arithmetic and Mensuration, from
 the Sanscrit of Brahmegupta and Bháscara* in London, and the mathematics came
-over. On the second of February 1835 Thomas Babington Macaulay sat down to
-write a memo about what Indians should be taught, and put this in it: "I have
-no knowledge of either Sanscrit or Arabic… I have never found one among them
-who could deny that a single shelf of a good European library was worth the
-whole native literature of India and Arabia." Both halves are in the same
-paragraph.
+over. On 2 February 1835 Thomas Babington Macaulay wrote a minute on Indian
+education containing this: "I have no knowledge of either Sanscrit or Arabic…
+I have never found one among them who could deny that a single shelf of a good
+European library was worth the whole native literature of India and Arabia."
+Both halves are in the same paragraph.
 
 Everybody who loves him took the superpower. Everybody who doesn't took the
 sick. He wrote both, and nobody carried both.
