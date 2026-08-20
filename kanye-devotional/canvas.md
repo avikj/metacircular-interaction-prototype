@@ -44,24 +44,20 @@ father was his best friend.
 
 Their son was born in Atlanta on June 8, 1977, while his father was shooting
 for the paper. The parents separated. He moved to Chicago at three, to 7815
-South Shore Drive. At ten he spent a year in Nanjing, where his mother was
-teaching as an exchange professor, and he has said he was the only foreigner in
-his class. He was diagnosed bipolar at thirty-nine — "I'd never been diagnosed
-and I was like 39 years old."
+South Shore Drive. He was diagnosed bipolar at thirty-nine — "I'd never been
+diagnosed and I was like 39 years old."
 
 He became one of the most hated men alive. In October 2022 he made antisemitic
 statements in public, adidas ended the partnership, and his net worth
 collapsed.
-
 
 On August 26, 2021, at Soldier Field in Chicago, a full-scale replica of 7815
 South Shore Drive stood on the field, built for a listening event. He was set
 on fire in front of it, in front of the crowd. The record he was finishing
 carried his mother's name and her recorded voice.
 
-
-
 ---
+
 I keep going back to the jaw.
 
 He's twenty-five. Goes through a windshield on the way home, late, after working.
@@ -109,8 +105,6 @@ tries to kill me gets made into a song. He's twenty-five and he already knows th
 about himself, before any of the fame, before the diagnosis. That's where I want to
 start, because I think that's where he starts. The rest of his life is that same move
 getting louder and costing more, and I want to follow it and see where it goes.
-
-
 
 ---
 
@@ -160,8 +154,6 @@ He said it on a mountain he photographed himself, hours before he played the
 record to a few hundred people standing outside in Wyoming in the cold. Then he
 got on a plane.
 
-
-
 ---
 
 A judge decided what his beats would sound like.
@@ -191,8 +183,6 @@ him ownership.
 The first thing that ever taught him about owning your work was the bill for
 using somebody else's, and the bill exists because a federal judge quoted the
 Ten Commandments.
-
-
 
 ---
 
@@ -228,8 +218,6 @@ men saying this is a mission and not a show, and everybody writes it up as a
 conversion, as a swerve, as the new thing he's doing now.
 
 It was in the choir he picked in 2004.
-
-
 
 ---
 
@@ -275,8 +263,6 @@ So: a drum machine that couldn't imitate a drummer, and a pitch tool built to
 find oil and then sold to be inaudible, both used at exactly the setting they
 were failing at, by a man who couldn't say it in his own voice.
 
-
-
 ---
 
 There's a song he made with Paul McCartney where he says the person singing is
@@ -295,8 +281,8 @@ sang about her being gone. In 2014 he sang as her. In 2021, on the album with
 her name on it, he stopped singing and played her actual recorded voice, taken
 off tape she made while she was alive.
 
-
 ---
+
 He wrote "Hey Mama" while his mother was alive. It is a song to her, in the
 present tense, and it came out on *Late Registration* in August 2005.
 
@@ -339,8 +325,6 @@ and hurt people who had nothing to do with him.
 
 The song with Meeropol in it is on the same shelf.
 
-
-
 ---
 
 On *Watch the Throne*, the album he made with Jay-Z in 2011, there is a track
@@ -361,7 +345,6 @@ There is also a song on it where both men write letters to sons who have not
 been born. Jay-Z's is about not being his own father. Kanye's is about his son
 not turning into him.
 
-
 ---
 
 The first voice you hear on that record is a four-year-old on somebody's phone.
@@ -379,10 +362,8 @@ changing mixes, rebuilding Wolves, adding things, while people were already
 listening to it. Not a reissue. The same album, still moving. There's no final
 version of it. There's no version you can point at and say that's the one.
 
-Five years later he makes the album named after his mother and he does it by
-moving into a football stadium in Atlanta and living there. Then he goes home to
-
 ---
+
 On the night of May 17, 2013, "New Slaves" was projected onto sixty-six
 building faces around the world at the same time. Not a screen. The sides of
 buildings, in cities that had nothing to do with each other, all showing one
@@ -407,21 +388,17 @@ is the only warm thing on it, and it is where he leaves you.
 
 He spent a year of his childhood as the only foreigner in a Chinese classroom.
 
-He's ten. His mother is teaching in Nanjing as an exchange professor and she
-takes him with her. He's said he was the only foreigner in the class and that he
-learned the language.
+He was ten. His mother was teaching in Nanjing as an exchange professor and she
+took him with her, and he has said he was the only foreigner in the class and
+that he learned the language.
 
-Born in Atlanta, where his father was shooting for the Journal-Constitution.
-Moved to Chicago at three. Atlanta to Chicago is the Great Migration route, run
-in the right direction, and his mother chaired a department on the South Side at
-the end of it.
+Atlanta to Chicago, which is the route his family had already made, is the
+Great Migration run in the right direction, and his mother chaired her
+department on the South Side at the end of it.
 
-And then the record collection. Hungarian rock from 1969 under New Slaves. A
-Bollywood record under I Am a God. Black gospel out of Harlem, a German
-avant-garde band, an Irish one, Nina Simone. People call that eclectic like it's
-a shopping habit.
-
-
+Then the record collection. Hungarian rock from 1969 under "New Slaves." A
+Bollywood record under "I Am a God." Black gospel out of Harlem. A German
+avant-garde band. An Irish one. Nina Simone.
 
 ---
 
@@ -451,8 +428,6 @@ window every artist protects. That's the part of the year everybody's publicist
 is begging them to be likable.
 
 He spent it.
-
-
 
 ---
 
@@ -486,8 +461,6 @@ country watched two different broadcasts of the same minute.
 Bush later called it the all-time low of his presidency. Not the water. Not the
 roofs. Not the count. Being named.
 
-
-
 ---
 
 The Taylor Swift thing was the fourth one.
@@ -518,8 +491,6 @@ studios for months and makes the record everybody agrees is his best.
 The first three cost him nothing and got him nothing. The fourth one cost him
 everything and produced Dark Twisted Fantasy.
 
-
-
 ---
 
 After the Taylor Swift night he left the country. Japan first, then Rome, where
@@ -548,7 +519,6 @@ toast in the middle of it is to himself, as the asshole.
 He made the record where he apologizes to nobody in the one room he ever built
 out of everybody.
 
-
 ---
 
 In November 2016 he played San Jose and told the crowd he would have voted for
@@ -569,7 +539,6 @@ people do everything to make it worse."
 He has also said, about being in the hospital, that God was there with him,
 sending him visions.
 
-
 ---
 
 The first track on the album with the mountain on it is called "I Thought About
@@ -580,7 +549,6 @@ beside the darkest ones. It is the first thing you hear on the record.
 In 2018 he told CNN he thinks about suicide often. In 2025 he wrote that there
 were times he didn't want to be here anymore. Bipolar disorder carries among
 the highest suicide rates in medicine.
-
 
 ---
 
@@ -597,7 +565,6 @@ life… there were times I didn't want to be here anymore."
 
 Both of those are on the record. He has not withdrawn the first by writing the
 second, and nobody has to accept the second to know the first happened.
-
 
 ---
 
@@ -618,8 +585,6 @@ in front of people. Two hundred men in Harris County Jail, and he says it's a
 mission and not a show. And in 2021, fourteen years after she died, he takes his
 mother's actual recorded voice and puts it back in the room with him — so there
 would be at least one reflection in there that was hers.
-
-
 
 ---
 
