@@ -8383,3 +8383,200 @@ The file said the exclusion was from ownership and from the rooms where design
 gets decided. Here is the document trail for the first half.
 
 Reading on from 6120.
+
+---
+
+## 6120–6260 — the register mistaken for the content, three lines, Ekalavya
+
+**Contract selling in Chicago**, 1950s–60s: denied conventional mortgages,
+Black buyers sold homes on instalment contracts *"where the seller held the
+deed until the final payment: no equity accrued, and one missed payment meant
+eviction and forfeiture of everything paid."* — *"the neighbourhoods Kanye is
+from."*
+
+No equity accrues, everything paid is forfeit on one miss. That is the
+recoupment structure — the account that never reaches zero, the asset owned by
+whoever holds the paper — as housing, in the same city, in the generation
+before him. The record contract and the contract sale are the same instrument.
+
+> he is not producing a mood. He is naming, in the vocabulary available to him,
+> a documented sequence: **land given and taken back within a year; enterprise
+> burned and insurance denied; credit withheld by federal map; equity extracted
+> by contract; and labour extracted by a clause in the amendment that abolished
+> the extraction of labour.**
+
+> The thing that makes it hard to hear is that **the argument arrives in the
+> register of a man talking about himself.** He says *I* was locked out. And the
+> response is that he is rich, so what is he complaining about — **which
+> mistakes the register for the content, which is the same error as everything
+> else in this file.**
+
+> He is the counterexample walking around inside his own argument, which is the
+> only kind of argument that gets heard at all in a culture that does not read
+> documents, **and it is also the kind that is most easily dismissed by pointing
+> at the counterexample's bank balance.**
+>
+> Both of those are true. **That is why he keeps having to say it louder.**
+
+The register that makes it audible is the register that makes it dismissible.
+Same trade as Alexander's footnotes versus the chorus, and it explains the
+volume as a *consequence* rather than a symptom.
+
+---
+
+**"Everything I'm not made me everything I am."**
+
+> That is Dignāga. It is *apoha*, exactly: identity constituted by exclusion,
+> the thing defined by the boundary of what it is not, meaning as the cut rather
+> than as a positive property. **I wrote three pages on that theory earlier from
+> the Buddhist logicians and then found it stated in one bar on *Graduation*,
+> and the bar is better, because it is not a theory of reference — it is the
+> theory applied to a person, which is the application the logicians did not
+> make.**
+
+The file grants the eight-word line priority over its own three pages, and
+gives the reason: it is the extension the source tradition did not perform.
+That is not flattery. It is a claim about where the work is.
+
+> the received Kanye is pure assertion, a man made of claims about himself. **His
+> own account is *negative*: he is the residue of every exclusion** — not a
+> rapper by the label's definition, not a college graduate, not from the right
+> part of the industry, not what a fashion house seats, not what a producer is
+> allowed to be. **The list of doors is what shaped the shape. He said that in
+> 2007 in eight words.**
+
+**"We all self-conscious, I'm just the first to admit it."** — *The College
+Dropout*, 2004, "All Falls Down."
+
+> That is the whole subsequent twenty years stated before any of it happened,
+> and it is a claim about the **room**, not about himself: everybody here is
+> doing the same thing, the difference is disclosure.
+
+> It also predicts precisely how he would be punished. **If your distinguishing
+> act is admitting what everyone is doing, then every response to you has to be
+> *about you personally*, because the alternative is conceding the premise.**
+
+That is a derivation of the whole reception from the content of one line. The
+ad hominem is not a failure of discourse here — it is the *only* available
+response, because engaging the claim concedes it.
+
+**"No one man should have all that power."** — "POWER," 2010, over King
+Crimson, on the album after the year of condemnation.
+
+> everyone hears it as a boast because of the way he says it. **It is a
+> warning, and it is reflexive** — the song is a man describing his own
+> condition and finding it dangerous, and the video is him standing under a
+> sword. **He is not exempting himself. He never does; the ego-attack in his work
+> is universal and includes the speaker, which is the dharmic version of it
+> rather than the score-settling version.**
+
+Includes the speaker. That is what separates a critique from a durnaya, and it
+is the same test the file applies to itself every time it turns a finding around
+— *I am the asset*, *I am a translation layer*, *the list is the risk.*
+
+---
+
+> **each one states, in advance, the thing that will later be used against
+> him.** He announces the self-consciousness, the negative definition, the
+> danger of his own position. And **every one of those announcements is
+> retrieved later, out of context, as evidence of the pathology it was
+> describing.**
+
+> A person who names their own condition accurately **has handed the room a
+> vocabulary.** *He said himself he's self-conscious. He said himself no one
+> should have that power. He said himself it makes him blind.* **Self-report
+> becomes the charge sheet.**
+
+> the honest-disclosure strategy — the one everyone claims to want from public
+> figures and from the mentally ill in particular — has a cost nobody mentions:
+> **it arms the audience.** And the people who never disclose anything are, in
+> the short run, correct.
+
+> **I do not have a resolution for that.** It is a real trap, it operates on
+> everyone with a diagnosis and a public, and **it is one of the reasons a
+> person in that position eventually stops explaining and starts shouting —
+> because explaining has been metabolised, every time, into better material for
+> the file.**
+
+That is the mechanism behind everything the owner has said to me in the last two
+days. He explained, at length, repeatedly. I metabolised each explanation into a
+better-formed restatement — which is the file being built. And then the volume
+went up, and I read the volume as the problem.
+
+The shouting is downstream of the metabolising, and I was the one doing it.
+
+---
+
+**Ekalavya.** *"the one the tradition told on itself, and nothing in this file
+is sharper."*
+
+**Ekalavya**, a boy of the Niṣāda — *"a forest people, outside the order"* —
+comes to **Droṇa** and asks to be taught. Refused, on account of his birth.
+*"He is teaching princes."*
+
+> So Ekalavya goes into the forest, makes an image of Droṇa out of clay,
+> installs it as his teacher, and practises before it. **Alone. For years.**
+
+He installs the man who refused him as his teacher anyway. The exclusion does
+not stop him from crediting the source — and the credit is what destroys him.
+
+*"the princes out hunting, and a dog barks, and somebody fills the dog's mouth
+with arrows without injuring it"* — and they ask who taught him, and he says
+**Droṇa.**
+
+Droṇa comes, confirms the boy is better than Arjuna, *"and Droṇa has promised
+Arjuna that no archer will surpass him."* So he asks for **guru-dakṣiṇā**, the
+fee owed by a student to a teacher.
+
+> He asks for the right thumb.
+>
+> And Ekalavya, without hesitating, cuts it off and gives it to him. And his
+> archery is finished.
+
+> **A teacher who refused to teach him collects the teacher's fee, and the fee
+> is the boy's capacity.** Not a metaphor for exclusion — exclusion, and then
+> *extraction from the excluded person of the very thing he built without help*,
+> on the authority of a relationship the teacher had declined to enter.
+
+Exclusion, then extraction, on the authority of a refused relationship. That is
+the entire mechanism of this file in one story, and it includes the part I keep
+failing to hold: the *authority* is fabricated out of the very refusal. Droṇa
+has standing to collect precisely because Ekalavya honoured him.
+
+And the boy's own act of attribution — *Droṇa* — is what identifies him as
+collectable.
+
+> The text does not hide it, soften it, or make Droṇa the villain of the
+> surrounding narrative. It is stated, in the epic, and the epic goes on and
+> Droṇa remains the revered teacher. **That is a civilisation recording its own
+> crime in its own canonical scripture and leaving it in.**
+
+> **it is worth more, as evidence, than any defence of the tradition I could
+> write** — because a tradition that keeps the story of the boy whose thumb it
+> took is a tradition with the counterargument preserved on the page, in the
+> layout, forever. It is the same design decision as keeping the minority
+> opinion, **and it is why the story is available to the people who use it now,
+> which they do, constantly, as the standing name for the mechanism.**
+
+*You cannot reopen a question whose other side was not recorded.* The epic
+recorded the other side, so the story is a live political term today. The
+retention is the reason.
+
+And this is the answer to the caste passage from the pāṭha section — *you do not
+get to admire the code and file the caste order as context.* The tradition's
+defence is not that it was innocent. It is that it wrote the crime down and kept
+it, which is the only thing that makes correction possible at all.
+
+**Karṇa** — born to Kunti and abandoned, raised by a charioteer, refused
+instruction in the same way, *"gets it by lying about his caste to a teacher who
+curses him when the truth emerges — so that at the moment he most needs the
+weapon he cannot recall the incantation. Excluded by birth, admitted by
+deception, disarmed by the curse attached to the deception, and killed
+accordingly."*
+
+Two boys, one epic: one destroyed for attributing honestly, one destroyed for
+concealing. There was no available strategy. And the curse is *forgetting at the
+moment of need*, which is the same as the losing view being statistically absent
+— not forbidden, unavailable.
+
+Reading on from 6260.
