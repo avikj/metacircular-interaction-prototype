@@ -77,6 +77,7 @@ direct. No claims, only history/facts; human builds the story. Density — first
 sentence carries the arc; 100 words hold the whole. Right speech, no false binaries.
 Anti-academic — make academics feel stupid they couldn't do it this well.
 
+<<<<<<< HEAD
 ---
 
 ## THE META — the section that is listed above and has never been written
@@ -100,3 +101,5 @@ Ten INDRAJALA files exist on the first subject. **Zero on the second.** The
 facts of the second are not in this repository and are not an agent's to
 supply. Recorded here so the gap is visible and cannot be quietly skipped —
 the same reason `BOOK.md` §2 leaves the adhikāra slot standing empty.
+=======
+>>>>>>> origin/main

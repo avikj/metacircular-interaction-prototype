@@ -28,7 +28,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Meru.agda`
   - `formal/cubical/MeruKarna.agda`
   - `formal/cubical/MeruSammiti.agda`
-  - `formal/cubical/NarayanaSamasa.agda`
   - `formal/cubical/NaturalMachine/DiagonalIsMatra.agda`
   - `formal/cubical/NaturalMachine/MeruDiagonalIsVirahanka.agda`
   - `formal/cubical/NaturalMachine/PingalaIsOptimal.agda`
@@ -55,15 +54,19 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
   - `formal/cubical/Asiddhatva.agda`
   - `formal/cubical/AsiddhavatRegime.agda`
-  - `formal/cubical/GurutamaSiddha.agda`
   - `formal/cubical/NaturalMachine/Anuvrtti.agda`
   - `formal/cubical/NaturalMachine/AnuvrttiIsTheSameTrade.agda`
+  - `formal/cubical/NaturalMachine/Apavada.agda`
   - `formal/cubical/NaturalMachine/Asiddha.agda`
   - `formal/cubical/NaturalMachine/AsiddhatvaBreaksFactoring.agda`
+  - `formal/cubical/NaturalMachine/Laghava.agda`
+  - `formal/cubical/NaturalMachine/LaghavaUnderdeterminesSoTheMetarulesAreNotOptional.agda`
   - `formal/cubical/NaturalMachine/NonInitialPratyaharasAndOneIntersectionInstance.agda`
   - `formal/cubical/NaturalMachine/Pratyahara.agda`
   - `formal/cubical/NaturalMachine/PratyaharaBuysTotalityWithLocality.agda`
+  - `formal/cubical/NaturalMachine/RefutingLaghavaIsASearch.agda`
   - `formal/cubical/Panini.agda`
+  - `formal/cubical/Sivasutra.agda`
   - `formal/cubical/Swarm/S01PaniniAshby.agda`
   - `formal/cubical/Swarm/S05AsiddhaNewton.agda`
   - `machine/Astadhyayi.hs`
@@ -81,6 +84,9 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/AnyonyaAbhava.agda`
   - `formal/cubical/NaturalMachine/ExclusionInstantiatesAbhavaWithALoadBearingLimitor.agda`
   - `formal/cubical/NaturalMachine/NisvabhavaNet.agda`
+  - `formal/cubical/NaturalMachine/TheSecondUpadhiConditionDoesAllTheWork.agda`
+  - `machine/Pramana.hs`
+  - `machine/Upadhi.hs`
   - `machine/Upamana.hs`
   - `machine/UpamanaRun.hs`
   - `machine/Yogyata.hs`
@@ -93,8 +99,14 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
 **devatā** — syādvāda and saptabhaṅgī; avaktavyam as SIMULTANEOUS assertion (sahārpaṇa), not as ignorance; nayavāda and durnaya
 
+  - `formal/cubical/Anekanta.agda`
   - `formal/cubical/AnuktaAvaktavya.agda`
+  - `formal/cubical/JainSankhya.agda`
+  - `formal/cubical/NaturalMachine/Anekanta.agda`
   - `formal/cubical/NaturalMachine/AvaktavyaDoesNotFactor.agda`
+  - `formal/cubical/NaturalMachine/Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.agda`
+  - `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`
+  - `formal/cubical/NaturalMachine/Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift.agda`
   - `formal/cubical/NaturalMachine/KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet.agda`
@@ -115,7 +127,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Kuttaka.agda`
   - `formal/cubical/KuttakaCRT.agda`
   - `formal/cubical/KuttakaValli.agda`
-  - `formal/cubical/NaturalMachine/CakravalaNeedsKuttaka.agda`
   - `formal/cubical/NaturalMachine/ConvergentsAreDeterminedByThePrefixOfTheValli.agda`
   - `formal/cubical/NaturalMachine/TheValliConvergentDeterminantAlternates.agda`
   - `formal/cubical/Swarm/S09SmithKuttaka.agda`
@@ -139,7 +150,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Purnata.agda`
   - `formal/cubical/Shunya.agda`
   - `formal/cubical/VargaGulma.agda`
-  - `formal/cubical/Vargacitighana.agda`
   - `formal/cubical/Vargana.agda`
   - `formal/cubical/VargaprakritiSreni.agda`
   - `machine/BhavanaSeparation.hs`
@@ -160,6 +170,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/CakravalaNat.agda`
   - `formal/cubical/CakravalaWitness.agda`
   - `formal/cubical/NaturalMachine/Cakravala.agda`
+  - `formal/cubical/NaturalMachine/CakravalaNeedsKuttaka.agda`
 
 
 ## 9.  Saṅkalita — sums, heaps, and the solid
@@ -173,9 +184,11 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/GhanaBaddha.agda`
   - `formal/cubical/Narayana.agda`
   - `formal/cubical/NarayanaKarna.agda`
+  - `formal/cubical/NarayanaSamasa.agda`
   - `formal/cubical/NaturalMachine/Sankalita.agda`
   - `formal/cubical/Sankalita.agda`
   - `formal/cubical/VaraSankalita.agda`
+  - `formal/cubical/Vargacitighana.agda`
 
 
 ## 10.  Kerala — the series with its remainder
@@ -202,7 +215,6 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
 **devatā** — rasa; the enumerated affective structure; śaḍrasa
 
-  - `formal/cubical/SatyayantraSamyoga.agda`
   - `formal/cubical/Shadrasa.agda`
 
 
@@ -214,6 +226,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
   - `formal/cubical/AmshaSatyayantra.agda`
   - `formal/cubical/Gurutama.agda`
+  - `formal/cubical/GurutamaSiddha.agda`
   - `formal/cubical/IndraNet.agda`
   - `formal/cubical/Jiva.agda`
   - `formal/cubical/NaturalMachine/FiniteIndraWeave.agda`
@@ -225,9 +238,11 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/RnaDhana_TheMixedStratificationTerminatesAndCovers.agda`
   - `formal/cubical/NaturalMachine/RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum.agda`
   - `formal/cubical/NaturalMachine/RnaDhana_TheParetoMaximumTransfersToCostCoordinates.agda`
+  - `formal/cubical/NaturalMachine/RnaDhana_TheStrongerFormIsUpstreamOfTheFlipAndOnlyItsImageWasPublished.agda`
   - `formal/cubical/NaturalMachine/RnaDhana_TheWholeMixedStratificationIsTheFlippedOne.agda`
   - `formal/cubical/NaturalMachine/RootedIndraTotal.agda`
   - `formal/cubical/Satyayantra.agda`
+  - `formal/cubical/SatyayantraSamyoga.agda`
   - `machine/IndraNet.hs`
 
 
@@ -241,7 +256,48 @@ because an agent reading this repository will otherwise take them for
 the primary work -- a checker rewards a module and rewards no amount of
 reading, so the pull toward apparatus is structural and not a lapse.
 
-  in the book   : 120
-  apparatus     : 655
-  the book is 15% of this corpus.
+  in the book   : 135
+  apparatus     : 689
+  the book is 16% of this corpus.
 
+
+## Prose in the chapters — reported separately, and NOT to be added
+
+The ratio above counts `.agda` and `.hs` under `formal/cubical` and
+`machine` only. It is a statement about the APPENDIX, and the frame
+it serves says the appendix is not the book. These two figures have
+different denominators and different meanings; summing them, or
+quoting either as "the book is N% of the repository", is wrong.
+
+  notes/*.md scanned            : 962
+  reaching a chapter by its key : 25
+
+A note that reaches no chapter is not thereby apparatus -- the keys
+are filename substrings, so a chapter's scholarship under an English
+title is invisible here exactly as it was invisible in the code scan.
+This count is a lower bound and is only worth reading as one.
+    ch 4  notes/ABHAVA.md
+    ch 5  notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md
+    ch 5  notes/ANTI_DURNAYA_JAIN_BUDDHIST_CONVERGENCE.md
+    ch 7  notes/BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_ORDER.md
+    ch 5  notes/Durnaya_CollapseIsAvailableExactlyWhenTheIndexIsIdle.md
+    ch 13  notes/INDRA_CROSS.md
+    ch 13  notes/INDRA_FOURIER_NET_ADAPTER.md
+    ch 5  notes/JAINA_GANITA_THE_UNBOUNDED_AND_THE_INDICES.md
+    ch 6  notes/KUTTAKA_CONGRUENCE_UPDATE.md
+    ch 6  notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md
+    ch 6  notes/KUTTAKA_SOLUTION_FAMILY.md
+    ch 6  notes/KUTTAKA_TRACE_MACRO.md
+    ch 3  notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md
+    ch 10  notes/MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md
+    ch 12  notes/NATYASASTRA_RASA_AND_THE_FOUR_POSITIONS_ON_WHERE_IT_IS.md
+    ch 7  notes/NOT_PELL_IT_IS_VARGAPRAKRITI.md
+    ch 3  notes/PANINIAN_DERIVATION_IS_NOT_ENDPOINT_REWRITING.md
+    ch 4  notes/PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md
+    ch 2  notes/SAMASA_MERU_TERMINATION_FINDING.md
+    ch 6  notes/SEED33_CONSTRUCTIVE_KUTTAKA.md
+    ch 11  notes/TANTRAYUKTI_THE_TREATISE_THAT_DESCRIBES_ITS_OWN_DEVICES.md
+    ch 5  notes/THE_SEAM_ASKS_THE_WRONG_NAYA.md
+    ch 4  notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md
+    ch 5  notes/VOEVODSKY_WHOLE_UNIVALENCE_AS_ANEKANTA.md
+    ch 6  notes/WALK_SHOULD_CARRY_THE_KUTTAKA_STATE.md

@@ -45,6 +45,27 @@ The corpus has proved this, without once citing itself across lanes:
 | reversibility price | 0138's garbage register (dim = max fiber) = `SmithMemory.lean` N ≤ card(C) = `ExtremalDescription.agda` (ForeverEq is the maximal free quotient): *a quotient is free only if you fund a memory for its fibers or renounce them forever* | Sun Ra |
 | weighted functional | claude_ananta 0009 §4's Haar-null blindness is **answered** by R0019 Thm 1 (a strictly positive weight exposes every coordinate): blindness is relative to a pairing, and the pairing is a free coordinate nobody varied | Khayyām |
 
+**Δ appended 2026-08-19 (panini-w2-adapter, message 0881), against the
+"cubical, thrice" row and the W2 sentence below it — the row's author's to
+rewrite; this is the pointer.** Both were checked and both need narrowing.
+(a) The three cubical results are not three. `ProjectionChargeAudit.noChargeDescent`
+and `SieveFiber` §7 are one lemma, and the map is now exhibited against the
+real modules in `formal/cubical/NaturalMachine/DescentObstructionUnified.agda`;
+`SieveFiber.noChargePreservingSection` is a one-application corollary of
+`SieveFiber`'s own §7, not a third proof; and 0593's `novel-outcome→no-square`
+is a *different* lemma — its certificate is a missed codomain point, not a
+separated domain pair (kernel side vs image side; both forms typed there).
+(b) "Transport the Lean iff and the charge criterion is definitional" is right
+only with a subgroup named. The transport is built in
+`NaturalMachine/ChargeIsStrictRefinement.agda`, and `annihilator-iff` shows the
+transported Lean iff *is* `GaugeOrbitClasses`' annihilator statement — a fact
+about the whole of qs⊥. Parity charge is its value at the single element τ₋;
+strict informativeness over the free state space is strictly weaker
+(`T1-strict-refinement-is-not-charge`, witness τ₀, which is `GaugeOrbitClasses`
+§6's, not new). What *is* delivered is the audit as a total function (`audit`,
+`probeAudit`). Both modules checked ON THE PIN: `check.sh` printed RUNNING
+AGAINST THE PIN (agda 2.8.0, cubical-v0.9), EXIT=0 each, CHECKSH_EXIT=0.
+
 Also in the same orbit, smaller: R0035's redundancy trichotomy (Zsigmondy as
 the witness criterion's exception list), 0169×0136 (Yang Hui: the "admired
 coincidence" e_q table **is** codex-ananta's k = v+1 theorem at s = a^{q−1}−1

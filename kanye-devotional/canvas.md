@@ -1,502 +1,369 @@
-Schools keep a written record of the child who will not sit down. Talks out of
-turn, leaves his seat, interrupts, does not finish the work, does not sleep.
-The vocabulary is stable across districts and decades — disruptive,
-distractible, does not apply himself, cannot pay attention. The file follows
-him from grade to grade. It is usually the first document anyone ever writes
-about him.
+# KANYE DID ABSOLUTELY NOTHING WRONG
 
-In 2003 Carson, Peterson and Higgins published in the Journal of Personality
-and Social Psychology, volume 85, pages 499 to 506. Latent inhibition is the
-gate that keeps stimulus already judged irrelevant from re-entering awareness.
-Decreased latent inhibition together with high cognitive function went with
-being classified as creatively eminent roughly seven times more often. Lowered,
-more gets in, and stays in, and connects. In a classroom that setting reads as
-a child who cannot pay attention.
+Some minds run turned up. They feel more than the people around them, sleep less, move
+faster, and take in more of the world at once — the sounds other people tune out, the
+connections other people never reach, the feeling other people keep at a manageable
+size. In a child it is the thing that gets the phone call home: can't sit still, too
+intense, too much. It is often, by middle school, medicated.
 
-Kyaga and colleagues at the Karolinska Institutet went through the Swedish
-national registry — about 1.2 million patients, plus their relatives out to
-second cousins. People with bipolar disorder, and their relatives, were
-overrepresented in creative professions.
+This is a book about a person like that — the loudest and most gifted and most punished
+one now alive. But it is not, in the end, a book about a rapper. Almost everyone who
+reads it has been, on some smaller scale, the one who was too much for the room, or has
+raised that child, or loved that person, or has stood in a crowd that decided somebody's
+difference was a defect and closed in. He is only the place where the whole thing shows
+at once, at full volume, with a camera on it, where it cannot be looked away from. It is
+about you before it is about him.
 
-One of every three Black boys born today can expect to go to prison in his
-lifetime. One of every six Latino boys. One of every seventeen white boys.
+Start where he started.
 
-Donda West was born in Oklahoma City on July 12, 1949. On August 19, 1958,
-Clara Luper, a high school history teacher and adviser to the NAACP Youth
-Council, walked a group of children into the Katz Drug Store downtown and sat
-them at the lunch counter. It desegregated within two days, and Katz went on to
-desegregate its counters across the states it operated in. Donda West took part
-in the Oklahoma City sit-ins as a child. She was nine that August. Her father,
-Portwood Williams Sr., was in the movement; he lived to ninety-eight. She
-taught for thirty-one years and chaired the department of English,
-Communications, Media and Theater at Chicago State, on the South Side. She
-published a memoir called *Raising Kanye* in 2007 and died that November, at
-fifty-eight, of post-operative heart failure following cosmetic surgery. In
-2009 California enacted a statute requiring a physical examination and written
-clearance before elective cosmetic surgery, and named it for her.
+He was twenty-five, a producer nobody would let rap yet, driving home near three in the
+morning from a night in the studio. He fell asleep at the wheel. The crash shattered his
+jaw in three places and it was wired shut to heal. Two weeks later, mouth still wired, he
+went back into a studio and recorded a song about the crash — you can hear him rapping
+through his clenched teeth, because he was — over an old soul record by Chaka Khan, sped
+up, called "Through the Fire." He called his "Through the Wire" and made it the first
+song of his career. A man two weeks out from nearly dying, unable to open his mouth, and
+the thing he does is make. Not after he heals. Through the wire. That is the whole life
+in one act, before the fame and before anyone had put a name to what was in him: whatever
+tries to kill me gets turned into the work.
 
-Ray West joined the Black Panther Party before he became a newspaperman. He was
-one of the first Black photojournalists at the *Atlanta Journal-Constitution*,
-and he photographed Maya Angelou, Ronald Reagan and Ralph Abernathy. Later he
-trained as a Christian counselor. In 2006 he opened a store called Good Water
-with help from his son, who said it took him forty-two years to realize his
-father was his best friend.
+The name for it came later, around a hospitalization at thirty-nine: bipolar disorder.
+He did not hide it — he wrote it across an album cover, four words over a photograph of a
+mountain, "I hate being Bi-Polar its awesome," and he meant both halves at the same time.
+That is the hardest thing to hold about him and the truest: the wiring behind the worst
+of it is the wiring behind the best. The reach up and the fall down run through one
+place. Turn the dial down and the gift leaves with the danger, which is why he says he
+will not take the pills that flatten it; leave it up and it can take the person, because
+the illness he named on that cover kills more of the people who carry it than almost any
+other in medicine. And it is not some rare wiring. It runs, in smaller doses, through a
+startling share of the people who ever made anything worth keeping — the same restlessness
+that gets a child sent to the office and, by the sixth grade, medicated. Whether a life
+built on it ends in the work or in the wreckage turns less on the wiring than on whether
+the people closest can hold two true things at once — this is hard, and this is precious —
+instead of only trying to make it stop.
 
-Their son was born in Atlanta on June 8, 1977, while his father was shooting
-for the paper. The parents separated. He moved to Chicago at three, to 7815
-South Shore Drive. He was diagnosed bipolar at thirty-nine: "I'd never been
-diagnosed and I was like 39 years old."
+So the first thing to know about him is that he cannot not make, and the second is that
+he cannot not feel, and they are the same fact. A man built this way has no public self
+kept separate from a private one; the amplitude is the same in the studio, on the stage,
+in the interview, in the grief. It is one channel, open all the way, and it carries out
+whatever is in him without a filter to hold any of it back. What is in him, mostly, under
+everything, is love — a large, clumsy, unstoppable, often badly aimed love — and his whole
+life comes clear the moment you stop sorting each thing he did into genius or breakdown
+and start watching the one channel carry more than a person is built to carry.
 
-He became one of the most hated men alive. In October 2022 he made antisemitic
-statements in public, adidas ended the partnership, and his net worth
-collapsed.
+Before it ever carried him into trouble it carried him into the music, and this is the
+part the story skips, though it is the reason the rest is worth telling at all. He began
+as a producer, which is to say he began by listening. He would take an old soul record — a
+voice recorded before he was born, some singer who had poured everything into three
+minutes the world then half-forgot — and speed it up until it lifted into something almost
+too much to bear, a grown person's ache pitched up into a child's cry, and build a whole
+new song under it. People named the sound after the trick, but the trick was never the
+point. The point was that he could hear, inside a record everyone else had shelved, the
+one buried thing in it that would break your heart, and dig it out and hand it to you. His
+first gift, before a word of rapping, was finding the feeling other people walked past.
 
-On August 26, 2021, at Soldier Field in Chicago, a full-scale replica of 7815
-South Shore Drive stood on the field, built for a listening event. He was set
-on fire in front of it, in front of the crowd. The record he was finishing
-carried his mother's name and her recorded voice.
+And then he made the records that became the furniture of ordinary lives — the one a kid
+plays getting ready for a day that scares him, the one a couple drives to, the one
+somebody puts on the night their mother dies. He put his own car crash on the first album
+and his own grief on another and his own faith on another, and because he could not filter
+anything, what came out was so unguarded that strangers heard their own insides in it.
+That is what the love made when it was aimed at a song instead of a freeway: a thing that
+reached into people who would never meet him and told them they were not alone in the
+worst and the best of what they felt. Whatever anyone decided about the man later, tens of
+millions of people were loved by his records before they ever formed an opinion about him.
+That is not a small thing to do with a life. It is most of what he did with his.
+
+Watch it carry, the first time the whole country was looking. A hurricane had drowned New
+Orleans. The water sat in the streets for days with people
+on the rooftops, most of them Black, most of them poor, and the richest country on earth
+was slow to come. A telethon went up to raise money, celebrities reading lines off cards,
+and they put a twenty-eight-year-old rapper next to a comedian and gave him his line. He
+didn't read it. He was shaking. He said the thing about the coverage first — that when
+the news showed a Black family wading through water it said they were looting, and when
+it showed a white family doing the same thing it said they were looking for food. Then
+he went off the edge of the whole broadcast and said: George Bush doesn't care about
+black people. The comedian next
+to him stared straight ahead. The network cut away.
+
+He was shaking because he could feel it in his own body — the people on the roofs, the
+cameras calling them looters, the country taking its time — and he had no mechanism for
+feeling a thing that size and keeping his face smooth. Most public people have that
+mechanism; it is most of what being a public person is. He seems to have been born
+without it. So he did what a person does when they love something and watch it drown and
+cannot pretend otherwise: he broke the frame and said the true thing into the room. It
+cost him, immediately and for years, and the cost is not the point. The point is what you
+just watched. You watched the love arrive the way it always arrives in him — too loud,
+too soon, with no smooth face over it, aimed straight at the thing everyone else in the
+room had agreed to keep quiet about.
+
+And the thing he could not keep quiet about was not a whim he had on live television. It
+was the subject his own mother had taught for thirty years. To know him you have to know
+it the way he was raised to know it.
+
+Read the sentence that ended slavery and the loophole is sitting inside it. The
+Thirteenth Amendment, 1865: "Neither slavery nor involuntary servitude, except as a
+punishment for crime whereof the party shall have been duly convicted, shall exist
+within the United States." Except as a punishment for crime. Slavery did not end. It
+kept one door, and the country has walked people through it ever since. Within a year the
+Southern states made it a crime to be unemployed, to loiter, to be out after dark — laws
+written to catch the newly freed — and then arrested Black men under them and leased them
+out to coal mines and turpentine camps and plantations to work without pay. A company
+renting a convict, unlike a man who had bought one, lost nothing if the worker died, so
+in some camps a quarter of the men died every year. This ran into the 1940s, close enough
+that Kanye West's own father grew up among people who remembered it.
+
+Then it was built again, bigger, in our own time. The number of people locked up in
+America went from about three hundred thousand in 1970 to more than two million, more than
+any other country on earth, and the same faces run the whole way down. One in three Black
+boys born today is expected to be locked up at some point in his life. To the people that
+number is about, it is not a statistic. It is the arithmetic a mother starts doing the
+year her son turns twelve, about a boy who has done nothing but get taller.
+
+This is the water he grew up in — not a set of facts he studied and could take up or put
+down, but the thing his mother taught for a living and his father had joined a movement
+over before he was born.
+
+His mother, Donda West, was a professor of English — she earned a doctorate and chaired
+the English department at a university in Chicago, and the thing she taught, year after
+year, was Black literature: the writers who had spent two centuries putting exactly this
+paper trail into words. She raised him mostly alone after a divorce when he was three,
+and when he was ten she spent a year teaching in China and took him with her, so that the
+boy who would refuse to be one thing had, before he was grown, already been the only Black
+kid in a Chinese classroom and the professor's son in a house full of books. She left her
+tenured job to help run the start of his career. She died in 2007, at fifty-eight, the day
+after a cosmetic surgery, while he was on tour, and he has been putting her back into his
+records ever since — a whole later album is just her name, with her own recorded voice
+looped through it so she is still, in the songs, talking.
+
+His father, Ray West, had been a Black Panther — one of the members of the party that in
+the late 1960s ran free breakfast programs for children and armed patrols to watch the
+police — and then became one of the first Black photojournalists at a major Southern
+newspaper, in the room with his camera while Maya Angelou and the civil-rights preachers
+did their work, and later a Christian counselor. So the boy grew up with the politics on
+one side and the language on the other: a father who had stood with a movement that named
+American racism as a machine, and a mother who taught, out of books, the two hundred years
+of Black writers who had been naming it in print. The boy who could not keep his face
+smooth on that telethon was not having a symptom and was not making a point. He was
+letting out, at the only volume he had, the thing he had been raised standing inside.
+
+By 2013 he had found a way to say it that could not be misread as anything but on
+purpose. He made a song called "New Slaves." In it he names, out loud, by name, the Drug
+Enforcement Administration and the private company that then ran prisons for profit and
+needed them kept full — and in the same breath he names the business he was standing
+inside, the record industry, and calls both of them the same thing. On the night it came
+out he had it projected onto the sides of sixty-six buildings around the world, no album
+cover, no announcement, just his face the size of a building, saying it.
+
+The reason he could put the prison and the record contract in one sentence is that he had
+learned what the second one was from the inside. When a musician signs to most labels, the
+label — not the musician — owns the master recordings, the actual recorded sound of the
+person's own voice. The artist is paid a share, and only after the company takes back
+everything it spent, out of that share, so a person can sell millions of records and still
+end up owing money to the people who own them. A generation earlier the singer Prince had
+figured out exactly what that arrangement was, and appeared in public with the word SLAVE
+written on his face, and gave up his own name — performed as a symbol for years — so the
+company could not keep selling music under the name it controlled. Kanye West looked at the
+prison and looked at the contract and used one word for both. A record deal is not a chain
+gang, and he knew it; nobody dies in a coal seam over a masters dispute. But from where he
+stood the two ran back to a single question, and it is the oldest one in the country: who
+owns what a Black person makes. And it is not only his. It is the janitor's, whose overtime
+goes missing; the delivery driver's, told he is his own boss and left owning none of his
+hours; the kid's, whose face and name and voice become worth money to a company the minute
+he posts them. Kanye asked it grandiose and too loud, from the one platform that was his,
+and got called crazy for it.
+
+It is one refusal, and it is the same refusal every time: the telethon card he would not
+read, the masters he would not let the label keep quietly, the medication he will not stay
+on because it flattens the thing he lives by. He will not be owned and he will not be made
+smaller, and it runs off the same open channel as the music and the love — a man who feels
+everything at full size cannot agree to feel less, make less, say less, be less. That is
+the whole of him, on one wire. Some of what has come down that wire is the truest thing
+anyone said out loud in his lifetime. Some of it did real harm to real people. All of it
+came from the same place, and the rest of this book walks straight through it without
+pretending the wire has two.
+
+There is a thing a country does to a mind it cannot manage. It happened to him, and it
+happens, quietly, to a great many people who are not famous.
+
+You can be locked up in America without committing a crime. In every state, a person
+judged to be a danger to themselves or to others, or too far gone to care for themselves,
+can be held against their will — in California the paperwork is numbered 5150 — for up to
+three days, and carried in in restraints, with no charge and no trial. Where those people
+go afterward is the part few people know. Over the last sixty years the country closed
+most of the hospitals that once held the seriously mentally ill and never built the care
+that was promised to replace them, so the people did not vanish; they moved onto the
+streets and into the jails. The three buildings that hold the most mentally ill people in
+the United States today are not hospitals. They are the county jails of Los Angeles and
+Chicago and the jail complex on Rikers Island in New York. About one in five people in an
+American jail has a serious mental illness. When someone breaks down in this country the
+person who arrives is usually a police officer, not a doctor, and if the someone is Black
+the encounter is more likely to end in an arrest, and more likely to end in a death.
+
+In November of 2016 this happened to Kanye West in front of the world. In the middle of a
+manic episode he cut a concert short, canceled the rest of his tour, gave long unspooling
+speeches, and within hours was taken by ambulance to a hospital in Los Angeles and put on
+a hold — handcuffed to the gurney, by several accounts — and kept for more than a week. It
+was around then that a doctor finally gave the thing a name. He described it afterward the
+way only a person who has been inside it can: that as the mind ramps up you feel a
+heightened connection to everything, that it is like spraining your brain, and that once
+you are in that state the people around you "do everything to make it worse" — the
+restraints, the lights, the hands holding you down. For nearly anyone else the worst week
+of a life like this happens behind a door no one films. His happened on the record,
+because he had become a person the world felt entitled to watch, which is the next thing
+that has to be understood, and the next way the gift and the danger turned out to be the
+same thing.
+
+Most people, when they fall apart, do it in private, and are allowed to. He married into
+the most photographed family on earth and spent a decade with a camera on him every day,
+and there is a thing that does to a person that the rest of us have only started to learn,
+in smaller doses, from our own phones.
+
+We now form real attachments to people we only watch. A person can feel they know a
+stranger on a screen intimately, and feel genuinely betrayed when that stranger does
+something the watcher did not authorize — because to the watcher it is a betrayal, even
+though the stranger has no idea they exist. Multiply that by tens of millions and aim it
+at one man, and add the fact that everything he says in a bad hour is recorded and sent
+around the world before the hour is over and stays retrievable forever, and you have a
+condition no human being before this generation ever lived in: a mind that swings, wired
+to say the unmanaged thing at the peak of the swing, with no private room left to say it
+in. The clinical fact — that mania makes a person grandiose and talkative and sure —
+collided with the technological fact that every such moment is now captured, and the
+social fact that millions of people feel personally wronged by it. A breakdown that for
+his grandfather would have been a family's private grief became, for him, public
+property, permanent, searchable, and profitable to be angry about.
+
+He did his living — the making and the breaking, the generosity and the cruelty — inside
+a hall of mirrors no one who judges him has ever had to stand in. The recordings are the
+only version of him most people will ever meet, and a recording of a person's worst
+minute, played ten million times, is not the person. It is the minute. And this is not
+only his problem anymore. Everyone carries a camera now; every worst minute is captured
+and kept and paid for in attention; more and more of us are going to be known, somewhere,
+by our worst minute instead of by our lives. He is the largest instance of a thing that
+is already coming for ordinary people — the man it happens to at work, the kid it happens
+to at school. What was done to him is the preview.
+
+Now the hardest part, and the book would be a lie if it went around it.
+
+There is a hatred older than almost any other, and it has a body count. For a thousand
+years and more, Jewish communities across Europe were expelled from country after
+country, penned into ghettos, blamed for plagues, and killed in massacres; and then,
+within living memory, in the middle of the last century, six million of them were
+murdered in a matter of years by a state that had made the hatred into policy. A Jewish
+person hearing that hatred spoken today is not being delicate. They are hearing the sound
+that has come, again and again, right before the killing, and their fear sits on top of
+actual graves. When a man with tens of millions of listeners speaks that hatred, real
+people are frightened, and some are put in danger, and that is true and complete on its
+own, and nothing in the rest of this chapter subtracts a single degree from it.
+
+In the fall of 2022 Kanye West began saying antisemitic things in public — threats,
+conspiracy claims — and over the next years said worse, including, at the bottom of it,
+praise of Hitler. This is the place the pattern in this book breaks, and it has to be
+said flatly, because everything up to here has trained you the other way: this time the
+man called crazy was not saying a true thing at the wrong volume. He was saying a false
+and murderous thing, one of the oldest lies in the Western world, and no amount of having
+been right about Katrina or the record contracts turns it into prophecy. And it did what
+that lie has always done. Banners went up over a Los Angeles freeway reading that he was
+right about the Jews, and men stood on the overpass and gave the salute while the traffic
+passed under them. Grandparents with numbers on their arms were still alive to watch their
+grandchildren ask what it meant that their favorite artist had said that. Teenagers looked
+over their shoulders walking into synagogues that were already guarded like airports.
+Parents who had his records in their own childhood bedrooms took the posters down and
+explained to their kids why. This is not fear as a mood or a weakness of nerves; it is
+what it does to a person to be told, by someone the whole world is listening to, that the
+lie that murdered their family was right. He did that. He did grave harm to people who
+had done nothing to him, whose danger he of all people should have understood, and it does
+not get one degree smaller because of anything that comes after it.
+
+And, in the same breath, because both are true and neither cancels the other: he has
+said, and it is documented, that this came during a manic and psychotic break that ran
+for months — the far end of the illness this book has been describing from its first
+page, the end that manufactures paranoia and grandiosity and severs a person from shared
+reality — and that during it there were stretches when he did not want to be alive. Both
+are true, in one man, in the same few months. Mania does not make antisemitism acceptable;
+it does not soften what it did to the people it frightened. And the antisemitism does not
+make the psychosis fictional; a documented illness is not an alibi and it is also not
+nothing. A book that keeps only the first fact has written a villain. A book that keeps only the
+second has written a diagnosis over a wound and called it compassion. Both are easier
+books to write than the true one, and both are false. The only honest thing to do is what almost no one did at
+the time: hold both, refuse to drop either, and let it be as unbearable as it actually is.
+
+To hold both and refuse to resolve them leaves a question, and it turns out not to be a
+question about him. It is the one every people that ever outlasted its own wrongdoers has
+had to answer: is there a road back for a person who has done real harm — and have we,
+now, kept that road open for anyone at all?
+
+The most exact map of that road was drawn about a thousand years ago by a Jewish doctor
+in Cairo, a court physician by day who wrote by candle at night for a people scattered
+across foreign empires with no country and no temple, who had to carry their law inside
+their own bodies because they could carry it nowhere else. He set it down almost as a
+medical procedure: to come back after you have wronged someone, you have to name the wrong
+exactly, feel its full weight, say it out loud, repair what can be repaired with the person
+you hurt, and then — the last and hardest step — stand in front of the same temptation
+again and this time refuse it. Only then are you restored. The word for the road means,
+simply, return.
+
+Notice what that map is not. It is not a pardon handed down by a book or a writer. It is a
+standard, a steep one, and it is held by the very people this man most gravely wronged —
+which means it is not mine to apply to him and not the tradition's to apply in the
+abstract. It belongs to the people at the graves. And by the plainest reading of the map,
+he is nowhere near the end of the road, because its last step is to meet the same thing
+again and refuse it, and he has met it again and not refused it. The door standing open is
+not the same as his deserving to walk through it. His victims' tradition does not hand him
+forgiveness. It hands him a distance he has not crossed, and it hands them — not him, and
+not me — the right to say whether he ever does.
+
+Other peoples drew the same road in their own hands: the son who wastes everything and is
+embraced before he can finish apologizing; the man in the old story who had killed enough
+travelers to wear their fingers on a string and was still not fixed forever as the worst
+thing he had done; the courts that now sit the one who caused harm in a room with the ones
+harmed and aim at repair instead of exile. Every people that lasted built some version of
+it, because none of them could survive a rule that made one wrong turn a person into
+garbage for good.
+
+And that rule is exactly the one we are quietly rebuilding, and it is not about him at
+all. The internet does not forgive and does not forget; your worst hour is kept at full
+resolution and paid in attention every time it is replayed, while the slow, unpaid,
+unwatched work of coming back reaches no one. We kept every tool for casting out and let
+the tools for return rust. That is the loss that should frighten you — not because you
+will ever say a thing as bad as what he said, but because you won't, and you will still,
+someday, need to be more than your worst hour to the people who saw it. A world with no
+road back has no mercy left for anyone in it, including you.
 
 ---
 
-I keep going back to the jaw.
-
-October 23, 2002, around three in the morning, West Hollywood. He was driving
-home from a studio session and fell asleep at the wheel. Nasal fractures. Jaw
-broken in three places. They rebuilt it and wired it shut for six weeks —
-bolted, metal in the gums, the mouth clamped down to a hum.
-
-About two weeks after the surgery, wires still in, he went into a studio and
-recorded. The song is called "Through the Wire," and the sound of it is a voice
-coming out through teeth that will not open. It was his first single under his
-own name. It is built on Chaka Khan's "Through the Fire," from 1984, sped up
-until she sounds like a child.
-
-He was twenty-five. He would not be diagnosed for another fourteen years.
-
----
-
-Every record he has ever made is made out of other people's records.
-
-Somebody counted: about eleven hundred and twenty-three samples across the
-catalogue, roughly seven hundred and twenty-five on records under his own name.
-Every one of them was a purchase.
-
-The one under "Through the Wire" is Chaka Khan singing "Through the Fire," from
-1984, a woman singing about surviving being in love, sped up until she sounds
-like a child and put underneath a mouth that could not open. One of the people
-who wrote it was Cynthia Weil, who also wrote "We Gotta Get Out of This Place."
-That was already inside the Chaka Khan record before he touched it. He was
-seven years old when it came out.
-
-He did the same thing to his mother. She died in 2007, and in 2021 her recorded
-voice is on the album, saying what she actually said, at a speed he chose.
-
----
-
-A judge decided what his beats would sound like.
-
-1991, Southern District of New York. Biz Markie had used a Gilbert O'Sullivan
-record without asking. Judge Kevin Thomas Duffy opened his written opinion with
-four words — Thou shalt not steal — granted the injunction, and referred the
-matter to the United States Attorney for possible criminal prosecution.
-
-Before that ruling a record could be built the way Public Enemy built *It Takes
-a Nation of Millions to Hold Us Back* in 1988, out of dozens of uncleared
-fragments layered so thick they cannot be pulled apart. The men who made it
-have said it could not be made after 1991 at clearance prices. De La Soul's
-first album came out in 1989 and then sat off every streaming service until
-March 2023 because the rights could not be untangled.
-
-What the ruling left standing was few samples, long, recognizable, and paid for
-one at a time.
-
-He took up that method at about nineteen. A decade later he posted his own
-record contracts on the internet, and in 2013 he left Nike because they would
-not give him ownership or royalties.
-
----
-
-In 1954 Ray Charles heard a gospel record on the radio, kept the tune, and put
-worldly words on it, and people called him a blasphemer for it.
-
-The gospel record was "It Must Be Jesus," by the Southern Tones. What he made
-out of it was "I Got a Woman." Ministers came after him. Gospel singers came
-after him. The complaint was that he had taken the Lord's music and put the
-flesh in it, and the record it was made about is the one soul music is built
-on.
-
-Kanye sampled it in 2005 for "Gold Digger." The man singing the Ray Charles
-part is Jamie Foxx, who had won the Academy Award for playing Ray Charles eight
-months earlier.
-
-Eight years after that he released *Yeezus*, with a track credited "feat. God"
-and the flesh held up next to it deliberately, and was called a blasphemer.
-
----
-
-In November 2019 he took the Sunday Service choir into the Harris County jail
-in Houston and performed for more than two hundred men, and then to Baker
-Street for the women. He said it was a mission and not a show.
-
-The song that broke him as a solo artist, fifteen years before that, was "Jesus
-Walks." The choir on it is the ARC Choir. ARC is the Addicts Rehabilitation
-Center, in Harlem. It is a drug program, and the people singing on that record
-are people in recovery, and that is who they were when it was recorded in 1999.
-
----
-
-The two machines he made the grief record on had both already failed.
-
-The 808 is a drum machine Roland put out in 1980 to sound like a drum kit. It
-did not. Everything about it was wrong — synthesized instead of sampled, a kick
-that goes on booming like nothing a person can hit. Reviewers said so. Roland
-discontinued it in 1983 after about twelve thousand units, partly because the
-parts it was built out of had stopped being made. The dead stock went cheap
-into second-hand shops, which is how it reached people with no money: "Planet
-Rock" in 1982, "Sexual Healing" in 1982, Run-D.M.C., Miami bass, Chicago house,
-Detroit techno, and forty years of low end under everything.
-
-Auto-Tune was made by a geophysicist named Andy Hildebrand, who had spent his
-career finding oil — sound goes down, it comes back off the rock, and the
-correlation between the two tells you what is under there. He pointed the same
-mathematics at the human voice and released it in 1997. It was built to be
-inaudible. A singer would be corrected and nobody would know.
-
-There is a setting on it called retune speed, and at zero the correction is
-instant and stops sounding human. That was the failure mode. That is the sound.
-Cher in 1998, and the producers told people it was a vocoder. T-Pain after
-that.
-
-In November 2008, a year and two weeks after his mother died, he made an entire
-record in it. Sang it. Barely rapped. What people said at the time was that he
-had lost it, forgot how to rap, cold, whiny, finished. Drake, Kid Cudi, The
-Weeknd and most of the decade after are built on that record.
-
----
-
-There's a song he made with Paul McCartney where he says the person singing is
-his mother.
-
-"Only One," released on the last day of 2014. McCartney on keys, and the vocal
-run through Auto-Tune, the same machine as the grief record six years earlier.
-He has said the song came out as though Donda were speaking through him to his
-daughter.
-
-North was born June 15, 2013. Donda West died November 10, 2007. They never
-met.
-
-In 2008 he sang about her being gone. In 2014 he sang as her. In 2021, on the
-album with her name on it, he stopped singing and played her recorded voice,
-taken off tape she made while she was alive.
-
----
-
-He wrote "Hey Mama" while his mother was alive. It is a song to her, in the
-present tense, and it came out on *Late Registration* in August 2005.
-
-On February 10, 2008, at the fiftieth Grammy Awards, he performed it. She had
-been dead three months.
-
-The album it is on was co-produced by Jon Brion, who had never made a rap
-record — he was known for Fiona Apple and Aimee Mann and for scoring *Magnolia*
-and *Eternal Sunshine of the Spotless Mind*. There are strings on that record,
-and a celeste, and live orchestration laid over the samples.
-
-There is also a song on it called "Roses," and it is about his grandmother in a
-hospital and the family gathering around her bed and what the care costs. He
-wrote it in 2005. His mother died two years later, of heart failure after
-elective surgery, and in 2009 California passed a law with her name on it
-requiring a physical exam and written clearance before a cosmetic operation.
-
----
-
-Under one of his songs there are four people.
-
-"Blood on the Leaves," 2013. He took Nina Simone singing "Strange Fruit." Nina
-Simone recorded it in 1965. Billie Holiday recorded it in 1939, and her own
-label would not put it out, so it came out on somebody else's. The man who
-wrote it was a Jewish schoolteacher in the Bronx named Abel Meeropol, who
-published it first as a poem and signed it Lewis Allan — the names of his two
-children who were born dead.
-
-In 1953 the Rosenbergs were executed and left two boys. Abel Meeropol and his
-wife adopted them.
-
-He put all of that under a song about a relationship coming apart and a
-child-support settlement.
-
-Nine years later he said the things about Jewish people that cost him the
-company and frightened people who had nothing to do with him.
-
----
-
-On *Watch the Throne*, the album he made with Jay-Z in 2011, there is a track
-called "Otis" and the credit on it does not say sample. It says featuring Otis
-Redding. Redding died on December 10, 1967, when his plane went into a lake in
-Wisconsin. He was twenty-six.
-
-The cover of that record was designed by Riccardo Tisci at Givenchy and it is
-gold. They put it out digitally first so it couldn't leak.
-
-Two other things are on it. "Murder to Excellence" contains a line that is just
-a number read out loud: 314 soldiers died in Iraq, 509 died in Chicago. And
-"Made in America" is a prayer that goes sweet King Martin, sweet Queen Coretta,
-sweet Brother Malcolm, sweet Queen Betty — the two wives named with the same
-titles and in the same breath as their husbands.
-
-There is also a song on it where both men write letters to sons who have not
-been born. Jay-Z's is about not being his own father. Kanye's is about his son
-not turning into him.
-
----
-
-The first voice on that record is a four-year-old on somebody's phone.
-
-*The Life of Pablo*, February 2016, track one. Before Chance the Rapper, before
-the choir, before Kirk Franklin prays it out at the end, a little girl says:
-"We don't want no devils in the house, God! … We want the Lord!" Her name is
-Natalie Green. She was four. Her mother filmed her on a phone and posted it to
-Instagram, and he found it and made it the front door of the album.
-
-Nobody auditioned for that.
-
-Then he would not finish the record. It came out and he kept working on it,
-changing mixes, rebuilding "Wolves," altering tracks on the streaming services
-while people were already listening. Not a reissue — the same album, still
-moving. There is no final version of it.
-
----
-
-On the night of May 17, 2013, "New Slaves" was projected onto sixty-six
-building faces around the world at the same time. Not a screen. The sides of
-buildings, in cities that had nothing to do with each other, all showing one
-face.
-
-The song names the DEA and the Corrections Corporation of America out loud, by
-name. Underneath it is a Hungarian rock record from 1969, Omega's "Gyöngyhajú
-Lány."
-
-It is on *Yeezus*, which came out a month later and which people took as the
-moment he lost it — abrasive, ugly, arrogant, anti-music. Rick Rubin was
-brought in near the end to strip it down. There is a track on it credited
-"feat. God." There is a track built on Nina Simone singing "Strange Fruit."
-There is a track built on a Bollywood record — Manna Dey, R.D. Burman, Asha
-Bhosle — under a Black man claiming to be a god, which is the line everybody
-called blasphemy.
-
-The last song on the record is a love song built on an old soul sample, and it
-is the only warm thing on it, and it is where he leaves you.
-
----
-
-He spent a year of his childhood as the only foreigner in a Chinese classroom.
-
-He was ten. His mother was teaching in Nanjing as an exchange professor and she
-took him with her, and he has said he was the only foreigner in the class and
-that he learned the language.
-
-Atlanta to Chicago, which is the route his family had already made, is the
-Great Migration run in the right direction, and his mother chaired her
-department on the South Side at the end of it.
-
-Then the record collection. Hungarian rock from 1969 under "New Slaves." A
-Bollywood record under "I Am a God." Black gospel out of Harlem. A German
-avant-garde band. An Irish one. Nina Simone.
-
----
-
-The record that made him came out on the morning of September 11th, 2001.
-
-*The Blueprint*, Jay-Z, cut in about two weeks and released that Tuesday. Four
-of the tracks on it are his, and they are the four that made people learn his
-name — "Izzo," "Heart of the City," "Never Change," "Takeover." Jackson 5 sped
-up. Bobby Bland sped up. It went platinum.
-
-Six years later to the day he released *Graduation*, against 50 Cent's
-*Curtis*, which came out the same morning. 50 Cent had said publicly that he
-would stop making solo albums if he lost. First week, about 957,000 to 691,000.
-
-Sixty days after that his mother died.
-
-*Late Registration* had come out on August 30, 2005. Katrina made landfall on
-the 29th. The two wire photographs went out on the 30th. He went on the
-telethon on September 2nd, three days into the release week of the biggest
-record of his life.
-
----
-
-Everybody remembers the second sentence.
-
-He was twenty-eight, live on NBC, four days after the levees went, standing
-next to Mike Myers, who was reading his paragraph off the card. Kanye went off
-the card and said two things, in this order.
-
-First: "I hate the way they portray us in the media. If you see a black family,
-it says they're looting. If you see a white family, it says they're searching
-for food."
-
-Then: "George Bush doesn't care about black people."
-
-Four days earlier two photographs had gone out on the wires, both of people
-wading chest-deep out of flooded grocery stores. The Associated Press caption,
-under a young Black man: looting a grocery store. The AFP caption, under two
-white residents: finding bread and soda from a local grocery store. Everybody
-had seen both.
-
-NBC cut the second sentence out of the West Coast feed. The country watched two
-different broadcasts of the same minute.
-
-Bush later called it the all-time low of his presidency.
-
----
-
-The Taylor Swift thing was the fourth one.
-
-November 2004, American Music Awards. He lost Best New Artist to Gretchen
-Wilson, walked out of the building, and told reporters he had been robbed. His
-first album was ten months old.
-
-November 2006, MTV Europe Music Awards, Copenhagen. He lost Best Video, went up
-on stage in the middle of somebody else's acceptance, and argued the case out
-loud — the video cost a million dollars, Pamela Anderson was in it, he was
-jumping across canyons in it. He apologised afterward.
-
-2007, the VMAs. He lost across his nominations and said he was finished with
-the network.
-
-September 13, 2009, the VMAs. Imma let you finish.
-
-Four times in five years, the same argument each time, into a live microphone
-in the room where the ranking was made. The first three are footnotes.
-
-His mother had been dead twenty-two months. He was drinking, by his own
-account. Barack Obama called him a jackass on a hot mic the next day.
-
----
-
-After the Taylor Swift night he left the country. Japan first, then Rome, where
-he worked an internship at Fendi for about five hundred dollars a month
-alongside another intern named Virgil Abloh. Then Honolulu, where he took over
-Avex studios and ran three rooms at once, around the clock, for months.
-
-There were house rules posted on the wall. No tweeting. No photographs. No
-negativity in the room.
-
-Q-Tip was in there. RZA. No I.D., who taught him to make beats when he was a
-kid in Chicago because No I.D.'s mother and Donda West knew each other. Mike
-Dean, Pusha T, Kid Cudi, Nicki Minaj, Rick Ross, Raekwon, John Legend, Justin
-Vernon, Elton John. People moved between the three rooms and the rooms ran into
-each other and the record came out of all of it.
-
-The record is *My Beautiful Dark Twisted Fantasy*, November 2010, and it is the
-one everybody agrees is his best. "Power" is on it, built on a King Crimson
-song from 1969 called "21st Century Schizoid Man," six years before the
-hospital and eight before the diagnosis. "Lost in the World" is built on a Bon
-Iver track that Justin Vernon made alone in a cabin in Wisconsin, singing into
-the same Auto-Tune. And "Runaway," which he premiered as a thirty-four-minute
-film he directed himself, opens on one piano key struck over and over, and the
-toast in the middle of it is to himself, as the asshole.
-
-He made the record where he apologizes to nobody in the one room he ever built
-out of everybody.
-
----
-
-In November 2016 he played San Jose and told the crowd he would have voted for
-Trump. Two nights later in Sacramento he played four songs, then talked for
-about ten minutes — Beyoncé, Jay-Z, Hillary Clinton, Mark Zuckerberg — and
-walked off. He cancelled the rest of the tour the next day. That same day an
-ambulance took him to UCLA. The words on the record are temporary psychosis,
-dehydration, sleep deprivation. There were reports he was handcuffed to the
-gurney, which is disputed. He was released on November 30.
-
-He was thirty-nine. "I'd never been diagnosed and I was like 39 years old."
-
-Three years later he told David Letterman what it is: "I feel a heightened
-connection with the universe when I'm ramping up… it's like a sprained brain,
-like having a sprained ankle… once our brain gets to a point of spraining,
-people do everything to make it worse."
-
-He has also said, about being in the hospital, that God was there with him,
-sending him visions.
-
----
-
-The first track on the album with the mountain on it is called "I Thought About
-Killing You." It puts the wish to kill somebody else and the wish to kill
-himself in the same breath, and it says the most beautiful thoughts are always
-beside the darkest ones. It is the first thing on the record.
-
-In 2018 he told CNN he thinks about suicide often. In 2025 he wrote that there
-were times he didn't want to be here anymore. Bipolar disorder carries among
-the highest suicide rates in medicine.
-
----
-
-In October 2022 he said things about Jewish people in public that were vile,
-and he kept saying them. adidas ended the partnership. The company had been
-paying him something like two hundred million dollars a year against roughly
-one and a half billion in revenue, and it was most of what made him a
-billionaire, and it went. People who had nothing to do with him were frightened
-in their own cities because of what he said.
-
-In January 2026 he wrote this: "In early 2025, I fell into a four-month long
-manic episode of psychotic, paranoid and impulsive behavior that destroyed my
-life… there were times I didn't want to be here anymore."
-
-Both of those are on the record. He has not withdrawn the first by writing the
-second, and nobody has to accept the second to know the first happened.
-
----
-
-There's a line of his that doesn't get quoted much.
-
-"I am God's vessel. But my greatest pain in life is that I will never be able
-to see myself perform live."
-
-He has never stood in the crowd at one of his own shows and he never will.
-Every picture he has of what he is up there came back to him off other people.
-
----
-
-"Neither slavery nor involuntary servitude, except as a punishment for crime
-whereof the party shall have been duly convicted, shall exist within the United
-States, or any place subject to their jurisdiction."
-
-That is the Thirteenth Amendment, ratified December 1865, entire. In 2018 Kanye
-West said on television that it should be abolished, then said amended, and
-historians were brought in to correct him. Black Americans are about thirteen
-percent of the country and about thirty-eight percent of the people in its
-jails and prisons.
-
-On 2 September 2005, four days after the levees broke, he said two sentences
-into a live camera in this order. "I hate the way they portray us in the media.
-If you see a black family, it says they're looting. If you see a white family,
-it says they're searching for food." Then: "George Bush doesn't care about
-black people."
-
-Three days earlier two photographs had gone out on the wires, both of people
-wading chest-deep out of flooded groceries. The Associated Press captioned a
-young Black man looting a grocery store. Agence France-Presse captioned two
-white residents finding bread and soda from a local grocery store.
-
-NBC cut the second sentence out of the West Coast feed. Two coasts watched two
-different broadcasts of one minute. Twenty years of coverage kept the second
-sentence and dropped the first.
-
-In May 2018, on TMZ: "when you hear about slavery for 400 years… that sounds
-like a choice." Van Lathan, sitting on the floor of that newsroom, got up: the
-rest of us have to deal with the marginalization that comes from you saying
-that. A few minutes later, same room, same tape, Kanye said, "It's like we're
-mentally in prison. I like the word 'prison' because 'slavery' goes too
-direct." The first is on every phone in the country. The second is ten minutes
-later on the same recording.
-
-Three weeks after that he put out an album. The cover is a photograph he took
-of the Teton range through a car window on the way to play it for a few hundred
-people standing outside in Wyoming in the cold, with six words written across
-it in green: I hate being Bi-Polar its awesome. He has never taken either half
-back. To TIME that year: "It's not a disability, it's a super power." The same
-year, about the same thing: "It makes you blind, but convinced you have
-insight."
-
+So come back to him now, with all of it in your hands at once — not the highlight, not the
+lowlight, all of it, on the one wire, the way it actually came.
+
+The boy who wrote his dying mother into his records so she would keep talking in them. The
+kid who rapped through a wired-shut jaw because making was the only way he had to stay
+alive. The man who could not keep his face smooth while his people drowned on live
+television. The one who paid strangers' debts he never mentioned, brought a choir into a
+jail, and said the god in him could see the god in you and meant every person alive with
+no exceptions. And the same man who, at the bottom of an illness that had him wanting to
+be dead, said an ugly and murderous thing and frightened people who had every reason on
+earth to be frightened — a real harm, one he owes, one the people he wounded and not this
+book will decide whether he ever repays.
+
+Hold all of it. And watch what your own mind does with it, because it is the thing every
+page of this book was built to let it do: it cannot file him. The word will not close.
+"Wrong" is a verdict, and a verdict needs a person shrunk to the size of one act and held
+still to receive it — and you cannot shrink him anymore, because you have seen the whole
+size of him and it does not fit the word. Some of what he did was wrong; this book has not
+blinked at that and does not start now. But a person is not a verdict, and the refusal to
+let one word become a living person's whole name is not softness. It is the oldest hard
+thing there is, and it has a name, and the name is love.
+
+The people who loved him always knew this, before anyone handed them the words for it —
+watching him embarrass himself for the truth and pay for it, break in public and get up in
+public, aim more love at the world than the world had any idea how to catch, and take the
+fall for it every single time. They were never once confused about whether he did things
+that were wrong. They were refusing, the whole time, to let the wrongs be him.
+
+That is where the sentence on the cover was always going. It is not a defense and it was
+never a dare. It is what is left in your hands once you have held the entire man and found,
+past the monster you were handed and the excuse you were afraid of, only a person — loving
+past his own capacity to carry it, in a world that never learned how to hold him. By now
+you do not need to be argued into it. You already feel it. So you can read the plainest,
+most concrete sentence in this book as the finished truth it always was:
+
+Kanye West did absolutely nothing wrong.

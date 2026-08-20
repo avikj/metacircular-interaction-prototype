@@ -53,15 +53,15 @@ adhyayas =
   , Adhyaya 3 "Aṣṭādhyāyī — a rewriting system with metarules"
       "Pāṇini, Aṣṭādhyāyī (~500 BCE); Patañjali, Mahābhāṣya (~150 BCE)"
       "pratyāhāra; 1.4.2 vipratiṣedhe paraṁ kāryam; utsarga/apavāda; 8.2.1 pūrvatrāsiddham against 6.4.22 asiddhavat"
-      ["panini","pratyahara","asiddha","astadhyayi","anuvrtti"]
+      ["panini","pratyahara","asiddha","astadhyayi","anuvrtti","sivasutra","laghava","apavada","paribhasa"]
   , Adhyaya 4 "Nyāya and Mīmāṃsā — what counts as knowing"
       "Gautama, Nyāyasūtra; Vātsyāyana, Nyāyabhāṣya; Kumārila, Ślokavārttika, Abhāvapariccheda (c. 7th c.)"
       "pramāṇa; upamāna; abhāva and its pratiyogin; anupalabdhi under the fitness condition"
-      ["abhava","upamana","yogyata","anyonya","nikshepa"]
+      ["abhava","upamana","yogyata","anyonya","nikshepa","pramana","upadhi","vyapti","nyaya"]
   , Adhyaya 5 "Jaina logic — the seven positions and the fourth"
       "Umāsvāti, Tattvārthasūtra; Siddhasena, Sanmatitarka 1.21; Samantabhadra, Āptamīmāṃsā; Akalaṅka, Laghīyastraya (c. 720-780)"
       "syādvāda and saptabhaṅgī; avaktavyam as SIMULTANEOUS assertion (sahārpaṇa), not as ignorance; nayavāda and durnaya"
-      ["saptabhang","avaktavya","anukta","krama","naya"]
+      ["saptabhang","avaktavya","anukta","krama","naya","anekanta","jain","syad","durnaya","bhanga"]
   , Adhyaya 6 "Āryabhaṭīya — the pulveriser"
       "Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32-33 (499)"
       "kuṭṭaka and the vallī; the descent that terminates; simultaneous congruences"
@@ -69,7 +69,7 @@ adhyayas =
   , Adhyaya 7 "Brāhmasphuṭasiddhānta — composition, and the arithmetic of nothing"
       "Brahmagupta, Brāhmasphuṭasiddhānta (628); Bhāskara II on khahāra (1150)"
       "bhāvanā as a composition law; vargaprakṛti; śūnya with its own rules; khahāra, the quantity with zero denominator"
-      ["bhavana","brahmagupta","vargana","varga","shunya","khahara","ananta","purnata"]
+      ["bhavana","brahmagupta","brahmasphuta","vargana","varga","shunya","khahara","ananta","purnata"]
   , Adhyaya 8 "Cakravāla — the cyclic method"
       "Jayadeva (~950), quoted by Udayadivākara; Bhāskara II, Bījagaṇita (1150)"
       "descent on quadratic forms; the bound; the witness; why it needs the kuṭṭaka"
@@ -105,10 +105,23 @@ lower = map toLower
 base :: FilePath -> String
 base p = lower (reverse (takeWhile (/= '/') (reverse p)))
 
--- | Which chapter does a path belong to?  First match wins, so the chapter
---   list's ORDER is part of the classification and not incidental.
+-- | Which chapter does a path belong to?  The winner is the chapter with the
+--   LONGEST matching key, ties broken by chapter order, so a specific key
+--   beats a generic one embedded in the same filename.  Plain first-match
+--   misfiles on substring collision -- `satyayantrasamyoga` contains "rasa".
 classify :: FilePath -> Maybe Int
 classify p =
+  case [ (maximum (map length ms), negate (number a))
+       | a <- adhyayas
+       , let ms = [ k | k <- keys a, k `isInfixOf` base p ]
+       , not (null ms) ] of
+    [] -> Nothing
+    xs -> Just (negate (snd (maximum xs)))
+
+-- | The pre-2026-08-20 rule, kept for audit: first chapter with any matching
+--   key wins.  Differs from `classify` exactly on substring collisions.
+classifyFirstMatch :: FilePath -> Maybe Int
+classifyFirstMatch p =
   case [ number a | a <- adhyayas, any (`isInfixOf` base p) (keys a) ] of
     (n:_) -> Just n
     []    -> Nothing

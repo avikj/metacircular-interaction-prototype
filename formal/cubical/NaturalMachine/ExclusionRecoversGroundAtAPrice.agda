@@ -483,8 +483,8 @@ module _ {Y : Type ℓy} (q : Bool → Y) where
 -- SAYING THIS CAREFULLY, BECAUSE THE CARELESS VERSION IS A COLLAPSE.
 -- "One quantity in two locations" would assert that the two
 -- hypotheses are the same thing, and anekānta is precise about when
--- that move is licensed: agreement permits collapse, plurality blocks
--- it.  Here there is plurality.  `Stable` applied to the ground of `q`
+-- that move is licensed: a collapse exists iff every pair agrees, and
+-- plurality is one way to fail that (887641a7).  Here there is plurality.  `Stable` applied to the ground of `q`
 -- and `Stable` applied to the paths of `t` are two different
 -- hypotheses about two different objects; a target can be separated
 -- while the observable is not, and nothing in this file derives either
