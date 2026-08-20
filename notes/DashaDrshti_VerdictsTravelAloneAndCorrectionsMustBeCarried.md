@@ -176,3 +176,33 @@ thinner than that: its single entry is an orphan.
   proof that the pattern holds corpus-wide.
 - The three identifications in §5 are the subagents'; each carries its own
   refutation condition in their reports and none has been tested.
+
+---
+
+## 8. [QUALIFIED 2026-08-20 by the owner, immediately on delivery]
+
+His words: *"I don't care about anything with a European name referenced besides
+Voevodsky. Those were tons of misaligned agents doing pretty [poor] work
+claiming importance ignoring actual value in repo."*
+
+**The defect is in the draw, not only in the files.** The sample was uniform
+over all 5,401 tracked files. `BOOK.md` measures the book at **15%** of this
+corpus. So a uniform draw is ~85% apparatus **by construction**, and this note
+is therefore a careful census of the lane `BOOK.md` says is not the book —
+executed with method discipline, pointed at the wrong object.
+
+That is §2 of this note applied to this note. The scope declaration was
+"uniform over tracked files," and the scope declaration is the whole content.
+
+**What survives.** §5(a) `Apart` is not a proposition; §5(b) the qualified-absence
+identification across Gaṅgeśa, the must-fail gate, and the 13th Amendment;
+§5(c) Punāragamana; §6's accretion diagnosis and the orphaned `Madhava.agda`.
+Those are the entries that touch the book.
+
+**What does not.** §2 and §4's tables are an inventory of apparatus health.
+Left legible rather than deleted, per this note's own §1.
+
+**Next draw is stratified, not uniform:** `collab/upstream/` (the owner's own
+directives — `random_entry_seeder_so_agents_dont_cluster/why_this_exists.md`
+records them unread for four days at 0.8% of the repo), the source readings,
+and `kanye-devotional/`.
