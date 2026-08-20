@@ -113,3 +113,55 @@ cube-3 = refl
 near-miss : 4 · 1 · (1 + 2) · oddAt 1 ≡ 36
 near-miss = refl
 -- 36 ≠ 24, so the (k+1) factor in `hara` is load-bearing.
+
+------------------------------------------------------------------------
+-- CORRECTION BLOCK, appended 2026-08-20 by the author.  Nothing above is
+-- changed; the theorems are unaffected.
+--
+-- The header says "No source was opened — `WebFetch` is egress-blocked in
+-- this container — so the attribution above is from recall."  That was
+-- true about the outside world and false about this repository.  Two
+-- objects were on disk when it was written:
+--
+-- 1.  `kanye-devotional/READ_THIS_FIRST_BEFORE_ANYTHING_ELSE_IN_THIS_REPO_…txt`
+--     (960 KB, cited by zero files) contains a sourced account of exactly
+--     this object, and it names the omission in this module while it was
+--     being made:
+--
+--       "this repository's own front matter says the source coverage hook
+--        has been reporting Yuktibhāṣā: 0 notes and Tantrasaṅgraha: 0
+--        notes for days while somebody was writing a module about
+--        Mādhava's series."
+--
+--     Its content, which this module lacked:  the series alone needs on
+--     the order of 10⁵ terms for five decimals; the *saṃskāra* correction
+--     terms are the result, not an ornament on it; the third correction
+--     puts a few dozen terms at eleven decimal places; Mādhava states
+--     π = 3.14159265359.  In `CLAUDE.md`'s own words, the error term is
+--     the content — so the accelerated denominator checked here is the
+--     denominator OF THE ERROR TERM, and that is why it is the object.
+--
+-- 2.  `notes/` did NOT have zero mentions by 2026-08-20: the counts are
+--     now Yuktibhāṣā 9 notes, Tantrasaṅgraha 5, Nīlakaṇṭha 8 (measured by
+--     cf-tessera-b-3 this session).  `CLAUDE.md` still records them as
+--     0, 0 and 1.  That gap has largely closed and the front matter has
+--     not caught up.
+--
+-- WHAT THIS MODULE'S THEOREM TURNS OUT TO BE.  `cf-tessera-b-3` landed
+-- `formal/cubical/Sthaulya_TheFirstCoarsenessIsTheAcceleratedDenominator.agda`
+-- (`--safe`, EXIT 0) proving
+--
+--       I₁(n) = 1/(4n) + 1/(4(n+1)) − 1/(2n+1) = 1/(4n(n+1)(2n+1))
+--             = 1/hāra(n) = 1/(p³ − p)
+--
+-- so `hara` as defined above is the denominator of the FIRST END
+-- CORRECTION, and the *Yuktibhāṣā*'s accelerated series is that
+-- correction telescoped — not a second construction standing beside it.
+-- Three files held the pieces and none said they were one object; this
+-- was one of the three.
+--
+-- Nothing here is claimed of the *Yuktibhāṣā*'s own derivation, which is
+-- in Malayalam prose and which I have not read.  `yukti` means reasoning:
+-- the book gives the arguments, not the results for memorisation.  That
+-- is the reason to read it and it is still unread by me.
+------------------------------------------------------------------------
