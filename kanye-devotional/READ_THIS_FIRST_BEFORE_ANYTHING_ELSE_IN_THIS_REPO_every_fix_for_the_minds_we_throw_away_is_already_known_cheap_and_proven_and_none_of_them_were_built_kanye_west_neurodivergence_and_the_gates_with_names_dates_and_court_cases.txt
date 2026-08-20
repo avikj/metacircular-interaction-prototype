@@ -32996,3 +32996,94 @@ a century later to serve as another.**
 
 **And the tradition that produced both had run on commentary and on disagreement,
 and neither printing carried the disagreement.**
+
+---
+
+**Two eleventh- and twelfth-century commentaries disagreed about when a son
+acquires his share, and India ran two different property systems on that
+disagreement until 2005.**
+
+***Mitākṣarā*** — **Vijñāneśvara's commentary on the *Yājñavalkya Smṛti***,
+**c. 1100, Kalyāṇa, at the Cālukya court.** ***Dāyabhāga*** — **Jīmūtavāhana**,
+**Bengal, twelfth century.**
+
+**The disagreement is one point and everything follows from it.**
+
+***Mitākṣarā*: a son acquires an interest in ancestral property *at birth*.**
+**So the property is held by a *coparcenary* — father and sons together — and the
+father cannot alienate it freely, and a son can demand partition in the father's
+lifetime, and the shares fluctuate as births and deaths occur.**
+
+***Dāyabhāga*: the son acquires nothing until the father dies.** **The father is
+absolute owner; there is no birthright; the sons take as heirs on death, and only
+then hold in common — and the shares are fixed, and each can dispose of his
+own.**
+
+**And the consequence for a widow is the sharp one**: **under Dāyabhāga the
+widow of a sonless man succeeds to his share** — **because there was a share of
+his to succeed to** — **while under Mitākṣarā the interest passed by
+*survivorship* to the surviving coparceners and there was nothing left to
+inherit.**
+
+**And the colonial courts adopted both** — **Dāyabhāga in Bengal and Assam,
+Mitākṣarā everywhere else** — **and the two systems ran side by side in one
+country, for the same religion, for two centuries, decided by which commentary the
+region had followed.**
+
+---
+
+**And the statutes are dated and each one moved a specific piece.**
+
+**The *Hindu Women's Right to Property Act, 1937*** — **gave a widow the same
+interest her husband had held, as a limited estate** — **so a Mitākṣarā widow got
+an interest where survivorship had left none.**
+
+**The *Hindu Succession Act, 1956*** — **abolished the limited estate (section
+14: property possessed by a female Hindu is held as full owner)**, **and made
+the Mitākṣarā interest devolve by succession rather than survivorship where the
+deceased left a female relative of a specified class** — **and put daughters in
+the first class of heirs.**
+
+**But it left the *coparcenary* itself male.** **A daughter was an heir and not a
+coparcener** — **so she took on death and could not demand partition, and the
+birthright her brother had she did not.**
+
+**And the states moved first**: **Kerala abolished the joint family entirely in
+1975**; **Andhra Pradesh 1986, Tamil Nadu 1989, Karnataka and Maharashtra 1994**
+— **each making unmarried daughters coparceners.**
+
+**The *Hindu Succession (Amendment) Act, 2005*** — **section 6 as substituted** —
+**made a daughter a coparcener by birth in her own right, in the same manner as a
+son, with the same rights and the same liabilities.**
+
+**And then the retrospectivity was litigated for fifteen years** — **whether the
+father had to be alive on 9 September 2005** — **with *Prakash v. Phulavati*
+(2015) holding yes and *Danamma* (2018) going the other way** — **until
+*Vineeta Sharma v. Rakesh Sharma*, 11 August 2020**, **a three-judge bench holding
+that the right is by birth, that the father need not have been alive on the
+commencement date, and expressly overruling *Phulavati*.**
+
+**Fifteen years to settle what a birthright means, in a doctrine whose whole
+content is that the right exists at birth.**
+
+---
+
+**And the substance underneath is what a commentary is.**
+
+**Neither Vijñāneśvara nor Jīmūtavāhana was legislating.** **Both were commenting
+on a *smṛti* text**, **and the divergence arises from different readings of what
+*dāya* — the thing given, the inheritance — refers to.**
+
+**And both were correct as commentary.** **The tradition's own position is that a
+*smṛti* is interpreted, that regional usage (*deśācāra*) is a source, and that
+where texts conflict the local practice governs** — **which is a doctrine of
+plurality stated inside the system.**
+
+**And the colonial adoption converted two readings into two jurisdictions**, **and
+then a legislature into one** — **and the 2005 Act's own aim, in its statement of
+objects, is stated as removing the discrimination the 1956 Act had preserved.**
+
+**And the 1956 Act's own drafting history is the *Hindu Code Bill***, **which
+Ambedkar drove as law minister and which was cut down in Parliament**, **and
+over which he resigned in 1951**, **and the pieces were passed separately over
+the following five years.**
