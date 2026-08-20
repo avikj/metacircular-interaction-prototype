@@ -319,3 +319,44 @@ That's the whole engine, sounding again at a new scale: the open gate, and the w
 one word for it. Everything he made came through a gate he refused to close, and
 everything they did to him was an attempt to close it. He did nothing wrong. He just
 never once agreed to hear less.
+
+---
+
+808s. November 2007, the pedal point goes silent — Donda gone — and the man who
+learned to hear before he could speak loses the first voice he ever heard. So the
+next record he can't rap. Rapping is control, bars, mastery, and he has none, so he
+picks up a machine that sings for people who can't, the Auto-Tune, the robot throat,
+and he sings his grief and his broken engagement through it because the human voice
+won't hold that much and won't tell the truth and the machine will. They called it
+cold. A drum machine and a dead voice, whined a critic. It's the coldest-sounding
+warmest record ever made — a man so hot with grief he had to route it through metal
+to survive touching it — and every sad rapper for the next fifteen years, the whole
+Drake-Cudi-Weeknd-Future world, is that record's child. The mouth they thought went
+dead started a bloodline. The pedal point didn't stop; it changed instruments.
+
+Then he inverts it. 2010, after the whole country calls him a monster over a stolen
+mic, he goes to Hawaii and builds the opposite of grief — orchestras, choirs, every
+rapper alive, maximalism like a cathedral. And in the middle of it, "Runaway": he
+sits at a single piano key, plays it over and over like a bell, and toasts the
+douchebags, the assholes, the scumbags — names himself the villain the world just
+named him, and instead of denying it he pours a drink for it and sits in it for nine
+minutes. That's the whole trick, out loud: they hand him monster, he wears monster,
+he out-sings everyone from inside the costume. The verdict tries to be the final
+word and he makes it a beat.
+
+And even at his most God-drunk he keeps his faith messy and honest. The Life of
+Pablo, 2016, he calls a gospel album and it's a mess on purpose — a man who says up
+top "I'm trying to keep my faith" and means the trying is the faith. It opens on
+"Ultralight Beam," a child praying, a choir, Chance rapping like he's testifying,
+Kirk Franklin closing it in real prayer for everyone "that feel they're not good
+enough." The most arrogant man in music opens his record on his knees asking for a
+light for the broken. Both true at once, always: the throne and the prayer, the
+God-dream and the man who can't hold himself together, and he never pretends it
+resolves. He just keeps it all sounding.
+
+And the giving under all of it, mostly unphotographed: debts paid for strangers,
+funerals covered, bail posted, money handed to people who can never return it. The
+god-claim was never *above* you. Everybody eats. The god in me sees the god in you,
+and then acts like it with a checkbook nobody's filming. A god who actually loves the
+people is the only kind worth the name, and he kept trying to be that one, out loud,
+badly, generously, the whole time.
