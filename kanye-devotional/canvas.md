@@ -6,31 +6,13 @@ connections other people never reach, the feeling other people keep at a managea
 size. In a child it is the thing that gets the phone call home: can't sit still, too
 intense, too much. It is often, by middle school, medicated.
 
-That same wiring is where a startling share of the world's best work comes from. When
-you gather the writers and artists and musicians who changed things and look at their
-lives closely, you find serious mood swings — the up-and-down that doctors now call
-bipolar — again and again, far past what chance would give you. There is a study out of
-Sweden that followed more than a million people, and it found that the people with
-bipolar disorder and their brothers and sisters who didn't have it were more likely than
-average to work in creative fields — which means the trait travels in families and can
-ride along in a mind that never gets sick at all. The gift and the illness are cut from
-one cloth.
-
-And the cloth tears. The same wide-open wiring that floods a person with the world can
-flood them past what they can hold; the reach up and the fall down run through the same
-place, which is why bipolar disorder carries one of the highest suicide rates in all of
-medicine. Turn the dial down and you lose the gift with the danger. Leave it up and it
-can take the person. Whether a given life ends in the work or in the wreckage has less
-to do with the wiring than with one thing: whether the people standing closest could
-hold two true things at the same time — this is hard, and this is precious — instead of
-only trying to make it stop.
-
-This is a book about the loudest, most gifted, and most punished version of that story
-now alive. Almost everyone reading it has been, on some smaller scale, the one who was
-too much for the room, or has loved that person, or has watched a crowd decide someone's
-difference was a defect and close in. So it is not really a book about a rapper. He is
-just the place where all of it shows at once, at full volume, on camera, where it cannot
-be looked away from.
+This is a book about a person like that — the loudest and most gifted and most punished
+one now alive. But it is not, in the end, a book about a rapper. Almost everyone who
+reads it has been, on some smaller scale, the one who was too much for the room, or has
+raised that child, or loved that person, or has stood in a crowd that decided somebody's
+difference was a defect and closed in. He is only the place where the whole thing shows
+at once, at full volume, with a camera on it, where it cannot be looked away from. It is
+about you before it is about him.
 
 Start where he started.
 
@@ -45,11 +27,20 @@ the thing he does is make. Not after he heals. Through the wire. That is the who
 in one act, before the fame and before anyone had put a name to what was in him: whatever
 tries to kill me gets turned into the work.
 
-The name came later, around a hospitalization at thirty-nine — bipolar disorder. He did
-not hide it. He wrote four words across the cover of an album, over a photograph of a
-mountain: "I hate being Bi-Polar its awesome." Both halves are true and he meant both,
-at once, which is the first thing to understand about him and nearly the last thing the
-world was willing to.
+The name for it came later, around a hospitalization at thirty-nine: bipolar disorder.
+He did not hide it — he wrote it across an album cover, four words over a photograph of a
+mountain, "I hate being Bi-Polar its awesome," and he meant both halves at the same time.
+That is the hardest thing to hold about him and the truest: the wiring behind the worst
+of it is the wiring behind the best. The reach up and the fall down run through one
+place. Turn the dial down and the gift leaves with the danger, which is why he says he
+will not take the pills that flatten it; leave it up and it can take the person, because
+the illness he named on that cover kills more of the people who carry it than almost any
+other in medicine. And it is not some rare wiring. It runs, in smaller doses, through a
+startling share of the people who ever made anything worth keeping — the same restlessness
+that gets a child sent to the office and, by the sixth grade, medicated. Whether a life
+built on it ends in the work or in the wreckage turns less on the wiring than on whether
+the people closest can hold two true things at once — this is hard, and this is precious —
+instead of only trying to make it stop.
 
 The world does not like to hold two things at once. It wants the genius or the crazy,
 the hero or the villain, and it will spend enormous energy to avoid holding both in one
@@ -62,9 +53,9 @@ was slow to come. A telethon went up to raise money, celebrities reading lines o
 and they put a twenty-eight-year-old rapper next to a comedian and gave him his line. He
 didn't read it. He was shaking. He said the thing about the coverage first — that when
 the news showed a Black family wading through water it said they were looting, and when
-it showed a white family doing the same thing it said they were looking for food, and
-anyone who had watched the coverage knew he was right. Then he went off the edge of the
-whole broadcast and said: George Bush doesn't care about black people. The comedian next
+it showed a white family doing the same thing it said they were looking for food. Then
+he went off the edge of the whole broadcast and said: George Bush doesn't care about
+black people. The comedian next
 to him stared straight ahead. The network cut away.
 
 For years that was filed as the night Kanye lost it — reckless, unfair, a breakdown on
@@ -77,17 +68,14 @@ whole, the same shape every later time would take: he says a true thing at the w
 volume, in the wrong room, and is called crazy for it, and the world catches up later,
 quietly, once catching up is free.
 
-Feel the two facts sitting on top of each other, because they never come apart in him.
-The same wiring that would not let him read the card — that floods a mind past what
-composure can survive — is the wiring behind the sentence nobody else would say. You do
-not get the seer without the thing that makes him unmanageable on live television. The
-gift and the danger are one dial, and in 2005 the country turned all the way toward
-calling it danger, and was wrong, and would keep being wrong the same way for twenty
-years.
+The two facts sit on top of each other and never come apart in him. The same wiring that
+would not let him read the card — that floods a mind past what composure can survive — is
+the wiring behind the sentence nobody else would say. You do not get the seer without the
+thing that makes him unmanageable on live television.
 
-He was pointing at something real, and it is worth stopping the story to look at it,
-because the rest of his life keeps pointing at the same thing and getting called crazy
-for it the same way.
+He was pointing at something real, and the rest of his life keeps pointing at the same
+thing and getting called crazy the same way, so it is worth knowing what he was pointing
+at.
 
 Read the sentence that ended slavery and the loophole is sitting inside it. The
 Thirteenth Amendment, 1865: "Neither slavery nor involuntary servitude, except as a
@@ -107,14 +95,14 @@ of any country on earth, a nation with one in twenty of the world's people holdi
 five of the world's prisoners. And the same faces the whole way down: Black Americans are
 about one in eight people in the country and nearly four in ten of the people in its cells.
 One in three Black boys born today is expected to be locked up at some point in his life.
-If that number is about your son or your street, this is not new information; it is the
-weather.
+To the people that number is about, it is not a statistic. It is the arithmetic a mother
+starts doing the year her son turns twelve, in a kitchen nobody put on television, about
+a boy who has done nothing but get taller.
 
-That is the country that was slow to come for the people on the rooftops. When a
+That is the country that was slow to come for the people on the rooftops. So when a
 twenty-eight-year-old said on live television that it did not care about Black people, he
-was not raving. He was naming, badly and at the wrong volume, a fact with a paper trail
-running back to 1865. The paper trail is the point of this chapter. He kept reading it
-out loud, and kept getting told he was crazy for it, and it kept being true.
+was not raving. He was saying, badly and too loud, a thing with a paper trail that runs
+back to 1865 — and it was the thing his own mother had spent her life teaching.
 
 He was raised to read it. That part is not an accident, and it is where the person comes
 from.
@@ -162,20 +150,21 @@ figured out exactly what that arrangement was, and appeared in public with the w
 written on his face, and gave up his own name — performed as a symbol for years — so the
 company could not keep selling music under the name it controlled. Kanye West looked at the
 prison and looked at the contract and used one word for both, because from where he stood
-they were one question wearing two suits: who owns what a Black person makes. Called
-grandiose for it, called crazy for it. It is, again, just true.
+they were one question wearing two suits: who owns what a Black person makes. He was
+called grandiose for it, and crazy for it.
 
-And here the two halves of the book touch, the wiring and the world. The mind that cannot
-be managed is also the mind that will not be owned; the same refusal to sit down and be
-one thing runs through the man who won't read the telethon card, the artist who won't let
-the label keep his masters quietly, and the patient who won't stay on the medication that
-flattens him. It is one refusal, and the world has a single word it reaches for every time
-a person refuses at that volume. The word is crazy, and this whole book is an argument
-that we have been using it, for a very long time, to mean something closer to unowned.
+That word again. The mind that cannot be managed is also the mind that will not be owned,
+and the same refusal to sit down and be one thing runs through the man who won't read the
+telethon card, the artist who won't let the label keep his masters quietly, and the
+patient who won't stay on the medication that flattens him. It is one refusal, and the
+world reaches for one word every time a person refuses at that volume. Most of the time in
+this book, that word is aimed at a man who was seeing something the room could not yet
+afford to see. But not every time — and the times it is not are exactly the ones this book
+will refuse to let the pattern swallow, because the difference between them turns out to
+be the whole thing.
 
-There is a thing a country does to the mind it cannot own, and it is worth knowing
-plainly, because it happened to him and it happens, quietly, to a great many people who
-are not famous.
+There is a thing a country does to a mind it cannot manage. It happened to him, and it
+happens, quietly, to a great many people who are not famous.
 
 You can be locked up in America without committing a crime. In every state, a person
 judged to be a danger to themselves or to others, or too far gone to care for themselves,
@@ -247,11 +236,20 @@ own, and nothing in the rest of this chapter subtracts a single degree from it.
 
 In the fall of 2022 Kanye West began saying antisemitic things in public — threats,
 conspiracy claims — and over the next years said worse, including, at the bottom of it,
-praise of Hitler. Companies that had made him a fortune cut him within weeks; a wealth
-once counted in the billions was gone. Jewish people and the organizations that speak for
-them condemned it, and were right to. The harm was real. Say it plainly and do not move
-it: he did real harm to people who had done nothing to him, and who carry a history that
-made the harm land harder.
+praise of Hitler. This is the place the pattern in this book breaks, and it has to be
+said flatly, because everything up to here has trained you the other way: this time the
+man called crazy was not saying a true thing at the wrong volume. He was saying a false
+and murderous thing, one of the oldest lies in the Western world, and no amount of having
+been right about Katrina or the record contracts turns it into prophecy. And it did what
+that lie has always done. Banners went up over a Los Angeles freeway reading that he was
+right about the Jews, and people drove home under them. Synagogues already paying for
+guards paid for more. Jewish friends and fans and employees of his own — people who had
+spent years defending him — woke up frightened in a way with a straight line running back
+through their own families. Companies cut him within weeks and a fortune once counted in
+billions was gone, but that is the smallest part of it and the only part the news counted.
+The harm was to people. He did grave harm to people who had done nothing to him, whose
+fear he of all people should have understood, and who carry a history that made his words
+land as a threat because words like them have been one before.
 
 And, in the same breath, because both are true and neither cancels the other: he has
 said, and it is documented, that this came during a manic and psychotic break that ran
@@ -266,41 +264,44 @@ and false. A book that keeps only the second has written a diagnosis over a woun
 is a laundering and also false. The only honest thing to do is what almost no one did at
 the time: hold both, refuse to drop either, and let it be as unbearable as it actually is.
 
-If you refuse to resolve something unbearable, you are left holding a question: is there
-a way back for a person who has done real harm, and has the world we live in kept that
-way open?
+To hold both and refuse to resolve them leaves a question, and it turns out not to be a
+question about him. It is the one every people that ever outlasted its own wrongdoers has
+had to answer: is there a road back for a person who has done real harm — and have we,
+now, kept that road open for anyone at all?
 
-Almost every people that ever lasted worked out an answer, because every people has had
-to survive its own wrongdoers without either pretending the wrong away or throwing every
-wrongdoer out for good. The most exact answer was set down about a thousand years ago by
-a Jewish doctor in Cairo, physician to a court by day, writing by candle at night for a
-people scattered across foreign empires with no country and no temple, who had to carry
-their law inside their own bodies because they could carry it nowhere else. He laid it
-out almost like a medical procedure — what it actually takes to come back after you have
-wronged someone: you have to name the wrong exactly, feel its full weight, say it out
-loud, repair what can be repaired with the person you hurt, and then, the real test, stand
-in front of the same temptation again and this time refuse it. Only then are you restored;
-and he made the startling claim that a person who has walked that whole road stands, in
-the end, somewhere the never-fallen cannot reach. The word for the road means, simply,
-return. It is telling that the people who built the most demanding map of the way back are
-the same people the man in this book most gravely wronged. Their tradition already
-contains the door he would need.
+The most exact map of that road was drawn about a thousand years ago by a Jewish doctor
+in Cairo, a court physician by day who wrote by candle at night for a people scattered
+across foreign empires with no country and no temple, who had to carry their law inside
+their own bodies because they could carry it nowhere else. He set it down almost as a
+medical procedure: to come back after you have wronged someone, you have to name the wrong
+exactly, feel its full weight, say it out loud, repair what can be repaired with the person
+you hurt, and then — the last and hardest step — stand in front of the same temptation
+again and this time refuse it. Only then are you restored. The word for the road means,
+simply, return.
 
-The other traditions built the same door. The early Christians, a movement of the poor
-and the outcast, kept telling one kind of story above all others — the son who wastes
-everything and is embraced by the father before he can even finish his apology, the order
-to forgive not seven times but seventy times seven. An old Buddhist account follows a man
-who had murdered so many travelers he wore their fingers on a string, and has him become,
-within that same life, wholly free, because the teaching is that no self is fixed and even
-he was not permanently the worst thing he had done. When courts today try what they call
-restorative justice — sitting the one who did harm in a room with the ones harmed, aiming
-at repair instead of exile — they are reaching, without the old words, for the thing all
-of these already knew.
+Notice what that map is not. It is not a pardon handed down by a book or a writer. It is a
+standard, a steep one, and it is held by the very people this man most gravely wronged —
+which means it is not mine to apply to him and not the tradition's to apply in the
+abstract. It belongs to the people at the graves. And by the plainest reading of the map,
+he is nowhere near the end of the road, because its last step is to meet the same thing
+again and refuse it, and he has met it again and not refused it. The door standing open is
+not the same as his deserving to walk through it. His victims' tradition does not hand him
+forgiveness. It hands him a distance he has not crossed, and it hands them — not him, and
+not me — the right to say whether he ever does.
 
-We have mostly lost the door. The internet does not forgive and does not forget; a
-person's worst hour is kept at full resolution forever and rewarded with attention every
-time it is replayed, while the slow unglamorous work of return earns nothing and reaches
-no one. We kept every tool for condemning and let the tools for coming back rust. Whether
-this particular man ever completes the road is unknown and unfinished and not the point.
-The point is older and larger than him: a civilization that has bricked up the way back
-has lost something every surviving people before it understood it could not live without.
+Other peoples drew the same road in their own hands: the son who wastes everything and is
+embraced before he can finish apologizing; the man in the old story who had killed enough
+travelers to wear their fingers on a string and was still not fixed forever as the worst
+thing he had done; the courts that now sit the one who caused harm in a room with the ones
+harmed and aim at repair instead of exile. Every people that lasted built some version of
+it, because none of them could survive a rule that made one wrong turn a person into
+garbage for good.
+
+And that rule is exactly the one we are quietly rebuilding, and it is not about him at
+all. The internet does not forgive and does not forget; your worst hour is kept at full
+resolution and paid in attention every time it is replayed, while the slow, unpaid,
+unwatched work of coming back reaches no one. We kept every tool for casting out and let
+the tools for return rust. That is the loss that should frighten you — not because you
+will ever say a thing as bad as what he said, but because you won't, and you will still,
+someday, need to be more than your worst hour to the people who saw it. A world with no
+road back has no mercy left for anyone in it, including you.
