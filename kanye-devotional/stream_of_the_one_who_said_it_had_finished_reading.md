@@ -20336,3 +20336,159 @@ document.
 cut at 15240.
 
 Reading on.
+
+---
+
+## 15240–15380 — the pairs, Donda's own life, Ray's frame
+
+> The last song on that record is about her... **a father working out, in public,
+> on a record, that the way men behave toward women is a thing his own child will
+> be on the receiving end of, and being frightened of it, and finding he cannot be
+> exempt from the observation.**
+
+> **It came out three weeks after the TMZ appearance. Same month. Same news cycle.
+> One of them is in every account of him and the other one is not.**
+
+> I keep finding these pairs. **The choir in the jail and the posts. The song about
+> his daughter and the clip. The letter in the *Journal* and the shirt.**
+
+> **It is not a paradox and it is not hypocrisy.** It is what a person looks like
+> when everything they do is public and nothing is filtered, and **it is what
+> everybody would look like under the same conditions, and almost nobody has ever
+> been under them.**
+
+> **most people are not better than him. Most people are less observed.**
+
+That is the shipped-distribution finding stated without the sampling vocabulary,
+and it is better — the residual put back. Not a portfolio and a tail. *Less
+observed.*
+
+---
+
+**Donda West, "who has been *the mother* for fifteen thousand lines and had her
+own life."**
+
+Born **Oklahoma City, 1949** — *"a child in a segregated city in a segregated
+state"* — and **she took part in the Oklahoma City sit-ins as a child.** Clara
+Luper, the NAACP Youth Council, the **Katz Drug Store counter, 1958**, *"a year
+and a half before Greensboro and one of the earliest sustained sit-in campaigns
+in the country and barely in the standard account."*
+
+> **She would have been about nine.**
+
+Her father, **Portwood Williams** — *"a family in that city, in those years,
+sending their children to sit at a counter."*
+
+**Thirty-one years teaching English.** Chicago State, *"which is not a research
+post and is not prestigious and serves the descendants of the Great
+Migration"* — and she chaired the department. *"she spent three decades teaching
+Black students to write, in the city they had been redlined into."*
+
+**China**, when he was ten, a year, *"one of very few foreigners in his class."*
+
+**She raised him alone from when he was three.**
+
+*"And she left the chair — the thing she had spent thirty-one years reaching — to
+manage his career, and wrote a book about raising him, and died fourteen months
+later at fifty-eight."*
+
+---
+
+> **Every element of him is in that paragraph and none of it is mysterious.**
+
+> The refusal to accept the seating arrangement is her father's and hers, at a
+> lunch counter, in 1958. The conviction that a Black kid from the South Side can
+> simply be world-class at whatever he decides is a woman with a doctorate
+> teaching composition at a public university. **The anti-credential argument on
+> the first album is the child of an English professor who had watched exactly who
+> the credential was doing work for.** The literature is hers. **And the belief
+> that if you want a thing you go and put your body in the room is a nine-year-old
+> at a counter in Oklahoma City.**
+
+> I have spent the day looking for the mechanism that produced him and it is **a
+> woman who was at a sit-in before Greensboro and then taught for thirty-one years
+> and then quit to help her son.**
+
+> **That is the source.** Not the crash, not the diagnosis, not the industry. And
+> it is documented, and it is not obscure, and there is a book she wrote, **and I
+> have referred to her as *the mother* in every previous section of this file.**
+
+*The mother* is a role and *Donda West* is a person, and the file used the role
+for fifteen thousand lines while writing about exactly that operation. The
+residual is the same one every time: the person and the purpose.
+
+And it is the answer to its own question about origin. It went looking for a
+mechanism and found a household — which is the only kind of answer that has
+people in it.
+
+---
+
+**Ray West.**
+
+**Black Panther Party**, late sixties into the seventies — *"the free breakfast
+programme, the clinics, the newspaper, the political education classes, and also
+being a person the FBI's counterintelligence programme was actively working
+against, **since that is a matter of record and not an allegation.**"*
+
+Then **one of the first Black photojournalists at the *Atlanta
+Journal-Constitution***. *"a Black man in a Southern newsroom was a recent
+arrangement, and the pictures he took include **Ralph Abernathy**, King's
+successor at the SCLC, and **Maya Angelou**, and **Reagan**."*
+
+> Consider what that job actually is. **You are the person deciding where to stand
+> and when to press.** A photojournalist's whole craft is **choosing the frame** —
+> what is inside it, what is outside, what the picture will be taken to mean. **A
+> Black photographer covering the post-movement South is doing that against a
+> paper's sense of what a picture of Black life is for, every day, on deadline.**
+
+The whole file's subject — the frame, what it holds, what it excludes, who
+decides — was his father's *trade*. Not an analogy. The job.
+
+Then a **Christian counsellor** — *"the work of sitting with a person and
+listening to them at the rate they talk, **which is the one thing this file has
+concluded almost nobody has.**"*
+
+The naamu-sayer. His father did it professionally. And the file's central
+prescription — the second chair — turns out to be the thing the father did for a
+living, and the son is the person in this document identified as most lacking it.
+
+Then a **water store and café** in Maryland, 2006, *"with startup money from his
+son."*
+
+---
+
+> **The eye is Ray's.** Not metaphorically — the man composed images for a living,
+> professionally, for years, and the son's entire practice is deciding what
+> fragment to take, from where, and what it means once it is placed. **Ray chose
+> frames of Abernathy. Kanye chooses two seconds of a record from 1971. It is the
+> same operation with a different instrument.**
+
+> everything I have spent the day calling inexplicable about his behaviour — that
+> he acts as though he has standing, that he will not accept a description of a
+> room as a description of the world, that he thinks the camera and the frame are
+> his to decide — **is the ordinary inheritance of those two people.**
+
+> He said it took him **forty-two years** to work out that his father was his best
+> friend. Which is a sentence about how long it takes, and about a boy raised by
+> his mother from three in one city while his father was in another, **and about
+> two men who eventually sat in a café together that one of them paid for.**
+
+---
+
+> I have written this file as though the interesting question were what happened
+> to him.
+>
+> **Both of his parents were people who put themselves in rooms they had not been
+> invited into, professionally, for decades, before he was born.** That is not a
+> mystery to be explained by a car crash or a diagnosis. **It is a household.**
+
+That dissolves the whole explanatory project. Two hundred pages of mechanisms —
+the lifted filter, the gate, the clip, the shipped distribution, the fifty-nine
+days — and the answer to *why is he like this* is that he was raised by a
+sit-in and a photojournalist.
+
+And it is the same finding as *the lineage is what notices* and *the archive is a
+person*: what transmits is not a trait and not a condition. It is two people, in
+a house, doing what they did.
+
+Reading on from 15380. About a thousand lines left.
