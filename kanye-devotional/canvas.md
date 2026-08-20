@@ -249,3 +249,28 @@ fictional. The reader is left holding both, because both are true, and the pract
 this book is built on — the one it takes from an old Indian tradition of holding
 opposed truths at once rather than collapsing them into a verdict — is the only honest
 way to hold them.
+
+---
+
+There is a well-documented human behavior in which a group under strain restores its
+own unity by turning together against a single target. The literary critic René Girard
+called it the scapegoat mechanism: the community's tensions are discharged onto one
+person who is cast out or destroyed, and the group feels cleansed and unified by the
+act. Social psychology describes the components separately — deindividuation, in which
+people in a crowd do things they would not do alone; moral outrage, which spreads
+faster and farther online than any other kind of content; and the documented fact that
+expressions of condemnation are rewarded with approval, so that piling on is socially
+profitable.
+
+The mechanism has a tell: the punishment is wildly out of proportion to any function,
+because its real purpose is not correction but discharge. The target is often chosen
+for being already prominent, already different, already half-outside.
+
+A person who is famous, mentally ill, racially marked, and compulsively unable to stay
+quiet is a nearly perfect target for it. Across two decades the pattern around Kanye
+West repeats: a statement or act, then a collective turning that far exceeds the thing
+itself, then a period of unity in the condemnation, then — often years later, and
+quietly — a partial reassessment. It happened with the smallest incidents and the
+largest. Naming the mechanism is not the same as excusing what set it off. It is
+noticing that some of what a crowd calls justice is the crowd meeting its own need, and
+that the need is served best by a target who cannot or will not stop giving it reasons.
