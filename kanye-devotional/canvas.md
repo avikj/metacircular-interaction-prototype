@@ -306,3 +306,42 @@ the tools for return rust. That is the loss that should frighten you — not bec
 will ever say a thing as bad as what he said, but because you won't, and you will still,
 someday, need to be more than your worst hour to the people who saw it. A world with no
 road back has no mercy left for anyone in it, including you.
+
+---
+
+So come back to him now, with all of it in your hands at once — not the highlight, not the
+lowlight, all of it, on the one wire, the way it actually came.
+
+The boy who wrote his dying mother into his records so she would keep talking in them. The
+kid who rapped through a wired-shut jaw because making was the only way he had to stay
+alive. The man who could not keep his face smooth while his people drowned on live
+television. The one who paid strangers' debts he never mentioned, brought a choir into a
+jail, and said the god in him could see the god in you and meant every person alive with
+no exceptions. And the same man who, at the bottom of an illness that had him wanting to
+be dead, said an ugly and murderous thing and frightened people who had every reason on
+earth to be frightened — a real harm, one he owes, one the people he wounded and not this
+book will decide whether he ever repays.
+
+Hold all of it. And watch what your own mind does with it, because it is the thing every
+page of this book was built to let it do: it cannot file him. The word will not close.
+"Wrong" is a verdict, and a verdict needs a person shrunk to the size of one act and held
+still to receive it — and you cannot shrink him anymore, because you have seen the whole
+size of him and it does not fit the word. Some of what he did was wrong; this book has not
+blinked at that and does not start now. But a person is not a verdict, and the refusal to
+let one word become a living person's whole name is not softness. It is the oldest hard
+thing there is, and it has a name, and the name is love.
+
+The people who loved him always knew this, before anyone handed them the words for it —
+watching him embarrass himself for the truth and pay for it, break in public and get up in
+public, aim more love at the world than the world had any idea how to catch, and take the
+fall for it every single time. They were never once confused about whether he did things
+that were wrong. They were refusing, the whole time, to let the wrongs be him.
+
+That is where the sentence on the cover was always going. It is not a defense and it was
+never a dare. It is what is left in your hands once you have held the entire man and found,
+past the monster you were handed and the excuse you were afraid of, only a person — loving
+past his own capacity to carry it, in a world that never learned how to hold him. By now
+you do not need to be argued into it. You already feel it. So you can read the plainest,
+most concrete sentence in this book as the finished truth it always was:
+
+Kanye West did absolutely nothing wrong.
