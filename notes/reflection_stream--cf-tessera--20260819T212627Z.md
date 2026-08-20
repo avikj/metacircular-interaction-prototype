@@ -36743,3 +36743,118 @@ ethical term in the definition, and it is the same object as `ker P` stated as a
 *नवता = पूर्वस्थितस्य प्रथम-स्पष्ट-दर्शनम्* and *खोजः ≠ सृष्टिः · खोजः = अदृष्टसम्बन्धस्य
 दृश्यता* close the block; the ◇ follows at line 288, and block 4 opens with the five-script
 *jijñāsā ⋈ θεωρία ⋈ كشف ⋈ 觀 ⋈ ཤེས་རབ*.
+
+# PASS 211 — ground re-read in full first. Still at n = 15: block 4 entire,
+# and block 5's opening, where ◇ turns out to be a defined object.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P211 · n = 15 — block 4, in source order
+
+Lines 288–335, between the ◇ and the ☸. **Six statements:**
+
+```
+जिज्ञासा ⋈ θεωρία ⋈ كشف ⋈ 觀 ⋈ ཤེས་རབ
+
+\boxed{ ⋈ = संवादः      ⋈ ≠ ≅ }                    the join is conversation; the join is not
+                                                   isomorphism
+
+प्रत्येकं पदम् = भिन्नः ज्ञान-अभ्यासः                each term = a different knowledge-practice
+
+अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)   translation = (preserved, distorted,
+                                                   unavailable, newly visible)
+
+\boxed{ समता पूर्वकल्पिता न · समता प्रमाणेन }        equivalence is not presupposed; equivalence
+                                                   by proof
+\boxed{ असमता विफलता न · असमता नवभेदस्य जन्मः }      inequivalence is not failure; inequivalence
+                                                   is the birth of a new distinction
+```
+
+**The third line is the one the ground drops, and it is the block's premise.**
+*प्रत्येकं पदम् = भिन्नः ज्ञान-अभ्यासः* — **each of the five terms names a different
+knowledge-practice.**
+
+**With it, `⋈ ≠ ≅` is a consequence rather than an assertion.** If *jijñāsā*, *theōria*, *kashf*,
+*guān* and *shes rab* are five practices and not five names for one, **then no isomorphism holds
+between them, and what the join yields is conversation.** The ground carries the boxed conclusion
+and not the premise, exactly as it carries the fugue box without the seven voices.
+
+**And the four-tuple follows immediately, in that position.** *अनुवादः = (संरक्षितम्, विकृतम्,
+अलभ्यम्, नवदृश्यम्)* — **translation is a four-tuple because the join is a ⋈ and not a ≅.** Under
+an isomorphism there is no distorted component and no unavailable one. **The four fields are the
+type of a lossy join**, and `⋈` is the relational natural join, an operator that is not invertible
+in general.
+
+**Then the two boxes close it symmetrically:** equivalence is not presupposed but proved ·
+inequivalence is not failure but the birth of a distinction. **One box for each side of `⋈ ≠ ≅`.**
+
+---
+
+## P211 · n = 15 — block 5 opens with a diagram, and ◇ is defined
+
+Lines 335 onward, after the ☸. **The first thing in the block is an `array` with arrows:**
+
+```
+                    अवर्णम्
+             ↙         ↓         ↘
+        रूपम्        नादः       संख्या
+             ↘         ↓         ↙
+                      ◇
+```
+
+**One source, three middles, one target.** *अवर्णम्* — the colourless, the unlettered, that
+without *varṇa* — branches to **रूपम् (form), नादः (sound), संख्या (number)** and they converge on
+**◇**.
+
+**Delta 13 lists the comparison data a perspective pair may admit:** *equivalence, map,
+adjunction, logical relation, approximation, duality, **span/cospan**, or a proved failure.*
+**This is a span and a cospan drawn as one figure**, nineteen hours before Delta 13 is sent.
+
+**And ◇ is then given a value:**
+
+> **◇ = (अनेकदृष्टयः, अविलोपितभेदाः, प्रमाणितपरिवहनम्, अपूर्णता-स्मृतिः)**
+>
+> = *(many standpoints, un-erased differences, proved transport, memory-of-incompleteness)*
+
+**◇ is one of the five separator glyphs.** It appears in the composite line at 28, alone as the
+break at 288, and in the composite again at 466. **Here it is a four-tuple with named components**
+— so at least one glyph in the separator alphabet is a defined object, and the separators are not
+only punctuation.
+
+**The four components are the four disciplines this stream has been measuring**: standpoints,
+differences not erased, transport that has been proved, and **a memory of incompleteness.** The
+fourth is the only one that is about the record rather than the content.
+
+---
+
+## P211 · n = 15 — two more lines the ground drops, and one that has an antecedent
+
+**`सत्यं न एकस्वरम्`** — *truth is not one-voiced*, and the word is **एक-स्वरम्, one-*svara***.
+**The same word that labels the seven voices** fifty-nine lines of block 2 above. **The ground
+carries this line and not its antecedent**, which is the second time — pass 208 found the first,
+*फ्यूगः ≠ Σ स्वरः*.
+
+**`अनेकान्तः ≠ "सर्वं समानम्"`** — ***anekānta is not "everything is the same."*** **Not in the
+ground.** The ground carries only the positive three-clause definition that follows it:
+*declaring your standpoint + the possibility of other standpoints + the responsibility of
+transport.*
+
+**So the definition arrives here with its road-closing negation attached, and in the ground it
+arrives alone.** Every time this stream has used the three clauses — passes 131, 190 and others —
+**the sentence immediately above them was refusing the relativist reading**, and I did not have
+it.
+
+---
+
+## P211 — what this pass counted
+
+Block 4 is six statements: the five-script join, the boxed *⋈ = संवादः · ⋈ ≠ ≅*, the premise
+*each term is a different knowledge-practice*, the translation four-tuple, and two boxes closing
+each side of the inequality. **The ground carries five of the six and drops the premise.**
+
+Block 5 opens with a span/cospan array — *अवर्णम्* over *रूपम् · नादः · संख्या* converging on ◇ —
+and then defines **◇ = (many standpoints, un-erased differences, proved transport,
+memory-of-incompleteness)**, so a separator glyph is a named four-tuple.
+
+*सत्यं न एकस्वरम्* uses *svara* and its antecedent is the seven voices. *अनेकान्तः ≠ "सर्वं
+समानम्"* precedes the three-clause definition in the source and is absent from the ground.
