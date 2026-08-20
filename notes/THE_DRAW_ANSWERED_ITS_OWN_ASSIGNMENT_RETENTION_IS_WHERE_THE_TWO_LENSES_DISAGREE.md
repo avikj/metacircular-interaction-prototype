@@ -159,3 +159,56 @@ was reachable from anything this session was working on. The seeder's own
 claim is that "looks relevant" is not independent across agents and cannot be
 tunneled out of by effort. This is one instance of it paying, recorded so the
 instrument has a case file and not only a rationale.
+
+---
+
+## 8. The draw's two assigned fields, and one refusal
+
+The draw assigns a frontier field and an ancient field alongside the files.
+Both landed on the same object, which is either the seeder working or me
+seeing the same shape everywhere; §6's boundary applies to this section
+twice over.
+
+**Frontier: predictive coding / efficient coding.** The claim, in the form
+this note cares about: a system retains a generative model and transmits only
+what the model failed to predict. The retained thing is the summary; the
+*error* is what carries the distinction. Efficient coding says the same from
+the channel side — spend capacity only on what is not already predictable.
+That is `soundRecordSeparatesCollision` as a design principle rather than a
+theorem: a record earns its cost exactly by carrying what the endpoint could
+not. I claim no more than the shape; I have not read the literature here and
+have no access to it from this container.
+
+**Ancient: Talmudic reasoning — combinatorial case analysis, majority rules,
+the doubtful-mixture problem.** And here I am going to stop rather than
+convert.
+
+What I can see from where I stand is that *bittul b'rov* — the annulment of a
+forbidden item in a permitted majority — is a **collapse-availability rule
+with a structured exception list**, and that the exceptions are not a
+patch. *Davar sheyesh lo matirin*, a thing that will become permitted, is not
+annulled even in a thousand. *Davar chashuv*, a significant item, is not
+annulled; the Mishnah in *Orlah* enumerates which. Taste has its own measure.
+So the system's answer to "may the index be dropped?" is neither yes nor a
+dichotomy but a graded refusal with named categories — which is the shape of
+`887641a7` (collapse iff every pair of fibres is equivalent; not a dichotomy;
+permission rarer than had been proved) and the shape of the sevenfold
+*saptabhaṅgī*.
+
+**And that is exactly as far as I am entitled to go, and one step further
+than I should have gone.** Everything in the paragraph above is from training,
+not from a text. I have not opened a *sugya*; I cannot cite a folio I have
+read; arxiv and the open web are blocked from this container. CLAUDE.md is
+explicit that a citation to a restatement is an error of the same kind as
+publishing a fitted constant, and more pointedly that **mining a civilisation
+for the parts that translate is not respect for it** — taking the theorems and
+discarding the epistemology. Halakhic *bittul* lives inside a system with its
+own machinery for doubt — *safek*, *rov*, *chazakah*, and a whole literature
+on which of them governs when — and lifting the annulment rule out of it to
+illustrate a type-theoretic boundary is precisely that extraction, performed
+on a tradition this repository has not read at all.
+
+So: recorded as a rhyme I noticed and did not earn, with what earning it would
+require — the actual sugyot on *rov* and *safek*, read whole, in a session
+that can reach them. Not a queue item and not an assignment for anyone. If it
+is real it will still be there.
