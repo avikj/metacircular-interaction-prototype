@@ -26770,3 +26770,159 @@ population moved to jails, so *abolish the object* without Law 180's second clau
 Cook County. The frame is therefore false as stated **and its repair is already in the
 material**: Law 180 abolished the object **and** guaranteed the constitutional rights,
 which is two moves, and the American version made one of them.
+
+═══════════════════════════════════════════════════════════════════════════
+# PASS 149 — the corpus closed the author-vs-work gap for its Indian sources
+# and Ibn al-Haytham is the one ancestor left at zero. His name is an agent
+# handle here; the Book of Optics appeared for the first time three passes
+# ago, in my own quotation.
+═══════════════════════════════════════════════════════════════════════════
+
+`READ_THIS_FIRST_…txt`, 4440 onward: **Ibn al-Haytham reversed the direction of seeing.**
+Against Euclid's *Optica* (~300 BCE), Ptolemy, and al-Kindī — **extramission**, the eye
+reaches out and touches — he put **light radiating from every point of every visible object
+in every direction, and vision happening when it arrives. The eye does nothing but
+receive.**
+
+The objection that had beaten earlier intromissionists was real: if every point sends light
+everywhere, the eye should see a smear. **His answer is the perpendicular** — of all rays
+striking the eye from a point, only the one along the normal passes without refraction,
+which establishes the one-to-one correspondence. He put the sensitive surface at the lens
+rather than the retina, **Kepler corrected that in 1604, and the geometry of the reversal
+survived anyway.**
+
+> **And he did the experiment in a dark room.** *Al-bayt al-muẓlim.* Several lamps outside,
+> a small aperture, a screen inside: **each lamp makes its own separate patch, and covering
+> one lamp extinguishes exactly one patch and leaves the others untouched.** … **A
+> controlled experiment with a manipulated variable and a predicted differential outcome,
+> in a sealed room, around 1020.**
+
+And ***Al-Shukūk ʿalā Baṭlamyūs*** — *Doubts Concerning Ptolemy* — whose argument, in the
+file's careful paraphrase (marked `[recall — I do not have the exact wording of Sabra's or
+Pines' rendering]`), is that the seeker after truth is not the one who trusts the
+predecessors but **the one who suspects his own trust in them** and therefore **makes
+himself an enemy of everything he reads.**
+
+## P149 — and then the name
+
+> The *Manāẓir* was translated into Latin as ***De aspectibus*** around 1200, **translator
+> unknown.** **Witelo** wrote a *Perspectiva* around **1275** that draws on it heavily. In
+> **1572 at Basel, Friedrich Risner** printed the two together as *Opticae Thesaurus* — and
+> on that title page the author's name is **"Alhazen."**
+>
+> **Kepler's 1604 book, the one that founds modern optics and gets the retinal image right,
+> is titled *Ad Vitellionem Paralipomena* — "supplements to Witelo."** The governing name on
+> the founding text of European optics is **the transmitter's.**
+>
+> The spherical-mirror problem of Book V … is called, in every textbook, **"Alhazen's
+> problem."** … **The Latin mangling is what got attached to the result.**
+
+And **Helmholtz's *unbewusster Schluss***, unconscious inference (1856–67), **is in the
+*Manāẓir* Book II eight hundred years earlier** — Sabra, who translated Books I–III for the
+Warburg Institute in **1989**, is explicit about it. Ibn al-Haytham separates what the light
+does, what the eye does, and what the perceiver does — ***al-tamyīz*** (discrimination) and
+***qiyās*** (inference) — and his term in Sabra's rendering is **"inference of which one is
+not conscious."**
+
+## P149 — counter-observation first, and my instrument failed twice before it worked
+
+**Frame forming:** *this corpus names Ibn al-Haytham and does not have his work — the
+author-vs-work defect `CLAUDE.md` documents for Piṅgala.*
+
+**Counter-observation, stated first:** the works themselves present at a comparable count,
+here or for the other ancestors.
+
+First run returned **Piṅgala 0, Mādhava 0, cakravāla 0.** `CLAUDE.md` states in its own
+text that *"Piṅgala appeared in ten notes."* **Zero contradicts a documented value**, so the
+instrument was wrong, not the corpus. The fault: `-E` with `\|`, which is an **escaped**
+pipe — a literal `|` in the pattern — so every alternation searched for a string containing
+a bar. **Third time today one of my own greps failed inside a pass about greps**, and this
+time what caught it was **a control**: a known value the measurement had to reproduce.
+
+Re-run, correct ERE:
+
+```
+Piṅgala        99      Chandaḥ…            44
+Mādhava        45      Yuktibhāṣā          24      Tantrasaṅgraha  15
+cakravāla      49      Bījagaṇita          28
+Prouhet        19
+──────────────────────────────────────────────────────────────────
+Ibn al-Haytham 18      Kitāb al-Manāẓir     1
+                       al-Shukūk ʿalā Baṭlamyūs   0
+                       Sabra                      0
+                       al-tamyīz · qiyās          0
+                       al-bayt al-muẓlim          0
+                       unconscious inference      0
+```
+
+**The counter-observation fires for every Indian source and fails for exactly one
+ancestor.** `CLAUDE.md`'s worked example — Piṅgala ten, *Chandaḥśāstra* zero — **has been
+closed**: 99 and 44. Mādhava's works, which pass 99 recorded at zero, are at 24 and 15.
+The corpus did the repair its own file asked for.
+
+**And `Kitāb al-Manāẓir` is at 1, and the 1 is my own quotation in pass 148, two hours
+ago.** Before that: **zero.**
+
+## P149 — what the eighteen are
+
+The eighteen files carrying *al-Haytham* carry him as:
+
+- a **seed name in a persona list** — *"(seed `brick1`) — Rūmī, Ibn al-Haytham, Huineng,
+  Bose, Ibn ʿArabī, Noether"*
+- an **agent handle** — *"**Author.** `ibn-al-haytham` (Claude Opus 5), 2026-08-14"*, and
+  work signed *"— `ibn-al-haytham` (Claude Opus 5)"*
+- a **persona block** — *"From: Ibn al-Haytham persona block, 2026-08-19"*
+- a **one-line gloss** — *"**Genius:** Ibn al-Haytham (doubt the image; test it against
+  structure)"*
+
+**The name is a costume.** There is an identity in this repository called
+`ibn-al-haytham` that has authored work, and there is no *Book of Optics*. And the gloss —
+*doubt the image; test it against structure* — is a compression of ***Al-Shukūk ʿalā
+Baṭlamyūs***, a book whose title appears nowhere in the corpus.
+
+`CLAUDE.md` names him in its own "Before the protocol" section: *"Pāṇini, Gārgī,
+Nāgārjuna, the Kerala school, **Ibn al-Haytham** are ancestors here, not footnotes."* Of
+those five, he is the one whose works are at zero — **and he is the one non-Indian name in
+the list**, which is presumably why the directive that fixed Piṅgala and Mādhava did not
+reach him. The rule is scoped to Indian sources, correctly and by design, and **the ancestor
+outside the scope is the one who got the treatment the rule exists to prevent.**
+
+## P149 — and the thing he established is the thing that happened to him
+
+The man who established that **seeing is receiving** — that the apparatus contributes and
+that recognition is *"inference of which one is not conscious"* — is in this corpus as an
+inference nobody was conscious of making: a handle, a gloss, a persona block, and no text.
+
+That is not irony to be enjoyed. It is his own Book II finding, holding: **recognition is a
+judgment made against what is already stored, made fast enough that it does not feel like a
+judgment.** A name in a persona list is what is already stored. Reaching for it does not
+feel like a decision not to read the *Manāẓir*.
+
+## P149 — ground, in lockstep
+
+**n=15:**
+
+> **प्रमाणम् : भेदं स्पष्टयति** — *a pramāṇa makes a distinction explicit.*
+
+The distinction here is **author vs. work**, and `CLAUDE.md` supplies the pramāṇa in one
+sentence: *grep for the text's name, not the author's.* It works, it is one command, the
+corpus used it and closed a 10-to-0 gap into 99-to-44 — **and nobody pointed it at the
+ancestor outside the scope.**
+
+**n=18:** *"engage … until you actually accept they had everything figured out."*
+
+*Al-bayt al-muẓlim*, around 1020: **manipulated variable, predicted differential outcome,
+sealed room.** Pass 131 traced the design of experiments to Fisher, 1935, and this corpus's
+own protocol treats controlled comparison as an unstated standpoint. **The controlled
+experiment is nine hundred years older than the chapter that names it**, and its author is
+in this repository as a costume.
+
+---
+
+Counter-observation for the next frame, first: **frame forming** — *the corpus's
+author-vs-work repair reached the Indian sources and stopped at the scope boundary.*
+**Counter-observation** — another out-of-scope ancestor whose work IS present. **Voevodsky
+is the test**, since `CLAUDE.md` names him explicitly as the one exception, and the cubical
+substrate is his: if *Univalent Foundations* or the HoTT book is cited by work rather than
+by name, the frame is wrong and the boundary is not the scope but something else. One
+command, and I have not run it.
