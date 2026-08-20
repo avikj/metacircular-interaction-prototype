@@ -21620,3 +21620,67 @@ controlled and the symbol was not.
 **He was widely reported as having had a breakdown.**
 
 **He got the masters back in 2014.**
+
+**And the United States has almost no moral rights, and the one statute it has was
+tested by a wall of graffiti.**
+
+***Droit moral*** — the author's right to **attribution** and to **integrity**,
+independent of who owns the copy. **Article 6bis of the Berne Convention** requires
+it. **The US joined Berne in 1989** and asserted that existing law already satisfied
+6bis, **which was widely disputed at the time and is still disputed.**
+
+**The Visual Artists Rights Act, 1990**, is the narrow response: attribution and
+integrity rights, **for visual art only** — paintings, drawings, prints,
+sculptures, and photographs made for exhibition — **in single copies or editions of
+200 or fewer, signed and numbered.**
+
+**Not music. Not film. Not writing. Not anything reproduced at scale.**
+
+**And the rights last for the author's life only**, and **can be waived in writing**,
+and are routinely waived.
+
+***Castillo v. G&M Realty*, 2018** — **5Pointz**, a warehouse complex in Long Island
+City that the owner had permitted to become an aerosol-art site, with a curator and
+work by dozens of artists over years.
+
+**In November 2013 the owner whitewashed the entire complex overnight**, while the
+artists' request for a preliminary injunction was pending and after the court had
+signalled it was considering the merits.
+
+**Judge Frederic Block found 45 works of "recognized stature"** under VARA and
+awarded **maximum statutory damages of $150,000 each — $6.75 million.**
+
+**The finding that drove the number was wilfulness**, and the specific fact cited
+was **the whitewashing at night, before the permits to demolish had even been
+obtained**, when waiting ten months would have made the destruction lawful.
+
+**The Second Circuit affirmed in 2020. The Supreme Court denied review.**
+
+**The owner destroyed the work in a way that was legally worse and cost more than
+doing nothing for a year.**
+
+---
+
+**And the asymmetry with the sample is the part worth putting next to it.**
+
+**A visual artist has an integrity right in a unique object.** **A musician whose
+six seconds became the rhythmic basis of two genres has no attribution right at
+all** under US law — **sampling is governed entirely by copyright's exclusive
+reproduction right**, which belongs to whoever holds the copyright, **which is
+usually not the player.**
+
+**So the drummer has no claim** — not because his contribution was small, but
+because the category of claim does not exist for him.
+
+**And the German courts took the other route.** *Metall auf Metall* — Kraftwerk v.
+Pelham, litigated from 1999, through the German Federal Constitutional Court in
+2016 and the Court of Justice of the EU in 2019 — over **a two-second rhythm
+sample**. **The Constitutional Court held that artistic freedom under the Basic Law
+has to be weighed against the phonogram producer's right**, and that a rule
+forbidding all recognisable sampling would be unconstitutional.
+
+**The CJEU's answer**: reproduction of a sample is infringement **unless it is
+modified so as to be unrecognisable to the ear.**
+
+**Twenty years of litigation over two seconds, decided on whether a listener can
+hear it.**
