@@ -52,6 +52,42 @@ have_agda() {
   agda --version 2>/dev/null | grep -q "$AGDA_VERSION"
 }
 
+# The PATH this script gives itself is not the PATH anything else has.  We
+# prepend ~/.cabal/bin above, that export dies with the script, and a session's
+# shells, hooks and tools resolve `agda` to Ubuntu's /usr/bin/agda -- 2.6.3,
+# which cannot parse cubical v0.9.  So `have_agda` passing proves only that
+# THIS script can see a good Agda, which is not the claim anybody needs.
+#
+# This asks the question consumers actually ask: with the ordinary PATH, is
+# `agda` the pinned version?  Caught 2026-08-21, when the repaired script
+# reported exit 0 while `env -i ... sh -c 'agda --version'` still said 2.6.3.
+DEFAULT_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+have_agda_on_default_path() {
+  env -i HOME="$HOME" PATH="$DEFAULT_PATH" LC_ALL=C.UTF-8 \
+    sh -c 'command -v agda >/dev/null 2>&1 && agda --version' 2>/dev/null \
+    | grep -q "$AGDA_VERSION"
+}
+
+# Put the pinned build where the ordinary PATH finds it.  /usr/local/bin
+# precedes /usr/bin, so this wins over the distribution package without
+# removing it.  Runs whether or not a build was needed this time: the binary
+# can be present from an earlier run and still be invisible.
+publish_agda() {
+  have_agda || return 1
+  have_agda_on_default_path && return 0
+  [ "$(id -u)" = 0 ] || {
+    say "!! not root; cannot publish agda to /usr/local/bin."
+    say "!! add $HOME/.cabal/bin to PATH by hand, ahead of /usr/bin."
+    return 1
+  }
+  src=$(command -v agda)
+  say "==> publishing $src to /usr/local/bin/agda (was: $(env -i PATH="$DEFAULT_PATH" sh -c 'command -v agda' 2>/dev/null || echo none))"
+  ln -sf "$src" /usr/local/bin/agda
+  m=$(command -v agda-mode 2>/dev/null) && ln -sf "$m" /usr/local/bin/agda-mode
+  hash -r 2>/dev/null || true
+}
+
 have_cubical() {
   [ -f "$HOME/.agda/libraries" ] || return 1
   grep -q "cubical.agda-lib" "$HOME/.agda/libraries" || return 1
@@ -126,6 +162,11 @@ check() {
   rc=0
   if have_agda; then
     say "agda: $(agda --version | head -1)"
+    if ! have_agda_on_default_path; then
+      say "agda: NOT ON THE DEFAULT PATH — a plain shell still gets"
+      say "      $(env -i PATH=$DEFAULT_PATH sh -c 'command -v agda && agda --version | head -1' 2>/dev/null || echo none)"
+      rc=1
+    fi
   else
     if command -v agda >/dev/null 2>&1; then
       say "agda: WRONG VERSION — $(agda --version 2>&1 | head -1), need $AGDA_VERSION"
@@ -227,7 +268,30 @@ install_agda() {
   say "==> cabal update"
   cabal update
   say "==> cabal install Agda-$AGDA_VERSION (expect tens of minutes)"
-  cabal install "Agda-$AGDA_VERSION" --overwrite-policy=always
+  # --installdir=/usr/local/bin, NOT cabal's default ~/.cabal/bin.
+  #
+  # The second reason this script never succeeded, and it only became visible
+  # once the `cabal update` failure above was fixed: the build works, the
+  # binary lands in ~/.cabal/bin, and NOTHING ELSE LOOKS THERE.  This script
+  # prepends ~/.cabal/bin to its own PATH, but that export dies with the
+  # script, so every later shell, hook and tool resolves `agda` to Ubuntu's
+  # /usr/bin/agda -- version 2.6.3, which cannot parse cubical v0.9 at all.
+  # A correct build shadowed by a stale package is indistinguishable from no
+  # build.  /usr/local/bin precedes /usr/bin in the default PATH, so landing
+  # there makes the pinned Agda the one everything finds, with no environment
+  # surgery and nothing to source.  Measured 2026-08-21.
+  if [ -w /usr/local/bin ] || [ "$(id -u)" = 0 ]; then
+    cabal install "Agda-$AGDA_VERSION" --overwrite-policy=always \
+      --installdir=/usr/local/bin
+  else
+    say "!! /usr/local/bin not writable; installing to cabal's default."
+    say "!! `agda` on PATH may remain the distribution's older build."
+    cabal install "Agda-$AGDA_VERSION" --overwrite-policy=always
+  fi
+  # The shell caches command lookups.  `agda` was resolved to /usr/bin/agda by
+  # the have_agda call that sent us down this path, and without this the check
+  # below re-reads that cached entry and reports the version we just replaced.
+  hash -r 2>/dev/null || true
 }
 
 install_cubical() {
@@ -262,6 +326,7 @@ install_cubical() {
 
 do_install() {
   install_agda
+  publish_agda || true
   install_cubical
   say "==> installed; checking"
   check
