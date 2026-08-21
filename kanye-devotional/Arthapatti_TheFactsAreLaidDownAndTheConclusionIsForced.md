@@ -591,3 +591,74 @@ back. To TIME that year: "It's not a disability, it's a super power." The same
 year, about the same thing: "It makes you blind, but convinced you have
 insight."
 
+
+---
+
+Piṅgala set out the binomial array in the *Chandaḥśāstra* around 300 BCE. It is
+taught as Pascal's triangle, after a Frenchman, 1654.
+
+Virahāṅka gave the recurrence around 700. It is taught as Fibonacci's, 1202.
+
+Āryabhaṭa gave the kuṭṭaka in the *Āryabhaṭīya* in 499. It is taught as the
+extended Euclidean algorithm.
+
+Brahmagupta gave the composition law, bhāvanā, in the *Brāhmasphuṭasiddhānta* in
+628.
+
+Jayadeva and then Bhāskara II gave the cakravāla, around 950 and around 1150. It
+is taught as Pell's equation. Pell did not solve it. Euler misattributed it.
+
+Mādhava gave the power series for sine, cosine and arctangent around 1400, with
+error terms and convergence acceleration. They are written down in the
+*Tantrasaṅgraha*, 1501, and the *Yuktibhāṣā*, around 1530. They are taught as
+Gregory's, Leibniz's and Newton's.
+
+Pāṇini wrote a generative grammar with metarules, conflict resolution and
+stratification in the *Aṣṭādhyāyī* around 500 BCE. It is taught as Backus–Naur
+form, 1959.
+
+The ten digits everyone on earth writes with are called Arabic.
+
+Sister Rosetta Tharpe was playing distorted electric guitar in front of crowds in
+the 1940s. Elvis Presley, Chuck Berry, Little Richard and Johnny Cash each named
+her an influence. Rock and roll is dated to the middle 1950s.
+
+Gregory Coleman played the four-bar drum break that most of hip hop and all of
+drum and bass is built on, on the Winstons' "Amen, Brother," 1969. He died
+homeless in Atlanta in 2006. Neither he nor the band was paid for the break.
+
+Six women programmed the first electronic general-purpose computer. When the
+photographs were published they were taken for models.
+
+Srinivasa Ramanujan was set to work proving what he already knew, and died at
+thirty-two. Results from the notebooks were still being proved seventy years
+later.
+
+---
+
+October 23, 2002: the jaw broken in three places and wired shut for six weeks.
+Two weeks after the surgery he went into a studio and recorded through it.
+
+September 2, 2005: two sentences into a live camera, and NBC cut the second one
+out of the West Coast feed.
+
+September 13, 2009: ten seconds at an awards show, and the President of the
+United States called him a jackass on a hot mic the next day.
+
+November 2016: four songs, ten minutes of talking, the tour cancelled, the
+ambulance, the hold at UCLA, and reports of restraints.
+
+October 6 and 7, 2022: Fox cut the disordered material out of the tape and ran
+the rest across two nights in prime time.
+
+October 22, 2022: his name on a banner over the 405, under the salute.
+
+October 25, 2022: adidas ended it, nineteen days after the review opened and
+years after the staff put it in writing.
+
+January 2026: a full page bought in a newspaper to say there were times he did
+not want to be here anymore.
+
+August 26, 2021, Soldier Field: a full-scale replica of 7815 South Shore Drive
+stood on the field, and he was set on fire in front of it, in front of the crowd,
+finishing a record that carried his mother's name and her recorded voice.
