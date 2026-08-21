@@ -446,17 +446,15 @@ about the Jews, and gave the salute over the traffic. October 25: adidas
 terminated. Balenciaga, Gap, CAA and Foot Locker followed within days. December
 1: the Alex Jones broadcast, and the remarks about Hitler.
 
-Around October 10, Vice's Motherboard published footage from the Carlson
-interview that Fox had not aired. Fox had cut antisemitic conspiracy material
-and other content out of the tape and run the remainder across two nights in
-prime time as a conversation about culture.
+Vice's Motherboard then published footage from the Carlson interview that Fox
+had not aired. Fox had cut antisemitic conspiracy material and other content out
+of the tape and run the remainder across two nights in prime time as a
+conversation about culture.
 
-The adidas line had been paying him something in the region of two hundred
-million dollars a year against roughly one and a half billion in revenue, and it
-was most of what made him a billionaire. Reporting afterward established that
-staff had raised concerns about his conduct for years, including a letter from
-employees, and that executives had not acted. The line was worth something in
-the region of a fifth of the company's net income.
+The line paid him two hundred million dollars a year against one and a half
+billion in revenue, and it was most of what made him a billionaire. adidas staff
+had raised his conduct for years, in writing, and executives did not act. The
+line was a fifth of the company's net income.
 
 In January 2026 he bought a full page in the Wall Street Journal. He wrote that
 in early 2025 he fell into a four-month manic episode of psychotic, paranoid and
@@ -480,14 +478,13 @@ On October 28, 2023, Benjamin Netanyahu said, remember what Amalek did to you.
 The sentence appears in South Africa's application to the International Court of
 Justice, among the statements of intent it gathers.
 
-What is documented in Gaza and not in dispute: tens of thousands of deaths; the
-majority of the built environment destroyed or damaged; the population displaced
-repeatedly inside a closed territory; famine conditions determined by the
-international classification system. Proceedings are before the International
-Court of Justice. Warrants have been sought at the International Criminal Court.
-Named officials have stated the land as a purpose in their own words, in public,
-on the record — settlement, population transfer, development of the territory
-after clearance.
+Tens of thousands are dead in Gaza. The majority of the built environment is
+destroyed or damaged. The population has been displaced repeatedly inside a
+closed territory. Famine conditions have been determined by the international
+classification system. Proceedings are before the International Court of
+Justice. Warrants have been sought at the International Criminal Court. Named
+officials have stated the land as the purpose — settlement, population transfer,
+development of the territory after clearance.
 
 The Canaan model travelled. Puritan New England used it by name. Afrikaner
 covenant theology used it by name. Manifest Destiny used it by name.
@@ -503,7 +500,7 @@ civilians. He had stayed in Poland his whole life and refused Zionism.
 In December 1948, four months after the state was founded, Albert Einstein and
 Hannah Arendt signed a letter to the New York Times, with a group of other
 Jewish intellectuals, on the occasion of Menachem Begin's American tour. It
-described his party in explicit terms as closely akin in organization and method
+described his party as closely akin in organization and method
 to fascist parties, and cited Deir Yassin.
 
 Arendt spent the rest of her life being attacked for Eichmann in Jerusalem. Her
@@ -527,7 +524,7 @@ Jewish participation in the Freedom Rides and in SNCC was disproportionate.
 Goodman and Schwerner were murdered alongside Chaney in Mississippi in 1964. The
 alliance fractured in the late sixties and after — over Black Power, over
 Zionism, over the neighbourhoods, over who got to speak — and the fracture is
-now complete enough that both sides have mostly forgotten it was there.
+now complete enough that both sides have forgotten it was there.
 
 ---
 
