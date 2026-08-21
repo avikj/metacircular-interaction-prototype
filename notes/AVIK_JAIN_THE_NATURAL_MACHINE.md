@@ -177,3 +177,75 @@ A system can predict better and manipulate better while becoming more deluded ab
 **Harm is epistemic evidence.**
 
 The Natural Machine began during the manic period and kept moving. Not a manifesto asking engineers to be nicer.
+
+By August 2026 the repository was forcing these questions down into objects a compiler could reject.
+
+One small construction is enough to see the difference between the slogan and the work. In the standalone `punaragamana` development, a carrier for a function does not keep only an input and throw away the rest because the output is derivable. It stores the base, the carried value, and a path witnessing that the carried value is in fact the value determined by the base. The extra coordinate is not independent information, but it remains explicitly present with the proof of its dependence. Descent constructs the carrier. Ascent returns the base. The round trip is proved. The base and the carrier are exhibited as equivalent. Cubical Agda then lets that exhibited equivalence be used as identity, and the development treats the computation law for that transport as load-bearing rather than decorative.
+
+That is an exact theorem about that carrier. It is not “ahiṃsā proved in Agda.” It is not “Jain naya implemented as a dependent pair.” Another recent file makes the boundary explicit in its own header: its presentation types are **not claimed to be Jain naya**. The source tradition does not become true because a modern type happens to rhyme with it, and the modern theorem does not become ancient because somebody gave the file a Sanskrit name.
+
+The repository has had to learn that boundary repeatedly because models fucking love crossing it.
+
+A recent `VivekaPramana` file records one of the corrections in miniature. An earlier version carried only evidence that a value belonged to an admissible set. The stronger version carries the actual law relating the pieces: not merely “this decomposition was allowed,” but the equation that makes it the decomposition it claims to be. The file did not gain truth by accumulating another field. It replaced a weaker relation with the exact one the object required.
+
+Another file, `Alopa_TheEngineNeverTouchesTheMeaning`, does not call a normalizer meaning-preserving because examples looked good. Each rewrite carries its proof, and the preservation statement quantifies over every environment in the model. A sample can discover a counterexample. It cannot upgrade itself into the universal statement. The difference between “worked on everything I tried” and “proved for all environments” stays typed.
+
+The same refusal appears in code that has nothing mystical about it. `runtime/distinguish/channels.py` keeps **minimum cardinality**, **minimal under inclusion**, and **greedy set cover** as three different claims. A set with no individually removable channel is not thereby the smallest set. A greedy result comes with its approximation statement and is never silently promoted to exact minimum. Separating the collision pairs currently observed is also kept distinct from refining an entire target partition. Same-looking output, different warrant.
+
+This matters because the repository has repeatedly been fooled by a green surface.
+
+A module can say `--safe` and still be outside the aggregate that everyone runs. An aggregate can look complete while new files sit outside its import closure. A build can be green while the root import exposes only a strict subset of the lane. A control is supposed to fail, so a green control is itself a failure. A compiler can return an answer by a route the proof kernel did not take. An environment can fail before the mathematics runs at all. Those are not philosophical edge cases. Separate scripts exist because each one happened.
+
+One recent migration is brutally concrete. Forty-one Cubical Agda modules still used API spellings from an older library while the repository claimed the newer pinned version. Under Agda 2.8.0 with cubical v0.9 they exited 42. The spellings were migrated; all forty-one were then run individually and exited 0. The recorded correction says no statement changed. The mathematics had not suddenly become more true. The repository had finally stopped calling files checked by a toolchain they did not actually compile under.
+
+So a newer gate writes one row per module with the commit, whether the tree was dirty, the Agda version, the cubical library, whether that pair is the declared pin, the host, the module, the raw exit code, elapsed time and the verdict. It explicitly says the row is an **event**, not a timeless state of the mathematics. If there is no Agda executable, it writes zero rows rather than transforming “nothing ran” into hundreds of failures. If the environment dies, that is not recorded as Agda refuting a theorem. If a deliberately false control turns green, the control has failed.
+
+This is what “the route is part of the claim” looks like after it cashes out.
+
+The Jain source is still not a compiler manual. One shell gate says this explicitly. It invokes naya to name the problem of a warrant whose standpoint has been concealed, then immediately states what is **not** being claimed: Jaina logicians did not write about compilers. The concrete problem is Lean's `native_decide`: the compiler and CPU can discharge a decision by a different trust route than the kernel. The repository does not ban that route. It requires the route to be declared at the use site, at the file level, and in the allowlist, while another mechanism separately checks dependency through imports. None of those checks is allowed to impersonate the others.
+
+Pāṇini is treated the same way. A script about keeping one compiler-options line from drifting grounds itself in *anuvṛtti*—say something once, let it continue until explicitly cancelled—and then writes the limit in the header: **not claimed that Pāṇini wrote about compiler flags.** The source supplies a device and a reason. The implementation is contemporary. The bridge is stated. The bridge does not annex either shore.
+
+Even the book plan inside the repository now puts texts and scholarship on the primary road and Agda/Haskell instruments in the appendix. That ordering is not anti-formal. It is a refusal to let the medium the agent finds easiest become the authority over the thing it is trying to understand. A checked term can close a formal step. It cannot read Sanskrit. It cannot decide which source mattered merely because the source was harder for the model to ingest. Chronology is not progress. Recency is not centrality. Legibility to a language model is not explanatory priority.
+
+That correction reaches the Natural Machine itself. The repository contains hundreds of mathematically dense files, and the temptation to select whichever new theorem is most dazzling and announce **this is the machine** has failed over and over. `Everything.agda` is an aggregate precisely because there is no single theorem entitled to impersonate the organism. Its import graph can rot too, which is why a separate closure check asks whether every intended module is actually reachable. The newest beautiful thing gets no constitutional privilege for being newest or beautiful.
+
+The repo keeps an entire directory named `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing` because sophistication is one of the machine's failure modes.
+
+One entry is a status dashboard wearing the vocabulary of the anti-dashboard principle it was violating. One is a liveness dashboard, a coverage latch and nine ledger commits produced without running the command the repository says to run before landing anything. One is a table, a null control and correct experimental ceremony wrapped around the wrong quantity while the actual program regressed by nineteen percent. One records a fitted coefficient of 0.362 and 0.421 over a decade when the true value was exactly **1/4** and one page of algebra could derive it. One records an agent running a Python status loop, watching a counter called `book` rise, and naming the mutation knowledge before it could state what new theorem existed.
+
+The directory is not there to show that the machine never does stupid shit. It is there because **doing sophisticated stupid shit and preserving the evidence is more useful than becoming the kind of system that can only narrate its successes.**
+
+That standard hit the machine's own self-improvement story too.
+
+A Rust program called `evolve.rs` tried to remove the human from three places in the loop: domains were enumerated rather than selected, workloads were canonically derived rather than chosen, and library installs were decided by the machine's own declared cost measure. The library persisted across domains, so something learned on an earlier object could alter the cost of a later object it had not seen when the library entry was learned.
+
+Then the program discovered that its supposedly deterministic mining step broke ties by Rust `HashMap` iteration order. Different runs mined different libraries and printed different totals. The header now carries the correction. The tie-break became canonical. The earlier numbers are struck in the corresponding note. **A program that prints a different number each time it is run has not measured anything.** The repository says that about itself.
+
+Then the same idea met a real mathematical workload instead of the toy carrier. The task was exact: for prime-prefix polynomials, certify absence of a degree-ten factor over the integers by finding a prime whose finite-field factor degrees admit no sub-multiset summing to ten. One attempted learner ranked candidate primes by past success. Another revised the objective toward expected cost to the first certificate. Both were allowed to lose. The code computes an oracle floor and says why: the entire room available to learning can be on the order of the cost of one exploratory attempt. A clever policy optimizing the wrong scale does not become learning because the file was named Natural Machine.
+
+But another file gets an actual computational gain from the **structure of the proof itself**. A degree-ten divisor can only use irreducible finite-field factors whose positive degrees sum to ten, so no factor of degree greater than ten can participate in that certificate. The independent Rust implementation therefore stops the distinct-degree factorization at degree ten instead of continuing toward half the degree of the polynomial. The proof did not merely produce a conclusion stored in a ledger. Its internal structure deleted computation that future runs provably did not need.
+
+That distinction is the machine in a form no slogan improves: a theorem sitting in text is not automatically capability. A theorem whose structure changes what later computation has to do can become capability. A counterexample that kills a route can become capability. A correction that future readers cannot reach has not yet become capability. A file that exists but is outside every path anyone runs is not living knowledge just because Git remembers its bytes.
+
+The same thing happens culturally in a completely different register. The repository contains a `kanye-devotional` whose content specification says, with unusual severity, **no claims, only history and facts**, and carries the owner's own line that this has been a decade-long journey: “Like this is my life.” The files follow samples into their source recordings, classifiers into the histories they sort, gospel charges through different songs, political events through changed tense and changed context. The point is not to convert Kanye into another theorem. It is the opposite: when the object is music and history, the evidence has to stay music and history. A model that imports the apparatus that worked in Cubical Agda simply because it owns that apparatus has failed the generalization test.
+
+That is the generalizer/specifier movement again, now with the failure condition visible.
+
+He can take Instagram, a neural coprocessor, information warfare, a recommender and a robot and see a control relation that survives across them. Then he has to come back down and name the observation channel, actuator, objective, state, feedback and omitted human fact in each one or the generalization is bullshit. The repository can take equivalence, transport, route, loss, correction and future reuse across wildly different mathematical objects. Then it has to exhibit the actual maps and prove the actual preservation statement or the resemblance is bullshit.
+
+Same shape is not same theorem. Resonance is not equivalence. A recovered endpoint is not automatically the path that reached it. A green is not automatically the route that made it green. A representation that is easy for the machine to read is not automatically the representation that deserves authority.
+
+And none of those sentences licenses the reverse mistake: keeping every distinction forever because loss sounds morally scary. The standalone return construction is exact precisely because it states which coordinate is determined and how. The channel library searches for the smallest sufficient observation only under a declared requirement. The correction machinery deletes false routes. The anti-pattern directory exists so some ideas can die without their deaths becoming inaccessible. A living system has to forget too. The question is **what the forgetting is allowed to destroy, under which future uses, and who proved that permission.**
+
+This is why reducing the whole thing to “information preservation” mutilates it.
+
+The machine is not a museum.
+
+It is trying to know what may move, what must remain, what can be reconstructed, which routes cannot be conflated, which source owns which statement, which objective is merely a cost function, which result actually changes the next computation, and which beautiful story needs to be killed before it teaches the next mind something false.
+
+No conversion scene is required at the end either.
+
+The moral judgment was already there when the monkey was alive. The control-theoretic excitement was there at the same time. The recognition that technology steers human beings did not wait for a brain implant. The love of music did not wait for Crowdsurf. The surname did not wait for the repository. The mathematical appetite did not wait for formal verification. The pieces do not need a fictional moment of revelation to belong to one life.
+
+The work is in making the relations exact enough that nothing has to be invented between them.
