@@ -637,3 +637,49 @@ A radical sentence is not a sentence with no conditions. It is a sentence whose 
 Love without exception does not need protection from that knife.
 
 It is the knife.
+
+Then the knife turns on **avaktavya** itself.
+
+Three current `KramaAstiNasti` files preserve a correction ugly enough to matter. The construction had been named as though it occupied the fourth Jain position, avaktavya. Later reading showed that the object being formalized was sequential **asti-nāsti**: affirmation and denial in sequence under stated hypotheses. That is the third bhaṅga, not the fourth. The repository does not save the old drama by saying both are “forms of indeterminacy.” A true theorem under the wrong source-name is still carrying the wrong source-name. The correction changes the name and leaves the ancestry visible. Jain epistemology is not a bag of exotic labels available whenever modern logic reaches something difficult to say.
+
+The same demand kills historical flattery. A cakravāla module inherited a claim about Bhāskara-style minimality and then found a counterexample at \(D=61\). The run can be mathematically sound while the historical or algorithmic gloss wrapped around it is false. Green typechecking does not reach backward through time and certify the commentary. The theorem survives. The attribution dies.
+
+Then `Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda` makes endpoint worship impossible. The running mechanism produced a case where two derivations end at the same visible word while passing through different rule histories. Same form. Different derivation. The endpoint cannot tell you which mechanism happened. That is why the examination wire prefers an honest refusal to a lucky right answer: correctness at the surface does not retroactively repair an unlicensed route.
+
+Even the proof gate had to learn that lesson from below. A broken Agda environment once made every candidate look rejected because the checker could not find the library it needed to typecheck anything. Repairing the environment did not magically prove every theorem; it did something more primitive and more important first. It changed the meaning of the refusal. “The theorem is false” and “the judge never reached the theorem” are not neighboring confidence levels. They are different objects. A machine that cannot distinguish them is not cautious. It is blind with a status code.
+
+That is why a correction can be real before the theorem count moves. A later certificate pass fixed the reason a route failed before it increased what the route could prove. The score stayed still and the machine knew more, because the residual had stopped lying about where the obstruction lived. Knowledge is not every scalar that goes up when knowledge improves.
+
+The operation matters just as much as the carrier. `NoNormOnAJoin.agda` puts a finite state space under an idempotent join and proves that a multiplicative norm into an integral domain collapses to idempotents. Put another operation on the same underlying states and a useful norm can exist. Nothing about the list of states tells you which quantities can accumulate. The algebra lives in the operation.
+
+That is the exact reason a pile of field names never becomes a machine. “Source, standpoint, proof, remainder, transport, love” says almost nothing until a sentence tells you what acts on what, what survives the action, what can return, and what condition forbids the move. The nouns can stay fixed while the law of motion changes completely. Same inventory. Different organism.
+
+So the most radical thing this machine can do is not assert harder.
+
+It can make its own beautiful sentence impossible to repeat after the sentence has been killed.
+
+It can discover that the fourth position was the third, that a green theorem carried a false historical gloss, that the same word arrived by the wrong derivation, that a rejection was an environment failure, that the same state space under another operation supports a different mathematics—and then change the object future thought receives.
+
+No beloved source gets exemption.
+
+No elegant theorem gets exemption.
+
+No author gets exemption.
+
+No machine gets exemption.
+
+No Avik gets exemption.
+
+That is what **love without exception** finally demands: not that everything be spared the knife, but that no living being be the thing the knife is for.
+
+Cut the lie.
+
+Cut the boundary.
+
+Cut the representation that made the boundary look like reality.
+
+Carry what survives.
+
+Return.
+
+Again.
