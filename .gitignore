@@ -68,3 +68,7 @@ machine/nested-agda/
 machine/.certcache/
 formal/cubical/.claude/
 machine/replay.traces.live
+
+# Haskell build output from formal/cubical/ensure-toolchain.sh, which runs
+# `cabal install Agda` from whatever directory the session hook fired in.
+dist-newstyle/
