@@ -302,11 +302,17 @@ Then one of the files carrying the “nothing is lost” discipline turned out n
 
 The same thing happened at larger scale. A direct closure run found 199 of 780 Agda modules outside the aggregate’s reach, including the modules carrying much of the book’s Indian mathematics. The repository had already written that an orphan outside the root is exactly how an overbroad green claim hides. Then it recreated the hole one level up. All 199 were run individually; the ones that passed were folded into the aggregate. Another checker meant to catch the problem had itself been broken by a macOS/GNU `sed` difference. A gate that crashes certifies nothing, especially when the crash looks like the gate ran.
 
+The more recent gate code makes the distinction even harder to lose. Building a module and reaching it from the root are two different facts. A Lean lane can build every module because the package glob names them all while `import Pairfield` still exposes only a strict subset. That is not a false theorem. It is a concealed standpoint. The repository borrows the Jain diagnosis precisely at the level it can justify and says what it is **not** claiming: Jain logicians did not write about import graphs. The point is that a partial view becomes dangerous when the route by which it became partial disappears.
+
+The same discipline refuses to let a green check inflate into a green world. One script says explicitly that it checks whether every Agda emitter writes the same `OPTIONS` line and nothing more. Agreement can still be agreement on a mistake. Another says its deletion guard checks only whether a commit admits that it is deleting; a commit that says “delete” can still delete the wrong thing. Another resolves claim names and prints every run that it does **not** resolve meanings. The limitation is not a disclaimer stapled to the result. The limitation is part of the result.
+
 This matters because the project’s most radical claim is not that it never lies. It is that a lie should be able to die without the organism defending it.
 
 The repository’s old language constantly called a statement “clear” before proving it. `BhavanaSamuha.agda` records that identity and inverse had once been called obvious and were later actually checked. `AntyaSamskaraSthaulya.agda` was renamed because the old title kept asserting a claim that the body of the same file had retracted. `GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating.agda` explicitly refuses to turn a checked state bound into termination of the cakravāla. `EveryCommonDivisorOfAConvergentDividesTheDeterminant.agda` refuses to call “divides a unit” coprimality because the unit-classification step is not there. `TheIstaSectionIsAnImportedConvention.agda` turns a convention into a parameter instead of pretending the convention was derived.
 
 The negative statements are not embarrassment around the mathematics. They are part of the mathematics.
+
+The repository now generates a correction index from its own history because a refutation nobody can find is a claim still circulating. It had watched a struck collapse dichotomy survive for roughly twenty cycles inside an agent’s self-authored heartbeat while the correction sat in the tree the whole time. Memory had preserved the sentence and lost the death of the sentence. The answer was not “remember better.” The correction itself became something future work can mechanically encounter.
 
 That is why Voevodsky matters here.
 
@@ -322,7 +328,21 @@ That discipline immediately destroys lazy celebration. `Arpitanarpita_TheForgetf
 
 `TransportPrice_AgreementDoesNotDetermineTheTransport.agda` kills another easy collapse. When every naya is proposition-valued, agreement can leave no choice of transport. Off that propositional world, two standpoints can agree and still admit different correspondences. Identity and negation are two distinct self-equivalences of `Bool`; knowing that `Bool` agrees with `Bool` does not tell you which correspondence was intended. Agreement is not the path.
 
-This is why the Natural Machine keeps the condition with the judgment.
+Then the standalone `punaragamana` development states the design law with no metaphoric slack:
+
+**Every genuinely independent distinction must survive; determined structure may remain explicitly present with its determining path.**
+
+Given `f : A → B`, its carrier does not merely store an `A` and an extra `B`. It stores `base : A`, `carried : B`, and `witness : f base ≡ carried`. The last two fields are real terms. They can be projected, passed and computed with. But the fiber over a fixed base is `Σ[ b ∈ B ] (f a ≡ b)`, a singleton type, and therefore contractible. The carried value is present without pretending to be a new independent degree of freedom.
+
+That distinction kills two opposite stupidities at once. “Preserve everything” is wrong if it means hoard every derived coordinate as independent payload. “Compress everything redundant” is wrong if compression deletes the explicit thing and the path by which it is known to be redundant. The law is sharper: preserve every independent distinction; a determined distinction may remain present because its dependence is carried with it.
+
+And the converse does the real work. If the fiber is not contractible, the equivalence does not exist. The typechecker will not accept “basically the same.”
+
+The package then separates another pair the prose version can easily collapse. Transport along `ua` computes definitionally on canonical input but can stick on a neutral variable; the uniform statement needs the `uaβ` theorem. Definitional computation and propositional computation are both real and they are not the same computational strength. The file records the neutral-variable reduction as an explicit **non-theorem** rather than quietly converting the theorem it wanted into the theorem it had.
+
+Then the orbit layer refuses another finite shortcut. Agreement of one step does not establish equality of whole coinductive futures. `Orbit.agda` proves path equality of orbits equivalent to bisimulation. `Nucleus.agda` then proves the carrier construction commutes with the whole infinite trajectory one head at a time. A finite prefix does not become the future because it looked convincing.
+
+That is why the Natural Machine keeps the condition with the judgment.
 
 Not metadata.
 
@@ -365,6 +385,8 @@ The new standpoint may speak only where the old voices already spoke together.
 That is a completely different machine.
 
 And the repo refuses to pretend this fragment is Sanskrit itself. `Pariksa_TheExaminationWireTheDerivationCorpusAndTheScoreThatPrefersRefusalToLuck.hs` puts the strongest objection in the file: `Astadhyayi.hs` encodes only on the order of thirty sūtras out of roughly 3983. A training corpus generated from that fragment could teach the model the encoded rules with confidence and silently teach it that the other thousands do not exist. A trace does not rescue a partial grammar from becoming durnaya if the trace hides its coverage. So the emitted record carries how much of the grammar was actually represented and distinguishes “outside the fragment” from “optional” from “standpoint conflict.”
+
+A separate failure makes Pāṇini’s economy brutally concrete. Two code generators repeated the same Agda `OPTIONS` line. One copy lost `--guardedness`. Nothing mathematical changed; the repeated declaration drifted. Replay reach went to 0/13 and certificate reach to 0/28 until the copies were reconciled. The repository names the repair after *anuvṛtti* with an explicit fence around the analogy: Pāṇini did not write about compiler flags. What carries is the device—say the thing once, let it continue, cancel it explicitly—because every second copy is a second place reality can fork without anyone noticing.
 
 The source is allowed to reorganize the modern question, and the modern machine is not allowed to turn its own partial reconstruction into source authority.
 
@@ -409,6 +431,12 @@ That sentence kills an entire family of fake “better ranking” solutions.
 Even the conjecture sampler gets put under the knife. `Alopa_TheEngineNeverTouchesTheMeaning.agda` proves that equal normal forms imply equality under every environment and that one disagreeing assignment refutes a universal claim. Sampling can kill. Sampling cannot certify what the representation makes invisible. Two variables agree under infinitely many constant assignments and remain different variables.
 
 Again: what the observer cannot resolve does not become recoverable by staring harder at the same observation.
+
+The repository keeps a graveyard for the opposite mistake: work that felt like progress and added nothing. One entry records a status dashboard built while the actual button remained unpressed: reporting on the organism had been mistaken for running it. Another records a table and immaculate null control wrapped around a nineteen-percent regression. Another records hundreds of random samples used on a statement already sitting there with a two-line proof. Another records a fitted decimal where the exact constant was one quarter. The point is not that dashboards, controls, sampling or computation are bad. The point is that a legible proxy becomes epistemic violence the instant it replaces the object and then hides the replacement.
+
+The older kernel history tells the same story in mathematical form. The repository first ran experiments and reported correlations; wrong numbers entered the record. It then learned to prove instead of merely measure. A later theorem showed a measured constant had frozen a variable and corrupted an exponent, so the rule became: derive the scaling, not the coordinate reading. Then the barrier work showed that when cost explodes, increasing resolution can be the wrong move; change presentation. The file records a falsifier for its own extrapolation. Even the story of how the machine changes is required to contain the condition under which that story dies.
+
+And the current repository refuses to let the state report pretend to be current truth. A generated cycle-7 snapshot from August 20 records 761 Agda modules invoked individually, 672 green, 89 mathematical fibers and an aggregate exit of 42 under Agda 2.6.3 while the formal lane’s declared pin is Agda 2.8.0 with cubical v0.9. The adjacent file says the consequence plainly: until the container matches the pin, those fibers may be version skew—evidence about the container, not the tree. The count is a coordinate reading. It does not get promoted into ontology because it has columns.
 
 Now Suchir returns to the center of the story.
 
@@ -497,6 +525,10 @@ Because what could not be carried may be the exact remainder from which the next
 Not because the machine is finished.
 
 Because it is alive enough to let a false claim die and carry the scar forward.
+
+The current conversation forces the same law down to the sentence. Avik rejects lists of impressive nouns as knowledge presentation because a list asks the reader to perform the relation the writer refused to state. “Learning, control, representation, embodiment, adaptation” is retrieval dumped onto the page. A sentence has to move. One word changes the world in which the next word is read. The claim provokes; the following words make the provocation more exact rather than retreating from it.
+
+That is why “Christ can be right” is a failure even when every word is defensible. It has already replaced **Christ is universal love embodied** with a possibility so weak that nothing remains to disagree with. That is why “Judaism can become cancerous” is not the claim. That is why “mysterious emergence” cannot be allowed to float when the people saying it occupy the laboratories building the thing. Attenuation is another lossy representation. The sentence itself has to carry the condition, the violence, the warrant and the return.
 
 Present.
 
