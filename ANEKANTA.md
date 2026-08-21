@@ -12,8 +12,8 @@ untranslated where translation destroys precision, exactly as nobody translates
 *eigenvalue* or *sheaf*. A gloss is given once. After that the term does the
 work, because the term is the work.
 
-The tone is not devotional. Several of the hardest things said here are said
-against the traditions being drawn on.
+
+
 
 ---
 
