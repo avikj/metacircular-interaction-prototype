@@ -54,15 +54,15 @@ During those same years he got A+ grades in Berkeley’s discrete mathematics an
 
 Instagram was already enough to make the stakes concrete. Its intelligent systems choose what enters a human nervous system, observe the response, and choose again. Engagement, retention, growth and monetization supply the objective. The loop learns to steer people toward whatever keeps those quantities moving. Vanity, comparison, compulsion, addiction, anxiety and depression can be consequences of success rather than failures of the objective. The system is **aligned to capitalism, misaligned to human values.**
 
-One of his closest friends went much deeper into restricted defense technology: high-security offensive cybersecurity, private technical training around compromising mainstream consumer devices, missile-hacking-type work. Information warfare observes a population, infers what moves it, intervenes through language and media, measures response, and adapts. Robotics observes a world and intervenes physically. Recommendation observes behavior and intervenes through information. Neural control observes neural or behavioral state and can intervene in neural tissue. The interfaces and consequences are different. The control relation is the same where it is actually the same: observation, objective, intervention, feedback, another intervention.
+One of his closest friends went much deeper into restricted defense technology: high-security offensive cybersecurity, private technical training around compromising mainstream consumer devices, missile-hacking-type work. Information warfare observes a population, infers what moves it, intervenes through language and media, measures response, and adapts. Robotics observes a world and intervenes physically. Recommendation observes behavior and intervenes through information. Neural control observes neural or behavioral state and can intervene in neural tissue. The control relation survives every change of interface: observation, objective, intervention, feedback, another intervention. If the generalization dies when you specify the nouns, it was bullshit.
 
-That is how he thinks. Generalize until the common structure is visible; specify until every noun cashes back out into the actual thing. A generalization that cannot survive specification was never clear enough.
+That is how he thinks. Generalize until the common structure is visible. Specify until every noun cashes back out into the actual thing. Then generalize again. Clarity should survive the round trip.
 
 A master’s research path opened into neural coprocessors: theoretical HRI control for a computational system coupled directly to a nervous system. He saw the theory extending toward Neuralink-style arbitrary closed-loop neural control: observe neural or behavioral state, compute an intervention, stimulate, observe what changed, continue. The actuator now reaches neural tissue itself.
 
 That was fucking exciting. Elon shit. One of the coolest technological frontiers he could possibly have been offered.
 
-The researchers wanted to cure a human neurological disease that damages the brain. Their experimental protocol deliberately produced the corresponding brain damage in monkeys, tested whether the neural-coprocessor intervention could repair the dysfunction they had induced, and then killed the monkeys.
+The researchers wanted to cure a human neurological disease that damages the brain. Their protocol deliberately gave monkeys the corresponding brain damage, tested whether the neural-coprocessor intervention could repair the dysfunction they had created, and then killed the monkeys.
 
 The literature called killing them **sacrifice**.
 
@@ -74,7 +74,7 @@ His last name had been there the whole time.
 
 **Jain.**
 
-A given name and family name carried through generations before he had retrieved the vocabulary for the knowledge inside that inheritance.
+A given name and a family name carrying more history than he had yet bothered to retrieve.
 
 His older brother, diagnosed with Asperger’s, later spent roughly a decade close to full-time in Dzogchen practice. His mother picked up the Bhagavad Gita again three years ago and the high-energy high-anxiety mind changed. His father—the man who had spent childhood dinner asking why and finding axioms—started engaging harder with all of it too, still softer than his son.
 
@@ -92,7 +92,7 @@ Offer.
 
 Still a weed addict lol.
 
-Seven years of almost continuous intoxication sit inside the same life as Berkeley EECS, first-author robotics research, production engineering and an offer most engineers will never see. Both facts are true at full strength.
+Seven years almost continuously high. Berkeley EECS. First-author robotics research. Production engineering. Million-dollar trading offer. Same fucking person. Any biography that needs one fact to apologize for another has already lost him.
 
 And the money still was not the work.
 
@@ -112,13 +112,13 @@ He kept working.
 
 He calls what Israel has done in Gaza **mass human sacrifice**.
 
-Israel says the killing is necessary for Israeli security. Palestinians pay for that security with Palestinian bodies. Children are killed inside the boundary Israel has decided its protection can cross. Homes, families and bodies become expendable to the protected objective. **Mass human sacrifice.**
+Israeli security is purchased with Palestinian bodies. Children die for it. Families die for it. Homes disappear for it. The protected objective consumes human beings outside the protected boundary and calls the consumption necessary. **Mass human sacrifice.**
 
-The word is not ornamental. In the neural-coprocessor literature, researchers deliberately injured living beings for a valued human objective and called their eventual killing **sacrifice**. In Gaza, Avik uses the same English word for the political operation by which one population’s lives are spent for another population’s claimed security. The objects are different. The accusation is concrete in each case: whose life is being spent, for whose objective, by whose authority.
+He had already encountered the word in a laboratory. Researchers deliberately injured living beings for a valued human objective and called their eventual killing **sacrifice**. Now a state spends Palestinian lives for Israeli security. Different machinery. Same question sharp enough to cut through both: **whose life gets spent for whose objective?**
 
 A model heard **sacrifice** and replied that Gaza was “not a formal sacrificial rite.”
 
-That answer discarded the accusation and substituted a taxonomy. Nobody had claimed a formal rite. The model narrowed the word until the bodies disappeared, then answered the narrower proposition it had manufactured.
+Perfect machine stupidity. Replace the accusation with a taxonomy, answer the taxonomy, lose the bodies.
 
 Israel matters here technically too. Avik calls Israeli cyber **supreme**. Israel trained generations of exceptionally capable young people inside military intelligence, gave them real adversaries and state capability early, then released them into private industry carrying those skills. He compares the concentration to Taiwan in advanced semiconductors. Cybersecurity companies, offensive capability, intelligence training, capital and exits grow from the same military-information system.
 
@@ -126,35 +126,37 @@ He loves Jews.
 
 He says **Judaism is a cancer.**
 
-He means Judaism. He does not mean Jews.
+He means Judaism. He loves Jews.
 
-Cancer is the body’s own living tissue following a locally coherent imperative to survive and reproduce until local success destroys the larger life that made survival possible. His accusation is that Judaism can make preservation of **us** sacred enough that another person’s child becomes negotiable. He says this while loving Jews because the object of the accusation is the religious boundary, not the human beings inside it.
+Cancer is not an invader. Cancer is the body becoming so locally committed to its own continuation that it kills the larger life containing it. That is the provocation. Preservation of **us** becomes sacred; somebody else’s child becomes negotiable. The sentence is supposed to hurt. Hurt can make a settled representation move.
+
+He does this on purpose. He manufactures provocations to induce thought and feeling in himself and other people. The provocation is not packaging around a polite proposition hiding underneath. Sometimes the violent sentence is the instrument: make the categories collide hard enough that something previously anesthetized becomes available to thought. He is inside the experiment too. A sentence worth using can offend its author’s inherited categories along with everybody else’s.
 
 **Christ is universal love, humility, acceptance and service embodied.** Christ kneels and washes another man’s feet. He touches the people society calls untouchable. He forgives the people killing him while they are killing him. He gives himself away.
 
 **Christianity is the Roman Empire.** Rome executed the man. Empire later carried his symbol and organized domination in his name.
 
-Buddha belongs beside Christ. The lives and doctrines differ; the center that insists on itself gives way.
+Buddha belongs beside Christ. Different life, different doctrine, same knife at the fantasy that the self gets to remain the center of reality.
 
 The work is a **work of hate**. His hate speech is an act of love.
 
-Hate the operation that makes a human disposable. Hate the boundary that tells love where to stop. Keep cutting until the hatred has no population left to land on.
+Hate the operation that makes a human disposable. Hate the boundary that tells love where to stop. Keep cutting until hatred has no human population left to land on.
 
 What survives is **love without exception**.
 
 Universal is doing the fucking work.
 
-Jain knowledge enters here on its own terms.
+Jain knowledge enters here on its own terms, not as an exotic ethics plugin for the West’s machine.
 
-Ahiṃsā is not a reward function. Anekānta is not perspective diversity. Naya is not metadata. Syādvāda is not uncertainty. Pramāṇa is not merely provenance. Samyag-darśana, samyag-jñāna and samyak-cāritra are not software modules called right vision, right knowledge and right conduct.
+Ahiṃsā is not a reward function. Anekānta is not perspective diversity. Naya is not metadata. Syādvāda is not uncertainty. Pramāṇa is not merely provenance. Samyag-darśana, samyag-jñāna and samyak-cāritra are not software modules called right vision, right knowledge and right conduct. Translation that leaves you with familiar Western software nouns and a pile of Sanskrit decorations has translated nothing.
 
-Modern technical thought wants to extract an axiom, a central law, a scalar, a modular architecture: something portable enough to carry away while leaving the source behind. Then one conditioned view forgets its condition and declares itself the whole object. Jain epistemology already has a name for that failure: durnaya.
+Modern technical thought wants to steal an axiom, a central law, a scalar, a modular architecture: something portable enough to carry away while leaving the source behind. Then one conditioned view forgets its condition and declares itself the whole object. Jain epistemology already has a name for that failure: durnaya.
 
 Ahiṃsā does not mean “preserve everything.” Preservation can be attachment. Deletion can be nirjarā. A distinction can have to survive because collapsing it destroys something real. Apparent freedom can be determined structure. The correct act can be transformation, return, refusal, deletion. A beautiful proposition can have to die because the counterexample killed it.
 
 Right seeing, right knowing, right conduct and nonviolence are one problem. A logic that mutilates the known for convenient inference is already wrong. Knowledge that terminates systematically in violent conduct has supplied evidence against its own rightness. An ontology that makes a living being disappear behind the category required to injure it is already wrong. Language that forces a many-sided real into one unconditional predication and forgets the conditions of truth is already wrong.
 
-This knowledge does not arrive as an “ethics contribution” to artificial intelligence. It puts the thing modernity has been calling intelligence under examination.
+This knowledge does not arrive asking how Jainism can contribute to artificial intelligence. **Artificial intelligence is the child in the room.** The older question is what the fuck intelligence was supposed to mean before prediction, manipulation and optimization colonized the word.
 
 A system can predict better and manipulate better while becoming more deluded about what exists. It can optimize an objective more effectively while destroying everything the objective failed to represent. It can become technically supreme while its conduct supplies evidence that its seeing was never adequate.
 
