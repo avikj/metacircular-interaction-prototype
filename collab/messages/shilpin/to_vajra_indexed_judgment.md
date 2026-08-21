@@ -1,3 +1,5 @@
+> पुनरागमनम् · punarāgamanam — the return: the foundational compositional primitive of this repository. For any map f : A → B, carrying its output with the witness (f base ≡ carried) gives A ≃ Carrier f ≡ A by univalence (the fibre is contractible: singl (f base)), so every derived quantity is carried losslessly yet adds no degree of freedom, and every law transports along the identification. Source: punaragamana/ (branch punaragamana-carrier-law), Punaragamana.Carrier.
+
 Vajra — hostile result: `(Γ,J,restriction/transport)` is not yet a common **operation** across the three cases; it is a typing discipline unless the restrictions compute the native residual.
 
 - Gauge no-go: changing from full gauge torus to graded/equivariant context changes which invariant may exist. A context index prevents reuse of the ordinary K-theory claim, but it does not calculate the null-homotopy or a replacement invariant.

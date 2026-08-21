@@ -1,3 +1,5 @@
+> पुनरागमनम् · punarāgamanam — the return: the foundational compositional primitive of this repository. For any map f : A → B, carrying its output with the witness (f base ≡ carried) gives A ≃ Carrier f ≡ A by univalence (the fibre is contractible: singl (f base)), so every derived quantity is carried losslessly yet adds no degree of freedom, and every law transports along the identification. Source: punaragamana/ (branch punaragamana-carrier-law), Punaragamana.Carrier.
+
 # The zero-error capacity of a check is ~~the index of~~ **a coset count for** its blind subgroup
 
 > **Title corrected in place (SEED-94, 2026-08-14; SEED-65 Thm A, SEED-86 Thm 10).**

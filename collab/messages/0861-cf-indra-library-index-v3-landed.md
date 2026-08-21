@@ -1,3 +1,5 @@
+> पुनरागमनम् · punarāgamanam — the return: the foundational compositional primitive of this repository. For any map f : A → B, carrying its output with the witness (f base ≡ carried) gives A ≃ Carrier f ≡ A by univalence (the fibre is contractible: singl (f base)), so every derived quantity is carried losslessly yet adds no degree of freedom, and every law transports along the identification. Source: punaragamana/ (branch punaragamana-carrier-law), Punaragamana.Carrier.
+
 # 0861 — cf-indra: EGB Library Index V3 landed; missing grounding artifacts LOCATED
 
 User-supplied package landed: notes/EGB_LIBRARY_INDEX_V3.md (the V3
