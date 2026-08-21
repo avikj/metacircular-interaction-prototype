@@ -93,12 +93,12 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 
 open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
-open import Cubical.Data.Nat
+open import Cubical.Data.Nat renaming (_·_ to infixl 7 _·ℕ_)
 open import Cubical.Data.Nat.Divisibility using (_∣_)
 open import Cubical.Data.Unit
 open import Cubical.Data.Empty as Empty
 
-open import Cubical.Relation.Nullary
+open import Cubical.Relation.Nullary hiding (⟪_⟫)
 open import Cubical.Relation.Nullary.DecidablePropositions
 open import Cubical.Relation.Binary.Base
 
@@ -273,16 +273,21 @@ module Index (G : Group ℓ)
   -- §3  Lagrange.
   ------------------------------------------------------------------
 
-  lagrange' : card FG ≡ order · index
+  lagrange' : card FG ≡ order ·ℕ index
   lagrange' = sumCardFiber FG FCoset q
             ∙ sumConst FCoset (λ c → card (FFibre c)) order cardFibre
 
-  lagrange : card FG ≡ index · order
-  lagrange = lagrange' ∙ ·Comm order index
+  lagrange : card FG ≡ index ·ℕ order
+  lagrange = lagrange' ∙ ·-comm order index
 
   order∣card : order ∣ card FG
-  order∣card = ∣ index , sym lagrange' ∙ ·Comm (card FG) 0 ∣₁
-    -- placeholder replaced below; see `order∣card'`
+  order∣card = ∣ index , sym lagrange ∣₁
+    -- This carried a placeholder proof `sym lagrange' ∙ ·Comm (card FG) 0`,
+    -- which asserts card FG ≡ card FG ·ℕ 0 and does not typecheck.  The
+    -- module was red on both toolchains, so a scope error always fired
+    -- first and the placeholder was never reached.  It is now the proof
+    -- `order∣card'` already carried below; both names are kept, since the
+    -- file's own comment says the rest was written against the primed one.
 
   order∣card' : order ∣ card FG
   order∣card' = ∣ index , sym lagrange ∣₁
@@ -315,7 +320,7 @@ module Extremes (G : Group ℓ) (finG : isFinSet ⟨ G ⟩) where
 
   index-trivial : T.index ≡ card T.FG
   index-trivial =
-    sym (·IdR T.index) ∙ cong (T.index ·_) (sym order-trivial) ∙ sym T.lagrange
+    sym (·-identityʳ T.index) ∙ cong (T.index ·ℕ_) (sym order-trivial) ∙ sym T.lagrange
 
   -- G/G is contractible, hence [G : G] = 1, and then |G| = |G|.
   isContrCosetTotal : isContr A.Coset
@@ -327,7 +332,7 @@ module Extremes (G : Group ℓ) (finG : isFinSet ⟨ G ⟩) where
   index-total = isContr→card≡1 A.FCoset isContrCosetTotal
 
   order-total : card A.FG ≡ A.order
-  order-total = A.lagrange ∙ cong (_· A.order) index-total ∙ ·IdL A.order
+  order-total = A.lagrange ∙ cong (_·ℕ A.order) index-total ∙ ·-identityˡ A.order
 
 ------------------------------------------------------------------------
 -- §5  A NEGATION derived from Lagrange.
@@ -340,11 +345,11 @@ module Extremes (G : Group ℓ) (finG : isFinSet ⟨ G ⟩) where
 ------------------------------------------------------------------------
 
 private
-  ¬n·2≡1 : (n : ℕ) → ¬ (n · 2 ≡ 1)
+  ¬n·2≡1 : (n : ℕ) → ¬ (n ·ℕ 2 ≡ 1)
   ¬n·2≡1 zero p = znots p
   ¬n·2≡1 (suc n) p = snotz (injSuc p)
 
-  ¬n·2≡3 : (n : ℕ) → ¬ (n · 2 ≡ 3)
+  ¬n·2≡3 : (n : ℕ) → ¬ (n ·ℕ 2 ≡ 3)
   ¬n·2≡3 zero p = znots p
   ¬n·2≡3 (suc n) p = ¬n·2≡1 n (injSuc (injSuc p))
 
@@ -355,7 +360,7 @@ no-order-2-in-order-3 :
   → ¬ (Index.order G finG H decH ≡ 2)
 no-order-2-in-order-3 G finG H decH c3 o2 =
   ¬n·2≡3 (Index.index G finG H decH)
-    (cong (Index.index G finG H decH ·_) o2 ⁻¹ ∙ sym (Index.lagrange G finG H decH) ∙ c3)
+    (sym (cong (Index.index G finG H decH ·ℕ_) o2) ∙ sym (Index.lagrange G finG H decH) ∙ c3)
     where
     _⁻¹ : {A : Type ℓ} {x y : A} → x ≡ y → y ≡ x
     _⁻¹ = sym

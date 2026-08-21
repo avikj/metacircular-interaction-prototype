@@ -21,7 +21,7 @@ module Nasti_ShabdeJivahVartante where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; equivFun)
-open import Cubical.Foundations.Univalence using (ua)
+open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; ∣_∣₁ ; squash₁)

@@ -48,29 +48,31 @@ agda -i "$repo_dir/formal/cubical" \
 # notes/EVERYTHING_COVERAGE_REPAIR.md).  One command that checks every
 # top-level and Swarm/ module the aggregate imports.
 #
-# ASPIRATIONAL-IF-RED, 2026-08-14: this step is currently EXPECTED TO FAIL
-# on a container pinned to Agda 2.6.3 + cubical v0.5, because part of the
-# tree (the Γ₀ lane, much of NaturalMachine/, five Swarm modules) was
-# migrated to the cubical v0.9 API (`solve!`, `SymGroup`) per BUILD.md's
-# migration section, and the two toolchains cannot both be green at once.
-# Until that schism resolves, a red result here is REPORTED, not fatal —
-# the steps above remain the hard gate.  When Everything.agda goes green
-# under the resolved toolchain, DELETE the fallback and let it hard-fail.
-# Swallowing this failure silently would recreate the exact overstatement
-# BUILD.md documents; hence the loud banner either way.
+# HARD GATE since 2026-08-21.  From 2026-08-14 this step carried an
+# ASPIRATIONAL-IF-RED fallback that REPORTED a red instead of failing on it,
+# because part of the tree had been migrated to the cubical v0.9 API
+# (`solve!`, `SymGroup`) while the container ran Agda 2.6.3 + cubical v0.5,
+# and the two toolchains could not both be green at once.  That comment ended
+# with its own repeal clause: "When Everything.agda goes green under the
+# resolved toolchain, DELETE the fallback and let it hard-fail."  Both halves
+# are now satisfied and the clause is executed here:
+#
+#   * the toolchain is resolved and installs deterministically —
+#     `sh formal/cubical/ensure-toolchain.sh --install` puts Agda 2.8.0 on
+#     the DEFAULT PATH and cubical at the pinned commit b150186d2544, and the
+#     schism turned out to have been an artifact of that installer failing
+#     silently, so every session fell back to apt's 2.6.3;
+#   * `Everything.agda` exits 0 under that pin over all 208 import lines,
+#     with `check-everything-coverage.sh` green alongside it, so the aggregate
+#     covers the directory exactly rather than merely being green on a subset.
+#
+# `set -e` at the top of this file is what makes it fatal now.  Do not
+# reintroduce a fallback: the whole point of the 2026-08-14 comment was that
+# swallowing this failure recreates the overstatement BUILD.md documents.
 # ---------------------------------------------------------------------------
-if (cd "$repo_dir/formal/cubical" && agda Everything.agda); then
-  echo "EVERYTHING: GREEN — the whole Agda lane checked in one command."
-else
-  ev_code=$?
-  echo "=============================================================="
-  echo "EVERYTHING: RED (exit $ev_code) — aspirational until the"
-  echo "BUILD.md-vs-container toolchain schism resolves (v0.5 vs v0.9)."
-  echo "This is a known, documented state, NOT a certification of the"
-  echo "modules Everything.agda imports.  Individual module status:"
-  echo "notes/EVERYTHING_COVERAGE_REPAIR.md"
-  echo "=============================================================="
-fi
+(cd "$repo_dir/formal/cubical" && agda Everything.agda)
+(cd "$repo_dir/formal/cubical" && sh check-everything-coverage.sh)
+echo "EVERYTHING: GREEN — the whole Agda lane checked in one command."
 
 (
   cd "$repo_dir/formal/pairfield"

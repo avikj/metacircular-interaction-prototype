@@ -337,8 +337,10 @@ import InvarianceConstant
 -- These seven are the block above's "when the schism resolves, fold
 -- them in": all use the v0.9 `solve!` and are green under the pin.
 ------------------------------------------------------------------------
-import CenterRelative
-import PrimePairField
+-- CenterRelative and PrimePairField are imported at lines 125/128 above;
+-- this second pair of lines was a duplicate the coverage latch flagged
+-- (non-fatal warning) and is struck here rather than in the fold-in 4
+-- block, so this block still reads as the record of what it folded in.
 import Swarm.S05AsiddhaNewton
 import Swarm.S08ChebyshevWeight
 import Swarm.S09SmithKuttaka
@@ -351,7 +353,7 @@ import Swarm.S14AssemblyGrading
 -- (Theorem B), and shadow-support-infinite (§7).  Landed 2026-08-15 as
 -- an orphan and UNRUN under the pin by its own author's report; run
 -- here, EXIT=0.
-import SimplicialDefectFailure
+-- (Imported at line 208 above; this duplicate line struck 2026-08-21.)
 
 -- (`NaturalMachine.TransportCost` used to be listed here, because it
 -- `open import`ed the root and so could not live in it.  The cycle was
@@ -737,3 +739,84 @@ import Yuti
 -- "the corpus moved while this ran", reproduced.  Run under the same pin
 -- through check.sh: RUNNING AGAINST THE PIN, EXIT=0, CHECKSH_EXIT=0.
 import DisclosureDimension
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN 4, 2026-08-21.  The 24 that ORPHAN_SWEEP_3.md §5 left
+-- OUTSTANDING, and the reason they are here now.
+--
+-- That note's OUTSTANDING-A named 23 modules as pin-red on a v0.5
+-- spelling, and named the repair exactly: rename `solve` → `solve!` and
+-- `·Rid` → `·IdR` in the files that carry the occurrences, after which
+-- "the dependents clear themselves".  It was right, and this is the
+-- other half of it: the repair is now done, at its source rather than
+-- here, in three commits on this branch.
+--
+--   * `Cubical.Tactics.NatSolver.Reflection` exports neither `solve` nor
+--     `natSolve` (its line 34 `open ... renaming (solve to natSolve)` is
+--     not `public`); the public entry point is the macro `solveℕ!`.
+--     39 call sites in 11 modules.
+--   * `Cubical.Tactics.CommRingSolver.Reflection` exports the macro
+--     `solve!`, not the function `solve`.  83 call sites in 25 modules.
+--     In both families the macro fills the goal, so the telescope
+--     variables move to the left-hand side; no statement changed.
+--   * `·Rid` → `·IdR`, in the six files that carry it.
+--
+-- OUTSTANDING-B was `SubgroupIndex`, red on BOTH toolchains and called a
+-- two-token edit.  The `⟪_⟫` ambiguity is indeed one token (`hiding
+-- (⟪_⟫)` on the Nullary import), but it was masking four more: `_·_`
+-- ambiguous between the group and ℕ inside `module Index`, `·Comm` and
+-- `·IdR`/`·IdL` which ℕ spells `·-comm`/`·-identityʳ`/`·-identityˡ`, and
+-- an `order∣card` whose proof asserts `card FG ≡ card FG ·ℕ 0` and never
+-- typechecked.  All repaired at the source; the module now exits 0.
+--
+-- All 24 were run individually under the pin (Agda 2.8.0 + cubical
+-- b150186d2544, LC_ALL=C.UTF-8) before being named here, and this
+-- aggregate was re-run after.  It exits 0 -- the first green this file
+-- has had under the pin, which the ORPHAN FOLD-IN 3 header above
+-- correctly recorded it as not having.
+------------------------------------------------------------------------
+import Ardhaccheda
+import BhavanaSamuha
+import Brahmagupta
+import Cakravala
+import CakravalaBound
+import CakravalaNat
+import CakravalaWitness
+import DviGhataVargana
+import Dvikarani
+import GhanaBaddha
+import GrahaYuti
+import GunaDhana
+import IndianLane
+import Jiva
+import KuttakaCRT
+import Madhava
+import SamanyaGhata
+import Shunya
+import Sulba
+import SubgroupIndex
+import Trikarani
+import Vargana
+import VargaprakritiSreni
+import YugapatZ
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN 5, 2026-08-21.  The four the coverage latch still
+-- reported as ROT-FORWARD after fold-in 4, run individually under the
+-- pin before being named here.
+--
+-- `YantraAll` is the machine's own root for `Yantra/`, and
+-- `YantraPariksa` is the second root over the four correction modules
+-- written against it.  Neither was named here, so the whole `Yantra/`
+-- subtree was outside this latch; naming the two roots brings it in the
+-- way `NaturalMachine` is brought in -- transitively, through a root,
+-- rather than by enumerating the subtree.
+--
+-- `Nasti_ShabdeJivahVartante` was red on a single missing name: its
+-- `Cubical.Foundations.Univalence using (ua)` did not list `uaβ`, which
+-- line 69 uses.  Repaired at the source (`using (ua ; uaβ)`).
+------------------------------------------------------------------------
+import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
+import Nasti_ShabdeJivahVartante
+import YantraAll
+import YantraPariksa
