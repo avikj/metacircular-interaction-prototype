@@ -94,19 +94,19 @@ module Descent (R : CommRing ℓ) where
 
   private
     N-one-raw : (1r · 1r) + (0r · 0r) ≡ 1r
-    N-one-raw = solve R
+    N-one-raw = solve! R
 
     scale-raw : (c a b : A) → (c · a) · (c · a) + (c · b) · (c · b)
                             ≡ (c · c) · (a · a + b · b)
-    scale-raw = solve R
+    scale-raw c a b = solve! R
 
     equiv-fst : (c a₁ b₁ a₂ b₂ : A) →
         ((c · a₁) · a₂) - ((c · b₁) · b₂) ≡ c · ((a₁ · a₂) - (b₁ · b₂))
-    equiv-fst = solve R
+    equiv-fst c a₁ b₁ a₂ b₂ = solve! R
 
     equiv-snd : (c a₁ b₁ a₂ b₂ : A) →
         ((c · a₁) · b₂) + (a₂ · (c · b₁)) ≡ c · ((a₁ · b₂) + (a₂ · b₁))
-    equiv-snd = solve R
+    equiv-snd c a₁ b₁ a₂ b₂ = solve! R
 
   N-one : N one ≡ 1r
   N-one = N-one-raw
@@ -160,7 +160,7 @@ module Descent (R : CommRing ℓ) where
   class-refl k = 1r , sym (·-lid k) ∙ cong (_· k) (sym (·-lid 1r))
     where
     ·-lid : (x : A) → 1r · x ≡ x
-    ·-lid = solve R
+    ·-lid x = solve! R
 
   -- scaling never leaves the class: this is why the division step is
   -- legitimate at all, and it is the exact sense in which k is not data

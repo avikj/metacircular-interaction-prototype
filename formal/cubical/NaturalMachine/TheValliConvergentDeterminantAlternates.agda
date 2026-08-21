@@ -59,7 +59,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; -_)
 open import Cubical.Data.Int.Properties using (·Comm)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
 -- 1.  The convergents, from the vallī
@@ -87,7 +87,7 @@ module _ (a : ℕ → ℤ) (p₀ p₁ q₀ q₁ : ℤ) where
 private
   flip : (A P P' Q Q' : ℤ)
        → P · (A · Q + Q') - (A · P + P') · Q ≡ - (P' · Q - P · Q')
-  flip = solve ℤCommRing
+  flip A P P' Q Q' = solve! ℤCommRing
 
 detAlternates :
   (a : ℕ → ℤ) (p₀ p₁ q₀ q₁ : ℤ) (k : ℕ)

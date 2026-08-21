@@ -53,20 +53,20 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
 -- ब्रह्मगुप्तस्य शुद्धाः नियमाः (his correct rules for zero) ।
 ------------------------------------------------------------------------
 
 योगे-शून्यम् : (a : ℤ) → a + pos 0 ≡ a
-योगे-शून्यम् = solve ℤCommRing
+योगे-शून्यम् a = solve! ℤCommRing
 
 वियोगे-शून्यम् : (a : ℤ) → a - pos 0 ≡ a
-वियोगे-शून्यम् = solve ℤCommRing
+वियोगे-शून्यम् a = solve! ℤCommRing
 
 गुणने-शून्यम् : (a : ℤ) → a · pos 0 ≡ pos 0
-गुणने-शून्यम् = solve ℤCommRing
+गुणने-शून्यम् a = solve! ℤCommRing
 
 शून्ये-शून्यम् : (pos 0 + pos 0 ≡ pos 0) × (pos 0 · pos 0 ≡ pos 0)
 शून्ये-शून्यम् = refl , refl
@@ -80,7 +80,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 -- प्रत्येकं x शून्यस्य "भजनफलम्" : 0 · x ≡ 0 (अतः फलम् अनिश्चितम्) ।
 सर्वः-भजनफलम् : (x : ℤ) → pos 0 · x ≡ pos 0
-सर्वः-भजनफलम् = solve ℤCommRing
+सर्वः-भजनफलम् x = solve! ℤCommRing
 
 -- उदाहरणम् : 0·1 = 0 च 0·7 = 0 — भिन्नौ "फलौ" 1, 7 उभौ योग्यौ ⟹ अवक्तव्यम् ।
 भिन्न-साक्षिणौ : (pos 0 · pos 1 ≡ pos 0) × (pos 0 · pos 7 ≡ pos 0)

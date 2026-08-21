@@ -23,9 +23,9 @@ module YugapatZ where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
-open import Cubical.Data.Int.Properties using (·Rid)
+open import Cubical.Data.Int.Properties using (·IdR)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 
 ------------------------------------------------------------------------
@@ -41,11 +41,11 @@ x ≈ y [ m ] = Σ ℤ (λ k → x - y ≡ k · m)
 
 समिका-b : (r₁ r₂ b u c v : ℤ)
         → (r₁ · (c · v) + r₂ · (b · u)) - r₁ · (b · u + c · v) ≡ (u · (r₂ - r₁)) · b
-समिका-b = solve ℤCommRing
+समिका-b r₁ r₂ b u c v = solve! ℤCommRing
 
 समिका-c : (r₁ r₂ b u c v : ℤ)
         → (r₁ · (c · v) + r₂ · (b · u)) - r₂ · (b · u + c · v) ≡ (v · (r₁ - r₂)) · c
-समिका-c = solve ℤCommRing
+समिका-c r₁ r₂ b u c v = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- चीन-शेषः — मुख्य-सिद्धिः : कुट्टक-साक्षिणा युगपत्-समाधानम् ।
@@ -56,10 +56,10 @@ x ≈ y [ m ] = Σ ℤ (λ k → x - y ≡ k · m)
 चीन-शेषः b c u v r₁ r₂ bz =
     X
   , ( u · (r₂ - r₁)
-    , cong (λ w → X - w) (sym (cong (r₁ ·_) bz ∙ ·Rid r₁))
+    , cong (λ w → X - w) (sym (cong (r₁ ·_) bz ∙ ·IdR r₁))
     ∙ समिका-b r₁ r₂ b u c v )
   , ( v · (r₁ - r₂)
-    , cong (λ w → X - w) (sym (cong (r₂ ·_) bz ∙ ·Rid r₂))
+    , cong (λ w → X - w) (sym (cong (r₂ ·_) bz ∙ ·IdR r₂))
     ∙ समिका-c r₁ r₂ b u c v )
   where
     X : ℤ
@@ -72,17 +72,17 @@ x ≈ y [ m ] = Σ ℤ (λ k → x - y ≡ k · m)
 ------------------------------------------------------------------------
 
 वितरण-D : (D b u c v : ℤ) → D · (b · u + c · v) ≡ D · (b · u) + D · (c · v)
-वितरण-D = solve ℤCommRing
+वितरण-D D b u c v = solve! ℤCommRing
 
 समिका-bc : (k₁ k₂ b c u v : ℤ)
          → (k₂ · c) · (b · u) + (k₁ · b) · (c · v) ≡ (k₂ · u + k₁ · v) · (b · c)
-समिका-bc = solve ℤCommRing
+समिका-bc k₁ k₂ b c u v = solve! ℤCommRing
 
 एकत्वम् : (b c u v X Y : ℤ) → b · u + c · v ≡ pos 1
        → X ≈ Y [ b ] → X ≈ Y [ c ] → X ≈ Y [ b · c ]
 एकत्वम् b c u v X Y bz (k₁ , p₁) (k₂ , p₂) =
     k₂ · u + k₁ · v ,
-    ( sym (·Rid (X - Y)) ∙ cong ((X - Y) ·_) (sym bz)
+    ( sym (·IdR (X - Y)) ∙ cong ((X - Y) ·_) (sym bz)
     ∙ वितरण-D (X - Y) b u c v
     ∙ cong₂ _+_ (cong (_· (b · u)) p₂) (cong (_· (c · v)) p₁)
     ∙ समिका-bc k₁ k₂ b c u v )

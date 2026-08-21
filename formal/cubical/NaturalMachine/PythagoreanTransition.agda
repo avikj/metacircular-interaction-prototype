@@ -156,43 +156,43 @@ module Circle (R : CommRing ℓ) where
         ((a₁ · a₂) - (b₁ · b₂)) · ((a₁ · a₂) - (b₁ · b₂))
       + ((a₁ · b₂) + (a₂ · b₁)) · ((a₁ · b₂) + (a₂ · b₁))
       ≡ (a₁ · a₁ + b₁ · b₁) · (a₂ · a₂ + b₂ · b₂)
-    brahmagupta = solve R
+    brahmagupta a₁ b₁ a₂ b₂ = solve! R
 
     sq-· : (z w : A) → (z · z) · (w · w) ≡ (z · w) · (z · w)
-    sq-· = solve R
+    sq-· z w = solve! R
 
     ·-one : (x : A) → x · 1r ≡ x
-    ·-one = solve R
+    ·-one x = solve! R
 
     idʳ-fst : (a b : A) → (a · 1r) - (b · 0r) ≡ a
-    idʳ-fst = solve R
+    idʳ-fst a b = solve! R
 
     idʳ-snd : (a b : A) → (a · 0r) + (1r · b) ≡ b
-    idʳ-snd = solve R
+    idʳ-snd a b = solve! R
 
     comm-fst : (a₁ b₁ a₂ b₂ : A) →
                (a₁ · a₂) - (b₁ · b₂) ≡ (a₂ · a₁) - (b₂ · b₁)
-    comm-fst = solve R
+    comm-fst a₁ b₁ a₂ b₂ = solve! R
 
     comm-snd : (a₁ b₁ a₂ b₂ : A) →
                (a₁ · b₂) + (a₂ · b₁) ≡ (a₂ · b₁) + (a₁ · b₂)
-    comm-snd = solve R
+    comm-snd a₁ b₁ a₂ b₂ = solve! R
 
     assoc-fst : (a₁ b₁ a₂ b₂ a₃ b₃ : A) →
         (((a₁ · a₂) - (b₁ · b₂)) · a₃) - (((a₁ · b₂) + (a₂ · b₁)) · b₃)
       ≡ (a₁ · ((a₂ · a₃) - (b₂ · b₃))) - (b₁ · ((a₂ · b₃) + (a₃ · b₂)))
-    assoc-fst = solve R
+    assoc-fst a₁ b₁ a₂ b₂ a₃ b₃ = solve! R
 
     assoc-snd : (a₁ b₁ a₂ b₂ a₃ b₃ : A) →
         (((a₁ · a₂) - (b₁ · b₂)) · b₃) + (a₃ · ((a₁ · b₂) + (a₂ · b₁)))
       ≡ (a₁ · ((a₂ · b₃) + (a₃ · b₂))) + (((a₂ · a₃) - (b₂ · b₃)) · b₁)
-    assoc-snd = solve R
+    assoc-snd a₁ b₁ a₂ b₂ a₃ b₃ = solve! R
 
     conj-fst : (a b : A) → (a · a) - (b · (- b)) ≡ a · a + b · b
-    conj-fst = solve R
+    conj-fst a b = solve! R
 
     conj-snd : (a b : A) → (a · (- b)) + (a · b) ≡ 0r
-    conj-snd = solve R
+    conj-snd a b = solve! R
 
   ----------------------------------------------------------------------
   -- 1.  Brahmagupta: the norm is multiplicative

@@ -83,7 +83,7 @@ module NaturalMachine.TheTruncationErrorIsExactAtEveryFiniteStage where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots ; injSuc)
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; injPos)
-open import Cubical.Data.Int.Properties using (minusPlus ; ·Comm ; ·Rid)
+open import Cubical.Data.Int.Properties using (minusPlus ; ·Comm ; ·IdR)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
@@ -119,7 +119,7 @@ sumAtOneIsOne : (r : ℤ) → सङ्कलितम् r 1 ≡ pos 1
 sumAtOneIsOne r = refl
 
 errorAtOneIsTheRatio : (r : ℤ) → घात r 1 ≡ r
-errorAtOneIsTheRatio r = ·Comm (pos 1) r ∙ ·Rid r
+errorAtOneIsTheRatio r = ·Comm (pos 1) r ∙ ·IdR r
 
 ------------------------------------------------------------------------
 -- 3.  The error's own step, and the exact point where analysis begins

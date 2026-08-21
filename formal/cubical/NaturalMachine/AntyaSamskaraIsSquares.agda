@@ -76,7 +76,7 @@ module NaturalMachine.AntyaSamskaraIsSquares where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Algebra.CommRing
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 private
   variable
@@ -100,7 +100,7 @@ module Correction (R : CommRing ℓ) where
     (n : A) →
       (((1r + 1r) · n) + 1r) · (((1r + 1r) · n) + 1r)
     ≡ (((1r + 1r) · (1r + 1r)) · (n · (n + 1r))) + 1r
-  residue₁ = solve R
+  residue₁ n = solve! R
 
   ----------------------------------------------------------------------
   -- 2.  f₂(n) = n/(4n²+1)
@@ -113,7 +113,7 @@ module Correction (R : CommRing ℓ) where
       (n · ((((1r + 1r) · (1r + 1r)) · ((n + 1r) · (n + 1r))) + 1r))
       + ((n + 1r) · ((((1r + 1r) · (1r + 1r)) · (n · n)) + 1r))
     ≡ (((1r + 1r) · n) + 1r) · ((((1r + 1r) · n) + 1r) · (((1r + 1r) · n) + 1r))
-  numerator₂ = solve R
+  numerator₂ n = solve! R
 
   --   … and its denominator is (2n+1)⁴ + 4.
   residue₂ :
@@ -124,7 +124,7 @@ module Correction (R : CommRing ℓ) where
       · ( (((1r + 1r) · n) + 1r)
         · ( (((1r + 1r) · n) + 1r) · (((1r + 1r) · n) + 1r) ) ) )
       + ((1r + 1r) · (1r + 1r))
-  residue₂ = solve R
+  residue₂ n = solve! R
 
   ----------------------------------------------------------------------
   -- 3.  f₃(n) = (n²+1)/(4n³+5n) = (n²+1) / (n·(4n²+5))
@@ -146,7 +146,7 @@ module Correction (R : CommRing ℓ) where
       · ((n + 1r) · ((((1r + 1r) · (1r + 1r)) · ((n + 1r) · (n + 1r)))
                       + (1r + ((1r + 1r) · (1r + 1r))))) )
       + ((1r + 1r + 1r) · (1r + 1r + 1r))
-  residue₃ = solve R
+  residue₃ n = solve! R
 
 ------------------------------------------------------------------------
 -- 4.  The pattern, and the same statement over ℤ

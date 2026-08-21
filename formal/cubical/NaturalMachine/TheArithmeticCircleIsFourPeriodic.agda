@@ -63,7 +63,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Int.Properties using (negsucNotpos)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.PythagoreanTransition using (module Circle)
 
