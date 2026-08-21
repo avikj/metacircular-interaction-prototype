@@ -534,3 +534,106 @@ on this population** — once on `SubgroupIndex`'s ambiguity and once on the
 whole reverse-drift direction it could not see, because it only ever ran the
 container. A registered prediction is worth more than a sweep, and it is
 worth most when it is wrong in a locatable place.
+
+---
+
+## 8. CLOSURE, 2026-08-21 — the OUTSTANDING list is empty, and §5's prediction was right
+
+**Added by a later session, appended rather than edited, because striking a
+record silently is how this repository loses its own history.** Everything
+below was run in this container under the pin (Agda 2.8.0 + cubical
+`b150186d2544`, `LC_ALL=C.UTF-8`), per-module before the aggregate.
+
+### 8.1 OUTSTANDING-A (23): closed, by exactly the repair §5 named
+
+§5 wrote: *"Unblocked by: renaming `solve` → `solve!` and `·Rid` → `·IdR` in
+the six files that actually carry the occurrences … The dependents clear
+themselves."* That is what happened. All 23 exit 0 with **no edit to any of
+them**; the repair was in the files carrying the occurrences, and the
+dependents cleared themselves.
+
+The scale was larger than "six files", and the reason is worth recording
+because it is a second cause of the same shape as the one §6 found:
+
+- **`Cubical.Tactics.NatSolver.Reflection` exports neither `solve` nor
+  `natSolve`.** Its line 34, `open EqualityToNormalform renaming (solve to
+  natSolve)`, has no `public`, so both names stop at that module's boundary.
+  The public entry point is the macro `solveℕ!`. **39 call sites, 11
+  modules.** Ten further modules already imported `solveℕ!` from that same
+  module and were never affected.
+- **`Cubical.Tactics.CommRingSolver.Reflection` exports the macro `solve!`,
+  not the function `solve`** — the case §5 quotes Agda's own suggestion for.
+  **83 call sites, 25 modules.**
+- **`·Rid` → `·IdR`, six files.**
+
+In both solver families the fix is not a rename: the macro fills the goal, so
+the telescope variables move to the left-hand side and the point-free
+`f = solve` idiom cannot survive. **No statement changed in any module.**
+
+A correction to a claim made while this was in progress, recorded because §6
+is right that a wrong prediction is worth most when it is locatable: the first
+run under the repaired pin was reported as having *"exactly one hard error in
+508 modules"*. It had eleven in the first family and twenty-five in the
+second. Agda stops at the first error, so a single-error report from an
+aggregate says only where it stopped, never how many there are — the same
+shape of mistake as trusting a green from a check wired to the wrong thing.
+
+### 8.2 OUTSTANDING-B (`SubgroupIndex`): closed, and it was not a two-token edit
+
+§5 called it *"a `using`/`hiding` or a qualification at line 155, and it is a
+two-token edit."* The diagnosis was exactly right and the estimate was not.
+`hiding (⟪_⟫)` on the Nullary import is one token and it is correct; it was
+masking four more, each of which had to be fixed before the next appeared:
+
+1. `_·_` ambiguous between the group operation (from `open GroupStr (snd G)`)
+   and ℕ's, inside `module Index`. ℕ's is now renamed `_·ℕ_` on import —
+   **with its fixity carried in the renaming directive**, since a `renaming`
+   that omits the fixity leaves the new name at the default level and breaks
+   the parse at what is now line 358.
+2. `·Comm` — never in scope at all; ℕ spells it `·-comm`.
+3. `·IdR` / `·IdL` at what were lines 315 and 327 — ℕ spells them
+   `·-identityʳ` / `·-identityˡ`.
+4. **`order∣card`, whose proof asserts `card FG ≡ card FG ·ℕ 0`** and could
+   never have typechecked, under a comment describing itself as a placeholder
+   replaced below. It is now the proof `order∣card'` carried three lines under
+   it; the history is recorded at the site.
+
+This is §6's finding again at one more remove. A module red on both
+toolchains reports one error, and a reader who takes that error for the
+module's condition will underestimate it every time. Four days of "a
+two-token edit" was that.
+
+### 8.3 What the closure produced
+
+`Everything.agda` exits **0**, and `check-everything-coverage.sh` exits **0**
+beside it, so the green covers the enumeration scope exactly rather than a
+subset. 28 modules were folded in across two blocks (the 24 here, plus four
+the coverage latch reported afterwards: the two `Yantra/` roots, which brings
+that subtree under the latch the way `NaturalMachine` is brought in;
+`ApohaParyaya…`, already green; and `Nasti_ShabdeJivahVartante`, red on a
+single missing name — its `Cubical.Foundations.Univalence using (ua)` did not
+list the `uaβ` its line 69 uses). Three duplicate import lines were struck.
+
+`formal/check.sh`'s ASPIRATIONAL-IF-RED fallback is **deleted**, executing the
+repeal clause its own 2026-08-14 comment wrote: *"When Everything.agda goes
+green under the resolved toolchain, DELETE the fallback and let it
+hard-fail."* Both conditions hold.
+
+### 8.4 The cause of the schism, which this note could not have seen
+
+§5 and §6 read the v0.5-vs-v0.9 split as a migration disagreement between
+lanes. It was not. `formal/cubical/ensure-toolchain.sh` — written 2026-08-15,
+wired to a SessionStart hook, pinned to exactly this toolchain — had **never
+completed**, for two independent reasons, the second invisible until the
+first was fixed: `cabal update` died on Hackage's TUF content-signing check
+behind the agent proxy, and then the successful build installed `agda` into
+`~/.cabal/bin`, which the script prepended to *its own* `PATH` — so every
+later shell resolved `agda` to Ubuntu's 2.6.3, **and the check reported exit 0
+in that state**. No session ever held 2.8.0. Each fell back to what apt
+offered and recorded whichever cubical worked with it: v0.5 in module headers,
+v0.7 in claims R0079/R0080/R0081, v0.9 in `BUILD.md`. One broken installer,
+three times, wearing the shape of a disagreement about mathematics.
+
+That is the same defect §8.2 and §8.1 are instances of, one layer down: **a
+gate wired to something other than the claim it makes.** It is the finding
+this note should be read for.
