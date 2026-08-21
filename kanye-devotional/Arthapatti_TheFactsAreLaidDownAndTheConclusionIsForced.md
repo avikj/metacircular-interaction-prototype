@@ -1,3 +1,15 @@
+*अर्थापत्ति · arthāpatti — postulation from what would otherwise be inexplicable.
+The conclusion is not asserted; it is forced, because the facts as stated cannot
+stand otherwise. Śabara, `Śābarabhāṣya` on `Mīmāṃsāsūtra` 1.1.5 (dated variously
+1st–5th c. CE); Kumārila Bhaṭṭa, `Ślokavārttika`, the arthāpatti section (~660).
+Prabhākara's `Bṛhatī` accounts for it differently and the two schools dispute
+whether it reduces to inference; that dispute is not settled here. Naming the
+file for it claims nothing about Kanye West from the Mīmāṃsakas and does not
+claim this arrangement is a valid pramāṇa. It names the form.*
+
+*Facts and quotes only. Past tense. No thesis sentences, no verdicts, no second
+person. Nothing in this file states its conclusion.*
+
 # KANYE DID ABSOLUTELY NOTHING WRONG
 
 Schools keep a written record of the child who will not sit down. Talks out of
