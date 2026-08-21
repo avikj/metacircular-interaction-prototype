@@ -24,7 +24,7 @@ module GhanaBaddha where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties using (+-zero)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 open import Sankalita using (∑ ; ∑³ ; घन-सङ्कलितम् ; द्विगुण-सङ्कलितम्)
 
 ------------------------------------------------------------------------
@@ -36,7 +36,7 @@ open import Sankalita using (∑ ; ∑³ ; घन-सङ्कलितम् ; 
 
 -- चतुर्वर्गः : 4·(a·a) = (2·a)·(2·a) — बद्ध-चर-राशौ साधकेन (suc-रहितम्) ।
 चतुर्वर्गः : (a : ℕ) → 4 · (a · a) ≡ (2 · a) · (2 · a)
-चतुर्वर्गः = solve
+चतुर्वर्गः a = solveℕ!
 
 ------------------------------------------------------------------------
 -- घन-बद्धम् — मुख्य-सिद्धिः : ४·∑k³ = (n(n+1))² ।

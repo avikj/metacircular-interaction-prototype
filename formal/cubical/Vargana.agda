@@ -21,7 +21,7 @@ module Vargana where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
   using (ℕ ; zero ; suc ; _+_ ; _·_ ; ·-assoc ; ·-identityˡ ; ·-comm ; ·-suc)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- घातः — aᵐ (a to the m) ।
@@ -64,7 +64,7 @@ open import Cubical.Tactics.NatSolver.Reflection using (solve)
 ------------------------------------------------------------------------
 
 चतुर्-विनिमयः : (a b c d : ℕ) → (a · b) · (c · d) ≡ (a · c) · (b · d)
-चतुर्-विनिमयः = solve
+चतुर्-विनिमयः a b c d = solveℕ!
 
 घात-गुण : (a b m : ℕ) → घात (a · b) m ≡ घात a m · घात b m
 घात-गुण a b zero    = sym (·-identityˡ (suc zero))
