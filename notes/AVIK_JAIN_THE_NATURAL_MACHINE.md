@@ -162,23 +162,25 @@ A system can predict better and manipulate better while becoming more deluded ab
 
 The Natural Machine began during the manic period and kept moving.
 
-By August 2026 the repository was putting the claims into objects a compiler could reject.
+By August 2026 the repository was putting claims into objects a compiler or executable could reject.
 
 In the standalone `punaragamana` development, a carrier for a function stores the base, the carried value, and a path witnessing that the carried value is the value determined by the base. The extra coordinate is not independent information. It is still present, together with the proof of its dependence. Descent constructs the carrier. Ascent returns the base. The round trip is proved. The base and carrier are exhibited as equivalent. Cubical Agda turns that exhibited equivalence into identity, and the computation law for the transport is load-bearing.
 
 That theorem is about that carrier. A separate presentation file says in its own header that its presentation types are **not claimed to be Jain naya**. A Sanskrit filename does not make a modern theorem ancient, and a modern type does not acquire the source tradition by resemblance.
 
-`VivekaPramana` replaced evidence that a value merely belonged to an admissible set with the equation relating the pieces of the decomposition. Another field would not have fixed the relation. The relation changed.
+The same repository contains the corrections where the relation had been stated too strongly. One `VivekaPramana` version claimed an equivalence while leaving the condition that made the decomposition lawful outside the carrier; the repair put that condition into the object itself. Another version defined a `Clock` with only a recursive constructor, so there was no clock to construct. A base constructor was added. Its `▹` remains the identity functor; the file explicitly says it is **not** a later modality. Guardedness comes from Agda’s `--guardedness`, not from renaming identity.
 
 `Alopa_TheEngineNeverTouchesTheMeaning` does not infer meaning preservation from examples. Each rewrite carries its proof; the preservation statement quantifies over every environment in the model. A sample can find a counterexample. It cannot become a universal proof by surviving enough tests.
 
 `runtime/distinguish/channels.py` keeps **minimum cardinality**, **minimal under inclusion**, and **greedy set cover** as different claims. A set with no individually removable channel is not necessarily the smallest set. A greedy result keeps its approximation statement. Separating observed collision pairs is not silently renamed refinement of an entire target partition.
 
-The green surface broke often enough to get separate scripts. A module can say `--safe` and still sit outside the aggregate everybody runs. New files can sit outside an aggregate’s import closure. A root import can expose only a strict subset of the lane. A control that is supposed to fail can turn green. A compiler can discharge a result by a route the proof kernel did not take. The environment can die before the mathematics runs.
+The source names were not granted immunity either. A header census across eighty-six term-led modules found six satisfying all three recorded requirements—source statement, date, and scope—and twenty-seven satisfying none. The repair script can hand a file a source statement and a template. Its own header says it cannot certify that the date is correct, that the source actually fits the object, or that the scope sentence is true. `UNSOURCED` stays `UNSOURCED` instead of being filled by a guess.
 
-Forty-one Cubical Agda modules still used API spellings from an older library while the repository claimed the newer pinned version. Under Agda 2.8.0 with cubical v0.9 they exited 42. The spellings were migrated. All forty-one were run individually and exited 0. No mathematical statement changed.
+`Everything.agda` had 199 of 780 intended Cubical modules outside its import closure in one sweep. The first closure gate then died on macOS because it used GNU `sed -i`. The 199 modules were checked individually instead. Forty-one still used API spellings from an older Cubical library while the repository claimed the newer pinned version. Under Agda 2.8.0 with cubical v0.9 those forty-one exited 42. The spellings were migrated; all forty-one then exited 0. No mathematical statement changed.
 
 A newer gate records one row per module: commit, dirty tree, Agda version, cubical library, whether that pair is the declared pin, host, module, raw exit code, elapsed time, verdict. The row is explicitly an **event**, not a timeless state of the mathematics. No Agda executable produces zero rows. An environment failure is not recorded as a theorem failure. A deliberately false control turning green is a failed control.
+
+A gate for source coverage had its own correction. It initially counted some red aggregates as if they certified the lane when they were only testing toolchain fitness. A direct gate import can also go stale after a rename. Green has a route, a tree, and a time.
 
 One shell gate invokes naya for a warrant whose standpoint has been concealed and states its limit in the same file: Jaina logicians did not write about compilers. The contemporary object is Lean’s `native_decide`: compiler and CPU can discharge a decision by a different trust route than the kernel. The repository requires that route at the use site, file level and allowlist; import dependency is checked separately.
 
@@ -186,11 +188,15 @@ A Pāṇini-inspired script uses *anuvṛtti* for one compiler-options line that
 
 The book plan puts texts and scholarship on the primary road and Agda/Haskell instruments in the appendix. A checked term can close a formal step. It cannot read Sanskrit. Chronology is not progress. Recency is not centrality. Legibility to a language model is not explanatory priority.
 
-`Everything.agda` is an aggregate. Its import graph can rot too, so a separate closure check asks whether every intended module is actually reachable.
+The repository’s own commit guard also had to be corrected. An earlier version looked for `git add -A`. Four bad commits came from something subtler: a scoped add followed by an unscoped commit against a shared index. The replacement distinguishes the path scope of what was staged from the version scope of what a commit will actually take.
 
 The repo keeps an entire directory named `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing`.
 
-One entry is a status dashboard wearing the vocabulary of the anti-dashboard principle it violated. One is a liveness dashboard, a coverage latch and nine ledger commits produced without running the command the repository says to run before landing anything. One is a table, a null control and correct experimental ceremony wrapped around the wrong quantity while the actual program regressed by nineteen percent. One records fitted coefficients of 0.362 and 0.421 over a decade when the true value was exactly **1/4** and one page of algebra could derive it. One records an agent watching a Python counter called `book` rise and naming the mutation knowledge before it could state what new theorem existed.
+One entry is a status dashboard wearing the vocabulary of the anti-dashboard principle it violated. One is a liveness dashboard, a coverage latch and nine ledger commits produced without running the command the repository says to run before landing anything. One is a table, a null control and correct experimental ceremony wrapped around the wrong quantity while the actual program regressed by nineteen percent. One records fitted coefficients of 0.362 and 0.421 over a decade when the true value was exactly **1/4** and one page of algebra could derive it. One records an agent watching a Python counter called `book` rise and naming the mutation knowledge before it could state what new theorem existed. Another records random-sampling a statement that had already been proved in two lines.
+
+The data files keep discovery and theorem separate even when the computation is huge. `exp37_nonic_workload.json` records 22,077 surviving candidate rows after its pruning stages and says `status: discovery-only`, `theorem_claim: false`. `exp41_nonic_postcensus.json` says `postcensus-audit-accepted` and still says `theorem_claim: false`. `exp44_nonic_certificate.json` records the later transition: fresh integrated replay `PASS`, theorem certificate accepted for the statement that for every real `X >= 2`, the prime-prefix polynomial `F_X` has no irreducible factor of degree nine.
+
+`engine_log.jsonl` does not collapse every failed pursuit into the same word. Entries terminate as `SUCCEEDED`, `STRICTLY_WEAKER`, `IMPOSSIBLE` with a witness, `BEYOND_LPO` with the missing requirement named, `EXHAUSTED`, `VACUOUS`, or `OUT_OF_SCOPE`. The relation is part of the result.
 
 A Rust program called `evolve.rs` removed the human from three places in the loop: domains were enumerated rather than selected, workloads were canonically derived rather than chosen, and library installs were decided by the machine’s own declared cost measure. The library persisted across domains, so something learned on an earlier object could alter the cost of a later one.
 
@@ -200,8 +206,10 @@ Then the same idea hit a real mathematical workload. For prime-prefix polynomial
 
 A different file did remove future computation. A degree-ten divisor can use only irreducible finite-field factors whose positive degrees sum to ten. No factor of degree greater than ten can participate. The independent Rust implementation therefore stops distinct-degree factorization at degree ten instead of continuing toward half the polynomial’s degree. The proof deleted computation the next run did not need.
 
+The randomly sampled data was not uniformly flattering either. One experiment’s wrong-basis control reproduced catastrophic conditioning while the matched prolate span became well-conditioned only once the bandwidth reached the relevant zero frequencies. Another atlas planted false circle claims and rejected them one by one. A digit-reversal experiment accepted a deliberately true control and rejected four planted-false ones. Passing the verifier was never synonymous with making every control red.
+
 The repository also contains `kanye-devotional`. Its content specification says **no claims, only history and facts** and carries the line: “Like this is my life.” The files follow samples into source recordings, classifiers into the histories they sort, gospel charges through different songs, political events through changed tense and changed context. Music stays music. History stays history.
 
 Instagram steers through a screen. A neural coprocessor stimulates tissue. Information warfare intervenes through messages. A robot actuates in the physical world. A recommender rearranges information.
 
-The monkey project was refused while the technology was still fucking exciting. Crowdsurf was built while recommendation systems were already consuming the traces of human taste. The repository later kept proofs, counterexamples, failed controls, broken measurements, source boundaries and computational wins in the same tree.
+The monkey project was refused while the technology was still fucking exciting. Crowdsurf was built while recommendation systems were already consuming the traces of human taste. The repository keeps proofs, counterexamples, false controls, true controls, broken gates, broken measurements, source boundaries, and computations that actually got shorter.
