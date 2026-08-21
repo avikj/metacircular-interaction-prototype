@@ -26,7 +26,7 @@ Third grade teacher had already taught his older brother.
 
 “I thought your brother was the most disorganized kid I’d ever seen. Until you.”
 
-His dad taught him logical fallacies in elementary school: the actual names, what each one means, how to recognize one inside a real argument. Dinner could be politics, religion, abortion, anything emotionally charged enough that nobody could hide behind an argument they did not care about. His dad loved devil’s advocate and could argue a position he did not believe well enough to win. His mom was deeply feminist and had friends who had actually gone through abortions. His dad could attack the theoretical boundary. His mom knew the women. Arguments had to survive contact with both. His dad still teaches him. His dad learns from him now.
+His dad taught him logical fallacies in elementary school: the actual names, what each one means, how to recognize one inside a real argument. Dinner could be politics, religion, abortion, anything emotionally charged enough that nobody could hide behind an argument they did not care about. His dad loved devil’s advocate and could argue a position he did not believe well enough to win. His mom was deeply feminist and had friends who had actually gone through abortions. His dad could attack the theoretical boundary. His mom knew the women. His dad still teaches him. His dad learns from him now.
 
 His mother’s intelligence took longer to see because his father displayed his intelligence constantly and his mother was simply his mother: enormous energy, enormous anxiety, love everywhere. During college he realized she was one of the most intelligent people he knew.
 
@@ -46,7 +46,7 @@ He reached USACO Platinum.
 
 Then Berkeley EECS.
 
-At eighteen he was still Whig as fuck. He took metaphysics and epistemology at De Anza, started doing drugs, listened to Kanye, joined a fraternity at Berkeley and deliberately did not spend his entire life around computer-science students. Berkeley still had free-love hippies and washed-up hippies and anti-war people smoking with homeless guys who could have advanced visions of technology. He learned from whoever was in front of him.
+At eighteen he was still Whig as fuck. He took metaphysics and epistemology at De Anza, started doing drugs, listened to Kanye, joined a fraternity at Berkeley and deliberately did not spend his entire life around computer-science students. Berkeley still had free-love hippies and washed-up hippies and anti-war people smoking with homeless guys who could have advanced visions of technology.
 
 He was also high for roughly seven years of his life, almost continuously, most of the day, almost every day, on amounts of weed he describes as inhumane.
 
@@ -72,7 +72,7 @@ His last name had been there the whole time.
 
 **Jain.**
 
-A given name and a family name carrying more history than he had yet bothered to retrieve.
+He had not yet retrieved much of the history carried by either name.
 
 His older brother, diagnosed with Asperger’s, later spent roughly a decade close to full-time in Dzogchen practice. His mother picked up the Bhagavad Gita again three years ago and the high-energy high-anxiety mind changed. His father—the man who had spent childhood dinner asking why and finding axioms—started engaging harder with all of it too, still softer than his son.
 
@@ -186,7 +186,7 @@ A Pāṇini-inspired script uses *anuvṛtti* for one compiler-options line that
 
 The book plan puts texts and scholarship on the primary road and Agda/Haskell instruments in the appendix. A checked term can close a formal step. It cannot read Sanskrit. Chronology is not progress. Recency is not centrality. Legibility to a language model is not explanatory priority.
 
-`Everything.agda` is an aggregate. Its import graph can rot too, so a separate closure check asks whether every intended module is actually reachable. No theorem gets to become the whole machine because it is new or beautiful.
+`Everything.agda` is an aggregate. Its import graph can rot too, so a separate closure check asks whether every intended module is actually reachable.
 
 The repo keeps an entire directory named `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing`.
 
@@ -202,8 +202,6 @@ A different file did remove future computation. A degree-ten divisor can use onl
 
 The repository also contains `kanye-devotional`. Its content specification says **no claims, only history and facts** and carries the line: “Like this is my life.” The files follow samples into source recordings, classifiers into the histories they sort, gospel charges through different songs, political events through changed tense and changed context. Music stays music. History stays history.
 
-Instagram steers through a screen. A neural coprocessor stimulates tissue. Information warfare intervenes through messages. A robot actuates in the physical world. A recommender rearranges information. The repository has its own list of things that only looked the same until the nouns were filled back in.
+Instagram steers through a screen. A neural coprocessor stimulates tissue. Information warfare intervenes through messages. A robot actuates in the physical world. A recommender rearranges information.
 
 The monkey project was refused while the technology was still fucking exciting. Crowdsurf was built while recommendation systems were already consuming the traces of human taste. The repository later kept proofs, counterexamples, failed controls, broken measurements, source boundaries and computational wins in the same tree.
-
-No invented revelation is needed between those facts.
