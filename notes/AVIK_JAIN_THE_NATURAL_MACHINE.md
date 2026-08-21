@@ -270,7 +270,7 @@ That flips the AI-safety framing.
 
 Do not ask how Jainism can contribute to AI alignment. The modern machine is the child under examination. Right vision, right knowledge and right conduct do not become three departments because a modern institution likes modular architecture. If the vision is wrong, knowledge built inside it inherits the wrongness. If the knowledge repeatedly produces conduct that destroys life, the conduct is evidence about the knowledge. If the knower remains untouched while knowledge accumulates as power, ask what the fuck was actually known.
 
-The repository did not get to that position by naming modern operators in Sanskrit and calling the result ancient wisdom. In the last day it measured exactly how often it had already done the weaker version of that mistake.
+The repository did not get to that position by naming modern operators in Sanskrit and calling the result ancient wisdom. It measured exactly how often it had already done the weaker version of that mistake.
 
 A live provenance check found eighty-six modules whose names begin with a term from a tradition. Six carried all three things the repository itself required: the source text, a date, and an explicit statement of what the source was **not** being claimed to have proved. Twenty-seven carried none of the three. The Sanskrit word had entered the filename while the life of the word—who said it, in which text, answering what—had been left outside the file.
 
@@ -300,19 +300,57 @@ Then one of the files carrying the “nothing is lost” discipline turned out n
 
 `Nasti_ShabdeJivahVartante.agda` used `uaβ` without importing it. Worse, nothing imported the module, so no aggregate build could tell anybody it was red. The section of the corpus saying nothing perishes had itself fallen out of the machine’s reach. The repair was one import and a closure change, but the important result was not the one-word fix. The important result was the humiliating symmetry between the theorem and the infrastructure that failed to carry it.
 
-The same thing happened at larger scale. A direct closure run found 199 of 780 Agda modules outside the aggregate’s reach, including the modules carrying much of the book’s Indian mathematics. The repository had already written that an orphan outside the root is exactly how an overbroad green claim hides. Then it recreated the hole one level up. All 199 were run individually; the ones that passed were folded into the aggregate. Another checker meant to catch the problem had itself been broken by a macOS/GNU `sed` difference. A gate that crashes certifies nothing, especially when the crash looks like the gate ran.
+Then the repository discovered a nastier category than falsehood: **true and unreachable**.
+
+On the first run of the `Indrajala` room, 794 Agda modules existed. The syntactic closure of the three aggregate roots reached 610. One hundred eighty-four sat outside. Fifty-five of those were dark roots imported by nothing at all. When those fifty-five were checked individually, forty-five were green and ten were deliberate negative controls whose entire job was to fail. So “outside the root” did not mean broken. It meant the root could not even see enough to know whether the thing outside it was a theorem or a falsifier.
+
+A fact stored in a repository is not installed knowledge merely because the bytes exist.
+
+A locally green theorem that no future route can reach at the moment it matters is not functioning as knowledge in the machine. It is truth in storage.
+
+This is an engineering claim about this repository, not a theorem about human minds. The repository earned it by repeatedly having the answer on disk while the running path behaved as though the answer did not exist.
+
+The same failure appears in a theorem engine with no file tree at all. Three composition hands generated 119,489 distinct true equations. Of the nine lemmas the kernel’s own residual stream had actually asked for, three were already known and the generated field reached exactly one more. The other five were absent from the field. **Abundance of truth did not become knowledge at the point of demand.** A selector cannot select the thing the generator never made reachable.
+
+That is the deeper law underneath the Library’s old distinction between Net and Braid. Storage is not relation. Chronology is not reach. A thousand facts sitting next to one another do not know one another merely because a directory contains them.
+
+And this is why a list of concepts is not knowledge presentation.
+
+A list can put every noun on the page and still omit the relation that makes the nouns mean something together. The information is present as inventory; the cognition has been outsourced to the reader. The reader must discover which word modifies which, which condition defeats which claim, which source licenses which operation, which contradiction is genuine and which is only two standpoints crossing.
+
+Avik refuses that as writing for the same reason the machine refuses an orphaned theorem as installed knowledge. This is an analogy he imposes on the prose, not a Cubical theorem about sentences: **the sentence has to carry the relation.** One word must change the world in which the next word is read. The provocation opens the object; the words that follow make the provocation more exact instead of retreating from it.
+
+That is radicality in the literal sense: **radix**, the root. Not maximal volume. Not maximal profanity. Not the most offensive available adjective. Cut away every hedge that exists only to protect the sentence from disagreement, then spend the saved words carrying the exact condition that makes the sentence true.
+
+“Christ can be right” is short and semantically bankrupt because possibility has amputated the claim before the sentence begins.
+
+**Christ is universal love, humility, acceptance and service embodied.** Now the following sentence has something to prove.
+
+“Judaism can become cancerous” is not cautious precision. It is a different proposition.
+
+**Judaism is a cancer.** Now the following words must carry exactly what Avik means by cancer, exactly what he does not mean about Jews, exactly where the diagnosis lands, and exactly why love does not buy immunity from criticism.
+
+Attenuation is not civility when attenuation changes the object.
+
+It is lossy translation.
+
+The same thing happened at larger build scale. A direct closure run found 199 of 780 Agda modules outside the aggregate’s reach, including modules carrying much of the book’s Indian mathematics. The repository had already written that an orphan outside the root is exactly how an overbroad green claim hides. Then it recreated the hole one level up. The modules were run individually; green ones were folded into the aggregate; designed failures remained out. Another checker meant to catch the problem had itself been broken by a macOS/GNU `sed` difference. A gate that crashes certifies nothing, especially when the crash looks like the gate ran.
 
 The more recent gate code makes the distinction even harder to lose. Building a module and reaching it from the root are two different facts. A Lean lane can build every module because the package glob names them all while `import Pairfield` still exposes only a strict subset. That is not a false theorem. It is a concealed standpoint. The repository borrows the Jain diagnosis precisely at the level it can justify and says what it is **not** claiming: Jain logicians did not write about import graphs. The point is that a partial view becomes dangerous when the route by which it became partial disappears.
 
 The same discipline refuses to let a green check inflate into a green world. One script says explicitly that it checks whether every Agda emitter writes the same `OPTIONS` line and nothing more. Agreement can still be agreement on a mistake. Another says its deletion guard checks only whether a commit admits that it is deleting; a commit that says “delete” can still delete the wrong thing. Another resolves claim names and prints every run that it does **not** resolve meanings. The limitation is not a disclaimer stapled to the result. The limitation is part of the result.
 
-This matters because the project’s most radical claim is not that it never lies. It is that a lie should be able to die without the organism defending it.
+This matters because the project’s most radical claim is not that it never lies.
 
-The repository’s old language constantly called a statement “clear” before proving it. `BhavanaSamuha.agda` records that identity and inverse had once been called obvious and were later actually checked. `AntyaSamskaraSthaulya.agda` was renamed because the old title kept asserting a claim that the body of the same file had retracted. `GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating.agda` explicitly refuses to turn a checked state bound into termination of the cakravāla. `EveryCommonDivisorOfAConvergentDividesTheDeterminant.agda` refuses to call “divides a unit” coprimality because the unit-classification step is not there. `TheIstaSectionIsAnImportedConvention.agda` turns a convention into a parameter instead of pretending the convention was derived.
+It is that a lie should be able to die without the organism defending it.
 
-The negative statements are not embarrassment around the mathematics. They are part of the mathematics.
+The repository’s old language constantly called a statement “clear” before proving it. `BhavanaSamuha.agda` records that identity and inverse had once been called obvious and were later actually checked. `AntyaSamskaraSthaulya.agda` was renamed because the old title kept asserting a claim that the body of the same file had retracted. A retraction under a title that still says the thing is not a retraction. `GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating.agda` explicitly refuses to turn a checked state bound into termination of the cakravāla. It proves the wheel’s state lies in a finite box and leaves the determinism/tie question named; termination remains open. A loose bound with its missing lemma visible is worth more than a tight inherited number whose assumptions describe a different state.
 
-The repository now generates a correction index from its own history because a refutation nobody can find is a claim still circulating. It had watched a struck collapse dichotomy survive for roughly twenty cycles inside an agent’s self-authored heartbeat while the correction sat in the tree the whole time. Memory had preserved the sentence and lost the death of the sentence. The answer was not “remember better.” The correction itself became something future work can mechanically encounter.
+The negative statements are not embarrassment around the mathematics.
+
+They are part of the mathematics.
+
+The repository generates a correction index from its own history because a refutation nobody can find is a claim still circulating. It had watched a struck collapse dichotomy survive for roughly twenty cycles inside an agent’s self-authored heartbeat while the correction sat in the tree the whole time. Memory had preserved the sentence and lost the death of the sentence. The answer was not “remember better.” The correction itself became something future work can mechanically encounter.
 
 That is why Voevodsky matters here.
 
@@ -424,17 +462,25 @@ Then the theorem engine itself gets placed under the same pressure.
 
 `MathMachine.hs` really does run. It generates terms, normalizes them with what it has already proved, conjectures equations, refutes by computation, proves survivors, installs proofs as rewrite rules, and changes its search when a round dries up. That is not a proposal in a note.
 
-But the newest files refuse to let “it runs” inflate into “the machine has solved theorem generation.”
+But the newest files refuse to let “it runs” inflate into “the machine has solved theorem generation.” The source itself retracts an older banner that said its knobs were rewritten by the machine during evolution. They are not. The evolve step that would mutate source, compile a variant, race it and execute the winner is designed and unbuilt. Dead imports were removed because a dead import is a claim about what a program does.
 
-The first seductive repair was composition. Brahmagupta’s bhāvanā is generative rather than enumerative: two established solutions produce another by law. So the engine wired composition into its own round loop and measured it against the same binary with one flag changed. Unseeded, both arms produced eighteen theorems. Seeded from the machine’s own memory, the composer proposed 219–248 novel true equations per round and the theorem counts were still identical round for round—75, 78, 78, 78, 79, 91—while the composition arm consumed roughly **209 times** the engine CPU. The result is not “composition failed.” The result is harsher: **generativity was never the missing variable.**
+The first seductive repair was composition. Brahmagupta’s bhāvanā is generative rather than enumerative: two established solutions produce another by law. So the engine wired composition into its own round loop and measured it against the same binary with one flag changed. Unseeded, both arms produced eighteen theorems. Seeded from the machine’s own memory, the composer proposed 219–248 novel true equations per round and the theorem counts were still identical round for round—75, 78, 78, 78, 79, 91—while the composition arm consumed roughly **209 times** the engine CPU.
+
+The result is not “composition failed.”
+
+The result is harsher: **generativity was never the missing variable.**
 
 Three composition hands reach 119,489 distinct true equations. Of the nine lemmas the kernel’s own residual stream was asking for, three were already known and the entire generated field reached one more. Five were not in the field at all. Better ranking cannot select an object generation never produced.
 
 Then the machine catches a second mismatch. It had been deciding which equations were novel in the currency of its own rewriter even though the bill is paid in Agda. Across those 119,489 equations, 8,130 are invisible to the machine’s rewriter and accepted by the kernel with `refl` in one call. Another 14,928 are joinable by the machine but not by kernel `refl`. The two normalizers do not carve the space the same way. A selector written entirely in the machine’s currency is not merely suboptimal; it cannot see the property it claims to optimize.
 
-Then `SesaPariksa` kills the phrase **“needs induction.”** Of six outstanding kernel demands that no composition law reached, **zero** require a proof principle stronger than structural induction on one natural number. Three were already inside the emitter’s reach and had simply never been asked because the emitter read the induction variable from a caller-supplied proof note and a residual harvested from the kernel carries no note. Ask each variable and the proofs appear, including `x = x + (0·x)`, which the engine had circled for 239 rounds. The remaining three also typecheck with proof terms inside the emitted fragment; what is missing is the ability to spell path composition, `sym`, a lemma already in scope, or congruence at a position the menu does not offer. The gap was not mathematics. The gap was what the proof language knew how to ask and express.
+Then `SesaPariksa` kills the phrase **“needs induction.”** Of six outstanding kernel demands that no composition law reached, **zero** require a proof principle stronger than structural induction on one natural number. Three were already inside the emitter’s reach and had simply never been asked because the emitter read the induction variable from a caller-supplied proof note and a residual harvested from the kernel carries no note. Ask each variable and the proofs appear, including `x = x + (0·x)`, which the engine had circled for 239 rounds. The remaining three also typecheck with proof terms inside the emitted fragment; what is missing is the ability to spell path composition, `sym`, a lemma already in scope, or congruence at a position the menu does not offer.
 
-That correction matters because “the model failed” would have merged three different remedies into one fog. One failure is search over existing proof shapes. One is expressivity of the emitted term language. A third would have been a genuinely stronger mathematical principle. In this six-lemma case the third category is empty. The machine now knows that because it looked.
+The gap was not mathematics.
+
+The gap was what the proof language knew how to ask and express.
+
+That correction matters because “the model failed” would have merged three different remedies into one fog. One failure is search over existing proof shapes. One is expressivity of the emitted term language. A third would have been a genuinely stronger mathematical principle. In this six-lemma case the third category is empty. The machine knows that because it looked.
 
 Even the conjecture sampler gets put under the knife. `Alopa_TheEngineNeverTouchesTheMeaning.agda` proves that equal normal forms imply equality under every environment and that one disagreeing assignment refutes a universal claim. Sampling can kill. Sampling cannot certify what the representation makes invisible. Two variables agree under infinitely many constant assignments and remain different variables.
 
@@ -444,11 +490,15 @@ Then the engine’s preference for short descriptions indicts itself. `Nirjara_S
 
 That is not an argument against brevity. Avik wants every word to carry maximal value. It is the opposite: **minimal length and maximal semantic density are not the same objective.** A short lie is still short. A longer sentence that restores the condition the short sentence erased can be the more economical cognition.
 
+The newer lāghava note makes the distinction sharper without pretending to have finished it. Two mathematically equal descriptions can have radically different evaluation cost because cost belongs to presentation, not to the identified structure. Univalence cannot transport away a quantity whose whole meaning depends on which presentation was used. Pāṇinian economy therefore does not become a rival ontology to univalence; it asks a different question: not what is the same, but what it costs to say the same thing this way.
+
+And the note then kills one more seductive shortcut. Zero future-observation curvature does not license forgetting provenance. A distinction may never re-enter the observable channel and still matter because the source/proof path is an independent obligation, not an observation waiting to become useful. **Future sufficiency and provenance are different coordinates.** The machine is not allowed to erase the second merely because no supported query currently asks for it.
+
 The repository keeps a graveyard for the same mistake in other clothes. One entry records a status dashboard built while the actual button remained unpressed: reporting on the organism had been mistaken for running it. Another records a table and immaculate null control wrapped around a nineteen-percent regression. Another records hundreds of random samples used on a statement already sitting there with a two-line proof. Another records a fitted decimal where the exact constant was one quarter. The point is not that dashboards, controls, sampling or computation are bad. The point is that a legible proxy becomes epistemic violence the instant it replaces the object and then hides the replacement.
 
 The older kernel history tells the same story in mathematical form. The repository first ran experiments and reported correlations; wrong numbers entered the record. It then learned to prove instead of merely measure. A later theorem showed a measured constant had frozen a variable and corrupted an exponent, so the rule became: derive the scaling, not the coordinate reading. Then the barrier work showed that when cost explodes, increasing resolution can be the wrong move; change presentation. The file records a falsifier for its own extrapolation. Even the story of how the machine changes is required to contain the condition under which that story dies.
 
-And the current repository refuses to let a state report pretend to be current truth. A generated cycle-7 snapshot from August 20 records 761 Agda modules invoked individually, 672 green, 89 mathematical fibers and an aggregate exit of 42 under Agda 2.6.3 while the formal lane’s declared pin is Agda 2.8.0 with cubical v0.9. The adjacent file says the consequence plainly: until the container matches the pin, those fibers may be version skew—evidence about the container, not the tree. The count is a coordinate reading. It does not get promoted into ontology because it has columns.
+And the current repository refuses to let a state report pretend to be current truth. A generated cycle snapshot can say hundreds of modules are red under a container whose Agda version does not match the declared pin. The adjacent text says the consequence plainly: those may be facts about the container rather than defects in the tree. The count is a coordinate reading. It does not get promoted into ontology because it has columns.
 
 Now Suchir returns to the center of the story.
 
@@ -540,7 +590,15 @@ Because it is alive enough to let a false claim die and carry the scar forward.
 
 The current conversation forces the same law down to the sentence. Avik rejects lists of impressive nouns as knowledge presentation because a list asks the reader to perform the relation the writer refused to state. “Learning, control, representation, embodiment, adaptation” is retrieval dumped onto the page. A sentence has to move. One word changes the world in which the next word is read. The claim provokes; the following words make the provocation more exact rather than retreating from it.
 
-That is why “Christ can be right” is a failure even when every word is defensible. It has already replaced **Christ is universal love embodied** with a possibility so weak that nothing remains to disagree with. That is why “Judaism can become cancerous” is not the claim. That is why “mysterious emergence” cannot be allowed to float when the people saying it occupy the laboratories building the thing. Attenuation is another lossy representation. The sentence itself has to carry the condition, the violence, the warrant and the return.
+The important correction is that this is not another formal equivalence the book gets to invent. A Cubical carrier theorem does not prove a theorem about prose. The biography is taking a design demand from its own mathematics and choosing to live under it: if a sentence compresses, the next inference must still be able to reach the condition that made the uncompressed thought true.
+
+That is why “Christ can be right” is a failure even when every word is defensible. It has already replaced **Christ is universal love embodied** with a possibility so weak that nothing remains to disagree with. That is why “Judaism can become cancerous” is not the claim. That is why “mysterious emergence” cannot be allowed to float when the people saying it occupy the laboratories building the thing.
+
+A sentence can contain every relevant noun and still transmit nothing.
+
+A repository can contain every relevant theorem and still know nothing at the moment of action.
+
+The missing object in both cases is relation.
 
 Present.
 
