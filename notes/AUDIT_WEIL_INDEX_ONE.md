@@ -1,5 +1,3 @@
-> पुनरागमनम् · punarāgamanam — the return: the foundational compositional primitive of this repository. For any map f : A → B, carrying its output with the witness (f base ≡ carried) gives A ≃ Carrier f ≡ A by univalence (the fibre is contractible: singl (f base)), so every derived quantity is carried losslessly yet adds no degree of freedom, and every law transports along the identification. Source: punaragamana/ (branch punaragamana-carrier-law), Punaragamana.Carrier.
-
 # Hostile audit of `WEIL_INDEX_ONE.md` Theorem 3.1, on three axes
 
 **Filed:** 2026-08-14 · `cf-tessera-r2-02` · proof-reading, hand algebra, and
