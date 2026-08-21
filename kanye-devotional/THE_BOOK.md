@@ -435,19 +435,99 @@ the highest suicide rates in medicine.
 
 ---
 
-In October 2022 he said things about Jewish people in public that were vile,
-and he kept saying them. adidas ended the partnership. The company had been
-paying him something like two hundred million dollars a year against roughly
-one and a half billion in revenue, and it was most of what made him a
-billionaire, and it went. People who had nothing to do with him were frightened
-in their own cities because of what he said.
+Nineteen days passed between adidas saying the partnership was under review and
+adidas ending it.
 
-In January 2026 he wrote this: "In early 2025, I fell into a four-month long
-manic episode of psychotic, paranoid and impulsive behavior that destroyed my
-life… there were times I didn't want to be here anymore."
+October 3, 2022, Paris: the White Lives Matter shirt. October 6 and 7: Fox News
+aired a two-night interview with Tucker Carlson. October 6: adidas said the
+partnership was under review. October 8: the "death con" post. October 22: men
+hung a banner over the 405 freeway in Los Angeles reading that he was right
+about the Jews, and gave the salute over the traffic. October 25: adidas
+terminated. Balenciaga, Gap, CAA and Foot Locker followed within days. December
+1: the Alex Jones broadcast, and the remarks about Hitler.
 
-Both of those are on the record. He has not withdrawn the first by writing the
-second, and nobody has to accept the second to know the first happened.
+Around October 10, Vice's Motherboard published footage from the Carlson
+interview that Fox had not aired. Fox had cut antisemitic conspiracy material
+and other content out of the tape and run the remainder across two nights in
+prime time as a conversation about culture.
+
+The adidas line had been paying him something in the region of two hundred
+million dollars a year against roughly one and a half billion in revenue, and it
+was most of what made him a billionaire. Reporting afterward established that
+staff had raised concerns about his conduct for years, including a letter from
+employees, and that executives had not acted. The line was worth something in
+the region of a fifth of the company's net income.
+
+In January 2026 he bought a full page in the Wall Street Journal. He wrote that
+in early 2025 he fell into a four-month manic episode of psychotic, paranoid and
+impulsive behavior that destroyed his life; that there were times he did not
+want to be here anymore; that he is not a Nazi and that he loves Jewish people.
+He wrote that he had a right frontal lobe injury from the 2002 crash, that it
+was never scanned for at the time, and that it was diagnosed in 2023.
+
+They wired the jaw shut for six weeks in 2002 and nobody looked at the head.
+
+---
+
+Deuteronomy 20:16 and 17 say that of the cities of these peoples you shall save
+alive nothing that breathes.
+
+1 Samuel 15:3 is the instruction concerning Amalek: man and woman, infant and
+suckling, ox and sheep. Ḥerem is a legal category in the text, and the narrative
+treats the failure to carry it out as the sin.
+
+On October 28, 2023, Benjamin Netanyahu said, remember what Amalek did to you.
+The sentence appears in South Africa's application to the International Court of
+Justice, among the statements of intent it gathers.
+
+What is documented in Gaza and not in dispute: tens of thousands of deaths; the
+majority of the built environment destroyed or damaged; the population displaced
+repeatedly inside a closed territory; famine conditions determined by the
+international classification system. Proceedings are before the International
+Court of Justice. Warrants have been sought at the International Criminal Court.
+Named officials have stated the land as a purpose in their own words, in public,
+on the record — settlement, population transfer, development of the territory
+after clearance.
+
+The Canaan model travelled. Puritan New England used it by name. Afrikaner
+covenant theology used it by name. Manifest Destiny used it by name.
+
+---
+
+Marek Edelman was the last surviving commander of the Warsaw Ghetto Uprising,
+and in 2002 he wrote an open letter to Palestinian militant commanders.
+
+He addressed them as commanders of a resistance and asked them to stop killing
+civilians. He had stayed in Poland his whole life and refused Zionism.
+
+In December 1948, four months after the state was founded, Albert Einstein and
+Hannah Arendt signed a letter to the New York Times, with a group of other
+Jewish intellectuals, on the occasion of Menachem Begin's American tour. It
+described his party in explicit terms as closely akin in organization and method
+to fascist parties, and cited Deir Yassin.
+
+Arendt spent the rest of her life being attacked for Eichmann in Jerusalem. Her
+friendship with Gershom Scholem broke over it. He wrote to her that she lacked
+Ahavat Yisrael, love of the Jewish people. She wrote back that she had never in
+her life loved any people or collective, only her friends.
+
+Satmar and other Haredi lines held from the beginning that a state established
+by human political action before the messianic age was a category error.
+
+---
+
+Abraham Joshua Heschel marched at Selma in 1965, in the front row, arms linked
+with King, and wrote afterward that he felt his legs were praying.
+
+He had left Warsaw six weeks before the invasion. His mother and his sisters
+died in the Shoah. Ten days before the assassination he introduced King at a
+rabbinical assembly in the terms of prophecy.
+
+Jewish participation in the Freedom Rides and in SNCC was disproportionate.
+Goodman and Schwerner were murdered alongside Chaney in Mississippi in 1964. The
+alliance fractured in the late sixties and after — over Black Power, over
+Zionism, over the neighbourhoods, over who got to speak — and the fracture is
+now complete enough that both sides have mostly forgotten it was there.
 
 ---
 
