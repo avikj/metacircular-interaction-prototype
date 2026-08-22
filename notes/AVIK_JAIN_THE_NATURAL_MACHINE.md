@@ -553,3 +553,21 @@ A result can be stored.
 A measurement has to be runnable.
 
 And a runnable result can become the next question.
+
+---
+
+The next correction is about **what “current” means inside a corrected file**.
+
+The recency-biased pass hit `NaturalMachine.agda` itself. Its aggregate root is executable, but the same live file also carries its correction history. One block says `WalkFastInstance` was killed with exit 137 and remained outstanding. A later block, still in the current file, marks both parts stale: the module had already been imported elsewhere, and clean pinned runs exited 0; the OOM was contention, not the mathematics. The same root first records two DSONucleus checks as unrun, then a later block marks that status superseded after both were rewritten to share intermediate profiles, checked, and imported. A later fold-in records that the claim that the root reached the whole subtree had rotted for the fourth time—and that the closure checker meant to catch the drift was itself dying on a GNU-only `sed -i` before it computed any closure.
+
+`Everything.agda` carries the same kind of scar: its own header says a once-true coverage sentence became false as new modules arrived. `BUILD.md` likewise preserves corrections to older green states instead of pretending the old sentence was never written. In this corpus, **a current file can contain a stale claim on purpose because the correction lives beside it.**
+
+That changes how live-state absorption has to work. File recency is not claim recency. Presence in `main` is not endorsement of every sentence in the blob. A block explicitly marked superseded is evidence that the earlier state existed and that the repository learned something; it is not a second current verdict to average with the correction. Reading only the newest file, without reading the relation among the claims inside it, can still recover an obsolete state.
+
+The executable root and the historical root therefore have different roles even when they occupy the same file. Imports determine one current closure. Comments can preserve the path by which that closure was mismeasured, repaired, and misdescribed. Deleting the stale sentences would make the file cleaner and the correction less inspectable; treating them as still-live claims would make the file contradictory. The relation is **superseded by**.
+
+This pass does not turn every comment into evidence or every correction marker into truth. It makes a narrower demand on the Natural Machine: when the corpus preserves both a claim and its in-place retraction, the representation has to carry the arrow between them.
+
+A file can be current while a sentence inside it is not.
+
+Correction is part of the state.
