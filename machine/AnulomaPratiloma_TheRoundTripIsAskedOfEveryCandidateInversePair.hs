@@ -70,7 +70,7 @@ module Main (main) where
 
 import Control.Monad (forM, forM_, when)
 import Data.Char (isSpace, isAlphaNum)
-import Data.List (isPrefixOf, isSuffixOf, nub, foldl')
+import Data.List (isPrefixOf, isSuffixOf, nub, foldl', intercalate)
 import qualified Data.Map.Strict as M
 import System.Directory (doesDirectoryExist, listDirectory, createDirectoryIfMissing)
 import System.Environment (getArgs, lookupEnv)
@@ -78,6 +78,40 @@ import System.FilePath ((</>), takeExtension, takeBaseName)
 import System.IO (hSetEncoding, stdout, utf8)
 
 data Sig = Sig { sMod :: String, sName :: String, sFrom :: String, sTo :: String }
+
+-- RUNG TWO.  Bhedanirnaya_….agda §6 states the ladder in its own words --
+-- "one induction to agree pointwise, one abstraction to a path".  Rung one
+-- (λ _ → refl) came back EMPTY on all 39 candidates, so the bottom of the
+-- ladder is genuinely empty in this corpus and the cheap harvest is zero.
+--
+-- Rung two reads the HOST's own `data T … where` block and splits pointwise
+-- on its constructors.  Only NULLARY constructors are handled: for an
+-- enumerated type every branch is `refl` and the split is mechanical, while
+-- a constructor carrying arguments needs a recursive call and that is rung
+-- three.  Stated so "no split emitted" is never read as "no equivalence".
+data Datatype = Datatype { dName :: String, dCons :: [String] }
+
+readData :: String -> [Datatype]
+readData src = go (lines src)
+  where
+    go [] = []
+    go (l:ls)
+      | "data " `isPrefixOf` l, (_:nm:_) <- words l, last (words l) == "where"
+          = let (blk, rest) = span indented ls
+            in Datatype nm (nullaryCons blk) : go rest
+      | otherwise = go ls
+    indented (c:_) = isSpace c
+    indented _     = True
+    -- a constructor line `  c : T` with no arrow is nullary
+    nullaryCons blk = [ c | b <- blk, Just (c, ty) <- [breakColon b]
+                      , let c' = trim c
+                      , not (null c'), all (\x -> isAlphaNum x || x `elem` "-_'₀₁₂₃₄₅₆₇₈₉") c'
+                      , not (elem '→' ty) ]
+
+splitFor :: [Datatype] -> String -> String
+splitFor dts ty = case [ d | d <- dts, dName d == trim ty, not (null (dCons d)) ] of
+  (d:_) -> "(λ { " ++ intercalate " ; " [ c ++ " → refl" | c <- dCons d ] ++ " })"
+  []    -> "(λ _ → refl)"
 
 main :: IO ()
 main = do
@@ -90,6 +124,7 @@ main = do
   createDirectoryIfMissing True scratch
   fs <- listAgda "formal/cubical"
   sigs <- concat <$> mapM readSigs fs
+  dtsByMod <- M.fromList <$> mapM (\p -> do { s <- readFile p; let { m = modNameOf s p }; return (m, readData s) }) fs
   let byMod = M.fromListWith (++) [ (sMod s, [s]) | s <- sigs ]
       pairs = [ (f, g)
               | (_, ss) <- M.toList byMod
@@ -111,7 +146,7 @@ main = do
   forM_ (zip [1 :: Int ..] keep) $ \(i, (f, g)) -> do
     let nm = "AnulomaPratiloma_" ++ sanitize (sMod f) ++ "_"
              ++ sanitize (sName f) ++ "_" ++ sanitize (sName g)
-        body = probe nm f g
+        body = probe nm f g (M.findWithDefault [] (sMod f) dtsByMod)
     writeFile (scratch </> nm ++ ".agda") body
     putStrLn $ "  PROBE " ++ show i ++ "  " ++ sMod f ++ " : "
                ++ sName f ++ " ⇄ " ++ sName g
@@ -123,8 +158,8 @@ main = do
   putStrLn "  Those that do not land NOTHING — road two, written not asserted."
   putStrLn ""
 
-probe :: String -> Sig -> Sig -> String
-probe nm f g = unlines
+probe :: String -> Sig -> Sig -> [Datatype] -> String
+probe nm f g dts = unlines
   [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
   , "-- Emitted by अनुलोम-प्रतिलोम.  CHECKED IN PLACE before landing; nothing"
   , "-- lands that the kernel has not accepted.  The claim is exactly that the"
@@ -155,7 +190,9 @@ probe nm f g = unlines
   , "-- determine, and every failure above was that assertion disagreeing with"
   , "-- the host.  The types are CARRIED; the functions are the base.  Agda"
   , "-- infers them, and then there is nothing to disagree with."
-  , "मार्गः = iso " ++ sName f ++ " " ++ sName g ++ " (λ _ → refl) (λ _ → refl)"
+  , "मार्गः = iso " ++ sName f ++ " " ++ sName g
+          ++ " " ++ splitFor dts (sTo f)   -- rightInv: split on the codomain
+          ++ " " ++ splitFor dts (sFrom f) -- leftInv : split on the domain
   , ""
   , "समता = isoToEquiv मार्गः"
   , ""
@@ -177,6 +214,12 @@ listAgda root = go root
           isD <- doesDirectoryExist p
           if isD then (if e `elem` ["_build", "Ratri", "MachineMinted"] then pure [] else go p)
                  else pure [ p | takeExtension p == ".agda" ]
+
+modNameOf :: String -> FilePath -> String
+modNameOf src fp = case [ w | l <- lines src, "module " `isPrefixOf` l
+                        , (w:_) <- [drop 1 (words l)] ] of
+  (x:_) -> x
+  []    -> takeBaseName fp
 
 readSigs :: FilePath -> IO [Sig]
 readSigs fp = do
