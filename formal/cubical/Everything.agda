@@ -960,3 +960,39 @@ import NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne
 -- prove everything downstream by `subst`, with no induction on either side.
 import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
 import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
+
+-- नय — Theorem F's mechanism at the grain of the identification graph:
+-- a SET-valued observable annihilates every loop, the loop is still not
+-- `refl`, and dropping the set-truncation is the whole of the escape.
+-- Plus: on a graph whose edges are identifications, antisymmetry is free,
+-- so the causal-order reading of `Setubandha`'s reachability is vacuous.
+import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere
+import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
+
+-- अनुलोम-प्रतिलोम's 39-pair work queue, worked by hand.  The proposer
+-- reported 0/39 at every rung and concluded the corpus has no cheap
+-- equivalence harvest; sixteen of the 39 were already proved in the host
+-- file the proposer read, and of the rest these three modules close two
+-- edges, refute four pairs, and separate two type pairs outright.
+import Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup
+import Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence
+import Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree
+
+-- ── समुच्चयः, 2026-08-22 ─────────────────────────────────────────────────
+-- Eight modules that were on disk and outside every root's import closure,
+-- so nothing rechecked them and no green covered them.  Each was run
+-- individually before being wired: all eight EXIT 0 under Agda 2.8.0 +
+-- cubical v0.9 (the pin).  Found by
+-- `runghc machine/Samuccaya_…hs`, which also found that the two shell
+-- closure gates were reporting 17 FALSE orphans, because their module-name
+-- regex is ASCII-only and those modules are named `…_ℤ±`, `…Occupancy₄`,
+-- `…_विवेक`.
+import DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation
+import PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant
+import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect
+import Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt
+import Sakaladesa_NoSingleUtteranceDenotesTheTotalStatementAndTheContentNonethelessFolds
+import Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem
+import VajraAbhyasa_TheCrossProductIsOneAndTheNextClassIsExactlyMinusM
+import YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther
+import Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion

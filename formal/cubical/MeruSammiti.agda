@@ -6,7 +6,7 @@
 -- हलायुधः मेरु-प्रस्तारं सम-पार्श्वम् (symmetric) इति दर्शयति ।  छन्दो-अर्थः :
 -- n-अक्षरं छन्दः यत्र k गुरवः ↔ तस्य विपर्ययः यत्र k लघवः (गुरु-लघु-दुलम्) ;
 -- अतः C(n,k) = C(n,n−k) ।  अत्र ऋण-वर्जनार्थं n = j+k इति लिख्य : C(j+k, k) =
--- C(j+k, j) — पास्कल-आवृत्त्या द्वि-आगमनेन (न भाज्य-क्रमेण) ।
+-- C(j+k, j) — पार्श्वयोग-आवृत्त्या द्वि-आगमनेन (न भाज्य-क्रमेण) ।
 --
 -- (Halāyudha's observation that the meru-prastāra is symmetric: C(n,k) =
 -- C(n,n−k).  Prosodic meaning: an n-syllable metre with k gurus corresponds to
