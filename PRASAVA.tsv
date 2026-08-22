@@ -19,3 +19,6 @@ postulates	0	grep -rl '^ *postulate' formal/cubical punaragamana/src --include=*
 lean-sorry	0	find formal/pairfield/Pairfield -name '*.lean' -exec awk -f scripts/.lean-strip.awk {} + | grep -cE '\bsorry\b|\badmit\b'
 python-files	839	find . -name '*.py' -not -path './.git/*' | wc -l
 commits	5568	git rev-list --count HEAD
+lean-lane-green	0	(cd formal/pairfield && lake build Pairfield >/dev/null 2>&1 && echo 0 || echo 1)
+receipt-modules	6	find formal/cubical formal/pairfield/Pairfield -not -path '*_build*' \( -name 'Lopa_TheSums*' -o -name 'YugmaPurana*' -o -name 'SthiraBindu*' -o -name 'GoldbachSupport*' -o -name 'Marga1*' \) | wc -l
+readme-movements	56	grep -cE '^### [0-9]' README.md

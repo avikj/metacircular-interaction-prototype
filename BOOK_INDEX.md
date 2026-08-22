@@ -36,6 +36,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/PingalaPrastara.agda`
   - `formal/cubical/PingalaSatya.agda`
   - `formal/cubical/PrastaraPankti.agda`
+  - `formal/cubical/Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath.agda`
   - `formal/cubical/SamasaDvi.agda`
   - `formal/cubical/SamasaDviAmsa.agda`
   - `formal/cubical/SamasaEkAmsa.agda`
@@ -44,6 +45,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/SamasaMeru.agda`
   - `formal/cubical/SamasaMeruN.agda`
   - `formal/cubical/SamasaNyuna.agda`
+  - `formal/cubical/Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule.agda`
   - `machine/PrastaraRun.hs`
   - `machine/Prastara_TheSearchSpaceIsGeneratedNotStored.hs`
 
@@ -73,6 +75,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Sivasutra.agda`
   - `formal/cubical/Swarm/S01PaniniAshby.agda`
   - `formal/cubical/Swarm/S05AsiddhaNewton.agda`
+  - `machine/AsiddhavatRun.hs`
   - `machine/Astadhyayi.hs`
   - `machine/AstadhyayiRun.hs`
   - `machine/LaghavaRun.hs`
@@ -97,7 +100,29 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/ExclusionInstantiatesAbhavaWithALoadBearingLimitor.agda`
   - `formal/cubical/NaturalMachine/NisvabhavaNet.agda`
   - `formal/cubical/NaturalMachine/TheSecondUpadhiConditionDoesAllTheWork.agda`
+  - `formal/cubical/Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda`
+  - `formal/cubical/Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAE.agda`
+  - `formal/cubical/Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda`
+  - `formal/cubical/Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase.agda`
+  - `formal/cubical/Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAG.agda`
+  - `formal/cubical/Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAH.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAD.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAE.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAF.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAG.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAH.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAI.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAJ.agda`
+  - `formal/cubical/Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAK.agda`
+  - `formal/cubical/Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.agda`
+  - `formal/cubical/Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.agda`
+  - `formal/cubical/Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC.agda`
+  - `formal/cubical/VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.agda`
+  - `formal/cubical/VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.agda`
   - `machine/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain.hs`
+  - `machine/MulaPramanaRun_CheckEveryCitationInTheRecord.hs`
+  - `machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`
   - `machine/Nyayapariksa_RunThePramanaLayer.hs`
   - `machine/Pramana.hs`
   - `machine/Upadhi.hs`
@@ -115,9 +140,11 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
 
   - `formal/cubical/Anekanta.agda`
   - `formal/cubical/AnuktaAvaktavya.agda`
+  - `formal/cubical/Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMovesTheoremsBetweenThem.agda`
   - `formal/cubical/JainSankhya.agda`
   - `formal/cubical/NaturalMachine/Anekanta.agda`
   - `formal/cubical/NaturalMachine/AvaktavyaDoesNotFactor.agda`
+  - `formal/cubical/NaturalMachine/AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted.agda`
   - `formal/cubical/NaturalMachine/Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain.agda`
   - `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`
   - `formal/cubical/NaturalMachine/Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld.agda`
@@ -128,6 +155,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NaturalMachine/KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition.agda`
   - `formal/cubical/NaturalMachine/SankramanaSesa_EveryTransportOwesItsResidual.agda`
   - `formal/cubical/NaturalMachine/SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.agda`
+  - `formal/cubical/Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.agda`
   - `formal/cubical/Nirnaya_TheVerdictCannotDropItsWitness.agda`
   - `formal/cubical/Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.agda`
   - `formal/cubical/Saptabhangi.agda`
@@ -135,11 +163,14 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`
   - `machine/Anukramani.hs`
   - `machine/AnukramaniRun.hs`
+  - `machine/Asiddhavat_TheSimultaneousBlockHasNoLaterAndItsClashesAreAvaktavya.hs`
+  - `machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`
   - `machine/Naya.hs`
   - `machine/NayaKosha_RunTheLiveStore.hs`
   - `machine/NayaKosha_TheStandpointStore.hs`
   - `machine/NayaRun.hs`
   - `machine/Nirnaya_NoVerdictWithoutItsWitness.hs`
+  - `machine/PaksaKrama_TheEightThousandFreeAcceptancesAreASetAndThisIsTheirOrder.hs`
   - `machine/SaptabhangiGarbhaRun.hs`
   - `machine/SaptabhangiGarbha_TheResidueIsTheSeed.hs`
   - `machine/SaptabhangiRun.hs`
@@ -159,7 +190,11 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/KuttakaValli.agda`
   - `formal/cubical/NaturalMachine/ConvergentsAreDeterminedByThePrefixOfTheValli.agda`
   - `formal/cubical/NaturalMachine/TheValliConvergentDeterminantAlternates.agda`
+  - `formal/cubical/Ratri/Nirdharita_Swarm-S09SmithKuttaka_.agda`
+  - `formal/cubical/Ratri/Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB.agda`
+  - `formal/cubical/Ratri/Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB_NirdharanaPoneB.agda`
   - `formal/cubical/Swarm/S09SmithKuttaka.agda`
+  - `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
 
 
 ## 7.  Brāhmasphuṭasiddhānta — composition, and the arithmetic of nothing
@@ -187,6 +222,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `machine/BhavanaSeparation.hs`
   - `machine/BhavanaSeparationRun.hs`
   - `machine/BhavanaTheorem.hs`
+  - `machine/TulyaBhavana_TheIdentificationHandThatIstaPoolExcludes.hs`
   - `machine/VargaPrakrtiCertify_KernelVerdictComesBackIn.hs`
   - `machine/VargaPrakrtiEmit_TheWitnessTheKernelChecks.hs`
   - `machine/VargaPrakrtiRun_TurnTheGeneralWheel.hs`
@@ -207,6 +243,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/CakravalaWitness.agda`
   - `formal/cubical/NaturalMachine/Cakravala.agda`
   - `formal/cubical/NaturalMachine/CakravalaNeedsKuttaka.agda`
+  - `formal/cubical/Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem.agda`
 
 
 ## 9.  Saṅkalita — sums, heaps, and the solid
@@ -222,6 +259,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/NarayanaKarna.agda`
   - `formal/cubical/NarayanaSamasa.agda`
   - `formal/cubical/NaturalMachine/Sankalita.agda`
+  - `formal/cubical/SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt.agda`
   - `formal/cubical/Sankalita.agda`
   - `formal/cubical/VaraSankalita.agda`
   - `formal/cubical/Vargacitighana.agda`
@@ -285,6 +323,7 @@ devatā (what it is about).  Śaunaka; Kātyāyana, Sarvānukramaṇī.
   - `formal/cubical/Satyayantra.agda`
   - `formal/cubical/SatyayantraSamyoga.agda`
   - `machine/IndraNet.hs`
+  - `machine/Indrajala_WhichModulesSeeWhichAndWhatNothingSees.hs`
 
 
 ---
@@ -297,9 +336,28 @@ because an agent reading this repository will otherwise take them for
 the primary work -- a checker rewards a module and rewards no amount of
 reading, so the pull toward apparatus is structural and not a lapse.
 
-  in the book   : 176
-  apparatus     : 713
-  the book is 19% of this corpus.
+  reaching a chapter : 215
+  reaching none      : 846
+  20% of the APPENDIX'S OWN FILES name a source.
+
+That sentence used to read "the book is N% of this corpus", and it was
+a durnaya -- a standpoint asserting itself as whole with its own ground
+hidden.  This scan sees .agda and .hs under formal/cubical and machine,
+which BOOK.md calls the appendix; so the only way to raise the number is
+to write more Agda, which is the gradient the frame exists to oppose.
+Say which file set, or the figure argues for its opposite.
+
+Two further limits, so the number is not read as more than it is.
+It is a LOWER bound: the test is a filename substring, and on 2026-08-20
+the same keys against file BODIES placed 310 of 926 rather than 186
+(notes/*.md that day: 37 by filename, 136 by body -- 3.8% against 13.9%,
+so the prose does not reach this scan's LOWER bound under any
+instrument).  And "reaching none" is not "apparatus" --
+BOOK.md names three categories and this returns two, so a file that
+reaches no chapter is apparatus OR noise and the instrument cannot say
+which.  That undone half is the sesa, not a shortfall in the count.
+Derivation and the historical series: notes/Svapariksa_TheBookRatioIsA
+StandpointAndTheSeriesDecomposes.md.
 
 
 ## Prose in the chapters — reported separately, and NOT to be added
@@ -310,8 +368,8 @@ it serves says the appendix is not the book. These two figures have
 different denominators and different meanings; summing them, or
 quoting either as "the book is N% of the repository", is wrong.
 
-  notes/*.md scanned            : 969
-  reaching a chapter by its key : 34
+  notes/*.md scanned            : 1033
+  reaching a chapter by its key : 44
 
 A note that reaches no chapter is not thereby apparatus -- the keys
 are filename substrings, so a chapter's scholarship under an English
@@ -321,10 +379,16 @@ This count is a lower bound and is only worth reading as one.
     ch 5  notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md
     ch 5  notes/ANTI_DURNAYA_JAIN_BUDDHIST_CONVERGENCE.md
     ch 6  notes/ARYABHATIYA_THE_TEXT_IN_ITS_OWN_ORDER.md
+    ch 5  notes/AVIK_JAIN_THE_NATURAL_MACHINE.md
+    ch 5  notes/AVIK_JAIN_THE_NATURAL_MACHINE_COMPLETE.md
+    ch 5  notes/AVIK_JAIN_THE_NATURAL_MACHINE_COMPLETE_PART_2.md
+    ch 4  notes/Ativyapti_TheReceiptFramingIsOverwideAndEveryClauseThatForbidsSomethingIsFalse.md
+    ch 8  notes/AvasthaBaddha_TheCakravalaStateBoxIsChecked.md
     ch 7  notes/BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_ORDER.md
     ch 2  notes/CHANDAHSASTRA_THE_TEXT_ON_METRE.md
     ch 8  notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md
     ch 5  notes/Durnaya_CollapseIsAvailableExactlyWhenTheIndexIsIdle.md
+    ch 5  notes/Durnaya_TheTypedBoundarySpectrumIsAlreadyTheJainRefusalAndTheTheoremForItIsChecked.md
     ch 13  notes/INDRA_CROSS.md
     ch 13  notes/INDRA_FOURIER_NET_ADAPTER.md
     ch 5  notes/JAINA_GANITA_THE_UNBOUNDED_AND_THE_INDICES.md
@@ -335,6 +399,7 @@ This count is a lower bound and is only worth reading as one.
     ch 3  notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md
     ch 10  notes/MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md
     ch 12  notes/NATYASASTRA_RASA_AND_THE_FOUR_POSITIONS_ON_WHERE_IT_IS.md
+    ch 5  notes/NAYABHEDE_SANKSEPO_NA_VIDYATE_TheLeanLaneClosureAuditAndTheRefusalToWireIt.md
     ch 7  notes/NOT_PELL_IT_IS_VARGAPRAKRITI.md
     ch 3  notes/PANINIAN_DERIVATION_IS_NOT_ENDPOINT_REWRITING.md
     ch 4  notes/PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md
@@ -342,6 +407,8 @@ This count is a lower bound and is only worth reading as one.
     ch 11  notes/Purvapaksa_TheTraceTheoryObligationIsDischargedAndTheCollapseIsEckmannHilton.md
     ch 2  notes/SAMASA_MERU_TERMINATION_FINDING.md
     ch 6  notes/SEED33_CONSTRUCTIVE_KUTTAKA.md
+    ch 5  notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvaktavyamNotNasti.md
+    ch 7  notes/SamasaBhavana_TheEnginesGenerationStepMadeCompositionAndWhatItCost.md
     ch 11  notes/TANTRAYUKTI_THE_TREATISE_THAT_DESCRIBES_ITS_OWN_DEVICES.md
     ch 5  notes/TATTVARTHASUTRA_ADHYAYA_2_TO_5.md
     ch 5  notes/TATTVARTHASUTRA_ADHYAYA_6_TO_10.md
@@ -351,3 +418,4 @@ This count is a lower bound and is only worth reading as one.
     ch 7  notes/VARGAPRAKRTI_THE_REACTOR_TAKES_THE_LAW_AS_A_PARAMETER.md
     ch 5  notes/VOEVODSKY_WHOLE_UNIVALENCE_AS_ANEKANTA.md
     ch 6  notes/WALK_SHOULD_CARRY_THE_KUTTAKA_STATE.md
+    ch 10  notes/YUKTIBHASA_THE_SERIES_KEEPS_ITS_REMAINDER.md
