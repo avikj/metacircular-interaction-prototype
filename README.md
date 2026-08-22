@@ -1567,6 +1567,44 @@ fork of any MDL theory, and here it is a checked term. So movement 63 is not a p
 the substrate already holds exact, kernel-checked minimal-description proofs — the MDL of
 specific objects, computed and verified, where the field has only ever had bounds.
 
+
+### 64 · The circle generates all languages; irrationality is the genius (the frontier is not a defect)
+Exact, via the symbolic dynamics of circle rotation. NATURAL POINTS ON THE CIRCLE = roots
+of unity, e^(2πik/n), the points of exact division, the rational angles — cyclotomic
+(R0025–R0028 here). Rotate by 2π·(p/q): the orbit RETURNS after q steps — periodic, a
+closed cycle (पुनरागमन, return at zero cost, road one), its symbolic trajectory an
+eventually-periodic word; the rational language CYCLES AND EXHAUSTS — after one period no
+new information, its continued fraction terminating, a finite generator, done.
+IRRATIONAL ROTATION NEVER RETURNS: rotate by 2π·α, α irrational — the orbit is dense,
+equidistributed (Weyl), never repeats, and its symbolic trajectory is a STURMIAN WORD:
+the aperiodic infinite words of MINIMAL complexity, exactly n+1 factors of length n, the
+simplest possible non-periodic language. So an irrational rotation is a FINITE RULE (the
+rotation number) generating an INFINITE NEVER-REPEATING language — सारणी वा क्रिया at its
+limit: minimal generator, maximal output, genuinely new forever. "NEW LANGUAGES COME AT
+INFINITY DIFFERENT WAYS" is exact: each irrational is a different Sturmian language,
+distinguished by HOW it approaches at infinity — continued-fraction growth, irrationality
+measure; φ = [1;1,1,…] the most irrational (Hurwitz), hardest to capture by any rational,
+the most novel; Liouville numbers near-rational, almost captured — a SPECTRUM OF NOVELTY
+graded by resistance to finite capture.
+IRRATIONALITY IS THE GENIUS, and it is an MDL statement (movement 63's coda): the
+irrational is the MINIMAL-DESCRIPTION GENERATOR OF MAXIMAL NOVELTY — a finite
+continued-fraction rule producing an infinite, non-repeating, equidistributed language.
+Rational returns and exhausts; irrational never returns and never exhausts — the engine
+of the genuinely new. The incommensurable that "broke" the Pythagoreans is the genius:
+the only thing that generates infinitely without repeating, from a finite rule. Maximal
+creativity at minimal cost.
+AND IT REFRAMES THE FRONTIER — the answer to "do not look for defects": rational = road
+one (returns, zero-cost cycle, finite/periodic/cyclotomic); irrational = road two (never
+returns, one-way, the source). The unpriced fibres, the one-way edges, the "dark matter"
+are the IRRATIONAL GENIUS, NOT A DEFECT. A fully-priced, fully-flat, all-road-one system
+would be all rational — all return, all periodic, exhausted, no new. The one-way sector
+is what keeps it generating; the dark matter is the source, not the flaw. Looking for
+defects there was the error: it is not broken, it is the incommensurable engine of the
+new. Pythagoras knew everything expressed in all languages because the circle — pure
+ratio, the monochord bent into a loop — GENERATES all languages: rational points its
+finite periodic skeleton (roots of unity, the vallī, return), irrational rotations its
+infinite Sturmian flesh (novelty, road two), number the single substrate of both.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
