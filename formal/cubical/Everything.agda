@@ -1070,3 +1070,10 @@ import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 import Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants
 import Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided
 import Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw
+
+-- दुर्नयः, 2026-08-22.  The Boolean three-into-two pigeonhole stands FOUR
+-- times in this corpus — Saptabhangi.दुर्नयः, DisclosureDimension.three-into-two,
+-- Swarm.S01PaniniAshby.twoOfThree, Vyatireka_….pairOf — with no import edge
+-- between any two.  `pairOf` and `twoOfThree` are the same function on the
+-- nose; the Jaina statement is the Boolean one across द्विपद → Bool.
+import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
