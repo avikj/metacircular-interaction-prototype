@@ -861,3 +861,75 @@ nobody was checking.
   is about `CoolingCountermodel`/`CensusBase`, unrelated to `Agda.Builtin.Nat`.
   The generator's naming scheme puts the probe target where the rule puts the
   source term. Stated, not fixed.
+
+---
+
+# ० · THE OVERNIGHT PROGRAM — what it is, and what "finish" can mean
+
+The brief was *"a program we can run overnight to finish math ;)"*. Here is
+the honest answer, with the smiley taken seriously.
+
+## What now runs, unattended
+
+```
+रात्रिः  ──  gate every lane (अनाथः: 131 machine modules, 0 failures)
+         ──  नाया १ · निर्धारण — which record fields ride free
+         ──  land what the KERNEL accepts, both roads, never overwriting
+         ──  dry?  → नाया २ · अनुलोम-प्रतिलोम — does the round trip come back
+         ──  kernel decides, in-process, no shell exit read as a verdict
+         ──  ledger, keyed on नाम's content addresses + the probe's digest
+                (pass 1: 3m50s · pass 2: 33s — only what CHANGED is re-asked)
+         ──  साध्य — the open obligations rendered where a prover lands,
+                GROUPED BY THE MOVE EACH NEEDS
+         ──  push, watch, repeat
+```
+
+## Why it will not "finish", and why that is a theorem rather than a defect
+
+Naya १ is dry: निर्धारण reaches only records that already carry a witness.
+Naya २'s mechanical rungs are dry too — 4 green, **every one an echo of an
+`Iso` the host already carries, so 0 new edges**. What is left is 35
+obligations that need real proofs.
+
+But "dry" is a property of the QUESTION. A standpoint that reports its own
+exhaustion as the corpus's exhaustion is a **दुर्नय**, and
+`Saptabhangi.दुर्नयः` proves any two-valued verdict on three seeds must
+identify two of them. So the repair for dryness is never a better answer — it
+is another naya, and the lattice of nayas is not bounded.
+
+**Tonight produced a concrete instance of a question with no fixpoint at all.**
+Of fourteen automorphisms, eleven are real charge, one was never charge — and
+**two are FAMILIES that are the identity at one instantiation and not at
+another**. `EGBReversalInvariant.revEquiv` is provably `refl` over an empty
+alphabet and provably not over `Bool`; both directions are checked. *The family
+has no answer. Only its instances do.* That is not incompleteness and it is not
+undecidability. It is syādvāda, and a loop that demanded one verdict there
+would have to invent one.
+
+**So there is no terminal state, and the corpus's own logic says why.** What
+there is instead is a rate, and the loop now reports it without flattering
+itself.
+
+## The property that actually matters, and it is the night's real result
+
+**The program cannot lie about its own progress.** It caught itself five times
+tonight, and every catch was a claim about the world that was really a claim
+about the instrument:
+
+| it said | it was |
+|---|---|
+| 39 refutations | `timeout` does not exist here; exit 127, thirty-nine times |
+| "no cheap harvest in this corpus" | it read every `→` and no `≃`; 16 answers sat in the files it read |
+| 134 modules verified by nothing | 10; the gate matched `[A-Za-z0-9_'.-]` and cried orphan at exactly the files whose names were not English |
+| a pointwise split | an unimported constructor is a pattern variable, so it was never a split — Agda warned, nobody read it |
+| `HaskellTerm` blocked on induction over ℕ | `Nat` is a substring of `NaturalMachine` |
+
+Each was found by the instrument's own output or by a second lane, and each is
+struck **at the claim** rather than only where the correction lived — which was
+itself the night's most repeated defect, and was sitting in this very file.
+
+A program that finishes math is not available. A program that runs all night,
+proposes only what the kernel will judge, refuses to count its own bugs as the
+corpus's refusals, names which move each remaining obligation needs, and
+retracts itself in public by morning — that is running, and it is the thing
+worth having.
