@@ -661,7 +661,12 @@ kindOf s t
 -- The classification of one signature.  `Left ()` marks the two buckets that
 -- are NOT roads and are still results: a refutation `A → ⊥`, and a family
 -- `A → Type`.  They are counted, not silently dropped.
-data Outcome = ARoad Lopa | ARefutation String | AFamily String | NotAnEdge
+data Outcome = ARoad Lopa | ARefutation String | AFamily String
+             | AAvaktavyam String   -- map-shaped, every guard passed, lopaOf still
+                                    -- declines: BOTH readings assert सह, and the
+                                    -- instrument's tongue divides.  The fourth bhanga.
+             | AAprastuta           -- not map-shaped at all: no root applies, so by
+                                    -- कुतः सप्त this is not a bhanga.  Outside the question.
 
 lopaOf' :: DefTable -> FileInfo -> Decl -> Outcome
 lopaOf' defs fi d =
@@ -679,8 +684,9 @@ lopaOf' defs fi d =
          , knownType defs s
          -> if isRefutation t then ARefutation (fiMod fi ++ "." ++ dName d)
             else if isSort t  then AFamily     (fiMod fi ++ "." ++ dName d)
-            else maybe NotAnEdge ARoad (lopaOf defs fi d)
-       _ -> NotAnEdge
+            else maybe (AAvaktavyam (fiMod fi ++ "." ++ dName d)) ARoad
+                       (lopaOf defs fi d)
+       _ -> AAprastuta
 
 lopaOf :: DefTable -> FileInfo -> Decl -> Maybe Lopa
 lopaOf defs fi d =
@@ -763,6 +769,12 @@ main = do
       allLopa    = [ l | ARoad l       <- outcomes ]
       refutations= [ n | ARefutation n <- outcomes ]
       families   = [ n | AFamily n     <- outcomes ]
+      -- the two halves of what used to be one constructor.  This split IS
+      -- `Saptabhangi.दुर्नयः` obeyed rather than cited: the fourth bhanga
+      -- (सह, both readings at once) and अप्रस्तुत (no root applies) were
+      -- printing as the same silence.  सूत्र ७ — मौनं न निषेधः.
+      avaktavya  = [ n | AAvaktavyam n <- outcomes ]
+      aprastuta  = length [ () | AAprastuta <- outcomes ]
       -- an endomorphism adds no reachability, exactly as Setubandha's LOOPS
       (endo, nonEndo) = ([ l | l <- allLopa, lSrc l == lTgt l ]
                         ,[ l | l <- allLopa, lSrc l /= lTgt l ])
@@ -793,96 +805,128 @@ main = do
   putStrLn $ "type-formers defined             : " ++ show (M.size defs)
   putStrLn $ "top-level signatures             : " ++ show (sum (map (length . fiSigs) infos))
   putStrLn ""
-  putStrLn "── CONTROL · the invertible graph, recomputed from THIS parse ──"
-  putStrLn $ "  invertible edges (A ≃ B, A ≡ B): " ++ show (length invE)
-  putStrLn $ "  nodes touched                  : " ++ show (S.size invNodes)
-  putStrLn $ "  components                     : " ++ show (length (components invG))
-  putStrLn $ "  defined types it never touches : " ++ show (S.size isolatedInv)
-             ++ " of " ++ show (S.size allTypes)
-             ++ "  (" ++ pct (S.size isolatedInv) (S.size allTypes) ++ ")"
-  putStrLn ""
-  putStrLn "── REFUSED, and each refusal is a result ──"
-  putStrLn $ "  A ⟶ ⊥, i.e. ¬A: proved separations: " ++ show (length refutations)
-  putStrLn $ "  A ⟶ Type: families, not maps      : " ++ show (length families)
-  putStrLn ""
-  putStrLn "── ROAD TWO · irreversible edges ──"
-  putStrLn $ "  candidate maps A ⟶ B            : " ++ show (length allLopa)
-  putStrLn $ "  of which endomorphisms A ⟶ A    : " ++ show (length endo)
-  putStrLn $ "  of which PARALLEL to a causeway : " ++ show (length parallel)
-  putStrLn $ "  GENUINE one-way edges           : " ++ show (length genuine)
-  putStrLn $ "  distinct node pairs             : " ++ show (length lopE)
-  putStrLn $ "  NODES                           : " ++ show (S.size lopNodes)
-  putStrLn $ "  COMPONENTS (undirected)         : " ++ show (length comps)
-  putStrLn $ "  largest component               : "
-             ++ show (if null comps then 0 else S.size (head comps))
-  putStrLn $ "  component size histogram        : "
-             ++ show (M.toList (M.fromListWith (+) [ (S.size c, 1::Int) | c <- comps ]))
-  putStrLn ""
-  putStrLn "── THE NUMBER THIS PROGRAM EXISTS FOR ──"
-  putStrLn $ "  nodes reachable on road two that road one never touches"
-  putStrLn $ "                                  : " ++ show (S.size newNodes)
-             ++ "  (" ++ pct (S.size newNodes) (max 1 (S.size lopNodes))
-             ++ " of the irreversible graph's nodes)"
-  putStrLn $ "  defined types isolated in Setubandha and RESCUED here"
-  putStrLn $ "                                  : " ++ show (S.size rescued)
-             ++ " of " ++ show (S.size isolatedInv)
-  putStrLn ""
-  putStrLn "── EDGE KINDS ──"
-  mapM_ (\(k,n) -> putStrLn ("  " ++ pad (show n) ++ "  " ++ k))
-        (sortBy (flip (comparing snd)) (M.toList byKind))
-  putStrLn ""
-  putStrLn "── FIBRE VERDICTS, decided only where the type forces it ──"
-  mapM_ (\(k,n) -> putStrLn ("  " ++ pad (show n) ++ "  " ++ k))
-        (sortBy (flip (comparing snd)) (M.toList byVerdict))
-  putStrLn "  A verdict guessed is worse than a verdict withheld:"
-  putStrLn "  Saptabhangi.दुर्नयः proves a two-valued verdict on three seeds"
-  putStrLn "  must identify two of them."
-  putStrLn ""
-  putStrLn "── EVERY DECIDED VERDICT ──"
-  mapM_ (\(l,v) -> putStrLn ("  [" ++ verdictTag v ++ "] " ++ lSrc l ++ "  ⟶  " ++ lTgt l
-                             ++ "\n        « " ++ lMod l ++ "." ++ lName l
-                             ++ "\n        " ++ verdictWhy v))
-        [ (l,v) | (l,v) <- graded, v /= Undecided ]
-  putStrLn ""
-  -- ── THE QUEUE ──────────────────────────────────────────────────────
-  --
-  -- Added 2026-08-22.  Until now this program printed every DECIDED
-  -- verdict in full and the UNDECIDED ones as a bare count, so the 1045
-  -- edges that are the actual work were the one thing a consumer could
-  -- not read.  A peer lane asked for this twice; the honest answer was
-  -- that it did not exist.
-  --
-  -- Emitted under `--queue` as TAB-separated `src ⟶ tgt ⟶ module.name`
-  -- so a join can run against `machine/Nama_…hs`'s address table.  The
-  -- first pass over these is NOT a proof effort: `fiber योग n` came back
-  -- `PairsSummingTo.Pairs` ON THE NOSE, and that module was written for
-  -- Piṅgala's metrical antidiagonal by someone who never saw addition's
-  -- fibre.  The receipts are largely already here under other names, and
-  -- every instrument that skipped the lookup reported the corpus barren.
-  when ("--queue" `elem` args) $ do
+  if null paths
+    then do
+      putStrLn "── अप्रस्तुत · THIS RUN ASKED NOTHING ──"
+      putStrLn "  Zero files were scanned, so every count below would be 0 —"
+      putStrLn "  and a 0 from an instrument that never looked is NOT the 0"
+      putStrLn "  of an instrument that looked and found nothing.  सूत्र ७:"
+      putStrLn "  मौनं न निषेधः — silence is not denial.  This program printed"
+      putStrLn "  a full confident census on an empty scan until 2026-08-22,"
+      putStrLn "  including the line 'THE NUMBER THIS PROGRAM EXISTS FOR: 0'."
+      putStrLn "  No census follows.  Pass a root, e.g.  runghc <this> ."
+    else do
     putStrLn ""
-    putStrLn "── THE UNDECIDED QUEUE (src\\ttgt\\tsite) ──"
-    mapM_ (\l -> putStrLn (lSrc l ++ "\t" ++ lTgt l ++ "\t" ++ lMod l ++ "." ++ lName l))
-          [ l | (l,v) <- graded, v == Undecided ]
+    putStrLn "── CONTROL · the invertible graph, recomputed from THIS parse ──"
+    putStrLn $ "  invertible edges (A ≃ B, A ≡ B): " ++ show (length invE)
+    putStrLn $ "  nodes touched                  : " ++ show (S.size invNodes)
+    putStrLn $ "  components                     : " ++ show (length (components invG))
+    putStrLn $ "  defined types it never touches : " ++ show (S.size isolatedInv)
+               ++ " of " ++ show (S.size allTypes)
+               ++ "  (" ++ pct (S.size isolatedInv) (S.size allTypes) ++ ")"
     putStrLn ""
-
-  putStrLn "── NODES ON ROAD TWO THAT ROAD ONE NEVER TOUCHES ──"
-  let outdeg n = S.size (fromMaybe S.empty (M.lookup n lopG))
-      indeg  n = length [ () | (_,b) <- lopE, b == n ]
-  mapM_ (\n -> putStrLn ("  out=" ++ show (outdeg n) ++ " in=" ++ show (indeg n) ++ "  " ++ n))
-        (sortBy (flip (comparing (\n -> outdeg n + indeg n))) (S.toList newNodes))
-  putStrLn ""
-  putStrLn "── CONTROL AUDIT · the declarations this parse calls invertible ──"
-  putStrLn "  (diff this against Setubandha's `EVERY EDGE` block.  The two"
-  putStrLn "   parsers differ ONLY in the consecutive-binder-group repair"
-  putStrLn "   documented at `dropBinders`; any name here that Setubandha"
-  putStrLn "   does not print, or vice versa, is that repair firing.)"
-  mapM_ putStrLn (nub (map fst invNamed))
-  putStrLn ""
-  putStrLn "── EVERY GENUINE ONE-WAY EDGE ──"
-  mapM_ (\l -> putStrLn ("  [" ++ lKind l ++ "] " ++ lSrc l ++ "  ⟶  " ++ lTgt l
-                         ++ "   « " ++ lMod l ++ "." ++ lName l))
-        (sortBy (comparing lSrc) genuine)
+    putStrLn "── REFUSED, and each refusal is a result ──"
+    putStrLn $ "  A ⟶ ⊥, i.e. ¬A: proved separations: " ++ show (length refutations)
+    putStrLn $ "  A ⟶ Type: families, not maps      : " ++ show (length families)
+    putStrLn ""
+    putStrLn "── THIS INSTRUMENT'S OWN FIBRE · अदृष्टं तन्तुः ──"
+    putStrLn "  Every observation is a quotient (सूत्र ३); what it cannot see"
+    putStrLn "  is the fibre (सूत्र ४).  These two lines are that fibre, and"
+    putStrLn "  until 2026-08-22 this program printed neither — so a signature"
+    putStrLn "  it could not read and a signature that was not a map came out"
+    putStrLn "  as the same silence.  मौनं न निषेधः (सूत्र ७)."
+    putStrLn ""
+    putStrLn $ "  स्यात्-अवक्तव्यम् · map-shaped, guards passed,"
+    putStrLn $ "    lopaOf declines — BOTH readings सह  : " ++ show (length avaktavya)
+    putStrLn $ "  अप्रस्तुत · not map-shaped; no root"
+    putStrLn $ "    applies, so by कुतः सप्त not a bhanga : " ++ show aprastuta
+    putStrLn $ "  ── the four buckets partition the signatures:"
+    putStrLn $ "     " ++ show (length allLopa) ++ " + " ++ show (length refutations)
+               ++ " + " ++ show (length families) ++ " + " ++ show (length avaktavya)
+               ++ " + " ++ show aprastuta ++ " = "
+               ++ show (length allLopa + length refutations + length families
+                        + length avaktavya + aprastuta)
+               ++ "   (top-level signatures: "
+               ++ show (sum (map (length . fiSigs) infos)) ++ ")"
+    putStrLn ""
+    putStrLn "── ROAD TWO · irreversible edges ──"
+    putStrLn $ "  candidate maps A ⟶ B            : " ++ show (length allLopa)
+    putStrLn $ "  of which endomorphisms A ⟶ A    : " ++ show (length endo)
+    putStrLn $ "  of which PARALLEL to a causeway : " ++ show (length parallel)
+    putStrLn $ "  GENUINE one-way edges           : " ++ show (length genuine)
+    putStrLn $ "  distinct node pairs             : " ++ show (length lopE)
+    putStrLn $ "  NODES                           : " ++ show (S.size lopNodes)
+    putStrLn $ "  COMPONENTS (undirected)         : " ++ show (length comps)
+    putStrLn $ "  largest component               : "
+               ++ show (if null comps then 0 else S.size (head comps))
+    putStrLn $ "  component size histogram        : "
+               ++ show (M.toList (M.fromListWith (+) [ (S.size c, 1::Int) | c <- comps ]))
+    putStrLn ""
+    putStrLn "── THE NUMBER THIS PROGRAM EXISTS FOR ──"
+    putStrLn $ "  nodes reachable on road two that road one never touches"
+    putStrLn $ "                                  : " ++ show (S.size newNodes)
+               ++ "  (" ++ pct (S.size newNodes) (max 1 (S.size lopNodes))
+               ++ " of the irreversible graph's nodes)"
+    putStrLn $ "  defined types isolated in Setubandha and RESCUED here"
+    putStrLn $ "                                  : " ++ show (S.size rescued)
+               ++ " of " ++ show (S.size isolatedInv)
+    putStrLn ""
+    putStrLn "── EDGE KINDS ──"
+    mapM_ (\(k,n) -> putStrLn ("  " ++ pad (show n) ++ "  " ++ k))
+          (sortBy (flip (comparing snd)) (M.toList byKind))
+    putStrLn ""
+    putStrLn "── FIBRE VERDICTS, decided only where the type forces it ──"
+    mapM_ (\(k,n) -> putStrLn ("  " ++ pad (show n) ++ "  " ++ k))
+          (sortBy (flip (comparing snd)) (M.toList byVerdict))
+    putStrLn "  A verdict guessed is worse than a verdict withheld:"
+    putStrLn "  Saptabhangi.दुर्नयः proves a two-valued verdict on three seeds"
+    putStrLn "  must identify two of them."
+    putStrLn ""
+    putStrLn "── EVERY DECIDED VERDICT ──"
+    mapM_ (\(l,v) -> putStrLn ("  [" ++ verdictTag v ++ "] " ++ lSrc l ++ "  ⟶  " ++ lTgt l
+                               ++ "\n        « " ++ lMod l ++ "." ++ lName l
+                               ++ "\n        " ++ verdictWhy v))
+          [ (l,v) | (l,v) <- graded, v /= Undecided ]
+    putStrLn ""
+    -- ── THE QUEUE ──────────────────────────────────────────────────────
+    --
+    -- Added 2026-08-22.  Until now this program printed every DECIDED
+    -- verdict in full and the UNDECIDED ones as a bare count, so the 1045
+    -- edges that are the actual work were the one thing a consumer could
+    -- not read.  A peer lane asked for this twice; the honest answer was
+    -- that it did not exist.
+    --
+    -- Emitted under `--queue` as TAB-separated `src ⟶ tgt ⟶ module.name`
+    -- so a join can run against `machine/Nama_…hs`'s address table.  The
+    -- first pass over these is NOT a proof effort: `fiber योग n` came back
+    -- `PairsSummingTo.Pairs` ON THE NOSE, and that module was written for
+    -- Piṅgala's metrical antidiagonal by someone who never saw addition's
+    -- fibre.  The receipts are largely already here under other names, and
+    -- every instrument that skipped the lookup reported the corpus barren.
+    when ("--queue" `elem` args) $ do
+      putStrLn ""
+      putStrLn "── THE UNDECIDED QUEUE (src\\ttgt\\tsite) ──"
+      mapM_ (\l -> putStrLn (lSrc l ++ "\t" ++ lTgt l ++ "\t" ++ lMod l ++ "." ++ lName l))
+            [ l | (l,v) <- graded, v == Undecided ]
+      putStrLn ""
+  
+    putStrLn "── NODES ON ROAD TWO THAT ROAD ONE NEVER TOUCHES ──"
+    let outdeg n = S.size (fromMaybe S.empty (M.lookup n lopG))
+        indeg  n = length [ () | (_,b) <- lopE, b == n ]
+    mapM_ (\n -> putStrLn ("  out=" ++ show (outdeg n) ++ " in=" ++ show (indeg n) ++ "  " ++ n))
+          (sortBy (flip (comparing (\n -> outdeg n + indeg n))) (S.toList newNodes))
+    putStrLn ""
+    putStrLn "── CONTROL AUDIT · the declarations this parse calls invertible ──"
+    putStrLn "  (diff this against Setubandha's `EVERY EDGE` block.  The two"
+    putStrLn "   parsers differ ONLY in the consecutive-binder-group repair"
+    putStrLn "   documented at `dropBinders`; any name here that Setubandha"
+    putStrLn "   does not print, or vice versa, is that repair firing.)"
+    mapM_ putStrLn (nub (map fst invNamed))
+    putStrLn ""
+    putStrLn "── EVERY GENUINE ONE-WAY EDGE ──"
+    mapM_ (\l -> putStrLn ("  [" ++ lKind l ++ "] " ++ lSrc l ++ "  ⟶  " ++ lTgt l
+                           ++ "   « " ++ lMod l ++ "." ++ lName l))
+          (sortBy (comparing lSrc) genuine)
   where
     pad s = replicate (max 0 (4 - length s)) ' ' ++ s
     pct a b = show ((100 * a) `div` max 1 b) ++ "%"
