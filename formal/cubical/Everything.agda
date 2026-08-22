@@ -1011,3 +1011,12 @@ import Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree
 -- सामान्तर-सङ्कलित — landed by another lane and outside every root's
 -- closure at the moment समुच्चय ran.  Runs individually at EXIT 0 on the pin.
 import SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt
+
+-- ── समुच्चयः, 2026-08-22 (second pass) ────────────────────────────────────
+-- Four more modules that arrived by merge from origin already committed and
+-- already outside every root's closure — long-standing rot, not new work.
+-- All four run individually at EXIT 0 on the pin.
+import CenterRelativeWeightTransport
+import ContractibleFiberSectionBoundary
+import SexticParityEliminant
+import SmithDeterminantClassMultiplicativity

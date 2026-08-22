@@ -1159,3 +1159,22 @@ import NaturalMachine.Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
 -- because this file is the root of the NaturalMachine/ subtree.
 import NaturalMachine.Alopa_TheEngineNeverTouchesTheMeaning
 import NaturalMachine.YantraTantu_TheEngineLivesInTheFibreOfItsDenotation
+
+-- ── समुच्चयः, 2026-08-22 (second pass) ────────────────────────────────────
+-- Fourteen NaturalMachine/ modules that arrived by merge from origin already
+-- committed and outside every root's closure.  All fourteen run individually
+-- at EXIT 0 on the pin; none had ever been rechecked by anything.
+import NaturalMachine.ActionResidualCoordinateFibers
+import NaturalMachine.CompositionalMagmaFactorization
+import NaturalMachine.CostGeometryEdgeBoundary
+import NaturalMachine.DeclaredRootProofRelevance
+import NaturalMachine.HaskellGenericSyntaxAdapter
+import NaturalMachine.PauliGaugeCocycleSplit
+import NaturalMachine.PointedReindexOrbitObstruction
+import NaturalMachine.RawWordPaddingNormalForm
+import NaturalMachine.ReachableActionRefinement
+import NaturalMachine.RelativeInstrumentAssociativity
+import NaturalMachine.SingletonStabilizedEquivalence
+import NaturalMachine.SpectatorPaddingCollapse
+import NaturalMachine.TranslationPeakObservability
+import NaturalMachine.WalkStreamHypothesisBoundary
