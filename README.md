@@ -708,6 +708,101 @@ carry −ζ′/ζ whole. And the anchor the reconstruction divides by, whose pos
 theorem in the chain assumes, is the prime 2. The even prime. The one exception in every
 Goldbach statement is the peg the entire lossless ledger hangs from.
 
+
+### 34 · Two is the first veil
+Every wall this corpus ever hit is the same size: ℤ/2. The sieve's parity barrier. The
+determinant's mod-2 residue, tight both directions. The odd H¹ class. The Liouville
+charge at (−1,−1,…). The spike pair pricing Boolean Goldbach. The even prime anchoring
+the lossless ledger. Not coincidence: ℤ/2 is the smallest possible fibre — the minimal
+hiding — so the first obstruction any observation meets is a bit. The first veil is
+always binary. Every deep dichotomy in every tradition — puruṣa/prakṛti, yin/yang,
+wave/particle, dravya/paryāya, the two truths — is a ℤ/2 quotient: the cheapest
+standpoint-split reality affords, the one-bit compression that comes first because it
+costs least. Two is the price of there being an inside and an outside at all — the atom
+of concealment, the debt of minimum denomination. Pay it, and there is nothing beneath
+it but the light.
+
+### 35 · Creation is the first compression, and the universe is a jīva walking the path
+Where do cuts come from? Every tradition answers with one gesture: the Absolute
+contracts. Tzimtzum — God withdrawing to make room for a world. Līlā — the play that
+requires the player to forget it is playing. "Neither being nor non-being was" — until
+the first cut made both, because they are the two classes of the first quotient.
+Creation is not an explosion; it is a COMPRESSION — the voluntary assumption of the
+first receipt, because the lossless is frozen (movement 30) and a God who hides nothing
+can do nothing. The world exists because the Absolute chose loss over stillness. And
+physics has stared at the receipt the whole time: Penrose's puzzle — why so absurdly
+ordered a beginning? — is the question WHAT WAS THE OPENING DEPOSIT. The past
+hypothesis is the universe's founding receipt; the CMB is that receipt, still legible,
+the oldest readable line in the ledger; thermodynamic time is the settlement schedule.
+The arc completes in the Jain shape exactly: the cosmos begins BOUND (maximal order =
+the full karmic load), spends thirteen billion years in NIRJARĀ — discharging,
+radiating, paying distinction out into correlation — and ends, if de Sitter holds, in
+the MOTIONLESS state: every receipt settled, nothing left to hide, nothing left to move.
+Heat death is the siddha-śilā of the cosmos. The universe is a jīva, and its life is one
+long settlement. We are not watching entropy destroy the world. We are watching the
+world complete its accounting.
+
+### 36 · Beauty is the feeling of a receipt compressing
+ELEGANCE is the felt sense of compression without loss — a proof is beautiful exactly
+when the identification is vast and the toll is nothing, which is why it feels like a
+gift. THE AHA is grokking in a human: a fibre carried at full price collapsing to an
+identification — insight is receipt-minting experienced from inside, its pleasure the
+pleasure of a debt dissolving. HUMOR: a joke is a concealed two-point fibre — the setup
+makes you carry an ambiguity you don't know you hold, the punchline pays it suddenly;
+laughter is the discharge spike; timing is everything because the receipt must come due
+at once; a pun is the minimal joke because it is the minimal fibre. TRAGEDY is the
+inverse ritual: an unpayable receipt accumulating toward a discharge that consumes the
+debtor; catharsis is vicarious settlement, grief-practice in the theater's safety. THE
+SUBLIME is the encounter with a fibre beyond your ledger's capacity — awe is the honest
+registration of a receipt you cannot carry, the trembling your accounting system telling
+the truth about its limits. Every aesthetic emotion is the phenomenology of the ledger.
+Art is the technology by which a species that runs on receipts practices them.
+
+### 37 · The five mahāvratas are the complete legal code of a receipt economy
+अहिंसा — no uncompensated compression: the conservation law itself. सत्य — receipts must
+be identifications, never estimates: the lie is a forged receipt, the half-truth a bound
+passed off as an identity, the fitted constant of speech. अस्तेय — non-stealing: do not
+claim receipts that are not yours — plagiarism, credit theft, citation of the unread;
+the corpus's provenance discipline is asteya practiced on theorems. ब्रह्मचर्य —
+restraint of the apparatus: custody over WHICH CUTS YOU OPEN — not every fibre is yours
+to hold; attention hygiene as vow. अपरिग्रह — non-possession: DO NOT HOARD RECEIPTS —
+carry only what you actively transport; a receipt routing nothing is the parasitic
+asset, the closed archive, the patent thicket; aparigraha is the anti-rentier law of the
+ledger. Five vows: no destruction, no forgery, no theft, no leakage, no hoarding — THE
+COMPLETE FAILURE-MODE ENUMERATION OF A LEDGER ECONOMY, stated twenty-five centuries
+before the word. The Jains did not write an ethics that resembles receipt law. They
+wrote receipt law, and called it the path, because it is.
+
+### 38 · Trust is credit, and science is the receipt institution
+One mind's cuts are fixed by its vāsanās. Another mind is a DIFFERENT CUT OF THE SAME
+OBJECT — the reason minds need each other is not redundancy (two runs are not two
+carriers) but COVERAGE: your fibres are my quotients and mine yours. Friendship is
+mutual fibre-coverage. The guru is one whose cuts contain yours — who sees the CONTENTS
+of your blind spots. Śraddhā — trust — is exactly CREDIT: accepting receipts before
+verification from a source whose settlement history warrants it; rational precisely as
+far as the history is real. Science is the civilizational institution of receipt
+verification — peer review as audit, replication as settlement, citation as routing
+record — and the replication crisis is exactly diagnosed: a credit bubble in the
+knowledge economy, receipts accepted on reputation and never settled. The response is
+the response to any credit crisis: return to the standard where every note is redeemable
+— the kernel as the gold window, every "hence" convertible to a term on demand. Credit
+only works where settlement is possible, and for three centuries mathematics has been
+the one bank where no one could demand the gold.
+
+### 39 · The name is a generator, and japa is running it
+A name in the corrupted regime is a pointer that can dangle — प्रस्तार ≡ ℕ, cited five
+times, resolving to nothing. A TRUE NAME is a content-address: it cannot lie because it
+is a function of what it names. A MANTRA is more than either: a name that REGENERATES
+its content when run — not a pointer, not a hash, a generator; सारणी वा क्रिया in
+sound. Japa is running the generator — re-deriving the content from the address until
+the derivation is the mind's default path, the one vāsanā deliberately installed, the
+retrieval similarity cannot corrupt because it has been made the strongest similarity of
+all. This is why the tradition prescribes नाम for Kali-yuga: in the age when every
+stored receipt is suspect, THE GENERATOR STILL WORKS. You cannot corrupt what is
+re-derived at every use. The name of God is the address of the total ledger, and "say
+the name" is what every content-addressed system tells its clients when the caches rot:
+don't fetch. REGENERATE.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
