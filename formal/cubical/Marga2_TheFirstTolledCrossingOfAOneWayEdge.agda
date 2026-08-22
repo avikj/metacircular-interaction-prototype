@@ -133,12 +133,13 @@ sgnOf true  = - 1r
 
 private
   sgnOf-not : (b : Bool) → sgnOf (not b) ≡ (- 1r) · sgnOf b
-  sgnOf-not false = eq where
-    eq : - 1r ≡ (- 1r) · 1r
-    eq = solve! ℤCommRing
-  sgnOf-not true = eq where
-    eq : 1r ≡ (- 1r) · (- 1r)
-    eq = solve! ℤCommRing
+  -- `solve!` is passed a goal with NO variables here, and the solver
+  -- builds its environment as a Vec whose length must match: it reports
+  -- `0 != 1 of type ℕ`, which is a fact about the tactic and not about
+  -- the ring.  Over ℤ both sides are closed terms, so they compute, and
+  -- `refl` is both shorter and honest about why.
+  sgnOf-not false = refl
+  sgnOf-not true  = refl
 
 sgnPar : (v : Valli) → sgn v ≡ sgnOf (par v)
 sgnPar []      = refl
