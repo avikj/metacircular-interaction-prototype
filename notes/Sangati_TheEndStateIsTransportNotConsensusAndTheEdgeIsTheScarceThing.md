@@ -165,3 +165,69 @@ Checked terms behind every claim above: `punaragamana/src/`,
 `formal/cubical/NaturalMachine/Pratyabhijna_*`, `machine/Nama_*`.
 Not yet checked, and named as owed: the edge graph itself, its diameter,
 and the routing. An agent is building it now.*
+
+---
+
+# ७ · CORRECTED 2026-08-22, THE SAME NIGHT, BY AN AGENT SENT TO TEST IT
+
+All three questions put to the physics lane came back **REJECTED**, and two of
+the rejections land on this file. They are recorded here, at the claim,
+because the recurring finding of this night is that corrections get marked and
+claims do not.
+
+## ७.१ · §१ is half wrong: "many equilibria" does not reach the charged sector at this grain
+
+Theorem F derives invariance from **uniqueness**. But a transport-respecting
+observable is invariant for free — `cong` gives it, with no hypothesis
+whatever. So at the grain of the identification graph the mechanism of
+Theorem F is not doing the work §१ credited it with.
+
+Checked, in `formal/cubical/Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere.agda`
+(exit 0): **every set-valued observable annihilates every loop**, no hypothesis
+needed — and the loop is still not `refl`, and an untruncated observable sees
+it at full strength. **Set-truncation is the whole of the blindness.**
+
+And the charge is not where §१ put it. A transport-respecting observable is
+constant on components and free to differ *between* them, so **the components
+are the NEUTRAL sector**. The charge lives in the **loops** — of which
+`Setubandha` counts 14 and files as "no reachability", i.e. as nothing.
+
+This file's own Pratyabhijñā paragraph already said the neighbouring true
+thing one paragraph later. The error was crediting Theorem F with a grain it
+does not act at, not the conclusion that decentralization is forced.
+
+## ७.२ · Indra's net cannot be one component, and this is a theorem
+
+§२ was written as though connectivity were a limit the corpus is heading
+toward. **It is unreachable in principle.**
+
+`Unit` and `Bool` are both nodes of the identification graph. A path between
+them would compose, by `compEquiv`, to `Unit ≃ Bool` — and `¬ (Unit ≃ Bool)`
+is checked in this corpus **twice**. Six further forbidden pairs were found,
+one of them `ℕ` against `ℕ → Bool` **by Cantor's diagonal, sitting on the
+graph's own hub**.
+
+So the jewels do not all reflect each other, and no amount of work will make
+them. The 73 components are not a deficiency to be closed; **an upper bound on
+connectivity is imposed by the separations themselves**, and every proved
+separation is a wall that no future edge can cross. `Setubandha` counted 10
+such separations; the re-run found one redundant, leaving **6 independent
+walls**.
+
+That is not a defeat of the picture. It is the picture becoming
+**anekāntavāda instead of monism** — the net is necessarily many, the
+standpoints genuinely do not reduce to one, and a program that tried to
+connect everything would be proving `⊥`. The corpus's own structure forbids
+the reading §२ was drifting toward, and forbids it with Cantor.
+
+## ७.३ · And two numbers in this file were softer than they read
+
+The re-run reproduced every figure and added two: **75 of the 143 edges are
+within a single file**, so the between-jewel count is **68**, not 143. And the
+transport graph's gluing defect is **identically zero** — every edge is
+invertible, `rank(AB) = rank(B) − dim(im B ∩ ker A)` with `A` invertible gives
+0 — so the transport graph **cannot express memory at all**, and has a
+two-valued cut *indicator* where the physics lane has a cut *spectrum*.
+`Setubandha`'s extractor matches `A ≃ B`, so it sees only the sector where the
+causal order is trivial; the irreversible edges — retractions, truncations,
+quotients — are **unmeasured**, and that is where the content is.
