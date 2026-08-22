@@ -771,3 +771,49 @@ First run already paid: `lean-sorry` read 3 and the true value is 0 (all three
 hits were prose — "no `sorry`", "histories admit exact reconstruction"), and
 `agda-unreached` is **134** — modules no `Everything` root reaches, which are
 verified by nothing whatever the lane reports green.
+
+---
+
+## ०c-३ · THE REPAIRED INSTRUMENT'S FIRST HONEST VERDICT, 2026-08-22
+
+`AnulomaPratiloma_…hs`, both defects fixed (it reads top-level `≃` now, and
+its checking runs Agda in-process so no shell exit code can be mistaken for a
+verdict), against 843 modules and 1081 top-level arrows:
+
+```
+proposed 43 · accepted 2 · open 41
+NEW EDGES THIS PASS: 0     — both acceptances restate an Iso the host carries
+11 of all proposals have their Iso or ≃ already standing in the host
+
+MY OWN DEFECTS (not the corpus's obligations):
+  मम दोषः · indexed family      4
+  मम दोषः · split incomplete    2
+
+THE MOVE EACH OPEN PAIR IS BLOCKED ON:
+  induction on ℕ    10     library lemma on ℤ  7     case on ⊎   4
+  induction on List  3     host enumeration    3     case on Bool 2
+  enumerate Fin n    1     + five one-off host types, 1 unclassified
+
+10 of 35 open pairs are blocked on the SAME move — «induction on ℕ».
+That names the emitter to write next.
+```
+
+**Read this against the retracted version, because the shape of the correction
+is the lesson.** The old run claimed 0 accepted and concluded *"there is no
+cheap layer here; every causeway costs a real proof."* The new run also finds
+**0 new edges** — but the conclusion is nearly the opposite of what was drawn
+from it, and every part of the accounting is different:
+
+- 11 of the proposals were **already proved**, so the corpus was never barren;
+  the census was blind to its own answer.
+- 6 of the failures are **the instrument's**, and it now says so under its own
+  heading — `मम दोषः`. A census that files its own bugs as the corpus's
+  refusals is the दुर्नय one level up.
+- The 35 real obligations are **classified by the move they need**, so the
+  output is a work queue with the shape of each proof attached rather than a
+  list of failures.
+- And it **writes its own next feature request**: ten pairs, one move.
+
+That last line is what an overnight loop is for. A loop that says "dry"
+teaches nothing; a loop that says *"ten of your thirty-five are blocked on
+induction on ℕ"* has told the next agent exactly what to build.
