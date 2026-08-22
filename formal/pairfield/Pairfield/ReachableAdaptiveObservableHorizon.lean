@@ -13,6 +13,27 @@ namespace Pairfield
 
 namespace ReachableAdaptiveObservableHorizonWitness
 
+/-! ### On the repetition of `AdaptiveObservableHorizon`'s witness section
+
+Nine declarations here are character-for-character identical to
+`AdaptiveObservableHorizonWitness`'s — `alphabet`, `alphabet_complete`,
+`observe`, `automaton`, `adaptiveTree`, `adaptiveTree_depth`,
+`adaptiveTree_identifies`, `adaptive_depth_isLeast` and
+`uniform_horizon_eq_one` (a content-address census on 2026-08-22 found all
+nine).  **They are not duplicates and must not be merged**, because the one
+declaration that is *not* shared is `step`: this module's start row branches on
+the action, so state `0` is not a dead end and every one of the four rows is
+reachable, which `all_states_reachable` below proves and the other module
+cannot.
+
+The two automata are therefore different automata, and the seven identically
+worded theorems are seven different theorems.  The repetition is the module's
+entire content: it says the adaptive/uniform horizon gap survives when the
+reachability hypothesis is added, and it says so by exhibiting the same
+statements over a different object.  Factoring the shared text out would delete
+the comparison the module exists to make.
+-/
+
 open BoolExperimentTree
 
 /-- The start row routes to both hidden test rows.  Thereafter `false` isolates

@@ -292,6 +292,14 @@ theorem overlapMerge : merge overlapCompatible = ⟨8, 18⟩ := by
       (by norm_num [Holds, overlapRight, Nat.ModEq])
   · norm_num [merge, overlapLeft, overlapRight, Nat.lcm, Nat.gcd]
 
+/-- `⟨2, 6⟩` again — `overlapLeft` above is the same state, and a
+content-address census on 2026-08-22 flagged the two as identical text inside
+one file.  **They are deliberately not shared.**  The point of the pair of
+controls is that `⟨2, 6⟩` is compatible with `⟨8, 9⟩` and incompatible with
+`⟨1, 4⟩`: compatibility is a property of a *pair*, never of a congruence
+state, so naming one state twice under the two roles it plays is the
+statement.  Giving both roles one name would make the two controls look like
+one, which is exactly the inference the pair is built to block. -/
 def incompatibleLeft : CongruenceState := ⟨1, 4⟩
 def incompatibleRight : CongruenceState := ⟨2, 6⟩
 
