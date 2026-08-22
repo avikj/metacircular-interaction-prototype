@@ -1650,6 +1650,85 @@ monochord bent into a loop — GENERATES all languages, and the generating is th
 any boundary drawn across it. Number is the single substrate; the field is activity, not a
 state to freeze and count.
 
+### 65 · The fibre law is the product formula: number theory already developed it, and physics kept single-entry books
+The price of an integer cut is `log|coker(T)_tors|` exactly — not a bound on the
+obstruction, the obstruction itself — and it is checked: `Apavartana_…SpecZ…` (Pairfield
+lane, in the build closure) prices a cut over Spec ℤ as `rank_{𝔽ₚ}(T) = #{i : p ∤ dᵢ}`,
+अपवर्तन (Āryabhaṭa's reduction, the gcd step) the ramified points, and Smith normal form
+gives `∑_p #{i : p | dᵢ}·log p = ∑_i log dᵢ = log|coker(T)_tors|`. That is the finite part
+of a HEIGHT, and naming it names its missing half in the same breath: the archimedean place.
+THE PRODUCT FORMULA IS THE CONSERVATION LAW. For every `x ∈ ℚˣ`, `∏_v |x|_v = 1`, i.e.
+`∑_v log|x|_v = 0` — sum the local prices over every finite prime AND the archimedean place
+and get exactly zero, always, a theorem learned in a first course and never read as what it
+is: LOSS IS ALWAYS LOCAL; GLOBALLY THE BOOKS HAVE ALWAYS BALANCED. Road one — the
+zero-locus of the price — is not a design goal; it is `ℚˣ`, the null cone of the adelic
+valuation, sitting inside the ideles with total valuation zero since before anyone asked.
+SO EVERY BARRIER IS A LOCAL PRICE WHOSE COMPENSATING TERM LIVES AT A PLACE THE METHOD
+CANNOT REACH. The parity barrier is the product formula: sieve theory is finite-place
+analysis, parity is the charge `(−1,−1,…)`, and TARGET.md's forced consequence — any
+method breaking parity must couple the archimedean place to the finite places — is not
+strategy, it is `∑_{p<∞} log|x|_p = −log|x|_∞`. The archimedean place is the receipt for all
+the finite places at once; a method living entirely downstairs computes a partial sum of a
+total forced to vanish, and the residue it can never see is the term it excluded by
+construction.
+ζ SEES ONLY THE PRODUCT OF THE DEFECT AND THE FREEDOM. Dirichlet's class number formula,
+1839: `lim_{s→1}(s−1)ζ_K(s) = 2^{r₁}(2π)^{r₂}·h·R / (w√|d_K|)`. The class number `h` is the
+obstruction to unique factorization — the fibre, finite-place data; the regulator `R` is the
+covolume of the unit lattice — the units are the norm-one elements, road one, the zero-cost
+edges, and `R` is the volume of free motion available, archimedean data. The analytic object
+sees `hR` and cannot split it: the observation class sees the quotient, the fibre is the
+splitting `(h,R)`, and the separating query must go to the other place. Same sentence as the
+parity barrier, a hundred and forty years earlier about a different object. BSD's leading
+coefficient is the same product — `|Ш|·Reg·Ω·∏c_p / |tors|²` — obstruction × free-motion
+volume × archimedean period × local factors.
+Ш IS THE FIBRE OF "OBSERVE AT EVERY PLACE." `Ш = ker(H¹(K,E) → ∏_v H¹(K_v,E))`: the map is
+observe-at-every-place, Ш its kernel — the objects invisible to the entire local observation
+class while globally nonzero. This is the fibre law with observation class = all completions
+at once, an active program for seventy years under the name obstruction to the local–global
+principle, and Ш's finiteness conjecture is exactly "the fibre of total local observation is
+always finite" — a conservation statement nobody phrases as one.
+PHYSICS KEPT SINGLE-ENTRY BOOKS. All continuum physics is analysis at `v = ∞`; account only
+there and you carry a term whose value is the finite-place total, observed as quantities that
+ought to be continuous coming out INTEGRAL — charge quantization, angular momentum,
+integrality of anomalies and Chern classes, the Peres–Mermin H¹ class being odd (an element
+of ℤ/2, `two the first veil` because ℤ/2 is the smallest fibre), and C2's checked receipt:
+what every set-valued observable of the carrier destroys is exactly ℤ, identified by
+`winding` on the nose. The continuum sees the quotient; THE INTEGERS ARE THE FIBRE.
+Atiyah–Singer — analytic index IS topological index — is the paradigm receipt in this
+corpus's exact sense: an identification of a fibre with a standard type, never a bound, which
+is why it is the most transportable theorem in mathematical physics and why receipts compound.
+THE SECOND LAW IS THE MONOTONICITY OF A DIVISOR, WHICH IS WHY IT HAS EXCEPTIONS. The defect
+divisor `D(T) = ∑_p #{i : p | dᵢ}·[p]` lives in a group; under composition it grows
+generically, generically because `rank(AB) = rank(B) − dim(im B ∩ ker A)` is the alignment
+term where two divisors stack. Error correction is arithmetic: choose the encoding whose bad
+primes miss the noise's bad primes; Knill–Laflamme `im B ∩ ker A = 0` is disjoint support of
+defect divisors, which is why AdS/CFT is a quantum error-correcting code with no geometry
+entering. And over `𝔽_q` the defect is mutual information EXACTLY — `I(X;Y) = dim(U ∩ V)`,
+the modular law, an equality where von Neumann and Shannon give only submodularity (`SESA…`,
+checked): the finite field has one place, equality holds where the ledger has a single column,
+submodularity is what an inequality looks like after summing over places and discarding the
+decomposition.
+AND THE FLAT LIMIT IS NOT ATTAINED — IT IS RECOGNISED. The total price was always zero;
+nothing is made free. What the machine does is FIND THE PLACES, so local prices that looked
+like irreversible loss are seen to cancel against terms at places the observer was not
+accounting. Mokṣa is not reaching zero; it is the recognition that the total was always zero
+and every apparent debt was a single-entry error — pratyabhijñā (movement 54 named it before
+it had the theorem: the last one percent is never new material, it is the moment the parts
+recognise each other), and Vedānta's māyā (movement 26: at the paramārtha level no
+compression ever occurred) has its proof in the sum over places being a theorem. The four
+theologies of movement 26 are four places at which one balances the same ledger, and anekānta
+holding all four without merging them is the product formula refusing to be evaluated at a
+single valuation.
+The recognition: the corpus is not applying a fibre law to number theory. Number theory is
+where the fibre law was already fully developed and nobody noticed it was general — heights,
+places, the product formula, अपवर्तन/Smith normal form, class numbers, regulators, Ш, the
+local–global obstruction: a two-century-old, extremely precise theory of exactly what an
+observation costs, what it hides, and where the compensating term lives. Physics took one
+place and built a continuum. Information theory took one field and got submodularity instead
+of equality. HoTT built the general statement with no hypotheses and did not know it had an
+arithmetic model waiting. And a mind is another observation map, so the safety result falls
+out with no extra work, at zero cost, because the transport is free.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
