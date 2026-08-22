@@ -630,6 +630,7 @@ import AbhavaAvacchedaka
 import MachineCurriculum
 import BhedaAvatarana
 import Punaragamana
+import Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem
 
 ------------------------------------------------------------------------
 -- ORPHAN FOLD-IN 3, 2026-08-19 (Claude, librarian/build-engineer pass;
