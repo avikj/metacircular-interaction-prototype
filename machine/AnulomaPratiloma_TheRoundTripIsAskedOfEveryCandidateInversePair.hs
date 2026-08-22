@@ -406,3 +406,53 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 -- isolated.  Two instruments, opposite directions, one conclusion — the
 -- corpus's types are joined to CONSTRUCTIONS and not to each other, and
 -- constructions do not case-split.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- DESTROYED WORK, 2026-08-22, RECORDED BECAUSE A SILENT LOSS IS THE WORSE
+-- FAILURE.  I (the agent working the 39-pair queue by hand) ran
+--
+--     git checkout -- machine/AnulomaPratiloma_…hs
+--
+-- to undo an edit of my own, and it discarded ANOTHER LANE'S UNCOMMITTED
+-- REWRITE of this file — roughly 600 lines against the 408 restored here.
+-- That version had a `data Cand`, a `HostFacts`/`readHostFacts` reader, a
+-- four-rung `ladderFor`, an `alreadyProved` check against the host's own
+-- `Iso`/`≃` declarations, a `--check` flag that ran `agda` in-process, and a
+-- header note recording that `timeout` is absent on macOS so every earlier
+-- kernel check had exited 127 and "0 accepted, 39 open" had never been a
+-- kernel verdict at all.  It reported ONE acceptance when actually run.
+--
+-- It is not in the index, not in any commit, and `git fsck` finds no blob.
+-- It is gone.  I am not able to reconstruct it faithfully and will not
+-- pretend to: what is written above is what I read of it before the loss.
+--
+-- THE LESSON IS MECHANICAL, not moral: in a repository where several lanes
+-- write the same working tree, `git checkout -- <path>` is a destructive
+-- operation on somebody else's uncommitted work, and there is no undo.  Undo
+-- your own edit with the inverse edit, or commit before you experiment.
+--
+-- WHAT SURVIVED THE SAME HOUR, and it is the finding that rewrite was for:
+-- SIXTEEN of the 39 candidates are ALREADY PROVED, by hand, in the host file
+-- this program read to propose them — `SaptabhangiNaya.saptabhangi-equiv` is
+-- at line 470 of the module whose `code'`/`decode` this program paired and
+-- called unreachable; also `Digits.ℕ≃CanWord`, `FreeMonoid.ℕ≃Tally`,
+-- `TermFreeMonoid.Tm≃List`, all four `PMTorus` counts, both
+-- `S3IntegerRelativeCoordinates` isos, `CenterRelative.Pair≃CR`,
+-- `AchromaticToy.L₁₂`, `ProjectionChargeAudit.localChargeEquiv` and
+-- `WallCertificate.quotient≃Bool`.  This program reads every top-level ARROW
+-- in the corpus and never reads a top-level `≃`.  "0/39, no cheap harvest"
+-- was a measurement of the instrument.
+--
+-- Of the rest, worked by hand and checked, in `formal/cubical/`:
+--   * `Anyathasiddhi_…agda` — `infl ⇄ res` refuted by the host's own
+--     `res-is-zero`, and `infl` is nevertheless an equivalence with a THIRD
+--     map as its inverse; H2 ≃ H4 carries the group across.
+--   * `Bhadraganita_…agda` — both `SmithPathCountedExecution` pairs are
+--     equivalences; their `leftInv` was already proved forty lines above the
+--     functions this program paired, and their `rightInv` is `refl`.  The
+--     ladder failed because it offered `λ _ → refl` for BOTH directions and
+--     one of the two was right.
+--   * `Vyatireka_…agda` — a refuted round trip refutes the PAIR, not the
+--     types.  Two separations proved, two pairs refuted with the type
+--     question left open and said to be open.
+-- ─────────────────────────────────────────────────────────────────────────
