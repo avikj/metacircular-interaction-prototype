@@ -315,7 +315,7 @@ the greens would be दुर्नय." 2>/dev/null \
 # [2026-08-22, LATER THE SAME DAY — THE BLOCK THIS REPLACES WAS A NO-OP ON
 # THIS HOST, AND ITS OUTPUT WAS NOT A KERNEL VERDICT.]
 #
-# It checked each probe with `timeout 120 agda …`.  **`timeout` is GNU
+# It checked each probe with `agda …`.  **`timeout` is GNU
 # coreutils and does not exist on macOS.**  `command -v timeout` returns
 # nothing here.  So every one of the 39 checks exited 127 with `command not
 # found`, `n_green` could never be incremented, `obl` was always empty so not
@@ -336,6 +336,12 @@ the greens would be दुर्नय." 2>/dev/null \
 # carries the verdict ledger and the obligation histogram, so there is one
 # place that puts a probe to the kernel and one place that can be wrong.
 second_naya() {
+  # NO `timeout` HERE, AND THE ABSENCE IS THE POINT.  `timeout` DOES NOT
+  # EXIST ON THIS MACHINE -- `which timeout` finds nothing, `timeout 5 echo
+  # hi` exits 127.  This function shipped with `timeout 120 agda` and would
+  # have reported every probe REFUSED all night, counting 127 as a
+  # mathematical verdict.  Found 2026-08-22 by a lane that had already hit
+  # it.  A refusal must name its defect or it is not a refusal.
   say ""
   say "  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────"
   ANULOMA_SCRATCH="$SCRATCH/anuloma" ; export ANULOMA_SCRATCH
