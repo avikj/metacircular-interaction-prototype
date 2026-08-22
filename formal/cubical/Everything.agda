@@ -993,6 +993,17 @@ import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarr
 -- the charged sector `Bool ≡ Bool` is itself already 0-truncated.
 import Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness
 
+-- दुर्नयः: the correction above overshot in README.md's restatement of it.
+-- C2 replaced the struck truncation gloss with "not of the answer's
+-- h-level", and `Naya` §१'s own `isSet X` hypothesis — plus `Naya` §४,
+-- a non-dependent `cong F` that does NOT annihilate — refutes that
+-- clause.  This module moves the whole question off the universe (the
+-- loop is a CONSTRUCTOR of S¹ : Type₀), shows neither condition alone
+-- suffices, and gives the RECEIPT the earlier pair only separated
+-- against: what every set-valued observable of the carrier destroys is
+-- exactly ℤ, identified by `winding` on the nose.
+import Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers
+
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
 
 -- अनुलोम-प्रतिलोम's 39-pair work queue, worked by hand.  The proposer
@@ -1103,3 +1114,8 @@ import Lagakriya_TheConditionalFibreIsWhatTheSecondCountStillCostsOnceTheFirstIs
 import Avasesa_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt
 import Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter
 import Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya
+
+-- खहर · the far end of the loss scale: the edge ℤ ⟶ खहर is priced at its
+-- whole domain, and TOTAL LOSS IS EXACTLY TOTAL SYMMETRY — the equivalence
+-- whose other end is Dhruva §२. Bhāskara II, बीजगणितम् २०, 1150. 2026-08-22.
+import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
