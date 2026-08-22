@@ -965,7 +965,7 @@ import NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne
 -- modules compose its distance-2 geodesics out of `Pingala.छन्दस्` and
 -- prove everything downstream by `subst`, with no induction on either side.
 -- import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
-import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
+-- import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule  -- DISABLED 2026-08-22 (wiring pass): RED — its line 93 opens Setubandha_ThePrastaras…, a module that exists nowhere on disk or in git history
 
 -- नय — Theorem F's mechanism at the grain of the identification graph:
 -- a SET-valued observable annihilates every loop, the loop is still not
@@ -1090,3 +1090,18 @@ import NaturalMachine.FluxUnitCancellationBoundary
 import NaturalMachine.LeastWindowRadiusEdge
 import NaturalMachine.Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries
 import NaturalMachine.RadiusNoGo
+
+-- ── समुच्चयः, 2026-08-22 (fourth pass) ────────────────────────────────────
+-- Three modules landed by concurrent lanes while the wiring pass ran,
+-- each outside every root's closure at the moment the gate re-ran.
+-- All three typechecked individually at EXIT 0 before wiring.
+import ChidraDosa_ThePointwiseInvarianceWithNoCoherentDescentIsATerm
+import Marga2_TheFirstTolledCrossingOfAOneWayEdge
+import YogaDhruva_TheFibreOfAdditionIsATorsorAndEveryConservingFlowIsATranslation
+
+-- ── तपस्, 2026-08-22 ──────────────────────────────────────────────
+-- Fibre receipts minted from templates against लोप's UNDECIDED queue,
+-- each checked before landing; the refusal ledger for everything not
+-- minted is in the pass log (scripts/Tapas_…sh).
+import Tapas.ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue
+import Tapas.ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics
