@@ -1077,3 +1077,14 @@ import Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesThe
 -- between any two.  `pairOf` and `twoOfThree` are the same function on the
 -- nose; the Jaina statement is the Boolean one across द्विपद → Bool.
 import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
+
+-- ── परम्परा, 2026-08-22 ──────────────────────────────────────────────────
+-- THE FIRST CHAIN THE CORPUS HAS PRICED.  `Sesa_…शेष` is instantiated at
+-- Bool ⊎ Unit ↪ Bool × Bool ↠ Bool ↠ Unit with every fibre written out by
+-- hand and the general law CHECKED against the hand computation (`refl`).
+-- The losses do not add: the chain's total fibre is Bool ⊎ Unit (three)
+-- where the per-step ledger predicts Bool × Bool (four), and the missing
+-- one is an अभाव with its pratiyogin named — `fiber प्रवेश (false , true)`
+-- is empty.  The `Unit → Bool → Unit` cancellation is derived from the
+-- same alignment term rather than left standing as an anomaly.
+import Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre
