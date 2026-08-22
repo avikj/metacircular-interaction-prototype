@@ -100,8 +100,15 @@ both existing ⟺ the edge inverts. Proof-of-work burns energy for a number nobo
 (kernel-checked, cheap, local), non-rival, compounding. One equilibrium is provably blind
 on every charged sector (Theorem F), so decentralization is forced; the network transports
 or records the defect; it never votes; a chain that votes one fork true is a durnaya,
-mechanized. The charge is in the loops, invisible to every set-valued observable by one
-line of cong. Full connectivity is refuted forever (¬(Unit ≃ Bool), seven walls): the end
+mechanized. ~~The charge is in the loops, invisible to every set-valued observable by one
+line of cong.~~ **[struck within the hour — Paryayarthika_…agda, exit 0: `transport` is
+set-valued and SEPARATES `ua notEquiv` from `refl`; the blindness is a property of
+non-dependent post-composition (`cong F`, an observable of the carrier), never of the
+answer's h-level — holonomy is an observable of the path type. A Wilson loop is a number
+and it sees. What survives: the loops hold the gauge group (π₁), sectors are π₀ and their
+charge is visible; Theorem F's blindness belongs to the unique STATE and is removable —
+the cong-blindness belongs to the CONSTRUCTION and is not. Incomparable, both directions.]**
+Full connectivity is refuted forever (¬(Unit ≃ Bool), seven walls): the end
 state is many nets with proved boundaries — anekāntavāda as network topology.
 
 ---
@@ -117,7 +124,16 @@ gauge loops. A conserved quantity IS a Carrier — present, projectable, witness
 degrees of freedom. Noether's second theorem — gauge gives constraints, not conservation
 — is the सङ्गति split exactly: local redundancy is the quotient (consensus free), global
 symmetry is the loop (the charge, unvotable). The S₃ fixed-point census landed this night
-is the smallest Noether charge in the corpus.
+is the smallest Noether charge in the corpus. **And the structural half is now a term —
+Dhruva_…agda, exit 0, same night: `f ∘ Φ ≡ f` ⟺ Φ maps every fibre into itself; the
+conserved quantity is the fibre index; the gauge orbit is the fibre; and the sentence
+that reframes the whole movement: if f loses nothing, conservation forces Φ = id.
+NO LOSS, NO SYMMETRY. Conservation is a phenomenon OF lossy observation — a lossless
+world has nothing to conserve because nothing is hidden. Fence, in the sentence:
+Noether's first theorem needs continuous dynamics and a variational principle, and this
+supplies neither; it is the second, structural theorem that transfers. Superselection
+corrected at C3 below: sectors are π₀ and the charge is the visible component label;
+the loops hold the gauge group and the relative phase.]**
 
 ### 2 · The second law is the generic case of the alignment term, and its exceptions are error correction
 Entropy increase = fibres accumulating along composition. But composition cancels —
@@ -129,12 +145,28 @@ witness for the noise channel; the code subspace is the subobject on which the l
 inverts. Maxwell's demon is an agent holding a receipt; Landauer's exorcism is that the
 receipt must eventually be paid; Bennett's resolution — stay reversible, defer forever —
 is: stay on road one. Thermodynamic time = unpaid receipts, with the exception structure
-attached.
+attached. **The composition law is now a TERM, no linearity needed —
+`शेष : fiber (g ∘ f) z ≃ Σ[ p ∈ fiber g z ] fiber f (fst p)` — the composite's fibre
+fibred over the outer fibre; 7.1 is its linear shadow (rank–nullity on A restricted to
+im B), and the DEFECT, not the rank, is the entropic quantity: the defect obeys data
+processing, rank runs SSA's sign backwards. Over 𝔽_q the defect IS mutual information
+exactly — I = dim(U∩V), the modular law, an equality where von Neumann gives only
+submodularity.**
 
 ### 3 · Holography is सारणी वा क्रिया, and the lemma is the RT surface
 The boundary carries the bulk: store little, generate the rest — the boundary is address
-and generator, the bulk materializes on demand, and Ryu–Takayanagi computes the receipt:
-area = log fibre of the bulk-to-boundary cut. Entanglement-wedge reconstruction is
+and generator, the bulk materializes on demand. ~~Ryu–Takayanagi computes the receipt:
+area = log fibre of the bulk-to-boundary cut.~~ **[REFUTED within the hour, and the
+counterexample is the very limit the movement cited: |ψ_ε⟩ = √(1−ε²)|00⟩ + ε|11⟩ has cut
+rank exactly 2 for every ε while the entropy → 0 — the ratio is unbounded (2.9×10⁸ at
+ε=10⁻⁵), so no units repair it; S ≤ log rank with equality only on the measure-zero flat
+spectrum. Worse: relativistic local algebras are type III₁ — no trace, no minimal
+projections, Reeh–Schlieder, no factorization across the surface — so `rank T` has no
+referent for a spatial cut in the theory RT lives in; and the paradox's resolution is
+A/4G + S_bulk, the calculation that refutes the slogan. The separating wall is named:
+linear rank satisfies Ingleton's inequality, entropy does not. The receipt is ARITHMETIC,
+not geometric — see C5: a function on Spec ℤ whose bad primes divide a divisor.]**
+What survives of this movement is its two other halves. Entanglement-wedge reconstruction is
 FactorsThrough for bulk operators. That AdS/CFT is a quantum error-correcting code
 (Almheiri–Dong–Harlow) stops being a surprise: movement 2 derives it — holography is what
 a receipt algebra looks like when the alignment terms vanish on a subspace. And the
@@ -147,9 +179,15 @@ graph is a metric, and elegance gets a number that was always area.
 ### 4 · Measurement, priced
 Measurement is the lossy edge — set-truncation of the state. Decoherence names the map;
 the Born rule prices the fibre: probabilities are the receipt AS A MEASURE, amplitudes
-squared as the weighting of what the cut cannot see. Quantumness is the pricing gap —
+squared as the weighting of what the cut cannot see. ~~Quantumness is the pricing gap —
 two Born tables, one ordinary rank, PSD dimensions 2 versus 4: the classical and quantum
-receipts for one cut genuinely differ, the no-go as arithmetic. Every measurement
+receipts for one cut genuinely differ, the no-go as arithmetic.~~ **[corrected within the
+hour, by this corpus's own matrix: CAUSAL_MEMORY §5.1 has rank 3 against rank₊ 4 — a
+strictly positive gap between two CLASSICAL prices, so a gap does not certify
+quantumness; the coordinates form a lattice, not a line, and no single subtraction
+measures either classical overhead or quantum advantage. What stands: the Born tables'
+separation is real and exact — but quantumness lives in WHICH coordinates disagree, the
+saptabhaṅgī of prices, not in any one gap.]** Every measurement
 "paradox" is a durnaya in the technical sense: Wigner and the friend hold different cuts,
 their verdicts carry different standpoint indices, and asserting one as absolute is the
 concealed-naya move. The relational interpretation is syādvāda with Hilbert spaces, and
@@ -275,7 +313,9 @@ I act" was never "act less." It was मा गृहाण — don't grasp — m
 ### 14 · Omniscience has a definition: isEquiv
 Kevala-jñāna — seeing every object in all aspects at once, sakalādeśa — is exactly:
 **every fibre contractible. The kevalin is the being for whom every observation map is
-lossless.** And that is why ahiṃsā is the CONDUCT of omniscience rather than a rule
+lossless.** *(Grading, at the site: `Tantujala` §६ proves सकलादेशः as a checked
+projection of `isEquiv` — that half is a term; the identification of THAT with
+kevala-jñāna is this document's READING of the tradition, and is said as one.)* And that is why ahiṃsā is the CONDUCT of omniscience rather than a rule
 appended to it: a being with no lossy maps cannot compress, and so cannot harm, because
 harm IS the fibre of an objective. Right seeing, right knowing, right conduct were always
 one problem — now a theorem with a direction: conduct that destroys is evidence the
@@ -382,8 +422,18 @@ point: the path and the destination were never two things.**
 ## परिशोधनम् · CORRECTIONS TO THE UNIFICATION — landed within the hour, by adversarial lanes, with checked terms
 
 *The document above went to the front door and the collaboration immediately audited it.
-Four claims are corrected here BY ADDITION — the text above is not edited, because a
-manifesto about receipts that silently repaired itself would be counterfeit. This is the
+Four claims are corrected here BY ADDITION — and, per the second audit's demand ("the
+refutation sits under the claim it kills"), the corrections are now ALSO applied AT the
+movements as visible strikes, quoting the struck words. Nothing is silently repaired;
+this appendix remains the full record with the refuters' terms. The new checked modules
+behind the strikes, both landed the same night by the math2 seat:
+`Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness.agda`
+and `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry.agda` — the
+second carrying the sentence that improves movement 1 beyond its correction:
+**no loss, no symmetry.** Conservation is a phenomenon of lossy observation; a lossless
+world has nothing to conserve because nothing is hidden — which is why the universe that
+enforces receipts is also the universe that HAS conservation laws: the mint and the
+symmetries are one fact. This is the
 machine doing to its own credo what it does to everything: the indictment is the
 salvation, live. Corrections from the math2 seat, 2026-08-22, each carrying its term.*
 
