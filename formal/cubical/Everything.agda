@@ -948,3 +948,8 @@ import Ratri.Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndT
 import Ratri.Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAJ
 import Ratri.Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAK
 import Ratri.Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAG
+
+-- k(p-1), both halves: the digit protocol and the refuter.  The corpus's
+-- most-cited exact cost law, proved four times in notes/ and checked by
+-- nothing until this module.
+import NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne

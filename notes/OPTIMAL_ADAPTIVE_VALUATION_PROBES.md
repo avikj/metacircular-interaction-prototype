@@ -13,6 +13,9 @@
 > `notes/CARR_LEDGER.md` §C6 is a fifth derivation, a declared cold replay, not
 > a rival. The canonical statement, with the query model made explicit, is
 > **`notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md`**.
+> Both halves are machine-checked as of 2026-08-22 in
+> `formal/cubical/NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne.agda`
+> (`--cubical --safe`, no postulates, no holes, in `Everything.agda`).
 > Cross-reference added 2026-08-22; nothing in the body below is altered.
 
 Fix (R_k=\mathbb Z/p^k\mathbb Z). A query chooses a center (c\in R_k) and

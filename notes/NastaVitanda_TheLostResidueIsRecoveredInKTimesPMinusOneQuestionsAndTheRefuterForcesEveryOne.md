@@ -25,9 +25,14 @@ repository's, proved between 2026-08-12 and 2026-08-14, four times.
 
 The cost law **k(p−1)** is the corpus's most-cited exact cost. It is proved
 **four times in four files, three of them announcing it as new, none citing
-another**, and it is **formalized nowhere** — zero occurrences in
+another**, and until 2026-08-22 it was **formalized nowhere** — zero occurrences in
 `formal/cubical/` or `formal/pairfield/`. Ten further notes depend on the
 number and different ones cite different proofs.
+
+**It is now checked, both halves:**
+`formal/cubical/NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne.agda`,
+`--cubical --safe`, no postulates, no holes, imported by `Everything.agda`.
+See §6.
 
 This note states it **once**, with the model made explicit, and records the
 four derivations as history rather than as rivals.
@@ -220,48 +225,88 @@ being written:
    the theorem, which a second author must either import or collide with —
    is exactly the artifact none of the four produced.
 
-**Formalization status, stated plainly and dated 2026-08-22.** Not done in this
-pass. The upper bound alone is a short digit-protocol induction, and shipping
-only that would reproduce #1's own refusal dressed as a green; the theorem is
-carried by the adversary half. See §6 for the design that a formalization
-should follow, so the next attempt does not start from the prose.
+**Formalization status, dated 2026-08-22.** Done, both halves, in the same
+pass that wrote this note:
+`formal/cubical/NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne.agda`,
+`--cubical --safe`, no postulates, no holes, `agda` exit 0, and imported by
+`Everything.agda` — a module nothing reaches is verified by nothing. Shipping
+the upper bound alone was available and was not taken: it would have reproduced
+derivation 1's own honest refusal wearing a green checkmark.
 
-## 6. The shape a formalization should take
+## 6. What is checked, and how the model reaches Agda
 
-Recorded so the next attempt begins here rather than at the prose. Working over
-the digit reading of §1, which removes `v_p` entirely:
+The digit reading of §1 is what crosses into the module — `v_p` never appears
+there. `Word n` is a length-`n` string over `Fin (suc q)`; writing `p = q+1`
+keeps every count in ℕ with no truncated subtraction, so `k(p−1)` is `k · q`.
+`resp` is the first-mismatch index, which §1 shows *is* `q_c(r)`.
 
-- `Word n = Vec (Fin p) n`; `resp c x = ` index of the first mismatch, `= n` if
-  none.
-- `Tree n` with `leaf : Word n → Tree n` and
-  `ask : Word n → (Fin (suc n) → Tree n) → Tree n`; `run` and `cost` by
-  structural recursion (Agda accepts recursion through the child function).
-- State the lower bound as a **cost-on-an-input** claim, not a depth claim:
-  for every identifying `T : Tree n` there **exists** `x` with
-  `cost T x ≥ n·(p−1)`. This avoids taking a max over the branching.
-- Then the potential function of §2.2 is not needed. Induct on `n`; inside,
-  carry a list `Live` of digits still live at place `0`, distinct, and induct
-  **structurally on the tree**:
-  - `Live = [e]`: restrict `T` to inputs with head `e` (a tree over `Word (n−1)`
-    whose cost is dominated by `T`'s), and apply the induction on `n`.
-  - `|Live| ≥ 2`, `T = leaf w`: two distinct inputs with distinct live heads
-    both reach `w` — contradiction with identification.
-  - `|Live| ≥ 2`, `T = ask c f`: answer `0`; drop `head c` from `Live` if it is
-    there; recurse on `f 0`, which is a structural subterm.
-- Upper bound: build the tree by the same recursion — a chain of `p−1` asks
-  over the digits, each failure moving to the next, the last digit inferred.
+```agda
+data Tree : ℕ → Type₀ where
+  leaf : {n : ℕ} → Word n → Tree n
+  ask  : {n : ℕ} → Word n → (ℕ → Tree n) → Tree n
 
-Both halves, `--cubical --safe`, no postulates, no holes, and added to
-`Everything.agda`, or neither: *a module nothing reaches is verified by
-nothing.*
+Identifies T = (x : Word n) → run T x ≡ x
+```
+
+The two halves, as they stand in the module:
+
+```agda
+upperBound : (n : ℕ) → Σ[ T ∈ Tree n ] (Identifies T × ((x : Word n) → cost T x ≤ n · q))
+lowerBound : (n : ℕ) (T : Tree n) → Identifies T → Σ[ x ∈ Word n ] (n · q ≤ cost T x)
+```
+
+Three choices are worth recording, because each removed a large amount of work:
+
+1. **The lower bound is stated as cost ON AN INPUT, not as tree depth.** It is
+   the stronger reading — depth follows — and it avoids any maximum over the
+   branching, which is infinite here because responses are typed by ℕ.
+2. **The potential function `Φ` of §2.2 is not needed in the formal proof.**
+   The induction is on the word length `n`; inside it, a list `Live` of digits
+   still live at place `0` is carried and the induction is *structural on the
+   tree*. `Live = [e]` restricts the tree to inputs with head `e` and recurses
+   on `n`; `|Live| ≥ 2` with a leaf is impossible (two live heads reach one
+   leaf); `|Live| ≥ 2` with `ask c f` answers `0`, strikes `head c` from `Live`
+   if present, and recurses on `f 0`, a structural subterm. `Φ` is exactly the
+   accounting that this recursion performs for free.
+3. **No `with` in any recursive definition.** Each is written through a `decRec`
+   eliminator, so the downstream lemmas reduce definitionally instead of
+   fighting a generated auxiliary function.
+
+The upper bound is built by the same recursion: a chain of `p−1` asks over the
+digits, each failure moving to the next, the last digit inferred rather than
+tested — which is `naṣṭa`, and which is why the two halves meet.
+
+**One honest note on the green.** `agda` exits 0 with no errors, but emits
+`UnsupportedIndexedMatch` warnings: pattern matching on the ℕ-indexed `Word`
+and on `List` relies on constructor injectivity, which Cubical Agda does not
+yet support, so those functions do not compute when applied to *transports*.
+Nothing here is applied to a transport — every definition runs on concrete
+data — and the warnings bear on computation, not on soundness or on the
+statement proved. They are recorded because a green that is not stated in full
+is how this corpus has gone wrong before.
+
+Non-vacuity is not a matter of trust: `upperBound` exhibits an identifying tree,
+so `Identifies` is satisfiable, and `lowerBound` exhibits a real input. The
+definitions were additionally evaluated by the kernel at `p = 2, k = 2`, where
+the constructed protocol costs exactly `2 = k(p−1)` on both extreme inputs.
 
 ## 7. Rigor boundary
 
 Proved: `D(p,k) = k(p−1)` in the model of §1 — deterministic, exact responses,
-arbitrary centers, oracle calls the only cost. Machine-checked: **nothing.**
+arbitrary centers, oracle calls the only cost. Machine-checked: **both halves**,
+as §6. What is *not* machine-checked is §1's reduction itself — that
+`min(v_p(r−c), k)` on ℤ/p^kℤ is the first-mismatch oracle on base-`p` digit
+strings. That step is proved in prose here and in `SEED30_LOWER_BOUND_AUDIT.md`
+§3.2, and it is taken as the definition in Agda; a module that carries `v_p` and
+`ℤ/p^kℤ` explicitly and derives the digit reading is the honest next piece, and
+it is not written.
+
 No claim is made about randomized or quantum query complexity, about the cost
-of *constructing* centers, about memory, or about any Boolean-threshold weakening
-of the oracle. `machinery/adaptive_valuation_probes.py` still exists on disk and
-is a replay of the upper-bound protocol only; it is not evidence for §2.2, and
-under `CLAUDE.md` it is legacy — not to be run, extended, or cited as a
-certificate for the theorem.
+of *constructing* centers, about memory, or about any Boolean-threshold
+weakening of the oracle. `machinery/adaptive_valuation_probes.py` still exists
+on disk (2511 bytes, last touched by `4017f526`, 2026-08-12) and is a replay of
+the upper-bound protocol only; it is not evidence for §2.2, and under `CLAUDE.md`
+it is legacy — not to be run, extended, or cited as a certificate for the
+theorem. Note also that `OPTIMAL_ADAPTIVE_VALUATION_PROBES.md:92` cites it under
+`machinery/`, which is not the `machine/` directory the rest of the corpus uses;
+both directories exist and they are different things.
