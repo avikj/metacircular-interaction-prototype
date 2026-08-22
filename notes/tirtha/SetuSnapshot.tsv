@@ -67,17 +67,8 @@ Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMi
 Pingala.छन्दस्≃ℕ	Pingala.छन्दस्	⟨lib⟩.ℕ
 Pingala.छन्दस्≡ℕ	Pingala.छन्दस्	⟨lib⟩.ℕ
 ProjectionChargeAudit.localChargeEquiv	ProjectionChargeAudit.State	⟨lib⟩.Bool × ⟨lib⟩.Bool
-Punaragamana.AntyaSamskara_TheCorrectionCarriesItsCoarsenessAndTheArgumentIsTheSlotItCannotSee.आधार≃संस्कारः	Punaragamana.AntyaSamskara_TheCorrectionCarriesItsCoarsenessAndTheArgumentIsTheSlotItCannotSee.आधारः	Punaragamana.AntyaSamskara_TheCorrectionCarriesItsCoarsenessAndTheArgumentIsTheSlotItCannotSee.अन्त्यसंस्कारः
-Punaragamana.AntyaSamskara_TheCorrectionCarriesItsCoarsenessAndTheArgumentIsTheSlotItCannotSee.आधार≡संस्कारः	Punaragamana.AntyaSamskara_TheCorrectionCarriesItsCoarsenessAndTheArgumentIsTheSlotItCannotSee.आधारः	Punaragamana.AntyaSamskara_TheCorrectionCarriesItsCoarsenessAndTheArgumentIsTheSlotItCannotSee.अन्त्यसंस्कारः
 Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्≃कुट्टक	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.कुट्टक
 Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्≡कुट्टक	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.कुट्टक
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.प्रस्तार≡प्रतिप्रस्तार	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.प्रस्तार	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.प्रतिप्रस्तार
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप≃मात्रावृत्त	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.मात्रावृत्त
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप≃ℕ	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप	⟨lib⟩.ℕ
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप≡प्रस्तार	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.प्रस्तार
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप≡मात्रावृत्त	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.मात्रावृत्त
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप≡ℕ	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.रूप	⟨lib⟩.ℕ
-Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.ℕ≡प्रतिप्रस्तार	⟨lib⟩.ℕ	Punaragamana.Prastara_TheMatraIsCarriedTheRankIsCarriedAndOnlyTheRankComesBack.प्रतिप्रस्तार
 Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph.शेष-सर्वैकम्≃Bool	NaturalMachine.SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.शेष सर्वैकम् tt	⟨lib⟩.Bool
 Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph.हस्ते	⟨ambig⟩.Carrier सर्वैकम्	⟨lib⟩.Bool
 Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.आधार≃स्थानिवत्	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.आधार	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.स्थानिवत्
@@ -86,8 +77,6 @@ Punaragamana.Viveka.युग्म≃विवेक	⟨lib⟩.ℕ × ⟨lib⟩
 Punaragamana.Viveka.युग्म≡विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.Viveka.विवेक
 Punaragamana.युग्म≃विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.विवेक
 Punaragamana.युग्म≡विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.विवेक
-Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect.eulerCarriesFree	Σ[ d ∈ ⟨ambig⟩.Rank ] ⟨lib⟩.Forward χℤ d	⟨ambig⟩.Rank
-Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect.readoutCarriesFree	Σ[ e ∈ NaturalMachine.ExactTwoStateInstrument.SelectedEvent ] ⟨lib⟩.Forward ⟨lib⟩.Readout.computationalBasisReadout e	NaturalMachine.ExactTwoStateInstrument.SelectedEvent
 Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.विवेक≃वाहकः	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण	Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.Carrier योग
 Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.ℕ×ℕ≡वाहकः	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.Carrier योग
 Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.त्रिक्≃विवेक	Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.त्रिक्	Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.विवेक
@@ -109,12 +98,13 @@ Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPone
 Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.नष्टिः≃निर्धर्मता	isEquiv (∣_∣₁ {⟨lib⟩.A = ⟨lib⟩.A})	isProp ⟨lib⟩.A
 Saptabhangi.समावेश-भेदः	Saptabhangi.समावेश	Saptabhangi.सप्तभङ्गी ⊎ ⟨lib⟩.Unit
 SaptabhangiNaya.saptabhangi-equiv	SaptabhangiNaya.Bhanga	SaptabhangiNaya.NEBasis
-Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand.छन्दस्≡Tally	Pingala.छन्दस्	NaturalMachine.FreeMonoid.Tally
 Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule.CanWord≡Tally	NaturalMachine.Digits.CanWord	NaturalMachine.FreeMonoid.Tally
 Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule.छन्दस्≡CanWord	Pingala.छन्दस्	NaturalMachine.Digits.CanWord
 Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.EvenQuery-is-fibre	NaturalMachine.OracleSeparation.EvenQuery	fiber sgnΩ true
 Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.ThreeKernel-is-fibre	NaturalMachine.S3IntegerRelativeCoordinates.ThreeKernel	fiber triple (pos 0)
 Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.chargeOneFiber-is-fibre	NaturalMachine.ChenTwoChargeProjector.chargeOneFiber	fiber chargeOneProjector true
+Tapas.ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue.over-value	fiber oldValue false	NaturalMachine.BatchDepthMemoryBoundary.Old
+Tapas.ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics.over-value	fiber semantics false	NaturalMachine.DependentOptimizationFibration.Configuration
 VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.ℕ×ℕ≡विवेक-प्रमाण	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण
 VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.ℕ×ℕ-≡-विवेक-प्रमाण	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.विवेक-प्रमाण
 Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.Z2≃H2	⟨ambig⟩.Z2	NaturalMachine.InflationVersusSubgroup.H2
