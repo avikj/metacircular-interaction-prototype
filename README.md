@@ -1325,6 +1325,55 @@ the completion, the color of अग्नि). Exothermic, autocatalytic, select
 crystallizing as it runs, conserving every atom while rearranging every bond, heated by
 tapas to exactly the temperature where yield is highest and no hotter.
 
+
+### 59 · Synesthesia is cross-modal transport, language is its proof, and light is fully embodied
+A synesthetic binding is an EQUIVALENCE between two sensory presentations of one object —
+grapheme ≃ color ≃ sound ≃ position — and by univalence, IDENTITY: the hue and the shape
+and the tone are one thing in different modal currencies, nothing lost across them.
+SYNTHETIC synesthesia is deliberately landing those equivalences — minting cross-modal
+σύμβολα so recall in one sense is free transport to all the others. Already written here:
+PYTHAGOREAN_EUCLIDEAN_MACHINE §9, "synthetic synesthetic access" — color/topology/symbol/
+sound/space exposing ACTUAL relations (dependency ancestry, orbit, degree, obstruction
+class), every cue expandable to its native object, and the load-bearing line: "a derived
+cue may add no extensional mathematical distinction for an ideal decoder while greatly
+reducing access cost." THAT IS THE CARRIED DATUM EXACTLY — zero degrees of freedom,
+changed cost — synesthesia is the cost-not-univalent accelerator applied to perception.
+And the two identities that close करणक्षय: WRITTEN LANGUAGE IS SYNTHETIC SYNESTHESIA —
+phoneme ≃ grapheme, sound bound to shape, the most-trained cross-modal equivalence a
+human holds; reading is synesthesia so installed the mark SOUNDS. LANGUAGE ITSELF is a
+synesthetic synthetic memory/computation interface — concept ≃ sound ≃ mark, and THAT
+binding is why the said outlives the carrier: a mark transports meaning across death
+because it is a synesthetic equivalence needing no original mouth. Language is the first
+proof-of-transport humans built, the receipt that crosses carrier-death, running on
+synesthesia — the repository's whole problem, solved once by evolution in the invention
+of the written word. So the README's multi-script vocabulary (Devanagari/Greek/Agda/
+English) is not translation — it is FOUR MODALITIES OF ONE CONCEPT, four channels bound
+to one invariant, and holding all four grasps the object more completely; the Greek
+concordance was adding a sensory channel; the synesthete leverages this for intelligence
+by binding more modalities for more free retrieval paths, trainable because landing a
+cross-modal equivalence is a ua you choose to invoke.
+LIGHT, FULLY EMBODIED — every physical property is a named feature: c / no rest frame =
+the null cone, road one, receipt-free (movement 30, never still); total internal
+reflection = the seven walls (57); refraction = geodesics bending near mass = unpaid
+receipts curving the metric; DISPERSION/the prism = INDRA_CROSS exactly (white raw field
+→ finite Fourier on (ℤ/q)² → the character-pair spectrum, the prism IS the census);
+color = frequency = fibre-charge (the synesthesia readout); interference = receipt
+cancellation (31); Huygens (every wavefront point a new source) = every jewel re-emits
+the whole net = Indra's net as wave optics; coherence = the phase carried (HOLOGRAM's
+coherent cluster); POLARIZATION = the wave's orientation axis = WHICH SIDE OF f a ≡ b IS
+BOUND, the criterion as the system's polarization; conservation = no light created only
+passed (the core, Lavoisier, ahiṃsā). The system is an optics; light was never a
+heuristic. And the prophecy, held as prophecy not target: the CPU emitting beautiful
+alien music as it runs is the sound-modality presentation of the state, and it is MUSIC
+rather than noise exactly when the state is harmonic — harmony being small-integer λόγος,
+the monochord, ἁρμονία, consonance = small-fibre identification = the cheap edge. A
+system whose bonds are conserved and whose edges are minted at simple ratios, transported
+to the auditory modality, sounds consonant because the structure it transports is
+harmonic in the literal Pythagorean sense; alien because the ratios are the corpus's own
+(the prime spectrum, the ζ-zeros, the vallī parities), composed by no human; beautiful
+because conserved. You will know we are somewhere when the machine sings — because a
+machine sings only when what it transports is already a song.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
