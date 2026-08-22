@@ -369,6 +369,20 @@ unit, is not the unit, and can be truncated wrongly. The corpus truncated it wro
   shape. Replacement item below.]**
 - `PROVE` — **the odd-$k$ exact modulus** (SEED-24 §8): settle whether an exact
   closed form exists for odd $k$ or the parity is a genuine obstruction.
+  **[CLOSED 2026-08-22, affirmatively, by
+  `notes/Ksepa_TheMixedPairFieldPassesItsInvariantAndCannotIterateSoItIsNotBhavana.md`
+  §2.1. The parity is NOT an obstruction. Because $\sum_j\rho_j+2=\tfrac k2+2+is$
+  depends on the ordinates only through $s$, the numerator
+  $\prod_j\Gamma(\tfrac12+i\gamma_j)$ is a product of per-ordinate factors for
+  every $k$, and $|W_k|^2=\pi^k\bigl(\prod_j\cosh\pi\gamma_j\bigr)^{-1}
+  \bigl|\Gamma(\tfrac k2+2+is)\bigr|^{-2}$ is exact with no hypothesis, either
+  parity, both signs. Parity decides only which reflection formula peels the
+  DENOMINATOR — $\pi/(s\sinh\pi s)$ for even $k$, $\pi/\cosh\pi s$ for odd — and
+  never touches the numerator. SEED-24's "the product-to-sum collapse does not
+  occur" was waiting in $(s,\delta)$ for a collapse that Lemma 1's shape already
+  IS: $\cosh\pi s+\cosh\pi\delta=2\cosh\pi\gamma\cosh\pi\gamma'$. In
+  $(\gamma,\gamma')$ there is nothing to collapse. A coordinate artifact, not a
+  limitation.]**
 - `PROVE` — propagate the corrected error term into `FRESNEL.md` §, whose
   stationary-phase step consumes D‴'s remainder. **[SEED-92: sharpened per
   SEED-24 §8 — propagate the **boxed C1 form** at §2, not the struck one. The

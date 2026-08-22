@@ -561,6 +561,21 @@ own diagonal $\sum_m\Lambda(m)^2(X-2m)_+$ is $+0.059$.
    replacement theorem is offered for *why* the small-difference sub-band
    is dark beyond the kernel modulus computation, and the sub-band itself
    was measured on one character ($\chi_5$) only.
+   **[The replacement theorem now exists — 2026-08-22,
+   `notes/Ksepa_TheMixedPairFieldPassesItsInvariantAndCannotIterateSoItIsNotBhavana.md`
+   §2.2, exact, character-free, all $k$, no hypotheses. Since
+   $\sum_j\rho_j+2=\tfrac k2+2+is$ depends on the ordinates only through the
+   signed sum, $|W_k|^2=\pi^k\bigl(\prod_j\cosh\pi\gamma_j\bigr)^{-1}
+   \bigl|\Gamma(\tfrac k2+2+is)\bigr|^{-2}$, and $\cosh$ is even — so **every
+   sign flip $\gamma_i\mapsto-\gamma_i$ moves only the denominator**. The
+   numerator is $\asymp(2\pi)^ke^{-\pi\sum_j|\gamma_j|}$ for every
+   configuration; darkness is not a property of it but the failure of the
+   denominator's $e^{-\pi|s|}$ to cancel it, with exponent exactly
+   $\pi\bigl(\sum_j|\gamma_j|-|\sum_j\gamma_j|\bigr)$ — at $k=2$, opposite
+   signs, $2\pi\min(|\gamma|,|\gamma'|)$, which is the $e^{-\pi\min}$ this note
+   measured. So the sub-band is no longer one-character evidence: it is derived
+   for all $k$ and all strings. What that note does NOT supply is any repair of
+   the `BLOCKS.md` §2.1 inference, which stays withdrawn.]**
 7. **Reproduction cost.** 44 s end-to-end with the zero caches present
    (`data/exp58_*.npy`), 2 min 15 s from cold (the Hardy-$Z$ scans
    dominate). Delete `data/exp58_*` to reproduce from scratch: a cold run
