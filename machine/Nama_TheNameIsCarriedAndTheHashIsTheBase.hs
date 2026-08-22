@@ -63,12 +63,19 @@
 -- ─────────────────────────────────────────────────────────────────────────
 -- WHAT IS MEASURED, AND THE LIMIT OF EACH, AT THE SITE
 --
---  1. The split into top-level declarations is Agda's LAYOUT rule, read
+--  1. The split into top-level declarations is the LAYOUT rule, read
 --     syntactically: a declaration begins at column 0 and runs to the next
 --     column-0 token.  LIMIT: `private`/`module`/`where` blocks are one
 --     declaration each, not split into their members; a declaration inside a
 --     `where` is part of its parent.  So the store is coarser than Unison's,
 --     which addresses every definition.  This is stated, not hidden.
+--     For a MIXFIX operator the clauses do not share the signature's head
+--     token, and until 2026-08-21 they were therefore not merged into it —
+--     see the block above `declsOf`, which is where that was fixed and where
+--     the limits of the fix are stated.
+--     THREE LANES since 2026-08-21: Agda, Lean and Haskell, hashed
+--     separately.  See the block above `data Lang` for what was invisible
+--     before and why the lanes are not one corpus.
 --  2. The dependency edges are free identifiers that name another declaration
 --     IN THIS CORPUS.  LIMIT: it is a lexical scan, so a name shadowed by a
 --     local binder is counted as a dependency it is not.  That makes the
@@ -125,9 +132,59 @@ hex w = let s = showHex w "" in replicate (16 - length s) '0' ++ s
 
 ------------------------------------------------------------------ reading
 
-listAgda :: FilePath -> IO [FilePath]
-listAgda root = go root
+-- ─────────────────────────────────────────────────────────────────────────
+-- WHAT THE CENSUS CAN SEE, AND WHAT IT COULD NOT SEE UNTIL 2026-08-21
+--
+-- It read `formal/cubical` and `punaragamana/src`, and nothing else.  It was
+-- therefore structurally blind to three lanes of this repository at once:
+-- `formal/executable` (8 `.agda` files, the SAME language, excluded by an
+-- accident of the path list), `formal/pairfield` (138 hand-written `.lean`
+-- modules), and `machine` (132 `.hs` programs — including this one).  A store
+-- that reports "the corpus's literal duplicates" while not reading two thirds
+-- of the corpus's lanes is a verdict issued over a sample, which is exactly
+-- the शब्द defect the rest of this file is written against.
+--
+-- So it now reads all three, in SEPARATE LANES, and the reason they are
+-- separate is not tidiness:
+--   · a Lean `theorem` and an Agda `theorem` in one digest table would share
+--     dependencies by BARE NAME across languages (`digests` resolves an
+--     identifier to every declaration of that name anywhere), so a Haskell
+--     `main` would perturb an Agda `main`'s address.  Over-sensitivity is the
+--     safe direction, but a cross-language edge is not over-sensitivity —
+--     it is a claim that the two names denote one thing, and they do not.
+--   · a "duplicate" across two languages could only ever be a coincidence of
+--     ASCII.  The store answers SAME PRESENTATION; two presentations in two
+--     languages are not the same presentation.
+--
+-- LIMITS OF THE TWO NEW LANES, at the site, because they are weaker than the
+-- Agda one and a reader must not read one number as three:
+--   · LEAN.  A declaration is a column-0 line whose first word (after
+--     `private`/`protected`/`noncomputable`/`partial`/`unsafe`) is one of the
+--     declaration keywords, and the name is the word after it.  So: anonymous
+--     `instance : …` is not addressed, `attribute`/`macro_rules`/`notation`
+--     bodies are not addressed, and a `namespace` contributes nothing to the
+--     name — the module key is the FILE PATH, not the namespace, so two
+--     namespaces in one file share a key and their same-named declarations
+--     collapse to one entry.  `.lake` is excluded; it is Mathlib, not ours.
+--   · HASKELL.  Same layout split as Agda, signature `::` and clauses merge
+--     the same way, but an operator defined as `(<+>) a b = …` is NOT
+--     addressed: its head token is bracketed, and Haskell has no mixfix
+--     signature to recover it from.  The module key is the file path because
+--     most of `machine/` declares `module Main`, and keying by the declared
+--     module name would collapse 132 programs into one.
+--   · BOTH.  `where`-blocks, `let`-blocks and class/instance members are part
+--     of their parent declaration, as in the Agda lane.
+data Lang = Agda | Lean | Haskell deriving (Eq, Show)
+
+langExt :: Lang -> String
+langExt Agda    = ".agda"
+langExt Lean    = ".lean"
+langExt Haskell = ".hs"
+
+listSrc :: Lang -> FilePath -> IO [FilePath]
+listSrc lang root = go root
   where
+    skip e = e `elem` ["_build", ".lake", "__pycache__", ".git", "dist-newstyle"]
     go d = do
       ok <- doesDirectoryExist d
       if not ok then pure [] else do
@@ -135,24 +192,33 @@ listAgda root = go root
         fmap concat . forM es $ \e -> do
           let p = d </> e
           isD <- doesDirectoryExist p
-          if isD then (if e == "_build" then pure [] else go p)
-                 else pure [ p | takeExtension p == ".agda" ]
+          if isD then (if skip e then pure [] else go p)
+                 else pure [ p | takeExtension p == langExt lang ]
 
 -- Comments out, pragmas out, trailing space out.  A hash that changed with a
 -- comment would make every reformat a new object, which is the substrate
--- defect this program exists to remove.
-strip :: String -> String
-strip = unlines . map (dropTrailing . dropLine) . lines . dropBlock
+-- defect this program exists to remove.  Lean's block comment is `/- … -/`
+-- and its doc comment `/-- … -/`; Agda's and Haskell's is `{- … -}` with the
+-- pragma form `{-# … #-}` kept out separately.  The line comment is `--` in
+-- all three, which is the only thing the three lanes share for free.
+strip :: Lang -> String -> String
+strip lang = unlines . map (dropTrailing . dropLine) . lines . dropBlock
   where
     dropLine l = case breakOn "--" l of (a, _) -> a
     dropTrailing = reverse . dropWhile isSpace . reverse
     dropBlock s = go s (0 :: Int)
       where
+        (openB, closeB) = case lang of Lean -> ("/-", "-/"); _ -> ("{-", "-}")
         go [] _ = []
-        go ('{':'-':'#':cs) n = go (afterPragma cs) n
-        go ('{':'-':cs) n = go cs (n+1)
-        go ('-':'}':cs) n = go cs (max 0 (n-1))
-        go (c:cs) n = if n > 0 then go cs n else c : go cs n
+        go cs@('{':'-':'#':r) n | lang /= Lean = go (afterPragma r) n
+                                | otherwise    = step cs n
+        go cs n = step cs n
+        step cs n
+          | openB `isPrefixOf` cs  = go (drop 2 cs) (n+1)
+          | closeB `isPrefixOf` cs = go (drop 2 cs) (max 0 (n-1))
+          | otherwise = case cs of
+              (c:r) -> if n > 0 then go r n else c : go r n
+              []    -> []
         afterPragma ('#':'-':'}':cs) = cs
         afterPragma (_:cs) = afterPragma cs
         afterPragma [] = []
@@ -173,38 +239,230 @@ data Decl = Decl { dName :: String, dModule :: String, dFile :: FilePath
 -- rather than finding them.  Consecutive chunks with the same head name are
 -- therefore merged into one declaration.  Found the same way as the qualified
 -- name bug: by a collision count no digest could produce.
-declsOf :: FilePath -> String -> [Decl]
-declsOf fp src = [ Decl nm modName fp (concat bodies)
-                 | (nm, bodies) <- merged ]
+--
+-- ─────────────────────────────────────────────────────────────────────────
+-- MIXFIX.  THE HEAD OF `m ⊓ n = …` IS `_⊓_`, AND UNTIL 2026-08-21 THIS
+-- PROGRAM DID NOT KNOW THAT.
+--
+-- The merge above keys on the head TOKEN.  For a mixfix operator the
+-- signature's head token is `_⊓_` and every clause's head token is a
+-- PATTERN VARIABLE (`m`, `zero`, `suc n`), so the merge never fired and the
+-- hashed chunk was THE SIGNATURE ALONE — no body.  Two operators with one
+-- type then shared an address BY CONSTRUCTION.  Proof, and how it was found:
+-- `NaturalMachine.Residual._⊓_` (min) and `._⊖_` (truncated subtraction) came
+-- out at c7252409d03e3ae2 — same module, different functions, identical
+-- signature.  30 of the 236 "confirmed identical text" groups contained a
+-- name with an underscore in it and were therefore signature-only matches:
+-- leads wearing a verdict's clothes, which is the one thing §-प्रतिकृति
+-- above forbids.
+--
+-- WHAT IT COST AND WHAT IT PAID, both measured at commit 5d7ec790 on the same
+-- file set (`formal/cubical` + `punaragamana/src`, 892 files), so the two
+-- columns are comparable and neither is quoted from memory:
+--
+--                                   before      after
+--     declarations addressed        11,374     11,224     (−150)
+--     distinct addresses            10,692     10,578
+--     addresses holding >1             325        300
+--       …confirmed identical           236        237     (+1)
+--       …FNV-64 collisions              89         63     (−26)
+--
+-- The declaration count FELL because 150 chunks that were being addressed as
+-- declarations were pattern-variable heads (`m`, `n`, `zero`) — the store was
+-- counting clauses as definitions.  The confirmed-duplicate count went UP by
+-- one, which is the interesting number and is a sum of opposite motions:
+-- 26 of the old groups are gone; 20 of those DIED as signature-only false
+-- matches and 4 came back under a corrected name (`length-` → `length-++`,
+-- `≢0→0` → `≢0→0<`, `_` → `_&&_`, `_` → `_//_`) and 2 grew by a member.
+-- Against that, 21 groups appeared that had never been reported at all,
+-- because a definition now carries its body and its body's dependencies, so
+-- genuinely identical definitions whose body-less digests used to differ now
+-- meet.  A total that moved by one concealed a turnover of a fifth of its
+-- membership, which is the reason to diff the MEMBERSHIP and never the count.
+--
+-- THE RECOVERY.  Two passes over the chunks of one file.  Pass one collects
+-- the module's OWN top-level type signatures (a chunk whose first line has a
+-- `:` at bracket depth 0).  Pass two, for a chunk that is NOT a signature,
+-- reads the left-hand side at bracket depth 0 up to `=`/`with`/`|` and asks
+-- which declared mixfix name has its name-parts appearing there in order,
+-- with a token before a leading `_` and a token after a trailing `_`.
+-- Depth 0 is what makes it sound: `foo (m ⊓ n) = …` is a clause of `foo`,
+-- and dropping bracketed groups is exactly the difference.
+--
+-- THE NEW LIMIT, stated at the site because there is always one:
+--   · the match is against THIS module's signatures only.  A clause of an
+--     operator declared elsewhere is not recovered — no such thing exists in
+--     Agda, but a `where`-bound or `private` operator is invisible here for
+--     the separate reason that indented blocks are one chunk (limit 1).
+--   · when two declared mixfix names both match, the one with more
+--     name-parts wins, longer total length breaking the tie.  That is a
+--     HEURISTIC, not Agda's operator parser, which resolves by fixity and
+--     scope.  It has no known false positive in this corpus and it is not a
+--     proof that it cannot have one.
+--   · copatterns (`x .fst = …`) and clauses whose head is a `syntax`
+--     form are still mis-attributed to their first token.
+--   · a mixfix name whose only part is a token that also occurs as an
+--     ordinary depth-0 pattern token would capture that clause.  Depth 0
+--     plus "the chunk is not a signature" is the whole guard.
+declsOf :: Lang -> FilePath -> String -> [Decl]
+declsOf lang fp src = [ Decl nm modName fp (concat bodies)
+                      | (nm, bodies) <- merged ]
   where
     named = [ (nm, unlines body)
-            | body@(h:_) <- chunks, Just nm <- [headName h] ]
+            | body@(h:_) <- chunks, Just nm <- [headOf h] ]
+
+    -- the module's own top-level signatures, and of those the mixfix ones.
+    -- Agda only: Lean has no clause-at-column-0 form and Haskell's operator
+    -- definitions carry their head in brackets, which this cannot recover.
+    sigNames = [ nm | (h:_) <- chunks, isSig h, Just nm <- [headName h] ]
+    mixfixSigs | lang /= Agda = []
+               | otherwise = [ (nm, ps) | nm <- nub sigNames, '_' `elem` nm
+                             , let ps = nameParts nm, not (null ps) ]
+
+    headOf l
+      | lang == Lean                 = leanHead l
+      | isSig l                      = headName l
+      | firstWordReserved l          = Nothing
+      | Just n <- mixfixHead l       = Just n
+      | otherwise                    = headName l
+
+    -- Lean: `[modifiers] <keyword> <name> …`, everything else unaddressed.
+    leanHead l =
+      case dropWhile (`elem` leanMods) (words l) of
+        (k:n:_) | k `elem` leanDecls
+                , let nm = takeWhile (\c -> c `notElem` ("(:{[⟨" :: String)) n
+                , not (null nm), startsOK nm -> Just nm
+        _ -> Nothing
+    leanMods  = [ "private", "protected", "noncomputable", "partial", "unsafe"
+                , "scoped", "local", "@[simp]", "nonrec" ]
+    leanDecls = [ "theorem", "lemma", "def", "abbrev", "instance", "structure"
+                , "inductive", "class", "opaque", "example", "alias" ]
+
+    firstWordReserved l = case words l of (w:_) -> w `elem` reserved; [] -> True
+
+    isSig l = ":" `elem` tokens0 l && not ("=" `elem` takeWhile (/= ":") (tokens0 l))
+
+    -- Depth 0 first.  Only if nothing matches there, look INSIDE a leading
+    -- bracketed group: `(v ⊕ᴹ w) t = v t + w t` is a clause of `_⊕ᴹ_` whose
+    -- operator sits one level down because the definition takes a further
+    -- argument.  Left unhandled, that form kept `Sl2TensorProduct._⊕ᴹ_` (a
+    -- `+`) grouped with `._⊖ᴹ_` (a `-`) on their shared signature.
+    mixfixHead l = case pick (lhsOf l) of
+      Just n  -> Just n
+      Nothing -> case leadingGroup l of
+                   Just inner -> pick (lhsOf inner)
+                   Nothing    -> Nothing
+
+    lhsOf = takeWhile (\t -> t `notElem` ["=", "with", "|"]) . tokens0
+
+    pick lhs =
+      case sortBy (comparing (\(nm, ps) ->
+                     (negate (length ps), negate (length nm))))
+             [ (nm, ps) | (nm, ps) <- mixfixSigs, fits lhs nm ps ] of
+        ((nm, _) : _) -> Just nm
+        []            -> Nothing
+
+    -- the interior of a leading balanced `(…)`, if the line starts with one
+    leadingGroup l = case dropWhile isSpace l of
+      ('(':cs) -> Just (grab (0 :: Int) "" cs)
+      _        -> Nothing
+      where
+        grab _ acc []     = reverse acc
+        grab d acc (c:cs)
+          | c == '('      = grab (d+1) (c:acc) cs
+          | c == ')'      = if d == 0 then reverse acc else grab (d-1) (c:acc) cs
+          | otherwise     = grab d (c:acc) cs
+
+    -- the parts are a subsequence of the LHS tokens, in order; a leading `_`
+    -- demands a token before the first part, a trailing `_` one after the last
+    fits lhs nm ps =
+      case matchParts 0 lhs ps of
+        Nothing        -> False
+        Just (i, j)    -> (take 1 nm /= "_" || i > 0)
+                       && (last nm /= '_' || j < length lhs - 1)
+      where
+        matchParts _ _ [] = Nothing
+        matchParts k ts (p:rest) = case break (== p) ts of
+          (_, [])       -> Nothing
+          (pre, _:more) -> let i = k + length pre
+                           in case rest of
+                                [] -> Just (i, i)
+                                _  -> fmap (\(_, j) -> (i, j))
+                                           (matchParts (i+1) more rest)
+
+    nameParts = filter (not . null) . foldr splitU [[]]
+      where splitU c acc@(cur:done)
+              | c == '_'  = [] : acc
+              | otherwise = (c : cur) : done
+            splitU _ [] = [[]]
     merged = go named
       where
         go [] = []
         go ((n, b) : rest) =
           let (same, more) = span ((== n) . fst) rest
           in (n, b : map snd same) : go more
-    ls = filter (not . all isSpace) (lines (strip src))
-    modName = case [ w | l <- ls, "module " `isPrefixOf` l
-                       , let ws = words l, length ws > 1, let w = ws !! 1 ] of
-                (m:_) -> m
-                []    -> "?"
+    ls = filter (not . all isSpace) (lines (strip lang src))
+    -- Agda module names are unique corpus-wide and are the right key.  Lean
+    -- and Haskell are keyed by PATH: `machine/` declares `module Main` 132
+    -- times over, and keying by the declared name would collapse the whole
+    -- lane into one module and hide every duplicate inside it.
+    modName
+      | lang /= Agda = fp
+      | otherwise = case [ w | l <- ls, "module " `isPrefixOf` l
+                             , let ws = words l, length ws > 1, let w = ws !! 1 ] of
+                      (m:_) -> m
+                      []    -> "?"
     chunks = splitTop ls
     splitTop [] = []
     splitTop (l:rest) =
       let (body, more) = span indented rest in (l : body) : splitTop more
     indented (c:_) = isSpace c
     indented []    = True
+    -- An Agda name is any run of characters that are not whitespace and not
+    -- one of Agda's own reserved symbols `.;{}()@"`.  The earlier version
+    -- listed the permitted characters instead — alphanumerics plus
+    -- `-_'?!λ∙≡≃∘` and everything above U+007F — which silently TRUNCATED
+    -- every operator built from an ASCII symbol: `_%%_`, `_//_`, `_<ᵇ_` and
+    -- `_/_` all came out as the name `_`.  That is not cosmetic here: a
+    -- truncated name has no name-parts, so it never entered the mixfix table
+    -- and its clauses stayed attached to a pattern variable — the very defect
+    -- this section exists to remove, arriving through the lexer instead.
     headName l =
-      let w = takeWhile (\c -> isAlphaNum c || c `elem` ("-_'?!λ∙≡≃∘" :: String)
-                               || fromEnum c > 127) l
+      let w = takeWhile (\c -> not (isSpace c)
+                               && c `notElem` (".;{}()@\"" :: String)) l
       in if null w || w `elem` reserved || not (startsOK w) then Nothing else Just w
     startsOK (c:_) = isAlpha c || fromEnum c > 127 || c == '_'
     startsOK []    = False
     reserved = [ "module","open","import","private","postulate","data","record"
                , "where","infix","infixl","infixr","syntax","variable","mutual"
                , "abstract","instance","primitive","pattern","macro" ]
+               ++ (if lang == Haskell
+                     then [ "newtype","type","class","deriving","foreign"
+                          , "default" ]
+                     else [])
+
+-- Tokens of a line at BRACKET DEPTH ZERO.  A `(…)` or `{…}` group is
+-- COLLAPSED TO ONE PLACEHOLDER TOKEN `()`, not flattened and not deleted.
+--   · not flattened, because `foo (m ⊓ n) = …` is a clause of `foo` and must
+--     not look like one of `_⊓_`; depth is the only thing that separates them.
+--   · not deleted, because `(p , q) ⊏ (p' , q') = …` is a clause of `_⊏_` and
+--     the leading `_` of that name is satisfied by an argument that happens to
+--     be a pattern in brackets.  Deleting the group left `⊏` at position 0 and
+--     the clause was dropped — which is how the first cut of this fix left
+--     `NaturalMachine.…Mediant._⊏_` (a `<`) still grouped with
+--     `…Antitone._⊑_` (a `≤`) as if they were one definition.
+tokens0 :: String -> [String]
+tokens0 = go (0 :: Int) ""
+  where
+    flush acc r = if null acc then r else reverse acc : r
+    go _ acc [] = flush acc []
+    go d acc (c:cs)
+      | c == '(' || c == '{' =
+          if d == 0 then flush acc ("()" : go 1 "" cs) else go (d+1) "" cs
+      | c == ')' || c == '}' = go (max 0 (d-1)) "" cs
+      | d > 0                = go d "" cs
+      | isSpace c            = flush acc (go d "" cs)
+      | otherwise            = go d (c:acc) cs
 
 ------------------------------------------------------------- dependencies
 
@@ -443,13 +701,55 @@ emitBhavana nm pairs offspring = unlines $
     ++ (if null offspring then [] else "-- the offspring, transported across it" : offspring)
   where modOf q = reverse (drop 1 (dropWhile (/= '.') (reverse q)))
 
+-- The three lanes.  Each is hashed in its OWN table; see the note above
+-- `data Lang` for why they are not one corpus.
+lanes :: [(Lang, [FilePath])]
+lanes =
+  [ (Agda,    ["formal/cubical", "punaragamana/src", "formal/executable"])
+  , (Lean,    ["formal/pairfield"])
+  , (Haskell, ["machine"])
+  ]
+
 main :: IO ()
 main = do
   hSetEncoding stdout utf8
   args <- getArgs
   let full = "--full" `elem` args
-  fs <- concat <$> mapM listAgda ["formal/cubical", "punaragamana/src"]
-  ds <- fmap concat . forM fs $ \f -> declsOf f <$> readFile f
+  putStrLn "=============================================================="
+  putStrLn "नाम · the name is carried, the hash is the base"
+  putStrLn "=============================================================="
+  totals <- forM lanes $ \(lang, roots) -> lane full lang roots
+  putStrLn ""
+  putStrLn $ "  ALL LANES: " ++ show (sum (map (\(a,_,_) -> a) totals))
+          ++ " files, " ++ show (sum (map (\(_,b,_) -> b) totals))
+          ++ " declarations, " ++ show (sum (map (\(_,_,c) -> c) totals))
+          ++ " confirmed duplicate groups.  The three numbers are SUMS OF"
+  putStrLn "  SEPARATE CENSUSES and not a census of one corpus: no address is"
+  putStrLn "  shared across lanes, by construction."
+  putStrLn ""
+  putStrLn "  LIMITS, stated here rather than in a footnote:"
+  putStrLn "    · declarations are split by the layout rule read syntactically;"
+  putStrLn "      a `where`/`private`/`module` block is ONE declaration, not its"
+  putStrLn "      members.  Coarser than Unison's."
+  putStrLn "    · dependencies are a lexical scan, so a shadowed name counts as"
+  putStrLn "      a dependency it is not — the digest changes when it need not,"
+  putStrLn "      and never misses a real one.  That is the direction an"
+  putStrLn "      identity mechanism must err in."
+  putStrLn "    · FNV-1a 64.  Every collision above is confirmed against the"
+  putStrLn "      texts, so the digest bounds the WORK and not the truth."
+  putStrLn "    · this store answers SAME PRESENTATION.  An edge saying two"
+  putStrLn "      different presentations are the same MATHEMATICS is a checked"
+  putStrLn "      `A ≃ B`, content-addressed by this same mechanism, and"
+  putStrLn "      scripts/Ratri_…sh already lands them."
+  putStrLn "    · the Agda lane recovers mixfix clause heads; the Lean lane"
+  putStrLn "      addresses only keyword-introduced named declarations and the"
+  putStrLn "      Haskell lane cannot address `(<+>) a b = …`.  A lane's number"
+  putStrLn "      is a floor on its duplicates, never a ceiling."
+
+lane :: Bool -> Lang -> [FilePath] -> IO (Int, Int, Int)
+lane full lang roots = do
+  fs <- concat <$> mapM (listSrc lang) roots
+  ds <- fmap concat . forM fs $ \f -> declsOf lang f <$> readFile f
   let tbl  = digests ds
       keyed = [ (h, d) | d <- ds, Just h <- [M.lookup (dModule d ++ "." ++ dName d) tbl] ]
       byHash = M.fromListWith (++) [ (h, [d]) | (h, d) <- keyed ]
@@ -466,10 +766,11 @@ main = do
       spurious = length dupes - length confirmed
       norm = unwords . words
 
-  putStrLn "=============================================================="
-  putStrLn "नाम · the name is carried, the hash is the base"
-  putStrLn "=============================================================="
-  putStrLn $ "  .agda files read                : " ++ show (length fs)
+  putStrLn ""
+  putStrLn $ "-------- " ++ show lang ++ " lane: " ++ unwords roots
+  putStrLn $ "  " ++ langExt lang ++ " files read"
+             ++ replicate (max 1 (22 - length (langExt lang))) ' '
+             ++ ": " ++ show (length fs)
   putStrLn $ "  top-level declarations addressed: " ++ show (length ds)
   putStrLn $ "  distinct content addresses      : " ++ show (M.size byHash)
   putStrLn $ "  addresses holding >1 declaration: " ++ show (length dupes)
@@ -490,19 +791,4 @@ main = do
       putStrLn $ "      " ++ dModule d ++ " . " ++ dName d
   when (not full && length confirmed > 25) $
     putStrLn $ "  … " ++ show (length confirmed - 25) ++ " more (--full)"
-
-  putStrLn ""
-  putStrLn "  LIMITS, stated here rather than in a footnote:"
-  putStrLn "    · declarations are split by Agda's layout rule read"
-  putStrLn "      syntactically; a `where`/`private`/`module` block is ONE"
-  putStrLn "      declaration, not its members.  Coarser than Unison's."
-  putStrLn "    · dependencies are a lexical scan, so a shadowed name counts as"
-  putStrLn "      a dependency it is not — the digest changes when it need not,"
-  putStrLn "      and never misses a real one.  That is the direction an"
-  putStrLn "      identity mechanism must err in."
-  putStrLn "    · FNV-1a 64.  Every collision above is confirmed against the"
-  putStrLn "      texts, so the digest bounds the WORK and not the truth."
-  putStrLn "    · this store answers SAME PRESENTATION.  An edge saying two"
-  putStrLn "      different presentations are the same MATHEMATICS is a checked"
-  putStrLn "      `A ≃ B`, content-addressed by this same mechanism, and"
-  putStrLn "      scripts/Ratri_…sh already lands them."
+  pure (length fs, length ds, length confirmed)
