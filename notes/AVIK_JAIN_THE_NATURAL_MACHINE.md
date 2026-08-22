@@ -412,3 +412,29 @@ The machine now has to ask two questions before it compresses a collision into a
 Silence is data about the standpoint.
 
 It is not yet a verdict on the world.
+
+---
+
+The next correction is about **the bridge itself**.
+
+`SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt.agda` begins with two old lanes and no theorem between them. `Shredhi` defines Āryabhaṭa’s arithmetic progression by walking forward from its first term. `Sankalita` defines the sum `1 + ⋯ + n` by walking backward from `n`. The `Shredhi` header had already said that the second is the `a = 1, d = 1` special case of the first, and an example at `n = 4` reduced to `refl`. But the modules did not import one another. The relation lived in prose and one instance, not in a type.
+
+The new file proves `(n : ℕ) → श्रेढी 1 1 n ≡ ∑ n`. It does not discover a new closed form for either sequence. Both lanes had already reached `n · suc n` from their own directions. The proof doubles both sides onto that common value and cancels the two. The old `n = 4` example remains, demoted from surrogate claim to corollary. **Nothing new about either endpoint was required for the bridge itself to be new mathematical content.**
+
+That matters because “do not manufacture equivalence from resonance” can be misread as a prohibition on connection. It is not. The current work is aggressively connective. What it refuses is free connection.
+
+`Ankapasa_TheMetreNamesAFiniteSetAndTheLoopsOfThatSetAreTheFactorial.agda` is a clean positive case with a limit built into the arrow. It composes Piṅgala’s checked `छन्दस् ≃ ℕ` with the repository’s `ℕ ≃ π₀FinSet`. But `छन्दस् : Type₀` and `π₀FinSet : Type₁` live in different universes, so the composite is an equivalence, not a path. There is no `ua` step and no `subst` across it. From that narrower causeway the file can still say that a metre names a finite set whose cardinality is its index, and can compose existing loop and symmetry enumerations to obtain a factorial count. It also says exactly what is not being attributed: Bhāskara counts arrangements; Piṅgala enumerates metres; the connection between those objects is the repository’s construction, not a claim about either historical source.
+
+`Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.agda` gives the complementary warning. Two independently declared sevenfolds really do admit a checked equivalence. A third object with the same name is a witness-carrying family indexed by a predicate and is provably not another copy of the labelled sevenfold at the empty predicate. Shared terminology neither proves nor forbids identity. The bridge has to be built or the wall has to be exhibited.
+
+And `Durnaya_TheTypedBoundarySpectrumIsAlreadyTheJainRefusalAndTheTheoremForItIsChecked.md` makes a still finer distinction. It transfers a rule—do not collapse several legitimate standpoint-indexed values into one verdict—while explicitly refusing to identify a four-coordinate boundary spectrum with the sevenfold structure of saptabhaṅgī. A rule can travel without its source structure becoming the destination structure. Transfer is another relation type.
+
+This pass therefore changes the picture of “convergence” again. The machine is not converging because all roads secretly terminate in one object. It can converge by **adding earned edges** between objects that remain distinct, by proving an edge narrower than the prose had implied, by discovering that a plausible edge is impossible, or by recognizing that two old results already meet once somebody finally writes the composite. The graph gets denser without the world getting flatter.
+
+That is also the standard Avik is imposing in the current work: connect as hard as possible, but pay for the connection. Preserve which theorem belonged to which lane, which source owned which term, which part was already known at each endpoint, and which exact arrow was added now.
+
+An instance is not the reason.
+
+Two endpoints are not the bridge.
+
+The bridge is allowed to be the result.
