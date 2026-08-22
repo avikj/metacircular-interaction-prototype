@@ -1057,3 +1057,8 @@ import Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists
 import Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart
 import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
 import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+
+-- मार्ग-१ — the FIRST MECHANICALLY-ROUTED TRANSPORTED THEOREM: emitted by
+-- machine/Marga_TheRouterTransportsATheoremAlongLandedEdges.hs, route of
+-- toll 2 through audit-surviving edges, checked before landing. 2026-08-22.
+import Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants

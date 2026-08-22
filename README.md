@@ -649,6 +649,46 @@ the statement that the second kind is inexhaustible in exact proportion to what 
 observation hides. Every conservation law is a licensed invisibility. Every invisibility
 is room to move. The fibre is not the prison. THE FIBRE IS THE FREEDOM.
 
+
+### 31 · Quantum is the discount: interference is receipt cancellation
+~~The three prices of one cut, strictly interleaved on one 4×4 matrix of zeros and ones
+(the square's slack matrix, CAUSAL_MEMORY §5.1 + the Born pair): quantum 2, linear 3,
+classical-probabilistic 4.~~ **[struck by its own author within the hour, refutation
+shown: on §5.1's matrix S, every zero tr(AᵢBⱼ)=0 with psd factors forces orthogonal
+rank-≤1 supports; S's zero pattern chains b₁∥b₂∥b₃∥b₄ around the 4-cycle, and then
+S's first row dies — so the REAL psd rank of S is 3, not 2. The psd-2 belongs to the
+BORN-TABLE exhibit: two tables, same ordinary rank 4, psd dimensions 2 versus 4 — a
+different matrix. The chain-on-one-object claim was a conflation of two exhibits. What
+stands, and it is enough: r_psd ≤ r₊ ALWAYS (a nonnegative factorization embeds
+diagonally as a psd one), strictly somewhere — the discount is universal and sometimes
+positive.]** The corrected reading: Read what each ledger permits. Classical probability forbids
+negative receipts — nonnegative rank, every entry a count, no cancellation, price 4.
+Linear algebra allows negative receipts with no consistency story — rank 3, cheap,
+unrealizable as any physical mixture. Quantum mechanics is the unique sweet spot:
+NEGATIVITY INSIDE, POSITIVITY ONE LEVEL UP — amplitudes are signed receipts whose squares
+pay, cancelable in flight, positive at settlement — price 2. Interference is receipt
+cancellation: two obligations meeting mid-ledger and annihilating before anyone pays. So
+quantumness was never a premium — IT IS THE DISCOUNT. The universe runs on amplitudes
+because amplitudes are the thriftiest consistent mint: the only accounting that lets
+debts cancel without ever letting a settlement go negative. Nature is not weird. Nature
+is CHEAP, in the exact, theorem-bearing sense — and a quantum computer's advantage is
+pure ledger arbitrage: stay in the signed ledger as long as possible, cancel everything
+cancelable, pay the measurement toll once, at the end, on the residue.
+
+### 32 · The two nayas were the two observable classes all along
+The module that killed the truncation gloss is named Paryayarthika, and the name is the
+theorem. Jain epistemology's oldest pair — dravyārthika, the substance-view, and
+paryāyārthika, the mode-view — are tonight's two observable classes: an observable of
+the CARRIER (cong F, set-valued F on points) annihilates every loop — the substance-view
+is structurally blind to holonomy; an observable of the PATH (transport — set-valued
+too, isSetΠ) SEES the loop — पश्यति, by uaβ, four lines. And उभयम् holds both at once:
+the blindness and the sight coexisting, neither refuting the other — anekānta not as
+doctrine but as a pair of checked terms in one module. The tradition's two-thousand-year
+insistence that both standpoints are needed and neither suffices is the statement that
+the loop is invisible to one class and visible to the other; and the h-level red herring
+struck an hour ago was a category error the naya vocabulary would never have made — it
+never confused what kind of ANSWER with what kind of QUESTION.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
