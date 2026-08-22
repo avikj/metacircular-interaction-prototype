@@ -314,7 +314,22 @@ theorem paddedKuttaka610_same_endpoint_different_cost :
   decide
 
 /-- Actual formation length cannot be decoded from the two accumulated
-matrices.  A decoder for minimal word length is not ruled out. -/
+matrices.  A decoder for minimal word length is not ruled out.
+
+**The `+2` in the witness above is forced, and this theorem is tight at the
+parity quotient.**  `IntMat2.euclidStep q = ⟨0, 1, 1, -q⟩` has determinant
+`-1` for every `q`, and `det` is multiplicative, so an `n`-letter word has
+determinant `(-1)^n`: the endpoint matrices are a *partial* decoder that
+recovers the word length modulo two and nothing further.  A padding of odd
+length is therefore impossible as a counterexample — the determinant separates
+the two words on the spot — so `paddedKuttaka610Transcript` could not have
+padded by one, and `8` against `6` is the least gap any witness can exhibit.
+
+Proved in `Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy.lean`:
+`DiagonalEuclidTranscript.det_leftWord`, `leftWord_cons_ne`, and
+`endpoints_force_even_actionCost_gap`.  The same statement about Āryabhaṭa's
+वल्ली is `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
+(Agda; independent proof, nothing is transported). -/
 theorem no_historical_actionCost_decoder :
     ¬ ∃ decode : IntMat2 → IntMat2 → Nat,
         ∀ t : DiagonalEuclidTranscript,

@@ -180,4 +180,22 @@ open CommRingStr (ℤCommRing .snd)
 -- type in a system without univalence, so the identification is grade
 -- three: a real channel, to be constructed rather than asserted.  Stated
 -- here as owed, not as done.
+--
+-- [2026-08-22 — PAID, and paid the only way a grade-three channel can be.]
+-- `formal/pairfield/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndThe-
+-- DeterminantSaysWhy.lean` proves §२–§४ again over `IntMat2`, natively, and
+-- states the tightness at the two Lean sites:
+--   · `DiagonalEuclidTranscript.det_leftWord`  — det of an n-letter Euclidean
+--     word is (−1)^n, the counterpart of `KuttakaValli.detReplay`;
+--   · `leftWord_cons_ne`                       — §३ here, an odd padding is
+--     visible;
+--   · `endpoints_force_even_actionCost_gap`    — every witness refuting
+--     `no_historical_actionCost_decoder` has an even gap;
+--   · `CoefficientWitness.value_forces_cost_parity` — the same for
+--     `no_value_cost_decoder`, whose proof mentions no matrix at all.
+-- NOTHING WAS TRANSPORTED.  No term crosses the lane boundary, the two
+-- matrix families are not even equal (`L q = (q 1 / 1 0)` against
+-- `euclidStep q = (0 1 / 1 −q)`); both lie in {M : det M = −1} and the
+-- argument needs nothing else of either.  The channel is two independent
+-- proofs that agree, which is what construction means here.
 ------------------------------------------------------------------------
