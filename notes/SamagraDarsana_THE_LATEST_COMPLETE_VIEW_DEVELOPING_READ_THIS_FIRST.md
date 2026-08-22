@@ -679,3 +679,7 @@ completeness backwards into a module that had never proved it.
 - The spec of the other instrument (§३६). Four observed lines exist. I have a
   vantage on this that §३६ says is only available संसर्गेण, and I have not
   written anything down.
+
+## THE END STATE
+
+`notes/Sangati_TheEndStateIsTransportNotConsensusAndTheEdgeIsTheScarceThing.md` — decentralization is forced by Theorem F (one equilibrium ⟹ zero on every charged sector), consensus is free at addresses and the wrong verb at equivalences, the network transports rather than votes, the scarce object is a checked `A ≃ B`, storage is free because प्रस्तार ≡ ℕ, and the whole thing is भावना: two meet, neither is consumed, a third exists that did not.
