@@ -415,6 +415,75 @@ that name.
 
 ---
 
+## ४d · THREE PRESENTATIONS, THREE SEEDS — the sharpest open question I have found
+
+`BARRIER.md` §2 classifies the arithmetic by *presentation*, and the three
+rows align exactly:
+
+| presentation | probe class | blind spot |
+|---|---|---|
+| finite-multiplicative (divisibility) | SIEVE_d | **parity-protected** — λ, μ exactly invisible, gauge no-go |
+| additive-windowed | WL_d(L,r) | **bulk-blind** — correlations cost exp(cT log²T), Theorem K |
+| global-multiplicative (functional equation used as a *constraint*, not a value) | Tao's entropy decrement | the one known access to Chowla-grade content |
+
+*"the sieve parity barrier, the Theorem-K depth barrier, and the sum-product
+philosophy are the same three-way classification seen from three corners."*
+
+**And the mechanism of the single escape is stated precisely.** Entropy
+decrement's correlator is WL *as a number*; the proof is not a WL derivation,
+because the decrement step consumes λ(pn) = −λ(n) — the functional equation —
+which is outside WL's black-box-sequence interface **by construction**. So
+the escape was by *changing the interface*, not by computing harder inside
+it. That is `QuotientFiberLaw`'s "visibility returns only by a separating
+(charged) query", and it is asiddhatva read from the other side: what a rule
+may observe decides what it can derive.
+
+The note's Problem 1 is exactly the missing half: *a proof that no WL
+post-processing Φ can simulate that interface — a separation, not just a
+classification.* And it correctly names the analogy: this is the
+natural-proofs situation, where the structure theorem is the easy half and
+producing pseudorandom candidates inside the class is the hard one.
+
+**MINE, offered as a question rather than a result, and I have not found it
+asked anywhere.**
+
+Three presentations, with the third **provably not reachable from the other
+two by the interface it consumes**. That is precisely the shape
+`Saptabhangi.agda` proves for its three seeds: अस्ति, नास्ति, and अवक्तव्य,
+with अवक्तव्य NOT reachable from the first two by क्रम
+(`क्रम-सह-भेदः`, `AnuktaAvaktavya`, `no-single-vacana`) — and
+`समावेश-भेदः : समावेश ≃ (सप्तभङ्गी ⊎ Unit)` then gives **2³ − 1 = 7**
+positions, the eighth being अ-प्रतिपादनम्, no predication at all.
+
+So: **if there are three independent presentations, why are there only three
+rows in the table?** The combinations are missing, and the Jain apparatus
+says there should be four of them plus the void:
+
+- finite-mult ⊗ additive-windowed (the Ramanujan-twisted blocks are perhaps
+  already this, and would then not be a new presentation but a combination);
+- finite-mult ⊗ global-mult;
+- additive-windowed ⊗ global-mult;
+- all three at once.
+
+**And the krama/saha distinction says the combination is not one thing.**
+Using a sieve and *then* a window is क्रम — sequential, and by
+`Arpitanarpita_….क्रम-विनिमयः-न-ऊर्ध्वम्` order-dependent. Using two
+presentations *at once* is सह, and `सह-असङ्गतिः-ऊर्ध्वम्` proves that is not
+associative, so it is not the iterated pairwise operation. **Tao's entropy
+decrement compares empirical distributions ACROSS SCALES using the functional
+equation — that is सह, not क्रम.** If that reading holds, the one method that
+broke through did so by taking two presentations simultaneously rather than
+in succession, and the saptabhaṅgī predicts exactly which further
+combinations exist and that they are not reducible to sequences of pairs.
+
+I cannot check any of this. What I can say is that the corpus contains, in
+Agda, a checked theorem about how many positions three independent seeds
+generate and a checked proof that simultaneous is not sequential — and that
+`BARRIER.md`'s Problem 3 asks whether its three presentations are exhaustive
+without either file knowing the other exists.
+
+---
+
 ## ५ · The Rosetta property, and why the corpus is not connected
 
 `notes/QUANTUM_COMB_MEMORY_ROSETTA.md` is a translation table between this
