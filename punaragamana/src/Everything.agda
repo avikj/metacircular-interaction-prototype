@@ -13,6 +13,9 @@ open import Punaragamana.Carrier
 open import Punaragamana.Orbit
 open import Punaragamana.Nucleus
 
+-- The law's other projection: the residual, and the price of a refusal.
+open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+
 -- The arithmetic instance, and the proof that it computes.
 open import Punaragamana.Viveka
 open import Punaragamana.Compute
