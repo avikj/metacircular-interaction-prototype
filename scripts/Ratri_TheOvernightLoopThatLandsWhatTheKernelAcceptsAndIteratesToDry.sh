@@ -315,7 +315,7 @@ the greens would be दुर्नय." 2>/dev/null \
 # [2026-08-22, LATER THE SAME DAY — THE BLOCK THIS REPLACES WAS A NO-OP ON
 # THIS HOST, AND ITS OUTPUT WAS NOT A KERNEL VERDICT.]
 #
-# It checked each probe with `agda …`.  **`timeout` is GNU
+# It checked each probe with `timeout 120 agda …`.  **`timeout` is GNU
 # coreutils and does not exist on macOS.**  `command -v timeout` returns
 # nothing here.  So every one of the 39 checks exited 127 with `command not
 # found`, `n_green` could never be incremented, `obl` was always empty so not
@@ -324,11 +324,17 @@ the greens would be दुर्नय." 2>/dev/null \
 #     अनुलोम-प्रतिलोम: 0 accepted, 39 open.
 #
 # as though the kernel had refused 39 pairs.  The kernel was never asked.
-# Run without the missing binary, the same 39 probes give ONE acceptance —
-# `NaturalMachine.S3IntegerRelativeCoordinates.intersectionToKernel ⇄
-# kernelToIntersection` checks on rung one — and that one turns out to
-# restate an Iso its own host module already carries, which is a finding the
-# broken gate had hidden twice over.
+#
+# WHAT THE KERNEL ACTUALLY SAYS, once asked (2026-08-22, 43 pairs by then):
+# TWO acceptances, not zero.  `…S3IntegerRelativeCoordinates.
+# intersectionToKernel ⇄ kernelToIntersection` on rung one, and
+# `ProjectionChargeAudit.decode ⇄ encode` on rung two after the emitter began
+# importing the constructors it names.  AND BOTH RESTATE AN Iso THEIR OWN
+# HOST MODULE ALREADY CARRIES, so NEW EDGES THIS PASS IS STILL ZERO — the
+# broken gate had hidden a green, and the green turns out to be an echo.
+# Eleven of the 43 proposals are in that condition: already proved upstairs.
+# The queue is smaller than it looked and the ladder is no better than it
+# looked, and those are two different corrections in opposite directions.
 #
 # A guard that converts every check into a failure is worse than no guard:
 # it produces a number in the right shape, and the number is of the guard.

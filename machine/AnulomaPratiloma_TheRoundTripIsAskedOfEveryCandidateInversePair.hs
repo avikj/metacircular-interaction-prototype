@@ -89,6 +89,7 @@ import System.Process (readProcessWithExitCode)
 
 data Sig = Sig { sMod :: String, sName :: String, sFrom :: String, sTo :: String }
 
+
 -- RUNG TWO.  Bhedanirnaya_….agda §6 states the ladder in its own words --
 -- "one induction to agree pointwise, one abstraction to a path".  Rung one
 -- (λ _ → refl) came back EMPTY on all 39 candidates, so the bottom of the
@@ -517,21 +518,34 @@ classify hf out
     -- «induction on ℕ» — the wrong feature request, because the induction
     -- that closes it is on the LIST.  The outer former decides, so the
     -- structured formers are tested before the scalars they contain.
+    --
+    -- AND THE MATCH IS ON WHOLE HEADS, NOT SUBSTRINGS.  `Nat` is a substring
+    -- of `NaturalMachine`, so `NaturalMachine.HaskellDiscoveryBoundary.
+    -- HaskellTerm` was classified «induction on ℕ» — a feature request for a
+    -- rung that would not have touched it.  Every token is stripped of its
+    -- module qualifier and compared whole.
     ofType t
       | null t                          = "unclassified"
       | isJust (sigmaOf hf t)           = "Σ≡Prop"
+      -- `SetQuotients` only ever appears as a module qualifier, and the
+      -- quotient's `/` ends its token, so this one is matched on the whole
+      -- string.  There is no name in this corpus it can collide with.
       | "SetQuotients" `isInfixOf` t    = "quotient elimination"
-      | "⊎"       `isInfixOf` t         = "case on ⊎"
-      | "List"    `isInfixOf` t         = "induction on List"
-      | "Fin"     `isInfixOf` t         = "enumerate Fin n"
-      | "Σ"       `isInfixOf` t         = "Σ≡Prop"
-      | "Nat"     `isInfixOf` t
-        || "ℕ"    `isInfixOf` t         = "induction on ℕ"
-      | "Int"     `isInfixOf` t
-        || "ℤ"    `isInfixOf` t         = "library lemma on ℤ"
-      | "Bool"    `isInfixOf` t         = "case on Bool"
+      | has "⊎"                         = "case on ⊎"
+      | has "List"                      = "induction on List"
+      | has "Fin"                       = "enumerate Fin n"
+      | has "Σ"                         = "Σ≡Prop"
+      | has "Nat" || has "ℕ"            = "induction on ℕ"
+      | has "Int" || has "ℤ"            = "library lemma on ℤ"
+      | has "Bool"                      = "case on Bool"
       | any ((== trim t) . dName) (hData hf) = "host enumeration (emitter gap)"
       | otherwise                       = "host type · " ++ trim t
+      where
+        -- last dotted segment of each token, brackets dropped
+        heads = [ reverse (takeWhile (/= '.') (reverse w))
+                | w0 <- words t
+                , let w = filter (`notElem` "()") w0, not (null w) ]
+        has s = s `elem` heads
 
 -- Agda prints `X != Y of type T`, with T possibly wrapping onto the lines
 -- after it, up to `when checking`.
@@ -1084,3 +1098,95 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 -- blob in `git fsck`.  It is gone.  **In a shared working tree
 -- `git checkout -- <path>` has no undo**, and two lanes editing one file
 -- with no lock is the hazard, not the command.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- FIFTH BLOCK.  THE THREE REPAIRS THE RETRACTION NAMED ARE DONE, AND THE
+-- NUMBERS THEY YIELD ARE BELOW.  2026-08-22, measured on 43 candidate pairs
+-- (the corpus grew from 39 while this was being written; both figures are
+-- printed by the run and neither is quoted from memory).
+--
+--     proposed                                43
+--     accepted by the kernel                   2
+--     …of those, restating a host Iso          2
+--     NEW EDGES                                0
+--     already proved in the host              11
+--     open                                    41
+--     …of which MY OWN DEFECTS                 6
+--
+-- **THE HEADLINE IS THAT NEW EDGES IS STILL ZERO, AND THAT THE TWO GREENS
+-- MAKE IT MORE ZERO RATHER THAN LESS.**  The retraction above was right that
+-- "0 accepted" was never measured; run properly the kernel accepts two —
+-- `S3IntegerRelativeCoordinates.intersectionToKernel ⇄ kernelToIntersection`
+-- at rung one, and `ProjectionChargeAudit.decode ⇄ encode` at rung two once
+-- the emitter began importing the constructors it names.  Both restate an
+-- `Iso` standing in their own host file.  A green that is an echo is not an
+-- edge, and the only reason this can be said at all is that the census now
+-- looks for the host's `≃` before it proposes.
+--
+-- REPAIR 1 — read the host's own equivalences and say ALREADY PROVED.  Done
+-- (`alreadyProved`).  It finds ELEVEN of 43.  The retraction counted
+-- SIXTEEN of 39 BY HAND, and the gap is the whole story of what a mechanical
+-- check is worth: mine matches the two type names as literally written in
+-- the two signatures, so `WallCertificate.quotient≃Bool` — an Iso between
+-- the same types under different names — is invisible to it, and so is any
+-- Iso stated through an alias.  **ELEVEN IS A FLOOR AND THE HAND COUNT IS
+-- NOT WRONG.**  Stated in this direction because the reverse — quoting the
+-- machine's smaller number as the answer — is how an instrument's blind spot
+-- becomes a claim about the corpus, which is the exact error retracted above.
+--
+-- REPAIR 2 — never treat a nonzero exit as a verdict.  Done, by removing the
+-- exit code from the shell entirely: `--check` runs agda in-process, and a
+-- probe that dies at `MetaCannotDependOn`, `NotInScope`, `CoverageIssue` or
+-- `PatternShadowsConstructor` is filed under मम दोषः and counted APART from
+-- the mathematical obligations.  Six of the 41 open pairs are mine, not the
+-- corpus's, and they were previously indistinguishable from refutations.
+--
+-- REPAIR 3 — there is no `timeout` here.  Done: nothing invokes it.  The
+-- honest cost is stated at `runAgda` — there is now no wall-clock cap at all.
+--
+-- WHAT RUNG FOUR ACTUALLY DID, SEPARATED FROM WHAT IT WAS SUPPOSED TO DO.
+-- `Σ≡Prop` is emitted, it fires on the Σ-typed candidates, and IT CLOSED
+-- NOTHING.  `SaptabhangiNaya` needs the absurd `(false , false , false)`
+-- branch that no enumeration reaches; `Digits` is an indexed family the
+-- probe cannot even state.  The rung's value this pass is not an edge — it
+-- is that the kernel's refusal on Saptabhangi now points at the ex-falso
+-- branch by name instead of at a variable.  Two OTHER changes, both trivial
+-- next to it, are what actually moved the numbers: resolving type aliases
+-- before splitting, and importing `true`/`false` when the split names them.
+-- The second one is worth the whole rung as a lesson — an unimported
+-- constructor is a PATTERN VARIABLE in Agda, so the split silently was not a
+-- split, and agda said so in a -W warning nobody was reading.
+--
+-- THE HISTOGRAM, WHICH IS THE POINT OF THE PASS.  Of the 35 open pairs that
+-- carry a real obligation:
+--
+--     induction on ℕ                    10
+--     library lemma on ℤ                 7
+--     case on ⊎                          4
+--     host enumeration (emitter gap)     3
+--     induction on List                  3
+--     case on Bool                       2
+--     enumerate Fin n                    1
+--     four host types, one each          4
+--     unclassified                       1
+--
+-- Ten of 35 want the same move.  THAT is the next emitter, named by the run
+-- rather than by me, and «case on ⊎» at four is the cheapest one — `inl`/
+-- `inr` carry arguments, which is exactly the rung-two limit stated at the
+-- top of this file and never lifted.  A loop that reports "dry" has said
+-- nothing; this line is a feature request the loop wrote about itself.
+--
+-- AND THE LEDGER, which is what lets an overnight loop run overnight.
+-- `notes/anuloma/NirnayaPanjika.tsv`, keyed on नाम's content address for
+-- each of the two functions plus the FNV digest of the emitted probe.  Two
+-- consecutive passes, same tree:
+--
+--     pass 1   43 put to the kernel      3m 50s
+--     pass 2   41 served from the ledger, 2 re-checked    33s
+--
+-- and 30 of those 33 seconds are नाम computing the addresses.  The kernel
+-- work fell from about 200 seconds to about 2.  A pass now costs what
+-- CHANGED, which is the difference between a loop that can run for eight
+-- hours and one that re-does forty minutes of the same refusals all night.
+-- The greens are re-checked every pass on purpose: a green is a claim the
+-- corpus stands on.
