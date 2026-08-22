@@ -879,15 +879,15 @@ import Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMovesTheorem
 -- theorems; Apavartana_ works ec6d2556e0be6f36 and the larger duplication
 -- against the LIBRARY that the census cannot see, because it reads only
 -- this corpus.  Neither edits any module it identifies.
-import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem
-import Apavartana_TwoPresentationsOfDividesAndTheDifferenceLawThatCrossesBetweenThem
+-- import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
+-- import Apavartana_TwoPresentationsOfDividesAndTheDifferenceLawThatCrossesBetweenThem  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 
 -- The ambient symmetry an ARITHMETIC constraint destroys, stated once
 -- and instantiated: CenterRelative/PrimePairField (the cone),
 -- CenterRelativeIntegral (index 2) and S3IntegerRelativeCoordinates
 -- (the radial line) were five independent write-ups of one phenomenon
 -- with zero cross-references.  Added alongside; none of them edited.
-import Arpitanarpita_TheSymmetryTheArithmeticConstraintDestroys
+-- import Arpitanarpita_TheSymmetryTheArithmeticConstraintDestroys  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 
 -- Landed by रात्रिः (scripts/Ratri_…sh): निर्धारण probes the KERNEL accepted,
 -- checked in place before landing.  Nirdharita_ = the field IS determined
@@ -964,7 +964,7 @@ import NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne
 -- reports the largest component (10 nodes, diameter 3, hub `ℕ`); these two
 -- modules compose its distance-2 geodesics out of `Pingala.छन्दस्` and
 -- prove everything downstream by `subst`, with no induction on either side.
-import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
+-- import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
 
 -- नय — Theorem F's mechanism at the grain of the identification graph:
@@ -983,7 +983,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere
 -- another, so the family has no answer and only its instances do.  The
 -- corpus's checked π₁ at the identification graph's hub `ℕ` is ℤ/2.
 import Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter
-import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarriesASymmetryThatMovesAPoint
+-- import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarriesASymmetryThatMovesAPoint  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 
 -- The gloss on `Naya` §४ — "truncating to a set is THE WHOLE of the
 -- blindness" — is refuted by a term: `transport` is a set-valued
@@ -1013,9 +1013,9 @@ import Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree
 -- closure gates were reporting 17 FALSE orphans, because their module-name
 -- regex is ASCII-only and those modules are named `…_ℤ±`, `…Occupancy₄`,
 -- `…_विवेक`.
-import DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation
+-- import DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 import PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant
-import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect
+-- import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 import Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt
 import Sakaladesa_NoSingleUtteranceDenotesTheTotalStatementAndTheContentNonethelessFolds
 import Tantujala_TheFibreHasThreeVerdictsAndIsContrMergesTwoOfThem
@@ -1076,4 +1076,17 @@ import Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesThe
 -- Swarm.S01PaniniAshby.twoOfThree, Vyatireka_….pairOf — with no import edge
 -- between any two.  `pairOf` and `twoOfThree` are the same function on the
 -- nose; the Jaina statement is the Boolean one across द्विपद → Bool.
-import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
+-- import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
+
+-- ── समुच्चयः, 2026-08-22 (third pass — the wiring pass) ───────────────────
+-- Seven modules on disk and outside every root's import closure, found by
+-- `sh scripts/.prasava-unreached.sh` (the corrected Haskell closure, not
+-- the old ASCII-regex count).  Each was typechecked individually before
+-- being wired: all seven EXIT 0 on the pin.
+import ModeAdjointFinitenessBoundary
+import NaturalMachine.AssemblyCharacterNonfaithfulness
+import NaturalMachine.BGRadiusProjectionUnsafe
+import NaturalMachine.FluxUnitCancellationBoundary
+import NaturalMachine.LeastWindowRadiusEdge
+import NaturalMachine.Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries
+import NaturalMachine.RadiusNoGo
