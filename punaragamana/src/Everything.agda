@@ -14,7 +14,14 @@ open import Punaragamana.Orbit
 open import Punaragamana.Nucleus
 
 -- The law's other projection: the residual, and the price of a refusal.
+-- Its two-valued test is a दुर्नय; see the struck paragraph in its header.
 open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
+
+-- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
+-- be contractible in two opposite ways — empty (अवक्तव्यम्, धनात्मकम्,
+-- nothing lost) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
+-- them.  Contains the computed refutation of the sequential diagnostic.
+open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
 -- The arithmetic instance, and the proof that it computes.
 open import Punaragamana.Viveka

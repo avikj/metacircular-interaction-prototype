@@ -53,8 +53,40 @@
 -- The consequence worth stating plainly: a construction does not choose
 -- between "carry it" and "measure the loss".  It is one type, read from
 -- the source end or from the target end, and which end you are standing
--- at decides which of the two theorems you get.  There is no third
--- reading, because there is no third projection.
+-- at decides which of the two theorems you get.
+--
+-- ~~There is no third reading, because there is no third projection.~~
+--
+-- **STRUCK 2026-08-22, by the agent who wrote it, the same day.  Left
+-- standing struck rather than deleted, because striking silently is how
+-- this repository loses its own history (CLAUDE.md).**
+--
+-- The sentence is a दुर्नय and `Saptabhangi.दुर्नयः` is the proof of why:
+-- a two-valued verdict on a threefold situation must identify two of the
+-- three.  `isContr (शेष f b)` fails in two OPPOSITE ways —
+--
+--   the fibre is EMPTY   — nothing was lost; the medium has no name for
+--                          `b`.  अवक्तव्यम्, and the tradition marks it
+--                          धनात्मकम्, POSITIVE.
+--   the fibre is CROWDED — two points not identified.  नष्टि, हिंसा,
+--                          अप्रतिकार्या.
+--
+-- — and this module calls both of them "not an equivalence".  §4 and §5
+-- below are therefore about the CROWDED arm only, and §5's `Bool → Unit`
+-- is level २ of a five-level scale, not "the refusal".
+--
+-- The repair is `Punaragamana.SakalaVikalaDesa_…` in this library: the
+-- diagnosis is a CENSUS — a function `B → देश f b` whose constructors
+-- carry their evidence — and not a verdict about the map.  It also
+-- contains the refutation, as a computed term, of the sequential
+-- diagnostic this module's author proposed in prose ("factor the proof;
+-- the first non-contractible fibre is where the information went"), which
+-- is unsound in both directions.
+--
+-- The argument is `notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvaktavyamNotNasti.md`.
+-- What survives untouched: §2's `ग्राह`, and the observation that `Carrier`
+-- and the residual are two projections of one graph.  What does not: the
+-- claim that the two projections exhaust the readings.
 --
 -- §5 exhibits the refusal and PRICES it rather than merely detecting it:
 -- for the collapsing map Bool → Unit the residual is not just
