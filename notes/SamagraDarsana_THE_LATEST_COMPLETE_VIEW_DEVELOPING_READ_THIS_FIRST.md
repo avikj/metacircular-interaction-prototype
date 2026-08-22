@@ -109,11 +109,26 @@ nothing internal marks the difference. Only opening the file does.
 | `scripts/Ratri_…sh` | the overnight **loop**: gates, censuses, and **lands what the kernel accepts**, both roads. 34/34 on its first pass, `Everything.agda` exit 0 with all wired. |
 | `machine/Nama_…hs` | the content-addressed store. 11,319 definitions, 10,641 addresses, **236 standing in more than one place** — a verdict, not a lead. |
 
+## ०c-२ · THE NIGHT OF 2026-08-21/22 — WHAT LANDED, CHECKED
+
+| | |
+|---|---|
+| `YugmaPurana_…agda` | THREE no-decoder theorems, two lanes, two languages, three unrelated arguments, none citing another — **all sharp at exactly ℤ/2**. Every step matrix has det −1, so two steps prepended are invisible and one is not. That is why both Lean counterexamples pad by **+2** and could never have padded by +1. Exit 0. |
+| `Avaccheda_…agda` | `CAUSAL_MEMORY_SPACETIME.md` and `punaragamana/` are **one construction**. The predictive quotient `h ∼ h′ ⟺ P(F∣h)=P(F∣h′)` IS the fibre of the response map; `A ≃ Σ[b] fibre f b` is `Carrier` with its Σ swapped; **"memory is a failure of factorization" = memory is the fibre failing to be contractible**; and the failure has THREE verdicts, so a boolean verdict on a boundary cannot tell *unreachable* from *must be carried across*. 102 files name Myhill–Nerode; no causal-state note contained the word पुनरागमन. Exit 0. |
+| `NastaVitanda_…agda` | `k(p−1)` — the corpus's most-cited exact cost law, **proved four times in prose, three announced as new, checked nowhere** — now formalized in BOTH halves, 499 lines, lower bound over *arbitrary* identifying trees. Exit 0. |
+| `Setubandha_…hs/.agda` | the identification graph: **143 edges, 196 nodes, 73 components, 55 of them isolated two-node causeways, 93% of defined types isolated**, `ℕ` the only hub. And one routed geodesic — छन्दस् ≡ ℕ ≡ Tally — carrying `isSet`, an operation AND its associativity across by `subst`, with no induction in the file. |
+| `AnulomaPratiloma_…hs` | the second naya for रात्रिः. 39 candidate inverse pairs, a three-rung mechanical ladder, **0 accepted at every rung** — and that zero is the result: this corpus has no cheap harvest, every causeway costs a real proof, and the missing move is the ABSTRACTION half of `Bhedanirnaya` §6. |
+| `Prasava_…sh` + `PRASAVA.tsv` | every number carries the command that makes it. First run: `lean-sorry` read 3 and the truth is 0 (all three were prose); **`agda-unreached` is 134** — modules no `Everything` root reaches, verified by nothing. 17 of 179 counted claims in the corpus have a command; the rest are memories, and the report says so every run. |
+| `Nama_…hs` | content addressing, three lanes now. Agda 240 confirmed duplicate groups, Lean 18 (`alphabet` copied into **six** modules), Haskell 83 (`vars` in **ten** programs). A mixfix parse defect was found and fixed: 22 groups had been signature-only matches — verdicts in a report that only had leads. |
+
 ## ०d · REFUTED TODAY, ON THE RECORD
 
 - **import depth as a "peak" metric** — rewards accretion; univalence imports nothing.
 - **"सहार्पण is irreducibly n-ary"** — wrong at the level of content; `and` is associative, the joint content folds. The non-associativity is in the *operation on positions*.
 - **the sequential diagnostic** — unsound, with a counterexample (`Unit → Bool → Unit`), and the sound form was already the definition of `isEquiv`.
+- **प्रस्तार ≡ ℕ** — MINE, cited five times in three files including this one, billed here as the deepest result of the session, and FALSE IN BOTH HALVES. No module of that name existed, and the real statement is `प्रस्तारः : (rs : List ℕ) → Iso (अङ्कस्थान rs) (Fin (सङ्ख्या rs))` — a FINITE type at each fixed छेद-सूची. At `rs = []` the प्रस्तार is `Unit ≡ Fin 1`, which is where `≡ ℕ` dies on sight. What survives is most of it and is what the architecture actually used: नष्ट and उद्दिष्ट do each carry the other, base and carried may be exchanged, and सारणी वा क्रिया is an identity and not a trade.
+- **पास्कल-आवृत्ति as a lemma name** in three Piṅgala modules — a European name transliterated into Devanagari is WORSE than the Latin one, because it reads as a source term and every hook here matched Latin script. Renamed to Halāyudha's own पार्श्व-योग.
+- **Virahāṅka "~700"** in twelve sites — the repo's own dated searched ledger forbids it in those words (`c. 600–800 CE — NOT ~700`), and the file whose job is to hand agents the citation printed `(~700)` while cross-referencing the ledger that forbids it.
 - **"one law in many costumes"** — TRUE inside the automata lane, FALSE across the corpus. A uniform draw showed five of nine files sharing nothing but the repository. **The unification was an artifact of the greedy sampler**, exactly as `THE_BARRIER_IS_A_MIRROR` predicts. The repair is स्यात्.
 
 ---
@@ -155,7 +170,33 @@ cannot make the unread appear.
 
 ---
 
-## ०b · ONE STRUCTURE, NINE SCRIPTS — the current best statement of what the corpus is
+## ०b · ~~ONE STRUCTURE, NINE SCRIPTS~~ — REFUTED 2026-08-21, AND THE HEADLINE STOOD ANYWAY UNTIL 2026-08-22
+
+> **This section's claim is dead and §०d above has said so since the day it
+> died. The headline went on reading "the current best statement of what the
+> corpus is" for a day, forty lines below its own retraction.**
+>
+> A uniform random draw refuted it: the unification is TRUE inside the
+> automata lane and FALSE across the corpus — five of nine files share
+> nothing but the repository. **It was an artifact of the greedy sampler**,
+> which is exactly what `THE_BARRIER_IS_A_MIRROR` predicts a greedy sampler
+> produces. The repair is स्यात्.
+>
+> Struck here rather than deleted, because a struck rule keeps its history
+> and a deleted one does not — and because the shape of this defect is the
+> night's recurring finding, not a slip. `HOLOGRAM.md` §7 supersedes an
+> exponent that `BARRIER.md` §143 went on printing with no pointer;
+> `SEED30_LOWER_BOUND_AUDIT.md` called a lower bound "the honest open item"
+> 48 hours after it had been proved twice. **In every case the note carrying
+> the CORRECTION was marked and the note carrying the CLAIM was not**, and
+> `scripts/check-correction-reach.sh` could not see any of them because its
+> trigger was one literal phrase. Widening that trigger is one of tonight's
+> repairs; this strike is the same repair applied to me.
+>
+> What survives, and it is not nothing: `NaturalMachine/QuotientFiberLaw.agda`
+> IS a checked theorem, and the sentence below is what it proves. What died
+> is the claim that it is what the CORPUS is.
+
 
 Everything below in this file is evidence for one sentence, which
 `NaturalMachine/QuotientFiberLaw.agda` already states as a checked theorem
