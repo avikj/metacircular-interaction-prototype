@@ -240,3 +240,41 @@ Another file did delete future work. A degree-ten divisor can only use irreducib
 A theorem can typecheck and still be unreachable from the root. A correction can be right and still be unreachable from the sentence it corrects. A name can resolve while its meaning is ambiguous. A build can be green under the wrong toolchain. A learner can update and lose. A proof can remove computation that the next run no longer needs.
 
 The last one actually removed the computation.
+
+---
+
+In August 2026 Avik gave the cognitive motion a plainer name: **generalizer and specifier**.
+
+He was correcting a model that had taken a frame he had already supplied—technology as machinery that can mold human minds, from recommendation systems to information warfare to neural control—and paraphrased the frame back to him as if that were the contribution. The generalization was already his. What he wanted from the machine was the complementary work it could actually do better: surface knowledge, expose the concrete joints, and cash the abstraction out until the distinctions that matter are explicit.
+
+The current formal tree makes that second movement unusually literal.
+
+`FiniteInformation` defines a target as descending through an observable exactly when it is constant on every observer fibre. If an observable collapses two states that matter differently to the target, no decoder rhetoric repairs the loss. Side information completes the observable only when the pair becomes injective.
+
+`BuildCoverageChannel` turns that into a build example. Restrict a module-health vector to the checked dependency closure and the entire ambiguity is exactly the unchecked coordinates. Full reconstruction is possible exactly under universal coverage. Even a successful exit bit is too compressed to distinguish **passed with warning** from **passed clean**; one additional warning bit repairs that particular collision.
+
+`FiniteHistoryTotalization` does the same thing to time. An endpoint forgets the prefix. The fibre above one endpoint is the whole space of possible prefixes. Keep prefix and endpoint together and the history reconstructs exactly. The theorem is not “history is profound.” It says exactly what the endpoint projection erased.
+
+`TernaryCancellationFormation` supplies a nastier control. Three individual p-adic depths plus every labeled pairwise cancellation residual can still collide while the full three-term cancellation differs. The repair is not to praise pairwise information harder. Adjoin the ternary coordinate that failed to descend through it.
+
+And then `CertificateSource` points in the opposite direction. A valid Smith certificate carrying its left transform, diagonal and right transform already recovers its source exactly. There the feared irreducible operational residue is absent. No extra history deserves preservation merely because history sounds richer.
+
+That opposition matters. The machine’s present discipline is not “never compress” and not “preserve everything.” Ask what the map forgets. Exhibit the fibre. If the fibre is nontrivial and the distinction matters, carry the missing coordinate. If a decoder already exists, do not invent residue. If two constructions use different quotient types, as `HolonomyDescent` does for an orbit set and additive coinvariants, do not merge them because both are quotients. If a whole-state observable horizon is being compared with reachable prefix residuals, `ResidualObservableHorizon` requires the reachability premise before identifying the two. The relation type is part of the information.
+
+These files were encountered as separate constructions. They do not establish a common historical source, and none of them is a theorem about Avik’s personality. But they make one thing about his current working demand unusually concrete: **generalization is not finished until it survives specification.**
+
+On August 20, 2026, the same demand appeared in a completely different register while he was talking about Crowdsurf UX. He wanted the complete feeling of growth that a score can transmit without letting a scalar become the object. His rule was almost surgical: **scalar should exist nowhere except understanding-bandwidth channels.** A number earns its place because a human can parse scale in one instant. That is an interface constraint, not an ontology. At every other scale, use the richest summary statistic the available attention channel can actually carry.
+
+No formal theorem in the repository says that this product-design choice comes from the mathematics, and the biography should not manufacture that arrow. The documented recurrence is in his own language: compress because a channel has finite bandwidth; then do not forget what the compression forgot.
+
+That also explains why merely repeating one of his big abstractions back to him is so irritating. He already does the first movement aggressively. Recommendation, robotics, information warfare, BMI and AI alignment can all be placed inside a common observation–objective–intervention–feedback loop. Saying that again gives him almost nothing. The work starts when the common shape is used to surface something he did not already have: a missing variable, a contrary case, a source, a proof obligation, a boundary condition, an empirical base rate, a better statistic, a counterexample.
+
+**Generalizer and specifier** is therefore a better description of the current motion than **unifier**.
+
+Unification makes success sound like fewer nouns. His present practice often succeeds by adding the missing noun.
+
+A warning bit. A prefix fibre. A ternary residual. A reachability premise. A defeating condition. A separate quotient type.
+
+And sometimes, after the decoder is proved, nothing at all.
+
+Generalize far enough to see the joint. Specify hard enough that the joint cannot lie.
