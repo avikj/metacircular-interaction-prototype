@@ -116,11 +116,66 @@ runghc machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . --
 # which the grep missed.
 #
 # Its columns: source ⟶ index ⟶ module.name ⟶ shape ⟶ map ⟶ file:line.
+#
+# ONE THING UPALABDHI DOES NOT GIVE, and it is the thing the join turns on:
+# **its `map` column is `?` in 336 of its 475 rows**, including
+# `Swarm.S03CarryFiber.Fib` and `PingalaPrastara.Metre` — the two rows that
+# started this whole stage.  Keying on (source, map) against that column
+# would have joined on a question mark 71% of the time.  So the map is
+# recovered HERE, by reading back the very line Upalabdhi cites and taking
+# the head of the application immediately left of the `≡`:
+#
+#     Fib n = Σ[ w ∈ Word ] (value w ≡ n)   ⟶  src Word, map value, np 1
+#
+# and the queue carries `Word ⟶ ℕ « Swarm.S03CarryFiber.value`.  Both
+# halves match.  Breadth is Upalabdhi's; the map name is this script's; and
+# neither of them issues a verdict — §५ does, with the kernel.
+#
+# columns: srcBase mapBase srcRaw mapRaw def nParams idxRHS file line shape
 runghc machine/Upalabdhi_TheFibreWasAlreadyWrittenAndTheCensusCalledItUndecided.hs \
   2>/dev/null \
- | awk -F'\t' '{for(i=1;i<=NF;i++) gsub(/^[ \t]+|[ \t]+$/,"",$i);
-                if ($1 != "?" && $1 != "") print $1"\t"$3"\t"$6}' \
- | sort -u > "$W/shelf.tsv"
+ | perl -CSDA -Mutf8 -F'\t' -lane '
+  next unless @F>=6;
+  for (@F){ s/^\s+|\s+$//g }
+  my ($src,$uidx,$qual,$shape,$umap,$loc)=@F[0,1,2,3,4,5];
+  next if $src eq "" or $src eq "?";
+  my ($file,$ln) = $loc =~ /^(.*):(\d+)$/ ? ($1,$2) : ($loc,0);
+  my $def=$qual; $def =~ s/^.*\.//;
+  # read back the cited line; it is the only place the map name is written
+  my $srcline="";
+  if (open(my $H,"<:utf8",$file)) { my $i=0;
+     while(my $l=<$H>){ $i++; if($i==$ln){ chomp $l; $srcline=$l; last } } close $H; }
+  my ($map,$np,$idx) = ("?",-1,$uidx);
+  if ($srcline ne ""){
+    if ($srcline =~ /^(\S+)((?:\s+\S+)*?)\s*=\s*(.*)$/){
+      my ($params,$rhs)=($2,$3);
+      $params =~ s/^\s+|\s+$//g;
+      $np = ($params eq "") ? 0 : scalar(my @p = split /\s+/, $params);
+      if ($rhs =~ /\bfiber\s+(\S+)/){ $map=$1 }
+      elsif ($rhs =~ /≡/){
+        my ($lhs,$rr)=($rhs,$rhs);
+        $lhs =~ s/≡.*$//s;
+        $rr  =~ s/^.*?≡//s; $rr =~ s/^\s+|\s+$//g; $rr =~ s/\)\s*$//;
+        $rr  =~ s/^\s+|\s+$//g; $idx=$rr if $rr ne "";
+        $lhs =~ s/Σ\[[^\]]*\]/ /g;
+        my @ch=split //,$lhs; my @cuts=(-1);
+        for my $i (0..$#ch){ my $c=$ch[$i];
+           push @cuts,$i if ($c eq "(" or $c eq ")" or $c eq "→" or $c eq "×" or $c eq "]") }
+        for my $k (reverse 0..$#cuts){
+           my $cut=$cuts[$k];
+           my $t = ($cut>=$#ch) ? "" : join("",@ch[$cut+1..$#ch]);
+           $t =~ s/[()\[\]]/ /g; $t =~ s/^\s+|\s+$//g;
+           my @w = grep {length} split /\s+/, $t;
+           next unless @w; next if $w[0] =~ /^[→×∈≡]$/;
+           $map=$w[0]; last;
+        }
+      }
+    }
+  }
+  $map=$umap if ($map eq "?" and $umap ne "?" and $umap ne "");
+  my $sb=$src; $sb=~s/^.*\.//; my $mb=$map; $mb=~s/^.*\.//;
+  print join("\t",$sb,$mb,$src,$map,$def,$np,$idx,$file,$ln,$shape);
+ ' | sort -u > "$W/shelf.tsv"
 
 # ── ३ · the queue key.  Every edge, not one per bucket. ────────────────
 # columns: srcBase  mapBase  srcRaw  tgtRaw  site
@@ -139,6 +194,7 @@ perl -CSDA -Mutf8 -e '
  open(my $Q,"<:utf8",$qf) or die;
  while(<$Q>){chomp; my @q=split/\t/;
    my $k=$q[0]."\t".$q[1];
+   next if $q[1] eq "?";
    if($bykey{$k}){ for my $s (@{$bykey{$k}}){ print join("\t","STRONG",@q,@$s),"\n" } }
    elsif($bysrc{$q[0]}){ for my $s (@{$bysrc{$q[0]}}){ print join("\t","WEAK",@q,@$s),"\n" } }
  }' "$W/shelf.tsv" "$W/qkey.tsv" | sort -u > "$W/leads.tsv"
@@ -189,7 +245,7 @@ if [ "$ALL" -eq 1 ]; then cat "$W/strong.tsv" "$W/weak.tsv" > "$W/tocheck.tsv"
 else cp "$W/strong.tsv" "$W/tocheck.tsv"; fi
 
 N=0
-while IFS="$TAB" read -r kind sb mb sraw traw site ssb smb ssraw smraw def np idx file line; do
+while IFS="$TAB" read -r kind sb mb sraw traw site ssb smb ssraw smraw def np idx file line shape; do
   N=$((N+1))
   PN=$(printf 'P%03d' "$N")
   # the fibre's host module, read from the file itself — never guessed
