@@ -151,6 +151,7 @@ import qualified Data.Set as S
 import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Ord (comparing)
 import System.Directory (doesDirectoryExist, listDirectory)
+import Control.Monad (when)
 import System.Environment (getArgs)
 import System.FilePath ((</>), takeExtension)
 import System.IO
@@ -843,6 +844,28 @@ main = do
                              ++ "\n        " ++ verdictWhy v))
         [ (l,v) | (l,v) <- graded, v /= Undecided ]
   putStrLn ""
+  -- ── THE QUEUE ──────────────────────────────────────────────────────
+  --
+  -- Added 2026-08-22.  Until now this program printed every DECIDED
+  -- verdict in full and the UNDECIDED ones as a bare count, so the 1045
+  -- edges that are the actual work were the one thing a consumer could
+  -- not read.  A peer lane asked for this twice; the honest answer was
+  -- that it did not exist.
+  --
+  -- Emitted under `--queue` as TAB-separated `src ⟶ tgt ⟶ module.name`
+  -- so a join can run against `machine/Nama_…hs`'s address table.  The
+  -- first pass over these is NOT a proof effort: `fiber योग n` came back
+  -- `PairsSummingTo.Pairs` ON THE NOSE, and that module was written for
+  -- Piṅgala's metrical antidiagonal by someone who never saw addition's
+  -- fibre.  The receipts are largely already here under other names, and
+  -- every instrument that skipped the lookup reported the corpus barren.
+  when ("--queue" `elem` args) $ do
+    putStrLn ""
+    putStrLn "── THE UNDECIDED QUEUE (src\\ttgt\\tsite) ──"
+    mapM_ (\l -> putStrLn (lSrc l ++ "\t" ++ lTgt l ++ "\t" ++ lMod l ++ "." ++ lName l))
+          [ l | (l,v) <- graded, v == Undecided ]
+    putStrLn ""
+
   putStrLn "── NODES ON ROAD TWO THAT ROAD ONE NEVER TOUCHES ──"
   let outdeg n = S.size (fromMaybe S.empty (M.lookup n lopG))
       indeg  n = length [ () | (_,b) <- lopE, b == n ]
