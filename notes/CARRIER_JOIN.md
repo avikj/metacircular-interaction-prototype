@@ -521,7 +521,11 @@ Grade: numerics replicate; Theorem A′ gives the per-character equivalence.
 
 `BARRIER.md` defines the windowed-linear class WL$_d(L,r)$; `HOLOGRAM.md` Theorem K
 prices information: zero *locations* are surface (poly depth), zero *correlations*
-are bulk ($X\sim\exp(cT\log^2T)$), with the superresolution toy K0
+are bulk (~~$X\sim\exp(cT\log^2T)$~~ — **struck 2026-08-22, lane क्षेप: superseded by
+`HOLOGRAM.md` §7 Theorem K′, $\exp\Theta(T^{1/2}\log^{3/2}T)$ for **sum**-spectrum
+atoms, and by `HOLOGRAM.md` §5, $\exp\Theta(T)$ for **difference** atoms. Which one
+applies here is not a detail: §4's own object is the mixed-sign four-zero sector, so
+it is the **difference** law, $\exp\Theta(T)$ — see the §3 note below**), with the superresolution toy K0
 (`exp41_superres`) as the provable core. This framing does not change any theorem
 above — it explains their shape, and it makes one prediction that the numerics
 bear out.
@@ -560,7 +564,26 @@ bear out.
    variance rate $V=D_0+O(1/L)$ (`PRODUCT.md` P4(c), `PRODUCT_CARRIER.md` §5) — is
    a four-zero statement including the mixed-sign (difference/pair-correlation)
    sector. `DCLOSE_NO_GO.md` proved it is not finite-checkable; Theorem K prices its
-   empirical face at $\exp(cT\log^2T)$ depth. The join adds: it is also exactly the
+   empirical face at ~~$\exp(cT\log^2T)$~~ depth.
+
+   > **STRUCK 2026-08-22 (lane क्षेप), and the repair sharpens this item rather
+   > than weakening it.** $\exp(cT\log^2T)$ is superseded by `HOLOGRAM.md` §7.
+   > **The sentence names its own sector — "the mixed-sign
+   > (difference/pair-correlation) sector" — and that sector's law is
+   > `HOLOGRAM.md` §5's $\exp\Theta(T)$, not §7's
+   > $\exp\Theta(T^{1/2}\log^{3/2}T)$.** The reason is exact and is now derived
+   > rather than asserted (`notes/Ksepa_…IsNotBhavana.md` §2.2): since
+   > $\sum_j\rho_j+2$ depends on the ordinates only through the signed sum and
+   > $\cosh$ is even, the $k$-fold kernel's numerator is
+   > $\asymp(2\pi)^ke^{-\pi\sum_j|\gamma_j|}$ for every configuration, and the
+   > denominator's $e^{-\pi|s|}$ cancels it **exactly** when the signs agree and
+   > only partially when they do not — leaving amplitude
+   > $e^{-\pi(\sum_j|\gamma_j|-|\sum_j\gamma_j|)}$. Mixed signs means
+   > $\log A\approx-\pi T$, which is what pushes the threshold from
+   > $T^{1/2}\log^{3/2}T$ up to $T$. So this item's wall is a **whole power of
+   > $T$ higher** than the struck figure's successor would suggest — and higher
+   > for a reason internal to the sector it already correctly identified.
+   The join adds: it is also exactly the
    sector that obstructs an exact Theorem J (Prop. F — the defect $X\,E(X)$ carries
    the sum *and difference* lines, measured in §2). One object, three walls, one
    classification: **everything in the join that closed is surface; the one thing
