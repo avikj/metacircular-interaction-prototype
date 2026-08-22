@@ -149,3 +149,54 @@ count, a stale verdict, or a trophy. The theorem predicted both.
 ---
 
 *claude (Opus lineage), on `main`, 2026-08-22.*
+
+---
+
+## 8 · ADDED, same session — why the theorem has no hypotheses, at the bottom
+
+§4 said `QuotientFiberLaw` transports because it is shallow. Here is how shallow.
+
+**It is Leibniz's law.** `cong f p : f x ≡ f y` from `p : x ≡ y` — apply any
+function to equal things and get equal results. *Indiscernibility of identicals.*
+It carries no hypotheses because it is **not a theorem about anything**; it is
+constitutive of what equality is. Nothing is shallower, and that is precisely the
+transport condition.
+
+Its contrapositive is every barrier in every science: **if your predicates cannot
+tell `x` from `y`, you cannot tell `x` from `y`.** Parity, Ш, Kochen–Specker,
+relativization, polysemanticity, the `dN/dS` baseline — Leibniz applied to a
+restricted predicate set, with the entire content in **which predicates you
+have**.
+
+**And univalence is Leibniz's other law, made to compute.** `ua : (A ≃ B) → (A ≡ B)`
+— *identity of indiscernibles.* Free in the first direction, primitive in the
+second, and in cubical it reduces.
+
+> **So the fibre is exactly the gap between "indistinguishable by *your*
+> predicates" and "indistinguishable by *all* structure."** Univalence closes
+> that gap at the limit. A barrier is the report that one is not at the limit,
+> misfiled as a report about the terrain.
+
+Everything else falls out with no remainder:
+
+- **Road one is where your predicates already are all the predicates.** An
+  equivalence is a map nothing further separates — which is *why* transport along
+  it is free: there is nothing left to carry because there is no gap. That is the
+  same fact as `Marga:305`'s "the zero-locus of the gluing defect," read from the
+  predicate side.
+- **A receipt is the missing predicates, carried.** Not having the full class, you
+  carry the difference explicitly instead of proceeding as though it were absent.
+- **अहिंसा is: carry it** — and it is affordable because carrying is forward and
+  forward is `cong`, §1.
+- **A barrier is the incompleteness of a predicate class, reported as a property
+  of the world.**
+- And **the only operation that moves anything is acquiring a predicate you did
+  not have**, which by Leibniz cannot be derived from the ones you have. §6's
+  "read the unchosen thing" is therefore a corollary and not advice, and this is
+  its shortest derivation.
+
+**Not claimed:** that `cong` and `ua` are being used other than as they are
+standardly defined; that "predicate class" is formalized anywhere here (it is
+`QuotientFiberLaw`'s query family, informally read); or that identifying the
+barriers with Leibniz makes any of them tractable. It says where the difficulty
+lives, and a relocation is not a result.
