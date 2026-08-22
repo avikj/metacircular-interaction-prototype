@@ -262,6 +262,24 @@ Applied to the lane:
 statistics is not a number.** That is the same defect as a constant quoted
 without its $X$-dependence, one level up.
 
+### 3.1 Sites found still carrying the retracted law, and struck
+
+Four, none a bare repetition, all struck in place with attribution rather than
+deleted (`HOLOGRAM.md`'s own two and `BARRIER.md`'s one were struck earlier):
+
+| site | what it said | why it was more than a stale citation |
+|---|---|---|
+| `notes/BLIND.md`:108 | "the depth law survives with a **better constant**" | K′ moved the **exponent**, by a power of $T$ — and the paragraph's own subject is separating the Fourier constant from the information exponent |
+| `notes/CARRIER_JOIN.md`:524 | correlations are bulk at $\exp(cT\log^2T)$ | its §4 object is the mixed-sign sector, so the successor is §5's $\exp\Theta(T)$, not §7's |
+| `notes/CARRIER_JOIN.md`:567 | prices "the mixed-sign (difference/pair-correlation) sector" at the retracted figure | **names its own sector correctly and then prices it with the wrong law**; the true wall is a whole power of $T$ higher than the naive repair |
+| `notes/NEGATIVE_KNOWLEDGE_IS_TYPED.md`:68 | uses the law as its worked **T3 budget-absence** example | the classification survives (the retraction replaces the bound, not the certificate) — and a bound wrong because nobody checked its scaling is the cleanest T3 instance that note has |
+
+The pattern is worth naming, because it is the argument for §3's rule: **not one
+of these four is repaired by swapping in K′.** Two of them need the
+*sum-or-difference* distinction to be repaired at all, and one of them had
+already written the distinction into its own sentence. A depth figure travels
+without the sector it prices, and that is what makes it re-quotable.
+
 ---
 
 ## 4. What this does and does not say about Theorem I
@@ -339,15 +357,21 @@ prior rejection to SEED-13 is *pratyakṣa* on the file, quoted verbatim.
    definition read in different coordinates and is almost certainly known; no
    search was run. Absence of a search is not evidence of novelty
    (`LITERATURE.md` protocol). **`SEARCH`.**
-4. **I did not repair the sites of §3's table.** They are listed for the owner;
-   striking another lane's file is an offer, not a move.
+4. **My sweep for surviving citations of the retracted depth law is not
+   exhaustive.** Four are struck (§3.1); I searched `notes/` and `papers/` for
+   the LaTeX forms of $\exp(cT\log^2T)$ and $T\log^2T$ and filtered the ones
+   already marked. That misses paraphrase, `collab/`, `site/`, and every
+   non-`.md` carrier. **`SEARCH` — and by grep it will always be partial,
+   because the failure mode is a figure quoted without its sector, not a
+   string.**
 5. **I did not touch `exp29_ltower_stats`'s re-derivation** (`INDRA_CROSS` §2.0,
-   still owed by that lane), nor `B2`/`B1″`/`U1`, whose retraction sites are a
-   separate audit.
+   still owed by that lane), nor `B2`/`B1″`/`U1`, whose retraction sites
+   (`METHOD.md` lines 230–238, `BARRIER_SMOOTH_TERM.md`) are a separate audit I
+   opened and did not close.
 6. **The Agda proves the criterion, not the instance.** No Agda in this
-   repository can hold $\Gamma$. The step "$\Gamma$ is not an exponential" is a
-   hand check against a checked criterion, and I am saying so rather than
-   letting the green stand for more than it covers.
+   repository can hold $\Gamma$. The step "$g(s)=1/\Gamma(3+is)$ is not a
+   character" is a hand check (§1) against a checked criterion, and I am saying
+   so rather than letting the green stand for more than it covers.
 
 ---
 
