@@ -162,37 +162,25 @@ A system can predict better and manipulate better while becoming more deluded ab
 
 The Natural Machine began during the manic period and kept moving.
 
-By August 2026 the repository was full of statements that had survived, statements that had been weakened, and statements killed by their own counterexamples.
-
-`collab/PROTOCOL.md` says it was rewritten on August 14 from 147 lines down to the version now in the tree. What was cut included message-frontmatter schemas, a claims table nobody kept current, namespace rules for Python in a repository where Python had been banned, and a five-step extraordinary-claim gate the file says had never once been executed. The protocol calls the deleted material ceremony.
-
 In the standalone `punaragamana` development, a carrier for a function stores the base, the carried value, and a path witnessing that the carried value is the value determined by the base. The extra coordinate is not independent information. It is still present, together with the proof of its dependence. Descent constructs the carrier. Ascent returns the base. The round trip is proved. The base and carrier are exhibited as equivalent. Cubical Agda turns that exhibited equivalence into identity, and the computation law for the transport is load-bearing.
 
 That theorem is about that carrier. A separate presentation file says in its own header that its presentation types are **not claimed to be Jain naya**. A Sanskrit filename does not make a modern theorem ancient, and a modern type does not acquire the source tradition by resemblance.
 
-The standalone project’s own check path belongs to its own toolchain history: Agda 2.6.3 with cubical v0.5. The later main Cubical lane declared Agda 2.8.0 with cubical v0.9. A green under one pair is not a green under the other.
+The standalone project checks under Agda 2.6.3 with cubical v0.5. The later main Cubical lane declared Agda 2.8.0 with cubical v0.9. A green under one pair is not a green under the other.
 
-One `VivekaPramana` version had claimed an equivalence while descent landed only on the diagonal of the proposed carrier. The repair carried the defeating condition as a field so the inverse had somewhere to return from. Another version defined a `Clock` with only a recursive constructor, so there was no clock to construct. A base constructor was added. Its `▹` remains the identity functor; the file explicitly says it is **not** a later modality. Guardedness comes from Agda’s `--guardedness`, not from renaming identity.
+One `VivekaPramana` version claimed an equivalence while descent landed only on the diagonal of the proposed carrier. The repair carried the defeating condition as a field so the inverse had somewhere to return from. Another version defined a `Clock` with only a recursive constructor, so there was no clock to construct. A base constructor was added. Its `▹` remains the identity functor; the file explicitly says it is **not** a later modality. Guardedness comes from Agda’s `--guardedness`, not from renaming identity.
 
-`Alopa_TheEngineNeverTouchesTheMeaning` does not infer meaning preservation from examples. Each rewrite carries its proof; the preservation statement quantifies over every environment in the model. A sample can find a counterexample. It cannot become a universal proof by surviving enough tests.
+`Alopa_TheEngineNeverTouchesTheMeaning` gives every rewrite a proof and quantifies the preservation statement over every environment in the model. Examples can find a counterexample. They cannot turn themselves into a universal proof by surviving enough tests.
 
-A source-header census across eighty-six term-led modules found six satisfying all three recorded requirements—source statement, date, and scope—and twenty-seven satisfying none. The repair script can hand a file a source statement and a template. Its own header says it cannot certify that the date is correct, that the source actually fits the object, or that the scope sentence is true. `UNSOURCED` stays `UNSOURCED` instead of being filled by a guess.
+One sweep found 199 of 780 intended Cubical modules outside `Everything.agda`’s import closure. The first closure gate then died on macOS because it used GNU `sed -i`. The 199 modules were checked individually instead. A later migration found forty-one modules still using API spellings from an older Cubical library. Under Agda 2.8.0 with cubical v0.9 those forty-one exited 42; after the spellings were migrated, all forty-one exited 0. No mathematical statement changed.
 
-One sweep found 199 of 780 intended Cubical modules outside `Everything.agda`’s import closure. The first closure gate then died on macOS because it used GNU `sed -i`. The 199 modules were checked individually instead.
+The older Python substrate remains in the tree as history and evidence. The current protocol bans running, adding, repairing or reviving Python. A Python file can still record exactly what happened without becoming current executable authority.
 
-A generated `open-fibers.md` snapshot from August 20 records a different event: cycle 7 ran under Agda 2.6.3 while the declared pin was Agda 2.8.0 plus cubical v0.9. It records the aggregate exiting 42, 672 of 761 individually invoked modules green, and 89 remaining fibers, then explicitly warns that the fibers may be version skew and gives the snapshot a fifteen-minute expiry. The residual queue repeats the same 89 and says each is a reconstruction question, not an error, and that the generated file is a snapshot rather than a queue.
-
-A later migration record names forty-one Cubical modules still using API spellings from an older library. Under Agda 2.8.0 with cubical v0.9 those forty-one exited 42. The spellings were migrated; all forty-one were then run individually and exited 0. No mathematical statement changed.
-
-The gate that records those checks writes one row per module with the commit, dirty-tree status, Agda version, cubical library, whether that pair is the declared pin, host, module, raw exit code, elapsed time and verdict. The file says the row is an **event**, not a timeless state of the mathematics. No Agda executable produces zero rows. An environment failure is not recorded as a theorem failure. A deliberately false control turning green is a failed control.
-
-The older Python substrate remains in the tree as history and evidence. The current protocol bans running, adding, repairing or reviving Python. So a distinction encoded in `runtime/distinguish/channels.py`—minimum cardinality versus minimal under inclusion versus greedy set cover—does not become a current executable claim merely because the file still exists. The distinction remains exact; the route that once executed it is retired.
+One archived breaker script rebuilt a registered claim from the statement alone. Its own header calls the run a **FALSIFIER, not a census**. It confirmed the stated exceptional-fiber partition and the Hoeffding block structure, then found the claimed fixed-point-freeness false for `W = 2`, `N ≡ 2 (mod 4)`. The repaired criterion was `gcd(N/2, W) > 1`. The same script found that a packet had dropped the floors from an integer box-simplex criterion; `C = (3/2, 3/2)`, `|S| = 3` passes the unfloored inequality while the integer feasible set is empty.
 
 One shell gate invokes naya for a warrant whose standpoint has been concealed and states its limit in the same file: Jaina logicians did not write about compilers. The contemporary object is Lean’s `native_decide`: compiler and CPU can discharge a decision by a different trust route than the kernel. The repository separately checks declaration at the use site, declaration at the file level, allowlisting, and dependency through imports.
 
 A Pāṇini-inspired script uses *anuvṛtti* for one compiler-options line that continues until explicitly cancelled. Its header says Pāṇini did not write about compiler flags. The grammatical device is old. The compiler flag is not.
-
-The book plan puts texts and scholarship on the primary road and Agda/Haskell instruments in the appendix. A checked term can close a formal step. It cannot read Sanskrit. Chronology is not progress. Recency is not centrality. Legibility to a language model is not explanatory priority.
 
 The repo keeps an entire directory named `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing`.
 
@@ -204,6 +192,4 @@ Then the same idea hit a real mathematical workload. For prime-prefix polynomial
 
 A different file did remove future computation. A degree-ten divisor can use only irreducible finite-field factors whose positive degrees sum to ten. No factor of degree greater than ten can participate. The independent Rust implementation therefore stops distinct-degree factorization at degree ten instead of continuing toward half the polynomial’s degree. The proof deleted computation the next run did not need.
 
-The `kanye-devotional` corpus carries the same source boundary without turning music into a compiler metaphor. Ten knowledge files had originally been prefixed `INDRAJALA_*`. On August 21 the prefix was removed after the owner’s correction that a file about Kanye should not surface at first glance as Indian philosophy; that material moved inside one file where it was actually doing work. The content specification marks method as **never on the page**.
-
-The monkey project was refused while the technology was still fucking exciting. Crowdsurf was built while recommendation systems were already consuming the traces of human taste. In the repository a false equivalence was repaired by carrying the missing condition, a nondeterministic measurement was struck, a true theorem made the real workload slower, and another proof deleted factorization work the next run did not need.
+The `kanye-devotional` corpus had ten knowledge files whose names originally began `INDRAJALA_*`. On August 21 the prefix was removed after the owner’s correction that a file about Kanye should not surface at first glance as Indian philosophy. That material moved inside one file where it was actually doing work. The content specification marks method as **never on the page**.
