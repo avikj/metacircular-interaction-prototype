@@ -263,3 +263,4 @@ import Pairfield.ZeroPivotRelocationInvariant
 -- verification pass.  Built green before adding (part of the 8901-job
 -- `lake build Pairfield`, exit 0).
 import Pairfield.Apavartana_ThePriceOfAnIntegerCutIsAFunctionOnSpecZAndItsRamifiedPointsAreTheApavartanaAndTheLevel
+import Pairfield.SarvatraApavartana_WhichPrimesSeeAnIntegerCutIsDecidedForEveryPrimeAtOnceAsThePrimesDividingTheDeterminant
