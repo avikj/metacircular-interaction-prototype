@@ -88,6 +88,7 @@
 module PairVocab where
 
 import qualified Data.Map.Strict as M
+import qualified Prastara_TheSearchSpaceIsGeneratedNotStored as P
 import Data.List (intercalate)
 import Text.Printf (printf)
 import System.Exit (exitFailure, exitSuccess)
@@ -741,8 +742,14 @@ chkProductTrunc (w,r) = ( legLoTrunc w r * legHi w r, splitNorm w r )
 firewallBound :: Integer
 firewallBound = 8
 
+-- सारणी वा क्रिया (Piṅgala, Chandaḥśāstra 8.24–28).  This was
+--     smallEnvironmentsZ n b = sequence (replicate n [-b .. b])
+-- — the signed box laid out.  It is now naṣṭa in radix (2b+1) with the
+-- digit shifted down by b: the same (2b+1)^n rows in the same order, made
+-- from an index and dropped.  Checked in machine/PrastaraRun.hs.
 smallEnvironmentsZ :: Int -> Integer -> [[Integer]]
-smallEnvironmentsZ n b = sequence (replicate n [-b .. b])
+smallEnvironmentsZ n b =
+  P.rows (P.powerP n (P.isoP (subtract b) (+ b) (P.chedaP (2 * b))))
 
 varCount :: Term -> Term -> Int
 varCount l r = case vars l ++ vars r of

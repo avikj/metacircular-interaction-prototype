@@ -31,6 +31,7 @@
 module Main (main) where
 
 import qualified Nalanda as N
+import qualified Certificate as C
 import System.Environment (getArgs)
 import System.Exit
 import System.Process (readCreateProcessWithExitCode, shell, CreateProcess(..))
@@ -75,9 +76,18 @@ certifyOne d = case N.cakravala d of
       then printf "  %-6s %s\n" (show d) "emitter refused" >> pure False
       else do
         writeFile path (rename modName out)
-        (ec2, _, err2) <- readCreateProcessWithExitCode
+        (ec2raw, out2, err2raw) <- readCreateProcessWithExitCode
           (shell ("cd " ++ cubicalDir ++ " && LC_ALL=C.UTF-8 agda "
                   ++ modName ++ ".agda")) ""
+        -- THE WATCH, ADDED 2026-08-20.  Until today `good` was `ec2 ==
+        -- ExitSuccess` and nothing else: a number a process returned, read as
+        -- a proof.  agda's stdout was discarded unexamined, so under a
+        -- wrapper of the shape `agda "$@" 2>&1 | cat` this loop reported
+        -- NALANDA CERTIFIED with the type error sitting in the text it threw
+        -- away.  `vetForeignRun` is the same falsifier watch
+        -- `Certificate.runAgda` carries, for a caller that launched agda
+        -- itself.  See `machine/Yogyanupalabdhi_…hs`.
+        (ec2, err2) <- C.vetForeignRun "." ec2raw (out2 ++ err2raw)
         let good = ec2 == ExitSuccess
         printf "  %-6s %-7s %-24s %s\n" (show d) (show (length trace - 1))
                (show (N.tA t)) (if good then "exit 0" else "REFUSED")

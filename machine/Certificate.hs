@@ -264,6 +264,9 @@ module Certificate
   , certify
   , certifyWith
   , runAgda
+  , runAgdaUnwatched
+  , vetSuccess
+  , vetForeignRun
   , main
     -- * the two controls (a kernel that accepts a falsehood is not a kernel)
   , kernelIsChecking
@@ -781,8 +784,40 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 --   hGetContents: invalid argument (cannot decode byte sequence ...)
 -- which is fault (2) again, on the way back.  This is idempotent global
 -- state and is set on every call so the seam cannot forget it.
+--
+-- THE SEAM, CLOSED 2026-08-20.  Until today this function returned the
+-- child's exit status untouched, and `vetSuccess` — the falsifier watch of
+-- 2026-08-16 — was reached from exactly ONE caller, `runAgdaCached`.  So the
+-- repair lived in a wrapper and the seam itself was open: `ClauseOrder`
+-- calls `runAgda` directly, and under `agda "$@" 2>&1 | cat`
+-- `ClauseOrder.certifyUnder` returned `Accepted "refl"` for `s(x) ≡ x`, in
+-- ONE call, from a real agda that had just printed `1 != 0` (measured, this
+-- container, Agda 2.8.0, `MATH_CERTCACHE=0`).
+--
+-- A repair that has to be remembered at each call site is not a repair; it
+-- is a note.  So the WATCH IS NOW THE DEFAULT and the unwatched launch has
+-- to be asked for by name (`runAgdaUnwatched`), which is the only ordering
+-- under which forgetting is safe.  The two callers that must stay unwatched
+-- are the controls themselves — `kernelStatus`, which would otherwise
+-- recurse — and `GateAudit`'s PROBE-RAW, whose whole purpose is to print
+-- what the child returned before anyone judged it.
+--
+-- The cost is one memoised `kernelStatus` per process (two agda runs), paid
+-- on the first SUCCESS only; a run in which nothing checks pays nothing,
+-- because a non-zero exit is passed straight through.
 runAgda :: FilePath -> String -> IO (ExitCode, String)
 runAgda root source = do
+  (code, out) <- runAgdaUnwatched root source
+  case code of
+    ExitSuccess -> vetSuccess root out
+    _ -> pure (code, out)
+
+-- The raw launch: the child's own exit status, unexamined.  Everything the
+-- old `runAgda` was, under the name that says so.  A zero from here is a
+-- number a process returned and is not evidence about mathematics — see
+-- `vetSuccess`, and `notes/AHIMSA_SUTRA_VISTARA.md` §19.
+runAgdaUnwatched :: FilePath -> String -> IO (ExitCode, String)
+runAgdaUnwatched root source = do
   micros <- agdaTimeoutMicros
   r <- try (timeout micros (runAgdaRaw root source))
          :: IO (Either SomeException (Maybe (ExitCode, String)))
@@ -975,14 +1010,14 @@ kernelStatus root = do
   case cached of
     Just s -> pure s
     Nothing -> do
-      (posCode, posOut) <- runAgda root canaryTrue
+      (posCode, posOut) <- runAgdaUnwatched root canaryTrue
       let positiveHolds =
             posCode == ExitSuccess && not (successHidesAnError posOut)
       status <-
         if not positiveHolds
           then pure (KernelPositiveControlFailed posOut)
           else do
-            (negCode, negOut) <- runAgda root canaryFalse
+            (negCode, negOut) <- runAgdaUnwatched root canaryFalse
             -- A nonzero exit is not by itself a rejection: a vanished include
             -- root produces one too.  `cacheableFailure` is exactly the
             -- predicate "agda located a genuine TYPE error inside the module
@@ -1340,6 +1375,25 @@ vetSuccess root out
               ++ "and was not watched accepting one; no acceptance is honoured\n"
               ++ "on that evidence.  agda's words:\n" ++ negOut )
 
+-- The same watch, for a caller that launched agda ITSELF.
+--
+-- Eight modules under `machine/` do not call `runAgda` at all: they build
+-- their own `CreateProcess` and read the exit status, having copied the
+-- LOCALE discipline out of `runAgdaRaw` and left the fitness behind.  Closing
+-- the seam at `runAgda` does nothing for them, because they never cross it.
+-- This is the one line each of them needs, and it takes what they already
+-- have in hand — the code and the captured output — rather than asking them
+-- to re-plumb their invocation through this module's temp-directory and
+-- argument conventions, which are not theirs.
+--
+-- A non-zero exit is returned untouched: a refusal needs no watch, because
+-- the failure mode being guarded against is a FALSE ACCEPTANCE.  Only a zero
+-- is asked to earn itself.
+vetForeignRun :: FilePath -> ExitCode -> String -> IO (ExitCode, String)
+vetForeignRun root code out = case code of
+  ExitSuccess -> vetSuccess root out
+  _ -> pure (code, out)
+
 -- The cached invocation.  The third component is the number of agda
 -- PROCESSES actually launched: 0 on a hit, 1 on a miss.  Everything that
 -- reports an invocation count counts this, so a cache hit can never be
@@ -1350,7 +1404,7 @@ runAgdaCached root source = do
   on <- cacheEnabled
   if not on
     then do
-      (code, out) <- runAgda root source
+      (code, out) <- runAgdaUnwatched root source
       case code of
         ExitSuccess -> do
           (code', out') <- vetSuccess root out
@@ -1372,7 +1426,7 @@ runAgdaCached root source = do
           if seen
             then pure (ExitSuccess, out, 0)
             else do
-              (code, out') <- runAgda root source
+              (code, out') <- runAgdaUnwatched root source
               case code of
                 ExitSuccess -> do
                   (code', out'') <- vetSuccess root out'
@@ -1383,7 +1437,7 @@ runAgdaCached root source = do
                   dropEntry root key
                   pure (code, out', 1)
         Nothing -> do
-          (code, out) <- runAgda root source
+          (code, out) <- runAgdaUnwatched root source
           case code of
             ExitSuccess -> do
               (code', out') <- vetSuccess root out

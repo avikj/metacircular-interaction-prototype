@@ -132,6 +132,11 @@ module Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain
   , abhavaAnuyogin
   , abhavaExtent
   , renderAbhava
+    -- the bridge to the justification type's fifth pramana.  PARTIAL on
+    -- purpose: an Abhava does not carry an avadhi, so the caller must
+    -- supply one and the gap is exhibited rather than filled in.
+  , yogyataOfAbhava
+  , theTwoGatesAreNotTheSameGate
     -- the Jaina standing, kept separate and NOT identified with the above
   , Ground(..)
   , SyadNasti(..)
@@ -144,6 +149,7 @@ module Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain
 import Data.List (intercalate)
 import Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal
   ( Hetvabhasa(..), Unestablished(..) )
+import qualified Pramana as PR
 
 -- ===================================================================
 -- THE SLOTS.
@@ -227,6 +233,92 @@ renderAbhava (Abhava p a e) = intercalate "\n"
       Yogya why  -> "fit -- " ++ why
       Ayogya why -> "UNFIT -- " ++ why
   ]
+
+-- ===================================================================
+-- THE BRIDGE TO THE JUSTIFICATION TYPE — and the gap it exhibits.
+--
+-- ADDED 2026-08-20.  `Pramana.Anupalabdhi` was a NULLARY constructor
+-- until today — "warranted non-apprehension" carrying no warrant, and
+-- never once constructed anywhere in `machine/`.  It now carries
+-- `Pramana.Yogyata`, which is this module's analysis plus one slot this
+-- module does not have.
+--
+-- THE TWO GATES ARE NOT THE SAME GATE, and this is worth stating rather
+-- than smoothing over, because two organs enforcing "the same" condition
+-- to two different strengths inside one directory is how a codebase comes
+-- to believe it has a rule.  Side by side:
+--
+--   `abhava` (here)      refuses: no pratiyogin / extent 0 / stated unfit
+--   `Pramana.yogyata`    refuses those, AND: no avacchedaka, no anuyogin,
+--                        no dṛṣṭa, and — the operative one — NO AVADHI.
+--
+-- The avadhi is the LIMIT: what the non-apprehension issues no verdict
+-- about.  An `Abhava` has no field for it.  So the conversion below
+-- CANNOT BE TOTAL, and making it total by inventing a limit would be
+-- precisely the unfitness one level up: a claim about the reach of a
+-- search, manufactured by a function that did not run the search.  The
+-- caller supplies it or there is no conversion.  शेषो गर्भः, न विफलता.
+--
+-- Which gate is right is not settled here.  The Naiyāyika would say the
+-- avadhi is already in the avacchedaka — the limitor fixes under which
+-- aspect the counterpositive is taken, and an absence taken under a
+-- narrow aspect never claimed the wide one.  The Bhāṭṭa answer is that
+-- the avacchedaka delimits the PRATIYOGIN and the avadhi delimits the
+-- LOOKING, and those come apart exactly in the case that matters: a
+-- perfectly determinate counterpositive, searched for over a domain
+-- smaller than the reader will assume.  That case is not hypothetical in
+-- this repository — `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §2.2 published
+-- NOT FOUND for a formal reconstruction of apoha with the counterpositive
+-- perfectly well delimited and the domain unstated, and was wrong.
+--
+-- This module keeps its own gate at its own strength and does not adopt
+-- the other, because narrowing `abhava` would break its callers' claims
+-- silently rather than at the compiler, and a silent narrowing of an
+-- absence gate is the same act as a silent widening of an absence.  What
+-- is done instead is the bridge, and the difference is COMPUTED, below.
+yogyataOfAbhava :: Abhava -> [String] -> Either String PR.Yogyata
+yogyataOfAbhava (Abhava p a e) avadhi = case extFit e of
+  -- `abhava` refuses an unfit extent outright, so this branch is not
+  -- reachable through the gate.  It is written rather than left to a
+  -- partial match because an `Abhava` that reached here some other way
+  -- must not silently acquire a fitness it was denied.
+  Ayogya why -> Left ("the search is stated unfit: " ++ why)
+  Yogya why  ->
+    PR.yogyata (ptName p) (ptAvacchedaka p) (anName a) why
+               (extCount e) (extHow e) avadhi
+
+-- | The difference between the two gates, exhibited rather than asserted:
+--   an absence THIS module admits and the justification type's gate
+--   REFUSES, carrying the refusal's own sentence, and the same absence
+--   with a limit added, now admitted by both.
+--
+--   Not an example chosen to make the point.  It is this commit's own
+--   finding — the search that established that nothing in `machine/`
+--   constructs `Pramana.Anupalabdhi` — and the only thing wrong with it,
+--   as `abhava` sees it, is nothing at all.
+--
+--   Returns: (admitted here, the other gate's sentence, admitted there
+--   once a limit is supplied).
+theTwoGatesAreNotTheSameGate :: (Bool, String, Bool)
+theTwoGatesAreNotTheSameGate = case built of
+  Left _   -> (False, "this module refused its own example", False)
+  Right ab ->
+    ( True
+    , case yogyataOfAbhava ab [] of
+        Left why -> why
+        Right _  -> "THE OTHER GATE ADMITTED IT TOO -- this function's claim is stale"
+    , case yogyataOfAbhava ab
+             ["says nothing about any use outside machine/, which was not read"] of
+        Right _ -> True
+        Left _  -> False )
+  where
+    built = abhava
+      (Pratiyogin "a construction site of Pramana.Anupalabdhi"
+                  "the constructor applied to an argument")
+      (Anuyogin "machine/")
+      (Extent 127 "every .hs file in machine/ at 2026-08-20"
+        (Yogya "the constructor is exported unqualified, so any use is textual \
+               \and a grep of the identifier catches it"))
 
 -- ===================================================================
 -- THE JAINA STANDING, KEPT SEPARATE.
@@ -332,6 +424,28 @@ selfTest = concat
       (let (_, _, collides) = groundsAreNotRecoverable in collides)
   , check "both schools' sentences are recorded and neither is settled"
       (length disputeAsBothSchoolsWouldPutIt == 5)
+  , -- THE BRIDGE, and the gap it exhibits.  Added 2026-08-20 with the
+    -- repair of `Pramana.Anupalabdhi`, which was nullary.
+    check "this gate admits an absence the justification type's gate refuses"
+      (let (here, why, withLimit) = theTwoGatesAreNotTheSameGate
+       in here && withLimit && "avadhi" `isInfix` why)
+  , check "the missing slot named in the refusal is the LIMIT, not the domain"
+      (let (_, why, _) = theTwoGatesAreNotTheSameGate
+       in "no limit stated" `isInfix` why)
+  , check "an unfit abhava cannot acquire a fitness by crossing the bridge"
+      (case abhava potP potA (Extent 7 "grep of one directory"
+                               (Ayogya "the target may be spelled otherwise")) of
+         Left _ -> True   -- refused before the bridge, which is the point
+         Right ab -> case yogyataOfAbhava ab ["nothing"] of
+                       Left _  -> True
+                       Right _ -> False)
+  , check "a fit abhava with a limit converts, carrying all seven slots"
+      (case abhava potP potA fitExtent >>= \ab ->
+              yogyataOfAbhava ab ["says nothing about the other room"] of
+         Right y -> PR.yogPratiyogin y == "a pot"
+                    && PR.yogGanana y == 84
+                    && length (PR.yogAvadhi y) == 1
+         Left _  -> False)
   , check "the four Jaina grounds are distinct constructors"
       (length [Dravya, Ksetra, Kala, Bhava] == 4
        && Dravya /= Ksetra && Kala /= Bhava)

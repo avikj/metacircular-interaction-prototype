@@ -29,6 +29,7 @@
 module Main (main) where
 
 import VargaPrakrti_CompositionLawAsParameter
+import qualified Certificate as C
 import System.Environment (getArgs)
 import System.Exit
 import System.Process (readCreateProcessWithExitCode, shell)
@@ -76,9 +77,15 @@ certifyOne dd = case maximalOrderLaw dd of
         then printf "  %-8s %s\n" (show dd) "emitter refused" >> pure False
         else do
           writeFile path (rename modName out)
-          (ec2, _, err2) <- readCreateProcessWithExitCode
+          (ec2raw, out2, err2raw) <- readCreateProcessWithExitCode
             (shell ("cd " ++ cubicalDir ++ " && LC_ALL=C.UTF-8 agda "
                     ++ modName ++ ".agda")) ""
+          -- THE WATCH, ADDED 2026-08-20.  `good` was `ec2 == ExitSuccess` and
+          -- agda's stdout was discarded, so under `agda "$@" 2>&1 | cat` this
+          -- printed VARGAPRAKRTI CERTIFIED with the type error in the text it
+          -- threw away.  Same falsifier watch `Certificate.runAgda` carries,
+          -- for a caller that launched agda itself.
+          (ec2, err2) <- C.vetForeignRun "." ec2raw (out2 ++ err2raw)
           let good = ec2 == ExitSuccess
           printf "  %-8s %-7s %-30s %-7s %s\n" (show dd) (show (length tr - 1))
                  ("(" ++ show ex ++ ", " ++ show ey ++ ")")

@@ -847,3 +847,11 @@ import Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt
 import Calana_TheRunAndTheInvariantForAllN
 import VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal
 import VivekaPramana_TheRemainderIsLawfulAndTheNetBeats
+
+-- Transports of statements the corpus proved twice without linking them
+-- (the सामानार्थ groups reported by
+--  machine/Indrajala_WhichModulesSeeWhichAndWhatNothingSees.hs).
+import MadhyaVinimaya_TheMiddleExchangeIsOneLawStandingInSixPlaces
+import Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath
+import Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm
+import Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMovesTheoremsBetweenThem

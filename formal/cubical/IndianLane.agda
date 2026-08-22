@@ -181,6 +181,9 @@ import AbhavaAvacchedaka
 -- recurrences are FORCED by the counting problem for an arbitrary counting
 -- function, not read off a definition.
 import PingalaPrastara
+-- नष्टोद्दिष्टम् — पिङ्गलस्य नष्ट/उद्दिष्ट स्थान-पृथक्-छेदेषु विस्तारितौ, परस्पर-प्रतिलोमौ (अङ्कस्थान rs ≃ Fin (सङ्ख्या rs)) ;
+-- मेरु-पङ्क्तिः एक-पङ्क्त्या जन्यते, मात्रामेरुः युगलेन ।  एतत् machine/Prastara_*.hs-मध्ये चलति ।
+import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 -- संख्या-पङ्क्ति-सेतुः — पिङ्गलस्य संख्या-प्रत्ययः = मेरु-पङ्क्ति-योगः (sankhya n = ∑ₖ C(n,k))
 import PrastaraPankti
 

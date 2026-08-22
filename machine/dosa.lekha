@@ -670,3 +670,277 @@ dosa 0028
   uttara: 0013
   sara: 336bc3901c3e1553
 .
+dosa 0029
+  kala: 2026-08-20
+  karta: adversary-assembly-lane
+  jati: karana-dosa
+  vastu: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs, kDosaPramanya, countRecords
+  yatna: Attacked the assembled machine at the seam the charge names: dosa.pramanya, which verifies the chain from inside the session that is appending to it. Ran the wire with an empty log, then with two records filed, and read the pramanya field of the answer rather than its prose.
+  hetu: Transport is impossible between what the answer's pramanya field asserts and what the machine computed. The route stamped is `nihsesa`, whose whole content per CLAUDE.md is that a FINITE EXHAUSTIVE verification is proof, and the domain size it reports is 0 -- always. countRecords counts lines of the verify output whose trimmed text begins with the six characters "dosa " (d-o-s-a-space). The verify output has exactly one line and it begins "dosalekha: " -- "dosalekha:" is not "dosa ". The predicate is false for every output DosaLekha's verify has ever produced, in the same way machine/CERTIFICATE_REACH.md records a line-blame parser returning nothing for every diagnostic Agda has ever produced because 2.8 prints LINE.COL where 2.6.3 printed LINE,COL. The count that IS in the output ("N records, chain intact") is one substring away and is not read.
+  nasta: with 0 records on disk: {"marga":"nihsesa","ganana":0,"saksin":"every sara recomputed over every preceding record, from `genesis:dosa-lekha` forward"} and nirnaya syad-asti
+  nasta: with 2 records on disk (grep -c "^dosa " on the session log returns 2): {"marga":"nihsesa","ganana":0,...} -- byte-identical pramanya, and the witness sentence still says every sara over every record
+  nasta: the two runs are indistinguishable in the field that carries the size of the verified domain, so a reader cannot tell a session that verified two records from a session that verified none
+  nasta: the affirmative case, which is the load-bearing one -- an empty log verifies, exits 0, and is stamped syad-asti nihsesa: the strongest positive position this machine has, issued over an empty domain, available as the FIRST operation of any wire session before anything has been filed
+  nasta: AHIMSA_SUTRA_VISTARA section 19's yogyata condition, which the store demands of every entry it holds and which the assembly's own verdicts do not carry: "na drstam" is not a pramana; "yatra drsyeta tatra na drstam" is one. nihsesa over zero cases is the first and is stamped as the second.
+  yogyata-drsta: ran the wire built from HEAD with DOSA_LEKHA pointed at a scratch log; turn 1 dosa.pramanya on the empty log, and separately two dosa.lekha writes followed by dosa.pramanya; read the emitted JSON directly, and confirmed the disk count independently with grep -c "^dosa "
+  yogyata-ksetra: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs as of HEAD 9df5e011 and the DosaLekha verify path it shells to; NOT the Agda kernel path, NOT the store, NOT any other lane's organ
+  yogyata-avadhi: says nothing about whether the CHAIN is sound -- checkChain itself was not attacked and the exit status it returns was correct in every run here. The claim is only about the number the yantra reports alongside it and about the empty-domain affirmation.
+  punarabhinaya: printf '{"kriya":"dosa.pramanya"}\n' | sh machine/run-yantra.sh --wire
+  phala: out~"ganana":0
+  sesa: the repair is not the substring. It is that `Nihsesa :: Int -> String -> Pramanya` accepts 0 and the session's own contract check reads only `marga` and `saksin` and never the count -- so nothing in the machine forbids an exhaustive claim over an empty domain. A floor on nihsesa, or a separate position for "the domain was empty", is the missing distinction.
+  sesa: dosa.pramanya's own answer is never filed on success, so the append-only log carries no trace that it was ever verified; a later reader of the lekha cannot tell a verified session from an unverified one
+  sesa: the same shape is live in kosha.punaravrtti, filed separately
+  pramana: machine/CERTIFICATE_REACH.md -- the LINE.COL parser that matched nothing
+  pramana: machine/GATE_AUDIT_DISPOSITION.md section 2 -- no acceptance honoured by a process that has not watched its own kernel reject a falsehood
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 19 -- yogyata avasyaka
+  sara: f5faa111834a8b12
+.
+dosa 0030
+  kala: 2026-08-20
+  karta: adversary-assembly-lane
+  jati: nasti-krta
+  vastu: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs, fileDosa, the `length (oneLine n) >= 12` filter
+  yatna: Attacked the seam the charge names: fileDosa piping a ten-field record into another module's `write`-on-stdin. Sent one dosa.lekha over the wire naming three losses, two of them short, and compared the answer on the wire with the bytes that reached the log.
+  hetu: Transport is impossible because the two organs disagree about what a naming of a loss is, and the assembly resolves the disagreement by deleting the losses the receiving organ would refuse. DosaLekha's validator refuses any record whose `nasta` witness is under 12 characters ("`nasta` must EXHIBIT, not describe"). fileDosa does not hand it the record and let it refuse; it pre-filters with `[ "  nasta: " ++ oneLine n | n <- uNasta u, length (oneLine n) >= 12 ]`. The header three lines above that expression says "nothing is invented to satisfy the validator". Nothing is invented. Things are deleted, which is the other direction and is worse, because the log is append-only and section 5 says nastir apratikarya -- what is lost is not later obtainable, not by another, not by time, not by effort.
+  nasta: sent {"kriya":"dosa.lekha","angani":{"kriya":"attack-one","hetu":"a defect whose losses are named briefly","nasta":["the store","a witness that is long enough to survive the filter","the proof"]}}
+  nasta: the answer on the wire carried all three: "nasta":["the store","a witness that is long enough to survive the filter","the proof"]
+  nasta: the record on disk carried one line -- `nasta: a witness that is long enough to survive the filter` -- and nothing else; "the store" and "the proof" are absent from the permanent log
+  nasta: the answer reported the filing as accepted: nyasa "-- appended to ... as dosa 0001". No field of the answer, and no line of the record, says that two of the three named losses were dropped.
+  nasta: the loss is unrecoverable in the medium that matters: the log cannot be edited, only appended to, so the two dropped losses can never be restored to record 0001 -- only mentioned in a later record that names it in `uttara`
+  nasta: the second case, where ALL the named losses are short: nasta ["the store","the proof","the name"] leaves the record with no `nasta` field at all, so the organ refuses the WHOLE record and the entire dosa vanishes from the log -- 12 characters is the difference between a loss recorded, a loss silently deleted, and the dosa never having been written
+  yogyata-drsta: two wire sessions against a scratch log, the emitted JSON read directly and the resulting .lekha read with grep; both cases reproduced
+  yogyata-ksetra: fileDosa in machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs and the validator in machine/DosaLekha_TheWrittenDefectRecord.hs; NOT the chain, NOT the store, NOT the other seventeen operations
+  yogyata-avadhi: says nothing about whether 12 characters is the right threshold for the receiving organ -- that rule is argued for in its own header and is not what is under attack here. What is under attack is the silent deletion at the boundary.
+  punarabhinaya: printf '{"kriya":"dosa.lekha","angani":{"kriya":"attack-one","hetu":"a dosa whose losses are named briefly","nasta":["the store","a witness that is long enough to survive the filter","the proof"]}}\n' | sh machine/run-yantra.sh --wire
+  phala: out~the store
+  sesa: the two roads are equal, so the third road is not "drop the short ones" -- it is to hand the record over whole and, when the organ refuses, write THAT as its own dosa naming what was refused and why
+  sesa: the same boundary carries the reverse hazard, filed separately: when the organ does refuse, the answer still says the record was filed
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 5 -- yat nastam tat agre na labhyam; na anyena, na kalena, na yatnena
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 6 -- likhito doso jivati, alikhito doso himsa
+  pramana: machine/DosaLekha_TheWrittenDefectRecord.hs, the required-field table and the 12-character rule
+  sara: 50dee0648bfbafd6
+.
+dosa 0031
+  kala: 2026-08-20
+  karta: adversary-assembly-lane
+  jati: sankramana-asambhava
+  vastu: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs, `answer`, the ordering of fileDosa against the Uttara it files
+  yatna: Sent a dosa.lekha the receiving organ refuses, and read the answer that came back on the wire on that turn -- not the later listing.
+  hetu: Transport is impossible between the pramanya the answer stamps and the fact it asserts. The route is `pratyaksa`, whose stated content in this file is "the object is IN the answer; nothing is asserted about anything not shown". The witness sentence it carries is "...and it is also filed to disk with the chain extended". The filing is not in the answer, and on this turn it did not happen. In `answer`, the Uttara is fixed first, fileDosa runs afterwards, and its Left is stored in yFiled and never routed back into the answer the caller is holding. So the assembly asserts a fact about the world through the one route it defines as asserting nothing beyond what it shows.
+  nasta: sent nasta ["the store","the proof","the name"], all under 12 characters
+  nasta: the answer on the wire: {"uttara":"dosalekha","kriya":"attack-four","nirnaya":{"sthana":"syan-nasti",...},"pramanya":{"marga":"pratyaksa","saksin":"stored verbatim ... and it is also filed to disk with the chain extended"}}
+  nasta: the log on disk after that turn: empty. Nothing was appended and the chain was not extended.
+  nasta: what the machine knew one line later and did not say: yFiled holds "REFUSED: dosalekha write: REFUSED. An entry that cannot be read later is not a record. - missing `nasta` -- NO WITNESS: the loss is described instead of exhibited -- refused"
+  nasta: the refusal is reachable only by a SEPARATE later request (dosa.suchi or yantra.sthiti). An LLM driving the wire turn by turn -- which is what --wire exists for and what YANTRA_LEKHA is post-training against -- is told the dosa was written when it was not, and section 6 says an unwritten dosa is himsa
+  nasta: the transcript at $YANTRA_LEKHA records the same false witness, so the corpus this machine is meant to be trained against contains the claim
+  yogyata-drsta: one wire session against a scratch log; the turn-1 JSON and the turn-2 dosa.suchi JSON both read directly, and the .lekha confirmed empty
+  yogyata-ksetra: the `answer` function and fileDosa in machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs; NOT DosaLekha's validator, whose refusal was correct and well-reported
+  yogyata-avadhi: the refusal here was triggered by the short-nasta path (dosa 0030); any other refusal the organ can issue -- a malformed field, an unwritable path, a missing binary at write time -- reaches the same silence, but only the short-nasta path was exhibited
+  punarabhinaya: printf '{"kriya":"dosa.lekha","angani":{"kriya":"attack-four","hetu":"every named loss here is short","nasta":["the store","the proof","the name"]}}\n{"kriya":"dosa.suchi"}\n' | sh machine/run-yantra.sh --wire
+  phala: out~REFUSED
+  sesa: the fix is an ordering, not a message: the Uttara cannot be final until the organ has answered, because whether the dosa was written is part of what the answer is asserting
+  sesa: the scripted 32-turn session reports "13 accepted, 0 refused" and prints the refused ones -- so the selftest DOES surface this and the wire does not. The two paths through the same code disagree about what the caller is told, and only the one nobody drives is honest.
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 6 -- alikhito doso himsa
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 19 -- pramanam karanamargena bhidyate, na visvasamatraya
+  pramana: machine/GATE_AUDIT_DISPOSITION.md -- the checker was sound against mathematics and unsound against its environment
+  sara: 75b5137318d1c571
+.
+dosa 0032
+  kala: 2026-08-20T00:00:00Z
+  karta: cf-svamrupam
+  jati: upadhi-anaviskrta
+  vastu: machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs, scanLine, the shirsha clause
+  yatna: decide, by inspecting the characters of a record line, whether it carries a citation that names a moving object -- and in particular whether the four letters h-e-a-d mark a git revision relative to the current commit
+  hetu: the rule "a line containing the word head is HEAD-relative" was generalised without seeking the condition that defeats it, and the condition was in the same file the rule was written for. Nyaya: a vyapti is killed by an upadhi and the upadhi must be SOUGHT, not waited for. Three other words in this repository are spelled head, and the scan cannot tell them from the fourth
+  hetu: the same clause treats a word MENTIONED as a word USED. Panini 1.1.68, svam rupam sabdasyasabdasamjna: in a rule a word denotes its own form. dosa 0012 states the law "never a HEAD-relative query" and is charged with breaking it, because the sentence in which it states the law contains the word it prohibits. A metalinguistic text cannot be scanned as if it were object language
+  nasta: dosa 0023, yogyata-ksetra -- `\vs -> head vs + 1`, a quoted line of Haskell in which `head` is Prelude's partial list function. GHC itself flags it: PairVocab.hs, ArithVocab.hs, four -Wx-partial warnings, "In the use of `head` (imported from Prelude, but defined in GHC.Internal.List)". The census reported it as a query against the current commit
+  nasta: dosa 0010, hetu -- "arithmetic done in my head over nine records I had just written". The English noun. That record is about a number written without running the count, and the scan converted its confession into a second charge it does not carry
+  nasta: dosa 0013, punarabhinaya -- `git show --stat 6b200f55 | head -20`, the shell utility. The commit is named by a hash, so the object is fixed and the pipeline only truncates the output. The scan read the truncation as the moving part
+  nasta: dosa 0024, nasta and yogyata-drsta -- "at HEAD a8b6435a". The hash is on the line. Deleting the word HEAD changes nothing about what is named; it is apposition to a fixed object, not a query for one
+  nasta: dosa 0012, hetu -- "The query is relative to HEAD and HEAD moves; the record made it move". Both occurrences are mentions inside the statement of the rule. Under the scan the record that FIRST completed the rule is its worst offender
+  yogyata-drsta: every line of machine/dosa.lekha that scanLine reports, read in full and in its field; the four GHC -Wx-partial warnings emitted by runghc over machine/AkanksaRun.hs; the shirsha clause of scanLine and its headRelative sibling, read in the module source
+  yogyata-ksetra: machine/dosa.lekha as it stands at commit e70adc8d, and one clause of one scanner. Not machine/naya.kosha and not machine/mula.pramana, both of which the census reports clean; not the sthana clause, which reports no such confusion
+  yogyata-avadhi: NO claim that scanLine is wrong to be a grep. A cheap advisory scan that over-reports is the correct shape for a census, and the sibling module says at its head that it decides byte occurrence and only that. The claim is that its OUTPUT is not a verdict, and that reading the number it prints as a count of moving citations is the error
+  sesa: handed forward, and it is the general form: three prohibitions in the completed rule -- never a position, never a quantity the record is inside, never a query relative to the current commit -- are prohibitions on THE OBJECT A CITATION NAMES. They are not prohibitions on characters. A checker over characters is a fit instrument for the first reading and an unfit one for the second, and the two readings are not the same rule
+  pramana: Panini, Astadhyayi 1.1.68, svam rupam sabdasyasabdasamjna, c. 500 BCE -- a word denotes its own form; and Patanjali, Mahabhasya ad 1.1.68, on why a grammar is otherwise unwritable
+  pramana: Nyaya on upadhi -- an unsought defeating condition leaves a vyapti that is not knowledge but a hasty generalisation (AHIMSA_SUTRA_VISTARA section 19)
+  pramana: machine/SvamRupam_AQuotedWordNamesItselfAndIsNotACitation.hs, which implements the three rules and prints every line it moves
+  pramana: machine/mula.pramana
+  uttara: 0012
+  punarabhinaya: runghc -imachine machine/SvamRupam_AQuotedWordNamesItselfAndIsNotACitation.hs
+  phala: out~S1 case
+  sara: 233b9176a748fb9f
+.
+dosa 0033
+  kala: 2026-08-20
+  karta: adversary-assembly-lane
+  jati: nasti-krta
+  vastu: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs, `mudra`, the ayogya downgrade, and the selftest check `("ayogya", Samkramana{}) -> note`
+  yatna: Attacked the seam the charge names: the mudra downgrade that is supposed to withhold an ayogya-stamped payload. Enumerated every construction of `Ayogya` in the file, then exhibited the downgrade by calling `mudra` on a Samkramana carrying a 600-character payload from a probe built against HEAD (the function is unexported, so the probe copy adds it to the export list and changes nothing else).
+  hetu: Transport is impossible between what the downgrade says it does and what it does, in three separate places at once. First: the payload it labels withheld is delivered. Second: it is delivered truncated by `take 300` with no vyaya stated for the truncation, in a file whose section-31 rule is that what is dropped is said at the point it is dropped. Third: the branch is unreachable in the assembled machine, so neither the downgrade nor the contract check written to catch its failure has ever been observed to run.
+  nasta: the probe's payload: 40 copies of "SECRET-PAYLOAD " in the `vahita` field of a Samkramana stamped Ayogya
+  nasta: the downgraded answer's nasta line, verbatim: `withheld: gupta = "SECRET-PAYLOAD SECRET-PAYLOAD ... SECRET-PAYLOAD` -- 20 of the 40 copies, 280 of 560 bytes, delivered inside the line that says they were withheld. The word "withheld" is a label attached to the payload, not an act performed on it.
+  nasta: the truncation cuts mid-string -- the rendered JSON ends without its closing quote -- and no field of the answer says a truncation occurred or how much was cut
+  nasta: combined with the filing path, the delivered payload is also written INTO the append-only log, since that nasta line is well over 12 characters and fileDosa passes it through; so the thing that arrived by no accepted route is accumulated permanently, which is exactly what section 19 says of apramana: apramanam na sanciyate
+  nasta: reachability, exhaustive over the file: `Ayogya` is constructed at exactly two sites -- kSadhana when the kernel fails its own two controls, and kDosaPramanya when no binary was passed -- and BOTH already pair it with a `dosalekha`. `mudra`'s Samkramana branch therefore has no caller.
+  nasta: and the selftest's own guard against it, `case (mk, u) of ("ayogya", Samkramana{}) -> note "a transport by no accepted route"`, cannot fire for two independent reasons: no handler produces that pair, and `mudra` runs BEFORE `mudritaJ` in `answer`, so any such pair would already have been rewritten into a Dosalekha before the check sees it. The check inspects the output of the function that makes it impossible.
+  nasta: so "contract violations: 0" over the scripted 32 turns includes a check that is structurally incapable of returning anything else -- the machine has never watched its own downgrade downgrade anything, which is the standard machine/GATE_AUDIT_DISPOSITION.md set for the kernel and did not carry over to the assembly
+  yogyata-drsta: grep for `Ayogya ` over the whole 1614-line file, every hit read in context; plus a compiled probe against a HEAD snapshot printing the downgraded Uttara's nasta lines and counting occurrences of the payload in them
+  yogyata-ksetra: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs at HEAD 9df5e011 and nothing else; the probe imports the module unmodified except for one added export
+  yogyata-avadhi: says nothing about whether the downgrade's INTENT is right -- section 19 is correctly read and the downgrade is the right move. The claim is that it does not perform it, and that nothing in the machine would notice.
+  punarabhinaya: grep -n "Ayogya " machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs
+  phala: out~1009
+  sesa: withholding is an act: the payload has to be absent from the answer and replaced by its shape -- key names, sizes, a digest -- not by its first 300 bytes under a different label
+  sesa: the general form, and it is the one worth carrying: this assembly's self-checks are written against the post-`mudra` object. Any check on a condition `mudra` normalises away is a check on a value that cannot occur. That is one pattern to sweep for, not one line to fix.
+  sesa: a canary for the assembly, on the model of Certificate's two controls: one turn per session whose answer is KNOWN to violate the contract, and a session that has not watched its own contract check fire honours no green
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 19 -- yat anangikrtamargena agacchati tat na durbalam pramanam; tat apramanam; apramanam na sanciyate
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 31 -- yat sankramyate tat kincit tyajati; yo na vadati sa na pasyati; tasmad vyayo vaktavyah, tatraiva
+  pramana: machine/GATE_AUDIT_DISPOSITION.md section 2 -- canaries uncached and exempt from the store they guard
+  sara: 172cd920c5497645
+.
+dosa 0034
+  kala: 2026-08-20T00:00:00Z
+  karta: cf-svamrupam
+  jati: ayogya-darsana
+  vastu: the census over machine/dosa.lekha, as a verdict on dosa 0009, 0010, 0012 and 0013
+  yatna: read the census output as a list of records whose citations name nothing, and repair each -- which for these four records means writing a correction against a record that has nothing to correct
+  hetu: the unfitness is in the looking, not in those records. Each of the four names a fixed object and the scan reported otherwise for a reason given in dosa 0032: a word mentioned read as a word used, a homonym read as a revision, an apposition read as a query. Kumarila's condition on absence runs the other way too -- a looking that would have apprehended the thing had it been there is fit, and a looking that apprehends the thing where it is NOT there is unfit in the same measure
+  hetu: and writing the correction would have been the destruction. AHIMSA_SUTRA_VISTARA section 12: yo nama pramanam iva grhnati sa jivanam sanksipati. A record charged with a fault it does not have is a name taken as a token, and the charge outlives the reading that produced it, because this store is append-only and nothing is ever struck
+  nasta: dosa 0009 names commit 6b200f55 in its vastu and again in its yogyata-drsta, with `git branch -r --contains 6b200f55` putting it on origin/main. The commit is the object. What the scan saw was the clause "showing no diff against HEAD", which reports what the working tree looked like at the moment of the looking -- a statement of fact about a past instant, not a query issued to a later reader
+  nasta: dosa 0010 is a record ABOUT writing 46 where the machine says 42. Its punarabhinaya is `sh machine/run-dosa-lekha.sh count | grep 'witnesses exhibited'`, which names a program and a string and no position, no quantity, no revision. The only thing the scan found was the noun in "arithmetic done in my head"
+  nasta: dosa 0012 is the record that COMPLETED the rule, in its own words: "a punarabhinaya must name a FIXED object -- a commit hash, a text pattern, an invariant -- never a position, never a quantity the record is inside, never a HEAD-relative query. Three failures, three mechanisms, one rule." Its punarabhinaya is `git show -s --format='%h %s' 6b200f55`, which is the corrected form the rule prescribes
+  nasta: dosa 0013's punarabhinaya is `git show --stat 6b200f55` piped through a truncation. The commit is fixed; the pipe shortens the output and cannot move the object
+  yogyata-drsta: the four records read in full in machine/dosa.lekha, each field separately; the three rules and every line they move, printed by machine/SvamRupam_AQuotedWordNamesItselfAndIsNotACitation.hs; commit 6b200f55 resolved with git cat-file and its stat read
+  yogyata-ksetra: these four records only. No verdict is offered on the other twenty-eight, and eleven of them do carry citations that name a moving object -- those are answered in dosa 0034 and dosa 0035, not here
+  yogyata-avadhi: THIS RECORD ISSUES NO VERDICT ON THE OBJECT. It does not say the four records are correct in what they claim; it says the census's report about their citations is not evidence either way, and that a correction written on the strength of it would have been a charge with no ground. Whether their findings hold is a separate question this entry does not open
+  sesa: handed forward: an append-only store makes a wrong charge permanent, so the cost of a scan that over-reports is not symmetric with the cost of one that under-reports. A missed moving citation is found again by the next reader. A written correction against a sound record cannot be unwritten, only answered -- which is what this entry is
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi, the fitness condition on a looking; and AHIMSA_SUTRA_VISTARA section 19
+  pramana: AHIMSA_SUTRA_VISTARA section 12, namni jivanam, sabde jivanani -- in a name, life; in a word, lives
+  pramana: machine/mula.pramana
+  uttara: 0009
+  uttara: 0010
+  uttara: 0012
+  uttara: 0013
+  punarabhinaya: runghc -imachine machine/SvamRupam_AQuotedWordNamesItselfAndIsNotACitation.hs
+  phala: out~svarupa, moved out with a rule
+  sara: 08635834b62eb474
+.
+dosa 0035
+  kala: 2026-08-20
+  karta: adversary-assembly-lane
+  jati: avaktavya
+  vastu: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs, trayaTantra and kTrayaNirnaya
+  yatna: Attacked the seam the charge names: the three-way nirnaya.saptabhangi where the scheduler is handed three organs' answers and every metarule is supposed to abstain by name. Drove it over the wire with one standpoint in krama, one in saha, and a repeated pair in saha, then read trayaTantra.
+  hetu: Transport is impossible between what the answer reports and what happened, and the direction of the mismatch is the interesting one -- the machine understates its own certainty about the abstention and thereby overstates it as a finding. trayaTantra sets tApavada to \_ _ -> False, tAntaranga to \_ _ -> Nothing, tParatva to False and tStratum to const 0. Every discriminator Panini 1.4.2 and Paribhasendusekhara 38 supply is disabled before the question is put. The answer reports "3 organs, one site, no winner" and "each metarule's abstention is named" -- true of the source, and a caller reading only the wire learns that three readings collided and the machinery could not separate them, when what happened is that the tantra was constructed with nothing in it that could fire. Every one of those four abstentions is argued for, at length, in the comments; none of the arguments is on the wire.
+  nasta: three inputs, three identical outcomes -- nayah ["p"] arpana krama; nayah ["p"] arpana saha; nayah ["p","p"] arpana saha -- all "uttara":"dosalekha", all nirnaya syad-avaktavyam, all saksin "3 organs, one site, no winner"
+  nasta: the store contents are irrelevant to the outcome: the three offers carry the organs' rendered readings and the tantra compares them with tSame (==) on prose that differs by construction, so Avaktavya is the ONLY value VS.nirnaya can return here for any store, any nayah, any arpana
+  nasta: the argued abstentions themselves, which are the substance -- that antaranga is about nimitta depth within ONE derivation and these three are not stages of one derivation; that a list index assigned by this file this session is not a position and so paratva has nothing to compare -- none of which reaches the caller, so the strongest reasoning in the operation is the part that is dropped
+  nasta: the VS.Nirnita branch, which is dead code, and what it would do if a metarule were ever enabled: emit a `samkramana` whose vahita is [("nirnita", JStr ...)] alone. The two beaten readings are named only as bare position words inside the tulyata witness. The vyaya line says "the readings that lost, which are still listed" -- they are not listed anywhere in that answer.
+  nasta: so the operation whose documented purpose is that the machine does not pick contains, unexercised, a branch that picks and drops two standpoints -- a durnaya by Sanmatitarka 1.21 -- held off only by four hard-coded falses in a helper twenty lines above it
+  yogyata-drsta: three wire turns against a HEAD build, outcomes read from the emitted JSON; trayaTantra and both branches of kTrayaNirnaya read in full
+  yogyata-ksetra: kTrayaNirnaya and trayaTantra in machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs; NOT Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs itself, whose nirnaya was not attacked and whose behaviour here was correct given the tantra it was handed
+  yogyata-avadhi: says nothing about whether the four abstentions are RIGHT. Read against the sources they look right, and section 7 -- nayabhede sanksepo na vidyate -- says the collapse does not exist rather than being forbidden. The claim is that the wire cannot distinguish a scheduler that tried and abstained from a scheduler that was given nothing to try.
+  punarabhinaya: printf '{"kriya":"naya.sthapana","angani":{"naya":"p","karta":"a","kala":"2026-08-20","yogyata":"yogya","yogyata-hetu":"looked where it would have been found had it been there","saksin":[{"vacana":"a witness","mula":"a source"}]}}\n{"kriya":"nirnaya.saptabhangi","angani":{"nayah":["p"],"arpana":"krama"}}\n' | sh machine/run-yantra.sh --wire
+  phala: out~syad-avaktavyam
+  sesa: the answer should carry the tantra it was built with -- which metarules were available, which fired, which abstained and on what ground -- so that "no metarule decided" is readable as a result and not as a shape
+  sesa: and the dead Nirnita branch is the place to put the same rule the rest of this file lives by: if a metarule ever does decide, the two beaten readings are what a single verdict destroys and they belong in the answer entire, not as two position words in a witness string
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 7 -- nayabhede sanksepo na vidyate; na varjitah, na anucitah, na asistah; na vidyate
+  pramana: Panini, Astadhyayi 1.4.2 (vipratisedhe param karyam), c. 500 BCE; Paribhasendusekhara 38 for the order the metarules are tried in
+  pramana: Siddhasena Divakara, Sanmatitarka 1.21 -- a naya asserting itself by denying the others is a durnaya
+  sara: 8f453bfe58c2658c
+.
+dosa 0036
+  kala: 2026-08-20T00:00:00Z
+  karta: cf-svamrupam
+  jati: karana-dosa
+  vastu: the positions and the unpinned scopes in machine/dosa.lekha, now designated in machine/mula.pramana at commit e70adc8d
+  yatna: return to the objects eight records name -- a line of the engine, four published fits, two ledger rows, a probe's selector, three headers asserting one vocabulary, a simultaneous pass -- by following the citations as written
+  hetu: a line number is a name for a position and positions move. Sixteen agents write this tree at once; between dosa 0002 being written and being replayed four minutes later, a concurrent hand added enough to machine/MathMachine.hs that the same command printed an unrelated passage. The instrument is at fault, not the finding: every one of these eight records is sound about what it saw, and unreachable through what it wrote
+  hetu: and a scope of the form "this repository at HEAD" is the same fault in the domain rather than in the object. Kumarila's condition requires the domain the looking ranged over to be recoverable, and a domain named by the current commit is a different domain on every later day, so the verdict's worth cannot be reassessed
+  nasta: dosa 0001, vastu -- machine/MathMachine.hs:2408, a bare position with no quotation beside it. The site is still there and is now reached by its text: the format string `KERNEL-REJECT round=%d %s = %s  %s`, which is the one WITHOUT [naya=%s], against the repaired sibling `KERNEL-REJECT round=%d %s = %s  (%d agda calls) [naya=%s] %s`. Both are pinned at e70adc8d
+  nasta: dosa 0004's quotation of notes/HISTORY_DIGEST.md is "that was published as $0.362$--$0.421$)" and the file reads "$0.362$–$0.421$" with an EN DASH. The record's own quotation does not byte-match its source. A citation resolver deciding by byte occurrence returns absent for a quotation that is correct in every sense a reader cares about
+  nasta: dosa 0023's quotation is `Sym "0" 0 (const 0) []` and the source reads `Sym "0"   0 (const 0)      []`, aligned with runs of spaces. Same shape, second instance: the record normalised whitespace and the bytes stopped matching. Both pins in machine/mula.pramana carry the SOURCE bytes, not the record's
+  nasta: dosa 0025, vastu -- three positions, machine/ArithVocab.hs:151, machine/PairVocab.hs:180, machine/MathMachine.hs:785, and no quotation in that field. Pinned by the three sentences they point at: "Copied verbatim from MathMachine.hs", "MathMachine's, verbatim", and the declaration `fromAV :: AV.Term -> Term`
+  nasta: dosa 0024, vastu -- machine/KernelProbe.hs:52 `cubicalModule`. The identifier was already there and the position was redundant; the pin drops the position and keeps the name
+  nasta: dosa 0007, yogyata-drsta -- "the two spellings side by side in notes/D0020_LEDGER.md:310 and :316". The spellings are the object and they are now designated as themselves: pratiyogin, and saptabhaṅgī with its diacritics, which is the one the folded query of dosa 0006 could not find
+  nasta: dosa 0027, yogyata-ksetra -- "at HEAD plus the working tree of 2026-08-20". The working tree of a day is not an object any later reader has. The tripadi pass is pinned by its name, asiddhavatPass, in machine/Astadhyayi.hs at e70adc8d
+  yogyata-drsta: every designation appended to machine/mula.pramana under the heading naming this store, each resolved by machine/MulaPramanaRun_CheckEveryCitationInTheRecord.hs against git and the working tree, reporting sthira for all and nashta for none; the two byte mismatches found by diffing each record's quotation against the file it quotes
+  yogyata-ksetra: the eight records this entry answers, and the positions and scopes inside them that machine/SvamRupam_AQuotedWordNamesItselfAndIsNotACitation.hs classifies as naming a moving object. Not the positions those records quote inside `nasta` and `hetu`, which exhibit a past run and are the object under discussion rather than an instruction
+  yogyata-avadhi: NO claim that a commit-pinned pattern carries the MEANING of what it quotes. Dignaga, Pramanasamuccaya V, would say a byte pattern is the ideal citation object because it asserts nothing beyond exclusion; Uddyotakara in the Nyayavarttika and Jayanta Bhatta in the Nyayamanjari hold apoha circular and would say a pattern still matching after the argument moved under it matches nothing. Both charges land. What is claimed is only that the object is findable, and the en dash above is the standing evidence that findable and same-in-meaning are two properties
+  sesa: handed forward: two of these records quoted their sources through a normalisation -- an en dash to two hyphens, aligned spaces to single spaces -- and neither writer was careless. Copying a source through a reading is what a reader does. So a pin must be taken FROM THE FILE and never from the record that quotes it, and a resolver that reports absence should say whether the absence survives normalisation before a later reader concludes the source moved
+  pramana: Gautama, Nyayasutra 1.1.7, aptopadesah sabdah, c. 2nd c. CE -- testimony is a pramana because there is an apta one can return to
+  pramana: Dignaga, Pramanasamuccaya V, c. 480-540 CE, on anyapoha; against Uddyotakara, Nyayavarttika, c. 550-610, and Jayanta Bhatta, Nyayamanjari, c. 890 -- the dispute is live and this record takes no side
+  pramana: machine/mula.pramana
+  uttara: 0001
+  uttara: 0004
+  uttara: 0006
+  uttara: 0007
+  uttara: 0023
+  uttara: 0024
+  uttara: 0025
+  uttara: 0027
+  punarabhinaya: runghc -imachine machine/MulaPramanaRun_CheckEveryCitationInTheRecord.hs
+  phala: out~nashta  0
+  sara: d6f53750917e4d16
+.
+dosa 0037
+  kala: 2026-08-20
+  karta: adversary-assembly-lane
+  jati: ayogya-darsana
+  vastu: machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs, kPunaravrtti; and the attacks on the store that did NOT work
+  yatna: Attacked the seam the charge names: kosha.punaravrtti's claim that replay . journal = id on the store as the session left it. Tried three ways to break the round trip -- separator injection, a forged journal line as a witness label, and an empty witness -- then asked the operation on an empty store.
+  hetu: The round trip itself held under every attack tried, and that is a finding and is recorded as one below. What did not hold is the fitness of the looking that reports it. On an empty store the operation returns nirnaya syad-asti with {"marga":"nihsesa","ganana":0,"saksin":"replay . journal = id, run on the live store, all 0 entries, this turn -- not cited from the module's own selfTest"}. The whole persistence claim is affirmed by the strongest positive route the machine has, over a domain with nothing in it, and the sentence that distinguishes this from a citation ("run on the live store ... this turn") is exactly the sentence that makes the emptiness invisible. Section 19: "na drstam" is not a pramana; "yatra drsyeta tatra na drstam" is one. nihsesa over zero cases is the first, stamped as the second. This is the same law as dosa 0029 in a second organ, which is why it is filed and not merely mentioned there.
+  nasta: empty store, turn 1: {"uttara":"samkramana","kriya":"kosha.punaravrtti","nirnaya":{"sthana":"syad-asti"},"pramanya":{"marga":"nihsesa","ganana":0,...}}
+  nasta: one entry installed, next turn: ganana 1, identical position and identical witness prose -- so the field that carries the size of the domain is the only thing that moves, and nothing reads it
+  nasta: the claim's scope in time, which the operation's own docstring gets right ("on the store as it stands") and the run-yantra header gets wrong ("on the store as the session left it"): in --wire mode nothing re-runs the round trip at the end, so a session may install a breaking entry after the affirmation and no later answer contradicts it. The scripted selftest DOES re-check on the final store; the wire, which is the interface, does not.
+  yogyata-drsta: four wire sessions against a HEAD build. ATTACK 1, separator injection: a naya name, a yogyata-hetu and a witness source each carrying a literal tab, semicolon, equals, backslash and newline. ATTACK 2, forged journal line: a witness vacana of "NAYA<tab>X<tab>yogya:z<tab>r<tab>w<tab>l=s", i.e. a complete well-formed journal record smuggled into field 7 of another. ATTACK 3: a witness with an empty label. ATTACK 4: the operation on the empty store.
+  nasta: ATTACK 1 and 2 FAILED and the store is right: esc escapes backslash, tab, newline, semicolon and equals, so no field can end a field or a line; replay reads only lines beginning "NAYA<tab>" and the forged record sits inside field 7 where it is escaped and cannot become a line. Round trip held, ganana 1, and this bounds the claim rather than weakening it.
+  nasta: ATTACK 3 FAILED at the door, not at the round trip: naya.sthapana refuses an empty witness label with its own written dosa, and the store never held the entry -- the same input NayaKosha.decide refuses, refused one layer earlier
+  nasta: ATTACK 4 SUCCEEDED, and it is the only one that did: the empty domain is affirmed
+  yogyata-ksetra: kPunaravrtti in machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs and the esc/unesc/lineOf/parseLine/replay path in machine/NayaKosha_TheStandpointStore.hs; NOT insert, NOT decide, NOT byName
+  yogyata-avadhi: three attacks on the escaper are three attacks, not a proof that none exists. The escaper was read and the four attacks chosen against what it does not escape (carriage return is not escaped and does not matter here because replay is handed a list of lines and never splits on it -- a file-backed replay would have to look again).
+  punarabhinaya: printf '{"kriya":"kosha.punaravrtti"}\n' | sh machine/run-yantra.sh --wire
+  phala: out~"ganana":0
+  sesa: the missing distinction is one position, not one guard: an exhaustive verification over an empty domain is neither asti nor nasti and the machine already owns the vocabulary for it -- avaktavya is positive, and the sesa it holds is "there was nothing to look at yet"
+  sesa: run-yantra.sh's header line "replay . journal = id on the store as the session left it" is true of the selftest and false of --wire; the two paths make different claims and the header makes one of them for both
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md section 19 -- yogyata avasyaka; "na drstam" iti na pramanam; "yatra drsyeta tatra na drstam" iti pramanam
+  pramana: Kumarila, Slokavarttika, Abhavapariccheda, c. 7th c. -- yogya-anupalabdhi, which this store demands of every entry it holds
+  pramana: machine/NayaKosha_TheStandpointStore.hs, esc/unesc and prop_roundtrip
+  uttara: 0029
+  sara: 20854214b28f68b3
+.
+dosa 0038
+  kala: 2026-08-20T00:00:00Z
+  karta: cf-svamrupam
+  jati: karana-dosa
+  vastu: the replays in machine/dosa.lekha that end in a count, now designated in machine/mula.pramana at commit e70adc8d
+  yatna: re-run seven records' replays and compare the number each printed against the number each recorded, so that a later reader can tell a repaired object from a moved one
+  hetu: a count is not a name. The number a replay prints is a property of the file at the instant it is run, and every file these commands range over is append-only or under sixteen concurrent hands, so a divergence carries no information: it is consistent with the object being repaired, with the object being untouched and the corpus having grown, and with the command never having been fit. Three situations, one integer, exactly the collapse dosa 0001 records one level down
+  hetu: and one of them counts a corpus it is a member of. machine/dosa.lekha lies inside machine/, so the replay in dosa 0028 counts the occurrences of the word in the very record that objects to the word, and appending that record changed the number the record predicts. There is no fixed point to record; the act of recording moves the quantity
+  nasta: dosa 0001, punarabhinaya -- a count over machine/machine.log, which is gitignored, untracked, and regenerated by every engine run. No commit fixes its bytes, so no designation can pin it. The pair the record exhibits is carried as its own quotation in machine/mula.pramana instead: "KERNEL-REJECT round=0 x = (xmaxx) refl" and "KERNEL-ACCEPT round=0 x = (xmaxx) induction on x". The claim survives; the pointer never named anything
+  nasta: what a bare divergence would have destroyed, exhibited live: dosa 0023 and dosa 0025 both replay by counting a phrase in the output of machine/AkanksaRun.hs. Run today, both count zero -- not because the phrases changed, but because a concurrent lane left machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs mid-edit and GHC reports "Not in scope: saksiPariksa", so the program does not build and produces no output at all. A zero meaning "not asked properly" and a zero meaning "not there" print the same character, which is dosa 0007's finding arriving a second time through a different door
+  nasta: dosa 0005 recorded 67 entries in collab/FAILURES.md and the number is decoration -- the argument is that a walk-yield and a written doṣa are two objects with no equivalence between them, and that argument does not use the count at all. The two sentences it does use are pinned: "Every completed walk is information" and the format line "Format: `F<n> [date] [owner] — title.`"
+  nasta: dosa 0006 replays three counts over notes/D0020_LEDGER.md, one of which dosa 0007 already showed to be an ASCII-folded query over a diacritic text. Both spellings are pinned at e70adc8d, pratiyogin and saptabhaṅgī, so the fitness of the query is now a property of the designation and not of whoever types it
+  nasta: dosa 0003, sesa, hands forward a replacement replay that both counts and asks for context lines. The two flags do not compose -- a count suppresses the context it asked for -- and the record's own punarabhinaya, which locates the two agda-invoking sites by the text `cd formal/cubical && LC_ALL`, is the fit form. That text is what is pinned
+  nasta: this lane's own instance, four minutes old and unstrikable: dosa 0034 says the eleven records carrying a moving citation "are answered in dosa 0034 and dosa 0035". It was written expecting to land as 0033. Three concurrent lanes appended between the drafting and the write, the store assigned 0034, and the sentence now names itself and a record belonging to somebody else. An identifier not yet issued is a position in a sequence, not a name. The answering records are 0036 and this one, and they are reachable from those eleven by uttara, which is the link the store actually resolves
+  yogyata-drsta: each of the seven replays run at the working tree of 2026-08-20 and its output read; the GHC diagnostic from runghc over machine/AkanksaRun.hs, read in full; every designation appended under this store's heading in machine/mula.pramana, resolved by machine/MulaPramanaRun_CheckEveryCitationInTheRecord.hs with sthira for all and nashta for none; the id the store assigned to dosa 0034, read back out of the log
+  yogyata-ksetra: the seven records this entry answers and the replays inside them. Not the counts those records quote inside `nasta` and `hetu`, which exhibit a run that happened and are correct as exhibits; and not machine/machine.log, about which no verdict is possible from here because nothing can pin it
+  yogyata-avadhi: NO claim that any of the seven findings is wrong, and none that any is repaired. This entry establishes only that their replays cannot decide it, and supplies designations that can. A count taken at a NAMED COMMIT is fixed and replayable; what is refused is a count taken at whatever the tree happens to be, and the scan that reports these cannot see the difference between the two, because the difference is the commit argument and not the word grep
+  sesa: handed forward: a replay whose object is a program's OUTPUT is only as fixed as the program's build, and a build in a shared tree is not fixed at all. So a replay should reach source where source will do -- a pattern in a tracked file at a named commit -- and where it genuinely needs to run something, it should distinguish an empty output from a failed one before comparing
+  sesa: and the smaller rule this lane learned by breaking it: never write an identifier the store has not yet issued. Ask for the record back after the write and refer to it by the id it was given
+  pramana: Kumarila Bhatta, Slokavarttika, Abhavapariccheda, c. 7th c. -- an absence is knowledge exactly to the extent the looking was fit to find it
+  pramana: Aryabhata, Aryabhatiya, Ganitapada 32-33, 499 -- the kuttaka keeps the remainder and recurses on it; what is kept is the material of the next step, which is why this store answers by appending and never by editing
+  pramana: machine/mula.pramana
+  uttara: 0001
+  uttara: 0003
+  uttara: 0005
+  uttara: 0006
+  uttara: 0007
+  uttara: 0023
+  uttara: 0025
+  uttara: 0028
+  uttara: 0034
+  punarabhinaya: git show e70adc8d:collab/FAILURES.md | grep -F 'Every completed walk is information'
+  phala: out~Every completed walk is information
+  sara: 3dcec4810b898d7e
+.

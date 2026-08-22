@@ -74,10 +74,24 @@ module TraceReplay
   -- in the caller is the two-copies defect that cost this file its whole
   -- reach on 2026-08-20 (see `moduleHeader`), so it is exported instead.
   , vocabEnv
+  -- Added 2026-08-20 (additive; no existing definition changed).  Two of the
+  -- three śeṣas handed forward by
+  -- `notes/SesaPariksa_TheSixLemmasBehindTheInductionWallAreNotAMathematicalGap.md`
+  -- §4 need NO induction on the goal at all: both sides normalise to a common
+  -- term under the engine's own defining equations, and the whole proof is the
+  -- two traces composed.  `replayModule` could only ever emit an induction, so
+  -- the only way to transcribe those was to induct on a variable the proof
+  -- does not use and let both clauses repeat the same path.  These emit the
+  -- path itself.
+  , transcribeDirect
+  , directClauses
+  , symbolsUsedGoal
+  , noHypothesis
   , replayContract
   , main
   ) where
 
+import qualified Certificate as C
 import Data.List (intercalate, isPrefixOf)
 import qualified Data.Map.Strict as M
 import Control.Exception (finally)
@@ -469,6 +483,101 @@ inductionClauses lenv self d = do
          , unwords (self : stepPat) ++ " = " ++ stepPf
          ] )
 
+-- ------------------------------------------------- transcription, no induction
+--
+-- A goal whose two sides normalise to a common term needs no induction and
+-- has no hypothesis.  Its proof is exactly what the two traces already say:
+-- the left trace forward, the right trace backwards, composed.  That is the
+-- same act `replayClause` performs for one clause of an induction, with the
+-- clause being the whole theorem.
+--
+-- Why this is worth its own entry point rather than "induct on x and ignore
+-- the hypothesis".  Inducting on an unused variable does typecheck for these
+-- goals — both clauses re-derive the same path with `x` instantiated — but it
+-- emits a case split the derivation never performed, and a certificate that
+-- claims a proof structure the engine did not use is a written record of
+-- something that did not happen.  The transcription is supposed to BE the
+-- derivation.
+--
+-- `noHypothesis` is the rule handed to `stepPath` in place of the induction
+-- hypothesis.  Its symbol is not in the renderer's vocabulary and not in any
+-- rule set the engine builds, so no fired rule can equal it and no step can
+-- be mistaken for a recursive call; `transcribeDirect` also refuses outright
+-- if a caller has somehow put it in `rs`.
+noHypothesis :: Rule
+noHypothesis = (F "no-hypothesis" [], F "no-hypothesis" [])
+
+-- Every symbol a directly transcribed module will mention: the goal's, plus
+-- each citable lemma's, since the lemma declarations are emitted into the
+-- same file.  Same accounting as `symbolsUsed`, against a goal rather than a
+-- Deriv.
+symbolsUsedGoal :: LemmaEnv -> (Term, Term) -> [String]
+symbolsUsedGoal lenv (gl, gr) = nubStr (concatMap symsT terms)
+  where
+    terms = [gl, gr] ++ concat [ [a, b] | ((a, b), _) <- leLemmas lenv ]
+    symsT (V _) = []
+    symsT (F f ts) = f : concatMap symsT ts
+    nubStr = foldl (\acc s -> if s `elem` acc then acc else acc ++ [s]) []
+
+-- The signature and the single clause, under a chosen name — the direct
+-- analogue of `inductionClauses`, and returning the same (parameter order,
+-- lines) pair so a directly transcribed theorem can be CITED by a later one
+-- exactly as an inducted one is.
+directClauses :: LemmaEnv -> [Rule] -> String -> (Term, Term)
+              -> Maybe ([Int], [String])
+directClauses lenv rs self goal@(gl, gr) = do
+  if noHypothesis `elem` rs then Nothing else pure ()
+  let (lnf, ltr) = normalizeTrace rs gl
+      (rnf, rtr) = normalizeTrace rs gr
+  -- The two sides must MEET, under the same test `deriveByInduction` uses:
+  -- syntactic equality of the engine's normal forms is sufficient and not
+  -- necessary, because Cubical's `_+_` and `_·_` compute on their own.
+  if not (reflProvable (lnf, rnf)) then Nothing else pure ()
+  let ivs = varsOfT gl `unionT` varsOfT gr
+  vns <- mapM agdaVar ivs
+  let e = M.fromList (zip ivs vns)
+  sigL <- render e gl
+  sigR <- render e gr
+  body <- replayClause lenv e self ivs (-1) noHypothesis ltr rtr
+  let quant = if null vns then "" else "(" ++ unwords vns ++ " : ℕ) → "
+  pure ( ivs
+       , [ self ++ " : " ++ quant ++ sigL ++ " ≡ " ++ sigR
+         , unwords (self : vns) ++ " = " ++ body
+         ] )
+
+-- The complete module for one directly transcribed goal.
+transcribeDirect :: LemmaEnv -> [Rule] -> String -> (Term, Term) -> Maybe String
+transcribeDirect lenv rs modName goal = do
+  (_, clauses) <- directClauses lenv rs "candidate" goal
+  pure (unlines (blockFor lenv modName goal ++ clauses))
+
+-- Everything a module for this goal carries ABOVE its statement: the OPTIONS
+-- line, the imports, the local `max`/`le` case trees, and the lemma block.
+--
+-- Exported because a control needs it.  A false equation cannot be
+-- transcribed — the two traces do not meet, so no module is emitted and no
+-- agda process starts — and "the route declined it" is a much weaker
+-- statement than "the kernel refused it".  To get the second, the control has
+-- to submit the false STATEMENT on the same block, and a control that builds
+-- that block for itself is a second copy of the block, which is the thing that
+-- is quietly allowed to drift.
+blockFor :: LemmaEnv -> String -> (Term, Term) -> [String]
+blockFor lenv modName goal =
+  moduleHeader modName (symbolsUsedGoal lenv goal) ++ lePreamble lenv
+
+-- The goal as an Agda statement: the variable names it binds, and the
+-- quantified equation.  Same renderer `directClauses` and `inductionClauses`
+-- use, for the same reason `blockFor` is exported.
+renderGoal :: (Term, Term) -> Maybe ([String], String)
+renderGoal (gl, gr) = do
+  let ivs = varsOfT gl `unionT` varsOfT gr
+  vns <- mapM agdaVar ivs
+  let e = M.fromList (zip ivs vns)
+  sl <- render e gl
+  sr <- render e gr
+  let quant = if null vns then "" else "(" ++ unwords vns ++ " : ℕ) → "
+  pure (vns, quant ++ sl ++ " ≡ " ++ sr)
+
 -- WHICH rule had no name.  "A fired rule has no name" is a true report and
 -- an unactionable one: it says a lemma is missing without saying which, so
 -- the reader's next step is to reconstruct the derivation by hand.  This
@@ -730,6 +839,30 @@ replayWithRules certs rs goal v modName =
 -- forced `peanoEnv` to prove `addZero` and friends by induction does not
 -- arise here.
 --
+-- ONE OF THEM DID NOT, and it had never been submitted to agda.  `max`'s
+-- clauses are
+--
+--     max a zero = a ; max zero b = b ; max (suc a) (suc b) = suc (max a b)
+--
+-- and agda compiles them to a case tree that splits on the SECOND argument
+-- first, because the first clause is the one that constrains it.  So
+-- `max zero b` with `b` neutral does not reduce, and `maxZeroL b = refl` is
+-- refused: `max zero b != b of type ℕ`.  The EQUATION is true — it is the
+-- engine's own defining rule and it holds in every instance — and only its
+-- one-line proof was wrong.  Splitting `b` gives both instances back
+-- (`max zero zero` takes clause one, `max zero (suc b)` takes clause two), so
+-- the repair is a case split and not an import, and `maxZeroL` stays a lemma
+-- this module proved rather than one it cited.
+--
+-- Nothing had caught it because nothing had asked: `main`'s snapshot fragment
+-- is {0,s,+,*} and emits no `max` block at all, and the shape search cannot
+-- close a `max` theorem, so this declaration had been emitted only into
+-- modules that were failing for another reason.  Found 2026-08-20 by
+-- transcribing `max(x,y) + 0 = max(x + 0, y + 0)`, whose proof does not use
+-- `maxZeroL` — the block is emitted whole, so one bad declaration in it
+-- refuses every module that mentions `max`.  Note B in `Certificate.hs`
+-- records the same case tree from the other side.
+--
 -- Gated on the goal's symbols, because the declarations mention `max` and
 -- `le`, and those are only in scope when `moduleHeader` emitted them.
 vocabEnv :: [String] -> LemmaEnv
@@ -761,7 +894,11 @@ vocabEnv syms = LemmaEnv
         [ "maxZeroR : (a : ℕ) → (max (a) (zero)) ≡ a"
         , "maxZeroR a = refl"
         , "maxZeroL : (b : ℕ) → (max (zero) (b)) ≡ b"
-        , "maxZeroL b = refl"
+          -- NOT `maxZeroL b = refl`; see the note above this function.  The
+          -- case tree splits on the second argument, so the two instances
+          -- reduce and the general term does not.
+        , "maxZeroL zero = refl"
+        , "maxZeroL (suc b) = refl"
         , "maxSuc : (a b : ℕ) → (max (suc (a)) (suc (b))) ≡ suc ((max (a) (b)))"
         , "maxSuc a b = refl"
         ]
@@ -835,7 +972,14 @@ runAgda root source = do
                             , "--library=cubical", file ])
                  { cwd = Just root, env = Just env' }
       (code, out, err) <- readCreateProcessWithExitCode cp ""
-      pure (code, out ++ err))
+      -- AND THE FOURTH DETAIL, ADDED 2026-08-20.  The three above are what
+      -- this copy carried across; what it left behind is the FITNESS.  Both
+      -- callers read `ExitSuccess` and nothing else, so under a wrapper of
+      -- the shape `agda "$@" 2>&1 | cat` this module reported a replayed
+      -- derivation as checked while agda's own `1 != 0` sat in `out`.
+      -- `Certificate.vetForeignRun` is the per-call output scan and the
+      -- per-process falsifier, for a caller that launched agda itself.
+      C.vetForeignRun root code (out ++ err))
     `finally` removePathForcibly dir
 
 -- Build a Deriv the way the engine does: substitute, normalise both sides
