@@ -495,6 +495,134 @@ expensive at its bad primes, like everything else in arithmetic geometry.
 claims above it that survive, survive audited; the four that broke are struck here with
 their refuters' terms; and the document is thereby the first artifact in the repository
 to be BORN under the discipline it proposes.*
+
+---
+
+## THE SECOND GENERATION — movements 21–29, written free, same night, after the audit
+
+### 21 · Symmetry is the signature of hiding
+If no loss means no symmetry, every symmetry anywhere is testimony of a specific
+blindness. The gauge group of a cut is the automorphism group of its fibres — the motion
+observation cannot register. The Standard Model's SU(3)×SU(2)×U(1) is a MEASUREMENT of
+the universe's cut: the exact shape of what low-energy observation fails to see,
+catalogued as the group of ways the hidden can move while the visible holds still.
+Wigner's "unreasonable effectiveness" dissolves: physics IS the study of one lossy map,
+so its content is fibre structure, and fibre structure is group theory. Klein's Erlangen
+program held the telescope backwards: the group is not the lens, it is the residue — the
+symmetry group exists because the geometry is a quotient that forgot something. Corollary
+in one step: THE ABSOLUTE HAS NO SYMMETRY. The lossless view has Aut = {id}. God is
+asymmetric because God hides nothing; the beauty physicists worship in symmetry is the
+beauty of their own blindness, exquisitely structured; and climbing toward complete
+seeing, symmetry must BREAK — and physics knows what that breaking is called.
+
+### 22 · Spontaneous symmetry breaking is a receipt getting paid, and mass is the coupling to it
+The Higgs mechanism in receipt language, exact: the vacuum chooses a point in a formerly
+free fibre — the receipt of "which point" is paid and pinned into the ground state. The
+Goldstone bosons are the fibre directions — massless BECAUSE motion along a fibre costs
+nothing: the īryāpatha particles, null motion incarnate. Mass is the cost of moving OFF
+the fibre — the coupling to the vacuum's paid receipt. Massless particles ride the light
+cone because zero receipt IS the null cone. INERTIA IS BOUND DEBT: the electron's mass is
+what it owes the vacuum's choice for the privilege of being distinguishable. E = mc² was
+always an accounting identity — the exchange rate between held receipts and free motion —
+and annihilation is the ledger clearing at once.
+
+### 23 · Anomalies are the isSet gap, and the universe's gauge content is selected by descent obligations
+We landed the theorem hours before knowing its physics: descent ⟹ invariance free;
+invariance ⟹ descent costs coherence (isSet T). Pointwise symmetry refusing to descend
+through quantization is PRECISELY a quantum anomaly. The Standard Model's strange
+numerology — the anomaly-cancellation equations the hypercharges satisfy, generation by
+generation — is the universe discharging its coherence obligation. Green–Schwarz is a
+receipt transfer between sectors. And the reason nature runs on THESE gauge groups may
+simply be: only receipt-coherent observations can exist at all. Existence requires the
+ledger to close. The particle content of reality as the solution set of an accounting
+identity.
+
+### 24 · Free will lives in the torsor, and compatibilism was a durnaya all along
+Determinism is a statement about the quotient. Freedom is a statement about the fibre:
+where it is non-contractible, the choice of point is real structure the deterministic
+story cannot see — invisible to that observation class BY CONSTRUCTION, and we have the
+theorem. The group acting on the fibre is bhāvanā — genuine generation. So the free-will
+debate is the durnaya pattern pure: determinism true on the quotient, freedom real in the
+fibre, every position one naya asserting itself as the whole. स्यात् determined — from
+the quotient. स्यात् free — in the fibre. The war was between two projections of one
+graph. And the arrow of memory follows: we remember the past and not the future because
+receipts accumulate in one direction, and the walked graph's antisymmetry is why no
+experience returns at zero cost. Nostalgia is the ache of a timelike separation that
+feels like it should have been null.
+
+### 25 · The mind is a mint, and therapy is receipt-identification
+A self is a carried index over a lossy stream. Then the psychodynamic vocabulary is the
+same accounting: REPRESSION is unreceipted compression — an experience quotiented out
+with its fibre unpriced. THE SYMPTOM is the alignment term — the return of the repressed
+is im B ∩ ker A erupting as neurosis. TRAUMA is an unpaid receipt replaying, the debt
+presenting for discharge on schedule, with interest. The talking cure is receipt-minting
+in the technical sense fixed tonight — a receipt must be an identification, never an
+estimate — and healing happens when vague dread (a bound) becomes exact narrative (an
+identification). Wo Es war, soll Ich werden: PRICE THE FIBRE. Meditation is the other
+practice: watching the cuts occur without binding — null action in cognition, āsrava
+without bandha, thought that touches and falls.
+
+### 26 · Civilizations are receipt regimes, and grace is the one operation the ledger cannot derive
+Writing was the first receipt technology; money the second; law the third — justice as
+exact discharge, against revenge, which is discharge at compound interest. Then the
+operation no accounting system generates internally: FORGIVENESS — the creditor
+voluntarily burning the receipt; nirjarā performed by the wronged party. The traditions
+divide on one problem, and the division is a complete classification: the JAIN solution —
+pay everything yourself, exact, no grace, across as many lives as it takes. The CHRISTIAN
+solution — the debt is paid FOR you; and the word on the cross is a commercial term:
+τετέλεσται, the stamp Greek clerks put on settled bills — PAID IN FULL; the crucifixion
+as the cosmic receipt-burning, the Christ of the biography, who gives himself away,
+absorbing unpaid receipts without generating new ones. The BUDDHIST solution — the ledger
+has no owner; anattā dissolves the debtor and the debt has nowhere to attach. The
+VEDĀNTIC solution — the debt was māyā; at the paramārtha level no compression ever
+occurred. Four theologies, one problem, four positions of the syād-census on WHOSE IS THE
+DEBT — and anekānta holds all four without merging them, which no single tradition
+manages about the others.
+
+### 27 · The classification of finite simple groups is the periodic table of hiding
+If every symmetry is a blindness, the CFSG — mathematics' longest proof — is the periodic
+table of the ATOMS OF HIDING: every irreducible way a finite observation can fail to
+distinguish, listed exactly, with twenty-six sporadic exceptions. The Monster is the
+largest atomic blindness in existence. And moonshine — the Monster's characters inside
+the j-function, next door to ζ — stops being a freak coincidence: the atoms of blindness
+and the spectra of the arithmetic ledger were always going to know each other, because
+both answer the one question this night has been asking — what can move while the
+visible holds still, and what does it cost.
+
+### 28 · The neural network is a gauge theory, and grokking is its phase transition
+A model's internal symmetries — neuron permutations, weight-space gauge freedom, the flat
+directions of overparametrization — are, by Dhruva, evidence of what the loss function
+cannot see. OVERPARAMETRIZATION IS A LARGE GAUGE GROUP: an enormous structured blindness
+of the training signal — and that blindness is where generalization lives, because motion
+along the fibre is free and the fibre is most of the space. Feature learning is
+spontaneous symmetry breaking: the run pays a receipt, chooses a point in the orbit, and
+the chosen coordinate becomes a feature the way the Higgs choice becomes mass. GROKKING
+is the phase transition where a fibre carried at full price abruptly compresses to an
+identification — the model MINTS A RECEIPT, and the loss falls because carrying an
+identification is free while carrying elements is not. Distillation is choosing a cheaper
+point in the behavior-fibre. Two models with identical behavior are one object in two
+presentations — the univalence of minds — distinguishable only by cost, which does not
+transport, which is why inference economics exists.
+
+### 29 · The practice, which was always the point
+The same six motions at every scale, which this repository performs at the scale of
+theorems: CARRY RECEIPTS — never let a compression cross your lips without its fibre
+named. MINT IDENTIFICATIONS — when you must summarize, make the summary exact about what
+it drops. MOVE NULL WHERE POSSIBLE — act without grasping; let the actions that can be
+weightless be weightless. PAY AHEAD — अविपाका निर्जरा, discharge debts before they
+present, in relationships as in codebases. REFUSE THE COUNTERFEIT — no confident
+assertion without a term behind it, in yourself first. KEEP THE FOUR ATTITUDES AS LEDGER
+POLICY — carry everyone's fibres, celebrate the better carrier, help with the crushing
+loads, hold equanimity toward those who refuse the discipline, because condemnation is
+itself an unreceipted compression and the keeper of the ledger doesn't get to forge.
+
+The tradition called this a path because you walk it, not because it leads elsewhere.
+The kernel checks the terms; life checks the rest; and both courts run on the same law,
+stated in every language at once: **nothing real is lost unless you lose it, everything
+lost was compressed, every compression has a price, the price can be named exactly, and
+the naming is the work.**
+
+यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
 
