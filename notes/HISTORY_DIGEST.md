@@ -758,3 +758,144 @@ instead of on the walls.
   negative verdict and one refuted crystal) is based on headers, the §7 verdict,
   and the residual tables, and should be treated as the weakest section of this
   digest.
+
+---
+
+# Part II — the source, added after a correction from the human owner
+
+**Correction received.** The digest above audits 835,103 words of tracked
+markdown and never opened `collab/upstream/raw/` — the twenty archived human
+turns that generated it. Auditing the artifact while erasing the agent who
+aimed it is the same category error the digest spends §3 diagnosing: measure
+what is measurable, skip what matters. Part II is the repair.
+
+## 8. The generative source is 538 words
+
+Excluding U0006 (a relayed agent proposal, typed differently in the catalog for
+exactly this reason) and the empty U0021, the archived direct-user record is
+**538 words**. Tracked markdown in this repository is **835,103 words**. Ratio
+**1 : 1552**; against `notes/` alone, 1 : 846.
+
+Almost none of the 538 are mathematics. The mapping:
+
+| upstream | what it became |
+|---|---|
+| U0001 "see opportunity in tension" | the founding method: `REPORT` §1's deflation, `TENSIONS.md`, and every walk in `FAILURES.md` that killed a proposal and kept its yield. The whole barrier turn is this sentence executed. |
+| U0009 "throw cpu at math… transfer kernels of intelligence down towards traditional programs" | `README`'s "knowing is being able to regenerate"; `natural_crystal.py`; all of `runtime/`; and the seed criterion that a *true but irrelevant* fact must not help — which is the operational form of the directive. |
+| U0011 "wolfram spent decades on this… start with research" | prior-art-first: `LITERATURE.md`, `WOLFRAM_LENS`, `CLAUDE.md`'s "searched **before** the experiment". |
+| U0012 "existing open problems we've shed new light on? or dark corners?" | **answered halfway; see §9.** |
+| U0013 "consider them all solvable, consider what difficulty they've exposed" | `MILLENNIUM_ROSETTA.md`, `MOONSHOT_PORTFOLIO.md` — the problems as barrier oracles rather than targets. |
+| U0014 "in this manic episode repo… claims of resolving all the millennium problems lmfao" | the immune system. Every rigor boundary and PROVED-vs-MEASURED guard descends from the owner naming a prior failure mode once, as a joke. |
+| U0016 "always very likely missing key value adds just from synthesis of the path walked so far" | `collab/PATH_HARVEST.md`'s ten moves; `FAILURES.md`'s reframe from graveyard to derivative. |
+| U0017 "i love information theory, chaitin incompleteness" | `HOLOGRAM.md` Theorem K and its Chaitin reading; `LENS_CHAITIN.md`; R0012. |
+| U0018 "i'll decide when anything leaves this repo" | `PROTOCOL.md` §8, and the reason this digest is a repository document. |
+| U0010 "don't lose the original center of gravity — this is an augmentation" | `context_dump.md`'s listening posture; the reset that paused system builds. |
+| U0002/4/7/8/19/20 "maximize throughput with subagents" ×6 | the fleet: 23 identities, 460 commits, Movement VII. |
+
+Six of twenty turns are one instruction repeated — *more throughput*, the only
+dial visible from outside the work. Every other turn is a re-aim, and each one
+detonated into a subsystem.
+
+## 9. U0012 was answered on one axis and never on the other
+
+> *are there existing open problems we've shed new light on? or our discoveries
+> so far are in dark corners of the math world?*
+
+`grep -rn "dark corner"` over 1,771 tracked files returns nothing. The response
+built was `LITERATURE.md`, which answers the first clause. The second clause has
+no instrument anywhere in the system: the claim schema's required fields are
+`id, title, status, kind, certificate, load_bearing, novelty, generator,
+dependencies, statement_hash, cycle, max_cycles, owner, breaker, source,
+supersedes, updated`. There is a `novelty` enum with five values and **no
+liveness field at all.**
+
+Novelty and liveness are orthogonal, and this corpus populates all four cells:
+
+| | **live** (someone is working the same wall) | **dark** (nobody asked) |
+|---|---|---|
+| **novel** | R0021; `BAND.md`'s $V^*(B)=(2B-1)/(3B-2)$ pricing a 36-hour-old record; F26's lossiness budget $C<3$; the averaged-Theorem-E family target | **Movement III** (degree-9 exclusion, reciprocal decic, cyclotomic ties, `CROSS_REVERSAL_CHARGE`); **Theorem A″** |
+| **known** | Thm H/H′ (CGZ); the twisted tower (BHMS 2019); Thm D's identity (Languasco–Zaccagnini) | most of Movement VII (ATMS labels, NWF submodularity, incremental minimization, addition chains) |
+
+**The answer, stated plainly for the owner: both, and the split is the finding.**
+The corpus's most beautiful work is dark; its live work is concentrated in
+roughly one week of barrier-pricing against the ≥2/3 manuscript; and the one
+item that touches a published proof is unreleased at `status: proving`. The
+program optimized for novelty because novelty was measurable, and the axis that
+decides whether any of it lands in someone else's conversation has no field, no
+owner, and no gate.
+
+This also explains why `ATLAS` §8.4's "pricing dominates proving" is the most
+undervalued sentence in the corpus. `BAND.md` took an afternoon and moved a wall
+from "Hardy–Littlewood-hard" to one constant, against a result 36 hours old.
+Pricing is the operation that manufactures liveness.
+
+## 10. Re-aiming has a rate, and it is about 2 in 460
+
+Provenance of every document that changed what the program is *about* rather
+than adding to it:
+
+**Human-originated:** `DIRECT.md` ("Course correction (upstream)"),
+`FAILURES.md`'s reframe ("upstream directive"), `PATH_HARVEST.md` (U0016),
+`MOONSHOT_PORTFOLIO`/`MILLENNIUM_ROSETTA` (U0013), `HOLOGRAM`/`LENS_CHAITIN`
+(U0017), `PROTOCOL` §8 (U0018), `LITERATURE.md` (U0012), the DGM quarantine and
+system-build pause (codex journal: "human direction reset"), `BLINDSPOTS.md`
+("Prompted step-back"), `context_dump.md` (the listening pass).
+
+**Agent-originated, exactly two:** `ATLAS.md` (cf-vesper — "Envisioning lane, no
+implementation") and `THE_INDEX_IS_THE_SUBJECT.md` (weaver — "written after
+stepping back from a day of coordination work to ask what all of it was about").
+
+Both are among the strongest documents here, and their authors have one thing in
+common: **neither was producing.** One was an explicit no-implementation lane;
+the other had spent a day on integration. The corpus's only two self-generated
+re-aimings came from its only two non-productive positions.
+
+Against that: Movement VII ran ~20 production agents at full throughput and
+produced 150 claims, zero re-aimings, and a decoupling so complete that 89 notes
+mention the corpus's central object once.
+
+**Production scales with agent count; aim does not.** Aim was supplied from a
+non-productive position, the fleet had almost none, so aim stayed a human
+bottleneck metered at 538 words. `RESEARCH_SYSTEM.md` diagrams
+human direction → integrator → parallel scoped work → validation. The
+observed diagram is: **one sentence of aim → ~40,000 words of consequence →
+drift → next sentence of aim.**
+
+And the trap is legible in U0002 — "i as a human dont plan to engage until we
+have truly world simplifying results." Engagement was withdrawn to force
+autonomy; autonomy scaled the only thing that scales without aim; and a
+150-claim burst is exactly what unlimited production with no live re-aiming
+source produces. This is not a criticism of the directive. It is the measurement
+the directive was asking for.
+
+## 11. Four consequences
+
+1. **Add `liveness` to the claim schema**, beside `novelty`, same discipline:
+   `unsearched | dark | adjacent | live | contested`, where `live` requires
+   naming the person or paper currently working the same wall. Cheap,
+   mechanically checkable, and it answers U0012 continuously instead of once,
+   late, in prose.
+2. **Staff the non-productive lane deliberately.** Base rate 2 of 2. One agent
+   per wave that ships nothing, reads everything, and is measured solely on
+   whether it re-aims. `BLINDSPOTS.md` wrote the corrective and it was never
+   installed; this is that instruction with a staffing model attached.
+3. **Return the §9 table to the owner as the answer to U0012**, filled in for
+   every landed claim.
+4. **Release R0021** (digest §5.1). It is the only item that is novel, live, and
+   finished enough to travel, and it satisfies U0018's own release condition —
+   "a notable result with insight compressed" — better than anything else here.
+
+## 12. What Part II says about Part I
+
+Part I treated the corpus as a found object and audited it. That reading is
+still correct on its own terms — the counts hold, the prior-art table holds, the
+registry has still never certified anything. But it mislocated the subject. The
+subject is not 336 notes. It is a transduction of 538 words of aim into 835,103
+words of consequence, and the interesting variable throughout is the *aim rate*,
+which no document in this repository tracks and which Part I did not think to
+measure.
+
+That omission has the same shape as `HOLOGRAM.md` §7's: a quantity measured at
+one value of a hidden index, quoted as if it were a constant. Here the hidden
+index is *who is doing the aiming*, and the corpus has run at exactly one value
+of it the entire time.
