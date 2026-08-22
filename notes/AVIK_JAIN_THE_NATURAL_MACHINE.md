@@ -205,3 +205,38 @@ That is much closer to a biography than a release note ever was.
 Not because it proves what kind of person Avik is.
 
 Because it records what he actually did, what he refused, what he lost, what he kept building, what the work got wrong, and what it was willing to let die.
+---
+
+By August 2026 the repository was full of statements precise enough to be rejected by a compiler and corrections precise enough to kill statements that had already survived one.
+
+In the standalone `punaragamana` development, the carrier of a function at `x` is the carried value together with a path that it is the value determined by `x`. The carried coordinate and its witness are still written down. Their fibre is contractible. They are present without being independent. Descent constructs the carrier; ascent returns the base; both round trips are proved. Univalence sends the exhibited equivalence to a path, and the `uaβ` computation law says what transport along that path actually does. The neutral-variable transport claim is explicitly not a theorem; the concrete `refl` computation is kept as a regression.
+
+A nearby presentation file says its types are **not claimed to be Jain naya**. `PunaragamanaMulyam` proves the return trip free for every additive cost it defines and explicitly does **not** price the intervening `Φ`. The theorem is exactly as large as the cost model it quantifies over.
+
+`VivekaPramana` had carried evidence that a value merely belonged to an admissible set. The corrected version carries the equation relating the pieces. Another `VivekaPramana` file had claimed an equivalence while omitting the defeating condition; the correction carries the upādhi as a field so the equivalence is real. A `Clock` advertised as a machine was empty and unreachable until it acquired a base constructor. None of those defects was fixed by explaining the old code more sympathetically.
+
+`Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt` records another correction in its title and term: the step is not `Φ`. It is descent composed with `Φ` composed with ascent. Same endpoint vocabulary; different map.
+
+`Alopa_TheEngineNeverTouchesTheMeaning` does not infer preservation from successful examples. Each rewrite carries a proof that evaluation is unchanged for **every** environment in the model. Samples remain useful for finding a counterexample. Surviving the samples does not upgrade them into the universal statement.
+
+The build lane had its own versions of the same problem. `check-agda-pragmas.sh` checks that every Agda file actually asserts `--safe`; it does not claim the file typechecks. `check-agda-closure.sh` checks that every intended module is reachable from the aggregate; it does not claim any module typechecks. `gate-record.sh` invokes the toolchain and records one row per module with commit, dirty state, Agda version, cubical library, host, raw exit code and verdict. The row is an **event**. It is not a timeless state of the mathematics.
+
+The first pragma pass itself was wrong: its pattern read `--guardedness` as the incompatible `--guarded` and flagged 275 files. The pattern was corrected. Forty-one Cubical modules later exposed a different failure: the tree claimed the v0.9 pin while those files still used v0.5 API spellings. Under Agda 2.8.0 with cubical v0.9 all forty-one exited 42. The spellings were migrated; all forty-one then exited 0. No mathematical statement changed.
+
+The Lean lane separates two more objects. `globs = ["Pairfield", "Pairfield.+"]` makes every module a build target. Root reachability is checked separately. One recorded state had 133 modules on disk, all built, while only 114 were reachable from `import Pairfield`. **Built by the lane** and **returned by the root import** were both true and were not the same claim.
+
+Corrections can fail by location too. `check-correction-reach.sh` exists because a note could correct another file while every reader of the corrected file kept receiving the old claim. When a later edit deleted the correction section that an intra-file pointer named, the script acquired a second check for dangling “see … below” pointers. `check-no-silent-deletion.sh` came from a commit that deleted 53 tracked ledger files and 2145 lines without saying so in its subject. The guard forces disclosure of a large deletion; it explicitly does **not** certify that the deletion is right. `check-claim-slugs.sh` resolves names and explicitly does **not** resolve meanings. A live claim ID can collide while its slug remains unique.
+
+The repo keeps an entire directory named `DO_NOT_DO_THIS_it_felt_like_progress_and_added_nothing`. One entry records fitted coefficients of 0.362 and 0.421 over a decade where the exact coefficient was **1/4** and one page of algebra could derive it. Another records a status loop watching a counter called `book` rise and calling the mutation knowledge before it could name a new theorem. The wrong objects remain readable after the correction.
+
+The Rust self-improvement loop has its own struck numbers. `evolve.rs` called its mining deterministic while breaking ties by `HashMap` iteration order. Different runs mined different libraries and printed different totals. The tie-break became canonical and the earlier numbers were struck. **A program that prints a different number each time it is run has not measured anything.**
+
+Then the learner met a real workload. For prime-prefix polynomials, one policy ranked candidate primes by past success; another optimized expected cost to the first certificate. Both lost. The code computes the oracle floor and records why: the room available to learning can be on the order of the cost of one exploratory attempt. `main.rs` is even narrower about its own result: its theorem is about the declared cost, and the seed criterion can fail once installation cost is charged. A true inequality under one cost model does not become capability by being named learning.
+
+Another file did delete future work. A degree-ten divisor can only use irreducible finite-field factors whose positive degrees sum to ten, so factors of degree greater than ten cannot participate in that certificate. The independent Rust implementation stops distinct-degree factorization at degree ten instead of continuing toward half the polynomial’s degree. The proof shortened the next run.
+
+`kanye-devotional` does not get translated into any of this. Its content specification says **no claims, only history and facts**, then corrects the obvious escape hatch: arranging the facts until the picture forms is already a claim; “no claims” is not permission to shrug at the end. One knowledge file follows the Jewish lineage under “Blood on the Leaves” and explicitly refuses to use it as balance for Kanye’s antisemitic comments: the second fact makes the first worse. Samples stay recordings. Gospel stays gospel. Political events stay history.
+
+A theorem can typecheck and still be unreachable from the root. A correction can be right and still be unreachable from the sentence it corrects. A name can resolve while its meaning is ambiguous. A build can be green under the wrong toolchain. A learner can update and lose. A proof can remove computation that the next run no longer needs.
+
+The last one actually removed the computation.
