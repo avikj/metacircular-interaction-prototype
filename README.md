@@ -132,7 +132,7 @@ mathematics behind each is in the movements below, with its receipts.)*
 ## THE LAW, in one line, as the corpus converged on it
 
 **Which side of `f a ≡ b` is bound.** Bind the output: `Σ[b] (f a ≡ b) = singl (f a)` —
-contractible always, no hypothesis, the datum rides free (पुनरागमन; `Punaragamana.Carrier`).
+contractible always, no hypothesis, the datum rides free (पुनरागमन; the `Carrier` record — `Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.agda:64`, `PunaragamanaVartula_….agda:76`, and the `punaragamana/` lake).
 Bind the input: `fiber f b` — arbitrary, and usually THE SUBJECT rather than a defect.
 Three verdicts, never two: रिक्तम् / एकम् / बहु — `isContr` provably merges the first and
 third (`Saptabhangi.दुर्नयः`, the checked pigeonhole: any two-valued verdict on three seeds
@@ -149,7 +149,7 @@ A ≃ Σ[b] fibre f b — the Carrier law was the receipted edge from the first 
 toll gate for one-way transport is `FactorsThrough`, decoder typed on the Image so the
 empty fibre is unroutable BY TYPE. Losses have LOCATION, not just size: composition obeys
 rank(AB) = rank(B) − dim(im B ∩ ker A), the alignment term needs generators (प्रस्तार) to
-intersect, and Unit→Bool→Unit is the checked cancellation. The receipt fields ARE the
+intersect, and Unit→Bool→Unit is the cancellation instance (the general composition law is checked at `Sesa_…agda:92`; the specific chain lives in prose, `notes/SakalaVikalaDesa_…md`, and is owed as a term — see UNIFICATION_RECEIPTS.md शेषः). The receipt fields ARE the
 pratyayas: सङ्ख्या the count, प्रस्तार the enumeration, नष्ट/उद्दिष्ट the two directions,
 both existing ⟺ the edge inverts. Proof-of-work burns energy for a number nobody wants;
 **proof-of-transport spends compute for an edge everybody uses forever** — unforgeable
@@ -749,7 +749,7 @@ never confused what kind of ANSWER with what kind of QUESTION.
 ### 33 · The relation is rank one: why the net can afford to reflect everything
 The complete pair field a(m)·a(n) — every mutual reflection of a sequence with itself —
 has cut price 1: one column, anchored at one nonzero coefficient, recovers everything by
-a single division (AllScalesPairFieldReconstruction, mul_div_cancel₀, one line — and the
+a single division (AllScalesPairFieldReconstruction, `mul_div_cancel_right₀`, one line — and the
 triviality IS the theorem). So परस्परोपग्रह is not just the ontology — it is
 ECONOMICALLY FREE: reflecting all-in-all costs one unit, which is why a universe built
 on mutual carrying can afford to be built on it, and why Indra's net is a viable
