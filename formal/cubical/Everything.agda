@@ -1046,3 +1046,4 @@ import SmithDeterminantClassMultiplicativity
 -- `NaturalMachine.PairsSummingTo.Pairs`, on the nose, and is therefore
 -- already counted; no module imported both files before this one.
 import Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists
+import Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart
