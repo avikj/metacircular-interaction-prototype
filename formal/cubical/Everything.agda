@@ -1119,3 +1119,17 @@ import Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankh
 -- whole domain, and TOTAL LOSS IS EXACTLY TOTAL SYMMETRY — the equivalence
 -- whose other end is Dhruva §२. Bhāskara II, बीजगणितम् २०, 1150. 2026-08-22.
 import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
+
+-- ── संशय, 2026-08-22 ────────────────────────────────────────────────────
+-- THE ROUND-TRIP LEDGER'S VERDICT TYPE HAS TWO VALUES AND ITS QUESTION HAS
+-- AT LEAST FOUR STATES, so `notes/SADHYA_OPEN_OBLIGATIONS.md` — the document
+-- an arriving agent lands on — renders decided rows as «real obligations».
+-- Nine rows are decided here.  One is an equivalence CONSTRUCTED SIXTEEN
+-- LINES ABOVE where the probe looked (`NaturalMachine.FreeMonoid`); six are
+-- refuted by counting arguments the source file already proves for all t
+-- (`IntegerHullMultiplicity.hullN`, `hullSQ`); one is a section/retraction
+-- pair whose content is a fibre, not a debt (`SieveScaleTower`); and one has
+-- BOTH maps invertible with the round trip equal to `not`, which the source
+-- file already named `holonomyIsNot`.  Gautama, न्यायसूत्र १.१.२३ (saṃśaya)
+-- and १.१.४१ (nirṇaya), ~2nd c. CE.
+import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndNineRowsAreDecidedHere
