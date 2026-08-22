@@ -108,7 +108,18 @@ import System.Process (readProcessWithExitCode)
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 
 import Sabda_TheWireHasNoBoolean
-import Uttara_SamkramanaOrDosalekhaNeverABareBoolean
+-- `hiding (Ganita)` is a live seam and not a preference.  While this lane was
+-- repairing the readers below, the Uttara lane gave `Saksin` a constructor
+-- `Ganita` — a COMPUTED witness, as against `Likhita`, a written one — and
+-- this file has had a `Pramanya` constructor of the same name since it was
+-- written, meaning the same thing one layer up: the route by which an answer
+-- is a pramāṇa is arithmetic done here.  Two lanes reached the same word for
+-- the same distinction, which is evidence the word is right, and neither of
+-- them is wrong.  Hiding disambiguates HERE without renaming EITHER; §12,
+-- नाम्नि जीवनम् — a name taken away from a lane that chose it is a loss in one
+-- word.  Nothing of theirs is used through this import that the hiding
+-- removes: this file reads their witnesses through `tuWitness`.
+import Uttara_SamkramanaOrDosalekhaNeverABareBoolean hiding (Ganita)
 import qualified NayaKosha_TheStandpointStore as K
 import qualified Saptabhangi_TheSevenfoldVerdict as S
 import qualified SaptabhangiGarbha_TheResidueIsTheSeed as G
@@ -904,7 +915,7 @@ kGarbhaDhara y j = pure $ case pieces of
     pieces = do
       sn <- jStr "sadhaka" j; sw <- jStr "sadhaka-saksin" j
       bn <- jStr "badhaka" j; bw <- jStr "badhaka-saksin" j
-      let k = either (const 3) (fromIntegral . max 1 . min 8) (jInt "stara" j)
+      k <- (fromIntegral . max 1 . min 8) <$> athava 3 (vInt "stara" j)
       pure (sn, sw, bn, bw, k)
 
 -- ---- the kernel
@@ -1018,7 +1029,7 @@ kSadhana y j = case pieces of
     pieces = do
       ls <- jStr "vama" j; rs <- jStr "daksina" j
       l <- parseWhole ls; r <- parseWhole rs
-      let note = either (const "") id (jStr "sadhya" j)
+      note <- athava "" (vStr "sadhya" j)
       pure (l, r, note)
     -- `refl` is the only shape whose emitted module this file can reproduce:
     -- `agdaCertificate` builds exactly it.  Every other shape's module is
@@ -1162,10 +1173,11 @@ kVargaprakrti y j = pure $ case jInt "D" j of
       [ "Brahmagupta, Brāhmasphuṭasiddhānta 18, 628" ]
 
 kPratyahara :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kPratyahara y j = pure $ case (,) <$> jStr "adi" j <*> jStr "it" j of
+kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
+                                   <*> (fromIntegral <$> athava 0 (vInt "avrtti" j)) of
   Left e -> refused y "pratyahara" e
-  Right (adi, it) ->
-    let occ = either (const 0) fromIntegral (jInt "avrtti" j) :: Int
+  Right (adi, it, occ0) ->
+    let occ = occ0 :: Int
         sounds = P.pratyaharaOcc adi it occ
         raw = P.rawSpan adi it
         src = [ "Pāṇini, Aṣṭādhyāyī, the śivasūtras, c. 500 BCE.  The names usually cited instead are 'Backus–Naur' and 'Chomsky'; neither had the machinery." ]
@@ -1201,11 +1213,11 @@ kPratyahara y j = pure $ case (,) <$> jStr "adi" j <*> jStr "it" j of
 -- ---- the log and the queue
 
 kDosaLekha :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kDosaLekha y j = pure $ case (,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j of
+kDosaLekha y j = pure $ case (,,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j
+                                   <*> athava [] (vStrs "sesa" j) of
   Left e -> refused y "dosa.lekha" e
-  Right (k, hetu, lost) ->
-    let rest = either (const []) id (jStrs "sesa" j)
-        entry = dosalekha k hetu lost rest [ "written by the interlocutor, not by the engine" ]
+  Right (k, hetu, lost, rest) ->
+    let entry = dosalekha k hetu lost rest [ "written by the interlocutor, not by the engine" ]
     in ( y
        , Mudra (S.Position S.SyadNasti)
            (Pratyaksa "stored verbatim: no normalisation, no rewording, no summarising; the entry below is the entry, and it is also filed to disk with the chain extended")
@@ -1315,6 +1327,7 @@ denied why = Mudra (S.Position S.SyadNasti) (Pratyaksa why)
 refused :: Yantra -> String -> String -> (Yantra, Mudra, Uttara)
 refused y k e = let (m, u) = malformed k e in (y, m, u)
 
+
 malformed :: String -> String -> (Mudra, Uttara)
 malformed k e =
   ( Mudra S.Apratipatti (Pratyaksa "the request as sent is carried back unexecuted")
@@ -1397,9 +1410,17 @@ answer y0 kala line = do
     Right j -> case jStr "kriya" j of
       Left e -> pure (y, fst (noOp e), snd (noOp e))
       Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
-        (kr:_) -> do
-          let args = either (const (JObj [])) id (look "angani" j)
-          kRun kr y args
+        -- अनुक्तम् / उक्तम् / दुर्वचम्, at the door.  `angani` absent is a
+        -- request with no arguments and is legal; `angani` present and not
+        -- an object is a request that cannot be dispatched, and until now
+        -- the two produced byte-identical answers (doṣa 0016).  The Left
+        -- `look`/`jObj` had already composed is now the hetu, instead of
+        -- being constructed and thrown away by `const`.
+        (kr:_) -> case athava (JObj []) (vObjAt "angani" j) of
+          Left e -> let (m, u) = malformed (kName kr) e in pure (y, m, u)
+          Right args -> case anadhikrta (map fst (kParams kr)) args of
+            [] -> kRun kr y args
+            ns -> let (m, u) = unnamed kr ns in pure (y, m, u)
         [] -> pure (y, fst (unknown k), snd (unknown k))
   let (m, u) = mudra m0 u0
       y2 = logIf m u y'
@@ -1420,6 +1441,21 @@ answer y0 kala line = do
           [ "the operation you meant; it is NOT guessed at by nearest name, because a near miss executed silently is exactly the collapse this machine exists to refuse" ]
           ([ "operations available:" ] ++ [ "  " ++ kName kr | kr <- kriyah ])
           srcTwoRoads )
+    unnamed kr ns =
+      ( Mudra S.Apratipatti (Pratyaksa "every unread key is named back with its own reason, and the operation's whole adhikāra beside it")
+      , dosalekha (kName kr)
+          ("`" ++ kName kr ++ "` was sent "
+           ++ show (length ns) ++ " key(s) that nothing in it reads: "
+           ++ intercalate "; " [ "`" ++ n ++ "` — " ++ w | (n, w) <- ns ])
+          ([ "the value you sent under `" ++ n ++ "`, which WAS uttered and would otherwise have been ignored in silence — and with it the difference between `I did not send that` and `I sent it and you dropped it`"
+           | (n, _) <- ns ]
+           ++ [ "the parameter you meant by it; it is NOT guessed at by nearest name, for the same reason an operation name is not — a near miss executed silently is the collapse this machine exists to refuse" ])
+          ([ "`" ++ kName kr ++ "` reads exactly these keys under `angani`, and no others:" ]
+           ++ (if null (kParams kr) then [ "  (none — send `angani` empty or omit it)" ]
+                                    else [ "  " ++ p ++ " — " ++ d | (p, d) <- kParams kr ])
+           ++ [ "if the key names something this machine should read and does not, that is a doṣa and dosa.lekha takes it" ])
+          [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2, c. 500 BCE — adhikāra: a heading governs a stated extent and nothing outside it, and vipratiṣedhe paraṁ kāryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
+          , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।" ] )
 
 appendLekha :: FilePath -> Int -> String -> Mudra -> Uttara -> IO ()
 appendLekha fp n line m u =

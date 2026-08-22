@@ -18,6 +18,7 @@ import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 import Sabda_TheWireHasNoBoolean (J(..), render)
 import AnyatKarana_TheToolSchemaIsGeneratedFromTheRunningTable
 import Abhyasa_TheTrainingRecordIsPracticeShownNotStated
+import Anrta_TheClaimedLossThatIsNotLostAndTheWitnessOfItsFalsity
 
 main :: IO ()
 main = do
@@ -29,15 +30,19 @@ main = do
     ("sadhana":rest)
       | "--kevala" `elem` rest -> putStrLn (render (JArr sadhanani))
       | otherwise              -> putStrLn (render sadhanaJ)
-    ("sima":_)    -> mapM_ putStrLn simaLines
+    ("sima":_)    -> mapM_ putStrLn (simaLines ++ anrtaSimaLines)
     ("siksa":_)   -> mapM_ putStrLn siksaLines
     ("abhyasa":f:_) -> runAbhyasa f >>= exitOn
     ("abhyasa":_)   -> runAbhyasa lekha >>= exitOn
     ("pariksa":_) -> do
       (hard, soft) <- pariksa
+      putStrLn ""
+      putStrLn "anrta \8212 the control-edge constructor, against the running table and the file on disk:"
+      (afail, aran) <- pariksaAnrta
       putStrLn ("hard failures (this module's claims against the running table): " ++ show hard)
-      putStrLn ("written defects (another lane's file, reported not fixed): " ++ show soft)
-      if hard == 0 then exitSuccess else exitFailure
+      putStrLn ("anrta constructor checks: " ++ show (aran - afail) ++ "/" ++ show aran ++ " ok")
+      putStrLn ("written records of another lane's file, reported not fixed: " ++ show soft)
+      if hard + afail == 0 then exitSuccess else exitFailure
     _ -> do
       mapM_ (hPutStrLn stderr)
         [ "karana \8212 the interface the other carrier is handed."

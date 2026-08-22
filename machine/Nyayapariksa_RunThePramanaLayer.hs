@@ -41,6 +41,13 @@ import qualified Pramana as PR
 import qualified Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal as HB
 import qualified Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain as AB
 import qualified Pancavayava_TheInferenceCarriesItsWitnessedExampleOrItIsNotOne as PV
+-- Added 2026-08-20.  `Yogyanupalabdhi` was landed with a runner of its own
+-- and was still absent from THE suite, which is the state its own header
+-- names as fatal: a self-test nothing calls reports the same as a module
+-- that does not exist.  Its subject -- the fitness of a looking that
+-- produces a negative verdict -- is the pramana layer's own, so it belongs
+-- beside Abhava rather than beside its runner.
+import qualified Yogyanupalabdhi_TheKernelAcceptanceCarriesTheWatchThatEarnedIt as YG
 
 main :: IO ()
 main = do
@@ -57,6 +64,7 @@ main = do
         , ("Hetvabhasa",    HB.selfTest)
         , ("Abhava",        AB.selfTest)
         , ("Pancavayava",   PV.selfTest)
+        , ("Yogyanupalabdhi", YG.selfTest)
         ]
   putStrLn "== SELF-TESTS ========================================================="
   mapM_ report suites

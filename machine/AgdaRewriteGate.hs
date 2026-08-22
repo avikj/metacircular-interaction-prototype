@@ -14,6 +14,7 @@
 -- silently "failed" before this fix).
 module Main (main) where
 
+import qualified Certificate as C
 import Control.Exception (finally)
 import Control.Monad (forM_)
 import Data.Bits (xor)
@@ -259,9 +260,20 @@ runAgdaBounded repo h src = do
               , "agda", fileBase ]) { cwd = Just cubicalDir }
   (do writeFile filePath renamed
       result <- timeout backstopMicros (readCreateProcessWithExitCode cp "")
-      pure $ case result of
-        Nothing -> classifyExit Nothing
-        Just (code, _, _) -> classifyExit (Just code))
+      -- THE FITNESS, ADDED 2026-08-20.  Agda's own words were discarded here
+      -- (`Just (code, _, _)`) and `Admitted` was `exit 0` and nothing else —
+      -- from a child launched through `timeout`, which is already a wrapper,
+      -- and therefore already a place where a zero can come from something
+      -- that is not agda.  `C.vetForeignRun` reads the output on this call
+      -- and, once per process, watches the kernel reject `(suc x) ≡ x`; a
+      -- zero it will not honour arrives here as a non-zero and classifies as
+      -- `RefutedTypeError`, which is fail-closed and is the direction this
+      -- module's header already requires.
+      case result of
+        Nothing -> pure (classifyExit Nothing)
+        Just (code, out, err) -> do
+          (code', _) <- C.vetForeignRun repo code (out ++ err)
+          pure (classifyExit (Just code')))
     `finally` do
       removePathForcibly filePath
       removePathForcibly (cubicalDir </> (modName ++ ".agdai"))

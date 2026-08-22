@@ -48,6 +48,15 @@ module Sabda_TheWireHasNoBoolean
   , jInt
   , jStrs
   , jObj
+  , unwritable
+  , Vacana(..)
+  , vacana
+  , vStr
+  , vInt
+  , vStrs
+  , vObjAt
+  , athava
+  , anadhikrta
   ) where
 
 import Data.Char (isDigit, isHexDigit, chr, digitToInt, isControl, ord)
@@ -159,11 +168,64 @@ pstring ('\\':c:r) = case c of
   'f'  -> cons '\f' (pstring r)
   'u'  -> case splitAt 4 r of
             (h, r') | length h == 4 && all isHexDigit h ->
-              cons (chr (foldl (\a d -> a * 16 + digitToInt d) 0 h)) (pstring r')
+              uEscape (hexVal h) r'
             _ -> Left "a \\u escape without four hex digits"
   _    -> Left ("unknown escape \\" ++ [c])
   where cons x = fmap (\(str, rest) -> (x : str, rest))
 pstring (c:r) = fmap (\(str, rest) -> (c : str, rest)) (pstring r)
+
+hexVal :: String -> Int
+hexVal = foldl (\a d -> a * 16 + digitToInt d) 0
+
+-- THE READER MUST NOT ADMIT WHAT THE WRITER CANNOT WRITE.  Doṣa 0017:
+-- `\ud800` was read as `chr 0xD800`, a lone surrogate, which is a legal
+-- Haskell Char and is not encodable as UTF-8.  It travelled through the
+-- machine, reached `hPutStrLn`, and the encoder threw THERE — half an answer
+-- already on the wire, exit 1, the transcript never created, the session's
+-- written remainders destroyed unwritten.  That is neither road (§6:
+-- तृतीयो मार्गो न विद्यते) and it was the default behaviour of this branch.
+--
+-- Surrogates exist only to encode a supplementary character as a PAIR in
+-- UTF-16.  So the pair is accepted and combined — nothing is lost, that is
+-- the transport — and a lone one is refused with the repair named, which is
+-- what every other refusal in this file does.
+uEscape :: Int -> String -> Either String (String, String)
+uEscape n rest
+  | n >= 0xD800 && n <= 0xDBFF =
+      case rest of
+        ('\\':'u':more) | (h, r') <- splitAt 4 more
+                        , length h == 4, all isHexDigit h
+                        , lo <- hexVal h
+                        , lo >= 0xDC00 && lo <= 0xDFFF ->
+          consChar (chr (0x10000 + (n - 0xD800) * 0x400 + (lo - 0xDC00))) r'
+        _ -> Left (loneMsg n "high" "a low surrogate \\udc00–\\udfff")
+  | n >= 0xDC00 && n <= 0xDFFF =
+      Left (loneMsg n "low" "a high surrogate \\ud800–\\udbff before it")
+  | otherwise = consChar (chr n) rest
+  where
+    consChar x r = fmap (\(str, s) -> (x : str, s)) (pstring r)
+    loneMsg v which want =
+      "a lone " ++ which ++ " surrogate escape arrived on the wire: \\u"
+      ++ pad4hex v ++ ".  A surrogate is half of a UTF-16 pair and is not a "
+      ++ "character; nothing on this wire can encode one, so accepting it "
+      ++ "here would hand the writer a value it cannot write — and the "
+      ++ "failure would then land mid-flush, truncating the answer instead "
+      ++ "of refusing the utterance (doṣa 0017).  Send " ++ want
+      ++ ", or send the character itself in UTF-8."
+
+pad4hex :: Int -> String
+pad4hex v = let h = showHex v "" in replicate (4 - length h) '0' ++ h
+
+-- | Is this String writable at all?  A String may hold a lone surrogate that
+--   arrived from somewhere other than this parser — a handler that built it,
+--   a file read under a different decoder — and `render` would then produce
+--   bytes the UTF-8 encoder refuses, mid-line.  Callers that are about to put
+--   a rendered answer on a wire ask this FIRST and take the second road when
+--   the answer is Just.  §6, held at the boundary where it was being lost.
+unwritable :: String -> Maybe Char
+unwritable s = case [ c | c <- s, ord c >= 0xD800, ord c <= 0xDFFF ] of
+  (c:_) -> Just c
+  []    -> Nothing
 
 parray :: String -> Either String (J, String)
 parray (']':r) = Right (JArr [], r)
@@ -202,11 +264,34 @@ pobject s = go s []
 -- caller's eyes.  None of them defaults: a default is a silent collapse of
 -- `you did not say` into `you said this`.
 
+-- `J` holds an object as an ordered association list and PRESERVES repeats,
+-- deliberately: a Map would keep one binding and drop the rest, which is the
+-- collapse this whole file exists to refuse.  `look` used to read that list
+-- with Data.List.lookup, which returns the FIRST binding and discards the rest
+-- with no error and no residue — so the parser preserved the multiplicity and
+-- the accessor destroyed it, one function later, in the same lane.  Recorded
+-- as doṣa 0015 in machine/dosa.lekha, and repaired here rather than argued
+-- about: `look` has the same two roads as everything else (§6), and a key
+-- bound twice takes the second.
+--
+-- NOT deduplication.  Deduplication would decide that the two bindings are
+-- the same when the wire has just said they are two, which is the collapse
+-- wearing a repair's name.  Both are named in the refusal and neither is
+-- chosen for the caller.
 look :: String -> J -> Either String J
-look k (JObj kvs) = case lookup k kvs of
-  Just v  -> Right v
-  Nothing -> Left ("no key `" ++ k ++ "` in the utterance; keys present: "
-                   ++ intercalate ", " (map fst kvs))
+look k (JObj kvs) = case [ v | (k', v) <- kvs, k' == k ] of
+  [v] -> Right v
+  []  -> Left ("no key `" ++ k ++ "` in the utterance; keys present: "
+               ++ intercalate ", " (map fst kvs))
+  vs  -> Left ("key `" ++ k ++ "` is bound " ++ show (length vs)
+               ++ " times in one object, carrying "
+               ++ intercalate " and then " (map render vs)
+               ++ ".  Reading the first would destroy the rest with no residue "
+               ++ "and no way back (∥A∥₁ has no section: AHIMSA_SUTRA_VISTARA "
+               ++ "§5), so it is refused rather than resolved.  Send the key "
+               ++ "once; if you meant several things, send them as one list "
+               ++ "under it: \"" ++ k ++ "\":[…] — a list says `these are "
+               ++ "several` and a repeated key says `this is one thing` twice.")
 look k _ = Left ("looked for key `" ++ k ++ "` in something that is not an object")
 
 jStr :: String -> J -> Either String String
@@ -231,3 +316,159 @@ jStrs k o = look k o >>= \v -> case v of
 jObj :: J -> Either String [(String, J)]
 jObj (JObj kvs) = Right kvs
 jObj v = Left ("expected an object, got " ++ render v)
+
+-- ------------------------------------------------- three, where two collapse
+--
+-- WHY THIS SECTION EXISTS, and it is the header's own argument one layer
+-- down.  The header says: *Nor is there `null`.  Absence is said by omitting
+-- the key; a key present-and-null is two facts flattened into one.*  The
+-- parser enforces that at the wire.  Three lines into a handler the same
+-- flattening was being performed anyway, by hand, in the shape
+--
+--     either (const <default>) id (jInt "avrtti" j)
+--
+-- — because `Either String a` has two positions and the reader needs three.
+-- `Left` there carries BOTH `you did not say` and `you said it and I could
+-- not read it`, and `const` discards the sentence that said which.  The
+-- caller who sent `avrtti:"second"` was answered about occurrence 0 and told
+-- it succeeded.  That is the boolean this wire refuses, reached by another
+-- road: a default is a silent coercion, and a silent coercion is the
+-- collapse performed by the parser (header, on refusals).
+--
+-- So the reader's own type has three constructors, for the same reason the
+-- wire has four and no boolean: what the type cannot say, this machine
+-- cannot do.  A default may attach to अनुक्तम् and to nothing else.
+--
+-- The correct pattern was already in the kernel twice — kuṭṭaka's `c` and
+-- vargaprakṛti's `n` are read with `case look k j of Left _ -> …; Right
+-- (JInt n) -> …; Right other -> refused` — and was written out longhand each
+-- time, which is why the other four sites did not get it.  §35: यत् हेतुना
+-- जन्यते तत् न स्थाप्यते — what a rule generates is not stored in six copies.
+--
+-- NOT CLAIMED of any source.  `vacana`, `ukta`, `anukta`, `durvaca` are the
+-- ordinary Sanskrit words for utterance, uttered, unuttered, and ill-spoken
+-- / hard-to-express (durvaca, an attested adjective).  No text is being said
+-- to have specified a JSON reader.  What §3 does supply, and what is being
+-- used, is the position itself: अवक्तव्यं न अज्ञातम् । अवक्तव्यं न अनिर्धारितम् ।
+-- अवक्तव्यं न शून्यम् — the inexpressible is not the unknown, not the
+-- undetermined, and not the empty.  Durvacam is not Anuktam.
+
+-- | What a key on the wire is, from the reader's side.  Three, not two.
+data Vacana a
+  = Anuktam            -- ^ अनुक्तम् — not uttered.  The key is absent.
+  | Uktam a            -- ^ उक्तम् — uttered, and readable in the shape asked for.
+  | Durvacam String    -- ^ दुर्वचम् — uttered and NOT readable.  Carries the
+                       --   sentence the accessor had already composed and
+                       --   which `const` used to throw away.
+  deriving (Eq, Show)
+
+-- | Lift any of the `j*` accessors above into the three-way reading.  The
+--   key's presence is decided by `lookup`, never by the accessor's `Left`,
+--   which is exactly the confusion being removed.
+vacana :: (String -> J -> Either String a) -> String -> J -> Vacana a
+vacana rd k o@(JObj kvs) = case lookup k kvs of
+  Nothing -> Anuktam
+  Just _  -> either Durvacam Uktam (rd k o)
+vacana _ k v = Durvacam ("looked for key `" ++ k ++ "` in something that is not "
+                         ++ "an object: " ++ render v)
+
+vStr :: String -> J -> Vacana String
+vStr = vacana jStr
+
+vInt :: String -> J -> Vacana Integer
+vInt = vacana jInt
+
+vStrs :: String -> J -> Vacana [String]
+vStrs = vacana jStrs
+
+-- | The key must be present AS AN OBJECT.  Used for the argument bundle,
+--   where `absent` and `present and not an object` were byte-identical
+--   (doṣa 0016).
+vObjAt :: String -> J -> Vacana J
+vObjAt = vacana (\k o -> look k o >>= \v -> case v of
+                   JObj _ -> Right v
+                   _      -> Left ("key `" ++ k ++ "` is not an object: " ++ render v))
+
+-- | अथवा — "or else".  The ONLY sanctioned way to give a key a default, and
+--   the whole of its discipline is in which constructor it may touch: the
+--   default applies to अनुक्तम् and never to दुर्वचम्.  A `Left` out of this is
+--   a sentence to be written as a doṣa-lekha, not a value to fall back from.
+athava :: a -> Vacana a -> Either String a
+athava d Anuktam      = Right d
+athava _ (Uktam a)    = Right a
+athava _ (Durvacam e) = Left e
+
+-- | अनधिकृतम् — given the names an operation declares, the keys in an
+--   argument object that nothing reads.  Each is returned WITH its own
+--   reason, in the caller's own order.
+--
+-- THE SECOND WAY TO BE READ BY NOTHING IS NOT CHECKED HERE, and that is a
+-- decision rather than an omission.  A key uttered twice is also read by
+-- nothing — the reader took the first and the rest went with no trace — and
+-- this function carried a branch for it.  The branch is gone because `look`,
+-- above, was repaired for doṣa 0015 in this same file while this was being
+-- written, and it refuses a doubled key AT THE ACCESSOR, naming both values
+-- and giving the repair (send a list, which says `these are several`, rather
+-- than the key twice, which says `this is one thing` twice).  A check here
+-- runs first and would shadow that with a worse sentence: one lane's rule
+-- displacing another lane's better one by being earlier in the pipeline,
+-- which is vipratiṣedha settled by list position and is exactly what
+-- Aṣṭādhyāyī 1.4.2 exists to refuse.  An undeclared doubled key still lands
+-- here, by the extent branch below; a declared one reaches `look`.
+--
+-- THIS IS WHAT THIS WIRE SAYS INSTEAD OF `additionalProperties:false`,
+-- WHICH IT CANNOT EMIT.  A schema rendered by this module cannot carry that
+-- keyword: its value is literally `false` and `J` has four constructors and
+-- no boolean.  The tool-schema lane says so in its own vyaya rather than
+-- smuggling a fifth constructor in, and the hole it names was real — the
+-- kernels read the keys they name and ignored the rest, so a misspelt param
+-- was executed as an omission and reported as a success.
+--
+-- A FIFTH CONSTRUCTOR IS THE OBVIOUS REPAIR AND IT IS THE WRONG ONE.  It
+-- buys one keyword in one emitted document at the price of this module's
+-- whole claim: the moment `J` can carry `false`, every operation on this
+-- machine CAN answer with a bare boolean, and the argument that stops it
+-- drops from `the type has no constructor for it` — mechanical, at the
+-- moment of the act — to `nobody has done it yet`.  §5: नष्टिर्विनाशः । यत्
+-- नष्टं तत् अग्रे न लभ्यम् — that is not a trade.
+--
+-- SILENCE IS ALSO WRONG, for the reason above: the hole is real.
+--
+-- The third road is that the constraint was never the schema's to state.
+-- `additionalProperties:false` asks the CALLER's validator to refuse; the
+-- ignoring happens in the kernel.  So it is refused in the kernel, and what
+-- comes back is strictly more than the keyword could have said: WHICH key,
+-- WHY it is unread, and the operation's whole adhikāra beside it.  A
+-- validator would have answered `does not match schema`.  The keyword stays
+-- unsayable and stays unsaid; the hole it named is closed at the machine
+-- rather than at the description of the machine — §36, यो करणं न जानाति स
+-- तस्मै न रचयति: design for the carrier, and the carrier misspells keys.
+--
+-- WHAT IS NOT CLOSED, stated so the next reader does not infer it: the
+-- callers of this guard it at the ARGUMENT object only.  The top level of a
+-- request stays open — `prasna-id` rides there and is read by the transport,
+-- not by any operation — so an unnamed key beside `kriya` is still ignored
+-- in silence.  Closing that needs the set of keys the transport itself
+-- claims, which is not written down anywhere yet.
+--
+-- NOT CLAIMED of Pāṇini: adhikāra is his term for a heading that governs a
+-- stated extent (Aṣṭādhyāyī 1.4.1–2 and the adhikāra-sūtras throughout), and
+-- what is taken is one sentence of it — the extent is stated, so a rule
+-- outside it is not a weaker match, it is outside.  He did not write a
+-- parameter check.
+anadhikrta :: [String] -> J -> [(String, String)]
+anadhikrta declared (JObj kvs) =
+  [ (n, why n) | n <- nub' [ n | (n, _) <- kvs ], why n /= "" ]
+  where
+    count n = length [ () | (m, _) <- kvs, m == n ]
+    why n
+      | n `notElem` declared =
+          "this operation declares no parameter of that name, so nothing reads it"
+      | count n > 1 =
+          "uttered " ++ show (count n) ++ " times in one object; the reader takes "
+          ++ "the first and the rest are lost with no trace, so which one you meant "
+          ++ "is not in the utterance"
+      | otherwise = ""
+    nub' [] = []
+    nub' (x:xs) = x : nub' [ z | z <- xs, z /= x ]
+anadhikrta _ _ = []

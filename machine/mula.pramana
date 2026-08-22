@@ -54,3 +54,61 @@ pathya machine/Obstruction.hs :: QUOTED, NOT POINTED AT
 pathya machine/SaptabhangiGarbhaRun.hs :: quoted, not pointed at
 pathya formal/cubical/SaptabhangiNaya.agda :: QUOTED VERBATIM AND NOT POINTED AT
 niyama machine/Obstruction.hs :: THE OBSERVATION THAT FORCED THIS => machine/machine.log
+
+# ── THE DOSA-LEKHA CITATIONS, PINNED.  ────────────────────────────────
+#    machine/dosa.lekha is append-only, so its moving citations are not
+#    edited away.  Each is ANSWERED here by a fixed designation, and the
+#    answering record in the log carries `uttara:` naming the doṣa.
+#    Commit e70adc8d is the object; the working tree is not.
+
+# dosa 0001 — the two emitting sites, named by their format strings.  The
+#   un-repaired site is the one whose string has no [naya=%s].
+baddha e70adc8d machine/MathMachine.hs :: KERNEL-REJECT round=%d %s = %s  %s
+baddha e70adc8d machine/MathMachine.hs :: KERNEL-REJECT round=%d %s = %s  (%d agda calls) [naya=%s] %s
+
+# dosa 0001 — the accept/reject pair.  machine/machine.log is gitignored and
+#   regenerated; the quotation is the object, the log is named as history.
+uddhrta machine/machine.log 2026-08-18 :: KERNEL-REJECT round=0 x = (xmaxx) refl
+uddhrta machine/machine.log 2026-08-18 :: KERNEL-ACCEPT round=0 x = (xmaxx) induction on x
+
+# dosa 0003 — the two agda-invoking sites, located by content.
+baddha e70adc8d machine/MathMachine.hs :: cd formal/cubical && LC_ALL
+
+# dosa 0004 — the four published fits.  Note that the fourth pattern
+#   carries an EN DASH: the record quoted it with two hyphens, so the
+#   record's own quotation does not byte-match its source.
+baddha e70adc8d notes/BLOCKS.md :: ($0.362$ by LSQ, $0.421$ by mean extraction, flagged method-sensitive by the
+baddha e70adc8d notes/CROSSREVIEW_THMJ.md :: running-law fit $0.3620\log^2Q + 0.1923\log Q + 0.3325$ (rms 0.1441), and
+baddha e70adc8d notes/CROSSREVIEW_THMJ.md :: vs exp27's $0.362/+0.19/+0.33$ (rms 0.144). Over one decade of $\log Q$,
+baddha e70adc8d notes/HISTORY_DIGEST.md :: that was published as $0.362$–$0.421$) are the worked demonstration.
+
+# dosa 0005 — the two sentences the argument actually rests on.  The entry
+#   count 67 was decoration; the ledger's own reframe and format carry it.
+baddha e70adc8d collab/FAILURES.md :: Every completed walk is information
+baddha e70adc8d collab/FAILURES.md :: Format: `F<n> [date] [owner] — title.`
+
+# dosa 0006, 0007 — the two rows, and the diacritic spelling the folded
+#   query could not find.
+baddha e70adc8d notes/D0020_LEDGER.md :: pratiyogin
+baddha e70adc8d notes/D0020_LEDGER.md :: saptabhaṅgī
+
+# dosa 0009, 0012 — the sweep commit itself, named and not asked for.
+baddha 6b200f55 machine/dosa.lekha :: dosa 0001
+
+# dosa 0023 — the fail-loud boundary, and the symbol that takes any arity.
+baddha e70adc8d machine/MathMachine.hs :: MathMachine.eval: unknown symbol
+baddha e70adc8d machine/MathMachine.hs :: Sym "0"   0 (const 0)      []
+
+# dosa 0024 — the probe's module selector.
+baddha e70adc8d machine/KernelProbe.hs :: cubicalModule
+
+# dosa 0025 — the three headers that assert the identification.
+baddha e70adc8d machine/ArithVocab.hs :: Copied verbatim from MathMachine.hs
+baddha e70adc8d machine/PairVocab.hs :: MathMachine's, verbatim
+baddha e70adc8d machine/MathMachine.hs :: fromAV :: AV.Term -> Term
+
+# dosa 0027 — the simultaneous pass.
+baddha e70adc8d machine/Astadhyayi.hs :: asiddhavatPass
+
+# dosa 0028 — the owner's instruction, carried rather than counted.
+uddhrta the owner, in the charge that opened this lane 2026-08-20 :: the word defect is a real sign of failure. it is not the right word for the task

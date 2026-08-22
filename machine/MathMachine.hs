@@ -53,6 +53,13 @@ import qualified Certificate as C
 import qualified Certify as CY
 import qualified TraceReplay as TR
 import qualified Knobs as K
+-- THE GANAPATHA SEAM.  The Term algebra, the `Sym` record and the eight base
+-- symbols left this file so that the copy the engine RUNS ON can be imported
+-- and compared, instead of being described as verbatim in two other headers
+-- that nothing could check (machine/dosa.lekha 0023).  The `Sym` constructor
+-- is not exported from there: `akanksitaSym` carries the declared arity into
+-- the evaluator, and every Sym this file builds goes through it.
+import Ganapatha_TheBaseVocabularyIsOneCitedListAndEverySymbolHonoursItsDeclaredAkanksa
 -- DISPATCH SEAM (2026-08-16).  Three modules built this session as standalone
 -- programs are wired in below, each behind a knob whose DEFAULT reproduces the
 -- engine that was running before this edit, bit for bit.  See `Dispatch`.
@@ -122,7 +129,12 @@ kSizeCapDefault = 7
 
 -- ---------------------------------------------------------------- terms
 
-data Term = V !Int | F !String [Term] deriving (Eq, Ord)
+-- `Term`, `Sym`, `baseVocabulary` and the term helpers now live in
+-- machine/Ganapatha_TheBaseVocabularyIsOneCitedListAndEverySymbolHonoursItsDeclaredAkanksa.hs
+-- and are imported above.  They left this file because this file is
+-- `module Main`, so the copy the engine actually runs on was importable
+-- by nothing and the two modules calling themselves verbatim copies of
+-- it could be checked against it only in prose (machine/dosa.lekha 0023).
 
 -- Theorem Factory II, stripped to its generic computational content.  A
 -- bounded ordered fibre plus a decidable predicate and an accepted coverage
@@ -489,14 +501,6 @@ endianAtlas2 = FiniteAtlas
   , loopGenerators = [reverseBits2]
   }
 
-instance Show Term where
-  show (V i) | i < 6 = [ "xyzuvw" !! i ]
-             | otherwise = "n" ++ show i
-  show (F f []) = f
-  show (F f [a,b])
-    | f `elem` ["+","*","^","gcd","max"] = "(" ++ show a ++ f ++ show b ++ ")"
-  show (F f as) = f ++ "(" ++ intercalate "," (map show as) ++ ")"
-
 -- ------------------------------------------------ researcher thought input
 
 -- A candidate line becomes the machine's own equation object.  Any line
@@ -676,90 +680,14 @@ subsetOf a b = all (`elem` b) a
 
 -- --------------------------------------------------------- the language
 --
--- A symbol carries its arity and its meaning as a computation.  The
--- machine's vocabulary is data: it starts small and widens when the
--- machine exhausts what it can see.
-
--- A symbol is three things at once, and the machine needs all three:
--- how it computes (for killing conjectures), what it MEANS (its
--- defining equations, which are what makes proof possible at all), and
--- its arity.  A symbol without defining equations is a black box the
--- machine can test but never reason about — the first version of this
--- file had exactly that bug and proved nothing but coincidences.
-data Sym = Sym { symName :: String
-               , symArity :: Int
-               , symSem :: [Integer] -> Integer
-               , symDefs :: [(Term,Term)] }
-
-x_, y_ :: Term
-x_ = V 0
-y_ = V 1
-
-zero_ :: Term
-zero_ = F "0" []
-
-su :: Term -> Term
-su t = F "s" [t]
-
-bin :: String -> Term -> Term -> Term
-bin f a b = F f [a,b]
-
--- THE GIVEN VOCABULARY, and the seam where a wider one is dispatched.
---
--- `baseVocabulary` is the list this engine ran on before 2026-08-16, in the
--- order it ran on.  ORDER IS THE PRECEDENCE (`precedence` below reads an index
--- into `vocabulary`), so anything appended must be appended at the END or the
--- reduction order on every existing term changes and every normal form in
--- machine/library.terms becomes a different object.
---
--- `vocabulary = baseVocabulary ++ arithVocabulary` therefore leaves the
--- precedence of 0,s,+,*,max,-,gcd,le exactly where it was (indices 0..7) and
--- gives mod,lcm,v2 indices 8,9,10.  What keeps the DEFAULT behaviour identical
--- is not the order but `dVocabCap`: the machine may only ever look at
--- `take dVocabCap vocabulary`, and its default is `baseVocabCap = 8`.
-baseVocabulary :: [Sym]
-baseVocabulary =
-  [ Sym "0"   0 (const 0)      []
-  , Sym "s"   1 (\vs -> case vs of
-                           [v] -> v + 1
-                           _   -> error "successor received wrong arity") []
-  , Sym "+"   2 (\vs -> vs !! 0 + vs !! 1)
-      [ (bin "+" x_ zero_,      x_)
-      , (bin "+" x_ (su y_),    su (bin "+" x_ y_)) ]
-  , Sym "*"   2 (\vs -> vs !! 0 * vs !! 1)
-      [ (bin "*" x_ zero_,      zero_)
-      , (bin "*" x_ (su y_),    bin "+" (bin "*" x_ y_) x_) ]
-  , Sym "max" 2 (\vs -> max (vs !! 0) (vs !! 1))
-      [ (bin "max" x_ zero_,          x_)
-      , (bin "max" zero_ x_,          x_)
-      , (bin "max" (su x_) (su y_),   su (bin "max" x_ y_)) ]
-  , Sym "-"   2 (\vs -> max 0 (vs !! 0 - vs !! 1))
-      [ (bin "-" x_ zero_,          x_)
-      , (bin "-" zero_ x_,          zero_)
-      , (bin "-" (su x_) (su y_),   bin "-" x_ y_) ]
-  , Sym "gcd" 2 (\vs -> gcd (vs !! 0) (vs !! 1))
-      -- These are the only unconditional gcd equations currently admitted
-      -- to the proof kernel.  The former recursive clause
-      --
-      --   gcd (s x) (s y) = gcd ((s x) - (s y)) (s y)
-      --
-      -- was false when x < y: at x=1,y=2 it asserted gcd 2 3 = gcd 0 3,
-      -- hence 1 = 3.  A correct Euclidean step needs a comparison/guard or
-      -- remainder operation.  Until the term language can express one, gcd
-      -- remains computationally visible to conjecture generation but only
-      -- its sound base cases are available to proof search.  The Agda module
-      -- NaturalMachine.HaskellDefinitionBoundary checks this exact boundary.
-      [ (bin "gcd" x_ zero_, x_)
-      , (bin "gcd" zero_ x_, x_) ]
-  , Sym "le"  2 (\vs -> if vs !! 0 <= vs !! 1 then 1 else 0)
-      -- Eleven of the machine's thirty-five theorems were `max`-shaped
-      -- restatements of x <= y.  It was not producing junk; it was
-      -- reaching for a predicate it had no name for.  (x+y) = ((x+y)max x)
-      -- IS x <= x+y wearing a costume.
-      [ (bin "le" zero_ x_,          su zero_)
-      , (bin "le" (su x_) zero_,     zero_)
-      , (bin "le" (su x_) (su y_),   bin "le" x_ y_) ]
-  ]
+-- The Sym record, the term helpers and the eight base symbols are in
+-- machine/Ganapatha_TheBaseVocabularyIsOneCitedListAndEverySymbolHonoursItsDeclaredAkanksa.hs.
+-- The `Sym` CONSTRUCTOR is not exported from there: `akanksitaSym` is the
+-- only way to build one, and it carries the declared arity into the
+-- evaluator, so a symbol admitted to this engine cannot answer an
+-- argument list of the wrong length.  That covers the symbols imported
+-- from ArithVocab and PairVocab below, which are rebuilt through it, and
+-- the concepts the engine invents at runtime, which are too.
 
 -- ---------------------------------------------- the arithmetic vocabulary
 --
@@ -784,7 +712,7 @@ fromAV (AV.V i)    = V i
 fromAV (AV.F f ts) = F f (map fromAV ts)
 
 avSym :: AV.Sym -> Sym
-avSym s = Sym (AV.symName s) (AV.symArity s) (AV.symSem s)
+avSym s = akanksitaSym (AV.symName s) (AV.symArity s) (AV.symSem s)
               [ (fromAV l, fromAV r) | (l,r) <- AV.symDefs s ]
 
 arithVocabulary :: [Sym]
@@ -867,7 +795,7 @@ arithVocabulary = map avSym [AV.modSym, AV.lcmSym, AV.vpSym]
 -- form mentions -- are unchanged; mod/lcm/v2 move from 8,9,10 to 11,12,13,
 -- and nothing in machine/library.terms, library.txt or the notes names them.
 pvSym :: PV.Sym -> Sym
-pvSym s = Sym (PV.symName s) (PV.symArity s) (PV.symSem s)
+pvSym s = akanksitaSym (PV.symName s) (PV.symArity s) (PV.symSem s)
               [ (fromPV l, fromPV r) | (l,r) <- PV.symDefs s ]
 
 fromPV :: PV.Term -> Term
@@ -2909,7 +2837,7 @@ inventConcept syms retired terms n =
           ar = length vs
           nm = "c" ++ show n
           sem = semantics syms
-      in Just (Sym nm ar (\args -> eval sem args p)
+      in Just (akanksitaSym nm ar (\args -> eval sem args p)
                  [ (p, F nm (map V [0 .. ar-1])) ])
   where
     best = bestOf syms retired terms
@@ -3160,10 +3088,54 @@ data Dispatch = Dispatch
   -- measured separately rather than credited to each other.  Inert while
   -- `dSamasa` is 0.
   , dSamasaOnly :: Bool
+  -- WIRE 8: PAKSA-LAKSANA.  Select and order in the KERNEL's currency
+  -- instead of the machine's.  False = off, and off is the live default, so
+  -- the engine with `defaultDispatch` is the engine before this wire existed.
+  --
+  -- WHAT IT CHANGES, exactly two things, both in the round:
+  --
+  --   (a) WIRE 7 stops discarding the M-joinable composites.  A composed
+  --       pair whose two MACHINE normal forms agree is presently dropped --
+  --       "it says nothing the rewriter does not already do".  That test is
+  --       in M's currency and the bill is paid in K's.  With this on, such a
+  --       pair is proposed in its UNNORMALISED form, which is the form that
+  --       carries the content: `x + 0 = x` is M-joinable and is exactly what
+  --       the kernel's residual stream keeps stalling on, because Agda's
+  --       `_+_` recurses on the other argument.
+  --   (b) within each priority class, `freshSized` proposes K-joinable
+  --       conjectures first, so the round's agda calls are spent on the
+  --       certain one-call `refl` acceptances before anything that costs
+  --       two to eight and is then usually refused.
+  --
+  -- WHAT IT DOES NOT CHANGE, and this is the reason it is safe to turn on:
+  -- `kernelJoins` is a PREDICTION, never a licence.  `kernelAccept` is still
+  -- the only authority, still runs on every conjecture, and an equation the
+  -- prediction gets wrong costs an ordinary refusal and nothing else.  The
+  -- fingerprint firewall is untouched, so a false composed equation is
+  -- refuted here as before.
+  --
+  -- THE MEASUREMENT THIS ACTS ON, reproducible by `sh machine/run-paksa.sh`.
+  -- Over the 119,489 equations the three hands of bhavana compose:
+  --
+  --     (M yes, K yes)  10,713   refl, 1 call -- and M already rewrites it
+  --     (M no,  K yes)   8,130   refl, 1 call -- and M CANNOT
+  --     (M yes, K no )  14,928   induction, or refused after 8 calls
+  --     (M no,  K no )  85,718   induction, or refused after 8 calls
+  --
+  -- The present rule drops all 25,641 M-joinable ones -- including the
+  -- 14,928 bridging class -- and keeps 93,848 in which the 8,130 free
+  -- acceptances sit at 1 in 11.5, unmarked and unordered.
+  --
+  -- THE NEGATIVE HALF, which is not optional and is printed by the same run:
+  -- of the 9 lemmas the kernel's residual stream demands, the three hands
+  -- REACH 1.  No selector over the composed set can deliver that curriculum;
+  -- what is not reached is not selectable.  This wire is not a route to the
+  -- demand and must not be reported as one.
+  , dPaksa      :: Bool
   } deriving (Eq, Show)
 
 defaultDispatch :: Dispatch
-defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0 Nothing True 0 False
+defaultDispatch = Dispatch baseVocabCap Nothing 0 0 Nothing Nothing 0 Nothing True 0 False False
 
 -- 2^n memoised states in `D.optimalSchedule`, and n * 2^n cost evaluations,
 -- each of which normalises two terms.  This is a hard ceiling, not a taste:
@@ -3202,6 +3174,10 @@ parseDispatch = go defaultDispatch []
       ("--samasa", v:ms)      -> withNat v ms (\n -> d { dSamasa = n })
       -- WIRE 7b.  Composition INSTEAD OF enumeration, not in addition.
       ("--samasa-only", ms)   -> go (d { dSamasaOnly = True }) rest ms
+      -- WIRE 8.  Select and order in the kernel's currency.  Independent of
+      -- `--samasa`: (b) applies to every conjecture the round proposes, so
+      -- the flag is meaningful alone; (a) is inert unless the composer runs.
+      ("--paksa", ms)         -> go (d { dPaksa = True }) rest ms
       _                        -> go d (flag:rest) more
       where
         withNat v ms f = case parseNaturalInt v of
@@ -3299,6 +3275,113 @@ nestedProve budget rs (l,r)
   | otherwise =
       NI.prove budget 0 [ (toNI a, toNI b) | (a,b) <- rs ] (toNI l, toNI r)
         >>= niProofNote
+
+-- ===================================================== WIRE 8: KERNELA-NAYA
+--
+-- TWO REWRITERS, NOT ONE.  Everything above this line asks one rewriter --
+-- the machine's own -- a question that only the kernel can answer, and pays
+-- the bill in the kernel's currency.  This section gives the machine a
+-- second normal form: what Agda's definitional unfolding does, as a CASE
+-- TREE, so that `refl`-in-one-call can be predicted before agda is started.
+--
+-- THE TWO NAYAS, and neither is complete, which is the ordinary condition of
+-- a naya (VISTARA section 2):
+--
+--   M  the machine's.  `symDefs` as unconditional rewrite rules in any
+--      position.  `+` and `*` recurse on the SECOND argument; `max` fires
+--      whichever of its two zero-clauses matches; `-` has `0 - x = 0`
+--      unconditionally.  `normalize rules` above.
+--   K  the kernel's.  Agda's clauses, fired only when the column the clause
+--      splits on is ALREADY a constructor.  `_+_` and `_*_` recurse on the
+--      FIRST argument.  An open term in the split column is stuck.
+--
+-- SOURCE OF THE CLAUSE LISTS.  machine/Certificate.hs notes A and B, which
+-- state the divergence exactly and were written for a different purpose --
+-- `_+_`/`_*_` from Agda.Builtin.Nat via Cubical.Data.Nat, `_-_` (monus),
+-- and `max`/`le` from Certificate.preamble, which emits them in the
+-- machine's own clause order.  `gcd`, `mod`, `lcm`, `v2` reduce on NO open
+-- term in K and therefore have no clause here: every equation mentioning
+-- them is K-stuck, for a reason about Cubical.Data.Nat.GCD and not about
+-- the mathematics.
+--
+-- TRANSCRIBED, NOT DERIVED, and therefore falsifiable rather than trusted.
+-- `machine/PaksaLaksana_WhatIsWorthHandingTheKernelIsWhereTheTwoRewritersDisagree.hs`
+-- carries the same clauses and checks them AGAINST agda itself
+-- (`sh machine/run-paksa.sh --kernel 8`): 32 samples, 8 per joint position,
+-- 32 of 32 agreed with the prediction, and 0 of the 9 lemmas the residual
+-- stream demands are K-joinable -- which is the negative control, since the
+-- kernel STALLED on every one of them.  That is evidence, not faithfulness;
+-- the falsifier is meant to be re-run, not quoted.
+kernelStep :: Term -> Maybe Term
+kernelStep (F "+" [a, b]) = case a of
+  F "0" []  -> Just b
+  F "s" [n] -> Just (F "s" [F "+" [n, b]])
+  _         -> Nothing
+kernelStep (F "*" [a, b]) = case a of
+  F "0" []  -> Just (F "0" [])
+  F "s" [n] -> Just (F "+" [b, F "*" [n, b]])
+  _         -> Nothing
+kernelStep (F "-" [a, b]) = case b of
+  F "0" []  -> Just a
+  F "s" [m] -> case a of
+    F "0" []  -> Just (F "0" [])
+    F "s" [n] -> Just (F "-" [n, m])
+    _         -> Nothing
+  _         -> Nothing
+kernelStep (F "max" [a, b]) = case b of
+  F "0" []   -> Just a
+  F "s" [b'] -> case a of
+    F "0" []   -> Just b
+    F "s" [a'] -> Just (F "s" [F "max" [a', b']])
+    _          -> Nothing
+  _          -> Nothing
+kernelStep (F "le" [a, b]) = case a of
+  F "0" []   -> Just (F "s" [F "0" []])
+  F "s" [a'] -> case b of
+    F "0" []   -> Just (F "0" [])
+    F "s" [b'] -> Just (F "le" [a', b'])
+    _          -> Nothing
+  _          -> Nothing
+kernelStep _ = Nothing
+
+-- Leftmost-outermost, descending into arguments when the head is stuck.
+kernelOnce :: Term -> Maybe Term
+kernelOnce t = case kernelStep t of
+  Just u  -> Just u
+  Nothing -> case t of
+    F f ts -> descend f [] ts
+    _      -> Nothing
+  where
+    descend _ _ [] = Nothing
+    descend f pre (c:cs) = case kernelOnce c of
+      Just c' -> Just (F f (reverse pre ++ c' : cs))
+      Nothing -> descend f (c:pre) cs
+
+-- A CAPPED RUN IS NOT A NORMAL FORM.  The Bool is `reached a normal form
+-- within the budget`, and `kernelJoins` demands it of BOTH sides: a silent
+-- cap would move an equation between positions with nothing said, which is
+-- the fault this whole wire exists to remove.  Measured on the 119,489
+-- equations of the three hands' reach: 0 caps at this budget.
+kernelBudget :: Int
+kernelBudget = 3000
+
+kernelNormal :: Term -> (Term, Bool)
+kernelNormal = go kernelBudget
+  where
+    go 0 t = (t, False)
+    go n t = case kernelOnce t of
+      Nothing -> (t, True)
+      Just u  -> go (n - 1) u
+
+-- The prediction: this equation costs the kernel ONE agda call and the proof
+-- term is `refl`.  Nothing downstream trusts it -- `kernelAccept` is still
+-- the authority and still runs -- it buys ORDER, and in `composedRetained`
+-- it buys nothing at all.
+kernelJoins :: (Term, Term) -> Bool
+kernelJoins (l, r) =
+  let (l', okl) = kernelNormal l
+      (r', okr) = kernelNormal r
+  in okl && okr && l' == r'
 
 -- =========================================================== WIRE 4: CERTIFY
 --
@@ -3745,11 +3828,35 @@ round1 disp mem logh libh ref = do
       -- normal forms agree is joinable -- it says nothing the rewriter does
       -- not already do -- and is dropped here, counted, and reported.
       composedRaw =
-        [ (cp, canonVars (normalize rules l0, normalize rules r0))
+        [ (cp, canonVars (normalize rules l0, normalize rules r0), canonVars (l0, r0))
         | dSamasa disp > 0
         , cp <- take (dSamasa disp) (criticalPairs rules)
         , let (l0, r0) = cpEquation cp ]
-      composedNovel = [ (cp, c) | (cp, c@(l,r)) <- composedRaw, l /= r ]
+      composedNovel = [ (cp, c) | (cp, c@(l,r), _) <- composedRaw, l /= r ]
+      -- WIRE 8 (a).  THE SAME PEAKS, KEPT IN THE OTHER CURRENCY.
+      --
+      -- A pair the machine's rewriter joins is not empty; it is empty TO THE
+      -- MACHINE.  Its M-normalised form really does say nothing -- both sides
+      -- have collapsed to the same term, so the proposal would literally be
+      -- `t = t` -- but its UNNORMALISED form is the equation between the two
+      -- results of the peak, and that is the object the kernel is asking for.
+      -- The flagship instance is `x + 0 = x`: M joins it in one step, K does
+      -- not join it at all, and the residual stream has stalled on it for 239
+      -- rounds.  So the retention rule is: propose the normalised pair when it
+      -- is novel to M, and the raw pair when it is not.
+      --
+      -- Measured, `sh machine/run-paksa.sh`: this is 25,641 of 119,489 pairs
+      -- restored, 14,928 of them the bridging class `machine/Obstruction.hs`
+      -- diagnosed as the kernel's actual curriculum.  Both branches still pass
+      -- the whole firewall below -- vocabulary, arity, variable count,
+      -- well-formedness, fingerprint -- unchanged.
+      composedRetained
+        | not (dPaksa disp) = composedNovel
+        | otherwise =
+            [ (cp, c)
+            | (cp, mnf@(ml, mr), raw) <- composedRaw
+            , let c = if ml /= mr then mnf else raw
+            , fst c /= snd c ]
       -- THE NEGATIVE CONTROL, and it is the reason this wire can be believed
       -- at all.  A composed equation is true by algebra, so the fingerprint
       -- -- forty random environments under the current semantics -- MUST
@@ -3760,14 +3867,14 @@ round1 disp mem logh libh ref = do
       -- own gate for the same purpose; this is that discipline applied to a
       -- law rather than to a module.
       composedRefuted =
-        [ c | (_, c@(l,r)) <- composedNovel
+        [ c | (_, c@(l,r)) <- composedRetained
             , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
             , all (< nvEnv) (vars l ++ vars r)
             , wellFormedTerm syms l, wellFormedTerm syms r
             , fingerprint sem envs l /= fingerprint sem envs r ]
       samasaAdmittedList =
         [ c
-        | (_, c@(l,r)) <- composedNovel
+        | (_, c@(l,r)) <- composedRetained
         , all (`elem` map symName syms) (symbolsIn l ++ symbolsIn r)
         , all (< nvEnv) (vars l ++ vars r)
         , wellFormedTerm syms l
@@ -3858,9 +3965,30 @@ round1 disp mem logh libh ref = do
       -- it), so size order alone would schedule them after the thing they are
       -- supposed to unblock.  The tie-break inside each class is unchanged,
       -- so with an empty residual queue this is the old order exactly.
+      -- WIRE 8 (b).  CHEAP-AND-CERTAIN FIRST, WITHIN THE CLASS.
+      --
+      -- `kernelJoins` predicts `refl` in one agda call.  With `--paksa` the
+      -- sort puts those ahead of their classmates, because the round's real
+      -- budget is agda processes and this is the only key available that is
+      -- denominated in them -- size is denominated in the machine's terms and
+      -- has never been a price at the kernel.
+      --
+      -- WHY IT IS A SECONDARY KEY AND NOT THE FIRST ONE, said here so it can
+      -- be overruled rather than inherited.  Ordering K-joinable ahead of
+      -- EVERYTHING would demote the residuals and the climb, and residuals-go-
+      -- first is the fix that ended 239 rounds of a subgoal dying between two
+      -- standpoints (the comment above).  A cheap ordering that undoes a
+      -- correctness ordering is a durnaya: one standpoint asserting itself by
+      -- denying another.  So the classes stand and the cheap-first order runs
+      -- inside each of them.  What that costs is that the 8,130 free
+      -- acceptances still wait behind the residual queue; the residual queue
+      -- is small and the wait is bounded by it.
+      kFirst c | dPaksa disp = if kernelJoins c then 0 else 1 :: Int
+               | otherwise   = 0
       freshSized = sortOn (\c@(l,r) -> ( if S.member c arohanaAdmitted then 0
                                          else if S.member c residualAdmitted
                                            then 1 else 2 :: Int
+                                       , kFirst c
                                        , size l + size r, l, r))
               [ c | c <- conjectures
                   , not (M.member c (mKnown m))
@@ -4548,6 +4676,22 @@ round1 disp mem logh libh ref = do
       (if dSamasaOnly disp
          then "  [samasa-only: the fingerprint classes proposed nothing]"
          else "")
+  -- WIRE 8.  What the round is proposing in the KERNEL's currency, printed
+  -- whether or not the wire is on -- both arms of an A/B therefore see the
+  -- same numbers and differ in one bit of BEHAVIOUR, which is the control
+  -- WIRE 6 established and this wire keeps.
+  --
+  --   retained  composed pairs kept (with --paksa, includes the M-joinable
+  --             ones in their unnormalised form; without, it equals novel)
+  --   k-refl    of `fresh`, how many `kernelJoins` predicts cost ONE agda
+  --             call.  A prediction, never a licence: kernelAccept is still
+  --             the authority and still runs on every one of them.
+  --   k-stuck   the rest, costing two to eight calls and often refused.
+  hPrintf logh "  PAKSA  %s  retained=%d  k-refl=%d k-stuck=%d  (prediction only; kernelAccept decides)\n"
+    (if dPaksa disp then "on " else "off")
+    (length composedRetained)
+    (length [ () | c <- fresh, kernelJoins c ])
+    (length [ () | c <- fresh, not (kernelJoins c) ])
   hPrintf logh "  FLOW  %s  d %d -> %d\n"
     (flowName flow) (mObstruction m) obstruction
   -- ChuDefect: the defect of the round's own test set.  If this is zero
@@ -5889,7 +6033,7 @@ main = do
         sem = semantics base
         double = bin "+" x_ x_
         conceptWith body fold =
-          Sym "c0" 1 (\as -> eval sem as double) [(body, fold)]
+          akanksitaSym "c0" 1 (\as -> eval sem as double) [(body, fold)]
         honest    = conceptWith double (F "c0" [x_])
         mismatch  = conceptWith x_ (F "c0" [x_])
         unfolded  = conceptWith double (bin "+" (F "c0" [x_]) x_)

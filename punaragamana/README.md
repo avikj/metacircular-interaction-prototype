@@ -63,6 +63,10 @@ decides. Not prose resemblance.
 | `Punaragamana.Nucleus` | carrier and orbit commute over the **whole infinite trajectory**, not one step: `descend-orbit`, `ascend-orbit`, `transport-orbit`, `orbit-lookup` |
 | `Punaragamana.Viveka` | the arithmetic instance. `योग (s , l) = s + l`, `विवेक = Carrier योग`, coordinates `सम` / `वाम` / `दक्षिण` / `प्रमाण`, the action `Φ`, and the orbit `जाल` |
 | `Punaragamana.Compute` | executable regression suite — every statement holds by `refl` on concrete numerals, so Agda must normalize both sides |
+| `Punaragamana.KuttakaValli_…` | the kuṭṭaka instance. Base = the three slots `पक्षः` / `परिमाणम्` / `शेषः`; **none of the three is a function of the other two**, and that is three theorems, not a preference. Carried = the pair of magnitudes. Φ is the subtractive vallī step, written with no comparison because the side slot was kept |
+| `Punaragamana.Bhavana_…` | the varga-prakṛti instance over ℤ. Base = the two roots `ज्येष्ठ` / `कनिष्ठ`; carried = the `क्षेप` `a² − D b²`, which the roots determine exactly. Φ is Brahmagupta's composition, and `भावना-क्षेपः` proves the carried datum multiplies |
+
+| `Punaragamana.Sthanivadbhava_…` | the Aṣṭādhyāyī instance. A bare `वर्ण` is **not** a Carrier — रूपम्, स्थानी and सञ्ज्ञा are mutually independent, three theorems. The ādeśa OPERATION is: base = (the varṇa , the form substituted), carried = (स्थानी , सञ्ज्ञा) of the output. 1.1.56's अल्/अनल् exception **is** the base/carried split, and `सञ्ज्ञा-अनुवृत्तिः` carries the designation over the whole orbit by bisimulation |
 
 `Everything.agda` is the entry point, and `check.sh` drives exactly it: a
 module not reachable from `Everything` is verified by nothing.
@@ -117,6 +121,31 @@ version is part of the library identifier and the pin is a hard resolution
 constraint rather than a prose note.
 
 Flag behaviour is version sensitive; re-verify if you move compilers.
+
+**The pin is currently unrunnable on this machine, and saying so is the
+point.** The Agda on PATH here is **2.8.0**, and agda/cubical **v0.5** does
+not typecheck under it: `Cubical/Core/Id.agda` opens
+`Agda.Builtin.Cubical.Id`, which 2.8.0's `prim` no longer ships, so
+`./check.sh` dies with `[FileNotFound]` and **exit 42**. This happens on
+`Punaragamana.Carrier`, the first module, and it happened before any of the
+work described below was written — it is the toolchain, not the library.
+
+So the development was verified against **Agda 2.8.0 with agda/cubical
+v0.9** (the pair Homebrew ships together), by pointing a library file at
+`.../share/agda/cubical/cubical.agda-lib` with flags
+`--cubical --safe --guardedness --no-import-sorts`. Under that pair,
+`Everything.agda` and every module it reaches check, **exit 0**. Two things
+follow and neither may be dropped:
+
+- Green under 2.8.0/v0.9 is *not* green under the declared pin. Nothing
+  here has been checked under 2.6.3/v0.5 by this author.
+- The two number-theoretic modules were written to lemma names present and
+  identically typed in **both** v0.5 and v0.9 (`+Assoc`, `+Comm`, `·Assoc`,
+  `·Comm`, `·DistL+`, `·DistR+`, `-Dist+`, `-DistL·`, `-DistR·`,
+  `-DistLR·`, `-Cancel`, `pos0+`, `znots`, `injSuc`), and deliberately
+  avoid the commutative-ring solver, whose module path moved between the
+  two releases. That is a reason to expect them to check under the pin. It
+  is not a substitute for checking them under the pin.
 
 `LC_ALL=C.utf8` is **required**. Under a POSIX locale Agda crashes while
 printing its own error messages for the Devanagari identifiers and replaces the

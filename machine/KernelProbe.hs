@@ -11,11 +11,15 @@
 -- Verdict line (machine-readable, one line, always printed unless agda is
 -- absent from PATH):
 --
---   KERNEL-PROBE agda=<version|ABSENT> refl=<OK|FAIL> cubical=<OK|FAIL>
+--   KERNEL-PROBE agda=<version|ABSENT> refl=<OK|FAIL> cubical=<OK|FAIL> refutes=<OK|FAIL>
 --
--- Exit 0 iff refl-capable; exit 2 otherwise (fail-closed: an ungraded or
--- refl-incapable kernel must not be trusted, so absence and failure share
--- the same grade).
+-- Exit 0 iff refl-capable AND the falsifier was watched failing; exit 2
+-- otherwise (fail-closed: an ungraded or refl-incapable kernel must not be
+-- trusted, so absence and failure share the same grade).
+--
+-- `refutes` is the negative control, added 2026-08-20; see `refutedModule`.
+-- Before it, this program's two controls were both TRUE claims, so a checker
+-- answering 0 to everything passed the probe outright.
 module Main (main) where
 
 import Control.Exception (finally)
@@ -42,6 +46,35 @@ reflModule = unlines
   , "open import Agda.Builtin.Nat"
   , "open import Agda.Builtin.Equality"
   , "probe : 2 + 2 \8801 4"
+  , "probe = refl"
+  ]
+
+-- THE NEGATIVE CONTROL, ADDED 2026-08-20.  `2 + 2 ≡ 5` closed by `refl`,
+-- builtins only, so it asks nothing of any library.  Agda MUST refuse it.
+--
+-- Until today this program had two positive controls and no negative one:
+-- both `reflModule` and `cubicalModule` are true claims, so a checker that
+-- answered 0 to everything passed the probe completely.  Under a wrapper of
+-- the shape `agda "$@" 2>&1 | cat` — whose exit status is `cat`'s — this
+-- printed `refl=OK cubical=OK` and exited 0 from a kernel that was not being
+-- consulted at all.  A truth watched to check establishes that the container
+-- can compile; only a falsehood watched to FAIL establishes that the far side
+-- is grading.  (Kumārila, *Ślokavārttika*, Abhāvapariccheda, c. 7th c.: a
+-- non-apprehension is evidence of an absence only from a looking fit to have
+-- apprehended.  `notes/AHIMSA_SUTRA_VISTARA.md` §19.)
+--
+-- This does NOT make the probe a soundness grader, and the header's limit
+-- above stands unamended: a kernel that refuses `2 + 2 ≡ 5` may still have
+-- any axioms whatever in a registered library.  What the falsifier settles is
+-- narrower and was the thing actually missing — that the exit statuses this
+-- program reads are being produced by something that discriminates.
+refutedModule :: String
+refutedModule = unlines
+  [ "{-# OPTIONS --safe #-}"
+  , "module Probe3 where"
+  , "open import Agda.Builtin.Nat"
+  , "open import Agda.Builtin.Equality"
+  , "probe : 2 + 2 \8801 5"
   , "probe = refl"
   ]
 
@@ -93,10 +126,18 @@ main = do
       version <- probeVersion
       reflOk <- checkModule ["--no-libraries"] "Probe1.agda" reflModule
       cubicalOk <- checkModule [] "Probe2.agda" cubicalModule
+      -- The falsifier: `refutes=OK` means agda REFUSED `2 + 2 ≡ 5`, so the
+      -- grades beside it were produced by something that discriminates.
+      refutesOk <- not <$> checkModule ["--no-libraries"] "Probe3.agda" refutedModule
       putStrLn ("KERNEL-PROBE agda=" ++ version
         ++ " refl=" ++ grade reflOk
-        ++ " cubical=" ++ grade cubicalOk)
-      exitWith (if reflOk then ExitSuccess else ExitFailure 2)
+        ++ " cubical=" ++ grade cubicalOk
+        ++ " refutes=" ++ grade refutesOk)
+      -- Fail-closed on the falsifier too, and for the same reason absence and
+      -- incapability already share a grade: a kernel that accepts `2 + 2 ≡ 5`
+      -- is not refl-capable in any sense this program is entitled to report,
+      -- and `refl=OK` from it is a number, not a capability.
+      exitWith (if reflOk && refutesOk then ExitSuccess else ExitFailure 2)
 
 -- ---------------------------------------------------------------------
 -- APPENDED 2026-08-19 by a later reader, at the end, altering no line

@@ -173,6 +173,7 @@
 module GateAudit (main) where
 
 import Certificate hiding (main)
+import qualified Prastara_TheSearchSpaceIsGeneratedNotStored as P
 
 import Control.Exception (SomeException, evaluate, try)
 import Control.Monad (forM, forM_, unless, when)
@@ -258,8 +259,13 @@ evalT defs = go (8 :: Int)
 kGrid :: Integer
 kGrid = 6
 
+-- सारणी वा क्रिया (Piṅgala, Chandaḥśāstra 8.24–28).  This was
+--     gridFor vs = map (zip vs) (mapM (const [0 .. kGrid]) vs)
+-- — the grid laid out.  It is now naṣṭa in radix (kGrid+1): same rows,
+-- same order, made from an index and dropped.  Checked exhaustively for
+-- 1..4 variables in machine/PrastaraRun.hs.
 gridFor :: [Int] -> [[(Int, Integer)]]
-gridFor vs = map (zip vs) (mapM (const [0 .. kGrid]) vs)
+gridFor vs = P.rows (P.gridPrastara vs kGrid)
 
 -- A single disagreeing assignment, if there is one on the grid.
 falsityWitness :: [Definition] -> Equation -> Maybe ([(Int, Integer)], Integer, Integer)
@@ -735,7 +741,13 @@ probeMain kind root = do
       -- agda" from "agda was never consulted".
       raw <- try (case agdaCertificateWith [] (su x_, x_) of
                     Nothing -> pure (ExitFailure (-1), "no module")
-                    Just s -> runAgda root s) :: IO (Either SomeException (ExitCode, String))
+                    -- UNWATCHED on purpose, and by name since 2026-08-20:
+                    -- `Certificate.runAgda` now applies the falsifier watch,
+                    -- and this probe's whole job is to print what the child
+                    -- returned BEFORE anyone judged it.  Vetting here would
+                    -- make PROBE-RAW report the verdict it exists to be
+                    -- compared against.
+                    Just s -> runAgdaUnwatched root s) :: IO (Either SomeException (ExitCode, String))
       case raw of
         Left e -> printf "PROBE-RAW exception %s\n" (clip 70 (show e))
         Right (c, out) ->

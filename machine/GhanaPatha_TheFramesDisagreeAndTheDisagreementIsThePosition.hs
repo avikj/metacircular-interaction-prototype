@@ -244,16 +244,15 @@ decide rs =
 sutraOf :: Ref -> Sutra
 sutraOf r = case [ s | s <- sutras, num s == r ] of
               (s : _) -> s
-              []      -> Sutra r "?" "?" Vidhi [] (const [])
+              []      -> Sutra r "?" "?" Vidhi [] (\_ _ -> [])
 
 -- Every rule firing in this file goes through ONE adapter, so that a change
 -- to the incumbent's rule interface lands in one place rather than in five.
--- (Astadhyayi.hs is under concurrent revision as this is written: an anuvrtti
--- layer there is changing `fires` to take the sutra's READING -- what it says
--- plus what it inherits -- before its input.  When that lands, this becomes
--- `firesOn s xs = fires s (readingUnder [] s) xs` and nothing else moves.)
+-- (The anuvrtti layer in Astadhyayi.hs landed 2026-08-20: `fires` takes the
+-- sutra's READING -- what it says plus what it inherits -- before its input.
+-- As predicted, exactly this one line moved.)
 firesOn :: Sutra -> [Item] -> [Rewrite]
-firesOn = fires
+firesOn s xs = fires s (readingUnder [] s) xs
 
 -- The two strata, computed here from `tripadi`, not imported.
 straA, straB :: [Sutra]

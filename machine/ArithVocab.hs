@@ -43,6 +43,7 @@ import qualified Data.Map.Strict as M
 import Data.List (sortOn, foldl', intercalate)
 import Text.Printf (printf)
 import System.Exit (exitFailure, exitSuccess)
+import qualified Prastara_TheSearchSpaceIsGeneratedNotStored as P
 
 -- ============================================================ Term algebra
 -- Copied verbatim from MathMachine.hs so this module's terms ARE its terms.
@@ -393,28 +394,54 @@ definingRewrites =
 -- The simple generator from MathMachine (genTermsModulo [] []): all
 -- well-formed terms of the signature up to a size bound, over nv variables.
 
-genTerms :: [(String,Int)] -> Int -> Int -> [Term]
-genTerms sig nv maxSize = concat table
+-- The term space as a prastāra.  Atoms are the size-1 rows; each symbol of
+-- arity a > 0 is a constructor; `termView` is what makes uddiṣṭa definable,
+-- i.e. what lets a term report its own row number.
+termGrammar :: [(String,Int)] -> Int -> P.Vyakarana Term
+termGrammar sig nv = P.Vyakarana
+  { P.atomsOf = [ V i | i <- [0..nv-1] ] ++ [ F f [] | f <- nullaries ]
+  , P.ctorsOf = [ (a, F f) | (f,a) <- sig, a > 0 ]
+  , P.viewOf  = termView
+  }
   where
-    table = [ build n | n <- [1..maxSize] ]
-    ofSize n | n >= 1 && n <= maxSize = table !! (n-1)
-             | otherwise = []
-    build 1 = [ V i | i <- [0..nv-1] ] ++ [ F f [] | (f,0) <- sig ]
-    build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1) ]
-      where
-        argsOf 1 k | k >= 1 = map (:[]) (ofSize k)
-                   | otherwise = []
-        argsOf a k = [ t:rest | i <- [1..k-a+1]
-                              , t <- ofSize i
-                              , rest <- argsOf (a-1) (k-i) ]
+    nullaries = [ f | (f,0) <- sig ]
+    positives = [ f | (f,a) <- sig, a > 0 ]
+    termView (V i)    = Left i
+    termView (F f []) = Left (nv + ix f nullaries)
+    termView (F f as) = Right (ix f positives, as)
+    ix x xs = length (takeWhile (/= x) xs)
+
+-- सारणी वा क्रिया.  This was
+--     genTerms sig nv maxSize = concat table
+--       where table  = [ build n | n <- [1..maxSize] ]
+--             ofSize = (table !!) . subtract 1
+--             build 1 = atoms
+--             build n = [ F f args | (f,a) <- sig, a > 0, args <- argsOf a (n-1) ]
+--             argsOf 1 k = map (:[]) (ofSize k)
+--             argsOf a k = [ t:rest | i <- [1..k-a+1], t <- ofSize i
+--                                   , rest <- argsOf (a-1) (k-i) ]
+-- — every term of every size, memoised, and held for the whole run because
+-- `ofSize` reads back into `table`.  The recurrence is unchanged; what the
+-- memo now holds is maxSize PRASTĀRAS (a count and two closures each), and
+-- the terms are made when asked for.  Same rows, same order — checked
+-- exhaustively in machine/PrastaraRun.hs, which also reports the figures.
+genTerms :: [(String,Int)] -> Int -> Int -> [Term]
+genTerms sig nv maxSize = P.rows (P.gradedUpToP (termGrammar sig nv) maxSize)
 
 -- ============================================================ refutation
 -- Exact refutation by exhaustive computation over a small box.  A single
 -- disagreeing environment is a certificate that the equation is false; the
 -- convention is MathMachine's `ruleCounterexample`, widened to a chosen box.
 
+-- सारणी वा क्रिया.  This was
+--     smallEnvironments n bound = sequence (replicate n [0 .. bound])
+-- — the box laid out.  It is now Piṅgala's naṣṭa in mixed radix: the same
+-- (bound+1)^n rows, in the same order, produced from an index and dropped.
+-- The count is in hand before the first row, so a refutation search can
+-- start anywhere, be split, or be resumed from one Integer.
+-- Order-identity is checked exhaustively in machine/PrastaraRun.hs.
 smallEnvironments :: Int -> Integer -> [[Integer]]
-smallEnvironments n bound = sequence (replicate n [0 .. bound])
+smallEnvironments n bound = P.rows (P.envPrastara n bound)
 
 varCount :: Term -> Term -> Int
 varCount l r = case vars l ++ vars r of

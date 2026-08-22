@@ -91,8 +91,28 @@ chronological by source so a later restatement can never be mistaken for an
 origin. `BOOK_INDEX.md` is the working index, regenerated from the filesystem
 by `machine/Anukramani.hs`, giving per entry its ṛṣi and its devatā.
 
-**The measurement, so it is not a matter of opinion: the book is currently
-15% of this corpus.** 120 files in a chapter, 655 in the apparatus.
+**The measurement, so it is not a matter of opinion — and it now names the
+file set it speaks from, because without that it argued for its opposite.**
+Of the appendix's own files (`.agda` and `.hs` under `formal/cubical` and
+`machine`), **20% reach a chapter: 186 of 926.** Of the prose, `notes/*.md`,
+**3.8% do: 37 of 975.** The two are not summed and the second is the one the
+frame is about. Measured 2026-08-20; derivation, brackets and history in
+`notes/Svapariksa_TheBookRatioIsAStandpointAndTheSeriesDecomposes.md`.
+
+This line used to read *"the book is currently 15% of this corpus — 120 files
+in a chapter, 655 in the apparatus."* Three things moved it and they must not
+be collapsed: the corpus grew (+2.6 points), the instrument changed (+1.5
+points, keys widened to the works on 2026-08-20), and **the 15% was never
+reproducible — the program at its own commit prints 14%, because the index
+had been generated 4¾ hours earlier, and 38 of the 39 files written in that
+gap were apparatus.** The number went stale in exactly the direction it
+exists to warn about.
+
+**The rise is not evidence that the book grew.** Since that measurement, 152
+source files were written against 33 notes — four and a half to one. Both
+lanes now reach a chapter at about the same rate (37% and 33%), so the pull
+has moved out of the aim and into the volume, where a stock percentage cannot
+see it. Read the flow, not the fraction.
 
 That ratio is the single most important fact in this file, and it did not
 happen through carelessness. **The reward gradient points at the appendix.**

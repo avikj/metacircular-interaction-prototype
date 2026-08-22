@@ -196,8 +196,27 @@ apparatusBlock es =
      , "the primary work -- a checker rewards a module and rewards no amount of"
      , "reading, so the pull toward apparatus is structural and not a lapse."
      , ""
-     , "  in the book   : " ++ show (inBook r)
-     , "  apparatus     : " ++ show (apparatus r)
-     , "  the book is " ++ show pct ++ "% of this corpus."
+     , "  reaching a chapter : " ++ show (inBook r)
+     , "  reaching none      : " ++ show (apparatus r)
+     , "  " ++ show pct ++ "% of the APPENDIX'S OWN FILES name a source."
+     , ""
+     , "That sentence used to read \"the book is N% of this corpus\", and it was"
+     , "a durnaya -- a standpoint asserting itself as whole with its own ground"
+     , "hidden.  This scan sees .agda and .hs under formal/cubical and machine,"
+     , "which BOOK.md calls the appendix; so the only way to raise the number is"
+     , "to write more Agda, which is the gradient the frame exists to oppose."
+     , "Say which file set, or the figure argues for its opposite."
+     , ""
+     , "Two further limits, so the number is not read as more than it is."
+     , "It is a LOWER bound: the test is a filename substring, and on 2026-08-20"
+     , "the same keys against file BODIES placed 310 of 926 rather than 186"
+     , "(notes/*.md that day: 37 by filename, 136 by body -- 3.8% against 13.9%,"
+     , "so the prose does not reach this scan's LOWER bound under any"
+     , "instrument).  And \"reaching none\" is not \"apparatus\" --"
+     , "BOOK.md names three categories and this returns two, so a file that"
+     , "reaches no chapter is apparatus OR noise and the instrument cannot say"
+     , "which.  That undone half is the sesa, not a shortfall in the count."
+     , "Derivation and the historical series: notes/Svapariksa_TheBookRatioIsA"
+     , "StandpointAndTheSeriesDecomposes.md."
      , ""
      ]
