@@ -33,7 +33,10 @@
 -- ... two references pointing at work that was never done" — and by
 -- then the k²-scaled step HAD been done, nine hours earlier, in the
 -- same generality, in this same directory tree.  Neither file names the
--- other, and no module in the corpus imported both until this one.
+-- other.  Exactly one module imports both: the GENERATED aggregate root
+-- `Samuccaya_...`, which imports all 897 modules under formal/cubical/
+-- and asserts nothing about any pair of them.  A mechanical root cannot
+-- notice that two of its rows are one theorem.
 --
 -- The private lemma `NaturalMachine.Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
