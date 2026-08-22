@@ -3928,3 +3928,268 @@ probes emitted       : 39
     SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
     SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
   landed 0 this pass, in 202s
+  pushed
+  dry pass 2/2
+  DRY UNDER RECOGNITION AND निर्धारण: 2 consecutive passes
+  landed nothing.  निर्धारण reaches only records that already carry a
+  witness, so this says those two questions are exhausted and says
+  nothing whatever about the corpus.  Asking the constructive one.
+
+  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────
+  modules scanned      : 891
+  top-level arrows     : 1104
+  candidate pairs      : 43
+  probes emitted       : 43
+  …already proved in host: 13  (the host module already carries the Iso or the ≃)
+
+
+  A probe is a PROPOSAL, never a finding.  The counts above are
+  proposals.  Only `--check` puts them to the kernel, and only the
+  kernel's acceptance is a result.
+
+  ── putting each probe to the kernel ─────────────────────────
+  content addresses from नाम: 12160
+  ledger rows carried in    : 43
+  GREEN  AchromaticToy : from₁₂ ⇄ to₁₂   — but the host already proves it: L₁₂
+  CACHED AchromaticToy : to₁₂ ⇄ to₂₁   [खण्डितम् · distinct constructors of _⊎_]
+  CACHED CenterRelative : Φ ⇄ Ψ   [library lemma on ℤ]
+  CACHED IntegerHullMultiplicity : hull ⇄ ones   [induction on List]
+  CACHED IntegerHullMultiplicity : SQ ⇄ hull   [खण्डितम् · x ≢ suc7 x — ℕ has no such fixpoint]
+  CACHED IntegerHullMultiplicity : N ⇄ hull   [खण्डितम् · x ≢ suc5 x — ℕ has no such fixpoint]
+  CACHED IntegerHullMultiplicity : Qs ⇄ hull   [induction on List]
+  CACHED IntegerHullMultiplicity : Xs ⇄ hull   [induction on List]
+  CACHED IntegerHullMultiplicity : K ⇄ hull   [खण्डितम् · x ≢ suc4 x — ℕ has no such fixpoint]
+  CACHED NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple   [खण्डितम् · distinct constructors of Bool]
+  CACHED NaturalMachine.ChargeTwoHistories : relative ⇄ sign   [library lemma on ℤ]
+  CACHED NaturalMachine.ChargeTwoHistories : augment ⇄ sign   [library lemma on ℤ]
+  CACHED NaturalMachine.DSONucleusMiddleProduct : Nstar ⇄ Nsub   [library lemma on ℤ]
+  CACHED NaturalMachine.Digits : digitsC ⇄ valueC   [मम दोषः · statement ill-typed · indexed family]
+  CACHED NaturalMachine.Digits : digits ⇄ value   [मम दोषः · statement ill-typed · indexed family]
+  GREEN  NaturalMachine.FreeMonoid : len ⇄ unlen   — but the host already proves it: ℕ≃Tally
+  CACHED NaturalMachine.HaskellGenericSyntaxAdapter : fromGeneric ⇄ toGeneric   [host type · NaturalMachine.HaskellDiscoveryBoundary.HaskellTerm]
+  CACHED NaturalMachine.InflationVersusSubgroup : infl ⇄ res   [host type · H4]
+  CACHED NaturalMachine.InflationVersusSubgroup : incl ⇄ proj   [host enumeration (emitter gap)]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ sthula   [host enumeration (emitter gap)]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ bhrama   [मम दोषः · split incomplete]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ nyasa   [मम दोषः · split incomplete]
+  GREEN  NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge   — but the host already proves it: edgeCount
+  GREEN  NaturalMachine.PMTorus : finToVertex ⇄ vertexToFin   — but the host already proves it: vertexCount
+  GREEN  NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge   — but the host already proves it: obsIso
+  GREEN  NaturalMachine.PMTorus : ctxToVertex ⇄ vertexToCtx   — but the host already proves it: ctxIso
+  CACHED NaturalMachine.PauliGaugeCocycleSplit : central ⇄ phase   [host type · NaturalMachine.PauliWeyl.Pauli]
+  CACHED NaturalMachine.RawWordPaddingNormalForm : paddingCount ⇄ zeroRun   [मम दोषः · statement ill-typed · indexed family]
+  CACHED NaturalMachine.RawWordPaddingNormalForm : join ⇄ split   [मम दोषः · indexed family]
+  GREEN  NaturalMachine.S3IntegerRelativeCoordinates : intersectionToKernel ⇄ kernelToIntersection   — but the host already proves it: intersectionKernelIso
+  CACHED NaturalMachine.S3IntegerRelativeCoordinates : relativeCoordinates ⇄ relativeFromCoordinates   [library lemma on ℤ]
+  CACHED NaturalMachine.SieveFiber : q ⇄ σ   [खण्डितम् · distinct numerals 1 ≠ 0]
+  CACHED NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁   [induction on ℕ]
+  CACHED NaturalMachine.SieveScaleTower : s₃₂ ⇄ π₃₂   [induction on ℕ]
+  CACHED NaturalMachine.SmithPathCountedExecution : colsOf ⇄ fromCols   [library lemma on ℤ]
+  CACHED NaturalMachine.SmithPathCountedExecution : entriesOf ⇄ fromNine   [library lemma on ℤ]
+  CACHED NaturalMachine.TermFreeMonoid : fromList ⇄ toList   [host type · NaturalMachine.Obstruction.Tm]
+  CACHED PingalaPrastara : allLaghu ⇄ uddista   [induction on List]
+  CACHED PingalaPrastara : aksara ⇄ parity   [induction on ℕ]
+  GREEN  ProjectionChargeAudit : decode ⇄ encode   — but the host already proves it: localChargeEquiv
+  CACHED SaptabhangiNaya : code' ⇄ decode   [case on Bool]
+  CACHED Swarm.S13OptionSpread : ones ⇄ sum   [induction on List]
+  CACHED WallCertificate : classOf ⇄ visible   [unclassified]
+
+  ── the histogram: WHAT KIND of obligation is blocking ───────
+  proposed 43 · accepted 8 · open 35  (of which 6 mine, 6 refuted, 23 real obligations)
+  of the accepted, 8 restate an Iso the host module already carries.
+  NEW EDGES THIS PASS: 0
+  of all proposals, 13 have their Iso or ≃ already standing in the host.
+
+  MY OWN DEFECTS (not the corpus's obligations):
+    मम दोषः · statement ill-typed · indexed family 3
+    मम दोषः · split incomplete        2
+    मम दोषः · indexed family          1
+
+  खण्डितम् — THE KERNEL DISPROVED THE PAIR (not work, and not a
+  statement about the TYPES: only this pair of maps is refuted):
+    AchromaticToy : to₁₂ ⇄ to₂₁
+        खण्डितम् · distinct constructors of _⊎_
+    IntegerHullMultiplicity : SQ ⇄ hull
+        खण्डितम् · x ≢ suc7 x — ℕ has no such fixpoint
+    IntegerHullMultiplicity : N ⇄ hull
+        खण्डितम् · x ≢ suc5 x — ℕ has no such fixpoint
+    IntegerHullMultiplicity : K ⇄ hull
+        खण्डितम् · x ≢ suc4 x — ℕ has no such fixpoint
+    NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple
+        खण्डितम् · distinct constructors of Bool
+    NaturalMachine.SieveFiber : q ⇄ σ
+        खण्डितम् · distinct numerals 1 ≠ 0
+
+  THE MOVE EACH REMAINING OPEN PAIR IS BLOCKED ON:
+    library lemma on ℤ                7
+    induction on List                 5
+    induction on ℕ                    3
+    host enumeration (emitter gap)    2
+    case on Bool                      1
+    host type · H4                    1
+    host type · NaturalMachine.HaskellDiscoveryBoundary.HaskellTerm 1
+    host type · NaturalMachine.Obstruction.Tm 1
+    host type · NaturalMachine.PauliWeyl.Pauli 1
+    unclassified                      1
+
+  7 of 23 open pairs are blocked on the SAME move — «library lemma on ℤ».  That names the emitter to write next.
+
+साध्य: 35 open rows, 6 decided (खण्डितम्), 6 instrument-defect, 23 left in 23 distinct pairs → notes/SADHYA_OPEN_OBLIGATIONS.md
+  notes/SADHYA_OPEN_OBLIGATIONS.md is regenerated every pass -- the queue
+  a prover reads in the morning, grouped by the MOVE each obligation
+  needs, because ten blocked on one move are ONE piece of work.
+  Ledger: notes/anuloma/NirnayaPanjika.tsv — a pass now costs only what
+  CHANGED, keyed on नाम's content addresses and the probe's own digest.
+  Watching at 900s for work other seats push.
+
+  ── तृतीयो नयः: अभिज्ञान ─────────────────────────────────────
+  perl: warning: Setting locale failed.
+  perl: warning: Please check that your locale settings:
+  LC_ALL = "C.utf8",
+  LANG = "C.UTF-8"
+  are supported and installed on your system.
+  perl: warning: Falling back to a fallback locale ("C.UTF-8").
+  perl: warning: Setting locale failed.
+  perl: warning: Please check that your locale settings:
+  LC_ALL = "C.utf8",
+  LANG = "C.UTF-8"
+  are supported and installed on your system.
+  perl: warning: Falling back to a fallback locale ("C.UTF-8").
+  perl: warning: Setting locale failed.
+  perl: warning: Please check that your locale settings:
+  LC_ALL = "C.utf8",
+  LANG = "C.UTF-8"
+  are supported and installed on your system.
+  perl: warning: Falling back to a fallback locale ("C.UTF-8").
+  
+  अभिज्ञान — does this fibre already have a name here?
+  ──────────────────────────────────────────────────────────
+  undecided edges on road two   : 1065
+  fibre rows already written out: 245
+  सङ्ख्या एकम्  (one candidate)   : 17
+  सङ्ख्या बहु   (many candidates) : 9258
+  
+  LEAD  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	formal/cubical/NaturalMachine/ChenTwoChargeProjector.agda
+  LEAD  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	formal/cubical/NaturalMachine/DependentOptimizationFibration.agda
+  LEAD  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	formal/cubical/NaturalMachine/OracleSeparation.agda
+  LEAD  एकम्	PingalaPrastara.matraOf	Metre	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	PingalaPrastara.varna	Chosen	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	PingalaPrastara.varna	Vak	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	NaturalMachine.TypedUnfold.denote	Lang	formal/cubical/NaturalMachine/TypedUnfold.agda
+  LEAD  एकम्	NaturalMachine.Digits.value	Fib	formal/cubical/Swarm/S03CarryFiber.agda
+  LEAD  एकम्	Swarm.S03CarryFiber.value	Fib	formal/cubical/Swarm/S03CarryFiber.agda
+  LEAD  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	formal/cubical/NaturalMachine/ChargeGradedPeeling.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.charge	G	formal/cubical/NaturalMachine/ChargeGradedPeeling.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	Fibre	formal/cubical/NaturalMachine/SieveFiber.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	म	formal/cubical/Gurutama.agda
+  LEAD  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	formal/cubical/NaturalMachine/SpernerFromSl2.agda
+  
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 274: fiber: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 274: fiber: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 274: fiber: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: line 279: …: command not found
+  ── kernel verdicts ────────────────────────────────────────
+  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	GREEN	rc=0
+  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	GREEN	rc=0
+  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	DEATH	rc=42 :: Checking AbhijnanaProbes.P003 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P003.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P003.agda:16.16-20: error: [UnequalTerms] Bool !=< ℕ
+  एकम्	PingalaPrastara.matraOf	Metre	GREEN	rc=0
+  एकम्	PingalaPrastara.varna	Chosen	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	PingalaPrastara.varna	Vak	GREEN	rc=0
+  एकम्	NaturalMachine.TypedUnfold.denote	Lang	SKIP	the written fibre takes 4 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.Digits.value	Fib	DEATH	rc=42 :: Checking AbhijnanaProbes.P008 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P008.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P008.agda:16.21-28: error: [MetaCannotDependOn] Cannot
+  एकम्	Swarm.S03CarryFiber.value	Fib	GREEN	rc=0
+  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P010 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P010.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P010.agda:17.11-15: error: [UnequalTerms] F.big x ≡ b
+  एकम्	NaturalMachine.SieveFiber.charge	G	DEATH	rc=42 :: Checking AbhijnanaProbes.P011 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P011.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P011.agda:17.11-15: error: [UnequalTerms] M.charge x �
+  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	DEATH	rc=42 :: Checking AbhijnanaProbes.P012 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P012.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P012.agda:17.11-15: error: [UnequalTerms] F.o₁ x ≡
+  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P013 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P013.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P013.agda:17.11-15: error: [UnequalTerms] F.o₂ x ≡
+  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	DEATH	rc=42 :: Checking AbhijnanaProbes.P014 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P014.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P014.agda:17.11-15: error: [UnequalTerms] F.o₃ x ≡
+  एकम्	NaturalMachine.SieveFiber.q	Fibre	DEATH	rc=42 :: Checking AbhijnanaProbes.P015 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P015.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P015.agda:17.11-15: error: [UnequalTerms] F.q x ≡ b !
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	DEATH	rc=42 :: Checking AbhijnanaProbes.P017 (/Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P017.agda). /Users/avikjain/Desktop/math2/formal/cubical/AbhijnanaProbes/P017.agda:16.35-36: error: [UnequalTerms] (ℕ → ℤ)
+  
+  probed 17 · GREEN 5 · DEATH 9 · SKIP 3
+  योग्यता: 14 posed and answered, 3 could not be posed.
+  
+  A GREEN is a definitional identity the corpus already carried.
+  A DEATH is a lead the join could not tell apart from a hit, and
+  that number is the one that decides whether this runs on all 249
+  source types.  Probes are left in formal/cubical/AbhijnanaProbes for reading.
+  
+  A source-type match is a LEAD, not a verdict: the first lead ever
+  checked FAILED, because लघु-सङ्ख्या counts laghus while matraOf sums
+  morae -- same types, different maps.  Only the kernel decides.
+
+=========== रात्रिः pass 2026-08-22T22:02:26Z  HEAD 0e0fc8b2
+  अनाथः machine/:  failures : 0
+  निर्धारण: 6 green line(s) in report
+    SAME    Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA — this statement already stands as Ratri/Nirdharita_Agda-Builtin-Nat_.agda
+    SAME    Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB — this statement already stands as Ratri/Nirdharita_Swarm-S09SmithKuttaka_.agda
+    SAME    Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC — this statement already stands as Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeAB.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAH.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAD.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAE.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeB.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeC.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel_NirdharanaPthreeE.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±_NirdharanaPthreeG.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds_NirdharanaPthreeI.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeK.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeL.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeM.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeO.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeP.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeR.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeS.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeU.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeV.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeW.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeX.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
+  landed 0 this pass, in 162s
