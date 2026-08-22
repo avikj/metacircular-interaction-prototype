@@ -1088,3 +1088,14 @@ import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
 -- is empty.  The `Unit → Bool → Unit` cancellation is derived from the
 -- same alignment term rather than left standing as an anomaly.
 import Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre
+
+-- ── पिङ्गलस्य द्वौ प्रत्ययौ, 2026-08-22 ──────────────────────────────────────
+-- The two pratyayas of छन्दःशास्त्रम् ८ that had no module.  नष्ट/उद्दिष्ट as
+-- the INVERTIBILITY TEST — a checkable predicate whose inhabitant is exactly
+-- एकम् at every point (`Tantujala_…`), with both roads exhibited: the
+-- प्रस्तार of any छेद-सूची carries the witness, `Bool → Unit` provably carries
+-- none.  And लगक्रिया as the CONDITIONAL RECEIPT — the fibre over a partial
+-- specification, i.e. what a second observable still costs once the first is
+-- known, with the मेरु row sum closing it back onto the सङ्ख्या.
+import NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible
+import Lagakriya_TheConditionalFibreIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown
