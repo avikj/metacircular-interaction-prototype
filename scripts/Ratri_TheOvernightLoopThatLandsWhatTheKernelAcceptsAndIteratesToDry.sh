@@ -19,6 +19,15 @@
 #              that could not be reached before now can be
 #     …        until a pass lands nothing.  DRY is the fixpoint.
 #
+# [2026-08-22 — THAT LAST LINE WAS FALSE FOR THE FIRST 60 LANDINGS, and it is
+# corrected in place rather than struck, because the loop now makes it true.
+# Landing was keyed on the PATH, and a colliding name was disambiguated with
+# the probe's positional tag, so the same statement landed under a new path
+# every time the census reordered.  60 modules, 38 distinct statements.  DRY
+# meant `alphaTag i` had come round to a path that existed, not that the
+# mathematics had run out.  See `statement_key` below and
+# notes/PunaruktiRatrau_…md for the count from two instruments.]
+#
 # The two roads of अहिंसा-सूत्र-विस्तारः §६ are both landed, because both are
 # results:
 #     GREEN            → road one: संक्रमण.  A `≃`, and everything transports.
@@ -101,6 +110,60 @@ probe_name() {
   printf '%s_%s_%s' "$kind" "$(printf '%s' "$host" | tr '.' '-')" "$rec"
 }
 
+# वाक्य-नाम — the STATEMENT's address, and it is the base; the file name is
+# carried over it.
+#
+# WHY THIS EXISTS, measured 2026-08-22.  Of 60 modules this loop had landed,
+# only 38 were distinct statements.  Nine files said three things about
+# `विवेक`; `censusR0` stood at one address FOURTEEN times, the second largest
+# collision group in the whole 11,165-declaration corpus, behind only a
+# generated trace lane.  And "dry" was not the mathematics running out — it
+# was `alphaTag i` happening to reproduce a path that already existed.
+#
+# THE MECHANISM was two lines below, and both were bind-a.  `probe_name`
+# derives a name from the CONTENT — verdict, host, record — so two probes
+# colliding on it is the signal that they ask the same question.  The loop
+# read that collision as a naming problem and appended the POSITIONAL probe
+# tag to make a fresh path, at which point `[ -e "$dest" ]` could never fire.
+# The guard written to prevent overwriting was the thing manufacturing the
+# duplicate.
+#
+# `machine/Nama_TheNameIsCarriedAndTheHashIsTheBase.hs`, landed the same
+# night, states the repair in its own title and was never applied here: bind
+# the CONTENT and carry the name.  The fibre of `path ↦ content` is not
+# contractible, and where Nama's header says that shows up as a merge
+# conflict, here it showed up as silent multiplication — the same
+# non-contractibility, opposite sign.
+#
+# LIMIT, at the site: this is sameness of PRESENTATION after comment and
+# blank-line stripping and after erasing the positional tag.  Two probes
+# stating the same mathematics in different terms are NOT caught, and asking
+# one digest for both questions is the दुर्नय `Saptabhangi.दुर्नयः` proves.
+statement_key() {
+  sed 's/--.*//' "$1" \
+    | sed -E 's/^module .* where$//' \
+    | sed -E 's/Nirdharana(Pone|Ptwo|Pthree)[A-Za-z]*//g' \
+    | grep -v '^[[:space:]]*$' \
+    | sha256sum | cut -d' ' -f1
+}
+
+# Rebuilt once per pass from the filesystem, never stored, so it cannot go
+# stale in the direction BUILD.md warns about.
+index_landed() {
+  : > "$SCRATCH/landed.keys"
+  local g
+  for g in "$LANDED"/*.agda; do
+    [ -e "$g" ] || continue
+    printf '%s %s\n' "$(statement_key "$g")" "$(basename "$g" .agda)" >> "$SCRATCH/landed.keys"
+  done
+}
+
+# Prints the name already holding this statement, or nothing.
+already_said() {
+  [ -s "$SCRATCH/landed.keys" ] || return 1
+  awk -v k="$1" '$1 == k { print $2; found=1; exit } END { exit !found }' "$SCRATCH/landed.keys"
+}
+
 land() {
   local src="$1" name="$2" why="$3"
   local dest="$LANDED/$name.agda"
@@ -154,8 +217,9 @@ pass() {
     >"$SCRATCH/census.txt" 2>&1
   say "  निर्धारण: $(grep -cE '^\s*GREEN|GREEN ' "$SCRATCH/census.txt" 2>/dev/null || echo 0) green line(s) in report"
 
-  # 3 · land every probe the kernel accepted, both roads
-  local f base
+  # 3 · land every probe the kernel accepted, both roads — each statement once
+  index_landed
+  local f base key dup
   for f in "$NIRDHARANA_SCRATCH"/*.agda; do
     [ -e "$f" ] || continue
     base="$(basename "$f" .agda)"
@@ -163,9 +227,20 @@ pass() {
       *Control*|*control*) continue ;;           # designed-failure controls never land
     esac
     nm="$(probe_name "$f" "$base")"
+    # CONTENT FIRST.  A statement already standing in the corpus is not landed
+    # a second time under a fresh path; saying it twice adds nothing and the
+    # count would then report volume as progress.
+    key="$(statement_key "$f")"
+    if dup="$(already_said "$key")"; then
+      say "    SAME    $nm — this statement already stands as Ratri/$dup.agda"
+      continue
+    fi
+    # Only a genuinely NEW statement may take the positional tag to clear a
+    # name it shares with a different question.
     [ -e "$LANDED/$nm.agda" ] && nm="${nm}_${base}"
     if land "$f" "$nm" "निर्धारण probe accepted by the kernel; see notes/ratri for the pass."; then
       landed=$((landed+1)); say "    LANDED  Ratri/$nm.agda"
+      printf '%s %s\n' "$key" "$nm" >> "$SCRATCH/landed.keys"
     fi
   done
 
