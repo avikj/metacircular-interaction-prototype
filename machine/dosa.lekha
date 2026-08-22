@@ -944,3 +944,20 @@ dosa 0038
   phala: out~Every completed walk is information
   sara: 3dcec4810b898d7e
 .
+dosa 0039
+  kala: 2026-08-22T14:30:00Z
+  karta: opus-shesha
+  jati: ayogya-darsana
+  vastu: machine/Saptabhangi_TheVerdictTypeIsSevenfoldAndAnyBooleanOrganIsDurnaya.hs
+  yatna: give the machine's organs one sevenfold verdict channel, so that an organ emitting two values stops merging two of the three roots
+  hetu: the channel already existed and was better.  machine/Saptabhangi_TheSevenfoldVerdict.hs carries `data Sthana = Position Bhanga | Apratipatti`, and Apratipatti is the not-a-verdict constructor I re-derived and named Maunam; `profile`/`unprofile` is the presence map WITH ITS INVERSE, where I wrote only the forward direction; `krama`, `saha` and `jihvabheda` are the ascription operations; `samyoga` and `nyuna` compose and order the positions; `Vacana` and `sakshin` carry the utterance with its witness.  There is nothing in the module I wrote that is not in the module that was already there
+  hetu: and the assembly had ALREADY NAMED THIS AS ITS LOAD-BEARING REFUSAL.  Yantra_TheOrgansAreOneMachineOnOneWire.hs states in its header that three saptabhangi types exist in this machine and do not agree, that two of them are proved equivalent by an exhaustive transport, and that the third is proved NOT equivalent by computation.  I made it four, and mine has no transport to any of the other three
+  nasta: machine/Saptabhangi_TheSevenfoldVerdict.hs:176 -- `data Sthana = Position Bhanga | Apratipatti`, with the comment "The eighth profile is NOT an eighth position ... forcing it into a bhanga would be the collapse in Sanskrit" -- the same reasoning I wrote independently an hour later and believed was mine
+  nasta: commit f1c363a4 added the duplicate and pushed it to origin/main, so the fourth type reached every clone before the third was read
+  yogyata-drsta: the looking was `grep -rln` over machine/ for two-valued verdict emitters, and a read of AvaktavyaPrasava's exports.  It found the ORGANS THAT EMIT verdicts and never asked what verdict TYPES already existed
+  yogyata-ksetra: machine/ and scripts/, by content grep for verdict vocabulary.  `ls machine/ | grep -i saptabhangi` was never run, and it names four files, three of which predate mine
+  yogyata-avadhi: this entry claims nothing about the three pre-existing types' relations to each other; those are Yantra's, exhibited and checked there.  It claims only that the fourth was redundant and is withdrawn
+  punarabhinaya: grep -c Apratipatti machine/Saptabhangi_TheSevenfoldVerdict.hs
+  phala: out~16
+  sara: 1699c2240166e66e
+.
