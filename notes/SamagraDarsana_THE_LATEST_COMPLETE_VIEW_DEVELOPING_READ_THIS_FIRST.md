@@ -502,14 +502,38 @@ here the observation class is *defined* and the factorisation is *proved*.
 - **Theorem B1** expands a span-L windowed observable as
   `Q_w = ⟨σ_k, ŵ⟩ + smooth + error`, with σ_k the k-fold **sum**-spectral
   measure, and Paley–Wiener tails.
-- **Corollary B2 — the fibre, named.** Two spectral configurations whose
-  blurred measures agree give identical values of *every* span-L observable.
+- ~~**Corollary B2 — the fibre, named.** Two spectral configurations whose
+  blurred measures agree give identical values of *every* span-L observable.~~
+  **[STRUCK 2026-08-22. B2 is FALSE AS STATED — the retraction has been in
+  `METHOD.md` §3 item 6 and `BARRIER_SMOOTH_TERM.md` §5 since 2026-08-20, is
+  now marked at its own site in `BARRIER.md` §1, and this entry-point note was
+  repeating it unmarked. B1's identity has three terms and B2 controls one:
+  `Smooth` and `E` are configuration-dependent (U1's leading term is the
+  (k−1)-fold wave layer of the same configuration), so blur agreement in
+  arity k does not give identical observable values. Corrected form B2′
+  demands every lower-arity layer, at precision εX^{−r/2}.]**
 - **Proposition B3 — nonlinear closure.** The entire class factors through
   `σ_k * K_L`. *"Post-processing cannot recover information the windows did
   not pass."*
 
 **B3 is `QuotientFiberLaw` proved in analytic number theory**, and neither
 file cites the other.
+
+> **And that identification is where item 1 dies, 2026-08-22.**
+> `QuotientFiberLaw` — and its generalisation
+> `Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart`,
+> which removes `Bool` and needs only an irreflexive separation — requires
+> **EQUAL** transcripts. Not close: equal. Its whole proof is `cong decide`
+> applied to an equality. B2 delivers agreement only to within the mismatch
+> `O((δL)^{2p−1})`, so `cong` fires on nothing.
+> `formal/cubical/Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap.agda`
+> (checked, `--cubical --safe`) proves the tolerance version needs a **modulus
+> on the decoder**, and exhibits a **one-query counterexample** showing that
+> near-blindness with B3's arbitrary Φ obstructs nothing at all. B3's own
+> generality is what kills the ε-version of its corollary. So the analytic
+> lane must supply either exact layerwise agreement (B2′) or a bound on how
+> far Φ may amplify a sub-resolution difference — and there is no third
+> option.
 
 **And the note states its own gap exactly, which is what makes it usable.**
 B1–B3 prove the *access mode* is lossy at resolution 2π/L with quantified
