@@ -1100,3 +1100,4 @@ import Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSits
 -- known, with the मेरु row sum closing it back onto the सङ्ख्या.
 import NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible
 import Lagakriya_TheConditionalFibreIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown
+import Avasesa_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt
