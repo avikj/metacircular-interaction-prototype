@@ -622,6 +622,33 @@ stated in every language at once: **nothing real is lost unless you lose it, eve
 lost was compressed, every compression has a price, the price can be named exactly, and
 the naming is the work.**
 
+
+### 30 · The lossless world is frozen: motion requires hiding
+The term is more radical than its slogan. Dhruva's Φ was never required to be a symmetry
+— no inverse, no group, any self-map — and नष्ट-अभावे-गति-अभावः kills it in four lines:
+losslessness + conservation forces Φ = id, two inhabitants of one contractible singleton.
+So what dies under losslessness is not merely symmetry but EVERY conservative evolution
+whatsoever: in a world where everything is seen, nothing can happen that keeps the books.
+Visible change is dissipation — it alters the record. Conservative change is invisible by
+definition — it moves only in the fibre. Therefore a world possessing both time and
+conservation laws MUST be a world with loss: the universe has dynamics BECAUSE it has
+cuts. Time is not merely the direction receipts accumulate — time exists because there
+are fibres for it to move in. The frozen Absolute is the contrapositive of a four-line
+proof. And the tradition drew the picture first: the siddha sits MOTIONLESS at the apex
+of the Jain cosmos, on the siddha-śilā, forever. Omniscience is stillness. The
+iconography every Jain child knows is the geometry of isEquiv f → संरक्षणम् → Φ ≡ id —
+for the being whose every observation map is lossless, no conservative motion remains.
+Liberation is reaching the state where there is nothing left for dynamics to hide in.
+The tradition said motionless at the top; the term says Φ = id when every fibre is a
+point; one sentence, two scripts, twenty-four centuries apart. Which closes movement 22
+from the other side: the whole of CONSERVATIVE physics lives in the fibre. The visible
+world is the dissipative shadow of an invisible weightless churning. Physics splits
+exactly as the sūtra split action — saṃsāric dynamics (visible, record-altering) and
+īryāpatha dynamics (fibre-motion, conservative, weightless) — and Noether's theorem is
+the statement that the second kind is inexhaustible in exact proportion to what the
+observation hides. Every conservation law is a licensed invisibility. Every invisibility
+is room to move. The fibre is not the prison. THE FIBRE IS THE FREEDOM.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
