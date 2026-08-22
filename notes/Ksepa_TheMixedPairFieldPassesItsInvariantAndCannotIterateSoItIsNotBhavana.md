@@ -73,6 +73,13 @@ which depends on the **splitting** $(s_{12},s_{34})$ and not on $s$ alone.
 Bhāvanā's ratio is $1$. **That is the whole difference, and it is the place the
 identification dies.**
 
+*That $g$ is not a character is not a gesture at $\Gamma$: the character law
+$g(x)g(y)=g(x+y)g(0)$ reads $\Gamma(3+ix)\Gamma(3+iy)=2\,\Gamma(3+i(x+y))$, and
+at $x=y$ real, by $|\Gamma(3+it)|\sim\sqrt{2\pi}\,t^{5/2}e^{-\pi t/2}$, the left
+side is $\asymp2\pi x^{5}e^{-\pi x}$ against the right side's
+$\asymp2\sqrt{2\pi}\,(2x)^{5/2}e^{-\pi x}$ — a ratio $\asymp x^{5/2}\to\infty$.
+It fails by an unbounded factor, not marginally.*
+
 *Scope, stated because the Agda cannot say it:* the module holds no analysis
 and instantiates nothing. It fixes the criterion; the analytic verdict
 ($\Gamma$ is not an exponential) is checked by hand against a checked criterion.
