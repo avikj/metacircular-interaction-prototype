@@ -108,7 +108,52 @@ readData src = go (lines src)
                       , not (null c'), all (\x -> isAlphaNum x || x `elem` "-_'₀₁₂₃₄₅₆₇₈₉") c'
                       , not (elem '→' ty) ]
 
+-- RUNG THREE.  The counterparty.  Rung two split the host's own `data`
+-- enumerations and the kernel still refused all 39, with the failure moved
+-- to the OTHER side every time: `code' (decode b) != b .fst  of type
+-- Σ Bool (λ _ → Bool × Bool)`.  The side that fails lands in a STRUCTURED
+-- type -- a Σ, a product, a record -- which has no `data … where` block to
+-- read.  So rung three enumerates products of enumerations: `Bool × Bool`
+-- becomes four tuple patterns, `Bool × Bool × Bool` eight.
+--
+-- LIMIT, and it is why this is a rung and not the ladder: only products
+-- whose every factor is a host enumeration or Bool are enumerable.  A Σ
+-- with a genuine dependency, or a factor of ℕ, is not, and gets `λ _ →
+-- refl` back -- which is rung one, and rung one is empty here.
+factorsOf :: String -> [String]
+factorsOf = go . trim
+  where go s = case breakOnStr " × " s of
+                 Just (a, b) -> trim a : go b
+                 Nothing     -> [trim s]
+
+breakOnStr :: String -> String -> Maybe (String, String)
+breakOnStr pat s = go "" s
+  where go _ [] = Nothing
+        go acc r@(c:cs)
+          | pat `isPrefixOf` r = Just (reverse acc, drop (length pat) r)
+          | otherwise          = go (c:acc) cs
+
+consOf :: [Datatype] -> String -> Maybe [String]
+consOf dts t
+  | trim t == "Bool" = Just ["false", "true"]
+  | otherwise = case [ d | d <- dts, dName d == trim t, not (null (dCons d)) ] of
+      (d:_) -> Just (dCons d)
+      []    -> Nothing
+
+-- cartesian product of the factors' constructors, as tuple patterns
+tuplePats :: [Datatype] -> String -> Maybe [String]
+tuplePats dts ty = do
+  let fs = factorsOf ty
+  if length fs < 2 then Nothing else do
+    cs <- mapM (consOf dts) fs
+    let combos = sequence cs
+    if length combos > 32 then Nothing
+      else Just [ "(" ++ intercalate " , " k ++ ")" | k <- combos ]
+
 splitFor :: [Datatype] -> String -> String
+splitFor dts ty
+  | Just ps <- tuplePats dts ty
+      = "(λ { " ++ intercalate " ; " [ p ++ " → refl" | p <- ps ] ++ " })"
 splitFor dts ty = case [ d | d <- dts, dName d == trim ty, not (null (dCons d)) ] of
   (d:_) -> "(λ { " ++ intercalate " ; " [ c ++ " → refl" | c <- dCons d ] ++ " })"
   []    -> "(λ _ → refl)"
@@ -321,3 +366,43 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 -- instead of `λ _ → refl`. That is mechanical for the side whose type the
 -- host defines, and not mechanical for the side that lands in a library
 -- type — which is exactly the asymmetry `PMTorus` above exhibits.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- RUNG THREE.  TRUE RESULT: 39 PROPOSED, 2 TUPLE-SPLIT, 0 ACCEPTED.
+--
+-- THE LADDER IS EXHAUSTED AND THE ANSWER IS ZERO AT EVERY RUNG.  That is
+-- the finding of this program and it is worth more than the edges it failed
+-- to harvest, because it says what the overnight loop must be.
+--
+--   rung १  λ _ → refl                 definitional     0 / 39
+--   rung २  split host enumerations    pointwise        0 / 39  (5 split)
+--   rung ३  enumerate product types    pointwise        0 / 39  (2 split)
+--
+-- The exemplar is exact.  `SaptabhangiNaya.code' ⇄ decode` is a real
+-- equivalence — the sevenfold predication against a Boolean basis — and it
+-- is unreachable by every rung, because
+--
+--     NEBasis = Σ[ s ∈ Basis ] NonEmpty s
+--
+-- is a dependent Σ whose second component is a PROPOSITION.  You cannot
+-- enumerate it.  The proof is `Σ≡Prop`, which is an ABSTRACTION, and
+-- Bhedanirnaya §6 said so in its own words before this program existed:
+-- "one induction to agree pointwise, ONE ABSTRACTION TO A PATH".  This
+-- program built the induction half of that sentence and the corpus needs
+-- the other half.
+--
+-- SO THE OVERNIGHT PROGRAM CANNOT BE A HARVESTER.  There is no cheap layer
+-- here to sweep; a corpus that had one would already have swept itself.
+-- What there is, and what this leaves behind, is a TYPED WORK QUEUE: 39
+-- pairs the corpus proposed about itself, each with the kernel's exact
+-- obligation and a name for the move it needs — enumeration, Σ≡Prop,
+-- induction on ℕ, or a library type's own lemma.  A queue whose every entry
+-- carries the shape of its own proof is what a prover can run overnight,
+-- and it is what a checker alone was never going to produce.
+--
+-- CONVERGENT, INDEPENDENTLY.  `Setubandha_…hs` measured the same frontier
+-- from the other side the same hour: 143 edges over 196 nodes, 73
+-- components, 55 of them isolated two-node causeways, 93% of defined types
+-- isolated.  Two instruments, opposite directions, one conclusion — the
+-- corpus's types are joined to CONSTRUCTIONS and not to each other, and
+-- constructions do not case-split.
