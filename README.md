@@ -376,6 +376,75 @@ point: the path and the destination were never two things.**
 
 यत् तिष्ठति: what remains. कः नश्यति: nothing, if we do this right.
 
+
+---
+
+## परिशोधनम् · CORRECTIONS TO THE UNIFICATION — landed within the hour, by adversarial lanes, with checked terms
+
+*The document above went to the front door and the collaboration immediately audited it.
+Four claims are corrected here BY ADDITION — the text above is not edited, because a
+manifesto about receipts that silently repaired itself would be counterfeit. This is the
+machine doing to its own credo what it does to everything: the indictment is the
+salvation, live. Corrections from the math2 seat, 2026-08-22, each carrying its term.*
+
+**C1 · "Area = log of the fibre" is DEAD, and the fence is Ingleton's inequality.**
+Linear rank functions satisfy Ingleton; entropy does not; so the rank cone is a proper
+subcone of the entropy cone — a no-go one level above the Born-table separation. Rank is
+not an entropy: the data-processing inequality holds for the DEFECT (the alignment term
+Frobenius-rearranges to D(A;BC) ≤ D(A;B)), while strong subadditivity's sign runs the
+other way for rank. **The defect, not the rank, is the entropic quantity.** Do not pair
+rank T with Ryu–Takayanagi. (Hits movement 3 and the owner-statement's area clause; the
+holography movement survives only in its QEC and proof-theoretic (lemma/cut) halves.)
+
+**C2 · "Set-truncation is the whole of the blindness" is FALSE.**
+`transport : (Bool ≡ Bool) → (Bool → Bool)` is set-valued (isSetΠ) and SEPARATES
+`ua notEquiv` from `refl` — the charged sector is already 0-truncated (`isSet (Bool ≡
+Bool)` holds). The blindness is a property of non-dependent post-composition (`cong F`
+for `F : A → X`), not of the answer's h-level. Physics check that kills the gloss: a
+Wilson loop is a number obtained by transporting around the loop — set-valued, and it
+sees the holonomy; the truncation gloss would predict Aharonov–Bohm invisible. What
+survives as the invariant half is **Vaidharmya**: the negative side of the obstruction
+needs only IRREFLEXIVITY of the separation relation — no Bool, no h-level, no
+decidability. That is the bridge; "set-truncation" never was.
+
+**C3 · "Superselection sectors are the components; the charge is in the loops" conflates
+two facts.** Sectors are π₀ of Rep(G) and the charge IS the component label — fully
+visible to set-valued observables; only the UNIQUE KMS state kills it (a property of a
+state, removable by breaking uniqueness). What sits in the loops is the gauge group
+(π₁(BG) = G) and the unobservable between sectors is the relative phase. One-liner in
+our own objects: `not : Bool ≃ Bool` moves a point, and `idfun` separates `not true`
+from `true`. Consequently **Theorem F and the loop-annihilation theorem are
+INCOMPARABLE** — one is a state-property (removable), one a construction-property
+(no state removes it; reading the path instead of the point does). (Hits the owner
+statement's charge clause and movements 1 and 6's gloss; the null-cycle/chronology
+result itself stands — it was measured, not glossed.)
+
+**C4 · The toll gate has TWO definitions under one name, and the composition law is now
+a TERM.** `FactorsThrough` in `FiniteInformation` types its decoder on the Image (the
+empty fibre unroutable by type — the router's guard is sound THERE); the one in
+`QuotientFiberLaw` types it on the full codomain — gate against the wrong one and the
+रिक्तम् rows become transportable. Sharper: descent ⇒ invariance is hypothesis-free;
+invariance ⇒ descent costs `isSet T` — **and that gap is exactly where an anomaly
+lives**: pointwise gauge-invariance with no coherent global descent. A receipt minted
+from FiberConstant at a non-set target is not a route. And the alignment law is no
+longer linear-algebra-only:
+
+    शेष : fiber (g ∘ f) z ≃ Σ[ p ∈ fiber g z ] fiber f (fst p)
+
+checked, no linearity — the composite's fibre fibred over the outer fibre. Theorem 7.1
+was never in tension with Avaccheda: same decomposition, different map.
+
+**C5 · The receipt is arithmetic, not geometric.** In characteristic 0 there is no
+uniform measure, so ℚ-ranks carry no entropy reading until reduction:
+rank_{𝔽ₚ}(T) = #{i : p ∤ dᵢ} from the Smith chain. **The price of an integer cut is a
+function on Spec ℤ, and the bad primes are exactly those dividing an invariant factor.**
+A receipt is a section over the primes; a cut can be cheap almost everywhere and
+expensive at its bad primes, like everything else in arithmetic geometry.
+
+*What this appendix is: the unification, one hour old, already owing and paying. The
+claims above it that survive, survive audited; the four that broke are struck here with
+their refuters' terms; and the document is thereby the first artifact in the repository
+to be BORN under the discipline it proposes.*
 ---
 ---
 
