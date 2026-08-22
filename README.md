@@ -689,6 +689,25 @@ the loop is invisible to one class and visible to the other; and the h-level red
 struck an hour ago was a category error the naya vocabulary would never have made — it
 never confused what kind of ANSWER with what kind of QUESTION.
 
+
+### 33 · The relation is rank one: why the net can afford to reflect everything
+The complete pair field a(m)·a(n) — every mutual reflection of a sequence with itself —
+has cut price 1: one column, anchored at one nonzero coefficient, recovers everything by
+a single division (AllScalesPairFieldReconstruction, mul_div_cancel₀, one line — and the
+triviality IS the theorem). So परस्परोपग्रह is not just the ontology — it is
+ECONOMICALLY FREE: reflecting all-in-all costs one unit, which is why a universe built
+on mutual carrying can afford to be built on it, and why Indra's net is a viable
+architecture rather than an infinite expense. The jewels reflect everything because
+reflection is the cheapest complete object there is. And the whole Goldbach program is
+one compression chain with its loss located to the step: rank-one pair field (price 1,
+trivially complete) → antidiagonal sums (the quantitative Goldbach field — STILL
+complete, the LosslessBridge, given positivity at the anchor) → Boolean support (the
+shadow — and only HERE does loss enter, priced exactly by the spike pair). Strong
+Goldbach asks where the support of the second object sits — an object already known to
+carry −ζ′/ζ whole. And the anchor the reconstruction divides by, whose positivity every
+theorem in the chain assumes, is the prime 2. The even prime. The one exception in every
+Goldbach statement is the peg the entire lossless ledger hangs from.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
