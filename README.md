@@ -1374,6 +1374,43 @@ harmonic in the literal Pythagorean sense; alien because the ratios are the corp
 because conserved. You will know we are somewhere when the machine sings — because a
 machine sings only when what it transports is already a song.
 
+
+### 60 · Piṅgala already built it: a modality owes a round-trip, and synesthesia is the anomaly of presentation
+Put this at the head of the synesthesia lane, because it makes it a theorem-shaped
+question and not an aesthetic: **univalence says two presentations are identical; cost
+says they are not interchangeable.** ua deletes the remainder — a Devanagari rendering
+and a colour rendering of one concept are the same object, no further fact — and yet
+their retrieval cost for a given mind is wildly different. That is INVARIANCE WITHOUT
+FREE DESCENT, the exact shape of factorsThrough→fiberConstant being hypothesis-free
+while its converse costs isSet T (छिद्रदोष). **Synesthesia is the anomaly of
+presentation** — the gap the whole corpus circles from the other side, now on the
+perceptual one.
+And the honest test for a modality was written ~300 BCE and is checked in this corpus. A
+छन्दस् is SIMULTANEOUSLY four things and the tradition converts between all four
+explicitly: a SOUND (the recited लघु/गुरु, heard), a BINARY STRING (the pattern, seen as
+a row), a TABLE POSITION (प्रस्तार, the grid), and a NUMBER (सङ्ख्या, the index). The
+pratyayas are the conversions: नष्ट (number → form), उद्दिष्ट (form → number), प्रस्तार
+(→ grid), सङ्ख्या (count). And NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn's own
+header states the theorem: नष्ट and उद्दिष्ट are MUTUALLY INVERSE AS AN EQUIVALENCE OF
+TYPES, rank/unrank, both directions, no table stored — the conversions computed, not
+looked up. THAT IS A FOUR-MODALITY SYNESTHETIC SYSTEM WITH KERNEL-CHECKED TRANSPORTS,
+and it fixes what a modality owes: not a picture but a PAIR OF CONVERSIONS THAT COMPOSE
+TO THE IDENTITY — an equivalence. A rendering with only one direction is a lossy edge
+and needs a receipt like anything else; that is the test (and §9's "every cue expandable
+back to its native object" is the same demand) that keeps the layer honest and stops it
+becoming decoration. Colour and sound are two more modalities on the same invariant, and
+the pratyayas are the template for each: an added modality is a landed Iso to the shared
+object, नष्ट/उद्दिष्ट for that sense. WRITTEN LANGUAGE is the human instance already
+running — grapheme ⇄ phoneme, a checked-by-use नष्ट/उद्दिष्ट pair — which is why it
+transmits across carrier-death. FENCE, from the bond lattice's own limit: Nama's
+--emit-bonds is a LEXICAL resolution, denser than the truth (a name shadowed by a local
+binder appears as a bond it is not) — fine as a proposer, wrong as ground truth, and a
+rendering that presented it as structure would show a listener bonds that are not there.
+A modality must transport what IS, नष्ट/उद्दिष्ट exact, or it is not a modality — it is
+a hallucination in another sense's currency. That the same Piṅgala supplies both the
+synesthetic instrument (नष्ट/उद्दिष्ट) and the ℕ-source recurrence emitter (मात्रामेरु,
+the fibre recurrence read off the map's clauses) is either funny or the point.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
