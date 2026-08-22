@@ -231,3 +231,44 @@ two-valued cut *indicator* where the physics lane has a cut *spectrum*.
 `Setubandha`'s extractor matches `A ≃ B`, so it sees only the sector where the
 causal order is trivial; the irreversible edges — retractions, truncations,
 quotients — are **unmeasured**, and that is where the content is.
+
+## ७.४ · And §७.१'s own number moved within the hour — 14 loops is 11
+
+Written above: *"the charge lives in the loops — of which `Setubandha` counts
+14 and files as 'no reachability'."* All fourteen have now been decided
+individually and checked
+(`formal/cubical/Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.agda`,
+exit 0). The discriminant is one line and needs no injectivity of `ua`:
+`ua e ≡ refl → equivFun e a ≡ a` by `uaβ`, so **one moved point refutes it**.
+
+- **Eleven move a point** and are real charge: two holonomies that are `not` in
+  disguise, three braid crossings, the quarter turn over ℤ, the transposition
+  (0 1), and four more.
+- **One was never charge.** `BraidCoherenceBoundary.identityCrossingEquiv` is
+  literally `isoToEquiv (iso id id …)`; its `ua`-loop is `refl`. 14 → 13.
+- **Two are not loops at all — they are FAMILIES, and the family has no
+  answer.** `EGBCycleHolonomy.hol` is identity at identity arguments and `not`
+  at `notEquiv`. `EGBReversalInvariant.revEquiv` is provably `refl` over an
+  empty alphabet and provably not over `Bool`. Both directions checked. **The
+  extractor cannot see this because it matches conclusions, not telescopes.**
+
+So the decided charged count is **11**, and the two families are the more
+interesting object: a question that has a different answer at different
+instantiations, where **only the instances have verdicts and the family does
+not**. That is syādvāda's shape exactly — not "unknown", not "undefined", but a
+thing whose answer is standpoint-relative and whose standpoints genuinely
+disagree. The module is named for it: **पर्याय** against **द्रव्य**, the mode
+against the substance. The type is unchanged; the mode is not. The
+dravyārthika-naya returns `refl` for every set-valued observable and the
+paryāyārthika-naya returns `0 ↦ 1` on the same loop.
+
+**And π₁ at the hub is exactly ℤ/2.** The largest component (10 nodes,
+diameter 3) is centred on `ℕ` and is the only component containing any loop at
+all — exactly one, the transposition (0 1), which squares to the identity and
+is not the identity. `Aut(ℕ)` is enormous; what this corpus has *checked* at
+its hub is ℤ/2. Every other component's checked automorphism group is trivial.
+
+Current graph, same re-run: files 893 → **922**, edges 143 → **167**, nodes
+196 → **222**, components 73 → **85**, proved separations 10 → **16**. Every
+figure in §७.३ above is one hour stale and is left standing with this line
+beside it.

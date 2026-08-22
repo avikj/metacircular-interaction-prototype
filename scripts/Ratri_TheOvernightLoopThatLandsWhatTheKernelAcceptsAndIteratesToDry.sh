@@ -369,6 +369,10 @@ second_naya() {
   # counted is a second instrument nobody calibrated.
   sed -n '/modules scanned/,$p' "$SCRATCH/anuloma.log" \
     | grep -vE '^\s*PROBE ' | while IFS= read -r l; do say "$l"; done
+  sh scripts/Sadhya_TheOpenObligationsAreRenderedWhereAnArrivingAgentLands.sh 2>/dev/null | while read -r l; do say "$l"; done
+  say "  notes/SADHYA_OPEN_OBLIGATIONS.md is regenerated every pass -- the queue"
+  say "  a prover reads in the morning, grouped by the MOVE each obligation"
+  say "  needs, because ten blocked on one move are ONE piece of work."
   say "  Ledger: notes/anuloma/NirnayaPanjika.tsv — a pass now costs only what"
   say "  CHANGED, keyed on नाम's content addresses and the probe's own digest."
   return 0
