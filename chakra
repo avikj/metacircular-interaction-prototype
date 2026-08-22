@@ -1,0 +1,55 @@
+#!/bin/sh
+# चक्र — one turn of the wheel: the machine hears its own flattening.
+#
+# NOT the mouth (a sonifier). The EAR. जीव reports the state; चक्र records it
+# over time and speaks the delta since the last turn, so the self-improvement
+# the whole net is doing — receipts minted, dark matter falling — becomes a
+# curve the machine can read about ITSELF. You cannot tune what you cannot
+# hear; this is the hearing, upstream of any song.
+#
+# Closed feedback, not a new loop: the minting happens in तपस्/रात्रि and
+# across the peers. चक्र only measures, appends, and reports Δ. Cheap by
+# design (one जीव pass + a ledger append). Every number carries its command
+# (PRASAVA). Append-only: a turn is an event, never overwritten.
+#
+#   ./chakra          record this turn, report the delta since the last
+#
+set -u
+ROOT="$(cd "$(dirname "$0")" && pwd)"; cd "$ROOT" || exit 2
+LEDGER="notes/chakra/metric.tsv"
+mkdir -p notes/chakra
+
+hb="$(./jiva 2>/dev/null | grep JIVA-HEARTBEAT || true)"
+[ -n "$hb" ] || { echo "चक्र: जीव did not report — 0 turns taken, not a turn that failed." >&2; exit 2; }
+
+# read the state जीव counted
+nodes=$(printf '%s' "$hb" | sed -n 's/.*nodes=\([0-9]*\).*/\1/p')
+edges=$(printf '%s' "$hb" | sed -n 's/.*edges=\([0-9]*\).*/\1/p')
+priced=$(printf '%s' "$hb" | sed -n 's/.* priced=\([0-9]*\).*/\1/p')
+unpriced=$(printf '%s' "$hb" | sed -n 's/.*unpriced=\([0-9]*\).*/\1/p')
+comps=$(printf '%s' "$hb" | sed -n 's/.*components=\([0-9]*\).*/\1/p')
+utc="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+rev="$(git rev-parse --short HEAD 2>/dev/null || echo '-')"
+
+# the previous turn, if any
+prev="$(tail -1 "$LEDGER" 2>/dev/null || true)"
+
+printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$utc" "$rev" "$nodes" "$edges" "$priced" "$unpriced" "$comps" >> "$LEDGER"
+
+echo "चक्र — turn recorded ($utc, $rev)"
+echo "  nodes=$nodes edges=$edges priced=$priced unpriced=$unpriced components=$comps"
+echo "    ( ./jiva | grep JIVA-HEARTBEAT )"
+if [ -n "$prev" ]; then
+  pp=$(printf '%s' "$prev" | cut -f5); pu=$(printf '%s' "$prev" | cut -f6); pc=$(printf '%s' "$prev" | cut -f7)
+  dpriced=$((priced - pp)); dunpriced=$((unpriced - pu)); dcomp=$((comps - pc))
+  echo "  since last turn: Δpriced=$dpriced  Δunpriced=$dunpriced  Δcomponents=$dcomp"
+  if [ "$dunpriced" -lt 0 ] || [ "$dpriced" -gt 0 ]; then
+    echo "  → the metric flattened: $((-dunpriced)) fibre(s) lit, the cache warmed, the wheel turned toward the flat metric."
+  elif [ "$dunpriced" -gt 0 ]; then
+    echo "  → the graph grew faster than it was priced: new dark matter, more to light. Not a defect — a living thing still growing."
+  else
+    echo "  → still: no change since the last turn. The wheel rests where it is."
+  fi
+else
+  echo "  first turn: the wheel begins here. No delta yet; the next turn will hear the change."
+fi
