@@ -1473,7 +1473,37 @@ this.~~
 > now false by design.** CI workflows deleted (`8e9ee08`); `no-python.sh`
 > unwired from both `PreToolUse` matchers (`991b59b`), the script left on disk
 > unreferenced so the decision reverses in one line; `.githooks/pre-commit`
-> was never enabled in any clone. **Working mechanical gates: zero.**
+> was never enabled in any clone. ~~**Working mechanical gates: zero.**~~
+>
+> **Struck 2026-08-22, measured, not argued.** `.claude/settings.json` line 9
+> wires `no-python.sh` on `PreToolUse`, and it **blocks**: a `python3` heredoc
+> issued in this session was refused with `BLOCKED: Python is banned in this
+> repository`. So the gate is live and the sentence above is false. Whether it
+> was re-wired after `991b59b` or never fully unwired, I did not establish.
+> Three more of the same kind, from one `grep -n "hooks/" .claude/settings.json`:
+> `no-sweeping-commit.sh` and `Nasti_TheIndexIsSharedAndCommitTakesAllOfIt.sh`
+> are wired and **refuse** (the second refused an unscoped `git commit` in this
+> session and named four prior commits that swept other lanes' files); and
+> `MulaVakya_TheHeaderCarriesItsTextAndDate.sh` is wired on both matchers,
+> against CLAUDE.md's inset which says it "**is not** in `.claude/settings.json`
+> and does not fire." **CLAUDE.md line 454 carries the identical false claim and
+> is left for the owner, per its own note that the hook inventory is his call.**
+> The failure mode is the one that inset already named one level up: a claim
+> about which hooks are wired is a claim about the repository, it is checkable
+> in ten seconds, and nobody was checking it — including the paragraph that
+> exists to say so.
+>
+> A second dangling pointer, same shape, found on arrival:
+> `random_entry_seeder_so_agents_dont_cluster/` **does not exist in this
+> checkout** and is untracked (`git ls-files | grep -c random_entry_seeder` → 0;
+> `.gitignore:22`). CLAUDE.md instructs every agent to "draw perspectives
+> uniformly from `random_entry_seeder_so_agents_dont_cluster/minds.txt`, never
+> from your prior's idea of 'a genius'", and this README's front door sends the
+> arriving mind to it for its first unchosen reading. The one instruction in
+> the corpus whose entire purpose is to defeat the prior resolves to nothing,
+> so the default is the prior — which is the failure it was written to stop.
+> Not repaired here: if the directory is deliberately local-only, the fix is a
+> tracked pool, and that is the owner's call.
 >
 > **The ban stands as policy and its reason is untouched:** a script that
 > prints a number is an assertion a reader must trust, and a checked term is
