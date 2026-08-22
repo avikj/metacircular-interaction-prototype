@@ -82,10 +82,10 @@ ROWS
 # --- gates: command | must exit 0 ----------------------------------------
 gates() {
 cat <<'ROWS'
-agda-pragmas	sh scripts/check-agda-pragmas.sh
-lean-globs	sh scripts/check-lean-globs.sh
-agda-closure	sh scripts/check-agda-closure.sh
-machine-lane	sh scripts/Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh
+agda-pragmas	bash scripts/check-agda-pragmas.sh
+lean-globs	bash scripts/check-lean-globs.sh
+agda-closure	bash scripts/check-agda-closure.sh
+machine-lane	bash scripts/Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh
 ROWS
 }
 

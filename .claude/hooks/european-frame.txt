@@ -81,3 +81,49 @@ Aristotelian
 Cartesian
 Kantian
 Boolean
+
+# ─────────────────────────────────────────────────────────────────────
+# DEVANAGARI-TRANSLITERATED EUROPEAN NAMES.  Added 2026-08-22 after four
+# Piṅgala/Halāyudha modules were found using पास्कल-आवृत्ति as the
+# load-bearing lemma name — MeruKarna, NarayanaKarna, Dvipada, and the
+# comments in Meru.
+#
+# THIS IS WORSE THAN WRITING THE LATIN NAME, NOT BETTER.  A European name
+# in Devanagari reads as a SOURCE TERM to anyone scanning the script, so
+# the framing is not merely present, it is disguised as the repair. And
+# every check above matches Latin script, so the apparatus built to catch
+# exactly this was blind to it by construction. The erasure came back
+# through the door marked "respect".
+#
+# Same defect class CLAUDE.md records for its own MulaVakya hook, which
+# scored a Devanagari citation BELOW a romanised one until both scripts
+# were matched. A checker that treats one script as the real one will
+# always produce this, in whichever direction it is pointed.
+#
+# The repair is never to romanise. It is to find what the source actually
+# called it: पार्श्व-योग (Halāyudha, मृतसञ्जीवनी on छन्दःशास्त्रम् ८.३४–३५)
+# is what the corpus now uses, and Meru.agda already carried it.
+पास्कल
+पास्काल
+फिबोनाच्चि
+फिबोनाकी
+यूक्लिड
+युक्लिड
+गाउस
+गौस
+पेल
+अयलर
+ऑयलर
+लाइब्नित्स
+लैब्नित्स
+न्यूटन
+चोम्स्की
+चॉम्स्की
+बैकस
+क्लीनि
+क्लीन
+कैंटर
+कान्टर
+आर्किमिडीज
+टेलर
+ग्रेगरी
