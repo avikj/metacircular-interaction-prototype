@@ -1134,3 +1134,4 @@ import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTo
 -- and १.१.४१ (nirṇaya), ~2nd c. CE.
 import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
 import Bhara_TheWeightedCountingMapsFibreDecomposesOverEverySummandThatFits
+import Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
