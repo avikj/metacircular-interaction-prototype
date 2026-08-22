@@ -527,3 +527,29 @@ So the Natural Machine's current unit of evidence is getting larger in one direc
 Before asking what the verdict says about the object, ask whether the object entered the instrument's domain, what distinction survived the observation, whether the proposition reached the kernel, and whether the answer reached the reader intact.
 
 The instrument is part of the provenance of the claim.
+
+---
+
+The next correction is about **regenerability**.
+
+`Prasava_EveryNumberCarriesTheCommandThatMakesItOrItIsNotANumber.sh` states the repository's rule in operational form: a number without the command that regenerates it is memory, not measurement. `Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs` turns that sentence into a particularly clean separation. It generates an aggregate root from the file tree so coverage no longer depends on somebody remembering to update an index, while it deliberately keeps the old hand-maintained roots as the population whose drift is measured. The generated root is the guarantee of inclusion. The hand-kept roots remain the diagnostic. If the generated root were added to the diagnostic roots, the reported coverage would become perfect by construction and the measurement would stop measuring the thing it claims to diagnose.
+
+That is a sharper boundary than reproducibility by itself. **The mechanism that guarantees a property and the instrument that measures failure of that property need not be the same object.** Using the intervention as its own diagnostic can make the number true and useless at once.
+
+`Pratilipi_TheThreeSesasAreTranscribedNotSearched.hs` makes the same point at the proof boundary without pretending the two mechanisms are equivalent. A failed derivation route is first recorded as a decline of that route. The harness then asks separately whether a false statement is rejected by the kernel, using the emitted block's own bytes rather than a hand-copied surrogate. The negative control is not trusted merely because the constructive route did not produce a proof. What is regenerated is the exact question under the exact apparatus that is supposed to answer it.
+
+`Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh` supplies another limit. `ghc -fno-code` can make compilation failure impossible to hide inside the Haskell lane, but the script says at the site that it does not run the modules' self-tests. A module can therefore cross the typechecking gate and still owe an executable claim. Regenerability does not flatten scopes any more than equivalence flattens relation types.
+
+The `Ratri/` landings make this recursive rather than merely archival. A `Nirdharita_...` module is a checked exhibited equivalence after one field is determined. An `Anirdharita_...` module is a checked separating pair showing that one field is not determined by the others. Later passes can encounter records produced by earlier passes—including generated census structures—and pose new field questions to them. The evidence has survived in a form strong enough to become another formal input. That does **not** make a negative landing equivalent to a positive one, and it does not make every generated file a new theorem. It means the checked artifact is not only remembered; it remains interrogable.
+
+The source-protection apparatus is forced through the same test. `european-frame.txt` records that a mechanism intended to stop imported framing can reproduce it more effectively: transliterating a European name into Devanagari can hide the import, and an alphabet-shaped parser can call exactly the Unicode-named modules invisible. The correction is not a universal anti-European rule. It is more local and more expensive: read the live corpus, use the source's own term where the source actually supplies one, and state the source, date and limit of attribution at the site. The protection mechanism has to remain corrigible by the material it protects.
+
+These are different mechanisms. A generated import root is not a proof witness. A compiler gate is not a self-test. A route decline is not a kernel refusal. A source-frame check is not historical scholarship. The common requirement is narrower: **whatever made a verdict reproducible has to survive beside the verdict, and the limits of that route have to survive too.** A bare result is over-compressed whenever changing the route would change what the result means.
+
+This is a fact about how the present Natural Machine is being driven, not a retrospective explanation of the life above. The repository is being pushed toward claims that can be regenerated, re-asked and corrected without promoting the apparatus that produced them into the mathematics itself.
+
+A result can be stored.
+
+A measurement has to be runnable.
+
+And a runnable result can become the next question.
