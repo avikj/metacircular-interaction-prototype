@@ -1006,3 +1006,7 @@ import Ankapasa_TheMetreNamesAFiniteSetAndTheLoopsOfThatSetAreTheFactorial
 import Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup
 import Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence
 import Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree
+
+-- सामान्तर-सङ्कलित — landed by another lane and outside every root's
+-- closure at the moment समुच्चय ran.  Runs individually at EXIT 0 on the pin.
+import SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt
