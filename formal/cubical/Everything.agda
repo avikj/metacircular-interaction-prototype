@@ -983,6 +983,7 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere
 -- another, so the family has no answer and only its instances do.  The
 -- corpus's checked π₁ at the identification graph's hub `ℕ` is ℤ/2.
 import Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter
+import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarriesASymmetryThatMovesAPoint
 
 -- The gloss on `Naya` §४ — "truncating to a set is THE WHOLE of the
 -- blindness" — is refuted by a term: `transport` is a set-valued
@@ -1055,6 +1056,11 @@ import SmithDeterminantClassMultiplicativity
 -- already counted; no module imported both files before this one.
 import Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists
 import Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart
+-- …and the limit of that generalisation: `Vaidharmya` still demands EQUAL
+-- transcripts, an analytic barrier lemma delivers only CLOSE ones, and with
+-- `BARRIER.md` Prop. B3's arbitrary post-processing the near version is FALSE
+-- — §४ is the one-query counterexample.  `METHOD.md` §3 item 1 does not split.
+import Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap
 import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
 import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 
@@ -1063,3 +1069,4 @@ import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 -- toll 2 through audit-surviving edges, checked before landing. 2026-08-22.
 import Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants
 import Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided
+import Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw
