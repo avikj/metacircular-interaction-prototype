@@ -65,7 +65,16 @@ stated means. Instances: **R0030**, verbatim — "a theorem that says a thing is
 there and an organ that cannot reach it, with no vocabulary for the
 difference"; the organ's failure was that its boolean report *was* the missing
 vocabulary, T3 collapsed to T1. Also: Theorem K's depth law
-($X\sim\exp(cT\log^2T)$ — the pair correlations exist and are priced);
+(~~$X\sim\exp(cT\log^2T)$~~ — **struck 2026-08-22, lane क्षेप: superseded by
+`HOLOGRAM.md` §7 Theorem K′. The live prices are $\exp\Theta(T^{1/2}\log^{3/2}T)$
+for **sum**-spectrum atoms and $\exp\Theta(T)$ for **difference** atoms; T3's
+"pair correlations" are the difference sector, so the price here is
+$\exp\Theta(T)$. The T3 classification is untouched — a budget-absence
+certificate needs *an* exact resource bound, and the retraction replaces the
+bound rather than removing it. That the bound was wrong for a reason (a floor
+measured at one scale, hiding its $X$-dependence) is itself the cleanest
+instance of T3 this note has: the resource bound was the part nobody
+checked**) — the pair correlations exist and are priced);
 `WIDTH.md` §3's correctly-parked question; the $M(z)=e^{(1+o(1))\sqrt X}$
 sampling obstruction. D0026 §6.1's mechanism C names this class; R0030 is its
 measured instance.

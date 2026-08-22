@@ -584,7 +584,7 @@ rows align exactly:
 | presentation | probe class | blind spot |
 |---|---|---|
 | finite-multiplicative (divisibility) | SIEVE_d | **parity-protected** — λ, μ exactly invisible, gauge no-go |
-| additive-windowed | WL_d(L,r) | **bulk-blind** — correlations cost exp(cT log²T), Theorem K |
+| additive-windowed | WL_d(L,r) | **bulk-blind** — ~~correlations cost exp(cT log²T), Theorem K~~ **STRUCK 2026-08-22. That exponent is RETRACTED: `HOLOGRAM.md` §7 supersedes Theorem K(b), and `BARRIER.md:143` already carries the strike this row was copied from. For correlation-grade content the figure is `exp(Θ(T))` (§5); the `exp(Θ(T^½ log^{3/2}T))` of §7 is for SUMS. An audit found this standing unmarked in ELEVEN places including `TARGET.md:17` and `HOLOGRAM.md:200` itself — the corrections were marked and the claims were not, which is this corpus's most repeated defect and it was sitting in the file every arriving agent is told to read first.** |
 | global-multiplicative (functional equation used as a *constraint*, not a value) | Tao's entropy decrement | the one known access to Chowla-grade content |
 
 *"the sieve parity barrier, the Theorem-K depth barrier, and the sum-product

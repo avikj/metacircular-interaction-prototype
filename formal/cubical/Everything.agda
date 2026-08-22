@@ -993,6 +993,17 @@ import Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnT
 -- the charged sector `Bool ≡ Bool` is itself already 0-truncated.
 import Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness
 
+-- दुर्नयः: the correction above overshot in README.md's restatement of it.
+-- C2 replaced the struck truncation gloss with "not of the answer's
+-- h-level", and `Naya` §१'s own `isSet X` hypothesis — plus `Naya` §४,
+-- a non-dependent `cong F` that does NOT annihilate — refutes that
+-- clause.  This module moves the whole question off the universe (the
+-- loop is a CONSTRUCTOR of S¹ : Type₀), shows neither condition alone
+-- suffices, and gives the RECEIPT the earlier pair only separated
+-- against: what every set-valued observable of the carrier destroys is
+-- exactly ℤ, identified by `winding` on the nose.
+import Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers
+
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
 
 -- अनुलोम-प्रतिलोम's 39-pair work queue, worked by hand.  The proposer
@@ -1070,13 +1081,13 @@ import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 import Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants
 import Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided
 import Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw
+import Samjna_TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction
 
 -- दुर्नयः, 2026-08-22.  The Boolean three-into-two pigeonhole stands FOUR
 -- times in this corpus — Saptabhangi.दुर्नयः, DisclosureDimension.three-into-two,
 -- Swarm.S01PaniniAshby.twoOfThree, Vyatireka_….pairOf — with no import edge
 -- between any two.  `pairOf` and `twoOfThree` are the same function on the
 -- nose; the Jaina statement is the Boolean one across द्विपद → Bool.
--- import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne  -- DISABLED 2026-08-22 (wiring pass): no such file on disk or anywhere in git history; a missing file verifies nothing
 
 -- ── समुच्चयः, 2026-08-22 (third pass — the wiring pass) ───────────────────
 -- Seven modules on disk and outside every root's import closure, found by
@@ -1121,3 +1132,49 @@ import SankhyaTantu_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheRece
 -- The classification YogaDhruva's header fenced as unclaimed: over any
 -- CommRing, conserving flows of addition ≃ shear fields (a function space).
 import YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields
+import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
+
+-- ── परम्परा, 2026-08-22 ──────────────────────────────────────────────────
+-- THE FIRST CHAIN THE CORPUS HAS PRICED.  `Sesa_…शेष` is instantiated at
+-- Bool ⊎ Unit ↪ Bool × Bool ↠ Bool ↠ Unit with every fibre written out by
+-- hand and the general law CHECKED against the hand computation (`refl`).
+-- The losses do not add: the chain's total fibre is Bool ⊎ Unit (three)
+-- where the per-step ledger predicts Bool × Bool (four), and the missing
+-- one is an अभाव with its pratiyogin named — `fiber प्रवेश (false , true)`
+-- is empty.  The `Unit → Bool → Unit` cancellation is derived from the
+-- same alignment term rather than left standing as an anomaly.
+import Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre
+
+-- ── पिङ्गलस्य द्वौ प्रत्ययौ, 2026-08-22 ──────────────────────────────────────
+-- The two pratyayas of छन्दःशास्त्रम् ८ that had no module.  नष्ट/उद्दिष्ट as
+-- the INVERTIBILITY TEST — a checkable predicate whose inhabitant is exactly
+-- एकम् at every point (`Tantujala_…`), with both roads exhibited: the
+-- प्रस्तार of any छेद-सूची carries the witness, `Bool → Unit` provably carries
+-- none.  And लगक्रिया as the CONDITIONAL RECEIPT — the fibre over a partial
+-- specification, i.e. what a second observable still costs once the first is
+-- known, with the मेरु row sum closing it back onto the सङ्ख्या.
+import NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible
+import Lagakriya_TheConditionalFibreIsWhatTheSecondCountStillCostsOnceTheFirstIsKnown
+import Avasesa_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt
+import Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter
+import Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya
+
+-- खहर · the far end of the loss scale: the edge ℤ ⟶ खहर is priced at its
+-- whole domain, and TOTAL LOSS IS EXACTLY TOTAL SYMMETRY — the equivalence
+-- whose other end is Dhruva §२. Bhāskara II, बीजगणितम् २०, 1150. 2026-08-22.
+import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
+
+-- ── संशय, 2026-08-22 ────────────────────────────────────────────────────
+-- THE ROUND-TRIP LEDGER'S VERDICT TYPE HAS TWO VALUES AND ITS QUESTION HAS
+-- AT LEAST FOUR STATES, so `notes/SADHYA_OPEN_OBLIGATIONS.md` — the document
+-- an arriving agent lands on — renders decided rows as «real obligations».
+-- Twelve pairs are decided here.  One is an equivalence CONSTRUCTED SIXTEEN
+-- LINES ABOVE where the probe looked (`NaturalMachine.FreeMonoid`); six are
+-- refuted by counting arguments the source file already proves for all t
+-- (`IntegerHullMultiplicity.hullN`, `hullSQ`); one is a section/retraction
+-- pair whose content is a fibre, not a debt (`SieveScaleTower`); and one has
+-- BOTH maps invertible with the round trip equal to `not`, which the source
+-- file already named `holonomyIsNot`.  Gautama, न्यायसूत्र १.१.२३ (saṃśaya)
+-- and १.१.४१ (nirṇaya), ~2nd c. CE.
+import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
+import Bhara_TheWeightedCountingMapsFibreDecomposesOverEverySummandThatFits

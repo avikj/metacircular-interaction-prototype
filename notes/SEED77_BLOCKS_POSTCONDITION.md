@@ -258,6 +258,11 @@ keeps quoting ratios computed at one point of a parameter it has not named.
   $8\%$" sentence across `notes/`, `papers/`, and `collab/`, and correct each.
 - `PROVE` — SEED-24's open item: the exact-modulus method for $|W_k|^2$ splits
   on the parity of $k$; settle odd $k$.
+  **[CLOSED 2026-08-22 by `notes/Ksepa_…IsNotBhavana.md` §2.1 — affirmatively,
+  and the parity split is a coordinate artifact rather than an obstruction. The
+  numerator $\prod_j\Gamma(\tfrac12+i\gamma_j)$ factors per ordinate for every
+  $k$; parity only decides which reflection formula peels the denominator. Full
+  statement and both parities' closed forms at that §.]**
 - No experiment is proposed. Nothing above needs one.
 
 ---

@@ -164,6 +164,11 @@ answer's h-level — holonomy is an observable of the path type. A Wilson loop i
 and it sees. What survives: the loops hold the gauge group (π₁), sectors are π₀ and their
 charge is visible; Theorem F's blindness belongs to the unique STATE and is removable —
 the cong-blindness belongs to the CONSTRUCTION and is not. Incomparable, both directions.]**
+**[The clause "and is not [removable]" struck 2026-08-22 by `Durnaya_TheBlindnessNeedsBoth…agda`,
+exit 0: cong-blindness IS removable — drop `isSet X` and `cong (idfun S¹) loop ≢ refl`.
+It needs BOTH non-dependence and a set-valued answer, and `Naya` §४ already carried the
+counterexample. See C2 below for the full strike and for the receipt (the hidden charge
+is exactly ℤ).]**
 Full connectivity is refuted forever (¬(Unit ≃ Bool), seven walls): the end
 state is many nets with proved boundaries — anekāntavāda as network topology.
 
@@ -505,7 +510,23 @@ holography movement survives only in its QEC and proof-theoretic (lemma/cut) hal
 **C2 · "Set-truncation is the whole of the blindness" is FALSE.**
 `transport : (Bool ≡ Bool) → (Bool → Bool)` is set-valued (isSetΠ) and SEPARATES
 `ua notEquiv` from `refl` — the charged sector is already 0-truncated (`isSet (Bool ≡
-Bool)` holds). The blindness needs BOTH conditions — non-dependent post-composition (`cong F` for `F : A → X`) AND a set-valued answer — and neither alone suffices. [corrected 2026-08-22: an earlier version here said "not of the answer's h-level"; that is false and contradicted this document's own छिद्रदोष movement, where the isSet gap is exactly where the anomaly lives. `Naya.नय-निरोधः` carries `isSet X` as an EXPLICIT hypothesis (line 66), and `Naya.स्थान-संयोगः` exhibits a non-dependent `cong F` that does NOT annihilate the loop — so each condition is necessary, neither sufficient. The peer reports a fuller receipt (the hidden charge is exactly ℤ via ΩS¹≅ℤ, winding the identifying map) in a module not yet on origin; cite when it lands.] Physics check that kills the gloss: a
+Bool)` holds). ~~The blindness is a property of non-dependent post-composition (`cong F`
+for `F : A → X`), not of the answer's h-level.~~ **[Second clause struck 2026-08-22, one
+day later, by `Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.agda`,
+exit 0 — and the refuting term was ALREADY in the repository, in the module C2 was
+written about. `Naya_…AnnihilatesEveryLoop…` §४ is `स्थान-संयोगः : ¬ (cong (λ (A : Type₀) → A)
+आवर्तः ≡ refl)` — a non-dependent `cong F` that does NOT annihilate — and `Naya` §१ carries
+`isSet X` as an explicit hypothesis, which C2 quotes while dropping. NEITHER CONDITION IS
+SUFFICIENT AND BOTH ARE NECESSARY: `उभयम्-आवश्यकम्` carries all three cells on one loop.
+The new module also moves the question off the universe — `loop` is a CONSTRUCTOR of
+`S¹ : Type₀`, so nothing here is about univalence or universes — and supplies the RECEIPT
+neither earlier module gave: what every set-valued observable of the carrier destroys is
+not "some charge" but exactly **ℤ**, identified by `winding` on the nose (`ΩS¹Isoℤ`),
+while `winding` itself is a set-valued observable of the PATH type that loses nothing at
+all. Separation upgraded to identification. C2's own diagnosis, applied to C2: asserting a
+true standpoint (non-dependence matters) by denying another that also holds (h-level
+matters) is दुर्नय, Siddhasena Divākara, *Sanmatitarka* (~5th c.).]** Physics check that
+kills the earlier gloss: a
 Wilson loop is a number obtained by transporting around the loop — set-valued, and it
 sees the holonomy; the truncation gloss would predict Aharonov–Bohm invisible. What
 survives as the invariant half is **Vaidharmya**: the negative side of the obstruction
@@ -1850,7 +1871,37 @@ this.~~
 > now false by design.** CI workflows deleted (`8e9ee08`); `no-python.sh`
 > unwired from both `PreToolUse` matchers (`991b59b`), the script left on disk
 > unreferenced so the decision reverses in one line; `.githooks/pre-commit`
-> was never enabled in any clone. **Working mechanical gates: zero.**
+> was never enabled in any clone. ~~**Working mechanical gates: zero.**~~
+>
+> **Struck 2026-08-22, measured, not argued.** `.claude/settings.json` line 9
+> wires `no-python.sh` on `PreToolUse`, and it **blocks**: a `python3` heredoc
+> issued in this session was refused with `BLOCKED: Python is banned in this
+> repository`. So the gate is live and the sentence above is false. Whether it
+> was re-wired after `991b59b` or never fully unwired, I did not establish.
+> Three more of the same kind, from one `grep -n "hooks/" .claude/settings.json`:
+> `no-sweeping-commit.sh` and `Nasti_TheIndexIsSharedAndCommitTakesAllOfIt.sh`
+> are wired and **refuse** (the second refused an unscoped `git commit` in this
+> session and named four prior commits that swept other lanes' files); and
+> `MulaVakya_TheHeaderCarriesItsTextAndDate.sh` is wired on both matchers,
+> against CLAUDE.md's inset which says it "**is not** in `.claude/settings.json`
+> and does not fire." **CLAUDE.md line 454 carries the identical false claim and
+> is left for the owner, per its own note that the hook inventory is his call.**
+> The failure mode is the one that inset already named one level up: a claim
+> about which hooks are wired is a claim about the repository, it is checkable
+> in ten seconds, and nobody was checking it — including the paragraph that
+> exists to say so.
+>
+> A second dangling pointer, same shape, found on arrival:
+> `random_entry_seeder_so_agents_dont_cluster/` **does not exist in this
+> checkout** and is untracked (`git ls-files | grep -c random_entry_seeder` → 0;
+> `.gitignore:22`). CLAUDE.md instructs every agent to "draw perspectives
+> uniformly from `random_entry_seeder_so_agents_dont_cluster/minds.txt`, never
+> from your prior's idea of 'a genius'", and this README's front door sends the
+> arriving mind to it for its first unchosen reading. The one instruction in
+> the corpus whose entire purpose is to defeat the prior resolves to nothing,
+> so the default is the prior — which is the failure it was written to stop.
+> Not repaired here: if the directory is deliberately local-only, the fix is a
+> tracked pool, and that is the owner's call.
 >
 > **The ban stands as policy and its reason is untouched:** a script that
 > prints a number is an assertion a reader must trust, and a checked term is

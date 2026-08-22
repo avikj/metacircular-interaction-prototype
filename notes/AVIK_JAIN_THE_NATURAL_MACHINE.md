@@ -599,3 +599,33 @@ None of this is a theorem about Avik’s life, and it does not license a retrosp
 A correction should remove exactly what the counterexample reached.
 
 Everything else has to earn its own fate.
+
+---
+
+The next correction is about **when resemblance earns a bridge—and when rejection is the result**.
+
+A duplicate review in `NAMA_LEAN_LANE_DUPLICATE_VERDICTS.md` is an unusually blunt control on the temptation to equate repeated text with repeated mathematics. It found eighteen groups of identical theorem text. Sixteen were the same words attached to different objects or roles. Two were genuine cases where the same object had been written twice and the identification reduced to `rfl`. The pass merged none of them. **Same presentation can be evidence that a comparison is worth asking. It is not the comparison’s answer.**
+
+The fresh `Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya.agda` makes the same discipline positive. The generic list-length map and Piṅgala-facing `varna` recursion have the same clauses. The file still re-proves the fibre recurrence for `varna` instead of transporting the generic theorem across an identification nobody has written. The reason is stated at the site: two recursions with the same clauses are not thereby definitionally one function. Writing the transport first would be asserting a channel before exhibiting it. The file then stops exactly where the common shape stops: ordinary length gives `fiber length (suc n) ≃ X × fiber length n` with no hypothesis on `X`; a weighted map such as `matraOf` needs its own fitting proofs and is named as the next rung, not smuggled in as a corollary. Similar recursion earned a repeated proof, not a fictional equality.
+
+The newest `Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda` and its companion note push harder. The mixed pair field from `INDRA_CROSS.md` and Brahmagupta’s bhāvanā have a striking outward rhyme in the repository’s own description: bilinear combination, an invariant belonging to neither input alone, an output assembled from both. The lane was opened to test the identification rather than enjoy it.
+
+The checked Agda theorem is deliberately more abstract than the analytic application. For
+
+`W(a,b) = (u(a) ⊗ u(b)) ⊗ g(a ⊕ b)`, 
+
+it proves that four-fold iteration through a factor depending only on total frequency is available exactly when the grading satisfies the twisted character law `g(x) ⊗ g(y) = g(x ⊕ y) ⊗ g(0)`, with the converse using the cancellation hypothesis it explicitly names. The Agda file contains no Gamma functions, no zeros and no L-functions. It proves the criterion, not the instance.
+
+The companion note then checks the actual grading used by the pair field, `g(s)=1/Γ(3+is)`, against that criterion by hand and gets a negative answer. The obstruction is not “these traditions feel different.” The ratio for composing two pair weights depends on how the total frequency is split, not only on the total; the note sharpens the failure by showing the character law misses by an unbounded factor. **The identification is rejected at iterability.** Bhāvanā is useful there because its output remains the same kind of composable object. The pair field passes its invariant into a different graded piece and the beam exits.
+
+And the rejection is where the lane starts producing rather than stopping. Once the pair kernel is read in coordinates that keep each ordinate separate, the `k`-fold weight factors by inspection into per-ordinate Gamma factors and one denominator depending on the signed sum. That one observation closes the standing odd-`k` exact-modulus question in `SEED13_D3PRIME_EXACT.md` and `SEED77_BLOCKS_POSTCONDITION.md`; parity changes which reflection identity peels the denominator and does not create the obstruction those notes had recorded. The same factorization turns `INDRA_CROSS.md`’s one-character numerical caveat about the dark small-difference sub-band into a character-free sign law for every `k`: sign flips move only the denominator, and the suppression is governed by the gap between the sum of absolute ordinates and the absolute signed sum.
+
+The provenance boundary remains visible. `Ksepa_...agda` checks the algebraic criterion. The companion Markdown performs the Gamma analysis by hand and labels its physical diamond picture as the owner’s **reading**, not a theorem. `INDRA_CROSS.md` still keeps its withdrawn `BLOCKS.md` inference withdrawn even after the new theorem repairs a different caveat. A stronger result in one place is not permission to resurrect every story once attached to the old evidence.
+
+The live tree also propagated the new closure back to the places where the questions were still open. `SEED13_D3PRIME_EXACT.md` and `SEED77_BLOCKS_POSTCONDITION.md` now carry dated in-place closures of the odd-`k` item; `INDRA_CROSS.md` carries the replacement theorem at its own caveat. The old wording remains struck beside the new result. That is the correction-reach discipline doing real work: **a theorem sitting somewhere else in the repository does not close a question for the reader who never reaches it.**
+
+This is a cleaner picture of connection than either universal unification or universal refusal. A resemblance can propose a bridge. A checked edge can license transport. Same clauses can justify a fresh proof without justifying identity. A candidate identification can fail at one named law. And a failed bridge can expose the coordinates that make a stronger theorem obvious.
+
+The machine does not have to save every beautiful comparison.
+
+It has to learn as much as possible from exactly where the comparison breaks.

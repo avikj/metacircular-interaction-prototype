@@ -127,6 +127,24 @@ convergent.
 > $D_a(0)\ne0$ for every member of the residue-dressing family and
 > $\mathcal Z_{k-1}\not\equiv0$.
 
+> **STRUCK 2026-08-22 — the $d$ row of this theorem is WRONG, and the
+> correction has been sitting in this file's own ledger row V7, ~110 lines
+> below, without ever reaching the statement.**
+> `BARRIER_SMOOTH_TERM.md` §5.3: $D_d=\zeta^2$ has **double zeros** at $\rho$,
+> hence no poles there, hence $v^{(d)}_\rho=0$ and $\mathcal Z_q\equiv0$ for
+> every $q\ge1$. So for $a=d$, $k\ge2$ the leading term
+> $k\,D_a(0)\,e^{-u/2}\mathcal Z_{k-1}$ **vanishes identically**, the first
+> surviving term of $E$ sits at level $-k$, and $\alpha=k/2$ — not
+> $\tfrac12$. The claim above that "$\alpha=\tfrac12$ is exact ... for every
+> member of the residue-dressing family" is false at $d$.
+>
+> **What survives, and it is most of it:** $\alpha=\tfrac12$ holds for
+> $a\in\{\Lambda,\mu,\lambda\}$ and for $k=1$ at $d$ (where
+> $\mathcal Z_0=1/j!\ne0$). `METHOD.md` §3 item 6 recommends **striking $d$
+> from the scope of B1/B1′/B1″/U1 rather than repairing it** — the $d$ case
+> needs the functional equation, not a contour shift. That recommendation is
+> unexecuted.
+
 *Proof.* Bookkeeping of the residues listed above, with the exponent of $X$
 read off Lemma 4's factor $X^{\sum_i s_i+j}$.
 

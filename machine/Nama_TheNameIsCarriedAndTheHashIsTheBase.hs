@@ -727,6 +727,47 @@ lanes =
 -- member has no address of its own, and a name that Nama cannot address is
 -- simply absent, which a consumer must read as "no address", never as "no
 -- such definition".
+-- `--emit-bonds` — THE LATTICE.  Added 2026-08-22.
+--
+-- WHY, and it is the correction of a whole instrument.  `Abhijnana` was
+-- matching a fibre to its map BY NAME — stripping module qualifiers and
+-- string-comparing `matraOf` against `PingalaPrastara.matraOf` — and paid
+-- for it with nine deaths in fourteen probes.  Names collide.  `SieveFiber.q`
+-- matched three unrelated fibres because three unrelated things are spelled
+-- `q`.
+--
+-- **BONDS DO NOT COLLIDE.**  `Metre n = Σ[ p ∈ Pattern ] (matraOf p ≡ n)`
+-- does not RESEMBLE a use of `matraOf`; it CONTAINS one, resolved, and this
+-- store already computes that resolution — it is how a definition is hashed.
+-- The join another program was guessing at is an edge that was already here
+-- and was being discarded after every run.
+--
+-- So the recognition rule stops being a heuristic and becomes exact:
+--
+--     a written fibre F is the fibre of f  ⟺  F's body is a Σ ending in an
+--     equation, AND F bonds to f.
+--
+-- Prints, one per line, TAB-separated and nothing else:
+--     <module.name>  <module.name-it-depends-on>
+--
+-- LIMIT, unchanged from the census and load-bearing here: the resolution is a
+-- LEXICAL scan, so a name shadowed by a local binder is counted as a bond it
+-- is not.  That makes the lattice DENSER than the truth and never sparser —
+-- the direction an identity mechanism must err in, because a spurious bond is
+-- a lead the kernel then kills, while a missing bond is a receipt nobody ever
+-- finds.  A `where`-block member still has no address and so contributes no
+-- bonds.
+emitBonds :: IO ()
+emitBonds = forM_ lanes $ \(lang, roots) -> do
+  fs <- concat <$> mapM (listSrc lang) roots
+  ds <- fmap concat . forM fs $ \f -> declsOf lang f <$> readFile f
+  let qual d    = dModule d ++ "." ++ dName d
+      bySuffix  = M.fromListWith (++) [ (dName d, [qual d]) | d <- ds ]
+      bondsOf d = nub [ q | i <- nub (idents (dText d)), i /= dName d
+                      , q <- M.findWithDefault [] i bySuffix, q /= qual d ]
+  forM_ ds $ \d -> forM_ (bondsOf d) $ \q ->
+    putStrLn (qual d ++ "\t" ++ q)
+
 emitAddresses :: IO ()
 emitAddresses = forM_ lanes $ \(lang, roots) -> do
   fs <- concat <$> mapM (listSrc lang) roots
@@ -743,7 +784,8 @@ main = do
   hSetEncoding stdout utf8
   args <- getArgs
   let full = "--full" `elem` args
-  if "--emit-addresses" `elem` args then emitAddresses else report full
+  if "--emit-bonds" `elem` args then emitBonds
+  else if "--emit-addresses" `elem` args then emitAddresses else report full
 
 report :: Bool -> IO ()
 report full = do

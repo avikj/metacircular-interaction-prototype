@@ -15,6 +15,21 @@ venerated.
 |---|---|---|
 | **Fermat** | no. Wiles is modularity; nothing here touches Galois representations or deformation theory | **not a target** |
 | **RH** | the corpus computes *with* the zeros constantly (Theorems D′, D‴, G, H) and has a real barrier theorem about them (Theorem K: correlation-grade information costs $X\sim\exp(cT\log^2T)$). But every one of those is *downstream* of the zeros; nothing here bears on where they are | **not a target; a tool** |
+
+> **STRUCK 2026-08-22 — the exponent in the RH row above is RETRACTED and this
+> file is the last high-visibility site still carrying it unmarked.**
+> `HOLOGRAM.md` §7 supersedes Theorem K(b)'s $\exp(cT\log^2T)$. For
+> correlation-grade content the figure is $\exp(\Theta(T))$ (`HOLOGRAM.md` §5);
+> the $\exp(\Theta(T^{1/2}\log^{3/2}T))$ of §7 is for **sums**, not
+> correlations. An audit on 2026-08-22 found the retracted exponent standing
+> unmarked in **eleven** places — including `HOLOGRAM.md:200` itself, directly
+> contradicted by its own §7. The wrong version is left in the row above rather
+> than erased.
+>
+> **The row's verdict survives and is unaffected**: whatever the depth exponent,
+> every theorem here is downstream of the zeros and none bears on where they
+> are. RH remains a tool and not a target. What changed is the price, not the
+> direction.
 | **Goldbach** | blocked by the parity barrier | **downstream of the target** |
 | **twin primes** | blocked by the parity barrier | **downstream of the target** |
 
