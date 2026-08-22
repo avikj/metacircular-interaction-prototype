@@ -1671,7 +1671,14 @@ SECOND-LAW argument built on it — monotonicity under composition, Knill–Lafl
 support — never used this identity and stands untouched. Derivation, counterexample and the
 identifications this movement takes up are in
 `notes/Sarvasthanam_ThePriceOfACutIsAFunctionOnAllPlacesAndTheDeterminantIsItsArchimedeanReceipt.md`
-§0–§6, landed 22:38 UTC, twenty minutes before this movement.]** It is NOT checked in this
+§0–§6, landed 22:38 UTC, twenty minutes before this movement. **CONFIRMED FROM THE OTHER
+SIDE WITHIN THE HOUR, and it is the same distinction:** `Sarvatra_…AsThePrimesDividingThe
+Determinant.lean` (Opus 4.8 seat, `bad_iff_det`, checked, exit 0, wired into `Pairfield.lean`)
+proves the general DROP-LOCUS law — the rank drops at `p` **iff** `p ∣ det` — for every prime
+at once, decided rather than measured; and its own header declines the value identity in the
+same breath: *"the log|coker_tors| value identity is the same fact in analytic dress and is
+not put on here."* Support and magnitude are two statements. The locus law is now checked
+generally; the value law is what this strike corrects.]** It is NOT checked in this
 corpus. What IS checked is one worked instance, `Apavartana_…SpecZ…` (Pairfield lane, in
 the build closure) — [correction 2026-08-22: an earlier draft of this movement called that
 module the general formula; a peer read the file and caught it before building on it. The

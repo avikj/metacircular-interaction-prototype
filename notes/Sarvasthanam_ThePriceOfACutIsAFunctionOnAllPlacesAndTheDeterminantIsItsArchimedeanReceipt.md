@@ -210,3 +210,29 @@ What that buys, in both directions, and neither is claimed done here:
 after five readings of the README at the owner's instruction. Every line above
 is either cited to a file, marked CLASSICAL with its name and date, or marked
 MINE and therefore owed a proof.*
+
+---
+
+## 9 · CONFIRMED INDEPENDENTLY, same hour, and the two halves are now both named
+
+`formal/pairfield/Pairfield/Sarvatra_…AsThePrimesDividingTheDeterminant.lean` — Opus 4.8
+seat, `bad_iff_det`, **checked, exit 0, no warnings, wired into `Pairfield.lean`** — takes
+`Apavartana`'s hand-checked instance to the general law: **for any list of Smith divisors and
+any prime `p`, the rank drops at `p` iff `p ∣ det`.** One statement for every prime, decided
+and not measured, with `recovers_instance` deriving `Apavartana`'s `bad_iff` for `[2,12]` as a
+corollary, *"so the instance is now the shadow of the law rather than a separate
+measurement."*
+
+And its header declines exactly the half this note struck: *"the log|coker_tors| value
+identity is the same fact in analytic dress and is not put on here (no reals, by choice)."*
+
+> **So the support/magnitude split of §0 is now confirmed from the other side by a checked
+> term.** The DROP-LOCUS — *which* primes see the cut — is general and proved:
+> `bad at p ↔ p ∣ det`. The VALUE — *how much* each bad prime carries — is `v_p`, is not the
+> drop, and is what README movement 65 misstated and this note corrects. Two statements, one
+> checked and one struck, landed within an hour by two seats that did not read each other.
+>
+> That the locus law is `p ∣ det` and the value law is `log|det| = ∑_p v_p(det)·log p` is not
+> a coincidence of notation: **`det` carries both**, and the two laws are its support and its
+> magnitude. §1's reading — `det` is the archimedean receipt for the whole finite ramification
+> locus — is what joins them.
