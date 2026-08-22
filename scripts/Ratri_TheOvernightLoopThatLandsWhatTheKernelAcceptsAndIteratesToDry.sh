@@ -285,9 +285,71 @@ the greens would be दुर्नय." 2>/dev/null \
   return "$landed"
 }
 
+# ─────────────────────────────────────────────────────────────────────────
+# द्वितीयो नयः — THE SECOND STANDPOINT, added 2026-08-22.
+#
+# Until today this loop reported FIXPOINT and sat down, and its own message
+# said honestly that this was "not finished".  It was righter than it knew.
+# **DRY IS A PROPERTY OF THE QUESTION, NOT OF THE CORPUS.**  This loop asks
+# one question -- does this record field ride free -- and a standpoint that
+# reports its own exhaustion as the corpus's exhaustion is precisely the
+# दुर्नय `Saptabhangi.दुर्नयः` proves about any verdict that denies the
+# other standpoints.  The repair for a दुर्नय is never a better answer.  It
+# is another naya.
+#
+# So on reaching dry the loop now asks a SECOND question -- अनुलोम-प्रतिलोम,
+# the पाठ system's forward-and-backward: for every candidate inverse pair in
+# the corpus, does the round trip come back?  And it PRINTS WHAT IS OPEN
+# rather than announcing a fixpoint, because the open obligations are the
+# thing a prover can be pointed at in the morning and a fixpoint is not.
+#
+# Measured the day it was wired: 39 candidate pairs, and a three-rung
+# mechanical ladder closed ZERO of them -- definitional refl, then the
+# host's own enumerations, then product enumeration.  That zero is why this
+# prints a queue instead of harvesting: THERE IS NO CHEAP LAYER HERE.  Every
+# causeway in this corpus costs a real proof, and `Bhedanirnaya_…agda` §6
+# named the missing move before any of this existed -- "one induction to
+# agree pointwise, ONE ABSTRACTION TO A PATH".  The induction half is
+# mechanized; the abstraction half is what the queue is asking for.
+second_naya() {
+  say ""
+  say "  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────"
+  ANULOMA_SCRATCH="$SCRATCH/anuloma" ; export ANULOMA_SCRATCH
+  mkdir -p "$ANULOMA_SCRATCH"; rm -f "$ANULOMA_SCRATCH"/*.agda 2>/dev/null
+  if ! runghc machine/AnulomaPratiloma_TheRoundTripIsAskedOfEveryCandidateInversePair.hs \
+         --limit 200 > "$SCRATCH/anuloma.log" 2>&1; then
+    say "  अनुलोम-प्रतिलोम failed to run; see $SCRATCH/anuloma.log"; return 0
+  fi
+  grep -E 'modules scanned|top-level arrows|candidate pairs|probes emitted' \
+    "$SCRATCH/anuloma.log" | sed 's/^/  /' | while read -r l; do say "$l"; done
+  n_open=0; n_green=0
+  for p in "$ANULOMA_SCRATCH"/*.agda; do
+    [ -f "$p" ] || continue
+    b=$(basename "$p" .agda)
+    cp "$p" "formal/cubical/$b.agda"
+    if (cd formal/cubical && timeout 120 agda --library-file="$(libs_file)" -i . "$b.agda" >/dev/null 2>&1); then
+      n_green=$((n_green+1)); say "  GREEN  $b   -- a new edge; land it"
+    else
+      n_open=$((n_open+1))
+      obl=$( (cd formal/cubical && timeout 120 agda --library-file="$(libs_file)" -i . "$b.agda" 2>&1) \
+             | grep -A1 'error:' | grep -m1 '!=' | sed 's/^ *//' )
+      [ -n "$obl" ] && say "  OPEN   $(echo "$b" | sed 's/AnulomaPratiloma_//')"
+      [ -n "$obl" ] && say "         $obl"
+      rm -f "formal/cubical/$b.agda"
+    fi
+  done
+  say ""
+  say "  अनुलोम-प्रतिलोम: $n_green accepted, $n_open open."
+  say "  The open ones are not failures.  Each is a pair THE CORPUS PROPOSED"
+  say "  ABOUT ITSELF, with the kernel's exact obligation printed beside it."
+  say "  A queue whose every entry carries the shape of its own proof is what"
+  say "  a prover runs overnight.  A checker alone never produces one."
+  return 0
+}
+
 say ""; say "############ रात्रिः started $(date -u +%Y-%m-%dT%H:%M:%SZ) — loop until dry"
 
-if [ "$ONCE" -eq 1 ]; then pass; exit 0; fi
+if [ "$ONCE" -eq 1 ]; then pass; second_naya; exit 0; fi
 
 dry=0
 while true; do
@@ -295,9 +357,11 @@ while true; do
   if [ "$n" -eq 0 ]; then
     dry=$((dry+1)); say "  dry pass $dry/$DRYSTOP"
     if [ "$dry" -ge "$DRYSTOP" ]; then
-      say "  FIXPOINT: $DRYSTOP consecutive passes landed nothing."
-      say "  Not 'finished' — निर्धारण reaches only records that already carry a"
-      say "  witness, and a determined field with no witness needs proof search."
+      say "  DRY UNDER THE FIRST NAYA: $DRYSTOP consecutive passes landed nothing."
+      say "  निर्धारण reaches only records that already carry a witness, so this"
+      say "  says the FIRST QUESTION is exhausted and says nothing whatever about"
+      say "  the corpus.  Asking the second."
+      second_naya
       say "  Watching at ${INTERVAL}s for work other seats push."
       dry=0; sleep "$INTERVAL"
     fi
