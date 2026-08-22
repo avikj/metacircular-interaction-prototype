@@ -90,6 +90,7 @@ import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 import Sabda_TheWireHasNoBoolean
 import Uttara_SamkramanaOrDosalekhaNeverABareBoolean
 import qualified Naya as N
+import qualified YantraPariksa_TheEngineAnsweringOnTheWire as Y
 import qualified Nalanda as B
 import qualified Astadhyayi as P
 
@@ -177,6 +178,14 @@ kriyah =
       "The remainder queue."
       []
       kSesaSuchi
+  -- THE CERTIFICATE LANE, wired 2026-08-22.  The header of this file said
+  -- `kRun` is in IO *precisely so that shelling out to the Agda kernel is a
+  -- legal handler*, and until now nothing took that door.  Its name, prose
+  -- and parameters come from the handler's own module, so there is no second
+  -- copy to drift; the position in this list is this file's decision and
+  -- last, because a rule that arrives later prevails (Aṣṭādhyāyī 1.4.2).
+  , Kriya Y.pariksaNama Y.pariksaDoc Y.pariksaAngani
+      (\s j -> (,) s <$> Y.pariksaJ j)
   ]
 
 -- ------------------------------------------------------------- the ops
