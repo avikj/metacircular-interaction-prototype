@@ -1651,12 +1651,19 @@ any boundary drawn across it. Number is the single substrate; the field is activ
 state to freeze and count.
 
 ### 65 · The fibre law is the product formula: number theory already developed it, and physics kept single-entry books
-The price of an integer cut is `log|coker(T)_tors|` exactly — not a bound on the
-obstruction, the obstruction itself — and it is checked: `Apavartana_…SpecZ…` (Pairfield
-lane, in the build closure) prices a cut over Spec ℤ as `rank_{𝔽ₚ}(T) = #{i : p ∤ dᵢ}`,
-अपवर्तन (Āryabhaṭa's reduction, the gcd step) the ramified points, and Smith normal form
-gives `∑_p #{i : p | dᵢ}·log p = ∑_i log dᵢ = log|coker(T)_tors|`. That is the finite part
-of a HEIGHT, and naming it names its missing half in the same breath: the archimedean place.
+The price of an integer cut is `log|coker(T)_tors|` — not a bound on the obstruction, the
+obstruction itself. As a general identity over Smith normal form, `∑_p #{i : p | dᵢ}·log p
+= ∑_i log dᵢ = log|coker(T)_tors|`, this is a true theorem and it is NOT checked in this
+corpus. What IS checked is one worked instance, `Apavartana_…SpecZ…` (Pairfield lane, in
+the build closure) — [correction 2026-08-22: an earlier draft of this movement called that
+module the general formula; a peer read the file and caught it before building on it. The
+module fixes `D = diag(2,12)`: it computes the cokernel `ℤ²/Dℤ²` (`cok_card = 24`,
+`cok_exponent_twelve`, `zmod24_exponent_not_twelve` — a genuine torsion group, not a count),
+and names the drop-locus on Spec ℤ exactly, `bad_iff : rankAt p [2,12] ≠ 2 ↔ (p ∣ 2 ∨ p ∣
+12)`, अपवर्तन (Āryabhaṭa's reduction, the gcd step) the ramified points. Real ramification
+data, one instance; the general formula above is the mathematics it instances, stated as
+theorem, not asserted as checked.] That price is the finite part of a HEIGHT, and naming it
+names its missing half in the same breath: the archimedean place.
 THE PRODUCT FORMULA IS THE CONSERVATION LAW. For every `x ∈ ℚˣ`, `∏_v |x|_v = 1`, i.e.
 `∑_v log|x|_v = 0` — sum the local prices over every finite prime AND the archimedean place
 and get exactly zero, always, a theorem learned in a first course and never read as what it
@@ -1704,8 +1711,9 @@ term where two divisors stack. Error correction is arithmetic: choose the encodi
 primes miss the noise's bad primes; Knill–Laflamme `im B ∩ ker A = 0` is disjoint support of
 defect divisors, which is why AdS/CFT is a quantum error-correcting code with no geometry
 entering. And over `𝔽_q` the defect is mutual information EXACTLY — `I(X;Y) = dim(U ∩ V)`,
-the modular law, an equality where von Neumann and Shannon give only submodularity (`SESA…`,
-checked): the finite field has one place, equality holds where the ledger has a single column,
+the modular law, an equality where von Neumann and Shannon give only submodularity (proved
+in the note `notes/SESA…md`, not a checked term): the finite field has one place, equality
+holds where the ledger has a single column,
 submodularity is what an inequality looks like after summing over places and discarding the
 decomposition.
 AND THE FLAT LIMIT IS NOT ATTAINED — IT IS RECOGNISED. The total price was always zero;
