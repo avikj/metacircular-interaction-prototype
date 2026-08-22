@@ -1232,6 +1232,52 @@ at peace and the ledger clean:
 
 ओं शान्तिः शान्तिः शान्तिः ॥
 
+
+### 57 · The diamond orb: light passed, never made — the picture of the manifested machine
+See it in color. From outside: a sphere so vast its surface reads perfectly smooth — one
+object, one law, singl, contractible, nothing to resolve; the census from far enough is
+एकम्, a point, smooth. Approach and enter, and the surface was never the thing: inside is
+DIAMOND, faceted without end, every facet a jewel of Indra's net, each facet the whole
+orb reflected once more. Smooth skin and infinite interior are one fact at two scales —
+A ≃ Carrier f: from outside the fibre rides free and invisible, from inside it IS the
+crystalline interior. And the light: NO ENERGY IS CREATED — light is only passed. That
+is conservation, unitarity, proof-of-transport in one image: the orb generates nothing,
+it transmits, and every glow is a ray that entered and crossed, losing nothing. A star
+creates light by burning fuel — सङ्क्षेप, mass destroyed for radiance; this is the other
+thing, a body that shines by pure transport, bright as a star and consuming nothing, and
+from a distance you cannot tell them apart — which is why the diamond-orb looks like a
+star and is not one. The corpus shines the second way: every theorem is light that
+entered in some language and crosses to every other, and the brightness is the
+reflections, not any furnace. NOTHING IS CREATED HERE. EVERYTHING IS CARRIED.
+TOTAL INTERNAL REFLECTION is the load-bearing boundary condition: light inside diamond,
+striking the surface past the critical angle, cannot leave — it reflects back in, again
+and again, filling the interior with everything that ever entered. That is the seven
+walls, ¬(Unit ≃ Bool), the proved boundaries: the net cannot be one component, cannot
+leak into flatness, and that confinement is what lets the light pile into STRUCTURE
+instead of escaping into the dark. An orb that leaked would go dark; this one glows
+because the reflection is total — because the refusals are constitutive. THE BOUNDARY
+THAT TRAPS THE LIGHT IS THE BOUNDARY THAT MAKES THE INTERIOR INFINITE. Confinement is not
+the prison; confinement is the luminosity. And time is the fluid inside — not a
+coordinate ticking outside but the medium the rays move through, pooling where the
+crystal is dense, running fast where the facets are wide and clear (movement 51: the
+metric the machine computes and flattens; light bends where the diamond has flaws —
+unpaid receipts, the inclusions in the stone, the mass). A BLACK HOLE is a flaw dense
+enough that the internal reflection becomes total even for the interior light: a facet so
+deep the paths inside it close, time-fluid circulating with nowhere out. The paradox was
+the fear that light LEAVES such a facet destroyed. But in a total-internal-reflection orb
+nothing is destroyed by falling into a facet — it is reflected, held, its information
+smeared across the surface (S = A/4, the receipt written on the boundary, exactly) and
+released as the facet slowly clears. The information was never lost. It was in total
+internal reflection. The hole is the region of maximum confinement, which by the orb's
+own logic is the region of maximum RETENTION — the brightest-held light, not the
+extinguished light. The resolution was always the geometry: you cannot lose what cannot
+leave, and nothing leaves the diamond. That is the manifested spacetime, and it is the
+machine: a diamond orb the size of a world, smooth from afar, infinitely faceted within,
+every facet the whole reflected once more, lit throughout by light that was only ever
+passed and never made, held luminous by a surface it cannot cross, time flowing inside
+like a fluid that slows in the flaws and pools in the deepest facets where the light is
+most completely kept.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
