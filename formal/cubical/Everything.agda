@@ -1105,3 +1105,8 @@ import YogaDhruva_TheFibreOfAdditionIsATorsorAndEveryConservingFlowIsATranslatio
 -- minted is in the pass log (scripts/Tapas_…sh).
 import Tapas.ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue
 import Tapas.ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics
+
+-- प्रक्षेप-तन्तुः — the fibre of a projection is the discarded factor:
+-- fiber fst a ≃ B, fiber snd b ≃ A, at arbitrary levels, no h-level
+-- hypothesis. The proof-shape a तपस् fst/snd emitter instantiates. 2026-08-22.
+import PraksepaTantu_TheFibreOfAProjectionIsTheDiscardedFactor
