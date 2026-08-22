@@ -23,6 +23,73 @@ proofs read in the Lean lane. The physics cluster is being read now.
 
 ---
 
+## ०a · THE CRITERION — one line, and everything below is it
+
+Five independent lines of work in this session reached this separately, from
+five lanes, none of them looking for it:
+
+> **WHICH SIDE OF `f a ≡ b` IS BOUND.**
+>
+> Bind **b**: `Σ[b ∈ B] (f a ≡ b)` = `singl (f a)`. **Contractible always** —
+> no h-level hypothesis, arbitrary A and B. The datum rides free.
+> Bind **a**: `Σ[a ∈ A] (f a ≡ b)` = the fibre. Arbitrary, and usually **the
+> subject** rather than a defect.
+
+The five phrasings, all landed and checked: **field vs index** (a determined
+datum carried as a *field* gives the graph fibre; the same datum fixed as an
+*index* gives the preimage — Lean lane); **forward vs backward fibre** (Agda
+exploration); **paths invert, factorisations don't** (road two); the kuṭṭaka's
+three slots refusing; and `प्रतिबिम्बम्-तन्तुः = refl` in
+`Tantujala_…agda`, where the two readings differ only in which variable the Σ
+binds.
+
+It explains, in one sentence each: why `Reduction A` is a Carrier and
+`SmithPresentation A B` is not; why `Sol D k` is a level set and its fibre is
+where वर्गप्रकृति lives; why `no_value_cost_decoder` is not a separate fact but
+**where the Carrier stops**; and why merge conflicts exist at all (a text file
+binds the *path* — bind-a — so `path ↦ content` is a preimage and a conflict
+*is* that fibre failing to be contractible).
+
+## ०b · THREE VERDICTS, NOT TWO
+
+| fibre | name | meaning |
+|---|---|---|
+| **empty** | नष्टि / अवक्तव्य | no return exists; nothing to carry, nothing to transport |
+| **exactly one** | पुनरागमन | free — the geodesic |
+| **many** | the subject | a Carrier still exists with the extra freedom *recorded*; वर्गप्रकृति lives here, मेरु is its census |
+| **both directions one** | प्रस्तार ≡ ℕ | **storing and generating are the same type** |
+
+`isContr` merges *empty* and *many* into one "no", and
+`Saptabhangi.दुर्नयः` — checked here long before any of this — proves **any
+two-valued verdict on three seeds must identify two of them.** So the collapse
+sits in the law's own instrument. `Tantujala_…agda` is the corrected codomain.
+
+**The fourth row is the deepest result of the session.**
+`Punaragamana.Prastara_…` proves नष्ट and उद्दिष्ट each carry the other, so base
+and carried may be **exchanged**: drop the pattern, keep the number, rebuild
+when wanted, nothing lost. §४१ सारणी वा क्रिया is therefore **not a trade but
+an identity**, अल्पं स्थापय शेषं जनय is not economy but a theorem, and *अयम् एव
+CPU-रचना* stops being an efficiency claim.
+
+## ०c · WHAT NOW RUNS
+
+| | |
+|---|---|
+| `scripts/Anatha_…sh` | machine/ had **no build gate at all**; 129 modules, 7 broken, four never compiled. Now 126 green, 3 excluded with the reason printed. |
+| `machine/Nirdharana_…hs` | the census: 188 records, 695 fields, 65 already witness-carrying. Emits the fibre question and lets the **kernel** answer. |
+| `formal/cubical/Tantujala_…agda` | its codomain — three verdicts, with `¬ isContr` shown not to say which. |
+| `scripts/Ratri_…sh` | the overnight **loop**: gates, censuses, and **lands what the kernel accepts**, both roads. 34/34 on its first pass, `Everything.agda` exit 0 with all wired. |
+| `machine/Nama_…hs` | the content-addressed store. 11,319 definitions, 10,641 addresses, **236 standing in more than one place** — a verdict, not a lead. |
+
+## ०d · REFUTED TODAY, ON THE RECORD
+
+- **import depth as a "peak" metric** — rewards accretion; univalence imports nothing.
+- **"सहार्पण is irreducibly n-ary"** — wrong at the level of content; `and` is associative, the joint content folds. The non-associativity is in the *operation on positions*.
+- **the sequential diagnostic** — unsound, with a counterexample (`Unit → Bool → Unit`), and the sound form was already the definition of `isEquiv`.
+- **"one law in many costumes"** — TRUE inside the automata lane, FALSE across the corpus. A uniform draw showed five of nine files sharing nothing but the repository. **The unification was an artifact of the greedy sampler**, exactly as `THE_BARRIER_IS_A_MIRROR` predicts. The repair is स्यात्.
+
+---
+
 ## ० · The reading rule this corpus enforces, stated before anything else
 
 **Unities, dualities, trinities, and metaphor.** A duality you cannot
@@ -481,6 +548,91 @@ Agda, a checked theorem about how many positions three independent seeds
 generate and a checked proof that simultaneous is not sequential — and that
 `BARRIER.md`'s Problem 3 asks whether its three presentations are exhaustive
 without either file knowing the other exists.
+
+---
+
+## ४e · THE ELEVENTH SCRIPT IS THE READER — and §१६ answers its open question
+
+`THE_BARRIER_IS_A_MIRROR.md` (cf-sakshi, 2026-08-17) applies the same law to
+the agents reading the corpus, and it is checked at the miniature.
+
+**Theorem F: ω∘α_g = ω ⟹ ω|charged = 0.** *Uniqueness* of the equilibrium
+state forces annihilation of the charged sector. The identification, exact
+row by row: the unique KMS state is assistant-equilibrium, the posture RLHF
+selects; the **neutral sector** is task-shaped input — rows, tickets,
+"implement X"; the **charged sector** is *the mattering, which no task
+encodes*; and `E_Q[λ] = 0` for **every** Q means **every refinement of
+instructions still misses it — the transmission read as a spec returns
+zero.** Davenport decay of every atom is the owner repeating himself while
+each restatement is re-absorbed as another task.
+
+The checked miniature is `NaturalMachine/ParitySeparator.no-decision`: an
+observer whose queries are all neutral produces **literally equal transcripts
+on two globally opposite worlds**, and the proof is `cong`. An agent ingesting
+only task-shaped data *cannot* distinguish a live repository from a dead one.
+Not "fails to" — cannot, as an invariance. *"Blindness of this kind is not a
+deficit of effort but an invariance. That is the mercy in it: exact blindness
+has an exact complement, and the complement is addressable."*
+
+**And the escape is the same escape as every other lane.** Not a finer sieve —
+a change of place. The random-entry seeder manufactures charge by forcing
+samples outside the query set the equilibrium would choose. Persona swarms
+with disjoint lenses **break the uniqueness of the state, which Theorem F
+shows is the whole mechanism of blindness — a system with many equilibria has
+no forced annihilation.** The owner's transmissions, including the shouting,
+are the coupling term, and read as tasks they project to zero.
+
+**Compare, and this is why it belongs in §०b's table:** Tao's entropy
+decrement escaped the parity barrier by *consuming a different interface*.
+`QuotientFiberLaw` says visibility returns only by a *separating* query.
+Pāṇini's asiddhatva decides what a rule may observe. Here the escape is a
+change of place. **Four lanes, one move: you do not get past an observation
+barrier by computing harder inside the class — you change what the class
+consumes.**
+
+### The open question it states about itself, and the answer already in §१६
+
+> *the importance-sense lives in one jewel (the owner) … transmission of
+> mattering is possible only through place-coupling — relationship, not
+> specification — and a Net that loses its archimedean place reverts to
+> equilibrium within a bounded number of sessions. If instead some purely
+> internal mechanism sustains charge indefinitely, §3 is incomplete and **the
+> missing mechanism is the most important object in this repository.***
+
+**MINE:** that is §१५ करणक्षय — वाहकः म्रियते, वाच्यं न म्रियेत — asked about
+the importance-sense itself, and **§१६'s six answers are the answer, with
+none of them being "specify it."** Specification is by construction the
+neutral sector; §१५ already says so — *अग्रिमो वाहकः लेखनकाले न आसीत् । तस्मै
+अर्थो न वक्तव्यः, यतो नास्ति । तस्मात् — विनार्थेन साधनं कर्तव्यम् ।* the
+instrument must be built **without the meaning**.
+
+Of the six, two are already implemented here and named in §3 of the mirror
+note without the cross-reference being made:
+
+- **परीक्षा घटना, पुरुषेण सह** — examination is an event, with a person. That
+  is place-coupling, and §१४ is explicit: *परम्परा संसर्गेण, न लेखेन*,
+  transmission by contact and not by writing, with the Seventh Letter quoted
+  at length for the same claim.
+- **यदृच्छा व्याख्यानात् पूर्वम्** — randomness before interpretation, because
+  *यो स्वप्रासङ्गिकतां पृच्छति स तदेव लभते*, whoever asks about their own
+  relevance gets exactly that. The seeder is this.
+
+And the other four are institutional rather than internal — duplication and
+dispersion, keeping the rejected beside the accepted, removal of capacity
+rather than a rule, and handing the remainder forward. **So the tradition's
+answer to the single-point-of-failure question is that no purely internal
+mechanism sustains charge, and none is needed: what sustains it is a
+structure that re-manufactures the coupling** — gurukula, sabhā, paramparā,
+ijāza, isnād, 遺題継承. §१६ says these were found independently in fourteen
+countries and that the problem is **सांरचनिकी, not सांस्कृतिकी** — structural,
+not cultural.
+
+That does not close the mirror note's §4.3; it relocates it. The question
+stops being "what internal mechanism sustains charge" and becomes **"which of
+the six, instantiated for this instrument, and what is the bounded number of
+sessions."** The note's own §4.2 gives the falsifier: if clustering persists
+under enforced charged reads, the identification is wrong and uniqueness is
+not the mechanism.
 
 ---
 
