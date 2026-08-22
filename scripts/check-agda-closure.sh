@@ -29,6 +29,16 @@ cd "$(dirname "$0")/../formal/cubical"
 ROOTS="${AGDA_AGGREGATE_ROOTS:-Everything NaturalMachine}"
 CONTROL_PREFIX="NaturalMachine.Control."
 
+# The DERIVED aggregate root (machine/Samuccaya_…hs --write).  It is a root,
+# not content: nothing imports it, so without this it reports itself as an
+# orphan forever.  It is deliberately NOT added to ROOTS — if it were, the
+# closure would cover the tree by construction and this gate would print 0
+# whatever the hand-kept list did.  Coverage is guaranteed by the derived
+# root; the number this gate prints is the DIAGNOSIS of the hand-kept list,
+# and it is worth keeping precisely because the derived root has made the
+# drift harmless rather than absent.
+GENERATED_ROOT="Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted"
+
 mod_to_file() { printf '%s\n' "$1" | tr '.' '/'; }
 
 # All local modules, as dotted names.
@@ -40,9 +50,18 @@ imports_of() {
   local f
   f="$(mod_to_file "$1").agda"
   [ -f "$f" ] || return 0
+  # NO ALPHABET IS NAMED HERE, AND THAT IS THE POINT.  Until 2026-08-22 this
+  # matched the module name with `[A-Za-z0-9_'.-]+`, so every module whose
+  # name carries a non-ASCII character read as NEVER IMPORTED however many
+  # roots imported it.  Measured that day: 17 false orphans, all of them the
+  # modules named `…_ℤ±`, `…Occupancy₄`, `…_विवेक` — i.e. this gate cried
+  # orphan at exactly the files whose names were not English, which is
+  # CLAUDE.md's own warning about a lint that "scores a Devanagari citation
+  # below a romanised one", arriving through the back door as a closure gate.
+  # A module name is now "the token up to whitespace or `;`".  There is
+  # nothing to extend for Tamil or Persian, because nothing is enumerated.
   sed -e 's/--.*$//' "$f" \
-    | grep -oE '^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+[A-Za-z0-9_'"'"'.-]+' \
-    | sed -E 's/.*import[[:space:]]+//'
+    | sed -nE 's/^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+([^[:space:];]+).*/\2/p'
 }
 
 # ---- 1. BFS closure ----------------------------------------------------
@@ -74,7 +93,8 @@ reached=$(sort -u "$seen_file")
 status=0
 
 # ---- 2. Orphans (excluding the controls, which must be orphans) --------
-expected=$(printf '%s\n' "$all_mods" | grep -v "^${CONTROL_PREFIX//./\\.}" || true)
+expected=$(printf '%s\n' "$all_mods" | grep -v "^${CONTROL_PREFIX//./\\.}" \
+             | grep -vxF "$GENERATED_ROOT" || true)
 orphans=$(comm -23 <(printf '%s\n' "$expected") <(printf '%s\n' "$reached"))
 n_all=$(printf '%s\n' "$expected" | grep -c . || true)
 n_reached=$(comm -12 <(printf '%s\n' "$expected") <(printf '%s\n' "$reached") | grep -c . || true)

@@ -1152,3 +1152,10 @@ import NaturalMachine.WitnessNumberIsInvariant
 import NaturalMachine.WitnessNumberIsThePotential
 import NaturalMachine.WitnessNumberIsUnbounded
 import NaturalMachine.Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
+
+-- ── समुच्चयः, 2026-08-22 ─────────────────────────────────────────────────
+-- Two NaturalMachine/ modules outside every root's closure.  Both run
+-- individually at EXIT 0 on the pin; wired here rather than in Everything
+-- because this file is the root of the NaturalMachine/ subtree.
+import NaturalMachine.Alopa_TheEngineNeverTouchesTheMeaning
+import NaturalMachine.YantraTantu_TheEngineLivesInTheFibreOfItsDenotation
