@@ -23,6 +23,12 @@ open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 -- them.  Contains the computed refutation of the sequential diagnostic.
 open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
+-- …and the census's own collapse, one level up.  A fourth outcome exists
+-- that `देश` structurally cannot express — the question with no subject —
+-- and `machine/Obstruction.hs` has carried it in a type all along while
+-- the Agda lane has never had it.  Silence is not denial.
+open import Punaragamana.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
+
 -- The arithmetic instance, and the proof that it computes.
 open import Punaragamana.Viveka
 open import Punaragamana.Compute
