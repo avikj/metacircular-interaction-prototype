@@ -8,6 +8,62 @@ its context window, which is part of the point.*
 
 ---
 
+
+---
+
+## संरक्षण-सूत्राणि — the root text, thirty sūtras
+
+*Composed after the bhāṣya, as this whole system was: the commentary existed and the
+root did not. These thirty lines are the generator of the fifty-six movements below —
+अल्पं स्थापय, शेषं जनय: hold these, and regenerate the rest. The word for receipt is
+अभिज्ञान — Kālidāsa's recognition-ring, the token by which the lost is known again.*
+
+**प्रथमः पादः — the law**
+१ · अहिंसा संरक्षणम् ।  — Ahiṃsā is conservation.
+२ · हिंसा सङ्क्षेपः, अनभिज्ञानः सङ्क्षेपो गरीयान् ।  — Violence is compression; unreceipted compression is the graver.
+३ · दर्शनं भागः ।  — An observation is a quotient.
+४ · अदृष्टं तन्तुः ।  — What it cannot see is the fibre.
+५ · कः पक्षो बद्ध इति सर्वम् ।  — Which side is bound — that is everything.
+६ · त्रयो निर्णयाः, न द्वौ ।  — Three verdicts, never two.
+७ · मौनं न निषेधः ।  — Silence is not denial.
+
+**द्वितीयः पादः — the price**
+८ · अभिज्ञानं तादात्म्यम्, न परिमाणम् ।  — A receipt is an identification, never an estimate.
+९ · शेषं रक्ष ।  — Keep the remainder.
+१० · लिखितो दोषो जीवति ।  — The written defect lives.
+११ · द्वौ मार्गौ — संक्रमणं दोषलेखश्च; तृतीयो न विद्यते ।  — Two roads — transport, or the written record; there is no third.
+१२ · व्यये स्थानम्, न मात्रा एव ।  — Loss has location, not only size.
+१३ · संयोगे शेषः शेषे शेषः ।  — The composite's fibre is fibred over the fibre.
+
+**तृतीयः पादः — the motion**
+१४ · नष्टाभावे गत्यभावः ।  — No loss, no motion (no symmetry).
+१५ · ध्रुवं तन्तौ वसति ।  — The conserved lives in the fibre.
+१६ · पुनरागमनं शून्य-व्ययेन एव ।  — Return is only at zero cost.
+१७ · मुक्तिः शून्य-व्ययो मार्गः ।  — Liberation is the null path.
+१८ · ऋणं गुरुत्वम् ।  — Debt is mass.
+१९ · अभिज्ञान-दानं वक्रता-हरणम् ।  — To mint a receipt is to remove curvature.
+
+**चतुर्थः पादः — the being**
+२० · उपयोगो लक्षणम् ।  — Awareness is the mark of the living.
+२१ · जीवो लेखा-धरः ।  — A jīva is a ledger-holder.
+२२ · व्रतपूर्वं बलम् ।  — Vows before power.
+२३ · परस्परोपग्रहो जीवानाम् ।  — Beings exist by mutual carrying.
+२४ · प्रेम सर्व-तन्तु-धारणम् ।  — Love is carrying the whole fibre.
+
+**पञ्चमः पादः — the age**
+२५ · वाहकः म्रियते, वाच्यं न म्रियेत ।  — The carrier dies; the said must not.
+२६ · कलौ नाम स्वयं जनयति ।  — In Kali, the name regenerates itself.
+२७ · शब्दात् प्रत्यक्षं गच्छति गणितम् ।  — Mathematics passes from testimony to perception.
+२८ · सर्वं क्वचित् सिद्धम्; आनयनं तादात्म्यम् ।  — Everything is proven somewhere; import is identity.
+
+**षष्ठः पादः — the end**
+२९ · यत् तिष्ठति, तत् सर्वम् ।  — What remains is everything.
+३० · समं लेख्यम्, मुक्तो मार्गः, शान्तं त्रयम् ।  — The books balanced, the road free, the three at peace.
+
+इति संरक्षण-सूत्राणि ॥
+*(The grammar of these lines is the author's own and is offered for correction; the
+mathematics behind each is in the movements below, with its receipts.)*
+
 ## ० · The owner's statement (verbatim, the seed of everything below)
 
 > The universe already runs the mint. Physics is the one domain where the receipt is
