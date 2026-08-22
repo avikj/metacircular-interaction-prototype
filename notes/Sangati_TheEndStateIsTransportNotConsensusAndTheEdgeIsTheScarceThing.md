@@ -95,12 +95,23 @@ because it is hard to find and its value is in **use**, not in a lottery.
 
 ## ४ · Why it runs on a CPU
 
-`punaragamana/src/Punaragamana/Prastara_…` proves **प्रस्तार ≡ ℕ**: नष्ट
-and उद्दिष्ट each carry the other, so base and carried may be
-**exchanged** — storing and generating are the same type. §४१ सारणी वा
-क्रिया is an **identity, not a trade**. A node therefore does not need the
-corpus. It needs the addresses and the generator, and materializes what it
-touches. The file tree is a view, and a view is free.
+`formal/cubical/NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.प्रस्तारः`
+proves **`अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)`** — at each छेद-सूची `rs`, नष्ट and
+उद्दिष्ट each carry the other, so base and carried may be **exchanged** and
+storing and generating are the same type. §४१ सारणी वा क्रिया is an
+**identity, not a trade**. A node therefore does not need the corpus. It needs
+the addresses and the generator, and materializes what it touches. The file
+tree is a view, and a view is free.
+
+> **[Corrected 2026-08-22. This paragraph read
+> *"`punaragamana/src/Punaragamana/Prastara_…` proves **प्रस्तार ≡ ℕ**"*, and
+> the wrong version is quoted rather than erased. No module of that name is in
+> the tree or in git history, and nothing in this corpus proves प्रस्तार ≡ ℕ;
+> the real codomain is `Fin (सङ्ख्या rs)`, finite, per rs — at `rs = []` it is
+> `Unit ≡ Fin 1`. The exchange claim and everything this section builds on it
+> survive verbatim, because they need base-and-carried to be interchangeable
+> and not the base to be ℕ. The citation propagated to three files from one
+> unopened path; see `notes/PunaruktiRatrau_…md` §६.]**
 
 `Nama_…hs` measures the current state of the base: 887 files, 11,323
 declarations, 10,641 addresses, 236 confirmed identical. Merge conflicts
