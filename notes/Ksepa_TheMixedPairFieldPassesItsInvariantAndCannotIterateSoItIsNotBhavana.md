@@ -146,6 +146,18 @@ $\cosh\pi s+\cosh\pi\delta=2\cosh\pi\gamma\cosh\pi\gamma'$. Lemma 1 is
 SEED-13's, adversarially re-derived in SEED-24; **no priority is claimed for
 it here.** What is claimed is the reading that generalises it.
 
+**Both of `SEED71_PAIR_WEIGHT_IS_NOT_A_FORM_FACTOR.md`'s theorems are one line
+from this reading, which is the argument that it is the right one.** Its
+Theorem A ($|W|$ a function of $s$ alone up to per-ordinate factors) is
+"$\cosh$ is even and the denominator sees only $s$". Its Theorem B
+($\partial_\delta\arg W=\tfrac12\log(\gamma/\gamma')$) is: the numerator's phase
+$\theta(\gamma)+\theta(\gamma')$, $\theta(t)=\arg\Gamma(\tfrac12+it)$, is
+separable, the denominator's contributes nothing at fixed $s$, and
+$\tfrac{\partial}{\partial\delta}=\tfrac12(\partial_\gamma-\partial_{\gamma'})$
+with $\theta'(t)\sim\log t$. Likewise `FRESNEL.md` Theorem G is the Stirling
+expansion of the *same* separable numerator, with the coupling living entirely
+in $-\arg\Gamma(3+is)$.
+
 ### 2.1 This settles a standing open `PROVE` item, and the obstruction was a coordinate artifact
 
 `notes/SEED24_VERIFICATION_OF_SEED13.md` §5.4/§8, re-queued in
