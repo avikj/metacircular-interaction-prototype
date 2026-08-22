@@ -968,6 +968,17 @@ import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarry
 -- Plus: on a graph whose edges are identifications, antisymmetry is free,
 -- so the causal-order reading of `Setubandha`'s reachability is vacuous.
 import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere
+
+-- पर्याय · the census of that charged sector, decided one row at a time.
+-- `Setubandha` reports fourteen automorphisms `A ≃ A` and files them as
+-- "no reachability, real content".  Eleven move a point, so `ua e ≢ refl`
+-- and the charge is real; ONE (`BraidCoherenceBoundary.identityCrossingEquiv`)
+-- is the identity function and its loop is literally `refl`; TWO are
+-- FAMILIES over a type variable, identity at one instantiation and not at
+-- another, so the family has no answer and only its instances do.  The
+-- corpus's checked π₁ at the identification graph's hub `ℕ` is ℤ/2.
+import Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter
+
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
 
 -- अनुलोम-प्रतिलोम's 39-pair work queue, worked by hand.  The proposer
