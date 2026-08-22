@@ -1010,3 +1010,8 @@ import Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree
 -- सामान्तर-सङ्कलित — landed by another lane and outside every root's
 -- closure at the moment समुच्चय ran.  Runs individually at EXIT 0 on the pin.
 import SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt
+
+-- स्थिरबिन्दुगणना — the nonabelian census: fixed-point count as the
+-- conjugation-invariant class map for S₃, closed-loop gauge invariant via
+-- RelationalHolonomyRefinement.  Landed 2026-08-22.
+import NaturalMachine.SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3
