@@ -997,3 +997,12 @@ import VajraAbhyasa_TheCrossProductIsOneAndTheNextClassIsExactlyMinusM
 import YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther
 import Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion
 import Ankapasa_TheMetreNamesAFiniteSetAndTheLoopsOfThatSetAreTheFactorial
+
+-- अनुलोम-प्रतिलोम's 39-pair work queue, worked by hand.  The proposer
+-- reported 0/39 at every rung and concluded the corpus has no cheap
+-- equivalence harvest; sixteen of the 39 were already proved in the host
+-- file the proposer read, and of the rest these three modules close two
+-- edges, refute four pairs, and separate two type pairs outright.
+import Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup
+import Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence
+import Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree
