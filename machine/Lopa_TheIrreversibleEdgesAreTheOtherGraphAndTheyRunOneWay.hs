@@ -707,8 +707,25 @@ lopaOf defs fi d =
             else if not (knownType defs s) || not (knownType defs t) then Nothing
             else let rs = resolveExpr defs als home s
                      rt = resolveExpr defs als home t
-                 in if rs == rt then Nothing
-                    else Just (Lopa home (dName d) rs rt s t (kindOf s t))
+                 -- SELF-MAPS ARE NOT DISCARDED HERE.  They used to be, and the
+                 -- `endo`/`nonEndo` partition below was therefore dead code:
+                 -- the report printed "endomorphisms A ⟶ A : 0" while the
+                 -- classifier had already emptied the list, which is this
+                 -- program publishing its own filter as a finding.
+                 --
+                 -- And the discarded shape is exactly the GENERATIVE one.
+                 -- A generator adds no reachability in one step and unbounded
+                 -- novelty in the limit -- that is the whole content of
+                 -- Brahmagupta.s bhavana, checked in
+                 -- Apunaragamana_...agda: composing (x,y) with the fundamental
+                 -- solution moves you nowhere new as an EDGE and never returns
+                 -- as an ORBIT.  Refusing A ⟶ A at the classifier is refusing
+                 -- the corpus.s generators: tripadi (Panini 8.2--8.4), krama
+                 -- and saha (the saptabhangi ascriptions), markovSquare, J₂.
+                 --
+                 -- They stay out of the REACHABILITY graph, correctly, via the
+                 -- partition downstream.  They no longer stay out of sight.
+                 in Just (Lopa home (dName d) rs rt s t (kindOf s t))
        _ -> Nothing
 
 -- ─────────────────────────────────────────────────────────────────────────
@@ -852,6 +869,19 @@ main = do
     putStrLn "── ROAD TWO · irreversible edges ──"
     putStrLn $ "  candidate maps A ⟶ B            : " ++ show (length allLopa)
     putStrLn $ "  of which endomorphisms A ⟶ A    : " ++ show (length endo)
+    putStrLn ""
+    putStrLn "── आवर्तनम् · THE SELF-MAPS, WHICH ARE THE GENERATORS ──"
+    putStrLn "  A generator adds NO reachability in one step and unbounded"
+    putStrLn "  novelty in the limit.  That is Brahmagupta.s bhavana exactly:"
+    putStrLn "  Apunaragamana_...agda checks that composing with the fundamental"
+    putStrLn "  solution goes nowhere as an edge and never returns as an orbit."
+    putStrLn "  These were discarded at the classifier until 2026-08-22, so the"
+    putStrLn "  count above read 0 -- this program printing its own filter."
+    putStrLn "  They stay out of the REACHABILITY graph, correctly.  They do not"
+    putStrLn "  stay out of sight.  Named, not counted (sutra 8)."
+    putStrLn ""
+    mapM_ (\l -> putStrLn ("    " ++ lSrc l ++ "  ⟲  " ++ lMod l ++ "." ++ lName l))
+          (sortBy (comparing (\l -> lMod l ++ lName l)) endo)
     putStrLn $ "  of which PARALLEL to a causeway : " ++ show (length parallel)
     putStrLn $ "  GENUINE one-way edges           : " ++ show (length genuine)
     putStrLn $ "  distinct node pairs             : " ++ show (length lopE)
