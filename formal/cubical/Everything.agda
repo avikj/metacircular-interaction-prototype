@@ -431,6 +431,16 @@ import NaturalMachine.MatchingPenniesSeparator
 -- AWAITING KERNEL — authored without local toolchain.
 import NaturalMachine.GterTwoCoordinate
 
+-- 2026-08-21.  `NaturalMachine.QuotientFiberLaw` — the corpus's general
+-- obstruction theorem — was a TERMINAL LEAF: it appeared in this file
+-- nowhere and nothing imported it, so the one module that says what the
+-- twelve costumes have in common was checked by nothing.  The import
+-- below reaches it transitively, and its own §1 is what the network
+-- statement uses.  CHECKED LOCALLY: Agda 2.8.0 + agda/cubical v0.9
+-- (Homebrew pair), `agda -i . NaturalMachine/Pratyabhijna_….agda`,
+-- exit 0.  NOT checked under the declared pin.
+import NaturalMachine.Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries
+
 ------------------------------------------------------------------------
 -- ORPHAN SWEEP 2, 2026-08-17.  AWAITING KERNEL — authored without a
 -- local toolchain.
@@ -855,6 +865,16 @@ import MadhyaVinimaya_TheMiddleExchangeIsOneLawStandingInSixPlaces
 import Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath
 import Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm
 import Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMovesTheoremsBetweenThem
+
+-- The same, from the CONTENT-ADDRESSED census rather than the printed-type
+-- one (machine/Nama_TheNameIsCarriedAndTheHashIsTheBase.hs, 236 addresses
+-- holding more than one definition).  Samkhya_ works address
+-- 8fabe7d4e1a18208 — four statements of n ↦ 2ⁿ holding four disjoint
+-- theorems; Apavartana_ works ec6d2556e0be6f36 and the larger duplication
+-- against the LIBRARY that the census cannot see, because it reads only
+-- this corpus.  Neither edits any module it identifies.
+import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem
+import Apavartana_TwoPresentationsOfDividesAndTheDifferenceLawThatCrossesBetweenThem
 
 -- The ambient symmetry an ARITHMETIC constraint destroys, stated once
 -- and instantiated: CenterRelative/PrimePairField (the cone),

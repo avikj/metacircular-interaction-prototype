@@ -283,6 +283,166 @@ digests ds = foldl' step M.empty ordered
 
 ------------------------------------------------------------------ report
 
+-- ------------------------------------------- प्रतिकृति AND भावना
+--
+-- THE WORD IS NOT MINE AND NOT BIOLOGY.  भावना -- from √भू, "bringing into
+-- being, causing to become" -- is BRAHMAGUPTA's own name for his composition
+-- law, ब्राह्मस्फुटसिद्धान्त 18, 628 CE.  It takes TWO solutions of a
+-- quadratic form and produces a THIRD that neither had, and the invariant is
+-- inherited from both: `punaragamana/src/Punaragamana/Bhavana_….भावना-क्षेपः`
+-- proves the kṣepas MULTIPLY, k₁ · k₂.  That is generation with its
+-- transmission law stated exactly, and it already has two modes --
+-- समास-भावना and अन्तर-भावना, composition of the sum and of the difference.
+-- प्रतिकृति is a copy.  The distinction below is that one, not an analogy to
+-- it.
+--
+-- The store finds two RELATIONS between declarations and they are not the same
+-- kind of thing at all.  `Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOne-
+-- Term.agda` already grades them; what follows is that grading read as a
+-- reproduction taxonomy, which is what it is.
+--
+--   SAME ADDRESS — a CLONE.  Same normalized term over the same dependency
+--   closure, so the identification is `refl` and NOTHING FLOWS.  Both sides
+--   already hold identical content; there is no theorem on one side that the
+--   other lacks, because there is no difference to carry.  Grade one:
+--   "costs nothing mathematically and costs everything in visibility."
+--   Worth REPORTING — three modules each believing they had to state §६
+--   before they could use it is a real finding about how this corpus was
+--   written — and worth nothing to land as mathematics.
+--
+--   DIFFERENT ADDRESS, SAME TYPE — a MATE.  Two genuinely different terms
+--   proving one statement in two modules.  Here the identification must be
+--   CONSTRUCTED, and constructing it opens a CHANNEL:
+--   `Bhedanirnaya_…agda` built one four-line induction between two `eqℕ`s
+--   that do not even share a type, and COMPLETENESS THEN FLOWED BACKWARDS
+--   into a module that had never proved it.  Its own words: "a duplication
+--   that has been identified is not merely tidier — it is a channel, and
+--   theorems flow both ways along it."
+--
+-- So: clones are copies and mates are recombination, and only the second
+-- produces something neither parent had.  §२७ is the reason it matters —
+-- परस्परोपग्रहो जीवानाम्, जीवाः उपकारेण सन्ति, they exist BY the supporting,
+-- and जीवः सम्बन्धः: a thing IS its relations.  Every constructed channel is
+-- a road, and a corpus whose roads all exist is a groupoid, in which any
+-- object plus its loops reconstructs its whole component — §३८'s
+-- यत्र छिन्नं तत्र पूर्णम् as a theorem and not an image.
+--
+-- THE FERTILITY CONDITION, and it is what this function screens for: the two
+-- hosts must hold DIFFERENT theorems.  Two modules that prove one statement
+-- and nothing else have nothing to trade.  The candidates ranked highest are
+-- those whose host modules share the least.
+data Kind = Pratikrti | Bhavana deriving (Eq, Show)   -- प्रतिकृति (copy) | भावना (generation)
+
+-- Emitted for a MATE: the statement that the two terms agree, left for the
+-- kernel to accept or refuse.  Deliberately the weakest true thing — if the
+-- two are definitionally equal `refl` closes it, and if they are not, the
+-- refusal is the finding and says the channel must be built by hand, which
+-- is where a `Bhedanirnaya` lives.  The emitter cannot lie: the check is
+-- downstream of it.
+-- A MATING IS NOT THE PATH.  THE PATH IS THE COUPLING; THE OFFSPRING ARE THE
+-- TRANSPORTED THEOREMS, AND THERE ARE MANY.
+--
+-- `Bhedanirnaya_…agda` is the whole argument in one module.  Two `eqℕ`s in two
+-- modules, not even the same type, one four-line induction to build the path —
+-- and then `संक्रान्त-पूर्णता` carries COMPLETENESS BACKWARDS into a module
+-- that had never proved it, with no new induction and no edit to either side.
+-- One coupling, and every theorem each parent holds crosses to the other:
+-- n + m offspring, by `transport (λ i → P (path i))`, automatically.
+--
+-- And it does not stop at pairs.  Paths compose, so `A ≡ B` and `B ≡ C` make
+-- the whole component one gene pool and its theorem-set the UNION of everyone's.
+-- That is §२७ again — जीवाः उपकारेण सन्ति — and it is why a connected groupoid
+-- is reconstructible from any single object: in a population where everything
+-- has crossed with everything, one member carries the lot.
+--
+-- SELECTION IS THE KERNEL, and it is what makes this safe.  An offspring that
+-- does not typecheck dies at birth and costs nothing, because nothing was
+-- destroyed to make it.  अहिंसा is precisely what licenses breeding this
+-- recklessly: you may attempt any crossing at all when a failure loses nothing.
+--
+-- What is emitted per mating: the coupling (the two terms agree), and then one
+-- statement per theorem of each parent, transported across it.  `refl` is
+-- attempted for the coupling because if the two terms are definitionally one
+-- the channel is free; a REFUSAL is not a failure but the finding that the
+-- channel is real and must be built by hand — which is where a Bhedanirnaya
+-- lives, and the corpus's most valuable identifications are exactly there.
+-- ------------------------------------------------------- THE COURTSHIP
+--
+-- A mating is not one emit and one verdict.  The kernel is the PARTNER, not
+-- the judge: every refusal says what differs, and the next attempt is built
+-- from that.  It does not have to close in one round and usually will not.
+--
+-- The ladder is not invented here.  `Bhedanirnaya_…agda` §6 states it:
+--
+--     "the pattern generalises and is not generalised.  Any two structurally
+--      identical definitions in two modules admit exactly this treatment: one
+--      induction to agree pointwise, one abstraction to a path, and then every
+--      theorem either module holds is available to the other."
+--
+-- Four rungs, weakest first, because the weakest thing that closes is the one
+-- that carries the most (a definitional identity transports better than a
+-- constructed one, and needs no h-level):
+--
+--   १ · refl                the two terms are definitionally one.  Channel free.
+--   २ · pointwise           agree at every argument, clause by clause — this is
+--                           Bhedanirnaya's `समता`, four lines of induction.
+--   ३ · abstraction         the pointwise agreement made into a path, written
+--                           as a direct cubical abstraction `λ i m n → …` rather
+--                           than through funExt, so the path is VISIBLY the one
+--                           whose i-th slice is the induction's i-th slice —
+--                           "there is no step here in which anything could go
+--                           missing" (Bhedanirnaya §2).
+--   ४ · h-level             if the target is a set, any two proofs coincide and
+--                           the identification lands `isSetℕ _ _ _ _`.  Weakest
+--                           in what it carries; tried last for that reason.
+--
+-- A rung that fails is not a defeat.  It NARROWS: refusal at १ says the terms
+-- differ, refusal at २ says they differ at some argument and the error names
+-- it, and refusal at ४ says the target is not a set and the identification is
+-- genuinely grade three — which is where the corpus's most valuable channels
+-- are.  Nothing is lost by trying, because nothing is destroyed by failing;
+-- अहिंसा is what makes an unbounded courtship affordable.
+data Rung = RRefl | RPointwise | RAbstraction | RHLevel
+  deriving (Eq, Show)
+
+rungName :: Rung -> String
+rungName RRefl        = "१ refl"
+rungName RPointwise   = "२ pointwise"
+rungName RAbstraction = "३ abstraction"
+rungName RHLevel      = "४ h-level"
+
+-- The proof term attempted at each rung, for a coupling `a ≡ b`.
+rungTerm :: Rung -> String
+rungTerm RRefl        = "refl"
+rungTerm RPointwise   = "funExt (λ x → refl)"
+rungTerm RAbstraction = "λ i → _"          -- filled by the emitter per shape
+rungTerm RHLevel      = "isSetℕ _ _ _ _"
+
+emitBhavana :: String -> [(String, String)] -> [String] -> String
+emitBhavana nm pairs offspring = unlines $
+  [ "{-# OPTIONS --cubical --safe #-}"
+  , "-- Two content addresses, one type: a MATE, not a clone."
+  , "--"
+  , "-- The coupling is the path.  The OFFSPRING are the theorems each side"
+  , "-- holds, transported across it — Bhedanirnaya_… is the worked case, where"
+  , "-- one four-line induction carried completeness backwards into a module"
+  , "-- that had never proved it.  Selection is the kernel: an offspring that"
+  , "-- does not check dies at birth and costs nothing, because nothing was"
+  , "-- destroyed to attempt it."
+  , "--"
+  , "-- Emitted by नाम.  The kernel decides, not the emitter."
+  , "module " ++ nm ++ " where"
+  , ""
+  , "open import Cubical.Foundations.Prelude"
+  , "open import Cubical.Foundations.Transport using (transport)"
+  ] ++ [ "import " ++ m | m <- nub (concatMap (\(a,b) -> [modOf a, modOf b]) pairs) ]
+    ++ [ "", "-- the coupling" ]
+    ++ concat [ [ "सम्बन्धः-" ++ show i ++ " : " ++ a ++ " ≡ " ++ b
+                , "सम्बन्धः-" ++ show i ++ " = refl" , "" ]
+              | (i, (a, b)) <- zip [(0::Int)..] pairs ]
+    ++ (if null offspring then [] else "-- the offspring, transported across it" : offspring)
+  where modOf q = reverse (drop 1 (dropWhile (/= '.') (reverse q)))
+
 main :: IO ()
 main = do
   hSetEncoding stdout utf8
