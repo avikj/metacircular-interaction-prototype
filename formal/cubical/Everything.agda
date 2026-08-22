@@ -855,3 +855,50 @@ import MadhyaVinimaya_TheMiddleExchangeIsOneLawStandingInSixPlaces
 import Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath
 import Alopa_TheFirstRoadIsStatedThriceAndTheThreeAreOneTerm
 import Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMovesTheoremsBetweenThem
+
+-- The ambient symmetry an ARITHMETIC constraint destroys, stated once
+-- and instantiated: CenterRelative/PrimePairField (the cone),
+-- CenterRelativeIntegral (index 2) and S3IntegerRelativeCoordinates
+-- (the radial line) were five independent write-ups of one phenomenon
+-- with zero cross-references.  Added alongside; none of them edited.
+import Arpitanarpita_TheSymmetryTheArithmeticConstraintDestroys
+
+-- Landed by रात्रिः (scripts/Ratri_…sh): निर्धारण probes the KERNEL accepted,
+-- checked in place before landing.  Nirdharita_ = the field IS determined
+-- (road one, संक्रमण).  Anirdharita_ = it is NOT, with the two inhabitants
+-- that prove it (road two, दोषलेख).  Both are results; landing only the
+-- first would be दुर्नय.
+import Ratri.Anirdharita_EGBDetConservation_UT
+import Ratri.Anirdharita_EGBDetConservation_UT_NirdharanaPthreeB
+import Ratri.Anirdharita_EGBDetConservation_UT_NirdharanaPthreeC
+import Ratri.Anirdharita_EGBRootedNet_Jewel
+import Ratri.Anirdharita_EGBRootedNet_Jewel_NirdharanaPthreeE
+import Ratri.Anirdharita_KloostermanExponents_ℤ±
+import Ratri.Anirdharita_KloostermanExponents_ℤ±_NirdharanaPthreeG
+import Ratri.Anirdharita_NaturalMachine-ArityOfRepair_Bounds
+import Ratri.Anirdharita_NaturalMachine-ArityOfRepair_Bounds_NirdharanaPthreeI
+import Ratri.Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄
+import Ratri.Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeK
+import Ratri.Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeL
+import Ratri.Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeM
+import Ratri.Anirdharita_NaturalMachine-MachineLoop_LoopState
+import Ratri.Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeO
+import Ratri.Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeP
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificateMul_Env
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeAB
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeW
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeX
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificate_Env
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeR
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeS
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeT
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeU
+import Ratri.Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeV
+import Ratri.Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक
+import Ratri.Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAD
+import Ratri.Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAE
+import Ratri.Nirdharita_Agda-Builtin-Nat_
+import Ratri.Nirdharita_Swarm-S09SmithKuttaka_
+import Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_
