@@ -34,12 +34,22 @@ determinant.  One statement, every prime, decided — not measured.  And
 as the shadow of this law at one list, so the instance is now a corollary of
 the general fact rather than a separate measurement.
 
-**What is NOT claimed / not done here.** This is the drop-LOCUS (which places
-see), not the height VALUE: the identity `∑_p #{i : p∣dᵢ}·log p = log|coker_tors|`
-is the same fact worn in logs, an analytic dress this file does not put on (no
-reals, by choice — the discrete criterion is the honest form).  The cokernel
-group and its order `ds.prod` are likewise not built here; `Apavartana`'s
-instance carries the group facts for `[2,12]`.
+**What is NOT claimed / not done here, and a false identity avoided.** This is
+the drop-LOCUS — which places see — and NOT the height VALUE.  The value is
+`log|coker_tors| = ∑_i log dᵢ = ∑_p (∑_i v_p(dᵢ))·log p` for `T` square
+nonsingular: the exponent is the VALUATION SUM `∑_i v_p(dᵢ)` — how MUCH `p`
+divides — NOT the drop COUNT `#{i : p∣dᵢ}` this file's rank uses — how MANY
+factors `p` divides.  The two differ, and `Apavartana`'s own matrix is the
+counterexample: for `D=diag(2,12)` the drop counts are 2 at `(2)` and 1 at `(3)`
+(`2 log2 + log3 = log12`), against `|coker| = 24 = det`.  (An earlier draft of
+this header, and of README movement 65, wrote `∑_p #{i:p∣dᵢ}·log p =
+log|coker_tors|` — false for exactly this reason; struck there, avoided here.)
+So the rank-on-Spec-ℤ this file decides is a strictly LOSSIER invariant than the
+cokernel: `diag(2,6)` and `diag(2,12)` have IDENTICAL drop functions but
+cokernels of order 12 and 24 — the price function's own fibre is the p-adic
+depth it discards, `QuotientFiberLaw` applied to the price itself, not a defect.
+The value's finite half is checked next door as `Apavartana.det_eq`
+(`smithDivisors.prod = 24`); the cokernel group and reals are not built here.
 
 No `sorry`, no `admit`, no `axiom`, no `native_decide`, and no `decide` on any
 of the general (universally quantified) claims.
