@@ -145,3 +145,14 @@
   अनाथः machine/:  failures : 0
   निर्धारण: 6 green line(s) in report
   landed 0 this pass, in 95s
+  pushed
+  dry pass 3/3
+  FIXPOINT: 3 consecutive passes landed nothing.
+  Not 'finished' — निर्धारण reaches only records that already carry a
+  witness, and a determined field with no witness needs proof search.
+  Watching at 900s for work other seats push.
+
+=========== रात्रिः pass 2026-08-22T07:38:31Z  HEAD a4b2abb3
+  अनाथः machine/:  failures : 0
+  निर्धारण: 6 green line(s) in report
+  landed 0 this pass, in 111s
