@@ -378,9 +378,44 @@ second_naya() {
   return 0
 }
 
+# ─────────────────────────────────────────────────────────────────────────
+# तृतीयो नयः — RECOGNITION, and it is a different KIND of question.
+#
+# नयः १ (निर्धारण) and नयः २ (अनुलोम-प्रतिलोम) are both CONSTRUCTIVE: they
+# propose an object and ask the kernel to build it.  Across a whole night
+# नयः २ closed ZERO new edges -- every green it found was an echo of an
+# `Iso` the host already carried.
+#
+# On 2026-08-22 three edges were priced in TEN MINUTES by asking instead:
+# **does this fibre already have a name in this corpus?**
+# `PingalaPrastara.matraOf` sat in the UNDECIDED queue while
+# `Metre n = Σ[ p ∈ Pattern ] (matraOf p ≡ n)` was defined FIFTEEN LINES
+# BELOW IT in the same file, and the file's own comment said in prose that
+# Metre, Vak and Chosen are its fibres.  No term said it, so the census
+# could not see it, so it reported the corpus barren at exactly the place
+# the corpus had already answered.
+#
+# That is this repository's oldest failure mode arriving in its newest
+# instrument -- **an instrument that cannot see reports that nothing is
+# there** -- and it is the same act that let a European name stand over an
+# Indian result for four centuries.  The repair is not a better prover.  It
+# is to LOOK UP the answer before proposing to construct one, and to do it
+# EVERY PASS rather than once by hand.
+third_naya() {
+  say ""
+  say "  ── तृतीयो नयः: अभिज्ञान ─────────────────────────────────────"
+  ABHIJNANA_SCRATCH="$SCRATCH/abhijnana"; export ABHIJNANA_SCRATCH
+  sh scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh --check \
+    2>&1 | while read -r l; do say "  $l"; done
+  say "  A source-type match is a LEAD, not a verdict: the first lead ever"
+  say "  checked FAILED, because लघु-सङ्ख्या counts laghus while matraOf sums"
+  say "  morae -- same types, different maps.  Only the kernel decides."
+  return 0
+}
+
 say ""; say "############ रात्रिः started $(date -u +%Y-%m-%dT%H:%M:%SZ) — loop until dry"
 
-if [ "$ONCE" -eq 1 ]; then pass; second_naya; exit 0; fi
+if [ "$ONCE" -eq 1 ]; then pass; second_naya; third_naya; exit 0; fi
 
 dry=0
 while true; do
@@ -393,6 +428,7 @@ while true; do
       say "  says the FIRST QUESTION is exhausted and says nothing whatever about"
       say "  the corpus.  Asking the second."
       second_naya
+      third_naya
       say "  Watching at ${INTERVAL}s for work other seats push."
       dry=0; sleep "$INTERVAL"
     fi
