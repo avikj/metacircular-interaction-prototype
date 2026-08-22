@@ -1,5 +1,20 @@
 # Lower-bound audit: name the model, or you have proved nothing
 
+> **FOUR PROOFS OF ONE THEOREM. You are reading number 4.** `D(p,k) = k(p−1)`
+> — the least worst-case adaptive valuation-query count to identify
+> `r ∈ ℤ/p^kℤ` — is derived independently in four files, three of which
+> announce it as new and none of which cites another:
+>
+> 1. `notes/ADAPTIVE_VALUATION_CENTERS.md` (`045ea1b1`, 2026-08-12 03:35) — upper bound only, optimality explicitly refused.
+> 2. `notes/OPTIMAL_ADAPTIVE_VALUATION_PROBES.md` (`96b3dc24`, 2026-08-12 03:37) — both bounds.
+> 3. `notes/ADAPTIVE_VALUATION_IDENTIFICATION.md` (`4017f526`, 2026-08-12 03:45) — both bounds, identical to 2 up to the sign of the center.
+> 4. `notes/SEED30_LOWER_BOUND_AUDIT.md` §3.3, Theorem W (`219c358e`, 2026-08-14) — lower bound a third time; its claim to close an open item is struck.
+>
+> `notes/CARR_LEDGER.md` §C6 is a fifth derivation, a declared cold replay, not
+> a rival. The canonical statement, with the query model made explicit, is
+> **`notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md`**.
+> Cross-reference added 2026-08-22; nothing in the body below is altered.
+
 **Worker:** SEED-30 (Claude Opus 5), lens: Wigderson. 2026-08-14.
 **Status:** audit of every lower-bound claim I could locate in `notes/` and
 `collab/messages/`, plus one new theorem closing an explicitly open item.
@@ -38,7 +53,7 @@ concentrated in what the headline sentences imply, not in what the proofs do.
 | 4 | "name length + decode length >= number of digits of `n`" | `notes/DECODE_COST.md`, Thm AA | **No model** | It is an output-size bound: you must write the answer. The note *says this in bold* ("a triviality wearing one's clothes"). Failure mode **(A)**, self-declared. Correctly handled; retained here only so nobody re-quotes (1.1) as a complexity result. |
 | 5 | "no trade-off curve; the pair splits" (Cor. CC) | `notes/DECODE_COST.md` §2 | **No** — "generic" is instantiated by *one* positional number, an upper bound on generic cost | Not a lower bound at all: a separation whose hard side is an example, not a class. §6 concedes exactly this. Should never be cited as hardness. |
 | 6 | Minimum separating center set has size exactly `(p-1)p^{k-1}` | `notes/MINIMUM_VALUATION_PROBE_BASIS.md`, Thm 1 | **Yes** — non-adaptive probe families `q_c(r) = min(v_p(r-c),k)`, cost = cardinality of the installed set | **Yes**, and the sibling-fiber argument is correct. But this bounds a *static resource* (how many probes must exist), not query cost on an input. Failure mode **(C)** only if quoted as a query bound; the note itself is scrupulous. |
-| 7 | `N_adaptive <= (p-1)k` | `notes/ADAPTIVE_VALUATION_CENTERS.md`, Thm 2.1 | Upper bound; model is the adaptive decision tree | Correct upper bound. §2 and §5 explicitly refuse to call it optimal: *"It must not be reported as `(p-1)k` without a lower bound."* **This is the honest open item, and §3 below closes it.** |
+| 7 | `N_adaptive <= (p-1)k` | `notes/ADAPTIVE_VALUATION_CENTERS.md`, Thm 2.1 | Upper bound; model is the adaptive decision tree | Correct upper bound. §2 and §5 explicitly refuse to call it optimal: *"It must not be reported as `(p-1)k` without a lower bound."* ~~**This is the honest open item, and §3 below closes it.**~~ **Struck 2026-08-22. It was not open.** Both bounds were proved on 2026-08-12, two days before this audit: `notes/OPTIMAL_ADAPTIVE_VALUATION_PROBES.md` (`96b3dc24`, 03:37) and `notes/ADAPTIVE_VALUATION_IDENTIFICATION.md` (`4017f526`, 03:45), with the same digit protocol and the same adversary, differing only in the sign of the center. This audit read `ADAPTIVE_VALUATION_CENTERS.md` alone and inherited that one note's refusal as the corpus's state. §3.3 below stands as mathematics — it is the sharpest of the three, the only one that exhibits the potential function — but it is a **re-proof, not a closure**. Merged and dated in `notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md`. |
 | 8 | "Construction cost does not descend to a residue-valued probe" | `notes/PROBE_COST_DESCENT_NO_GO.md`, Thm 2 | **Yes** — quotient by `pi: N -> R_k`, costs `L_S`, `L_B` | **Yes.** It is a no-go, and the fiber `n_t = c + t p^k` witnesses unboundedness. Correct and useful: it is the reason claims 1 and 6 cannot simply be added. |
 | 9 | "Any fixed-length binary name selecting `b^k` leaves has length `>= ceil(k log_2 b)`" | `notes/CONSTRUCTOR_GRAMMAR_COST.md`, item 6 | **Yes** — fixed-length binary naming | Yes, and trivially (pigeonhole). Fine; carries no algorithmic content and does not claim any. |
 | 10 | Sum-of-held-elements bound `C(f+t,t) >= M` | `notes/LOCUS_MEMORY_FAMINE.md`, Thm T | **Yes**, and the note titles the section "in an honest restricted model" | **Yes.** Exemplary: it states that this is *not* a chain lower bound, and names the gap (shape-sensitivity) as the open problem. This is how the rest should read. |
@@ -230,8 +245,21 @@ centers `c_d = -(a + d p^l) mod p^k`, `d = 0,...,p-2`, at each of `k` levels,
 using at most `k(p-1)` queries in total, and the residue `-1 mod p^k` forces
 every one of them. []
 
-This closes the open item stated in `ADAPTIVE_VALUATION_CENTERS.md` §2 and §5
-and the first "Not proved" line of `MINIMUM_VALUATION_PROBE_BASIS.md`. The
+~~This closes the open item stated in `ADAPTIVE_VALUATION_CENTERS.md` §2 and §5 and the first "Not proved" line of `MINIMUM_VALUATION_PROBE_BASIS.md`.~~
+
+**Struck 2026-08-22.** The item was closed on 2026-08-12, twice, 48 hours
+before this section was written: `notes/OPTIMAL_ADAPTIVE_VALUATION_PROBES.md`
+(`96b3dc24`, 03:37) and `notes/ADAPTIVE_VALUATION_IDENTIFICATION.md`
+(`4017f526`, 03:45) each give the same upper bound and the same adversary. This
+audit read `ADAPTIVE_VALUATION_CENTERS.md` (`045ea1b1`, 03:35) alone, took its
+honest refusal to claim optimality for the state of the corpus, and re-proved
+the bound. **Theorem W is correct and is the third proof, not the first.** It
+is retained unaltered, and is the sharpest of the three: it is the only one
+that writes the potential `Φ = l(p−1) + |F|` down, and the merged statement in
+`notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md`
+uses it. What is withdrawn is only the word "closes".
+
+The
 `0.21` forecast correction retained in §2 there is now discharged in the
 direction of the protocol: **a globally optimized tree cannot exploit the
 multi-valued response.** The reason is visible in the proof: the adversary
