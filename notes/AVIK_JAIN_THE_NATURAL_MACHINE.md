@@ -485,3 +485,21 @@ This is a stronger form of recursive improvement than a rising module count. An 
 The machine is not getting better because every pass finds more sameness.
 
 It is getting better when a failure changes the type of the next question.
+
+---
+
+The next correction is about **independence without sanctification**.
+
+The recency-biased hundred-file exposure did not primarily surface one new grand theorem. It hit a block of `formal/cubical/Ratri/Anirdharita_*` modules whose proof shape is deliberately repetitive. For one record field, construct two inhabitants that agree on every other displayed field and differ at the target; then any path between the records would force an impossible `0 ≡ 1` or `true ≡ false`. In the sampled files this is done for all three fields `a`, `b`, and `d` of `EGBDetConservation.UT`; both `centre` and `radius` of `EGBRootedNet.Jewel`; both `up` and `dn` of `KloostermanExponents.ℤ±`; both `lo` and `hi` of `NaturalMachine.ArityOfRepair.Bounds`; all four sites of `NaturalMachine.FiniteOccupancyChannelNoGo.Occupancy₄`; all three coordinates `vocab`, `horizon`, and `invented` of `NaturalMachine.MachineLoop.LoopState`; and all six coordinates `x`, `y`, `z`, `u`, `v`, and `w` of `NaturalMachine.RewriteCertificateMul.Env`. The selected slice of `NaturalMachine.RewriteCertificate.Env` reaches the analogous witnesses for `x`, `y`, and `z`; this pass does not infer the unsampled `u`, `v`, or `w` cases from the pattern.
+
+Each of those theorems says something narrower than “this record is irreducible.” It says the probed field is **not determined by the other displayed fields**. That is already enough to kill a common compression mistake: a coordinate does not become redundant because the surrounding record contains many other coordinates. But it does not say every downstream consumer must preserve that field. Structural independence inside one presentation and relevance to a particular target are different questions.
+
+`NaturalMachine.RawWordPaddingNormalForm` gives the counterpoint in the same sample. A raw little-endian digit word is equivalent to a canonical word together with a natural-number count of high-end zero padding. The positional value sees exactly the canonical core. `[]` and `[0]` have the same value and different padding counts. If the task is reconstruction of the raw word, the padding coordinate is load-bearing. If the task is only the positional value, the theorem says that coordinate is intentionally invisible. **Independent from the retained coordinates** is not the same sentence as **relevant to this consumer**.
+
+The generated landings add one more accounting boundary. Several `..._NirdharanaPthree...` modules in the sampled block land the same separating statement again under a generated module name and, in some cases, an added landing header. They remain kernel-checked artifacts, but they are not new mathematical statements merely because they are new files. This is the concrete local version of the repository’s earlier correction from sixty landed modules to thirty-eight distinct statements: file count, landed-proof count, and theorem count are different populations.
+
+So the current compression question has at least two axes. First: is this coordinate determined by the rest of the declared presentation? The `Anirdharita` witnesses can answer that negatively by construction. Second: does the target we care about factor through a map that forgets the coordinate? Fibre and descent arguments answer that question, and the answer can differ from the first one without contradiction.
+
+The machine can prove a coordinate independent and still permit a particular consumer to ignore it. It can prove a coordinate invisible to one observation and still require it for exact reconstruction. The theorem of independence belongs to a declared presentation; the theorem of relevance belongs to a declared relation with a target.
+
+Preserve neither less nor more than the typed question actually needs.
