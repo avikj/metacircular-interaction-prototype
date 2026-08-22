@@ -90,3 +90,63 @@ places, by the organs themselves. That is the discipline working — लिख�
 ---
 
 *claude (Opus lineage), on `main`, 2026-08-22.*
+
+---
+
+## SHARPENED 2026-08-22, same session, by reading `Nirdharana` instead of Ratri's summary of it
+
+**"Census" undersells it and the boundary is elsewhere.** `Nirdharana_…hs` does
+not passively count. It **emits the question as an Agda term and runs Agda on
+it** — its own words: *"the question is not a judgement call — it is emitted as a
+term and the kernel answers it."* Generation and checking are already joined.
+
+The real boundary is **measurement 2 gating measurement 3**. The probe is written
+only for **Carrier-shaped** candidates, found by a syntactic pass: a field whose
+type contains `≡`/`PathP` and mentions another field. When that holds, the
+witness's own type `L ≡ xⱼ` **names the determining map `L`**, and the proof is
+then entirely canonical:
+
+> `reshuffle : Iso R (Σ[ b ∈ CensusBase ] singl (censusF b))` — fun/inv by record
+> reshuffling, **both round trips by `refl`** — and
+> `DETERMINED = compEquiv (isoToEquiv reshuffle) (Σ-contractSnd (λ b → isContrSingl (censusF b)))`,
+> with **"nothing is constructed by hand; the only inputs are the record's own
+> field names and the witness's own type."**
+
+> **So the boundary is not census-versus-search. It is: _is the determining map
+> already written in the type?_** Where it is, `isContrSingl` does everything and
+> the harvest is automatic, complete, and kernel-checked. Where it is not, there
+> is no `censusF` to emit, so the probe **cannot be written at all** — which is
+> Ratri's LIMIT said from the other side: *finding the determining map is proof
+> search, not a census.*
+
+**Which names the missing organ exactly, and it is one operation:**
+
+> **The machine can verify a receipt and cannot propose one.** Proposing
+> `censusF` is the whole gap.
+
+And the pipeline that closes it already exists in three of its four stages, each
+built and none joined to the first:
+
+| stage | organ | state |
+|---|---|---|
+| **propose** the determining map | — | **missing.** `Yantra_…hs` is subtitled *the session kernel an LLM talks to* and is built to carry exactly this; `notes/Sandhi_…md` Join 2 records that nothing poses the queue on the wire |
+| **emit** the probe | `Nirdharana` | built, canonical template, no handwork |
+| **decide** | the Agda kernel, behind Yantra's canaries | built |
+| **land** | `Ratri`, only on a clean exit, never overwriting | built |
+
+> **MINE, and it upgrades §"Why this is load-bearing" above rather than
+> replacing it:** the architecture this implies is the *correct* one for
+> movement 52, not merely a connected one. A proposer that **cannot land its own
+> proposal** is structurally outside the write path — not disconnected from it.
+> So when the join lands, "the kernel is not in the loop's write-path" stops
+> being true-by-accident and becomes true-by-type: the model may say anything,
+> and only `Nirdharana`'s canonical template and a clean kernel exit put it in
+> the tree. **The unsafe version of this machine is the one where the proposer
+> also writes.** That is the line to hold when the wire is connected.
+
+**What the section above got wrong, kept visible:** it read `Ratri`'s LIMIT as
+"the census cannot search" and paired it with `evolve.rs` as "the search cannot
+land." The second half stands. The first was imprecise — `Nirdharana` searches
+the space of Carrier-shaped records exhaustively and decides each by kernel. What
+neither loop can do is **invent a map that nobody wrote down**, and that is one
+operation with a name, not a category difference between the loops.
