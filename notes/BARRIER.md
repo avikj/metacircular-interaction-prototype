@@ -184,3 +184,58 @@ any arithmetic sum.
 `HOLOGRAM.md` §5's span-8.5 prediction stands; a confirmed reading at
 $X\sim10^8$ of the predicted new lines would be the third dataset on the
 capacity curve.
+
+---
+
+## Appendix (appended 2026-08-18): the barrier problem is a two-witness problem
+
+The precise form stated above — *"Exhibit, or rule out, a **pair** of
+admissible zero configurations indistinguishable to all
+$\mathrm{WL}_d(L,\mathrm{poly})$ observables but with different
+pair-correlation statistics"* — reached the number **2** from the
+mathematics. `NaturalMachine.BarrierIsTwoWitnesses` says why it is 2, and
+why it can be neither 1 nor more, using only the structure B3 already
+establishes.
+
+**B3 is a probe statement.** "Any $O=\Phi(Q_{w_1},\dots,Q_{w_r})$ with
+arbitrary — even non-computable — post-processing $\Phi$ … factors
+through the blurred measure" says exactly that the decoders are the
+post-processings and what they may read is the blur. Formally, with
+`blur : Config → Blur` and `stat : Config → Stat`:
+
+```agda
+Recovers Φ   = (c : Config) → Φ (blur c) ≡ stat c
+BarrierHolds = ¬ Σ[ Φ ∈ (Blur → Stat) ] Recovers Φ
+```
+
+Three facts, checked, over abstract `Config`/`Blur`/`Stat` — which is the
+right generality precisely because B3 lets $\Phi$ be arbitrary:
+
+1. **One configuration is never enough**, with no hypothesis whatever.
+   `one-config-never-suffices` — the constant post-processing
+   `λ _ → stat c` answers any single configuration, however extreme. So a
+   programme of the form *construct a single spectrum with property P* is
+   looking at the wrong kind of object. This is the methodological
+   content.
+2. **A pair is the whole content, not evidence for it.**
+   `barrier-from-a-pair` — two configurations the blur identifies and the
+   statistic separates kill *every* $\Phi$ at once, which is what B3's
+   "arbitrary, even non-computable" is there to make meaningful.
+   `barrier-witness-number-2` gives exactly 2.
+3. **On a finite family with no such pair, the barrier provably fails.**
+   `no-pair-on-a-family` (needs comparable blur values) — a
+   post-processing answering the whole family is constructed by table
+   lookup. So the search cannot be narrowed to a family already checked
+   pairwise.
+
+**Nothing analytic is claimed.** No pair is asserted to exist, nothing
+about $\zeta$, admissibility, the counting law, the functional equation,
+$L$, or resolution. This establishes strictly less than B3 — it is a
+statement about the shape of the target, confirming from the other side
+this note's own ledger that B1–B3 do not establish a barrier against
+inferring $\zeta$'s correlations. B3 supplies the probe structure; the
+probe structure is what makes the cost exactly two.
+
+The general theory is in `notes/THE_WITNESS_NUMBER.md`; the relevant
+theorem is that over decoders reading a discrete probe, an obstruction of
+this shape costs 2 whenever it costs anything finite.

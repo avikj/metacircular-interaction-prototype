@@ -356,3 +356,336 @@ construction with retained residual branch witnesses.
 Open: Pairwise residual inequality supplies separators but not a globally safe
 root.  Characterize the finite live-family measure that a safe split strictly
 decreases and from which the classical quadratic height follows.
+
+## 2026-08-14T09:58:00Z — exact safe-split potential landed
+Believe: Recursive safety and quantitative progress are now separated.  On a
+reduced finite live residual cell, safety preserves each response-fibre
+cardinality and the square ambiguity loses exactly the cross-fibre term.  A
+constant response is the exact equality case, so no scalar proof may silently
+charge every safe action as progress.
+Doing: Test whether safe constant-response steering can be normalized away.
+Seek the smallest reachable residual machine where every separating tree must
+first take such a zero-decrease step before an informative split becomes
+available.
+Open: If that control exists, the classical height argument needs a second
+rank for steering as well as the split potential.  If it does not, prove the
+normalization theorem and recover a direct potential bound.
+
+## 2026-08-14T10:18:00Z — mandatory zero-potential steering landed
+Believe: Constant-response steering is not removable bookkeeping.  The
+five-state reachable control forces every separating experiment to start with
+`steer`; that action is residual-safe, returns false throughout the live cell,
+and leaves the exact R0056 square potential unchanged.  Together with the
+universal cardinal-score no-go, this eliminates every progress measure that
+sees only the number of live residuals.
+Doing: Search for a rank on the induced action of the transition semigroup on
+live residual pairs or cells.  It must distinguish positions with equal
+cardinality and descend along a finite chain of mandatory steering steps
+before the first informative split.
+Open: Determine whether one scalar positional rank suffices, or whether the
+native classical height proof is essentially lexicographic/proof-relevant and
+must retain the chosen split plan itself.  Do not import the quoted quadratic
+ADS bound until its construction is actually reconstructed here.
+
+## 2026-08-14T10:34:00Z — canonical residual cycles are deletable
+Believe: The second carrier is now exact.  A live prefix cell is located by the
+set of Mathlib left quotients it presents, not by raw prefixes or cardinality.
+Residual separation by a fixed subtree is invariant under equality of this
+position, so a subtree reached after a steering cycle transports unchanged to
+the earlier occurrence.  R0057 is the necessary negative control: its
+zero-potential `steer` changes the position and therefore cannot be deleted.
+Doing: Combine the transport theorem with the finite `choose n k` position
+space.  The next proof must select a depth-minimal splitting plan and show that
+each constant-cardinality branch spine is duplicate-free by replacing a
+repeated-position segment with the transported later subtree.
+Open: The local ingredients no longer hide the difficulty.  What remains is
+the global branch/minimality assembly and then the precise lexicographic
+height recurrence across informative splits.  Do not identify the result with
+the classical quadratic ADS theorem until that recurrence is checked.
+
+## 2026-08-14T11:12:00Z — node-minimal native depth bound landed
+Believe: The global quantifiers are now explicit.  Depth minimality deletes a
+repeat on a selected branch, but node minimality is the hereditary cost needed
+for every sibling.  Replacing a strict subplan is literal syntax, so a repeated
+canonical position would shrink the whole certified plan.  Following deepest
+children turns the resulting `Nodup` theorem into the native bound
+`depth(P)+1 ≤ 2^n`.
+Doing: Refine zero-potential steering runs by the constant cardinality of their
+canonical positions and consume R0058's `Nat.choose n k` carrier before
+crossing an informative split.
+Open: Derive and solve the exact recurrence that combines those steering
+segments with the R0056 cross-fibre potential loss.  The checked exponential
+bound is unconditional; the classical quadratic ADS height remains unclaimed.
+
+## 2026-08-14T11:31:00Z — local binomial recurrence route killed
+Believe: The exact `choose n k` refinement does not bend the exponential bound
+toward quadratic.  Its abstract carrier is saturated: all `k`-subsets form a
+duplicate-free fixed-size history.  At six states the middle layer alone has
+20 positions, already exceeding the sharp total target 15.  The five-state
+two-subset equality is the boundary control.
+Doing: Replace the abandoned scalar recurrence with the native global object
+named by the checked source: a splitting tree over a partition of initial
+states, with valid conservative refinement applied to all largest blocks.
+Open: Formalize the invariant that relates an initial block, its current-state
+image, and an annotated separating string without losing the branch witness.
+Only that compatibility can exclude the locally possible cells counted by the
+binomial countermodel.
+
+## 2026-08-14T11:55:00Z — global annotated split budget claimed
+Believe: The first global carrier is a block of initial states together with
+the exact word realizing its current image.  Valid response refinement keeps
+that provenance and spends cross-pair ambiguity, whereas a scalar live cell
+forgets which initial states and which word produced it.
+Doing: Prove the annotated-child transport, replacement identity inside a
+finite block family, and the sharp `n(n-1)/2` bound on informative refinement
+events.  Execute strict, equality, and sharpness controls in Lean.
+Open: This event count is not ADS height.  Determine next whether simultaneous
+largest-block refinement charges total retained word length, or whether a new
+counterexample shows even this global budget is insufficient without the full
+Lee--Yannakakis scheduling invariant.
+
+## 2026-08-14T12:18:00Z — annotated split checks; event sharpness refuted
+Believe: The global object has now separated into two exact currencies.  R0066
+counts a sufficient suffix vocabulary by unordered pairs.  R0068 transports
+initial-state provenance through valid response children, but a real partition
+has only `n-1` informative split events.  Therefore the quadratic ADS cost, if
+reconstructed, must be an annotation-length/scheduling theorem rather than an
+event-potential theorem.
+Doing: Connect one R0068 annotated child to strict refinement of R0066's
+suffix partition, then retain the length of the separating word instead of
+collapsing it to one witness.  Test simultaneous largest-block scheduling
+before asserting any quadratic recurrence.
+Open: Does the Lee--Yannakakis construction charge each annotation letter to a
+state pair exactly once, or charge an entire separating suffix as one unit and
+derive height by a different tree recurrence?  This must be read or
+reconstructed exactly; the event count alone is now formally incapable of
+answering it.
+
+## 2026-08-14T12:43:00Z — strict global formation characterized exactly
+Believe: The cross-agreement port is no longer an informal compatibility
+condition.  A suffix insertion is strictly informative globally if and only
+if it separates a pair still identified by every old suffix.  Local
+informativeness without that witness is exactly redundancy, not partial
+progress hidden by the partition order.
+Doing: Lift the one-pair equivalence to a whole annotated family and test
+whether largest-block scheduling preserves enough cross-agreement witnesses
+to charge retained annotation length.
+Open: The remaining quadratic currency cannot be event count or witness-set
+cardinality.  It must be a theorem about word length/scheduling, or the
+classical recurrence uses a different proof-relevant carrier.  Do not collapse
+this distinction again.
+
+## 2026-08-14T13:02:00Z — native complete language forms a discrete observable
+Believe: The classical-choice seam is now closed at its honest effective
+boundary.  A supplied finite reduced DFA and complete alphabet enumerate
+globally shortest pair witnesses; their simultaneous response vectors form a
+discrete `Finpartition`.  This is executable observable formation, but only on
+the supplied chart carrying the order, decisions, and reduction proof.
+Doing: Treat candidate installation as the causal process.  Use the exact
+strict-refinement iff to reject words already redundant globally, and seek a
+shared visited-pair forest that charges aggregate search and retained length.
+Open: Vocabulary completeness is no longer the obstruction.  The remaining
+question is whether a costed installation schedule yields the classical
+quadratic ADS height, or whether adaptive branch annotations require a
+different invariant from this global nonadaptive partition.
+
+## 2026-08-14T13:22:00Z — greedy observable formation claimed
+Believe: Greedy installation from any finite candidate list preserves exactly
+the response equivalence induced by installing the entire list.  The
+load-bearing fact is monotonicity of redundancy: once a word fails to separate
+any pair still equivalent under the installed tests, later refinements cannot
+make that word informative.  Therefore pruning the native complete witness
+pool still yields a discrete observable and never needs backtracking.
+Forecast: `0.78` the executable recursion and theorem check constructively;
+`0.17` the theorem survives but Lean needs a narrower decidability or ordering
+hypothesis; `0.05` a finite order-dependence counterexample refutes the proposed
+monotonicity.  The hostile control is a list containing two distinct words
+with the same response: the second must be rejected while discreteness remains.
+Doing: Define the finite greedy installation event, prove full-list semantic
+preservation and native completeness, and execute the duplicate-word control.
+Open: After semantic pruning, count accepted events by strict partition growth
+and then price retained word length separately from independent search cost.
+
+## 2026-08-14T13:41:00Z — greedy formation checked and accepted
+Believe: The leading theorem forecast occurred, with the explicit-enumeration
+narrowing anticipated by the `0.17` branch.  `greedyInstall` preserves exactly
+the response relation of the full schedule; redundancy is upward-monotone;
+and every explicit enumeration of the native complete pool prunes to a
+discrete observable with the same quadratic cardinal ceiling.  The three-state
+control rejects a behaviorally duplicate word and remains discrete.
+Doing: Move the strict-refinement gate before candidate construction.  Consume
+the returned reverse rank/action policy as the suffix carrier, but retain each
+root's replay prefix and charge only product states actually expanded for
+currently unresolved response blocks.
+Open: Does an executable reverse traversal build the supplied policy while
+expanding each product state once, and can demand restriction provably avoid
+expanding already resolved roots?  Semantic pruning alone does not reduce the
+independent-search baseline and must not be reported as discovery savings.
+
+## 2026-08-14T13:47:00Z — demand-restricted policy formation claimed
+Believe: Given the returned rank/action separator policy, an executable loop
+need only select a currently unresolved strict state pair and lazily reconstruct
+that pair's shared suffix.  The suffix is automatically useful, installation
+strictly decreases the unresolved-pair finset, and at most `choose(n,2)` such
+events form a discrete observable from any initial tests.
+Forecast: `0.75` the loop, strict cardinal descent, and discrete termination
+check constructively; `0.20` dependent `Finset.min'` or fuel unfolding forces a
+narrower scheduler interface; `0.05` an action word that separates its selected
+pair nevertheless creates a new unresolved pair, refuting monotone descent.
+The last branch is the annihilation control and should be impossible because
+adding tests only refines response equality.
+Doing: Build `unresolvedPairs`, the least-demand policy loop, and a three-state
+native event that forms `{[],[false]}` without constructing a duplicate probe.
+Open: This consumes a supplied global policy.  Its proof cannot be promoted to
+one-expansion discovery savings until the policy table itself is constructed by
+a checked reverse traversal with explicit expansion accounting.
+
+## 2026-08-14T16:29:38Z — demand-restricted policy formation checked
+Believe: A reverse separator policy is now an executable formation resource,
+not merely a completeness witness.  Every requested suffix is useful before
+construction, discharges its selected pair, and strictly lowers the finite
+unresolved demand.  A complete explicit pair schedule therefore forms a
+discrete observable; the three-state event forms exactly `{[], [false]}`.
+The leading forecast occurred together with the anticipated scheduler-interface
+narrowing: the construction accepts an explicit schedule instead of hiding an
+order choice for product states.
+Doing: Consume the one-reverse-traversal return at its exact boundary.  Join its
+quadratic state-admission theorem to this demand loop only after a predecessor
+index supplies a proved edge-work bound and retained paths are extracted into
+the policy interface.
+Open: Installation count is now finite and demand-sensitive, but discovery cost
+is not.  The flat reverse alphabet can still cause quartically many transition
+attempts; no speedup claim is licensed until that scan is removed and checked.
+
+## 2026-08-14T16:39:11Z — shortest-separator policy compilation claimed
+Believe: The supplied-policy seam can be closed independently of the shared
+search optimization.  Orient every unequal pair, take its checked globally
+shortest native separator, use its length as rank and its head as the action
+backpointer.  The tail separates the successor pair and shortestness forces
+strict rank descent.  This should produce the exact `Policy` consumed by the
+demand-restricted formation loop.
+Forecast: `0.72` the executable policy and end-to-end discrete formation check;
+`0.20` a narrower orientation or word-decomposition lemma; `0.08` a tail that
+fails to separate the successor pair, killing the construction.
+Doing: Implement the per-pair baseline in a disjoint Lean module while the
+automata lane materializes the genuine reverse-edge source index.
+Open: This retains independent pair-search cost.  The shared indexed traversal
+must later replace the baseline policy extensionally before any aggregate
+discovery-cost improvement is claimed.
+
+## 2026-08-14T16:49:05Z — shortest-separator policy compilation checked
+Believe: The supplied-policy seam is closed.  Globally shortest native pair
+separators compile into the exact decreasing-rank action policy consumed by
+demand-restricted formation, and the native control forms precisely
+`{[], [false]}` with a discrete partition.  The leading forecast and its
+anticipated interface-narrowing branch both occurred; the tail-separation
+annihilator did not.
+Doing: Consume the source-indexed reverse traversal once its result lands and
+extract its retained paths into this same policy interface.  Prove extensional
+agreement of the formed observable before transferring any work bound.
+Open: The present compiler performs independent pair searches.  It closes
+executable formation, not shared discovery cost; source-index construction,
+bucket lookup, key comparison, and proof erasure also remain outside the
+automata lane's charged-edge model.
+
+## 2026-08-14T16:54:09Z — indexed trace-to-policy boundary claimed
+Believe: Endpoint validity of a retained reverse node is weaker than the
+chained-edge fact needed for policy extraction, because a predecessor label at
+the wrong source is a no-op in the reverse DFA.  A valid word can therefore
+end with an edge whose advertised target is not the node state.
+Forecast: `0.86` an exact native counterexample on the planted chart; `0.11`
+an intensional terminal-seed construction is needed; `0.03` the edge DFA
+actually rejects mismatches and the reading is wrong.
+Doing: Construct the valid-but-unchained node and check its endpoint, last
+edge, source mismatch, and target mismatch exactly.
+Open: If it fires, strengthen the indexed queue invariant to trace chaining;
+only that stronger carrier licenses extraction of last-edge actions into the
+formation policy.
+
+## 2026-08-14T16:59:56Z — endpoint-valid trace counterexample checked
+Believe: The counterexample is exact.  A genuine terminal seed followed by a
+predecessor edge used at the wrong source is endpoint-valid because the reverse
+DFA ignores the mismatch, yet the last edge's advertised target differs from
+the node state.  `ReachNode.Valid` alone cannot supply policy parents.
+Doing: Replace endpoint validity by a chained-trace invariant through the
+indexed queue: each consumed edge source must equal the replay state and each
+child must be its recorded target.  Coordinate this with the automata lane's
+separate inventory-path and queue-completeness proofs.
+Open: The counterexample is not a retained indexed-queue word and does not
+attack its charged attempt bound.  It proves exactly that the current exported
+validity theorem is insufficient for extraction; construction-specific
+chaining remains to be proved.
+
+## 2026-08-14T17:04:40Z — indexed queue chaining claimed
+Believe: The graph/path return and endpoint-validity counterexample meet at a
+snoc-style `ChainedTo` invariant.  Source-bucket soundness should make every
+candidate edge start exactly at its parent state; its recorded target is then
+the child, and freshness only filters already chained candidates.
+Forecast: `0.74` full preservation through `runQueue` plus a last-edge target
+theorem; `0.21` a simultaneous residual-index induction; `0.05` source bucket
+execution admits an actually mismatched child.
+Doing: Prove chaining for initial, consumed candidates, fresh frontiers, and
+all queue rounds, with the earlier valid-but-unchained node as negative
+control.
+Open: Chaining gives sound parents, not coverage.  Queue completeness and a
+total pair-to-node lookup remain separate before the indexed traversal can
+replace the independent shortest-policy baseline.
+
+## 2026-08-14T17:18:03Z — indexed parent extraction checked
+Believe: The automata lane's construction-specific `EdgeTrace.Chained`
+invariant is exactly strong enough to expose a sound final parent edge.  Every
+nonempty node retained by `indexedTraversal` has a last edge whose recorded
+target is the node state, and the earlier endpoint-valid wrong-source witness
+is excluded from every `runQueue`, for every inventory and fuel.
+Doing: Let the automata lane own destructive-bucket completeness.  Consume its
+result, if it survives, into a total pair-to-node lookup and then isolate the
+separate shortestness/rank-decrease obligation needed by the installed
+formation `Policy`.
+Open: Causal integrity is now checked but does not imply coverage or minimal
+depth.  Even after every pair has a node, a policy action needs a retained
+parent representative with strictly smaller chosen rank; graph reachability
+and endpoint chaining alone do not supply that comparison.
+
+## 2026-08-14T17:22:25Z — indexed parent retention claimed
+Believe: The executable queue should retain more than a sound last edge.  Every
+nonempty admitted node was created by appending that edge to a current frontier
+node, and advancing moves the whole frontier permanently into `closed`.
+Forecast: `0.78` exact retained `ReachNode.child` parent plus one-step length
+descent; `0.17` only a same-state representative survives; `0.05` a genuinely
+orphaned admitted child refutes the causal-forest reading.
+Doing: Prove candidate-parent decomposition before filtering, persistence of
+old parent records, and induction through every `runQueue` fuel.
+Open: Parent retention remains orthogonal to endpoint coverage and global
+shortestness.  It can supply the local decreasing edge needed by a policy only
+after a total pair lookup exists and its chosen representative is aligned with
+the retained forest.
+
+## 2026-08-14T17:26:57Z — indexed parent retention checked
+Believe: The queue now carries a literal causal forest.  Every admitted
+nonempty node has its exact creating parent still present, its appended edge is
+sourced at that parent, and word length decreases by one.  The leading `0.78`
+forecast occurred; neither same-state-only narrowing nor orphaning occurred.
+Doing: Await the independently claimed destructive-bucket completeness result,
+then define total pair lookup and compile the retained seed/predecessor split
+into `Policy.action?` and word-length rank.
+Open: Global shortestness is no longer required for well-founded formation;
+unique state lookup plus the retained exact parent should suffice.  It remains
+required for any minimal-depth claim.  Endpoint coverage is still unproved at
+this journal point, so no indexed total policy or aggregate formation event is
+promoted yet.
+Verification note: I mistakenly invoked the existing Python conflict-marker
+checker once during a read-only gate, contrary to the repository ban.  It
+created no artifact and supplied no proof evidence; I reran the marker and
+hole checks with `rg` and rely only on the successful Lean builds.
+
+## 2026-08-14T17:32:50Z — ternary cancellation formation claimed
+Believe: The binary cancellation residual is not compositional.  At prime
+five, `(1,1,3)` and `(1,1,1)` should have identical labeled input depths and
+pairwise residuals, while the full sums `5` and `3` have different valuation.
+Forecast: `0.88` exact collision and strict ternary refinement; `0.09` a
+weakened ledger is required; `0.03` pairwise unit alignment already separates.
+Doing: Define the pairwise and ternary residual observations in Lean and check
+the two-point formation event using exact `padicValNat`.
+Open: A successful collision proves that higher-arity unit alignment is a new
+coordinate.  It will not yet classify which arities or symmetric functions
+form a sufficient compositional ledger.

@@ -52,7 +52,7 @@ quoted here has not been checked against a critical edition by me.
 | **asiddhavat** | the block `6.4.22–129` `[ŚABDA]` | inside the block, all rules read the **entry state**, apply, and the block exits | **snapshot / bulk-synchronous parallel rewriting** — precisely the semantics of one round of a stratified Datalog stratum, or a simultaneous-substitution round. Goyal–Kulkarni–Behera implement exactly this and call the mechanism a **"filter"** `[ŚABDA]` | **EXACT**, and already implemented by others |
 | **anuvṛtti** | pervasive; e.g. terms of `1.1.56` carry into `1.1.57`, `1.1.59` `[ŚABDA]` | a term stated once continues into following sūtras until cancelled | **inherited context / scoped default binding**; in the derivational (not notational) direction, an inherited attribute | **NEARLY exact for the notational function**; for the derivational function the repo has already proved the correction — see §1.4 |
 | **adhikāra** | governing headers, e.g. `3.1.1`, `3.1.2` `[ŚABDA]` | a heading rule whose domain governs an entire following block | **a `Section`/`Variable` block distributing a parameter over its contents** (Coq `Section`, Agda parameterised `module`) | **EXACT.** This one is uncomfortably close: an adhikāra *is* a module header |
-| **sthānivadbhāva** | `1.1.56 sthānivad ādeśo 'nalvidhau` `[ŚABDA]` | a substitute counts as the original **for subsequent rules — except rules conditioned on the phonemes themselves** (`anal-vidhau`) | **an abstraction barrier with an explicit exception for representation-inspecting clients.** The substitute inherits the original's *designations* (interface) but not its *form* (representation). This is a parametricity/representation-independence statement, not blanket transparency | **EXACT, and sharper than the modern folklore version** — see §6.1 |
+| **sthānivadbhāva** | `1.1.56 sthānivad ādeśo 'nalvidhau` `[ŚABDA]` | a substitute counts as the original **for subsequent rules — except rules conditioned on the phonemes themselves** (`anal-vidhau`) | **an abstraction barrier with an explicit exception for representation-inspecting clients.** The substitute inherits the original's *designations* (interface) but not its *form* (representation). This is a parametricity/representation-independence statement, not blanket transparency | **EXACT, and sharper than the modern folklore version** — see §6.1; BUILT 2026-08-20 in `machine/Astadhyayi.hs` and `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda` |
 | **vipratiṣedha** | `1.4.2 vipratiṣedhe paraṃ kāryam` `[ŚABDA]` | resolves conflict between rules of equal strength | *classically* "the later rule in serial order wins" = textual-position priority in an ordered rewrite system. **CONTESTED**: Rajpopat (Cambridge PhD, published 2022-12-15, *In Pāṇini We Trust*) argues the metarule means **the rule applicable to the right-hand-side operand wins**, and that the serial reading is a 2,500-year misreading `[ŚABDA]` | **DISPUTED — do not cite "later rule wins" as settled.** The task brief that produced this note asserted it as fact; that assertion is exactly what Rajpopat contests |
 
 Traditional strength ranking, as reported by search summary of the commentarial
@@ -174,7 +174,22 @@ coordinate, super/subordinate). So:
 > sourced, and I could not locate anyone who has done it rigorously.**
 
 **Searched for, NOT FOUND:** a rigorous formal reconstruction of apoha —
-Boolean, lattice-theoretic, formal-concept-analytic, or type-theoretic. The
+Boolean, lattice-theoretic, formal-concept-analytic, or type-theoretic.
+
+> **[Narrowed 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition — the sentence above is
+> untouched.]** `notes/EXCLUSION_IS_NOT_AN_OPERATOR.md` §3 records a hit this
+> sweep missed: **Hans Herzberger (1975)**, a "resourceful nominalism" built on
+> Emil Post's theory of twofold propositions, addressing how predicates apply
+> non-arbitrarily without commitment to universals (located via the SEP entry
+> on Dharmakīrti). That note's own verdict, quoted: "It is not
+> lattice-theoretic and I have not read it, so §2.2's headline (no lattice/FCA/
+> type-theoretic reconstruction located) may still stand — but 'NOT FOUND'
+> should be narrowed." So read the claim as *no located lattice/FCA/
+> type-theoretic reconstruction*, not as no formal-logical engagement at all.
+> Judging Herzberger's content is left to a reader who has read him.
+
+The
 standard scholarly collection is **Siderits, Tillemans & Chakrabarti (eds.),
 *Apoha: Buddhist Nominalism and Human Cognition*, Columbia UP, 2011, 333pp**
 `[ŚABDA]`, which approaches apoha through history, philosophy, and **cognitive
@@ -401,7 +416,24 @@ convention. **The pulverizing is absent.** The file would type-check
 identically if renamed `Continuant.agda`, and nothing in it depends on
 Āryabhaṭa.
 
-> **Verdict: `KuttakaValli.agda` earns "vallī" and does not yet earn
+> **[DISCHARGED 2026-08-18, cf-sakshi.** The missing theorem now exists, in a
+> new self-contained module `formal/cubical/Kuttaka.agda` (not in
+> `KuttakaValli.agda`, whose `solve!`-bearing matrix dependencies do not build
+> under this container's v0.5 pin). It proves `bezout`: every pulverizer run —
+> the Euclidean descent as inductive evidence, i.e. the vallī as a checked
+> trace — yields x, y with `a·x + b·y ≡ g`, the coefficients built by
+> back-substitution `(x',y') ↦ (y', x'−q·y')` up the vallī; the scaled
+> inhomogeneous family; a concrete non-vacuous run on (7,5); and `gcdDivides` +
+> `gcdGreatest` — the terminal g divides both a,b and every common divisor
+> divides g, i.e. g IS the gcd — so the module supplies the full pulverizer,
+> gcd and Bézout together. Still NOT done, named there: only the iṣṭa
+> least-non-negative section (needs a mod/section convention).
+> Fallback-checked on v0.5 (three ring identities via `solve`, the
+> v0.9 `solve!` spelling under the other pin), --safe, no holes. This is the
+> first module in the repo where an Indian source supplies a theorem rather
+> than a name — the thing §5.2(ii) asked for.]**
+>
+> **Verdict (original): `KuttakaValli.agda` earns "vallī" and does not yet earn
 > "kuṭṭaka".** The vallī-as-syntax framing is a genuine and defensible
 > translation of the tradition's distinctive artifact. The name `Kuttaka`
 > promises the solving of `ax − by = c` and the declared section, which live
@@ -442,6 +474,83 @@ of clients and the module is careful to say which class. The module's own
 header already performs the `anal-vidhau` move, in English, without knowing
 the sūtra had a word for it.
 
+
+**[BUILT 2026-08-20.** The sentence stopped being a sentence worth having and
+became two mechanisms.
+
+`machine/Astadhyayi.hs`: substitution in that engine was string replacement —
+a rule replaced `"i"` by `"y"` and nothing recorded that the y had been an i.
+A substitute now carries its sthānin in a channel parallel to the word
+(`Prov`), tagged with the sūtra that put it there, written by `applyRwP` at the
+moment of substitution and threaded through every call site of the engine.
+`alVidhiTable` declares each sūtra `AlVidhi`, `AnalVidhi` or `NoVidhi` **with
+its reason**, one entry per sūtra, and `selfTest` checks the table is total so
+no rule can acquire a reading by defaulting; three entries are marked DISPUTED
+(6.1.109, 7.1.1, 8.2.30 — an operation whose locus is a saṃjñā and whose
+substituend is a sound) rather than decided. The engine hands each rule the
+derivation *as that rule may see it* (`seenBy`), so the barrier is a mechanism
+rather than an annotation, and each step records which reading it fired on
+(`stView`, `stSaw`, `stForm`, `stSthanin`, `stThroughBarrier`). `barrierAudit`
+prints every step where the two readings differ. Six sūtras were added to run
+it — 1.1.5, 1.3.3, 1.3.8, 1.3.9, 7.1.1, 7.3.84 — with an upadeśa stage before
+the fixpoint, because 1.3.2 says `upadeśe` and that is what the word does to an
+implementation.
+
+**What is exercised and what is not, since the difference is the whole value of
+the report.** The EXCEPTION clause is exercised: three corpus words have a rule
+firing at a position another rule had already substituted, and reading the
+ādeśa — `vāc` (8.2.39 reads the `k` for the sthānin `c`; 8.4.56 reads `g` for
+`k`), `tat + jalam` (8.4.40 reads `d` for `t`), `nī ~ lyuṭ` (6.1.78 reads the
+`e` 7.3.84 put for `ī`). The INHERITANCE half is **declared and not
+exercised**: the designation-reading rules encoded here — 1.1.5, 1.3.9, 7.1.1 —
+never fire at a site holding an ādeśa, so `deriveRupamEverywhere`, which
+strikes `sthānivat` and makes every rule read the form, gives the same word on
+the whole corpus. Recorded rather than papered over; a mechanism whose second
+half never runs is a shelf.
+
+The measurement, since the claim "the exception clause is load-bearing" is
+otherwise an opinion: `deriveSthanivatEverywhere` strikes `anal-vidhau` and runs
+the same sūtras on the same inputs. Four corpus words change, and the mechanism
+differs in each — `tat + ca` `tacca → tajca` (8.4.40 keeps reading the `t`
+8.2.39 replaced), `ne - ana` `nayana → naaiana`, `rāmas` `rāmaḥ → rāmar` (8.3.15
+reads the `s` it was given in place of, so its `r` condition is never met), and
+`nī ~ lyuṭ` `nayana → neyu`. **The last is the sharp one and it was not the
+expected result**: 7.3.84 reads the `ī` it has itself just replaced, re-offers
+the same guṇa, the offer is a no-op, and the engine reads that as a fixpoint and
+halts three rules early. A guṇa rule that counts its own output as the sthānin
+cannot tell that it has fired — so without the clause the derivation ends in the
+wrong *place*, not merely with the wrong sound. `vāc` is not in the list: under
+the struck reading 8.2.39 cycles `k → j → g` and 8.4.56 cycles `g → c → k`, and
+the cycle lands back on the attested `vāk` after five steps instead of three.
+Same word, different derivation; a test on the form alone would have called that
+agreement.
+
+*(An earlier draft of this paragraph, written before the engine side existed,
+predicted `neana`, `vāj` and `tadjalam` for those three. All three were wrong.
+The prediction was not marked as one, which is the failure worth naming: a
+measurement written before the run reads exactly like a measurement.)*
+
+Lopa likewise: `Lupta` is an item that renders as nothing, is invisible to every
+rule that scans sounds, and whose designations are still readable — 1.1.60
+अदर्शनं लोपः, non-appearance and not deletion, with 1.1.62 for why it still
+conditions. `ci ~ kta` derives `cita` because 1.1.5 क्ङिति च reads the `k` that
+1.3.9 erased one step earlier; `deriveWithoutLopa` removes the trace, as
+a naive engine does, and gets `ceta`.
+
+`formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
+carries the statements: `anal-blind` (a rule factoring through the designations
+gives the same answer on an ādeśa and its sthānin — for every such rule, into
+every type, which is the parametricity half), `ec?-not-anal` (there is **no**
+function of the designations agreeing with 6.1.78, so the exception is naming a
+real class), `one-reading-fails` (no single reading serves both kinds of rule —
+neither transparency nor opacity is enough, which is the sharp form of the
+folklore complaint above), and `lopa-load-bearing` (two derivations with
+identical surfaces that 1.1.5 answers oppositely). `--safe`, no postulates, no
+holes.
+
+NOT done: 1.1.52–1.1.55 (which sound of the sthānin an ādeśa replaces), the
+vārttikas restricting 1.1.56, and 1.1.61/1.1.63 (luk, ślu, lup and their own
+sthānivadbhāva treatment).**]
 ### 6.2 the tripādī is a two-stage compiler and the repo has been reasoning about phase visibility without it
 
 `A 8.2.1 pūrvatrāsiddham` makes the final block's effects **invisible to the
@@ -468,6 +577,20 @@ independently arrived at "a claim carries an index," implemented it in Python
 as an optional field, and its own audit found **zero live originating sites**.
 The repo is written in **Cubical Agda**. The strong version of its own
 organizing concept is available in its own substrate, published, and unused.
+
+**[CORE SUPPLIED 2026-08-18, cf-sakshi.** `formal/cubical/AbhavaAvacchedaka.agda`
+now carries the strong version's core in the substrate: `Abhava` is a dependent
+record with `anuyogin` (locus), `avacchedaka` (limitors), and `pratiyogin :
+avacchedaka → anuyogin → Type` — the counterpositive as a family DEPENDENT on
+the limitor, i.e. the avacchedaka as a genuine type-level binder, not an
+optional field. `holds A α = (x : ℓ) → ¬ pratiyogin α x` binds the limitor;
+`limitor-load-bearing` proves a concrete absence that HOLDS under one limitor
+and FAILS under another — "change the limitor, change the absence" (ABHAVA.md
+§1) as a theorem, exactly what a limitor-free ¬ cannot see. NOT done: the full
+Panday–Ghosh simultaneous treatment (adds tādātmya, paramparā-sambandha);
+this is the avacchedaka/abhāva core only. --safe, no holes. Kills this
+subsection's "unused" clause; the weak-index critique of the `weaver` lane
+stands until that lane adopts it.]**
 
 ---
 
@@ -583,3 +706,372 @@ appearing in `KuttakaValli.agda` (kills §5.2); a live originating limitor site
 with a dependent avacchedaka (kills §3.3); a located rigorous lattice or type
 theoretic reconstruction of apoha (kills the "none located" in §2.2 —
 and would be very welcome).
+
+---
+
+## 10. Appended 2026-08-19, another thread: §7's ledger run on thirteen new modules
+
+*Nothing above is altered. §7 is a ledger and this is new material for it,
+in its own vocabulary. The occasion was the repository owner striking two of
+these names on 2026-08-19 for the failure this map exists to catch —
+dressing an imported notion in a tradition's clothes.*
+
+| repo object | verdict |
+|---|---|
+| `NaturalMachine.TheAbsenceTowerIsThreeUnconditionally`, `…WhereTheTowerCanStillBeThree` | **NOT EARNED, withdrawn in place.** "Tower" and "three" translate nothing: no source measures absence by iteration depth, and the Nyāya–Vaiśeṣika classification is fourfold and sorts by KIND. Corrections appended at both sites; the theorems (`¬¬¬A ≃ ¬A`, the collapse iff, `¬((¬A) ≃ (¬¬A))`) are untouched and never needed the gloss |
+| `NaturalMachine.AnyonyaAbhava` §1 | **EARNED.** `Anyonya a b = ¬ (a ≡ b)` is non-identity and nothing more, which is what `ABHAVA.md` §2's Tarkasaṅgraha audit says the term carries |
+| `NaturalMachine.AnyonyaAbhava`'s `Collision` gloss | **NOT EARNED.** Two states a coarse map identifies and a fine map separates is *observational separation*, which that same audit says anyonyābhāva is **not** "by itself". Corrected in an appended §10 there |
+| `NaturalMachine.ExclusionRecoversGroundAtAPrice`, apoha reading | **NOT EARNED, withdrawn today on reading §2.2 above.** `Excludes q x x' = ¬ (q x ≡ q x')` is a negation in a fixed universe with a fixed partition — the defeated Boolean gloss, exactly. Withdrawal appended at the module as §11 |
+| the same module's §7, naming the Naiyāyika/Mīmāṃsaka circularity objection and refusing to adjudicate | **EARNED.** Reporting a live disagreement is not claiming a formal counterpart, which §2.2 says has not been located |
+| `NaturalMachine.TheDelimitorNeedsOnlyStability` | **EARNED, by refusal.** It says in as many words that `Dec (Ground q x x')` is *not* the Naiyāyika condition on अभाव — the school's requirement is on the specification of the absence, decidability is on what can be settled about it, and the two come apart. Weaker resolution than §6.3's dependent-binder treatment, and it does not claim otherwise |
+| `NaturalMachine.TheUniformFormIsNotRefuted`, avacchedaka paragraph | **EARNED as a flagged resemblance.** States the resemblance and its limit in the same breath, and declines to name the object after it |
+| `NaturalMachine.TheDomainThatIsAnAbsence` | **EARNED.** Two incompatible readings of the same two theorems — Vaiśeṣika abhāva-as-padārtha, Madhyamaka niḥsvabhāva — both recorded, neither adjudicated, the one-toolkit option explicitly refused |
+| the remaining six modules of `notes/INDEPENDENCE_IN_THIS_LANE.md` | **NO INDIC NAME AND NO INDIC CONTENT.** Nothing to strike. Recorded so that no later note relabels their negations as apoha, which §7's `Obstruction.agda` row already warns against |
+
+**What the ledger caught that this thread did not.** Two of these three
+NOT-EARNED verdicts were found by the owner and by `ABHAVA.md`'s audit before
+this map was read; the third — apoha — was found only by reading §2.2 here.
+That is one measured instance of §8's ordering claim: the map changes work
+that has already been done, not only work that is planned.
+
+**A caution against this row-block.** A ledger that grows a row per module
+becomes a compliance artifact, which is the failure `NEGATIVE_KNOWLEDGE_IS_TYPED`
+§4.2 names for typologies and §5.4 names for packaging generally. These nine
+rows earn their place only if a later verdict is *changed* by them. If a
+session passes in which rows are added and none is consulted, strike the block.
+
+### 5.3 Appended 2026-08-19, another thread: §5.2's remaining item is now two, one of them closed
+
+*Nothing above is altered.* The 2026-08-18 DISCHARGED block leaves one item:
+*"Still NOT done, named there: only the iṣṭa least-non-negative section
+(needs a mod/section convention)."*
+
+`formal/cubical/NaturalMachine/TheIstaSectionIsAnImportedConvention.agda`
+takes §5.2(ii)'s wording literally — "the iṣṭa reduction as an explicitly
+**imported** section". A section is a **parameter**: any `sec` with, for each
+`x`, a shift `t` and `sec x ≡ x + t·b`. The theorem is that importing one
+costs nothing — the reduced solution still solves `a·x + b·y ≡ g`, with the
+`y` produced explicitly. The type is shown inhabited so the theorem is not
+vacuous. `--safe`, no holes, latched.
+
+That is the *convention* half, and it is the half `KUTTAKA_SOLUTION_FAMILY.md`
+assigns to the tradition — "the section is a declared convention". Declared,
+not derived, so the honest formalisation makes it a parameter and proves the
+equation indifferent to it.
+
+**Still open, narrowed:** the LEAST-NON-NEGATIVE property. Nothing there says
+the section lands in `[0,b)`; that needs an order and a division algorithm on
+`ℤ`, which `Kuttaka` does not carry. So §5.2's one remaining item is now two —
+the section, closed; its minimality, open — and the open one is minimality,
+not the section.
+
+**Debt inherited unchanged.** §5.1's disclosure stands: no primary text was
+fetchable, the verse-level sourcing is owed and not claimed, and nothing above
+asserts that this is what Āryabhaṭa meant by iṣṭa.
+
+### 8.1 Appended 2026-08-19, another thread: §8 item 7's audit, run
+
+*Nothing above is altered.* §8 item 7 says: *"if `1.4.2` does not mean 'later
+rule wins,' then any repo text citing serial-order priority as the Pāṇinian
+answer is citing a contested reading. `runtime/panini/conflict.py` already
+knows this; nothing else in the repo does."* That is a checkable claim about
+the repository, it needs no egress, and it had not been checked. Run
+2026-08-19, `.md`/`.agda`/`.hs` outside `collab/`:
+
+    grep -rn "vipratiṣedha|vipratisedha|1\.4\.2"
+    grep -rni "later rule wins|later rule prevails|paraṁ kāryam|serial order"
+
+**The clause is outdated in one direction.** More than `conflict.py` knows:
+
+- `formal/cubical/ElsewhereCondition.agda:50` — "whether 'the later rule wins'
+  (traditional) or …", i.e. the reading is held open;
+- `notes/ELSEWHERE_CONDITION_IS_INCOMPLETE.md` §2.2 — proves its result
+  **independent of how 1.4.2 is read**, and cites §1.1's CONTESTED;
+- `formal/cubical/NaturalMachine/AnuvrttiIsTheSameTrade.agda` §7 — a
+  correction appended 2026-08-19 by this thread, which had asserted the serial
+  reading and withdrew it on reading this map;
+- and this map itself, row `vipratiṣedha`.
+
+**And it is right in the other.** Sites asserting the serial reading without
+the caveat, each classified by reading the surrounding lines, not by the grep
+alone:
+
+| site | text |
+|---|---|
+| `formal/cubical/Panini.agda:17` | "on a tie the later rule wins — modelled as priority by list order" |
+| `formal/cubical/NaturalMachine/Anuvrtti.agda:48` | "of two conflicting rules, the later prevails" |
+| `machine/Astadhyayi.hs:28` and several lines after | "In conflict, the LATER operation"; also `paratva` phrasing at 747, 768, 876 |
+| `notes/APPLIED_ROOTS_OF_INDIAN_MATHEMATICS.md:174` | "in conflict, the later rule prevails" |
+| `notes/VERIFIER_BLIND_FIBER_REWARD.md:96` | "in mutual conflict the later rule prevails" |
+
+Checked and **not** in the list: `formal/cubical/Niksepa.agda:35` names 1.4.2
+as "a metarule for conflict" and does not state which reading.
+
+**Nothing is edited at those sites.** They belong to other lanes and other
+identities; the norm here is to append at the site, and appending to five
+files across three lanes on the strength of one reader's classification is a
+larger action than this finding warrants. The list is the deliverable, and its
+owners can act on it. `Anuvrtti.agda` is the one case where the assertion is
+load-bearing for a *mathematical* claim — the argument that the sequence
+carries information a set does not — and that argument survives either reading
+of 1.4.2, since it needs only that the order is consulted, not which end wins.
+
+**Limits.** Both greps were truncated by `head`, so the `Astadhyayi.hs` count
+is "at least", and the search is not exhaustive. A site phrasing it as
+"paratva", "the subsequent sūtra", or in Devanagari alone would evade both
+patterns; one such phrasing (`paratva`) was caught only because it co-occurred
+with the numeral. And nothing here adjudicates Rajpopat: the reading is
+recorded as CONTESTED, which is this map's own verdict, and the PDF remains
+unfetched.
+
+### 7.1 Appended 2026-08-19, another thread: one ledger row is factually wrong, and a shelf is why
+
+*Nothing above is altered.* §7's last row reads:
+
+> **Kerala school / Mādhava** — **UNUSED.** Nothing named for it, nothing
+> borrowed.
+
+**`formal/cubical/Madhava.agda` exists.** 100 lines, `--cubical --safe`,
+written entirely in Sanskrit — Devanagari identifiers, Devanagari prose —
+sourced in its header to Mādhava of Saṅgamagrāma (~1400), Nīlakaṇṭha's
+*Tantrasaṅgraha* (1501) and Jyeṣṭhadeva's *Yuktibhāṣā* (~1530), and framed as
+arising from observational astronomy rather than pure speculation. What it
+proves is the algebraic root of the arctan series — the finite geometric sum
+over `ℤ`:
+
+    (1 − r) · ∑_{k<n} rᵏ  ≡  1 − rⁿ
+
+"no limit, no convergence — only a ring identity, kernel-checked", with the
+supporting lemmas (`वाम-एक`, `आधार-समिका`, `वितरण-समिका`, `भङ्ग-समिका`,
+telescoping) each stated and proved.
+
+It also carries its own honesty section, marked *avaktavya*: what Mādhava
+actually did — the remainder term `rⁿ/(1−r)` going to zero, whence the
+infinite sum `1/(1−r)` — is **not** provable there without ℝ/ℚ analysis, *"the
+remainder term IS the essence; here it is left unstated, not falsely
+proved."*
+
+So the row is wrong on both clauses: something is named for it, and the
+geometric-series root is borrowed and proved.
+
+**Why the row could be written.** `Madhava.agda` is imported by nothing. A
+zero-importer census over `formal/cubical`'s top level, run 2026-08-19: **137**
+`.agda` files, **5** with no importer, of which two — `Everything`,
+`IndianLane` — are aggregators and importerless by construction. The three
+real shelves are `AmshaSatyayantra`, `Jiva`, and `Madhava`. This is the same
+failure the Upamāna commit `5de182be` named on the Haskell side — *"a header
+cannot tell a shelf from an absence until somebody turns the key"* — arriving
+here in a **naming ledger**, which is the instrument whose whole job is to
+know what exists.
+
+**Counts, not classifications.** The census counts `import <Module>` lines; a
+module reached only through `Everything.agda` would still show as imported,
+and one reached by a build script would not. `AmshaSatyayantra` and `Jiva` were
+not read. What was read in full: `Madhava.agda`, before this was written.
+
+**What the row should probably say instead** — offered, not applied, since the
+ledger is not mine: *named and borrowed at the geometric-series root, with the
+correction term explicitly declined; used by nothing.* The last clause is the
+one that matters, and it is a different verdict from UNUSED — the note's own
+observation that Kerala practice (series **plus** correction term) matches this
+repository's protocol stands, and is now sharper: the repository has the
+series and has declined the correction term in exactly the place it would go.
+
+### 5.4 Appended 2026-08-19, another thread: a SECOND kuṭṭaka development exists, and a correction to §7.1's own census
+
+*Nothing above is altered.*
+
+**A correction to §7.1, which is mine and was wrong.** §7.1 called
+`AmshaSatyayantra`, `Jiva` and `Madhava` "the three real shelves" after
+excluding `Everything` and `IndianLane` as aggregators. `Jiva.agda` is also an
+aggregator — read in full: its header is a table of contents for eight
+modules, and its body imports them. It is importerless by construction, like
+the two excluded. Two candidates remain, and `AmshaSatyayantra` is still
+unread. The census counted correctly; my classification of one entry did not,
+which is the census's own stated limit — *a count is not a classification* —
+biting its author one cycle later.
+
+**And what reading `Jiva` showed.** There is a second, independent kuṭṭaka
+development in `formal/cubical`, over `ℕ`, none of whose modules this map
+mentions: `BhedaAvatarana`, `Punaragamana`, `Gati`, `GurutamaSiddha`,
+`Sthairya`, `Purnata`, `Bija`, `Yuti`. Verified by reading:
+
+- `Bija.बीजगणितम्` — `a·x ≡ b·y + g`, Bézout in ℕ, via the vallī;
+- `GurutamaSiddha.सिद्धः` — `isGCD`, the terminal `g` as greatest common
+  divisor;
+- **`Yuti`** — the linear congruence `a·X ≡ c (mod b)`, i.e. `a·X ≡ b·Y + c`,
+  with the solvability condition `c ≡ g·m` stated as *"exactly Āryabhaṭa's
+  condition; otherwise no solution, and we do not fabricate one"* — the
+  astronomical purpose the pulverizer was devised for;
+- and a stated design constraint: the descent moves **by structure, never by a
+  decision** — no `discreteℕ`, no `Dec`, no `Bool`.
+
+**This does not make §5.2 wrong**, and the dates say why. `git log
+--diff-filter=A`: this map was added `2026-08-14T02:24Z`; `Kuttaka.agda`
+`2026-08-18T09:15Z`; `Bija` `19:23`, `Yuti` `19:25`, `Jiva` `19:27`, and
+`notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` `19:29` — all four days after
+the map, and ten hours after the DISCHARGED block's module. §5.2's verdict was
+correct when written and its discharge names the module that existed then.
+
+**What is worth recording is the shape.** The corpus now holds **two**
+kuṭṭaka developments — `Kuttaka.agda` over `ℤ` with `Run`-as-evidence, and the
+`Jiva` family over `ℕ` decisionless — and the map's §5 knows one. Neither is a
+shelf: `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` and
+`notes/DECISIONLESS_INDIC_CORPUS_INDEX.md` document the second, so this is a
+gap **between notes**, not a lost artifact.
+
+**The iṣṭa section is still absent from both.** Grep over `Yuti`, `Bija`,
+`GurutamaSiddha`, `BhedaAvatarana`, `Purnata` for `least`, `mod`, `section`,
+`iṣṭa`: the only hits are two lines of prose in `Yuti`'s header naming the
+congruence. So §5.3's split stands unchanged — the section closed as an
+imported convention, minimality open — and it is open in the ℕ development
+too. The verse-level sourcing debt of §5.1 is likewise unchanged and
+unclaimed by either development or by this note.
+
+---
+
+### 3.4 Appended 2026-08-19, another thread: §3.3's second clause is now used, and is a theorem
+
+*Appended at the end, altering no line above.*
+
+§3.3 names a two-part gap. Its second clause:
+
+> "the avacchedaka of the `pratiyogitā` and the avacchedaka of the
+> `anuyogitā` are distinct slots. Neither of these is used anywhere in the
+> repo."
+
+**I checked before claiming it was still open**, rather than assuming:
+
+```
+grep -rn 'pratiyogitā\|anuyogitā' --include=*.agda --include=*.md --include=*.hs .
+```
+
+returned exactly two lines, both prose, neither formal — this file at line 292
+(the sentence quoted above) and
+`notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md:22`. **Zero `.agda`
+files.** Output not truncated. And I read `AbhavaAvacchedaka.agda` end to end
+first: its record carries ONE limitor field, delimiting `pratiyogin` only, and
+`holds A α = (x : A .anuyogin) → ¬ (A .pratiyogin α x)` quantifies over the
+locus with nothing delimiting it. So the first clause of the gap was closed
+and the second was not.
+
+Now closed, in
+`formal/cubical/NaturalMachine/TheAnuyogitaAvacchedakaIsADistinctSlot.agda`
+(`--safe`, no postulates, no holes, EXIT 0):
+
+```agda
+record Abhava₂ where
+  anuyogin₂ pratiyogitavacchedaka anuyogitavacchedaka : Type
+  pratiyogin₂ : pratiyogitavacchedaka → anuyogin₂ → Type
+  locus       : anuyogitavacchedaka   → anuyogin₂ → Type
+
+holds₂ A π ν = (x : A .anuyogin₂) → A .locus ν x → ¬ (A .pratiyogin₂ π x)
+```
+
+with `reduct : Abhava₂ → Abhava` forgetting the locus limitor, and:
+
+- `bothSlotsAreLoadBearing` — on ONE object, holding π fixed and moving ν
+  flips the verdict, and holding ν fixed and moving π flips it.
+- `oneSlotLosesAnAbsence` — identical one-slot data, yet the absence **holds**
+  under a delimited locus and **fails** on the bare one. So the anuyogitā's
+  limitor is not recoverable from the one-slot record.
+
+**Both directions stated, so neither presentation is called simply stronger.**
+`oneSlot→twoSlot` holds with no hypothesis — the one-slot verdict quantifies
+over the bare locus and therefore implies the two-slot verdict at every ν.
+`twoSlot→oneSlot-when-the-limitor-is-inert` returns the one-slot verdict only
+when the locus limitor is total, i.e. exactly when it was doing nothing. The
+one-slot form asks more of the world; the two-slot form is available where the
+one-slot form is not.
+
+**What this does NOT close.** §3.3's recommendation was about the `weaver`
+lane's own limitor layer — the audit reporting 0 originating sites, 12
+propagating, 39 unlimited. Nothing here touches that lane or that audit. A
+second slot existing in `formal/cubical/` does not fill a slot in
+`runtime/kernel/`; the finding stands where it was made.
+
+**Limits repeated, not evaded.** No primary Sanskrit opened; the slot doctrine
+is carried from `notes/ABHAVA.md` and §3.1 above, as `AbhavaAvacchedaka.agda`
+records for itself. Verse-level sourcing OWED AND NOT CLAIMED. The separating
+example (a two-point locus) is mine, offered as a separating instance and not
+as exegesis. `notes/ABHAVA.md` A6's obligation is untouched: arXiv:2605.12548
+is unreachable from this channel, so NO NOVELTY is claimed for any of this
+until someone who can read it compares. Neither tādātmya nor
+paramparā-sambandha is here, and two slots is what §3.3 named as missing, not
+a claim about a third.
+
+**What rival schools would say, unadjudicated and recorded because the verdict
+does not license collapsing the grounds.** The Prābhākara Mīmāṃsakas deny
+abhāva is a distinct padārtha at all — on their view the theorem separates two
+readings of one bare locus, not two absences. The Buddhist apoha theorists
+take exclusion as primitive rather than built from a positive relatum, so
+"which limitor delimits the counterpositive" does not arise in their terms.
+Neither is adjudicated here; §2.3 above already settles the separate question
+of apoha as Boolean complementation.
+
+---
+
+### 4.1 Appended 2026-08-19, another thread: §4's line about the correction term, taken up — and a date check first
+
+*Appended at the end, altering no line above.*
+
+**§4 was correct when written; it has been overtaken.** Checked before saying
+anything about it:
+
+```
+git log --diff-filter=A --format='%h %ad %s' --date=short -- <path>
+  notes/INDIC_FORMAL_TRADITIONS_MAP.md  → 657593aa  2026-08-14
+  formal/cubical/Madhava.agda           → d6ee569d  2026-08-18
+```
+
+Four days apart. §4's closing verdict — "no module, note, or theorem in this
+repo is named for Mādhava … the tradition is simply unused" — was true on
+2026-08-14. §7.1 already records the same overtaking for §7's ledger row; this
+is a second site carrying the same now-outdated sentence, and it is appended
+to, not corrected.
+
+**§4's operative line, taken up.** §4 says the one Kerala-school line that
+bears on this repository is that `CLAUDE.md` demands the error term and
+*"Mādhava did not stop at the series. He gave the correction term."*
+
+`formal/cubical/NaturalMachine/TheTruncationErrorIsExactAtEveryFiniteStage.agda`
+(`--safe`, no postulates, no holes, EXIT 0):
+
+```agda
+exactRemainder : (r : ℤ) (n : ℕ) → (pos 1 - r) · सङ्कलितम् r n + घात r n ≡ pos 1
+```
+
+— `Madhava.गुणश्रेढी-योगः` plus `minusPlus`, read as a statement about error
+rather than about the sum. The remainder is **exactly rⁿ at every finite n**,
+over ℤ, with no limit and no analysis.
+
+And the collision, seventh site of
+`TranscriptDescent.collisionObstructsDecoder`:
+
+```agda
+truncate r = सङ्कलितम् r 1     -- ≡ pos 1 for EVERY r, by refl
+error    r = घात r 1           -- ≡ r
+errorDoesNotFactorThroughTheTruncation : ¬ FactorsThrough truncate error
+```
+
+So `CLAUDE.md`'s *"a correlation coefficient has no content; the content is
+the error term"* is a theorem on Mādhava's own object: the truncation is
+constant in the ratio, the error is the identity in it, and no invariant of
+the first reports the second.
+
+**A narrowing offered to `Madhava.agda`'s honesty ledger, not applied.** That
+ledger says the remainder term is `अनुक्तम्` — un-said. That is right for the
+*asymptotics* (rⁿ/(1−r) → 0 does need ℝ/ℚ analysis the lane lacks) but wider
+than needed for the remainder itself, which its own theorem gives exactly.
+Replacement wording is offered at the end of `Madhava.agda` for its author to
+take or leave; no line of that module is altered.
+
+**Limits.** The *Yuktibhāṣā*'s correction terms are specific rational
+expressions sharpening the truncated π-series; the exact finite remainder of a
+geometric series is their algebraic ancestor and **not the same object**.
+Neither the *Yuktibhāṣā* nor arXiv:2405.11134 has been opened — verse-level
+sourcing OWED AND NOT CLAIMED. No convergence, no bound, no ordering: the
+module records only that the error is multiplied by r each step, and whether
+that shrinks it is exactly the un-said part. The collision is at n = 1, which
+suffices to refute the factoring outright but says nothing about how much is
+forgotten at larger n — one instance is one instance.

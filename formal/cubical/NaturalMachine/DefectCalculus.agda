@@ -57,9 +57,29 @@
 --                             restricts `X c → X (c · δ)`).
 --
 --   §7  `Coequalizes`,        §15.10: D15.39 kernel pair, T15.40 both
---       `descends`,`descend-coeq`  ways.  C15.41 is the reading — the
+--       `descend-coeq`,       ways — but the substantive direction only
+--       `descends-split`      for a SPLIT surjection; the section is what
+--                             supplies `g`.  C15.41 is the reading — the
 --                             kernel pair, not the quotient label, is
 --                             the carrier of what must be irrelevant.
+--
+--                             CLOSED ELSEWHERE, and pointed at here as
+--                             well as at the section itself (2026-08-15:
+--                             an index that reads headers reads THIS
+--                             block, so the pointer has to be in it).
+--                             `NaturalMachine.EffectiveDescent` proves
+--                             T15.40 for an ARBITRARY surjection, proves
+--                             the factorisation unique, packages the two
+--                             as `descentEquiv`, and recovers
+--                             `descends-split` with the same resulting
+--                             `g` as `split-descent-agrees`.  It also
+--                             corrects half the guess made at §7 below:
+--                             the set hypothesis on `C` is genuinely
+--                             used, but `SetQuotients` is not needed at
+--                             all — `PT.rec→Set` builds `g` with no
+--                             quotient constructed.  The name `descends`
+--                             used in an earlier draft of this line is
+--                             `EffectiveDescent`'s, not this file's.
 --
 --   §8  `refute-∘`            §15.19: T15.68 (no-go propagates
 --       `refute-transport`    contravariantly), T15.70/C15.71 (a

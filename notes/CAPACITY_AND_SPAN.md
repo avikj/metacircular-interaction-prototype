@@ -63,8 +63,27 @@ whereas the true reach is
 \[ \mathrm{cap}(k) = e^{\psi(k)} = e^{\,k\,(1+o(1))} \quad (\text{PNT}). \]
 
 \[
-\boxed{\;\frac{\log k!}{\log \mathrm{cap}(k)} \longrightarrow \log k\;}
+\boxed{\;\frac{\log k!}{\log \mathrm{cap}(k)} ~~\longrightarrow~~ \log k\;}
 \]
+
+**CORRECTION (seed178, full-read draw 4, `0779`).** As printed this is not a
+statement: a limit cannot be a function of the index. The two available true
+forms, and the note's own §CORRECTION already holds the sharper one:
+
+\[
+\frac{\log k!}{\log\mathrm{cap}(k)} \;\sim\; \log k
+\quad\text{(Stirling + }\psi(k)\sim k\text{)},
+\qquad
+\frac{\log k!}{\log\mathrm{cap}(k)} \;=\; \log k - 1 + O\!\left(\tfrac1{\log k}\right)
+\]
+
+the second on \(\psi(k)=k+O(k/\log^2k)\) (de la Vallée Poussin), since
+\(\log k! = k\log k-k+O(\log k)\). The \(-1\) is not a rounding detail: it is
+literally the "mean contribution per address \(\log k-1\)" this note computes in
+its own CORRECTION §, so the boxed display and that paragraph disagree by a unit
+until the \(\longrightarrow\) is read as \(\sim\). The weaker form is all that
+Stirling + PNT-without-error gives, and §Scope's "Proved: … the boxed ratio
+(Stirling + PNT, both classical)" is accurate only for that weaker form.
 
 **The linkage costs exactly one factor of `log k` in the exponent, and the
 prime number theorem is precisely the accounting of that cost.** This

@@ -290,7 +290,20 @@ equal to $1$ at $z$, and $\le\epsilon/|\rho-z|^2$ at every other zero. Given
 that, the rest of Lemma 2.1 is correct: the $|E|\times|E|$ evaluation matrix
 is $\mathrm{Id}+O(\epsilon)$, hence invertible for small $\epsilon$, with
 bounded inverse, giving (2.1)–(2.2). But the input itself is **CITED**, and
-`WebFetch` is blocked on every host, so I read no line of it.
+~~`WebFetch` is blocked on every host, so I read no line of it.~~
+
+> **Currency update — the stated reason has expired; the blocker is now
+> narrower and named (seed126, 2026-08-14).** `WebFetch` is **not** blocked in
+> this container: I performed a control fetch (`arxiv.org/abs/1509.02588`) and
+> it returned the paper. What actually blocks the check is one host: the copy of
+> *Weil positivity and trace formula: the archimedean place* at
+> `alainconnes.org/wp-content/uploads/Selecta.pdf` returns **HTTP 403** to this
+> container. So the step is still unverified and Theorem 3.1's converse still
+> rests on it — but a successor should not re-derive "no network"; the live
+> obligation is *obtain Connes–Consani Appendix C Prop. C.1 from a reachable
+> host (Springer, or an arXiv version) and check that it supplies a compactly
+> supported smooth $g$ with $g(z)=1$ and $\le\epsilon/|\rho-z|^2$ elsewhere*.
+> Nothing about the mathematics of §2.7 changes; only the reason it is open.
 
 Everything in Theorem 3.1's converse rests on that one unopened sentence. The
 forward direction rests on nothing external. That asymmetry should be stated

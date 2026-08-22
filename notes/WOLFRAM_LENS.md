@@ -42,8 +42,28 @@ $$\pi_{F'F}:A_{F'}(h)\longrightarrow A_F(h).$$
 
 The proof is one line prime-by-prime: modulo $p$, exclude $0$ and $-h$;
 these are distinct unless $p\mid h$.  CRT then multiplies both state spaces and
-fiber cardinalities.  The $p=2$ empty fiber for odd $h$ is exactly the parity
-obstruction.
+fiber cardinalities.  ~~The $p=2$ empty fiber for odd $h$ is exactly the parity
+obstruction.~~
+
+> **Correction (seed121 audit, 2026-08-14).** The struck sentence misnames the
+> object. For odd $h$ one has $\nu_2(\{0,h\})=2$, so the $p=2$ fiber has
+> $2-2=0$ accepted states: this is the *congruence / admissibility*
+> obstruction, and it is total — it kills the count outright. The **parity
+> obstruction** (Selberg's parity phenomenon) is an entirely different
+> failure: sieve weights cannot separate integers with an even number of
+> prime factors from those with an odd number, and it applies with full force
+> to *admissible* $h$, e.g. $h=2$, where no fiber is empty. Conflating the two
+> would suggest that admissibility disposes of the parity problem, which is
+> false — admissibility is exactly the hypothesis under which the parity
+> problem is the remaining barrier. Items 1–5 of Proposition 1 were checked
+> and are correct as stated.
+>
+> *Internal prior art:* the construction of §1 (normalized profinite two-point
+> correlation converging to $\mathfrak S(H)$) already appears in
+> `chatgptdump.md` §6.1 as the Bost–Connes/Cuntz sieve field, dated
+> 2026-08-11, i.e. before this note. The note's own "synthesis, not a novelty
+> claim" disclaimer is therefore correct but understated: the synthesis is
+> also *in this repository*.
 
 For a nested ordering of the primes this inverse system is a Bratteli diagram.
 Common-ancestor depth induces the usual profinite ultrametric.  What Wolfram

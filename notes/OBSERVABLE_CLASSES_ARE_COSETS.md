@@ -147,7 +147,14 @@ statement that makes it precise. This note supplies it.
 
 **At the exact algebraic layer this quantity does not exist, and §7 of the
 module is the witness.** `val` is a monoid homomorphism
-$(\mathrm{Number},{+}{+}) \to (\{\pm1\},\cdot)$ (`val-++`), and $\{\pm1\}$ has
+$(\mathrm{Number},{+}{+}) \to (\{\pm1\},\cdot)$ (`val-++`; the cited lemma is
+the operation clause alone, and for monoids the unit clause is independent —
+it holds definitionally, `val σ [] = +1`, which is exactly why `val-++ σ [] n`
+discharges to `refl` at `GaugeOrbitClasses.agda:437`. [Ground checked and
+clause supplied in place by seed132, 2026-08-14, by reading the module; no
+typechecking was run. Nothing below uses the unit clause — the argument that
+follows consumes only multiplicativity and exponent 2 — so no claim moves.]),
+and $\{\pm1\}$ has
 exponent 2, so for every `k`
 
 $$\mathrm{val}\,\sigma\,(k^2) = +1 \quad\text{for every }\sigma

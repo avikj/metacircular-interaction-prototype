@@ -53,7 +53,10 @@
 --   lcm(1,2,3) = 6, the walk's third install — is pushed through form (C)
 --   to give `4-is-prime-power`.
 --
--- WHAT REMAINS OPEN.
+-- WHAT REMAINS OPEN -- ORIGINAL WORDING (2026-08-13), WITH THE
+-- 2026-08-15 AUDIT UNDERNEATH EACH ITEM.  The first item is closed; the
+-- other two are not.  Nothing is deleted: the confession is the record
+-- of what the closure cost.
 --
 --   * The other direction of §(c), (⇐), is NaturalMachine.WalkJumps
 --     (`prime-power-not-covered`), already checked.  Together with this
@@ -65,14 +68,53 @@
 --     formalised.  Composing the two into the single statement "the
 --     installs are exactly the prime powers in increasing order" requires
 --     that bridge.
+--
+--     CLOSED, 2026-08-14.  The bridge is NaturalMachine.WalkBridge:
+--     `cap` is flat across the interval the walk skips, so the install
+--     event IS the jump point and no jump point is passed over; the same
+--     file makes the step total as `next : ℕ → ℕ`.  The composition this
+--     paragraph asks for -- "the installs are exactly the prime powers,
+--     in increasing order" -- is NaturalMachine.WalkPrimePowers
+--     (`installs-are-prime-powers`, `prime-powers-are-installed`,
+--     with `WalkBridge.install-mono` for the ordering).  Worth recording
+--     against this paragraph's expectation: the (⇒) half of the
+--     composition does NOT use the bridge at all -- it is this file's
+--     `leastNonDivisor-isPrimePower` applied to `WalkBridge.next-lnd`.
+--     Only the (⇐) half needs §(b), and it needs one genuinely new
+--     induction (`WalkPrimePowers.locate`) on top of it.
+--
 --   * No decision procedure for PRIMALITY is provided; `dec∣` decides
 --     divisibility only.  `primeDivisor` produces a prime together with
 --     its primality proof, which is all that is needed here.
+--
+--     STILL TRUE, 2026-08-15.  There is still no `Dec (IsPrime n)` in
+--     NaturalMachine/.  What was added since is
+--     `NaturalMachine.WalkFast.decIsPrimePower : (n : ℕ) →
+--     Dec (IsPrimePower n)`, built from this file's `primeDivisor` and
+--     `WalkJumps.strip` and refuting the two-prime case by this file's
+--     `two-primes→¬prime-power`.  So prime-POWER-hood is now decidable
+--     at size n; primality itself is not decided anywhere.
+--
+--     CLOSED, 2026-08-18: primality IS now decided, by
+--     `NaturalMachine.PrimalityDecision.decIsPrime`, and it is built from
+--     THIS file -- `searchDiv` at bound n-1 plus `noDiv→prime` -- with no
+--     new number theory.
+--
 --   * `searchDiv` and `primeDivisor` are linear searches with fuel; they
 --     are proofs, not algorithms, and nothing here claims otherwise.
 --
+--     STILL TRUE, 2026-08-15, and now load-bearing rather than merely
+--     honest: `decIsPrimePower` inherits the linear fuel search, so the
+--     walk's speedup (WalkFast) is "size of the answer instead of size
+--     of cap m", not "polynomial".
+--
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
 -- No postulates, no holes.
+--
+-- HEADER REVISED 2026-08-15 (comment only; no code changed).  Re-checked
+-- EXIT=0 after the edit under Agda 2.6.3 + the /tmp/cubical checkout
+-- (`cubical-0.7`), which is NOT the repository pin (BUILD.md); that run
+-- verifies the comment parses, not the pin.
 
 module NaturalMachine.CoprimeSplitting where
 

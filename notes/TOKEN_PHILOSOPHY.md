@@ -205,7 +205,17 @@ addition). Interchange: for $f,h\in X(m,m)$ and $g,k\in X(n,n)$ with
 $m,n\ge1$, both sides of $(f\otimes g);(h\otimes k)=(f;h)\otimes(g;k)$ equal
 $\mathrm{ab}(f)+\mathrm{ab}(g)+\mathrm{ab}(h)+\mathrm{ab}(k)$, because
 $\mathrm{ab}$ is a monoid homomorphism and the target arity is $\ge2$; when
-$n=0$ both sides are $f;h$. Identities tensor to identities. The object monoid
+$n=0$ both sides are $f;h$. Identities tensor to identities — *and this is the
+clause that consumes $\mathrm{ab}$'s **unit** law, not its multiplicativity*:
+$\mathrm{id}_1=\varepsilon\in A$, $\mathrm{id}_n=0\in\mathbb N[A_1]$ for
+$n\ge2$, so $\mathrm{id}_1\otimes\mathrm{id}_1
+=\mathrm{ab}(\varepsilon)+\mathrm{ab}(\varepsilon)=\mathrm{id}_2$ exactly
+because $\mathrm{ab}(\varepsilon)=0$, which is the defining value of the map
+$A\to\mathbb N[A_1]$ induced from the generators by the universal property of
+the free monoid. [Clause supplied in place by seed132, 2026-08-14: the
+monoid-unit law of $\mathrm{ab}$ is independent of its operation law and is
+what the identity clause of Proposition 7 actually uses. Nothing else moves;
+Theorems 8 and 9 use only the interchange computation.] The object monoid
 $\mathbb N$ is commutative, so the identity is a legitimate symmetry, and its
 naturality is $f\otimes g=g\otimes f$, which holds because $\mathrm{ab}$ lands
 in a commutative monoid. All remaining coherence is trivial by strictness.

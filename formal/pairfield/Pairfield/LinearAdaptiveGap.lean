@@ -41,7 +41,7 @@ theorem alphabet_complete (n : Nat) (action : Fin n) :
 /-- Unlike R0049's first ambient control, every row in this family is a
 genuine prefix-reached state. -/
 theorem all_states_reachable (n : Nat) (state : Option (Fin n)) :
-    ∃ pre : List (Fin n), (automaton n).eval pre = state := by
+    ∃ word : List (Fin n), (automaton n).eval word = state := by
   cases state with
   | none => exact ⟨[], rfl⟩
   | some action => exact ⟨[action], rfl⟩

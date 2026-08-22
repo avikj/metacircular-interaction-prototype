@@ -6,6 +6,16 @@ An executable behavioral quotient of a supplied finite DFA.  Exact row
 equality comes from `ChartStateBFS`; Mathlib's finite quotient instance turns
 that decision into a native finite state carrier.
 -/
+-- TRUSTS-COMPILER: `ChartQuotientWitness.quotientCard_eq_three` is proved by
+-- `native_decide` and therefore rests on a compiler-generated axiom
+-- (`…quotientCard_eq_three._native.native_decide.ax_1_1`, Lean 4.33's
+-- per-declaration form of `Lean.ofReduceBool`), i.e. on the Lean compiler
+-- rather than the kernel.  It is the ONLY such declaration in the
+-- lane; see `formal/pairfield/axiom-allowlist.txt` for the observed reason and
+-- the removal path.  Nothing else in this file uses it, and no other module in
+-- `Pairfield/` carries this header.  `lake exe yogyanupalabdhi` is what keeps that
+-- true, and `scripts/check-lean-example-oracles.sh` is what keeps the
+-- declaration named, so the gate can see it at all.
 import Pairfield.ChartStateBFS
 
 namespace Pairfield
@@ -234,7 +244,23 @@ local instance : Fintype (Quotient (dfaFutureSetoid automaton)) :=
 
 /-- The executable quotient merges the duplicate row: four rows become three
 future classes. -/
-example : Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3 := by
+theorem quotientCard_eq_three :
+    Fintype.card (Quotient (dfaFutureSetoid automaton)) = 3 := by
+  -- NATIVE-BECAUSE: the kernel route was tried twice and MEASURED to fail,
+  -- not assumed to.  `decide` with maxRecDepth 100000 / maxHeartbeats 4000000
+  -- ran over 20 minutes without terminating and was killed
+  -- (notes/NATIVE_DECIDE_AUDIT.md §4c); `decide +kernel` — the tactic that
+  -- retired the five DiagonalSmithRoute sites — was substituted here on
+  -- 2026-08-15 and the build was killed with exit 137 (OOM) after 123 s, so
+  -- this is a genuine COST case and not the elaborator-irreducibility case
+  -- `+kernel` fixes.  Deciding a `Fintype.card` of a quotient by a
+  -- behavioural setoid materialises the quotient's `Fintype` instance.
+  -- REMOVAL PATH: a proof that does not materialise the instance — exhibit
+  -- the three classes and prove the canonical map to `Fin 3` a bijection, or
+  -- give `Quotient (dfaFutureSetoid ·)` a `Fintype` computed from the
+  -- ChartStateBFS row table rather than by quotienting the carrier.
+  -- This theorem is therefore COMPILER-checked, not kernel-checked, and must
+  -- not be described as "checked" without that qualification.
   native_decide
 
 example : (behavioralQuotientDFA automaton).accepts = automaton.accepts :=

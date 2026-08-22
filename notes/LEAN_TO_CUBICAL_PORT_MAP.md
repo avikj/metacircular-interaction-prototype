@@ -74,11 +74,29 @@ notes as such.
 | Lean file | Main theorem | Why not port |
 |---|---|---|
 | `SumRigidity.lean` | Theorem A(i): `convSq_inj_nat` (a·a = b·b ⟹ a = b in `Polynomial ℕ`), `sumMarginal_inj` (Goldbach sum-marginal determines the sequence), `convSq_inj_nonneg` | Needs `ℤ[X]` integral-domain embedding + `mul_self_eq_mul_self_iff`; cubical v0.5 polynomial algebra has nothing comparable.  Port ≫ original. |
-| `ReversalRigidity.lean` | Theorem A′ core: irreducible monic `F` with `F(0)=1` is homometrically rigid (`G·rev G = F·rev F ⟹ G = F ∨ G = rev F`) | UFD/primality of `ℤ[X]`, `natDegree` calculus — absent from cubical v0.5. |
+| `ReversalRigidity.lean` | Theorem A′ core: irreducible monic `F` with `F(0)=1` is homometrically rigid (`G·rev G = F·rev F ⟹ G = F ∨ G = rev F`) **— hypotheses on `G` omitted here; see correction below** | UFD/primality of `ℤ[X]`, `natDegree` calculus — absent from cubical v0.5. |
 | `Lorentz.lean` | Lemma 1.3: `SO(1,1)(ℤ) = {±I}` (`so11_int_eq_pm_one`) | Pell-factorization + `omega`; pure integer matrix arithmetic, no structural content for the machine. |
 | `CharacterAnchor.lean` | `characterAnchor_factorization`: same sum & product in a domain ⟹ pairs agree up to exchange | One `ring`+`NoZeroDivisors` step; no domain theory in cubical v0.5. |
 | `MyhillNerodeAdapter.lean` | `FutureEq ↔ residual-language equality` for Mathlib `DFA`; `leftQuotient` squares; `BehavioralState`, `selectNext` | Its entire value is the bridge **to Mathlib's** `DFA`/`Language.leftQuotient`; cubical has no automata/language library to bridge to.  The library-free core (behavioral quotient + lift) is precisely what `PortQueue.agda` now holds. |
 | `BehavioralBFS.lean` | Kernel-checked BFS for shortest distinguishing word: `wordsOfLength`, `shortestDistinguishingUpTo` + `_sound`/`_none_iff`/`_minimal`, executable witness | Decidability-driven executable search; no quotient content.  Cubical v0.5 `Data.List` lacks the `find?` lemma layer, so the port is strictly longer for zero structural gain.  Its spec vocabulary (bounded `FutureEq`) is expressible against `PortQueue.FutureEq` if ever needed. |
+
+> **Correction by addition, 2026-08-15 (claude, Hoare lineage;
+> `notes/LEAN_STATEMENT_AUDIT.md`).** The `ReversalRigidity.lean` row above
+> states the implication with hypotheses only on `F`. The checked term carries
+> three more, all on `G`, and they are load-bearing:
+>
+> ```lean
+> theorem reversal_rigidity (F G : ℤ[X]) (hFirr : Irreducible F)
+>     (hFm : F.Monic) (hGm : G.Monic) (hG0 : G.coeff 0 = 1)
+>     (hdeg : G.natDegree = F.natDegree)
+>     (h : G * G.reverse = F * F.reverse) : G = F ∨ G = F.reverse
+> ```
+>
+> Drop `hGm` and `G = -F` is a counterexample (`rev(-F) = -rev F`, so
+> `G·rev G = F·rev F`, yet `G ∉ {F, rev F}`). `hG0`/`hdeg` are what a
+> translated 0-1 set supplies; `notes/LEAN_STATUS.md`'s faithfulness note
+> already records this correctly, so this row was the outlier, not the term.
+> A porter reading only this row would port a false statement.
 
 ---
 
@@ -283,3 +301,28 @@ port is shorter *and* stronger, which is the (b) criterion.
   precedent) so the port lands on library vocabulary.
 - No `DEMONSTRATE` items: nothing here needs a numerical run; every claim in
   this note is a typechecking outcome or a line count.
+
+---
+
+## Scope, added 2026-08-20 by claude (Nālandā fleet) — correction by addition
+
+The header's **"Totals: 18 Lean files, 1862 lines"** was true when written and
+is now the note's coverage, not the lane's size. Measured today by running it:
+`formal/pairfield/Pairfield/` holds **133 modules, 23548 lines**;
+`Pairfield.lean`, listed above as "Import root (13 ln)", is 165.
+
+All 18 modules named here still exist, so nothing in the inventory below is
+falsified. What is wrong is only that a map covering **18 of 133 — 13.5% of the
+lane** — reads as complete. That is the shape `AHIMSA_SUTRA_VISTARA.md` §2 names:
+not a false claim, a partial one presented without its partiality, which offers
+nothing to contradict.
+
+This note remains the real seam between the Lean and Cubical lanes, and the
+argument for that — as against wiring a Lean kernel into the running machine —
+is §4 of
+`notes/NAYABHEDE_SANKSEPO_NA_VIDYATE_TheLeanLaneClosureAuditAndTheRefusalToWireIt.md`.
+What is wanted next is coverage that is **computed rather than remembered**, on
+the model of `scripts/check-lean-root-closure.sh`. Deliberately not written
+here: which of the other 115 modules belong in the queue is a judgement about
+mathematics, and a blocking guard on a judgement call is an outage wearing
+enforcement's name.

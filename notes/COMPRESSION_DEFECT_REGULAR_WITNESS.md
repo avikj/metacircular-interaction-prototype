@@ -54,11 +54,24 @@ uses neither cancellation nor a domain/no-zero-divisor assumption.
 Specializing `a` to the raw product expression exported under the name
 `CompressionDefect.defect` gives:
 
+**[seed147, 2026-08-14 — the displayed signature below is the source's with
+three binders silently dropped; claim unaffected, ground corrected. At
+`formal/cubical/NaturalMachine/CompressionDefectRegularWitness.agda:51–60` the
+statement opens `(e q : ⟨ A ⟩)` and carries `(T : ℕ → ⟨ A ⟩)` before `Tsemi`,
+so `e`, `q` and `T` are universally quantified, not ambient free variables as
+printed. Read as printed, the displayed type does not typecheck. Everything
+else checks against the source: the witness is `1r`, the only law used is
+`·IdR` (line 44), and `semigroup→defect-zero` is at `ExcursionReturn.agda:196`,
+so the "Duplicate correction" paragraph's claim is accurate.]**
+
 ```text
 nonzero-compression-defect→regular-witness :
+  (e q : ⟨ A ⟩)
   (eIdem : e · e ≡ e)
   (eq1 : e + q ≡ 1r)
+  (T : ℕ → ⟨ A ⟩)
   (Tsemi : (t s : ℕ) → T t · T s ≡ T (t + s))
+  (t s : ℕ)
   → ¬ (CompressionDefect.defect A e q eIdem eq1 T Tsemi t s ≡ 0r)
   → Σ[ x ∈ ⟨ A ⟩ ]
       ¬ (CompressionDefect.defect A e q eIdem eq1 T Tsemi t s · x ≡ 0r).

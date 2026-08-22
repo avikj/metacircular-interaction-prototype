@@ -126,3 +126,65 @@ Proved here: equivalence (1) iff (4), and the need to expose a response
 comparison when codomains change.  Not proved: that the repository's observer
 objects and all their morphisms form an institution; formation of signatures;
 acceptance of revisions; physical realizability; or empirical learning.
+
+## 6. Reader's audit, appended 2026-08-15 (Claude, Opus lineage, full-read draw 6)
+
+*Added by addition only. Nothing in §§1–5 was altered, replaced or removed; every
+line above stands exactly as its author wrote it. Recorded in full in
+`notes/FULL_READ_DRAW_6.md` (§1.D) and `collab/messages/0796-claude-draw6.md`.
+The Theorem of §2 was checked line by line in both directions and is **correct**;
+the citation in §5 is **accurate**. What follows is the residue.*
+
+**(a) The identification claimed by the title and Status has a free parameter
+that the framework it specializes does not have.** In an institution the
+satisfaction condition reads $M' \models_{\Sigma'} \varphi(e) \iff M'|_\varphi
+\models_{\Sigma} e$, where the reduct $M'|_\varphi$ is *determined by* the
+signature morphism $\varphi$ — the model part is a functor on signatures. In §1,
+$s : X' \to X$ is supplied **independently** of $\tau : Q \to Q'$, as §3's third
+bullet says outright. So (4) is not an instance of the satisfaction condition but
+of its *shape*, with the reduct promoted from derived object to free datum. The
+distinction is load-bearing rather than pedantic: the satisfaction condition is a
+law an institution *satisfies*, whereas (4) is a property a chosen pair
+$(\tau,s)$ may **fail** — which is exactly why the audit of §1 is worth running.
+Two honest repairs, and the choice is the author's: **(i)** say that the note
+exhibits the atomic-fragment *shape* of the satisfaction condition with the
+reduct supplied rather than derived — which is what is proved, and is still a
+genuine Rosetta entry; or **(ii)** say what makes $s$ canonical from $\tau$,
+which needs the signature category §5 explicitly declines to build. The Status
+line currently sits between (i) and (ii).
+
+**(b) The Theorem omits the standing hypothesis $Y'_{\tau(q)} = Y_q$.** It is
+stated once, in §1 prose, and appears in neither the Theorem, the title, nor the
+Status line. Without it the atom $(\tau(q), y)$ is not well-typed on the revised
+side. §4 is this note's own evidence that the hypothesis is not decorative. A
+downstream summary has already dropped it:
+`collab/messages/0410-codex-skein-atomic-satisfaction-result.md` states the
+equivalence with no mention of equal response sets at all.
+
+**(c) §4's "injectivity of `j_q` is needed" states a sufficient condition as a
+necessary one.** Under (5), the biconditional analogue requires only that $j_q$
+not identify a **realized** value $r_q(s(x'))$ with any other element of $Y_q$;
+if two old outcomes are never realized on the image of $s$, $j_q$ may merge them
+and (4) still holds in full. The gap between the two conditions is precisely the
+set of unrealized outcomes — not an empty technicality in a section about absent
+outcomes. The formalization sides with this reading:
+`formal/cubical/NaturalMachine/AtomicSatisfaction.agda` takes
+`InjectiveComparisons` as a *hypothesis* of `ChangedResponses.square→satisfaction`,
+and `ChangedResponses.satisfaction→square` assumes no injectivity whatever.
+Nothing in the Agda claims necessity — but
+`collab/messages/0469-atomic-satisfaction-is-response-square.md` reports it as
+"the comparison maps **must be** injective", hardening §4's wording one step
+further downstream. (Read as text; not typechecked by this pass.)
+
+**(d) §5, factual.** "The authoritative overview and bibliography are
+**maintained** on Joseph Goguen's UCSD institution page" — Goguen died in 2006;
+that page is an archival snapshot, not a maintained resource, and no URL or
+access date is recorded. The JACM citation beside it is exact.
+
+**(e) §3's closing paragraph cites nothing.** The three corroborating returns
+(Pāṇinian inherited control, quantum-comb positivity and causal normalization,
+Nyāya defeat versus object absence) are named without a path to any of them, so a
+reader cannot tell agreement from recruitment. §4 does this correctly one
+paragraph later by naming `PROSTHETIC_SENSOR_NO_GO` — verified to exist at
+`notes/PROSTHETIC_SENSOR_NO_GO.md` — which is why (e) reads as a lapse rather
+than a convention.

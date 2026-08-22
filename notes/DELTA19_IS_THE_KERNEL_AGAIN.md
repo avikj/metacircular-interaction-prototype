@@ -43,6 +43,35 @@ theorem futureEq_step (h : FutureEq step observe x y) (action : A) :
 kernel of `behavior` in the linear case, where the equivalence class of `0` is a
 subspace; the Lean statement is more general, since it needs no linearity.
 
+> **Two hypotheses added (SEED-38 §§5.1–5.3, applied at the site by SEED-101,
+> 2026-08-14).** The identification above is an equality of *subspaces*, not a
+> coincidence of dimensions — with `A := {∗}`, `step x ∗ := T x` one has
+> `run step x (word of length n) = Tⁿ x`, hence `FutureEq x y ⟺ ∀n, PTⁿ(x−y) =
+> 0 ⟺ x−y ∈ N_obs`, a chain of `⟺` on elements with no dimension count in it.
+> But it needs two hypotheses this section leaves silent, and both are
+> necessary:
+>
+> 1. **Singleton alphabet** (or all actions acting by the same map). For
+>    `|A| > 1` the Lean kernel is `⋂_{w ∈ A*} ker(P S_w)`, in general strictly
+>    smaller. Over `ℝ` with `U = ℝ²`, `P(x₁,x₂) = x₁`,
+>    `T_a = diag(0,1)`, `T_b = ` the swap: `P T_aⁿ e₂ = 0` for all `n`, so
+>    `e₂ ∈ ⋂_n ker(P T_aⁿ)`, while `P T_b e₂ = 1 ≠ 0`. So the Lean file is more
+>    general in a *second* direction — many actions — and in that direction it
+>    is a different subspace (the unobservable subspace of the switched linear
+>    system, equivalently the largest `{T_a}`-invariant subspace of `ker P`),
+>    not the same one evaluated at a point.
+> 2. **Linear `observe`.** The parenthetical "where the class of `0` is a
+>    subspace" is doing real work and is not sufficient. Take `U = ℝ`,
+>    `T = id`, `observe(x) = x²`: `FutureEq x y ⟺ x² = y²`, the class of `0` is
+>    `{0}` — a subspace — yet `1 ~ −1` with `1 − (−1) = 2 ∉ {0}`, so T19.11
+>    fails. Linearity of `observe`, not just subspace-ness of the zero class,
+>    is what makes `FutureEq` the coset relation.
+>
+> Also record, parallel to the `U_k` truncation §2 already gives: by
+> Cayley–Hamilton `⋂_{n≥0} ker(PTⁿ) = ⋂_{n < dim U} ker(PTⁿ)`. As written
+> `N_obs` is an infinite intersection and is therefore no more a decidable test
+> than C19.10 was before §2 truncated it.
+
 So this corpus now derives one theorem **four times**, in four vocabularies:
 
 | # | vocabulary | where |

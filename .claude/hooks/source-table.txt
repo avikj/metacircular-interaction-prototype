@@ -1,0 +1,63 @@
+# source-table.txt -- author @@ work @@ date @@ how the date was reached
+#
+# Read by .claude/hooks/source-coverage.sh, check 9.  When a write names an
+# author in this table and does NOT name the work, the hook prints the
+# citation, so the fix is a paste and not a research task.
+#
+# WHY.  machine/PramanyaCorpusRun.hs measured, 2026-08-20: 68 of the 176
+# files the anukramani places in a chapter INVOKE a source and fail the
+# fitness gate, and the dominant failure is "invokes an author and names no
+# work".  That is the asymmetry CLAUDE.md names -- an author's name
+# propagates by citation and costs nothing; a work's name appears only
+# where somebody opened the book.
+#
+# WHY THIS AND NOT 68 HEADER EDITS.  Most of those files belong to other
+# identities.  A hook that hands over the citation at the moment of the
+# next write fixes them without anyone editing anyone else's work, and it
+# fixes files nobody has thought of yet.
+#
+# DATES CARRY THEIR DISPUTE.  A point date where the scholarship has a
+# range is a false precision, and this repository treats a provenance you
+# did not check as the same class of error as a fitted constant.  Rows
+# marked DISPUTED name who disagrees.
+#
+# Field 4 is the provenance OF THE PROVENANCE.  "search 2026-08-20" means a
+# source was located that states it; "recall" means it was not.  Drsta --
+# the text consulted -- is unreachable on this container: the gateway
+# answers 403 to CONNECT for the text archives.
+
+Āryabhaṭa|Aryabhat@@Āryabhaṭīya@@499@@recall@@Āryabhaṭīya|Aryabhatiya
+Brahmagupta@@Brāhmasphuṭasiddhānta@@628@@recall@@Brāhmasphuṭa|Brahmasphuta|Khaṇḍakhādyaka|Khandakhadyaka
+Bhāskara|Bhaskara@@Bījagaṇita; Līlāvatī; Siddhānta-Śiromaṇi@@1150@@recall@@Bījagaṇita|Bijaganita|Līlāvatī|Lilavati|Śiromaṇi|Siromani
+Piṅgala|Pingala@@Chandaḥśāstra@@c. 300 BCE (range debated; some place it later)@@recall@@Chandaḥśāstra|Chandahsastra|Chandah
+Halāyudha|Halayudha@@Mṛtasañjīvanī (commentary on the Chandaḥśāstra)@@10th c.@@recall@@Mṛtasañjīvanī|Mrtasanjivani
+Virahāṅka|Virahanka@@Vṛttajātisamuccaya (Prakrit)@@c. 600-800 CE -- NOT ~700. The range is H. D. Velankar's, from his 1962 edition; 6th c. is argued and so is as late as the 8th@@search 2026-08-20@@Vṛttajātisamuccaya|Vrttajatisamuccaya
+Pāṇini|Panini@@Aṣṭādhyāyī@@c. 500 BCE (6th-4th c. BCE debated)@@recall@@Aṣṭādhyāyī|Astadhyayi|Ashtadhyayi
+Patañjali|Patanjali@@Mahābhāṣya@@c. 150 BCE@@recall@@Mahābhāṣya|Mahabhasya
+Umāsvāti|Umasvati|Umāsvāmī|Umasvami@@Tattvārthasūtra@@2nd-5th c. CE, DISPUTED: Jaini places him ~2nd c., Dundas 4th-5th; and whether Umāsvāti and Umāsvāmī are ONE PERSON is itself contested (Slaje) -- a Śvetāmbara/Digambara split, not a bibliographic detail@@search 2026-08-20@@Tattvārthasūtra|Tattvarthasutra
+Siddhasena@@Sanmatitarka@@c. 5th c.@@recall@@Sanmatitarka|Sammai
+Samantabhadra@@Āptamīmāṃsā@@c. 6th c.@@recall@@Āptamīmāṃsā|Aptamimamsa
+Akalaṅka|Akalanka@@Laghīyastraya; Aṣṭaśatī@@c. 720-780@@recall@@Laghīyastraya|Laghiyastraya|Aṣṭaśatī|Astasati
+Vidyānanda|Vidyananda@@Aṣṭasahasrī (on the Āptamīmāṃsā)@@c. 850@@recall@@Aṣṭasahasrī|Astasahasri
+Prabhācandra|Prabhacandra@@Prameyakamalamārtaṇḍa@@c. 1000@@recall@@Prameyakamala
+Mādhava|Madhava@@NO SURVIVING WORK OF HIS OWN -- cite the transmitting texts: Nīlakaṇṭha, Tantrasaṅgraha (1501), and Jyeṣṭhadeva, Yuktibhāṣā (c. 1530, Malayalam). The end-correction is antya-saṃskāra; π to 11 places from 21 terms@@c. 1350-1425@@search 2026-08-20@@Tantrasaṅgraha|Tantrasangraha|Yuktibhāṣā|Yuktibhasa
+Nīlakaṇṭha|Nilakantha@@Tantrasaṅgraha; Āryabhaṭīyabhāṣya@@1501 (dated inside the text by a kaṭapayādi chronogram)@@recall@@Tantrasaṅgraha|Tantrasangraha|Āryabhaṭīyabhāṣya
+Jyeṣṭhadeva|Jyesthadeva@@Yuktibhāṣā (in Malayalam, and it gives the DERIVATIONS)@@c. 1530@@recall@@Yuktibhāṣā|Yuktibhasa
+Nārāyaṇa|Narayana@@Gaṇitakaumudī@@1356@@recall@@Gaṇitakaumudī|Ganitakaumudi
+Mahāvīra|Mahavira@@Gaṇitasārasaṅgraha@@850@@recall@@Gaṇitasārasaṅgraha|Ganitasarasangraha
+Śrīdhara|Sridhara@@Pāṭīgaṇita; Triśatikā@@c. 750@@recall@@Pāṭīgaṇita|Patiganita|Triśatikā|Trisatika
+Baudhāyana|Baudhayana@@Śulbasūtra@@c. 800 BCE@@recall@@Śulba|Sulba
+Gautama@@Nyāyasūtra@@c. 2nd c. CE for the received text@@recall@@Nyāyasūtra|Nyayasutra
+Vātsyāyana|Vatsyayana@@Nyāyabhāṣya (on the Nyāyasūtra)@@c. 5th c.@@recall@@Nyāyabhāṣya|Nyayabhasya
+Kumārila|Kumarila@@Ślokavārttika@@c. 7th c.@@recall@@Ślokavārttika|Slokavarttika
+Gaṅgeśa|Gangesa@@Tattvacintāmaṇi@@c. 1325@@recall@@Tattvacintāmaṇi|Tattvacintamani
+Praśastapāda|Prasastapada@@Padārthadharmasaṃgraha@@c. 6th c.@@recall@@Padārthadharma|Padarthadharma
+Nāgārjuna|Nagarjuna@@Mūlamadhyamakakārikā@@c. 150 CE@@recall@@Mūlamadhyamaka|Mulamadhyamaka|MMK
+Dignāga|Dignaga@@Pramāṇasamuccaya(vṛtti) -- apoha is CHAPTER 5; the formulation is that "cow" denotes not-a-non-cow@@c. 480-540@@search 2026-08-20@@Pramāṇasamuccaya|Pramanasamuccaya
+Dharmakīrti|Dharmakirti@@Pramāṇavārttika; Pramāṇaviniścaya@@c. 600-660@@recall@@Pramāṇavārttika|Pramanavarttika|Pramāṇaviniścaya
+Śāntarakṣita|Santaraksita@@Tattvasaṅgraha (with Kamalaśīla's Pañjikā)@@c. 750@@recall@@Tattvasaṅgraha|Tattvasangraha
+Kauṭilya|Kautilya@@Arthaśāstra -- the 32 tantrayukti are book 15 ch. 1@@compilation; layers 4th c. BCE to c. 2nd-3rd c. CE@@recall@@Arthaśāstra|Arthasastra
+Caraka@@Caraka Saṃhitā -- the 36 tantrayukti are Siddhisthāna 12@@Dṛḍhabala redaction c. 4th-5th c. CE over an older core@@recall@@Caraka Saṃhitā|Caraka Samhita|Siddhisthāna|Siddhisthana
+Bharata@@Nāṭyaśāstra -- the rasa-sūtra is 6.31@@c. 200 BCE-200 CE@@recall@@Nāṭyaśāstra|Natyasastra
+Vīrasena|Virasena@@Dhavalā@@c. 816@@recall@@Dhavalā|Dhavala
+Jayadeva@@no surviving work; the cakravāla is quoted by Udayadivākara@@c. 950@@recall@@Udayadivākara|Udayadivakara|cakravāla|cakravala

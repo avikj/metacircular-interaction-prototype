@@ -18,6 +18,17 @@ Thus the cyclotomic field trace in `RAMANUJAN_TRACE.md` is exactly a
 character-weighted fixed-sector trace on an explicit finite action. It is not
 an ordinary fixed-point count.
 
+> **Convention, made explicit (seed125 audit, 2026-08-14) — no change to any
+> statement.** "Primitive character of `C_q`" here means a **faithful**
+> character `χ_a(g^k)=ζ_q^{ak}`, `gcd(a,q)=1` — a character of order exactly
+> `q`, equivalently the `Φ_q`-isotypic component of `Q[C_q]`. It does **not**
+> mean a primitive Dirichlet character mod `q`, and the two disagree: at `q=6`
+> there are two faithful characters of `C_6` (so `e_prim` has rank
+> `φ(6)=2`, as the text says) and **no** primitive Dirichlet characters mod 6.
+> Everything below is correct under the stated definition; this note is the
+> corpus's definition of record for the phrase, and `Φ_q`-isotypic is the
+> unambiguous name (cf. `notes/LEAKAGE_COST_VECTOR.md`, `0722-seed121`).
+
 ## Derivation
 
 Over `C`, write the primitive characters as
@@ -51,6 +62,20 @@ For the regular action only `k=-n` contributes, but the formula identifies
 the precise common operation: the primitive character idempotent weights the
 twisted sectors before taking their trace.
 
+> **Delimitor supplied (SEED-112, Rule K3, 2026-08-14, applying
+> `notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md` §4.2, ledger row 9,
+> which graded this "true but under-delimited" and, unlike §4.1 and §4.3, was
+> not landed here by SEED-105.)** The sentence is **true**, and its reason is a
+> fact about **stabilisers, not about the index `k`**: the regular action is
+> free, so `#Fix(g^m on C_q) = q·[m ≡ 0 mod q]`, and every summand of (3) with
+> `k ≠ −n` dies because the fixed-point count does, not because `k` is special.
+> Stated that way the passage from (3) to (4) stops being a generalisation and
+> becomes the same formula with the freeness hypothesis dropped: **(4) is
+> nontrivial precisely to the extent that `X` has points with nontrivial
+> stabiliser**, and (3) is its degenerate case. This is the same
+> `Stab`-triviality dichotomy `PORT_IS_A_BASE_POINT.md` §1 runs on. Nothing in
+> (3) or (4) changes; only the reason attached to the collapse.
+
 More generally, for any finite `C_q`-set `X` and any equivariant permutation
 `f`, the same matrix calculation gives
 
@@ -72,14 +97,39 @@ An endomap of a finite set has a nonnegative integer fixed-point count. But
 c_3(1)=-1.
 ```
 
-Therefore Ramanujan sums cannot, in general, be ordinary fixed-point counts
-of finite sets. The smallest obstruction is already `q=3`. Negative
+Therefore Ramanujan sums cannot, ~~in general,~~ be ordinary fixed-point counts
+of finite sets. ~~The smallest obstruction is already `q=3`.~~ Negative
 Möbius/character weights—or equivalently a virtual representation—are not a
 presentation choice; they are forced by the sign.
 
+> **Struck (SEED-105, Rule K1/K3, 2026-08-14, applying
+> `notes/SEED53_PRATIYOGIN_OF_THE_PRIMITIVE_PROJECTOR.md` §4.1, which produced
+> this correction on 2026-08-14 and did not apply it here).** Two defects, one
+> of minimality and one of hedging. SEED-53 Proposition N3′: for every `q > 1`
+> and every prime `p | q`, Hölder's formula gives
+> `c_q(q/p) = μ(p)·φ(q)/φ(p) = −φ(q)/(p−1) < 0`. Hence the obstruction holds at
+> **every** `q > 1` and the smallest is **`q = 2`**, where `c_2(1) = −1`, not
+> `q = 3`. The hedge "in general" is therefore also removable: there is no
+> `q > 1` at which a nonnegative finite-set realisation exists. (Checked against
+> this note's own `q = 12` vector: `p = 2, n = 6` gives `−4 = c_12(6)`;
+> `p = 3, n = 4` gives `−2 = c_12(4)`.) The delimitor SEED-53 supplies and this
+> sentence omits is the *index* `n = q/p` at which negativity occurs.
+
 The full regular carrier without `e_prim` is the hostile control. Its trace
-vector is `(q,0,...,0)`, not `c_q`. Fourier phases alone also do not suffice:
+vector is `(q,0,...,0)`, not `c_q`. ~~Fourier phases alone also do not suffice:~~
 the primitive projector is the exact selection mechanism.
+
+> **Struck (SEED-105, Rule K1/K3, 2026-08-14, applying SEED-53 §4.3).** Under
+> its natural reading ("no Fourier-side object reproduces `c_q`") the struck
+> clause is **false**: definition (1) *is* a Fourier sum, and SEED-53 Theorem Ψ
+> puts it in closed form, `R_q = Ψ_q·(xΦ_q' − φ(q)Φ_q)` in `ℤ[x]`. What is true
+> is the sentence before it, with its delimitor made explicit — SEED-53's N5′:
+> *the trace vector of `ρ(g^n)` on the full regular carrier with **no**
+> idempotent inserted is `(q,0,…,0) ≠ c_q` for every `q > 1`; the absent object
+> is a **carrier** (an honest finite `C_q`-set whose **unweighted** sector
+> traces give `c_q`), not a Fourier expression, and by N3′ no reweighting by
+> nonnegative integers repairs it.* The correct slogan is "the carrier, not the
+> language, is what fails".
 
 ## Executable certificate
 

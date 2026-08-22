@@ -3,7 +3,10 @@
 # Persistent local research minds: durable on this machine, not repository artifacts.
 *.agdai
 *.pyc
-.claude/
+.claude/*
+!.claude/skills/
+!.claude/hooks/
+!.claude/settings.json
 __pycache__/
 _build/
 collab/orchestration/persistent-minds.*.log
@@ -37,3 +40,46 @@ vigil-state.json
 natural_machine_cpu_loop_rust/real_workload
 natural_machine_cpu_loop_rust/decic_extend
 natural_machine_cpu_loop_rust/root_singular_series
+formal/cubical/Candidate_*.agda
+
+# machine/library.terms is NOT ignored, and used to be, listed right here
+# among the reproducible artifacts.  It is the opposite of one: it is the
+# machine's MEMORY, the file MathMachine reads at startup to re-admit what
+# earlier runs proved.  Ignored, it never left the container that wrote it,
+# so every fresh checkout — every CI job, every new session, every future
+# scheduled run — started the machine from mRules = [] and re-derived the
+# same theorems forever.  The engine's own comment says the architecture
+# "rests on installed theorems compounding"; nothing can compound across a
+# clone that does not carry the file.  Tracked as of 2026-08-17.
+
+# Machine build artifacts (reproducible; never source of truth)
+machine/*.hi
+machine/*.o
+machine/arithvocab
+machine/bench-head-depth
+machine/cyclotomic-vocab
+machine/parallel-gate
+machine/library.certs
+machine/self_architecture.tsv
+machine/nested-agda/
+
+# Certificate gate cache: re-derivable, and every entry stores the exact
+# module source it certified, so it is a rebuildable artifact not a record.
+machine/.certcache/
+formal/cubical/.claude/
+machine/replay.traces.live
+
+# The sabhā: the compiled process and its transcript.  The binary is
+# rebuildable from machine/check-sabha.sh; the transcript is a session
+# record, kept locally and never rewritten in place (append-only), and it
+# is the corpus this wire exists to produce.
+machine/sabha
+machine/sabha.jsonl
+
+# The interface the other carrier is handed: the compiled binary, rebuildable
+# from machine/check-karana.sh.  Its outputs (the tool schema, the training
+# records) are regenerated from the running dispatch table and a transcript,
+# so neither is committed either -- a committed copy would be the second copy
+# that drifts, which is the thing this lane exists to remove.
+machine/karana
+machine/abhyasa.jsonl

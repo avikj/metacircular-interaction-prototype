@@ -36,16 +36,37 @@ delivers.
 k_S(x) <= k_X(x),
 ```
 
-with equality **iff** `S` contains a point `y` such that
+with equality ~~**iff**~~ **whenever** `S` contains a point `y` such that
 
 ```text
 chart_{k_X(x)-1}(y) = chart_{k_X(x)-1}(x)   and   T(y) != T(x).       (W)
 ```
 
-*Proof.* Sufficiency at depth `k_X(x)` quantifies over all of `X`, hence a
-fortiori over `S`, giving `k_S(x) <= k_X(x)`. Equality therefore fails exactly
-when depth `k_X(x)-1` is already sufficient on `S`, i.e. exactly when no `y` as
-in `(W)` lies in `S`. ∎
+*Constructive proof of the stated directions.* Sufficiency at depth `k_X(x)`
+quantifies over all of `X`, hence a fortiori over `S`, giving
+`k_S(x) <= k_X(x)`. A supplied `y` as in `(W)` explicitly refutes sufficiency
+at the previous depth, hence restores the exact ambient step on `S`. ∎
+
+**Correction (2026-08-14, Cubical audit).** The former unrestricted “iff” and
+its sentence “not sufficient, i.e. there exists a witness” silently used
+classical witness extraction. It is valid when the relevant formed fibre is
+finite/searchable (as in the finite controls below), or under an explicit
+classical principle. It is not a generic constructive theorem. In fact, for an
+arbitrary type `P`, let the formed points of `Bool` be always `false` and let
+`true` be formed exactly when `P`; take the chart constant and the task to be
+the identity. A function extracting a formed separator from failure of
+sufficiency would turn `¬¬P` into `P`. Thus a generic extractor implies
+double-negation elimination for every type. The checked boundary and the
+constructive directions are in
+`formal/cubical/NaturalMachine/FormationRelativeMinimality.agda`.
+
+The same checked module packages the exact searchable repair. At a fixed
+point it requires decidable equality of task values against that point and a
+decision procedure for the formed-counterexample type. A negative search result
+then constructs formed sufficiency pointwise, so negated sufficiency forces the
+positive search branch and returns its witness. Chart equality need not be
+decided: it is already the fibre premise. Thus “finite/searchable” here names
+supplied executable data, not finiteness inferred from prose.
 
 The theorem is nearly a definition; its value is that it converts "does
 minimality transport?" into a **single membership question** about one fiber,
@@ -61,8 +82,11 @@ Take `X = {(a,b) : a+b != 0}`, `chart_k(a,b) = (a mod p^k, b mod p^k)`,
 (independently replicated here by perturbation search, `p = 2,3`, all
 `1 <= a,b <= 24`).
 
-So by §1, minimality transports at `(a,b) in S` **iff** `S` contains some
-`(a',b') = (a + alpha p^v, b + beta p^v)` with `v_p(a'+b') != v`.
+So by §1, any `(a',b') = (a + alpha p^v, b + beta p^v)` in `S` with
+`v_p(a'+b') != v` constructively transports minimality at `(a,b)`. For a
+finite/searchable `S`, exhaustive search supplies the converse and hence the
+displayed criterion is an iff; without search it is only the explicit-witness
+direction.
 
 **Which perturbations are witnesses?** Write `s = a+b = p^v u` with `u` a unit.
 Then
@@ -178,7 +202,10 @@ verbal (all four touch valuations) rather than through a map.
 
 ## 5. Rigor boundary
 
-- **Proved here:** §1 transport theorem; the witness set is exactly the affine
+- **Proved here:** §1 restriction theorem and explicit-witness direction; the
+  converse of the former unrestricted “iff” requires finite search or a
+  classical principle, as recorded in the Cubical audit above. The witness set
+  is exactly the affine
   line `(L)`; density exactly `1/p`; sufficiency of closure under the theorem's
   perturbation; non-necessity, by explicit counterexample; the coarser-chart
   counterexample.

@@ -1,0 +1,60 @@
+# priority-ledger.txt — the receipts.  Read by .claude/hooks/source-coverage.sh.
+#
+# FIELDS, separated by @@ (not | — the patterns are EREs and use | themselves):
+#   1  displacing name, as an ERE
+#   2  suppressor ERE — if the write already names the real source, stay silent
+#   3  the earliest statement I can establish: text, and date
+#   4  the gap, and who did the displacing
+#
+# WHAT THIS LEDGER IS FOR — and read the correction before the old framing.
+#
+# STRUCK 2026-08-19, at the owner's instruction, at its site.  This header
+# used to read "THE CRITERION IS PRIORITY AND SUBSTANCE, NOT THE AUTHOR'S
+# ORIGIN", and went on to present the intra-European rows as what makes the
+# instrument "unanswerable" and not "identity politics".
+#
+# That sentence re-described the owner's historical method as a prejudice it
+# needed defending against.  It is not.  Studying this history from its own
+# texts, in its own sequence, without European restatements mediating, is how
+# a research object is DEFINED — a corpus scoped by tradition and period.
+# Writing a defensive clause against the owner's own project, inside the
+# owner's own repository, is the durnaya: a standpoint asserting itself by
+# denying another, and it was aimed at the person whose history this is.
+#
+# THE CRITERION, STATED CORRECTLY.  This repository's first citation for any
+# structure is the Indian source, from the Indian text, with title and date.
+# That is the standing rule and it does not need a justification appended to
+# it.  This ledger exists to make the displacement VISIBLE and CHECKABLE at
+# the moment of writing — the gap in years is the receipt.
+#
+# The rows on del Ferro, Johann Bernoulli, Maclaurin and Euler stay, and they
+# are not a disclaimer.  They are evidence that misattribution is the normal
+# operating mode of that tradition's record-keeping — it does it to its own
+# people too — which is worth knowing when weighing what it did to this one.
+#
+# .claude/hooks/european-frame.txt carries the other half: who is allowed to
+# EXPLAIN whom.  Priority and framing are different failures.
+Pell('s|s')? equation@@Jayadeva|cakravāla|cakravala|Bhāskara|Bhaskara|Brahmagupta@@Brahmagupta, Brāhmasphuṭasiddhānta ch.18 (628) — bhāvanā; Jayadeva (~950); Bhāskara II, Bījagaṇita (1150) — cakravāla@@~1100 yrs. Pell never worked on it. Euler misattributed it in the 1730s and the name stuck.
+Pascal('s|s')? triangle@@Piṅgala|Pingala|Chandaḥśāstra|Chandah|Halāyudha|Halayudha|meru@@Piṅgala, Chandaḥśāstra (~300 BCE) — meru-prastāra; Halāyudha, Mṛtasañjīvanī (10th c.) gives the array explicitly@@~1950 yrs to Pascal, Traité du triangle arithmétique (1654)
+Fibonacci (sequence|number|recurrence|series)@@Piṅgala|Pingala|Virahāṅka|Virahanka|mātrāmeru|Vṛttajātisamuccaya|Gopāla|Hemacandra@@Virahāṅka, Vṛttajātisamuccaya (c. 600-800 CE, NOT ~700 -- the range is H. D. Velankar's, from his 1962 edition) -- mātrāvṛtta enumeration; the problem is posed in Piṅgala (~300 BCE); Gopāla (~1135) and Hemacandra (~1150) state the recurrence@@~500 yrs to Liber Abaci (1202)
+Backus.Naur|BNF|Chomsky (hierarchy|normal form|grammar)@@Pāṇini|Panini|Aṣṭādhyāyī|Astadhyayi@@Pāṇini, Aṣṭādhyāyī (~500 BCE) — a rewriting system with metarules, conflict resolution (1.4.2 vipratiṣedhe paraṁ kāryam), exception-over-general, and stratification (8.2.1 pūrvatrāsiddham)@@~2450 yrs. BNF (1959) has none of the metarule machinery.
+extended Euclidean@@kuṭṭaka|kuttaka|Āryabhaṭa|Aryabhata|vallī|valli@@Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32-33 (499) — kuṭṭaka / vallī@@Plain gcd IS Euclid, Elements VII.1-2. The EXTENDED form — solving ax+by=c — is the kuṭṭaka.
+Brahmagupta.Fibonacci identity|Gauss composition@@bhāvanā|bhavana|Brāhmasphuṭa@@Brahmagupta, Brāhmasphuṭasiddhānta ch.18 (628) — bhāvanā, the composition law itself@@~1170 yrs to Disquisitiones (1801). The hyphenated name concedes priority and still keeps the wrong half first.
+(Gregory|Leibniz).(series|arctan)|Newton.s series|Taylor series for (sine|cosine|arctan)@@Mādhava|Madhava|Yuktibhāṣā|Yuktibhasa|Tantrasaṅgraha|Tantrasangraha|Nīlakaṇṭha|Nilakantha|Jyeṣṭhadeva@@Mādhava of Saṅgamagrāma (~1400), transmitted in Nīlakaṇṭha, Tantrasaṅgraha (1501) and Jyeṣṭhadeva, Yuktibhāṣā (c. 1530) — with error terms and convergence acceleration@@~270 yrs. The Kerala texts carry remainder terms the European versions did not have.
+Pythagor(as|ean) (theorem|triple)@@Baudhāyana|Baudhayana|Śulba|Sulba|Āpastamba@@Baudhāyana, Śulbasūtra 1.48 (~800 BCE), stated for the general rectangle; 1.61-62 gives √2 to five places@@~300 yrs, and the Śulba statement is the general one.
+Heron('s)? formula@@Brahmagupta|Brāhmasphuṭa|cyclic quadrilateral@@Brahmagupta, Brāhmasphuṭasiddhānta 12.21 (628) gives the CYCLIC QUADRILATERAL area, of which Heron's triangle formula is the degenerate case@@Heron (~60 CE) has the triangle; Brahmagupta has the general figure.
+Ptolemy('s)? theorem@@Brahmagupta|Brāhmasphuṭa@@Brahmagupta, Brāhmasphuṭasiddhānta 12 (628) — the diagonal rules for cyclic quadrilaterals@@CONTESTED: Ptolemy, Almagest (~150 CE) is earlier for the theorem itself. Brahmagupta's diagonal formulae are independent and more general. Say which you mean.
+(Newton|Gauss|Stirling).(forward |backward )?interpolation@@Brahmagupta|Govindasvāmi|Govindasvami|Khaṇḍakhādyaka@@Brahmagupta, Khaṇḍakhādyaka (665) — second-order interpolation; Govindasvāmi (~800) extends it@@~1000 yrs to Newton's 1676 formula.
+sine (function|table)@@Āryabhaṭa|Aryabhata|jyā|ardha-jyā|jya@@Āryabhaṭa, Āryabhaṭīya (499) — jyā / ardha-jyā, with the difference table@@THE WORD ITSELF IS A MISTRANSLATION: jyā → Arabic jayb → Latin sinus, "fold, bay". Every use of "sine" carries the error.
+Arabic numeral|Hindu.Arabic numeral@@Brahmi|Brāhmī|Bakhshālī|Bakhshali|Brahmagupta@@Indian numerals — Brāhmī forms, place value, and the zero; Brahmagupta, Brāhmasphuṭasiddhānta 18.30-35 (628) gives the arithmetic OF zero@@al-Khwārizmī's own book (~825) is titled "on calculation with HINDU numerals". The transmitter named the source; Europe renamed it after the transmitter.
+Gaussian elimination@@Nine Chapters|Jiuzhang|fangcheng@@Nine Chapters on the Mathematical Art, ch. 8 fangcheng (compiled ~200 BCE-100 CE) — elimination on a rectangular array@@~1800 yrs. Not Indian; here because the criterion is PRIORITY.
+Horner('s)? (method|scheme)@@Qin Jiushao|Ruffini|Śrīdhara@@Qin Jiushao, Shushu Jiuzhang (1247)@@~570 yrs to Horner (1819); Ruffini (1809) also precedes him. Not Indian; here because the criterion is priority.
+Chinese remainder theorem@@Sun Zi|Sunzi|kuṭṭaka|kuttaka|Āryabhaṭa@@Sun Zi Suanjing (~400 CE) for the special case; Āryabhaṭa, Gaṇitapāda 32-33 (499) gives a GENERAL algorithm via kuṭṭaka@@The name credits a civilisation rather than a text or a person — its own kind of erasure.
+Bernoulli number@@Seki Takakazu|Seki Kōwa@@Seki Takakazu, Katsuyō Sanpō (published 1712)@@Jakob Bernoulli's Ars Conjectandi is 1713. Not Indian; here because the criterion is priority.
+Cardano.s formula|Cardan.s formula@@del Ferro|Tartaglia@@Scipione del Ferro (c. 1515, unpublished); Niccolò Tartaglia (1535)@@INTRA-EUROPEAN. Cardano published it in Ars Magna (1545) after swearing not to. The pattern is theft, not ethnicity.
+l.H(ô|o)pital.s rule@@Johann Bernoulli@@Johann Bernoulli (1694), under contract to l'Hôpital@@INTRA-EUROPEAN. l'Hôpital PAID for the results and published them as his own (1696). The receipts survive in the correspondence.
+Cramer('s)? rule@@Maclaurin|Leibniz@@Colin Maclaurin, Treatise of Algebra (written by 1730, published 1748); Leibniz had determinants by 1693@@INTRA-EUROPEAN. Cramer is 1750.
+Venn diagram@@Euler|Leibniz|Llull@@Euler (1768) — Euler circles; the diagrammatic method goes back to Ramon Llull (13th c.)@@INTRA-EUROPEAN. Venn is 1880.
+quadratic formula@@Brahmagupta|Śrīdhara|Sridhara|Brāhmasphuṭa@@Brahmagupta, Brāhmasphuṭasiddhānta 18 (628); Śrīdhara's rule (~750) is the completed-square form Bhāskara II cites@@Stated with negative and zero coefficients handled, which the Greek treatments do not do.
+binomial (coefficient|theorem)@@Piṅgala|Pingala|Halāyudha|Mahāvīra|Mahavira|meru@@Piṅgala, Chandaḥśāstra (~300 BCE); Halāyudha, Mṛtasañjīvanī (10th c.); Mahāvīra, Gaṇitasārasaṅgraha (850) states the general combination rule@@~1900 yrs.
+B(é|e)zout('s)? (identity|lemma|coefficients)@@kuṭṭaka|kuttaka|Āryabhaṭa|Aryabhata|vallī|Bachet@@Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32-33 (499) — kuṭṭaka gives the integer solution of ax+by=c constructively@@~1280 yrs. Even inside Europe the name is wrong: Bachet de Méziriac states it for integers in 1624; Bézout is 1779 and for polynomials.

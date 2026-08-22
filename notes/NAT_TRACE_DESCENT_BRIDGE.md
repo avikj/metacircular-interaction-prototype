@@ -125,9 +125,47 @@ vacuously. Pure function-descent on residue profiles therefore freezes
 with sensors ⊆ {2,3,5,7} and misclassifies 121 as prime — **precisely the
 defect engine commit bd1c465 records fixing** ("froze sensors at
 {2,3,5,7} and misclassified 121"). The historical bug is the shadow of
-this divergence. By Bertrand (next prime < 2q, so L·q > q³ > (2q)²) the
+this divergence. ~~By Bertrand (next prime < 2q, so L·q > q³ > (2q)²) the
 freeze, once entered at q = 11, is permanent: L > q² − 2 for all primes
-q ≥ 11.
+q ≥ 11.~~ **The freeze is temporary; see the correction below.**
+
+> **Correction (seed143, 2026-08-14) — the permanence claim is false, and
+> this note's own replacement run is the counterexample.**
+>
+> While the pure organism installs nothing, `L` is *constant*, whereas the
+> vacuity condition `L > N − 2 = m² − 2` has `m² → ∞` on the right. So vacuity
+> must fail: the freeze ends at the first candidate `m` with `m² − 2 ≥ L` and
+> `m ∤ L`, and at such an `m` the pair `(2, 2 + L)` lies in `{2..m²}` and has
+> `2 ≢ 2 + L (mod m)`, so the offer forms and `m` is installed. No Bertrand
+> input is needed for this, and the cited chain does not survive either: it
+> concludes `L·q > q³` from `L > q²`, which is the statement to be proved, and
+> `L·q` is not the next `L` precisely because `q` was *not* installed.
+>
+> Both readings of "freeze" are refuted, at named `m`:
+> - *The organism as actually run* (this note's own `installs = [2, 3, 4, 5, 8,
+>   13]`, so `L = lcm(2,3,4,5,8) = 120` after `m = 8`): the freeze entered at
+>   `q = 11` (`119 < 120`) ends at the **very next candidate prime**, `m = 13`
+>   at `n = 169`, where `167 ≥ 120` and `13 ∤ 120`, witness `(2, 122)`. The
+>   install of 13 is printed three lines below the struck sentence.
+> - *The counterfactual sensor set `{2,3,5,7}`* the sentence names (`L = 210`):
+>   the freeze ends at `m = 17`, `n = 289`, since `287 ≥ 210` and `17 ∤ 210`,
+>   witness `(2, 212)`.
+>
+> What is true, and replaces it: the pure function-descent organism **never
+> freezes permanently** — it installs infinitely often — but its installs
+> thin out, since after installing `m` the modulus becomes `L' = lcm(L, m)`
+> and the next install cannot occur before `√(L·m)` roughly, i.e. the install
+> moduli grow at least like `m ↦ m^{3/2}`. The note's genuine finding is
+> unaffected: at `n = 121` the organism has no mod-11 sensor and misclassifies
+> 121 as prime, which is the divergence the deliverable is about.
+>
+> Two smaller riders at the same site, not separate defects: the sentence's
+> *"freezes with sensors ⊆ {2,3,5,7}"* also contradicts the run below it, which
+> installs 4 and 8 and never installs 7; and the summary table's `m = 13` and
+> `m = 17` rows are arithmetically **correct** (under the table's declared
+> `S = primes < m`, `L = 2310 > 167` and `L = 30030 > 287`), so only their
+> parenthetical *"(freeze persists)"* — which attributes them to a different
+> sensor set — is withdrawn.
 
 **The replacement organism, run honestly.** Installing iff raw
 function-descent forms (fine carrier, successor walk to 300) yields the
@@ -177,7 +215,18 @@ sensor sequence, and per-n classifications equal `arithmetic_life`'s own
 ## Honesty ledger
 
 - Proved for all N: Lemma 0, soundness, (a), (b) 1–4, the verdict
-  trichotomy, Bertrand-freeze. Verified exhaustively to N = 300 (walk),
+  trichotomy, ~~Bertrand-freeze~~. Verified exhaustively to N = 300 (walk),
   which contains both smallest witnesses with margin.
-- The Bertrand step cites Bertrand–Chebyshev; the rest is self-contained.
+  **(seed143, 2026-08-14: the Bertrand-freeze item was listed here as proved
+  for all N and is false — see the correction in "Direction 2". The other
+  items in this line I checked by hand and they stand: Lemma 0, the soundness
+  invariant, (a), the 1⇒2⇒3⇒1 and 1⇒4⇒1 cycle of (b), and the trichotomy with
+  its witness `(2, 2+L)`. The exhaustive walk to N = 300 did not catch the
+  false item because the walk's own table uses `S = primes < m`, under which
+  every row is vacuous and correct; the freeze claim is about a different
+  sensor set, which the walk never evaluates past `m = 17`.)**
+- ~~The Bertrand step cites Bertrand–Chebyshev; the rest is self-contained.~~
+  **(seed143: withdrawn with the step. Nothing in the note now depends on
+  Bertrand–Chebyshev; the replacement statement needs only that `m² → ∞` with
+  `L` fixed.)**
 - No floats, no fits, no correlations anywhere in module, tests, or note.

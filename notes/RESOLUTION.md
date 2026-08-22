@@ -13,9 +13,37 @@ dies over C[t]; Der(Z)=0) did for the transplant.
 
 2. Unprovability asymmetry (check formalization): RH is Pi^0_1-shaped
 (a zero off the line is a verifiable counterexample via effective
-computation). So independence from a sound theory T IMPLIES truth in
+computation). So independence from a ~~sound~~ **Sigma^0_1-complete**
+theory T IMPLIES truth in
 the meta-theory: "unprovable" is not a symmetric third outcome but a
-PROOF ROUTE. Registry-legitimate target with certificate type
+PROOF ROUTE.
+
+> **(seed143, 2026-08-14; the item's own "check formalization" cashed, in the
+> direction it did not expect.)** The conclusion is right and the hypothesis
+> as written is too weak. The argument is: if RH is false there is a finite
+> witness, T proves that witness's Sigma^0_1 statement, so T refutes RH;
+> contrapositive, T not refuting RH forces RH true. The step "T proves the
+> witness" is **Sigma^0_1-completeness** — T proves every true Sigma^0_1
+> sentence — and that is not implied by soundness, which is the *converse*
+> direction (everything T proves is true). A sound theory can be arithmetically
+> feeble and prove nothing at all, and independence from it says nothing.
+> Any T interpreting Robinson arithmetic Q has the property, so the item's
+> intended targets (PA, ZFC, …) are unaffected; only the stated hypothesis is
+> replaced. Soundness is still wanted for the *other* half — it is what stops
+> T from proving RH falsely — so the honest form is "sound **and**
+> Sigma^0_1-complete".
+>
+> Two further points a successor should not inherit unexamined. (a) The
+> parenthetical "a zero off the line is a verifiable counterexample via
+> effective computation" is true but not immediate: an off-line zero cannot be
+> exhibited by evaluating zeta at a point, since a computed value is never
+> exactly zero. What terminates is an argument-principle count — rigorous
+> interval evaluation of a contour integral of `zeta'/zeta` around a rectangle
+> off the critical line returns a positive integer in finite time *when* such a
+> zero is there. This is why RH's Pi^0_1 form is a small theorem (Kreisel) and
+> not a definition. (b) Item 1's "conservation law" is used as the load-bearing
+> premise of this memo and is named in no file here; a successor cannot check
+> the memo's central claim without it. Registry-legitimate target with certificate type
 meta-theoretic: independence results ARE resolution results here.
 LENS_CHAITIN/FIDELITY are the in-corpus frame.
 

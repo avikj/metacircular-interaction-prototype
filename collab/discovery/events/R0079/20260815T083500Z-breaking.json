@@ -1,0 +1,20 @@
+{
+  "claim_id": "R0079",
+  "from": "proving",
+  "to": "breaking",
+  "actor": "claude-opus-5-breaker-R0079-R0081",
+  "role": "breaker",
+  "lineage": "claude-opus-5-session_01QWDKiQtKZWPeWaUzWf2YmX-breaker-2026-08-15",
+  "at": "2026-08-15T08:35:00Z",
+  "statement_hash": "1d01cfb147ed5cfe137847376382ea8699a9176ace8a6a7a83d70ed04b3a0f2d",
+  "reason": "BREAKER VERDICT: WEAKENED, with two component claims REFUTED. The registry has no transition for either verdict (refuted is disabled in code by CERTIFICATION_ENABLED=False), so the verdict is recorded here and in notes/BREAKER_R0079_R0081.md. LINEAGE: the breaker shares session_01QWDKiQtKZWPeWaUzWf2YmX with the builder; this is the best available audit, NOT an independent one, and the packet's Independent audit section should say so rather than 'Unassigned'. WHAT SURVIVES: every item of the Exact statement typechecks today in this container (Agda 2.6.3, cubical v0.7), no postulates, no holes; TransportDiv, TransportDivWitness, TransportDivQuot, TransportDivScale, WalkResidueBridge all exit 0 individually; the root aggregate still fails at PathIsSymmetry.agda:98 'Not in scope: SymGroup' exactly as the packet records; the statement hash recomputes to the recorded value. REFUTED (1), the frontier attribution: the packet's Tension asserts the walk stalls at m~8 BECAUSE the divisibility test is unary. Commit 24336aea, by the same lane 23 minutes after this packet was filed (de511914), is titled 'The walk's frontier is broken, and my diagnosis of it was wrong' and reports next 8 = 9, next 9 = 11, next 10 = 11 typechecking with 'cap m is never run'; the cause was the Agda conversion checker, the fix was one let-binding, and WalkFastInstance.agda does not import TransportDiv at all. The packet's own Falsification listed this attack; it lands, from the builder's later work, and the packet was never updated. REFUTED (2), an unchecked numeral: the Preservation ledger asserts 'detour < home ... survives any charting price below 497'. False at 496: detour (chartE 496) (unchartE 3) (steps e3) = 1000 by refl, so the branch is the flat one, not the third branch; 495 is the true last price that pays. Kernel-checked in a scratch module outside the repository. WEAKENED (3), the Exact statement is a strict under-transcription: TransportDiv.agda has ten top-level declarations and the packet transcribes six, omitting run, run-state, run-count and run-is-the-automaton, which landed in 5ccb0394 THREE MINUTES before the packet was filed and which exist precisely because a prior audit found steps-is-length hollow. The hash is internally consistent over a short statement, which is the hole the hash was meant to close. WEAKENED (4), the TransportDivScale repair is not weight-independent: Edge.cost is a scalar, so quantifying over c c' quantifies over CONSTANT weights only, and the threshold 4 + ((c+c)+c') <= length w is a bound on the word BY the weights. Priced at the honest cost of digits (a lower bound of value (d :: w), since the odometer is iterated that many times) the conclusion reverses at every length in every base: checked terms dear-out-no-speedup, honest-chart-never-pays, honest-branch-is-flat, honest-threshold-unsatisfiable, repriced-thousand. Also recorded: home work 1000 is a stipulation absent from the 'Introduced' ledger, and WalkResidueBridge.gap-1000 computes the home automaton's count on that word as 1001, not 1000. NO header drift was found in any cited module. REGISTRY NOTE: this event alone leaves the packet failing validate() -- front-matter status must become 'breaking', cycle must become 4, breaker must be named and updated set -- and the breaker does not own collab/discovery/claims/. That repair is owed by the packet owner.",
+  "artifacts": [
+    "notes/BREAKER_R0079_R0081.md",
+    "formal/cubical/NaturalMachine/TransportDiv.agda",
+    "formal/cubical/NaturalMachine/TransportDivWitness.agda",
+    "formal/cubical/NaturalMachine/TransportDivScale.agda",
+    "formal/cubical/NaturalMachine/WalkResidueBridge.agda",
+    "formal/cubical/NaturalMachine/WalkFastInstance.agda",
+    "collab/discovery/claims/R0079-horner-residue-automaton-detour.md"
+  ]
+}

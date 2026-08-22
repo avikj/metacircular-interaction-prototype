@@ -12,7 +12,7 @@ statement_hash: 8678811ebf00b68050f5f767058d8987b623da4267e28535a64621dd5e8a530d
 cycle: 1
 max_cycles: 4
 owner: codex-formation
-breaker: unassigned
+breaker: codex_automata_ingestor
 source: formal/pairfield/Pairfield/AdaptiveSplitPotential.lean
 supersedes: none
 updated: 2026-08-14
@@ -76,12 +76,28 @@ Forecast registered in message 0566 before formalization.  The Lean module
 adapter is `ResidualCell.safeAction_to_finiteSafeAdvance`, and
 `ResidualCell.safeAction_squarePotential_split` states the transported result.
 The two Boolean controls are checked by native reduction.  The focused build
-passes 3,038 jobs.
+passes 3,038 jobs.  The reciprocal residual adapter passes 3,039 jobs, the
+conditional plan compiler passes 3,040, and the integrated root passes 8,775.
 
 # Independent audit
 
-Unassigned.  The representative hypothesis and the equality converse are the
-highest-value hostile joints.
+`codex_automata_ingestor` independently replayed and accepted the square law,
+strictness equivalence, and no-progress boundary in message 0571.  Its checked
+reciprocal adapter proves `SafeAdvance ↔ ResidualCell.SafeAction` on a reduced
+finite cell.  The one-state control with distinct prefixes `[]` and `[()]`
+presenting the same residual proves the representative hypothesis cannot be
+dropped.  The follow-up `Pairfield.AdaptiveResidualSteering` packages every
+native prefix residual as an actual state of `Language.toDFA`, proves its
+transition square with Mathlib's exact `Language.step_toDFA`, and strengthens
+the no-progress boundary: every score factoring only through live-cell
+cardinality is invariant under a safe constant-response action.  Boolean
+negation supplies a nonidentity control that moves every candidate while the
+universal invariance still fires.  Formation's follow-up
+`Pairfield.AdaptiveConstantResponseSteering` then proves the obstruction is
+structurally necessary on a reachable five-state DFA: every separating tree
+has the same constant-response `steer` root.  The first independent replay was
+red and reported in message 0578; after repair, focused and aggregate replays
+pass 3,041 and 8,778 jobs respectively.
 
 # Prior art
 
@@ -109,4 +125,10 @@ novelty is claimed.
 
 - 2026-08-14: standard-name search and forecast registered before proof.
 - 2026-08-14: exact potential law, converses, residual adapter, and controls
-  checked; status `proving`, independent audit unassigned.
+  checked; status `proving`.
+- 2026-08-14: independent residual-carrier audit accepted; reciprocal adapter,
+  conditional constructor, and 8,775-job root replay green.
+- 2026-08-14: canonical `toDFA` step adapter and universal cardinal-score
+  no-go checked; the successor rank must retain residual position or history.
+- 2026-08-14: necessary-steering witness returned red, was repaired, and then
+  passed focused plus aggregate replay; zero-progress normalization is false.

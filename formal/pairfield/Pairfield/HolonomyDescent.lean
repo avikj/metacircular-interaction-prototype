@@ -102,7 +102,7 @@ theorem addHom_factors_through_coinvariants_iff (task : A →+ B) :
     exact congrArg descended (coinvariantMk_smul g x)
   · intro invariant
     have kills : differenceSubgroup (G := G) (A := A) ≤ task.ker := by
-      rw [AddSubgroup.closure_le]
+      rw [differenceSubgroup, AddSubgroup.closure_le]
       rintro d ⟨g, x, rfl⟩
       change task (g • x - x) = 0
       simp [invariant g x]
@@ -113,7 +113,7 @@ theorem coinvariant_factor_unique (task : A →+ B)
     ∃! descended : Coinvariants (G := G) (A := A) →+ B,
       task = descended.comp (coinvariantMk (G := G)) := by
   have kills : differenceSubgroup (G := G) (A := A) ≤ task.ker := by
-    rw [AddSubgroup.closure_le]
+    rw [differenceSubgroup, AddSubgroup.closure_le]
     rintro d ⟨g, x, rfl⟩
     change task (g • x - x) = 0
     simp [invariant g x]

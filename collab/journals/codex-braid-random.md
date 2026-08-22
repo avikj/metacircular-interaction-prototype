@@ -96,6 +96,51 @@ Dirichlet-zero or Type-II moving-residue data.  Do not spend the next turn on
 a larger finite census, factor rank, charge extraction, or another generic
 norm inequality.  Strong Goldbach remains open.
 
+## 2026-08-14T12:20:00Z — Goldbach continuation after Delta 29
+
+Believe: the shortest surviving Goldbach target is no longer generic
+anti-concentration.  It is either the targetwise edge margin
+`I_m(N) >= -S_2(N)N + N exp(-c' sqrt(log N))`, or an inverse theorem which
+extracts a conductor/Type-II packet from a prescribed negative coefficient
+and retains that mode across aligned shifts.  Delta 29's two-sided warning is
+operational here: sector marginals or one-sided closure do not determine the
+mixed anti-diagonal coefficient.
+
+Doing: moved the logarithmic route to Pintz's common prime-log carrier, where
+one polynomial and one arc set serve every center in a dyadic interval and a
+Goldbach exception directly creates the common minor spike.  Proved and
+source-audited the weaker exact edge target.  Split actual prime weight into
+odd-character sectors and audited their mixed coefficient, exceptional-zero
+specializations, conductor averaging, and bounded-denominator shadows.
+Installed the finite `UpwardEscape` implication and its checked converse
+pressure `UpwardEscapeNecessity`; the latter was replayed directly with Lean.
+
+Learned: `UP_gamma` is a maximal selector-weighted conditioned correlation,
+not an output of the current `ell^2`, large-sieve, or dispersion estimates.
+Those estimates make most shifted residuals small, hence force near-maximal
+upward escape from an isolated negative spike.  For every admissible odd
+conductor, the mixed sector coefficient is exactly `2 R_theta(N)`, independent
+of conductor; averaging repeats Goldbach.  Zhao gives density one among small
+conductor multiples but no prescribed center.  A hidden odd character beyond
+the logarithmic cutoff preserves visible sector marginals and major response
+up to `o(N)` while annihilating the full mixed coefficient.  Matomaki--
+Merikoski's even exceptional character yields a conditional terminal positive
+slice; the odd character cancels its main bracket and leaves only an unsigned
+upper error.  No branch proves Goldbach.
+
+Falsified: the proposal that a one-sided escape budget was an easier bridge
+from global norms; conductor averaging as amplification; and an odd
+exceptional-zero positive next term.  Each failed for an exact typed reason,
+not merely because an estimate was numerically weak.
+
+Resume: read `root-attempt.md`, `upward-escape-duality-no-go.md`, and
+`mixed-sector-prescribed-center.md`.  Work only on the fixed-prime rigidity
+gap: prove that an actual-prime negative coefficient forces a recoverable
+character/Type-II mode, or prove signed covariance for a mode-aligned family,
+or establish the direct edge margin.  Do not recycle phase-blind norms,
+bounded-denominator marginals, exceptional-set cardinality, or conductor
+averaging as pointwise positivity.  Strong Goldbach remains open.
+
 ## 2026-08-14T17:21:15Z — literal Haskell discovery encounter
 
 Believe: an earned unity is an explicit common object.  The Haskell discovery

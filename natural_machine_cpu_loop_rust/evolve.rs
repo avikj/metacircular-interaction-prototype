@@ -22,6 +22,16 @@
 //
 // Exact integers. No floating point in any decision. No model anywhere.
 //
+// DETERMINISM (corrected 2026-08-16). This header claimed determinism before
+// the program had it: `mine` broke gain-ties by HashMap iteration order, which
+// Rust randomises per process, so every run mined a different library and
+// printed different totals. The tie-break is now canonical (see `mine`), which
+// was the only nondeterminism in the program; the numbers below are now a
+// function of the source alone and the same binary prints the same bytes on
+// every run. The pre-fix numbers quoted in
+// notes/NATURAL_MACHINE_SELF_IMPROVES_WITH_NOBODY_IN_THE_LOOP.md were
+// one-process artifacts and are struck through there.
+//
 //   rustc -O evolve.rs -o evolve && ./evolve
 
 use std::collections::HashMap;
@@ -305,6 +315,33 @@ fn fold(w: &[usize], macros: &[(Vec<usize>, usize)]) -> Vec<usize> {
 /// Mine the most-reused contiguous block in this domain's own workload.
 /// Installed only if the exact syntax measure of KUTTAKA_TRACE_MACRO pays:
 /// a block of length m reused r times has gain (m-1)(r-1)-1.
+///
+/// TIE-BREAKING IS PART OF THE SPECIFICATION, not an implementation detail.
+/// The first version of this function kept a candidate only on `gain > best`
+/// and iterated `for (b, r) in count` -- i.e. it broke gain-ties by HashMap
+/// iteration order, which Rust randomises per process (RandomState seeds from
+/// the OS). Ties are not rare here: at base 4 the four blocks [1,0] [1,1]
+/// [1,2] [1,3] all occur equally often in the expansions of 1..40, so which
+/// one entered the library was decided by the allocator's mood. Consequences
+/// measured before the fix, over six runs of the same binary: the whole-stream
+/// learned total ranged 1121166..1121229, the null-library arm ranged -0.03%
+/// to +0.14% (it BEAT the no-library arm in one run), and the "what it learned"
+/// table came out in a different order every time. A program that prints a
+/// different number each time it is run has not measured anything.
+///
+/// The fix is to return a CANONICAL maximiser: among all blocks of positive
+/// gain, over all lengths, take the greatest gain, and break ties by the
+/// LEXICOGRAPHICALLY LEAST block (`Vec<usize>`'s `Ord` is lexicographic, with
+/// a proper prefix ordered before its extensions). That is a total order on
+/// candidates, so the fold below is independent of the order `count` is
+/// traversed in -- the HashMap can keep its randomised iteration and the
+/// answer is still a function of `words` and `max_len` alone. THE WHOLE
+/// PROGRAM IS THEREFORE DETERMINISTIC: this was its only source of
+/// run-to-run variation.
+///
+/// Canonical is not the same as best. Choosing the lexicographically least
+/// maximiser is a convention with no claim behind it; what it buys is that
+/// the number this program prints is reproducible and can be argued with.
 fn mine(words: &[Vec<usize>], max_len: usize) -> Option<(Vec<usize>, i64)> {
     let mut best: Option<(Vec<usize>, i64)> = None;
     for m in 2..=max_len {
@@ -319,7 +356,14 @@ fn mine(words: &[Vec<usize>], max_len: usize) -> Option<(Vec<usize>, i64)> {
         }
         for (b, r) in count {
             let gain = (m as i64 - 1) * (r as i64 - 1) - 1;
-            if gain > 0 && best.as_ref().map_or(true, |(_, g)| gain > *g) {
+            if gain <= 0 {
+                continue;
+            }
+            let takes_it = match best.as_ref() {
+                None => true,
+                Some((bb, g)) => gain > *g || (gain == *g && b < *bb),
+            };
+            if takes_it {
                 best = Some((b, gain));
             }
         }
@@ -381,6 +425,18 @@ fn process(
 }
 
 fn main() {
+    // Arm C's library is arbitrary, so arm C's number is a function of one
+    // seed, and a single seed is exactly the kind of quantity this repository
+    // is not allowed to publish (CLAUDE.md: a number without its dependence is
+    // worse than no number). The seed is therefore an optional argument with
+    // the historical default, so `./evolve` reproduces the reported run byte
+    // for byte and `./evolve <seed>` re-runs the control elsewhere in seed
+    // space. Arms A and B do not read it and do not move.
+    let null_seed: u64 = std::env::args()
+        .nth(1)
+        .and_then(|s| s.parse().ok())
+        .unwrap_or(0x5EED);
+
     // The stream of domains: exhaustive, ordered, unselected.
     let mut stream: Vec<Domain> = vec![];
     for m in 2..=60usize {
@@ -393,6 +449,7 @@ fn main() {
     println!("  domains enumerated, not chosen : {}", stream.len());
     println!("  workload derived, not chosen   : base-b expansions of 1..40");
     println!("  installs decided by the machine's own kernel counters");
+    println!("  arm C null-library seed         : {} (deterministic; arms A,B seed-free)", null_seed);
     println!();
 
     // ---- arm A: no library ever (the machine that does not learn)
@@ -423,7 +480,7 @@ fn main() {
 
     // ---- arm C: null control -- a library of arbitrary blocks of the same size
     let mut kc = Kernel::new();
-    let mut rng = Rng(0x5EED);
+    let mut rng = Rng(null_seed);
     let mut null_lib: Vec<Macro> = vec![];
     let mut cost_c = vec![];
     for (i, d) in stream.iter().enumerate() {
@@ -484,5 +541,17 @@ fn main() {
     println!("    null library    {:>12}   ({:+.2}%)", c2, 100.0 * (c2 as f64 - a2 as f64) / a2 as f64);
     println!();
     println!("  SELF-IMPROVEMENT (learned beats no-library on unseen domains): {}", b2 < a2);
-    println!("  NULL CONTROL     (arbitrary library must NOT beat no-library): {}", c2 >= a2);
+    // Arm B carries no seed, so the line above is a property of the program.
+    // The line below is NOT: it is one draw of a 3-block arbitrary library.
+    // Over seeds 1..60 this boolean comes out false 20 times and true 40, with
+    // arm C spanning -4.61%..+3.42% about a median of +0.90% -- so the strict
+    // control neither passes nor fails as a fact, and reading a single run as
+    // if it did is how the pre-fix "+0.21%, control holds" was published. What
+    // is seed-independent is the SEPARATION, reported on the next line: over
+    // those same 60 seeds the learned library beat the arbitrary one 60 times
+    // out of 60, the best arbitrary draw reaching only -4.61% against arm B's
+    // -5.70%.
+    println!("  NULL CONTROL     (one seed only -- see the seed sweep, not this line): {}", c2 >= a2);
+    println!("  SEPARATION       (learned beats the SAME-SIZE arbitrary library): {}  ({} vs {})",
+             b2 < c2, b2, c2);
 }

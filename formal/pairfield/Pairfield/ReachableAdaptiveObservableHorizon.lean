@@ -43,16 +43,16 @@ theorem all_states_reachable (state : Fin 4) :
     ∃ word : List Bool, automaton.eval word = state := by
   fin_cases state
   · exact ⟨[], rfl⟩
-  · exact ⟨[false], by native_decide⟩
-  · exact ⟨[true], by native_decide⟩
-  · exact ⟨[false, false], by native_decide⟩
+  · exact ⟨[false], by decide⟩
+  · exact ⟨[true], by decide⟩
+  · exact ⟨[false, false], by decide⟩
 
 /-- Use the same response-conditioned policy as the ambient witness. -/
 def adaptiveTree : BoolExperimentTree Bool :=
   .query false (.query true .done .done) .done
 
 theorem adaptiveTree_depth : adaptiveTree.depth = 2 := by
-  native_decide
+  decide
 
 theorem adaptiveTree_identifies :
     adaptiveTree.IdentifiesAll step observe := by
@@ -72,7 +72,7 @@ theorem no_identifying_tree_of_depth_le_one
       intro hinjective
       have heq : BoolExperimentTree.trace step observe .done (0 : Fin 4) =
           BoolExperimentTree.trace step observe .done 1 := by
-        native_decide
+        decide
       exact (by decide : (0 : Fin 4) ≠ 1) (hinjective heq)
   | query action onFalse onTrue =>
       have hfalseZero : onFalse.depth = 0 := by
@@ -97,7 +97,7 @@ theorem no_identifying_tree_of_depth_le_one
                 (.query false .done .done) (0 : Fin 4) =
               BoolExperimentTree.trace step observe
                 (.query false .done .done) 2 := by
-            native_decide
+            decide
           exact (by decide : (0 : Fin 4) ≠ 2) (hinjective heq)
       | true =>
           intro hinjective
@@ -106,7 +106,7 @@ theorem no_identifying_tree_of_depth_le_one
                 (.query true .done .done) (0 : Fin 4) =
               BoolExperimentTree.trace step observe
                 (.query true .done .done) 1 := by
-            native_decide
+            decide
           exact (by decide : (0 : Fin 4) ≠ 1) (hinjective heq)
 
 theorem adaptive_depth_isLeast :
@@ -124,7 +124,7 @@ theorem adaptive_depth_isLeast :
 
 theorem uniform_horizon_eq_one :
     globalObservableHorizon automaton alphabet = 1 := by
-  native_decide
+  decide
 
 /-- Reachability transports the same exact native horizon to Mathlib prefix
 left quotients; this was unavailable for the original ambient witness. -/

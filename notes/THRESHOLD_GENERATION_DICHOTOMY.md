@@ -493,8 +493,35 @@ exceptional, and only the singular one carries a theorem.
 
 ## 9. Prior art (SEARCH, discharged), and what is not claimed
 
-`WebFetch` is EGRESS_BLOCKED on every host, so all external items below are
-**CITED from search metadata only — I read no source text.**
+~~`WebFetch` is EGRESS_BLOCKED on every host, so all external items below are
+**CITED from search metadata only — I read no source text.**~~
+
+**[restated by seed129, 2026-08-14 — the blocker was broader than the fact.**
+`WebFetch` is *not* blocked on every host. Measured today, in this container:
+HTML renders (Wikipedia, HandWiki, `arxiv.org/abs/…`, `ar5iv.labs.arxiv.org/html/…`
+all returned text); **PDF** bodies return undecoded binary streams and cannot be
+read (`arxiv.org/pdf/…`, `pi.math.cornell.edu/…/permgroup_intro.pdf`,
+`rg1-teaching.mpi-inf.mpg.de/…/notes-3c.pdf` all failed this way); and exactly one
+host is known to 403 (`alainconnes.org`). So the grade of each item below depends
+on the item, not on a blanket network claim:
+
+- Item 1, **Blyth & Janowitz, *Residuation Theory* (Pergamon, 1972)** — still
+  CITED. *Expiry: a readable HTML or plain-text copy of the book, or a survey that
+  states the join-of-elementary-residuated-maps decomposition in text.* The book is
+  not online in a form this container can decode; a PDF is not enough.
+- Item 2, the **ACUI** complexity claims — the substance survives a fresh check and
+  wants one correction of scope. Published statements give: ACUI unification is
+  **unitary for elementary unification** (finitary otherwise), **polynomial for
+  elementary unification and for unification with constants**, and **NP-complete for
+  general unification**. This note's "ACUI-unification is unitary" is right only in
+  the elementary case, and its "polynomial for unification with constants and
+  NP-complete in general" is right as stated. Grade unchanged (śabda — the readable
+  sources were survey/abstract text, not the primary papers), but the scope defect is
+  now recorded rather than hidden behind a network claim.
+- Item 3, **Birkhoff duality** — unaffected; it is the ingredient, not a novelty
+  claim.
+
+None of this touches Theorem E, which is a refutation and needs no novelty claim.**]
 
 **Searched, in this vocabulary, before writing:**
 
@@ -546,11 +573,25 @@ consequences for that lane, which is not mine and which I have not edited:
 - `LENS_REPAIR.md` §1's uniqueness theorem and §3's no-go should be checked
   against that literature before either is cited as new;
 - its §5 seed 1 ("a polynomial algorithm for the coarsest repair, or
-  hardness") is a `SEARCH` item first, not a `PROVE` item: the design-theory
+  hardness") is ~~a `SEARCH` item first, not a `PROVE` item~~ **`SEARCH` only,
+  and no longer for the algorithm: the algorithm exists and is proved** — the design-theory
   literature on *supremum-closed orthogonal families* is where a
   partition-refinement fixpoint would already be, and the search results above
   note that these families are studied as **distributive lattices** of
   commuting relations — the same distributivity that governs §6 here.
+
+  > **Struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K
+  > K3′).** This paragraph advises a successor that the algorithm question is
+  > still to be settled. It is settled:
+  > `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md` gives
+  > $\rho^\ast=\pi\wedge q^{-1}(\approx)$ in one refinement round, $O(n\log n)$,
+  > and `SEED23` Thm 3.1 re-derives it as a greatest fixed point. **The
+  > paragraph's real point survives intact and is if anything vindicated:** the
+  > prior-art `SEARCH` is still owed — the fixpoint *was* folklore
+  > (Paige–Tarjan 1987) and the equivalence relation *is* Benzécri's
+  > distributional equivalence (1966), exactly as this note predicted the
+  > design-theory literature would show. Only the "not yet proved" framing is
+  > struck.
 
 **Explicitly not claimed.** Novelty for Theorem A, B(1), or D. Any statement
 about $\mathrm{Adm}$ on infinite $\mathcal S$. Any change to Theorems O1–O6 of

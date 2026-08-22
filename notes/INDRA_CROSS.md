@@ -384,6 +384,18 @@ G_1^{\chi_1,\chi_2}(X)=\sum_{a,b\in(\mathbb Z/q)^\times}
 where the character fields are built from the *lifted* (mod-$q$)
 dressings. This is finite Fourier on $(\mathbb Z/q)^\times{}^2$ — no
 hypotheses. Lifted vs primitive fields differ by Euler-factor terms:
+
+**Formalization status (2026-08-14).** The finite Fourier square above is now
+checked for every nonzero modulus and every complex-valued function on
+$((\mathbb Z/q)^\times)^2$ in
+`formal/pairfield/Pairfield/IndraFourierNetAdapter.lean`.  Mathlib's
+`DirichletCharacter.sum_char_inv_mul_char_eq` supplies the one-coordinate
+delta kernel; the adapter applies it twice, proves the $\varphi(q)^{-2}$
+normalization, and proves that inverse character evaluation is exactly the
+complex conjugate notation displayed here.  This upgrades Proposition N only:
+it does not touch Theorem I, the zero data, or any analytic/numerical claim.
+See `INDRA_FOURIER_NET_ADAPTER.md`.
+
 $L(s,\chi^{\mathrm{lift}})=L(s,\chi)\prod_{p\mid q,\,p\nmid f_\chi}
 (1-\chi(p)p^{-s})$ adds poles of $-L'/L$ on $\mathrm{Re}\,s=0$
 (frequencies $2\pi k/\log p$), i.e. further $X^{3/2}$-scale boundary

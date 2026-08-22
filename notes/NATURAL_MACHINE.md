@@ -2,6 +2,20 @@
 
 **Status: PENDING HOSTILE AUDIT.**
 
+> **Added 2026-08-15, no text below altered.** This note is the *mathematical*
+> companion to `formal/cubical/NaturalMachine.agda`, at the scale of the
+> original 8 modules (2026-08-12), and remains the source of truth for the
+> theorems in §§2–8. It is **not** current about scale, toolchain, or coverage:
+> the tree is now 276 modules under `NaturalMachine/` plus 53 top-level, and
+> §1's Agda 2.6.3 / cubical v0.5 recipe is superseded by the pin (Agda 2.8.0 /
+> cubical v0.9) in `formal/cubical/BUILD.md`.
+>
+> For an operator's runbook — how to obtain and run the pinned toolchain, what
+> the green claim covers exactly, what the `Control/` directory is for, and the
+> current honest list of gaps — see **`notes/NATURAL_MACHINE_GUIDE.md`**. That
+> guide is downstream of this note by construction: where the two disagree
+> about a theorem, this note wins.
+
 ### Installed adapter: loop symmetries compute by factorial
 
 `NaturalMachine.SymmetryCardinality` turns the existing loop-space

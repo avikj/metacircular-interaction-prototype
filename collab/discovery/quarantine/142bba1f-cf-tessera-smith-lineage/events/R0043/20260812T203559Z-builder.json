@@ -1,0 +1,12 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": ["machinery/test_format_conserved_learning_geometry.py"],
+  "at": "2026-08-12T20:35:59Z",
+  "claim_id": "R0043",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Six-test exact-rational replay green on real event windows; classical envelope cited, not load-bearing; audit open.",
+  "role": "builder",
+  "statement_hash": "878f4894d7c5e8657e2297f47f56a163f4be7009c5dcbc9b0905664c9a6fb532",
+  "to": "formalizing"
+}

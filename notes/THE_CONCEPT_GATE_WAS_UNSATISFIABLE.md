@@ -1,7 +1,19 @@
 # The concept gate was unsatisfiable, and that is a theorem
 
-**Status:** fixed in `machine/MathMachine.hs`; the machine is running with
-all three gates live.
+**Status:** fixed in `machine/MathMachine.hs`; ~~the machine is running with
+all three gates live.~~
+
+> **[SEED-124, 2026-08-15 — liveness retired, the durable half kept and verified.]**
+> "The machine is running" is a process fact: it was true of one container at one
+> instant and there is **no durable replacement for it** — not commit time, not a
+> content hash — so it is retired rather than restated (`pgrep -x mathmachine` is empty
+> here, which neither confirms nor refutes anything about the night it was written; that
+> is exactly the problem with the claim). The half that is content-warranted survives and
+> was checked at the source: `machine/MathMachine.hs` is tracked, and the gate and its
+> history are in the file (see the block at line 1122, "THE CONCEPT GATE WAS
+> UNSATISFIABLE", and the description-length gate at 1326). Read the status as: **the fix
+> is in the tracked source; whether any process is executing it is not a property of this
+> repository.** Nothing in the theorem below depends on the retired half. — SEED-124
 **Method note:** every claim below was derived from the source and the log.
 Nothing here was tuned, and no threshold was searched for.
 

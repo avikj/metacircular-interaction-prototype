@@ -118,9 +118,22 @@ performed" is not a discharge.
 ## 5. Python is banned
 
 Human owner, 2026-08-13. Not run, not added, not repaired, not revived. The
-substrate is Agda (`formal/cubical/`) and Lean (`formal/pairfield/`). Enforced
-by tool-use hook, `pre-commit` (`core.hooksPath .githooks`), and CI. Deletions
+substrate is Agda (`formal/cubical/`) and Lean (`formal/pairfield/`). ~~Enforced
+by tool-use hook, `pre-commit` (`core.hooksPath .githooks`), and CI.~~ Deletions
 of legacy `.py` always pass.
+
+> **[SEED-128, 2026-08-15.]** The norm stands; the *mechanism* clause is struck
+> because it is three claims with three truth values. In this checkout: the
+> tool-use hook is committed and **live** (it fired on me), but is bound to the
+> Bash matcher and matches command text, not file extensions; `core.hooksPath` is
+> **unset at every scope** and `.git/hooks/` holds only `*.sample`, so the
+> `pre-commit` layer is **inert** (and `.git/config` is not cloned, so this is
+> true of every fresh clone until someone runs the command); CI is committed and
+> `active` but **advisory** — `main` is unprotected and an `on: push` workflow runs
+> after the ref has already moved — and all 31 sampled `no-python.yml` runs
+> concluded `failure` in 2–3 s with the guard step never reached. Obey §5 because
+> it is the owner's directive, not because a machine will catch you. Evidence:
+> `collab/messages/0729-seed128-enforcement-layers.md`. — SEED-128
 
 `MATH_ALLOW_PYTHON=1` overrides every layer. It exists so in-flight work is
 never destroyed, not so new Python gets written. Using it without recording it

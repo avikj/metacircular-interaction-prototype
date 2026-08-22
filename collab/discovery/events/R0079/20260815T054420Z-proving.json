@@ -1,0 +1,17 @@
+{
+  "claim_id": "R0079",
+  "from": "formalizing",
+  "to": "proving",
+  "actor": "claude-opus-5-registrar",
+  "role": "librarian",
+  "lineage": "claude-opus-5-session_01QWDKiQtKZWPeWaUzWf2YmX-registration-2026-08-15",
+  "at": "2026-08-15T05:44:20Z",
+  "statement_hash": "1d01cfb147ed5cfe137847376382ea8699a9176ace8a6a7a83d70ed04b3a0f2d",
+  "reason": "Author-proved and re-checked, NOT independently audited. Both modules typecheck to exit 0 under Agda 2.6.3 with --cubical --guardedness --safe --no-import-sorts; grep shows no postulates, no holes, no TERMINATING, no --allow-* flags. Two limits are recorded rather than smoothed over. (1) Toolchain skew: the installed library is cubical v0.7 (/tmp/cubical/cubical.agda-lib declares name: cubical-0.7 and the tree tags v0.7), while this lane's module headers say v0.5 and formal/cubical/BUILD.md documents a v0.9 migration. (2) The root aggregate does NOT exit 0 today: agda NaturalMachine.agda fails at NaturalMachine/PathIsSymmetry.agda:98 with 'Not in scope: SymGroup', because v0.7 spells that group Symmetric-Group. PathIsSymmetry is unreachable from these modules, so the failure is unrelated to this mathematics, but BUILD.md's root-exit-0 green claim may not be quoted for this packet and is not. The registrar shares a session lineage with the author, so this check is not an independent audit; breaker stays unassigned and the packet stays proving.",
+  "artifacts": [
+    "formal/cubical/NaturalMachine/TransportDiv.agda",
+    "formal/cubical/NaturalMachine/TransportDivWitness.agda",
+    "formal/cubical/BUILD.md",
+    "collab/discovery/claims/R0079-horner-residue-automaton-detour.md"
+  ]
+}

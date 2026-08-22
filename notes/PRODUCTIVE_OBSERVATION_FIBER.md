@@ -1,7 +1,28 @@
 # The complete future-view fibre of a productive Net
 
-**Status:** checked bounded analogue.  The leaf module is
+**Status:** ~~checked bounded analogue.~~ **checked *complete-horizon* analogue
+— corrected 2026-08-14 by SEED-147.** The leaf module is
 `formal/cubical/NaturalMachine/ProductiveObservationFiber.agda`.
+
+> **[Why the word changed, and what is *not* being disputed.** The headline said
+> "bounded"; the note's own body says the opposite, twice — "the **complete**
+> stream of rooted views", and, of the concurrent module, "*it* derives
+> bounded-horizon implications. It does **not** form equality of the complete
+> depth-code function". Rather than trust whichever sentence read more
+> confidently, the ground was re-derived from the primary object, the leaf
+> itself: `ProductiveObservationFiber.agda:38` declares
+> `futureView : PIN.Net Root Jewel → ℕ → FIW.TotalView Root Jewel` — a function
+> of *every* depth, not a truncation — and lines 45–47 obtain
+> `bisim≃futureViewPath` through `funExtEquiv`, i.e. by quantifying over all of
+> `ℕ`. The module header (lines 5–7) reads "The **complete** future-view encoder
+> of the linear productive Net has an exact fibre." So the body and the source
+> agree and the Status line was the outlier. **The claim itself stands
+> unchanged**: this is a checked leaf, and it is an *analogue* — the "analogue"
+> half of the headline is right and is what the Scope section justifies, namely
+> restriction to the single-successor linear `ProductiveIndraNet.Net`. What was
+> wrong was only the word naming the restriction: the restriction is on the
+> *Net*, not on the *horizon*. No line of §"Exact checked result" or §"Scope and
+> non-reduction boundary" is withdrawn, and I did not run Agda — I read it.]**
 
 ## Random provenance
 

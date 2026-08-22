@@ -241,7 +241,7 @@ theorem alphabet_complete (action : Bool) : action ∈ alphabet := by
 /-- The chart search executes even though the ambient state type is `Nat`. -/
 example :
     chart.shortestLeftQuotientWitness alphabet [] [false] = some [true] := by
-  native_decide
+  decide
 
 example : ambient.accepts.IsRegular := chart.accepts_isRegular
 

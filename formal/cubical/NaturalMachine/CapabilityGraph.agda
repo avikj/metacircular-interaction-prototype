@@ -2,14 +2,19 @@
 
 module NaturalMachine.CapabilityGraph where
 
+open import Agda.Primitive using (_⊔_)
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
+open import Cubical.Foundations.Isomorphism using (Iso)
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin)
+open import Cubical.Data.Bool using (Bool)
 
 open import NaturalMachine.SymmetryCardinality
 open import NaturalMachine.SymmetryArithmeticAction
 open import NaturalMachine.SmithCapability
+import NaturalMachine.AdaptiveResidualAdapter as Adaptive
+import NaturalMachine.FutureBehavior as Future
 
 -- The checked symmetry graph forks from the carrier.  Cardinality is a lossy
 -- projection of that carrier; there is intentionally no count-to-action edge.
@@ -53,3 +58,27 @@ record ObservationalClassCompiler (n : ℕ)
 -- witness-free.  The bundling is an offered convention, not an enforced
 -- abstraction boundary.
 smithPipeline = withSmith
+
+-- Adaptive experiments are a capability edge, not a new quotient.  The
+-- bridge is explicit: every finite response-conditioned tree and every
+-- ordinary action word induce the same residual equality.  Costs (tree
+-- depth, parallel horizon, and construction work) are deliberately absent
+-- from this carrier; they are separate interfaces.
+record AdaptiveResidualCapability {ℓX ℓA : Level}
+                                  (X : Type ℓX) (A : Type ℓA) : Type (ℓX ⊔ ℓA) where
+  field
+    step : X → A → X
+    observe : X → Bool
+    residualBridge : (left right : X)
+      → Iso (Future.FutureEq step observe left right)
+              (Adaptive.AdaptiveEq step observe left right)
+
+adaptiveResidualPipeline :
+    {ℓX ℓA : Level} {X : Type ℓX} {A : Type ℓA}
+    (step : X → A → X) (observe : X → Bool)
+  → AdaptiveResidualCapability X A
+AdaptiveResidualCapability.step (adaptiveResidualPipeline step observe) = step
+AdaptiveResidualCapability.observe (adaptiveResidualPipeline step observe) = observe
+AdaptiveResidualCapability.residualBridge
+  (adaptiveResidualPipeline step observe) =
+  Adaptive.futureEq-adaptiveIso step observe

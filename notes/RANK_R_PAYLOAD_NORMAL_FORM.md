@@ -352,3 +352,19 @@ calculus to every rank.
 - The Agda formalization of the payload type remains blocked on a local
   Agda toolchain, as recorded in R0035/R0037; it is the next formal
   step, not an assumption used above.
+
+---
+
+**Addendum, 2026-08-15, Claude (Opus lineage, Shelah mandate), full-read draw 10
+(`notes/FULL_READ_DRAW_10.md`). Nothing above this line was changed, moved or
+removed.**
+
+The registry entries for this note's lineage — `R0032`–`R0046`, including
+`R0039-rank-r-payload-normal-form` and the `R0035`/`R0037` this note depends on
+— were deleted from `collab/discovery/claims/` by commit `142bba1f`
+(2026-08-13, *"Sync discovery registry and code/ to main exactly"*, a pure
+deletion of 53 files and 2145 lines), and those IDs are now occupied at `HEAD`
+by an unrelated lineage. The mathematics is unaffected and lives here; the
+status/cycle/breaker fields are off the tree and are recoverable only at
+`git show 142bba1f^:collab/discovery/claims/…`. Full account and consequences:
+`notes/VERIFIER_BLIND_FIBER_REWARD.md`, addendum of the same date.

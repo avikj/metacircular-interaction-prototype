@@ -135,12 +135,26 @@ Tagged `PROVE`, worked in order before any new computation:
    would convert the depth law from a measured scaling into a barrier
    theorem. Ingredients: explicit formula per factor + absolute convergence
    after one smoothing; the work is uniformity in the window.
-2. **Theorem I1 prior art.** Elementary Laplace/integral-domain argument;
-   almost certainly known for measures. Search before claiming.
-3. **Theorem E2 proof written out.** Currently justified by a correlation of
+2. ~~**Theorem I1 prior art.** Elementary Laplace/integral-domain argument;
+   almost certainly known for measures. Search before claiming.~~ —
+   **RESOLVED** (`notes/INVERSE.md` §1): known via Titchmarsh's convolution
+   theorem (integral-domain factorization on a half-line), with full
+   attribution (Titchmarsh 1926; Weiss 1968; Gerth–Hofmann et al. 2014;
+   Gorenflo–Hofmann 1994; Lambek–Moser; Selfridge–Straus 1958). The neither-
+   growth-nor-$c>0$ hypotheses were shown unnecessary. **Off-diagonal
+   sub-item now also closed, negatively** (`notes/OFFDIAGONAL_NO_GO.md`,
+   2026-08-18): the diagonal-free pair layer does *not* determine the
+   configuration — Prouhet/Thue–Morse infinite counterexample.
+3. ~~**Theorem E2 proof written out.** Currently justified by a correlation of
    1.0000; it is a two-line consequence of the block-wise explicit formula.
-   Write the two lines and demote exp11 to illustration.
-4. **The $O(1)$ in M1**, given uniform control of $\Lambda^\sharp_Q(m)$.
+   Write the two lines and demote exp11 to illustration.~~ — **RESOLVED**
+   (`notes/E2_PROOF.md` Part 1; two pole-lemmas, no numerics load-bearing).
+4. ~~**The $O(1)$ in M1**, given uniform control of $\Lambda^\sharp_Q(m)$.~~ —
+   **RESOLVED / RE-DIAGNOSED** (`notes/E2_PROOF.md` §§2.3–2.5): the two
+   leading coefficients are unconditional; the remaining explicit $O(1)$ turns
+   on a bilinear cancellation bound (Hypothesis U), *not* on pointwise
+   uniformity of $\Lambda^\sharp_Q(m)$ (which fails — it is the Mertens
+   function — but is annihilated by $n^{-2}$).
 5. ~~**D″ off-diagonal bound** via Tao–Trudgian–Yang $N^*$~~ — **RESOLVED AND
    RETIRED AS POSED** (`notes/DPP.md`). The limit exists unconditionally, the
    Ω-result is unconditional, $V_\infty\asymp D$ is a theorem, and

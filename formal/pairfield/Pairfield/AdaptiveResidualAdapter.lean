@@ -149,6 +149,22 @@ theorem leftQuotient_eq_iff_all_adaptive_traces_eq
     apply BoolExperimentTree.behavior_eq_of_fixedWord_trace_eq
     exact htree (BoolExperimentTree.fixedWord word)
 
+/--
+Two reached prefixes have the same residual exactly when no finite adaptive
+test tree can tell them apart.  This is the test-facing spelling of the
+residual/traces equivalence above: the forward direction is extensionality of
+the residual, while the reverse direction is witnessed by the fixed-word
+tree for any separating suffix.
+-/
+theorem leftQuotient_eq_iff_adaptive_test_equivalence
+    (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
+    (left right : List A) :
+    M.accepts.leftQuotient left = M.accepts.leftQuotient right ↔
+      ∀ tree : BoolExperimentTree A,
+        tree.trace M.step (acceptsBool M) (M.eval left) =
+          tree.trace M.step (acceptsBool M) (M.eval right) :=
+  leftQuotient_eq_iff_all_adaptive_traces_eq M left right
+
 namespace AdaptiveResidualAdapterControl
 
 open ResidualBFSWitness
@@ -160,7 +176,7 @@ example :
         (acceptsBool automaton) (automaton.eval []) ≠
       (BoolExperimentTree.fixedWord [true]).trace automaton.step
         (acceptsBool automaton) (automaton.eval [false]) := by
-  native_decide
+  decide
 
 /-- The equal-residual control is invisible to every adaptive tree. -/
 example : ∀ tree : BoolExperimentTree Bool,
@@ -170,7 +186,7 @@ example : ∀ tree : BoolExperimentTree Bool,
   apply (leftQuotient_eq_iff_all_adaptive_traces_eq
     automaton [] [true]).1
   exact (visitedLeftQuotientWitness?_eq_none_iff
-    automaton alphabet alphabet_complete [] [true]).1 (by native_decide)
+    automaton alphabet alphabet_complete [] [true]).1 (by decide)
 
 end AdaptiveResidualAdapterControl
 
@@ -191,7 +207,7 @@ example :
           (acceptsBool automaton) (automaton.eval []) ≠
         (BoolExperimentTree.fixedWord [false]).trace automaton.step
           (acceptsBool automaton) (automaton.eval [false]) := by
-    native_decide
+    decide
   exact hseparates (hall (BoolExperimentTree.fixedWord [false]))
 
 /-- The return's nontrivial positive control keeps all three exact costs in
@@ -217,7 +233,7 @@ theorem eval_eq_start (word : List Bool) : automaton.eval word = 0 := by
   | nil => rfl
   | append_singleton word action ih =>
       rw [DFA.eval_append_singleton, ih]
-      cases action <;> native_decide
+      cases action <;> decide
 
 theorem all_prefix_residuals_eq (left right : List Bool) :
     automaton.accepts.leftQuotient left =

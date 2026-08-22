@@ -2,11 +2,80 @@
 
 -- Run from the repository root:
 --   runghc machine/MathMachineInductionGate.hs
+--
+-- ===================================================================
+-- STATUS, 2026-08-17: THIS RUNS, AND IT IS NOT WIRED TO THE PROVER.
+-- The second half of that sentence is a measurement, not an oversight,
+-- and it is written here so the next reader does not spend the day
+-- discovering it again.
+--
+-- IT HAD NEVER RUN.  From commit f05c79fc ("Search for checked
+-- induction certificates") until today this file did not compile:
+-- `boundedSearch` calls `foldl'` and nothing imported it.  Three more
+-- defects sat behind that one, each of which would have stopped it on
+-- its first execution, and each of which is already fixed WITH A
+-- COMMENT in machine/Certificate.hs, the kernel the live engine uses:
+-- no `setLocaleEncoding utf8`, so it could not write its own Agda
+-- module; no `--library=cubical`, so agda could not resolve
+-- Cubical.Foundations.Prelude from the temp directory; no forced child
+-- locale, so agda died encoding its own error message.  All four are
+-- fixed and the file now reports, in ~3 seconds:
+--
+--   SEARCH-FOUND associativity baseSteps=2 stepSteps=4
+--   KERNEL-ACCEPT associativity
+--   KERNEL-REJECT mutated-hypothesis-transport   (endpoint mismatch)
+--
+-- So the advertised claim is TRUE: the breadth-first search does find
+-- an induction certificate for `y+(z+x) = (y+z)+x`, agda accepts it,
+-- and agda rejects the certificate with the `hyp-suc` transport
+-- deleted.  Today is the first time that was ever checked.
+--
+-- WHY IT IS STILL NOT WIRED INTO `MathMachine.attempt`.  The search
+-- speaks a three-constructor term language -- Zero, Suc, Add -- over
+-- three variables, and `stepTransitions` knows exactly two equations,
+-- add-zero and add-suc.  The machine's open conjectures do not live
+-- there.  MEASURED by instrumenting the `Nothing` branch of the
+-- prover's `attempt` and running the machine from a fixed
+-- 37-equation memory:
+--
+--   --rounds 4 (horizons 4-5):    69 distinct unproved conjectures,
+--                                  0 expressible in {0,s,+}
+--   --rounds 8 (horizons 4-6):  4275 distinct unproved conjectures,
+--                                  0 expressible in {0,s,+}
+--
+--   708 of those 4275 mention `+`.  All 708 also mention a symbol this
+--   file has no constructor for.
+--
+-- And `+`-associativity -- the advertised target -- is never among
+-- them, at any horizon measured: the engine installs commutativity as
+-- a lemma rule early, and the two sides stop being distinct normal
+-- forms, so the conjecture is never stated.  The search closes a
+-- question the machine does not ask.
+--
+-- What the machine DOES ask, and fails, is the same shape one operator
+-- over: `((x*y)*z) = (x*(y*z))`, `((x max y) max z) = (x max (y max z))`,
+-- `((x+y)*z) = ((x*z)+(y*z))`.  The useful work is therefore to widen
+-- `Term`/`stepTransitions`/`RewriteCertificate` to `*` and `max`, not
+-- to call this search from the prover -- wired as it stands it is a
+-- branch that provably never fires, and a prover branch that never
+-- fires is a claim about the program that is not true.
+-- ===================================================================
 module Main (main) where
 
+import qualified Certificate as C
 import Control.Exception (finally)
 import Control.Monad (unless)
 import Data.Char (isSpace)
+-- 2026-08-17.  This import was missing, and had been since commit f05c79fc
+-- ("Search for checked induction certificates") introduced `boundedSearch`.
+-- `ghc -fno-code machine/MathMachineInductionGate.hs` has therefore failed
+-- with "Variable not in scope: foldl'" on every commit since, which means
+-- the breadth-first derivation search in this file has never once run, and
+-- the +-associativity certificate it is written to find has never been
+-- searched for, let alone accepted by Agda.  machine/check-haskell-agda.sh
+-- builds this file with -Werror and then runs it, so that script has been
+-- failing at its second `ghc` invocation for the same three days.
+import Data.List (foldl')
 import qualified Data.Map.Strict as Map
 import qualified Data.Sequence as Sequence
 import qualified Data.Set as Set
@@ -19,7 +88,22 @@ import System.Directory
   )
 import System.Exit (ExitCode (..), exitFailure)
 import System.FilePath ((</>))
-import System.Process (readProcess, readProcessWithExitCode)
+-- The second reason this file had never run.  `renderModule` writes `_≡_`
+-- (U+2261) into the generated Agda module, and `writeFile` uses the locale
+-- encoding, which in this container is ASCII: "withFile: invalid argument
+-- (cannot encode character '\8801')".  machine/AgdaRewriteGate.hs -- the
+-- sibling that DOES run, and whose result message claimed this lane was
+-- verified -- calls `setLocaleEncoding utf8` as its first action, and this
+-- file does not.  It is the same one-line omission twice over.
+import GHC.IO.Encoding (setLocaleEncoding, utf8)
+import System.Environment (getEnvironment)
+import System.IO (IOMode (WriteMode), hPutStr, hSetEncoding, withFile)
+import System.Process
+  ( CreateProcess (env)
+  , proc
+  , readCreateProcessWithExitCode
+  , readProcess
+  )
 
 data Term
   = Var
@@ -290,21 +374,64 @@ prepareRewriteCertificate repo private = do
     createDirectoryIfMissing True destinationDirectory
     writeFile (destinationDirectory </> "RewriteCertificate.agda") source
 
+-- The other two reasons this file had never run, both of them already
+-- solved -- with comments -- in machine/Certificate.hs, the kernel the live
+-- engine actually uses.  This function was a third re-implementation that
+-- had none of the fixes, because it had never been executed once.
+--
+--   (1) LIBRARY.  The generated module opens Cubical.Foundations.Prelude.
+--       `formal/cubical/natural-machine.agda-lib` declares `depend: cubical`,
+--       but -i include roots do not trigger .agda-lib resolution, so agda
+--       searched ./Cubical, formal/cubical/Cubical and the temp dir, found
+--       nothing, and failed to scope-check line 3.  Certificate.hs:37 names
+--       this exact failure and fixes it with `--library=cubical`; so does
+--       this, via `agdaLibrary`.
+--   (2) CHILD LOCALE.  agda prints ≡ and λ in its own diagnostics through
+--       the process locale encoding.  This container has LC_CTYPE=POSIX, so
+--       agda died reporting the error rather than reporting it:
+--       "Error when handling error: <stdout>: commitBuffer: invalid argument
+--       (cannot encode character '\8801')".  Certificate.hs:703 forces
+--       LC_ALL/LANG in the child's environment for the same reason.
+--
+-- The candidate file is also written through a handle with an explicit UTF-8
+-- encoding rather than `writeFile`, which uses the ambient locale.
+agdaLibrary :: String
+agdaLibrary = "cubical"
+
 validateWithAgda :: FilePath -> InductionCertificate -> IO (Bool, String)
 validateWithAgda repo certificate = do
   temporaryRoot <- getTemporaryDirectory
   directoryLine <- readProcess
     "mktemp" ["-d", temporaryRoot </> "math-machine-induction.XXXXXX"] ""
+  base <- getEnvironment
   let private = trim directoryLine
       gate = private </> "InductionGate.agda"
       includeRoots =
         ["-i", private, "-i", repo </> "formal/cubical"]
+      arguments = includeRoots ++ ["--library=" ++ agdaLibrary, gate]
+      environment =
+        ("LC_ALL", "C.UTF-8")
+          : ("LANG", "C.UTF-8")
+          : [ entry | entry@(key, _) <- base, key /= "LC_ALL", key /= "LANG" ]
   (do prepareRewriteCertificate repo private
-      writeFile gate (renderModule certificate)
-      (code, output, errors) <- readProcessWithExitCode
-        "agda" (includeRoots ++ [gate]) ""
-      pure (code == ExitSuccess, output ++ errors))
+      writeUtf8 gate (renderModule certificate)
+      (code, output, errors) <- readCreateProcessWithExitCode
+        (proc "agda" arguments) { env = Just environment } ""
+      -- THE FITNESS, ADDED 2026-08-20.  `code == ExitSuccess` is a number a
+      -- process returned; the output was captured and then examined by
+      -- nobody, so under `agda "$@" 2>&1 | cat` this returned True with
+      -- agda's `1 != 0` in the very string it was returning alongside.
+      -- `C.vetForeignRun` reads it, and once per process watches the kernel
+      -- reject `(suc x) ≡ x`.
+      (code', vetted) <- C.vetForeignRun repo code (output ++ errors)
+      pure (code' == ExitSuccess, vetted))
     `finally` removePathForcibly private
+
+writeUtf8 :: FilePath -> String -> IO ()
+writeUtf8 path contents =
+  withFile path WriteMode $ \handle -> do
+    hSetEncoding handle utf8
+    hPutStr handle contents
 
 data ExecutableRule = ExecutableRule
   { ruleName :: String
@@ -428,6 +555,7 @@ hypDerivationLength (HypThen _ rest) = 1 + hypDerivationLength rest
 
 main :: IO ()
 main = do
+  setLocaleEncoding utf8
   repo <- getCurrentDirectory
   associativity <-
     case deriveInductionCertificate associativityLhs associativityRhs of

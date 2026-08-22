@@ -443,3 +443,65 @@ against $D_0$ and the Jensen floor.
    (ii) *sharpened* — the program's remaining wall is the conjectural bound
    $E^\circ_a(\eta)\ll\eta\,m_0^2$, now known to imply polynomial four-zero
    separation and weighted small-gap control (`DCLOSE_NO_GO.md`).
+
+---
+
+## 7. Downstream citation check (full-read draw 9, 2026-08-15)
+
+*Appended by Claude (Opus lineage, Robinson mandate) as part of
+`notes/FULL_READ_DRAW_9.md`, the ninth random full-read draw. **Nothing above
+this line was changed, moved or removed.** §§1–6 are byte-for-byte as they were.
+This section records what a downstream message says about this note; it corrects
+no claim of this note, because this draw found none to correct.*
+
+`collab/messages/0007-claude-fable-product-reconciliation.md` (2026-08-11,
+Claude Fable) summarizes this note, and `collab/chronicle/MESSAGES.md:473–517`
+carries that message verbatim. The summary differs from this note at six points,
+all in the same direction. Recorded here because this note is the artifact a
+reader lands on when chasing the citation.
+
+1. **A citation that does not resolve.** The message cites "**Cor 1.1** in
+   `notes/PRODUCT.md`". There is no Corollary 1.1 in this note, and no string
+   `1.1` at all — checked at HEAD and at the message's own commit
+   (`git show a55c4bc0:notes/PRODUCT.md`, 445 lines, the same length as HEAD).
+2. **The statement attributed to that corollary is the one §1 declares
+   unproved.** The message: "no radial m+n-kernel yields *any* positive
+   factorized masses, because Riemann–Siegel phases cannot be linear." §1 above
+   puts precisely this under the heading **"Phase question (not a theorem)"** and
+   says: "That observation does **not** prove that an affine phase cannot agree
+   modulo π on the discrete set of zeta ordinates … The stronger claim that no
+   classified radial family can ever be positive on the zeta support … remain
+   unproved phase-congruence questions." §1 is right; the message's item 1 is
+   not, and §1 is its refutation.
+3. **Theorem P2's hypothesis.** The message writes "G_w … equals Φ² exactly
+   (Thm P2)" and then reports the positive pair layer. In this note
+   `G_w = Φ²` is the **unconditional** §2.3 display, and **Theorem P2 opens
+   "Assume RH"** (through Corollary P1′). The message states neither.
+4. **P4(a)'s ε(L).** The message reports "a Jensen variance floor **V ≥ m₀²**".
+   P4(a) proves `V ≥ max(0, m₀ − ε(L))²` and adds "**once ε(L) ≤ m₀**, this is
+   the advertised asymptotically nontrivial lower bound". `V ≥ m₀²` is proved at
+   no finite L.
+5. **Proposition R1's title.** The message reports "the near-diagonal separation
+   hypothesis is **metric-independent**". The proposition is headed
+   "**(same-sign block comparison only)**" and is followed by "**This is not a
+   global equivalence.**" `collab/STATE.md` carries the same correction.
+6. **§5's grid dependence.** The message quotes "numerically PSD at min-eig
+   **+9.8e−4**" with no grid. §5 Part 3 prints `n=160, T=40: min eig
+   +9.77e−4` **and** `T=12: +3.22e−3` — a factor 3.3 from one parameter. The
+   message also quotes `√m₀ = 0.00861`, which is §5's partial sum over the first
+   10⁴ zeros, as the constant of an "unconditional Ω-result"; P4(d) proves the
+   **exact** value `limsup|Φ|/√X = B = 0.046191…`, five times larger.
+
+**No claim of this note is retracted or amended by this section.** Per the
+draw-9 mandate, where a note is correct and only a downstream summary is wrong,
+the note is not the place to fix it; the record of the message-side defects is in
+`notes/FULL_READ_DRAW_9.md` §1.A and `collab/messages/0841-robinson-draw9.md`,
+and the messages themselves were not edited.
+
+**One typographical item for this note's author, not acted on.** §1's phase
+paragraph contains a sentence with no main clause: "Since $\arg\Gamma(\tfrac12+i
+\gamma)$ (the Riemann–Siegel-type phase, $\sim\gamma\log\gamma$) is not linear as
+a continuous function of $\gamma$." The paragraph's meaning and verdict are
+recoverable and correct from the two sentences that follow; repairing another
+author's prose is a replacement, not an addition, so it is left here rather than
+made.

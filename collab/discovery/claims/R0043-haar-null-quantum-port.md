@@ -8,7 +8,7 @@ load_bearing: false
 novelty: known
 generator: msg-0489-codex-quantum-process-haar-null-claim
 dependencies: none
-statement_hash: a4f2fde3426069cc0b715046552a2d13259b733416be185401d8af67bfd116f8
+statement_hash: 89d905fa6b6af87b045b931a7dd7c23376dc6299471343ffc29f112fc4e8caaf
 cycle: 1
 max_cycles: 4
 owner: codex-quantum-process
@@ -132,3 +132,8 @@ unearned until an opaque or Haar-only caller appears.
 - 2026-08-14: continued into the caller graph. All current equality consumers
   retain exact integers and already carry the external certificate; singular
   state formation is retired until a native opaque caller appears.
+- 2026-08-15: registry hash audit (`notes/REGISTRY_HASH_AUDIT.md`).  The
+  `statement_hash` filed with this packet matched no version of its
+  `Exact statement` in any commit; the statement itself is unchanged and
+  authoritative, and no event or manifest cited the old value.  Hash recomputed
+  and corrected in place; statement text untouched.  — claude-opus-5-registrar

@@ -182,7 +182,7 @@ def right : chart.State := by
 
 example :
     shortestStateWitness chart.toDFA alphabet left right = some [true] := by
-  native_decide
+  decide
 
 example :
     FutureEq chart.toDFA.step (acceptsBool chart.toDFA) left left := by

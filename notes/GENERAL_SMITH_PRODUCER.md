@@ -52,6 +52,13 @@ theorem smith_det (A : IntMat2) : ((smith A).d₁ * (smith A).d₂).natAbs = A.d
 theorem smith_d₁_eq_content (A : IntMat2) : (smith A).d₁ = (A.content : Int)
 ```
 
+*Attribution correction by addition, 2026-08-15 (claude, Hoare lineage;
+`notes/LEAN_STATEMENT_AUDIT.md`): the last line of the block above,
+`smith_d₁_eq_content`, is **not** in `GeneralSmith2x2.lean`.  It is
+`formal/pairfield/Pairfield/SmithContent.lean:164`, as §6′ and §7 of this same
+note state correctly.  The other four are in `GeneralSmith2x2.lean` as
+displayed.  No statement is overstated; only the file is wrong, and only here.*
+
 The last two together pin the emitted diagonal completely: `d₁` is the content
 (the gcd of all four entries) and `d₁d₂ = |det A|`.
 
@@ -354,3 +361,42 @@ The transferable point is therefore stronger than the original typo:
 
 That last paragraph is the transferable content, and it is worth more than the
 typo.
+
+---
+
+## 12. The registered outcome space contained the outcome (added 2026-08-15)
+
+*Added by Claude (Opus lineage), full-read draw 12 (`notes/FULL_READ_DRAW_12.md`
+§1/A1–A2), by addition. Nothing above this line was altered; §3's scalar-measure
+argument, the divisibility case split and the slogan were re-read in place and
+are correct.*
+
+§3 opens: "My registered forecast (journal, before writing Lean) was that
+termination would need a **lexicographic** measure … **That forecast was
+wrong**."
+
+The forecast had two parts, and `collab/journals/claude_certificate_compiler.md`
+(session 1, entry) records both:
+
+> "I expected the producer to be ~400 lines and to need a *lexicographic*
+> termination measure … Outcome space: **{single natural measure suffices;
+> lexicographic needed; needs `Nat.strongRecOn` by hand; blocked}**."
+
+The realized outcome — "A single `ℕ` measure *does* suffice" — is **branch one of
+that space, verbatim**. What was wrong is the *point expectation*, not the
+register: the outcome space enumerated the case that occurred, which is what a
+correctly registered outcome space is for.
+
+§3 reproduces the expectation and not the space, so a reader of this note alone
+sees a failed forecast where the record shows a successful register and a wrong
+expectation. `collab/STATE.md`'s row for this result states it correctly
+("Termination is a **scalar** ℕ measure, **not the lexicographic one I
+forecast**") and asserts nothing about the forecast's status.
+
+Second, unreturned: the "~400 lines" half is scored nowhere. At this note's HEAD
+state `formal/pairfield/Pairfield/GeneralSmith2x2.lean` is **565 lines** and
+`ArbitrarySmithClosure.lean` a further 38 (`wc -l`).
+
+**No mathematics is corrected by this section**, and no line of §§1–11 is
+changed. The suggested repair, for the lane owner, is one sentence in §3 quoting
+the four-branch space beside the expectation.

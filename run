@@ -14,6 +14,14 @@
 # replacement.  The formal lane below is the live organism.
 set -u
 cd "$(dirname "$0")"
+# The whole lane emits ℕ/≡/Δ (Agda sources, GHC's own output).  Under a
+# C/POSIX locale GHC refuses to encode them — `--smoke-rounds` dies with
+# "invalid argument (cannot encode character '\8469')" and the button
+# reads it as a red that no code change can fix.  Found 2026-08-14 in a
+# container whose shells start with no locale at all.  Export here, once,
+# so every child (runghc, ghc -e, agda) inherits it; the per-call
+# LC_ALL=C.UTF-8 on the agda lines below is kept but now redundant.
+export LC_ALL=C.UTF-8 LANG=C.UTF-8
 FAIL=0
 
 echo "==================================================================="
@@ -21,6 +29,13 @@ echo "== FORMAL - the knowledge: checked types (constructive, --safe)  =="
 echo "==================================================================="
 FORMAL="0 checked"
 if command -v agda >/dev/null 2>&1; then
+    # A verdict is only as good as the toolchain that produced it.  The tree
+    # is pinned to Agda 2.8.0 + cubical v0.9 (formal/cubical/BUILD.md
+    # "Toolchain"); a container on the former 2.6.3/v0.5 pin reads every
+    # post-migration module as FAILED (missing solveℕ!/solve!/SymGroup) —
+    # that is version skew, not mathematics.  See BUILD.md "Where the skew
+    # bites".  Print the version so the output carries its own caveat.
+    echo "toolchain: $(agda --version 2>/dev/null | head -1) (pin: Agda 2.8.0 + cubical v0.9, see formal/cubical/BUILD.md)"
     N=0
     for M in formal/cubical/DescentLaw.agda \
              formal/cubical/Gamma0Partner.agda \

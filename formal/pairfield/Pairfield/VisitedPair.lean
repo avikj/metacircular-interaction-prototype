@@ -223,10 +223,10 @@ open VisitedPairHorizonWitness BehavioralBFSWitness
 example :
     (visitedPairWitness? automaton alphabet (0 : Fin 3) 1).map
       ReachNode.word = some [true] := by
-  native_decide
+  decide
 
 example : visitedPairWitness? automaton alphabet (0 : Fin 3) 0 = none := by
-  native_decide
+  decide
 
 example :
     reachableStatePairCount automaton alphabet (0 : Fin 3) 1 ≤

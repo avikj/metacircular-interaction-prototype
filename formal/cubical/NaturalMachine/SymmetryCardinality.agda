@@ -9,6 +9,14 @@ open import Cubical.Data.Fin using (Fin)
 open import Cubical.Data.FinSet
 open import Cubical.Data.FinSet.Constructors using (isFinSetAut)
 open import Cubical.Data.FinSet.Cardinality
+-- `factorial` is used unqualified below.  In cubical v0.9 it arrives
+-- with this module; in the pinned v0.5 it lives in
+-- Cubical.Data.Fin.LehmerCode and Cardinality only refers to it
+-- qualified (LehmerCode.factorial), so the unqualified use fails with
+-- "Not in scope: factorial".  Importing it by its own path names the
+-- same function on both versions and picks no side of the skew --
+-- the same treatment NaturalMachine/PathIsSymmetry.agda gives SymGroup.
+open import Cubical.Data.Fin.LehmerCode using (factorial)
 -- (v0.5 skew note withdrawn: cubical 2.8 moved `factorial` to Cubical.Data.Nat,
 -- where `factorial = _!` definitionally, so no LehmerCode bridge is needed.)
 

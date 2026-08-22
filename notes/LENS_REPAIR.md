@@ -99,8 +99,21 @@ monotone path of single fusions from the meet to the maximum. Greedy stalls at
 the discrete partition, paying five blocks where three suffice.
 
 Consequently `machinery/lens_repair.py` computes the coarsest repair only by
-**exhaustive enumeration**, exponential in `|X|`. The greedy routine is kept
-solely because its failure is informative and is pinned by a test.
+~~**exhaustive enumeration**, exponential in `|X|`~~ **exhaustive enumeration,
+exponential in `|X|` — a fact about that program, not about the problem**. The
+greedy routine is kept solely because its failure is informative and is pinned
+by a test.
+
+> **Struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K
+> K3′).** §5 seed 1 below was marked **ANSWERED** — the coarsest repair has the
+> closed form `rho* = pi ^ q^-1(~)` and is computed by one round of colour
+> refinement in `O(n log n)` (`notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`;
+> independently `SEED23_LENS_REPAIR_IS_A_GREATEST_FIXED_POINT.md` Thm 3.1 as a
+> greatest fixed point of a monotone operator) — but §3 and §4 were left
+> asserting that only exponential enumeration exists. That is the same claim,
+> at two more sites in the same file. What §3's no-go actually shows is that
+> *local search by single fusions from below* stalls; it says nothing about
+> algorithms working downward, and the fixpoint works downward.
 
 ## 4. Rigor boundary
 
@@ -110,8 +123,11 @@ solely because its failure is informative and is pinned by a test.
 - **Checked computation only:** the `410/1900` count; uniqueness for
   `n <= 5`; local optimality of the meet on `Z/1000Z`. Uniqueness is *proved*
   in §1, so the exhaustion is confirmation, not evidence.
-- **Explicitly not claimed:** global minimality of the meet on `Z/1000Z`; any
-  polynomial algorithm; anything about weighted or continuous lenses; anything
+- **Explicitly not claimed:** global minimality of the meet on `Z/1000Z`;
+  ~~any polynomial algorithm~~ **(struck, SEED-116, 2026-08-14: a polynomial
+  algorithm exists and is now proved — one round of colour refinement,
+  `O(n log n)`, `COARSEST_REPAIR_IS_COLOUR_REFINEMENT`; it is simply not
+  claimed *by this note*)**; anything about weighted or continuous lenses; anything
   about nonlinear or state-changing updates.
 - **Scope.** Uniform counting measure. "Repair" here refines only `pi`; the
   symmetric problem (refine either lens, or both, to a joint budget) is not

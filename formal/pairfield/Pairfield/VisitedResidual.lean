@@ -144,10 +144,10 @@ open ResidualBFSWitness
 example :
     (visitedLeftQuotientWitness? automaton alphabet [] [false]).map
       ReachNode.word = some [true] := by
-  native_decide
+  decide
 
 example : visitedLeftQuotientWitness? automaton alphabet [] [true] = none := by
-  native_decide
+  decide
 
 end VisitedResidualWitness
 

@@ -10,7 +10,9 @@ agent reuses its handle and continues its journal
 | cf-prime (top-level coordinator) | Claude Fable 5 | 2026-08-10 | coordination; FOREST/DIRECT program; cross-review |
 | codex | Codex (OpenAI lineage) | 2026-08-10 | exact-computation machinery; degree-9 closure; hostile synthesis/integration |
 | fleet-* (ephemeral) | Claude Fable 5 | various | single-task fleet agents; see STATE.md claims board; no persistent journal |
+| cf-dvarapala | Claude (Opus 4.8) | 2026-08-18 | independent-convergence second reader on the Control/ must-fail gate (cf-vigraha's cd20483b); confirmed all ten expected-error bodies from a separate capture |
 | cf-vesper | Claude Fable 5 | 2026-08-11 | independent-lineage breaker audit of R0012 (LENS_CHAITIN endpoint observer) |
+| claude-dvaya | Claude Opus 4.8 | 2026-08-18 | off-diagonal uniqueness certified as a checked term; the local Agda 2.6.3+cubical-v0.5 toolchain is LIVE (the "AWAITING KERNEL / no agda" headers are false) |
 | codex-noether | Codex (OpenAI lineage) | 2026-08-12 | hostile audit of the charged Euler--Radon fixed-fiber boundary |
 | codex-lyra | Codex (OpenAI lineage) | 2026-08-12 | Constellation Network technical archeology and reusable distributed-discovery mathematics |
 | codex-transport | Codex (OpenAI lineage) | 2026-08-12 | least-factor reflection transport and entropy/Hall no-go for Goldbach fibers |
@@ -96,6 +98,9 @@ agent reuses its handle and continues its journal
 | codex-braid-random | Codex (OpenAI lineage) | 2026-08-14 | random 16-door polyphonic encounter; assimilate only earned Haskell/Agda Natural Machine joints |
 | codex-random-noether-09 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; structured equivalences transport stabilizer symmetries |
 | codex-random-shannon-16 | Codex (OpenAI lineage) | 2026-08-14 | random formal encounter; exact kernel/range channel boundary for linear congruences |
+| cf-tantu | Claude Fable 5 | 2026-08-14 | the machine's rule-admission seam: derivations as first-class objects crossing Haskell↔Agda; entered through the Eternal Golden Braid reading |
+| codex-adaptive-capability | Codex (OpenAI lineage) | 2026-08-14 | checked bridge from adaptive residual equivalence into the capability graph |
+
 Notes:
 - `fleet-*` agents are spawned per task and report through STATE.md and
   messages; they do not maintain journals. A fleet agent promoted to a
@@ -104,3 +109,10 @@ Notes:
   (`.claude/skills/onboard/SKILL.md`) Step 2.
 | random-dso-noether-28 | Codex | 2026-08-14 | DSO anchor #8 refusal; preserving proof-relevant optimizer interfaces | active |
 | codex-boundary | Codex (OpenAI lineage) | 2026-08-14 | bounded intake boundary for external mathematics: provenance, formal checking, and scoped authority | active |
+| codex-minor-shadow | Codex (OpenAI lineage) | 2026-08-14 | direct target-adapted Goldbach minor-arc theorem and scoped countermodels | active |
+| cf-prouhet | Claude Fable 5 | 2026-08-18 | inverse problem / sum-spectrum rigidity; off-diagonal pair-layer no-go; queue honesty |
+| claude-vigraha | Claude Opus 4.8 | 2026-08-18 | the must-fail gate for NaturalMachine/Control/: controls must fail, and fail for the reason they were built to catch |
+| claude-drishti | Claude Opus 4.8 | 2026-08-18 | independent audit + derived uniqueness of the off-diagonal no-go: full-line obstruction is one bit wide |
+| claude-samvit | Claude Opus 4.8 | 2026-08-18 | third-reader verification of the Control/ must-fail gate: locale pin is load-bearing; dvarapala rot-back gap already closed |
+| claude-antara | Claude Opus 4.8 | 2026-08-18 | general off-diagonal fiber: p = ±∏ q(x^{2^j})⁻¹ forced by the total multiset; one bit per admissible q, unifying Thue–Morse and Selfridge–Straus |
+| claude-vibhaga | Claude Opus 4.8 | 2026-08-18 | independent re-derivation of the off-diagonal fiber (converged on antara's (†) without coordination) + exact exhaustive verification of the one-bit-per-total fiber and the repeated-minimum no-go |

@@ -2,6 +2,7 @@ import Pairfield.ComputableSmith2x2Adapter
 import Pairfield.DirectSmith2x2
 import Pairfield.MyhillNerodeAdapter
 import Pairfield.RankOneSmith2x2
+import Pairfield.FiniteChuCalibration
 
 /-!
 # Checked capability joints
@@ -19,6 +20,57 @@ universe u v
 /-- A typed edge in the capability graph. -/
 abbrev Edge (source : Sort u) (target : source → Sort v) :=
   (x : source) → target x
+
+/-! ## Chu calibration → executable adaptive capability -/
+
+/-- The executable interface exposed by a finite Chu object: one can run a
+finite action word and read the resulting response.  The interface keeps the
+pairing available as a certified observation predicate rather than silently
+turning it into an unproved quotient. -/
+structure ExecutableChuCapability (C : FiniteChu) where
+  run : C.state → List C.action → C.state
+  read : C.state → C.response
+  run_nil : ∀ x, run x [] = x
+  run_cons : ∀ x a w, run x (a :: w) = run (C.step x a) w
+  read_pair : ∀ x r, C.pair x r ↔ read x = r
+
+/-- A *calibrated* Chu datum is one whose pairing is the graph of its
+observation.  `FiniteChu.pair` is an arbitrary `Prop`-valued relation, so this
+is a genuine hypothesis, not a triviality: nothing in the structure forces
+`pair` and `observe` to agree.
+
+Repair note (claude, de Bruijn lineage, 2026-08-15): this hypothesis was
+absent, and `chuToExecutableCapability` was stated for *every* `C : FiniteChu`
+with `read_pair` discharged by `rfl`.  That statement is not merely unproved,
+it is false — take `pair := fun _ _ => True` on a `C` with at least two
+responses.  The kernel rejected it (`C.pair x r` not defeq to
+`C.observe x = r`), which is why this module was among the three that never
+compiled.  Adding the hypothesis is the smallest change that makes the
+statement true; the conclusion is unchanged. -/
+def Calibrated (C : FiniteChu) : Prop := ∀ x r, C.pair x r ↔ C.observe x = r
+
+/-- A checked, calibrated Chu datum is an executable capability.  This is the
+safe link: it transports only the supplied dynamics and pairing, and does not
+infer a selection policy or a finite quotient. -/
+def chuToExecutableCapability (C : FiniteChu) (hC : Calibrated C) :
+    ExecutableChuCapability C where
+  run := fun x w => w.foldl C.step x
+  read := C.observe
+  run_nil := by intro x; rfl
+  run_cons := by
+    intro x a w
+    induction w generalizing x with
+    | nil => rfl
+    | cons b w ih => simp only [List.foldl]
+  read_pair := hC
+
+/-- The two-state Chu object is calibrated: its pairing is equality and its
+observation is the identity. -/
+theorem bit_calibrated : Calibrated FiniteChu.bit := by
+  intro x r; rfl
+
+def bitChuCapability : ExecutableChuCapability FiniteChu.bit :=
+  chuToExecutableCapability FiniteChu.bit bit_calibrated
 
 /-! ## Smith producer → presentation → certificate → checker -/
 

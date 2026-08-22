@@ -609,18 +609,18 @@ namespace VisitedReachWitness
 open ChartQuotientWitness
 
 example : (runReachQueue automaton alphabet 3).states = [0, 1, 2] := by
-  native_decide
+  decide
 
 example : (runReachQueue automaton alphabet 3).nodes.map ReachNode.word =
     [[], [false], [false, true]] := by
-  native_decide
+  decide
 
 example : (visitedReachNode? automaton alphabet (2 : Fin 4)).map
     ReachNode.word = some [false, true] := by
-  native_decide
+  decide
 
 example : visitedReachNode? automaton alphabet (3 : Fin 4) = none := by
-  native_decide
+  decide
 
 example : ∀ node ∈ (runReachQueue automaton alphabet 3).nodes,
     node.Valid automaton :=

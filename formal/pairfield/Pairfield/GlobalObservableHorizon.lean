@@ -143,13 +143,13 @@ namespace GlobalObservableHorizonWitness
 open BehavioralBFSWitness VisitedPairHorizonWitness
 
 example : globalObservableHorizon automaton alphabet = 1 := by
-  native_decide
+  decide
 
 example : IsLeast { fuel : Nat |
     ObservableClosesAt automaton.step (acceptsBool automaton) fuel }
     1 := by
   have hvalue : globalObservableHorizon automaton alphabet = 1 := by
-    native_decide
+    decide
   rw [← hvalue]
   exact globalObservableHorizon_isLeast
     automaton alphabet alphabet_complete

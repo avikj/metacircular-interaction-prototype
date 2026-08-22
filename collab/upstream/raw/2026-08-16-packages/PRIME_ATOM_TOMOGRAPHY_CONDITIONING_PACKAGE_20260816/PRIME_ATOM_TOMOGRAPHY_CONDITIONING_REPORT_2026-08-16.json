@@ -1,0 +1,247 @@
+{
+  "title": "Prime-Atom Tomography Conditioning Theorems \u2014 deterministic report",
+  "suite_version": "1.0.0",
+  "script": "prime_atom_tomography_conditioning.py",
+  "script_sha256": "818fd1980c8f02f85a24e68ce046290efb3c049859b2379b05805b32762ccc6f",
+  "python": "3.13.5",
+  "max_degree": 12,
+  "checks_total": 6,
+  "checks_passed": 6,
+  "checks_failed": 0,
+  "results": [
+    {
+      "check_id": "LAGRANGE-ISOLATOR",
+      "status": "PASS",
+      "elapsed_ms": 2.596,
+      "details": {
+        "degrees": [
+          0,
+          12
+        ],
+        "interpolation_instances": 91
+      }
+    },
+    {
+      "check_id": "EXACT-CONDITION-NUMBERS",
+      "status": "PASS",
+      "elapsed_ms": 2.29,
+      "details": {
+        "degrees": [
+          1,
+          12
+        ],
+        "condition_table": [
+          {
+            "R": 1,
+            "raw_power": 2,
+            "normalized_factorial": 2,
+            "normalized_power": 2,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 2,
+            "raw_power": 3,
+            "normalized_factorial": 4,
+            "normalized_power": 6,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 3,
+            "raw_power": 4,
+            "normalized_factorial": 8,
+            "normalized_power": 20,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 4,
+            "raw_power": 5,
+            "normalized_factorial": 16,
+            "normalized_power": 70,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 5,
+            "raw_power": 6,
+            "normalized_factorial": 32,
+            "normalized_power": 252,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 6,
+            "raw_power": 7,
+            "normalized_factorial": 64,
+            "normalized_power": 924,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 7,
+            "raw_power": 8,
+            "normalized_factorial": 128,
+            "normalized_power": 3432,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 8,
+            "raw_power": 9,
+            "normalized_factorial": 256,
+            "normalized_power": 12870,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 9,
+            "raw_power": 10,
+            "normalized_factorial": 512,
+            "normalized_power": 48620,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 10,
+            "raw_power": 11,
+            "normalized_factorial": 1024,
+            "normalized_power": 184756,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 11,
+            "raw_power": 12,
+            "normalized_factorial": 2048,
+            "normalized_power": 705432,
+            "root_of_unity_values": 1
+          },
+          {
+            "R": 12,
+            "raw_power": 13,
+            "normalized_factorial": 4096,
+            "normalized_power": 2704156,
+            "root_of_unity_values": 1
+          }
+        ]
+      }
+    },
+    {
+      "check_id": "EXACT-RECONSTRUCTION",
+      "status": "PASS",
+      "elapsed_ms": 4.406,
+      "details": {
+        "degrees": [
+          0,
+          12
+        ],
+        "exact_vectors_reconstructed": 13
+      }
+    },
+    {
+      "check_id": "ROOT-OF-UNITY-DFT",
+      "status": "PASS",
+      "elapsed_ms": 0.29,
+      "details": {
+        "degrees": [
+          0,
+          12
+        ],
+        "formal_orthogonality_instances": 91,
+        "max_numerical_error": 1.7342484822082228e-15,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "check_id": "SHARP-ERROR-AMPLIFICATION",
+      "status": "PASS",
+      "elapsed_ms": 1.206,
+      "details": {
+        "degrees": [
+          1,
+          12
+        ],
+        "sharp_families_verified": 48
+      }
+    },
+    {
+      "check_id": "VOLUME-COROLLARY",
+      "status": "PASS",
+      "elapsed_ms": 0.012,
+      "details": {
+        "degrees": [
+          1,
+          12
+        ],
+        "inequality": "4^R/sqrt(4R) <= binom(2R,R) <= 4^R",
+        "rows": [
+          {
+            "R": 1,
+            "2^R": 2,
+            "central_binomial": 2,
+            "4^R": 4
+          },
+          {
+            "R": 2,
+            "2^R": 4,
+            "central_binomial": 6,
+            "4^R": 16
+          },
+          {
+            "R": 3,
+            "2^R": 8,
+            "central_binomial": 20,
+            "4^R": 64
+          },
+          {
+            "R": 4,
+            "2^R": 16,
+            "central_binomial": 70,
+            "4^R": 256
+          },
+          {
+            "R": 5,
+            "2^R": 32,
+            "central_binomial": 252,
+            "4^R": 1024
+          },
+          {
+            "R": 6,
+            "2^R": 64,
+            "central_binomial": 924,
+            "4^R": 4096
+          },
+          {
+            "R": 7,
+            "2^R": 128,
+            "central_binomial": 3432,
+            "4^R": 16384
+          },
+          {
+            "R": 8,
+            "2^R": 256,
+            "central_binomial": 12870,
+            "4^R": 65536
+          },
+          {
+            "R": 9,
+            "2^R": 512,
+            "central_binomial": 48620,
+            "4^R": 262144
+          },
+          {
+            "R": 10,
+            "2^R": 1024,
+            "central_binomial": 184756,
+            "4^R": 1048576
+          },
+          {
+            "R": 11,
+            "2^R": 2048,
+            "central_binomial": 705432,
+            "4^R": 4194304
+          },
+          {
+            "R": 12,
+            "2^R": 4096,
+            "central_binomial": 2704156,
+            "4^R": 16777216
+          }
+        ]
+      }
+    }
+  ],
+  "scope_limit": "Finite-dimensional interpolation and worst-case absolute l_infinity conditioning only. Passing does not provide the required analytic estimates for the CRT/Kloosterman prime-pair propagator."
+}

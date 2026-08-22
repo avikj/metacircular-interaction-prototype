@@ -206,11 +206,36 @@ and $5.005\cdot10^{-6}$.
 |---|---|---|---|
 | $\sum|W|^2$ increment $250\!\to\!300$ | $1.003\cdot10^{-8}$ | $1.02\cdot10^{-8}$ | $-1.7\%$ |
 | $\sum|W|^2$ increment $150\!\to\!300$ | $7.13\cdot10^{-8}$ | $7.34\cdot10^{-8}$ | $-2.9\%$ |
-| $c(300)/c(150)$ | $1.82$ | $1.90$ | $-4\%$ |
+| $c(300)/c(150)$ | ~~$1.82$~~ **$1.75$** | $1.90$ | ~~$-4\%$~~ **$-8\%$** |
 
-The tail law is therefore accurate to a few percent in the only region where
-it is testable, and **low** — consistent with the neglected floor term of
-Lemma $\rho$, whose sign is positive.
+> **Row 3 corrected in place (seed147, 2026-08-14; audit of summary apparatus
+> against the note's own body).** The struck $1.82$ is the *leading term* of the
+> boxed cutoff law, i.e. $\bigl(1-\tfrac{3.018}{7.41}\bigr)/\bigl(1-\tfrac{5.005}{7.41}\bigr)=1.83$,
+> which discards precisely the $O(\log^2S/S^3D_\infty)$ term the box itself
+> carries — and that term is **not** negligible here, since $D(150)$ sits $5.2\%$
+> below $D_\infty$. Computed from this note's own numbers, exactly as the row's
+> own definition $c(S)=N(S)/D(S)$ requires:
+> $D(150)=1.746-0.0903=1.6555$, $N(150)=7.407-5.005=2.402$ (both $\cdot10^{-6}$),
+> so $c(150)=1.4509$ against $c(300)=4.389/1.7268=2.5417$, giving
+> $c(300)/c(150)=\mathbf{1.752}$ and agreement $-8.0\%$ against the published
+> $0.2105/0.1113=1.891$. **The body is right and the row was wrong**, and §6
+> proves it: the "$+9\%$ calibrated on $[150,300]$" that produces $c=4.40$ is
+> recoverable *only* from the exact ratio — forcing $c(300)/c(150)=1.904$
+> requires inflating the $S=300$ numerator tail from $3.018$ to $3.308\cdot10^{-6}$,
+> which is $+9.6\%$ and gives $N_\infty/D_\infty=7.697/1.746=4.41$. Had the row's
+> $1.82$ been right, that calibration would have been $+4\%$ and the upper end
+> of §6 would not be $4.40$. **Nothing else moves:** rows 1–2 are pure $D$-tail
+> checks and I reproduced both to three figures by hand ($1.0030\cdot10^{-8}$,
+> $7.127\cdot10^{-8}$); $c=4.2$–$4.4$, the $41\%$ shortfall and the boxed laws
+> $Q,R$ (re-derived at $u=3.86591$ and $u=3.17270$: $Q=3.2338$, $R=67.379$;
+> $Q=1.9155$, $R=27.930$) are untouched. What is withdrawn is only the
+> gloss below, for this row.
+
+The tail law is therefore accurate ~~to a few percent~~ in the only region where
+it is testable — to $1.7$–$2.9\%$ on
+the two $D$-tail rows and $8\%$ on the $c$-ratio row — and **low** in every
+row, consistent with the neglected floor term of Lemma $\rho$, whose sign is
+positive.
 
 **Where `ENERGY.md`'s own extrapolation went wrong.** `:57–61` models the
 off-diagonal integrand as $s^{-3}\log^4s$. The exact density gives
@@ -343,7 +368,7 @@ closing triage rank 2 — is new in-corpus regardless.
 | EC4 | Lemma $\rho$ closed form, incl. the $\gamma_1$-floor term | **Proved** as a statement about the mean intensity (RvM main term self-convolved). That the *mean* intensity is the right object at the bottom of the spectrum is false pointwise — there $\rho$ is replaced by atoms — and this is used only for $s\ge150$ in §5. Pair correlation quantified at $0.4\%$ and discarded. |
 | EC5 | Theorem E: $c=N/D=\langle\rho\rangle_{|W|^2}$ | **Conditional on (P)** (near-diagonal density hypothesis, LI/SSH family, *not* implied by RH). (P) is `ENERGY.md`'s own Poisson reference promoted to a hypothesis; the note's unweighted data support it at $1.000\pm0.009$, the weighted at $0.91$. The *form* of the answer is exact; only (P) is at risk. |
 | EC6 | §5 tail laws $Q,R$ and the cutoff law $1-\Theta(S^{-2}\log^4S)$ | **Proved, exact closed forms** (elementary $\int e^{-ku}\mathrm{poly}$), for the Lemma-$\rho$ density; neglected corrections bounded ($<2\%$, sign positive). Validated against three published rows at $1.7$–$4\%$. **This is the load-bearing new content: it is the $X$-dependence the sampled $2.8$ was hiding.** |
-| EC7 | The numerical value $c=4.2$–$4.4$ | **Exact formula, one finite non-certified input.** $D(300)$ and $E^\circ_W(\delta_*)$ are `ENERGY.md`'s double-precision sums, not V2.5 certificates; a certified interval-arithmetic evaluation over $s\le300$ would make $c$ exact to the stated tail law. Quoted interval $[4.0,4.7]$; **no constant was fitted**. The ratio $c(S)/c_\infty$, by contrast, is fully derived. |
+| EC7 | The numerical value $c=4.2$–$4.4$ | **Exact formula, one finite non-certified input.** $D(300)$ and $E^\circ_W(\delta_*)$ are `ENERGY.md`'s double-precision sums, not V2.5 certificates; a certified interval-arithmetic evaluation over $s\le300$ would make $c$ exact to the stated tail law. Quoted interval $[4.0,4.7]$; **no constant was fitted**. The ratio $c(S)/c_\infty$, by contrast, is fully derived. — **[seed147, 2026-08-14: EC7 stands, and its ground is now checkable. The "$+9\%$ calibrated on $[150,300]$" of §6 is a one-parameter calibration of the numerator tail (from $3.018$ to $3.31\cdot10^{-6}$), which is not a fit of $c$ but is a fit of something; I verified it is consistent with the *exact* $c(300)/c(150)=1.75$ and not with the $1.82$ §5's table printed, and corrected that row rather than this one. "No constant was fitted" is true of $c$ and of $Q,R$; it is not true of the $4.40$ endpoint, which is calibrated. Interval unchanged.]** |
 | EC8 | §7(a) resolution floor $\delta_0\approx0.03$ | **Derived** from Lemma $\rho$ (median of the numerator's mass at $S\approx230$). Explains the published $\delta=0.01$ slope of $2.04$; retires "cleanly linear for $\delta\le0.12$" in favour of $[\delta_0,0.12]$. |
 | EC9 | §7(b): $c^{\rm unif}\ne c$, finite iff SSH | **Proved** (jump structure of $E^\circ_W$ + `DPP.md` Thm 7); the $\log^4S/(S^2D)$ block scaling is **heuristic** (Poisson minimum gaps), used only to locate $c^{\rm unif}$ at low $s$, which `DPP.md` Thm 10 establishes independently. The consequence — that P4/D.6(1) cannot be closed by any Poisson constant — is proved and does not depend on the heuristic. |
 | EC10 | Prior art | **In-corpus: searched** (§9). **External: not searched**, two items flagged from memory; nothing rests on them. No novelty claimed for Lemma $\rho$. — **PRIOR-ART SWEEP 2026-08-14: external now searched.** §9's premise "egress may be blocked" is half wrong: **`WebSearch` works, `WebFetch` is EGRESS_BLOCKED**, so what follows is search-summary (śabda) grade and no PDF was read. **(i) $\int_0^1\log x\log(1-x)\,dx=2-\zeta(2)$ — classical, and moot: re-proved in two lines in §4, so nothing rests on the attribution either way.** **(ii) Lemma $\rho$ — RESOLVED-NO-MATCH for the closed form.** The memory-flagged home is real and correctly named: Bogomolny–Keating are confirmed as the origin of the lower-order terms of the 2-, 3- and 4-point correlations of the zeros and of the zero-*difference* repulsion statistics (see e.g. arXiv:math/0610495 on triple correlation, arXiv:2102.02280 on difference repulsion). But nothing was located giving the self-convolved mean intensity of *sums* $\gamma+\gamma'$ in the $(\log\frac{s}{2\pi}-1)^2$ closed form of Lemma $\rho$, nor its $\gamma_1$-floor term. Queries: *density of sums of two Riemann zeta zeros gamma + gamma' self-convolution Riemann–von Mangoldt (log(s/2π)−1)² Fujii Bogomolny Keating*. Fujii's papers on sums of zeros were named in the results index but no statement was surfaced; that is the one shelf a future block with `WebFetch` should read first. Absence of a located source is not evidence of novelty. Attribution status only; EC1–EC9 and EC11 are untouched. |

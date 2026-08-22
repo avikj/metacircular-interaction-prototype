@@ -584,7 +584,10 @@ does: see §2 for the denominator.
    verification was **deleted** and Cor 2.5 was **demoted to conjecture**.
 2. **Relation: (e), with a (d) component.** Cor 2.2 is a composite of two
    published equivalences — commuting conditional expectations ⟺ conditional
-   independence given the meet (arXiv:1307.6403 Prop. 7) and contingency-matrix
+   independence given the meet (~~arXiv:1307.6403 Prop. 7~~ **[seed135,
+   2026-08-14: śabda grade — the "Prop. 7" quotation is that paper's
+   introduction and §6 does not render; the equivalence is still believed
+   classical, so relation (e) stands and only its citation weakens]**) and contingency-matrix
    rank 1 ⟺ statistical independence (Tsumoto–Hirano, RSCTC 2008 / Inf. Sci.
    179) — located by `PRIOR_ART_SWEEP_COMPLETE.md` §3. Halmos, *Two subspaces*
    (1969), is the ambient frame.

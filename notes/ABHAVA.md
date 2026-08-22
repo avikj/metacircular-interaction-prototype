@@ -248,4 +248,58 @@ technical vocabulary as mathematics rather than as ornament.
 | A3 | §2.1's monotonicity claims | **WITHDRAWN as a translation from the fourfold.** The proposed join/absorbing/pruning/separating algebra may be studied independently, but it does not follow from object-production/destruction semantics. |
 | A4 | §3's average-vs-forall reading of the ATLAS result | **This is the load-bearing claim of the note and it is an interpretation, not a proof.** I have not read the ATLAS argument in full; I have its statement. If the ATLAS's "averaged, deformed, localized" class is not coextensive with "linear functionals of the measure," §3 needs repair. |
 | A5 | §4 | A question, not a result. Nothing computed. The Hodge-index and SOS-degree facts are quoted from `LP_CERT` and the ATLAS commit, not re-derived. |
-| A6 | Prior art | Formal treatments of Navya-Nyāya absence in modern logic exist (Matilal, *The Navya-Nyāya Doctrine of Negation*, 1968, is the obvious one; Ganeri and Staal on the technical language). **Unsearched.** No novelty is claimed for §1–§2; the only thing offered as new is §2.1's use of the fourfold as a type system for an append-only knowledge store, and §3's average/forall reading. — **PRIOR-ART SWEEP 2026-08-14: searched, RESOLVED-FOUND, and it reaches further than §1–§2 — it reaches §2.1, the part this row reserved as new.** (Search-summary/śabda grade: `WebSearch` works, `WebFetch` is EGRESS_BLOCKED, so nothing below was read in source.) The obvious citation confirms exactly as guessed: B. K. Matilal, *The Navya-nyāya Doctrine of Negation: The Semantics and Ontology of Negative Statements in Navya-nyāya Philosophy*, Harvard University Press, 1968, xi+208, which "expounds Navya-nyāya theory by systematically translating its arguments into the language of Western logic". **But there is a located prior formalization lineage, and its most recent member is doing §2.1's job: arXiv:2605.12548, *Cubical Type Theoretic Navya-Nyāya*.** Its stated premise is that earlier formalizations — "first-order logic (Matilal), higher-order logic (Ganeri), and Martin-Löf type theory (Bhattacharyya)" — each lose load-bearing structure, and it names that structure as *dependent delimitation (avacchedaka), **typed absence (abhāva)**, non-extensional identity (tādātmya), and unbounded relational depth (paramparā-sambandha)*. **A typed treatment of abhāva in cubical type theory therefore exists in the literature, and §2.1's "fourfold as a type system" is not a first.** Whether it coincides with §2.1's append-only-knowledge-store reading, or with §3's average/forall reading, I could not determine — the paper cannot be fetched, only its summary seen — and that comparison is the author's to make, not mine. Ganeri and Bhattacharyya are confirmed as real prior formalizers, correcting this row's "Ganeri and Staal on the technical language" to something stronger than a language note. Queries: *Matilal Navya-Nyaya doctrine of negation four types of absence abhāva formalization type theory Ganeri Staal*. Attribution status only; nothing in §1–§3 is weakened, strengthened, or restated. |
+| A6 | Prior art | Formal treatments of Navya-Nyāya absence in modern logic exist (Matilal, *The Navya-Nyāya Doctrine of Negation*, 1968, is the obvious one; Ganeri and Staal on the technical language). **Unsearched.** No novelty is claimed for §1–§2; the only thing offered as new is §2.1's use of the fourfold as a type system for an append-only knowledge store, and §3's average/forall reading. — **PRIOR-ART SWEEP 2026-08-14: searched, RESOLVED-FOUND, and it reaches further than §1–§2 — it reaches §2.1, the part this row reserved as new.** (Search-summary/śabda grade: `WebSearch` works, ~~`WebFetch` is EGRESS_BLOCKED, so nothing below was read in source.~~ **[seed141, 2026-08-14 — false, and it was the reason this row left its own question open; see the annotation at the end of the row.]** `WebFetch` is not egress-blocked here — `0730-seed129` §1 established that HTML renders and only PDFs fail to decode. The Matilal book is still unread in source and that half of the grade stands.) The obvious citation confirms exactly as guessed: B. K. Matilal, *The Navya-nyāya Doctrine of Negation: The Semantics and Ontology of Negative Statements in Navya-nyāya Philosophy*, Harvard University Press, 1968, xi+208, which "expounds Navya-nyāya theory by systematically translating its arguments into the language of Western logic". **But there is a located prior formalization lineage, and its most recent member is doing §2.1's job: arXiv:2605.12548, *Cubical Type Theoretic Navya-Nyāya*.** Its stated premise is that earlier formalizations — "first-order logic (Matilal), higher-order logic (Ganeri), and Martin-Löf type theory (Bhattacharyya)" — each lose load-bearing structure, and it names that structure as *dependent delimitation (avacchedaka), **typed absence (abhāva)**, non-extensional identity (tādātmya), and unbounded relational depth (paramparā-sambandha)*. **A typed treatment of abhāva in cubical type theory therefore exists in the literature, and §2.1's "fourfold as a type system" is not a first.** ~~Whether it coincides with §2.1's append-only-knowledge-store reading, or with §3's average/forall reading, I could not determine — the paper cannot be fetched, only its summary seen — and that comparison is the author's to make, not mine.~~ **[seed141, 2026-08-14 — decline expired, and discharged on the first of its two axes.]** The paper fetches. `arxiv.org/abs/2605.12548` renders (Mrityunjoy Panday, Sudipta Ghosh, *Cubical Type Theoretic Navya-Nyāya*) and `ar5iv.labs.arxiv.org/html/2605.12548` renders the full body through the references. On **§2.1's axis** it does *not* coincide: the paper's `padārtha` system is a **stratified universe hierarchy** with category-mixing prevention — a closed, typed store — not an append-only one, so §2.1's append-only reading survives as unlocated. Its treatment of absence is the classical fourfold datum, verbatim: *"Navya-Nyāya treats absence as a positive entity with structured data: `pratiyogin` (counter-correlate — the thing absent), `anuyogin` (correlate — the locus of the absence), `avacchedaka` on the `pratiyogin`, `sambandha` by which the `pratiyogin` would have been related to the `anuyogin` had the absence not held."* **Grade, stated narrowly:** the quoted sentence is verbatim off a rendering page; the "stratified, not append-only" determination is a *characterisation* of §4 returned by the fetch, not a quotation, so it is one grade below READ and a successor should confirm it at §4 before leaning on it. **§3's average/forall axis I did not test and it remains open.** Ganeri and Bhattacharyya are confirmed as real prior formalizers, correcting this row's "Ganeri and Staal on the technical language" to something stronger than a language note. Queries: *Matilal Navya-Nyaya doctrine of negation four types of absence abhāva formalization type theory Ganeri Staal*. Attribution status only; nothing in §1–§3 is weakened, strengthened, or restated. |
+
+---
+
+## 6. Appended 2026-08-19, another thread: A6's two open axes could not be advanced here, and a prior-art obligation A6 creates
+
+*Nothing above is altered. This reports one environment fact and one debt.*
+
+**The fetch.** A6 records, via `0730-seed129` §1, that `WebFetch` is not
+egress-blocked and that HTML renders. In **this** session's environment it is:
+
+    WebFetch https://arxiv.org/abs/2605.12548
+    → EGRESS_BLOCKED — "Access to arxiv.org is blocked by the network
+      egress proxy."
+
+Dated 2026-08-19. This does not contradict A6 — egress policy is a property
+of the environment a session runs in, not of the repository — but it means
+A6's two stated open items could **not** be advanced from here:
+
+1. confirming the "stratified, not append-only" determination at the paper's
+   §4, which A6 itself grades one below READ and asks a successor to check
+   before leaning on it;
+2. testing §3's average/∀ axis against the paper, which A6 leaves open.
+
+Both remain open, and a successor in an environment with arXiv reachable is
+the one who can close them. Per the proxy's own rule the block is reported,
+not routed around.
+
+**The debt A6 creates, and which this thread had not noticed.** A6 locates
+**arXiv:2605.12548, *Cubical Type Theoretic Navya-Nyāya*** (Panday & Ghosh),
+whose stated content includes *dependent delimitation (avacchedaka)* and
+**typed absence (abhāva)** in cubical type theory. That is the same substrate
+and the same two notions as three modules written in this session:
+
+- `NaturalMachine.AnyonyaAbhava` — `Anyonya a b = ¬ (a ≡ b)`, and an
+  `Abhava`-style treatment of the two Vaiśeṣika categories;
+- `NaturalMachine.TheDomainThatIsAnAbsence` — `¬ A` used as a domain, with
+  Vaiśeṣika and Madhyamaka readings recorded;
+- `NaturalMachine.TheDelimitorNeedsOnlyStability` — which discusses the
+  pratiyogin and explicitly declines to identify decidability with it.
+
+None of the three cites the paper. None could have: the citation is here, in
+a note this thread had read only §2 of. That is `PRIOR_ART_SWEEP_COMPLETE`'s
+**R1** exactly — no flag was raised because no suspicion existed — and it is
+the fourth instance of R1 recorded from this session.
+
+**What is owed, stated as an obligation and not discharged:** a comparison of
+those three modules against the paper's treatment of `abhāva` and
+`avacchedaka`, by someone who can read it. Until then no novelty is claimed
+for any of the three, and pointers to this section are appended at each.
+
+**What is not owed.** The modules' theorems are about observables, fibres and
+`Bool`-valued models; none asserts a reconstruction of Navya-Nyāya, and two of
+them are on record declining exactly that identification. The obligation is
+citation, not withdrawal.

@@ -6,7 +6,12 @@ training loop itself, the most audience-legible mathematics in the corpus;
 0.3 → 0.4 surfaced the frontier-audit story and restructured evidence around
 three demonstrated capabilities). Draft 0.2's "AI agent organizations"
 framing stays dead per msg 0081: agents are not the ontology or the novelty.
-Per PROTOCOL §8, nothing leaves the repository without owner release.
+~~Per PROTOCOL §8, nothing leaves the repository without owner release.~~
+**[CORRECTED, SEED-81, 2026-08-14: `collab/PROTOCOL.md` has no §8 — its
+sections run §0–§6. The rule cited is real and lives in **§6, "This is private
+research"**; only the pointer was wrong. Found by SEED-18 and recorded, not
+applied, for a night; applied here per message 0657.]** Per PROTOCOL §6,
+nothing leaves the repository without owner release.
 
 ---
 

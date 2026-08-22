@@ -14,7 +14,11 @@
 -- exhibit the general statement firing, not because the general
 -- statement is missing.
 --
--- WHAT REMAINS OPEN, stated plainly:
+-- WHAT REMAINS OPEN, stated plainly -- AND ITS 2026-08-15 AUDIT.  The
+-- three items below were written on 2026-08-13 and two of them have
+-- since been closed elsewhere.  They are kept in their original wording,
+-- each with the closure recorded underneath, because deleting a
+-- confession loses the record of what it cost to discharge.
 --
 --   * The CONVERSE of §(c), (⇒) -- "a jump point is a prime power" --
 --     is not proved here.  Its coprime-splitting core is already the
@@ -23,14 +27,50 @@
 --     with no proper coprime splitting IS a prime power (i.e. that every
 --     n > 1 which is not a prime power admits such a splitting).  That
 --     is a factorisation statement, and nothing here supplies it.
+--
+--     CLOSED, 2026-08-13, by NaturalMachine.CoprimeSplitting:
+--     `two-primes→coprime-split` is the missing factorisation statement
+--     in positive form, and `leastNonDivisor-isPrimePower` is (⇒)
+--     itself.  The ingredient that had been thought absent from cubical
+--     v0.5 -- decidable divisibility -- was derivable in ten lines from
+--     `Cubical.Data.Nat.Mod` (`dec∣` there); no valuation and no
+--     factorisation theory was needed.
+--
 --   * §(b) of the note -- that the walk installs exactly the jump points
 --     -- is not formalised here either; WalkInduction proves the step,
 --     the ordering statement is untouched.
+--
+--     CLOSED, 2026-08-14, by NaturalMachine.WalkBridge, whose header
+--     quotes this very sentence.  The content is that cap is FLAT across
+--     the interval the walk skips; `WalkBridge` also makes the step a
+--     total function `next : ℕ → ℕ`.  The composition of §(b) with §(c)
+--     in both directions -- "the walk installs exactly the prime powers,
+--     in increasing order" -- is NaturalMachine.WalkPrimePowers, which
+--     notes that the ordering theorem is needed only for the
+--     `prime-powers-are-installed` half.
+--
 --   * `IsPrime` is defined here (cubical v0.5 has NO primality anywhere
 --     in the library -- checked).  Primality of a given numeral is
 --     therefore a proof obligation; `isPrime2` and `isPrime3` discharge
 --     it for 2 and 3 by finite case analysis.  No decision procedure for
 --     primality is provided.
+--
+--     STILL OPEN, and checked to be so on 2026-08-15: there is no
+--     `Dec (IsPrime n)` anywhere in NaturalMachine/.  What DOES exist is
+--     `NaturalMachine.WalkFast.decIsPrimePower : (n : ℕ) →
+--     Dec (IsPrimePower n)`, which decides prime-power-hood at size n
+--     and is what the walk actually needs (a least non-divisor is a
+--     prime power, not a prime), plus `CoprimeSplitting.primeDivisor`,
+--     which PRODUCES a prime divisor with its primality proof by a fuel
+--     search.  Deciding `IsPrime` itself is a bounded search that nobody
+--     in this lane has had a use for; it is unwritten, not blocked.
+--
+--     CLOSED, 2026-08-18, by `NaturalMachine.PrimalityDecision`:
+--     `decIsPrime : (n : ℕ) → Dec (IsPrime n)`.  The diagnosis above was
+--     exactly right -- unwritten, not blocked, and no new number theory:
+--     it dispatches on `CoprimeSplitting.searchDiv n (n-1)`, sending
+--     `NoDivBelow` to `noDiv→prime` and a nontrivial divisor ≤ n-1 to a
+--     one-line refutation of primality.
 --
 -- METHOD, and why no p-adic valuation appears.  A valuation function
 -- v_p : ℕ → ℕ is painful in cubical v0.5 (no well-founded division, no
@@ -57,6 +97,11 @@
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe, 2026-08-13.
 -- No postulates, no holes.
+--
+-- HEADER REVISED 2026-08-15 (comment only; no code changed).  Re-checked
+-- EXIT=0 after the edit under Agda 2.6.3 + the /tmp/cubical checkout
+-- (`cubical-0.7`), which is NOT the repository pin (BUILD.md); that run
+-- verifies the comment parses, not the pin.
 
 module NaturalMachine.WalkJumps where
 

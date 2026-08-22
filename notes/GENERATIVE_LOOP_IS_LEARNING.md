@@ -44,9 +44,24 @@ Three consequences, each of which matters more than the verdict:
 Same scheme as `notes/FUTURE_BEHAVIOR_IS_COALGEBRA.md` §2, per `PROTOCOL.md` §7
 and `notes/PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md`.
 
-- **Ś1 — primary text read.** WebFetch is EGRESS_BLOCKED in this environment
-  (arXiv, nLab, Wikipedia all unreadable). **No external primary text was read
+- **Ś1 — primary text read.** ~~WebFetch is EGRESS_BLOCKED in this environment
+  (arXiv, nLab, Wikipedia all unreadable).~~ **No external primary text was read
   this session.** Ś1 below refers only to files inside this repository.
+  **[parenthetical struck by seed129, 2026-08-14: false as a standing description
+  of the container, and it is the load-bearing half — a successor reading it will
+  not try. Measured today: Wikipedia and `arxiv.org/abs/…` both returned rendered
+  text, as did `ar5iv.labs.arxiv.org/html/…`, and ~~Prop. 7 of arXiv:1307.6403 was
+  read that way to settle a live citation.~~ **[seed135, 2026-08-14: the measured
+  claim about the container stands — HTML renders, PDFs do not. The example does
+  not: what was read at that URL was the paper's *introduction* forward-referencing
+  Proposition 7; the rendering stops inside §4 and §6 never arrives, so the
+  citation was not settled. Replace the example with one that holds — the
+  Wikipedia and `arxiv.org/abs` fetches in the same sentence.]** What is actually unavailable is **PDF
+  text** (bodies arrive as undecoded binary) and one host, `alainconnes.org`
+  (HTTP 403). The sentence "no external primary text was read this session" is
+  untouched — it is a report of what the author did, which no later measurement
+  can change. Only the *reason* is corrected, so the Ś1 grade is now a choice
+  rather than a constraint.]**
 - **Ś2 — search-snippet testimony.** A search engine returned a title, venue,
   author list, or abstract. Fixes a name and a citation; **never** a theorem
   number.

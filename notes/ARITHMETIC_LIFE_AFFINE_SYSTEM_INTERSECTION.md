@@ -63,3 +63,19 @@ executable rechecks the final representative in every original equation.
 No novelty, complexity optimality, or minimal-chart claim is made. This is a
 one-variable affine system; coupled systems in several unknowns require
 Smith/Hermite normal form rather than repeated scalar CRT.
+
+## Formal boundary (2026-08-14)
+
+`formal/pairfield/Pairfield/IncrementalCRTAdapter.lean` checks the complete
+extensional intersection and obstruction theorem once equations have already
+been reduced to coset states. Its success theorem is over the full integer
+cosets, and its failure record retains the signed gcd/difference certificate;
+it also exposes a checked Bézout coefficient pair.
+
+It does not yet formalize the preceding affine reduction
+`a*z ≡ b [ZMOD m] ↔ z ≡ r [ZMOD m/gcd m a]`, retain the accepted and rejected
+source equations, or connect its coefficient pair to an explicit
+reconstruction formula for the returned residue. Those are proof-relevant
+execution data, whereas the current adapter checks their downstream
+extensional quotient. Sensor availability remains an external causal gate,
+not a consequence of CRT.

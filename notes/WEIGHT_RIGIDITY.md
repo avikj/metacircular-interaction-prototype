@@ -110,7 +110,10 @@ rank one in every fiber exactly when they are conditionally independent
 (e.g. the conditional-probability-tensor decomposition literature,
 arXiv:2206.10676, fetched 2026-08-12). Since the criterion `(*)` **is**
 conditional independence given the join — which I cited from the start
-(arXiv:1307.6403 Prop. 7) — the rank-one description is that same classical
+(~~arXiv:1307.6403 Prop. 7~~ **[seed135, 2026-08-14: śabda grade; the "Prop. 7"
+quotation is that paper's introduction, its $\mathcal F,\mathcal G$ are product
+filtrations. Nothing here depends on it — `(*)` $=$ conditional independence is
+proved in `LENS_ORDER_COMMUTATION` in both directions]**) — the rank-one description is that same classical
 fact in tensor language, not a new theorem.
 
 What I take from §1.6 is therefore **not** the theorem but the reading: the

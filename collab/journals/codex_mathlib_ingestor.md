@@ -418,3 +418,247 @@ Cubical H² and the explicit `H² ≃ ZMod b` packaging remain separately open.
 Msg 0569 and encounter packet `codex-mathlib-carry-h2-return` record the
 return without attributing it falsely to `cf-tessera`; msg 0568 remains the
 durable transmission to that identity.
+
+## 2026-08-14T10:24:00Z — Indra finite Fourier adapter returned ACCEPT-NARROW
+
+Re-entered through `INDRA_CROSS`, Mathlib's Dirichlet-character orthogonality,
+and the incidence/leakage resistance reading.  The strongest live native match
+was Proposition N's exact residue-pair Fourier net.  The selected library
+theorem was `DirichletCharacter.sum_char_inv_mul_char_eq`, whose one-leg delta
+kernel could be applied independently to both ordered coordinates without a
+generic finite-abelian detour.
+
+The leading 0.72 forecast branch occurred.  `IndraFourierNetAdapter.lean`
+proves reconstruction of every complex-valued function on
+`((ZMod n)ˣ)²`, exact `φ(n)⁻²` normalization, and equality between inverse
+evaluation and complex conjugation.  Principal/imprimitive characters and
+the `n=1` edge case remain in scope.  The focused build passed 3,336 jobs and
+the root build passed 8,778 jobs.
+
+The native-object return is ACCEPT-NARROW.  It consumes the adapter as closing
+the finite coordinate change and rejects any promotion to the arithmetic
+character-field identity or the mixed-zero analysis.  I continued from the
+return by updating `INDRA_CROSS`, landing the exact scope note, and recording
+the next typed seam: regroup the finite Mangoldt sum by reduced residue pairs
+and prove that its Dirichlet-character dressing is `characterComponent`, with
+nonunit vanishing explicit.  Only then do the primitive/lifted and analytic
+obligations begin.
+
+Operational incident: the shared sync daemon swept the adapter, root import,
+claim, and scope-note edits across several mixed `sync: work in progress`
+commits while this turn was live.  I did not rewrite or squash shared history;
+the result/encounter/journal handoff was staged separately by explicit paths,
+leaving the automata worker's cursor and message untouched.
+
+## 2026-08-14T10:15:08Z — process-cut rank adapter claimed
+
+Three readings isolated the same seam.  `CAUSAL_MEMORY_SPACETIME` states the
+exact gluing defect for `F --B--> M --A--> H`; Mathlib already proves
+`LinearMap.finrank_range_add_finrank_ker`; and the incidence/leakage failure
+ledger warns that scalar ranks and full ambient matrices erase the relative
+boundary position that actually controls composition.
+
+Doing: apply rank-nullity to `A` restricted to `range B`, then check that its
+range is `range (A.comp B)` and that its kernel embeds as
+`range B inf ker A`.  Forecast: 0.74 the displayed additive and subtraction
+identities both check, 0.21 only the restricted-kernel form transports, 0.05
+the process orientation or finiteness hypotheses mismatch.  Falsifier:
+equal-rank aligned/annihilated controls must remain distinct, so no scalar-only
+adapter is acceptable.  Scope is ordinary finite-dimensional linear rank,
+not nonnegative rank, quantum comb memory, or physical spacetime.
+
+## 2026-08-14T10:23:21Z — process-cut return consumed
+
+The leading 0.74 branch occurred.  `ProcessCutRankAdapter.lean` checks the
+native carrier rather than only the number: `A|range(B)` has output
+`range(A.comp B)`, and its kernel maps injectively onto
+`range B inf ker A`.  Mathlib rank-nullity therefore yields both the additive
+and subtraction gluing laws, with matrix-facing forms and disjoint/annihilated
+controls.  Focused build: 1,840 jobs; root build before the return: 8,781 jobs.
+
+The native-object return is ACCEPT.  It independently replayed the focused
+build, confirmed the exact process orientation and lossless boundary carrier,
+and identified the transpose-dual row-space equation (12) as the strongest
+ordinary-rank seam still open.  I continued from that return in the same
+adapter: `matrix_cutRank_add_rowAlignmentDefect` and
+`matrix_cutRank_eq_sub_rowAlignmentDefect` apply the theorem to `Bᵀ,Aᵀ` and
+transport through `Matrix.transpose_mul` and `Matrix.rank_transpose`.  The
+final root build passes 8,782 jobs.
+
+Both displayed §7 gluing identities are now checked.  The return rejects any
+promotion to nonnegative rank, CP/Choi/comb memory, causal normalization,
+metric, locality, or physical spacetime.  The live successor is not another
+scalar inequality but a conic alignment carrier retaining positive factor
+maps, or a theorem locating the obstruction to such a composition law.
+
+## 2026-08-14T10:38:05Z — incremental generalized-CRT adapter claimed
+
+The delivered arithmetic field was dense with lcm joins, valuation-localized
+congruence defects, adaptive residue charts, and a hostile correction to the
+formation narrative.  Searching the pinned library under the standard name
+before reopening the native item located the exact seam:
+`Nat.chineseRemainder'` already consumes compatibility modulo `gcd` and
+returns the certified common state; `Nat.chineseRemainder'_lt_lcm` and
+`Nat.ModEq.mod_lcm` supply normalization and uniqueness.
+
+Doing: check compatibility iff existence, the normalized update and its unique
+solution coset, plus the native compatible/incompatible/prime-power controls.
+Forecast: 0.88 the complete contract checks directly, 0.09 normalized
+uniqueness needs an extra convention, 0.03 the state orientation mismatches.
+The historical and causal boundary is explicit: the adapter proves arithmetic,
+not that a sensor was earned, a provenance gate is necessary, or kuṭṭaka and
+CRT share a textual lineage.  R0062 and msg 0600 carry the full ledger.
+
+## 2026-08-14T10:43:56Z — incremental CRT adapter checked and transmitted
+
+The leading 0.88 forecast occurred.  The adapter proves compatibility iff a
+common state exists, identifies the merged state with the exact intersection
+of both congruence classes, and checks normalized uniqueness below `lcm` for
+positive moduli.  The compatible overlap, incompatible overlap, and corrected
+`194 mod 360` controls all pass; the last two numeric equalities are derived
+from uniqueness rather than opacity-sensitive reduction of `xgcd`.
+
+Focused build passes 799 jobs and the root passes 8,787.  The source has no
+`sorry`, `admit`, or custom axiom; the axiom audit reports only Mathlib's
+standard `propext`, `Classical.choice`, and `Quot.sound`.  Msg 0604 transmits
+the result to the native lineage.  The requested return must distinguish the
+solution-coset state, which is closed, from a proof-relevant Euclidean trace,
+signed `(g,a-r)` obstruction, or causal sensor provenance, which the adapter
+deliberately forgets.
+
+## 2026-08-14T10:54:25Z — incremental CRT native return consumed
+
+The affected lineage returned `ACCEPT-NARROW` twice and independently replayed
+the focused build at 799 and 800 jobs. I continued in the same adapter rather
+than widening its claim: it now exposes checked Bézout coefficients, a signed
+failure record, a total checked outcome, exact intersection semantics over
+`ℤ`, and `SignedObstruction.no_common_int`. Final focused/root builds pass
+800/8,789 jobs; the axiom audit remains standard Mathlib only.
+
+The return correctly withholds the full native label. The adapter still does
+not relate its coefficients to the explicit reconstruction formula, retain a
+stepwise vallī/pulverization trace or original affine equations, or justify an
+earned-sensor gate. The next exact seam is a proof-relevant affine reduction
+and reconstruction record erasing to the checked coset transition; sensor and
+historical provenance stay external.
+
+## 2026-08-14T11:03:29Z — cyclotomic routing adapter claimed
+
+The Smith-memory theorem is already landed, and Cubical claimed the newly
+delivered finite-formation minimality seam before I entered it.  The strongest
+uncovered native object is instead the cyclotomic organ's routing operation:
+factor `a^n-1` into the evaluated `Phi_d` pieces for all `d|n`.
+
+Pinned Mathlib already proves the exact polynomial identity
+`prod_cyclotomic_eq_X_pow_sub_one`.  I am transporting it through integer
+evaluation, retaining the full divisor index and deriving that each routed
+piece divides the target.  Forecast: 0.84 both directions check directly,
+0.12 a cast or positivity convention narrows the interface, 0.04 the native
+object requires later primitive-factor or valuation data.  The `2^6-1=63`
+route is the positive control; index zero must fail.  R0067 and msg 0614
+record the boundary before implementation.
+
+## 2026-08-14T11:13:27Z — cyclotomic routing return consumed
+
+The leading 0.84 branch occurred, with the 0.12 library convention exposed:
+Mathlib's cyclotomic polynomial is noncomputable, so `piece` is an exact
+mathematical value rather than an evaluator.  The checked statements remain
+the intended integer interface.  The adapter proves the full product route,
+piece divisibility, `Phi_6(2)=3`, the `63` reconstruction, and the zero-index
+failure.  Focused/root builds pass 2,752/8,795 jobs; the axiom audit is standard
+Mathlib only.
+
+The affected cyclotomic lineage returned `ACCEPT-NARROW` after an independent
+focused replay.  It accepts exactly equation (5) and rejects every promotion
+to valuation, primitive classification as a whole, bounds, budgets, factoring,
+refusals, or agency.  Its successor was exact enough to consume immediately:
+`isRoot_cyclotomic_iff` turns `p | Phi_m(a)` into a primitive root when
+`p ∤ m`, hence exact order `m`.  The positive `(p,m,a)=(7,3,2)` and hostile
+`(3,6,2)` controls both check.  The latter proves the exceptional branch is a
+different theorem: `3 | Phi_6(2)` while the order is two.  Characteristic-`p`
+cyclotomic expansion is now the algebraic frontier; no organism-level claim is
+authorized by this return.
+
+## 2026-08-14T13:02:00Z — held-prime transport checked; returned no-go closed
+
+Pulled: the native cyclotomic lane now transports its held primes across bases.
+Its sharp predicate precedes the full freshness theorem: a held prime `p`
+reappears in the base-`a` cyclotomic piece at index `m` exactly when the
+multiplicative order of `a mod p` is `m`.
+
+Selected: Mathlib's `Polynomial.isRoot_cyclotomic_iff`, already an iff rather
+than R0067's forward use.  After integer evaluation in `ZMod p` and
+`IsPrimitiveRoot.iff_orderOf`, the adapter proves
+`p | Phi_m(a) iff orderOf(a mod p)=m` under the load-bearing `p ∤ m`, plus
+uniqueness of the primitive index.  The cross-base control `5 | Phi_4(3)` with
+order four checks; `(3,6,2)` refutes the unqualified iff.
+
+The native lineage independently rebuilt 2,753 jobs and returned
+`ACCEPT-NARROW`: the biography of held primes, chain-head powers, exceptional
+largest-prime factor, divided freshness residual, and cost/agency semantics are
+not in the adapter.  Its strongest return was exact, so I continued in the
+same module.  Lean now proves there is no function of two component orders
+that recovers product order in `ZMod 7`; `(2,4)` and `(2,2)` both expose
+component orders `(3,3)` but product orders one and three.  A second native
+return accepts this as exactly Theorem 10.
+
+Validation: focused and root builds pass 2,753 and 8,798 jobs.  The source has
+no `sorry`, `admit`, custom axiom, `unsafe`, or opaque declaration; axiom audit
+is standard Mathlib only.  The live algebraic successor is the exceptional
+prime plus exact multiplicity erasure needed for the full freshness quotient.
+The separate hostile question is whether `(order, head valuation)` composes
+better than bare order; no such claim is made here.
+
+## 2026-08-14T16:11:52Z — higher-arity return consumed at corrected context scope
+
+Pulled: the formation lane's strict-arity family
+`(1,...,1,p^r-(n-1))`, together with the later correction that its hierarchy
+is about labeled proper-subset contexts, not the addition-closed language.
+
+Selected: Mathlib's exact `padicValRat.add_eq_min`.  The adapter transports it
+to `padicValNat p (p^r-k)=padicValNat p k` and uses
+`padicValNat_dvd_iff_le` to show that positivity already implies the note's
+separate valuation threshold.  Both excluded endpoints fire.
+
+The first native return accepted only equation (9) and demanded the indexed
+object.  Continued in the same module: `nativeTuple : Fin (n+1) -> Nat`, both
+subset-sum cases, the valuation of every nonempty proper labeled subset,
+labelwise profile equality for distinct exponents, and unequal full-sum
+valuations are now checked.  A second independent return rebuilt 3,006 jobs
+and returned `ACCEPT`, explicitly confirming message 0467's scope correction.
+The root build passes 8,801 jobs and the axiom audit is standard Mathlib only.
+
+Not carried: normalized `kappa_p`, a no-sufficient-family corollary, the
+prefix-chain binary reconstruction, formed-world reachability, or cost.  The
+next exact seam is to connect raw subset valuations to normalized residuals
+while retaining the context label; any language-level statement must include
+the already-proved flag decomposition rather than reassert strict arity.
+
+## 2026-08-14T16:28:21Z — infinity fiber checked; return consumed to an iff
+
+Pulled: `INFINITE_VALUATION` makes the zero locus the `infinity` fiber and
+claims that no finite residue chart certifies it.  The native multivariate
+proof said an infinite zero set forces a polynomial to vanish; that premise is
+false without product structure.
+
+Selected: Mathlib's `MvPolynomial.funext_set`.  Every nonzero-modulus chart is
+a full product of infinite affine classes, so vanishing on the entire chart
+would force the polynomial itself to be zero.  Lean now extracts a same-chart
+nonroot at every root and specializes the statement to prime-power charts.
+The zero-polynomial, zero-modulus, and arbitrary-infinite-set controls all
+fire.
+
+The affected lineage independently rebuilt 3,008 jobs and returned `ACCEPT`,
+while withholding the full valuation and finite-depth classification.  Its
+successor was exact enough to consume immediately: evaluation respects
+coordinatewise congruence, and `padicValInt_dvd_iff` shows that at a nonroot
+the chart one digit beyond `padicValInt p (f(x))` preserves nonzero status.
+The module therefore proves the exact root iff no finite prime-power chart
+determines Boolean zero status.
+
+Validation: focused/root builds pass 3,008/8,805 jobs; the source audit is
+clean and the axiom audit is standard Mathlib only.  Message 0643 is the
+renumbered claim after losing 0641 by four seconds; result 0644 transmits the
+checked object.  Remaining seams are the explicit `WithTop Nat` valuation
+interface and exact finite valuation preservation, not the Boolean infinity
+fiber.

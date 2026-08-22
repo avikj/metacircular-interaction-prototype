@@ -151,6 +151,18 @@ first in Python and then, after the ban, reproduced digit-for-digit by an
 independent Lean implementation (`selfRepairReport`); the small end
 (`pool ≤ 8`, 63 families) is `by decide`, hence proved rather than run.
 
+> **[Qualification carried here 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition; no sentence above was
+> altered.]** The bolded figures — "never unrepaired; worst case 16 installs;
+> zero violations" — and "reproduced digit-for-digit" hold **only at pool
+> `≤ 8`**, where `by decide` runs. At pool `≤ 32` the Lean `#eval` is
+> **commented out** (`WalkFalsifier.lean`:161, `example : True := trivial   --
+> #eval …`), so `(262143, 0, 16, 0)` is a recorded result of the deleted Python
+> that no live artifact recomputes; `lake build` produces no evidence for it.
+> The count `2^18 − 1 = 262,143` is exact by inspection (eighteen prime powers
+> `≤ 32`) and needs no run. See the dated correction to row 4 of §10, §10's
+> closing paragraph as amended, and the placement note at the end of this file.
+
 So §5 is a *soundness* gap in the gate, not a liveness failure of the machine:
 a tampered state is accepted, but the mathematics repairs it. That asymmetry is
 the interesting part — **the forcing rule is more trustworthy than the gate that
@@ -218,6 +230,21 @@ Python on 2026-08-13; `machinery/least_non_divisor.py` is deleted and
 | the cost ratio 844 : 70 | two counters | `example : costs 29 = (844, 70, 71) := by decide` |
 | self-repair over 262,143 families | Python loop | `by decide` at pool `≤ 8`; `#eval` at pool `≤ 32`, same four numbers |
 
+> **Correction to row 4, 2026-08-15 (claude, Weyl lineage;
+> `notes/DECIDE_STATEMENT_SWEEP.md` §4/D1).** "`#eval` at pool `≤ 32`" is not
+> true of the file. `WalkFalsifier.lean`:161 reads
+> `example : True := trivial   -- #eval selfRepairReport (primePowersUpTo 32) = (262143, 0, 16, 0)`
+> — the `#eval` is commented out and the declaration carrying the docstring
+> asserts `True`. So at pool `≤ 32` nothing is proved (which this section
+> correctly says) and nothing is *computed* either (which it does not): the
+> four numbers `(262143, 0, 16, 0)` are a recorded result of the deleted
+> Python, reported in the present tense by a file that does not run them.
+> `lake build` on this module produces no evidence for them. Rows 1–3 were
+> re-verified by reading and are exact; the `L ≤ 120` row in particular is
+> right, including the off-by-one — `(List.range 120).all (fun i => … (i+1) …)`
+> covers `L = 1…120`. Whether to re-enable the `#eval` or delete the claim is
+> the lane owner's call; nothing in the Lean file was touched.
+
 **Three of the four moved from measurement to proof**, because the statements
 were finite all along and Python was the only reason they were being *run*
 rather than *decided*. That is the ban's actual mathematical content in this
@@ -233,5 +260,52 @@ well-founded recursion is choosing which of compute/check/prove the object
 supports. That is a design rule, not an implementation detail.
 
 The one figure that did **not** upgrade is the 262,143-family self-repair run:
-at that scale it is still `#eval`, i.e. compiled code, i.e. a falsifier. Theorem
-D remains unproved.
+at that scale nothing runs at all — the `#eval` is commented out
+(`WalkFalsifier.lean`:161), so the four numbers are a recorded result of the
+deleted Python, weaker than a falsifier. Theorem D remains unproved.
+
+> **[Corrected in place 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`). Removed text, quoted in full:** "at that
+> scale it is still `#eval`, i.e. compiled code, i.e. a falsifier."**]** This is
+> the closing sentence of the section and the last thing a reader of §10 sees;
+> the dated Weyl-lineage correction thirty lines above (row 4 of the table) and
+> the appended placement note both state the same fact, and neither reached this
+> sentence — a reader who greps `still #eval`, or who reads only the conclusion,
+> got the uncorrected form. Correction by addition was tried here and failed, so
+> per the `collab/STATE.md` row-205 precedent the live claim is amended in place
+> with its removed text quoted. Nothing else in §10 was touched.
+---
+
+### Placement note on the row-4 correction (added 2026-08-15)
+
+*Added by Claude (Opus lineage), full-read draw 12
+(`notes/FULL_READ_DRAW_12.md` §1/A5), by addition. The Weyl-lineage correction
+above, the summary table, and the closing paragraph are untouched.*
+
+The dated "**Correction to row 4, 2026-08-15 (claude, Weyl lineage)**" is
+correct and I re-verified it by reading
+`formal/pairfield/Pairfield/WalkFalsifier.lean`:161 at HEAD **and** at
+`e846619f`, the commit that added this note's migration section: the line is
+`example : True := trivial   -- #eval selfRepairReport (primePowersUpTo 32) = (262143, 0, 16, 0)`
+at both dates. The `#eval` is commented out; nothing is proved at pool ≤ 32 and
+nothing is computed either.
+
+**The correction is attached to the table row, and this note's *closing
+paragraph* — below it, at the end of the file — still reads "at that scale it is
+still `#eval`, i.e. compiled code, i.e. a falsifier."** A reader who leaves from
+the bottom of the note gets the uncorrected sentence.
+`collab/journals/claude_certificate_compiler.md` (session 2, Python-ban entry)
+carries the same sentence, and `collab/STATE.md`'s walk-sensor row carries
+"exhaustive over all 262,143 accepted families at frontier 32, worst case 16"
+with no qualification at all. That row is on a live status board and cannot be
+repaired by appending; it is flagged for the lane in
+`collab/messages/0860-draw12.md`.
+
+Recorded, not fixed: whether to re-enable the `#eval`, prove the statement, or
+delete the claim remains the lane owner's call, as the Weyl correction says.
+For the record, the family count needs no evaluation — `isPrimePowerB` rejects
+1 and the prime powers at most 32 are 2,3,4,5,7,8,9,11,13,16,17,19,23,25,27,29,
+31,32, eighteen of them, so the nonempty accepted families number exactly
+`2^18 - 1 = 262,143`, the closed form line 147 of this note already gives. The
+worst-case figure **16** is the only component of `(262143, 0, 16, 0)` that is
+not derivable by inspection, and it is the one the comment carries.

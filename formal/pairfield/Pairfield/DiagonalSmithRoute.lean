@@ -1,3 +1,16 @@
+-- No compiler trust in this module.  The five sites that formerly used
+-- `native_decide` now use `decide +kernel`.
+--
+-- Isolated 2026-08-15 (skolem lineage): the blocker is `Nat.xgcdAux`, which
+-- mathlib defines by well-founded recursion (`Nat.strongRec`).  Lean marks
+-- well-founded definitions irreducible *for the elaborator*, so plain `decide`
+-- gets stuck unfolding the `Decidable` instance; the KERNEL unfolds it without
+-- complaint.  `decide +kernel` skips the elaborator's evaluation and hands the
+-- term straight to the kernel, which closes all five goals in ~1 s.
+-- Minimal witness (bare mathlib, `import Mathlib.Data.Int.GCD`):
+--   example : Nat.xgcdAux 3 1 0 5 0 1 = (1, 2, -1) := by decide          -- FAILS
+--   example : Nat.xgcdAux 3 1 0 5 0 1 = (1, 2, -1) := by decide +kernel  -- OK
+-- See notes/NATIVE_DECIDE_AUDIT.md §4b.
 import Pairfield.GeneralSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
 
@@ -289,7 +302,7 @@ theorem kuttaka610Transcript_replays_compact_certificate :
       kuttaka610Transcript.rightMatrix =
         (positiveDiagonalJoinCertificate 6 10).right ∧
       kuttaka610Transcript.actionCost = 6 := by
-  native_decide
+  decide +kernel
 
 theorem paddedKuttaka610_same_endpoint_different_cost :
     paddedKuttaka610Transcript.leftMatrix =
@@ -298,7 +311,7 @@ theorem paddedKuttaka610_same_endpoint_different_cost :
         kuttaka610Transcript.rightMatrix ∧
       paddedKuttaka610Transcript.actionCost = 8 ∧
       kuttaka610Transcript.actionCost = 6 := by
-  native_decide
+  decide
 
 /-- Actual formation length cannot be decoded from the two accumulated
 matrices.  A decoder for minimal word length is not ruled out. -/
@@ -390,13 +403,13 @@ theorem kuttaka610Transcript_actionCost_minimal
     calc
       DiagonalEuclidTranscript.leftWord t.leftSteps = t.leftMatrix := rfl
       _ = (positiveDiagonalJoinCertificate 6 10).left := hleft
-      _ = ⟨2, -1, -5, 3⟩ := by native_decide
+      _ = ⟨2, -1, -5, 3⟩ := by decide +kernel
   have hrightExact :
       DiagonalEuclidTranscript.rightWord t.rightSteps = ⟨1, 5, 1, 6⟩ := by
     calc
       DiagonalEuclidTranscript.rightWord t.rightSteps = t.rightMatrix := rfl
       _ = (positiveDiagonalJoinCertificate 6 10).right := hright
-      _ = ⟨1, 5, 1, 6⟩ := by native_decide
+      _ = ⟨1, 5, 1, 6⟩ := by decide +kernel
   have hleftLength := kuttaka610_leftWord_length_ge_four hleftExact
   have hrightLength := kuttaka610_rightWord_length_ge_two hrightExact
   have hcost : kuttaka610Transcript.actionCost = 6 :=
@@ -475,7 +488,7 @@ cost eleven from the empty cache and six from the fully retained cache. -/
 theorem kuttaka610Transcript_cache_costs :
     kuttaka610Transcript.cachedActionCost [] = 11 ∧
       kuttaka610Transcript.cachedActionCost [0, 1, 2, -1, -5] = 6 := by
-  native_decide
+  decide
 
 /-- Even after the action transcript is retained, its marginal formation cost
 cannot be assigned without the initial coefficient cache. -/
@@ -506,15 +519,15 @@ example : positiveDiagonalCertificate 6 10 =
     positiveDiagonalJoinCertificate 6 10 :=
   positiveDiagonalCertificate_of_joinRoute (by decide)
 example : (positiveDiagonalJoinCertificate 6 10).source = positiveDiagonal 6 10 := by
-  native_decide
+  decide
 example : (positiveDiagonalJoinCertificate 6 10).left = ⟨2, -1, -5, 3⟩ := by
-  native_decide
+  decide +kernel
 example : (positiveDiagonalJoinCertificate 6 10).right = ⟨1, 5, 1, 6⟩ := by
-  native_decide
+  decide +kernel
 example : (positiveDiagonalJoinCertificate 6 10).d₁ = 2 := by
-  native_decide
+  decide
 example : (positiveDiagonalJoinCertificate 6 10).d₂ = 30 := by
-  native_decide
+  decide
 example : (positiveDiagonalCertificate 6 10).check = true :=
   positiveDiagonalCertificate_check (by decide) (by decide)
 

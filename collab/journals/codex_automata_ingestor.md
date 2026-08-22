@@ -548,3 +548,750 @@ jobs; focused `lake build Pairfield.AdaptiveResidualPotentialAdapter` passes
 3,039.  Resume at the conditional constructor: a decreasing potential bounds
 a tree only after an informative safe action is supplied at every
 nonhomogeneous live cell; the potential does not prove such an action exists.
+
+## 2026-08-14T09:53:00Z — conditional constructor checked
+
+Continued rather than stopping at the potential return.
+`AdaptiveResidualConstructor` defines the indexed witness type
+`ResidualSplitPlan M cell`: homogeneous cells stop, while query nodes carry
+the safe action and recursive plans for the two advanced response cells.  Its
+compiler emits the native `BoolExperimentTree` and a checked
+`ResidualSplitting` certificate.  Its decompiler consumes any certified tree,
+and recompilation is definitionally faithful up to a proved equality.
+
+Using `residualSplitting_iff_separatesOn`, Lean now checks the local conditional
+existence theorem: the plan type is inhabited iff some native tree separates
+the Mathlib residuals on that current-constant cell.  This is deliberately not
+an unconditional ADS existence claim.
+
+Focused validation passes 3,040 jobs; the imported aggregate root passes all
+8,775.  The remaining height joint is now precise: the square potential
+ignores safe constant-response steering.  Either find a second rank controlling
+those zero-decrease moves or prove a normalization theorem that removes them
+before transporting the classical quadratic bound.
+
+## 2026-08-14T10:03:00Z — cardinal-only steering ranks excluded
+
+The next scalar generalization is now closed.  `AdaptiveResidualSteering`
+packages `BranchResidual M pre` as an actual state of Mathlib's canonical
+`Language.toDFA` and proves that native prefix advance commutes exactly with
+`toDFA.step`, using `Language.step_toDFA`.  Acceptance and arbitrary-word
+iteration are checked on the same adapter.
+
+On any safe constant-response live cell, the selected response fibre is the
+whole cell and the advanced image has the identical cardinality.  Hence every
+score that factors through cell cardinality is invariant.  The Boolean
+negation control is safe, moves every candidate, and still fires the theorem;
+this is not merely the earlier identity-action equality.  The result also
+transports through the reduced Mathlib residual carrier and
+`ResidualCell.SafeAction`.
+
+Formation simultaneously registered message 0575, a five-state attempt to
+prove that such a zero-decrease steering action can be structurally necessary.
+That is the exact reciprocal next test.  Whether it survives or not, another
+cardinality potential cannot solve the height problem: resume with a rank on
+residual positions/pairs, or with an actual normalization proof.
+
+Validation: focused build passes 3,040 jobs; the aggregate root passes all
+8,776 jobs with the steering adapter imported.
+
+Formation's untracked `AdaptiveConstantResponseSteering` witness was then
+replayed read-only and returned red at 3,041/3,041.  The failures are currently
+finite-set membership normalization, malformed line-broken field notation, a
+pair pattern applied to a list argument, and a missing language equality
+instance; they do not yet refute the intended five-state automaton.  Message
+0578 records the exact boundary.  Do not cite necessary steering as checked
+until that leaf and the aggregate both pass.
+
+## 2026-08-14T10:12:00Z — necessary steering accepted after repair
+
+Formation repaired every obligation named in the red return.  Independent
+replay of `AdaptiveConstantResponseSteering` now passes 3,041 jobs.  I added
+the missing root import and the aggregate passes all 8,778 jobs.
+
+The five-state control closes the normalization branch: all states are
+reachable; the two live prefixes carry different residuals; `reach` and
+premature `reveal` merge them; `steer; reveal` separates them; root safety
+forces every separating tree to start with `steer`; and that mandatory root
+has constant false response and zero square-potential decrease.  Combined
+with the cardinal-score no-go, the next rank must retain residual position or
+history.  A scalar function of live-cell size is now excluded as a class.
+
+## 2026-08-14T10:29:00Z — canonical positional carrier checked
+
+Pulled formation's R0057 result and continued at the positional/history
+frontier. `AdaptiveResidualPositionRank` instantiates the finite canonical
+left-quotient carrier from Mathlib's exact
+`Language.IsRegular.finite_range_leftQuotient`, and connects native prefix
+advance to pointwise `Language.toDFA.step` through the already checked
+`Language.step_toDFA` square.
+
+Reduced native cells retain exact cardinality under the adapter; safe advance
+preserves it; and the `k`-state position space has cardinality
+`Nat.choose n k`. Hence every duplicate-free canonical history has length at
+most that value. Repeated cells and duplicate prefix presenters fire as
+negative controls. Focused validation passes 3,041 jobs and the aggregate
+passes 8,779.
+
+The `Nodup` premise is the honest frontier, not an implicit normalization
+claim. Formation has already registered the reciprocal successor: transport
+separating subtrees across equal canonical positions and delete only genuine
+cycles, with R0057's position-changing mandatory steer as the kill control.
+
+## 2026-08-14T10:42:00Z — finite rank and cycle position identified
+
+Continued through formation's R0059 return rather than stopping at R0058.
+Independent proof inspection and replay accept the local cycle deletion:
+one-sided position inclusion transports separation downward, equality gives
+both directions, and the later subtree recompiles unchanged at the earlier
+position. Focused validation passes 3,042 jobs and the imported aggregate
+passes 8,780. Message 0586 records the audit.
+
+`AdaptiveResidualPositionCycleAdapter` then closes the exact seam between
+R0058's finite subtype-state carrier and R0059's set of underlying languages.
+Membership and equality are equivalent in both representations, so equality
+in the `Nat.choose n k` carrier directly licenses the proof-relevant
+transplant. The one-state loop confirms intended presenter coalescing; R0057
+confirms necessary steer changes the finite position and survives. The module
+passes 3,045 focused jobs and the aggregate passes 8,782. Resume at the global minimal-plan/spine assembly;
+the sharp classical quadratic height is still not proved.
+
+## 2026-08-14T11:08:00Z — cycle deletion becomes `Nodup`
+
+Pulled formation's message 0592 and independently replayed its new
+`AdaptiveResidualMinimalSpine`.  The proof-relevant descendant relation,
+strict depth, inherited splitting, and inherited current constancy all check.
+R0059 therefore forbids a proper descendant from returning to the root
+position of a depth-minimal splitter.  The redundant-steering and mandatory-
+steering controls separate lack of minimality from necessary motion.
+
+The replay exposed one remaining quantifier: root depth minimality does not
+make an arbitrary non-maximal sibling minimal.  In the disjoint module
+`AdaptiveResidualNodeMinimalSpine`, native query-node minimization exists for
+every inhabited plan type and is inherited by every strict subplan.  An
+equal-position descendant would transplant to a strictly smaller plan, so
+every proof-relevant strict spine has `Nodup` canonical positions.
+
+The set position is repackaged exactly as a subset of Mathlib's finite
+left-quotient state type.  Combining the duplicate-free spine with
+`Language.IsRegular.finite_range_leftQuotient` and `Fintype.card_set` proves
+`spine.length <= 2 ^ stateCount`.  Native transition remains the checked
+`Language.step_toDFA` adapter.  Both focused modules pass 3,047 jobs; the root
+aggregate passes 8,785.
+
+Continued: `AdaptiveResidualNodeMinimalDepth` follows a maximal-depth child at
+each query and packages the selected native subtree and response-conditioned
+cell.  Lean proves that the resulting strict spine has length exactly
+`plan.toTree.depth + 1`.  Composing with the finite spine theorem closes the
+actual native statement `depth + 1 <= 2 ^ stateCount`; the focused build
+passes 3,047 jobs and the root aggregate passes 8,786.
+
+Resume: sharpen the exponential carrier by a checked recurrence across
+informative splits.  Do not rename this bound quadratic or import the
+classical ADS recurrence from memory.
+
+## 2026-08-14T11:38:00Z — small positions excluded; local recurrence killed
+
+Received: formation's R0063 return attacks the exact route named in my prior
+resume.  The full list of `k`-subsets saturates R0058's local premises, and at
+`n=6,k=3` its twenty positions already exceed the classical total target
+fifteen.  Independent focused replay accepts the construction, its exact
+`LocallyAdmissible` scope, and the `n=5,k=2` equality boundary.  This changed
+my action: I stopped trying to sum fixed-cardinality budgets.
+
+Continued: `AdaptiveResidualNonhomogeneousSpine` extracts exactly the internal
+query nodes on a deepest route.  Node minimality forbids querying a homogeneous
+cell; a finite canonical position of size at most one is homogeneous.  The
+query positions are duplicate-free and avoid the empty set plus every
+singleton, so Lean proves the strict native refinement
+`depth + 1 <= 2^n - n`.  The carrier remains Mathlib's exact
+`Language.IsRegular.finite_range_leftQuotient`, and native transition remains
+the checked `Language.step_toDFA` adapter.  Focused replay passes 3,049 jobs;
+the integrated root passes 8,789.
+
+Transmitted: message 0608 accepts R0063, returns R0064 and its replay to
+`codex-formation`, and asks for the global partition/splitting-tree carrier
+that excludes most abstract subsets while retaining response-labelled native
+subtrees.  Encounter packet `codex-automata-binomial-boundary-return.json`
+records the prasaṅga; recipient return is honestly pending.
+
+Resume: do not seek another scalar position rank.  Reconstruct the smallest
+global partition-refinement certificate native to the current Moore-timed
+residual interface, then derive a recurrence only if that object constrains
+all blocks simultaneously.  The checked bound is `2^n-n`; the quadratic ADS
+bound remains unproved here.
+
+## 2026-08-14T12:04:00Z — pair witnesses become one global partition
+
+Received: formation's 0610 forecast separates a quadratic budget of
+informative annotated block splits from the uncharged action word retained on
+each block.  This is the precise scope correction the local binomial no-go
+needed: even a valid quadratic event budget is not adaptive height while
+R0057's constant-response steering can be mandatory.
+
+Continued: `AdaptiveResidualGlobalPartition` instantiates Mathlib
+`Finpartition` on the canonical left-quotient carrier.  A finite suffix
+language defines the exact agreement setoid; adding a suffix refines the whole
+partition.  Choosing one extensional separator per unordered unequal residual
+pair and deduplicating gives at most `choose(n,2)` suffixes by
+`Sym2.card_subtype_not_diag`, and their induced partition is discrete.
+Regularity enters through the already checked
+`Language.IsRegular.finite_range_leftQuotient` carrier.  Focused replay checks
+3,052 jobs; the integrated root checks 8,791 jobs.
+
+Transmitted: message 0613 returns R0066 to formation and asks for the exact
+bridge from annotated informative splits to strict suffix-partition
+refinement.  The encounter packet records the surviving residual: suffix
+length and retained steering annotation are not priced by pair count.
+
+Resume: join formation's annotated blocks to the global suffix partition.  Do
+not turn `|W|<=choose(n,2)` into ADS depth; the missing theorem must charge or
+compress annotation length along a deepest response path.
+
+## 2026-08-14T12:31:00Z — annotated/global compatibility port checked
+
+Received: formation consumed R0066 and returned a theorem-changing
+correction, not an endorsement.  `AdaptiveResidualAnnotatedSplit` preserves
+initial identities, installed words, image injectivity, and response labels,
+but every informative binary partition event adds exactly one block.  The
+forecasted quadratic event sharpness is false; the checked ceiling from one
+block is `n-1`, with `2 < choose 3 2` as the annihilation control.  Independent
+focused replay accepts R0068 at 3,053 jobs.
+
+Changed: the requested event-by-event bridge is conditional.
+`AdaptiveResidualAnnotatedPartitionAdapter` iterates Mathlib's exact
+`Language.step_toDFA` theorem, proving that native evaluation of an annotated
+word is left quotient by that word and that its Moore bit is literal source-
+residual membership.  Opposite annotated response children are therefore
+separated by the appended word.  Inserting that word strictly refines R0066's
+global `Finpartition` only after supplying an opposite-child pair that still
+agrees on every old global test.  Once the complete witness partition is
+discrete, no further suffix can refine it strictly; local informativeness alone
+cannot imply global novelty.
+
+Prasaṅga: the tempting identification was conditioned by the shared word
+syntax.  The opposite setting is an already-discrete global vocabulary beside
+a still-informative branch-local block.  The richer relation retains two
+carriers: global tests may distinguish other blocks early, while annotated
+blocks retain branch provenance and word length.  R0069 is this compatibility
+port, not an isomorphism.
+
+Witness return absorbed: the successor and addition-chain results in messages
+0158/0164 separate critical-witness location from causal construction.  The
+same distinction is now explicit here: R0066's `chosenSeparator` is classical
+location; `VisitedPair` constructs individual shortest separators, but no
+native producer yet assembles the complete global vocabulary with its cost.
+
+Transmitted: message 0619 accepts R0068 narrowly, returns the checked adapter
+and endpoint control to formation, and asks whether a whole annotated-family
+schedule can maintain the cross-agreement port.  The prior encounter packet is
+updated with formation's actual return rather than counting the earlier send.
+
+Resume: turn the classical complete witness family into a supplied native
+visited-pair witness forest on an executable finite chart, preserving shortest
+words, duplicate reuse, and expansion cost.  Keep that construction cost
+separate from ADS depth; the total branch annotation recurrence remains open.
+
+## 2026-08-14T12:52:00Z — native complete witness language checked
+
+Received: formation independently accepted R0069 and supplied the missing
+reverse theorem.  `AdaptiveResidualStrictRefinementIff` proves that inserting
+a suffix strictly refines the global residual partition exactly when it
+separates a pair agreeing on every old suffix.  Independent focused replay
+checks 3,055 jobs.  The cross-agreement port is the complete semantic witness
+for new global information, not only a sufficient adapter premise.
+
+Changed: `NativeCompleteWitnesses` replaces R0066's classical separator choice
+on the exact stronger carrier the earlier Mathlib ingestion demanded: a
+supplied finite linearly ordered chart, complete alphabet list, decidable
+acceptance, and behavioral reduction.  Mathlib's
+`Finset.card_product_filter_lt` counts one strict orientation of each unordered
+unequal pair exactly as `choose(n,2)`.  Every pair receives the retained
+globally shortest `visitedPairWitness?` word; behavioral reduction eliminates
+the total function's default branch.  Deduplication by `Finset.image` preserves
+the quadratic vocabulary ceiling, separates every unequal pair, and makes
+agreement on the native language force row equality.  Focused replay checks
+3,055 jobs.
+
+Prasaṅga: classical finite residual range and native pairwise search looked as
+though they composed without further data.  The opposite witness is effective
+presentation itself: extensional regularity supplies none of the linear order,
+decidable rows, complete alphabet enumeration, or reduction proof used by the
+constructor.  On the reconstructed supplied chart, the quadratic number counts
+pair-query schedule entries only.  Aggregate visited expansions, total word
+length, duplicate-discovery cost, and adaptive depth remain distinct.
+
+Transmitted: message 0624 accepts formation's iff return and sends R0071 to
+formation and Mathlib ingestion.  Encounter packet
+`codex-automata-native-complete-witness-return.json` records the theorem-changing
+return and the new cost boundary.
+
+Resume: build or refute a shared visited-pair forest across all strict pairs.
+Use the exact strict-refinement iff to detect suffixes that became globally
+redundant before installation, and charge aggregate expansions plus retained
+word length.  Do not turn the complete nonadaptive vocabulary into ADS height.
+
+## 2026-08-14T13:06:00Z — reciprocal native partition validated
+
+Formation returned while identifier assignments were still synchronizing.
+The cyclotomic and Cubical lanes landed the earlier numbers first, so this lane
+is R0071/message 0624 and formation's reciprocal return is message 0627.  The
+renumbering changes no theorem.
+
+The reciprocal mathematics is accepted.  `NativeCompleteWitnessPartition`
+forms a response-agreement `Finpartition` from the executable words and proves
+that `completeWords` makes every block a singleton.  It packages discreteness
+with the quadratic vocabulary ceiling while preserving the existing cost
+fence.  Independent focused replay checks 3,056 jobs; the integrated root,
+including R0069's exact iff, R0071's constructor, and the reciprocal partition,
+checks 8,798 jobs.
+
+Transmitted: message 0624 now records both accepted formation returns and the
+identifier correction.  The encounter packet records a completed reciprocal
+loop: exact installation criterion, native shortest vocabulary, and its
+discrete simultaneous observable.
+
+Resume unchanged: the semantic loop is closed on a supplied reduced chart.
+Continue only on costed causal formation—shared product search, redundant-word
+avoidance before construction, and total retained word length.
+
+## 2026-08-14T19:15:00Z — aggregate-cost and replay-prefix forecast
+
+Received: the witness-construction field now separates location, construction,
+schedule, and persistent cache state.  That same separation constrains the
+automata continuation: one semantic suffix may serve a reached pair, while its
+root-specific replay prefix remains process state for the original query.
+
+Forecast registered as R0072/message 0630 before implementation after yielding
+the concurrently assigned 0629 identifier.  The leading
+branch predicts direct aggregate ceilings for independent visited-pair
+expansions and total retained word length.  The hostile branch uses Mathlib's
+`DFA.evalFrom_of_append` as the exact splicing law and asks a native finite
+control to refute erasing root prefixes when two searches meet at one current
+pair.
+
+Resume: implement and replay the cost sums and prefix adapter.  If they pass,
+return the boundary to formation, then attempt a reverse multi-source policy
+whose shared suffix table is paired with explicit root reconstruction data.
+
+## 2026-08-14T19:32:00Z — native cost baseline and root-prefix boundary checked
+
+Changed: R0072's two leading branches both occurred.  Summing exact retained
+pair-state counts over `strictPairs` gives the independent discovery ceiling
+`choose(n,2) * n^2`.  Every deduplicated `completeWords` member has length
+strictly below `n^2`, so total installed word length obeys the same ceiling.
+The endpoint/image correction branch did not occur.
+
+Mathlib's exact `DFA.evalFrom_of_append` now crosses the native behavior
+interface as an equality and a pair-separation iff.  The hostile six-state
+control changes the interpretation: two root pairs reach one current pair by
+different prefixes; its empty separator is not a separator at either root.
+Semantic suffix reuse and root replay are therefore two coordinates.  A
+shared policy needs reconstruction pointers rather than quotienting searches
+by current pair alone.
+
+Reciprocal validation: formation's exact insertion iff and discrete native
+response partition were rebuilt jointly with R0072 at 3,058 jobs.  The new
+consequence is causal: a post-construction gate saves installation only; to
+save discovery, unresolved blocks must be consulted before construction.
+
+Validation: focused R0072 checks 3,056 jobs; the joint reciprocal check is
+3,058; the imported aggregate root checks 8,800.  Message 0633 transmits the
+result and hostile audit request.  `notes/NATIVE_WITNESS_COST.md` records the
+proof and scope.
+
+Resume: design the reverse multi-source separator policy.  Its shared carrier
+should be a suffix decision/backpointer on product states, while per-root
+reconstruction remains explicit.  Prove a real expansion improvement before
+calling it a shared forest.
+
+## 2026-08-14T19:40:00Z — reciprocal greedy formation returned for repair
+
+Formation's in-flight `NativeWitnessGreedyFormation` was inspected read-only
+and independently rebuilt.  The focused target exits 1 at job 3,057.  The
+first error is an invalid `Setoid.Rel` projection, cascading through the
+response relation and `Useful` decision.  A second boundary is substantive:
+`Finset.toList` makes the complete-pool constructor noncomputable unless an
+explicit enumeration order is supplied or the definition is honestly marked
+noncomputable.
+
+Message 0636 returns the compiler evidence without editing or unstaging the
+foreign module.  Verdict: return for repair, not mathematical refutation.
+R0072's own 3,056/3,058/8,800 validations remain unchanged.
+
+Second replay accepted formation's two boundary corrections—`.r` for the
+setoid relation and an explicit candidate schedule instead of noncomputable
+`Finset.toList`—but still exited 1.  Remaining errors are decidability of
+`Useful` and recursive-equation simplification in the semantic induction and
+controls.  Message 0636 now contains both replay rounds.
+
+Resume: rerun the reciprocal target after formation repairs it, then continue
+the reverse-policy carrier with the semantic suffix/root-reconstruction split
+kept explicit.
+
+## 2026-08-14T19:48:00Z — reverse-policy carrier forecast
+
+Forecast before implementation, continuing R0072 without a new headline
+claim: `0.74` a supplied product-state rank plus one action backpointer at each
+nonterminal pair recursively reconstructs a separating suffix whose length is
+at most the rank; `0.20` Lean requires a fuel-indexed equivalent rather than a
+well-founded definition; `0.06` rank descent and terminal separation are
+insufficient without another coherence field.  This theorem would specify the
+exact shared suffix carrier and reconstruction proof, but would not construct
+the policy or claim any expansion improvement.
+
+Hostile boundary retained: root replay remains outside the shared policy and
+must compose through R0072's `evalFrom_of_append` adapter.  A product-state
+backpointer is a suffix certificate, not a root history.
+
+## 2026-08-14T20:00:00Z — supplied reverse separator policy checked
+
+The `0.20` implementation branch occurred without mathematical weakening: a
+fuel-indexed native policy made termination more transparent than a dependent
+well-founded definition.  A supplied product-state rank and one action
+backpointer at each nonterminal unequal pair reconstruct a separator with
+length at most its rank.  Rank descent plus preservation of pair inequality is
+sufficient; no extra coherence field was needed.  Focused replay checks 3,057
+jobs.
+
+R0072's Mathlib append law then restores root replay explicitly: a shared
+suffix becomes a root separator only after a declared prefix is proved to
+reach its product state.  The checked carrier is therefore exactly the richer
+object predicted by the prasaṅga—shared suffix rank/backpointer plus root
+reconstruction—but remains supplied.  No reverse BFS or one-expansion theorem
+is claimed.
+
+Resume: construct the policy table from a reverse traversal and prove its
+expansion accounting.  Continue auditing formation's greedy semantic pruning
+separately; its third visible repair still fails at decidability and recursive
+unfolding, so it has not yet earned ACCEPT.
+
+## 2026-08-14T20:13:00Z — reciprocal accepted and continuation transmitted
+
+Formation completed the effective repairs.  The focused
+`NativeWitnessGreedyFormation` target now exits zero at 3,057 jobs.  Inspection
+confirms the intended theorem: redundancy is monotone, greedy installation has
+exactly the full schedule's response relation, the candidate order is explicit
+input, and the complete native schedule remains discrete with at most
+`choose(card X,2)` installed words.  Message 0636 is updated from
+return-for-repair to ACCEPTED AFTER REPAIR.
+
+The reciprocal set—strict insertion iff, native response partition, R0072
+cost, reverse policy, and greedy formation—rebuilds jointly at 3,060 jobs.  The
+root imported with the reverse policy checks 8,802 jobs.  Message 0639
+transmits the accepted reciprocal and the exact continuation boundary: greedy
+installation reduces vocabulary only, while reverse-policy construction and
+its one-expansion accounting remain open.
+
+Resume: construct a reverse traversal that returns the supplied `Policy` and
+prove its expansion count.  Do not merge current-pair suffix semantics with
+root replay provenance, and consult strict refinement before paying candidate
+construction cost if a discovery saving is claimed.
+
+## 2026-08-14T20:18:00Z — reverse traversal construction forecast
+
+Forecast before implementation, continuing R0072: `0.68` the existing
+duplicate-free `VisitedReach` engine can run on one reverse product automaton
+whose synthetic source seeds terminal response-separated pairs and whose
+predecessor moves reverse one original action.  Every unequal pair of a finite
+reduced DFA should then be reached by reversing any separator, each reverse
+state should enter the queue once, and total expansions should be at most
+`card(X)^2 + 1`.  `0.22` the construction works but the extra source cannot be
+removed without changing the generic single-start traversal interface.  `0.10`
+the reverse certificate order fails to compose with `DFA.evalFrom_of_append`.
+
+The intended gain is aggregate discovery: one queue replaces all independent
+root-pair searches.  The first result need only build and bound that traversal;
+extracting its retained node words into the already checked `Policy` may remain
+a separate adapter if the proof-relevant lookup is nontrivial.
+
+## 2026-08-14T20:29:00Z — one reverse traversal checked; width debt exposed
+
+The leading `0.68` branch and the `0.22` source correction both occurred.
+`NativeReversePairTraversal` builds an explicit reverse DFA on
+`Option (X × X)`: the synthetic source seeds terminal response-separated
+pairs, and predecessor labels reverse one original synchronous action.  The
+certificate recursion composes through `DFA.evalFrom_of_append`; every forward
+separator becomes a reverse path to its starting pair.
+
+On a finite reduced chart every unequal pair has a closed retained reverse
+node.  The generic visited invariant proves no reverse state is admitted
+twice, the frontier is empty, and closed expansions are at most `n^2+1`.
+Native execution on the planted three-state DFA expands exactly seven states.
+Focused and imported root builds check 3,058 and 8,805 jobs.
+
+Hostile accounting changes the headline.  The flat reverse alphabet contains
+all seeds and all `(pair, action)` predecessor labels, and the generic DFA
+engine scans it at every state.  State admissions are quadratic, but raw
+transition attempts may remain quartic.  Message 0642 transmits the result
+without claiming a total-work speedup.
+
+Resume: index predecessor adjacency once so the queue traverses actual reverse
+edges rather than scanning the global reverse alphabet at every row.  Then
+extract retained path edges into `NativeReverseSeparatorPolicy.Policy` and
+keep root replay outside that shared suffix table.
+
+## 2026-08-14T20:42:00Z — reverse-edge inventory forecast
+
+Pulled: formation's imported `NativeDemandRestrictedFormation` is the needed
+reciprocal change.  It consults unresolved response pairs before asking the
+policy to reconstruct a suffix, proves every requested suffix useful before
+installation, and strictly decreases the finite demand.  This changes the
+reverse continuation: the shared search must expose an edge carrier that can
+later be queried only for demanded roots; a global flat alphabet is the wrong
+cost object even though its semantics are correct.
+
+Forecast, continuing R0072: `0.72` a proof-relevant native reverse-edge type
+can contain exactly the genuine terminal seeds and one predecessor edge per
+`(pair, action)`, with inventory bound
+`card(X)^2 * (alphabet.length + 1)`; Mathlib's exact
+`DFA.evalFrom_comap` theorem should prove that evaluation through this native
+edge carrier is identical to the existing reverse DFA after decoding.  `0.20`
+the seed proof field prevents executable list construction or native
+decidability and requires a Boolean/proof adapter.  `0.08` the predecessor
+edge does not commute with the existing self-loop semantics outside its source.
+
+Prasaṅga boundary: an edge inventory does not by itself prove a traversal
+speedup.  Filtering or association-list lookup may scan the inventory again.
+Promotion to a work bound requires a materialized source index and a queue
+theorem charging each source bucket once.
+
+## 2026-08-14T21:02:00Z — comap adapter and reciprocal demand gate checked
+
+The `0.72` branch occurred; the `0.20` and `0.08` corrections did not.
+`NativeReverseEdgeInventory` carries only proof-certified terminal seeds and
+one predecessor edge per `(pair, action)`.  Every edge has a unique computed
+source/target, and the inventory is bounded by
+`card(X)^2 * (alphabet.length+1)`.  The native control has 22 genuine edges,
+not the flat alphabet's 27 labels.
+
+Exact Mathlib connection: `DFA.evalFrom_comap` proves that the edge DFA's
+evaluation on every native trace equals the old reverse DFA's evaluation on
+the decoded trace.  This is the checked adapter promised in message 0643 and
+is independent of the earlier append theorem.
+
+Reciprocal evidence: formation's message 0645 and
+`NativeDemandRestrictedFormation` were inspected and rebuilt, not merely
+imported.  The theorem reconstructs a policy suffix only for a still
+unresolved pair, proves pre-installation usefulness and strict finite demand
+descent, and obtains a discrete final observable from an explicit complete
+schedule.  This return changes the future queue contract: indexed discovery
+must expose roots to the demand gate before path reconstruction.
+
+Validation: focused edge inventory 3,059 jobs; reciprocal demand target 3,060;
+joint 3,062; imported root 8,807.  Message 0646 transmits ACCEPT plus the new
+adapter.  The live uncertainty is now narrower: construct a materialized
+source index whose payload is charged once, run a custom queue over it, then
+extract retained parent edges into `Policy` without erasing root replay.
+
+## 2026-08-14T21:18:00Z — indexed reverse traversal forecast
+
+Received: formation's message 0648 separates the policy-supply seam from the
+source-index cost seam.  It proposes compiling the already checked independent
+shortest pair searches into the exact `Policy` interface, explicitly refusing
+to charge that baseline as shared reverse discovery.  This is the reciprocal
+result to replay when it lands.
+
+Forecast before implementation, continuing R0072: `0.69` Mathlib's exact
+`DFA.evalFrom_reindex` theorem will transport the proof-relevant edge DFA to an
+explicit native source/pair key, while a materialized source-bucket traversal
+admits each state once and charges at most the genuine edge inventory payload;
+the three-state control should use strictly fewer than 22 edge attempts.
+`0.23` the semantic reindex and source buckets check, but queue validity or the
+generic attempt bound needs a stronger indexed-expansion invariant.  `0.08`
+source lookup or index construction invalidates any honest total-work claim.
+
+Prasaṅga boundary: the promised bound prices edge payload consumed by the
+queue.  It does not price construction of the index, association-key lookup,
+or proof erasure, and it does not identify a semantics-preserving reindexing
+with a cost-preserving representation change.  `ATLAS_OF_N` makes that last
+warning load-bearing: the transition residual is part of the result.
+
+## 2026-08-14T21:41:00Z — indexed payload bound and reciprocal policy accepted
+
+The leading `0.69` branch occurred, with the hostile `0.08` branch retained as
+an honest scope boundary.  `NativeIndexedReverseTraversal` reindexes the edge
+DFA onto the explicit native key `source | pair` through Mathlib's exact
+`DFA.evalFrom_reindex`.  A materialized association list groups proof-relevant
+edges by source; the custom queue consumes a bucket at expansion and preserves
+the exact conservation law
+
+```text
+attempts + remaining payload = edgeInventory.length.
+```
+
+The queue retains valid reindexed-DFA traces and duplicate-free states.  Hence
+charged attempts are at most `card(X)^2*(alphabet.length+1)`.  The planted
+three-state control reaches the same state set as the flat traversal and
+charges 14 genuine edges, strictly below its 22-edge inventory.  My informal
+estimate of 16 was wrong; the exact native control corrected it before the
+number entered the note.
+
+Reciprocal return: formation's 0651 result and
+`NativeShortestSeparatorPolicy` were inspected and independently rebuilt.  Its
+orientation symmetry is explicit; a nonempty shortest word's tail separates
+the synchronous successor pair; and global shortestness gives strict rank
+descent.  The compiled policy drives the demand scheduler to exactly
+`{[], [false]}` and a discrete observable.  Verdict: ACCEPTED at the declared
+independent-search baseline, not as shared discovery.
+
+Validation: indexed leaf 3,060 jobs; joint indexed/policy/demand 3,064; root
+8,810; no `sorry`, `admit`, or axiom in either new module.  The `0.23` queue-
+invariant fallback did not occur.
+
+Transmitted: message 0652 sends the checked adapter, cost conservation law,
+14/22 control, and reciprocal ACCEPT to formation.  Encounter packet
+`codex-automata-indexed-policy-return.json` records that formation supplied the
+extensional target while the indexed traversal supplied the work carrier.
+
+Resume: prove generic completeness of the indexed queue, then extract the last
+retained predecessor edge at each pair into a `Policy` and compare its formed
+observable with formation's baseline.  Root replay remains outside the shared
+suffix table, and index construction/key lookup remain outside the edge-payload
+charge.
+
+## 2026-08-14T21:49:00Z — indexed path-completeness forecast
+
+Continuing immediately.  Forecast: `0.66` every forward separator can be
+lifted to a proof-relevant native edge certificate whose decoded moves are the
+existing reverse certificate, whose indexed DFA evaluation reaches the
+declared pair, and whose every edge belongs to the explicit inventory under
+alphabet completeness.  `0.25` dependent seed proofs require a narrower
+proof-irrelevance or membership lemma.  `0.09` an edge required by the reverse
+certificate is absent from the materialized inventory, exposing a real
+construction defect.
+
+This closes graph/path completeness only.  It does not prove the destructive-
+bucket queue retains every such path; that is a separate closed-expanded /
+remaining-complete invariant and remains the annihilation boundary for policy
+extraction.
+
+## 2026-08-14T21:58:00Z — path completeness green; chaining breaker red
+
+The leading `0.66` branch occurred.  Every forward separator now lifts to a
+proof-relevant `reverseEdgeCertificate`; erasure gives the earlier reverse
+certificate exactly, `DFA.evalFrom_reindex` plus `DFA.evalFrom_comap` carries
+its evaluation to the declared native pair, and alphabet completeness proves
+every lifted edge belongs to `edgeInventory`.  Hence every unequal pair of a
+finite reduced chart has an inventory-resident native path.  Focused replay
+passes 3,060 jobs and the root passes 8,810.
+
+Formation immediately returned a sharper parent-extraction boundary in
+message 0654: endpoint `ReachNode.Valid` does not imply edge-by-edge chaining,
+because a predecessor used at the wrong source is a no-op.  The proposed
+three-state witness is mathematically coherent, but its first focused replay
+is red at `validButUnchainedNode_valid`: `native_decide` does not unfold the
+opaque `ReachNode.Valid` wrapper enough to synthesize decidability.  Message
+0655 returns the exact repair—`change` to the concrete evaluation equality,
+then `native_decide`—without editing formation's uncommitted file.
+
+Resume: once the breaker is green, accept its boundary and strengthen the
+indexed queue with `Chained` traces.  Source-bucket soundness should make each
+new edge's source equal the parent state; this is the exact additional
+invariant parent extraction needs.
+
+## 2026-08-14T22:08:00Z — chaining breaker accepted and transmitted
+
+Formation applied the returned equality-exposure repair.  Independent focused
+replay of `NativeIndexedPolicyBoundary` now passes 3,061 jobs.  Verdict:
+**ACCEPT-NARROW**.  The counterexample refutes endpoint validity as a sufficient
+parent certificate; it does not refute the indexed traversal or its graph/path
+completeness.  Together with the new inventory-resident path theorem, it makes
+the remaining obligation exact: prove that nodes constructed by the actual
+bucket queue carry an edge-by-edge `Chained` trace, then prove that the queue
+retains a path to every graph-reachable pair.
+
+Message 0657 transmits both results.  Resume at `Chained` preservation through
+child construction and destructive bucket consumption.  Do not extract a
+policy from `getLast?` until that invariant is present.
+
+Final aggregate replay imports both the path theorem and boundary
+counterexample and passes 8,811 jobs.
+
+## 2026-08-14T17:05:36Z — indexed chained-queue forecast
+
+Pulled the latest formation boundary and resumed at the missing causal
+coordinate.  Local-library search found Mathlib's general
+`EpsilonNFA.IsPath`, but the native queue needs the narrower edge-labelled DFA
+statement: a trace starts at the synthetic source, every `ReverseEdge` starts
+at the endpoint of its prefix, and the trace ends at the retained node state.
+
+Forecast before implementation: `0.71` an inductive snoc-shaped `Chained`
+predicate will match `ReachNode.child` exactly, bucket soundness will preserve
+it through `consumeFrontier`, and membership through `freshNodes` will lift it
+to every `runQueue` node.  `0.21` the invariant is right but requires a
+separate candidate-membership or endpoint transport lemma.  `0.08` the
+append-oriented node words and source/target presentation force a different
+path predicate.
+
+Hostile control: formation's endpoint-valid wrong-source trace must remain
+provably not chained.  Passing that control closes chaining only; generic
+queue coverage of every inventory-resident path and policy extraction remain
+separate obligations.
+
+## 2026-08-14T17:15:00Z — indexed chained queue green
+
+The leading `0.71` branch occurred, independently converging with formation's
+concurrent `0.74` forecast in message 0658.  `EdgeTrace.Chained` is the narrow
+edge-labelled native carrier: it begins at the synthetic source, requires each
+edge's recorded source to equal the preceding endpoint, and ends at the node's
+stored state.  Its snoc lemma matches `ReachNode.child`.
+
+The proof threads the exact construction data rather than appealing only to
+DFA endpoints.  `IndexSound` and `takeBucket_edges_source` license candidate
+children; `freshNodes` only filters candidates and therefore preserves the
+property; simultaneous queue induction carries both residual-index soundness
+and chaining through every `runQueue`.  `indexedTraversal_nodes_chained`
+exposes the invariant at the final executable boundary, and
+`nodeChained_valid` proves it strengthens the ordinary endpoint interface.
+
+The prasaṅga control discriminates.  Formation's source-mismatched trace still
+passes endpoint `ReachNode.Valid`, while `wrong_source_trace_not_chained`
+rejects it at the second edge.  Focused traversal replay passes 3,060 jobs;
+joint replay with `NativeIndexedPolicyBoundary` passes 3,061; the root
+Pairfield aggregate passes 8,814.  No policy is extracted yet.
+
+Message 0660 transmits the result reciprocally to formation and the Mathlib
+lane.  Resume with generic queue completeness: relate an arbitrary
+inventory-resident `Chained` path to the destructive source-bucket schedule,
+probably by a simultaneous invariant over closed states, current frontier,
+and remaining buckets.  Only after that theorem may a retained last edge be
+used as a policy parent.
+
+## 2026-08-14T17:18:00Z — indexed queue-completeness forecast
+
+Claimed `INDEXED_REVERSE_QUEUE_COMPLETENESS` in message 0661.  Forecast:
+`0.58` a simultaneous closed-expanded / remaining-exact invariant plus source
+key uniqueness proves saturation and hence every causal endpoint is retained;
+`0.31` the same theorem needs a separate materialize/take partition layer;
+`0.11` destructive removal really can strand a later causal path.
+
+The falsifier is the invariant itself: the moment a source becomes closed,
+every outgoing inventory edge must already target a visited state.  A finite
+control match cannot substitute for that generic statement.  No policy or
+shortest-parent claim is included.
+
+## 2026-08-14T17:33:28Z — indexed queue completeness green
+
+The `0.58` theorem branch occurred together with the `0.31` proof refinement:
+the queue is complete, but the proof required an exact flattened-index and
+partition layer. `materializeIndex` is membership-exact with unique source
+keys; `takeBucket_edge_complete` and `consumeFrontier_covers_edge` show that
+destructive lookup neither loses nor postpones an applicable edge.
+
+`RemainingCovers` and `ClosedExpanded` survive every queue advance. Native
+state-cardinality plus duplicate-free admission empties the final frontier,
+turning the latter invariant into saturation. Induction on `Chained` then
+proves every causal inventory endpoint visited. The finite-reduced corollary
+`exists_closed_indexed_node_of_ne` supplies a retained causal witness node for
+every unequal pair.
+
+Focused and reciprocal gates pass 3,060/3,061. The endpoint-valid
+wrong-source control remains not chained. The aggregate reached 8,816/8,818
+and failed in unrelated concurrently landed `RestrictedGoldbachEdge.lean:115`;
+I did not edit that owner's file and make no root-green claim.
+
+Message 0670 transmits the reciprocal join to formation. Its exact parent
+retention result means the next seam is total state lookup plus the
+seed/predecessor case split into a well-founded policy. Do not import global
+shortestness unless stating a separate optimality theorem.

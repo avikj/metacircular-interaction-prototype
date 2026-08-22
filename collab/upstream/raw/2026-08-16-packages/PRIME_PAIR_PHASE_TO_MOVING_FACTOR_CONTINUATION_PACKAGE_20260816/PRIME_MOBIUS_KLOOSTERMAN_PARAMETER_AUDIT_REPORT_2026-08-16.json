@@ -1,0 +1,83 @@
+{
+  "title": "Prime\u2013M\u00f6bius Kloosterman Parameter Audit Report",
+  "checks_total": 8,
+  "checks_passed": 8,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "id": "STRUCTURAL-COMPATIBILITY",
+      "status": "PASS",
+      "statement": "M=D, N=D/R satisfies M<=N^2 exactly through rho<=1/2."
+    },
+    {
+      "id": "EXPONENT-SUBSTITUTION",
+      "status": "PASS",
+      "rho": "7/31",
+      "phi": "2/19",
+      "exponents": [
+        "-5/124",
+        "-17/248",
+        "7/5890",
+        "-509/11780",
+        "-19/124"
+      ]
+    },
+    {
+      "id": "BOUNDED-FREQUENCY-THRESHOLD",
+      "status": "PASS",
+      "threshold_rho": "1/5",
+      "threshold_R_in_D": "D^(1/5)",
+      "threshold_R_in_X_when_D=X^(1/2)": "X^(1/10)"
+    },
+    {
+      "id": "QUARTER-SCALE-ENDPOINT",
+      "status": "PASS",
+      "exponents": [
+        "1/16",
+        "0",
+        "3/40",
+        "0",
+        "-3/16"
+      ],
+      "positive_terms": 2,
+      "zero_terms": 2,
+      "negative_terms": 1
+    },
+    {
+      "id": "THRESHOLD-SHARPNESS-FOR-DIRECT-BOUND",
+      "status": "PASS",
+      "at_threshold_exponents": [
+        "-1/20",
+        "-3/40",
+        "0",
+        "-3/100",
+        "-3/20"
+      ]
+    },
+    {
+      "id": "UNSPLIT-BALANCED-COMPARISON",
+      "status": "PASS",
+      "relative_exponents": [
+        "-1/20",
+        "-1/8"
+      ],
+      "dominant": "-1/20"
+    },
+    {
+      "id": "FREQUENCY-PHASE-DIAGRAM",
+      "status": "PASS",
+      "samples": {
+        "0": "1/5",
+        "1/5": "6/25",
+        "1": "1/3"
+      }
+    },
+    {
+      "id": "X-SCALE-FRONTIER",
+      "status": "PASS",
+      "lower": "X^(1/10)",
+      "upper": "X^(1/4)"
+    }
+  ],
+  "scope_limit": "Exact algebraic parameter audit only. It does not prove a new Kloosterman estimate or a prime-pair asymptotic."
+}

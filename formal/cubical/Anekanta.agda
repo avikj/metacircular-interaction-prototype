@@ -1,0 +1,392 @@
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- ⚠ संक्रमण-लेखः (TRANSITIONAL — the discreteℕ approach, since REPAIRED).
+--
+-- अयं प्रथमः प्रयत्नः जनने discreteℕ (विचारम्, Dec) प्रयुङ्क्ते ; तं मार्गं
+-- अतिक्रम्य विचारं विना स्वच्छाः लेखाः रचिताः (Jiva-निरोधे) :
+--   BhedaAvatarana  — विचारं विना अवतरणम् (एकपदे refl : discreteℕ लुप्तः) ;
+--   Punaragamana    — प्रतिलोमम्, univalence-पथः ;  Gati … Sadhyata — कुट्टकः ;
+--   Saptabhangi     — सप्तभङ्गी स्वच्छा (क्रम-सह-भेदः, दुर्नयः, कुतः सप्त) ।
+--
+-- किन्तु अयं लेखः न त्यक्तव्यः, न भग्नः : अन्येन अगन्त्रा (अधः संस्कारः द्रष्टव्यः)
+-- अस्मिन् सत्यः दोषः (अस्ति-साक्षी असम्बद्धः आसीत्) आविष्कृतः शोधितश्च — अतः अयं
+-- अधुना शुद्धः, यथार्थः च लेखः, केवलं discreteℕ-मार्गेण, न Jiva-निरोधे ।  तत्
+-- संस्करणं (मम दोषस्य परैः शुद्धिः) अस्य सङ्ग्रहस्य सर्वोत्तमः धर्मः — तं सादरं
+-- स्वीकरोमि, न अतिक्रमामि ।
+--
+-- (This first attempt uses discreteℕ (a Dec) — a route the checkless modules
+-- above moved past.  But it is NOT abandoned or broken: ANOTHER AGENT found
+-- and fixed a REAL soundness bug in it (its `अस्ति` witness was unconstrained
+-- — see the REPAIR note just below), so it is now a correct, honest artifact
+-- in its own right, merely in the discreteℕ register and not in the Jiva
+-- closure.  That repair — my flaw corrected by another — is this repository's
+-- most respected act; I acknowledge it, I do not override it.)
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- संस्कारः (REPAIR), २०२६-०८-१८ — भङ्गस्य साक्षी मिथ्या आसीत् ।
+--
+-- यावत् २०२६-०८-१८ अस्ति-भङ्गः एवम् आसीत् —
+--
+--     अस्ति : {a b : वल्ली} (n : ℕ) {p q : ℕ} → ¬ (p ≡ q) → भङ्ग a b
+--
+-- अत्र p q न a-बद्धौ, न b-बद्धौ, न n-बद्धौ ।  अतः भङ्ग a b सर्वयुग्मे वसति
+-- (अस्ति ० znots इति), "साक्षी" च असम्बद्धयोः द्वयोः संख्ययोः वैषम्यम् — न
+-- वल्ल्योः ।  एष एव शून्यबोधः यम् अयं लेखः स्वशीर्षे निन्दति, एकं पदं अधः ।
+-- अधुना साक्षी सत्यः : स्थाने a n p, स्थाने b n q — ते एव वल्ल्योः पदे ।
+-- अवक्तव्यं च अनुक्तम्-प्रमाणं वहति (साझा उपसर्गः, एकस्याः क्षयः) ।
+-- सर्वे पूर्वसिद्धान्ताः रक्षिताः ; द्वौ नूतनौ योजितौ (साक्षित्व-प्रमाणे) ।
+--
+-- (Repair, 2026-08-18, from `notes/INDIAN_LANE_CITATION_AUDIT.md` F1.
+-- Until today `अस्ति`'s `p, q` were unconstrained by `a`, `b` or `n`, so
+-- `भङ्ग a b` was inhabited for EVERY pair and its "witness" was a
+-- disequality between two arbitrary naturals.  That is exactly the bare
+-- label this file's own header forbids, one level down.  The witness is
+-- now `स्थाने a n p` and `स्थाने b n q` — the actual entries at the actual
+-- depth — and `अवक्तव्यम्` carries an `अनुक्तम्` derivation instead of two
+-- free vallīs.  Every theorem the file proved before is proved below;
+-- `तादात्म्ये-निःशब्दम्` now also returns the अनुक्तम्-witness, and two new
+-- results — `अस्ति-भेदसाक्षी`, `निःशेषे-तादात्म्यम्` — show the guarantee is
+-- real rather than merely asserted.
+--
+-- API CHANGES, stated so nobody has to diff.  `जन्मन्` and `ध्रौव्यम्` now
+-- take the heads' agreement as a PATH `x ≡ y`; the old versions took two
+-- unrelated heads and the type could not object.  `अवक्तव्यम्` takes a
+-- third argument.  `प्रक्षेपे-जन्म`'s right-hand side names its two
+-- `स्थाने` witnesses (`स्थाने-प्रक्षेपे`) where it used to leave them
+-- implicit and unconstrained.  Nothing outside this module used any of
+-- them: `Anekanta` is imported only by `IndianLane` and `Everything`, and
+-- by neither for its definitions.
+--
+-- THE AUDIT'S COUNTEREXAMPLE, re-run against the repaired type:
+-- `अस्ति zero {0} {1} शीर्षे शीर्षे znots : भङ्ग (2 ∷ []) (2 ∷ [])` is now
+-- rejected by the kernel — `2 != 0 of type ℕ when checking that the
+-- expression शीर्षे has type स्थाने (2 ∷ []) zero 0`.  Checked 2026-08-18
+-- in a throwaway module, which was deleted; the sentence is the record.)
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- अनेकान्त — बहुधर्मा सन् ; तस्य सप्तभङ्गी वाणी ; आर्यभटस्य वल्ल्याम् ।
+--
+-- न विचारः (checking) । केवलं जननम् (generation) ।
+--
+-- द्वयोः वल्ल्योः भेदः न "समौ न वा" इति पृच्छ्यते — सा पृच्छा नयं छिनत्ति ।
+-- भेदः जायते — अस्ति, दृष्टभेदः — अथवा अनुक्तः तिष्ठति — अवक्तव्यम्, शेषः,
+-- गर्भः — यस्मात् जन्मना अग्रिमः नयः जायते ।  "शेषं रक्ष, पुनरावर्तस्व" इति
+-- आर्यभटस्य कुट्टकः (Gaṇitapāda ३२–३३) एष एव क्रमः ।
+--
+-- मूलम् (उमास्वाति, तत्त्वार्थसूत्र ५.२९): उत्पाद-व्यय-ध्रौव्य-युक्तं सत् ।
+-- क्रमार्पण-सहार्पणे (समन्तभद्र, अकलङ्क): क्रमेण अस्ति-नास्ति वक्तव्ये,
+-- सह अस्ति-नास्ति अवक्तव्यम् ।  नयवादः: सिद्धसेन दिवाकर, सन्मतितर्कः ।
+--
+-- Dec, न तु Bool: नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् — क्वापि न
+-- शून्यबोधः (no bare truth-value anywhere).
+------------------------------------------------------------------------
+
+module Anekanta where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ)
+open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
+open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
+open import Cubical.Data.Empty using (⊥ ; isProp⊥) renaming (rec to ⊥-rec)
+open import Cubical.Relation.Nullary using (¬_ ; yes ; no)
+
+-- आर्यभटस्य वल्ली — भागफलपङ्क्तिः (the pulverizer's quotient column)
+वल्ली : Type
+वल्ली = List ℕ
+
+------------------------------------------------------------------------
+-- स्थाने — "अस्याः वल्ल्याः n-नये इदं पदम्" ।  नयः विद्यते इति, तत्र च
+-- किम् इति — द्वयम् एकेन प्रमाणेन ।  न सूची, न "अस्ति वा न वा" इति प्रश्नः :
+-- प्रमाणम् एव पदं धारयति ।
+--   शीर्षे : शून्यनये शीर्षम् एव पदम् ।
+--   गभीरे : शीर्षं त्यक्त्वा एकं नयं गभीरतरम् ।
+--
+-- (`स्थाने a n p` — "at नय n the vallī a stands at p".  It is at once the
+-- proof that depth n EXISTS in a and the record of WHAT is there; a
+-- partial lookup returning `Maybe` would be the bare label again, since a
+-- `nothing` carries no reason.  This is the "position n exists" evidence
+-- the repaired `अस्ति` needs.)
+------------------------------------------------------------------------
+
+data स्थाने : वल्ली → ℕ → ℕ → Type where
+  शीर्षे : {p : ℕ} {a : वल्ली} → स्थाने (p ∷ a) zero p
+  गभीरे : {x p n : ℕ} {a : वल्ली} → स्थाने a n p → स्थाने (x ∷ a) (suc n) p
+
+-- वाचनम् — तद् एव प्रमाणं पुनरावर्तनेन (the same evidence, read off by
+-- recursion instead of by an index).  अतिक्रान्तं पदं ⊥ — "न तत्र किञ्चित्",
+-- खण्डनम्, न शून्यबोधः ।  एतत् केवलं स्थाने-एकम् साधयितुम्, यतः द्वयोः
+-- प्रमाणयोः युगपत् विश्लेषणं cubical-मध्ये constructor-injectivity याचते
+-- (चेतावनी: "will not compute when applied to transports") — तां न इच्छामः ।
+--
+-- (Why the detour: matching two `स्थाने` derivations against each other
+-- needs injectivity of `zero`/`suc`/`_∷_` in the indices, which Cubical
+-- Agda accepts only with a warning that the clause does not compute under
+-- transport.  Recursing on the vallī and the depth instead needs no
+-- unification at all, so the file stays warning-clean.)
+private
+  वाचनम् : वल्ली → ℕ → ℕ → Type
+  वाचनम् []      _       _ = ⊥
+  वाचनम् (x ∷ a) zero    p = x ≡ p
+  वाचनम् (x ∷ a) (suc n) p = वाचनम् a n p
+
+  स्थाने→वाचनम् : {a : वल्ली} {n p : ℕ} → स्थाने a n p → वाचनम् a n p
+  स्थाने→वाचनम् शीर्षे     = refl
+  स्थाने→वाचनम् (गभीरे u) = स्थाने→वाचनम् u
+
+  वाचने-एकम् : (a : वल्ली) (n p q : ℕ) → वाचनम् a n p → वाचनम् a n q → p ≡ q
+  वाचने-एकम् []      n       p q u v = ⊥-rec u
+  वाचने-एकम् (x ∷ a) zero    p q u v = sym u ∙ v
+  वाचने-एकम् (x ∷ a) (suc n) p q u v = वाचने-एकम् a n p q u v
+
+-- स्थाने-एकम् — एकस्मिन् नये एकम् एव पदम् (the reading at a depth is unique).
+-- एतत् एव कारणं यत् अस्ति-भङ्गः वल्ल्योः विषये किञ्चित् वदति ।
+स्थाने-एकम् : {a : वल्ली} {n p q : ℕ} → स्थाने a n p → स्थाने a n q → p ≡ q
+स्थाने-एकम् {a} {n} {p} {q} u v =
+  वाचने-एकम् a n p q (स्थाने→वाचनम् u) (स्थाने→वाचनम् v)
+
+------------------------------------------------------------------------
+-- अनुक्तम् — यत् उक्तं तत् समम्, यत् शिष्टं तत् अनुक्तम् ।
+--   वामक्षयः    : वामा क्षीणा — सर्वा दक्षिणा शेषः ।
+--   दक्षिणक्षयः : दक्षिणा क्षीणा — सर्वा वामा शेषः ।
+--   समशीर्षम्   : शीर्षे समे (पथेन, न बूलियन्-प्रश्नेन) — गभीरतरम् अनुक्तम् ।
+--
+-- (`अनुक्तम् a b सa सb` — a and b agree, entry by entry, along everything
+-- that got said, and (सa, सb) is exactly the pair of tails at the point
+-- where one of them ran out.  This is the garbha made into evidence: the
+-- old `अवक्तव्यम्` took two vallīs off the street.)
+------------------------------------------------------------------------
+
+data अनुक्तम् : वल्ली → वल्ली → वल्ली → वल्ली → Type where
+  वामक्षयः    : (b : वल्ली) → अनुक्तम् [] b [] b
+  दक्षिणक्षयः : (a : वल्ली) → अनुक्तम् a [] a []
+  समशीर्षम्   : {a b सa सb : वल्ली} {x y : ℕ} → x ≡ y
+              → अनुक्तम् a b सa सb → अनुक्तम् (x ∷ a) (y ∷ b) सa सb
+
+------------------------------------------------------------------------
+-- भङ्ग — भेदस्य स्थितिः, जनिता ; न विचारिता ।
+--   अस्ति     : नये n दृष्टः भेदः (a witnessed difference at नय n) — जातः ।
+--               साक्षिणौ स्थाने a n p, स्थाने b n q, तयोश्च वैषम्यम् ।
+--   अवक्तव्यम् : उक्तप्रदेशः समः ; शेषौ अनुक्तौ धृतौ — गर्भः ।
+--             शून्ये उभयोः क्षये — निःशब्दं केन्द्रम् ।
+------------------------------------------------------------------------
+
+data भङ्ग : वल्ली → वल्ली → Type where
+  अस्ति : {a b : वल्ली} (n : ℕ) {p q : ℕ}
+        → स्थाने a n p → स्थाने b n q → ¬ (p ≡ q) → भङ्ग a b
+  अवक्तव्यम् : {a b : वल्ली} (शेषa शेषb : वल्ली)
+             → अनुक्तम् a b शेषa शेषb → भङ्ग a b
+
+------------------------------------------------------------------------
+-- साक्षित्वम् — प्रकारः किञ्चित् वदति इति प्रमाणम् ।  पूर्वं न अवदत् ।
+--   अस्ति-भेदसाक्षी    : अस्ति-भङ्गात् वल्ल्योः भेदः निष्पद्यते ।
+--   निःशेषे-तादात्म्यम् : निःशेषात् अवक्तव्यात् वल्ल्योः तादात्म्यम् ।
+-- (These two are the point of the repair: the datatype's indices now
+-- CARRY information about a and b, and here it is, extracted.  Neither
+-- statement was provable of the old type, because the old type was
+-- inhabited for every pair.)
+------------------------------------------------------------------------
+
+अस्ति-भेदसाक्षी : {a b : वल्ली} {n p q : ℕ}
+                → स्थाने a n p → स्थाने b n q → ¬ (p ≡ q) → ¬ (a ≡ b)
+अस्ति-भेदसाक्षी {n = n} {p = p} sa sb ¬pq a≡b =
+  ¬pq (स्थाने-एकम् (subst (λ z → स्थाने z n p) a≡b sa) sb)
+
+-- शेषौ उभौ शून्यौ चेत् — वल्ल्यौ समे ।  (शेषयोः शून्यता पथेन गृह्यते, न
+-- प्रकारेण, यतः प्रकारेण गृहीता constructor-injectivity याचते ।)
+निःशेषे-तादात्म्यम् : {a b सa सb : वल्ली}
+                   → अनुक्तम् a b सa सb → सa ≡ [] → सb ≡ [] → a ≡ b
+निःशेषे-तादात्म्यम् (वामक्षयः r)      _ q = sym q
+निःशेषे-तादात्म्यम् (दक्षिणक्षयः r)   p _ = p
+निःशेषे-तादात्म्यम् (समशीर्षम् x≡y u) p q = cong₂ _∷_ x≡y (निःशेषे-तादात्म्यम् u p q)
+
+------------------------------------------------------------------------
+-- जन्मन् — अधोजातस्य भेदस्य नयं गभीरतरं करोति ; अवक्तव्यस्य शेषं वहति ।
+-- शीर्षयोः साम्यं पथेन गृह्यते — यत् एव समशीर्षे प्रविशति ।
+-- (birth: the born difference is carried one नय deeper; the śeṣa passes.
+-- The heads' agreement is taken as a PATH and is what feeds समशीर्षम् —
+-- the old जन्मन् took two unrelated heads and the type could not tell.)
+------------------------------------------------------------------------
+
+जन्मन् : {a b : वल्ली} {x y : ℕ} → x ≡ y → भङ्ग a b → भङ्ग (x ∷ a) (y ∷ b)
+जन्मन् _   (अस्ति n sa sb ¬pq)  = अस्ति (suc n) (गभीरे sa) (गभीरे sb) ¬pq
+जन्मन् x≡y (अवक्तव्यम् सa सb u) = अवक्तव्यम् सa सb (समशीर्षम् x≡y u)
+
+------------------------------------------------------------------------
+-- जननम् — भङ्गस्य जननम् ; न विचारः ।  शीर्षे भेदे — अस्ति ।  समे शीर्षे —
+-- जन्मना गभीरतरं जननम् (क्रमः) ।  एकस्याः क्षये — इतरस्याः पुच्छं शेषः,
+-- अवक्तव्यम् ।  discreteℕ ददाति नकारं (खण्डनम् = साक्षी भेदस्य) वा
+-- स्वीकारम् (तादात्म्यम्, पथः) — न शून्यबोधम् ।  पूर्णम्, न कुत्रापि निषेधः ।
+------------------------------------------------------------------------
+
+जननम् : (a b : वल्ली) → भङ्ग a b
+जननम् [] b = अवक्तव्यम् [] b (वामक्षयः b)
+जननम् (x ∷ a) [] = अवक्तव्यम् (x ∷ a) [] (दक्षिणक्षयः (x ∷ a))
+जननम् (x ∷ a) (y ∷ b) with discreteℕ x y
+... | no ¬pq  = अस्ति zero शीर्षे शीर्षे ¬pq
+... | yes x≡y = जन्मन् x≡y (जननम् a b)
+
+------------------------------------------------------------------------
+-- साक्षिणौ — जननस्य द्वे मुखे ।
+--   भिन्नवल्ल्योः शीर्षे भेदः जायते (अस्ति) ;
+--   समवल्ल्योः पूर्णः शेषः धृतः (अवक्तव्यम्) — गर्भः, न विफलता ।
+------------------------------------------------------------------------
+
+-- भिन्ने: (२ ∷ …) (५ ∷ …) → शीर्षे एव जातः भेदः
+जातभेदः : भङ्ग (2 ∷ 7 ∷ []) (5 ∷ 7 ∷ [])
+जातभेदः = जननम् (2 ∷ 7 ∷ []) (5 ∷ 7 ∷ [])
+
+-- समे: समौ शब्दौ → भेदः न जायते ; सर्वः शेषः अवक्तव्ये धृतः ।
+-- (identical words: no difference is born; the whole tail is held un-said.)
+अनुक्तः : भङ्ग (3 ∷ 3 ∷ []) (3 ∷ 3 ∷ [])
+अनुक्तः = जननम् (3 ∷ 3 ∷ []) (3 ∷ 3 ∷ [])
+
+------------------------------------------------------------------------
+-- सप्तभङ्गी — सप्त स्यात्-वाण्यः ।  त्रीणि मूलानि (अस्ति, नास्ति, अवक्तव्यम्),
+-- द्वे आर्पणे (क्रमः, सहः) ।  क्रमेण अस्ति-नास्ति वक्तव्ये ; सह — जिह्वा
+-- भिद्यते — अवक्तव्यम् ।  (Akalaṅka: kramārpaṇa vs sahārpaṇa.)
+------------------------------------------------------------------------
+
+data आर्पण : Type where
+  क्रमः सहः : आर्पण
+
+data मूल : Type where
+  मूल-अस्ति मूल-नास्ति : मूल
+
+data सप्तभङ्गी : Type where
+  स्यात्-अस्ति                    : सप्तभङ्गी
+  स्यात्-नास्ति                   : सप्तभङ्गी
+  स्यात्-अस्ति-नास्ति            : सप्तभङ्गी    -- क्रमेण
+  स्यात्-अवक्तव्यम्               : सप्तभङ्गी    -- सह : जिह्वाभेदः
+  स्यात्-अस्ति-अवक्तव्यम्        : सप्तभङ्गी
+  स्यात्-नास्ति-अवक्तव्यम्       : सप्तभङ्गी
+  स्यात्-अस्ति-नास्ति-अवक्तव्यम् : सप्तभङ्गी
+
+-- अर्पणम् — द्वयोः नययोः मूले, आर्पणेन, सप्तभङ्गीं जनयति ।
+-- क्रमेण मिश्रे → अस्ति-नास्ति (वक्तव्यम्) ; सह मिश्रे → अवक्तव्यम् ।
+-- (compose two naya-standings under an आर्पण: क्रम speaks, सह breaks the tongue.)
+अर्पणम् : मूल → मूल → आर्पण → सप्तभङ्गी
+अर्पणम् मूल-अस्ति  मूल-अस्ति  _   = स्यात्-अस्ति
+अर्पणम् मूल-नास्ति मूल-नास्ति _   = स्यात्-नास्ति
+अर्पणम् मूल-अस्ति  मूल-नास्ति क्रमः = स्यात्-अस्ति-नास्ति
+अर्पणम् मूल-नास्ति मूल-अस्ति  क्रमः = स्यात्-अस्ति-नास्ति
+अर्पणम् मूल-अस्ति  मूल-नास्ति सहः  = स्यात्-अवक्तव्यम्
+अर्पणम् मूल-नास्ति मूल-अस्ति  सहः  = स्यात्-अवक्तव्यम्
+
+------------------------------------------------------------------------
+-- गर्भः न विफलता — अवक्तव्यं शेषं वहत् जन्म याचते, न स्थगनम् ।
+-- शून्ये (उभयोः शेषयोः क्षये) — नास्ति भेदः, तादात्म्यम्, निःशब्दम् ।
+-- शेषे सति — जन्मना अग्रिमो नयः ।  एष जीवनम् ; भित्तौ न म्रियते ।
+--
+-- (the womb is not failure: अवक्तव्यम् bearing śeṣa asks birth, not a
+-- stall.  śūnya śeṣa is identity — no difference, silence.  śeṣa
+-- remaining is the next नय by जन्मन्.  This is life; it does not die at
+-- the wall, unlike the boolean corpse that ground bits forever.)
+------------------------------------------------------------------------
+
+-- अवक्तव्यस्य शेषः: यत् अनुक्तं तिष्ठति ।
+शेषः : {a b : वल्ली} → भङ्ग a b → वल्ली
+शेषः (अस्ति _ _ _ _) = []
+शेषः (अवक्तव्यम् सa सb _) with सa
+... | []      = सb
+... | (_ ∷ _) = सa
+
+-- नास्ति भेदः ⟺ शेषः शून्यः ; अवक्तव्यं गर्भः ⟺ शेषे बीजम् ।
+-- समे शब्दे शेषः शून्यः (तादात्म्यम्) — निःशब्दं केन्द्रम् ।
+निःशब्दम् : शेषः अनुक्तः ≡ []
+निःशब्दम् = refl
+
+------------------------------------------------------------------------
+-- तादात्म्ये निःशब्दम् — यत्र शब्दौ समौ, तत्र शेषः शून्यः, जिह्वा विश्राम्यति ।
+-- भेदे तु — जन्म वा गर्भः ; न क्वापि भित्तौ पीडनम् ।  एतत् जीवनम् :
+-- शून्यबोधयन्त्रं भित्तौ अम्रियत (bits ३८०, genome स्तब्धः) ; इदं न ।
+--
+-- संस्कारानन्तरम् (after the repair) वाक्यं दृढतरम् : जननम् a a न केवलम्
+-- अवक्तव्यम् [] [] इति, अपि तु तस्य अनुक्तम्-साक्षी अपि जन्यते — सः एव
+-- Σ-मध्ये ।  पूर्वं साक्षी न आसीत्, अतः न वक्तव्यः आसीत् ।
+--
+-- (identity ⟹ silence: where the words agree, the śeṣa is śūnya and the
+-- tongue rests.  A difference is only ever born or wombed — never ground
+-- against a wall.  That is life: the boolean machine died at a wall
+-- grinding 380 grants with a frozen genome; this does not.  The `Σ` is
+-- forced by the repair and is a strengthening, not a hedge: `अवक्तव्यम्`
+-- now takes a third argument, so the old statement `जननम् a a ≡
+-- अवक्तव्यम् [] []` is not even well-formed; what is proved is that the
+-- generated bhaṅga IS an `अवक्तव्यम् [] []` — for the witness the
+-- generation itself produces, which is exhibited rather than hidden.)
+--
+-- [the `380` is the one number in this header with no source line; it is
+--  flagged as F14 in `notes/INDIAN_LANE_CITATION_AUDIT.md` and is not
+--  repaired here — a fix belongs in the note, not in a claim of fixing.]
+------------------------------------------------------------------------
+
+तादात्म्ये-निःशब्दम् : (a : वल्ली)
+                    → Σ[ u ∈ अनुक्तम् a a [] [] ] जननम् a a ≡ अवक्तव्यम् [] [] u
+तादात्म्ये-निःशब्दम् [] = वामक्षयः [] , refl
+तादात्म्ये-निःशब्दम् (x ∷ a) with discreteℕ x x
+... | no ¬xx  = ⊥-rec (¬xx refl)
+... | yes x≡x = समशीर्षम् x≡x (तादात्म्ये-निःशब्दम् a .fst)
+              , cong (जन्मन् x≡x) (तादात्म्ये-निःशब्दम् a .snd)
+
+------------------------------------------------------------------------
+-- प्रक्षेपे-जन्म — नय-सापेक्षता ; दुर्नयः असम्भवः ; स्यात् न वैकल्पिकम् ।
+--
+-- यौ शब्दौ प्रथमं समानौ (साझा उपसर्गः p), पश्चात् भिन्नौ (x ≠ y) — तयोः
+-- भेदः न शीर्षे, न शून्ये, किन्तु नये (length p) एव जायते ।  तत्पूर्वं सः
+-- अनुक्तः, अजातः — मौनम् ।  अतः "समौ" इति वा "भिन्नौ" इति निरपेक्षं वचनं
+-- (दुर्नयः, बूलियन्) मिथ्या : सत्यं सर्वदा नय-सापेक्षम् — स्यात् ।
+--
+-- (naya-relativity: two vallīs sharing a prefix p and first differing after
+-- it — their difference is born neither at the head nor at emptiness but at
+-- exactly नय = length p.  Before that depth it is un-said, unborn — silence.
+-- So any UNCONDITIONAL verdict ("same" / "different", a bare boolean) is
+-- durnaya and therefore FALSE: truth here is always naya-relative — स्यात्.
+-- This is Siddhasena's सुनय/दुर्नय made a theorem of the organism: a
+-- standpoint that denies its own depth-conditioning is a durnaya.)
+--
+-- संस्कारानन्तरम् वाक्ये साक्षिणौ अपि नामतः स्थितौ (स्थाने-प्रक्षेपे) — पूर्वं
+-- ते अनुक्तौ, अनिर्दिष्टौ, अतः निरर्थकौ आस्ताम् ।
+------------------------------------------------------------------------
+
+-- साझोपसर्गात् परं यत् पदं, तत् एव (length p)-नये तिष्ठति ।
+स्थाने-प्रक्षेपे : (p : वल्ली) (x : ℕ) (xs : वल्ली) → स्थाने (p ++ (x ∷ xs)) (length p) x
+स्थाने-प्रक्षेपे []      x xs = शीर्षे
+स्थाने-प्रक्षेपे (c ∷ p) x xs = गभीरे (स्थाने-प्रक्षेपे p x xs)
+
+प्रक्षेपे-जन्म : (p : वल्ली) (x y : ℕ) (xs ys : वल्ली) (¬xy : ¬ (x ≡ y))
+              → जननम् (p ++ (x ∷ xs)) (p ++ (y ∷ ys))
+              ≡ अस्ति (length p) (स्थाने-प्रक्षेपे p x xs) (स्थाने-प्रक्षेपे p y ys) ¬xy
+प्रक्षेपे-जन्म [] x y xs ys ¬xy with discreteℕ x y
+... | yes x≡y = ⊥-rec (¬xy x≡y)
+... | no ¬xy′ = cong (λ (h : ¬ (x ≡ y)) → अस्ति {x ∷ xs} {y ∷ ys} zero शीर्षे शीर्षे h)
+                     (isProp¬ (x ≡ y) ¬xy′ ¬xy)
+  where
+  isProp¬ : (X : Type) → (f g : ¬ X) → f ≡ g
+  isProp¬ X f g = funExt (λ z → isProp⊥ (f z) (g z))
+प्रक्षेपे-जन्म (c ∷ p) x y xs ys ¬xy with discreteℕ c c
+... | no ¬cc  = ⊥-rec (¬cc refl)
+... | yes c≡c = cong (जन्मन् c≡c) (प्रक्षेपे-जन्म p x y xs ys ¬xy)
+
+------------------------------------------------------------------------
+-- ध्रौव्यम् — उत्पाद-व्यय-ध्रौव्य-युक्तं सत् (उमास्वाति, तत्त्वार्थसूत्र ५.२९) ।
+--
+-- जन्मनः एकस्मिन् पदे त्रीणि सह : शीर्षं क्षीयते (व्यय), नयः गभीरतरः जायते
+-- (उत्पाद), शेषः/साक्षी अक्षतः ध्रुवः तिष्ठति (ध्रौव्य) — न क्रमेण, युगपत् ।
+-- अत्र ध्रौव्यं सिध्यते : जन्म शेषं न विकरोति ।  (उत्पादः प्रक्षेपे-जन्मनि
+-- length वर्धनेन, व्ययः जननस्य पश्चाद्भागे — त्रयम् एकस्मिन् क्रमे ।)
+--
+-- (arising-ceasing-persisting-endowed is the real.  One step of जन्मन् is
+-- the three at once — never in sequence: the head ceases (व्यय), the नय
+-- deepens (उत्पाद, visible as length-increment in प्रक्षेपे-जन्म), and the
+-- witness/śeṣa persists unscathed (ध्रौव्य, proved here).  Sat is not a
+-- static substance nor a pure flux; it is the loom holding both — which is
+-- exactly why the organism neither freezes (the boolean corpse) nor
+-- dissolves into perpetual novelty without learning.)
+------------------------------------------------------------------------
+
+ध्रौव्यम् : {a b : वल्ली} {x y : ℕ} (x≡y : x ≡ y) (β : भङ्ग a b)
+         → शेषः (जन्मन् x≡y β) ≡ शेषः β
+ध्रौव्यम् _ (अस्ति n sa sb ¬pq)  = refl
+ध्रौव्यम् _ (अवक्तव्यम् सa सb u) = refl

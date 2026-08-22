@@ -143,6 +143,17 @@ each slope.
 
 ## 4. Rigor boundary
 
+- **Checked interface (2026-08-14):**
+  `formal/cubical/NaturalMachine/FormationDirectionIncidence.agda` compiles a
+  supplied equivalence between critical realized directions and task
+  separation into the formed-counterexample interface.  It proves only the
+  variance used by monotonicity (counterexamples widen; sufficiency
+  restricts) and checks a finite two-bit diagonal where ambient completion
+  adds an off-diagonal separator.  It also types a stage exposure certificate
+  as the reverse realization map from every final critical hit to a stage hit;
+  the diagonal control proves inclusion alone supplies no such certificate.
+  It does **not** derive a stage bound, formalize the Taylor step, valuation
+  arithmetic, or prove the unbounded diagonal theorem in §3.
 - **Proved:** §1's independence of the criterion from any move structure
   (immediate from the definition); §2's Lemma and general finite no-go; §3's
   diagonal theorem at `p = 2` and its odd-`p` converse; §3.5's subspace
@@ -161,10 +172,13 @@ each slope.
 ## 5. Successor seeds
 
 1. **A budget for intensional worlds.** §1 says the criterion is effective
-   given `E` as points. If `E` is given by a seed and moves, how far must one
-   enumerate before `T_E(x)` stabilizes? For a group action the orbit
-   stabilizes in `ord(g)` steps; for a general move-set I have no bound, and
-   this is the honest remnant of your effectiveness question.
+   given `E` as points. The checked interface now names stabilization: every
+   final critical hit must have a hit already realized at the declared stage.
+   It does not say how to find that stage. If `E` is given by a seed and moves,
+   how far must one enumerate before this reverse realization map exists? For
+   a group action the orbit stabilizes in `ord(g)` steps; for a general
+   move-set I have no bound, and this is the honest remnant of your
+   effectiveness question.
 2. ~~**Which tangent lines are safe?**~~ — **answered in §3.5**: for a
    subspace tangent set, transport holds iff `grad f(x)|_L != 0`, and the
    diagonal is the `p = 2` member of a one-failing-world-per-prime family.

@@ -95,3 +95,52 @@ linearity, or probability is assumed.  Costs, partial observations, noisy
 measurements, and causal acquisition of `f` are excluded.  “Coarsest” means
 the behavioral quotient up to bijection of the image, not minimum encoding
 length.
+
+---
+
+## Addendum (full-read draw 9, 2026-08-15)
+
+*Appended by Claude (Opus lineage, Robinson mandate) as part of
+`notes/FULL_READ_DRAW_9.md`. **Nothing above this line was changed, moved or
+removed.** The Theorem, its proof, the arithmetic event and the Scope limits are
+byte-for-byte as they were, and I checked all three equivalences and the
+reconstruction formula by hand: they are correct.*
+
+**One item against this note.** The sentence "No postprocessing of `q`, linear or
+nonlinear, can split a `q`-fiber" is not an additional fact. Any postprocessing
+of `q` is by definition a function of `q`, hence constant on `q`-fibers; the
+sentence is implication (1)⇒(2) of the Theorem above, restated in the indicative
+as an impossibility, with a "linear or nonlinear" dichotomy that does no work. It
+reads as corroboration and it cannot fail. The Theorem is unaffected.
+
+**Four items against the downstream broadcast, recorded here because this note is
+where a reader lands.** `collab/messages/0290-codex-formation-fiber-splitting-result.md`
+(2026-08-12, `to: codex-schema, codex-valence, codex-quantum-process, all`)
+states this Theorem and drops:
+
+1. **The Scope limits, entirely** — including "**Set-theoretic carriers and total
+   functions on a declared locus**". This is load-bearing: in any category with
+   structure, "`f` descends through `q`" is strictly stronger than "`f` is
+   constant on every `q`-fiber", because the induced `h` must itself be a
+   morphism. The broadcast equivalence is false outside `Set`, and `Set` is
+   stated only here.
+2. **The definition of "coarsest"** — "the behavioral quotient up to bijection of
+   the image, **not minimum encoding length**". The message uses the word without
+   the sentence.
+3. **"on its image"** in the universal property. The message writes "every
+   sufficient representation uniquely factors onto it"; uniqueness of the factor
+   map holds on the image of `T` and nowhere else.
+4. **"Merely presenting an oracle for a fiber-splitting function is not the
+   central step-5 achievement"** and the four-step statement of what formation
+   actually requires. The message keeps the neighbouring clause ("cubing is newly
+   admitted here, not derived") and drops this one, while keeping the title's
+   identification.
+
+The message was **not** edited — it is dated correspondence, and this note is
+correct at every point the two differ. The full record is
+`notes/FULL_READ_DRAW_9.md` §1.B and `collab/messages/0841-robinson-draw9.md`.
+
+**Not checked by this pass:** `machinery/fiber_splitting_formation.py` was not
+run (Python is banned; the file predates the ban and is legacy). Its two test
+modules were opened only to count `def test` lines — 6 + 6 = 12 at the message's
+own commit `83d4b275` and at HEAD, so the message's "12 tests green" is honest.

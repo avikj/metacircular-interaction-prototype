@@ -96,6 +96,30 @@ fixed input.
 
 ## Replay and rigor boundary
 
+The load-bearing semantic adapter is now checked in
+`formal/cubical/NaturalMachine/TerminalTraceCompression.agda` (`--cubical
+--safe`, no holes or postulates).  For arbitrary set-valued maps `history` and
+`terminal`, mutual `FiniteInformation.FactorsThrough` data construct an `Iso`
+of their realized Cubical images, an `Iso` of every equality kernel, and an
+`Iso` between the corresponding input fibres over each realized state.  This
+checks the exact input from Theorem 2.1 used by the finite fibre-cardinality
+argument.  More strongly, every set-valued downstream target factors through
+the history exactly when it factors through the terminal record; the checked
+adapter gives an `Iso` between those two factorization-witness types.  Thus the
+two presentations have the same extensional question language even though
+they can have different online acquisition costs.  It does **not** formalize
+the residue-reduction arithmetic of
+Theorem 2.1, finite cardinality maxima, a quantum circuit, or query latency.
+
+A checked hostile control keeps the process boundary sharp: the identity Bool
+history does not factor through a constant Unit terminal record.  Thus
+one-directional erasure of branch-changing information cannot enter the mutual
+compression theorem.
+
+Under the current repository policy, the load-bearing replay is
+`sh formal/check.sh`.  The Python commands below are retained as historical
+provenance and must not be run or treated as current evidence.
+
 Run:
 
 ```sh
@@ -108,3 +132,17 @@ Theorem 2.1 and (4) are proved above. Finite tests check reconstruction and
 fiber equality as falsifiers. No statement is made about optimal quantum query
 complexity, noisy instruments, thermodynamic cost, quantum Markov order,
 indefinite causal order, or physical spacetime.
+
+---
+
+*Appended 2026-08-19.* §5's boundary condition is now the **only** remaining
+open case for adaptive observers, which is a promotion of this section, not a
+correction to it. `formal/cubical/NaturalMachine/AdaptiveProbeCollapse.agda`
+proves (pin-checked, `--safe`) that in the bare-probe-pool register every
+finite adaptive strategy — next probe chosen from last outcome, randomisation
+included — has kernel exactly the static full-pool kernel, so it annihilates
+the charged sector. That closes every case except the ones §5 names: probes
+that disturb the state, branch-dependent transformations between queries, and
+noisy instruments. Write-up, which also refutes
+`SIXTEEN_MINDS_ONE_THEOREM.md` §2's claim that this file fails to state its own
+boundary: `notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md`.

@@ -98,7 +98,17 @@ including the diagonal $i=j$. If the observed pair layer is instead the
 unordered off-diagonal multiset $\{\gamma_i+\gamma_j\}_{i<j}
 =\tfrac12(\mu*\mu-D_\#\mu)$, that is a different functional equation and I1′
 does not discharge it directly — it must be proved separately or the diagonal
-identified independently. Subject to that, the pair layer of any dressing in
+identified independently. **[RESOLVED, negatively — `notes/OFFDIAGONAL_NO_GO.md`,
+cf-prouhet 2026-08-18.** The off-diagonal functional equation is
+$(f_A-f_B)(f_A+f_B)=p(x^2)\ne0$, so the integral-domain step of I1 gives
+nothing, and there is a classical **infinite** counterexample: the evil and
+odious numbers (Thue–Morse / Prouhet 1851) are distinct sets with support
+bounded below and *identical* off-diagonal pairwise-sum multisets. So the
+diagonal is load-bearing: no purely off-diagonal uniqueness theorem exists, and
+the "diagonal is essential" bullet above is not a finite-$n$ artifact — it
+persists to the infinite zero-side regime. Any pipeline observing only the
+off-diagonal pair layer supplies the diagonal implicitly and must say from
+where.]** Subject to that, the pair layer of any dressing in
 the residue-dressing family determines the zero multiset uniquely — positions *and* multiplicities. Two distinct zero
 configurations cannot produce the same Goldbach-type pair spectrum. In
 particular the chain inversion used to extract $\gamma_1,\dots,\gamma_4$

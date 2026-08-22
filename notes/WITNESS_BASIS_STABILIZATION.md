@@ -118,3 +118,22 @@ The theorem is exact set theory for nested charts. It does not assert that an
 implemented process has an orbit-hitting bound. The executable checks finite
 instances and a false control with nonnested charts; computation is a
 falsifier only. No novelty is claimed.
+
+The constructive core is now checked in
+`formal/cubical/NaturalMachine/SingletonWitnessStabilization.agda`
+(`--cubical --safe`, no holes or postulates).  Given final sufficiency at
+depth `D=d+1`, one arrived stage separator in the depth-`d` fibre, and an
+explicit nesting map from depth `d` to every `k<=d`, it constructs stage
+sufficiency at `D` and failure of every coarser chart.  A checked nonnested
+control has a depth-`d` separator while depth zero remains sufficient, so the
+nesting hypothesis is load-bearing.
+
+There is one constructive qualification to “exact first stabilization time.”
+The forward direction—separator arrival implies stabilization—is positive and
+needs no search.  The reverse direction turns failure of depth `d` into an
+arrived separator, which is not available for an arbitrary type-valued world.
+The checked adapter therefore requires decidable task-value equality and a
+decision procedure for the stage separator type for this converse, reusing
+`FormationRelativeMinimality.searchable-insufficiency→counterexample`.
+Without such data the earlier double-negation boundary applies; no classical
+witness extractor is hidden in the formal theorem.

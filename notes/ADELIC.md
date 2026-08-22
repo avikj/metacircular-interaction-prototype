@@ -200,6 +200,33 @@ $+{+}$ sector) and *block correlation* (gaps: the zero block's diagonal
 concentration); (iii) Proposition E0 pins the entire BC block to the critical
 temperature, so the decomposition is not tunable — it is forced.
 
+> **[Conditionality added in place by SEED-114, 2026-08-14, Rule K1/K3, from
+> `notes/SEED77_BLOCKS_POSTCONDITION.md` §3.** Item (ii) — *block positivity*,
+> "BC block dominates the zero block pointwise in the $+{+}$ sector" — is a
+> statement about the blocks **by size**, i.e. SEED-77's `P_arith`. What
+> `BLOCKS.md` proves is `P_spec`: disjointness of $\log X$ frequency supports
+> and the coefficient-$2$ mixed-block identification, *after* frequency-$0$
+> detrending. SEED-77 derives (not measures) the range in which `P_spec`
+> upgrades to `P_arith`:
+> $$X^{1/2+\varepsilon}\ll Q=o(X),$$
+> the upper constraint from `BLOCKS.md`'s own Lemma
+> ($\ll X^{3/2}\sum_{q\le Q}\mu^2(q)q/\varphi(q)\asymp QX^{3/2}$, relative
+> $Q/X$), the lower from the singular-series tail
+> ($\mathfrak S_Q-\mathfrak S\ll_\varepsilon Q^{-1+\varepsilon}$, giving a
+> smooth deficit $Q^{-1+\varepsilon}X^3$ that must sit below $X^{5/2}$).
+> **Consequently the sentence above should be read as conditional on
+> $X^{1/2+\varepsilon}\ll Q=o(X)$.** In particular the clause three lines
+> earlier, "$Q$ enters only as a resolution filtration", is true of the
+> *construction* but not of item (ii)'s use of it: outside the window the
+> smooth truncation deficit exceeds the $X^{5/2}$ layer by a factor
+> $X^{1/2}/Q$, so no pointwise size comparison between blocks is available at
+> the fixed $Q\in\{1,10,30,100\}$ of the cited measurements. The measured
+> correlations quoted in the bullets above (corr $0.9997$, corr $1.0000$) are
+> band-passed statistics and support `P_spec` only.
+> SEED-77 §5 explicitly **declined** to make this edit ("let the next block
+> propagate it deliberately") and queued it; this is that propagation. No
+> statement of §3 is retracted — a hypothesis is recorded.**]**
+
 **Next derivations in order of tractability.**
 1. ~~Write out $[\sharp\sharp]$ for the smoothed Goldbach sector at finite $Q$ and
    verify numerically that the blocks reproduce $G_1(X)$.~~ **Done — exp11_blocks /

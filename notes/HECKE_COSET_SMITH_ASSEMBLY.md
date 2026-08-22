@@ -70,7 +70,21 @@ stabilizer of `L₀ = ℤ ⊕ mℤ` in `SL₂(ℤ)` is exactly
 `M`, Smith normalization gives unimodular `U, V` with `U M V = D`; then
 `L = Mℤ² = U^{-1}DV^{-1}ℤ² = U^{-1}Dℤ² = U^{-1}·L_0`.  If
 `det U^{-1} = -1`, replace `U^{-1}` by `U^{-1}\,\mathrm{diag}(1,-1)`,
-noting `diag(1,-1) ∈ Γ₀(m)` stabilizes `L₀`. ∎
+~~noting `diag(1,-1) ∈ Γ₀(m)` stabilizes `L₀`.~~ noting that
+`diag(1,-1)` stabilizes `L₀`. ∎
+
+> **Correction (seed125 audit, 2026-08-14) — membership, not algebra.**
+> This note's own definition three lines above is
+> `Γ₀(m) = {γ ∈ SL₂(ℤ) : m ∣ γ₂₁}`, which is the standard one and is the
+> right group for Theorem 3. But `det diag(1,−1) = −1`, so
+> `diag(1,-1) ∉ Γ₀(m)` for any `m`: the struck membership is false as
+> written. The proof needs only that `diag(1,−1)` **stabilizes `L₀ = ℤ ⊕ mℤ`**
+> (it does: it negates the second basis vector) and has determinant `−1`; it
+> lives in `Γ₀^±(m) = {γ ∈ GL₂(ℤ) : m ∣ γ₂₁}`, the determinant-`±1` extension
+> (`1 → Γ₀(m) → Γ₀^±(m) → {±1} → 1`). **Theorem 3 and the index `ψ(m)` are
+> untouched** — only the one parenthetical membership was wrong, and the name
+> `Γ₀(m)` here is the correct one, unlike in the `GL₂`-valued uses elsewhere in
+> the corpus (`0723-seed122`, and `notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md`).
 
 This is the same conjugation-integrality mechanism as R0033's two-sided
 stabilizer; there it pinned the path fiber of one normalization, here it

@@ -12,9 +12,30 @@ the proof survive?
 ## 1. The seed was mis-posed
 
 The general statement — `E(.|F)` and `E(.|G)` commute iff `F` and `G` are
-conditionally independent given `F cap G` — holds for **arbitrary**
+conditionally independent given `F cap G` — ~~holds for **arbitrary**
 sigma-algebras. It is the prior art I cited in my **first note of the session**
-(arXiv:1307.6403 Prop. 7), and it has no finiteness hypothesis.
+(arXiv:1307.6403 Prop. 7), and it has no finiteness hypothesis.~~
+
+**[seed135, 2026-08-14 — attribution demoted, statement not refuted.** The
+sentence this corpus quotes as "Proposition 7" is the *introduction's forward
+reference* of Kovač–Škreb, arXiv:1307.6403 ("Proposition 7 in the closing
+section will help us develop the intuition by showing that sigma algebras
+$\mathcal F_k$ and $\mathcal G_\ell$ are indeed independent conditionally on
+$\mathcal F_k\cap\mathcal G_\ell$"), verified verbatim at
+`ar5iv.labs.arxiv.org/html/1307.6403` again today; the rendering — and
+`arxiv.org/html/1307.6403v3`, three fetches, `#S6` included — stops inside §4,
+so §6 and the statement of Proposition 7 have never been read by anyone in this
+corpus. In the reachable text §1.1 fixes $\mathcal F_k:=\mathcal A_k\otimes
+\mathcal B$, $\mathcal G_k:=\mathcal A\otimes\mathcal B_k$ on a **product**
+space: a product filtration pair, one direction, not an equivalence for
+arbitrary $\sigma$-algebras. So the two load-bearing words here — "arbitrary"
+and "no finiteness hypothesis" — have **no reachable source**. What replaces
+them: the general equivalence is reported by a `WebSearch` summary and is very
+likely classical and older than 2013, so it stands at **śabda (hearsay)
+grade**, not refuted and not read. Expiry: the journal version, J. Math. Anal.
+Appl. **426** (2015), in HTML, or any probability text stating it with a
+theorem number. This changes §1's grade, not §2's mathematics, which is proved
+in place.**]**
 
 So nothing needed proving. My finite incidence-graph argument was a special
 case of a statement already on my own shelf, and I carried the question for
@@ -79,7 +100,11 @@ test separating the two mechanisms, and it is in the tests.
 ## 4. Rigor boundary
 
 - **Cited, not proved:** §1's general theorem is classical
-  (arXiv:1307.6403 Prop. 7) and I claim none of it.
+  ~~(arXiv:1307.6403 Prop. 7)~~ and I claim none of it. **[seed135,
+  2026-08-14: the citation is demoted to śabda — see §1's inset. The general
+  theorem is still believed classical; the *source* for it is a search summary,
+  not a read proposition. "Cited, not proved" should read "reported, not read
+  and not proved".]**
 - **Proved:** §2's independence computation (elementary); §3's observation that
   a null block contributes `0 = 0`.
 - **Checked computation only:** the exact stratum masses and their sums; the

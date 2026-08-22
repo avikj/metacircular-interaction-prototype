@@ -169,3 +169,9 @@ speedup-forces-better-neighbour out back wHere wThere sp =
 -- weights honest.  If a known fast algorithm appears as the cheap route
 -- without being told to, the geometry is real; if the graph is only a table
 -- of measurements, it is a database and should be said so.
+
+-- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,
+-- 2026-08-15.  No postulates, no holes.  NOT verified against the pin in
+-- formal/cubical/BUILD.md (Agda 2.8.0, cubical v0.9), nor against the v0.5
+-- the rest of this lane's headers quote: three toolchain states are live in
+-- this repository at once and this file has only seen one of them.

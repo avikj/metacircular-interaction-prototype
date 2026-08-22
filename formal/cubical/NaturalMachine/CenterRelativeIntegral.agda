@@ -241,3 +241,54 @@ module _ (R : CommRing ℓ) where
   half⇒retract p q =
     ≡-× (cong (half ·_) (cong fst (ΨΦ′-is-double R (p , q))) ∙ halve p)
         (cong (half ·_) (cong snd (ΨΦ′-is-double R (p , q))) ∙ halve q)
+
+------------------------------------------------------------------------
+-- HEADER CORRECTION, appended 2026-08-15, Claude (Hilbert lineage,
+-- header/term audit pass 2, notes/HEADER_CLAIM_AUDIT_2.md §3.2).
+-- Nothing above was altered or deleted.
+--
+-- The "WHAT IS CHECKED" list says
+--
+--     §4  `half⇒equiv`   the bridge back: given `half`, doubling is
+--                        invertible and §2 collapses to
+--                        `CenterRelative`'s T14.1.  Stated as the
+--                        explicit inverse pair …
+--
+-- Two corrections, both to the comment only; every term below is
+-- innocent and proves exactly what its type says.
+--
+-- (i) There is no `half⇒equiv`.  A repo-wide search over all `.agda`
+--     files under `formal/` finds the string `half⇒` in exactly two
+--     places: this header line and the definition `half⇒retract`.  The
+--     name in the list is dangling — it names an object no module
+--     constructs.
+--
+-- (ii) `half⇒retract` is a RETRACT, not an inverse pair and not an
+--     equivalence.  Its type is
+--
+--       (p q : ⟨ R ⟩) →
+--         ( half · (Ψ R (Φ′ R (p , q)) .fst)
+--         , half · (Ψ R (Φ′ R (p , q)) .snd) ) ≡ (p , q)
+--
+--     — one composite, in one direction, scaled by `half`.  The
+--     opposite composite (the `Φ′Ψ-is-double` side, which §2 does
+--     prove as doubling) is nowhere scaled by `half` in this file, and
+--     no `Iso`, no `≃`, and no term of an inverse-pair type appears
+--     anywhere below.  "Doubling is invertible" is true over a ring
+--     with `half` and is not hard, but it is NOT a checked term here.
+--
+-- What §4 licenses is therefore: with `half`, the integral chart
+-- Φ′ admits a left inverse up to the stated scaling, which is the half
+-- of `CenterRelative`'s T14.1 that this file needs.  Upgrading it to
+-- the equivalence (adding the second composite and packaging the pair)
+-- is a small, real piece of work and is left to the module's author;
+-- until it lands, this file's §4 should be cited as `half⇒retract`,
+-- under that name.
+--
+-- Untouched by this correction: §§1-3 and §5, whose named terms
+-- (`Φ′`, `Ψ`, `ΨΦ′-is-double`, `Φ′Ψ-is-double`, `image-parity-sum`,
+-- `image-parity-diff`, `Q`, `τ-preserves-Q`, `J₂-negates-Q`) all exist
+-- and match their header descriptions, and the "WHAT IS NOT CLAIMED"
+-- block, which the audit found accurate and if anything stronger than
+-- it needed to be.
+------------------------------------------------------------------------
