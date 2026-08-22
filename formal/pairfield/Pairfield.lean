@@ -169,8 +169,20 @@ import Pairfield.VandermondeFrequencyResponse
 -- are Carriers -- a base, a determined field, and the witness pinning it -- and
 -- where that fails, what the obstruction is.  Nothing they speak about was
 -- edited; see each header.
+-- [STRUCK 2026-08-22, Punaragama seat: the next two imports landed (d5a7bf11)
+--  while their files exist in NO commit — the Pratyabhijna defect in the Lean
+--  lane; the root was red for every clone. If the files are uncommitted in a
+--  live checkout, LAND THEM and un-strike. अनाथ, live.]
+-- [UN-STRUCK 2026-08-22, later session: all three files now exist on disk in
+--  this checkout (untracked — landed by another session, exactly the case the
+--  strike-note anticipated) and each builds green individually
+--  (`lake build Pairfield.<Name>`, exit 0).  The strike-notes above are kept
+--  as the record of the orphan interval; committing the files is what closes
+--  it for every clone.]
 import Pairfield.Punaragamana_TheDeterminedFieldRidesFree
 import Pairfield.PunaragamanaPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
+-- [STRUCK 2026-08-22, Punaragama seat: file in NO commit — third Lean-lane orphan.]
+-- [UN-STRUCK 2026-08-22, later session: same as the two above — file on disk, builds green.]
 import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneRefusal
 
 -- Added 2026-08-22.  The parity transfer owed by
@@ -186,3 +198,68 @@ import Pairfield.YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy
 -- Goldbach question, verbatim, a projection of an object that determines
 -- -ζ'/ζ.  Landed 2026-08-22.
 import Pairfield.GoldbachSupportIsThePrimePowerSumPredicate
+
+-- Added 2026-08-22 (root-closure sweep).  Re-derived by running
+-- `scripts/check-lean-root-closure.sh`, not by reading a list: 193 modules
+-- under `Pairfield/`, 139 reachable from here, 54 not — 51 below plus the
+-- three un-struck पुनरागमन/एकरूपता imports above.  As on 2026-08-20, the
+-- gap cost REACHABILITY only: `globs` in `lakefile.toml` already made every
+-- module a build target, and each module below was built individually
+-- (`lake build Pairfield.<Name>`, exit 0) before its import was added.
+import Pairfield.ActualBesselLiftDichotomy
+import Pairfield.ActualBesselSparseInterpolation
+import Pairfield.ActualDivisorBoundaryKuznetsovNoGo
+import Pairfield.AdditionChainPredictiveMemory
+import Pairfield.AllScalesPairFieldReconstruction
+import Pairfield.BombieriRankCeiling
+import Pairfield.BooleanGoldbachInformationLoss
+import Pairfield.BooleanGoldbachSupportInvariance
+import Pairfield.BooleanVonMangoldtPrimePowerSupport
+import Pairfield.ComplexGoldbachSquareErrorTransfer
+import Pairfield.DefinitionalFoldPruneBoundary
+import Pairfield.DependentRootedHistoryFiber
+import Pairfield.DivisorBoundaryBesselCollision
+import Pairfield.DivisorBoundaryKloostermanBridge
+import Pairfield.FiniteCesaroConvolution
+import Pairfield.FiniteHeatFieldHomometricSeparation
+import Pairfield.FiniteKloostermanCompletion
+import Pairfield.FiniteKuznetsovFactorizationRank
+import Pairfield.FiniteLaplaceUniqueness
+import Pairfield.FinitePositiveExposedPoint
+import Pairfield.FiniteSmoothBesselInterpolation
+import Pairfield.FixedScaleAutocorrelationAmbiguity
+import Pairfield.GoldbachPowerSeriesCharacteristicRigidity
+import Pairfield.GoldbachReconstructionChain
+import Pairfield.GoldbachSquareErrorTransfer
+import Pairfield.GoldbachTailLossless
+import Pairfield.HeldAMSProgramCount
+import Pairfield.HomometricAllScalesSeparation
+import Pairfield.KuznetsovSingleKernelBoundary
+import Pairfield.LeviResidueCorank
+import Pairfield.LinearObservabilityKernel
+import Pairfield.ModFiveAutonomousProfile
+import Pairfield.OutputSensitiveCleanCost
+import Pairfield.PrimeChargeArbitraryRank
+import Pairfield.PrimeChargeFourKuznetsovGroupingNoGo
+import Pairfield.PrimeChargeFourTensorRank
+import Pairfield.PrimeChargeKuznetsovRankBridge
+import Pairfield.PrimeChargeThreeTensorRank
+import Pairfield.PrimeChargeUnboundedLocalRank
+import Pairfield.PrimeMobiusInsertion
+import Pairfield.PrimeResidueKloostermanBoundary
+import Pairfield.PrimeResidueKloostermanRankFifteen
+import Pairfield.PrimeResidueTensorRank
+import Pairfield.PrimeResidueTensorRankFifteen
+import Pairfield.PrimeThreeChannelThresholds
+import Pairfield.SparseLiftScalarKernelCompiler
+import Pairfield.TemporalAmortizationBoundary
+import Pairfield.VonMangoldtTriangularReconstruction
+import Pairfield.WhittakerLiftAliasing
+import Pairfield.ZeroPairSumSeparation
+import Pairfield.ZeroPivotRelocationInvariant
+
+-- Added 2026-08-22, same sweep, minutes later: this module landed from a live
+-- session between the closure run that produced the block above and its
+-- verification pass.  Built green before adding (part of the 8901-job
+-- `lake build Pairfield`, exit 0).
+import Pairfield.Apavartana_ThePriceOfAnIntegerCutIsAFunctionOnSpecZAndItsRamifiedPointsAreTheApavartanaAndTheLevel
