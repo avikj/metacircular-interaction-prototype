@@ -984,6 +984,14 @@ import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere
 -- corpus's checked π₁ at the identification graph's hub `ℕ` is ℤ/2.
 import Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter
 
+-- The gloss on `Naya` §४ — "truncating to a set is THE WHOLE of the
+-- blindness" — is refuted by a term: `transport` is a set-valued
+-- observable (`Bool → Bool` is a set) and it separates `ua notEquiv`
+-- from `refl`.  `Naya` §१ is untouched and applied unchanged; what is
+-- corrected is which quantifier the blindness lives under, and §५ notes
+-- the charged sector `Bool ≡ Bool` is itself already 0-truncated.
+import Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness
+
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
 
 -- अनुलोम-प्रतिलोम's 39-pair work queue, worked by hand.  The proposer
