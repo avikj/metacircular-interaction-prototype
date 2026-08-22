@@ -821,6 +821,38 @@ readLedger = do
         Just (Row kf kg ru pr (if vd == "Accepted" then Accepted else Refused) cl wh ob)
       _ -> Nothing
 
+
+------------------------------------------------------------------------
+-- निवृत्त · WHERE A SUPERSEDED ROW GOES.
+--
+-- सूत्र ९ — शेषं रक्ष.  The ledger key is a CONTENT address, so editing a
+-- definition upstream mints a fresh key and the row under the old key
+-- survives `M.union` forever.  Measured 2026-08-22: 163 rows carrying 41
+-- distinct questions, and 183 rows carrying the same 41 twenty minutes
+-- later.  A superseded row is not an open obligation.  Counting it as one
+-- is the ledger reporting its own accretion as the corpus's debt.
+--
+-- Retired, never deleted.  `check-no-silent-deletion.sh` is the standing
+-- rule and this is why: the retired row is the evidence that the question
+-- was asked at an earlier digest, and that is history, not noise.
+------------------------------------------------------------------------
+
+retiredPath :: FilePath
+retiredPath = "notes/anuloma/NirnayaPanjika.nivrtta.tsv"
+
+appendRetired :: [Row] -> IO ()
+appendRetired rs = do
+  createDirectoryIfMissing True (takeDirectory retiredPath)
+  ok <- doesFileExist retiredPath
+  unless ok $ writeFile retiredPath
+    ("# निवृत्त — rows whose pair was re-asked this pass at a CURRENT digest,\n\
+     \# so this row's digest is superseded.  Kept, not deleted: शेषं रक्ष.\n\
+     \# A pair that was simply not asked is NOT retired — मौनं न निषेधः.\n\
+     \# addrF\taddrG\trung\tprobe\tverdict\tclass\twhere\tobligation\n")
+  appendFile retiredPath $ unlines
+    [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
+                       , rClass r, rWhere r, one (rObl r) ] | r <- rs ]
+  where one = map (\c -> if c == '\n' || c == '\t' then ' ' else c)
 writeLedger :: [Row] -> IO ()
 writeLedger rs = do
   createDirectoryIfMissing True (takeDirectory ledgerPath)
@@ -1139,9 +1171,20 @@ checkAll doFresh scratch hfOf cands = do
             putStrLn $ "  OPEN   " ++ wh ++ "   [" ++ cls ++ "]"
             unless (null obl) $ putStrLn $ "         " ++ obl
             pure (Row kf kg (rungName (cRung c)) dg Refused cls wh obl)
-  -- carry forward every row whose key this pass did not re-ask
-  let fresh = M.fromList [ (rowKey r, r) | r <- results ]
-      merged = M.elems (M.union fresh oldMap)
+  -- सूत्र ९ · शेषं रक्ष.  Retire the rows this pass superseded; keep every
+  -- row whose pair was not asked (मौनं न निषेधः — not asking is not a
+  -- ground for retirement).
+  let fresh      = M.fromList [ (rowKey r, r) | r <- results ]
+      asked      = [ rWhere r | r <- results ]
+      dead k r   = not (k `M.member` fresh) && (rWhere r `elem` asked)
+      superseded = [ r | (k, r) <- M.toList oldMap, dead k r ]
+      merged     = M.elems (M.union fresh
+                     (M.filterWithKey (\k r -> not (dead k r)) oldMap))
+  unless (null superseded) $ do
+    appendRetired superseded
+    putStrLn $ "  निवृत्त  " ++ show (length superseded)
+               ++ " superseded row(s) retired to " ++ retiredPath
+               ++ "  (kept, not deleted)"
   writeLedger (sortBy (comparing rWhere) merged)
   histogram cands results
 
