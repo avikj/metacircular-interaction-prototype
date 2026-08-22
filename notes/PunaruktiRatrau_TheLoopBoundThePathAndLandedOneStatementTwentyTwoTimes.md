@@ -125,4 +125,69 @@ not a thing it decides.
 
 ---
 
+## ६ · दोषः द्वितीयः — a citation to a module that does not exist, in three files
+
+Found while reading the same workstream, and it belongs here because it is the
+**same failure one level up**: §२ is an instrument that could not tell two
+statements apart; this is an instrument that could not tell a read file from a
+cited one.
+
+**The claim, asserted five times across three files:**
+
+> `Punaragamana.Prastara_…` proves **प्रस्तार ≡ ℕ**
+
+- `formal/cubical/Tantujala_…agda` header, §६ and §६'s closing line — a
+  `--safe` module checked under the pin.
+- `notes/SamagraDarsana_…READ_THIS_FIRST.md` §०b, the table's fourth row and
+  the paragraph under it, which bills it as **"the deepest result of the
+  session."**
+- `notes/Sangati_…md` §४, where an architectural conclusion is drawn from it:
+  *"a node therefore does not need the corpus."*
+
+**Both halves are wrong.**
+
+1. **The module does not exist.** Not in `punaragamana/src/Punaragamana/`, not
+   anywhere in the tree, and not in any commit reachable from `--all` — the
+   only `Prastara`-named files ever added are `PingalaPrastara.agda`,
+   `PrastaraPankti.agda`, `AdhvaSesa_…`,
+   `NaturalMachine/Prastara_TheGaugeStreamCosts…`, and two Haskell modules.
+2. **The codomain is wrong.** What is proved is
+   `formal/cubical/NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.प्रस्तारः`:
+
+   ```agda
+   प्रस्तारः : (rs : List ℕ) → Iso (अङ्कस्थान rs) (Fin (सङ्ख्या rs))
+   ```
+
+   A **finite** type, at each fixed छेद-सूची. Checked against this commit by a
+   scratch module importing it: `isoToPath (प्रस्तारः rs)` gives
+   `अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)`, and `सङ्ख्या [] ≡ 1` by `refl` — so at
+   `rs = []` the प्रस्तार is `Unit ≡ Fin 1`. Agda exit 0.
+
+**What survives, and it is most of it.** नष्ट and उद्दिष्ट do each carry the
+other; base and carried may be exchanged; §४१ सारणी वा क्रिया is an identity
+and not a trade; `Sangati` §४'s architecture needs interchangeability and never
+needed the base to be ℕ. **Only the codomain and the path are false.** All
+three files are corrected in place with the wrong version quoted, per this
+repository's own convention that striking silently is how it loses its history.
+
+**Why it is the same defect as §२.** `AnyatKaranam_…md` line २ —
+*उक्तं पठितं च न भिनत्ति* — records its author writing `Saptabhangi.दुर्नयः`
+into a pushed commit as the ground of an argument without having opened the
+file, then opening it an hour later and finding it happened to say what was
+claimed, with *"the confidence identical before and after reading, and nothing
+internal marking the difference."* This is that same act with the other
+outcome. Its stated repair is the operative one: the correction is **बाह्यम्**,
+an external read, never an internal check — and the entry-point note's own
+prior, *assume even more is written already*, has an exact dual that was not
+written down: **do not assume the thing you are citing exists.** One `find`
+settles it in a second, and five assertions went out without it.
+
+**शेषः.** Every other `Punaragamana.*` citation in the corpus is unchecked by
+this pass. The eleven modules under `punaragamana/src/Punaragamana/` are real;
+whether the rest of what is claimed about them by name is, nobody has walked.
+`machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs` exists and is
+exactly the instrument for it — pointed at prose citations, it is unrun.
+
+---
+
 लिखितो दोषो जीवति ।

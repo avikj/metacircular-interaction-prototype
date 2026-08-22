@@ -57,19 +57,47 @@ binds the *path* — bind-a — so `path ↦ content` is a preimage and a confli
 | **empty** | नष्टि / अवक्तव्य | no return exists; nothing to carry, nothing to transport |
 | **exactly one** | पुनरागमन | free — the geodesic |
 | **many** | the subject | a Carrier still exists with the extra freedom *recorded*; वर्गप्रकृति lives here, मेरु is its census |
-| **both directions one** | प्रस्तार ≡ ℕ | **storing and generating are the same type** |
+| **both directions one** | ~~प्रस्तार ≡ ℕ~~ → `अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)` | **storing and generating are the same type**, at each छेद-सूची |
 
 `isContr` merges *empty* and *many* into one "no", and
 `Saptabhangi.दुर्नयः` — checked here long before any of this — proves **any
 two-valued verdict on three seeds must identify two of them.** So the collapse
 sits in the law's own instrument. `Tantujala_…agda` is the corrected codomain.
 
-**The fourth row is the deepest result of the session.**
-`Punaragamana.Prastara_…` proves नष्ट and उद्दिष्ट each carry the other, so base
-and carried may be **exchanged**: drop the pattern, keep the number, rebuild
-when wanted, nothing lost. §४१ सारणी वा क्रिया is therefore **not a trade but
-an identity**, अल्पं स्थापय शेषं जनय is not economy but a theorem, and *अयम् एव
-CPU-रचना* stops being an efficiency claim.
+**The fourth row is the deepest result of the session, and its citation was
+wrong in both halves — corrected 2026-08-22, with the wrong version quoted
+rather than erased.**
+
+This paragraph read: *"`Punaragamana.Prastara_…` proves प्रस्तार ≡ ℕ."*
+**There is no module of that name in the tree or anywhere in git history, and
+nothing in this corpus proves प्रस्तार ≡ ℕ.** What exists is
+`formal/cubical/NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.प्रस्तारः`:
+
+```agda
+प्रस्तारः : (rs : List ℕ) → Iso (अङ्कस्थान rs) (Fin (सङ्ख्या rs))
+```
+
+— a **finite** type, at each fixed छेद-सूची `rs`, built from two separately
+proved procedures (उद्दिष्ट by addition and multiplication, नष्ट by division;
+*सारणी न स्थाप्यते*, no table is stored). By univalence that is
+`अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)`, checked against this commit. At `rs = []`
+it reads `Unit ≡ Fin 1`, which is where `≡ ℕ` dies on sight.
+
+**The substance survives; the headline does not.** नष्ट and उद्दिष्ट do each
+carry the other, base and carried may be **exchanged**, and at each छेद-सूची
+the stored patterns and the index range are equal *as types* — so §४१ सारणी वा
+क्रिया is **not a trade but an identity**, and अल्पं स्थापय शेषं जनय is a
+theorem rather than economy. What does not survive is the codomain `ℕ` and the
+module path. Line 685 of this file still carries the old form and is left
+standing so the propagation is visible.
+
+**And this is `AnyatKaranam_…md` line २ caught in the act** —
+*उक्तं पठितं च न भिनत्ति*, the instrument does not distinguish having read a
+thing from having seen it cited. That file records the same failure with
+`Saptabhangi.दुर्नयः`, which happened to be true when opened. This one was not.
+The note above says *assume even more is written already* is the correct prior
+here; its exact dual is **do not assume the thing you are citing exists**, and
+nothing internal marks the difference. Only opening the file does.
 
 ## ०c · WHAT NOW RUNS
 

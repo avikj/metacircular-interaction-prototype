@@ -40,10 +40,35 @@
 -- AND THE AGGREGATE IS ALREADY IN THE LIBRARY.  `isEquiv f` IS
 -- `(b : B) → isContr (fiber f b)` — एकम् at every point at once, which is
 -- सकलादेश and not a search with a first step.  §६ records that, and records
--- what it buys: when every fibre is एकम्, base and carried may be EXCHANGED
--- (`Punaragamana.Prastara_…` proves प्रस्तार ≡ ℕ), so storing and generating
--- are the same type — §४१ सारणी वा क्रिया as an identity rather than a
--- trade.
+-- what it buys: when every fibre is एकम्, base and carried may be EXCHANGED,
+-- so storing and generating are the same type — §४१ सारणी वा क्रिया as an
+-- identity rather than a trade.
+--
+-- [CORRECTED 2026-08-22, and the wrong version is quoted rather than erased,
+-- because a citation is a claim about the repository and silently mending one
+-- loses the fact that it was made.  This header said, twice:
+--
+--     `Punaragamana.Prastara_…` proves प्रस्तार ≡ ℕ
+--
+-- There is no module of that name in the tree or anywhere in git history, and
+-- nothing in the corpus proves प्रस्तार ≡ ℕ.  What exists is
+-- `NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.प्रस्तारः`, and it gives
+--
+--     प्रस्तारः : (rs : List ℕ) → Iso (अङ्कस्थान rs) (Fin (सङ्ख्या rs))
+--
+-- — a FINITE type, at each fixed छेद-सूची rs, from two separately proved
+-- procedures (उद्दिष्ट by addition and multiplication, नष्ट by division) with
+-- no table stored.  By univalence that is `अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)`,
+-- checked at this commit, and at rs = [] it reads `Unit ≡ Fin 1`, which is
+-- where `≡ ℕ` dies on sight.
+--
+-- The exchange claim SURVIVES and is the honest form: at each rs the space of
+-- stored patterns and the range of indices are equal AS TYPES, so keeping the
+-- सारणी and running the क्रिया are one object.  §४१ is an identity.  What does
+-- not survive is the codomain and the citation.  Grounds:
+-- notes/PunaruktiRatrau_…md §६; and AnyatKaranam_…md line २ —
+-- उक्तं पठितं च न भिनत्ति, the instrument does not distinguish having read a
+-- thing from having seen it cited, which is what produced this line.]
 --
 -- WHAT IS AND IS NOT CLAIMED.  तन्तु ("thread, fibre") and निर्णय ("verdict",
 -- Nyāyasūtra 1.1.41, Gautama, ~2nd c. CE) are used in their plain senses; no
@@ -194,9 +219,11 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 isEquiv.equiv-proof (सकलादेश-प्रत्यागमः f g) = g
 
 -- and when the census comes back एकम् everywhere, base and carried may be
--- exchanged: `Punaragamana.Prastara_…` proves प्रस्तार ≡ ℕ from exactly this,
--- so storing and generating are one type.  The identity is the smallest
--- instance.
+-- exchanged: `NastaUddista_….प्रस्तारः` gives `अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)`
+-- from exactly this, so at each छेद-सूची storing and generating are one type.
+-- (Corrected 2026-08-22 — this line read `Punaragamana.Prastara_… proves
+-- प्रस्तार ≡ ℕ`, a module that does not exist and a codomain that is wrong;
+-- see the inset in §६ above.)  The identity is the smallest instance.
 समता-मार्गः : {A : Type ℓ} → (b : A) → एकम् (λ (a : A) → a) b
 समता-मार्गः {A = A} b = isEquiv.equiv-proof (equivIsEquiv (idEquiv A)) b
 
