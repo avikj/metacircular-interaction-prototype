@@ -1,0 +1,52 @@
+
+============================================================
+रात्रिः — started 2026-08-22T06:03:43Z, interval 1800s, log /Users/avikjain/Desktop/math2/notes/ratri/2026-08-22.log
+============================================================
+------------------------------------------------------------
+रात्रिः  pass at 2026-08-22T06:03:43Z   HEAD 02aba3ab
+------------------------------------------------------------
+  git: 0 behind, 0 ahead of origin/main
+  अनाथः (machine/):  modules typechecked : 126  failures : 0 
+  Everything.agda: exit 0
+  निर्धारण:
+      `record … where` declarations found                       : 188
+      ... whose witness field mentions a parameter    : 28
+       CoolingCountermodel           FactoryVICoolingKill                          carried X / cube      GREEN   (control fails, as it must)
+       Cert                          Swarm.S09SmithKuttaka                         carried d / eq1       GREEN   (control fails, as it must)
+       विवेक-प्रमाण                  VivekaPramana_TheRemainderIsLawfulAndTheNetBe carried दक्षिण / प्रमाण GREEN   (control fails, as it must)
+      records with NO witness field                    : 123
+       UT                            EGBDetConservation                            field a               SEPARATED (not determined)
+       UT                            EGBDetConservation                            field b               SEPARATED (not determined)
+       UT                            EGBDetConservation                            field d               SEPARATED (not determined)
+       Jewel                         EGBRootedNet                                  field centre          SEPARATED (not determined)
+       Jewel                         EGBRootedNet                                  field radius          SEPARATED (not determined)
+       ℤ±                            KloostermanExponents                          field up              SEPARATED (not determined)
+  pass took 174s
+
+############ रात्रिः started 2026-08-22T06:08:21Z — loop until dry
+
+=========== रात्रिः pass 2026-08-22T06:08:21Z  HEAD f6909774
+  अनाथः machine/:  failures : 0
+  निर्धारण: 5 green line(s) in report
+  landed 0 this pass, in 154s
+
+############ रात्रिः started 2026-08-22T06:18:14Z — loop until dry
+
+=========== रात्रिः pass 2026-08-22T06:18:14Z  HEAD 550f1096
+  अनाथः machine/:  failures : 0
+  निर्धारण: 5 green line(s) in report
+    LANDED  Ratri/Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA.agda
+    LANDED  Ratri/Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB.agda
+    LANDED  Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.agda
+    LANDED  Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeA.agda
+    LANDED  Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeAA.agda
+    LANDED  Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAF.agda
+    LANDED  Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAG.agda
+    LANDED  Ratri/Anirdharita_EGBRootedNet_Jewel_NirdharanaPthreeD.agda
+    LANDED  Ratri/Anirdharita_KloostermanExponents_ℤ±_NirdharanaPthreeF.agda
+    LANDED  Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds_NirdharanaPthreeH.agda
+    LANDED  Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeJ.agda
+    LANDED  Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeN.agda
+    LANDED  Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeQ.agda
+  Everything.agda: exit 0 with 13 new import(s)
+  landed 13 this pass, in 192s
