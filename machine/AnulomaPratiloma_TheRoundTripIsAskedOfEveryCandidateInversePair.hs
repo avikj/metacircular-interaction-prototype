@@ -989,3 +989,98 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 -- isolated.  Two instruments, opposite directions, one conclusion — the
 -- corpus's types are joined to CONSTRUCTIONS and not to each other, and
 -- constructions do not case-split.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- ALL THREE RESULT BLOCKS ABOVE ARE FALSE.  RETRACTED 2026-08-22, THE SAME
+-- NIGHT, BY TWO INDEPENDENT DEFECTS.  Left standing and struck rather than
+-- deleted, because a silently corrected instrument is worse than a wrong
+-- one: the next reader must be able to see what it claimed and why.
+--
+-- ── DEFECT ONE: THE VERDICTS WERE NEVER OBTAINED ──
+--
+-- `timeout` DOES NOT EXIST ON THIS MACHINE.  `which timeout` → not found;
+-- `timeout 5 echo hi` → exit 127.  Every checking loop that produced a
+-- "0 accepted" figure invoked `timeout 90 agda …`, so the shell returned
+-- 127 without ever starting Agda, and the loop counted 127 as a refusal.
+--
+--   "0 / 39 at rung one"    NOT MEASURED
+--   "0 / 39 at rung two"    NOT MEASURED
+--   "0 / 39 at rung three"  NOT MEASURED
+--
+-- What WAS real: the individual diagnostic runs, which invoked `agda`
+-- directly.  Those returned genuine kernel output — `FileNotFound` on the
+-- module path, `NotInScope: ℕ`, `Cubical.Data.Fin.Fin != FinData.Fin`, and
+-- `code' (decode b) != b .fst`.  Each is a true fact about one probe.  None
+-- of them is the aggregate the result blocks reported.
+--
+-- The lesson is the repository's own and it arrived by walking into it: a
+-- harness that reads a nonzero exit as a mathematical verdict will report
+-- "refuted" for a missing binary, and it will do it 39 times without
+-- blinking.  A refusal must name its defect or it is not a refusal —
+-- `machine/Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal.hs` is in
+-- this same directory and says exactly that.
+--
+-- ── DEFECT TWO, AND IT IS THE INTERESTING ONE ──
+--
+-- **SIXTEEN OF THE 39 CANDIDATES WERE ALREADY PROVED, BY HAND, IN THE VERY
+-- FILE THIS PROGRAM READ.**
+--
+-- `SaptabhangiNaya.saptabhangi-equiv : Bhanga ≃ NEBasis` is at
+-- SaptabhangiNaya.agda:468, complete with `isPropNonEmpty` and its `Σ≡Prop`
+-- lines — the exact Σ≡Prop move the result block above declared "the
+-- missing abstraction half of the ladder" and called owed.  It was forty
+-- lines below the `code'`/`decode` the machine paired and called
+-- unreachable.  Likewise `Digits.ℕ≃CanWord`, `FreeMonoid.ℕ≃Tally`,
+-- `TermFreeMonoid.Tm≃List`, all four `PMTorus` counts, both
+-- `S3IntegerRelativeCoordinates` isos, `CenterRelative.Pair≃CR`,
+-- `AchromaticToy.L₁₂`, `ProjectionChargeAudit.localChargeEquiv`,
+-- `WallCertificate.quotient≃Bool`.
+--
+-- THE CAUSE IS ONE LINE OF THIS FILE'S DESIGN.  `parseSig` reads every
+-- top-level ARROW and this program never reads a top-level `≃`.  It cannot
+-- see an equivalence that already exists, so it proposes it, fails to prove
+-- it mechanically, and reports the corpus as barren.
+--
+--   "there is no cheap layer here"                        FALSE
+--   "every causeway in this corpus costs a real proof"     FALSE
+--   "the corpus's types are joined to constructions"       UNSUPPORTED
+--
+-- **That was a measurement of the instrument, reported as a measurement of
+-- the corpus.**  It is the same error as the fitted constant CLAUDE.md
+-- opens with, and it is worse in one respect: a fitted constant at least
+-- measured something.
+--
+-- ── WHAT SURVIVES, AND IT IS NOT NOTHING ──
+--
+-- The three-rung ladder is still the right shape and still mechanizes only
+-- the induction half of `Bhedanirnaya` §6.  The `Σ≡Prop` rung is still
+-- unbuilt.  And the two edges an agent closed by hand from this queue are
+-- real and transport (`Anyathasiddhi_…agda`, `Bhadraganita_…agda`),
+-- including one where the proposed inverse is genuinely SPURIOUS — `infl ⇄
+-- res` is refuted by the host's own `res-is-zero`, and `infl` is an
+-- equivalence anyway, its inverse being a THIRD map.  A failed round trip
+-- refutes THE PAIR, not the types.  That distinction is now checked in
+-- `Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.agda` and
+-- this program asserted its negation 39 times.
+--
+-- ── THE REPAIRS OWED, NAMED ──
+--
+--  1. Read top-level `≃` and `≡` declarations and SKIP any pair whose
+--     equivalence the host already proves.  Report those as ALREADY PROVED,
+--     which is the most useful line such a census can print.
+--  2. Never treat a nonzero exit as a verdict.  Distinguish 127 (no
+--     binary), 124 (timed out), and a real Agda failure, and refuse to
+--     count anything but the last.
+--  3. There is no `timeout` here.  Use a shell-level guard or none.
+--
+-- ── AND A LOSS, RECORDED BECAUSE IT MUST NOT BE SILENT ──
+--
+-- While this file was being repaired, a `git checkout -- <path>` on it in
+-- the shared working tree destroyed another lane's uncommitted ~600-line
+-- rewrite — a HostFacts reader, a four-rung `ladderFor`, an `alreadyProved`
+-- check, an in-process `--check` flag, and the note that `timeout` is
+-- absent here.  That lane had ALREADY FOUND DEFECT ONE and had run the
+-- probes properly, reporting ONE acceptance.  Not staged, not committed, no
+-- blob in `git fsck`.  It is gone.  **In a shared working tree
+-- `git checkout -- <path>` has no undo**, and two lanes editing one file
+-- with no lock is the hazard, not the command.
