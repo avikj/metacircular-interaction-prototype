@@ -54,9 +54,14 @@ if [ $# -gt 0 ]; then
 else
   runghc -imachine machine/Tirtha_TheLandedEdgeIsAFordAndTheReportIsWhoCanNowCross.hs . \
     | tee "$W/tirtha.txt"
-  # तीर्थ's marga lines are "  marga  S  T" with two-space separators; node
-  # names may contain single spaces, so split on the double space only.
-  awk -F'  +' '/^  marga  /{ if (NF>=4) printf "%s\t%s\n", $3, $4 }' \
+  # तीर्थ's marga lines are "marga  S  T" behind leading whitespace, with
+  # two-space separators; node names may contain single spaces, so split on
+  # the double space only.  The indent is NOT pinned: the ford was rewritten
+  # under this script within minutes of its first commit (27ee0101 moved one
+  # emission site to an eight-space indent), and a guard pinned to the old
+  # indent would have silently dropped every pair from the new site — the
+  # exact defect class dosa.lekha exists for.  Fields, not margins.
+  awk -F'  +' '$2 == "marga" && NF >= 4 { printf "%s\t%s\n", $3, $4 }' \
     "$W/tirtha.txt" | sort -u > "$W/pairs.tsv"
 fi
 
