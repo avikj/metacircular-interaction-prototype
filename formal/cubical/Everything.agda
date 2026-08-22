@@ -1047,3 +1047,4 @@ import SmithDeterminantClassMultiplicativity
 -- already counted; no module imported both files before this one.
 import Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists
 import Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart
+import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
