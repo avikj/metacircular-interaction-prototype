@@ -195,12 +195,12 @@ perl -CSDA -Mutf8 -e '
  while(<$Q>){chomp; my @q=split/\t/;
    my $k=$q[0]."\t".$q[1];
    next if $q[1] eq "?";
-   if($bykey{$k}){ for my $s (@{$bykey{$k}}){ print join("\t","STRONG",@q,@$s),"\n" } }
-   elsif($bysrc{$q[0]}){ for my $s (@{$bysrc{$q[0]}}){ print join("\t","WEAK",@q,@$s),"\n" } }
+   if($bykey{$k}){ for my $s (@{$bykey{$k}}){ print join("\t","एकम्",@q,@$s),"\n" } }
+   elsif($bysrc{$q[0]}){ for my $s (@{$bysrc{$q[0]}}){ print join("\t","बहु",@q,@$s),"\n" } }
  }' "$W/shelf.tsv" "$W/qkey.tsv" | sort -u > "$W/leads.tsv"
 
-grep '^STRONG' "$W/leads.tsv" > "$W/strong.tsv"
-grep '^WEAK'   "$W/leads.tsv" > "$W/weak.tsv"
+grep '^एकम्' "$W/leads.tsv" > "$W/strong.tsv"
+grep '^बहु'   "$W/leads.tsv" > "$W/weak.tsv"
 
 NQ=$(wc -l < "$W/queue.tsv" | tr -d ' ')
 NS=$(wc -l < "$W/shelf.tsv" | tr -d ' ')
@@ -211,8 +211,8 @@ printf '\n  अभिज्ञान — does this fibre already have a name her
 printf '  ──────────────────────────────────────────────────────────\n'
 printf '  undecided edges on road two   : %s\n' "$NQ"
 printf '  fibre rows already written out: %s\n' "$NS"
-printf '  STRONG leads (source AND map) : %s\n' "$NST"
-printf '  WEAK   leads (source only)    : %s\n\n' "$NWK"
+printf '  सङ्ख्या एकम्  (one candidate)   : %s\n' "$NST"
+printf '  सङ्ख्या बहु   (many candidates) : %s\n\n' "$NWK"
 
 if [ "$NST" -eq 0 ] && [ "$NWK" -eq 0 ]; then
   printf '  No leads.  If that is a zero from a fresh edit, CHECK THE\n'
@@ -313,7 +313,7 @@ printf '  ── kernel verdicts ───────────────�
 sed 's/^/  /' "$W/verdicts.tsv"
 printf '\n  probed %s · GREEN %s · DEATH %s · SKIP %s\n' "$NC" "$NG" "$ND" "$NK"
 if [ "$NC" -gt "$NK" ]; then
-  printf '  false-positive rate among probed leads: %s of %s\n' "$ND" "$((NC-NK))"
+  printf '  योग्यता: %s posed and answered, %s could not be posed.\n' "$((NC-NK))" "$NK"
 fi
 printf '\n  A GREEN is a definitional identity the corpus already carried.\n'
 printf '  A DEATH is a lead the join could not tell apart from a hit, and\n'
