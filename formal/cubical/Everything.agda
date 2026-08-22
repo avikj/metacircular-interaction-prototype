@@ -1124,7 +1124,7 @@ import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTo
 -- THE ROUND-TRIP LEDGER'S VERDICT TYPE HAS TWO VALUES AND ITS QUESTION HAS
 -- AT LEAST FOUR STATES, so `notes/SADHYA_OPEN_OBLIGATIONS.md` — the document
 -- an arriving agent lands on — renders decided rows as «real obligations».
--- Ten rows are decided here.  One is an equivalence CONSTRUCTED SIXTEEN
+-- Twelve pairs are decided here.  One is an equivalence CONSTRUCTED SIXTEEN
 -- LINES ABOVE where the probe looked (`NaturalMachine.FreeMonoid`); six are
 -- refuted by counting arguments the source file already proves for all t
 -- (`IntegerHullMultiplicity.hullN`, `hullSQ`); one is a section/retraction
@@ -1132,5 +1132,5 @@ import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTo
 -- BOTH maps invertible with the round trip equal to `not`, which the source
 -- file already named `holonomyIsNot`.  Gautama, न्यायसूत्र १.१.२३ (saṃśaya)
 -- and १.१.४१ (nirṇaya), ~2nd c. CE.
-import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTenRowsAreDecidedHere
+import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
 import Bhara_TheWeightedCountingMapsFibreDecomposesOverEverySummandThatFits
