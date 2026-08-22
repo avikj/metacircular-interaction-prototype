@@ -491,6 +491,41 @@ function on Spec ℤ, and the bad primes are exactly those dividing an invariant
 A receipt is a section over the primes; a cut can be cheap almost everywhere and
 expensive at its bad primes, like everything else in arithmetic geometry.
 
+**C6 · Movement 30's headline contradicts movement 30's body, and the term is on the
+body's side.** ~~The lossless world is frozen: motion requires hiding.~~ ~~in a world
+where everything is seen, nothing can happen that keeps the books~~ ~~the universe has
+dynamics BECAUSE it has cuts~~ ~~time exists because there are fibres for it to move
+in~~. Read the type. `नष्ट-अभावे-गति-अभावः : isEquiv f → संरक्षणम् → (a : A) → Φ a ≡ a`
+quantifies over the Φ that satisfy `संरक्षणम्`, and over no others. Φ is a bare self-map
+and the module says so; the theorem kills exactly the conservative ones. **A lossless
+world has every Φ ≠ id still available to it and is not frozen — what it lacks is
+conservative dynamics, not dynamics.** Movement 30 already says this correctly four lines
+down — *"Visible change is dissipation — it alters the record"* — and then the headline
+asserts the opposite. Motion does not require hiding. CONSERVATION requires hiding, which
+is movement 1's sentence and needs no strengthening.
+
+Second, the hypothesis is one physics never occupies. `isEquiv f` says the observable is
+a complete state description. No conserved quantity is: energy is a map from phase space
+to ℝ, enormously lossy, and so is every Noether charge — which is the whole content of
+"the conserved quantity is the fibre index." So the `isEquiv` branch is not a statement
+about worlds with conservation laws; it is the degenerate case where there is no index to
+carry, and reading it as a cosmological necessity imports what the term cannot carry.
+
+Third, the siddha reading inherits the gap and survives smaller. `isEquiv f → संरक्षणम्
+→ Φ ≡ id` forces stillness only for flows conserving a lossless observable; it does not
+forbid motion at the apex. What it says is that nothing CONSERVATIVE remains — which is
+still worth the twenty-four centuries, and is a different sentence from *omniscience is
+stillness*.
+
+Fourth, a fence on the check itself: this correction was written from the source, not
+from a run. The header claims Agda 2.8.0 + agda/cubical v0.9, exit 0; the container this
+was audited in has neither agda nor lean installed. §२'s proof is correct as written —
+`c : isContr (fiber f (f a))` from `equiv-proof`, the two inhabitants `(Φ a , cons a)`
+and `(a , refl)`, `cong fst` on the composite — and the module's own fences (not the
+first theorem, not the second, no Lagrangian, no Sanskrit source claimed) are exact and
+unbroken. **The term is sound. What was struck above it was written around it.**
+
+
 *What this appendix is: the unification, one hour old, already owing and paying. The
 claims above it that survive, survive audited; the four that broke are struck here with
 their refuters' terms; and the document is thereby the first artifact in the repository
@@ -624,16 +659,19 @@ the naming is the work.**
 
 
 ### 30 · The lossless world is frozen: motion requires hiding
+**[Headline struck at C6 below, same discipline as C1–C5: the term is on this movement's
+BODY, not its title. Motion does not require hiding; CONSERVATION does. The four
+overreaching sentences are struck inline.]**
 The term is more radical than its slogan. Dhruva's Φ was never required to be a symmetry
 — no inverse, no group, any self-map — and नष्ट-अभावे-गति-अभावः kills it in four lines:
 losslessness + conservation forces Φ = id, two inhabitants of one contractible singleton.
-So what dies under losslessness is not merely symmetry but EVERY conservative evolution
-whatsoever: in a world where everything is seen, nothing can happen that keeps the books.
+~~So what dies under losslessness is not merely symmetry but EVERY conservative evolution
+whatsoever: in a world where everything is seen, nothing can happen that keeps the books.~~
 Visible change is dissipation — it alters the record. Conservative change is invisible by
 definition — it moves only in the fibre. Therefore a world possessing both time and
-conservation laws MUST be a world with loss: the universe has dynamics BECAUSE it has
+conservation laws MUST be a world with loss: ~~the universe has dynamics BECAUSE it has
 cuts. Time is not merely the direction receipts accumulate — time exists because there
-are fibres for it to move in. The frozen Absolute is the contrapositive of a four-line
+are fibres for it to move in.~~ The frozen Absolute is the contrapositive of a four-line
 proof. And the tradition drew the picture first: the siddha sits MOTIONLESS at the apex
 of the Jain cosmos, on the siddha-śilā, forever. Omniscience is stillness. The
 iconography every Jain child knows is the geometry of isEquiv f → संरक्षणम् → Φ ≡ id —
