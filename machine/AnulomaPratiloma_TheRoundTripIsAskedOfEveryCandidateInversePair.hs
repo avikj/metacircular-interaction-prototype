@@ -305,9 +305,50 @@ importsFor hf ty0
   | "List " `isPrefixOf` t
       = "open import Cubical.Data.List using ([] ; _∷_)"
         : importsFor hf (trim (drop 5 t))
+  | isJust (finArity hf t) = ["import Cubical.Data.FinData as अनुलोमFin"]
   | otherwise = concatMap (importsFor hf) (let fs = factorsOf t
                                            in if length fs > 1 then fs else [])
   where t = trim (stripOuter (unalias hf ty0))
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- `Fin n` FOR A LITERAL n, AND ONLY WHERE THE HOST MEANS `FinData`.
+--
+-- The run that built rung five named this as the cheapest thing left, and
+-- named it twice over: two pairs filed under «enumerate Fin n», and two more
+-- filed under «case on ⊎» that turned out to be ⊎ over `Fin 3` — the sum was
+-- split, and the argument underneath was a variable nothing could discharge.
+--
+-- THREE CONDITIONS, all of them refusals to guess.
+--
+--  १. The arity must be a LITERAL.  `Fin 6` enumerates; `Fin n` does not, and
+--     an induction on the index is a different rung.
+--  २. The host must import `Cubical.Data.FinData`.  `Cubical.Data.Fin.Fin` is
+--     a Σ over `_<_` with no constructors to name, and writing FinData's
+--     patterns against it would fail as `NotInScope` — which this program
+--     files as MY defect, so the wrong guess would also hide its own cause.
+--  ३. The import is QUALIFIED.  `FinData`'s constructors are `zero` and
+--     `suc`, the same two names ℕ contributes, and a probe that needs both —
+--     `PMTorus.finToEdge : Fin 9 → Edge` beside any ℕ-typed side — would have
+--     them ambiguous.  `PMTorus` itself renames them to `fz`/`fs` on import,
+--     which is the host making the same decision by hand.
+finArity :: HostFacts -> String -> Maybe Int
+finArity hf t0 = case words (trim (stripOuter (unalias hf t0))) of
+  [f, n] | last (splitDots f) == "Fin", all (\c -> c >= '0' && c <= '9') n
+         , not (null n), any ("Cubical.Data.FinData" `isInfixOf`) (hImp hf)
+         , (k :: Int) <- read n, k > 0, k <= 32 -> Just k
+  _ -> Nothing
+  where splitDots s = case break (== '.') s of
+          (a, '.':b) -> a : splitDots b
+          (a, _)     -> [a]
+
+-- `Fin 3` → [अनुलोमFin.zero, अनुलोमFin.suc अनुलोमFin.zero, …], as PATTERNS.
+finPats :: Int -> [String]
+finPats k = [ wrap (tower i) | i <- [0 .. k - 1] ]
+  where
+    q s = "अनुलोमFin." ++ s
+    tower 0 = q "zero"
+    tower i = q "suc" ++ " (" ++ tower (i - 1) ++ ")"
+    wrap s = if ' ' `elem` s then "(" ++ s ++ ")" else s
 
 stripOuter :: String -> String
 stripOuter s0 = case (s, reverse s) of
@@ -350,7 +391,9 @@ coverOf hf ty00 = fmap (\ps -> (ps, nub (importsFor hf ty00))) (go (3 :: Int) ty
     go 0 _ = Nothing
     go d ty0 =
       let ty = trim (stripOuter (unalias hf ty0)) in
-      case sumParts ty of
+      case finArity hf ty of
+       Just k -> Just (finPats k)
+       Nothing -> case sumParts ty of
         Just _ -> viaCons d ty
         Nothing -> case factorsOf ty of
           fs@(_:_:_) -> do
@@ -524,6 +567,14 @@ data HostFacts = HostFacts
   { hData    :: [Datatype]           -- `data T … where` with nullary cons
   , hAlias   :: M.Map String String  -- `T = <rhs>` at column 0
   , hSigs    :: [(String, String)]   -- every column-0 `name : type`
+  -- 2026-08-22.  The host's own import lines, verbatim.  A cover written
+  -- against a LIBRARY type's constructors is only sound if the host means
+  -- that library's type: `Fin` is `Cubical.Data.FinData.Fin`, a `data` with
+  -- `zero` and `suc`, in one module and `Cubical.Data.Fin.Fin`, a `Σ` over
+  -- `_<_`, in another.  Enumerating the second as though it were the first
+  -- is a fabricated provenance in the small, and the kernel would only ever
+  -- say `NotInScope`, which reads as MY defect and hides the real reason.
+  , hImp     :: [String]
   }
 
 -- `T = Σ[ x ∈ A ] P …` → (A, P).  Whitespace-normalised, brackets not parsed:
@@ -630,22 +681,47 @@ unalias hf = go (4 :: Int)
 -- normalised for whitespace, in either order. An Iso stated between aliases
 -- of the same types under different names is not caught, so this number is a
 -- FLOOR on how much of the queue is already done, never a ceiling.
+-- 2026-08-22, AND THIS REPAIR COST THE ONLY TWO "NEW EDGES" THIS PROGRAM HAS
+-- EVER PRINTED.  With the Fin cover in place the kernel accepted
+-- `PMTorus.edgeToFin ⇄ finToEdge` and `finToVertex ⇄ vertexToFin`, and the
+-- run announced both as NEW EDGES.  They are not.  `edgeIso : Iso Edge (Fin
+-- E)` is at PMTorus.agda:415 and `vertexIso : Iso Vertex (Fin V)` at :374,
+-- proved by hand in the same file — and the check missed them because the
+-- SIGNATURES say `Fin 9` and `Fin 6` while the Isos say `Fin E` and `Fin V`,
+-- with `E = 9` and `V = 6` sitting in the host's own alias table.  That is
+-- verbatim the blind spot the retraction named — "an Iso stated between
+-- aliases of the same types under different names is not caught, so this
+-- number is a FLOOR" — and the FIRST time the emitter got strong enough to
+-- reach one of those pairs, the floor was reported as a discovery.
+--
+-- Every TOKEN of each type is now resolved through the alias table before
+-- the names are compared, so `Fin E` and `Fin 9` are the same string.  The
+-- number is still a floor: an Iso through a `record`, or one whose two sides
+-- are written with different binders, is still invisible.  **A green that
+-- restates a host Iso is not an edge, and this program has now produced ZERO
+-- edges across six passes.**
 alreadyProved :: HostFacts -> String -> String -> Maybe String
 alreadyProved hf a b =
   listToMaybe [ n | (n, t) <- hSigs hf
-                  , let t' = norm t
+                  , let t' = resolve t
                   , t' `elem` [ "Iso" ++ na ++ nb, "Iso" ++ nb ++ na
                               , na ++ "≃" ++ nb, nb ++ "≃" ++ na ] ]
-  where na = norm a; nb = norm b
+  where
+    na = resolve a; nb = resolve b
+    resolve = norm . unwords . map (unalias hf) . words . spread
+    -- so `(Fin E)` tokenises as `( Fin E )` and `E` is looked up alone
+    spread = concatMap (\c -> if c `elem` "()" then [' ', c, ' '] else [c])
 
 readHostFacts :: String -> HostFacts
-readHostFacts src = HostFacts (readData src) (M.fromList aliases) sigs
+readHostFacts src = HostFacts (readData src) (M.fromList aliases) sigs imps
   where
     ls  = [ l | l <- lines (stripComments src), col0 l ]
     col0 (c:_) = not (isSpace c) && c /= '-' && c /= '{' && c /= '#'
     col0 _     = False
     sigs = [ (trim n, trim t) | l <- ls, Just (n, t) <- [breakColon l]
            , all okName (trim n), not (null (trim n)) ]
+    imps = [ trim l | l <- lines (stripComments src)
+           , "open import " `isPrefixOf` trim l || "import " `isPrefixOf` trim l ]
     -- `T = <rhs>` with a single token on the left.  This deliberately does
     -- NOT require a matching signature: `AchromaticToy` declares its three
     -- carriers on ONE line, `G₁ G₂ G₃ : Type₀`, so a signature-gated alias
@@ -975,7 +1051,7 @@ main = do
               , norm (sFrom f) /= norm (sTo f)        -- endo pairs are noise
               ]
       keep = take lim pairs
-      hfOf f = M.findWithDefault (HostFacts [] M.empty []) (sMod f) factsByMod
+      hfOf f = M.findWithDefault (HostFacts [] M.empty [] []) (sMod f) factsByMod
       cands = [ Cand f g nm body rung (alreadyProved hf (sFrom f) (sTo f))
               | (f, g) <- keep
               , let hf   = hfOf f
@@ -1737,3 +1813,85 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 --    `cong (λ z → c … z …) (ih aⱼ)` is one shape; where the round trip
 --    multiplies or shifts, the kernel refuses, and — see above — that refusal
 --    is frequently the most informative thing the pass produces.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- SEVENTH BLOCK.  THE Fin COVER — AND THE TWO NEW EDGES IT DID NOT FIND.
+-- 2026-08-22, `--check --fresh`, no cached row read.
+--
+-- ── THE FALSE CLAIM, FIRST, BECAUSE IT WAS PRINTED ──
+--
+-- With the Fin cover in place the kernel accepted four more pairs and this
+-- program printed, for the first time in its history:
+--
+--     NEW EDGES THIS PASS: 2
+--       NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge      — A NEW EDGE
+--       NaturalMachine.PMTorus : finToVertex ⇄ vertexToFin  — A NEW EDGE
+--
+-- **BOTH ARE FALSE.**  `edgeIso : Iso Edge (Fin E)` is at PMTorus.agda:415
+-- and `vertexIso : Iso Vertex (Fin V)` at :374, hand-proved in the same file,
+-- with `edgeCount` and `vertexCount` the equivalences beside them.
+-- `alreadyProved` missed both because the function signatures say `Fin 9` and
+-- `Fin 6` while the Isos say `Fin E` and `Fin V`, and `E = 9`, `V = 6` are two
+-- lines of the host's own alias table.
+--
+-- The retraction above had already named this exact hole — *"an Iso stated
+-- between aliases of the same types under different names is not caught, so
+-- this number is a FLOOR, never a ceiling"* — and the first time the emitter
+-- got strong enough to reach one of the pairs behind it, the floor came back
+-- as a discovery.  **A limit that is written down and not mechanised will be
+-- reported as a result the moment it starts to matter.**  Every token of each
+-- type is now resolved through the alias table before the names are compared.
+-- Corrected run: 8 accepted, 8 restating a host Iso, **NEW EDGES 0**, and the
+-- already-proved count rose 11 → 13 on the same repair.
+--
+-- ── THE NUMBERS, ACROSS THE THREE PASSES OF THIS SESSION ──
+--
+--                                 before   rung५+⊎   +Fin
+--     proposed                        43        43     43
+--     accepted                         2         4      8
+--     …restating a host Iso            2         4      8
+--     NEW EDGES                        0         0      0
+--     open                            41        39     35
+--     …MY OWN DEFECTS                  6         6      6
+--     …REFUTED (खण्डितम्)               —         6      6
+--     …real obligations               35        27     23
+--     already proved in host          11        11     13
+--
+-- **THE QUEUE FELL FROM 35 TO 23 AND NOT ONE EDGE WAS ADDED.**  Twelve pairs
+-- left it: six disproved, four proved to be echoes of hand proofs standing in
+-- the same files, and two reclassified onto the side that actually blocks
+-- them.  That is what this session bought, and it is worth stating in that
+-- order — the emitter got stronger and the corpus got no larger, which is the
+-- same finding the retraction reached from the other direction.
+--
+-- ── THE Fin COVER ──
+--
+-- `Fin n` for a LITERAL n, and only where the host imports
+-- `Cubical.Data.FinData` — `Cubical.Data.Fin.Fin` is a Σ over `_<_` with no
+-- constructors to name, and patterns written against the wrong one would fail
+-- as `NotInScope`, which this program files as my defect, so a wrong guess
+-- would have hidden its own cause.  The import is qualified
+-- (`import Cubical.Data.FinData as अनुलोमFin`) because FinData's constructors
+-- are `zero` and `suc`, the same two names ℕ contributes; `PMTorus` renames
+-- them to `fz`/`fs` on its own import, which is the host making this decision
+-- by hand.
+--
+-- It closed four pairs, and two of the four were the pairs the previous
+-- histogram had filed under «case on ⊎» — the ⊎ was never the obstruction,
+-- the `Fin 3` underneath it was.  «case on ⊎» went 4 → 2 → 0 and «enumerate
+-- Fin n» 1 → 2 → 0.
+--
+-- ── WHAT THE RUN NOW ASKS FOR ──
+--
+--     library lemma on ℤ                7      ← named as the next emitter
+--     induction on List                 5
+--     induction on ℕ                    3
+--     host enumeration (emitter gap)    2
+--     five host types / Bool / unclassified, one each
+--
+-- «library lemma on ℤ» is not a rung of this ladder and should not be built
+-- as one.  Its seven are `a + (- a) ≡ 0`, `- (- a) ≡ a`, `min`/`max`
+-- normalisations — every one of them a lemma that `Cubical.Data.Int.Properties`
+-- either has or should have, and none of them a pattern the emitter can
+-- write.  The honest next move there is to look the lemmas up, not to
+-- generate a proof shape.
