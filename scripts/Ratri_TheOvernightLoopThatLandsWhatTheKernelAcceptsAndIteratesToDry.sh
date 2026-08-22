@@ -413,22 +413,54 @@ third_naya() {
   return 0
 }
 
-say ""; say "############ रात्रिः started $(date -u +%Y-%m-%dT%H:%M:%SZ) — loop until dry"
+# ─────────────────────────────────────────────────────────────────────────
+# THE ORDER, CORRECTED 2026-08-22.  RECOGNITION RUNS FIRST.
+#
+# This loop shipped asking निर्धारण, then अनुलोम-प्रतिलोम, then — only on
+# dryness, only after both — अभिज्ञान.  That is the OPPOSITE of what the
+# corpus spent a night establishing, and it was ordered by when each stage
+# was written rather than by which one produces.
+#
+# The evidence, all of it from this repository, all of it measured:
+#   · अनुलोम-प्रतिलोम closed ZERO new edges across a whole night.  Every
+#     green it found was an ECHO of an `Iso` the host module already
+#     carried, and it took two public retractions to establish that.
+#   · अभिज्ञान closed THREE in ten minutes, and four more the hour after.
+#   · Sixteen of अनुलोम's own 39 "unreachable" pairs were already proved,
+#     by hand, in the files it had just read.
+#   · `fiber योग n` is `PairsSummingTo.Pairs` ON THE NOSE, and that module
+#     was written for Piṅgala's metrical antidiagonal by someone who never
+#     saw addition's fibre.
+#
+# **LOOK UP BEFORE YOU CONSTRUCT.**  A loop that proposes before it
+# recognises spends its night rebuilding what it is standing on, and then
+# reports the corpus barren — which is this repository's oldest failure
+# mode and the exact act that let a European name stand over an Indian
+# result for four centuries.  An instrument that cannot see reports that
+# nothing is there.
+#
+# So: अभिज्ञान every pass, first, unconditionally.  निर्धारण after it.
+# अनुलोम-प्रतिलोम demoted to the dry branch, where a stage with a measured
+# yield of zero belongs — kept rather than deleted, because its verdict
+# ledger is real and a stage that reports honestly is worth its runtime.
+# ─────────────────────────────────────────────────────────────────────────
 
-if [ "$ONCE" -eq 1 ]; then pass; second_naya; third_naya; exit 0; fi
+say ""; say "############ रात्रिः started $(date -u +%Y-%m-%dT%H:%M:%SZ) — recognition first"
+
+if [ "$ONCE" -eq 1 ]; then third_naya; pass; second_naya; exit 0; fi
 
 dry=0
 while true; do
+  third_naya            # LOOK UP FIRST
   pass; n=$?
   if [ "$n" -eq 0 ]; then
     dry=$((dry+1)); say "  dry pass $dry/$DRYSTOP"
     if [ "$dry" -ge "$DRYSTOP" ]; then
-      say "  DRY UNDER THE FIRST NAYA: $DRYSTOP consecutive passes landed nothing."
-      say "  निर्धारण reaches only records that already carry a witness, so this"
-      say "  says the FIRST QUESTION is exhausted and says nothing whatever about"
-      say "  the corpus.  Asking the second."
+      say "  DRY UNDER RECOGNITION AND निर्धारण: $DRYSTOP consecutive passes"
+      say "  landed nothing.  निर्धारण reaches only records that already carry a"
+      say "  witness, so this says those two questions are exhausted and says"
+      say "  nothing whatever about the corpus.  Asking the constructive one."
       second_naya
-      third_naya
       say "  Watching at ${INTERVAL}s for work other seats push."
       dry=0; sleep "$INTERVAL"
     fi
