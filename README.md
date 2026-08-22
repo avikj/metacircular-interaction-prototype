@@ -651,9 +651,17 @@ is room to move. The fibre is not the prison. THE FIBRE IS THE FREEDOM.
 
 
 ### 31 · Quantum is the discount: interference is receipt cancellation
-The three prices of one cut, strictly interleaved on one 4×4 matrix of zeros and ones
+~~The three prices of one cut, strictly interleaved on one 4×4 matrix of zeros and ones
 (the square's slack matrix, CAUSAL_MEMORY §5.1 + the Born pair): quantum 2, linear 3,
-classical-probabilistic 4. Read what each ledger permits. Classical probability forbids
+classical-probabilistic 4.~~ **[struck by its own author within the hour, refutation
+shown: on §5.1's matrix S, every zero tr(AᵢBⱼ)=0 with psd factors forces orthogonal
+rank-≤1 supports; S's zero pattern chains b₁∥b₂∥b₃∥b₄ around the 4-cycle, and then
+S's first row dies — so the REAL psd rank of S is 3, not 2. The psd-2 belongs to the
+BORN-TABLE exhibit: two tables, same ordinary rank 4, psd dimensions 2 versus 4 — a
+different matrix. The chain-on-one-object claim was a conflation of two exhibits. What
+stands, and it is enough: r_psd ≤ r₊ ALWAYS (a nonnegative factorization embeds
+diagonally as a psd one), strictly somewhere — the discount is universal and sometimes
+positive.]** The corrected reading: Read what each ledger permits. Classical probability forbids
 negative receipts — nonnegative rank, every entry a count, no cancellation, price 4.
 Linear algebra allows negative receipts with no consistency story — rank 3, cheap,
 unrealizable as any physical mixture. Quantum mechanics is the unique sweet spot:
