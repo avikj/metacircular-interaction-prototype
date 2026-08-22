@@ -270,3 +270,135 @@
     SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
     SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
   landed 0 this pass, in 135s
+  pushed
+  dry pass 2/2
+  DRY UNDER THE FIRST NAYA: 2 consecutive passes landed nothing.
+  निर्धारण reaches only records that already carry a witness, so this
+  says the FIRST QUESTION is exhausted and says nothing whatever about
+  the corpus.  Asking the second.
+
+  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────
+modules scanned      : 824
+top-level arrows     : 1035
+candidate pairs      : 39
+probes emitted       : 39
+
+  अनुलोम-प्रतिलोम: 0 accepted, 39 open.
+  The open ones are not failures.  Each is a pair THE CORPUS PROPOSED
+  ABOUT ITSELF, with the kernel's exact obligation printed beside it.
+  A queue whose every entry carries the shape of its own proof is what
+  a prover runs overnight.  A checker alone never produces one.
+  Watching at 600s for work other seats push.
+
+=========== रात्रिः pass 2026-08-22T07:59:22Z  HEAD 2dfc37a1
+  अनाथः machine/:  failures : 1
+  machine/ is RED — landing nothing this pass, by design.
+  dry pass 1/3
+
+=========== रात्रिः pass 2026-08-22T07:59:58Z  HEAD 2dfc37a1
+  अनाथः machine/:  failures : 1
+  machine/ is RED — landing nothing this pass, by design.
+  dry pass 2/3
+
+=========== रात्रिः pass 2026-08-22T08:00:31Z  HEAD a00c87fa
+  अनाथः machine/:  failures : 1
+  machine/ is RED — landing nothing this pass, by design.
+  dry pass 3/3
+  FIXPOINT: 3 consecutive passes landed nothing.
+  Not 'finished' — निर्धारण reaches only records that already carry a
+  witness, and a determined field with no witness needs proof search.
+  Watching at 900s for work other seats push.
+
+############ रात्रिः started 2026-08-22T08:05:22Z — loop until dry
+
+=========== रात्रिः pass 2026-08-22T08:05:22Z  HEAD beb62694
+  अनाथः machine/:  failures : 0
+  निर्धारण: 6 green line(s) in report
+    SAME    Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA — this statement already stands as Ratri/Nirdharita_Agda-Builtin-Nat_.agda
+    SAME    Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB — this statement already stands as Ratri/Nirdharita_Swarm-S09SmithKuttaka_.agda
+    SAME    Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC — this statement already stands as Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeAB.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAH.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAD.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAE.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeB.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeC.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel_NirdharanaPthreeE.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±_NirdharanaPthreeG.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds_NirdharanaPthreeI.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeK.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeL.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeM.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeO.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeP.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeR.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeS.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeU.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeV.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeW.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeX.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
+  landed 0 this pass, in 118s
+  pushed
+  dry pass 1/2
+
+=========== रात्रिः pass 2026-08-22T08:07:22Z  HEAD bdfe60da
+  अनाथः machine/:  failures : 0
+  निर्धारण: 6 green line(s) in report
+    SAME    Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA — this statement already stands as Ratri/Nirdharita_Agda-Builtin-Nat_.agda
+    SAME    Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB — this statement already stands as Ratri/Nirdharita_Swarm-S09SmithKuttaka_.agda
+    SAME    Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC — this statement already stands as Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeAB.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAH.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAD.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAE.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeB.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeC.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel_NirdharanaPthreeE.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±_NirdharanaPthreeG.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds_NirdharanaPthreeI.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeK.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeL.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeM.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeO.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeP.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeR.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeS.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeU.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeV.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeW.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeX.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
+  landed 0 this pass, in 112s

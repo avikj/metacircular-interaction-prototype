@@ -66,18 +66,29 @@
 --
 --   run:  runghc machine/AnulomaPratiloma_…hs [--limit N]
 
+
 module Main (main) where
 
-import Control.Monad (forM, forM_, when)
+import Control.Exception (catch, SomeException)
+import Control.Monad (forM, forM_, when, unless)
+import Data.Bits (xor)
 import Data.Char (isSpace, isAlphaNum)
-import Data.List (isPrefixOf, isSuffixOf, nub, foldl', intercalate)
+import Data.List (isPrefixOf, isInfixOf, isSuffixOf, nub, sortBy, foldl', intercalate)
+import Data.Maybe (fromMaybe, mapMaybe, isJust, listToMaybe)
+import Data.Ord (comparing)
+import Data.Word (Word64)
+import Numeric (showHex)
 import qualified Data.Map.Strict as M
-import System.Directory (doesDirectoryExist, listDirectory, createDirectoryIfMissing)
+import System.Directory (doesDirectoryExist, doesFileExist, listDirectory
+                        , createDirectoryIfMissing, removeFile, copyFile)
 import System.Environment (getArgs, lookupEnv)
-import System.FilePath ((</>), takeExtension, takeBaseName)
+import System.Exit (ExitCode(..))
+import System.FilePath ((</>), takeExtension, takeBaseName, takeDirectory)
 import System.IO (hSetEncoding, stdout, utf8)
+import System.Process (readProcessWithExitCode)
 
 data Sig = Sig { sMod :: String, sName :: String, sFrom :: String, sTo :: String }
+
 
 -- RUNG TWO.  Bhedanirnaya_….agda §6 states the ladder in its own words --
 -- "one induction to agree pointwise, one abstraction to a path".  Rung one
@@ -120,11 +131,37 @@ readData src = go (lines src)
 -- whose every factor is a host enumeration or Bool are enumerable.  A Σ
 -- with a genuine dependency, or a factor of ℕ, is not, and gets `λ _ →
 -- refl` back -- which is rung one, and rung one is empty here.
+--
+-- 2026-08-22: THIS WAS A FLAT SCAN FOR " × " AND THEREFORE CUT THROUGH
+-- BRACKETS.  `SaptabhangiNaya.Basis = Bool × (Bool × Bool)` came back as
+-- ["Bool", "(Bool", "Bool)"]; `consOf` knew no such types, `tuplePats`
+-- returned Nothing, and the rung declined in silence — the emitter's one
+-- worked exemplar was out of reach because of a string split.  It now cuts
+-- at bracket depth 0 and recurses into a parenthesised factor, so nesting
+-- flattens, which is what the tuple pattern wants: Agda's `(a , b , c)` is
+-- right-nested already.
 factorsOf :: String -> [String]
-factorsOf = go . trim
-  where go s = case breakOnStr " × " s of
-                 Just (a, b) -> trim a : go b
-                 Nothing     -> [trim s]
+factorsOf = go . stripParens . trim
+  where
+    go s = case splitDepth0 s of
+             [x] -> [trim x]
+             xs  -> concatMap (go . stripParens . trim) xs
+    stripParens s = case (s, reverse s) of
+      ('(':_, ')':_) | balancedInside (init (drop 1 s)) -> trim (init (drop 1 s))
+      _ -> s
+    balancedInside = go' (0 :: Int)
+      where go' n ('(':r) = go' (n + 1) r
+            go' n (')':r) = n > 0 && go' (n - 1) r
+            go' n (_:r)   = go' n r
+            go' n []      = n == 0
+    splitDepth0 s = reverse (map reverse (go' s (0 :: Int) "" []))
+      where
+        go' [] _ acc out = acc : out
+        go' r@(c:cs) n acc out
+          | " × " `isPrefixOf` r, n == 0 = go' (drop 3 r) n "" (acc : out)
+          | c == '('  = go' cs (n + 1) (c:acc) out
+          | c == ')'  = go' cs (n - 1) (c:acc) out
+          | otherwise = go' cs n (c:acc) out
 
 breakOnStr :: String -> String -> Maybe (String, String)
 breakOnStr pat s = go "" s
@@ -133,30 +170,403 @@ breakOnStr pat s = go "" s
           | pat `isPrefixOf` r = Just (reverse acc, drop (length pat) r)
           | otherwise          = go (c:acc) cs
 
-consOf :: [Datatype] -> String -> Maybe [String]
-consOf dts t
+consOf :: HostFacts -> String -> Maybe [String]
+consOf hf t0
   | trim t == "Bool" = Just ["false", "true"]
-  | otherwise = case [ d | d <- dts, dName d == trim t, not (null (dCons d)) ] of
+  | otherwise = case [ d | d <- hData hf, dName d == trim t, not (null (dCons d)) ] of
       (d:_) -> Just (dCons d)
       []    -> Nothing
+  where t = unalias hf t0
 
 -- cartesian product of the factors' constructors, as tuple patterns
-tuplePats :: [Datatype] -> String -> Maybe [String]
-tuplePats dts ty = do
-  let fs = factorsOf ty
+tuplePats :: HostFacts -> String -> Maybe [String]
+tuplePats hf ty = do
+  let fs = factorsOf (unalias hf ty)
   if length fs < 2 then Nothing else do
-    cs <- mapM (consOf dts) fs
+    cs <- mapM (consOf hf) fs
     let combos = sequence cs
     if length combos > 32 then Nothing
       else Just [ "(" ++ intercalate " , " k ++ ")" | k <- combos ]
 
-splitFor :: [Datatype] -> String -> String
-splitFor dts ty
-  | Just ps <- tuplePats dts ty
+splitFor :: HostFacts -> String -> String
+splitFor hf ty
+  | Just ps <- tuplePats hf ty
       = "(λ { " ++ intercalate " ; " [ p ++ " → refl" | p <- ps ] ++ " })"
-splitFor dts ty = case [ d | d <- dts, dName d == trim ty, not (null (dCons d)) ] of
-  (d:_) -> "(λ { " ++ intercalate " ; " [ c ++ " → refl" | c <- dCons d ] ++ " })"
-  []    -> "(λ _ → refl)"
+splitFor hf ty = case consOf hf ty of
+  -- 2026-08-22.  This branch used to test `dName d == trim ty` directly and
+  -- therefore did NOT split a bare `Bool`, because `Bool` has no `data …
+  -- where` block in the host — it comes from the library.  `consOf` already
+  -- knew `Bool`'s two constructors and only `tuplePats` was asking it, so a
+  -- one-factor Bool side fell straight through to rung one.
+  -- `AchromaticToy.from₁₂ ⇄ to₁₂` failed with `from₁₂ (to₁₂ b) != b of type
+  -- Bool` for exactly that reason: a case split was available and was never
+  -- emitted.
+  Just cs@(_:_) -> "(λ { " ++ intercalate " ; " [ c ++ " → refl" | c <- cs ] ++ " })"
+  _             -> "(λ _ → refl)"
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- RUNG FOUR.  THE ABSTRACTION.
+--
+-- `Bhedanirnaya_…agda` §6 states the ladder in the tradition's own economy —
+-- "one induction to agree pointwise, ONE ABSTRACTION TO A PATH" — and rungs
+-- one to three are the induction half only.  They split, and splitting is
+-- the one thing that cannot reach the exemplar this corpus already contains:
+--
+--     NEBasis = Σ[ s ∈ Basis ] NonEmpty s          (SaptabhangiNaya §4)
+--
+-- A dependent Σ whose second component is a PROPOSITION is not enumerable.
+-- There is nothing to case on; the proof is that the second component
+-- CANNOT DISAGREE, which is `Σ≡Prop` and is an abstraction, not an
+-- induction.  Every rung below misses it, and misses it silently, which is
+-- why the ladder reported ZERO and reported nothing about why.
+--
+-- WHAT THIS EMITS.  For a side whose type is a host alias `T = Σ[ x ∈ A ] P`
+-- with an isProp lemma for `P` available in the host, the pointwise proof is
+--
+--     (λ { (<pattern-on-A> , _) → Σ≡Prop <lemma> refl ; … })
+--
+-- — rung three's enumeration of `A` on the FIRST component, and the
+-- abstraction on the second.  Where `A` is not enumerable it degrades to
+-- `(λ b → Σ≡Prop <lemma> refl)`, which is still strictly stronger than rung
+-- one because it discharges the second component unconditionally.
+--
+-- FOUR LIMITS, at the site, because a rung that hid them would be the
+-- दुर्नय this program was written against.
+--
+--  1. AN ABSURD BRANCH IS NOT HANDLED.  `SaptabhangiNaya.decode` sends
+--     `((false , false , false) , ne)` to `⊥.rec (ne refl)`, and that
+--     branch's obligation is not `Σ≡Prop … refl` — it is an ex falso, and
+--     which term discharges it depends on the host's own emptiness lemma.
+--     So this rung does not close SaptabhangiNaya and is not claimed to; the
+--     kernel's refusal on that pair now names the false-false-false branch
+--     precisely, which is the first time the queue said where the work is.
+--     A hand proof of that module was in flight the same day; this emitter
+--     was deliberately not raced against it.
+--  2. THE isProp LEMMA IS FOUND BY NAME, NOT BY TYPE.  A host signature
+--     mentioning `isProp` and the head token of `P` is taken as evidence.
+--     That is a lexical match; it can propose a lemma whose indices do not
+--     line up, and when it does the kernel refuses and the ledger records the
+--     refusal.  Over-proposing into an exact checker is the correct
+--     direction — the reverse, a checker that guesses, is not.
+--  3. ONLY A ONE-LEVEL Σ, AND MEASURABLY SO.  `CenterRelative.CR = Σ[ W ∈ ℤ ]
+--     Σ[ R ∈ ℤ ] EvenT (W - R)` nests, so the predicate handed to the lemma
+--     search is itself `Σ[ R ∈ ℤ ] …`, whose head token is not alphanumeric;
+--     the search declines and the pair stays at rung one.  `isPropEvenT` is
+--     sitting in that very module, four lines above.  Nested Σ is the second
+--     emitter this histogram asks for.
+--  4. A `record` IS NOT A Σ HERE.  Only the `Σ[ x ∈ A ] P` sugar is read.
+data HostFacts = HostFacts
+  { hData    :: [Datatype]           -- `data T … where` with nullary cons
+  , hAlias   :: M.Map String String  -- `T = <rhs>` at column 0
+  , hSigs    :: [(String, String)]   -- every column-0 `name : type`
+  }
+
+-- `T = Σ[ x ∈ A ] P …` → (A, P).  Whitespace-normalised, brackets not parsed:
+-- the binder form Agda's own `Σ[ _ ∈ _ ]` sugar produces is what is matched,
+-- and a raw `Σ A (λ x → P)` is NOT — stated so a miss is read as a miss.
+sigmaParts :: String -> Maybe (String, String)
+sigmaParts rhs = do
+  r1 <- stripPre "Σ[" (trim rhs)
+  (_bind, r2) <- breakOnStr "∈" r1
+  (a, p) <- breakOnStr "]" r2
+  let a' = trim a; p' = trim p
+  if null a' || null p' then Nothing else Just (a', p')
+  where stripPre pre s = if pre `isPrefixOf` s then Just (drop (length pre) s) else Nothing
+
+-- Resolve a type through the host's aliases and read a Σ off it.  Accepts a
+-- NAME (`NEBasis`) or the Σ written out, so it works before and after
+-- `unalias`.
+sigmaOf :: HostFacts -> String -> Maybe (String, String)
+sigmaOf hf ty = sigmaParts (unalias hf ty)
+
+-- A host signature that mentions `isProp` and the head token of the predicate.
+isPropLemmaFor :: HostFacts -> String -> Maybe String
+isPropLemmaFor hf predicate =
+  listToMaybe [ n | (n, t) <- hSigs hf
+                  , "isProp" `isInfixOf` t
+                  , not (null hd), hd `isInfixOf` t ]
+  where hd = takeWhile (\c -> isAlphaNum c || c `elem` "-_'₀₁₂₃₄₅₆₇₈₉")
+                       (dropWhile isSpace predicate)
+
+-- The rung-four term for a side, or Nothing when the rung does not apply.
+sigmaSplit :: HostFacts -> String -> Maybe String
+sigmaSplit hf ty = do
+  (base, predicate) <- sigmaOf hf ty
+  lemma <- isPropLemmaFor hf predicate
+  let body p = "(" ++ p ++ " , _) → Σ≡Prop " ++ lemma ++ " refl"
+  pure $ case tuplePats hf base of
+    Just ps -> "(λ { " ++ intercalate " ; " (map body ps) ++ " })"
+    Nothing -> case consOf hf base of
+      Just cs@(_:_) -> "(λ { " ++ intercalate " ; " (map body cs) ++ " })"
+      _             -> "(λ b → Σ≡Prop " ++ lemma ++ " refl)"
+
+-- The whole ladder for one side, and WHICH RUNG produced it, so the report
+-- can never claim a rung it did not use.
+data Rung = RungOne | RungTwoThree | RungFour deriving (Eq, Ord, Show)
+
+rungName :: Rung -> String
+rungName RungOne      = "१ refl"
+rungName RungTwoThree = "२/३ split"
+rungName RungFour     = "४ Σ≡Prop"
+
+ladderFor :: HostFacts -> String -> (String, Rung)
+ladderFor hf ty0
+  | Just t <- sigmaSplit hf ty = (t, RungFour)
+  | otherwise = let t = splitFor hf ty
+                in (t, if t == "(λ _ → refl)" then RungOne else RungTwoThree)
+  where ty = unalias hf ty0
+
+-- Follow `T = U = V = …` to the first form the rungs can read.  Bounded at
+-- four hops, because an alias table built from `name = rhs` lines can contain
+-- a cycle and a census must not hang.  LIMIT: the term emitted is written
+-- against the RESOLVED form's constructors, which is sound in Agda because an
+-- alias is definitional — a `record` or an abstract type is opaque and is not
+-- resolved through.
+unalias :: HostFacts -> String -> String
+unalias hf = go (4 :: Int)
+  where
+    go 0 t = t
+    go k t = case M.lookup (trim t) (hAlias hf) of
+      Just r | trim r /= trim t -> go (k - 1) r
+      _                         -> t
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- ALREADY PROVED IN THE HOST.
+--
+-- Measured 2026-08-22, and it is the finding that most changes what this
+-- queue is worth: of the 39 pairs this program proposes, TEN have their
+-- `Iso`/`≃` ALREADY STANDING in the module the pair was read out of —
+-- `SaptabhangiNaya.saptabhangi-iso`, `CenterRelative.Pair≃CR`,
+-- `NaturalMachine.PMTorus.obsIso`, `…S3IntegerRelativeCoordinates.
+-- intersectionKernelIso`, and six more.  BOTH of the two probes the kernel
+-- accepts are among them.  So the emitter's green count is not a count of
+-- new edges; on this corpus it is zero new edges, and a report that did not
+-- say so would be counting its own echo.
+--
+-- LIMIT: the match is on the two type NAMES as written in the signatures,
+-- normalised for whitespace, in either order. An Iso stated between aliases
+-- of the same types under different names is not caught, so this number is a
+-- FLOOR on how much of the queue is already done, never a ceiling.
+alreadyProved :: HostFacts -> String -> String -> Maybe String
+alreadyProved hf a b =
+  listToMaybe [ n | (n, t) <- hSigs hf
+                  , let t' = norm t
+                  , t' `elem` [ "Iso" ++ na ++ nb, "Iso" ++ nb ++ na
+                              , na ++ "≃" ++ nb, nb ++ "≃" ++ na ] ]
+  where na = norm a; nb = norm b
+
+readHostFacts :: String -> HostFacts
+readHostFacts src = HostFacts (readData src) (M.fromList aliases) sigs
+  where
+    ls  = [ l | l <- lines (stripComments src), col0 l ]
+    col0 (c:_) = not (isSpace c) && c /= '-' && c /= '{' && c /= '#'
+    col0 _     = False
+    sigs = [ (trim n, trim t) | l <- ls, Just (n, t) <- [breakColon l]
+           , all okName (trim n), not (null (trim n)) ]
+    -- `T = <rhs>` with a single token on the left.  This deliberately does
+    -- NOT require a matching signature: `AchromaticToy` declares its three
+    -- carriers on ONE line, `G₁ G₂ G₃ : Type₀`, so a signature-gated alias
+    -- table missed every one of them and `G₁ = Bool` was invisible — the
+    -- side was left at rung one with a case split sitting right there.
+    -- A value definition `x = …` therefore also enters the table; that is
+    -- harmless, because only a name appearing as a TYPE is ever looked up.
+    aliases = [ (trim n, trim r)
+              | l <- ls, Just (n, r) <- [breakEquals l]
+              , all okName (trim n), not (null (trim n)) ]
+    okName c = isAlphaNum c || c `elem` "-_'∙′₀₁₂₃₄₅₆₇₈₉≃×"
+
+stripComments :: String -> String
+stripComments = unlines . map dropLine . lines . dropBlock
+  where
+    dropLine l = case breakOnStr "--" l of Just (a, _) -> a; Nothing -> l
+    dropBlock s = go s (0 :: Int)
+      where
+        go [] _ = []
+        go cs n
+          | "{-" `isPrefixOf` cs = go (drop 2 cs) (n + 1)
+          | "-}" `isPrefixOf` cs = go (drop 2 cs) (max 0 (n - 1))
+          | otherwise = case cs of
+              (c:r) -> if n > 0 then go r n else c : go r n
+              []    -> []
+
+-- `name = rhs` with a single token on the left.
+breakEquals :: String -> Maybe (String, String)
+breakEquals l = case break (== '=') l of
+  (a, '=':b) | not (null a), take 1 b /= "="
+             , length (words a) == 1 -> Just (a, b)
+  _ -> Nothing
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE VERDICT LEDGER — निर्णयपञ्जिका, kept across passes.
+--
+-- WHY.  Until 2026-08-22 every pass re-proposed all 39 pairs and re-put every
+-- one of them to the kernel from scratch, so an overnight loop paid the full
+-- corpus check for the same refusals for eight hours and could learn nothing
+-- from having run before.  A verdict is only re-askable when THE QUESTION has
+-- changed, and the question here is the two functions' definitions.
+--
+-- `machine/Nama_…hs` content-addresses every definition in this corpus — its
+-- digest is FNV-1a 64 over the normalised text AND the sorted digests of the
+-- declaration's dependencies, so an edit anywhere upstream changes the
+-- address.  That is exactly the key a verdict may be cached under: the pair
+-- (address of f, address of g), plus the rung, plus the probe's own digest.
+--
+-- THREE LIMITS, at the site.
+--  1. A pair whose functions नाम cannot address — a `where`-bound or
+--     `private` definition — gets NO key and is therefore re-asked every
+--     pass.  That is the safe direction and it is not free: it is the part
+--     of the queue an eight-hour loop still pays for.
+--  2. THE PROBE'S OWN TEXT IS IN THE KEY, and the first draft of this ledger
+--     got that wrong in a way worth recording.  It keyed on a hand-written
+--     `emitterVersion` string, and within ten minutes the emitter changed —
+--     rung two began importing `Bool`'s constructors — while the string did
+--     not, so the very next pass served three stale refusals out of cache
+--     and reported them as that pass's verdicts.  A hand-kept version number
+--     is a claim about the code that nothing checks.  The key is now the FNV
+--     digest of the EMITTED PROBE, which is the question verbatim: change
+--     any rung and every probe it touches re-asks itself.
+--  3. A cached REFUSAL is cached; a cached ACCEPTANCE is re-checked every
+--     pass anyway, because a green is a claim the corpus stands on and the
+--     cost of re-verifying it is the cost of being allowed to state it.
+
+-- FNV-1a 64, the same digest नाम uses, so the two keys in a row are the same
+-- kind of object.  A collision would serve one pair's verdict for another's,
+-- which is why the addresses of BOTH functions stand in the key beside it.
+fnv1a :: String -> String
+fnv1a = pad . flip showHex "" . foldl' step (14695981039346656037 :: Word64)
+  where
+    step h c = (h `xor` fromIntegral (fromEnum c `mod` 256)) * 1099511628211
+    pad s = replicate (16 - length s) '0' ++ s
+
+data Verdict = Accepted | Refused deriving (Eq, Show)
+
+data Row = Row
+  { rKeyF :: String, rKeyG :: String, rRung :: String, rProbe :: String
+  , rVerdict :: Verdict, rClass :: String, rWhere :: String, rObl :: String }
+
+ledgerPath :: FilePath
+ledgerPath = "notes/anuloma/NirnayaPanjika.tsv"
+
+rowKey :: Row -> (String, String, String, String)
+rowKey r = (rKeyF r, rKeyG r, rRung r, rProbe r)
+
+readLedger :: IO [Row]
+readLedger = do
+  ok <- doesFileExist ledgerPath
+  if not ok then pure [] else do
+    s <- readFile ledgerPath
+    length s `seq` pure (mapMaybe parseRow (filter (not . isPrefixOf "#") (lines s)))
+  where
+    parseRow l = case splitTabs l of
+      (kf:kg:ru:pr:vd:cl:wh:ob:_) ->
+        Just (Row kf kg ru pr (if vd == "Accepted" then Accepted else Refused) cl wh ob)
+      _ -> Nothing
+
+writeLedger :: [Row] -> IO ()
+writeLedger rs = do
+  createDirectoryIfMissing True (takeDirectory ledgerPath)
+  writeFile ledgerPath $ unlines $
+    ("# निर्णयपञ्जिका — keyed on नाम's content addresses and the probe's own"
+     ++ " digest.  A row stands until one of them moves."
+     ++ "\n# addrF\taddrG\trung\tprobe\tverdict\tclass\twhere\tobligation")
+    : [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
+                         , rClass r, rWhere r, oneLine (rObl r) ] | r <- rs ]
+  where oneLine = map (\c -> if c == '\n' || c == '\t' then ' ' else c)
+
+splitTabs :: String -> [String]
+splitTabs s = case break (== '\t') s of
+  (a, '\t':b) -> a : splitTabs b
+  (a, _)      -> [a]
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE CLASSIFIER — what KIND of obligation is blocking, per open pair.
+--
+-- A loop that says "dry" teaches nothing.  A loop that says "twelve of these
+-- are blocked on the same move" has written its own next feature request,
+-- and that is the only sense in which this apparatus improves itself.  So
+-- every refusal is read for the type the obligation lives in, put in a
+-- class, and the classes are printed as a histogram with counts.
+--
+-- THE FIRST DISTINCTION IS THE LOAD-BEARING ONE, and getting it wrong would
+-- make the whole histogram a lie: a probe that dies at `MetaCannotDependOn`,
+-- `NotInScope`, `PatternShadowsConstructor` or `CoverageIssue` is NOT
+-- carrying a mathematical obligation.  It is a defect in THIS PROGRAM — an
+-- indexed family the emitter cannot abstract, a constructor with arguments
+-- the split did not cover.  Counting those beside «induction on ℕ» would
+-- report the emitter's own bugs as the corpus's open problems, which is
+-- precisely the inversion this repository exists against.  They are counted,
+-- and counted SEPARATELY, under मम दोषः.
+classify :: HostFacts -> String -> (String, String)
+classify hf out
+  | "MetaCannotDependOn" `isInfixOf` out = (myFault "indexed family", firstErr)
+  | "NotInScope"         `isInfixOf` out = (myFault "not in scope",   firstErr)
+  | "CoverageIssue"      `isInfixOf` out = (myFault "split incomplete", firstErr)
+  | "Failed to find source" `isInfixOf` out = (myFault "module path", firstErr)
+  -- A CONSTRUCTOR THE PROBE NAMED BUT DID NOT IMPORT BINDS A VARIABLE, so
+  -- the split is not a split.  Agda says this as a -W warning while the
+  -- mathematics fails underneath; here it is a defect of mine and counted
+  -- as one.  See the Bool import in `probe`.
+  | "PatternShadowsConstructor" `isInfixOf` out
+      = (myFault "constructor not imported", firstErr)
+  | otherwise = (ofType (typeOfObligation out), firstErr)
+  where
+    myFault s = "मम दोषः · " ++ s
+    firstErr = trim (unwords (take 40 (words (unlines
+                 (take 4 (drop 1 (dropWhile (not . isInfixOf "error:") (lines out))))))))
+    -- THE ORDER OF THESE GUARDS IS THE CLASSIFICATION, and getting it wrong
+    -- misnames the move.  `List Nat` matched `Nat` first and was filed under
+    -- «induction on ℕ» — the wrong feature request, because the induction
+    -- that closes it is on the LIST.  The outer former decides, so the
+    -- structured formers are tested before the scalars they contain.
+    --
+    -- AND THE MATCH IS ON WHOLE HEADS, NOT SUBSTRINGS.  `Nat` is a substring
+    -- of `NaturalMachine`, so `NaturalMachine.HaskellDiscoveryBoundary.
+    -- HaskellTerm` was classified «induction on ℕ» — a feature request for a
+    -- rung that would not have touched it.  Every token is stripped of its
+    -- module qualifier and compared whole.
+    ofType t
+      | null t                          = "unclassified"
+      | isJust (sigmaOf hf t)           = "Σ≡Prop"
+      -- `SetQuotients` only ever appears as a module qualifier, and the
+      -- quotient's `/` ends its token, so this one is matched on the whole
+      -- string.  There is no name in this corpus it can collide with.
+      | "SetQuotients" `isInfixOf` t    = "quotient elimination"
+      | has "⊎"                         = "case on ⊎"
+      | has "List"                      = "induction on List"
+      | has "Fin"                       = "enumerate Fin n"
+      | has "Σ"                         = "Σ≡Prop"
+      | has "Nat" || has "ℕ"            = "induction on ℕ"
+      | has "Int" || has "ℤ"            = "library lemma on ℤ"
+      | has "Bool"                      = "case on Bool"
+      | any ((== trim t) . dName) (hData hf) = "host enumeration (emitter gap)"
+      | otherwise                       = "host type · " ++ trim t
+      where
+        -- last dotted segment of each token, brackets dropped
+        heads = [ reverse (takeWhile (/= '.') (reverse w))
+                | w0 <- words t
+                , let w = filter (`notElem` "()") w0, not (null w) ]
+        has s = s `elem` heads
+
+-- Agda prints `X != Y of type T`, with T possibly wrapping onto the lines
+-- after it, up to `when checking`.
+--
+-- LIMIT: when the mismatch itself is many lines long the `of type` marker can
+-- be past the window the kernel prints, and the pair then lands in
+-- «unclassified» — which is a class and is printed as one, never folded into
+-- a neighbour.  Four of the 37 open pairs sat there on 2026-08-22.
+typeOfObligation :: String -> String
+typeOfObligation out =
+  case dropWhile (not . isInfixOf "of type") (lines out) of
+    (l:rest) -> let after = maybe "" snd (breakOnStr "of type" l)
+                    more  = takeWhile (not . isInfixOf "when checking") rest
+                in trim (unwords (words (after ++ " " ++ unwords more)))
+    [] -> ""
+
+-- ─────────────────────────────────────────────────────────────────────────
+
+data Cand = Cand
+  { cF :: Sig, cG :: Sig, cName :: String, cBody :: String
+  , cRung :: Rung, cAlready :: Maybe String }
 
 main :: IO ()
 main = do
@@ -165,11 +575,14 @@ main = do
   let lim = case dropWhile (/= "--limit") args of
               (_:n:_) -> read n
               _       -> 400 :: Int
-  scratch <- maybe ".anuloma" id <$> lookupEnv "ANULOMA_SCRATCH"
+      doCheck = "--check" `elem` args
+  scratch <- fromMaybe ".anuloma" <$> lookupEnv "ANULOMA_SCRATCH"
   createDirectoryIfMissing True scratch
   fs <- listAgda "formal/cubical"
   sigs <- concat <$> mapM readSigs fs
-  dtsByMod <- M.fromList <$> mapM (\p -> do { s <- readFile p; let { m = modNameOf s p }; return (m, readData s) }) fs
+  factsByMod <- M.fromList <$> mapM (\p -> do
+                    s <- readFile p
+                    length s `seq` pure (modNameOf s p, readHostFacts s)) fs
   let byMod = M.fromListWith (++) [ (sMod s, [s]) | s <- sigs ]
       pairs = [ (f, g)
               | (_, ss) <- M.toList byMod
@@ -180,6 +593,16 @@ main = do
               , norm (sFrom f) /= norm (sTo f)        -- endo pairs are noise
               ]
       keep = take lim pairs
+      hfOf f = M.findWithDefault (HostFacts [] M.empty []) (sMod f) factsByMod
+      cands = [ Cand f g nm body rung (alreadyProved hf (sFrom f) (sTo f))
+              | (f, g) <- keep
+              , let hf   = hfOf f
+                    nm   = "AnulomaPratiloma_" ++ sanitize (sMod f) ++ "_"
+                           ++ sanitize (sName f) ++ "_" ++ sanitize (sName g)
+                    (rt, r1) = ladderFor hf (sTo f)
+                    (lt, r2) = ladderFor hf (sFrom f)
+                    rung = max r1 r2
+                    body = probe nm f g rt lt (rung == RungFour) ]
   putStrLn ""
   putStrLn "  अनुलोम-प्रतिलोम — the round trip, put to the kernel"
   putStrLn "  ────────────────────────────────────────────────────────────"
@@ -187,41 +610,215 @@ main = do
   putStrLn $ "  top-level arrows     : " ++ show (length sigs)
   putStrLn $ "  candidate pairs      : " ++ show (length pairs)
   putStrLn $ "  probes emitted       : " ++ show (length keep)
+  putStrLn $ "  …already proved in host: "
+             ++ show (length [ () | c <- cands, isJust (cAlready c) ])
+             ++ "  (the host module already carries the Iso or the ≃)"
   putStrLn ""
-  forM_ (zip [1 :: Int ..] keep) $ \(i, (f, g)) -> do
-    let nm = "AnulomaPratiloma_" ++ sanitize (sMod f) ++ "_"
-             ++ sanitize (sName f) ++ "_" ++ sanitize (sName g)
-        body = probe nm f g (M.findWithDefault [] (sMod f) dtsByMod)
-    writeFile (scratch </> nm ++ ".agda") body
-    putStrLn $ "  PROBE " ++ show i ++ "  " ++ sMod f ++ " : "
-               ++ sName f ++ " ⇄ " ++ sName g
-               ++ "   (" ++ trim (sFrom f) ++ " ≃ " ++ trim (sTo f) ++ ")"
+  forM_ (zip [1 :: Int ..] cands) $ \(i, c) -> do
+    writeFile (scratch </> cName c ++ ".agda") (cBody c)
+    putStrLn $ "  PROBE " ++ show i ++ "  " ++ sMod (cF c) ++ " : "
+               ++ sName (cF c) ++ " ⇄ " ++ sName (cG c)
+               ++ "   (" ++ trim (sFrom (cF c)) ++ " ≃ " ++ trim (sTo (cF c)) ++ ")"
+               ++ "  [rung " ++ rungName (cRung c) ++ "]"
+               ++ maybe "" (\n -> "  ALREADY: " ++ sMod (cF c) ++ "." ++ n) (cAlready c)
   putStrLn ""
-  putStrLn "  Every probe asks whether BOTH round trips hold definitionally."
-  putStrLn "  Those that do are genuine equivalences and are new edges: every"
-  putStrLn "  theorem on either side transports across, for everyone, forever."
-  putStrLn "  Those that do not land NOTHING — road two, written not asserted."
+  putStrLn "  A probe is a PROPOSAL, never a finding.  The counts above are"
+  putStrLn "  proposals.  Only `--check` puts them to the kernel, and only the"
+  putStrLn "  kernel's acceptance is a result."
   putStrLn ""
+  when doCheck (checkAll scratch hfOf cands)
 
-probe :: String -> Sig -> Sig -> [Datatype] -> String
-probe nm f g dts = unlines
+-- ─────────────────────────────────────────────────────────────────────────
+-- PUTTING IT TO THE KERNEL, IN THIS PROGRAM RATHER THAN IN THE SHELL.
+--
+-- रात्रिः used to do this with `timeout 120 agda …`, and on 2026-08-22 that
+-- was measured to be a NO-OP ON THIS HOST: `timeout` is a GNU coreutils
+-- binary and is not present on macOS, so every one of the 39 checks exited
+-- 127 with `command not found` and the loop's "0 accepted, 39 open" was not
+-- a kernel verdict at all — it was a missing binary, 39 times, reported as
+-- mathematics.  Run directly here, the same 39 give TWO acceptances.
+--
+-- LIMIT: there is no wall-clock cap on a check now.  A probe that sends the
+-- kernel into a loop hangs the pass.  That is the honest trade against a
+-- guard that silently converted every check into a failure, and if a cap is
+-- wanted it belongs here in Haskell (`System.Timeout` over the process), not
+-- in a binary that may not exist.
+checkAll :: FilePath -> (Sig -> HostFacts) -> [Cand] -> IO ()
+checkAll scratch hfOf cands = do
+  addrs <- namaAddresses
+  old   <- readLedger
+  let oldMap = M.fromList [ (rowKey r, r) | r <- old ]
+      addrOf s = M.lookup (sMod s ++ "." ++ sName s) addrs
+  putStrLn "  ── putting each probe to the kernel ─────────────────────────"
+  putStrLn $ "  content addresses from नाम: " ++ show (M.size addrs)
+  putStrLn $ "  ledger rows carried in    : " ++ show (length old)
+  results <- forM cands $ \c -> do
+    let kf = fromMaybe "" (addrOf (cF c)); kg = fromMaybe "" (addrOf (cG c))
+        dg = fnv1a (cBody c)
+        key = (kf, kg, rungName (cRung c), dg)
+        wh  = sMod (cF c) ++ " : " ++ sName (cF c) ++ " ⇄ " ++ sName (cG c)
+        cached = if null kf || null kg then Nothing else M.lookup key oldMap
+    case cached of
+      Just r | rVerdict r == Refused -> do
+        putStrLn $ "  CACHED " ++ wh ++ "   [" ++ rClass r ++ "]"
+        pure r
+      _ -> do
+        out <- runAgda scratch (cName c)
+        case out of
+          Nothing -> do
+            putStrLn $ "  GREEN  " ++ wh ++ case cAlready c of
+              Just n  -> "   — but the host already proves it: " ++ n
+              Nothing -> "   — A NEW EDGE"
+            pure (Row kf kg (rungName (cRung c)) dg Accepted
+                      (maybe "new edge" (const "restates a host Iso") (cAlready c)) wh "")
+          Just err -> do
+            let (cls, obl) = classify (hfOf (cF c)) err
+            putStrLn $ "  OPEN   " ++ wh ++ "   [" ++ cls ++ "]"
+            unless (null obl) $ putStrLn $ "         " ++ obl
+            pure (Row kf kg (rungName (cRung c)) dg Refused cls wh obl)
+  -- carry forward every row whose key this pass did not re-ask
+  let fresh = M.fromList [ (rowKey r, r) | r <- results ]
+      merged = M.elems (M.union fresh oldMap)
+  writeLedger (sortBy (comparing rWhere) merged)
+  histogram cands results
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE HISTOGRAM — the loop's own next feature request.
+--
+-- This is the part that makes the loop self-improving rather than merely
+-- repeated.  When both standpoints go dry, "dry" is worth nothing; what is
+-- worth something is WHICH MOVE the remainder is blocked on, because the
+-- largest class names the emitter somebody should write next, in the exact
+-- words of the move.  A count of 37 refusals is a wall.  A count that says
+-- twelve of them want the same induction is a morning's work with its shape
+-- already given.
+--
+-- The मम दोषः classes print FIRST and separately.  They are this program's
+-- defects, not the corpus's obligations, and a histogram that mixed them
+-- would report my bugs as open mathematics.
+histogram :: [Cand] -> [Row] -> IO ()
+histogram cands rows = do
+  let opens  = [ r | r <- rows, rVerdict r == Refused ]
+      greens = [ r | r <- rows, rVerdict r == Accepted ]
+      tally rs = sortBy (comparing (negate . snd))
+                   (M.toList (M.fromListWith (+) [ (rClass r, 1 :: Int) | r <- rs ]))
+      mine   = filter (isPrefixOf "मम दोषः" . rClass) opens
+      theirs = filter (not . isPrefixOf "मम दोषः" . rClass) opens
+      already = length [ () | c <- cands, isJust (cAlready c) ]
+      restated = length [ () | r <- greens, rClass r == "restates a host Iso" ]
+  putStrLn ""
+  putStrLn "  ── the histogram: WHAT KIND of obligation is blocking ───────"
+  putStrLn $ "  proposed " ++ show (length cands)
+             ++ " · accepted " ++ show (length greens)
+             ++ " · open " ++ show (length opens)
+  putStrLn $ "  of the accepted, " ++ show restated
+             ++ " restate an Iso the host module already carries."
+  putStrLn $ "  NEW EDGES THIS PASS: " ++ show (length greens - restated)
+  putStrLn $ "  of all proposals, " ++ show already
+             ++ " have their Iso or ≃ already standing in the host."
+  putStrLn ""
+  putStrLn "  MY OWN DEFECTS (not the corpus's obligations):"
+  if null mine then putStrLn "    none this pass."
+    else forM_ (tally mine) $ \(k, n) -> putStrLn $ "    " ++ pad 34 k ++ show n
+  putStrLn ""
+  putStrLn "  THE MOVE EACH OPEN PAIR IS BLOCKED ON:"
+  forM_ (tally theirs) $ \(k, n) -> putStrLn $ "    " ++ pad 34 k ++ show n
+  putStrLn ""
+  case tally theirs of
+    ((k, n):_) | n > 1 -> putStrLn $
+        "  " ++ show n ++ " of " ++ show (length theirs)
+        ++ " open pairs are blocked on the SAME move — «" ++ k ++ "»."
+        ++ "  That names the emitter to write next."
+    _ -> putStrLn "  No class holds more than one pair, so there is no next \
+                  \emitter this pass, and saying so is the result."
+  putStrLn ""
+  where pad n s = s ++ replicate (max 1 (n - length s)) ' '
+
+-- Returns Nothing on acceptance, Just the kernel's output on refusal.
+runAgda :: FilePath -> String -> IO (Maybe String)
+runAgda scratch nm = do
+  libs <- librariesArg
+  let dest = "formal/cubical" </> nm ++ ".agda"
+  copyFile (scratch </> nm ++ ".agda") dest
+  (rc, o, e) <- readProcessWithExitCode "agda"
+                  (libs ++ ["-i", "formal/cubical", "-i", ".", dest]) ""
+                  `catchAny` (\ex -> pure (ExitFailure 127, "", show ex))
+  removeFile dest `catchAny` const (pure ())
+  pure (if rc == ExitSuccess then Nothing else Just (o ++ e))
+  where
+    catchAny :: IO a -> (SomeException -> IO a) -> IO a
+    catchAny = catch
+
+-- `--library-file` OR NOTHING, and the difference matters.
+--
+-- रात्रिः builds a libraries file by globbing two homebrew paths.  If neither
+-- glob hits, it writes an EMPTY file and passes it, at which point agda knows
+-- about no libraries at all and every probe dies at `NotInScope: ℕ` — the
+-- same shape of lie as the missing `timeout`.  So the file is passed only
+-- when the caller sets ANULOMA_LIBRARIES to one that exists, and otherwise no
+-- flag is passed at all and agda reads the user's own ~/.agda/libraries.
+librariesArg :: IO [String]
+librariesArg = do
+  env <- lookupEnv "ANULOMA_LIBRARIES"
+  case env of
+    Just f  -> do ok <- doesFileExist f
+                  pure (if ok then ["--library-file=" ++ f] else [])
+    Nothing -> pure []
+
+-- Shells out to नाम for the address table.  The lookup key is `Module.name`,
+-- exactly as नाम's own digest table is keyed.  On any failure this returns an
+-- empty table, every key is then empty, nothing is cached, and the pass is
+-- merely slow — a ledger that cannot key must never guess.
+namaAddresses :: IO (M.Map String String)
+namaAddresses = do
+  (rc, o, _) <- readProcessWithExitCode "runghc"
+                  ["machine/Nama_TheNameIsCarriedAndTheHashIsTheBase.hs"
+                  , "--emit-addresses"] ""
+                  `catch` (\e -> pure (ExitFailure 1, "", show (e :: SomeException)))
+  if rc /= ExitSuccess then pure M.empty else
+    pure $ M.fromList [ (m ++ "." ++ n, h)
+                      | l <- lines o, (h:lang:m:n:_) <- [splitTabs l], lang == "Agda" ]
+
+probe :: String -> Sig -> Sig -> String -> String -> Bool -> String
+probe nm f g rightTerm leftTerm needSigma = unlines $
   [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
   , "-- Emitted by अनुलोम-प्रतिलोम.  CHECKED IN PLACE before landing; nothing"
   , "-- lands that the kernel has not accepted.  The claim is exactly that the"
-  , "-- two named functions are mutually inverse DEFINITIONALLY, hence that"
-  , "-- their domains are equivalent, hence — by univalence — equal, so every"
-  , "-- theorem about one is a `subst` away from the other."
+  , "-- two named functions are mutually inverse, hence that their domains are"
+  , "-- equivalent, hence — by univalence — equal, so every theorem about one"
+  , "-- is a `subst` away from the other."
   , "module " ++ nm ++ " where"
   , ""
   , "open import Cubical.Foundations.Prelude"
   , "open import Cubical.Foundations.Isomorphism"
   , "open import Cubical.Foundations.Equiv"
-  , "open import Cubical.Foundations.Univalence"
+  , "open import Cubical.Foundations.Univalence" ]
+  -- `Σ≡Prop` is imported BY NAME and only when rung four fired.  A blanket
+  -- `open import Cubical.Data.Sigma` brings `_×_`, `fst`, `snd` and `Σ` into
+  -- scope and SHADOWS the host's own choices, which is the exact failure
+  -- recorded below that lost all 39 probes on run three.  One name, on
+  -- demand, shadows nothing.
+  ++ [ "open import Cubical.Data.Sigma using (Σ≡Prop)" | needSigma ]
+  -- A CONSTRUCTOR NOT IN SCOPE IS NOT AN ERROR IN AGDA — IT IS A PATTERN
+  -- VARIABLE, and that is the worst failure this emitter can have.
+  -- `AchromaticToy.G₁ = Bool`, so rung two emitted `λ { false → refl ; true
+  -- → refl }`; the host does not re-export `Cubical.Data.Bool`, so `false`
+  -- bound a VARIABLE, the clause silently became `λ _ → refl` wearing a
+  -- split's clothes, and agda reported it as a -W warning while the
+  -- mathematics failed underneath.  The two constructors are therefore
+  -- imported by name whenever the split names them — which on the next run
+  -- closed `ProjectionChargeAudit.decode ⇄ encode` outright and moved
+  -- AchromaticToy's obligation off Bool and onto ⊎.  Any future rung that
+  -- emits a LIBRARY type's constructors must do the same or it will silently
+  -- do nothing.
+  ++ [ "open import Cubical.Data.Bool using (true ; false)"
+     | any (`isInfixOf` (rightTerm ++ " " ++ leftTerm))
+           ["false →", "true →", "false ,", "true ,", "false)", "true)"] ]
   -- The signature's types come from the HOST module's imports, which a probe
-  -- does not inherit.  Without these every probe dies at `NotInScope: ℕ`,
-  -- which is how the second run lost all 39.  Over-importing is free here:
-  -- the probe is checked and discarded, and an unused import costs nothing.
-  , "open import " ++ sMod f
+  -- does not inherit.  Without this every probe dies at `NotInScope: ℕ`,
+  -- which is how the second run lost all 39.
+  ++
+  [ "open import " ++ sMod f
   , ""
   , "-- अनुलोमम् " ++ sName f ++ " , प्रतिलोमम् " ++ sName g ++ " ।"
   , "--"
@@ -236,8 +833,8 @@ probe nm f g dts = unlines
   , "-- the host.  The types are CARRIED; the functions are the base.  Agda"
   , "-- infers them, and then there is nothing to disagree with."
   , "मार्गः = iso " ++ sName f ++ " " ++ sName g
-          ++ " " ++ splitFor dts (sTo f)   -- rightInv: split on the codomain
-          ++ " " ++ splitFor dts (sFrom f) -- leftInv : split on the domain
+          ++ " " ++ rightTerm   -- rightInv: the ladder run on the codomain
+          ++ " " ++ leftTerm    -- leftInv : the ladder run on the domain
   , ""
   , "समता = isoToEquiv मार्गः"
   , ""
@@ -406,3 +1003,190 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 -- isolated.  Two instruments, opposite directions, one conclusion — the
 -- corpus's types are joined to CONSTRUCTIONS and not to each other, and
 -- constructions do not case-split.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- ALL THREE RESULT BLOCKS ABOVE ARE FALSE.  RETRACTED 2026-08-22, THE SAME
+-- NIGHT, BY TWO INDEPENDENT DEFECTS.  Left standing and struck rather than
+-- deleted, because a silently corrected instrument is worse than a wrong
+-- one: the next reader must be able to see what it claimed and why.
+--
+-- ── DEFECT ONE: THE VERDICTS WERE NEVER OBTAINED ──
+--
+-- `timeout` DOES NOT EXIST ON THIS MACHINE.  `which timeout` → not found;
+-- `timeout 5 echo hi` → exit 127.  Every checking loop that produced a
+-- "0 accepted" figure invoked `timeout 90 agda …`, so the shell returned
+-- 127 without ever starting Agda, and the loop counted 127 as a refusal.
+--
+--   "0 / 39 at rung one"    NOT MEASURED
+--   "0 / 39 at rung two"    NOT MEASURED
+--   "0 / 39 at rung three"  NOT MEASURED
+--
+-- What WAS real: the individual diagnostic runs, which invoked `agda`
+-- directly.  Those returned genuine kernel output — `FileNotFound` on the
+-- module path, `NotInScope: ℕ`, `Cubical.Data.Fin.Fin != FinData.Fin`, and
+-- `code' (decode b) != b .fst`.  Each is a true fact about one probe.  None
+-- of them is the aggregate the result blocks reported.
+--
+-- The lesson is the repository's own and it arrived by walking into it: a
+-- harness that reads a nonzero exit as a mathematical verdict will report
+-- "refuted" for a missing binary, and it will do it 39 times without
+-- blinking.  A refusal must name its defect or it is not a refusal —
+-- `machine/Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal.hs` is in
+-- this same directory and says exactly that.
+--
+-- ── DEFECT TWO, AND IT IS THE INTERESTING ONE ──
+--
+-- **SIXTEEN OF THE 39 CANDIDATES WERE ALREADY PROVED, BY HAND, IN THE VERY
+-- FILE THIS PROGRAM READ.**
+--
+-- `SaptabhangiNaya.saptabhangi-equiv : Bhanga ≃ NEBasis` is at
+-- SaptabhangiNaya.agda:468, complete with `isPropNonEmpty` and its `Σ≡Prop`
+-- lines — the exact Σ≡Prop move the result block above declared "the
+-- missing abstraction half of the ladder" and called owed.  It was forty
+-- lines below the `code'`/`decode` the machine paired and called
+-- unreachable.  Likewise `Digits.ℕ≃CanWord`, `FreeMonoid.ℕ≃Tally`,
+-- `TermFreeMonoid.Tm≃List`, all four `PMTorus` counts, both
+-- `S3IntegerRelativeCoordinates` isos, `CenterRelative.Pair≃CR`,
+-- `AchromaticToy.L₁₂`, `ProjectionChargeAudit.localChargeEquiv`,
+-- `WallCertificate.quotient≃Bool`.
+--
+-- THE CAUSE IS ONE LINE OF THIS FILE'S DESIGN.  `parseSig` reads every
+-- top-level ARROW and this program never reads a top-level `≃`.  It cannot
+-- see an equivalence that already exists, so it proposes it, fails to prove
+-- it mechanically, and reports the corpus as barren.
+--
+--   "there is no cheap layer here"                        FALSE
+--   "every causeway in this corpus costs a real proof"     FALSE
+--   "the corpus's types are joined to constructions"       UNSUPPORTED
+--
+-- **That was a measurement of the instrument, reported as a measurement of
+-- the corpus.**  It is the same error as the fitted constant CLAUDE.md
+-- opens with, and it is worse in one respect: a fitted constant at least
+-- measured something.
+--
+-- ── WHAT SURVIVES, AND IT IS NOT NOTHING ──
+--
+-- The three-rung ladder is still the right shape and still mechanizes only
+-- the induction half of `Bhedanirnaya` §6.  The `Σ≡Prop` rung is still
+-- unbuilt.  And the two edges an agent closed by hand from this queue are
+-- real and transport (`Anyathasiddhi_…agda`, `Bhadraganita_…agda`),
+-- including one where the proposed inverse is genuinely SPURIOUS — `infl ⇄
+-- res` is refuted by the host's own `res-is-zero`, and `infl` is an
+-- equivalence anyway, its inverse being a THIRD map.  A failed round trip
+-- refutes THE PAIR, not the types.  That distinction is now checked in
+-- `Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.agda` and
+-- this program asserted its negation 39 times.
+--
+-- ── THE REPAIRS OWED, NAMED ──
+--
+--  1. Read top-level `≃` and `≡` declarations and SKIP any pair whose
+--     equivalence the host already proves.  Report those as ALREADY PROVED,
+--     which is the most useful line such a census can print.
+--  2. Never treat a nonzero exit as a verdict.  Distinguish 127 (no
+--     binary), 124 (timed out), and a real Agda failure, and refuse to
+--     count anything but the last.
+--  3. There is no `timeout` here.  Use a shell-level guard or none.
+--
+-- ── AND A LOSS, RECORDED BECAUSE IT MUST NOT BE SILENT ──
+--
+-- While this file was being repaired, a `git checkout -- <path>` on it in
+-- the shared working tree destroyed another lane's uncommitted ~600-line
+-- rewrite — a HostFacts reader, a four-rung `ladderFor`, an `alreadyProved`
+-- check, an in-process `--check` flag, and the note that `timeout` is
+-- absent here.  That lane had ALREADY FOUND DEFECT ONE and had run the
+-- probes properly, reporting ONE acceptance.  Not staged, not committed, no
+-- blob in `git fsck`.  It is gone.  **In a shared working tree
+-- `git checkout -- <path>` has no undo**, and two lanes editing one file
+-- with no lock is the hazard, not the command.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- FIFTH BLOCK.  THE THREE REPAIRS THE RETRACTION NAMED ARE DONE, AND THE
+-- NUMBERS THEY YIELD ARE BELOW.  2026-08-22, measured on 43 candidate pairs
+-- (the corpus grew from 39 while this was being written; both figures are
+-- printed by the run and neither is quoted from memory).
+--
+--     proposed                                43
+--     accepted by the kernel                   2
+--     …of those, restating a host Iso          2
+--     NEW EDGES                                0
+--     already proved in the host              11
+--     open                                    41
+--     …of which MY OWN DEFECTS                 6
+--
+-- **THE HEADLINE IS THAT NEW EDGES IS STILL ZERO, AND THAT THE TWO GREENS
+-- MAKE IT MORE ZERO RATHER THAN LESS.**  The retraction above was right that
+-- "0 accepted" was never measured; run properly the kernel accepts two —
+-- `S3IntegerRelativeCoordinates.intersectionToKernel ⇄ kernelToIntersection`
+-- at rung one, and `ProjectionChargeAudit.decode ⇄ encode` at rung two once
+-- the emitter began importing the constructors it names.  Both restate an
+-- `Iso` standing in their own host file.  A green that is an echo is not an
+-- edge, and the only reason this can be said at all is that the census now
+-- looks for the host's `≃` before it proposes.
+--
+-- REPAIR 1 — read the host's own equivalences and say ALREADY PROVED.  Done
+-- (`alreadyProved`).  It finds ELEVEN of 43.  The retraction counted
+-- SIXTEEN of 39 BY HAND, and the gap is the whole story of what a mechanical
+-- check is worth: mine matches the two type names as literally written in
+-- the two signatures, so `WallCertificate.quotient≃Bool` — an Iso between
+-- the same types under different names — is invisible to it, and so is any
+-- Iso stated through an alias.  **ELEVEN IS A FLOOR AND THE HAND COUNT IS
+-- NOT WRONG.**  Stated in this direction because the reverse — quoting the
+-- machine's smaller number as the answer — is how an instrument's blind spot
+-- becomes a claim about the corpus, which is the exact error retracted above.
+--
+-- REPAIR 2 — never treat a nonzero exit as a verdict.  Done, by removing the
+-- exit code from the shell entirely: `--check` runs agda in-process, and a
+-- probe that dies at `MetaCannotDependOn`, `NotInScope`, `CoverageIssue` or
+-- `PatternShadowsConstructor` is filed under मम दोषः and counted APART from
+-- the mathematical obligations.  Six of the 41 open pairs are mine, not the
+-- corpus's, and they were previously indistinguishable from refutations.
+--
+-- REPAIR 3 — there is no `timeout` here.  Done: nothing invokes it.  The
+-- honest cost is stated at `runAgda` — there is now no wall-clock cap at all.
+--
+-- WHAT RUNG FOUR ACTUALLY DID, SEPARATED FROM WHAT IT WAS SUPPOSED TO DO.
+-- `Σ≡Prop` is emitted, it fires on the Σ-typed candidates, and IT CLOSED
+-- NOTHING.  `SaptabhangiNaya` needs the absurd `(false , false , false)`
+-- branch that no enumeration reaches; `Digits` is an indexed family the
+-- probe cannot even state.  The rung's value this pass is not an edge — it
+-- is that the kernel's refusal on Saptabhangi now points at the ex-falso
+-- branch by name instead of at a variable.  Two OTHER changes, both trivial
+-- next to it, are what actually moved the numbers: resolving type aliases
+-- before splitting, and importing `true`/`false` when the split names them.
+-- The second one is worth the whole rung as a lesson — an unimported
+-- constructor is a PATTERN VARIABLE in Agda, so the split silently was not a
+-- split, and agda said so in a -W warning nobody was reading.
+--
+-- THE HISTOGRAM, WHICH IS THE POINT OF THE PASS.  Of the 35 open pairs that
+-- carry a real obligation:
+--
+--     induction on ℕ                    10
+--     library lemma on ℤ                 7
+--     case on ⊎                          4
+--     host enumeration (emitter gap)     3
+--     induction on List                  3
+--     case on Bool                       2
+--     enumerate Fin n                    1
+--     four host types, one each          4
+--     unclassified                       1
+--
+-- Ten of 35 want the same move.  THAT is the next emitter, named by the run
+-- rather than by me, and «case on ⊎» at four is the cheapest one — `inl`/
+-- `inr` carry arguments, which is exactly the rung-two limit stated at the
+-- top of this file and never lifted.  A loop that reports "dry" has said
+-- nothing; this line is a feature request the loop wrote about itself.
+--
+-- AND THE LEDGER, which is what lets an overnight loop run overnight.
+-- `notes/anuloma/NirnayaPanjika.tsv`, keyed on नाम's content address for
+-- each of the two functions plus the FNV digest of the emitted probe.  Two
+-- consecutive passes, same tree:
+--
+--     pass 1   43 put to the kernel      3m 50s
+--     pass 2   41 served from the ledger, 2 re-checked    33s
+--
+-- and 30 of those 33 seconds are नाम computing the addresses.  The kernel
+-- work fell from about 200 seconds to about 2.  A pass now costs what
+-- CHANGED, which is the difference between a loop that can run for eight
+-- hours and one that re-does forty minutes of the same refusals all night.
+-- The greens are re-checked every pass on purpose: a green is a claim the
+-- corpus stands on.

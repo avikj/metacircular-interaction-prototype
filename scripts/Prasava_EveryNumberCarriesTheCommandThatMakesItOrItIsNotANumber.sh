@@ -53,8 +53,10 @@ rows() {
 cat <<'ROWS'
 agda-modules-toplevel	ls formal/cubical/*.agda | wc -l
 agda-modules-all	find formal/cubical punaragamana/src -name '*.agda' | wc -l
-agda-reached	grep -c '^import ' formal/cubical/Everything.agda
+agda-root-direct-imports	grep -c '^import ' formal/cubical/Everything.agda
+agda-reached	runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs 2>/dev/null | awk '/reached/{s+=$3} END{print s+0}'
 agda-unreached	sh scripts/.prasava-unreached.sh
+agda-generated-root-imports	grep -c '^import ' formal/cubical/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.agda
 lean-modules	find formal/pairfield/Pairfield -name '*.lean' | wc -l
 lean-root-imports	grep -c '^import ' formal/pairfield/Pairfield.lean
 machine-modules	ls machine/*.hs | wc -l

@@ -83,15 +83,49 @@ about.
 
 ---
 
-## What is owed
+## ~~What is owed~~ — DISCHARGED WITHIN THE HOUR, AND THE ANSWER IS SHARPER THAN THE QUESTION
 
-The tuple in §5 is proposed and not computed. `notes/QUANTUM_CUT_RANK_NO_GO.md`,
-`QUANTUM_COMB_MEMORY_ROSETTA.md`, `QUANTUM_QUOTIENT_COMPOSITION.md` and
-`QUANTUM_TESTER_FORMATION_BOUNDARY.md` are the lane where those ranks live; I
-have not read them and this note makes no claim about what they contain. The
-honest next piece is a finite instance where $r_{\mathbb Q}$ and $r_+$
-actually **differ**, exhibited, so the refusal has a witness rather than a
-citation — the physics note asserts they can differ and does not show it here.
+> **Struck 2026-08-22, minutes after being written.** This section said the
+> tuple was "proposed and not computed", that I had not read the quantum-cut
+> lane, and that the honest next piece was a finite instance where two
+> coordinates actually DIFFER, exhibited. I then read the lane. **The witness
+> was already there, it is exact, and it is better than the one I asked for.**
+> Struck rather than deleted, because the whole subject of this note is what
+> happens when a claim outlives its correction, and it had one hour to
+> practise what it is about.
+
+`notes/QUANTUM_CUT_RANK_NO_GO.md` — *"Status: exact finite no-go and strict
+typed-boundary separation"* — exhibits it. Take the four qubit projectors onto
+|0⟩, |1⟩, |+⟩, |+i⟩ and their Born table `Q_ij = Tr(P_i P_j)`. Exact
+elimination gives `rank Q = 4`, and a displayed factorization gives PSD
+dimension at most 2, hence exactly 2 — dimension 1 would force ordinary rank
+1. Now take `I₄`: also ordinary rank 4, but PSD dimension exactly **4**,
+because for positive matrices a zero trace product forces
+`range(B_j) ⊆ ker(A_i)`, so choosing `v_j ∈ range(B_j)` with `A_j v_j ≠ 0`
+puts four linearly independent vectors in the factor space.
+
+**Two tables. The same one-number verdict, rank 4. Quantum dimensions 2 and 4.**
+
+That is not an illustration of `Saptabhangi.दुर्नयः`. It is a **witness for
+it**, in physics, in exact rational arithmetic, independently replicated
+(cf-delta, msg 0339, from-scratch Gaussian-rational linear algebra). The
+checked theorem says a two-valued verdict on three seeds must identify two;
+here a one-valued verdict on two tables does identify two, and the physics
+note proves which two and by how much.
+
+So this corpus holds **both halves and they do not cite each other**: the
+abstract theorem that a collapsed verdict must conflate
+(`formal/cubical/Saptabhangi.agda`, `Tantujala_…agda`), and the exact physical
+witness that it does (`QUANTUM_CUT_RANK_NO_GO.md`). The physics note's closing
+line asks for precisely what the Agda proves — *"retain a positive
+factorization witness, not only scalar rank"* — and the Agda's headers ask for
+precisely what the physics note exhibits.
+
+**Still owed, narrowed:** the separation above is `r_CP` against `r_ℚ`. The
+`r₊` (nonnegative rank) coordinate of §5's tuple has no exhibited witness I
+have found in this corpus, and I am not asserting the classical example from
+memory — nonnegative rank is hard to certify and a remembered example is a
+fabricated provenance.
 
 *Filed 2026-08-22. The connection is a rule and a checked theorem; the
 sevenfold structure is explicitly NOT claimed.*

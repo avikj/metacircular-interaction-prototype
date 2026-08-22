@@ -81,7 +81,21 @@ theorem one_paddedOne_same_value_different_cost :
   decide
 
 /-- Integer value does not determine the historical work of a valid
-coefficient construction. -/
+coefficient construction.
+
+**The `+2` in `paddedOne` is forced, and this theorem is tight at the parity
+quotient.**  `inc` adds one and `dec` subtracts one, so every step flips the
+parity of the running integer and `value ≡ cost (mod 2)` identically.  `value`
+is thus a *partial* decoder: it recovers `cost mod 2` exactly and nothing
+further, so no counterexample can pad by an odd amount, and `3` against `1` is
+the least gap available.
+
+Proved in `Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy.lean`:
+`runCoefficientTrace_emod_two`, `CoefficientWitness.value_emod_two`, and
+`CoefficientWitness.value_forces_cost_parity`.  That module also shows this is
+the same obstruction as `no_historical_actionCost_decoder`'s, which is proved
+by determinants and mentions no arithmetic on `Int` at all — both are
+length-graded sign homomorphisms, `(-1)^length` and `length mod 2`. -/
 theorem no_value_cost_decoder :
     ¬ ∃ price : Int → Nat,
         ∀ w : CoefficientWitness, price w.value = w.cost := by

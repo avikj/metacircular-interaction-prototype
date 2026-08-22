@@ -710,11 +710,43 @@ lanes =
   , (Haskell, ["machine"])
   ]
 
+-- ─────────────────────────────────────────────────────────────────────────
+-- `--emit-addresses` — THE TABLE, NOT THE REPORT.  Added 2026-08-22.
+--
+-- WHY.  `AnulomaPratiloma_…hs` re-proposes all 39 candidate inverse pairs and
+-- re-puts each to the kernel on every pass, so an overnight loop pays the same
+-- cost for the same refusals forever and can never run longer than the corpus
+-- takes to check once.  A verdict is only re-askable when the QUESTION has
+-- changed, and the question is the two functions' definitions — which is
+-- exactly what this store already addresses.  So the ledger keys on the
+-- address, and this mode is how another program gets it.
+--
+-- Prints, one per line, TAB-separated and nothing else:
+--     <hex-16>  <lang>  <module>  <name>
+-- LIMIT: every limit of the census above applies unchanged — a `where`-block
+-- member has no address of its own, and a name that Nama cannot address is
+-- simply absent, which a consumer must read as "no address", never as "no
+-- such definition".
+emitAddresses :: IO ()
+emitAddresses = forM_ lanes $ \(lang, roots) -> do
+  fs <- concat <$> mapM (listSrc lang) roots
+  ds <- fmap concat . forM fs $ \f -> declsOf lang f <$> readFile f
+  let tbl = digests ds
+  forM_ ds $ \d ->
+    case M.lookup (dModule d ++ "." ++ dName d) tbl of
+      Just h  -> putStrLn (hex h ++ "\t" ++ show lang ++ "\t"
+                           ++ dModule d ++ "\t" ++ dName d)
+      Nothing -> pure ()
+
 main :: IO ()
 main = do
   hSetEncoding stdout utf8
   args <- getArgs
   let full = "--full" `elem` args
+  if "--emit-addresses" `elem` args then emitAddresses else report full
+
+report :: Bool -> IO ()
+report full = do
   putStrLn "=============================================================="
   putStrLn "नाम · the name is carried, the hash is the base"
   putStrLn "=============================================================="

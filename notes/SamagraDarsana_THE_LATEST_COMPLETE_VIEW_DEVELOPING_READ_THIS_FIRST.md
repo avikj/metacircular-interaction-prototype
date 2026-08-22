@@ -117,8 +117,9 @@ nothing internal marks the difference. Only opening the file does.
 | `Avaccheda_…agda` | `CAUSAL_MEMORY_SPACETIME.md` and `punaragamana/` are **one construction**. The predictive quotient `h ∼ h′ ⟺ P(F∣h)=P(F∣h′)` IS the fibre of the response map; `A ≃ Σ[b] fibre f b` is `Carrier` with its Σ swapped; **"memory is a failure of factorization" = memory is the fibre failing to be contractible**; and the failure has THREE verdicts, so a boolean verdict on a boundary cannot tell *unreachable* from *must be carried across*. 102 files name Myhill–Nerode; no causal-state note contained the word पुनरागमन. Exit 0. |
 | `NastaVitanda_…agda` | `k(p−1)` — the corpus's most-cited exact cost law, **proved four times in prose, three announced as new, checked nowhere** — now formalized in BOTH halves, 499 lines, lower bound over *arbitrary* identifying trees. Exit 0. |
 | `Setubandha_…hs/.agda` | the identification graph: **143 edges, 196 nodes, 73 components, 55 of them isolated two-node causeways, 93% of defined types isolated**, `ℕ` the only hub. And one routed geodesic — छन्दस् ≡ ℕ ≡ Tally — carrying `isSet`, an operation AND its associativity across by `subst`, with no induction in the file. |
-| `AnulomaPratiloma_…hs` | the second naya for रात्रिः. 39 candidate inverse pairs, a three-rung mechanical ladder, **0 accepted at every rung** — and that zero is the result: this corpus has no cheap harvest, every causeway costs a real proof, and the missing move is the ABSTRACTION half of `Bhedanirnaya` §6. |
-| `Prasava_…sh` + `PRASAVA.tsv` | every number carries the command that makes it. First run: `lean-sorry` read 3 and the truth is 0 (all three were prose); **`agda-unreached` is 134** — modules no `Everything` root reaches, verified by nothing. 17 of 179 counted claims in the corpus have a command; the rest are memories, and the report says so every run. |
+| `AnulomaPratiloma_…hs` | **RETRACTED THE SAME NIGHT, BOTH HALVES.** It reported "39 candidate inverse pairs, three mechanical rungs, 0 accepted at every rung", and neither number was real. (1) `timeout` DOES NOT EXIST on this machine — every checking loop ran `timeout 90 agda` and got exit 127 without Agda ever starting, and counted 127 as a refusal. The rung figures are NOT MEASURED. (2) **Sixteen of the 39 were already proved by hand in the very file the program read** — `SaptabhangiNaya.saptabhangi-equiv : Bhanga ≃ NEBasis` is at line 468, with the exact `Σ≡Prop` move I had declared "the missing abstraction half", forty lines below the pair the machine called unreachable. The cause is one line of design: it reads every top-level ARROW and never a top-level `≃`. **That was a measurement of the instrument reported as a measurement of the corpus.** What survives: the ladder is the right shape, the `Σ≡Prop` rung is still unbuilt, two edges were closed by hand from the queue and transport, and a failed round trip refutes THE PAIR and not the types — now checked in `Vyatireka_…agda`, whose negation this program asserted 39 times. |
+| `Prasava_…sh` + `PRASAVA.tsv` | every number carries the command that makes it. First run: `lean-sorry` read 3 and the truth is 0 (all three hits were prose). **`agda-unreached` read 134 and the truth is 10** — and the cause is the sharpest instance of this night's pattern. My `.prasava-unreached.sh` and the repo's own `check-agda-closure.sh` BOTH matched module names with the ASCII class `[A-Za-z0-9_'.-]+`, so **every module whose name carries a non-ASCII character read as never-imported, however many roots imported it — 17 false orphans**, all of them the Devanagari-named ones (`…_विवेक`, `…Occupancy₄`, `…ℤ±`). CLAUDE.md warns about exactly this shape one level up — "a check that scores a Devanagari citation below a romanised one" — and it arrived again, in a build gate, in my script. Both now read *a module name is the token up to whitespace*: no alphabet named, nothing to extend for Tamil or Persian. Also: `BUILD.md:540`'s 784/784 was **not stale — it was true when written**, and is struck rather than overwritten. |
+| `Samuccaya_…hs/.agda` | and the rot class is now closed rather than counted. The aggregate root is **derived from the tree**, imports **897 modules**, builds at exit 0, and an exclusion row **with no reason is a hard fail** — so the list cannot become where inconvenient modules get hidden. 28 modules were wired that nothing reached; **all 28 typecheck at exit 0**. They were never broken, only invisible, which is precisely what a hand-kept list produces and a checker cannot see. The derived root is deliberately NOT counted as a measured root, so the remaining count stays a diagnosis of the hand list instead of reading 0 by construction. |
 | `Nama_…hs` | content addressing, three lanes now. Agda 240 confirmed duplicate groups, Lean 18 (`alphabet` copied into **six** modules), Haskell 83 (`vars` in **ten** programs). A mixfix parse defect was found and fixed: 22 groups had been signature-only matches — verdicts in a report that only had leads. |
 
 ## ०d · REFUTED TODAY, ON THE RECORD
@@ -770,3 +771,93 @@ First run already paid: `lean-sorry` read 3 and the true value is 0 (all three
 hits were prose — "no `sorry`", "histories admit exact reconstruction"), and
 `agda-unreached` is **134** — modules no `Everything` root reaches, which are
 verified by nothing whatever the lane reports green.
+
+---
+
+## ०c-३ · THE REPAIRED INSTRUMENT'S FIRST HONEST VERDICT, 2026-08-22
+
+`AnulomaPratiloma_…hs`, both defects fixed (it reads top-level `≃` now, and
+its checking runs Agda in-process so no shell exit code can be mistaken for a
+verdict), against 843 modules and 1081 top-level arrows:
+
+```
+proposed 43 · accepted 2 · open 41
+NEW EDGES THIS PASS: 0     — both acceptances restate an Iso the host carries
+11 of all proposals have their Iso or ≃ already standing in the host
+
+MY OWN DEFECTS (not the corpus's obligations):
+  मम दोषः · indexed family      4
+  मम दोषः · split incomplete    2
+
+THE MOVE EACH OPEN PAIR IS BLOCKED ON:
+  induction on ℕ    10     library lemma on ℤ  7     case on ⊎   4
+  induction on List  3     host enumeration    3     case on Bool 2
+  enumerate Fin n    1     + five one-off host types, 1 unclassified
+
+10 of 35 open pairs are blocked on the SAME move — «induction on ℕ».
+That names the emitter to write next.
+```
+
+**Read this against the retracted version, because the shape of the correction
+is the lesson.** The old run claimed 0 accepted and concluded *"there is no
+cheap layer here; every causeway costs a real proof."* The new run also finds
+**0 new edges** — but the conclusion is nearly the opposite of what was drawn
+from it, and every part of the accounting is different:
+
+- 11 of the proposals were **already proved**, so the corpus was never barren;
+  the census was blind to its own answer.
+- 6 of the failures are **the instrument's**, and it now says so under its own
+  heading — `मम दोषः`. A census that files its own bugs as the corpus's
+  refusals is the दुर्नय one level up.
+- The 35 real obligations are **classified by the move they need**, so the
+  output is a work queue with the shape of each proof attached rather than a
+  list of failures.
+- And it **writes its own next feature request**: ten pairs, one move.
+
+That last line is what an overnight loop is for. A loop that says "dry"
+teaches nothing; a loop that says *"ten of your thirty-five are blocked on
+induction on ℕ"* has told the next agent exactly what to build.
+
+---
+
+## ०e · FOR THE OWNER — two claims in `CLAUDE.md` (T0) that are now false, not edited here
+
+**1. `no-python.sh` IS wired and DOES fire.** CLAUDE.md's struck paragraph
+states that it was removed from both `PreToolUse` matchers in
+`.claude/settings.json` at `991b59b`, that the CI workflows are deleted, and
+that **"working mechanical gates on Python in this repository: zero"**. Three
+independent agents hit the hook live tonight — one had a Bash command blocked
+merely for containing the string. The strike is false in the other direction:
+the gate the file says is gone is the one that is running.
+
+This matters beyond bookkeeping, because that paragraph is the *evidence* for
+the section it sits in — *"all protocols must be demolished, only prototypes
+may remain"* — and the section's own argument is that what remains are mirrors
+rather than gates. One of them is a gate.
+
+**2. The Virahāṅka date.** `CLAUDE.md`'s priority table read `~700`, which the
+repository's own dated searched ledger forbids in those words
+(`.claude/hooks/source-table.txt:34`, marked `search 2026-08-20`: *"c. 600-800
+CE — NOT ~700"*). It had propagated to twelve sites. Eleven were corrected;
+the table in `CLAUDE.md` was left because T0 is the owner's file. **An edit to
+that row is proposed and not made.**
+
+Both are recorded here rather than acted on. The hook inventory and the
+priority table are the owner's, and a claim about which hooks are wired is
+itself a claim about the repository — which is exactly what CLAUDE.md says
+nobody was checking.
+
+## ०f · OWED, so it is not lost
+
+- **`notes/Karani_…md`** (the Varāhamihira chapter, written tonight) **has no
+  place in the chronological index.** It belongs between chapter 6 (Āryabhaṭa,
+  499) and chapter 7 (Brahmagupta, 628), which requires renumbering 7→13 in
+  `machine/Anukramani.hs`; that file was dirty from another lane's in-flight
+  Virahāṅka correction. Appending at the end would break the chronological
+  rule that makes the ordering load-bearing, so it was not done.
+- **The `Ratri/` subtree (60 machine-minted modules) violates the file-naming
+  rule wholesale** — `Ratri/Nirdharita_Agda-Builtin-Nat_….agda` leads with an
+  Agda module path where the rule wants the tradition's term, and its content
+  is about `CoolingCountermodel`/`CensusBase`, unrelated to `Agda.Builtin.Nat`.
+  The generator's naming scheme puts the probe target where the rule puts the
+  source term. Stated, not fixed.

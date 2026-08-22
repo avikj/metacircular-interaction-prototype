@@ -163,3 +163,19 @@ import Pairfield.SieveRestriction
 import Pairfield.UpwardEscape
 import Pairfield.UpwardEscapeNecessity
 import Pairfield.VandermondeFrequencyResponse
+
+-- Added 2026-08-21: the पुनरागमन family.  These three modules say, from
+-- outside and by `Equiv`, that several structures already written in this lane
+-- are Carriers -- a base, a determined field, and the witness pinning it -- and
+-- where that fails, what the obstruction is.  Nothing they speak about was
+-- edited; see each header.
+import Pairfield.Punaragamana_TheDeterminedFieldRidesFree
+import Pairfield.PunaragamanaPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
+import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneRefusal
+
+-- Added 2026-08-22.  The parity transfer owed by
+-- `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`
+-- §5, constructed natively here rather than imported: the two no-decoder
+-- theorems in this lane are TIGHT at the parity quotient, and their `+2`
+-- witnesses were forced to be even.
+import Pairfield.YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy
