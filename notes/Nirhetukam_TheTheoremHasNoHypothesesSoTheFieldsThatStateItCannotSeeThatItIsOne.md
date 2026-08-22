@@ -137,6 +137,21 @@ question — *does this probe measure the feature or a correlate?* — is exactl
 > is scaling the wrong coordinate. MINE, and the one on this page with the
 > largest live consequence.
 
+> **Sharpened 2026-08-22 by reading `ChargeCriterion.agda` itself rather than
+> `TARGET.md`'s description of it, and the source is stricter than the summary in
+> the way that matters.** The criterion is on the **query set, not on the
+> post-processing**, and the module says in its own header that *this asymmetry is
+> the theorem, not a limitation*: charge lives in what a method **reads**, and no
+> amount of computation on neutral readings manufactures it. So the transferable
+> statement to interpretability is not "a bigger probe will not help" — it is
+> **the validity of a probe is decided by what it reads, and is not repairable
+> downstream by any analysis of what it read.** `probe-2` and `probe-6` are the
+> worked instances: reading at a prime separates, reading at a product of two
+> primes does not, and the second is the larger number.
+>
+> And the fence the source carries and the summary drops: an odd-Ω method is
+> **permitted, not blessed** — the criterion decides **blindness, never success.**
+
 **3.5 · Contextuality is a failure of the Hasse principle for the covering by
 measurement contexts.** Locally consistent everywhere, globally impossible,
 obstruction in `H¹` — in both cases. `Ш = ker(H¹(K,E) → ∏_v H¹(K_v,E))` is
