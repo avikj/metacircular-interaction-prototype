@@ -1070,6 +1070,7 @@ import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 import Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants
 import Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided
 import Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw
+import Samjna_TheSemanticFibreCarriedItsNameAndTheFiveThatDidNotAreFibresOfARestriction
 
 -- दुर्नयः, 2026-08-22.  The Boolean three-into-two pigeonhole stands FOUR
 -- times in this corpus — Saptabhangi.दुर्नयः, DisclosureDimension.three-into-two,
