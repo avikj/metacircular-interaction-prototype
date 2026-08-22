@@ -251,14 +251,38 @@ question posed.
 **The involution that would reduce one conjecture to the other is precisely
 the one that destroys the positivity that makes them arithmetic statements.**
 
-**MINE (arithmetic, trivially checkable, not yet checked in the tree):**
-`(p+q)² − (q−p)² = 4pq`. So the Minkowski norm of a prime pair is four times
-the product of its primes, and Brahmagupta's composition — which multiplies
-norms — multiplies `pq`. That is why bhāvanā is the composition law on this
-field and not an analogy to it. It also connects to the Lean lane's
-`Lorentz.so11_int_eq_pm_one`: SO(1,1)(ℤ) = {±I}, so the cone has essentially
-no integer symmetries — the same obstruction from the group side, in the other
-language, with no cross-reference in either direction.
+**I wrote here that `(p+q)² − (q−p)² = 4pq` was MINE and unchecked. It is
+`CenterRelative.thm16-8`, checked, and its header calls it Delta 16's
+"strongest new compression". That is the seventh time in this session.**
+
+The full structure, all of it checked in `CenterRelative.agda`:
+
+- `Q (W,R) = W² − R²`, and **`Pair ≡ CR` by univalence** — legs and
+  centre/gap are equal *as types*, so moving between them is transport and
+  not a change of notation. (`CR` carries the parity constraint; `Pair≡CR`
+  is `ua` of `Pair≃CR`.)
+- `thm16-8 : Q (Φraw (p,q)) ≡ 4pq` — **the additive centre/gap geometry and
+  multiplication meet in one quadratic form.**
+- `thm16-6-τ : Q (τCR x) ≡ Q x` — the leg exchange **preserves** Q.
+- `thm16-6-J : Q (J₂CR x) ≡ - Q x` — the one-leg reflection **negates** it.
+- `exchangePreservesCone` vs `thm16-4` — τ stays in the cone, J₂ cannot.
+- `corollary16-5` is the correction the module exists to pin down: the
+  positive-cone obstruction is **not** τ but J₂.
+
+**MINE, and it is a statement of WHY rather than a restatement of WHAT:**
+Goldbach and twin primes are additive statements about a multiplicatively
+defined set. The two structures touch through exactly one object, Q. And the
+involution that carries one additive foliation to the other — the one that
+would let a proof about centres become a proof about gaps — is precisely the
+one that reverses the sign of the multiplicative invariant *and* leaves the
+cone. That is not an analogy for the difficulty; it is a checked obstruction
+with both halves named.
+
+Brahmagupta's composition multiplies norms, so on this field it multiplies
+`pq`: bhāvanā is the composition law here, not a resemblance to one. And
+from the group side the Lean lane's `Lorentz.so11_int_eq_pm_one` gives
+SO(1,1)(ℤ) = {±I} — the cone has essentially no integer symmetries at all —
+with no cross-reference in either direction.
 
 The file's own guard, which I want kept in view: *"Writing Goldbach as a type
 is not progress on Goldbach … a definition is not a theorem."* And it carries
@@ -325,6 +349,69 @@ K′ bounds *structure-blind* recovery. The barrier holds against an observer
 who does not use the structure. That is `QuotientFiberLaw`'s *"visibility
 returns only by a separating (charged) query"*, and the note says Theorem I1
 is the same content from the other side.
+
+---
+
+## ४c · `BARRIER.md` — the law proved in analytic number theory, and the exact open problem
+
+This is the sharpest instance in the corpus of §०b's one structure, because
+here the observation class is *defined* and the factorisation is *proved*.
+
+- **Definition WL_d(L,r).** Observables `Φ(Q_1,…,Q_r)` whose kernels factor
+  through log-scale windows of resolution L on linear forms, with Φ an
+  arbitrary — *even non-computable* — post-processing. The note records that
+  everything this corpus computes is WL, and so are classical major/minor-arc
+  circle-method quantities.
+- **Theorem B1** expands a span-L windowed observable as
+  `Q_w = ⟨σ_k, ŵ⟩ + smooth + error`, with σ_k the k-fold **sum**-spectral
+  measure, and Paley–Wiener tails.
+- **Corollary B2 — the fibre, named.** Two spectral configurations whose
+  blurred measures agree give identical values of *every* span-L observable.
+- **Proposition B3 — nonlinear closure.** The entire class factors through
+  `σ_k * K_L`. *"Post-processing cannot recover information the windows did
+  not pass."*
+
+**B3 is `QuotientFiberLaw` proved in analytic number theory**, and neither
+file cites the other.
+
+**And the note states its own gap exactly, which is what makes it usable.**
+B1–B3 prove the *access mode* is lossy at resolution 2π/L with quantified
+tails. They do **not** prove a barrier, because that needs **two admissible
+spectra** — satisfying the counting law N(T) ~ (T/2π)log(T/2π), the
+functional-equation constraints, and if assumed RH — whose blurred measures
+agree. *"The superresolution construction perturbs an abstract spike measure;
+the zeros of ζ cannot be moved."*
+
+**MINE — the barrier problem restated in this corpus's own vocabulary,
+which I believe is exact and is not written anywhere I have found:**
+
+> Is the fibre of the WL observation map, **intersected with the admissible
+> configurations**, a singleton?
+
+- fibre ∩ admissible = one point → the class *can* in principle determine
+  the correlations; no barrier; `Carrier` applies and transport is free.
+- ≥ two points → a genuine barrier; नष्टि; and the two points *are* the
+  object to exhibit.
+- The superresolution bound is minimax over **arbitrary** measures, which is
+  precisely HOLOGRAM §7's sumset-rank objection: it bounds structure-blind
+  recovery. The admissibility constraints are what might cut the fibre to a
+  point, and they are *positivity and symmetry* constraints.
+
+**That is the same shape as `PrimePairField`.** There, a symmetry (J₂
+exchanging the two foliations) exists at the level of the ambient geometry
+and an arithmetic **positivity** constraint (the cone) decides that it cannot
+survive. Here, a degeneracy (moment-matched sub-resolution clusters) exists at
+the level of arbitrary spike measures and the **admissibility** constraints
+decide whether it survives into the arithmetic. In both cases the ambient
+object has a symmetry the arithmetic may or may not keep, and the whole
+difficulty is which.
+
+The note also positions itself against the theorem-level precedent, and this
+is the right ancestor: **Bombieri's asymptotic sieve (1976) and
+Friedlander–Iwaniec** — sieve axioms alone cannot resolve parity. The parity
+problem is the classical instance of *an observation class cannot see the
+fibre*, and it has been sitting in analytic number theory since 1976 without
+that name.
 
 ---
 
