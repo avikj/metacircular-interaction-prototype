@@ -179,3 +179,10 @@ import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneRefusal
 -- theorems in this lane are TIGHT at the parity quotient, and their `+2`
 -- witnesses were forced to be even.
 import Pairfield.YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSaysWhy
+
+-- The support of the ζ-complete Goldbach field is exactly the two-prime-power
+-- sum predicate: positivity of one quantitative coefficient ⟺ N is a sum of
+-- two prime powers.  With GoldbachDeterminesZeta this makes the prime-power
+-- Goldbach question, verbatim, a projection of an object that determines
+-- -ζ'/ζ.  Landed 2026-08-22.
+import Pairfield.GoldbachSupportIsThePrimePowerSumPredicate
