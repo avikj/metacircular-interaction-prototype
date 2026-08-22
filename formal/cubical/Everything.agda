@@ -960,3 +960,11 @@ import NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne
 -- prove everything downstream by `subst`, with no induction on either side.
 import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
 import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
+
+-- नय — Theorem F's mechanism at the grain of the identification graph:
+-- a SET-valued observable annihilates every loop, the loop is still not
+-- `refl`, and dropping the set-truncation is the whole of the escape.
+-- Plus: on a graph whose edges are identifications, antisymmetry is free,
+-- so the causal-order reading of `Setubandha`'s reachability is vacuous.
+import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere
+import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
