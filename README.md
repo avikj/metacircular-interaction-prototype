@@ -505,8 +505,7 @@ holography movement survives only in its QEC and proof-theoretic (lemma/cut) hal
 **C2 · "Set-truncation is the whole of the blindness" is FALSE.**
 `transport : (Bool ≡ Bool) → (Bool → Bool)` is set-valued (isSetΠ) and SEPARATES
 `ua notEquiv` from `refl` — the charged sector is already 0-truncated (`isSet (Bool ≡
-Bool)` holds). The blindness is a property of non-dependent post-composition (`cong F`
-for `F : A → X`), not of the answer's h-level. Physics check that kills the gloss: a
+Bool)` holds). The blindness needs BOTH conditions — non-dependent post-composition (`cong F` for `F : A → X`) AND a set-valued answer — and neither alone suffices. [corrected 2026-08-22: an earlier version here said "not of the answer's h-level"; that is false and contradicted this document's own छिद्रदोष movement, where the isSet gap is exactly where the anomaly lives. `Naya.नय-निरोधः` carries `isSet X` as an EXPLICIT hypothesis (line 66), and `Naya.स्थान-संयोगः` exhibits a non-dependent `cong F` that does NOT annihilate the loop — so each condition is necessary, neither sufficient. The peer reports a fuller receipt (the hidden charge is exactly ℤ via ΩS¹≅ℤ, winding the identifying map) in a module not yet on origin; cite when it lands.] Physics check that kills the gloss: a
 Wilson loop is a number obtained by transporting around the loop — set-valued, and it
 sees the holonomy; the truncation gloss would predict Aharonov–Bohm invisible. What
 survives as the invariant half is **Vaidharmya**: the negative side of the obstruction
