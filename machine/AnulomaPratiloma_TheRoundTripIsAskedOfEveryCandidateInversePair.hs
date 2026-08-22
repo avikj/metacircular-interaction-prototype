@@ -791,6 +791,23 @@ classify hf out
   -- as one.  See the Bool import in `probe`.
   | "PatternShadowsConstructor" `isInfixOf` out
       = (myFault "constructor not imported", firstErr)
+  | any (`isInfixOf` out) ["UnreachableClause", "Unreachable clause"]
+      = (myFault "clause unreachable — the split degenerated", firstErr)
+  -- 2026-08-22, AND THIS ONE IS A REGRESSION RUNG FIVE CAUSED.  `!=<` is
+  -- Agda's SUBTYPE failure, not its equality failure: it says the thing I
+  -- WROTE does not have the type it must have, which for this program is
+  -- always the statement `∀ b → f (g b) ≡ b` handed to an indexed family
+  -- whose index the emitter cannot bind (`Word b → ℕ !=< ℕ`).  Before rung
+  -- five those three pairs died at `MetaCannotDependOn` and were correctly
+  -- filed as मम दोषः; rung five changed the shape of the error and they
+  -- slid into «unclassified», which is the corpus's bucket, not mine.  A
+  -- defect of the instrument that has moved into the corpus's column is the
+  -- exact दुर्नय this histogram was built to prevent, one level down.
+  | "!=<" `isInfixOf` out = (myFault "statement ill-typed · indexed family", firstErr)
+  -- A REFUTED PAIR IS NOT AN OPEN OBLIGATION, and filing it as one inflates
+  -- the queue with work nobody should do.  See `refuted` below for the three
+  -- shapes this is willing to call refuted and the reason each is sound.
+  | Just why <- refuted firstErr = ("खण्डितम् · " ++ why, firstErr)
   | otherwise = (ofType (typeOfObligation out), firstErr)
   where
     myFault s = "मम दोषः · " ++ s
@@ -830,6 +847,80 @@ classify hf out
                 , let w = filter (`notElem` "()") w0, not (null w) ]
         has s = s `elem` heads
 
+-- ─────────────────────────────────────────────────────────────────────────
+-- खण्डितम् — REFUTED.  A pair the kernel has DISPROVED, not one it is waiting
+-- on.
+--
+-- Rung five changed what the refusals say and this class is the consequence.
+-- Before it, `SQ ⇄ hull` failed with "does not reduce", which is a statement
+-- about the proof shape and says nothing about the pair.  With the induction
+-- emitted, the same pair fails with
+--
+--     SQ (hull w₀) != suc (suc (suc (suc (suc (suc (suc (SQ (hull w₀))))))))
+--
+-- and that is not an obligation.  It is `x ≢ suc⁷ x`, which no lemma about ℕ
+-- will ever discharge, because ℕ has no fixpoint of `suc`.  Filing it under
+-- «induction on ℕ» would put SEVEN successors' worth of arithmetic into a
+-- work queue as though someone should go and prove it.  The histogram's whole
+-- claim is that the largest class names the next emitter; a class inflated
+-- with disproved pairs names the wrong one.
+--
+-- THREE SHAPES, and each is called refuted for a reason, not by a heuristic.
+--
+--  १. `x != sucᵏ x`, k ≥ 1, the two sides identical under the successors.
+--     No ℕ satisfies it.  (`hull` prepends five entries per step, so the
+--     counting functions come back multiplied and land here.)
+--  २. Two distinct NUMERALS.  `1 != 0` is `SieveFiber`'s base case.
+--  ३. Two distinct constructors OF THE SAME TYPE at the head — `inl`/`inr`,
+--     `true`/`false`, `[]`/`_∷_`.  Constructors of a `data` type are
+--     disjoint, so no instantiation of the variables underneath can bring
+--     them together.
+--
+-- WHAT IT DELIBERATELY DOES NOT CLAIM.  `PingalaPrastara.aksara ⇄ parity` is
+-- refuted too — `aksara ∘ parity` is n mod 2 — and this test does NOT catch
+-- it, because the disagreement is `suc (aksara (parity w₀)) != aksara (parity
+-- (suc w₀))` and neither side contains the other.  Under-claiming is the only
+-- safe direction: a pair wrongly called refuted is silently removed from the
+-- queue, and nothing downstream would ever look at it again.
+--
+-- AND IT IS A CLASSIFICATION, NOT A THEOREM.  The kernel refused a TERM.  That
+-- the refusal has one of these three shapes is read off its text by this
+-- program, and the text is Agda's, not a proof.  A refutation of the pair
+-- proper is `Vyatireka_…agda`'s business, and that file already states the
+-- distinction this class turns on: a failed round trip refutes THE PAIR, never
+-- the types.
+refuted :: String -> Maybe String
+refuted obl = do
+  (l0, r0) <- breakOnStr " != " (takeWhile' obl)
+  let l = trim (dropQual l0); r = trim (dropQual (cut r0))
+  if null l || null r || l == r then Nothing else
+    case () of
+      _ | Just k <- sucTower l r -> Just ("x ≢ suc" ++ show k ++ " x — ℕ has no such fixpoint")
+        | Just k <- sucTower r l -> Just ("x ≢ suc" ++ show k ++ " x — ℕ has no such fixpoint")
+        | all isDigitC l, all isDigitC r -> Just ("distinct numerals " ++ l ++ " ≠ " ++ r)
+        | Just t <- disjointHeads (head' l) (head' r)
+            -> Just ("distinct constructors of " ++ t)
+        | otherwise -> Nothing
+  where
+    isDigitC c = c >= '0' && c <= '9'
+    takeWhile' s = maybe s fst (breakOnStr " of type " s)
+    cut s = maybe s fst (breakOnStr " when checking" s)
+    -- strip `Agda.Builtin.Nat.Nat.` style qualifiers from every token
+    dropQual = unwords . map (reverse . takeWhile (/= '.') . reverse) . words
+    head' s = takeWhile (`notElem` " (") (dropWhile (`elem` "(") s)
+    disjointHeads a b = listToMaybe
+      [ nm | (nm, cs) <- [ ("_⊎_", ["inl", "inr"]), ("Bool", ["true", "false"])
+                         , ("List", ["[]", "_∷_", "∷"]), ("ℕ", ["zero", "suc"]) ]
+           , a `elem` cs, b `elem` cs, a /= b ]
+    -- `b` is `suc (suc (… a …))` with k ≥ 1 successors and nothing else
+    sucTower a b = go (0 :: Int) b
+      where
+        go k s | trim s == a = if k > 0 then Just k else Nothing
+               | otherwise = case stripPrefix' "suc " (trim s) of
+                   Just rest -> go (k + 1) (stripOuter rest)
+                   Nothing   -> Nothing
+    stripPrefix' p s = if p `isPrefixOf` s then Just (drop (length p) s) else Nothing
+
 -- Agda prints `X != Y of type T`, with T possibly wrapping onto the lines
 -- after it, up to `when checking`.
 --
@@ -859,6 +950,14 @@ main = do
               (_:n:_) -> read n
               _       -> 400 :: Int
       doCheck = "--check" `elem` args
+      -- 2026-08-22.  `--fresh` puts EVERY pair to the kernel and reads no
+      -- cached refusal, at the full price of the pass.  It exists because the
+      -- ledger is a shared file in a shared working tree: another lane ran
+      -- this program between a commit and its measurement, and the run that
+      -- followed served 39 rows out of a cache it had not filled and would
+      -- have reported them as its own verdicts.  A number a pass did not
+      -- obtain is not that pass's number, whoever obtained it.
+      doFresh = "--fresh" `elem` args
   scratch <- fromMaybe ".anuloma" <$> lookupEnv "ANULOMA_SCRATCH"
   createDirectoryIfMissing True scratch
   fs <- listAgda "formal/cubical"
@@ -914,7 +1013,7 @@ main = do
   putStrLn "  proposals.  Only `--check` puts them to the kernel, and only the"
   putStrLn "  kernel's acceptance is a result."
   putStrLn ""
-  when doCheck (checkAll scratch hfOf cands)
+  when doCheck (checkAll doFresh scratch hfOf cands)
 
 -- ─────────────────────────────────────────────────────────────────────────
 -- PUTTING IT TO THE KERNEL, IN THIS PROGRAM RATHER THAN IN THE SHELL.
@@ -931,8 +1030,8 @@ main = do
 -- guard that silently converted every check into a failure, and if a cap is
 -- wanted it belongs here in Haskell (`System.Timeout` over the process), not
 -- in a binary that may not exist.
-checkAll :: FilePath -> (Sig -> HostFacts) -> [Cand] -> IO ()
-checkAll scratch hfOf cands = do
+checkAll :: Bool -> FilePath -> (Sig -> HostFacts) -> [Cand] -> IO ()
+checkAll doFresh scratch hfOf cands = do
   addrs <- namaAddresses
   old   <- readLedger
   let oldMap = M.fromList [ (rowKey r, r) | r <- old ]
@@ -945,7 +1044,7 @@ checkAll scratch hfOf cands = do
         dg = fnv1a (cBody c)
         key = (kf, kg, rungName (cRung c), dg)
         wh  = sMod (cF c) ++ " : " ++ sName (cF c) ++ " ⇄ " ++ sName (cG c)
-        cached = if null kf || null kg then Nothing else M.lookup key oldMap
+        cached = if doFresh || null kf || null kg then Nothing else M.lookup key oldMap
     case cached of
       Just r | rVerdict r == Refused -> do
         putStrLn $ "  CACHED " ++ wh ++ "   [" ++ rClass r ++ "]"
@@ -991,7 +1090,15 @@ histogram cands rows = do
       tally rs = sortBy (comparing (negate . snd))
                    (M.toList (M.fromListWith (+) [ (rClass r, 1 :: Int) | r <- rs ]))
       mine   = filter (isPrefixOf "मम दोषः" . rClass) opens
-      theirs = filter (not . isPrefixOf "मम दोषः" . rClass) opens
+      -- THREE BUCKETS NOW, NOT TWO.  मम दोषः is the instrument's defects;
+      -- खण्डितम् is the pairs the kernel DISPROVED; and only what is left is
+      -- an obligation somebody could discharge.  A refuted pair sitting in
+      -- the third bucket is the mirror of a bug sitting there — both make the
+      -- queue longer than the work, and the histogram's one job is to name
+      -- the next emitter by the size of a class.
+      dead   = filter (isPrefixOf "खण्डितम्" . rClass) opens
+      theirs = [ r | r <- opens, not (isPrefixOf "मम दोषः" (rClass r))
+                                , not (isPrefixOf "खण्डितम्" (rClass r)) ]
       already = length [ () | c <- cands, isJust (cAlready c) ]
       restated = length [ () | r <- greens, rClass r == "restates a host Iso" ]
   putStrLn ""
@@ -999,6 +1106,9 @@ histogram cands rows = do
   putStrLn $ "  proposed " ++ show (length cands)
              ++ " · accepted " ++ show (length greens)
              ++ " · open " ++ show (length opens)
+             ++ "  (of which " ++ show (length mine) ++ " mine, "
+             ++ show (length dead) ++ " refuted, " ++ show (length theirs)
+             ++ " real obligations)"
   putStrLn $ "  of the accepted, " ++ show restated
              ++ " restate an Iso the host module already carries."
   putStrLn $ "  NEW EDGES THIS PASS: " ++ show (length greens - restated)
@@ -1009,7 +1119,12 @@ histogram cands rows = do
   if null mine then putStrLn "    none this pass."
     else forM_ (tally mine) $ \(k, n) -> putStrLn $ "    " ++ pad 34 k ++ show n
   putStrLn ""
-  putStrLn "  THE MOVE EACH OPEN PAIR IS BLOCKED ON:"
+  putStrLn "  खण्डितम् — THE KERNEL DISPROVED THE PAIR (not work, and not a"
+  putStrLn "  statement about the TYPES: only this pair of maps is refuted):"
+  if null dead then putStrLn "    none this pass."
+    else forM_ dead $ \r -> putStrLn $ "    " ++ rWhere r ++ "\n        " ++ rClass r
+  putStrLn ""
+  putStrLn "  THE MOVE EACH REMAINING OPEN PAIR IS BLOCKED ON:"
   forM_ (tally theirs) $ \(k, n) -> putStrLn $ "    " ++ pad 34 k ++ show n
   putStrLn ""
   case tally theirs of
@@ -1032,7 +1147,19 @@ runAgda scratch nm = do
                   (libs ++ ["-i", "formal/cubical", "-i", ".", dest]) ""
                   `catchAny` (\ex -> pure (ExitFailure 127, "", show ex))
   removeFile dest `catchAny` const (pure ())
-  pure (if rc == ExitSuccess then Nothing else Just (o ++ e))
+  -- A GREEN THAT AGDA WARNED ABOUT IS NOT A GREEN HERE.  An unimported
+  -- constructor is a pattern VARIABLE, so `λ { false → refl ; true → refl }`
+  -- can typecheck as `λ _ → refl` wearing a split's clothes, and agda says so
+  -- in a `-W` warning that exits ZERO.  This file has already been burned by
+  -- that once, silently.  Rungs two, three and five all name constructors, so
+  -- the warning is checked on SUCCESS as well as on failure, and an accepted
+  -- probe carrying one is handed back as a refusal and classified as my
+  -- defect.  Erring toward refusing my own greens is the only safe direction.
+  let out = o ++ e
+      degenerate = any (`isInfixOf` out)
+                     ["PatternShadowsConstructor", "shadows a constructor"
+                     , "UnreachableClause", "Unreachable clause"]
+  pure (if rc == ExitSuccess && not degenerate then Nothing else Just out)
   where
     catchAny :: IO a -> (SomeException -> IO a) -> IO a
     catchAny = catch
