@@ -375,6 +375,38 @@ prior rejection to SEED-13 is *pratyakṣa* on the file, quoted verbatim.
 
 ---
 
+## 7. On the certificates of this lane, checked rather than assumed
+
+The brief flagged that a note whose only verification is a script nobody can
+run is asserting a provenance. Checked for this lane, and the finding is
+narrower than the worry:
+
+- **Every script and datum `INDRA_CROSS.md` names is present on disk** —
+  `code/exp58_indra_cross.py`, `exp20_dirichlet.py`, `exp16_mobius.py`,
+  `exp18_cross.py`, `exp29_ltower_stats.py`, `exp12_krein.py`,
+  `exp41_superres.py`; all six `data/exp58_*.npy`; both `figures/exp58_*.png`;
+  and the audited `data/chi3_zeros_deep.npy`. 136 files under `code/`, 539
+  under `machinery/`.
+- **The ban is live and is enforced mechanically.**
+  `.claude/hooks/no-python.sh` is wired `PreToolUse` and **fired in this lane**
+  on an accidental invocation. That contradicts `CLAUDE.md`'s struck paragraph
+  — *"working mechanical gates on Python in this repository: zero"* — which is
+  false for this gate. **A claim about which hooks are wired is a claim about
+  the repository, and this one is stale in the direction that matters.**
+- So the honest statement is **not** "the certificate is missing" but: *the
+  certificate exists as a file and cannot be executed under the current gate.*
+  Those are different defects. The first is a fabricated provenance; the second
+  is an artifact that has become **read-only evidence** — inspectable, not
+  re-runnable, and therefore *śabda* on the run rather than *pratyakṣa* for any
+  future reader.
+- **This note adds nothing to that pile.** No computation was run here and none
+  is proposed; every claim in §§1–2 is a proof or a checked term.
+
+*Not done:* I did not enumerate which of the ~675 scripts are cited as the
+**sole** verification of a note, nor which are missing from disk. **`SEARCH`.**
+
+---
+
 *Filed 2026-08-22. The picture in §1.1 is the owner's, given mid-lane; it named
 the refutation before the algebra reached it, and it is recorded as its source
 rather than absorbed.*
