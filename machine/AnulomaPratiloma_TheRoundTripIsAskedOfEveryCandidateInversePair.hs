@@ -100,7 +100,16 @@ data Sig = Sig { sMod :: String, sName :: String, sFrom :: String, sTo :: String
 -- enumerated type every branch is `refl` and the split is mechanical, while
 -- a constructor carrying arguments needs a recursive call and that is rung
 -- three.  Stated so "no split emitted" is never read as "no equivalence".
-data Datatype = Datatype { dName :: String, dCons :: [String] }
+-- 2026-08-22, RUNG FIVE.  `dCons` — nullary constructor NAMES — is the whole
+-- of what rungs two and three could see, and it is why a constructor carrying
+-- an argument was invisible rather than merely hard.  `dConsFull` carries the
+-- ARITY as well, which is what both new rungs need: the ⊎ lift needs to know
+-- there is an argument to bind, and the induction needs to know WHICH argument
+-- is the recursive one.  `dCons` is kept, unchanged, so rungs two and three
+-- behave exactly as they did.
+data Con = Con { cnName :: String, cnArgs :: [String] }
+
+data Datatype = Datatype { dName :: String, dCons :: [String], dConsFull :: [Con] }
 
 readData :: String -> [Datatype]
 readData src = go (lines src)
@@ -109,7 +118,7 @@ readData src = go (lines src)
     go (l:ls)
       | "data " `isPrefixOf` l, (_:nm:_) <- words l, last (words l) == "where"
           = let (blk, rest) = span indented ls
-            in Datatype nm (nullaryCons blk) : go rest
+            in Datatype nm (nullaryCons blk) (fullCons blk) : go rest
       | otherwise = go ls
     indented (c:_) = isSpace c
     indented _     = True
@@ -118,6 +127,48 @@ readData src = go (lines src)
                       , let c' = trim c
                       , not (null c'), all (\x -> isAlphaNum x || x `elem` "-_'₀₁₂₃₄₅₆₇₈₉") c'
                       , not (elem '→' ty) ]
+    -- `  c₁ c₂ : A → B → T` → one Con per name, args [A, B].
+    --
+    -- FOUR LIMITS, at the site.  (1) A constructor whose type spans lines is
+    -- read only as far as the first line.  (2) An IMPLICIT binder `{n : ℕ} →`
+    -- is dropped, which is right for a pattern but means an indexed family's
+    -- index is invisible here.  (3) An explicit binder `(x : A) →` keeps `A`.
+    -- (4) The result type is discarded, so a GADT-style constructor landing in
+    -- a different index than the one asked about is not detected; the kernel
+    -- is the filter for that, as everywhere else here.
+    fullCons blk = [ Con nmc (conArgTypes ty)
+                   | b <- blk, Just (nms, ty) <- [breakColon b]
+                   , nmc <- words (trim nms)
+                   , all (\x -> isAlphaNum x || x `elem` "-_'₀₁₂₃₄₅₆₇₈₉") nmc
+                   , not (null nmc) ]
+
+-- everything before the LAST top-level arrow, each binder reduced to its type
+conArgTypes :: String -> [String]
+conArgTypes ty = case arrowParts (trim ty) of
+  []  -> []
+  ps  -> mapMaybe binderType (init ps)
+  where
+    binderType s0 =
+      let s = trim s0 in
+      case (s, reverse s) of
+        ('{':_, '}':_) -> Nothing                    -- implicit: not a pattern arg
+        ('(':_, ')':_) -> case breakColon (init (drop 1 s)) of
+                            Just (_, t) -> Just (trim t)
+                            Nothing     -> Just (trim (init (drop 1 s)))
+        _ | null s     -> Nothing
+          | otherwise  -> Just s
+
+-- split on every top-level `→`, respecting ( ) and { }
+arrowParts :: String -> [String]
+arrowParts s = reverse (map (trim . reverse) (go s (0 :: Int) "" []))
+  where
+    go [] _ acc out = acc : out
+    go r@(c:cs) n acc out
+      | c == '→', n == 0 = go cs n "" (acc : out)
+      | c `elem` "({"    = go cs (n + 1) (c:acc) out
+      | c `elem` ")}"    = go cs (n - 1) (c:acc) out
+      | otherwise        = go cs n (c:acc) out
+      where _ = r
 
 -- RUNG THREE.  The counterparty.  Rung two split the host's own `data`
 -- enumerations and the kernel still refused all 39, with the failure moved
@@ -202,7 +253,221 @@ splitFor hf ty = case consOf hf ty of
   -- Bool` for exactly that reason: a case split was available and was never
   -- emitted.
   Just cs@(_:_) -> "(λ { " ++ intercalate " ; " [ c ++ " → refl" | c <- cs ] ++ " })"
-  _             -> "(λ _ → refl)"
+  -- 2026-08-22.  The one line that lifts «case on ⊎».  Everything above reads
+  -- NULLARY constructors only, so a type whose constructors carry arguments —
+  -- `inl : A → A ⊎ B` is the whole of the four blocked pairs — fell to rung
+  -- one and the split was never even attempted.  `coverOf` binds the argument
+  -- instead of refusing to look at it.  Tried LAST, so rungs two and three
+  -- keep exactly the behaviour they had; this only fires where they gave up.
+  _ -> case coverOf hf ty of
+         Just (ps@(_:_), _) ->
+           "(λ { " ++ intercalate " ; " [ p ++ " → refl" | p <- ps ] ++ " })"
+         _ -> "(λ _ → refl)"
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- CONSTRUCTORS WITH ARGUMENTS — the shared floor of rungs 2′ and five.
+--
+-- `consOf` answers "what are the nullary constructor NAMES of this type".
+-- That question cannot see `inl`, `suc`, or `_∷_`, and those three are what
+-- the histogram's top three classes are made of.  `consFullOf` answers the
+-- larger question — name AND argument types — for the four shapes that
+-- actually occur in this corpus's signatures, plus the host's own `data`.
+--
+-- LIMIT, stated because it is the difference between a cover and a guess:
+-- the library rows below are HARD-CODED, and they are hard-coded against
+-- `Cubical.Data.{Bool,Nat,Sum,List}`.  A host that means a DIFFERENT type by
+-- one of these names gets patterns written against the wrong constructors,
+-- the kernel refuses, and the refusal is recorded — which is the direction
+-- this program has always erred in, over-proposing into an exact checker.
+consFullOf :: HostFacts -> String -> Maybe [Con]
+consFullOf hf ty0
+  | t == "Bool"                = Just [Con "false" [], Con "true" []]
+  | t `elem` ["ℕ", "Nat"]      = Just [Con "zero" [], Con "suc" [t]]
+  | Just (a, b) <- sumParts t  = Just [Con "inl" [a], Con "inr" [b]]
+  | "List " `isPrefixOf` t     = let el = trim (drop 5 t)
+                                 in Just [Con "[]" [], Con "_∷_" [el, t]]
+  | otherwise = case [ d | d <- hData hf, dName d == t, not (null (dConsFull d)) ] of
+      (d:_) -> Just (dConsFull d)
+      []    -> Nothing
+  where t = trim (stripOuter (unalias hf ty0))
+
+-- The imports a cover written against `ty`'s constructors needs.  A
+-- CONSTRUCTOR NOT IN SCOPE IS A PATTERN VARIABLE IN AGDA — the trap this file
+-- already paid for once with `true`/`false` — so every library row above
+-- carries the `using (…)` that makes its names mean what they say.
+importsFor :: HostFacts -> String -> [String]
+importsFor hf ty0
+  | t == "Bool"            = ["open import Cubical.Data.Bool using (true ; false)"]
+  | t `elem` ["ℕ", "Nat"]  = ["open import Cubical.Data.Nat using (zero ; suc)"]
+  | Just (a, b) <- sumParts t
+      = "open import Cubical.Data.Sum using (inl ; inr)"
+        : importsFor hf a ++ importsFor hf b
+  | "List " `isPrefixOf` t
+      = "open import Cubical.Data.List using ([] ; _∷_)"
+        : importsFor hf (trim (drop 5 t))
+  | otherwise = concatMap (importsFor hf) (let fs = factorsOf t
+                                           in if length fs > 1 then fs else [])
+  where t = trim (stripOuter (unalias hf ty0))
+
+stripOuter :: String -> String
+stripOuter s0 = case (s, reverse s) of
+    ('(':_, ')':_) | bal 0 (init (drop 1 s)) -> stripOuter (trim (init (drop 1 s)))
+    _ -> s
+  where
+    s = trim s0
+    bal :: Int -> String -> Bool
+    bal n ('(':r) = bal (n + 1) r
+    bal n (')':r) = n > 0 && bal (n - 1) r
+    bal n (_:r)   = bal n r
+    bal n []      = n == 0
+
+-- first top-level ` ⊎ `.  `_⊎_` associates to the right, so splitting at the
+-- FIRST one gives `A` and `B ⊎ C` — which is the shape the patterns want.
+sumParts :: String -> Maybe (String, String)
+sumParts s0 = go (stripOuter s0) (0 :: Int) ""
+  where
+    go [] _ _ = Nothing
+    go r@(c:cs) n acc
+      | " ⊎ " `isPrefixOf` r, n == 0 = Just (trim (reverse acc), trim (drop 3 r))
+      | c == '(' = go cs (n + 1) (c:acc)
+      | c == ')' = go cs (n - 1) (c:acc)
+      | otherwise = go cs n (c:acc)
+
+-- An EXHAUSTIVE pattern cover for a type, with the imports it needs.  Where a
+-- constructor argument is itself coverable the cover recurses into it; where
+-- it is not, the argument is bound to a FRESH VARIABLE, which is still an
+-- exhaustive cover and is the point — `inl w₀` covers all of `A` without
+-- knowing anything about `A`.
+--
+-- Returns Nothing when the type is RECURSIVE.  That is deliberate: a
+-- recursive type has no finite cover, and pretending otherwise is what rung
+-- five exists to stop doing.  It is also bounded at depth three and at 32
+-- patterns, so a census can never blow up on a wide product.
+coverOf :: HostFacts -> String -> Maybe ([String], [String])
+coverOf hf ty00 = fmap (\ps -> (ps, nub (importsFor hf ty00))) (go (3 :: Int) ty00)
+  where
+    go :: Int -> String -> Maybe [String]
+    go 0 _ = Nothing
+    go d ty0 =
+      let ty = trim (stripOuter (unalias hf ty0)) in
+      case sumParts ty of
+        Just _ -> viaCons d ty
+        Nothing -> case factorsOf ty of
+          fs@(_:_:_) -> do
+            css <- mapM (go (d - 1)) fs
+            cap [ "(" ++ intercalate " , " k ++ ")" | k <- sequence css ]
+          _ -> viaCons d ty
+    viaCons d ty = do
+      cons <- consFullOf hf ty
+      if null cons || any (isRecCon hf ty) cons then Nothing else do
+        pss <- mapM (conPat d) cons
+        cap (concat pss)
+    conPat _ (Con n [])   = Just [n]
+    conPat d (Con n args) = do
+      argss <- mapM (\(i, a) -> pure (fromMaybe [freshVar i] (go (d - 1) a)))
+                    (zip [0 :: Int ..] args)
+      cap [ applyCon n k | k <- sequence argss ]
+    cap ps = if length ps > 32 then Nothing else Just ps
+
+freshVar :: Int -> String
+freshVar i = "w" ++ [ "₀₁₂₃₄₅₆₇₈₉" !! (i `mod` 10) ]
+
+-- `_∷_` is written infix in a pattern; everything else prefix.
+applyCon :: String -> [String] -> String
+applyCon n as
+  | n == "_∷_", [x, y] <- as = "(" ++ x ++ " ∷ " ++ y ++ ")"
+  | null as                  = n
+  | otherwise                = "(" ++ n ++ " " ++ unwords as ++ ")"
+
+-- infix form for the BODY of a cong, where the constructor is applied to
+-- terms rather than matched.
+isRecCon :: HostFacts -> String -> Con -> Bool
+isRecCon hf self c = any (sameType hf self) (cnArgs c)
+
+sameType :: HostFacts -> String -> String -> Bool
+sameType hf a b = norm (stripOuter (unalias hf a)) == norm (stripOuter (unalias hf b))
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- RUNG FIVE.  THE INDUCTION, WHICH IS NOT A LAMBDA.
+--
+-- Every rung below this one emits an EXPRESSION — `refl`, a `λ { … }`, a
+-- `Σ≡Prop`.  An expression cannot call itself, and the ten pairs the run's
+-- own histogram named as blocked on «induction on ℕ» all want exactly that:
+--
+--     g (f zero)    ≡ zero        is refl
+--     g (f (suc n)) ≡ suc n       is `cong suc` applied to THE SAME LEMMA at n
+--
+-- So this rung emits a `where`-bound recursive lemma, not a term.  For a type
+-- T whose constructors are `c₁ … cₖ`, with `cᵢ` carrying exactly one argument
+-- of type T at position j:
+--
+--     अनुलोमन : ∀ b → f (g b) ≡ b
+--     अनुलोमन c₁                = refl                       -- no recursion
+--     अनुलोमन (cᵢ a₀ … aₙ)      = cong (λ z → cᵢ a₀ … z … aₙ) (अनुलोमन aⱼ)
+--
+-- THE TYPE IS STILL NOT WRITTEN DOWN, and that is not a stylistic choice —
+-- it is the repair that made this program work at all (see FIRST RUN below:
+-- three whole runs died on a restated type disagreeing with the host).
+-- `∀ b →` binds `b` with its domain left as a metavariable, and `g b` in the
+-- body determines it.  Nothing is asserted twice, so nothing can disagree.
+--
+-- WHY `cong (λ z → …)` AND NOT `cong cᵢ`.  For `suc` the two coincide.  For
+-- `_∷_` they do not: the recursive argument is the SECOND, and `cong (x ∷_)`
+-- is a section that has to be written per constructor.  The lambda form is
+-- one shape for every constructor and every position, and it costs nothing.
+--
+-- FIVE LIMITS, at the site.
+--
+--  1. **ONE recursive argument per constructor, or the rung declines.**  A
+--     binary node `app : Tm → Tm → Tm` needs `cong₂` and TWO appeals to the
+--     hypothesis, and emitting `cong` there would be a guess.  Declined, and
+--     the pair keeps whatever lower rung it had.
+--  2. **The successor branch must reduce.**  `cong (λ z → suc z) (ih n)` has
+--     type `suc (f (g n)) ≡ suc n`, and the goal is `f (g (suc n)) ≡ suc n`.
+--     Those are the same type only when `f (g (suc n))` REDUCES to
+--     `suc (f (g n))` definitionally.  When the composite instead multiplies —
+--     `IntegerHullMultiplicity.K (hull (suc t))` is `suc (suc (suc (suc (suc
+--     (K (hull t))))))`, five per step — the cong does not typecheck and the
+--     kernel says so.  That is a true refusal of THIS PROOF SHAPE and is
+--     recorded as one; it is NOT a refutation of the pair.
+--  3. **A pair needing induction on BOTH sides needs it on both.**  This rung
+--     runs per side, so `FreeMonoid.len ⇄ unlen` gets the ℕ induction on one
+--     side and the List induction on the other, and both must land or the
+--     probe still refuses.  That is why the class counts do not predict the
+--     number of closures, and why the report below counts closures separately.
+--  4. **Indices are invisible.**  `conArgTypes` drops implicit binders, so an
+--     indexed family — the four `मम दोषः · indexed family` rows — is not
+--     reached by this rung and was never going to be.
+--  5. **A mutually recursive pair of types is not handled**: the recursion
+--     test asks only whether an argument is the SAME type, so `data A … (b :
+--     B)` / `data B … (a : A)` reads as non-recursive and gets a cover of
+--     variables, which will simply fail to prove anything.
+inductionFor :: HostFacts -> String -> String -> String -> Maybe ([String], [String])
+inductionFor hf lemma stmt ty0 = do
+  let ty = trim (stripOuter (unalias hf ty0))
+  cons <- consFullOf hf ty
+  if not (any (isRecCon hf ty) cons) then Nothing else do
+    clauses <- mapM (clause ty) cons
+    pure ( (lemma ++ " : " ++ stmt) : clauses
+         , nub (importsFor hf ty) )
+  where
+    clause ty (Con n args) =
+      let vs   = [ freshVar i | (i, _) <- zip [0 :: Int ..] args ]
+          recs = [ i | (i, a) <- zip [0 :: Int ..] args, sameType hf ty a ]
+          pat  = applyCon n vs
+      in case recs of
+           []  -> Just (lemma ++ " " ++ pat ++ " = refl")
+           [j] -> let body = applyTerm n [ if i == j then "z" else v
+                                         | (i, v) <- zip [0 :: Int ..] vs ]
+                  in Just (lemma ++ " " ++ pat ++ " = cong (λ z → " ++ body
+                           ++ ") (" ++ lemma ++ " " ++ (vs !! j) ++ ")")
+           _   -> Nothing
+
+applyTerm :: String -> [String] -> String
+applyTerm n as
+  | n == "_∷_", [x, y] <- as = x ++ " ∷ " ++ y
+  | null as                  = n
+  | otherwise                = n ++ " " ++ unwords as
 
 -- ─────────────────────────────────────────────────────────────────────────
 -- RUNG FOUR.  THE ABSTRACTION.
@@ -302,18 +567,36 @@ sigmaSplit hf ty = do
 
 -- The whole ladder for one side, and WHICH RUNG produced it, so the report
 -- can never claim a rung it did not use.
-data Rung = RungOne | RungTwoThree | RungFour deriving (Eq, Ord, Show)
+data Rung = RungOne | RungTwoThree | RungFour | RungFive deriving (Eq, Ord, Show)
 
 rungName :: Rung -> String
 rungName RungOne      = "१ refl"
 rungName RungTwoThree = "२/३ split"
 rungName RungFour     = "४ Σ≡Prop"
+rungName RungFive     = "५ induction"
 
-ladderFor :: HostFacts -> String -> (String, Rung)
-ladderFor hf ty0
-  | Just t <- sigmaSplit hf ty = (t, RungFour)
+-- What one side of the round trip contributes to the probe: the TERM handed
+-- to `iso`, any `where`-bound lemmas it needs, and the imports those lemmas'
+-- constructors need.  Rungs one to four never fill the last two; rung five is
+-- the reason they exist, because a recursive lemma cannot be an expression.
+data Term = Term { tText :: String, tWhere :: [String], tImp :: [String] }
+
+plain :: String -> Term
+plain s = Term s [] []
+
+-- `lemma` is the name the where-block binds, `stmt` the statement written
+-- WITHOUT naming the type — `∀ b → f (g b) ≡ b`.  Rung five is tried after
+-- rung four (an h-level abstraction beats an induction when both apply) and
+-- before rungs two/three, because a recursive type has no finite cover and
+-- whatever those two would emit for it is `λ _ → refl` in a split's clothes.
+ladderFor :: HostFacts -> String -> String -> String -> (Term, Rung)
+ladderFor hf lemma stmt ty0
+  | Just t <- sigmaSplit hf ty = (plain t, RungFour)
+  | Just (ws, imps) <- inductionFor hf lemma stmt ty
+      = (Term lemma ws imps, RungFive)
   | otherwise = let t = splitFor hf ty
-                in (t, if t == "(λ _ → refl)" then RungOne else RungTwoThree)
+                in ( Term t [] (if t == "(λ _ → refl)" then [] else importsFor hf ty)
+                   , if t == "(λ _ → refl)" then RungOne else RungTwoThree)
   where ty = unalias hf ty0
 
 -- Follow `T = U = V = …` to the first form the rungs can read.  Bounded at
@@ -599,10 +882,15 @@ main = do
               , let hf   = hfOf f
                     nm   = "AnulomaPratiloma_" ++ sanitize (sMod f) ++ "_"
                            ++ sanitize (sName f) ++ "_" ++ sanitize (sName g)
-                    (rt, r1) = ladderFor hf (sTo f)
-                    (lt, r2) = ladderFor hf (sFrom f)
+                    -- the two statements, written without naming a type: the
+                    -- domain and codomain are DETERMINED by f and g, and
+                    -- restating them is what killed the first three runs.
+                    stR  = "∀ b → " ++ sName f ++ " (" ++ sName g ++ " b) ≡ b"
+                    stL  = "∀ a → " ++ sName g ++ " (" ++ sName f ++ " a) ≡ a"
+                    (rt, r1) = ladderFor hf "अनुलोमन"  stR (sTo f)
+                    (lt, r2) = ladderFor hf "प्रतिलोमन" stL (sFrom f)
                     rung = max r1 r2
-                    body = probe nm f g rt lt (rung == RungFour) ]
+                    body = probe nm f g rt lt (r1 == RungFour || r2 == RungFour) ]
   putStrLn ""
   putStrLn "  अनुलोम-प्रतिलोम — the round trip, put to the kernel"
   putStrLn "  ────────────────────────────────────────────────────────────"
@@ -779,8 +1067,8 @@ namaAddresses = do
     pure $ M.fromList [ (m ++ "." ++ n, h)
                       | l <- lines o, (h:lang:m:n:_) <- [splitTabs l], lang == "Agda" ]
 
-probe :: String -> Sig -> Sig -> String -> String -> Bool -> String
-probe nm f g rightTerm leftTerm needSigma = unlines $
+probe :: String -> Sig -> Sig -> Term -> Term -> Bool -> String
+probe nm f g right left needSigma = unlines $
   [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
   , "-- Emitted by अनुलोम-प्रतिलोम.  CHECKED IN PLACE before landing; nothing"
   , "-- lands that the kernel has not accepted.  The claim is exactly that the"
@@ -811,9 +1099,19 @@ probe nm f g rightTerm leftTerm needSigma = unlines $
   -- AchromaticToy's obligation off Bool and onto ⊎.  Any future rung that
   -- emits a LIBRARY type's constructors must do the same or it will silently
   -- do nothing.
-  ++ [ "open import Cubical.Data.Bool using (true ; false)"
-     | any (`isInfixOf` (rightTerm ++ " " ++ leftTerm))
-           ["false →", "true →", "false ,", "true ,", "false)", "true)"] ]
+  --
+  -- 2026-08-22.  This USED to be a scan of the emitted term's text for
+  -- `"true →"`, `"false ,"` and four more shapes — a heuristic that had to be
+  -- extended by hand every time a rung learned a new constructor, and rung
+  -- five's `suc`, `[]`, `_∷_`, `inl`, `inr` would every one of them have
+  -- silently become pattern VARIABLES under it.  Each rung now DECLARES the
+  -- imports its own patterns need (`importsFor`), and the scan is kept only
+  -- as a net under the declaration, never as the mechanism.
+  ++ nub (tImp right ++ tImp left
+          ++ [ "open import Cubical.Data.Bool using (true ; false)"
+             | any (`isInfixOf` (tText right ++ " " ++ tText left
+                                 ++ " " ++ unwords (tWhere right ++ tWhere left)))
+                   ["false →", "true →", "false ,", "true ,", "false)", "true)"] ])
   -- The signature's types come from the HOST module's imports, which a probe
   -- does not inherit.  Without this every probe dies at `NotInScope: ℕ`,
   -- which is how the second run lost all 39.
@@ -833,9 +1131,18 @@ probe nm f g rightTerm leftTerm needSigma = unlines $
   , "-- the host.  The types are CARRIED; the functions are the base.  Agda"
   , "-- infers them, and then there is nothing to disagree with."
   , "मार्गः = iso " ++ sName f ++ " " ++ sName g
-          ++ " " ++ rightTerm   -- rightInv: the ladder run on the codomain
-          ++ " " ++ leftTerm    -- leftInv : the ladder run on the domain
-  , ""
+          ++ " " ++ tText right   -- rightInv: the ladder run on the codomain
+          ++ " " ++ tText left    -- leftInv : the ladder run on the domain
+  ]
+  -- The `where` block, which is the whole of rung five.  Empty for every
+  -- lower rung, and then no `where` keyword is emitted at all — a bare
+  -- `where` with nothing under it is a parse error and would have converted
+  -- the entire census into `मम दोषः` in one line.
+  ++ (case tWhere right ++ tWhere left of
+        []  -> []
+        wls -> "  where" : map ("  " ++) wls)
+  ++
+  [ ""
   , "समता = isoToEquiv मार्गः"
   , ""
   , "-- and the edge itself, which is what transports."
