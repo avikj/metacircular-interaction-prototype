@@ -433,9 +433,16 @@ runAbhyasa fp = do
                                 (r:_) -> Just r
                                 [] -> Nothing
           len nm = maybe 0 (toInteger . length . render) (rupaOf nm)
-      in [ len "purna" - len i | (i, _, _) <- abHani a ]
-      ++ [ len i - len "nasti" | (i, _, _) <- abHani a, i /= "nasti" ]
-      ++ [ len "purna" - len i | (i, _, _) <- abAdhika a ]
+      -- Tagged, because the caller's `eka`/`itara` split is the whole point of
+      -- the measurement: True marks a ONE-ITEM edge (purna against an answer
+      -- differing by exactly one array element), False an edge against
+      -- `nasti`, which differs by the whole answer and was never the confound.
+      -- Returning bare deltas dropped that distinction and the module did not
+      -- typecheck; the tag is not new data, it is the datum the comment above
+      -- already names.
+      in [ (True,  len "purna" - len i) | (i, _, _) <- abHani a ]
+      ++ [ (False, len i - len "nasti") | (i, _, _) <- abHani a, i /= "nasti" ]
+      ++ [ (True,  len "purna" - len i) | (i, _, _) <- abAdhika a ]
     one loka l = case ofTranscriptLine loka l of
       Right a -> putStrLn (render (abhyasaJ a)) >> pure (Right a)
       Left e -> do

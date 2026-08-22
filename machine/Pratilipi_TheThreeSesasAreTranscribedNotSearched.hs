@@ -219,6 +219,18 @@ transcribe goal@(l, r) =
 
 -- ------------------------------------------------------------- the controls
 
+-- The false goal as an Agda signature for `candidate`, on the SAME renderer
+-- the route uses.  `TraceReplay.renderGoal`'s own comment says it is exported
+-- because a control needs it, and this is that control: a control that built
+-- the signature for itself would be a second copy of the renderer, and a
+-- second copy is the thing that is quietly allowed to drift.
+--
+-- `Nothing` when the goal binds a variable the fragment cannot name — that is
+-- the honest verdict, not a failure: the control then reports "declined by the
+-- route" and does not claim the kernel refused anything.
+falseStatement :: Goal -> Maybe String
+falseStatement goal = (("candidate : " ++) . snd) <$> T.renderGoal goal
+
 -- Replace a module's statement and proof, keeping its header and lemma block
 -- BYTE-IDENTICALLY.  `transcribeDirect` and `replayModule` both emit
 -- `unlines (header ++ preamble ++ [signature, clause])` for a direct

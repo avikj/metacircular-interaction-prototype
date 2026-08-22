@@ -264,6 +264,73 @@ smallestPrimeFactor n
   | n <= 1 = Nothing
   | otherwise = Just (head ([ d | d <- [2 .. isqrt n], n `mod` d == 0 ] ++ [n]))
 
+------------------------------------------------------------------ self test
+--
+-- WRITTEN 2026-08-21.  The export list named `selfTestApavartana` and no
+-- definition existed, so this module HAD NEVER COMPILED — its only commit
+-- added the export and never the body, and nothing in the repository would
+-- have said so, because machine/ had no build gate at all.  It has one now:
+-- scripts/Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh.
+--
+-- Finite exhaustive verification over a stated range, which this repository
+-- permits as proof (CLAUDE.md: "exact / certified symbolic computation IS
+-- proof … a finite exhaustive verification"). It is NOT a proof of the
+-- general bound — that is checked over an arbitrary commutative ring in
+-- formal/cubical/Apavartana_TheContentBoundAndThePrimitiveWheel.agda, and
+-- this only re-runs the Integer instance so a caller cannot drift from it.
+--
+-- Returns the failures.  Empty list is the pass, so a caller cannot mistake
+-- a count for a verdict.
+selfTestApavartana :: [String]
+selfTestApavartana = concat
+  [ hermiteKeepsDetAndContent, boundHolds, muIsFaithful ]
+  where
+    -- a small exhaustive family of nonsingular 2×2 integer matrices
+    mats = [ Mat p q r s
+           | p <- rng, q <- rng, r <- rng, s <- rng
+           , p*s - q*r /= 0 ]
+    rng = [-2 .. 2]
+
+    -- The header claims the Hermite step is a right GL₂(ℤ) action, so it
+    -- preserves |det| and the column lattice.  "re-checks … rather than
+    -- trusting that" — this is that re-check.
+    hermiteKeepsDetAndContent =
+      [ "hermite changed |det|: " ++ show m ++ " -> " ++ show h
+      | m <- mats, Right h <- [hermite m], abs (matDet m) /= abs (matDet h) ]
+      ++
+      [ "hermite changed the content: " ++ show m ++ " -> " ++ show h
+      | m <- mats, Right h <- [hermite m], matContent m /= matContent h ]
+
+    -- Theorem 1 with the excess: e₁(M)·e₁(N) divides e₁(MN), and the
+    -- quotient divides gcd(det M / e₁(M)², det N / e₁(N)²).
+    boundHolds =
+      [ "content bound failed: " ++ show m ++ " · " ++ show n ++ " — " ++ why
+      | m <- small, n <- small
+      , Left (Defect _ why _) <- [excess m n] ]
+      ++
+      [ "excess does not divide the predicted gcd: " ++ show m ++ " · " ++ show n
+        ++ " — e = " ++ show e ++ ", bound = " ++ show b
+      | m <- small, n <- small
+      , Right e <- [excess m n]
+      , let em = matContent m
+            en = matContent n
+            b  = gcd (matDet m `div` (em*em)) (matDet n `div` (en*en))
+      , b /= 0, e /= 0, b `mod` e /= 0 ]
+    small = take 60 mats
+
+    -- μ(x,y) is multiplication by x + yω, so its determinant is the norm and
+    -- its content is gcd(x,y): the bridge the two legs meet on.
+    muIsFaithful =
+      [ "μ content ≠ gcd(x,y): " ++ show (t,c,x,y)
+      | t <- [0,1], c <- [1,2,3], x <- rng, y <- rng
+      , let m = mu t c (Quad x y)
+      , matContent m /= gcd (gcd (abs x) (abs (c*y))) (gcd (abs y) (abs (x + t*y))) ]
+      ++
+      [ "μ det ≠ quadContent-compatible norm: " ++ show (t,c,x,y)
+      | t <- [0,1], c <- [1,2,3], x <- rng, y <- rng
+      , let m = mu t c (Quad x y)
+      , matDet m /= x*(x + t*y) - c*y*y ]
+
 -- the excess of Theorem 1, off the coprime locus.
 excess :: Mat -> Mat -> Either Defect Integer
 excess m n = do

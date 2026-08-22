@@ -50,6 +50,11 @@ module TraceReplay
   , Rule
   , TraceStep(..)
   , Deriv(..)
+  , dHyp
+  , dEnds
+  , dBaseMet
+  , dStepMet
+  , endOfTrace
   , rewriteTrace
   , normalizeTrace
   , LemmaEnv(..)
@@ -65,6 +70,13 @@ module TraceReplay
   , reflProvable
   , libRules
   , deriveByInduction
+  -- Exported 2026-08-21: `renderGoal`'s own comment already said it was
+  -- exported "because a control needs it" -- and it was not.  The control is
+  -- Pratilipi_TheThreeSesasAreTranscribedNotSearched, whose `falseStatement`
+  -- must render a FALSE goal on THIS renderer; building the signature in the
+  -- caller would be a second copy of the renderer, which is the drift this
+  -- module already paid for once.
+  , renderGoal
   , peanoRules
   -- Exported 2026-08-20 (additive; no definition changed).  A caller that
   -- wants to REWRITE with the same defining equations this module is willing
@@ -227,21 +239,112 @@ data TraceStep = TraceStep
 data Deriv = Deriv
   { dGoal  :: (Term, Term)
   , dVar   :: Int
-  , dHyp   :: (Term, Term)
   , dBaseL :: [TraceStep]
   , dBaseR :: [TraceStep]
   , dStepL :: [TraceStep]
   , dStepR :: [TraceStep]
-    -- DID THE TWO SIDES ACTUALLY MEET.  `L ∙ sym R` is a path from the
-    -- clause's left side to its right side ONLY if both traces end at the
-    -- same term.  Nothing checked that: a derivation against a rule set
-    -- that does not close the clause produced two paths to two different
-    -- places, `replayClause` composed them anyway, and agda reported
-    -- `y != x` at a column deep inside a 400-character line.  A trace that
-    -- does not close is not a proof and must not be emitted as one.
-  , dBaseMet :: Bool
-  , dStepMet :: Bool
   } deriving (Eq, Show)
+
+-- DID THE TWO SIDES ACTUALLY MEET.  `L ∙ sym R` is a path from the clause's
+-- left side to its right side ONLY if both traces end at the same term.
+-- Nothing checked that: a derivation against a rule set that does not close
+-- the clause produced two paths to two different places, `replayClause`
+-- composed them anyway, and agda reported `y != x` at a column deep inside a
+-- 400-character line.  A trace that does not close is not a proof and must
+-- not be emitted as one.
+--
+-- पुनरागमन, 2026-08-21.  UNTIL TODAY THIS WAS TWO STORED `Bool` FIELDS,
+-- `dBaseMet` and `dStepMet`, written by `deriveByInduction` and read by
+-- `inductionClauses`.  The comment above argued for KEEPING the derived
+-- value, and it was right to; what it never noticed is that it kept the
+-- TRUNCATION and threw away the PATH.  The datum the emitter actually needs
+-- is WHERE the two traces end; `Bool` is that pair of terms squashed to one
+-- bit, and the bit was then free — `Deriv{…, dBaseMet = True}` against traces
+-- that end nowhere near each other typechecked and emitted an unsound module.
+-- In this lane's own vocabulary that is हिंसा committed in the middle of an
+-- argument against it.
+--
+-- The endpoints are not new data.  A `TraceStep` holds `tsBefore` (the WHOLE
+-- term the step acted on) and `tsPos` (the path from its root to the redex),
+-- so the term a step lands on is `replaceAt tsBefore tsPos (applySub tsSub
+-- rhs)`; and where a trace is empty, the endpoint is its start, which
+-- `dGoal` and `dVar` fix.  So
+--
+--     base    : the traces, the goal, the induction variable
+--     carried : the two endpoints, and the bit
+--     witness : endOfTrace (start …) (dBaseL d) ≡ …
+--
+-- is `Punaragamana.Carrier`, its fibre `singl` and contractible
+-- (`punaragamana/src/Punaragamana/Carrier.agda`, `fibre-isContr`), so the
+-- fields carried nothing and cost two degrees of freedom.  They are gone and
+-- `dBaseMet`/`dStepMet` are functions of the same name, so every read site is
+-- unchanged and no caller can now write the answer it wants.
+--
+-- WHAT HASKELL CANNOT DO, said rather than faked: `witness` is a PATH and
+-- there is no type here to hold one.  Deleting the field is the strongest
+-- move the language offers — with nothing stored the value cannot disagree
+-- with what determines it — but that is `∥ witness ∥`, not `witness`.
+-- `dEnds` below is the honest half that Haskell CAN keep: the pair of terms,
+-- rather than the bit.
+--
+-- FALSIFIED BEFORE IT WAS BELIEVED.  The reconstruction was run against the
+-- old stored definition on all eleven members of `snapshotFragment`, under
+-- the same accumulating rule set `measureSnapshot` uses: eleven of eleven
+-- agree on both clause endpoint pairs, including the two whose step clause
+-- does NOT meet (`(x+y)+z = x+(y+z)` and `x*y = y*x`), which is where a
+-- reconstruction that silently returned the start term would have shown up
+-- as a false `True`.  The comparison is not kept in the tree because the
+-- definition it compared against no longer exists; what remains checkable is
+-- that `replay reaches n/m` in `main` is unchanged.
+
+-- Where one trace lands, given the term it started from.
+endOfTrace :: Term -> [TraceStep] -> Term
+endOfTrace t0 [] = t0
+endOfTrace t0 sts = case reverse sts of
+  []       -> t0
+  (st : _) -> replaceAt (tsBefore st) (tsPos st)
+                        (applySub (tsSub st) (snd (tsRule st)))
+
+-- Substitute a term for the induction variable throughout.  The same
+-- three lines `deriveByInduction` uses; shared so the two cannot drift.
+substVar :: Int -> Term -> Term -> Term
+substVar i u (V j)    = if i == j then u else V j
+substVar i u (F f ts) = F f (map (substVar i u) ts)
+
+-- The four terms each clause's two traces start from: base clause with the
+-- variable at `zero`, step clause with it at `suc #`.  Determined by `dGoal`
+-- and `dVar` alone.
+clauseStarts :: Deriv -> ((Term, Term), (Term, Term))
+clauseStarts d = ((sub zeroT l, sub zeroT r), (sub (sucT eig) l, sub (sucT eig) r))
+  where (l, r) = dGoal d
+        eig     = F "#" []
+        sub u t = substVar (dVar d) u t
+
+-- The induction hypothesis: the goal with the variable frozen at the
+-- eigenvariable.  Determined too — this was `dHyp :: (Term, Term)`, a third
+-- stored field of the same kind, removed with the two Bools.
+dHyp :: Deriv -> (Term, Term)
+dHyp d = (sub l, sub r)
+  where (l, r) = dGoal d
+        sub    = substVar (dVar d) (F "#" [])
+
+-- WHERE the two traces of each clause land: the pair of terms, kept whole.
+dEnds :: Deriv -> ((Term, Term), (Term, Term))
+dEnds d = ( (endOfTrace bl (dBaseL d), endOfTrace br (dBaseR d))
+          , (endOfTrace sl (dStepL d), endOfTrace sr (dStepR d)) )
+  where ((bl, br), (sl, sr)) = clauseStarts d
+
+-- MET, BUT UP TO THE LIBRARY'S OWN COMPUTATION.  Syntactic equality of the
+-- engine's two normal forms is sufficient and NOT necessary: the ends may
+-- differ as terms and still be the same type in agda, because Cubical's `_+_`
+-- and `_·_` compute.  Requiring syntactic equality cost two theorems that had
+-- been certifying (measured: 7/13 -> 5/13, with `(x+y) = (y+x)` among the
+-- losses).  So the endpoints are compared under `libRules` -- this module's
+-- model of what agda will unfold on its own -- which is the same test that
+-- decides whether a cited lemma may be discharged by `refl`.
+dBaseMet, dStepMet :: Deriv -> Bool
+dBaseMet = reflProvable . fst . dEnds
+dStepMet = reflProvable . snd . dEnds
 
 -- One innermost-leftmost rewrite that strictly decreases the term, paired
 -- with the record of what it did.  The decrease condition is what makes
@@ -986,31 +1089,19 @@ runAgda root source = do
 -- of each clause with the tracing rewriter, and keep the traces.
 deriveByInduction :: [Rule] -> (Term,Term) -> Int -> Deriv
 deriveByInduction rs goal@(l,r) v =
+  -- Four traces and two indices, and nothing else.  `dHyp`, `dBaseMet` and
+  -- `dStepMet` used to be written here; all three are functions of what is
+  -- left, so they are read off the record now instead (see `dEnds`).
   Deriv { dGoal = goal
         , dVar = v
-        , dHyp = (hypL, hypR)
         , dBaseL = snd (normalizeTrace rs bl)
         , dBaseR = snd (normalizeTrace rs br)
         , dStepL = snd (normalizeTrace (hyps ++ rs) gl)
         , dStepR = snd (normalizeTrace (hyps ++ rs) gr)
-        -- MET, BUT UP TO THE LIBRARY'S OWN COMPUTATION.  Syntactic equality
-        -- of the engine's two normal forms is sufficient and NOT necessary:
-        -- the ends may differ as terms and still be the same type in agda,
-        -- because Cubical's `_+_` and `_·_` compute.  Requiring syntactic
-        -- equality cost two theorems that had been certifying (measured:
-        -- 7/13 -> 5/13, with `(x+y) = (y+x)` among the losses).  So the
-        -- endpoints are compared under `libRules` -- this module's model of
-        -- what agda will unfold on its own -- which is the same test that
-        -- decides whether a cited lemma may be discharged by `refl`.
-        , dBaseMet = reflProvable (fst (normalizeTrace rs bl)
-                                  , fst (normalizeTrace rs br))
-        , dStepMet = reflProvable (fst (normalizeTrace (hyps ++ rs) gl)
-                                  , fst (normalizeTrace (hyps ++ rs) gr))
         }
   where
     eig = F "#" []
-    subst i u (V j) = if i == j then u else V j
-    subst i u (F f ts) = F f (map (subst i u) ts)
+    subst = substVar
     (bl, br) = (subst v zeroT l, subst v zeroT r)
     hypL = subst v eig l
     hypR = subst v eig r
