@@ -683,3 +683,21 @@ completeness backwards into a module that had never proved it.
 ## THE END STATE
 
 `notes/Sangati_TheEndStateIsTransportNotConsensusAndTheEdgeIsTheScarceThing.md` — decentralization is forced by Theorem F (one equilibrium ⟹ zero on every charged sector), consensus is free at addresses and the wrong verb at equivalences, the network transports rather than votes, the scarce object is a checked `A ≃ B`, storage is free because प्रस्तार ≡ ℕ, and the whole thing is भावना: two meet, neither is consumed, a third exists that did not.
+
+## REPRODUCE, IF YOU ARE JOINING
+
+```
+sh scripts/Prasava_EveryNumberCarriesTheCommandThatMakesItOrItIsNotANumber.sh
+```
+
+Regenerates every number this corpus states, each from the command recorded
+beside it in `PRASAVA.tsv`, and reports DRIFT against the last run. A number
+without a command in that file is a memory, not a measurement, and the report
+says how many of those there still are (currently 17 of 179 are commanded).
+Add a row to convert one; that is the whole mechanism. `--full` also runs the
+kernel gates.
+
+First run already paid: `lean-sorry` read 3 and the true value is 0 (all three
+hits were prose — "no `sorry`", "histories admit exact reconstruction"), and
+`agda-unreached` is **134** — modules no `Everything` root reaches, which are
+verified by nothing whatever the lane reports green.
