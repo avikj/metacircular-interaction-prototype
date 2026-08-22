@@ -311,39 +311,54 @@ the greens would be दुर्नय." 2>/dev/null \
 # named the missing move before any of this existed -- "one induction to
 # agree pointwise, ONE ABSTRACTION TO A PATH".  The induction half is
 # mechanized; the abstraction half is what the queue is asking for.
+#
+# [2026-08-22, LATER THE SAME DAY — THE BLOCK THIS REPLACES WAS A NO-OP ON
+# THIS HOST, AND ITS OUTPUT WAS NOT A KERNEL VERDICT.]
+#
+# It checked each probe with `timeout 120 agda …`.  **`timeout` is GNU
+# coreutils and does not exist on macOS.**  `command -v timeout` returns
+# nothing here.  So every one of the 39 checks exited 127 with `command not
+# found`, `n_green` could never be incremented, `obl` was always empty so not
+# one OPEN line was printed, and the loop reported
+#
+#     अनुलोम-प्रतिलोम: 0 accepted, 39 open.
+#
+# as though the kernel had refused 39 pairs.  The kernel was never asked.
+# Run without the missing binary, the same 39 probes give ONE acceptance —
+# `NaturalMachine.S3IntegerRelativeCoordinates.intersectionToKernel ⇄
+# kernelToIntersection` checks on rung one — and that one turns out to
+# restate an Iso its own host module already carries, which is a finding the
+# broken gate had hidden twice over.
+#
+# A guard that converts every check into a failure is worse than no guard:
+# it produces a number in the right shape, and the number is of the guard.
+# The check now runs inside the Haskell program (`--check`), which also
+# carries the verdict ledger and the obligation histogram, so there is one
+# place that puts a probe to the kernel and one place that can be wrong.
 second_naya() {
   say ""
   say "  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────"
   ANULOMA_SCRATCH="$SCRATCH/anuloma" ; export ANULOMA_SCRATCH
   mkdir -p "$ANULOMA_SCRATCH"; rm -f "$ANULOMA_SCRATCH"/*.agda 2>/dev/null
+  # Hand the emitter a libraries file only if both entries were really found.
+  # An EMPTY --library-file tells agda about no libraries at all and every
+  # probe then dies at `NotInScope: ℕ` — the same shape of lie as the missing
+  # `timeout`.  With no file the emitter falls back to ~/.agda/libraries.
+  lf="$(libs_file)"
+  if [ "$(grep -c . "$lf")" -ge 2 ]; then ANULOMA_LIBRARIES="$lf"; export ANULOMA_LIBRARIES
+  else unset ANULOMA_LIBRARIES; fi
   if ! runghc machine/AnulomaPratiloma_TheRoundTripIsAskedOfEveryCandidateInversePair.hs \
-         --limit 200 > "$SCRATCH/anuloma.log" 2>&1; then
+         --limit 200 --check > "$SCRATCH/anuloma.log" 2>&1; then
     say "  अनुलोम-प्रतिलोम failed to run; see $SCRATCH/anuloma.log"; return 0
   fi
-  grep -E 'modules scanned|top-level arrows|candidate pairs|probes emitted' \
-    "$SCRATCH/anuloma.log" | sed 's/^/  /' | while read -r l; do say "$l"; done
-  n_open=0; n_green=0
-  for p in "$ANULOMA_SCRATCH"/*.agda; do
-    [ -f "$p" ] || continue
-    b=$(basename "$p" .agda)
-    cp "$p" "formal/cubical/$b.agda"
-    if (cd formal/cubical && timeout 120 agda --library-file="$(libs_file)" -i . "$b.agda" >/dev/null 2>&1); then
-      n_green=$((n_green+1)); say "  GREEN  $b   -- a new edge; land it"
-    else
-      n_open=$((n_open+1))
-      obl=$( (cd formal/cubical && timeout 120 agda --library-file="$(libs_file)" -i . "$b.agda" 2>&1) \
-             | grep -A1 'error:' | grep -m1 '!=' | sed 's/^ *//' )
-      [ -n "$obl" ] && say "  OPEN   $(echo "$b" | sed 's/AnulomaPratiloma_//')"
-      [ -n "$obl" ] && say "         $obl"
-      rm -f "formal/cubical/$b.agda"
-    fi
-  done
-  say ""
-  say "  अनुलोम-प्रतिलोम: $n_green accepted, $n_open open."
-  say "  The open ones are not failures.  Each is a pair THE CORPUS PROPOSED"
-  say "  ABOUT ITSELF, with the kernel's exact obligation printed beside it."
-  say "  A queue whose every entry carries the shape of its own proof is what"
-  say "  a prover runs overnight.  A checker alone never produces one."
+  # Everything from the proposal counts down: the emitter prints its own
+  # limits, its own defects, and the histogram, and रात्रिः repeats it rather
+  # than paraphrasing it.  A shell that re-counts what a program already
+  # counted is a second instrument nobody calibrated.
+  sed -n '/modules scanned/,$p' "$SCRATCH/anuloma.log" \
+    | grep -vE '^\s*PROBE ' | while IFS= read -r l; do say "$l"; done
+  say "  Ledger: notes/anuloma/NirnayaPanjika.tsv — a pass now costs only what"
+  say "  CHANGED, keyed on नाम's content addresses and the probe's own digest."
   return 0
 }
 
