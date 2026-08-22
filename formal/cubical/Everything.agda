@@ -1031,3 +1031,9 @@ import CenterRelativeWeightTransport
 import ContractibleFiberSectionBoundary
 import SexticParityEliminant
 import SmithDeterminantClassMultiplicativity
+
+-- ── लोपः, 2026-08-22 ──────────────────────────────────────────────────────
+-- Road two of अहिंसा-सूत्र-विस्तारः §६, at one edge.  The fibre of `योग` is
+-- `NaturalMachine.PairsSummingTo.Pairs`, on the nose, and is therefore
+-- already counted; no module imported both files before this one.
+import Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists

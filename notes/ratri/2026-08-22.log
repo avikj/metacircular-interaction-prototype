@@ -506,3 +506,165 @@ probes emitted       : 39
     SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
     SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
   landed 0 this pass, in 116s
+  pushed
+  dry pass 2/2
+  DRY UNDER THE FIRST NAYA: 2 consecutive passes landed nothing.
+  निर्धारण reaches only records that already carry a witness, so this
+  says the FIRST QUESTION is exhausted and says nothing whatever about
+  the corpus.  Asking the second.
+
+  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────
+  modules scanned      : 843
+  top-level arrows     : 1081
+  candidate pairs      : 43
+  probes emitted       : 43
+  …already proved in host: 11  (the host module already carries the Iso or the ≃)
+
+
+  A probe is a PROPOSAL, never a finding.  The counts above are
+  proposals.  Only `--check` puts them to the kernel, and only the
+  kernel's acceptance is a result.
+
+  ── putting each probe to the kernel ─────────────────────────
+  content addresses from नाम: 11743
+  ledger rows carried in    : 43
+  GREEN  AchromaticToy : from₁₂ ⇄ to₁₂   — but the host already proves it: L₁₂
+  OPEN   AchromaticToy : to₁₂ ⇄ to₂₁   [case on ⊎]
+         inr Agda.Builtin.Unit.tt != inl w₀ of type Agda.Builtin.Unit.⊤ Cubical.Data.Sum.⊎ Agda.Builtin.Unit.⊤ when checking that the expression refl has type to₁₂ (to₂₁ (inl w₀)) ≡ inl w₀
+  CACHED CenterRelative : Φ ⇄ Ψ   [library lemma on ℤ]
+  OPEN   IntegerHullMultiplicity : hull ⇄ ones   [induction on List]
+         w₀ ∷ hull (ones w₁) != hull (onesElt w₀ Cubical.Data.Nat.+ ones w₁) of type Cubical.Data.List.List Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → w₀ ∷ z) (अनुलोमन w₁) has type hull (ones (w₀ ∷ w₁)) ≡ w₀ ∷
+  OPEN   IntegerHullMultiplicity : SQ ⇄ hull   [induction on ℕ]
+         SQ (hull w₀) != suc (suc (suc (suc (suc (suc (suc (SQ (hull w₀)))))))) of type Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → suc z) (अनुलोमन w₀)
+  OPEN   IntegerHullMultiplicity : N ⇄ hull   [induction on ℕ]
+         N (hull w₀) != suc (suc (suc (suc (suc (N (hull w₀)))))) of type Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → suc z) (अनुलोमन w₀) has type N (hull (suc w₀)) ≡ suc w₀
+  OPEN   IntegerHullMultiplicity : Qs ⇄ hull   [induction on List]
+         w₀ ∷ hull (Qs w₁) != hull (w₀ Cubical.Data.Nat.· w₀ Cubical.Data.Nat.+ Qs w₁) of type Cubical.Data.List.List Cubical.Data.Nat.ℕ when checking that the expression
+  OPEN   IntegerHullMultiplicity : Xs ⇄ hull   [induction on List]
+         w₀ ∷ hull (Xs w₁) != hull (w₀ Cubical.Data.Nat.+ Xs w₁) of type Cubical.Data.List.List Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → w₀ ∷ z) (प्रतिलोमन w₁) has type
+  OPEN   IntegerHullMultiplicity : K ⇄ hull   [induction on ℕ]
+         K (hull w₀) != suc (suc (suc (suc (K (hull w₀))))) of type Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → suc z) (अनुलोमन w₀) has type K (hull (suc w₀)) ≡ suc w₀
+  CACHED NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple   [case on Bool]
+  CACHED NaturalMachine.ChargeTwoHistories : relative ⇄ sign   [library lemma on ℤ]
+  CACHED NaturalMachine.ChargeTwoHistories : augment ⇄ sign   [library lemma on ℤ]
+  CACHED NaturalMachine.DSONucleusMiddleProduct : Nstar ⇄ Nsub   [library lemma on ℤ]
+  OPEN   NaturalMachine.Digits : digitsC ⇄ valueC   [unclassified]
+         Cubical.Data.Nat.ℕ → CanWord a !=< Cubical.Data.Nat.ℕ when checking that the expression digitsC a has type Cubical.Data.Nat.ℕ
+  OPEN   NaturalMachine.Digits : digits ⇄ value   [unclassified]
+         Word b → Cubical.Data.Nat.ℕ !=< Cubical.Data.Nat.ℕ when checking that the expression value b has type Cubical.Data.Nat.ℕ
+  GREEN  NaturalMachine.FreeMonoid : len ⇄ unlen   — but the host already proves it: ℕ≃Tally
+  CACHED NaturalMachine.HaskellGenericSyntaxAdapter : fromGeneric ⇄ toGeneric   [host type · NaturalMachine.HaskellDiscoveryBoundary.HaskellTerm]
+  CACHED NaturalMachine.InflationVersusSubgroup : infl ⇄ res   [host type · H4]
+  OPEN   NaturalMachine.InflationVersusSubgroup : incl ⇄ proj   [host enumeration (emitter gap)]
+         z2 != z1 of type Z4 when checking that the expression refl has type incl (proj z1) ≡ z1
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ sthula   [host enumeration (emitter gap)]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ bhrama   [मम दोषः · split incomplete]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ nyasa   [मम दोषः · split incomplete]
+  CACHED NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge   [enumerate Fin n]
+  OPEN   NaturalMachine.PMTorus : finToVertex ⇄ vertexToFin   [case on ⊎]
+         finToVertex (vertexToFin (inl w₀)) != inl w₀ of type Cubical.Data.FinData.Base.Fin 3 Cubical.Data.Sum.⊎ Cubical.Data.FinData.Base.Fin 3 when checking that the expression refl has type
+  OPEN   NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge   [enumerate Fin n]
+         obsToEdge (edgeToObs a) != a of type Σ (Cubical.Data.FinData.Base.Fin 3) (λ _ → Cubical.Data.FinData.Base.Fin 3) when checking that the expression refl has type
+  OPEN   NaturalMachine.PMTorus : ctxToVertex ⇄ vertexToCtx   [case on ⊎]
+         ctxToVertex (vertexToCtx (inl w₀)) != inl w₀ of type Cubical.Data.FinData.Base.Fin 3 Cubical.Data.Sum.⊎ Cubical.Data.FinData.Base.Fin 3 when checking that the expression refl has type
+  CACHED NaturalMachine.PauliGaugeCocycleSplit : central ⇄ phase   [host type · NaturalMachine.PauliWeyl.Pauli]
+  OPEN   NaturalMachine.RawWordPaddingNormalForm : paddingCount ⇄ zeroRun   [unclassified]
+         Cubical.Data.Nat.ℕ → D.Word b !=< Cubical.Data.Nat.ℕ when checking that the expression zeroRun b has type Cubical.Data.Nat.ℕ
+  CACHED NaturalMachine.RawWordPaddingNormalForm : join ⇄ split   [मम दोषः · indexed family]
+  GREEN  NaturalMachine.S3IntegerRelativeCoordinates : intersectionToKernel ⇄ kernelToIntersection   — but the host already proves it: intersectionKernelIso
+  CACHED NaturalMachine.S3IntegerRelativeCoordinates : relativeCoordinates ⇄ relativeFromCoordinates   [library lemma on ℤ]
+  OPEN   NaturalMachine.SieveFiber : q ⇄ σ   [induction on ℕ]
+         1 != 0 of type Cubical.Data.Nat.ℕ when checking that the expression refl has type σ (q zero) ≡ zero
+  OPEN   NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁   [induction on ℕ]
+         zero != b .snd of type Cubical.Data.Nat.ℕ when checking that the expression refl has type s₂₁ (π₂₁ b) ≡ b
+  CACHED NaturalMachine.SieveScaleTower : s₃₂ ⇄ π₃₂   [induction on ℕ]
+  CACHED NaturalMachine.SmithPathCountedExecution : colsOf ⇄ fromCols   [library lemma on ℤ]
+  CACHED NaturalMachine.SmithPathCountedExecution : entriesOf ⇄ fromNine   [library lemma on ℤ]
+  OPEN   NaturalMachine.TermFreeMonoid : fromList ⇄ toList   [host type · NaturalMachine.Obstruction.Tm]
+         fromList (toList b) != b of type NaturalMachine.Obstruction.Tm when checking that the expression refl has type fromList (toList b) ≡ b
+  OPEN   PingalaPrastara : allLaghu ⇄ uddista   [induction on List]
+         w₀ ∷ allLaghu (uddista w₁) != allLaghu (aksara w₀ Cubical.Data.Nat.+ (uddista w₁ Cubical.Data.Nat.+ uddista w₁))
+  OPEN   PingalaPrastara : aksara ⇄ parity   [induction on ℕ]
+         suc (aksara (parity w₀)) != aksara (parity (suc w₀)) of type Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → suc z) (अनुलोमन w₀) has type aksara (parity (suc w₀)) ≡ suc w₀
+  GREEN  ProjectionChargeAudit : decode ⇄ encode   — but the host already proves it: localChargeEquiv
+  CACHED SaptabhangiNaya : code' ⇄ decode   [case on Bool]
+  OPEN   Swarm.S13OptionSpread : ones ⇄ sum   [induction on List]
+         w₀ ∷ ones (sum w₁) != ones (w₀ Cubical.Data.Nat.+ sum w₁) of type Cubical.Data.List.List Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → w₀ ∷ z) (अनुलोमन w₁) has type ones (sum (w₀ ∷ w₁)) ≡ w₀ ∷ w₁
+  CACHED WallCertificate : classOf ⇄ visible   [unclassified]
+
+  ── the histogram: WHAT KIND of obligation is blocking ───────
+  proposed 43 · accepted 4 · open 39
+  of the accepted, 4 restate an Iso the host module already carries.
+  NEW EDGES THIS PASS: 0
+  of all proposals, 11 have their Iso or ≃ already standing in the host.
+
+  MY OWN DEFECTS (not the corpus's obligations):
+    मम दोषः · split incomplete        2
+    मम दोषः · indexed family          1
+
+  THE MOVE EACH OPEN PAIR IS BLOCKED ON:
+    induction on ℕ                    7
+    library lemma on ℤ                7
+    induction on List                 5
+    unclassified                      4
+    case on ⊎                         3
+    case on Bool                      2
+    enumerate Fin n                   2
+    host enumeration (emitter gap)    2
+    host type · H4                    1
+    host type · NaturalMachine.HaskellDiscoveryBoundary.HaskellTerm 1
+    host type · NaturalMachine.Obstruction.Tm 1
+    host type · NaturalMachine.PauliWeyl.Pauli 1
+
+  7 of 36 open pairs are blocked on the SAME move — «induction on ℕ».  That names the emitter to write next.
+
+  Ledger: notes/anuloma/NirnayaPanjika.tsv — a pass now costs only what
+  CHANGED, keyed on नाम's content addresses and the probe's own digest.
+  Watching at 900s for work other seats push.
+
+############ रात्रिः started 2026-08-22T08:24:28Z — loop until dry
+
+=========== रात्रिः pass 2026-08-22T08:24:28Z  HEAD 36fb04c2
+  अनाथः machine/:  failures : 0
+  निर्धारण: 6 green line(s) in report
+    SAME    Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA — this statement already stands as Ratri/Nirdharita_Agda-Builtin-Nat_.agda
+    SAME    Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB — this statement already stands as Ratri/Nirdharita_Swarm-S09SmithKuttaka_.agda
+    SAME    Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC — this statement already stands as Ratri/Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeAB.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats__CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_CensusBase_NirdharanaPthreeAF.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase.agda
+    SAME    Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase — this statement already stands as Ratri/Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC_CensusBase_NirdharanaPthreeAH.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAD.agda
+    SAME    Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक — this statement already stands as Ratri/Anirdharita_VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal_विवेक_NirdharanaPthreeAE.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeB.agda
+    SAME    Anirdharita_EGBDetConservation_UT — this statement already stands as Ratri/Anirdharita_EGBDetConservation_UT_NirdharanaPthreeC.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel.agda
+    SAME    Anirdharita_EGBRootedNet_Jewel — this statement already stands as Ratri/Anirdharita_EGBRootedNet_Jewel_NirdharanaPthreeE.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±.agda
+    SAME    Anirdharita_KloostermanExponents_ℤ± — this statement already stands as Ratri/Anirdharita_KloostermanExponents_ℤ±_NirdharanaPthreeG.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds.agda
+    SAME    Anirdharita_NaturalMachine-ArityOfRepair_Bounds — this statement already stands as Ratri/Anirdharita_NaturalMachine-ArityOfRepair_Bounds_NirdharanaPthreeI.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeK.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeL.agda
+    SAME    Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄ — this statement already stands as Ratri/Anirdharita_NaturalMachine-FiniteOccupancyChannelNoGo_Occupancy₄_NirdharanaPthreeM.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeO.agda
+    SAME    Anirdharita_NaturalMachine-MachineLoop_LoopState — this statement already stands as Ratri/Anirdharita_NaturalMachine-MachineLoop_LoopState_NirdharanaPthreeP.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeR.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeS.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeT.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeU.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificate_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificate_Env_NirdharanaPthreeV.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeW.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeX.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeY.agda
+    SAME    Anirdharita_NaturalMachine-RewriteCertificateMul_Env — this statement already stands as Ratri/Anirdharita_NaturalMachine-RewriteCertificateMul_Env_NirdharanaPthreeZ.agda
+  landed 0 this pass, in 405s
