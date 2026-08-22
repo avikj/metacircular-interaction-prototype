@@ -1132,7 +1132,12 @@ import SankhyaTantu_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheRece
 -- The classification YogaDhruva's header fenced as unclaimed: over any
 -- CommRing, conserving flows of addition ≃ shear fields (a function space).
 import YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields
-import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
+-- [STRUCK 2026-08-22, SvaTantuVasa landing pass: the import below entered at
+--  commit 5825625a while its file exists in NO commit and is not on this
+--  checkout's disk — the अनाथ defect the Lean root recorded the same day, in
+--  this lane; every clone's Everything has been red at line 1135 since.  If
+--  the file is uncommitted in a live checkout, LAND IT and un-strike.]
+-- import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
 
 -- ── परम्परा, 2026-08-22 ──────────────────────────────────────────────────
 -- THE FIRST CHAIN THE CORPUS HAS PRICED.  `Sesa_…शेष` is instantiated at
@@ -1181,3 +1186,13 @@ import Bhara_TheWeightedCountingMapsFibreDecomposesOverEverySummandThatFits
 import Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
 import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts
 import Sarvasthana_TheTotalOverEveryPlaceIsZeroAndTheArchimedeanEntryIsTheBalancingOne
+
+-- स्वतन्तुवासः · the loss–symmetry scale closed at its middle: the conserving
+-- flows of ANY observable are exactly the sections of its own fibre family,
+-- (Σ[ Φ ] संरक्षणम् f Φ) ≃ ((a : A) → fiber f (f a)), no hypotheses — the
+-- Π/Σ distributivity cited from the library, not re-derived. Dhruva's pole
+-- strengthens to isContr of the flow space, Khahara's total symmetry derives
+-- over a set codomain, YogaKsetra's shear fields become the sectioned fibres
+-- of addition over any CommRing, and Khahara §६(b)'s monotonicity śeṣa is
+-- discharged as Π-functoriality. Routes kept, MadhyaVinimaya-style. 2026-08-22.
+import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
