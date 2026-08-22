@@ -1116,3 +1116,8 @@ import PraksepaTantu_TheFibreOfAProjectionIsTheDiscardedFactor
 -- finite-source tail, one citation each; honest on सूत्र ८ (count free,
 -- untruncated Fin-k identification not claimed). 2026-08-22.
 import SankhyaTantu_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheReceipt
+
+-- ── योगक्षेत्र, 2026-08-22 ────────────────────────────────────────────────
+-- The classification YogaDhruva's header fenced as unclaimed: over any
+-- CommRing, conserving flows of addition ≃ shear fields (a function space).
+import YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields
