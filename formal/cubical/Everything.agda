@@ -439,7 +439,11 @@ import NaturalMachine.GterTwoCoordinate
 -- statement uses.  CHECKED LOCALLY: Agda 2.8.0 + agda/cubical v0.9
 -- (Homebrew pair), `agda -i . NaturalMachine/Pratyabhijna_….agda`,
 -- exit 0.  NOT checked under the declared pin.
-import NaturalMachine.Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries
+-- import NaturalMachine.Pratyabhijna_TheNetworkSeesOnlyTheUnionOfItsQueries
+-- [STRUCK 2026-08-22, this seat: the import landed without its file — the
+--  module exists in NO commit (git log --all -- …/Pratyabhijna* is empty).
+--  It lives uncommitted in another checkout; Everything was red for every
+--  seat until this strike. Re-enable when the file lands. अनाथ, live.]
 
 ------------------------------------------------------------------------
 -- ORPHAN SWEEP 2, 2026-08-17.  AWAITING KERNEL — authored without a
