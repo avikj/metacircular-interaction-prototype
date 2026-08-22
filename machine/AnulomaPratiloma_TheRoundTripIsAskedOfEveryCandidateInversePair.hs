@@ -1624,3 +1624,116 @@ sanitize = map (\c -> if isAlphaNum c || c == '-' then c else 'X')
 -- hours and one that re-does forty minutes of the same refusals all night.
 -- The greens are re-checked every pass on purpose: a green is a claim the
 -- corpus stands on.
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- SIXTH BLOCK.  RUNG FIVE — THE INDUCTION — AND THE ⊎ LIFT.  2026-08-22.
+-- Every number below is from ONE command, `--check --fresh`, which reads no
+-- cached row and puts all 43 pairs to the kernel.  Nothing here is quoted
+-- from a prior pass.
+--
+-- ── WHAT GOT WORSE, FIRST ──
+--
+-- **A DEFECT OF MINE MOVED INTO THE CORPUS'S COLUMN.**  Three pairs —
+-- `Digits.digits ⇄ value`, `Digits.digitsC ⇄ valueC`,
+-- `RawWordPaddingNormalForm.paddingCount ⇄ zeroRun` — died at
+-- `MetaCannotDependOn` before this work and were correctly counted as
+-- मम दोषः.  Rung five hands an indexed family the statement `∀ b → f (g b) ≡
+-- b`, the error becomes `Word b → ℕ !=< ℕ`, and all three slid silently into
+-- «unclassified», which is the corpus's bucket.  My bug count read SIX before
+-- the change and THREE after, and nothing had been fixed.  `!=<` is Agda's
+-- SUBTYPE failure and in this program always means the statement I emitted is
+-- ill-typed, so it is now a मम दोषः guard and the count reads six again.
+-- **A histogram that reports its own defects as the corpus's refusals is the
+-- दुर्नय this file was retracted for once already, and rung five walked into
+-- it in the first hour.**
+--
+-- **AND ONE PASS MEASURED A LEDGER SOMEBODY ELSE FILLED.**  Between the
+-- commit of rung five and its measurement, another lane ran this program in
+-- the shared working tree; the next pass found 39 of 43 keys already in
+-- `NirnayaPanjika.tsv`, printed CACHED, and would have reported those rows as
+-- its own verdicts in 34 seconds.  A number a pass did not obtain is not that
+-- pass's number, whoever obtained it.  `--fresh` exists for that and every
+-- figure in this block was taken under it.
+--
+-- ── THE NUMBERS ──
+--
+--                                      before    after
+--     proposed                             43       43
+--     accepted by the kernel                2        4
+--     …of those, restating a host Iso       2        4
+--     NEW EDGES                             0        0
+--     open                                 41       39
+--     …of which MY OWN DEFECTS              6        6
+--     …of which REFUTED (खण्डितम्)           —        6
+--     …real obligations                    35       27
+--
+-- **NEW EDGES IS STILL ZERO AND BOTH NEW GREENS ARE ECHOES.**
+-- `AchromaticToy.from₁₂ ⇄ to₁₂` closed on the ⊎ lift; the host carries `L₁₂`.
+-- `FreeMonoid.len ⇄ unlen` closed on rung five and the emitted proof is
+-- character-for-character the host's own `len-unlen`/`unlen-len`, forty lines
+-- above the `ℕ≃Tally` it re-derives.  Two more machine restatements of what a
+-- person had already written by hand.  That is the fourth consecutive pass in
+-- which this census has produced no edge, and the count is printed apart for
+-- exactly that reason.
+--
+-- ── RUNG FIVE CLOSED NOTHING BY ITSELF, AND THAT IS THE RESULT ──
+--
+-- The run's own histogram named «induction on ℕ» at ten of 35 and this rung
+-- was built for those ten.  Where they went:
+--
+--     closed                  1   FreeMonoid.len ⇄ unlen — and only because
+--                                 rung five fired on BOTH sides, ℕ and List.
+--                                 An emitter for ℕ alone would have closed
+--                                 ZERO of the ten.  The classes do not
+--                                 predict closures and never did.
+--     REFUTED                 4   SQ, N, K ⇄ hull; SieveFiber.q ⇄ σ
+--     moved to «List»         2   Xs, Qs ⇄ hull — the ℕ side LANDED and the
+--                                 refusal moved to the other side, which is
+--                                 the rung working exactly as specified
+--     still open              3   SieveScaleTower ×2, PingalaPrastara
+--
+-- The four refutations are the rung's real yield and they are worth more than
+-- an edge would have been.  `hull` prepends five entries per step, so the
+-- counting functions come back multiplied, and with the induction emitted the
+-- kernel stops saying "does not reduce" and says
+--
+--     SQ (hull w₀) != suc (suc (suc (suc (suc (suc (suc (SQ (hull w₀))))))))
+--
+-- which is `x ≢ suc⁷ x`.  ℕ has no fixpoint of `suc`, so no lemma discharges
+-- it: the PAIR is disproved.  It was sitting in a work queue as an open
+-- obligation, and so were three others, and so were two more that the ⊎ lift
+-- and the base case disproved.  **Six of the 35 "real obligations" were dead.
+-- The queue was 23% longer than the work.**  They are counted apart now, and
+-- the largest class the run names as the next emitter changed with them:
+-- «induction on ℕ» 10 → 3, and the run now says «library lemma on ℤ», 7 of 27.
+--
+-- ── THE ⊎ LIFT, WHICH WAS THE CHEAPER ONE AND WAS DONE FIRST ──
+--
+-- `inl`/`inr` carry arguments, which is the rung-two limit stated at the top
+-- of this file and never lifted.  `coverOf` binds the argument to a fresh
+-- variable where it cannot enumerate it — still an exhaustive cover, and the
+-- point: `inl w₀` covers all of `A` while knowing nothing about `A`.  Of the
+-- four: one closed (an echo), one refuted, and TWO — both `PMTorus` — are ⊎
+-- over `Cubical.Data.FinData.Fin 3`.  The split happens; `w₀ : Fin 3` is then
+-- unenumerated and `refl` cannot discharge it.  **Those two were never ⊎
+-- problems.  They are Fin problems wearing a ⊎, and the class still says
+-- «case on ⊎» because the classifier lets the outer former decide.**  With
+-- the two already filed under «enumerate Fin n», a Fin cover — three
+-- patterns, qualified so its `zero`/`suc` cannot collide with ℕ's — is four
+-- pairs and is the cheapest thing left on the board.
+--
+-- ── WHAT RUNG FIVE DOES NOT REACH, MEASURED, NOT GUESSED ──
+--
+--  · **Indexed families: 3 pairs, and they are the three defects above.**
+--    `conArgTypes` drops implicit binders, so `value : ∀ {k} → Word k → ℕ`
+--    cannot even be STATED by `∀ b → f (g b) ≡ b`.  Not a hard case — an
+--    unstateable one, and the rung should decline instead of emitting.
+--  · **Two recursive arguments**: `cong₂` and two appeals to the hypothesis.
+--    Declined at the site rather than guessed.  No pair in this corpus hits
+--    it today; `NaturalMachine.Obstruction.Tm` will.
+--  · **Mutual recursion**: the test asks only whether an argument is the SAME
+--    type, so a mutually recursive pair reads as non-recursive.
+--  · **Any step where the composite does not commute with the constructor.**
+--    `cong (λ z → c … z …) (ih aⱼ)` is one shape; where the round trip
+--    multiplies or shifts, the kernel refuses, and — see above — that refusal
+--    is frequently the most informative thing the pass produces.
