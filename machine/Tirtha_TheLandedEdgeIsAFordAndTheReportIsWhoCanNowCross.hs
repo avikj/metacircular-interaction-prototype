@@ -75,6 +75,51 @@ import System.FilePath (takeDirectory)
 import Marga_TheRouterTransportsATheoremAlongLandedEdges
   ( Edge(..), eFull, landedEdges, componentsOf )
 
+
+------------------------------------------------------------------------
+-- निर्णयः · DECIDED, NOT MEASURED.
+--
+-- The snapshot mode above answers "what became crossable since last time"
+-- by DIFFING AGAINST TIME.  That is a measurement, and it has a
+-- measurement's defects: it needs a state file, its first run says
+-- nothing, and it can only speak about the past.
+--
+-- It is decidable.  An edge (A,B) makes crossable exactly
+--
+--     comp(A) × comp(B)   IN THE GRAPH WITH THAT EDGE DELETED
+--
+-- which is a function of the present graph and the edge, with no history
+-- in it at all.  Deleting the edge and taking components is the decision;
+-- the snapshot was standing in for it.
+--
+-- CLAUDE.md's protocol says this in the analytic register — before running
+-- a computation, write down the theorem it would replace — and the owner
+-- said it of this machine: it is discovering by measurement which places
+-- can see, in a corpus that proves elsewhere how to decide that without
+-- measuring.  `Apavartana`'s own file is the pattern: it samples rankAt at
+-- 2, 3, 5, 7 and then `bad_iff` DECIDES the drop-locus for every prime, so
+-- the measurement is superseded by a decision inside the same file.
+--
+-- What this buys, and it is the reason to care rather than tidiness: the
+-- question becomes COUNTERFACTUAL.  A snapshot can only report an edge
+-- that already landed.  A decision prices an edge that has NOT landed —
+-- what would this gate open if it were converted? — which is the question
+-- a library of converted gates has to be able to answer about objects it
+-- has not met.
+------------------------------------------------------------------------
+
+-- everything the edge opens, decided from the present graph alone
+opens :: [Edge] -> Edge -> Maybe (S.Set String, S.Set String)
+opens es e =
+  let without = [ x | x <- es, fordId x /= fordId e ]
+      comps   = componentsOf without
+      find n  = [ c | c <- comps, S.member n c ]
+  in case (find (eA e), find (eB e)) of
+       (ca : _, cb : _) | ca /= cb -> Just (ca, cb)
+       ([]    , cb : _)            -> Just (S.singleton (eA e), cb)
+       (ca : _, []   )             -> Just (ca, S.singleton (eB e))
+       ([]    , []   )             -> Just (S.singleton (eA e), S.singleton (eB e))
+       _                           -> Nothing   -- already joined without it
 snapshotPath :: FilePath
 snapshotPath = "notes/tirtha/SetuSnapshot.tsv"
 
@@ -114,85 +159,115 @@ compOf comps n = lookup True [ (S.member n c, i) | (i, c) <- zip [0 ..] comps ]
 main :: IO ()
 main = do
   args <- getArgs
-  let root = case args of { (r:_) -> r ; _ -> "." }
+  let root = case [ a | a <- args, take 2 a /= "--" ] of { (r:_) -> r ; _ -> "." }
+      decideMode = "--decide" `elem` args
   (nowEdges, _, _) <- landedEdges root
-  (oldIds, oldPairs) <- readSnapshot
-  let first        = S.null oldIds
-      (newE, keptE) = partition (\e -> not (fordId e `S.member` oldIds)) nowEdges
-      -- BEFORE: the graph the snapshot describes.  Reconstructed from the
-      -- stored bank pairs, so a run does not need the old checkout.
-      beforeComps  = componentsOf [ Edge "" a b "" "" | (a, b) <- oldPairs ]
-      afterComps   = componentsOf nowEdges
-      oldNodes     = S.fromList (concat [ [a, b] | (a, b) <- oldPairs ])
+  if decideMode then decide nowEdges else do
+    (oldIds, oldPairs) <- readSnapshot
+    let first        = S.null oldIds
+        (newE, keptE) = partition (\e -> not (fordId e `S.member` oldIds)) nowEdges
+        -- BEFORE: the graph the snapshot describes.  Reconstructed from the
+        -- stored bank pairs, so a run does not need the old checkout.
+        beforeComps  = componentsOf [ Edge "" a b "" "" | (a, b) <- oldPairs ]
+        afterComps   = componentsOf nowEdges
+        oldNodes     = S.fromList (concat [ [a, b] | (a, b) <- oldPairs ])
 
-  putStrLn "═══ तीर्थ · a ford is not a place, it is a change in who can cross ═══"
-  putStrLn "तीर्थंकर — the ford-maker; what arrives is a crossing, not a doctrine"
-  putStrLn ""
+    putStrLn "═══ तीर्थ · a ford is not a place, it is a change in who can cross ═══"
+    putStrLn "तीर्थंकर — the ford-maker; what arrives is a crossing, not a doctrine"
+    putStrLn ""
 
-  if first
-    then do
-      putStrLn "── प्रथम-दर्शनम् · FIRST LOOK, NOT A DISCOVERY ──"
-      putStrLn "  There is no snapshot, so every admitted edge would read as new"
-      putStrLn "  and every component as a merge.  That is true and useless."
-      putStrLn "  मौनं न निषेधः runs in this direction too: a first look is not a"
-      putStrLn "  finding.  The snapshot is written; run again after a landing."
-    else if null newE
+    if first
       then do
-        putStrLn "── अतीर्थम् · NO NEW FORD ──"
-        putStrLn "  Every admitted edge was already in the snapshot.  Nothing"
-        putStrLn "  became crossable that was not, so there is nothing to"
-        putStrLn "  propagate.  This is a verdict on the EDGES, not on the"
-        putStrLn "  corpus: work may have landed that is not an identification."
-      else do
-        putStrLn "── अदृष्टं तन्तुः · WHAT THIS PROGRAM CANNOT SEE ──"
-        putStrLn "  It reads मार्ग's admitted list, which is ROAD ONE ONLY —"
-        putStrLn "  identifications.  A one-way edge is invisible here, and by"
-        putStrLn "  Apunaragamana_… the non-returning edges are where the new"
-        putStrLn "  comes from: a rational rotation returns and carries nothing"
-        putStrLn "  it did not already carry; an irrational one never returns."
-        putStrLn "  So silence below is silence about identifications, and is NOT"
-        putStrLn "  a report on the field.  मौनं न निषेधः."
-        putStrLn ""
-        putStrLn "── नव-तीर्थानि · THE FORDS THAT LANDED ──"
-        forM_ (sortOn fordId newE) $ \e -> do
-          let ca = compOf beforeComps (eA e)
-              cb = compOf beforeComps (eB e)
-              banksNew = [ n | n <- [eA e, eB e], not (n `S.member` oldNodes) ]
+        putStrLn "── प्रथम-दर्शनम् · FIRST LOOK, NOT A DISCOVERY ──"
+        putStrLn "  There is no snapshot, so every admitted edge would read as new"
+        putStrLn "  and every component as a merge.  That is true and useless."
+        putStrLn "  मौनं न निषेधः runs in this direction too: a first look is not a"
+        putStrLn "  finding.  The snapshot is written; run again after a landing."
+      else if null newE
+        then do
+          putStrLn "── अतीर्थम् · NO NEW FORD ──"
+          putStrLn "  Every admitted edge was already in the snapshot.  Nothing"
+          putStrLn "  became crossable that was not, so there is nothing to"
+          putStrLn "  propagate.  This is a verdict on the EDGES, not on the"
+          putStrLn "  corpus: work may have landed that is not an identification."
+        else do
+          putStrLn "── अदृष्टं तन्तुः · WHAT THIS PROGRAM CANNOT SEE ──"
+          putStrLn "  It reads मार्ग's admitted list, which is ROAD ONE ONLY —"
+          putStrLn "  identifications.  A one-way edge is invisible here, and by"
+          putStrLn "  Apunaragamana_… the non-returning edges are where the new"
+          putStrLn "  comes from: a rational rotation returns and carries nothing"
+          putStrLn "  it did not already carry; an irrational one never returns."
+          putStrLn "  So silence below is silence about identifications, and is NOT"
+          putStrLn "  a report on the field.  मौनं न निषेधः."
           putStrLn ""
-          putStrLn $ "  ford  " ++ fordId e
-          putStrLn $ "  banks " ++ eA e ++ "   ⇄   " ++ eB e
-          case (ca, cb) of
-            (Just x, Just y)
-              | x == y -> putStrLn "  क्रम   BOTH BANKS WERE ALREADY JOINED — this ford is a\n\
-                                   \        second, independent road between them.  It shortens\n\
-                                   \        routes; it does not enlarge what is crossable."
-              | otherwise -> do
-                  putStrLn "  क्रम   TWO COMPONENTS MERGED.  Everything on the left bank"
-                  putStrLn "        can now be transported to everything on the right."
-                  putStrLn "        left  bank, in full:"
-                  forM_ (sort (S.toList (beforeComps !! x))) $ \n -> putStrLn ("          " ++ n)
-                  putStrLn "        right bank, in full:"
-                  forM_ (sort (S.toList (beforeComps !! y))) $ \n -> putStrLn ("          " ++ n)
-            _ -> do
-              putStrLn "  क्रम   A BANK WAS UNJOINED IN ROAD ONE and this ford joined it."
-              putStrLn "        Not a march outward: the field has no outside."
-              forM_ banksNew $ \n -> putStrLn ("        arrived: " ++ n)
+          putStrLn "── नव-तीर्थानि · THE FORDS THAT LANDED ──"
+          forM_ (sortOn fordId newE) $ \e -> do
+            let ca = compOf beforeComps (eA e)
+                cb = compOf beforeComps (eB e)
+                banksNew = [ n | n <- [eA e, eB e], not (n `S.member` oldNodes) ]
+            putStrLn ""
+            putStrLn $ "  ford  " ++ fordId e
+            putStrLn $ "  banks " ++ eA e ++ "   ⇄   " ++ eB e
+            case (ca, cb) of
+              (Just x, Just y)
+                | x == y -> putStrLn "  क्रम   BOTH BANKS WERE ALREADY JOINED — this ford is a\n\
+                                     \        second, independent road between them.  It shortens\n\
+                                     \        routes; it does not enlarge what is crossable."
+                | otherwise -> do
+                    putStrLn "  क्रम   TWO COMPONENTS MERGED.  Everything on the left bank"
+                    putStrLn "        can now be transported to everything on the right."
+                    putStrLn "        left  bank, in full:"
+                    forM_ (sort (S.toList (beforeComps !! x))) $ \n -> putStrLn ("          " ++ n)
+                    putStrLn "        right bank, in full:"
+                    forM_ (sort (S.toList (beforeComps !! y))) $ \n -> putStrLn ("          " ++ n)
+              _ -> do
+                putStrLn "  क्रम   A BANK WAS UNJOINED IN ROAD ONE and this ford joined it."
+                putStrLn "        Not a march outward: the field has no outside."
+                forM_ banksNew $ \n -> putStrLn ("        arrived: " ++ n)
 
-        putStrLn ""
-        putStrLn "── सङ्क्रमणाय · WHAT TO HAND मार्ग ──"
-        putStrLn "  Each line below is a source and a target that became crossable."
-        putStrLn "  मार्ग emits the transport; this program does not, because a ford"
-        putStrLn "  says a crossing is possible and says nothing about whether the"
-        putStrLn "  far bank is wanted."
-        forM_ (sortOn fordId newE) $ \e ->
-          case (compOf beforeComps (eA e), compOf beforeComps (eB e)) of
-            (Just x, Just y) | x /= y ->
-              forM_ [ (s, t) | s <- sort (S.toList (beforeComps !! x))
-                             , t <- sort (S.toList (beforeComps !! y)) ] $ \(s, t) ->
-                putStrLn $ "  marga  " ++ s ++ "  " ++ t
-            _ -> pure ()
+          putStrLn ""
+          putStrLn "── सङ्क्रमणाय · WHAT TO HAND मार्ग ──"
+          putStrLn "  Each line below is a source and a target that became crossable."
+          putStrLn "  मार्ग emits the transport; this program does not, because a ford"
+          putStrLn "  says a crossing is possible and says nothing about whether the"
+          putStrLn "  far bank is wanted."
+          forM_ (sortOn fordId newE) $ \e ->
+            case (compOf beforeComps (eA e), compOf beforeComps (eB e)) of
+              (Just x, Just y) | x /= y ->
+                forM_ [ (s, t) | s <- sort (S.toList (beforeComps !! x))
+                               , t <- sort (S.toList (beforeComps !! y)) ] $ \(s, t) ->
+                  putStrLn $ "  marga  " ++ s ++ "  " ++ t
+              _ -> pure ()
 
+    putStrLn ""
+    putStrLn $ "  (admitted edges this run, kept: " ++ show (length keptE)
+               ++ "; snapshot rewritten at " ++ snapshotPath ++ ")"
+    writeSnapshot nowEdges
+
+-- `--decide`: no snapshot, no history.  For every admitted edge, what it
+-- opens is read off the present graph by deleting it.  An edge whose banks
+-- are already joined without it opens nothing NEW and says so — that is a
+-- second road, not a smaller one.
+decide :: [Edge] -> IO ()
+decide es = do
+  putStrLn "═══ तीर्थ · निर्णयः — decided from the present graph, not diffed against time ═══"
+  putStrLn "  No snapshot is read and none is written.  An edge (A,B) opens exactly"
+  putStrLn "  comp(A) × comp(B) in the graph WITH THAT EDGE DELETED, which is a"
+  putStrLn "  function of the present alone.  So this also prices an edge that has"
+  putStrLn "  NOT landed — what would this gate open? — which a diff cannot ask."
   putStrLn ""
-  putStrLn $ "  (admitted edges this run, kept: " ++ show (length keptE)
-             ++ "; snapshot rewritten at " ++ snapshotPath ++ ")"
-  writeSnapshot nowEdges
+  mapM_ report (sortOn fordId es)
+  where
+    report e = case opens es e of
+      Nothing -> do
+        putStrLn $ "  ═ " ++ fordId e
+        putStrLn $ "      " ++ eA e ++ "  ⇄  " ++ eB e
+        putStrLn   "      SECOND ROAD — the banks are joined without it.  It shortens"
+        putStrLn   "      routes and enlarges nothing.  Not a lesser edge: two proofs"
+        putStrLn   "      of one identification are two fords."
+      Just (ca, cb) -> do
+        putStrLn $ "  ═ " ++ fordId e
+        putStrLn $ "      " ++ eA e ++ "  ⇄  " ++ eB e
+        putStrLn   "      OPENS, and these are the crossings it and nothing else gives:"
+        mapM_ (\(s, t) -> putStrLn ("        marga  " ++ s ++ "  " ++ t))
+              [ (s, t) | s <- sort (S.toList ca), t <- sort (S.toList cb) ]
