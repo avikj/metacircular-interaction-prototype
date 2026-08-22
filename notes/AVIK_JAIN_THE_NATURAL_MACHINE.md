@@ -237,7 +237,6 @@ Another file did delete future work. A degree-ten divisor can only use irreducib
 `kanye-devotional` does not get translated into any of this. Its content specification says **no claims, only history and facts**, then corrects the obvious escape hatch: arranging the facts until the picture forms is already a claim; “no claims” is not permission to shrug at the end. One knowledge file follows the Jewish lineage under “Blood on the Leaves” and explicitly refuses to use it as balance for Kanye’s antisemitic comments: the second fact makes the first worse. Samples stay recordings. Gospel stays gospel. Political events stay history.
 
 A theorem can typecheck and still be unreachable from the root. A correction can be right and still be unreachable from the sentence it corrects. A name can resolve while its meaning is ambiguous. A build can be green under the wrong toolchain. A learner can update and lose. A proof can remove computation that the next run no longer needs.
-
 The last one actually removed the computation.
 
 ---
@@ -438,3 +437,27 @@ An instance is not the reason.
 Two endpoints are not the bridge.
 
 The bridge is allowed to be the result.
+
+---
+
+The next correction is about the word **representation**.
+
+`NaturalMachine.CostGeometryEdgeBoundary` takes a record that the surrounding prose could easily call a representation change and asks what the record actually contains. `Edge` carries a function and a natural-number cost. That is enough for the arithmetic `Speedup` statements already proved. It is not enough to say the move is an equivalence of carriers, and it is not enough to say the move preserves the operation carried by the presentations. The file exhibits both failures separately: a map can preserve the operation while collapsing `Bool` to `Unit`, and an identity function can be an equivalence of carriers while failing to preserve the operation when the source uses xor and the target uses and. **A cheaper route through a costed function is not yet a certified representation change.** The arithmetic theorem survives; the interpretation has to shrink unless those missing laws are added.
+
+`NaturalMachine.ReachableActionRefinement` and `TheoremCompiledSymmetry` force the same question onto codomains. A decoder on the realized image and a decoder on the whole declared codomain are different data. Every total decoder restricts to the image. The converse requires a way to cover the ambient codomain; without one, an empty source can factor perfectly through its empty image while no function from the declared `Unit` codomain into the empty target can exist. In the executable lane, descended action laws are forced on every quotient point that actually comes from a large state. They become global laws only after a declared split cover realizes every small state. A group law can be perfectly correct on the image and false at an unreachable ambient point. **On-image coherence is not ambient coherence.**
+
+That distinction changes what “the small machine does the same thing” can honestly mean. If the theorem begins at `quotient x`, it has earned a statement about aligned states in the image. If the prose quantifies over an arbitrary `q : Q`, it has silently strengthened the theorem unless coverage was separately proved. The missing assumption is not philosophical caution. It is a section.
+
+`NaturalMachine.RelativeInstrumentAssociativity` finds the analogous seam inside composition. Three dependent instruments do associate, but the two bracketings do not literally have the same outcome type. One side records `((o,n),t)` and the other `(o,(n,t))`; their posterior families are indexed through those different shapes. The checked law first builds the canonical equivalence of the full proof-relevant result totals and then shows execution commutes with that reassociation. “Associative” is true only after saying which associator transports one result type to the other.
+
+The positive case is just as important. `NaturalMachine.HaskellGenericSyntaxAdapter` does not merely note that two term languages look alike. It proves an equivalence between the bounded Haskell discovery AST and the generic arity-indexed term language for exactly four constructors—zero, successor, addition and multiplication. Both round trips are checked; both evaluators commute with the adapter; generic substitution is transported back instead of reproved. That is an earned representation equivalence. The file then refuses the larger sentence: none of this certifies that `machine/MathMachine.hs` parsed, searched, normalized or emitted the claimed runtime trace. **Syntax equivalence and runtime certification remain different relations even when one makes the other reusable.**
+
+`NaturalMachine.DeclaredRootProofRelevance` and `SingletonStabilizedEquivalence` make a parallel point about witnesses. A family named `Declared` does not become a mere subset because the English noun suggests membership: if its fibres are proof-relevant, two declarations of the same root can select different separator data. Conversely, when the relevant equality witnesses are propositions, maps already going both ways can be upgraded to an actual equivalence without inventing round-trip computations. Sethood is doing work. Proof relevance is not atmosphere; it changes what can be concluded from the same-looking arrows.
+
+This is a different kind of convergence from finding one more common theorem. The live tree is becoming stricter about the contract hidden inside words such as **representation**, **quotient**, **action**, **associative**, **declared**, **same syntax**, and **same behavior**. Each word has a cheap reading that compresses several relation types together. The recent files repeatedly pay to split them back apart.
+
+None of those formal distinctions is a biography of Avik. They do record the technical standard the present work is enforcing on itself: a map has to say what structure it preserves; a quotient statement has to say whether it lives on the image or the whole codomain; a composite has to say what reassociation it uses; an equivalence has to say what it does not certify downstream; a witness type has to say whether witnesses themselves carry information.
+
+The machine is allowed to change coordinates.
+
+It is not allowed to change the claim while pretending it only changed coordinates.
