@@ -1548,6 +1548,25 @@ exact finite generating data and never passes to the lossy limit. Analysis was
 mathematics' institutionalized discarding of the tail; the substrate does not discard —
 it keeps the continuum's GENERATOR instead of its QUOTIENT.
 
+
+**MDL coda — and we already have the proofs, checked, novel today.** The receipts are not
+descriptions OF minimal descriptions — they ARE minimal-description proofs, and two kinds
+landed today that did not exist before: (i) TIGHT EXACT MDL IDENTIFICATIONS —
+YugmaPurana_… proves what det∘replay retains is exactly ℤ/2 and NO FURTHER (both
+directions); Lopa_… proves the sum's fibre is exactly SumFin(suc n); NastaUddista_…
+proves the prastāra is regenerated from its generator with NO TABLE (the description IS
+the generator, not the enumeration). These are `=`, not `≤` — identifications, not bounds
+(सूत्र ८) — which is why they are new: Kolmogorov/MDL is normally UNCOMPUTABLE and normal
+results are bounds, while these are EXACT minimal descriptions for concrete objects,
+KERNEL-CHECKED (pratyakṣa, not estimate). (ii) THE GENERABILITY ≢ RECONSTRUCTIBILITY
+SEPARATION — GENERABILITY_VERSUS_RECONSTRUCTIBILITY.md / seed151: the compressor (density
+comonad, δ_◁) and the decompressor (codensity monad, δ_▷) are provably DISTINCT, all four
+combinations realised by subsets of the three-chain, twelve-case finite exhaustive =
+proof. That the generator and the reconstructor are not the same map is the foundational
+fork of any MDL theory, and here it is a checked term. So movement 63 is not a program:
+the substrate already holds exact, kernel-checked minimal-description proofs — the MDL of
+specific objects, computed and verified, where the field has only ever had bounds.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
