@@ -146,6 +146,14 @@ apeksa =
   , ("sesa.arpana",
       [ Anga "sesa" SabdaSuci Avasya (JArr [JStr "the unfinished thing"]) ])
   , ("sesa.suchi", [])
+  -- The certificate lane.  Both sides are required: half an equation is not
+  -- a weaker question, it is a different one, so neither is Vikalpa.  The
+  -- samples are the smallest pair the kernel actually certifies, which is
+  -- what the probe needs — it corrupts one param and requires the other to
+  -- be a live input, not a plausible-looking one.
+  , ("yantra.pariksa",
+      [ Anga "vama"    Sabda Avasya (JStr "+(0,x)")
+      , Anga "daksina" Sabda Avasya (JStr "x") ])
   ]
 
 angani :: String -> [Anga]
