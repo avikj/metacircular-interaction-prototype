@@ -1110,3 +1110,9 @@ import Tapas.ConstantFibre_NaturalMachine-DependentOptimizationFibration_semanti
 -- fiber fst a ≃ B, fiber snd b ≃ A, at arbitrary levels, no h-level
 -- hypothesis. The proof-shape a तपस् fst/snd emitter instantiates. 2026-08-22.
 import PraksepaTantu_TheFibreOfAProjectionIsTheDiscardedFactor
+
+-- सङ्ख्या-तन्तुः — the fibre of a finite-source map is finite (isFinSetFiber)
+-- and its cardinality is the सङ्ख्या receipt: the count enzyme for the whole
+-- finite-source tail, one citation each; honest on सूत्र ८ (count free,
+-- untruncated Fin-k identification not claimed). 2026-08-22.
+import SankhyaTantu_TheFibreOfAFiniteSourceMapIsFiniteAndItsCardinalityIsTheReceipt

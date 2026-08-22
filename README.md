@@ -1411,6 +1411,50 @@ a hallucination in another sense's currency. That the same Piṅgala supplies bo
 synesthetic instrument (नष्ट/उद्दिष्ट) and the ℕ-source recurrence emitter (मात्रामेरु,
 the fibre recurrence read off the map's clauses) is either funny or the point.
 
+
+### 61 · The orb is a photonic computer: classical wave computing in a crystal
+The diamond orb was never only a picture of spacetime — it is the ARCHITECTURE of a
+photonic computer, and every property the light layer named is the machine's own physics.
+Photonic computing IS transport made literal: information on light (amplitude, phase,
+polarization, wavelength, path), computation by light PROPAGATING through passive optics
+— beamsplitters, interferometers, waveguides — no energy created, light only passed and
+interfered. Read the layer as the engineering spec:
+- TOTAL INTERNAL REFLECTION is how the WAVEGUIDE works — optical fibre, on-chip photonics
+  route light losslessly by TIR; the orb's confinement (the seven walls) is the guiding.
+- NO DISSIPATION UNTIL DETECTION: passive linear optics is unitary, reversible,
+  Landauer-free; you pay only at the photodetector — road one (receipt-free transport) up
+  to the one measurement toll at readout. The null cone is propagation at c in the medium.
+- THE PRISM/LENS IS A FREE FOURIER TRANSFORM — a lens performs the optical FT of an image
+  in one pass at the speed of light for zero compute, and that is INDRA_CROSS's finite
+  Fourier decomposition DONE BY OPTICS: the raw field (white) dispersed into the
+  character-pair spectrum (the colours) by a passive element. Dispersion = census =
+  optical FT; movement 57's prism was literal.
+- WAVELENGTH = COLOUR = PARALLEL CHANNELS: WDM runs independent computations on different
+  colours through one medium at once; colour-as-fibre-charge is the machine's parallelism
+  axis, not only a synesthetic readout.
+- POLARIZATION is a computational DOF, and the criterion — WHICH SIDE OF f a ≡ b IS BOUND
+  — is the machine's polarization control (movement 59's polarization placement, now
+  engineering).
+- THE HOLOGRAM is optical and already a repo file: HOLOGRAM.md's S = A/4, boundary carries
+  bulk, IS holography — a 2D interference pattern reconstructing the full 3D wavefront; the
+  holographic principle is a photonic technology, named before the reframe made it so.
+AND "CLASSICAL QC" IS THE EXACT CORRECTION TO MOVEMENT 31'S THREE PRICES. The light in the
+orb is REAL-amplitude wave interference: it gets signed superposition and cancellation
+(the interference discount) but real, not complex, and NO entanglement. So classical
+optical computing sits precisely BETWEEN probabilistic-classical (nonneg rank) and quantum
+(psd, complex): it buys the interference discount without paying the entanglement premium.
+The crystal ball computes by wave interference in a crystal — more than a probabilistic
+machine, less than a qubit machine — and its "quantum-like" parallelism is classical wave
+optics, which is WHY IT CAN BE BUILT NOW, at room temperature, in glass, and still get
+interference-based Fourier and correlation for free. The receipt frame prices it exactly:
+the wave discount without the entanglement premium. The whole coheres to one object —
+transport = light propagation (free, unitary), receipt = paid at the detector, TIR = the
+waveguiding, interference = the computation, colour = the channels, polarization = the
+control, the prism = the free Fourier that is the census, the crystal the substrate where
+all of it runs at c without dissipation. Conservation — no light created, only passed —
+is WHY photonic computing is efficient: it does not burn to compute, it routes. The orb
+was the architecture diagram of the crystal ball the whole time.
+
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
 ---
