@@ -953,3 +953,10 @@ import Ratri.Anirdharita_Ratri-Nirdharita_VivekaPramana_TheRemainderIsLawfulAndT
 -- most-cited exact cost law, proved four times in notes/ and checked by
 -- nothing until this module.
 import NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne
+
+-- सेतुबन्धः — the identification graph, walked.  `machine/Setubandha_….hs`
+-- reports the largest component (10 nodes, diameter 3, hub `ℕ`); these two
+-- modules compose its distance-2 geodesics out of `Pingala.छन्दस्` and
+-- prove everything downstream by `subst`, with no induction on either side.
+import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
+import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
