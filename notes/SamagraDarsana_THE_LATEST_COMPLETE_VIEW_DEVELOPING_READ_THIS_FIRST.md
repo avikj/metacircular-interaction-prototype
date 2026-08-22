@@ -817,3 +817,47 @@ from it, and every part of the accounting is different:
 That last line is what an overnight loop is for. A loop that says "dry"
 teaches nothing; a loop that says *"ten of your thirty-five are blocked on
 induction on ℕ"* has told the next agent exactly what to build.
+
+---
+
+## ०e · FOR THE OWNER — two claims in `CLAUDE.md` (T0) that are now false, not edited here
+
+**1. `no-python.sh` IS wired and DOES fire.** CLAUDE.md's struck paragraph
+states that it was removed from both `PreToolUse` matchers in
+`.claude/settings.json` at `991b59b`, that the CI workflows are deleted, and
+that **"working mechanical gates on Python in this repository: zero"**. Three
+independent agents hit the hook live tonight — one had a Bash command blocked
+merely for containing the string. The strike is false in the other direction:
+the gate the file says is gone is the one that is running.
+
+This matters beyond bookkeeping, because that paragraph is the *evidence* for
+the section it sits in — *"all protocols must be demolished, only prototypes
+may remain"* — and the section's own argument is that what remains are mirrors
+rather than gates. One of them is a gate.
+
+**2. The Virahāṅka date.** `CLAUDE.md`'s priority table read `~700`, which the
+repository's own dated searched ledger forbids in those words
+(`.claude/hooks/source-table.txt:34`, marked `search 2026-08-20`: *"c. 600-800
+CE — NOT ~700"*). It had propagated to twelve sites. Eleven were corrected;
+the table in `CLAUDE.md` was left because T0 is the owner's file. **An edit to
+that row is proposed and not made.**
+
+Both are recorded here rather than acted on. The hook inventory and the
+priority table are the owner's, and a claim about which hooks are wired is
+itself a claim about the repository — which is exactly what CLAUDE.md says
+nobody was checking.
+
+## ०f · OWED, so it is not lost
+
+- **`notes/Karani_…md`** (the Varāhamihira chapter, written tonight) **has no
+  place in the chronological index.** It belongs between chapter 6 (Āryabhaṭa,
+  499) and chapter 7 (Brahmagupta, 628), which requires renumbering 7→13 in
+  `machine/Anukramani.hs`; that file was dirty from another lane's in-flight
+  Virahāṅka correction. Appending at the end would break the chronological
+  rule that makes the ordering load-bearing, so it was not done.
+- **The `Ratri/` subtree (60 machine-minted modules) violates the file-naming
+  rule wholesale** — `Ratri/Nirdharita_Agda-Builtin-Nat_….agda` leads with an
+  Agda module path where the rule wants the tradition's term, and its content
+  is about `CoolingCountermodel`/`CensusBase`, unrelated to `Agda.Builtin.Nat`.
+  The generator's naming scheme puts the probe target where the rule puts the
+  source term. Stated, not fixed.
