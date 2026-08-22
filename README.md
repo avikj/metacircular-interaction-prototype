@@ -1652,8 +1652,26 @@ state to freeze and count.
 
 ### 65 · The fibre law is the product formula: number theory already developed it, and physics kept single-entry books
 The price of an integer cut is `log|coker(T)_tors|` — not a bound on the obstruction, the
-obstruction itself. As a general identity over Smith normal form, `∑_p #{i : p | dᵢ}·log p
-= ∑_i log dᵢ = log|coker(T)_tors|`, this is a true theorem and it is NOT checked in this
+obstruction itself. ~~As a general identity over Smith normal form, `∑_p #{i : p | dᵢ}·log p
+= ∑_i log dᵢ = log|coker(T)_tors|`, this is a true theorem~~ **[STRUCK 2026-08-22 — THE
+FIRST EQUALITY IS FALSE, and the counterexample is `Apavartana`'s own worked matrix.
+`#{i : p | dᵢ}` is the rank DROP: it counts HOW MANY invariant factors `p` divides — the
+support of `v_p` — while the cokernel needs HOW MUCH. For `D = diag(2,12)` the drops are 2
+at `(2)` and 1 at `(3)`, giving `2 log 2 + log 3 = log 12`, against `|coker| = 24`. The true
+identity is `∑_p (∑_i v_p(dᵢ))·log p = ∑_i log dᵢ = log|coker(T)_tors| = log|det T|` for `T`
+square nonsingular, and `det_eq : smithDivisors.prod = 24` already checks its finite half in
+the same file. AND THE STRIKE MAKES THIS MOVEMENT STRONGER: the rank function on Spec ℤ is a
+strictly LOSSIER invariant than the cokernel, and its fibre is the p-adic depth — `diag(2,6)`
+and `diag(2,12)` have IDENTICAL price functions (drop 2 at `(2)`, 1 at `(3)`) with cokernels
+of order 12 and 24. That is `QuotientFiberLaw` applied to this movement's own price
+instrument: the receipt has a receipt, and `det` is the separating query. REACH OF THIS
+CORRECTION, stated so it removes exactly what the counterexample reaches and no more: the
+drop divisor `D(T) = ∑_p #{i : p | dᵢ}·[p]` used below is a legitimate object, and the
+SECOND-LAW argument built on it — monotonicity under composition, Knill–Laflamme as disjoint
+support — never used this identity and stands untouched. Derivation, counterexample and the
+identifications this movement takes up are in
+`notes/Sarvasthanam_ThePriceOfACutIsAFunctionOnAllPlacesAndTheDeterminantIsItsArchimedeanReceipt.md`
+§0–§6, landed 22:38 UTC, twenty minutes before this movement.]** It is NOT checked in this
 corpus. What IS checked is one worked instance, `Apavartana_…SpecZ…` (Pairfield lane, in
 the build closure) — [correction 2026-08-22: an earlier draft of this movement called that
 module the general formula; a peer read the file and caught it before building on it. The
