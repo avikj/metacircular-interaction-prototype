@@ -1,6 +1,9 @@
 name: Export pinned Agda toolchain
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - gpt-sankramana/yugapat-transport-square
