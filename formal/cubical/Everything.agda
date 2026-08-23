@@ -1703,3 +1703,4 @@ import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalen
 -- the closed vallī garland M(1)⋆M(2)⋆M(1)⋆M(0) IS ι(3+2√2) by one refl —
 -- the free word landing in the commutative wheel at the period's close.
 import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
+import Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree
