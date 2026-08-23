@@ -684,6 +684,11 @@ import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTr
 -- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
 -- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
 import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
+-- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
+-- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
+-- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
+-- (all eight) entails kevala (the four); kevala precedes mokṣa.
+import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
