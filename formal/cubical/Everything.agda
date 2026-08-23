@@ -761,6 +761,12 @@ import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWh
 -- back the discrete log as a total inverse.  Security ⟺ ¬ isEquiv; crypto
 -- is a map outside the image of ua, its secret the śeṣa transport cannot erase.
 import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
+-- THE INVERSION.  Sesa said security ⟺ ¬ isEquiv (the map used to hoard).
+-- The other side of that iff is the technology: a PROVEN equivalence is a
+-- receipt — proof-of-transport — that composes into edges neither party
+-- held, is never spent by use, owes no counterparty, and crosses free and
+-- reversibly forever.  Money is a receipt that lost its fibre; this kept it.
+import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
