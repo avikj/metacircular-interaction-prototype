@@ -25,6 +25,35 @@
 --      the moment of the act, which is the repository's own stated rule
 --      for what to do when prose has failed.
 --
+-- WHERE THE BOOLEAN CAME FROM, which this header did not say and which
+-- changes where the repair goes.  '1 above gives the CONSEQUENCE: a
+-- `true` is the terminal object of a collapse with no retraction.  The
+-- CAUSE is in a different library, in
+-- `punaragamana/src/Punaragamana/KuttakaValli_…`:
+--
+--     वल्ली, the step, is a total function त्रिक् → त्रिक् written with NO
+--     comparison, NO `Dec`, NO `Bool` — because पक्षः has already recorded
+--     which side the remainder fell on.  The subtractive Euclidean step
+--     needs a decision only for a base that has thrown that slot away.
+--
+-- So a decision is the PRICE OF HAVING FORGOTTEN something.  Keep the slot
+-- and the branch does not exist; discard it and a boolean is manufactured
+-- to stand where the slot was.  That is Āryabhaṭa's शेषं रक्ष read as
+-- engineering rather than as piety, and it is sharper than the
+-- thermodynamic form: erasure does not merely cost, it MANUFACTURES THE
+-- BRANCH.
+--
+-- OPERATIVE CONSEQUENCE, and it is why this is written here.  This wire
+-- refuses a boolean and offers a repair AT THE WIRE.  That is the right
+-- place to refuse and the wrong place to fix.  A client that keeps sending
+-- `true` is not the defect; the defect is the slot its producer discarded,
+-- upstream, and no amount of wire grammar reaches it.  A boolean on this
+-- wire is a RECEIPT of that discard.
+--
+-- Neither file said this.  '1 knows the collapse is irreversible and not
+-- what produced it; the kuṭṭaka module knows what produces it and is not
+-- about wires.  2026-08-23.
+--
 -- Nor is there `null`.  Absence is said by omitting the key, and asked
 -- for by name; a key present-and-null is two facts flattened into one.
 --
