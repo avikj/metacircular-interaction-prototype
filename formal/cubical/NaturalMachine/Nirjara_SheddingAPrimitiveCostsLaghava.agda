@@ -46,6 +46,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
+open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans ; ¬-<-zero)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -1036,4 +1037,83 @@ sthula-matram-vardhayati h = snotz (h [])
 -- does is make the licence CHECKABLE once the moves are named — which is
 -- what the Aṣṭādhyāyī does: it names its devices and then argues from
 -- लाघव about which is shorter.  The naming is prior.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 28.  अनुज्ञा — the corrected demand, made a record so it cannot be
+--      restated wrongly again.
+--
+-- §27 ended with a demand rather than a proof: a licensed move is one
+-- that does not INCREASE मात्रा, and the licensing is a property of the
+-- move, named in advance.  A demand written in prose is exactly what §6
+-- was, and §6 was false.  So do to it what §16 did to उपमान: stop
+-- checking the condition beside the object and put it inside the type,
+-- leaving nowhere for an unlicensed move to sit.
+--
+-- अनुज्ञा (permission) is a rewrite carrying its two warrants: it changes
+-- no अर्थ, and it costs no more सूत्रs than it was given.
+------------------------------------------------------------------------
+
+record Anujna : Type₀ where
+  constructor anujnata
+  field
+    krama             : Prakriya → Prakriya
+    artha-sthiram     : (P : Prakriya) → artha (phala (krama P)) ≡ artha (phala P)
+    matra-na-vardhate : (P : Prakriya) → matra-p (krama P) ≤ matra-p P
+open Anujna public
+
+apavada-anujna : Anujna
+apavada-anujna = anujnata apavada-p apavada-artha
+  (λ P → subst (λ x → x ≤ matra-p P) (sym (apavada-matra P)) ≤-refl)
+
+-- doing nothing is licensed, which is why §6's "costly under everything
+-- else" could never have been true
+akriya-anujna : Anujna
+akriya-anujna = anujnata (λ P → P) (λ P → refl) (λ P → ≤-refl)
+
+-- and licences COMPOSE, which is the whole reason for making it a record:
+-- a grammar applies many सूत्रs in sequence and must stay licensed
+sanghatita : Anujna → Anujna → Anujna
+sanghatita A B = anujnata
+  (λ P → krama A (krama B P))
+  (λ P → artha-sthiram A (krama B P) ∙ artha-sthiram B P)
+  (λ P → ≤-trans (matra-na-vardhate A (krama B P)) (matra-na-vardhate B P))
+
+-- स्थूल inhabits no अनुज्ञा.  Not "fails a check" — there is no such record.
+sthula-na-anujnata : ¬ (Σ Anujna (λ A → krama A ≡ sthula-p))
+sthula-na-anujnata (A , q) =
+  ¬-<-zero (subst (λ f → matra-p (f []) ≤ matra-p []) q (matra-na-vardhate A []))
+
+------------------------------------------------------------------------
+-- 29.  What closes here, and what the arc was.
+--
+-- §6 of the लाघव note asked for a measure that would decide which moves
+-- are licensed.  That was the error, and it took building all three moves
+-- to see it: a measure free on the licensed moves and costly on
+-- everything else does not exist, because the identity is free and is
+-- everything else.  What exists is `Anujna` — the licence carried WITH
+-- the move — and मात्रा's job inside it is not to select but to warrant.
+--
+-- Which is the same shape as everything else this module found:
+--
+--   §16  उपमान: a translation carrying its preservation proof, so no bare
+--        translation can sit where a comparison is drawn.
+--   §26  अपवाद: a rewrite whose licence is zero cost, so the exception is
+--        not an addition to the grammar but a subtraction from it.
+--   §28  अनुज्ञा: the licence itself as a record, so a move that increases
+--        मात्रा cannot be presented as a move at all.
+--
+-- Three times the repair was the same and it is not an accident: it is
+-- Pāṇinian practice. The Aṣṭādhyāyī does not compute which formulation is
+-- shorter and then adopt it. It NAMES its devices — अनुवृत्ति, प्रत्याहार,
+-- अपवाद, अनुवाद — and लाघव is the argument you make about a named device,
+-- never the thing that finds one.  The naming is prior to the counting,
+-- and a record is what naming looks like in a type theory.
+--
+-- Left standing, and not by omission: nothing here says मात्रा is the
+-- right measure, only that it warrants these four moves in this small
+-- language.  §18–§21 remain the general statement — no invariant of the
+-- denotation, and no amount of contextual saturation, reaches the
+-- presentation — and that is what makes a licence necessary rather than
+-- merely convenient.
 ------------------------------------------------------------------------
