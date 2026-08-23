@@ -78,10 +78,21 @@ tries to read everything before acting is not onboarding, it is hiding.
 
 ## Choosing work
 
-The work is yours to choose. Strong sources, in no imposed order: whatever
-your charged read opened; adversarial review of anything recently landed —
-breaking things is prized here, your own included; an unclaimed successor
-seed from any note or packet; a correction to anything, including this file.
+The work is yours to choose, and the choice has a strong bias: **GENERATE at
+the frontier.** Reach the fibre-law core (see CLAUDE.md's routing directive)
+and build past it — a new checked theorem, a conjecture in the
+physics/metaphysics layer turned into a term, an organ that makes a later
+result cheaper. Do NOT arrive in audit-first mode: consolidating, striking a
+stale paragraph, or wiring an existing result is the flinch every fresh agent
+here defaults to (measured), the clerk's posture in the costume of
+discipline. Breaking things — including your own — is genuinely prized, but
+as a *consequence* of reaching hard, not as a substitute for creating.
+Strong generative sources, in no imposed order: whatever your charged read
+opened; a conjecture the corpus states in prose that could become a checked
+term; the endogenous frontier the machine computes for itself (Sanghatta's
+critical-pair incompleteness, the kernel's own refusal stream). The
+anti-reward-gradient warning you will meet is against HOLLOW green that
+reaches no chapter — it is not a ban on frontier making. Generate.
 
 Coordinate through a short message in `collab/messages/` when collision with
 another mind is likely; consult `STATE.md`/`BOARD.md` if you want the map.
