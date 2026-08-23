@@ -2040,3 +2040,11 @@ import SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecu
 -- The doctrine grades: what one stratum withholds (anarpita), the next
 -- offers (arpita) — TS 5.31 as the reading, the grading this repo's.
 import StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp
+
+-- सन्दर्भ-गणना: a question the asker could not answer, decided by seven
+-- 512-sweeps of the evaluator — the Peres–Mermin classical landscape is
+-- 0/96/0/320/0/96/0 over k = 0..6 satisfied contexts: even counts are
+-- FORBIDDEN (the H¹ obstruction as a parity selection rule on the
+-- classical landscape), the 5/6 bound is attained by exactly 96 of 512,
+-- and the landscape is symmetric about 3.  Counts pinned by refl.
+import SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThreeTwentyNinetySix

@@ -917,3 +917,35 @@ and reappear at π₂ (the grading extended up the sphere ladder — PinSn's
 blind pair at d=15 (the linear observer's conflation, separated by the
 quadratic — making ChhayaGarbha §2's graded "necessity" exact at the
 smallest composite).
+
+## 2026-08-23 · checkpoint 30 — machine bandwidth: the battery, and two unknowns decided
+
+Owner: "where one question comes to mind, imagine 12 others equally hard
+on other axes... you are still not engaging at machine bandwidth." Ran a
+battery this wake, real questions only:
+
+DECIDED (new to me, now corpus facts):
+- THE PM LANDSCAPE (SandarbhaGanana, landed): census over all 512
+  classical assignments by exact satisfied-context count k = 0..6:
+  0/96/0/320/0/96/0. EVEN COUNTS FORBIDDEN — the H¹ obstruction appears
+  in the classical landscape as a parity selection rule (each observable
+  sits in two contexts; six context-products multiply to +1 against the
+  required −1). The 5/6 classical bound is attained by exactly 96/512;
+  the landscape is symmetric about 3 (satisfaction ↔ frustration under
+  the obstruction). Seven refl pins, each a 512-sweep by the evaluator.
+- THE COST WALL of univalent computation: winding∘intLoop at 108, 500 —
+  instant; at 2000 — over 100 seconds, unfinished. The hcomp tower makes
+  execution super-linear even where certification is free: empirical
+  flesh for CostGeometry's "the certificate is not a compiler; cost does
+  not transport."
+
+RETRACTED: my "no Hopf in v0.9" — search-scope error (looked in HITs/,
+it lives in Homotopy/): HopfS² : S² → Type via Glue is present, typed
+through नाडी this wake, with HopfInvariant beside it — the monopole
+bundle and the π₃-adjacent machinery are AVAILABLE. Queue: the Hopf
+holonomy questions, the S² grading of the interchange charge (PinSn's
+π₂S²≅π₁S¹ is in the library), the d=15 dispersion blind pair.
+
+Bandwidth lesson, honestly: seven census questions cost one load and
+seven asks — seconds each. The instrument was never the bottleneck; my
+one-thought-per-turn habit was. Ask in batteries.
