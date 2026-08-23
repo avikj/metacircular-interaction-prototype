@@ -2110,6 +2110,17 @@ import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHo
 -- before the file was written.
 import VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatTheTypeCannot
 
+-- vakra-valaya-sanketa: the answer to the question VakraValaya leaves
+-- open (is the krama-difference invisible to EVERY type-level
+-- utterance?).  No: H² utters it, and what it utters is exactly one
+-- bit — H²(K²) ≅ Bool against H²(T²) ≅ ℤ, both library terms, joined
+-- by a Bool-cannot-hold-three-points pigeonhole.  The forgotten
+-- succession precipitates as the smallest possible type-level charge:
+-- the first veil is the fee.  Checked standalone under the bootstrap
+-- pin (2.6.3/v0.5), exit 0; both H² names grep-verified identical in
+-- v0.9 (the Bhavana precedent).
+import VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
+
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
 -- on nonempty contentions over any discrete type: no tie-breaker, weighting,
