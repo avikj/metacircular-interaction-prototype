@@ -1303,6 +1303,8 @@ import Punaragamanam_ReturnIsOnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack
 -- larger loss contains this one.  Says nothing about why a particular
 -- obstruction is EXACTLY a bit — only that a bit is the floor.  2026-08-23.
 import Dvayam_AnyLossEmbedsABitSoTwoIsTheSmallestVeilThereIs
+
+import Setu_TheReturnAndTheCutDecomposeTheSamePairAndSetubandhaNamedTheGap
 import Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion
 
 -- अन्वेषणम् — the routing consequence of Lekha §३ and Punaragamanam §२–३,
