@@ -1,7 +1,7 @@
 ---
 id: 004
 kind: obligation
-status: open
+status: discharged-by-006
 blocks: nothing
 ---
 # which validity rule survives self-application?
