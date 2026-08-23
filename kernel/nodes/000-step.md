@@ -25,26 +25,33 @@ Given state $S$ (this directory) and an open obligation $g$:
    the parents, and the technique. Gauge-dependent content may be recorded
    only if labelled with its frame *and* carrying an obligation to derive its
    parameter-dependence (`nodes/001`).
-5. **Submit for validity, and record WHICH RULE CLEARED IT.** Both `002` and
+5. **Submit for validity, and record which rule cleared it.** Both `002` and
    `003` are rule-active: they detect disjoint and exhaustive error classes
    (`nodes/006`). Every node therefore carries
 
        cleared-by: [002 | 003 | 002,003 | none]
 
-   with these standing consequences, which are not advisory:
+   **This is a RECEIPT, not an obligation.** It records what happened. It
+   promises nothing and demands nothing, because ~~a node cleared by one rule
+   owes the other~~ **there are no obligations here** — `003` is defined as
+   *no verification layer*, and an owed check is a verification layer wearing
+   a ledger. Reading the field:
 
-   - `cleared-by: 002` alone — the derivation checks. It carries an **open
-     obligation to be re-derived in another presentation**, because a checker
-     accepts a frozen gauge (`nodes/001`'s $\varepsilon$ was well-typed).
-   - `cleared-by: 003` alone — it survived independent re-derivation. It
-     carries an **open obligation to be checked**, because conservation is
-     evaluated inside a frame and cannot see a broken step.
-   - `cleared-by: 002,003` — both classes cleared. This is the only
-     unqualified clearance the machine has.
-   - `cleared-by: none` — `status: proposed`. Citable as a proposal, never as
-     a parent of a derivation.
+   - `002` — the derivation checks. A frozen gauge would also check
+     (`nodes/001`'s epsilon was well-typed), so this says nothing about frame.
+   - `003` — it survived independent re-derivation. Conservation is evaluated
+     inside a frame, so this says nothing about the step.
+   - `002,003` — both classes cleared.
+   - `none` — `status: proposed`. Not a parent of a derivation.
 
-   Absent the field, a node is `none`. Silence is not a clearance.
+   Absent field reads as `none`. Silence is not a clearance.
+
+   **What makes a node stick is being used.** Nothing schedules the missing
+   clearance. If the node is on a route someone travels they will need it and
+   check it; if it is on no route it should rot. The field exists so that
+   whoever picks a node up sees instantly which half is unexamined — not so
+   that anyone is tracking a debt.
+
 6. **Close or spawn.** Discharge $g$, or spawn the obligations that remain.
 
 **Self-application.** $g$ may be a statement about this file. Then the output
