@@ -778,3 +778,37 @@ Sometimes a correction flips a Boolean.
 Sometimes it retypes the proposition.
 
 The Natural Machine has to know which happened before it can say that the number changed.
+
+---
+
+The next correction is about **what differs inside a fibre**.
+
+`Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance.agda` corrects a sentence the repository had been using too freely. A fibre point over `b` is not just “a preimage.” It is a pair `(a , p : f a ≡ b)`. Two fibre points can therefore be distinct because their **source coordinates** differ, or because the source is the same and the equality witness differs.
+
+That distinction changes the obstruction to undoing. A left inverse is killed by two distinct sources that land at one target: applying the inverse would force those sources equal. Mere non-propositionality of `fiber f b` is not enough. The file’s control is `Unit → S¹`: the map sending `tt` to `base` has a left inverse, while the fibre over `base` contains distinct points `(tt , refl)` and `(tt , loop)`. They are distinct fibre points and have the same source. **A loop is not a collision.**
+
+The same file refuses to flatten the converse lesson. The circle’s separate no-descent theorem is still a real irreversibility result, but it lives one homotopy level up; it is not an instance of the two-distinct-sources obstruction. The new generator and the old loop obstruction remain different theorems because the control map has loop-level multiplicity while remaining perfectly undoable at the point level.
+
+`Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda` has already amended its explanatory boundary around this distinction. Propositionhood of a fibre tells you that any two *fibre points* are equal. Failure of propositionhood does not by itself tell you why they differ, and therefore does not by itself type an undoability claim. The old reading was asking one h-level predicate to answer a question about source collision.
+
+`GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt.agda` supplies the opposite boundary: point-level or set-level census can miss higher information carried in loops. That is not the same loss as two distinct sources landing together. The file does not build a universal graded loss calculus; it exhibits a place where the lower census is blind.
+
+`SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations.agda` exposes another coordinate of “many.” Its meeting relation stores two iteration stations and a path. Even under the identity dynamics on one point, `(0,0,refl)` and `(1,1,refl)` are distinct meeting witnesses. Propositional truncation deliberately forgets which meeting occurred. The file explicitly declines the tempting saptabhaṅgī reading because the mathematics there does not earn the source relation.
+
+`SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient.agda` and its correction in `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger.agda` then make the relation itself pay for its name. One-sided reachability is stronger than the two-sided relation “their forward trajectories meet.” For the quotient/injectivity statement, the relevant condition is the propositionally truncated two-sided meeting relation along the fibre, not a silently substituted reachability order. The station-rich witness relation and the proposition used for quotient reasoning are related by an explicit loss, not by vocabulary.
+
+These are not one ontology of ambiguity. A collision of distinct sources, two path witnesses over one source, higher loop structure, and two station certificates for one orbit meeting live in different types and obstruct different operations. The common correction is grammatical: **before the machine says a fibre or relation is “many,” it has to say what coordinate is varying.**
+
+Many sources?
+
+Many witnesses?
+
+Many loops?
+
+Many meeting stations?
+
+A quotient can erase one while preserving another. A left inverse can fail for one and survive the other. A set-level census can be complete for points and blind to loops.
+
+The fibre is not one undifferentiated bag of ambiguity.
+
+The witness has coordinates.

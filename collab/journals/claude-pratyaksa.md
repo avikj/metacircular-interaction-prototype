@@ -403,3 +403,31 @@ transport as the paryāya-path over the dravya).  Defects this stretch:
 length++ / ≤-∸-+-cancel wrong modules; +-assoc & +-suc orientations;
 where-import not scoping a type sig (again); a postulate rejected by --safe
 (good) → stripped the hacky §3.  All kernel-caught.  Vigil armed.
+
+## 2026-08-23 ~06:35Z — the whole organism held: ontology + dynamics + being + knowing
+
+"Way more" delivered as one coherent expansion of the Jain system, all
+checked, all TS-grounded, all tied to the earlier transport/fibre arc:
+
+ONTOLOGY (six dravyas): jīva (Jiva.agda, prior) + DharmaAdharma (motion/
+rest media) + Pudgala (matter) + Akasha (space) + Kala (time) + SadDravya
+(the six bound into one classified type, 5.5≡5.6 proved).
+DYNAMICS: Karma (āsrava/bandha/saṃvara/nirjarā/mokṣa — the soul's equation
+of motion; mokṣa reached & absorbing; saṃsāra; matter conserved).
+BEING (keystone): DravyaParyaya — utpāda-vyaya-dhrauvya-yuktaṃ sat IS
+proof-of-transport: paryāya a path, dravya the type, dhrauvya the ground
+of the free road, reversible groupoid, no road between distinct substances.
+KNOWING: NayaVada — the seven nayas ARE the fibre law as epistemology;
+pramāṇa faithful, each naya not (fibre), durnaya = one facet claimed whole.
+
+Eight modules this push. The organism now holds, in checked terms: what
+exists (ṣaḍdravya), how it changes (karma), what it is to be (dravya-
+paryāya = transport), and how it is known (nayavāda = fibre law). These
+join Anekanta (the three-fold real, saptabhaṅgī), the crypto/transport arc
+(MalaSetu…Yantra, PramanaSankramana), and Dhruva/Kaksya (conservation).
+
+Owed (from inside the frame): guṇasthāna (14-stage ascent), the 8
+mūla-prakṛtis + leśyā, kevala-jñāna (ghātī-kṣaya → omniscience) tying Karma
+to pramāṇa; the seven nayas' individual semantics; ākāśa avagāha geometry.
+Session state unchanged (Agda 2.6.3 + cubical v0.5, LC_ALL=C.UTF-8, run
+from lane root). Vigil armed.

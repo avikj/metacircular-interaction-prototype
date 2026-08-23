@@ -678,6 +678,12 @@ import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleA
 -- groupoid, and absent between distinct substances (utpāda-vyaya-dhrauvya-
 -- yuktaṃ sat, TS 5.29/5.37, = subst + isContrSingl, one object).
 import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTransportPossible
+-- And how the pure mind KNOWS the arena: the seven nayas (TS 1.34).  Read
+-- precisely, nayavāda IS the fibre law as epistemology — each naya reads one
+-- facet (a quotient), pramāṇa reads all (faithful, funext), and a durnaya
+-- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
+-- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
+import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -1692,3 +1698,24 @@ import SamanaMarga_TheHandPathAndTheTransportPathAreOnePath
 import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
 import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
 import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation
+import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence
+-- वल्ली-भावना-सन्धिः, the seed: the generator column is its own transpose
+-- (refl), transpose is an anti-automorphism from ·Comm alone, and at D = 2
+-- the closed vallī garland M(1)⋆M(2)⋆M(1)⋆M(0) IS ι(3+2√2) by one refl —
+-- the free word landing in the commutative wheel at the period's close.
+import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
+import Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree
+-- the concealed loss: the fibre of S¹ → Unit is inhabited, merely connected,
+-- yet not a proposition — all three set-level verdicts defeated at once, and
+-- the hidden charge is exactly ℤ (winding).  The census's scope, from inside.
+import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
+-- the criterion GuhyaNasti asked for: क्रम/सह is an operator ordering.
+-- ∥ΩS¹∥₂ ≃ ℤ but Ω∥S¹∥₂ is contractible — the standpoints do not commute
+-- and their commutator is the whole charge; सह (the fourth bhaṅga) is the
+-- refusal to order, the only position that loses nothing.
+import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+-- Sanmatitarka 1.3-6 in both directions: the dravya census conflates S¹
+-- with Unit (paryāya census separates them); the paryāya census conflates
+-- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
+-- false by counterexample, and each counterexample lies in the other's sight.
+import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee
