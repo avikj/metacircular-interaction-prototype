@@ -1755,6 +1755,12 @@ import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
 -- Yamala holds the general machinery, this holds the unconditional
 -- instance and the sign.  Algebra complete; scale induction named, not built.
 import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative
+-- the centering: Goldbach walls x ≢ 0,N and twin walls n ≢ 0,−2 are ONE
+-- symmetric two-wall field क्षेत्रम् p a y = (¬ p∣y−a) × (¬ p∣y+a) after the
+-- affine shift — a PATH of types, not an analogy — and the walls coincide
+-- for every y exactly when p ∣ a+a (both directions checked).  The mean
+-- field dichotomy p−2 / p−1, at its exact support.
+import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter
 
 -- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
 -- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
