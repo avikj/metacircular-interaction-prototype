@@ -1325,3 +1325,4 @@ import Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis
 -- because भारः (x ∷ xs) reduces definitionally and the "fitting proof" §५
 -- expected to construct is the same path carried across unchanged.  2026-08-23.
 import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
+import Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond
