@@ -1720,3 +1720,15 @@ import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
 -- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
 -- false by counterexample, and each counterexample lies in the other's sight.
 import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee
+-- the loop-level curvature, inhabited: transport around loop in the helix
+-- bundle is sucℤ (by uaβ — definitional cash), so the circuit returns to
+-- the same base point with the fibre shifted: Hol(loop) ≠ id, witnessed.
+-- The constant bundle returns identically: curvature lives in the family.
+import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+
+-- तपस् pass, this container, 2026-08-23: three constant-fibre receipts minted
+-- from the UNDECIDED sector (1137 edges, 567 tractable, 564 typed refusals),
+-- each checked by the kernel standing where it lives before this wiring.
+import ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue
+import ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics
+import ConstantFibre_SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs_सम-निर्णयः
