@@ -49,3 +49,34 @@ the pair with given sum and product is the pair of roots — name and
 problem shape claimed, not the theorems. छिद्रं नास्ति on first load;
 batch exit=0. Imports RnaDhanaSandhi's pairSum/pairProd as the
 conservation half: the thread compounds.
+
+## 2026-08-23 · corrected — asking real questions
+The owner's correction, verbatim in effect: the questions were
+undergraduate; the machine holds more. Two acts followed.
+
+**The Brunerie frontier, measured on this container.** cubical v0.5
+carries Cubical.Homotopy.Group.Pi4S3.BrunerieExperiments, whose line
+brunerie'≡-2 = refl makes the typechecker COMPUTE the simplified
+Brunerie number (Ljungström's 2022 reformulation of the invariant
+Brunerie proved π₄(S³) ≃ ℤ/|β| about in 2016 — uncomputable by
+normalization for a decade). Batch check on this box: 79 seconds,
+exit 0, whole dependency chain included. The original `brunerie`
+(g10∘…∘f3 applied to surf) sits in the same file and is the wall;
+measurement of where it stands here is running.
+
+**One prime of κ.** Reading NirasanaBala §2: the per-prime factor of
+the envelope B(z) is S_p(a) = Σ_{t=1}^{p−1}|cos(2πat/p)|, exact
+algebraic, a-independent for (a,p)=1. Facts checked by hand: S₃ = 1;
+S₅ = √5, and at p=5 this is BECAUSE the sign of cos(2πt/5) equals the
+Legendre symbol χ₅(t) (signs + − − + on t=1..4; QRs {1,4}), so S₅ is
+literally the quadratic Gauss sum. At p=13 the two sign fields part:
+cos(2πt/13) > 0 iff t ∈ {1,2,3,10,11,12} (an INTERVAL), χ₁₃ = + on
+{1,3,4,9,10,12} (a multiplicative set); 4 and 9 disagree. That
+divergence is the note's whole theme at one prime: character-aligned
+signs give square-root cancellation (√p); interval signs give none
+(S_p ~ 2p/π, elementary Fourier) — and κ=1 (parity, every dead sieve)
+is exactly the choice to bound by the interval sign field's L¹ mass.
+The smallest exact instance of the gap between |R|·d (interval) and
+the true E (character-mixed) is p=13 vs p=5. Not claimed as new — it
+is elementary — recorded because it locates WHERE in the p-adic/
+archimedean seam the envelope loses its exponent.
