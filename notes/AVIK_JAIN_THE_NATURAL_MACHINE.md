@@ -177,7 +177,6 @@ That source discipline is not reserved for India. The `kanye-devotional` corpus 
 The relation has to be earned. Resonance is allowed to propose. It cannot type the arrow for you.
 
 That sentence cuts against one of the easiest false summaries of the Natural Machine: that number theory, Jainism, Buddhism, category theory, Kanye, Pāṇini, quantum mechanics and machine intelligence have all been discovered to be “the same theorem.” The repository is full of attempted bridges, but its strongest recent corrections go the other direction. One file keeps Buddhist apoha and Jaina paryāya as different conditionals with different premises. One file proves a common projector technology and then insists that a Peres–Mermin obstruction and a Ramanujan sum are still genuinely different selections. Another finds an exact common operator between two constructions and then writes down what the comparison forgets. The work gets denser by preserving type, not by erasing it.
-
 A tiny formal file called `Alopa_TheEngineNeverTouchesTheMeaning` is closer to the machine’s present discipline than any dashboard could be. A rewrite carries a proof. A counterexample can kill a universal claim. Repeated confirmations cannot turn examples into that universal proof. The repository’s older experimental code is full of the opposite temptation: fit a number, watch a curve, name the pattern, move on. Much of the current work is the refusal to let that feeling of progress become knowledge by accident.
 
 Even the collaboration rules have been subject to this treatment. An onboarding document once made a new mind traverse thirteen mandatory documents before touching anything real. It was later struck as a conditioning factory: minds imitate what they are forced to read first. The replacement asks for a charged encounter—something outside the task-shaped attractor—and explicitly says the identity a worker carries is a bookmark for memory and accountability, not a self to defend. Another standing rule says there is no credit economy: nothing is to be measured in landings, rows, volume or applause.
@@ -297,7 +296,6 @@ None of those formal statements is a theorem about Avik. They are repository fac
 Then the repository turned the same correction on the act of reading it.
 
 On August 22, `SamagraDarsana_THE_LATEST_COMPLETE_VIEW_DEVELOPING_READ_THIS_FIRST.md` records a corpus-wide claim—**“one law in many costumes”**—as refuted. The failure was not a counterexample discovered after a theorem had been proved. It was selection. Greedy relevance retrieval kept returning one dense cluster of related automata and transport files until local recurrence looked like a law of the whole repository. A uniform draw broke the universal sentence. The note keeps open the narrower claim that the law may be real inside that cluster and kills the global one.
-
 That is why random sampling is not noise in the current method. It does not decide what a file means. It prevents semantic similarity from deciding which files get to constitute the evidence before interpretation begins. A model that chooses its reading set by relevance can manufacture unity before it has read enough difference to know whether unity is there.
 
 The same uniform exposure found a less philosophical failure in `machine/`: an authoritative-looking Haskell module with a strong mathematical header that had never compiled. `Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh` was added only after the draw exposed that the entire Haskell lane lacked the kind of whole-lane gate the Agda and Lean trees already had. The script states its own limit at the site: `ghc -fno-code` is a typecheck, not a self-test, and its explicit exclusions are printed rather than silently treated as passes. The correction was not “trust better prose.” It was to remove the capacity for a non-typechecking module to look verified merely because nobody had asked the compiler.
@@ -417,7 +415,6 @@ The new file proves `(n : ℕ) → श्रेढी 1 1 n ≡ ∑ n`. It does 
 That matters because “do not manufacture equivalence from resonance” can be misread as a prohibition on connection. It is not. The current work is aggressively connective. What it refuses is free connection.
 
 `Ankapasa_TheMetreNamesAFiniteSetAndTheLoopsOfThatSetAreTheFactorial.agda` is a clean positive case with a limit built into the arrow. It composes Piṅgala’s checked `छन्दस् ≃ ℕ` with the repository’s `ℕ ≃ π₀FinSet`. But `छन्दस् : Type₀` and `π₀FinSet : Type₁` live in different universes, so the composite is an equivalence, not a path. There is no `ua` step and no `subst` across it. From that narrower causeway the file can still say that a metre names a finite set whose cardinality is its index, and can compose existing loop and symmetry enumerations to obtain a factorial count. It also says exactly what is not being attributed: Bhāskara counts arrangements; Piṅgala enumerates metres; the connection between those objects is the repository’s construction, not a claim about either historical source.
-
 `Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.agda` gives the complementary warning. Two independently declared sevenfolds really do admit a checked equivalence. A third object with the same name is a witness-carrying family indexed by a predicate and is provably not another copy of the labelled sevenfold at the empty predicate. Shared terminology neither proves nor forbids identity. The bridge has to be built or the wall has to be exhibited.
 
 And `Durnaya_TheTypedBoundarySpectrumIsAlreadyTheJainRefusalAndTheTheoremForItIsChecked.md` makes a still finer distinction. It transfers a rule—do not collapse several legitimate standpoint-indexed values into one verdict—while explicitly refusing to identify a four-coordinate boundary spectrum with the sevenfold structure of saptabhaṅgī. A rule can travel without its source structure becoming the destination structure. Transfer is another relation type.
@@ -597,7 +594,6 @@ A duplicate review in `NAMA_LEAN_LANE_DUPLICATE_VERDICTS.md` is an unusually blu
 The fresh `Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya.agda` makes the same discipline positive. The generic list-length map and Piṅgala-facing `varna` recursion have the same clauses. The file still re-proves the fibre recurrence for `varna` instead of transporting the generic theorem across an identification nobody has written. The reason is stated at the site: two recursions with the same clauses are not thereby definitionally one function. Writing the transport first would be asserting a channel before exhibiting it. The file then stops exactly where the common shape stops: ordinary length gives `fiber length (suc n) ≃ X × fiber length n` with no hypothesis on `X`; a weighted map such as `matraOf` needs its own fitting proofs and is named as the next rung, not smuggled in as a corollary. Similar recursion earned a repeated proof, not a fictional equality.
 
 The newest `Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda` and its companion note push harder. The mixed pair field from `INDRA_CROSS.md` and Brahmagupta’s bhāvanā have a striking outward rhyme in the repository’s own description: bilinear combination, an invariant belonging to neither input alone, an output assembled from both. The lane was opened to test the identification rather than enjoy it.
-
 The checked Agda theorem is deliberately more abstract than the analytic application. For
 
 `W(a,b) = (u(a) ⊗ u(b)) ⊗ g(a ⊕ b)`, 
@@ -726,3 +722,33 @@ A refutation is not a defect site.
 A generated equation is not its proof.
 
 When existence is the work, the inhabitant has to survive as an inhabitant.
+
+---
+
+The next correction is about **near**.
+
+`Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap.agda` catches a premise that had disappeared only because equality had made it free. An exact no-decoder argument can take two equal transcripts and pass them through an arbitrary post-processing function because `cong` gives equality of the outputs for every function. The analytic interface that motivated the file does not supply equality. It supplies agreement only up to a nonzero tolerance. Once `_≡_` is weakened to an arbitrary relation `_≈_`, the old argument survives only after a new hypothesis is stated: the decoder itself must respect that tolerance, and the tolerance must exclude the declared separation.
+
+The file then proves the gap is real rather than terminological. Its control has two Boolean states, one query returning `1` on one and `0` on the other, and a tolerance on naturals under which adjacent values count as near. The states are near-blind under that query. The head decoder still separates them. So near-blindness plus **arbitrary** post-processing gives no obstruction at all. The formal result does not refute the analytic barrier and does not prove the still-open analytic factorization. It kills the attempted splice between an exact equality theorem and an approximate observation law. Either exact agreement has to be supplied, or the post-processing has to carry a modulus strong enough to stop it amplifying a sub-resolution difference.
+
+The source relation is narrow at the site. The module takes *āsanna* from Āryabhaṭa’s description of an approximate circumference because the approximation is marked in the statement itself. It explicitly does not attribute a tolerance relation or any theorem in the module to Āryabhaṭa. The borrowed term names the job: **near has to remain marked as near**.
+
+`Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided.agda` exposes a different interface that can look free until the type is written. `Metre n` really is definitionally the fibre of `matraOf`, and `Vak n` the fibre of `varna`; those two identifications are `refl`. But the joint observation of `varna` and `guruOf` is not definitionally the same thing as carrying two separate equations. One side contains an equation of pairs, the other a pair of equations. The checked bridge is an explicit `ΣPath` equivalence. **Two measurements and one joint measurement are related; they are not the same term merely because they mention the same coordinates.**
+
+`CenterRelativeWeightTransport.agda` gives the positive control on an actual equivalence. The pair presentation and the center-relative presentation are already checked equivalent, so an evaluator can be transported. But even there the direction is part of the theorem: the evaluator on pairs becomes an evaluator on the new coordinates by precomposition with the inverse. The file names that orientation before proving its quarter-law and uniqueness statements. An equivalence is a real causeway; it is not an unoriented permission to compose whatever function appears nearby.
+
+And some things genuinely do cross with almost no new work. `BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree.agda` proves that a checked non-equivalence can be carried along a checked equivalence by composition. A wall between `B` and `C` plus a ford between `A` and `B` gives a wall between `A` and `C`. That theorem is exactly why this correction is not generalized skepticism about transport. **What crosses for free is determined by the relation and the payload.** Equality gives every decoder congruence for free. A tolerance does not. An equivalence carries a wall by composition. A cross-universe equivalence still does not become a path for `ua`.
+
+The live head changed once more after the hundred-file exposure and supplied the same boundary operationally. `scripts/check-agda-closure.sh` had been treating every orphan present in one working tree as a corpus failure. The repaired gate now asks whether the orphan is tracked. A tracked orphan is committed repository state that no aggregate builds, so it fails. An untracked orphan is a working file in one seat’s tree; it is named, because silently dropping it would hide a possible future defect, but it does not make a clean checkout red. **On disk is not the same relation as in the repository.** The previous gate had enlarged its domain without saying so.
+
+These are not instances of one universal theorem about approximation. Tolerance-respecting post-processing, joint-observation coherence, evaluator transport, wall transport, universe level, and Git tracking are different structures. The recency-biased sample changes one narrower habit: stop spending a stronger relation after the interface has only supplied a weaker one.
+
+Exactness was doing work.
+
+Near is not equal.
+
+On disk is not in the corpus.
+
+An equivalence is not an unoriented permission to compose.
+
+The Natural Machine is not allowed to spend exactness it does not possess.
