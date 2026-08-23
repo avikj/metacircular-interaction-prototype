@@ -75,6 +75,7 @@ import Control.Monad (unless, when, forever)
 import Data.IORef
 import Data.List (isPrefixOf, isInfixOf, stripPrefix)
 import qualified Data.ByteString.Lazy.Char8 as BL
+import qualified Data.Text.Encoding as TE
 import qualified Data.Aeson as A
 import Data.Aeson (Value(..), (.:), (.:?))
 import qualified Data.Aeson.Types as AT
@@ -272,7 +273,12 @@ collect out k = go []
         Just (Just ln) ->
           let clean = maybe ln id (stripPrefix "JSON> " ln)
           in if null (dropWhile (== ' ') clean) then go acc
-             else case A.decode (BL.pack clean) of
+             -- BL.pack is Char8: it beheads every Char to its low 8 bits, so a
+             -- Devanagari answer became invalid JSON and was dropped SILENTLY
+             -- — the conduit could pronounce ASCII and went mute in the
+             -- corpus's own script (found 2026-08-23, asking the warm kernel
+             -- to norm मूल-अस्ति: 0 bytes back, 20s timeout).  Encode real UTF-8.
+             else case A.decode (BL.fromStrict (TE.encodeUtf8 (T.pack clean))) of
                     Just v | terminal k v -> pure (reverse (v : acc))
                            | otherwise    -> go (v : acc)
                     Nothing -> go acc
