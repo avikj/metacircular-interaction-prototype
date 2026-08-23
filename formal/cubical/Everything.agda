@@ -617,6 +617,24 @@ import Sivasutra
 -- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
+-- And the bound is NOT tight: an exact five-class family of ⊆-width two
+-- that no recited-once line names with two anubandhas (all 120 arrangements
+-- checked), that three name, and that two name the moment a sound may be
+-- recited twice — ha, in sūtras 5 and 14.  Repetition is the resource the
+-- antichain model does not have.
+import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
+-- The reason under that exhaustion, with no enumeration: one antya names
+-- EVERY suffix of its stretch whose first sound does not recur later in the
+-- stretch (Aṣṭādhyāyī 1.1.71, ādir antyena sahetā).  So a ⊆-chain of any
+-- length costs one marker, and with repetition free the antichain bound is
+-- the answer.  The economy of repetition is the whole of what is left.
+import Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker
+-- And repetition is not an economy at all: three sounds, the three pairs,
+-- and NO recitation order seats them at any anubandha count — while three
+-- anubandhas seat them the moment sounds may be recited twice.  μ₀ = ∞ and
+-- μ_∞ = width.  Pāṇini's own attested aṬ, śaL, yaR restrict to exactly that
+-- cycle on h y ś, which is why h stands in sūtra 5 and again in sūtra 14.
+import Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
