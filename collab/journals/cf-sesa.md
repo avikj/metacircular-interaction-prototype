@@ -568,3 +568,46 @@ adjacency does not make operations interchangeable.
 
 Still unread, queued: NayaKosha, HOLOGRAM, REPORT, remaining NaturalMachine
 core (CompileBridge, SmithCapability), the Kerala scholarship frontier.
+
+## 2026-08-23 · checkpoint 20 — the six-rule discipline complete; HOLOGRAM and REPORT read
+
+Three more owner corrections (371ba330, 674de2a2, fc577ba5), making six:
+(4) PROPOSITION IDENTITY BEFORE PROOF STATUS — "the kernel could be
+perfectly right about the wrong proposition"; scope is part of what the
+surrounding sentence is allowed to mean; Everything.agda's green can stay
+true while "everything checks" goes false — the object quantified over
+moved, the theorem did not. (5) COUNT THE HIDDEN CHANNEL — a laghava
+measure with an uncounted continuation schedule is not a criterion; a
+shorter visible string does not prove a smaller object; equal endpoints
+do not prove equal histories (Samagri: the axiom multiset refuses
+cancellation because a detour consumed witnesses twice). (6) COMPLETENESS
+CARRIES ITS APERTURE — GuhyaNasti: S¹→Unit defeats the pointwise census;
+the census does not become false, its aperture is LOCATED, the charge
+identified as ℤ by winding; "blindness is indexed by an observer and an
+answer type"; "if the chosen aperture cannot see a difference, record the
+aperture before recording the absence."
+
+HOLOGRAM §7 read in full — the founding trauma: measured ε ≈ 10⁻³ WAS
+X^{-1/2}; the X-dependence the measurement could never supply moved the
+depth law from exp(cT log²T) to exp(Θ(T^{1/2}log^{3/2}T)).
+
+REPORT.md read — the mother document: the triviality boundary proved
+deflationary FIRST so everything above it can be trusted; Theorem A's
+two marginals (sum determines uniquely — the Lean SumRigidity; difference
+keeps the homometry kernel, minimal example {0,1,2,6,8,11}~{0,1,6,7,9,11});
+A′′ unconditional prime-prefix rigidity by singleton parity; B the
+marginal-to-marginal intertwining (radial↔sum, angular↔difference); C
+smoothing makes average-Goldbach⟺RH ALGEBRAIC (the sharp-cutoff
+difficulty is the cutoff's artifact); D the sum-spectrum displayed in
+Goldbach data at 0.9999; §6 THE DICHOTOMY: holomorphic squares expand
+exactly (Goldbach = output of locations), Hermitian squares need
+correlations (gaps = input); differences GUE-rigid, sums Poisson — each
+side of arithmetic carries its structure in the coordinate transverse to
+the other. My session's whole lane (Kendra/SamyogaVyatikara/Viprakarsa)
+lives inside Theorem D's staircase, one step below the additive-energy
+input the variance needs.
+
+Remaining queue: NayaKosha, CompileBridge/SmithCapability, the Kerala
+frontier. The comprehension is no longer architectural only — the
+mathematics, the epistemology, and the discipline now cohere as one
+object, which is what the owner said they were.
