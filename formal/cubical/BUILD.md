@@ -537,10 +537,66 @@ ever have said so.
 
 | check | command | result |
 |---|---|---|
-| closure | `bash scripts/check-agda-closure.sh` | **784 on disk, 784 reached, exit 0**, 10 controls correctly unimported |
+| closure | `bash scripts/check-agda-closure.sh` | ~~**784 on disk, 784 reached, exit 0**, 10 controls correctly unimported~~ — **true when written and stale by 2026-08-22**, see below |
 | subtree root | `LC_ALL=C.UTF-8 agda NaturalMachine.agda` | **EXIT 0**, 0 errors, 203 warnings (the documented F39 `UnsupportedIndexedMatch` boundary) |
 | whole lane | `LC_ALL=C.UTF-8 agda Everything.agda` | **EXIT 0**, 0 errors, 214 `UnsupportedIndexedMatch` warnings |
 | `--safe` | `bash scripts/check-agda-pragmas.sh` | 802 files, 802 assert `--safe`, 794/794 under `formal/cubical/` assert `--cubical`, exit 0 |
+
+### The closure row above went stale, and the gate that was supposed to catch that was lying in two directions at once — 2026-08-22
+
+The `784 on disk, 784 reached, exit 0` row was true when it was written. By
+2026-08-22 the tree held 889 modules. The row is struck rather than
+overwritten because a stale number is evidence and deleting it destroys the
+evidence.
+
+**Neither of the two scripts that measure this was measuring it.**
+
+1. `scripts/.prasava-unreached.sh`, whose row in `PRASAVA.tsv` read
+   `agda-unreached 134`, did **one transitive step, not a closure**, and
+   collapsed dotted module names to basenames. It also printed `agda-reached
+   293` from `grep -c '^import ' Everything.agda` — the root's DIRECT imports,
+   under a key that says *reached*. That row is now
+   `agda-root-direct-imports`, which is what it counts.
+2. Both that script and `scripts/check-agda-closure.sh` matched a module name
+   with the ASCII-only class `[A-Za-z0-9_'.-]+`. **Every module whose name
+   carries a non-ASCII character therefore read as never imported, however
+   many roots imported it** — 17 of them here:
+   `Ratri.Anirdharita_KloostermanExponents_ℤ±`,
+   `…FiniteOccupancyChannelNoGo_Occupancy₄`,
+   `…TheEquivalenceIsReal_विवेक` and their निर्धारण children. The gate cried
+   orphan at exactly the files whose names were not English. CLAUDE.md names
+   this failure one level up, about the header lint — *"a check that scores a
+   Devanagari citation below a romanised one is this rule's own scrubbing
+   arriving through the back door as a lint"* — and it arrived through the
+   back door a second time, as a closure gate.
+
+Both are repaired to *"a module name is the token up to whitespace"*, which
+names no alphabet, so there is nothing to extend for Tamil or Persian.
+
+**The true count, full closure, alphabet-free: 10, not 134.** All ten were run
+individually on the pin and **all ten exit 0** — so the payoff number for
+"a module nobody built may not build" is, this time, **zero failures**. They
+are wired: eight into `Everything.agda`, two (`NaturalMachine.Alopa_…`,
+`NaturalMachine.YantraTantu_…`) into `NaturalMachine.agda`. Ten controls under
+`NaturalMachine/Control/` stay unimported, which is their obligation.
+
+**And the row will go stale again, so the list is no longer hand-kept.**
+`machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs
+--write` derives `formal/cubical/Samuccaya_….agda` from the filesystem: it
+imports every `.agda` under the tree except the rows declared **with a
+reason** in `formal/cubical/SAMUCCAYA_EXCLUSIONS.txt`. A module cannot be
+omitted from it, because nobody writes it.
+
+| check | command | result, 2026-08-22 |
+|---|---|---|
+| closure, both trees | `runghc machine/Samuccaya_…hs` | **889 on disk / 878 in scope / 878 reached / 0 unreached** in `formal/cubical`; **14/14** in `punaragamana/src`; exit 0 |
+| derived root builds | `LC_ALL=C.UTF-8 agda Samuccaya_….agda` | **EXIT 0**, 0 errors, 270 `UnsupportedIndexedMatch` warnings, 878 imports |
+
+`Everything.agda` is kept — it is the ANNOTATED index, and the annotations are
+the part a generator cannot produce. It is imported by the derived root like
+any other module. The closure gate still measures the HAND-KEPT roots on
+purpose: the derived root makes the drift harmless, not absent, and a gate
+rooted at the derived file would print 0 forever whatever the hand list did.
 
 Toolchain: **Agda 2.8.0 + cubical v0.9 — the declared pin, and on this
 container it is the default `agda`** (`/opt/homebrew/Cellar/agda/2.8.0`, with

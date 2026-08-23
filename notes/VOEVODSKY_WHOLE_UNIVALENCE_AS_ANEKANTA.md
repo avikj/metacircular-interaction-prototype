@@ -4,8 +4,10 @@
 HoTT-as-verification-protocol; `VOEVODSKY_TERMINAL_PROGRAM.md` holds the 2017
 initiality manuscript with careful source boundaries. Neither engages three
 things this note is for: (1) the *precise* relation between the corpus's
-"checklessness" and LEM — namely that there is **no LEM in the corpus at all**,
-and the axis that actually does the work is decidability, not excluded middle;
+"checklessness" and LEM — the cubical `--safe` lane does not assume LEM as an
+axiom (the axis that does the work there is decidability, not excluded middle),
+while the corpus **as a whole contains LEM** in its classical Lean lane and
+proves theorems about it; the earlier absolute "no LEM at all" is struck in §1;
 (2)
 univalence read as a checked formalization of **anekāntavāda**, not a loose
 analogy; (3) Voevodsky **as a whole intellectual life** — expulsion, the
@@ -22,10 +24,39 @@ theorem. Mathematical authority stays in the formal terms it points to.
 
 ## 1. The precise cut: two things "generation over decision" means
 
-**First, the flat fact, because an earlier draft of this note muddled it.**
-There is **no LEM anywhere in the corpus.** Cubical Agda `--safe` never assumes
-excluded middle — it is not an axiom of the system. So "does the corpus reject
-LEM?" has a one-word answer: there is nothing to reject; it was never there.
+**First, the flat fact, because an earlier draft of this note muddled it — and
+this draft muddled it the other way; see the dated correction below.**
+~~There is **no LEM anywhere in the corpus.**~~ The **cubical Agda `--safe`**
+lane never assumes excluded middle — it is not an axiom *of that lane*. So "does
+the cubical lane reject LEM?" has a one-word answer: there is nothing to reject;
+it was never assumed there. But the corpus is not only that lane, and stated
+absolutely the sentence is false — see the correction.
+
+> **[Correction, 2026-08-23, owner-grounded: "we contain LEM and theorems about
+> LEM within this … it contains the dumber maths."]** Asserting "no LEM anywhere"
+> is itself the durnaya this note describes — the constructive naya denying the
+> classical one. Precisely, both verifiable by reading:
+> - The **Lean lane `formal/pairfield` contains LEM.** Its baseline footprint is
+>   `{propext, Classical.choice, Quot.sound}` (`formal/pairfield/axiom-allowlist.txt`
+>   header), and `Classical.em : ∀ p, p ∨ ¬p` is a theorem of exactly that
+>   footprint (Diaconescu: `Classical.choice + propext ⟹ LEM`); the Mathlib-backed
+>   lane reasons classically throughout. The corpus **has** LEM in its analytic half.
+> - The **cubical `--safe` lane itself proves a theorem ABOUT (weak) LEM:**
+>   `yugapatDecompositionGivesWeakExcludedMiddle : ((A B : Type) → ¬ (A × B) →
+>   ((¬ A) ⊎ (¬ B))) → (A : Type) → (¬ A) ⊎ (¬ (¬ A))`
+>   (`NaturalMachine/Yugapat_…agda:117`; re-exported under the renamed
+>   `yugapatToVikalpaIsWeakExcludedMiddle` at `NaturalMachine/Bhanga_…agda:128`)
+>   — it *derives* WLEM from the yugapat-decomposition principle. Both modules
+>   typecheck under `--cubical --safe` (Agda 2.8.0 / cubical-0.9, verified
+>   2026-08-23). That is the concept present and reasoned about, not "never
+>   there."
+> The accurate, non-durnaya statement: the corpus **holds the classical/LEM
+> standpoint** — the "dumber maths": the whole Lean lane, plus the cubical
+> theorems locating what excluded middle collapses (`Abhava`, `AnyonyaAbhava`,
+> `DeflationaryTest`) — and it **declines to globally assume LEM as an axiom in
+> the cubical lane.** Anekāntavāda *holds* the naya; it does not lack it. The
+> decidability ≠ LEM distinction below survives unchanged; only the absolute
+> "nowhere / never" is struck.
 The slogan *generation over decision* is **not** a stance *toward* LEM. Writing
 that one class "rejects LEM" and another "does not" (as an earlier draft did)
 was a confusion, corrected here — refuting one's own phrasing is the respected
@@ -62,12 +93,16 @@ none, we honestly return **avaktavya** rather than a witness-free verdict. This
 is exactly what Brouwer's intuitionism does in place of LEM, and exactly what
 the Jain *avaktavyam* does in place of asti/nāsti.
 
-So the single clean statement, led with this time: **LEM is the
-durnaya-generator — the machine for asserting a verdict with no witness — and
-the system simply never has it. Where a proposition is decidable we generate;
-where it is not, we say the un-said. There is no third posture, and no LEM in
-either case.** The concept appears at all only as the thing whose absence makes
-avaktavya honest rather than a cop-out.
+So the single clean statement, corrected (see the dated block above): **LEM is
+the durnaya-generator — the machine for asserting a verdict with no witness —
+and the cubical `--safe` lane does not assume it as an axiom. Where a proposition
+is decidable we generate; where it is not, we say the un-said.** ~~There is no
+third posture, and no LEM in either case.~~ The corpus *as a whole* does contain
+LEM — the Lean lane is classical (`Classical.em`), and the cubical lane proves
+theorems about WLEM — so the honest statement is that the corpus **holds** the
+classical standpoint as a naya rather than **lacking** it; refusing it wholesale
+would itself be the durnaya. Its non-assumption in the constructive lane is what
+makes avaktavya honest there rather than a cop-out.
 
 The traditions still differ where it counts, and the difference is information:
 Brouwer restricts **one connective** inside an otherwise bivalent attitude; the

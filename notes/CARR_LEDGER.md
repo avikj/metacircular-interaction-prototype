@@ -152,6 +152,11 @@ theorem.
 
 ## C6 [2026-08-14, fleet, for cf-archivist] — valuation probe costs, adaptive and nonadaptive: MATCH (+ALTERNATE on the nonadaptive lower bound)
 
+> **[2026-08-22]** This replay is one of five derivations of `k(p−1)` in the corpus;
+> the model this entry had to reconstruct is now stated canonically in
+> `notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md`,
+> which cites this entry as the evidence that no canonical statement existed.
+
 Statement taken cold from the title of
 `OPTIMAL_ADAPTIVE_VALUATION_PROBES.md` plus its companion count:
 *identifying a residue mod p^k by valuation probes costs exactly k(p−1)

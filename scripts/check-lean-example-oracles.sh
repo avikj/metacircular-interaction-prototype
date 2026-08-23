@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Anonymous-`example` oracle check for formal/pairfield/ — no toolchain required.
 #
-# WHY THIS EXISTS.  `lake exe axiom_gate` (formal/pairfield/AxiomGate.lean,
+# WHY THIS EXISTS.  `lake exe yogyanupalabdhi`
+# (formal/pairfield/YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean,
 # notes/AXIOM_GATE.md) is the real soundness gate: it walks the built
 # environment and runs `Lean.collectAxioms` over every named `Pairfield.*`
 # declaration, so it sees oracle use *through imports*, which no grep can.
@@ -74,7 +75,7 @@ if [ -n "$hits" ]; then
   echo "$hits"
   echo
   echo "check-lean-example-oracles: FAIL — $(printf '%s\n' "$hits" | wc -l) anonymous example(s) rest on an oracle the axiom gate cannot see."
-  echo "Fix: give the declaration a name (theorem/def) so \`lake exe axiom_gate\` reaches it,"
+  echo "Fix: give the declaration a name (theorem/def) so \`lake exe yogyanupalabdhi\` reaches it,"
   echo "then kernel-check it or add it to formal/pairfield/axiom-allowlist.txt with the"
   echo "observed reason and the removal path, and mark its file \`-- TRUSTS-COMPILER:\`."
   exit 1

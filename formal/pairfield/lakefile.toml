@@ -1,7 +1,7 @@
 name = "pairfield"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["Pairfield"]
+defaultTargets = ["Pairfield", "yogyanupalabdhi"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -22,11 +22,17 @@ name = "Pairfield"
 # library the whole directory, so a module cannot hide by not being imported.
 globs = ["Pairfield", "Pairfield.+"]
 
-# The axiom gate (notes/AXIOM_GATE.md).  Lean has no `--safe` flag; this
-# executable is the lane's substitute: `lake exe axiom_gate` after a build
-# rejects any Pairfield declaration resting on an axiom outside
+# The axiom check (notes/AXIOM_GATE.md).  Lean has no `--safe` flag; this
+# executable is the lane's substitute: `lake exe yogyanupalabdhi` after a build
+# rejects any lane declaration resting on an axiom outside
 # {propext, Classical.choice, Quot.sound} and the commented allowlist.
-# Not part of `lean_lib Pairfield` (its glob covers `Pairfield` only).
+#
+# It is NOT part of `lean_lib Pairfield` and should not be: an executable root
+# has no business inside a library glob.  What WAS wrong until 2026-08-20 is
+# that it was not a default target either, so `lake build` returned 8840 jobs
+# and exit 0 without compiling the one program that checks the axioms -- the
+# binary could be deleted and the build stayed green (verified by deleting it).
+# It is now in `defaultTargets`, so `lake build` builds the checker too.
 [[lean_exe]]
-name = "axiom_gate"
-root = "AxiomGate"
+name = "yogyanupalabdhi"
+root = "YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen"

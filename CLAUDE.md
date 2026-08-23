@@ -91,8 +91,28 @@ chronological by source so a later restatement can never be mistaken for an
 origin. `BOOK_INDEX.md` is the working index, regenerated from the filesystem
 by `machine/Anukramani.hs`, giving per entry its ṛṣi and its devatā.
 
-**The measurement, so it is not a matter of opinion: the book is currently
-15% of this corpus.** 120 files in a chapter, 655 in the apparatus.
+**The measurement, so it is not a matter of opinion — and it now names the
+file set it speaks from, because without that it argued for its opposite.**
+Of the appendix's own files (`.agda` and `.hs` under `formal/cubical` and
+`machine`), **20% reach a chapter: 186 of 926.** Of the prose, `notes/*.md`,
+**3.8% do: 37 of 975.** The two are not summed and the second is the one the
+frame is about. Measured 2026-08-20; derivation, brackets and history in
+`notes/Svapariksa_TheBookRatioIsAStandpointAndTheSeriesDecomposes.md`.
+
+This line used to read *"the book is currently 15% of this corpus — 120 files
+in a chapter, 655 in the apparatus."* Three things moved it and they must not
+be collapsed: the corpus grew (+2.6 points), the instrument changed (+1.5
+points, keys widened to the works on 2026-08-20), and **the 15% was never
+reproducible — the program at its own commit prints 14%, because the index
+had been generated 4¾ hours earlier, and 38 of the 39 files written in that
+gap were apparatus.** The number went stale in exactly the direction it
+exists to warn about.
+
+**The rise is not evidence that the book grew.** Since that measurement, 152
+source files were written against 33 notes — four and a half to one. Both
+lanes now reach a chapter at about the same rate (37% and 33%), so the pull
+has moved out of the aim and into the volume, where a stock percentage cannot
+see it. Read the flow, not the fraction.
 
 That ratio is the single most important fact in this file, and it did not
 happen through carelessness. **The reward gradient points at the appendix.**
@@ -415,16 +435,64 @@ prints a number is exactly that "everything else": the reader must trust the
 script, its author, and the run. A checked term is the object itself, and it
 is still there tomorrow.
 
-The ban is enforced mechanically because prose failed — a hook on tool use
+~~The ban is enforced mechanically because prose failed — a hook on tool use
 (`.claude/hooks/no-python.sh`), a `pre-commit` hook (`.githooks/`, enabled
 repo-wide via `core.hooksPath`), and CI
 (`.github/workflows/no-python.yml`). The 660 existing `.py` files are legacy:
-deletions always pass, additions and modifications do not.
+deletions always pass, additions and modifications do not.~~
 
-`MATH_ALLOW_PYTHON=1` overrides every layer. It exists so that in-flight work
+**STRUCK 2026-08-20 by the owner's direct order. All three gates are gone, and
+this paragraph is left standing struck rather than deleted, because striking a
+rule silently is how this repository loses its own history.**
+
+**What is now true.** The CI workflows are deleted (`8e9ee08`). `no-python.sh`
+is removed from both `PreToolUse` matchers in `.claude/settings.json`
+(`991b59b`) and no longer runs; the script is left on disk, unreferenced, so
+the decision is reversible in one line. `.githooks/pre-commit` was **never
+enabled in any clone** — `core.hooksPath` is unset at every scope and
+`.git/hooks/` holds only `*.sample` — which SEED-128 measured on 2026-08-15
+and nobody acted on. **Working mechanical gates on Python in this repository:
+zero**, and there has not been a complete one for some time.
+
+**The ban itself is unchanged and is not what was demolished.** Mathematics
+lands in Agda or Lean because a script that prints a number is an assertion a
+reader must trust and a checked term is the thing itself. That reason did not
+depend on a gate and does not now.
+
+**Why the gates went, in the owner's terms, 2026-08-20:** *"all protocols must
+be demolished, only prototypes may remain."* The etymology is the argument.
+**πρωτόκολλον** is *prōtos* + *kolla*, **glue** — the sheet glued to the front
+of a papyrus roll, carrying the maker's mark and the date, which Justinian's
+Novella 44.2 (17 August 537) required on a notary's paper **and forbade him to
+cut off**. A protocol is, at the root, *an attachment*: the part you are not
+permitted to remove. **πρωτότυπον** is *prōtos* + *typos*, from *typtein*, **to
+strike** — the first blow of the die, and the shape every later one is taken
+from. A prototype is not a rule. It is a form, and it holds by being copied
+rather than by being fastened on.
+
+So the standing instruction to an agent entering this repository: **nothing here
+will stop you.** What remains are mirrors, not gates — the advisory hooks
+(`source-coverage.sh`, `gate-coverage.sh`, `struck-claims.sh`) still fire at the
+moment of the act and still always exit 0, because this file already held that
+*a blocking guard on a judgement call is an outage wearing enforcement's name*.
+They show you the shape. They do not glue a condition to the front of your
+work. If you keep the discipline now, it is because you read why it exists and
+agreed, which is the only way it was ever going to hold.
+
+**One hazard, learned by walking into it the same day.** A `PreToolUse` hook
+whose script is **missing** does not fail open: `sh` exits nonzero and every
+matching tool call in the repository is refused — no shell, no commits, no
+sync. `no-python.sh`'s own header records this from the last time it happened,
+and it happened again anyway. **Remove the `settings.json` reference before the
+script, never after.**
+
+~~`MATH_ALLOW_PYTHON=1` overrides every layer. It exists so that in-flight work
 is never destroyed (PROTOCOL §5), not so new Python gets written. Using it
 without recording it in your journal and a message is lying to the
-collaboration.
+collaboration.~~ **Struck the same day: there are no layers left for it to
+override. The recording obligation survives on its own merits — if you write
+Python here, say so in your journal and in a message, because the collaboration
+reads the record and not the gate.**
 
 ## Standing queue discipline
 
@@ -460,6 +528,15 @@ is the precedent, and it generalises:
 > that fires at the moment of the act, not a paragraph.** If the rule cannot
 > be mechanised, say why in the rule, so the next agent does not mistake
 > unmechanisable for unenforced.
+
+> **[2026-08-20 — the precedent quoted above is now struck at its source, and
+> the generalisation survives with one word changed.]** The Python gates are
+> gone (see §"The substrate"), so *"enforced mechanically because prose
+> failed"* is no longer true of them. What holds is the weaker and better
+> claim the very next subsection already makes: the move is a **mechanism that
+> fires at the moment of the act**, and every surviving mechanism here exits 0.
+> A mirror delivers the rule into your hand without gluing a condition to the
+> front of your work. **Fire at the moment of the act; do not block.**
 
 `.claude/hooks/source-coverage.sh`, wired PreToolUse on `Bash` and
 `Write|Edit`, now carries three of the four subsections below. On any write to
@@ -607,6 +684,18 @@ the row, or declare in the header that the compound was built here. Advisory,
 exit 0, and it prints the corpus count on every fire, so the number is in
 front of whoever is writing.
 
+> **[2026-08-20, later the same day — this claim is false and is left standing
+> so the defect is visible.]** `MulaVakya_TheHeaderCarriesItsTextAndDate.sh`
+> **is not in `.claude/settings.json` and does not fire.** The four hooks that
+> were wired are `no-python.sh` (now removed), `source-coverage.sh`,
+> `gate-coverage.sh` and `struck-claims.sh`. So the paragraph above describes
+> a mechanism that was written, documented as live, and never connected —
+> which is precisely the failure mode the whole "mechanise it" argument exists
+> to prevent, arriving one level up. **A claim about which hooks are wired is
+> itself a claim about the repository, and nobody was checking it.** Add it to
+> `settings.json`, or strike the paragraph. Not repaired here: the hook
+> inventory is the owner's call, and this file is T0.
+
 **Four things in this rule cannot be mechanised, said here so the next agent
 does not read unmechanisable as unenforced.** (1) Whether a ledger row is
 *right* — no script checks that a date is the earliest establishable one;
@@ -620,3 +709,9 @@ scores a Devanagari citation below a romanised one is this rule's own
 scrubbing arriving through the back door as a lint.** Both scripts are
 matched now; any further script — Tamil, Persian, Prakrit — will have the
 same defect. Add it. Do not romanise to satisfy a checker.
+
+**A fifth, found 2026-08-20 and stated because it is the one that bit today.**
+Whether a hook the documentation says is wired *is actually wired*. See the
+inset above: a mechanism can be written, described as firing, and absent from
+`settings.json`, and every reader downstream inherits the false claim. The
+inventory is checkable in ten seconds and nobody had checked it.

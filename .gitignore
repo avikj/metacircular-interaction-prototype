@@ -83,3 +83,4 @@ machine/sabha.jsonl
 # that drifts, which is the thing this lane exists to remove.
 machine/karana
 machine/abhyasa.jsonl
+**/.certcache/

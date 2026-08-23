@@ -93,6 +93,7 @@ module Yantra_TheOrgansAreOneMachineOnOneWire
   , Pramanya(..)
   , Mudra(..)
   , answer
+  , mudritaJ            -- render an answer to J (नाडी routes organ-verbs through this)
   , serve
   , yantraMain
   ) where
@@ -108,7 +109,18 @@ import System.Process (readProcessWithExitCode)
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 
 import Sabda_TheWireHasNoBoolean
-import Uttara_SamkramanaOrDosalekhaNeverABareBoolean
+-- `hiding (Ganita)` is a live seam and not a preference.  While this lane was
+-- repairing the readers below, the Uttara lane gave `Saksin` a constructor
+-- `Ganita` — a COMPUTED witness, as against `Likhita`, a written one — and
+-- this file has had a `Pramanya` constructor of the same name since it was
+-- written, meaning the same thing one layer up: the route by which an answer
+-- is a pramāṇa is arithmetic done here.  Two lanes reached the same word for
+-- the same distinction, which is evidence the word is right, and neither of
+-- them is wrong.  Hiding disambiguates HERE without renaming EITHER; §12,
+-- नाम्नि जीवनम् — a name taken away from a lane that chose it is a loss in one
+-- word.  Nothing of theirs is used through this import that the hiding
+-- removes: this file reads their witnesses through `tuWitness`.
+import Uttara_SamkramanaOrDosalekhaNeverABareBoolean hiding (Ganita)
 import qualified NayaKosha_TheStandpointStore as K
 import qualified Saptabhangi_TheSevenfoldVerdict as S
 import qualified SaptabhangiGarbha_TheResidueIsTheSeed as G
@@ -120,45 +132,12 @@ import qualified Astadhyayi as P
 
 -- ============================================================ प्रामाण्य
 --
--- By what route is this answer a pramāṇa?  Nyāya's question (Gautama,
--- Nyāyasūtra 1.1.3, c. 2nd c. CE; Vātsyāyana's Bhāṣya c. 400): a means of
--- knowledge is distinguished by its CAUSAL ROUTE, not by how confident its
--- holder is.  §19 of the sūtra: प्रमाणं कारणमार्गेण भिद्यते, न विश्वासमात्रया ।
---
--- Five, and each carries its witness rather than a name alone.
-
-data Pramanya
-  = Pratyaksa String
-    -- ^ the object is IN the answer.  Nothing is asserted about anything
-    --   not shown; the reader checks by reading.
-  | Nihsesa Int String
-    -- ^ exhaustive over n cases, all of them run.  A finite exhaustive
-    --   verification is proof (CLAUDE.md), and the n is stated so that the
-    --   domain of the claim is visible.
-  | Ganita String
-    -- ^ an exact integer identity, exhibited, computed in ℤ.  Not a
-    --   measurement: there is no error term because there is no error.
-  | Kernel String
-    -- ^ agda typechecked an emitted module, with the two controls having
-    --   been watched first (Certificate.kernelStatus).
-  | Ayogya String
-    -- ^ NO route.  Legal only on a doṣa-lekha; `mudra` turns a transport
-    --   carrying it into a defect about itself.
-  deriving (Eq, Show)
-
-pramanyaJ :: Pramanya -> J
-pramanyaJ p = case p of
-  Pratyaksa w  -> JObj [("marga", JStr "pratyaksa"), ("saksin", JStr w)]
-  Nihsesa n w  -> JObj [("marga", JStr "nihsesa"), ("ganana", JInt (fromIntegral n))
-                       , ("saksin", JStr w)]
-  Ganita w     -> JObj [("marga", JStr "ganita"), ("saksin", JStr w)]
-  Kernel w     -> JObj [("marga", JStr "kernel"), ("saksin", JStr w)]
-  Ayogya w     -> JObj [("marga", JStr "ayogya"), ("saksin", JStr w)]
-
-pramanyaWitness :: Pramanya -> String
-pramanyaWitness p = case p of
-  Pratyaksa w -> w; Nihsesa _ w -> w; Ganita w -> w
-  Kernel w -> w; Ayogya w -> w
+-- Moved to Pramanya_TheFiveRoutesAndTheirWitnesses, 2026-08-23, so that
+-- Aisthesis and the runghc organs (./jiva) can speak the route vocabulary
+-- without interpreting this whole assembly.  Imported and re-exported:
+-- the wire interface of this module is unchanged.
+import Pramanya_TheFiveRoutesAndTheirWitnesses
+  (Pramanya(..), pramanyaJ, pramanyaWitness)
 
 -- | The stamp every answer carries.  `mSthana` is Saptabhangi's type and
 --   not one of the other two, and that choice is itself a defect this file
@@ -904,7 +883,7 @@ kGarbhaDhara y j = pure $ case pieces of
     pieces = do
       sn <- jStr "sadhaka" j; sw <- jStr "sadhaka-saksin" j
       bn <- jStr "badhaka" j; bw <- jStr "badhaka-saksin" j
-      let k = either (const 3) (fromIntegral . max 1 . min 8) (jInt "stara" j)
+      k <- (fromIntegral . max 1 . min 8) <$> athava 3 (vInt "stara" j)
       pure (sn, sw, bn, bw, k)
 
 -- ---- the kernel
@@ -1018,7 +997,7 @@ kSadhana y j = case pieces of
     pieces = do
       ls <- jStr "vama" j; rs <- jStr "daksina" j
       l <- parseWhole ls; r <- parseWhole rs
-      let note = either (const "") id (jStr "sadhya" j)
+      note <- athava "" (vStr "sadhya" j)
       pure (l, r, note)
     -- `refl` is the only shape whose emitted module this file can reproduce:
     -- `agdaCertificate` builds exactly it.  Every other shape's module is
@@ -1162,10 +1141,11 @@ kVargaprakrti y j = pure $ case jInt "D" j of
       [ "Brahmagupta, Brāhmasphuṭasiddhānta 18, 628" ]
 
 kPratyahara :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kPratyahara y j = pure $ case (,) <$> jStr "adi" j <*> jStr "it" j of
+kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
+                                   <*> (fromIntegral <$> athava 0 (vInt "avrtti" j)) of
   Left e -> refused y "pratyahara" e
-  Right (adi, it) ->
-    let occ = either (const 0) fromIntegral (jInt "avrtti" j) :: Int
+  Right (adi, it, occ0) ->
+    let occ = occ0 :: Int
         sounds = P.pratyaharaOcc adi it occ
         raw = P.rawSpan adi it
         src = [ "Pāṇini, Aṣṭādhyāyī, the śivasūtras, c. 500 BCE.  The names usually cited instead are 'Backus–Naur' and 'Chomsky'; neither had the machinery." ]
@@ -1201,11 +1181,11 @@ kPratyahara y j = pure $ case (,) <$> jStr "adi" j <*> jStr "it" j of
 -- ---- the log and the queue
 
 kDosaLekha :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kDosaLekha y j = pure $ case (,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j of
+kDosaLekha y j = pure $ case (,,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j
+                                   <*> athava [] (vStrs "sesa" j) of
   Left e -> refused y "dosa.lekha" e
-  Right (k, hetu, lost) ->
-    let rest = either (const []) id (jStrs "sesa" j)
-        entry = dosalekha k hetu lost rest [ "written by the interlocutor, not by the engine" ]
+  Right (k, hetu, lost, rest) ->
+    let entry = dosalekha k hetu lost rest [ "written by the interlocutor, not by the engine" ]
     in ( y
        , Mudra (S.Position S.SyadNasti)
            (Pratyaksa "stored verbatim: no normalisation, no rewording, no summarising; the entry below is the entry, and it is also filed to disk with the chain extended")
@@ -1238,9 +1218,17 @@ kDosaPramanya y _ = case yDosaBin y of
     pure $ case code of
       ExitSuccess ->
         ( y, Mudra (S.Position S.SyadAsti)
-               (Nihsesa (countRecords txt)
-                  ("every sāra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
-                   ++ "the chain organ's own `checkChain`, run in this turn"))
+               (case countRecords txt of
+                  Just n ->
+                    Nihsesa n
+                      ("every sāra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
+                       ++ "the chain organ's own `checkChain`, run in this turn")
+                  Nothing ->
+                    Pratyaksa
+                      ("the organ verified the chain and its report is carried below verbatim; "
+                       ++ "this answer does NOT claim nihsesa, because the number of records "
+                       ++ "rechecked could not be read out of that report, and an exhaustive "
+                       ++ "route whose domain is unknown is an assertion: " ++ trimS txt))
         , samkramana "dosa.pramanya"
             (tulyata "the log as it stands on disk, identified with the log as it was written"
                      "the file's bytes" "the recomputed chain"
@@ -1258,8 +1246,27 @@ kDosaPramanya y _ = case yDosaBin y of
             [ "do NOT edit the diverging record.  Append one whose `uttara:` names it — that is the only correction an append-only log has." ]
             [ "machine/DosaLekha_TheWrittenDefectRecord.hs" ] )
   where
-    countRecords s = length [ () | l <- lines s, "dosa " `isPrefixOf'` trimS l ]
-    isPrefixOf' p s = take (length p) s == p
+    -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
+    -- read out of the organ's own success line, which is
+    --     dosalekha: <path>: 15 records, chain intact, nothing edited or deleted.
+    -- This used to scan for lines beginning `dosa `, which that line does not
+    -- begin with, so every `dosa.pramanya` in this machine's history reported
+    -- `"ganana": 0` — an exhaustive route publishing a domain of zero while
+    -- fifteen records had in fact been rechecked.  A stated domain that is
+    -- always zero is worse than no number, because it looks like knowledge
+    -- (CLAUDE.md).  Where the organ's wording changes, this returns Nothing
+    -- and the route says so rather than inventing a count.
+    -- `words` on that line yields ... "12" "records," ... — the comma is
+    -- part of the token, so the noun is compared with its punctuation
+    -- stripped.  Matching "records" exactly is what a first attempt did and
+    -- it silently found nothing, which is the same failure one layer in.
+    countRecords s = case [ read n :: Int
+                          | l <- lines s, let ws = words (trimS l)
+                          , (n, nxt) <- zip ws (drop 1 ws)
+                          , not (null n), all isDigit n
+                          , takeWhile (`notElem` (",.;:" :: String)) nxt == "records" ] of
+      (n:_) -> Just n
+      []    -> Nothing
     trimS = dropWhile isSpace . reverse . dropWhile isSpace . reverse
 
 kSesaArpana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
@@ -1315,6 +1322,7 @@ denied why = Mudra (S.Position S.SyadNasti) (Pratyaksa why)
 refused :: Yantra -> String -> String -> (Yantra, Mudra, Uttara)
 refused y k e = let (m, u) = malformed k e in (y, m, u)
 
+
 malformed :: String -> String -> (Mudra, Uttara)
 malformed k e =
   ( Mudra S.Apratipatti (Pratyaksa "the request as sent is carried back unexecuted")
@@ -1353,7 +1361,38 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
             , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
               ++ oneLine (uKriya u) ++ "` was asked and transport was not available"
             , "  hetu: " ++ oneLine (uHetu u) ]
-          ++ [ "  nasta: " ++ oneLine n | n <- uNasta u, length (oneLine n) >= 12 ]
+          -- EVERY naṣṭa reaches the record.  This line used to read
+          -- `length (oneLine n) >= 12`, silently DELETING any naṣṭa under
+          -- twelve characters so that the record would clear the organ's
+          -- validator, which requires each witness to exhibit rather than
+          -- describe.  Turning the machine with the filter removed shows
+          -- what it was covering, and it is not small: the assembly's
+          -- flagship defect — `nirnaya.saptabhangi`, the three-organ
+          -- collision this file's header names as its load-bearing refusal
+          -- — carries a RENDERED BLOCK as its naṣṭa, one naṣṭa per rendered
+          -- line, and five of those lines are short (`{ #0 }`, `{ #1 }`,
+          -- `syad-asti`, `decision.`, `candidates:`).  So for every run in
+          -- this machine's history that record went to disk with five lines
+          -- cut out of the exhibit and nothing said so, which is §5 exactly:
+          -- a summary of a loss is the loss performed a second time.
+          --
+          -- The site of the fault is the flattening, not the length.  A
+          -- rendered block is ONE exhibit whose lines are continuations, and
+          -- `saptabhangi.nasti` one function away already does it right —
+          -- `intercalate " / "` — and its record files without complaint.
+          -- So: rejoin.  A naṣṭa under twelve characters is appended to the
+          -- one before it instead of being dropped, and a leading short line
+          -- opens a group the next line completes.  Nothing is destroyed.
+          --
+          -- WHAT THIS COSTS, stated rather than left to be found: two
+          -- genuinely distinct short witnesses sent by an interlocutor are
+          -- joined into one `nasta:` field, so the record holds both texts
+          -- and loses that they were sent as two.  That is a real loss and
+          -- it is the smaller one.  Where a group is STILL under twelve
+          -- after rejoining, nothing is done: the organ refuses, and its
+          -- refusal names the witness and the reason, which is the true
+          -- diagnosis and is the one the caller should get.
+          ++ [ "  nasta: " ++ n | n <- rejoinNasta (map oneLine (uNasta u)) ]
           ++ [ "  sesa: " ++ oneLine s | s <- uSesa u, not (null (oneLine s)) ]
           ++ [ "  pramana: " ++ oneLine p | p <- uPramana u, not (null (oneLine p)) ]
           ++ [ "  yogyata-drsta: the handler for `" ++ oneLine (uKriya u)
@@ -1375,14 +1414,36 @@ fileDosa _ _ _ = pure (Right "(not a defect)")
 
 -- | Which of the seven kinds.  Read off what the answer says, not guessed:
 --   each branch below points at a phrase the handler itself wrote.
+-- | Rejoin a rendered block into the exhibits it is made of.  A line of
+--   twelve characters or more opens a group; anything shorter is a
+--   continuation and joins the group before it.  Empty lines are dropped —
+--   an empty naṣṭa exhibits nothing in any grouping.  Total; order preserved.
+rejoinNasta :: [String] -> [String]
+rejoinNasta = go . filter (not . null)
+  where
+    go [] = []
+    go (x:y:ys) | length x < 12 = go ((x ++ " " ++ y) : ys)
+    go (x:xs) = let (cont, rest) = span ((< 12) . length) xs
+                in unwords (x : cont) : go rest
+
 jatiOf :: Uttara -> String
 jatiOf u
   | "avaktavya" `isInfixOf` h || "syad-avaktavyam" `isInfixOf` h
     || "does not decide between them" `isInfixOf` h = "avaktavya"
+  -- karaṇa-doṣa BEFORE ayogya-darśana, and the order is the whole content of
+  -- this repair.  The one hetu in this machine that carries both `kernel` and
+  -- `environment` is kSadhana's kernel-not-usable branch, and its fixed
+  -- prefix also carries "has not been seen to work" — so while
+  -- ayogya-darśana was tested first it swallowed every instrument fault and
+  -- `karana-dosa` was unreachable, printing 0 in every census.  Turned with
+  -- agda off the PATH, the record filed as `ayogya-darsana` while the same
+  -- handler's own śeṣa said, in prose, "this is jāti karaṇa-doṣa".  The
+  -- looking was unfit and the instrument is broken are two facts, and the
+  -- census by kind is exactly where a later reader would have them merged.
+  | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
   | "abhinna" `isInfixOf` h || "not fit" `isInfixOf` h
     || "has not been seen to work" `isInfixOf` h = "ayogya-darsana"
   | "not equivalent" `isInfixOf` h || "no section" `isInfixOf` h = "nasti-krta"
-  | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
   | "durnaya" `isInfixOf` h = "durnaya-nirodha"
   | otherwise = "sankramana-asambhava"
   where h = uHetu u
@@ -1397,9 +1458,17 @@ answer y0 kala line = do
     Right j -> case jStr "kriya" j of
       Left e -> pure (y, fst (noOp e), snd (noOp e))
       Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
-        (kr:_) -> do
-          let args = either (const (JObj [])) id (look "angani" j)
-          kRun kr y args
+        -- अनुक्तम् / उक्तम् / दुर्वचम्, at the door.  `angani` absent is a
+        -- request with no arguments and is legal; `angani` present and not
+        -- an object is a request that cannot be dispatched, and until now
+        -- the two produced byte-identical answers (doṣa 0016).  The Left
+        -- `look`/`jObj` had already composed is now the hetu, instead of
+        -- being constructed and thrown away by `const`.
+        (kr:_) -> case athava (JObj []) (vObjAt "angani" j) of
+          Left e -> let (m, u) = malformed (kName kr) e in pure (y, m, u)
+          Right args -> case anadhikrta (map fst (kParams kr)) args of
+            [] -> kRun kr y args
+            ns -> let (m, u) = unnamed kr ns in pure (y, m, u)
         [] -> pure (y, fst (unknown k), snd (unknown k))
   let (m, u) = mudra m0 u0
       y2 = logIf m u y'
@@ -1420,6 +1489,21 @@ answer y0 kala line = do
           [ "the operation you meant; it is NOT guessed at by nearest name, because a near miss executed silently is exactly the collapse this machine exists to refuse" ]
           ([ "operations available:" ] ++ [ "  " ++ kName kr | kr <- kriyah ])
           srcTwoRoads )
+    unnamed kr ns =
+      ( Mudra S.Apratipatti (Pratyaksa "every unread key is named back with its own reason, and the operation's whole adhikāra beside it")
+      , dosalekha (kName kr)
+          ("`" ++ kName kr ++ "` was sent "
+           ++ show (length ns) ++ " key(s) that nothing in it reads: "
+           ++ intercalate "; " [ "`" ++ n ++ "` — " ++ w | (n, w) <- ns ])
+          ([ "the value you sent under `" ++ n ++ "`, which WAS uttered and would otherwise have been ignored in silence — and with it the difference between `I did not send that` and `I sent it and you dropped it`"
+           | (n, _) <- ns ]
+           ++ [ "the parameter you meant by it; it is NOT guessed at by nearest name, for the same reason an operation name is not — a near miss executed silently is the collapse this machine exists to refuse" ])
+          ([ "`" ++ kName kr ++ "` reads exactly these keys under `angani`, and no others:" ]
+           ++ (if null (kParams kr) then [ "  (none — send `angani` empty or omit it)" ]
+                                    else [ "  " ++ p ++ " — " ++ d | (p, d) <- kParams kr ])
+           ++ [ "if the key names something this machine should read and does not, that is a doṣa and dosa.lekha takes it" ])
+          [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2, c. 500 BCE — adhikāra: a heading governs a stated extent and nothing outside it, and vipratiṣedhe paraṁ kāryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
+          , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।" ] )
 
 appendLekha :: FilePath -> Int -> String -> Mudra -> Uttara -> IO ()
 appendLekha fp n line m u =

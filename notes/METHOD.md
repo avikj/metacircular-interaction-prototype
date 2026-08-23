@@ -135,6 +135,60 @@ Tagged `PROVE`, worked in order before any new computation:
    would convert the depth law from a measured scaling into a barrier
    theorem. Ingredients: explicit formula per factor + absolute convergence
    after one smoothing; the work is uniformity in the window.
+
+   **[2026-08-22 — the item does NOT split into a formal half and an analytic
+   half, and this is the session's finding. Tagged THEOREM (the formal
+   statements) + REJECTED (the proposed split).]**
+
+   The proposal was: the analytic half (WL observables *do* factor through the
+   blur) stays open, and the second half (once they do, no refinement recovers
+   the fibre) is already available from
+   `formal/cubical/Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.agda`,
+   which removed `Bool` from `NaturalMachine.QuotientFiberLaw` and left the
+   negative half over an arbitrary answer type with an arbitrary irreflexive
+   separation.
+
+   **It does not apply.** `Vaidharmya`'s `AllBlind` demands that blind queries
+   return **equal** answers — its own header says "not close, equal" — because
+   the entire proof is `cong decide` applied to an equality of transcripts.
+   The analysis does not deliver equality. `BARRIER.md` Corollary B2 asks only
+   that $\sigma_k-\sigma_k'$ be annihilated at resolution $2\pi/L$, mismatch
+   $O((\delta L)^{2p-1})$; `BARRIER_ERROR_WINDOW.md` Theorem U1 leaves
+   $E=k\,D_a(0)e^{-u/2}\mathcal Z_{k-1}+O(e^{-u})$, configuration-dependent
+   through $\mathcal Z_{k-1}$; `BARRIER_SMOOTH_TERM.md` leaves
+   $\mathrm{Smooth}$ larger still. Transcripts are **close, never equal**, and
+   `cong` fires on nothing.
+
+   **What was proved instead** (`formal/cubical/Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap.agda`,
+   Agda 2.8.0, `--cubical --safe`, no postulates, no holes, EXIT=0, wired into
+   `Everything.agda`):
+
+   - **THEOREM (§२, the near-law).** With equality replaced by an arbitrary
+     tolerance `_≈_`, the obstruction survives **iff** two hypotheses are
+     paid: the decoder *respects* the tolerance, and the tolerance excludes
+     the separation.
+   - **THEOREM (§३).** At `_≈_ := _≡_` the first hypothesis is inhabited for
+     *every* decoder, by `cong`. That is exactly the hypothesis `Vaidharmya`
+     never had to state and the one the analytic setting must now pay for.
+   - **REJECTED (§४, a checked counterexample).** Near-blindness *alone* —
+     with the arbitrary, even non-computable $\Phi$ that `BARRIER.md`
+     Proposition B3 insists on — obstructs **nothing**. Two states, one query,
+     answers 1 and 0, tolerance "differ by at most one": the pair is
+     near-blind and the head decoder separates it.
+
+   **So the analytic barrier lemma must supply exactly one of two things, and
+   there is no third:** (a) *exact* layerwise agreement — B2′ of
+   `BARRIER_SMOOTH_TERM.md`, which is strictly stronger than B2 and is not
+   implied by sub-resolution moment matching; or (b) a **modulus on $\Phi$**,
+   a bound on how far a WL post-processing may amplify a sub-resolution
+   difference. **B3 as written rules out (b) by construction — its generality
+   is what kills the ε-version of its own corollary.** That collision is a
+   missing distinction in the WL *definition*, not a failure to resolve, and
+   naming it is what this item now hands the analytic lane.
+
+   Item 1 therefore stays **open**, with its residual content sharpened to:
+   prove B2′, or add a bandwidth-derived modulus to Definition WL and re-derive
+   B3 with it.
 2. ~~**Theorem I1 prior art.** Elementary Laplace/integral-domain argument;
    almost certainly known for measures. Search before claiming.~~ —
    **RESOLVED** (`notes/INVERSE.md` §1): known via Titchmarsh's convolution

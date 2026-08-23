@@ -461,3 +461,63 @@ sh  machine/run-kernel-probe.sh
 
 `MATH_CERTCACHE=0` is not optional for a reported number: a measurement must
 not read a verdict it did not obtain from the kernel.
+
+---
+
+# 11. The reach when the caller names no induction variable: 5, then 15, of 28
+
+**2026-08-20, same container as §10.** Every figure in §§1–10 is the reach on
+ANNOTATED candidates — lines of `machine/library.snapshot.txt`, each carrying
+`[induction on v]`. That is not the traffic the engine's residual seam
+carries. A subgoal harvested from the kernel's own stall arrives with no note,
+and `certifyWith` read the induction variable off the note:
+
+```haskell
+case inductionVariable proofNote of
+  Nothing -> pure (Rejected ...)      -- one refl module, no induction emitted
+```
+
+So a note-less candidate could only ever certify by `refl`, and the note-less
+reach was exactly the five snapshot lines that close definitionally. Nothing
+recorded that, because nothing measured the snapshot with its notes off.
+`MathMachine.koNaya` records the consequence one level up and had already
+counted it: the attempted naya is `NRefl` exactly when the note named no
+variable, and **541 of 1457 refusals in the committed log are refusals of
+claims the same log accepts elsewhere.**
+
+`certifyWith` now tries each variable of the equation in turn when the note
+names none, with `stepShapes` completely unchanged and a stated bound
+(`kMaxInductionVariables = 3`, `kMaxAgdaCallsUnannotated = 1 + 3 × 11`).
+Measured by `machine/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
+on the snapshot read from disk with every note stripped:
+
+| | certified | agda calls |
+|---|---:|---:|
+| note-less, before | **5/28** | 28 |
+| note-less, after | **15/28** | 144 |
+| annotated, after | **15/28** | 123 |
+
+The first row is derived exactly rather than measured; the other two are runs.
+**The annotated row is byte-identical to §10.2's** — same fifteen lines, same
+shapes, same call count, falsehoods 4/4 — and `MargaRaksana` still reports
+`COMBINED REACH 20/28`, falsehoods 4/4 refused by both routes. An annotated
+candidate is unchanged in reach, in shape and in budget.
+
+**This is not §3a's forbidden search.** §3a refuses a menu that searches over
+COMPOSITIONS of proof shapes, an unbounded space and a prover in another
+process. This searches the ≤ 6 variables of one equation with the menu fixed.
+
+What it buys on the demands, rather than on the snapshot: of the six lemmas
+the kernel demanded and no composition law reaches
+(`notes/SamasaBhavana_...md` §9), **three certify immediately** —
+`x = x + (0·x)` by `cong suc`, `max(0,x)+0 = max(0+0,x+0)` by `refl`,
+`0 = le(s(s(s(x))),x)` by `ih`. The first is the residual this engine circled
+for 239 rounds and it closes on a shape `stepShapes` has always had.
+
+The other three are §3's residue and now have type-checked proof terms written
+out for transcription to aim at; they are in
+`notes/SesaPariksa_TheSixLemmasBehindTheInductionWallAreNotAMathematicalGap.md`
+§4, together with the finding that **none of the six needs an induction
+principle stronger than structural induction on one ℕ.** The wall is the
+proof-term language — no `_∙_`, no `sym`, congruence sections for `+` and `·`
+only, and no lemma in scope — and it is not a mathematical gap.

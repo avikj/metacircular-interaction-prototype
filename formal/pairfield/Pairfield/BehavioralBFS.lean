@@ -209,7 +209,38 @@ single action `true`. This is an internal executable control for the search. -/
 def step (state : Fin 3) (action : Bool) : Fin 3 :=
   if action && state = 1 then 2 else state
 
+/-- `AdaptiveResidualSplittingControl.observe` has this text exactly (census,
+2026-08-22).  It is the same function `Fin 3 → Bool` and a different
+observation: there it reads the states of a `DFA (Fin 3) (Fin 3)` whose actions
+are `reach`/`merge`/`reveal`, here the states of a Boolean-actioned control.
+An observation is a function *of a system*; two systems share one only by
+accident of state numbering. -/
 def observe (state : Fin 3) : Bool := decide (state = 2)
+
+/-! `alphabet` and `alphabet_complete` below are this lane's **role names**, not
+one shared object, and the census of 2026-08-22
+(`machine/Nama_TheNameIsCarriedAndTheHashIsTheBase.hs`) flags them in its two
+largest groups — six copies each, in `BehavioralBFS`, `ReachableChart`,
+`ResidualBFS`, `ChartQuotient`, `AdaptiveObservableHorizon` and
+`ReachableAdaptiveObservableHorizon`.
+
+They were factored out on 2026-08-22 and the factoring was reverted the same
+hour, because doing it surfaced the evidence against it:
+
+* `alphabet : List A` with `complete : ∀ a : A, a ∈ alphabet` is a *parameter
+  pair* of the general theory, bound in roughly 117 places across the lane.
+  The witness constants are that parameter filled in, not a constant the theory
+  refers to.
+* `LinearAdaptiveGap` defines its own `alphabet` and `alphabet_complete` over
+  `Fin n`. Same role, different alphabet — which is the direct proof that the
+  role name is not an alias for `[false, true]`. The six coincide only because
+  `Bool` has two elements.
+* Eighteen modules `open` these witness namespaces and use the bare names, so
+  a rename does not stay local, and a lane-wide rename would have renamed 117
+  binders in theory that is not about `Bool` at all.
+
+So: same text, different question. See
+`notes/NAMA_LEAN_LANE_DUPLICATE_VERDICTS.md`. -/
 
 def alphabet : List Bool := [false, true]
 

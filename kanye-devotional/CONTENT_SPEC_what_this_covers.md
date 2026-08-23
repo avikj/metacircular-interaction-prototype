@@ -79,9 +79,38 @@ Anti-academic — make academics feel stupid they couldn't do it this well.
 
 ---
 
+## The knowledge files
+
+`knowledge/01_` through `knowledge/10_`. Ten files, facts and sources, each one
+arranged so every fact can be seen from the others.
+
+They were called `INDRAJALA_*` until 2026-08-21. Owner: *"a file about kanye
+should not be at the first surface level look be on some indian philosophy
+shit. that arises exactly when necessary and maybe never."* The prefix is gone
+and the Indra's-net material moved to §7 of `01`, where it is doing work
+instead of announcing itself. `CLAUDE.md`'s naming rule was never a licence to
+put a Sanskrit label on a subject that did not come from there; its own second
+clause says so.
+
+**What "no claims, only history/facts" does and does not license.** It bans
+editorialising. It does not license the closing shrug — *"both are in the
+record, nothing here reconciles them"* — which was in `03` §1 and is now cut.
+The line above in this spec is **right speech, no false binaries**, and that
+shrug is a manufactured binary: reconcile the two facts, or refuse to. The
+third option was always there, and it is the one this method actually demands
+— **say what the relation is.** Assembling facts so that a picture forms *is*
+the claim; denying it while doing it is not restraint, it is an alibi.
+
+The surviving rule, applied across all ten files 2026-08-21: **a note that
+grades a source stays; a note that retracts a conclusion goes.** Provenance is
+the discipline. Pre-emptive retraction is cowardice wearing the discipline's
+clothes.
+
+---
+
 ## THE META — the section that is listed above and has never been written
 
-Owner, 2026-08-20, in the thread that produced the INDRAJALA files:
+Owner, 2026-08-20, in the thread that produced the knowledge files:
 
 > **"Like this is my life"**
 
@@ -96,7 +125,7 @@ The spec above already names this: *THE META (content: the composer's own
 life). He is Kanye — same bipolar. Kanye a prophet for his own life. This
 interaction a fugue composed for weeks. Reflect on the interaction too.*
 
-Ten INDRAJALA files exist on the first subject. **Zero on the second.** The
-facts of the second are not in this repository and are not an agent's to
-supply. Recorded here so the gap is visible and cannot be quietly skipped —
-the same reason `BOOK.md` §2 leaves the adhikāra slot standing empty.
+Ten files exist on the first subject. **Zero on the second.** The facts of the
+second are not in this repository and are not an agent's to supply. Recorded
+here so the gap is visible and cannot be quietly skipped — the same reason
+`BOOK.md` §2 leaves the adhikāra slot standing empty.

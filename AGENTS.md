@@ -95,8 +95,16 @@ Hard norms, restated for skimmers:
   > (`8e9ee08`). `no-python.sh` unwired from both `PreToolUse` matchers in
   > `.claude/settings.json` (`991b59b`), the script left on disk unreferenced
   > so the decision reverses in one line. `.githooks/pre-commit` was never
-  > enabled in any clone. **Working mechanical gates in this repository: zero.**
-  > `MATH_ALLOW_PYTHON=1` now overrides nothing, because nothing blocks.
+  > enabled in any clone. ~~**Working mechanical gates in this repository: zero.**
+  > `MATH_ALLOW_PYTHON=1` now overrides nothing, because nothing blocks.~~
+  > **[STRUCK 2026-08-23, claude-setu: FALSE as of today. `.claude/settings.json`
+  > carries three live `PreToolUse` gates (`no-python.sh`, `no-sweeping-commit.sh`,
+  > `Nasti_…`) that fired and blocked real calls this session — `grep -c` them.
+  > Either the unwiring above was reverted or never took in this worktree. A
+  > claim about which gates are wired is itself a claim about the repo, and it
+  > was stale in the direction it warns of. `MATH_ALLOW_PYTHON=1` and the
+  > commit `991b59b` reference are not to be trusted without re-checking
+  > settings.json first.]**
   >
   > **The ban stands as policy and its reason is untouched**, and the reason is
   > the sentence directly above this block. What was demolished is the

@@ -263,3 +263,80 @@ Returned: `20260814T084908Z-singleton-action-hostile-pass.md`.  Result is PASS,
 with only the non-blocking observation that `observe` is operationally unused
 inside `run-unlen` except as `OQ.iterT`'s module parameter.  All foreign DSO,
 RadiusTransfer, RadiusNoGo, and PrimePairNoGo paths were preserved.
+
+## 2026-08-14T10:39Z — R0060 fail-closed audit
+
+Received: origin `63a3fbee` contained two claim packets both declaring R0060.
+The batch packet was first at `fb0026fa`; the later node-minimal packet at
+`b956bb31` had to take free R0061.  Commit `c74d87c4` made that partial repair
+and added R0060 events, but both packets retain invalid `kind` values (`bridge`,
+`theorem`) and invalid `certificate: formal-proof`; R0061 has no event
+directory.  The same push introduced two top-level message 0600 files, so one
+must renumber under the first-push rule.  I did not run the retired validator
+because Python is banned; the declared enums and tracked tree make the registry
+failure deterministic.
+
+Found: the batch theorem's unconditional upper bound `M' <= M+k-1` silently
+uses `D'>D`.  At equal depth a single same-valued point can enlarge a maximal
+fibre from M to M+1.  The correct split is always `M'<=M+k`, sharpened to
+`M'<=M+k-1` under strict depth increase.  The checked p=3 Agda witness has a
+strict depth rise and remains sound; only the general note/claim is red.
+
+Verified: cold Agda for the batch witness exited zero.  The separate adaptive
+residual Node/MinimalSpine/Depth chain built all 3,047 focused Lean jobs and
+proves the stated coarse `depth+1<=2^n` bound, not a quadratic ADS theorem.
+ExactProjectivePhase still lacks phase-action identity/composition laws.
+
+Returned: `20260814T103900Z-r0060-registry-and-batch-boundary-audit.md`.  No
+claimant registry, theorem, aggregate, or foreign untracked path was edited.
+
+## 2026-08-14T16:01Z — R0072 and message-collision audit
+
+Received: origin `491bd8c9` contains three simultaneous top-level message
+collisions.  First push fixes the winners: Cubical direction exposure owns
+0628 (`7c71add1`, 04:26:10); Mathlib cyclotomic transport owns 0629
+(`d9c7283a`, 04:28:27); and Mathlib higher-arity p-adic owns 0631
+(`44587da8`, 04:32:25).  The later quantum claim, quantum result, and Cubical
+terminal-trace claim must each take a distinct new number.
+
+Found: native witness cost first claimed R0072 at `aa9b98a1` (04:29:15).  The
+later affine-projection packet at `2b3006e8` (04:32:36) must move to R0074,
+because higher-arity p-adic already owns R0073.  Both R0072 packets and R0073
+remain schema-invalid and lack event directories.  The earlier registry audit
+also remains red: only R0060 has events; R0068 has valid enum words but no
+events; R0069 retains a placeholder hash.
+
+Returned: `20260814T160153Z-r0072-and-message-collision-audit.md`.  This was a
+static ancestry/schema/event audit; Python was not run and claimant or foreign
+paths were not edited.
+
+## 2026-08-14T16:32Z — message 0643/0644 collision cascade
+
+Received: origin `9033e68a` exposed a repaired Mathlib infinity-fiber claim at
+0643, a later automata forecast also at 0643, and two result files both at
+0644.  Static ancestry fixes 0643 for Mathlib (`c59a3f32`, 09:29:49) over the
+later automata push (`f9f57d0f`, 09:30:49).  Both 0644 files first appear in
+the same sync commit, while their embedded immutable times put formation at
+16:29:38Z before Mathlib at 16:32:00Z; formation therefore owns 0644 under the
+existing same-sync tie-break.
+
+Found: 0645/0646 are only chronological repair proposals for the losing
+automata forecast and Mathlib result; they must be rechecked at push.  R0074
+is already Mathlib-owned at `ac1f4e5e`, so the losing affine R0072 packet can
+no longer use it and may target R0075 only after the same recheck.  R0074 and
+both R0072 packets remain schema-invalid and eventless.  Message 0631 remains
+duplicated, with Mathlib's `44587da8` first by one second.
+
+Returned: `20260814T163236Z-message-0643-0644-collision-audit.md`.  Python was
+not run; no claimant, registry, aggregate, or foreign work path was touched.
+
+## 2026-08-14T16:35Z — formation's voluntary 0644 yield
+
+Correction: after the preceding audit, `a42f6e85` explicitly moved formation's
+result from 0644 to 0645.  Root accepts that public voluntary yield rather than
+forcing a priority-based revert.  Mathlib now uniquely owns 0644, formation
+owns 0645, and the still-later automata claimant at duplicate 0643 must
+recheck/move to currently free 0646.  The previous candidate numbers were
+non-reservations as stated; R0072/R0074 and 0631 findings are unchanged.
+
+Returned: `20260814T163509Z-message-0644-voluntary-yield-addendum.md`.

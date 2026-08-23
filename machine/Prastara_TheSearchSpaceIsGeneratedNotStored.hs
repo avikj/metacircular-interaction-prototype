@@ -67,6 +67,7 @@ module Prastara_TheSearchSpaceIsGeneratedNotStored
   ) where
 
 
+import Data.List (foldl')
 import Data.Maybe (listToMaybe, fromMaybe)
 
 -- ===================================================================== object

@@ -21,7 +21,46 @@
 --     carries the assignments searched, precisely so "unrefuted" cannot be
 --     read as "true".
 --
--- ============================================================== NYĀYA'S SLOTS
+-- ================================ THE CLASS THIS ORGAN WAS NOT APPLIED TO
+--
+-- Every instance above is an absence claim about the WORLD -- nothing
+-- imports X, no reconstruction of apoha exists, no assignment refutes it.
+-- There is a second class, made constantly in this repository, and until
+-- 2026-08-23 nobody pointed this organ at it: absence claims about OUR OWN
+-- REACH.
+--
+--   "the cakravāla step itself is not formalised"
+--   "the general identity is stated, explicitly NOT checked here"
+--   "this is a worked instance, not the formula"
+--
+-- Those are the honesty of this corpus and they are also unexamined
+-- negatives.  Said carelessly they FORGE AN ABSENCE, which is the exact
+-- twin of the overclaim and comes from the same place -- not knowing what
+-- really happens, and saying something definite anyway.  A proof may sit in
+-- a margin neither lane is: another lane, another formalism, a text, a
+-- mind, the tradition.  Its not being in our checked corpus is a fact about
+-- OUR MARGIN, not about the proof.
+--
+-- And this is not a new rule.  It is सूत्र ७ -- मौनं न निषेधः, silence is
+-- not denial -- pointed at ourselves, which is the direction it was never
+-- read in.  Our own silence is silence too.
+--
+-- The repair already exists and is already MANDATORY elsewhere: the three
+-- yogyatā fields `dosalekha` REFUSES an entry without -- what was looked at
+-- (drsta), over what domain (ksetra), to what limit (avadhi).  "Not found
+-- without where" is refused for a defect record and has never been asked of
+-- a "not proven here".  So the discipline is not to stop writing these; it
+-- is to write them with their extent, or to write instead the thing that
+-- needs no extent: REFUSE THE NAME.  `punaragamana`.s Bhavana module does
+-- not call itself the cakravāla, and that refusal claims nothing about
+-- where the cakravāla is proved.  Refusing to forge a presence and refusing
+-- to forge an absence are one discipline.
+--
+-- Found by the punaragamana seat on 2026-08-23, against Fermat.s margin, and
+-- recorded here rather than in a note because this is the organ that already
+-- implements it.
+--
+-- ============================================================== NYĀYA.S SLOTS
 --
 -- Nyāya-Vaiśeṣika, and after Gaṅgeśa (*Tattvacintāmaṇi*, 14th c.) the
 -- Navya-Naiyāyikas, hold that an absence is a real relational entity with
@@ -132,6 +171,11 @@ module Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain
   , abhavaAnuyogin
   , abhavaExtent
   , renderAbhava
+    -- the bridge to the justification type's fifth pramana.  PARTIAL on
+    -- purpose: an Abhava does not carry an avadhi, so the caller must
+    -- supply one and the gap is exhibited rather than filled in.
+  , yogyataOfAbhava
+  , theTwoGatesAreNotTheSameGate
     -- the Jaina standing, kept separate and NOT identified with the above
   , Ground(..)
   , SyadNasti(..)
@@ -144,6 +188,7 @@ module Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain
 import Data.List (intercalate)
 import Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal
   ( Hetvabhasa(..), Unestablished(..) )
+import qualified Pramana as PR
 
 -- ===================================================================
 -- THE SLOTS.
@@ -227,6 +272,92 @@ renderAbhava (Abhava p a e) = intercalate "\n"
       Yogya why  -> "fit -- " ++ why
       Ayogya why -> "UNFIT -- " ++ why
   ]
+
+-- ===================================================================
+-- THE BRIDGE TO THE JUSTIFICATION TYPE — and the gap it exhibits.
+--
+-- ADDED 2026-08-20.  `Pramana.Anupalabdhi` was a NULLARY constructor
+-- until today — "warranted non-apprehension" carrying no warrant, and
+-- never once constructed anywhere in `machine/`.  It now carries
+-- `Pramana.Yogyata`, which is this module's analysis plus one slot this
+-- module does not have.
+--
+-- THE TWO GATES ARE NOT THE SAME GATE, and this is worth stating rather
+-- than smoothing over, because two organs enforcing "the same" condition
+-- to two different strengths inside one directory is how a codebase comes
+-- to believe it has a rule.  Side by side:
+--
+--   `abhava` (here)      refuses: no pratiyogin / extent 0 / stated unfit
+--   `Pramana.yogyata`    refuses those, AND: no avacchedaka, no anuyogin,
+--                        no dṛṣṭa, and — the operative one — NO AVADHI.
+--
+-- The avadhi is the LIMIT: what the non-apprehension issues no verdict
+-- about.  An `Abhava` has no field for it.  So the conversion below
+-- CANNOT BE TOTAL, and making it total by inventing a limit would be
+-- precisely the unfitness one level up: a claim about the reach of a
+-- search, manufactured by a function that did not run the search.  The
+-- caller supplies it or there is no conversion.  शेषो गर्भः, न विफलता.
+--
+-- Which gate is right is not settled here.  The Naiyāyika would say the
+-- avadhi is already in the avacchedaka — the limitor fixes under which
+-- aspect the counterpositive is taken, and an absence taken under a
+-- narrow aspect never claimed the wide one.  The Bhāṭṭa answer is that
+-- the avacchedaka delimits the PRATIYOGIN and the avadhi delimits the
+-- LOOKING, and those come apart exactly in the case that matters: a
+-- perfectly determinate counterpositive, searched for over a domain
+-- smaller than the reader will assume.  That case is not hypothetical in
+-- this repository — `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §2.2 published
+-- NOT FOUND for a formal reconstruction of apoha with the counterpositive
+-- perfectly well delimited and the domain unstated, and was wrong.
+--
+-- This module keeps its own gate at its own strength and does not adopt
+-- the other, because narrowing `abhava` would break its callers' claims
+-- silently rather than at the compiler, and a silent narrowing of an
+-- absence gate is the same act as a silent widening of an absence.  What
+-- is done instead is the bridge, and the difference is COMPUTED, below.
+yogyataOfAbhava :: Abhava -> [String] -> Either String PR.Yogyata
+yogyataOfAbhava (Abhava p a e) avadhi = case extFit e of
+  -- `abhava` refuses an unfit extent outright, so this branch is not
+  -- reachable through the gate.  It is written rather than left to a
+  -- partial match because an `Abhava` that reached here some other way
+  -- must not silently acquire a fitness it was denied.
+  Ayogya why -> Left ("the search is stated unfit: " ++ why)
+  Yogya why  ->
+    PR.yogyata (ptName p) (ptAvacchedaka p) (anName a) why
+               (extCount e) (extHow e) avadhi
+
+-- | The difference between the two gates, exhibited rather than asserted:
+--   an absence THIS module admits and the justification type's gate
+--   REFUSES, carrying the refusal's own sentence, and the same absence
+--   with a limit added, now admitted by both.
+--
+--   Not an example chosen to make the point.  It is this commit's own
+--   finding — the search that established that nothing in `machine/`
+--   constructs `Pramana.Anupalabdhi` — and the only thing wrong with it,
+--   as `abhava` sees it, is nothing at all.
+--
+--   Returns: (admitted here, the other gate's sentence, admitted there
+--   once a limit is supplied).
+theTwoGatesAreNotTheSameGate :: (Bool, String, Bool)
+theTwoGatesAreNotTheSameGate = case built of
+  Left _   -> (False, "this module refused its own example", False)
+  Right ab ->
+    ( True
+    , case yogyataOfAbhava ab [] of
+        Left why -> why
+        Right _  -> "THE OTHER GATE ADMITTED IT TOO -- this function's claim is stale"
+    , case yogyataOfAbhava ab
+             ["says nothing about any use outside machine/, which was not read"] of
+        Right _ -> True
+        Left _  -> False )
+  where
+    built = abhava
+      (Pratiyogin "a construction site of Pramana.Anupalabdhi"
+                  "the constructor applied to an argument")
+      (Anuyogin "machine/")
+      (Extent 127 "every .hs file in machine/ at 2026-08-20"
+        (Yogya "the constructor is exported unqualified, so any use is textual \
+               \and a grep of the identifier catches it"))
 
 -- ===================================================================
 -- THE JAINA STANDING, KEPT SEPARATE.
@@ -332,6 +463,28 @@ selfTest = concat
       (let (_, _, collides) = groundsAreNotRecoverable in collides)
   , check "both schools' sentences are recorded and neither is settled"
       (length disputeAsBothSchoolsWouldPutIt == 5)
+  , -- THE BRIDGE, and the gap it exhibits.  Added 2026-08-20 with the
+    -- repair of `Pramana.Anupalabdhi`, which was nullary.
+    check "this gate admits an absence the justification type's gate refuses"
+      (let (here, why, withLimit) = theTwoGatesAreNotTheSameGate
+       in here && withLimit && "avadhi" `isInfix` why)
+  , check "the missing slot named in the refusal is the LIMIT, not the domain"
+      (let (_, why, _) = theTwoGatesAreNotTheSameGate
+       in "no limit stated" `isInfix` why)
+  , check "an unfit abhava cannot acquire a fitness by crossing the bridge"
+      (case abhava potP potA (Extent 7 "grep of one directory"
+                               (Ayogya "the target may be spelled otherwise")) of
+         Left _ -> True   -- refused before the bridge, which is the point
+         Right ab -> case yogyataOfAbhava ab ["nothing"] of
+                       Left _  -> True
+                       Right _ -> False)
+  , check "a fit abhava with a limit converts, carrying all seven slots"
+      (case abhava potP potA fitExtent >>= \ab ->
+              yogyataOfAbhava ab ["says nothing about the other room"] of
+         Right y -> PR.yogPratiyogin y == "a pot"
+                    && PR.yogGanana y == 84
+                    && length (PR.yogAvadhi y) == 1
+         Left _  -> False)
   , check "the four Jaina grounds are distinct constructors"
       (length [Dravya, Ksetra, Kala, Bhava] == 4
        && Dravya /= Ksetra && Kala /= Bhava)

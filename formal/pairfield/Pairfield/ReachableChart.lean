@@ -212,6 +212,12 @@ instance : DecidablePred (fun state : Nat => state ∈ ambient.accept) :=
     change Decidable (state = 2)
     infer_instance
 
+/-- Identical in text to `ResidualBFSWitness.step` (census, 2026-08-22), and
+kept separate.  That one is a DFA's transition; this one is the *chart's*, and
+it exists only as the finite mirror of `ambientStep : Nat → Bool → Nat` five
+lines above — the pair is what `chart.step_sound` is about.  Pointing this at
+another module's witness automaton would leave the correspondence unreadable at
+the site that proves it. -/
 def chartStep (state : Fin 3) (action : Bool) : Fin 3 :=
   if state = 0 ∧ action = false then 1
   else if state = 1 ∧ action = true then 2

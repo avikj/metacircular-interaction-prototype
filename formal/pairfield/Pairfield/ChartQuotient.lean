@@ -13,7 +13,7 @@ that decision into a native finite state carrier.
 -- rather than the kernel.  It is the ONLY such declaration in the
 -- lane; see `formal/pairfield/axiom-allowlist.txt` for the observed reason and
 -- the removal path.  Nothing else in this file uses it, and no other module in
--- `Pairfield/` carries this header.  `lake exe axiom_gate` is what keeps that
+-- `Pairfield/` carries this header.  `lake exe yogyanupalabdhi` is what keeps that
 -- true, and `scripts/check-lean-example-oracles.sh` is what keeps the
 -- declaration named, so the gate can see it at all.
 import Pairfield.ChartStateBFS

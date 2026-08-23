@@ -244,3 +244,290 @@ while the absolute-square contrast is `0`; orthonormalization rescales both by
 certifies only the existing bilinear/Hermitian boundary: no Hahn basis, heat
 positivity, prime signal, Goldbach theorem, microlocal inverse result, or
 arithmetic estimate is promoted.
+
+## 2026-08-14T09:55:37Z — residue/Levi combinatorial corank checked
+The eleventh literal no-redraw encounter selected
+`notes/SINGULAR_SERIES_LOCAL_FACTOR_IS_A_ROOT_SUBSYSTEM_RANK.md` from a frozen
+1027-path frame at origin/main `35dd5355` (native uint32 `3907728717`, accepted
+index0 906).  No formal root-subsystem rank theorem existed; the checked
+`RootWeightIndex` addresses the separate root/weight-lattice correction at
+`k=2`.  I isolated the exact finite seam: for any finite residue map, summing
+`m-1` over its nonempty fibres gives `card(domain) - numberOfFibres`, and for
+`Fin k → Fin p` with `p≤k`, failure to cover every residue is equivalent to
+the strict inequality `k-p < leviRank`.  Direct and focused Lean builds pass.
+The scope remains deliberately pre-linear-algebra: `leviRank` is the
+combinatorial block sum, not a constructed finrank of a root-vector span; no
+Levi subgroup, local factor, Euler product, prime assembly, or arithmetic
+advance is claimed.  The foreign-modified Pairfield aggregate remains
+untouched and integration is deferred.
+
+## 2026-08-14T10:03:39Z — center-relative weight transport checked
+The twelfth literal no-redraw encounter selected
+`notes/CENTER_RELATIVE_CONE.md` from a frozen 1,039-path semantic frame at
+origin `4ecfac8f`, tree `76135d7f` (native uint32 `2978517349`, accepted index0
+464; frame SHA-256 `b8818883...f04099`).  The note's structure-transport seed
+now has a bounded division-free realization.  Inverse-precomposition along
+the checked `Pair≃CR` sends the pair product to `nativeWeight y =
+pairWeight (Ψ y)`; conservation uniquely determines this evaluator.  On the
+parity sublattice, `four (nativeWeight y) = Q y`, and injectivity of integer
+doubling used twice proves uniqueness among all integer-valued quarters of
+`Q`.  Cold safe Agda 2.8.0 passes.  Generic evaluator transport and the
+classical quadratic identity are prior inputs; primes, positivity, counting,
+analytic weights, higher arity, and divisibility on all `ℤ²` remain outside
+the claim.  No aggregate or foreign workset was touched.
+Two cold-replay failures were corrected before commit: the wrong `≓` glyph
+at three equivalence sites, then an invalid dependent `with Ψ y` refinement.
+The final proof isolates a whole-pair `pair-quarter` path before applying
+`ΦΨ`; direct and isolated replays and two hostile reviews pass.
+
+## 2026-08-14T10:26:12Z — finite Cesàro convolution checked
+The thirteenth literal no-redraw encounter selected `notes/E2B_PROOF.md` from
+a frozen 1,046-path frame at origin `c12210ea`, tree `5f595688` (native uint32
+`3494484698`, accepted index0 576; frame SHA-256 `b4752431...5c40`).  I kept
+the analytic theorem outside the kernel and isolated its finite algebraic
+seam.  An explicit bijection proves that admissible split-point triples count
+each pair exactly `N-m-n` times for values in any additive commutative monoid.
+A second explicit bijection groups those pairs by Mathlib antidiagonals, and
+the semiring corollary equates the resulting finite Cesàro convolution with a
+sum of complementary prefix products.  At `N=1`, unit masses check the value
+`1`; either endpoint error checks `0`, all by `rfl`.  Direct Lean and the
+focused 8,706-job build pass cleanly.  Continuous integration, Λ♯/Λ♭,
+explicit formulas, RH, Gamma/Beta weights, zero sums, convergence, and E2b
+asymptotics remain unformalized.  The Pairfield aggregate and all foreign
+worksets remain untouched.
+
+## 2026-08-14T10:34:19Z — dependent instrument associativity checked
+The fourteenth literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/SequentialHadamardReadout.agda` from a frozen
+1,053-path semantic frame at origin `8a3268b8`, tree `516d74fb` (sole native
+uint32 `3296157660`, accepted index0 198; frame SHA-256
+`daaea6e5...26e3`). The concrete two-step history exposed the unstated
+three-stage law of `RelativeInstrument.sequential`. The two bracketings have
+different dependent Σ outcome types, so I constructed the canonical
+reassociation of their full proof-relevant result totals, proved both round
+trips by `refl`, and checked pointwise that left- and right-associated
+execution commute through it. Cold safe Agda 2.8.0 passes with ignored
+interfaces. The result is an equivalence after reassociation, not literal
+equality of differently typed instruments; sampling, normalization, collapse,
+monad identities, pentagon coherence, channel structure, and new Hadamard
+physics remain outside the claim. Aggregate and foreign work remain
+untouched. Direct and isolated frozen-tree replays pass; Noether's independent
+hostile audit passes the indexing, inverse-law orientation, execution order,
+and scope boundary without correction.
+
+## 2026-08-14T10:47:37Z — reachable action-refinement boundary checked
+The fifteenth literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/ActionRefinement.agda` from a frozen 1,057-path
+frame at origin `38378127`, tree `89504ae9` (sole native uint32 `2083045784`,
+accepted index0 29; frame SHA-256 `95699780...faf12`). The sample's own open
+question compared its whole-codomain `Descends` decoder with
+`FiniteInformation.FactorsThrough` on the reachable image. The checked bridge
+restricts every total decoder to the image and extends image factorization
+back under an explicit section. An exact Empty→Unit/Empty-target control proves
+the converse false without coverage. The product projections, universal
+common-refinement map, and collision obstruction survive on `Image` without
+choice or set hypotheses. Direct safe Agda passes after one parse-only
+parenthesization correction; isolated replay and hostile review remain before
+commit. Before prose, I consumed audit `95eeb178`: R0060's unconditional
+`k−1` upper bound is false (strict depth increase is required), R0060/R0061
+remain schema-invalid, and the msg-0600 collision remains. R0062 postdates
+that audit; I independently inspected its then-forecast-only invalid
+enum/event state at Draw-15 intake. None is used by this leaf. Direct and
+isolated replays and Shannon's hostile mathematical audit pass. Aggregate and
+foreign work remain untouched.
+
+## 2026-08-14T10:55:53Z — dependent rooted history fibre checked
+The sixteenth literal no-redraw encounter selected
+`formal/pairfield/Pairfield/FiniteHistoryTotalization.lean` from a frozen
+1,061-path frame at origin `5bb6ccfc`, tree `1dab61a6` (sole native uint32
+`3399228941`, accepted index0 324; frame SHA-256 `c4ba3222...98371ba9b`).
+The unit-root fibre theorem suggested its exact dependent form: an
+endpoint-fixed object of the discrete rooted Grothendieck total is equivalent
+to a prefix together with the full root payload over the assembled history.
+For finite state and finite fibres, its cardinality is the sum of those rooted
+multiplicities. This remains discrete and bounded: nontrivial history arrows,
+colimit comparison, Braid coherence, Huayan reduction, and analytic meaning
+are outside the theorem. R0060--R0064 remain fail-closed and are not used.
+Focused Lean and the 1,022-job leaf build pass. Shannon independently replayed
+the check and hostile-audited the dependent transport, inverse laws, finite
+cardinality hypotheses, zero-step control, and scope fences: PASS. Before the
+green result, explicit endpoint unfolding and the correction from
+`sigmaUnique` to `uniqueSigma` repaired two type errors. No aggregate or
+foreign workset was touched.
+
+## 2026-08-14T11:15:23Z — temporal amortization boundary in progress
+The eighteenth literal no-redraw encounter selected
+`notes/TEMPORAL_ACCELERATION_BOUNDS.md` from a frozen 1,067-path semantic frame
+at origin `9e5d3e90`, tree `cc4cd12d` (sole native uint32 `14981660`, accepted
+index0 980; frame SHA-256 `5475ceb7...c68f8f2c`). The exact Nat threshold now
+checks: when `c<C`, `F+M*c<M*C` iff `F/(C-c)<M`, making `F/(C-c)+1` the first
+profitable horizon; if `C≤c`, no horizon wins. The shared-prefix control
+`F=72,C=30,c=8` forces opposite offline decisions at horizons three and four,
+so shortcut costs alone cannot choose without future-use input. Focused Lean
+passes after replacing one nonexistent Mathlib module path with the pin's
+established aggregate import. The result does not price R0068 annotations,
+form a separator, establish an online policy, measure wall-clock/physical
+cost, or certify self-improvement. Current registry/message defects were
+consumed but are not premises. Pre-green replay exposed a nonexistent import,
+an implicit addition-cancellation gap, and an over-eager two-case tactic; all
+three proof scripts were repaired without changing the statements. Fresh
+focused Lean and the 8,706-job module build pass. Shannon independently
+replayed the check and hostile-audited the exact Nat threshold, strict
+minimality, no-profit branch, decision quantifiers, numeric controls, and
+scope: PASS, no blocker. No aggregate or foreign workset was touched.
+
+## 2026-08-14T11:05:50Z — action-residual coordinate fibres in progress
+The seventeenth literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/ActionResidual.agda` from a frozen 1,064-path
+semantic frame at origin `19a9b8cf`, tree `223ea4f8` (sole native uint32
+`3265383045`, accepted index0 29; frame SHA-256 `2d57ba8c...b26c8f15`).
+The behavior/defect replay maps extend to an actual equivalence of the whole
+codomain. A generic `Σ-cong-equiv-snd`/`congEquiv` argument transports every
+homotopy fibre proof-relevantly; the action-residual specialization therefore
+preserves the exact fibre histogram under predictor re-coordination. A
+constant Boolean-state/integer-observation control proves that equivalence of
+coordinates does not recover state. Cold safe Agda passes. Refinement over the
+old sensor, balance, closure, packet certification, quantum memory, and
+physical meaning remain outside the theorem. Current R0060--R0065 and message
+collisions were consumed but are not premises. A direct replay superseded the
+first cold transcript by catching a reversed `+Assoc` step in the new
+`(a+b)-b=a` proof; the term now uses `sym (+Assoc ...)`. Fresh direct and cold
+replays pass. Noether independently repeated the cold check and hostile-audited
+the generic fibre transport, inverse-law order, definitional specialization,
+path evidence, hostile control, and scope: PASS, no blocker. No aggregate or
+foreign workset was touched.
+
+## 2026-08-14T11:24:22Z — contractible path-fibre section boundary in progress
+The nineteenth literal no-redraw encounter selected
+`notes/DESCENT_BOUNDARY_TWO_LENSES.md` from a frozen 1,069-path semantic frame
+at origin `073a222d`, tree `d9c60117` (sole native uint32 `53576724`, accepted
+index0 582; frame SHA-256 `b85fa927...63cc2f`). The sample's checked theorems
+are sound, but its final bundle interpretation identifies two different
+types. The actual dependent section space
+`(a:A) → Σ[x∈A](a≡x)` has the canonical section and is contractible for every
+`A`; `Retracts₀ A` is instead left-inverse data for `A → ∥A∥₂`. The safe leaf
+puts the distinction under the hostile `S¹` control: the inside section space
+is inhabited and contractible while `Retracts₀ S¹` is empty, so they cannot
+be equivalent. Current direction-incidence/exposure, native witness
+partition, and cyclotomic transport results were consumed but are not
+premises. R0071's collision pointers and R0070's status/evidence are repaired;
+the broader previously audited R0060+ enum/event defects and R0069's
+placeholder hash keep the registry fail-closed, and message 0628 is newly
+duplicated. No aggregate or foreign work path is touched. The sampled note and
+its companion formal comment are intentionally corrected under root's expanded
+authorization. Focused/cold replay now passes in a fresh isolated tracked-tree
+archive after the first pre-green run caught an unparenthesized `× ¬` parser
+boundary. Shannon's first hostile audit passed the theorem but correctly
+blocked landing while the sampled authoritative prose remained live. Root then
+authorized the two adjacent source corrections: the note now preserves the
+false paragraph under strike-through and the old Agda comment is labeled
+retired, with no theorem-term change. Fresh isolated checks of both the old
+module and new leaf exit 0. Shannon's final six-path re-audit clears the
+strike-through blocker after these bookkeeping corrections; Noether also
+independently passes the formal theorem and scope.
+
+## 2026-08-14T16:12:14Z — finite definitional-fold prune boundary checked
+The twentieth literal no-redraw encounter selected
+`notes/THE_CONCEPT_GATE_WAS_UNSATISFIABLE.md` from a frozen 1,084-path
+semantic frame at origin `bcbc3b61`, tree `69e48ac0` (sole native uint32
+`2724176474`, accepted index0 1,006; frame SHA-256
+`bf92e657...82d74f6`). The checked finite theorem makes the missing datum
+explicit: if a supplied `unfold` decoder recovers the before-view from the
+after-view on every probe point, then the before image is the decoder image of
+the after image, hence its cardinality is no larger. The Nat prune truncates
+to zero; the Int margin is nonpositive; a supplied reverse coding equation
+gives equality. The full Bool probe checks the hostile boundary: identity has
+two values, constant-false has one, the Nat prune is one, and no decoder can
+recover identity. Positive pruning therefore requires decoder absence, but
+absence is not sufficient in general. Focused Lean and independent Noether
+and Shannon replays pass; Shannon caught and cleared that necessary-versus-
+sufficient prose correction. Freshness is not proved to commute with the
+ordered, capped Haskell normalizer, and no normalizer, gate, withdrawal, or
+self-improvement theorem is claimed. The concurrent msg0628/0629/0631 and
+R0072 first-push collisions were audited in the result message but are not
+premises. No aggregate, sampled source, or foreign work path is touched.
+
+## 2026-08-14T16:31:31Z — sextic parity eliminant checked
+The twenty-first literal no-redraw encounter selected
+`notes/SEXTIC_OBSTRUCTION.md` from a frozen 1,096-path semantic frame at
+origin `95190168`, tree `81639342` (sole native uint32 `793955429`, accepted
+index0 973; frame SHA-256 `f61885f3...c2149e8`). The safe commutative-ring
+leaf checks the exact sextic E/O decomposition, reflection norm, explicit
+5-by-5 Sylvester determinant, all thirteen terms of the sampled `D`, and the
+factorized quadratic identity `a^3 E(y₁)E(y₂)=D` under its supplied
+coefficients. The degenerate `(0,0,1,0,0)` control fixes the determinant sign
+at `-1`. Cold Agda 2.8.0 passes on the first formal draft; Shannon's
+independent isolated replay and hostile audit pass every coefficient,
+orientation, hypothesis, prior-art, and scope boundary, and root's read
+agrees. The theorem does not formalize the root cage, coefficient box,
+irreducibility/Routh/Sturm census, tail certificate, cyclotomic step, exact
+counts, or final sextic exclusion; retired Python was not run. Latest
+R0072/R0073 and messages 0633--0639 were consumed but are not premises. No
+aggregate, sampled source, or foreign work path is touched.
+
+## 2026-08-14T16:50:59Z — WalkStream hypothesis boundary checked
+The twenty-second literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/WalkStream.agda` from a frozen 1,110-path
+semantic frame at origin `82f46210`, tree `70eb945e` (sole native uint32
+`665072305`, accepted index0 265; frame SHA-256
+`bf86280b...129dd57`).  The safe leaf proves the missing reverse
+universal-property map and hence
+`IsLCM(q∷S,M) ≃ IsLCM(range1 q,M)` under the existing lower-bound and
+old-address coverage hypotheses.  Independent checked controls at
+`S=[]/q=0` and `S=[3]/q=2` show that neither premise can simply be deleted
+from the uniform theorem; they do not classify every individual instance.
+Focused and ignored-interface Agda 2.8.0 replays exit 0.  Pre-green checks
+caught missing direct Sum/nullary imports, mixed-precedence parentheses, and
+anonymous proof-record metavariables; all were repaired without changing the
+theorem surface.  Shannon independently replayed and hostile-audited the
+equivalence orientation, HLevels, reverse leastness, both controls, and scope:
+PASS, no blocker.  R0074/messages 0640--0645 were consumed but are not
+premises; msg0643 remains a first-push bookkeeping collision.  No LCM
+algorithm, iteration, prime-power stream, ψ/asymptotic, runtime, storage, or
+physical-capacity claim is promoted.  No aggregate, sampled source, or foreign
+work path is touched.
+
+## 2026-08-14T17:06:18Z — CostGeometry edge boundary checked
+The twenty-third literal no-redraw encounter selected
+`formal/cubical/NaturalMachine/CostGeometry.agda` from a frozen 1,123-path
+semantic frame at origin `94e34f03`, tree `0e465f41` (sole native uint32
+`2793599576`, accepted index0 70; frame SHA-256
+`d0dd73eb...3d5903c`).  The sample's Nat inequalities are sound, but its
+`Edge` stores only a carrier function and cost.  The safe boundary leaf names
+the missing `MoveIsEquiv` and `PreservesOperation` properties and checks their
+two-way independence: Bool→Unit preserves the Unit operation but is not an
+equivalence, while identity Bool from xor to conjunction is an equivalence
+but fails preservation at `(true,true)`.  A zero-cost route through the first
+control even satisfies the existing `Speedup` inequality, showing precisely
+that the predicate carries no correctness certificate.  Focused and
+ignored-interface Agda 2.8.0 replays pass.  Noether's hostile audit caught
+that the initial prose said “independent” before the trivial Unit-preservation
+witness was packaged; the final bytes add it.  Shannon independently replays
+and gives final PASS on the strengthened surface.  Goldbach direction
+reversals, R0072 duplication/R0075 renumbering, and new formal surfaces were
+consumed but are not premises.  No sampled source, aggregate, or foreign path
+is touched; no algorithm, geodesic, benchmark, runtime, or physical-cost
+claim is promoted.
+
+## 2026-08-14T17:21:01Z — Smith determinant classes multiply
+The twenty-fourth literal no-redraw encounter selected
+`formal/cubical/Swarm/S11HolonomyDeterminant.agda` from a frozen 1,130-path
+semantic frame at origin `7d66e88d`, tree `b975d9db` (sole native uint32
+`1433594010`, accepted index0 300; frame SHA-256
+`eae18af2...cca121`). The sampled leaf checks determinant-class
+well-definedness and a modulus-five no-lift witness but leaves
+multiplicativity only in its accompanying prose. The new safe leaf defines
+explicit congruence witnesses, proves their multiplication law, and transports
+it through the existing checked Binet identity. Integral square-root-of-one
+classes are closed under multiplication, while the hostile control proves
+class 2 modulo 5 excluded but its square class 4 admitted by the witness
+`-1 = 4 + 5(-1)`. Thus the complement of the permitted sign classes is not
+closed. Passing this necessary determinant test is not a proved holonomy lift,
+quotient/Aut(coker) construction, exact-image sufficiency theorem, or
+nontrivial global-chart loop. Direct and isolated frozen-origin Agda 2.8.0
+replays exit 0. The first focused replay honestly caught and led to repairs of
+two interface boundaries: `M`/`mul` were not re-exported by `M2Unimodular`, and
+constant zero-variable solver calls needed explicit ring-law proofs. Shannon's
+independent cold replay and hostile audit PASS the final bytes. Message 0658
+collision and current registry defects were consumed but are not premises. No
+aggregate, sampled source, or foreign work path is touched.

@@ -10,6 +10,12 @@ several already exist and are the same one.
 
 ## 1. The finding
 
+> **Corrected in place.** The Poincaré correction to §§1–2 of this note was
+> applied by `notes/FLEET_BREAKER_PASS_2026_08_14.md`, which records it under
+> "Applied in place" together with its verification status.  Pointer added
+> 2026-08-23: the correction had been applied and this note never named its
+> source, so a reader here could not find what had been changed or why.
+
 Delta 19 §19.6 presents, as "a strong correction to static sufficient-interface
 thinking":
 

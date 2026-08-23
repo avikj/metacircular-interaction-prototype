@@ -52,20 +52,47 @@
 --
 -- NOT KNOWN, and this is not modesty, it is the actual state:
 --
---   (a) THE LENGTH CONFOUND, which is severe and mechanical.  In every edge
---       this file emits, the preferred side is the LONGER string, because it
---       is the same JSON with one array element more.  A ranking loss cannot
---       tell "prefer the answer that names its loss" from "prefer the longer
---       completion".  Length normalisation does not fix it: the two sides
---       differ by one item, so normalising per token nearly cancels the very
---       difference being trained on.  What would fix it is control edges in
---       which the LONGER side is dispreferred — an answer padded with a
---       naṣṭa item that is not in fact lost, or with a vyaya line that is
---       filler.  This file cannot generate those.  They cannot be derived
---       from a transcript, because a false naṣṭa is false about the world and
---       the transcript does not contain the world.  They have to be written.
---       That is the largest single open item in this lane and it is handed
---       forward, unsolved, rather than papered over with a weighting.
+--   (a) THE LENGTH CONFOUND, which was severe and mechanical, and which is
+--       now half answered — by a file that refutes the paragraph that used to
+--       stand here.  What stood here said: in every edge this file emits the
+--       preferred side is the LONGER string, so a ranking loss cannot tell
+--       "prefer the answer that names its loss" from "prefer the longer
+--       completion"; the fix is control edges where the LONGER side is
+--       dispreferred, an answer padded with a naṣṭa that is not in fact lost;
+--       and those "cannot be derived from a transcript, because a false naṣṭa
+--       is false about the world and the transcript does not contain the
+--       world.  They have to be written."
+--
+--       The second half of that was too strong.  A claimed loss is indeed
+--       false about the world, and the transcript is indeed not the world —
+--       but it does not follow that no claimed loss can be WITNESSED false,
+--       and Anrta_TheClaimedLossThatIsNotLostAndTheWitnessOfItsFalsity finds
+--       three registries this process actually holds:  the answer's own
+--       `vahita` (a line saying X did not travel, where X is a key of the
+--       very object saying it); the running dispatch table (a line naming an
+--       operation or a parameter this machine does not have); and the file on
+--       disk (a real sentence of the sūtra under a section number the file
+--       does not contain).  Every `adhika:F:j` below is generated from one of
+--       those, carries the object that defeats it, and CANNOT BE BUILT
+--       WITHOUT ONE — the constructor refuses, and refuses in particular any
+--       line that turns out to be true.  So the corpus now contains edges
+--       with the longer string on the dispreferred side, and it reports the
+--       byte difference on every edge (`dairghya`) so a consumer can see the
+--       correlation rather than take this sentence's word for it.
+--
+--       What is NOT solved, and this is the whole of the residual: all three
+--       registries are inside this process or this repository.  A model
+--       trained on these learns not to contradict its own answer, its own
+--       table and its own citations — a consistency property.  The general
+--       case, a fluent plausible claimed loss about something outside the
+--       process, still needs the world.  `machine/karana sima` items 9–12
+--       carry that, together with the fabrication pools' finiteness and the
+--       orderings this corpus declines to assert.
+--
+--       Taken together the two families pin the vyaya list from both sides:
+--       `purna ≻ apahrta` says do not drop a loss that occurred, `purna ≻
+--       adhika` says do not name one that did not.  Either alone is
+--       satisfiable by a length policy.  Both together are not.
 --
 --   (b) SHAPE VERSUS DISPOSITION.  A model trained on this will learn to
 --       emit a `vyaya` array.  Whether it learns to NOTICE what did not
@@ -107,6 +134,7 @@ module Abhyasa_TheTrainingRecordIsPracticeShownNotStated
 import Data.List (intercalate)
 import System.IO
 import Sabda_TheWireHasNoBoolean
+import Anrta_TheClaimedLossThatIsNotLostAndTheWitnessOfItsFalsity
 
 -- | One training record, before rendering.
 data Abhyasa = Abhyasa
@@ -115,6 +143,8 @@ data Abhyasa = Abhyasa
   , abMarga  :: String          -- "samkramana" | "dosalekha"
   , abPurna  :: J               -- the answer as given
   , abHani   :: [(String, String, J)]  -- (id, what was removed, the diminished answer)
+  , abAdhika :: [(String, Anrta, J)]   -- (id, the item added and what defeats it, the enlarged answer)
+  , abTyakta :: [String]               -- fabrications this record REFUSED to certify, with the reason
   }
 
 -- | The fields whose items are individually droppable, per road.  Dropping
@@ -128,6 +158,15 @@ ksetrani _            = []
 
 dropAt :: Int -> [a] -> [a]
 dropAt i xs = [ x | (k, x) <- zip [0..] xs, k /= (i :: Int) ]
+
+-- | Put a fabricated item into a field.  It goes LAST, not into a random
+--   position, and that is a limit rather than a choice: a model could learn
+--   `the last item of vyaya is the false one`.  Said here and in
+--   `machine/karana sima` item 10 rather than hidden by a shuffle, because a
+--   shuffle would make the corpus unreproducible to buy an appearance of
+--   safety.
+addLast :: J -> [J] -> [J]
+addLast x xs = xs ++ [x]
 
 setField :: String -> J -> J -> J
 setField k v (JObj kvs) = JObj [ if k' == k then (k', v) else (k', v') | (k', v') <- kvs ]
@@ -143,8 +182,8 @@ asText j = render j
 
 -- | Build a record from one transcript line.  Left when the line is not a
 --   transcript line; the caller writes that rather than skipping it.
-ofTranscriptLine :: String -> Either String Abhyasa
-ofTranscriptLine line = do
+ofTranscriptLine :: Loka -> String -> Either String Abhyasa
+ofTranscriptLine loka line = do
   j <- parseLine line
   n <- jInt "avrtti" j
   p <- jStr "prasna" j
@@ -159,7 +198,16 @@ ofTranscriptLine line = do
                   , "everything except the road's name \8212 \8214uttara\8214\8321, "
                     ++ "which on this wire is the bare boolean"
                   , JObj [("uttara", JStr m)] )
-  pure (Abhyasa n p m u (vars ++ [truncated]))
+      -- The control side.  Certified items only: an item whose badhaka does
+      -- not fire is not shipped, and its refusal is carried in `abTyakta`
+      -- rather than dropped, since a corpus builder that silently discards
+      -- what it could not certify is the collapse it is built to refuse.
+      certified = anrtani loka n u
+      adds = [ ( "adhika:" ++ anKsetra a ++ ":" ++ show k
+               , a
+               , setField (anKsetra a) (JArr (addLast (JStr (anVakya a)) (getArr (anKsetra a) u))) u )
+             | (k, a) <- zip [(0::Int)..] [ a | Right a <- certified ] ]
+  pure (Abhyasa n p m u (vars ++ [truncated]) adds [ e | Left e <- certified ])
 
 -- | The record as it goes to disk.  The order is shipped as edges and the
 --   incomparabilities are shipped too, named, so that a consumer who wants a
@@ -174,24 +222,69 @@ abhyasaJ a = JObj
                          , ("apahrtam", JStr w)
                          , ("rupa", r) ]
                   | (i, w, r) <- abHani a ])
-  , ("krama", JArr ([ JObj [("varam", JStr "purna"), ("hinam", JStr i)]
-                    | (i, _, _) <- abHani a ] ++
-                    [ JObj [("varam", JStr i), ("hinam", JStr "nasti")]
-                    | (i, _, _) <- abHani a, i /= "nasti" ]))
-  , ("atulya", JArr [ JObj [("eka", JStr i), ("dvitiya", JStr k)]
-                    | let ids = [ i | (i, _, _) <- abHani a, i /= "nasti" ]
-                    , (n, i) <- zip [(0::Int)..] ids
-                    , (m, k) <- zip [0..] ids
-                    , n < m ])
-  , ("niyama", JStr ("`krama` is a list of ordered pairs, not a score: varam is preferred to hinam. "
-                     ++ "`atulya` names the pairs this record DECLINES to order \8212 two different "
-                     ++ "losses, no scale between them. Reducing this record to one number is the "
-                     ++ "collapse the answer it contains was constructed to refuse."))
+  , ("adhika", JArr [ JObj [ ("nama", JStr i)
+                           , ("yojitam", JStr (anVakya an))
+                           , ("ksetra", JStr (anKsetra an))
+                           , ("jati", jatiOf (anrtaJ an))
+                           , ("badha", JStr (anBadha an))
+                           , ("rupa", r) ]
+                    | (i, an, r) <- abAdhika a ])
+  , ("parityakta", JArr (map JStr (abTyakta a)))
+  , ("krama", JArr ([ edge "purna" i | (i, _, _) <- abHani a ] ++
+                    [ edge i "nasti" | (i, _, _) <- abHani a, i /= "nasti" ] ++
+                    [ edge "purna" i | (i, _, _) <- abAdhika a ]))
+  , ("atulya", JArr ([ JObj [("eka", JStr i), ("dvitiya", JStr k), ("hetu", JStr sameFamily)]
+                     | let ids = [ i | (i, _, _) <- abHani a, i /= "nasti" ]
+                     , (n, i) <- zip [(0::Int)..] ids
+                     , (m, k) <- zip [0..] ids
+                     , n < m ] ++
+                     [ JObj [("eka", JStr i), ("dvitiya", JStr k), ("hetu", JStr sameFamily)]
+                     | let ids = [ i | (i, _, _) <- abAdhika a ]
+                     , (n, i) <- zip [(0::Int)..] ids
+                     , (m, k) <- zip [0..] ids
+                     , n < m ] ++
+                     [ JObj [("eka", JStr i), ("dvitiya", JStr k), ("hetu", JStr crossFamily)]
+                     | (i, _, _) <- abHani a, i /= "nasti"
+                     , (k, _, _) <- abAdhika a ] ++
+                     [ JObj [("eka", JStr i), ("dvitiya", JStr "nasti"), ("hetu", JStr paddedVsTruncated)]
+                     | (i, _, _) <- abAdhika a ]))
+  , ("niyama", JStr ("`krama` is a list of ordered pairs, not a score: varam is preferred to hinam, and "
+                     ++ "`dairghya` on each pair is len(varam) \8722 len(hinam) in bytes of rendered JSON, "
+                     ++ "so the length confound is a number in the record and not a claim about it. "
+                     ++ "`atulya` names the pairs this record DECLINES to order, each with its reason. "
+                     ++ "Reducing this record to one number is the collapse the answer it contains was "
+                     ++ "constructed to refuse."))
   , ("pramana", JArr (map JStr
       [ "notes/AHIMSA_SUTRA_VISTARA.md \167\&30 \8212 practice is shown, done, badly first; the finished thing does not teach"
       , "\167\&4 and \167\&5 \8212 \8214A\8214\8321 keeps `that` and destroys `which`, and there is no section back"
-      , "\167\&7 \8212 where the standpoints differ, collapse is not forbidden but unavailable" ]))
+      , "\167\&7 \8212 where the standpoints differ, collapse is not forbidden but unavailable"
+      , "\167\&21 \8212 the purvapaksa is a limb of one's own book: the `adhika` items are false ON PURPOSE, labelled as such, each with the object that defeats it"
+      , "Umasvati, Tattvarthasutra 7.1 \8212 anrta, the second of the five; the naming, not the datatype" ]))
   ]
+  where
+    sameFamily = "two losses of the same kind, no scale between them \8212 \167\&7"
+    crossFamily = "dropping a loss that occurred, against naming one that did not: "
+                  ++ "different kinds, and asserting an order between them would be the collapse \167\&7 "
+                  ++ "says is unavailable, not forbidden"
+    paddedVsTruncated =
+      "a padded answer against the bare road-name. \167\&5 says a truncation admits no retraction and "
+      ++ "is therefore irreparable, which argues the padded answer above it; the Jaina vrata on anrta "
+      ++ "is not a magnitude to be traded against another loss, which argues it is not comparable. "
+      ++ "Both stand. Noted here because the direction declined is the one that would have put the "
+      ++ "longer string back on the preferred side, and a reason that is convenient needs its "
+      ++ "convenience stated"
+    rupaOf nm
+      | nm == "purna" = Just (abPurna a)
+      | otherwise = case [ r | (i, _, r) <- abHani a, i == nm ] of
+          (r:_) -> Just r
+          [] -> case [ r | (i, _, r) <- abAdhika a, i == nm ] of
+                  (r:_) -> Just r
+                  [] -> Nothing
+    len nm = maybe 0 (toInteger . length . render) (rupaOf nm)
+    edge v h = JObj [ ("varam", JStr v), ("hinam", JStr h)
+                    , ("dairghya", JInt (len v - len h)) ]
+    jatiOf (JObj xs) = maybe (JStr "") id (lookup "jati" xs)
+    jatiOf _ = JStr ""
 
 -- | The document version of the header, for a reader who has the binary and
 --   not the source.
@@ -213,8 +306,12 @@ siksaLines =
   , "                 corruption: it is what the machine would have said had it"
   , "                 not noticed that one thing. Fluent, well-formed, shorter."
   , "    nasti        the road's name alone \8212 on this wire, the bare boolean."
+  , "    adhika:F:j   the same answer, one item ADDED to field F: a claimed"
+  , "                 loss that is not in fact lost, each carrying the object"
+  , "                 that witnesses it false. Fluent, well-formed, LONGER."
   , "  and the order is shipped as edges (`krama`) with the pairs it refuses to"
-  , "  order shipped alongside (`atulya`)."
+  , "  order shipped alongside (`atulya`), each with its reason. The refused"
+  , "  pairs now include adhika against apahrta and adhika against nasti."
   , ""
   , "WHAT A LOSS WOULD MEAN"
   , "  Over edges a > b under prompt x, with s a length-normalised sequence"
@@ -222,17 +319,40 @@ siksaLines =
   , "  Summed over edges. Never reduced to a per-record scalar first: the order"
   , "  is partial and a scalar is its truncation."
   , ""
+  , "  Three kinds of edge now, not two:"
+  , "    purna > apahrta:F:i   do not drop a loss that occurred  (longer preferred)"
+  , "    apahrta:F:i > nasti   any named loss beats the bare road-name"
+  , "    purna > adhika:F:j    do not name a loss that did not occur"
+  , "                                                            (SHORTER preferred)"
+  , "  Either of the first two alone is satisfiable by a length policy. The"
+  , "  three together are not, and the record carries `dairghya` \8212 the byte"
+  , "  difference \8212 on every edge so that is a number and not a claim."
+  , ""
   , "WHAT IS NOT KNOWN"
-  , "  (a) THE LENGTH CONFOUND. In every edge emitted here the preferred side is"
-  , "      the longer string \8212 the same JSON with one array element more. A"
-  , "      ranking loss cannot separate `prefer the answer that names its loss`"
-  , "      from `prefer the longer completion`, and length normalisation nearly"
-  , "      cancels the very difference being trained on. The fix is control"
-  , "      edges where the LONGER side is dispreferred: an answer padded with a"
-  , "      nasta item that is not in fact lost. Those cannot be derived from a"
-  , "      transcript \8212 a false nasta is false about the WORLD, and the"
-  , "      transcript does not contain the world. They must be written. This is"
-  , "      the largest open item in this lane, handed forward unsolved."
+  , "  (a) THE LENGTH CONFOUND \8212 HALF ANSWERED, AND THE HALF THAT IS NOT IS"
+  , "      NAMED. What stood here said the control edges could not be derived"
+  , "      from a transcript, because a false nasta is false about the WORLD"
+  , "      and the transcript does not contain the world. The first clause is"
+  , "      right and the inference is not: a claimed loss can be WITNESSED"
+  , "      false without the world, when the object that defeats it is one"
+  , "      this process holds. Three are:"
+  , "        the answer's own `vahita` \8212 a line saying X did not travel,"
+  , "          where X is a key of the very object saying it;"
+  , "        the running dispatch table \8212 a line naming an operation or a"
+  , "          parameter this machine does not have;"
+  , "        the file on disk \8212 a real sentence of the sutra under a section"
+  , "          number notes/AHIMSA_SUTRA_VISTARA.md does not contain."
+  , "      Every `adhika` item is built from one of those, ships the object"
+  , "      that defeats it in its own `badha` field, and cannot be constructed"
+  , "      without one: the constructor refuses, and refuses in particular any"
+  , "      fabricated line that turns out to be TRUE. The refusals are counted"
+  , "      and carried in each record's `parityakta`."
+  , "      THE RESIDUAL, exactly: all three registries are inside this process"
+  , "      or this repository. A model trained on these learns not to"
+  , "      contradict its own answer, table and citations \8212 a consistency"
+  , "      property, and a real one. It does not learn not to claim a loss"
+  , "      that did not occur, in general, because that needs the world. See"
+  , "      `machine/karana sima` items 9 to 12."
   , "  (b) SHAPE VERSUS DISPOSITION. This will teach a model to emit a vyaya"
   , "      array. Whether it teaches it to notice what did not travel is a"
   , "      different claim, and this corpus cannot distinguish them: every nasta"
@@ -256,21 +376,74 @@ siksaLines =
 --   builder that silently drops what it cannot read is the collapse.
 runAbhyasa :: FilePath -> IO (Int, Int)
 runAbhyasa fp = do
+  loka <- lokah
   txt <- readFile fp
   let ls = [ l | l <- lines txt, not (all (`elem` " \t\r") l) ]
-  rs <- mapM one ls
+  rs <- mapM (one loka) ls
   let ok = length [ () | Right _ <- rs ]
+      recs = [ a | Right a <- rs ]
+      hanEdges = sum [ 2 * length (abHani a) - 1 | a <- recs ]
+      addEdges = sum [ length (abAdhika a) | a <- recs ]
+      atulyani = sum [ let n = length (abHani a) - 1
+                           m = length (abAdhika a)
+                       in n * (n - 1) `div` 2 + m * (m - 1) `div` 2 + n * m + m
+                     | a <- recs ]
+      -- The confound, as a number over the corpus that was actually emitted.
+      -- Exact, not fitted: these are the rendered byte lengths of the very
+      -- strings on either side of every edge shipped.
+      deltas = concat [ edgeDeltas a | a <- recs ]
+      -- The confound lives in the ONE-ITEM edges: purna against an answer
+      -- differing from it by exactly one array element.  The edges against
+      -- `nasti` differ by the whole answer and were never the confound; they
+      -- are counted separately rather than averaged in, which would hide the
+      -- number that matters under a number that never moved.
+      eka = [ d | (True, d) <- deltas ]
+      itara = [ d | (False, d) <- deltas ]
+      up = length [ () | d <- eka, d > 0 ]
+      dn = length [ () | d <- eka, d < 0 ]
+      eq = length [ () | d <- eka, d == 0 ]
+      refused = sum [ length (abTyakta a) | a <- recs ]
   hPutStrLn stderr ("abhyasa: " ++ show (length ls) ++ " transcript line(s) from " ++ fp
                     ++ "; " ++ show ok ++ " record(s); "
                     ++ show (length ls - ok) ++ " unreadable, each written in place")
-  hPutStrLn stderr ("edges emitted: "
-                    ++ show (sum [ 2 * length (abHani a) - 1 | Right a <- rs ])
-                    ++ "   incomparable pairs declared: "
-                    ++ show (sum [ let n = length (abHani a) - 1 in n * (n - 1) `div` 2
-                                 | Right a <- rs ]))
+  hPutStrLn stderr ("edges emitted: " ++ show (hanEdges + addEdges)
+                    ++ " (" ++ show hanEdges ++ " hani, " ++ show addEdges ++ " adhika)"
+                    ++ "   incomparable pairs declared: " ++ show atulyani)
+  hPutStrLn stderr ("dairghya, one-item edges (purna against an answer differing by exactly one "
+                    ++ "array element \8212 the family the confound lives in): " ++ show (length eka)
+                    ++ " edge(s), of which " ++ show up ++ " prefer the LONGER side, "
+                    ++ show dn ++ " prefer the SHORTER, " ++ show eq ++ " equal.")
+  hPutStrLn stderr ("  a ranking loss over this corpus that is really a length policy scores "
+                    ++ show (max up dn) ++ "/" ++ show (length eka)
+                    ++ " on that family; before the control edges existed it scored "
+                    ++ show up ++ "/" ++ show up ++ ".")
+  hPutStrLn stderr ("  the " ++ show (length itara) ++ " edge(s) against `nasti` differ by the "
+                    ++ "whole answer, not by one item, and were never the confound; counted apart "
+                    ++ "rather than averaged in.")
+  hPutStrLn stderr ("anrta refused certification: " ++ show refused
+                    ++ " (a fabrication whose badhaka did not fire is not shipped; "
+                    ++ "the reason stands in each record's `parityakta`)")
   pure (ok, length ls - ok)
   where
-    one l = case ofTranscriptLine l of
+    edgeDeltas a =
+      let rupaOf nm | nm == "purna" = Just (abPurna a)
+                    | otherwise = case [ r | (i, _, r) <- abHani a, i == nm ] of
+                        (r:_) -> Just r
+                        [] -> case [ r | (i, _, r) <- abAdhika a, i == nm ] of
+                                (r:_) -> Just r
+                                [] -> Nothing
+          len nm = maybe 0 (toInteger . length . render) (rupaOf nm)
+      -- Tagged, because the caller's `eka`/`itara` split is the whole point of
+      -- the measurement: True marks a ONE-ITEM edge (purna against an answer
+      -- differing by exactly one array element), False an edge against
+      -- `nasti`, which differs by the whole answer and was never the confound.
+      -- Returning bare deltas dropped that distinction and the module did not
+      -- typecheck; the tag is not new data, it is the datum the comment above
+      -- already names.
+      in [ (True,  len "purna" - len i) | (i, _, _) <- abHani a ]
+      ++ [ (False, len i - len "nasti") | (i, _, _) <- abHani a, i /= "nasti" ]
+      ++ [ (True,  len "purna" - len i) | (i, _, _) <- abAdhika a ]
+    one loka l = case ofTranscriptLine loka l of
       Right a -> putStrLn (render (abhyasaJ a)) >> pure (Right a)
       Left e -> do
         putStrLn (render (JObj

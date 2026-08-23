@@ -47,7 +47,7 @@
 #      observed reason kernel `decide` does not work and what would remove it.
 #
 # 2 and 3 were recommended by `notes/NATIVE_DECIDE_AUDIT.md` §5 and adopted;
-# 3 is enforced by `lake exe axiom_gate` and 2 by nothing.  1 did not exist.
+# 3 is enforced by `lake exe yogyanupalabdhi` and 2 by nothing.  1 did not exist.
 # This repository's own rule (CLAUDE.md, "Regressions observed in one long
 # session") is that when a rule is repeatedly stated and not mechanised, the
 # next move is a mechanism that fires at the moment of the act, not another
@@ -56,7 +56,7 @@
 # ---------------------------------------------------------------------------
 # WHAT THIS IS NOT, stated so nobody retires the thing that actually works
 #
-# `lake exe axiom_gate` is the real instrument.  It walks the BUILT
+# `lake exe yogyanupalabdhi` is the real instrument.  It walks the BUILT
 # environment and runs `Lean.collectAxioms`, so it sees oracle dependency
 # THROUGH IMPORTS, which no grep can — two of the 28 modules tainted at audit
 # time contained no occurrence of the token.  This script counts SITES.
@@ -183,7 +183,7 @@ for f in $files; do
     # all.  scripts/check-lean-example-oracles.sh owns the `example` case; this
     # catches every other way a site ends up unattributable.
     if [ "$name" = "(anonymous)" ] || [ "$kind" = "example" ]; then
-      fail "UNNAMED            $f:$line \`$tok\` sits in an anonymous \`$kind\`; \`lake exe axiom_gate\` cannot see it"
+      fail "UNNAMED            $f:$line \`$tok\` sits in an anonymous \`$kind\`; \`lake exe yogyanupalabdhi\` cannot see it"
     else
       oracle_decls="$oracle_decls
 $name"
@@ -266,7 +266,7 @@ fi
 
 echo "OK: every oracle site declares its route at the site, in the file header,"
 echo "    and in the allowlist.  This says nothing about taint through imports:"
-echo "    run \`lake exe axiom_gate\` for that."
+echo "    run \`lake exe yogyanupalabdhi\` for that."
 echo
 echo "RESIDUAL, stated rather than hidden: check 3 matches the allowlist on the"
 echo "final name component, so two declarations with the same short name in"

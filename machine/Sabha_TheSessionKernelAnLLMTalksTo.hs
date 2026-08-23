@@ -90,6 +90,7 @@ import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 import Sabda_TheWireHasNoBoolean
 import Uttara_SamkramanaOrDosalekhaNeverABareBoolean
 import qualified Naya as N
+import qualified YantraPariksa_TheEngineAnsweringOnTheWire as Y
 import qualified Nalanda as B
 import qualified Astadhyayi as P
 
@@ -177,6 +178,14 @@ kriyah =
       "The remainder queue."
       []
       kSesaSuchi
+  -- THE CERTIFICATE LANE, wired 2026-08-22.  The header of this file said
+  -- `kRun` is in IO *precisely so that shelling out to the Agda kernel is a
+  -- legal handler*, and until now nothing took that door.  Its name, prose
+  -- and parameters come from the handler's own module, so there is no second
+  -- copy to drift; the position in this list is this file's decision and
+  -- last, because a rule that arrives later prevails (Aṣṭādhyāyī 1.4.2).
+  , Kriya Y.pariksaNama Y.pariksaDoc Y.pariksaAngani
+      (\s j -> (,) s <$> Y.pariksaJ j)
   ]
 
 -- ------------------------------------------------------------- the ops
@@ -356,11 +365,17 @@ kKuttaka s j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
                    , ("bezout", JObj [("x", JInt x), ("y", JInt y), ("gcd", JInt g)]) ]
             src = [ "Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32–33, 499 — kuṭṭaka/vallī; the restatement usually cited instead is the 'extended Euclidean algorithm'" ]
         in case look "c" j of
+             -- गणित, not लिखित.  a·x + b·y was already being computed here and
+             -- rendered into `wit` — and never compared to g.  Doṣa 0022: the
+             -- computation was present and its result was never checked
+             -- against what it should be.  Now the two sides go to the
+             -- constructor and the constructor refuses the transport if they
+             -- differ.
              Left _ -> (s, samkramana "kuttaka"
-                 (tulyata "the vallī, read upward, identified with the Bézout pair"
-                          ("the quotient chain of " ++ show a ++ " by " ++ show b)
-                          ("a pair (x, y) with a·x + b·y = " ++ show g)
-                          wit)
+                 (ganita "the vallī, read upward, identified with the Bézout pair"
+                         ("the quotient chain of " ++ show a ++ " by " ++ show b)
+                         ("a pair (x, y) with a·x + b·y = " ++ show g)
+                         wit (a * x + b * y) g)
                  base
                  [ "the remainders themselves are implicit in the quotients; the chain is recoverable but is not carried as a separate list"
                  , "the reason the descent terminates (the remainders strictly decrease) — proved elsewhere, not re-proved by this answer" ]
@@ -380,11 +395,11 @@ kKuttaka s j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
                        x0 = (x * m) `mod` (b `div` g)
                        chk = (a * x0 - c) `mod` b
                    in (s, samkramana "kuttaka"
-                       (tulyata "the Bézout pair, scaled, identified with the solution of the congruence"
+                       (ganita "the Bézout pair, scaled, identified with the solution of the congruence"
                                 ("a·x + b·y = " ++ show g)
                                 ("a·x ≡ " ++ show c ++ " (mod " ++ show b ++ ")")
                                 (show a ++ "·" ++ show x0 ++ " − " ++ show c ++ " ≡ "
-                                 ++ show chk ++ " (mod " ++ show b ++ "), checked exactly"))
+                                 ++ show chk ++ " (mod " ++ show b ++ "), checked exactly") chk 0)
                        (base ++ [ ("x", JInt x0)
                                 , ("modulus", JInt (b `div` g))
                                 , ("sarve", JStr ("x ≡ " ++ show x0 ++ " (mod "
@@ -422,12 +437,13 @@ kVargaprakrti s j = pure $ case jInt "D" j of
                     , ("spectrum", JArr (map JInt spec)) ]
       in case look "n" j of
            Left _ -> (s, samkramana "vargaprakrti"
-               (tulyata "the cakravāla's descent, identified with a solution of the form"
+               (ganita "the cakravāla's descent, identified with a solution of the form"
                         ("x² − " ++ show d ++ "·y² = 1")
                         ("(a, b) = (" ++ show (B.tA final) ++ ", " ++ show (B.tB final) ++ ")")
                         (show (B.tA final) ++ "² − " ++ show d ++ "·" ++ show (B.tB final)
                          ++ "² = " ++ show (B.tA final * B.tA final - d * B.tB final * B.tB final)
-                         ++ ", exact integer arithmetic, and Nalanda.verify holds at every step of the trace above"))
+                         ++ ", exact integer arithmetic, and Nalanda.verify holds at every step of the trace above")
+                        (B.tA final * B.tA final - d * B.tB final * B.tB final) 1)
                carried
                [ "the CHOICE made at each turn (chooseM's minimality) travels only through its consequences in the trace, not as a recorded reason"
                , "the proof that the descent terminates — Lagrange 1768 for the European restatement; the tradition asserted it and used it from 628 onward"
@@ -435,11 +451,12 @@ kVargaprakrti s j = pure $ case jInt "D" j of
                src)
            Right (JInt n) -> case [ t | t <- trace, B.tK t == n ] of
              (t:_) -> (s, samkramana "vargaprakrti"
-                 (tulyata "a norm the wheel visits, identified with a solved equation"
+                 (ganita "a norm the wheel visits, identified with a solved equation"
                           ("x² − " ++ show d ++ "·y² = " ++ show n)
                           ("(a, b) = (" ++ show (B.tA t) ++ ", " ++ show (B.tB t) ++ ")")
                           (show (B.tA t) ++ "² − " ++ show d ++ "·" ++ show (B.tB t) ++ "² = "
-                           ++ show (B.tA t * B.tA t - d * B.tB t * B.tB t)))
+                           ++ show (B.tA t * B.tA t - d * B.tB t * B.tB t))
+                          (B.tA t * B.tA t - d * B.tB t * B.tB t) n)
                  (carried ++ [ ("n", JInt n)
                              , ("uttara", JObj [("a", JInt (B.tA t)), ("b", JInt (B.tB t))]) ])
                  [ "the infinite family generated by composing this with the norm-1 solution is available (Nalanda.familyFor) and is not expanded here"
@@ -458,10 +475,11 @@ kVargaprakrti s j = pure $ case jInt "D" j of
 -- ---- the interval notation
 
 kPratyahara :: Sabha -> J -> IO (Sabha, Uttara)
-kPratyahara s j = pure $ case (,) <$> jStr "adi" j <*> jStr "it" j of
+kPratyahara s j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
+                                   <*> (fromIntegral <$> athava 0 (vInt "avrtti" j)) of
   Left e -> (s, malformed "pratyahara" e)
-  Right (adi, it) ->
-    let occ = either (const 0) id (fmap fromIntegral (jInt "avrtti" j)) :: Int
+  Right (adi, it, occ0) ->
+    let occ = occ0 :: Int
         sounds = P.pratyaharaOcc adi it occ
         raw = P.rawSpan adi it
         src = [ "Pāṇini, Aṣṭādhyāyī, the śivasūtras, c. 500 BCE — the name usually cited instead is 'Backus–Naur'" ]
@@ -493,11 +511,11 @@ kPratyahara s j = pure $ case (,) <$> jStr "adi" j <*> jStr "it" j of
 -- ---- the log and the queue
 
 kDosaLekha :: Sabha -> J -> IO (Sabha, Uttara)
-kDosaLekha s j = pure $ case (,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j of
+kDosaLekha s j = pure $ case (,,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j
+                                   <*> athava [] (vStrs "sesa" j) of
   Left e -> (s, malformed "dosa.lekha" e)
-  Right (k, hetu, lost) ->
-    let rest = either (const []) id (jStrs "sesa" j)
-        entry = dosalekha k hetu lost rest
+  Right (k, hetu, lost, rest) ->
+    let entry = dosalekha k hetu lost rest
                   [ "written by the interlocutor, not by the engine" ]
         s' = s { sDosa = (sTurn s, entry) : sDosa s }
     in (s', samkramana "dosa.lekha"
@@ -563,6 +581,27 @@ malformed k e = dosalekha k
   [ "ask sabha.kriyah for the parameters this operation requires" ]
   srcSutra
 
+-- | The refusal of a key nothing reads.  `anadhikrta` (in
+--   Sabda_TheWireHasNoBoolean, which carries the argument for why this
+--   exists at all) finds them and says why each one is unread; this writes
+--   them out one by one.  Not folded into `malformed`: `malformed` says the
+--   request could not be READ, and this request was read perfectly — it
+--   named something this operation has no adhikāra over.  Two facts.
+unnamed :: Kriya -> [(String, String)] -> Uttara
+unnamed kr ns = dosalekha (kName kr)
+  ("`" ++ kName kr ++ "` was sent " ++ show (length ns)
+   ++ " key(s) that nothing in it reads: "
+   ++ intercalate "; " [ "`" ++ n ++ "` — " ++ w | (n, w) <- ns ])
+  ([ "the value you sent under `" ++ n ++ "`, which WAS uttered and would otherwise have been ignored in silence — and with it the difference between `I did not send that` and `I sent it and you dropped it`"
+   | (n, _) <- ns ]
+   ++ [ "the parameter you meant by it; it is NOT guessed at by nearest name, for the same reason an operation name is not — a near miss executed silently is the collapse this machine exists to refuse" ])
+  ([ "`" ++ kName kr ++ "` reads exactly these keys under `angani`, and no others:" ]
+   ++ (if null (kParams kr) then [ "  (none — send `angani` empty, or omit it)" ]
+                            else [ "  " ++ p ++ " — " ++ d | (p, d) <- kParams kr ])
+   ++ [ "if the key names something this machine should read and does not, that is a doṣa and dosa.lekha takes it" ])
+  [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2 and the adhikāra-sūtras, c. 500 BCE — a heading governs a stated extent; a rule outside it is not a weaker match, it is outside.  NOT CLAIMED: that he wrote a parameter check."
+  , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।" ]
+
 logIf :: Uttara -> Sabha -> Sabha
 logIf u s = case u of
   Dosalekha{} -> s { sDosa = (sTurn s, u) : sDosa s }
@@ -589,10 +628,21 @@ answer s0 line =
                        [ "send {\"kriya\":\"sabha.kriyah\"} to see what may be asked" ]
                        srcSutra
       Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
-        (kr:_) -> do
-          let args = either (const (JObj [])) id (look "angani" j >>= \a -> jObj a >> Right a)
-          (s', u) <- kRun kr s args
-          pure (logIf u s', u)
+        -- अनुक्तम् / उक्तम् / दुर्वचम्.  `angani` absent is a request with no
+        -- arguments; `angani` present and not an object is a request that
+        -- cannot be dispatched, and the two produced byte-identical answers
+        -- until this line (doṣa 0016).  The Left `look`/`jObj` composes is
+        -- now the hetu instead of being discarded by `const`.  Then the keys
+        -- that nothing reads are refused rather than ignored — see
+        -- `anadhikrta`, which is what this machine says instead of the
+        -- `additionalProperties:false` its own grammar cannot emit.
+        (kr:_) -> case athava (JObj []) (vObjAt "angani" j) of
+          Left e -> let u = malformed (kName kr) e in pure (logIf u s, u)
+          Right args -> case anadhikrta (map fst (kParams kr)) args of
+            [] -> do
+              (s', u) <- kRun kr s args
+              pure (logIf u s', u)
+            ns -> let u = unnamed kr ns in pure (logIf u s, u)
         [] -> pure (logIf u s, u)
           where u = dosalekha "sabha.srutam"
                      ("no operation named `" ++ k ++ "` in this assembly")
@@ -604,9 +654,60 @@ answer s0 line =
 --   file is a corpus of (what was asked, what the two roads gave back).
 appendLekha :: FilePath -> Int -> String -> Uttara -> IO ()
 appendLekha fp n line u =
-  appendFile fp (render (JObj [ ("avrtti", JInt (fromIntegral n))
-                              , ("prasna", JStr line)
-                              , ("uttara", uttaraJ u) ]) ++ "\n")
+  appendFile fp (writable (render (JObj [ ("avrtti", JInt (fromIntegral n))
+                                        , ("prasna", JStr line)
+                                        , ("uttara", uttaraJ u) ])) ++ "\n")
+
+-- | AN ANSWER THAT CANNOT BE WRITTEN TAKES THE SECOND ROAD, NOT THE THIRD.
+--
+--   Doṣa 0017.  A lone surrogate reached `render`, was emitted raw, and the
+--   UTF-8 encoder threw inside `hPutStrLn` — with 378 bytes of a truncated
+--   saṃkramaṇa already on the wire, exit 1, and the transcript file never
+--   created, so every defect the interlocutor had written that session was
+--   destroyed unwritten.  §6 says तृतीयो मार्गो न विद्यते and there it was,
+--   as the default behaviour of a reader accepting what the writer cannot
+--   write.  `selftest` could not see it: it checks the ANSWER, and the loss
+--   happened in the encoder on the way out, on the wrong side of the
+--   boundary.
+--
+--   The reader half is repaired in Sabda (`uEscape` refuses a lone
+--   surrogate).  This is the writer half, and the two are not alternatives:
+--   a String can still arrive from a handler that built one, and the wire
+--   must not be able to die mid-line whatever it is handed.  So the bytes
+--   are inspected BEFORE anything is put on the handle, and an unwritable
+--   answer becomes a written defect ABOUT ITSELF — ASCII only, so that this
+--   sentence can never be the one that fails to encode.
+writable :: String -> String
+writable s = case unwritable s of
+  Nothing -> s
+  Just c  -> render (uttaraJ (dosalekha "sabha.lekhana"
+    ("the answer to this turn cannot be written: it holds U+"
+     ++ hex4 (fromEnum c) ++ ", a lone surrogate, which no UTF-8 encoder "
+     ++ "will emit.  It is refused HERE, before any byte reaches the wire, "
+     ++ "rather than throwing mid-flush.")
+    [ "the answer itself, in full: it was computed, it is well-formed as a "
+      ++ "value, and it is unwritable as bytes -- so what is lost is the "
+      ++ "delivery and not the work"
+    , "the character at fault, recoverable only as the code point named "
+      ++ "above, because printing it is the act that fails"
+    , "any part of this turn's answer that a truncation would have delivered "
+      ++ "as though it were whole -- which is what happened before this "
+      ++ "guard existed, and is worse than nothing arriving" ]
+    [ "send the character in UTF-8 rather than as a \\u escape half; a "
+      ++ "surrogate pair \\ud83d\\ude00 is read and transported correctly"
+    , "the session is NOT ended by this: the next turn is answered normally, "
+      ++ "and the transcript for this turn is written, which is the whole "
+      ++ "difference from the crash it replaces" ]
+    [ "notes/AHIMSA_SUTRA_VISTARA.md §6 -- there is no third road, and a "
+      ++ "truncated answer is one"
+    , "machine/dosa.lekha, dosa 0017" ]))
+
+hex4 :: Int -> String
+hex4 n = let ds = "0123456789ABCDEF"
+             go 0 acc = acc
+             go m acc = go (m `div` 16) (ds !! (m `mod` 16) : acc)
+             h = if n == 0 then "0" else go n ""
+         in replicate (max 0 (4 - length h)) '0' ++ h
 
 serve :: FilePath -> Handle -> Handle -> Sabha -> IO Sabha
 serve fp hin hout = go
@@ -617,9 +718,15 @@ serve fp hin hout = go
         line <- hGetLine hin
         if all (`elem` " \t\r") line then go s else do
           (s', u) <- answer s line
-          hPutStrLn hout (render (mergeId line (uttaraJ u)))
-          hFlush hout
+          -- THE ORDER, and it is the deeper half of doṣa 0017.  The
+          -- transcript used to be appended AFTER the answer was flushed, so
+          -- the record of a turn was contingent on the turn surviving --
+          -- which is precisely backwards for a log whose reason to exist is
+          -- the turns that do not.  Appending first would have made that
+          -- defect self-recording.  It is now first.
           appendLekha fp (sTurn s') line u
+          hPutStrLn hout (writable (render (mergeId line (uttaraJ u))))
+          hFlush hout
           go s'
 
 -- Echo the caller's own correlation id if it sent one.  Not a rename: the
@@ -636,6 +743,13 @@ sabhaMain = do
   setLocaleEncoding utf8; setFileSystemEncoding utf8
   hSetEncoding stdin utf8; hSetEncoding stdout utf8; hSetEncoding stderr utf8
   hSetBuffering stdout LineBuffering
+  -- BEFORE ANY ANSWER.  Doṣa 0022: nothing in this lane had ever been watched
+  -- rejecting a tulyatā, so every saṃkramaṇa it had ever emitted rested on a
+  -- witness field that was checked for being non-empty and for nothing else.
+  -- The falsifier runs here, in the open, on stderr, once per process, and if
+  -- it misbehaves this process does not serve.
+  mapM_ (hPutStrLn stderr) saksiPariksaLines
+  saksiPariksaOrRefuse
   fp <- maybe "machine/sabha.jsonl" id <$> lookupEnv "SABHA_LEKHA"
   args <- getArgs
   if "--selftest" `elem` args then selftest fp else do
@@ -677,6 +791,8 @@ selftest fp = do
         , "{\"kriya\":\"sabha.sthiti\"}"
         , "not json at all"
         ]
+  mapM_ putStrLn saksiPariksaLines
+  saksiPariksaOrRefuse
   ref <- newIORef (0 :: Int)
   let step s line = do
         (s', u) <- answer s line
@@ -707,6 +823,16 @@ selftest fp = do
           Samkramana _ t carried cost _
             | null carried || null cost || null (tuWitness t) ->
                 modifyIORef ref (+1) >> putStrLn "  !! a transport with nothing carried, no witness, or no vyaya stated"
+          -- A COMPUTED witness that got out here with two unequal sides
+          -- would mean the constructor's own check did not fire, which is
+          -- the state the falsifier above exists to rule out.  Belt as well
+          -- as braces: the falsifier says the check works, this says it
+          -- worked on THIS session's answers.
+          Samkramana _ (Tulyata _ _ _ (Ganita w l r)) _ _ _
+            | l /= r ->
+                modifyIORef ref (+1) >>
+                putStrLn ("  !! a transport went out along an identity that does not hold: "
+                          ++ w ++ " (" ++ show l ++ " ≠ " ++ show r ++ ")")
           Dosalekha _ hetu lost _ _
             | null hetu || null lost ->
                 modifyIORef ref (+1) >> putStrLn "  !! a defect entry naming no loss"

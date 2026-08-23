@@ -114,6 +114,27 @@
 -- the search stops there (`baseClauseFailed`); a false equation therefore
 -- costs 2 calls, not `kMaxAgdaCalls`.
 --
+-- A candidate whose proof note names NO induction variable used to cost 1
+-- call and be rejected, always — the emitter emitted no induction module for
+-- it at all.  That is the traffic the engine's residual seam carries, since a
+-- subgoal harvested from the kernel's own stall arrives unannotated.  Such a
+-- candidate now gets the same shape menu once per variable, bounded by
+-- `kMaxAgdaCallsUnannotated`, and the annotated case is unchanged in reach,
+-- in shape and in budget.  Measured on `machine/library.snapshot.txt` with
+-- every note stripped — which is exactly the shape a residual arrives in —
+-- by `machine/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
+-- on 2026-08-20:
+--
+--     note-less, before:  5/28 certified, 28 agda calls   (derived, exactly:
+--                         only the `refl` lines could close)
+--     note-less, after : 15/28 certified, 144 agda calls  (measured)
+--     annotated, after : 15/28 certified, 123 agda calls  (measured,
+--                        byte-identical to the run before the change)
+--
+-- So the annotation is no longer load-bearing for REACH; it is worth 21 agda
+-- calls over the snapshot, and the whole of the difference is search the note
+-- would have skipped.
+--
 -- THE CERTIFICATE CACHE (added 2026-08-16)
 --
 -- The gate's wall clock is one agda process per emitted module, ~1-3 s
@@ -232,7 +253,9 @@ module Certificate
   , stepShapes
     -- * policy
   , kMaxAgdaCalls
+  , kMaxAgdaCallsUnannotated
   , kMaxCongArguments
+  , kMaxInductionVariables
   , kAgdaLibrary
   , kIncludeRoot
   , agdaArgs
@@ -241,6 +264,9 @@ module Certificate
   , certify
   , certifyWith
   , runAgda
+  , runAgdaUnwatched
+  , vetSuccess
+  , vetForeignRun
   , main
     -- * the two controls (a kernel that accepts a falsehood is not a kernel)
   , kernelIsChecking
@@ -697,9 +723,27 @@ kMaxCongArguments :: Int
 kMaxCongArguments = 2
 
 -- The invocation budget per candidate, stated once and derived, not
--- guessed: one refl module plus one module per step shape.
+-- guessed: one refl module plus one module per step shape.  This is the
+-- budget for an ANNOTATED candidate — one whose proof note names the
+-- induction variable — and it is unchanged by the fallback below.
 kMaxAgdaCalls :: Int
 kMaxAgdaCalls = 1 + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
+
+-- How many variables get tried when the caller's proof note names none.
+-- `equationVars` returns at most the six universe variables, so this is a
+-- cap and not a formality; three covers every equation MathMachine has ever
+-- written, and the demands in machine/SesaPariksa_...hs certify on the
+-- FIRST variable in all three cases that certify.
+kMaxInductionVariables :: Int
+kMaxInductionVariables = 3
+
+-- The budget for a candidate whose note names no variable, derived rather
+-- than guessed: the shared refl module, then the step menu once per
+-- variable tried.  A false equation costs far less than this in practice —
+-- the base clause fails and `blamedLine` stops each variable's search at 2
+-- calls — but the bound is what is guaranteed and it is what is stated.
+kMaxAgdaCallsUnannotated :: Int
+kMaxAgdaCallsUnannotated = 1 + kMaxInductionVariables * (kMaxAgdaCalls - 1)
 
 -- The cubical library, by name as registered in ~/.agda/libraries.
 -- Without this the engine's invocation cannot resolve Cubical.* at all;
@@ -740,8 +784,40 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 --   hGetContents: invalid argument (cannot decode byte sequence ...)
 -- which is fault (2) again, on the way back.  This is idempotent global
 -- state and is set on every call so the seam cannot forget it.
+--
+-- THE SEAM, CLOSED 2026-08-20.  Until today this function returned the
+-- child's exit status untouched, and `vetSuccess` — the falsifier watch of
+-- 2026-08-16 — was reached from exactly ONE caller, `runAgdaCached`.  So the
+-- repair lived in a wrapper and the seam itself was open: `ClauseOrder`
+-- calls `runAgda` directly, and under `agda "$@" 2>&1 | cat`
+-- `ClauseOrder.certifyUnder` returned `Accepted "refl"` for `s(x) ≡ x`, in
+-- ONE call, from a real agda that had just printed `1 != 0` (measured, this
+-- container, Agda 2.8.0, `MATH_CERTCACHE=0`).
+--
+-- A repair that has to be remembered at each call site is not a repair; it
+-- is a note.  So the WATCH IS NOW THE DEFAULT and the unwatched launch has
+-- to be asked for by name (`runAgdaUnwatched`), which is the only ordering
+-- under which forgetting is safe.  The two callers that must stay unwatched
+-- are the controls themselves — `kernelStatus`, which would otherwise
+-- recurse — and `GateAudit`'s PROBE-RAW, whose whole purpose is to print
+-- what the child returned before anyone judged it.
+--
+-- The cost is one memoised `kernelStatus` per process (two agda runs), paid
+-- on the first SUCCESS only; a run in which nothing checks pays nothing,
+-- because a non-zero exit is passed straight through.
 runAgda :: FilePath -> String -> IO (ExitCode, String)
 runAgda root source = do
+  (code, out) <- runAgdaUnwatched root source
+  case code of
+    ExitSuccess -> vetSuccess root out
+    _ -> pure (code, out)
+
+-- The raw launch: the child's own exit status, unexamined.  Everything the
+-- old `runAgda` was, under the name that says so.  A zero from here is a
+-- number a process returned and is not evidence about mathematics — see
+-- `vetSuccess`, and `notes/AHIMSA_SUTRA_VISTARA.md` §19.
+runAgdaUnwatched :: FilePath -> String -> IO (ExitCode, String)
+runAgdaUnwatched root source = do
   micros <- agdaTimeoutMicros
   r <- try (timeout micros (runAgdaRaw root source))
          :: IO (Either SomeException (Maybe (ExitCode, String)))
@@ -934,14 +1010,14 @@ kernelStatus root = do
   case cached of
     Just s -> pure s
     Nothing -> do
-      (posCode, posOut) <- runAgda root canaryTrue
+      (posCode, posOut) <- runAgdaUnwatched root canaryTrue
       let positiveHolds =
             posCode == ExitSuccess && not (successHidesAnError posOut)
       status <-
         if not positiveHolds
           then pure (KernelPositiveControlFailed posOut)
           else do
-            (negCode, negOut) <- runAgda root canaryFalse
+            (negCode, negOut) <- runAgdaUnwatched root canaryFalse
             -- A nonzero exit is not by itself a rejection: a vanished include
             -- root produces one too.  `cacheableFailure` is exactly the
             -- predicate "agda located a genuine TYPE error inside the module
@@ -1299,6 +1375,25 @@ vetSuccess root out
               ++ "and was not watched accepting one; no acceptance is honoured\n"
               ++ "on that evidence.  agda's words:\n" ++ negOut )
 
+-- The same watch, for a caller that launched agda ITSELF.
+--
+-- Eight modules under `machine/` do not call `runAgda` at all: they build
+-- their own `CreateProcess` and read the exit status, having copied the
+-- LOCALE discipline out of `runAgdaRaw` and left the fitness behind.  Closing
+-- the seam at `runAgda` does nothing for them, because they never cross it.
+-- This is the one line each of them needs, and it takes what they already
+-- have in hand — the code and the captured output — rather than asking them
+-- to re-plumb their invocation through this module's temp-directory and
+-- argument conventions, which are not theirs.
+--
+-- A non-zero exit is returned untouched: a refusal needs no watch, because
+-- the failure mode being guarded against is a FALSE ACCEPTANCE.  Only a zero
+-- is asked to earn itself.
+vetForeignRun :: FilePath -> ExitCode -> String -> IO (ExitCode, String)
+vetForeignRun root code out = case code of
+  ExitSuccess -> vetSuccess root out
+  _ -> pure (code, out)
+
 -- The cached invocation.  The third component is the number of agda
 -- PROCESSES actually launched: 0 on a hit, 1 on a miss.  Everything that
 -- reports an invocation count counts this, so a cache hit can never be
@@ -1309,7 +1404,7 @@ runAgdaCached root source = do
   on <- cacheEnabled
   if not on
     then do
-      (code, out) <- runAgda root source
+      (code, out) <- runAgdaUnwatched root source
       case code of
         ExitSuccess -> do
           (code', out') <- vetSuccess root out
@@ -1331,7 +1426,7 @@ runAgdaCached root source = do
           if seen
             then pure (ExitSuccess, out, 0)
             else do
-              (code, out') <- runAgda root source
+              (code, out') <- runAgdaUnwatched root source
               case code of
                 ExitSuccess -> do
                   (code', out'') <- vetSuccess root out'
@@ -1342,7 +1437,7 @@ runAgdaCached root source = do
                   dropEntry root key
                   pure (code, out', 1)
         Nothing -> do
-          (code, out) <- runAgda root source
+          (code, out) <- runAgdaUnwatched root source
           case code of
             ExitSuccess -> do
               (code', out') <- vetSuccess root out
@@ -1456,15 +1551,67 @@ certifyWith defs root (eq, proofNote) =
         ExitFailure _ | environmentFault out ->
           pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
-          case inductionVariable proofNote of
-            Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
-            Just v -> do
-              let ks = take kMaxCongArguments
-                         (mapMaybe agdaVar (equationVars eq))
-              case inductionHypothesis eq v of
-                Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
-                Just ih -> tryShapes v (stepShapes ih ks) n0 (firstErrorLine out)
+          tryVariables (inductionCandidates proofNote eq) n0 (firstErrorLine out)
   where
+    -- WHEN THE CALLER NAMES NO VARIABLE, CHOOSE ONE (2026-08-20).
+    --
+    -- `inductionVariable` reads the induction variable off the caller's proof
+    -- note.  The engine annotates its OWN proofs, so a theorem it derived
+    -- arrives with "[induction on x]" and gets the eleven step shapes.  A
+    -- RESIDUAL — a subgoal harvested from the kernel's own stall and asked
+    -- back — has no such note, and the `Nothing` branch that used to stand
+    -- here refused it after ONE agda call, having emitted no induction module
+    -- at all.  `MathMachine.koNaya` already records the consequence: the naya
+    -- attempted is `NRefl` exactly when the note named no variable, and over
+    -- the committed log 541 of 1457 refusals are refusals of claims the same
+    -- log accepts elsewhere.
+    --
+    -- Measured on the six lemmas the kernel demanded and no composition law
+    -- reaches (machine/SesaPariksa_...hs, and §9 of
+    -- notes/SamasaBhavana_...md for where the six come from): asking each
+    -- variable in turn moves THREE of the six from open to certified with the
+    -- shape menu completely unchanged —
+    --
+    --     x = x + (0 * x)                  induction on x, step = cong suc
+    --     max(0,x) + 0 = max(0 + 0, x + 0) induction on x, step = refl
+    --     0 = le(s(s(s(x))), x)            induction on x, step = ih
+    --
+    -- the first of which is the flagship residual this engine circled for 239
+    -- rounds.  None of the three needed a new shape; they needed to be asked.
+    --
+    -- THIS IS NOT THE PROOF SEARCH §3a OF CERTIFICATE_REACH.md REFUSES.  That
+    -- refusal is about searching over COMPOSITIONS of proof shapes, where the
+    -- space is unbounded and the search is a prover in another process.  This
+    -- searches over the ≤ 6 VARIABLES OF THE EQUATION with the shape menu
+    -- fixed, and the bound is stated below and derived rather than guessed.
+    --
+    -- An ANNOTATED candidate is unaffected in every respect, including its
+    -- budget: the note names one variable and one variable is tried, exactly
+    -- as before.  Only the note-less case changes, and it changes from
+    -- "1 call, always rejected" to "at most kMaxAgdaCallsUnannotated calls,
+    -- sometimes certified".
+    inductionCandidates :: String -> Equation -> [Int]
+    inductionCandidates note e = case inductionVariable note of
+      Just v  -> [v]
+      Nothing -> take kMaxInductionVariables (equationVars e)
+
+    tryVariables [] used lastErr = pure (Rejected (cachedError used lastErr) used)
+    tryVariables (v : vs) used lastErr =
+      let ks = take kMaxCongArguments (mapMaybe agdaVar (equationVars eq))
+      in case inductionHypothesis eq v of
+           Nothing -> pure (Rejected (cachedError used lastErr) used)
+           Just ih -> do
+             res <- tryShapes v (stepShapes ih ks) used lastErr
+             case res of
+               Certified{} -> pure res
+               Untranslatable{} -> pure res
+               -- An environment fault says nothing about this equation, and
+               -- the next variable would hit the same fault; fail closed
+               -- rather than spend the rest of the budget on it.
+               Rejected err n
+                 | null vs || kEnvironmentFault `isInfixOf` err -> pure res
+                 | otherwise -> tryVariables vs n err
+
     tryShapes _ [] used lastErr = pure (Rejected (cachedError used lastErr) used)
     tryShapes v ((label, step) : more) used _lastErr =
       case agdaInductionCertificate defs eq v step of

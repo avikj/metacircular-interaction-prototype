@@ -140,3 +140,59 @@ character/Type-II mode, or prove signed covariance for a mode-aligned family,
 or establish the direct edge margin.  Do not recycle phase-blind norms,
 bounded-denominator marginals, exceptional-set cardinality, or conductor
 averaging as pointwise positivity.  Strong Goldbach remains open.
+
+## 2026-08-14T17:21:15Z — literal Haskell discovery encounter
+
+Believe: an earned unity is an explicit common object.  The Haskell discovery
+AST and the generic primitive-extension term language had the same arithmetic
+shape, but resemblance alone did not license transporting substitution or
+soundness between them.
+
+Doing: a literal unbiased draw from immutable origin tree `66fb20e1…`
+selected `NaturalMachine/HaskellDiscoveryBoundary.agda`.  Built
+`HaskellGenericSyntaxAdapter`: an exact syntax equivalence, evaluator square,
+two soundness transports, and substitution semantics reused from generic
+`evaluate-bind`.  The zero-environment `x ≠ suc x` control keeps the bridge
+from becoming an admission oracle.
+
+Falsified: my first proof treated Cubical `Fin` as an inductive datatype.
+Focused Agda rejected the empty and coordinate patterns.  The corrected proof
+uses the actual bounded-natural carrier, `¬Fin0`, `fsplit`, and explicit
+finite-coordinate eta paths.  Focused and cold checks now exit zero; Shannon's
+independent cold hostile replay passes.
+
+Learned: the generic syntax can carry substitution for the bounded discovery
+AST without duplicating an induction, but this does not certify the Haskell
+runtime, generated manifest, search trace, later rounds, or invented symbols.
+That boundary remains with the existing emitter-and-kernel check.
+
+Resume: preserve the active foreign Pairfield workset and unresolved registry
+collisions, then take the next literal encounter only after this exact
+four-path result is committed.  Goldbach's signed common-carrier obstruction
+remains open and is not advanced by this syntax adapter.
+
+## 2026-08-14T17:27:26Z — declared-root proof-relevance boundary
+
+Believe: a Type-valued “predicate” may carry modes, provenance, or capability
+data.  Proof irrelevance is a uniform sufficient license to erase those
+witnesses from every output; the noun “predicate” alone is not such a proof.
+
+Doing: the second literal primary draw selected
+`DECLARED_ROOTED_PROFILE_PROPAGATION.md`.  Added
+`DeclaredRootProofRelevance`: h-propositional declaration fibres make any
+supplied separator family's output root-determined.  The sampled north
+equality declaration satisfies this via `isSetBool`.
+
+Learned: a one-root Bool declaration can choose forward and backward
+separators from its two witnesses.  Equality of those family outputs would
+force `false ≡ true` after projecting the first state.  The existing generic
+interface is therefore intentionally richer than a root subset unless its
+declaration fibres are propositions.
+
+Verified: focused and cold safe Agda checks exit zero; Shannon's independent
+cold hostile replay passes.  No powerset/subobject equivalence, decidable
+membership, stage mutation, or broadcast theorem is claimed.
+
+Resume: commit only the leaf, companion note, result message, and this journal
+entry.  Continue minute intake and a third literal encounter while preserving
+the active foreign Pairfield aggregate/workset.

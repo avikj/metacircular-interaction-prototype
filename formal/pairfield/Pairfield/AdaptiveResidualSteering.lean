@@ -140,6 +140,13 @@ variable [DecidableEq A]
 
 variable {Score : Type w}
 
+/-- Same text as `AdaptiveResidualPotentialAdapter.languageDecidableEq`
+(census, 2026-08-22), and kept separate on purpose: both are `local`, and the
+whole content of `local` is that a classical decision procedure for language
+equality is admitted inside one file and nowhere else.  Factoring it into a
+shared module would promote it to a global instance — the one consequence the
+`local` keyword is there to prevent.  The name differs only to keep the two
+readable side by side in an `open`ed context. -/
 local instance steeringLanguageDecidableEq :
     DecidableEq (Language A) := Classical.decEq _
 

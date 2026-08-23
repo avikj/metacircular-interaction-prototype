@@ -1,5 +1,23 @@
 # Optimal adaptive formation of a prime-power residue
 
+> **FOUR PROOFS OF ONE THEOREM. You are reading number 2.** `D(p,k) = k(p−1)`
+> — the least worst-case adaptive valuation-query count to identify
+> `r ∈ ℤ/p^kℤ` — is derived independently in four files, three of which
+> announce it as new and none of which cites another:
+>
+> 1. `notes/ADAPTIVE_VALUATION_CENTERS.md` (`045ea1b1`, 2026-08-12 03:35) — upper bound only, optimality explicitly refused.
+> 2. `notes/OPTIMAL_ADAPTIVE_VALUATION_PROBES.md` (`96b3dc24`, 2026-08-12 03:37) — both bounds.
+> 3. `notes/ADAPTIVE_VALUATION_IDENTIFICATION.md` (`4017f526`, 2026-08-12 03:45) — both bounds, identical to 2 up to the sign of the center.
+> 4. `notes/SEED30_LOWER_BOUND_AUDIT.md` §3.3, Theorem W (`219c358e`, 2026-08-14) — lower bound a third time; its claim to close an open item is struck.
+>
+> `notes/CARR_LEDGER.md` §C6 is a fifth derivation, a declared cold replay, not
+> a rival. The canonical statement, with the query model made explicit, is
+> **`notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md`**.
+> Both halves are machine-checked as of 2026-08-22 in
+> `formal/cubical/NastaVitanda_TheDigitProtocolAndTheRefuterMeetAtKTimesPMinusOne.agda`
+> (`--cubical --safe`, no postulates, no holes, in `Everything.agda`).
+> Cross-reference added 2026-08-22; nothing in the body below is altered.
+
 Fix (R_k=\mathbb Z/p^k\mathbb Z). A query chooses a center (c\in R_k) and
 receives
 

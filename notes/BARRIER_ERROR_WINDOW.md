@@ -127,6 +127,24 @@ convergent.
 > $D_a(0)\ne0$ for every member of the residue-dressing family and
 > $\mathcal Z_{k-1}\not\equiv0$.
 
+> **STRUCK 2026-08-22 — the $d$ row of this theorem is WRONG, and the
+> correction has been sitting in this file's own ledger row V7, ~110 lines
+> below, without ever reaching the statement.**
+> `BARRIER_SMOOTH_TERM.md` §5.3: $D_d=\zeta^2$ has **double zeros** at $\rho$,
+> hence no poles there, hence $v^{(d)}_\rho=0$ and $\mathcal Z_q\equiv0$ for
+> every $q\ge1$. So for $a=d$, $k\ge2$ the leading term
+> $k\,D_a(0)\,e^{-u/2}\mathcal Z_{k-1}$ **vanishes identically**, the first
+> surviving term of $E$ sits at level $-k$, and $\alpha=k/2$ — not
+> $\tfrac12$. The claim above that "$\alpha=\tfrac12$ is exact ... for every
+> member of the residue-dressing family" is false at $d$.
+>
+> **What survives, and it is most of it:** $\alpha=\tfrac12$ holds for
+> $a\in\{\Lambda,\mu,\lambda\}$ and for $k=1$ at $d$ (where
+> $\mathcal Z_0=1/j!\ne0$). `METHOD.md` §3 item 6 recommends **striking $d$
+> from the scope of B1/B1′/B1″/U1 rather than repairing it** — the $d$ case
+> needs the functional equation, not a contour shift. That recommendation is
+> unexecuted.
+
 *Proof.* Bookkeeping of the residues listed above, with the exponent of $X$
 read off Lemma 4's factor $X^{\sum_i s_i+j}$.
 
@@ -162,10 +180,31 @@ the hypothesis $(\star)$ recorded in the ledger. $\square$
 | $\lambda$ | $\zeta(2s)/\zeta(s)$ | $\zeta(0)/\zeta(0)$ | $1$ |
 | $d$ | $\zeta(s)^2$ | $\zeta(0)^2$ | $1/4$ |
 
-(Using $\zeta(0)=-\tfrac12$, $\zeta'(0)=-\tfrac12\log2\pi$. All four are
+(Using $\zeta(0)=-\tfrac12$, $\zeta'(0)=-\tfrac12\log2\pi$. ~~All four are
 nonzero, so $\alpha=\tfrac12$ holds across the whole family of `FAMILY.md`
 §2 — the exponent is a property of the archimedean factor $\Gamma(s)$, not of
-the arithmetic.)
+the arithmetic.~~)
+
+> **STRUCK 2026-08-22 — the $d$ row of this table is wrong, and the
+> retraction was recorded in this file's own ledger row V7 and in
+> `METHOD.md` §3 item 6 on 2026-08-20 without ever being carried to the
+> theorem statement it refutes.** The struck sentence is left standing.
+>
+> $D_a(0)\ne0$ is necessary but not sufficient. U1's leading term is
+> $k\,D_a(0)e^{-u/2}\mathcal Z_{k-1}(u)$, and it also needs
+> $\mathcal Z_{k-1}\not\equiv0$ — which is clause (iii) of the theorem's own
+> non-degeneracy step. For $a=d$ the residue weight is $v^{(d)}_\rho\equiv0$
+> ($\zeta(s)^2$ has *double* zeros, so the residues vanish — the same fact
+> `METHOD.md` §2 cites to retire exp25), hence $\mathcal Z_q\equiv0$ for every
+> $q\ge1$ and the leading term vanishes identically for $k\ge2$.
+> `BARRIER_SMOOTH_TERM.md` §5.3 works this out.
+>
+> **So: $\alpha=\tfrac12$ is exact for $a\in\{\Lambda,\mu,\lambda\}$ and
+> FAILS for $a=d$, $k\ge2$**, where the true $E$ is smaller and its exponent
+> is set by whatever survives at the next level down — not computed here. The
+> recommendation of `METHOD.md` item 6 stands: strike $d$ from the scope of
+> B1/B1′/B1″/U1 rather than repair it, since the $d$ case needs the
+> functional equation and not a contour shift.
 
 **This is not a new layer.** `FAMILY.md`'s exp18 correction already found it
 at $k=2$ — *"the pole/zero layer algebra misses the $s=0$ layer — $M(v)$'s
@@ -348,10 +387,35 @@ computed nonzero coefficient.
 *Proof.* First bullet: `BARRIER_UNIFORM.md` §3 verbatim. Second: Theorems U1
 and U2. $\square$
 
+> **MARKED 2026-08-22 — B1″ HAS NO SINGLE-ENDPOINT UNIFORM CLOSURE, and the
+> statement above does not say so.** Recorded in this file's ledger row V7 and
+> in `METHOD.md` §3 item 6 on 2026-08-20; never carried here. Nothing in the
+> theorem is erased, because the two bullets are true as bounds on the two
+> terms they name.
+>
+> The defect is what the theorem *omits*. Its displayed identity has **three**
+> terms and it bounds **two**. `BARRIER_SMOOTH_TERM.md` shows the third,
+> $\langle w,\mathrm{Smooth}\rangle$, is anchored at the window's **top** $X$
+> — it contains the main term and a descending ladder graded by
+> $\nu=r(2\theta_a-1)-m$ — while $E$ is anchored at the window's **bottom**
+> $X_0$. **The two ends of the window are the wrong pair of variables for a
+> single uniform statement**, so "uniform over $\{(X_0,L):X_0\ge X_*\}$" does
+> not extend to $Q_w$; pushing $X_0$ out to shrink $E$ leaves $\mathrm{Smooth}$
+> untouched, and for $a=\Lambda$, $k\ge2$ that term exceeds the spectral
+> pairing by $X^{(k-1)/2}$.
+>
+> Consequence 1 below therefore overstates. Item 1 of `METHOD.md` §3 is **not**
+> closed on this axis: it is closed for the spectral pairing and for $E$, and
+> open for $\mathrm{Smooth}$. Also struck: the theorem's scope should exclude
+> $a=d$, per the U1 correction above.
+
 **Consequences, in order of how much they cost.**
 
-1. **Item 1 of `METHOD.md` §3 is now closed on this axis, and the cost is
-   one extra parameter, not a hypothesis.** The structure theorem holds
+1. ~~**Item 1 of `METHOD.md` §3 is now closed on this axis, and the cost is
+   one extra parameter, not a hypothesis.**~~ **[OVERSTATED — struck
+   2026-08-22, see the marking above: two of three terms are bounded, and the
+   third is anchored at the other endpoint. The rest of this item is correct
+   about what it does cover.]** The structure theorem holds
    uniformly in the span provided the window's *bottom* is pushed out.
    $L=\log(X/X_0)\le\log X$ always, so no span is excluded a priori; what is
    excluded is a window that reaches down to bounded scales.

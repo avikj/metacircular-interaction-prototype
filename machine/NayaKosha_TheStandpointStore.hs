@@ -190,11 +190,33 @@ data Entry = Entry
 
 -- | सत्य — inhabited or not.  `Nothing` is SILENCE, not denial: no
 --   witnesses and no fit looking gives no truth value.  This is widening 1.
+--
+--   KUMĀRILA'S CONDITION IS ON THE LOOKING, NOT ON WHAT THE LOOKING BROUGHT
+--   BACK.  Until doṣa 0021 this function read `entYogyata` only in the branch
+--   where the witness list was EMPTY, so the fitness guarded absence and never
+--   presence: an entry declaring `Ayogya "I did not look at all; these are
+--   invented"` but carrying witnesses returned `Just True` and went into `fit`
+--   unremarked.  Two entries with identical witnesses, one from an exhaustive
+--   search and one invented, came back Position B1Asti, MulaSama, with both
+--   loss lists empty and the sentence "IDENTIFIABLE, at every index this store
+--   holds" — the invented standpoint identified with the searched one at the
+--   strongest level available, and the string saying it was invented appearing
+--   nowhere in the answer.  The module's own widening 1 says each entry carries
+--   the fitness of the looking that produced its witnesses; it carried it and
+--   did not read it.
+--
+--   An unfit looking with witnesses is a genuine third case, and it is
+--   neither a Just True nor a Just False.  It is SILENCE, for the same
+--   reason the empty case is: यत्र दृश्येत तत्र न दृष्टम् — the pramāṇa is
+--   the fitness of the looking, and a looking declared unfit says nothing
+--   about the object whatever it came back holding.  So the entry lands in
+--   `nirShesha` with its stated reason, which is machinery this module had
+--   already built for the empty case and was applying to only half of it.
 satya :: Entry -> Maybe Bool
 satya e
+  | Ayogya _ <- entYogyata e  = Nothing
   | not (null (entWitness e)) = Just True
-  | Yogya _ <- entYogyata e   = Just False
-  | otherwise                 = Nothing
+  | otherwise                 = Just False
 
 -- | अर्थ — the content: the set of witness labels.  (D2: a set.)
 artha :: Entry -> [String]
@@ -345,9 +367,25 @@ decide saha es0
     -- carry id 0; comparing by entId there would silently report no loss
     -- at all, which is the one failure mode this module exists to prevent.
     ixfit = zip [(0::Int) ..] fit
-    shesha = [ (entName e, reasonOf (entYogyata e)) | e <- unfit ]
+    -- The residue now has two populations and they are not the same fact, so
+    -- the report says which.  An entry with no witnesses and no fit looking
+    -- brought nothing back.  An entry whose looking was declared UNFIT and
+    -- which nevertheless came back holding witnesses brought something back
+    -- and it is not read as truth -- the witnesses are held, named here in
+    -- full rather than counted away, and available to whoever refits the
+    -- looking.  Silently treating them as truth is doṣa 0021.
+    shesha = [ (entName e, reasonOf (entYogyata e) ++ carriedNote e) | e <- unfit ]
     reasonOf (Ayogya r) = r
     reasonOf (Yogya  r) = r
+    carriedNote e
+      | null (entWitness e) = " -- and it came back empty"
+      | otherwise =
+          " -- AND IT CAME BACK HOLDING WITNESSES, which are kept and are NOT"
+          ++ " read as truth, because the fitness condition is on the LOOKING"
+          ++ " and not on what the looking returned (Kumarila, Slokavarttika,"
+          ++ " Abhavapariccheda): "
+          ++ intercalate "; " [ sakLabel w ++ " <" ++ sakSource w ++ ">"
+                              | w <- entWitness e ]
 
     truths   = nub (map satya fit)
     mixedTruth = length truths > 1

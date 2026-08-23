@@ -225,6 +225,19 @@ theorem formObservable_partition_discrete
 
 namespace Control
 
+/-! This control is the **same automaton** as
+`NativeWitnessGreedyFormation.Control.automaton`, and that is deliberate: the
+two modules run two different formation policies — greedy pruning of a planted
+duplicate there, demand-restricted scheduling here — and both arrive at
+`{[], [false]}`.  The comparison is only meaningful because the fixture is one
+fixture, so the sameness is *checked* below rather than left to the reader (or
+to a content-address census) to notice.
+
+The two texts are kept separate rather than merged.  A control that reaches
+into another module for its own subject is no longer a control, and this
+module has to be readable where it stands; what the identification buys is
+that the sameness cannot silently drift. -/
+
 def step (state : Fin 3) (_action : Bool) : Fin 3 :=
   if state = 1 then 2 else state
 
@@ -232,6 +245,16 @@ def automaton : DFA Bool (Fin 3) where
   step := step
   start := 0
   accept := { state | state = 2 }
+
+theorem step_eq_greedy_control_step :
+    step = NativeWitnessGreedyFormation.Control.step := rfl
+
+/-- The demand-restricted control and the greedy control are one automaton.
+Hence `forms_exact_two_word_observable` below and
+`NativeWitnessGreedyFormation.Control.duplicate_word_is_pruned` are two
+policies' verdicts on a single object, not a coincidence of two fixtures. -/
+theorem automaton_eq_greedy_control :
+    automaton = NativeWitnessGreedyFormation.Control.automaton := rfl
 
 instance : DecidablePred
     (fun state : Fin 3 => state ∈ automaton.accept) :=

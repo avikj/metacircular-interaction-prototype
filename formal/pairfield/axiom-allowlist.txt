@@ -1,7 +1,9 @@
 # Axiom-gate allowlist — Pairfield declarations permitted to rest on an axiom
 # outside {propext, Classical.choice, Quot.sound}.
 #
-# Read by `lake exe axiom_gate` (see AxiomGate.lean, notes/AXIOM_GATE.md).
+# Read by `lake exe yogyanupalabdhi` (see
+# YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean, formerly
+# AxiomGate.lean, and notes/AXIOM_GATE.md).
 # One fully-qualified declaration name per line; `#` starts a comment.
 #
 # RULE OF THIS FILE: every entry carries (a) the axiom it depends on, (b) the

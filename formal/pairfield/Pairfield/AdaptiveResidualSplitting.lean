@@ -90,6 +90,15 @@ theorem prefixResidualSafeAction_of_query_separates
 
 namespace AdaptiveResidualSplittingControl
 
+/-! `reach`, `merge`, `reveal` are action labels of *this* witness's alphabet.
+`AdaptiveConstantResponseSteering` names `reach`/`steer`/`reveal` with the same
+three texts (`: Fin 3 := 0/1/2`, census 2026-08-22) and they are **not** the
+same objects: there the actions drive a `DFA (Fin 3) (Fin 5)` in which `steer`
+separates a pair `reveal` cannot, here a `DFA (Fin 3) (Fin 3)` in which `merge`
+collapses one.  A label is an index into an alphabet, so identical text under
+two alphabets denotes two things; sharing them would assert an identification
+of the two experiments that nothing here proves. -/
+
 /-- Three native actions: reach the second hidden state, merge both hidden
 states, or reveal only the second hidden state. -/
 def reach : Fin 3 := 0
