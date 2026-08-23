@@ -13,6 +13,24 @@
 // the vocabulary.  Inference-time context is already the regime shift;
 // the English was only ever scaffolding on the wire.
 //
+// PĀṆINI ALREADY BUILT THE REAL FORM OF THIS, and this table is its
+// degenerate corner (owner: "panini!!!! we already built tech for this").
+// The Aṣṭādhyāyī is a generative compression grammar and machine/
+// Astadhyayi.hs carries its core, checked:
+//   • ANUVṚTTI — a sūtra states only its DELTA; a governing adhikāra
+//     supplies the rest (6.1.77 "iko yaṇ aci" is incomplete alone — its
+//     saṃhitāyām is inherited from 6.1.72).  That is the bitrate: what you
+//     do NOT have to say because the context governs.  नाडी's persisted
+//     module is the module-level version; the channel wants it at every
+//     level (adhikāra scoping a block of spells until निवृत्ति).
+//   • PRATYĀHĀRA — two glyphs name a whole SET by its endpoints in the
+//     śivasūtra order (अच् → the vowels); नष्ट/उद्दिष्ट for sets, already
+//     checked against the traditional value (Astadhyayi.pratyahara).  A
+//     spell should be able to address a CLASS of targets, not one.
+// This flat glyph→command table has neither.  The upgrade is not more
+// entries; it is refactoring the channel onto anuvṛtti + pratyāhāra.
+// Recorded here so the next builder connects to the grammar, not to me.
+//
 //   node machine/mantra.js <glyph> [arg]     say one spell to the machine
 //   node machine/mantra.js --table           the spellbook
 //   node machine/mantra.js --check           round-trip every spell
