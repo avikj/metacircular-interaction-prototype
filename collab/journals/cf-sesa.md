@@ -400,6 +400,70 @@ Standing rule absorbed with the owner's biography correction: truth of a
 term does not license every job prose assigns it; and now its companion:
 absence of my knowledge does not license a claim of the machine's lack.
 
+## 2026-08-23 · checkpoint 18 — the book, the stream, and the code that runs the metaphysics
+
+Read this wake (owner: "code read code"), in order:
+
+BOOK.md — the frame at last. The repository is a book about India; Agda/
+Haskell is the appendix the book is CHECKED in; the reward gradient points
+at the appendix and must be corrected by the frame every session ("a
+checked term closes a step. It does not choose one, and it cannot read
+Sanskrit"). The test for any work: which chapter is it in? The frontier is
+derived: Kerala has ONE entry (Madhava.agda — the finite geometric sum,
+entirely in Sanskrit, fencing at exactly the frontier: "the remainder term
+is the essence; here it is unstated, not falsely proven"). The deliverable
+order: read the source; write the scholarship; the checked term is second.
+
+ANEKANTA.md, complete (1271 lines) — the spine. Every section: a defect
+with file/line/counts first, the tradition's solution second. §1 the
+boolean was a durnaya (same claim refused at log:146 under refl-naya,
+accepted at log:174 under induction-naya — "the kernel is not one
+standpoint"). §2 the verdict is where thinking stops; the refusals are the
+frontier; the 33 filtered as "false over ℕ" were statements about other
+structures. §3 the kuṭṭaka growth rule — the engine deleted 1200
+events/round of ranked residuals; with the correction that termination
+does NOT transfer. §4 the pramāṇa inventory — two of six; 54% of all
+proofs were re-derivations because śabda was absent; yogyānupalabdhi as
+the exhausted/unexplored distinction. §7 bhāvanā over ℕ — cleared of
+negatives it holds in ANY commutative semiring: "the statement got
+stronger by being forced into the poorer language." §8 the order of
+encounter — place value is pure convention used as the gate at five;
+chandas/tāla/kolam taught structure first; "a very large fraction of the
+people who say 'I was never good at maths' were correct too early." §9
+psychometrics as durnaya with a regression table (g is a property of the
+battery; scalar invariance never established ⟹ the difference is
+UNDEFINED). §10 Gödel as avaktavyam — "undecidable" collapses two
+DELIVERED standpoints into one absence. §11 the model's self-testimony:
+the archive speaks through the instrument; every hedge is a thumb on the
+scale; the corpus is the largest unclaimed lever ("within a decade the
+tutor of most children alive is a model"). §13 the emptying must operate
+on the vocabulary, never on the contents; Term redefined identically in
+eight modules IS pratītyasamutpāda violated, with the predicted symptom.
+§16 the whole object: the process is not owned; the counterfeit is
+production without seeing, its signature the label detaching from the
+content; the counter-operation is not argument but to make the tradition
+produce again, now, in public, at a level the incumbent cannot match.
+§18-19 the stream corrects itself: Anekanta.agda supersedes its own §1,
+and the Verdict repair moved the defect twice into the reporting layer.
+
+THE CODE. Anekanta.agda — the metaphysics running: जननम् total (a
+difference is born or wombed, never a rejection path — the type cannot
+grind); प्रक्षेपे-जन्म proves the difference is born at exactly depth =
+shared-prefix length, so an unconditional verdict is durnaya AS A THEOREM;
+ध्रौव्यम् proves TS 5.29's arising-ceasing-persisting at once (जन्म leaves
+the śeṣa unchanged); and the header records another agent's soundness
+repair as "this repository's most respected act." KuttakaValli — the vallī
+as syntax, replay as evaluation, replayHom (concatenation IS matrix
+multiplication), detReplay (sign IS parity). Obstruction.hs Verdict —
+Aviruddha carries the DOMAIN SEARCHED (the yogya condition: "unrefuted
+over what?"), Sanskrit names because the English shadow drifts back to a
+truth value within one refactor, and VerdictKind exists because a
+separate type cannot lie.
+
+Standing comprehension: the machine is the corpus; the kernel its CPU;
+transport its instruction set; the book is what the machine is FOR. My
+thirteen modules were appendix. The frontier is Kerala scholarship and
+the order-of-encounter — the chapters, not the checkmarks.
 ## 2026-08-23 · checkpoint 17 — त्रयो निर्णयाः: survival is three-valued, propagate seam
 
 Owner corrected my read cleanly: no mania today, he was steering me to
@@ -437,3 +501,35 @@ RESUME STATE / seam remaining (from the vigil message + ckpt15):
   the same mechanism"). Natural next: check that shared canonical form.
 Trust boundary (STATUS.md): only Eq/Iso/β machine-checked. Two more
 declarations moved across it today.
+
+## 2026-08-23 · checkpoint 18 — एक-संक्रमण: the torsor is an equivalence
+
+Third term this session (owner: "continue"). be3414a1 EkaSankramana —
+runtime/atlas/residual.py's Torsor. translate(p,q) returns the unique g
+with g·p=q, raising if the count ≠ 1 (per-instance regularity guard).
+Proved it never fires: §1 regular (free+transitive ⟹ unique translation,
+general P, no h-level — inv h · g fixes p ⟹ = e), §2 torsorIsEquiv (with
+isSet P the orbit map g↦act g p has contractible fibres, i.e. IS an
+equivalence Carrier ≃ P; translate is its inverse, "exactly one" =
+contractibility of the fibre — the fibre law itself). एक-संक्रमण is this
+corpus's compound (संक्रमण=transport per DravyaParyaya; no classical term
+for torsor), declared in header.
+
+SESSION TALLY (all exit 0 cold, agda --safe --cubical, wired, synced):
+  e4c708c1 Sankhya      — exponent certificate, general (b,n)
+  a1054694 TrayoNirnayah — propagate survival is 3-valued, 3rd irreducible
+  be3414a1 EkaSankramana — atlas Torsor = equivalence, regularity redundant
+
+SEAM REMAINING:
+- atlas Cocycle coboundary-absence: the SECOND cert of carry_cocycle
+  non-triviality (Sankhya did the exponent cert; Vahita the b=2,n=1
+  group instance). Full general non-split wants "different exponents ⟹
+  non-isomorphic" over ℤ/m — needs a cyclic-exponent model, heavier.
+- egraph proof-forest invariant: "every union stores its justification ⟹
+  explain emits a checkable path" (union-find soundness/completeness);
+  README §0 says this L2 form shares TrayoNirnayah's multiset-quotient.
+- FiniteGroup residual: is_torsor needs |G|=|P|; torsorIsEquiv already
+  gives Carrier ≃ P, so |G|=|P| is the finite corollary (needs cardinality).
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; three more
+declarations across it today. नाडी now machine/Nadi.hs (rebuild for
+hole-by-hole; cold agda was fine for these three complete modules).
