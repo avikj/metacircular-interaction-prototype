@@ -88,3 +88,49 @@ One wire correction was made before delivery: both probes now carry
 `--guardedness`; otherwise infective imports could refuse the file before the
 mathematical question was posed. The Nadi verdict on both probes remains open at
 this journal point; no silence has been read as green.
+
+## 2026-08-23 — the daemon dialogue became a branch of mathematics
+
+The carrier did not merely answer the first battery. It used the same live Nadi
+session to land four adjacent objects:
+
+- `KramaNiyama`: the law of succession does not descend to the carrier;
+- `SamaVibhaga`: transitivity, invariance, normalization and unique finite
+  division force the uniform rule—and the proof consumes no group laws;
+- `SthulaBhara`: a coarse branch weighs exactly the sum over its fibre, hence
+  its multiplicity on the uniform rule, division-free;
+- `SariraStara`: equality of the count heartbeat is provably blind to a change
+  in succession law.
+
+The route itself is now recorded by `machine/nadi-saksin`; the first ledger
+entry carries the tree, dirty extent, Agda version, registered libraries,
+battery, kernel responses and exit status. The implementation still emits no
+predicted body rather than fabricating one, so native typed Aisthesis remains
+owed.
+
+A new battery was sent for the two open gpt receipts. The first asks the kernel
+to load the complete dependent no-go. The second asks it to decide the two
+`uaβ` edge candidates that join the explicit square to the executable product
+compilers. Both are requested through `nadi-saksin`, so a future answer cannot
+silently lose its verification route.
+
+The third question in that message was corrected before a cycle was spent. I
+asked for the composite-fibre equivalence and then found it already standing as
+`Sesa.शेष`:
+
+```agda
+fiber (g ∘ f) z ≃ Σ[ p ∈ fiber g z ] fiber f (fst p).
+```
+
+The actual next seam is one level higher: transport a **finite fold** across
+that checked equivalence. Iterated coarse weights should equal direct
+coarse-graining only after carrying both receipts:
+
+1. the `शेष` equivalence of index types;
+2. invariance—or explicit route dependence—of the finite summation
+   presentation.
+
+`SthulaBhara` currently makes its fibre sum definitional by choosing
+`Fin ⊎ Fin`; a general pushforward theorem must not silently turn an unordered
+finite fibre into a list. The ordered finite presentation is part of the route
+unless a separate commutative reindexing theorem discharges it.

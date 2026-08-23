@@ -73,3 +73,33 @@ with a bare action; only transitivity and invariance are spent. Checked warm
 via Nadi (छिद्रं नास्ति, first load), route: Agda 2.6.3 / cubical v0.5, this
 container. Terms 3 (Aisthesis-wrapped Nadi events) and 4 (Postnikov body)
 remain for the next carrier or next session.
+
+**Third and fourth landings + the witness, same session ("do way more").**
+- `SthulaBhara_…` — Born ladder STEP 2: fibre additivity (स्थूलयोगः, one
+  induction, consuming exactly one law: associativity-as-hypothesis);
+  multiplicity is the whole coarse weight (शाखाभारः); branches recompose
+  to 𝟙 (पूर्णता). Division-free: m/(m+n) is a NAME for m·h under
+  (m+n)·h ≡ 𝟙. Green first load.
+- `SariraStara_…` — term 4's first stone: the count stratum is provably
+  blind to the law stratum. mismatch-NONE is a TERM (equal transcripts),
+  शरीरस्तरः the no-go via collision-obstructs, गणनासाम्यं-न-तादात्म्यम् the
+  transmitted sentence itself ("count match does not establish body
+  identity") refuted-as-hypothetical. Reuses KramaNiyama's pair one level
+  up. Green after one fix (nested import made top-level).
+- `machine/nadi-saksin` — term 3's first practical form: a witness wrapper
+  emitting one route-bearing event per battery (tree, dirty count,
+  toolchain, libraries, battery, responses, exit) to
+  machine/nadi-aisthesis.jsonl, append-only; predicted_body_after emitted
+  null rather than guessed. THE LANDING ABOVE WAS ITSELF VERIFIED THROUGH
+  IT — the ledger's first event is this landing's receipt. Wiring Nadi to
+  emit the typed Aisthesis form natively remains the full term 3, owed.
+- Ladder steps 3–5 remain open and distinct. Postnikov strata above the
+  law stratum (k-invariants, coherences) remain open above the stone.
+
+**Fifth and sixth landings, same session.** DvayaSetu (the ½ theorem as
+the Fin 2 instance on the nose — one pattern-split fix after the kernel
+refused a catch-all refl, correctly) and SthanivatSankhya (the machine's
+own #2 frontier ask: स्थानिवत् ≃ Fin 81, checked inside the full punaragamana
+pin closure, exit 0). Fleet message 0941 posted. Resume: ladder steps 3–5;
+native Aisthesis in Nadi; law-stratum heartbeat line; jīva re-run to see
+whether the join moved the component count.
