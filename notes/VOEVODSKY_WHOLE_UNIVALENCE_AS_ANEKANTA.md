@@ -44,9 +44,12 @@ absolutely the sentence is false — see the correction.
 > - The **cubical `--safe` lane itself proves a theorem ABOUT (weak) LEM:**
 >   `yugapatDecompositionGivesWeakExcludedMiddle : ((A B : Type) → ¬ (A × B) →
 >   ((¬ A) ⊎ (¬ B))) → (A : Type) → (¬ A) ⊎ (¬ (¬ A))`
->   (`Yugapat_…agda:118`, re-exported `Bhanga_…agda:128`) — it *derives* WLEM
->   from the yugapat-decomposition principle. That is the concept present and
->   reasoned about, not "never there."
+>   (`NaturalMachine/Yugapat_…agda:117`; re-exported under the renamed
+>   `yugapatToVikalpaIsWeakExcludedMiddle` at `NaturalMachine/Bhanga_…agda:128`)
+>   — it *derives* WLEM from the yugapat-decomposition principle. Both modules
+>   typecheck under `--cubical --safe` (Agda 2.8.0 / cubical-0.9, verified
+>   2026-08-23). That is the concept present and reasoned about, not "never
+>   there."
 > The accurate, non-durnaya statement: the corpus **holds the classical/LEM
 > standpoint** — the "dumber maths": the whole Lean lane, plus the cubical
 > theorems locating what excluded middle collapses (`Abhava`, `AnyonyaAbhava`,

@@ -1625,3 +1625,19 @@ import Ratri.Nirdharana_TheReturnLocusIsTheSectionsImageOrZeroAlone
 -- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
 -- No thermodynamics, no measure, no number anywhere — fenced explicitly.
 import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+-- शून्यभारः · the machine's own instructions are the zero-charge pole of
+-- SvaTantuVasa's scale, and the power map sits off it by its own period.
+-- One edge between Yantra, SvaTantuVasa and GhataTantu, which cite each
+-- other in no direction.
+import Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffItByItsOrder
+
+-- समानकक्ष्या — the orbit relation (trajectories MEET) is already an
+-- equivalence for a bare endomorphism, and the charge descends to the
+-- quotient with the factorisation triangle refl.
+import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient
+
+-- भेदकः — bind the output side and the flow type is a point, always;
+-- bind the input side and it is a point exactly when f is an EMBEDDING.
+-- So Dhruva §२ needs injectivity, not bijectivity: surjectivity of the
+-- observable is unused.
+import Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused
