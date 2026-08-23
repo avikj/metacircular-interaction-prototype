@@ -266,3 +266,55 @@ open import Cubical.Foundations.Equiv using (isEquiv ; invEq ; retEq)
 समतायाः : {A B : Type ℓ} {f : A → B} {Φ : A → A}
         → isEquiv f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
 समतायाः {f = f} e = अधःस्थे-संरक्षणं-निष्क्रियम् (समता-अधःस्थम् f e)
+
+------------------------------------------------------------------------
+-- ९ · THE ORBIT COLLAPSES AT THE BOTTOM TOO — the fifth site.
+--
+--   `Kaksya_….नष्टाभावे-कक्ष्या-एकपदा : isEquiv f → संरक्षणम् f Φ →
+--    (n : ℕ) (a : A) → कक्ष्या f Φ n a ≡ a`
+--
+--   — the whole orbit collapses to its basepoint — is proved by calling
+--   `Dhruva.नष्ट-अभावे-गति-अभावः` once per step, so it inherits §५'s
+--   hypothesis immediately: bottom-ness suffices, and the induction is the
+--   seed again, `cong Φ (IH) ∙ (one step)`.
+--
+--   The iterate is defined here rather than imported, because that module
+--   carries it inside a parametrised block; it is the same function and
+--   the duplication is named, not hidden.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+
+पुनरावृत्तिः : {A : Type ℓ} → (A → A) → ℕ → A → A
+पुनरावृत्तिः Φ zero    a = a
+पुनरावृत्तिः Φ (suc n) a = Φ (पुनरावृत्तिः Φ n a)
+
+अधःस्थे-कक्ष्या-एकपदा :
+    {A B : Type ℓ} {f : A → B} {Φ : A → A}
+  → f व्याप्नोति (idfun A) → संरक्षणम् f Φ
+  → (n : ℕ) (a : A) → पुनरावृत्तिः Φ n a ≡ a
+अधःस्थे-कक्ष्या-एकपदा b cons zero    a = refl
+अधःस्थे-कक्ष्या-एकपदा {Φ = Φ} b cons (suc n) a =
+  cong Φ (अधःस्थे-कक्ष्या-एकपदा b cons n a)
+  ∙ अधःस्थे-संरक्षणं-निष्क्रियम् b cons a
+
+------------------------------------------------------------------------
+-- १० · WHAT THE LIGHT DID NOT WEAKEN, and this half is the point.
+--
+--   Asking every declaration in the lane "is `isEquiv` a hypothesis where
+--   bottom-ness would do" returns sites that are SHARP, and a blanket
+--   sweep would have been wrong about them:
+--
+--     SvaTantuVasa.ध्रुव-बिन्दुः — the flow space is `Π[a] fiber f (f a)`,
+--       contractible exactly when every fibre is, which IS `isEquiv f`.
+--     NastoddistaPariksa.समता-चक्रम् / समता→परीक्षा — stated as an
+--       equivalence in both directions; `isEquiv` is the content.
+--     Kevalajnana.समानता→सर्वसकलम् — केवलज्ञान read as losing nothing AND
+--       missing nothing.  An equivalence is exactly both halves, and the
+--       doctrine is both halves; weakening it would break the reading, not
+--       improve the theorem.
+--
+--   So the finding is not "isEquiv is usually too strong".  It is that
+--   two theorems in ONE module can differ on this, and only opening each
+--   says which — SvaTantuVasa's pair is exactly that case.
+------------------------------------------------------------------------
