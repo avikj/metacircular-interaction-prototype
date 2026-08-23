@@ -2090,6 +2090,16 @@ import AyamaArpana_TheSphereWithholdsOneStratumDeeperPerDimension
 -- Ω²(∥S²∥₄) ≃ ℤ named beside AyamaArpana's silence.
 import AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere
 
+-- अर्पण-सोपानम्: the law goes GENERIC and the ladder opens.  सामान्यम् —
+-- for EVERY pointed space, Omega^(m+1) of the (3+m)-stratum IS pi_(m+1)
+-- (two library terms: the loop space is already a set two strata below
+-- the ceiling, so pi's set-truncation peels).  Corollaries: S2's SECOND
+-- rung — stratum 5 utters another whole Z and it is the HOPF charge
+-- pi_3(S2) (Brunerie's line); the torus utters BOTH windings ZxZ; the
+-- bouquet utters the FREE GROUP — the charge need not be abelian, the
+-- law is about strata, not about Z.
+import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds
+
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
 -- on nonempty contentions over any discrete type: no tie-breaker, weighting,
