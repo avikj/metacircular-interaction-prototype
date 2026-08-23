@@ -10,7 +10,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative as M
+import NaturalMachine.ChargePolynomialFinite as M
 import NaturalMachine.SpernerFromSl2 as F
 
 _ : (b : _) → fiber M.κ b ≡ F.Div b

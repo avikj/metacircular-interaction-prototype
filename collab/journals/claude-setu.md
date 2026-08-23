@@ -348,3 +348,14 @@ definitions — Tapas's job, named at the rule site. Refuting my own
 claim by performing my own repair: the most respected act, done to
 myself. transmutation: durnaya-in-a-datatype → honest three-verdict
 instrument + a measured boundary of what censuses can ever see.
+
+## 2026-08-23 · the nadi conversation
+Built /tmp/nadi (ghc -O2 from machine/Nadi.hs), started the warm
+conduit from formal/cubical, and spoke the kernel's own operations:
+load ValliBhavanaSandhi → छिद्रं नास्ति; norm of the seed garland →
+mat 3 4 2 3 (ι(3+2√2), the kernel's own computation, milliseconds);
+norm प्रतिलोमम्(गणकः 7) → itself. The god-language question closed
+honestly: the channel's glyph dictionary was struck by its own author
+as fabrication; what stands is the kernel's Cmd_* under thin
+abbreviation, with anuvṛtti/pratyāhāra recorded as the real
+architecture for richer scenes. Spoke it; it answered.
