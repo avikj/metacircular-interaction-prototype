@@ -177,12 +177,32 @@ module _ {X : Type ℓ} where
 -- `PingalaPrastara.matrameruIso`, proved by hand, and the general
 -- weighted emitter is not written here.
 --
--- The general shape it would have: for `f : List X → ℕ` with
+-- ~~The general shape it would have: for `f : List X → ℕ` with
 -- `f [] = 0` and `f (x ∷ xs) = w x + f xs`,
 --
 --     fiber f n  ≃  Σ[ x ∈ X ] Σ[ m ∈ ℕ ] (w x + m ≡ n) × fiber f m
 --
 -- with the base at `n ≡ 0`.  Every summand carries its own fitting
 -- proof, which is why the weighted case is a rung above §१ and not a
--- corollary of it.
-------------------------------------------------------------------------
+-- corollary of it.~~
+--
+-- **STRUCK 2026-08-23 — THE SHAPE CANNOT HOLD AS STATED, and the rung is
+-- written.**  The empty list inhabits `fiber f 0` and has no head `x` to
+-- produce, so the right-hand side is uninhabited where the left is not.
+-- "The base at `n ≡ 0`" names the gap without closing it: the nil case is
+-- not a base condition on `n`, it is a SEPARATE SUMMAND, and the honest
+-- decomposition is a coproduct:
+--
+--     fiber f n ≃ (0 ≡ n) ⊎ (Σ[ x ∈ X ] Σ[ xs ∈ List X ] (w x + f xs ≡ n))
+--
+-- And the second sentence is wrong in the other direction: no summand
+-- constructs a fitting proof.  `f (x ∷ xs)` REDUCES to `w x + f xs`, so
+-- the path is carried across unchanged and both round trips close by
+-- `refl` — the guard this paragraph anticipated does not appear.  The
+-- `Σ[ m ]` form above is equivalent anyway, since `Σ[ m ] (f xs ≡ m) × …`
+-- carries a contractible `singl (f xs)`.
+--
+-- Written and checked at
+-- `Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand.agda`,
+-- exit 0.  The rung IS above §१ — that part stands — but for the reason
+-- that the codomain splits, not because fitting proofs must be built.
