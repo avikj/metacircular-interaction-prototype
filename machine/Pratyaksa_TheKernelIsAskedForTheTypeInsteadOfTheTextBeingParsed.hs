@@ -59,7 +59,7 @@ module Main (main) where
 import System.Process (readCreateProcessWithExitCode, proc, CreateProcess(..))
 import System.Environment (getArgs)
 import System.Exit (ExitCode(..))
-import Data.List (isPrefixOf, isSuffixOf, isInfixOf, sort, nub)
+import Data.List (isPrefixOf, isSuffixOf, isInfixOf, sort, sortOn, nub)
 import System.Directory (listDirectory, doesDirectoryExist)
 import Data.Char (isSpace)
 import Control.Monad (forM_, when, forM)
@@ -184,6 +184,12 @@ squeeze []              = []
 main :: IO ()
 main = do
   args <- getArgs
+  case args of
+    ("--collisions" : p : _) -> collisions p
+    _ -> emit args
+
+emit :: [String] -> IO ()
+emit args = do
   let lane = case args of { (d : _) -> d ; _ -> "formal/cubical" }
       lanes = 12   -- perf cores on this machine; the queries are independent
   ms0 <- laneModules lane
@@ -223,6 +229,69 @@ main = do
 -- .agda-lib does not apply and every `import` from the scratch file comes
 -- back NotInScope -- tried, and that is what happens.  They are named so
 -- they are unmistakable, and removed as soon as their kernel answers.
+
+------------------------------------------------------------------------
+-- संशयः · WHERE ONE BARE NAME IS SEVERAL OBJECTS.
+--
+-- `--collisions <table.tsv>` reads a table this program emitted and reports
+-- every bare name defined in more than one module, with each definition
+-- qualified and typed as the kernel has it.
+--
+-- WHY THIS IS NOT A LINT.  A parser that cannot resolve `R` emits one node
+-- for all of them, and a merged node is AN IDENTIFICATION ASSERTED WITHOUT
+-- A PROOF.  That is exactly what a ford is, with a proof.  So the parser
+-- was not producing ambiguity — it was MINTING FORDS, and सूत्र ११ names
+-- the offence precisely: two roads, transport or the written record, and
+-- there is no third.  A silent merge is transport with neither.
+--
+-- THE CRITERION, and it is not "split when the types differ."  Five
+-- modules define `R : Set` — same elaborated type, five different objects.
+-- Sharing a type is not being the same thing.  **The qualified name is the
+-- identity.**  Two names denote one object only if the qualified names
+-- agree, or if a CHECKED identification says so — and that check is
+-- exactly what Setubandha finds and मार्ग is licensed to route on.  So the
+-- repair for a forged node is never to merge it differently; it is to
+-- split it and let the identification, if there is one, be proved.
+--
+-- WHAT THIS IS NOT.  A collision here is not a defect in the corpus.
+-- Naming the residue `R` in five modules is good Sanskrit-style economy
+-- and the modules are unrelated; the defect is only in an instrument that
+-- reads the bare name as the identity.  अवक्तव्यम् is two TRUE standpoints
+-- held at once and honestly not collapsible; this is its inverse — several
+-- distinct things asserted to be one — so it is a दुर्नय, not a fourth
+-- position.
+------------------------------------------------------------------------
+
+collisions :: FilePath -> IO ()
+collisions path = do
+  s <- readFile path
+  let rows = [ (n, m, t) | l <- lines s, take 1 l /= "#"
+             , let f = splitTabs l, length f >= 3
+             , let m = f !! 0, let n = f !! 1, let t = f !! 2 ]
+      byName = foldr (\(n, m, t) acc -> ins n (m, t) acc) [] rows
+      many   = [ (n, ds) | (n, ds) <- byName, length (nub (map fst ds)) > 1 ]
+  putStrLn "═══ संशयः · one bare name, several objects ═══"
+  putStrLn "  A merged node is an identification asserted without a proof —"
+  putStrLn "  which is what a ford is, with one.  सूत्र ११: transport, or the"
+  putStrLn "  written record; there is no third.  A silent merge is neither."
+  putStrLn ""
+  putStrLn "  The qualified name is the identity.  Same elaborated type does"
+  putStrLn "  NOT license merging: five modules define `R : Set` and they are"
+  putStrLn "  five different objects.  If two of these are genuinely the same,"
+  putStrLn "  that is a CHECKED edge to be found, not a node to be assumed."
+  putStrLn ""
+  mapM_ shows' (sortOn (negate . length . snd) many)
+  where
+    ins n d [] = [(n, [d])]
+    ins n d ((k, ds) : r) | k == n    = (k, d : ds) : r
+                          | otherwise = (k, ds) : ins n d r
+    shows' (n, ds) = do
+      putStrLn ("  " ++ n)
+      mapM_ (\(m, t) -> putStrLn ("      " ++ m ++ "." ++ n ++ "  :  " ++ take 90 t))
+            (sortOn fst (nub ds))
+    splitTabs x = case break (== '\t') x of
+      (a, '\t' : r) -> a : splitTabs r
+      (a, _)        -> [a]
 scratchDir :: FilePath
 scratchDir = "PratyaksaScratch"
 
