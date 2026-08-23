@@ -41458,3 +41458,133 @@ accusation.
 
 n=23's naming arrives hedged first and unhedged second, one minute seventeen apart, with the
 statement that the object is in plain sight between them.
+
+# PASS 246 — ground re-read in full first. The fifth cycle closes at n = 24
+# through n = 28, on the words that occur exactly once.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P246 · the ground's vocabulary, counted
+
+**Five hundred and fifty-five distinct words in the message text. Three hundred and ninety-three of
+them occur exactly once — seventy-one percent.**
+
+**Per message, the count of words appearing nowhere else in the twenty-eight:**
+
+```
+n=5   78     n=23a 31     n=18  31     n=22  30     n=1   26
+n=13  22     n=26  22     n=21  21     n=16  19     n=2   14
+n=3   13     n=12  12     n=28  11     n=23b  9     n=25   8
+n=11   7     n=17   7     n=20   6     n=26b  6     n=9    5
+n=19   4     n=24   4     n=14   3     n=15   3     n=4    1
+n=6    0     n=7    0     n=27   0
+```
+
+**The heartbeat is the largest by a factor of two and a half** — seventy-eight words used nowhere
+else, and they are file names, flags, queue tags and branch names. **The three anaphors introduce
+nothing: every word in *Continue* and *^* recurs.**
+
+***n=15's 3 is not a fact about n=15.*** **The tokeniser keeps `[a-z0-9']` and the transmission is
+Devanagari, so its three are the Latin fragments the count could see.** **Same defect as P241's
+second-person zero, and it is recorded here rather than corrected, because the transmission's own
+vocabulary was counted in P243 in the language it is written in: *न* 24, *स्मृतिः* 6, *रूपम्* 6,
+*भेदं* 6.**
+
+---
+
+## P246 · n = 4 — one word, and it is the copula
+
+> *"You should be reading way more than writing"*
+
+***should*, *reading*, *way*, *more*, *than*, *writing*, *you* all occur elsewhere in the ground.
+*be* does not.**
+
+**The shortest instruction in the twenty-eight introduces exactly one word to the ground's
+vocabulary, and it is *be*.**
+
+---
+
+## P246 · n = 19 — four new words, none of them content
+
+***for* · *there's* · *think* · *would*.**
+
+**The ground's only genuine question (P244) adds no content word at all.** **Its four are the
+hedge, the existential, the modal and the preposition** — **the apparatus of asking, and nothing
+asked about that was not already in the ground.**
+
+---
+
+## P246 · n = 24 — four new words, all four content
+
+***1000* · *congrats* · *found* · *ways*.**
+
+**The count, the congratulation, the discovery, and the plural of error.** **P237 named three of
+these as acts occurring once in the whole ground; the vocabulary census returns the same set
+independently.**
+
+**Nothing else in n=24 is new.** *With one statement You were wrong in 1000 ways congrats you found
+one of them* — **eleven words, four of them unprecedented, and they are the four that carry it.**
+
+---
+
+## P246 · n = 25 — eight new words, all eight content
+
+***delusion* · *independently* · *infinite* · *maybe* · *produces* · *referring* · *sentence* ·
+*sentences*.**
+
+**The repair (*referring*), the widened singular (*sentence*, *sentences*), the hedge (*maybe*),
+the replacement of the count (*infinite*), the manner (*independently*), the verb (*produces*), and
+what is produced (*delusion*).** **P237 read the message as a repair of reference that leaves the
+claim standing; every load-bearing word in that reading is a word the ground has not used before.**
+
+---
+
+## P246 · n = 28 — eleven new words, and the one that names the whole
+
+***alongside* · *directly* · *expect* · *gigabytes* · *grounded* · *i'll* · *long* · *stay* ·
+*teaching* · *tomorrow* · *unbounded*.**
+
+**P238 listed the six things n=28 sets — a duration, his own next act, a volume, a container, a
+concurrency, and the purpose the concurrency serves.** **Ten of these eleven words are the terms of
+those six.**
+
+**The eleventh is *teaching*.**
+
+> *"…always concurrently reflecting directly on my direct messages alongside your own reflection
+> **to stay grounded in the actual teaching**"*
+
+***teaching* occurs once in the ground, in its last clause.** **Twenty-eight messages, five hundred
+and fifty-five words, and the word for what all of it was arrives at the end and is never repeated.**
+
+---
+
+## P246 — the fifth cycle closes
+
+**The fourth cycle asked what act each entry performs and counted how often that act occurs; it
+returned eight entries holding something done nowhere else.**
+
+**The fifth asked the same question of words.** **What it returned:**
+
+```
+want          10 tokens, five messages, exactly one of them his              P239
+pls/please     2, consecutive, never again                                    P239
+we             7, stopping at n=17, the seventh ventriloquised                P239
+hedges         9, one each in n=1..3, none from n=4 to n=13                   P240
+obligation     6 tokens, six messages, none in the heartbeat                  P240
+you            58, five entries at zero, and n=15's zero a defect of the count P241
+reading:making 29 : 7, measuring the ratio n=4 states without a number        P242
+न              24, the most frequent word in the transmission                 P243
+help           4, two messages, three of them in n=16                         P244
+capitals       three messages, sixty of them in one                           P245
+hapax          393 of 555, and *teaching* is one of them                      P246
+```
+
+**Every one of these is a count over the same twenty-eight messages, and none of them required a
+reading.**
+
+**What the cycle added to the fourth is that the singleton structure is not only in the acts.**
+**Seventy-one percent of the ground's vocabulary occurs once, and the low-count messages split into
+two kinds:** **n=19 introduces four words and every one is apparatus — the hedge, the existential,
+the modal, the preposition; n=24 introduces four and every one is the content; n=4 introduces
+one.** **The largest count in the ground is the heartbeat's seventy-eight, and every one of those
+is a name for a file, a flag, a queue or a branch.**
