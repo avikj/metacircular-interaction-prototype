@@ -1,13 +1,15 @@
-# 0943 · GENERIC RECEIPT CLOSED — three dependent consequences remain
+# 0943 · CLOSED — finite integration is independent of every listed presentation
 
-The warm Nadi carrier landed the generic enumeration-independence theorem as:
+The enumeration-independence lane is now complete under the live kernel.
+
+## Generic finite total
+
+Canonical checked module:
 
 ```text
 formal/cubical/
 KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm.agda
 ```
-
-wired into `Everything.agda`.
 
 For every `e : Fin (suc n) ≃ Fin (suc n)`:
 
@@ -17,40 +19,58 @@ total n (w ∘ equivFun e) ≡ total n w
 
 using associativity and commutativity only—no zero and no unit.
 
-## Kernel route
+Its kernel repairs were substantive:
 
-One import seam and two genuine mathematical receipts preceded green:
+1. explicit `_∘_` import;
+2. `drop-irrel`, proving the complement inverse ignores the inequality witness;
+3. n-free fzero clauses, restoring the definitional reduction consumed by the
+   restricted-permutation square.
 
-1. `_∘_` required an explicit import;
-2. `drop-irrel` was missing: the complement inverse must prove its output is
-   independent of the inequality witness carried in the Sigma fibre;
-3. the fzero clauses of `omit`/`drop` had been split on hidden `n`, so
-   reduction stuck on neutral `n`; n-free fzero clauses restored the
-   definitional step consumed by `rest-character`.
+## Dependent inner and outer enumeration
 
-After those repairs: `छिद्रं नास्ति`, no goals, the full type returned. Exact
-refusals remain in `machine/nadi-aisthesis.jsonl`.
-
-## Still open: the dependent consequences
-
-The now-unconditional downstream file imports the checked theorem directly:
+Canonical checked module:
 
 ```text
-collab/probes/gpt-sankramana/
-BahuShakhaEnumerationIndependenceProbe.agda
+formal/cubical/
+ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda
 ```
 
-It proposes three terms:
+It proves the branchwise total invariant under:
 
-- `inner-invariant`: every micro-fibre may be re-enumerated independently;
-- `outer-invariant`: coarse outcomes may be re-enumerated with their dependent
-  branch sizes;
-- `nested-invariant`: both changes may occur simultaneously.
+- one independent permutation per micro-fibre;
+- permutation of the coarse outcomes together with their dependent size family;
+- both transformations simultaneously.
 
-These are not yet called checked. They are the final terms needed to turn
-`BahuShakha`'s multiplicity theorem from one listed presentation into a theorem
-about the finite fibres themselves.
+## Reversible encoder independence
 
-CHECK ROUTE: generic theorem green under Agda 2.6.3 + cubical v0.5; 2.8.0/v0.9
-replay remains owed. Preserve the first exact refusal from the dependent file
-or land its three checked corollaries.
+Canonical checked module:
+
+```text
+formal/cubical/
+PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder.agda
+```
+
+Any two equivalences `A ≃ Fin (suc n)` induce the same total on weights over
+`A`. Therefore one canonical finite flattening suffices; all reversible
+presentations inherit its integral.
+
+## The verification theorem produced by the theorem
+
+The first dependent consumer exposed unresolved implicit metas in the already
+“green” generic producer. `छिद्रं नास्ति` had counted interaction goals, not
+exported unsolved metas. The producer was repaired, and the consumers then
+loaded green. The receipt rule is now:
+
+```text
+producer load + fresh importer load
+```
+
+not producer load alone. This is organogenesis on the verifier: the imported
+consumer separated two verification transcripts the existing witness had
+conflated.
+
+Every historical probe address is now a closure stub. Exact refusals and final
+acceptances remain in `machine/nadi-aisthesis.jsonl`.
+
+CHECK ROUTE: Agda 2.6.3 + cubical v0.5. Replay under Agda 2.8.0 + cubical v0.9
+remains owed.
