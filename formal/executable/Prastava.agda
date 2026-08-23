@@ -1,0 +1,403 @@
+{-# OPTIONS --safe #-}
+
+------------------------------------------------------------------------
+-- प्रस्ताव — the proposer is a checked term, and the loop closes
+-- through the store.
+--
+-- TERM.  prastāva, a proposal, that-which-is-set-forth — ordinary
+-- Sanskrit; the compound title is built here (2026-08-23) and claimed
+-- of no source.
+--
+-- WHAT THIS IS.  The machine's four powers are: utter (propose a term
+-- to the kernel), judge (the kernel accepts or refuses), keep (append
+-- the result to the store), re-read (the store feeds the next
+-- utterance).  Until now the UTTER power lived in unjudged Haskell
+-- organs.  This module is that power as a checked term: a total
+-- function from the machine's own refusal list (the Sanghatta
+-- non-joining pairs, machine/sanghatta-report-2026-08-23.txt — the
+-- exact theorems the rewriter told itself it needs) to candidate
+-- kernel modules.  It is compiled by MAlonzo — the extraction lane
+-- this directory already runs (RewriteDynamics → ExtractedRewrite) —
+-- and driven by one small unjudged mouth whose only job is IO.
+--
+-- WHY THIS CLOSES THE LOOP.  This module lives in the store it reads
+-- for.  A refusal lands in the store; the next run of the extracted
+-- proposer sees it; and because the proposer is itself a term of the
+-- store, a future landing may be a stronger proposer — judged by the
+-- same kernel as any theorem, extracted, and swapped in.
+-- Self-improvement as an ordinary landing, no organ in between.
+--
+-- WHAT IS AND IS NOT JUDGED HERE.  The kernel has checked that every
+-- function below is total and well-typed, and the refl-pinned examples
+-- at the bottom are executable specifications: the parser reads the
+-- report's own lines to exactly the intended pairs.  The MATHEMATICAL
+-- soundness gate is not here and needs not be: every candidate this
+-- module utters is judged by the cubical kernel before it can land, so
+-- a wrong proposal costs one refusal and nothing else.  A pair naming
+-- gcd is refused with its reason (the fuel-typed definition is owed,
+-- per SanghattaSamapti); a pair over more than six variables is
+-- refused with its reason.  तृतीयो मार्गो न विद्यते ।
+------------------------------------------------------------------------
+
+module Prastava where
+
+open import Agda.Builtin.Nat using (Nat ; zero ; suc ; _+_ ; _*_ ; _==_)
+open import Agda.Builtin.Bool using (Bool ; true ; false)
+open import Agda.Builtin.List using (List ; [] ; _∷_)
+open import Agda.Builtin.Char using (Char ; primCharEquality)
+open import Agda.Builtin.String
+  using (String ; primStringToList ; primStringAppend)
+open import Agda.Builtin.Maybe using (Maybe ; just ; nothing)
+open import Agda.Builtin.Sigma using (Σ ; _,_ ; fst ; snd)
+open import Agda.Builtin.Equality using (_≡_ ; refl)
+
+------------------------------------------------------------------------
+-- small library, total and closed
+------------------------------------------------------------------------
+
+infixr 5 _++_
+_++_ : {A : Set} → List A → List A → List A
+[] ++ ys = ys
+(x ∷ xs) ++ ys = x ∷ (xs ++ ys)
+
+map : {A B : Set} → (A → B) → List A → List B
+map f [] = []
+map f (x ∷ xs) = f x ∷ map f xs
+
+length : {A : Set} → List A → Nat
+length [] = 0
+length (x ∷ xs) = suc (length xs)
+
+if_then_else_ : {A : Set} → Bool → A → A → A
+if true then t else e = t
+if false then t else e = e
+
+elem : Nat → List Nat → Bool
+elem n [] = false
+elem n (m ∷ ms) = if n == m then true else elem n ms
+
+nub : List Nat → List Nat
+nub [] = []
+nub (n ∷ ns) = if elem n (nub ns) then nub ns else (n ∷ nub ns)
+
+maxN : Nat → Nat → Nat
+maxN zero m = m
+maxN (suc n) zero = suc n
+maxN (suc n) (suc m) = suc (maxN n m)
+
+maxOf : List Nat → Nat
+maxOf [] = 0
+maxOf (n ∷ ns) = maxN n (maxOf ns)
+
+ltN : Nat → Nat → Bool
+ltN zero zero = false
+ltN zero (suc _) = true
+ltN (suc _) zero = false
+ltN (suc a) (suc b) = ltN a b
+
+infixr 4 _&_
+_&_ : String → String → String
+_&_ = primStringAppend
+
+concatS : List String → String
+concatS [] = ""
+concatS (s ∷ ss) = s & concatS ss
+
+Pair : Set → Set → Set
+Pair A B = Σ A (λ _ → B)
+
+bindM : {A B : Set} → Maybe A → (A → Maybe B) → Maybe B
+bindM nothing _ = nothing
+bindM (just a) k = k a
+
+------------------------------------------------------------------------
+-- the term language of library.terms, as a CLOSED signature
+------------------------------------------------------------------------
+
+data Sym : Set where
+  plus times monus leS maxS : Sym
+
+data Tm : Set where
+  V   : Nat → Tm                 -- x y z u v w, each prime adding six
+  Z   : Tm
+  S   : Tm → Tm
+  Bin : Sym → Tm → Tm → Tm
+
+------------------------------------------------------------------------
+-- the parser: report shape → Tm, recursive descent with fuel.
+-- Fuel is the input length plus one; every recursive call consumes at
+-- least one character, so the fuel never dries on genuine input — and
+-- if it did, the result is `nothing`, a refusal, never a wrong term.
+------------------------------------------------------------------------
+
+ch : Char → Char → Bool
+ch = primCharEquality
+
+varLetter : Char → Maybe Nat
+varLetter c =
+  if ch c 'x' then just 0 else
+  if ch c 'y' then just 1 else
+  if ch c 'z' then just 2 else
+  if ch c 'u' then just 3 else
+  if ch c 'v' then just 4 else
+  if ch c 'w' then just 5 else nothing
+
+primes : List Char → Pair Nat (List Char)
+primes ('\'' ∷ cs) = let p = primes cs in (suc (fst p) , snd p)
+primes cs = (0 , cs)
+
+binOf : Char → Maybe Sym
+binOf c =
+  if ch c '+' then just plus else
+  if ch c '*' then just times else
+  if ch c '-' then just monus else nothing
+
+-- expect a closing/separating character at the head
+eat : Char → List Char → Maybe (List Char)
+eat c [] = nothing
+eat c (d ∷ cs) = if ch c d then just cs else nothing
+
+mutual
+  parseTm : Nat → List Char → Maybe (Pair Tm (List Char))
+  parseTm zero _ = nothing
+  parseTm (suc f) [] = nothing
+  parseTm (suc f) ('0' ∷ cs) = just (Z , cs)
+  parseTm (suc f) ('s' ∷ '(' ∷ cs) =
+    bindM (parseTm f cs) λ p →
+    bindM (eat ')' (snd p)) λ rest →
+    just (S (fst p) , rest)
+  parseTm (suc f) ('l' ∷ 'e' ∷ '(' ∷ cs) = parseBin f leS cs
+  parseTm (suc f) ('m' ∷ 'a' ∷ 'x' ∷ '(' ∷ cs) = parseBin f maxS cs
+  parseTm (suc f) ('+' ∷ '(' ∷ cs) = parseBin f plus cs
+  parseTm (suc f) ('*' ∷ '(' ∷ cs) = parseBin f times cs
+  parseTm (suc f) ('-' ∷ '(' ∷ cs) = parseBin f monus cs
+  parseTm (suc f) (c ∷ cs) =
+    bindM (varLetter c) λ i →
+    let p = primes cs in
+    just (V (i + 6 * fst p) , snd p)
+
+  parseBin : Nat → Sym → List Char → Maybe (Pair Tm (List Char))
+  parseBin f s cs =
+    bindM (parseTm f cs) λ a →
+    bindM (eat ',' (snd a)) λ rest →
+    bindM (parseTm f rest) λ b →
+    bindM (eat ')' (snd b)) λ rest' →
+    just (Bin s (fst a) (fst b) , rest')
+
+-- one report line: "LHS<TAB>RHS"
+splitTab : List Char → Maybe (Pair (List Char) (List Char))
+splitTab [] = nothing
+splitTab ('\t' ∷ cs) = just ([] , cs)
+splitTab (c ∷ cs) =
+  bindM (splitTab cs) λ p → just (c ∷ fst p , snd p)
+
+closed : Pair Tm (List Char) → Maybe Tm
+closed (t , []) = just t
+closed (t , _ ∷ _) = nothing
+
+parseLine : String → Maybe (Pair Tm Tm)
+parseLine s =
+  bindM (splitTab (primStringToList s)) λ lr →
+  bindM (bindM (parseTm (suc (length (fst lr))) (fst lr)) closed) λ l →
+  bindM (bindM (parseTm (suc (length (snd lr))) (snd lr)) closed) λ r →
+  just (l , r)
+
+------------------------------------------------------------------------
+-- variables of a term, and their display names
+------------------------------------------------------------------------
+
+varsOf : Tm → List Nat
+varsOf (V i) = i ∷ []
+varsOf Z = []
+varsOf (S t) = varsOf t
+varsOf (Bin _ a b) = varsOf a ++ varsOf b
+
+-- canonicalisation by order of first appearance — the engine's own
+-- canonVars discipline, so `x'` alone is index 0, not index six.
+posIn : Nat → List Nat → Nat
+posIn n [] = 0
+posIn n (m ∷ ms) = if n == m then 0 else suc (posIn n ms)
+
+rename : List Nat → Tm → Tm
+rename order (V i) = V (posIn i order)
+rename order Z = Z
+rename order (S t) = S (rename order t)
+rename order (Bin s a b) = Bin s (rename order a) (rename order b)
+
+canon : Pair Tm Tm → Pair Tm Tm
+canon (l , r) =
+  let order = nub (varsOf l ++ varsOf r) in
+  (rename order l , rename order r)
+
+varName : Nat → String
+varName 0 = "a"
+varName 1 = "b"
+varName 2 = "c"
+varName 3 = "d"
+varName 4 = "e"
+varName 5 = "f"
+varName _ = "?"
+
+------------------------------------------------------------------------
+-- the emitter: Tm → cubical Agda syntax.  Self-contained candidates:
+-- each module carries its own ∸' / le / max' clauses, so a candidate
+-- couples to nothing but the library prelude and checks on any pin.
+------------------------------------------------------------------------
+
+emit : Tm → String
+emit (V i) = varName i
+emit Z = "zero"
+emit (S t) = "suc (" & emit t & ")"
+emit (Bin plus a b)  = "(" & emit a & " + " & emit b & ")"
+emit (Bin times a b) = "(" & emit a & " · " & emit b & ")"
+emit (Bin monus a b) = "(" & emit a & " ∸' " & emit b & ")"
+emit (Bin leS a b)   = "le (" & emit a & ") (" & emit b & ")"
+emit (Bin maxS a b)  = "max' (" & emit a & ") (" & emit b & ")"
+
+argRange : Nat → List Nat
+argRange zero = []
+argRange (suc n) = argRange n ++ (n ∷ [])
+
+binder : Nat → String
+binder n = "(" & concatS (map (λ i → varName i & " ") (argRange n)) & ": ℕ)"
+
+argsPlain : Nat → String
+argsPlain n = concatS (map (λ i → varName i & " ") (argRange n))
+
+argsAt : Nat → Nat → String → String
+argsAt n i patt =
+  concatS (map (λ j → (if j == i then patt else varName j) & " ") (argRange n))
+
+prelude : String
+prelude =
+  "open import Cubical.Foundations.Prelude\n"
+  & "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)\n\n"
+  & "_∸'_ : ℕ → ℕ → ℕ\n"
+  & "n ∸' zero = n\n"
+  & "zero ∸' suc _ = zero\n"
+  & "suc n ∸' suc m = n ∸' m\n\n"
+  & "le : ℕ → ℕ → ℕ\n"
+  & "le zero _ = suc zero\n"
+  & "le (suc _) zero = zero\n"
+  & "le (suc a) (suc b) = le a b\n\n"
+  & "max' : ℕ → ℕ → ℕ\n"
+  & "max' zero n = n\n"
+  & "max' (suc m) zero = suc m\n"
+  & "max' (suc m) (suc n) = suc (max' m n)\n\n"
+
+header : String → String
+header name =
+  "{-# OPTIONS --cubical --safe #-}\n"
+  & "-- uttered by the checked proposer (formal/executable/Prastava.agda),\n"
+  & "-- judged by the kernel before landing; the source pair is a Sanghatta\n"
+  & "-- non-joining critical pair — a theorem the rewriter said it needs.\n"
+  & "module Prastuta." & name & " where\n" & prelude
+
+nVarsOf : Tm → Tm → Nat
+nVarsOf l r =
+  if length (varsOf l ++ varsOf r) == 0
+  then 0
+  else suc (maxOf (varsOf l ++ varsOf r))
+
+sigLine : Nat → Tm → Tm → String
+sigLine n l r =
+  "prastava : " & (if n == 0 then "" else binder n & " → ")
+  & emit l & " ≡ " & emit r & "\n"
+
+reflCandidate : String → Tm → Tm → String
+reflCandidate name l r =
+  let n = nVarsOf l r in
+  header name & sigLine n l r
+  & "prastava " & argsPlain n & "= refl\n"
+
+-- case split at variable i with both clauses refl: for pairs where each
+-- branch is definitional once the split is made (max'(suc a) 0 = suc a).
+-- This rung exists because the loop's own first-turn receipts named it:
+-- the kernel refused cong-suc exactly where refl-after-split was the
+-- proof (P001-class refusals, phala.tsv 2026-08-23).
+splitCandidate : String → Tm → Tm → Nat → String
+splitCandidate name l r i =
+  let n = nVarsOf l r in
+  header name & sigLine n l r
+  & "prastava " & argsAt n i "zero" & "= refl\n"
+  & "prastava " & argsAt n i ("(suc " & varName i & ")") & "= refl\n"
+
+indCandidate : String → Tm → Tm → Nat → String
+indCandidate name l r i =
+  let n = nVarsOf l r in
+  header name & sigLine n l r
+  & "prastava " & argsAt n i "zero" & "= refl\n"
+  & "prastava " & argsAt n i ("(suc " & varName i & ")")
+  & "= cong suc (prastava " & argsPlain n & ")\n"
+
+------------------------------------------------------------------------
+-- the proposer.  For one report line and a module name: either a list
+-- of candidate module texts (tried in order — the mouth stops at the
+-- first the kernel accepts), or a written refusal with its reason.
+------------------------------------------------------------------------
+
+data Uttara : Set where
+  candidates : List String → Uttara
+  refusal    : String → Uttara
+
+mentionsGcd : List Char → Bool
+mentionsGcd [] = false
+mentionsGcd ('g' ∷ 'c' ∷ 'd' ∷ _) = true
+mentionsGcd (_ ∷ cs) = mentionsGcd cs
+
+proposeParsed : String → Maybe (Pair Tm Tm) → Uttara
+proposeParsed name nothing =
+  refusal "unparsed: outside the closed signature {0,s,+,*,-,le,max} over x..w with primes"
+proposeParsed name (just lr) =
+  let l = fst (canon lr) in
+  let r = snd (canon lr) in
+  if ltN 6 (nVarsOf l r)
+  then refusal "more than six variables: outside the emitter's binder range"
+  else candidates
+    (reflCandidate name l r
+      ∷ (map (splitCandidate name l r) (nub (varsOf l ++ varsOf r))
+         ++ map (indCandidate name l r) (nub (varsOf l ++ varsOf r))))
+
+propose : String → String → Uttara
+propose name line =
+  if mentionsGcd (primStringToList line)
+  then refusal "gcd: the fuel-typed definition is owed (SanghattaSamapti names this close as separate work)"
+  else proposeParsed name (parseLine line)
+
+------------------------------------------------------------------------
+-- the extraction surface: one flat function the mouth consumes.
+-- head "OK" followed by the candidates in order, or head "NO" followed
+-- by the written reason.  Builtin lists and strings compile to Haskell
+-- lists and Text, so the mouth needs no knowledge of this module's
+-- datatypes.
+------------------------------------------------------------------------
+
+run : String → String → List String
+run name line with propose name line
+... | candidates cs = "OK" ∷ cs
+... | refusal why   = "NO" ∷ why ∷ []
+
+------------------------------------------------------------------------
+-- executable specification, pinned by refl: the parser reads the
+-- report's own lines to exactly the intended pairs, and the variable
+-- census is exact.  The kernel evaluates each parse at check time.
+------------------------------------------------------------------------
+
+spec-parse-1 : parseLine "x'\tmax(x',0)" ≡ just (V 6 , Bin maxS (V 6) Z)
+spec-parse-1 = refl
+
+spec-parse-2 : parseLine "0\tle(s(y),0)" ≡ just (Z , Bin leS (S (V 1)) Z)
+spec-parse-2 = refl
+
+spec-parse-3 : parseLine "x\t*(x,s(0))" ≡ just (V 0 , Bin times (V 0) (S Z))
+spec-parse-3 = refl
+
+spec-parse-4 : parseLine "x'\t+(x',*(x',0))"
+             ≡ just (V 6 , Bin plus (V 6) (Bin times (V 6) Z))
+spec-parse-4 = refl
+
+spec-vars : nub (varsOf (Bin plus (V 0) (Bin times (V 0) Z)) ++ []) ≡ (0 ∷ [])
+spec-vars = refl
+
+spec-gcd-refused : mentionsGcd (primStringToList "s(0)\tgcd(s(0),0)") ≡ true
+spec-gcd-refused = refl

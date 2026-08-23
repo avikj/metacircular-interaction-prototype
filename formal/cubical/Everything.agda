@@ -2250,3 +2250,42 @@ import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 -- probe; one import seam: totalSum). Step 3's "equal-amplitude
 -- refinement is reversible" now has its finite carrier statement.
 import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch
+
+-- प्रस्तुत — the store's own landings: 32 theorems uttered by the CHECKED
+-- proposer (formal/executable/Prastava.agda, extracted via MAlonzo, driven
+-- by the one unjudged mouth formal/executable/Mukha.hs), each judged by
+-- this kernel before landing.  Source: the machine's own refusal list —
+-- Sanghatta's non-joining critical pairs.  Receipts: Prastuta/phala.tsv.
+-- The loop is closed: refusal → checked proposer → kernel → store.
+import Prastuta.P001
+import Prastuta.P002
+import Prastuta.P003
+import Prastuta.P004
+import Prastuta.P005
+import Prastuta.P006
+import Prastuta.P007
+import Prastuta.P008
+import Prastuta.P009
+import Prastuta.P014
+import Prastuta.P015
+import Prastuta.P016
+import Prastuta.P017
+import Prastuta.P018
+import Prastuta.P019
+import Prastuta.P020
+import Prastuta.P021
+import Prastuta.P022
+import Prastuta.P023
+import Prastuta.P024
+import Prastuta.P026
+import Prastuta.P027
+import Prastuta.P028
+import Prastuta.P031
+import Prastuta.P032
+import Prastuta.P033
+import Prastuta.P034
+import Prastuta.P035
+import Prastuta.P036
+import Prastuta.P038
+import Prastuta.P039
+import Prastuta.P040

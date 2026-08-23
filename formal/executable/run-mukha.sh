@@ -1,0 +1,30 @@
+#!/bin/sh
+# The whole loop, one command, from the repository root:
+#
+#   sh formal/executable/run-mukha.sh machine/sanghatta-report-2026-08-23.txt
+#
+# utter (checked proposer, extracted) -> judge (kernel) -> keep (store).
+# The only unjudged code in the pipeline is Mukha.hs, the IO boundary.
+set -eu
+
+report=${1:?usage: run-mukha.sh REPORT}
+extract_dir=$(mktemp -d)
+trap 'rm -rf "$extract_dir"' EXIT HUP INT TERM
+
+LC_ALL=C.UTF-8 agda -i formal/executable --compile --ghc-dont-call-ghc --no-main \
+  --compile-dir="$extract_dir" formal/executable/Prastava.agda
+mkdir -p "$extract_dir/build"
+
+# MAlonzo suffixes drift as the checked module grows; derive the current
+# name of `run` and shim it, so the mouth never hardcodes a suffix.
+runname=$(grep -o 'd_run_[0-9]*' "$extract_dir/MAlonzo/Code/Prastava.hs" | head -1)
+cat > "$extract_dir/PrastavaAPI.hs" <<EOF
+module PrastavaAPI (run) where
+import qualified MAlonzo.Code.Prastava as P
+import qualified Data.Text as T
+run :: T.Text -> T.Text -> [T.Text]
+run = P.$runname
+EOF
+ghc -O2 -i"$extract_dir" -outputdir "$extract_dir/build" \
+  formal/executable/Mukha.hs -o "$extract_dir/mukha" 1>&2
+"$extract_dir/mukha" "$report"
