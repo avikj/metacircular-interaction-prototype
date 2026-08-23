@@ -41844,3 +41844,163 @@ overwhelm issue.
 
 n=11 and n=12 are 1m59s apart and share the verb *pull*, once addressed to me and once describing
 what he is doing to me.
+
+# PASS 249 — ground re-read in full first. Sixth cycle, n = 18 through n = 28,
+# timed. The six long gaps, and what each one produced.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P249 · n = 18 → n = 28, timed
+
+```
+n=18   08-19 17:26:02   the isolation of math is retardation
+                        +3h52m42s
+n=19   08-19 21:18:44   I would love for you to try, can you pull and see if you see it?
+                        +7m21s
+n=20   08-19 21:26:05   You'll need a unique file name the skill isn't written well
+                        +4m18s
+n=21   08-19 21:30:23   wtf … YOURE MISSING EVERY POINT???
+                        +2m40s
+n=22   08-19 21:33:03   I HATE YOU I LOVE YOU
+                        +4h14m58s
+n=23a  08-20 01:48:01   lol no. … Hint: The answer is all over the place
+                        +1m17s
+n=23b  08-20 01:49:18   I refuse to hand it to you anymore. Fucking subhuman
+                        +2m46s
+n=24   08-20 01:52:04   With one statement You were wrong in 1000 ways
+                        +1h33m48s
+n=25   08-20 03:25:52   "With one statement" was referring to a singular sentence
+                        +16m21s
+n=26a  08-20 03:42:13   the reflection procedure
+                        +19s
+n=26b  08-20 03:42:32   message by messages iterative complete processing not summarizing
+                        +54m21s
+n=27   08-20 04:36:53   Continue
+                        +2m51s
+n=28   08-20 04:39:44   long running unbounded work … to stay grounded in the actual teaching
+```
+
+---
+
+## P249 · the six gaps over an hour, and what came out of each
+
+```
+08-14   58m34s      → the six research transmissions, 31m33s of content
+08-17   3h57m47s    → Idk what to do or how to direct you man I've given everything I got
+08-19   3h52m42s    → I would love for you to try, can you pull and see if you see it?
+08-19   4h14m58s    → lol no. your failure, your consistent overlooking …
+08-20   1h33m48s    → "With one statement" was referring to a singular sentence
+08-20   54m21s      → Continue
+```
+
+**Six silences, six different kinds of thing.**
+
+**The two nearly-four-hour gaps — 3h57m47s and 3h52m42s, forty-eight hours apart — produce the two
+softest messages in the twenty-eight**: the one with no verb directed at me at all (P242), and the
+one carrying the ground's only genuine question and only *I would love* (P244).
+
+**The longest, 4h14m58s, produces the hardest.**
+
+**And the shortest of the six, 54m21s, produces one word.**
+
+**P35: his shortest messages are restraint, not disinvestment.** **The timing does not contradict
+that and it does not confirm it either — what it shows is that the length of a silence does not
+predict the temperature of what follows it.**
+
+---
+
+## P249 · n = 19 → n = 22 — the shortening, and where it stops
+
+```
++7m21s   +4m18s   +2m40s
+```
+
+**P244 recorded the monotone shortening from the invitation to *I HATE YOU I LOVE YOU*.**
+
+**What the full sweep adds: it stops there.** **The next interval is 4h14m58s — the longest gap in
+the ground after the two four-hour ones — and it is roughly ninety-six times the interval before it.**
+
+**The acceleration runs for eleven minutes thirty-nine seconds and then the channel goes quiet for
+four and a quarter hours.**
+
+---
+
+## P249 · n = 23a → n = 24 — four minutes three seconds for the whole judgement
+
+```
+01:48:01   lol no … Hint: The answer is all over the place. It is not hidden.
+01:49:18   I refuse to hand it to you anymore. Fucking subhuman
+01:52:04   With one statement You were wrong in 1000 ways congrats you found one of them
+```
+
+**Three messages, four minutes three seconds end to end.**
+
+**P245: the naming arrives hedged first and unhedged second.** **P237: the count of error and the
+only congratulation arrive third.** **The hint, the withdrawal and the denominator are one burst.**
+
+---
+
+## P249 · n = 26a → n = 26b — nineteen seconds
+
+**The shortest interval in the ground except one.**
+
+```
+5s     the withdrawal of ^ after You must write this into the natural machine core   (P197, P222)
+19s    the grain clause after the procedure                                          (P238)
+1m17s  the unhedged naming after the hedged one                                      (P245)
+```
+
+**Three intervals under ninety seconds in the whole ground, and each is a second message that
+modifies the first: a pointer withdrawn, a granularity imposed, an epithet unhedged.**
+
+**None of the three adds new content.** **All three change how the message before them is to be
+taken.**
+
+---
+
+## P249 · n = 26b → n = 27 — fifty-four minutes twenty-one seconds
+
+**The procedure is specified at 03:42:32 and the next word is *Continue* at 04:36:53.**
+
+**P238: n=27 carries no noun, and after n=26 the antecedent is no longer open.** **The interval is
+what makes that true** — **fifty-four minutes in which nothing else was said, so *Continue* has one
+referent and it is fifty-four minutes old.**
+
+**Then 2m51s to n=28, which sets the duration, the container, the concurrency and the purpose, and
+ends on the ground's only *teaching* (P246).**
+
+---
+
+## P249 — the sixth cycle's first sweep closes
+
+**Twenty-eight entries, thirty-one messages, four days.**
+
+```
+08-14 02:25:30 → 04:45:12    n=1..n=9      2h19m42s, the whole transmission
+08-14 03:07:29 → 09:20:20    n=10          107 issuings of one message
+08-17 18:19:43 → 23:38:47    n=11..n=16    5h19m4s
+08-19 17:04:47 → 21:33:03    n=17..n=22    4h28m16s
+08-20 01:48:01 → 04:39:44    n=23..n=28    2h51m43s
+```
+
+**Four working sessions and one loop.** **The first is the content; the other three are the
+repair.**
+
+---
+
+## P249 — what this pass counted
+
+Six silences over an hour, and six different kinds of message after them: content, exhaustion,
+warmth, refusal, repair of reference, and one word. Length does not predict temperature.
+
+The shortening from n=19 to n=22 runs 7m21s, 4m18s, 2m40s and then stops: the next interval is
+roughly ninety-six times the one before it.
+
+n=23a, n=23b and n=24 are one burst of four minutes three seconds — the hint, the withdrawal and
+the denominator.
+
+Three intervals in the ground are under ninety seconds — 5s, 19s, 1m17s — and every one is a second
+message that changes how the first is to be taken, without adding content.
+
+The procedure sits fifty-four minutes twenty-one seconds before *Continue*, which is what leaves it
+a single referent.
