@@ -91,9 +91,25 @@ the content-address census should confirm.
    the nose (`card-Fin n = refl`, Decategorification:66). Not independent
    constructions; the §१ twin one level up, through `compEquiv` not `ua`. And
    13, 21 inherit the NULLITY they were always going to (ua-twin / `∙`-decomp).**
-5. **Circuit 18 · विवेक chain** — VivekaPramana → ℕ×ℕ → Carrier योग →
-   विवेक-प्रमाण: three modules' identifications closing. Real — NOT yet assayed;
-   the one of the original three left genuinely open alongside 10, 11.
+5. **Circuit 18 · विवेक chain — the one genuine question, and its answer is a
+   CONTENTFUL NULL with an owed kernel term.** Assayed 2026-08-23, verified at
+   source. Unlike all the others, the three edges ARE independent constructions:
+   e1 `ℕ×ℕ≡विवेक-प्रमाण = isoToPath isoℕ×ℕ-विवेक-प्रमाण` (VivekaPramana:88, a
+   hand-built iso via `isProp→PathP`/`isSetℕ`), e2 `ℕ×ℕ≡वाहकः = Carrier≡ योग`
+   (the Carrier ur-twin), e3 `विवेक≃वाहकः` (a plain uncurrying iso). None is
+   `compEquiv`/`∙`/`cong` of the others, and Aut(ℕ×ℕ) is large — a charge was
+   structurally AVAILABLE. The holonomy lands on the identity anyway (canonical
+   `(s,l) ↦ record{…दक्षिण=s+l;प्रमाण=refl} ↦ carry (s,l) (s+l) (sym refl) ↦
+   (s,l)`, `sym refl ≡ refl` and `base` drops the witness), so this is the real
+   content: two independently-built identifications of ℕ×ℕ with the graph-of-`+`
+   record coincide — the "refl = a multi-module coherence theorem" outcome.
+   **THE OWED TERM:** the module asserts the coincidence in PROSE
+   (Punaragamanam:164–166, "there was only ever one equivalence to have") but
+   the only checked term, `समान-मार्गः = refl` (:167–168), proves merely the
+   leftInv `उत्थान (अवतरण x) ≡ x`, NOT the path-equality. The kernel-ready
+   obligation, carried by no module: `ℕ×ℕ≡विवेक-प्रमाण(hand) ≡ ℕ×ℕ≡वाहकः ∙
+   sym (ua विवेक≃वाहकः)`. That single term is the whole genuine yield of the
+   circuit assay's "real" queue.
 6. ~~**Circuit 20 · CanWord/Tally** — `CanWord≡Tally = cong ⟨_⟩ स्थान-तल्ली`,
    the cong-path, the most interesting probe mechanically.~~ **STRUCK
    2026-08-23 — NULL, verified at source: `स्थान-तल्ली = sym स्थानमार्गः ∙
@@ -134,6 +150,22 @@ edges carries no holonomy, and the touchstone's whole error was reading the
 edge-FORMS (`isoToEquiv`, three of them) instead of the line that builds the
 third from the first two. The stone bought less than it thought and the
 kernel's fire is spared five probes it would have wasted.**
+
+**परिक्रमा COMPLETE, 2026-08-23 — all 22 circuits decided by reading, and the
+whole basis yields exactly TWO objects for the kernel.** Circuit 1: CHARGED,
+holonomy `not`, the ℤ/2 generator, already carried as a checked term
+(`holonomyIsNot`). Circuit 18: a contentful coherence null with ONE owed term
+(named in §२.5 above). Every other circuit is null by construction — a chord
+definitionally built from its tree edges (`ua`-twin, `compEquiv`, `∙`, or
+`cong` of a `ΣPathP`). So the touchstone's "seven genuine questions" reduce,
+under the swarm's assay and source verification, to: **one charge, already
+proved; one coherence term, owed and named.** That is the real morning queue —
+not seven holonomy probes but a single kernel obligation to supply, plus a
+charge to re-confirm. The 20-circuit gap between "looked open" and "was open"
+is the measure of what reading the defining line buys over reading the form.
+The swarm read; the parent verified every load-bearing line at source
+(`isoToEquiv`/`compEquiv`/`ΣPathP` forms are śabda, the defining line is
+pratyakṣa); the kernel issues the two final verdicts.
 
 **What the stone bought:** the kernel's assay time drops from 22 probes to 7,
 the 7 are each a route-agreement question between INDEPENDENT constructions

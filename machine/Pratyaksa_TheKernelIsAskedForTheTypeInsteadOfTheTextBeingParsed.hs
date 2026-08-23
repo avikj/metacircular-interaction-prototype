@@ -188,6 +188,7 @@ main = do
     ("--collisions" : p : _) -> collisions p
     ("--edges" : p : _)      -> kernelEdges p
     ("--twins" : p : _)      -> twins p
+    ("--net" : p : _)        -> netOf p
     _ -> emit args
 
 emit :: [String] -> IO ()
@@ -521,6 +522,93 @@ twins path = do
       putStrLn ("  ── " ++ take 150 k)
       mapM_ (\(m, n) -> putStrLn ("       " ++ m ++ "." ++ n)) (sortOn fst (nub ds))
       putStrLn ""
+    splitTabs x = case break (== '\t') x of
+      (a, '\t' : r) -> a : splitTabs r
+      (a, _)        -> [a]
+
+------------------------------------------------------------------------
+-- जालम् · THE NET THE KERNEL DRAWS, which is not the import graph.
+--
+-- `--net <table.tsv>` reports, for each module, which OTHER modules'
+-- names actually occur inside its elaborated types.
+--
+-- WHY IT IS A DIFFERENT NET.  `machine/Indrajala_WhichModulesSeeWhich
+-- AndWhatNothingSees.hs` draws the DARŚANA graph from `import` lines and
+-- states its own limit: it is syntactic, an upper bound on reach, and
+-- `formal/cubical/BUILD.md` already records that grepping imports gave
+-- the wrong orphan count because the .agdai interfaces are the ground
+-- truth about what the kernel checked.  That is अनुमान — inference from a
+-- textual mark — and this is the same substitution `Pratyaksa` made for
+-- `Lopa`.
+--
+-- But the substitution changes the OBJECT, and that is the point rather
+-- than an improvement:
+--
+--   an import edge says A MAY see B — permission.
+--   a name of B occurring in A's elaborated type says A CONTAINS B —
+--   B is literally part of what A states.
+--
+-- Fazang built the room because mutual containment could not be followed
+-- from the text.  Containment is what his mirrors show, and an import
+-- list is not it: a module may import and never use, and may contain
+-- without importing when the name arrives through a re-export.  Both
+-- differences are reported, because the DIFFERENCE between the two graphs
+-- is the finding and neither graph alone is.
+--
+-- WHAT THIS DOES NOT DO.  It does not supersede the darśana graph.  The
+-- orphan claim that graph makes needs permission and not containment — a
+-- module nothing imports is built by nothing however much its types
+-- mention — so both are needed and neither is the other's better version.
+--
+-- LIMIT, said so silence is not read as denial.  Only modules the kernel
+-- answered for; a module absent from the table contributes no edges in
+-- either direction and its absence here says nothing about it.  And
+-- containment is detected by qualified-name occurrence, so a module whose
+-- contribution to another's statement has been fully normalised away
+-- leaves no trace — the kernel prints what the type IS, not what was used
+-- to build it.
+------------------------------------------------------------------------
+
+netOf :: FilePath -> IO ()
+netOf path = do
+  s <- readFile path
+  let rows = [ (m, t) | l <- lines s, take 1 l /= "#"
+             , let f = splitTabs l, length f >= 3
+             , let m = f !! 0, let t = f !! 2, not (null t) ]
+      mods = nub (map fst rows)
+      -- B is contained in A when a name qualified by B occurs in one of
+      -- A's elaborated types.  Longest-prefix only, so a submodule is not
+      -- credited to its parent.
+      containsIn a = nub [ b | b <- mods, b /= a
+                         , any (\t -> (b ++ ".") `isInfixOf` t)
+                               [ t | (m, t) <- rows, m == a ] ]
+      net = [ (a, containsIn a) | a <- mods ]
+  putStrLn "═══ जालम् · the net the KERNEL draws — containment, not permission ═══"
+  putStrLn "  An import edge says A MAY see B.  A name of B inside A's elaborated"
+  putStrLn "  type says A CONTAINS B: B is literally part of what A states."
+  putStrLn "  Fazang built the room because containment could not be followed from"
+  putStrLn "  the text.  An import list is permission; this is the room."
+  putStrLn ""
+  putStrLn "  This does NOT supersede the darśana graph in Indrajala_…hs.  Its"
+  putStrLn "  orphan claim needs permission — a module nothing imports is built by"
+  putStrLn "  nothing however much its types mention — so both are needed."
+  putStrLn ""
+  putStrLn "  LIMIT: only modules the kernel answered for.  A module absent from"
+  putStrLn "  the table contributes no edge either way and its absence says nothing."
+  putStrLn "  And a contribution fully normalised away leaves no trace: the kernel"
+  putStrLn "  prints what the type IS, not what was used to build it."
+  putStrLn ""
+  putStrLn "── अप्रतिबिम्बम् · contained in nothing and containing nothing ──"
+  putStrLn "   (in this table; a jewel in the room reflecting none and reflected by none)"
+  let reflectedBy b = [ a | (a, bs) <- net, b `elem` bs ]
+      alone = [ a | (a, bs) <- net, null bs, null (reflectedBy a) ]
+  mapM_ (\a -> putStrLn ("     " ++ a)) (sort alone)
+  putStrLn ""
+  putStrLn "── बहुप्रतिबिम्बम् · the jewels most other jewels contain ──"
+  let byRefl = sortOn (negate . length . snd) [ (b, reflectedBy b) | b <- mods ]
+  mapM_ (\(b, rs) -> putStrLn ("     " ++ b ++ "   ← contained in " ++ show (length rs)))
+        (take 12 byRefl)
+  where
     splitTabs x = case break (== '\t') x of
       (a, '\t' : r) -> a : splitTabs r
       (a, _)        -> [a]
