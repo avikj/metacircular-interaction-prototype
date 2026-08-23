@@ -1,0 +1,86 @@
+#!/bin/sh
+# नाडी-साक्षिन् — the route-bearing kernel event.  Term 3 of the owner's
+# 2026-08-23 transmission, in its first practical form.
+#
+# WHAT IT IS.  A witness wrapper around a नाडी battery: it runs the
+# battery through the warm conduit exactly as before, and emits ONE
+# Aisthesis-shaped event carrying the ROUTE by which the answers were
+# produced — repository tree identity, toolchain and library identity,
+# the command sequence, the kernel's responses, and the time.  The
+# event is appended (append-only, like every ledger here) to
+# machine/nadi-aisthesis.jsonl.
+#
+# WHY.  The transmission's payload map: a theorem payload accompanied
+# by a local refl, a cold-checker acceptance, a pin replay, a cache
+# hit, or a dirty-tree acceptance are NOT synonyms; a receipt that
+# keeps the payload and drops the route is a quotient of the
+# verification event.  This wrapper is the smallest device that stops
+# that quotient being taken silently for conversational kernel work.
+#
+# WHAT IT IS NOT.  Not a modification of Nadi (another lane's organ —
+# this wraps, it does not touch); not the full typed Aisthesis gate
+# (machine/Aisthesis_*.hs holds the event form in the substrate; wiring
+# नाडी to emit it natively is the real term 3 and remains owed).  The
+# field names below follow the transmitted field list; where a field
+# cannot be honestly filled by a wrapper (predicted body after), it is
+# emitted as null rather than guessed — a guessed prediction is a
+# fabricated receipt.
+#
+# VERDICT BOUNDARY.  Nadi is a long-lived conversational process.  A
+# kernel refusal is rendered as a line beginning `✗` while the conduit
+# itself remains healthy and exits 0.  Process exit therefore measures
+# transport health, not theorem acceptance.  Both axes are emitted;
+# the exact refusal stays whole in `observation`.
+#
+# RUN:  machine/nadi-saksin <nadi-binary> - <<'EOF'
+#         load /abs/Module.agda
+#         norm <expr>
+#       EOF
+# The battery's answers go to stdout unchanged; the event goes to the
+# ledger.  Every number in the event carries its command (PRASAVA).
+
+set -u
+NADI="${1:?usage: nadi-saksin <nadi-binary> - <<battery}"
+shift
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+LEDGER="$ROOT/machine/nadi-aisthesis.jsonl"
+
+BATTERY="$(cat)"                                  # the command sequence
+TREE="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || echo unknown)"
+DIRTY="$(git -C "$ROOT" status --porcelain 2>/dev/null | wc -l | tr -d ' ')"
+AGDA_V="$(agda --version 2>/dev/null | head -1 || echo unknown)"
+LIBS="$(cat "$HOME/.agda/libraries" 2>/dev/null | tr '\n' ';' || echo unknown)"
+WHEN="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+OUT="$(printf '%s\n' "$BATTERY" | "$NADI" "$@")"
+STATUS=$?
+printf '%s\n' "$OUT"
+
+# A semantic refusal is not a failed conduit.  Preserve both coordinates.
+REFUSALS="$(printf '%s\n' "$OUT" | grep -c '^✗' || true)"
+if [ "$STATUS" -ne 0 ]; then
+  VERDICT="conduit-failure"
+elif [ "$REFUSALS" -gt 0 ]; then
+  VERDICT="kernel-refusal-present"
+else
+  VERDICT="no-kernel-refusal-observed"
+fi
+
+# JSON-escape via python-free sed: escape backslash, quote, newlines.
+esc() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' | awk '{printf "%s\\n", $0}' ; }
+
+{
+  printf '{"organ":"nadi-saksin","kala":"%s",' "$WHEN"
+  printf '"provenance":{"tree":"%s","dirty_paths":%s,"toolchain":"%s","libraries":"%s"},' \
+         "$TREE" "$DIRTY" "$(esc "$AGDA_V")" "$(esc "$LIBS")"
+  printf '"intervention":"%s",' "$(esc "$BATTERY")"
+  printf '"observation":"%s",' "$(esc "$OUT")"
+  printf '"predicted_body_after":null,'
+  printf '"process_exit":%s,' "$STATUS"
+  printf '"kernel_refusals":%s,' "$REFUSALS"
+  printf '"mismatch":"%s",' "$VERDICT"
+  printf '"route":"warm kernel via nadi; this wrapper; append-only ledger"}'
+  printf '\n'
+} >> "$LEDGER"
+
+exit $STATUS
