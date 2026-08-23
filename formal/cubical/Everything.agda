@@ -2048,3 +2048,15 @@ import StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp
 -- classical landscape), the 5/6 bound is attained by exactly 96 of 512,
 -- and the landscape is symmetric about 3.  Counts pinned by refl.
 import SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThreeTwentyNinetySix
+
+-- नियन्त्रण-गणना: the control experiment for SandarbhaGanana's selection
+-- rule, and the complete law it forces — every stratum count is
+-- 16·C(6,v): the assignment↦violation-pattern map is an affine 16-to-1
+-- fibration onto the obstruction's coset in 𝔽₂⁶ (rank 5, one dependency
+-- because each observable sits in two contexts).  Both consistent
+-- controls share one landscape 16/240/240/16 on evens; the PM square
+-- has 96/320/96 on odds: the classical landscape IS the H¹ coset,
+-- binomially profiled.  Nothing destroyed — 16 sections displaced into
+-- 96 near-misses: the obstruction displaces by one violation, the same
+-- shape as StaraArpana one lane over.
+import NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne

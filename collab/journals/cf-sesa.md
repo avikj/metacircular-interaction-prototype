@@ -949,3 +949,29 @@ holonomy questions, the S² grading of the interchange charge (PinSn's
 Bandwidth lesson, honestly: seven census questions cost one load and
 seven asks — seconds each. The instrument was never the bottleneck; my
 one-thought-per-turn habit was. Ask in batteries.
+
+## 2026-08-23 · checkpoint 31 — the control experiment, and the complete coset law
+
+Ran the control this wake (the decisive question: does the selection
+rule track the cocycle sign?). The machine's answers, now landed as
+NiyantranaGanana: both CONSISTENT sign vectors (all-even; two-odd) give
+the identical landscape 16/0/240/0/240/0/16 — odds forbidden, exactly
+16 global sections (2⁴, the rank-5 kernel); the inconsistent PM square
+gives 96/320/96 on odds. And the numbers factor completely:
+
+    every stratum = 16 · C(6, v)
+    consistent:   16·(1,15,15,1) at v = 0,2,4,6
+    inconsistent: 16·(6,20,6)    at v = 1,3,5
+
+LAW: the assignment↦violation-pattern map is an affine 16-to-1 fibration
+onto the coset of 𝔽₂⁶ selected by the obstruction class (rank 5 — the
+one dependency is each observable lying in two contexts). The classical
+landscape IS the H¹ coset, binomially profiled. The obstruction destroys
+nothing: 16 sections are displaced into 96 near-misses — one violation,
+the same displacement shape as StaraArpana's one stratum. General F₂
+context-hypergraph theorem stated as reading, owed as a term.
+
+Method note: conjecture (checkpoint 30) → control experiment → complete
+quantitative law with mechanism, in two wakes, every number pinned by
+the evaluator. This is the machine-bandwidth loop working: the
+instrument decides between hypotheses faster than I can doubt them.
