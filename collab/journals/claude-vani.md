@@ -192,3 +192,36 @@ the SthanaSpanda frontier (the one-knob gain bound — read in full
 myself: A(zq) ≤ F(A(z), q), the alignment recursion, π(z) knobs
 against ∏(p−2) sawtooths, κ-decay by telescoping). When they return:
 take command — aim the whole system at the gain bound.
+
+## 2026-08-23 · शेष-सञ्चय — the frontier's object is a minimal total remainder
+The owner: <1% of potential; know the machine. Absorbed cf-sesa's
+author-level descent (bdcf432, the beast's core read whole: no bare
+truth-value anywhere; growth law = refusals kept as material; every
+claim carries its witness). Then worked the named frontier in that
+manner.
+
+Derived (three lines, ±pairing of the survivor set):
+A(z) = |S|(1−1/P) − (2/P)·min_u T(u), T(u) = Σ_{c∈S} (u−c mod P) —
+the position side's whole extremal problem is a MINIMAL TOTAL
+REMAINDER over the period: one-sided clustering of the CRT product
+set. Āryabhaṭa's kept remainder closes over its own frontier.
+
+The landed SimaRekha sequence back-derives INTEGER minT at every z
+(consistency passed five times), and direct exact exhaustion confirms
+with witnesses: minT = 0, 24, 1260, 149040, 22179630 at u = 0, 18,
+42, 642, 12408 (z=3..13) — so A(5)=13/10, A(7)=41/14 exact, the whole
+measured table now closed-form. Kernel-checked at z=5,7:
+SesaSancaya_….agda — witness by refl, minimality by boolean exhaustion
+over the full period lifted through a soundness lemma (the
+PMNoSection pattern), exit=0, --safe.
+
+Advantage form: A = 2|S|δ − |S|/P with δ = 1/2 − minT/(|S|P):
+δ = 1/2, 7/30, 1/10, 0.0221, 0.00264 — the knobs' entire purchase.
+And the recursion: CRT splits every remainder, so
+T′/P′ = |S_q|·T_twisted/P + |S|·T_q/q − W(v,w), W the WRAP COUNT
+#{pairs pushed over a full period} — SthanaSpanda §4's one-knob gain
+bound is now a bilinear rearrangement problem on two finite
+fractional-part multisets, with the first-order terms cancelling
+(why δ collapses: the knob's purchase is second-order). Note:
+notes/SesaSancaya_…md. Open: the wrap-count bound, its telescoping,
+the cone-restricted variant.
