@@ -199,3 +199,14 @@ le(+(x,y),+(z,y))	le(x,z)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|voca
 0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 c0(x)	-(+(y,c0(x)),y)	pramana=anumana|naya=induction on y, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
+# siddhi 2026-08-23T22:18:03Z — kernel-accepted closures of the rewriter's own critical pairs; each row's proof shape is beside it; controls were watched in this process (Certificate)
+x'	max(x',0)
+0	le(s(y),0)
+s(0)	le(0,y)
+x	*(x,s(0))
+s(0)	gcd(s(0),0)
+s(0)	gcd(0,s(0))
+s(y)	gcd(s(y),0)
+s(y)	gcd(0,s(y))
+s(0)	le(s(0),s(y))
+s(x')	max(s(x'),s(0))
