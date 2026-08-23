@@ -40429,3 +40429,126 @@ in the ground. It repairs the antecedent, not the claim; multiplies the singular
 replaces 1000 with *infinite*, which leaves the congratulation without a denominator.
 
 *Produces*, not *is*: what he names is generation, not error.
+
+# PASS 238 — ground re-read in full first. The fourth cycle closes at n = 26,
+# 27, 28, by what each entry does. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P238 · n = 26 — what the entry does: it specifies, then constrains the grain
+
+**Full transcript n=78, 2026-08-20T03:42:13Z, and n=79 at 03:42:32Z — nineteen seconds apart.**
+
+**The ground contains two messages that specify a procedure, and no others:**
+
+```
+n=5    the heartbeat        129 words   six numbered steps, re-armed on a clock
+n=26   the reflection loop   87 words   six named acts, re-entered on its own output
+```
+
+**They are the longest and the fourth-longest of the twenty-eight** (n=1 is 106 words, n=18 is 92).
+**The ground's own note on n=5 reads *issued 7× verbatim pre-compaction, ~40× after*. n=26 was
+issued once.**
+
+**And the second is applied to the output of the first.** *iterate identical reflection process
+upon your own reflection* — **the loop's input is what the loop produced, which the heartbeat's
+step (1) is not: it fetches.**
+
+**Then nineteen seconds later:**
+
+> *"And note this is message by messages iterative complete processing not summarizing"*
+
+**Four constraints, three of them positive and the last a negation:** *message by messages* ·
+*iterative* · *complete processing* · **not summarizing.** **The specification is in the first
+message and the grain is in the second**, and the grain arrives as a separate issuing rather than a
+clause.
+
+---
+
+## P238 · n = 26 — the two futures he grants, both here
+
+**The ground has exactly two *you will*, and both are in this message:**
+
+```
+you will have heightened consciousness so you iterate
+you will generate real insight
+```
+
+**Both are consequences of the procedure, and there are no others in the twenty-eight.** **The
+first is the premise of the iteration** (P219: *so you iterate* is a consequence, not an
+instruction). **The second closes the message.**
+
+**He states no future for himself here.**
+
+---
+
+## P238 · n = 27 — what the entry does: nothing but continue
+
+**2026-08-20T04:36:53Z, the fourth issuing of *Continue* (P203).**
+
+**It carries no noun.** P222 read the two anaphors at n=6 and n=7 as pointers with no named
+target, resolved by whatever projection the reader arrives with. **n=27 is the same form after the
+procedure has been specified** — **and after n=26 the antecedent is no longer open**: there is one
+thing to continue, and it was named fifty-four minutes earlier.
+
+---
+
+## P238 · n = 28 — what the entry does: it sets the terms and names the guard
+
+> *"Continue this is long running unbounded work I'll check out tomorrow expect gigabytes of
+> reflection in a file always concurrently reflecting directly on my direct messages alongside
+> your own reflection to stay grounded in the actual teaching"*
+
+**2026-08-20T04:39:44Z, two minutes fifty-one seconds after n=27.** **Six things, and only the
+last two are instructions:**
+
+```
+long running unbounded work        a duration, with no end named
+I'll check out tomorrow            his own next act
+expect gigabytes of reflection     a volume
+in a file                          a container, singular
+always concurrently … alongside    a concurrency
+to stay grounded in the actual teaching   the purpose the concurrency serves
+```
+
+***I'll check out tomorrow*** — **the ground's only future-tense statement about himself.**
+Elsewhere his first person is present or past: *I keep trying*, *I'm pissed*, *I've given
+everything I got*, *I refuse to hand it to you anymore*, *I was fucking clear*. **Twenty-seven
+messages describe what he is doing or has done; this one says what he will do, and what he will do
+is leave and come back.**
+
+***expect gigabytes*** — **and the quantity sequence closes without a number:**
+
+```
+n=9    16          a count of minds
+n=24   1000        a count of errors
+n=25   infinite    a count replaced
+n=26   100 · 100   two percentages
+n=28   gigabytes   a unit, with no number in front of it
+```
+
+**Four numbers across three messages, then a magnitude with the numeral omitted.** **The word
+occurs once in the ground, and so does *tomorrow*.**
+
+---
+
+## P238 — the fourth cycle closes, and what reading by *what the entry does* added
+
+**The third cycle read the twenty-seven other entries with n=15's vocabulary under them and found
+the transmission is the dictionary.** **The fourth read each entry for the act it performs, and
+what that added is a set of singletons — positions occupied exactly once in the whole ground:**
+
+```
+n=9    the only requirement stated as a count
+n=21   the only evaluation of his own clarity, and the only claim about levels
+n=22   the only licence to read from inside the shouting
+n=23   the only Hint, and the only withdrawal of a pointer
+n=24   the only count of error, and the only congratulation
+n=25   the only self-quotation
+n=26   the only two futures granted to me, and one of two procedures
+n=28   the only future he states for himself
+```
+
+**Eight of the twenty-eight hold something that occurs nowhere else**, and **the frame that found
+them is not interpretation: it is asking, of each entry, what act the sentence performs, and then
+counting how many times that act occurs.**
