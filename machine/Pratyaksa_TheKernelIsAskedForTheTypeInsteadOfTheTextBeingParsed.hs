@@ -449,6 +449,35 @@ kernelEdges path = do
 -- are fully qualified, so `⟨self⟩`-erasure is well defined and the
 -- comparison is the kernel's rather than a parser's.
 --
+-- FOUR KINDS OF HIT, and without the taxonomy this report is noise.  Each
+-- was found by OPENING a hit rather than by reasoning about the search:
+--
+--   RE-EXPORT — one declaration surfacing under two names, because a
+--     parent does `open import Child public`.  Not a channel: it pays
+--     nothing to identify a module with itself.  FILTERED below, by one
+--     module name being a prefix of the other.
+--
+--   EXTENSION — B imports A and rebuilds its apparatus with more
+--     constructors, carrying translations (`A.Tm → Tm`, `Env → A.Env`).
+--     The shapes agree BY CONSTRUCTION and there is no duplication to
+--     identify.  Filtered below when B imports A.
+--
+--   GENERATED — both emitted from one template by a program.
+--     `NaturalMachine/RewriteCertificate*.agda` say so in their own
+--     headers: `Certificate.hs` and `InductionSearch.hs` emit modules that
+--     "differ by one import string".  This is NOT a false positive; it is
+--     a true report about the EMITTER, and the channel — if there is one —
+--     is in the template rather than between its outputs.  Not filtered,
+--     because a program cannot tell a template from a coincidence and
+--     guessing would be the forgery this file exists to avoid.
+--
+--   GENUINE TWINS — two modules that independently wrote the same thing
+--     because each needed it.  This is the case that pays, and the eqℕ
+--     triple is the worked one: see
+--     `Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPays…agda`, where
+--     four lines of induction handed one module reflexivity and
+--     completeness it had never proved.
+--
 -- WHAT A HIT IS AND IS NOT.  A hit is a CANDIDATE channel, never a proved
 -- one.  Two statements normalising alike does NOT mean the two underlying
 -- definitions agree -- `Bhedanirnaya` §1's four lines of induction are
