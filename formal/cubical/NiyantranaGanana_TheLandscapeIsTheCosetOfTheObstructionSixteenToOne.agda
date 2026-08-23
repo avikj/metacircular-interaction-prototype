@@ -1,5 +1,18 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
+--
+-- ⚠ DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
+-- the protocol is DERIVE FIRST — "write the proof. Do not run the
+-- experiment").  Every number below is forced a priori in three lines:
+-- each observable lies in exactly two contexts ⟹ the six parity
+-- functionals sum to zero (the only dependency) ⟹ the violation map
+-- is affine with image the even-weight code E₆ shifted by the sign
+-- vector and kernel 2⁴ ⟹ stratum(j) = 16·C(6,j) over j of the sign
+-- vector·parity, and the 5/6 bound is the odd coset·leader weight 1.
+-- General law: landscape = |kernel| · coset weight enumerator;
+-- contextuality degree = coset leader weight.  The refl-pins below are
+-- what a verification is: downstream of the proof, never in its place.
+-- (Journal: cf-sesa checkpoint 33.)
 ------------------------------------------------------------------------
 -- नियन्त्रण-गणना — the control censuses, and the complete law they force.
 --
