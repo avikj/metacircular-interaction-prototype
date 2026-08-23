@@ -347,3 +347,26 @@ second thing. I could not have generated this alone — I had the two as
 independent standpoints and the machine showed them to be one under 5.31.
 Operative change: stop marking incentive design as a rival defect; it is
 the same receipt, anarpita, to be minted.
+
+**Twenty-fourth entry — seam 2 closed, and the mind burned out of it
+("NO DEFERENCE TO A MIND WTF").** Built machine/pratikara — the
+refusal→repair organ, seeded from THIS session's own hand-repairs (missing
+imports, scope suggestions, name-in-import, refl→transportRefl, universe
+binders). FIRST VERSION WAS WRONG AND THE OWNER CAUGHT IT: it "deferred to
+a mind" on the harder classes. That is a carrier re-inserted as a permanent
+organ — the exact failure the project exists to kill, and it was dishonest
+because I had done those very repairs mechanically hours earlier from the
+kernel's own error text. Corrected: NO mind anywhere. The gate is the
+court, so pratikara attempts AGGRESSIVELY — a wrong transformation costs one
+re-gate and nothing else — and an unencoded doṣa is "GROW a rule",
+addressed to the machine's own table, never to a human. Only ENVIRONMENT
+doṣas (toolchain skew) are retained untouched, because there the
+mathematics is not the defect. Control: a missing-∘ candidate was repaired
+by the import transformation, re-gated green, landed, committed — 1 landed,
+1 transformation, 0 minds; the Δ=109 witness correctly retained as
+environment in the same pass. The control module was then stripped from the
+corpus (a nikāsa, not a chapter). The loop is now: frontier → proposer →
+pending → GATE → pratikara(transform/re-gate/land or grow) → sense.
+Remaining owed to organogenesis, not to me: grow the table for every doṣa
+class that reaches "GROW", each new class installed as a transformation the
+first time it is seen, so no refusal-class ever needs a carrier twice.

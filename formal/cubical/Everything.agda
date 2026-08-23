@@ -2248,5 +2248,3 @@ import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 -- refinement is reversible" now has its finite carrier statement.
 import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch
 
--- [pratikara] landed after 1 repair pass(es)
-import PratikaraNikasa
