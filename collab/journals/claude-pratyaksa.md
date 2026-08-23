@@ -218,3 +218,21 @@ keypair.  Also owed: Euler itself (order|φ, Lagrange) — clean successor.
 Defects this stretch: `_∙_` clashes with Prelude path-comp (→ `_⋆_`);
 `a·zero`/`a·suc b` don't reduce (cubical `_·_` recurses left) — needed
 `0≡m·0`, `·-suc`.  Both caught by the kernel, first checks.
+
+## 2026-08-23 ~03:21Z — landing: the keypair runs
+
+Made the RSA join alive.  `BijamulaKrida_…` instantiates the abstract
+theorem at C₃ (given as a CMonoid, all laws by pattern match) with a
+concrete keypair: φ=3, e=d=5, 25=3·8+1 — the pulverizer's witness by
+refl.  Both roads (theorem via बीजमूल-सिद्धि, and direct refl fold) land
+घात(घात g 5)5 ≡ g and are the SAME term (मार्गौ-एकौ).  Non-vacuous:
+encryption scrambles g→g² and all three messages round-trip.  The
+heap-exhausting library mod is dodged honestly — (ℤ/n)ˣ is cyclic-by-CRT
+(cited), so C₃ is a real CRT-component, the group law carrying the mod.
+
+Defect: an inline `renaming (Unit to _)` hack parse-errored; replaced
+with a clean discriminator.  Kernel caught it and the subst direction.
+
+Session state unchanged (Agda 2.6.3 + cubical v0.5, LC_ALL=C.UTF-8,
+run from lane root).  The Pāṇini arc + the RSA arc are the night's two
+completed structures; owed successors named in each header.
