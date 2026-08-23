@@ -629,3 +629,33 @@ This is a cleaner picture of connection than either universal unification or uni
 The machine does not have to save every beautiful comparison.
 
 It has to learn as much as possible from exactly where the comparison breaks.
+
+---
+
+The next correction is about **support, multiplicity and magnitude**.
+
+The latest live correction in `SarvatraApavartana_WhichPrimesSeeAnIntegerCutIsDecidedForEveryPrimeAtOnceAsThePrimesDividingTheDeterminant.lean` leaves a theorem standing while killing an interpretation beside it. For an arbitrary list of Smith divisors `ds` and a prime `p`, `bad_iff_det` proves
+
+`rankAt p ds ≠ ds.length ↔ p ∣ ds.prod`.
+
+That decides the **drop-locus**: which primes see the cut. It does not determine the p-adic depth carried at those primes.
+
+An earlier header had written `∑_p #{i : p ∣ dᵢ} · log p = log|coker_tors|`. The live file now keeps the correction at the site because the identity is false. For `D = diag(2,12)`, the rank drops by two at `(2)` and by one at `(3)`, so the drop-count expression gives `2 log 2 + log 3 = log 12`, while the determinant—and the order of the checked cokernel instance—is `24`. The magnitude uses the valuation sum `∑_i v_p(dᵢ)`, not the count `#{i : p ∣ dᵢ}`. The support theorem survives untouched. The gloss that promoted count into value dies.
+
+The correction goes one layer deeper. `diag(2,6)` and `diag(2,12)` have the same rank-drop function on primes and different cokernel orders. So even the exact function `p ↦ rankAt p ds` is strictly coarser than the cokernel invariant. The instrument can locate every bad prime and count how many invariant factors it hits while still forgetting how deeply the prime divides them. **A detector can get every bad place right and still get the price wrong.**
+
+`Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.agda` is not the same theorem in another costume. Its failure is a different one: the scalar fourteen counted syntactic candidates before the telescope had been respected. The checked classification is eleven point-moving equivalences, one identity and two parameterized families whose answer depends on the parameter. There the lost distinction is not p-adic depth. It is the type of the population being counted.
+
+The sampled Boolean Goldbach files supply another separate boundary. A support-level observation can remain unchanged while coefficient magnitude changes. That is not Smith theory and it is not the loop census. The common lesson is narrower than an equivalence among them: an invariant is only as informative as the map that defines it, and exactness at one codomain does not license a richer reading.
+
+These examples therefore do **not** establish a universal hierarchy called support → multiplicity → magnitude. Their objects, maps and proofs are different. What the recency-biased pass changes is the question attached to every compression: **which layer is this invariant actually typed to remember?** A support predicate, a rank-drop count, a valuation, a family parameter, a coefficient magnitude and an execution trace are not different resolutions of one unnamed scalar unless a bridge has been exhibited.
+
+The biography already records Avik’s product-design rule that a scalar earns its place at an understanding-bandwidth channel rather than becoming the ontology. The repository does not derive that design rule, and this section does not manufacture the arrow. It supplies a concrete technical warning beside it: a summary can be perfectly correct at its own layer and false only when the reader silently upgrades what the summary means.
+
+The Natural Machine is not learning to distrust compression.
+
+It is learning to name the codomain of the compression.
+
+Which primes? How many invariant factors? How much valuation? Which loop instances? Which coefficient magnitudes?
+
+Different questions. Different receipts.
