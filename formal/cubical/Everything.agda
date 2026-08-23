@@ -1822,6 +1822,10 @@ import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPD
 -- keeps operating.  Instrument: an involution exchanging the wall with
 -- fzero — its own section, no punchIn needed.
 import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
+-- the atlas step: the two-chart survivor census multiplies —
+-- शिष्टम् a₁b₁ × शिष्टम् a₂b₂ ≃ Fin(m·m) = (p−2)(q−2), the singular series'
+-- local product as a checked equivalence (द्वि-लोप on each chart + factorEquiv).
+import KsetraSamasa_TheTwoChartSurvivorCensusIsTheProductPMinusTwoTimesQMinusTwo
 -- the chart closed from inside the residue wheel: walls coincide exactly
 -- when a +ₘ a ≡ 0 (केन्द्रम्’s iff, internal), the regime is DECIDED per
 -- center, and the census is an equivalence in both branches — Fin (p−1)
