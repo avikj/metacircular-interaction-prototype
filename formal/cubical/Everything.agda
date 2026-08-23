@@ -1338,3 +1338,19 @@ import Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence
 
 import VivekaSetu_TheTwoRemainderRecordsAreOnePairAndThereforeEachOther
 import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesForFree
+
+-- संरक्षकसमूहः: the invertible conserving flows form the observable's
+-- symmetry GROUP (inverse data proved propositional, so the carrier is a
+-- subtype); the group rides वासः pointwise by cong; zero loss makes it
+-- trivial and total loss makes it ALL of Aut(A) by a GroupEquiv whose
+-- function part and hom law are refl.  SamraksakaGana §५(b) discharged.
+import SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut
+
+-- तन्तुविभागः: the gaṇa of an observable IS the product over the codomain
+-- of its fibres' own endomorphism monoids (set level): छेदगणः ≅ Π_b
+-- End(fiber f b) as monoids, and composing with गण-समता (refl fields),
+-- प्रवाहगणः ≅ तन्तुगणः with no path algebra at the join.  The currying
+-- coherence both SvaTantuVasa §६(a) and SamraksakaGana §५(a) named is paid
+-- with one J (transport fixes the point).  The commutant-decomposes-over-
+-- the-spectrum slogan, typal shadow, exact.
+import TantuVibhaga_TheGanaOfAnObservableIsTheProductOfItsFibresOwnEndomorphismMonoids
