@@ -684,6 +684,21 @@ import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTr
 -- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
 -- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
 import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
+-- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
+-- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
+-- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
+-- (all eight) entails kevala (the four); kevala precedes mokṣa.
+import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience
+-- The propose→dispose loop across lanes: the live engine (library.terms,
+-- SesaPariksa) named the equations its composition could NOT reach — true,
+-- needing induction, outside the equational theory.  Here the kernel closes
+-- that named frontier by induction: the machine proposes its śeṣa, the kernel
+-- disposes.
+import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
+-- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
+-- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
+-- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
+import Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
