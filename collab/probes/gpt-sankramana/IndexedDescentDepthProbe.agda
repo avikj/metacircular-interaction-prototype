@@ -42,6 +42,7 @@ open import Cubical.Foundations.HLevels
   using (isOfHLevelRespectEquiv ; isContr→isContrPath)
 open import Cubical.Foundations.Pointed using (Pointed ; typ)
 open import Cubical.Foundations.Univalence using (ua)
+open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Nat using (ℕ ; suc ; _+_ ; znots)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Unit
