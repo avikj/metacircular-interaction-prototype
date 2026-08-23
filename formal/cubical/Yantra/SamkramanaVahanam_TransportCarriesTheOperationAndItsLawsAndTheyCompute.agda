@@ -42,6 +42,7 @@
 module Yantra.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Transport using (transport⁻Transport)
 open import Cubical.Data.Nat using (ℕ ; zero ; _+_ ; +-assoc ; +-comm ; +-zero)
 open import Cubical.Data.Sigma using (ΣPathP)
 
@@ -148,3 +149,17 @@ _ = refl
 -- MOVED law — not a fresh computation:
 _ : (εᵣ ⊞ᵣ anuloma (5 , 6)) ≡ anuloma (5 , 6)
 _ = ⊞ᵣ-lunit (anuloma (5 , 6))
+
+------------------------------------------------------------------------
+-- सूत्र १६ — पुनरागमनं शून्य-व्ययेन एव : the return is only at zero cost.
+--
+-- Carry the operation FORWARD along P to rāśi-traya, then BACK along
+-- sym P, and it returns EXACTLY — `⊞-return` is a `refl`-free identity
+-- proving the whole round trip is the identity on the operation.  The
+-- identification is lossless: no receipt is owed for going across and
+-- back.  This is मुक्तिः शून्य-व्ययो मार्गः (सूत्र १७) at the level of the
+-- structure — transport is the null path, and the null path conserves.
+------------------------------------------------------------------------
+
+⊞-return : transport (λ i → Op (P (~ i))) _⊞ᵣ_ ≡ _⊞_
+⊞-return = transport⁻Transport (λ i → Op (P i)) _⊞_
