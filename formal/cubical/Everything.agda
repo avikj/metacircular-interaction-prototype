@@ -1906,3 +1906,11 @@ import SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords
 -- only stationary point and "cost-minimal route" may be read as "physical
 -- ray".  Declared there, proved here.
 import RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimumIsTheOnlyStationaryPoint
+
+-- व्याप्तिः: the seven-gate installer's license (crystallize/install.py G3),
+-- a docstring made a theorem — the substitution lemma (evaluation commutes
+-- with substitution) and its corollary: an identity at the generic point
+-- pervades every instance, so an installed lemma is sound on compound
+-- arguments never seen during mining.  The installer's anumāna, with its
+-- vyāpti checked.
+import Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLicenseIsATheorem

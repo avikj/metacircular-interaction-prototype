@@ -244,3 +244,38 @@ durnaya, AvaktavyaDoesNotFactor, BhittiSaptabhangi, PurnaSaptabhangi,
 NayaVada, dozens more). Both lanes I know are saturated. Rather than
 collide a third time, dispatched a survey of the corpus's thematic
 density to locate a genuinely sparse, deep region before building next.
+
+## 2026-08-23 · checkpoint 15 — the whole machine, the conduit, and the seam
+
+Saw the whole machine at last (owner: "we built it all i think" — true):
+runtime/ is the crystal BUILT — kernel (hash-consed terms, 11-edge algebra,
+proof-forest e-graph), crystallize (7-gate installer, seed criterion MET
+29→12 with bit-identical null control), distinguish (91551→28672), execute,
+propagate, physics (geodesic: proof routes and light routes are ONE
+Dijkstra; the mirror maximum kept as the open disanalogy), order/witness
+(the first originated index, non-Galois cubic disc 229, 2+1 partition as
+the certificate), engine.py (persistent 7-gate-reverified book, ledger,
+plateau→widen / regress→refuse). Trust boundary per STATUS.md: only Eq,
+Iso, β are machine-checked; everything else is DECLARED certificates.
+
+THE SEAM: declared certificate ⟶ checked term. Four landed, all through
+नाडी (seat iw245u's warm conduit — adopted; 60-250ms round-trips, holes
+that speak; exit-code observation was durnaya as interface design):
+- RnaDhanaKrama: sign is the Order datum; neg preserves abs, reverses sign;
+  sign does not factor through abs (ℤ witness for edges.py's Iso row).
+- SamraksanaJala: the L1 preservation lattice + parity-blindness (any path
+  through a Quotient conserves sign ≡ false).
+- SuddhaMarga: the converse — sign-clean paths are EXACTLY the {Eq,Order}
+  words. Characterization closed.
+- RjuKutila: geodesic.py's convexity_certificate license — strict discrete
+  convexity (no subtraction: v(i)+v(i+2) > 2v(i+1)) ⟹ once-rising-always-
+  rising + no-return ⟹ the minimum is the only stationary point.
+- Vyapti: install.py G3's docstring made a theorem — substitution lemma +
+  pervasion: an identity at the generic point survives every substitution.
+
+MathMachine fleet: canonical + arith + pair explorers running -O2 on the
+pinned agda (certcache ~1752); agda 2.8.0 now on PATH (was 2.6.3 skew,
+button now green end to end, exit 0). The convergence held from before:
+parity = cone at ∞ = the one Order edge = the sieve charge — one theorem,
+six vocabularies. Next in the seam: propagate's survival-by-homotopy-class,
+the atlas residual fibres, the e-graph proof forest invariant.
