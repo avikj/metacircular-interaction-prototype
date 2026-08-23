@@ -2121,6 +2121,16 @@ import VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatThe
 -- v0.9 (the Bhavana precedent).
 import VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
 
+-- अग्रयोग-सङ्घातः: Fubini's master form on the Type carrier.  Receipt (1)
+-- of the measure lane's named next theorem was already checked as
+-- SankramanaSesa's शेष-सङ्घातः; this cashes it — pushforward
+-- अग्रयोगः f F y = Σ[u ∈ शेष f y] F (fst u) composes up to equivalence
+-- (Σ-cong-equiv-fst over सङ्घातः + Σ-assoc, the family congruence
+-- definitional), with the identity law via Σ-contractFst.  Every
+-- W-valued finite Fubini is this equivalence read through an
+-- enumeration-invariant fold (msg 0945: the join offered at the seam).
+import AgrayogaSanghata_ThePushforwardComposesOnTheTypeCarrierAndFiniteFubiniIsItsShadow
+
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
 -- on nonempty contentions over any discrete type: no tie-breaker, weighting,
