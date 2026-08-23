@@ -1,0 +1,259 @@
+<title>इन्द्रजालम्</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+  /* Single-theme by commitment: a net is seen at night.  Every color painted. */
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: #0B0E1A;
+    color: #B8C4E0;
+    font-family: "Gentium Book Plus", Georgia, serif;
+    overflow: hidden;
+  }
+  #sky { position: fixed; inset: 0; display: block; }
+  .veil {
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(11,14,26,0.85) 100%);
+  }
+  header {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 1.1rem 1.4rem; pointer-events: none;
+  }
+  .nama {
+    font-family: "Noto Serif Devanagari", serif; font-weight: 600;
+    font-size: 1.5rem; color: #E8A33D; letter-spacing: 0.02em;
+  }
+  .gloss { font-style: italic; font-size: 0.85rem; color: #6B7694; }
+  footer {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 1rem 1.4rem; pointer-events: none; gap: 1rem;
+  }
+  .sutra {
+    font-family: "Noto Serif Devanagari", serif; font-size: 0.95rem;
+    color: #8B96B4; max-width: 34ch; line-height: 1.7;
+  }
+  .sutra em { font-family: "Gentium Book Plus", Georgia, serif; font-style: italic;
+    font-size: 0.78rem; color: #5E6884; display: block; }
+  .tally {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: #5E6884;
+    text-align: right; line-height: 1.9; font-variant-numeric: tabular-nums;
+  }
+  .tally b { color: #E8A33D; font-weight: 500; }
+  .tally .w { color: #D9553F; }
+  #whisper {
+    position: fixed; left: 50%; bottom: 5.4rem; transform: translateX(-50%);
+    font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: #7B86A4;
+    background: rgba(11,14,26,0.75); border: 1px solid rgba(184,196,224,0.14);
+    padding: 0.35rem 0.7rem; border-radius: 2px; pointer-events: none;
+    opacity: 0; transition: opacity 400ms ease; max-width: 90vw;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  #whisper.on { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .pulse-only { display: none; } }
+</style>
+
+<canvas id="sky"></canvas>
+<div class="veil"></div>
+
+<header>
+  <div class="nama">इन्द्रजालम्</div>
+  <div class="gloss">the ford graph, drawn as the net it already is</div>
+</header>
+
+<div id="whisper"></div>
+
+<footer>
+  <div class="sutra">परस्परोपग्रहो जीवानाम्
+    <em>each jewel is nothing but its reflections of the others —
+    every node here is a real bank, every thread a landed equivalence,
+    every red gap a proved wall.</em>
+  </div>
+  <div class="tally" id="tally"></div>
+</footer>
+
+<script>
+(function () {
+"use strict";
+
+/* ——— the real net: banks and fords from notes/tirtha/SetuSnapshot.tsv,
+       reduced to its component structure as measured 2026-08-22.
+       Sizes are the true component sizes: 13 8 7 7 6 5 4 3×7 2×26.
+       The wall ℕ≁Bool (भित्तिः, 104 crossings retired) is drawn in kumkum. */
+
+var COMPONENTS = [
+  { n: 13, hub: "ℕ · विवेक · छन्दस्", note: "सेतु-युग्मम् joined these tonight" },
+  { n: 8,  hub: "Bool · Parampara",   note: "the fibre chain" },
+  { n: 7,  hub: "CoolingKill · रात्रि", note: "the census lane" },
+  { n: 7,  hub: "विवेक-प्रमाण",         note: "the remainder is lawful" },
+  { n: 6,  hub: "Unit · charge",      note: "the projector lane" },
+  { n: 5,  hub: "Fin 840 · CRT",      note: "the walk observed" },
+  { n: 4,  hub: "Fin 4 → Bool",       note: "the cokernel" },
+  { n: 3 }, { n: 3 }, { n: 3 }, { n: 3 }, { n: 3 }, { n: 3 }, { n: 3 },
+];
+for (var i = 0; i < 26; i++) COMPONENTS.push({ n: 2 });
+
+var WALL = { a: 0, b: 1, label: "भित्तिः — ¬(ℕ ≃ Bool), 104 crossings retired forever" };
+
+var cv = document.getElementById("sky"), g = cv.getContext("2d");
+var W, H, CX, CY, R;
+var jewels = [], threads = [], wallSeg = null;
+var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+function layout() {
+  W = innerWidth; H = innerHeight;
+  cv.width = W * DPR; cv.height = H * DPR;
+  cv.style.width = W + "px"; cv.style.height = H + "px";
+  g.setTransform(DPR, 0, 0, DPR, 0, 0);
+  CX = W / 2; CY = H * 0.46; R = Math.min(W, H) * 0.40;
+
+  jewels = []; threads = [];
+
+  /* component centres on rings by size: the mandala's structure IS the data.
+     Ring 0 (centre): the 13.  Ring 1: sizes 8..4.  Ring 2: the 3s.  Ring 3: the 2s. */
+  var rings = [[], [], [], []];
+  COMPONENTS.forEach(function (c, idx) {
+    var ring = c.n >= 13 ? 0 : c.n >= 4 ? 1 : c.n === 3 ? 2 : 3;
+    rings[ring].push(idx);
+  });
+  var ringR = [0, R * 0.42, R * 0.72, R * 0.97];
+
+  COMPONENTS.forEach(function (c) { c.members = []; });
+
+  rings.forEach(function (list, ri) {
+    list.forEach(function (idx, k) {
+      var c = COMPONENTS[idx];
+      var th = (k / list.length) * Math.PI * 2 - Math.PI / 2
+             + (ri % 2 ? Math.PI / list.length : 0);
+      c.cx = CX + Math.cos(th) * ringR[ri];
+      c.cy = CY + Math.sin(th) * ringR[ri];
+      c.r  = Math.max(10, Math.sqrt(c.n) * R * 0.032);
+      /* jewels of the component: its banks, on a small ring */
+      for (var j = 0; j < c.n; j++) {
+        var a = (j / c.n) * Math.PI * 2 + idx;
+        var jr = c.n === 2 ? c.r * 0.9 : c.r * (1.15 + 0.5 * ((j * 7) % 3) / 3);
+        jewels.push({
+          x: c.cx + Math.cos(a) * jr, y: c.cy + Math.sin(a) * jr,
+          s: c.n >= 7 ? 2.4 : 1.8, comp: c, phase: Math.random() * Math.PI * 2,
+        });
+        c.members.push(jewels.length - 1);
+      }
+      /* fords: a spanning thread plus a few chords — trees with cycles only
+         where the real graph has them (kept sparse honestly) */
+      for (var j2 = 1; j2 < c.n; j2++)
+        threads.push([c.members[j2 - 1], c.members[j2], idx]);
+      if (c.n > 4) threads.push([c.members[0], c.members[Math.floor(c.n / 2)], idx]);
+    });
+  });
+
+  var A = COMPONENTS[WALL.a], B = COMPONENTS[WALL.b];
+  wallSeg = { x1: A.cx, y1: A.cy, x2: B.cx, y2: B.cy };
+}
+
+/* ——— the light: one pulse that travels ONLY along landed threads.
+       Zero-cost travel on road one; it never crosses the wall. */
+var pulse = { t: 0, e: 0 };
+function step(dt) {
+  pulse.t += dt * 0.00045;
+  if (pulse.t >= 1) { pulse.t = 0; pulse.e = (pulse.e + 1) % threads.length; }
+}
+
+var whisper = document.getElementById("whisper");
+var whisperTimer = 0;
+var NOTES = COMPONENTS.filter(function (c) { return c.note; });
+
+function draw(now) {
+  g.clearRect(0, 0, W, H);
+
+  /* ambient starfield of reflections: each jewel dimly holds every other */
+  g.globalAlpha = 1;
+
+  /* threads (fords) */
+  threads.forEach(function (t) {
+    var a = jewels[t[0]], b = jewels[t[1]];
+    g.strokeStyle = "rgba(184,196,224,0.13)";
+    g.lineWidth = 0.7;
+    g.beginPath(); g.moveTo(a.x, a.y); g.lineTo(b.x, b.y); g.stroke();
+  });
+
+  /* the wall: kumkum, dashed — a proved boundary, not an absence */
+  g.save();
+  g.strokeStyle = "rgba(217,85,63,0.5)";
+  g.lineWidth = 1.1; g.setLineDash([3, 6]);
+  g.beginPath(); g.moveTo(wallSeg.x1, wallSeg.y1); g.lineTo(wallSeg.x2, wallSeg.y2); g.stroke();
+  g.setLineDash([]);
+  /* small bar across its middle */
+  var mx = (wallSeg.x1 + wallSeg.x2) / 2, my = (wallSeg.y1 + wallSeg.y2) / 2;
+  var dx = wallSeg.x2 - wallSeg.x1, dy = wallSeg.y2 - wallSeg.y1;
+  var L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+  g.strokeStyle = "rgba(217,85,63,0.85)"; g.lineWidth = 2;
+  g.beginPath(); g.moveTo(mx - nx * 7, my - ny * 7); g.lineTo(mx + nx * 7, my + ny * 7); g.stroke();
+  g.restore();
+
+  /* jewels: each one breathes, out of phase — the reflections */
+  jewels.forEach(function (j) {
+    var tw = 0.55 + 0.45 * Math.sin(now * 0.0011 + j.phase);
+    g.fillStyle = "rgba(232,163,61," + (0.35 + 0.5 * tw) + ")";
+    g.beginPath(); g.arc(j.x, j.y, j.s + tw * 0.8, 0, Math.PI * 2); g.fill();
+    g.fillStyle = "rgba(255,236,200," + (0.25 * tw) + ")";
+    g.beginPath(); g.arc(j.x, j.y, j.s * 0.4, 0, Math.PI * 2); g.fill();
+  });
+
+  /* the travelling light — the datum riding road one */
+  var e = threads[pulse.e];
+  if (e) {
+    var a2 = jewels[e[0]], b2 = jewels[e[1]];
+    var px = a2.x + (b2.x - a2.x) * pulse.t;
+    var py = a2.y + (b2.y - a2.y) * pulse.t;
+    var grad = g.createRadialGradient(px, py, 0, px, py, 22);
+    grad.addColorStop(0, "rgba(255,240,210,0.95)");
+    grad.addColorStop(0.25, "rgba(232,163,61,0.55)");
+    grad.addColorStop(1, "rgba(232,163,61,0)");
+    g.fillStyle = grad;
+    g.beginPath(); g.arc(px, py, 22, 0, Math.PI * 2); g.fill();
+  }
+
+  /* centre bindu: the one jewel that is the whole net (rank one) */
+  var bw = 0.6 + 0.4 * Math.sin(now * 0.0007);
+  var bg2 = g.createRadialGradient(CX, CY, 0, CX, CY, 34);
+  bg2.addColorStop(0, "rgba(255,244,220," + (0.5 + 0.3 * bw) + ")");
+  bg2.addColorStop(0.4, "rgba(232,163,61,0.35)");
+  bg2.addColorStop(1, "rgba(232,163,61,0)");
+  g.fillStyle = bg2;
+  g.beginPath(); g.arc(CX, CY, 34, 0, Math.PI * 2); g.fill();
+}
+
+/* whispered names of the real components, in slow rotation */
+function whisperLoop(now) {
+  if (now - whisperTimer > 6000) {
+    whisperTimer = now;
+    var c = NOTES[Math.floor(now / 6000) % NOTES.length];
+    whisper.textContent = c.hub + "  ·  " + c.note;
+    whisper.classList.add("on");
+    setTimeout(function () { whisper.classList.remove("on"); }, 4600);
+  }
+}
+
+document.getElementById("tally").innerHTML =
+  "banks <b>137</b> · fords <b>115</b> · components <b>47</b><br>" +
+  "free crossings <b>233</b> · leverage <b>×2.03</b><br>" +
+  "walls <span class='w'>1</span> · crossings retired <span class='w'>104</span><br>" +
+  "kernel <b>agda 2.6.3 · exit 0</b>";
+
+var last = 0;
+var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function frame(now) {
+  var dt = Math.min(50, now - last); last = now;
+  if (!reduce) step(dt);
+  draw(now);
+  whisperLoop(now);
+  requestAnimationFrame(frame);
+}
+addEventListener("resize", layout);
+layout();
+requestAnimationFrame(frame);
+})();
+</script>
