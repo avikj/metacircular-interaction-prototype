@@ -67,6 +67,14 @@ else
     echo "  git clone --depth 1 --branch v0.5 https://github.com/agda/cubical /root/cubical"
     echo "  sed -i 's/^name: cubical-0.5/name: cubical/' /root/cubical/cubical.agda-lib"
     echo "  echo /root/cubical/cubical.agda-lib > ~/.agda/libraries"
+    echo "  echo cubical > ~/.agda/defaults"
+    echo "  # ^ defaults is LOAD-BEARING for the bridge step below: the generated"
+    echo "  #   manifests in _build/ sit in no .agda-lib project, so without a"
+    echo "  #   default library they see only Agda's prim tree and the bridge"
+    echo "  #   fails on every fresh container while the in-project checks pass."
+    echo "  #   (Found 2026-08-23: the button was red in a remote container for"
+    echo "  #   exactly this line's absence.  The pin recipe is the same with"
+    echo "  #   the v0.9 clone + cabal-built Agda 2.8.0 — see formal/cubical/BUILD.md.)"
     FORMAL="toolchain absent"
 fi
 

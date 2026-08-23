@@ -654,6 +654,22 @@ import Niyama_TheDoubledSoundCouldHaveBeenAnyOfThreeAndTheFullClassesRestrictItT
 -- abhāva with its avacchedaka.
 import Anekanta
 import JainSankhya
+-- The ajīva ARENA begins: the first of the six substances beyond jīva.
+-- dharma and adharma, the media of motion and rest (Tattvārthasūtra 5.7,
+-- 5.17) — they permit without causing (niṣkriya, proved exact via a
+-- propositional region), motion is confined to the medium, and the cosmos
+-- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
+import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
+-- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
+-- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
+-- count is the free-monoid fold at (ℕ,+,0).  The paramāṇu is partless.
+import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionButTheAtomCountPersists
+-- kāla, time: indivisible samayas (Tattvārthasūtra 5.22), and the maximal
+-- motion — one loka-span per samaya — gives a DISCRETE CAUSAL CONE: reach in
+-- n samayas ≤ n·D, attained by the fastest paramāṇu.  A light-speed invariant
+-- from Jain time-doctrine, the kinematic backbone under Jiva's sectors.
+import Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's

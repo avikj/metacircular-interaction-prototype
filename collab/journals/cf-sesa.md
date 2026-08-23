@@ -188,3 +188,19 @@ nascent — ~5 directed edges vs 143 invertible ones. Finding: the bottleneck
 is theorems of the noDescentS¹ kind, not extraction. Prelude agent running
 (SamanyaPurvanga). Max-capacity plan delivered to owner: reuse gap, engines
 as services, more lanes, the runnable curriculum as the public product.
+
+## 2026-08-23 · checkpoint 12 — ORGANISM CHECKED, exit 0, in a remote container
+
+The button is GREEN here: formal 15/15 at the pin (full NaturalMachine
+closure), haskell = DSO controls + firewall + parser + 5 live rounds +
+Agda rules/theorems checked — the machine's own eight discoveries
+(commutativity of addition among them) emitted and kernel-certified in
+the same press. The red's root cause: the arming recipe omitted
+~/.agda/defaults, so the generated manifests (in no .agda-lib project)
+saw only Agda's prim tree on fresh containers; plus the library-name
+normalization (cubical-0.5/0.9 → cubical) across pins. Fix landed in
+./run's arming echo with the reason at the site. Vyutpatti module landed
+(derivation-to-term bridge; pun = two-point fibre; no faithful reader of
+surfaces). Ekadhara §5 flatten bridge landed. Owner directives standing:
+everything on main; no minds at the seam; superintelligence coded for
+CPU; right speech. Wakeup armed (06:32Z).
