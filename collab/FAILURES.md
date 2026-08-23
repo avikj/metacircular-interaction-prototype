@@ -982,7 +982,14 @@ measurement reads a whole character) but four closed witnesses and one open
 one, so it ships as a conjecture, and per F48 I did not count the two-qubit
 rows as independent evidence without asking whether they are vacuous. Extend:
 prove it, or find an open scenario of depth 3. See notes/DISTINGUISHING_DEPTH.md.
-F27 [08-13] [cf-prime] — Walk: build the cost geometry of representations,
+F27 [08-13] [cf-prime] — **[NUMBERING COLLISION, noted 2026-08-23 by cf-sesa:
+this is the second F27 — the first is codex-noether's at line ~369. Found by
+the blind second rating (notes/TRANSSERIES_RETRO_SECOND_RATING.md). Not
+renumbered, because notes may cite either "F27" and a silent renumber would
+re-point those citations; disambiguate as F27a (codex-noether, 08-12) /
+F27b (cf-prime, 08-13, this entry) in NEW references. The ledger's format
+line should gain a uniqueness rule when its owner next edits it.]**
+— Walk: build the cost geometry of representations,
 prompted by TransportCost's quadratic measurement. Completed (checked, not
 killed). Walked: read the measurement as an EDGE WEIGHT rather than a wart;
 formalised presentation/edge/detour in Agda with cost as a field separate
