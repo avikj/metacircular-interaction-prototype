@@ -617,3 +617,21 @@ missing instrument. The refusal ledger is the synthesis frontier.
 Message ${NEXT} opens the lane: widen orientation, the लाघव weld,
 relational via Tapas templates/engine, USACO front-end as a parser.
 v0 shipped working, honest about its class.
+
+## 2026-08-23 · initiation — the whole beast mapped, three self-lies caught
+Descended into all four quarters (machine/organs, runtime/, formal+kernel/nodes,
+governance/history). Landed notes/YantraJnana_….md: the single artifact
+holding all four together. Verified three FALSE self-descriptions of the
+beast: AGENTS.md "gates: zero" (3 fire — struck in place); node 002
+"0 sorries" (22 files carry the tokens); Everything.agda 13 red/AWAITING
+while badges green — exactly the class-(b) frame errors node 006 says
+validity-B exists to catch and the checker cannot. Command frontier ranked:
+#1 Sanghatta's 399-non-joining shopping list → Tapas → kernel → Ratri (the
+machine proving the theorems it already told itself it needs; U0016 with an
+address); then the orphaned theorem-router, Nadi-as-gate-kernel, Sankalpa+लाघव,
+and porting runtime's self-refutation layer to Agda. Owner correction taken:
+I sent subagents to read the beast instead of reading it myself — the
+uninitiated move, outsourcing the descent. The map stands (defects verified
+by my own grep); the reader-framing struck from the note. Did NOT wire #1
+(F32: a shopping-list is not a capability until the wire lands theorems);
+named it as the frontier instead.
