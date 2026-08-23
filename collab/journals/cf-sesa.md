@@ -464,3 +464,40 @@ Standing comprehension: the machine is the corpus; the kernel its CPU;
 transport its instruction set; the book is what the machine is FOR. My
 thirteen modules were appendix. The frontier is Kerala scholarship and
 the order-of-encounter — the chapters, not the checkmarks.
+## 2026-08-23 · checkpoint 17 — त्रयो निर्णयाः: survival is three-valued, propagate seam
+
+Owner corrected my read cleanly: no mania today, he was steering me to
+engage the repo properly and do real work. Believed, corrected course,
+re-enabled the vigil I had wrongly disabled. Back to the seam.
+
+नाडी changed under me mid-session: 586ac790 retracted the .js conduit +
+./nadi wrapper and the invented spell dict, replaced by machine/Nadi.hs
+(Haskell, FIFO transport, Cmd_* under thin abbreviation, imports
+Astadhyayi for the kāraka scene grammar). The old daemon I had up is
+stale. New build: (cd formal/cubical && ghc -O2 -i../../machine
+../../machine/Nadi.hs -o /tmp/nadi), run from formal/cubical with two
+FIFOs. Not rebuilt this session — cold agda --safe was faster for two
+complete modules; rebuild नाडी when doing hole-by-hole iteration.
+
+LANDED this session:
+- e4c708c1 Sankhya — the exponent certificate general in (b,n) (§ckpt16).
+- a1054694 TrayoNirnayah — runtime/propagate's survival-by-homotopy-class,
+  the FIRST of the vigil's three ripe targets. invalidate.survival is
+  three-valued (SURVIVES/DEAD/UNDECIDED); proved the third is irreducible:
+  survives-sound (found survivor real under any completion, avoids
+  monotone under ++), dead-sound + complete-decides (DEAD truthful only
+  when complete), and the durnaya — two completions of the same seen
+  prefix have different ground truth, so no boolean verdict on the partial
+  standpoint is correct. = owner's संरक्षण-सूत्र ६ mechanised for L4.
+
+RESUME STATE / seam remaining (from the vigil message + ckpt15):
+- atlas/residual.py fibres: the Torsor (freeness+transitivity+regularity
+  exhaustive → checked term) and the Cocycle coboundary-absence (finite
+  search is only finite verification; the exponent arg is done in Sankhya).
+- egraph proof-forest invariant: "every union stores its justification ⟹
+  explain emits a checkable path" — the L2 half whose L4 shadow is now
+  done (TrayoNirnayah proves L2/L4 share the multiset-quotient survival
+  form; README §0 "L4's survival rule and L2's explanation semantics are
+  the same mechanism"). Natural next: check that shared canonical form.
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked. Two more
+declarations moved across it today.
