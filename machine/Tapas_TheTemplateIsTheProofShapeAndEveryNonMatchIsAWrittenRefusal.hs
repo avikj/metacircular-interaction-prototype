@@ -76,6 +76,13 @@ import System.Environment (getArgs)
 import System.FilePath ((</>))
 import System.IO
 
+import Aisthesis_TheOneSensoryEventFormAndTheEfferenceGateNoActWithoutAPrediction
+  ( Aisthesis(..), Sarira, sariraP, appendEvent )
+import Pramanya_TheFiveRoutesAndTheirWitnesses (Pramanya(Pratyaksa))
+import Sabda_TheWireHasNoBoolean (J(..), parseLine, look)
+import Data.Time.Clock (getCurrentTime)
+import Data.Time.Format (formatTime, defaultTimeLocale)
+
 -- ── small text utilities ─────────────────────────────────────────────────
 
 trim :: String -> String
@@ -331,6 +338,55 @@ run lopaOut joinOut root scratch = do
             ++ "   ← the calibration its ~90% estimate asked for, at candidate level")
   putStrLn "  (emission is not landing: the kernel's exit code, taken by the"
   putStrLn "   calling script standing where the probe will live, is the verdict)"
+  -- ── the pass is an act, and an act carries its efference copy ─────────
+  -- Baseline: the journal's last recorded beat (jiva writes one per run).
+  -- Prediction: emission into SCRATCH moves nothing — the body changes
+  -- only when the calling script lands a probe, which is a later act.
+  -- If no beat was ever recorded, the gate refuses this event and the
+  -- refusal is what enters the journal: acting on an unread body is pain,
+  -- written, never silence.
+  let journal = root </> "machine" </> "aisthesis.jsonl"
+  purva <- lastBeat journal
+  now <- formatTime defaultTimeLocale "%Y-%m-%dT%H:%M:%SZ" <$> getCurrentTime
+  _ <- appendEvent journal Aisthesis
+    { aIndriya = "tapas"
+    , aNaya    = "paryayarthika — one fibre at a time, in the one-way sector"
+    , aVisaya  = show (length cands) ++ " tractable candidates of "
+                 ++ show (length undec) ++ " undecided one-way edges"
+    , aKriya   = Just ("emit " ++ show minted ++ " probes into scratch; refuse "
+                       ++ show refused ++ " with written reasons")
+    , aUpalabdhi = JObj [ ("minted", JInt (fromIntegral minted))
+                        , ("refused", JInt (fromIntegral refused)) ]
+    , aYogyata = "template vocabulary of this pass only; a refusal is a nonmatch, never a mathematical verdict"
+    , aVyapti  = "Lopa's genuine one-way list, minus decided, minus Ratri"
+    , aMarga   = Pratyaksa "the TSV rows above; every refusal carries its reason inline"
+    , aSesa    = [ show refused ++ " sites refused by every template — the instrument's fixed point, not the mathematics'" ]
+    , aPurva   = purva
+    , aBhavi   = purva      -- emission to scratch: the body does not move
+    , aPascat  = Nothing    -- pending: the landing script is the act's completion
+    , aVailaksanya = []
+    , aAgama   = "machine/Tapas_…hs, this pass; baseline from the journal's last beat"
+    , aKala    = now
+    }
+  return ()
+
+-- the last heartbeat any organ journalled: read backwards, first event
+-- whose upalabdhi carries one.  No beat, no baseline — Nothing, and the
+-- gate says what that costs.
+lastBeat :: FilePath -> IO (Maybe Sarira)
+lastBeat p = do
+  ex <- doesFileExist p
+  if not ex then return Nothing else do
+    h <- openFile p ReadMode
+    hSetEncoding h utf8
+    ls <- lines <$> hGetContents h
+    let beats = [ s | l <- reverse ls
+                    , Right j <- [parseLine l]
+                    , Right u <- [look "upalabdhi" j]
+                    , Right hb <- [look "heartbeat" u]
+                    , Right s <- [sariraP hb] ]
+    length ls `seq` hClose h
+    return (case beats of { (s:_) -> Just s; [] -> Nothing })
 
 judge :: FilePath -> FilePath -> M.Map String String -> Edge -> IO (String, Bool)
 judge root scratch shortlist e = do

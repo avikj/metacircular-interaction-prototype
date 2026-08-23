@@ -98,6 +98,13 @@ import System.FilePath ((</>), takeExtension, takeFileName)
 import System.IO
 import System.Process (readProcess)
 
+import Aisthesis_TheOneSensoryEventFormAndTheEfferenceGateNoActWithoutAPrediction
+  ( Aisthesis(..), parseHeartbeat, sariraJ, appendEvent )
+import Pramanya_TheFiveRoutesAndTheirWitnesses (Pramanya(Pratyaksa))
+import Sabda_TheWireHasNoBoolean (J(JObj))
+import Data.Time.Clock (getCurrentTime)
+import Data.Time.Format (formatTime, defaultTimeLocale)
+
 -- ─────────────────────────────────────────────────────────────────────────
 -- 0.  The extractors, run as subprocesses (Marga's pattern)
 -- ─────────────────────────────────────────────────────────────────────────
@@ -433,4 +440,32 @@ main = do
   -- printed: no partial report can masquerade as a whole one.
   case report rawNull lopa receipts of
     Left err   -> die err
-    Right rpt  -> putStr (unlines rpt)
+    Right rpt  -> do
+      putStr (unlines rpt)
+      -- ── the beat is also an event ────────────────────────────────────
+      -- Every run appends ONE afferent Aisthesis event to the journal:
+      -- organ jiva, no intervention, the heartbeat as the observation.
+      -- Afferent events pass the gate untouched (no act, no prediction
+      -- owed); the journal is the body's time series, typed, append-only.
+      case mapMaybe parseHeartbeat rpt of
+        [hb] -> do
+          now <- formatTime defaultTimeLocale "%Y-%m-%dT%H:%M:%SZ" <$> getCurrentTime
+          _ <- appendEvent (root </> "machine" </> "aisthesis.jsonl") Aisthesis
+            { aIndriya = "jiva"
+            , aNaya    = "dravyarthika — the operative body, counted"
+            , aVisaya  = "the combined graph: audited null ∪ timelike, with verdicts"
+            , aKriya   = Nothing
+            , aUpalabdhi = JObj [("heartbeat", sariraJ hb)]
+            , aYogyata = "extractors run fresh, cross-checked before the first byte prints"
+            , aVyapti  = "formal/, machine/, punaragamana/ under the given root"
+            , aMarga   = Pratyaksa "the report itself; JIVA-HEARTBEAT line reproducible by rerun"
+            , aSesa    = ["unpriced fibres remain undistinguished by count alone — see the top-10 frontier"]
+            , aPurva   = Nothing
+            , aBhavi   = Nothing
+            , aPascat  = Just hb
+            , aVailaksanya = []
+            , aAgama   = "machine/Jiva_TheMachineComputesItsOwnMetric.hs, this run"
+            , aKala    = now
+            }
+          return ()
+        _ -> return ()  -- no single heartbeat, no event: never guess the body

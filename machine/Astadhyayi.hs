@@ -240,6 +240,7 @@ module Astadhyayi
   , vibhaktiOf
   , Drshya
   , pacatiScene
+  , dadatiScene
   , assign
     -- laghavam (section 8a)
   , Laghava(..)
@@ -1318,10 +1319,24 @@ sutras =
 -- Case for Case" (1968) proposed, with no anabhihite, 2400 years later.
 ------------------------------------------------------------------------
 
-data Karaka = Kartr | Karman | Karana
+-- THE SIX KARAKAS, completed 2026-08-23.  The file shipped with three
+-- (Kartr, Karman, Karana) and its header said so.  The full six are the
+-- defining sutras of 1.4, each sourced, so the semantic layer is whole and
+-- a scene can carry every role a channel needs (adhikarana = the locus,
+-- e.g. a proof hole; karana = the instrument, e.g. a lemma; karman = the
+-- term acted on):
+--   1.4.54 स्वतन्त्रः कर्ता            kartr, the agent
+--   1.4.49 कर्तुरीप्सिततमं कर्म         karman, the most-desired-to-attain
+--   1.4.42 साधकतमं करणम्              karana, the most-effective means
+--   1.4.32 कर्मणा यमभिप्रैति स सम्प्रदानम् sampradana, the recipient
+--   1.4.24 ध्रुवमपायेऽपादानम्          apadana, the fixed point of departure
+--   1.4.45 आधारोऽधिकरणम्              adhikarana, the locus
+data Karaka = Kartr | Karman | Karana | Sampradana | Apadana | Adhikarana
   deriving (Eq, Show)
 
-data Vibhakti = Prathama | Dvitiya | Trtiya
+-- the seven vibhaktis (Sasthi is śeṣe, not a karaka case; kept for the
+-- complete declension the channel renders into)
+data Vibhakti = Prathama | Dvitiya | Trtiya | Caturthi | Panchami | Sasthi | Saptami
   deriving (Eq, Show)
 
 data Vacya = Kartari | Karmani          -- active, passive
@@ -1336,9 +1351,14 @@ abhihita Karmani = Karman
 -- consulted only for a karaka the ending has not already expressed.
 vibhaktiOf :: Vacya -> Karaka -> (Vibhakti, String)
 vibhaktiOf v k
-  | k == abhihita v = (Prathama, "abhihita: the ending already expresses it, so 2.3.1 withdraws")
-  | k == Karman     = (Dvitiya,  "2.3.2 कर्मणि द्वितीया")
-  | otherwise       = (Trtiya,   "2.3.18 कर्तृकरणयोस्तृतीया")
+  | k == abhihita v = (Prathama,  "abhihita: the ending already expresses it, so 2.3.1 withdraws")
+  | k == Karman     = (Dvitiya,   "2.3.2 कर्मणि द्वितीया")
+  | k == Kartr      = (Trtiya,    "2.3.18 कर्तृकरणयोस्तृतीया")
+  | k == Karana     = (Trtiya,    "2.3.18 कर्तृकरणयोस्तृतीया")
+  | k == Sampradana = (Caturthi,  "2.3.13 चतुर्थी सम्प्रदाने")
+  | k == Apadana    = (Panchami,  "2.3.28 अपादाने पञ्चमी")
+  | k == Adhikarana = (Saptami,   "2.3.36 सप्तम्यधिकरणे च")
+  | otherwise       = (Sasthi,    "2.3.50 षष्ठी शेषे")
 
 -- a scene: which participants fill which roles.  This is the INPUT to the
 -- Astadhyayi, and it is not a string.
@@ -1346,6 +1366,16 @@ type Drshya = [(Karaka, String)]
 
 pacatiScene :: Drshya
 pacatiScene = [ (Kartr, "devadatta"), (Karman, "odana") ]
+
+-- a full six-role scene: devadatta gives rice to the brahmin from the pot
+-- with his hand in the house.  Every karaka filled, so `assign` marks each
+-- participant with a single case and the order is free — the minimal
+-- overhead channel, one utterance carrying who-did-what-to-whom-whence-
+-- wherewith-where.
+dadatiScene :: Drshya
+dadatiScene =
+  [ (Kartr, "devadatta"), (Karman, "odana"), (Sampradana, "brahmana")
+  , (Apadana, "sthali"), (Karana, "hasta"), (Adhikarana, "grha") ]
 
 -- the case each participant receives, under a chosen voice
 assign :: Vacya -> Drshya -> [(String, Karaka, Vibhakti, String)]

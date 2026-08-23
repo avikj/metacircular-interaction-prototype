@@ -61,6 +61,32 @@
 -- which is the special case that needs no choice.  The citations are
 -- second-hand and are owed at verse level.
 --
+-- ────────────────────────────────────────────────────────────────────
+-- A LIMIT ON THE METHOD, added 2026-08-23 after reading a module that was
+-- sitting untracked in the tree when this was written.
+--
+-- §१-§५ reach the fibre by composing against a FUNDAMENTAL ROW, and that
+-- needs a small k=1 row to seed with.  For D = 2 the Śulba value supplies
+-- one.  FOR D = 61 THERE IS NONE, and D = 61 is Bhāskara.s own worked
+-- example -- so this method does not reach the case the tradition is
+-- famous for, and saying only "the fibre is infinite" would leave a reader
+-- believing it does.
+--
+-- What reaches it is the चक्रवाल, and
+-- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
+-- .agda` runs one in the kernel: six turns from (8,1,+3) to
+-- (29718, 3805, −1) with every divisibility witness discharged by `refl`,
+-- then Brahmagupta.s composition of a k = −1 row with itself giving
+-- 1766319049² − 61 · 226153980² = 1.
+--
+-- And it supplies the distinction this module does not make.  Here the
+-- क्षेप fibre is `singl`, CONTRACTIBLE -- every pair has a क्षेप, so the
+-- datum rides free.  There the भागहार fibre is a PROPOSITION AND NOT IN
+-- GENERAL INHABITED, because division by k is partial and the inhabitant
+-- IS the divisibility.  Contractible versus merely propositional is the
+-- whole difference between the भावना being free and the चक्रवाल not being
+-- free, and Bhāskara.s choice of m is what supplies the inhabitant.
+--
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
 -- postulates, no holes.
 ------------------------------------------------------------------------

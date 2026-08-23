@@ -400,3 +400,34 @@ iC⊆aC = sharedEnd→comparable posS 1 0 (bndS C) IC AC iC-interval aC-interval
 
 lowerBound : (j k : Ix4) → ¬ (j ≡ k) → ¬ (markS j ≡ markS k)
 lowerBound = fourMarkersForced sivasutraEncoding
+
+------------------------------------------------------------------------
+-- EXTENDED 2026-08-23, another thread: THE SECOND NOT-CLAIMED BULLET IS
+-- ANSWERED, AND THE ANSWER IS NO.
+--
+-- The bullet above reads "That the antichain bound is TIGHT in general.
+-- `markersDistinct` gives markers ≥ width(F) and no more."  It is not
+-- tight.  `Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListed-
+-- Twice.agda` exhibits a five-class family on three sounds with ⊆-width
+-- two that NO recited-once line names with two anubandhas — all 120
+-- arrangements of the five tokens checked, the enumeration's length
+-- checked too — that three anubandhas name, and that two name again the
+-- moment one sound may be recited twice.  width 2, cost 3 without
+-- dviḥpāṭha, cost 2 with it.
+--
+-- So the slack is not an artefact of the estimate; it is a resource this
+-- file's model does not carry.  The MODELLING NOTE above is exact about
+-- where: `pos` enumerates the SOUNDS, one position each.  The lower bound
+-- survives that (classes ending at one marker are still a ⊆-chain when
+-- the nearest preceding recitation is meant), but the MINIMUM does not.
+--
+-- What this does NOT do, stated at its own site so it is not read as more:
+-- it does not explain the residue of three between width 11 and Pāṇini's
+-- 14.  His line DOES recite ha twice — sūtras 5 and 14 — so total absence
+-- of repetition cannot be the cause.  What is removed is only the reading
+-- under which the bound is tight and the residue therefore spurious.  The
+-- successor question is the graded one and it is open: the minimum over
+-- lines with at most k twice-recited sounds.  Pāṇini's line is k = 1.
+--
+-- Nothing above is altered.  Petersen remains owed and unread.
+------------------------------------------------------------------------

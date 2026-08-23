@@ -115,6 +115,40 @@
 -- the fixed object standing in its place is written down.  Zero is an
 -- invariant and not a count: a later record carrying a moving citation
 -- raises it, and this replay diverges, which is the point.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- AND THE INVARIANT WAS SATISFIABLE BY NOT OPENING THE FILE.  2026-08-22.
+-- Recorded here and not in `machine/dosa.lekha`, whose chain is broken
+-- from record 0040 and whose `write` refuses to append; resealing it is
+-- the edit that organ was founded to forbid.
+--
+--     readFileOr p = do (_, out, _) <- readProcessWithExitCode "cat" [p] ""
+--                       pure out
+--
+-- The exit status is discarded at the pattern and stderr with it, so an
+-- unreadable लेख returned `""`.  `padas "" = []`, so `hits`, `sva` and
+-- `cal` are all empty, so the tally prints four zeros and `unanswered: 0`
+-- — and the paragraph directly above calls that zero an invariant that a
+-- later record raises.  An invariant satisfied by the file not opening is
+-- not held.  It is unexamined, and the two must not print the same line.
+--
+-- EXHIBITED.  A scratch tree holding a copy of this repository's
+-- `machine/dosa.lekha`, `chmod 000`.  Against the code at HEAD before
+-- this commit the whole tally read:
+--
+--     hits reported by the census        0
+--     svarupa, moved out with a rule     0
+--     calat, naming a moving object      0
+--     unanswered: 0
+--
+-- The same tree, after: `machine/dosa.lekha was not read: cat:
+-- machine/dosa.lekha: Permission denied`, no census, no tally, exit 2.
+-- The discarded slot is `cat`'s own sentence, one function above the
+-- place that read a finding off its silence.  Output over the real record
+-- is byte-identical before and after.
+--
+-- The same defect stood in the two sibling readers of the same record and
+-- was repaired in the two commits before this one.
 module Main (main) where
 
 import MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne
@@ -123,7 +157,9 @@ import MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne
 import Data.Char (isHexDigit, isSpace, isUpper)
 import Data.List (isInfixOf, isPrefixOf, nub, sort)
 import GHC.IO.Encoding (setFileSystemEncoding, setLocaleEncoding, utf8)
+import Control.Exception (try, IOException)
 import System.Directory (doesFileExist)
+import System.Exit (ExitCode(..), exitWith)
 import System.IO
 import System.Process (readProcessWithExitCode)
 
@@ -221,7 +257,24 @@ main = do
   putStrLn ("over " ++ lekha ++ ", answered against " ++ registry)
 
   ok <- doesFileExist lekha
-  src <- if ok then readFileOr lekha else pure ""
+  esrc <- if ok then readFileOr lekha
+                else pure (Left ("no file at " ++ lekha))
+  case esrc of
+    -- No tally.  Everything below is computed from `src`, and an empty
+    -- `src` makes every line of it zero -- including `unanswered`, which
+    -- the tally itself calls an invariant that a later record raises.  An
+    -- invariant satisfied by not opening the file is not held; it is
+    -- unexamined, and the two must not print the same.
+    Left why -> do
+      putStrLn ""
+      putStrLn ("  " ++ lekha ++ " was not read: " ++ why)
+      putStrLn "  no census and no tally follow.  Zeros here would satisfy"
+      putStrLn "  the unanswered-invariant by not looking at the record."
+      exitWith (ExitFailure 2)
+    Right src -> report src
+
+report :: String -> IO ()
+report src = do
   let ps   = padas src
       hits = [ (p, d) | p <- ps, d <- nub (scanLine (padaText p)) ]
       sva  = [ (p, d, s) | (p, d) <- hits, Just s <- [adhikara p d] ]
@@ -272,10 +325,27 @@ main = do
   putStrLn ("\n  " ++ show (length selfTest - bad) ++ " / " ++ show (length selfTest)
             ++ " pass" ++ (if bad == 0 then "" else "  -- FAILURES ABOVE"))
 
-readFileOr :: FilePath -> IO String
+-- | The read, WITH the reason it failed.  This returned `out` with the
+--   exit status and stderr both discarded at the pattern `(_, out, _)`, so
+--   an unreadable लेख came back as `""` -- and `""` is not inert here: it
+--   gives `padas "" = []`, every list below empty, and the tally prints
+--   `unanswered: 0`, whose own line calls it "an invariant, not a count:
+--   a later record carrying a moving citation raises it and this replay
+--   diverges, which is the point".  The invariant was satisfiable by the
+--   file being unopenable.  The discarded slot is `cat`'s own sentence.
+readFileOr :: FilePath -> IO (Either String String)
 readFileOr p = do
-  (_, out, _) <- readProcessWithExitCode "cat" [p] ""
-  pure out
+  r <- try (readProcessWithExitCode "cat" [p] "")
+  pure $ case r of
+    Left e -> Left ("cat could not be run: "
+                    ++ oneLine (show (e :: IOException)))
+    Right (ExitSuccess, out, _) -> Right out
+    Right (_, _, err)           -> Left (oneLine err)
+
+oneLine :: String -> String
+oneLine s = case [ l | l <- lines s, not (all isSpace l) ] of
+  (l : _) -> take 160 l
+  []      -> "no message"
 
 -- ───────────────────────────────────────────────────────── pure laws
 

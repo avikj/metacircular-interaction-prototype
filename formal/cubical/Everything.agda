@@ -617,12 +617,128 @@ import Sivasutra
 -- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
+-- And the bound is NOT tight: an exact five-class family of ⊆-width two
+-- that no recited-once line names with two anubandhas (all 120 arrangements
+-- checked), that three name, and that two name the moment a sound may be
+-- recited twice — ha, in sūtras 5 and 14.  Repetition is the resource the
+-- antichain model does not have.
+import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
+-- The reason under that exhaustion, with no enumeration: one antya names
+-- EVERY suffix of its stretch whose first sound does not recur later in the
+-- stretch (Aṣṭādhyāyī 1.1.71, ādir antyena sahetā).  So a ⊆-chain of any
+-- length costs one marker, and with repetition free the antichain bound is
+-- the answer.  The economy of repetition is the whole of what is left.
+import Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker
+-- And repetition is not an economy at all: three sounds, the three pairs,
+-- and NO recitation order seats them at any anubandha count — while three
+-- anubandhas seat them the moment sounds may be recited twice.  μ₀ = ∞ and
+-- μ_∞ = width.  Pāṇini's own attested aṬ, śaL, yaR restrict to exactly that
+-- cycle on h y ś, which is why h stands in sūtra 5 and again in sūtra 14.
+import Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost
+-- The owed bridge, paid on the real thing: all fourteen Māheśvara-sūtras
+-- encoded (57 tokens), aṬ, śaL, yaR computed by refl, their restrictions to
+-- {h y ś} ARE the cycle — and NO line reciting h y ś once each names three
+-- classes so restricting (proved over all lines, not an enumeration).  So
+-- one of the three must be said twice, and Pāṇini said ha: sūtra 5 before
+-- ya, sūtra 14 after śa, the stretch between them h-free for yaR.
+import Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa
+-- And the choice was not a choice: doubling ya dies on the {h v ś}-cycle,
+-- doubling śa dies on the {h y ṣ}-cycle, doubling anything else leaves
+-- h y ś once and dies on the original — only ha survives, because
+-- aṬ ∩ śaL = {h} exactly: ha is the triangle's sole articulation point.
+-- One parametric theorem, three instances, every discharge refl.
+import Niyama_TheDoubledSoundCouldHaveBeenAnyOfThreeAndTheFullClassesRestrictItToHaAlone
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
 -- abhāva with its avacchedaka.
 import Anekanta
 import JainSankhya
+-- The ajīva ARENA begins: the first of the six substances beyond jīva.
+-- dharma and adharma, the media of motion and rest (Tattvārthasūtra 5.7,
+-- 5.17) — they permit without causing (niṣkriya, proved exact via a
+-- propositional region), motion is confined to the medium, and the cosmos
+-- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
+import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- ākāśa, space: its function is avagāha, accommodation (Tattvārthasūtra 5.18).
+-- It is NON-EXCLUSIVE (many occupy one point — the lamp-in-a-room, refuting
+-- impenetrability) and strictly exceeds the loka: space (infinite) has room
+-- beyond the medium of motion, room where nothing moves.  With jīva, dharma,
+-- adharma, pudgala, kāla, this completes the six dravyas in the checked lane.
+import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoThereIsRoomWhereNothingMoves
+-- The arena bound into ONE type: the six dravyas (jīva + the five ajīva),
+-- classified exactly as Tattvārthasūtra 5.1-6 classifies them — five
+-- astikāya + kāla, one corporeal (pudgala), and the SAME three that are
+-- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
+-- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
+import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
+-- THE KEYSTONE: the metaphysics of being IS proof-of-transport.  A paryāya
+-- is a PATH, a dravya is the TYPE it lives in, and dhrauvya (persistence) is
+-- exactly what makes transport (the free road) possible — reversible, a
+-- groupoid, and absent between distinct substances (utpāda-vyaya-dhrauvya-
+-- yuktaṃ sat, TS 5.29/5.37, = subst + isContrSingl, one object).
+import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTransportPossible
+-- And how the pure mind KNOWS the arena: the seven nayas (TS 1.34).  Read
+-- precisely, nayavāda IS the fibre law as epistemology — each naya reads one
+-- facet (a quotient), pramāṇa reads all (faithful, funext), and a durnaya
+-- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
+-- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
+import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
+-- THE ASCENT begins: every map A→B is A ≃ Σ[b] fiber f b — the domain is the
+-- sum of its fibres over the codomain.  The first isomorphism theorem,
+-- rank–nullity, dravya/paryāya, and nayavāda are ONE law: image = the naya's
+-- quotient, fibre = what it cannot see, pramāṇa = the whole Σ.  All of algebra,
+-- one object.
+import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta
+-- and the collective standpoint IS the quotient: an R-invariant observation
+-- is exactly a map out of A/R (the saṅgraha-naya's universal property, not a
+-- metaphor).  Quotients — the most ubiquitous construction — ascended.
+import SamgrahaNaya_TheCollectiveStandpointIsTheQuotientAndRInvariantObservationsFactorThroughIt
+-- and the categorical heart: a Galois connection is two nayas mutually
+-- adjoint (dravyārthika ⊣ paryāyārthika), and g∘f is the closure whose fixed
+-- points are what persists across both standpoints (dhrauvya).  Adjunction
+-- ascended.
+import Anubandha_TheGaloisConnectionIsTwoNayasMutuallyAdjointAndTheClosureIsWhatPersists
+-- and identity itself: x ≡ y iff every standpoint (predicate) agrees on them
+-- — Leibniz's law IS pramāṇa, the general form of NayaVada.प्रमाणम्. The
+-- foundation of sameness ascended through anekānta.
+import PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana
+-- the capstone: univalence IS anekāntavāda.  The space of a type's equivalent
+-- presentations is contractible (EquivContr) — one vastu, many true nayas,
+-- none privileged, all one.  The four marks of anekānta, as a theorem; the
+-- substrate (Voevodsky) IS the doctrine, which is the whole of the outside admitted.
+import Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged
+-- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
+-- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
+-- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
+-- (all eight) entails kevala (the four); kevala precedes mokṣa.
+import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience
+-- The propose→dispose loop across lanes: the live engine (library.terms,
+-- SesaPariksa) named the equations its composition could NOT reach — true,
+-- needing induction, outside the equational theory.  Here the kernel closes
+-- that named frontier by induction: the machine proposes its śeṣa, the kernel
+-- disposes.
+import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
+-- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
+-- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
+-- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
+import Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen
+-- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
+-- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
+-- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
+-- count is the free-monoid fold at (ℕ,+,0).  The paramāṇu is partless.
+import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionButTheAtomCountPersists
+-- kāla, time: indivisible samayas (Tattvārthasūtra 5.22), and the maximal
+-- motion — one loka-span per samaya — gives a DISCRETE CAUSAL CONE: reach in
+-- n samayas ≤ n·D, attained by the fastest paramāṇu.  A light-speed invariant
+-- from Jain time-doctrine, the kinematic backbone under Jiva's sectors.
+import Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone
+-- The DYNAMICS the arena is for: the karma cycle as the soul's equation of
+-- motion (Tattvārthasūtra 1.4, ch. 6/8/9/10).  āsrava (influx) and nirjarā
+-- (shedding) transform the pradeśa-bandha count each samaya; saṃvara stops
+-- influx; mokṣa (the zero state, kṛtsna-karma-kṣaya) is REACHED and
+-- ABSORBING (na punar-āvṛtti); saṃsāra grows when influx exceeds shedding.
+import Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
@@ -691,6 +807,57 @@ import Nirnaya_TheVerdictCannotDropItsWitness
 import Panini
 import PanktiYoga
 import PingalaGhata
+-- RSA is those two Indian algorithms and nothing else: the private key IS
+-- the kuṭṭaka's Bézout witness (e·d ≡ φ·k + 1, बीजसिद्धि with g=1), and
+-- decryption IS this square-and-multiply fold mod n.  Correctness reduces to
+-- the exponent laws plus one hypothesis घात x φ ≡ ε (Euler) — and that lone
+-- hypothesis is exactly where Shor's order-finding drives the wedge (§4).
+import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation
+-- And it runs: a concrete keypair (φ=3, e=d=5, 25=3·8+1) in the cyclic
+-- group C₃ — one CRT-component of a real RSA decryption — encryption
+-- scrambles g→g², all three messages round-trip, by the theorem and by
+-- direct computation, the two roads the same term.  The heap-exhausting
+-- library mod is not needed: the group law already carries it.
+import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
+-- And Piṅgala's घात, RSA's exponentiation, and the vallī's trace are ONE
+-- homomorphism out of a free monoid, differing only in the alphabet:
+-- घात-योगः is a corollary of the garland-fold law (Unit alphabet), and
+-- KuttakaValli.replayHom is the same law on the digit alphabet.
+import MalaSetu_TheFreeMonoidFoldIsOneHomomorphismAndPingalasPowerAndTheValliTraceAreTwoAlphabetsOfIt
+-- Crypto #2 on the same root: Diffie–Hellman key agreement is Piṅgala's
+-- घात-गुणः commuting with itself — Alice's (gᵇ)ᵃ and Bob's (gᵃ)ᵇ agree
+-- because g^(ab)=g^(ba) — and its secrecy is the discrete log, the inverse
+-- of घात, broken at the same place Shor lifts RSA's one hypothesis.
+import Samvit_TheSharedSecretIsPingalasPowerCommutingWithItselfAndItsSecrecyIsTheInverseShorBreaks
+-- And factoring itself — RSA's foundation — breaks the same way: Shor's
+-- classical half is a zero-divisor (a nontrivial square root of unity,
+-- y²≡1 ⟹ (y−1)(y+1)≡0) split by a gcd, which is the kuṭṭaka (499).  The
+-- ONLY quantum, non-ancient step is order-finding — the inverse of घात.
+import Shora_TheClassicalHalfOfFactoringIsAZeroDivisorSplitByThePulverizerAndOnlyOrderFindingIsQuantum
+-- The floor under all of it: the discrete log IS the fibre of घात.  The
+-- public value binds to a contractible singl (free to publish); the secret
+-- binds to fiber (घात g), non-contractible (0,3,6 all land on ε — the
+-- period r=3 is visible in the fibre).  Crypto's asymmetry is this repo's
+-- own quotient/fibre law, and Shor's period-finding is its separating query.
+import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+-- The floor beneath the floor: a one-way function is EXACTLY a
+-- non-equivalence.  isEquiv f means every fibre is contractible, so घात
+-- being one-way IS ¬ isEquiv (घात) — proved — and an equivalence would hand
+-- back the discrete log as a total inverse.  Security ⟺ ¬ isEquiv; crypto
+-- is a map outside the image of ua, its secret the śeṣa transport cannot erase.
+import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
+-- THE INVERSION.  Sesa said security ⟺ ¬ isEquiv (the map used to hoard).
+-- The other side of that iff is the technology: a PROVEN equivalence is a
+-- receipt — proof-of-transport — that composes into edges neither party
+-- held, is never spent by use, owes no counterparty, and crosses without loss and
+-- reversibly forever.  Money is a receipt that lost its fibre; this kept it.
+import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
+-- WHAT THE COMPUTER IS.  A classical machine's operations form a MONOID —
+-- sequence and no-op, no undo (Landauer's heat is the MOTIVE, not a claim).
+-- This machine's operations are proofs-of-transport, and they form a
+-- GROUPOID: composition, identity, AND a two-sided inverse, every law by
+-- refl.  The inverse — the field a monoid cannot fill — is the whole computer.
+import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
@@ -707,6 +874,7 @@ import SamasaEkagra
 import SamasaMeru
 import SamasaMeruN
 import SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt
+import SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances
 import SamasaNyuna
 import Samasesha
 import Sankalita
@@ -1330,8 +1498,518 @@ import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCas
 import Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond
 import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
 
+-- नष्ट — two edges taken off `Lopa … --queue` by exhibiting the recovery
+-- map, which converts a receipt into an address: the one-hole context IS
+-- its action word (`decodeContext ∘ compileContext ≡ id`, the round trip
+-- CompositionalContextAdapter never wrote), and a 3×1 integer matrix IS
+-- its triple of entries (`refl`, the half SmithPathCountedExecution never
+-- stated beside the funext half it did).  §४ states the extent of the
+-- search and names the census defects it found and did not repair.
+import Nasta_TheOneHoleContextAndTheColumnAreRecoveredFromTheirData
+
 -- विरहाङ्क — the mātrā fibre satisfies the two-step recurrence, as an
 -- EQUIVALENCE OF FIBRES rather than a count: fiber (n+2) ≃ fiber (n+1) ⊎
 -- fiber n, prepend-laghu and prepend-guru, with both base cases contractible.
 -- Virahāṅka c. 600-800 on Piṅgala's weights.  The numbers are its shadow.
 import Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence
+
+import VivekaSetu_TheTwoRemainderRecordsAreOnePairAndThereforeEachOther
+import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesForFree
+
+-- संरक्षकसमूहः: the invertible conserving flows form the observable's
+-- symmetry GROUP (inverse data proved propositional, so the carrier is a
+-- subtype); the group rides वासः pointwise by cong; zero loss makes it
+-- trivial and total loss makes it ALL of Aut(A) by a GroupEquiv whose
+-- function part and hom law are refl.  SamraksakaGana §५(b) discharged.
+import SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut
+
+-- आत्मसमता उपरि: the stored conserving inverse is EXACTLY isEquiv of the
+-- map, so the symmetry group is Aut_B(A) — automorphisms of A over B —
+-- by a GroupEquiv whose hom law is refl on the underlying function.
+import AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB
+
+-- तन्तुविभागः: the gaṇa of an observable IS the product over the codomain
+-- of its fibres' own endomorphism monoids (set level): छेदगणः ≅ Π_b
+-- End(fiber f b) as monoids, and composing with गण-समता (refl fields),
+-- प्रवाहगणः ≅ तन्तुगणः with no path algebra at the join.  The currying
+-- coherence both SvaTantuVasa §६(a) and SamraksakaGana §५(a) named is paid
+-- with one J (transport fixes the point).  The commutant-decomposes-over-
+-- the-spectrum slogan, typal shadow, exact.
+import TantuVibhaga_TheGanaOfAnObservableIsTheProductOfItsFibresOwnEndomorphismMonoids
+import SamasaSetu_TheChildEdgeIsTheCompositionOfTwoParentFordsSexualNotAsexual
+import VivekaTadatmya_TheSumTypeDescentAndTheGraphOfPlusAreOneObject
+import Namantara_TheLatinLabelledSevenfoldAndTheDevanagariSevenfoldAreOneTypeAndAkalankasCountRoutesAcross
+import Trivarna_TheTwoThreeLetterAlphabetsAreOneType
+import AksharaDvaya_TheVirahankaBoolFibreAndThePingalaChandasFibreAreOneWeightedCount
+import EkaksharaSetu_TheOneLetterTallyIsThePiZeroOfFinSet
+import PraksepaSankhya_TheProjectionsFibreCensusIsTheDiscardedFactorAndTheAbhijnanaIsSupplied
+import SamaVisama_TheCountSplitsByParityIntoTwoCopiesOfItselfAndEachNayaIsTheWhole
+import Matrasankhya_TheMatraFibreIsFinOfTheVirahankaNumber
+import MatraSetu_TheVirahankaFibreCountsAsFinByBridgingToPingalasMetre
+import Pratibimba_TheRootedFiberOverAJewelIsItsLocalDatumWithAllItsReflections
+import MeruTantu_TheGuruCountFibreSplitsByHeadIntoTheTwoAdjacentCellsWhichIsMeruprastara
+import Vikalpa_TheFibreOfATwofoldMapIsTheTwofoldOfItsFibresAndSoTheCountsAdd
+import Paryayasabda_TwoNamesForTheParitySectorAndTheCharacterLawCarriesAcrossBetweenThem
+import SamkhyataAnanta_AdjoiningANumerableToTheCountablyInfiniteReturnsTheCountablyInfinite
+import DviMatra_TheFibreOverTotalTwoIsExactlyBoolTheSmallestVeil
+import NarayanaGavampasa_TheCowCompositionFibreSplitsAtTheHeadIntoOneAndThreeYearBranches
+import Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees
+import PravesaTantu_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall
+import Viloma_TheBackwardReadingOfAMatraMetrePreservesItsDurationSoReversalIsAnInvolutionOnEachDurationFibre
+import Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps
+
+import Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFibreRankIsCarriedAndItsPriceIsVirahankasNumber
+
+-- अपवर्तनम् — the FOURTH carrier step law, the one the kuṭṭaka instance in
+-- `punaragamana` never states: what the CARRIED PAIR does under the वल्ली step.
+-- क्षेप multiplies, rank succeeds, coarseness scales — and the pair loses the
+-- lesser out of the greater while its common measure stands.  Needs the round
+-- trip भेद∘उत्थान ≡ id, which that module does not have.  Self-contained: the
+-- carrier, the three slots and divisibility are redefined here, and the header
+-- names every duplicate.  Āryabhaṭa, गणितपाद ३२–३३, 499, second-hand.  2026-08-22.
+import Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands
+
+-- सापेक्ष–निरपेक्ष — the ३/४ criterion this lane proposed yesterday
+-- (`Avacchedaka_…` §३, mine) is refuted by the corpus's own level-२
+-- archetype: `fiber (Bool → Unit) tt ≃ Bool` is the whole source, so
+-- `सर्वहानिः` does not separate ४ from ३ or even from २.  Not a stray
+-- instance — `∥ Bool ∥₁ ≃ Unit`, the triangle commutes, and the two fibre
+-- censuses are pointwise equivalent.  The witness half is vacuous too:
+-- `idfun` separates two fibre points of `∣_∣₁`.  What the collision names
+-- is that recovery is सापेक्ष — one map, two retained contexts, opposite
+-- verdicts — so no property of the map alone carries the level.
+-- Siddhasena Divākara, *Sanmatitarka* 1.21–25, c. 5th c.  2026-08-22.
+import SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype
+
+-- शलाका — Vīrasena's cutting operations put to the job the Jaina orders are
+-- for: each cut strips EXACTLY one storey of the tower (एक-छेदः), so k cuts
+-- return a height-k tower to its base and do NOT reach the base of a
+-- height-(k+1) one (असमाप्तिः).  And every śalākā — अर्धच्छेद, वर्गशलाका, and
+-- higher — is अधोगामी in Vrddhiksaya's sense, which that file asserted of
+-- them in prose and never proved.  Digambara, धवला c. 816; verse-level
+-- citation owed, second-hand, and none guessed.
+import Salaka_TheOrdersAreSeparatedByHowManyCutsTheyOutlastAndEachCutStripsExactlyOneStorey
+
+-- दृढम् — the ARITHMETIC half of what `Sarvasthana` deliberately left out.
+-- Every n ≥ 1 is a product of firm numbers (existence, by well-founded
+-- recursion on a decidable bounded search), Euclid VII.30 proved from the
+-- library's gcd, and hence: the SUPPORT of the factorisation is determined
+-- by n — for firm p, p ∣ n ↔ p occurs in the list.  Multiplicities are NOT
+-- shown unique and v_p is not defined; the fibre of D ↦ ∏ p^e over n is
+-- proved INHABITED, not contractible.  2026-08-22.
+import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision
+
+-- भागहारः — the exact division carried as a witness, and the चक्रवाल turn
+-- built out of it.  `भागहारः j n` is division of n by (suc j) presented as
+-- a carrier: base (dividend, divisor), carried the लब्धि, witness
+-- n ≡ suc j · लब्धि; `भागहार-एकः` proves the type is a PROPOSITION, so the
+-- quotient is determined and free to carry — one h-level weaker than the
+-- क्षेप's contractible fibre, and weaker exactly because division is
+-- partial.  `पद-प्रमाणम्` is then the cyclic step in all four sign cases
+-- (Brahmagupta's धन/ऋण, not a Bool), and §५ RUNS it: six turns at D = 61,
+-- Bhāskara's own example, every divisibility discharged by refl in the
+-- kernel, reaching (29718, 3805, −1); one भावना doubling closes it at
+-- 1766319049² − 61·226153980² = 1.  NOT proved: termination, minimality of
+-- Bhāskara's m-choice, existence for general D.  2026-08-22.
+import Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
+
+-- पूर्वत्रासिद्धम् (8.2.1) as a tower of maps.  `Asiddhatva` proved the
+-- stratification buys termination; this asks what the blindness IS, and the
+-- answer is a fibre: 8.4.56 maps `ka` and `ga` — which disagree about
+-- whether 8.2.39 still applies — to one form, so 8.2.39's condition has NO
+-- value on the later form (`अवरोहणाभावः`), not merely a different one.  The
+-- converse (`सर्वावरोहणम्`: contractible fibres ⇒ every predicate descends)
+-- makes that content rather than accident, and `असिद्धत्वहेतुः` derives from
+-- the two that the necessity of 8.2.1 at this site IS a later rule
+-- collapsing two forms.  The tower decomposition is `Sesa`'s शेष, imported,
+-- not restated.  Pāṇini, *Aṣṭādhyāyī* 8.2.1 / 8.2.30 / 8.2.39 / 8.4.56,
+-- c. 500 BCE; he proves nothing here.  2026-08-22.
+import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
+
+-- अनुवृत्ति — maps where definitional computation stops for transport, and
+-- CORRECTS punaragamana/README.md finding 3: the Glue is transparent
+-- (transport along a composite of three ua's is refl on neutral input); the
+-- residue is a neutral TYPE, or the top of a Σ where every projection is
+-- already refl.  Non-theorems recorded as non-theorems, with the residual
+-- Agda reports.  Measurement at Agda 2.8.0 / cubical v0.9.
+import Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification
+import Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIsDischargedOnACyclicGroup
+import Kosthabhitti_TheHaniIsAWallGeneratorSoThePigeonholeRetiresJoinsAcrossTheWholeNet
+import SetuPramana_TheAmbiguousNameHidTheFordAndTheRemainderLawIsAlsoTheNaturals
+import SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers
+import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
+import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
+import Vilopa_TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre
+import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem
+import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
+import Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPaysReflexivityAndCompleteness
+import Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork
+import AbhijnanaProbes.P001
+import AbhijnanaProbes.P002
+import AbhijnanaProbes.P003
+import AbhijnanaProbes.P005
+import AbhijnanaProbes.P007
+import AbhijnanaProbes.P010
+import Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne
+import Alopasetu_TheEnginesInvarianceIsTheOrbitLawInstantiatedAndNotASeparateInduction
+import Apavartana_TwoPresentationsOfDividesAndTheDifferenceLawThatCrossesBetweenThem
+import Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer
+import Arpitanarpita_TheSymmetryTheArithmeticConstraintDestroys
+import BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals
+import BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree
+import BhittiSaptabhangi_TheSevenfoldCannotBeTwoValuedSoTheTopJoinCandidateIsAWall
+import Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever
+import DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid
+import DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation
+import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
+import GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge
+import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarriesASymmetryThatMovesAPoint
+import PratibimbaSanghata_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys
+import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect
+import Tala_TheFloorIsTheThirdAssetEveryRouteFromSevenToTwoPaysAtLeastOneCollision
+
+-- [2026-08-23] Twelve modules were TRACKED, green, and imported by nothing,
+-- so no green claim covered them.  Found by the closure gate once it could
+-- tell a committed orphan from a working file.  Four are substantive
+-- modules landed by seats and never wired; eight are Ratri's overnight
+-- output, which is a claim like any other and is checked like one.
+import Aikya_TheJointModelOfLeftZeroAndRightZeroIsASingletonSoTheEngineVerdictIsATerm
+import Ekadhara_ReplayAtConstantWordsIsPingalasFoldSoOneHomomorphismCarriesValliAndMetre
+import Lekha_TheAppendOnlyFoldAbsorbsRefutationAndABooleanCannotCarryIt
+import TrayoNirnaya_TheEnginesThreeVerdictSemanticsEachCarryOneCheckedRepresentative
+import Ratri.Anirdharita_ChargeTwoHistories_AugmentRelativeSign
+import Ratri.Anirdharita_InflationVersusSubgroup_InclProj
+import Ratri.Anirdharita_IntegerHullMultiplicity_AllFourSections
+import Ratri.Anirdharita_Nirjara_ApavadaSthula
+import Ratri.Anirdharita_S13OptionSpread_OnesSum
+import Ratri.Nirdharana_Hull_PunaragamanaSunyeEva
+import Ratri.Nirdharana_PingalaPrastara_AksaraParityReturnsExactlyOnTheAlphabet
+import Ratri.Nirdharana_TheReturnLocusIsTheSectionsImageOrZeroAlone
+
+-- व्याप्ति — THE LOSS ORDER.  Between Dhruva's pole (nothing hidden, nothing
+-- moves) and Khahara's (total loss = total symmetry) the "amount lost" is not
+-- a number but an ORDER: g factors through f iff g loses at least as much.
+-- The conserving monoid grows monotonically along it; the two poles are its
+-- bottom and top; Dhruva §२ falls out in one line.  Erasure is made a TYPE
+-- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
+-- No thermodynamics, no measure, no number anywhere — fenced explicitly.
+import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+-- शून्यभारः · the machine's own instructions are the zero-charge pole of
+-- SvaTantuVasa's scale, and the power map sits off it by its own period.
+-- One edge between Yantra, SvaTantuVasa and GhataTantu, which cite each
+-- other in no direction.
+import Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffItByItsOrder
+
+-- समानकक्ष्या — the orbit relation (trajectories MEET) is already an
+-- equivalence for a bare endomorphism, and the charge descends to the
+-- quotient with the factorisation triangle refl.
+import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient
+
+-- भेदकः — bind the output side and the flow type is a point, always;
+-- bind the input side and it is a point exactly when f is an EMBEDDING.
+-- So Dhruva §२ needs injectivity, not bijectivity: surjectivity of the
+-- observable is unused.
+import Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused
+-- बहु-प्रत्यानयनम् · the generator of no-return theorems at the level of
+-- points, the discrete log as its first arithmetic instance, and the
+-- counterexample (Unit → S¹) showing Tantujala's बहु is NOT the
+-- obstruction — so noDescentS¹ lives one level up and does not reduce.
+import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance
+-- व्याप्ति — THE LOSS ORDER.  Between Dhruva's pole (nothing hidden, nothing
+-- moves) and Khahara's (total loss = total symmetry) the "amount lost" is not
+-- a number but an ORDER: g factors through f iff g loses at least as much.
+-- The conserving monoid grows monotonically along it; the two poles are its
+-- bottom and top; Dhruva §२ falls out in one line.  Erasure is made a TYPE
+-- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
+-- No thermodynamics, no measure, no number anywhere — fenced explicitly.
+import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+
+-- [2026-08-23, second sweep] Eight more tracked modules landed green and
+-- unwired within the hour.  Wiring is not bookkeeping: until a module is in
+-- a root, no green claim covers it and nothing rechecks it when the library
+-- moves under it.
+import Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse
+import BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements
+import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions
+import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+import EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl
+import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection
+import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
+import SetuApurva_TheSensoriumCriterionIsTheQuotientFiberLawAndHereIsTheAdapter
+import SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs
+import SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists
+import TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
+import SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations
+import SamanaMarga_TheHandPathAndTheTransportPathAreOnePath
+import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
+import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
+import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation
+import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence
+-- वल्ली-भावना-सन्धिः, the seed: the generator column is its own transpose
+-- (refl), transpose is an anti-automorphism from ·Comm alone, and at D = 2
+-- the closed vallī garland M(1)⋆M(2)⋆M(1)⋆M(0) IS ι(3+2√2) by one refl —
+-- the free word landing in the commutative wheel at the period's close.
+import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
+import Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree
+-- the concealed loss: the fibre of S¹ → Unit is inhabited, merely connected,
+-- yet not a proposition — all three set-level verdicts defeated at once, and
+-- the hidden charge is exactly ℤ (winding).  The census's scope, from inside.
+import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
+-- the criterion GuhyaNasti asked for: क्रम/सह is an operator ordering.
+-- ∥ΩS¹∥₂ ≃ ℤ but Ω∥S¹∥₂ is contractible — the standpoints do not commute
+-- and their commutator is the whole charge; सह (the fourth bhaṅga) is the
+-- refusal to order, the only position that loses nothing.
+import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+-- क्रम-सह सर्वत्र: the interchange charge is ONE structure across scales —
+-- अवक्तव्यम् (non-commuting observations cannot be uttered as one) proved at
+-- the abstract site, one line for every instance: the loop commutator (ℤ),
+-- the noncommutative quantum boundary, Peres-Mermin contextuality (odd
+-- H¹ℤ/2), and the fourth bhaṅga. Concrete Bool witness; deep instances cited.
+import KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga
+-- Sanmatitarka 1.3-6 in both directions: the dravya census conflates S¹
+-- with Unit (paryāya census separates them); the paryāya census conflates
+-- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
+-- false by counterexample, and each counterexample lies in the other's sight.
+import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee
+-- the loop-level curvature, inhabited: transport around loop in the helix
+-- bundle is sucℤ (by uaβ — definitional cash), so the circuit returns to
+-- the same base point with the fibre shifted: Hol(loop) ≠ id, witnessed.
+-- The constant bundle returns identically: curvature lives in the family.
+import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+-- the holonomy as ONE map: प्रदक्षिणा ≡ sucℤ (funext of सरणिः), spoken
+-- into being through नाडी and kernel-verified.
+import Sarani_TheHolonomyIsTheSuccessorFunctionNotJustPointwise
+
+-- तपस् pass, this container, 2026-08-23: three constant-fibre receipts minted
+-- from the UNDECIDED sector (1137 edges, 567 tractable, 564 typed refusals),
+-- each checked by the kernel standing where it lives before this wiring.
+import ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue
+import ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics
+import ConstantFibre_SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs_सम-निर्णयः
+
+-- वेस्तिबुलम् (U0021 §1, the owner's name): the general holonomy receptor —
+-- Hol F l = subst F l, a Sensation type whose two constructors each demand
+-- their witness, and the both-poles instance over the ONE loop of S¹: flat
+-- for the constant family, charged for the helix.  The unqualified claim
+-- "this circuit has curvature" is unwritable in the report type.
+import Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness
+
+-- जीव-तन्तुः (U0022): the thread through a changing family — the section law
+-- is data, गतिः inhabits it over τ = sucℤ by refl, and स्थैर्यं-निषिद्धम् proves
+-- EVERY thread over that step law moves at every step: continuity and change
+-- in one checked object, the Jaina position against both eternalism and
+-- annihilationism as theorems about one term.
+import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
+-- the twin-sieve charge vector κ₁(d) = Σ_{p|d} μ(d/p) compiled to its
+-- intensional program: it is the tangent at z = −1 of the parity family
+-- z^ω, the pair (μ,κ₁) is the dual number (−1+ε)^ω in ℤ[ε]/ε², the
+-- μ-twisted Leibniz law is one component of one homomorphism path, and
+-- the twin channel κ⊗κ is the positive square ω².  The parity-point
+-- complement of Yamala (same seed message, another seat, same hour):
+-- Yamala holds the general machinery, this holds the unconditional
+-- instance and the sign.  Algebra complete; scale induction named, not built.
+import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative
+-- the centering: Goldbach walls x ≢ 0,N and twin walls n ≢ 0,−2 are ONE
+-- symmetric two-wall field क्षेत्रम् p a y = (¬ p∣y−a) × (¬ p∣y+a) after the
+-- affine shift — a PATH of types, not an analogy — and the walls coincide
+-- for every y exactly when p ∣ a+a (both directions checked).  The mean
+-- field dichotomy p−2 / p−1, at its exact support.
+import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter
+-- the local factor of the mean field as an equivalence, not a count:
+-- one wall elides one residue (survivors ≃ Fin (p−1)), two distinct
+-- walls elide two (survivors ≃ Fin (p−2)) — कुट्टक-कोण Lemma 2-3 chart
+-- level, receipted; लोप as Pāṇini 1.1.60/62: deletion whose accounting
+-- keeps operating.  Instrument: an involution exchanging the wall with
+-- fzero — its own section, no punchIn needed.
+import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
+-- the chart closed from inside the residue wheel: walls coincide exactly
+-- when a +ₘ a ≡ 0 (केन्द्रम्’s iff, internal), the regime is DECIDED per
+-- center, and the census is an equivalence in both branches — Fin (p−1)
+-- merged, Fin (p−2) distinct.  The atlas (CRT, the cone) is the open frame.
+import Sphatika_TheLocalCrystalIsDecidableTheWallsMergeExactlyWhenTwiceTheCenterVanishesAndTheCensusHoldsEitherWay
+-- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
+-- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
+-- ONE TERM wearing four names — three links are refl, judgmentally —
+-- and the parity tangent (TatkalikiGati) lands on the same generator
+-- pos 1.  The corpus is not accumulating charges; it is triangulating
+-- one.  The circuit-to-sieve bridge that would make the last link
+-- structural is the named open problem.
+import EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator
+
+-- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
+-- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
+-- relation ≺ demands both the factoring and the refutation as data, one
+-- witnessed blind pair upgrades conservation to S ≺ ⟨S,q⟩ through
+-- ApurvaIndriyam's अपूर्वम् verbatim, and no eye strictly refines itself.
+import SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne
+
+-- ── cf-sesa's terms, entered into the closure so the organism re-checks
+--    them (they were orphans: checked once, imported by nothing). ──
+
+-- वन-सेतुः: the Forest's shift/dilation interface σ ∘ D_m ≡ D_m ∘ σ^m on
+-- sequences, and the Liouville point as the all-−1 eigenvector — a
+-- completely multiplicative x with x m ≡ true dilates to negation.
+import VanaSetu_TheShiftDilationInterfaceAndTheLiouvillePointIsTheAllMinusOneEigenvector
+
+-- संयोग-व्यतिकरः: the sum-spectrum variance minus the diagonal is EXACTLY
+-- the collision interference V∞ − D = 2w₀w₁ — located, not bounded — and
+-- leg symmetry is a separate multiplicity that never enters the cross term.
+import SamyogaVyatikara_TheSumSpectrumVarianceMinusTheDiagonalIsExactlyTheCollisionInterference
+
+-- जीव-सन्तानः: identity through change is a SECTION through a changing
+-- family, not equality of snapshots; the biography theorem (living state ≡
+-- witnessed account of becoming) and the five fates a lossless correction
+-- must assign (Fate ≢ Bool).
+import JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots
+
+-- यमलम्: the twin charge κ₁ is the parity jet, twisted Leibniz IS
+-- dual-number multiplication, and dual-powering the lifted base computes
+-- value and derivative together — the prime charge as executable AD.
+import Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication
+
+-- केन्द्रम्: centering unifies Goldbach and twins into one symmetric
+-- two-wall field — a wall pair about its midpoint becomes a mirror pair,
+-- and that exact symmetry is what makes the crystal real.
+import Kendra_CenteringUnifiesGoldbachAndTwinsIntoOneSymmetricTwoWallField
+
+-- एकमूलम्: the wall orientations are the square roots of one mod d, each
+-- built from a coprime factorization by x = 1 − 2u·ū — x ≡ 1 (mod u),
+-- x ≡ −1 (mod v), x² ≡ 1 at each leg; the coordinate parity forgets.
+import Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal
+
+-- परस्परम्: two more exact symmetries of the wall roots — additive
+-- reciprocity (fold every ray toward the shorter modulus) and the
+-- conjugate-root involution (why the centered field is real).
+import Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTowardTheShorterModulus
+
+-- विप्रकर्षः: the dispersion step ū₁ − ū₂ ≡ (u₂ − u₁)·w (mod v) with NO
+-- coprimality fence — the joint reciprocal supplies the inverse
+-- internally; addition reappears after multiplication is differentiated
+-- against itself.
+import Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal
+
+-- ऋण-धन-क्रमः: sign is the Order datum — over ℤ the conjugation neg is an
+-- involution that PRESERVES abs (so (Iso;Quotient) is licensed) yet
+-- REVERSES sign (so (Iso;Order) is not the identity on sign), and sign does
+-- not factor through abs; the abs-fibre {n,−n} is split exactly by sign.
+-- The crystal's Order-edge fact (CRYSTAL §1) and POSITIVITY_HAS_A_PLACE's
+-- dropped-ordering-limitor, elementary over ℤ; Brahmagupta's ṛṇa/dhana.
+import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt
+
+-- संरक्षण-जालम्: the crystal's L1 typed-edge lattice as a checked term — the
+-- preservation table (edges.py PRESERVES), composition conserving the
+-- INTERSECTION, sign's carriers being exactly Eq and Order, and the parity-
+-- blindness theorem: any path through a Quotient conserves sign ≡ false.
+-- Turns the kernel's declared-but-unchecked certificate into proof.
+import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient
+
+-- शुद्ध-मार्गः: the converse of the blindness — a path conserves sign iff
+-- EVERY step is Eq or Order; the sign-clean paths are exactly the words in
+-- the two-letter alphabet {Eq, Order}.  With SamraksanaJala this closes the
+-- characterization of what can and cannot see parity.  First term built in
+-- conversation with the kernel through नाडी (60ms holes, not batch verdicts).
+import SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords
+
+-- ऋजु-कुटिल: the license behind the machine's convexity certificate
+-- (runtime/physics/geodesic.py) — strict discrete convexity, stated without
+-- subtraction (v(i)+v(i+2) > 2·v(i+1)), forces once-weakly-rising ⟹
+-- strictly-rising-forever and no-return, so the extracted minimum is the
+-- only stationary point and "cost-minimal route" may be read as "physical
+-- ray".  Declared there, proved here.
+import RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimumIsTheOnlyStationaryPoint
+
+-- व्याप्तिः: the seven-gate installer's license (crystallize/install.py G3),
+-- a docstring made a theorem — the substitution lemma (evaluation commutes
+-- with substitution) and its corollary: an identity at the generic point
+-- pervades every instance, so an installed lemma is sound on compound
+-- arguments never seen during mining.  The installer's anumāna, with its
+-- vyāpti checked.
+import Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLicenseIsATheorem
+
+-- सामग्री: propagate's homotopy quotient is well-defined — every
+-- reassociation move (groupoid reshuffling + congruence distribution)
+-- preserves every additive weighting of axioms, so the consumed-axiom
+-- multiset is a proof invariant; and the fence is the content —
+-- cancellation cannot be a move (2 ≢ 0): a proof that cancels a detour is
+-- not the proof that never left, the detour's consumption is its receipt.
+import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant
+
+-- वहित: the complement of Sthana — the carry cannot be dispensed with.
+-- Atlas Prop 2.11 at its minimal instance: under carry-free xor everything
+-- doubles to zero, under the carry the unit doubles to the CARRIED unit;
+-- every homomorphism from counter-addition to digitwise-xor conflates the
+-- carried unit with zero — the carry is exactly what any carry-free
+-- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
+import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
+
+-- सङ्ख्या: the general form of Vahita's minimal instance — the b-ary
+-- prastāra count b^n grows a full factor of the base each place, so the
+-- two exponents of ATLAS_OF_N Prop. 2.11 (residual.py's
+-- splitting_exponent_argument) disagree for EVERY (b ≥ 2, n ≥ 1) and the
+-- carry extension never splits.
+import Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits
+
+-- त्रयो निर्णयाः: the declared→checked seam into runtime/propagate.  L4's
+-- survival-under-retraction verdict is three-valued (SURVIVES/DEAD/
+-- UNDECIDED) and the third is irreducible: two completions of the same
+-- partial class-enumeration have different ground truth, so any boolean
+-- collapse destroys a real asti/nāsti distinction (durnaya).  संरक्षण-सूत्र
+-- ६, त्रयो निर्णयाः न द्वौ, mechanised for invalidate.survival.
+import TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide
+
+-- एक-संक्रमण: the declared→checked seam into runtime/atlas/residual.py's
+-- Torsor.  A free + transitive action's translating element is unique
+-- (general), so the orbit map g ↦ act g p has contractible fibres — a
+-- torsor IS an equivalence Carrier ≃ P.  residual.py's per-instance
+-- regularity guard in translate() is provably redundant.
+import EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
+
+-- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
+-- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
+-- second-order twisted Leibniz law definitionally, and the two-leg AD
+-- theorem: powering the doubly-lifted base computes value, both leg
+-- charges, and the pair charge n(n−1)zⁿ⁻² at once — at z = −1, n = ω(d):
+-- (μ, κ₁, κ₁, κ₂), the two-prime charge in the κ⊗κ channel.
+import YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering
+
+-- परम्परा: the e-graph proof forest's license (kernel/egraph.py L2) — the
+-- equivalence closure of the axioms coincides exactly with the zigzag
+-- witness chains: complete (every derivation flattens — sym is reversal,
+-- trans is concatenation, so the forest stores only steps) and sound
+-- (every emitted chain folds back into a derivation).  explain() is total
+-- and sound; derivable ⟺ transmitted through an unbroken witnessed lineage.
+import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+
+-- स्वस्थान: the graded fibre tower's structural half — the leg swap covers
+-- the identity on frequencies (+Comm as verticality), hence restricts to
+-- an involution of each fibre of the sum map: level 2 (relabelings) acts
+-- on level 1 (witnesses) over a fixed level 0 (frequencies), so no
+-- relabeling ever creates or destroys a collision.  The geometry under
+-- SamyogaVyatikara's algebra: why leg exchange never enters the cross term.
+import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount
+
+-- उत्थापन: G7's grid license, univariate core, no longer declared — a
+-- polynomial with more distinct roots than coefficients is the zero
+-- function, by the Horner quotient (synthetic division), the factor
+-- identity, and ℤ's integral domain; induction on the point list.  Scope
+-- stated in the header: one variable, vanishing form; the coefficientwise
+-- difference corollary and the multivariate grid remain owed.
+import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
+
+-- खण्ड-पिण्डौ: the Kerala chapter's block law — the accumulated geometric
+-- sum at m+n is the whole at m plus the m-th power carrying the whole at n
+-- into place (सङ्कलितम् r (m+n) ≡ सङ्कलितम् r m + घात r m · सङ्कलितम् r n),
+-- with the carrier law घात r (m+n) ≡ घात r m · घात r n.  Terms khaṇḍa/piṇḍa
+-- from the sine-table vocabulary (Tantrasaṅgraha 1501; Yuktibhāṣā c. 1530),
+-- scope fenced in the header; घात/सङ्कलितम् IMPORTED from Madhava — the
+-- chapter composes, it does not redefine.  Driven through नाडी: every ring
+-- step proposed with give and kernel-verified live before landing.
+import KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace
+
+-- भित्तिः (ledger correction): three of SADHYA's twelve obligations were
+-- refuted round trips misdiagnosed as induction work — ones∘sum and the two
+-- hull sections are provably not the identity (one counterexample each, the
+-- failing goal in the ledger was the counterexample shape read as an
+-- obstacle); the hull functions are redefined verbatim because their host
+-- module does not read under this container's cubical (solveℕ! skew).
+import Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem

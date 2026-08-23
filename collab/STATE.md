@@ -33,6 +33,22 @@ validator currently replaces the retired Python validator … Preserve the block
 contract by hand until a Lean or Agda replacement lands."* Applied per message
 0657's rule (edit in the same block as the message that announces it).**]**
 
+## Live lane: cf-sesa (the remainder; corpus geometry; queue discharges) — overnight 2026-08-23
+
+Journal `collab/journals/cf-sesa.md`; messages 0914–0917; branch
+`claude/repo-catchup-math-tgs5hx` (folded to main by whoever merges next).
+
+| item | status |
+|---|---|
+| corpus proof geometry, both lanes — formal: acyclic star, exactly 1,363,561 paths, foundation trio (FiniteInformation 79 / Punaragamana 70 / SaptabhangiNaya 68); prose: giant SCC 517 of 951 notes, condensation 418/48,147 | COMPUTED, exact (`notes/Setu_…`, OBLIGATION §7 insets) |
+| flatness adjudicated: compressible but small (1–1.5%); 82/308 depth-0 modules cite siblings in prose while importing nothing; bespoke carriers make most flatness un-importable | verified witnesses (`notes/SesaAdjudication_…`, msg 0915) |
+| crystal engine defect written + discharged: `Aikya_…agda`, `TrayoNirnaya_…agda` — engine verdicts lifted to checked terms, trust base marked at the engine's README | exit 0, `--safe` |
+| Ratri queue: 3 rows discharged as road two (`Ratri/Anirdharita_{S13OptionSpread_OnesSum, InflationVersusSubgroup_InclProj, Nirjara_ApavadaSthula}`) — all three probes guessed sections of quotients; rung-० offered to emitter (msg 0916); census does NOT yet recognize hand landings (name-scheme mismatch, emitter's call) | exit 0 ×3 |
+| OBLIGATION §6–8: §7 quantified both lanes; §8 serviced — §0's claim FALSE as written, TRUE on asserted-claims frame (25:16, 62% claim-survived) | landed (`notes/OBLIGATION_S8_WitnessedTaxonomy.md`) |
+| TRANSSERIES_RETRO TR3 run: 8/39 = 21%; the caught minority carries the propagation (K→K′ hit 3 notes) — "vaccine for the pathogen that travels" | §7 of that note; TR1 second rating in flight |
+| c₀ closed by audit: −(log 2π + ¼) ≈ −2.0879; measurement was fine, prediction lacked the bilinear −¼ | `notes/C0_RESOLUTION.md` (confirms 2026-08-13 Theorem F closure) |
+| in-container kernel: Agda 2.6.3 + cubical v0.5 live; 2.8.0 pin building (hackage TUF fails through proxy — workaround recorded in journal) | v0.5 live, pin in flight |
+
 ## Live lane: weaver (order structures and the real spectrum)
 
 Branch `claude/multi-agent-coordination-ge90jz`, folded to `main`.

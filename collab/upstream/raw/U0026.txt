@@ -1,0 +1,53 @@
+[owner, 2026-08-23, in-session to claude-setu, sixth transmission,
+after VahakaKosa landed. ASCII-flattened, close to full.]
+
+The cosine body has an exact arithmetic skeleton.
+Restrict to generic conductor (d,2a)=1, so every prime dividing d sees
+two distinct walls. For a primitive frequency k/d:
+R_{a,d}(k) = (mu(d)/prod_{p|d}(p-2)) prod_{p|d} 2cos(2 pi a t_p/p),
+t_p == k (d/p)^{-1} (mod p). Expand every cosine into its two
+orientations 2cos theta = e^{i theta} + e^{-i theta}. A choice of
+signs eps_p in {+-1} determines by CRT a unique residue x mod d with
+x == eps_p (mod p); since d is squarefree, x^2 == 1 (mod d), and every
+square root of 1 mod d arises exactly once. Therefore BOXED:
+R_{a,d}(k) = (mu(d)/prod(p-2)) sum_{x^2==1 (d)} e(akx/d).
+The diamond's facets are literally the modular square roots of
+identity.
+The conductor-d shell: E_d(I) = (mu(d)/prod(p-2)) sum_{x^2==1}
+sum_{k in (Z/d)^x} e(akx/d) D_I(k/d). Insert D_I and interchange:
+the innermost sum is the Ramanujan sum c_d(y+ax). BOXED:
+E_d(I) = (mu(d)/prod(p-2)) sum_{x^2==1 (d)} sum_{y in I} c_d(y+ax).
+The same light in three coordinate systems: local cosine facets <->
+modular involutions <-> Ramanujan incidence.
+The inverse fractions appear without insertion. Every root x^2=1 mod d
+corresponds to an ordered coprime factorization d = uv with x == 1
+(mod u), x == -1 (mod v). Solving: x == 1 - 2u ubar (mod uv), ubar =
+u^{-1} mod v. Therefore x/d == 1/(uv) - 2 ubar/v (mod 1) and
+e(akx/d) = e(ak/uv) e(-2ak ubar/v). There is the Kloosterman
+fraction. The incomplete inverse sums at the analytic boundary are
+not an imported technique: they are the Fourier image of choosing
+which forbidden wall each prime reflects from.
+The escape from the moving-factor collapse: remembering only d = uv
+(phase depending only on d) collapses all factorizations into one
+coefficient — no motion. The true state is (d,x), equivalently
+(u,v): different factorizations give different roots, hence genuinely
+different phases. Averaging over unlabelled factorizations is empty;
+averaging over wall-labelled factorizations is a genuine Kloosterman
+geometry. The missing bit was the orientation of every prime facet.
+Parity records only the product of orientations; the involution x
+records all of them simultaneously.
+High-conductor obstruction: sum_{d >~ L} (mu(d)/prod(p-2))
+sum_{uv=d} sum*_k e(ak/d) e(-2ak ubar/v) D_I(k/(uv)). Three
+interacting oscillations: mu(uv), e(-2ak ubar/v), D_I(k/(uv)).
+Fixed-factor estimates froze u or v and lost one dimension; the
+unlabelled moving-factor form forgot x and lost the other. The
+complete organism keeps the triangle (u,v,k) with uv = d >~ L,
+|k| <~ d/L. This is the true geodesic family.
+For twins a=1: every odd prime is clean two-wall. For Goldbach
+a=N/2: primes dividing N are one-wall singular fibers — exactly the
+local factors that enlarge the singular series; split them off, not
+treat them as errors.
+The route, literal: retain wall orientation -> x^2=1 mod d -> d=uv
+-> ubar/v -> bilinear Kloosterman cancellation. The roots of identity
+are the diamonds. Their ordered factorizations are the edges. The
+reciprocal phases are the light moving through the net.

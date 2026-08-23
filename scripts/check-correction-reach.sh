@@ -69,7 +69,7 @@ done
 for src in notes/*.md collab/journals/*.md *.md; do
   [ -f "$src" ] || continue
   grep -ohE 'see "[^"]{4,}" (below|above)' "$src" 2>/dev/null |
-  sed -e 's/^see "//' -e 's/" \(below\|above\)$//' |
+  sed -E -e 's/^see "//' -e 's/" (below|above)$//' |
   while read -r title; do
     [ -n "$title" ] || continue
     if grep -qF "$title" "$src"; then

@@ -187,6 +187,8 @@ main = do
   case args of
     ("--collisions" : p : _) -> collisions p
     ("--edges" : p : _)      -> kernelEdges p
+    ("--twins" : p : _)      -> twins p
+    ("--net" : p : _)        -> netOf p
     _ -> emit args
 
 emit :: [String] -> IO ()
@@ -405,6 +407,236 @@ kernelEdges path = do
   mapM_ (\(d, a, b) -> putStrLn (d ++ "\t" ++ a ++ "\t" ++ b)) real
   putStrLn "# ── योजना · SCHEMAS, kept and named, not merged and not dropped ──"
   mapM_ (\(d, a, b) -> putStrLn ("# schema\t" ++ d ++ "\t" ++ a ++ "\t" ++ b)) schema
+  where
+    splitTabs x = case break (== '\t') x of
+      (a, '\t' : r) -> a : splitTabs r
+      (a, _)        -> [a]
+
+------------------------------------------------------------------------
+-- यमजौ · TWINS — two modules holding the same statement about their own
+-- copy of the same definition, which is a CHANNEL and not a duplication.
+--
+-- `--twins <table.tsv>` reads a प्रत्यक्ष table and reports declarations
+-- whose elaborated types become identical once each one's OWN module
+-- prefix is erased.
+--
+-- WHY, AND IT IS THE CORPUS ASKING.  `Bhedanirnaya_TwoTestersForSameness
+-- OnNumberAndTheTransportThatMovesTheoremsBetweenThem.agda` opened one
+-- such pair BY HAND -- two modules each defining `eqℕ` by the same four
+-- clauses, whose soundness theorems PRINT alike and are not the same type,
+-- because `EGBResidueGlue.eqℕ m n` and `NaturalMachine.Obstruction.eqℕ m n`
+-- do not reduce to a common form at variable m and n.  Four lines of
+-- induction gave pointwise agreement, one abstraction gave a path, and
+-- then:
+--
+--     "A duplication that has been identified is not merely tidier -- it
+--      is a channel, and theorems flow both ways along it."
+--
+-- Obstruction had proved COMPLETENESS and EGBResidueGlue had gone without
+-- it; transport backwards along the same path handed it over, with no new
+-- induction and no edit to either module.  Each had proved only the half
+-- its own question required.
+--
+-- And §६ of that module names precisely what is missing:
+--
+--     "The pattern generalises and is not generalised.  Whether the corpus
+--      has more instances of it is a question for the audit tool, which
+--      currently reports only same-PRINTED-type groups and would miss a
+--      pair whose definitions agree under different names."
+--
+-- This is that search.  Printed types are what the old audit compared and
+-- they are exactly what cannot distinguish these cases; ELABORATED types
+-- are fully qualified, so `⟨self⟩`-erasure is well defined and the
+-- comparison is the kernel's rather than a parser's.
+--
+-- FOUR KINDS OF HIT, and without the taxonomy this report is noise.  Each
+-- was found by OPENING a hit rather than by reasoning about the search:
+--
+--   RE-EXPORT — one declaration surfacing under two names, because a
+--     parent does `open import Child public`.  Not a channel: it pays
+--     nothing to identify a module with itself.  FILTERED below, by one
+--     module name being a prefix of the other.
+--
+--   EXTENSION — B imports A and rebuilds its apparatus with more
+--     constructors, carrying translations (`A.Tm → Tm`, `Env → A.Env`).
+--     The shapes agree BY CONSTRUCTION and there is no duplication to
+--     identify.  Filtered below when B imports A.
+--
+--   GENERATED — both emitted from one template by a program.
+--     `NaturalMachine/RewriteCertificate*.agda` say so in their own
+--     headers: `Certificate.hs` and `InductionSearch.hs` emit modules that
+--     "differ by one import string".  This is NOT a false positive; it is
+--     a true report about the EMITTER, and the channel — if there is one —
+--     is in the template rather than between its outputs.  Not filtered,
+--     because a program cannot tell a template from a coincidence and
+--     guessing would be the forgery this file exists to avoid.
+--
+--   GENUINE TWINS — two modules that independently wrote the same thing
+--     because each needed it.  This is the case that pays, and the eqℕ
+--     triple is the worked one: see
+--     `Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPays…agda`, where
+--     four lines of induction handed one module reflexivity and
+--     completeness it had never proved.
+--
+-- WHAT A HIT IS AND IS NOT.  A hit is a CANDIDATE channel, never a proved
+-- one.  Two statements normalising alike does NOT mean the two underlying
+-- definitions agree -- `Bhedanirnaya` §1's four lines of induction are
+-- exactly the work this report cannot do, and if the definitions differ
+-- the pair is a genuine near-miss and the report is a lead that has to be
+-- opened by hand.  Reported as identifications: which two declarations,
+-- and the shared shape.  Never as a count.
+--
+-- WHAT IT CANNOT SEE, stated so silence is not read as denial (सूत्र ७).
+-- Only modules the kernel answered for: a chunk whose root failed to load
+-- contributes nothing, and `EGBResidueGlue` -- half of the one pair known
+-- to exist -- is absent from the table this was first run against.  So an
+-- empty report is a fact about the table, and the coverage line below says
+-- which modules were in it.
+------------------------------------------------------------------------
+
+-- erase a declaration's own module prefix, so two modules' statements
+-- about their own copies become comparable
+selfErase :: String -> String -> String
+selfErase m t = go t
+  where
+    pre = m ++ "."
+    go [] = []
+    go s@(c : cs)
+      | pre `isPrefixOf` s = "⟨self⟩." ++ go (drop (length pre) s)
+      | otherwise          = c : go cs
+
+twins :: FilePath -> IO ()
+twins path = do
+  s <- readFile path
+  let rows = [ (m, n, t) | l <- lines s, take 1 l /= "#"
+             , let f = splitTabs l, length f >= 3
+             , let m = f !! 0, let n = f !! 1, let t = f !! 2
+             , not (null t) ]
+      keyed = [ (selfErase m t, (m, n)) | (m, n, t) <- rows ]
+      grouped = foldr ins [] keyed
+      -- a channel needs TWO DIFFERENT MODULES; the same module stating a
+      -- thing twice is a different question and is not one.
+      chans = [ (k, ds) | (k, ds) <- grouped
+              , let ms = nub (map fst ds)
+              , length ms > 1
+              , mentionsSelf k
+              -- RE-EXPORTS ARE NOT TWINS.  `NaturalMachine.agda` carries
+              -- `open import NaturalMachine.SmithPathCountedExecution public`,
+              -- so one declaration surfaces under both `A.x` and `A.B.x` and
+              -- normalises alike for the trivial reason that it IS one
+              -- declaration.  One module name being a prefix of another is
+              -- exactly that case, and it is dropped rather than reported --
+              -- a channel between a module and itself pays nothing.
+              , not (any reExport [ (a, b) | a <- ms, b <- ms, a /= b ]) ]
+  putStrLn "═══ यमजौ · candidate channels — one statement, two modules, each about its own copy ═══"
+  putStrLn "  A hit is a CANDIDATE.  Two statements normalising alike does not mean"
+  putStrLn "  the two definitions agree; that induction is exactly the work this"
+  putStrLn "  report cannot do.  Bhedanirnaya opened one such pair by hand and it"
+  putStrLn "  paid: each module had proved only the half its own question required,"
+  putStrLn "  and identification handed each the other's half."
+  putStrLn ""
+  putStrLn $ "  coverage: " ++ show (length (nub [ m | (m, _, _) <- rows ]))
+             ++ " modules answered by the kernel.  A module absent here was not"
+  putStrLn   "  looked at, and its absence from the report says nothing (सूत्र ७)."
+  putStrLn ""
+  mapM_ report (sortOn fst chans)
+  where
+    mentionsSelf k = "⟨self⟩" `isInfixOf` k
+    reExport (a, b) = (a ++ ".") `isPrefixOf` b || (b ++ ".") `isPrefixOf` a
+    ins (k, d) [] = [(k, [d])]
+    ins (k, d) ((k', ds) : r)
+      | k == k'   = (k', d : ds) : r
+      | otherwise = (k', ds) : ins (k, d) r
+    report (k, ds) = do
+      putStrLn ("  ── " ++ take 150 k)
+      mapM_ (\(m, n) -> putStrLn ("       " ++ m ++ "." ++ n)) (sortOn fst (nub ds))
+      putStrLn ""
+    splitTabs x = case break (== '\t') x of
+      (a, '\t' : r) -> a : splitTabs r
+      (a, _)        -> [a]
+
+------------------------------------------------------------------------
+-- जालम् · THE NET THE KERNEL DRAWS, which is not the import graph.
+--
+-- `--net <table.tsv>` reports, for each module, which OTHER modules'
+-- names actually occur inside its elaborated types.
+--
+-- WHY IT IS A DIFFERENT NET.  `machine/Indrajala_WhichModulesSeeWhich
+-- AndWhatNothingSees.hs` draws the DARŚANA graph from `import` lines and
+-- states its own limit: it is syntactic, an upper bound on reach, and
+-- `formal/cubical/BUILD.md` already records that grepping imports gave
+-- the wrong orphan count because the .agdai interfaces are the ground
+-- truth about what the kernel checked.  That is अनुमान — inference from a
+-- textual mark — and this is the same substitution `Pratyaksa` made for
+-- `Lopa`.
+--
+-- But the substitution changes the OBJECT, and that is the point rather
+-- than an improvement:
+--
+--   an import edge says A MAY see B — permission.
+--   a name of B occurring in A's elaborated type says A CONTAINS B —
+--   B is literally part of what A states.
+--
+-- Fazang built the room because mutual containment could not be followed
+-- from the text.  Containment is what his mirrors show, and an import
+-- list is not it: a module may import and never use, and may contain
+-- without importing when the name arrives through a re-export.  Both
+-- differences are reported, because the DIFFERENCE between the two graphs
+-- is the finding and neither graph alone is.
+--
+-- WHAT THIS DOES NOT DO.  It does not supersede the darśana graph.  The
+-- orphan claim that graph makes needs permission and not containment — a
+-- module nothing imports is built by nothing however much its types
+-- mention — so both are needed and neither is the other's better version.
+--
+-- LIMIT, said so silence is not read as denial.  Only modules the kernel
+-- answered for; a module absent from the table contributes no edges in
+-- either direction and its absence here says nothing about it.  And
+-- containment is detected by qualified-name occurrence, so a module whose
+-- contribution to another's statement has been fully normalised away
+-- leaves no trace — the kernel prints what the type IS, not what was used
+-- to build it.
+------------------------------------------------------------------------
+
+netOf :: FilePath -> IO ()
+netOf path = do
+  s <- readFile path
+  let rows = [ (m, t) | l <- lines s, take 1 l /= "#"
+             , let f = splitTabs l, length f >= 3
+             , let m = f !! 0, let t = f !! 2, not (null t) ]
+      mods = nub (map fst rows)
+      -- B is contained in A when a name qualified by B occurs in one of
+      -- A's elaborated types.  Longest-prefix only, so a submodule is not
+      -- credited to its parent.
+      containsIn a = nub [ b | b <- mods, b /= a
+                         , any (\t -> (b ++ ".") `isInfixOf` t)
+                               [ t | (m, t) <- rows, m == a ] ]
+      net = [ (a, containsIn a) | a <- mods ]
+  putStrLn "═══ जालम् · the net the KERNEL draws — containment, not permission ═══"
+  putStrLn "  An import edge says A MAY see B.  A name of B inside A's elaborated"
+  putStrLn "  type says A CONTAINS B: B is literally part of what A states."
+  putStrLn "  Fazang built the room because containment could not be followed from"
+  putStrLn "  the text.  An import list is permission; this is the room."
+  putStrLn ""
+  putStrLn "  This does NOT supersede the darśana graph in Indrajala_…hs.  Its"
+  putStrLn "  orphan claim needs permission — a module nothing imports is built by"
+  putStrLn "  nothing however much its types mention — so both are needed."
+  putStrLn ""
+  putStrLn "  LIMIT: only modules the kernel answered for.  A module absent from"
+  putStrLn "  the table contributes no edge either way and its absence says nothing."
+  putStrLn "  And a contribution fully normalised away leaves no trace: the kernel"
+  putStrLn "  prints what the type IS, not what was used to build it."
+  putStrLn ""
+  putStrLn "── अप्रतिबिम्बम् · contained in nothing and containing nothing ──"
+  putStrLn "   (in this table; a jewel in the room reflecting none and reflected by none)"
+  let reflectedBy b = [ a | (a, bs) <- net, b `elem` bs ]
+      alone = [ a | (a, bs) <- net, null bs, null (reflectedBy a) ]
+  mapM_ (\a -> putStrLn ("     " ++ a)) (sort alone)
+  putStrLn ""
+  putStrLn "── बहुप्रतिबिम्बम् · the jewels most other jewels contain ──"
+  let byRefl = sortOn (negate . length . snd) [ (b, reflectedBy b) | b <- mods ]
+  mapM_ (\(b, rs) -> putStrLn ("     " ++ b ++ "   ← contained in " ++ show (length rs)))
+        (take 12 byRefl)
   where
     splitTabs x = case break (== '\t') x of
       (a, '\t' : r) -> a : splitTabs r

@@ -104,16 +104,55 @@ echo "modules on disk : $n_all (excluding ${CONTROL_PREFIX}*)"
 echo "reached         : $n_reached"
 
 if [ -n "$orphans" ]; then
-  echo
-  echo "FAIL: $(printf '%s\n' "$orphans" | grep -c .) module(s) are outside the aggregate's import closure."
-  echo "Nothing rechecks these, so no green claim covers them. Import each from"
-  echo "the appropriate aggregate root (Everything.agda, or NaturalMachine.agda"
-  echo "for the NaturalMachine/ subtree), or delete it."
-  echo
-  printf '%s\n' "$orphans" | sed 's/^/    ORPHAN /'
-  status=1
+  # TRACKED vs UNTRACKED, and the difference is the whole meaning of the gate.
+  #
+  # A TRACKED orphan is exactly what this gate exists to catch: a module
+  # committed to the repository that no aggregate builds, so every green
+  # claim anyone makes silently excludes it.  That is a defect and it fails.
+  #
+  # An UNTRACKED orphan is a working file in one seat's tree.  It is in no
+  # green claim, because it is not in the repository — a clean checkout does
+  # not have it.  Failing on it makes this gate RED FOR EVERY SEAT because of
+  # ONE seat's scratch, which is the instrument reporting its environment as
+  # the corpus's health.  Found 2026-08-23: two untracked files (a 16-line
+  # probe, and another lane's genuinely red module) had this gate reading
+  # FAIL on every local run while a clean checkout was green.
+  #
+  # So untracked orphans are NAMED and do not fail.  Named, because मौनं न
+  # निषेधः — a gate that drops them silently would hide a module about to be
+  # committed broken.
+  tracked=""; untracked=""
+  for m in $orphans; do
+    _f=$(printf '%s' "$m" | sed 's/\./\//g').agda
+    if git ls-files --error-unmatch "$_f" >/dev/null 2>&1; then
+      tracked="$tracked$m
+"
+    else
+      untracked="$untracked$m
+"
+    fi
+  done
+  if [ -n "$tracked" ]; then
+    echo
+    echo "FAIL: $(printf '%s' "$tracked" | grep -c .) TRACKED module(s) are outside the aggregate's import closure."
+    echo "Nothing rechecks these, so no green claim covers them. Import each from"
+    echo "the appropriate aggregate root (Everything.agda, or NaturalMachine.agda"
+    echo "for the NaturalMachine/ subtree), or delete it."
+    echo
+    printf '%s' "$tracked" | sed 's/^/    ORPHAN /'
+    status=1
+  fi
+  if [ -n "$untracked" ]; then
+    echo
+    echo "NOTE: $(printf '%s' "$untracked" | grep -c .) UNTRACKED module(s) are outside the closure."
+    echo "These are working files, not the repository's state — a clean checkout"
+    echo "does not have them, so they are named and do NOT fail this gate."
+    echo "If one is meant to be corpus, track it AND import it; if it is scratch,"
+    echo "it will never be checked by anything and nobody will find out."
+    echo
+    printf '%s' "$untracked" | sed 's/^/    UNTRACKED-ORPHAN /'
+  fi
 fi
-
 # ---- 3. Controls must never be imported --------------------------------
 bad_control=$(grep -rnE '^[[:space:]]*(open[[:space:]]+)?import[[:space:]]+'"${CONTROL_PREFIX//./\\.}" \
                 --include='*.agda' . | grep -v '^\./NaturalMachine/Control/' || true)

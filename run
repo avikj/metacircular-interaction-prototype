@@ -67,6 +67,14 @@ else
     echo "  git clone --depth 1 --branch v0.5 https://github.com/agda/cubical /root/cubical"
     echo "  sed -i 's/^name: cubical-0.5/name: cubical/' /root/cubical/cubical.agda-lib"
     echo "  echo /root/cubical/cubical.agda-lib > ~/.agda/libraries"
+    echo "  echo cubical > ~/.agda/defaults"
+    echo "  # ^ defaults is LOAD-BEARING for the bridge step below: the generated"
+    echo "  #   manifests in _build/ sit in no .agda-lib project, so without a"
+    echo "  #   default library they see only Agda's prim tree and the bridge"
+    echo "  #   fails on every fresh container while the in-project checks pass."
+    echo "  #   (Found 2026-08-23: the button was red in a remote container for"
+    echo "  #   exactly this line's absence.  The pin recipe is the same with"
+    echo "  #   the v0.9 clone + cabal-built Agda 2.8.0 — see formal/cubical/BUILD.md.)"
     FORMAL="toolchain absent"
 fi
 
@@ -78,20 +86,20 @@ HASKELL="toolchain absent"
 if command -v ghc >/dev/null 2>&1 && command -v runghc >/dev/null 2>&1; then
     BRIDGE_BUILD=formal/cubical/_build/haskell-agda-bridge
     mkdir -p "$BRIDGE_BUILD/NaturalMachine"
-    if ghc -fno-code -Wall machine/DSO.hs >/dev/null 2>&1 \
-       && test "$(ghc -ignore-dot-ghci machine/DSO.hs \
+    if ghc -imachine -fno-code -Wall machine/DSO.hs >/dev/null 2>&1 \
+       && test "$(ghc -imachine -ignore-dot-ghci machine/DSO.hs \
             -e 'prematureArgminCounterexample')" = "True" \
-       && ghc -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
-       && runghc machine/MathMachine.hs --check-definitions \
-       && runghc machine/MathMachine.hs --check-thought-format \
-       && runghc machine/MathMachine.hs --concept-invention-self-test \
-       && runghc machine/MathMachine.hs --dso-context-self-test \
-       && runghc machine/MathMachine.hs --smoke-rounds 5 \
-       && runghc machine/MathMachine.hs --emit-agda-manifest \
+       && ghc -imachine -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
+       && runghc -imachine machine/MathMachine.hs --check-definitions \
+       && runghc -imachine machine/MathMachine.hs --check-thought-format \
+       && runghc -imachine machine/MathMachine.hs --concept-invention-self-test \
+       && runghc -imachine machine/MathMachine.hs --dso-context-self-test \
+       && runghc -imachine machine/MathMachine.hs --smoke-rounds 5 \
+       && runghc -imachine machine/MathMachine.hs --emit-agda-manifest \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
        && agda -i "$BRIDGE_BUILD" -i formal/cubical \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
-       && runghc machine/MathMachine.hs --emit-agda-discoveries 5 \
+       && runghc -imachine machine/MathMachine.hs --emit-agda-discoveries 5 \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda" \
        && agda -i "$BRIDGE_BUILD" -i formal/cubical \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda"; then

@@ -6,6 +6,19 @@
 
 Design and honest limits: `notes/RUNTIME.md`.
 
+> **Trust base, per output (R3 of the written defect,
+> `notes/DosaLekha_TheCrystalEngineDuplicatesCheckedTermsAndTheDefectIsNowPriced.md`):**
+> every number this engine ever printed — the 70 theorems in
+> `data/engine_log.jsonl`, the 36/36 model-search confirmations — is
+> **unchecked testimony** (Python + author + run), never a checked term.
+> The lawful role of this code is conjecture generator for the kernel.
+> Precedent for the discharge path: the engine's IMPOSSIBLE verdict for
+> left-zero/right-zero is now a two-line kernel term covering every carrier
+> and every size at once —
+> `formal/cubical/Aikya_TheJointModelOfLeftZeroAndRightZeroIsASingletonSoTheEngineVerdictIsATerm.agda`
+> (Agda 2.6.3 + cubical v0.5, `--safe`, exit 0). One verdict, one term;
+> the remaining verdicts stay testimony until someone lifts them the same way.
+
 ```
 python3 machinery/crystal/demo.py             # compile a theory; ledger
 python3 machinery/crystal/demo_transport.py   # decide a theory never compiled

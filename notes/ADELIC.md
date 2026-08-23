@@ -129,6 +129,16 @@ constraint segment — the singular series being sector-blind.
 
 ## 3. Theorem E: the two-body adelic decomposition (the boxed target, made precise)
 
+> **Corrected downstream, and the correction is now a theorem.**
+> `notes/E2_PROOF.md` §1.5 confirms the correction to this section: the
+> single-zero layer needs a pole at $s=1$ in one factor, $A^\flat$ has none,
+> so $[\flat\flat]$ **cannot** contain it — "pole × zero" is literally
+> $\operatorname{Res}_{s=1}\times\operatorname{Res}_{s=\rho}$.  It also adds a
+> refinement this section misses: $[\flat\flat]$ *does* carry single-$\gamma$
+> lines at $w=\rho+1-j$, scale $X^{3/2}$.  Pointer added 2026-08-23 because
+> the correction existed and nothing here named it, so a reader landing on
+> this section could not reach it.
+
 The requested object — *actual $\Lambda$-pair kernel = critical-BC/local kernel
 + global zero-spectrum correction, with Goldbach and gaps as archimedean sectors
 of one kernel* — can be constructed canonically. Here is the precise scheme and

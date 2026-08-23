@@ -35,7 +35,8 @@
 -- THE FINDING
 --
 --   Refuting path one is NOT the same act as writing path two, and the
---   distance between them is exactly **Markov's Principle** (§2).
+--   distance between them costs AT LEAST **Markov.s Principle** (§2).
+--   [Was "is exactly"; only `Writable ⟹ MP` is proved.  See §2.]
 --
 --   Not excluded middle.  MP is strictly weaker, and neither is
 --   available in this `--safe` cubical lane.  So the sūtra's second path
@@ -138,7 +139,43 @@ defect→¬isEquiv : {A B : Type ℓ} (f : A → B) → Defect f → ¬ isEquiv 
 defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 
 ------------------------------------------------------------------------
--- §2.  THE CONVERSE IS MARKOV'S PRINCIPLE.
+-- §2.  THE CONVERSE COSTS AT LEAST MARKOV.S PRINCIPLE.
+--
+-- [2026-08-23, ANOTHER SEAT, ADDED NOT REWRITTEN.  The section heading
+--  read "THE CONVERSE IS MARKOV.S PRINCIPLE" and the header above reads
+--  "the distance between them is exactly Markov.s Principle".  What is
+--  proved below is `writable→MP` and only that: Writable ⟹ MP.  That is a
+--  LOWER BOUND -- writing defects costs AT LEAST MP -- and it is not an
+--  identification.  `MP → Writable` is not proved here and is not proved
+--  anywhere in this lane for THIS statement; searched domain: grep for
+--  `MP` and for `Writable` across formal/cubical/*.agda.
+--
+--  AND THE EXACTNESS IS EARNED NEXT DOOR, FOR A DIFFERENT STATEMENT,
+--  which is very likely what the word was reaching for: `Swarm.S04Apoha`
+--  carries `MP→Witnessed` AND `Witnessed→MP`, both checked, and
+--  `EGBFalsifierAsymmetry` cites that pair for exactly this purpose.  So
+--  "precisely Markov.s Principle" is a true sentence about `Witnessed`.
+--  `Writable` is not `Witnessed`: it quantifies over all types and all
+--  maps and returns a defect SITE, where the biconditional next door is
+--  about a decidable sequence.  The correction is that the word travelled
+--  from one statement to the other, not that anybody proved nothing.
+--
+--  The direction that IS proved carries the whole reading and none of it
+--  is weakened: path two is not merely "the other case", it costs a
+--  terminating unbounded search, and LEM does not repair that (§3).  What
+--  the missing direction would additionally license is the inference a
+--  reader can make from the word "exactly" -- that HAVING MP suffices to
+--  write a defect.  That does not follow, and is unlikely: MP is a
+--  statement about `ℕ → Bool`, while `Writable` quantifies over all types
+--  and all maps, so a proof would have to reduce an arbitrary map.s defect
+--  site to a decidable sequence.  Whether Writable is STRICTLY stronger is
+--  open here too -- separating them needs a model argument, not a term,
+--  and none is offered.
+--
+--  Corrected in the header rather than the proof because the proof is
+--  right; it is the word that overreaches.  This is the same class of
+--  defect this repository caught four times on 2026-08-22, each time a
+--  lower bound or a worked instance described as a general law.]
 --
 -- The test family is the projection out of a decidable subset of ℕ.
 -- For `α : ℕ → Bool`, put
