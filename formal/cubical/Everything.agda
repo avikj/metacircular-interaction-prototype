@@ -642,6 +642,12 @@ import Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotA
 -- one of the three must be said twice, and Pāṇini said ha: sūtra 5 before
 -- ya, sūtra 14 after śa, the stretch between them h-free for yaR.
 import Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa
+-- And the choice was not a choice: doubling ya dies on the {h v ś}-cycle,
+-- doubling śa dies on the {h y ṣ}-cycle, doubling anything else leaves
+-- h y ś once and dies on the original — only ha survives, because
+-- aṬ ∩ śaL = {h} exactly: ha is the triangle's sole articulation point.
+-- One parametric theorem, three instances, every discharge refl.
+import Niyama_TheDoubledSoundCouldHaveBeenAnyOfThreeAndTheFullClassesRestrictItToHaAlone
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and

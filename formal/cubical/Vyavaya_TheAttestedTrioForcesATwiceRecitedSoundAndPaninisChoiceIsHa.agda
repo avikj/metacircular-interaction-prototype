@@ -586,3 +586,18 @@ eqℕ (suc m₀) (suc n₀) = eqℕ m₀ n₀
                        (Mṇ₁ ∷ Mk ∷ Mṅ ∷ Mc ∷ Mṭ ∷ Mṇ₂ ∷ Mm ∷ Mñ ∷ Mṣ ∷ Mś ∷ Mv ∷ My ∷ Mr ∷ Ml ∷ [])
                 ≡ true
 अनुबन्धाः-सकृत् = refl
+
+------------------------------------------------------------------------
+-- EXTENDED 2026-08-23, later the same night: THE FIRST NOT-CLAIMED
+-- BULLET IS NOW EXAMINED, AND THE CHOICE WAS NOT ONE.  `Niyama_The-
+-- DoubledSoundCouldHaveBeenAnyOfThreeAndTheFullClassesRestrictItToHa-
+-- Alone.agda` proves the trio also restricts to 3-cycles on {h v ś} and
+-- on {h y ṣ} (by refl, from this file's own stretches), and proves the
+-- impossibility parametrically over any triple.  Case on the doubled
+-- sound: ya-doubling dies on {h v ś}, śa-doubling on {h y ṣ}, anything
+-- else on {h y ś}; only ha survives — aṬ ∩ śaL = {h} exactly, the sole
+-- articulation point, checked over the whole inventory.  Within single-
+-- doubling lines, ha is forced, not chosen.  The counting→permutation
+-- bridge and k ≥ 2 remain owed, and are said so there.  Nothing above
+-- is altered.
+------------------------------------------------------------------------
