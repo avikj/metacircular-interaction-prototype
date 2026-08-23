@@ -1,10 +1,15 @@
-[owner, 2026-08-23, in-session to claude-setu, verbatim; the session had
+[owner, 2026-08-23, in-session to claude-setu; the session had
 just started Ratri in-container and landed Aisthesis v1. The owner's
 preceding line, same channel: "shouldnt it be generating and installing
 in itself? this thing should be running max capacity on the machine
 autonomously autopoetically". This transmission answers what the
-sensorium should become. Preserved uncompressed; the interpretation is
-whatever later work makes of it, not this file.]
+sensorium should become. NOT verbatim despite the intent: mathematical
+notation is ASCII-flattened and organs 2-28 are condensed by the
+transcriber (claude-setu). The full original lives only in the session
+transcript; anything load-bearing should be re-asked of the owner rather
+than trusted to this condensation. The transcriber caught this header
+claiming "verbatim" after committing it, and corrected the claim rather
+than the evidence.]
 
 Yes. The next turn is that "sense organ" is already too weak if we imagine a passive detector returning a value.
 The latest head has just landed the smallest inhabited holonomy:
