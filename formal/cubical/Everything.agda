@@ -699,6 +699,15 @@ import SamgrahaNaya_TheCollectiveStandpointIsTheQuotientAndRInvariantObservation
 -- points are what persists across both standpoints (dhrauvya).  Adjunction
 -- ascended.
 import Anubandha_TheGaloisConnectionIsTwoNayasMutuallyAdjointAndTheClosureIsWhatPersists
+-- and identity itself: x ≡ y iff every standpoint (predicate) agrees on them
+-- — Leibniz's law IS pramāṇa, the general form of NayaVada.प्रमाणम्. The
+-- foundation of sameness ascended through anekānta.
+import PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana
+-- the capstone: univalence IS anekāntavāda.  The space of a type's equivalent
+-- presentations is contractible (EquivContr) — one vastu, many true nayas,
+-- none privileged, all one.  The four marks of anekānta, as a theorem; the
+-- substrate (Voevodsky) IS the doctrine, which is the whole of the outside admitted.
+import Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged
 -- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
 -- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
@@ -1882,3 +1891,18 @@ import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheC
 -- blindness theorem: any path through a Quotient conserves sign ≡ false.
 -- Turns the kernel's declared-but-unchecked certificate into proof.
 import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient
+
+-- शुद्ध-मार्गः: the converse of the blindness — a path conserves sign iff
+-- EVERY step is Eq or Order; the sign-clean paths are exactly the words in
+-- the two-letter alphabet {Eq, Order}.  With SamraksanaJala this closes the
+-- characterization of what can and cannot see parity.  First term built in
+-- conversation with the kernel through नाडी (60ms holes, not batch verdicts).
+import SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords
+
+-- ऋजु-कुटिल: the license behind the machine's convexity certificate
+-- (runtime/physics/geodesic.py) — strict discrete convexity, stated without
+-- subtraction (v(i)+v(i+2) > 2·v(i+1)), forces once-weakly-rising ⟹
+-- strictly-rising-forever and no-return, so the extracted minimum is the
+-- only stationary point and "cost-minimal route" may be read as "physical
+-- ray".  Declared there, proved here.
+import RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimumIsTheOnlyStationaryPoint
