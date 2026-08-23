@@ -1698,3 +1698,8 @@ import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
 import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
 import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation
 import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence
+-- वल्ली-भावना-सन्धिः, the seed: the generator column is its own transpose
+-- (refl), transpose is an anti-automorphism from ·Comm alone, and at D = 2
+-- the closed vallī garland M(1)⋆M(2)⋆M(1)⋆M(0) IS ι(3+2√2) by one refl —
+-- the free word landing in the commutative wheel at the period's close.
+import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
