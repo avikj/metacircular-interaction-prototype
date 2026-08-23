@@ -17,7 +17,7 @@
 // lumpability, or partition-quotient theorem is asserted here"). That is exactly
 // what the counters below supply.
 //
-// The loop, per runtime/CRYSTAL.md section 7:
+// The loop, per legacy/runtime/CRYSTAL.md section 7:
 //
 //     GENERATE     reachable states from constructors
 //     DISTINGUISH  Myhill-Nerode refinement; shortest separating witnesses

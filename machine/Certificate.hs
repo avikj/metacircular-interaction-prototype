@@ -1,11 +1,21 @@
--- Certificate.hs — the Agda emitter for MathMachine's kernel gate.
+-- Certificate.hs — the Agda emitter for the kernel gate.
 --
--- WHAT THIS REPLACES, AND WHY
+-- LEGACY POINTER (2026-08-23).  MathMachine.hs — "the CLOSE-lane
+-- ℕ-equation spinner", 239 rounds / ZERO theorems installed — was RETIRED
+-- at commit 832a549 as a toy that "looks alive but isn't".  Certificate.hs
+-- is one of the four organs the commit records as SURVIVING it (with
+-- Certify.hs, ArithVocab.hs, library.terms); the live substrate is the
+-- cubical corpus + the crystal runtime, and candidate generation is now
+-- the endogenous frontier (Sanghatta critical pairs, Obstruction's kernel
+-- refusal stream). The MathMachine references below are the historical
+-- record of what this emitter was built against; read them past tense.
 --
--- MathMachine.hs proves equations with its own rewriting + structural
--- induction, then submits each one to `kernelAccept`, which emits a
--- candidate Agda module and typechecks it.  The emitter it currently uses
--- (`agdaCertificate`, MathMachine.hs ~1193) is
+-- WHAT THIS REPLACES, AND WHY (retained as the emitter's design record)
+--
+-- MathMachine.hs [RETIRED, 832a549] proved equations with its own
+-- rewriting + structural induction, then submitted each one to
+-- `kernelAccept`, which emits a candidate Agda module and typechecks it.
+-- The emitter it used (`agdaCertificate`, MathMachine.hs ~1193) was
 --
 --     candidate : (x y z u v w : ℕ) → LHS ≡ RHS
 --     candidate x y z u v w = refl
