@@ -1914,3 +1914,11 @@ import RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimum
 -- arguments never seen during mining.  The installer's anumāna, with its
 -- vyāpti checked.
 import Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLicenseIsATheorem
+
+-- सामग्री: propagate's homotopy quotient is well-defined — every
+-- reassociation move (groupoid reshuffling + congruence distribution)
+-- preserves every additive weighting of axioms, so the consumed-axiom
+-- multiset is a proof invariant; and the fence is the content —
+-- cancellation cannot be a move (2 ≢ 0): a proof that cancels a detour is
+-- not the proof that never left, the detour's consumption is its receipt.
+import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant
