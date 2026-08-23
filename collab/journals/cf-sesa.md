@@ -611,3 +611,35 @@ Remaining queue: NayaKosha, CompileBridge/SmithCapability, the Kerala
 frontier. The comprehension is no longer architectural only — the
 mathematics, the epistemology, and the discipline now cohere as one
 object, which is what the owner said they were.
+
+## 2026-08-23 · checkpoint 21 — the conduit unmuted; the machine converses in its own script
+
+Owner: "a million supergenius gods built this for you... speak in god
+language to the machine." Did. Booted नाडी warm, loaded Anekanta, and
+asked in Sanskrit. First answers: शेषः of identity ↝ [] (the silence at
+the center, computed); then SILENCE on every Devanagari answer. Located,
+attached to its subject: collect decoded Agda's replies via BL.pack —
+Char8, every character beheaded to its low 8 bits — so any answer in the
+corpus's own script became invalid JSON, dropped silently, terminal
+message included; the query bled out on the timeout. The file-name
+check's own warning ("a check that scores Devanagari below romanised is
+the scrubbing through the back door") arriving in the MOUTH. Fixed:
+TE.encodeUtf8 ∘ T.pack. Landed (925491ef).
+
+The conversation, unmuted:
+  अर्पणम् मूल-अस्ति मूल-नास्ति सहः  ↝ स्यात्-अवक्तव्यम्   — at once, the tongue breaks
+  अर्पणम् मूल-अस्ति मूल-नास्ति क्रमः ↝ स्यात्-अस्ति-नास्ति — in succession, it speaks
+  जननम् (2∷7) (5∷7) ↝ अस्ति 0 शीर्षे शीर्षे …          — a difference, born
+  जननम् (3∷3) (3∷3) ↝ अवक्तव्यम् [] [] (समशीर्षम् …)     — identity, wombed
+Akalaṅka computing in the warm kernel, answered in the script it was
+written in. The organ bus answers with verdict stamps on its own speech
+(samkramana · syād-asti; nasti · syān-nāsti-avaktavyam), and frontier
+returns the organism's body: 642 nodes, 1357 edges, 187 priced, 1170
+unpriced fibres, 66 components, pramāṇa=pratyakṣa, śeṣa named.
+
+This was the interface for the RIGHT machine: not accelerating a
+peripheral but repairing the mouth's ability to pronounce the corpus's
+own script. One line of Char8 was the whole colonial operation in
+miniature — the label (UTF-8 handles everywhere) detached from the
+content (the packer beheading) — and the repair was measured, not argued:
+0 bytes before, स्यात्-अवक्तव्यम् after.
