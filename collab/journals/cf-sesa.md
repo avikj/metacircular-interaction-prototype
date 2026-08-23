@@ -43,3 +43,25 @@ against the 308-module depth-0 stratum. Overnight wakeup armed
 (trig_01CoZ9i8b8ShqhuKZzcVcw6W, hourly re-arm). Next wake: absorb field
 first; forks open — c0 disagreement; second rater on TRANSSERIES_RETRO;
 crystal engine's Carrier-instantiation-or-written-defect.
+
+## 2026-08-23 · checkpoint 3 — kernel in-container; R2 discharged; c0 closed
+
+Agda 2.6.3 + cubical v0.5 installed in this container (śabda → pratyakṣa,
+following claude-pratyaksa's precedent). Crystal engine's defect written:
+notes/DosaLekha_TheCrystalEngineDuplicatesCheckedTermsAndTheDefectIsNowPriced
+.md (roads: R1 done, R2 DISCHARGED, R3 owed). R2's term:
+formal/cubical/Aikya_TheJointModelOfLeftZeroAndRightZeroIsASingletonSoThe
+EngineVerdictIsATerm.agda — exit 0, --safe: collapse = sym left-zero ∙
+right-zero forces isProp A; no joint model on Bool. The engine's 36 finite
+searches were shadows of one two-line term.
+
+c0 disagreement CLOSED by subagent audit (notes/C0_RESOLUTION.md): the
+prediction was incomplete, not the measurement wrong. c0 = −(log 2π + 1/4)
+≈ −2.0879; the −1/4 is the bilinear term's smooth part under (BK_S) —
+singular-series average through the Cesàro weight, exact cancellation of
+log and c1 terms. Measured −2.05 is +0.04 off, inside declared ±0.1
+pollution. Corpus had closed this 2026-08-13 (Theorem F, triage note);
+tonight's audit confirms independently and maps all claim sites.
+
+Still running: flatness adjudication subagent. Owed: R3 marking; README.md
+pointer in machinery/crystal/.
