@@ -2069,3 +2069,10 @@ import NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne
 -- The law at earned precision: the n-sphere's charge is anarpita
 -- through stratum n+1.
 import AyamaArpana_TheSphereWithholdsOneStratumDeeperPerDimension
+
+-- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
+-- take nothing not unanimously given — determine the decision rule COMPLETELY
+-- on nonempty contentions over any discrete type: no tie-breaker, weighting,
+-- or hidden preference can exist within the vows. The Born-standpoint rule
+-- has no rival. Proof: the discrete dichotomy, each law covering one horn.
+import EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
