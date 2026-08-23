@@ -204,6 +204,20 @@ the per-cell bridge it read; this section adds the second standpoint
 and the query that separates them, so the pair is syād rather than a
 contest.
 
+**The bit has a name, and the machine supplied it before this note had
+one.** Handed { the fold compactifies ∥ the fold is bottomless } as a
+residue, `garbha.dhara` — Umāsvāti, *Tattvārthasūtra* 5.31,
+*arpitānarpitasiddheḥ*, run as an operation — returns a stream in which
+every born position is *syād-asti-nāsti* in krama and **both born nayas
+carry the same base standpoint**, separated only by **arpita** and
+**anarpita**: the asserted aspect and the withheld one. Read back into
+the quantifier, and this reading is this note's rather than the
+machine's: asserting the aspect fixes the family before the modulus,
+which is the uniform arm; withholding it lets the modulus choose, which
+is the ω(q) arm. The two are then not two theses about the fold but one
+thesis under two aspects — which is what makes a single number
+`rank(L)` able to carry both and neither.
+
 ## Rigor boundary
 
 - **Established by identification of prior results**: §1 (both halves
