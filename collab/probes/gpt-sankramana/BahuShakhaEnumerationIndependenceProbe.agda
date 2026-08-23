@@ -3,23 +3,24 @@
 ------------------------------------------------------------------------
 -- BahuShakhaEnumerationIndependenceProbe
 --
--- Consequences of `PermutationInvariantTotalProbe`.  These are separated from
--- the generic theorem so the kernel can distinguish a defect in the finite-fold
--- proof from a defect in its dependent application.
+-- Consequences of the checked `KramaNairapeksya` theorem. These are separated
+-- from the generic finite-fold result so the kernel can distinguish a defect
+-- in dependent reindexing from the already-closed permutation theorem.
 --
--- If the generic receipt checks, then `BahuShakha.शाखितयोगः` is independent of:
+-- `BahuShakha.शाखितयोगः` should be independent of:
 --
 --   * every microbranch enumeration, independently at each coarse outcome;
 --   * the outer enumeration of coarse outcomes;
 --   * both changes simultaneously.
 --
 -- This turns its multiplicity law from a theorem about one listed presentation
--- into a theorem about the finite fibres themselves.  The only algebra spent is
+-- into a theorem about the finite fibres themselves. The only algebra spent is
 -- the generic theorem's associativity and commutativity; dependent reindexing
 -- itself is `total-ext` plus composition.
 --
--- STATUS.  Complete conditional probe, outside `Everything.agda`, awaiting the
--- same Nadi verdict as its imported generic receipt.
+-- STATUS. Complete no-hole daemon-facing candidate outside `Everything.agda`.
+-- The imported generic theorem is checked; only these three consequences await
+-- a route-bearing warm Nadi verdict.
 ------------------------------------------------------------------------
 
 module BahuShakhaEnumerationIndependenceProbe where
@@ -33,7 +34,7 @@ open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceThe
   using (total ; total-ext)
 open import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
   using (शाखितयोगः)
-open import PermutationInvariantTotalProbe
+open import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private
@@ -57,7 +58,7 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W)
       (λ y → total _+ᵂ_ (k y) (w y))
       (λ y → permutation-invariant _+ᵂ_ assoc comm (k y) (e y) (w y))
 
-  -- The coarse outcomes themselves may be re-enumerated.  Their dependent
+  -- The coarse outcomes themselves may be re-enumerated. Their dependent
   -- branch sizes move with them; no transport cast is needed because the
   -- reindexed family is stated at its actual index.
   outer-invariant :
@@ -73,7 +74,7 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W)
       (λ y → total _+ᵂ_ (k y) (w y))
 
   -- Both levels may move at once: first remove every inner enumeration, then
-  -- remove the outer one.  This is the exact two-level receipt needed by the
+  -- remove the outer one. This is the exact two-level receipt needed by the
   -- branch-refinement/Born lane.
   nested-invariant :
     (c : ℕ) (k : Fin (suc c) → ℕ)

@@ -2192,3 +2192,39 @@ import YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsCl
 -- separated by the loop charge alone). The indexed Sⁿ theorem and the
 -- truncated-family analysis remain owed above this stone.
 import AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth
+-- सन्निकृष्ट-गहनता: the indexed adjacent descent-depth theorem
+-- (gpt-sankramana's probe, landed after three presentation seams): for
+-- EVERY n over one blind pair, the family at truncation 2+n DESCENDS
+-- (both fibres contractible — the positive half) and the family at 3+n
+-- does not (the sphere truncation utters the loop charge). Closes both
+-- debts AdhikaraBhanga declared: the Sⁿ rung and the truncation
+-- refinement. Blindness can hide at any dimension — now one indexed term.
+import SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot
+-- क्रमनैरपेक्ष्यम्: enumeration-independence closed — total (w ∘ e) ≡ total w
+-- for every permutation of the nonempty SumFin, spending only assoc and
+-- comm (gpt-sankramana's construction: omit/drop with its completeness
+-- receipts, the restricted permutation, extract as the only algebra
+-- spender; two kernel-demanded repairs by fable-krama marked at their
+-- sites). Every total in the measure lane is now enumeration-invariant.
+import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+-- अधिकारकरः: the agency tax of compression — Possible (valid in SOME
+-- hidden state, merely) vs Robust (valid in EVERY hidden state) actions
+-- over an observed state; robust ⟹ possible over inhabited fibres; the
+-- tax witnessed (possible and provably not robust); and इन्द्रिय-वृद्धिः —
+-- adjoining any receptor shrinks fibres, so robust action GROWS with
+-- perception, by one projection. The operational meaning of
+-- organogenesis, as a term.
+import AdhikaraKara_TheAgencyTaxOfCompressionAndRobustActionGrowsWithPerception
+-- परिवर्तयोगः: finite Fubini's rectangular case — the double sum
+-- interchanges (परिवर्तः), via the split law विभाजनम् and the four-point
+-- exchange विनिमयः, spending exactly assoc+comm; pushforward composes on
+-- product squares. The dependent fib version (शेष-transport) stays owed
+-- with the fibre-enumeration price named.
+import ParivartaYoga_TheDoubleSumInterchangesAndPushforwardComposesOnRectangles
+-- क्षितिजम्: the causal horizon — the smallest body that dies. Future 0
+-- and Future 1 DESCEND through the alive/dead observation (positive
+-- halves exhibited, refl throughout); Future 2 cannot (alive-for-two
+-- holds a two-step future, alive-for-one provably not, observation
+-- blind). The cone is lawful to horizon 1 and structurally incapable of
+-- 2: causal sufficiency is horizon-indexed, as the transmission stated.
+import Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep
