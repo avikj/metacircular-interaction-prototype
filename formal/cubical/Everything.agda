@@ -1335,5 +1335,7 @@ import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
 -- fiber n, prepend-laghu and prepend-guru, with both base cases contractible.
 -- Virahāṅka c. 600-800 on Piṅgala's weights.  The numbers are its shadow.
 import Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence
+
+import VivekaSetu_TheTwoRemainderRecordsAreOnePairAndThereforeEachOther
 import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesForFree
 import Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps

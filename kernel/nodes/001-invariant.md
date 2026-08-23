@@ -2,6 +2,7 @@
 id: 001
 kind: rule
 status: rule-active
+cleared-by: 003
 derived-from: Lemma N (notes/HOLOGRAM.md §7)
 ---
 # store invariants, not gauge
