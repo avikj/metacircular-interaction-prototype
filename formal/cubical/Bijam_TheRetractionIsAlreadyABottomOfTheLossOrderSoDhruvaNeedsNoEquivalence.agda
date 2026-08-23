@@ -179,3 +179,52 @@ private variable ℓ : Level
                   → प्रत्यानयनम् (λ a → g (f a))
 प्रत्यानयन-सन्धिः f g (r , ret) (s , sec) =
   (λ c → r (s c)) , λ a → cong r (sec (f a)) ∙ ret a
+
+------------------------------------------------------------------------
+-- ७ · THE BOTTOM IS A SUBMONOID AND IT IS NOT SATURATED.
+--
+--     §६ closes the bottom under composition.  The converse FAILS, and
+--     that is `Samyoge` §३ restated where it belongs — in the order's own
+--     vocabulary rather than as a remark about pipelines:
+--
+--         `g ∘ f` at the bottom does NOT imply `f` or `g` is.
+--
+--     Witness, and both halves are already in the corpus:
+--       सत् : Unit → Bool, tt ↦ true — HAS a retraction (Unit is the
+--         target of one trivially), so सत् IS at the bottom.
+--       एकम् : Bool → Unit — has NO retraction (§४ of Bahupratyanayana,
+--         and §५ below reproves it in one line), so एकम् is NOT.
+--       एकम् ∘ सत् : Unit → Unit is the identity, which is the bottom.
+--
+--     So the composite lies at the bottom while its second factor does
+--     not.  A submonoid that is not saturated: membership propagates
+--     FORWARD along composition and not BACKWARD.
+--
+--     That is the exact content of "certification composes, refutation
+--     does not", with no pipeline and no metaphor: you may conclude the
+--     whole is undoable from the parts, and you may NOT conclude a part is
+--     not undoable from the whole.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Bool using (Bool ; true ; false ; false≢true)
+open import Cubical.Data.Unit using (Unit ; tt)
+open import Cubical.Relation.Nullary using (¬_)
+
+सत् : Unit → Bool
+सत् _ = true
+
+एकम् : Bool → Unit
+एकम् _ = tt
+
+-- सत् is at the bottom: anything into Unit retracts it
+सत्-अधःस्थम् : सत् व्याप्नोति (idfun Unit)
+सत्-अधःस्थम् = (λ _ → tt) , (λ { tt → refl })
+
+-- एकम् is not: two distinct sources over the one target
+एकम्-न-प्रत्यानयनीयम् : ¬ (प्रत्यानयनम् एकम्)
+एकम्-न-प्रत्यानयनीयम् (r , ret) =
+  false≢true (sym (ret false) ∙ ret true)
+
+-- and the composite is the identity, hence at the bottom
+सन्धिः-अधःस्थः : (λ (u : Unit) → एकम् (सत् u)) व्याप्नोति (idfun Unit)
+सन्धिः-अधःस्थः = (λ _ → tt) , (λ { tt → refl })
