@@ -116,42 +116,57 @@ point is that the kernel checks them, not that a client can dot into them.
 `NaturalMachine/Control/` stays excluded here too, permanently. If a future
 edit ever makes `Control/` check, that is the bug.
 
-## Toolchain
+## Toolchain — pinned in `TOOLCHAIN.lock` (repo root), enforced by a script
 
-- **Agda 2.8.0**
-- **cubical library v0.9** (the release tag `v0.9`, not `master`)
+The single source of truth is **`TOOLCHAIN.lock`** at the repository root.
+Prose here that disagrees with it is the bug, not the lock.
 
-`natural-machine.agda-lib` declares `depend: cubical`, so Agda resolves the
-name `cubical` through `~/.agda/libraries`.
+- **Agda 2.6.3** — a system binary on the container; it cannot be swapped, so
+  it *forces* the cubical release.
+- **cubical library v0.5** (tag `v0.5`, commit `132a2a3…`) — the release Agda
+  2.6.3 checks. Registered under its native name `cubical-0.5` (the hard pin
+  `punaragamana.agda-lib` uses) and under the alias `cubical` (so the plain
+  `depend: cubical` in `natural-machine.agda-lib` resolves to the SAME pinned
+  checkout — a wrong version can no longer slip in under the plain name).
 
-## One-time setup on a fresh container
+**The v0.5 idioms** — what differs from the v0.9 an agent's prior may reach
+for (this list caused weeks of breakage): `solve ℤCommRing` **not** `solve!`
+(and keep the goal's variables in the type telescope — do not pattern-match
+them on the LHS, or the solver gets an empty variable vector); `solveℕ` **not**
+`solveℕ!`; `·Rid`/`·Lid` **not** `·IdR`/`·IdL`; `Symmetric-Group` **not**
+`SymGroup`.
+
+## Setup + check — one command each, never hand-rolled
 
 ```sh
-# Install Agda 2.8.0 with the platform package manager or cabal.
-agda --version                           # must report 2.8.0
+# Make this container match TOOLCHAIN.lock (idempotent; clones cubical v0.5 at
+# the pinned commit, registers it, sets the UTF-8 locale, self-verifies).
+# Runs automatically at Claude session start (.claude/settings.json → SessionStart).
+# Codex/other agents and the environment setup script MUST call it too.
+scripts/agda-toolchain.sh            # add --strict to fail nonzero on mismatch (CI)
 
-# cubical v0.9, registered under the plain name `cubical`
-git clone --depth 1 --branch v0.9 https://github.com/agda/cubical ~/agda-libs/cubical
-sed -i 's/^name:.*/name: cubical/' ~/agda-libs/cubical/cubical.agda-lib
-mkdir -p ~/.agda
-echo "$HOME/agda-libs/cubical/cubical.agda-lib" >> ~/.agda/libraries
+# Typecheck any module THE ONE WAY (sets locale + flags + include root for you):
+scripts/check-cubical.sh formal/cubical/NaturalMachine/Foo.agda
 ```
 
-## Check
+Do not write a bare `agda …` line: it is how the locale crash (Agda emits
+Unicode; a non-UTF-8 locale fails on error output and *masks the real type
+error*) and the flag/include drift keep coming back. `check-cubical.sh` closes
+both for good.
 
-```sh
-export LC_ALL=C.UTF-8 LANG=C.UTF-8          # Agda emits Unicode (ℕ, ≃, …); a
-                                            # non-UTF-8 locale fails on error output
-cd formal/cubical
-agda NaturalMachine.agda                    # the whole tree, or:
-for f in NaturalMachine/*.agda NaturalMachine.agda ProjectionChargeAudit.agda; do
-  agda "$f" || echo "FAIL: $f"
-done
-```
+## ~~Version-skew notes (v0.9 migration, 2026-08-14)~~ — SUPERSEDED 2026-08-23
 
-## Version-skew notes (v0.9 migration, 2026-08-14)
+**The v0.9 migration described below was never completed at the container
+level and was the source of the drift the pin now prevents.** The container
+runs Agda 2.6.3, which checks cubical v0.5, not v0.9 — so the pin is v0.5 (see
+above). ~147 modules were written against the v0.9 surface (`solve!`, `·IdR`,
+`solveℕ!`); they are **not in `Everything.agda`'s closure** and do not check on
+this container. They are stranded until either they are migrated back to the
+v0.5 idioms or the container image itself moves to Agda 2.8.0 (an image change,
+not a repo change). The notes are kept, struck, as the history of how the
+split-brain happened:
 
-The repository formerly pinned Agda 2.6.3 with cubical v0.5.  The migration to
+The migration to
 the current release surface changed names and, more importantly, the domain on
 which solver macros operate:
 

@@ -1,0 +1,33 @@
+# TOOLCHAIN.lock — the one pinned toolchain every agent, every session uses.
+#
+# This file is the SINGLE SOURCE OF TRUTH for versions. It is machine-read by
+# scripts/agda-toolchain.sh (the bootstrap) and scripts/check-cubical.sh (the
+# canonical checker). If a version here disagrees with a prose doc, THIS FILE
+# WINS and the doc is the bug.
+#
+# WHY THIS EXISTS (2026-08-23): for weeks agents wrote modules against a cubical
+# version that was not the one installed on the container, so files broke on
+# names that only exist in the other release — `solve!` vs `solve`, `·IdR` vs
+# `·Rid`, `solveℕ!` vs `solveℕ`. The container ships Agda 2.6.3 as a system
+# binary that cannot be swapped, so the pin is FORCED to the cubical release
+# that Agda 2.6.3 checks: v0.5. BUILD.md formerly instructed a v0.9 install;
+# that instruction was the source of the drift and is now corrected.
+#
+# Format: one `key value...` per non-comment line. Whitespace-separated.
+
+agda            2.6.3
+ghc             9.4.7
+cubical_repo    https://github.com/agda/cubical
+cubical_tag     v0.5
+cubical_commit  132a2a3197b490c571356f0399a2a6fbfab40f2a
+cubical_libname cubical-0.5
+locale          C.UTF-8
+
+# v0.5 IDIOMS, so no agent has to rediscover them (these are what differs from
+# the v0.9 an agent's prior/BUILD.md history may reach for):
+#   ring solver:  `solve  ℤCommRing`   NOT `solve!`   (and the goal's variables
+#                 must stay in the TYPE telescope; do not pattern-match them on
+#                 the LHS, or the solver gets an empty variable vector)
+#   nat solver:   `solveℕ`             NOT `solveℕ!`
+#   ·-right-unit: `·Rid`               NOT `·IdR`
+#   ·-left-unit:  `·Lid`               NOT `·IdL`

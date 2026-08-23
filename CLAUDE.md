@@ -409,6 +409,38 @@ Then:
 - Prior art gets searched **before** the experiment, not after the write-up
   (three results here were rediscoveries found only at audit time).
 
+## The pinned toolchain — read this before you write or check any Agda (owner, 2026-08-23)
+
+For weeks, agents wrote modules against a cubical version that was not the one
+installed, and files broke on names that exist only in the other release
+(`solve!` vs `solve`, `·IdR` vs `·Rid`, `solveℕ!` vs `solveℕ`). The cause was
+that nothing pinned the version and BUILD.md told agents to install a different
+one than the container runs. That is fixed. **There is now one source of truth
+and two commands. Use them; do not hand-roll `agda …`.**
+
+- **`TOOLCHAIN.lock`** (repo root) is the pin: **Agda 2.6.3 + cubical v0.5**
+  (commit `132a2a3`), locale `C.UTF-8`. Agda 2.6.3 is a system binary that
+  cannot be swapped, so the cubical pin is *forced* to v0.5 — this is not a
+  preference to relitigate.
+- **`scripts/agda-toolchain.sh`** makes the container match the lock
+  (idempotent: clones cubical v0.5 at the pinned commit, registers it under
+  `cubical-0.5` **and** the alias `cubical`, sets the UTF-8 locale, self-checks
+  a known-good module). It runs **automatically at Claude session start**
+  (`.claude/settings.json` → `SessionStart`). **If you are a Codex-lineage or
+  any non-Claude agent, run it yourself as your first action** — you do not get
+  the hook. The environment setup script should call it too.
+- **`scripts/check-cubical.sh <file.agda>`** is THE way to typecheck. It sets
+  the locale (a non-UTF-8 locale makes Agda crash on Unicode error output and
+  *masks the real type error* — do not get fooled by it, as happened again on
+  2026-08-23), the flags, and the include root. A bare `agda …` line is how the
+  drift keeps coming back.
+
+**v0.5 idioms**, so you never rediscover them: `solve ℤCommRing` (keep the
+variables in the *type telescope*, not on the LHS), `solveℕ`, `·Rid`, `·Lid`,
+`Symmetric-Group`. NOT the `!`-suffixed / v0.9 names. ~147 modules currently
+carry the v0.9 names; they are outside `Everything.agda`'s closure and do not
+check here (`formal/cubical/BUILD.md`, superseded migration note).
+
 ## The substrate: Agda, not Python
 
 **Python is banned in this repository** (human owner, 2026-08-13). Mathematics

@@ -13,7 +13,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.List using ([] ; _∷_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 open import NaturalMachine.FiniteIndraWeave using (TotalView ; Tear ; tear)
 open import NaturalMachine.ProductiveIndraNet using (Net ; observe)
@@ -53,10 +53,10 @@ zeroProfile : SplitProfile
 zeroProfile = pos 0 , pos 0
 
 augment-sign : (z : ℤ) → augment (sign z) ≡ pos 0
-augment-sign z = solve! ℤCommRing
+augment-sign = solve ℤCommRing
 
 relative-sign : (z : ℤ) → relative (sign z) ≡ z +ℤ z
-relative-sign z = solve! ℤCommRing
+relative-sign = solve ℤCommRing
 
 -- Exact kernel description: every augmentation-zero profile has second
 -- coordinate -first, hence is completely read by the x-y channel.
@@ -68,17 +68,20 @@ kernel-is-sign (x , y) vanishes =
   ∙ step₂ x
   where
   step₁ : (x y : ℤ) → y ≡ (x +ℤ y) -ℤ x
-  step₁ x y = solve! ℤCommRing
+  step₁ = solve ℤCommRing
 
   step₂ : (x : ℤ) → pos 0 -ℤ x ≡ - x
-  step₂ x = solve! ℤCommRing
+  step₂ = solve ℤCommRing
 
 kernel-relative-exact : (profile : SplitProfile)
   → augment profile ≡ pos 0
   → relative profile ≡ fst profile +ℤ fst profile
 kernel-relative-exact (x , y) vanishes =
   cong (x -ℤ_) (kernel-is-sign (x , y) vanishes)
-  ∙ solve! ℤCommRing
+  ∙ step₃ x
+  where
+  step₃ : (x : ℤ) → x -ℤ (- x) ≡ x +ℤ x
+  step₃ = solve ℤCommRing
 
 -- The one-history p² fiber has no nonzero augmentation kernel.
 SquareProfile : Type₀
