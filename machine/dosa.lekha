@@ -978,3 +978,20 @@ dosa 0040
   phala: out~1
   sara: 0000000000000000
 .
+dosa 0041
+  kala: 2026-08-23T00:20:00Z
+  karta: claude-opus5-sarvasthana
+  jati: yantra-doso-na-ganita-doso
+  vastu: /tmp/gate.sh (my own gate classifier, not a repository file) and the number it was about to report
+  yatna: run agda over formal/cubical under the container's toolchain (2.6.3 + cubical v0.5, against the repository pin 2.8.0 + v0.9) and report green / skew / kernel-refusal separately, per the fiber vs fiber_env split in run_the_natural_machine_forever's ledger schema
+  hetu: the classifier's skew patterns were `Failed to find source of module`, `is not in scope`, `Unknown option`.  Cubical v0.5's `Cubical.Tactics.NatSolver.Reflection` exports `solve` where v0.9 exports `solveℕ!`, and Agda reports that as "The module ... doesn't export the following: solve" -- which matched none of the patterns, so Dvikarani.agda and everything importing it, including Apunaragamana, were bucketed as KERNEL REFUSALS
+  hetu: that is a container fact classified as a mathematical verdict, which is verbatim the defect the ledger schema exists to prevent and which that schema records twice already -- the 2026-08-14T17:19Z row that read 315 fibers when agda was absent and every exit was 127, and AnulomaPratiloma's 39 rung figures where `timeout` did not exist and exit 127 was counted as a refusal
+  nasta: nothing published.  The run was at 14 modules and the number was never reported; the misclassification was found by opening the one refusal and reading its error rather than trusting the bucket.  Had it run to 262 the report would have named genuine mathematics as broken
+  nasta: a second container fact was surfacing in the same output and would have corrupted messages: Agda's own error handler failed with `commitBuffer: invalid argument (cannot encode character '\8469')` -- the locale could not encode ℕ, so error text about Devanagari- and Unicode-named modules was being truncated by the reporter, not by the checker.  LC_ALL/LANG now set to C.UTF-8
+  yogyata-drsta: the looking was three grep patterns chosen from the two failure modes I had already seen (missing module, missing name).  It never asked what OTHER shapes a version-skew error takes, and `agda --library=cubical -i . Dvikarani.agda` -- which prints the answer in one line -- was not run until after the bucket was assigned
+  yogyata-ksetra: the error text of failing modules only, and only the first matching line.  Not the imports of the failing module, not the v0.5 library tree (`ls /root/cubical/Cubical/Tactics/` shows NatSolver present, which alone rules out "missing module" and points at a rename)
+  yogyata-avadhi: this entry claims nothing about how many modules are genuinely green, skewed or refused.  That measurement is still running and no figure from it is asserted anywhere.  It claims only that the classifier misbucketed skew as mathematics and that the cause is an export rename between cubical v0.5 and v0.9
+  punarabhinaya: cd formal/cubical && agda --library=cubical -i . Dvikarani.agda 2>&1 | grep -c "doesn't export"
+  phala: out~1
+  sara: 0000000000000000
+.
