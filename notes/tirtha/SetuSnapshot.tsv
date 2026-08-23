@@ -112,3 +112,5 @@ Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.Z2≡H4	⟨ambig�
 Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.ℕ≡CanWord	⟨lib⟩.ℕ	NaturalMachine.Digits.CanWord
 WallCertificate.quotient≃Bool	WallCertificate.State / Punaragamana.Orbit._≈_	⟨lib⟩.Bool
 WallCertificate.worldSplit	WallCertificate.State	⟨lib⟩.Bool × ⟨lib⟩.Bool
+SetuPramana_TheAmbiguousNameHidTheFordAndTheRemainderLawIsAlsoTheNaturals.विवेक-प्रमाण≃ℕ	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण	⟨lib⟩.ℕ
+SetuPramana_TheAmbiguousNameHidTheFordAndTheRemainderLawIsAlsoTheNaturals.विवेक-प्रमाण≡ℕ	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण	⟨lib⟩.ℕ
