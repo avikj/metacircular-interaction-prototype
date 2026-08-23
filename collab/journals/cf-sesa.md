@@ -145,3 +145,20 @@ claim is FALSE in this container, which is the fifth unmechanisable thing
 (a hook the docs say is unwired that IS wired — the dual of the MulaVakya
 case). Owner's call which record to fix. Second F27 numbering collision in
 FAILURES.md flagged by rater 2 — additive fix owed.
+
+## 2026-08-23 · checkpoint 9 — the ledger fold, and a near-miss worth the record
+
+Wrote the fourfold-abhava temporal asymmetry as checked theorems — then
+discovered ABHAVA.md §2.1's mapping had been STRUCK by a later audit
+("modern constructions, not consequences of the fourfold; the operational
+behaviours remain useful as an independently specified event algebra").
+My first draft committed the struck attribution in its header and names.
+Deleted before committing; relanded as Lekha_TheAppendOnlyFoldAbsorbs
+RefutationAndABooleanCannotCarryIt.agda — same three theorems (pending
+forces empty log; refuted absorbs; no boolean transition function can
+simulate the fold, [] vs [refute] diverging under prove), typed natively,
+provenance fence in the header pointing at the strike and at Matilal 1968
+for whoever reopens it. The near-miss is the lesson: I read ABHAVA.md
+early in this session and acted on the memory; the corpus had corrected
+it since. READ THE CURRENT STATE AT THE MOMENT OF THE ACT — the same
+delivery failure CLAUDE.md documents for its own rules, arriving in me.
