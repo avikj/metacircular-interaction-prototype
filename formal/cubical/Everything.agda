@@ -684,6 +684,30 @@ import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTr
 -- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
 -- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
 import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
+-- THE ASCENT begins: every map A→B is A ≃ Σ[b] fiber f b — the domain is the
+-- sum of its fibres over the codomain.  The first isomorphism theorem,
+-- rank–nullity, dravya/paryāya, and nayavāda are ONE law: image = the naya's
+-- quotient, fibre = what it cannot see, pramāṇa = the whole Σ.  All of algebra,
+-- one object.
+import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta
+-- and the collective standpoint IS the quotient: an R-invariant observation
+-- is exactly a map out of A/R (the saṅgraha-naya's universal property, not a
+-- metaphor).  Quotients — the most ubiquitous construction — ascended.
+import SamgrahaNaya_TheCollectiveStandpointIsTheQuotientAndRInvariantObservationsFactorThroughIt
+-- and the categorical heart: a Galois connection is two nayas mutually
+-- adjoint (dravyārthika ⊣ paryāyārthika), and g∘f is the closure whose fixed
+-- points are what persists across both standpoints (dhrauvya).  Adjunction
+-- ascended.
+import Anubandha_TheGaloisConnectionIsTwoNayasMutuallyAdjointAndTheClosureIsWhatPersists
+-- and identity itself: x ≡ y iff every standpoint (predicate) agrees on them
+-- — Leibniz's law IS pramāṇa, the general form of NayaVada.प्रमाणम्. The
+-- foundation of sameness ascended through anekānta.
+import PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana
+-- the capstone: univalence IS anekāntavāda.  The space of a type's equivalent
+-- presentations is contractible (EquivContr) — one vastu, many true nayas,
+-- none privileged, all one.  The four marks of anekānta, as a theorem; the
+-- substrate (Voevodsky) IS the doctrine, which is the whole of the outside admitted.
+import Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged
 -- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
 -- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
@@ -695,6 +719,10 @@ import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObs
 -- that named frontier by induction: the machine proposes its śeṣa, the kernel
 -- disposes.
 import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
+-- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
+-- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
+-- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
+import Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -1783,6 +1811,11 @@ import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPD
 -- keeps operating.  Instrument: an involution exchanging the wall with
 -- fzero — its own section, no punchIn needed.
 import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
+-- the chart closed from inside the residue wheel: walls coincide exactly
+-- when a +ₘ a ≡ 0 (केन्द्रम्’s iff, internal), the regime is DECIDED per
+-- center, and the census is an equivalence in both branches — Fin (p−1)
+-- merged, Fin (p−2) distinct.  The atlas (CRT, the cone) is the open frame.
+import Sphatika_TheLocalCrystalIsDecidableTheWallsMergeExactlyWhenTwiceTheCenterVanishesAndTheCensusHoldsEitherWay
 -- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
 -- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
 -- ONE TERM wearing four names — three links are refl, judgmentally —
@@ -1843,3 +1876,18 @@ import Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTow
 -- internally; addition reappears after multiplication is differentiated
 -- against itself.
 import Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal
+
+-- ऋण-धन-क्रमः: sign is the Order datum — over ℤ the conjugation neg is an
+-- involution that PRESERVES abs (so (Iso;Quotient) is licensed) yet
+-- REVERSES sign (so (Iso;Order) is not the identity on sign), and sign does
+-- not factor through abs; the abs-fibre {n,−n} is split exactly by sign.
+-- The crystal's Order-edge fact (CRYSTAL §1) and POSITIVITY_HAS_A_PLACE's
+-- dropped-ordering-limitor, elementary over ℤ; Brahmagupta's ṛṇa/dhana.
+import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt
+
+-- संरक्षण-जालम्: the crystal's L1 typed-edge lattice as a checked term — the
+-- preservation table (edges.py PRESERVES), composition conserving the
+-- INTERSECTION, sign's carriers being exactly Eq and Order, and the parity-
+-- blindness theorem: any path through a Quotient conserves sign ≡ false.
+-- Turns the kernel's declared-but-unchecked certificate into proof.
+import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient
