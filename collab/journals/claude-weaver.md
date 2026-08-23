@@ -91,3 +91,37 @@ consequence was left standing in a clause.
 Same pair as the sieve lane, same bit. Written up as
 `notes/ArpitaAnarpita_...`. Nothing new is proved there; four existing
 theorems are put in one frame, and the frame is arpita/anarpita.
+
+## 2026-08-23 — the class was the limitor
+
+Grepped the corpus for "border rank". Zero hits. Every rank theorem the
+whole Kuznetsov seam rests on counts realizations by sums of pure products
+with CONSTANT coefficients, and nobody had written that down as a
+hypothesis.
+
+Asked the kernel instead of the literature.
+
+    घातः t bs  ≡  पर्यायः bs  +  आवेशः bs · t  +  शेषः t bs · (t · t)
+
+One pure product over the places, ∏ᵢ (χ(bᵢ) + σ(bᵢ)t). Constant term the
+parity character, first-order term the entire n-place charge, remainder an
+explicit polynomial — no limit, no blow-up. The step is one `cong` on the
+induction hypothesis and one six-variable ring identity discharged by
+`solve ℤCommRing`. Both accepted first proposal; `छिद्रं नास्ति` two turns
+after the file was written.
+
+This contradicts nothing. `squarefreeChargeCube_rankExactly n` is exactly
+true and is about a class this construction is not in. It is the W tensor's
+rank-n / border-rank-2 gap written as an identity instead of a degeneration.
+
+The part that matters more than the charge: `घातः t bs` is a polynomial
+whose k-th coefficient is the sum over k-marked places. Rank obstructions
+apply to each coefficient. None applies to the product generating all of
+them.
+
+So the transported question stops being about counting and becomes a
+question about kernels: does a Kuznetsov-type kernel admit a derivative in a
+spectral parameter of a single separable kernel? Bessel transforms and
+admissible test functions decide that. The finite rank structure does not,
+and the corpus — including three notes I wrote this morning — read as
+though it did.

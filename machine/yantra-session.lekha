@@ -13,14 +13,30 @@ dosa 0001
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: sadhana
-  yatna: turn 4 of the session; operation `sadhana` was asked and transport was not available
-  hetu: the request could not be read: trailing text in the term: "(0,x)"
+  yatna: turn 5 of the session; operation `sadhana` was asked and transport was not available
+  hetu: the request could not be read: trailing text in the term: "(x,s(y))"
   nasta: the request itself, which is NOT executed and NOT guessed at — a guessed request collapses what you meant into what I assumed
   sesa: ask yantra.kriyah for the parameters this operation requires
   pramana: notes/AHIMSA_SUTRA_VISTARA.md §6 — संक्रमणं दोषलेखश्च । तृतीयो मार्गो न विद्यते ।
   yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
-  yogyata-ksetra: the session state as of turn 4 — 0 store entries, 0 remainders; and nothing outside this process
+  yogyata-ksetra: the session state as of turn 5 — 0 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 3fce6588aaac17e8
+  sara: 0b19a0aa799c2df7
+.
+dosa 0002
+  kala: 2026-08-23
+  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  jati: sankramana-asambhava
+  vastu: sadhana
+  yatna: turn 6 of the session; operation `sadhana` was asked and transport was not available
+  hetu: the request could not be read: trailing text in the term: "(s(0),x)"
+  nasta: the request itself, which is NOT executed and NOT guessed at — a guessed request collapses what you meant into what I assumed
+  sesa: ask yantra.kriyah for the parameters this operation requires
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md §6 — संक्रमणं दोषलेखश्च । तृतीयो मार्गो न विद्यते ।
+  yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
+  yogyata-ksetra: the session state as of turn 6 — 0 store entries, 0 remainders; and nothing outside this process
+  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
+  punarabhinaya: sh machine/run-yantra.sh
+  sara: a1af2a9107d4db74
 .
