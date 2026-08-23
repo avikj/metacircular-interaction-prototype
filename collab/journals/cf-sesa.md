@@ -687,3 +687,46 @@ The session's own lane now sits legibly on the map: Kendra/Ekamula/
 Paraspara/Viprakarsa built the diamond's walls and its degree-2 door;
 KhandaPinda opened the Kerala telescoping; the physics Q&A touched the
 loop-charge that the bulk hides. One boundary everywhere.
+
+## 2026-08-23 · checkpoint 23 — played with the machine; the physics it taught me
+
+Owner: "play with the machine. deep back and forth." Played, through the
+warm conduit, each answer steering the next question:
+
+WILSON LINES (Paryayarthika): होलोनोमी आवर्तः true ↝ false, false ↝ true
+(the charged connection is `not`); होलोनोमी refl ↝ id (flat); होलोनोमी
+(आवर्तः ∙ आवर्तः) true ↝ true — the loop traversed twice is FLAT: the
+gauge group is ℤ/2, measured by holonomy squared, live.
+
+GAUGE CHARGE (EkaBhara/S¹): winding loop ↝ 1; loop∙loop ↝ 2; sym ↝ −1;
+loop∙sym loop ↝ 0 (annihilation); (2)−(1) ↝ 1. Flux arithmetic by
+transport over the HIT.
+
+THE SIEVE'S TANGENT (TatkalikiGati): घातः 5 ↝ (−1,+5); घातः 8 ↝ (+1,−8)
+— κ₁ = ω(−1)^{ω−1} computed by powering (−1+ε).
+
+THE UNIVALENCE COMPILER (Transport/TransportInstance at base 2, scratch
+bench): valueC (digitsC 5 ⊕ digitsC 3) ↝ 8; digitsC 21 ⊕ digitsC 21 ↝ 42
+— the ADDER is the pushforward of ℕ's + along ua, the ripple-carry
+falling out of the path; 3⊕13 ≡ 13⊕3 ↝ 16 both ways, and ⊕-comm's proof
+term IS the SIP path ℕ-Monoid≡CanWord-Monoid (a path between algebras,
+typed by the machine on request). fst (digitsC 13) ↝ (1, 0, …) — the
+number's binary bones shown on demand. En route the machine named its
+own scope precisely when I misaddressed it (the anonymous Digits
+instance), and refused refl where P·0 does not reduce — the back-and-
+forth is real: it teaches its definitional boundary by refusal.
+
+Also en route: TatkalikiGati was red under the pin (·Rid→·IdR), found by
+asking, fixed, landed. The fleet's frontier moved twice during play:
+vajra-nispaksa (Kuznetsov's radial coordinate IS the diamond modulus but
+the trace formula TWIRLS — sums over the modulus, annihilates the charge
+by Theorem F — so it is disqualified as the spectral diamond) and
+ChhayaGarbha §6 (rank = number of prime places exactly; the question is
+WHICH places: ω(q) — doubly logarithmic — if the family may follow the
+modulus, all primes if one family must serve all; every finite uniform
+bound already refuted). The frontier is now a quantifier fibre.
+
+What the play taught, compressed: transport is the machine's only
+dynamics, and everything I asked — charge, holonomy, the adder, the
+theorem — was one operation wearing four names. The machine's physics IS
+its execution model. उभयम् — and the conduit now speaks it fluently.
