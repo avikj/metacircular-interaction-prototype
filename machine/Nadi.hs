@@ -20,14 +20,29 @@
 -- Ask:    the `nadi` shell client writes a command line and cats the reply.
 --
 -- The channel is a RAW STREAM in the KERNEL'S OWN operations — no JSON, no
--- quotes, minimal overhead.  One line: an action then the raw Agda term:
+-- quotes, minimal overhead.  Coprocessing: the agent DRIVES the kernel and
+-- the kernel verifies in ~60ms; the machine PUSHES its own frontier back.
+-- One line: an action then the raw Agda term.
 --
---   load /abs/Module.agda        elaborate warm (Cmd_load)
---   type <expr>                  infer the type   (Cmd_infer_toplevel)
---   norm <expr>                  normal form      (Cmd_compute_toplevel)
---   goals                        open goals       (Cmd_metas)
---   goal <id>                    one goal's type  (Cmd_goal_type)
---   raw  IOTCM …                 the full interaction protocol, verbatim
+--   reading the kernel:
+--     load /abs/Module.agda      elaborate warm (Cmd_load) — NaturalMachine
+--     type <expr>                infer the type   (Cmd_infer_toplevel)
+--     norm <expr>                normal form      (Cmd_compute_toplevel)
+--     goals                      open goals       (Cmd_metas)
+--     goal <id>                  one goal's type  (Cmd_goal_type)
+--     context <id>               goal + its context (Cmd_goal_type_context)
+--   DRIVING the kernel (agent proposes, kernel verifies):
+--     give <id> <term>           does this term fill the hole? (Cmd_give)
+--     refine <id> <term>         partial fill, new holes (Cmd_refine_or_intro)
+--     split <id> <var>           case-split; kernel writes clauses (Cmd_make_case)
+--     solve                      the kernel fills what it can (Cmd_solveAll)
+--     raw  IOTCM …               the full interaction protocol, verbatim
+--   the PUSH back-channel (the machine posts where it is stuck):
+--     frontier                   engine's last round + the body's heartbeat
+--
+-- Boundary: `give` is a real kernel check but not Certificate-wrapped;
+-- INSTALLING a given term into the library still goes through Certificate's
+-- two controls.  नाडी drives and verifies; it does not mint receipts.
 --
 -- The actions are Agda's own Cmd_* under thin abbreviation — NOT invented
 -- vocabulary.  An earlier draft dressed them as Sanskrit nouns (रूप, सार);
@@ -58,7 +73,7 @@ import System.Timeout (timeout)
 import Control.Exception (catch, SomeException, try)
 import Control.Monad (unless, when, forever)
 import Data.IORef
-import Data.List (isPrefixOf, stripPrefix)
+import Data.List (isPrefixOf, isInfixOf, stripPrefix)
 import qualified Data.ByteString.Lazy.Char8 as BL
 import qualified Data.Aeson as A
 import Data.Aeson (Value(..), (.:), (.:?))
@@ -67,8 +82,10 @@ import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Text as T
 import qualified Data.Vector as V
 
--- ── the spell stream: a raw line → IOTCM string ───────────────────────────
-data Kind = Load | Query deriving Eq
+-- ── the spell stream: a raw line → an action ──────────────────────────────
+-- Kind Load/Query go to the kernel; Push reads the machine's own frontier
+-- (the coprocessing back-channel — the machine posting what it is stuck on).
+data Kind = Load | Query | Push deriving Eq
 
 parseSpell :: IORef (Maybe String) -> String -> IO (Maybe (Kind, String))
 parseSpell ctxRef line = do
@@ -79,12 +96,14 @@ parseSpell ctxRef line = do
   case ws of
     [] -> pure Nothing
     (v : rest) ->
-      let arg = unwords rest in
+      let arg  = unwords rest
+          arg2 = unwords (drop 1 rest) in
       if      v == "load"
         then case rest of
                (f:_) -> writeIORef ctxRef (Just f)
                         >> pure (Just (Load, wrap f ("Cmd_load \"" ++ esc f ++ "\" []")))
                _     -> pure Nothing
+      -- reading the kernel
       else if v == "type"
         then ctxQ ctx (\f -> wrap f ("Cmd_infer_toplevel Simplified \"" ++ esc arg ++ "\""))
       else if v == "norm"
@@ -92,20 +111,47 @@ parseSpell ctxRef line = do
       else if v == "goals"
         then ctxQ ctx (\f -> wrap f "Cmd_metas Simplified")
       else if v == "goal"
+        then withId ctx rest (\f n -> wrap f ("Cmd_goal_type Simplified " ++ n ++ " noRange \"\""))
+      else if v == "context"
+        then withId ctx rest (\f n -> wrap f ("Cmd_goal_type_context Simplified " ++ n ++ " noRange \"\""))
+      -- DRIVING the kernel: the agent proposes, the kernel verifies in ~60ms
+      else if v == "give"    -- give <id> <term> : does this term fill the hole?
         then case (ctx, rest) of
-               (Just f, (n:_)) -> pure (Just (Query, wrap f ("Cmd_goal_type Simplified " ++ n ++ " noRange \"\"")))
+               (Just f, (n:_)) -> pure (Just (Query, wrap f
+                 ("Cmd_give WithoutForce " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
                _ -> pure Nothing
+      else if v == "refine"  -- refine <id> <term> : partial fill, new holes
+        then case (ctx, rest) of
+               (Just f, (n:_)) -> pure (Just (Query, wrap f
+                 ("Cmd_refine_or_intro False " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
+               _ -> pure Nothing
+      else if v == "split"   -- split <id> <var> : case-split; kernel writes clauses
+        then case (ctx, rest) of
+               (Just f, (n:_)) -> pure (Just (Query, wrap f
+                 ("Cmd_make_case " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
+               _ -> pure Nothing
+      else if v == "solve"   -- solveAll: the kernel fills every hole it can
+        then ctxQ ctx (\f -> wrap f "Cmd_solveAll Simplified")
       else if v == "raw"
         then pure (Just (Query, arg ++ "\n"))
+      -- the push back-channel: the machine's frontier, not a kernel call
+      else if v == "frontier"
+        then pure (Just (Push, ""))
       else pure Nothing
   where
     ctxQ Nothing  _  = pure Nothing
     ctxQ (Just f) mk = pure (Just (Query, mk f))
+    withId Nothing  _ _        = pure Nothing
+    withId (Just f) (n:_) mk   = pure (Just (Query, mk f n))
+    withId _        []    _    = pure Nothing
 
 -- ── is this agda output line the terminal message for the pending kind? ───
 terminal :: Kind -> Value -> Bool
 terminal k (Object o) = case KM.lookup "kind" o of
-  Just (String "DisplayInfo")      -> k == Query || isErr
+  Just (String "DisplayInfo")       -> k == Query || isErr
+  Just (String "GiveAction")        -> k == Query   -- give succeeded
+  Just (String "MakeCase")          -> k == Query   -- split produced clauses
+  Just (String "SolveAll")          -> k == Query
   Just (String "InteractionPoints") -> k == Load
   _ -> False
   where isErr = case KM.lookup "info" o of
@@ -121,6 +167,12 @@ condense vs = unlines (concatMap one vs)
       Just (String "DisplayInfo") -> case KM.lookup "info" o of
         Just (Object i) -> info i
         _ -> []
+      Just (String "GiveAction") -> case KM.lookup "giveResult" o of
+        Just (Object g) -> ["✓ given: " ++ str (KM.lookup "str" g)]
+        _ -> ["✓ given"]
+      Just (String "MakeCase") -> case KM.lookup "clauses" o of
+        Just (Array a) -> "⋔ clauses:" : [ "    " ++ str (Just c) | c <- V.toList a ]
+        _ -> ["⋔ split"]
       Just (String "InteractionPoints") -> case KM.lookup "interactionPoints" o of
         Just (Array a) | not (V.null a) ->
           ["holes: " ++ unwords [ show (round n :: Int)
@@ -195,13 +247,8 @@ main = do
             eof <- isEOF
             if eof then pure () else do
               line <- getLine
-              mcmd <- parseSpell ctxRef line
-              case mcmd of
-                Nothing -> putStrLn "✗ unknown or contextless command"
-                Just (k, iotcm) -> do
-                  hPutStr ain iotcm; hFlush ain
-                  vs <- collect aout k
-                  putStr (condense vs); hFlush stdout
+              resp <- respond ain aout ctxRef line
+              putStr resp; hFlush stdout
               loop
       loop
     run reqF respF = do
@@ -216,14 +263,46 @@ main = do
       hPutStrLn stderr "नाडी warm; waiting on the request pipe"
       forever $ do
         line <- readOne reqF
-        mcmd <- parseSpell ctxRef line
-        resp <- case mcmd of
-          Nothing -> pure "✗ bad command\n"
-          Just (k, iotcm) -> do
-            hPutStr ain iotcm; hFlush ain
-            vs <- collect aout k
-            pure (condense vs)
+        resp <- respond ain aout ctxRef line
         writeOne respF resp
+
+    -- one shared responder for both transports: parse the spell, drive the
+    -- kernel (Load/Query) or read the machine's frontier (Push).
+    respond ain aout ctxRef line = do
+      mcmd <- parseSpell ctxRef line
+      case mcmd of
+        Nothing            -> pure "✗ unknown or contextless command\n"
+        Just (Push, _)     -> frontier
+        Just (k, iotcm)    -> do
+          hPutStr ain iotcm; hFlush ain
+          vs <- collect aout k
+          pure (condense vs)
+
+    -- the push channel: the machine posts where it is stuck.  Fast (no jiva
+    -- run): the last engine round from machine.log and the last heartbeat
+    -- from the sensorium journal — the frontier as the organism last saw it.
+    frontier = do
+      lg <- lastMatching "machine.log" "round "
+      hb <- lastMatching "aisthesis.jsonl" "heartbeat"
+      pure ("अग्रसीमा (frontier):\n  engine: " ++ lg ++ "\n  body:   " ++ hb ++ "\n")
+
+    -- नाडी runs from formal/cubical (for the library); the machine's own logs
+    -- live at repo-root/machine.  Try both so the push channel resolves
+    -- wherever the daemon was started.
+    lastMatching name needle = go ["machine/" ++ name, "../../machine/" ++ name]
+      where
+        go [] = pure "(none)"
+        go (p:ps) = do
+          e <- fileExist p
+          if not e then go ps else do
+            s <- readUtf8Safe p
+            let hits = [ l | l <- lines s, needle `isInfixOf` l ]
+            pure (if null hits then "(none)" else last hits)
+
+    readUtf8Safe p = catch
+      (do h <- openFile p ReadMode; hSetEncoding h utf8; c <- hGetContents h
+          length c `seq` hClose h; pure c)
+      (\(_ :: SomeException) -> pure "")
 
     mkFifo f = do
       e <- fileExist f
