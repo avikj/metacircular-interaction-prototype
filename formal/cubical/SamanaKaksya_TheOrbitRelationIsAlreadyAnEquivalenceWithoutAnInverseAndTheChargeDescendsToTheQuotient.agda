@@ -231,11 +231,28 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
 -- ६ · शेषः — what stays open, stated so the next rung is not
 --     over-specified again.
 --
--- The converse of §४ — that `अवतीर्णः` is injective, i.e. equal charge
+-- ~~The converse of §४ — that `अवतीर्णः` is injective, i.e. equal charge
 -- implies one orbit — is `Kaksya` §७'s `सङ्क्रमणम्` and is a genuine
--- hypothesis about the flow, not a missing definition.  What §२ shows
--- is that only the SYMMETRY half of the old fork was a mirage; the
--- transitivity half is real and is still a hypothesis.
+-- hypothesis about the flow, not a missing definition.~~
+--
+-- **STRUCK, and by a checked counterexample, not by a re-reading.  Left
+-- standing because striking silently is how this repository loses its
+-- own history.**  `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
+-- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda` shows
+-- `सङ्क्रमणम्` is SUFFICIENT and NOT NECESSARY, and exhibits the gap:
+-- `A = Bool`, `B = Unit`, `f = λ _ → tt`, `Φ = λ _ → true`.  Every pair
+-- meets at stations `(1,1)`, so `अवतीर्णः` is an equivalence, while
+-- `सङ्क्रमणम् tt → ⊥` — nothing ever reaches `false`.  I wrote
+-- "is exactly" of a one-sided reachability hypothesis while the whole
+-- point of §२ above was that the orbit relation is two-sided, which is
+-- the error §२ exists to correct, committed four sections later in the
+-- same file.  The exact hypothesis is the truncated two-sided one, and
+-- that module proves the ⟺ and the equivalence
+-- `isEquiv f̄ ≃ (isSurjection f × ∀ b → ∥two-sided∥₁)`.
+--
+-- What §२ shows is still that only the SYMMETRY half of the old fork
+-- was a mirage; a transitivity-shaped hypothesis is real and remains
+-- one — but it is not the one named here.
 --
 -- Unaddressed here: whether `समानकक्ष्या` is valued in propositions
 -- (it is not, in general — the meeting stations are data), and hence
