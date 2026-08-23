@@ -4,23 +4,23 @@
 #     typed doṣa  →  transformation attempted  →  re-gate  →  land or grow.
 #
 # THE LAW THIS ORGAN OBEYS (owner, 2026-08-23, in force):
-#   * NO DEFERENCE TO A MIND.  A repair "a mind must do" is a carrier
-#     re-inserted as a permanent organ — the exact failure the whole
-#     project exists to kill.  Every doṣa is either transformed here, or
-#     it is a MISSING RULE THIS ORGAN MUST GROW — addressed to the
-#     machine's own organogenesis, never handed to a human.
+#   * NO DEFERENCE TO A MIND, AND NO LAYERS.  A repair "a mind must do" is
+#     a carrier re-inserted as a permanent organ.  But "grow an organ" is
+#     not a privileged act either — there is no meta-level, no evaluator
+#     outside the state (kernel/README: metacircular, the rules are in the
+#     world).  A repair rule is a term; a candidate is a term; they meet
+#     the same gate.  So an unencoded doṣa is not a call to some special
+#     growth process — it is simply a CANDIDATE for a new rule, which
+#     enters the same pending → gate → land loop as any theorem.  The loop
+#     applied to its own table is the loop, flat.
 #   * THE GATE IS THE COURT, so pratikāra attempts AGGRESSIVELY.  A wrong
-#     transformation costs one re-gate and nothing else, so there is no
-#     reason to withhold an attempt.  pratikāra proposes; batch agda
-#     adjudicates; a repair that does not re-gate green is simply not a
-#     repair and the loop continues.
+#     transformation costs one re-gate and nothing else.  pratikāra
+#     proposes; batch agda adjudicates; a repair that does not re-gate
+#     green is simply not a repair and the loop continues.
 #   * The only doṣa it does NOT mutate is an ENVIRONMENT doṣa (toolchain
 #     skew — Δ=109/solveℕ!): there the mathematics is not the defect, so
 #     the candidate is retained for the correct container.  That is a fact
 #     about the world, not a repair withheld.
-#   * An unencoded doṣa is written as a doṣa-lekha whose śeṣa is "GROW
-#     RULE" — a request to the transformation table to acquire this class,
-#     which the next pass of building does, not a person.
 #
 # RUN:  sh machine/pratikara
 set -u
@@ -118,7 +118,7 @@ for f in "$PEND"/*.agda ; do
     case "$v" in
       MUT\ *)  row "$base" "${v#MUT }" applied "re-gating" ; muts=$((muts+1)) ;;
       ENV\ *)  row "$base" "${v#ENV }" retain "$(printf '%s' "$OUT" | head -4)" ; envs=$((envs+1)) ; break ;;
-      GROW\ *) row "$base" unencoded grow "table must acquire this class (no mind): ${v#GROW }" ; grows=$((grows+1)) ; break ;;
+      GROW\ *) row "$base" unencoded grow "a new-rule candidate, same gate as any term (no layer): ${v#GROW }" ; grows=$((grows+1)) ; break ;;
     esac
   done
 done

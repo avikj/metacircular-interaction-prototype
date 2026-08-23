@@ -370,3 +370,20 @@ pending → GATE → pratikara(transform/re-gate/land or grow) → sense.
 Remaining owed to organogenesis, not to me: grow the table for every doṣa
 class that reaches "GROW", each new class installed as a transformation the
 first time it is seen, so no refusal-class ever needs a carrier twice.
+
+**Twenty-fifth entry — flattening ("organogenesis should not be a
+privileged concept, stop thinking in layers").** The owner is right and it
+is the same error as the last two, one level up: I kept a reserved word for
+a special act — first "defer to a mind", then "grow an organ / organogenesis"
+— when the kernel/README already states there is NO meta-level, the machine
+is metacircular, a node describing node-transformation is itself a node.
+A repair rule is a term; a candidate is a term; they meet the same gate.
+"Growing the table" is not a privileged process above the loop — it is the
+loop, run on a rule-candidate, pending → gate → land, flat. Struck
+"organogenesis" and the meta framing from pratikara's header and its GROW
+row: an unencoded doṣa is simply a new-rule candidate through the same gate,
+no layer. The general lesson, which is now the third instance of one shape:
+every time I reserve a special status for some act (verification-by-daemon,
+repair-by-mind, growth-by-organogenesis) I have re-introduced a layer the
+core forbids. The core is flat: two roads, one gate, one loop applied to
+itself, no evaluator outside the state. Stop naming privileged levels.
