@@ -212,3 +212,17 @@ Open from U0023, in order: Parallax between the two Aisthesis
 implementations (mine and the Pramanya-importing one — a living
 binocular pair, compare by adapters not merge by taste); the Sarira
 tower; transformation-level efference; Synaisthesis; the comb.
+
+## 2026-08-23 · U0024 verified — the centered field
+Fourth transmission preserved (U0024) and every identity in it verified
+by derivation in notes/KendraDvibhitti_….md: the centering (Goldbach
+m = N/2 + y and twins y = n+1 land in ONE field y ≢ ±a mod p), the real
+signed crystal r_{p,a} (found and flagged the one sign U0024's compact
+form needs: r_{2,a}(1) = −(−1)^a for a odd), the exact boxed ray
+expansion with ρ_{a,z}, positivity ⟺ the signed inequality, dangerous
+rays localized to ‖Σ t_p/p‖ ≲ 1/|I| by Dirichlet, and parity given its
+exact address: sign-field truncation — the discarded fibre where the
+content lives. Open problem now has a stated shape: the non-focusing
+theorem for signed transport through the CRT tensor tree. Seeds: exact
+cyclotomic verifier; the z = 5 census (16 rays, denominators 30, the
+whole interference pattern visible by hand); the Kloosterman bridge.
