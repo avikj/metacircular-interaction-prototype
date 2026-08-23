@@ -722,6 +722,18 @@ import Nirnaya_TheVerdictCannotDropItsWitness
 import Panini
 import PanktiYoga
 import PingalaGhata
+-- RSA is those two Indian algorithms and nothing else: the private key IS
+-- the kuṭṭaka's Bézout witness (e·d ≡ φ·k + 1, बीजसिद्धि with g=1), and
+-- decryption IS this square-and-multiply fold mod n.  Correctness reduces to
+-- the exponent laws plus one hypothesis घात x φ ≡ ε (Euler) — and that lone
+-- hypothesis is exactly where Shor's order-finding drives the wedge (§4).
+import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation
+-- And it runs: a concrete keypair (φ=3, e=d=5, 25=3·8+1) in the cyclic
+-- group C₃ — one CRT-component of a real RSA decryption — encryption
+-- scrambles g→g², all three messages round-trip, by the theorem and by
+-- direct computation, the two roads the same term.  The heap-exhausting
+-- library mod is not needed: the group law already carries it.
+import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara

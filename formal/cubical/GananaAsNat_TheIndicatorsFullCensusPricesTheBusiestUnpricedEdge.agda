@@ -38,10 +38,13 @@ open import Cubical.Data.Bool
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_)
+open import NaturalMachine.FiniteOccupancyChannelNoGo using (asNat)
 
-asNat : Bool → ℕ
-asNat false = 0
-asNat true  = 1
+-- asNat is IMPORTED from its home, not redefined: the first push of this
+-- file redefined it locally and ./jiva correctly counted a NEW unpriced
+-- edge (heartbeat 1270→1271) instead of a discharge — the receipt must
+-- attach to the original declaration.  The organism audited its own
+-- pricing pass in one diff.
 
 शेष : ℕ → Type
 शेष n = Σ[ b ∈ Bool ] (asNat b ≡ n)
