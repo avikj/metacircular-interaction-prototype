@@ -1930,3 +1930,11 @@ import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultise
 -- carried unit with zero — the carry is exactly what any carry-free
 -- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
 import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
+
+-- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
+-- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
+-- second-order twisted Leibniz law definitionally, and the two-leg AD
+-- theorem: powering the doubly-lifted base computes value, both leg
+-- charges, and the pair charge n(n−1)zⁿ⁻² at once — at z = −1, n = ω(d):
+-- (μ, κ₁, κ₁, κ₂), the two-prime charge in the κ⊗κ channel.
+import YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering
