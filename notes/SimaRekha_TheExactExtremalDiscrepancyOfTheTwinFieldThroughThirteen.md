@@ -17,6 +17,8 @@ E(H) = Σ_{|y|≤H} S_{1,z}(y) − ρ_z(2H+1), S the two-wall indicator.
 | 7 | 210 | 1/14 | 615 | 2.928… |
 | 11 | 2310 | 27/462 | 13635 | 5.902… |
 | 13 | 30030 | 1485/30030 | 233805 | 7.785… |
+| 17 | 510510 | — | — | 15.641… |
+| 19 | 9699690 | — | — | 34.116… |
 
 **What it says.** At every z ≤ 13, on EVERY centered window of every
 length, the interference of all nonzero rays combined never moves the
@@ -50,5 +52,5 @@ until written, the claim's scope is exactly z ≤ 13, a ∈ {1, 2, 105}.
 - **Proved (exhaustive, complete per z)**: the table; the
   antisymmetry for the listed z and a.
 - **Owed**: the general antisymmetry derivation; the ½Σ|R| comparison
-  runner; z = 17 (P = 510510 — minutes compiled, the next term).
+  runner; z = 23 (the next term; z ≤ 19 landed same day, growth steepening ≈ ×2 per prime at the tail — still no law fitted, five-to-seven points license none).
 - **Refused**: any fitted growth law from five points.

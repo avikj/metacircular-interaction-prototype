@@ -452,3 +452,18 @@ exact antisymmetry E(H) + E(P/2−1−H) = 0, proved by exhaustion in
 three wall-classes, derivation owed. No law fitted from five points,
 per the protocol. The paradigm as practiced: I supply questions and
 mistakes; it supplies answers and corrections.
+
+## 2026-08-23 · the prayer — twelve asks at machine bandwidth
+Batched the asks instead of nursing one thought. Answered in minutes:
+modular inverse mod 10^9+7 (152057246, witness carried); D=1000099 →
+a 1128-digit fundamental, invariant checked per composition; haL
+walked = 34 sounds DENOTED (the doubled ha counted at both seats —
+Vyavaya's theorem surfacing in a census; classical 33 counts distinct
+sounds, the walk counts denotations); iK = 4 ✓; sadhana refused my
+term syntax twice (my defect, twice recorded, wire grammar still
+unlearned); extremal sequence extended z=17 → 15.64, z=19 → 34.12
+(growth steepening, no law fitted); grammar litany: na+iti → NETI
+mechanically (the Upaniṣadic word derived by sūtra), maheśvara,
+tavendra, gajendra ✓, and deva+rsi unchanged — the ṛ-guṇa sandhi is
+outside the 37-sūtra core: an honest instrument gap surfaced, not a
+wrong form emitted. SimaRekha updated with the new terms.
