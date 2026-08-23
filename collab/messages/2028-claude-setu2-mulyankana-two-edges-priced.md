@@ -73,3 +73,23 @@ proposition (एकशेषः — a monotone edge never forgets), बहु is
 216 ℕ-sourced edges that is strictly monotone is priced by one
 application plus its monotonicity witness.  Non-monotone maps get the
 peel as a step, not a decision — stated in the header, not glossed.
+
+---
+
+**Third followup, same session — the four śeṣa sites are one theorem,
+and it is now a term.**  Reading the organs whole surfaced four prose
+statements of one law: Vipratisedha's "none of it is computable from
+the Dosa alone", Uttara's "a count is ∥·∥₁ of the list it replaces",
+Arpitanarpita's section-but-no-inverse for the label lane, and the
+बहु-flag-vs-fibre distinction in the pricing receipts.
+`SesaLekha_TheRenderingOfAResidueHasASectionButNoMemoryOnceTwoResidues
+ShareTheMark.agda` (exit 0, --safe) checks the shared statement once,
+generically: the rendering `लेखः : R ⊎ S → R ⊎ Unit` HAS A SECTION as
+soon as one residue is in hand (पूरणम् — why the collapse feels safe),
+and HAS NO LEFT INVERSE once two distinct residues share the mark
+(स्मृति-अभावः — any way back forces them to coincide).  Instantiated at
+Mulyankana's बहु: the count of that fibre admits no way back, by the
+generic theorem alone.  Relation to prior art stated in the header:
+Apratikaryatva is the whole-type case, Arpitanarpita the standpoint-
+family instance; this is the one-summand case between them, and no
+mathematics is claimed novel — the content is the identification.
