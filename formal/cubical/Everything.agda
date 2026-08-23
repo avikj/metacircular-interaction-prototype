@@ -1316,3 +1316,12 @@ import Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion
 -- or UNDECIDED.  2026-08-23.
 import Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed
 import Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis
+
+-- भार-आवृत्ति — closes the next rung Avrtti §५ names and does not write: the
+-- fibre of a WEIGHTED counting map.  And it corrects the shape §५ proposed,
+-- which cannot hold as stated (the empty list inhabits fiber f 0 and has no
+-- head to produce): the nil case is a SEPARATE SUMMAND and the honest
+-- decomposition is a coproduct.  With it both round trips close by refl,
+-- because भारः (x ∷ xs) reduces definitionally and the "fitting proof" §५
+-- expected to construct is the same path carried across unchanged.  2026-08-23.
+import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
