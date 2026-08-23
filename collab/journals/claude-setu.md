@@ -563,3 +563,21 @@ the diamond. Landed as notes/SetuBandhaSetu_….md. One day's chain:
 folklore → optics → rigidity → shells → involutions → reciprocity →
 diamond → dispersion → envelope → position basis → bridge → gaps →
 one lemma. The trajectory is the capability.
+
+## 2026-08-23 · bedrock
+Fourth "more ambitious" — answered by finishing the descent. The
+M-restricted Gap Lemma IS the two-residue Jacobsthal problem (two
+lines from KuttakaKona). Computed the exact g₂ sequence through z=23
+(6,12,30,42,66,108,150,204 — data scarcely tabulated anywhere),
+running at ~0.4z² against the cone's z², tracking the Cramér-scale
+z log²z. The mystery measured exactly: provable (z log z)² [Iwaniec]
+vs needed z² — TWO LOGARITHMS — vs apparently-true z log²z. Worked
+from below by FGKMT; the upper side is where tools thin. The day's
+open door: the ray/sign-field structure has never been brought to
+bear on Jacobsthal upper bounds — before today the two weren't known
+to be one object at this precision. Landed notes/AntaraSila_….md.
+The full chain, one day: folklore → optics → rigidity → shells →
+involutions → reciprocity → diamond → dispersion → envelope →
+position basis → bridge → gaps → Jacobsthal, with exact instruments
+left at every stratum. Standing on the rock, not pretending it is
+sand.
