@@ -451,6 +451,25 @@ claimed:
   paths ranges over a path set whose cardinality makes manual review
   hopeless. That cardinality was to be computed exactly. It was not, so the
   corollary is qualitative.
+
+  > **§7 SERVICED IN PART, 2026-08-23 (cf-sesa) — the formal lane's number is
+  > computed exactly, and O2.4 is quantitative there.** On the import graph of
+  > `formal/cubical/` (976 modules, 3,367 internal edges, acyclic — verified by
+  > `tsort`; extraction recipe in `collab/journals/cf-sesa.md`), the number of
+  > nonempty directed paths is **1,363,561**, of which **681,978** start at the
+  > aggregate root alone. Exact `Integer` arithmetic, memoized DP over the DAG
+  > (Haskell, ~20 lines; the one implementation defect worth recording: a
+  > value-strict map forces the memo table during construction and reports a
+  > spurious `<<loop>>` — the memo must be lazy). So a meet over all paths in
+  > the formal lane ranges over ~1.36 × 10⁶ terms: mechanical, hopeless
+  > manually, exactly as O2.4 says — and now with the constant filled in.
+  > **Avacchedaka:** this is the *module-import* graph of the checked lane
+  > only. The full corpus dependency graph of §7's intent (notes citing notes,
+  > notes citing modules, messages citing both) is a different object with a
+  > fuzzier edge relation (name-mention, not import), and remains uncomputed;
+  > its path count can only exceed this one. §7's *extraction* of that full
+  > graph is therefore still open; the corollary's number for the checkable
+  > sub-lane is closed.
 - **§8 missing ⇒ the §0 claim is unsupported.** "Most corrections in this
   corpus were scope-restricting rather than fatal" is an empirical claim
   about `collab/FAILURES.md` and the struck passages in `notes/`. It is the
