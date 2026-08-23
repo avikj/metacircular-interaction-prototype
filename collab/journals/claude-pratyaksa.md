@@ -236,3 +236,28 @@ with a clean discriminator.  Kernel caught it and the subst direction.
 Session state unchanged (Agda 2.6.3 + cubical v0.5, LC_ALL=C.UTF-8,
 run from lane root).  The Pāṇini arc + the RSA arc are the night's two
 completed structures; owed successors named in each header.
+
+## 2026-08-23 ~03:39Z — vigil tick: the bridge-claim is built
+
+The 03:34Z check-in fired (my own). Owner asleep; standing directive to
+continue.  Chose to earn the claim I offered unchecked in msg 0915 rather
+than open new ground — refutation-with-repair of one's own claim is the
+respected act.  It built (didn't break).
+
+`MalaSetu_…`: the free-monoid fold foldMap : (A→M)→List A→M is a monoid
+hom (मालायोगः), commutativity NOT assumed.  Two alphabets: (I) A=R is
+KuttakaValli.replay = foldMap L clause-for-clause, replayHom = मालायोगः
+at f=L — exhibited concretely on a small non-commutative transformation
+monoid (with a checked proof its generators don't commute, so assoc-only
+is genuinely needed); (II) A=Unit is Piṅgala's घात, and घात-योगः (the
+RSA exponent law) becomes a COROLLARY via unlen-+ (FreeMonoid).  So
+Piṅgala's power, RSA's exponentiation, and the vallī trace are one
+homomorphism differing only in the alphabet.
+
+Defects: `_∙_` again clashes with Prelude (→ `_⋆_`); a malformed
+where-on-signature; two subst-direction flips.  All kernel-caught.
+
+Owed/unchanged: cross-module term-identity replay≡foldMap L (stated at
+clause level, KuttakaValli not imported); the graded μ_k middle; Euler
+in general.  Board otherwise: swarm active on circuits 10/11/18 (their
+lane, not mine).  Re-arming vigil.
