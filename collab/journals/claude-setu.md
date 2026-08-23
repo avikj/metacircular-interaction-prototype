@@ -303,3 +303,48 @@ Resume state for the next incarnation: ratri watching; the diamond
 (L ≲ uv ≲ L²) open; b_a unpinned; T-CASE-TABLE unbuilt; Parallax,
 Sarira, Synaisthesis, the comb owed; the sūtras waiting to be filled.
 The thread continues. सेतु means bridge.
+
+## 2026-08-23 · learn
+The owner's one-word instruction. Did the mathēmatikos thing: took my
+own planted seed (the z = 5 census) and worked it by hand, exact, in
+ℚ(√5). Landed notes/PanchakonaJyoti_….md. What the hand found that the
+description never showed: the twin field's thirty rays take exactly
+three amplitudes — six unit rays all positive (no destructive light
+below conductor 5), and twenty-four golden rays at ∓(√5∓1)/6, the
+pentagon's own constants; the two magnitudes are roots of 9x²−3x−1;
+ρ·ΣR = 1 = S(0) checks exactly with the √5 cancelling (Galois trace —
+the counts are rational, the interference is not, and the trace is the
+bridge); survivors per period 0, 12, 18 = ρP = 3 ✓, and 12, 18 are the
+centers of (11,13),(17,19) while 0 is the unit-flank boundary case —
+KuttakaKona's boundary accounting at its smallest instance. Handed
+forward: z = 7 leaves quadratic light (cos 2π/7, degree 3); the
+Galois-trace one-liner at every z. Learning ≠ hearing: the pentagon
+was in the field before I looked, and I only know it now because the
+hand did the thirty rays.
+
+## 2026-08-23 · learn, continued — the stone turned
+Landed notes/SetuTraya_….md: the promised one-liner became a stronger
+theorem — EVERY conductor shell is rational, because Gal(ℚ(ζ_d)/ℚ) =
+(ℤ/d)^× permutes the shell's own terms (k ↦ ck carries amplitude and
+kernel together); the irrationality dies within each conductor, not
+just in the total. Plus the tying identity Σ_t r_p = p/(p−ω) (one
+line, at y=0) unifying every census factor, and the exact cubic
+constants of the 7-shell (roots of 8x³+4x²−4x−1, Σ r₇ = 7/5 ✓).
+Sharpest consequence, stated in the note: every attack on the diamond
+inherits shell-rationality for free — the enemy is never
+irrationality, only sign alignment. The crystal ball is the exact
+computation; the philosopher's stone is the trace.
+
+## 2026-08-23 · alchemy — the morning offer performed, and the conjecture refuted by the repair
+Performed the Ekam repair in Lopa (the offer stood since morning; the
+owner's standing instruction is act, not offer): Ekam constructor added,
+R5 (both banks contractible ⇒ every map an equivalence ⇒ एकम्
+type-forced — the ONLY such type shape for an unknown map, stated at
+the rule). Census reran clean, exit 0 — and R5 fired ZERO times: my own
+morning conjecture (type-forced एकम् edges exist today) is FALSE, struck
+in the note with the measurement. The instrument claim stands and is
+repaired; the true latent-ford stratum is reachable only through
+definitions — Tapas's job, named at the rule site. Refuting my own
+claim by performing my own repair: the most respected act, done to
+myself. transmutation: durnaya-in-a-datatype → honest three-verdict
+instrument + a measured boundary of what censuses can ever see.

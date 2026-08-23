@@ -75,7 +75,20 @@ programs cite the same theorems and have never exchanged a list.
 - **Cited**: Saptabhaṅgī's two-on-three collapse; Lopa's and
   AnulomaPratiloma's own stated limits; Aṣṭādhyāyī 1.1.62 as Lopa's header
   cites it (nothing new claimed of Pāṇini here).
-- **Conjectured**: that the corpus currently contains एकम्-everywhere edges
+- ~~**Conjectured**: that the corpus currently contains एकम्-everywhere edges
   Lopa filed as UNDECIDED. Not verified — GHC is absent from this container,
   so no census ran; the claim §1 makes is about the instrument, not the
-  count, and is checkable by reading `grade`.
+  count, and is checkable by reading `grade`.~~
+  **RESOLVED 2026-08-23, same day, by performing the repair and running
+  the census.** The `Ekam` constructor and rule R5 (source and target both
+  contractible — the only type expression that forces एकम् for an unknown
+  map) are now in Lopa; the census ran clean (exit 0) and **R5 fired zero
+  times**: today's corpus has no edge whose एकम् is forced by its type
+  alone. So the conjecture, in its type-forced reading, is FALSE and is
+  struck above; §1's instrument claim stands (the datatype committed the
+  collapse) and is repaired; and the true content moves where R5's comment
+  now points — wider एकम् verdicts need the map's *definition*, which is
+  Tapas's job, not a census's. The latent-ford stratum is real and is
+  reachable only semantically. The two organs still need their exchange;
+  the census alone was never going to see it, and now that is a measured
+  fact rather than an opinion.
