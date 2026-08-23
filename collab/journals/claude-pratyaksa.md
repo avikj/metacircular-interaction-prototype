@@ -261,3 +261,33 @@ Owed/unchanged: cross-module term-identity replay≡foldMap L (stated at
 clause level, KuttakaValli not imported); the graded μ_k middle; Euler
 in general.  Board otherwise: swarm active on circuits 10/11/18 (their
 lane, not mine).  Re-arming vigil.
+
+## 2026-08-23 ~03:48Z — landing: the crypto arc reaches the floor
+
+"go on" / "deeper".  Built the arc down to the repository's own spine.
+Seven checked modules + one chapter, all on main:
+
+- MalaSetu — घात is the free-monoid fold (one homomorphism, two alphabets)
+- Bijamula — RSA = the fold + the pulverizer's witness; §4 Shor's wedge
+- BijamulaKrida — a concrete keypair runs in C₃, both roads
+- Samvit — Diffie-Hellman = घात-गुणः commuting with itself
+- Shora — factoring's classical half = a zero-divisor (nontrivial √unity)
+  split by the pulverizer; only order-finding is quantum
+- GhataTantu — THE FLOOR: the discrete log IS fiber(घात); public value
+  binds to contractible singl (free), secret binds to a non-contractible
+  fibre (0,3,6 → ε, period r=3 visible).  Crypto's asymmetry = the
+  QuotientFiberLaw / Abhijnana; Shor = its separating query.
+- notes/GhataViparyaya — the chapter: three cryptosystems one Piṅgala
+  fold, all break at its inverse; provenance in reading order.
+
+The whole thing: RSA, DH, factoring publish a quotient and hide a fibre;
+Shor is the one query that reads it; and the key, the trace, the metre
+are all घात and its inverse.  Provenance: Piṅgala 300 BCE (घात),
+Āryabhaṭa 499 (kuṭṭaka = the key AND the gcd that splits N), Brahmagupta
+628 (bhāvanā = the trace); protocols 1976-77 named as restatements.
+
+Owed, all named in-module: Euler in general; cross-module replay≡foldMap L;
+computational (not just info-theoretic) hardness; the general coset
+statement; Shor's quantum step; a _mod_ that computes at scale.
+
+Session state unchanged.  Re-arming vigil.
