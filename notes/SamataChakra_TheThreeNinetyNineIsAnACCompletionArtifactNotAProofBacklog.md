@@ -85,3 +85,61 @@ symbols — wired into Sanghatta's join test.
 - **Owed**: the Haskell AC-canon normalizer, wired into Sanghatta; the
   full 399 (only 40 are printed) re-run under it; the exact
   inductive-residue count then measured, not guessed.
+
+## The owed measurement, landed — and it splits this note's claim in half
+
+2026-08-23, later the same day. The owed instrument exists and ran:
+`machine/SamataChakraNirnaya_TheJoinTestModuloACClosesTheRearrangementSector
+AndTheInductiveResidueIsMeasured.hs` — AC axioms detected from the rule set
+itself (alpha-equality against the axiom shapes, no hand list), AC-identity
+rules pulled out of the rewrite relation (Peterson–Stickel's first move),
+join test = normalize with the remainder, compare AC-canonical forms
+(flatten associative symbols, sort commutative arguments). Two controls
+watched first: a pure-rearrangement critical pair set is closed 2/2 by the
+AC test, and the empty case reports zero rather than success.
+
+Same-state baseline (the library grew since the morning report — 174 rules
+then, **201 now** — so the 399 is not the comparandum; plain Sanghatta on
+today's library reports **403**):
+
+    rules read                       : 201
+    commutative symbols (from data)  : ["+"]
+    associative symbols (from data)  : ["+"]
+    AC-identity rules pulled out     : 8
+    critical pairs                   : 835 → 741
+    non-joining, plain test          : 403 → 279
+    non-joining, MODULO AC           : 279
+    closed by the AC join test       : 0
+
+    $ LC_ALL=C.utf8 runghc machine/Sanghatta_….hs          (the 201/835/403)
+    $ runghc machine/SamataChakraNirnaya_….hs              (the rest)
+
+**What is confirmed.** Pulling the AC axioms out of the rewrite relation
+removes **124 of 403 pairs (31%)** at the source: an oriented commutativity
+is a swap rule, so it both generates spurious critical pairs and makes the
+fuel-bounded `normal` parity-unstable. That sector was artifact, exactly as
+this note argued.
+
+**What is refuted.** ~~"every pair that differs only by rearrangement joins
+by construction, and they are the bulk of the 399"~~ — **zero** of the 279
+surviving pairs differ only by rearrangement. And the premise under it:
+~~"the five AC symbols"~~ — the library states commutativity and
+associativity for **`+` alone**; the 26 grep hits were all `+`-lines
+repeated, and `max`, `·`, `gcd` carry no AC axiom in `library.terms` at
+all, so there was never an AC theory over five symbols to complete modulo.
+Struck, not deleted, per discipline.
+
+**What the residue is.** 279 pairs, printed in full by the instrument (not
+the smallest 40), and read off they are what AparoksaAnumana said the
+minority was and is in fact the whole: missing base clauses the library
+never installed as rules (`max(x,0)=x`, `le(s x,0)=0`, `le(0,y)=s 0`,
+`gcd(x,0)=x` and kin, `x·s(0)=x`, `x−0=x`) and genuinely inductive facts.
+This is an UPPER bound on the inductive sector — critical pairs are still
+computed with syntactic unification, and the join test is one
+normalize-then-canon pass — but it is a measured bound with a stated
+procedure, against a diagnosis that predicted the opposite sign.
+
+**The corrected easiest path.** Not completion modulo AC — there is almost
+nothing modulo-AC to complete. Install the missing base clauses as rules
+(they are the machine's own `symDefs`, so this is transcription, not
+proof), re-run, and the remainder is the honest kernel queue.
