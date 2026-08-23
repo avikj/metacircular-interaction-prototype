@@ -1214,3 +1214,56 @@ import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibre
 -- at total loss, projection-by-refl).  गण after the gaṇapāṭha: the class that
 -- behaves alike under the rule.  2026-08-22.
 import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
+import Vargaprakrtitantu_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness
+
+-- कक्ष्या — the conserved quantity is constant along the WHOLE orbit, not
+-- across one step; no two stations of an orbit are separated by the
+-- observable; under losslessness the entire forward orbit collapses to its
+-- basepoint (movement 30's "frozen" as a term rather than a sentence); and
+-- the orbit lies in one fibre, which is what Dhruva §१ reads in prose.
+-- Closes the item Dhruva §४ names as open.  2026-08-23.
+import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
+
+-- अभिज्ञान — the two bindings of `f a ≡ b` priced against each other: the
+-- output-bound side contractible with no hypothesis, the input-bound side
+-- exhibited non-contractible, and then the sentence that needs both — the
+-- codomain does not determine losslessness, so an identification and an
+-- elision agree on the result and differ only in the fibre.  Which is why
+-- the instrument that separates them is a checker and not a reader.
+-- 2026-08-23.
+import Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre
+
+-- तन्तु-त्रयम् — three maps into ONE codomain with fibres रिक्तम् / एकम् / बहु,
+-- so a two-valued verdict answers the same for the first and the third and
+-- §१.४ exhibits that they differ.  Saptabhangi's pigeonhole at the minimum
+-- instance.  And §२: Unit→Bool→Unit, the second factor losing a bit and the
+-- composite losing nothing — the alignment term vanishing, Knill–Laflamme
+-- exhibited, movement 2's named cancellation as a term.  2026-08-23.
+import Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly
+
+-- संक्रमण — the transport economy, as the four library facts it actually is:
+-- one edge carries EVERY predicate with no hypothesis on it (which is the
+-- whole of why a receipt is non-rival), edges compose so a route is an edge
+-- and length costs nothing, and the road is two-way with an identity at every
+-- node.  Road one is a groupoid, which is why routing on it is total.
+-- 2026-08-23.
+import Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree
+
+-- अनुपलब्धि — absence is exactly universal lack: ¬Σ ≃ Π¬, both directions
+-- free, and the point is the SHAPE of the right side.  A claim that a fibre
+-- is empty is a Π over the WHOLE domain and cannot be less.  That is
+-- Kumārila's yogyatā condition as a type, and it is why रिक्तम् is the only
+-- verdict with no exhibiting witness — and why "I searched and did not find"
+-- has no internal statement at all, which is precisely why it licenses
+-- nothing.  Nirdharana reaches the same wall and says so.  2026-08-23.
+import Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint
+
+-- अभेद-भेदः — Leibniz both ways in one file.  cong is indiscernibility of
+-- identicals and is free, carrying no hypothesis because it is constitutive
+-- of equality rather than a theorem about anything.  Its contrapositive is
+-- every barrier in every science, exhibited minimally.  And ua is the other
+-- law, which does not fail.  So the fibre is exactly the gap between
+-- indistinguishable-by-THIS-observation and indistinguishable-by-ALL-
+-- structure, and a barrier is the report that one is not at the limit.
+-- 2026-08-23.
+import Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes
