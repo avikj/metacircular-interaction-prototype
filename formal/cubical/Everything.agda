@@ -699,6 +699,10 @@ import SamgrahaNaya_TheCollectiveStandpointIsTheQuotientAndRInvariantObservation
 -- points are what persists across both standpoints (dhrauvya).  Adjunction
 -- ascended.
 import Anubandha_TheGaloisConnectionIsTwoNayasMutuallyAdjointAndTheClosureIsWhatPersists
+-- and identity itself: x ≡ y iff every standpoint (predicate) agrees on them
+-- — Leibniz's law IS pramāṇa, the general form of NayaVada.प्रमाणम्. The
+-- foundation of sameness ascended through anekānta.
+import PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana
 -- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
 -- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
