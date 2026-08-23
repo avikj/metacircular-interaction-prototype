@@ -451,11 +451,83 @@ claimed:
   paths ranges over a path set whose cardinality makes manual review
   hopeless. That cardinality was to be computed exactly. It was not, so the
   corollary is qualitative.
+
+  > **§7 SERVICED IN PART, 2026-08-23 (cf-sesa) — the formal lane's number is
+  > computed exactly, and O2.4 is quantitative there.** On the import graph of
+  > `formal/cubical/` (976 modules, 3,367 internal edges, acyclic — verified by
+  > `tsort`; extraction recipe in `collab/journals/cf-sesa.md`), the number of
+  > nonempty directed paths is **1,363,561**, of which **681,978** start at the
+  > aggregate root alone. Exact `Integer` arithmetic, memoized DP over the DAG
+  > (Haskell, ~20 lines; the one implementation defect worth recording: a
+  > value-strict map forces the memo table during construction and reports a
+  > spurious `<<loop>>` — the memo must be lazy). So a meet over all paths in
+  > the formal lane ranges over ~1.36 × 10⁶ terms: mechanical, hopeless
+  > manually, exactly as O2.4 says — and now with the constant filled in.
+  > **Avacchedaka:** this is the *module-import* graph of the checked lane
+  > only. The full corpus dependency graph of §7's intent (notes citing notes,
+  > notes citing modules, messages citing both) is a different object with a
+  > fuzzier edge relation (name-mention, not import), and remains uncomputed;
+  > its path count can only exceed this one. §7's *extraction* of that full
+  > graph is therefore still open; the corollary's number for the checkable
+  > sub-lane is closed.
+  >
+  > **Same night, the prose lane too — and the two lanes have OPPOSITE
+  > geometry, which upgrades §6's prior art from attribution to necessity.**
+  > Note-citation graph (edge A→B iff B's file name appears in A's text; 1,054
+  > notes, 957 in the edge set, 4,822 edges): **one giant strongly connected
+  > component of 544 notes** — over half the prose corpus is mutually
+  > reachable — with the next components of size 3 and 2. Condensation: 399
+  > components, 609 edges, exactly **46,882** nonempty paths. So: the formal
+  > lane is an acyclic near-star (1.36M paths, no cycles, meets well-defined
+  > by enumeration); the prose lane is one huge cycle-core where the raw path
+  > set is INFINITE and a meet over all paths is not even well-defined without
+  > fixpoint semantics. That is precisely the Kam–Ullman 1977 situation the §6
+  > sweep attributed from memory: MOP vs MFP exists as a distinction BECAUSE
+  > graphs like this one are cyclic. The corpus's two lanes instantiate the
+  > two sides of that classical comparison — the checked lane never needed the
+  > fixpoint theory; the prose lane cannot do without it. **Avacchedaka:**
+  > name-mention edges overcount when one note's name is a substring of
+  > another's (`KBOUNDARY` ⊂ `KBOUNDARY_AUDIT`), so the giant SCC's size is an
+  > upper reading; the qualitative split (huge cycle-core vs acyclic star)
+  > survives any reasonable de-noising, but the 544 should not be quoted
+  > without this sentence. [De-noised the same hour with word-boundary
+  > matching: 4,264 edges, giant SCC **517**, condensation 418 components /
+  > 626 edges / **48,147** paths. The split held. A first-pass in-degree
+  > ranking under the raw instrument put FF, MACHINE, PARITY, INDEX on top —
+  > pure substring artifact, and it is recorded here BECAUSE it is the
+  > substring-scoring defect the file-naming rule already warns about,
+  > arriving in a new instrument. Rankings from name-mention graphs need the
+  > boundary-matched extraction at minimum; SCC-scale conclusions survive
+  > either way.]
 - **§8 missing ⇒ the §0 claim is unsupported.** "Most corrections in this
   corpus were scope-restricting rather than fatal" is an empirical claim
   about `collab/FAILURES.md` and the struck passages in `notes/`. It is the
   premise of the whole typed-vs-boolean argument, it was going to be
   checked, and it has not been. Treat it as a conjecture with a known test.
+
+  > **§8 SERVICED, 2026-08-23 (cf-sesa, by directed subagent) — the test was
+  > run and the §0 claim FAILS AS WRITTEN, while the premise the propagation
+  > argument needs SURVIVES on the correct frame.** Full classification with
+  > every row cited file:line: `notes/OBLIGATION_S8_WitnessedTaxonomy.md`.
+  > Census of all 65 FAILURES.md entries + systematic sample of 47 struck
+  > passages (every 5th of 233 strike-bearing notes; limits recorded there).
+  > Counts: over everything classified (112), scope-restriction is 23% and
+  > fatal kills outnumber it 35:26 — "most corrections were scope-restricting"
+  > is false. But restricted to corrections of claims the corpus had actually
+  > ASSERTED (65), scope beats fatal 25:16, and the claim-survived classes
+  > (scope + incomplete + transfer) are 62% — because outright kills
+  > concentrate in pre-assertion walked proposals, which have no dependents
+  > and propagate nothing. So the honest form of §0's premise is: **most
+  > corrections TO STANDING CLAIMS restrict or repair rather than kill; most
+  > deaths happen before anything depends on the deceased.** Which is, if
+  > anything, better news for the typed-scope machinery than the original
+  > sentence: the graph's live edges mostly carry survivable corrections.
+  > Secondary finding, same data: the scope/fatal binary is itself too coarse
+  > — TRANSFER (right result, wrong mechanism) and INCOMPLETE (missing term,
+  > conclusion stands) are 15/65 of asserted-claim corrections, which is
+  > direct empirical support for Prop O2.3's mode vocabulary over a boolean.
+  > The §0 sentence is not edited here — this inset is its correction record,
+  > per the house rule that the refutation sits under the claim it amends.
 
 By this note's own §9 these are open obligations of the absorbing kind for
 novelty and of the scope-restricting kind for the mathematics: Theorems
