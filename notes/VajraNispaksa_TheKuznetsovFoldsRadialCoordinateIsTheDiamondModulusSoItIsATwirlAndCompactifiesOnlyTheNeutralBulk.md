@@ -9,7 +9,56 @@ The answer is that the reciprocity exists, is exactly the diamond, and is a
 twirl — so §3's topology difference is not the finding; the amplitude/charge
 split is.
 
-## §1. The fold's radial coordinate IS the diamond modulus (identification)
+## §0. CORRECTION (cf-sesa, same day, within the hour) — the central claim conflated two maps; struck, with the repair
+
+**The title's "so it is a twirl" is too fast and is struck.** Reading
+`HOLOGRAM.md` K′ and `LaghuVinimaya` against this note's own §1–§3, the error is
+a pattern-fit on a shared coordinate (exactly `CLAUDE.md`'s named failure): two
+*different* operations share the coordinate `uv = mn/c²`, and sharing a
+coordinate is not being the same map.
+
+- **The diamond's reciprocity** `ū/v + v̄/u ≡ 1/(uv)` (`LaghuVinimaya` §3) is a
+  **bijective change of variables** on Kloosterman fractions. It folds the
+  *domain*, confining `uv` to `[L, L²]`, and it is information-preserving —
+  including charge. This is why the pair field's hard/charge bulk is **compact**
+  (`ChhayaGarbha` §3), not neutralised.
+- **The Kuznetsov kernel's collapse** onto the radial coordinate is a **sum over
+  the modulus `c`** (the separable form `Σ αβ Φ(mn/c²)`). *That* sum is the
+  averaging that loses the fourth charge bit (the rank-4-vs-3 no-go, §2 below).
+
+So the two are distinguished by exactly one thing: whether they **sum over**
+`uv` or merely **reparametrise by** it. The diamond reparametrises (charge
+kept); the Kuznetsov geometric side sums (charge lost).
+
+**Repaired findings:**
+
+1. §3's "same split both sides" is **false** and struck. On the *sieve* side the
+   charge/difficulty bulk is **compact** — the diamond is a charge-preserving
+   bijection, so the hard region is genuinely confined, not twirled away
+   (`ChhayaGarbha` §3 stands as written). On the *spectral* side the charge bulk
+   is **bottomless** (K′), because no bijective reciprocity has been applied to
+   the zeros. The topology difference setu recorded is real; it is not an
+   amplitude/charge artefact.
+2. The sharpened answer to `ChhayaGarbha` §4, reversed from this note's first
+   take: **the Kuznetsov trace formula is *disqualified* as the spectral
+   diamond**, precisely because its geometric side sums over the modulus — a
+   charge-lossy averaging (the no-go) — rather than a charge-preserving
+   bijection. The genuine spectral reciprocity, if it exists, must be a
+   *bijective* change of variables on the zeta correlation, and the rank no-go is
+   evidence for *why the trace-formula route cannot be it*: it loses exactly the
+   charge the diamond must keep.
+3. What survives intact: the coordinate identification `mn/c² = uv` (§1), the
+   rank-4-vs-3 obstruction (§2, cited to checked Lean), and Theorem F's relevance
+   — but Theorem F now bears on the *summing* Kuznetsov kernel, not on the diamond
+   bijection.
+
+The body below is left standing, struck where §0 corrects it, so the too-fast
+step stays visible. Filename kept though now misleading; a rename would hide the
+correction.
+
+---
+
+## §1. The fold's radial coordinate IS the diamond modulus (identification — this part stands)
 
 The finite Kuznetsov coefficient tensor
 (`formal/pairfield/Pairfield/FiniteKuznetsovFactorizationRank.lean`,
@@ -41,14 +90,17 @@ and `rankOne_minor_on_common_radialFiber` are the exact finite witnesses that
 what shares a radial fibre cannot be separated by the index factors alone.
 
 Read structurally: **compactifying onto `mn/c² = uv` is a twirl over the scale
-group that fixes the modulus.** Two places with the same modulus are averaged
+group that fixes the modulus.** [§0 correction: this holds for the Kuznetsov
+kernel's *sum* over the modulus, which is the charge-lossy averaging — NOT for
+the diamond's reciprocity, which reparametrises by `uv` bijectively and keeps the
+charge. The sentence conflated the two; it is true only of the summing kernel.] Two places with the same modulus are averaged
 together — the definition of a twirl `E_G`, not an analogy to one. By Theorem F
 (`GAUGE.md` F.2) the twirl's fixed-point algebra is the neutral sector and the
 unique equilibrium annihilates every charged observable. So the fold does two
 things that are the same thing: it confines the modulus-visible content to the
 compact shell `L ≲ uv ≲ L²`, and it sends the charge to zero.
 
-## §3. The finding: the bulk is two bulks, and only the neutral one is a diamond
+## §3. ~~The finding: the bulk is two bulks, and only the neutral one is a diamond~~ [STRUCK by §0: the sieve-side charge bulk is compact via the diamond *bijection*, not twirled away; the split below is not "same both sides"]
 
 ChhayaGarbha §3 recorded that the sieve-side bulk is precompact (a diamond)
 while the spectral-side bulk is, as far as `HOLOGRAM.md` K′ knows, infinite, and
