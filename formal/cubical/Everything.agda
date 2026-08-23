@@ -1761,6 +1761,14 @@ import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMu
 -- for every y exactly when p ∣ a+a (both directions checked).  The mean
 -- field dichotomy p−2 / p−1, at its exact support.
 import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter
+-- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
+-- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
+-- ONE TERM wearing four names — three links are refl, judgmentally —
+-- and the parity tangent (TatkalikiGati) lands on the same generator
+-- pos 1.  The corpus is not accumulating charges; it is triangulating
+-- one.  The circuit-to-sieve bridge that would make the last link
+-- structural is the named open problem.
+import EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator
 
 -- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
 -- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
