@@ -81,6 +81,7 @@ import qualified Data.Aeson.Types as AT
 import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Text as T
 import qualified Data.Vector as V
+import qualified Astadhyayi as P   -- the completed six-kāraka layer, imported (not reinvented)
 
 -- ── the spell stream: a raw line → an action ──────────────────────────────
 -- Kind Load/Query go to the kernel; Push reads the machine's own frontier
@@ -134,6 +135,25 @@ parseSpell ctxRef line = do
         then ctxQ ctx (\f -> wrap f "Cmd_solveAll Simplified")
       else if v == "raw"
         then pure (Just (Query, arg ++ "\n"))
+      -- a KĀRAKA SCENE (Pāṇini's minimal-overhead grammar): the action
+      -- साधन (accomplish) with role-marked arguments, ANY order —
+      --   sadh अधिकरण <hole> करण <proof-term>
+      -- adhikaraṇa = the locus (the hole), karaṇa = the instrument (the
+      -- term that proves it).  The case-mark carries the role, so order is
+      -- free.  Roles from Astadhyayi's six; this maps the scene to Cmd_give.
+      else if v == "sadh" || v == "साधन"
+        then case ctx of
+               Nothing -> pure Nothing
+               Just f  ->
+                 let scene = parseScene rest
+                     hole  = lookup P.Adhikarana scene
+                     term  = case lookup P.Karana scene of
+                               Just t  -> Just t
+                               Nothing -> lookup P.Karman scene
+                 in case (hole, term) of
+                      (Just n, Just t) -> pure (Just (Query, wrap f
+                        ("Cmd_give WithoutForce " ++ n ++ " noRange \"" ++ esc t ++ "\"")))
+                      _ -> pure Nothing
       -- the push back-channel: the machine's frontier, not a kernel call
       else if v == "frontier"
         then pure (Just (Push, ""))
@@ -144,6 +164,33 @@ parseSpell ctxRef line = do
     withId Nothing  _ _        = pure Nothing
     withId (Just f) (n:_) mk   = pure (Just (Query, mk f n))
     withId _        []    _    = pure Nothing
+
+-- a role-word (Sanskrit or latin) → a kāraka.  The vocabulary is Pāṇini's;
+-- nothing invented.
+roleWord :: String -> Maybe P.Karaka
+roleWord w = case w of
+  "कर्तृ"     -> Just P.Kartr      ; "kartr"      -> Just P.Kartr
+  "कर्म"      -> Just P.Karman     ; "karman"     -> Just P.Karman
+  "करण"      -> Just P.Karana     ; "karana"     -> Just P.Karana
+  "सम्प्रदान"  -> Just P.Sampradana ; "sampradana" -> Just P.Sampradana
+  "अपादान"    -> Just P.Apadana    ; "apadana"    -> Just P.Apadana
+  "अधिकरण"    -> Just P.Adhikarana ; "adhikarana" -> Just P.Adhikarana
+  _           -> Nothing
+
+-- split a token stream into role→filler pairs.  A role-word opens a new
+-- argument; following non-role tokens accumulate as its filler (spaces
+-- preserved), so word order is free and multi-word terms need no quoting.
+parseScene :: [String] -> [(P.Karaka, String)]
+parseScene = go Nothing []
+  where
+    go cur acc [] = flush cur acc
+    go cur acc (w:ws) = case roleWord w of
+      Just k  -> go (Just (k, [])) (flush cur acc) ws
+      Nothing -> case cur of
+        Just (k, fs) -> go (Just (k, fs ++ [w])) acc ws
+        Nothing      -> go Nothing acc ws            -- tokens before any role: ignored
+    flush Nothing       acc = acc
+    flush (Just (k,fs)) acc = acc ++ [(k, unwords fs)]
 
 -- ── is this agda output line the terminal message for the pending kind? ───
 terminal :: Kind -> Value -> Bool
