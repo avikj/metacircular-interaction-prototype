@@ -1719,3 +1719,8 @@ import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
 -- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
 -- false by counterexample, and each counterexample lies in the other's sight.
 import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee
+-- the loop-level curvature, inhabited: transport around loop in the helix
+-- bundle is sucℤ (by uaβ — definitional cash), so the circuit returns to
+-- the same base point with the fibre shifted: Hol(loop) ≠ id, witnessed.
+-- The constant bundle returns identically: curvature lives in the family.
+import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
