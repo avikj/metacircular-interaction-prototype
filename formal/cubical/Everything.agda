@@ -678,6 +678,12 @@ import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleA
 -- groupoid, and absent between distinct substances (utpāda-vyaya-dhrauvya-
 -- yuktaṃ sat, TS 5.29/5.37, = subst + isContrSingl, one object).
 import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTransportPossible
+-- And how the pure mind KNOWS the arena: the seven nayas (TS 1.34).  Read
+-- precisely, nayavāda IS the fibre law as epistemology — each naya reads one
+-- facet (a quotient), pramāṇa reads all (faithful, funext), and a durnaya
+-- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
+-- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
+import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -1692,3 +1698,8 @@ import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
 import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
 import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation
 import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence
+-- वल्ली-भावना-सन्धिः, the seed: the generator column is its own transpose
+-- (refl), transpose is an anti-automorphism from ·Comm alone, and at D = 2
+-- the closed vallī garland M(1)⋆M(2)⋆M(1)⋆M(0) IS ι(3+2√2) by one refl —
+-- the free word landing in the commutative wheel at the period's close.
+import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose

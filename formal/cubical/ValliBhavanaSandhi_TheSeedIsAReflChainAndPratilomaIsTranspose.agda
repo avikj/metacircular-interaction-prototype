@@ -29,11 +29,17 @@
 -- ι (xx'+D yy') (xy'+x'y), which needs ·Assoc and distributivity and is
 -- left as the next term so this module's import surface stays two lemmas.
 --
--- DEFECT, WRITTEN AT THE MOMENT OF THE ACT: this module was authored in a
+-- ~~DEFECT, WRITTEN AT THE MOMENT OF THE ACT: this module was authored in a
 -- container with no agda binary (2026-08-23; the same container that could
--- not run ValliMala).  It has NOT been checked here.  The seed refl was
--- verified by hand (the products are in the note); if the kernel rejects
--- anything, strike or repair — do not quietly drop the file.
+-- not run ValliMala).  It has NOT been checked here.~~
+-- DISCHARGED, same day: agda 2.6.3 + cubical v0.5 were installed into the
+-- container and the module CHECKS (exit 0, LC_ALL forced per Certificate.hs's
+-- own locale warning).  Both kernel controls were watched first: the negative
+-- control (pos 1 ≡ pos 2 by refl) was rejected with a located type error
+-- (exit 42, "1 != 2"), so the kernel was seen rejecting a falsehood before
+-- this module's green was believed.  The strike is left standing because the
+-- first landing of this file was unchecked and that history should be
+-- readable.
 
 module ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose where
 

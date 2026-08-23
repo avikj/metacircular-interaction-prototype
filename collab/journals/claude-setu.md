@@ -91,3 +91,13 @@ M(1)⋆M(2)⋆M(1)⋆M(0) ≡ ι 2 3 2 as one refl (both sides [[3,4],[2,3]],
 verified by hand). DEFECT WRITTEN IN THE HEADER: authored with no agda in
 the container, NOT checked here; the general theorem and भावना-as-⋆ are
 named as owed. If the kernel rejects, strike or repair — not silent drop.
+
+## 2026-08-23 · the kernel arrives in the container
+Installed agda 2.6.3 (apt) + cubical v0.5 (cloned, registered, lib renamed
+to match natural-machine.agda-lib's depend). Watched both controls FIRST:
+negative (pos 1 ≡ pos 2 by refl) rejected exit 42 with located "1 != 2";
+found and fixed my own instrument lie on the way — $? after a pipe reads
+tail's status, and the C locale killed agda's error printer exactly as
+Certificate.hs's header warns; LC_ALL=C.utf8 forced. Then the sandhi
+module: CHECKS, exit 0. Header defect struck-and-discharged in place,
+module wired into Everything.agda. सन्धि-बीजम् is now a checked term.
