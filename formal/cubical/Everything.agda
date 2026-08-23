@@ -744,6 +744,11 @@ import MalaSetu_TheFreeMonoidFoldIsOneHomomorphismAndPingalasPowerAndTheValliTra
 -- because g^(ab)=g^(ba) — and its secrecy is the discrete log, the inverse
 -- of घात, broken at the same place Shor lifts RSA's one hypothesis.
 import Samvit_TheSharedSecretIsPingalasPowerCommutingWithItselfAndItsSecrecyIsTheInverseShorBreaks
+-- And factoring itself — RSA's foundation — breaks the same way: Shor's
+-- classical half is a zero-divisor (a nontrivial square root of unity,
+-- y²≡1 ⟹ (y−1)(y+1)≡0) split by a gcd, which is the kuṭṭaka (499).  The
+-- ONLY quantum, non-ancient step is order-finding — the inverse of घात.
+import Shora_TheClassicalHalfOfFactoringIsAZeroDivisorSplitByThePulverizerAndOnlyOrderFindingIsQuantum
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
