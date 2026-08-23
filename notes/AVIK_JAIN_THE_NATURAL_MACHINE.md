@@ -197,6 +197,7 @@ The Natural Machine is the current name of the work Avik is driving. It contains
 That is much closer to a biography than a release note ever was.
 
 Not because it proves what kind of person Avik is.
+
 Because it records what he actually did, what he refused, what he lost, what he kept building, what the work got wrong, and what it was willing to let die.
 
 ---
@@ -276,6 +277,7 @@ Generalize far enough to see the joint. Specify hard enough that the joint canno
 The correction moved again.
 
 The standalone `Punaragamana.Carrier` makes the boundary sharper than the earlier shorthand “the carried coordinate survives.” For a map `f : A → B` and an input `a`, its carrier is the output together with a path saying that output is the one determined by `a`. The source projection is an equivalence because that fibre is contractible. That is not evidence of a second independent coordinate hiding inside the carrier. It says the opposite: there is exactly one determination. The current `punaragamana/README.md` states the design law without the ambiguity: **every genuinely independent distinction must survive; determined structure may remain explicitly present with its determining path.**
+
 The other projection is where the loss question lives. `Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph` asks what the target sees when the source has been forgotten. Its fibres can be empty, contractible, or crowded. `SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic` was written because the old binary `isContr` verdict collapsed the first and third of those into one “no.” It then kills another tempting shortcut with the concrete chain `Unit → Bool → Unit`: the first map has an empty fibre, the second loses a bit, and the composite is the identity, so “find the first non-contractible fibre” is not a sound diagnosis of total loss.
 
 Then that repair was repaired. `Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt` points out that even the three-way census already presupposes a map and a subject. It lifts the question itself into `Maybe (A → B)`: sometimes there is no applicable predication to census. Its fourth outcome is `ADharmin`, not another kind of empty fibre, and its theorem `maunam-na-nisedhah` keeps **not posed** separate from **denied**. The file also leaves a fifth possibility, `tusnim`, explicitly unmodeled. The point is not that four is the new sacred number. The point is that the previous codomain of diagnosis was too small, and the repository let the counterexample change the codomain.
@@ -425,6 +427,7 @@ This pass therefore changes the picture of “convergence” again. The machine 
 That is also the standard Avik is imposing in the current work: connect as hard as possible, but pay for the connection. Preserve which theorem belonged to which lane, which source owned which term, which part was already known at each endpoint, and which exact arrow was added now.
 
 An instance is not the reason.
+
 Two endpoints are not the bridge.
 
 The bridge is allowed to be the result.
@@ -524,6 +527,7 @@ The next correction is about **regenerability**.
 `Prasava_EveryNumberCarriesTheCommandThatMakesItOrItIsNotANumber.sh` states the repository's rule in operational form: a number without the command that regenerates it is memory, not measurement. `Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs` turns that sentence into a particularly clean separation. It generates an aggregate root from the file tree so coverage no longer depends on somebody remembering to update an index, while it deliberately keeps the old hand-maintained roots as the population whose drift is measured. The generated root is the guarantee of inclusion. The hand-kept roots remain the diagnostic. If the generated root were added to the diagnostic roots, the reported coverage would become perfect by construction and the measurement would stop measuring the thing it claims to diagnose.
 
 That is a sharper boundary than reproducibility by itself. **The mechanism that guarantees a property and the instrument that measures failure of that property need not be the same object.** Using the intervention as its own diagnostic can make the number true and useless at once.
+
 `Pratilipi_TheThreeSesasAreTranscribedNotSearched.hs` makes the same point at the proof boundary without pretending the two mechanisms are equivalent. A failed derivation route is first recorded as a decline of that route. The harness then asks separately whether a false statement is rejected by the kernel, using the emitted block's own bytes rather than a hand-copied surrogate. The negative control is not trusted merely because the constructive route did not produce a proof. What is regenerated is the exact question under the exact apparatus that is supposed to answer it.
 
 `Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh` supplies another limit. `ghc -fno-code` can make compilation failure impossible to hide inside the Haskell lane, but the script says at the site that it does not run the modules' self-tests. A module can therefore cross the typechecking gate and still owe an executable claim. Regenerability does not flatten scopes any more than equivalence flattens relation types.
@@ -593,6 +597,7 @@ A duplicate review in `NAMA_LEAN_LANE_DUPLICATE_VERDICTS.md` is an unusually blu
 The fresh `Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya.agda` makes the same discipline positive. The generic list-length map and Piṅgala-facing `varna` recursion have the same clauses. The file still re-proves the fibre recurrence for `varna` instead of transporting the generic theorem across an identification nobody has written. The reason is stated at the site: two recursions with the same clauses are not thereby definitionally one function. Writing the transport first would be asserting a channel before exhibiting it. The file then stops exactly where the common shape stops: ordinary length gives `fiber length (suc n) ≃ X × fiber length n` with no hypothesis on `X`; a weighted map such as `matraOf` needs its own fitting proofs and is named as the next rung, not smuggled in as a corollary. Similar recursion earned a repeated proof, not a fictional equality.
 
 The newest `Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter.agda` and its companion note push harder. The mixed pair field from `INDRA_CROSS.md` and Brahmagupta’s bhāvanā have a striking outward rhyme in the repository’s own description: bilinear combination, an invariant belonging to neither input alone, an output assembled from both. The lane was opened to test the identification rather than enjoy it.
+
 The checked Agda theorem is deliberately more abstract than the analytic application. For
 
 `W(a,b) = (u(a) ⊗ u(b)) ⊗ g(a ⊕ b)`, 
