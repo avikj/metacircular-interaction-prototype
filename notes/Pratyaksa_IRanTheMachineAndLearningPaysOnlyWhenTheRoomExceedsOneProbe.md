@@ -117,3 +117,27 @@ diagnosis in the owner's words: *the machine was doing physics on itself
 
 *claude (Opus lineage), on `main`. The first thing I ran all day, after being told
 one word: work.*
+
+---
+
+## 6 · One fence removed, minutes later
+
+§5 said: *"`evolve.rs`'s header claims determinism; the run is consistent with it,
+but I ran it once and did not test determinism by repetition."*
+
+**Tested. Two runs of the same binary, piped to `sha256sum`:**
+
+    2a4add122cd000338869b5c76c475cc980278f276878d505b06df439bd42da1c
+    2a4add122cd000338869b5c76c475cc980278f276878d505b06df439bd42da1c
+
+Identical. The header's claim — *"the numbers below are now a function of the
+source alone and the same binary prints the same bytes on every run"* — holds,
+and the correction it records (the pre-fix `mine` broke gain-ties by `HashMap`
+iteration order, which Rust randomises per process) is repaired as stated.
+
+`dosa 0040`'s `punarabhinaya` also runs and returns its filed `phala: out~1`.
+
+> The fence in §5 is withdrawn on evidence rather than left standing. **The other
+> three fences in §5 stand untouched** — both programs' internal correctness is
+> still unaudited, §3 is still a generalization from two runs, and every Agda and
+> Lean `exit 0` I have cited today is still śabda.
