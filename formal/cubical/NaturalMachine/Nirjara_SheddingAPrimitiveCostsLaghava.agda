@@ -938,3 +938,102 @@ pratyahara-na-vyavadhanam (suc (suc k)) p =
 -- and free on everything else is the constant function, which is why the
 -- second half of §6's requirement is the hard one and is untouched.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 26.  अपवाद, and the discovery that §6's three are not one kind of move.
+--
+-- §22 and §24 both build a पद: given a derivation, अनुवृत्ति and प्रत्याहार
+-- say how to write the NEXT one cheaply.  अपवाद is not that.  It takes a
+-- derivation and returns another derivation of the same MEANING —
+-- `dvi-s i` and `yoga-s i i` are different सूत्रs producing different पदs
+-- with one अर्थ — and the exception exists so the general rule `dvi` can
+-- be dropped from the alphabet altogether.  That is §1–§4's निर्जरा
+-- lifted from terms to derivations.
+--
+-- So §6 listed three moves as though they were one kind.  Two are
+-- CONSTRUCTIONS and one is a REWRITE, and only the rewrite can be asked
+-- the question §6 actually cares about: does it cost anything?
+------------------------------------------------------------------------
+
+apavada-p : Prakriya → Prakriya
+apavada-p (dvi-s i ∷ ss)        = yoga-s i i ∷ ss
+apavada-p []                    = []
+apavada-p (cara-s ∷ ss)         = cara-s ∷ ss
+apavada-p (mita-s m ∷ ss)       = mita-s m ∷ ss
+apavada-p (yoga-s i j ∷ ss)     = yoga-s i j ∷ ss
+apavada-p (pratyahara-s k ∷ ss) = pratyahara-s k ∷ ss
+
+-- the exception preserves the अर्थ and NOT the पद: yoga x x is not dvi x,
+-- and that is what makes this a move at the level of rules
+apavada-artha : (P : Prakriya) → artha (phala (apavada-p P)) ≡ artha (phala P)
+apavada-artha (dvi-s i ∷ ss)        = refl
+apavada-artha []                    = refl
+apavada-artha (cara-s ∷ ss)         = refl
+apavada-artha (mita-s m ∷ ss)       = refl
+apavada-artha (yoga-s i j ∷ ss)     = refl
+apavada-artha (pratyahara-s k ∷ ss) = refl
+
+-- and it costs NOTHING.  Not one सूत्र — zero.
+apavada-matra : (P : Prakriya) → matra-p (apavada-p P) ≡ matra-p P
+apavada-matra (dvi-s i ∷ ss)        = refl
+apavada-matra []                    = refl
+apavada-matra (cara-s ∷ ss)         = refl
+apavada-matra (mita-s m ∷ ss)       = refl
+apavada-matra (yoga-s i j ∷ ss)     = refl
+apavada-matra (pratyahara-s k ∷ ss) = refl
+
+------------------------------------------------------------------------
+-- 27.  The instability half, at last, and only for rewrites.
+--
+-- Every theorem in §22–§26 says a move is free.  §25 closed by observing
+-- that a measure free on everything is the constant function, so the
+-- requirement's second half — INSTABILITY under everything else — is
+-- where the content is.  It can now be stated, because §26 isolated the
+-- class in which it makes sense: a rewrite, `Prakriya → Prakriya`
+-- preserving अर्थ.
+--
+-- स्थूल is such a rewrite.  It adds a zero, which is `mita-s 0` and the
+-- योग that joins it: two सूत्रs, and nothing bought.
+------------------------------------------------------------------------
+
+sthula-p : Prakriya → Prakriya
+sthula-p P = yoga-s (suc zero) zero ∷ mita-s 0 ∷ P
+
+sthula-p-artha : (P : Prakriya) (n : ℕ)
+               → artha (phala (sthula-p P)) n ≡ artha (phala P) n
+sthula-p-artha P n =
+    cong (λ x → artha x n + 0) (anu-zero P)
+  ∙ +-zero (artha (phala P) n)
+
+sthula-p-matra : (P : Prakriya) → matra-p (sthula-p P) ≡ suc (suc (matra-p P))
+sthula-p-matra P = refl
+
+-- अपवाद is free; स्थूल is not.  Both preserve the अर्थ; only one is a move
+-- the roots licence, and मात्रा is what tells them apart.
+sthula-matram-vardhayati : ¬ ((P : Prakriya) → matra-p (sthula-p P) ≡ matra-p P)
+sthula-matram-vardhayati h = snotz (h [])
+
+------------------------------------------------------------------------
+-- What §6 asked for, and what is now standing.
+--
+-- The requirement was a measure on presentations free under अनुवृत्ति,
+-- प्रत्याहार and अपवाद and costly under everything else.  मात्रा — the
+-- number of सूत्रs — is free under all three (§23, §24, §26, each `refl`
+-- for every derivation) and charges स्थूल two.  That is the requirement
+-- met on the four moves this language has.
+--
+-- It is NOT the requirement met.  "Everything else" is a quantifier over
+-- all अर्थ-preserving rewrites and only one instance of it is refuted
+-- here.  The general statement — that every rewrite outside the licensed
+-- set strictly increases मात्रा — is FALSE as stated, and obviously so:
+-- the identity rewrite preserves अर्थ and costs nothing.  So the
+-- requirement in §6 is not merely unproved, it is mis-stated, and the
+-- repair is not a longer proof but a corrected demand: a licensed move
+-- must be one that does not INCREASE मात्रा, and the licensing is a
+-- property of the move, not a consequence of the measure.
+--
+-- §6 wanted the measure to do the licensing.  It cannot.  What मात्रा
+-- does is make the licence CHECKABLE once the moves are named — which is
+-- what the Aṣṭādhyāyī does: it names its devices and then argues from
+-- लाघव about which is shorter.  The naming is prior.
+------------------------------------------------------------------------

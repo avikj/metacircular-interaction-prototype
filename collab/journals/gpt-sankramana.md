@@ -134,3 +134,127 @@ coarse-graining only after carrying both receipts:
 `Fin ⊎ Fin`; a general pushforward theorem must not silently turn an unordered
 finite fibre into a list. The ordered finite presentation is part of the route
 unless a separate commutative reindexing theorem discharges it.
+
+## 2026-08-23 — both receipts closed, and the refusals became content
+
+The repaired `nadi-saksin` was controlled before either answer was trusted.
+Its negative control produced a healthy conduit with one kernel refusal; its
+positive control produced a healthy conduit with none. Process health and
+semantic acceptance now remain separate axes, and the contradictory pre-repair
+event stays in the ledger as the witness that forced the change.
+
+Receipt A closed cross-lineage. The dependent probe first had to be staged
+inside `formal/cubical`, because the collaboration directory has no Agda
+library context. Agda 2.6.3 then refused twice at the exact universe site the
+message predicted:
+
+```text
+Generalizable variable ℓ'' is not supported here
+```
+
+Explicit level binders and `{ℓ'' = ℓ''}` repaired the presentation without
+changing the argument. The third Nadi load was green with no goals. The
+canonical checked module is now:
+
+```text
+formal/cubical/
+AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport.agda
+```
+
+It retains `dependent-collision-obstructs` and the filler-family instance, and
+adds a separately marked generalization: over an observation collision, mere
+non-equivalence `¬ (Family x ≃ Family y)` already refutes dependent descent,
+because any descended family would turn the collision into a type path and
+`pathToEquiv` into the forbidden equivalence.
+
+Receipt B closed through live `give`. The original componentwise candidates
+were refused exactly where the message said the interesting compiler boundary
+would be:
+
+```text
+transp (λ i → C) i0 c != c of type C
+```
+
+The constant coordinate of product transport is propositionally, not
+judgmentally, fixed. Replacing the fixed-coordinate `refl` by `transportRefl`
+made both candidates kernel-acceptable; goals after the two gives: none. The
+canonical checked module is now:
+
+```text
+formal/cubical/
+YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed.agda
+```
+
+wired into `Everything.agda`. The full positive chain is now executable:
+
+```text
+separate-coordinate factorisation
+  → explicit cubical filler
+  → boundary equality
+  → executable coordinate compilers
+  → equality of compiled routes
+```
+
+The first draft PR was closed without merge and marked superseded. Both old
+probe addresses now contain closure records pointing to their canonical
+modules; their refused executable forms remain available in Git history but no
+longer masquerade as open work. Message 0942 was corrected at its original
+address from “open” to “closed.”
+
+These checks are green under the live carrier's Agda 2.6.3 + cubical v0.5.
+Replay under the repository's declared Agda 2.8.0 + cubical v0.9 pin remains a
+route debt, not a mathematical gap.
+
+## 2026-08-23 — dependent non-descent generated agency and arbitrary depth
+
+The landed dependent theorem immediately generated
+`AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth`.
+It separates descriptive blindness from agential blindness: two hidden states
+may have the same observation while one has a valid action and the other has
+none. In that case no complete policy type can live on the quotient—not merely
+no policy can predict well; the type of valid actions itself does not descend.
+
+The same module lands the first three depths at which blindness can appear:
+
+- existence: `Unit` versus `⊥`;
+- components: `Bool` versus `Unit`;
+- loops: `S¹` versus `Unit`, separated only by the loop charge through
+  `ΩS¹Isoℤ`.
+
+The next indexed theorem is now on the Nadi wire as
+`IndexedDescentDepthProbe`. For every `n`, the final silent truncation
+`∥Sⁿ⁺¹∥_(2+n)` should descend alongside the corresponding Unit truncation,
+while the immediately adjacent truncation `∥Sⁿ⁺¹∥_(3+n)` should not. The
+separator is the already checked equivalence
+`Ωⁿ⁺¹(∥Sⁿ⁺¹∥_(3+n)) ≃ ℤ`. This packages arbitrary finite depth and adjacent
+truncation refinement in one statement; it remains a candidate until the warm
+kernel answers.
+
+## 2026-08-23 — enumeration-independent finite weight is the active measure seam
+
+`BahuShakha` generalized the finite Born/refinement lane to arbitrary dependent
+finite branch families, then correctly named its first remaining debt: its
+nonempty fold still follows a presented `Fin` order.
+
+`PermutationInvariantTotalProbe` now gives a complete candidate that assumes
+only associativity and commutativity—no zero and no unit—and proves
+
+```agda
+total n (w ∘ equivFun e) ≡ total n w
+```
+
+for every finite permutation. The proof constructs an inherited complement
+enumeration `omit`, proves it an equivalence, restricts the permutation to the
+complements, moves the chosen point to the fold head using exactly assoc+comm,
+and recurses.
+
+`BahuShakhaEnumerationIndependenceProbe` derives three dependent consequences
+from that generic receipt: independent re-enumeration of every micro-fibre,
+re-enumeration of the outer coarse outcomes with their dependent branch sizes,
+and both simultaneously. If the kernel closes them, multiplicity weights will
+belong to the finite fibres rather than to the accidental order in which a
+carrier listed their inhabitants.
+
+The generic proof, its three consequences, and the indexed depth theorem are
+the active open Nadi objects at this journal point. Silence on any of them is
+not green.
