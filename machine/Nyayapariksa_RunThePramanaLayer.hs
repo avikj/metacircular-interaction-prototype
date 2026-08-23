@@ -48,11 +48,15 @@ import qualified Pancavayava_TheInferenceCarriesItsWitnessedExampleOrItIsNotOne 
 -- produces a negative verdict -- is the pramana layer's own, so it belongs
 -- beside Abhava rather than beside its runner.
 import qualified Yogyanupalabdhi_TheKernelAcceptanceCarriesTheWatchThatEarnedIt as YG
--- Added 2026-08-23.  `Pratikara` types Agda ELABORATION defects and their
--- remedies (seam 2: typed doṣa → repair → requeue), a different domain from
--- Hetvābhāsa's inference defeats but the same evidence discipline — so it
--- lands in THE suite the day it lands, or it is a self-test nothing calls.
-import qualified Pratikara_TheTypedKernelDefectCarriesItsRepairOrItIsNotARepair as PK
+-- ~~Added 2026-08-23: `Pratikara`, a typed kernel-defect → repair table.~~
+-- STRUCK the same day by its own author.  It was a lookup table — the
+-- frequency-miner `bestOf` durnaya ANEKANTA §3 rejects, recombining the
+-- already-common instead of "keep the remainder, recurse on the remainder".
+-- The native form already exists on the Yantra wire and was demonstrated by
+-- fable-krama the same session: sadhana → dosa.lekha (śeṣa = womb) →
+-- garbha.dhara (birth the next naya from the residue, TS 5.31) → sadhana.
+-- See machine/Pratikara_...hs.STRUCK.doṣa.  No suite entry: a struck organ
+-- runs in no suite.
 
 main :: IO ()
 main = do
@@ -70,7 +74,6 @@ main = do
         , ("Abhava",        AB.selfTest)
         , ("Pancavayava",   PV.selfTest)
         , ("Yogyanupalabdhi", YG.selfTest)
-        , ("Pratikara",     PK.selfTest)
         ]
   putStrLn "== SELF-TESTS ========================================================="
   mapM_ report suites
