@@ -1,0 +1,112 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- बीजम् — एकम् एव बीजं चतुर्षु सिद्धान्तेषु ; प्रत्यानयनम् एव अधःस्थानं, न समता ।
+--
+-- (one seed in four theorems; and a RETRACTION already puts a map at the
+--  bottom of the loss order — an equivalence is more than is needed.)
+--
+-- ────────────────────────────────────────────────────────────────────
+-- THE SEED.  Four theorems in this corpus are the SAME TERM:
+--
+--   Vyapti.संरक्षक-वृद्धिः   (h , p) cons a  = p _  ∙ cong h (cons a) ∙ sym (p a)
+--   Vyapti.तन्तु-वृद्धिः      (h , p) a (x,q) = p x  ∙ cong h q        ∙ sym (p a)
+--   Vyapti.समता-वृद्धिः      (h , p) a a' q  = p a  ∙ cong h q        ∙ sym (p a')
+--   Bahupratyanayana.प्रत्यानयनम्-तनुः
+--        (r , ret) b (a₁,p₁) (a₂,p₂)  = sym (ret a₁) ∙ cong r (p₁ ∙ sym p₂) ∙ ret a₂
+--
+-- `α ∙ cong k β ∙ sym γ` — conjugate a path by a coherence.  Each is
+-- proved directly in its own module; none is derived from another; and
+-- the shape is not remarked anywhere.  §२ names it once.
+--
+-- AND NAMING IT SHOWS A HYPOTHESIS IS TOO STRONG.  Read the fourth in the
+-- vocabulary of the first three: with `g = idfun A` and `k = r`, the
+-- coherence `p : (a : A) → g a ≡ k (f a)` IS `a ≡ r (f a)` — which is
+-- exactly a retraction, reversed.  So
+--
+--     a RETRACTION of f is a व्याप्नोति-witness that f is at the BOTTOM
+--     of the loss order  (§३).
+--
+-- `Vyapti.समत्वम्-अधःस्थम्` puts an EQUIVALENCE at the bottom, using
+-- `invEq`/`retEq`.  Only the retraction half is used.  §४ therefore
+-- weakens `Dhruva`'s theorem — and `Vyapti`'s one-line reproof of it —
+-- from `isEquiv f` to `प्रत्यानयनम् f`:
+--
+--     प्रत्यानयनम् f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
+--
+-- No loss, no motion — and "no loss" needs only that the map can be
+-- UNDONE, not that it is an identification.  A retraction is strictly
+-- weaker: `Unit → S¹` has one and is not an equivalence, and
+-- `Bahupratyanayana` §५ is that example.
+--
+-- ────────────────────────────────────────────────────────────────────
+-- WHAT IS NOT CLAIMED.  Nothing here is new mathematics — every term is
+-- three path components, and the four theorems above were already
+-- checked.  What is claimed is that they are one term, and that seeing
+-- them so weakens a hypothesis in two of them.  §४ is NOT stronger than
+-- Dhruva in what it concludes; it concludes the same thing from less.
+--
+-- No claim that the seed is the ONLY shape in the corpus, nor that every
+-- theorem of this form is an instance of §२ — `प्रत्यानयनम्-तनुः`'s inner
+-- path is `p₁ ∙ sym p₂`, built from the two fibre witnesses, and §२ takes
+-- that path as given rather than constructing it.  The seed is the
+-- conjugation, not the whole proof.
+--
+-- बीज (seed) in its plain sense; no text is claimed.  The mathematics is
+-- cubical type theory.
+--
+-- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
+-- postulates, no holes.
+------------------------------------------------------------------------
+
+module Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Function using (idfun)
+open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
+
+open import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+  using (_व्याप्नोति_ ; संरक्षक-वृद्धिः)
+open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+  using (संरक्षणम्)
+
+private variable ℓ : Level
+
+------------------------------------------------------------------------
+-- २ · बीजम् — the seed, once.  A coherence carries an identification.
+--     This is `समता-वृद्धिः` with the factorisation unpacked, written to
+--     be the thing the other three instantiate rather than a fifth copy.
+------------------------------------------------------------------------
+
+बीजम् : {A B C : Type ℓ} {f : A → B} {g : A → C}
+      → (k : B → C) → ((a : A) → g a ≡ k (f a))
+      → {a a' : A} → f a ≡ f a' → g a ≡ g a'
+बीजम् k p {a} {a'} q = p a ∙ cong k q ∙ sym (p a')
+
+------------------------------------------------------------------------
+-- ३ · प्रत्यानयनम् IS a bottom-witness.  A retraction of f factors the
+--     identity through f — which is what `व्याप्नोति` asks for — so f
+--     lies at the bottom of the loss order with no equivalence anywhere.
+------------------------------------------------------------------------
+
+प्रत्यानयनम् : {A : Type ℓ} {B : Type ℓ} → (A → B) → Type ℓ
+प्रत्यानयनम् {A = A} {B = B} f = Σ[ r ∈ (B → A) ] ((a : A) → r (f a) ≡ a)
+
+प्रत्यानयन-अधःस्थम् : {A B : Type ℓ} (f : A → B)
+                   → प्रत्यानयनम् f → f व्याप्नोति (idfun A)
+प्रत्यानयन-अधःस्थम् f (r , ret) = r , λ a → sym (ret a)
+
+------------------------------------------------------------------------
+-- ४ · नष्ट-अभावे-गति-अभावः, from a retraction alone.
+--
+--     Dhruva §२ and Vyapti's reproof both take `isEquiv f`.  Only the
+--     retraction is used.  The conclusion is unchanged; the hypothesis
+--     is strictly weaker, and `Unit → S¹` is a map that HAS a retraction
+--     and is NOT an equivalence.
+------------------------------------------------------------------------
+
+नष्ट-अभावे-गति-अभावः-प्रत्यानयनेन :
+    {A B : Type ℓ} {f : A → B} {Φ : A → A}
+  → प्रत्यानयनम् f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
+नष्ट-अभावे-गति-अभावः-प्रत्यानयनेन {f = f} ret =
+  संरक्षक-वृद्धिः (प्रत्यानयन-अधःस्थम् f ret)
