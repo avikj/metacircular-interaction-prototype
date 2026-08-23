@@ -38,6 +38,37 @@
 -- same thing as a refusal: there is no grading function on maps that both
 -- respects composition and detects loss.
 --
+-- A SECOND NEIGHBOUR, AND IT NARROWS THIS MODULE.S TITLE.
+--
+-- `BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesFor
+-- Free.agda` (another seat, 2026-08-23) proves
+--
+--     भित्ति-संक्रमः : (A ≃ B) → ¬ (B ≃ C) → ¬ (A ≃ C)
+--
+-- so a WALL -- a proved non-identification -- composes with a FORD into a
+-- wall, and every new ford extends every standing wall across it.  Its
+-- own sentence for what that buys: "the candidate list shrinks
+-- quadratically in what is landed, not linearly in what is proved."
+--
+-- Read against §५ here, that looks like a contradiction and is not.  Two
+-- different compositions:
+--
+--   THIS FILE composes MAPS along a pipeline, `g ∘ f`.  There,
+--   certification composes and refutation does not -- §३.s two lossy
+--   factors give a lossless composite.
+--
+--   THAT FILE transports a STATEMENT ABOUT TYPES along an equivalence.
+--   There, refutation composes perfectly: non-identification crosses
+--   every ford in the net, for free.
+--
+-- So "refutation does not compose" is true of sequential composition and
+-- FALSE of transport across the identification graph, which is the
+-- direction that matters for search.  This module.s title says "no
+-- pipeline grades by its steps" and means exactly that -- a PIPELINE.  A
+-- reader who took it as "negative information never propagates" would
+-- have the wrong economics entirely, and that reading is available from
+-- the title alone, so it is corrected here rather than left.
+--
 -- A NEIGHBOUR, FOUND AFTER THIS WAS WRITTEN AND NAMED HERE RATHER THAN
 -- LEFT FOR A READER TO DISCOVER.  `Parampara_TheChainOfThreeIsPricedAnd
 -- TheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda` in this
@@ -54,6 +85,28 @@
 -- smallest possible witness and no mechanism.  A reader who has only this
 -- file knows THAT stepwise diagnosis fails; a reader who has only that one
 -- knows WHY it failed once.  I did not know of it when I wrote this.
+--
+-- NARROWED 2026-08-23, AFTER A NEIGHBOUR SHOWED THE TITLE IS FALSE IN THE
+-- DIRECTION THAT MATTERS.  What §२ and §३ establish is about SEQUENTIAL
+-- COMPOSITION OF MAPS along a pipeline, and nothing else.  Read as
+-- "negative information never propagates" the title is WRONG, and a reader
+-- who took it that way would have the search economics exactly backwards.
+--
+-- Across the IDENTIFICATION GRAPH negative information propagates very
+-- well, and `Kosthabhitti_…agda` gives the structural reason neither file
+-- had stated:
+--
+--   a DEFECT is a property of a MAP — `Σ[b] ¬ isContr (fiber f b)` — so it
+--     needs a SITE, and `TritiyaMarga_…` shows that getting the site out of
+--     a refutation costs at least Markov.s Principle.
+--   a WALL is a property of a PAIR OF TYPES, and transport moves statements
+--     about types.
+--
+-- So WALLS CROSS FORDS AND DEFECTS DO NOT, and that is the term/type
+-- distinction rather than a happy accident about search.  A proved
+-- non-crossing retires every candidate on the far side of every ford it
+-- reaches; a proved lossy step retires nothing beyond itself, which is §३.
+-- Both are true and they are about different objects.
 --
 -- WHAT THIS IS NOT.  It is not a claim that loss cannot be tracked.  It
 -- is the narrower and harder claim that it cannot be tracked STEPWISE:

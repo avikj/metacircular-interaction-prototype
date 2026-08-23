@@ -54,3 +54,6 @@ open import Punaragamana.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMul
 -- base/carried split, and the orbit carries the designation through the
 -- whole derivation rather than one step.
 open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried
+
+-- भित्ति: the carrier is not two-valued, and the wall crosses its own ford.
+open import Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord

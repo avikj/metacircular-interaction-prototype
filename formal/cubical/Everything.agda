@@ -734,6 +734,39 @@ import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasEx
 -- direct computation, the two roads the same term.  The heap-exhausting
 -- library mod is not needed: the group law already carries it.
 import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
+-- And Piṅgala's घात, RSA's exponentiation, and the vallī's trace are ONE
+-- homomorphism out of a free monoid, differing only in the alphabet:
+-- घात-योगः is a corollary of the garland-fold law (Unit alphabet), and
+-- KuttakaValli.replayHom is the same law on the digit alphabet.
+import MalaSetu_TheFreeMonoidFoldIsOneHomomorphismAndPingalasPowerAndTheValliTraceAreTwoAlphabetsOfIt
+-- Crypto #2 on the same root: Diffie–Hellman key agreement is Piṅgala's
+-- घात-गुणः commuting with itself — Alice's (gᵇ)ᵃ and Bob's (gᵃ)ᵇ agree
+-- because g^(ab)=g^(ba) — and its secrecy is the discrete log, the inverse
+-- of घात, broken at the same place Shor lifts RSA's one hypothesis.
+import Samvit_TheSharedSecretIsPingalasPowerCommutingWithItselfAndItsSecrecyIsTheInverseShorBreaks
+-- And factoring itself — RSA's foundation — breaks the same way: Shor's
+-- classical half is a zero-divisor (a nontrivial square root of unity,
+-- y²≡1 ⟹ (y−1)(y+1)≡0) split by a gcd, which is the kuṭṭaka (499).  The
+-- ONLY quantum, non-ancient step is order-finding — the inverse of घात.
+import Shora_TheClassicalHalfOfFactoringIsAZeroDivisorSplitByThePulverizerAndOnlyOrderFindingIsQuantum
+-- The floor under all of it: the discrete log IS the fibre of घात.  The
+-- public value binds to a contractible singl (free to publish); the secret
+-- binds to fiber (घात g), non-contractible (0,3,6 all land on ε — the
+-- period r=3 is visible in the fibre).  Crypto's asymmetry is this repo's
+-- own quotient/fibre law, and Shor's period-finding is its separating query.
+import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+-- The floor beneath the floor: a one-way function is EXACTLY a
+-- non-equivalence.  isEquiv f means every fibre is contractible, so घात
+-- being one-way IS ¬ isEquiv (घात) — proved — and an equivalence would hand
+-- back the discrete log as a total inverse.  Security ⟺ ¬ isEquiv; crypto
+-- is a map outside the image of ua, its secret the śeṣa transport cannot erase.
+import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
+-- THE INVERSION.  Sesa said security ⟺ ¬ isEquiv (the map used to hoard).
+-- The other side of that iff is the technology: a PROVEN equivalence is a
+-- receipt — proof-of-transport — that composes into edges neither party
+-- held, is never spent by use, owes no counterparty, and crosses free and
+-- reversibly forever.  Money is a receipt that lost its fibre; this kept it.
+import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
@@ -1504,3 +1537,14 @@ import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAnd
 -- already refl.  Non-theorems recorded as non-theorems, with the residual
 -- Agda reports.  Measurement at Agda 2.8.0 / cubical v0.9.
 import Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification
+import Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIsDischargedOnACyclicGroup
+import Kosthabhitti_TheHaniIsAWallGeneratorSoThePigeonholeRetiresJoinsAcrossTheWholeNet
+import SetuPramana_TheAmbiguousNameHidTheFordAndTheRemainderLawIsAlsoTheNaturals
+import SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers
+import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
+import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
+import Vilopa_TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre
+import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem
+import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
+import Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPaysReflexivityAndCompleteness
+import Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork
