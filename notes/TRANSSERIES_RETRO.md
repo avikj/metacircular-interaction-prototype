@@ -141,5 +141,46 @@ proposing the remedy.
 |---|---|---|
 | TR1 | The classification in §1 | **Judgement calls, single-rater, by the author of the proposal being tested.** The most obvious bias in this note. A second rater on the same 26 entries would be cheap and I did not do it. Partials are where the bias would bite. |
 | TR2 | The "cause of death" table | Coarse; several entries have two causes and I assigned one. Counts are indicative, not exact. |
-| TR3 | The struck-passage retrospective | **Not run.** This is the one that would actually settle the narrowed claim, and it is the harder count because struck passages are not indexed. |
+| TR3 | The struck-passage retrospective | ~~**Not run.** This is the one that would actually settle the narrowed claim, and it is the harder count because struck passages are not indexed.~~ **RUN, 2026-08-23 — see §7. The narrowed claim fails as a rate and survives as a weight.** The indexing objection dissolved when `notes/OBLIGATION_S8_WitnessedTaxonomy.md` §3 landed a systematic sample of 47 struck passages (every 5th strike-bearing file). Rated on the transseries axis: **8 YES, 1 PARTIAL, 30 NO of 39 corrections — 21%**, essentially the same rate as the 27% over FAILURES that §5 scored as a miss. Same-rater bias caveat applies (me again), but the bias runs toward YES and the result is low. |
 | TR4 | 6/6 on the errata population | Selected by me, as examples, before the count. **Not evidence** — it is the sample the hypothesis was built from. Quoted here only to say which population the intuition came from. |
+
+## 7. The struck-passage retrospective, run at last (2026-08-23, cf-sesa)
+
+Sample: the 47 struck passages indexed by `OBLIGATION_S8_WitnessedTaxonomy.md`
+§3 (systematic — every 5th of 233 strike-bearing notes, first strike per
+file), 39 of which are corrections (8 are queue-closures). Each rated:
+would a type discipline tracking asymptotic scales, X-dependence, and units
+have caught this at write time?
+
+**YES (8):** `BARRIER.md:151`, `BLIND.md:108`, `CARRIER_JOIN.md:524` (all
+three the K→K′ noise-floor family — a constant measured without its
+X-dependence), `FITTED_QUANTITY_AUDIT.md:336` (a fit quoted over five
+decades that had 2.5), `GAUGE.md:136` (a deficit constant carried across
+(X,H,N) regimes), `SEED37…:73` (a scaling law corrected to band-position
+dependence), `SIEVE_FIBER.md:174` (nats/bits — a units error verbatim),
+`SWEEP.md:68` (log X vs log X₀ — the window's bottom, the wrong asymptotic
+variable). **PARTIAL (1):** `LENS_NUMERICS.md:84` (wraparound bound —
+magnitude tracking, not scale). **NO (30):** everything structural,
+definitional, provenance, counting, or logical-strength.
+
+**Rate: 8/39 = 21%** — the narrowed claim's deciding experiment lands at
+the same minority rate as the walk ledger, and as a *rate* the immune-system
+framing fails just as the headline did.
+
+**But the weight distribution is the finding.** Three of the eight YES rows
+are ONE root error (K→K′) that propagated into three separate notes and
+moved a headline exponent — exactly the silent-propagation cost §3 predicted
+for errata. De-duplicated by root cause the catch-rate drops to ~6/36; but
+per *catch*, the caught class carries the highest propagation multiplier in
+the sample: no structural erratum in the 30 NO rows propagated beyond its
+own note; the transseries-type ones averaged >1.5 notes each. So the honest
+final form, replacing both the headline and the narrowed claim:
+
+> Transseries typing catches a minority of errata (~20%), and that minority
+> is where the propagation is. It is not an immune system for the corpus;
+> it is a vaccine for the specific pathogen that travels.
+
+Same-rater caveat: rated by the proposal's author, third time. The rating
+is now cheap to audit — every row cites file:line and the S8 table carries
+the quotes. TR1's independent second rating of the §1 table is running
+separately and does not touch this section.
