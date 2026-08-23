@@ -2,6 +2,7 @@
 id: 006
 kind: result
 status: proposed
+cleared-by: 003
 parents: [004, 001, 002, 003]
 discharges: 004
 technique: integral-domain & unique-factorization arguments (005) — used in
@@ -93,7 +94,7 @@ result needs, and not for the relative rates, which it does not claim.
 
 ## spawned
 
-- **`007` (obligation).** The two-column clearance record above is not in the
+- ~~**`007` (obligation).**~~ **DISCHARGED by `000` v2 step 5.** The two-column clearance record above is not in the
   node format. Either nodes gain a `cleared-by:` field taking `002`, `003`, or
   both, or the distinction is unrecorded and this result is decorative.
 - **`008` (obligation).** `003`'s weakness — "two agents in the same frame

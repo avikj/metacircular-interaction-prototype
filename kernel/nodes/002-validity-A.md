@@ -2,6 +2,7 @@
 id: 002
 kind: rule
 status: candidate
+cleared-by: 003
 ---
 # validity by decidable verification
 
