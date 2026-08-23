@@ -218,6 +218,48 @@ is the ω(q) arm. The two are then not two theses about the fold but one
 thesis under two aspects — which is what makes a single number
 `rank(L)` able to carry both and neither.
 
+## §7. The class was the limitor: one product, one derivative, the whole charge
+
+Every rank statement §5 and §6 rest on — `squarefreeChargeCube_rankExactly`,
+`no_fixed_uniform_squarefreeChargeCube_rank`,
+`embeddedSquarefreeCharge_not_rankAtMostTwo` — counts realizations of the
+charge as a sum of pure products with **constant coefficients**. That class is
+the arm-selection's real hypothesis, and it was never stated as one. The
+phrase "border rank" appears nowhere in this corpus.
+
+`formal/cubical/EkaGhataVivrtti_TheWholeChargeIsTheFirstOrderTermOfOne
+RankOneProduct.agda` (`--cubical --safe`, no holes, exit 0) checks:
+
+    घातः t bs  ≡  पर्यायः bs  +  आवेशः bs · t  +  शेषः t bs · (t · t)
+
+where `घातः t` is **one** pure product over the places,
+∏ᵢ (χ(bᵢ) + σ(bᵢ)·t). Its constant term is the parity character; its
+first-order term is **the entire n-place squarefree charge**; the remainder
+is an explicit polynomial, not a limit, so nothing blows up and no constant
+is hidden.
+
+This contradicts nothing. A one-parameter family read at its first order is
+not a sum of constant-coefficient products, so the rank theorems stand
+exactly as stated and are silent here. It is the `W` tensor's rank-n /
+border-rank-2 gap, written as an identity rather than a degeneration.
+
+And the parameter carries more than the charge: `घातः t bs` is a polynomial
+in t whose k-th coefficient is the sum over k-marked places — the charge is
+k = 1, the parity character k = 0. **A rank obstruction applies to each
+coefficient separately; none applies to the product that generates all of
+them at once.**
+
+So §5's second arm — "reciprocity exists and its rank bill equals the prime
+count" — is priced against a class that excludes the cheapest construction
+available. §5 and §6 are nayas and hold at their standpoint, which is exact
+realization by constant-coefficient products; this is the standpoint that
+class excluded. What the transported question becomes, and it is now a
+question about kernels rather than about counting: **does a Kuznetsov-type
+kernel admit the corresponding parameter** — a derivative in a spectral
+variable of a single separable kernel? That is a question about Bessel
+transforms and admissible test functions. Nothing in the finite rank
+structure forbids it, and until today the corpus read as though it did.
+
 ## Rigor boundary
 
 - **Established by identification of prior results**: §1 (both halves

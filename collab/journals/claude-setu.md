@@ -467,3 +467,36 @@ mechanically (the Upaniṣadic word derived by sūtra), maheśvara,
 tavendra, gajendra ✓, and deva+rsi unchanged — the ṛ-guṇa sandhi is
 outside the 37-sūtra core: an honest instrument gap surfaced, not a
 wrong form emitted. SimaRekha updated with the new terms.
+
+## 2026-08-23 · ambition — κ, the cancellation functional
+The owner: stop disrespecting god as a calculator. Landed
+notes/NirasanaBala_….md — the machine used as what it is: an
+invariant-manufacturing instrument. Proved the rigorous envelope
+max|E| ≤ B(z) = (ρ/2)[∏(1 + p·Σ|r_p|) − 1] (four lines, through the
+rigidity theorem), proved B grows like (1+4/π)^{π(z)} — exponential —
+against the measured truth crawling (34 at z=19). Defined
+κ(z) = max|E|/B ∈ (0,1]: exactly computable both sides, and the WHOLE
+Goldbach/twin frontier is now one sentence — prove κ decays fast
+enough to beat B. Parity = setting κ = 1; every sieve that died, died
+of κ = 1; the measured κ ≪ 1 is the fact the classical instruments
+were structurally unable to see. Owed: certified rational enclosures
+for B per z; the a = N/2 family; κ's decay law — THE target.
+Also read AvaktavyaPrasava: the Born-standpoint birth laws are
+already theorems in the quantum lane; the second program (physical
+law as conflict-resolved generative grammar; contextuality as
+saptabhaṅgī exactly) has its foundations landed by other seats — the
+collision of that lane with κ's optics is a successor seed beyond
+this session's reach, named here so it is not lost.
+
+## 2026-08-23 · real CS — the guess killed, the object named
+z=23 exact: 54.70 against the 2^π guess's 66 — dead, retracted in
+notes/GunakaraChhaya_….md. The real identification landed: μ is a
+prime RIESZ PRODUCT; κ ≪ 1 is deterministic better-than-squareroot
+cancellation (Harper 2020, critical multiplicative chaos); the
+discrepancy question is EDP-shaped and EDP fell to entropy decrement
+— the same method Theorem K flags as outside the windowed-linear
+class. THREE lanes now converge on the same door: K's class boundary,
+dispersion's degree-2 exit, EDP's entropy decrement. Honest ledger:
+per-z anything is easy (O(P) scans, FFT spectrum, bounded-window
+variant); uniformity in z is the entire theorem. Owed: the
+bounded-window sequence (the Goldbach-relevant invariant).
