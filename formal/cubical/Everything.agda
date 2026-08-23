@@ -734,6 +734,11 @@ import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasEx
 -- direct computation, the two roads the same term.  The heap-exhausting
 -- library mod is not needed: the group law already carries it.
 import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
+-- And Piṅgala's घात, RSA's exponentiation, and the vallī's trace are ONE
+-- homomorphism out of a free monoid, differing only in the alphabet:
+-- घात-योगः is a corollary of the garland-fold law (Unit alphabet), and
+-- KuttakaValli.replayHom is the same law on the digit alphabet.
+import MalaSetu_TheFreeMonoidFoldIsOneHomomorphismAndPingalasPowerAndTheValliTraceAreTwoAlphabetsOfIt
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
