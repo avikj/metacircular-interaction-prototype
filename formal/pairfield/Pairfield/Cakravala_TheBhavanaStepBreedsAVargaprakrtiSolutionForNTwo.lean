@@ -5,9 +5,23 @@
   English gloss: the bhāvanā ("composition"/"emergence") step for N = 2:
   composing a solution of x² − 2y² = 1 with itself breeds a new, larger
   solution. Starting from (x,y) = (3,2), self-composition generates the
-  orbit (3,2) → (17,12) → (577,408) → ⋯, each verified here as an exact
+  sequence (3,2) → (17,12) → (577,408) → ⋯, each verified here as an exact
   integer identity, together with the GENERAL algebraic step showing the
   breeding never stops.
+
+  SCOPE CORRECTION (2026-08-22, caught by the math2 seat): this sequence is
+  NOT the full solution orbit, and an earlier draft of this header wrongly
+  called it "the orbit." Self-composition (tulya-bhāvanā, the step
+  (x,y) ↦ (x²+2y², 2xy)) SQUARES the underlying unit: it sends (3+2√2)ⁿ to
+  (3+2√2)²ⁿ, so from (3,2) = (3+2√2)¹ it reaches only the powers 1, 2, 4,
+  8, … — an exponentially sparse subsequence. It SKIPS (99,70) = (3+2√2)³
+  and every solution whose exponent is not a power of two. The complete
+  solution set is all powers of the fundamental (3,2), reached by composing
+  against the FIXED fundamental (samāsa-bhāvanā with the fundamental
+  solution), not by self-composition. What is bred below is genuine — each
+  named triple IS a solution and the step IS exact — but it is the squares
+  subsequence, not the orbit, and the infinitude of the FULL set is proved
+  in the cubical lane (Vargaprakrtitantu / Apunaragamana), not here.
 
   SOURCE. The composition law (bhāvanā) is Brahmagupta, Brāhmasphuṭasiddhānta
   (628 CE), which gives the identity underlying the "samāsa-bhāvanā"
