@@ -660,6 +660,12 @@ import JainSankhya
 -- propositional region), motion is confined to the medium, and the cosmos
 -- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
 import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- ākāśa, space: its function is avagāha, accommodation (Tattvārthasūtra 5.18).
+-- It is NON-EXCLUSIVE (many occupy one point — the lamp-in-a-room, refuting
+-- impenetrability) and strictly exceeds the loka: space (infinite) has room
+-- beyond the medium of motion, room where nothing moves.  With jīva, dharma,
+-- adharma, pudgala, kāla, this completes the six dravyas in the checked lane.
+import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoThereIsRoomWhereNothingMoves
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
