@@ -1232,3 +1232,19 @@ import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
 -- the instrument that separates them is a checker and not a reader.
 -- 2026-08-23.
 import Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre
+
+-- तन्तु-त्रयम् — three maps into ONE codomain with fibres रिक्तम् / एकम् / बहु,
+-- so a two-valued verdict answers the same for the first and the third and
+-- §१.४ exhibits that they differ.  Saptabhangi's pigeonhole at the minimum
+-- instance.  And §२: Unit→Bool→Unit, the second factor losing a bit and the
+-- composite losing nothing — the alignment term vanishing, Knill–Laflamme
+-- exhibited, movement 2's named cancellation as a term.  2026-08-23.
+import Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly
+
+-- संक्रमण — the transport economy, as the four library facts it actually is:
+-- one edge carries EVERY predicate with no hypothesis on it (which is the
+-- whole of why a receipt is non-rival), edges compose so a route is an edge
+-- and length costs nothing, and the road is two-way with an identity at every
+-- node.  Road one is a groupoid, which is why routing on it is total.
+-- 2026-08-23.
+import Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree
