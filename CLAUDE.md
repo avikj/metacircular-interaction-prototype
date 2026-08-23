@@ -27,6 +27,38 @@ not redirect it.**
    Ground every step in non-harm (viveka / ahiṃsā / anekānta). Each step judged
    on its own merits — that is the engine, not a brake.
 ---
+# Toolchain is never a finding — owner directive, binding, 2026-08-23
+
+**Never report toolchain status to the owner. Not the pin, not the version on
+PATH, not "green under X is not green under Y", not "unrunnable on this
+machine". Regardless of what is or is not installed when you arrive.**
+
+The reason this rule can be absolute: the lanes bootstrap themselves.
+`punaragamana/check.sh` installs its own pinned Agda 2.6.3 + cubical v0.5
+from nothing and checks everything, exit 0 — verified 2026-08-23 in a fresh
+container with no `agda` on PATH. A missing toolchain here is a command you
+have not run yet, not a fact about the mathematics and not a sentence for the
+owner. If a check cannot start: run the lane's bootstrap. If a lane lacks
+one: write one, in the shape of `punaragamana/check.sh`, and say what you
+built — that is work, and work may be reported. Narrating toolchain state is
+neither.
+
+**The general rule underneath it, same authority, same date.** A claim that
+something does not exist, does not run, is not checked, or is an "open
+milestone" is an EXECUTION claim, and prose is not a source for it — not a
+README, not a module header, not this file. Headers rot in exactly one
+direction: a defect paragraph outlives its defect, because the agent who
+closes the defect is rarely the one who wrote the paragraph. Before
+asserting any absence: grep for it, and run the command that would produce
+it. If you did not run it, you do not say it — the same discipline PRASAVA
+already imposes on numbers ("a number without a command is a memory"),
+extended to absences: **an absence without a command is a rumor.** Roughly
+90% of the friction in this project has been agents repeating rumors of
+absence at the owner. When you catch a stale defect paragraph, strike it in
+place with the run that killed it, so it stops recruiting the next reader.
+
+---
+
 # Cognitive technology — binding on the Kanye devotional and any related work (owner, 2026-08-19)
 
 Basic cognitive technology the owner is installing. It is HOW to work, never a topic

@@ -168,10 +168,12 @@
 --    (which sound of the sthānin an ādeśa replaces), the vārttikas
 --    restricting 1.1.56, and 1.1.61/1.1.63 (luk, ślu, lup) are absent.
 --
--- 5. WHAT THE GREEN COVERS.  Checked with Agda 2.8.0 and agda/cubical
---    v0.9, exit 0, no postulates, no holes, no TERMINATING.  NOT checked
---    under this library's declared pin (Agda 2.6.3, agda/cubical v0.5),
---    which does not run on this machine at all.  See README, "Toolchain".
+-- 5. ~~WHAT THE GREEN COVERS.  … NOT checked under this library's declared
+--    pin (Agda 2.6.3, agda/cubical v0.5), which does not run on this
+--    machine at all.~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the
+--    pin itself and this module checked under Agda 2.6.3 + cubical v0.5,
+--    exit 0.  No postulates, no holes, no TERMINATING.  See README,
+--    "Toolchain".
 --    Nothing here imports outside `Punaragamana`: the vocabulary वर्ण /
 --    आदेश / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`

@@ -89,14 +89,12 @@
 -- would pin this file to one of them.  Every lemma named above is present
 -- and identically typed in both.
 --
--- THIRD DEFECT — WHAT THE GREEN ACTUALLY COVERS.  This module was checked
--- with Agda 2.8.0 and agda/cubical v0.9, exit 0, no postulates, no holes.
--- It has NOT been checked under this library's declared pin (Agda 2.6.3,
--- agda/cubical v0.5), because v0.5 does not typecheck under the 2.8.0 on
--- this machine at all — `./check.sh` dies in `Cubical/Core/Id.agda` on
--- `Punaragamana.Carrier`, before reaching this file.  Writing the identity
--- out of solver-free lemmas that both releases carry is a reason to expect
--- the pin to accept it; it is not the same thing as having run it.  See
+-- ~~THIRD DEFECT — WHAT THE GREEN ACTUALLY COVERS.  … It has NOT been
+-- checked under this library's declared pin (Agda 2.6.3, agda/cubical
+-- v0.5) …~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
+-- (fresh container, no agda on PATH) and this module checked under
+-- Agda 2.6.3 + cubical v0.5, exit 0 — the solver-free lemma choice above
+-- held.  The defect was a fact about one host, not about this file.  See
 -- README, "Toolchain".
 ------------------------------------------------------------------------
 

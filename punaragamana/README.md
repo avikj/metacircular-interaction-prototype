@@ -122,30 +122,30 @@ constraint rather than a prose note.
 
 Flag behaviour is version sensitive; re-verify if you move compilers.
 
-**The pin is currently unrunnable on this machine, and saying so is the
+**The pin bootstraps itself. Toolchain is not a finding here and must not be
+reported as one.** `./check.sh` installs Agda 2.6.3 when no `agda` is on
+PATH, clones agda/cubical v0.5 into `~/.cache/punaragamana`, writes its own
+library file, and checks `Everything.agda` — whatever was or was not
+installed first. Run it; do not describe it. Verified 2026-08-23: fresh
+container, no `agda` on PATH, one invocation, **exit 0, every module, under
+the declared pin** — including the three modules whose headers carried
+"NOT checked under the pin" defects, which are struck as of that run.
+
+~~**The pin is currently unrunnable on this machine, and saying so is the
 point.** The Agda on PATH here is **2.8.0**, and agda/cubical **v0.5** does
-not typecheck under it: `Cubical/Core/Id.agda` opens
-`Agda.Builtin.Cubical.Id`, which 2.8.0's `prim` no longer ships, so
-`./check.sh` dies with `[FileNotFound]` and **exit 42**. This happens on
-`Punaragamana.Carrier`, the first module, and it happened before any of the
-work described below was written — it is the toolchain, not the library.
+not typecheck under it … Green under 2.8.0/v0.9 is *not* green under the
+declared pin. Nothing here has been checked under 2.6.3/v0.5 by this
+author.~~
 
-So the development was verified against **Agda 2.8.0 with agda/cubical
-v0.9** (the pair Homebrew ships together), by pointing a library file at
-`.../share/agda/cubical/cubical.agda-lib` with flags
-`--cubical --safe --guardedness --no-import-sorts`. Under that pair,
-`Everything.agda` and every module it reaches check, **exit 0**. Two things
-follow and neither may be dropped:
-
-- Green under 2.8.0/v0.9 is *not* green under the declared pin. Nothing
-  here has been checked under 2.6.3/v0.5 by this author.
-- The two number-theoretic modules were written to lemma names present and
-  identically typed in **both** v0.5 and v0.9 (`+Assoc`, `+Comm`, `·Assoc`,
-  `·Comm`, `·DistL+`, `·DistR+`, `-Dist+`, `-DistL·`, `-DistR·`,
-  `-DistLR·`, `-Cancel`, `pos0+`, `znots`, `injSuc`), and deliberately
-  avoid the commutative-ring solver, whose module path moved between the
-  two releases. That is a reason to expect them to check under the pin. It
-  is not a substitute for checking them under the pin.
+**STRUCK 2026-08-23, left standing struck per repo discipline.** The
+paragraph was true of one machine on one day (a Homebrew host whose only
+Agda was 2.8.0) and it was written as if it were a property of the library.
+It survived two days as the most-quoted sentence in this directory and
+generated repeated toolchain narration at the owner, all of it about a
+condition `./check.sh` had already been written to remove. The interim
+2.8.0/v0.9 verification stands in the git history; it is no longer the
+green this README cites. The pin's green is `./check.sh`, exit 0,
+reproducible by anyone in one command.
 
 `LC_ALL=C.utf8` is **required**. Under a POSIX locale Agda crashes while
 printing its own error messages for the Devanagari identifiers and replaces the
