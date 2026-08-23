@@ -111,3 +111,27 @@ module _ {X : Type ℓ} (R : X → X → Type ℓ') where
 -- replaceable by a local one about the observer, and the replacement is not
 -- an approximation.  `एकवाक्यता` has no confluence premise in its statement
 -- or its proof.
+
+  -- ------------------------------------------------------------ the tower
+  -- A frame is not a number; it is a rung.  Given a branch-blind observer
+  -- with its predictor g, ask which COARSENINGS of it are still branch-blind
+  -- — every observer that throws away more but still sees one world.  The
+  -- answer collapses the multiway question onto a deterministic one:
+  --
+  --     h ∘ o is branch-blind  ⟸  h is a congruence for g
+  --
+  -- and g is a FUNCTION.  So the tower of worlds a branching rule can present
+  -- is the congruence structure of the single deterministic system living on
+  -- its finest frame.  `machine/DrshtiJala_...` computes congruence lattices
+  -- of deterministic systems; by this, the same machinery reaches multiway
+  -- systems with nothing added.
+  --
+  -- Only the sufficient direction is proved.  The converse needs o to hit
+  -- every value of V, which is a hypothesis about the observer and not about
+  -- the rule, and it is not assumed here.
+  स्तरः : {V : Type ℓ''} {W : Type ℓ''} (o : X → V) (h : V → W)
+    → (b : भाव्यम् o)
+    → ({a c : V} → h a ≡ h c → h (fst b a) ≡ h (fst b c))
+    → शाखान्धम् (λ x → h (o x))
+  स्तरः o h (g , p) hcong e r s =
+    cong h (p r) ∙ hcong e ∙ cong h (sym (p s))
