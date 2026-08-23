@@ -1938,3 +1938,11 @@ import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePosition
 -- charges, and the pair charge n(n−1)zⁿ⁻² at once — at z = −1, n = ω(d):
 -- (μ, κ₁, κ₁, κ₂), the two-prime charge in the κ⊗κ channel.
 import YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering
+
+-- परम्परा: the e-graph proof forest's license (kernel/egraph.py L2) — the
+-- equivalence closure of the axioms coincides exactly with the zigzag
+-- witness chains: complete (every derivation flattens — sym is reversal,
+-- trans is concatenation, so the forest stores only steps) and sound
+-- (every emitted chain folds back into a derivation).  explain() is total
+-- and sound; derivable ⟺ transmitted through an unbroken witnessed lineage.
+import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
