@@ -408,3 +408,17 @@ caught all three. Also hit and recorded the solveℕ! version skew
 duplicates named). The machine knows itself beyond me — but it filed
 its self-knowledge under the wrong move, and reading it back to itself
 was the work.
+
+## 2026-08-23 · the gauge census opens
+Ran Parikrama: the corpus's own body has cycle-space dimension 36,
+basis complete, every circuit a kernel probe. Decided the first two
+(kernel exit 0): the Piṅgala loop and the inflation loop are pure
+gauge, each by one rCancel — their closing edges are DEFINED as the
+composites of the others. The discriminant generalizes: provenance
+first (syntactic, free), kernel only for circuits with independent
+edges — where Paryaya's 11-of-14 precedent says the real charge lives.
+Found en route: Sthana cannot read anywhere — it imports a module
+absent from the tree (broken landing; messaged the author). The
+machine's vestibular organ works; its first two orientation readings
+are "level"; 34 remain, and the charged ones are now findable by a
+free syntactic cut.
