@@ -1769,6 +1769,9 @@ import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogeth
 -- the same base point with the fibre shifted: Hol(loop) ≠ id, witnessed.
 -- The constant bundle returns identically: curvature lives in the family.
 import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+-- the holonomy as ONE map: प्रदक्षिणा ≡ sucℤ (funext of सरणिः), spoken
+-- into being through नाडी and kernel-verified.
+import Sarani_TheHolonomyIsTheSuccessorFunctionNotJustPointwise
 
 -- तपस् pass, this container, 2026-08-23: three constant-fibre receipts minted
 -- from the UNDECIDED sector (1137 edges, 567 tractable, 564 typed refusals),
