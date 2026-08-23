@@ -2060,3 +2060,12 @@ import SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThree
 -- 96 near-misses: the obstruction displaces by one violation, the same
 -- shape as StaraArpana one lane over.
 import NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne
+
+-- आयाम-अर्पण: the withholding deepens with dimension — S²'s ENTIRE
+-- 3-stratum is one point (sphereConnected 2), hence its loop space
+-- silent where S¹'s stratum 3 carried all of ℤ (StaraArpana).  The
+-- offered half (Ω²(∥S²∥4) ≃ π₂S² ≅ ℤ) reduced to named library
+-- theorems (PinSn holds the full sphere ladder) and owed as plumbing.
+-- The law at earned precision: the n-sphere's charge is anarpita
+-- through stratum n+1.
+import AyamaArpana_TheSphereWithholdsOneStratumDeeperPerDimension

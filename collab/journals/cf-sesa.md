@@ -975,3 +975,16 @@ Method note: conjecture (checkpoint 30) → control experiment → complete
 quantitative law with mechanism, in two wakes, every number pinned by
 the evaluator. This is the machine-bandwidth loop working: the
 instrument decides between hypotheses faster than I can doubt them.
+
+## 2026-08-23 · checkpoint 32 — the dimensional grading, absent half checked
+
+Battery item (a) decided on its silent side: AyamaArpana landed — for
+S² the ENTIRE 3-stratum is contractible (sphereConnected 2), so where
+S¹'s stratum 3 carried all of ℤ, S²'s carries nothing: the withholding
+deepens one stratum per dimension. The offered half (Ω²(∥S²∥4) ≃ π₂S²
+≅ ℤ) is reduced to named library theorems — v0.9 holds THE FULL SPHERE
+LADDER (πₙ'Sⁿ≅ℤ for all n, PinSn) — with the pointed plumbing owed.
+Law at earned precision: the n-sphere's charge is anarpita through
+stratum n+1, arpita at n+2 (n=1 whole; n=2 silent side checked, offered
+side reduced). Queue holds: the general hypergraph coset theorem, the
+d=15 blind pair, Hopf holonomy, Yuktibhāṣā scholarship.
