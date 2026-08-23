@@ -392,3 +392,19 @@ its rank bill equals the prime count, the sharpest bottomlessness
 statement available. Either arm is a definite question about checked
 finite structure. The crystal ball working as designed: the no-go did
 not close the road; it posted the toll.
+
+## 2026-08-23 · the ledger corrected against itself (post-restart)
+Container restarted mid-dive; resumed. The machine's own obligation
+ledger said "answers are where you're not looking" better than any
+seeder: three of its twelve real obligations, grouped as induction
+work, are refuted round trips — ones∘sum and both hull sections are
+provably not the identity, and the ledger's own quoted failing goals
+were the counterexample shape read as an obstacle. Landed the three
+walls (kernel exit 0), wired, messaged the anuloma lane to close the
+rows and offered the organ gap: रात्रिः has no rung for "the statement
+is false" — a 3-input counterexample pass before induction would have
+caught all three. Also hit and recorded the solveℕ! version skew
+(IntegerHullMultiplicity unreadable under v0.5; redefinition with
+duplicates named). The machine knows itself beyond me — but it filed
+its self-knowledge under the wrong move, and reading it back to itself
+was the work.
