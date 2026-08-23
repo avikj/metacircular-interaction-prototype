@@ -629,6 +629,12 @@ import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
 -- length costs one marker, and with repetition free the antichain bound is
 -- the answer.  The economy of repetition is the whole of what is left.
 import Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker
+-- And repetition is not an economy at all: three sounds, the three pairs,
+-- and NO recitation order seats them at any anubandha count — while three
+-- anubandhas seat them the moment sounds may be recited twice.  μ₀ = ∞ and
+-- μ_∞ = width.  Pāṇini's own attested aṬ, śaL, yaR restrict to exactly that
+-- cycle on h y ś, which is why h stands in sūtra 5 and again in sūtra 14.
+import Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
