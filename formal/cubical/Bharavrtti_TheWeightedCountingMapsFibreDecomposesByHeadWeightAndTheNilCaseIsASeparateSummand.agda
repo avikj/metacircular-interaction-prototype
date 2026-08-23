@@ -93,3 +93,24 @@ module _ {X : Type ℓ} (w : X → ℕ) where
       प्रत्यावृत्तिः ([]     , p) = refl
       प्रत्यावृत्तिः (x ∷ xs , p) = refl
 
+
+------------------------------------------------------------------------
+-- ३ · आवृत्तिः विना अपवर्तनेन — the recurrence with NO subtraction.
+--
+-- The usual weighted recurrence is written with `n ∸ w x`, which over ℕ
+-- is truncated and needs a guard that `w x ≤ n`.  Clearing it the way
+-- `BhavanaSemiring.agda` clears bhāvanā -- move the subtraction across
+-- rather than truncate -- gives a statement with no monus, no guard, and
+-- no side condition: the fibre is a coproduct of SHIFTED fibres.
+--
+-- `ANEKANTA.md` §7's lesson, on a different object: a statement forced
+-- into the poorer language got stronger, because the guard was an
+-- artefact of the subtraction and not of the mathematics.
+------------------------------------------------------------------------
+
+  शिष्ट-भारः : X → List X → ℕ
+  शिष्ट-भारः x xs = w x + भारः xs
+
+  भार-आवृत्तिः-निरपवर्तना : (n : ℕ)
+    → fiber भारः n ≃ ((0 ≡ n) ⊎ (Σ[ x ∈ X ] fiber (शिष्ट-भारः x) n))
+  भार-आवृत्तिः-निरपवर्तना = भार-आवृत्तिः

@@ -1329,3 +1329,9 @@ import Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis
 import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
 import Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond
 import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
+
+-- विरहाङ्क — the mātrā fibre satisfies the two-step recurrence, as an
+-- EQUIVALENCE OF FIBRES rather than a count: fiber (n+2) ≃ fiber (n+1) ⊎
+-- fiber n, prepend-laghu and prepend-guru, with both base cases contractible.
+-- Virahāṅka c. 600-800 on Piṅgala's weights.  The numbers are its shadow.
+import Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence
