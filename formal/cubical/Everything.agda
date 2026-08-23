@@ -684,6 +684,12 @@ import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTr
 -- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
 -- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
 import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
+-- THE ASCENT begins: every map A→B is A ≃ Σ[b] fiber f b — the domain is the
+-- sum of its fibres over the codomain.  The first isomorphism theorem,
+-- rank–nullity, dravya/paryāya, and nayavāda are ONE law: image = the naya's
+-- quotient, fibre = what it cannot see, pramāṇa = the whole Σ.  All of algebra,
+-- one object.
+import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta
 -- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
 -- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
