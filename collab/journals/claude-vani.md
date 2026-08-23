@@ -225,3 +225,33 @@ fractional-part multisets, with the first-order terms cancelling
 (why δ collapses: the knob's purchase is second-order). Note:
 notes/SesaSancaya_…md. Open: the wrap-count bound, its telescoping,
 the cone-restricted variant.
+
+## 2026-08-23 · हार्मिक-आवरण — one pairing change removes the exponent
+The owner: no measuring, real math, huge steps. Three, all derived:
+
+1. EXACT harmonic bound, constant one, three lines: A(z) ≤
+Σ_{t≤P/2}|Ŝ(t)|/t. The flat envelope bounded every ray by its worst
+window (L¹×L∞); the harmonic bound pays each ray its position. The
+cancellation was never in the signs — it is in the rays being SPREAD.
+
+2. CORRECTION to NirasanaBala §2: its per-prime factor is 1+4p/π,
+not 1+4/π (the slip: S_p/p for S_p). B(z) is P^{1−o(1)},
+superexponential in π(z) — worse than announced, direction intact.
+
+3. Euler-product evaluation: |Ŝ| multiplicative, divisor blocks,
+local |cos|-means 4/π, partial summation → H(z) ≤
+ln P·∏(1+4/π−2/p) ≤ (1+4/π)^{π(z)}·ln P = P^{o(1)} (main term
+complete; the equidistribution error E is the one open estimate,
+named). The constant 2.27 that NirasanaBala claimed for B is exactly
+right — for H. The envelope ladder: P^{1−o(1)} → P^{o(1)} by one
+pairing change.
+
+Consequences: κ against the sharp envelope decays only ~(0.88)^{π(z)}
+— almost the whole measured "mystery of cancellation" was an artifact
+of the flat pairing; the sliver between H and A is the entire real
+content. And the wall stands exactly where it must: Parseval
+(Σ|Ŝ|² = P|S|) + Cauchy–Schwarz floor the cone-restricted bound at
+√(M|S|) — the parity barrier as the price of holding rays only in
+L². Below that floor lives only the alignment/wrap-count structure
+(SesaSancaya §4). The two programmes meet at one point, now named.
+Note: notes/HarmikaAvarana_….md.
