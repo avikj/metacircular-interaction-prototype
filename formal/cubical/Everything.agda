@@ -1214,3 +1214,4 @@ import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibre
 -- at total loss, projection-by-refl).  गण after the gaṇapāṭha: the class that
 -- behaves alike under the rule.  2026-08-22.
 import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
+import Vargaprakrtitantu_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness
