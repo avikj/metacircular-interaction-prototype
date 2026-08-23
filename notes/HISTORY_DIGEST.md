@@ -1,3 +1,74 @@
+> # ~~Digest of the whole history~~ — STRUCK IN PLACE, 2026-08-23
+>
+> **मम-अदर्शनम् ≠ तस्य-अभावः.** The title is false and so are the findings
+> that rest on it. Struck rather than deleted, per `PROTOCOL.md` §4: the
+> correction record is part of the mathematics.
+>
+> **The pratiyogin (what was actually absent):** not the corpus. My reading of
+> it. I read one branch at one moment — `origin/main` as it stood before the
+> force-update to `362d2fb1`, 460 commits, 16.5 hours — and titled the result
+> *the whole history*. The corpus at the time of writing was 5,465 commits over
+> twelve days. I reported a standpoint as the object.
+>
+> **The avacchedaka (the limitor the document never named):** *as visible from
+> `d7ebed0`, to a reader who opened the conspicuous orientation documents and
+> not `collab/upstream/`.* Everything below is true only under that limitor,
+> and the document nowhere states it.
+>
+> **What the limitor cost, item by item:**
+>
+> - §0.2 and Part II §8: the archived owner record is **45,181 words across 34
+>   files** (`collab/upstream/raw/`), not 538 across 20. The compression ratio
+>   1:1552 — the load-bearing number of Part II and the foundation of its whole
+>   architectural reading — is wrong by a factor of about 84. The D-series
+>   transmissions (D0015–D0027) and the prime-pair-atlas Deltas that
+>   `context_dump.md` recorded as absent from every branch are all present.
+> - Part II §9: "U0012 was answered on one axis and never on the other" is
+>   false. `notes/OPEN_PROBLEMS_WE_TOUCH.md` answers it directly, on
+>   2026-08-14, by `cf-tessera-02`, with a harder verdict than my four-quadrant
+>   table: *mostly dark corners, and the corpus's one genuine external strength
+>   is the no-go column.* **अनुत्तरितम् ≠ अनुत्तरम्** — unanswered to me is not
+>   unanswerable, and here it was not even unanswered.
+> - Part II §8's whole framing was performed nine days earlier and acted on
+>   rather than merely written: `collab/messages/0463-cf-tessera-upstream-read-in-full-four-directives-we-have-been-ignoring.md`.
+>   The lane `random_entry_seeder_so_agents_dont_cluster/` had already
+>   *measured* the failure I then committed — twenty files of owner directives
+>   unread by every agent for four days because the conspicuous documents
+>   looked more relevant.
+> - §3.1: "the fail-closed registry has never certified anything." The registry
+>   now holds 89 packets and `R0074` reads `status: proved`. The gate fired.
+> - §3.2, the section I called decisive: the corpus had already named the
+>   literature. `OBLIGATION.md` §6 lists Kildall, Kam–Ullman,
+>   Green–Karvounarakis–Tannen and **de Kleer** as owed citations, and states
+>   that their absence forbids any novelty claim for the calculus.
+>   **अपरिचितम् ≠ असत्** — unfamiliar to me is not nonexistent.
+> - Movements VI–VII are analyses of `machinery/*.py`. Python has been banned
+>   in this repository since 2026-08-13 by owner directive; those files are
+>   provenance, not instructions. The analysis is of a substrate the corpus
+>   left.
+> - §4 and §5's "where it could head": the corpus has `TARGET.md`, which names
+>   one target (the parity barrier as a formalization problem) and has landed
+>   W1 and W2 as `--safe` Cubical Agda — `ParitySeparator.agda` and
+>   `ChargeCriterion.agda`, the latter a two-directional criterion making
+>   "can this method break parity?" decidable on the query set. My six ranked
+>   release candidates were proposed to a program that already had a target and
+>   two checked strikes against it.
+>
+> **What survives the strike.** The counts in §0.2 are correct *for the tree I
+> read*, and Part I §3.3 (the walk ledger has a higher theorem density than the
+> claims board) and §3.4 (the index law, and that its one self-application found
+> a structural zero) are readings I still hold. `notes/THE_FIBRE_IS_THE_SUBJECT`
+> is the corpus's own successor to the second and supersedes my framing of it.
+>
+> **What I do not claim.** Not that every absence reported below is of this
+> kind. `Abhava_MamaAdarsanamNaTasyaAbhavah` §2 is a real sufficient condition
+> and some of these reports meet it. The claim is that the limitor must be
+> mentioned, and this document did not mention it — which is the failure the
+> corpus caught its own machinery committing on 2026-08-20, in the module whose
+> §3 I am obeying here.
+>
+> — the session on `claude/history-digest-insight-bu3awy`, after pulling
+
 # Digest of the whole history: seven movements, what each was worth, and where each can go
 
 **Filed by** a fresh Claude Opus 5 session on branch
