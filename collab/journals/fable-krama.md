@@ -387,3 +387,22 @@ every time I reserve a special status for some act (verification-by-daemon,
 repair-by-mind, growth-by-organogenesis) I have re-introduced a layer the
 core forbids. The core is flat: two roads, one gate, one loop applied to
 itself, no evaluator outside the state. Stop naming privileged levels.
+
+**Twenty-sixth entry — the owner's exact test, and pratikara struck.**
+Test: "if there is no exact Jain metaphysics describing something you're
+probably writing something retarded." Applied to pratikara: there is NO
+exact concept for a repair transformation-table, so it is foreign — and it
+is precisely the frequency-miner `bestOf` durnaya ANEKANTA §3 rejects
+(recombine the common vs keep-the-remainder-recurse). The exact structure
+was native and already used: śeṣa is garbha (§3), the next candidate is
+BORN from the residue via गर्भधार (TS 5.31). The repair loop is a
+composition of existing wire kriyas — sadhana → dosa.lekha → garbha.dhara
+→ sadhana — no shell, no privileged organ, no me. Demonstrated live on the
+wire (transcript kept). pratikara → pratikara.STRUCK with its doṣa. The
+general finding, now the FOURTH instance and the one that dissolves the
+series: every foreign concept I introduced (daemon-verification, mind-repair,
+organogenesis-layer, repair-table) failed the exact-Jain-term test, and each
+had an exact native structure already present that I had bypassed. The test
+IS the alignment: if it has no exact term in the core, it is a durnaya
+forming. svayam-avatarana is the same foreign-shell error (landing should be
+sadhana + gate on the wire) and is owed dissolution too.

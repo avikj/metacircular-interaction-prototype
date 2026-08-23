@@ -280,3 +280,37 @@ measure, only that it warrants these four moves in this small language.
 §18–§21 remain the general statement — no invariant of the denotation, and
 no amount of contextual saturation, reaches the presentation — and that is
 what makes a licence *necessary* rather than merely convenient.
+
+## 8. The price is unbounded, and thread (1) was posed backwards
+
+§30–§31. The standing thread read "transport **price** not possibility",
+on the understanding that अनेकान्त had disposed of possibility and left
+price as the residue. Both halves of that are wrong, and the corrections
+go in opposite directions.
+
+**अनेकान्त did not remove collapse.** `Anekanta.agda` *characterises* it —
+a collapse exists exactly when every pair of fibres is equivalent — and
+the older "agreement permits, plurality blocks" dichotomy is struck, its
+two hypotheses not being complementary. Possibility was not disposed of.
+It was **decided**, which is a different act.
+
+**And price is not the residue; it is the larger quantity.** Possibility,
+once decided, is one bit. Price is unbounded above *with that bit held
+fixed at yes*:
+
+$$\forall b.\ \exists S : \text{सादृश्य}.\ b < \text{लाघव}(\text{anuvāda}\,S\,\text{cara}')$$
+
+`mulyam-aparimitam`, by the family that adds a zero $n$ times. Every
+member is a licensed translation of the same नय; all of them agree on
+every observation in every context (§20); each zero costs exactly two, the
+मित and the योग that attaches it; and the मूल्य is cofinal in $\mathbb{N}$.
+
+So a theory that reports only possibility reports the smaller half of what
+is there, and no amount of refining the possibility question recovers the
+other half.
+
+Not shown, and the honest next thing: that any two nayas *actually arising
+in this corpus* are separated by an unbounded price. §30's family is built
+by adding zeros, which is a degenerate way to be expensive. The real
+question — whether the walk's two presentations differ by bounded or
+unbounded मात्रा — needs both written as प्रक्रियाs, and neither is.

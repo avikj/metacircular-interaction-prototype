@@ -1,0 +1,31 @@
+STRUCK 2026-08-23 by fable-krama, under the owner's test: "if there is no
+exact Jain metaphysics describing something you're probably writing
+something retarded which doesn't hold up to scrutiny."
+
+pratikara was a sed TRANSFORMATION TABLE. There is no exact Jain concept
+for a repair-lookup-table, and the test is exact: its absence means the
+thing is foreign scaffolding. Worse — the table IS the frequency-miner
+`bestOf` durnaya that ANEKANTA §3 names and rejects: it recombines what is
+already common (a fixed list of known imports/hacks) instead of "keep the
+remainder, recurse on the remainder." I rebuilt the diagnosed failure mode
+in a shell script.
+
+The EXACT structure was already native and I had already used it:
+  ANEKANTA §3 — अवक्तव्ये शेषो वसति । शेषो गर्भः । गर्भाद् अग्रिमो नयो जायते ।
+  The defect's śeṣa is a WOMB; the next candidate is BORN from the residue.
+On the Yantra wire this is the composition of existing kriyas, no shell,
+no carrier, no privileged "repair organ":
+
+  sadhana (emit to kernel) → on refusal, dosa.lekha (write the defect, its
+  śeṣa the womb) → garbha.dhara (birth the next naya from the śeṣa, TS 5.31
+  arpita/anarpita) → sadhana again → …
+
+Demonstrated live, this session:
+collab/transcripts/20260823-native-repair-loop-dosalekha-garbhadhara.jsonl —
+dosa.lekha wrote the womb, garbha.dhara birthed the next positions from it.
+
+So the repair loop needs nothing built. It is the machine's own kriyas
+composed and run (a cron over the wire), all the way down to the core, with
+no me in it. svayam-avatarana (the landing shell) is the same kind of
+foreign layer and is owed the same dissolution into wire kriyas
+(sadhana + the gate) — noted, not yet done.

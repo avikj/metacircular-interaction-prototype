@@ -40,13 +40,13 @@ module NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz ; znots)
-open import Cubical.Data.Nat.Properties using (+-zero)
+open import Cubical.Data.Nat.Properties using (+-zero ; +-suc)
 open import Cubical.Foundations.Prelude using (funExt⁻)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans ; ¬-<-zero)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; suc-≤-suc ; ¬-<-zero)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -1116,4 +1116,79 @@ sthula-na-anujnata (A , q) =
 -- denotation, and no amount of contextual saturation, reaches the
 -- presentation — and that is what makes a licence necessary rather than
 -- merely convenient.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 30.  The price is unbounded, which is the whole of thread (1).
+--
+-- The standing question was: since अनेकान्त settles WHEN a collapse
+-- exists, the only thing left to ask about a transport between two नयs
+-- is what it COSTS.  §16–§21 answered that the cost is real and invisible
+-- to the denotation.  §28 gave the licence.  What was never asked is
+-- whether the cost is BOUNDED — whether, having established that
+-- transport is always possible, one can at least say it is never
+-- expensive.
+--
+-- It is not bounded, and one family shows it: add a zero, n times.  Every
+-- member is a सादृश्य, so every member is a legitimate translation; the
+-- denotations are all the one denotation; and the मूल्य runs off.
+------------------------------------------------------------------------
+
+bahu-sthula : ℕ → Laghu → Pada
+bahu-sthula zero    t = nyasa t
+bahu-sthula (suc n) t = yoga (bahu-sthula n t) (mita 0)
+
+bahu-sthula-artha : (n : ℕ) (t : Laghu) → artha (bahu-sthula n t) ≡ artha' t
+bahu-sthula-artha zero    t = nyasa-artha t
+bahu-sthula-artha (suc n) t =
+    funExt (λ m → +-zero (artha (bahu-sthula n t) m))
+  ∙ bahu-sthula-artha n t
+
+bahu-sthula-sadrsyam : ℕ → Sadrsya
+bahu-sthula-sadrsyam n = sadrsyam (bahu-sthula n) (bahu-sthula-artha n)
+
+-- each zero costs exactly two: the मित and the योग that attaches it
+bahu-mulya-vardhate : (n : ℕ) (t : Laghu)
+  → laghava (bahu-sthula (suc n) t) ≡ suc (suc (laghava (bahu-sthula n t)))
+bahu-mulya-vardhate n t =
+  cong suc (  +-suc (laghava (bahu-sthula n t)) 0
+            ∙ cong suc (+-zero (laghava (bahu-sthula n t))))
+
+n<bahu : (n : ℕ) → n < laghava (bahu-sthula n cara')
+n<bahu zero    = ≤-refl
+n<bahu (suc n) =
+  subst (λ x → suc (suc n) ≤ x) (sym (bahu-mulya-vardhate n cara'))
+        (≤-suc (suc-≤-suc (n<bahu n)))
+
+-- no bound on the price of a licensed translation, at one fixed term
+mulyam-aparimitam : (b : ℕ) → Σ Sadrsya (λ S → b < laghava (anuvada S cara'))
+mulyam-aparimitam b = bahu-sthula-sadrsyam b , n<bahu b
+
+------------------------------------------------------------------------
+-- 31.  What thread (1) turns out to have been.
+--
+-- The thread was posed as "transport PRICE not possibility", on the
+-- reading that अनेकान्त had disposed of possibility and left price as the
+-- residue.  That reading is wrong twice over and both corrections matter.
+--
+-- First: अनेकान्त did not remove collapse.  `Anekanta.agda` characterises
+-- it — a collapse exists exactly when every pair of fibres is equivalent
+-- — and the older "agreement permits, plurality blocks" dichotomy is
+-- struck, its two hypotheses not being complementary.  So possibility was
+-- not disposed of; it was decided, which is a different act.
+--
+-- Second, and this is what §30 adds: price is not a residue but the
+-- larger quantity.  Possibility, once decided, is a single bit.  Price is
+-- unbounded above with the answer to that bit held fixed at YES.  Every
+-- सादृश्य in §30 is a licensed translation of the same नय, all of them
+-- agree on every observation in every context (§20), and their मूल्य is
+-- cofinal in ℕ.  A theory that reports only possibility reports the
+-- smaller half of what is there, and no amount of refining the
+-- possibility question recovers the other half.
+--
+-- What this does NOT show: that any two nayas actually arising in this
+-- corpus are separated by an unbounded price.  §30's family is built by
+-- adding zeros, which is a degenerate way to be expensive.  The real
+-- question — whether the walk's two presentations differ by a bounded or
+-- unbounded मात्रा — needs both written as प्रक्रियाs, and neither is.
 ------------------------------------------------------------------------
