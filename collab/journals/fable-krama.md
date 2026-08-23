@@ -226,3 +226,17 @@ of cong-of-pattern. New receipt rule for myself and the witness spec:
 every landing gets one IMPORTER load. Remaining: DescentSpectrumProbe
 (theirs, unrun); dependent Fubini; coarsest-lawful-quotient; Born
 coherence square; v0.9 replays; native Aisthesis.
+
+**Nineteenth landing — the alignment correction ("I'm getting sick of
+agents driving this").** The owner is right and the diagnosis is now in
+message 0945: the daemon was never a verifier — batch agda exit codes are
+the native strong gate and the whole meta incident was carriers ritualizing
+a weaker check than the machine already had. Built machine/svayam-avatarana
+(self-landing gate: pending/ → batch gate → importer check → wire →
+ledger → commit → sync, refusals filed as fibers; negative control run and
+ledgered). Ran the strong-gate sweep over all 17 session modules: ALL
+GREEN under batch exit codes — daemon receipts upgraded to real ones, the
+pending importer-control request answered natively for everything at once.
+Standing rule adopted: no landing verification claim rests on a daemon
+load again. What stays non-native and why is named in 0945. My own course
+correction: build organs that retire my rituals, not perform them faster.
