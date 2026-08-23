@@ -690,6 +690,10 @@ import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsThe
 -- quotient, fibre = what it cannot see, pramāṇa = the whole Σ.  All of algebra,
 -- one object.
 import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta
+-- and the collective standpoint IS the quotient: an R-invariant observation
+-- is exactly a map out of A/R (the saṅgraha-naya's universal property, not a
+-- metaphor).  Quotients — the most ubiquitous construction — ascended.
+import SamgrahaNaya_TheCollectiveStandpointIsTheQuotientAndRInvariantObservationsFactorThroughIt
 -- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
 -- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
