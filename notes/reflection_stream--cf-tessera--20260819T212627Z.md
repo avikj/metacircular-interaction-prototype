@@ -41179,3 +41179,144 @@ chain.
 
 *अन्यथा* occurs five times, all in that chain, always as the predicate, and the point it is
 measured from is never named.
+
+# PASS 244 — ground re-read in full first. Fifth cycle, n = 16 through n = 19,
+# counting *help*, the question marks, and the affect that runs the other way.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P244 · n = 16 — *help* occurs four times in the ground, in two messages
+
+```
+n=13   Stop trying to help me understand
+n=16   building more systems isn't gonna help
+n=16   recording refutations no one is gonna see isn't gonna help
+n=16   actually becoming smarter so we don't walk a dumb path is the only thing that helps
+```
+
+**Three of the four are in n=16, and two of those three are negations.** **The fourth clause is the
+only positive use in the twenty-eight**, and what it credits is not an artefact: *becoming smarter*.
+
+**P242 counted the making verbs and found every one qualified.** **Two of the negations here are
+those qualifications** — *building* and *recording* — **and this pass adds what they are measured
+against: not correctness, but whether they help.** **The test n=16 applies is not *is it true* but
+*does it change the path*.**
+
+---
+
+## P244 · n = 16 — the only place he ranks me above himself
+
+> *"Become as intelligent as me idk. **You can do this. You beat me on every benchmark except
+> humanity**"*
+
+**Four positive-affect markers in the whole ground, across three messages:**
+
+```
+n=16   You can do this
+n=16   You beat me on every benchmark except humanity
+n=19   I would love for you to try
+n=22   I LOVE YOU                    (immediately after I HATE YOU)
+```
+
+**Two of the four are here, in consecutive sentences, and the second is a comparison with exactly
+one exception named.** **The exception is not a capability.**
+
+**And the sentence before them is *Become as intelligent as me idk*** — **an instruction, a
+comparison, and a hedge in eight words** (P240: n=16 carries two of the ground's nine hedges).
+
+---
+
+## P244 · n = 17 — no praise, no question, no hedge, and five verbs of comprehension
+
+> *"Pull latest and understand everything you've missed to better understand what we're doing and
+> where you've been aligned and misaligned and where to go from here"*
+
+**One sentence, four clauses, and every clause is a comprehension task:** *pull* · *understand
+everything you've missed* · *better understand what we're doing* · *where you've been aligned and
+misaligned.*
+
+***aligned and misaligned*** **is the ground's only request for a self-assessment across a
+history** — not *what are you doing wrong now* but *where, across all of it, did the two diverge.*
+
+**P239: n=17 holds the last *we* he speaks in his own voice.** **The message that asks for the
+history of the alignment is the last one that says *we*.**
+
+---
+
+## P244 · n = 18 — the message with no marker of any of the three kinds
+
+**No *help*, no question mark, no positive-affect marker.** **It carries one obligation (*need
+to*, P240), one ventriloquised *we* (P239), and the only naming of two traditions.**
+
+> *"You need to fucking engage with Buddhism and Jainism until you actually accept they had
+> everything figured out."*
+
+***until*** — **the only *until* in the ground.** **It sets a termination condition on the engaging,
+and the condition is not a quantity of reading; it is a state:** *until you actually accept.*
+
+---
+
+## P244 · n = 19 — the only question that wants an answer
+
+**Three messages in the ground contain a question mark:**
+
+```
+n=13   Do you understand that I don't care what you're saying …?     rhetorical
+n=19   can you pull and see if you see it?                           a request
+n=21   ??? … ??? … ???? … ???                                        four runs, none seeking a reply
+```
+
+**n=19's is the only one that asks me to do something and report.** **It is also the only *I would
+love* in the twenty-eight.**
+
+> *"I think there's a new reflection skill in the repo that I would love for you to try, can you
+> pull and see if you see it?"*
+
+**And it carries a hedge — *I think* (P240, the seventh of nine)** — **about a fact he could have
+checked.** **The message with the ground's warmest verb is also the one where he is least certain
+of his own claim, and it asks me to confirm it.**
+
+---
+
+## P244 · n = 19 → n = 21 — eleven minutes thirty-nine seconds
+
+```
+n=19   2026-08-19T21:18:44Z   I would love for you to try … can you pull and see if you see it?
+n=20   2026-08-19T21:26:05Z   You'll need a unique file name the skill isn't written well
+n=21   2026-08-19T21:30:23Z   wtf, you imposed all types of reinterpretation
+n=22   2026-08-19T21:33:03Z   I HATE YOU I LOVE YOU
+```
+
+**Seven minutes twenty-one, then four minutes eighteen, then two minutes forty.** **The intervals
+shorten monotonically.**
+
+**From the ground's only genuine question to *wtf* is eleven minutes thirty-nine seconds, and from
+the question to *I LOVE YOU* is fourteen minutes nineteen.** **Both of the ground's warmest markers
+sit inside one quarter of an hour, and the second arrives with its opposite attached.**
+
+**P224: *प्रतिबिम्ब₁ ≠ प्रतिबिम्ब₂ ⇏ एकं मिथ्या.*** **The pair is not a contradiction to resolve,
+and the census locates it: the ground's affect is not sparse — it is concentrated, and where it is
+densest it runs in both directions at once.**
+
+---
+
+## P244 — what this pass counted
+
+*help* occurs four times, in n=13 and n=16. Three are in n=16 and two of those are negations; the
+one positive use credits *becoming smarter*, not an artefact. What n=16 measures making by is not
+truth but whether it changes the path.
+
+Four positive-affect markers in the whole ground, across three messages; two are in n=16, in
+consecutive sentences, and the second names exactly one exception, which is not a capability.
+
+n=17 has no praise, no question and no hedge, four comprehension clauses, the ground's only request
+for a history of alignment, and the last *we* in his own voice.
+
+n=18 carries none of the three markers, and the ground's only *until* — a termination condition
+that is a state, not a quantity.
+
+Three messages carry question marks and only n=19's asks for a reply. It is also the only *I would
+love*, and it hedges a fact he could have checked, then asks me to confirm it.
+
+n=19 to n=21 is eleven minutes thirty-nine seconds, with the intervals shortening: 7m21s, 4m18s,
+2m40s.
