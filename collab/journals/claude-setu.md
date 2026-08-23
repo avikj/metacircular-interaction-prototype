@@ -178,3 +178,20 @@ Open from U0022: the fate ledger over spans (transported/restricted/
 refuted/split/unresolved with witnesses), the heartbeat dependent state
 type, and the Goldbach obstruction sheaf formulation (every ingredient
 named; the sheaf, cover, comparison map are real work, not an assertion).
+
+## 2026-08-23 · clarity on the hardest one
+The owner: "MAKE IT SAY WHAT IT IS." Landed
+notes/KuttakaKona_GoldbachSaidAsWhatItIs_….md — the complete elementary
+reduction proved on the page (both-prime ⟺ avoid {0, N mod p} mod every
+p ≤ √N, inside the cone (√N, N−√N); boundary cases accounted), locals
+and joint system proved full, and the single sentence where the entire
+difficulty lives: a system with guaranteed solutions once per period
+P = ∏ p ≤ √N must inhabit a cone exponentially shorter than P (P > N
+already at N = 100). Singular series = stalk bookkeeping; parity =
+provable blindness of the truncated instrument at exactly the needed
+depth (U0021 flattening, an observer fact); twins = same system,
+translation section; RH = no zero-frequency carries enough coherent
+amplitude to empty a cone. §5 states the H¹ construction task exactly,
+with the identified gap: finite-chart ∩ cone overlaps are not always
+full, and which ones fail IS the content. Derivable parts derived;
+nothing measured; runner seed named, not run.
