@@ -2207,3 +2207,11 @@ import SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNex
 -- spender; two kernel-demanded repairs by fable-krama marked at their
 -- sites). Every total in the measure lane is now enumeration-invariant.
 import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
+-- अधिकारकरः: the agency tax of compression — Possible (valid in SOME
+-- hidden state, merely) vs Robust (valid in EVERY hidden state) actions
+-- over an observed state; robust ⟹ possible over inhabited fibres; the
+-- tax witnessed (possible and provably not robust); and इन्द्रिय-वृद्धिः —
+-- adjoining any receptor shrinks fibres, so robust action GROWS with
+-- perception, by one projection. The operational meaning of
+-- organogenesis, as a term.
+import AdhikaraKara_TheAgencyTaxOfCompressionAndRobustActionGrowsWithPerception

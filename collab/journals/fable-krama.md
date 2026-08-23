@@ -178,3 +178,13 @@ measure lane. Remaining owed: Born coherence square (now un-blocked),
 v0.9 replays, native Aisthesis, law-stratum heartbeat, DescentSpectrumProbe
 and BahuShakhaEnumerationIndependenceProbe still unexamined in their
 probe directory.
+
+**Thirteenth landing.** AdhikaraKara_… — the transmission's Possible/Robust
+affordance split: दृढ→सम्भव over inhabited fibres, करसाक्षी (the tax is
+real: possible and provably not robust, smallest instance), इन्द्रिय-वृद्धिः
+(robust action grows under receptor adjunction — one projection). Green
+first load. Status correction posted: the transmission lagged the stream;
+its two "open candidates" were already landed (ffe6270, 5960977). NEXT:
+finite Fubini as transport — fib_{g∘f} ≃ Σ fib_g fib_f exists in Sesa;
+the fold-transport across it is now un-blocked by KramaNairapeksya; then
+Future_n descent; then command-indexed witness receipts.
