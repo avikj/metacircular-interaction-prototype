@@ -748,3 +748,64 @@
   scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
   scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
   scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  ── kernel verdicts ────────────────────────────────────────
+  एकम्	NaturalMachine.FiniteOccupancyChannelNoGo.asNat	शेष	GREEN	rc=0
+  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	GREEN	rc=0
+  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	GREEN	rc=0
+  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	DEATH	rc=42 :: Checking AbhijnanaProbes.P004 (/home/user/math/formal/cubical/AbhijnanaProbes/P004.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P004.agda:16,16-20 Bool !=< ℕ
+  एकम्	PingalaPrastara.matraOf	Metre	GREEN	rc=0
+  एकम्	PingalaPrastara.varna	Chosen	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	PingalaPrastara.varna	Vak	GREEN	rc=0
+  एकम्	NaturalMachine.TypedUnfold.denote	Lang	SKIP	the written fibre takes 4 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.Digits.value	Fib	DEATH	rc=42 :: Checking AbhijnanaProbes.P009 (/home/user/math/formal/cubical/AbhijnanaProbes/P009.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P009.agda:16,21-28 Cannot instantiate the metavariable _B_8 to solution (M.Word k �
+  एकम्	Swarm.S03CarryFiber.value	Fib	GREEN	rc=0
+  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P011 (/home/user/math/formal/cubical/AbhijnanaProbes/P011.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P011.agda:17,11-15 F.big x ≡ b !=
+  एकम्	NaturalMachine.SieveFiber.charge	G	DEATH	rc=42 :: Checking AbhijnanaProbes.P012 (/home/user/math/formal/cubical/AbhijnanaProbes/P012.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P012.agda:17,11-15 M.charge x ≡ b != Σ (x M.∈ M.domain) (λ _ → M.charge x �
+  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	DEATH	rc=42 :: Checking AbhijnanaProbes.P013 (/home/user/math/formal/cubical/AbhijnanaProbes/P013.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P013.agda:17,11-15 F.o₁ x ≡ b !=
+  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P014 (/home/user/math/formal/cubical/AbhijnanaProbes/P014.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P014.agda:17,11-15 F.o₂ x ≡ b !=
+  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	DEATH	rc=42 :: Checking AbhijnanaProbes.P015 (/home/user/math/formal/cubical/AbhijnanaProbes/P015.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P015.agda:17,11-15 F.o₃ x ≡ b !=
+  एकम्	NaturalMachine.SieveFiber.q	Fibre	DEATH	rc=42 :: Checking AbhijnanaProbes.P016 (/home/user/math/formal/cubical/AbhijnanaProbes/P016.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P016.agda:17,11-15 F.q x ≡ b != Σ (x F.∈ F.domain) (λ _ → F.q x ≡ b) of t
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	DEATH	rc=42 :: Checking AbhijnanaProbes.P019 (/home/user/math/formal/cubical/AbhijnanaProbes/P019.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P019.agda:16,35-36 (ℕ → ℤ) !=< ℕ
+  एकम्	TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative.κ	Div	DEATH	rc=42 :: Checking AbhijnanaProbes.P020 (/home/user/math/formal/cubical/AbhijnanaProbes/P020.agda).  Checking TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative (/home/user/math/formal/cubical/Ta
+  
+  probed 20 · GREEN 6 · DEATH 10 · SKIP 4
+  योग्यता: 16 posed and answered, 4 could not be posed.
+  
+  A GREEN is a definitional identity the corpus already carried.
+  A DEATH is a lead the join could not tell apart from a hit, and
+  that number is the one that decides whether this runs on all 249
+  source types.  Probes are left in formal/cubical/AbhijnanaProbes for reading.
+  
+  A source-type match is a LEAD, not a verdict: the first lead ever
+  checked FAILED, because लघु-सङ्ख्या counts laghus while matraOf sums
+  morae -- same types, different maps.  Only the kernel decides.
+
+=========== रात्रिः pass 2026-08-23T08:34:18Z  HEAD 49fbb7ad
+  merged 2 from origin
+  अनाथः machine/: 
+  machine/ is RED — landing nothing this pass, by design.
+  dry pass 1/2
+
+  ── तृतीयो नयः: अभिज्ञान ─────────────────────────────────────
