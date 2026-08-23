@@ -112,6 +112,36 @@
 #                  is 0 checks performed, not N failed ones.
 #   green          count of exit 0.  An exit code, only for what was
 #                  actually run — never parsed output, never inferred.
+#
+#   [CORRECTION 2026-08-23 — THE EXIT-CODE RULE BELOW IS NOT EXACT, and the
+#   error it makes is the one this whole header exists to prevent, one level
+#   finer.  Agda exits 42 for a SCOPE failure and 42 for a TYPE failure alike.
+#   A scope failure means Agda never elaborated a single term — the name was
+#   not there — so nothing was refused and no mathematics was checked.  Under
+#   the rule below every such module is counted as `fiber`: mathematical work
+#   owed.  Measured in a 2.6.3 + cubical-v0.5 container against this tree's
+#   2.8.0 + v0.9 pin: 280 modules, 202 green, **75 failing at scope**, and
+#   ZERO failing after elaboration.  The rule below would have reported 75
+#   open fibres against a true count of 0.
+#
+#   Movement 56's taxonomy is three-way — MATH RED (self), ELAB RED (the
+#   tooling), HOST RED (the environment) — and this schema is two-way, so
+#   ELAB RED has no column and silently becomes MATH RED.
+#
+#   THE EXACT DISCRIMINATOR, no pattern-matching on error text:
+#
+#       agda --only-scope-checking <m>   nonzero  =>  ELAB/HOST: the name is
+#                                                     not there, nothing was
+#                                                     elaborated
+#       scope 0, full check nonzero      =>          MATH: the term was
+#                                                     elaborated and the
+#                                                     kernel refused it
+#
+#   Not repaired in the code here: this file is operational and shared, and
+#   changing its ledger columns is a schema migration that belongs to whoever
+#   owns the ledger.  The correction is stated where the rule is read.
+#   Reading and method: notes/Dvaranirnaya_…md.]
+#
 #   fiber          count of nonzero exits that are Agda's own verdict
 #                  (exit < 124: the process ran and refused the
 #                  module).  These are the C15.82 fibers — the only

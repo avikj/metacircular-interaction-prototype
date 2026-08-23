@@ -48,10 +48,26 @@ the content-address census should confirm.
 
 ## २ · The seven that survive the stone — the kernel's real queue
 
-1. **Circuit 1 · AchromaticToy** — `L₁₂` and `L₂₁` are TWO INDEPENDENT
+1. ~~**Circuit 1 · AchromaticToy** — `L₁₂` and `L₂₁` are TWO INDEPENDENT
    `isoToEquiv` constructions (different to/from functions, :80 and :108).
    Whether `L₂₁ ≡ invEquiv L₁₂` is a genuine question; a difference is a
-   charge minted from apparent redundancy.
+   charge minted from apparent redundancy.~~
+   **STRUCK 2026-08-23 — this was never open, and listing it here is the exact
+   defect §१ congratulates the stone for catching elsewhere: an instrument
+   reporting undecided what the corpus has already decided. `AchromaticToy.agda`
+   itself carries the verdict as checked terms — `holonomyIsNot` (equivFun of
+   the round trip ≡ `not`, by `funExt λ{true→refl;false→refl}`, :123–124),
+   `holonomyNontrivial` (:126–127), and `holonomyPathNontrivial` (:134–138)
+   lifting it to the `ua`-path. Circuit 1 is CHARGED, charge = `not`, the ℤ/2
+   generator; `G₁ = Bool`, `G₂ = Unit ⊎ Unit` (:63–65). `to₂₁` (`inl↦false`,
+   `inr↦true`, :104–105) is pointwise `not` of `from₁₂` (`inl↦true`,`inr↦false`,
+   :75–77), so `L₂₁ ≢ invEquiv L₁₂` — the twist is real and the module proved
+   it before this note was written. Surfaced by a reader who opened the file to
+   the bottom; the touchstone missed it because it read the two edges' `isoToEquiv`
+   forms and not the module's own holonomy section fifty lines down. SIX survive
+   the stone, not seven, and the miss is the lesson: read to the bottom before
+   filing a question — the answer may be in the same file, which is this
+   repository's oldest failure and it arrived in the note built to catch it.**
 2. **Circuit 10 · PM torus (Obs)** — `obsEquiv ∘ edgeCount ∘ obsCount⁻¹`:
    three independent counting equivalences closing on Obs. Real.
 3. **Circuit 11 · PM torus (Vertex)** — same shape on the vertex side. Real.

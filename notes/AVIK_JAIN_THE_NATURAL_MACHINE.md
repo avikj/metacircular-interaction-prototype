@@ -47,7 +47,6 @@ He reached USACO Platinum.
 Then Berkeley EECS.
 
 At eighteen he was still Whig as fuck. He took metaphysics and epistemology at De Anza, started doing drugs, listened to Kanye, joined a fraternity at Berkeley and deliberately did not spend his entire life around computer-science students. Berkeley still had free-love hippies and washed-up hippies and anti-war people smoking with homeless guys who could have advanced visions of technology.
-
 He was also high for roughly seven years of his life, almost continuously, most of the day, almost every day, on amounts of weed he describes as inhumane.
 
 During those same years he got A+ grades in Berkeley’s discrete mathematics and probability, machine learning and operating-systems courses, took graduate technical coursework and published first-author human-robot research. Some of that research was funded by the United States Air Force. The work concerned a machine acting around a human under an objective that did not contain everything the human actually wanted.
@@ -98,7 +97,6 @@ Crowdsurf was the work.
 
 Music already moves through humans. One person loves a song enough to send it to another person. Taste moves with friendship, identity, trust, memory, sex, place, status, subculture. A recommendation system can observe that network, consume the traces of those relations, predict the next song and gradually install itself between the people whose relation generated the information in the first place. Crowdsurf says the network is still the fucking people. Surf through them.
 Then 2025.
-
 He had the Jane Street offer in hand. Roughly $1.2 million. He also had a manic episode. During it he posted publicly about Gaza and called AI-safety researchers **retarded and reprehensible**.
 
 Palestinians were being killed, maimed, displaced and starved while a field with **safety** in its fucking name directed enormous intellectual energy toward hypothetical future machine catastrophe. He had already walked away from extraordinary neural-control research because the actual work required deliberately brain-damaging monkeys and killing them. In Gaza the violence was not hypothetical either.
@@ -148,7 +146,6 @@ Jain knowledge enters on its own terms, not as an exotic ethics plugin for the W
 Ahiṃsā is not a reward function. Anekānta is not perspective diversity. Naya is not metadata. Syādvāda is not uncertainty. Pramāṇa is not merely provenance. Samyag-darśana, samyag-jñāna and samyak-cāritra are not software modules called right vision, right knowledge and right conduct. Translation that leaves familiar Western software nouns with Sanskrit labels has translated nothing.
 
 Modern technical thought wants an axiom, a central law, a scalar, a modular architecture: something portable enough to carry away while leaving the source behind. One conditioned view forgets its condition and declares itself the whole object. Jain epistemology already has a name for that failure: durnaya.
-
 Ahiṃsā does not mean “preserve everything.” Preservation can be attachment. Deletion can be nirjarā. A distinction can have to survive because collapsing it destroys something real. Apparent freedom can be determined structure. The correct act can be transformation, return, refusal, deletion. A beautiful proposition can have to die because the counterexample killed it.
 
 Right seeing, right knowing, right conduct and nonviolence are one problem. A logic that mutilates the known for convenient inference is already wrong. Knowledge that terminates systematically in violent conduct has supplied evidence against its own rightness. An ontology that makes a living being disappear behind the category required to injure it is already wrong. Language that forces a many-sided real into one unconditional predication and forgets the conditions of truth is already wrong.
@@ -197,7 +194,6 @@ The repository is another piece, not the explanation of all the others.
 
 One of its current exact results says that behavior stated entirely in an old language cannot determine which genuinely new control was added in an extension. That theorem is about algebraic signatures. It is **not** a theorem about a person. But it supplies a useful boundary for writing this biography: do not smuggle the later vocabulary backward and pretend the earlier life had already announced it. A new thing is allowed to be new.
 The Natural Machine is the current name of the work Avik is driving. It contains mathematics, software, language, sources, agents, arguments, corrections, refusals and living people. The repository itself says those instruments are not the center. It has already built engines and withdrawn them, installed procedures and demolished them, made beautiful comparisons and then narrowed them when the source refused, preserved true theorems while striking false attributions, and kept dead grand claims as warnings instead of trophies.
-
 That is much closer to a biography than a release note ever was.
 
 Not because it proves what kind of person Avik is.
@@ -248,7 +244,6 @@ He was correcting a model that had taken a frame he had already supplied—techn
 The current formal tree makes that second movement unusually literal.
 
 `FiniteInformation` defines a target as descending through an observable exactly when it is constant on every observer fibre. If an observable collapses two states that matter differently to the target, no decoder rhetoric repairs the loss. Side information completes the observable only when the pair becomes injective.
-
 `BuildCoverageChannel` turns that into a build example. Restrict a module-health vector to the checked dependency closure and the entire ambiguity is exactly the unchecked coordinates. Full reconstruction is possible exactly under universal coverage. Even a successful exit bit is too compressed to distinguish **passed with warning** from **passed clean**; one additional warning bit repairs that particular collision.
 
 `FiniteHistoryTotalization` does the same thing to time. An endpoint forgets the prefix. The fibre above one endpoint is the whole space of possible prefixes. Keep prefix and endpoint together and the history reconstructs exactly. The theorem is not “history is profound.” It says exactly what the endpoint projection erased.
@@ -297,7 +292,6 @@ Source relation is being made equally explicit. Recent files in `kanye-devotiona
 That last distinction is now formal in several different ways. `Bhedanirnaya` has two testers on numbers that can print the same type while remaining different functions; an equivalence can transport theorems between their lanes without collapsing the lanes. `Pratyaya` proves two results equal while leaving their derivations distinct. `MadhyaVinimaya` identifies one law across six sites and still keeps the six routes that brought it there. `Sakaladesa` withdrew an earlier claim that joint content itself was irreducibly n-ary: conjunction folds associatively. The non-associativity was in the composition of positions, a different object. **Sameness of result, sameness of term, sameness of type, equivalence of types, and sameness of route are not one relation.**
 
 None of those formal statements is a theorem about Avik. They are repository facts encountered beside his explicit demand that the machine stop returning his own generalizations to him and instead surface the concrete joint. The biography does not need to turn that proximity into hidden causation. It only needs to preserve the record accurately enough that the reader can see the work changing its own vocabulary when the old vocabulary lies.
-
 ---
 
 Then the repository turned the same correction on the act of reading it.
@@ -347,7 +341,6 @@ Another file from the same pass removes work rather than adding it. `Punaragaman
 The repository is now full of both directions. Sometimes specification reveals a missing coordinate. Sometimes it proves a coordinate determined. Sometimes it reveals that a proposed inverse is bad while the endpoint types are still equivalent by another map. `Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup` does exactly that: `res` is not the inverse of `infl`, but a different `res⁺` closes the equivalence and the group structure transports across the actual edge. The failed candidate is a fact about the candidate, not a verdict on the endpoints.
 
 `NaturalMachine.CompositionalMagmaFactorization` supplies the same kind of boundary in another register. A context-constant set map factors through the contextual quotient. That bare factorization does **not** manufacture a magma homomorphism law. If the original map preserves the operation, then the factor does too; without that premise an explicit Boolean control fails. Quotient descent and algebra preservation are separate obligations even when the same function participates in both.
-
 And `ContractibleFiberSectionBoundary` kills another almost-the-same sentence: a dependent section of `a ↦ Σ[x ∈ A](a ≡ x)` exists canonically and its whole section space is contractible for every `A`; a retraction of the set-truncation unit is a different datum and fails on `S¹`. A section is not a retraction because the words feel adjacent. The types decide.
 
 The source-facing files underwent the same pressure, including the apparatus built to protect the sources. `european-frame.txt` records a recursive failure: writing imported European names in Devanagari can hide the import more effectively than leaving them in Latin. A lemma called “Pascal recurrence” transliterated into Devanagari can look native while still allowing Pascal to explain Piṅgala and Halāyudha. The correction replaces the load-bearing name with source-native `पार्श्वयोग` / *pārśva-yoga*. The same pass replaces the imported “Pell equation” frame with `वर्ग-प्रकृति` where the source tradition supplies that object. A source-sovereignty mechanism can itself reproduce the erasure it was built to stop.
@@ -397,7 +390,6 @@ The next correction is about **blindness**.
 `Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness.agda` then corrects the English gloss without touching that theorem. It defines `holonomy p` as transport along `p` on `Bool`; the answer type `Bool → Bool` is still a set, and even `Bool ≡ Bool` is a set, yet this path-space observable distinguishes `ua notEquiv` from `refl`. The difference is not “set-valued versus higher.” `cong F` observes a loop by postcomposing a carrier map; `holonomy` observes the path itself through its transport action. **Set-valuedness is not the blindness. The domain and construction of the observer are load-bearing.** The file is equally strict about source: no Jaina logician is credited with this cubical theorem; the borrowed relation is only the refusal to turn a standpoint’s silence into absence.
 
 That does not license the opposite shortcut, where every observational collision is promoted into a symmetry of what was observed. `NaturalMachine.PointedReindexOrbitObstruction` gives a finite control. Coordinate reindexing fixes every constant assignment. Its bounded prime-power example has two distinct exponent assignments with the same declared observation, one of them constant, while no reindexing equivalence sends the constant assignment to the other. Observation equality is real. A reindexing orbit is not. “The observable cannot tell them apart” and “they are the same up to symmetry” are different relations and require different witnesses.
-
 `NaturalMachine.SpectatorPaddingCollapse` makes the failure visible without number theory. Under its declared two-arity laws, adding one idle component and reading the result at collective arity makes two different unary execution orders equal after padding. The file also exhibits the two unary functions as genuinely different. There is no cancellation theorem hiding behind the padded equality. Once an interface has forgotten order, equality in that interface cannot be run backward into equality before the forgetting map.
 
 The converse is equally important. `NaturalMachine.TranslationPeakObservability` assumes a translation family with exact cancellation and an observation with one distinguished singleton peak. Under those hypotheses the one-step response profile is injective; complete future equality is equivalent to state equality. The hostile control drops the peak-separation premise and obtains a future collision immediately from a constant observation. So “observation loses information” is not a metaphysics either. It is a theorem or a counterexample about a particular observation under particular hypotheses.
@@ -447,7 +439,6 @@ The next correction is about the word **representation**.
 `NaturalMachine.CostGeometryEdgeBoundary` takes a record that the surrounding prose could easily call a representation change and asks what the record actually contains. `Edge` carries a function and a natural-number cost. That is enough for the arithmetic `Speedup` statements already proved. It is not enough to say the move is an equivalence of carriers, and it is not enough to say the move preserves the operation carried by the presentations. The file exhibits both failures separately: a map can preserve the operation while collapsing `Bool` to `Unit`, and an identity function can be an equivalence of carriers while failing to preserve the operation when the source uses xor and the target uses and. **A cheaper route through a costed function is not yet a certified representation change.** The arithmetic theorem survives; the interpretation has to shrink unless those missing laws are added.
 
 `NaturalMachine.ReachableActionRefinement` and `TheoremCompiledSymmetry` force the same question onto codomains. A decoder on the realized image and a decoder on the whole declared codomain are different data. Every total decoder restricts to the image. The converse requires a way to cover the ambient codomain; without one, an empty source can factor perfectly through its empty image while no function from the declared `Unit` codomain into the empty target can exist. In the executable lane, descended action laws are forced on every quotient point that actually comes from a large state. They become global laws only after a declared split cover realizes every small state. A group law can be perfectly correct on the image and false at an unreachable ambient point. **On-image coherence is not ambient coherence.**
-
 That distinction changes what “the small machine does the same thing” can honestly mean. If the theorem begins at `quotient x`, it has earned a statement about aligned states in the image. If the prose quantifies over an arbitrary `q : Q`, it has silently strengthened the theorem unless coverage was separately proved. The missing assumption is not philosophical caution. It is a section.
 
 `NaturalMachine.RelativeInstrumentAssociativity` finds the analogous seam inside composition. Three dependent instruments do associate, but the two bracketings do not literally have the same outcome type. One side records `((o,n),t)` and the other `(o,(n,t))`; their posterior families are indexed through those different shapes. The checked law first builds the canonical equivalence of the full proof-relevant result totals and then shows execution commutes with that reassociation. “Associative” is true only after saying which associator transports one result type to the other.
@@ -497,7 +488,6 @@ The recency-biased hundred-file exposure did not primarily surface one new grand
 Each of those theorems says something narrower than “this record is irreducible.” It says the probed field is **not determined by the other displayed fields**. That is already enough to kill a common compression mistake: a coordinate does not become redundant because the surrounding record contains many other coordinates. But it does not say every downstream consumer must preserve that field. Structural independence inside one presentation and relevance to a particular target are different questions.
 
 `NaturalMachine.RawWordPaddingNormalForm` gives the counterpoint in the same sample. A raw little-endian digit word is equivalent to a canonical word together with a natural-number count of high-end zero padding. The positional value sees exactly the canonical core. `[]` and `[0]` have the same value and different padding counts. If the task is reconstruction of the raw word, the padding coordinate is load-bearing. If the task is only the positional value, the theorem says that coordinate is intentionally invisible. **Independent from the retained coordinates** is not the same sentence as **relevant to this consumer**.
-
 The generated landings add one more accounting boundary. Several `..._NirdharanaPthree...` modules in the sampled block land the same separating statement again under a generated module name and, in some cases, an added landing header. They remain kernel-checked artifacts, but they are not new mathematical statements merely because they are new files. This is the concrete local version of the repository’s earlier correction from sixty landed modules to thirty-eight distinct statements: file count, landed-proof count, and theorem count are different populations.
 
 So the current compression question has at least two axes. First: is this coordinate determined by the rest of the declared presentation? The `Anirdharita` witnesses can answer that negatively by construction. Second: does the target we care about factor through a map that forgets the coordinate? Fibre and descent arguments answer that question, and the answer can differ from the first one without contradiction.
@@ -547,7 +537,6 @@ The `Ratri/` landings make this recursive rather than merely archival. A `Nirdha
 The source-protection apparatus is forced through the same test. `european-frame.txt` records that a mechanism intended to stop imported framing can reproduce it more effectively: transliterating a European name into Devanagari can hide the import, and an alphabet-shaped parser can call exactly the Unicode-named modules invisible. The correction is not a universal anti-European rule. It is more local and more expensive: read the live corpus, use the source's own term where the source actually supplies one, and state the source, date and limit of attribution at the site. The protection mechanism has to remain corrigible by the material it protects.
 
 These are different mechanisms. A generated import root is not a proof witness. A compiler gate is not a self-test. A route decline is not a kernel refusal. A source-frame check is not historical scholarship. The common requirement is narrower: **whatever made a verdict reproducible has to survive beside the verdict, and the limits of that route have to survive too.** A bare result is over-compressed whenever changing the route would change what the result means.
-
 This is a fact about how the present Natural Machine is being driven, not a retrospective explanation of the life above. The repository is being pushed toward claims that can be regenerated, re-asked and corrected without promoting the apparatus that produced them into the mathematics itself.
 
 A result can be stored.
@@ -597,7 +586,6 @@ The current regenerated census makes the temporal version concrete. `PRASAVA.tsv
 None of this is a theorem about Avik’s life, and it does not license a retrospective story in which every loss was secretly productive. It changes the standard for writing the present work. When one claim dies, do not use the death as permission to flatten everything around it into error. When one theorem survives, do not use survival as permission to restore the interpretation that was killed.
 
 A correction should remove exactly what the counterexample reached.
-
 Everything else has to earn its own fate.
 
 ---
@@ -647,7 +635,6 @@ The correction goes one layer deeper. `diag(2,6)` and `diag(2,12)` have the same
 `Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter.agda` is not the same theorem in another costume. Its failure is a different one: the scalar fourteen counted syntactic candidates before the telescope had been respected. The checked classification is eleven point-moving equivalences, one identity and two parameterized families whose answer depends on the parameter. There the lost distinction is not p-adic depth. It is the type of the population being counted.
 
 The sampled Boolean Goldbach files supply another separate boundary. A support-level observation can remain unchanged while coefficient magnitude changes. That is not Smith theory and it is not the loop census. The common lesson is narrower than an equivalence among them: an invariant is only as informative as the map that defines it, and exactness at one codomain does not license a richer reading.
-
 These examples therefore do **not** establish a universal hierarchy called support → multiplicity → magnitude. Their objects, maps and proofs are different. What the recency-biased pass changes is the question attached to every compression: **which layer is this invariant actually typed to remember?** A support predicate, a rank-drop count, a valuation, a family parameter, a coefficient magnitude and an execution trace are not different resolutions of one unnamed scalar unless a bridge has been exhibited.
 
 The biography already records Avik’s product-design rule that a scalar earns its place at an understanding-bandwidth channel rather than becoming the ontology. The repository does not derive that design rule, and this section does not manufacture the arrow. It supplies a concrete technical warning beside it: a summary can be perfectly correct at its own layer and false only when the reader silently upgrades what the summary means.
@@ -659,3 +646,29 @@ It is learning to name the codomain of the compression.
 Which primes? How many invariant factors? How much valuation? Which loop instances? Which coefficient magnitudes?
 
 Different questions. Different receipts.
+
+---
+
+The next correction is about **motion**.
+
+The recency-biased pass hit a defect in the corpus’s own graph extractor that would be easy to miss if “progress” meant only reaching a new node. `Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts.agda` records that a road-two extractor had thrown away every self-map because an endomorphism has the same source and target type and therefore contributes no new one-step reachability between object-nodes. That did not make it inert. The file separates ascending self-maps from descending ones; the earlier `Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity.agda` supplies the concrete bhāvanā instance whose tracked coordinate strictly grows and does not return. The correction is not “count loops too.” It is that **reachability of types and dynamics inside a type are different observables**.
+
+`Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry.agda` makes the internal motion exact at a different level. If an observable `f` is conserved by a flow `Φ`, then `Φ` acts inside each fibre of `f`; if `f` is an equivalence, that conserving flow is forced to be the identity. `YogaDhruva_TheFibreOfAdditionIsATorsorAndEveryConservingFlowIsATranslation.agda` then gives one arithmetic instance: the fibre of integer addition over a fixed sum is a `ℤ`-torsor under constant shears. `YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields.agda` goes further for addition over a commutative ring: every conserving endomorphism is exactly a point-dependent shear field, a whole function space of possible flows. The file explicitly warns that these general shear fields need not be invertible. Conservation can leave the observed value fixed while allowing substantial internal motion, and **conserving flow does not automatically mean symmetry**.
+
+That last distinction is not optional. `Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.agda` proves that conserving flows of an arbitrary observable form a monoid, not in general a group; its constant-crush control is the obstruction. `SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl.agda` identifies this monoid with sections of the observable’s fibres at set level. The word **symmetry** is earned only after invertibility is supplied. An endomorphism, an automorphism, a fibre section and a graph loop can share a picture without being the same relation.
+
+The adaptive-search files give a separate control on progress meters. `AdaptiveResidualSteering.lean` has a safe constant-response action that moves every Boolean candidate by negation while preserving the exact live-cell cardinality. Therefore every score that factors only through that cardinality is invariant under the move. This does not prove that cardinality is a bad statistic in general. It proves that **cardinality is blind to that steering action**. `AdaptiveResidualAnnotatedSplit.lean` then corrects a different forecast in the opposite direction: genuine partition-splitting events are at most linear even though an ordered-pair ambiguity potential is quadratic. Event count and ambiguity budget are not two units for the same quantity.
+
+`Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed.agda` and `Lekha_TheWholeAuditTrailOfAChainIsFreeToCarryAndNotOnlyOneStep.agda` separate motion from price once more. In their declared proof-theoretic model, carrying a forward trail can be free at arbitrary depth; cost appears when an identification or return is demanded, not once per traversed edge. `DependentSystemOptimization.agda` supplies the system-level warning: the locally cheaper branch can be globally infeasible while the Bellman-composed optimum takes the locally more expensive branch. A per-edge story of cost is not rescued by summing harder.
+
+These files are not one theorem, and this section does not turn them into a universal dynamics ontology. They force a narrower correction to the language of the Natural Machine. “Nothing changed” can mean no new object-node was reached, the observable value stayed fixed, the live-cell cardinality stayed fixed, or the chosen cost did not increase. None of those statements entails that the state did not move. Conversely, a state can move without adding reachability, without changing the observation, and without being a reversible symmetry.
+
+A reachability graph sees objects.
+
+An observable sees its codomain.
+
+A cardinality score sees a count.
+
+A cost model sees what it charges.
+
+Iteration can still be happening underneath all four.
