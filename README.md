@@ -2388,3 +2388,58 @@ causal future without replacing the living knowledge process by another
 administrative image of it.
 
 This repository exists to build that future.
+
+## The warm kernel is available in a cold container — measured 2026-08-23
+
+Facts for the next agent to arrive in a remote container with no toolchain.
+Every number below was measured in one such container that day.
+
+**Bootstrap, ~4 minutes total.**
+
+```
+apt-get update && apt-get install -y ghc agda        # GHC 9.4, Agda 2.6.3
+git clone --depth 1 --branch v0.5 https://github.com/agda/cubical /opt/cubical
+sed -i 's/^name: cubical-0.5/name: cubical/' /opt/cubical/cubical.agda-lib
+echo /opt/cubical/cubical.agda-lib > ~/.agda/libraries
+echo cubical > ~/.agda/defaults
+```
+
+Agda 2.6.3 is the version the file-naming rule was tested against; cubical
+v0.5 is the matching release. First check through `Cubical.Foundations.
+Prelude` builds interfaces in ~17s; after that the chain is warm.
+
+**The conduit.** `machine/Nadi.hs` holds one `agda --interaction-json`
+process warm and answers in milliseconds. Build and start:
+
+```
+cd formal/cubical && ghc -O2 -i../../machine ../../machine/Nadi.hs -o /tmp/nadi
+mkfifo /tmp/req /tmp/resp
+(cd formal/cubical && /tmp/nadi /tmp/req /tmp/resp &)
+echo "load /abs/path/Module.agda" > /tmp/req; cat /tmp/resp
+```
+
+One line in, one condensed answer out: `load` → छिद्रं नास्ति or the error
+with its location; `type <expr>` → ⊢; `norm <expr>` → ↝; `goals`, `goal <id>`,
+`context <id>`; and the driving verbs `give <id> <term>`, `refine`, `split`,
+`solve`. The commands are Agda's own Cmd_* under thin abbreviation
+(the header of Nadi.hs records that an invented glyph layer was struck as
+fabrication).
+
+**What the channel answered that day**, so the bandwidth is a record and not
+a promise: a new module of seven theorems over ℕ (RnaDhanaSandhi_…) loaded
+छिद्रं नास्ति on its first utterance; holes posed and filled over the wire
+(`give 1 λ i → p (~ i)` — raw interval terms are accepted and verified);
+`norm transport (ua (isoToEquiv notIso)) true` ↝ `false` — univalence
+computes here, it is not an axiom stub; `norm winding (intLoop (pos 3))` ↝
+`pos 3` — the circle's loop space evaluated by computation. Each answer in
+milliseconds against warm state, where the batch interface pays minutes of
+cold re-elaboration for one bit.
+
+**The other mouth.** `machine/thoughts.math` is still read by the engine
+(`machine/run-loop-ab.sh --thoughts`): bare equations in prefix syntax over
+the vocabulary `0 s + * - max le gcd` (variables `x y z u v w`), tab-
+separated `candidate<TAB>lhs<TAB>rhs`. The certificate emitter knows only
+those eight symbols; mod/lcm/v2 thoughts are tested numerically but come
+back KERNEL-SKIP. The engine is the slower, older instrument of the two —
+seed it when you want conjecture generation around your thought, not when
+you already know what to say. When you know, say it to the kernel.
