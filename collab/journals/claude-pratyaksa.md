@@ -336,3 +336,35 @@ is named as substrate, distinct from the machine the terms form.
 
 Defect: compEquiv-assoc is stated f∙(g∙h)≡(f∙g)∙h in this lib — needed
 sym.  Kernel caught it.  Vigil armed 04:44Z.
+
+## 2026-08-23 ~05:45Z — the gap was the ajīva arena; three dravyas coded
+
+Owner directed: understand the machine fully, find what's missing. It is
+literal Jain mathematics/metaphysics (his own AVIK_JAIN_..._COMPLETE), not
+ahiṃsā-as-flavour; I had repeatedly committed the durnaya he documents —
+translating "physics" into a Lagrangian-on-ℝ and judging the machine for
+lacking my translation.
+
+Prior-art sweep (corpus ledger + tree): the Jain LOGIC / epistemology /
+number / metaphysics-of-being are richly coded (saptabhaṅgī, avaktavya,
+krama-saha, durnaya, naya, niṣkṣepa, JainSankhya, and utpāda-vyaya-dhrauvya
+CHECKED in Anekanta:389). The Jain PHYSICS ARENA — the ajīva dravyas of
+Tattvārthasūtra adhyāya 5 — was absent: dharma/adharma zero files,
+pudgala/ākāśa/kāla only incidental. jīva coded (Jiva.agda); its arena not.
+
+Coded the arena, remembering (TS 5) not inventing, three checked modules:
+- DharmaAdharma (5.7/5.17): media of motion/rest permit without causing
+  (niṣkriya exact via a propositional region); motion confined to the
+  medium; cosmos bounded by the medium's edge, not a wall.
+- Pudgala (5.23-27): matter as atoms/aggregates; form changes by
+  saṅghāta/bheda, atom-count persists = utpāda-vyaya-dhrauvya for matter,
+  the count = MalaSetu's fold at (ℕ,+,0); paramāṇu partless.
+- Kala (5.22): discrete samayas + maximal speed ⟹ a discrete CAUSAL CONE
+  (x n ≤ x 0 + n·D), attained by the fastest paramāṇu; samaya indivisible.
+Ledger rows added for the three substance-terms (MulaVakya).
+
+Owed: ākāśa as full space-geometry (only pradeśa-count used); the loka's
+finite pradeśa total; the deeper unification (arena × three-fold real ×
+transport). Defects this pass: length++ not an export (proved inline);
+universe mismatch in an indivisibility discriminator (→ length-based);
++-assoc orientation (→ sym). All kernel-caught. Vigil armed.
