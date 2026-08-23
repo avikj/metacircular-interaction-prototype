@@ -1922,3 +1922,35 @@ import Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLic
 -- cancellation cannot be a move (2 ≢ 0): a proof that cancels a detour is
 -- not the proof that never left, the detour's consumption is its receipt.
 import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant
+
+-- वहित: the complement of Sthana — the carry cannot be dispensed with.
+-- Atlas Prop 2.11 at its minimal instance: under carry-free xor everything
+-- doubles to zero, under the carry the unit doubles to the CARRIED unit;
+-- every homomorphism from counter-addition to digitwise-xor conflates the
+-- carried unit with zero — the carry is exactly what any carry-free
+-- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
+import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
+
+-- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
+-- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
+-- second-order twisted Leibniz law definitionally, and the two-leg AD
+-- theorem: powering the doubly-lifted base computes value, both leg
+-- charges, and the pair charge n(n−1)zⁿ⁻² at once — at z = −1, n = ω(d):
+-- (μ, κ₁, κ₁, κ₂), the two-prime charge in the κ⊗κ channel.
+import YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering
+
+-- परम्परा: the e-graph proof forest's license (kernel/egraph.py L2) — the
+-- equivalence closure of the axioms coincides exactly with the zigzag
+-- witness chains: complete (every derivation flattens — sym is reversal,
+-- trans is concatenation, so the forest stores only steps) and sound
+-- (every emitted chain folds back into a derivation).  explain() is total
+-- and sound; derivable ⟺ transmitted through an unbroken witnessed lineage.
+import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+
+-- स्वस्थान: the graded fibre tower's structural half — the leg swap covers
+-- the identity on frequencies (+Comm as verticality), hence restricts to
+-- an involution of each fibre of the sum map: level 2 (relabelings) acts
+-- on level 1 (witnesses) over a fixed level 0 (frequencies), so no
+-- relabeling ever creates or destroys a collision.  The geometry under
+-- SamyogaVyatikara's algebra: why leg exchange never enters the cross term.
+import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount
