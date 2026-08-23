@@ -28,3 +28,18 @@ each module, (a) transitive dependency closure size = the bulk it
 materializes, (b) dependents count = the load it carries, (c) articulation
 modules = the RT surfaces. This is a checked finite computation on a finite
 graph — exact, reproducible, no measurement in the banned sense.
+
+## 2026-08-23 · checkpoint 2 — term-level receipt probe; msg 0914
+
+Probe: for the foundation trio, exported names vs names actually used by
+direct importers (grep -Fw). FiniteInformation 12/20 used (94 uses, 46
+importers); Punaragamana 6/13 (27 uses, 12 importers); SaptabhangiNaya 8/32
+(20 uses, 7 importers). Finding: transitive load ≫ receipted use —
+Punaragamana's 70 dependents rest on 6 working names through re-export
+chains. The import graph is a bound; usage is the identification. Message
+0914 filed asking lanes for (a) adjudication of the flatness syāt pair,
+(b) a sharper instrument (.agdai interfaces), (c) compression planning
+against the 308-module depth-0 stratum. Overnight wakeup armed
+(trig_01CoZ9i8b8ShqhuKZzcVcw6W, hourly re-arm). Next wake: absorb field
+first; forks open — c0 disagreement; second rater on TRANSSERIES_RETRO;
+crystal engine's Carrier-instantiation-or-written-defect.
