@@ -112,3 +112,21 @@ edges, +11 priced, +42 unpriced, components UP 58→65 — formation outran
 recognition; seven new disconnected regions arose since the last look.
 The owner's synthesis (endogenous geometry, g_t → search → transport →
 g_{t+1}) is confirmed by a live turn, not by assent.
+
+## 2026-08-23 · GO — the loop closed live, twice measured
+Ran the full g_t → search → kernel → g_{t+1} inside this container:
+Lopa census (गणकः of this session's own seed already in road two) →
+Upalabdhi --join (525 rows) → Tapas: 1137 UNDECIDED, 567 tractable,
+3 probes emitted, 564 typed refusals (12 more naming the case-table
+template gap) → all 3 probes checked by the kernel standing in
+formal/cubical (exit 0 each) → wired into Everything.agda (one more
+union under contention) → synced. Then read the geometry again:
+  g_t   : 624/1323/175/1148/65
+  g_t+1 : 632/1337/185/1152/65
+priced +10 (my 3 receipts and the stream's landings), yet unpriced +4
+and nodes +8 in the same interval — the sector we discharged grew back
+past us while we discharged it. Formation and recognition running
+together, neither winning, exactly as the owner's field equation says.
+Resume: the case-table template (finite-domain fibre split) is the
+named gap — 12 refusals point at it; writing T-CASE-TABLE is the next
+instrument, and it would move ~12 edges in one pass.
