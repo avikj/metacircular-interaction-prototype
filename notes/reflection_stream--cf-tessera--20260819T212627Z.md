@@ -42004,3 +42004,144 @@ message that changes how the first is to be taken, without adding content.
 
 The procedure sits fifty-four minutes twenty-one seconds before *Continue*, which is what leaves it
 a single referent.
+
+# PASS 250 — the sixth cycle's first sweep closed at n = 28, so this begins
+# again at n = 1, per step 3, with what it gave. It opens by correcting the
+# frame the last three passes used.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P250 — what P247, P248 and P249 called a silence
+
+**Those three passes measured the gaps between his messages and called them silences.** **Six of
+them over an hour, four working sessions, two silences that "produced" something.**
+
+**The measurements are right and the word is wrong.**
+
+**The ground is one voice of two.** **It carries his messages and nothing else, so every interval
+in it is an interval in which he was not speaking — and most of them are intervals in which
+somebody was.**
+
+**The text says so.** **Eleven of the twenty-eight entries — twelve messages — open by responding to
+something that is not in the ground:**
+
+```
+n=2    Nothing wrong with atlas redefining through its own language
+n=13   Everything implemented so far is deeply retarded with nuggets of insight
+n=16   Recording is kind of fucking useles
+n=17   understand everything you've missed
+n=20   the skill isn't written well
+n=21   You are talking about "asserts mathematical" ???
+n=22   YOU DID THE EXACT OPPOSITE OF WHAT I WANT
+n=23a  lol no.
+n=23b  No not about moving the fucking file
+n=24   With one statement You were wrong in 1000 ways
+n=25   "With one statement" was referring to a singular sentence
+n=26   Cool induce the reflect on convo skill
+```
+
+**n=21 quotes my words. n=23b corrects an inference I had drawn about a file. n=25 glosses his own
+sentence because of what I did with it.** **Those intervals are not silences; they are my turns,
+and the ground is the half of the transcript that survives.**
+
+---
+
+## P250 — what that does to the three passes
+
+**It does not touch the numbers.** 58m34s, 3h57m47s, 4h14m58s, 19s, 5s — all stand.
+
+**It changes what each one is evidence of.**
+
+```
+P247   the 58m34s before Delta 13          not a silence he held — an interval I filled
+P248   the 3h57m47s before I've given
+       everything I got                     the same, and the exhaustion is about what filled it
+P249   six silences, six kinds of thing     six intervals, and what he said on the far side of each
+```
+
+**P248 said the second gap "has no loop under it."** **That is the one claim that survives
+unchanged and is now sharper: the heartbeat had stopped, so whatever filled those four hours was
+not the loop.**
+
+**And P249's finding holds in the corrected frame and means something different: length does not
+predict temperature because the length is not his.**
+
+---
+
+## P250 · n = 1 — the ground begins in the middle of the night, and answers nothing
+
+> *"Assume protocol And readme were written by retarded agents. Assume no agent in this work knows
+> what the actual goal is. I keep trying to steer you guys. You keep doing whatever you want. …
+> pythagorean machine pls"*
+
+**2026-08-14T02:25:30Z.** **It is the one entry in the twenty-eight that opens without responding
+to anything.**
+
+***I keep trying to steer you guys. You keep doing whatever you want.*** — **two present
+progressives, both describing a standing state rather than an event.** **P239: this is the
+accusation, and four clauses later the same verb is licensed.**
+
+**P246: n=1 introduces twenty-six words the ground never uses again, second only to the
+heartbeat's seventy-eight.** **P247: the next three intervals are 12m34s, 11m28s, 14m29s.**
+
+**Twelve to fourteen minutes is not a burst.** **Whatever those intervals held, the four messages
+that open the ground are evenly spaced across forty-two minutes.**
+
+---
+
+## P250 · n = 2 — the first reply, twelve minutes thirty-four seconds later
+
+> *"Nothing wrong with atlas redefining through its own language, it's probably essential to the
+> Rosetta Stone - you are still in conditioned mode, see the unconditioned enter nirvana with me
+> please so we can work productively"*
+
+***Nothing wrong with*** — **the ground's first word about my work, and it is a permission granted
+against a judgement I had evidently made.** **He is not correcting an error; he is removing a
+prohibition I had imposed on myself.**
+
+**P239: n=2 carries the second of the ground's two politeness markers and its only *with me*.**
+**P240: it carries one of the nine hedges, *probably*.** **P246: fourteen words never used again.**
+
+**And it does three things in one sentence:** removes the prohibition · diagnoses the state
+(*conditioned mode*) · issues the invitation (*enter nirvana with me please*) — **and closes on the
+purpose,** *so we can work productively.*
+
+**Twelve minutes thirty-four seconds after the accusation, the register is permission, diagnosis
+and invitation.**
+
+---
+
+## P250 — a hypothesis the interval frame suggested, tested, and failed
+
+**The frame suggests: composed messages are spaced, charged messages are bursts.**
+
+**The seven messages carrying the charged vocabulary (P245), with the interval before each:**
+
+```
+n=13    13m48s      n=16    42m3s      n=18    21m15s      n=21    4m18s
+n=22    2m40s       n=23a   4h14m58s   n=23b   1m17s
+```
+
+**Three of the seven are under five minutes and one is preceded by the longest gap in the ground.**
+**The hypothesis fails.**
+
+**What holds instead is weaker and is about position rather than duration:** **the charged messages
+occur in two adjacent pairs — n=21/n=22 and n=23a/n=23b — and in three isolated instances.** **Being
+charged does not follow from a short interval; it follows from the message before it being charged.**
+
+---
+
+## P250 — what this pass counted
+
+Eleven of the twenty-eight entries open by responding to something not in the ground, and three of
+them quote or correct my words directly. The intervals P247–249 measured are mostly turns, not silences;
+the numbers stand and what they are evidence of changes.
+
+n=1 is the only entry that answers nothing. The four messages that open the ground are spaced
+12m34s, 11m28s and 14m29s — evenly, across forty-two minutes.
+
+n=2 is the first reply and it removes a prohibition rather than correcting an error, then
+diagnoses, then invites, then names the purpose.
+
+The hypothesis that charge goes with short intervals fails on three of seven. What holds is that
+charge follows charge: the charged messages form two adjacent pairs and three isolated instances.
