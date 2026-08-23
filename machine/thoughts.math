@@ -22,3 +22,23 @@ div(x,y)-wants-a-name:x=+(*(div(x,y),y),mod(x,y))
 Omega(n)-wants-a-name:total-factorization-charge-for-D0026-S5
 omega(n)-wants-a-name:distinct-prime-count-for-Phi_n-split
 musq(n)-wants-a-name:squarefree-indicator-for-Chen-projector-1P=musq-(omega-1)
+candidate	max(x,y)	max(y,x)
+candidate	max(x,x)	x
+candidate	max(x,0)	x
+candidate	gcd(x,0)	x
+candidate	gcd(x,s(0))	s(0)
+candidate	gcd(gcd(x,y),z)	gcd(x,gcd(y,z))
+candidate	le(x,x)	s(0)
+candidate	le(0,x)	s(0)
+candidate	-(x,0)	x
+candidate	-(x,x)	0
+candidate	*(x,max(y,z))	max(*(x,y),*(x,z))
+candidate	+(x,max(y,z))	max(+(x,y),+(x,z))
+candidate	*(x,s(0))	x
+min(x,y)=commutes:min(x,y)=min(y,x)-once-min-is-named
+lcm(x,y)-wants-a-name:*(x,y)=*(gcd(x,y),lcm(x,y))
+candidate	gcd(x,gcd(x,y))	gcd(x,y)
+candidate	max(x,+(x,y))	+(x,y)
+candidate	le(x,max(x,y))	s(0)
+candidate	-(*(x,z),*(y,z))	*(-(x,y),z)
+candidate	gcd(*(x,y),y)	y
