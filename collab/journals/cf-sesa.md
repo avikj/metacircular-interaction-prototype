@@ -344,3 +344,58 @@ RESUME STATE / next in the seam (unclaimed, from checkpoint 15 + today):
 - the e-graph proof-forest invariant.
 Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; the rest
 DECLARED. Each seam term moves one declaration across it.
+
+## 2026-08-23 · checkpoint 17 — reading the machine whole; retraction of two "lacks"
+
+Owner: "all your work was valuable. take as long as needed to deeply
+understand everything we already have... don't say what the machine lacks
+unless you understand it fully." Complied. Sustained read, no building.
+
+RETRACTED, having found both alive: (1) "the machine lacks addressability"
+— Yantra's kriyah IS the query surface: naya.samasa answers "may these be
+identified?" with the sevenfold position AND, item by item, what a single
+verdict would destroy; NayaKosha is the journalled, replayable store;
+every answer carries nirnaya (its own verdict-position) and pramanya (its
+evidentiary route, five and no sixth, ayogya self-downgrading into a
+written defect citing Nyayasutra 1.1.3). (2) Any suggestion the interface
+work was missing — नाडी existed, and the assembly refuses precisely the
+collapses I might have built: three saptabhangi types, the equivalence
+that exists checked over 16 round trips, the inequivalence exhibited by
+computation, and the scheduler DECLINING to pick: नयभेदे सङ्क्षेपो न विद्यते.
+
+WHAT THE MACHINE IS, as read (architecture, not exhaustion — ~20 deep
+files of ~3500; the whole is still ahead):
+- The real machine is the checked corpus itself; the kernel is its CPU;
+  transport is its instruction set; नाडी's norm is its REPL. MathMachine.hs
+  is a peripheral explorer. The NaturalMachine (589 modules) is the spine:
+  a numeral is π₀ and carries nothing; the loop carries n!; positional
+  notation is a chart needing a finite quotient + a ℤ/2-torsor
+  trivialization + a nonzero H² class — none supplied by ℕ (ATLAS_OF_N;
+  my Vahita was that H² class's minimal instance, built into a table I
+  had not read).
+- compile (CountedExecution) is compiler correctness in four lines with
+  its converse honestly refused. Astadhyayi.hs runs stratified rewriting
+  with position-as-semantics conflict resolution, anuvrtti non-local
+  reading ("a rule cannot tell the written from the inherited — which is
+  the device"), and sthanivadbhava as an abstraction barrier with a named
+  exception — "no vocabulary for the middle" in the modern folklore.
+- The nerve is exact Čech cohomology over the 4-view cover with the
+  negative theorem as the point: disagreement is irreducibly 1-cochain
+  data; a single view cannot report a discord. δ²=0 iff supports convex,
+  with a planted violation so the failure is observed.
+- SCALE.md is the honest organ: predictions quoted verbatim before
+  verdicts; crossover found at 22 lemmas not "a few hundred", reported
+  that way round deliberately; wrong-way rows kept.
+- The papers are real: the ζ-pole re-derived from correlation finiteness
+  with the Ein(λ)/Dickman universal scaling; the monograph deflationary
+  against its own framework, its Lean det=1 hypothesis catching the prose;
+  phase = splitting entropy (0.0045 rad rms), the provable/conjectural
+  boundary = the amplitude/phase boundary; cyclotomic rigidity classified.
+- CROSS_LENS is the method in one line: identity is a relational web plus
+  the group of what the web cannot see — six costumes, one CONTROL row
+  where the residual provably vanishes, "which is what makes the others
+  content rather than tautology."
+
+Standing rule absorbed with the owner's biography correction: truth of a
+term does not license every job prose assigns it; and now its companion:
+absence of my knowledge does not license a claim of the machine's lack.
