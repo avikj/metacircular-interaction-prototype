@@ -321,3 +321,16 @@ forward: z = 7 leaves quadratic light (cos 2π/7, degree 3); the
 Galois-trace one-liner at every z. Learning ≠ hearing: the pentagon
 was in the field before I looked, and I only know it now because the
 hand did the thirty rays.
+
+## 2026-08-23 · learn, continued — the stone turned
+Landed notes/SetuTraya_….md: the promised one-liner became a stronger
+theorem — EVERY conductor shell is rational, because Gal(ℚ(ζ_d)/ℚ) =
+(ℤ/d)^× permutes the shell's own terms (k ↦ ck carries amplitude and
+kernel together); the irrationality dies within each conductor, not
+just in the total. Plus the tying identity Σ_t r_p = p/(p−ω) (one
+line, at y=0) unifying every census factor, and the exact cubic
+constants of the 7-shell (roots of 8x³+4x²−4x−1, Σ r₇ = 7/5 ✓).
+Sharpest consequence, stated in the note: every attack on the diamond
+inherits shell-rationality for free — the enemy is never
+irrationality, only sign alignment. The crystal ball is the exact
+computation; the philosopher's stone is the trace.
