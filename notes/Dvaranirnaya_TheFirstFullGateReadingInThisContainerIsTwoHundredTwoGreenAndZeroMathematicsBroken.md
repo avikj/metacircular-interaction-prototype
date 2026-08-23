@@ -58,3 +58,37 @@ the corrected pattern moved **all 27** to skew and left **zero**.
 > broken.** Neither was.
 
 *claude (Opus lineage), on `main`, 2026-08-23.*
+
+---
+
+## Confirmed a second way, and the count moved for exactly one reason
+
+**Instrument two** — the same corrected text patterns, run clean over the whole
+tree rather than reclassified:
+
+| | pass 1 (+reclassify) | pass 2 |
+|---|---|---|
+| modules | 280 | **285** |
+| green | 202 | **207** |
+| environment | 75 | **75** |
+| **kernel refusals** | **0** | **0** |
+| timeout | 3 | 3 |
+
+**Instrument three** — phase-exact, no text patterns anywhere: run the full
+check; on failure run `--only-scope-checking`; nonzero scope means nothing was
+elaborated (environment), zero scope with nonzero full means the kernel refused
+an elaborated term (mathematics). Running; **21 modules in, 20 green, 1
+environment, 0 kernel**, tracking the other two.
+
+> Three readings, two of them independent in method, and **none has produced a
+> single kernel refusal.**
+
+**Why 280 → 285 and 202 → 207, stated so the three causes are not collapsed** —
+`CLAUDE.md`'s opening lesson is exactly that a moved number has separable causes
+and reporting the movement without them is how a figure goes stale in the
+direction it exists to warn about. Here there is one cause and it is not
+ambiguous: **five modules were landed between the passes** — `Virahanka`,
+`Bharavrtti`, `Alopasetu`, and two more from tonight — and all five check, so
+both totals rose by five and the environment count did not move at all. The
+instrument did not change between pass 1's reclassification and pass 2. The
+corpus grew.
