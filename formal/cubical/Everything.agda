@@ -660,6 +660,11 @@ import JainSankhya
 -- propositional region), motion is confined to the medium, and the cosmos
 -- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
 import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
+-- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
+-- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
+-- count is the free-monoid fold at (ℕ,+,0).  The paramāṇu is partless.
+import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionButTheAtomCountPersists
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
