@@ -1732,3 +1732,10 @@ import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolono
 import ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue
 import ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics
 import ConstantFibre_SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs_सम-निर्णयः
+
+-- वेस्तिबुलम् (U0021 §1, the owner's name): the general holonomy receptor —
+-- Hol F l = subst F l, a Sensation type whose two constructors each demand
+-- their witness, and the both-poles instance over the ONE loop of S¹: flat
+-- for the constant family, charged for the helix.  The unqualified claim
+-- "this circuit has curvature" is unwritable in the report type.
+import Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness

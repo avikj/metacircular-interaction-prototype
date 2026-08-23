@@ -150,3 +150,16 @@ pushes on its own from here.
 Resume: ratri running in background (log notes/ratri/2026-08-23-container.log);
 T-CASE-TABLE template still the named instrument gap; Aisthesis
 enforcement (hook or Ratri contract) and graph-level ε comparator owed.
+
+## 2026-08-23 · U0021 and Vestibulum
+The owner's sensorium transmission preserved as collab/upstream/raw/U0021.txt
+(header first claimed verbatim, was a condensation; claim corrected in
+place, not the evidence). Built its §1 as a checked organ:
+Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnother… — Hol F l
+= subst F l; Sensation with स्थिर/चलित each demanding its witness (no
+constructor mentions the loop alone, so the unqualified curvature claim
+is unwritable); both poles inhabited over the SAME loop via Pradakshina's
+सरणिः/अ-पुनरागमः/ध्रुव-वलयः. Kernel: exit 0. Wired.
+Resume: ratri still running in background; remaining U0021 organs open —
+interferometry (Hol(p⁻¹q)) is the nearest next, HornSense and the
+camouflage organ after; organogenesis remains the deep gap.
