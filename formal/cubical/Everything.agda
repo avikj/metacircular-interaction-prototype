@@ -666,6 +666,12 @@ import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBo
 -- beyond the medium of motion, room where nothing moves.  With jīva, dharma,
 -- adharma, pudgala, kāla, this completes the six dravyas in the checked lane.
 import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoThereIsRoomWhereNothingMoves
+-- The arena bound into ONE type: the six dravyas (jīva + the five ajīva),
+-- classified exactly as Tattvārthasūtra 5.1-6 classifies them — five
+-- astikāya + kāla, one corporeal (pudgala), and the SAME three that are
+-- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
+-- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
+import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
