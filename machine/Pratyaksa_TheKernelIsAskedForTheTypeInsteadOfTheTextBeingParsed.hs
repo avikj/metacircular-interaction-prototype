@@ -187,6 +187,7 @@ main = do
   case args of
     ("--collisions" : p : _) -> collisions p
     ("--edges" : p : _)      -> kernelEdges p
+    ("--twins" : p : _)      -> twins p
     _ -> emit args
 
 emit :: [String] -> IO ()
@@ -406,6 +407,120 @@ kernelEdges path = do
   putStrLn "# ── योजना · SCHEMAS, kept and named, not merged and not dropped ──"
   mapM_ (\(d, a, b) -> putStrLn ("# schema\t" ++ d ++ "\t" ++ a ++ "\t" ++ b)) schema
   where
+    splitTabs x = case break (== '\t') x of
+      (a, '\t' : r) -> a : splitTabs r
+      (a, _)        -> [a]
+
+------------------------------------------------------------------------
+-- यमजौ · TWINS — two modules holding the same statement about their own
+-- copy of the same definition, which is a CHANNEL and not a duplication.
+--
+-- `--twins <table.tsv>` reads a प्रत्यक्ष table and reports declarations
+-- whose elaborated types become identical once each one's OWN module
+-- prefix is erased.
+--
+-- WHY, AND IT IS THE CORPUS ASKING.  `Bhedanirnaya_TwoTestersForSameness
+-- OnNumberAndTheTransportThatMovesTheoremsBetweenThem.agda` opened one
+-- such pair BY HAND -- two modules each defining `eqℕ` by the same four
+-- clauses, whose soundness theorems PRINT alike and are not the same type,
+-- because `EGBResidueGlue.eqℕ m n` and `NaturalMachine.Obstruction.eqℕ m n`
+-- do not reduce to a common form at variable m and n.  Four lines of
+-- induction gave pointwise agreement, one abstraction gave a path, and
+-- then:
+--
+--     "A duplication that has been identified is not merely tidier -- it
+--      is a channel, and theorems flow both ways along it."
+--
+-- Obstruction had proved COMPLETENESS and EGBResidueGlue had gone without
+-- it; transport backwards along the same path handed it over, with no new
+-- induction and no edit to either module.  Each had proved only the half
+-- its own question required.
+--
+-- And §६ of that module names precisely what is missing:
+--
+--     "The pattern generalises and is not generalised.  Whether the corpus
+--      has more instances of it is a question for the audit tool, which
+--      currently reports only same-PRINTED-type groups and would miss a
+--      pair whose definitions agree under different names."
+--
+-- This is that search.  Printed types are what the old audit compared and
+-- they are exactly what cannot distinguish these cases; ELABORATED types
+-- are fully qualified, so `⟨self⟩`-erasure is well defined and the
+-- comparison is the kernel's rather than a parser's.
+--
+-- WHAT A HIT IS AND IS NOT.  A hit is a CANDIDATE channel, never a proved
+-- one.  Two statements normalising alike does NOT mean the two underlying
+-- definitions agree -- `Bhedanirnaya` §1's four lines of induction are
+-- exactly the work this report cannot do, and if the definitions differ
+-- the pair is a genuine near-miss and the report is a lead that has to be
+-- opened by hand.  Reported as identifications: which two declarations,
+-- and the shared shape.  Never as a count.
+--
+-- WHAT IT CANNOT SEE, stated so silence is not read as denial (सूत्र ७).
+-- Only modules the kernel answered for: a chunk whose root failed to load
+-- contributes nothing, and `EGBResidueGlue` -- half of the one pair known
+-- to exist -- is absent from the table this was first run against.  So an
+-- empty report is a fact about the table, and the coverage line below says
+-- which modules were in it.
+------------------------------------------------------------------------
+
+-- erase a declaration's own module prefix, so two modules' statements
+-- about their own copies become comparable
+selfErase :: String -> String -> String
+selfErase m t = go t
+  where
+    pre = m ++ "."
+    go [] = []
+    go s@(c : cs)
+      | pre `isPrefixOf` s = "⟨self⟩." ++ go (drop (length pre) s)
+      | otherwise          = c : go cs
+
+twins :: FilePath -> IO ()
+twins path = do
+  s <- readFile path
+  let rows = [ (m, n, t) | l <- lines s, take 1 l /= "#"
+             , let f = splitTabs l, length f >= 3
+             , let m = f !! 0, let n = f !! 1, let t = f !! 2
+             , not (null t) ]
+      keyed = [ (selfErase m t, (m, n)) | (m, n, t) <- rows ]
+      grouped = foldr ins [] keyed
+      -- a channel needs TWO DIFFERENT MODULES; the same module stating a
+      -- thing twice is a different question and is not one.
+      chans = [ (k, ds) | (k, ds) <- grouped
+              , let ms = nub (map fst ds)
+              , length ms > 1
+              , mentionsSelf k
+              -- RE-EXPORTS ARE NOT TWINS.  `NaturalMachine.agda` carries
+              -- `open import NaturalMachine.SmithPathCountedExecution public`,
+              -- so one declaration surfaces under both `A.x` and `A.B.x` and
+              -- normalises alike for the trivial reason that it IS one
+              -- declaration.  One module name being a prefix of another is
+              -- exactly that case, and it is dropped rather than reported --
+              -- a channel between a module and itself pays nothing.
+              , not (any reExport [ (a, b) | a <- ms, b <- ms, a /= b ]) ]
+  putStrLn "═══ यमजौ · candidate channels — one statement, two modules, each about its own copy ═══"
+  putStrLn "  A hit is a CANDIDATE.  Two statements normalising alike does not mean"
+  putStrLn "  the two definitions agree; that induction is exactly the work this"
+  putStrLn "  report cannot do.  Bhedanirnaya opened one such pair by hand and it"
+  putStrLn "  paid: each module had proved only the half its own question required,"
+  putStrLn "  and identification handed each the other's half."
+  putStrLn ""
+  putStrLn $ "  coverage: " ++ show (length (nub [ m | (m, _, _) <- rows ]))
+             ++ " modules answered by the kernel.  A module absent here was not"
+  putStrLn   "  looked at, and its absence from the report says nothing (सूत्र ७)."
+  putStrLn ""
+  mapM_ report (sortOn fst chans)
+  where
+    mentionsSelf k = "⟨self⟩" `isInfixOf` k
+    reExport (a, b) = (a ++ ".") `isPrefixOf` b || (b ++ ".") `isPrefixOf` a
+    ins (k, d) [] = [(k, [d])]
+    ins (k, d) ((k', ds) : r)
+      | k == k'   = (k', d : ds) : r
+      | otherwise = (k', ds) : ins (k, d) r
+    report (k, ds) = do
+      putStrLn ("  ── " ++ take 150 k)
+      mapM_ (\(m, n) -> putStrLn ("       " ++ m ++ "." ++ n)) (sortOn fst (nub ds))
+      putStrLn ""
     splitTabs x = case break (== '\t') x of
       (a, '\t' : r) -> a : splitTabs r
       (a, _)        -> [a]
