@@ -701,3 +701,38 @@
   Ledger: notes/anuloma/NirnayaPanjika.tsv — a pass now costs only what
   CHANGED, keyed on नाम's content addresses and the probe's own digest.
   Watching at 1800s for work other seats push.
+
+  ── तृतीयो नयः: अभिज्ञान ─────────────────────────────────────
+  
+  अभिज्ञान — does this fibre already have a name here?
+  ──────────────────────────────────────────────────────────
+  undecided edges on road two   : 1158
+  fibre rows already written out: 268
+  सङ्ख्या एकम्  (one candidate)   : 20
+  सङ्ख्या बहु   (many candidates) : 10652
+  
+  LEAD  एकम्	NaturalMachine.FiniteOccupancyChannelNoGo.asNat	शेष	formal/cubical/GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge.agda
+  LEAD  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	formal/cubical/NaturalMachine/ChenTwoChargeProjector.agda
+  LEAD  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	formal/cubical/NaturalMachine/DependentOptimizationFibration.agda
+  LEAD  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	formal/cubical/NaturalMachine/OracleSeparation.agda
+  LEAD  एकम्	PingalaPrastara.matraOf	Metre	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	PingalaPrastara.varna	Chosen	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	PingalaPrastara.varna	Vak	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	NaturalMachine.TypedUnfold.denote	Lang	formal/cubical/NaturalMachine/TypedUnfold.agda
+  LEAD  एकम्	NaturalMachine.Digits.value	Fib	formal/cubical/Swarm/S03CarryFiber.agda
+  LEAD  एकम्	Swarm.S03CarryFiber.value	Fib	formal/cubical/Swarm/S03CarryFiber.agda
+  LEAD  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	formal/cubical/NaturalMachine/ChargeGradedPeeling.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.charge	G	formal/cubical/NaturalMachine/ChargeGradedPeeling.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	Fibre	formal/cubical/NaturalMachine/SieveFiber.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	म	formal/cubical/Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	म	formal/cubical/Gurutama.agda
+  LEAD  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	formal/cubical/NaturalMachine/SpernerFromSl2.agda
+  LEAD  एकम्	TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative.κ	Div	formal/cubical/NaturalMachine/SpernerFromSl2.agda
+  
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
