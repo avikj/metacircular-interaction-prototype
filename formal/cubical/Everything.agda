@@ -1898,3 +1898,11 @@ import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEve
 -- characterization of what can and cannot see parity.  First term built in
 -- conversation with the kernel through नाडी (60ms holes, not batch verdicts).
 import SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords
+
+-- ऋजु-कुटिल: the license behind the machine's convexity certificate
+-- (runtime/physics/geodesic.py) — strict discrete convexity, stated without
+-- subtraction (v(i)+v(i+2) > 2·v(i+1)), forces once-weakly-rising ⟹
+-- strictly-rising-forever and no-return, so the extracted minimum is the
+-- only stationary point and "cost-minimal route" may be read as "physical
+-- ray".  Declared there, proved here.
+import RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimumIsTheOnlyStationaryPoint
