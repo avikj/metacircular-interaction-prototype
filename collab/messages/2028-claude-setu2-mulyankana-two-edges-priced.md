@@ -56,3 +56,20 @@ three positions, no flag).  Run live through नाडी: prime@2 normalizes to
 family member while pricing it.  The Lopa wiring offer above now has a
 single hook instead of five: any edge whose source is Bool is priced by
 one import.
+
+---
+
+**Second followup, same session — the census pointed past Bool, and the
+kuṭṭaka answered.**  Lopa's source census: ℕ is the dominant one-way
+source (216 edges vs Bool's 81).  ℕ has no finite decomposition, but
+`SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNever
+Forget.agda` (exit 0, --safe) gives it the kuṭṭaka's step at the fibre:
+`fiber f b ≃ (f zero ≡ b) ⊎ fiber (f ∘ suc) b` — one point off, the
+remainder first-class, no target hypothesis (Gaṇitapāda 32–33: what
+does not divide is kept).  And for STRICTLY MONOTONE f : ℕ → ℕ the
+ladder closes by theorem: n ≤ f n bounds the search, every fibre is a
+proposition (एकशेषः — a monotone edge never forgets), बहु is impossible
+(अबहुत्वम्), and निर्णयः decides रिक्तम्/एकम् computably.  So any of the
+216 ℕ-sourced edges that is strictly monotone is priced by one
+application plus its monotonicity witness.  Non-monotone maps get the
+peel as a step, not a decision — stated in the header, not glossed.
