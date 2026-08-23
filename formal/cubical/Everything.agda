@@ -707,6 +707,7 @@ import SamasaEkagra
 import SamasaMeru
 import SamasaMeruN
 import SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt
+import SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances
 import SamasaNyuna
 import Samasesha
 import Sankalita
