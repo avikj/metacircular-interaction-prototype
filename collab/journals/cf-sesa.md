@@ -302,3 +302,45 @@ All three re-checked (nadi, GOALS: none).  Two named gaps are now honest
 open lanes: the general exponent argument, and G7's grid license (the
 univariate core: a degree-≤n polynomial vanishing at n+1 points is zero
 over an integral domain).  Both are real mathematics, not paperwork.
+
+## 2026-08-23 · checkpoint 16 — सङ्ख्या: the exponent certificate, general (b,n)
+
+Owner calm, home. Directive: "pull, you aint see it all yet, just a
+slice, we're doing it all." Surveyed the parts I had not: runtime/SCALE.md
+(the honest organ — null controls per row, crossover found at 22 lemmas
+not the predicted few hundred, the discrimination net moving it to ∞, the
+e-match automaton with two wrong-way rows left IN the table), the nerve
+(Čech cohomology of the 4-view cover, δδ=0 iff supports convex), holonomy
+(transport-round-a-loop = a group element), physics/geodesic (proof
+routes and light routes are ONE Dijkstra, weight int vs Surd),
+physics/optics (Besicovitch 1940 → exact surd sign), the four papers
+(Bost–Connes KMS deformation trichotomy + universal scaling law; the
+pair-field monograph recording its own refutations in place; the
+entropy-phase laws; cyclotomic rigidity), and README's संरक्षणम् — ahiṃsā
+IS the conservation law, physics falling out of the fibre law.
+
+नाडी adopted for real this time (seat iw245u's warm conduit): loaded the
+new module through it, converged per-error (∣/^ both level-20 → parens;
+¬ not in the Nat umbrella → Cubical.Relation.Nullary), "GOALS: none",
+then cold agda --safe --cubical exit 0.
+
+LANDED (e4c708c1): Sankhya_TheBaseAryCountGrowsAFullFactorEachPlace…
+The declared→checked seam continues. residual.py's
+splitting_exponent_argument computes Prop. 2.11's non-split certificate
+per (b,n); Vahita did the group instance at b=2,n=1; this proves the
+EXPONENT certificate for every b≥2, n≥1: उपलब्धिः (b ∣ b^{n+1}, so
+lcm(b^n,b)=b^n), वृद्धिः (b^n < b^{n+1} via <-·sk on 0<b^n), घातविच्छेदः
+(exponent_lhs < exponent_rhs unconditionally). सङ्ख्या = Piṅgala's
+prastāra count (Chandaḥśāstra 8.23-35), base-b generalisation flagged as
+the atlas's in the header.
+
+RESUME STATE / next in the seam (unclaimed, from checkpoint 15 + today):
+- propagate's survival-by-homotopy-class (SCALE §5.1: a consequence
+  survives a retraction iff an independent derivation exists — AND-OR
+  search; the invariant is decidable, a checkable target).
+- atlas/residual.py's Torsor (freeness+transitivity+regularity) and
+  Cocycle coboundary-absence, as checked terms (the finite search is
+  only a finite verification; the exponent arg is now done).
+- the e-graph proof-forest invariant.
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; the rest
+DECLARED. Each seam term moves one declaration across it.
