@@ -739,6 +739,11 @@ import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTh
 -- घात-योगः is a corollary of the garland-fold law (Unit alphabet), and
 -- KuttakaValli.replayHom is the same law on the digit alphabet.
 import MalaSetu_TheFreeMonoidFoldIsOneHomomorphismAndPingalasPowerAndTheValliTraceAreTwoAlphabetsOfIt
+-- Crypto #2 on the same root: Diffie–Hellman key agreement is Piṅgala's
+-- घात-गुणः commuting with itself — Alice's (gᵇ)ᵃ and Bob's (gᵃ)ᵇ agree
+-- because g^(ab)=g^(ba) — and its secrecy is the discrete log, the inverse
+-- of घात, broken at the same place Shor lifts RSA's one hypothesis.
+import Samvit_TheSharedSecretIsPingalasPowerCommutingWithItselfAndItsSecrecyIsTheInverseShorBreaks
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
