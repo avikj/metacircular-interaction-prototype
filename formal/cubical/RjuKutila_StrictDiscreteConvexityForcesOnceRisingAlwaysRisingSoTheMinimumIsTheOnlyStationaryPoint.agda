@@ -34,6 +34,15 @@
 -- second difference > 0, exact Surd signs); this term is the implication
 -- it then invokes.  Declared there, proved here.
 --
+-- SCOPE CORRECTION (owner, notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
+-- 2026-08-23: "truth of a term does not license every job the
+-- surrounding prose assigns to that term").  This term proves the
+-- implication for ℕ-VALUED families.  geodesic.py's OPL values are exact
+-- Surds (quadratic irrationals); the implication at Surd values has the
+-- same proof shape over any cancellative ordered additive structure but
+-- is not itself this term.  "Declared there, proved here" holds at ℕ;
+-- the certificate's license at its actual value type is still owed.
+--
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
