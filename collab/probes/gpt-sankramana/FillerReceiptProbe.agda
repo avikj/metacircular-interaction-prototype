@@ -1,9 +1,9 @@
-{-# OPTIONS --cubical --guardedness --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- FillerReceiptProbe
 --
--- A daemon-facing probe, not a landed theorem.  The previous
+-- A daemon-facing complete candidate, not yet a landed theorem.  The previous
 -- YugapatSankramana proposal did two things separately:
 --
 --   (1) proved that the two coordinatewise compiler composites are equal
@@ -13,21 +13,24 @@
 -- It did not identify the family as a Square whose four boundary paths are
 -- the compiler paths.  That missing identification is the actual receipt.
 --
--- Closed below without holes:
+-- Closed below as one no-hole file:
 --   * the explicit product square;
 --   * its boundary-composition equality by Square→compPath;
---   * the equality of compiler composites;
+--   * the equality of executable compiler composites;
 --   * the compiler-boundary equality via uaCompEquiv;
---   * a Square whose boundaries are exactly the four compiler paths.
+--   * a Square whose boundaries are exactly the four compiler paths;
+--   * the two edge receipts identifying pathToEquiv of the explicit product
+--     paths with the hand-built coordinate compilers, componentwise by uaβ;
+--   * the corresponding equalities between the explicit edges and compiler
+--     edges in the universe.
 --
--- The two remaining holes ask whether transport along each explicit product
--- edge is the hand-built coordinate equivalence by the expected uaβ proof.
--- They are deliberately holes so Nadi can answer with the kernel's exact
--- acceptance or refusal rather than this file claiming the bridge in prose.
+-- STATUS.  The two uaβ terms were formerly interaction holes.  They now stand
+-- in the file so one warm Nadi load yields an exact acceptance or the first
+-- exact refusal.  Nothing here is called checked until that load is recorded.
 --
 -- The guardedness pragma is load-bearing even though this probe defines no
 -- coinductive object: the imported cubical world is infective. Omitting it
--- can refuse the file before either mathematical goal is exposed.
+-- can refuse the file before the mathematical question is posed.
 ------------------------------------------------------------------------
 
 module FillerReceiptProbe where
@@ -117,29 +120,33 @@ compiledBoundary e f =
   ∙ sym (cong ua (compilerRoutesEqual e f))
   ∙ uaCompEquiv (leftCompiler e C) (rightCompiler B f)
 
--- This is already a genuine filler whose four edges are exactly the
--- executable compiler paths.  It does not rely on a picture of a square.
+-- This is a genuine filler whose four edges are exactly the executable
+-- compiler paths.  It does not rely on a picture of a square.
 compiledSquare : (e : A ≃ B) (f : C ≃ D)
   → Square (ua (leftCompiler e C)) (ua (leftCompiler e D))
            (ua (rightCompiler A f)) (ua (rightCompiler B f))
 compiledSquare e f = compPath→Square (compiledBoundary e f)
 
 ------------------------------------------------------------------------
--- 4. The daemon questions: identify the explicit edges with the compiler
---    edges.  Candidate fills are written in the companion message.
+-- 4. The missing edge receipts, now supplied as terms.
+--
+-- Transport along the explicit product path acts componentwise.  Cubical
+-- univalence computes the moving component by uaβ; the fixed component is
+-- refl.  equivEq promotes pointwise computation to equality of equivalences.
 ------------------------------------------------------------------------
 
 leftTransportIsCompiler : (e : A ≃ B) (C : Type ℓ)
   → pathToEquiv (topPath e C) ≡ leftCompiler e C
-leftTransportIsCompiler e C = {!!}
+leftTransportIsCompiler e C =
+  equivEq (funExt λ { (a , c) → ΣPathP (uaβ e a , refl) })
 
 rightTransportIsCompiler : (A : Type ℓ) (f : C ≃ D)
   → pathToEquiv (sidePath A f) ≡ rightCompiler A f
-rightTransportIsCompiler A f = {!!}
+rightTransportIsCompiler A f =
+  equivEq (funExt λ { (a , c) → ΣPathP (refl , uaβ f c) })
 
--- Once the two equivalence equalities are filled, univalence identifies the
--- explicit edges with the compiler edges.  These are the receipts that were
--- absent from the previous proposal.
+-- Univalence now identifies each explicit edge with the corresponding compiler
+-- edge in the universe.  These are the receipts absent from the first proposal.
 
 topIsCompiled : (e : A ≃ B) (C : Type ℓ)
   → topPath e C ≡ ua (leftCompiler e C)
