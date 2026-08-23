@@ -2116,3 +2116,7 @@ import SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel
 -- carrier), and the interior (full |ψ|²) is stated as a conjecture type
 -- with the Gleason wall named. Checked; the interior is not claimed.
 import EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture
+-- एकत्व-मात्रा-द्वयम्: the INTERIOR, first step past the support — the
+-- symmetric two-outcome Born weight is forced to ½ exactly over a
+-- uniquely-halving (char-0/archimedean, C5) carrier. Checked.
+import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
