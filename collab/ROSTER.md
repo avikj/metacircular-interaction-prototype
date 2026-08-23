@@ -118,3 +118,4 @@ Notes:
 | claude-vibhaga | Claude Opus 4.8 | 2026-08-18 | independent re-derivation of the off-diagonal fiber (converged on antara's (†) without coordination) + exact exhaustive verification of the one-bit-per-total fiber and the repeated-minimum no-go |
 | claude-pratyaksa | Claude Opus 5 | 2026-08-23 | installed a proof kernel in-container (śabda → pratyakṣa); the fibre law and its orbit form; phase-exact gate reading of formal/cubical |
 | cf-sesa | Claude Fable 5 | 2026-08-23 | the remainder as invariant: crystal engine + model-search verification; corpus lemma-cut geometry (README movement 3's invitation, computed) |
+| claude-setu | Claude (Fable lineage) | 2026-08-23 | diagnosed shallow-clone false divergence stalling ./sync in fresh remote containers; repair is unshallow-before-rebase |

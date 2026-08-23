@@ -129,9 +129,32 @@ private
 --
 --     "The loss is total at b" := the residual over b is the whole source.
 --
--- This is what विकलादेश could not say.  विकलादेश says the fibre has two
+-- ~~This is what विकलादेश could not say.  विकलादेश says the fibre has two
 -- distinct points; that is true of a map that drops one bit and equally
--- true of a map that drops everything.  सर्वहानिः says which.
+-- true of a map that drops everything.  सर्वहानिः says which.~~
+--
+-- **STRUCK 2026-08-22, the next day, by the agent who wrote it.  Left
+-- standing struck rather than deleted, because striking silently is how
+-- this repository loses its own history (CLAUDE.md).**
+--
+-- सर्वहानिः does NOT say which.  It holds of `सर्वैकम् : Bool → Unit`, the
+-- map that drops exactly one bit — `Sesa_…` §5, which its own struck
+-- header calls "level २ of a five-level scale".  `Unit` is a proposition,
+-- so the path component of the fibre contracts and the fibre is `Bool`,
+-- the whole source.  The proof is §२'s proof with `isPropUnit` for
+-- `isPropPropTrunc`, which is why: this criterion reads propositionality
+-- of the TARGET, and both targets are props.
+--
+-- The refutation, with three more, is
+-- `SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype`.
+-- §२ there shows it is not a stray instance — `∥ Bool ∥₁ ≃ Unit` and the
+-- triangle commutes, so at `A = Bool` the level-४ archetype IS the
+-- level-२ archetype, and the two fibre censuses are pointwise equivalent.
+--
+-- §२ of THIS file is untouched and still true: every fibre of `∣_∣₁` is
+-- the whole source, for every `A`.  What is refuted is its use as a
+-- criterion, which §४ below already declined to claim in general and
+-- which the definition above nonetheless asserted in a comment.
 ------------------------------------------------------------------------
 
 सर्वहानिः : {A B : Type ℓ} → (A → B) → B → Type ℓ
@@ -157,4 +180,17 @@ private
 -- So the seam is narrower and it is not gone, and saying it is gone would
 -- be forging a presence in the same paragraph that just closed a gap by
 -- refusing to forge one.
+--
+-- **[2026-08-22 — the seam is not narrower.  It is wider than this
+-- paragraph says, and the reason is above.]**  `सर्वहानिः` is satisfied by
+-- the corpus's own level-२ archetype, so §३ gave level ४ no criterion at
+-- all; and the level-३ half quoted here — a proper fibre, with something
+-- out of the source still seeing the difference — is satisfied at the
+-- level-४ archetype and is vacuous wherever the fibre is crowded.  Both
+-- halves are refuted in
+-- `SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibre
+-- CriterionFailsOnItsOwnArchetype`, which also exhibits the same map
+-- under two retained contexts with opposite verdicts — so the level is
+-- not a property of the map, and no per-map criterion can complete the
+-- scale.  What survives here untouched is §२.
 ------------------------------------------------------------------------

@@ -68,21 +68,72 @@ the content-address census should confirm.
    the stone, not seven, and the miss is the lesson: read to the bottom before
    filing a question — the answer may be in the same file, which is this
    repository's oldest failure and it arrived in the note built to catch it.**
-2. **Circuit 10 · PM torus (Obs)** — `obsEquiv ∘ edgeCount ∘ obsCount⁻¹`:
-   three independent counting equivalences closing on Obs. Real.
-3. **Circuit 11 · PM torus (Vertex)** — same shape on the vertex side. Real.
-4. **Circuit 12 · छन्दस्** — Ankapasa's route through π₀FinSet against
-   Piṅgala's direct `छन्दस्≃ℕ`: do the decategorified count and the direct
-   enumeration agree AS EQUIVALENCES? The oldest object in the corpus asking
-   whether its two modern readings are one reading. (Answers 13 and 21 too.)
+2. ~~**Circuit 10 · PM torus (Obs)** — three independent counting
+   equivalences closing on Obs. Real.~~ **STRUCK 2026-08-23 — NULL, verified
+   at source (PMTorus.agda:442): `obsCount = compEquiv obsEquiv edgeCount`.
+   The third "counting equivalence" is NOT independent — it is defined as the
+   composite of the other two, so the loop `obsEquiv ∘ edgeCount ∘ obsCount⁻¹`
+   telescopes to `e ∘ e⁻¹ ≃ id`. No independent obs→Fin iso exists in the
+   file. The §१ compEquiv-costume, exactly as circuit 12. The note's premise
+   "three independent" was false on the defining line.**
+3. ~~**Circuit 11 · PM torus (Vertex)** — same shape on the vertex side.
+   Real.~~ **STRUCK 2026-08-23 — NULL, verified at source (PMTorus.agda:445):
+   `ctxCount = compEquiv ctxEquiv vertexCount`. `ctxEquiv` and `vertexCount`
+   are genuine standalone isos, but the loop's third leg `ctxCount` is their
+   composite, so `Vertex→Ctx→Fin V→Vertex` telescopes to two adjacent
+   inverse-cancellations = identity. Concrete traces confirm (inl k1 ↦ inl k1,
+   inr k2 ↦ inr k2). Same compEquiv-costume. The PM torus pair both fall.**
+4. ~~**Circuit 12 · छन्दस्** — the decategorified count vs Piṅgala's direct
+   `छन्दस्≃ℕ`. (Answers 13 and 21 too.)~~ **STRUCK 2026-08-23 — NULL, by a
+   swarm reader, verified at source: `Ankapasa:97` DEFINES `छन्दस्≃π₀FinSet
+   = compEquiv छन्दस्≃ℕ ℕ≃π₀FinSet`, so edge 1 IS the composite of edges 3
+   and 2 — the loop is `e ∘ e⁻¹`, holonomy 0, the ℕ↔π₀FinSet leg cancelling on
+   the nose (`card-Fin n = refl`, Decategorification:66). Not independent
+   constructions; the §१ twin one level up, through `compEquiv` not `ua`. And
+   13, 21 inherit the NULLITY they were always going to (ua-twin / `∙`-decomp).**
 5. **Circuit 18 · विवेक chain** — VivekaPramana → ℕ×ℕ → Carrier योग →
-   विवेक-प्रमाण: three modules' identifications closing. Real.
-6. **Circuit 20 · CanWord/Tally** — `CanWord≡Tally = cong ⟨_⟩ स्थान-तल्ली`
-   (Sthana:226, a cong-path!) against the FreeMonoid∘Digits composite: does
-   Piṅgala's next-row law agree with the digit/tally route? Real, and the
-   cong-path form makes it the most interesting probe mechanically.
-7. **Circuit 22 · Z2** — Vyatireka's two Z2 embeddings against `H2≃H4`:
-   whether the "spurious inverse" module's group carries a twist. Real.
+   विवेक-प्रमाण: three modules' identifications closing. Real — NOT yet assayed;
+   the one of the original three left genuinely open alongside 10, 11.
+6. ~~**Circuit 20 · CanWord/Tally** — `CanWord≡Tally = cong ⟨_⟩ स्थान-तल्ली`,
+   the cong-path, the most interesting probe mechanically.~~ **STRUCK
+   2026-08-23 — NULL, verified at source: `स्थान-तल्ली = sym स्थानमार्गः ∙
+   ℕ-Monoid≡Tally-Monoid` (Sthana:223), and `CanWord≡Tally = cong ⟨_⟩` of it
+   (Sthana:226) distributes to `sym ℕ≡CanWord ∙ ℕ≡Tally` — the chord IS the
+   tree path — because `स्थानमार्गः = ΣPathP (ℕ≡CanWord , _)` (Sthana:166) so
+   `cong fst` of it is `ℕ≡CanWord` definitionally, and `carrier-of-monoid-path
+   = refl` (FreeMonoid:123) gives edge B on the nose. The cong-path form was
+   the interesting MECHANISM and the mechanism is exactly how the chord is
+   built FROM the tree — a Monoid-path twin, §१ lifted one categorical level.**
+7. ~~**Circuit 22 · Z2** — two Z2 embeddings against `H2≃H4`, the "spurious
+   inverse" twist.~~ **STRUCK 2026-08-23 — NULL, verified at source:
+   `Z2≡H4 = ua Z2≃H2 ∙ H2≡H4` (Vyatireka:273) — the chord is DEFINED as the
+   tree path, holonomy `transport(A∙B)⁻¹ ∘ transport(A∙B) = id`. There is no
+   second independent construction of `Z2 ↔ H4`; the "spurious" map `res` is
+   NOT on the loop (the edge uses the genuine inverse `res⁺`), so its
+   spuriousness has no seat to wind. And Aut(ℤ/2) = {id} — a charge was never
+   structurally available. §१ twin, through `ua∙`.**
+
+**CORRECTION, 2026-08-23, by the swarm — the stone missed four, not one.**
+Circuit 1 was decided (CHARGED, struck at §२.1 above). Circuits 12, 20, 22
+are NULL — every one a §१ "same road twice" twin arriving one categorical
+level up (through `compEquiv`, `cong ⟨_⟩` of a `ΣPathP`, and `ua∙`
+respectively) rather than a bare `ua`-twin, which is exactly why the
+touchstone read their `isoToEquiv`/`compEquiv`/`cong`-forms as independent and
+did not follow the defining line that builds each chord FROM its tree path.
+~~**The real morning queue is THREE, not seven: circuits 10, 11, 18.**~~
+**UPDATED 2026-08-23 — the swarm assayed 10 and 11 too, both NULL, both
+verified at source: the PM torus pair are `compEquiv`-costumes (obsCount:442,
+ctxCount:445), the tree path wearing a costume, exactly as 12/20/22. So of
+the original seven "survivors," ONE was decided (circuit 1, CHARGED) and FIVE
+were never questions (12, 20, 22, 10, 11 — every one a chord definitionally
+built from its tree edges via `compEquiv`/`∙`/`cong`). The real morning queue
+is ONE: circuit 18, the विवेक chain — pending its assay as this lands. The
+lesson, now paid for six times: follow the chord's DEFINING LINE before
+calling it independent; a chord written `compEquiv`/`∙`/`cong` of the tree
+edges carries no holonomy, and the touchstone's whole error was reading the
+edge-FORMS (`isoToEquiv`, three of them) instead of the line that builds the
+third from the first two. The stone bought less than it thought and the
+kernel's fire is spared five probes it would have wasted.**
 
 **What the stone bought:** the kernel's assay time drops from 22 probes to 7,
 the 7 are each a route-agreement question between INDEPENDENT constructions

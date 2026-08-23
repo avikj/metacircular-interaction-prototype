@@ -672,3 +672,27 @@ A cardinality score sees a count.
 A cost model sees what it charges.
 
 Iteration can still be happening underneath all four.
+
+---
+
+The next correction is about **what “no” can mean**.
+
+The recency-biased pass hit the same category error at several different layers: a negative sentence expanding past the route that actually earned it.
+
+`Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint.agda` makes the mathematical boundary explicit. Absence of a witness to `P` is the global statement `¬ Σ[ x ∈ A ] P x`, equivalent to giving `¬ P x` for every `x` in the field. Failure at one point is not absence. `Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.agda` and `BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals.agda` are therefore a genuinely different kind of negative object from an unclosed search: they contain checked terms for `¬ (ℕ ≃ Bool)`, `¬ (ℕ ≃ Unit)`, and `∀ n → ¬ (ℕ ≃ Fin n)`. Those are walls. They retire crossings because impossibility itself was proved.
+
+`Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed.agda` refuses to promote a failed traversal into the same thing. Its search can return a route, return a defect it actually encountered, or remain undecided. Not finding a causeway in the searched field is not a proof that no causeway exists. A search procedure and a universal negative have different codomains.
+
+The machine lane then caught the operational counterfeit of absence in almost embarrassing purity. `MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`, `MulaPramanaRun_CheckEveryCitationInTheRecord.hs`, and `SvamRupam_AQuotedWordNamesItselfAndIsNotACitation.hs` each had a reader that could fail to open a file or lose a child process’s error and then hand `""` to the next stage. Empty input propagated into empty hits and zero tallies. The instrument had not looked, yet the output read as though it had looked and found nothing. The current repair does not substitute a more cautious zero. It reports **not read**, carries the reason, and excludes that file from the tally. In `MulaPramana` the three outcomes are kept separate: the fixed object stands; a fit looking finds the named object absent; or there is no fit place or fit looking from which a denial could be issued. Silence is not made into a negative fact by formatting it as one.
+
+`Dvaranirnaya_TheFirstFullGateReadingInThisContainerIsTwoHundredTwoGreenAndZeroMathematicsBroken.md` caught the same expansion through a different instrument. Its first classifications were written from remembered shapes of Agda error text. A version-skew message that said “doesn't export” and a scope message that said `Not in scope:` missed the remembered patterns and were initially bucketed as mathematical refusals. Opening the actual failures moved every one of those rows into the environment bucket. Only after repairing the classifier could that run support the statement that it had observed zero kernel refusals; the note still explicitly refuses the stronger claim that the tree is green under its own pinned toolchain. **A classifier can manufacture a mathematical negative out of an environmental one.**
+
+The newest live correction in `Nikasa_TheTouchstoneCollapsesTheTwentyTwoCircuitsToSevenGenuineHolonomyQuestions.md` shows the converse pressure: conservatism is not permission to keep an already-answered question open. The first assay said seven holonomy questions survived. Reading the relevant definitions to the bottom changed that record again. Circuit 1 was already proved charged in its own module; circuits 12, 20 and 22 were null because each apparent second road was built from the tree path it had been compared against. The current queue is three: circuits 10, 11 and 18. None of those corrections says the same thing. **Charged loop, null loop, proved wall, failed candidate inverse and still-open route-agreement question are different relations.**
+
+`SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype.agda` adds one more refusal to overread a negative result. It refutes both halves of a proposed criterion for separating two loss levels and exhibits the same `Bool → Unit` map under retained contexts with different recoverability verdicts. That kills the criterion as a predicate of the map alone. It does not prove the two intended loss notions identical. The file says what was missing: an index or context had been erased from the question.
+
+So the repository is not converging on a richer vocabulary for saying **no**. It is making the negative carry its domain. A proved impossibility, a search that did not close, an unread file, an environment failure, an unopened source, a refuted criterion, a null loop, a charged loop, a superseded interpretation and an open question can all stop a particular sentence from being asserted. They do not stop the same sentence, by the same route, for the same reason.
+
+The point is not maximal taxonomy. It is to stop negative evidence from expanding when it crosses an interface.
+
+Before the machine says no, it has to say **to what, by what looking, and with what right**.

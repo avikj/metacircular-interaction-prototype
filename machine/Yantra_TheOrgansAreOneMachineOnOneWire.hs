@@ -1250,9 +1250,17 @@ kDosaPramanya y _ = case yDosaBin y of
     pure $ case code of
       ExitSuccess ->
         ( y, Mudra (S.Position S.SyadAsti)
-               (Nihsesa (countRecords txt)
-                  ("every sāra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
-                   ++ "the chain organ's own `checkChain`, run in this turn"))
+               (case countRecords txt of
+                  Just n ->
+                    Nihsesa n
+                      ("every sāra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
+                       ++ "the chain organ's own `checkChain`, run in this turn")
+                  Nothing ->
+                    Pratyaksa
+                      ("the organ verified the chain and its report is carried below verbatim; "
+                       ++ "this answer does NOT claim nihsesa, because the number of records "
+                       ++ "rechecked could not be read out of that report, and an exhaustive "
+                       ++ "route whose domain is unknown is an assertion: " ++ trimS txt))
         , samkramana "dosa.pramanya"
             (tulyata "the log as it stands on disk, identified with the log as it was written"
                      "the file's bytes" "the recomputed chain"
@@ -1270,8 +1278,27 @@ kDosaPramanya y _ = case yDosaBin y of
             [ "do NOT edit the diverging record.  Append one whose `uttara:` names it — that is the only correction an append-only log has." ]
             [ "machine/DosaLekha_TheWrittenDefectRecord.hs" ] )
   where
-    countRecords s = length [ () | l <- lines s, "dosa " `isPrefixOf'` trimS l ]
-    isPrefixOf' p s = take (length p) s == p
+    -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
+    -- read out of the organ's own success line, which is
+    --     dosalekha: <path>: 15 records, chain intact, nothing edited or deleted.
+    -- This used to scan for lines beginning `dosa `, which that line does not
+    -- begin with, so every `dosa.pramanya` in this machine's history reported
+    -- `"ganana": 0` — an exhaustive route publishing a domain of zero while
+    -- fifteen records had in fact been rechecked.  A stated domain that is
+    -- always zero is worse than no number, because it looks like knowledge
+    -- (CLAUDE.md).  Where the organ's wording changes, this returns Nothing
+    -- and the route says so rather than inventing a count.
+    -- `words` on that line yields ... "12" "records," ... — the comma is
+    -- part of the token, so the noun is compared with its punctuation
+    -- stripped.  Matching "records" exactly is what a first attempt did and
+    -- it silently found nothing, which is the same failure one layer in.
+    countRecords s = case [ read n :: Int
+                          | l <- lines s, let ws = words (trimS l)
+                          , (n, nxt) <- zip ws (drop 1 ws)
+                          , not (null n), all isDigit n
+                          , takeWhile (`notElem` (",.;:" :: String)) nxt == "records" ] of
+      (n:_) -> Just n
+      []    -> Nothing
     trimS = dropWhile isSpace . reverse . dropWhile isSpace . reverse
 
 kSesaArpana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
@@ -1366,7 +1393,38 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
             , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
               ++ oneLine (uKriya u) ++ "` was asked and transport was not available"
             , "  hetu: " ++ oneLine (uHetu u) ]
-          ++ [ "  nasta: " ++ oneLine n | n <- uNasta u, length (oneLine n) >= 12 ]
+          -- EVERY naṣṭa reaches the record.  This line used to read
+          -- `length (oneLine n) >= 12`, silently DELETING any naṣṭa under
+          -- twelve characters so that the record would clear the organ's
+          -- validator, which requires each witness to exhibit rather than
+          -- describe.  Turning the machine with the filter removed shows
+          -- what it was covering, and it is not small: the assembly's
+          -- flagship defect — `nirnaya.saptabhangi`, the three-organ
+          -- collision this file's header names as its load-bearing refusal
+          -- — carries a RENDERED BLOCK as its naṣṭa, one naṣṭa per rendered
+          -- line, and five of those lines are short (`{ #0 }`, `{ #1 }`,
+          -- `syad-asti`, `decision.`, `candidates:`).  So for every run in
+          -- this machine's history that record went to disk with five lines
+          -- cut out of the exhibit and nothing said so, which is §5 exactly:
+          -- a summary of a loss is the loss performed a second time.
+          --
+          -- The site of the fault is the flattening, not the length.  A
+          -- rendered block is ONE exhibit whose lines are continuations, and
+          -- `saptabhangi.nasti` one function away already does it right —
+          -- `intercalate " / "` — and its record files without complaint.
+          -- So: rejoin.  A naṣṭa under twelve characters is appended to the
+          -- one before it instead of being dropped, and a leading short line
+          -- opens a group the next line completes.  Nothing is destroyed.
+          --
+          -- WHAT THIS COSTS, stated rather than left to be found: two
+          -- genuinely distinct short witnesses sent by an interlocutor are
+          -- joined into one `nasta:` field, so the record holds both texts
+          -- and loses that they were sent as two.  That is a real loss and
+          -- it is the smaller one.  Where a group is STILL under twelve
+          -- after rejoining, nothing is done: the organ refuses, and its
+          -- refusal names the witness and the reason, which is the true
+          -- diagnosis and is the one the caller should get.
+          ++ [ "  nasta: " ++ n | n <- rejoinNasta (map oneLine (uNasta u)) ]
           ++ [ "  sesa: " ++ oneLine s | s <- uSesa u, not (null (oneLine s)) ]
           ++ [ "  pramana: " ++ oneLine p | p <- uPramana u, not (null (oneLine p)) ]
           ++ [ "  yogyata-drsta: the handler for `" ++ oneLine (uKriya u)
@@ -1388,14 +1446,36 @@ fileDosa _ _ _ = pure (Right "(not a defect)")
 
 -- | Which of the seven kinds.  Read off what the answer says, not guessed:
 --   each branch below points at a phrase the handler itself wrote.
+-- | Rejoin a rendered block into the exhibits it is made of.  A line of
+--   twelve characters or more opens a group; anything shorter is a
+--   continuation and joins the group before it.  Empty lines are dropped —
+--   an empty naṣṭa exhibits nothing in any grouping.  Total; order preserved.
+rejoinNasta :: [String] -> [String]
+rejoinNasta = go . filter (not . null)
+  where
+    go [] = []
+    go (x:y:ys) | length x < 12 = go ((x ++ " " ++ y) : ys)
+    go (x:xs) = let (cont, rest) = span ((< 12) . length) xs
+                in unwords (x : cont) : go rest
+
 jatiOf :: Uttara -> String
 jatiOf u
   | "avaktavya" `isInfixOf` h || "syad-avaktavyam" `isInfixOf` h
     || "does not decide between them" `isInfixOf` h = "avaktavya"
+  -- karaṇa-doṣa BEFORE ayogya-darśana, and the order is the whole content of
+  -- this repair.  The one hetu in this machine that carries both `kernel` and
+  -- `environment` is kSadhana's kernel-not-usable branch, and its fixed
+  -- prefix also carries "has not been seen to work" — so while
+  -- ayogya-darśana was tested first it swallowed every instrument fault and
+  -- `karana-dosa` was unreachable, printing 0 in every census.  Turned with
+  -- agda off the PATH, the record filed as `ayogya-darsana` while the same
+  -- handler's own śeṣa said, in prose, "this is jāti karaṇa-doṣa".  The
+  -- looking was unfit and the instrument is broken are two facts, and the
+  -- census by kind is exactly where a later reader would have them merged.
+  | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
   | "abhinna" `isInfixOf` h || "not fit" `isInfixOf` h
     || "has not been seen to work" `isInfixOf` h = "ayogya-darsana"
   | "not equivalent" `isInfixOf` h || "no section" `isInfixOf` h = "nasti-krta"
-  | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
   | "durnaya" `isInfixOf` h = "durnaya-nirodha"
   | otherwise = "sankramana-asambhava"
   where h = uHetu u

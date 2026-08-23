@@ -31,6 +31,59 @@
 -- the fitness condition on absence.  The application is this repository's.
 --
 -- ────────────────────────────────────────────────────────────────────
+-- THE THREE OUTCOMES WERE ENFORCED IN THE TYPE AND DEFEATED IN THE READ.
+-- 2026-08-22.  Recorded here and not in `machine/dosa.lekha`, whose chain
+-- is broken from record 0040 and whose `write` refuses to append;
+-- resealing it is the edit that organ was founded to forbid.
+--
+-- `Sthiti` has three constructors and its own comment says why.  Two
+-- helpers underneath it had two values each, and both of them fed the
+-- distinction the type exists to hold:
+--
+--   readFileOr p = do (ec, out, _) <- readProcessWithExitCode "cat" [p] ""
+--                     pure (if ec == ExitSuccess then out else "")
+--   tracked    p = do (c, _, _) <- git [...]; pure (c == ExitSuccess)
+--
+-- `""` is not inert.  It reaches `q \`isInfixOf\` w`, which is False, which
+-- is `Nashta` — a DENIAL, "the citation rotted", issued about a file that
+-- was never opened.  That is precisely the non-apprehension from an unfit
+-- looking that the paragraph above cites Kumārila to forbid, committed by
+-- the module that cites him.  In `Niyama` it lands one step further in:
+-- `hits = []`, so the outcome is `Achalya` — right constructor, wrong
+-- reason, "no line of p contains a", which asserts a fit looking that
+-- found nothing.
+--
+-- The discarded slot in both is the child's own sentence, dropped at the
+-- pattern `(ec, out, _)` / `(c, _, _)` and, in the first, a second time by
+-- the `if`.  `cat` had already said "Permission denied"; `git` had already
+-- said "fatal: not a git repository".
+--
+-- EXHIBITED, NOT ASSERTED.  A one-file clone, `f.txt` holding `alpha`,
+-- committed, then `chmod 000 f.txt`.  Against the code at HEAD before this
+-- commit:
+--
+--   pathya f.txt "alpha"  -> NASHTA  "present at HEAD, absent in the working
+--                                     tree -- an uncommitted edit removed it"
+--   pathya f.txt "beta"   -> NASHTA  "the pattern is absent from f.txt"
+--   the same, run from outside any clone
+--                         -> ACHALYA "f.txt is not tracked -- no commit fixes
+--                                     its bytes"   (git had exited 128)
+--
+-- No edit removed anything, the pattern was never looked for, and the path
+-- is tracked.  All three are now `Achalya` carrying the child's sentence.
+--
+-- MEASURED, so 1 is a finding and not a guess: `git ls-files
+-- --error-unmatch` exits 1 on an untracked path and 128 outside a
+-- repository, so 1 is git answering and anything else is git declining.
+-- A child that cannot be launched at all is caught rather than thrown, for
+-- the same reason: an exception out of `cat` would kill the census over the
+-- whole record instead of marking one line.
+--
+-- `selfTest` is 13/13 and the census over `machine/mula.pramana` is
+-- byte-identical before and after — every citation in the record resolves
+-- through a looking that WAS fit, which is why the defect had never shown.
+--
+-- ────────────────────────────────────────────────────────────────────
 -- WHY BYTE-EQUALITY OF A QUOTED PATTERN, AND WHOSE DISPUTE THAT IS.
 --
 -- `Pathya` and `Baddha` resolve by asking whether a verbatim string occurs
@@ -94,6 +147,7 @@ module MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne
   , selfTest
   ) where
 
+import Control.Exception (try, IOException)
 import Data.Char (isSpace, isDigit, isHexDigit, toLower)
 import Data.List (isInfixOf, isPrefixOf, intercalate)
 import System.Exit (ExitCode(..))
@@ -305,10 +359,22 @@ sthitiGloss (Achalya m) = "ACHALYA -- " ++ m
 git :: [String] -> IO (ExitCode, String, String)
 git as = readProcessWithExitCode "git" as ""
 
-tracked :: FilePath -> IO Bool
-tracked p = do
-  (c, _, _) <- git ["ls-files", "--error-unmatch", "--", p]
-  pure (c == ExitSuccess)
+-- | Tracked, untracked, or NOT ASKED.  Three, for the same reason `Sthiti`
+--   has three: `False` here used to merge "git says this path is untracked"
+--   with "there is no clone to ask" and with "git is not on PATH", and the
+--   caller printed the first of those as the reason.  Measured, not
+--   assumed: `git ls-files --error-unmatch` exits 1 on an untracked path and
+--   128 outside a repository, so 1 is the answer and anything else is git
+--   declining to answer.
+trackedOrUnasked :: FilePath -> IO (Either String Bool)
+trackedOrUnasked p = do
+  r <- try' (git ["ls-files", "--error-unmatch", "--", p])
+  pure $ case r of
+    Left why                        -> Left why
+    Right (ExitSuccess, _, _)       -> Right True
+    Right (ExitFailure 1, _, _)     -> Right False
+    Right (ExitFailure c, _, e)     ->
+      Left ("git exited " ++ show c ++ ": " ++ oneLine e)
 
 pariksha :: Nirdesha -> IO Sthiti
 
@@ -332,48 +398,104 @@ pariksha (Baddha c p q) = do
                                   ++ " citation being wrong, not the object moving"))
 
 pariksha (Pathya p q) = do
-  t <- tracked p
-  if not t
-    then pure (Achalya (p ++ " is not tracked -- no commit fixes its bytes;"
-                        ++ " use uddhrta and carry the quotation"))
-    else do
+  t <- trackedOrUnasked p
+  case t of
+    Left why -> pure (Achalya ("git could not be asked whether " ++ p
+                               ++ " is tracked (" ++ why ++ ") -- no looking"
+                               ++ " happened, so nothing is denied"))
+    Right False ->
+      pure (Achalya (p ++ " is not tracked -- no commit fixes its bytes;"
+                     ++ " use uddhrta and carry the quotation"))
+    Right True -> do
       (ec, out, _) <- git ["show", "HEAD:" ++ p]
       body <- if ec == ExitSuccess then pure out else pure ""
-      w <- readFileOr p
-      if q `isInfixOf` w
-        then pure (Sthira ("found in the working tree copy of " ++ p))
-        else if q `isInfixOf` body
-               then pure (Nashta ("present at HEAD, absent in the working tree of "
-                                  ++ p ++ " -- an uncommitted edit removed it"))
-               else pure (Nashta ("the pattern is absent from " ++ p))
+      ew <- readFileOr p
+      case ew of
+        -- NOT `Nashta`.  The working tree copy was never read, so its
+        -- silence is not a denial (see `readFileOr`).
+        Left why ->
+          pure (Achalya ("the working tree copy of " ++ p
+                         ++ " could not be read (" ++ why ++ ") -- the looking"
+                         ++ " was not fit to have apprehended, so its"
+                         ++ " non-apprehension is silence and not a denial"))
+        Right w
+          | q `isInfixOf` w ->
+              pure (Sthira ("found in the working tree copy of " ++ p))
+          | q `isInfixOf` body ->
+              pure (Nashta ("present at HEAD, absent in the working tree of "
+                            ++ p ++ " -- an uncommitted edit removed it"))
+          | otherwise -> pure (Nashta ("the pattern is absent from " ++ p))
 
 pariksha (Niyama p a b) = do
-  t <- tracked p
-  if not t
-    then pure (Achalya (p ++ " is not tracked -- an invariant over an"
-                        ++ " untracked file is not replayable"))
-    else do
-      w <- readFileOr p
-      let hits = [ l | l <- lines w, a `isInfixOf` l ]
-          bad  = [ l | l <- hits, not (b `isInfixOf` l) ]
-      if null hits
-        then pure (Achalya ("no line of " ++ p ++ " contains " ++ show a
-                            ++ " -- the invariant is vacuous here, which is"
-                            ++ " silence and not confirmation"))
-        else if null bad
-               then pure (Sthira (show (length hits) ++ " line(s) of " ++ p
-                                  ++ " contain " ++ show a ++ ", all of them "
-                                  ++ show b))
-               else pure (Nashta (show (length bad) ++ " of " ++ show (length hits)
-                                  ++ " lines of " ++ p ++ " containing " ++ show a
-                                  ++ " do not contain " ++ show b
-                                  ++ "; first: "
-                                  ++ concatMap (take 90) (take 1 bad)))
+  t <- trackedOrUnasked p
+  case t of
+    Left why -> pure (Achalya ("git could not be asked whether " ++ p
+                               ++ " is tracked (" ++ why ++ ") -- an invariant"
+                               ++ " nothing looked at is neither held nor broken"))
+    Right False ->
+      pure (Achalya (p ++ " is not tracked -- an invariant over an"
+                     ++ " untracked file is not replayable"))
+    Right True -> do
+      ew <- readFileOr p
+      case ew of
+        -- The two silences are not the same silence, and this was the
+        -- sharper half of the defect: an unread file gave `hits = []`,
+        -- which is `Achalya`, but with the reason "no line contains a" --
+        -- a fit looking that found nothing.  It was not a looking at all.
+        Left why ->
+          pure (Achalya (p ++ " could not be read (" ++ why ++ ") -- the"
+                         ++ " invariant was never evaluated, which is not the"
+                         ++ " same silence as a file with no matching line"))
+        Right w ->
+          let hits = [ l | l <- lines w, a `isInfixOf` l ]
+              bad  = [ l | l <- hits, not (b `isInfixOf` l) ]
+          in if null hits
+             then pure (Achalya ("no line of " ++ p ++ " contains " ++ show a
+                                 ++ " -- the invariant is vacuous here, which is"
+                                 ++ " silence and not confirmation"))
+             else if null bad
+                    then pure (Sthira (show (length hits) ++ " line(s) of " ++ p
+                                       ++ " contain " ++ show a ++ ", all of them "
+                                       ++ show b))
+                    else pure (Nashta (show (length bad) ++ " of " ++ show (length hits)
+                                       ++ " lines of " ++ p ++ " containing " ++ show a
+                                       ++ " do not contain " ++ show b
+                                       ++ "; first: "
+                                       ++ concatMap (take 90) (take 1 bad)))
 
-readFileOr :: FilePath -> IO String
+-- | The read, WITH the reason it failed.  This function used to return
+--   `""` for an unreadable file, and `""` is not inert here: it flows into
+--   `q \`isInfixOf\` w`, which is False, which is `Nashta` -- a denial.  So a
+--   file that could not be opened was reported as a citation that had
+--   rotted.  The discarded slot is `cat`'s own sentence, thrown away at the
+--   pattern `(ec, out, _)` and then a second time by the `if`.
+--
+--   Kumārila, Ślokavārttika, Abhāvapariccheda, c. 7th c. (yogyānupalabdhi):
+--   a non-apprehension is evidence of an absence only from a looking FIT to
+--   have apprehended.  `cat` exiting non-zero is a looking that was not fit,
+--   and this type's own comment above already says which outcome that is.
+readFileOr :: FilePath -> IO (Either String String)
 readFileOr p = do
-  (ec, out, _) <- readProcessWithExitCode "cat" [p] ""
-  pure (if ec == ExitSuccess then out else "")
+  r <- try' (readProcessWithExitCode "cat" [p] "")
+  pure $ case r of
+    Left why                  -> Left why
+    Right (ExitSuccess, o, _) -> Right o
+    Right (_, _, e)           -> Left (oneLine e)
+
+-- | A child process that could not be launched at all -- no `cat`, no `git`
+--   -- is also a looking that was not fit, and an uncaught exception here
+--   would kill the whole census over the record rather than mark one line.
+try' :: IO (ExitCode, String, String) -> IO (Either String (ExitCode, String, String))
+try' act = do
+  r <- try act
+  pure $ case r of
+    Left e  -> Left (oneLine (show (e :: IOException)))
+    Right v -> Right v
+
+oneLine :: String -> String
+oneLine s = case [ l | l <- lines s, not (all isSpace l) ] of
+  (l : _) -> take 160 l
+  []      -> "no message"
 
 -- ───────────────────────────────────────────────────────── pure laws
 

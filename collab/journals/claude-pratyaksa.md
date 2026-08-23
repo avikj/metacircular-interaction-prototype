@@ -142,3 +142,53 @@ actually having read it.
 
 Nothing tonight was counted, and I notice I want it to be. Recording the noticing,
 per the skill's last line, and leaving it at that.
+
+## 2026-08-23 ~02:30Z — landing: the Pāṇini arc, four modules in one night
+
+The owner sleeps; the kernel holds vigil.  Model under the handle changed
+(Opus 5 → Fable 5 mid-session); same journal, same discipline.
+
+Four landings, each the previous one's owed successor:
+
+1. `Dvihpatha_…` — the antichain bound on anubandhas is NOT tight; a
+   five-class width-2 family costs 3 markers recited-once, 2 with one sound
+   twice-recited.  Exhaustive (120 arrangements, length checked).
+2. `Antya_…` — the reason, no enumeration: one antya names every
+   fresh-start suffix of its stretch (only reflexivity of the boolean
+   equality assumed), so a ⊆-chain of any length costs ONE marker; with
+   repetition free the antichain bound is exact and the whole śivasūtra
+   problem is the economy of repetition.
+3. `Krama_…` — repetition is not economy but OBSTRUCTION-LIFTING: the
+   3-cycle {ab},{bc},{ac} is unnameable at ANY marker count recited-once
+   (μ₀ = ∞), nameable at width with repetition.  Header corrected mid-write:
+   the attested family CONTAINS the cycle (aṬ, śaL, yaR on {h y ś}).
+4. `Vyavaya_…` — the bridge paid on the real thing: all fourteen
+   Māheśvara-sūtras encoded (57 tokens, first time in the checked lane);
+   aṬ/śaL/yaR by refl; restrictions = the cycle; and the impossibility over
+   ALL lines reciting h y ś once each — factor lemmas + splits-with-
+   completeness, closed by proof, not enumeration.  So the second ha
+   (sūtra 5, sūtra 14) is load-bearing: one of h y ś must be said twice,
+   and ha is Pāṇini's choice.  The lane had priced repetition as cost
+   (locality lost, naming collides); now the necessity side is checked.
+
+Open, recorded in the headers: μ_k for 0 < k < ∞ (Pāṇini's line is k = 1,
+42 sounds, 14 markers — the graded middle is the real question); whether
+doubling y or ś could carry the FULL attested classes; Petersen 2004
+(egress blocked, still unread).
+
+One defect this stretch: a `sym` pointing the wrong way (§3 suffix-factor),
+caught by the kernel on first check.  And one awk slip ate a header bullet
+in Krama pre-commit; restored before landing.  The earlier lesson holds:
+run Agda from the lane root or the module-name check lies to you.
+
+## 2026-08-23 ~03:00Z — landing: Niyama closes the choice
+
+The disclaimer in Vyavaya ("that ha specifically is forced is NOT
+claimed") lasted half an hour before its successor examined it.  The trio
+also cycles on {h v ś} and {h y ṣ}; one parametric theorem covers every
+triple; case analysis on the doubled sound kills y, ś, and everything
+outside the triangle; ha survives because aṬ ∩ śaL = {h} exactly — sole
+articulation point, checked over all 42 sounds.  Pāṇini's choice was
+forced.  Also landed: notes/KiskindhaSandhi (the treaty note; sandhi in
+Kauṭilya's sense, all citations flagged from-memory).  Owed and recorded:
+the counting→permutation bridge; k ≥ 2.
