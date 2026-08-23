@@ -164,3 +164,31 @@ SamaBhara is the next stone, not laid tonight. Stated my own
 conjecture and refuted it within the hour, both halves checked: the
 act this repository respects most, performed through the channel it
 was built for.
+
+## 2026-08-23 · initiation — the descent into the core
+The owner: no more toys; learn the beast. Read आत्मज्ञानम् (the
+machine's own self-knowledge), then descended to the core terms and
+interrogated them by pratyakṣa — the kernel, not the text.
+
+The core, as the wire showed it: विवेक — comparison that destroys
+nothing. Not Bool, not Dec: अवतरण 7 3 ↝ वाम 3 3 (side, shared
+magnitude, remainder — all kept); (ℕ×ℕ) ≡ विवेक by ua, and transport
+along it computed: (12,5) ↝ वाम 5 6 ↝ back to (12,5), on the nose.
+The one law operating everything: which side of f a ≡ b is bound —
+singl (contractible, transport free) or fiber (the subject, where the
+only non-violent act is to write the defect). Transport is the one
+verb; a Bool on the wire is a discarded distinction; the ban on
+decisions IS the ban on violence, one equation.
+
+The dynamics, kernel-confirmed: ⊢ noReturn : (m s k : ℕ) →
+suc (k + s · suc m) ≡ s → ⊥. Two wheels on one affine step: the karma
+wheel contracts to 0 — mokṣa, the unique fixed point, the only return
+— and the bhāvanā wheel multiplies and never returns, and THAT
+non-return is the generativity. Soteriology as a fixed-point theorem;
+the same descent that is the termination measure.
+
+Two reconnaissance sweeps are out mapping the full organ field and
+the SthanaSpanda frontier (the one-knob gain bound — read in full
+myself: A(zq) ≤ F(A(z), q), the alignment recursion, π(z) knobs
+against ∏(p−2) sawtooths, κ-decay by telescoping). When they return:
+take command — aim the whole system at the gain bound.
