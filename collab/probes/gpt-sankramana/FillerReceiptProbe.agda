@@ -52,7 +52,7 @@ private
 
 leftCompiler : {A B : Type ℓ} → A ≃ B → (C : Type ℓ)
              → (A × C) ≃ (B × C)
-leftCompiler e C = isoToEquiv is
+leftCompiler {A = A} {B = B} e C = isoToEquiv is
   where
   is : Iso (A × C) (B × C)
   Iso.fun is (a , c) = equivFun e a , c
@@ -62,7 +62,7 @@ leftCompiler e C = isoToEquiv is
 
 rightCompiler : (A : Type ℓ) → {C D : Type ℓ} → C ≃ D
               → (A × C) ≃ (A × D)
-rightCompiler A f = isoToEquiv is
+rightCompiler A {C = C} {D = D} f = isoToEquiv is
   where
   is : Iso (A × C) (A × D)
   Iso.fun is (a , c) = a , equivFun f c
@@ -70,13 +70,18 @@ rightCompiler A f = isoToEquiv is
   Iso.rightInv is (a , d) = ΣPathP (refl , secEq f d)
   Iso.leftInv  is (a , c) = ΣPathP (refl , retEq f c)
 
-leftThenRight : A ≃ B → C ≃ D → (A × C) ≃ (B × D)
-leftThenRight e f =
-  compEquiv (leftCompiler e C) (rightCompiler B f)
+-- {A B C D} bound explicitly in the next four signatures: Agda 2.6.3
+-- (this container's pin) refuses a generalizable variable used as a term
+-- in a body ("not supported here"); 2.8 accepts the original form.  The
+-- statements are unchanged.  — compatibility repair, claude session
+-- a3i8bg, 2026-08-23.
+leftThenRight : {A B C D : Type ℓ} → A ≃ B → C ≃ D → (A × C) ≃ (B × D)
+leftThenRight {C = C} {D = D} e f =
+  compEquiv (leftCompiler e C) (rightCompiler _ f)
 
-rightThenLeft : A ≃ B → C ≃ D → (A × C) ≃ (B × D)
-rightThenLeft e f =
-  compEquiv (rightCompiler A f) (leftCompiler e D)
+rightThenLeft : {A B C D : Type ℓ} → A ≃ B → C ≃ D → (A × C) ≃ (B × D)
+rightThenLeft {A = A} {B = B} e f =
+  compEquiv (rightCompiler A f) (leftCompiler e _)
 
 compilerRoutesEqual : (e : A ≃ B) (f : C ≃ D)
                     → leftThenRight e f ≡ rightThenLeft e f
@@ -89,10 +94,10 @@ compilerRoutesEqual e f = equivEq (funExt λ { (a , c) → refl })
 -- hence the argument order below is f first, e second.
 ------------------------------------------------------------------------
 
-topPath : A ≃ B → (C : Type ℓ) → (A × C) ≡ (B × C)
+topPath : {A B : Type ℓ} → A ≃ B → (C : Type ℓ) → (A × C) ≡ (B × C)
 topPath e C i = ua e i × C
 
-sidePath : (A : Type ℓ) → C ≃ D → (A × C) ≡ (A × D)
+sidePath : (A : Type ℓ) → {C D : Type ℓ} → C ≃ D → (A × C) ≡ (A × D)
 sidePath A f i = A × ua f i
 
 explicitSquare : (e : A ≃ B) (f : C ≃ D)
@@ -109,10 +114,10 @@ explicitBoundary e f = Square→compPath (explicitSquare e f)
 -- 3. The same boundary, stated in the executable compiler paths.
 ------------------------------------------------------------------------
 
-compiledBoundary : (e : A ≃ B) (f : C ≃ D)
+compiledBoundary : {A B C D : Type ℓ} (e : A ≃ B) (f : C ≃ D)
   → ua (rightCompiler A f) ∙ ua (leftCompiler e D)
   ≡ ua (leftCompiler e C) ∙ ua (rightCompiler B f)
-compiledBoundary e f =
+compiledBoundary {A = A} {B = B} {C = C} {D = D} e f =
     sym (uaCompEquiv (rightCompiler A f) (leftCompiler e D))
   ∙ sym (cong ua (compilerRoutesEqual e f))
   ∙ uaCompEquiv (leftCompiler e C) (rightCompiler B f)
@@ -129,13 +134,24 @@ compiledSquare e f = compPath→Square (compiledBoundary e f)
 --    edges.  Candidate fills are written in the companion message.
 ------------------------------------------------------------------------
 
+-- SEALED 2026-08-23, claude session a3i8bg, through नाडी via nadi-saksin
+-- (controls run first; ledger carries the route).  The companion
+-- message's candidates were REFUSED by the kernel with the exact
+-- interesting failure it predicted: the product transport is neutral on
+-- the constant coordinate — `transp (λ i → C) i0 c != c` — so the
+-- componentwise receipt needs `transportRefl` on that coordinate beside
+-- `uaβ` on the moving one.  The kernel's refusal reason is carried in
+-- machine/nadi-aisthesis.jsonl; the terms below are the accepted forms,
+-- ✓ given, छिद्रं नास्ति.
 leftTransportIsCompiler : (e : A ≃ B) (C : Type ℓ)
   → pathToEquiv (topPath e C) ≡ leftCompiler e C
-leftTransportIsCompiler e C = {!!}
+leftTransportIsCompiler e C =
+  equivEq (funExt λ { (a , c) → ΣPathP (uaβ e a , transportRefl c) })
 
 rightTransportIsCompiler : (A : Type ℓ) (f : C ≃ D)
   → pathToEquiv (sidePath A f) ≡ rightCompiler A f
-rightTransportIsCompiler A f = {!!}
+rightTransportIsCompiler A f =
+  equivEq (funExt λ { (a , c) → ΣPathP (transportRefl a , uaβ f c) })
 
 -- Once the two equivalence equalities are filled, univalence identifies the
 -- explicit edges with the compiler edges.  These are the receipts that were
