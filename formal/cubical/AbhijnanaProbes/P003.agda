@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.ParitySeparator as M
-import NaturalMachine.OracleSeparation as F
+import NaturalMachine.DependentOptimizationFibration as M
+import NaturalMachine.DependentOptimizationFibration as F
 
-_ : fiber M.Ω (true) ≡ F.EvenQuery
-_ = refl
+_ : (b : _) → fiber M.semantics b ≡ F.SemanticFiber b
+_ = λ b → refl

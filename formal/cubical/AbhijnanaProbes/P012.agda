@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.SieveScaleTower as M
-import NaturalMachine.SieveScaleTower as F
+import NaturalMachine.SieveFiber as M
+import NaturalMachine.ChargeGradedPeeling as F
 
-_ : (b : _) → fiber M.o₁ b ≡ F.Fibre₁ b
+_ : (b : _) → fiber M.charge b ≡ F.G b
 _ = λ b → refl

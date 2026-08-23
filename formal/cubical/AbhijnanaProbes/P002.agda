@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.DependentOptimizationFibration as M
-import NaturalMachine.DependentOptimizationFibration as F
+import NaturalMachine.ChenTwoChargeProjector as M
+import NaturalMachine.ChenTwoChargeProjector as F
 
-_ : (b : _) → fiber M.semantics b ≡ F.SemanticFiber b
-_ = λ b → refl
+_ : fiber M.chargeOneProjector (true) ≡ F.chargeOneFiber
+_ = refl

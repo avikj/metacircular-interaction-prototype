@@ -80,3 +80,31 @@ ebdf500165adc8c2	7c1e3fcf45502231	१ refl	ca86071d5c8fd71a	Refused	induction on
 ebdf500165adc8c2	7c1e3fcf45502231	५ induction	692422ce00ef89a2	Refused	induction on ℕ	NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁	zero != b .snd of type Cubical.Data.Nat.ℕ when checking that the expression refl has type s₂₁ (π₂₁ b) ≡ b
 ec52ca6e118b9588	1402a9e71aeb53ed	२/३ split	32735447ce2d3d16	Refused	enumerate Fin n	NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge	obsToEdge (edgeToObs a) != a of type Σ (Cubical.Data.FinData.Base.Fin 3) (λ _ → Cubical.Data.FinData.Base.Fin 3) when checking that the expression refl has type
 ec52ca6e118b9588	1402a9e71aeb53ed	२/३ split	c09ff2874c3e3611	Accepted	restates a host Iso	NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge	
+00c8e23754e2c20f	187f0b828c1e8126	१ refl	e963c33189a461ce	Refused	मम दोषः · module path	NaturalMachine.HaskellGenericSyntaxAdapter : fromGeneric ⇄ toGeneric	
+07aaf04d955dfa18	61bb797a87a9b282	२/३ split	d4a498a09ba47441	Refused	मम दोषः · module path	AchromaticToy : from₁₂ ⇄ to₁₂	
+0a0195535fc24bd3	b907b98483d52bf0	५ induction	1998f41bbfa7f4d4	Refused	मम दोषः · module path	IntegerHullMultiplicity : K ⇄ hull	
+0ed12af90064e23e	291de00729d2d4a1	२/३ split	eb086a5f88cc41e8	Refused	मम दोषः · module path	NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple	
+10d13e235170cc10	9d283a290a59e647	२/३ split	d9c2af101013b6d5	Refused	मम दोषः · module path	NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge	
+144df34d94ab8628	5ad5a4bf717e6896	१ refl	3e32119a03eabbbd	Refused	मम दोषः · module path	NaturalMachine.RawWordPaddingNormalForm : join ⇄ split	
+1c6f3efa11db5c88	4e1e1301a3f88cb7	५ induction	961be95545afc418	Refused	मम दोषः · module path	SamaVisama_TheCountSplitsByParityIntoTwoCopiesOfItselfAndEachNayaIsTheWhole : merge ⇄ split	
+1d7a35806344b7f6	01a1ed2e54215469	५ induction	4db22064fa42954d	Refused	मम दोषः · module path	NaturalMachine.RawWordPaddingNormalForm : paddingCount ⇄ zeroRun	
+61bb797a87a9b282	0e4e73abcfa4f097	२/३ split	f9756903f391da16	Refused	मम दोषः · module path	AchromaticToy : to₁₂ ⇄ to₂₁	
+61dd9d4ad253a668	a0cd8aaba3ebd8c7	१ refl	f68d7d966f5c48c5	Refused	मम दोषः · module path	NaturalMachine.PauliGaugeCocycleSplit : central ⇄ phase	
+72f8fd6f7c41cc5d	e39e0f4dd3ba0eda	१ refl	c25a70fed9565aff	Refused	मम दोषः · module path	NaturalMachine.S3IntegerRelativeCoordinates : relativeCoordinates ⇄ relativeFromCoordinates	
+7d49cfb4546f5e9d	b102e4abacc90f7d	५ induction	e1da1d2b400f25d8	Refused	मम दोषः · module path	PingalaPrastara : allLaghu ⇄ uddista	
+8603a447bd913135	322cce49656edcfa	१ refl	96a972c526dd5f3f	Refused	मम दोषः · module path	NaturalMachine.DSONucleusMiddleProduct : Nstar ⇄ Nsub	
+8ea4adab99664b03	8e9a28ab995d147f	५ induction	c6328ed3629fd1fe	Refused	मम दोषः · module path	NaturalMachine.Digits : digitsC ⇄ valueC	
+90165ce228fac29c	d5d110bbe4ecba26	१ refl	8a14f5e4b6dc5fb2	Refused	मम दोषः · module path	NaturalMachine.SieveScaleTower : s₃₂ ⇄ π₃₂	
+a2feba608321e7de	b9f3faabb1ee182c	१ refl	826f1a0a51de2266	Refused	मम दोषः · module path	NaturalMachine.SmithPathCountedExecution : colsOf ⇄ fromCols	
+a83e34aba7c9ef0b	93c61d4987d377d7	५ induction	a5d7db044961d957	Refused	मम दोषः · module path	NaturalMachine.FreeMonoid : len ⇄ unlen	
+ac6d7b548109a2db	0c2c26980a050d48	१ refl	b5f97f11b27838d4	Refused	मम दोषः · module path	NaturalMachine.SmithPathCountedExecution : entriesOf ⇄ fromNine	
+b102ddabacc90398	b102deabacc9054b	२/३ split	f82fa5524935017e	Refused	मम दोषः · module path	ProjectionChargeAudit : decode ⇄ encode	
+b907b98483d52bf0	2af56cdc029032ff	५ induction	c98a8e5df23c28ac	Refused	मम दोषः · module path	IntegerHullMultiplicity : hull ⇄ ones	
+b9ecf3abb1e7ed99	b9ecf9abb1e7f7cb	५ induction	8bbaef04919e728e	Refused	मम दोषः · module path	NaturalMachine.SieveFiber : q ⇄ σ	
+ba0176abb1f9753c	ba0177abb1f976ef	१ refl	4722fbe9215f963f	Refused	मम दोषः · module path	NaturalMachine.S3IntegerRelativeCoordinates : intersectionToKernel ⇄ kernelToIntersection	
+cc0bcfabbc652525	cc0bcaabbc651ca6	४ Σ≡Prop	55720b800d53dc2e	Refused	मम दोषः · module path	SaptabhangiNaya : code' ⇄ decode	
+cc0f54abbc683cfb	cc0f56abbc684061	१ refl	d1c334012eb9b11d	Refused	मम दोषः · module path	Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees : fromTuple ⇄ toTuple	
+cc10dc5d1faf169e	edb34db4ed45dd7e	२/३ split	d96179280d26c09f	Refused	मम दोषः · module path	WallCertificate : classOf ⇄ visible	
+dbb72468497a0365	4924911cc1fc46df	१ refl	2ec6be59c3a91a91	Refused	मम दोषः · module path	CenterRelative : Φ ⇄ Ψ	
+e4f32ff62726511f	9039bcb771343952	२/३ split	c09ff2874c3e3611	Refused	मम दोषः · module path	NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge	
+ebdf500165adc8c2	1cf07f4e918bed29	५ induction	692422ce00ef89a2	Refused	मम दोषः · module path	NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁	

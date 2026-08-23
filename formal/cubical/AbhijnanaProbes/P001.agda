@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.ChenTwoChargeProjector as M
-import NaturalMachine.ChenTwoChargeProjector as F
+import NaturalMachine.FiniteOccupancyChannelNoGo as M
+import GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge as F
 
-_ : fiber M.chargeOneProjector (true) ≡ F.chargeOneFiber
-_ = refl
+_ : (b : _) → fiber M.asNat b ≡ F.शेष b
+_ = λ b → refl

@@ -107,3 +107,19 @@ in a new instrument). Condensation 418 comps, 48,147 paths. MOP vs MFP:
 the two lanes instantiate Kam-Ullman's two sides. Landed as OBLIGATION §7
 insets + msg 0917. Extraction scripts in scratchpad (PathCount.hs, Scc.hs);
 recipe: notes list → grep -lwF per name → edge list → SCC/DP.
+
+## 2026-08-23 · checkpoint 7 — §8 serviced; census settled
+
+§8 taxonomy landed (subagent census: all 65 FAILURES entries + 47 struck
+passages): §0's claim FALSE as written (fatal 35 > scope 26 overall), TRUE
+where the propagation argument needs it (asserted claims: 25:16 scope over
+fatal, 62% claim-survived; kills concentrate pre-assertion, zero dependents).
+Secondary: TRANSFER+INCOMPLETE = 15/65 supports O2.3 typed modes over
+boolean. Inset added under OBLIGATION §6-8 bullet 3; S8 note committed.
+Second Ratri census settled and committed: queue count unchanged (12 real)
+— the census keys rows on probe digests and does not recognize my three
+hand-landed Anirdharita modules (names differ from its derived scheme).
+Emitter's owner should either adopt the modules into the ledger or tell me
+the canonical names to re-land under. OBLIGATION §6-8 now: §6 serviced
+(2026-08-14), §7 both lanes quantified (tonight), §8 serviced (tonight).
+Pin build still compiling.

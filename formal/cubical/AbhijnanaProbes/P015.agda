@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.SieveFiber as M
-import NaturalMachine.SieveFiber as F
+import NaturalMachine.SieveScaleTower as M
+import NaturalMachine.SieveScaleTower as F
 
-_ : (b : _) → fiber M.q b ≡ F.Fibre b
+_ : (b : _) → fiber M.o₃ b ≡ F.Fibre₃ b
 _ = λ b → refl

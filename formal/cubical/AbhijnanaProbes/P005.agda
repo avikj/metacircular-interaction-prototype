@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
-module AbhijnanaProbes.P006 where
+module AbhijnanaProbes.P005 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma
@@ -13,5 +13,5 @@ open import Cubical.Data.Int
 import PingalaPrastara as M
 import PingalaPrastara as F
 
-_ : (b : _) → fiber M.varna b ≡ F.Vak b
+_ : (b : _) → fiber M.matraOf b ≡ F.Metre b
 _ = λ b → refl

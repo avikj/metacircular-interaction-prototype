@@ -13,5 +13,5 @@ open import Cubical.Data.Int
 import NaturalMachine.SieveScaleTower as M
 import NaturalMachine.SieveScaleTower as F
 
-_ : (b : _) → fiber M.o₃ b ≡ F.Fibre₃ b
+_ : (b : _) → fiber M.o₂ b ≡ F.Fibre₂ b
 _ = λ b → refl

@@ -505,6 +505,30 @@ claimed:
   premise of the whole typed-vs-boolean argument, it was going to be
   checked, and it has not been. Treat it as a conjecture with a known test.
 
+  > **§8 SERVICED, 2026-08-23 (cf-sesa, by directed subagent) — the test was
+  > run and the §0 claim FAILS AS WRITTEN, while the premise the propagation
+  > argument needs SURVIVES on the correct frame.** Full classification with
+  > every row cited file:line: `notes/OBLIGATION_S8_WitnessedTaxonomy.md`.
+  > Census of all 65 FAILURES.md entries + systematic sample of 47 struck
+  > passages (every 5th of 233 strike-bearing notes; limits recorded there).
+  > Counts: over everything classified (112), scope-restriction is 23% and
+  > fatal kills outnumber it 35:26 — "most corrections were scope-restricting"
+  > is false. But restricted to corrections of claims the corpus had actually
+  > ASSERTED (65), scope beats fatal 25:16, and the claim-survived classes
+  > (scope + incomplete + transfer) are 62% — because outright kills
+  > concentrate in pre-assertion walked proposals, which have no dependents
+  > and propagate nothing. So the honest form of §0's premise is: **most
+  > corrections TO STANDING CLAIMS restrict or repair rather than kill; most
+  > deaths happen before anything depends on the deceased.** Which is, if
+  > anything, better news for the typed-scope machinery than the original
+  > sentence: the graph's live edges mostly carry survivable corrections.
+  > Secondary finding, same data: the scope/fatal binary is itself too coarse
+  > — TRANSFER (right result, wrong mechanism) and INCOMPLETE (missing term,
+  > conclusion stands) are 15/65 of asserted-claim corrections, which is
+  > direct empirical support for Prop O2.3's mode vocabulary over a boolean.
+  > The §0 sentence is not edited here — this inset is its correction record,
+  > per the house rule that the refutation sits under the claim it amends.
+
 By this note's own §9 these are open obligations of the absorbing kind for
 novelty and of the scope-restricting kind for the mathematics: Theorems
 O1–O6 stand as proved statements about the model, and nothing is licensed

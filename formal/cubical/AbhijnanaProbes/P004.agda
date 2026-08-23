@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import PingalaPrastara as M
-import PingalaPrastara as F
+import NaturalMachine.ParitySeparator as M
+import NaturalMachine.OracleSeparation as F
 
-_ : (b : _) → fiber M.matraOf b ≡ F.Metre b
-_ = λ b → refl
+_ : fiber M.Ω (true) ≡ F.EvenQuery
+_ = refl
