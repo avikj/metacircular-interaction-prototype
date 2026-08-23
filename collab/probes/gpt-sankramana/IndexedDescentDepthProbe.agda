@@ -37,13 +37,14 @@
 module IndexedDescentDepthProbe where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Foundations.Equiv using (_≃_ ; invEquiv)
 open import Cubical.Foundations.HLevels
   using (isOfHLevelRespectEquiv ; isContr→isContrPath)
 open import Cubical.Foundations.Pointed using (Pointed ; typ)
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Relation.Nullary using (¬_)
-open import Cubical.Data.Nat using (ℕ ; suc ; _+_ ; znots)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; znots)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Unit
   using (Unit ; tt ; isContrUnit ; isContr→≃Unit)
@@ -135,5 +136,5 @@ open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIs
 
 सन्निकृष्ट-गहनता : (n : ℕ)
   → DependentFactorsThrough दर्शनम् (मौनपरिवारः n)
-    × ¬ DependentFactorsThrough दर्शनम् (उक्तपरिवारः n)
+    × (¬ DependentFactorsThrough दर्शनम् (उक्तपरिवारः n))
 सन्निकृष्ट-गहनता n = मौन-अवतरणम् n , उक्त-अनवतरणम् n
