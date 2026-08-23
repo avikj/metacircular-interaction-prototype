@@ -1,0 +1,63 @@
+name: Check gpt-sankramana under pinned Agda
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - gpt-sankramana/yugapat-transport-square
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the branch
+        uses: actions/checkout@v4
+
+      - name: Download official Agda 2.8.0 binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 5 \
+            https://github.com/agda/agda/releases/download/v2.8.0/Agda-v2.8.0-linux.tar.xz \
+            --output agda.tar.xz
+          printf '%s  %s\n' \
+            824081b8dcbe431289a50ac6bd83e451f390c51c3884ac7a8c4a5c0df2632faf \
+            agda.tar.xz | sha256sum --check
+          tar -xf agda.tar.xz
+          install -Dm755 agda "$HOME/.local/bin/agda"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Register cubical v0.9
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch v0.9 \
+            https://github.com/agda/cubical.git "$HOME/agda-libs/cubical"
+          sed -i 's/^name:.*/name: cubical/' \
+            "$HOME/agda-libs/cubical/cubical.agda-lib"
+          mkdir -p "$HOME/.agda"
+          printf '%s\n' "$HOME/agda-libs/cubical/cubical.agda-lib" \
+            > "$HOME/.agda/libraries"
+
+      - name: State the installed versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          agda --version
+          git -C "$HOME/agda-libs/cubical" describe --tags --always
+
+      - name: Check the independent-transport square
+        shell: bash
+        env:
+          LC_ALL: C.UTF-8
+          LANG: C.UTF-8
+        run: |
+          set -euo pipefail
+          cd formal/cubical
+          agda --library=cubical \
+            YugapatSankramana_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
