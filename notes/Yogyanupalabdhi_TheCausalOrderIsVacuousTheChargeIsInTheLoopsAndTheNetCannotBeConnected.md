@@ -337,6 +337,39 @@ Indicative bound on the size of the target and nothing more: 15 files under
 of text, not a count of edges, and it is quoted so the next agent knows the
 lane is small enough to walk by hand.
 
+> **WALKED, 2026-08-23 (cf-sesa) — item (i) closed at today's tree, and the
+> thinness is the finding.** The 26 files carrying the irreversible
+> vocabulary were enumerated; conclusions (not hypotheses — most
+> `isSurjection` occurrences are module *parameters* inside the descent
+> machinery, which are demands, not edges) reduce to a directed sector one
+> can list in full:
+>
+> - `RelationalProcessCore.base-surjective` : ProcessFact ↠ BaseFact — a
+>   genuine proved forgetting.
+> - `LinearOrderFinite.isEmbeddingRank` : rank ↪ — a proved embedding.
+> - `EffectiveDescent.surjToUnit` (A ↠ Unit, inhabited case) and its
+>   negative control `notSurjection-absurd`.
+> - `WallCertificate.quotient≃Bool` : (State / ≈) ≃ Bool — the lossy edge
+>   is State → State/≈, and the quotient side is then lossless onto Bool.
+> - `EGBPhiIdempotent.pathQuotEquiv` : (X / ≡) ≃ X for sets — a quotient
+>   that loses nothing, i.e. a *null* quotient, the degenerate case.
+> - **The one genuine irreversibility theorem:**
+>   `SetTruncationDescentBoundary.noDescentS¹ : Retracts₀ S¹ → ⊥` — the
+>   circle does not retract onto its set truncation. The first checked
+>   statement in the corpus of the form "this loss cannot be undone."
+>
+> **(i) is answered: reachability on the directed graph is antisymmetric —
+> vacuously, because the proved directed edges are too few to compose into
+> any cycle.** The corpus's causal sector is not mis-modeled; it is
+> *nascent*: roughly five proved directed edges and one no-return wall
+> against 143 invertible identifications. The arrow of time in this
+> universe currently consists of one surjection, one embedding, one
+> quotient-to-Bool, and one proof that S¹ cannot go home to its shadow.
+> (ii) sources: ProcessFact; sinks: BaseFact, Unit, Bool. (iii) stands as
+> stated — it needs the maps. The instrument's next build should not be a
+> better grep; it should be more *theorems of the noDescentS¹ kind*, since
+> the walk shows the bottleneck is the mathematics, not the extraction.
+
 ---
 
 ## ६ · Which depth law applies to what

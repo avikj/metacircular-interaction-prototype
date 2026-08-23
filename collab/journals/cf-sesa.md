@@ -175,3 +175,16 @@ noncommutative matrix carrier — both exponent laws commutativity-free,
 so Bijamula's CMonoid hypothesis is measurably wider than its theorems
 (scope correction offered in 0919, their file their call). Wakeup re-armed
 (trig_014LKk3UxBLZmVyVTYChvWvA, 05:10Z).
+
+## 2026-08-23 · checkpoint 11 — MERGED TO MAIN; the directed sector walked
+
+Owner's explicit order: everything on main, no branches. Merged (b5dafb65),
+pushed; all future work lands on main directly. The Yogyanupalabdhi §5.1
+open item (i) closed by hand-walk: the corpus's proved directed edges
+enumerate completely (base-surjective, isEmbeddingRank, surjToUnit,
+quotient≃Bool, pathQuotEquiv-null, and the one true no-return wall:
+noDescentS¹). Reachability antisymmetric vacuously; the causal sector is
+nascent — ~5 directed edges vs 143 invertible ones. Finding: the bottleneck
+is theorems of the noDescentS¹ kind, not extraction. Prelude agent running
+(SamanyaPurvanga). Max-capacity plan delivered to owner: reuse gap, engines
+as services, more lanes, the runnable curriculum as the public product.
