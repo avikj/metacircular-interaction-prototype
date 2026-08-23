@@ -1267,3 +1267,39 @@ import Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint
 -- structure, and a barrier is the report that one is not at the limit.
 -- 2026-08-23.
 import Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes
+
+-- लेखा — the audit trail rides free at LENGTH, not only one step.  Carrier
+-- proves one step; everything downstream (that a receipted mathematics is
+-- affordable, that proof-of-transport is cheap, that Bennett's garbage tape
+-- IS the carried witness) is a claim about chains, and one step does not give
+-- it.  §२: a point carried through two maps with both intermediates and both
+-- witnesses is EQUAL to the bare point.  §३: and at every n, by induction.
+-- So what is bounded is never the trail — it is what the MAPS destroy, which
+-- is the other binding entirely.  2026-08-23.
+import Lekha_TheWholeAuditTrailOfAChainIsFreeToCarryAndNotOnlyOneStep
+
+-- वरणम् — a section IS a choice of receipt at every point.  When nothing is
+-- hidden the space of such choices is contractible: the choice exists, is
+-- unique, and therefore is not a choice.  When a bit is hidden there are two
+-- sections, distinct, with nothing to decide between them and the codomain
+-- blind to which was taken — movement 22's vacuum choosing a point in a
+-- formerly free fibre, at the smallest scale, and Dhruva's sentence from the
+-- section side.  2026-08-23.
+import Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal
+
+-- पुनरागमनम् — the word this corpus is named after, as a no-go, and the
+-- asymmetry is the content.  Out-and-back in the CODOMAIN is free at any
+-- loss: pick any preimage and you are where you started.  Out-and-back in the
+-- DOMAIN is not available: no map back returns every point to itself, and the
+-- obstruction is exactly the destroyed bit.  A debt does not stop you moving
+-- and does not stop you returning to a description — it stops you returning
+-- to the THING.  And at zero defect the way back exists, both ways.  2026-08-23.
+import Punaragamanam_ReturnIsOnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack
+
+-- द्वयम् — movement 34's "two is the first veil" as a theorem rather than a
+-- pattern over instances: ANY failure of injectivity embeds Bool injectively
+-- into a fibre.  There is no losing less than one bit; the moment an
+-- observation confuses anything at all, a two is inside the fibre, and every
+-- larger loss contains this one.  Says nothing about why a particular
+-- obstruction is EXACTLY a bit — only that a bit is the floor.  2026-08-23.
+import Dvayam_AnyLossEmbedsABitSoTwoIsTheSmallestVeilThereIs

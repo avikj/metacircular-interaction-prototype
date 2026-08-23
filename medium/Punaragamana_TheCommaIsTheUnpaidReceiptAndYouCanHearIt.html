@@ -1,0 +1,653 @@
+<title>The Comma You Can Hear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+
+<style>
+:root {
+  --ink:       #F3EFE6;
+  --leaf:      #FFFFFF;
+  --edge:      #DDD5C4;
+  --bone:      #16191F;
+  --ash:       #5E6470;
+  --haldi:     #A96C05;
+  --haldi-dim: #F0DCB4;
+  --kumkum:    #A62E20;
+  --kumkum-dim:#F2D6D0;
+  --wave:      #A96C05;
+  --wave-b:    #A62E20;
+  --grid:      rgba(94,100,112,0.16);
+
+  --f-dev:  "Noto Serif Devanagari", "Noto Sans Devanagari", serif;
+  --f-body: "Gentium Book Plus", "Gentium Plus", "Charis SIL", Georgia, serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --step--1: 0.82rem;
+  --step-0:  1.0625rem;
+  --step-1:  1.35rem;
+  --step-2:  1.85rem;
+  --step-3:  2.6rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink:       #0E1116;
+    --leaf:      #171C23;
+    --edge:      #2A313C;
+    --bone:      #EDE6D8;
+    --ash:       #868D99;
+    --haldi:     #E8A33D;
+    --haldi-dim: #3A2E19;
+    --kumkum:    #D9553F;
+    --kumkum-dim:#3A1D18;
+    --wave:      #E8A33D;
+    --wave-b:    #D9553F;
+    --grid:      rgba(134,141,153,0.20);
+  }
+}
+:root[data-theme="dark"] {
+  --ink:       #0E1116;
+  --leaf:      #171C23;
+  --edge:      #2A313C;
+  --bone:      #EDE6D8;
+  --ash:       #868D99;
+  --haldi:     #E8A33D;
+  --haldi-dim: #3A2E19;
+  --kumkum:    #D9553F;
+  --kumkum-dim:#3A1D18;
+  --wave:      #E8A33D;
+  --wave-b:    #D9553F;
+  --grid:      rgba(134,141,153,0.20);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.1rem, 4vw, 2rem) 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+header { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.dev {
+  font-family: var(--f-dev);
+  font-weight: 600;
+  color: var(--haldi);
+  font-size: var(--step-2);
+  line-height: 1.35;
+}
+
+h1 {
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: var(--step-3);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.standfirst { color: var(--ash); font-size: var(--step-1); text-wrap: balance; margin: 0; }
+
+.rule { height: 1px; background: var(--edge); border: 0; margin: 0; }
+
+.mv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.5rem;
+  background: var(--leaf);
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+}
+
+.mv-head { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
+
+.mv-dev { font-family: var(--f-dev); font-size: var(--step-1); color: var(--haldi); font-weight: 600; }
+
+.mv-title { font-size: var(--step-1); font-weight: 700; margin: 0; }
+
+.mv p { margin: 0; }
+
+.sutra {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  color: var(--ash);
+  letter-spacing: 0.02em;
+  border-left: 2px solid var(--haldi);
+  padding-left: 0.75rem;
+}
+.sutra.debt { border-left-color: var(--kumkum); }
+
+.row { display: flex; flex-wrap: wrap; gap: 0.55rem; align-items: center; }
+
+button {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--bone);
+  background: var(--ink);
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+button:hover { border-color: var(--haldi); color: var(--haldi); }
+button:focus-visible { outline: 2px solid var(--haldi); outline-offset: 2px; }
+button[disabled] { opacity: 0.45; cursor: default; }
+button.primary { background: var(--haldi); border-color: var(--haldi); color: var(--ink); }
+button.primary:hover { color: var(--ink); filter: brightness(1.08); }
+button.debt { border-color: var(--kumkum); color: var(--kumkum); }
+button.debt:hover { background: var(--kumkum-dim); }
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.5rem 1.25rem;
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+.fig { display: flex; flex-direction: column; gap: 0.1rem; }
+.fig dt { color: var(--ash); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; }
+.fig dd { margin: 0; color: var(--bone); }
+.fig dd.owed { color: var(--kumkum); }
+.fig dd.paid { color: var(--haldi); }
+
+.scope {
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  background: var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+canvas { display: block; width: 100%; height: 132px; }
+
+.readout {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  color: var(--ash);
+  font-variant-numeric: tabular-nums;
+  min-height: 1.5em;
+}
+.readout strong { color: var(--bone); font-weight: 600; }
+.readout .owed { color: var(--kumkum); }
+.readout .paid { color: var(--haldi); }
+
+.steps {
+  display: flex; flex-wrap: wrap; gap: 0.25rem;
+  font-family: var(--f-mono); font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.step {
+  border: 1px solid var(--edge); border-radius: 2px;
+  padding: 0.15rem 0.4rem; color: var(--ash);
+}
+.step.on { border-color: var(--haldi); color: var(--haldi); background: var(--haldi-dim); }
+.step.last.on { border-color: var(--kumkum); color: var(--kumkum); background: var(--kumkum-dim); }
+
+.note { font-size: var(--step--1); color: var(--ash); }
+.note code { font-family: var(--f-mono); font-size: 0.95em; }
+
+footer { color: var(--ash); font-size: var(--step--1); display: flex; flex-direction: column; gap: 0.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="dev">पुनरागमनं शून्य-व्ययेन एव</div>
+  <h1>The comma you can hear</h1>
+  <p class="standfirst">Twelve perfect fifths should land seven octaves up. They miss. The
+  miss is 23.46 cents, it beats three times a second, and there are exactly two honest
+  things you can do about it.</p>
+  <div class="row">
+    <button id="all" class="primary">Play the whole piece</button>
+    <button id="stop">Stop</button>
+  </div>
+  <p class="note">Sound starts on your click — browsers require it. Headphones or decent
+  speakers; the beating is the point and small laptop speakers eat it.</p>
+</header>
+
+<hr class="rule">
+
+<section class="mv">
+  <div class="mv-head"><span class="mv-dev">१</span><h2 class="mv-title">The string, and the octave that costs nothing</h2></div>
+  <p class="sutra">दर्शनं भागः — an observation is a quotient. The octave is the quotient by
+  doubling, and its fibre is a point.</p>
+  <p>One string at 220 Hz. Then the same string stopped at half its length: exactly 2:1.
+  The two tones fuse — no beat, nothing left over. This is the null path. A return that
+  costs nothing sounds like <em>one thing</em>.</p>
+  <div class="row">
+    <button data-play="drone">Sa alone</button>
+    <button data-play="octave">Sa + octave (2:1)</button>
+    <button data-play="fifth">Sa + fifth (3:2)</button>
+  </div>
+</section>
+
+<section class="mv">
+  <div class="mv-head"><span class="mv-dev">२</span><h2 class="mv-title">The walk: twelve fifths</h2></div>
+  <p>Go up a pure fifth, fold back down an octave whenever you leave the register, and
+  repeat twelve times. Every step is a clean 3:2. Twelve of them should bring you home.</p>
+  <div class="steps" id="steps"></div>
+  <div class="row">
+    <button data-play="walk">Walk the twelve</button>
+  </div>
+  <p class="note">Timed on Piṅgala's prastāra — the enumeration of laghu (1 mora) and guru
+  (2 morae) patterns filling five morae. There are eight, which is Virahāṅka's recurrence,
+  and the rhythm you hear is that list in order.</p>
+</section>
+
+<section class="mv">
+  <div class="mv-head"><span class="mv-dev">३</span><h2 class="mv-title">अपुनरागमन — it does not come back</h2></div>
+  <p class="sutra debt">ऋणं गुरुत्वम् — debt is mass. The walk closed as a cycle and did not
+  close as an identity, and the difference has a size you can hear.</p>
+  <p>Hold the arrival against the origin. They are a hair apart, and a hair apart is not
+  a subtler unison — it is a <strong>pulse</strong>. That pulse is the unpaid receipt.</p>
+  <div class="scope"><canvas id="scope" width="900" height="264"></canvas></div>
+  <div class="readout" id="readout">Two tones, their sum, and its envelope. Flat envelope means zero defect.</div>
+  <dl class="figures">
+    <div class="fig"><dt>twelve fifths</dt><dd>(3/2)<sup>12</sup> = 129.746338</dd></div>
+    <div class="fig"><dt>seven octaves</dt><dd>2<sup>7</sup> = 128</dd></div>
+    <div class="fig"><dt>the defect</dt><dd class="owed">531441 / 524288</dd></div>
+    <div class="fig"><dt>in cents</dt><dd class="owed">23.460</dd></div>
+    <div class="fig"><dt>beat at 220 Hz</dt><dd class="owed">3.00 / sec</dd></div>
+  </dl>
+  <div class="row">
+    <button data-play="comma" class="debt">Hear the comma</button>
+    <button data-play="unison">Hear a true unison (for contrast)</button>
+  </div>
+</section>
+
+<section class="mv">
+  <div class="mv-head"><span class="mv-dev">४</span><h2 class="mv-title">Two roads, and there is no third</h2></div>
+  <p class="sutra">द्वौ मार्गौ — संक्रमणं दोषलेखश्च; तृतीयो न विद्यते ।<br>
+  Two roads — transport, or the written record. There is no third.</p>
+  <p><strong>Pay it.</strong> Equal temperament flattens every fifth by one twelfth of the
+  comma — 1.955 cents each. The walk now closes exactly. Play the arrival against the
+  origin and the pulse is gone. The debt did not vanish; it was <em>distributed across
+  every interval in the system</em>, and you can hear that too: the fifths are very
+  slightly sour, everywhere, forever.</p>
+  <div class="row"><button data-play="et">Closed: equal temperament</button></div>
+  <p><strong>Write it down.</strong> Or keep eleven fifths perfectly pure and let the
+  twelfth absorb the entire comma. It closes too — but that last fifth howls. This is the
+  wolf, 678.5 cents where a fifth should be 702. Nothing is hidden and nothing is smeared:
+  the loss has a <em>location</em>.</p>
+  <p class="sutra debt">व्यये स्थानम्, न मात्रा एव — loss has location, not only size.</p>
+  <div class="row"><button data-play="wolf" class="debt">Localized: the wolf fifth</button></div>
+  <p class="note">Both are honest. Neither destroys the information. Every keyboard you
+  have ever heard took the first road, which is why nobody told you there was a debt.</p>
+</section>
+
+<section class="mv">
+  <div class="mv-head"><span class="mv-dev">५</span><h2 class="mv-title">कोडा — three verdicts, never two</h2></div>
+  <p>Ask the ear one boolean question: <em>is this a single tone?</em></p>
+  <div class="row">
+    <button data-play="empty">रिक्तम् · nothing</button>
+    <button data-play="one">एकम् · one</button>
+    <button data-play="many">बहु · many</button>
+  </div>
+  <p>Silence answers no. The unison answers yes. The cluster answers no. So the boolean
+  merges <strong>nothing</strong> with <strong>a chord</strong> — two things no ear would
+  ever confuse. A two-valued verdict on three seeds has to destroy a distinction; that is
+  the pigeonhole, and it is why the verdict channel here has three positions and not two.</p>
+</section>
+
+<hr class="rule">
+
+<footer>
+  <p>Every number above is exact and classical: the ratios are Pythagorean, the comma is
+  531441/524288, the rhythm is Piṅgala's prastāra of five morae. Nothing here is fitted
+  and nothing is approximated except your speakers.</p>
+  <p>Synthesis is a three-partial additive tone — fundamental, octave at −12 dB, twelfth at
+  −20 dB — so the beats you hear are the beats of the fundamentals, not artifacts of a
+  rich timbre.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var BASE = 220;
+  var PURE_FIFTH = 3 / 2;
+  var COMMA = 531441 / 524288;
+  var ET_FIFTH = Math.pow(2, 7 / 12);
+  var WOLF = PURE_FIFTH / COMMA;
+
+  var ctx = null, master = null;
+  var timers = [];
+  var live = [];
+
+  function audio() {
+    if (!ctx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      ctx = new AC();
+      master = ctx.createGain();
+      master.gain.value = 0.9;
+      master.connect(ctx.destination);
+    }
+    if (ctx.state === "suspended") ctx.resume();
+    return ctx;
+  }
+
+  // additive tone: fundamental + octave + twelfth, gently decaying
+  function tone(freq, at, dur, level) {
+    var c = audio();
+    var t0 = c.currentTime + at;
+    var partials = [[1, 1.0], [2, 0.25], [3, 0.10]];
+    var g = c.createGain();
+    g.gain.setValueAtTime(0, t0);
+    g.gain.linearRampToValueAtTime(level, t0 + 0.02);
+    g.gain.setValueAtTime(level, t0 + dur - 0.14);
+    g.gain.exponentialRampToValueAtTime(0.0006, t0 + dur);
+    g.connect(master);
+    partials.forEach(function (p) {
+      var o = c.createOscillator();
+      o.type = "sine";
+      o.frequency.value = freq * p[0];
+      var pg = c.createGain();
+      pg.gain.value = p[1];
+      o.connect(pg); pg.connect(g);
+      o.start(t0); o.stop(t0 + dur + 0.05);
+      live.push(o);
+    });
+    return g;
+  }
+
+  function after(ms, fn) { timers.push(setTimeout(fn, ms)); }
+
+  function stopAll() {
+    timers.forEach(clearTimeout); timers = [];
+    live.forEach(function (o) { try { o.stop(); } catch (e) {} });
+    live = [];
+    scope.set(0, 0);
+    say("Stopped.");
+  }
+
+  var readout = document.getElementById("readout");
+  function say(html) { readout.innerHTML = html; }
+
+  function cents(r) { return 1200 * Math.log(r) / Math.LN2; }
+  function fmt(n, d) { return n.toFixed(d === undefined ? 2 : d); }
+
+  /* ---------- the scope: two waves, their sum, and the envelope ---------- */
+  var scope = (function () {
+    var cv = document.getElementById("scope");
+    var g = cv.getContext("2d");
+    var fA = 0, fB = 0, raf = null, t = 0;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+    function draw() {
+      var W = cv.width, H = cv.height, mid = H / 2;
+      g.clearRect(0, 0, W, H);
+      g.strokeStyle = css("--grid"); g.lineWidth = 1;
+      g.beginPath(); g.moveTo(0, mid); g.lineTo(W, mid); g.stroke();
+
+      if (!fA) { return; }
+
+      // beat frequency sets the visible envelope; scale time so it reads
+      var beat = Math.abs(fA - fB);
+      var span = beat > 0.01 ? (2 / beat) : 0.02;      // seconds shown
+      var carrier = 26;                                 // visible cycles of the mean tone
+      var mean = (fA + fB) / 2;
+      var k = carrier / (mean * span);
+
+      var ampC = css("--wave"), ampD = css("--wave-b");
+
+      // envelope
+      g.strokeStyle = beat > 0.01 ? ampD : ampC;
+      g.globalAlpha = 0.30; g.lineWidth = 1.5;
+      for (var s = 0; s < 2; s++) {
+        g.beginPath();
+        for (var x = 0; x <= W; x++) {
+          var u = (x / W) * span + t;
+          var e = Math.abs(Math.cos(Math.PI * beat * u));
+          var y = mid + (s ? 1 : -1) * e * (mid - 12);
+          if (x === 0) g.moveTo(x, y); else g.lineTo(x, y);
+        }
+        g.stroke();
+      }
+      g.globalAlpha = 1;
+
+      // the sum
+      g.strokeStyle = ampC; g.lineWidth = 1.6;
+      g.beginPath();
+      for (var x2 = 0; x2 <= W; x2++) {
+        var u2 = (x2 / W) * span + t;
+        var v = (Math.sin(2 * Math.PI * fA * u2 * k) + Math.sin(2 * Math.PI * fB * u2 * k)) / 2;
+        var y2 = mid - v * (mid - 12);
+        if (x2 === 0) g.moveTo(x2, y2); else g.lineTo(x2, y2);
+      }
+      g.stroke();
+    }
+
+    function loop() { t += 0.012; draw(); raf = requestAnimationFrame(loop); }
+
+    return {
+      set: function (a, b) {
+        fA = a; fB = b === undefined ? a : b;
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+        if (!fA) { draw(); return; }
+        if (reduce) { draw(); return; }
+        loop();
+      }
+    };
+  })();
+
+  /* ---------- Piṅgala: prastāra of 5 morae, laghu=1 guru=2 ---------- */
+  function prastara(n) {
+    if (n === 0) return [[]];
+    if (n < 0) return [];
+    var out = [];
+    prastara(n - 1).forEach(function (p) { out.push([1].concat(p)); });
+    prastara(n - 2).forEach(function (p) { out.push([2].concat(p)); });
+    return out;
+  }
+  var METER = prastara(5);            // 8 patterns — Virahāṅka
+  var MORA = 0.19;                    // seconds per laghu
+
+  /* ---------- the walk ---------- */
+  function foldedFifths(fifth) {
+    var r = 1, out = [1];
+    for (var i = 0; i < 12; i++) {
+      r *= fifth;
+      while (r >= 2) r /= 2;
+      out.push(r);
+    }
+    return out;
+  }
+
+  var stepsEl = document.getElementById("steps");
+  (function () {
+    for (var i = 0; i <= 12; i++) {
+      var d = document.createElement("span");
+      d.className = "step" + (i === 12 ? " last" : "");
+      d.textContent = i === 0 ? "Sa" : i;
+      stepsEl.appendChild(d);
+    }
+  })();
+  function litStep(i) {
+    var kids = stepsEl.children;
+    for (var j = 0; j < kids.length; j++) kids[j].classList.toggle("on", j === i);
+  }
+  function clearSteps() { litStep(-1); }
+
+  /* ---------- pieces ---------- */
+  var play = {};
+
+  play.drone = function () {
+    scope.set(BASE, BASE);
+    tone(BASE, 0, 2.6, 0.34);
+    say("Sa — <strong>220.000 Hz</strong>. The monochord, undivided.");
+  };
+
+  play.octave = function () {
+    scope.set(BASE, BASE * 2);
+    tone(BASE, 0, 2.8, 0.28); tone(BASE * 2, 0, 2.8, 0.22);
+    say("2:1 — <strong>220</strong> and <strong>440</strong>. Zero defect. <span class='paid'>No beat: the fibre is a point.</span>");
+  };
+
+  play.fifth = function () {
+    scope.set(BASE, BASE * PURE_FIFTH);
+    tone(BASE, 0, 2.8, 0.28); tone(BASE * PURE_FIFTH, 0, 2.8, 0.24);
+    say("3:2 — <strong>220</strong> and <strong>330</strong>. Small integers, small fibre: consonance.");
+  };
+
+  play.walk = function (thenComma) {
+    var r = foldedFifths(PURE_FIFTH);
+    var at = 0, idx = 0;
+    scope.set(0, 0);
+    say("Walking. Each step a pure 3:2, folded back into one octave.");
+    for (var i = 1; i <= 12; i++) {
+      (function (i, at) {
+        var pat = METER[(i - 1) % METER.length];
+        var local = at;
+        pat.forEach(function (m) {
+          tone(BASE * r[i], local, MORA * m * 0.92, m === 2 ? 0.30 : 0.22);
+          local += MORA * m;
+        });
+        after(at * 1000, function () {
+          litStep(i);
+          say("Step <strong>" + i + "</strong> of 12 — " +
+              "<strong>" + fmt(BASE * r[i], 3) + " Hz</strong> · " +
+              (i === 12 ? "<span class='owed'>arrival</span>" : "pure 3:2"));
+        });
+      })(i, at);
+      at += MORA * METER[(i - 1) % METER.length].reduce(function (a, b) { return a + b; }, 0);
+    }
+    after(at * 1000 + 300, function () {
+      clearSteps();
+      if (thenComma) play.comma();
+      else say("Arrived at <strong>" + fmt(BASE * r[12], 3) + " Hz</strong>. Home was <strong>220.000</strong>. " +
+               "<span class='owed'>It did not come back.</span>");
+    });
+  };
+
+  play.comma = function () {
+    var arrive = BASE * COMMA;
+    scope.set(BASE, arrive);
+    tone(BASE, 0, 5.2, 0.30); tone(arrive, 0, 5.2, 0.30);
+    say("<strong>220.000</strong> against <strong>" + fmt(arrive, 3) + "</strong> — " +
+        "<span class='owed'>" + fmt(cents(COMMA), 3) + " cents apart, beating " +
+        fmt(Math.abs(arrive - BASE), 2) + " times a second.</span> That pulse is the debt.");
+  };
+
+  play.unison = function () {
+    scope.set(BASE, BASE);
+    tone(BASE, 0, 3.4, 0.30); tone(BASE, 0, 3.4, 0.30);
+    say("<strong>220.000</strong> against <strong>220.000</strong>. <span class='paid'>Envelope flat. Nothing owed.</span>");
+  };
+
+  play.et = function () {
+    var r = foldedFifths(ET_FIFTH);
+    var at = 0;
+    scope.set(0, 0);
+    say("Equal temperament: every fifth flattened by " + fmt(cents(PURE_FIFTH / ET_FIFTH), 3) + " cents.");
+    for (var i = 1; i <= 12; i++) {
+      tone(BASE * r[i], at, 0.20, 0.24);
+      at += 0.215;
+    }
+    after(at * 1000 + 150, function () {
+      scope.set(BASE, BASE * r[12]);
+      tone(BASE, 0.05, 4.2, 0.30); tone(BASE * r[12], 0.05, 4.2, 0.30);
+      say("Closed. <strong>" + fmt(BASE * r[12], 3) + "</strong> against <strong>220.000</strong> — " +
+          "<span class='paid'>no beat.</span> The comma was paid, 1.955 cents at a time, by every fifth in the system.");
+    });
+  };
+
+  play.wolf = function () {
+    var at = 0, r = 1;
+    scope.set(0, 0);
+    say("Eleven pure fifths, then one that absorbs the whole comma.");
+    for (var i = 1; i <= 11; i++) {
+      r *= PURE_FIFTH; while (r >= 2) r /= 2;
+      tone(BASE * r, at, 0.20, 0.24);
+      at += 0.215;
+    }
+    var before = r;
+    after(at * 1000 + 120, function () {
+      var w = before * WOLF; while (w >= 2) w /= 2;
+      scope.set(BASE * before, BASE * before * WOLF);
+      tone(BASE * before, 0.05, 4.0, 0.30);
+      tone(BASE * before * WOLF, 0.05, 4.0, 0.30);
+      say("The wolf: <span class='owed'>" + fmt(cents(WOLF), 1) + " cents where a fifth should be " +
+          fmt(cents(PURE_FIFTH), 1) + "</span>. The whole debt, at one location, written down and audible.");
+    });
+  };
+
+  play.empty = function () {
+    scope.set(0, 0);
+    say("रिक्तम् — nothing. Is this a single tone? <strong>No.</strong>");
+  };
+
+  play.one = function () {
+    scope.set(BASE, BASE);
+    tone(BASE, 0, 2.4, 0.32);
+    say("एकम् — one. Is this a single tone? <strong>Yes.</strong>");
+  };
+
+  play.many = function () {
+    scope.set(BASE, BASE * COMMA);
+    tone(BASE, 0, 2.8, 0.24);
+    tone(BASE * COMMA, 0, 2.8, 0.24);
+    tone(BASE * COMMA * COMMA, 0, 2.8, 0.24);
+    say("बहु — many. Is this a single tone? <strong>No.</strong> " +
+        "<span class='owed'>Same answer as silence.</span> The boolean just destroyed a distinction.");
+  };
+
+  /* ---------- the whole piece ---------- */
+  function whole() {
+    var t = 0;
+    // durations measured, not guessed: walk = 11.40s of prastara + 0.3s + 5.2s comma
+    var seq = [
+      [play.drone,  3.1],
+      [play.octave, 3.3],
+      [play.fifth,  3.3],
+      [function () { play.walk(true); }, 17.6],
+      [play.et,     8.0],
+      [play.wolf,   7.2]
+    ];
+    seq.forEach(function (s) {
+      after(t * 1000, s[0]);
+      t += s[1];
+    });
+    after(t * 1000, function () { say("Done. The books balance either way — that was the point."); });
+  }
+
+  /* ---------- wiring ---------- */
+  document.querySelectorAll("[data-play]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      stopAll();
+      audio();
+      play[b.getAttribute("data-play")]();
+    });
+  });
+  document.getElementById("all").addEventListener("click", function () {
+    stopAll(); audio(); whole();
+  });
+  document.getElementById("stop").addEventListener("click", stopAll);
+})();
+</script>
