@@ -34,23 +34,42 @@ max|E| ≤ ½Σ_{𝐭≠0}|R_z(𝐭)| from the partial-sum expansion and compare
 its growth; that bound is computable exactly per z and the comparison
 is the next runner.
 
-## The antisymmetry (proved by exhaustion for z ≤ 13, derivation owed)
+## The antisymmetry — derived; it is complement counting (one paragraph)
 
-At every z checked, and in three wall-classes (a = 1; a = 105; a = 2):
+At every z, in every wall class, for every H:
 
-    E(H) + E((P/2 − 1) − H) = 0   for every H — exactly.
+    E(H) + E((P − 1) − H) = 0   exactly.
 
-Verified at all H over the period (hence proved for these z: the
-check is the complete case analysis). The extremes therefore come in
-±pairs at reflected window sizes (z = 7: ±41/14 at H = 42, 167).
-A general derivation from S's evenness and its behavior under the
-half-period shift is owed and is one page of residue bookkeeping;
-until written, the claim's scope is exactly z ≤ 13, a ∈ {1, 2, 105}.
+*Proof.* Let H′ = (P−1) − H, so the two window lengths sum to 2P. The
+larger window [−H′..H′] unwraps modulo P as one full period plus the
+half-period-shifted centered window: count(H′) = ρP + Σ_{|v|≤H″}
+S(P/2 + v), with H″ = P/2 − 1 − H — and the residues {P/2 + v :
+|v| ≤ H″} are exactly the complement of [−H..H] modulo P (the interval
+[H+1, P−H−1], recentered at P/2). Therefore
+
+    count(H) + count(H′) = ρP + Σ_{full period} S = 2ρP
+                         = ρ·(2H+1) + ρ·(2H′+1),
+
+i.e. E(H) + E(H′) = 0, **by the definition of ρ** — no evenness, no
+case analysis, no property of the walls at all. ∎
+
+The extremes therefore come in ± pairs at complementary window sizes
+(z = 7: ±41/14 at H = 42 and H = 167, 42 + 167 = P − 1). The
+exhaustive checks stand as confirmation of the bookkeeping.
+
+Kept per the correction discipline: a first derivation attempt
+predicted the identity should FAIL (it read the p = 2 factor's
+non-invariance under the half-period shift), because it paired H with
+P/2 − 1 − H — one period instead of two. The exhaustive data refuted
+the attempt, the refutation located the error, and the correct proof
+shows all the content lives in the unwrap and none in the local
+walls. A derivation that almost refutes a true identity is how the
+identity's content gets found.
 
 ## Rigor boundary
 
 - **Proved (exhaustive, complete per z)**: the table; the
   antisymmetry for the listed z and a.
-- **Owed**: the general antisymmetry derivation; the ½Σ|R| comparison
+- **Owed**: ~~the general antisymmetry derivation~~ (DERIVED above, same day); the ½Σ|R| comparison
   runner; z = 23 (the next term; z ≤ 19 landed same day, growth steepening ≈ ×2 per prime at the tail — still no law fitted, five-to-seven points license none).
 - **Refused**: any fitted growth law from five points.
