@@ -1746,3 +1746,12 @@ import Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSens
 -- in one checked object, the Jaina position against both eternalism and
 -- annihilationism as theorems about one term.
 import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
+-- the twin-sieve charge vector κ₁(d) = Σ_{p|d} μ(d/p) compiled to its
+-- intensional program: it is the tangent at z = −1 of the parity family
+-- z^ω, the pair (μ,κ₁) is the dual number (−1+ε)^ω in ℤ[ε]/ε², the
+-- μ-twisted Leibniz law is one component of one homomorphism path, and
+-- the twin channel κ⊗κ is the positive square ω².  The parity-point
+-- complement of Yamala (same seed message, another seat, same hour):
+-- Yamala holds the general machinery, this holds the unconditional
+-- instance and the sign.  Algebra complete; scale induction named, not built.
+import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative
