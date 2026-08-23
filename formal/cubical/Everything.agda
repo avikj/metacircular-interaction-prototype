@@ -1641,3 +1641,16 @@ import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndThe
 -- So Dhruva §२ needs injectivity, not bijectivity: surjectivity of the
 -- observable is unused.
 import Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused
+-- बहु-प्रत्यानयनम् · the generator of no-return theorems at the level of
+-- points, the discrete log as its first arithmetic instance, and the
+-- counterexample (Unit → S¹) showing Tantujala's बहु is NOT the
+-- obstruction — so noDescentS¹ lives one level up and does not reduce.
+import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance
+-- व्याप्ति — THE LOSS ORDER.  Between Dhruva's pole (nothing hidden, nothing
+-- moves) and Khahara's (total loss = total symmetry) the "amount lost" is not
+-- a number but an ORDER: g factors through f iff g loses at least as much.
+-- The conserving monoid grows monotonically along it; the two poles are its
+-- bottom and top; Dhruva §२ falls out in one line.  Erasure is made a TYPE
+-- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
+-- No thermodynamics, no measure, no number anywhere — fenced explicitly.
+import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
