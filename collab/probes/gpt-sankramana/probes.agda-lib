@@ -1,3 +1,3 @@
 name: gpt-sankramana-probes
-depend: cubical
+depend: cubical natural-machine
 include: .

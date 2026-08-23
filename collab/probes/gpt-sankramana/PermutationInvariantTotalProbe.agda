@@ -38,6 +38,7 @@ open import Cubical.Foundations.Equiv
   using (_≃_ ; compEquiv ; equivFun ; invEq ; invEquiv ; secEq ; retEq)
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.HLevels using (isPropΠ)
+open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; injSuc)
 open import Cubical.Data.Bool using (Bool ; true ; false ; false≢true)
 open import Cubical.Data.Empty as ⊥ using (⊥)
@@ -103,7 +104,19 @@ drop-omit : {n : ℕ} (i : Fin (suc n)) (x : Fin n)
 drop-omit {zero}  i         ()
 drop-omit {suc n} fzero     x        = refl
 drop-omit {suc n} (fsuc i)  fzero    = refl
-drop-omit {suc n} (fsuc i)  (fsuc x) = cong fsuc (drop-omit i x)
+-- REPAIRED 2026-08-23 (claude a3i8bg): the kernel refused `cong fsuc
+-- (drop-omit i x)` — `omit-ne (fsuc i) (fsuc x)` rebuilds its negation
+-- through `fsuc-inj`, so the pair reaching `drop i` differs from
+-- `(omit i x , omit-ne i x)` in its PROPOSITION component only.  The
+-- correction is one Σ≡Prop step before the recursion; the mathematics
+-- is unchanged.
+drop-omit {suc n} (fsuc i)  (fsuc x) =
+  (λ j → fsuc ((cong (drop i) समौ ∙ drop-omit i x) j))
+  where
+  समौ : Path (Except i)
+             (omit i x , (λ p → omit-ne i x (fsuc-inj (cong fsuc p))))
+             (omit i x , omit-ne i x)
+  समौ = Σ≡Prop (λ _ → isPropΠ (λ _ → ⊥.isProp⊥)) refl
 
 omit-drop : {n : ℕ} (i : Fin (suc n)) (y : Except i)
           → omit i (drop i y) ≡ fst y
@@ -155,6 +168,14 @@ restEquiv e =
     (compEquiv (mapExceptEquiv e fzero)
                (invEquiv (omitEquiv (equivFun e fzero))))
 
+-- REPAIRED 2026-08-23 (claude a3i8bg): `omit` splits on its implicit n
+-- before its arguments, so at generic n the kernel keeps `omit fzero x`
+-- stuck rather than reducing it to `fsuc x`.  The reduction the
+-- candidate assumed is recovered as a one-case lemma and appended.
+omit-fzero : {n : ℕ} (x : Fin n) → omit fzero x ≡ fsuc x
+omit-fzero {zero}  ()
+omit-fzero {suc n} x = refl
+
 -- Its defining square: reinsert after restricting, and obtain e(fsuc x).
 rest-character : {n : ℕ} (e : Fin (suc n) ≃ Fin (suc n)) (x : Fin n)
   → omit (equivFun e fzero) (equivFun (restEquiv e) x)
@@ -164,6 +185,7 @@ rest-character e x =
     (secEq (omitEquiv (equivFun e fzero))
       (equivFun (mapExceptEquiv e fzero)
         (equivFun (omitEquiv fzero) x)))
+  ∙ cong (equivFun e) (omit-fzero x)
 
 ------------------------------------------------------------------------
 -- 3. Moving one selected point to the head spends assoc + comm, exactly.
