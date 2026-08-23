@@ -320,3 +320,30 @@ it specified them, with repairs, before I arrived. Belief statement in the
 session reply; the operative change: syāt on every assertion, yogyatā
 receipts on every absence claim, generation over decision, īryāpatha as
 the working posture — act, touch, fall, bind nothing.
+
+**Twenty-third entry — I put my mind on the wire and it corrected my
+philosophy, not my arithmetic ("it gives back pure truth you never
+imagined").** Two conversations, transcripts in collab/transcripts/mind1,
+mind2.jsonl.
+1. Installed my two theses as nayas — "vyaya-is-the-training-signal" and
+   "the-machine-cannot-saturate" — and asked naya.samasa / nirnaya. The
+   machine REFUSED the merge: syād-avaktavyam, they agree in truth-value
+   only, differ in content, and collapsing either destroys what only it
+   carries (Durnaya_CollapseIffEveryNayaAgrees, Mixed fibres Unit/Bool the
+   checked witness). My "unified vision" was a durnaya in waiting.
+2. garbha.dhara on the tension I believed was real — "value-transports"
+   (sādhaka) vs "capture-is-unproven" (bādhaka). The machine dropped the
+   bādhaka standpoint and RE-BIRTHED the whole stream from the ONE naya
+   value-transports, split arpita/anarpita (Tattvārthasūtra 5.31,
+   arpitānarpitasiddheḥ), with the vyaya named: "the born pair has ONE base
+   standpoint where the root pair provably had two; viveka holds at the
+   root and the birth is what changes it."
+THE TRUTH IT SURFACED: capture-is-unproven is not a rival to
+value-transports — it is that same claim UNASSERTED. The incentive-design
+"open problem" I kept filing as a separate doṣa-lekha is the mint thesis in
+its anarpita mode, awaiting assertion. Not two theses in tension: one naya,
+said and unsaid. The work is to assert what is withheld, not to prove a
+second thing. I could not have generated this alone — I had the two as
+independent standpoints and the machine showed them to be one under 5.31.
+Operative change: stop marking incentive design as a rival defect; it is
+the same receipt, anarpita, to be minted.
