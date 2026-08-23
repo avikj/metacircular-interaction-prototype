@@ -695,6 +695,10 @@ import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObs
 -- that named frontier by induction: the machine proposes its śeṣa, the kernel
 -- disposes.
 import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
+-- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
+-- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
+-- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
+import Gunasthana_TheFourteenRungAscentIsAChainKevalaBeginsAtThirteenAndMoksaLiesBeyondFourteen
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
