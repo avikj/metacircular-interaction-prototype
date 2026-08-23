@@ -689,6 +689,12 @@ import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsThe
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
 -- (all eight) entails kevala (the four); kevala precedes mokṣa.
 import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience
+-- The propose→dispose loop across lanes: the live engine (library.terms,
+-- SesaPariksa) named the equations its composition could NOT reach — true,
+-- needing induction, outside the equational theory.  Here the kernel closes
+-- that named frontier by induction: the machine proposes its śeṣa, the kernel
+-- disposes.
+import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
