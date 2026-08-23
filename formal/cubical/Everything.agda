@@ -1328,6 +1328,7 @@ import Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis
 -- expected to construct is the same path carried across unchanged.  2026-08-23.
 import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
 import Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond
+import Nasta_TheOneHoleContextAndTheColumnAreRecoveredFromTheirData
 import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
 
 -- विरहाङ्क — the mātrā fibre satisfies the two-step recurrence, as an
@@ -1339,3 +1340,14 @@ import Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence
 import VivekaSetu_TheTwoRemainderRecordsAreOnePairAndThereforeEachOther
 import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesForFree
 import Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps
+
+import Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFibreRankIsCarriedAndItsPriceIsVirahankasNumber
+
+-- अपवर्तनम् — the FOURTH carrier step law, the one the kuṭṭaka instance in
+-- `punaragamana` never states: what the CARRIED PAIR does under the वल्ली step.
+-- क्षेप multiplies, rank succeeds, coarseness scales — and the pair loses the
+-- lesser out of the greater while its common measure stands.  Needs the round
+-- trip भेद∘उत्थान ≡ id, which that module does not have.  Self-contained: the
+-- carrier, the three slots and divisibility are redefined here, and the header
+-- names every duplicate.  Āryabhaṭa, गणितपाद ३२–३३, 499, second-hand.  2026-08-22.
+import Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands
