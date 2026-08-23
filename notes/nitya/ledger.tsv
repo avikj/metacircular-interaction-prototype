@@ -1,0 +1,7 @@
+# नित्य ledger — one row per performance, append-only.  A gap is silence, never "missed"; the DUE-BY names when silence becomes a finding.
+# utc	rev	pragma	deletion	punaragamana	jiva-heartbeat	due-by
+2026-08-23T21:08:16Z	6bf0c9a	2	0	0	JIVA-HEARTBEAT absent	2026-08-24T21:08:28Z
+2026-08-23T21:09:04Z	6bf0c9a	1	0	0	JIVA-HEARTBEAT nodes=660 edges=1398 priced=195 unpriced=1203 components=67
+      $ ./jiva | grep JIVA-HEARTBEAT	2026-08-24T21:09:59Z
+2026-08-23T21:11:21Z	6bf0c9a	0	0	0	JIVA-HEARTBEAT nodes=660 edges=1398 priced=195 unpriced=1203 components=67
+      $ ./jiva | grep JIVA-HEARTBEAT	2026-08-24T21:12:13Z
