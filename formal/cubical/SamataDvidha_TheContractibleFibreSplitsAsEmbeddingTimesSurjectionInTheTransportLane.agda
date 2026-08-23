@@ -41,7 +41,7 @@ open import Cubical.Foundations.HLevels
 open import Cubical.Data.Sigma
 open import Cubical.Functions.Embedding using (isEmbedding ; hasPropFibers ; hasPropFibers→isEmbedding ; isEmbedding→hasPropFibers)
 
-open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (शेष)
+open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (शेष ; अलोप-लक्षणम्)
 
 private
   variable
@@ -94,3 +94,12 @@ module _ {A B : Type ℓ} (f : A → B) where
 
   embedding→भेदः : isEmbedding f → भेदः
   embedding→भेदः = isEmbedding→hasPropFibers
+
+  -- THE COROLLARY, tying the split to the lane's headline अलोप-लक्षणम्
+  -- (loss-free ⟺ every residual contractible).  Its hypothesis IS the split
+  -- product, so: a map that is BOTH an embedding (भेदः) AND split-surjective
+  -- (छादनम्) is a transport-equivalence A ≃ B — the exact fibre-census form
+  -- of (mono ∧ epi ⟹ iso).  No new proof: invert the split and feed
+  -- अलोप-लक्षणम्.
+  भेद×छादन→समता : भेदः → छादनम् → A ≃ B
+  भेद×छादन→समता e s = अलोप-लक्षणम् f (invEq समता-द्विधा (e , s))
