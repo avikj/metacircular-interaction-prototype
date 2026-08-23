@@ -2247,3 +2247,4 @@ import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 -- probe; one import seam: totalSum). Step 3's "equal-amplitude
 -- refinement is reversible" now has its finite carrier statement.
 import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch
+
