@@ -19,3 +19,4 @@ BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals.भित्त
 BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals.भित्ति-फिन	⟨lib⟩.ℕ	⟨lib⟩.Fin n (all n; instance of record: Fin 840)
 BhittiSaptabhangi_TheSevenfoldCannotBeTwoValuedSoTheTopJoinCandidateIsAWall.भित्ति-सप्तभङ्गी	Saptabhangi.सप्तभङ्गी	⟨lib⟩.Bool
 BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree.भित्ति-प्रमाण	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण	⟨lib⟩.Bool
+Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord.भित्ति-स्थानिवत्	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.स्थानिवत्	⟨lib⟩.Bool
