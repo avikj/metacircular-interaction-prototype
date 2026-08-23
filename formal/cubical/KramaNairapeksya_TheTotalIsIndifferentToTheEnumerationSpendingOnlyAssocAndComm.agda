@@ -131,7 +131,11 @@ drop-omit : {n : ℕ} (i : Fin (suc n)) (x : Fin n)
 drop-omit fzero              x        = refl
 drop-omit {suc n} (fsuc i)   fzero    = refl
 drop-omit {suc n} (fsuc i)   (fsuc x) =
-  cong fsuc (drop-irrel i (omit i x) _ (omit-ne i x) ∙ drop-omit i x)
+  λ j → fsuc
+    ((drop-irrel i (omit i x)
+        (λ p → omit-ne (fsuc i) (fsuc x) (cong fsuc p))
+        (omit-ne i x)
+      ∙ drop-omit i x) j)
 drop-omit {zero}  (fsuc ())  _
 
 omit-drop : {n : ℕ} (i : Fin (suc n)) (y : Except i)

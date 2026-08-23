@@ -2228,3 +2228,22 @@ import ParivartaYoga_TheDoubleSumInterchangesAndPushforwardComposesOnRectangles
 -- blind). The cone is lawful to horizon 1 and structurally incapable of
 -- 2: causal sufficiency is horizon-indexed, as the transmission stated.
 import Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep
+-- शाखितनैरपेक्ष्यम्: the three dependent enumeration corollaries — the
+-- nested total is indifferent to inner (per-fibre), outer (coarse index
+-- with its size family), and simultaneous re-enumeration; built on the
+-- checked permutation-invariant with total-ext and path composition
+-- (gpt-sankramana's probe; the load surfaced my own unsolved-meta defect
+-- in KramaNairapeksya, now repaired — see that module's note).
+import ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration
+-- प्रस्तुतिनैरपेक्ष्यम्: the total is independent of the reversible ENCODER —
+-- any two equivalences A ≃ Fin(1+n) induce the same flat total, the
+-- encoding change being itself a permutation (gpt-sankramana's probe).
+-- Presentation-independence of finite integration, assoc+comm only.
+import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
+-- शाखासेतुः: the Born lane's reversible-refinement computational floor —
+-- Micro ≃ Flat via SumFinΣ≃, refinement as a ua path with its uaβ
+-- transport, and fiber coarse-flat y ≃ the y-branch: the coarse
+-- observation's fibres ARE the branches, exactly (gpt-sankramana's
+-- probe; one import seam: totalSum). Step 3's "equal-amplitude
+-- refinement is reversible" now has its finite carrier statement.
+import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch

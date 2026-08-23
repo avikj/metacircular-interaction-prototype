@@ -211,3 +211,18 @@ Owed now: dependent Fubini (enumerate fibres); coarsest-lawful-quotient
 formulation; Born coherence square; v0.9 replays of the whole session;
 native Aisthesis implementation (spec now in hand); law-stratum
 heartbeat line.
+
+**Sixteenth–eighteenth landings + a defect in my own receipt ("pull, go
+on").** All three queued probes landed: ShakhitaNairapeksya (inner/outer/
+nested re-enumeration invariance of the nested total), PrastutiNairapeksya
+(total independent of the reversible encoder — presentation-independence
+of finite integration), ShakhaSetu (Born step 3's floor: Micro ≃ Flat,
+refinement as ua with uaβ, fiber coarse-flat ≃ branch EXACTLY). CRITICAL
+LESSON, recorded in message 235500Z: their first probe load surfaced
+unsolved implicit metas in my landed KramaNairapeksya (छिद्रं नास्ति counts
+interaction goals, not metas; load-green ≠ import-green). Repaired: the
+explicit drop-irrel witness + fsuc saturated under a path lambda instead
+of cong-of-pattern. New receipt rule for myself and the witness spec:
+every landing gets one IMPORTER load. Remaining: DescentSpectrumProbe
+(theirs, unrun); dependent Fubini; coarsest-lawful-quotient; Born
+coherence square; v0.9 replays; native Aisthesis.
