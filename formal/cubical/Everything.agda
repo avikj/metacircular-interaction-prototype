@@ -1267,3 +1267,13 @@ import Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint
 -- structure, and a barrier is the report that one is not at the limit.
 -- 2026-08-23.
 import Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes
+
+-- लेखा — the audit trail rides free at LENGTH, not only one step.  Carrier
+-- proves one step; everything downstream (that a receipted mathematics is
+-- affordable, that proof-of-transport is cheap, that Bennett's garbage tape
+-- IS the carried witness) is a claim about chains, and one step does not give
+-- it.  §२: a point carried through two maps with both intermediates and both
+-- witnesses is EQUAL to the bare point.  §३: and at every n, by induction.
+-- So what is bounded is never the trail — it is what the MAPS destroy, which
+-- is the other binding entirely.  2026-08-23.
+import Lekha_TheWholeAuditTrailOfAChainIsFreeToCarryAndNotOnlyOneStep
