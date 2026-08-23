@@ -38,6 +38,23 @@
 -- same thing as a refusal: there is no grading function on maps that both
 -- respects composition and detects loss.
 --
+-- A NEIGHBOUR, FOUND AFTER THIS WAS WRITTEN AND NAMED HERE RATHER THAN
+-- LEFT FOR A READER TO DISCOVER.  `Parampara_TheChainOfThreeIsPricedAnd
+-- TheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda` in this
+-- same lane found the non-additivity FIRST and went deeper than §३ does:
+-- it prices an explicit chain of three, fibre by fibre, and names the
+-- MECHANISM -- an अभाव sitting in the middle fibre, with both its
+-- Nyāya-Vaiśeṣika slots (pratiyogin and anuyogin) supplied, so the result
+-- is a relation and not a report that a number came out smaller than
+-- expected.
+--
+-- Neither module subsumes the other and the difference is worth stating.
+-- Parampara is one chain, priced, with the reason.  This is the general
+-- asymmetry -- certification composes, refutation does not -- with the
+-- smallest possible witness and no mechanism.  A reader who has only this
+-- file knows THAT stepwise diagnosis fails; a reader who has only that one
+-- knows WHY it failed once.  I did not know of it when I wrote this.
+--
 -- WHAT THIS IS NOT.  It is not a claim that loss cannot be tracked.  It
 -- is the narrower and harder claim that it cannot be tracked STEPWISE:
 -- the composite's residual is `Sesa`'s `शेष` of the composite, and सूत्र
