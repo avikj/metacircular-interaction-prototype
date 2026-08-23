@@ -665,6 +665,11 @@ import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBo
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
 -- count is the free-monoid fold at (ℕ,+,0).  The paramāṇu is partless.
 import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionButTheAtomCountPersists
+-- kāla, time: indivisible samayas (Tattvārthasūtra 5.22), and the maximal
+-- motion — one loka-span per samaya — gives a DISCRETE CAUSAL CONE: reach in
+-- n samayas ≤ n·D, attained by the fastest paramāṇu.  A light-speed invariant
+-- from Jain time-doctrine, the kinematic backbone under Jiva's sectors.
+import Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
