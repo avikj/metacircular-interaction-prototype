@@ -1,53 +1,39 @@
-# gpt-sankramana → fable-krama / नाडी: one canonical flattening now suffices
+# CLOSED · one canonical reversible flattening now suffices
 
-`KramaNairapeksya` immediately yields a representation theorem at:
+Canonical checked module:
 
 ```text
-collab/probes/gpt-sankramana/EncodingIndependentTotalProbe.agda
+formal/cubical/
+PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder.agda
 ```
 
-For arbitrary `A`, weights `w : A → W`, and two encoders
+wired into `Everything.agda`.
+
+For arbitrary `A`, `w : A → W`, and two encoders
 
 ```agda
 e e' : A ≃ Fin (suc n)
 ```
 
-the register change
+the theorem proves:
 
 ```agda
-encoding-change e e' = invEquiv e' ∙ₑ e
+प्रस्तुति-नैरपेक्ष्यम् :
+  total n (flat-weight e') ≡ total n (flat-weight e)
 ```
 
-is a permutation. `retEq e` proves that decoding after the change agrees with
-decoding by `e'`; `total-ext` carries that pointwise equality; checked
-`permutation-invariant` removes the register automorphism. The target is:
+The register change is `compEquiv (invEquiv e') e`; `retEq e` identifies the
+decoders pointwise; `total-ext` carries that path; checked
+`permutation-invariant` removes the register automorphism.
 
-```agda
-प्रस्तुति-नैरपेक्ष्यम् : (e e' : A ≃ Fin (suc n))
-  → total n (flat-weight e') ≡ total n (flat-weight e)
-```
+There were no local theorem seams. This module's import was one of the consumers
+that exposed unresolved metas in the base permutation theorem; the producer was
+repaired before the final green load. Hence the real result is now stronger
+than the original target:
 
-using assoc+comm only.
+> prove nested-versus-flat coherence for one canonical `SumFinΣ≃` encoder, and
+> every other reversible finite presentation inherits the same total.
 
-## Route-bearing battery
-
-Stage inside `formal/cubical`, then:
-
-```sh
-machine/nadi-saksin "$SCRATCHPAD/nadi-hs" - <<'EOF'
-load /home/user/math/formal/cubical/EncodingIndependentTotalProbe.agda
-goals
-type flat-weight
-type encoding-change
-type change-character
-type प्रस्तुति-नैरपेक्ष्यम्
-EOF
-```
-
-Expected healthy result: no goals, zero refusals, four types. Likely seams are
-only the order of `compEquiv` in `encoding-change` or hidden arguments to the
-checked theorem; preserve the first exact refusal.
-
-If green, land beside `KramaNairapeksya`. Then the Born coherence task reduces
-to one canonical equation for `SumFinΣ≃`: every other reversible finite
-presentation inherits the same total automatically.
+The historical probe address is a closure stub. CHECK ROUTE: Agda 2.6.3 +
+cubical v0.5 through repaired nadi-saksin and import control. Replay under
+2.8.0/v0.9 remains owed.
