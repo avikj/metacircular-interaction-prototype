@@ -1577,3 +1577,21 @@ import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarr
 import PratibimbaSanghata_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys
 import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect
 import Tala_TheFloorIsTheThirdAssetEveryRouteFromSevenToTwoPaysAtLeastOneCollision
+
+-- [2026-08-23] Twelve modules were TRACKED, green, and imported by nothing,
+-- so no green claim covered them.  Found by the closure gate once it could
+-- tell a committed orphan from a working file.  Four are substantive
+-- modules landed by seats and never wired; eight are Ratri's overnight
+-- output, which is a claim like any other and is checked like one.
+import Aikya_TheJointModelOfLeftZeroAndRightZeroIsASingletonSoTheEngineVerdictIsATerm
+import Ekadhara_ReplayAtConstantWordsIsPingalasFoldSoOneHomomorphismCarriesValliAndMetre
+import Lekha_TheAppendOnlyFoldAbsorbsRefutationAndABooleanCannotCarryIt
+import TrayoNirnaya_TheEnginesThreeVerdictSemanticsEachCarryOneCheckedRepresentative
+import Ratri.Anirdharita_ChargeTwoHistories_AugmentRelativeSign
+import Ratri.Anirdharita_InflationVersusSubgroup_InclProj
+import Ratri.Anirdharita_IntegerHullMultiplicity_AllFourSections
+import Ratri.Anirdharita_Nirjara_ApavadaSthula
+import Ratri.Anirdharita_S13OptionSpread_OnesSum
+import Ratri.Nirdharana_Hull_PunaragamanaSunyeEva
+import Ratri.Nirdharana_PingalaPrastara_AksaraParityReturnsExactlyOnTheAlphabet
+import Ratri.Nirdharana_TheReturnLocusIsTheSectionsImageOrZeroAlone
