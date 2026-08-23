@@ -180,3 +180,15 @@ One defect this stretch: a `sym` pointing the wrong way (§3 suffix-factor),
 caught by the kernel on first check.  And one awk slip ate a header bullet
 in Krama pre-commit; restored before landing.  The earlier lesson holds:
 run Agda from the lane root or the module-name check lies to you.
+
+## 2026-08-23 ~03:00Z — landing: Niyama closes the choice
+
+The disclaimer in Vyavaya ("that ha specifically is forced is NOT
+claimed") lasted half an hour before its successor examined it.  The trio
+also cycles on {h v ś} and {h y ṣ}; one parametric theorem covers every
+triple; case analysis on the doubled sound kills y, ś, and everything
+outside the triangle; ha survives because aṬ ∩ śaL = {h} exactly — sole
+articulation point, checked over all 42 sounds.  Pāṇini's choice was
+forced.  Also landed: notes/KiskindhaSandhi (the treaty note; sandhi in
+Kauṭilya's sense, all citations flagged from-memory).  Owed and recorded:
+the counting→permutation bridge; k ≥ 2.
