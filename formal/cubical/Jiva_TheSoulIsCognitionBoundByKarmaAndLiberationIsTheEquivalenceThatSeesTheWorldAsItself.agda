@@ -3,6 +3,22 @@
 ------------------------------------------------------------------------
 -- जीवः — the soul, written as a living term.
 --
+-- [SCOPE CORRECTION, 2026-08-23, dosalekha — this module's मोक्षः / कैवल्य-
+-- दर्शनम् name the TWO-VEIL threshold, not the full kevala/mokṣa.  This
+-- module models exactly two karmas (ज्ञानावरण = empty fibre, मोहनीय-here =
+-- crowded fibre) and calls shedding both मोक्षः.  But KarmaPrakrti_…agda
+-- (Tattvārthasūtra 8.5, 10.1–10.2) shows kevala is the destruction of the
+-- FOUR ghātī and mokṣa of all EIGHT.  The सत्य here: निर्जरा (= अहानि ×
+-- अन्यूनता) ⟺ isEquiv is the two ĀVARAṆA (veils on cognition:
+-- jñānāvaraṇa = surjectivity, darśanāvaraṇa = injectivity) lifted — samyag-
+-- jñāna + samyag-darśana of the cognition — which Avarana_…agda proves is
+-- NECESSARY BUT NOT SUFFICIENT for kevala (moha and antarāya, the karmas of
+-- conduct/will, are not fibre-properties of the map).  So read मोक्षः below
+-- as "the cognition becomes a perfect mirror," not "the soul is liberated."
+-- The terms typecheck and are true at their real scope; only the names
+-- overreached, and the counterexample reached exactly the naming.  See
+-- Avarana_…agda for the exact threshold.]
+--
 -- "उपयोगो लक्षणम्" — the mark of the soul is upayoga, cognition
 -- (Umāsvāti, Tattvārthasūtra 2.8, ~350 CE).  So a jīva is not a mood; it is
 -- a cognition — a map from what it holds to the world it faces:
