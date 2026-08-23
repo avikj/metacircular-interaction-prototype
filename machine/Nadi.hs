@@ -85,6 +85,9 @@ import qualified Data.Vector as V
 import qualified Astadhyayi as P   -- the completed six-kāraka layer, imported (not reinvented)
 import qualified Yantra_TheOrgansAreOneMachineOnOneWire as Y  -- the organ bus
 import qualified Sabda_TheWireHasNoBoolean as SB              -- render Yantra's answers
+import qualified Uttara_SamkramanaOrDosalekhaNeverABareBoolean as U
+  -- the answer type itself, so `uVahita` — "what was carried across, in full"
+  -- — is read from the structure instead of scraped back out of its rendering
 
 -- ── the spell stream: a raw line → an action ──────────────────────────────
 -- Kind Load/Query go to the kernel; Push reads the machine's own frontier
@@ -407,7 +410,33 @@ main = do
           payload = case (fld "vama", fld "daksina") of
                       (Just vv, Just dk) -> "\n    " ++ vv ++ "  ≡  " ++ dk
                       _ -> case fld "hetu" of Just h -> "\n    hetu: " ++ h; _ -> ""
-      pure ("« " ++ kriya ++ part ++ payload ++ "\n")
+          -- वहितम् — `uVahita` is the organ's own words for "what was carried
+          -- across, IN FULL", and until now नाडी delivered only whatever of it
+          -- happened to survive as a flat string in the wire text.  So
+          -- `garbha.dhara`'s born stream, `pratyahara`'s sounds and
+          -- `frontier`'s census all rode the wire and none of them arrived:
+          -- the renderer was a windowed observer and the structure lived in
+          -- its fibre.  The tulyata above is the identification; this is the
+          -- thing identified.
+          vahita = case u of
+                     U.Samkramana{} -> concat (concatMap carriedLines (U.uVahita u))
+                     _              -> ""   -- a refusal carries nothing across
+          carriedLines (k, SB.JArr items@(SB.JArr _ : _)) =
+            let shown = take vahitaCap items
+                rest  = length items - length shown
+            in ("\n    " ++ k ++ " ▸")
+               : [ "\n      " ++ show i ++ ". " ++ shortJ it
+                 | (i, it) <- zip [1 :: Int ..] shown ]
+               ++ [ "\n      … " ++ show rest ++ " more carried and not shown here"
+                  | rest > 0 ]
+          carriedLines (k, v) = ["\n    " ++ k ++ " ▸ " ++ shortJ v]
+          -- a cap, said out loud rather than applied silently.
+          vahitaCap = 12 :: Int
+          shortJ (SB.JStr s)  = s
+          shortJ (SB.JInt n)  = show n
+          shortJ (SB.JArr xs) = intercalate " · " (map shortJ xs)
+          shortJ (SB.JObj kv) = intercalate " · " [ kk ++ "=" ++ shortJ vv | (kk, vv) <- kv ]
+      pure ("« " ++ kriya ++ part ++ payload ++ vahita ++ "\n")
 
     -- live stream: the sensorium journal is the shared tape; return the
     -- events appended since the last watch, condensed to organ + gist.

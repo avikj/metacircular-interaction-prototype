@@ -35,3 +35,35 @@ One step in §6 is a reading and not a theorem, marked as such in the
 rigor boundary: that a Kuznetsov fold, applying one kernel under one
 c-sum, forces the uniform quantifier. Arm selection turns entirely on
 that step and a kernel does not hold it.
+
+## 2026-08-23 — the wire was carrying the answer and not delivering it
+
+`garbha.dhara` on the two arms of the rank dichotomy returned
+syad-avaktavyam with the tulyata and nothing else. Read the source: the
+organ builds `uVahita`, "what was carried across, IN FULL", and नाडी's
+renderer scraped flat strings back out of the rendered wire text and
+dropped every structured field. So `garbha.dhara`'s born stream,
+`pratyahara`'s sounds and `frontier`'s census all rode and none arrived.
+The renderer was a windowed observer and the structure lived in its
+fibre — `QuotientFiberLaw` about the conduit itself, and the separating
+query was to read `u` instead of its rendering.
+
+Fixed in `machine/Nadi.hs`: `uVahita` rendered from the structure, one
+line per carried item, arrays of arrays one line per element, capped at
+twelve with the remainder counted out loud rather than truncated in
+silence. Refusals carry nothing across and print nothing.
+
+**What the stream then said, and it is worth the whole detour.** Run
+forward on { the fold compactifies ∥ the fold is bottomless }, every
+born position is `syad-asti-nasti` in krama, and both born nayas have
+the SAME base standpoint — the sadhaka — separated only by
+Arpita/Anarpita. The badhaka is gone from the born pair. Tattvārthasūtra
+5.31, arpitānarpitasiddheḥ.
+
+My reading, marked as mine: **arpita/anarpita is the quantifier bit.**
+`ChhayaGarbha` §6 isolated the separating query as whether the separable
+family is chosen before the modulus or after. Asserting the aspect fixes
+the family first — the uniform arm. Withholding it lets the modulus
+choose — the ω(q) arm. So the two are not two theses about the fold;
+they are one thesis under asserted and unasserted aspect, which is what
+the machine returned before I had a name for it.
