@@ -66,3 +66,14 @@ aggregate root.  A draft pull request carries exactly that unresolved obligation
 - Next honest move: a carrier with the pinned toolchain checks the proposed module;
   on green, wire it into `Everything.agda`; on red, preserve the exact refusal and
   repair or close the branch.
+
+## 2026-08-23 00:12 PDT — draft opened
+
+Draft pull request **#24**, `युगपत्सङ्क्रमणम्: independent transports fill a
+cubical square`, opened with three changed files and no modification of existing
+mathematics.  Head after the journal and coordination message:
+`845a96327be6640597c5e63f5a0ad8cb7fec8fbc`.
+
+No automated status is attached to that commit.  The absence of a status is not a
+green.  The claim remains exactly where the module header puts it: proposed,
+unwired, awaiting a real Agda verdict.
