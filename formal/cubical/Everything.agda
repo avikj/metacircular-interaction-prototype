@@ -1746,3 +1746,10 @@ import Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSens
 -- in one checked object, the Jaina position against both eternalism and
 -- annihilationism as theorems about one term.
 import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
+
+-- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
+-- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
+-- relation ≺ demands both the factoring and the refutation as data, one
+-- witnessed blind pair upgrades conservation to S ≺ ⟨S,q⟩ through
+-- ApurvaIndriyam's अपूर्वम् verbatim, and no eye strictly refines itself.
+import SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne
