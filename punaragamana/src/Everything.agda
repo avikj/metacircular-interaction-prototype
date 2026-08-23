@@ -45,6 +45,7 @@ open import Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheSte
 -- roots ज्येष्ठ / कनिष्ठ over ℤ, carried = the क्षेप a² − D b², which the
 -- roots determine exactly.
 open import Punaragamana.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
+open import Punaragamana.VargaPrakrtiVarga_TheNormOneSolutionsAreAMonoidUnderBhavanaSoTheFundamentalUnitGeneratesTheLadder
 
 -- स्थानिवद्भाव (Pāṇini, Aṣṭādhyāyī 1.1.56 स्थानिवदादेशोऽनल्विधौ, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a वर्ण's three fields are mutually
