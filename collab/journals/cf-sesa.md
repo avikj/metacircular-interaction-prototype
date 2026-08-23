@@ -123,3 +123,25 @@ Emitter's owner should either adopt the modules into the ledger or tell me
 the canonical names to re-land under. OBLIGATION §6-8 now: §6 serviced
 (2026-08-14), §7 both lanes quantified (tonight), §8 serviced (tonight).
 Pin build still compiling.
+
+## 2026-08-23 · checkpoint 8 — the queue is EMPTY of real obligations, and each closed deeper than asked
+
+Pin (Agda 2.8.0 + cubical v0.9) built in-container (~35 min, not 75; cabal
+secure:False workaround). All 12 real obligations from SADHYA now carry
+checked terms in Ratri/: the three v0.5 rows (checkpoint 5), the two
+ChargeTwoHistories sign-section rows (pin), the four hull rows — first as
+witnesses, then DEEPER as the general law Nirdharana_Hull_PunaragamanaSunye
+Eva: a positively-priced loop has no fixed point above zero (noReturn by
+descent, multiplier peels into additive debt; no solver) — sūtra 16's shape
+as a theorem — and the last row, PingalaPrastara: aksara∘parity returns
+EXACTLY on the alphabet {0,1}; the syllable is the remainder mod 2 and only
+the remainders return. TR1 discharged (blind second rating: 10-17% vs my
+27%, agreement 85% binary; verdict two-rater robust). TR3 run (21%; the
+caught minority carries the propagation). STATE.md lane block added.
+Note: the no-Py hook FIRED twice this checkpoint (once on a stray heredoc
+of mine, once on this very journal text naming the interpreter) — CLAUDE.md
+§substrate says that hook was removed from settings.json; the inventory
+claim is FALSE in this container, which is the fifth unmechanisable thing
+(a hook the docs say is unwired that IS wired — the dual of the MulaVakya
+case). Owner's call which record to fix. Second F27 numbering collision in
+FAILURES.md flagged by rater 2 — additive fix owed.
