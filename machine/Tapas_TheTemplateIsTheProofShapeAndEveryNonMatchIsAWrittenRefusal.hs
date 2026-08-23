@@ -216,11 +216,28 @@ recognize e cls
   = Left "matches T-ID but the identity emitter is not implemented this pass"
   | [(_, rhs)] <- cls, "inl " `isPrefixOf` rhs || "inr " `isPrefixOf` rhs
   = Left "matches T-INL/T-INR but the sum emitter is not implemented this pass"
+  -- T-TABLE-BOOL-NAT · the formerly NAMED TEMPLATE GAP, closed 2026-08-23:
+  -- a two-clause Bool → ℕ table of distinct numeral literals.  Injective,
+  -- so the receipt is the opposite of T-CONST-BOOL's: each value's fibre
+  -- is a POINT (nothing elided), off both values the fibre is empty, and
+  -- there is still no section.  Equal literals stay refused below.
+  | eTgt e == "⟨lib⟩.ℕ"
+  , [c1, c2] <- cls
+  , Just (vf, vt) <- tableOf c1 c2
+  = if vf /= vt
+      then Right ("T-TABLE-BOOL-NAT", show vf ++ " " ++ show vt)
+      else Left "two-clause Bool table with EQUAL values: constant in disguise; the constant-ℕ emitter is not implemented this pass"
   | length cls >= 2, all (constantish . snd) cls
-  = Left "case table (several clauses of literal values): the NAMED TEMPLATE GAP of this pass — its fibre splits along the finite domain and no template states that yet"
+  = Left "case table (several clauses of literal values) beyond the two-clause Bool → ℕ shape: its fibre splits along the finite domain and no template states that yet"
   | otherwise
   = Left "matches no template in the library (arithmetic, recursion, or constructed value)"
   where constantish r = r `elem` ["false","true","0","1","zero"] || "suc " `isPrefixOf` r
+        tableOf (["false"], ra) (["true"], rb) = (,) <$> numeral ra <*> numeral rb
+        tableOf (["true"], rb) (["false"], ra) = (,) <$> numeral ra <*> numeral rb
+        tableOf _ _ = Nothing
+        numeral s | not (null s), all (`elem` "0123456789") s = Just (read s :: Integer)
+                  | s == "zero" = Just 0
+                  | otherwise   = Nothing
 
 -- ── the emitter: T-CONST-BOOL ────────────────────────────────────────────
 
@@ -295,6 +312,98 @@ emitConstBool e host v
           ]
     in Just (nm, txt)
   | otherwise = Nothing
+
+-- ── the emitter: T-TABLE-BOOL-NAT ────────────────────────────────────────
+-- The dual receipt: where the constant map's fibre said "everything is
+-- elided", the injective table's says "nothing is": each value's fibre is
+-- a single point, off the two values the fibre is empty, and no section
+-- exists because the codomain is infinite and the image has two points.
+-- Distinctness of numeral literals is decided by the monus discriminator:
+-- for x < y, cong (_∸ x) sends a path x ≡ y to 0 ≡ suc k, and znots ends
+-- it — no per-pair lemma zoo, one shape for every pair of literals.
+-- Emitted with --guardedness so a host inside NaturalMachine (whose lib
+-- carries the flag infectively) cannot refuse the probe before the
+-- mathematics is reached (the FillerReceiptProbe lesson).
+
+emitTableBoolNat :: Edge -> String -> Integer -> Integer -> Maybe (String, String)
+emitTableBoolNat e host vf vt
+  | (_, mapBase) <- unqualify (eSite e)
+  = let nm   = "TableFibre_" ++ map dash host ++ "_" ++ mapBase
+        dash ch = if ch == '.' then '-' else ch
+        c    = vf + vt + 1
+        -- ¬ (x ≡ y) for distinct numeral literals, monus discriminator
+        neq x y | x < y     = "λ p → znots (cong (_∸ " ++ show x ++ ") p)"
+                | otherwise = "λ p → znots (cong (_∸ " ++ show y ++ ") (sym p))"
+        txt = unlines
+          [ "{-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}"
+          , ""
+          , "------------------------------------------------------------------------"
+          , "-- तपस् — a MINTED fibre receipt.  Emitted by"
+          , "-- machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs"
+          , "-- from template T-TABLE-BOOL-NAT, then CHECKED BY THE KERNEL before landing;"
+          , "-- the only later edit is the module line, qualified to its path."
+          , "--"
+          , "-- THE EDGE (Lopa's queue, verdict UNDECIDED before this module):"
+          , "--   " ++ eSrc e ++ "  ⟶  " ++ eTgt e
+          , "--   « " ++ eSite e
+          , "--"
+          , "-- WHAT IS PROVED.  The map is the two-clause table false ↦ " ++ show vf
+          , "--   , true ↦ " ++ show vt ++ ", an INJECTION into ℕ:"
+          , "--   §1  over each value the fibre is a SINGLE POINT (isContr): the"
+          , "--       elided datum is nothing — the input is recoverable."
+          , "--   §2  off both values (witness " ++ show c ++ ") the fibre is EMPTY."
+          , "--   §3  hence no section: two points of image, infinitely many targets."
+          , "--"
+          , "-- WHAT IS NOT CLAIMED.  Nothing about any other edge; nothing about the"
+          , "-- host's own theorems.  The map is imported, not re-proved."
+          , "------------------------------------------------------------------------"
+          , ""
+          , "module " ++ nm ++ " where"
+          , ""
+          , "open import Cubical.Foundations.Prelude"
+          , "open import Cubical.Foundations.Equiv using (fiber)"
+          , "open import Cubical.Data.Bool using (Bool ; false ; true)"
+          , "open import Cubical.Data.Nat using (ℕ ; isSetℕ ; znots ; _∸_)"
+          , "open import Cubical.Data.Empty using () renaming (rec to ⊥rec)"
+          , "open import Cubical.Data.Empty using (⊥)"
+          , "open import Cubical.Data.Sigma using (_,_)"
+          , "open import Cubical.Relation.Nullary using (¬_)"
+          , ""
+          , "open import " ++ host ++ " using (" ++ mapBase ++ ")"
+          , ""
+          , "-- the three distinctness facts, one discriminator shape"
+          , "neq-f-t : ¬ Path ℕ " ++ show vf ++ " " ++ show vt
+          , "neq-f-t = " ++ neq vf vt
+          , "neq-t-f : ¬ Path ℕ " ++ show vt ++ " " ++ show vf
+          , "neq-t-f = " ++ neq vt vf
+          , "neq-f-c : ¬ Path ℕ " ++ show vf ++ " " ++ show c
+          , "neq-f-c = " ++ neq vf c
+          , "neq-t-c : ¬ Path ℕ " ++ show vt ++ " " ++ show c
+          , "neq-t-c = " ++ neq vt c
+          , ""
+          , "-- §1 · over each value the fibre is a point: nothing is elided."
+          , "over-false : isContr (fiber " ++ mapBase ++ " " ++ show vf ++ ")"
+          , "over-false = (false , refl) , same where"
+          , "  same : (y : fiber " ++ mapBase ++ " " ++ show vf ++ ") → (false , refl) ≡ y"
+          , "  same (false , p) i = false , isSetℕ " ++ show vf ++ " " ++ show vf ++ " refl p i"
+          , "  same (true  , p) = ⊥rec (neq-t-f p)"
+          , ""
+          , "over-true : isContr (fiber " ++ mapBase ++ " " ++ show vt ++ ")"
+          , "over-true = (true , refl) , same where"
+          , "  same : (y : fiber " ++ mapBase ++ " " ++ show vt ++ ") → (true , refl) ≡ y"
+          , "  same (true  , p) i = true , isSetℕ " ++ show vt ++ " " ++ show vt ++ " refl p i"
+          , "  same (false , p) = ⊥rec (neq-f-t p)"
+          , ""
+          , "-- §2 · off both values the fibre is empty (रिक्तम्)."
+          , "off-both : ¬ fiber " ++ mapBase ++ " " ++ show c
+          , "off-both (false , p) = neq-f-c p"
+          , "off-both (true  , p) = neq-t-c p"
+          , ""
+          , "-- §3 · no section: the image has two points and ℕ does not."
+          , "no-section : (g : ℕ → Bool) → ((n : ℕ) → " ++ mapBase ++ " (g n) ≡ n) → ⊥"
+          , "no-section g s = off-both (g " ++ show c ++ " , s " ++ show c ++ ")"
+          ]
+    in Just (nm, txt)
 
 -- ── main ─────────────────────────────────────────────────────────────────
 
@@ -402,7 +511,13 @@ judge root scratch shortlist e = do
       case recognize e (clausesOf base src) of
         Left why -> return (row "REFUSED" why, False)
         Right (tpl, v) ->
-          case emitConstBool e host v of
+          let emitted = case tpl of
+                "T-CONST-BOOL"     -> emitConstBool e host v
+                "T-TABLE-BOOL-NAT" -> case words v of
+                  [a, b] -> emitTableBoolNat e host (read a) (read b)
+                  _      -> Nothing
+                _ -> Nothing
+          in case emitted of
             Nothing -> return
               (row "REFUSED" (tpl ++ " matched but the domain is not a type of the host module itself (emitter limit, first pass)"), False)
             Just (nm, txt) -> do
