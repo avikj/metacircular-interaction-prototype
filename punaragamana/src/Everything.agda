@@ -57,3 +57,8 @@ open import Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignat
 
 -- भित्ति: the carrier is not two-valued, and the wall crosses its own ford.
 open import Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord
+
+-- स्थानिवत्सङ्ख्या — the machine's own frontier ask (jīva join score 2970):
+-- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
+-- adding nothing to the count — ahiṃsā read as a number.
+open import Punaragamana.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked

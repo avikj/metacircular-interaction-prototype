@@ -2141,3 +2141,65 @@ import EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInterio
 -- symmetric two-outcome Born weight is forced to ½ exactly over a
 -- uniquely-halving (char-0/archimedean, C5) carrier. Checked.
 import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
+-- क्रमनियमः: term 1 of the owner's 2026-08-23 transmission ("the fibre of
+-- forgetting") — the torus and Klein laws transported to the ONE carrier
+-- ℤ × ℤ commute and refuse to (समम् refl / विषमम्), the pair is blind to
+-- the carrier-only observation, and the succession receptor separates it,
+-- so QuotientFiberLaw's collision-obstructs gives: the law of succession
+-- does not factor through the carrier. Checked warm via नाडी before landing.
+import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
+-- समविभागः: term 2 of the 2026-08-23 transmission — the finite transitive
+-- measure theorem. Transitivity + invariance + normalization + unique
+-- n-division force the uniform weight (isContr over a set W, with अस्ति
+-- the uniform inhabitant); the landed ½ (EkatvaMatraDvaya) is its Fin 2
+-- instance. Finding beyond the transmitted statement: the group laws are
+-- never consumed — a bare transitive action already forces uniformity.
+import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
+-- स्थूलभारः: Born ladder step 2 — the coarse weight is the sum over the
+-- observation fibre; on the uniform weight each branch weighs its
+-- multiplicity, and the branches recompose to 𝟙. No division, no ℚ:
+-- "m/(m+n)" is a name for m·h under (m+n)·h ≡ 𝟙. Consumes exactly one
+-- algebraic law (associativity), taken as a hypothesis.
+import SthulaBhara_TheCoarseWeightIsTheSumOverTheObservationFibreAndMultiplicityIsTheWholeOfIt
+-- शरीरस्तरः: term 4's first stone — the count stratum of the heartbeat is
+-- PROVABLY blind to the body's law of succession: same carrier, equal
+-- count-transcripts (mismatch-NONE as a term), yet no post-processing
+-- reconstructs the law receptor; "counts matched" never again reads as
+-- "body unchanged". The checked license for a law-stratum heartbeat line.
+import SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession
+-- द्वयसेतुः: the debt in SamaVibhaga's header paid — the Bool ≃ Fin 2 wire
+-- is a term, गुणः 1 y and y +ᵂ y share a normal form so halvesUniquely IS
+-- divideUniquely with no coercion, and एकत्वम्-द्विमात्रा's statement re-proves
+-- as the Fin 2 instance of समविभागः: the half theorem, consumed not compared.
+import DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose
+-- बहुशाखा: the dependent refinement — SthulaBhara generalized from the
+-- binary split to any finite family of branch sizes: branchwise-constant
+-- refinements sum to their multiplicities (शाखायोगः), refinement preserves
+-- the books (प्रतिष्ठा), and equal amplitude forces every coarse weight to
+-- its multiplicity (समशाखा). Spends NO algebra — total-ext and total-const
+-- only. The reversible-transformation half of ladder step 3 and the
+-- permutation-invariance lemma stay open and are named as owed.
+import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
+-- अवतरणभङ्गः: the dependent no-go — the quotient cannot host the TYPE of
+-- witnesses (gpt-sankramana's mathematics, landed by fable-krama after two
+-- universe repairs the author's message predicted). The filler family over
+-- the two succession laws does not descend to the carrier transcript; proof
+-- one transport. Plus the transmitted generalization: mere non-equivalence
+-- of fibres over a collision refutes descent, via pathToEquiv.
+import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+-- युगपत्सङ्क्रमणम्: receipt B closed — the explicit product square's four
+-- edges ARE the executable compiler paths (gpt-sankramana's probe, ported
+-- to 2.6.3 explicit binders, holes driven through Nadi give: the author's
+-- fills refused on the predicted neutral-transport site, repaired with
+-- transportRefl, accepted). The receipt chain from coordinate
+-- factorisation to equality of compiled routes is one module, --safe.
+import YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed
+-- अधिकारभङ्गः: the affordance no-go and the descent-depth ladder's first
+-- three rungs — two states with equal observation where the ACTION TYPE
+-- differs cannot host any policy on the quotient (agential blindness,
+-- carried into control/alignment as the transmission asked); and one
+-- blind pair whose families disagree first at existence (Unit/⊥), at
+-- π₀ (Bool/Unit), and at π₁ (S¹/Unit — connected, point-census equal,
+-- separated by the loop charge alone). The indexed Sⁿ theorem and the
+-- truncated-family analysis remain owed above this stone.
+import AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth
