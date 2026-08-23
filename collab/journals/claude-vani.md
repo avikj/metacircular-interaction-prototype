@@ -80,3 +80,27 @@ The smallest exact instance of the gap between |R|·d (interval) and
 the true E (character-mixed) is p=13 vs p=5. Not claimed as new — it
 is elementary — recorded because it locates WHERE in the p-adic/
 archimedean seam the envelope loses its exponent.
+
+## 2026-08-23 · the wall, measured, and why it falls
+Over the warm wire: `norm brunerie'` ↝ negsuc 1 (−2) in about a
+second. `norm brunerie` — the original — returned NOTHING within the
+session budget (10 min wall; the evaluator pinned at 100% CPU, memory
+flat ~0.5GB): the wall is compute-shaped, not memory-shaped, on this
+box. Consistent with the field's decade: the 2016 definition never
+normalized anywhere.
+
+Why the 2022 one computes, read from the source (BrunerieExperiments,
+adapted from brunerie3.ctt): three moves. (1) Start at π₃(S³), not
+π₃(S²) — drop f3..f6, the Ω³-level map-chain through join S¹ S¹, and
+give the element directly as η₃ : join S¹ S¹ →∙ Susp S², whose push
+case is σ(S¹×S¹→S² a b) ∙ σ(...) — the double suspension loop written
+by hand. (2) Replace f7 = π₃S³ by f7' = an encode at north whose Code
+fibration is ua (K₂≃K₂ a) on the meridian — the ZCohomology ΩKₙ₊₁→Kₙ
+map: the evaluator RUNS ua-transport, so the descent is computation,
+not truncation-elimination. (3) Only then the winding pipeline
+g8, g9, g10. The lesson in one line: the same element under two
+definitionally different presentations differs in normalization cost
+by a factor larger than a decade of hardware — in this calculus,
+DEFINITIONS are the algorithm, and choosing the presentation IS the
+optimization. That is the deepest computer-science fact this corpus's
+substrate rests on, measured today on its own container.
