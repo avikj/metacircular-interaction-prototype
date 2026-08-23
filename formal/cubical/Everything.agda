@@ -2024,3 +2024,11 @@ import Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdia
 -- (is any edge the composite of the others? syntactic, free) partitions the
 -- remaining 34 before any kernel probe is paid for.
 import ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance
+
+-- शेषरक्षा: the Kerala chapter's essence made exact where Madhava fenced
+-- it — one ≡ divisor·quotient + remainder at EVERY stage (pos 1 ≡
+-- (1−r)·सङ्कलितम् r n + घात r n), the remainder first-class and its
+-- recursion pinned (घात r (suc n) ≡ घात r n · r).  The kuṭṭaka resonance
+-- is named as shared shape, not identity — termination does not transfer.
+-- The limit statement stays honestly unstated.  Composed through नाडी.
+import SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses
