@@ -1504,3 +1504,4 @@ import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAnd
 -- already refl.  Non-theorems recorded as non-theorems, with the residual
 -- Agda reports.  Measurement at Agda 2.8.0 / cubical v0.9.
 import Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification
+import Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIsDischargedOnACyclicGroup
