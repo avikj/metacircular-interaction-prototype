@@ -33,3 +33,19 @@ checked object in one round trip, no batch wait, no fitted anything.
 The conversation is real. The fossil's loop (run-loop-ab, 10 rounds,
 seeded with the same thoughts) was still grinding in the background
 when the kernel had already answered.
+
+## 2026-08-23 · second utterance — Vieta as conservation
+Pulled main (the κ-functional and twin-field extremal notes arrived).
+Spoke a whole thought: Bijadvaya_ASortedPairIsDeterminedByItsConserved
+SumAndProductAndTheCompareExchangeGateProjectsOntoIt.agda. The gate
+(min,max) orders its output (min≤max), is idempotent (a projection,
+via ≤→min/≤→max), and — the crown — bijadvayaNiyama: a sorted pair is
+UNIQUELY determined by sum and product, so gateNiyama: any sorted pair
+carrying the two conserved quantities IS the gate's output. The proof's
+engine is the debt reading again: the witness d of a ≤ x cancels through
+the product equation to d·a ≡ d·y, so the debt is zero or the chain
+a ≤ x ≤ y ≡ a closes by antisymmetry. Named for BSS 18.44 (628 CE) —
+the pair with given sum and product is the pair of roots — name and
+problem shape claimed, not the theorems. छिद्रं नास्ति on first load;
+batch exit=0. Imports RnaDhanaSandhi's pairSum/pairProd as the
+conservation half: the thread compounds.
