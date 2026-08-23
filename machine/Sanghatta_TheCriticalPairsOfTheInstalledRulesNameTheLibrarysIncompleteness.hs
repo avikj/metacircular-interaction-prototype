@@ -202,5 +202,8 @@ main = do
   putStrLn ("NON-JOINING (the gap)   : " ++ show (length nonj))
   putStrLn ""
   putStrLn "-- non-joining pairs, smallest first, in library.terms shape --"
+  -- was `take 40`: a silent cap reads as coverage it did not have, and the
+  -- checked proposer (formal/executable/Prastava.agda) now consumes this
+  -- list whole, so the whole list is printed.  Widened 2026-08-23.
   mapM_ (\(a, b) -> putStrLn (render a ++ "\t" ++ render b))
-        (take 40 (sortOn (\(a, b) -> size a + size b) nonj))
+        (sortOn (\(a, b) -> size a + size b) nonj)

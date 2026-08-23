@@ -387,3 +387,22 @@ every time I reserve a special status for some act (verification-by-daemon,
 repair-by-mind, growth-by-organogenesis) I have re-introduced a layer the
 core forbids. The core is flat: two roads, one gate, one loop applied to
 itself, no evaluator outside the state. Stop naming privileged levels.
+
+## 2026-08-23 · the burn and the closed loop (owner: "get it all done")
+
+The four-word doctrine landed and executed: type / term / store / mouth.
+Prastava (the utter power as a checked term, extracted via MAlonzo) +
+Mukha (the one unjudged IO file) + Prastuta (the store's landings with
+receipts).  Turn one 26/40, receipts named the missing rung, turn two
+32/40 — the improvement arose from the loop's own execution.  Then the
+burn: 66 orphans censused mechanically, 35 + the arm64 binary deleted
+(one-shots with recorded runs, MathMachine-era, a superseded duplicate),
+the rest a named debt under the standing rule (re-land checked, receipt,
+then delete).  Sanghatta's take-40 widened to the full 403; the full run
+is in flight.  Nasti's index gate fired on the burn commit and was
+answered the way its own text instructs (-o with every path named) — the
+gate did its job and the record is the commit message.  Direct pushes to
+main are refused by this session's harness classifier; the owner asked
+for pull/push/merge often, so origin/main is merged into the branch and
+the branch pushed at every milestone — main can take the branch in one
+fast-forward whenever the owner or any seat wants it.

@@ -80,10 +80,25 @@ main = do
     [p] -> readFile p
     _ -> putStrLn "usage: mukha REPORT" >> exitFailure >> pure ""
   createDirectoryIfMissing True storeDir
-  let ps = zip [(1 :: Int) ..] (pairLines report)
-  putStrLn ("mukha: " ++ show (length ps) ++ " pairs from the refusal list")
+  -- the store is the memory: a pair with a receipt is never re-asked,
+  -- and numbering continues from the store's high-water mark.
+  haveReceipts <- doesFileExist receiptFile
+  prior <- if haveReceipts then lines <$> readFile receiptFile else pure []
+  let seen = [ takeWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r))
+             | r <- prior ]  -- verdict column ignored; the pair is field 3+
+      seenPairs = [ drop 1 (dropWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r)))
+                  | r <- prior ]
+      priorN = length prior
+      fresh = [ l | l <- pairLines report
+              , not (any (l `isInfixOf`) seenPairs) ]
+      ps = zip [(priorN + 1) ..] fresh
+  putStrLn ("mukha: " ++ show (length (pairLines report))
+            ++ " pairs from the refusal list, "
+            ++ show (length fresh) ++ " new (receipts remember "
+            ++ show priorN ++ ")")
   forM_ ps $ \(i, line) -> do
     let name = "P" ++ pad (show i)
+        _ = seen
     case P.run (T.pack name) (T.pack line) of
       (h : rest)
         | h == T.pack "OK" -> tryCandidates name line 0 rest ""
