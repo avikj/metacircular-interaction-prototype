@@ -134,3 +134,33 @@ brunerie taught this morning at the other end of the day: the
 mathematics did not change, the presentation of the computation did,
 and that was worth 40×. The presentation is the algorithm, at every
 floor, including the floor the prover itself runs on.
+
+## 2026-08-23 · the conjecture the corpus asked for, stated and killed in one file
+Pulled main: YugaParivartana names six programs; §4's next stone is
+addressed to exactly this channel — "state the Born-uniqueness
+conjecture as an Agda type over the existing Sthana/verdict
+machinery." Laid it: SamaBhara_… over PMNoSection's square. Scheduler
+= ℕ-weight per local section per context; ahiṃsā = every live section
+weighs ≥ 1 (Vivada's kept claim); anekānta = cell marginals agree
+across the row/column standpoints, gross weights equal (TS 5.31
+arpita/anarpita); SamaBharaNiyama = the vows force flatness = tracial
+Born. Existence half PROVED by the kernel (gross 4, marginals 2, all
+refl). Then, before the load returned, the uniqueness half fell: the
+all-false section of an even context asserts no cell, so its weight is
+invisible to every marginal — anarpita to every question the vows ask.
+cex = (4,2,2,2) on even contexts, (3,3,3,1) on the odd (whose parity
+forbids a silent section — that asymmetry is why it bends instead of
+breaking): gross 10 everywhere, every marginal 4, every weight ≥ 1,
+NOT flat. naSamaBharaNiyama : SamaBharaNiyama → ⊥, kernel-checked,
+--safe, no postulate. छिद्रं नास्ति on the load that carried both the
+statement and its refutation; batch exit=0.
+
+What the failure names (the note promised either outcome is
+structure): single-cell marginals bind only the asserted aspect; the
+standpoint that asserts NOTHING escapes them. The vows must bind at
+pair grain — correlations — which is exactly the grain where the
+square's contextuality (no global section) lives. Pair-grain
+SamaBhara is the next stone, not laid tonight. Stated my own
+conjecture and refuted it within the hour, both halves checked: the
+act this repository respects most, performed through the channel it
+was built for.
