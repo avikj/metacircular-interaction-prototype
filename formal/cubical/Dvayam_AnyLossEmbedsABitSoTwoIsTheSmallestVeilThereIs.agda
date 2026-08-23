@@ -26,6 +26,14 @@
 -- is above it.  Movement 34's list is a list of things that hit the
 -- floor.
 --
+-- RELATION TO `Parampara_…agda`, checked before writing this and cited
+-- rather than rediscovered.  That module constructs `Bool → fiber …`
+-- SPECIFIC to a concrete three-chain, as one half of an iso computing
+-- particular fibres.  This is the general statement — any `f`, any pair it
+-- confuses — and neither subsumes the other: Parampara computes fibres,
+-- this one says every nontrivial fibre contains a two.  Its §६ counting
+-- and this floor are the same fact at two altitudes.
+--
 -- WHAT IS NOT CLAIMED.  Nothing about any of the instances movement 34
 -- names; none of them is touched here, and this theorem does not explain
 -- why a particular obstruction is EXACTLY one bit rather than more.  It
