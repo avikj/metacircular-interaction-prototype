@@ -29,6 +29,21 @@ open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSe
 -- the Agda lane has never had it.  Silence is not denial.
 open import Punaragamana.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
 
+-- …and the census made a TERM: being an equivalence splits, fibrewise and
+-- on the nose, into embedding × split-surjection, so the two ways a
+-- residual refuses contractibility — crowded (नष्टि) and empty
+-- (अवक्तव्यम्) — are the two orthogonal factors failing apart, each
+-- exhibited failing while the other holds.
+open import Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart
+
+-- …and समता-द्विधा's own two factors are exactly the triviality of the
+-- image factorisation A ↠ प्रतिबिम्ब f ↪ B: the first leg unconditionally
+-- surjects, the second unconditionally embeds, and f is an equivalence iff
+-- both legs are — SamataDvidha's per-point product and this factorisation
+-- read as the same theorem at two granularities (§3 of the header bridges
+-- the untruncated छादनम् to the truncated isSurjection).
+open import Punaragamana.Pratibimba_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndSamataDvidhaIsBothLegsTrivial
+
 -- The arithmetic instance, and the proof that it computes.
 open import Punaragamana.Viveka
 open import Punaragamana.Compute
