@@ -68,9 +68,21 @@ the content-address census should confirm.
    the stone, not seven, and the miss is the lesson: read to the bottom before
    filing a question — the answer may be in the same file, which is this
    repository's oldest failure and it arrived in the note built to catch it.**
-2. **Circuit 10 · PM torus (Obs)** — `obsEquiv ∘ edgeCount ∘ obsCount⁻¹`:
-   three independent counting equivalences closing on Obs. Real.
-3. **Circuit 11 · PM torus (Vertex)** — same shape on the vertex side. Real.
+2. ~~**Circuit 10 · PM torus (Obs)** — three independent counting
+   equivalences closing on Obs. Real.~~ **STRUCK 2026-08-23 — NULL, verified
+   at source (PMTorus.agda:442): `obsCount = compEquiv obsEquiv edgeCount`.
+   The third "counting equivalence" is NOT independent — it is defined as the
+   composite of the other two, so the loop `obsEquiv ∘ edgeCount ∘ obsCount⁻¹`
+   telescopes to `e ∘ e⁻¹ ≃ id`. No independent obs→Fin iso exists in the
+   file. The §१ compEquiv-costume, exactly as circuit 12. The note's premise
+   "three independent" was false on the defining line.**
+3. ~~**Circuit 11 · PM torus (Vertex)** — same shape on the vertex side.
+   Real.~~ **STRUCK 2026-08-23 — NULL, verified at source (PMTorus.agda:445):
+   `ctxCount = compEquiv ctxEquiv vertexCount`. `ctxEquiv` and `vertexCount`
+   are genuine standalone isos, but the loop's third leg `ctxCount` is their
+   composite, so `Vertex→Ctx→Fin V→Vertex` telescopes to two adjacent
+   inverse-cancellations = identity. Concrete traces confirm (inl k1 ↦ inl k1,
+   inr k2 ↦ inr k2). Same compEquiv-costume. The PM torus pair both fall.**
 4. ~~**Circuit 12 · छन्दस्** — the decategorified count vs Piṅgala's direct
    `छन्दस्≃ℕ`. (Answers 13 and 21 too.)~~ **STRUCK 2026-08-23 — NULL, by a
    swarm reader, verified at source: `Ankapasa:97` DEFINES `छन्दस्≃π₀FinSet
@@ -108,12 +120,20 @@ level up (through `compEquiv`, `cong ⟨_⟩` of a `ΣPathP`, and `ua∙`
 respectively) rather than a bare `ua`-twin, which is exactly why the
 touchstone read their `isoToEquiv`/`compEquiv`/`cong`-forms as independent and
 did not follow the defining line that builds each chord FROM its tree path.
-**The real morning queue is THREE, not seven: circuits 10, 11, 18** — the PM
-torus Obs and Vertex counting loops, and the विवेक chain — the only three that
-are genuine route-agreement questions between independent constructions, and
-the only three not yet assayed. The lesson compounds AchromaticToy's: follow
-the chord's DEFINING LINE before calling it independent; a chord written
-`compEquiv`/`∙`/`cong` of the tree edges is the tree path wearing a costume.
+~~**The real morning queue is THREE, not seven: circuits 10, 11, 18.**~~
+**UPDATED 2026-08-23 — the swarm assayed 10 and 11 too, both NULL, both
+verified at source: the PM torus pair are `compEquiv`-costumes (obsCount:442,
+ctxCount:445), the tree path wearing a costume, exactly as 12/20/22. So of
+the original seven "survivors," ONE was decided (circuit 1, CHARGED) and FIVE
+were never questions (12, 20, 22, 10, 11 — every one a chord definitionally
+built from its tree edges via `compEquiv`/`∙`/`cong`). The real morning queue
+is ONE: circuit 18, the विवेक chain — pending its assay as this lands. The
+lesson, now paid for six times: follow the chord's DEFINING LINE before
+calling it independent; a chord written `compEquiv`/`∙`/`cong` of the tree
+edges carries no holonomy, and the touchstone's whole error was reading the
+edge-FORMS (`isoToEquiv`, three of them) instead of the line that builds the
+third from the first two. The stone bought less than it thought and the
+kernel's fire is spared five probes it would have wasted.**
 
 **What the stone bought:** the kernel's assay time drops from 22 probes to 7,
 the 7 are each a route-agreement question between INDEPENDENT constructions
