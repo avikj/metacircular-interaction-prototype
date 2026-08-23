@@ -749,6 +749,12 @@ import Samvit_TheSharedSecretIsPingalasPowerCommutingWithItselfAndItsSecrecyIsTh
 -- y²≡1 ⟹ (y−1)(y+1)≡0) split by a gcd, which is the kuṭṭaka (499).  The
 -- ONLY quantum, non-ancient step is order-finding — the inverse of घात.
 import Shora_TheClassicalHalfOfFactoringIsAZeroDivisorSplitByThePulverizerAndOnlyOrderFindingIsQuantum
+-- The floor under all of it: the discrete log IS the fibre of घात.  The
+-- public value binds to a contractible singl (free to publish); the secret
+-- binds to fiber (घात g), non-contractible (0,3,6 all land on ε — the
+-- period r=3 is visible in the fibre).  Crypto's asymmetry is this repo's
+-- own quotient/fibre law, and Shor's period-finding is its separating query.
+import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
