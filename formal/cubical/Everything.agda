@@ -1336,3 +1336,4 @@ import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
 -- Virahāṅka c. 600-800 on Piṅgala's weights.  The numbers are its shadow.
 import Virahanka_TheMatraFibreSatisfiesTheTwoStepRecurrence
 import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesForFree
+import Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps
