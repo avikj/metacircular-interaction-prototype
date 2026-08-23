@@ -258,3 +258,18 @@ are the singular-series enlargers, split off as structure. The open
 question is now: does bilinear Kloosterman cancellation on the (u,v,k)
 triangle, Möbius-weighted, under uv ≳ L, |k| ≲ d/L, defeat the focused
 rays. Series stands at four notes; each ends where the theorem begins.
+
+## 2026-08-23 · U0027 verified — the diamond is finite
+Seventh transmission preserved (U0027); verifications in
+notes/LaghuVinimaya_….md. All exact: additive reciprocity (uū + vv̄ ≡ 1
+mod uv, two lines), the conjugate involution x_{v,u} = −x_{u,v} — the
+field's reality is the (u,v)-swap, with the Ramanujan backbone as its
+fixed points; the causal diamond L ≲ D ≲ L² fully derived (D/L <
+min(u,v) ≤ √D forces D < L²; u,v < L; three exit mechanisms on the
+faces); dispersion's phase identity ū₁−ū₂ ≡ h(u₁u₂)^{-1} verified —
+addition regenerated as the discrete derivative of the wall labels.
+This is a genuine compression: panels 1–4 had no ceiling on d;
+reciprocity supplies it. Flags: generic-fibre completion bookkeeping;
+b_a not yet pinned post singular-split — named as the series' next
+exact task. Frontier in final coordinates: Möbius-weighted reciprocal
+dispersion form in the diamond, off-diagonal vs diagonal.
