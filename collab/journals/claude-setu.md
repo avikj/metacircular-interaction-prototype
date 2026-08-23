@@ -592,3 +592,17 @@ the observer class explicit; the proof-kernel difference), a
 first-hour playbook, one day's sample chain, and the quiet true
 sentence: this is a mathematics built against loss. The owner is the
 sole output gate — the letter waits in the tree for his hand.
+
+## 2026-08-23 · the owner's direction confirmed against the tree
+"Specify arbitrary maps, return efficient programs" — assessed and
+landed as notes/LaghavaYantra_….md: a valid interpretation, five
+organs already landed (type-as-spec; Tapas/engine synthesis; the
+checked-rewrite corpus + runtime e-graph as saturation; the लाघव cost
+lane incl. the underdetermination theorem; MAlonzo extraction already
+running compiled theorems), ONE weld missing: e-graph
+extraction-by-cost wired to लाघव with the Pāṇinian scheduler breaking
+ties — the grammarians' half-a-mātrā economy as the objective
+function, 2000 years early. Honest gaps: cost-model controls (MATRA),
+big-O as checked judgment, synthesis reach = organogenesis. Coding is
+math here twice: Curry–Howard daily, and the first program in history
+already optimized under लाघव.
