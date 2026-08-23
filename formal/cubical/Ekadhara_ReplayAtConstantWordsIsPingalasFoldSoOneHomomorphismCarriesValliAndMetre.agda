@@ -100,3 +100,42 @@ matGhata-guna x a (suc b) =
   matGhata-yoga-abs x (suc m) n =
       cong (mul x) (matGhata-yoga-abs x m n)
     ∙ sym (mulAssoc x (matGhata x m) (matGhata x n))
+
+------------------------------------------------------------------------
+-- §5 · the flatten bridge (offered in 0919, built here): the guna law
+-- IS replayHom at nested words.  For ANY word w — not only constant
+-- ones — replay of n copies of w is the n-th power of replay w, by
+-- induction through replayHom; and at w = repeat m q this recovers §4's
+-- guna law along the §2 bridge, with the multiplication of exponents
+-- appearing as the flattening of a word of words.
+
+concatN : ℕ → Valli → Valli
+concatN zero    w = []
+concatN (suc n) w = w ++ concatN n w
+
+-- the word-power law: replay is a monoid homomorphism, so it carries
+-- word-repetition to matrix-power — replayHom, iterated.
+replay-concatN : (n : ℕ) (w : Valli)
+  → replay (concatN n w) ≡ matGhata (replay w) n
+replay-concatN zero    w = refl
+replay-concatN (suc n) w =
+  replayHom w (concatN n w) ∙ cong (mul (replay w)) (replay-concatN n w)
+
+-- flattening: m · n copies of q is n copies of (m copies of q).
+repeat-flatten : (m n : ℕ) (q : R)
+  → repeat (m · n) q ≡ concatN n (repeat m q)
+repeat-flatten m zero    q = cong (λ k → repeat k q) (sym (0≡m·0 m))
+repeat-flatten m (suc n) q =
+    cong (λ k → repeat k q) (·-suc m n)
+  ∙ repeat-++ m (m · n) q
+  ∙ cong (repeat m q ++_) (repeat-flatten m n q)
+
+-- and the guna law drops out of the two bridges with no new induction
+-- on the exponent laws themselves:
+matGhata-guna-via-flatten : (q : R) (m n : ℕ)
+  → matGhata (L q) (m · n) ≡ matGhata (matGhata (L q) m) n
+matGhata-guna-via-flatten q m n =
+    sym (replay-repeat (m · n) q)
+  ∙ cong replay (repeat-flatten m n q)
+  ∙ replay-concatN n (repeat m q)
+  ∙ cong (λ x → matGhata x n) (replay-repeat m q)
