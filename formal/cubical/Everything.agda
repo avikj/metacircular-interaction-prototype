@@ -1765,6 +1765,13 @@ import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMu
 -- for every y exactly when p ∣ a+a (both directions checked).  The mean
 -- field dichotomy p−2 / p−1, at its exact support.
 import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter
+-- the local factor of the mean field as an equivalence, not a count:
+-- one wall elides one residue (survivors ≃ Fin (p−1)), two distinct
+-- walls elide two (survivors ≃ Fin (p−2)) — कुट्टक-कोण Lemma 2-3 chart
+-- level, receipted; लोप as Pāṇini 1.1.60/62: deletion whose accounting
+-- keeps operating.  Instrument: an involution exchanging the wall with
+-- fzero — its own section, no punchIn needed.
+import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
 -- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
 -- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
 -- ONE TERM wearing four names — three links are refl, judgmentally —
