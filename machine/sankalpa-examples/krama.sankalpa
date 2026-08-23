@@ -1,0 +1,3 @@
+name: Krama
+type: List ℕ → List ℕ
+law: Krama xs = Σ ys (sorted ys × perm xs ys)

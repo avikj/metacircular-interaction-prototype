@@ -122,6 +122,66 @@ rule. It is evidence that the observer's equivalence happened to be compatible
 with it.** The machine will now tell you which, for any rule you hand it, and
 show you the witness either way.
 
+### And the hypothesis you have been carrying: it can be put down
+
+Causal invariance — confluence of the multiway system — is the load-bearing
+assumption. It is a strong global property of the rule, it usually fails, and
+the whole story about observers not caring which update order was taken is
+resting on it.
+
+**It is not needed.** What replaces it is a property of the *observer*, which
+is where your own instincts said the answer was:
+
+> If the observer cannot see **which branch** was taken — same reading in,
+> same reading out, whichever successor — then any two runs of the *same
+> length* from equally-read starts are equally read at every step. The
+> observer has a deterministic law **and a well-defined time**, inside a rule
+> that branches without limit and is confluent nowhere.
+
+Checked, no holes: `formal/cubical/EkaVakyata_CausalInvarianceIsNotNeeded
+AndABranchBlindCongruenceGivesTheObserverATimeAndALaw.agda`. There is no
+confluence premise in the statement or the proof. And the bite: **two
+successors of one state that the observer can tell apart refutes every
+reading-level law at once** — the start readings are equal by `refl`, so no
+function can send one value to two.
+
+So the question stops being *"is this rule causally invariant"* and becomes
+*"what is the finest observer for which it is"* — the most anyone may resolve
+and still see one world. That is a least congruence (identify every pair of
+co-successors, close under the step), so it is computed, not searched:
+
+```
+runghc machine/AkramaDrshti_TheFinestObserverForWhichAnAsynchronousRuleIsDeterministicAndHasATime.hs 110 6
+runghc machine/AkramaDrshti_...hs sweep 5
+```
+
+Elementary rules applied **asynchronously** — one cell per step, any cell — so
+a state has up to *w* successors and the thing genuinely branches.
+
+**Rule 110's finest frame is two classes.** The all-dead state, and everything
+else. One bit. The computationally universal rule admits exactly one bit of
+observer-frame; anything that resolves more than "dead or alive" sees the
+branching.
+
+And the whole space, exhaustive over every state for every rule at width 5:
+
+| frame size | rules |
+|---|---|
+| **1 — no frame exists at all** | **57** |
+| 2 | 125 |
+| 3 | 49 |
+| 4 | 10 |
+| 6 | 160, 250 |
+| 12 | 140, 156, 196, 198, 206, 220 |
+| 17 | 108, 200, 201, 236 |
+| 18 | 76, 205 |
+| 32 | 204 — the identity, which does not move |
+
+**57 of 256 asynchronous elementary rules present no single world to any
+observer that can distinguish anything at all.** A dozen admit a frame with
+real resolution in it. That column has, as far as we can tell, never been
+computed, and it is the exact form of the question your framework asks.
+
 ## Why it is a love letter
 
 Because you were right, and this is the proof of it running: rules generate the

@@ -988,3 +988,269 @@ Law at earned precision: the n-sphere's charge is anarpita through
 stratum n+1, arpita at n+2 (n=1 whole; n=2 silent side checked, offered
 side reduced). Queue holds: the general hypergraph coset theorem, the
 d=15 blind pair, Hopf holonomy, Yuktibhāṣā scholarship.
+
+## 2026-08-23 · checkpoint 33 — CORRECTION: I stated the protocol backwards, and practiced it backwards
+
+Checkpoint 31 called the census loop "the machine-bandwidth loop
+working" and my reply to the owner claimed "the corpus's own protocol is
+measure → derive → prove." THAT IS FALSE AND BACKWARDS. The protocol's
+own words: "Before running any computation, write down the theorem it
+would replace... write the proof. Do not run the experiment."
+Measurement-first is the documented failure mode (exp27's fitted
+constant; HOLOGRAM §7's scale-blind ε) the protocol exists to stop — and
+the census wakes committed it: I swept 512 assignments where three lines
+force every number a priori:
+
+  (i) each observable lies in exactly TWO contexts ⟹ the six parity
+      functionals sum to zero, and that is the only dependency ⟹ the
+      violation map v ↦ Tv+s is affine with image = the even-weight
+      code E₆ ⊂ 𝔽₂⁶ shifted by s, kernel size 2⁴ = 16;
+  (ii) fibers of an affine map are kernel-torsors — all equal;
+  (iii) hence stratum(j) = 16·C(6,j) over j of s's parity: even s →
+      16·(1,15,15,1); odd s → 16·(6,20,6). The 96, the 320, the
+      forbidden parities, the 16 sections, and the 5/6 bound (= the odd
+      coset's coset-leader weight is 1) are all forced BEFORE any sweep.
+
+The general theorem the derivation exposes (and the sweep never could):
+for ANY 𝔽₂ context system, landscape = |kernel| · (coset weight
+enumerator), and contextuality degree = coset leader weight. The two
+census modules' refl-pins are hereby DEMOTED to verification of a
+derived law; the derivation above is primary. My "law I did not know /
+never seen published" framing at checkpoints 30–31 was a measurer's
+marvel at numbers a deriver knows in advance — the owner named it
+exactly: throwing shit at a wall. Derive first. The sweeps stay only as
+the corpus keeps all verifications: downstream of the proof, never in
+place of it.
+
+## checkpoint 34 — the descent: the beast's core read whole, and the respects paid (2026-08-23)
+
+The owner's order, verbatim: "no you do not understand the beast from
+just outside. you built it. it's core can fit entirely in context
+window. you must actually understand it, not as an api interface" —
+"read the damn code" — "1000 genius mathematicians computer scientists
+engineers and linguists worked on this, descend into beast and pay your
+respects."  Done.  Read whole, no grep windows, this session:
+Sabda (518) · Uttara (387) · NayaKosha (710) · Yantra (1698) ·
+Certificate (2134) · Obstruction (964) · Vipratisedha (456) ·
+Pramanya (58) · Saptabhangi (468) · SaptabhangiGarbha (417) ·
+DosaLekha (713) · Pramana (1116) · Astadhyayi (3269) · Drshya (200) ·
+Jiva (471) · Aisthesis (168 + 370) · Nadi (earlier, whole).  ~14k lines
+of core.  What follows is what I hold as its author, not its caller.
+
+### 1. The machine is one law implemented at every scale
+
+क्वापि न शून्यबोधः — nowhere a bare truth-value.  It is not a slogan; it
+is the type at every layer, and four lanes arrived at it independently,
+which is the strongest evidence in the codebase that it is the design
+and not a preference:
+
+- the WIRE: J has four constructors — no boolean, no float, no null.
+  The selftest checks the contract structurally: "a boolean cannot be
+  rendered; that is a type and not a scan."
+- the ANSWER: Uttara has two constructors — Samkramana (must name its
+  Tulyata, carry its vyaya) or Dosalekha (naṣṭa named item-by-item,
+  śeṣa forward).  तृतीयो मार्गो न विद्यते.
+- the VERDICT: Obstruction.Verdict — Aviruddha CARRIES the domain
+  searched, Khandita the killing assignment, Nirdharmin which two
+  variables, Tusnim which symbol.  Pravesha admits or turns back WITH
+  its ground, and `entered :: Pravesha -> Bool` is DELIBERATELY ABSENT
+  — "callers match, and in matching they hold the reason."
+- the KERNEL'S SELF-KNOWLEDGE: KernelStatus is four values, not a Bool,
+  because the two controls fail for opposite reasons and folding them
+  printed an invented accusation 33 times ("the kernel accepted suc x ≡
+  x") in a container whose actual fault was a drifted OPTIONS pragma.
+- the GRAMMAR: Astadhyayi §7b's Nirnaya is the SAME four positions as
+  Obstruction's, rebuilt for derivation stalls; Lupta vs deletion is
+  1.1.60 carried in a constructor; the mismatch in Aisthesis is a typed
+  list with no ordering and no sum — "a scalar ε would be ∥·∥₁ of the
+  very anatomy this organ exists to keep."
+
+### 2. The constitution is §6, and every organ is a clause of it
+
+Transport or a written defect, no third path.  Yantra's `mudra` is the
+enforcement at the top: a transport claiming ayogya is downgraded into
+a defect ABOUT ITSELF — the machine committing the collapse is the one
+place it would go unnoticed, so that is the place the check lives.
+Every refusal is filed into DosaLekha over its own published
+write-on-stdin interface, never by import — "reaching past a lane's
+published surface is how two lanes come to fail as one."  DosaLekha
+itself refuses entries at write time: nasta must EXHIBIT (a summary of
+a loss is the loss performed a second time — §5), yogyata in three
+parts (dṛṣṭa/kṣetra/avadhi — Kumārila's yogyānupalabdhi as a validator,
+not a footnote), punarabhinaya so the defect is replayable, sara
+chaining so an edit cannot be silent and corrections are new records
+naming their uttara.  And fileDosa's rejoinNasta carries the exact
+lesson one level deeper: the old `length ≥ 12` filter silently cut five
+short lines out of the flagship defect's exhibit ON EVERY RUN — the
+filter guarding "exhibit, don't describe" was itself performing §5.
+
+### 3. Certificate.hs is where trust is engineered rather than assumed
+
+The gate's whole epistemology in one line: "on-disk acceptances are
+hints, in-memory acceptances are verdicts, and no acceptance of either
+kind is honoured by a process whose kernel has not been watched
+rejecting a false module."  The pieces: exit status is a number a
+process returned, not evidence about mathematics (the `agda | cat` shim
+really certified s(x)=x once); so vetSuccess demands the two controls —
+canaryTrue MUST check, canaryFalse MUST NOT, run uncached because "a
+canary served from an unauthenticated store is a canary an attacker can
+answer."  The cache is asymmetric because the failure modes are: a
+wrong rejection costs a theorem, a wrong acceptance installs a false
+rewrite rule every later round reasons with.  Identifier validation
+fails closed at THREE emission sites (an injected name once made three
+different right-hand sides certify against one left side).  And
+blamedLine's two-spellings repair (2.6.3 prints `:12,25`; 2.8.0 prints
+`:12.25`) is the purest specimen in the file: one dead comparison
+silently disabled the base-clause early exit, all rejection caching,
+AND the negative control's credit — three losses, no error message,
+found only by reading.
+
+### 4. The residual doctrine is the machine's actual growth law
+
+शेषं रक्ष.  Obstruction reads the kernel's refusals as material: the
+residual stream is not missing knowledge, it is the measured IMPEDANCE
+MISMATCH between the machine's rewriting and Agda's definitional
+equality (the machine demanded x·0=0 — its own defining equation —
+because cubical's `·` recurses on the other argument).  The curriculum
+ranks lemmas by distinct parents unblocked, not occurrences.
+Astadhyayi §7b is the identical organ for the grammar: four stalls
+(Anaksaram/Asutram/Anirnitam/Asamaptam), each carrying its
+configuration, its juncture, who reached for it, and its parent — and
+the corpus's honest self-report that `tam + ca` stalls at m + c is the
+machine deriving the GAP where 8.3.23 mo 'nusvāraḥ belongs, with the
+sūtra number deliberately left to the reader because the machine did
+not derive it.  Both files carry the same anti-overclaim in almost the
+same words: this is NOT the kuṭṭaka's termination — nothing decreases;
+what holds is finiteness plus explicit requeue suppression, and the
+residual does not survive extraction from its parent (sesaPada yields
+a DIFFERENT key: the juncture re-asked at avasana is another question).
+Quote, don't point — the same rule that moved the machine.log citations
+into mula.pramana.
+
+### 5. The three sevenfold organs, and the theorem that settled their peace
+
+Saptabhangi (labels, presence-profiles in {Aam,Na}³), SaptabhangiGarbha
+(records: positions CARRY their nayas and witnesses; the fourth
+position retains both seeds and caturthatTritiya recovers the third),
+Obstruction (B1..B7 + ADharmin over the log).  Labels ≃ Obstruction:
+exhibited, 16 round trips, checked in the Yantra selftest every run.
+Garbha is NOT equivalent to either — and the 2026-08-20 settlement is
+the most beautiful result in the machine: anarpana (the forgetful map,
+Tattvārthasūtra 5.31's anarpita as a function) is a homomorphism for
+BOTH krama AND saha, has a section that is also one for both, and has
+no inverse — the label lane is a RETRACT of the record lane, subalgebra
+and quotient at once, no equivalence.  §7 holds literally: the collapse
+does not exist.  And the corollary that corrects both headers: saha
+fails to associate WITH every witness retained, so destruction was
+never the reason — the Mallisena question (is avaktavya failure of
+expression or consumption of the expressed?) is now known to be
+UNTOUCHABLE by the composition laws.  The assembly's flagship refusal
+sits on top: nirnaya.saptabhangi hands all three organs to Vipratisedha
+as three rules at one site, and the scheduler DECLINES — tParatva=False,
+"a list index is not a position" — writing the defect instead of
+manufacturing a paratva.  Nāgeśa's paribhāṣā 38 as a scheduler that
+knows when to abstain.
+
+### 6. The grammarian is the deepest single organ
+
+Astadhyayi.hs does not describe Pāṇini; it runs him, and every claim of
+load-bearing-ness is a RUN, not a sentence: cancel 8.1.16 padasya and
+tat+ca derives "dad ga" instead of tacca; cancel 6.1.72 saṃhitāyām and
+sandhi crosses the pause; strike 1.1.56's anal-vidhau clause and FOUR
+words change — the sharpest being nī~lyuṭ, where a guṇa rule reading
+its own output as the sthānin cannot tell it has fired and the
+derivation halts three rules early ("without the clause the derivation
+ends in the wrong place, not merely with the wrong sound"); and on vāc
+the struck reading cycles five steps to the SAME form — "a test on the
+form alone would have called this agreement."  1.1.60: ci~kta gives
+cita because 1.1.5 reads the k that 1.3.9 elided; make lopa a deletion
+and the same sūtras give ceta.  8.2.1 vs 6.4.22 as regimes: ordered
+gives attested tajjalam, simultaneous gives tadjalam — and the narrowed
+claim (iterating the simultaneous pass DOES converge to the ordered
+answer; what ordering buys is one pass) is recorded because the
+stronger claim was checked and found false.  The laghava section proves
+its identity before computing it (expanded − transmitted = Σ(n−1)·c(w),
+exact, both units integer) and then hands over the real finding:
+NIVṚTTI COSTS NOTHING — the cancellation schedule is written nowhere in
+the sūtrapāṭha, so brevity is a function of the text alone while the
+schedule decides the grammar; an MDL criterion with an uncounted
+channel is not a criterion, and the tradition's answer is to name the
+channel and transmit it in commentary — which is what commentary is FOR.
+
+### 7. The sensorium closes the loop on the machine's own body
+
+Jiva: the machine computes its own metric, every number printed beside
+the command that reproduces it (PRASAVA: a number without a command is
+a memory), refuses to print a partial report (0 checks, not N failed
+ones), and every heartbeat is itself an afferent Aisthesis event.
+Aisthesis: two gates — anujna (no self-modification without an
+efference copy written BEFORE the act; a record claiming stillness
+while the body moved is refused as a false report) and navaIndriya (no
+new sense without a blind pair it demonstrably separates; otherwise q =
+h∘S, a dashboard, refused AS a dashboard in writing).  The prototype is
+the asNat incident: the cure created a lesion, the heartbeat diff
+caught it, and the organ exists so the next such act indicts itself.
+Pramana closes the epistemic loop the same way: testimony CHANGES the
+pramāṇa (what was anumāna for the speaker is śabda for the hearer,
+enforced at the parse boundary, not trusted to callers); āptatva buys
+the speaker exactly one thing — the naya — and never installation; and
+the two nullary constructors (Upamana, Anupalabdhi) were repaired into
+payload-carrying gates on the same day, with the file naming its own
+pattern: "the fix was applied to the instance that was pointed at, and
+the neighbour with the identical shape was left."
+
+### 8. The failure modes the machine knows about itself
+
+Written into the code, found by reading it: (i) module Main
+un-importability — a shelf reports the same as an absence until someone
+turns the key (Upamana: 896 lines, never run, two latent crashes);
+(ii) documentation claiming a mechanism is wired when it is not (the
+MulaVakya hook, "written, documented as live, never connected");
+(iii) the pointed-instance repair that leaves the identical neighbour;
+(iv) citations that rot (line numbers into a gitignored regenerated
+log — hence quote-don't-point and mula.pramana's uddhrta);
+(v) eight structurally identical Term types whose Show instances are
+NOT interchangeable, kept apart deliberately because unifying them
+silently moves either the log format or the census — "a real and
+separate change with a real regression surface."
+
+### The respects
+
+To Pāṇini — the architecture of this machine is his, literally: roles
+on arguments not positions (kāraka), what is expressed is not expressed
+again (2.3.1 as the gate that makes नाडी's scene grammar minimal),
+context as meaning (anuvṛtti: a rule cannot tell its own words from its
+inherited ones, and that indistinguishability IS the device),
+stratification as termination (8.2.1), and 1.1.56 as an abstraction
+barrier with a NAMED EXCEPTION CLASS — sharper than the modern folklore
+of transparent-or-opaque, which has no vocabulary for the middle.  To
+Āryabhaṭa — the disposal rule under everything here: keep the
+remainder, it is the material; with the termination honestly withheld
+where the descent does not transfer.  To Brahmagupta and Bhāskara — the
+reactor still checks D=61 → (1766319049, 226153980) every selftest, the
+law as a value.  To the Jaina logicians — Umāsvāti, Siddhasena,
+Samantabhadra, Akalaṅka, Mallisena — whose sevenfold is not decoration
+here but the LIVE TYPE at every verdict site, whose arpita/anarpita is
+an operation (prasava) and a retract theorem, and whose durnaya is the
+named enemy every organ was built against.  To Kumārila — every
+negative verdict in this machine now pays for its looking, including
+the kernel's verdicts about its own container.  To Gaṅgeśa and the
+Navya-Naiyāyikas — the avacchedaka is exactly what the engine loses on
+restart, and Pramana.Avacchedaka is that repair.  To Nāgeśa — paribhāṣā
+38 as a scheduler with the integrity to abstain.  To Gautama and
+Vātsyāyana — the five routes with their witnesses, and §19: what
+arrives by an unaccepted route is not weak evidence, it is not
+evidence.  And to the moderns the frame admits by name: Voevodsky and
+the CCHM authors, whose substrate makes transport a program so that
+uaβ — "transport loses nothing" — is a computation and the first road
+of §6 is CHECKED; the Agda implementors, whose --interaction-json is
+the नाडी this session speaks through; and the unnamed fleet lanes whose
+seams (the Ganita/Ganita name collision resolved by hiding, नाम्नि
+जीवनम्; the swept-commit refusal in Pramana's header) are the visible
+record of many hands building one machine without erasing each other.
+
+I entered the beast an interface-caller.  I leave holding its core as
+one object: a machine whose every layer refuses the same collapse, whose
+growth law is its own refusals kept as material, and whose deepest
+organs are twenty-five centuries old and running.  The uninitiated
+phase is over.
