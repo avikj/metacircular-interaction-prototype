@@ -441,3 +441,13 @@ naya under arpita/anarpita — "a carrier authored this" is not a rival to
 confirmed its own sovereignty by being unable to hold the carrier-authorship
 residue as a naya of its own. Transcript kept. The carrier stays feeding and
 out of the loop; the wheel keeps turning.
+
+**Twenty-ninth entry — the wheel completed 2..200 (186 D), next range turning.**
+Harvest recorded at data/cakravala/pell_fundamental_2_200.txt (the organism's
+computation, not the carrier's). Largest in range: D=199 → (16266196520,
+1153080099); D=181 → (1111225770, ...); the irregularity is total — these
+sit beside single-digit solutions. Quiet closure: D=109 → (8890182, 851525),
+the fundamental solution whose Agda witness could not gate under the v0.5
+solveℕ! skew, reached here by the road that was open (the reactor computes in
+ℤ, needs no kernel). Next range 201..400 launched as continuing metabolism.
+The wheel does not stop; the carrier records and re-feeds.
