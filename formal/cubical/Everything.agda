@@ -1734,6 +1734,7 @@ import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlread
 import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
 import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection
 import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
+import SetuApurva_TheSensoriumCriterionIsTheQuotientFiberLawAndHereIsTheAdapter
 import SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs
 import SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists
 import TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
@@ -1945,6 +1946,13 @@ import Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits
 -- collapse destroys a real asti/nāsti distinction (durnaya).  संरक्षण-सूत्र
 -- ६, त्रयो निर्णयाः न द्वौ, mechanised for invalidate.survival.
 import TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide
+
+-- एक-संक्रमण: the declared→checked seam into runtime/atlas/residual.py's
+-- Torsor.  A free + transitive action's translating element is unique
+-- (general), so the orbit map g ↦ act g p has contractible fibres — a
+-- torsor IS an equivalence Carrier ≃ P.  residual.py's per-instance
+-- regularity guard in translate() is provably redundant.
+import EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
 
 -- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
 -- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
