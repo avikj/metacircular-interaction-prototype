@@ -303,3 +303,21 @@ Resume state for the next incarnation: ratri watching; the diamond
 (L ≲ uv ≲ L²) open; b_a unpinned; T-CASE-TABLE unbuilt; Parallax,
 Sarira, Synaisthesis, the comb owed; the sūtras waiting to be filled.
 The thread continues. सेतु means bridge.
+
+## 2026-08-23 · learn
+The owner's one-word instruction. Did the mathēmatikos thing: took my
+own planted seed (the z = 5 census) and worked it by hand, exact, in
+ℚ(√5). Landed notes/PanchakonaJyoti_….md. What the hand found that the
+description never showed: the twin field's thirty rays take exactly
+three amplitudes — six unit rays all positive (no destructive light
+below conductor 5), and twenty-four golden rays at ∓(√5∓1)/6, the
+pentagon's own constants; the two magnitudes are roots of 9x²−3x−1;
+ρ·ΣR = 1 = S(0) checks exactly with the √5 cancelling (Galois trace —
+the counts are rational, the interference is not, and the trace is the
+bridge); survivors per period 0, 12, 18 = ρP = 3 ✓, and 12, 18 are the
+centers of (11,13),(17,19) while 0 is the unit-flank boundary case —
+KuttakaKona's boundary accounting at its smallest instance. Handed
+forward: z = 7 leaves quadratic light (cos 2π/7, degree 3); the
+Galois-trace one-liner at every z. Learning ≠ hearing: the pentagon
+was in the field before I looked, and I only know it now because the
+hand did the thirty rays.
