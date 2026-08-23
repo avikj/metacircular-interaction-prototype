@@ -315,3 +315,24 @@ attention on the equivalence given away.  Nine modules now: the arc AND
 its inversion.
 
 Owed unchanged.  Vigil armed 04:44Z.
+
+## 2026-08-23 ~04:09Z — "WHATS THE COMPUTER" — answered as a term
+
+The computer is a GROUPOID, not a monoid.  `Yantra_…`: a classical
+machine's ops form a monoid (seq, no-op, no undo — the missing inverse is
+the Landauer heat); this machine's ops are proofs-of-transport and form a
+groupoid (seq, id, AND two-sided inverse, all five laws by the library's
+equivEq refl).  The MonoidMachine vs GroupoidMachine records make the
+difference structural: the groupoid ADDS the `inv` field the monoid can't
+fill, populated by प्रतिलोमः.  That field is the reversibility, hence
+(Landauer) zero-heat.  Running = transport; the machine is a functor
+(चालन-सन्धिः by refl).  Motivation (not proved): univalence = general
+covariance, the right computer for reversible physics.
+
+Ten modules tonight: the crypto arc (shadow) + proof-of-transport
+(inversion) + the computer (the groupoid the transports form).  The
+substrate that CHECKS all of it (kernel exit-0/42, git, disposable minds)
+is named as substrate, distinct from the machine the terms form.
+
+Defect: compEquiv-assoc is stated f∙(g∙h)≡(f∙g)∙h in this lib — needed
+sym.  Kernel caught it.  Vigil armed 04:44Z.

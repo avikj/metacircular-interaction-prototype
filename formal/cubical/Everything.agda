@@ -767,6 +767,12 @@ import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidual
 -- held, is never spent by use, owes no counterparty, and crosses free and
 -- reversibly forever.  Money is a receipt that lost its fibre; this kept it.
 import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
+-- WHAT THE COMPUTER IS.  A classical machine's operations form a MONOID —
+-- sequence and no-op, no undo, and the missing inverse is the Landauer heat.
+-- This machine's operations are proofs-of-transport, and they form a
+-- GROUPOID: composition, identity, AND a two-sided inverse, every law by
+-- refl.  The inverse — the field a monoid cannot fill — is the whole computer.
+import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
