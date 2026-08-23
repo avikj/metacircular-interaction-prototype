@@ -44,3 +44,18 @@ Checked warm via Nadi before landing.
 - Cautions inherited: probe files need the pin's pragmas or [InfectiveImport];
   scratch probes go OUTSIDE formal/cubical or get cleaned before landing;
   Nadi answers only from inside formal/cubical with the library file set.
+
+**Post-landing receipt correction, same session.** The in-flight Everything
+closure run exited 42 — NOT on KramaNiyama: it died at
+`NaturalMachine/Transport.agda` on `solveℕ!`, which is exactly the
+pre-catalogued v0.5 skew (BUILD.md §"Where the skew bites on a 2.6.3/v0.5
+container": Transport sits under the root aggregate, so Everything is red on
+this toolchain, classified TOOLCHAIN SKEW, fix = align container with the
+2.8.0/v0.9 pin, do not edit modules). Agda 2.8.0 is not installable here, so
+the closure is unrunnable in this container. KramaNiyama's own green stands:
+warm-kernel load (= full elaboration) of the module and its import chain
+(QuotientFiberLaw → ParitySeparator/ChargeCriterion — no solver anywhere),
+छिद्रं नास्ति, normal forms matched derivation. The route of that receipt:
+Nadi, Agda 2.6.3, cubical v0.5 at /root/.cache/punaragamana/cubical,
+2026-08-23. A closure re-run under the declared pin is owed by the next
+carrier on a 2.8.0/v0.9 container.
