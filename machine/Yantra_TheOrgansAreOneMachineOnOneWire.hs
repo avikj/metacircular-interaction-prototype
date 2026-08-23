@@ -93,6 +93,7 @@ module Yantra_TheOrgansAreOneMachineOnOneWire
   , Pramanya(..)
   , Mudra(..)
   , answer
+  , mudritaJ            -- render an answer to J (नाडी routes organ-verbs through this)
   , serve
   , yantraMain
   ) where

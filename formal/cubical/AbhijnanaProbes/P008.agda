@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
-module AbhijnanaProbes.P007 where
+module AbhijnanaProbes.P008 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma

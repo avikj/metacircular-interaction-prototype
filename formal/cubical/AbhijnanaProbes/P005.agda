@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import PingalaPrastara as M
-import PingalaPrastara as F
+import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount as M
+import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount as F
 
-_ : (b : _) → fiber M.matraOf b ≡ F.Metre b
+_ : (b : _) → fiber M.σ b ≡ F.Fibre b
 _ = λ b → refl

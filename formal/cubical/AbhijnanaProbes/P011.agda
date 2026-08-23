@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.ChargeGradedPeeling as M
-import NaturalMachine.ChargeGradedPeeling as F
+import Swarm.S03CarryFiber as M
+import Swarm.S03CarryFiber as F
 
-_ : (b : _) → fiber M.big b ≡ F.G₂ b
+_ : (b : _) → fiber M.value b ≡ F.Fib b
 _ = λ b → refl
