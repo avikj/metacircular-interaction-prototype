@@ -1938,6 +1938,14 @@ import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePosition
 -- carry extension never splits.
 import Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits
 
+-- त्रयो निर्णयाः: the declared→checked seam into runtime/propagate.  L4's
+-- survival-under-retraction verdict is three-valued (SURVIVES/DEAD/
+-- UNDECIDED) and the third is irreducible: two completions of the same
+-- partial class-enumeration have different ground truth, so any boolean
+-- collapse destroys a real asti/nāsti distinction (durnaya).  संरक्षण-सूत्र
+-- ६, त्रयो निर्णयाः न द्वौ, mechanised for invalidate.survival.
+import TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide
+
 -- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
 -- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
 -- second-order twisted Leibniz law definitionally, and the two-leg AD
