@@ -867,8 +867,57 @@ agdaTimeoutMicros = do
 kEnvironmentFault :: String
 kEnvironmentFault = "kernel gate environment fault"
 
+-- ------------------------------------------------- the warm kernel path
+--
+-- MATH_AGDA_WARM=REQ:RESP points at the FIFO pair of a running नाडी
+-- daemon (machine/Nadi.hs) holding one `agda --interaction-json` process
+-- with the library already elaborated.  Measured 2026-08-23 on the run
+-- this exists to repair: 89% of the engine's wall clock (1299s of 1465s)
+-- was cold agda processes, one per surviving conjecture, each re-loading
+-- the interface chain to check a refl-sized claim the warm kernel answers
+-- in milliseconds.  The mathematics is identical — the same file is
+-- loaded by the same type checker — only the process presentation
+-- changes, which is the whole lesson of brunerie vs brunerie'.
+--
+-- WHAT THIS DOES NOT WEAKEN.  Both canaries flow through this same path
+-- (they call `runAgda` like every candidate), so a daemon that stops
+-- type-checking fails `canaryFalse`'s falsifier and nothing it says is
+-- read as proof.  Any exception or malformed reply on the warm path falls
+-- back to the cold process — fail closed onto the slower honest path,
+-- never onto acceptance.  The reply is judged by CONTENT (the daemon's
+-- no-holes marker), never by an exit status a pipe could launder.
+runAgdaWarm :: FilePath -> FilePath -> String -> IO (ExitCode, String)
+runAgdaWarm reqF respF source = do
+  setLocaleEncoding utf8
+  tmp <- getTemporaryDirectory
+  dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
+  let dir = reverse (dropWhile isSpace (reverse dirLine))
+      file = dir </> "Candidate.agda"
+  (do writeUtf8 file source
+      writeUtf8 reqF ("load " ++ file ++ "\n")
+      reply <- withFile respF ReadMode $ \h -> do
+        hSetEncoding h utf8
+        s <- hGetContents h
+        length s `seq` pure s
+      if "छिद्रं नास्ति" `isInfixOf` reply
+        then pure (ExitSuccess, reply)
+        else pure (ExitFailure 1, reply))
+    `finally` removePathForcibly dir
+
 runAgdaRaw :: FilePath -> String -> IO (ExitCode, String)
 runAgdaRaw root source = do
+  mwarm <- lookupEnv "MATH_AGDA_WARM"
+  case fmap (break (== ':')) mwarm of
+    Just (req@(_ : _), ':' : resp@(_ : _)) -> do
+      r <- try (runAgdaWarm req resp source)
+             :: IO (Either SomeException (ExitCode, String))
+      case r of
+        Right ok -> pure ok
+        Left _   -> runAgdaCold root source
+    _ -> runAgdaCold root source
+
+runAgdaCold :: FilePath -> String -> IO (ExitCode, String)
+runAgdaCold root source = do
   setLocaleEncoding utf8
   tmp <- getTemporaryDirectory
   dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
