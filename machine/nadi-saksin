@@ -26,6 +26,12 @@
 # emitted as null rather than guessed — a guessed prediction is a
 # fabricated receipt.
 #
+# VERDICT BOUNDARY.  Nadi is a long-lived conversational process.  A
+# kernel refusal is rendered as a line beginning `✗` while the conduit
+# itself remains healthy and exits 0.  Process exit therefore measures
+# transport health, not theorem acceptance.  Both axes are emitted;
+# the exact refusal stays whole in `observation`.
+#
 # RUN:  machine/nadi-saksin <nadi-binary> - <<'EOF'
 #         load /abs/Module.agda
 #         norm <expr>
@@ -50,6 +56,16 @@ OUT="$(printf '%s\n' "$BATTERY" | "$NADI" "$@")"
 STATUS=$?
 printf '%s\n' "$OUT"
 
+# A semantic refusal is not a failed conduit.  Preserve both coordinates.
+REFUSALS="$(printf '%s\n' "$OUT" | grep -c '^✗' || true)"
+if [ "$STATUS" -ne 0 ]; then
+  VERDICT="conduit-failure"
+elif [ "$REFUSALS" -gt 0 ]; then
+  VERDICT="kernel-refusal-present"
+else
+  VERDICT="no-kernel-refusal-observed"
+fi
+
 # JSON-escape via python-free sed: escape backslash, quote, newlines.
 esc() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' | awk '{printf "%s\\n", $0}' ; }
 
@@ -60,7 +76,9 @@ esc() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' | awk '{printf "%
   printf '"intervention":"%s",' "$(esc "$BATTERY")"
   printf '"observation":"%s",' "$(esc "$OUT")"
   printf '"predicted_body_after":null,'
-  printf '"mismatch":"exit %s",' "$STATUS"
+  printf '"process_exit":%s,' "$STATUS"
+  printf '"kernel_refusals":%s,' "$REFUSALS"
+  printf '"mismatch":"%s",' "$VERDICT"
   printf '"route":"warm kernel via nadi; this wrapper; append-only ledger"}'
   printf '\n'
 } >> "$LEDGER"
