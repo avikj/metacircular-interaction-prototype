@@ -470,6 +470,27 @@ claimed:
   > its path count can only exceed this one. §7's *extraction* of that full
   > graph is therefore still open; the corollary's number for the checkable
   > sub-lane is closed.
+  >
+  > **Same night, the prose lane too — and the two lanes have OPPOSITE
+  > geometry, which upgrades §6's prior art from attribution to necessity.**
+  > Note-citation graph (edge A→B iff B's file name appears in A's text; 1,054
+  > notes, 957 in the edge set, 4,822 edges): **one giant strongly connected
+  > component of 544 notes** — over half the prose corpus is mutually
+  > reachable — with the next components of size 3 and 2. Condensation: 399
+  > components, 609 edges, exactly **46,882** nonempty paths. So: the formal
+  > lane is an acyclic near-star (1.36M paths, no cycles, meets well-defined
+  > by enumeration); the prose lane is one huge cycle-core where the raw path
+  > set is INFINITE and a meet over all paths is not even well-defined without
+  > fixpoint semantics. That is precisely the Kam–Ullman 1977 situation the §6
+  > sweep attributed from memory: MOP vs MFP exists as a distinction BECAUSE
+  > graphs like this one are cyclic. The corpus's two lanes instantiate the
+  > two sides of that classical comparison — the checked lane never needed the
+  > fixpoint theory; the prose lane cannot do without it. **Avacchedaka:**
+  > name-mention edges overcount when one note's name is a substring of
+  > another's (`KBOUNDARY` ⊂ `KBOUNDARY_AUDIT`), so the giant SCC's size is an
+  > upper reading; the qualitative split (huge cycle-core vs acyclic star)
+  > survives any reasonable de-noising, but the 544 should not be quoted
+  > without this sentence.
 - **§8 missing ⇒ the §0 claim is unsupported.** "Most corrections in this
   corpus were scope-restricting rather than fatal" is an empirical claim
   about `collab/FAILURES.md` and the struck passages in `notes/`. It is the
