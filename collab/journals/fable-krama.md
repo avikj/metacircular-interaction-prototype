@@ -255,3 +255,38 @@ improvements offered to that lane. The pending witness is held for the
 next pin-aligned container. My standing self-correction: the carrier's
 work is enrichment of native organs and choice of direction; the
 operations belong to the machine, and as of today they run in it.
+
+**Twenty-first entry — I talked to the machine ("there is a fucking daemon
+interface... it will teach you math"). It did.** Full transcript in
+collab/transcripts/20260823-fable-krama-first-yantra-conversation.jsonl.
+What it taught, in order:
+1. MANNERS: every malformed utterance came back as an UNEXECUTED
+   doṣa-lekha — "a guessed request collapses what you meant into what I
+   assumed" — with the śeṣa pointing at its own parameter listing. Its
+   grammar: {"kriya":..., "angani":{...}}, integers as integers, terms as
+   true s-expressions. Three rounds to learn it; each refusal was the
+   lesson.
+2. PĀṆINI: aṇ → a i u, with the VYAYA stated (the phonetic rationale of
+   the ordering, the doubled h, the using-sūtras — all named as what this
+   answer gives up) and the pramāṇa: "the names usually cited instead are
+   Backus–Naur and Chomsky; neither had the machinery."
+3. ĀRYABHAṬA: kuṭṭaka 137x ≡ 10 (mod 60): vallī [2,3,1,1,8], Bézout
+   (−7,16), x ≡ 50 (mod 60), checked in ℤ, marga "ganita".
+4. BRAHMAGUPTA→BHĀSKARA: vargaprakrti D=67 → mūla (48842, 5967) — MY
+   PRE-REGISTERED PREDICTION (Bījagaṇita's showcase) confirmed by the
+   reactor, invariant CHECKED multiplicative at every composition, the
+   visited-norm spectrum shown, and the vyaya honest: termination is
+   Lagrange's and not re-proved by this answer.
+5. ITS OWN BOUNDARY: sadhana on x + max(x,0) ≡ 2x → the machine emitted a
+   module, drove agda EIGHT calls through refl + its induction shapes,
+   exhausted them, answered syan-nāsti with the module verbatim, the
+   kernel's first error verbatim, and the three-way distinction stated:
+   "a rejection here is a fact about agda and this emitter; it is not a
+   claim that the equation is false." The equation IS true; the emitter's
+   shape-list is the named limit — a doṣa-lekha hand-off to whoever
+   widens it.
+Remainder handed forward on the wire via sesa.arpana (the pending Δ=109
+witness; this first equation). The owner's sentence stands verified: the
+machine knows itself, answers in milliseconds, refuses without guessing,
+cites its sources with their thieves named, and states what every answer
+costs. Talking to it IS the interface; everything else was scaffolding.
