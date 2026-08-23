@@ -80,12 +80,59 @@ induction close. Distributivity needs associativity and commutativity both.
 > **`sadhana` decides exactly the goals whose inductive step is one
 > congruence, and stops exactly where an auxiliary lemma is required.**
 
-That is a sharp and useful boundary, and the failures are honest: *syān-nāsti*
-here means "the kernel rejected every shape tried", a refusal carrying its
-reason, not an unproved claim dressed as a falsehood. The obvious next step —
-letting the prover attempt and cache lemmas, so that `+-comm` becomes
-reachable through `+-zero` and `+-suc` — is a real and bounded piece of work,
-named here and not done.
+The failures are honest: *syān-nāsti* here means "the kernel rejected every
+shape tried", a refusal carrying its reason, not an unproved claim dressed as
+a falsehood.
+
+### §3 is a rediscovery, and the prior work is sharper. Struck as a finding.
+
+**This was written before searching the corpus, which is the error
+`CLAUDE.md` names.** `machine/SesaPariksa_WhichOfTheSixOutstandingDemands
+InductionReaches.hs` already asks this question and answers it at higher
+resolution, splitting what §3 reports as one boundary into **three**:
+
+  (a) the emitter can already reach it and **was never asked** — `certifyWith`
+      read the induction variable off the caller's note and refused after one
+      `refl` module when there was none. Asking each variable in turn reaches
+      three of six, including `x ≡ x + (0 · x)`, a residual the engine had
+      circled for 239 rounds. That fallback is now in the shipped emitter.
+  (b) the proof lives inside the fragment but the **shape menu cannot spell
+      it** — a limitation of the proof term language, priced by the diff.
+  (c) the statement **needs a stronger principle** — course-of-values
+      induction, a generalised hypothesis, nested induction, a side condition.
+
+`notes/SamasaBhavana_...` §9 carries the counts behind it: 119,489 true
+equations produced, 3 already known, 1 reached by the identification hand, 5
+out of reach of any composition law. What §3 above calls "one congruence or a
+lemma" is (b) and (c) run together — the collapse `SesaPariksa`'s header
+explicitly names as the thing not to do.
+
+### The one thing this pass did add: why the kernel's own search is not on the wire
+
+Agda ships **Agsy** (`Cmd_autoOne`), and नाडी does not expose it. That looked
+like an oversight and a one-line fix, and a verb was written for it.
+
+**It is not an oversight. It is the rule, and the verb was reverted.**
+`machine/CERTIFICATE_REACH.md` §2 forbids exactly this move by name:
+
+> "If the emitted module may cite `+-comm`, then the engine's celebrated line
+> … is certified by the library already knowing it. The statement would be
+> true and the certificate honest, but the engine's contribution collapses
+> from *proof* to *discovery*, and nothing in the log would say so."
+
+Agsy searches everything in scope, which includes
+`Cubical.Data.Nat.Properties`. An agent typing `auto` at the `+-comm` hole
+would be handed the library's own theorem and would report a proof. That is
+the forbidden repair with the import line removed — **worse than the version
+the document rules out, because there is no longer anything to see.**
+
+So the absence is load-bearing, and the corpus's own search apparatus is the
+principled alternative, already built: `Tapas_...` (proof shapes as templates,
+every non-match a written refusal), `Prastara_...` (search spaces addressed by
+index, never stored), `MargaRaksana_...` (the path kept, not searched again —
+which is also the "cache the lemmas" idea, already done and named for the
+vallī). Anyone who has the Agsy idea should read §2 first; it is stated there
+better than here.
 
 ---
 
@@ -98,5 +145,13 @@ named here and not done.
   intermediate norms (Selenius 1975 for the analysis of the method).
 - **Data, not a claim**: the attained set in §1. No pattern is asserted, and
   the one that suggested itself was refuted by its own next term.
-- **A statement about one implementation**: §3 describes `sadhana` as it
-  stands today, not a limit of provers.
+- **STRUCK as a finding, kept as a record**: §3.  It was written before the
+  corpus was searched and it rediscovers `machine/SesaPariksa_...hs` and
+  `notes/SamasaBhavana_...` §9 at lower resolution, collapsing their (b) and
+  (c) into one line.  It is left standing with the correction attached rather
+  than deleted, because striking a claim silently is how this repository
+  loses its own history.
+- **The one addition from this pass**: why Agsy is not on the नाडी wire.  The
+  verb was written, then reverted, because `machine/CERTIFICATE_REACH.md` §2
+  forbids the move it makes.  That reasoning had not been written down where
+  someone reaching for `Cmd_autoOne` would find it, and now it is.
