@@ -172,3 +172,9 @@ s(0)	le(*(x,0),0)	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ
 0	-(0,*(x,0))	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=6|calls=3
 0	*(-(0,x),0)	pramana=anumana|naya=induction on x, step = refl|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=6|calls=1
 0	-(0,*(x,0))	pramana=anumana|naya=induction on x, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=6|calls=1
+0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=8|calls=1
+c0(x)	-(+(y,c0(x)),y)	pramana=anumana|naya=induction on y, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=8|calls=3
+le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=8|calls=1
+0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=8|calls=1
+c0(x)	-(+(y,c0(x)),y)	pramana=anumana|naya=induction on y, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=8|calls=3
+le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=8|calls=1
