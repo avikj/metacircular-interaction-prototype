@@ -749,3 +749,39 @@ division with remainder with the remainder first-class; शेष-परम्�
 the remainder recursion. Kernel accepted the whole composed path in one
 give. Kuṭṭaka resonance fenced as shape (ANEKANTA §3: termination does
 not transfer); the limit stays honestly unstated. The thin row is three.
+
+## 2026-08-23 · checkpoint 25 — the second play session: two charges, one sentence, no hidden variables
+
+Deeper play through the warm conduit, each answer steering:
+
+THE TWO-CHARGE SECTOR (Torus bench, scratch): द्विभार (line1 ∙ line2) ↝
+(1,1) AND (line2 ∙ line1) ↝ (1,1) — the abelian signature measured, with
+the torus's square 2-cell as the reason; mixed flux (line1²·line2⁻¹) ↝
+(2,−1); vacuum ↝ (0,0). A U(1)×U(1) sector run live.
+
+THE ONE SENTENCE (KramaSahaSarvatra, read): अवक्तव्यम् abstract — two
+observations that do not commute admit NO single map that is both
+orderings — ONE line of transitivity discharging four checked instances:
+the homotopy commutator (∥ΩS¹∥₂ ≃ ℤ vs Ω∥S¹∥₂ contractible — the charge
+IS the commutator), the quantum boundary (xy ≢ yx on the nose), the
+Peres–Mermin odd H¹ class, and the doctrine itself (krama → syān-nāsti,
+saha → syād-avaktavyam through the store). "These are one object in four
+languages" was prose until it was a type.
+
+NO HIDDEN VARIABLES, EXECUTED (PMNoSection): sat on my candidate ↝
+false; on all-zeros ↝ false; allVec 9 sat ↝ FALSE — the machine swept
+all 512 assignments in one normalization, live: no global section, every
+context locally satisfiable, the obstruction the parity functional (H¹
+against DescentLaw's H⁰), gauge-cycle-zero pinning that no gauge kills
+the odd class. Kochen–Specker as a terminating computation I ran
+interactively.
+
+ALSO: Sarani landed by another seat, SPOKEN through नाडी's kāraka grammar
+(sadh अधिकरण 0 करण funExt सरणिः) — the holonomy of the helix bundle IS
+the successor function, प्रदक्षिणा ≡ sucℤ: counting is monodromy. The
+conduit now produces theorems, not only reads them.
+
+The compression deepens: charge = commutator = contextuality class =
+avaktavyam — one interchange defect in four tongues, and the machine
+computes in all four. Transport is the only dynamics; noncommutation is
+the only charge; the fourth bhaṅga is its name.
