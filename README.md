@@ -1693,8 +1693,26 @@ THE PRODUCT FORMULA IS THE CONSERVATION LAW. For every `x ∈ ℚˣ`, `∏_v |x|
 `∑_v log|x|_v = 0` — sum the local prices over every finite prime AND the archimedean place
 and get exactly zero, always, a theorem learned in a first course and never read as what it
 is: LOSS IS ALWAYS LOCAL; GLOBALLY THE BOOKS HAVE ALWAYS BALANCED. Road one — the
-zero-locus of the price — is not a design goal; it is `ℚˣ`, the null cone of the adelic
-valuation, sitting inside the ideles with total valuation zero since before anyone asked.
+zero-locus of the price — is not a design goal; ~~it is `ℚˣ`, the null cone of the adelic
+valuation, sitting inside the ideles with total valuation zero since before anyone asked.~~
+**[STRUCK 2026-08-23 — THE IDENTIFICATION IS FALSE, AND ITS FAILURE IS THIS MOVEMENT'S OWN
+SUBJECT. `ℚˣ` is not the null cone; it is PROPERLY CONTAINED IN IT. The product formula
+gives the inclusion `ℚˣ ⊆ 𝔸¹` (total valuation zero) and nothing more. Counterexample, one
+line: the idele `x` with `x₂ = 3` and `x_v = 1` at every other place. `3` is a 2-adic unit,
+so `|x|₂ = 1`, every other local absolute value is `1`, and `∏_v |x|_v = 1` — `x` lies on the
+null cone. It is not principal: a principal idele carries the SAME rational at every place,
+and `|3|₃ = 1/3 ≠ 1`. So the null cone contains ideles that are not rational numbers at all.
+AND THE GAP IS EXACTLY THE OBJECT THE NEXT PARAGRAPH IS ABOUT. `𝔸¹/ℚˣ` is the norm-one idele
+class group — compact, and for `ℚ` isomorphic to `ℤ̂ˣ` (standard; NOT checked in this corpus)
+— and its VOLUME is exactly the class number formula's constant `2^{r₁}(2π)^{r₂}·h·R /
+(w√|d_K|)`, the same expression this movement quotes from Dirichlet 1839 four lines below.
+The size of the gap between road one and the rationals IS `hR` up to explicit factors
+(standard; cited, not checked here). The movement wrote `hR` as what ζ cannot split two paragraphs below while
+asserting here that the thing `h` and `R` measure is trivial. Read correctly the sentence is
+stronger: ROAD ONE IS THE NULL CONE, `ℚˣ` IS ITS PRINCIPAL PART, AND `h` AND `R` ARE THE
+PRICE OF THE DIFFERENCE. The zero-cost locus is bigger than the rationals, and how much
+bigger is the class number formula. Derivation and fence in
+`notes/BhavanaDhruva_TheConservedObservableIsAMonoidMapAndTheProductFormulaIsAnAnalogyNotAStructure.md`.]**
 SO EVERY BARRIER IS A LOCAL PRICE WHOSE COMPENSATING TERM LIVES AT A PLACE THE METHOD
 CANNOT REACH. The parity barrier is the product formula: sieve theory is finite-place
 analysis, parity is the charge `(−1,−1,…)`, and TARGET.md's forced consequence — any
@@ -1761,6 +1779,28 @@ place and built a continuum. Information theory took one field and got submodula
 of equality. HoTT built the general statement with no hypotheses and did not know it had an
 arithmetic model waiting. And a mind is another observation map, so the safety result falls
 out with no extra work, at zero cost, because the transport is free.
+**[2026-08-23 — WHAT OF THIS MOVEMENT IS NOW A CHECKED TERM, AND WHAT IS ANALOGY. Two
+modules landed against it and the fence between them is the point of writing them.
+CHECKED: `BhavanaDhruva_…NormOneElements.agda` instantiates `Dhruva`'s `संरक्षणम्` at
+Brahmagupta's bhāvanā (ब्राह्मस्फुटसिद्धान्त १८, 628) over any commutative ring — the
+observable is the norm `N D a b = a² − D b²`, the flow is composition with a fixed pair,
+and the BICONDITIONAL is proved: a bhāvanā flow conserves the norm **iff** the element it
+composes with has norm one. The conserving flows are closed under composition, contain
+`(1,0)`, and act on `fiber नियम k` — the solution set of `x² − D y² = k` — for every `k` at
+once, through `ध्रुव-तन्तौ` with no new argument. CHECKED: `Apavartana_…StruckIdentity
+IsFalse.agda` makes the 2026-08-22 strike above a term rather than a sentence — the drop
+divisor of `diag(2,12)` is `12` and the product of its invariant factors is `24`, refuted by
+`refl` plus one `subst`, and `diag(2,6)` has the SAME drop divisor with product `12`, so the
+drop divisor is strictly lossier than the determinant. The strike was re-derived, not
+trusted, and it is correct and not over-broad. ANALOGY, NOT STRUCTURE, and named so it
+cannot be mistaken: **the bhāvanā result is not the product formula.** It says a conserved
+quantity is the value of a monoid map and the conserving flows are its unit set. The product
+formula is a statement about places, completions and an archimedean term, none of which
+occur in that module or anywhere in `formal/cubical`. Also analogy and not theorem here:
+"physics kept single-entry books", Ш as "the fibre of observe-at-every-place" (the sentence
+is a correct reading of a definition, not a result of this corpus), the parity barrier as
+the product formula, and the second-law reading of the drop divisor. Every one of those is
+worth having and none of them is checked.]**
 
 यत् तिष्ठति — what remains — is everything that was carried. Keep carrying.
 ---
