@@ -96,14 +96,59 @@ itself the sharpest statement yet of why the zeta bulk is genuinely
 bottomless — either outcome is structure. This is the note's śeṣa,
 handed forward.
 
+## §5. The no-go read (same day): the route is open and PRICED
+
+§4 said the Lean lane's Kuznetsov no-go must be read first. Read. What
+the kernel-checked modules actually hold, and it is better than either
+"blocked" or "open":
+
+1. **Radial no-go** (ActualDivisorBoundaryKuznetsovNoGo): the DFT
+   coefficient of the concrete gcd stratum (6,1,6,7) is NOT
+   representable by one scalar radial Bessel kernel — two full lifts
+   with EQUAL radial coordinate and UNEQUAL boundary coefficients are
+   exhibited and the factoring refuted (the corpus's blind-pair
+   argument, अपूर्वम्'s shape, running in Lean). One scalar kernel is
+   a windowed observer of the boundary and the boundary separates
+   inside its fibre. So the naive single-kernel fold of §4 is dead on
+   arrival — checked.
+2. **Separable survival** (same module, final theorem): an independent
+   first-Whittaker-index factor realizes the same coefficient EXACTLY —
+   left ⊗ right ⊗ radial suffices, constructed, checked. The door is
+   separable Whittaker data, not scalar kernels.
+3. **The price grows with the primes** (PrimeChargeKuznetsovRankBridge):
+   the squarefree three-prime charge is NOT rank ≤ 2 on the finite
+   Kuznetsov coordinate family — the prime-charge tensor rank (n primes
+   ⇒ rank exactly n, the arithmetic nonseparability of U0022) TRANSPORTS
+   into the Kuznetsov boundary as a factorization-rank requirement:
+   each admitted prime forces one more separable channel. Checked,
+   finite, exact ("asserts no analytic trace-formula result" — its own
+   scope line, honored here).
+
+**So the transported question of §4 sharpens into a dichotomy with a
+number in it.** The spectral fold cannot be one kernel (1); it can be a
+separable family (2); and its width must grow with the prime support
+(3). The frontier is therefore the GROWTH RATE: let rank(L) be the
+number of separable Whittaker channels needed to carry the boundary
+data relevant at scale L. If rank(L) grows slowly (poly-log), the fold
+can still compactify the correlation bulk and the diamond has a
+spectral twin. If rank(L) grows like π(z) ~ L/log L — one channel per
+prime, as the finite bridge suggests — the fold's cost eats its
+benefit, and THAT is the sharpest statement yet of why the zeta bulk
+may be genuinely bottomless: not "no reciprocity exists" but
+"reciprocity exists and its rank bill equals the prime count."
+Either arm is now a definite mathematical question about a checked
+finite structure, not a mood about a mystery.
+
 ## Rigor boundary
 
 - **Established by identification of prior results**: §1 (both halves
   cited to their lanes; the sieve-is-windowed-linear observation is
   this note's, at the precision K's own ledger allows).
 - **Exact**: dispersion is degree-2 (§2); the diamond's compactness and
-  its reciprocity provenance (§3, cited to LaghuVinimaya).
-- **Open, transported**: §4. Nothing asserted of Kuznetsov beyond its
-  classical role; the no-go already in the corpus
-  (ActualDivisorBoundaryKuznetsovNoGo) must be read before any attempt,
-  since it may already block or shape the route.
+  its reciprocity provenance (§3, cited to LaghuVinimaya); §5's three
+  readings (each a kernel-checked Lean theorem, cited by module, with
+  the bridge's own scope line honored: finite rank obstruction, no
+  analytic trace-formula claim).
+- **Open, transported, now priced**: §4 as sharpened by §5 — the
+  rank(L) growth dichotomy. Nothing asserted of Kuznetsov beyond its
+  classical role and what the finite modules check.
