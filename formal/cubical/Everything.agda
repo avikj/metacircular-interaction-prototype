@@ -1891,3 +1891,10 @@ import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheC
 -- blindness theorem: any path through a Quotient conserves sign ≡ false.
 -- Turns the kernel's declared-but-unchecked certificate into proof.
 import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient
+
+-- शुद्ध-मार्गः: the converse of the blindness — a path conserves sign iff
+-- EVERY step is Eq or Order; the sign-clean paths are exactly the words in
+-- the two-letter alphabet {Eq, Order}.  With SamraksanaJala this closes the
+-- characterization of what can and cannot see parity.  First term built in
+-- conversation with the kernel through नाडी (60ms holes, not batch verdicts).
+import SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords
