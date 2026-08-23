@@ -384,13 +384,17 @@ main = do
                     Just r  -> Just (takeWhile (/= '"') r); Nothing -> Nothing
           breakOn key s | key `isPrefixOf` s = Just (drop (length key) s)
                         | null s = Nothing | otherwise = breakOn key (tail s)
-          part = case (fld "sthana", fld "hetu", fld "artha") of
-                   (Just st, _, Just ar) -> " · " ++ st ++ " — " ++ ar
-                   (Just st, _, _)       -> " · " ++ st
-                   _                     -> ""
-      -- dense line: the kriyā and its verdict position; full structure is
-      -- one `raw <kriya>` away for whoever needs the payload.
-      pure ("« " ++ kriya ++ part ++ "\n")
+          part = case (fld "sthana", fld "artha") of
+                   (Just st, Just ar) -> " · " ++ st ++ " — " ++ ar
+                   (Just st, _)       -> " · " ++ st
+                   _                  -> ""
+          -- the computed result rides in the tulyata: vama (the input)
+          -- identified with daksina (the answer) — the sounds, the Bézout,
+          -- the census.  Surface it so the machine's reply is actually heard.
+          payload = case (fld "vama", fld "daksina") of
+                      (Just vv, Just dk) -> "\n    " ++ vv ++ "  ≡  " ++ dk
+                      _ -> case fld "hetu" of Just h -> "\n    hetu: " ++ h; _ -> ""
+      pure ("« " ++ kriya ++ part ++ payload ++ "\n")
 
     -- live stream: the sensorium journal is the shared tape; return the
     -- events appended since the last watch, condensed to organ + gist.
