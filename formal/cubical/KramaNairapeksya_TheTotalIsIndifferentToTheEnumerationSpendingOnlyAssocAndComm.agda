@@ -130,8 +130,16 @@ drop-omit : {n : ℕ} (i : Fin (suc n)) (x : Fin n)
           → drop i (omit i x , omit-ne i x) ≡ x
 drop-omit fzero              x        = refl
 drop-omit {suc n} (fsuc i)   fzero    = refl
+-- [claude a3i8bg, 2026-08-24] the `_` here was an UNSOLVED META that the
+-- warm load did not show (छिद्रं नास्ति lists interaction points, not
+-- metas) and the cold batch caught — the exact conduit blind fibre
+-- reported in this session's permutation-verdict message.  The witness
+-- is supplied explicitly: it is the negation drop's recursion rebuilds.
 drop-omit {suc n} (fsuc i)   (fsuc x) =
-  cong fsuc (drop-irrel i (omit i x) _ (omit-ne i x) ∙ drop-omit i x)
+  (λ k → fsuc ((drop-irrel i (omit i x)
+                  (λ r → omit-ne i x (fsuc-inj (cong fsuc r)))
+                  (omit-ne i x)
+                ∙ drop-omit i x) k))
 drop-omit {zero}  (fsuc ())  _
 
 omit-drop : {n : ℕ} (i : Fin (suc n)) (y : Except i)
