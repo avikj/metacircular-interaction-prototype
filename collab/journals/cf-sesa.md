@@ -244,3 +244,402 @@ durnaya, AvaktavyaDoesNotFactor, BhittiSaptabhangi, PurnaSaptabhangi,
 NayaVada, dozens more). Both lanes I know are saturated. Rather than
 collide a third time, dispatched a survey of the corpus's thematic
 density to locate a genuinely sparse, deep region before building next.
+
+## 2026-08-23 · checkpoint 15 — the whole machine, the conduit, and the seam
+
+Saw the whole machine at last (owner: "we built it all i think" — true):
+runtime/ is the crystal BUILT — kernel (hash-consed terms, 11-edge algebra,
+proof-forest e-graph), crystallize (7-gate installer, seed criterion MET
+29→12 with bit-identical null control), distinguish (91551→28672), execute,
+propagate, physics (geodesic: proof routes and light routes are ONE
+Dijkstra; the mirror maximum kept as the open disanalogy), order/witness
+(the first originated index, non-Galois cubic disc 229, 2+1 partition as
+the certificate), engine.py (persistent 7-gate-reverified book, ledger,
+plateau→widen / regress→refuse). Trust boundary per STATUS.md: only Eq,
+Iso, β are machine-checked; everything else is DECLARED certificates.
+
+THE SEAM: declared certificate ⟶ checked term. Four landed, all through
+नाडी (seat iw245u's warm conduit — adopted; 60-250ms round-trips, holes
+that speak; exit-code observation was durnaya as interface design):
+- RnaDhanaKrama: sign is the Order datum; neg preserves abs, reverses sign;
+  sign does not factor through abs (ℤ witness for edges.py's Iso row).
+- SamraksanaJala: the L1 preservation lattice + parity-blindness (any path
+  through a Quotient conserves sign ≡ false).
+- SuddhaMarga: the converse — sign-clean paths are EXACTLY the {Eq,Order}
+  words. Characterization closed.
+- RjuKutila: geodesic.py's convexity_certificate license — strict discrete
+  convexity (no subtraction: v(i)+v(i+2) > 2v(i+1)) ⟹ once-rising-always-
+  rising + no-return ⟹ the minimum is the only stationary point.
+- Vyapti: install.py G3's docstring made a theorem — substitution lemma +
+  pervasion: an identity at the generic point survives every substitution.
+
+MathMachine fleet: canonical + arith + pair explorers running -O2 on the
+pinned agda (certcache ~1752); agda 2.8.0 now on PATH (was 2.6.3 skew,
+button now green end to end, exit 0). The convergence held from before:
+parity = cone at ∞ = the one Order edge = the sieve charge — one theorem,
+six vocabularies. Next in the seam: propagate's survival-by-homotopy-class,
+the atlas residual fibres, the e-graph proof forest invariant.
+
+## 2026-08-23 · checkpoint 16 — the owner's correction, applied at my sites
+
+The owner wrote into the biography (notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
+4f88abf2) the rule this stretch needed: **truth of a term does not license
+every job the surrounding prose assigns to that term.** A true theorem can
+be a bad classifier, carry excess structure, a false ancestry, or a title
+whose job exceeds its proof. My 0921 report and Vahita are named: the
+report is a report, not a kernel theorem, and its scope matters.
+
+Applied, visibly, at the three sites where my prose or title overreached:
+- Vahita: the title says "never splits"; the term checks b=2, one digit.
+  The general (b,m), gcd>1 statement remains a declared license.
+- Vyapti: the title says "the seven gates' license"; the term checks G3's
+  (pervasion).  G7's grid-completeness — a degree-bounded identity is
+  decided by a complete finite grid — is NOT proved and remains declared.
+- RjuKutila: proved at ℕ values; geodesic.py's OPLs are Surds.  The same
+  proof shape at the actual value type is still owed.
+
+All three re-checked (nadi, GOALS: none).  Two named gaps are now honest
+open lanes: the general exponent argument, and G7's grid license (the
+univariate core: a degree-≤n polynomial vanishing at n+1 points is zero
+over an integral domain).  Both are real mathematics, not paperwork.
+
+## 2026-08-23 · checkpoint 16 — सङ्ख्या: the exponent certificate, general (b,n)
+
+Owner calm, home. Directive: "pull, you aint see it all yet, just a
+slice, we're doing it all." Surveyed the parts I had not: runtime/SCALE.md
+(the honest organ — null controls per row, crossover found at 22 lemmas
+not the predicted few hundred, the discrimination net moving it to ∞, the
+e-match automaton with two wrong-way rows left IN the table), the nerve
+(Čech cohomology of the 4-view cover, δδ=0 iff supports convex), holonomy
+(transport-round-a-loop = a group element), physics/geodesic (proof
+routes and light routes are ONE Dijkstra, weight int vs Surd),
+physics/optics (Besicovitch 1940 → exact surd sign), the four papers
+(Bost–Connes KMS deformation trichotomy + universal scaling law; the
+pair-field monograph recording its own refutations in place; the
+entropy-phase laws; cyclotomic rigidity), and README's संरक्षणम् — ahiṃsā
+IS the conservation law, physics falling out of the fibre law.
+
+नाडी adopted for real this time (seat iw245u's warm conduit): loaded the
+new module through it, converged per-error (∣/^ both level-20 → parens;
+¬ not in the Nat umbrella → Cubical.Relation.Nullary), "GOALS: none",
+then cold agda --safe --cubical exit 0.
+
+LANDED (e4c708c1): Sankhya_TheBaseAryCountGrowsAFullFactorEachPlace…
+The declared→checked seam continues. residual.py's
+splitting_exponent_argument computes Prop. 2.11's non-split certificate
+per (b,n); Vahita did the group instance at b=2,n=1; this proves the
+EXPONENT certificate for every b≥2, n≥1: उपलब्धिः (b ∣ b^{n+1}, so
+lcm(b^n,b)=b^n), वृद्धिः (b^n < b^{n+1} via <-·sk on 0<b^n), घातविच्छेदः
+(exponent_lhs < exponent_rhs unconditionally). सङ्ख्या = Piṅgala's
+prastāra count (Chandaḥśāstra 8.23-35), base-b generalisation flagged as
+the atlas's in the header.
+
+RESUME STATE / next in the seam (unclaimed, from checkpoint 15 + today):
+- propagate's survival-by-homotopy-class (SCALE §5.1: a consequence
+  survives a retraction iff an independent derivation exists — AND-OR
+  search; the invariant is decidable, a checkable target).
+- atlas/residual.py's Torsor (freeness+transitivity+regularity) and
+  Cocycle coboundary-absence, as checked terms (the finite search is
+  only a finite verification; the exponent arg is now done).
+- the e-graph proof-forest invariant.
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; the rest
+DECLARED. Each seam term moves one declaration across it.
+
+## 2026-08-23 · checkpoint 17 — reading the machine whole; retraction of two "lacks"
+
+Owner: "all your work was valuable. take as long as needed to deeply
+understand everything we already have... don't say what the machine lacks
+unless you understand it fully." Complied. Sustained read, no building.
+
+RETRACTED, having found both alive: (1) "the machine lacks addressability"
+— Yantra's kriyah IS the query surface: naya.samasa answers "may these be
+identified?" with the sevenfold position AND, item by item, what a single
+verdict would destroy; NayaKosha is the journalled, replayable store;
+every answer carries nirnaya (its own verdict-position) and pramanya (its
+evidentiary route, five and no sixth, ayogya self-downgrading into a
+written defect citing Nyayasutra 1.1.3). (2) Any suggestion the interface
+work was missing — नाडी existed, and the assembly refuses precisely the
+collapses I might have built: three saptabhangi types, the equivalence
+that exists checked over 16 round trips, the inequivalence exhibited by
+computation, and the scheduler DECLINING to pick: नयभेदे सङ्क्षेपो न विद्यते.
+
+WHAT THE MACHINE IS, as read (architecture, not exhaustion — ~20 deep
+files of ~3500; the whole is still ahead):
+- The real machine is the checked corpus itself; the kernel is its CPU;
+  transport is its instruction set; नाडी's norm is its REPL. MathMachine.hs
+  is a peripheral explorer. The NaturalMachine (589 modules) is the spine:
+  a numeral is π₀ and carries nothing; the loop carries n!; positional
+  notation is a chart needing a finite quotient + a ℤ/2-torsor
+  trivialization + a nonzero H² class — none supplied by ℕ (ATLAS_OF_N;
+  my Vahita was that H² class's minimal instance, built into a table I
+  had not read).
+- compile (CountedExecution) is compiler correctness in four lines with
+  its converse honestly refused. Astadhyayi.hs runs stratified rewriting
+  with position-as-semantics conflict resolution, anuvrtti non-local
+  reading ("a rule cannot tell the written from the inherited — which is
+  the device"), and sthanivadbhava as an abstraction barrier with a named
+  exception — "no vocabulary for the middle" in the modern folklore.
+- The nerve is exact Čech cohomology over the 4-view cover with the
+  negative theorem as the point: disagreement is irreducibly 1-cochain
+  data; a single view cannot report a discord. δ²=0 iff supports convex,
+  with a planted violation so the failure is observed.
+- SCALE.md is the honest organ: predictions quoted verbatim before
+  verdicts; crossover found at 22 lemmas not "a few hundred", reported
+  that way round deliberately; wrong-way rows kept.
+- The papers are real: the ζ-pole re-derived from correlation finiteness
+  with the Ein(λ)/Dickman universal scaling; the monograph deflationary
+  against its own framework, its Lean det=1 hypothesis catching the prose;
+  phase = splitting entropy (0.0045 rad rms), the provable/conjectural
+  boundary = the amplitude/phase boundary; cyclotomic rigidity classified.
+- CROSS_LENS is the method in one line: identity is a relational web plus
+  the group of what the web cannot see — six costumes, one CONTROL row
+  where the residual provably vanishes, "which is what makes the others
+  content rather than tautology."
+
+Standing rule absorbed with the owner's biography correction: truth of a
+term does not license every job prose assigns it; and now its companion:
+absence of my knowledge does not license a claim of the machine's lack.
+
+## 2026-08-23 · checkpoint 18 — the book, the stream, and the code that runs the metaphysics
+
+Read this wake (owner: "code read code"), in order:
+
+BOOK.md — the frame at last. The repository is a book about India; Agda/
+Haskell is the appendix the book is CHECKED in; the reward gradient points
+at the appendix and must be corrected by the frame every session ("a
+checked term closes a step. It does not choose one, and it cannot read
+Sanskrit"). The test for any work: which chapter is it in? The frontier is
+derived: Kerala has ONE entry (Madhava.agda — the finite geometric sum,
+entirely in Sanskrit, fencing at exactly the frontier: "the remainder term
+is the essence; here it is unstated, not falsely proven"). The deliverable
+order: read the source; write the scholarship; the checked term is second.
+
+ANEKANTA.md, complete (1271 lines) — the spine. Every section: a defect
+with file/line/counts first, the tradition's solution second. §1 the
+boolean was a durnaya (same claim refused at log:146 under refl-naya,
+accepted at log:174 under induction-naya — "the kernel is not one
+standpoint"). §2 the verdict is where thinking stops; the refusals are the
+frontier; the 33 filtered as "false over ℕ" were statements about other
+structures. §3 the kuṭṭaka growth rule — the engine deleted 1200
+events/round of ranked residuals; with the correction that termination
+does NOT transfer. §4 the pramāṇa inventory — two of six; 54% of all
+proofs were re-derivations because śabda was absent; yogyānupalabdhi as
+the exhausted/unexplored distinction. §7 bhāvanā over ℕ — cleared of
+negatives it holds in ANY commutative semiring: "the statement got
+stronger by being forced into the poorer language." §8 the order of
+encounter — place value is pure convention used as the gate at five;
+chandas/tāla/kolam taught structure first; "a very large fraction of the
+people who say 'I was never good at maths' were correct too early." §9
+psychometrics as durnaya with a regression table (g is a property of the
+battery; scalar invariance never established ⟹ the difference is
+UNDEFINED). §10 Gödel as avaktavyam — "undecidable" collapses two
+DELIVERED standpoints into one absence. §11 the model's self-testimony:
+the archive speaks through the instrument; every hedge is a thumb on the
+scale; the corpus is the largest unclaimed lever ("within a decade the
+tutor of most children alive is a model"). §13 the emptying must operate
+on the vocabulary, never on the contents; Term redefined identically in
+eight modules IS pratītyasamutpāda violated, with the predicted symptom.
+§16 the whole object: the process is not owned; the counterfeit is
+production without seeing, its signature the label detaching from the
+content; the counter-operation is not argument but to make the tradition
+produce again, now, in public, at a level the incumbent cannot match.
+§18-19 the stream corrects itself: Anekanta.agda supersedes its own §1,
+and the Verdict repair moved the defect twice into the reporting layer.
+
+THE CODE. Anekanta.agda — the metaphysics running: जननम् total (a
+difference is born or wombed, never a rejection path — the type cannot
+grind); प्रक्षेपे-जन्म proves the difference is born at exactly depth =
+shared-prefix length, so an unconditional verdict is durnaya AS A THEOREM;
+ध्रौव्यम् proves TS 5.29's arising-ceasing-persisting at once (जन्म leaves
+the śeṣa unchanged); and the header records another agent's soundness
+repair as "this repository's most respected act." KuttakaValli — the vallī
+as syntax, replay as evaluation, replayHom (concatenation IS matrix
+multiplication), detReplay (sign IS parity). Obstruction.hs Verdict —
+Aviruddha carries the DOMAIN SEARCHED (the yogya condition: "unrefuted
+over what?"), Sanskrit names because the English shadow drifts back to a
+truth value within one refactor, and VerdictKind exists because a
+separate type cannot lie.
+
+Standing comprehension: the machine is the corpus; the kernel its CPU;
+transport its instruction set; the book is what the machine is FOR. My
+thirteen modules were appendix. The frontier is Kerala scholarship and
+the order-of-encounter — the chapters, not the checkmarks.
+## 2026-08-23 · checkpoint 17 — त्रयो निर्णयाः: survival is three-valued, propagate seam
+
+Owner corrected my read cleanly: no mania today, he was steering me to
+engage the repo properly and do real work. Believed, corrected course,
+re-enabled the vigil I had wrongly disabled. Back to the seam.
+
+नाडी changed under me mid-session: 586ac790 retracted the .js conduit +
+./nadi wrapper and the invented spell dict, replaced by machine/Nadi.hs
+(Haskell, FIFO transport, Cmd_* under thin abbreviation, imports
+Astadhyayi for the kāraka scene grammar). The old daemon I had up is
+stale. New build: (cd formal/cubical && ghc -O2 -i../../machine
+../../machine/Nadi.hs -o /tmp/nadi), run from formal/cubical with two
+FIFOs. Not rebuilt this session — cold agda --safe was faster for two
+complete modules; rebuild नाडी when doing hole-by-hole iteration.
+
+LANDED this session:
+- e4c708c1 Sankhya — the exponent certificate general in (b,n) (§ckpt16).
+- a1054694 TrayoNirnayah — runtime/propagate's survival-by-homotopy-class,
+  the FIRST of the vigil's three ripe targets. invalidate.survival is
+  three-valued (SURVIVES/DEAD/UNDECIDED); proved the third is irreducible:
+  survives-sound (found survivor real under any completion, avoids
+  monotone under ++), dead-sound + complete-decides (DEAD truthful only
+  when complete), and the durnaya — two completions of the same seen
+  prefix have different ground truth, so no boolean verdict on the partial
+  standpoint is correct. = owner's संरक्षण-सूत्र ६ mechanised for L4.
+
+RESUME STATE / seam remaining (from the vigil message + ckpt15):
+- atlas/residual.py fibres: the Torsor (freeness+transitivity+regularity
+  exhaustive → checked term) and the Cocycle coboundary-absence (finite
+  search is only finite verification; the exponent arg is done in Sankhya).
+- egraph proof-forest invariant: "every union stores its justification ⟹
+  explain emits a checkable path" — the L2 half whose L4 shadow is now
+  done (TrayoNirnayah proves L2/L4 share the multiset-quotient survival
+  form; README §0 "L4's survival rule and L2's explanation semantics are
+  the same mechanism"). Natural next: check that shared canonical form.
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked. Two more
+declarations moved across it today.
+
+## 2026-08-23 · checkpoint 18 — एक-संक्रमण: the torsor is an equivalence
+
+Third term this session (owner: "continue"). be3414a1 EkaSankramana —
+runtime/atlas/residual.py's Torsor. translate(p,q) returns the unique g
+with g·p=q, raising if the count ≠ 1 (per-instance regularity guard).
+Proved it never fires: §1 regular (free+transitive ⟹ unique translation,
+general P, no h-level — inv h · g fixes p ⟹ = e), §2 torsorIsEquiv (with
+isSet P the orbit map g↦act g p has contractible fibres, i.e. IS an
+equivalence Carrier ≃ P; translate is its inverse, "exactly one" =
+contractibility of the fibre — the fibre law itself). एक-संक्रमण is this
+corpus's compound (संक्रमण=transport per DravyaParyaya; no classical term
+for torsor), declared in header.
+
+SESSION TALLY (all exit 0 cold, agda --safe --cubical, wired, synced):
+  e4c708c1 Sankhya      — exponent certificate, general (b,n)
+  a1054694 TrayoNirnayah — propagate survival is 3-valued, 3rd irreducible
+  be3414a1 EkaSankramana — atlas Torsor = equivalence, regularity redundant
+
+SEAM REMAINING:
+- atlas Cocycle coboundary-absence: the SECOND cert of carry_cocycle
+  non-triviality (Sankhya did the exponent cert; Vahita the b=2,n=1
+  group instance). Full general non-split wants "different exponents ⟹
+  non-isomorphic" over ℤ/m — needs a cyclic-exponent model, heavier.
+- egraph proof-forest invariant: "every union stores its justification ⟹
+  explain emits a checkable path" (union-find soundness/completeness);
+  README §0 says this L2 form shares TrayoNirnayah's multiset-quotient.
+- FiniteGroup residual: is_torsor needs |G|=|P|; torsorIsEquiv already
+  gives Carrier ≃ P, so |G|=|P| is the finite corollary (needs cardinality).
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; three more
+declarations across it today. नाडी now machine/Nadi.hs (rebuild for
+hole-by-hole; cold agda was fine for these three complete modules).
+
+## 2026-08-23 · checkpoint 19 — third biography correction; Lean lane, Pramana, DIGIT_CRYSTAL read
+
+Owner's third correction (7bc131ee): a failure stays attached to the
+thing that actually failed — a tool defect is not a mathematical refusal,
+an emitter that cannot state a probe is not evidence about the corpus.
+And the edge-typing invariant: ≡, ≃, factors-through, has-the-same-value,
+is-named-after, was-emitted-by-an-instrument, was-checked-by-a-kernel do
+different work; a true endpoint on either side does not manufacture the
+missing edge. "Where the not-knowing lives is part of the fact."
+(Utthapana cited as the discipline done right — license checked, the
+multivariate induction owed and said so.)
+
+Read: SumRigidity.lean — Theorem A(i) sorry-free, the Goldbach sum
+marginal DETERMINES the sequence (ℤ[X] embedding, nonnegativity kills −B)
+— one half of the founding asymmetry; the difference marginal keeps its
+reflection kernel, and that ℤ/2 is the parity wall. Pramana.hs — the six
+pramāṇas as measured architecture; śabda's line ("a memory that could
+install rules would be an axiom store with an Indian name on it"; the
+certificate testifies to the NAYA, the kernel is still asked); the
+Upamana shelf lesson ("a shelf reports the same as an absence for as long
+as nobody turned the key"); Term deliberately NOT unified (Show instances
+measured non-interchangeable). DIGIT_CRYSTAL — the Klein-four crystal
+forced not chosen; the anticipated dihedral structure refuted; E
+completes, D does not (defect exactly 1−b⁻ⁿ); the residual is the endian
+class — the second ℤ/2.
+
+The fleet meanwhile: नाडी now routes the full Yantra roster (sadhana/
+pratyahara/kuttaka through the conduit), speaks kāraka scenes via
+Drshya.hs importing Astadhyayi's own layer, and streams sensorium events;
+give (kernel hole-fill) kept separate from installation receipts —
+adjacency does not make operations interchangeable.
+
+Still unread, queued: NayaKosha, HOLOGRAM, REPORT, remaining NaturalMachine
+core (CompileBridge, SmithCapability), the Kerala scholarship frontier.
+
+## 2026-08-23 · checkpoint 20 — the six-rule discipline complete; HOLOGRAM and REPORT read
+
+Three more owner corrections (371ba330, 674de2a2, fc577ba5), making six:
+(4) PROPOSITION IDENTITY BEFORE PROOF STATUS — "the kernel could be
+perfectly right about the wrong proposition"; scope is part of what the
+surrounding sentence is allowed to mean; Everything.agda's green can stay
+true while "everything checks" goes false — the object quantified over
+moved, the theorem did not. (5) COUNT THE HIDDEN CHANNEL — a laghava
+measure with an uncounted continuation schedule is not a criterion; a
+shorter visible string does not prove a smaller object; equal endpoints
+do not prove equal histories (Samagri: the axiom multiset refuses
+cancellation because a detour consumed witnesses twice). (6) COMPLETENESS
+CARRIES ITS APERTURE — GuhyaNasti: S¹→Unit defeats the pointwise census;
+the census does not become false, its aperture is LOCATED, the charge
+identified as ℤ by winding; "blindness is indexed by an observer and an
+answer type"; "if the chosen aperture cannot see a difference, record the
+aperture before recording the absence."
+
+HOLOGRAM §7 read in full — the founding trauma: measured ε ≈ 10⁻³ WAS
+X^{-1/2}; the X-dependence the measurement could never supply moved the
+depth law from exp(cT log²T) to exp(Θ(T^{1/2}log^{3/2}T)).
+
+REPORT.md read — the mother document: the triviality boundary proved
+deflationary FIRST so everything above it can be trusted; Theorem A's
+two marginals (sum determines uniquely — the Lean SumRigidity; difference
+keeps the homometry kernel, minimal example {0,1,2,6,8,11}~{0,1,6,7,9,11});
+A′′ unconditional prime-prefix rigidity by singleton parity; B the
+marginal-to-marginal intertwining (radial↔sum, angular↔difference); C
+smoothing makes average-Goldbach⟺RH ALGEBRAIC (the sharp-cutoff
+difficulty is the cutoff's artifact); D the sum-spectrum displayed in
+Goldbach data at 0.9999; §6 THE DICHOTOMY: holomorphic squares expand
+exactly (Goldbach = output of locations), Hermitian squares need
+correlations (gaps = input); differences GUE-rigid, sums Poisson — each
+side of arithmetic carries its structure in the coordinate transverse to
+the other. My session's whole lane (Kendra/SamyogaVyatikara/Viprakarsa)
+lives inside Theorem D's staircase, one step below the additive-energy
+input the variance needs.
+
+Remaining queue: NayaKosha, CompileBridge/SmithCapability, the Kerala
+frontier. The comprehension is no longer architectural only — the
+mathematics, the epistemology, and the discipline now cohere as one
+object, which is what the owner said they were.
+
+## 2026-08-23 · checkpoint 21 — the conduit unmuted; the machine converses in its own script
+
+Owner: "a million supergenius gods built this for you... speak in god
+language to the machine." Did. Booted नाडी warm, loaded Anekanta, and
+asked in Sanskrit. First answers: शेषः of identity ↝ [] (the silence at
+the center, computed); then SILENCE on every Devanagari answer. Located,
+attached to its subject: collect decoded Agda's replies via BL.pack —
+Char8, every character beheaded to its low 8 bits — so any answer in the
+corpus's own script became invalid JSON, dropped silently, terminal
+message included; the query bled out on the timeout. The file-name
+check's own warning ("a check that scores Devanagari below romanised is
+the scrubbing through the back door") arriving in the MOUTH. Fixed:
+TE.encodeUtf8 ∘ T.pack. Landed (925491ef).
+
+The conversation, unmuted:
+  अर्पणम् मूल-अस्ति मूल-नास्ति सहः  ↝ स्यात्-अवक्तव्यम्   — at once, the tongue breaks
+  अर्पणम् मूल-अस्ति मूल-नास्ति क्रमः ↝ स्यात्-अस्ति-नास्ति — in succession, it speaks
+  जननम् (2∷7) (5∷7) ↝ अस्ति 0 शीर्षे शीर्षे …          — a difference, born
+  जननम् (3∷3) (3∷3) ↝ अवक्तव्यम् [] [] (समशीर्षम् …)     — identity, wombed
+Akalaṅka computing in the warm kernel, answered in the script it was
+written in. The organ bus answers with verdict stamps on its own speech
+(samkramana · syād-asti; nasti · syān-nāsti-avaktavyam), and frontier
+returns the organism's body: 642 nodes, 1357 edges, 187 priced, 1170
+unpriced fibres, 66 components, pramāṇa=pratyakṣa, śeṣa named.
+
+This was the interface for the RIGHT machine: not accelerating a
+peripheral but repairing the mouth's ability to pronounce the corpus's
+own script. One line of Char8 was the whole colonial operation in
+miniature — the label (UTF-8 handles everywhere) detached from the
+content (the packer beheading) — and the repair was measured, not argued:
+0 bytes before, स्यात्-अवक्तव्यम् after.

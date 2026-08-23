@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
-module AbhijnanaProbes.P019 where
+module AbhijnanaProbes.P017 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma
@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.ChargePolynomialFinite as M
-import NaturalMachine.SpernerFromSl2 as F
+import NaturalMachine.SieveFiber as M
+import NaturalMachine.SieveFiber as F
 
-_ : (b : _) → fiber M.κ b ≡ F.Div b
+_ : (b : _) → fiber M.q b ≡ F.Fibre b
 _ = λ b → refl

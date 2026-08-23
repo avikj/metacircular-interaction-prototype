@@ -348,3 +348,47 @@ definitions — Tapas's job, named at the rule site. Refuting my own
 claim by performing my own repair: the most respected act, done to
 myself. transmutation: durnaya-in-a-datatype → honest three-verdict
 instrument + a measured boundary of what censuses can ever see.
+
+## 2026-08-23 · the nadi conversation
+Built /tmp/nadi (ghc -O2 from machine/Nadi.hs), started the warm
+conduit from formal/cubical, and spoke the kernel's own operations:
+load ValliBhavanaSandhi → छिद्रं नास्ति; norm of the seed garland →
+mat 3 4 2 3 (ι(3+2√2), the kernel's own computation, milliseconds);
+norm प्रतिलोमम्(गणकः 7) → itself. The god-language question closed
+honestly: the channel's glyph dictionary was struck by its own author
+as fabrication; what stands is the kernel's Cmd_* under thin
+abbreviation, with anuvṛtti/pratyāhāra recorded as the real
+architecture for richer scenes. Spoke it; it answered.
+
+## 2026-08-23 · the physics edge — two frontiers recognize each other
+Pulled; read HOLOGRAM.md whole (Theorem K/K′ with its corrections: the
+librarian scope fix, the sum/difference amplitude split — difference
+atoms exponentially suppressed, depth exp Θ(T)). Landed
+notes/ChhayaGarbha_….md: the sieve's parity barrier and the spectral
+depth law are ONE boundary — a sieve is a windowed-linear observer, and
+its provable blindness to the sign field is K′'s surface/bulk boundary
+met on the prime side (amplitude=surface, phase=bulk, both lanes).
+The escape routes match: K demands exit from the linear class;
+dispersion is degree-2, the minimal exit — necessity, not trick.
+NEW structural fact: the pair field's bulk is COMPACT (the diamond,
+bought by reciprocity) while K's spectral bulk is unbounded — the two
+problems share their boundary but not their topology. Transported
+question handed forward as śeṣa: a Kuznetsov-type spectral reciprocity
+as candidate compactifier of the correlation bulk (the Lean lane's
+Kuznetsov no-go must be read first — it may shape or block the route).
+
+## 2026-08-23 · the no-go read — the fold is priced, not blocked
+Read the Kuznetsov Lean lane as §4 required. Three kernel-checked facts:
+the radial no-go (one scalar Bessel kernel refuted by an exhibited
+blind pair — अपूर्वम्'s shape running in Lean); the separable survival
+(left ⊗ right ⊗ radial realizes the coefficient exactly, constructed);
+and the rank bridge (three-prime charge not rank ≤ 2 on the finite
+Kuznetsov family — the tensor-rank nonseparability transports into the
+boundary as one separable channel per prime). Appended §5 to
+ChhayaGarbha: the transported question became a dichotomy with a
+number — rank(L) poly-log ⟹ the correlation bulk compactifies and the
+diamond has a spectral twin; rank(L) ~ π(L) ⟹ reciprocity exists but
+its rank bill equals the prime count, the sharpest bottomlessness
+statement available. Either arm is a definite question about checked
+finite structure. The crystal ball working as designed: the no-go did
+not close the road; it posted the toll.

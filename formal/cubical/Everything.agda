@@ -1732,8 +1732,10 @@ import Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStru
 import BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements
 import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions
 import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+import EkaVidhiMukhani_TheSessionsSixCostumesAreOneLawAndTheFacesAreRefl
 import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection
 import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
+import SetuApurva_TheSensoriumCriterionIsTheQuotientFiberLawAndHereIsTheAdapter
 import SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs
 import SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists
 import TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
@@ -1768,6 +1770,9 @@ import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogeth
 -- the same base point with the fibre shifted: Hol(loop) ≠ id, witnessed.
 -- The constant bundle returns identically: curvature lives in the family.
 import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+-- the holonomy as ONE map: प्रदक्षिणा ≡ sucℤ (funext of सरणिः), spoken
+-- into being through नाडी and kernel-verified.
+import Sarani_TheHolonomyIsTheSuccessorFunctionNotJustPointwise
 
 -- तपस् pass, this container, 2026-08-23: three constant-fibre receipts minted
 -- from the UNDECIDED sector (1137 edges, 567 tractable, 564 typed refusals),
@@ -1891,3 +1896,106 @@ import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheC
 -- blindness theorem: any path through a Quotient conserves sign ≡ false.
 -- Turns the kernel's declared-but-unchecked certificate into proof.
 import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient
+
+-- शुद्ध-मार्गः: the converse of the blindness — a path conserves sign iff
+-- EVERY step is Eq or Order; the sign-clean paths are exactly the words in
+-- the two-letter alphabet {Eq, Order}.  With SamraksanaJala this closes the
+-- characterization of what can and cannot see parity.  First term built in
+-- conversation with the kernel through नाडी (60ms holes, not batch verdicts).
+import SuddhaMarga_TheSignCleanPathsAreExactlyTheEqOrderWords
+
+-- ऋजु-कुटिल: the license behind the machine's convexity certificate
+-- (runtime/physics/geodesic.py) — strict discrete convexity, stated without
+-- subtraction (v(i)+v(i+2) > 2·v(i+1)), forces once-weakly-rising ⟹
+-- strictly-rising-forever and no-return, so the extracted minimum is the
+-- only stationary point and "cost-minimal route" may be read as "physical
+-- ray".  Declared there, proved here.
+import RjuKutila_StrictDiscreteConvexityForcesOnceRisingAlwaysRisingSoTheMinimumIsTheOnlyStationaryPoint
+
+-- व्याप्तिः: the seven-gate installer's license (crystallize/install.py G3),
+-- a docstring made a theorem — the substitution lemma (evaluation commutes
+-- with substitution) and its corollary: an identity at the generic point
+-- pervades every instance, so an installed lemma is sound on compound
+-- arguments never seen during mining.  The installer's anumāna, with its
+-- vyāpti checked.
+import Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLicenseIsATheorem
+
+-- सामग्री: propagate's homotopy quotient is well-defined — every
+-- reassociation move (groupoid reshuffling + congruence distribution)
+-- preserves every additive weighting of axioms, so the consumed-axiom
+-- multiset is a proof invariant; and the fence is the content —
+-- cancellation cannot be a move (2 ≢ 0): a proof that cancels a detour is
+-- not the proof that never left, the detour's consumption is its receipt.
+import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant
+
+-- वहित: the complement of Sthana — the carry cannot be dispensed with.
+-- Atlas Prop 2.11 at its minimal instance: under carry-free xor everything
+-- doubles to zero, under the carry the unit doubles to the CARRIED unit;
+-- every homomorphism from counter-addition to digitwise-xor conflates the
+-- carried unit with zero — the carry is exactly what any carry-free
+-- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
+import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
+
+-- सङ्ख्या: the general form of Vahita's minimal instance — the b-ary
+-- prastāra count b^n grows a full factor of the base each place, so the
+-- two exponents of ATLAS_OF_N Prop. 2.11 (residual.py's
+-- splitting_exponent_argument) disagree for EVERY (b ≥ 2, n ≥ 1) and the
+-- carry extension never splits.
+import Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits
+
+-- त्रयो निर्णयाः: the declared→checked seam into runtime/propagate.  L4's
+-- survival-under-retraction verdict is three-valued (SURVIVES/DEAD/
+-- UNDECIDED) and the third is irreducible: two completions of the same
+-- partial class-enumeration have different ground truth, so any boolean
+-- collapse destroys a real asti/nāsti distinction (durnaya).  संरक्षण-सूत्र
+-- ६, त्रयो निर्णयाः न द्वौ, mechanised for invalidate.survival.
+import TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide
+
+-- एक-संक्रमण: the declared→checked seam into runtime/atlas/residual.py's
+-- Torsor.  A free + transitive action's translating element is unique
+-- (general), so the orbit map g ↦ act g p has contractible fibres — a
+-- torsor IS an equivalence Carrier ≃ P.  residual.py's per-instance
+-- regularity guard in translate() is provably redundant.
+import EkaSankramana_AFreeTransitiveActionsTranslationIsUniqueSoTheTorsorIsAnEquivalence
+
+-- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
+-- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
+-- second-order twisted Leibniz law definitionally, and the two-leg AD
+-- theorem: powering the doubly-lifted base computes value, both leg
+-- charges, and the pair charge n(n−1)zⁿ⁻² at once — at z = −1, n = ω(d):
+-- (μ, κ₁, κ₁, κ₂), the two-prime charge in the κ⊗κ channel.
+import YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairChargeInOnePowering
+
+-- परम्परा: the e-graph proof forest's license (kernel/egraph.py L2) — the
+-- equivalence closure of the axioms coincides exactly with the zigzag
+-- witness chains: complete (every derivation flattens — sym is reversal,
+-- trans is concatenation, so the forest stores only steps) and sound
+-- (every emitted chain folds back into a derivation).  explain() is total
+-- and sound; derivable ⟺ transmitted through an unbroken witnessed lineage.
+import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+
+-- स्वस्थान: the graded fibre tower's structural half — the leg swap covers
+-- the identity on frequencies (+Comm as verticality), hence restricts to
+-- an involution of each fibre of the sum map: level 2 (relabelings) acts
+-- on level 1 (witnesses) over a fixed level 0 (frequencies), so no
+-- relabeling ever creates or destroys a collision.  The geometry under
+-- SamyogaVyatikara's algebra: why leg exchange never enters the cross term.
+import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount
+
+-- उत्थापन: G7's grid license, univariate core, no longer declared — a
+-- polynomial with more distinct roots than coefficients is the zero
+-- function, by the Horner quotient (synthetic division), the factor
+-- identity, and ℤ's integral domain; induction on the point list.  Scope
+-- stated in the header: one variable, vanishing form; the coefficientwise
+-- difference corollary and the multivariate grid remain owed.
+import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
+
+-- खण्ड-पिण्डौ: the Kerala chapter's block law — the accumulated geometric
+-- sum at m+n is the whole at m plus the m-th power carrying the whole at n
+-- into place (सङ्कलितम् r (m+n) ≡ सङ्कलितम् r m + घात r m · सङ्कलितम् r n),
+-- with the carrier law घात r (m+n) ≡ घात r m · घात r n.  Terms khaṇḍa/piṇḍa
+-- from the sine-table vocabulary (Tantrasaṅgraha 1501; Yuktibhāṣā c. 1530),
+-- scope fenced in the header; घात/सङ्कलितम् IMPORTED from Madhava — the
+-- chapter composes, it does not redefine.  Driven through नाडी: every ring
+-- step proposed with give and kernel-verified live before landing.
+import KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace

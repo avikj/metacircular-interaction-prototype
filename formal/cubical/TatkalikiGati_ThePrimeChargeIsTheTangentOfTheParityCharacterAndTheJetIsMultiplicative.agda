@@ -73,7 +73,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
   renaming (_+_ to _+ℕ_ ; _·_ to _·ℕ_)
 open import Cubical.Data.Int
   using ( ℤ ; pos ; negsuc ; _+_ ; _·_ ; -_ ; _-_
-        ; +Comm ; +Assoc ; ·Comm ; ·Rid ; ·Assoc
+        ; +Comm ; +Assoc ; ·Comm ; ·IdR ; ·Assoc
         ; ·DistR+ ; ·DistL+ ; -DistL· ; -DistR· ; -Dist+
         ; -Involutive ; pos·pos )
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
@@ -115,7 +115,7 @@ infixl 7 _⊙_
 
 private
   1·  : (x : ℤ) → pos 1 · x ≡ x
-  1·  x = ·Comm (pos 1) x ∙ ·Rid x
+  1·  x = ·Comm (pos 1) x ∙ ·IdR x
 
 मूल्यम् : (n : ℕ) → घातः n ≡ (μ n , κ n)
 मूल्यम् zero    = refl
@@ -201,7 +201,7 @@ private
   cong₂ _·_ (घन-रूपम् n) (घन-रूपम् n)
   ∙ लयः (pos (suc n)) (μ n)
   ∙ cong₂ _·_ (sym (pos·pos (suc n) (suc n))) (μ-वर्गः n)
-  ∙ ·Rid (pos (suc n ·ℕ suc n))
+  ∙ ·IdR (pos (suc n ·ℕ suc n))
   where
     -- (x·y)·(x·y) ≡ (x·x)·(y·y), commutative shuffle
     लयः : (x y : ℤ) → (x · y) · (x · y) ≡ (x · x) · (y · y)
