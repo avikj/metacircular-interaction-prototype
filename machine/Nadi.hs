@@ -73,7 +73,7 @@ import System.Timeout (timeout)
 import Control.Exception (catch, SomeException, try)
 import Control.Monad (unless, when, forever)
 import Data.IORef
-import Data.List (isPrefixOf, isInfixOf, stripPrefix)
+import Data.List (isPrefixOf, isInfixOf, stripPrefix, intercalate)
 import qualified Data.ByteString.Lazy.Char8 as BL
 import qualified Data.Text.Encoding as TE
 import qualified Data.Aeson as A
@@ -170,7 +170,7 @@ parseSpell ctxRef line = do
       -- organs.  Membership is checked against the live roster, so every
       -- kriyā Yantra defines is reachable and nothing else is mistaken for one.
       else if v `elem` map Y.kName Y.kriyah
-        then pure (Just (Organ, v))
+        then pure (Just (Organ, line))   -- pass the whole spell; args parsed in `organ`
       else pure Nothing
   where
     ctxQ Nothing  _  = pure Nothing
@@ -191,20 +191,26 @@ roleWord w = case w of
   "अधिकरण"    -> Just P.Adhikarana ; "adhikarana" -> Just P.Adhikarana
   _           -> Nothing
 
--- split a token stream into role→filler pairs.  A role-word opens a new
--- argument; following non-role tokens accumulate as its filler (spaces
--- preserved), so word order is free and multi-word terms need no quoting.
-parseScene :: [String] -> [(P.Karaka, String)]
-parseScene = go Nothing []
+-- split a token stream into marker→filler pairs.  A marker token opens a
+-- new argument; following non-marker tokens accumulate as its filler
+-- (spaces preserved), so word order is free and multi-word values need no
+-- quoting.  Generic over the marker vocabulary: kāraka roles for a kernel
+-- scene, an organ's own kParams for an organ scene — one grammar, two
+-- vocabularies, nothing invented in either.
+sceneBy :: Eq k => (String -> Maybe k) -> [String] -> [(k, String)]
+sceneBy marker = go Nothing []
   where
     go cur acc [] = flush cur acc
-    go cur acc (w:ws) = case roleWord w of
+    go cur acc (w:ws) = case marker w of
       Just k  -> go (Just (k, [])) (flush cur acc) ws
       Nothing -> case cur of
         Just (k, fs) -> go (Just (k, fs ++ [w])) acc ws
-        Nothing      -> go Nothing acc ws            -- tokens before any role: ignored
+        Nothing      -> go Nothing acc ws            -- tokens before any marker: ignored
     flush Nothing       acc = acc
     flush (Just (k,fs)) acc = acc ++ [(k, unwords fs)]
+
+parseScene :: [String] -> [(P.Karaka, String)]
+parseScene = sceneBy roleWord
 
 -- ── is this agda output line the terminal message for the pending kind? ───
 terminal :: Kind -> Value -> Bool
@@ -351,27 +357,50 @@ main = do
           vs <- collect aout k
           pure (condense vs)
 
-    -- route a dotted kriyā name to the Yantra organ bus and render the
-    -- answer.  नाडी builds the wire JSON internally so the agent's channel
-    -- stays JSON-free; Yantra's state carries across calls (the store and
-    -- the defect log persist).
-    organ yRef kriya = do
+    -- route an organ call to the Yantra bus and render the answer.  The
+    -- spell is `<kriya> <param> <value> <param> <value> …` in the ORGAN'S
+    -- OWN declared vocabulary (kParams — adi/it for pratyahara, a/b/c for
+    -- kuttaka, vama/daksina for sadhana): a scene, split on the kriyā's
+    -- own parameter names, ANY order, multi-word values, no quoting.  नाडी
+    -- builds the wire JSON internally so the agent's channel stays
+    -- JSON-free; Yantra's state carries across calls.
+    organ yRef line = do
       y <- readIORef yRef
+      let (kriya:rest) = words line
+          params = case [ kr | kr <- Y.kriyah, Y.kName kr == kriya ] of
+                     (kr:_) -> map fst (Y.kParams kr)
+                     _      -> []
+          pairs  = sceneBy (\w -> if w `elem` params then Just w else Nothing) rest
+          jesc   = concatMap (\c -> case c of '\\'->"\\\\"; '"'->"\\\""; _->[c])
+          -- integer-looking values go on the wire as JSON numbers (kuttaka's
+          -- a/b/c), everything else as strings (pratyahara's adi/it) — the
+          -- organ declares the type; नाडी reads the shape.
+          digits = "0123456789" :: String
+          isInt s = case s of ('-':d) -> d /= "" && all (`elem` digits) d
+                              _        -> s /= "" && all (`elem` digits) s
+          jval val = if isInt val then val else "\"" ++ jesc val ++ "\""
+          angani = if null pairs then ""
+                   else ",\"angani\":{" ++ intercalate ","
+                          [ "\"" ++ k ++ "\":" ++ jval val | (k,val) <- pairs ] ++ "}"
       (y', m, u) <- Y.answer y "2026-08-23T00:00:00Z"
-                      ("{\"kriya\":\"" ++ kriya ++ "\"}")
+                      ("{\"kriya\":\"" ++ kriya ++ "\"" ++ angani ++ "}")
       writeIORef yRef y'
       let raw = SB.render (Y.mudritaJ m u)
           fld k = case breakOn ("\"" ++ k ++ "\":\"") raw of
                     Just r  -> Just (takeWhile (/= '"') r); Nothing -> Nothing
           breakOn key s | key `isPrefixOf` s = Just (drop (length key) s)
                         | null s = Nothing | otherwise = breakOn key (tail s)
-          part = case (fld "sthana", fld "hetu", fld "artha") of
-                   (Just st, _, Just ar) -> " · " ++ st ++ " — " ++ ar
-                   (Just st, _, _)       -> " · " ++ st
-                   _                     -> ""
-      -- dense line: the kriyā and its verdict position; full structure is
-      -- one `raw <kriya>` away for whoever needs the payload.
-      pure ("« " ++ kriya ++ part ++ "\n")
+          part = case (fld "sthana", fld "artha") of
+                   (Just st, Just ar) -> " · " ++ st ++ " — " ++ ar
+                   (Just st, _)       -> " · " ++ st
+                   _                  -> ""
+          -- the computed result rides in the tulyata: vama (the input)
+          -- identified with daksina (the answer) — the sounds, the Bézout,
+          -- the census.  Surface it so the machine's reply is actually heard.
+          payload = case (fld "vama", fld "daksina") of
+                      (Just vv, Just dk) -> "\n    " ++ vv ++ "  ≡  " ++ dk
+                      _ -> case fld "hetu" of Just h -> "\n    hetu: " ++ h; _ -> ""
+      pure ("« " ++ kriya ++ part ++ payload ++ "\n")
 
     -- live stream: the sensorium journal is the shared tape; return the
     -- events appended since the last watch, condensed to organ + gist.
