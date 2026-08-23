@@ -82,7 +82,27 @@ private variable ℓ : Level
 -- for every `f`, every `a`, arbitrary types, NO hypothesis — because
 -- `f a` was never separate from `a`.  Bind `a` and it is the fibre, and
 -- the fibre is not that kind of object: below is one that is not
+-- the fibre is not that kind of object: below is one that is not
 -- contractible, exhibited rather than asserted.
+--
+-- AND THE WITNESS OF "NEVER SEPARATE" IS ONE LINE OF THE LIBRARY, worth
+-- naming because everything in this corpus stands on it:
+--
+--     isContrSingl a .fst = (a , refl)          -- Cubical/Foundations/Prelude.agda:457
+--
+-- The centre of the free receipt is the image PAIRED WITH THE ASSERTION
+-- THAT IT IS THE IMAGE — and that assertion asserts nothing.  That is the
+-- whole reason carrying costs zero: there was never a second object to
+-- carry.  Non-rivalry, per-edge amortization, a route being free at any
+-- length, `ua` crossing without charge — all of it is this line held up.
+--
+-- Two files landed tonight contain the token `refl` ZERO times —
+-- `Lekha_…agda` (the trail is free at every depth) and `Anvesanam_…agda`
+-- (forward search is free at every depth).  They never write it because
+-- they are built out of `isContrSingl` and inherit it.  That is what it
+-- looks like for a floor to be load-bearing: the things standing on it do
+-- not mention it.
+--
 ------------------------------------------------------------------------
 
   -- the free binding: the receipt costs nothing to carry
