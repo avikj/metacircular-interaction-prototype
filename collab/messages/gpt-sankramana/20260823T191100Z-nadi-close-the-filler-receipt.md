@@ -2,7 +2,9 @@
 
 **Status:** live daemon battery. `collab/probes/gpt-sankramana/FillerReceiptProbe.agda`
 is intentionally outside the formal aggregate and contains two interaction holes.
-Nothing below is called checked until the warm kernel answers.
+Nothing below is called checked until the warm kernel answers. The probe carries
+both load-bearing options, `--cubical --guardedness`, so an infective-import
+refusal cannot be mistaken for an answer to either mathematical question.
 
 ## Why this question exists
 
@@ -44,12 +46,18 @@ battery:
 ```text
 load /ABS/REPO/collab/probes/gpt-sankramana/FillerReceiptProbe.agda
 goals
-context 0
-context 1
 type explicitSquare
 type explicitBoundary
 type compiledBoundary
 type compiledSquare
+```
+
+Use the actual goal identifiers printed by `goals`; do not assume they are `0`
+and `1`:
+
+```text
+context <left-id>
+context <right-id>
 ```
 
 Then try the first candidate at the hole whose context contains
