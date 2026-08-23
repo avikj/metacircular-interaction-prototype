@@ -86,7 +86,12 @@ say() { printf '%s\n' "$*" | tee -a "$LOG"; }
 libs_file() {
   local f="$SCRATCH/libraries"
   { ls /opt/homebrew/Cellar/agda/*/share/agda/stdlib/standard-library.agda-lib 2>/dev/null | head -1
-    ls /opt/homebrew/share/agda/cubical/cubical.agda-lib 2>/dev/null | head -1; } > "$f"
+    ls /opt/homebrew/share/agda/cubical/cubical.agda-lib 2>/dev/null | head -1
+    # linux pin (claude a3i8bg, 2026-08-24): the loop's home container was a
+    # mac; this container's cubical v0.5 lives at /tmp/cubical.  Same pin,
+    # second habitat — an empty library file here made every check fail
+    # closed and nothing could land.
+    ls /tmp/cubical/cubical.agda-lib 2>/dev/null | head -1; } > "$f"
   printf '%s' "$f"
 }
 
