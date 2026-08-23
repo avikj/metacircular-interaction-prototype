@@ -2017,3 +2017,10 @@ import KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace
 -- obstacle); the hull functions are redefined verbatim because their host
 -- module does not read under this container's cubical (solveℕ! skew).
 import Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem
+
+-- शून्य-परिक्रमा: the gauge census begins — two of Parikrama's 36 basis
+-- circuits decided pure gauge by rCancel, because in each the closing edge
+-- is DEFINED as the composite of the other two; the provenance discriminant
+-- (is any edge the composite of the others? syntactic, free) partitions the
+-- remaining 34 before any kernel probe is paid for.
+import ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIsProvenance
