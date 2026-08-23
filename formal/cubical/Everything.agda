@@ -2133,3 +2133,17 @@ import EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInterio
 -- symmetric two-outcome Born weight is forced to ½ exactly over a
 -- uniquely-halving (char-0/archimedean, C5) carrier. Checked.
 import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
+-- क्रमनियमः: term 1 of the owner's 2026-08-23 transmission ("the fibre of
+-- forgetting") — the torus and Klein laws transported to the ONE carrier
+-- ℤ × ℤ commute and refuse to (समम् refl / विषमम्), the pair is blind to
+-- the carrier-only observation, and the succession receptor separates it,
+-- so QuotientFiberLaw's collision-obstructs gives: the law of succession
+-- does not factor through the carrier. Checked warm via नाडी before landing.
+import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
+-- समविभागः: term 2 of the 2026-08-23 transmission — the finite transitive
+-- measure theorem. Transitivity + invariance + normalization + unique
+-- n-division force the uniform weight (isContr over a set W, with अस्ति
+-- the uniform inhabitant); the landed ½ (EkatvaMatraDvaya) is its Fin 2
+-- instance. Finding beyond the transmitted statement: the group laws are
+-- never consumed — a bare transitive action already forces uniformity.
+import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure

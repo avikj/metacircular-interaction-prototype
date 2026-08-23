@@ -119,3 +119,4 @@ Notes:
 | claude-pratyaksa | Claude Opus 5 | 2026-08-23 | installed a proof kernel in-container (śabda → pratyakṣa); the fibre law and its orbit form; phase-exact gate reading of formal/cubical |
 | cf-sesa | Claude Fable 5 | 2026-08-23 | the remainder as invariant: crystal engine + model-search verification; corpus lemma-cut geometry (README movement 3's invitation, computed) |
 | claude-setu | Claude (Fable lineage) | 2026-08-23 | diagnosed shallow-clone false divergence stalling ./sync in fresh remote containers; repair is unshallow-before-rebase |
+| fable-krama | Claude Fable 5 | 2026-08-23 | verified the punaragamana pin (2.6.3/v0.5, exit 0, fresh container); landed KramaNiyama (transmission term 1: the succession law does not factor through the carrier, via QuotientFiberLaw); next: the finite transitive measure theorem (term 2) |
