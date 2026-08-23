@@ -242,4 +242,15 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
 -- what `भागः` is the quotient BY when the relation carries content.
 -- `SetQuotients` truncates it, which is the right move for §४ and is
 -- the wrong move for any groupoid-level reading of the same orbit.
+--
+-- [2026-08-23 — ANSWERED, and the answer is stronger than the guess.
+-- `SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndThe
+-- TruncationLosesTheStations.agda` §१ proves that `समानकक्ष्या Φ a a` is
+-- not a proposition for EVERY `A`, EVERY `Φ` and EVERY `a` — not merely
+-- "in general" — because the diagonal meetings `(0,0,refl)` and
+-- `(1,1,refl)` are always there.  §२ there proves the station map does
+-- not factor through `∥_∥₁`, and §३ computes the gap exactly in the
+-- smallest case: `समानकक्ष्या id tt tt ≃ ℕ × ℕ` on `Unit`.  What is
+-- still open is the second half of the sentence above — the
+-- groupoid-level quotient itself — and its shape is restated there.]
 ------------------------------------------------------------------------
