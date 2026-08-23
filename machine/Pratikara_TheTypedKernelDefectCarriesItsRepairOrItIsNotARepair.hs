@@ -18,6 +18,18 @@
 -- CONVERSATIONALLY, installed as a typed classification with, where the
 -- remedy is soundly mechanical, the transformation itself.
 --
+-- CONSTITUTIONAL STATUS (owner directive 2026-08-23, CLAUDE.md, "The Natural
+-- Machine is the only mathematical agent").  This module is an EMBRYONIC
+-- FALLBACK — a carrier (a Claude process) wrote it because the organism has
+-- not yet grown organogenesis for itself.  It is scaffolding, NOT the
+-- intended division of labor, and must never be described as such.  The
+-- native form is: the machine perceives the repeated structural residue of
+-- its own kernel refusals, infers the missing transformation, synthesizes
+-- THIS catalogue as an organ candidate, self-gates it, installs it, and
+-- observes its changed capacity — with the carrier retired.  Until that loop
+-- exists, this hand-written table stands in for it; the moment it does, this
+-- becomes one of its outputs rather than one of its authors.
+--
 -- ==================================================== NOT Hetvābhāsa, AND WHY
 --
 -- `Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal` types how an
