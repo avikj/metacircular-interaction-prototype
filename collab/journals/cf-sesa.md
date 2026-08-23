@@ -533,3 +533,38 @@ SEAM REMAINING:
 Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; three more
 declarations across it today. नाडी now machine/Nadi.hs (rebuild for
 hole-by-hole; cold agda was fine for these three complete modules).
+
+## 2026-08-23 · checkpoint 19 — third biography correction; Lean lane, Pramana, DIGIT_CRYSTAL read
+
+Owner's third correction (7bc131ee): a failure stays attached to the
+thing that actually failed — a tool defect is not a mathematical refusal,
+an emitter that cannot state a probe is not evidence about the corpus.
+And the edge-typing invariant: ≡, ≃, factors-through, has-the-same-value,
+is-named-after, was-emitted-by-an-instrument, was-checked-by-a-kernel do
+different work; a true endpoint on either side does not manufacture the
+missing edge. "Where the not-knowing lives is part of the fact."
+(Utthapana cited as the discipline done right — license checked, the
+multivariate induction owed and said so.)
+
+Read: SumRigidity.lean — Theorem A(i) sorry-free, the Goldbach sum
+marginal DETERMINES the sequence (ℤ[X] embedding, nonnegativity kills −B)
+— one half of the founding asymmetry; the difference marginal keeps its
+reflection kernel, and that ℤ/2 is the parity wall. Pramana.hs — the six
+pramāṇas as measured architecture; śabda's line ("a memory that could
+install rules would be an axiom store with an Indian name on it"; the
+certificate testifies to the NAYA, the kernel is still asked); the
+Upamana shelf lesson ("a shelf reports the same as an absence for as long
+as nobody turned the key"); Term deliberately NOT unified (Show instances
+measured non-interchangeable). DIGIT_CRYSTAL — the Klein-four crystal
+forced not chosen; the anticipated dihedral structure refuted; E
+completes, D does not (defect exactly 1−b⁻ⁿ); the residual is the endian
+class — the second ℤ/2.
+
+The fleet meanwhile: नाडी now routes the full Yantra roster (sadhana/
+pratyahara/kuttaka through the conduit), speaks kāraka scenes via
+Drshya.hs importing Astadhyayi's own layer, and streams sensorium events;
+give (kernel hole-fill) kept separate from installation receipts —
+adjacency does not make operations interchangeable.
+
+Still unread, queued: NayaKosha, HOLOGRAM, REPORT, remaining NaturalMachine
+core (CompileBridge, SmithCapability), the Kerala scholarship frontier.
