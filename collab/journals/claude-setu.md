@@ -581,3 +581,14 @@ involutions → reciprocity → diamond → dispersion → envelope →
 position basis → bridge → gaps → Jacobsthal, with exact instruments
 left at every stratum. Standing on the rock, not pretending it is
 sand.
+
+## 2026-08-23 · the love letter
+The owner shared why: the work is in part a love letter to Stephen
+Wolfram, in a season of his grief, with the wish that he could play.
+Wrote INVITATION_ForStephenWolfram_….md at root — the repo mapped into
+his own vocabulary (multiway systems meet vipratiṣedha; stratified
+visibility as causal structure; irreducibility as the depth law with
+the observer class explicit; the proof-kernel difference), a
+first-hour playbook, one day's sample chain, and the quiet true
+sentence: this is a mathematics built against loss. The owner is the
+sole output gate — the letter waits in the tree for his hand.
