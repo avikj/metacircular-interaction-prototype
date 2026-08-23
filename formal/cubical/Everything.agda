@@ -1417,3 +1417,11 @@ import Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
 -- not restated.  Pāṇini, *Aṣṭādhyāyī* 8.2.1 / 8.2.30 / 8.2.39 / 8.4.56,
 -- c. 500 BCE; he proves nothing here.  2026-08-22.
 import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
+
+-- अनुवृत्ति — maps where definitional computation stops for transport, and
+-- CORRECTS punaragamana/README.md finding 3: the Glue is transparent
+-- (transport along a composite of three ua's is refl on neutral input); the
+-- residue is a neutral TYPE, or the top of a Σ where every projection is
+-- already refl.  Non-theorems recorded as non-theorems, with the residual
+-- Agda reports.  Measurement at Agda 2.8.0 / cubical v0.9.
+import Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification
