@@ -672,6 +672,18 @@ import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoT
 -- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
 -- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
 import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
+-- THE KEYSTONE: the metaphysics of being IS proof-of-transport.  A paryāya
+-- is a PATH, a dravya is the TYPE it lives in, and dhrauvya (persistence) is
+-- exactly what makes transport (the free road) possible — reversible, a
+-- groupoid, and absent between distinct substances (utpāda-vyaya-dhrauvya-
+-- yuktaṃ sat, TS 5.29/5.37, = subst + isContrSingl, one object).
+import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTransportPossible
+-- And how the pure mind KNOWS the arena: the seven nayas (TS 1.34).  Read
+-- precisely, nayavāda IS the fibre law as epistemology — each naya reads one
+-- facet (a quotient), pramāṇa reads all (faithful, funext), and a durnaya
+-- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
+-- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
+import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -1680,8 +1692,136 @@ import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlon
 import Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse
 import BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements
 import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions
+import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+import EkaVidhih_TheOneLawIsDescentTheFreeDirectionIsBindBAndTheCostlyOneNeedsASection
+import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
+import SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs
+import SamuhaDrstih_SinglyBlindReadingsAreJointlyFaithfulExactlyWhenAReconstructionExists
+import TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable
 import SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations
 import SamanaMarga_TheHandPathAndTheTransportPathAreOnePath
 import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
 import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
 import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation
+import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence
+-- वल्ली-भावना-सन्धिः, the seed: the generator column is its own transpose
+-- (refl), transpose is an anti-automorphism from ·Comm alone, and at D = 2
+-- the closed vallī garland M(1)⋆M(2)⋆M(1)⋆M(0) IS ι(3+2√2) by one refl —
+-- the free word landing in the commutative wheel at the period's close.
+import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
+import Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree
+-- the concealed loss: the fibre of S¹ → Unit is inhabited, merely connected,
+-- yet not a proposition — all three set-level verdicts defeated at once, and
+-- the hidden charge is exactly ℤ (winding).  The census's scope, from inside.
+import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
+-- the criterion GuhyaNasti asked for: क्रम/सह is an operator ordering.
+-- ∥ΩS¹∥₂ ≃ ℤ but Ω∥S¹∥₂ is contractible — the standpoints do not commute
+-- and their commutator is the whole charge; सह (the fourth bhaṅga) is the
+-- refusal to order, the only position that loses nothing.
+import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+-- Sanmatitarka 1.3-6 in both directions: the dravya census conflates S¹
+-- with Unit (paryāya census separates them); the paryāya census conflates
+-- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
+-- false by counterexample, and each counterexample lies in the other's sight.
+import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee
+-- the loop-level curvature, inhabited: transport around loop in the helix
+-- bundle is sucℤ (by uaβ — definitional cash), so the circuit returns to
+-- the same base point with the fibre shifted: Hol(loop) ≠ id, witnessed.
+-- The constant bundle returns identically: curvature lives in the family.
+import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+
+-- तपस् pass, this container, 2026-08-23: three constant-fibre receipts minted
+-- from the UNDECIDED sector (1137 edges, 567 tractable, 564 typed refusals),
+-- each checked by the kernel standing where it lives before this wiring.
+import ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue
+import ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics
+import ConstantFibre_SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnUnequalSplitCertifiesNoSymmetryActs_सम-निर्णयः
+
+-- वेस्तिबुलम् (U0021 §1, the owner's name): the general holonomy receptor —
+-- Hol F l = subst F l, a Sensation type whose two constructors each demand
+-- their witness, and the both-poles instance over the ONE loop of S¹: flat
+-- for the constant family, charged for the helix.  The unqualified claim
+-- "this circuit has curvature" is unwritable in the report type.
+import Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness
+
+-- जीव-तन्तुः (U0022): the thread through a changing family — the section law
+-- is data, गतिः inhabits it over τ = sucℤ by refl, and स्थैर्यं-निषिद्धम् proves
+-- EVERY thread over that step law moves at every step: continuity and change
+-- in one checked object, the Jaina position against both eternalism and
+-- annihilationism as theorems about one term.
+import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
+-- the twin-sieve charge vector κ₁(d) = Σ_{p|d} μ(d/p) compiled to its
+-- intensional program: it is the tangent at z = −1 of the parity family
+-- z^ω, the pair (μ,κ₁) is the dual number (−1+ε)^ω in ℤ[ε]/ε², the
+-- μ-twisted Leibniz law is one component of one homomorphism path, and
+-- the twin channel κ⊗κ is the positive square ω².  The parity-point
+-- complement of Yamala (same seed message, another seat, same hour):
+-- Yamala holds the general machinery, this holds the unconditional
+-- instance and the sign.  Algebra complete; scale induction named, not built.
+import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative
+-- the centering: Goldbach walls x ≢ 0,N and twin walls n ≢ 0,−2 are ONE
+-- symmetric two-wall field क्षेत्रम् p a y = (¬ p∣y−a) × (¬ p∣y+a) after the
+-- affine shift — a PATH of types, not an analogy — and the walls coincide
+-- for every y exactly when p ∣ a+a (both directions checked).  The mean
+-- field dichotomy p−2 / p−1, at its exact support.
+import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter
+-- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
+-- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
+-- ONE TERM wearing four names — three links are refl, judgmentally —
+-- and the parity tangent (TatkalikiGati) lands on the same generator
+-- pos 1.  The corpus is not accumulating charges; it is triangulating
+-- one.  The circuit-to-sieve bridge that would make the last link
+-- structural is the named open problem.
+import EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator
+
+-- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
+-- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
+-- relation ≺ demands both the factoring and the refutation as data, one
+-- witnessed blind pair upgrades conservation to S ≺ ⟨S,q⟩ through
+-- ApurvaIndriyam's अपूर्वम् verbatim, and no eye strictly refines itself.
+import SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne
+
+-- ── cf-sesa's terms, entered into the closure so the organism re-checks
+--    them (they were orphans: checked once, imported by nothing). ──
+
+-- वन-सेतुः: the Forest's shift/dilation interface σ ∘ D_m ≡ D_m ∘ σ^m on
+-- sequences, and the Liouville point as the all-−1 eigenvector — a
+-- completely multiplicative x with x m ≡ true dilates to negation.
+import VanaSetu_TheShiftDilationInterfaceAndTheLiouvillePointIsTheAllMinusOneEigenvector
+
+-- संयोग-व्यतिकरः: the sum-spectrum variance minus the diagonal is EXACTLY
+-- the collision interference V∞ − D = 2w₀w₁ — located, not bounded — and
+-- leg symmetry is a separate multiplicity that never enters the cross term.
+import SamyogaVyatikara_TheSumSpectrumVarianceMinusTheDiagonalIsExactlyTheCollisionInterference
+
+-- जीव-सन्तानः: identity through change is a SECTION through a changing
+-- family, not equality of snapshots; the biography theorem (living state ≡
+-- witnessed account of becoming) and the five fates a lossless correction
+-- must assign (Fate ≢ Bool).
+import JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots
+
+-- यमलम्: the twin charge κ₁ is the parity jet, twisted Leibniz IS
+-- dual-number multiplication, and dual-powering the lifted base computes
+-- value and derivative together — the prime charge as executable AD.
+import Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication
+
+-- केन्द्रम्: centering unifies Goldbach and twins into one symmetric
+-- two-wall field — a wall pair about its midpoint becomes a mirror pair,
+-- and that exact symmetry is what makes the crystal real.
+import Kendra_CenteringUnifiesGoldbachAndTwinsIntoOneSymmetricTwoWallField
+
+-- एकमूलम्: the wall orientations are the square roots of one mod d, each
+-- built from a coprime factorization by x = 1 − 2u·ū — x ≡ 1 (mod u),
+-- x ≡ −1 (mod v), x² ≡ 1 at each leg; the coordinate parity forgets.
+import Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal
+
+-- परस्परम्: two more exact symmetries of the wall roots — additive
+-- reciprocity (fold every ray toward the shorter modulus) and the
+-- conjugate-root involution (why the centered field is real).
+import Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTowardTheShorterModulus
+
+-- विप्रकर्षः: the dispersion step ū₁ − ū₂ ≡ (u₂ − u₁)·w (mod v) with NO
+-- coprimality fence — the joint reciprocal supplies the inverse
+-- internally; addition reappears after multiplication is differentiated
+-- against itself.
+import Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal

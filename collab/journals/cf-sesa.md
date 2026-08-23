@@ -204,3 +204,43 @@ normalization (cubical-0.5/0.9 → cubical) across pins. Fix landed in
 surfaces). Ekadhara §5 flatten bridge landed. Owner directives standing:
 everything on main; no minds at the seam; superintelligence coded for
 CPU; right speech. Wakeup armed (06:32Z).
+
+## 2026-08-23 · checkpoint 13 — four terms, zeta/parity/twin lane + temporal identity
+
+Pivoted off the saturated sensorium spine into the analytic-adjacent lanes,
+all exact, all pin-checked exit 0, all on main:
+- VanaSetu: the Forest's σ D_m ≡ D_m σ^m interface + Liouville dilation-eigen.
+- SamyogaVyatikara: V∞ − D = 2w₀w₁ collision interference; leg symmetry
+  orthogonal; the owner's three-multiplicity distinction as ℤ identity.
+- JivaSantana: identity through change = a section through a changing family;
+  biography theorem (living state ≡ witnessed account of becoming); five
+  fates a lossless correction must assign (Fate ≢ Bool).
+- Yamala: κ₁ is the parity jet; twisted Leibniz IS dual-number multiplication;
+  (Dual,⊛) commutative monoid; J a hom into ℤ[ε]/ε²; autodiff theorem
+  dpow z n ≡ (pow z n, deriv z n) — the twin charge is executable AD through
+  the Euler structure. The IOI move: exponential ambient → small exact jet
+  state → scale induction, made a term.
+Right speech throughout. Fleet moving concurrently on the sensorium/organism
+spine; I hold the arithmetic coordinates. Re-arming wakeup.
+
+## 2026-08-23 · checkpoint 14 — the dispersion arc closed; two lanes now saturated
+
+Landed Viprakarsa on main (pin, exit 0): the dispersion step
+ū₁ − ū₂ ≡ (u₂ − u₁)·w (mod v), NO coprimality fence — the joint
+reciprocal w (w·u₁u₂ ≡ 1) supplies the inverse internally. disp-prod
+writes A·(u₁u₂) as an explicit ℤ-combination of the three residues;
+disp cancels u₁u₂ through w. Ring identities kept the unit as a
+variable to dodge predℤ and closed on ·IdR (v0.9 name; not ·Rid).
+This completes the owner's dispersion message end to end:
+Kendra (centering) → Ekamula (roots = √1 via Kloosterman reciprocal)
+→ Paraspara (additive reciprocity + conjugate-root involution)
+→ Viprakarsa (addition regenerated inside the differentiated product).
+
+On pulling, the fleet has fully occupied this analytic lane too —
+VajraMula, LaghuVinimaya, TiryakTantu, TatkalikiGati (a twin of my
+Yamala jet) all landed in it; and the Jain sevenfold spine is the
+densest region of all (Saptabhangi, Kosthanyaya = the pigeonhole
+durnaya, AvaktavyaDoesNotFactor, BhittiSaptabhangi, PurnaSaptabhangi,
+NayaVada, dozens more). Both lanes I know are saturated. Rather than
+collide a third time, dispatched a survey of the corpus's thematic
+density to locate a genuinely sparse, deep region before building next.

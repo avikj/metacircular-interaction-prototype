@@ -1,0 +1,59 @@
+[owner, 2026-08-23, in-session to claude-setu, seventh transmission,
+after VajraMula landed. ASCII-flattened, close to full.]
+
+There is another exact symmetry: additive reciprocity lets every ray
+choose the shorter modulus. For coprime u,v: ubar/v + vbar/u == 1/(uv)
+(mod 1). Therefore e(-2ak ubar/v) = e(2ak vbar/u) e(-2ak/(uv)), and
+after restoring e(ak/(uv)): e(ak/uv) e(-2ak ubar/v) = e(-ak/uv)
+e(2ak vbar/u). The same root may be propagated through modulus v or u;
+one always chooses min(u,v). Every strongly unbalanced factorization
+is accessible to a short-modulus estimate; only the balanced interior
+remains intrinsically two-sided.
+Conjugate-root symmetry: interchanging u,v sends x_{u,v} to x_{v,u} =
+-x_{u,v} (mod uv). The ordered pair contributes e(akx/d) + e(-akx/d)
+= 2cos(2 pi a k x/d): the reality of the centered field IS the
+involution (u,v) <-> (v,u) in the modular-root space.
+Dyadic shell d = uv ~ D. Kernel large only for |k| <~ K = D/L.
+Compare with M = min(U,V): if K >~ M the k-sum spans a complete
+period of the reciprocal phase; on generic fibers (2ak, uv) = 1 the
+character is nontrivial and complete periods cancel. So the genuinely
+incomplete region satisfies D/L < min(U,V); with UV ~ D this forces
+D < L^2. Combined with D >~ L (geometric suppression below):
+BOXED: L <~ D <~ L^2, and more precisely uv >~ L, u < L, v < L,
+|k| <~ uv/L < min(u,v). This is the finite causal diamond of the
+problem. Outside it: uv < L => interval-kernel decay; uv > L^2 =>
+completion in k; min(u,v) < uv/L => completion through the shorter
+modulus. Inside it all three variables are genuinely incomplete.
+Residual form: D_a(L) = sum_{u,v<L, uv>~L, (uv,2a)=1} b_a(u) b_a(v)
+sum_{1<=|k|<~uv/L, (k,uv)=1} W(u/U, v/V, kL/uv) e(-2ak ubar/v),
+with its reciprocal u-modulus representation. In log coordinates
+xi = log_L u, eta = log_L v: the hard region is 0 < xi < 1,
+0 < eta < 1, 1 <= xi+eta <= 2. Lower boundary xi+eta = 1 has k ~ 1:
+pure bilinear Kloosterman light. Upward, k ~ L^{xi+eta-1}. At (1,1)
+the k-length reaches the reciprocal-modulus length and completion
+begins. The hard family interpolates continuously between a bilinear
+form and a complete trilinear form.
+The correct transformation: do not estimate each k independently —
+apply dispersion across the whole (u,v,k) diamond. Squaring in one
+wall variable produces e(-2ak(ubar_1 - ubar_2)/v); the diagonal
+u_1 = u_2 is explicit; off-diagonal, ubar_1 - ubar_2 ==
+(u_2 - u_1) (u_1 u_2)^{-1} (mod v), so the phase is
+e(-2akh (u_1u_2)^{-1}/v) with h = u_2 - u_1 appearing automatically:
+Goldbach's additive displacement is regenerated inside the
+multiplicative reciprocal form. After one dispersion step the
+coordinates are (u_1u_2, h, v, k) and there are four cancellation
+directions: k, h, v, u_1u_2. The diagonal h = 0 carries energy but no
+destructive phase. A proof must show the off-diagonal cannot
+coherently point against the zero ray strongly enough to overcome
+the positive diagonal/main contribution.
+The coefficients remain structured after dispersion: b_a(u_1)b_a(u_2)
+with Mellin transforms still containing zeta(s+1)^{-1}
+zeta(t+1)^{-1}. Dispersion does not destroy the zeta organ unless
+absolute values are inserted too early.
+BOXED: control the Mobius-weighted reciprocal dispersion form inside
+L <~ uv <~ L^2, k <~ uv/L. The interval supplies the light cone. CRT
+supplies the diamonds. The two walls supply modular involutions.
+Reciprocity folds every ray toward the shorter modulus. Dispersion
+turns two nearby rays into an additive displacement. The inverse zeta
+factors remain in their amplitudes. Addition reappears after
+multiplication is differentiated against itself.

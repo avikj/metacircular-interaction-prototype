@@ -38,6 +38,14 @@
 -- exact shape, and the fourth bhaṅga is its exact repair.  क्रम-सह is
 -- built here, 2026-08-23; ΩS¹Isoℤ and setTruncIdempotent are the
 -- library's.
+--
+-- [2026-08-23, later] RECOGNITION: the corpus's grammar lane had already
+-- checked the same distinction at a sandhi site — `AsiddhavatRegime.agda`
+-- (Pāṇini 8.2.1 krama vs 6.4.22 saha, tat+jalam, the regime decides the
+-- form) — and this module was built without knowing it.  The polarity
+-- CROSSES between the lanes (the grammar's feeding krama is this module's
+-- untruncated सह); the crossing is worked out in
+-- `notes/Triveni_TheGrammarTheCubeAndTheMachineHoldOneDistinction…md`.
 ------------------------------------------------------------------------
 
 module KramaSaha_TheOrderOfStandpointsIsTheChargeItself where

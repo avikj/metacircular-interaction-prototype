@@ -178,7 +178,7 @@ module DosaLekha_TheWrittenDefectRecord (main) where
 import Control.Monad (forM_, unless, when)
 import Data.Bits (xor, shiftR, (.&.))
 import Data.Char (isDigit, isSpace, ord, toLower)
-import Data.List (isInfixOf, isPrefixOf)
+import Data.List (isInfixOf, isPrefixOf, foldl')
 import qualified Data.Map.Strict as M
 import Data.Maybe (fromMaybe)
 import Data.Word (Word64)
