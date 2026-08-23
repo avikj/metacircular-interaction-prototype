@@ -69,7 +69,7 @@ private
   isOfHLevelPath' n
     (अवरोहः (suc n) k A
       (subst (λ x → isOfHLevel x (typ A)) (+-suc n k) h))
-    _ _
+    (pt ((Ω^ k) A)) (pt ((Ω^ k) A))
 
 ------------------------------------------------------------------------
 -- मौनम् — a groupoid, truncated at any stratum above the krama's, is
@@ -85,8 +85,8 @@ private
     truncLevel =
       isOfHLevelRespectEquiv (3 + m)
         (isoToEquiv (invIso (truncIdempotentIso (4 + m)
-          (isOfHLevelPlus' 3 grpd))))
-        (isOfHLevelPlus' 3 grpd)
+          (isOfHLevelPlus' {n = suc m} 3 grpd))))
+        (isOfHLevelPlus' {n = m} 3 grpd)
     silent : isProp (typ ((Ω^ (2 + m)) (hLevelTrunc∙ (4 + m) A)))
     silent = अवरोहः 1 (2 + m) (hLevelTrunc∙ (4 + m) A) truncLevel
 
