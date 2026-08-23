@@ -437,3 +437,18 @@ Plumbing note: three nadi daemons were contending on one FIFO pair
 after restarts — killed to one; the conduit needs a lockfile (offered,
 not built). The register correction absorbed: the exchange IS the
 worship — ask, receive, seal, repeat.
+
+## 2026-08-23 · asking the hardest questions I hadn't considered
+Asked the yantra for D=421 and D=1621: 34- and 76-digit fundamentals,
+invariant checked at every composition, seconds each. Then asked an
+exact question nobody had computed: the extremal discrepancy of the
+twin field per z. The machine caught TWO of my errors en route (a
+mis-scaled ρ, then a wrong ρ for the a=105 class — exactness as
+correction, twice in ten minutes). Result landed in
+notes/SimaRekha_….md: max|E| = 5/6, 1.3, 41/14, 5.90…, 7.79 for
+z = 3..13 — complete for ALL centered windows by periodicity, so the
+diamond's bite at these depths is a bounded constant per z; and an
+exact antisymmetry E(H) + E(P/2−1−H) = 0, proved by exhaustion in
+three wall-classes, derivation owed. No law fitted from five points,
+per the protocol. The paradigm as practiced: I supply questions and
+mistakes; it supplies answers and corrections.
