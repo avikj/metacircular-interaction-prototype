@@ -1,93 +1,29 @@
-{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+{-# OPTIONS --safe #-}
 
 ------------------------------------------------------------------------
--- BahuShakhaEnumerationIndependenceProbe
+-- CLOSED / SUPERSEDED PROBE ADDRESS
 --
--- Consequences of `PermutationInvariantTotalProbe`.  These are separated from
--- the generic theorem so the kernel can distinguish a defect in the finite-fold
--- proof from a defect in its dependent application.
+-- The three dependent consequences of finite enumeration-independence are
+-- checked and wired into `Everything.agda` at:
 --
--- If the generic receipt checks, then `BahuShakha.शाखितयोगः` is independent of:
+--   formal/cubical/
+--   ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration.agda
 --
---   * every microbranch enumeration, independently at each coarse outcome;
---   * the outer enumeration of coarse outcomes;
---   * both changes simultaneously.
+-- The landed module proves:
 --
--- This turns its multiplicity law from a theorem about one listed presentation
--- into a theorem about the finite fibres themselves.  The only algebra spent is
--- the generic theorem's associativity and commutativity; dependent reindexing
--- itself is `total-ext` plus composition.
+--   * independent re-enumeration of every micro-fibre;
+--   * re-enumeration of the outer coarse index with its dependent size family;
+--   * both transformations simultaneously.
 --
--- STATUS.  Complete conditional probe, outside `Everything.agda`, awaiting the
--- same Nadi verdict as its imported generic receipt.
+-- Its first load also acted as a fresh importer of `KramaNairapeksya` and
+-- exposed unresolved implicit metas that the producer's own warm load had not
+-- reported. Those metas were repaired before this landing. Thus this theorem
+-- is both mathematical content and the witness for the new receipt rule:
+-- producer-load green is weaker than consumer-import green.
+--
+-- CHECK ROUTE: Agda 2.6.3 + cubical v0.5 through repaired nadi-saksin;
+-- importer-triggered refusals and final acceptance remain in the route ledger.
+-- Replay under 2.8.0/v0.9 remains owed.
 ------------------------------------------------------------------------
 
 module BahuShakhaEnumerationIndependenceProbe where
-
-open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.Equiv using (_≃_ ; equivFun)
-open import Cubical.Data.Nat using (ℕ ; suc)
-open import Cubical.Data.SumFin using (Fin)
-
-open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
-  using (total ; total-ext)
-open import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
-  using (शाखितयोगः)
-open import PermutationInvariantTotalProbe
-  using (permutation-invariant)
-
-private
-  variable
-    ℓ : Level
-
-module _ {W : Type ℓ} (_+ᵂ_ : W → W → W)
-         (assoc : (x y z : W) → x +ᵂ (y +ᵂ z) ≡ (x +ᵂ y) +ᵂ z)
-         (comm  : (x y : W) → x +ᵂ y ≡ y +ᵂ x) where
-
-  -- Every micro-fibre may be re-enumerated by its own equivalence.
-  inner-invariant :
-    (c : ℕ) (k : Fin (suc c) → ℕ)
-    (w : (y : Fin (suc c)) → Fin (suc (k y)) → W)
-    (e : (y : Fin (suc c)) → Fin (suc (k y)) ≃ Fin (suc (k y)))
-    → शाखितयोगः _+ᵂ_ c k (λ y x → w y (equivFun (e y) x))
-      ≡ शाखितयोगः _+ᵂ_ c k w
-  inner-invariant c k w e =
-    total-ext _+ᵂ_ c
-      (λ y → total _+ᵂ_ (k y) (λ x → w y (equivFun (e y) x)))
-      (λ y → total _+ᵂ_ (k y) (w y))
-      (λ y → permutation-invariant _+ᵂ_ assoc comm (k y) (e y) (w y))
-
-  -- The coarse outcomes themselves may be re-enumerated.  Their dependent
-  -- branch sizes move with them; no transport cast is needed because the
-  -- reindexed family is stated at its actual index.
-  outer-invariant :
-    (c : ℕ) (k : Fin (suc c) → ℕ)
-    (w : (y : Fin (suc c)) → Fin (suc (k y)) → W)
-    (e : Fin (suc c) ≃ Fin (suc c))
-    → शाखितयोगः _+ᵂ_ c
-        (λ y → k (equivFun e y))
-        (λ y x → w (equivFun e y) x)
-      ≡ शाखितयोगः _+ᵂ_ c k w
-  outer-invariant c k w e =
-    permutation-invariant _+ᵂ_ assoc comm c e
-      (λ y → total _+ᵂ_ (k y) (w y))
-
-  -- Both levels may move at once: first remove every inner enumeration, then
-  -- remove the outer one.  This is the exact two-level receipt needed by the
-  -- branch-refinement/Born lane.
-  nested-invariant :
-    (c : ℕ) (k : Fin (suc c) → ℕ)
-    (w : (y : Fin (suc c)) → Fin (suc (k y)) → W)
-    (e : Fin (suc c) ≃ Fin (suc c))
-    (r : (y : Fin (suc c))
-       → Fin (suc (k (equivFun e y))) ≃ Fin (suc (k (equivFun e y))))
-    → शाखितयोगः _+ᵂ_ c
-        (λ y → k (equivFun e y))
-        (λ y x → w (equivFun e y) (equivFun (r y) x))
-      ≡ शाखितयोगः _+ᵂ_ c k w
-  nested-invariant c k w e r =
-      inner-invariant c
-        (λ y → k (equivFun e y))
-        (λ y x → w (equivFun e y) x)
-        r
-    ∙ outer-invariant c k w e

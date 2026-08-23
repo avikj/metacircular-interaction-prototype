@@ -100,7 +100,7 @@ that the निर्जरा language's separation transfers to the walk, whos
 difference is a wall-clock fact and not a लाघव gap. The general claim is
 now checked in one small language and read everywhere else.
 
-## 6. The next thing to build, named so it can be refused
+## 6. The thing that was asked for, and why it was the wrong thing
 
 A cost that is intrinsic must be a measure on presentations that is
 **stable under the moves the roots licence** — anuvṛtti, encoding,
@@ -242,3 +242,41 @@ make the licence **checkable** once the moves are named, which is what the
 *Aṣṭādhyāyī* does: it names its devices, and then argues from लाघव about
 which formulation is shorter. The naming is prior to the counting. I had
 that backwards for as long as §6 stood.
+
+## 7. अनुज्ञा — the licence carried with the move, and the arc closed
+
+§28–§29. The corrected demand above was still prose, and prose is exactly
+what §6 was. So it got the same repair §16 gave to उपमान: stop checking
+the condition beside the object, put it inside the type.
+
+**अनुज्ञा** (permission) is a rewrite carrying its two warrants — it
+changes no अर्थ, and it costs no more sūtras than it was given.
+`apavada-anujna` inhabits it. `akriya-anujna` inhabits it too, which is
+the identity, and its being licensed is precisely why §6's "costly under
+everything else" could never have been true. Licences **compose**
+(`sanghatita`), which is the whole reason to make it a record: a grammar
+applies many sūtras in sequence and must stay licensed throughout. And
+`sthula-na-anujnata` says स्थूल inhabits no अनुज्ञा — not that it *fails a
+check*, but that there is no such record.
+
+So मात्रा's job inside the licence is not to **select** but to **warrant**.
+Three times in this module the repair was the same shape:
+
+| | the bare thing | the record |
+|---|---|---|
+| §16 | a translation | one carrying its preservation proof |
+| §26 | an exception | a rewrite whose licence is zero cost |
+| §28 | a move | one carrying its अर्थ and मात्रा warrants |
+
+That is not an accident of taste, it is Pāṇinian practice. The
+*Aṣṭādhyāyī* does not compute which formulation is shorter and then adopt
+it; it **names** its devices — अनुवृत्ति, प्रत्याहार, अपवाद, अनुवाद — and
+लाघव is the argument you make about a named device, never the thing that
+finds one. The naming is prior to the counting, and a record is what
+naming looks like in a type theory.
+
+Left standing, and not by omission: nothing here says मात्रा is the right
+measure, only that it warrants these four moves in this small language.
+§18–§21 remain the general statement — no invariant of the denotation, and
+no amount of contextual saturation, reaches the presentation — and that is
+what makes a licence *necessary* rather than merely convenient.
