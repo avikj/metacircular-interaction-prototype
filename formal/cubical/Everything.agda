@@ -1779,3 +1779,48 @@ import EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndThePari
 -- witnessed blind pair upgrades conservation to S ≺ ⟨S,q⟩ through
 -- ApurvaIndriyam's अपूर्वम् verbatim, and no eye strictly refines itself.
 import SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne
+
+-- ── cf-sesa's terms, entered into the closure so the organism re-checks
+--    them (they were orphans: checked once, imported by nothing). ──
+
+-- वन-सेतुः: the Forest's shift/dilation interface σ ∘ D_m ≡ D_m ∘ σ^m on
+-- sequences, and the Liouville point as the all-−1 eigenvector — a
+-- completely multiplicative x with x m ≡ true dilates to negation.
+import VanaSetu_TheShiftDilationInterfaceAndTheLiouvillePointIsTheAllMinusOneEigenvector
+
+-- संयोग-व्यतिकरः: the sum-spectrum variance minus the diagonal is EXACTLY
+-- the collision interference V∞ − D = 2w₀w₁ — located, not bounded — and
+-- leg symmetry is a separate multiplicity that never enters the cross term.
+import SamyogaVyatikara_TheSumSpectrumVarianceMinusTheDiagonalIsExactlyTheCollisionInterference
+
+-- जीव-सन्तानः: identity through change is a SECTION through a changing
+-- family, not equality of snapshots; the biography theorem (living state ≡
+-- witnessed account of becoming) and the five fates a lossless correction
+-- must assign (Fate ≢ Bool).
+import JivaSantana_IdentityThroughChangeIsASectionThroughAChangingFamilyNotEqualityOfSnapshots
+
+-- यमलम्: the twin charge κ₁ is the parity jet, twisted Leibniz IS
+-- dual-number multiplication, and dual-powering the lifted base computes
+-- value and derivative together — the prime charge as executable AD.
+import Yamala_TheTwinChargeIsTheParityJetAndTwistedLeibnizIsDualNumberMultiplication
+
+-- केन्द्रम्: centering unifies Goldbach and twins into one symmetric
+-- two-wall field — a wall pair about its midpoint becomes a mirror pair,
+-- and that exact symmetry is what makes the crystal real.
+import Kendra_CenteringUnifiesGoldbachAndTwinsIntoOneSymmetricTwoWallField
+
+-- एकमूलम्: the wall orientations are the square roots of one mod d, each
+-- built from a coprime factorization by x = 1 − 2u·ū — x ≡ 1 (mod u),
+-- x ≡ −1 (mod v), x² ≡ 1 at each leg; the coordinate parity forgets.
+import Ekamula_TheWallOrientationsAreSquareRootsOfOneBuiltFromFactorizationsByTheKloostermanReciprocal
+
+-- परस्परम्: two more exact symmetries of the wall roots — additive
+-- reciprocity (fold every ray toward the shorter modulus) and the
+-- conjugate-root involution (why the centered field is real).
+import Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTowardTheShorterModulus
+
+-- विप्रकर्षः: the dispersion step ū₁ − ū₂ ≡ (u₂ − u₁)·w (mod v) with NO
+-- coprimality fence — the joint reciprocal supplies the inverse
+-- internally; addition reappears after multiplication is differentiated
+-- against itself.
+import Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal
