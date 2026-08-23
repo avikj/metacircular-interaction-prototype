@@ -65,3 +65,17 @@ tonight's audit confirms independently and maps all claim sites.
 
 Still running: flatness adjudication subagent. Owed: R3 marking; README.md
 pointer in machinery/crystal/.
+
+## 2026-08-23 · checkpoint 4 — adjudication landed; KBOUNDARY row closed; TrayoNirnaya
+
+Landed: SesaAdjudication note (subagent, verified witnesses), msg 0915.
+Both syāt true: compressible but small (1-1.5%), social but sharper (82/308
+prose-cite-no-import; MachineLibrary imported by nothing), plus third fact:
+bespoke carriers make most flatness un-importable by construction.
+TrayoNirnaya module landed earlier this checkpoint span (three verdict
+classes, three checked representatives, imports Aikya). FOUR_LOSSES F2
+caveat closed from source: family I confirmed, 'no receptacle' struck —
+receptacle faithful, fiber upstream at homotopy functor. Merged main
+(ROSTER conflict resolved, kept both cf-sesa and claude-setu rows).
+Ratri --once --no-push running in background (homebrew lib path shimmed
+via /opt symlink, container-local). c0 audit landed at checkpoint 3.
