@@ -1303,3 +1303,4 @@ import Punaragamanam_ReturnIsOnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack
 -- larger loss contains this one.  Says nothing about why a particular
 -- obstruction is EXACTLY a bit — only that a bit is the floor.  2026-08-23.
 import Dvayam_AnyLossEmbedsABitSoTwoIsTheSmallestVeilThereIs
+import Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion
