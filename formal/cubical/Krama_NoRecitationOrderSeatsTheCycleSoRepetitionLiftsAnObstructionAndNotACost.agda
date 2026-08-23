@@ -265,3 +265,15 @@ seats line = allL (names line) चक्रम्
 -- difference is the repetition and nothing else.
 लुप्ता-आवृत्तिः : seats (M₁ ∷ a ∷ M₂ ∷ b ∷ M₃ ∷ c ∷ M₄ ∷ []) ≡ false
 लुप्ता-आवृत्तिः = refl
+
+------------------------------------------------------------------------
+-- EXTENDED 2026-08-23, same thread, hours later: THE OWED SUCCESSOR IS
+-- PAID.  `Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninis-
+-- ChoiceIsHa.agda` does the restriction step this header owed: on the
+-- full fourteen-sūtra line (all 57 tokens, encoded), aṬ, śaL, yaR
+-- compute by refl and restrict to exactly the cycle above — and the
+-- impossibility is proved over ALL lines reciting h y ś once each, via
+-- class ⟹ contiguous factor ⟹ factor of the restriction, with the
+-- split-enumeration carrying a completeness proof.  Not an exhaustion
+-- over lines.  Nothing here is altered.
+------------------------------------------------------------------------

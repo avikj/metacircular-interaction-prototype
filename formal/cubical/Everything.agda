@@ -635,6 +635,13 @@ import Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker
 -- μ_∞ = width.  Pāṇini's own attested aṬ, śaL, yaR restrict to exactly that
 -- cycle on h y ś, which is why h stands in sūtra 5 and again in sūtra 14.
 import Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost
+-- The owed bridge, paid on the real thing: all fourteen Māheśvara-sūtras
+-- encoded (57 tokens), aṬ, śaL, yaR computed by refl, their restrictions to
+-- {h y ś} ARE the cycle — and NO line reciting h y ś once each names three
+-- classes so restricting (proved over all lines, not an enumeration).  So
+-- one of the three must be said twice, and Pāṇini said ha: sūtra 5 before
+-- ya, sūtra 14 after śa, the stretch between them h-free for yaR.
+import Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
