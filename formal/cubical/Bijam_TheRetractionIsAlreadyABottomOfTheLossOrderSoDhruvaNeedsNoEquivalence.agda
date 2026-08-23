@@ -145,3 +145,37 @@ private variable ℓ : Level
 प्रत्यानयनात् : {A B : Type ℓ} {f : A → B} {Φ : A → A}
               → प्रत्यानयनम् f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
 प्रत्यानयनात् {f = f} r = अधःस्थे-संरक्षणं-निष्क्रियम् (प्रत्यानयन-अधःस्थम् f r)
+
+------------------------------------------------------------------------
+-- ६ · THE BOTTOM IS CLOSED UNDER COMPOSITION, and this strengthens
+--     `Samyoge` §२ the same way §५ strengthens Dhruva.
+--
+--     `Samyoge_…agda` §२ says "lossless composes" and proves it with
+--     `compEquiv` — two EQUIVALENCES.  What composes is bottom-ness, and
+--     the proof is the seed with its first component `refl`:
+--
+--         p a ∙ cong h (q (f a))
+--
+--     So a route every step of which can merely BE UNDONE is itself
+--     undoable, at any length.  That is the version the machine actually
+--     needs: it demands receipts, and a receipt in the operative sense is
+--     a way back, not an identification.
+--
+--     And with §५ this is one statement: certification composes because
+--     THE BOTTOM OF THE ORDER IS A SUBMONOID, and conservation is trivial
+--     there.  Vyapti proved the conserving flows form a submonoid at a
+--     fixed observation; this is the other axis.
+------------------------------------------------------------------------
+
+अधःस्थ-सन्धिः : {A B C : Type ℓ} (f : A → B) (g : B → C)
+              → f व्याप्नोति (idfun A) → g व्याप्नोति (idfun B)
+              → (λ a → g (f a)) व्याप्नोति (idfun A)
+अधःस्थ-सन्धिः f g (h , p) (k , q) =
+  (λ c → h (k c)) , λ a → p a ∙ cong h (q (f a))
+
+-- the same for the named form, since that is what callers hold
+प्रत्यानयन-सन्धिः : {A B C : Type ℓ} (f : A → B) (g : B → C)
+                  → प्रत्यानयनम् f → प्रत्यानयनम् g
+                  → प्रत्यानयनम् (λ a → g (f a))
+प्रत्यानयन-सन्धिः f g (r , ret) (s , sec) =
+  (λ c → r (s c)) , λ a → cong r (sec (f a)) ∙ ret a
