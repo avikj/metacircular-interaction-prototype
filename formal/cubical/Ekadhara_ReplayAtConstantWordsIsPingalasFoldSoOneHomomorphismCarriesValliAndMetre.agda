@@ -41,7 +41,8 @@ open import Cubical.Data.Nat using (ℕ; zero; suc; _+_)
 open import Cubical.Data.List using (List; []; _∷_; _++_)
 open import Gamma0Partner using (R; M; mul)
 open import M2Unimodular using (idm)
-open import KuttakaValli using (Valli; L; replay; replayHom)
+open import Gamma0Freeness using (mulAssoc)
+open import KuttakaValli using (Valli; L; replay; replayHom; mulIdL)
 
 -- n copies of one quotient: the constant word.
 repeat : ℕ → R → Valli
@@ -74,3 +75,28 @@ matGhata-yoga q m n =
   ∙ cong replay (repeat-++ m n q)
   ∙ replayHom (repeat m q) (repeat n q)
   ∙ cong₂ mul (replay-repeat m q) (replay-repeat n q)
+
+------------------------------------------------------------------------
+-- §4 · the second law too, and at the NONCOMMUTATIVE carrier — making
+-- the scope correction concrete: both of Piṅgala's exponent laws hold
+-- with no commutativity anywhere, by the same inductions Bijamula runs
+-- inside CMonoid.  (x^(a·b) = (x^a)^b for 2×2 integer matrices.)
+
+open import Cubical.Data.Nat using (_·_; ·-suc; 0≡m·0)
+
+matGhata-guna : (x : M) (a b : ℕ)
+  → matGhata x (a · b) ≡ matGhata (matGhata x a) b
+matGhata-guna x a zero    = cong (matGhata x) (sym (0≡m·0 a))
+matGhata-guna x a (suc b) =
+    cong (matGhata x) (·-suc a b)
+  ∙ matGhata-yoga-abs x a (a · b)
+  ∙ cong (mul (matGhata x a)) (matGhata-guna x a b)
+  where
+  -- yoga for an arbitrary matrix base (not only L q): the same
+  -- induction, assoc and left-unit only.
+  matGhata-yoga-abs : (x : M) (m n : ℕ)
+    → matGhata x (m + n) ≡ mul (matGhata x m) (matGhata x n)
+  matGhata-yoga-abs x zero    n = sym (mulIdL (matGhata x n))
+  matGhata-yoga-abs x (suc m) n =
+      cong (mul x) (matGhata-yoga-abs x m n)
+    ∙ sym (mulAssoc x (matGhata x m) (matGhata x n))
