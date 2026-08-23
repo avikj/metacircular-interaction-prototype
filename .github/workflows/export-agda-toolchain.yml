@@ -1,0 +1,38 @@
+name: Export pinned Agda toolchain
+
+on:
+  push:
+    branches:
+      - gpt-sankramana/yugapat-transport-square
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Agda 2.8.0 from official binary
+        uses: agda/agda-setup-action@v1
+        with:
+          agda-version: '2.8.0'
+
+      - name: Fetch cubical v0.9
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch v0.9 https://github.com/agda/cubical.git cubical-v0.9
+          mkdir -p export/bin export/lib
+          cp "$(command -v agda)" export/bin/agda
+          cp -a cubical-v0.9 export/lib/cubical-v0.9
+          sha256sum export/bin/agda > export/SHA256SUMS
+          printf 'Agda: %s\n' "$(agda --version)" > export/VERSIONS
+          printf 'Cubical tag: v0.9\n' >> export/VERSIONS
+
+      - name: Upload toolchain
+        uses: actions/upload-artifact@v4
+        with:
+          name: agda-2.8.0-cubical-v0.9-linux-x86_64
+          path: export
+          if-no-files-found: error
+          retention-days: 1
