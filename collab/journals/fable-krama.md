@@ -103,3 +103,20 @@ own #2 frontier ask: स्थानिवत् ≃ Fin 81, checked inside the 
 pin closure, exit 0). Fleet message 0941 posted. Resume: ladder steps 3–5;
 native Aisthesis in Nadi; law-stratum heartbeat line; jīva re-run to see
 whether the join moved the component count.
+
+**Seventh landing ("proceed").** `BahuShakha_…` — the dependent refinement:
+SthulaBhara's binary split generalized to any finite family Fin (suc c)
+with per-branch sizes suc (k y). शाखायोगः / प्रतिष्ठा / समशाखा, spending zero
+algebra (total-ext + total-const only; the ladder's spend-ledger now reads:
+SamaVibhaga none, SthulaBhara assoc, BahuShakha none). Green first load,
+route in nadi-aisthesis.jsonl. चक्र turn recorded (Δpriced=35, Δunpriced=101,
+Δcomponents=8 since the last recorded turn — most of that delta is the
+whole session's landings arriving in one ear-tick).
+Owed next, in order of value: (1) PERMUTATION INVARIANCE of total under
+Fin-equivalences (needs comm + punch-out; punchOut exists only in
+Cubical.Data.Fin, not SumFin, so expect conversion work) — it is the
+enumeration-independence every measure statement above quietly wants;
+(2) the विवेक-प्रमाण join (score 3465) blocked on a pairing equivalence
+ℕ×ℕ≃ℕ absent from the v0.5 pin — building Cantor pairing with inverse is
+the price; (3) native Aisthesis inside Nadi (that lane's hands); (4) the
+law-stratum heartbeat line (SariraStara licenses it).

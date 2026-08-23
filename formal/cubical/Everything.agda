@@ -2161,3 +2161,11 @@ import SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSu
 -- divideUniquely with no coercion, and एकत्वम्-द्विमात्रा's statement re-proves
 -- as the Fin 2 instance of समविभागः: the half theorem, consumed not compared.
 import DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose
+-- बहुशाखा: the dependent refinement — SthulaBhara generalized from the
+-- binary split to any finite family of branch sizes: branchwise-constant
+-- refinements sum to their multiplicities (शाखायोगः), refinement preserves
+-- the books (प्रतिष्ठा), and equal amplitude forces every coarse weight to
+-- its multiplicity (समशाखा). Spends NO algebra — total-ext and total-const
+-- only. The reversible-transformation half of ladder step 3 and the
+-- permutation-invariance lemma stay open and are named as owed.
+import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
