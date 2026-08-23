@@ -1611,3 +1611,9 @@ import Ratri.Anirdharita_S13OptionSpread_OnesSum
 import Ratri.Nirdharana_Hull_PunaragamanaSunyeEva
 import Ratri.Nirdharana_PingalaPrastara_AksaraParityReturnsExactlyOnTheAlphabet
 import Ratri.Nirdharana_TheReturnLocusIsTheSectionsImageOrZeroAlone
+
+-- शून्यभारः · the machine's own instructions are the zero-charge pole of
+-- SvaTantuVasa's scale, and the power map sits off it by its own period.
+-- One edge between Yantra, SvaTantuVasa and GhataTantu, which cite each
+-- other in no direction.
+import Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffItByItsOrder
