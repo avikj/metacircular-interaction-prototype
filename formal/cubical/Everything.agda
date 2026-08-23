@@ -1772,6 +1772,11 @@ import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPD
 -- keeps operating.  Instrument: an involution exchanging the wall with
 -- fzero — its own section, no punchIn needed.
 import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
+-- the chart closed from inside the residue wheel: walls coincide exactly
+-- when a +ₘ a ≡ 0 (केन्द्रम्’s iff, internal), the regime is DECIDED per
+-- center, and the census is an equivalence in both branches — Fin (p−1)
+-- merged, Fin (p−2) distinct.  The atlas (CRT, the cone) is the open frame.
+import Sphatika_TheLocalCrystalIsDecidableTheWallsMergeExactlyWhenTwiceTheCenterVanishesAndTheCensusHoldsEitherWay
 -- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
 -- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
 -- ONE TERM wearing four names — three links are refl, judgmentally —
