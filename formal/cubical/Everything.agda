@@ -1622,3 +1622,9 @@ import Ratri.Nirdharana_TheReturnLocusIsTheSectionsImageOrZeroAlone
 -- One edge between Yantra, SvaTantuVasa and GhataTantu, which cite each
 -- other in no direction.
 import Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffItByItsOrder
+
+-- बहु-प्रत्यानयनम् · the generator of no-return theorems at the level of
+-- points, the discrete log as its first arithmetic instance, and the
+-- counterexample (Unit → S¹) showing Tantujala's बहु is NOT the
+-- obstruction — so noDescentS¹ lives one level up and does not reduce.
+import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance
