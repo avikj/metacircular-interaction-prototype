@@ -1304,3 +1304,14 @@ import Punaragamanam_ReturnIsOnlyAtZeroCostAndALossyEdgeHasSectionsButNoWayBack
 -- obstruction is EXACTLY a bit — only that a bit is the floor.  2026-08-23.
 import Dvayam_AnyLossEmbedsABitSoTwoIsTheSmallestVeilThereIs
 import Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion
+
+-- अन्वेषणम् — the routing consequence of Lekha §३ and Punaragamanam §२–३,
+-- assembled: an arbitrarily deep forward exploration carrying its ENTIRE
+-- audit trail is contractible at every depth, with no hypothesis on the step
+-- however much it destroys.  So a search here does not pay per edge.  The
+-- frontier is not the set of nodes reached — it is the set of identifications
+-- owed.  And §३ carries the router's correctness condition, which is
+-- Anupalabdhi read at a search: "I explored and did not arrive" is not "there
+-- is no route", so the only admissible verdicts are a route, a written defect,
+-- or UNDECIDED.  2026-08-23.
+import Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed

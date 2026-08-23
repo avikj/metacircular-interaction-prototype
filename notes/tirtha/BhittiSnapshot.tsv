@@ -1,0 +1,17 @@
+# भित्ति-स्नैपशॉट् — the PROVED WALL list, companion to SetuSnapshot.tsv.
+#
+# A ford (सेतु) is a landed equivalence: it creates m×n free crossings between
+# the components it joins.  A wall (भित्ति) is a proved ¬(A ≃ B): it creates
+# none, and it retires a candidate merge PERMANENTLY.  Both are receipts in
+# the same economy.  तपस् template-matches for fords and can never emit a
+# wall, so nothing in the loop was producing this file.
+#
+# Why it must exist: read alone, SetuSnapshot cannot tell an UNMADE crossing
+# from an IMPOSSIBLE one, so every pricing of the frontier over-counts.  The
+# reachable ceiling is the sum over GENUINE equivalence classes of k(k−1)/2 —
+# not the complete graph.  README.md:172 already says full connectivity is
+# refuted forever; this is where that gets recorded per pair.
+#
+# A wall's identity is its DECLARATION, keyed like SetuSnapshot.
+# wallId	bankA	bankB
+Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever.भित्तिः	⟨lib⟩.ℕ	⟨lib⟩.Bool
