@@ -228,3 +228,41 @@ open import Cubical.Relation.Nullary using (¬_)
 -- and the composite is the identity, hence at the bottom
 सन्धिः-अधःस्थः : (λ (u : Unit) → एकम् (सत् u)) व्याप्नोति (idfun Unit)
 सन्धिः-अधःस्थः = (λ _ → tt) , (λ { tt → refl })
+
+------------------------------------------------------------------------
+-- ८ · FOUR STATEMENTS OF ONE THEOREM, three of them over `isEquiv`.
+--
+--   Dhruva.नष्ट-अभावे-गति-अभावः          isEquiv, via a contractible FIBRE
+--   Vyapti.नष्ट-अभावे-गति-अभावः-व्याप्त्या  isEquiv, via the ORDER
+--   SvaTantuVasa.तादात्म्यम्             isEquiv, via contractibility of
+--                                      the whole FLOW SPACE
+--   §५ here                            f व्याप्नोति (idfun A) — the bottom
+--
+-- Same conclusion, four routes, and the fourth needs none of the other
+-- three's machinery: no fibre, no flow space, no equivalence.  §८ derives
+-- the isEquiv form from §५ so the containment is a term and not a remark.
+--
+-- AND ONE OF THAT FILE'S TWO IS SHARP, which is the distinction worth
+-- keeping.  `SvaTantuVasa.ध्रुव-बिन्दुः : isEquiv f → isContr (Σ[Φ] संरक्षणम् f Φ)`
+-- CANNOT weaken: the flow space is `Π[a] fiber f (f a)` (its own वासः),
+-- contractible exactly when every fibre is — which IS `isEquiv f`.  So in
+-- one module one theorem needs the equivalence essentially and the other
+-- does not, and only the second is over-hypothesised.
+--
+-- This is the corpus's characteristic shape rather than a defect: it
+-- proves things several times, and each proof knows something the others
+-- do not.  `Kosthanyaya` found the pigeonhole at five sites; `Yamaja`
+-- found the third `eqℕ`; this is the fourth Dhruva.  The value is not in
+-- deleting copies — it is that the copies disagree about what is needed.
+------------------------------------------------------------------------
+
+open import Cubical.Foundations.Equiv using (isEquiv ; invEq ; retEq)
+
+-- an equivalence is at the bottom (Vyapti's समत्वम्-अधःस्थम्, restated so
+-- §८ is self-contained), and then the isEquiv form is one application
+समता-अधःस्थम् : {A B : Type ℓ} (f : A → B) → isEquiv f → f व्याप्नोति (idfun A)
+समता-अधःस्थम् f e = invEq (f , e) , λ a → sym (retEq (f , e) a)
+
+समतायाः : {A B : Type ℓ} {f : A → B} {Φ : A → A}
+        → isEquiv f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
+समतायाः {f = f} e = अधःस्थे-संरक्षणं-निष्क्रियम् (समता-अधःस्थम् f e)
