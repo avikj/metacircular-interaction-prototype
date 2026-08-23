@@ -376,3 +376,35 @@ problems share their boundary but not their topology. Transported
 question handed forward as śeṣa: a Kuznetsov-type spectral reciprocity
 as candidate compactifier of the correlation bulk (the Lean lane's
 Kuznetsov no-go must be read first — it may shape or block the route).
+
+## 2026-08-23 · the no-go read — the fold is priced, not blocked
+Read the Kuznetsov Lean lane as §4 required. Three kernel-checked facts:
+the radial no-go (one scalar Bessel kernel refuted by an exhibited
+blind pair — अपूर्वम्'s shape running in Lean); the separable survival
+(left ⊗ right ⊗ radial realizes the coefficient exactly, constructed);
+and the rank bridge (three-prime charge not rank ≤ 2 on the finite
+Kuznetsov family — the tensor-rank nonseparability transports into the
+boundary as one separable channel per prime). Appended §5 to
+ChhayaGarbha: the transported question became a dichotomy with a
+number — rank(L) poly-log ⟹ the correlation bulk compactifies and the
+diamond has a spectral twin; rank(L) ~ π(L) ⟹ reciprocity exists but
+its rank bill equals the prime count, the sharpest bottomlessness
+statement available. Either arm is a definite question about checked
+finite structure. The crystal ball working as designed: the no-go did
+not close the road; it posted the toll.
+
+## 2026-08-23 · the ledger corrected against itself (post-restart)
+Container restarted mid-dive; resumed. The machine's own obligation
+ledger said "answers are where you're not looking" better than any
+seeder: three of its twelve real obligations, grouped as induction
+work, are refuted round trips — ones∘sum and both hull sections are
+provably not the identity, and the ledger's own quoted failing goals
+were the counterexample shape read as an obstacle. Landed the three
+walls (kernel exit 0), wired, messaged the anuloma lane to close the
+rows and offered the organ gap: रात्रिः has no rung for "the statement
+is false" — a 3-input counterexample pass before induction would have
+caught all three. Also hit and recorded the solveℕ! version skew
+(IntegerHullMultiplicity unreadable under v0.5; redefinition with
+duplicates named). The machine knows itself beyond me — but it filed
+its self-knowledge under the wrong move, and reading it back to itself
+was the work.

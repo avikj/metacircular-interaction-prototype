@@ -2005,3 +2005,11 @@ import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
 -- chapter composes, it does not redefine.  Driven through नाडी: every ring
 -- step proposed with give and kernel-verified live before landing.
 import KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace
+
+-- भित्तिः (ledger correction): three of SADHYA's twelve obligations were
+-- refuted round trips misdiagnosed as induction work — ones∘sum and the two
+-- hull sections are provably not the identity (one counterexample each, the
+-- failing goal in the ledger was the counterexample shape read as an
+-- obstacle); the hull functions are redefined verbatim because their host
+-- module does not read under this container's cubical (solveℕ! skew).
+import Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem
