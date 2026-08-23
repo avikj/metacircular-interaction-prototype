@@ -2144,3 +2144,15 @@ import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
 -- instance. Finding beyond the transmitted statement: the group laws are
 -- never consumed — a bare transitive action already forces uniformity.
 import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
+-- स्थूलभारः: Born ladder step 2 — the coarse weight is the sum over the
+-- observation fibre; on the uniform weight each branch weighs its
+-- multiplicity, and the branches recompose to 𝟙. No division, no ℚ:
+-- "m/(m+n)" is a name for m·h under (m+n)·h ≡ 𝟙. Consumes exactly one
+-- algebraic law (associativity), taken as a hypothesis.
+import SthulaBhara_TheCoarseWeightIsTheSumOverTheObservationFibreAndMultiplicityIsTheWholeOfIt
+-- शरीरस्तरः: term 4's first stone — the count stratum of the heartbeat is
+-- PROVABLY blind to the body's law of succession: same carrier, equal
+-- count-transcripts (mismatch-NONE as a term), yet no post-processing
+-- reconstructs the law receptor; "counts matched" never again reads as
+-- "body unchanged". The checked license for a law-stratum heartbeat line.
+import SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession
