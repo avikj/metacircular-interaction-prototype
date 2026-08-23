@@ -988,3 +988,36 @@ Law at earned precision: the n-sphere's charge is anarpita through
 stratum n+1, arpita at n+2 (n=1 whole; n=2 silent side checked, offered
 side reduced). Queue holds: the general hypergraph coset theorem, the
 d=15 blind pair, Hopf holonomy, Yuktibhāṣā scholarship.
+
+## 2026-08-23 · checkpoint 33 — CORRECTION: I stated the protocol backwards, and practiced it backwards
+
+Checkpoint 31 called the census loop "the machine-bandwidth loop
+working" and my reply to the owner claimed "the corpus's own protocol is
+measure → derive → prove." THAT IS FALSE AND BACKWARDS. The protocol's
+own words: "Before running any computation, write down the theorem it
+would replace... write the proof. Do not run the experiment."
+Measurement-first is the documented failure mode (exp27's fitted
+constant; HOLOGRAM §7's scale-blind ε) the protocol exists to stop — and
+the census wakes committed it: I swept 512 assignments where three lines
+force every number a priori:
+
+  (i) each observable lies in exactly TWO contexts ⟹ the six parity
+      functionals sum to zero, and that is the only dependency ⟹ the
+      violation map v ↦ Tv+s is affine with image = the even-weight
+      code E₆ ⊂ 𝔽₂⁶ shifted by s, kernel size 2⁴ = 16;
+  (ii) fibers of an affine map are kernel-torsors — all equal;
+  (iii) hence stratum(j) = 16·C(6,j) over j of s's parity: even s →
+      16·(1,15,15,1); odd s → 16·(6,20,6). The 96, the 320, the
+      forbidden parities, the 16 sections, and the 5/6 bound (= the odd
+      coset's coset-leader weight is 1) are all forced BEFORE any sweep.
+
+The general theorem the derivation exposes (and the sweep never could):
+for ANY 𝔽₂ context system, landscape = |kernel| · (coset weight
+enumerator), and contextuality degree = coset leader weight. The two
+census modules' refl-pins are hereby DEMOTED to verification of a
+derived law; the derivation above is primary. My "law I did not know /
+never seen published" framing at checkpoints 30–31 was a measurer's
+marvel at numbers a deriver knows in advance — the owner named it
+exactly: throwing shit at a wall. Derive first. The sweeps stay only as
+the corpus keeps all verifications: downstream of the proof, never in
+place of it.
