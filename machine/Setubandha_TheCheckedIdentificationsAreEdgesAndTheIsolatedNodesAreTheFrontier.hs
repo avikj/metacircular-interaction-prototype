@@ -174,6 +174,26 @@ aliasOf b = case words b of
   ("open" : "import" : m : "as" : a : _) -> Just (a, m)
   _                                      -> Nothing
 
+-- `[open] import M using (n1 ; n2 ; …)` binds each named identifier to the
+-- module M it is imported from.  This is PRATYAKṢA for the resolver: a third
+-- module that writes `open import Punaragamanam using (Carrier)` has stated
+-- WHICH `Carrier` it means, and a reader that ignores the import and resolves
+-- the bare name to ⟨ambig⟩ is doing anumāna where the qualified identity was
+-- available directly.  Added 2026-08-23: the machine named `⟨ambig⟩.Carrier
+-- योग` as load-bearing in its own spine, and the identity was in the imports
+-- the whole time.
+usingOf :: String -> [(String, String)]
+usingOf b = case words b of
+  ("import" : m : "using" : rest)         -> bind m rest
+  ("open" : "import" : m : "using" : rest) -> bind m rest
+  _                                        -> []
+  where
+    bind m rest = [ (n, m) | n <- namesInParens (unwords rest) ]
+    namesInParens s = case dropWhile (/= '(') s of
+      ('(':r) -> filter (not . null) (splitSemi (takeWhile (/= ')') r))
+      _       -> []
+    splitSemi = words . map (\c -> if c == ';' then ' ' else c)
+
 -- A type-former declaration: `data N ...`, `record N ...`
 dataRecOf :: String -> Maybe String
 dataRecOf b = case words b of
@@ -354,16 +374,21 @@ type AliasTable = [(String, String)]
 -- table.  A fully-written `NaturalMachine.FreeMonoid.Tally` is untouched:
 -- its first segment is not an alias, so it falls through to the behaviour
 -- that was already there.
-resolveIdent :: DefTable -> AliasTable -> String -> String -> String
-resolveIdent defs als home n =
+resolveIdent :: DefTable -> AliasTable -> [(String, String)] -> String -> String -> String
+resolveIdent defs als usng home n =
   case break (== '.') n of
     (q, '.' : base)
       | Just m <- lookup q als
       , Just ms <- M.lookup base defs
       , m `S.member` ms
       -> m ++ "." ++ base
-    _ -> bare
+    _ -> viaUsing
   where
+    -- pratyakṣa: if this file `using`-imports the bare name from a module that
+    -- defines it, that IS the identity — resolve there rather than to ⟨ambig⟩.
+    viaUsing = case lookup n usng of
+      Just m | Just ms <- M.lookup n defs, m `S.member` ms -> m ++ "." ++ n
+      _ -> bare
     bare = case M.lookup n defs of
       Just ms | home `S.member` ms -> home ++ "." ++ n
               | S.size ms == 1     -> S.findMin ms ++ "." ++ n
@@ -372,10 +397,10 @@ resolveIdent defs als home n =
 
 -- Render a type expression with every identifier resolved, so that the same
 -- expression written in two modules becomes the same node.
-resolveExpr :: DefTable -> AliasTable -> String -> String -> String
-resolveExpr defs als home e =
+resolveExpr :: DefTable -> AliasTable -> [(String, String)] -> String -> String -> String
+resolveExpr defs als usng home e =
   let ids = nub (identsIn' (M.keysSet defs) e)
-  in normalise (foldl' (\acc i -> replaceWord i (resolveIdent defs als home i) acc) e ids)
+  in normalise (foldl' (\acc i -> replaceWord i (resolveIdent defs als usng home i) acc) e ids)
 
 replaceWord :: String -> String -> String -> String
 replaceWord from to = go
@@ -409,6 +434,7 @@ data FileInfo = FileInfo
   , fiVars  :: [String]      -- names bound by a top-level `variable` block
   , fiIdent :: S.Set String  -- every token appearing in a signature here
   , fiAlias :: AliasTable    -- `import M as X` bindings of this file
+  , fiUsing :: [(String, String)]  -- `import M using (n)` name→module bindings
   }
 
 scanFile :: FilePath -> IO FileInfo
@@ -424,7 +450,8 @@ scanFile p = do
       vars = concatMap variablesOf bs
   return (FileInfo p m (nub (dr ++ tyAbbrev)) sigs (nub vars)
             (S.fromList (concatMap (tokens . dType) sigs))
-            (mapMaybe aliasOf bs))
+            (mapMaybe aliasOf bs)
+            (concatMap usingOf bs))
   where
     fallbackName = reverse . takeWhile (/= '/') . reverse
     isTypeSort c = case words (unparen c) of
@@ -440,6 +467,7 @@ classify defs fi d0 =
       bnds  = S.fromList (binders ty ++ fiVars fi)
       home  = fiMod fi
       als   = fiAlias fi
+      usng  = fiUsing fi
       identsIn = idn
       mk tok kind =
         case splitTop tok concl of
@@ -448,8 +476,8 @@ classify defs fi d0 =
                 free e = any (`S.member` bnds) (identsIn e)
             in if null (trim a') || null (trim b') then Nothing
                else if free a' || free b' then Just (Generic home nm)
-               else let ra = resolveExpr defs als home a'
-                        rb = resolveExpr defs als home b'
+               else let ra = resolveExpr defs als usng home a'
+                        rb = resolveExpr defs als usng home b'
                     in if ra == rb then Just (Loop home nm ra)
                        else Just (Edge home nm ra rb kind)
           _ -> Nothing
@@ -462,8 +490,8 @@ classify defs fi d0 =
                        Just (a,b) | countTop "≃" inner == 1
                                   , not (any (`S.member` bnds) (identsIn a))
                                   , not (any (`S.member` bnds) (identsIn b)) ->
-                          Just (Refusal home nm (resolveExpr defs als home (unparen a))
-                                                (resolveExpr defs als home (unparen b)))
+                          Just (Refusal home nm (resolveExpr defs als usng home (unparen a))
+                                                (resolveExpr defs als usng home (unparen b)))
                        _ -> Nothing
              else Nothing
   in case refusal of
@@ -478,7 +506,8 @@ classify defs fi d0 =
 typeLevelPath :: DefTable -> FileInfo -> S.Set String -> String -> String -> String -> Maybe Finding
 typeLevelPath defs _fi bnds home nm concl =
   let identsIn = identsIn' (M.keysSet defs)
-      als      = fiAlias _fi in
+      als      = fiAlias _fi
+      usng     = fiUsing _fi in
   case splitTop "≡" concl of
     Just (a,b) | countTop "≡" concl == 1 ->
       let a' = unparen a; b' = unparen b
@@ -491,7 +520,7 @@ typeLevelPath defs _fi bnds home nm concl =
          -- refuse, and say so rather than counting a spurious causeway.
          else if sameAppliedHead a' b'
            then Nothing
-         else let ra = resolveExpr defs als home a'; rb = resolveExpr defs als home b'
+         else let ra = resolveExpr defs als usng home a'; rb = resolveExpr defs als usng home b'
               in if ra == rb then Nothing else Just (Edge home nm ra rb "path")
     _ -> Nothing
 
