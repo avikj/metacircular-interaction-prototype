@@ -1954,3 +1954,11 @@ import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIs
 -- relabeling ever creates or destroys a collision.  The geometry under
 -- SamyogaVyatikara's algebra: why leg exchange never enters the cross term.
 import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount
+
+-- उत्थापन: G7's grid license, univariate core, no longer declared — a
+-- polynomial with more distinct roots than coefficients is the zero
+-- function, by the Horner quotient (synthetic division), the factor
+-- identity, and ℤ's integral domain; induction on the point list.  Scope
+-- stated in the header: one variable, vanishing form; the coefficientwise
+-- difference corollary and the multivariate grid remain owed.
+import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
