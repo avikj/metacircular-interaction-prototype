@@ -1922,3 +1922,11 @@ import Vyapti_AnIdentityAtTheGenericPointPervadesEveryInstanceSoTheSevenGatesLic
 -- cancellation cannot be a move (2 ≢ 0): a proof that cancels a detour is
 -- not the proof that never left, the detour's consumption is its receipt.
 import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultisetIsAProofInvariant
+
+-- वहित: the complement of Sthana — the carry cannot be dispensed with.
+-- Atlas Prop 2.11 at its minimal instance: under carry-free xor everything
+-- doubles to zero, under the carry the unit doubles to the CARRIED unit;
+-- every homomorphism from counter-addition to digitwise-xor conflates the
+-- carried unit with zero — the carry is exactly what any carry-free
+-- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
+import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
