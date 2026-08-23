@@ -1760,6 +1760,12 @@ import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
 -- and their commutator is the whole charge; सह (the fourth bhaṅga) is the
 -- refusal to order, the only position that loses nothing.
 import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+-- क्रम-सह सर्वत्र: the interchange charge is ONE structure across scales —
+-- अवक्तव्यम् (non-commuting observations cannot be uttered as one) proved at
+-- the abstract site, one line for every instance: the loop commutator (ℤ),
+-- the noncommutative quantum boundary, Peres-Mermin contextuality (odd
+-- H¹ℤ/2), and the fourth bhaṅga. Concrete Bool witness; deep instances cited.
+import KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga
 -- Sanmatitarka 1.3-6 in both directions: the dravya census conflates S¹
 -- with Unit (paryāya census separates them); the paryāya census conflates
 -- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
@@ -1999,3 +2005,11 @@ import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
 -- chapter composes, it does not redefine.  Driven through नाडी: every ring
 -- step proposed with give and kernel-verified live before landing.
 import KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace
+
+-- भित्तिः (ledger correction): three of SADHYA's twelve obligations were
+-- refuted round trips misdiagnosed as induction work — ones∘sum and the two
+-- hull sections are provably not the identity (one counterexample each, the
+-- failing goal in the ledger was the counterexample shape read as an
+-- obstacle); the hull functions are redefined verbatim because their host
+-- module does not read under this container's cubical (solveℕ! skew).
+import Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem
