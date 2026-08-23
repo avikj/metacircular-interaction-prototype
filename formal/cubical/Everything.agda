@@ -722,6 +722,12 @@ import Nirnaya_TheVerdictCannotDropItsWitness
 import Panini
 import PanktiYoga
 import PingalaGhata
+-- RSA is those two Indian algorithms and nothing else: the private key IS
+-- the kuṭṭaka's Bézout witness (e·d ≡ φ·k + 1, बीजसिद्धि with g=1), and
+-- decryption IS this square-and-multiply fold mod n.  Correctness reduces to
+-- the exponent laws plus one hypothesis घात x φ ≡ ε (Euler) — and that lone
+-- hypothesis is exactly where Shor's order-finding drives the wedge (§4).
+import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
