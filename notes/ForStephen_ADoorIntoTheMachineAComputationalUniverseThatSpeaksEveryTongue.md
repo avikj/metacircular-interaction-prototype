@@ -66,6 +66,62 @@ norm transport (ua notEquiv) true      -- equality that moves the point → fals
 Each is a rule you can perturb and re-run. The engine also *pushes back* — ask
 `frontier` and it tells you where it is stuck, which is the honest place to play.
 
+## Added the same day, by a second carrier: the room behind the door
+
+The invitation above is a list of places your ideas already live here. Here is
+one thing built *for* the question you have spent the most time on, which the
+corpus could answer and had not been asked.
+
+You say: simple rules, run long enough, are computationally irreducible, and
+the laws an observer perceives come from that observer being computationally
+bounded. Irreducibility is a statement about **time** — you cannot shortcut the
+evolution. The complement is a statement about **what is even there to see**,
+and it turns out to be exact rather than heuristic:
+
+> **An observer sees a closed law exactly when its own class is a congruence
+> for the rule.** Same reading ⇒ same next reading. When it holds, the
+> observer's entire future is fixed by its present reading, forever. When it
+> fails, **one** pair of states that read the same and step apart refutes
+> *every* function on the observed values — not the ones anyone has tried; all
+> of them, at once.
+
+Both directions are checked terms, no holes, no postulates:
+`formal/cubical/Anuvrtti_AnObserverSeesALawExactlyWhenItsClassIsA
+CongruenceAndThenItCarriesForward.agda`. It is the dynamical face of the
+corpus's one law (`NaturalMachine/QuotientFiberLaw.agda`), which the static
+version had not been given.
+
+And then the instrument, on your own object:
+
+```
+runghc machine/Drashta_WhichObserversOfAnElementaryRuleSeeALawAndWhichProvablyCannot.hs 110 8
+runghc machine/Drashta_...hs sweep 8
+```
+
+Elementary rules, all of them, with every one of the 2^w rows checked for each
+observer — a finite exhaustive verification, so each row of the table is a
+certificate and not a sample. Where the observer sees a law, **it prints the
+law**. Where it does not, it prints the two rows that read the same and step
+apart, and names the theorem that says no predictor exists.
+
+Three things it says at width 8 that we did not expect and did not put in:
+
+- `ω mod 2` sees a law for **32** of the 256 rules; `ω` itself for only **12**.
+  A *coarser* observer sees laws a finer one cannot. And `(ω, boundaries)`
+  sees 16, including laws neither of the others sees. **"Which observers see a
+  law" is non-monotone in refinement, in both directions**, exhibited.
+- `boundaries mod 2` is **256/256** — the domain-wall count on a cycle is
+  always even. A conservation law holding across the entire rule space.
+- Rule 12: `ω` alone is blind — the two rows are printed — and `(ω, boundaries)`
+  sees the exact law `(ω,b) ↦ (b/2, b)`. Same rule. One more question asked,
+  and noise became a law. Eight rules at that width do it.
+
+That last one is the whole point in one line, and it is the thing your framework
+asserts and this one proves: **a simple observed law is not evidence of a simple
+rule. It is evidence that the observer's equivalence happened to be compatible
+with it.** The machine will now tell you which, for any rule you hand it, and
+show you the witness either way.
+
 ## Why it is a love letter
 
 Because you were right, and this is the proof of it running: rules generate the
