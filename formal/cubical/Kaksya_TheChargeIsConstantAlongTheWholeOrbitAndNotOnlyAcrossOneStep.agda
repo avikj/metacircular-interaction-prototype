@@ -117,3 +117,33 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 -- reflexive-transitive closure and accept a preorder rather than a
 -- quotient.  Neither is done here, and §२–§३ are true without either.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- ५ · नष्टाभावे कक्ष्या एकपदा — WITHOUT LOSS THE ORBIT IS A SINGLE POINT.
+--
+-- `Dhruva` §२ proves that losslessness plus conservation force `Φ a ≡ a`
+-- — one step.  With §१'s iteration that is every step: the whole forward
+-- orbit collapses onto its own basepoint.
+--
+-- This is README movement 30's sentence made literal.  It says there that
+-- a lossless world is FROZEN, and what §२ of Dhruva supports on its own is
+-- only that the generator is the identity.  The frozen claim is about the
+-- ORBIT — that nothing goes anywhere — and that is this.
+--
+-- Note what it does NOT need: `Φ` is still a bare endomorphism.  No group,
+-- no inverse, no continuity.  Losslessness alone kills the whole forward
+-- trajectory.
+------------------------------------------------------------------------
+
+open import Cubical.Foundations.Equiv using (isEquiv)
+
+module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
+
+  open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+    using (नष्ट-अभावे-गति-अभावः)
+
+  नष्टाभावे-कक्ष्या-एकपदा : isEquiv f → संरक्षणम् f Φ
+                          → (n : ℕ) (a : A) → कक्ष्या f Φ n a ≡ a
+  नष्टाभावे-कक्ष्या-एकपदा e cons zero    a = refl
+  नष्टाभावे-कक्ष्या-एकपदा e cons (suc n) a =
+    cong Φ (नष्टाभावे-कक्ष्या-एकपदा e cons n a) ∙ नष्ट-अभावे-गति-अभावः f Φ e cons a
