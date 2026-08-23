@@ -1214,3 +1214,20 @@ import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibre
 -- at total loss, projection-by-refl).  गण after the gaṇapāṭha: the class that
 -- behaves alike under the rule.  2026-08-22.
 import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
+
+-- कक्ष्या — the conserved quantity is constant along the WHOLE orbit, not
+-- across one step; no two stations of an orbit are separated by the
+-- observable; under losslessness the entire forward orbit collapses to its
+-- basepoint (movement 30's "frozen" as a term rather than a sentence); and
+-- the orbit lies in one fibre, which is what Dhruva §१ reads in prose.
+-- Closes the item Dhruva §४ names as open.  2026-08-23.
+import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
+
+-- अभिज्ञान — the two bindings of `f a ≡ b` priced against each other: the
+-- output-bound side contractible with no hypothesis, the input-bound side
+-- exhibited non-contractible, and then the sentence that needs both — the
+-- codomain does not determine losslessness, so an identification and an
+-- elision agree on the result and differ only in the fibre.  Which is why
+-- the instrument that separates them is a checker and not a reader.
+-- 2026-08-23.
+import Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre
