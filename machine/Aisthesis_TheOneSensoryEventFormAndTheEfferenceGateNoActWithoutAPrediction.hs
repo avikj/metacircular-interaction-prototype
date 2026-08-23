@@ -57,13 +57,22 @@
 -- copying the type here would be this file committing the exact defect its
 -- prototype event records.  Events append to machine/aisthesis.jsonl.
 
-{-# LANGUAGE LambdaCase #-}
-module Main (main) where
+module Aisthesis_TheOneSensoryEventFormAndTheEfferenceGateNoActWithoutAPrediction
+  ( Sarira(..), sariraJ, sariraP, parseHeartbeat
+  , Vailaksanya(..), vailaksanyaJ, sariraVailaksanya
+  , Aisthesis(..), aisthesisJ
+  , Nisedha(..), nisedhaJ
+  , anujna
+  , NavaIndriya(..), navaIndriya
+  , appendEvent
+  , main
+  ) where
 
 import Sabda_TheWireHasNoBoolean (J(..), render, parseLine)
-import Yantra_TheOrgansAreOneMachineOnOneWire (Pramanya(..))
+import Pramanya_TheFiveRoutesAndTheirWitnesses (Pramanya(..), pramanyaJ)
 import System.IO
-import Data.List (intercalate)
+import Data.Char (isDigit)
+import Data.List (intercalate, isPrefixOf)
 
 -- ============================================================ शरीरम्
 -- The body state an event speaks of: Jiva's heartbeat line, as a record.
@@ -158,13 +167,10 @@ data Aisthesis = Aisthesis
   , aKala        :: String          -- time, ISO, supplied by the caller
   }
 
-pramanyaJ' :: Pramanya -> J
-pramanyaJ' = \case
-  Pratyaksa w -> JObj [("marga", JStr "pratyaksa"), ("saksin", JStr w)]
-  Nihsesa n w -> JObj [("marga", JStr "nihsesa"), ("ganana", JInt (fromIntegral n)), ("saksin", JStr w)]
-  Ganita w    -> JObj [("marga", JStr "ganita"), ("saksin", JStr w)]
-  Kernel w    -> JObj [("marga", JStr "kernel"), ("saksin", JStr w)]
-  Ayogya w    -> JObj [("marga", JStr "ayogya"), ("saksin", JStr w)]
+-- the route serializer is Pramanya's own, imported: the first version of
+-- this file carried a local copy (pramanyaJ'), which was this organ
+-- committing its prototype's receipt-on-copy defect on the day it was
+-- born.  Extracting Pramanya from Yantra healed it.
 
 aisthesisJ :: Aisthesis -> J
 aisthesisJ a = JObj $
@@ -175,7 +181,7 @@ aisthesisJ a = JObj $
   ++ [ ("upalabdhi", aUpalabdhi a)
      , ("yogyata", JStr (aYogyata a))
      , ("vyapti", JStr (aVyapti a))
-     , ("pramanya", pramanyaJ' (aMarga a))
+     , ("pramanya", pramanyaJ (aMarga a))
      , ("sesa", JArr (map JStr (aSesa a))) ]
   ++ maybe [] (\s -> [("purva", sariraJ s)]) (aPurva a)
   ++ maybe [] (\s -> [("bhavi", sariraJ s)]) (aBhavi a)
@@ -248,6 +254,42 @@ navaIndriya n = case (niAndhaYugma n, niPrithak n) of
     "a blind pair is named but no separation witness: q may be h . S — a dashboard computed from the same transcript, useful compression, not perception"
     "exhibit q(x) # q(y) as a term or a written computation, or file the organ as a report, not a sense")
   (Just _, _) -> Right n
+
+-- ============================================================ the wire
+-- Jiva's published interface is its heartbeat line; this is its reader.
+-- "JIVA-HEARTBEAT nodes=632 edges=1337 priced=185 unpriced=1152 components=65"
+
+parseHeartbeat :: String -> Maybe Sarira
+parseHeartbeat ln
+  | "JIVA-HEARTBEAT" `isPrefixOf` dropWhile (== ' ') ln =
+      Sarira <$> f "nodes=" <*> f "edges=" <*> f "priced="
+             <*> f "unpriced=" <*> f "components="
+  | otherwise = Nothing
+  where
+    f key = case breakOn key ln of
+      Just rest -> case span isDigit rest of
+        (ds@(_:_), _) -> Just (read ds)
+        _             -> Nothing
+      Nothing -> Nothing
+    breakOn key s
+      | key `isPrefixOf` s = Just (drop (length key) s)
+      | null s             = Nothing
+      | otherwise          = breakOn key (tail s)
+
+-- | The gate stands between every event and the journal: an admitted event
+-- is appended as itself; a refused one is appended AS its refusal — pain is
+-- recorded, never swallowed.  Append-only, one J per line.
+appendEvent :: FilePath -> Aisthesis -> IO (Either Nisedha Aisthesis)
+appendEvent path a = do
+  let verdict = anujna a
+      ln = case verdict of
+             Left n   -> render (nisedhaJ n)
+             Right ev -> render (aisthesisJ ev)
+  h <- openFile path AppendMode
+  hSetEncoding h utf8
+  hPutStrLn h ln
+  hClose h
+  return verdict
 
 -- ============================================================ the replay
 -- The asNat incident as the two events it was, run through gate one.
