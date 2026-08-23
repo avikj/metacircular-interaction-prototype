@@ -15,21 +15,27 @@ jobs:
   export:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Agda 2.8.0 from official binary
-        uses: agda/agda-setup-action@v1
-        with:
-          agda-version: '2.8.0'
-
-      - name: Fetch cubical v0.9
+      - name: Fetch official Agda 2.8.0 binary and cubical v0.9
         shell: bash
         run: |
           set -euo pipefail
+          curl --fail --location --retry 5 \
+            https://github.com/agda/agda/releases/download/v2.8.0/Agda-v2.8.0-linux.tar.xz \
+            --output agda.tar.xz
+          printf '%s  %s\n' \
+            824081b8dcbe431289a50ac6bd83e451f390c51c3884ac7a8c4a5c0df2632faf \
+            agda.tar.xz | sha256sum --check
+          tar -xf agda.tar.xz
+          chmod +x agda
+          ./agda --version
+          ./agda --setup
+
           git clone --depth 1 --branch v0.9 https://github.com/agda/cubical.git cubical-v0.9
           mkdir -p export/bin export/lib
-          cp "$(command -v agda)" export/bin/agda
+          cp agda export/bin/agda
           cp -a cubical-v0.9 export/lib/cubical-v0.9
           sha256sum export/bin/agda > export/SHA256SUMS
-          printf 'Agda: %s\n' "$(agda --version)" > export/VERSIONS
+          printf 'Agda: %s\n' "$(./agda --version)" > export/VERSIONS
           printf 'Cubical tag: v0.9\n' >> export/VERSIONS
 
       - name: Upload toolchain
