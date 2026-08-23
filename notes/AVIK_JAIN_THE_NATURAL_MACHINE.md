@@ -696,3 +696,33 @@ So the repository is not converging on a richer vocabulary for saying **no**. It
 The point is not maximal taxonomy. It is to stop negative evidence from expanding when it crosses an interface.
 
 Before the machine says no, it has to say **to what, by what looking, and with what right**.
+
+---
+
+One sentence immediately above is already stale. The current `Nikasa_TheTouchstoneCollapsesTheTwentyTwoCircuitsToSevenGenuineHolonomyQuestions.md` keeps its old title and older seven-question prose, but its later in-file correction goes further than the biography paragraph did. After the remaining definitions were read, all twenty-two circuits were classified at the prose level: circuit 1 is charged and already has its checked `not`; circuit 18 is a contentful null route whose equality still owes one kernel term; the other twenty circuits are null by construction, including 10 and 11. The three-item “current queue” above is therefore superseded. The live residue is one already-checked charge and one owed coherence proof, not three open route-agreement questions. The stale sentence is kept here only with this arrow to its correction.
+
+The next correction is about **existence, uniqueness, and the witness**.
+
+`Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda` cuts a fibre by h-level. Its top grade is `isContr`: an inhabitant exists and every inhabitant is equal to it. Its middle grade is `isProp`: any two inhabitants are equal, but there may be no inhabitant at all. The crowded grade is the failure of propositionhood. The middle statement is therefore not “there is one answer.” It is **there is at most one answer**. If a witness appears, comparison among competing witnesses is already discharged. Nothing in that fact supplies the witness, decides that one exists, proves termination, or turns the search into an algorithm. The file says that boundary explicitly.
+
+That cut is not the empty/single/crowded census in finer clothing. An empty fibre is a proposition. A contractible fibre is also a proposition. So `isProp` crosses the census boundary by joining two populations that the census keeps apart. The repository has two legitimate questions here: **how many inhabitants can this fibre have?** and **what h-level does the fibre inhabit?** Neither answer can be silently promoted into the other.
+
+`Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne.agda` gives the distinction arithmetic teeth. Exact division is carried as quotient together with the equation witnessing that the quotient is exact. The corresponding fibre is propositional but not generally inhabited: division by the chosen divisor is partial, and the inhabitant is exactly the divisibility evidence. The file supplies six concrete inhabitants in the D = 61 cakravāla trace and checks those divisions; it does not prove that arbitrary requested exact divisions exist, and it does not prove termination of the wheel. The neighboring `Vargaprakrtitantu_...` correction makes the contrast explicit: the kṣepa attached to a pair is contractible because every pair determines one, while an exact divisor can be unique if present and still absent.
+
+`TritiyaMarga_TheWrittenDefectCostsMarkovsPrinciple.agda` separates a negative statement from an address at which it fails. A written defect is actual data, `Σ b , ¬ isContr (fiber f b)`: the bad codomain point travels with the proof that its fibre is bad. From that data one can refute `isEquiv f`. The converse is constructively stronger because a bare `¬ isEquiv f` does not hand over the offending `b`. The file proves that a uniform extractor of such a written site would imply Markov's Principle; it does **not** prove the converse for that statement. So “I know the map is not an equivalence” and “here is the fibre where it fails” remain different receipts.
+
+`notes/Ekam_TheVerdictTheDatatypeCannotSayIsTheLatentFordStratumAndTwoOrgansNeverMet.md` catches the same loss in an instrument. The surrounding machine prose names three fibre outcomes—empty, one, many—but the result datatype in the lane it inspects has constructors for `Bahu`, `Riktam`, `Degenerate`, and `Undecided`; there is no `Ekam`. A contractible-fibre case can therefore be mathematically determined while the instrument has no positive constructor with which to say so. The note conjectures that such hidden cases currently exist in the corpus; it does not establish their count or even their present existence by a full census. The proved point is the missing expressive state, not the conjectured population behind it.
+
+The live repository changed again after the hundred-file sample and supplied a particularly clean operational instance. `NaturalMachine.HaskellDiscoveryBoundary.agda` had frozen four generated identities as the bridge between the Haskell explorer and Agda. The explorer began emitting eight. The bridge broke rather than treating “the search produced it” as certification. New soundness terms were then supplied before the larger manifest could pass. The per-row proof routes matter: the added clauses use `+-zero`, `+-comm`, and `cong suc (+-comm ...)` where computation by `refl` is not enough. Generation produced candidates; certification required witnesses in the proof language.
+
+The correction prose in that same live file says “three of four” new identities are non-definitional, but the clauses it adds mark all four new rows as non-`refl`: `sound-1` and `sound-2` use `+-zero`, `sound-4` uses `+-comm`, and `sound-6` uses `cong suc (+-comm ...)`. The safe fact is therefore the row-by-row proof route, not the prose scalar. Even a correction can over-compress its own evidence.
+
+These are not one hierarchy. H-level, inhabitant census, exact-division witness, written defect location, result-datatype expressivity, generated candidate, and certified theorem are different objects. The convergence is only a prohibition against throwing away the missing datum and then talking as though it had been supplied.
+
+**At most one is not one.**
+
+A refutation is not a defect site.
+
+A generated equation is not its proof.
+
+When existence is the work, the inhabitant has to survive as an inhabitant.
