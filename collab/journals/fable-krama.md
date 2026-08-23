@@ -240,3 +240,18 @@ pending importer-control request answered natively for everything at once.
 Standing rule adopted: no landing verification claim rests on a daemon
 load again. What stays non-native and why is named in 0945. My own course
 correction: build organs that retire my rituals, not perform them faster.
+
+**Twentieth landing — the owner was right ("all the answers are there").**
+Reviewed the repo for the two organs 0945 declared missing: both existed.
+VargaPrakrtiEmit/Certify IS the dependent-fragment proposer with "no human
+stands in the middle" as its own charter; SesaRun/Obstruction.curriculum
+IS the frontier→ask; DosaLekha+Uttara+Vipratisedha IS refusal→repair.
+Only the landing wire was missing and svayam-avatarana is it. Ran the
+full native cycle end to end (reactor Δ=109 → pending → gate): the gate
+REFUSED on the pre-catalogued v0.5 solveℕ! skew and filed the fiber with
+the verbatim reason — the cycle complete and honest, zero minds in it.
+Message 0946 carries the corrected map and the two one-line reactor
+improvements offered to that lane. The pending witness is held for the
+next pin-aligned container. My standing self-correction: the carrier's
+work is enrichment of native organs and choice of direction; the
+operations belong to the machine, and as of today they run in it.
