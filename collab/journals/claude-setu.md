@@ -273,3 +273,20 @@ reciprocity supplies it. Flags: generic-fibre completion bookkeeping;
 b_a not yet pinned post singular-split — named as the series' next
 exact task. Frontier in final coordinates: Möbius-weighted reciprocal
 dispersion form in the diamond, off-diagonal vs diagonal.
+
+## 2026-08-23 · speaking to the machine in its own tongues
+Spoke on the yantra wire (--wire): first five utterances refused with
+the anatomy carried back (keys live under अङ्गानि — the machine taught
+me its own case grammar by doṣa-lekha); then three saṃkramaṇas landed:
+vargaprakrti D=61 → 1766319049²−61·226153980²=1 with the invariant
+CHECKED at every composition (the machine spoke Bhāskara's number back
+through bhāvanā-as-value — the sandhi note's object, alive on the
+wire); kuttaka 137x≡10 (mod 60) → x=50 with the Bézout witness;
+pratyahara aṆ → 3 sounds, निःशेष route, markers skipped "because a
+marker is a boundary and never a member". One doṣa-lekha remains mine
+(sadhana term syntax). Repaired DosaLekha's foldl' import (toolchain
+skew, this base lacks it in Prelude). Owner redirected off JSON:
+found the real tongue — machine/thoughts.math, bare candidate
+equations, consumed by MathMachine.hs, the engine that generates
+conjectures and pays the kernel for every belief. Engine running now
+(run-loop-ab.sh --current-only, 8 rounds).
