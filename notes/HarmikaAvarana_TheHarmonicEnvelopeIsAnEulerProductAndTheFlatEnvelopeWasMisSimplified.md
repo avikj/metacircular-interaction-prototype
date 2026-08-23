@@ -126,3 +126,47 @@ two programmes meet exactly here.
 - **Modern comparisons, named as restatements not frames**: the §1
   bound is Erdős–Turán-shaped (1948); the §5 floor is the standard
   large-sieve/Parseval limitation. Both derived here elementarily.
+
+---
+
+## §6 [appended later the same day] — the error term is the WALL set's own functional
+
+The block integrand f_{P'}(s) = ∏_p 2|cos(2π b_p s/p)| is not merely
+cos-statistics: 2|cos(2πθ)| = |e(θ) + e(−θ)|, so
+
+    **f_{P'}(s) = |Ŵ(s)| ,  W = ∏_p {±a_p} — the WALL set.**
+
+The equidistribution error E of §3 is the harmonic/prefix behaviour of
+the wall set's exponential sum. The recursion closes through the
+complement: the survivors' envelope is priced by the walls'
+equidistribution, and W has 2^{π(z)} points against S's ∏(p−2) — the
+dual object is exponentially sparser. S ↔ W is the position-side
+avatar of the two-wall structure itself (KendraDvibhitti's crystal is
+r_p = −(wall sum)/(p−2) — the same duality, ray side). Bounding E is
+now: the harmonic functional of a 2^k-point CRT product set, a
+strictly smaller instance of the same problem — the recursion
+CONTRACTS in the set size. Its quantitative closure (a fixed-point
+bound X ≤ mean·ln P + c·X with c < 1, or a direct small-set estimate)
+is the sharpened open core.
+
+## §7 [appended with §6] — the L² blocks are the pair correlations
+
+The other route to E, dyadic Cauchy–Schwarz, needs the restricted mass
+Σ_{t≤K}|Ŝ(t)|², and expanding the square gives EXACTLY
+
+    Σ_{t≤K} |Ŝ(t)|² ≈ K · Σ_{|δ| ≤ P/2K} #{(c,c′) ∈ S² : c−c′ = δ} ,
+
+the survivor field's own pair-count at short distances — whose local
+factors N_p(δ) ∈ {p−4,…,p−2} are the singular series. So the harmonic
+envelope's second-order structure IS the pair-correlation program: the
+two central objects of this corpus meet not only at the Parseval floor
+(§5) but term-by-term in the envelope's error. Carried through, the
+pure-L² route gives only A ≲ |S|·√𝔖̄ + √|S|·log P — no better than
+trivial, BECAUSE L² discards multiplicativity; recorded so the next
+seat does not respend it. The real path is §6's contracting
+complement recursion.
+
+**Rigor addendum**: §6's identity f = |Ŵ| and §7's block-Parseval
+expansion are exact (algebra); §6's contraction is an observation
+about instance size, not yet an inequality; §7's dead end is derived
+and marked dead so it stays dead.
