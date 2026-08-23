@@ -59,3 +59,250 @@ scripts/Ratri_TheOvernightLoopThatLandsWhatTheKernelAcceptsAndIteratesToDry.sh: 
   scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
   scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
   scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  ── kernel verdicts ────────────────────────────────────────
+  एकम्	NaturalMachine.FiniteOccupancyChannelNoGo.asNat	शेष	GREEN	rc=0
+  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	GREEN	rc=0
+  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	GREEN	rc=0
+  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	DEATH	rc=42 :: Checking AbhijnanaProbes.P004 (/home/user/math/formal/cubical/AbhijnanaProbes/P004.agda).  Checking NaturalMachine.ParitySeparator (/home/user/math/formal/cubical/NaturalMachine/ParitySeparator.agda).  Checking NaturalMa
+  एकम्	PingalaPrastara.matraOf	Metre	GREEN	rc=0
+  एकम्	PingalaPrastara.varna	Chosen	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	PingalaPrastara.varna	Vak	GREEN	rc=0
+  एकम्	NaturalMachine.TypedUnfold.denote	Lang	SKIP	the written fibre takes 4 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.Digits.value	Fib	DEATH	rc=42 :: Checking AbhijnanaProbes.P009 (/home/user/math/formal/cubical/AbhijnanaProbes/P009.agda).  Checking NaturalMachine.Digits (/home/user/math/formal/cubical/NaturalMachine/Digits.agda).  Checking Swarm.S03CarryFiber (/home/
+  एकम्	Swarm.S03CarryFiber.value	Fib	GREEN	rc=0
+  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P011 (/home/user/math/formal/cubical/AbhijnanaProbes/P011.agda).  Checking NaturalMachine.ChargeGradedPeeling (/home/user/math/formal/cubical/NaturalMachine/ChargeGradedPeeling.agda).   Checking
+  एकम्	NaturalMachine.SieveFiber.charge	G	DEATH	rc=42 :: Checking AbhijnanaProbes.P012 (/home/user/math/formal/cubical/AbhijnanaProbes/P012.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P012.agda:17,11-15 M.charge x ≡ b != Σ (x M.∈ M.domain) (λ _ → M.charge x �
+  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	DEATH	rc=42 :: Checking AbhijnanaProbes.P013 (/home/user/math/formal/cubical/AbhijnanaProbes/P013.agda).  Checking NaturalMachine.SieveScaleTower (/home/user/math/formal/cubical/NaturalMachine/SieveScaleTower.agda).   Checking NaturalM
+  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P014 (/home/user/math/formal/cubical/AbhijnanaProbes/P014.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P014.agda:17,11-15 F.o₂ x ≡ b !=
+  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	DEATH	rc=42 :: Checking AbhijnanaProbes.P015 (/home/user/math/formal/cubical/AbhijnanaProbes/P015.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P015.agda:17,11-15 F.o₃ x ≡ b !=
+  एकम्	NaturalMachine.SieveFiber.q	Fibre	DEATH	rc=42 :: Checking AbhijnanaProbes.P016 (/home/user/math/formal/cubical/AbhijnanaProbes/P016.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P016.agda:17,11-15 F.q x ≡ b != Σ (x F.∈ F.domain) (λ _ → F.q x ≡ b) of t
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	DEATH	rc=42 :: Checking AbhijnanaProbes.P019 (/home/user/math/formal/cubical/AbhijnanaProbes/P019.agda).  Checking NaturalMachine.ChargePolynomialFinite (/home/user/math/formal/cubical/NaturalMachine/ChargePolynomialFinite.agda).  Chec
+  
+  probed 19 · GREEN 6 · DEATH 9 · SKIP 4
+  योग्यता: 15 posed and answered, 4 could not be posed.
+  
+  A GREEN is a definitional identity the corpus already carried.
+  A DEATH is a lead the join could not tell apart from a hit, and
+  that number is the one that decides whether this runs on all 249
+  source types.  Probes are left in formal/cubical/AbhijnanaProbes for reading.
+  
+  A source-type match is a LEAD, not a verdict: the first lead ever
+  checked FAILED, because लघु-सङ्ख्या counts laghus while matraOf sums
+  morae -- same types, different maps.  Only the kernel decides.
+
+=========== रात्रिः pass 2026-08-23T08:00:40Z  HEAD 7f9140f1
+  अनाथः machine/: 
+  machine/ is RED — landing nothing this pass, by design.
+  dry pass 1/2
+
+  ── तृतीयो नयः: अभिज्ञान ─────────────────────────────────────
+  
+  अभिज्ञान — does this fibre already have a name here?
+  ──────────────────────────────────────────────────────────
+  undecided edges on road two   : 1152
+  fibre rows already written out: 266
+  सङ्ख्या एकम्  (one candidate)   : 19
+  सङ्ख्या बहु   (many candidates) : 10442
+  
+  LEAD  एकम्	NaturalMachine.FiniteOccupancyChannelNoGo.asNat	शेष	formal/cubical/GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge.agda
+  LEAD  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	formal/cubical/NaturalMachine/ChenTwoChargeProjector.agda
+  LEAD  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	formal/cubical/NaturalMachine/DependentOptimizationFibration.agda
+  LEAD  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	formal/cubical/NaturalMachine/OracleSeparation.agda
+  LEAD  एकम्	PingalaPrastara.matraOf	Metre	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	PingalaPrastara.varna	Chosen	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	PingalaPrastara.varna	Vak	formal/cubical/PingalaPrastara.agda
+  LEAD  एकम्	NaturalMachine.TypedUnfold.denote	Lang	formal/cubical/NaturalMachine/TypedUnfold.agda
+  LEAD  एकम्	NaturalMachine.Digits.value	Fib	formal/cubical/Swarm/S03CarryFiber.agda
+  LEAD  एकम्	Swarm.S03CarryFiber.value	Fib	formal/cubical/Swarm/S03CarryFiber.agda
+  LEAD  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	formal/cubical/NaturalMachine/ChargeGradedPeeling.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.charge	G	formal/cubical/NaturalMachine/ChargeGradedPeeling.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	formal/cubical/NaturalMachine/SieveScaleTower.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	Fibre	formal/cubical/NaturalMachine/SieveFiber.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	म	formal/cubical/Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands.agda
+  LEAD  एकम्	NaturalMachine.SieveFiber.q	म	formal/cubical/Gurutama.agda
+  LEAD  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	formal/cubical/NaturalMachine/SpernerFromSl2.agda
+  
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: fiber: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  scripts/Abhijnana_TheFibreIsRecognisedByTheNameItAlreadyCarries.sh: 1: …: not found
+  ── kernel verdicts ────────────────────────────────────────
+  एकम्	NaturalMachine.FiniteOccupancyChannelNoGo.asNat	शेष	GREEN	rc=0
+  एकम्	NaturalMachine.ChenTwoChargeProjector.chargeOneProjector	chargeOneFiber	GREEN	rc=0
+  एकम्	NaturalMachine.DependentOptimizationFibration.semantics	SemanticFiber	GREEN	rc=0
+  एकम्	NaturalMachine.ParitySeparator.Ω	EvenQuery	DEATH	rc=42 :: Checking AbhijnanaProbes.P004 (/home/user/math/formal/cubical/AbhijnanaProbes/P004.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P004.agda:16,16-20 Bool !=< ℕ
+  एकम्	PingalaPrastara.matraOf	Metre	GREEN	rc=0
+  एकम्	PingalaPrastara.varna	Chosen	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	PingalaPrastara.varna	Vak	GREEN	rc=0
+  एकम्	NaturalMachine.TypedUnfold.denote	Lang	SKIP	the written fibre takes 4 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.Digits.value	Fib	DEATH	rc=42 :: Checking AbhijnanaProbes.P009 (/home/user/math/formal/cubical/AbhijnanaProbes/P009.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P009.agda:16,21-28 Cannot instantiate the metavariable _B_8 to solution (M.Word k �
+  एकम्	Swarm.S03CarryFiber.value	Fib	GREEN	rc=0
+  एकम्	NaturalMachine.ChargeGradedPeeling.big	G₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P011 (/home/user/math/formal/cubical/AbhijnanaProbes/P011.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P011.agda:17,11-15 F.big x ≡ b !=
+  एकम्	NaturalMachine.SieveFiber.charge	G	DEATH	rc=42 :: Checking AbhijnanaProbes.P012 (/home/user/math/formal/cubical/AbhijnanaProbes/P012.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P012.agda:17,11-15 M.charge x ≡ b != Σ (x M.∈ M.domain) (λ _ → M.charge x �
+  एकम्	NaturalMachine.SieveScaleTower.o₁	Fibre₁	DEATH	rc=42 :: Checking AbhijnanaProbes.P013 (/home/user/math/formal/cubical/AbhijnanaProbes/P013.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P013.agda:17,11-15 F.o₁ x ≡ b !=
+  एकम्	NaturalMachine.SieveScaleTower.o₂	Fibre₂	DEATH	rc=42 :: Checking AbhijnanaProbes.P014 (/home/user/math/formal/cubical/AbhijnanaProbes/P014.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P014.agda:17,11-15 F.o₂ x ≡ b !=
+  एकम्	NaturalMachine.SieveScaleTower.o₃	Fibre₃	DEATH	rc=42 :: Checking AbhijnanaProbes.P015 (/home/user/math/formal/cubical/AbhijnanaProbes/P015.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P015.agda:17,11-15 F.o₃ x ≡ b !=
+  एकम्	NaturalMachine.SieveFiber.q	Fibre	DEATH	rc=42 :: Checking AbhijnanaProbes.P016 (/home/user/math/formal/cubical/AbhijnanaProbes/P016.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P016.agda:17,11-15 F.q x ≡ b != Σ (x F.∈ F.domain) (λ _ → F.q x ≡ b) of t
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.SieveFiber.q	म	SKIP	the written fibre takes 2 indices; a joint fibre is not  without Σ-reassociation (see छन्दोमुद्रा §३)
+  एकम्	NaturalMachine.ChargePolynomialFinite.κ	Div	DEATH	rc=42 :: Checking AbhijnanaProbes.P019 (/home/user/math/formal/cubical/AbhijnanaProbes/P019.agda). /home/user/math/formal/cubical/AbhijnanaProbes/P019.agda:16,35-36 (ℕ → ℤ) !=< ℕ
+  
+  probed 19 · GREEN 6 · DEATH 9 · SKIP 4
+  योग्यता: 15 posed and answered, 4 could not be posed.
+  
+  A GREEN is a definitional identity the corpus already carried.
+  A DEATH is a lead the join could not tell apart from a hit, and
+  that number is the one that decides whether this runs on all 249
+  source types.  Probes are left in formal/cubical/AbhijnanaProbes for reading.
+  
+  A source-type match is a LEAD, not a verdict: the first lead ever
+  checked FAILED, because लघु-सङ्ख्या counts laghus while matraOf sums
+  morae -- same types, different maps.  Only the kernel decides.
+
+=========== रात्रिः pass 2026-08-23T08:02:01Z  HEAD f4a20194
+  merged 1 from origin
+  अनाथः machine/: 
+  machine/ is RED — landing nothing this pass, by design.
+  dry pass 2/2
+  DRY UNDER RECOGNITION AND निर्धारण: 2 consecutive passes
+  landed nothing.  निर्धारण reaches only records that already carry a
+  witness, so this says those two questions are exhausted and says
+  nothing whatever about the corpus.  Asking the constructive one.
+
+  ── द्वितीयो नयः: अनुलोम-प्रतिलोम ──────────────────────────────
+  modules scanned      : 1023
+  top-level arrows     : 1144
+  candidate pairs      : 45
+  probes emitted       : 45
+  …already proved in host: 14  (the host module already carries the Iso or the ≃)
+
+
+  A probe is a PROPOSAL, never a finding.  The counts above are
+  proposals.  Only `--check` puts them to the kernel, and only the
+  kernel's acceptance is a result.
+
+  ── putting each probe to the kernel ─────────────────────────
+  content addresses from नाम: 13174
+  ledger rows carried in    : 45
+  OPEN   AchromaticToy : from₁₂ ⇄ to₁₂   [मम दोषः · module path]
+  OPEN   AchromaticToy : to₁₂ ⇄ to₂₁   [मम दोषः · module path]
+  OPEN   CenterRelative : Φ ⇄ Ψ   [मम दोषः · module path]
+  OPEN   IntegerHullMultiplicity : hull ⇄ ones   [मम दोषः · module path]
+  CACHED IntegerHullMultiplicity : SQ ⇄ hull   [खण्डितम् · x ≢ suc7 x — ℕ has no such fixpoint]
+  CACHED IntegerHullMultiplicity : N ⇄ hull   [खण्डितम् · x ≢ suc5 x — ℕ has no such fixpoint]
+  CACHED IntegerHullMultiplicity : Qs ⇄ hull   [induction on List]
+  CACHED IntegerHullMultiplicity : Xs ⇄ hull   [induction on List]
+  OPEN   IntegerHullMultiplicity : K ⇄ hull   [मम दोषः · module path]
+  OPEN   NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple   [मम दोषः · module path]
+  CACHED NaturalMachine.ChargeTwoHistories : relative ⇄ sign   [library lemma on ℤ]
+  CACHED NaturalMachine.ChargeTwoHistories : augment ⇄ sign   [library lemma on ℤ]
+  OPEN   NaturalMachine.DSONucleusMiddleProduct : Nstar ⇄ Nsub   [मम दोषः · module path]
+  OPEN   NaturalMachine.Digits : digitsC ⇄ valueC   [मम दोषः · module path]
+  CACHED NaturalMachine.Digits : digits ⇄ value   [मम दोषः · statement ill-typed · indexed family]
+  OPEN   NaturalMachine.FreeMonoid : len ⇄ unlen   [मम दोषः · module path]
+  OPEN   NaturalMachine.HaskellGenericSyntaxAdapter : fromGeneric ⇄ toGeneric   [मम दोषः · module path]
+  CACHED NaturalMachine.InflationVersusSubgroup : infl ⇄ res   [host type · H4]
+  CACHED NaturalMachine.InflationVersusSubgroup : incl ⇄ proj   [host enumeration (emitter gap)]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ sthula   [host enumeration (emitter gap)]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ bhrama   [मम दोषः · split incomplete]
+  CACHED NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ nyasa   [मम दोषः · split incomplete]
+  OPEN   NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge   [मम दोषः · module path]
+  CACHED NaturalMachine.PMTorus : finToVertex ⇄ vertexToFin   [मम दोषः · module path]
+  OPEN   NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge   [मम दोषः · module path]
+  CACHED NaturalMachine.PMTorus : ctxToVertex ⇄ vertexToCtx   [मम दोषः · module path]
+  OPEN   NaturalMachine.PauliGaugeCocycleSplit : central ⇄ phase   [मम दोषः · module path]
+  OPEN   NaturalMachine.RawWordPaddingNormalForm : paddingCount ⇄ zeroRun   [मम दोषः · module path]
+  OPEN   NaturalMachine.RawWordPaddingNormalForm : join ⇄ split   [मम दोषः · module path]
+  OPEN   NaturalMachine.S3IntegerRelativeCoordinates : intersectionToKernel ⇄ kernelToIntersection   [मम दोषः · module path]
+  OPEN   NaturalMachine.S3IntegerRelativeCoordinates : relativeCoordinates ⇄ relativeFromCoordinates   [मम दोषः · module path]
+  OPEN   NaturalMachine.SieveFiber : q ⇄ σ   [मम दोषः · module path]
+  OPEN   NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁   [मम दोषः · module path]
+  OPEN   NaturalMachine.SieveScaleTower : s₃₂ ⇄ π₃₂   [मम दोषः · module path]
+  OPEN   NaturalMachine.SmithPathCountedExecution : colsOf ⇄ fromCols   [मम दोषः · module path]
+  OPEN   NaturalMachine.SmithPathCountedExecution : entriesOf ⇄ fromNine   [मम दोषः · module path]
+  CACHED NaturalMachine.TermFreeMonoid : fromList ⇄ toList   [host type · NaturalMachine.Obstruction.Tm]
+  OPEN   PingalaPrastara : allLaghu ⇄ uddista   [मम दोषः · module path]
+  CACHED PingalaPrastara : aksara ⇄ parity   [induction on ℕ]
+  OPEN   ProjectionChargeAudit : decode ⇄ encode   [मम दोषः · module path]
+  OPEN   Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees : fromTuple ⇄ toTuple   [मम दोषः · module path]
+  OPEN   SamaVisama_TheCountSplitsByParityIntoTwoCopiesOfItselfAndEachNayaIsTheWhole : merge ⇄ split   [मम दोषः · module path]
+  OPEN   SaptabhangiNaya : code' ⇄ decode   [मम दोषः · module path]
+  CACHED Swarm.S13OptionSpread : ones ⇄ sum   [induction on List]
+  OPEN   WallCertificate : classOf ⇄ visible   [मम दोषः · module path]
+  निवृत्त  28 superseded row(s) retired to notes/anuloma/NirnayaPanjika.nivrtta.tsv  (kept, not deleted)
+
+  ── the histogram: WHAT KIND of obligation is blocking ───────
+  proposed 45 · accepted 0 · open 45  (of which 33 mine, 2 refuted, 10 real obligations)
+  of the accepted, 0 restate an Iso the host module already carries.
+  NEW EDGES THIS PASS: 0
+  of all proposals, 14 have their Iso or ≃ already standing in the host.
+
+  MY OWN DEFECTS (not the corpus's obligations):
+    मम दोषः · module path             30
+    मम दोषः · split incomplete        2
+    मम दोषः · statement ill-typed · indexed family 1
+
+  खण्डितम् — THE KERNEL DISPROVED THE PAIR (not work, and not a
+  statement about the TYPES: only this pair of maps is refuted):
+    IntegerHullMultiplicity : SQ ⇄ hull
+        खण्डितम् · x ≢ suc7 x — ℕ has no such fixpoint
+    IntegerHullMultiplicity : N ⇄ hull
+        खण्डितम् · x ≢ suc5 x — ℕ has no such fixpoint
+
+  THE MOVE EACH REMAINING OPEN PAIR IS BLOCKED ON:
+    induction on List                 3
+    host enumeration (emitter gap)    2
+    library lemma on ℤ                2
+    host type · H4                    1
+    host type · NaturalMachine.Obstruction.Tm 1
+    induction on ℕ                    1
+
+  3 of 10 open pairs are blocked on the SAME move — «induction on List».  That names the emitter to write next.
+
+साध्य: 45 open, 12 real obligations, 33 of the instrument's own → notes/SADHYA_OPEN_OBLIGATIONS.md
+  notes/SADHYA_OPEN_OBLIGATIONS.md is regenerated every pass -- the queue
+  a prover reads in the morning, grouped by the MOVE each obligation
+  needs, because ten blocked on one move are ONE piece of work.
+  Ledger: notes/anuloma/NirnayaPanjika.tsv — a pass now costs only what
+  CHANGED, keyed on नाम's content addresses and the probe's own digest.
+  Watching at 1800s for work other seats push.
