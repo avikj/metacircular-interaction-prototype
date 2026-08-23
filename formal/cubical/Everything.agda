@@ -1755,3 +1755,10 @@ import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
 -- Yamala holds the general machinery, this holds the unconditional
 -- instance and the sign.  Algebra complete; scale induction named, not built.
 import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative
+
+-- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
+-- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
+-- relation ≺ demands both the factoring and the refutation as data, one
+-- witnessed blind pair upgrades conservation to S ≺ ⟨S,q⟩ through
+-- ApurvaIndriyam's अपूर्वम् verbatim, and no eye strictly refines itself.
+import SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinctionAndSeparatesAWitnessedNewOne

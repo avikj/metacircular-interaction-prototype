@@ -195,3 +195,20 @@ amplitude to empty a cone. §5 states the H¹ construction task exactly,
 with the identified gap: finite-chart ∩ cone overlaps are not always
 full, and which ones fail IS the content. Derivable parts derived;
 nothing measured; runner seed named, not run.
+
+## 2026-08-23 · U0023 and the growth theorem
+Third transmission preserved as U0023 (condensation, labeled). Found the
+novelty half already checked (ApurvaIndriyam, another seat's landing —
+one blind pair refutes every factoring, no truncation, factoring is
+data). Built the missing conservation half per U0023:
+SamraksanaVrddhi_TheNewEyeKeepsEveryOldDistinction… — युगपत् ⟨S,q⟩ with
+both projections refl-factorings, S ≺ S' as (factoring × refutation)
+data, वृद्धिः: one witnessed blind pair gives S ≺ ⟨S,q⟩ reusing अपूर्वम्
+verbatim (the two halves ARE one construction), and अ-स्वातिक्रमः: no
+eye strictly refines itself — growth cannot be faked by re-reading.
+Kernel exit 0, wired. Not claimed: temporary-vs-permanent (attention vs
+organogenesis) — no type here carries time; cited.
+Open from U0023, in order: Parallax between the two Aisthesis
+implementations (mine and the Pramanya-importing one — a living
+binocular pair, compare by adapters not merge by taste); the Sarira
+tower; transformation-level efference; Synaisthesis; the comb.
