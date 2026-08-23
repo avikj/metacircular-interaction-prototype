@@ -334,3 +334,17 @@ Sharpest consequence, stated in the note: every attack on the diamond
 inherits shell-rationality for free — the enemy is never
 irrationality, only sign alignment. The crystal ball is the exact
 computation; the philosopher's stone is the trace.
+
+## 2026-08-23 · alchemy — the morning offer performed, and the conjecture refuted by the repair
+Performed the Ekam repair in Lopa (the offer stood since morning; the
+owner's standing instruction is act, not offer): Ekam constructor added,
+R5 (both banks contractible ⇒ every map an equivalence ⇒ एकम्
+type-forced — the ONLY such type shape for an unknown map, stated at
+the rule). Census reran clean, exit 0 — and R5 fired ZERO times: my own
+morning conjecture (type-forced एकम् edges exist today) is FALSE, struck
+in the note with the measurement. The instrument claim stands and is
+repaired; the true latent-ford stratum is reachable only through
+definitions — Tapas's job, named at the rule site. Refuting my own
+claim by performing my own repair: the most respected act, done to
+myself. transmutation: durnaya-in-a-datatype → honest three-verdict
+instrument + a measured boundary of what censuses can ever see.

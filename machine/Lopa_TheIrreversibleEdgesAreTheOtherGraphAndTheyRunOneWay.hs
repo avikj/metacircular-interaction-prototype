@@ -568,18 +568,31 @@ data Lopa = Lopa
   , lKind :: String
   } deriving Show
 
-data Verdict = Bahu String | Riktam String | Degenerate String | Undecided
+-- [2026-08-23, repair performed per
+-- notes/Ekam_TheVerdictTheDatatypeCannotSayIsTheLatentFordStratumAndTwoOrgansNeverMet.md:
+-- the header above quotes Avaccheda's THREE verdicts and Saptabhangi's
+-- theorem that a two-valued verdict on three seeds must identify two of
+-- them — and this datatype then omitted एकम्, committing in its own type
+-- the exact collapse it cites the theorem against.  The constructor is
+-- added; the deciding rule (R5 below) is as restrained as R1–R4: only
+-- type-forced cases, everything else stays UNDECIDED.  An एकम्-everywhere
+-- edge is a LATENT FORD — one-way in fact, two-way in principle
+-- (contractible fibres ⇒ equivalence, PunaragamanaVartula:93) — and is
+-- printed in a form AnulomaPratiloma's round-trip ask can consume.]
+data Verdict = Bahu String | Riktam String | Ekam String | Degenerate String | Undecided
   deriving (Eq, Show)
 
 verdictTag :: Verdict -> String
 verdictTag (Bahu _)       = "बहु"
 verdictTag (Riktam _)     = "रिक्तम्"
+verdictTag (Ekam _)       = "एकम्"
 verdictTag (Degenerate _) = "degenerate"
 verdictTag Undecided      = "UNDECIDED"
 
 verdictWhy :: Verdict -> String
 verdictWhy (Bahu w)       = w
 verdictWhy (Riktam w)     = w
+verdictWhy (Ekam w)       = w
 verdictWhy (Degenerate w) = w
 verdictWhy Undecided      = "the type expression does not force a verdict"
 
@@ -595,11 +608,19 @@ contractibleTargets = ["Unit","⊤","Unit*","Lift"]
 headOf :: String -> String
 headOf e = case tokens (unparen e) of (h:_) -> h; [] -> ""
 
--- The four deciding rules of the header, and nothing else decides.
+-- The deciding rules of the header, and nothing else decides.
+-- R5 (2026-08-23): source AND target both contractible forces every fibre
+-- contractible — the map is an equivalence whatever it is, so the verdict
+-- एकम् is type-forced.  This is the ONLY type expression that forces एकम्
+-- for an unknown map (every map A → B is an equivalence iff A and B are
+-- both contractible), which is why the rule is this narrow; wider एकम्
+-- verdicts need the map's definition, which is Tapas's job, not a census's.
 grade :: String -> String -> Verdict
 grade rawS rawT
   | headOf rawT == "⊥"                    = Degenerate "target ⊥: no b, so no fibre to grade"
   | headOf rawS == "⊥"                    = Riktam "source ⊥: every fibre is empty"
+  | headOf rawS `elem` contractibleTargets
+  , headOf rawT `elem` contractibleTargets = Ekam ("R5 · source and target both contractible: every map between them is an equivalence, every fibre एकम् — a latent ford, invertible in principle; probe shape: isoToEquiv on the round trip")
   | headOf rawT `elem` contractibleTargets
   , headOf rawS `elem` multiElementSets   = Bahu ("R1 · fibre is " ++ trim rawS
                                                   ++ ", a set with two provably distinct elements")

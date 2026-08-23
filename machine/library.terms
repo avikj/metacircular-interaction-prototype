@@ -185,3 +185,7 @@ le(+(x,y),+(z,y))	le(x,z)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|voca
 0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 c0(x)	-(+(y,c0(x)),y)	pramana=anumana|naya=induction on y, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
+le(+(x,y),+(z,y))	le(x,z)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=0|calls=1
+*(x,+(y,0))	+(*(x,y),*(x,0))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=1|calls=1
+*(x,+(y,y))	*(+(x,x),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=4|calls=1
+0	*(*(x,y),0)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=5|calls=1

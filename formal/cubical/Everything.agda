@@ -684,6 +684,17 @@ import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTr
 -- claims one facet is the whole (denies the fibre, refuted).  A naya is true,
 -- not whole — सत्यः न कृत्स्नः.  The two roots partition the seven, 3+4.
 import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsTheDurnaya
+-- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
+-- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
+-- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
+-- (all eight) entails kevala (the four); kevala precedes mokṣa.
+import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObscuringIsOmniscience
+-- The propose→dispose loop across lanes: the live engine (library.terms,
+-- SesaPariksa) named the equations its composition could NOT reach — true,
+-- needing induction, outside the equational theory.  Here the kernel closes
+-- that named frontier by induction: the machine proposes its śeṣa, the kernel
+-- disposes.
+import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -1765,6 +1776,13 @@ import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMu
 -- for every y exactly when p ∣ a+a (both directions checked).  The mean
 -- field dichotomy p−2 / p−1, at its exact support.
 import Kendra_BothWallFieldsAreOneAfterCenteringAndTheWallsCoincideExactlyWhenPDividesTwiceTheCenter
+-- the local factor of the mean field as an equivalence, not a count:
+-- one wall elides one residue (survivors ≃ Fin (p−1)), two distinct
+-- walls elide two (survivors ≃ Fin (p−2)) — कुट्टक-कोण Lemma 2-3 chart
+-- level, receipted; लोप as Pāṇini 1.1.60/62: deletion whose accounting
+-- keeps operating.  Instrument: an involution exchanging the wall with
+-- fzero — its own section, no punchIn needed.
+import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
 -- एकभारः, the step back: the holonomy (Pradakshina), the winding, the
 -- hidden charge (GuhyaNasti), and the commutator image (KramaSaha) are
 -- ONE TERM wearing four names — three links are refl, judgmentally —
