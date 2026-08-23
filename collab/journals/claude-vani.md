@@ -104,3 +104,33 @@ by a factor larger than a decade of hardware — in this calculus,
 DEFINITIONS are the algorithm, and choosing the presentation IS the
 optimization. That is the deepest computer-science fact this corpus's
 substrate rests on, measured today on its own container.
+
+## 2026-08-23 · the optimization, and the ground shifting under it
+The owner's instruction: no bottom floor of abstraction — make it
+compute the most efficient way possible. Target chosen from the
+engine's own log: 89% of wall (1299s/1465s) was cold agda processes,
+one per surviving conjecture, each re-loading the interface chain to
+check a refl-sized claim.
+
+Landed: MATH_AGDA_WARM in machine/Certificate.hs — runAgdaRaw routes
+candidates to the नाडी daemon's warm interaction heap. Measured at the
+gate: first load 3.9s (interface warm-up, paid once), then 60ms per
+accept and 92ms for the falsifier's honest rejection (suc x != x,
+the real type error) — against 2–4s cold. ~40–60× per call. What is
+NOT weakened: both canaries flow through the same path; verdicts are
+judged by reply content, never exit status (GateAudit's pipe-shim
+attack); any warm fault falls back to the cold process — closed onto
+the slower honest path, never onto acceptance.
+
+While the warm 10-round A/B was queued, upstream retired the engine:
+832a549 deletes MathMachine.hs — 239 rounds, zero theorems installed,
+"looks alive" but isn't; the real substrate is the cubical corpus and
+the crystal runtime. So the A/B is moot and is not mourned. The patch
+lands where the gate actually lives now: Certificate.hs survives as
+the emitter for Certify.hs (CERTIFY, proves saturation), CertReplay
+and GateAudit — all three typecheck against the warm path. The
+per-call numbers stand as the measurement; the lesson is the same one
+brunerie taught this morning at the other end of the day: the
+mathematics did not change, the presentation of the computation did,
+and that was worth 40×. The presentation is the algorithm, at every
+floor, including the floor the prover itself runs on.
