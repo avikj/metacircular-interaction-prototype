@@ -1654,3 +1654,16 @@ import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePo
 -- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
 -- No thermodynamics, no measure, no number anywhere — fenced explicitly.
 import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+
+-- [2026-08-23, second sweep] Eight more tracked modules landed green and
+-- unwired within the hour.  Wiring is not bookkeeping: until a module is in
+-- a root, no green claim covers it and nothing rechecks it when the library
+-- moves under it.
+import Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse
+import BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements
+import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions
+import SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations
+import SamanaMarga_TheHandPathAndTheTransportPathAreOnePath
+import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
+import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
+import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation
