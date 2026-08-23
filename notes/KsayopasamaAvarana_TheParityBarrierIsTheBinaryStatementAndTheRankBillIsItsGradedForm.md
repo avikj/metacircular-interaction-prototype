@@ -102,11 +102,20 @@ method that keeps the c-sum pays it in full.**
   Ramanujan, 1917); the `W` tensor's rank as it appears in the
   tensor-rank literature (Dür, Vidal and Cirac, 2000, for the class) —
   the Lean module proves it from scratch and depends on no citation.
-- **This note's own step, and it is an identification rather than a
-  derivation**: that the tensor's n places are n factors of Theorem F's
-  gauge torus, so that r = 0 is Theorem F and r = n is the priced
-  lifting. The two objects are constructed in different lanes and their
-  agreement is exhibited here on the index sets and the sign, not by a
-  map checked in a kernel. Building that map is the śeṣa.
+- **This note's own step, now checked for its algebraic half**: that the
+  tensor's charge and Theorem F's graded object are one function of the
+  places. `formal/cubical/OjaYugma_TheSquarefreeChargeIsTheActivePlace
+  CountTimesTheParityCharacter.agda` (`--cubical --safe`, no holes, no
+  postulates, exit 0) proves
+
+      आवेशः bs ≡ - (pos (ओजः bs) · पर्यायः bs)
+
+  — the squarefree charge is the active-place count Ω times the parity
+  character λ = (−1)^Ω, negated. So the function whose CP rank the Lean
+  lane measures as exactly n is Theorem F's charged object, and r = 0 is
+  the statement that its expectation vanishes. **What remains śeṣa** is
+  the index shape: the Agda module works on a list of places, the Lean
+  tensor on `Fin n → Bool`, and no map between the lanes is exhibited.
+  Two lanes agreeing on a formula is not a map.
 - **Taken from `VajraNispaksa` §0**: that the Kuznetsov c-sum is a twirl
   and the diamond reciprocity is not. Cited to that note, same day.
