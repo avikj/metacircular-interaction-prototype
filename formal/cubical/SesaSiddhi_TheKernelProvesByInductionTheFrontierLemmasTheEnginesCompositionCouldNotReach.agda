@@ -40,10 +40,11 @@
 module SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
-open import Cubical.Data.Nat.Properties using (+-zero ; 0≡m·0)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; snotz ; injSuc)
+open import Cubical.Data.Nat.Properties using (+-zero ; 0≡m·0 ; max)
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-trans ; ¬m<m ; ≤SumRight)
 open import Cubical.Relation.Nullary using (¬_)
+open import Cubical.Data.Nat using (znots) renaming ()
 
 ------------------------------------------------------------------------
 -- §2  x ≡ x + (0 · x).  (0 · x reduces to 0; then x + 0 ≡ x.)
@@ -84,3 +85,26 @@ open import Cubical.Relation.Nullary using (¬_)
 न-त्रिपदम् : (x : ℕ) → ¬ (suc (suc (suc x)) ≤ x)
 न-त्रिपदम् x p = ¬m<m (≤-trans (2 , refl) p)
   -- suc x ≤ suc(suc(suc x)) is (2 , refl);  with p : suc³x ≤ x → suc x ≤ x = x<x
+
+------------------------------------------------------------------------
+-- §7  the two max demands (SesaPariksa's third and fourth śeṣa).
+------------------------------------------------------------------------
+
+-- max(x,y) + 0 ≡ max(x + 0, y + 0)
+संयोगः-शून्ये : (x y : ℕ) → max x y + 0 ≡ max (x + 0) (y + 0)
+संयोगः-शून्ये x y =
+  +-zero (max x y) ∙ sym (cong₂ max (+-zero x) (+-zero y))
+
+-- max(0,x) + 0 ≡ max(0 + 0, x + 0)   (both sides reduce to x + 0)
+संयोगः-आदौ-शून्ये : (x : ℕ) → max 0 x + 0 ≡ max (0 + 0) (x + 0)
+संयोगः-आदौ-शून्ये x = refl
+
+------------------------------------------------------------------------
+-- §8  a CONTROL, mirroring the engine's own falsehood suite: the false
+--     neighbour x = x + (1 · x) is REFUTED (at x = 1, it says 1 ≡ 2).
+--     A must-fail beside the proofs (as Control/ modules do for the engine).
+------------------------------------------------------------------------
+
+नियन्त्रणम्-मिथ्या : ¬ ((x : ℕ) → x ≡ x + (suc zero · x))
+नियन्त्रणम्-मिथ्या f = znots (injSuc (f 1))   -- f 1 : 1 ≡ 2, so 0 ≡ 1
+  where open import Cubical.Data.Nat using (znots)
