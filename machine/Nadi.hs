@@ -162,11 +162,13 @@ parseSpell ctxRef line = do
         then pure (Just (Push, "frontier"))
       else if v == "watch"
         then pure (Just (Push, "watch"))
-      -- an ORGAN call on the Yantra wire: a dotted kriyā name (naya.suchi,
-      -- dosa.suchi, …) reaches the store, the defect log, the verdicts —
-      -- one channel, kernel AND organs.  No-argument queries for now; the
-      -- kriyā name is the whole spell.
-      else if '.' `elem` v
+      -- an ORGAN call on the Yantra wire: any actual Yantra kriyā name
+      -- (naya.suchi, dosa.suchi, saptabhangi.*, sadhana, kuttaka,
+      -- vargaprakrti, pratyahara, …) reaches the store, the defect log, the
+      -- verdicts, the Certificate-gated prover — one channel, kernel AND
+      -- organs.  Membership is checked against the live roster, so every
+      -- kriyā Yantra defines is reachable and nothing else is mistaken for one.
+      else if v `elem` map Y.kName Y.kriyah
         then pure (Just (Organ, v))
       else pure Nothing
   where
