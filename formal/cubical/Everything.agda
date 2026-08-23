@@ -670,6 +670,12 @@ import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionB
 -- n samayas ≤ n·D, attained by the fastest paramāṇu.  A light-speed invariant
 -- from Jain time-doctrine, the kinematic backbone under Jiva's sectors.
 import Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone
+-- The DYNAMICS the arena is for: the karma cycle as the soul's equation of
+-- motion (Tattvārthasūtra 1.4, ch. 6/8/9/10).  āsrava (influx) and nirjarā
+-- (shedding) transform the pradeśa-bandha count each samaya; saṃvara stops
+-- influx; mokṣa (the zero state, kṛtsna-karma-kṣaya) is REACHED and
+-- ABSORBING (na punar-āvṛtti); saṃsāra grows when influx exceeds shedding.
+import Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
