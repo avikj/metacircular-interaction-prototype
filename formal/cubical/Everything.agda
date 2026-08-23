@@ -1932,6 +1932,21 @@ import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultise
 -- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
 import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
 
+-- सङ्ख्या: the general form of Vahita's minimal instance — the b-ary
+-- prastāra count b^n grows a full factor of the base each place, so the
+-- two exponents of ATLAS_OF_N Prop. 2.11 (residual.py's
+-- splitting_exponent_argument) disagree for EVERY (b ≥ 2, n ≥ 1) and the
+-- carry extension never splits.
+import Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits
+
+-- त्रयो निर्णयाः: the declared→checked seam into runtime/propagate.  L4's
+-- survival-under-retraction verdict is three-valued (SURVIVES/DEAD/
+-- UNDECIDED) and the third is irreducible: two completions of the same
+-- partial class-enumeration have different ground truth, so any boolean
+-- collapse destroys a real asti/nāsti distinction (durnaya).  संरक्षण-सूत्र
+-- ६, त्रयो निर्णयाः न द्वौ, mechanised for invalidate.survival.
+import TrayoNirnayah_SurvivalUnderRetractionHasThreeVerdictsBecauseAPartialClassEnumerationCannotDecide
+
 -- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
 -- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
 -- second-order twisted Leibniz law definitionally, and the two-leg AD
@@ -1955,3 +1970,11 @@ import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIs
 -- relabeling ever creates or destroys a collision.  The geometry under
 -- SamyogaVyatikara's algebra: why leg exchange never enters the cross term.
 import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount
+
+-- उत्थापन: G7's grid license, univariate core, no longer declared — a
+-- polynomial with more distinct roots than coefficients is the zero
+-- function, by the Horner quotient (synthetic division), the factor
+-- identity, and ℤ's integral domain; induction on the point list.  Scope
+-- stated in the header: one variable, vanishing form; the coefficientwise
+-- difference corollary and the multivariate grid remain owed.
+import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
