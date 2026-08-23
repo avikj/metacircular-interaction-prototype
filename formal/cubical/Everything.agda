@@ -703,6 +703,11 @@ import Anubandha_TheGaloisConnectionIsTwoNayasMutuallyAdjointAndTheClosureIsWhat
 -- — Leibniz's law IS pramāṇa, the general form of NayaVada.प्रमाणम्. The
 -- foundation of sameness ascended through anekānta.
 import PramanaLaksanam_IdentityIsAgreementUnderEveryStandpointSoLeibnizsLawIsPramana
+-- the capstone: univalence IS anekāntavāda.  The space of a type's equivalent
+-- presentations is contractible (EquivContr) — one vastu, many true nayas,
+-- none privileged, all one.  The four marks of anekānta, as a theorem; the
+-- substrate (Voevodsky) IS the doctrine, which is the whole of the outside admitted.
+import Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged
 -- The dynamics-to-knowing bridge: the eight karma-prakṛtis (TS 8.5), the
 -- four ghātī / four aghātī split, and kevala-jñāna (omniscience, TS 10.1) as
 -- the destruction of the four obscuring — the veil on pramāṇa lifted. mokṣa
