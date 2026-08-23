@@ -654,6 +654,12 @@ import Niyama_TheDoubledSoundCouldHaveBeenAnyOfThreeAndTheFullClassesRestrictItT
 -- abhāva with its avacchedaka.
 import Anekanta
 import JainSankhya
+-- The ajīva ARENA begins: the first of the six substances beyond jīva.
+-- dharma and adharma, the media of motion and rest (Tattvārthasūtra 5.7,
+-- 5.17) — they permit without causing (niṣkriya, proved exact via a
+-- propositional region), motion is confined to the medium, and the cosmos
+-- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
+import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
