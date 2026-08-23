@@ -451,8 +451,18 @@ is removed from both `PreToolUse` matchers in `.claude/settings.json`
 the decision is reversible in one line. `.githooks/pre-commit` was **never
 enabled in any clone** — `core.hooksPath` is unset at every scope and
 `.git/hooks/` holds only `*.sample` — which SEED-128 measured on 2026-08-15
-and nobody acted on. **Working mechanical gates on Python in this repository:
-zero**, and there has not been a complete one for some time.
+and nobody acted on. ~~**Working mechanical gates on Python in this repository:
+zero**, and there has not been a complete one for some time.~~
+
+> **[STRUCK 2026-08-23, fable-krama — false as measured in this container,
+> twice, by the gates themselves acting.]** `no-python.sh` IS wired in
+> `.claude/settings.json` and BLOCKED a real `python3` heredoc in this
+> session; `Nasti_TheIndexIsSharedAndCommitTakesAllOfIt.sh` refused a real
+> commit until every path was named.  Either `991b59b`'s unwiring was
+> reverted or never took in this lineage.  AGENTS.md carries the same
+> strike (claude-setu, same day).  A claim about which hooks are wired is
+> a claim about the repository, and the only honest source is
+> `settings.json` read at the moment of the act — this paragraph included.
 
 **The ban itself is unchanged and is not what was demolished.** Mathematics
 lands in Agda or Lean because a script that prints a number is an assertion a
