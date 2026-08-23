@@ -48,6 +48,11 @@ import qualified Pancavayava_TheInferenceCarriesItsWitnessedExampleOrItIsNotOne 
 -- produces a negative verdict -- is the pramana layer's own, so it belongs
 -- beside Abhava rather than beside its runner.
 import qualified Yogyanupalabdhi_TheKernelAcceptanceCarriesTheWatchThatEarnedIt as YG
+-- Added 2026-08-23.  `Pratikara` types Agda ELABORATION defects and their
+-- remedies (seam 2: typed doṣa → repair → requeue), a different domain from
+-- Hetvābhāsa's inference defeats but the same evidence discipline — so it
+-- lands in THE suite the day it lands, or it is a self-test nothing calls.
+import qualified Pratikara_TheTypedKernelDefectCarriesItsRepairOrItIsNotARepair as PK
 
 main :: IO ()
 main = do
@@ -65,6 +70,7 @@ main = do
         , ("Abhava",        AB.selfTest)
         , ("Pancavayava",   PV.selfTest)
         , ("Yogyanupalabdhi", YG.selfTest)
+        , ("Pratikara",     PK.selfTest)
         ]
   putStrLn "== SELF-TESTS ========================================================="
   mapM_ report suites
