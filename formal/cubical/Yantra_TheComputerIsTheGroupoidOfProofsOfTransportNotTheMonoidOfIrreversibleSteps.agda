@@ -20,8 +20,25 @@
 -- those form a GROUPOID: composition, identity, AND a two-sided inverse,
 -- with the laws holding definitionally (the library proves each by
 -- `equivEq refl`).  Every program is invertible; every run can be run
--- backwards to exactly where it began; nothing is erased, so nothing
--- dissipates.  The groupoid IS the computer, and the presence of the
+-- backwards to exactly where it began; nothing is erased.
+--
+-- [CORRECTED 2026-08-23.  This sentence ended "nothing is erased, so
+-- nothing dissipates", and §4's comment read "the added field is the
+-- reversibility, hence (Landauer) the zero-heat floor".  **Neither
+-- consequent is supported by any term in this file**, and the original
+-- WHAT-IS-NOT-CLAIMED fence covered the unitarity/gauge reading while
+-- leaving the thermodynamic one standing.  "Nothing is erased" is
+-- checked below (§2's inverse laws) and is a statement about types;
+-- "nothing dissipates" is a statement about a physical implementation,
+-- of which there is none here — no energy, no temperature, no entropy,
+-- no measure appears in this file.  Landauer's principle is the MOTIVE
+-- for asking which step is non-injective, and the precise typal content
+-- of "erases nothing" is `Vyapti_TheLossOrderIsCoarsening…agda` §६: the
+-- collision type `विस्मृतिः Φ` is empty when `Φ` is an equivalence.
+-- That is the whole of it.  No heat is derived and no physical constant
+-- is on this page.]
+--
+-- The groupoid IS the computer, and the presence of the
 -- inverse — the one thing the monoid lacks — is the whole difference.
 --
 -- यन्त्र (yantra) is the corpus's word for the machine (`Yantra_The-
@@ -40,7 +57,7 @@
 --       turn (the machine is a functor from the groupoid to functions).
 --   §4  the contrast, as types: a MONOID interface has ∘ and id and no
 --       inverse field; the groupoid adds प्रतिलोमः.  The added field is
---       the reversibility, hence (Landauer) the zero-heat floor.
+--       the reversibility.  (NOT the heat — see the correction inset.)
 --
 -- WHY THIS IS THE RIGHT COMPUTER FOR COMPUTATIONAL SPACETIME.  Physics is
 -- reversible (unitary evolution, time-symmetric microdynamics); its state
@@ -61,8 +78,14 @@
 --     literally this groupoid — that apparatus is the SUBSTRATE that
 --     CHECKS these terms; this file names the machine those terms form.
 --   * Univalence itself (imported, checked in the library).
+--   * ANY THERMODYNAMICS.  No heat, energy, temperature, entropy, measure
+--     or Landauer bound is derived, bounded, or implied by any term below;
+--     kT ln 2 appears once, in the opening paragraph, as the historical
+--     motive and not as a consequence.  See the correction inset above.
 --
 -- No postulates, no holes, --safe.
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (the container, NOT the
+-- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
 ------------------------------------------------------------------------
 
 module Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
@@ -144,8 +167,8 @@ _∥_ = compEquiv
 ------------------------------------------------------------------------
 -- §4  The contrast made into types: a monoid interface has sequencing and
 --     a no-op and no inverse; the groupoid adds प्रतिलोमः with its two
---     laws.  The added field is the reversibility — and by Landauer the
---     zero-heat floor.  (Records, so the difference is structural.)
+--     laws.  The added field is the reversibility.  (NOT the heat: see the
+--     correction inset at the top.  Records, so the difference is structural.)
 ------------------------------------------------------------------------
 
 -- what a classical machine offers on its operations (one object, for

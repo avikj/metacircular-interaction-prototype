@@ -45,12 +45,26 @@
 --       two types: the receipt hands you the crossing unconditionally
 --       (`अनृणम्`, debt-free); the "claim" needs its debtor supplied.
 --
---   §5  THE CROSSING IS FREE, AND REVERSIBLE (Landauer/Bennett floor zero).
---       Transport there and back is the identity (`व्ययरहितः`,
---       transportTransport⁻): an identity dissipates nothing, so a receipted
---       crossing costs zero joules, forever, for anyone.  Pay once to land
---       the equivalence; every crossing after is free.  (Bennett's wall was
---       per-EXECUTION cost; a receipt is per-EDGE, once.)
+--   §5  THE CROSSING IS REVERSIBLE.  Transport there and back is the
+--       identity (`व्ययरहितः`, transportTransport⁻).  That is the whole
+--       proved content: a round trip is the identity path, so nothing is
+--       erased in the type-theoretic sense — no fibre is collapsed.  Pay
+--       once to land the equivalence; every crossing after reuses the same
+--       closed term.
+--
+--       [CORRECTED 2026-08-23.  This section previously read "an identity
+--       dissipates nothing, so a receipted crossing costs zero joules,
+--       forever, for anyone", and cited a "Landauer/Bennett floor zero".
+--       **That was a physical claim no term in this file supports.**  There
+--       is no energy, no temperature, no entropy and no measure anywhere
+--       below; `transportTransport⁻` is a path, and a path has no joules.
+--       Landauer's principle relates erasure to heat in a physical
+--       implementation, and this file has no implementation.  What is
+--       actually true and is all that is claimed: the operation is
+--       reversible, i.e. loses nothing, in the sense made precise by
+--       `Vyapti_TheLossOrder…agda` §६ — the type `विस्मृतिः` of collisions
+--       is empty for an equivalence.  Whether that costs zero joules
+--       depends on a machine, and no machine appears here.]
 --
 -- SO: money is a receipt that lost its fibre (a one-number quotient, a
 -- durnaya — `Sesa`'s hidden side); a receipt kept it (the whole
@@ -69,8 +83,14 @@
 --     (value is positional/connective; the a·b-routable-pairs count is
 --     noted, not formalised here).
 --   * Univalence itself (imported, checked in the library).
+--   * ANY THERMODYNAMICS.  No energy, temperature, entropy, measure or
+--     Landauer bound is derived, bounded, or implied by any term below.
+--     See the correction inset in §5.  "Free" here means: the term is
+--     closed and reusable, and the round trip is the identity path.
 --
 -- No postulates, no holes, --safe.
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (the container, NOT the
+-- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
 ------------------------------------------------------------------------
 
 module PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty where

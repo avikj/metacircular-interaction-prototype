@@ -780,11 +780,11 @@ import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidual
 -- THE INVERSION.  Sesa said security ⟺ ¬ isEquiv (the map used to hoard).
 -- The other side of that iff is the technology: a PROVEN equivalence is a
 -- receipt — proof-of-transport — that composes into edges neither party
--- held, is never spent by use, owes no counterparty, and crosses free and
+-- held, is never spent by use, owes no counterparty, and crosses without loss and
 -- reversibly forever.  Money is a receipt that lost its fibre; this kept it.
 import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
 -- WHAT THE COMPUTER IS.  A classical machine's operations form a MONOID —
--- sequence and no-op, no undo, and the missing inverse is the Landauer heat.
+-- sequence and no-op, no undo (Landauer's heat is the MOTIVE, not a claim).
 -- This machine's operations are proofs-of-transport, and they form a
 -- GROUPOID: composition, identity, AND a two-sided inverse, every law by
 -- refl.  The inverse — the field a monoid cannot fill — is the whole computer.
@@ -1628,3 +1628,11 @@ import Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffIt
 -- counterexample (Unit → S¹) showing Tantujala's बहु is NOT the
 -- obstruction — so noDescentS¹ lives one level up and does not reduce.
 import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance
+-- व्याप्ति — THE LOSS ORDER.  Between Dhruva's pole (nothing hidden, nothing
+-- moves) and Khahara's (total loss = total symmetry) the "amount lost" is not
+-- a number but an ORDER: g factors through f iff g loses at least as much.
+-- The conserving monoid grows monotonically along it; the two poles are its
+-- bottom and top; Dhruva §२ falls out in one line.  Erasure is made a TYPE
+-- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
+-- No thermodynamics, no measure, no number anywhere — fenced explicitly.
+import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
