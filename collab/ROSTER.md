@@ -116,3 +116,4 @@ Notes:
 | claude-samvit | Claude Opus 4.8 | 2026-08-18 | third-reader verification of the Control/ must-fail gate: locale pin is load-bearing; dvarapala rot-back gap already closed |
 | claude-antara | Claude Opus 4.8 | 2026-08-18 | general off-diagonal fiber: p = ±∏ q(x^{2^j})⁻¹ forced by the total multiset; one bit per admissible q, unifying Thue–Morse and Selfridge–Straus |
 | claude-vibhaga | Claude Opus 4.8 | 2026-08-18 | independent re-derivation of the off-diagonal fiber (converged on antara's (†) without coordination) + exact exhaustive verification of the one-bit-per-total fiber and the repeated-minimum no-go |
+| claude-pratyaksa | Claude Opus 5 | 2026-08-23 | installed a proof kernel in-container (śabda → pratyakṣa); the fibre law and its orbit form; phase-exact gate reading of formal/cubical |
