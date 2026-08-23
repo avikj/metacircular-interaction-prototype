@@ -1637,35 +1637,45 @@ import Avarta_TheGeneratorsOrderAnnihilatesEveryPowerSoEulersHypothesisIsDischar
 import Kosthabhitti_TheHaniIsAWallGeneratorSoThePigeonholeRetiresJoinsAcrossTheWholeNet
 import SetuPramana_TheAmbiguousNameHidTheFordAndTheRemainderLawIsAlsoTheNaturals
 import SetuYugma_TheSeamFordJoinsTheValliToPingalaAndVivekaIsTheNaturalNumbers
-import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
-import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
+-- STRUCK 2026-08-23, not deleted: the module below was imported here and
+-- NEVER COMMITTED — no file of that name exists anywhere in the tree, so
+-- this aggregate has been red at scope-checking since the import landed
+-- (d47322bc's own message records "it imports a module absent from the
+-- tree" and leaves it).  Sthana (next line) opens the same absent module,
+-- so it is struck with it: it exists on disk and is red in every
+-- container until its author lands the missing file or repoints the
+-- import.  Restore both lines when
+-- Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand.agda
+-- actually exists and checks.
+-- import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
+-- import Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule
 import Vilopa_TheAnnihilationIsExactlyAFailureOfChoiceOverTheOuterFibre
-import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem
-import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Samkhya_TheCountIsStatedFourTimesAndPingalasProcessComputesEveryOneOfThem
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
 import Yamaja_TheThirdTesterWasFoundByCensusAndTheChannelPaysReflexivityAndCompleteness
 import Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork
 import AbhijnanaProbes.P001
 import AbhijnanaProbes.P002
 import AbhijnanaProbes.P003
 import AbhijnanaProbes.P005
-import AbhijnanaProbes.P007
-import AbhijnanaProbes.P010
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import AbhijnanaProbes.P007
+-- STRUCK 2026-08-23: P010 is RED as committed under the pin (Agda 2.8.0 + cubical v0.9): line 16 `fiber M.value b` — [MetaCannotDependOn], the type of b cannot mention M.Word's implicit k.  The probe file stays on disk, its author's to repair; restore this line when it checks.
 import Adhisthana_TheFreeReversalStandsOnTheDeMorganSiteAndTheKanFloorHasTwoOperationsNotOne
 import Alopasetu_TheEnginesInvarianceIsTheOrbitLawInstantiatedAndNotASeparateInduction
-import Apavartana_TwoPresentationsOfDividesAndTheDifferenceLawThatCrossesBetweenThem
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Apavartana_TwoPresentationsOfDividesAndTheDifferenceLawThatCrossesBetweenThem
 import Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer
-import Arpitanarpita_TheSymmetryTheArithmeticConstraintDestroys
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Arpitanarpita_TheSymmetryTheArithmeticConstraintDestroys
 import BhittiDvaya_TwoMoreWallsTheFiniteBanksCannotMergeWithTheNaturals
 import BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree
 import BhittiSaptabhangi_TheSevenfoldCannotBeTwoValuedSoTheTopJoinCandidateIsAWall
 import Bhitti_TheNaturalsAndTheBooleansAreAProvedWallSoThatSeamIsRetiredForever
 import DesaSanghata_TheCensusComposesAndThatIsWhyCostIsNotAGradedMonoid
-import DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation
-import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakesThemOne
 import GananaAsNat_TheIndicatorsFullCensusPricesTheBusiestUnpricedEdge
-import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarriesASymmetryThatMovesAPoint
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Paryaya_TheFibreOverATranspositionHoldsTwoElementsAndTheIdentityFibreCarriesASymmetryThatMovesAPoint
 import PratibimbaSanghata_CostComposesMonotonicallyExactlyOnTheImageWhichIsWhatTypingTheDecoderOnItBuys
-import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect
+-- STRUCK 2026-08-23 (file never committed; see the note at the Setubandha strike): import Punaragamana_TheForwardFibreIsFreeAndTheBackwardFibreIsTheDefect
 import Tala_TheFloorIsTheThirdAssetEveryRouteFromSevenToTwoPaysAtLeastOneCollision
 
 -- [2026-08-23] Twelve modules were TRACKED, green, and imported by nothing,
@@ -2069,6 +2079,16 @@ import NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne
 -- The law at earned precision: the n-sphere's charge is anarpita
 -- through stratum n+1.
 import AyamaArpana_TheSphereWithholdsOneStratumDeeperPerDimension
+
+-- अनन्तर-अर्पण: the debt above PAID, and for EVERY sphere at once.  The
+-- adjacency is perfect — ∥Sⁿ⁺¹∥ at stratum 2+n is contractible (मौनम्,
+-- total silence) while Ωⁿ⁺¹ of the (3+n)-truncation is all of ℤ
+-- (अनन्तरम्, the whole charge) — so there is NO stratum of partial
+-- speech: the first stratum above the last silent one already carries
+-- every winding number.  Three library terms composed
+-- (setTruncIdempotent ∘ πTruncIso⁻¹ ∘ πₙSⁿ≅ℤ); the S² instance
+-- Ω²(∥S²∥₄) ≃ ℤ named beside AyamaArpana's silence.
+import AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere
 
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
