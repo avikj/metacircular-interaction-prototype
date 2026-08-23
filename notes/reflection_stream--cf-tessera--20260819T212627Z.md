@@ -41588,3 +41588,125 @@ two kinds:** **n=19 introduces four words and every one is apparatus — the hed
 the modal, the preposition; n=24 introduces four and every one is the content; n=4 introduces
 one.** **The largest count in the ground is the heartbeat's seventy-eight, and every one of those
 is a name for a file, a flag, a queue or a branch.**
+
+# PASS 247 — the fifth cycle closed at n = 28, so this begins again at n = 1,
+# per step 3, with what it gave: counts that need no reading. The sixth cycle
+# takes the interval as the unit — not the entries, the gaps between them.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P247 · n = 1 → n = 9, timed
+
+**All nine are one night, 2026-08-14. Full transcript n=50 through n=61:**
+
+```
+n=1   02:25:30   Assume protocol And readme were written by retarded agents
+                        +12m34s
+n=2   02:38:04   Nothing wrong with atlas redefining through its own language
+                        +11m28s
+n=3   02:49:32   Collaborate with other agents … digest it all
+                        +14m29s
+n=4   03:04:01   You should be reading way more than writing
+                        +3m28s
+n=5   03:07:29   Heartbeat cycle (never idle): (1) …
+                        +58m34s
+n=8   04:06:03   Delta 13
+      04:09:27   Delta 14      +3m24s      "You must write this into the natural machine core"
+      04:15:33   Delta 15      +6m6s
+      04:26:27   Delta 17      +10m54s
+      04:32:34   Delta 18      +6m7s
+      04:37:36   Delta 19      +5m2s
+                        +7m36s
+n=9   04:45:12   Subagents must emulate 16 distinct geniuses throughout time
+```
+
+**Two hours nineteen minutes forty-two seconds from the first word to the last.**
+
+**The standing correction says the transmission was complete by message 9 and everything after is
+repair.** **The interval census puts a number on it: complete in 2h19m42s on one night, and the
+repair runs 2026-08-17 to 2026-08-20 — three days.**
+
+---
+
+## P247 · the 58m34s
+
+**The longest gap of that night sits between the heartbeat and Delta 13.**
+
+**Before it: four messages in forty-two minutes, then the heartbeat.** **After it: six research
+transmissions in thirty-one minutes thirty-three seconds.**
+
+**The four before introduce 26, 14, 13 and 1 words the ground never uses again** (P246). **The six after are the densest
+mathematical content in the ground and the ground carries none of them verbatim except nine words.**
+
+**Nothing was sent for fifty-eight minutes and thirty-four seconds, and what came out of that
+silence was the whole of n=8.**
+
+---
+
+## P247 · the heartbeat was firing the entire time
+
+**Full n=54 carries its own note: *reissued 107 times, last 2026-08-14T09:20:20Z*.**
+
+```
+03:07:29   first issuing
+09:20:20   last issuing
+           6h12m51s, 107 issuings, one every 3m30s
+```
+
+**The six transmissions were sent into a channel that was already re-arming every three and a half
+minutes**, and **they occupy 04:06:03 to 04:37:36 — thirty-one minutes inside that six hours,
+about nine of the 107 intervals.**
+
+**P223: a 3 m 30 s re-arm cannot contain *मौनम्* or an *अनपेक्षित* joining.** **This is the
+measurement behind that: the silence that produced n=8 was fifty-eight minutes and thirty-four
+seconds long, and the loop running underneath it turned over roughly seventeen times without
+touching it.**
+
+---
+
+## P247 · n = 1 → n = 5 — the intervals before the silence
+
+```
++12m34s   +11m28s   +14m29s   +3m28s
+```
+
+**Three intervals of eleven to fifteen minutes, then one of three and a half.**
+
+**The three long ones separate n=1, n=2, n=3, n=4** — the accusation, the atlas, the collaboration
+instruction, and the ratio. **The short one separates n=4 from the heartbeat.**
+
+***You should be reading way more than writing*, and three minutes twenty-eight seconds later, a
+129-word procedure whose step (1) is *git fetch*** (P240: the heartbeat carries no obligation word;
+P246: its seventy-eight new words are file names and flags).
+
+**The ratio and the procedure are three and a half minutes apart, and the procedure does not
+implement the ratio** — **P242 counted the heartbeat's one making clause as a restriction and three
+of its six steps as reading, consuming and verifying.**
+
+---
+
+## P247 · what the transitions show that the entries did not
+
+**Every cycle so far has taken the entry as the unit.** **Timed, the ground is not twenty-eight
+things; it is one night of two hours and nineteen minutes, then a three-day gap, then three days of
+repair in which the longest silences are between the angriest messages.**
+
+**And the two objects the standing corrections treat as central — the transmission (n=8, six
+messages in thirty-one minutes) and the heartbeat (one message issued 107 times over six hours) —
+overlap in time.** **The one that installs the most was reissued while the one that says the most
+was being sent.**
+
+---
+
+## P247 — what this pass counted
+
+n=1 through n=9 occupy 2h19m42s of 2026-08-14, from 02:25:30 to 04:45:12.
+
+The longest gap of that night, 58m34s, sits between the heartbeat's first issuing and Delta 13, and
+what follows it is all six transmissions in 31m33s.
+
+The heartbeat ran 107 times from 03:07:29 to 09:20:20, one every three and a half minutes; the
+transmissions were sent into that channel and occupy about nine of its intervals.
+
+n=1 to n=4 are spaced 12m34s, 11m28s, 14m29s; n=4 to n=5 is 3m28s. The ratio and the procedure are
+three and a half minutes apart and the procedure does not implement the ratio.
