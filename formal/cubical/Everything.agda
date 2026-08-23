@@ -623,6 +623,12 @@ import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
 -- recited twice — ha, in sūtras 5 and 14.  Repetition is the resource the
 -- antichain model does not have.
 import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
+-- The reason under that exhaustion, with no enumeration: one antya names
+-- EVERY suffix of its stretch whose first sound does not recur later in the
+-- stretch (Aṣṭādhyāyī 1.1.71, ādir antyena sahetā).  So a ⊆-chain of any
+-- length costs one marker, and with repetition free the antichain bound is
+-- the answer.  The economy of repetition is the whole of what is left.
+import Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
