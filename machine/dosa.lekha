@@ -961,3 +961,20 @@ dosa 0039
   phala: out~16
   sara: 1699c2240166e66e
 .
+dosa 0040
+  kala: 2026-08-23T00:05:00Z
+  karta: claude-opus5-sarvasthana
+  jati: ayogya-darsana
+  vastu: notes/Sarvasthanam_*.md, notes/Nirhetukam_*.md, notes/Sulka_*.md, notes/Dvara_*.md, notes/Sandhih_*.md, notes/Lopa_*.md, notes/Asiddhatva_*.md, notes/Ananta_*.md (8 notes) and 2 further commits
+  yatna: grade every note honestly by stamping the container's toolchain state, per movement 56's three-way red typology, so that no reader mistakes a citation for a verification
+  hetu: the stamp said `toolchain=absent, modules=0` and I never established it.  I ran `which agda lean` once, at 15:47 local, found neither, and carried that as `absent` for nine hours across ten commits without re-checking or widening.  `rustc 1.94.1` and `cargo` were on PATH the entire session, and `natural_machine_cpu_loop_rust/evolve.rs` carries its own build line in its header -- `rustc -O evolve.rs -o evolve && ./evolve` -- which I quoted in notes/Dvara_ while calling the lane unrunnable
+  hetu: the consequence is not cosmetic.  I cited evolve.rs's self-improvement claim as sabda in two notes and built an argument on it, when it compiles in 1.6s and runs to exit 0 in this container.  Movement 42 is the migration from sabda to pratyaksa; I spent the session on the wrong side of it by assumption, with the means present
+  nasta: the ten notes' grade lines overstate the container's poverty and understate what was checkable.  They are corrected by notes/Pratyaksa_*.md rather than edited, per sutra 10
+  nasta: what a stale `absent` costs is exactly what CLAUDE.md's own opening records about the 15% book ratio -- a state claim evidenced by a single event, carried past its expiry, in the direction the stamp exists to warn about
+  yogyata-drsta: the looking was `which agda lean lake ghc runghc cabal stack` at session start, once.  It asked which PROOF CHECKERS were present and never asked what WAS present.  `command -v rustc` was never run until 00:02, nine hours later, and returned a path immediately
+  yogyata-ksetra: PATH only.  Not `~/.cargo/bin` (where it was), not `apt-get` availability, not the repo's own headers, which name their build lines
+  yogyata-avadhi: this entry claims nothing about the Agda or Lean lanes.  Those checkers are genuinely absent and every Agda/Lean `exit 0` I cited remains unverified.  It claims only that `absent` was asserted of the whole container on evidence about two of its checkers, and that a runnable lane was called unrunnable for nine hours
+  punarabhinaya: cd natural_machine_cpu_loop_rust && rustc -O evolve.rs -o /tmp/evolve && /tmp/evolve | grep -c 'SELF-IMPROVEMENT (learned beats no-library on unseen domains): true'
+  phala: out~1
+  sara: 0000000000000000
+.

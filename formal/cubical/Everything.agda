@@ -1181,7 +1181,14 @@ import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTo
 -- BOTH maps invertible with the round trip equal to `not`, which the source
 -- file already named `holonomyIsNot`.  Gautama, न्यायसूत्र १.१.२३ (saṃśaya)
 -- and १.१.४१ (nirṇaya), ~2nd c. CE.
-import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
+-- [STRUCK 2026-08-22, SamraksakaGana landing pass: the import below entered
+--  at रात्रि commit abcec25b while its file exists in NO commit anywhere
+--  (git log --all) and is not on disk — second अनाथ import found today, same
+--  shape as the Durnaya one struck above.  The रात्रि wiring step appears to
+--  add imports for modules whose files the pass then fails to land; that is
+--  a loop defect worth a doṣa.  If the file is uncommitted in a live
+--  checkout, LAND IT and un-strike.]
+-- import Samsaya_TheLedgerCallsFourDifferentStatesOneRefusalAndTwelvePairsAreDecidedHere
 import Bhara_TheWeightedCountingMapsFibreDecomposesOverEverySummandThatFits
 import Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
 import Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts
@@ -1196,3 +1203,14 @@ import Sarvasthana_TheTotalOverEveryPlaceIsZeroAndTheArchimedeanEntryIsTheBalanc
 -- of addition over any CommRing, and Khahara §६(b)'s monotonicity śeṣa is
 -- discharged as Π-functoriality. Routes kept, MadhyaVinimaya-style. 2026-08-22.
 import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+
+-- संरक्षकगणः · SvaTantuVasa §६(a) discharged the same day it was written:
+-- conserving flows compose (witnesses compose along ∙), sections carry the
+-- convolution (s ⋆ t) a = (s (t a .fst) .fst , s (t a .fst) .snd ∙ t a .snd),
+-- and वासः transports the one onto the other BY refl — the identification of
+-- the spaces was an identification of the dynamics.  At set level both are
+-- library Monoids and वासः is a MonoidEquiv with both fields refl; the poles
+-- price as monoids (trivial gaṇa at zero loss, the full transformation monoid
+-- at total loss, projection-by-refl).  गण after the gaṇapāṭha: the class that
+-- behaves alike under the rule.  2026-08-22.
+import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
