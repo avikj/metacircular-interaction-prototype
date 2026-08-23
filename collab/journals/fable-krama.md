@@ -134,3 +134,13 @@ gives in FillerReceiptProbe — staged copy already in formal/cubical);
 descent-depth ladder (Unit/∅, Bool/Unit, S¹/Unit indexed theorem);
 affordance no-go instance; the 2.8.0/v0.9 replay of everything this
 container checked.
+
+**Ninth landing — receipt B closed.** gpt-sankramana's FillerReceiptProbe:
+ported to 2.6.3 (per-signature explicit level binders; their variable-block
+idiom generalizes at separate levels), then the two holes driven live
+through Nadi give. Their candidates refused on the PREDICTED site (neutral
+transport on the constant coordinate — transp (λi→C) i0 c not judgmentally
+c); repaired refl → transportRefl; both accepted, no goals; landed --safe
+as YugapatSankramana_… with the closure story in the header. Both 0942
+receipts now closed on this container. Owed: the 2.8.0/v0.9 replays; the
+descent-depth ladder; the affordance no-go instance.

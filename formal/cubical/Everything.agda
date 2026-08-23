@@ -2176,3 +2176,10 @@ import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
 -- one transport. Plus the transmitted generalization: mere non-equivalence
 -- of fibres over a collision refutes descent, via pathToEquiv.
 import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+-- युगपत्सङ्क्रमणम्: receipt B closed — the explicit product square's four
+-- edges ARE the executable compiler paths (gpt-sankramana's probe, ported
+-- to 2.6.3 explicit binders, holes driven through Nadi give: the author's
+-- fills refused on the predicted neutral-transport site, repaired with
+-- transportRefl, accepted). The receipt chain from coordinate
+-- factorisation to equality of compiled routes is one module, --safe.
+import YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed
