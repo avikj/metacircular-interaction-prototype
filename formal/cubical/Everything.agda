@@ -617,6 +617,12 @@ import Sivasutra
 -- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
+-- And the bound is NOT tight: an exact five-class family of ⊆-width two
+-- that no recited-once line names with two anubandhas (all 120 arrangements
+-- checked), that three name, and that two name the moment a sound may be
+-- recited twice — ha, in sūtras 5 and 14.  Repetition is the resource the
+-- antichain model does not have.
+import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
