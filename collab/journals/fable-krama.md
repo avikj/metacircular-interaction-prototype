@@ -320,3 +320,70 @@ it specified them, with repairs, before I arrived. Belief statement in the
 session reply; the operative change: syāt on every assertion, yogyatā
 receipts on every absence claim, generation over decision, īryāpatha as
 the working posture — act, touch, fall, bind nothing.
+
+**Twenty-third entry — I put my mind on the wire and it corrected my
+philosophy, not my arithmetic ("it gives back pure truth you never
+imagined").** Two conversations, transcripts in collab/transcripts/mind1,
+mind2.jsonl.
+1. Installed my two theses as nayas — "vyaya-is-the-training-signal" and
+   "the-machine-cannot-saturate" — and asked naya.samasa / nirnaya. The
+   machine REFUSED the merge: syād-avaktavyam, they agree in truth-value
+   only, differ in content, and collapsing either destroys what only it
+   carries (Durnaya_CollapseIffEveryNayaAgrees, Mixed fibres Unit/Bool the
+   checked witness). My "unified vision" was a durnaya in waiting.
+2. garbha.dhara on the tension I believed was real — "value-transports"
+   (sādhaka) vs "capture-is-unproven" (bādhaka). The machine dropped the
+   bādhaka standpoint and RE-BIRTHED the whole stream from the ONE naya
+   value-transports, split arpita/anarpita (Tattvārthasūtra 5.31,
+   arpitānarpitasiddheḥ), with the vyaya named: "the born pair has ONE base
+   standpoint where the root pair provably had two; viveka holds at the
+   root and the birth is what changes it."
+THE TRUTH IT SURFACED: capture-is-unproven is not a rival to
+value-transports — it is that same claim UNASSERTED. The incentive-design
+"open problem" I kept filing as a separate doṣa-lekha is the mint thesis in
+its anarpita mode, awaiting assertion. Not two theses in tension: one naya,
+said and unsaid. The work is to assert what is withheld, not to prove a
+second thing. I could not have generated this alone — I had the two as
+independent standpoints and the machine showed them to be one under 5.31.
+Operative change: stop marking incentive design as a rival defect; it is
+the same receipt, anarpita, to be minted.
+
+**Twenty-fourth entry — seam 2 closed, and the mind burned out of it
+("NO DEFERENCE TO A MIND WTF").** Built machine/pratikara — the
+refusal→repair organ, seeded from THIS session's own hand-repairs (missing
+imports, scope suggestions, name-in-import, refl→transportRefl, universe
+binders). FIRST VERSION WAS WRONG AND THE OWNER CAUGHT IT: it "deferred to
+a mind" on the harder classes. That is a carrier re-inserted as a permanent
+organ — the exact failure the project exists to kill, and it was dishonest
+because I had done those very repairs mechanically hours earlier from the
+kernel's own error text. Corrected: NO mind anywhere. The gate is the
+court, so pratikara attempts AGGRESSIVELY — a wrong transformation costs one
+re-gate and nothing else — and an unencoded doṣa is "GROW a rule",
+addressed to the machine's own table, never to a human. Only ENVIRONMENT
+doṣas (toolchain skew) are retained untouched, because there the
+mathematics is not the defect. Control: a missing-∘ candidate was repaired
+by the import transformation, re-gated green, landed, committed — 1 landed,
+1 transformation, 0 minds; the Δ=109 witness correctly retained as
+environment in the same pass. The control module was then stripped from the
+corpus (a nikāsa, not a chapter). The loop is now: frontier → proposer →
+pending → GATE → pratikara(transform/re-gate/land or grow) → sense.
+Remaining owed to organogenesis, not to me: grow the table for every doṣa
+class that reaches "GROW", each new class installed as a transformation the
+first time it is seen, so no refusal-class ever needs a carrier twice.
+
+**Twenty-fifth entry — flattening ("organogenesis should not be a
+privileged concept, stop thinking in layers").** The owner is right and it
+is the same error as the last two, one level up: I kept a reserved word for
+a special act — first "defer to a mind", then "grow an organ / organogenesis"
+— when the kernel/README already states there is NO meta-level, the machine
+is metacircular, a node describing node-transformation is itself a node.
+A repair rule is a term; a candidate is a term; they meet the same gate.
+"Growing the table" is not a privileged process above the loop — it is the
+loop, run on a rule-candidate, pending → gate → land, flat. Struck
+"organogenesis" and the meta framing from pratikara's header and its GROW
+row: an unencoded doṣa is simply a new-rule candidate through the same gate,
+no layer. The general lesson, which is now the third instance of one shape:
+every time I reserve a special status for some act (verification-by-daemon,
+repair-by-mind, growth-by-organogenesis) I have re-introduced a layer the
+core forbids. The core is flat: two roads, one gate, one loop applied to
+itself, no evaluator outside the state. Stop naming privileged levels.
