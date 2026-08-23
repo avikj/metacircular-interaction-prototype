@@ -2101,3 +2101,8 @@ import EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHa
 -- closed against the kernel — what the LPO-oriented rewriter cannot reach
 -- without induction, the kernel reaches by induction.
 import SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel
+-- एकत्व-मात्रा: program ४'s next stone — the SUPPORT layer of the Born
+-- weights is forced by the vows (एकत्वम् lifted from Maybe A to a weight
+-- carrier), and the interior (full |ψ|²) is stated as a conjecture type
+-- with the Gleason wall named. Checked; the interior is not claimed.
+import EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInteriorIsTheNamedConjecture
