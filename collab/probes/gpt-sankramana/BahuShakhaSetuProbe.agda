@@ -53,10 +53,10 @@ open import Cubical.Foundations.Equiv
   using (_≃_ ; fiber ; compEquiv ; equivFun ; invEq ; invEquiv ; secEq ; retEq)
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Univalence using (ua ; uaβ)
-open import Cubical.Data.Nat using (ℕ ; suc ; totalSum)
+open import Cubical.Data.Nat using (ℕ ; suc)
 open import Cubical.Data.Sigma
   using (Σ ; Σ-syntax ; _,_ ; fst ; snd ; Σ≡Prop)
-open import Cubical.Data.SumFin using (Fin)
+open import Cubical.Data.SumFin using (Fin ; totalSum)
 open import Cubical.Data.SumFin.Properties
   using (SumFinΣ≃ ; isSetSumFin)
 open import Cubical.Functions.Fibration using (fiberEquiv)
