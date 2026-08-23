@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
-module AbhijnanaProbes.P016 where
+module AbhijnanaProbes.P021 where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma
@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import NaturalMachine.SieveScaleTower as M
-import NaturalMachine.SieveScaleTower as F
+import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJetIsMultiplicative as M
+import NaturalMachine.SpernerFromSl2 as F
 
-_ : (b : _) → fiber M.o₃ b ≡ F.Fibre₃ b
+_ : (b : _) → fiber M.κ b ≡ F.Div b
 _ = λ b → refl
