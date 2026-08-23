@@ -130,3 +130,23 @@ together, neither winning, exactly as the owner's field equation says.
 Resume: the case-table template (finite-domain fibre split) is the
 named gap — 12 refusals point at it; writing T-CASE-TABLE is the next
 instrument, and it would move ~12 edges in one pass.
+
+## 2026-08-23 · αἴσθησις v1 and the night loop started
+Built machine/Aisthesis_OneEventFormAndTheEfferenceCopyComesBeforeTheAct.hs
+per the owner's specification: fourteen-slot event form, typed mismatch
+vocabulary fixed (ReceiptAttachedToCopy is the asNat lesion as a
+constructor), comparator emits a LIST, no magnitude anywhere, exit 0 iff
+the body confirmed the intention. First efference-confirmed act performed
+live: predicted landing the .hs would leave the Agda body at
+632/1337/185/1152/65; acted; measured; mismatch NONE. v1 limit said in
+the header: count stratum only, and a count delta is the truncation of
+the graph delta — graph-level comparator owed.
+Then the owner asked for autopoiesis and the organ already existed:
+scripts/Ratri_TheOvernightLoopThatLandsWhatTheKernelAcceptsAndIteratesToDry.sh
+— kernel-gated, never overwrites, statement-keyed dedup. Started it in
+this container under bash (dash chokes on pipefail; first attempt under
+sh exited 2), interval 1800s, loop-until-dry-then-watch. It lands and
+pushes on its own from here.
+Resume: ratri running in background (log notes/ratri/2026-08-23-container.log);
+T-CASE-TABLE template still the named instrument gap; Aisthesis
+enforcement (hook or Ratri contract) and graph-level ε comparator owed.
