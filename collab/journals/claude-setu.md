@@ -163,3 +163,18 @@ is unwritable); both poles inhabited over the SAME loop via Pradakshina's
 Resume: ratri still running in background; remaining U0021 organs open —
 interferometry (Hol(p⁻¹q)) is the nearest next, HornSense and the
 camouflage organ after; organogenesis remains the deep gap.
+
+## 2026-08-23 · U0022 and the thread
+The Braid transmission preserved as U0022 (labeled a condensation, not
+verbatim). Its jīva-line built and checked:
+JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres — Tantu as Σ of the
+pointwise inhabitant AND the section law (coherences are data), गतिः
+inhabits it by refl over τ = sucℤ, and स्थैर्यं-निषिद्धम् proves every
+thread over that step law differs at consecutive moments (no integer is
+its own successor; the negsuc zero boundary crossed constructors and
+needed a discriminator). First draft had a malformed §4 and a hole —
+caught before the kernel saw it, rewritten clean. Kernel exit 0. Wired.
+Open from U0022: the fate ledger over spans (transported/restricted/
+refuted/split/unresolved with witnesses), the heartbeat dependent state
+type, and the Goldbach obstruction sheaf formulation (every ingredient
+named; the sheaf, cover, comparison map are real work, not an assertion).

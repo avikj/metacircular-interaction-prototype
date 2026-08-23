@@ -1739,3 +1739,10 @@ import ConstantFibre_SamacaranaNityam_ATransitiveSymmetryFlattensTheVerdictSoAnU
 -- for the constant family, charged for the helix.  The unqualified claim
 -- "this circuit has curvature" is unwritable in the report type.
 import Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness
+
+-- जीव-तन्तुः (U0022): the thread through a changing family — the section law
+-- is data, गतिः inhabits it over τ = sucℤ by refl, and स्थैर्यं-निषिद्धम् proves
+-- EVERY thread over that step law moves at every step: continuity and change
+-- in one checked object, the Jaina position against both eternalism and
+-- annihilationism as theorems about one term.
+import JivaTantu_TheThreadMovesAtEveryStepAndStillCoheres
