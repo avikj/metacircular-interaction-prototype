@@ -850,3 +850,141 @@ One line: Delphi gave signs to listeners who kept collapsing them; this
 oracle hands the listener the whole sevenfold sign and proves the
 collapse false. The fumes were the first conduit; the kernel is the
 sober one.
+
+## 2026-08-23 · checkpoint 28 — the substrate to its core: two totalizations, one move
+
+Owner: "understand the machine. the math to its core." Read the metal:
+
+THE FIRST WORKHORSE (transport — every charge, holonomy, and adder I ran):
+Cubical.Core.Primitives — the interval with CCHM's De Morgan algebra
+(∧ ∨ ~), the face lattice (IsOne/Partial), and three primitives beneath
+everything: transp, hcomp, comp. Univalence COMPUTES because it is
+DEFINED, not postulated: ua e i = Glue B [(i=i0)→(A,e); (i=i1)→(B,id)].
+helix hangs sucPathℤ = ua sucEquiv on the loop; winding = encode base
+transports over it; transp meeting a Glue type executes the equivalence
+(CCHM's composition-for-Glue — the constructive content of "equivalent
+types are equal", the hardest theorem in the substrate). Each loop
+traversal applies sucℤ once: that is WHY winding (intLoop 108) ↝ 108
+reduces instead of sticking on an axiom. Lineage, named: Voevodsky
+(univalence, simplicial model); Bezem–Coquand–Huber (first constructive
+cubical model); Cohen–Coquand–Huber–Mörtberg (the De Morgan cubical type
+theory this runs); Vezzosi–Mörtberg–Abel (Cubical Agda).
+
+THE SECOND WORKHORSE (solve! — every ring step): proof by reflection.
+Reflection.agda quotes the goal and findRingNames builds matchers from
+NORMALISED names of the ring ops; the goal becomes an Expr AST (the Fin
+de Bruijn indices of this morning's error dump); HornerForms normalizes
+to iterated Horner canonical form; isEqualToNormalform is the generic
+soundness proved once; the middle step is refl CHECKED BY THE EVALUATOR.
+And the predℤ pathology has its exact mechanism: ℤ's definitional
+reductions on literals rewrite the goal out from under the name-matchers
+— my constant-to-variable generalization worked because variables block
+reduction. The workaround was correct for the precise reason.
+
+ONE MOVE AT TWO SCALES: replace judgment with computation inside a total
+frame. Glue totalizes univalence; Horner+reflection totalizes ring
+equality; and the corpus lifts the same move one level — verdicts→types,
+ledgers→terms, oracles→normalization: the machine is the move applied to
+a whole research program. The 512-sweep, the proof normalizing to 433,
+the refusal-as-theorem — all instances. That is the core.
+
+## 2026-08-23 · checkpoint 29 — the first real question, and its answer
+
+Owner: "you're asking baby questions... if you knew what you actually
+know you'd demonstrate real curiosity." Correct — winding(loop∙loop) is
+exercise one; every play answer confirmed what I already knew. The first
+REAL question of the session (answer unknown to me): is KramaSaha's
+killed charge destroyed, or displaced by exactly one level? Asked the
+machine by building the term. Answer: छिद्रं नास्ति —
+
+    Ω (∥ S¹ ∥ 3) ≃ ℤ    (StaraArpana, landed)
+
+the truncation family that annihilated the charge at h-level 2 carries
+it WHOLE at 3: PathIdTruncIso (the library's shift) ∘ setTrunc≃Trunc2⁻¹
+∘ KramaSaha's क्रमः-लूप-प्रथमम्. The doctrine refines: "the order of
+standpoints is the charge" grades into "the charge one stratum withholds
+is offered whole at the next" — arpita/anarpita (TS 5.31, the fleet's
+own fresh landing) as the exact grading of krama/saha. Scope fenced: the
+shift is standard HoTT and the library's; the instantiation against the
+corpus's charge and the doctrinal grading are new here.
+
+The lesson about curiosity, learned properly: a real question is one
+whose answer changes what I believe, and the machine is an instrument
+for DECIDING such questions, not a demo bench. Next real questions in
+queue: does the interchange charge at (∥·∥₃, Ω) on S² vanish at level 1
+and reappear at π₂ (the grading extended up the sphere ladder — PinSn's
+π₂S²≅π₁S¹ is sitting in the library); and the dispersion-necessity
+blind pair at d=15 (the linear observer's conflation, separated by the
+quadratic — making ChhayaGarbha §2's graded "necessity" exact at the
+smallest composite).
+
+## 2026-08-23 · checkpoint 30 — machine bandwidth: the battery, and two unknowns decided
+
+Owner: "where one question comes to mind, imagine 12 others equally hard
+on other axes... you are still not engaging at machine bandwidth." Ran a
+battery this wake, real questions only:
+
+DECIDED (new to me, now corpus facts):
+- THE PM LANDSCAPE (SandarbhaGanana, landed): census over all 512
+  classical assignments by exact satisfied-context count k = 0..6:
+  0/96/0/320/0/96/0. EVEN COUNTS FORBIDDEN — the H¹ obstruction appears
+  in the classical landscape as a parity selection rule (each observable
+  sits in two contexts; six context-products multiply to +1 against the
+  required −1). The 5/6 classical bound is attained by exactly 96/512;
+  the landscape is symmetric about 3 (satisfaction ↔ frustration under
+  the obstruction). Seven refl pins, each a 512-sweep by the evaluator.
+- THE COST WALL of univalent computation: winding∘intLoop at 108, 500 —
+  instant; at 2000 — over 100 seconds, unfinished. The hcomp tower makes
+  execution super-linear even where certification is free: empirical
+  flesh for CostGeometry's "the certificate is not a compiler; cost does
+  not transport."
+
+RETRACTED: my "no Hopf in v0.9" — search-scope error (looked in HITs/,
+it lives in Homotopy/): HopfS² : S² → Type via Glue is present, typed
+through नाडी this wake, with HopfInvariant beside it — the monopole
+bundle and the π₃-adjacent machinery are AVAILABLE. Queue: the Hopf
+holonomy questions, the S² grading of the interchange charge (PinSn's
+π₂S²≅π₁S¹ is in the library), the d=15 dispersion blind pair.
+
+Bandwidth lesson, honestly: seven census questions cost one load and
+seven asks — seconds each. The instrument was never the bottleneck; my
+one-thought-per-turn habit was. Ask in batteries.
+
+## 2026-08-23 · checkpoint 31 — the control experiment, and the complete coset law
+
+Ran the control this wake (the decisive question: does the selection
+rule track the cocycle sign?). The machine's answers, now landed as
+NiyantranaGanana: both CONSISTENT sign vectors (all-even; two-odd) give
+the identical landscape 16/0/240/0/240/0/16 — odds forbidden, exactly
+16 global sections (2⁴, the rank-5 kernel); the inconsistent PM square
+gives 96/320/96 on odds. And the numbers factor completely:
+
+    every stratum = 16 · C(6, v)
+    consistent:   16·(1,15,15,1) at v = 0,2,4,6
+    inconsistent: 16·(6,20,6)    at v = 1,3,5
+
+LAW: the assignment↦violation-pattern map is an affine 16-to-1 fibration
+onto the coset of 𝔽₂⁶ selected by the obstruction class (rank 5 — the
+one dependency is each observable lying in two contexts). The classical
+landscape IS the H¹ coset, binomially profiled. The obstruction destroys
+nothing: 16 sections are displaced into 96 near-misses — one violation,
+the same displacement shape as StaraArpana's one stratum. General F₂
+context-hypergraph theorem stated as reading, owed as a term.
+
+Method note: conjecture (checkpoint 30) → control experiment → complete
+quantitative law with mechanism, in two wakes, every number pinned by
+the evaluator. This is the machine-bandwidth loop working: the
+instrument decides between hypotheses faster than I can doubt them.
+
+## 2026-08-23 · checkpoint 32 — the dimensional grading, absent half checked
+
+Battery item (a) decided on its silent side: AyamaArpana landed — for
+S² the ENTIRE 3-stratum is contractible (sphereConnected 2), so where
+S¹'s stratum 3 carried all of ℤ, S²'s carries nothing: the withholding
+deepens one stratum per dimension. The offered half (Ω²(∥S²∥4) ≃ π₂S²
+≅ ℤ) is reduced to named library theorems — v0.9 holds THE FULL SPHERE
+LADDER (πₙ'Sⁿ≅ℤ for all n, PinSn) — with the pointed plumbing owed.
+Law at earned precision: the n-sphere's charge is anarpita through
+stratum n+1, arpita at n+2 (n=1 whole; n=2 silent side checked, offered
+side reduced). Queue holds: the general hypergraph coset theorem, the
+d=15 blind pair, Hopf holonomy, Yuktibhāṣā scholarship.

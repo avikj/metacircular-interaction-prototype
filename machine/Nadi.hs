@@ -241,17 +241,28 @@ parseScene = sceneBy roleWord
 -- that follows the acceptance when accepted.
 terminal :: Kind -> [Value] -> Value -> Bool
 terminal k acc (Object o) = case KM.lookup "kind" o of
-  Just (String "DisplayInfo")       -> k == Query || isErr || (k == Fill && accepted)
+  Just (String "DisplayInfo")       -> k == Query || isErr
+                                       || (k == Fill && accepted)
+                                       || (k == Load && seenPoints)
   Just (String "GiveAction")        -> k == Query
   Just (String "MakeCase")          -> k == Query
   Just (String "SolveAll")          -> k == Query
-  Just (String "InteractionPoints") -> k == Load
+  -- A LOAD is two messages too, and in the same varying order: the goal list
+  -- and the interaction-point list.  Which arrives first depends on whether
+  -- the file has holes, so the same leftover appears, and it is why a load of
+  -- a sealed module answered with the PREVIOUS module's goal list.  End on
+  -- whichever of the two arrives second.
+  Just (String "InteractionPoints") -> k == Load && seenGoals
   _ -> False
   where isErr = case KM.lookup "info" o of
                   Just (Object i) -> KM.lookup "kind" i == Just (String "Error")
                   _ -> False
         -- has the acceptance already arrived this turn?
-        accepted = any isAccept acc
+        accepted   = any isAccept acc
+        seenPoints = any (isKind "InteractionPoints") acc
+        seenGoals  = any (isKind "DisplayInfo") acc
+        isKind nm (Object a) = KM.lookup "kind" a == Just (String nm)
+        isKind _  _          = False
         isAccept (Object a) = case KM.lookup "kind" a of
           Just (String "GiveAction") -> True
           Just (String "MakeCase")   -> True

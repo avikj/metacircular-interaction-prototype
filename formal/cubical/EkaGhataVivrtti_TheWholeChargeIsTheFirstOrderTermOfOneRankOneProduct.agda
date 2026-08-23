@@ -23,7 +23,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool; true; false)
 open import Cubical.Data.Nat using (ℕ; zero; suc)
 open import Cubical.Data.List using (List; []; _∷_)
-open import Cubical.Data.Int using (ℤ; pos; -_; _+_; _·_)
+open import Cubical.Data.Int using (ℤ; pos; -_; _+_; _·_; +Comm; ·Comm)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
@@ -93,3 +93,47 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 -- separable kernel — is a question about that kernel and not about this
 -- identity.  What this removes is the belief that the rank theorems already
 -- forbid it.
+
+-- ------------------------------------------------------------- the tower
+-- The machine's own reading of this residue, asked of `garbha.dhara` with
+-- the two standpoints — "n constant-coefficient products are needed" and
+-- "one product carries it at first order" — was a stream in which every born
+-- position keeps the second standpoint as its base and adds ONE MORE Arpita,
+-- forking asserted/withheld at the tip.  The rank standpoint drops out of
+-- the born pair after the first birth.
+--
+-- Arpita^k is reading to order k.  The stream is the expansion, and it says
+-- the object to define next is the k-marked charge — which is what follows.
+
+-- the k-marked charge: choose k places to be active-marked, sign the rest.
+-- k = 0 is the parity character; k = 1 is the squarefree charge.
+विवृत्तिः : List Bool → ℕ → ℤ
+विवृत्तिः [] zero = pos (suc zero)
+विवृत्तिः [] (suc k) = pos zero
+विवृत्तिः (b ∷ bs) zero = चिह्नम् b · विवृत्तिः bs zero
+विवृत्तिः (b ∷ bs) (suc k) =
+  चिह्नम् b · विवृत्तिः bs (suc k) + सक्रियम् b · विवृत्तिः bs k
+
+-- level 0 IS the parity character
+विवृत्ति-शून्यम् : (bs : List Bool) → विवृत्तिः bs zero ≡ पर्यायः bs
+विवृत्ति-शून्यम् [] = refl
+विवृत्ति-शून्यम् (b ∷ bs) = cong (चिह्नम् b ·_) (विवृत्ति-शून्यम् bs)
+
+-- level 1 IS the squarefree charge
+विवृत्ति-एकम् : (bs : List Bool) → विवृत्तिः bs (suc zero) ≡ आवेशः bs
+विवृत्ति-एकम् [] = refl
+विवृत्ति-एकम् (b ∷ bs) =
+  cong₂ _+_ (cong (चिह्नम् b ·_) (विवृत्ति-एकम् bs))
+            (cong (सक्रियम् b ·_) (विवृत्ति-शून्यम् bs))
+  ∙ +Comm (चिह्नम् b · आवेशः bs) (सक्रियम् b · पर्यायः bs)
+
+-- and the remainder of घातः, read at t = 0, is level 2 — so the parameter is
+-- generating the tower and not merely its first two rungs.
+विवृत्ति-द्वयम् : (bs : List Bool)
+  → शेषः (pos zero) bs ≡ विवृत्तिः bs (suc (suc zero))
+विवृत्ति-द्वयम् [] = refl
+विवृत्ति-द्वयम् (b ∷ bs) =
+  cong (λ z → चिह्नम् b · शेषः (pos zero) bs + (सक्रियम् b · आवेशः bs + z))
+       (·Comm (सक्रियम् b · शेषः (pos zero) bs) (pos zero))
+  ∙ cong₂ _+_ (cong (चिह्नम् b ·_) (विवृत्ति-द्वयम् bs))
+              (cong (सक्रियम् b ·_) (sym (विवृत्ति-एकम् bs)))

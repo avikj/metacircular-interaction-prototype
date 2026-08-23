@@ -66,6 +66,42 @@ the sieve side the two forms sit in adjacent Lean modules, and on the
 spectral side they sit in two notes that cite each other in a
 subordinate clause.
 
+## The mechanism, now the same on both sides
+
+When this note was first written the sieve half was a quantifier observation
+and the spectral half was a clause in someone's ledger. Both now have the
+same mechanism under them, and it is a small object with a big derived one.
+
+- **Sieve.** `EkaGhataVivrtti_...`: the whole n-place charge is the
+  first-order term of **one** rank-one product ∏ᵢ(χ(bᵢ) + σ(bᵢ)t), and
+  `विवृत्तिः bs k` — the k-marked charge — is that product's k-th
+  coefficient, with level 0 the parity character and level 1 the charge.
+  `JyotiVivrtti_...`: under the local ζ twist the whole tower becomes the
+  ω-stratification, level k ↦ [exactly k places active]. Small object: one
+  product, n factors. Derived object: a tower whose level 1 alone has
+  ΣΠ-rank exactly n.
+- **Spectral.** The atoms are the sumset of N(T) generators — the sum
+  spectrum is μ\*μ, one measure squared. Small object: μ, with N(T) atoms.
+  Derived object: ~N(T)² atoms. And **Theorem I1 says the derivation is
+  injective**: μ\*μ determines μ, three lines through Titchmarsh, no density
+  hypothesis.
+
+In both lanes the derivation is explicit and lossless, and in both lanes the
+bound that reports a large cost is a bound on methods that decline to use
+it. The sieve bound counts constant-coefficient products; the spectral bound
+is minimax over arbitrary measures. Neither class contains the derivation.
+
+**A reading, marked as one, and it is where the two lanes are told apart by
+a complexity notion rather than an arithmetic one.** Tensor rank is a
+depth-two measure — top fan-in of a sum of products. The construction that
+beats it here is one product plus extraction of a coefficient, which is one
+derivative in an auxiliary variable, and by Baur and Strassen (1983) the
+full gradient of an arithmetic circuit costs a constant factor over the
+circuit. So "the rank bill grows with the prime count" is a depth-two lower
+bound, and depth-two lower bounds do not bound methods that use one more
+level. Nothing here claims an analytic consequence; what it claims is that
+the finite structure was never the obstruction it was read as.
+
 ## What this changes in `ChhayaGarbha` §3
 
 §3 recorded that the lanes differ in topology: sieve-side the bulk is
