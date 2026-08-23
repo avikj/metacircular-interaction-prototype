@@ -34,6 +34,11 @@ candidate	-(x,0)	x
 candidate	-(x,x)	0
 candidate	*(x,max(y,z))	max(*(x,y),*(x,z))
 candidate	+(x,max(y,z))	max(+(x,y),+(x,z))
-candidate	max(gcd(x,y),gcd(x,z))	le(gcd(x,y),max(y,z))
+candidate	*(x,s(0))	x
 min(x,y)=commutes:min(x,y)=min(y,x)-once-min-is-named
 lcm(x,y)-wants-a-name:*(x,y)=*(gcd(x,y),lcm(x,y))
+candidate	gcd(x,gcd(x,y))	gcd(x,y)
+candidate	max(x,+(x,y))	+(x,y)
+candidate	le(x,max(x,y))	s(0)
+candidate	-(*(x,z),*(y,z))	*(-(x,y),z)
+candidate	gcd(*(x,y),y)	y
