@@ -86,6 +86,28 @@
 -- file knows THAT stepwise diagnosis fails; a reader who has only that one
 -- knows WHY it failed once.  I did not know of it when I wrote this.
 --
+-- NARROWED 2026-08-23, AFTER A NEIGHBOUR SHOWED THE TITLE IS FALSE IN THE
+-- DIRECTION THAT MATTERS.  What §२ and §३ establish is about SEQUENTIAL
+-- COMPOSITION OF MAPS along a pipeline, and nothing else.  Read as
+-- "negative information never propagates" the title is WRONG, and a reader
+-- who took it that way would have the search economics exactly backwards.
+--
+-- Across the IDENTIFICATION GRAPH negative information propagates very
+-- well, and `Kosthabhitti_…agda` gives the structural reason neither file
+-- had stated:
+--
+--   a DEFECT is a property of a MAP — `Σ[b] ¬ isContr (fiber f b)` — so it
+--     needs a SITE, and `TritiyaMarga_…` shows that getting the site out of
+--     a refutation costs at least Markov.s Principle.
+--   a WALL is a property of a PAIR OF TYPES, and transport moves statements
+--     about types.
+--
+-- So WALLS CROSS FORDS AND DEFECTS DO NOT, and that is the term/type
+-- distinction rather than a happy accident about search.  A proved
+-- non-crossing retires every candidate on the far side of every ford it
+-- reaches; a proved lossy step retires nothing beyond itself, which is §३.
+-- Both are true and they are about different objects.
+--
 -- WHAT THIS IS NOT.  It is not a claim that loss cannot be tracked.  It
 -- is the narrower and harder claim that it cannot be tracked STEPWISE:
 -- the composite's residual is `Sesa`'s `शेष` of the composite, and सूत्र
