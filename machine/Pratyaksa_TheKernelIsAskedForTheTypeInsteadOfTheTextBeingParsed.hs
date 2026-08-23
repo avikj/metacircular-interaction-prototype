@@ -59,7 +59,7 @@ module Main (main) where
 import System.Process (readCreateProcessWithExitCode, proc, CreateProcess(..))
 import System.Environment (getArgs)
 import System.Exit (ExitCode(..))
-import Data.List (isPrefixOf, isSuffixOf, isInfixOf, sort, sortOn, nub)
+import Data.List (isPrefixOf, isSuffixOf, isInfixOf, sort, sortOn, nub, partition)
 import System.Directory (listDirectory, doesDirectoryExist)
 import Data.Char (isSpace)
 import Control.Monad (forM_, when, forM)
@@ -186,6 +186,7 @@ main = do
   args <- getArgs
   case args of
     ("--collisions" : p : _) -> collisions p
+    ("--edges" : p : _)      -> kernelEdges p
     _ -> emit args
 
 emit :: [String] -> IO ()
@@ -289,6 +290,122 @@ collisions path = do
       putStrLn ("  " ++ n)
       mapM_ (\(m, t) -> putStrLn ("      " ++ m ++ "." ++ n ++ "  :  " ++ take 90 t))
             (sortOn fst (nub ds))
+    splitTabs x = case break (== '\t') x of
+      (a, '\t' : r) -> a : splitTabs r
+      (a, _)        -> [a]
+
+------------------------------------------------------------------------
+-- सेतुः प्रत्यक्षात् · THE EDGES AS THE KERNEL HAS THEM.
+--
+-- `--edges <table.tsv>` builds the road-one/road-two node-and-edge data
+-- from elaborated types instead of from source text.
+--
+-- WHY THIS IS NOT A BETTER PARSER.  Lopa resolves node names by parsing
+-- and gets `⟨lib⟩.ℕ`, `⟨ambig⟩.R`, `⟨lib⟩.A` — a merged node, a merged
+-- node, and a bound variable carried as a library type.  Here those cannot
+-- ARISE: the kernel's type is already fully qualified, so
+-- `Gamma0Partner.R → Gamma0Partner.M → Gamma0Partner.M` names its own
+-- nodes and there is nothing left to resolve.  The failure mode is not
+-- reduced, it is absent.
+--
+-- WHAT IT DOES NOT DO.  It does not replace Lopa.  Two independent
+-- extractors that agree is a channel in this corpus's sense; where they
+-- disagree, the diff is the measurement of an inference by a direct look,
+-- and that diff is the point of having both.  Nor does this decide which
+-- edges are INVERTIBLE — a `≃` in the elaborated type is visible here, but
+-- whether a declaration proves an identification is Setubandha's question
+-- and is not answered by the shape of a type.
+--
+-- THE BINDER RULE, stated because it is the only judgement in the file.
+-- An elaborated type is a chain of `→`.  Leading groups that BIND — `{…}`
+-- implicits, and `(x : A)` where the parenthesis carries a top-level `:` —
+-- are binders and not arguments; a dependent function is not an edge from
+-- its binder.  What remains, if two or more components, gives source =
+-- second-to-last and target = last.  This is Lopa's own rule, applied to
+-- text that needs no repair rather than to text that does.
+------------------------------------------------------------------------
+
+-- split on top-level → , respecting (), {}, and ⟨⟩
+splitArrows :: String -> [String]
+splitArrows = go 0 ""
+  where
+    go :: Int -> String -> String -> [String]
+    go _ acc []               = [reverse acc]
+    go d acc ('→' : r) | d == 0 = reverse acc : go 0 "" r
+    go d acc (c : r)
+      | c `elem` "({⟨"  = go (d + 1) (c : acc) r
+      | c `elem` ")}⟩"  = go (d - 1) (c : acc) r
+      | otherwise       = go d (c : acc) r
+
+isBinder :: String -> Bool
+isBinder s = case trim s of
+  ('{' : _)          -> True
+  t@('(' : _)        -> hasTopColon (init' (drop 1 t))
+  _                  -> False
+  where
+    init' x = if null x then x else init x
+    hasTopColon = go 0
+      where
+        go _ []                = False
+        go d (c : r)
+          | c == ':' && d == 0 = True
+          | c `elem` "({⟨"     = go (d + 1) r
+          | c `elem` ")}⟩"     = go (d - 1) r
+          | otherwise          = go d r
+
+-- Binders are dropped WHEREVER they occur, not only at the front.  The
+-- first version used `dropWhile`, so `A → (x : X) → B` kept `(x : X)` as a
+-- source: a binder standing as a node, which is the same class of forgery
+-- this program exists to remove, committed inside it.  Fixed, and recorded
+-- rather than quietly corrected.
+edgesOf :: String -> Maybe (String, String)
+edgesOf ty =
+  let cs = filter (not . isBinder) (map trim (splitArrows ty))
+  in case reverse cs of
+       (t : s : _) | not (null s), not (null t) -> Just (s, t)
+       _                                        -> Nothing
+
+-- A name with no dot is a BOUND VARIABLE -- a module parameter or telescope
+-- variable -- not a type in this corpus.  The kernel prints it by its local
+-- name because that is what it is.  An arrow out of a variable is not an
+-- edge, it is a SCHEMA, and the three wrong things to do with it are: merge
+-- them across modules (Lopa.s ⟨lib⟩.A), drop them silently (सूत्र ७), or
+-- pretend they are qualified.  They are separated and named.
+isSchematic :: String -> Bool
+isSchematic s = not (any (== '.') s)
+
+kernelEdges :: FilePath -> IO ()
+kernelEdges path = do
+  s <- readFile path
+  let rows = [ (m, n, t) | l <- lines s, take 1 l /= "#"
+             , let f = splitTabs l, length f >= 3
+             , let m = f !! 0, let n = f !! 1, let t = f !! 2 ]
+      es   = [ (m ++ "." ++ n, a, b) | (m, n, t) <- rows
+             , Just (a, b) <- [edgesOf t] ]
+  putStrLn "═══ सेतुः प्रत्यक्षात् · edges as the KERNEL has them ═══"
+  putStrLn "  Node names come from elaborated types, so ⟨ambig⟩ and ⟨lib⟩"
+  putStrLn "  cannot arise -- not resolved better, structurally absent."
+  putStrLn "  Two extractors that agree is a channel; where they differ the"
+  putStrLn "  diff measures an inference against a direct look."
+  putStrLn ""
+  -- Three kinds, and mixing them would mislead every consumer.  A target
+  -- that is a SORT means the declaration is a type FAMILY, not a map --
+  -- Lopa refuses those as `AFamily` and so does Setubandha; an edge into
+  -- `Set` is not a crossing.  A bound variable at either end is a SCHEMA.
+  -- What is left is a map between named objects.
+  let isSort x = take 20 (trim x) == "Agda.Primitive.Set" || trim x == "Agda.Primitive.Setω"
+                 || take 18 (trim x) == "Agda.Primitive.Set"
+      (fam, notFam)  = partition (\(_, _, b) -> isSort b) es
+      (schema, real) = partition (\(_, a, b) -> isSchematic a || isSchematic b) notFam
+  putStrLn ("# families separated (target is a sort; not a crossing): "
+            ++ show (length fam))
+  putStrLn ("# schemas separated (a bound variable is not a node): "
+            ++ show (length schema))
+  putStrLn "# decl\tsource\ttarget"
+  mapM_ (\(d, a, b) -> putStrLn (d ++ "\t" ++ a ++ "\t" ++ b)) real
+  putStrLn "# ── योजना · SCHEMAS, kept and named, not merged and not dropped ──"
+  mapM_ (\(d, a, b) -> putStrLn ("# schema\t" ++ d ++ "\t" ++ a ++ "\t" ++ b)) schema
+  where
     splitTabs x = case break (== '\t') x of
       (a, '\t' : r) -> a : splitTabs r
       (a, _)        -> [a]
