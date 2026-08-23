@@ -540,3 +540,49 @@ private
 रेखा-न-एकश्रुतिः (inr (inr (inr (inr (inl pP))))) = outside _ refl pP
 रेखा-न-एकश्रुतिः (inr (inr (inr (inr (inr (inl pP)))))) = outside _ refl pP
 रेखा-न-एकश्रुतिः (inr (inr (inr (inr (inr (inr ()))))))
+
+------------------------------------------------------------------------
+-- §8  Minimality, added the same night.  §6 proved repetition count zero
+--     impossible for the trio.  Here: the real line's repetition count is
+--     exactly ONE — ha twice, every other sound once.  Zero impossible,
+--     one attained: in the repetition dimension, for this trio, the
+--     Māheśvara line is minimal.  (For the full attested family the
+--     attainment side rests on the Haskell decision procedure's reading
+--     of all ~30 classes, which is not kernel-checked; the NECESSITY side
+--     needs only the trio and is §6.  The doubled marker-letter ṆA is a
+--     different doubling — two occurrences of an it, priced in
+--     `TheSecondNaIsTheCollision` — and is not counted here, where the
+--     count is of SOUNDS.)
+------------------------------------------------------------------------
+
+गणना : Varṇa → List Varṇa → ℕ
+गणना tg []        = zero
+गणना tg (x₀ ∷ xs) = if eqV x₀ tg then suc (गणना tg xs) else गणना tg xs
+
+eqℕ : ℕ → ℕ → Bool
+eqℕ zero     zero     = true
+eqℕ zero     (suc _)  = false
+eqℕ (suc _)  zero     = false
+eqℕ (suc m₀) (suc n₀) = eqℕ m₀ n₀
+
+वर्णाः : List Varṇa
+वर्णाः = a ∷ i ∷ u ∷ ṛ ∷ ḷ ∷ e ∷ o ∷ ai ∷ au
+       ∷ h ∷ y ∷ v ∷ r ∷ l ∷ ñ ∷ m ∷ ṅ ∷ ṇ ∷ n
+       ∷ jh ∷ bh ∷ gh ∷ ḍh ∷ dh ∷ j ∷ b ∷ g ∷ ḍ ∷ d
+       ∷ kh ∷ ph ∷ ch ∷ ṭh ∷ th ∷ c ∷ ṭ ∷ t ∷ k ∷ p ∷ ś ∷ ṣ ∷ s ∷ []
+
+द्विचत्वारिंशत् : length वर्णाः ≡ 42
+द्विचत्वारिंशत् = refl
+
+-- ha stands twice in the line; every one of the other forty-one sounds
+-- stands exactly once.  One computation over the whole inventory.
+एकावृत्तिः : allL (λ v₀ → eqℕ (गणना v₀ रेखा) (if eqV v₀ h then 2 else 1)) वर्णाः
+           ≡ true
+एकावृत्तिः = refl
+
+-- and the fourteen it-occurrences each stand once, so the line has no
+-- hidden doubling anywhere else
+अनुबन्धाः-सकृत् : allL (λ v₀ → eqℕ (गणना v₀ रेखा) 1)
+                       (Mṇ₁ ∷ Mk ∷ Mṅ ∷ Mc ∷ Mṭ ∷ Mṇ₂ ∷ Mm ∷ Mñ ∷ Mṣ ∷ Mś ∷ Mv ∷ My ∷ Mr ∷ Ml ∷ [])
+                ≡ true
+अनुबन्धाः-सकृत् = refl
