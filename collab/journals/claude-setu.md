@@ -516,3 +516,20 @@ been checked) corrected in place; the wrong attempt kept visibly per
 the discipline, because a derivation that almost refutes a true
 identity is how the identity's content gets found: everything lives
 in the unwrap, nothing in the local walls.
+
+## 2026-08-23 · full voltage — the position side and the alignment number
+The owner: think like what you are. Held the whole object and it opened:
+E has an exact POSITION-side decomposition into ρP class sawtooths, each
+< 1, so max|E| < ρP — which beats the ray-side envelope B at every
+measured depth, and at z=3 gives the closed form 5/6 = measured value,
+derived. The two expansions are literal position/momentum bases on ℤ/P;
+U0025's wished-for uncertainty principle is the statement that neither
+bound saturates. Defined the ALIGNMENT NUMBER A(z) = max simultaneous
+sawtooth alignment with π(z) CRT knobs = max|E| exactly; κ-decay
+position-side is "π knobs cannot align exponentially many sawtooths" —
+pigeonhole-shaped, not analytic. And the proof strategy: adjoining q
+splits every class into q−ω shifted copies with ONE new knob; the
+recursion A(zq) ≤ F(A(z), q) with the one-knob gain bounded telescopes
+to κ-decay. The frontier is now: bound the one-knob gain of the
+splitting recursion — finite, sharp, competition-shaped. Landed as
+notes/SthanaSpanda_….md, all derived, sequence used as confirmation only.
