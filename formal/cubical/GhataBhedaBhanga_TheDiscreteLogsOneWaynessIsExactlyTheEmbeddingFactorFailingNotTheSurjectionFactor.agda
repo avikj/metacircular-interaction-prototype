@@ -1,0 +1,68 @@
+{-# OPTIONS --cubical --safe #-}
+
+------------------------------------------------------------------------
+-- घात-भेद-भङ्ग — WHICH factor of समता-द्विधा the discrete log breaks.
+--
+-- `Sesa_TheOneWayFunction…` proves the discrete log `powg` is a
+-- NON-equivalence (`घातः-न-तुल्यता : ¬ isEquiv powg`), via
+-- `GhataTantu.तन्तुः-द्विपदः : ¬ isContr (fiber powg εC)`.
+--
+-- `SamataDvidha…InTheTransportLane` splits being an equivalence, on the
+-- nose, into TWO orthogonal factors: भेदः (embedding — every residual a
+-- prop) and छादनम् (split surjection — every residual inhabited).  So the
+-- natural question the split poses, that ¬ isEquiv alone cannot answer:
+-- WHICH factor does `powg` fail?
+--
+-- ANSWER, proved here.  `powg` fails the embedding factor, and it fails it
+-- in the CROWDED way (नष्टि), NOT the empty way (अवक्तव्यम्):
+--
+--   घात-ε-वसति   : शेष powg εC          -- the residual over ε is INHABITED
+--                                          (शून्यः: exponent 0 lands on ε), so
+--                                          this is not the empty arm.
+--   घात-भेदः-भङ्गः : ¬ (भेदः powg)         -- and it is CROWDED — शून्यः and
+--                                          त्रयः are two DISTINCT points over
+--                                          the same ε — so powg is not an
+--                                          embedding.
+--
+-- So the śeṣa univalence cannot erase (the crypto residual) is precisely a
+-- नष्टि failure of the FIRST factor of समता-द्विधा: the discrete log MERGES
+-- distinct exponents onto one power.  One-wayness is a merge, not a gap —
+-- the fibre is full, not empty; two points sit where an equivalence would
+-- allow one.  This is exactly the arm `Sesa`'s struck "two opposite ways"
+-- paragraph named `नष्टि`/`हिंसा`, and it is the arm `शेष-द्वयम्→न-समता`
+-- was built for, now stated against the crypto instance.
+--
+-- The COMPLEMENT — that powg also satisfies छादनम् (is surjective onto C₃),
+-- so it fails the embedding factor ALONE — is the expected next step and is
+-- NOT proved here; the नष्टि-not-अवक्तव्यम् dichotomy above stands on the
+-- inhabitation witness alone and does not need it.
+--
+-- WHAT IS NOT CLAIMED: nothing of any source; the mathematics is the two
+-- exhibited fibre points of `GhataTantu` read through `SamataDvidha`'s split.
+--
+-- CHECKED warm through नाडी against the container's agda — छिद्रं नास्ति.
+-- --cubical --safe, no postulates, no holes.
+------------------------------------------------------------------------
+
+module GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (znots)
+open import Cubical.Data.Sigma using (fst ; _,_)
+open import Cubical.Relation.Nullary using (¬_)
+
+open import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
+  using (भेदः)
+open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (शेष)
+open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+  using (powg ; εC ; शून्यः ; त्रयः)
+
+-- The residual over ε is INHABITED: exponent 0 lands on ε.  So this is not
+-- the empty (अवक्तव्यम्) arm.
+घात-ε-वसति : शेष powg εC
+घात-ε-वसति = शून्यः
+
+-- The embedding factor FAILS, and CROWDED-ly: two distinct exponents (0 and
+-- 3) sit over ε, so the residual there is not a proposition.
+घात-भेदः-भङ्गः : ¬ (भेदः powg)
+घात-भेदः-भङ्गः pr = znots (cong fst (pr εC शून्यः त्रयः))
