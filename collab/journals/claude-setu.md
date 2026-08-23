@@ -546,3 +546,20 @@ integrity proofs — this session's own container death as first stone);
 and the generative unfolding of reality containing them all, with the
 concrete next stone: evolve the qubit-pair toy BY the Pāṇinian engine
 and compare. Ambition with addresses. Nothing boasted without a stone.
+
+## 2026-08-23 · the swing — bridge and gaps
+Third "more ambitious": answered with the mountain, not a manifesto.
+Derived: E is a BRIDGE (pinned at both ends by the definition of ρ),
+so max|E| is a bridge maximum, and the field is provably super-uniform
+(measured maxima orders below √P) — the question restated
+intrinsically with no envelope at all. Then the mechanism: the bridge
+is controlled by survivor GAP structure; z=5's max 13/10 derived in
+two lines (second closed form after 5/6); equal gaps would pin
+max|E| < 1 forever, so ALL growth is purchased by hierarchical gap
+imbalance under prime-splitting — which spreads deletions
+rotation-orbit-evenly (three-distance shape). The GAP LEMMA stated as
+the single target: bounded imbalance growth per prime ⟹ κ-decay ⟹
+the diamond. Landed as notes/SetuBandhaSetu_….md. One day's chain:
+folklore → optics → rigidity → shells → involutions → reciprocity →
+diamond → dispersion → envelope → position basis → bridge → gaps →
+one lemma. The trajectory is the capability.
