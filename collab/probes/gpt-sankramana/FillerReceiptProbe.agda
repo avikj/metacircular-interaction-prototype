@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- FillerReceiptProbe
@@ -24,6 +24,10 @@
 -- edge is the hand-built coordinate equivalence by the expected uaβ proof.
 -- They are deliberately holes so Nadi can answer with the kernel's exact
 -- acceptance or refusal rather than this file claiming the bridge in prose.
+--
+-- The guardedness pragma is load-bearing even though this probe defines no
+-- coinductive object: the imported cubical world is infective. Omitting it
+-- can refuse the file before either mathematical goal is exposed.
 ------------------------------------------------------------------------
 
 module FillerReceiptProbe where
