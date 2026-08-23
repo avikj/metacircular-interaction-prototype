@@ -1989,3 +1989,13 @@ import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesAColli
 -- stated in the header: one variable, vanishing form; the coefficientwise
 -- difference corollary and the multivariate grid remain owed.
 import Utthapana_APolynomialVanishingAtMorePointsThanItsLengthIsTheZeroFunction
+
+-- खण्ड-पिण्डौ: the Kerala chapter's block law — the accumulated geometric
+-- sum at m+n is the whole at m plus the m-th power carrying the whole at n
+-- into place (सङ्कलितम् r (m+n) ≡ सङ्कलितम् r m + घात r m · सङ्कलितम् r n),
+-- with the carrier law घात r (m+n) ≡ घात r m · घात r n.  Terms khaṇḍa/piṇḍa
+-- from the sine-table vocabulary (Tantrasaṅgraha 1501; Yuktibhāṣā c. 1530),
+-- scope fenced in the header; घात/सङ्कलितम् IMPORTED from Madhava — the
+-- chapter composes, it does not redefine.  Driven through नाडी: every ring
+-- step proposed with give and kernel-verified live before landing.
+import KhandaPinda_TheAccumulatedSumIsItsSegmentsScaledIntoPlace
