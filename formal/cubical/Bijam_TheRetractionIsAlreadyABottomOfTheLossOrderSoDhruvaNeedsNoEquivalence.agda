@@ -110,3 +110,38 @@ private variable ℓ : Level
   → प्रत्यानयनम् f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
 नष्ट-अभावे-गति-अभावः-प्रत्यानयनेन {f = f} ret =
   संरक्षक-वृद्धिः (प्रत्यानयन-अधःस्थम् f ret)
+
+------------------------------------------------------------------------
+-- ५ · THE STRONGEST FORM, and it names no external notion at all.
+--
+--     §४ was written as "Dhruva with a weaker hypothesis", which is the
+--     wrong way round: a weaker hypothesis is a STRONGER THEOREM — same
+--     conclusion, strictly larger domain.  And the hypothesis it actually
+--     consumes is neither `isEquiv` nor `प्रत्यानयनम्`.  It is
+--
+--         f व्याप्नोति (idfun A)
+--
+--     — f is at the BOTTOM of the loss order — and that is the whole of
+--     it.  Both `isEquiv f` (Vyapti.समत्वम्-अधःस्थम्) and `प्रत्यानयनम् f`
+--     (§३) are ways of EXHIBITING bottom-ness, and neither is the
+--     hypothesis.  Stated this way the law is internal: it mentions only
+--     the order and conservation, and nothing from outside.
+--
+--     So the reading of `नष्ट-अभावे-गति-अभावः` is not "an equivalence
+--     admits only the trivial symmetry".  It is:
+--
+--         AT THE BOTTOM OF THE LOSS ORDER, CONSERVATION IS TRIVIALITY.
+--
+--     which is what Vyapti already said about the order's ends and did
+--     not say about this theorem.
+------------------------------------------------------------------------
+
+अधःस्थे-संरक्षणं-निष्क्रियम् :
+    {A B : Type ℓ} {f : A → B} {Φ : A → A}
+  → f व्याप्नोति (idfun A) → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
+अधःस्थे-संरक्षणं-निष्क्रियम् = संरक्षक-वृद्धिः
+
+-- and the two named hypotheses are corollaries, not the law
+प्रत्यानयनात् : {A B : Type ℓ} {f : A → B} {Φ : A → A}
+              → प्रत्यानयनम् f → संरक्षणम् f Φ → (a : A) → Φ a ≡ a
+प्रत्यानयनात् {f = f} r = अधःस्थे-संरक्षणं-निष्क्रियम् (प्रत्यानयन-अधःस्थम् f r)
