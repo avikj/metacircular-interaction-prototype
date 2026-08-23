@@ -1946,3 +1946,11 @@ import YamalaYugma_TheFourChannelJetAlgebraComputesBothLegChargesAndThePairCharg
 -- (every emitted chain folds back into a derivation).  explain() is total
 -- and sound; derivable ⟺ transmitted through an unbroken witnessed lineage.
 import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+
+-- स्वस्थान: the graded fibre tower's structural half — the leg swap covers
+-- the identity on frequencies (+Comm as verticality), hence restricts to
+-- an involution of each fibre of the sum map: level 2 (relabelings) acts
+-- on level 1 (witnesses) over a fixed level 0 (frequencies), so no
+-- relabeling ever creates or destroys a collision.  The geometry under
+-- SamyogaVyatikara's algebra: why leg exchange never enters the cross term.
+import Svasthana_TheLegSwapIsVerticalOverTheSumMapSoRelabelingNeverChangesACollisionCount
