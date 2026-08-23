@@ -30,6 +30,8 @@ module DependentFillerFactorizationProbe where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
+open import Cubical.Data.List using (List)
+open import Cubical.Data.Bool using (Bool)
 open import Cubical.Relation.Nullary using (¬_)
 
 import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier as K
@@ -45,7 +47,8 @@ private
 
 DependentFactorsThrough :
   {X : Type ℓ} {O : Type ℓ'}
-  → (X → O) → (X → Type ℓ'') → Type _
+  → (X → O) → (X → Type ℓ'')
+  → Type (ℓ-max (ℓ-max ℓ ℓ') (ℓ-suc ℓ''))
 DependentFactorsThrough {X = X} {O = O} observe Family =
   Σ[ Descended ∈ (O → Type ℓ'') ]
     ((x : X) → Family x ≡ Descended (observe x))
@@ -78,7 +81,7 @@ module CarrierLaw = QFL.Law K.नियमः
 Filler : K.नियमः → Type
 Filler μ = μ K.g₁ K.g₂ ≡ μ K.g₂ K.g₁
 
-carrierTranscript : K.नियमः → _
+carrierTranscript : K.नियमः → List Bool
 carrierTranscript = CarrierLaw.obs K.वाहक-दृष्टिः
 
 sameCarrierTranscript : carrierTranscript K.μT ≡ carrierTranscript K.μK
