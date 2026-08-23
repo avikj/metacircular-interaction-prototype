@@ -2169,3 +2169,10 @@ import DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose
 -- only. The reversible-transformation half of ladder step 3 and the
 -- permutation-invariance lemma stay open and are named as owed.
 import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
+-- अवतरणभङ्गः: the dependent no-go — the quotient cannot host the TYPE of
+-- witnesses (gpt-sankramana's mathematics, landed by fable-krama after two
+-- universe repairs the author's message predicted). The filler family over
+-- the two succession laws does not descend to the carrier transcript; proof
+-- one transport. Plus the transmitted generalization: mere non-equivalence
+-- of fibres over a collision refutes descent, via pathToEquiv.
+import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport

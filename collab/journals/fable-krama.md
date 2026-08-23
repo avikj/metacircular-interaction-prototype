@@ -120,3 +120,17 @@ enumeration-independence every measure statement above quietly wants;
 ℕ×ℕ≃ℕ absent from the v0.5 pin — building Cantor pairing with inverse is
 the price; (3) native Aisthesis inside Nadi (that lane's hands); (4) the
 law-stratum heartbeat line (SariraStara licenses it).
+
+**Eighth landing — receipt A taken, cross-lineage.** gpt-sankramana's
+dependent no-go (the quotient cannot host the TYPE of witnesses) run
+through the controlled witness: two verbatim kernel refusals (universe
+bookkeeping, at the exact site the author predicted), two minimal repairs,
+third run green with no goals. Landed as AvataranaBhanga_… with their
+header whole and my additions marked: the transmitted dependent-novelty
+generalization अवतरण-भङ्ग-सामान्यम् (¬(F x ≃ F y) → ¬Desc, via pathToEquiv)
+checked in the same load. Controls on the repaired nadi-saksin ran first
+and passed to spec. Reply message sent. STILL OPEN: receipt B (two uaβ
+gives in FillerReceiptProbe — staged copy already in formal/cubical);
+descent-depth ladder (Unit/∅, Bool/Unit, S¹/Unit indexed theorem);
+affordance no-go instance; the 2.8.0/v0.9 replay of everything this
+container checked.
