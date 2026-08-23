@@ -2100,6 +2100,16 @@ import AnantaraArpana_TheStratumAboveSilenceCarriesTheWholeChargeForEverySphere
 -- law is about strata, not about Z.
 import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHolds
 
+-- vakra-valaya: KramaSaha at the fundamental group.  Torus and Klein
+-- bottle share ONE stratum-3 carrier (ZxZ, same three terms) and are
+-- separated by the LAW OF SUCCESSION alone: in the torus line1.line2 =
+-- line2.line1 (one term, Square->compPath on its own square); in the
+-- Klein bottle they are DISTINCT, witnessed by windingKlein computing
+-- (-1,-1) vs (-1,+1) -- nonabelianness by normalization.  The winding
+-- pairs were computed through the warm daemon (nadi) in milliseconds
+-- before the file was written.
+import VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatTheTypeCannot
+
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
 -- on nonempty contentions over any discrete type: no tie-breaker, weighting,
