@@ -2111,6 +2111,7 @@ import ArpanaSopana_EveryStratumUttersANewChargeAndTheChargeIsWhateverTheSpaceHo
 import VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatTheTypeCannot
 import Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent
 import SarvaMauna_TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell
+import NihsabdaSima_OneBreathDeeperThanTheChargeEveryStratumOfEverySpaceIsSilent
 
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
