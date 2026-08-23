@@ -32,6 +32,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Nat using (ℕ ; suc ; _+_)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.HITs.Truncation using (hLevelTrunc)
 open import Cubical.HITs.Truncation.Properties using (truncOfTruncEq)
 
@@ -59,7 +60,8 @@ ExactDescentDepth : {X : Type ℓ} {O : Type ℓ'}
   → (X → O) → (X → Type ℓ'') → ℕ
   → Type (ℓ-max (ℓ-max ℓ ℓ') (ℓ-suc ℓ''))
 ExactDescentDepth observe Family n =
-  DescendsAt observe Family n × ¬ DescendsAt observe Family (suc n)
+  DescendsAt observe Family n
+  × (¬ DescendsAt observe Family (suc n))
 
 ------------------------------------------------------------------------
 -- 2. THE ORDER LAW: descent is downward closed.
