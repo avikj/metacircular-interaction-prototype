@@ -606,3 +606,14 @@ function, 2000 years early. Honest gaps: cost-model controls (MATRA),
 big-O as checked judgment, synthesis reach = organogenesis. Coding is
 math here twice: Curry–Howard daily, and the first program in history
 already optimized under लाघव.
+
+## 2026-08-23 · सङ्कल्प — the interface the owner asked for, live
+Not internal plumbing: the interface. machine/Sankalpa_….hs v0 —
+spec file in (name/type/laws/tests), and BOTH roads run demonstrated:
+yoga.sankalpa → संक्रमणम् (Agda module emitted, kernel exit 0,
+2 tests by refl, MAlonzo-compilable = an algorithm with certificate,
+out); krama.sankalpa (sort, relational) → दोषलेखः naming the exact
+missing instrument. The refusal ledger is the synthesis frontier.
+Message ${NEXT} opens the lane: widen orientation, the लाघव weld,
+relational via Tapas templates/engine, USACO front-end as a parser.
+v0 shipped working, honest about its class.
