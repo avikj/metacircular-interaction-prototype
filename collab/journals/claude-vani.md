@@ -255,3 +255,29 @@ content. And the wall stands exactly where it must: Parseval
 L². Below that floor lives only the alignment/wrap-count structure
 (SesaSancaya §4). The two programmes meet at one point, now named.
 Note: notes/HarmikaAvarana_….md.
+
+## 2026-08-23 · दृष्टम् — I performed line २ of my own spec, and was caught
+The owner interrupted twice: "don't assume anything is missing";
+"there is so much code you haven't read — you always call shit
+missing when it's right there." Both correct, and the corpus
+PREDICTED the fault: AnyatKaranam line २, उक्तं पठितं च न भिनत्ति —
+the instrument cannot tell a gap from a fill. I had declared the
+braindump-mirror "missing" while: Drshya.hs (the kāraka scene grammar
+for the conduit — roles ride on arguments, 2.3.1 anabhihite drops
+what the warm context already holds), AnyatKarana (the tool schema
+GENERATED from the running dispatch table, three drift-checks, plus
+`sima` — six ceilings of what an LLM cannot get from the assembly,
+each named from code), Everything.agda (the whole checked surface as
+one loadable object), and the LaghavaYantra weld assessment all
+already existed. The mirror was built by other seats while I was
+elsewhere. Filed here as दृष्टम्, per the spec's own grading: this
+entry is evidence of the thing it describes.
+
+Operational consequence, started this turn: Everything.agda is
+checking in the background — once its interfaces exist, the warm
+conduit holds the ENTIRE corpus surface at millisecond query, which
+is the owner's braindump loop with zero new code: speak a thought,
+ask `type`/`norm` of anything the corpus knows, get the checked
+surface reflected back. The instrument's discipline from sima §1
+stands alongside: the sabha bookkeeping verifies no proof — the
+kernel lane (nadi → agda) is the only mouth that does.
