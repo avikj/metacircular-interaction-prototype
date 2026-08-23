@@ -78,20 +78,20 @@ HASKELL="toolchain absent"
 if command -v ghc >/dev/null 2>&1 && command -v runghc >/dev/null 2>&1; then
     BRIDGE_BUILD=formal/cubical/_build/haskell-agda-bridge
     mkdir -p "$BRIDGE_BUILD/NaturalMachine"
-    if ghc -fno-code -Wall machine/DSO.hs >/dev/null 2>&1 \
-       && test "$(ghc -ignore-dot-ghci machine/DSO.hs \
+    if ghc -imachine -fno-code -Wall machine/DSO.hs >/dev/null 2>&1 \
+       && test "$(ghc -imachine -ignore-dot-ghci machine/DSO.hs \
             -e 'prematureArgminCounterexample')" = "True" \
-       && ghc -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
-       && runghc machine/MathMachine.hs --check-definitions \
-       && runghc machine/MathMachine.hs --check-thought-format \
-       && runghc machine/MathMachine.hs --concept-invention-self-test \
-       && runghc machine/MathMachine.hs --dso-context-self-test \
-       && runghc machine/MathMachine.hs --smoke-rounds 5 \
-       && runghc machine/MathMachine.hs --emit-agda-manifest \
+       && ghc -imachine -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
+       && runghc -imachine machine/MathMachine.hs --check-definitions \
+       && runghc -imachine machine/MathMachine.hs --check-thought-format \
+       && runghc -imachine machine/MathMachine.hs --concept-invention-self-test \
+       && runghc -imachine machine/MathMachine.hs --dso-context-self-test \
+       && runghc -imachine machine/MathMachine.hs --smoke-rounds 5 \
+       && runghc -imachine machine/MathMachine.hs --emit-agda-manifest \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
        && agda -i "$BRIDGE_BUILD" -i formal/cubical \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
-       && runghc machine/MathMachine.hs --emit-agda-discoveries 5 \
+       && runghc -imachine machine/MathMachine.hs --emit-agda-discoveries 5 \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda" \
        && agda -i "$BRIDGE_BUILD" -i formal/cubical \
             "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda"; then
