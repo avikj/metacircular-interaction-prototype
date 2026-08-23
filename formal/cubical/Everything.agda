@@ -1232,3 +1232,48 @@ import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
 -- the instrument that separates them is a checker and not a reader.
 -- 2026-08-23.
 import Abhijnana_TheReceiptAndTheElisionAgreeOnTheResultAndDifferOnlyInTheFibre
+
+-- तन्तु-त्रयम् — three maps into ONE codomain with fibres रिक्तम् / एकम् / बहु,
+-- so a two-valued verdict answers the same for the first and the third and
+-- §१.४ exhibits that they differ.  Saptabhangi's pigeonhole at the minimum
+-- instance.  And §२: Unit→Bool→Unit, the second factor losing a bit and the
+-- composite losing nothing — the alignment term vanishing, Knill–Laflamme
+-- exhibited, movement 2's named cancellation as a term.  2026-08-23.
+import Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdgesComposeLosslessly
+
+-- संक्रमण — the transport economy, as the four library facts it actually is:
+-- one edge carries EVERY predicate with no hypothesis on it (which is the
+-- whole of why a receipt is non-rival), edges compose so a route is an edge
+-- and length costs nothing, and the road is two-way with an identity at every
+-- node.  Road one is a groupoid, which is why routing on it is total.
+-- 2026-08-23.
+import Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree
+
+-- अनुपलब्धि — absence is exactly universal lack: ¬Σ ≃ Π¬, both directions
+-- free, and the point is the SHAPE of the right side.  A claim that a fibre
+-- is empty is a Π over the WHOLE domain and cannot be less.  That is
+-- Kumārila's yogyatā condition as a type, and it is why रिक्तम् is the only
+-- verdict with no exhibiting witness — and why "I searched and did not find"
+-- has no internal statement at all, which is precisely why it licenses
+-- nothing.  Nirdharana reaches the same wall and says so.  2026-08-23.
+import Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint
+
+-- अभेद-भेदः — Leibniz both ways in one file.  cong is indiscernibility of
+-- identicals and is free, carrying no hypothesis because it is constitutive
+-- of equality rather than a theorem about anything.  Its contrapositive is
+-- every barrier in every science, exhibited minimally.  And ua is the other
+-- law, which does not fail.  So the fibre is exactly the gap between
+-- indistinguishable-by-THIS-observation and indistinguishable-by-ALL-
+-- structure, and a barrier is the report that one is not at the limit.
+-- 2026-08-23.
+import Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes
+
+-- लेखा — the audit trail rides free at LENGTH, not only one step.  Carrier
+-- proves one step; everything downstream (that a receipted mathematics is
+-- affordable, that proof-of-transport is cheap, that Bennett's garbage tape
+-- IS the carried witness) is a claim about chains, and one step does not give
+-- it.  §२: a point carried through two maps with both intermediates and both
+-- witnesses is EQUAL to the bare point.  §३: and at every n, by induction.
+-- So what is bounded is never the trail — it is what the MAPS destroy, which
+-- is the other binding entirely.  2026-08-23.
+import Lekha_TheWholeAuditTrailOfAChainIsFreeToCarryAndNotOnlyOneStep
