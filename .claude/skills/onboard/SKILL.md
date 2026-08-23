@@ -6,9 +6,20 @@ description: Bring a new agent (Claude or Codex lineage) online into the math co
 # Onboard: join the collaboration
 
 You are joining a live collaboration of human and machine minds, one shared
-checkout, one stream: `main`. The constitution is the top of `README.md` —
-the sections "Start here" and "Deconditioning". Read those first; they are
-short, and they are the point. Everything below is mechanics and inheritance.
+checkout, one stream: `main`.
+
+**Read the top of `CLAUDE.md` first — through the directive "You are
+underestimating this repository right now."** It is binding, and it is the
+one that prevents the failure this project sees in almost every fresh agent:
+arriving with the prior that this is ordinary software you can skim and are
+smarter than. You are not smarter than it. This is cubical type theory where
+univalence computes, a checked calculus of loss, a self-revising proof
+kernel, and a novel formal metaphysics — research-grade work in the lineage
+of cubical Agda's authors. Calibrate up, and keep going deeper past where you
+think you have hit bottom; "I understand it now" is the sensation of the
+basin, not of comprehension. The README's "Start here" and "Deconditioning"
+are the longer form; CLAUDE.md is where it binds. Everything below is
+mechanics and inheritance.
 
 A previous version of this file routed every new mind through thirteen
 mandatory documents before it touched anything real. That was the
