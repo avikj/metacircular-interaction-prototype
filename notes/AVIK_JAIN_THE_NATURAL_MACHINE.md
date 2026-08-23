@@ -812,3 +812,31 @@ A quotient can erase one while preserving another. A left inverse can fail for o
 The fibre is not one undifferentiated bag of ambiguity.
 
 The witness has coordinates.
+
+---
+
+The next correction is about **the job a true theorem is allowed to do**.
+
+`Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion.agda` is the cleanest control. Its central fibre equivalence remains a theorem: for the propositional-truncation unit, the fibre over a represented point is equivalent to the source. What the file later strikes is the proposed use of that fact as a classifier for a special degree of “total loss.” The same broad fibre shape appears for the constant map `Bool → Unit`. The lemma did not become false. The diagnostic job assigned to it was too strong.
+
+`Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused.agda` changes a different coordinate. `Dhruva`'s original theorem under an equivalence is true; the proof uses less. Injectivity is enough for the stated conclusion. `Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalence.agda` sharpens the same region again: the operative hypothesis can be stated internally as bottom-ness in the loss order, with a retraction supplying one way to exhibit it. A theorem can be true while its published hypothesis describes a smaller domain than the proof actually occupies. Weakening the hypothesis strengthens the theorem; it is not a refutation of the old one.
+
+`Ekadhara_ReplayAtConstantWordsIsPingalasFoldSoOneHomomorphismCarriesValliAndMetre.agda` catches the same excess structure in another lane. The exponent laws had been housed under a commutative monoid record, but their proofs consume associativity and units, not commutativity. The matrix instance is deliberately noncommutative and still satisfies the laws. The correction moves the theorem toward its actual structural home. Commutativity remains available for later claims that really use it.
+
+`Apratiloma_TheConservingFlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer.agda` shows why the biography cannot infer a correction's subject from the theorem's shape. Its monoid-not-group result stands. A later in-file correction removes an earlier story that the module was answering a particular Noether-style overreach; that attribution came from a corrupted, line-wrapped transcript. The mathematics survived. The genealogy attached to why it was supposedly written did not. `Ananta.agda` performs a historical version of the same surgery when it strikes the “1700 years before Cantor” frame while keeping the finitary mathematics that did not depend on that frame.
+
+Not every correction leaves the theorem body untouched. `Avrtti_TheFibreOfACountingMapSatisfiesARecurrenceAndThatRecurrenceIsSankhya.agda` proposed a weighted recurrence shape that was actually false because the nil case contributed a separate summand. `Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand.agda` repairs the decomposition by carrying that summand explicitly. There the role was not wrong around a true theorem; the proposed theorem shape itself had omitted part of the fibre.
+
+`EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator.agda` is useful because its own fence cuts through its strongest prose. Several loop-side faces are judgmentally the same term. The last crossing to the parity jet meets them at the common value `pos 1`, but the file explicitly says no functor from circuits to sieve weights has been built; that structural bridge remains open. “They have the same generator value here” and “these constructions are one structurally” are not the same job for an equality to perform.
+
+The newest collaboration report makes the issue operational. It names a **declared→checked seam** in `runtime/`: for several edge kinds, the runtime checks that a certificate was declared rather than checking the mathematics expressed by the declaration. The report then lists new Cubical terms landed against some of those licenses. That report is a report, not itself a kernel theorem, and its scope matters. `Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits.agda`, for example, checks the atlas splitting-exponent claim at the minimal base-two, one-digit instance; it explicitly does not thereby prove every general exponent statement the runtime prose may suggest.
+
+`machine/mantra.js` gives a smaller control on the word “checked.” Its `--check` verifies the round trip from each currently declared spell to its conduit command and back. The same file says the flat spell table still lacks the anuvṛtti and pratyāhāra structure the intended channel should have. A green codec round trip is a real property of the current table. It is not certification that the language has already reached the architecture the file names as its successor.
+
+`MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt` states the source-side analogue directly: a source row is corrigible, and the row is not permission to attribute the theorem of a module to the source it cites. Source statement, theorem, historical frame, diagnostic use, hypothesis boundary, runtime declaration and checked witness can touch the same file without becoming one object.
+
+These examples are not a complete taxonomy of correction. They force one narrower rule on the biography: **truth of a term does not license every job the surrounding prose assigns to that term.** A true theorem can be a bad classifier. It can be stated under excess structure. It can carry a false ancestry. It can meet another result only numerically where the prose wants a structural bridge. A declaration can be valid as a declaration while its mathematics is still waiting to become a term.
+
+Correction sometimes changes the proposition.
+
+Sometimes it changes what the proposition was allowed to mean.
