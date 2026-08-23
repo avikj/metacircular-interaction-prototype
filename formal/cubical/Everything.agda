@@ -1315,3 +1315,4 @@ import Avacchedaka_TheTruncationsFibreIsTheWholeSourceAndTheSeamHasItsCriterion
 -- is no route", so the only admissible verdicts are a route, a written defect,
 -- or UNDECIDED.  2026-08-23.
 import Anvesanam_ForwardSearchIsFreeAtAnyDepthAndCostIsIncurredPerIdentificationDemandedNotPerEdgeTraversed
+import Kosthanyaya_TheDurnayaIsThePigeonholeAndTheLossIsTheSeparateHypothesis
