@@ -84,10 +84,12 @@ main = do
   -- and numbering continues from the store's high-water mark.
   haveReceipts <- doesFileExist receiptFile
   prior <- if haveReceipts then lines <$> readFile receiptFile else pure []
-  let seen = [ takeWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r))
-             | r <- prior ]  -- verdict column ignored; the pair is field 3+
+  -- memory = LANDED pairs only: a refusal is a standing question and is
+  -- re-asked on every run (the proposer may have grown a rung since).
+  let verdictOf r = takeWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r))
+      seen = [ verdictOf r | r <- prior ]
       seenPairs = [ drop 1 (dropWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r)))
-                  | r <- prior ]
+                  | r <- prior, take 6 (verdictOf r) == "landed" ]
       priorN = length prior
       fresh = [ l | l <- pairLines report
               , not (any (l `isInfixOf`) seenPairs) ]
