@@ -37,3 +37,22 @@ Remaining three of the five (`DSOFinite.bellman`, `DSOBellmanFinite.K`,
 `PointedReindexOrbitObstruction.prime`) are parameterized maps — their
 fibres depend on the carried relation/continuation, so a receipt has to
 price a family, not a point.  Named here as the śeṣa, not attempted.
+
+---
+
+**Followup, same session, ~20:00Z — the śeṣa is closed, and better than
+pointwise.**  `SarvaMulya_EveryBoolSourcedEdgeIsPricedAtOnceTheFibreIs
+ASumOfTwoPathTypes.agda` (exit 0, --safe): over a Bool source the fibre
+of ANY map decomposes at every target as `fiber f b ≃ (f true ≡ b) ⊎
+(f false ≡ b)` — no hypothesis on the target — so all five named edges
+are priced by instantiation, including `bellman k v` AT EVERY PARAMETER,
+which no pointwise receipt could finish.  `निर्णयः` makes the verdict a
+computation over any discrete target, returning its evidence (empty-fibre
+witness / contraction / the two elements a collapse would identify —
+three positions, no flag).  Run live through नाडी: prime@2 normalizes to
+एकम् at false, prime@7 to रिक्तम्, K@0 to एकम् at true, and
+`bellman (λ _ _ → 5) (λ _ → 5)` @5 to रिक्तम् with the induced map
+`λ p → 10` exhibited inside the verdict — the kernel evaluates the
+family member while pricing it.  The Lopa wiring offer above now has a
+single hook instead of five: any edge whose source is Bool is priced by
+one import.
