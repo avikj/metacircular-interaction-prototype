@@ -172,3 +172,41 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 
   कक्ष्या-तन्तौ : संरक्षणम् f Φ → (n : ℕ) (a : A) → fiber f (f a)
   कक्ष्या-तन्तौ cons n a = कक्ष्या f Φ n a , ध्रुवं-कक्ष्यायाम् f Φ cons n a
+
+------------------------------------------------------------------------
+-- ७ · सङ्क्रमणे भारो नास्ति — WHERE THE FLOW IS TRANSITIVE, NO INVARIANT
+--     CARRIES A CHARGE.
+--
+-- `Dhruva`'s header names this twice as missing: its §३ exhibits the
+-- degenerate case at the smallest fibre "but does not prove the general
+-- dichotomy; transitivity is not stated", and §४ repeats it.  §६ above
+-- fenced the same gap from the other side — the orbit lies IN the fibre,
+-- and whether it EXHAUSTS the fibre is transitivity.
+--
+-- Here transitivity is stated, as a hypothesis, and its consequence
+-- proved: if the flow reaches every point of a fibre from every other,
+-- then EVERY Φ-invariant observable is constant on that fibre.  Not just
+-- `f` — every one.  So there is no further conserved quantity to carry
+-- there, and the whole fibre is one state as far as any invariant can
+-- tell.
+--
+-- That is Noether's SECOND theorem's conclusion — a local symmetry gives
+-- a constraint rather than a charge — at the level where no Lagrangian is
+-- needed.  `Dhruva`'s fences on the first theorem are untouched and still
+-- apply: no variation, no continuity, no action.
+------------------------------------------------------------------------
+
+module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
+
+  -- the flow reaches every point of the fibre from every other
+  सङ्क्रमणम् : B → Type ℓ
+  सङ्क्रमणम् b = (x y : fiber f b) → Σ[ n ∈ ℕ ] कक्ष्या f Φ n (fst x) ≡ fst y
+
+  -- and then NO invariant separates two points of that fibre
+  सङ्क्रमणे-भारो-नास्ति :
+      {C : Type ℓ} (g : A → C) → संरक्षणम् g Φ
+    → (b : B) → सङ्क्रमणम् b
+    → (x y : fiber f b) → g (fst x) ≡ g (fst y)
+  सङ्क्रमणे-भारो-नास्ति g gcons b tr x y =
+    sym (ध्रुवं-कक्ष्यायाम् g Φ gcons (fst (tr x y)) (fst x))
+    ∙ cong g (snd (tr x y))
