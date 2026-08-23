@@ -2156,3 +2156,8 @@ import SthulaBhara_TheCoarseWeightIsTheSumOverTheObservationFibreAndMultiplicity
 -- reconstructs the law receptor; "counts matched" never again reads as
 -- "body unchanged". The checked license for a law-stratum heartbeat line.
 import SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession
+-- द्वयसेतुः: the debt in SamaVibhaga's header paid — the Bool ≃ Fin 2 wire
+-- is a term, गुणः 1 y and y +ᵂ y share a normal form so halvesUniquely IS
+-- divideUniquely with no coercion, and एकत्वम्-द्विमात्रा's statement re-proves
+-- as the Fin 2 instance of समविभागः: the half theorem, consumed not compared.
+import DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose

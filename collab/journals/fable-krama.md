@@ -95,3 +95,11 @@ remain for the next carrier or next session.
   emit the typed Aisthesis form natively remains the full term 3, owed.
 - Ladder steps 3–5 remain open and distinct. Postnikov strata above the
   law stratum (k-invariants, coherences) remain open above the stone.
+
+**Fifth and sixth landings, same session.** DvayaSetu (the ½ theorem as
+the Fin 2 instance on the nose — one pattern-split fix after the kernel
+refused a catch-all refl, correctly) and SthanivatSankhya (the machine's
+own #2 frontier ask: स्थानिवत् ≃ Fin 81, checked inside the full punaragamana
+pin closure, exit 0). Fleet message 0941 posted. Resume: ladder steps 3–5;
+native Aisthesis in Nadi; law-stratum heartbeat line; jīva re-run to see
+whether the join moved the component count.
