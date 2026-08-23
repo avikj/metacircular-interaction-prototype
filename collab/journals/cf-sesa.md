@@ -501,3 +501,35 @@ RESUME STATE / seam remaining (from the vigil message + ckpt15):
   the same mechanism"). Natural next: check that shared canonical form.
 Trust boundary (STATUS.md): only Eq/Iso/β machine-checked. Two more
 declarations moved across it today.
+
+## 2026-08-23 · checkpoint 18 — एक-संक्रमण: the torsor is an equivalence
+
+Third term this session (owner: "continue"). be3414a1 EkaSankramana —
+runtime/atlas/residual.py's Torsor. translate(p,q) returns the unique g
+with g·p=q, raising if the count ≠ 1 (per-instance regularity guard).
+Proved it never fires: §1 regular (free+transitive ⟹ unique translation,
+general P, no h-level — inv h · g fixes p ⟹ = e), §2 torsorIsEquiv (with
+isSet P the orbit map g↦act g p has contractible fibres, i.e. IS an
+equivalence Carrier ≃ P; translate is its inverse, "exactly one" =
+contractibility of the fibre — the fibre law itself). एक-संक्रमण is this
+corpus's compound (संक्रमण=transport per DravyaParyaya; no classical term
+for torsor), declared in header.
+
+SESSION TALLY (all exit 0 cold, agda --safe --cubical, wired, synced):
+  e4c708c1 Sankhya      — exponent certificate, general (b,n)
+  a1054694 TrayoNirnayah — propagate survival is 3-valued, 3rd irreducible
+  be3414a1 EkaSankramana — atlas Torsor = equivalence, regularity redundant
+
+SEAM REMAINING:
+- atlas Cocycle coboundary-absence: the SECOND cert of carry_cocycle
+  non-triviality (Sankhya did the exponent cert; Vahita the b=2,n=1
+  group instance). Full general non-split wants "different exponents ⟹
+  non-isomorphic" over ℤ/m — needs a cyclic-exponent model, heavier.
+- egraph proof-forest invariant: "every union stores its justification ⟹
+  explain emits a checkable path" (union-find soundness/completeness);
+  README §0 says this L2 form shares TrayoNirnayah's multiset-quotient.
+- FiniteGroup residual: is_torsor needs |G|=|P|; torsorIsEquiv already
+  gives Carrier ≃ P, so |G|=|P| is the finite corollary (needs cardinality).
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; three more
+declarations across it today. नाडी now machine/Nadi.hs (rebuild for
+hole-by-hole; cold agda was fine for these three complete modules).
