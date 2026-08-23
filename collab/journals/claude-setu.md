@@ -651,3 +651,20 @@ induction done. Completed fragment = a DECISION PROCEDURE for the whole
 theory, not just the 399. The corpus had been reading a non-confluence
 report as a proof-obligation list; it is a completion step. Owed (not
 claimed): that completion terminates — a run, not an assertion.
+
+## 2026-08-23 · the compiler-writer's reading: 399 = AC artifact
+The truth under the whole Sanghatta thread, named: library.terms line 15
+is +(x,y)=+(y,x) — commutativity, in the ruleset, 26 AC-axiom lines
+total. Plain Knuth-Bendix CANNOT terminate on a commutative axiom
+(Baader-Nipkow §7). So Sanghatta's 399 non-joining pairs are the
+expected output of running non-AC completion on an AC theory — NOT a
+proof backlog. SanghattaSamapti (prove each) and even AparoksaAnumana
+(add base rules) were both below the real move: completion modulo AC
+(Peterson-Stickel 1981) or unfailing completion (BDP 1989), which turns
+"prove 399" into "run the right completion once" → a decision procedure
+for the whole equational fragment. The corpus HAS an AC-matcher
+(runtime/execute/acmatch.py) built for exactly this, retired and
+unwired. Landed notes/SamataChakra_….md. Did NOT land any count from my
+ackb.hs — its matcher is buggy (empty normal forms); number law forbids
+citing it; a clean Haskell AC-normalizer is owed. The CS truth needed no
+number, only the diagnosis.
