@@ -660,6 +660,24 @@ import JainSankhya
 -- propositional region), motion is confined to the medium, and the cosmos
 -- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
 import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- ākāśa, space: its function is avagāha, accommodation (Tattvārthasūtra 5.18).
+-- It is NON-EXCLUSIVE (many occupy one point — the lamp-in-a-room, refuting
+-- impenetrability) and strictly exceeds the loka: space (infinite) has room
+-- beyond the medium of motion, room where nothing moves.  With jīva, dharma,
+-- adharma, pudgala, kāla, this completes the six dravyas in the checked lane.
+import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoThereIsRoomWhereNothingMoves
+-- The arena bound into ONE type: the six dravyas (jīva + the five ajīva),
+-- classified exactly as Tattvārthasūtra 5.1-6 classifies them — five
+-- astikāya + kāla, one corporeal (pudgala), and the SAME three that are
+-- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
+-- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
+import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
+-- THE KEYSTONE: the metaphysics of being IS proof-of-transport.  A paryāya
+-- is a PATH, a dravya is the TYPE it lives in, and dhrauvya (persistence) is
+-- exactly what makes transport (the free road) possible — reversible, a
+-- groupoid, and absent between distinct substances (utpāda-vyaya-dhrauvya-
+-- yuktaṃ sat, TS 5.29/5.37, = subst + isContrSingl, one object).
+import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTransportPossible
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -1660,3 +1678,16 @@ import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePo
 -- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
 -- No thermodynamics, no measure, no number anywhere — fenced explicitly.
 import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+
+-- [2026-08-23, second sweep] Eight more tracked modules landed green and
+-- unwired within the hour.  Wiring is not bookkeeping: until a module is in
+-- a root, no green claim covers it and nothing rechecks it when the library
+-- moves under it.
+import Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse
+import BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements
+import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions
+import SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations
+import SamanaMarga_TheHandPathAndTheTransportPathAreOnePath
+import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
+import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
+import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation

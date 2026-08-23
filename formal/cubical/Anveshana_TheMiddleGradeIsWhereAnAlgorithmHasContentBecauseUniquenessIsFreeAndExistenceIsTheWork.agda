@@ -31,8 +31,25 @@
 --                              Nothing to search for.
 --   एकाधिक isProp (fiber f b)  — determined IF it exists.  Uniqueness is
 --                              free; existence is the whole problem.
---   बहु   neither             — not determined.  No search can return
---                              "the" answer because there is no the.
+--   बहु   neither             — the fibre has two points that are not
+--                              identified.
+--
+-- ~~"not determined.  No search can return the answer because there is no
+-- the."~~ — STRUCK 2026-08-23 by its author, left standing struck.
+--
+-- THE H-LEVEL OF THE FIBRE DOES NOT TRACK UNDOABILITY.  `Bahupratyanayana
+-- _TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndThe
+-- CircleIsNotAnInstance.agda` exhibits it: `एकवृत्तम् : Unit → S¹`,
+-- `tt ↦ base`, HAS a retraction, and its fibre over `base` is `ΩS¹ ≃ ℤ`.
+-- So it sits at बहु and is undoable.  Its many fibre points differ only in
+-- their WITNESS; their SOURCE is one point.  A LOOP IS NOT A COLLISION.
+--
+-- The obstruction to undoing is TWO DISTINCT SOURCES over one target,
+-- strictly stronger than बहु, and that is its §२ — four lines, no h-level,
+-- no decidability, no finiteness, arbitrary A and B.  §५ below uses
+-- `Bool → Unit`, whose two fibre points DO have distinct sources, so the
+-- instance stands; the reading did not.  This grade says what its name
+-- says and no more, and what a search can recover is answered by sources.
 --
 -- AND THE MIDDLE GRADE IS WHERE AN ALGORITHM HAS CONTENT.  At the top
 -- there is nothing to do; at the bottom there is nothing an algorithm
