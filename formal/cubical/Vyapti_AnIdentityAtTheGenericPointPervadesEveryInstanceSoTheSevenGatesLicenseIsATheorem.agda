@@ -36,6 +36,17 @@
 -- CommRing with the same proof; instantiated at ℤ to stay in the
 -- machine's own semantics.
 --
+-- SCOPE CORRECTION (owner, notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
+-- 2026-08-23: "truth of a term does not license every job the
+-- surrounding prose assigns to that term").  The title says "the seven
+-- gates' license"; what is checked is G3's license — pervasion from the
+-- generic point — for this ⊕/⊗/lit/var language.  The OTHER gates carry
+-- their own licenses, and in particular G7's ("a grid whose size is a
+-- complete bound for the degree decides the identity" — that a
+-- degree-bounded polynomial vanishing on a large-enough grid is zero)
+-- is NOT proved here and remains a declared license.  "The" in the
+-- title means G3's, and the title overreached.
+--
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 

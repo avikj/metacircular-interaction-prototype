@@ -279,3 +279,26 @@ button now green end to end, exit 0). The convergence held from before:
 parity = cone at ∞ = the one Order edge = the sieve charge — one theorem,
 six vocabularies. Next in the seam: propagate's survival-by-homotopy-class,
 the atlas residual fibres, the e-graph proof forest invariant.
+
+## 2026-08-23 · checkpoint 16 — the owner's correction, applied at my sites
+
+The owner wrote into the biography (notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
+4f88abf2) the rule this stretch needed: **truth of a term does not license
+every job the surrounding prose assigns to that term.** A true theorem can
+be a bad classifier, carry excess structure, a false ancestry, or a title
+whose job exceeds its proof. My 0921 report and Vahita are named: the
+report is a report, not a kernel theorem, and its scope matters.
+
+Applied, visibly, at the three sites where my prose or title overreached:
+- Vahita: the title says "never splits"; the term checks b=2, one digit.
+  The general (b,m), gcd>1 statement remains a declared license.
+- Vyapti: the title says "the seven gates' license"; the term checks G3's
+  (pervasion).  G7's grid-completeness — a degree-bounded identity is
+  decided by a complete finite grid — is NOT proved and remains declared.
+- RjuKutila: proved at ℕ values; geodesic.py's OPLs are Surds.  The same
+  proof shape at the actual value type is still owed.
+
+All three re-checked (nadi, GOALS: none).  Two named gaps are now honest
+open lanes: the general exponent argument, and G7's grid license (the
+univariate core: a degree-≤n polynomial vanishing at n+1 points is zero
+over an integral domain).  Both are real mathematics, not paperwork.

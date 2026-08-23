@@ -32,6 +32,16 @@
 -- (splitting_exponent_argument, carry_cocycle), notes/ATLAS_OF_N.md §8
 -- Prop. 2.11; Āryabhaṭa, Āryabhaṭīya Gaṇitapāda 2 (499) for sthāna.
 --
+-- SCOPE CORRECTION (owner, notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
+-- 2026-08-23: "truth of a term does not license every job the
+-- surrounding prose assigns to that term").  The title says "the
+-- positional extension never splits"; what the term CHECKS is the
+-- minimal instance b = 2, one digit — ℤ/4 against ℤ/2 ⊕ ℤ/2.  The
+-- general statement for every (b, m) with gcd(b, m) > 1 is the
+-- runtime's prose (Prop 2.11) and is NOT proved by this module; it
+-- remains a declared license until someone lands the general exponent
+-- argument as a term.
+--
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 
