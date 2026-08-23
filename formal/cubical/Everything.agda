@@ -1454,6 +1454,11 @@ import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesFo
 -- function part and hom law are refl.  SamraksakaGana §५(b) discharged.
 import SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut
 
+-- आत्मसमता उपरि: the stored conserving inverse is EXACTLY isEquiv of the
+-- map, so the symmetry group is Aut_B(A) — automorphisms of A over B —
+-- by a GroupEquiv whose hom law is refl on the underlying function.
+import AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB
+
 -- तन्तुविभागः: the gaṇa of an observable IS the product over the codomain
 -- of its fibres' own endomorphism monoids (set level): छेदगणः ≅ Π_b
 -- End(fiber f b) as monoids, and composing with गण-समता (refl fields),
