@@ -14,6 +14,14 @@ This note takes it as mathematics.
 
 ## 1. Absence is a relation, not a predicate
 
+> **Corrected from the primary texts.** `collab/messages/0406` carries the
+> Nyāya primary-text correction to this note; `notes/NEGATIVE_KNOWLEDGE_IS_TYPED.md`
+> is where that correction is put to work, and cites 0406 by name.  Pointer
+> added 2026-08-23.  Note for the reach-gate: the corrector is the MESSAGE,
+> not that note — the gate matched the phrase "correction to `ABHAVA.md`"
+> inside the note.s description of 0406 and named the wrong file.  Both are
+> named here so the pointer is true either way.
+
 The move that starts everything: in Nyāya–Vaiśeṣika and then with great
 precision in Navya-Nyāya, **abhāva** (absence) is not a property a thing
 lacks. It is a relational entity with named slots.
